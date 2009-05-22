@@ -1,0 +1,52 @@
+/*
+All styles for the footer
+Created 05/22/2009
+Author: WDN
+
+#footer
+	|
+	|- #footer_floater
+		|
+		|- .footer_col
+			|
+			|- h3, p, a, img
+		|- #copyright
+			|
+			|- ul>li, a, img
+*/
+#footer {
+	
+}
+#footer #footer_floater {
+	
+}
+#footer #copyright {
+	
+}
+#footer #copyright ul {
+	
+}
+#footer #copyright ul li {
+	
+}
+#footer #copyright ul li a {
+	
+}
+#footer .footer_col {
+
+}
+#footer .footer_col h3 {
+
+}
+#footer p {
+
+}
+#footer a {
+
+}
+#footer #wordmark {
+	
+}
+#footer .footer_logo {
+/*used in previous CSS, not sure intention*/
+}
