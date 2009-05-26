@@ -11,14 +11,22 @@ Author: WDN
     margin-top:-39px;
     margin-left:-13px;
     padding:12px;
+    position:relative;
+    min-height:105px;
 }
 #header h1 {
+	display:block;
 	background:url('../../images/title.png') no-repeat;
 	text-indent:-9000em;
+	overflow:hidden;
 	height:36px;
+	width:480px;
+	margin-left:102px;
+	margin-top:-67px;
 }
 #wdn_tool_links {
 	position:relative;
+	float:right;
 }
 ul#wdn_tool_links li {
 	display:inline;
