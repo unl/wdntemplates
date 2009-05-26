@@ -17,7 +17,18 @@
     <div id="header">
         <a href="http://www.unl.edu/" title="UNL website"><img src="wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <!-- Search Box -->
+        
+        <div id="wdn_search">
+            <form id="wdn_search_form" action="http://www.google.com/u/UNL1?sa=Google+Search&amp;q=" method="get">
+                <fieldset>
+                    <label for="q">Search this site, all UNL or for a person 
+                        <input accesskey="f" id="q" alt="Search string" name="q" type="text" />
+                    </label>
+                    <input type="image" alt="Search" src="wdn/templates_3.0/css/header/images/searchMagnifyGlass.png" />
+                </fieldset>
+            </form>
+        </div>
+        
         <ul id="wdn_tool_links">
             <li><a href="http://www1.unl.edu/feeds/" class="feed">Feeds</a></li>
             <li><a href="http://forecast.weather.gov/MapClick.php?CityName=Lincoln&amp;state=NE&amp;site=OAX" class="weather" title="Weather">Weather</a></li>
