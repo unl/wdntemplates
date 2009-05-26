@@ -5,11 +5,17 @@ Last edited: 05/22/2009
 Author: WDN
 
 */
+
 #header {
-	background:url('images/leftTab.png') no-repeat top left;	
-	margin-top:-39px;
-	margin-left:-13px;
-	padding:12px;
+    background:url('images/leftTab.png') no-repeat top left;    
+    margin-top:-39px;
+    margin-left:-13px;
+    padding:12px;
+}
+#header h1 {
+	background:url('../../images/title.png') no-repeat;
+	text-indent:-9000em;
+	height:36px;
 }
 #wdn_tool_links {
 	position:relative;
