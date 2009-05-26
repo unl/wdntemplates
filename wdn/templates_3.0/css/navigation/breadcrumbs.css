@@ -3,13 +3,14 @@
     background:url('images/breadcrumbBarSprite.png') 0 -33px;
     margin:0 5px;
     font-family:arial;
+    font-size:0.85em;
 }
 #breadcrumbs a, #breadcrumbs a:link, #breadcrumbs a:visited {
 	color:#fff;
 	text-decoration:none;
 	padding:0 20px 0 5px;
 	display:inline-block;
-	margin:8px 2px;
+	margin:10px 2px;
 	background:url('images/breadcrumbArrowSprite.png') top right no-repeat;
 }
 #breadcrumbs ul {

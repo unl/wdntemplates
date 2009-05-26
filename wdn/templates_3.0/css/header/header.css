@@ -13,6 +13,7 @@ Author: WDN
     padding:12px;
     position:relative;
     min-height:105px;
+    margin-bottom:-12px;
 }
 #header h1 {
 	display:block;
@@ -27,6 +28,7 @@ Author: WDN
 #wdn_tool_links {
 	position:relative;
 	float:right;
+	margin-top:-4px;
 }
 ul#wdn_tool_links li {
 	display:inline;
