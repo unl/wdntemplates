@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+#unl_wrapper {
+    border:12px solid #e0e0e0;
+    border-top:37px solid #e0e0e0;
+    padding:12px;
+    margin:0 12px 12px;
+    border-radius:10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+}
