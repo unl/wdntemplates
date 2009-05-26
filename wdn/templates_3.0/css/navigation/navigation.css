@@ -9,7 +9,7 @@ Author: WDN
 #navigation #top{
     background-image: url(images/menuTop.png);
     background-repeat: no-repeat;
-    width: 961px;
+    min-width: 961px;
     height: 4px;
 }
 
@@ -18,9 +18,16 @@ Author: WDN
     overflow: auto;
     background-image: url(images/menuBG.png);
     background-repeat: repeat-y;
-    width: 961px;
+    min-width: 961px;
     min-height: 198px;
     padding: 10px;
+}
+
+#navigation #middle_right{
+    background-image: url(images/menuBG.png);
+    background-repeat: repeat-y;
+    min-width: 961px;
+    height: 100%;
 }
 
 #navigation #bottom{
@@ -28,7 +35,7 @@ Author: WDN
     background-image: url(images/menuExpanded.png);
     background-repeat: no-repeat;
     background-position: bottom left;
-    width: 961px;
+    min-width: 961px;
     height: 198px;
     position: relative;
     top: -180px;
@@ -49,13 +56,13 @@ Author: WDN
 #navigation ul li{
     float: left;
     padding: 6px;
-    width: 140px;
+    width: 15%;
 }
 
 #navigation ul li ul li{
     clear: both;
     padding: 0px;
-    width: 140px;
+    width: 100%;
 }
 
 #navigation ul li a{
