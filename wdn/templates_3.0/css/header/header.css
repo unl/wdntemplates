@@ -12,10 +12,21 @@ Author: WDN
     margin-left:-13px;
     padding:12px;
     position:relative;
-    min-height:105px;
-    margin-bottom:-12px;
+    min-height:115px;
+    margin-bottom:-22px;
+}
+#header:after {
+	display:block;
+	content:'';
+	width:100%;
+	height:53px;
+	margin-left:2px;
+	margin-right:-5px;
+	margin-top:-42px;
+	background:url('images/bgFade.gif') repeat-x;
 }
 #header h1 {
+	position:absolute;
 	display:block;
 	background:url('../../images/title.png') no-repeat;
 	text-indent:-9000em;
@@ -26,9 +37,9 @@ Author: WDN
 	margin-top:-67px;
 }
 #wdn_tool_links {
-	position:relative;
-	float:right;
-	margin-top:-4px;
+	position:absolute;
+    right:8px;
+    top:71px;
 }
 ul#wdn_tool_links li {
 	display:inline;
@@ -40,6 +51,7 @@ ul#wdn_tool_links li {
     display:inline-block;
     padding:4px 5px;
     margin:0 2px;
+    background-color:#f0f0f0;
 }
 #wdn_tool_links a {
 	display:inline-block;
@@ -83,10 +95,10 @@ ul#wdn_tool_links li {
     background:url('images/searchBG.png') no-repeat;
     width:348px;
     height:54px;
-    float:right;
-    margin-top:-70px;
     overflow:hidden;
-    position:relative;
+    position:absolute;
+    right:0px;
+    top:0px;
     color:#98999a;
     font-family:Helvetica, arial;
 }
