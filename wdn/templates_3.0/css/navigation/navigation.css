@@ -1,7 +1,79 @@
 /*
 All styles for the navigation
 Created: 05/22/2009
-Last edited: 05/22/2009
+Last edited: 05/26/2009
 Author: WDN
 
 */
+
+#navigation #top{
+    background-image: url(images/menuTop.png);
+    background-repeat: no-repeat;
+    width: 961px;
+    height: 4px;
+}
+
+#navigation #middle{
+    font-family: sans-serif;
+    overflow: auto;
+    background-image: url(images/menuBG.png);
+    background-repeat: repeat-y;
+    width: 961px;
+    min-height: 198px;
+    padding: 10px;
+}
+
+#navigation #bottom{
+    background-color: #FFFFFF;
+    background-image: url(images/menuExpanded.png);
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    width: 961px;
+    height: 198px;
+    position: relative;
+    top: -180px;
+}
+
+#navigation ul
+{
+    position: relative;
+    z-index: 2;
+}
+
+#navigation a
+{
+    color: #242424;
+    text-decoration: none;
+}
+
+#navigation ul li{
+    float: left;
+    padding: 6px;
+    width: 140px;
+}
+
+#navigation ul li ul li{
+    clear: both;
+    padding: 0px;
+    width: 140px;
+}
+
+#navigation ul li a{
+    display: block;
+    font-weight: bold;
+    font-size: 0.9em;
+    padding: 3px 0px 6px 0px;
+    background-image: url(images/primaryBorderBottom.gif);
+    background-repeat: repeat-x;
+    background-position: bottom left;
+}
+
+#navigation ul li ul li a{
+    font-size: 0.71em;
+    padding: 3px 0px 3px 0px;
+    font-weight: normal;
+    display: block;
+    background-image: url(images/secondaryBorderBottom.gif);
+    background-repeat: repeat-x;
+    background-position: bottom left;
+}
