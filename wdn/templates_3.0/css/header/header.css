@@ -5,3 +5,54 @@ Last edited: 05/22/2009
 Author: WDN
 
 */
+#wdn_tool_links {
+	position:relative;
+}
+ul#wdn_tool_links li {
+	display:inline;
+	list-style:none;
+    border:2px solid #e0e0e0;
+    border-radius:8px;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    display:inline-block;
+    padding:4px 5px;
+    margin:0 2px;
+}
+#wdn_tool_links a {
+	display:inline-block;
+	width:20px;
+	height:20px;
+	text-indent:-9000px;
+}
+
+#wdn_tool_links a.feed {
+    background:url('images/applianceIcons.png') no-repeat 0 -20px;
+}
+#wdn_tool_links a.feed:hover {
+    background:url('images/applianceIcons.png') no-repeat 0 0;
+}
+#wdn_tool_links a.weather {
+    background:url('images/applianceIcons.png') no-repeat -20px -20px;
+}
+#wdn_tool_links a.weather:hover {
+    background:url('images/applianceIcons.png') no-repeat -20px 0;
+}
+#wdn_tool_links a.calendar {
+    background:url('images/applianceIcons.png') no-repeat -40px -20px;
+}
+#wdn_tool_links a.calendar:hover {
+    background:url('images/applianceIcons.png') no-repeat -40px 0;
+}
+#wdn_tool_links a.directory {
+    background:url('images/applianceIcons.png') no-repeat -60px -20px;
+}
+#wdn_tool_links a.directory:hover {
+    background:url('images/applianceIcons.png') no-repeat -60px 0;
+}
+#wdn_tool_links a.camera {
+    background:url('images/applianceIcons.png') no-repeat -80px -20px;
+}
+#wdn_tool_links a.camera:hover {
+    background:url('images/applianceIcons.png') no-repeat -80px 0;
+}
