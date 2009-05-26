@@ -97,11 +97,12 @@ ul#wdn_tool_links li {
 #wdn_search form #q {
 	position:absolute;
 	left:13px;
-	top:13px;
-	width:290px;
+	top:12px;
+	width:285px;
 	font-size:1em;
 	z-index:9;
-	border:none;
+	border:1px solid #e09a9a;
+	border-top-color:#da6868;
 	padding:4px;
 	color:#98999a;
 }
