@@ -1,0 +1,42 @@
+#breadcrumbs {
+	height:33px;
+    background:url('images/breadcrumbBarSprite.png') 0 -33px;
+    margin:0 5px;
+    font-family:arial;
+}
+#breadcrumbs a, #breadcrumbs a:link, #breadcrumbs a:visited {
+	color:#fff;
+	text-decoration:none;
+	padding:0 20px 0 5px;
+	display:inline-block;
+	margin:8px 2px;
+	background:url('images/breadcrumbArrowSprite.png') top right no-repeat;
+}
+#breadcrumbs ul {
+	background:url('images/breadcrumbBarSprite.png') no-repeat;
+	margin:0 -5px;
+	list-style:none;
+	position:relative;
+	height:33px;
+}
+#breadcrumbs ul li {
+	float:left;
+}
+#breadcrumbs ul li:last-child {
+	height:44px;
+	margin-top:-11px;
+	background:url('images/tabBGSprite.png') top right no-repeat;
+	display:block;
+	margin-left:15px;
+	padding:0px;
+}
+#breadcrumbs ul li:last-child a,
+#breadcrumbs ul li:last-child a:link,
+#breadcrumbs ul li:last-child a:visited {
+	height:42px;
+    background:url('images/tabBGSprite.png') 0 -44px no-repeat;
+    padding:18px 20px;
+    margin-left:-15px;
+    margin-right:10px;
+    margin-top:0px;
+}
