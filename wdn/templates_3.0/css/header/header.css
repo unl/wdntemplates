@@ -76,3 +76,37 @@ ul#wdn_tool_links li {
 #wdn_tool_links a.camera:hover {
     background:url('images/applianceIcons.png') no-repeat -80px 0;
 }
+
+#wdn_search {
+    background:url('images/searchBG.png') no-repeat;
+    width:348px;
+    height:54px;
+    float:right;
+    margin-top:-70px;
+    overflow:hidden;
+    position:relative;
+    color:#98999a;
+    font-family:Helvetica, arial;
+}
+#wdn_search form label {
+    position:absolute;
+    z-index:10;
+    left:20px;
+    top:20px;
+}
+#wdn_search form #q {
+	position:absolute;
+	left:13px;
+	top:13px;
+	width:290px;
+	font-size:1em;
+	z-index:9;
+	border:none;
+	padding:4px;
+	color:#98999a;
+}
+#wdn_search .search {
+    position:absolute;
+    right:6px;
+    top:12px;
+}
