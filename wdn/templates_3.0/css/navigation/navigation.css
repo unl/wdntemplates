@@ -87,6 +87,11 @@ Author: WDN
     text-decoration: none;
 }
 
+#navigation a:hover
+{
+    color: #ee0000;
+}
+
 #navigation ul li{
     float: left;
     padding: 6px 0.6%;
