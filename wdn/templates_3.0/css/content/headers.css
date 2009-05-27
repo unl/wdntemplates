@@ -1,0 +1,41 @@
+#maincontent h1, #maincontent h2, #maincontent h3{
+    line-height:1.2;
+    font-weight: normal;
+    padding-top: .2em;
+    padding-bottom: .3em;
+    color:#6b6b6b;
+    font-family:Helvetica, Arial, sans-serif;
+    }
+
+#maincontent h4, #maincontent h5, #maincontent h6{
+    line-height:1.2;
+    font-weight: normal;
+    padding-top: .1em;
+    padding-bottom: .2em;
+    color:#6b6b6b;
+    font-family:Helvetica, Arial, sans-serif;   
+    }
+
+#maincontent h1{
+    font-size: 1.9em;
+    }
+        
+#maincontent h2{
+    font-size: 1.8em;
+    }
+        
+#maincontent h3{
+    font-size: 1.7em;
+    }
+
+#maincontent h4{
+    font-size: 1.5em;
+    }
+
+#maincontent h5{
+    font-size: 1.4em;
+    }
+
+#maincontent h6{
+    font-size: 1.2em;
+    }
