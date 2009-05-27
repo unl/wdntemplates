@@ -1,7 +1,7 @@
 /*
 All styles for the footer
 Created: 05/22/2009
-Last edited: 05/22/2009
+Last edited: 05/27/2009
 Author: WDN
 
 #footer
@@ -34,12 +34,16 @@ Author: WDN
 	border-bottom:1px dotted #afafaf;
 }
 #footer #footer_floater {
-	
+	background-image: url(images/topSeal.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	height: 80px;
+	margin-top: 6px;
 }
 #footer #wdn_copyright {
+	clear: both;
 	border-top:1px solid #ffffff;
 	padding:12px 0 6px 0;
-	position: relative;
 }
 #footer #wdn_copyright ul {
 	margin-top:10px;
@@ -57,8 +61,11 @@ a#wdn_unl_wordmark:visited {
 	border:none;
 }
 #footer .footer_col {
-
-}
+	width: 220px;
+	float: left;
+	padding: 0 10px 20px;
+	text-align:left;
+	}
 #footer .footer_col h3 {
 
 }
