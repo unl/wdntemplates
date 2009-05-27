@@ -48,5 +48,31 @@
 	text-align:center;
 }
 
+sub, sup {
+    line-height:0;
+}      
+        
+abbr, acronym { text-decoration:none; border-bottom:none;}
+
+abbr:after, acronym:after {
+    font-size: 60%;
+    content: "?";
+    vertical-align:super;
+    display: inline;
+    float: none;
+    color: #c60202;
+}  
+
+.code {
+    font-size: 90%;
+    font-weight: bold;
+    font-family:"Courier New", Courier, mono;
+}
+
+pre {
+    font-family:"Courier New", Courier, mono;
+    font-size: 95%;
+}
+
 
 
