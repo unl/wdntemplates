@@ -28,7 +28,7 @@
 #footer .image_small_3x2_vertical img,
 #footer .image_small_3x2 img,
 #footer img.frame
- {
+{
     border:1px solid #ededed;
     border-radius:3px;
     -moz-border-radius:3px;
@@ -39,9 +39,38 @@
 	position:relative;
 	text-align: center;
 }
-#maincontent.image_large, #maincontent .image_large_16x9 {
-	padding:10px 0 0 0;
+
+#maincontent p.caption, #footer p.caption {
+	margin-top: -35px;
+	margin-right:4px;
+	line-height: normal;
+	background:#f7f7f7;
+	padding:2px;
+	color: #555;
+	font-size: 75%;
+	text-align: right;
+	position:relative;
+	z-index:1;
+	float:right;
+	display:block;
+	border-top-left-radius:3px;
+    -moz-border-radius-topleft:3px;
+    -webkit-border-top-left-radius:3px;
+}
+
+#maincontent .image_large a.imagetag {
+	position: absolute;
+	background: none;
+	top:0;
+	left:0;
 	}
+
+/*
+/
+/ Possibly deprecate/remove these?
+/
+/
+/
 
 .image_large a img, 
 .image_medium a img {
@@ -58,22 +87,7 @@
 	margin: 0 auto;
 	}
 
-.caption {
-	margin-top: -17px;
-	line-height: normal;
-	color: #555;
-	font-size: 75%;
-	text-align: justify;
-}
 
-.image_large a.imagetag {
-	position: absolute;
-	background: none;
-	top:0;
-	left:0;
-	}
-	
-/* without shadow container image */
 img.right_image {
 	float: right;
 	margin: 3px 0 0 7px;
@@ -121,3 +135,4 @@ img.center_image {
     right:0;
     bottom:0;
     }
+*/
