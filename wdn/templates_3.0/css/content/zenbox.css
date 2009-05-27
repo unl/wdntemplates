@@ -1,0 +1,12 @@
+.zenboxsolid, .zenboxfixed{
+	border: 1px solid #C9C28C;
+	position:relative;
+	background-color: #FFFCE9; 
+	padding:4px 10px; 
+	}
+
+.zenboxfeature  { 
+	border: 1px dashed #C9C28C;
+	background-color: #FFFCE9;
+	padding:4px 10px;
+	}

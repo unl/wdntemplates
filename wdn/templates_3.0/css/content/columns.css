@@ -1,0 +1,31 @@
+#maincontent .col, #maincontent .one_col{
+	width:220px;
+	padding:0 10px;
+	float:left;
+	position:relative;
+	}
+
+#maincontent .two_col {
+	float:left;
+	width:460px;
+	padding:0 10px;
+	}
+
+#maincontent .three_col {
+	float:left;
+	width:700px;
+	padding:0 10px;
+	}
+	
+#maincontent .four_col {
+	float:left;
+	width:940px;
+	padding:0 10px;
+	}
+
+#maincontent .col_half{
+	width:100px;
+	padding:0 10px;
+	float:left;
+	position:relative;
+	}

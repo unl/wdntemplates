@@ -1,0 +1,159 @@
+.image_large{
+	margin: 0 0 10px 0;
+	padding:10px 0 0 0;
+	position:relative;
+	text-align: center;
+	}
+	
+.image_large_16x9{
+	margin: 0 0 10px 0;
+	padding:8px 0 0 0;
+	position:relative;
+	text-align: center;
+	}
+
+.image_medium_16x9, 
+.image_medium_4x3, 
+.image_medium_3x2, 
+.image_medium, 
+.image_small_16x9, 
+.image_small_4x3, 
+.image_small_square, 
+.image_small_tall, 
+.image_small_short,
+.image_medium,
+.image_small_4x3,
+.image_small_4x3_vertical,
+.image_small_3x2_vertical,
+.image_small_3x2,
+.image_small_square, 
+.image_small_tall, 
+.image_small_short {
+	margin: 0 0 10px 0;
+	padding:5px 0 0 0;
+	position:relative;
+	text-align: center;
+	}
+		
+	
+.image_large{background: url(/ucomm/templatedependents/templatecss/images/promo_680x210.gif) no-repeat;width: 700px;height: 242px;}
+.image_large img {width:680px;height:210px;}
+
+.image_large_16x9{background: url(/ucomm/templatedependents/templatecss/images/large_16x9.gif) no-repeat;width: 700px;height: 407px;}
+.image_large_16x9 img {width:680px;height:383px;}
+
+.image_medium{background: url(/ucomm/templatedependents/templatecss/images/promo_450x210.gif) no-repeat;width: 460px;height: 234px;}
+.image_medium img {width:450px;height:210px;}
+
+.image_medium_16x9{background: url(/ucomm/templatedependents/templatecss/images/medium_16x9.gif) no-repeat;width: 460px;height: 277px;}
+.image_medium_16x9 img {width:450px;height:253px;}
+
+.image_medium_4x3{background: url(/ucomm/templatedependents/templatecss/images/medium_4x3.gif) no-repeat;width: 460px;height: 352px;}
+.image_medium_4x3 img {width:450px;height:338px;}
+
+.image_medium_3x2{background: url(/ucomm/templatedependents/templatecss/images/medium_3x2.gif) no-repeat;width: 460px;height: 314px;}
+.image_medium_3x2 img {width:450px;height:300px;}
+
+.image_small_square{background: url(/ucomm/templatedependents/templatecss/images/promo_210x210.gif) no-repeat;width: 220px;height: 234px;}
+.image_small_square img {width:210px;height:210px;}
+
+.image_small_16x9{background: url(/ucomm/templatedependents/templatecss/images/small_16x9.gif) no-repeat;width: 220px;height: 142px;}
+.image_small_16x9 img {width:210px;height:118px;}
+
+.image_small_tall{background: url(/ucomm/templatedependents/templatecss/images/promo_210x315.gif) no-repeat;width: 220px;height: 339px;}
+.image_small_tall img {width:210px;height:315px;}
+
+.image_small_3x2{background: url(/ucomm/templatedependents/templatecss/images/small_3x2.gif) no-repeat;width: 220px;height: 164px;}
+.image_small_3x2 img {width:210px;height:140px;}
+
+.image_small_3x2_vertical{background: url(/ucomm/templatedependents/templatecss/images/promo_210x315.gif) no-repeat;width: 220px;height: 339px;}
+.image_small_3x2_vertical img {width:210px;height:315px;}
+
+.image_small_short{background: url(/ucomm/templatedependents/templatecss/images/promo_210x80.gif) no-repeat;width: 220px;height: 104px;}
+.image_small_short img {width:210px;height:80px;}
+
+.image_small_4x3_vertical{background: url(/ucomm/templatedependents/templatecss/images/small_4x3_vertical.gif) no-repeat;width: 220px;height: 304px;}
+.image_small_4x3_vertical img {width:210px;height:280px;}
+
+.image_small_4x3{background: url(/ucomm/templatedependents/templatecss/images/promo_210x158.gif) no-repeat;width: 220px;height: 182px;}
+.image_small_4x3 img {width:210px;height:158px;}
+
+
+.image_large a img, 
+.image_medium a img {
+	width:auto;
+	height:auto;
+	}
+	
+#imagetag, .imagetag {
+	width:auto;
+	height:auto;
+	}
+
+.image_large img{
+	margin: 0 auto;
+	}
+
+.caption {
+	margin-top: -17px;
+	line-height: normal;
+	color: #555;
+	font-size: 75%;
+	text-align: justify;
+}
+
+.image_large a.imagetag {
+	position: absolute;
+	background: none;
+	top:0;
+	left:0;
+	}
+	
+/* without shadow container image */
+img.right_image {
+	float: right;
+	margin: 3px 0 0 7px;
+	padding: 3px;
+	border: 1px solid #ccc;
+	}
+
+img.left_image {
+	float: left;
+	margin: 3px 7px 0 0;
+	padding: 3px;
+	border: 1px solid #ccc;
+	}
+	
+img.center_image {
+	float:none;
+	margin: 3px 7px 0 0;
+	padding: 3px;
+	border: 1px solid #ccc;
+	}
+
+.unl_liquid_pictureframe{
+	display:inline-block;
+    background:url(/ucomm/templatedependents/templatecss/images/promo_680x210.gif) no-repeat left bottom;
+    padding-bottom:15px;
+    position:relative;
+    margin:0 0 0 0;
+    }
+
+.unl_liquid_pictureframe_inset {
+	display:inline-block;
+    background:#fff;
+    border:1px solid #d1cfcf;
+    padding:4px;
+    overflow:auto;
+    }
+
+.unl_liquid_pictureframe_footer{
+	display:inline-block;
+    background:url(/ucomm/templatedependents/templatecss/images/promo_680x210.gif) no-repeat right bottom;
+    position:absolute;
+    margin:0 -2px 0 0;
+    width:50px;
+    height:20px;
+    right:0;
+    bottom:0;
+    }
