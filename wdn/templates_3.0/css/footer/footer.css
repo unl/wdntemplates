@@ -16,22 +16,41 @@ Author: WDN
 			|- ul>li, a, img
 */
 #footer {
-	
+	margin-top:15px;
+	background-color:#e5e5e5;
+	font:0.7em/1.3em Helvetica;
+	font-weight:bold;
+	color:#6b6b6b;
+	padding:8px;
+}
+#footer a,
+#footer a:link,
+#footer a:visited {
+	color:#6b6b6b;
+	text-decoration:none;
+	border-bottom:1px dotted #afafaf;
 }
 #footer #footer_floater {
 	
 }
-#footer #copyright {
-	
+#footer #wdn_copyright {
+	border-top:1px solid #ededed;
+	padding:12px 0 6px 0;
 }
-#footer #copyright ul {
-	
+#footer #wdn_copyright ul {
+	margin-top:10px;
 }
-#footer #copyright ul li {
-	
+#footer #wdn_copyright ul li {
+	display:inline;
 }
-#footer #copyright ul li a {
-	
+#wdn_unl_wordmark {
+	float:right;
+	margin-top:-50px;
+}
+a#wdn_unl_wordmark,
+a#wdn_unl_wordmark:link,
+a#wdn_unl_wordmark:visited {
+	border:none;
 }
 #footer .footer_col {
 
