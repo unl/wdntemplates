@@ -39,7 +39,7 @@ Author: WDN
     min-width: 961px;
     height: 198px;
     position: relative;
-    top: -180px;
+    margin-top:-198px;
 }
 
 #navigation ul
