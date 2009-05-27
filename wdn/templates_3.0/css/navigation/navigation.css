@@ -7,43 +7,76 @@ Last edited: 05/26/2009
 Author: WDN
 
 */
-#navigation #top{
+#navigation .top{
     background-image: url(images/menuTop.png);
     background-repeat: no-repeat;
     min-width: 961px;
+    max-width: 1830px;
     height: 4px;
+    position: relative;
 }
 
-#navigation #middle{
+#navigation .top .top_right{
+    background-color: #FFFFFF;
+    background-image: url(images/menuTop.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+    width: 950px;
+    height: 4px;
+    position: absolute;
+    right: 0;
+}
+
+#navigation .middle{
     font-family: sans-serif;
     overflow: auto;
     background-image: url(images/menuBG.png);
     background-repeat: repeat-y;
     min-width: 961px;
+    max-width: 1830px;
     min-height: 198px;
-    padding: 10px;
+    clear: both;
+    position: relative;
 }
 
-#navigation #middle_right{
+#navigation .middle  .middle_right{
+    background-color: #FFFFFF;
     background-image: url(images/menuBG.png);
     background-repeat: repeat-y;
-    min-width: 961px;
-    height: 100%;
+    background-position: top right;
+    width: 950px;
+    min-height: 198px;
+    position: absolute;
+    right: 0;
 }
 
-#navigation #bottom{
+
+#navigation .bottom{
     background-color: #FFFFFF;
     background-image: url(images/menuExpanded.png);
     background-repeat: no-repeat;
     background-position: bottom left;
     min-width: 961px;
+    max-width: 1830px;
     height: 198px;
     position: relative;
-    margin-top:-198px;
+    margin-top:-185px;
+}
+
+#navigation .bottom .bottom_right{
+    background-color: #FFFFFF;
+    background-image: url(images/menuExpanded.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    width: 950px;
+    height: 198px;
+    position: absolute;
+    right: 0;
 }
 
 #navigation ul
 {
+    margin-left: 15px;
     position: relative;
     z-index: 2;
 }
@@ -57,13 +90,19 @@ Author: WDN
 #navigation ul li{
     float: left;
     padding: 6px;
-    width: 15%;
+    width: 15.2%;
+    margin-bottom: 10px;
+}
+
+#navigation ul li ul {
+    margin: 0;
 }
 
 #navigation ul li ul li{
     clear: both;
     padding: 0px;
     width: 100%;
+    margin: 0;
 }
 
 #navigation ul li a{
