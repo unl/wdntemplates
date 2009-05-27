@@ -18,6 +18,9 @@ Author: WDN
 #footer {
 	margin-top:15px;
 	background-color:#e5e5e5;
+	background-image: url(images/footerBG.png);
+	background-position: top left;
+	background-repeat: repeat-x;
 	font:0.7em/1.3em Helvetica;
 	font-weight:bold;
 	color:#6b6b6b;
@@ -34,8 +37,9 @@ Author: WDN
 	
 }
 #footer #wdn_copyright {
-	border-top:1px solid #ededed;
+	border-top:1px solid #ffffff;
 	padding:12px 0 6px 0;
+	position: relative;
 }
 #footer #wdn_copyright ul {
 	margin-top:10px;
