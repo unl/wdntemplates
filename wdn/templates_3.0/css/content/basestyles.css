@@ -30,5 +30,23 @@
 #maincontent img {
 	border: none;
 	}
+	
+#maincontent ul, #footer ul{
+    list-style: square;
+    padding: 0 0 1.1em 30px;
+}
+    
+#maincontent ol{
+    padding: 0 0 1.1em 36px;
+}
+
+#maincontent dd {
+    padding: 0 0 0 30px;
+}
+
+#maincontent table th{
+	text-align:center;
+}
+
 
 
