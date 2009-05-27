@@ -29,3 +29,17 @@
 	float:left;
 	position:relative;
 	}
+
+#maincontent .left {padding-left:0;float:left;}
+
+#maincontent .right {padding-right:0;float:right;}
+
+#maincontent .clear, #maincontent .clr {
+	clear:both;
+	margin:0;
+	padding:0;
+	min-height:0;
+	width:auto;
+	height:auto;
+	background:none;
+	}

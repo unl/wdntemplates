@@ -1,0 +1,34 @@
+/* Base styles for the maincontent, overriding the css-reset */
+
+#maincontent {
+	text-align: left;
+	font: 71%/150% "Lucida Grande",Verdana,Arial;
+	color: #434343;
+	float: left;
+	padding: 0 10px;
+	position:relative;
+	}
+	
+#maincontent a {
+	outline: none;
+	color: #ba0000;
+	text-decoration: none;
+	}
+
+#maincontent a:hover {
+	color: #ee0000;
+	}
+	
+#maincontent a:focus{
+	color: #ee0000!important;
+	}
+
+#maincontent p {
+	margin: 0 0 1.1em 0;
+	}
+
+#maincontent img {
+	border: none;
+	}
+
+

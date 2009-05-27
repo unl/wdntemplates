@@ -1,4 +1,7 @@
+@import url('basestyles.css');
+
 @import url('titlegraphic.css');
 @import url('zenbox.css');
 @import url('columns.css');
 @import url('images.css');
+@import url('mime.css');
