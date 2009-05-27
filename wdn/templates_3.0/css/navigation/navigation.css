@@ -89,7 +89,7 @@ Author: WDN
 
 #navigation ul li{
     float: left;
-    padding: 6px;
+    padding: 6px 0.6%;
     width: 15.2%;
     margin-bottom: 10px;
 }
