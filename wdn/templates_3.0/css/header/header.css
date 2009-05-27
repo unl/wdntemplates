@@ -7,22 +7,18 @@ Author: WDN
 */
 
 #header {
-    background:url('images/leftTab.png') no-repeat top left;    
-    margin-top:-39px;
-    margin-left:-13px;
+    background:url('images/leftTab.png') no-repeat top left;
+    margin:-39px 0 -22px -13px;
     padding:12px;
     position:relative;
     min-height:115px;
-    margin-bottom:-22px;
 }
 #header:after {
 	display:block;
 	content:'';
 	width:100%;
 	height:53px;
-	margin-left:2px;
-	margin-right:-5px;
-	margin-top:-42px;
+	margin: -42px -5px 0 2px;
 	background:url('images/bgFade.gif') repeat-x;
 }
 #header h1 {
@@ -33,8 +29,7 @@ Author: WDN
 	overflow:hidden;
 	height:36px;
 	width:480px;
-	margin-left:102px;
-	margin-top:-67px;
+	margin:-67px 0 0 102px;
 }
 #wdn_tool_links {
 	position:absolute;
