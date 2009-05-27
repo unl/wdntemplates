@@ -1,3 +1,6 @@
+/* Contains column properties as well as float and clear */
+
+
 #maincontent .col, #maincontent .one_col{
 	width:220px;
 	padding:0 10px;
@@ -29,6 +32,19 @@
 	float:left;
 	position:relative;
 	}
+	
+body.liquid #maincontent .col, body.liquid #maincontent .one_col {width:23%}
+body.liquid #maincontent .two_col {width:46%}
+body.liquid #maincontent .three_col {width:69%}
+body.liquid #maincontent .four_col {width:92%}
+body.liquid #maincontent .col_half {width:11%}
+
+body.liquid #maincontent .two_col .col, body.liquid #maincontent .two_col .one_col {width:47%}
+body.liquid #maincontent .three_col .two_col {width:63%}
+body.liquid #maincontent .three_col .col, body.liquid #maincontent .three_col .one_col {width:31%}
+body.liquid #maincontent .four_col .three_col {width:69%}
+body.liquid #maincontent .four_col .two_col {width:46%}
+body.liquid #maincontent .four_col .col, body.liquid #maincontent .four_col .one_col {width:23%}
 
 #maincontent .left {padding-left:0;float:left;}
 
