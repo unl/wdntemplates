@@ -8,7 +8,7 @@ Author: WDN
 
 #header {
     background:url('images/leftTab.png') no-repeat top left;
-    margin:-39px 0 -22px -13px;
+    margin:-39px -11px -22px -13px;
     padding:12px;
     position:relative;
     min-height:115px;
@@ -33,7 +33,7 @@ Author: WDN
 }
 #wdn_tool_links {
 	position:absolute;
-    right:8px;
+    right:13px;
     top:71px;
 }
 ul#wdn_tool_links li {
@@ -92,7 +92,7 @@ ul#wdn_tool_links li {
     height:54px;
     overflow:hidden;
     position:absolute;
-    right:0px;
+    right:10px;
     top:0px;
     color:#98999a;
     font-family:Helvetica, arial;
