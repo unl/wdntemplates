@@ -41,14 +41,13 @@
 }
 
 #maincontent p.caption, #footer p.caption {
-	margin-top: -35px;
-	margin-right:4px;
+	margin: -35px 0 0 20px;
 	line-height: normal;
 	background:#f7f7f7;
 	padding:2px 2px 2px 4px;
+	text-align:left;
 	color: #555;
 	font-size: 75%;
-	text-align: right;
 	position:relative;
 	z-index:1;
 	float:right;
