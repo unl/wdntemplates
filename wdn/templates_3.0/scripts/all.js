@@ -30,7 +30,7 @@ var WDN = function() {
 			WDN.log('WDN.jsloaded('+url+')');
 			WDN.loadedJS[url] = true;
 		},
-		loadCSS : function() {
+		loadCSS : function(url, callback) {
 			var e = document.createElement("link");
 			e.href = url;
 			e.rel = "stylesheet";
@@ -43,7 +43,7 @@ var WDN = function() {
 		jQueryUsage : function() {
 			jQuery.noConflict();
 			jQuery(document).ready(function() {
-				// do stuff when DOM is ready
+				WDN.loadJS('wdn/templates_3.0/scripts/navigation.js');
 			});
 		},
 		log: function(data) {

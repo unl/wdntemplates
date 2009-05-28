@@ -1,7 +1,7 @@
 #breadcrumbs {
-	height:33px;
-    background:url('images/breadcrumbBarSprite.png') 0 -33px;
-    margin:0 30px 0 5px;
+	height:35px;
+    background:url('images/breadcrumbBarSprite2.png') 0 -36px;
+    margin:0 7px 0 5px;
     font-family:arial;
     font-size:0.85em;
     position:relative;
@@ -15,20 +15,20 @@
 	background:url('images/breadcrumbArrowSprite.png') top right no-repeat;
 }
 #breadcrumbs ul {
-	background:url('images/breadcrumbBarSprite.png') no-repeat;
+	background:url('images/breadcrumbBarSprite2.png') no-repeat;
 	margin:0 0 0 -5px;
 	list-style:none;
 	position:relative;
-	height:33px;
+	height:37px;
 }
 #breadcrumbs ul:after {
     content:'';
-    height:33px;
+    height:35px;
     width:30px;
     position:absolute;
     margin:0 5px 0 100%;
     display:block;
-    background:url('images/breadcrumbBarSprite.png') 0 -66px no-repeat;
+    background:url('images/breadcrumbBarSprite2.png') 0 -72px no-repeat;
 }
 #breadcrumbs ul li {
 	float:left;

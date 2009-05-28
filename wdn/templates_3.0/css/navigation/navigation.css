@@ -7,78 +7,35 @@ Last edited: 05/26/2009
 Author: WDN
 
 */
-#navigation .top{
-    background-image: url(images/menuTop.png);
-    background-repeat: no-repeat;
-    min-width: 961px;
-    max-width: 1830px;
-    height: 4px;
-    position: relative;
-}
-
-#navigation .top .top_right{
-    background-color: #FFFFFF;
-    background-image: url(images/menuTop.png);
-    background-repeat: no-repeat;
-    background-position: top right;
-    width: 950px;
-    height: 4px;
-    position: absolute;
-    right: 0;
-}
-
-#navigation .middle{
+#navigation {
     font-family: sans-serif;
-    overflow: auto;
-    background-image: url(images/menuBG.png);
-    background-repeat: repeat-y;
+    overflow: hidden;
+    background: url(images/menuBGLeft.png) left bottom no-repeat;
     min-width: 961px;
     max-width: 1830px;
-    min-height: 198px;
     clear: both;
-    position: relative;
-}
-
-#navigation .middle  .middle_right{
-    background-color: #FFFFFF;
-    background-image: url(images/menuBG.png);
-    background-repeat: repeat-y;
-    background-position: top right;
-    width: 950px;
-    min-height: 198px;
-    position: absolute;
-    right: 0;
-}
-
-
-#navigation .bottom{
-    background-color: #FFFFFF;
-    background-image: url(images/menuExpanded.png);
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    min-width: 961px;
-    max-width: 1830px;
-    height: 198px;
-    position: relative;
-    margin-top:-185px;
-}
-
-#navigation .bottom .bottom_right{
-    background-color: #FFFFFF;
-    background-image: url(images/menuExpanded.png);
-    background-repeat: no-repeat;
-    background-position: bottom right;
-    width: 950px;
-    height: 198px;
-    position: absolute;
-    right: 0;
+    position:relative;
 }
 
 #navigation ul
 {
-	margin:0 0 0 15px;
+	margin:0 0 0 8px;
+	padding:0 0 15px 0;
     position: relative;
-    z-index: 2;
+    clear:both;
+    overflow:auto;
+    background: url(images/menuBGCenter.png) 0 bottom repeat-x;
+    
+}
+#wdn_navigation_wrapper{
+    background: url(images/menuBGRight.png) right bottom no-repeat;
+    padding-right:8px;
+    overflow:hidden;
+}
+
+#navigation ul li ul {
+	background:none;
+	padding:0;
 }
 
 #navigation a
