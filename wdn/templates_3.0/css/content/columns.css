@@ -23,7 +23,6 @@
 #maincontent .four_col {
 	float:left;
 	width:940px;
-	padding:0 10px;
 	}
 
 #maincontent .col_half{
@@ -33,10 +32,10 @@
 	position:relative;
 	}
 	
-body.liquid #maincontent .col, body.liquid #maincontent .one_col {width:23.7%}
-body.liquid #maincontent .two_col {width:48.6%}
-body.liquid #maincontent .three_col {width:73%}
-body.liquid #maincontent .four_col {width:100%}
+body.liquid #maincontent .col, body.liquid #maincontent .one_col {width:23.2%; border:1px solid green}
+body.liquid #maincontent .two_col {width:48.6%; border:1px solid green}
+body.liquid #maincontent .three_col {width:73%; border:1px solid green}
+body.liquid #maincontent .four_col {width:100%; border:1px solid green}
 body.liquid #maincontent .col_half {width:11%}
 
 body.liquid #maincontent .two_col .col, body.liquid #maincontent .two_col .one_col {width:47%}
@@ -47,7 +46,7 @@ body.liquid #maincontent .four_col .two_col {width:46%}
 body.liquid #maincontent .four_col .col, body.liquid #maincontent .four_col .one_col {width:23%}
 
 #maincontent .left {padding-left:0;float:left;}
-#maincontent .middle {padding-left:0;float:left;}
+#maincontent .middle {float:left;}
 #maincontent .right {padding-right:0;float:right;}
 
 #maincontent .clear, #maincontent .clr {
