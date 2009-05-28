@@ -71,7 +71,21 @@ a#wdn_unl_wordmark:visited {
 	text-align:left;
 	}
 #footer .footer_col h3 {
-
+	background:url('../images/headingBG.gif') repeat-x bottom;
+	padding:5px;
+	color:#fff;
+	margin-bottom:5px;
+	font-size:1.1em;
+	letter-spacing:.08em;
+}
+#footer .footer_col h3:after {
+	content:'';
+	width:20px;
+	height:10px;
+	display:block;
+	background:url('../images/downIndicators.png') no-repeat;
+	margin-left:30px;
+	margin-top:4px;
 }
 #footer p {
 
