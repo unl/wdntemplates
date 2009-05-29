@@ -9,6 +9,8 @@ var WDN_Navigation = function() {
 			WDN_Navigation.collapse();
 		},
 		expand : function() {
+			jQuery('#titlegraphic').css({marginTop:'100px'});
+			jQuery('#wdn_navigation_bar').css({position:'absolute',paddingRight:'32px'});
 			jQuery('#navigation ul:first').css({overflow:'visible'});
 			jQuery('#navigation ul:first').animate({height:expandedHeight+'px'});
 			jQuery('#navigation ul ul').show(300);

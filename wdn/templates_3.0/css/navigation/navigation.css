@@ -7,6 +7,10 @@ Last edited: 05/26/2009
 Author: WDN
 
 */
+#wdn_navigation_bar {
+	z-index:100;
+	}
+
 #navigation {
     font-family: sans-serif;
     overflow: hidden;
