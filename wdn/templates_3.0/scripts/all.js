@@ -47,7 +47,9 @@ var WDN = function() {
 			});
 		},
 		log: function(data) {
-			console.log(data);
+			try {
+				console.log(data);
+			} catch(e) {}
 		}
 	};
 }();
