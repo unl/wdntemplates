@@ -33,16 +33,22 @@
 #breadcrumbs ul li {
 	float:left;
 }
-#breadcrumbs ul li:last-child {
+#breadcrumbs ul li:last-child, 
+#breadcrumbs ul li.selected{
 	height:44px;
 	background:url('images/tabBGSprite.png') top right no-repeat;
 	display:block;
 	margin:-11px 0 0 15px;
 	padding:0px;
 }
+
 #breadcrumbs ul li:last-child a,
 #breadcrumbs ul li:last-child a:link,
-#breadcrumbs ul li:last-child a:visited {
+#breadcrumbs ul li:last-child a:visited,
+#breadcrumbs ul li.selected a,
+#breadcrumbs ul li.selected a:link,
+#breadcrumbs ul li.selected a:visited 
+{
 	height:42px;
     background:url('images/tabBGSprite.png') 0 -44px no-repeat;
     padding:21px 20px;
@@ -50,7 +56,8 @@
     position: relative;
     z-index: 5;
 }
-#breadcrumbs ul li:last-child a:after {
+#breadcrumbs ul li:last-child a:after,
+#breadcrumbs ul li.selected a:after {
 	content:'';
 	margin:8px 0 0 40%;
 	width:20px;
