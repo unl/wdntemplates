@@ -10,7 +10,7 @@ var WDN_Navigation = function() {
 		},
 		expand : function() {
 			jQuery('#navigation ul:first').css({overflow:'visible'});
-			jQuery('#navigation ul:first').animate({height:expandedHeight+'px',overflow:'visible'});
+			jQuery('#navigation ul:first').animate({height:expandedHeight+'px'});
 			jQuery('#navigation ul ul').show(300);
 			
 		},
@@ -19,7 +19,7 @@ var WDN_Navigation = function() {
 				expandedHeight = jQuery('#navigation ul:first').height();
 			}
 			jQuery('#navigation ul:first').css({overflow:'hidden'});
-			jQuery('#navigation ul:first').animate({height:'40px',overflow:'hidden'});
+			jQuery('#navigation ul:first').animate({height:'40px'});
 			jQuery('#navigation ul ul').hide();
 		},
 		startExpandDelay : function () {
