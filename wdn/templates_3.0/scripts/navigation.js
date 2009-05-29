@@ -15,7 +15,9 @@ var WDN_Navigation = function() {
 			
 		},
 		collapse : function() {
-			expandedHeight = jQuery('#navigation ul:first').height();
+			if (expandedHeight == 0) {
+				expandedHeight = jQuery('#navigation ul:first').height();
+			}
 			jQuery('#navigation ul:first').css({overflow:'hidden'});
 			jQuery('#navigation ul:first').animate({height:'40px',overflow:'hidden'});
 			jQuery('#navigation ul ul').hide();
