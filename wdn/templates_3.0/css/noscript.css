@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+#navigation:first-child {
+	height:auto;
+}
+#wdn_navigation_bar {
+	position:relative;
+	margin:0;
+}
+#titlegraphic {
+	margin-top:24px;
+}
+#navigation ul ul li {
+	display:block;
+}

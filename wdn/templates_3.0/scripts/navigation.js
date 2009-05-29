@@ -4,33 +4,35 @@ var WDN_Navigation = function() {
 	return {
 		timeout : false,
 		initialize : function() {
-			jQuery('#wdn_navigation_wrapper,#breadcrumbs').hover(WDN_Navigation.startExpandDelay,
-																 WDN_Navigation.startCollapseDelay);
+			jQuery('#wdn_navigation_bar').hover(WDN_Navigation.startExpandDelay,
+												WDN_Navigation.startCollapseDelay);
 			WDN_Navigation.collapse();
 		},
 		expand : function() {
-			jQuery('#titlegraphic').css({marginTop:'100px'});
-			jQuery('#wdn_navigation_bar').css({position:'absolute',paddingRight:'32px'});
-			jQuery('#navigation ul:first').css({overflow:'visible'});
-			jQuery('#navigation ul:first').animate({height:expandedHeight+'px'});
+			
+			jQuery('#navigation').animate({height:'198px'},60,0,function(){
+					jQuery('#navigation').css({height:'auto'});
+				});
+			jQuery('#navigation ul ul li').show();
 			jQuery('#navigation ul ul').show(300);
 			
 		},
-		collapse : function() {
+		collapse : function(animate) {
 			if (expandedHeight == 0) {
-				expandedHeight = jQuery('#navigation ul:first').height();
+				//expandedHeight = jQuery('#navigation').height();
 			}
-			jQuery('#navigation ul:first').css({overflow:'hidden'});
-			jQuery('#navigation ul:first').animate({height:'40px'});
-			jQuery('#navigation ul ul').hide();
+			
+			jQuery('#navigation').css({overflow:'hidden'});
+			jQuery('#navigation').animate({height:'40px'});
+			jQuery('#navigation ul ul li:not(:first-child)').hide(10);
 		},
 		startExpandDelay : function () {
 			clearTimeout(WDN_Navigation.timeout);
-			WDN_Navigation.timeout = setTimeout(WDN_Navigation.expand, 50);
+			WDN_Navigation.timeout = setTimeout(WDN_Navigation.expand, 60);
 		},
 		startCollapseDelay : function() {
 			clearTimeout(WDN_Navigation.timeout);
-			WDN_Navigation.timeout = setTimeout(WDN_Navigation.collapse, 50);
+			WDN_Navigation.timeout = setTimeout(WDN_Navigation.collapse, 30);
 		}
 	};
 }();
