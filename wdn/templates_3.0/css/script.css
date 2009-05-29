@@ -4,8 +4,9 @@
 }
 #wdn_navigation_bar {
 	position:absolute;
-	margin:0 12px 0 0;
+	margin:0;
 	width:auto;
+	left:12px;
 }
 #titlegraphic {
 	margin-top:100px;
