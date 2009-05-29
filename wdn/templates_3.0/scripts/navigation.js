@@ -6,7 +6,7 @@ var WDN_Navigation = function() {
 		initialize : function() {
 			jQuery('#wdn_navigation_bar').hover(WDN_Navigation.startExpandDelay,
 												WDN_Navigation.startCollapseDelay);
-			WDN_Navigation.collapse();
+			//WDN_Navigation.collapse();
 		},
 		expand : function() {
 			

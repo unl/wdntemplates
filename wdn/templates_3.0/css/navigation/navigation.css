@@ -10,8 +10,9 @@ Author: WDN
 #wdn_navigation_bar {
 	z-index:100;
     background: url(images/menuBGCenter.png) 0 bottom repeat-x;
-    position:absolute;
     margin:0 8px 0 0;
+    position:relative;
+    width:100%;
 	}
 
 #navigation {
@@ -22,12 +23,9 @@ Author: WDN
     max-width: 1830px;
     clear: both;
     position:relative;
-    height:40px;
     padding-bottom:24px;
 }
-#navigation ul ul li {
-	display:none;
-}
+
 #navigation ul ul li:first-child {
 	display:block;
 }

@@ -38,6 +38,7 @@ var WDN = function() {
 			document.getElementsByTagName("head")[0].appendChild(e);
 		},
 		initializeTemplate : function() {
+			WDN.loadCSS('wdn/templates_3.0/css/script.css');
 			WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', WDN.jQueryUsage);
 		},
 		jQueryUsage : function() {
