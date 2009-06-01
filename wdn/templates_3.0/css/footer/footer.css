@@ -17,31 +17,36 @@ Author: WDN
 */
 #footer {
 	margin-top:15px;
-	min-width:960px;
 	position: relative;
 	clear: both;
 	background-color:#e5e5e5;
 	background-image: url(images/footerBG.png);
 	background-position: top left;
 	background-repeat: repeat-x;
-	font:0.7em/1.3em Helvetica;
-	font-weight:bold;
-	color:#6b6b6b;
+	text-align: left;
+	font: 71%/150% "Lucida Grande",Verdana,Arial;
+	color: #434343;
 	padding: 2px;
 }
 #footer a,
 #footer a:link,
 #footer a:visited {
-	color:#6b6b6b;
-	text-decoration:none;
+	color: #242424;
+    text-decoration: none;
 	border-bottom:1px dotted #afafaf;
 }
+
+#footer a:hover
+{
+    color: #ba0000;
+}
+
 #footer #footer_floater {
-	background-image: url(images/topSeal.png);
+	background-image: url(images/topSealb.png);
 	background-position: top center;
 	background-repeat: no-repeat;
 	height: 80px;
-	margin-top: 10px;
+	margin-top: 24px;
 	
 }
 #footer #wdn_copyright {
@@ -64,12 +69,16 @@ a#wdn_unl_wordmark:link,
 a#wdn_unl_wordmark:visited {
 	border:none;
 }
+
 #footer .footer_col {
-	width: 220px;
-	float: left;
-	padding: 0 10px 20px;
-	text-align:left;
+	width:220px;
+	padding:0 10px;
+	float:left;
+	position:relative;
 	}
+	
+body.liquid #footer .footer_col {width:22.9%}	
+	
 #footer .footer_col h3 {
 	background:url('../images/headingBGRed.gif') repeat-x bottom;
 	padding:5px;
