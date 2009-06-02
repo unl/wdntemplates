@@ -17,6 +17,7 @@ Author: WDN
 */
 #footer {
 	margin-top:15px;
+	padding-top:26px;
 	position: relative;
 	clear: both;
 	background-color:#e5e5e5;
@@ -26,7 +27,6 @@ Author: WDN
 	text-align: left;
 	font: 71%/150% "Lucida Grande",Verdana,Arial;
 	color: #434343;
-	padding: 2px;
 }
 #footer a,
 #footer a:link,
@@ -43,11 +43,10 @@ Author: WDN
 
 #footer #footer_floater {
 	background-image: url(images/topSealb.png);
-	background-position: top center;
+	background-position: center;
 	background-repeat: no-repeat;
-	height: 80px;
-	margin-top: 24px;
-	
+	height:41px;
+	margin-bottom:18px;
 }
 #footer #wdn_copyright {
 	clear: both;
