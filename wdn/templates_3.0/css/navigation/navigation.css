@@ -9,17 +9,24 @@ Author: WDN
 */
 #wdn_navigation_bar {
 	z-index:100;
-    background: url(images/menuBGCenter.png) 0 bottom repeat-x;
     margin:0 8px 0 0;
+    padding:0;
     position:relative;
+    background: url(images/menuBGLeft.png) left bottom no-repeat;
     width:100%;
 	}
+
+#wdn_navigation_wrapper{
+    background: url(images/menuBGRight.png) right bottom no-repeat;
+    padding:0 8px;
+    overflow:hidden;
+    margin-right:10px;
+}
 
 #navigation {
     font-family: sans-serif;
     overflow: hidden;
-    background: url(images/menuBGLeft.png) left bottom no-repeat;
-    min-width: 961px;
+    background: url(images/menuBGCenter.png) 0 bottom repeat-x;
     max-width: 1830px;
     clear: both;
     position:relative;
@@ -34,13 +41,9 @@ Author: WDN
 	margin:0 0 0 8px;
 	padding:0 0 0 0;
     position: relative;
+    width:100%;
     clear:both;
     overflow:auto;    
-}
-#wdn_navigation_wrapper{
-    background: url(images/menuBGRight.png) right bottom no-repeat;
-    padding-right:8px;
-    overflow:hidden;
 }
 
 #navigation ul li ul {
