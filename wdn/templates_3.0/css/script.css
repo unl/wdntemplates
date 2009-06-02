@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 #navigation {
-	height:40px;
+	z-index:0;
 }
 #wdn_navigation_bar {
 	position:absolute;
@@ -9,8 +9,34 @@
 	left:12px;
 }
 #titlegraphic {
-	margin-top:100px;
+	margin-top:120px;
 }
+
 #navigation ul ul li {
 	display:none;
 }
+#navigation ul {
+	z-index:0;
+   	height:50px;
+	width:100%;
+	overflow:hidden;
+}
+/*
+// THIS IS A FAILED ATTEMPT AT THE FADE OVER
+	
+#wdn_navigation_wrapper ul:after {
+	content:'';
+	display:block;
+	height:20px;
+	width:98%;
+	margin:0 5px;
+	position:absolute;
+	margin-top:32px;
+	z-index:99999;
+	background:url('navigation/images/collapsedFadeOverlay.png') repeat-x;
+}
+#wdn_navigation_wrapper ul ul:after {
+    content:none;
+    display:none;
+}
+*/
