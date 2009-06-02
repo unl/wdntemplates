@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+body.fixed #wdn_wrapper {
+	max-width:980px;
+	margin:0 auto;
+}
