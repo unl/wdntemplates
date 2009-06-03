@@ -84,7 +84,6 @@ body.liquid #footer .footer_col {width:22.9%}
 	color:#fff;
 	margin-bottom:5px;
 	font-size:1.1em;
-	letter-spacing:.08em;
 }
 #footer .footer_col h3:after {
 	content:'';
@@ -93,7 +92,7 @@ body.liquid #footer .footer_col {width:22.9%}
 	display:block;
 	background:url('../images/downIndicators.png') no-repeat;
 	margin-left:30px;
-	margin-top:4px;
+	margin-top:5px;
 }
 #footer .footer_logo {
 /*used in previous CSS, not sure intention*/
