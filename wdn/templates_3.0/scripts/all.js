@@ -45,6 +45,7 @@ var WDN = function() {
 			jQuery.noConflict();
 			jQuery(document).ready(function() {
 				WDN.loadJS('wdn/templates_3.0/scripts/navigation.js');
+				WDN.loadJS('wdn/templates_3.0/scripts/search.js');
 			});
 		},
 		log: function(data) {

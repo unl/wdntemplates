@@ -3,7 +3,7 @@ var WDN_Navigation = function() {
 	var expandedHeight = 0;
 	return {
 		timeout : false,
-		expandDelay : 125,
+		expandDelay : 400,
 		collapseDelay : 60,
 		initialize : function() {
 			jQuery('#wdn_navigation_bar').hover(WDN_Navigation.startExpandDelay,
