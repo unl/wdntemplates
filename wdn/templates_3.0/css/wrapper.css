@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
-
+.skipnav {display: none;}
 #wdn_wrapper {
     border:12px solid #e0e0e0;
     border-top:37px solid #e0e0e0;
