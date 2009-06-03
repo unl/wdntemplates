@@ -61,7 +61,7 @@ var WDN = function() {
 		 */
 		initializeTemplate : function() {
 			WDN.loadCSS('wdn/templates_3.0/css/script.css');
-			WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', WDN.jQueryUsage);
+			WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', WDN.jQueryUsage);			
 		},
 		
 		/**
@@ -73,6 +73,7 @@ var WDN = function() {
 			jQuery(document).ready(function() {
 				WDN.loadJS('wdn/templates_3.0/scripts/navigation.js');
 				WDN.loadJS('wdn/templates_3.0/scripts/search.js');
+				WDN.loadJS('wdn/templates_3.0/scripts/toolbar.js');
 			});
 		},
 		

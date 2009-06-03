@@ -78,11 +78,6 @@
 		return settings.photo ? true : url.match(/\.(gif|png|jpg|jpeg|bmp)(?:\?([^#]*))?(?:#(.*))?$/i);
 	}
 
-	/* Initializes ColorBox when the DOM has loaded */
-	$(function(){
-		$.fn.colorbox.init();
-	});
-
 	$.fn.colorbox = function(options, custom_callback) {
 		
 		if(this.length){
@@ -526,5 +521,10 @@
 		slideshowStart: "start slideshow",
 		slideshowStop: "stop slideshow"
 	};
+	
+	/* Initializes ColorBox when the DOM has loaded */
+    $(function(){
+        $.fn.colorbox.init();
+    });
 })(jQuery);
 
