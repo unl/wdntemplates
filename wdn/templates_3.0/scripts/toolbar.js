@@ -1,4 +1,4 @@
-var WDN_Toolbar = function() {
+WDN.toolbar = function() {
     var expandedHeight = 0;
     return {
         initialize : function() {
@@ -6,7 +6,7 @@ var WDN_Toolbar = function() {
             if (jQuery.browser.ie) {
                 WDN.loadCSS('wdn/templates_3.0/scripts/plugins/colorbox/colorbox-ie.css');
             }
-            WDN.loadJS('wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js', WDN_Toolbar.colorboxSetup);
+            WDN.loadJS('wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js', WDN.toolbar.colorboxSetup);
         },
         colorboxSetup : function() {
             WDN.log('Setting up colorbox');
@@ -18,6 +18,3 @@ var WDN_Toolbar = function() {
         }    
     };
 }();
-
-
-WDN_Toolbar.initialize();

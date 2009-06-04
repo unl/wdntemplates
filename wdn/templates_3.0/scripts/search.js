@@ -1,19 +1,19 @@
-var WDN_Search = function() {
+WDN.search = function() {
 	return {
 		initialize : function() {
 		/**
 		 * Hide the label when the user starts a search
 		 */
-			jQuery('#wdn_search_form fieldset input#q').focus(WDN_Search.hideLabel);
+			jQuery('#wdn_search_form fieldset input#q').focus(WDN.search.hideLabel);
 			if (jQuery('#wdn_search_form fieldset input#q').val() != "") {
-				WDN_Search.hideLabel();
+				WDN.search.hideLabel();
 			};
 			/**
 			 * Show the label if the user abandons an empty search box
 			 */
 			jQuery('#wdn_search_form fieldset input#q').blur(function() {
 				if (jQuery('#wdn_search_form fieldset input#q').val() == "") {
-					WDN_Search.showLabel();
+					WDN.search.showLabel();
 				};
 			});
 		},
@@ -25,4 +25,3 @@ var WDN_Search = function() {
 		}
 	};
 }();
-WDN_Search.initialize();

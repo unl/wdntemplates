@@ -71,9 +71,9 @@ var WDN = function() {
 		jQueryUsage : function() {
 			jQuery.noConflict();
 			jQuery(document).ready(function() {
-				WDN.loadJS('wdn/templates_3.0/scripts/navigation.js');
-				WDN.loadJS('wdn/templates_3.0/scripts/search.js');
-				WDN.loadJS('wdn/templates_3.0/scripts/toolbar.js');
+				WDN.initializePlugin('navigation');
+				WDN.initializePlugin('search');
+				WDN.initializePlugin('toolbar');
 			});
 		},
 		
@@ -86,7 +86,13 @@ var WDN = function() {
 			try {
 				console.log(data);
 			} catch(e) {}
+		},
+		
+		initializePlugin:function (plugin)
+		{
+			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', function() {eval('WDN.'+plugin+'.initialize();');});
 		}
+		
 	};
 }();
 

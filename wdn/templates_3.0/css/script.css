@@ -8,6 +8,9 @@
 	width:auto;
 	left:12px;
 }
+#wdn_search form label {
+    display:block;
+}
 #titlegraphic {
 	margin-top:120px;
 }

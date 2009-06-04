@@ -1,5 +1,5 @@
 
-var WDN_Navigation = function() {
+WDN.navigation = function() {
 	var expandedHeight = 0;
 	return {
 		/**
@@ -23,14 +23,14 @@ var WDN_Navigation = function() {
 		 * @todo determine what it should be
 		 */
 		initialize : function() {
-			jQuery('#wdn_navigation_wrapper,#breadcrumbs ul li').hover(WDN_Navigation.startExpandDelay,
-												WDN_Navigation.startCollapseDelay);
+			jQuery('#wdn_navigation_wrapper,#breadcrumbs ul li').hover(WDN.navigation.startExpandDelay,
+												WDN.navigation.startCollapseDelay);
 			jQuery('#navigation ul:first li:nth-child(6) a:visible:first').css({width:'95%'});
 			jQuery('#navigation').append('<div id="navigation-close"></div>');
 			jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
-			jQuery('#navigation-close').click(WDN_Navigation.collapse);
-			WDN_Navigation.determineSelectedBreadcrumb();
-			WDN_Navigation.collapse();
+			jQuery('#navigation-close').click(WDN.navigation.collapse);
+			WDN.navigation.determineSelectedBreadcrumb();
+			WDN.navigation.collapse();
 		},
 		
 		/**
@@ -78,18 +78,17 @@ var WDN_Navigation = function() {
 		 * Set a delay for expanding the navigation.
 		 */
 		startExpandDelay : function () {
-			clearTimeout(WDN_Navigation.timeout);
-			WDN_Navigation.timeout = setTimeout(WDN_Navigation.expand, WDN_Navigation.expandDelay);
+			clearTimeout(WDN.navigation.timeout);
+			WDN.navigation.timeout = setTimeout(WDN.navigation.expand, WDN.navigation.expandDelay);
 		},
 		
 		/**
 		 * Set a delay for collapsing the navigation.
 		 */
 		startCollapseDelay : function() {
-			clearTimeout(WDN_Navigation.timeout);
-			WDN_Navigation.timeout = setTimeout(WDN_Navigation.collapse, WDN_Navigation.collapseDelay);
+			clearTimeout(WDN.navigation.timeout);
+			WDN.navigation.timeout = setTimeout(WDN.navigation.collapse, WDN.navigation.collapseDelay);
 		}
 	};
 }();
 
-WDN_Navigation.initialize();
