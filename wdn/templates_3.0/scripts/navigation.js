@@ -69,6 +69,7 @@ WDN.navigation = function() {
 			}
 			jQuery('#navigation-close').fadeOut( function() {
 				jQuery('#navigation-expand-collapse span').text('roll over for full navigation');
+				jQuery('#navigation-expand-collapse span').removeClass('expanded');
 			});
 			jQuery('#navigation ul').css({overflow:'hidden'});
 			jQuery('#navigation ul').animate({height:'50px'});
