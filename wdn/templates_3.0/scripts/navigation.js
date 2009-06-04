@@ -5,6 +5,10 @@ WDN.navigation = function() {
 		
 		preferredState : 0,
 		
+		navigation : Array(),
+		
+		siteHomepage : '',
+		
 		/**
 		 * Stores an expand/collapse timout.
 		 */
@@ -36,7 +40,6 @@ WDN.navigation = function() {
 				WDN.navigation.preferred_state = 1;
 			}
 			WDN.navigation.initializePreferredState();
-			//jQuery('#navigation-expand-collapse span.expanded').click(WDN.navigation.pinned);
 		},
 		
 		/**
@@ -45,6 +48,15 @@ WDN.navigation = function() {
 		determineSelectedBreadcrumb : function() {
 			// Right now, stupidly select the second element.
 			jQuery('#breadcrumbs ul li:nth-child(2)').addClass('selected');
+			if (jQuery('#breadcrumbs ul li.selected').find('a')) {
+				// Found the homepage url in the breadcrumbs
+				WDN.navigation.siteHomepage = jQuery('#breadcrumbs ul li.selected').find('a').attr('href');
+			} else {
+				// Assume it's the current page
+				WDN.navigation.siteHomepage = window.location;
+			}
+			// Store the nav in case it gets changed --- maybe we should do this the first time a change is requested?
+			jQuery('#breadcumbs li.selected').append('<div class="storednav">'+jQuery('#navigation ul:first-child').contents()+'</div>');
 		},
 		
 		/**
@@ -143,6 +155,7 @@ WDN.navigation = function() {
 				try {
 					if (xreq.readyState == 4) {
 						if (xreq.status == 200) {
+							jQuery('#breadcrumbs ul li a[href="'+breadcrumb.currentTarget.href+'"').append('<div class="storednav">'+xreq.responseText+'</div>');
 							jQuery('#navigation ul:first-child').replaceWith(xreq.responseText);
 						} else {
 							if (undefined == err) {

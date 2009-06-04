@@ -70,3 +70,7 @@
 	text-align:center;
 	background:url('../images/downIndicators.png') no-repeat;
 }
+
+#breadcrumbs ul li div.storednav {
+    display:none;
+}
