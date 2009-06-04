@@ -102,6 +102,7 @@ ul#wdn_tool_links li {
     z-index:10;
     left:20px;
     top:20px;
+    display:none;
 }
 #wdn_search form #q {
 	position:absolute;

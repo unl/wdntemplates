@@ -21,6 +21,9 @@
 	width:100%;
 	overflow:hidden;
 }
+#wdn_search form label {
+	display:block;
+}
 /*
 // THIS IS A FAILED ATTEMPT AT THE FADE OVER
 	
