@@ -33,6 +33,9 @@ var WDN_Navigation = function() {
 			WDN_Navigation.collapse();
 		},
 		
+		/**
+		 * This function should determine which breadcrumb should be selected.
+		 */
 		determineSelectedBreadcrumb : function() {
 			jQuery('#breadcrumbs ul li:nth-child(2)').addClass('selected');
 		},
