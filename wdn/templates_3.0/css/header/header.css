@@ -88,11 +88,11 @@ ul#wdn_tool_links li {
 
 #wdn_search {
     background:url('images/searchBG.png') no-repeat;
-    width:348px;
+    width:360px;
     height:54px;
     overflow:hidden;
     position:absolute;
-    right:10px;
+    right:-2px;
     top:0px;
     color:#98999a;
     font-family:Helvetica, arial;
@@ -118,6 +118,6 @@ ul#wdn_tool_links li {
 }
 #wdn_search .search {
     position:absolute;
-    right:6px;
+    right:18px;
     top:12px;
 }
