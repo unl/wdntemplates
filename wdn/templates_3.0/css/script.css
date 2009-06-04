@@ -33,7 +33,7 @@
 	position:absolute;
 	margin-top:32px;
 	z-index:99999;
-	background:url('navigation/images/collapsedFadeOverlay.png') repeat-x;
+	background:url('navigation/images/lowerFade.png') repeat-x;
 }
 #wdn_navigation_wrapper ul ul:after {
     content:none;
