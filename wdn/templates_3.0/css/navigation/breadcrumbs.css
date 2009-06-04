@@ -14,6 +14,11 @@
 	margin:10px 2px;
 	background:url('images/breadcrumbArrowSprite.png') top right no-repeat;
 }
+#breadcrumbs ul li:last-child a,
+#breadcrumbs ul li:last-child a:link,
+#breadcrumbs ul li:last-child a:visited {
+	background:none;
+}
 #breadcrumbs ul {
 	background:url('images/breadcrumbBarSprite2.png') no-repeat;
 	margin:0 0 0 -5px;
