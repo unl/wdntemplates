@@ -58,11 +58,12 @@ var WDN_Navigation = function() {
 			if (expandedHeight == 0) {
 				//expandedHeight = jQuery('#navigation').height();
 			}
-			jQuery('#navigation-close').fadeOut();
+			jQuery('#navigation-close').fadeOut( function() {
+				jQuery('#navigation-expand-collapse span').text('roll over for full navigation');
+			});
 			jQuery('#navigation ul').css({overflow:'hidden'});
 			jQuery('#navigation ul').animate({height:'50px'});
 			jQuery('#navigation ul ul li:not(:first-child)').hide(10);
-			jQuery('#navigation-expand-collapse span').text('roll over for full navigation');
 		},
 		
 		/**
