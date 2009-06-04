@@ -44,6 +44,7 @@ var WDN_Navigation = function() {
 			jQuery('#navigation ul ul li').show();
 			jQuery('#navigation ul ul').show(300);
 			jQuery('#navigation-close').fadeIn();
+			jQuery('#navigation-expand-collapse').text('click to always show full navigation');
 		},
 		
 		/**
