@@ -105,11 +105,12 @@ Author: WDN
 	position:absolute;
 	top:0;
 	right:0;
-	height:17px;
-	width:17px;
-	background:url('../../scripts/plugins/colorbox/images/controls.png') -40px -20px;
+	height:16px;
+	width:16px;
+	background:url('images/closeSprite.png') no-repeat;
 	z-index:1000;
 }
 #navigation-close:hover{
-	background-position:-40px 0;
+	background-position:0 -17px;
+	cursor:pointer;
 }
