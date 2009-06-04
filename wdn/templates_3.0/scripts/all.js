@@ -61,6 +61,8 @@ var WDN = function() {
 		 */
 		initializeTemplate : function() {
 			WDN.loadCSS('wdn/templates_3.0/css/script.css');
+			WDN.loadJS('wdn/templates_3.0/scripts/xmlhttp.js');
+			WDN.loadJS('wdn/templates_3.0/scripts/global_functions.js');
 			WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', WDN.jQueryUsage);			
 		},
 		
@@ -91,8 +93,29 @@ var WDN = function() {
 		initializePlugin:function (plugin)
 		{
 			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', function() {eval('WDN.'+plugin+'.initialize();');});
-		}
+		},
 		
+		setCookie : function(name, value, seconds) {
+			if (seconds) {
+				var date = new Date();
+				date.setTime(date.getTime()+(seconds*1000));
+				var expires = ";expires="+date.toGMTString();
+			} else {
+				var expires = "";
+			}
+			document.cookie = name+"="+value+expires+";path=/;domain=.unl.edu";
+		},
+		
+		getCookie : function(name) {
+			var nameEQ = name + "=";
+			var ca = document.cookie.split(';');
+			for(var i=0;i < ca.length;i++) {
+				var c = ca[i];
+				while (c.charAt(0)==' ') c = c.substring(1,c.length);
+				if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+			}
+			return null;
+		}
 	};
 }();
 

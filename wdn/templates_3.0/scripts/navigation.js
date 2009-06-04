@@ -2,6 +2,9 @@
 WDN.navigation = function() {
 	var expandedHeight = 0;
 	return {
+		
+		preferredState : 0,
+		
 		/**
 		 * Stores an expand/collapse timout.
 		 */
@@ -23,20 +26,22 @@ WDN.navigation = function() {
 		 * @todo determine what it should be
 		 */
 		initialize : function() {
-			jQuery('#wdn_navigation_wrapper,#breadcrumbs ul li').hover(WDN.navigation.startExpandDelay,
-												WDN.navigation.startCollapseDelay);
-			jQuery('#navigation ul:first li:nth-child(6) a:visible:first').css({width:'95%'});
 			jQuery('#navigation').append('<div id="navigation-close"></div>');
 			jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
+			jQuery('#navigation-expand-collapse').click(WDN.navigation.setPreferredState);
 			jQuery('#navigation-close').click(WDN.navigation.collapse);
 			WDN.navigation.determineSelectedBreadcrumb();
-			WDN.navigation.collapse();
+			if (WDN.getCookie('n')!=1) {
+				WDN.navigation.preferred_state = 1;
+			}
+			WDN.navigation.initializePreferredState();
 		},
 		
 		/**
 		 * This function should determine which breadcrumb should be selected.
 		 */
 		determineSelectedBreadcrumb : function() {
+			// Right now, stupidly select the second element.
 			jQuery('#breadcrumbs ul li:nth-child(2)').addClass('selected');
 		},
 		
@@ -53,7 +58,11 @@ WDN.navigation = function() {
 				});
 			jQuery('#navigation ul ul li').show(10);
 			jQuery('#navigation ul ul').show(300, function() {
-				jQuery('#navigation-expand-collapse span').text('click to always show full navigation');
+				if (WDN.navigation.preferred_state == 1) {
+					jQuery('#navigation-expand-collapse span').text('click to always hide full navigation');
+				} else {
+					jQuery('#navigation-expand-collapse span').text('click to always show full navigation');
+				}
 				jQuery('#navigation-expand-collapse span').addClass('expanded');
 			});
 			jQuery('#navigation-close').fadeIn();
@@ -90,6 +99,37 @@ WDN.navigation = function() {
 		startCollapseDelay : function() {
 			clearTimeout(WDN.navigation.timeout);
 			WDN.navigation.timeout = setTimeout(WDN.navigation.collapse, WDN.navigation.collapseDelay);
+		},
+		
+		setPreferredState : function() {
+			if (WDN.getCookie('n')!=1) {
+				WDN.log('Setting preferred navigation state OPEN');
+				jQuery('#wdn_navigation_wrapper,#breadcrumbs ul li').hover();
+				WDN.setCookie('n',1,5000);
+				jQuery('#wdn_navigation_bar').css({position:'relative'});
+				WDN.navigation.preferred_state = 1;
+			} else {
+				WDN.log('Setting preferred navigation state CLOSED');
+				WDN.setCookie('n',0,-100);
+				WDN.navigation.preferred_state = 0;
+			}
+			WDN.navigation.initializePreferredState();
+		},
+		
+		
+		initializePreferredState : function() {
+			if (WDN.navigation.preferred_state==1) {
+				WDN.navigation.expand();
+				jQuery('#wdn_navigation_bar').css({position:'relative'});
+				var mouseout = null;
+			} else {
+				jQuery('#navigation ul:first li:nth-child(6) a:visible:first').css({width:'95%'});
+				WDN.navigation.collapse();
+				var mouseout = WDN.navigation.startCollapseDelay;
+			}
+			jQuery('#wdn_navigation_wrapper,#breadcrumbs ul li').hover(
+					WDN.navigation.startExpandDelay,
+					mouseout);
 		}
 	};
 }();
