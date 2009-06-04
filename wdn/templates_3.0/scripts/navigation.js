@@ -27,7 +27,7 @@ var WDN_Navigation = function() {
 												WDN_Navigation.startCollapseDelay);
 			jQuery('#navigation ul:first li:nth-child(6) a:visible:first').css({width:'95%'});
 			jQuery('#navigation').append('<div id="navigation-close"></div>');
-			jQuery('#navigation').append('<div id="navigation-expand-collapse"></div>');
+			jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
 			jQuery('#navigation-close').click(WDN_Navigation.collapse);
 			WDN_Navigation.collapse();
 		},
@@ -44,9 +44,11 @@ var WDN_Navigation = function() {
 					jQuery('#navigation ul').css({height:'auto'});
 				});
 			jQuery('#navigation ul ul li').show(10);
-			jQuery('#navigation ul ul').show(300);
+			jQuery('#navigation ul ul').show(300, function() {
+				jQuery('#navigation-expand-collapse span').text('click to always show full navigation');
+			});
 			jQuery('#navigation-close').fadeIn();
-			jQuery('#navigation-expand-collapse').text('click to always show full navigation');
+			;
 		},
 		
 		/**
@@ -60,7 +62,7 @@ var WDN_Navigation = function() {
 			jQuery('#navigation ul').css({overflow:'hidden'});
 			jQuery('#navigation ul').animate({height:'50px'});
 			jQuery('#navigation ul ul li:not(:first-child)').hide(10);
-			jQuery('#navigation-expand-collapse').text('roll over for full navigation');
+			jQuery('#navigation-expand-collapse span').text('roll over for full navigation');
 		},
 		
 		/**
