@@ -54,6 +54,7 @@ WDN.navigation = function() {
 			jQuery('#navigation ul ul li').show(10);
 			jQuery('#navigation ul ul').show(300, function() {
 				jQuery('#navigation-expand-collapse span').text('click to always show full navigation');
+				jQuery('#navigation-expand-collapse span').addClass('expanded');
 			});
 			jQuery('#navigation-close').fadeIn();
 			;

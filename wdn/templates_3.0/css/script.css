@@ -48,3 +48,11 @@
     width:10px;
 	height:6px;
 }
+#navigation-expand-collapse span.expanded:before {
+	background-position:25px -12px;
+	width:15px;
+	padding-left:10px;
+}
+#navigation-expand-collapse span.expanded:after {
+	display:none;
+}
