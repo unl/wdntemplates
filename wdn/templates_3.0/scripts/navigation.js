@@ -25,6 +25,8 @@ var WDN_Navigation = function() {
 		initialize : function() {
 			jQuery('#wdn_navigation_wrapper,#breadcrumbs ul li').hover(WDN_Navigation.startExpandDelay,
 												WDN_Navigation.startCollapseDelay);
+			jQuery('#navigation ul:first li:nth-child(6) a:visible').css({width:'95%'});
+			jQuery('#navigation-close').click(WDN_Navigation.startCollapseDelay);
 			//WDN_Navigation.collapse();
 		},
 		
@@ -41,7 +43,7 @@ var WDN_Navigation = function() {
 				});
 			jQuery('#navigation ul ul li').show(10);
 			jQuery('#navigation ul ul').show(300);
-			
+			jQuery('#navigation-close').fadeIn();
 		},
 		
 		/**
@@ -51,7 +53,7 @@ var WDN_Navigation = function() {
 			if (expandedHeight == 0) {
 				//expandedHeight = jQuery('#navigation').height();
 			}
-			
+			jQuery('#navigation-close').fadeOut();
 			jQuery('#navigation ul').css({overflow:'hidden'});
 			jQuery('#navigation ul').animate({height:'50px'});
 			jQuery('#navigation ul ul li:not(:first-child)').hide(10);
