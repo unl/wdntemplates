@@ -35,7 +35,7 @@
 #breadcrumbs ul li {
 	float:left;
 }
-#breadcrumbs ul li:last-child, 
+
 #breadcrumbs ul li.selected{
 	height:44px;
 	background:url('images/tabBGSprite.png') top right no-repeat;
@@ -44,9 +44,6 @@
 	padding:0px;
 }
 
-#breadcrumbs ul li:last-child a,
-#breadcrumbs ul li:last-child a:link,
-#breadcrumbs ul li:last-child a:visited,
 #breadcrumbs ul li.selected a,
 #breadcrumbs ul li.selected a:link,
 #breadcrumbs ul li.selected a:visited 
@@ -58,7 +55,7 @@
     position: relative;
     z-index: 5;
 }
-#breadcrumbs ul li:last-child a:after,
+
 #breadcrumbs ul li.selected a:after {
 	content:'';
 	margin:8px 0 0 40%;
