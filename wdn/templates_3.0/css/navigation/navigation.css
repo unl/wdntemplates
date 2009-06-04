@@ -108,9 +108,19 @@ Author: WDN
 	height:16px;
 	width:16px;
 	background:url('images/closeSprite.png') no-repeat;
-	z-index:1000;
 }
 #navigation-close:hover{
 	background-position:0 -17px;
 	cursor:pointer;
+}
+
+#navigation-expand-collapse {
+	position:absolute;
+    bottom:11px;
+    left:380px;
+    font-size:13px;
+}
+
+#wdn_navigation_wrapper.collapsed #navigation-expand-collapse {
+	/* add styles in here for the collapsed state */
 }

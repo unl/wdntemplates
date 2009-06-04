@@ -23,13 +23,13 @@ var WDN_Navigation = function() {
 		 * @todo determine what it should be
 		 */
 		initialize : function() {
-			jQuery('#navigation ul:first').after("<div id=\"navigation-close\"></div>");
 			jQuery('#wdn_navigation_wrapper,#breadcrumbs ul li').hover(WDN_Navigation.startExpandDelay,
 												WDN_Navigation.startCollapseDelay);
-			jQuery('#navigation ul:first li:nth-child(6) a:visible:first').css({width:'95%'});
+			jQuery('#navigation ul:first li:nth-child(6) a:visible').css({width:'95%'});
 			jQuery('#navigation').append('<div id="navigation-close"></div>');
+			jQuery('#navigation').append('<div id="navigation-expand-collapse"></div>');
 			jQuery('#navigation-close').click(WDN_Navigation.startCollapseDelay);
-			//WDN_Navigation.collapse();
+			WDN_Navigation.collapse();
 		},
 		
 		/**
@@ -43,7 +43,7 @@ var WDN_Navigation = function() {
 			jQuery('#navigation ul').animate({height:'198px'},60,0,function(){
 					jQuery('#navigation ul').css({height:'auto'});
 				});
-			jQuery('#navigation ul ul li').show(10);
+			jQuery('#navigation ul ul li').show();
 			jQuery('#navigation ul ul').show(300);
 			jQuery('#navigation-close').fadeIn();
 		},
@@ -59,6 +59,7 @@ var WDN_Navigation = function() {
 			jQuery('#navigation ul').css({overflow:'hidden'});
 			jQuery('#navigation ul').animate({height:'50px'});
 			jQuery('#navigation ul ul li:not(:first-child)').hide(10);
+			jQuery('#navigation-expand-collapse').text('roll over for full navigation');
 		},
 		
 		/**
