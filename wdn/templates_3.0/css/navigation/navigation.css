@@ -117,8 +117,9 @@ Author: WDN
 #navigation-expand-collapse {
 	position:absolute;
     bottom:11px;
-    left:380px;
     font-size:13px;
+    width:100%;
+    text-align:center;
 }
 
 #wdn_navigation_wrapper.collapsed #navigation-expand-collapse {
