@@ -35,6 +35,7 @@ WDN.navigation = function() {
 				WDN.navigation.preferred_state = 1;
 			}
 			WDN.navigation.initializePreferredState();
+			//jQuery('#navigation-expand-collapse span.expanded').click(WDN.navigation.pinned);
 		},
 		
 		/**
