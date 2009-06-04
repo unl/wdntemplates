@@ -28,7 +28,7 @@
 	font-weight:bold;
 	color:#727272;
 	background:url('navigation/images/lowerFade.png') repeat-x;
-	
+	cursor:pointer;
 }
 #navigation-expand-collapse span {
 	position:relative;
