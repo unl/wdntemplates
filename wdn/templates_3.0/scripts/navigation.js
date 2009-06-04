@@ -30,6 +30,7 @@ WDN.navigation = function() {
 			jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
 			jQuery('#navigation-expand-collapse').click(WDN.navigation.setPreferredState);
 			jQuery('#navigation-close').click(WDN.navigation.collapse);
+			jQuery('#breadcrumbs ul li a').click(WDN.navigation.changeNavContents);
 			WDN.navigation.determineSelectedBreadcrumb();
 			if (WDN.getCookie('n')!=1) {
 				WDN.navigation.preferred_state = 1;
@@ -131,6 +132,31 @@ WDN.navigation = function() {
 			jQuery('#wdn_navigation_wrapper,#breadcrumbs ul li').hover(
 					WDN.navigation.startExpandDelay,
 					mouseout);
+		},
+		
+		changeNavContents : function(breadcrumb) {
+			console.log(breadcrumb.currentTarget.href);
+			var xreq = new WDN.proxy_xmlhttp();
+			xreq.open("GET", 'http://www.unl.edu/ucomm/sharedcode/navigation.html', true);
+			xreq.onreadystatechange = function() 
+			{
+				try {
+					if (xreq.readyState == 4) {
+						if (xreq.status == 200) {
+							jQuery('#navigation ul:first-child').replaceWith(xreq.responseText);
+						} else {
+							if (undefined == err) {
+								document.getElementById(id).innerHTML = 'Error loading results.';
+							} else {
+								document.getElementById(id).innerHTML = err;
+							}
+						}
+					}
+					xreq = new WDN.proxy_xmlhttp();
+				} catch(e) {}
+			}
+			xreq.send(null);
+			return false;
 		}
 	};
 }();
