@@ -37,3 +37,14 @@
 	position:relative;
 	top:29px;
 }
+#navigation-expand-collapse span:after, #navigation-expand-collapse span:before {
+	content:'';
+	position:relative;
+	background:url('navigation/images/menuIndicatorsSprite.png');
+	background-position:0px -12px;
+    display:block;
+    padding:0px 5px 0px 5px;
+    margin:5px 5px 0px 5px;
+    width:10px;
+	height:6px;
+}
