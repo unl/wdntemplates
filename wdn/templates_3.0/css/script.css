@@ -53,6 +53,12 @@
 	width:15px;
 	padding-left:10px;
 }
-#navigation-expand-collapse span.expanded:after {
+#navigation-expand-collapse span.pinned:before {
+	background-position:50px -12px;
+	width:10px;
+	padding-left:8px;
+	padding-top:4px;
+}
+#navigation-expand-collapse span.expanded:after, #navigation-expand-collapse span.pinned:after {
 	display:none;
 }
