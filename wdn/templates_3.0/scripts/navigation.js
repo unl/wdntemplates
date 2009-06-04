@@ -29,7 +29,12 @@ var WDN_Navigation = function() {
 			jQuery('#navigation').append('<div id="navigation-close"></div>');
 			jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
 			jQuery('#navigation-close').click(WDN_Navigation.collapse);
+			WDN_Navigation.determineSelectedBreadcrumb();
 			WDN_Navigation.collapse();
+		},
+		
+		determineSelectedBreadcrumb : function() {
+			jQuery('#breadcrumbs ul li:nth-child(2)').addClass('selected');
 		},
 		
 		/**
