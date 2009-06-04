@@ -10,7 +10,7 @@ WDN.navigation = function() {
 		/**
 		 * The delay before expand occurs
 		 */
-		expandDelay : 400,
+		expandDelay : 250,
 		
 		/**
 		 * The delay before collapse occurs
