@@ -34,9 +34,10 @@ WDN.navigation = function() {
 			jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
 			jQuery('#navigation-expand-collapse').click(WDN.navigation.setPreferredState);
 			jQuery('#navigation-close').click(WDN.navigation.collapse);
-			jQuery('#breadcrumbs ul li a').click(WDN.navigation.changeNavContents);
+			jQuery('#breadcrumbs ul li a').click(WDN.navigation.switchSiteNavigation);
 			WDN.navigation.determineSelectedBreadcrumb();
-			if (WDN.getCookie('n')!=1) {
+			// Store the current state of the cookie
+			if (WDN.getCookie('n') == 1) {
 				WDN.navigation.preferred_state = 1;
 			}
 			WDN.navigation.initializePreferredState();
@@ -55,8 +56,6 @@ WDN.navigation = function() {
 				// Assume it's the current page
 				WDN.navigation.siteHomepage = window.location;
 			}
-			// Store the nav in case it gets changed --- maybe we should do this the first time a change is requested?
-			jQuery('#breadcumbs li.selected').append('<div class="storednav">'+jQuery('#navigation ul:first-child').contents()+'</div>');
 		},
 		
 		/**
@@ -130,7 +129,10 @@ WDN.navigation = function() {
 			WDN.navigation.initializePreferredState();
 		},
 		
-		
+		/**
+		 * This function determines the user's preference for navigation.
+		 * There are two options, expanded or collapsed.
+		 */
 		initializePreferredState : function() {
 			if (WDN.navigation.preferred_state==1) {
 				WDN.navigation.expand();
@@ -146,8 +148,21 @@ WDN.navigation = function() {
 					mouseout);
 		},
 		
-		changeNavContents : function(breadcrumb) {
-			console.log(breadcrumb.currentTarget.href);
+		switchSiteNavigation : function(breadcrumb) {
+		    // Store the current navigation
+            jQuery('#breadcrumbs ul li.selected').append('<div class="storednav"><ul>'+jQuery('#navigation ul').html()+'</ul></div>');
+            
+            // Set the clicked breadcrumb link to selected
+		    jQuery('#breadcrumbs ul li.selected').removeClass('selected');
+		    jQuery(breadcrumb.target).parent().addClass('selected');
+                        
+            // Check for stored navigation
+            if (jQuery(breadcrumb.target).siblings('.storednav').length > 0) {
+                // We've already grabbed the nav for this link
+                WDN.navigation.setNavigationContents(jQuery(breadcrumb.target).siblings('.storednav').contents());
+                return false;
+            }
+
 			var xreq = new WDN.proxy_xmlhttp();
 			xreq.open("GET", 'http://www.unl.edu/ucomm/sharedcode/navigation.html', true);
 			xreq.onreadystatechange = function() 
@@ -156,7 +171,7 @@ WDN.navigation = function() {
 					if (xreq.readyState == 4) {
 						if (xreq.status == 200) {
 							jQuery('#breadcrumbs ul li a[href="'+breadcrumb.currentTarget.href+'"').append('<div class="storednav">'+xreq.responseText+'</div>');
-							jQuery('#navigation ul:first-child').replaceWith(xreq.responseText);
+							WDN.navigation.setNavigationContents(xreq.responseText);
 						} else {
 							if (undefined == err) {
 								document.getElementById(id).innerHTML = 'Error loading results.';
@@ -170,6 +185,11 @@ WDN.navigation = function() {
 			}
 			xreq.send(null);
 			return false;
+		},
+		
+		setNavigationContents : function(contents) {
+            jQuery('#navigation ul:first-child').replaceWith(contents);
+            WDN.navigation.expand();
 		}
 	};
 }();
