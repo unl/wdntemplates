@@ -43,7 +43,7 @@ WDN.navigation = function() {
 
 			// Store the current state of the cookie
 			if (WDN.getCookie('n') == 1) {
-				WDN.navigation.preferred_state = 1;
+				WDN.navigation.preferredState = 1;
 			}
 			WDN.navigation.initializePreferredState();
 		},
@@ -67,6 +67,7 @@ WDN.navigation = function() {
 		 * Expand the navigation section.
 		 */
 		expand : function() {
+			WDN.log('expand called');
 			if (WDN.navigation.currentState == 1) {
 				return;
 			}
@@ -79,7 +80,7 @@ WDN.navigation = function() {
 				});
 			jQuery('#navigation ul ul li').show(10);
 			jQuery('#navigation ul ul').show(300, function() {
-				if (WDN.navigation.preferred_state == 1) {
+				if (WDN.navigation.preferredState == 1) {
 					jQuery('#navigation-expand-collapse span').text('click to always hide full navigation');
 				} else {
 					jQuery('#navigation-expand-collapse span').text('click to always show full navigation');
@@ -94,6 +95,7 @@ WDN.navigation = function() {
 		 * Collapse the navigation
 		 */
 		collapse : function(animate) {
+			WDN.log('collapse called');
 			if (WDN.navigation.currentState == 0) {
 				return;
 			}
@@ -113,7 +115,9 @@ WDN.navigation = function() {
 		/**
 		 * Set a delay for expanding the navigation.
 		 */
-		startExpandDelay : function () {
+		startExpandDelay : function (event) {
+			event.stopPropagation();
+			WDN.log('start expand delay');
 			if (WDN.navigation.currentState == 1) {
 				return;
 			}
@@ -124,11 +128,17 @@ WDN.navigation = function() {
 		/**
 		 * Set a delay for collapsing the navigation.
 		 */
-		startCollapseDelay : function() {
+		startCollapseDelay : function(event) {
+			event.stopPropagation();
+			WDN.log('start collapse delay');
 			if (WDN.navigation.currentState == 0) {
 				return;
 			}
 			clearTimeout(WDN.navigation.timeout);
+			if (WDN.navigation.preferredState == 1) {
+				return;
+			}
+			
 			WDN.navigation.timeout = setTimeout(WDN.navigation.collapse, WDN.navigation.collapseDelay);
 		},
 		
@@ -136,19 +146,21 @@ WDN.navigation = function() {
 			WDN.navigation.timeout = setTimeout(WDN.navigation.switchSiteNavigation, WDN.navigation.changeSiteNavDelay);
 		},
 		
-		setPreferredState : function() {
+		setPreferredState : function(event) {
+			WDN.log('set preferred state');
 			if (WDN.getCookie('n')!=1) {
 				WDN.log('Setting preferred navigation state OPEN');
 				// Remove the hover function?
 				jQuery('#wdn_navigation_bar').hover();
 				WDN.setCookie('n',1,5000);
-				WDN.navigation.preferred_state = 1;
+				WDN.navigation.preferredState = 1;
 			} else {
 				WDN.log('Setting preferred navigation state CLOSED');
 				WDN.setCookie('n',0,-100);
-				WDN.navigation.preferred_state = 0;
+				WDN.navigation.preferredState = 0;
 			}
 			WDN.navigation.initializePreferredState();
+			event.stopPropagation();
 		},
 		
 		/**
@@ -156,7 +168,8 @@ WDN.navigation = function() {
 		 * There are two options, expanded or collapsed.
 		 */
 		initializePreferredState : function() {
-			if (WDN.navigation.preferred_state==1) {
+			WDN.log('initializepreferredstate, current state is '+WDN.navigation.currentState);
+			if (WDN.navigation.preferredState==1) {
 				WDN.navigation.setWrapperClass('pinned');
 				WDN.navigation.expand();
 				var mouseout = null;
