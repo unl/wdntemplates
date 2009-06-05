@@ -5,6 +5,8 @@ WDN.navigation = function() {
 		
 		preferredState : 0,
 		
+		currentState : -1,
+		
 		navigation : Array(),
 		
 		siteHomepage : '',
@@ -65,6 +67,9 @@ WDN.navigation = function() {
 		 * Expand the navigation section.
 		 */
 		expand : function() {
+			if (WDN.navigation.currentState == 1) {
+				return;
+			}
 			/**
 			 * Because we don't know the height, slowly expand to a set height
 			 * then snap the rest of the way.
@@ -79,22 +84,26 @@ WDN.navigation = function() {
 				} else {
 					jQuery('#navigation-expand-collapse span').text('click to always show full navigation');
 				}
-				jQuery('#wdn_wrapper').addClass('nav_expanded');
 			});
 			jQuery('#navigation-close').fadeIn();
-			;
+			WDN.navigation.setWrapperClass('expanded');
+			WDN.navigation.currentState = 1;
 		},
 		
 		/**
 		 * Collapse the navigation
 		 */
 		collapse : function(animate) {
+			if (WDN.navigation.currentState == 0) {
+				return;
+			}
 			if (expandedHeight == 0) {
 				//expandedHeight = jQuery('#navigation').height();
 			}
 			jQuery('#navigation-close').fadeOut( function() {
 				jQuery('#navigation-expand-collapse span').text('roll over for full navigation');
-				jQuery('#navigation-expand-collapse span').removeClass('expanded');
+				WDN.navigation.setWrapperClass('collapsed');
+				WDN.navigation.currentState = 0;
 			});
 			jQuery('#navigation ul').css({overflow:'hidden'});
 			jQuery('#navigation ul').animate({height:'50px'});
@@ -105,6 +114,9 @@ WDN.navigation = function() {
 		 * Set a delay for expanding the navigation.
 		 */
 		startExpandDelay : function () {
+			if (WDN.navigation.currentState == 1) {
+				return;
+			}
 			clearTimeout(WDN.navigation.timeout);
 			WDN.navigation.timeout = setTimeout(WDN.navigation.expand, WDN.navigation.expandDelay);
 		},
@@ -113,6 +125,9 @@ WDN.navigation = function() {
 		 * Set a delay for collapsing the navigation.
 		 */
 		startCollapseDelay : function() {
+			if (WDN.navigation.currentState == 0) {
+				return;
+			}
 			clearTimeout(WDN.navigation.timeout);
 			WDN.navigation.timeout = setTimeout(WDN.navigation.collapse, WDN.navigation.collapseDelay);
 		},
@@ -124,9 +139,9 @@ WDN.navigation = function() {
 		setPreferredState : function() {
 			if (WDN.getCookie('n')!=1) {
 				WDN.log('Setting preferred navigation state OPEN');
-				jQuery('#wdn_navigation_wrapper,#breadcrumbs ul li').hover();
+				// Remove the hover function?
+				jQuery('#wdn_navigation_bar').hover();
 				WDN.setCookie('n',1,5000);
-				jQuery('#wdn_navigation_bar').css({position:'relative'});
 				WDN.navigation.preferred_state = 1;
 			} else {
 				WDN.log('Setting preferred navigation state CLOSED');
@@ -144,7 +159,6 @@ WDN.navigation = function() {
 			if (WDN.navigation.preferred_state==1) {
 				WDN.navigation.setWrapperClass('pinned');
 				WDN.navigation.expand();
-				jQuery('#wdn_navigation_bar').css({position:'relative'});
 				var mouseout = null;
 			} else {
 				jQuery('#navigation ul:first li:nth-child(6) a:visible:first').css({width:'95%'});
@@ -201,10 +215,17 @@ WDN.navigation = function() {
 		},
 		
 		setWrapperClass : function(css_class) {
-			jQuery('#wdn_wrapper').removeClass('nav_pinned');
-			jQuery('#wdn_wrapper').removeClass('nav_expanded');
+			WDN.log('Adding class '+css_class);
+			if (css_class=='collapsed') {
+				jQuery('#wdn_wrapper').removeClass('nav_pinned');
+				jQuery('#wdn_wrapper').removeClass('nav_expanded');
+				jQuery('#wdn_wrapper').addClass('nav_'+css_class);
+				return;
+			}
+			
 			jQuery('#wdn_wrapper').removeClass('nav_collapsed');
 			jQuery('#wdn_wrapper').addClass('nav_'+css_class);
+			
 		}
 	};
 }();
