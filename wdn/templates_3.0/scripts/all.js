@@ -33,6 +33,13 @@ var WDN = function() {
 					mycallback = function() {WDN.jsLoaded(url);};
 				}
 				e.onload = mycallback;
+				e.onreadystatechange = function() {
+					   if (this.readyState == 'complete'
+						   || this.readyState == 'loaded') {
+						   mycallback();
+					   }
+					}
+
 			}
 		},
 		
