@@ -79,7 +79,7 @@ WDN.navigation = function() {
 				} else {
 					jQuery('#navigation-expand-collapse span').text('click to always show full navigation');
 				}
-				jQuery('#navigation-expand-collapse span').addClass('expanded');
+				jQuery('#wdn_wrapper').addClass('nav_expanded');
 			});
 			jQuery('#navigation-close').fadeIn();
 			;
@@ -98,7 +98,7 @@ WDN.navigation = function() {
 			});
 			jQuery('#navigation ul').css({overflow:'hidden'});
 			jQuery('#navigation ul').animate({height:'50px'});
-			jQuery('#navigation ul ul li:not(:first-child)').hide(10);
+			//jQuery('#navigation ul ul li:not(:first-child)').hide(10);
 		},
 		
 		/**
@@ -142,6 +142,7 @@ WDN.navigation = function() {
 		 */
 		initializePreferredState : function() {
 			if (WDN.navigation.preferred_state==1) {
+				WDN.navigation.setWrapperClass('pinned');
 				WDN.navigation.expand();
 				jQuery('#wdn_navigation_bar').css({position:'relative'});
 				var mouseout = null;
@@ -197,6 +198,13 @@ WDN.navigation = function() {
 		setNavigationContents : function(contents) {
             jQuery('#navigation ul:first-child').replaceWith(contents);
             WDN.navigation.expand();
+		},
+		
+		setWrapperClass : function(css_class) {
+			jQuery('#wdn_wrapper').removeClass('nav_pinned');
+			jQuery('#wdn_wrapper').removeClass('nav_expanded');
+			jQuery('#wdn_wrapper').removeClass('nav_collapsed');
+			jQuery('#wdn_wrapper').addClass('nav_'+css_class);
 		}
 	};
 }();
