@@ -1,6 +1,11 @@
-@CHARSET "UTF-8";
 .skipnav {display: none;}
+
+body {
+	background:url(images/bg.jpg) top center no-repeat;
+}
+
 #wdn_wrapper {
+	background:#FFF;
     border:12px solid #e0e0e0;
     border-top:37px solid #e0e0e0;
     padding:12px;
