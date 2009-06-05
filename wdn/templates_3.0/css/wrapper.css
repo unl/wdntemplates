@@ -4,6 +4,10 @@ body {
 	background:url(images/bg.jpg) top center no-repeat;
 }
 
+.hidden {
+	display:none;	
+}
+
 #wdn_wrapper {
 	background:#FFF;
     border:12px solid #e0e0e0;
