@@ -74,3 +74,46 @@ function MM_findObj(n, d) { //v4.01
 	  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
 	  if(!x && d.getElementById) x=d.getElementById(n); return x;
 	}
+
+function newRandomPromo(xmluri){
+	var promoContent = new XMLHTTP();
+	promoContent.open("GET", xmluri, true);
+	promoContent.onreadystatechange = function(){
+		if (promoContent.readyState == 4) {
+			if (promoContent.status == 200) {
+				var xmlObj = promoContent.responseXML.documentElement;
+				var promoNum = xmlObj.getElementsByTagName('promo').length;	
+				//generates random number
+				var aryId=Math.floor(Math.random()*promoNum)
+				
+				//pull promo data
+				var contentContainer = xmlObj.getElementsByTagName('contentContainer')[0].childNodes[0].nodeValue;
+				var promoTitle = xmlObj.getElementsByTagName('promo')[aryId].getAttribute("id");
+				var promoMediaType = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('media')[0].getAttribute("type");
+				try{
+					var promoMediaURL = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('media')[0].childNodes[0].nodeValue;
+					var promoText = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('text')[0].childNodes[0].nodeValue;
+				}catch(e){
+					var promoText = ' ';
+				}										
+				var promoLink = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('link')[0].childNodes[0].nodeValue;
+				
+				//different mime type embed
+				if (promoMediaType == 'image') {
+					document.getElementById(contentContainer).innerHTML = '<div class="image_small_short">\n<a class="imagelink" href="' + promoLink + '" title="' + promoTitle + '" /><img src="' + promoMediaURL + '" alt="promo" /></a>\n</div>\n' + promoText;
+				} else if (promoMediaType == 'flash') {
+					document.getElementById(contentContainer).innerHTML = '<div class="image_small_short">\n<object width="210" height="80" wmode="opaque"><param name="movie" value="' + promoMediaURL + '"><embed src="' + promoMediaURL + '" width="210" height="80"></embed></object>\n</div>' + promoText;
+				}
+			} else {
+				// Error loading file!
+			}
+		}
+		promoContent = new XMLHTTP();
+ 	}
+	promoContent.send(null);	
+}
+
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){if(oldonload){oldonload();}
+func();}}}
+
+var XMLHTTP=WDN.proxy_xmlhttp;
