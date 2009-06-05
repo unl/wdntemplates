@@ -43,7 +43,7 @@
 
 #breadcrumbs ul li.selected{
 	height:44px;
-	background:url('images/tabBGSprite.png') top right no-repeat;
+	background:url('images/tabBGRight.png') top right no-repeat;
 	display:block;
 	margin:-11px 0 0 15px;
 	padding:0px;
@@ -54,7 +54,7 @@
 #breadcrumbs ul li.selected a:visited 
 {
 	height:42px;
-    background:url('images/tabBGSprite.png') 0 -44px no-repeat;
+    background:url('images/tabBGLeft.png') 0 0 no-repeat;
     padding:21px 20px;
     margin:0 10px 0 -15px;
     position: relative;
