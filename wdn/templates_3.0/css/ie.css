@@ -34,10 +34,14 @@ ul#wdn_tool_links li {
 	display:block;
 }
 
+#breadcrumbs ul li.selected {
+	position:relative;
+}
+
 #breadcrumbs ul li.selected a,
 #breadcrumbs ul li.selected a:link,
 #breadcrumbs ul li.selected a:visited 
 {
 	padding-right:38px;
-
+	background:url('navigation/images/tabBGLeft_IE7.png') 0 0 no-repeat;
 }
