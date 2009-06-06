@@ -207,7 +207,8 @@ WDN.navigation = function() {
             }
 
 			var xreq = new WDN.proxy_xmlhttp();
-			xreq.open("GET", 'http://www.unl.edu/ucomm/sharedcode/navigation.html', true);
+			var nav_sniffer = 'http://www1.unl.edu/wdn/test/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
+			xreq.open("GET", nav_sniffer+breadcrumb.target.href, true);
 			xreq.onreadystatechange = function() 
 			{
 				try {
