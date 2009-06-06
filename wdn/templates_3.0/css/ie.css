@@ -19,6 +19,13 @@
 	padding-bottom:22px;
 }
 
+#footer .footer_col h3 {
+    padding:6px;
+	font-size:1.1em;
+	background-color:#ac0302;
+	margin-bottom:25px;
+}
+
 ul#wdn_tool_links li {
 	float:left;
 	width:20px;
@@ -32,4 +39,5 @@ ul#wdn_tool_links li {
 #breadcrumbs ul li.selected a:visited 
 {
 	padding-right:38px;
+
 }
