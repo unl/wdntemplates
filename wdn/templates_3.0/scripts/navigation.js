@@ -75,10 +75,10 @@ WDN.navigation = function() {
 			 * Because we don't know the height, slowly expand to a set height
 			 * then snap the rest of the way.
 			 */
-			jQuery('#navigation ul').animate({height:'198px'},60,0,function(){
+			jQuery('#navigation ul').animate({height:'198px'},200,function(){
 					jQuery('#navigation ul').css({height:'auto'});
 				});
-			jQuery('#navigation ul ul li').show(10);
+			jQuery('#navigation ul ul li').show(100);
 			jQuery('#navigation ul ul').show(300, WDN.navigation.updateHelperText);
 			jQuery('#navigation-close').fadeIn();
 			WDN.navigation.setWrapperClass('expanded');
@@ -209,8 +209,7 @@ WDN.navigation = function() {
 			var xreq = new WDN.proxy_xmlhttp();
 			var nav_sniffer = 'http://www1.unl.edu/wdn/test/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
 			xreq.open("GET", nav_sniffer+WDN.toAbs(breadcrumb.target.href, window.location), true);
-			xreq.onreadystatechange = function() 
-			{
+			xreq.onreadystatechange = function() {
 				try {
 					if (xreq.readyState == 4) {
 						if (xreq.status == 200) {
