@@ -26,7 +26,7 @@ WDN.navigation = function() {
 		 */
 		collapseDelay : 60,
 		
-		changeSiteNavDelay : 1000,
+		changeSiteNavDelay : 250,
 		
 		/**
 		 * Initialize the navigation, and determine what the correct state
@@ -39,7 +39,7 @@ WDN.navigation = function() {
 			jQuery('#navigation-expand-collapse').click(WDN.navigation.setPreferredState);
 			jQuery('#navigation-close').click(WDN.navigation.collapse);
 			WDN.navigation.determineSelectedBreadcrumb();
-			jQuery('#breadcrumbs ul li a').hover(WDN.navigation.switchSiteNavigation, 1000);
+			jQuery('#breadcrumbs ul li a').hover(WDN.navigation.startChangeNavigationDelay);
 
 			// Store the current state of the cookie
 			if (WDN.getCookie('n') == 1) {
@@ -143,7 +143,8 @@ WDN.navigation = function() {
 		},
 		
 		startChangeNavigationDelay :function(breadcrumb) {
-			WDN.navigation.timeout = setTimeout(WDN.navigation.switchSiteNavigation, WDN.navigation.changeSiteNavDelay);
+			
+			WDN.navigation.timeout = setTimeout(function(){WDN.navigation.switchSiteNavigation(breadcrumb);}, WDN.navigation.changeSiteNavDelay);
 		},
 		
 		setPreferredState : function(event) {
