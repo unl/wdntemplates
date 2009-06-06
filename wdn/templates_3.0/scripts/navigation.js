@@ -202,7 +202,7 @@ WDN.navigation = function() {
             if (jQuery(breadcrumb.target).siblings('.storednav').length > 0) {
                 // We've already grabbed the nav for this link
                 WDN.navigation.setNavigationContents(jQuery(breadcrumb.target).siblings('.storednav').contents());
-                return false;
+                return true;
             }
 
 			var xreq = new WDN.proxy_xmlhttp();
