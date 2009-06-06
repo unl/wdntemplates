@@ -8,4 +8,9 @@
 
 #wdn_wrapper  {
 	overflow:hidden;
+	border-top:12px solid #e0e0e0;
+}
+#header {
+	margin-top:-12px;
+	background:url('images/leftTab_ie7.png') no-repeat top left;
 }
