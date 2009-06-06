@@ -12,9 +12,17 @@
 }
 #header {
 	margin-top:-12px;
-	background:url('images/leftTab_IE7.png') no-repeat top left;
+	background:url('header/images/leftTab_IE7.png') no-repeat top left;
 }
 
 #wdn_content_wrapper {
 	padding-bottom:22px;
+}
+
+ul#wdn_tool_links li {
+	float:left;
+	width:20px;
+}
+#wdn_tool_links a {
+	display:block;
 }
