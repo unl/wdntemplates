@@ -79,16 +79,18 @@ WDN.navigation = function() {
 					jQuery('#navigation ul').css({height:'auto'});
 				});
 			jQuery('#navigation ul ul li').show(10);
-			jQuery('#navigation ul ul').show(300, function() {
-				if (WDN.navigation.preferredState == 1) {
-					jQuery('#navigation-expand-collapse span').text('click to always hide full navigation');
-				} else {
-					jQuery('#navigation-expand-collapse span').text('click to always show full navigation');
-				}
-			});
+			jQuery('#navigation ul ul').show(300, WDN.navigation.updateHelperText);
 			jQuery('#navigation-close').fadeIn();
 			WDN.navigation.setWrapperClass('expanded');
 			WDN.navigation.currentState = 1;
+		},
+		
+		updateHelperText : function() {
+			if (WDN.navigation.preferredState == 1) {
+				jQuery('#navigation-expand-collapse span').text('click to always hide full navigation');
+			} else {
+				jQuery('#navigation-expand-collapse span').text('click to always show full navigation');
+			}
 		},
 		
 		/**
@@ -109,14 +111,13 @@ WDN.navigation = function() {
 			});
 			jQuery('#navigation ul').css({overflow:'hidden'});
 			jQuery('#navigation ul').animate({height:'50px'});
-			//jQuery('#navigation ul ul li:not(:first-child)').hide(10);
+			jQuery('#navigation ul ul li:not(:first-child)').hide(10);
 		},
 		
 		/**
 		 * Set a delay for expanding the navigation.
 		 */
 		startExpandDelay : function (event) {
-			event.stopPropagation();
 			WDN.log('start expand delay');
 			if (WDN.navigation.currentState == 1) {
 				return;
@@ -129,7 +130,6 @@ WDN.navigation = function() {
 		 * Set a delay for collapsing the navigation.
 		 */
 		startCollapseDelay : function(event) {
-			event.stopPropagation();
 			WDN.log('start collapse delay');
 			if (WDN.navigation.currentState == 0) {
 				return;
@@ -160,7 +160,6 @@ WDN.navigation = function() {
 				WDN.navigation.preferredState = 0;
 			}
 			WDN.navigation.initializePreferredState();
-			event.stopPropagation();
 		},
 		
 		/**
@@ -181,16 +180,24 @@ WDN.navigation = function() {
 			jQuery('#wdn_navigation_bar').hover(
 					WDN.navigation.startExpandDelay,
 					mouseout);
+			WDN.navigation.updateHelperText();
 		},
 		
 		switchSiteNavigation : function(breadcrumb) {
-		    // Store the current navigation
+			WDN.log('Switch site nav called');
+			
+			if (jQuery(breadcrumb.target).parent().hasClass('selected')) {
+				WDN.log('already showing this nav');
+				return true;
+			}
+
+			// Store the current navigation
             jQuery('#breadcrumbs ul li.selected').append('<div class="storednav"><ul>'+jQuery('#navigation ul').html()+'</ul></div>');
             
             // Set the clicked breadcrumb link to selected
 		    jQuery('#breadcrumbs ul li.selected').removeClass('selected');
 		    jQuery(breadcrumb.target).parent().addClass('selected');
-                        
+
             // Check for stored navigation
             if (jQuery(breadcrumb.target).siblings('.storednav').length > 0) {
                 // We've already grabbed the nav for this link
@@ -224,6 +231,7 @@ WDN.navigation = function() {
 		
 		setNavigationContents : function(contents) {
             jQuery('#navigation ul:first-child').replaceWith(contents);
+            WDN.navigation.currentState = -1;
             WDN.navigation.expand();
 		},
 		
