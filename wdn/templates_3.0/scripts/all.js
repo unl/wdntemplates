@@ -6,40 +6,45 @@ var WDN = function() {
 		/**
 		 * This stores what javascript files have been loaded already
 		 */
-		loadedJS : [],
+		loadedJS : {},
 		
-		/**
-		 * Call this function to load an external javascript file.
-		 * Optionally, pass a callback which will be called once the file
-		 * has been loaded.
+		/*
+		 * Loads an external JavaScript file. 
+		 * 
+		 * @param String url
+		 * @param Function callback (optional) - will be called once the JS file has been loaded
+		 * @param Bool checkLoaded (optional) - if false, the JS will be loaded without checking whether it's already been loaded
+		 * @param Bool callbackIfLoaded (optional) - if false, the callback will not be executed if the JS has already been loaded
 		 */
-		loadJS : function(url, callback) {
-			if (WDN.loadedJS[url] == true) {
-				WDN.log('already loaded '+url);
-				if (callback != null) {
-					callback();
-				}
-			} else {
-				WDN.log('attempting to load '+url);
+		
+		loadJS : function(url,callback,checkLoaded,callbackIfLoaded) {
+			if ((arguments.length>2 && checkLoaded === false) || !WDN.loadedJS[url]){
+				WDN.log("begin loading JS: " + url);
 				var e = document.createElement("script");
 				e.setAttribute('src', url);
 				e.setAttribute('type','text/javascript');
-				var head = document.getElementsByTagName('head').item(0);
-				head.insertBefore(e, head.firstChild);
-				WDN.loadedJS[url] = false;
-				if (callback != null) {
-					mycallback = function() {WDN.jsLoaded(url);callback();};
-				} else {
-					mycallback = function() {WDN.jsLoaded(url);};
-				}
-				e.onload = mycallback;
+				document.getElementsByTagName('head').item(0).appendChild(e);
+				
+				callback = callback || function() {};
+				var executeCallback = function() {
+					WDN.loadedJS[url] = true;
+					WDN.log("finished loading JS file: " + url);
+					callback();
+				};
+				
 				e.onreadystatechange = function() {
-					   if (this.readyState == 'complete'
-						   || this.readyState == 'loaded') {
-						   mycallback();
-					   }
+					if (e.readyState == "loaded" || e.readyState == "complete"){
+						executeCallback();
 					}
-
+				};
+				e.onload = executeCallback;
+				
+			} else {
+				WDN.log("JS file already loaded: " + url);
+				if ((arguments.length > 3 && callbackIfLoaded === false) || !callback){
+					return;
+				}
+				callback();
 			}
 		},
 		
@@ -99,6 +104,7 @@ var WDN = function() {
 		
 		initializePlugin:function (plugin)
 		{
+			
 			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', function() {eval('WDN.'+plugin+'.initialize();');});
 		},
 		
