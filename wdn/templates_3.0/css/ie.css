@@ -5,3 +5,7 @@
 #wdn_navigation_wrapper {
 	margin-right:24px;
 }
+
+#wdn_wrapper  {
+	overflow:hidden;
+}
