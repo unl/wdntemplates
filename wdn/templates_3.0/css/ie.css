@@ -34,6 +34,10 @@ ul#wdn_tool_links li {
 	display:block;
 }
 
+#breadcrumbs {
+	width:958px;
+}	
+
 #breadcrumbs ul li.selected {
 	position:relative;
 }
