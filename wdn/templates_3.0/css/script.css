@@ -37,10 +37,12 @@
 	margin-top:120px;
 }
 
+/*
 #navigation ul ul li,
 .nav_collapsed #navigation ul ul li {
 	display:none;
 }
+*/
 
 #navigation ul,
 .nav_collapsed #navigation ul {
