@@ -40,6 +40,7 @@ ul#wdn_tool_links li {
 
 #breadcrumbs ul li.selected {
 	position:relative;
+	margin-left:0px;
 }
 
 #breadcrumbs ul li.selected a,
