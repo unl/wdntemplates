@@ -208,7 +208,7 @@ WDN.navigation = function() {
 
 			var xreq = new WDN.proxy_xmlhttp();
 			var nav_sniffer = 'http://www1.unl.edu/wdn/test/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
-			xreq.open("GET", nav_sniffer+breadcrumb.target.href, true);
+			xreq.open("GET", nav_sniffer+WDN.toAbs(breadcrumb.target.href, window.location), true);
 			xreq.onreadystatechange = function() 
 			{
 				try {
@@ -217,11 +217,7 @@ WDN.navigation = function() {
 							jQuery('#breadcrumbs ul li a[href="'+breadcrumb.currentTarget.href+'"').append('<div class="storednav">'+xreq.responseText+'</div>');
 							WDN.navigation.setNavigationContents(xreq.responseText);
 						} else {
-							if (undefined == err) {
-								document.getElementById(id).innerHTML = 'Error loading results.';
-							} else {
-								document.getElementById(id).innerHTML = err;
-							}
+							document.getElementById(id).innerHTML = 'Error loading results.';
 						}
 					}
 					xreq = new WDN.proxy_xmlhttp();

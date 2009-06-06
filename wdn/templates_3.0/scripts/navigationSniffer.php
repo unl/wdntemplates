@@ -1,4 +1,5 @@
 <?php
+
 if (empty($_GET['u'])) {
 	throwError();
 }
@@ -30,7 +31,7 @@ if ($page = @file_get_contents($clean_url)) {
 		throwError('Bad html');
 	}
 	$xpath = new DOMXpath($dom);
-	$element = $xpath->query('//*[@id="navigation"]/*/ul[1]');
+	$element = $xpath->query('//*[@id="navigation"]/ul[1]|//*[@id="navigation"]/*/ul[1]');
 	if ($element->length) {
 		$navigation = simplexml_import_dom($element->item(0));
 		echo removeRelativePaths($navigation->asXML(), $clean_url);
