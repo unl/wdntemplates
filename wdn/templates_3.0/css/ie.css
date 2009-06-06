@@ -26,3 +26,10 @@ ul#wdn_tool_links li {
 #wdn_tool_links a {
 	display:block;
 }
+
+#breadcrumbs ul li.selected a,
+#breadcrumbs ul li.selected a:link,
+#breadcrumbs ul li.selected a:visited 
+{
+	padding-right:38px;
+}
