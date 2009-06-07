@@ -216,12 +216,12 @@ WDN.navigation = function() {
 							jQuery('#breadcrumbs ul li a[href="'+breadcrumb.currentTarget.href+'"').append('<div class="storednav">'+xreq.responseText+'</div>');
 							WDN.navigation.setNavigationContents(xreq.responseText);
 						} else {
-							document.getElementById(id).innerHTML = 'Error loading results.';
+							// Error message
 						}
 					}
 					xreq = new WDN.proxy_xmlhttp();
 				} catch(e) {}
-			}
+			};
 			xreq.send(null);
 			return false;
 		},

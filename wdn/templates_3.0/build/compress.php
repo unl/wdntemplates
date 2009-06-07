@@ -1,0 +1,30 @@
+<?php
+
+$files = array(
+'wdn',
+'xmlhttp',
+'navigation',
+'search',
+'toolbar',
+'plugins/colorbox/jquery.colorbox',
+'global_functions',
+);
+
+$all = '';
+
+$loaded = 'WDN.loadedJS["wdn/templates_3.0/scripts/jquery.js"]=true;'.PHP_EOL;
+
+require_once dirname(__FILE__).'/JavaScriptPacker.php';
+foreach ($files as $file) {
+    
+    $packer = new JavaScriptPacker(file_get_contents(dirname(__FILE__)."/../scripts/$file.js"), 'Normal', true, false);
+    $all .= '//'.$file.PHP_EOL.$packer->pack();
+    $loaded .= 'WDN.loadedJS["wdn/templates_3.0/scripts/'.$file.'.js"]=true;'.PHP_EOL;
+}
+
+$all .= PHP_EOL.$loaded.'WDN.initializeTemplate();';
+
+$compressed = file_get_contents(dirname(__FILE__)."/../scripts/jquery.js").PHP_EOL.$all;
+
+file_put_contents(dirname(__FILE__).'/../scripts/all.js', $compressed);
+?>
