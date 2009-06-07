@@ -1,5 +1,5 @@
 <?php
-
+// Set up the list of all the javascript files
 $files = array(
 'wdn',
 'xmlhttp',
@@ -11,12 +11,10 @@ $files = array(
 );
 
 $all = '';
-
 $loaded = 'WDN.loadedJS["wdn/templates_3.0/scripts/jquery.js"]=true;'.PHP_EOL;
 
 require_once dirname(__FILE__).'/JavaScriptPacker.php';
 foreach ($files as $file) {
-    
     $packer = new JavaScriptPacker(file_get_contents(dirname(__FILE__)."/../scripts/$file.js"), 'Normal', true, false);
     $all .= '//'.$file.PHP_EOL.$packer->pack();
     $loaded .= 'WDN.loadedJS["wdn/templates_3.0/scripts/'.$file.'.js"]=true;'.PHP_EOL;
