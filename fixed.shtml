@@ -41,14 +41,7 @@ addLoadEvent(function() {
                 </fieldset>
             </form>
         </div>
-        
-        <ul id="wdn_tool_links">
-            <li><a href="http://www1.unl.edu/feeds/" class="feed" title="Subscribe to RSS feeds">Feeds</a></li>
-            <li><a href="http://forecast.weather.gov/MapClick.php?CityName=Lincoln&amp;state=NE&amp;site=OAX" class="weather" title="Weather">Weather</a></li>
-            <li><a href="http://events.unl.edu/" class="calendar" title="Events">Events</a></li>
-            <li><a href="http://peoplefinder.unl.edu/" class="directory" title="Peoplefinder">Peoplefinder</a></li>
-            <li><a href="http://www.unl.edu/unlpub/cam/cam1.shtml" class="camera" title="Campus Cameras">Camera</a></li>
-        </ul>
+        <!--#include virtual="wdn/templates_3.0/includes/wdnTools.shtml" -->
     </div>
     <div id="wdn_navigation_bar">
     
@@ -63,83 +56,8 @@ addLoadEvent(function() {
         
         <div id="wdn_navigation_wrapper">
             <div id="navigation">
-                <ul> 
-                    <li><a href="#">Apply</a> 
-                        <ul> 
-                            <li><a href="#">Freshman</a></li> 
-                            <li><a href="#">Transfer</a></li> 
-                            <li><a href="#">International</a></li> 
-                            <li><a href="#">Returning</a></li> 
-                            <li><a href="#">Visiting</a></li> 
-                            <li><a href="#">Intercampus</a></li> 
-                            <li><a href="#">Graduate</a></li> 
-                            <li><a href="#">Certificate Programs</a></li> 
-                        </ul>
-                    </li> 
-                    <li><a href="#">Visit</a>
-                        <ul>
-                            <li><a href="#">Campus Visit</a></li>
-                            <li><a href="#">Super Saturday</a></li>  
-                        </ul>
-                    </li>
-                    <li> <a href="#">Get More Information</a> 
-                        <ul> 
-                            <li><a href="#">Join Our Mailing List</a></li> 
-                            <li><a href="#">Meet Your Counselor</a></li> 
-                            <li><a href="#">Contact Us</a></li>
-                        </ul> 
-                    </li> 
-                    <li> <a href="#">Husker Experience</a>
-                        <ul>
-                            <li><a href="#">Academics &amp; Support</a></li>
-                            <li><a href="#">Campus Life</a></li>
-                            <li><a href="#">Cost &amp; Aid</a></li>
-                            <li><a href="#">Diversity</a></li>
-                            <li><a href="#">Lincoln Life</a></li>
-                            <li><a href="#">New Student Enrollment</a></li>
-                        </ul>
-                    </li>
-                    <li> <a href="#">Admission &amp; Credit</a> 
-                        <ul> 
-                            <li><a href="#">Admission Requirements</a></li> 
-                            <li><a href="#">Transferring Credit</a></li> 
-                            <li><a href="#">AP/IB</a></li> 
-                            <li><a href="#">Residency</a></li> 
-                            <li><a href="#">Enrollment Deposit</a></li> 
-                            <li><a href="#">Services for Students with Disabilities</a></li> 
-                        </ul>
-                    </li>
-                    <li> <a href="#">Real Nebraska</a> 
-                        <ul> 
-                            <li><a href="#">Latest Episode</a></li> 
-                            <li><a href="#">Submit a Question</a></li> 
-                            <li><a href="#">On YouTube</a></li> 
-                        </ul>
-                    </li>
-                    
-                    <li> <a href="#">Real Nebraska</a> 
-                        <ul> 
-                            <li><a href="#">Latest Episode</a></li> 
-                            <li><a href="#">Submit a Question</a></li> 
-                            <li><a href="#">On YouTube</a></li> 
-                        </ul>
-                    </li>
-                    <li> <a href="#">Real Nebraska</a> 
-                        <ul> 
-                            <li><a href="#">Latest Episode</a></li> 
-                            <li><a href="#">Submit a Question</a></li> 
-                            <li><a href="#">On YouTube</a></li> 
-                        </ul>
-                    </li>
-                    <li> <a href="#">Real Nebraska</a> 
-                        <ul> 
-                            <li><a href="#">Latest Episode</a></li> 
-                            <li><a href="#">Submit a Question</a></li> 
-                            <li><a href="#">On YouTube</a></li> 
-                        </ul>
-                    </li>
-                    
-                </ul>
+                <!--#include virtual="sharedcode/navigation.shtml" -->
+                
                 <!-- End Navigation Markup -->
             </div>
         </div>
@@ -310,8 +228,7 @@ addLoadEvent(function() {
             <div id="footer_floater">
             </div>
             <div class="footer_col">
-            <h3>Your Feedback</h3>
-            (feedback form)
+            <!--#include virtual="wdn/templates_3.0/includes/feedback.shtml" -->
             </div>
             
             <div class="footer_col">
@@ -324,7 +241,7 @@ addLoadEvent(function() {
             </div>
             
             <div class="footer_col">
-            <!--#include virtual="sharedcode/relatedLinks.html" -->
+            <!--#include virtual="sharedcode/relatedLinks.shtml" -->
             </div>
             
             <div class="footer_col">
