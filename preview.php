@@ -30,6 +30,40 @@ $p->breadcrumbs = str_replace('<a href="http://admissions.unl.edu/apply/" title=
 							  '',
 								$p->breadcrumbs);
 
+function removeRelativePaths($html, $base_url)
+{
+    $needles = array('href="', 'src="', 'background="','href=\'','src=\'');
+    if (substr($base_url,-1) != '/') {
+    	$base_url .= '/';
+    }
+    $new_base_url = $base_url;
+    $base_url_parts = parse_url($base_url);
+
+    foreach ($needles as $needle) {
+        $new_txt = '';
+        while ($pos = strpos($html, $needle)) {
+            $pos += strlen($needle);
+            if (substr($html,$pos,7) != 'http://'
+                 && substr($html,$pos,8) != 'https://'
+                 && substr($html,$pos,6) != 'ftp://'
+                 && substr($html,$pos,9) != 'mailto://') {
+                 if (substr($html,$pos,1) == '/') {
+                     $new_base_url = $base_url_parts['scheme'].'://'.$base_url_parts['host'];
+                 }
+                 $new_txt .= substr($html,0,$pos).$new_base_url;
+            } else {
+                $new_txt .= substr($html,0,$pos);
+            }
+            $html = substr($html,$pos);
+        }
+        $html = $new_txt.$html;
+    }
+    return $html;
+}
+
+foreach (get_object_vars($p) as $key=>$value) {
+	$p->$key = removeRelativePaths($value, $_GET['u']);
+}
 
 echo '<?xml version="1.0" encoding="UTF-8"?>';
 ?>
