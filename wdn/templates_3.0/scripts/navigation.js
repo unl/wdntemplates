@@ -54,12 +54,13 @@ WDN.navigation = function() {
 		determineSelectedBreadcrumb : function() {
 			// Right now, stupidly select the second element.
 			jQuery('#breadcrumbs ul li:nth-child(2)').addClass('selected');
-			if (jQuery('#breadcrumbs ul li.selected').find('a')) {
+			if (jQuery('#breadcrumbs ul li.selected a').size()) {
 				// Found the homepage url in the breadcrumbs
 				WDN.navigation.siteHomepage = jQuery('#breadcrumbs ul li.selected').find('a').attr('href');
 			} else {
 				// Assume it's the current page
 				WDN.navigation.siteHomepage = window.location;
+				jQuery('#breadcrumbs ul li.selected').wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
 			}
 		},
 		

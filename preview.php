@@ -76,10 +76,10 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
                           http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd">
 
 <head>
-    <link rel="stylesheet" type="text/css" media="screen" href="wdn/templates_3.0/css/all.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="wdn/templates_3.0/css/debug.css" />
     <link rel="stylesheet" type="text/css" media="print" href="wdn/templates_3.0/css/print.css" />
     <link rel="shortcut icon" href="wdn/templates_3.0/images/favicon.ico" />
-    <script type="text/javascript" src="wdn/templates_3.0/scripts/all.js"></script>
+    <script type="text/javascript" src="wdn/templates_3.0/scripts/debug.js"></script>
     <!--[if IE 7]>
         <link rel="stylesheet" type="text/css" media="screen" href="wdn/templates_3.0/css/ie.css" />
     <![endif]-->
