@@ -32,6 +32,7 @@ $p->breadcrumbs = str_replace('<a href="http://admissions.unl.edu/apply/" title=
 
 function removeRelativePaths($html, $base_url)
 {
+
     $needles = array('href="', 'src="', 'background="','href=\'','src=\'');
     if (substr($base_url,-1) != '/') {
     	$base_url .= '/';
@@ -61,8 +62,8 @@ function removeRelativePaths($html, $base_url)
     return $html;
 }
 
-foreach (get_object_vars($p) as $key=>$value) {
-	$p->$key = removeRelativePaths($value, $_GET['u']);
+foreach (array('maincontentarea','head') as $key) {
+	$p->$key = removeRelativePaths($p->$key, $_GET['u']);
 }
 
 echo '<?xml version="1.0" encoding="UTF-8"?>';
@@ -147,6 +148,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
             </div>
             
             <div class="footer_col">
+            <h3>Now On UNL.edu</h3>
             <?php echo $p->leftRandomPromo; ?>
             </div>
             
@@ -157,7 +159,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
             <div class="footer_col">
             <h3>Contacting Us</h3>
             <p><strong>University Communications</strong><br />
-            WICK 17<br />  
+            WICK 17<br />
             Lincoln  NE  68583-0218</p>
             
             </div>
