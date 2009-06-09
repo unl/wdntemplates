@@ -2,6 +2,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html version="-//W3C//DTD XHTML 1.1//EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd">
 <head>
+    <!--
+    Membership and regular participation in the UNL Web Developer Network
+    is required to use the UNL templates. Visit the WDN site at 
+    http://wdn.unl.edu/. Click the WDN Registry link to log in and
+    register your unl.edu site.
+    All UNL template code is the property of the UNL Web Developer Network.
+    The code seen in a source code view is not, and may not be used as, a 
+    template. You may not use this code, a reverse-engineered version of 
+    this code, or its associated visual presentation in whole or in part to
+    create a derivative work.
+    This message may not be removed from any pages based on the UNL site template.
+    -->
     <link rel="stylesheet" type="text/css" media="screen" href="wdn/templates_3.0/css/all.css" />
     <link rel="stylesheet" type="text/css" media="print" href="wdn/templates_3.0/css/print.css" />
     <script type="text/javascript" src="wdn/templates_3.0/scripts/all.js"></script>
@@ -21,7 +33,7 @@
 <div id="wdn_wrapper">
     <div id="header">
         <a href="http://www.unl.edu/" title="UNL website"><img src="wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
-        <h1>University of Nebraska&ndash;Lincoln</h1>        
+        <h1>University of Nebraska&ndash;Lincoln</h1>
         <!--#include virtual="wdn/templates_3.0/includes/wdnTools.shtml" -->
     </div>
     <div id="wdn_navigation_bar">    
