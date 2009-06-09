@@ -6,18 +6,16 @@
     <link rel="stylesheet" type="text/css" media="print" href="wdn/templates_3.0/css/print.css" />
     <link rel="shortcut icon" href="wdn/templates_3.0/images/favicon.ico" />
     <script type="text/javascript" src="wdn/templates_3.0/scripts/all.js"></script>
-    <!--[if IE 7]>
-		<link rel="stylesheet" type="text/css" media="screen" href="wdn/templates_3.0/css/ie.css" />
-	<![endif]-->
+    <!--#include virtual="wdn/templates_3.0/includes/browserspecifics.shtml" -->
     <!--#include virtual="wdn/templates_3.0/includes/developersnote.shtml" -->
 	<!--#include virtual="wdn/templates_3.0/includes/metanfavico.shtml" -->
     <title>UNL | Template</title>    
     <script type="text/javascript">
-/*change your configuration */
-addLoadEvent(function() {
-	newRandomPromo('http://www.unl.edu/ucomm/splash/promo.xml');
-});
-</script>
+		/*change your configuration */
+		addLoadEvent(function() {
+			newRandomPromo('http://www.unl.edu/ucomm/splash/promo.xml');
+		});
+	</script>
 </head>
 <body class="fixed">
 <p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
@@ -39,13 +37,13 @@ addLoadEvent(function() {
     <div id="wdn_navigation_bar">    
         <div id="breadcrumbs">
             <ul>
+                <!-- WDN: see glossary item 'breadcrumbs' -->
                 <li><a href="http://www.unl.edu/">UNL</a></li>
                 <li><a href="http://admissions.unl.edu/">Admissions</a></li>
                 <li><a href="http://ucommbieber.unl.edu/">One line nav</a></li>
                 <li><a href="http://chemistry.unl.edu/index.shtml">Chemistry Nav</a></li>
             </ul>
-        </div>
-        
+        </div>        
         <div id="wdn_navigation_wrapper">
             <div id="navigation">
                 <!--#include virtual="sharedcode/navigation.shtml" -->                
@@ -58,6 +56,7 @@ addLoadEvent(function() {
             <h1>Undergraduate Office of Admissions</h1>
         </div>        
         <div id="maincontent">
+        <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             <div class="two_col left">
                 <div class="image_medium"><img src="admissionsPhoto.jpg" alt="Admissions" /></div>
                 <p class="caption">Nebraska fans celebrate the Huskers'
