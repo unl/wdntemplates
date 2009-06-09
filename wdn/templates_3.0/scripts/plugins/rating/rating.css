@@ -24,7 +24,7 @@
         overflow: hidden;
         text-indent: -999em;
         cursor: pointer;
-        margin-left:5px;
+        margin-left:2px;
     }
 
     div.done, div.done a {
@@ -42,7 +42,7 @@
     }
 
     div.rating div.on a {
-        background-position: 0 -16px;
+        background-position: 0 -56px;
     }
 	div.rating div.hover a {
 		background-position: 0 -28px;

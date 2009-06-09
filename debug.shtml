@@ -8,12 +8,6 @@
     <!--#include virtual="wdn/templates_3.0/includes/browserspecifics.html" -->
 	<!--#include virtual="wdn/templates_3.0/includes/metanfavico.html" -->
     <title>UNL | Template</title>    
-    <script type="text/javascript">
-		/*change your configuration */
-		addLoadEvent(function() {
-			newRandomPromo('http://www.unl.edu/ucomm/splash/promo.xml');
-		});
-	</script>
 </head>
 <body class="fixed">
 <p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>

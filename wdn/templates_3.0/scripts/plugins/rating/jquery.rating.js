@@ -14,14 +14,14 @@
         var fill = function() {
           drain();
           $("a", stars).css("width", "100%");
-          stars.lt(stars.index(this) + 1).addClass("hover");
+          stars.slice(0, stars.index(this) + 1).addClass("hover");
         },
         drain = function() {
           stars.removeClass("on").removeClass("hover");
         },
         reset = function() {
           drain();
-          stars.lt(rating[0]).addClass("on");
+          stars.slice(0, rating[0]).addClass("on");
           if(percent = rating[1] ? rating[1] * 10 : null) {
             stars.eq(rating[0]).addClass("on").children("a").css("width", percent + "%");
           }
@@ -62,7 +62,8 @@
     return container;
   }
 
-  var averageRating = function(el) { return el.title.split(":")[1].split(".") }
+  //var averageRating = function(el) { return el.title.split(":")[1].split(".") }
+  var averageRating = function(el) { return 0}
 
   $.fn.rating = function() { return $($.map(this, function(i) { return buildRating(i)[0] })); }
 
