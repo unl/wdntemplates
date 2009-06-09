@@ -19,8 +19,8 @@
 <link rel="stylesheet" type="text/css" media="screen" href="http://www.unl.edu/wdn/templates_3.0/css/all.css" />
 <link rel="stylesheet" type="text/css" media="print" href="http://www.unl.edu/wdn/templates_3.0/css/print.css" />
 <script type="text/javascript" src="http://www.unl.edu/wdn/templates_3.0/scripts/all.js"></script>
-<!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.shtml" -->
-<!--#include virtual="/wdn/templates_3.0/includes/metanfavico.shtml" -->
+<!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
+<!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>UNL | Department | New Page</title>
 <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" -->
@@ -32,7 +32,7 @@
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="http://www.unl.edu/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.shtml" -->
+        <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
     </div>
     <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
@@ -45,7 +45,7 @@
             <!-- TemplateEndEditable --></div>
         <div id="wdn_navigation_wrapper">
             <div id="navigation"><!-- TemplateBeginEditable name="navlinks" -->
-                <!--#include virtual="../sharedcode/navigation.shtml" -->
+                <!--#include virtual="../sharedcode/navigation.html" -->
                 <!-- TemplateEndEditable --></div>
         </div>
     </div>
@@ -61,33 +61,33 @@
                 <a href="http://validator.unl.edu/check/referer">Check this page</a> </p>
             <!-- TemplateEndEditable -->
             <div class="clear"></div>
-            <!--#include virtual="/wdn/templates_3.0/includes/noscript.shtml" -->
+            <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
             <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
         </div>
         <div id="footer">
             <div id="footer_floater"></div>
             <div class="footer_col">
-                <!--#include virtual="/wdn/templates_3.0/includes/feedback.shtml" -->
+                <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
             </div>
             <div class="footer_col"><!-- TemplateBeginEditable name="leftRandomPromo" -->
-                <!--#include virtual="../sharedcode/footerColumn.shtml" -->
+                <!--#include virtual="../sharedcode/footerColumn.html" -->
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
-                <!--#include virtual="../sharedcode/relatedLinks.shtml" -->
+                <!--#include virtual="../sharedcode/relatedLinks.html" -->
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col">
                 <h3>Contacting Us</h3>
-                <!--#include virtual="../sharedcode/footerContactInfo.shtml" -->
+                <!--#include virtual="../sharedcode/footerContactInfo.html" -->
             </div>
             <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
             <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
-                <!--#include virtual="../sharedcode/footer.shtml" -->
+                <!--#include virtual="../sharedcode/footer.html" -->
                 <!-- TemplateEndEditable -->
                 <ul>
                     <li><a href="http://validator.unl.edu/check/referer">W3C</a></li>
                     <li><a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></li>
                 </ul>
-                <!--#include virtual="/wdn/templates_3.0/includes/wdn.shtml" -->
+                <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
                 <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="http://www.unl.edu/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
         </div>
     </div>
