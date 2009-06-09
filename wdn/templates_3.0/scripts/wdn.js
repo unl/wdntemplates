@@ -89,6 +89,10 @@ var WDN = function() {
 				WDN.initializePlugin('search');
 				WDN.initializePlugin('feedback');
 				WDN.initializePlugin('toolbar');
+				WDN.initializePlugin('toolbar_weather');
+				WDN.initializePlugin('toolbar_events');
+				WDN.initializePlugin('toolbar_peoplefinder');
+				WDN.initializePlugin('toolbar_webcam');
 			});
 		},
 		
