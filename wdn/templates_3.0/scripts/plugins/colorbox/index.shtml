@@ -1,19 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" ><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html version="-//W3C//DTD XHTML 1.1//EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--
+    Membership and regular participation in the UNL Web Developer Network
+    is required to use the UNL templates. Visit the WDN site at 
+    http://wdn.unl.edu/. Click the WDN Registry link to log in and
+    register your unl.edu site.
+    All UNL template code is the property of the UNL Web Developer Network.
+    The code seen in a source code view is not, and may not be used as, a 
+    template. You may not use this code, a reverse-engineered version of 
+    this code, or its associated visual presentation in whole or in part to
+    create a derivative work.
+    This message may not be removed from any pages based on the UNL site template.
+    
+    $Id: fixed.dwt 253 2009-06-09 18:00:03Z bbieber2 $
+-->
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
+<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
+<script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
+<!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
+<!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>UNL | WDN | Colorbox</title>
-<!-- InstanceEndEditable -->
-<!-- Codebase:UNLFramework 20071011 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/ucomm/templatedependents/templatecss/layouts/main.css" />
-<link rel="stylesheet" type="text/css" media="print" href="/ucomm/templatedependents/templatecss/layouts/print.css"/>
-<script type="text/javascript" src="/ucomm/templatedependents/templatesharedcode/scripts/all_compressed.js"></script>
-
-<!--#include virtual="/ucomm/templatedependents/templatesharedcode/includes/browsersniffers/ie.html" -->
-<!--#include virtual="/ucomm/templatedependents/templatesharedcode/includes/comments/developersnote.html" -->
-<!--#include virtual="/ucomm/templatedependents/templatesharedcode/includes/metanfavico/metanfavico.html" -->
-<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
 		<style type="text/css">		
 			.hidden{display:none;}
 		</style>
@@ -54,69 +64,38 @@
 		</script>
 <!-- InstanceEndEditable -->
 </head>
-<body id="fixed">
+<body class="fixed">
 <p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
- 
-<!--#include virtual="/ucomm/templatedependents/templatesharedcode/includes/siteheader/siteheader.shtml" -->
-
-<div id="red-header">
-	<div class="clear">
-		<h1>University of Nebraska&ndash;Lincoln</h1>
-		<div id="breadcrumbs"> <!-- InstanceBeginEditable name="breadcrumbs" -->
+<div id="wdn_wrapper">
+    <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+        <h1>University of Nebraska&ndash;Lincoln</h1>
+        <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
+    </div>
+    <div id="wdn_navigation_bar">
+        <div id="breadcrumbs">
+            <!-- WDN: see glossary item 'breadcrumbs' -->
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
 			<!-- WDN: see glossary item 'breadcrumbs' -->
 			<ul>
 				<li class="first"><a href="http://www.unl.edu/">UNL</a></li>
 				<li><a href="http://wdn.unl.edu">WDN</a></li>
                 <li>Colorbox</li>
 			</ul>
-			<!-- InstanceEndEditable --> </div>
-	</div>
-</div>
-<!-- close red-header -->
- 
-<!--#include virtual="/ucomm/templatedependents/templatesharedcode/includes/shelf/shelf.shtml" -->
-
-<div id="container">
-	<div class="clear">
-		<div id="title"> <!-- InstanceBeginEditable name="collegenavigationlist" --> <!-- InstanceEndEditable -->
-			<div id="titlegraphic">
-				<!-- WDN: see glossary item 'title graphics' -->
-				<!-- InstanceBeginEditable name="titlegraphic" -->
+			<!-- InstanceEndEditable --></div>
+        <div id="wdn_navigation_wrapper">
+            <div id="navigation"><!-- InstanceBeginEditable name="navlinks" -->
+				<!--#include virtual="../sharedcode/navigation.html" -->
+				<!-- InstanceEndEditable --></div>
+        </div>
+    </div>
+    <div id="wdn_content_wrapper">
+        <div id="titlegraphic"><!-- InstanceBeginEditable name="titlegraphic" -->
 				<h1>WDN</h1>
 				<h2>Colorbox</h2>
 				<!-- InstanceEndEditable --></div>
-			<!-- maintitle -->
-		</div>
-		<!-- close title -->
-		
-		<div id="navigation">
-			<h4 id="sec_nav">Navigation</h4>
-			
-			<div id="navlinks"> <!-- InstanceBeginEditable name="navlinks" -->
-				<!--#include virtual="../sharedcode/navigation.html" -->
-				<!-- InstanceEndEditable --></div>
-			
-			<div id="nav_end"></div>
-			<!-- InstanceBeginEditable name="leftRandomPromo" -->
-			<div class="image_small_short" id="leftRandomPromo"> <a href="#" id="leftRandomPromoAnchor"><img id="leftRandomPromoImage" alt="" src="/ucomm/templatedependents/templatecss/images/transpixel.gif" /></a>
-				<script type="text/javascript" src="../sharedcode/leftRandomPromo.js"></script>
-			</div>
-			<!-- InstanceEndEditable -->
-			<!-- WDN: see glossary item 'sidebar links' -->
-			<div id="leftcollinks"> <!-- InstanceBeginEditable name="leftcollinks" -->
-				<!-- WDN: see glossary item 'sidebar links' -->
-				<!--#include virtual="../sharedcode/relatedLinks.html" -->
-				<!-- InstanceEndEditable --> </div>
-		</div>
-		<!-- close navigation -->
-		
-		<div id="main_right" class="mainwrapper">
-			<!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-			
-			<div id="maincontent"> 
-				<!--#include virtual="/ucomm/templatedependents/templatesharedcode/includes/browsersniffers/noscript.html" -->
-				<!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-				<!-- InstanceBeginEditable name="maincontentarea" -->
+        <div id="maincontent">
+            <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+            <!-- InstanceBeginEditable name="maincontentarea" -->
             
                 
 		<h1>ColorBox Examples</h1>
@@ -165,30 +144,41 @@
        
                     
 				<!-- InstanceEndEditable -->
-				<!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
-				 </div>
-			 </div>
-		<!-- close main right -->
-	</div>
-</div>
-<!-- close container -->
-
-<div id="footer">
-	<div id="footer_floater"> <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
-		<div id="copyright"> <!-- InstanceBeginEditable name="footercontent" -->
+            <div class="clear"></div>
+            <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
+            <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+        </div>
+        <div id="footer">
+            <div id="footer_floater"></div>
+            <div class="footer_col">
+                <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
+            </div>
+            <div class="footer_col"><!-- InstanceBeginEditable name="leftRandomPromo" -->
+			<div class="image_small_short" id="leftRandomPromo"> <a href="#" id="leftRandomPromoAnchor"><img id="leftRandomPromoImage" alt="" src="/ucomm/templatedependents/templatecss/images/transpixel.gif" /></a>
+				<script type="text/javascript" src="../sharedcode/leftRandomPromo.js"></script>
+			</div>
+			<!-- InstanceEndEditable --></div>
+            <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
+				<!-- WDN: see glossary item 'sidebar links' -->
+				<!--#include virtual="../sharedcode/relatedLinks.html" -->
+				<!-- InstanceEndEditable --></div>
+            <div class="footer_col">
+                <h3>Contacting Us</h3>
+                <!--#include virtual="../../../../../sharedcode/footerContactInfo.html" -->
+            </div>
+            <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
+            <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
 			<!--#include virtual="../sharedcode/footer.html" -->
 			<!-- InstanceEndEditable -->
-			<ul>
-				<li><a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></li>
-				<li><a href="http://validator.unl.edu/check/referer">W3C</a></li>
-				<li><a href="http://www1.unl.edu/feeds/">RSS</a></li>
-			</ul>
-			<a href="http://www.unl.edu/" title="UNL Home"><img src="/ucomm/templatedependents/templatecss/images/wordmark.png" alt="UNL's wordmark" id="wordmark" /></a></div>
-	</div>
+                <ul>
+                    <li><a href="http://validator.unl.edu/check/referer">W3C</a></li>
+                    <li><a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></li>
+                </ul>
+                <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
+                <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
+        </div>
+    </div>
+    <div id="wdn_wrapper_footer"> </div>
 </div>
-
-<!-- close footer -->
-<!-- sifr -->
-<script type="text/javascript" src="/ucomm/templatedependents/templatesharedcode/scripts/sifr_replacements.js"></script>
 </body>
 <!-- InstanceEnd --></html>
