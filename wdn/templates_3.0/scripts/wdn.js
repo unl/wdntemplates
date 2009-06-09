@@ -87,6 +87,7 @@ var WDN = function() {
 			jQuery(document).ready(function() {
 				WDN.initializePlugin('navigation');
 				WDN.initializePlugin('search');
+				WDN.initializePlugin('feedback');
 				WDN.initializePlugin('toolbar');
 			});
 		},
