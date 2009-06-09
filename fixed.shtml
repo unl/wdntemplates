@@ -11,8 +11,7 @@
 	<![endif]-->
     <!--#include virtual="wdn/templates_3.0/includes/developersnote.shtml" -->
 	<!--#include virtual="wdn/templates_3.0/includes/metanfavico.shtml" -->
-    <title>UNL | Template</title>
-    
+    <title>UNL | Template</title>    
     <script type="text/javascript">
 /*change your configuration */
 addLoadEvent(function() {
@@ -25,8 +24,7 @@ addLoadEvent(function() {
 <div id="wdn_wrapper">
     <div id="header">
         <a href="http://www.unl.edu/" title="UNL website"><img src="wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
-        <h1>University of Nebraska&ndash;Lincoln</h1>
-        
+        <h1>University of Nebraska&ndash;Lincoln</h1>        
         <div id="wdn_search">
             <form id="wdn_search_form" action="http://www.google.com/u/UNL1?sa=Google+Search&amp;q=" method="get">
                 <fieldset>
@@ -38,8 +36,7 @@ addLoadEvent(function() {
         </div>
         <!--#include virtual="wdn/templates_3.0/includes/wdnTools.shtml" -->
     </div>
-    <div id="wdn_navigation_bar">
-    
+    <div id="wdn_navigation_bar">    
         <div id="breadcrumbs">
             <ul>
                 <li><a href="http://www.unl.edu/">UNL</a></li>
@@ -51,19 +48,15 @@ addLoadEvent(function() {
         
         <div id="wdn_navigation_wrapper">
             <div id="navigation">
-                <!--#include virtual="sharedcode/navigation.shtml" -->
-                
+                <!--#include virtual="sharedcode/navigation.shtml" -->                
                 <!-- End Navigation Markup -->
             </div>
         </div>
-    </div>
-    
-    <div id="wdn_content_wrapper">
-    
+    </div>    
+    <div id="wdn_content_wrapper">    
         <div id="titlegraphic">
             <h1>Undergraduate Office of Admissions</h1>
-        </div>
-        
+        </div>        
         <div id="maincontent">
             <div class="two_col left">
                 <div class="image_medium"><img src="admissionsPhoto.jpg" alt="Admissions" /></div>
@@ -151,11 +144,8 @@ addLoadEvent(function() {
                         </ol>
                         </fieldset>
                     </form>
-                </div>
-                
-                <div id="randomPromo" ></div>
-                
-                
+                </div>                
+                <div id="randomPromo" ></div>                                
             </div>
             <div class="col middle">
                 <small>THE BUZZ</small>
