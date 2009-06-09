@@ -7,6 +7,7 @@ $files = array(
 'search',
 'toolbar',
 'plugins/colorbox/jquery.colorbox',
+'plugins/rating/jquery.rating',
 'global_functions',
 );
 

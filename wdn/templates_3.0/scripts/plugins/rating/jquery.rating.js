@@ -9,7 +9,7 @@
     var rating = averageRating(obj),
         obj    = buildInterface(obj),
         stars  = $("div.star", obj),
-        cancel = $("div.cancel", obj)
+        cancel = $("div.cancel", obj);
 
         var fill = function() {
           drain();
@@ -32,8 +32,8 @@
         },
         cancelOff = function() {
           reset();
-          $(this).removeClass("on")
-        }
+          $(this).removeClass("on");
+        };
 
     stars
       .hover(fill, reset).focus(fill).blur(reset)
@@ -48,11 +48,11 @@
     reset();
     return obj;
 
-  }
+  };
 
   var buildInterface = function(form) {
     var container = $("<div><p>Please rate this page: </p></div>").attr({"title": form.title, "class": form.className});
-    $.extend(container, {url: form.action})
+    $.extend(container, {url: form.action});
     var optGroup  = $("option", $(form));
     var size      = optGroup.length;
     optGroup.each(function() {
@@ -60,13 +60,13 @@
     });
     $(form).after(container).remove();
     return container;
-  }
+  };
 
   //var averageRating = function(el) { return el.title.split(":")[1].split(".") }
-  var averageRating = function(el) { return 0}
+  var averageRating = function(el) { return 0;};
 
-  $.fn.rating = function() { return $($.map(this, function(i) { return buildRating(i)[0] })); }
+  $.fn.rating = function() { return $($.map(this, function(i) { return buildRating(i)[0]; })); };
 
-	if ($.browser.msie) try { document.execCommand("BackgroundImageCache", false, true)} catch(e) { }
+	if ($.browser.msie) try { document.execCommand("BackgroundImageCache", false, true);} catch(e) { }
 
-})(jQuery)
+})(jQuery);
