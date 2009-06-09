@@ -22,15 +22,6 @@
     <div id="header">
         <a href="http://www.unl.edu/" title="UNL website"><img src="wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>        
-        <div id="wdn_search">
-            <form id="wdn_search_form" action="http://www.google.com/u/UNL1?sa=Google+Search&amp;q=" method="get">
-                <fieldset>
-                    <label for="q">Search this site, all UNL or for a person</label>
-                    <input accesskey="f" id="q" alt="Search string" name="q" type="text" />
-                    <input class="search" type="image" alt="Search" src="wdn/templates_3.0/css/header/images/searchMagnifyGlass.png" />
-                </fieldset>
-            </form>
-        </div>
         <!--#include virtual="wdn/templates_3.0/includes/wdnTools.shtml" -->
     </div>
     <div id="wdn_navigation_bar">    
