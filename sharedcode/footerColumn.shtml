@@ -1,6 +1,5 @@
 <h3>Now on UNL.edu</h3>
-<div class="image_small_short" id="leftRandomPromo"><a
-	href="http://www.sheldonartgallery.org/" id="leftRandomPromoAnchor"><img
-	id="leftRandomPromoImage" alt="Sheldon Memorial Art Gallery"
-	src="http://www.unl.edu/ucomm/images/promos/promo_sheldon.jpg"></a> <script
-	type="text/javascript" src="sharedcode/leftRandomPromo.js"></script></div>
+<div class="image_small_short" id="leftRandomPromo">
+    <a href="http://www.sheldonartgallery.org/" id="leftRandomPromoAnchor"><img id="leftRandomPromoImage" alt="Sheldon Memorial Art Gallery" src="http://www.unl.edu/ucomm/images/promos/promo_sheldon.jpg" /></a>
+    <script type="text/javascript" src="sharedcode/leftRandomPromo.js"></script>
+</div>
