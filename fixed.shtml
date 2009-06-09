@@ -55,7 +55,7 @@
             <h1>Undergraduate Office of Admissions</h1>
         </div>        
         <div id="maincontent">
-        <!--#include virtual="wdn/templates_3.0/includes/noscript.html" -->
+        <!--#include virtual="wdn/templates_3.0/includes/noscript.shtml" -->
         <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             <div class="two_col left">
                 <div class="image_medium"><img src="admissionsPhoto.jpg" alt="Admissions" /></div>
