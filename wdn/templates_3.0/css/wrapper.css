@@ -21,3 +21,7 @@ body {
     position:relative;
     height:auto;
 }
+
+#wdn_wrapper_footer {
+	clear:both;
+}
