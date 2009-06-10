@@ -14,5 +14,5 @@
 #cboxMiddleLeft{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=images/borderMiddleLeft.png, sizingMethod='scale');}
 #cboxMiddleRight{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=images/borderMiddleRight.png, sizingMethod='scale');}
 
-#cboxClose{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=images/close.png, sizingMethod='scale'); height:34px;}
-				#cboxClose.hover{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=images/closeHover.png, sizingMethod='scale'); height:34px;}
+#cboxClose{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=images/close.png, sizingMethod='scale'); height:33px;}
+				#cboxClose.hover{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=images/closeHover.png, sizingMethod='scale'); height:33px;}
