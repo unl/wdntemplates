@@ -1,11 +1,12 @@
 #breadcrumbs {
 	height:35px;
     background:url('images/breadcrumbBarSprite2.png') 0 -36px;
-    margin:0 13px 0 5px;
+    margin:0 0 0 5px;
     font-family:arial;
     font-size:0.85em;
     position:relative;
 }
+
 #breadcrumbs a, #breadcrumbs a:link, #breadcrumbs a:visited {
 	color:#fff;
 	text-decoration:none;
