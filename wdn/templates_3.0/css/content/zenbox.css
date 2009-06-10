@@ -1,12 +1,125 @@
-.zenboxsolid, .zenboxfixed{
-	border: 1px solid #C9C28C;
-	position:relative;
-	background-color: #FFFCE9; 
-	padding:4px 10px; 
-	}
+/*
+Yellow: bright
+Blue: cool
+Green: soothing
+Orange: energetic
+Gray: neutral
+Red: primary
 
-.zenboxfeature  { 
-	border: 1px dashed #C9C28C;
-	background-color: #FFFCE9;
-	padding:4px 10px;
-	}
+*/
+
+/*Set the background of the div*/
+#maincontent div.zenboxsolid, #maincontent div.zenboxfixed, #maincontent div.zenboxfeature, #maincontent div.zenbox,
+#maincontent div.zenboxsolid.bright, #maincontent div.zenboxfixed.bright, #maincontent div.zenboxfeature.bright, #maincontent div.zenbox.bright {
+	background: #FFFFBF;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    padding:5px;
+    margin-bottom:1em;
+}
+#maincontent div.zenboxsolid.cool, #maincontent div.zenboxfixed.cool, #maincontent div.zenboxfeature.cool, #maincontent div.zenbox.cool {
+	background: #BFDFFF;
+}
+#maincontent div.zenboxsolid.energetic, #maincontent div.zenboxfixed.energetic, #maincontent div.zenboxfeature.energetic, #maincontent div.zenbox.energetic {
+	background: #FFDFBF;
+}
+#maincontent div.zenboxsolid.soothing, #maincontent div.zenboxfixed.soothing, #maincontent div.zenboxfeature.soothing, #maincontent div.zenbox.soothing {
+	background: #BFFFBF;
+}
+#maincontent div.zenboxsolid.neutral, #maincontent div.zenboxfixed.neutral, #maincontent div.zenboxfeature.neutral, #maincontent div.zenbox.neutral {
+	background: #D2D2D2;
+}
+#maincontent div.zenboxsolid.primary, #maincontent div.zenboxfixed.primary, #maincontent div.zenboxfeature.primary, #maincontent div.zenbox.primary {
+	background: #f5f5f5;
+}
+/*Set the header <h3> */
+#maincontent div.zenboxsolid h3, #maincontent div.zenboxfixed h3, #maincontent div.zenboxfeature h3, #maincontent div.zenbox h3,
+#maincontent div.zenboxsolid.bright h3, #maincontent div.zenboxfixed.bright h3, #maincontent div.zenboxfeature.bright h3, #maincontent div.zenbox.bright h3 {
+	background:url('../images/headingBGBright.png') repeat-x bottom;
+	padding:5px;
+	margin:-5px;
+	color:#57573e;
+	margin-bottom:5px;
+	font-size:1.1em;
+	font-weight: bold;
+}
+
+#maincontent div.zenboxsolid.cool h3, #maincontent div.zenboxfixed.cool h3, #maincontent div.zenboxfeature.cool h3, #maincontent div.zenbox.cool h3 {
+	background:url('../images/headingBGCool.png') repeat-x bottom;
+	color:#ffffff;
+}
+#maincontent div.zenboxsolid.energetic h3, #maincontent div.zenboxfixed.energetic h3, #maincontent div.zenboxfeature.energetic h3, #maincontent div.zenbox.energetic h3 {
+	background:url('../images/headingBGEnergetic.png') repeat-x bottom;
+	color:#ffffff;
+}
+#maincontent div.zenboxsolid.soothing h3, #maincontent div.zenboxfixed.soothing h3, #maincontent div.zenboxfeature.soothing h3, #maincontent div.zenbox.soothing h3 {
+	background:url('../images/headingBGSoothing.png') repeat-x bottom;
+	color:#ffffff;
+}
+#maincontent div.zenboxsolid.neutral h3, #maincontent div.zenboxfixed.neutral h3, #maincontent div.zenboxfeature.neutral h3, #maincontent div.zenbox.neutral h3 {
+	background:url('../images/headingBGNuetral.gif') repeat-x bottom;
+	color:#ffffff;
+}
+#maincontent div.zenboxsolid.primary h3, #maincontent div.zenboxfixed.primary h3, #maincontent div.zenboxfeature.primary h3, #maincontent div.zenbox.primary h3 {
+	background:url('../images/headingBGPrimary.png') repeat-x bottom;
+	color:#ffffff;
+}
+/*Put the carrot in after the h3*/
+#maincontent div.zenboxsolid h3:after, #maincontent div.zenboxfixed h3:after, #maincontent div.zenboxfeature h3:after, #maincontent div.zenbox h3:after {
+	content:'';
+	width:20px;
+	height:10px;
+	display:block;
+	background:url('../images/downIndicators.png') no-repeat -20px;
+	margin-left:30px;
+	margin-top:5px;
+}
+#maincontent div.zenboxsolid.cool h3:after, #maincontent div.zenboxfixed.cool h3:after, #maincontent div.zenboxfeature.cool h3:after, #maincontent div.zenbox.cool h3:after {
+	background-position: -40px;
+}
+#maincontent div.zenboxsolid.energetic h3:after, #maincontent div.zenboxfixed.energetic h3:after, #maincontent div.zenboxfeature.energetic h3:after, #maincontent div.zenbox.energetic h3:after {
+	background-position: -60px;
+}
+#maincontent div.zenboxsolid.soothing h3:after, #maincontent div.zenboxfixed.soothing h3:after, #maincontent div.zenboxfeature.soothing h3:after, #maincontent div.zenbox.soothing h3:after {
+	background-position: -80px;
+}
+#maincontent div.zenboxsolid.neutral h3:after, #maincontent div.zenboxfixed.neutral h3:after, #maincontent div.zenboxfeature.neutral h3:after, #maincontent div.zenbox.neutral h3:after {
+	background-position: -100px;
+}
+#maincontent div.zenboxsolid.primary h3:after, #maincontent div.zenboxfixed.primary h3:after, #maincontent div.zenboxfeature.primary h3:after, #maincontent div.zenbox.primary h3:after {
+	background-position: 0px;
+}
+/*Style the list elements*/
+#maincontent div.zenboxsolid ul, #maincontent div.zenboxfixed ul, #maincontent div.zenboxfeature ul, #maincontent div.zenbox ul,
+#maincontent div.zenboxsolid.bright ul, #maincontent div.zenboxfixed.bright ul, #maincontent div.zenboxfeature.bright ul, #maincontent div.zenbox.bright ul {
+	list-style:none;
+	padding: 0 0 1.1em 10px;
+}
+#maincontent div.zenboxsolid ul li, #maincontent div.zenboxfixed ul li, #maincontent div.zenboxfeature ul li, #maincontent div.zenbox ul li,
+#maincontent div.zenboxsolid.bright ul li, #maincontent div.zenboxfixed.bright ul li, #maincontent div.zenboxfeature.bright ul li, #maincontent div.zenbox.bright ul li {
+	border-bottom:1px dashed #e8e81c;
+	margin-left:-5px;
+	padding-left:5px
+}
+
+
+#maincontent div.zenboxsolid.cool ul li, #maincontent div.zenboxfixed.cool ul li, #maincontent div.zenboxfeature.cool ul li, #maincontent div.zenbox.cool ul li {
+	border-bottom:1px dashed #3e83c9;
+}
+
+#maincontent div.zenboxsolid.energetic ul li, #maincontent div.zenboxfixed.energetic ul li, #maincontent div.zenboxfeature.energetic ul li, #maincontent div.zenbox.energetic ul li {
+	border-bottom:1px dashed #fa6520;
+}
+
+#maincontent div.zenboxsolid.soothing ul li, #maincontent div.zenboxfixed.soothing ul li, #maincontent div.zenboxfeature.soothing ul li, #maincontent div.zenbox.soothing ul li {
+	border-bottom:1px dashed #3ec93e;
+}
+
+#maincontent div.zenboxsolid.neutral ul li, #maincontent div.zenboxfixed.neutral ul li, #maincontent div.zenboxfeature.neutral ul li, #maincontent div.zenbox.neutral ul li {
+	border-bottom:1px dashed #3d3d3d;
+}
+
+#maincontent div.zenboxsolid.primary ul li, #maincontent div.zenboxfixed.primary ul li, #maincontent div.zenboxfeature.primary ul li, #maincontent div.zenbox.primary ul li {
+	border-bottom:1px dashed #ac0302;
+}
