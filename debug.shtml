@@ -142,7 +142,7 @@
                 college education, a UNL degree pays its graduates back in less than four years
                 when compared to graduates of two-year programs. Now, more than ever, NEBRASKA
                 represents one of the best educational values in the country. </p>
-                <div class="zenbox-gray">
+                <div class="zenbox">
                     <h4>Local News 
                     <br />
                         <a title="Subscribe to these headlines" href="http://feedburner.com/unlxxxxxxx">
@@ -161,8 +161,8 @@
             <div class="col right">
                     <img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" class="frame" />
                     <div class="image_small_short"><img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" /></div>
-                <div class="zenbox-yellow">
-                    <div class="zenbox-blue">
+                <div class="zenbox">
+                    <div class="zenbox">
                         <h4>UNL Events
                             <a title="Subscribe to this feed" href="http://feedburner.com/unlxxxxxxx">
                             <img alt="RSS/Atom Feed" src="icon_rss.png" />
@@ -186,6 +186,85 @@
                 <a href="#" onclick="WDN.navigation.setWrapperClass('expanded'); return false;">Expanded</a>
                 <a href="#" onclick="WDN.navigation.setWrapperClass('collapsed'); return false;">Collapsed</a>
                 <a href="#" onclick="WDN.navigation.setWrapperClass('pinned'); return false;">Pinned</a>
+            </div>
+            <div class="clear"></div>
+            <div class="col left">
+                <div class="zenbox">
+                <h3>This is a test</h3>
+                <p>This is some text. This is some text. This is some text.</p>
+                <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                </ul>
+                </div>
+            </div>
+            <div class="col left">
+            <div class="zenbox bright">
+                <h3>This is a test</h3>
+                <p>This is some text. This is some text. This is some text.</p>
+                <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                </ul>
+                </div>
+            </div>
+            <div class="col left">
+            <div class="zenbox cool">
+                <h3>This is a test</h3>
+                <p>This is some text. This is some text. This is some text.</p>
+                <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                </ul>
+                </div>
+            </div>
+            <div class="col left">
+                <div class="zenbox energetic">
+                <h3>This is a test</h3>
+                <p>This is some text. This is some text. This is some text.</p>
+                <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="col left">
+            <div class="zenbox neutral">
+                <h3>This is a test</h3>
+                <p>This is some text. This is some text. This is some text.</p>
+                <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                </ul>
+                </div>
+            </div>
+            <div class="col left">
+            <div class="zenbox soothing">
+                <h3>This is a test</h3>
+                <p>This is some text. This is some text. This is some text.</p>
+                <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                </ul>
+                </div>
+            </div>
+            <div class="col left">
+            <div class="zenbox primary">
+                <h3>This is a test</h3>
+                <p>This is some text. This is some text. This is some text.</p>
+                <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                </ul>
+                </div>
             </div>
             <div class="clear"></div>
             <!--#include virtual="wdn/templates_3.0/includes/noscript.html" -->
