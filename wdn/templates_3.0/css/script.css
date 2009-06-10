@@ -64,7 +64,7 @@
 }
 #navigation-expand-collapse span {
 	position:relative;
-	top:29px;
+	top:24px;
 }
 
 #navigation-expand-collapse span:after,
@@ -75,8 +75,9 @@
 	position:relative;
 	background:url('navigation/images/menuIndicatorsSprite.png');
 	background-position:0px -12px;
-    display:block;
-    padding:0px 5px 0px 6px;
+    display:inline-block;
+    overflow:hidden;
+    padding:0px;
     margin:5px 5px 0px 5px;
     width:10px;
 	height:6px;
@@ -85,14 +86,16 @@
 .nav_expanded #navigation-expand-collapse span:before {
 	background-position:25px -12px;
 	width:15px;
-	padding-left:10px;
 }
 
 .nav_pinned #navigation-expand-collapse span:before {
 	background-position:50px -12px;
 	width:10px;
-	padding-left:8px;
 	padding-top:4px;
+}
+
+.nav_pinned #navigation-expand-collapse span {
+	top:20px;
 }
 
 .nav_expanded #navigation-expand-collapse span:after,
