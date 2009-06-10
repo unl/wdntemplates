@@ -125,3 +125,7 @@ Author: WDN
 #wdn_navigation_wrapper.collapsed #navigation-expand-collapse {
 	/* add styles in here for the collapsed state */
 }
+
+#navigation form {
+    display:none;
+}

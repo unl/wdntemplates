@@ -74,3 +74,7 @@
 #breadcrumbs ul li div.storednav {
     display:none;
 }
+
+#breadcrumbs img {
+    display:none;
+}
