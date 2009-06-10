@@ -25,7 +25,7 @@ function fetchURLInto(url,id,err) {
 		} catch(e) {}
 	};
 	xreq.send(null);
-}
+};
 
 function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
 	function showIt() {
@@ -47,7 +47,7 @@ function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
 			else
 				obj.parentNode.href='#';
 		} catch(e) {}
-	}
+	};
 	
 	if(thisNum_int==null)
 		thisNum_int=Math.floor(Math.random()*eval(imgArray_str+".length"));
@@ -65,7 +65,7 @@ function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
 	} else {
 		return true;
 	}
-}
+};
 
 function MM_findObj(n, d) {
     //v4.01
@@ -74,10 +74,10 @@ function MM_findObj(n, d) {
 	  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
 	  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
 	  if(!x && d.getElementById) x=d.getElementById(n); return x;
-}
+};
 
 function newRandomPromo(xmluri){
-	var promoContent = new XMLHTTP();
+	var promoContent = new WDN.proxy_xmlhttp();
 	promoContent.open("GET", xmluri, true);
 	promoContent.onreadystatechange = function(){
 		if (promoContent.readyState == 4) {
@@ -112,9 +112,10 @@ function newRandomPromo(xmluri){
 		promoContent = new XMLHTTP();
  	};
 	promoContent.send(null);	
-}
+};
 
-function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){if(oldonload){oldonload();}
-func();}}}
+function addLoadEvent(func){
+	jQuery(document).ready(func);
+};
 
 var XMLHTTP=WDN.proxy_xmlhttp;

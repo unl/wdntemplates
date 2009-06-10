@@ -130,7 +130,7 @@ WDN.navigation = function() {
 		/**
 		 * Set a delay for collapsing the navigation.
 		 */
-		startCollapseDelay : function(event) {
+		startCollapseDelay: function(event) {
 			WDN.log('start collapse delay');
 			if (WDN.navigation.currentState == 0) {
 				return;
@@ -143,7 +143,7 @@ WDN.navigation = function() {
 			WDN.navigation.timeout = setTimeout(WDN.navigation.collapse, WDN.navigation.collapseDelay);
 		},
 		
-		startChangeNavigationDelay :function(breadcrumb) {
+		startChangeNavigationDelay: function(breadcrumb) {
 			
 			WDN.navigation.timeout = setTimeout(function(){WDN.navigation.switchSiteNavigation(breadcrumb);}, WDN.navigation.changeSiteNavDelay);
 		},
@@ -153,7 +153,8 @@ WDN.navigation = function() {
 			if (WDN.getCookie('n')!=1) {
 				WDN.log('Setting preferred navigation state OPEN');
 				// Remove the hover function?
-				jQuery('#wdn_navigation_bar').hover();
+				//jQuery('#wdn_navigation_bar').hover();
+				
 				WDN.setCookie('n',1,5000);
 				WDN.navigation.preferredState = 1;
 			} else {

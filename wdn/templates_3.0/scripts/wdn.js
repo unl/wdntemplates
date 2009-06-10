@@ -49,17 +49,9 @@ var WDN = function() {
 		},
 		
 		/**
-		 * Set a flag indicating that a javascript file has been loaded
-		 */
-		jsLoaded : function(url) {
-			WDN.log('WDN.jsloaded('+url+')');
-			WDN.loadedJS[url] = true;
-		},
-		
-		/**
 		 * Load an external css file.
 		 */
-		loadCSS : function(url, callback) {
+		loadCSS : function(url) {
 			var e = document.createElement("link");
 			e.href = url;
 			e.rel = "stylesheet";
@@ -107,9 +99,7 @@ var WDN = function() {
 			} catch(e) {}
 		},
 		
-		initializePlugin:function (plugin)
-		{
-			
+		initializePlugin:function (plugin) {
 			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', function() {eval('WDN.'+plugin+'.initialize();');});
 		},
 		
