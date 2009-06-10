@@ -33,11 +33,8 @@ function removeRelativePaths($html, $base_url)
 {
 
     $needles = array('href="', 'src="', 'background="','href=\'','src=\'');
-    if (substr($base_url,-1) != '/') {
-    	$base_url .= '/';
-    }
-    $new_base_url = $base_url;
-    $base_url_parts = parse_url($base_url);
+    $base_url = new SplFileInfo($base_url);
+    $base_url = $base_url->getPath().'/';
 
     foreach ($needles as $needle) {
         $new_txt = '';
@@ -47,10 +44,7 @@ function removeRelativePaths($html, $base_url)
                  && substr($html,$pos,8) != 'https://'
                  && substr($html,$pos,6) != 'ftp://'
                  && substr($html,$pos,9) != 'mailto://') {
-                 if (substr($html,$pos,1) == '/') {
-                     $new_base_url = $base_url_parts['scheme'].'://'.$base_url_parts['host'];
-                 }
-                 $new_txt .= substr($html,0,$pos).$new_base_url;
+                 $new_txt .= substr($html,0,$pos).$base_url;
             } else {
                 $new_txt .= substr($html,0,$pos);
             }
