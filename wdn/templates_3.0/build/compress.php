@@ -26,4 +26,11 @@ $all .= PHP_EOL.$loaded.'WDN.initializeTemplate();';
 $compressed = file_get_contents(dirname(__FILE__)."/../scripts/jquery.js").PHP_EOL.$all;
 
 file_put_contents(dirname(__FILE__).'/../scripts/all.js', $compressed);
+
+flush();
+ob_start();
+include dirname(__FILE__).'/compressCSS.php';
+
+$css = ob_get_clean();
+file_put_contents(dirname(__FILE__).'/../css/all.css', $css);
 ?>

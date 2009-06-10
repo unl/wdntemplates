@@ -20,7 +20,6 @@ if (!preg_match('/\.unl\.edu/', $_GET['u'])
     && !preg_match('/huskeralum\.com/', $_GET['u'])) {
     throwError('Requested host is not allowed');
 }
-
 require_once 'UNL/Templates.php';
 require_once 'UNL/Templates/Scanner.php';
 
@@ -65,6 +64,7 @@ function removeRelativePaths($html, $base_url)
 foreach (array('maincontentarea','head') as $key) {
 	$p->$key = removeRelativePaths($p->$key, $_GET['u']);
 }
+header('Content-Type: text/html; charset=UTF-8');
 
 echo '<?xml version="1.0" encoding="UTF-8"?>';
 ?>
