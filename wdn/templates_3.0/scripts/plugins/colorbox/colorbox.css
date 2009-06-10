@@ -1,5 +1,6 @@
-#colorbox{font-family: "Lucida Grande",Verdana,Arial;}
+#colorbox * {color:#434343; font-family: "Lucida Grande",Verdana,Arial;}
 #colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxWrapper{padding-top:6px;}
 #cboxOverlay{position:fixed; width:100%; height:100%;}
 #cboxMiddleLeft, #cboxBottomLeft{clear:left;}
 #cboxContent{position:relative; overflow:visible;}
@@ -21,8 +22,8 @@
 	#cboxMiddleLeft{width:21px; background:url(images/border1.png) -105px 0 repeat-y;}
 	#cboxMiddleRight{width:21px; background:url(images/border1.png) -84px 0 repeat-y;}
 	#cboxContent{background:#f2f2f2;}
-            #cboxLoadedContent{margin-bottom:20px;}
-            #cboxTitle{position:absolute; bottom:0px; left:0; text-align:left; color:#454545; padding-right:90px; background:#f2f2f2;}
+            #cboxLoadedContent{margin-bottom:20px; font-size:71%; line-height:150%; }
+            #cboxTitle{position:absolute; bottom:0px; left:0; text-align:left; padding-right:90px; background:#f2f2f2; font-size:71%; line-height:150%; }
             #cboxCurrent{position:absolute; bottom:0px; right:46px; color:#999;}
             #cboxSlideshow{position:absolute; bottom:0; right:100px; background:url(images/controls.png) no-repeat; height:18px; text-indent:-9999px;}
 				.cboxSlideshow_on #cboxSlideshow{background-position:-64px -0px; width:12px;}
@@ -35,5 +36,5 @@
             #cboxNext{position:absolute; bottom:0; right:0; background:url(images/controls.png) -20px 0 no-repeat; width:18px; height:18px; text-indent:-9999px;}
                 #cboxNext.hover{background-position:-20px -20px;}
             #cboxLoadingOverlay{background:url(images/loading.gif) center center no-repeat #f2f2f2;}
-            #cboxClose{position:absolute; top:-20px; right:-20px; display:block; background:url(images/controls.png) -126px 0 no-repeat; width:30px; height:33px; text-indent:-9999px;}
+            #cboxClose{position:absolute; top:-27px; right:-21px; display:block; background:url(images/controls.png) -126px 0 no-repeat; width:30px; height:33px; text-indent:-9999px;}
 				#cboxClose.hover{background-position:-95px 0px;}

@@ -16,14 +16,15 @@ WDN.toolbar = function() {
         },
         colorboxSetup : function() {
             WDN.log('Setting up colorbox');
-            jQuery("#wdn_tool_links li a.feed").colorbox({width:"1000", height:"550", iframe:true});
-            jQuery("#wdn_tool_links li a.weather").colorbox({width:"1000", height:"550", inline:true, href:"#weathercontent"}, WDN.toolbar.getContent("weather"));
-            jQuery("#wdn_tool_links li a.calendar").colorbox({width:"1000", height:"550", inline:true, href:"#eventscontent"}, WDN.toolbar.getContent("events"));
-            jQuery("#wdn_tool_links li a.directory").colorbox({width:"1000", height:"550", inline:true, href:"#pfcontent"});
-            jQuery("#wdn_tool_links li a.camera").colorbox({width:"1000", height:"550", inline:true, href:"#cameracontent"}, WDN.toolbar.getContent("webcam"));         
+            jQuery("#wdn_tool_links li a.feed").colorbox({width:"900", height:"550", iframe:true});
+            jQuery("#wdn_tool_links li a.weather").colorbox({width:"900", height:"550", inline:true, href:"#weathercontent"}, WDN.toolbar.getContent("weather"));
+            jQuery("#wdn_tool_links li a.calendar").colorbox({width:"900", height:"550", inline:true, href:"#eventscontent"}, WDN.toolbar.getContent("events"));
+            jQuery("#wdn_tool_links li a.directory").colorbox({width:"900", height:"550", inline:true, href:"#pfcontent"});
+            jQuery("#wdn_tool_links li a.camera").colorbox({width:"900", height:"550", inline:true, href:"#cameracontent"}, WDN.toolbar.getContent("webcam")); 
         },
         getContent : function(type) {
         	eval('WDN.toolbar_'+type+'.display();');
+        	jQuery("#cboxTitle").css({color:'#f2f2f2'}); //Hide the cboxTitle at the bottom
         }
     };
 }();
