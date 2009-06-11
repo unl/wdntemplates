@@ -5,6 +5,7 @@
     font-family:arial;
     font-size:0.85em;
     position:relative;
+    color:#fff;
 }
 
 #breadcrumbs a, #breadcrumbs a:link, #breadcrumbs a:visited {
@@ -12,7 +13,7 @@
 	text-decoration:none;
 	padding:0 20px 0 5px;
 	display:inline-block;
-	margin:10px 2px;
+	margin:0 2px;
 	background:url('images/breadcrumbArrowSprite.png') top right no-repeat;
 }
 #breadcrumbs ul li:last-child a,
@@ -40,6 +41,7 @@
 }
 #breadcrumbs ul li {
 	float:left;
+	padding-top:10px;
 }
 
 #breadcrumbs ul li.selected{

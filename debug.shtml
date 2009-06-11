@@ -25,6 +25,7 @@
                 <li><a href="http://admissions.unl.edu/">Admissions</a></li>
                 <li><a href="http://ucommbieber.unl.edu/">One line nav</a></li>
                 <li><a href="http://chemistry.unl.edu/index.shtml">Chemistry Nav</a></li>
+                <li>Current Page</li>
             </ul>
         </div>        
         <div id="wdn_navigation_wrapper">
