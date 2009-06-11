@@ -159,6 +159,7 @@
                 </div>
             </div>
             <div class="col right">
+
                     <img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" class="frame" />
                     <div class="image_small_short"><img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" /></div>
                 <div class="zenbox">
@@ -190,16 +191,21 @@
             <div class="clear"></div>
             <div class="col left">
                 <div class="zenbox">
-                <h3>This is a test</h3>
-                <p>This is some text. This is some text. This is some text.</p>
+                <h3>Mime Types by Rule</h3>
+                <p>The following links do not have classes, the styles are set by CSS rules.</p>
                 <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
+                <li><a href="mailto:smeranda2@unl.edu">E-mail</a></li>
+                <li><a href="xxx.pdf">PDF</a></li>
+                <li><a href="xxx.exe">EXE</a></li>
+                <li><a href="xxx.doc">DOC</a>, <a href="xxx.docx">DOCX</a></li>
+                <li><a href="xxx.xls">XLS</a>, <a href="xxx.xlsx">XLSX</a></li>
+                <li><a href="xxx.ppt">PPT</a>, <a href="xxx.pptx">PPTX</a></li>
+                <li><a href="xxx.zip">ZIP</a></li>
+                <li><a href="xxx.mov">MOV</a>, <a href="xxx.wmv">WMV</a>, <a href="xxx.mp4">MP4</a>, <a href="xxx.m4v">M4V</a></li>
                 </ul>
                 </div>
             </div>
-            <div class="col left">
+            <div class="col">
             <div class="zenbox bright">
                 <h3>This is a test</h3>
                 <p>This is some text. This is some text. This is some text.</p>
@@ -210,7 +216,7 @@
                 </ul>
                 </div>
             </div>
-            <div class="col left">
+            <div class="col">
             <div class="zenbox cool">
                 <h3>This is a test</h3>
                 <p>This is some text. This is some text. This is some text.</p>
@@ -221,7 +227,7 @@
                 </ul>
                 </div>
             </div>
-            <div class="col left">
+            <div class="col right">
                 <div class="zenbox energetic">
                 <h3>This is a test</h3>
                 <p>This is some text. This is some text. This is some text.</p>
@@ -232,8 +238,7 @@
                 </ul>
                 </div>
             </div>
-            <div class="clear"></div>
-            <div class="col left">
+            <div class="col">
             <div class="zenbox neutral">
                 <h3>This is a test</h3>
                 <p>This is some text. This is some text. This is some text.</p>
@@ -244,7 +249,7 @@
                 </ul>
                 </div>
             </div>
-            <div class="col left">
+            <div class="col">
             <div class="zenbox soothing">
                 <h3>This is a test</h3>
                 <p>This is some text. This is some text. This is some text.</p>
@@ -255,7 +260,7 @@
                 </ul>
                 </div>
             </div>
-            <div class="col left">
+            <div class="col right">
             <div class="zenbox primary">
                 <h3>This is a test</h3>
                 <p>This is some text. This is some text. This is some text.</p>
