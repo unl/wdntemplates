@@ -2,7 +2,22 @@ a.external {
 	padding-right: 13px;
 	background: url(/ucomm/templatedependents/templatecss/images/external_link.gif) center right no-repeat;
 	}
+a[href^="http://maps.google.com"], a.application-map {
+	padding: 3px 18px 0px 0px;
+	background: url(/sharedcode/images/iconMap13.gif) bottom right no-repeat;
+}
 
+a[href^="mailto:"], 
+a[href $='.pdf'], 
+a[href $='.exe'], 
+a[href *='.xls'], 
+a[href *='.ppt'], 
+a[href *='.doc'], 
+a[href $='.zip'], 
+a[href $='.mov'], 
+a[href $='.wmv'], 
+a[href $='.mp4'], 
+a[href $='.m4v'],
 a.mail-message-new,
 a.text-vcard,
 a.application-pdf,
@@ -38,11 +53,11 @@ a.feed-icon
 	background-repeat: no-repeat;
 	}
 
-a.mail-message-new{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/mail-message-new.gif);}
+a[href^="mailto:"], a.mail-message-new, a.email {background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/mail-message-new.gif);}
 a.text-vcard{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/text-vcard.gif);}					
-a.application-pdf{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/application-pdf.gif);}
+a[href $='.pdf'], a.application-pdf, a.pdf{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/application-pdf.gif);}
 a.application-certificate{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/application-certificate.gif);}
-a.application-x-executable{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/application-x-executable.gif);}
+a[href $='.exe'], a.application-x-executable{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/application-x-executable.gif);}
 a.audio-x-generic{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/audio-x-generic.gif);}
 a.font-x-generic{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/font-x-generic.gif);}
 a.image-x-generic{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/image-x-generic.gif);}
@@ -51,7 +66,7 @@ a.text-html{background-image: url(/ucomm/templatedependents/templatecss/images/m
 a.text-x-generic{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/text-x-generic.gif);}
 a.text-x-generic-template{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/text-x-generic-template.gif);}
 a.text-x-script{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/text-x-script.gif);}
-a.video-x-generic{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/video-x-generic.gif);}
+a[href $='.mov'], a[href $='.wmv'], a[href $='.mp4'], a[href $='.m4v'], a.video-x-generic{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/video-x-generic.gif);}
 a.x-office-address-book{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/x-office-address-book.gif);}
 a.x-office-calendar{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/x-office-calendar.gif);}
 a.x-office-document{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/x-office-document.gif);}
@@ -62,8 +77,8 @@ a.x-office-presentation{background-image: url(/ucomm/templatedependents/template
 a.x-office-presentation-template{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/x-office-presentation-template.gif);}
 a.x-office-spreadsheet{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/x-office-spreadsheet.gif);}
 a.x-office-spreadsheet-template{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/x-office-spreadsheet-template.gif);}
-a.application-msword{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/application-msword.gif);}
-a.application-vnd-ms-excel{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/application-vnd-ms-excel.gif);}
-a.application-vnd-ms-powerpoint{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/application-vnd-ms-powerpoint.gif);}
-a.application-zip{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/application-zip.gif);}
+a[href *='.doc'], a.application-msword, a.msword{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/application-msword.gif);}
+a[href *='.xls'], a.application-vnd-ms-excel{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/application-vnd-ms-excel.gif);}
+a[href *='.ppt'], a.application-vnd-ms-powerpoint{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/application-vnd-ms-powerpoint.gif);}
+a[href $='.zip'], a.application-zip{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/application-zip.gif);}
 a.feed-icon{background-image: url(/ucomm/templatedependents/templatecss/images/mimetypes/feed-icon.gif);}
