@@ -54,9 +54,9 @@
 #breadcrumbs ul li.selected a:link,
 #breadcrumbs ul li.selected a:visited 
 {
-	height:42px;
+	height:31px;
     background:url('images/tabBGLeft.png') 0 0 no-repeat;
-    padding:21px 20px;
+    padding:21px 20px 0 20px;
     margin:0 10px 0 -15px;
     position: relative;
     z-index: 5;
