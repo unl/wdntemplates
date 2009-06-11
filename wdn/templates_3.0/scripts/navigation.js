@@ -90,7 +90,11 @@ WDN.navigation = function() {
 			if (WDN.navigation.preferredState == 1) {
 				jQuery('#navigation-expand-collapse span').text('click to always hide full navigation');
 			} else {
-				jQuery('#navigation-expand-collapse span').text('click to always show full navigation');
+				if (WDN.navigation.currentState == 0) {
+					jQuery('#navigation-expand-collapse span').text('roll over for full navigation');
+				} else {
+					jQuery('#navigation-expand-collapse span').text('click to always show full navigation');
+				}
 			}
 		},
 		

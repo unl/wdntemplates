@@ -58,11 +58,10 @@ function removeRelativePaths($html, $base_url)
 foreach (array('maincontentarea','head') as $key) {
 	$p->$key = removeRelativePaths($p->$key, $_GET['u']);
 }
-if ( stristr($_SERVER["HTTP_ACCEPT"],"application/xhtml+xml") ) {
-  header("Content-type: application/xhtml+xml");
-}
-else {
-  header("Content-type: text/html");
+if (stristr($_SERVER['HTTP_ACCEPT'], 'application/xhtml+xml')) {
+  header('Content-type: application/xhtml+xml');
+} else {
+  header('Content-type: text/html');
 }
 
 echo '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
