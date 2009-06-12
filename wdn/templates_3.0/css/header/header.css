@@ -120,4 +120,13 @@ ul#wdn_tool_links li {
     position:absolute;
     right:18px;
     top:12px;
+    background:url('images/searchMagnifyGlass.png') no-repeat;
+    display:block;
+    width:31px;
+    height:29px;
+    text-indent:-9999em;
+    border:none;
+}
+#wdn_search .search:hover {
+	cursor:pointer;
 }
