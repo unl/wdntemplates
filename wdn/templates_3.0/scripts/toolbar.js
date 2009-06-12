@@ -16,8 +16,9 @@ WDN.toolbar = function() {
         },
         colorboxSetup : function() {
             WDN.log('Setting up colorbox');
+            WDN.toolbar.toolTabsSetup();
             jQuery("a.feed").colorbox({width:"1002", height:"550", iframe:true});
-            jQuery("a.weather").colorbox({width:"1002", height:"550", inline:true, href:"#weathercontent"}, WDN.toolbar.getContent("weather"), WDN.toolbar.toolTabs("weather"));
+            jQuery("a.weather").colorbox({width:"1002", height:"550", inline:true, href:"#weathercontent"}, WDN.toolbar.getContent("weather"));
             jQuery("a.calendar").colorbox({width:"1002", height:"550", inline:true, href:"#eventscontent"}, WDN.toolbar.getContent("events"));
             jQuery("a.directory").colorbox({width:"1002", height:"550", inline:true, href:"#pfcontent"});
             jQuery("a.camera").colorbox({width:"1002", height:"550", inline:true, href:"#cameracontent"}, WDN.toolbar.getContent("webcam")); 
@@ -26,9 +27,20 @@ WDN.toolbar = function() {
         	eval('WDN.toolbar_'+type+'.display();');
         	jQuery("#cboxTitle").css({color:'#f2f2f2'}); //Hide the cboxTitle at the bottom
         },
-        toolTabs :function(selected) {
-        	jQuery('#cboxWrapper').append('<div id="tooltabs"><ul><li><a class="feed" href="#">RSS Feeds</a></li><li class="current"><a href="#" class="weather">Weather</a></li><li><a href="#" class="calandar">UNL Events</a></li><li><a href="#" class="directory">Peoplefinder</a></li><li><a href="#" class="camera">Webcams</a></li></ul></div>');
-        	
+        toolTabsSetup : function() {
+        	jQuery('#cboxWrapper').append('<div id="tooltabs"><ul><li class="feed"><a class="feed" href="http://www1.unl.edu/feeds/">RSS Feeds</a></li><li class="weather"><a href="#" class="weather">Weather</a></li><li class="calendar"><a href="#" class="calendar">UNL Events</a></li><li class="directory"><a href="#" class="directory">Peoplefinder</a></li><li class="camera"><a href="#" class="camera">Webcams</a></li></ul></div>');      	
+        	jQuery("a.feed").click(function(){WDN.toolbar.toolTabsCurrent("feed")});
+            jQuery("a.weather").click(function(){WDN.toolbar.toolTabsCurrent("weather")});
+            jQuery("a.calendar").click(function(){WDN.toolbar.toolTabsCurrent("calendar")});
+            jQuery("a.directory").click(function(){WDN.toolbar.toolTabsCurrent("directory")});
+            jQuery("a.camera").click(function(){WDN.toolbar.toolTabsCurrent("camera")}); 
+        
+        },
+        toolTabsCurrent : function(selected) {
+        	if ( jQuery("#tooltabs li").hasClass("current") ){
+        		jQuery("#tooltabs li").removeClass("current");        		
+        	}
+        	jQuery('#tooltabs li.'+selected+'').addClass("current");
         }
     };
 }();
