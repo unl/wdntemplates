@@ -16,15 +16,19 @@ WDN.toolbar = function() {
         },
         colorboxSetup : function() {
             WDN.log('Setting up colorbox');
-            jQuery("#wdn_tool_links li a.feed").colorbox({width:"900", height:"550", iframe:true});
-            jQuery("#wdn_tool_links li a.weather").colorbox({width:"900", height:"550", inline:true, href:"#weathercontent"}, WDN.toolbar.getContent("weather"));
-            jQuery("#wdn_tool_links li a.calendar").colorbox({width:"900", height:"550", inline:true, href:"#eventscontent"}, WDN.toolbar.getContent("events"));
-            jQuery("#wdn_tool_links li a.directory").colorbox({width:"900", height:"550", inline:true, href:"#pfcontent"});
-            jQuery("#wdn_tool_links li a.camera").colorbox({width:"900", height:"550", inline:true, href:"#cameracontent"}, WDN.toolbar.getContent("webcam")); 
+            jQuery("a.feed").colorbox({width:"1002", height:"550", iframe:true});
+            jQuery("a.weather").colorbox({width:"1002", height:"550", inline:true, href:"#weathercontent"}, WDN.toolbar.getContent("weather"), WDN.toolbar.toolTabs("weather"));
+            jQuery("a.calendar").colorbox({width:"1002", height:"550", inline:true, href:"#eventscontent"}, WDN.toolbar.getContent("events"));
+            jQuery("a.directory").colorbox({width:"1002", height:"550", inline:true, href:"#pfcontent"});
+            jQuery("a.camera").colorbox({width:"1002", height:"550", inline:true, href:"#cameracontent"}, WDN.toolbar.getContent("webcam")); 
         },
         getContent : function(type) {
         	eval('WDN.toolbar_'+type+'.display();');
         	jQuery("#cboxTitle").css({color:'#f2f2f2'}); //Hide the cboxTitle at the bottom
+        },
+        toolTabs :function(selected) {
+        	jQuery('#cboxWrapper').append('<div id="tooltabs"><ul><li><a class="feed" href="#">RSS Feeds</a></li><li class="current"><a href="#" class="weather">Weather</a></li><li><a href="#" class="calandar">UNL Events</a></li><li><a href="#" class="directory">Peoplefinder</a></li><li><a href="#" class="camera">Webcams</a></li></ul></div>');
+        	
         }
     };
 }();

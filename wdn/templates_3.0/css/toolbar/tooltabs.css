@@ -1,0 +1,34 @@
+#tooltabs {
+	position:absolute;
+	top:0px;
+	left:20px;
+	width:900px;
+	height:40px;
+}
+#tooltabs a {
+	text-decoration:none;
+	padding:0 20px 0 5px;
+	display:block;
+	margin:10px 2px;
+}
+#tooltabs ul {
+	margin:0 0 0 35px;
+	list-style:none;
+	position:relative;
+	height:40px;
+	width:100%;
+	z-index:99;
+}
+#tooltabs ul li {
+	width:160px;
+	height:40px;
+	padding:5px 0 0 10px;
+	margin:0 0 0 -35px;
+	background:url('images/modalTabActive.png') no-repeat;
+	float:left;
+	position:relative;
+	z-index:500;
+}
+#tooltabs ul li.current {
+	z-index:1000;
+}
