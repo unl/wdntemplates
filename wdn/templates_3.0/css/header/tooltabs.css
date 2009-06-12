@@ -1,0 +1,69 @@
+#tooltabs {
+	position:absolute;
+	top:0px;
+	left:20px;
+	width:900px;
+	height:40px;
+}
+#tooltabs a {
+	height:15px;
+	text-decoration:none;
+	padding:0 20px 0 20px;
+	display:block;
+	margin:9px 0px;
+}
+#tooltabs a.feed {
+	background:url(images/applianceIconsSmall.png) 0 -75px no-repeat;
+}
+#tooltabs a.weather {
+	background:url(images/applianceIconsSmall.png) 0 -90px no-repeat;
+}
+#tooltabs a.calendar {
+	background:url(images/applianceIconsSmall.png) 0 -105px no-repeat;
+}
+#tooltabs a.directory {
+	background:url(images/applianceIconsSmall.png) 0 -120px no-repeat;
+}
+#tooltabs a.camera {
+	background:url(images/applianceIconsSmall.png) 0 -135px no-repeat;
+}
+#tooltabs li.current a.feed {
+	background-position: 0 0;
+}
+#tooltabs li.current a.weather {
+	background-position: 0 -15px;
+}
+#tooltabs li.current a.calendar {
+	background-position: 0 -30px;
+}
+#tooltabs li.current a.directory {
+	background-position: 0 -45px;
+}
+#tooltabs li.current a.camera {
+	background-position: 0 -60px;
+}
+#tooltabs ul {
+	margin:0 0 0 35px;
+	list-style:none;
+	position:relative;
+	height:40px;
+	width:100%;
+	z-index:99;
+}
+#tooltabs ul li {
+	font-size:13px;
+	width:160px;
+	height:40px;
+	padding:9px 0 0 15px;
+	margin:0 0 0 -35px;
+	background:url('images/modalTabNotActive.png') no-repeat;
+	float:left;
+	position:relative;
+	z-index:500;
+}
+#tooltabs ul li.current {
+	padding-top:7px;
+	font-size:14px;
+	background:url('images/modalTabActive.png') no-repeat;
+	z-index:1000;
+}
