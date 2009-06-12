@@ -6,6 +6,8 @@ Author: WDN
 
 */
 
+@import url('toolbar.css');
+
 #header {
     background:url('images/leftTab.png') no-repeat top left;
     margin:-39px -11px -22px -13px;
@@ -30,60 +32,6 @@ Author: WDN
 	height:36px;
 	width:480px;
 	margin:-67px 0 0 102px;
-}
-#wdn_tool_links {
-	position:absolute;
-    right:13px;
-    top:71px;
-}
-ul#wdn_tool_links li {
-	display:inline;
-	list-style:none;
-    border:2px solid #e0e0e0;
-    border-radius:5px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    display:inline-block;
-    padding:4px 5px;
-    margin:0 2px;
-    background-color:#fff;
-}
-#wdn_tool_links a {
-	display:inline-block;
-	width:20px;
-	height:20px;
-	text-indent:-9000px;
-}
-
-#wdn_tool_links a.feed {
-    background:url('images/applianceIcons.png') no-repeat 0 -20px;
-}
-#wdn_tool_links a.feed:hover {
-    background:url('images/applianceIcons.png') no-repeat 0 0;
-}
-#wdn_tool_links a.weather {
-    background:url('images/applianceIcons.png') no-repeat -20px -20px;
-}
-#wdn_tool_links a.weather:hover {
-    background:url('images/applianceIcons.png') no-repeat -20px 0;
-}
-#wdn_tool_links a.calendar {
-    background:url('images/applianceIcons.png') no-repeat -40px -20px;
-}
-#wdn_tool_links a.calendar:hover {
-    background:url('images/applianceIcons.png') no-repeat -40px 0;
-}
-#wdn_tool_links a.directory {
-    background:url('images/applianceIcons.png') no-repeat -60px -20px;
-}
-#wdn_tool_links a.directory:hover {
-    background:url('images/applianceIcons.png') no-repeat -60px 0;
-}
-#wdn_tool_links a.camera {
-    background:url('images/applianceIcons.png') no-repeat -80px -20px;
-}
-#wdn_tool_links a.camera:hover {
-    background:url('images/applianceIcons.png') no-repeat -80px 0;
 }
 
 #wdn_search {

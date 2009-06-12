@@ -28,7 +28,7 @@ WDN.toolbar = function() {
         	jQuery("#cboxTitle").css({color:'#f2f2f2'}); //Hide the cboxTitle at the bottom
         },
         toolTabsSetup : function() {
-        	jQuery('#cboxWrapper').append('<div id="tooltabs"><ul><li class="feed"><a class="feed" href="http://www1.unl.edu/feeds/">RSS Feeds</a></li><li class="weather"><a href="#" class="weather">Weather</a></li><li class="calendar"><a href="#" class="calendar">UNL Events</a></li><li class="directory"><a href="#" class="directory">Peoplefinder</a></li><li class="camera"><a href="#" class="camera">Webcams</a></li></ul></div>');      	
+        	jQuery('#cboxWrapper').append('<div id="tooltabs"><ul><li class="feed"><a class="feed" href="http://www1.unl.edu/feeds/">RSS Feeds</a></li><li class="weather"><a href="#" class="weather"><span>Weather</span></a></li><li class="calendar"><a href="#" class="calendar">UNL Events</a></li><li class="directory"><a href="#" class="directory">Peoplefinder</a></li><li class="camera"><a href="#" class="camera">Webcams</a></li></ul></div>');      	
         	jQuery("a.feed").click(function(){WDN.toolbar.toolTabsCurrent("feed")});
             jQuery("a.weather").click(function(){WDN.toolbar.toolTabsCurrent("weather")});
             jQuery("a.calendar").click(function(){WDN.toolbar.toolTabsCurrent("calendar")});

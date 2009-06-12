@@ -1,14 +1,10 @@
-#cboxLoadedContent {
-	padding-top:10px;	
-}
-
-
-
-
-#cameracontent{
+#feedcontent, #weathercontent, #eventscontent, #pfcontent, #cameracontent{
+	margin:10px 0 0 0;
 	width:960px;
-	margin:0;padding:0;
 }
+
+/* Webcam
+***********/
 #cameracontent .cam_col{
 	float:left;
 	width:300px;
@@ -16,4 +12,23 @@
 }
 #cameracontent .cam_col img{
 	width:290px;
+}
+/* Weather
+*************/
+#weathercontent {
+	background:url(images/weatherback.jpg);
+	height:454px;
+	font-size:14px;
+}
+#weathercontent>div {
+	background:url(images/weathertrans.png);
+	position:absolute;
+	top:50px;
+	left:100px;
+	width:250px;
+	height:300px;
+	padding:15px 15px 15px 15px;
+}
+.weathertempf{
+	font-size:35px;
 }

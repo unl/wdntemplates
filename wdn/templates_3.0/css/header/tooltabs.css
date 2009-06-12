@@ -8,39 +8,39 @@
 #tooltabs a {
 	height:16px;
 	text-decoration:none;
-	padding:0 20px 0 22px;
+	padding:0 0 0 25px;
 	display:block;
-	margin:9px 2px;
+	margin:11px 0 0 5px;
 }
 #tooltabs a.feed {
-	background:url(images/applianceIconsSmall.png) 0 -80px no-repeat;
+	background:url(images/applianceIcons.png) 0 -100px no-repeat;
 }
 #tooltabs a.weather {
-	background:url(images/applianceIconsSmall.png) 0 -96px no-repeat;
+	background:url(images/applianceIcons.png) 0 -120px no-repeat;
 }
 #tooltabs a.calendar {
-	background:url(images/applianceIconsSmall.png) 0 -112px no-repeat;
+	background:url(images/applianceIcons.png) 0 -140px no-repeat;
 }
 #tooltabs a.directory {
-	background:url(images/applianceIconsSmall.png) 0 -128px no-repeat;
+	background:url(images/applianceIcons.png) 0 -160px no-repeat;
 }
 #tooltabs a.camera {
-	background:url(images/applianceIconsSmall.png) 0 -144px no-repeat;
+	background:url(images/applianceIcons.png) 0 -180px no-repeat;
 }
 #tooltabs li.current a.feed {
 	background-position: 0 0;
 }
 #tooltabs li.current a.weather {
-	background-position: 0 -16px;
+	background-position: 0 -20px;
 }
 #tooltabs li.current a.calendar {
-	background-position: 0 -32px;
+	background-position: 0 -40px;
 }
 #tooltabs li.current a.directory {
-	background-position: 0 -48px;
+	background-position: 0 -60px;
 }
 #tooltabs li.current a.camera {
-	background-position: 0 -64px;
+	background-position: 0 -80px;
 }
 #tooltabs ul {
 	margin:0 0 0 35px;
@@ -53,10 +53,10 @@
 #tooltabs ul li {
 	font-size:13px;
 	width:146px;
-	height:40px;
+	height:48px;
 	padding:9px 0 0 15px;
 	margin:0 0 0 -38px;
-	background:url('images/modalTabs.png') 0 -40px no-repeat;
+	background:url('images/modalTabs.png') 0 -48px no-repeat;
 	float:left;
 	position:relative;
 	z-index:500;
