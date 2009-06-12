@@ -121,5 +121,5 @@ Red: primary
 }
 
 #maincontent div.zenboxsolid.primary ul li, #maincontent div.zenboxfixed.primary ul li, #maincontent div.zenboxfeature.primary ul li, #maincontent div.zenbox.primary ul li {
-	border-bottom:1px dashed #ac0302;
+	border-bottom:1px dashed #3d3d3d;
 }
