@@ -1,7 +1,7 @@
 /*
 All styles for the footer
 Created: 05/22/2009
-Last edited: 05/27/2009
+Last edited: 06/11/2009
 Author: WDN
 
 #footer
@@ -78,14 +78,14 @@ a#wdn_unl_wordmark:visited {
 	
 body.liquid #footer .footer_col {width:22.9%}	
 	
-#footer .footer_col h3 {
+#footer .footer_col h3, #cboxLoadedContent h3 {
 	background:url('../images/headingBGRed.gif') repeat-x bottom;
 	padding:5px;
 	color:#fff;
 	margin-bottom:5px;
 	font-size:1.1em;
 }
-#footer .footer_col h3:after {
+#footer .footer_col h3:after, #cboxLoadedContent h3:after {
 	content:'';
 	width:20px;
 	height:10px;

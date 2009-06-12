@@ -12,16 +12,16 @@ WDN.toolbar = function() {
         	jQuery('#header').append('<div class="hidden"><div id="weathercontent"></div></div>');
         	jQuery('#header').append('<div class="hidden"><div id="eventscontent"></div></div>');
         	jQuery('#header').append('<div class="hidden"><div id="pfcontent"><form onsubmit="WDN.toolbar_peoplefinder.queuePFRequest(document.getElementById(\'pq\').value,\'pfresults\'); return false;" method="get" action="http://peoplefinder.unl.edu/"><div><label for="pq">Search People:</label><input type="text" onkeyup="WDN.toolbar_peoplefinder.queuePFRequest(this.value,\'pfresults\');" name="pq" id="pq"/><img alt="progress" id="pfprogress" src="/ucomm/templatedependents/templatecss/images/transpixel.gif"/> </div></form><div class="toolResultsMask" id="pfResultsMask"><div class="toolResults" id="pfresults"/></div> </div></div>');
-        	jQuery('#header').append('<div class="hidden"><div id="cameracontent"><img src="http://www.unl.edu/unlpub/cam/cam1.jpg" alt="UNL Webcams" id="webcamuri" /></div></div>');
+        	jQuery('#header').append('<div class="hidden"><div id="cameracontent"><div class="cam_col"><h3>Nebraska Union Plaza</h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam1.jpg" alt="Plaze Cam" id="webcamuri1" /></div><div class="cam_col"><h3>Nebraska Union Rotunda</h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam2.jpg" alt="Rotunda Cam" id="webcamuri2" /></div><div class="cam_col"><h3>Nebraska East Union</h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam3.jpg" alt="East Union" id="webcamuri3" /></div></div></div>');
         },
         colorboxSetup : function() {
             WDN.log('Setting up colorbox');
             WDN.toolbar.toolTabsSetup();
-            jQuery("a.feed").colorbox({width:"1002", height:"550", iframe:true});
+            jQuery("a.feed").colorbox({width:"1002", height:"550", inline:true, href:"#feedcontent"});
             jQuery("a.weather").colorbox({width:"1002", height:"550", inline:true, href:"#weathercontent"}, WDN.toolbar.getContent("weather"));
             jQuery("a.calendar").colorbox({width:"1002", height:"550", inline:true, href:"#eventscontent"}, WDN.toolbar.getContent("events"));
             jQuery("a.directory").colorbox({width:"1002", height:"550", inline:true, href:"#pfcontent"});
-            jQuery("a.camera").colorbox({width:"1002", height:"550", inline:true, href:"#cameracontent"}, WDN.toolbar.getContent("webcam")); 
+            jQuery("a.camera").colorbox({width:"1002", height:"410", inline:true, href:"#cameracontent"}, WDN.toolbar.getContent("webcam")); 
         },
         getContent : function(type) {
         	eval('WDN.toolbar_'+type+'.display();');

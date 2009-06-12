@@ -14,7 +14,7 @@
     'reset',
     'wrapper',
     'header/header',
-    'header/tooltabs',
+    'header/toolbar',
     'navigation/breadcrumbs',
     'navigation/navigation',
     'footer/footer',

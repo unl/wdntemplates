@@ -45,9 +45,9 @@ body.liquid #maincontent .four_col .three_col {width:69%}
 body.liquid #maincontent .four_col .two_col {width:46%}
 body.liquid #maincontent .four_col .col, body.liquid #maincontent .four_col .one_col {width:23%}
 
-#maincontent .left {padding-left:0;float:left;}
-#maincontent .middle {float:left;}
-#maincontent .right {padding-right:0;float:right;}
+#maincontent .left{padding-left:0;float:left;}
+#maincontent .middle{float:left;}
+#maincontent .right{padding-right:0;float:right;}
 
 #maincontent .clear, #maincontent .clr {
 	clear:both;

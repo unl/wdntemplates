@@ -27,7 +27,8 @@
 #footer .image_small_4x3_vertical img,
 #footer .image_small_3x2_vertical img,
 #footer .image_small_3x2 img,
-#footer img.frame
+#footer img.frame,
+#cboxLoadedContent img.frame
 {
     border:1px solid #ededed;
     border-radius:3px;
