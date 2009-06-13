@@ -20,6 +20,18 @@ if (!preg_match('/\.unl\.edu/', $_GET['u'])
     && !preg_match('/huskeralum\.com/', $_GET['u'])) {
     throwError('Requested host is not allowed');
 }
+
+function throwError($message = null)
+{
+	$header = "HTTP/1.0 500 Server Error";
+	header($header);
+	if ($message) {
+		echo $message;
+	} else {
+		echo 'Error';
+	}
+	exit();
+}
 require_once 'UNL/Templates.php';
 require_once 'UNL/Templates/Scanner.php';
 
