@@ -7,8 +7,11 @@ body.popup #header:after {
 }
 
 body.popup #logo {
-    width:30px;
+    width:50px;
     background-image:none;
+    position:absolute;
+    left:4px;
+    top:4px;
 }
 
 body.popup #wdn_wrapper {
@@ -35,8 +38,8 @@ body.popup #header {
 
 body.popup #titlegraphic {
     margin-top:15px;
-    padding-left:50px;
-    padding-bottom:10px;
-    border-bottom:1px solid;
+    padding-left:60px;
+    padding-bottom:20px;
     font-size:0.8em;
+    background:url('images/shad_pop.gif') repeat-x;
 }
