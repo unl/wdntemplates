@@ -6,6 +6,7 @@
 @import url('footer/footer.css');
 @import url('variations/liquid.css');
 @import url('variations/fixed.css');
+@import url('variations/popup.css');
 
 /**
  * If you add something in here, add it to the build/compressCSS.php file.

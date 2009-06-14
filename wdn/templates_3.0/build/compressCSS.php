@@ -26,6 +26,7 @@
     'content/zenbox',
     'variations/liquid',
     'variations/fixed',
+    'variations/popup',
     );
   foreach ($files as $file) {
       $dir = '';

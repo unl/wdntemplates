@@ -1,0 +1,42 @@
+body.popup #wdn_navigation_bar,
+body.popup #wdn_search,
+body.popup #wdn_tool_links,
+body.popup #header h1,
+body.popup #header:after {
+    display:none;
+}
+
+body.popup #logo {
+    width:30px;
+    background-image:none;
+}
+
+body.popup #wdn_wrapper {
+    border:none;
+    padding:0px;
+    margin:0px;
+    width:100%;
+}
+
+body.popup #wdn_content_wrapper {
+    width:100%;
+    margin:0px;
+}
+
+body.popup #header {
+    height:40px !important;
+    overflow:hidden;
+    margin:0px;
+    min-height:40px;
+    background:none;
+    width:50px;
+    position:absolute;
+}
+
+body.popup #titlegraphic {
+    margin-top:15px;
+    padding-left:50px;
+    padding-bottom:10px;
+    border-bottom:1px solid;
+    font-size:0.8em;
+}
