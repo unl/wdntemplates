@@ -43,3 +43,11 @@ body.popup #titlegraphic {
     font-size:0.8em;
     background:url('images/shad_pop.gif') repeat-x;
 }
+
+body.popup #footer .footer_col {
+    display:none;
+}
+
+body.popup #footer #wdn_copyright {
+    border:none;
+}
