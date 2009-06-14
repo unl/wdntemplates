@@ -27,6 +27,8 @@
     'variations/liquid',
     'variations/fixed',
     'variations/popup',
+    'variations/document',
+    'variations/secure',
     );
   foreach ($files as $file) {
       $dir = '';

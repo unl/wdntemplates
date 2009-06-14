@@ -7,6 +7,8 @@
 @import url('variations/liquid.css');
 @import url('variations/fixed.css');
 @import url('variations/popup.css');
+@import url('variations/document.css');
+@import url('variations/secure.css');
 
 /**
  * If you add something in here, add it to the build/compressCSS.php file.
