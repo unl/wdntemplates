@@ -2,6 +2,24 @@
 	margin:10px 0 0 0;
 	width:960px;
 }
+#feedcontent h3, #weathercontent h3, #eventscontent h3, #pfcontent h3, #cameracontent h3 {
+	background:url('../images/headingBGRed.gif') repeat-x bottom;
+	padding:5px;
+	color:#fff;
+	margin-bottom:5px;
+	font-size:1.1em;
+}
+#feedcontent h3:after, #weathercontent h3:after, #eventscontent h3:after, #pfcontent h3:after, #cameracontent h3:after  {
+	content:'';
+	width:20px;
+	height:10px;
+	display:block;
+	background:url('../images/downIndicators.png') no-repeat;
+	margin-left:30px;
+	margin-top:5px;
+}
+
+
 
 /* Webcam
 ***********/
@@ -15,20 +33,36 @@
 }
 /* Weather
 *************/
-#weathercontent {
-	background:url(images/weatherback.jpg);
-	height:454px;
-	font-size:14px;
+#weathercontent #showradar{
+	border:1px solid #ededed;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background: #f7f7f7;
+	padding:9px 5px 5px 5px;
+    margin: 0 0 10px 0;
+	position:relative;
+	text-align: center;	
 }
-#weathercontent>div {
-	background:url(images/weathertrans.png);
-	position:absolute;
-	top:50px;
-	left:100px;
+#weathercontent .weather_col{
+	float:left;
 	width:250px;
-	height:300px;
-	padding:15px 15px 15px 15px;
+	padding:0 10px 0 0;
 }
-.weathertempf{
+#weathercontent .weather_col.middle{
+	padding:0 10px 0 10px;
+}
+#weathercontent .weather_twocol {
+	float:left;
+	width:420px;
+	padding:0 0 0 10px;
+}
+#weathercontent #showradar img {
+/*	background:url('http://radar.weather.gov/Conus/Loop/uppermissvly_loop.gif') 0 -170px no-repeat; */
+	background:url('http://radar.weather.gov/lite/N0R/OAX_loop.gif') -5px -120px no-repeat;
+	height:350px;
+	width:400px;
+}
+#weathercontent .weathertempf{
 	font-size:35px;
 }

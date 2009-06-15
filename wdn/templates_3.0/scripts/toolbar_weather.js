@@ -13,9 +13,9 @@ WDN.toolbar_weather = function() {
         updateWeatherResults : function() {
         	if (weatherreq.readyState == 4) {
         		if (weatherreq.status == 200) {
-        			document.getElementById("weathercontent").innerHTML = weatherreq.responseText;
+        			document.getElementById("currentcond").innerHTML = weatherreq.responseText;
         		} else {
-        			document.getElementById("weathercontent").innerHTML = 'Error loading results.';
+        			document.getElementById("currentcond").innerHTML = 'Error loading results.';
         		}
         	}
         	wait = false;
