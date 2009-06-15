@@ -18,10 +18,10 @@ WDN.toolbar = function() {
             WDN.log('Setting up colorbox');
             WDN.toolbar.toolTabsSetup();
             jQuery("a.feed").colorbox({width:"1002", height:"550", inline:true, href:"#feedcontent"});
-            jQuery("a.weather").colorbox({width:"1002", height:"530", inline:true, href:"#weathercontent"}, WDN.toolbar.getContent("weather"));
+            jQuery("a.weather").colorbox({width:"1002", height:"510", inline:true, href:"#weathercontent"}, WDN.toolbar.getContent("weather"));
             jQuery("a.calendar").colorbox({width:"1002", height:"550", inline:true, href:"#eventscontent"}, WDN.toolbar.getContent("events"));
             jQuery("a.directory").colorbox({width:"1002", height:"550", inline:true, href:"#pfcontent"});
-            jQuery("a.camera").colorbox({width:"1002", height:"410", inline:true, href:"#cameracontent"}, WDN.toolbar.getContent("webcam")); 
+            jQuery("a.camera").colorbox({width:"1002", height:"390", inline:true, href:"#cameracontent"}, WDN.toolbar.getContent("webcam")); 
         },
         getContent : function(type) {
         	eval('WDN.toolbar_'+type+'.display();');

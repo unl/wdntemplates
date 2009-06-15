@@ -2,8 +2,10 @@
 	margin-top: 10px;
 	height: 320px;
 	}
-
-#feedcontent, #weathercontent, #eventscontent, #pfcontent, #cameracontent{
+#eventscontent {
+	margin:10px 0 0 0;
+}
+#feedcontent, #weathercontent, #pfcontent, #cameracontent{
 	margin:10px 0 0 0;
 	width:960px;
 }
@@ -68,8 +70,8 @@
 }
 #weathercontent #showradar img {
 /*	background:url('http://radar.weather.gov/Conus/Loop/uppermissvly_loop.gif') 0 -170px no-repeat; */
-	background:url('http://radar.weather.gov/lite/N0R/OAX_loop.gif') -5px -120px no-repeat;
-	height:350px;
+	background:url('http://radar.weather.gov/lite/N0R/OAX_loop.gif') -5px -140px no-repeat;
+	height:330px;
 	width:400px;
 }
 #weathercontent .weathertempf{
@@ -80,7 +82,7 @@
 #eventscontent .col.left {
 	float:left;
 	padding:0 10px 0 0;
-	width:470px;
+	width:460px;
 }
 #eventscontent .col.middle {
 	float:left;
@@ -90,7 +92,7 @@
 #eventscontent .col.right {
 	float:left;
 	padding:0 0 0 10px;
-	width:470px;
+	width:460px;
 }
 /* Events styles from events.unl.edu
 **************/
@@ -112,6 +114,8 @@
 	font-size:1.5em;
 	margin-top:15px;
 	padding:6px 0 7px 34px;
+	font-weight:normal;
+	line-height:1.2;
 	}
 #eventscontent .day_cal .permalink {
 	font-size:0.6em;
@@ -127,7 +131,7 @@
 	background:#3E83C9 none repeat scroll 0 0;
 	border-bottom:3px solid #BFD6F5;
 	color:#FFFFFF;
-	padding:7px;
+	padding:2px 7px;
 	}
 #eventscontent table thead th.title {
 	font-style: normal;
@@ -135,19 +139,24 @@
 #eventscontent .day_cal table thead th, #eventscontent .event_cal table thead th {
 	text-align:left !important;
 }
-#eventscontent table td.date {
-	width:60px;
-}
 #eventscontent table td {
 	border-top: 1px solid #D7E6EE;
-	padding: 7px;
+	padding: 0 7px 0 7px;
+}
+#eventscontent table td.date {
+	width:65px;
+	font-size:0.9em;
 }
 #eventscontent table tr.alt {
 	background: #ECF4F8;
 }
-#eventscontent span.location, #eventscontent span.location a {
+#eventscontent span.location {
 	color:#3A8103;
 	font-size:0.75em;
+	text-transform:uppercase;
+}
+#eventscontent span.location a {
+	color:#3A8103;
 	text-transform:uppercase;
 }
 #eventscontent table.ongoing {
@@ -158,6 +167,8 @@
 }
 #eventscontent .dtend {
 	display:block;
+	margin-top:-7px;
+	padding-left:1px;
 }
 #eventscontent abbr, #eventscontent acronym {
 	border-bottom:medium none;
@@ -171,7 +182,6 @@
 
 
 #eventscontent .day_cal #feeds,
-#eventscontent .day_cal #day_nav,
-#eventscontent .day_cal .description{
+#eventscontent .day_cal #day_nav{
 	display:none;
 	}
