@@ -4,7 +4,7 @@ WDN.toolbar_events = function() {
         initialize : function() {
         },
         display : function() {
-        	var calurl = "http://events.unl.edu/?format=hcalendar";
+        	var calurl = "http://www.unl.edu/wdn/template_3.0/scripts/eventsSniffer.php";
         	calreq.open("GET", calurl, true);
         	calreq.onreadystatechange = WDN.toolbar_events.updateCalendarResults;
         	calreq.send(null);
