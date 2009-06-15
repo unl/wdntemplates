@@ -4,7 +4,7 @@ WDN.toolbar_events = function() {
         initialize : function() {
         },
         display : function() {
-        	var calurl = "http://www.unl.edu/wdn/template_3.0/scripts/eventsSniffer.php";
+        	var calurl = "http://events.unl.edu/?format=hcalendar";
         	calreq.open("GET", calurl, true);
         	calreq.onreadystatechange = WDN.toolbar_events.updateCalendarResults;
         	calreq.send(null);
@@ -12,9 +12,9 @@ WDN.toolbar_events = function() {
         updateCalendarResults : function() {
         	if (calreq.readyState == 4) {
         		if (calreq.status == 200) {
-        			document.getElementById("eventscontent").innerHTML = calreq.responseText;
+        			document.getElementById("allunlevents").innerHTML = calreq.responseText;
         		} else {
-        			document.getElementById("eventscontent").innerHTML = 'Error loading results.';
+        			document.getElementById("allunlevents").innerHTML = 'Error loading results.';
         		}
         	}
         	wait = false;

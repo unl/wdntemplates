@@ -1,3 +1,8 @@
+.toolResultsMask {
+	margin-top: 10px;
+	height: 320px;
+	}
+
 #feedcontent, #weathercontent, #eventscontent, #pfcontent, #cameracontent{
 	margin:10px 0 0 0;
 	width:960px;
@@ -18,17 +23,21 @@
 	margin-left:30px;
 	margin-top:5px;
 }
-
+#feedcontent h3 a, #weathercontent h3 a, #eventscontent h3 a, #pfcontent h3 a, #cameracontent h3 a {
+	color: #FFFFFF;
+	padding-left:4px;
+	font-style: italic;
+}
 
 
 /* Webcam
 ***********/
-#cameracontent .cam_col{
+#cameracontent .col{
 	float:left;
 	width:300px;
 	padding:0 10px 0 10px;
 }
-#cameracontent .cam_col img{
+#cameracontent .col img{
 	width:290px;
 }
 /* Weather
@@ -44,15 +53,15 @@
 	position:relative;
 	text-align: center;	
 }
-#weathercontent .weather_col{
+#weathercontent .col{
 	float:left;
 	width:250px;
 	padding:0 10px 0 0;
 }
-#weathercontent .weather_col.middle{
+#weathercontent .col.middle{
 	padding:0 10px 0 10px;
 }
-#weathercontent .weather_twocol {
+#weathercontent .two_col {
 	float:left;
 	width:420px;
 	padding:0 0 0 10px;
@@ -66,3 +75,103 @@
 #weathercontent .weathertempf{
 	font-size:35px;
 }
+/* Events
+****************/
+#eventscontent .col.left {
+	float:left;
+	padding:0 10px 0 0;
+	width:470px;
+}
+#eventscontent .col.middle {
+	float:left;
+	padding:0 10px 0 10px;
+	width:400px;
+}
+#eventscontent .col.right {
+	float:left;
+	padding:0 0 0 10px;
+	width:470px;
+}
+/* Events styles from events.unl.edu
+**************/
+#eventscontent{
+	color:#434343;
+	}
+#eventscontent h4.sec_main {
+	background: url(http://events.unl.edu/templates/default/images/date1.gif) no-repeat;
+	float:left;
+	font-size:1.5em;
+	font-style:normal;
+	padding:4px 0 7px 30px !important;
+	font-weight:normal;
+	line-height:1.2;
+	}
+#eventscontent h4.ongoing {
+	background: url(http://events.unl.edu/templates/default/images/ongoing.gif) no-repeat;
+	clear:both;
+	font-size:1.5em;
+	margin-top:15px;
+	padding:6px 0 7px 34px;
+	}
+#eventscontent .day_cal .permalink {
+	font-size:0.6em;
+	position:relative;
+	}
+
+#eventscontent table {
+	border-collapse:collapse;
+	clear:both;
+	width:100%;
+	}
+#eventscontent table thead th {
+	background:#3E83C9 none repeat scroll 0 0;
+	border-bottom:3px solid #BFD6F5;
+	color:#FFFFFF;
+	padding:7px;
+	}
+#eventscontent table thead th.title {
+	font-style: normal;
+}
+#eventscontent .day_cal table thead th, #eventscontent .event_cal table thead th {
+	text-align:left !important;
+}
+#eventscontent table td.date {
+	width:60px;
+}
+#eventscontent table td {
+	border-top: 1px solid #D7E6EE;
+	padding: 7px;
+}
+#eventscontent table tr.alt {
+	background: #ECF4F8;
+}
+#eventscontent span.location, #eventscontent span.location a {
+	color:#3A8103;
+	font-size:0.75em;
+	text-transform:uppercase;
+}
+#eventscontent table.ongoing {
+	margin:5px 0 0 0;
+}
+#eventscontent .dtstart, #eventscontent .dtend, #eventscontent .dtstamp {
+	border:medium none;
+}
+#eventscontent .dtend {
+	display:block;
+}
+#eventscontent abbr, #eventscontent acronym {
+	border-bottom:medium none;
+	text-decoration:none;
+}
+
+
+
+
+
+
+
+#eventscontent .day_cal #feeds,
+#eventscontent .day_cal #day_nav,
+#eventscontent .day_cal .description{
+	display:none;
+	}
