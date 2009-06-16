@@ -1,0 +1,22 @@
+body.document #wdn_wrapper {
+	max-width:960px;
+	margin:0 auto;
+}
+
+body.document #breadcrumbs {
+	width: 954px;
+}
+
+body.document #navigation,
+body.document #wdn_search,
+body.document #wdn_tool_links {
+    display:none;
+}
+
+body.document #titlegraphic {
+    margin-top:50px;
+}
+
+body.document #breadcrumbs ul li.selected a:after {
+    background-image:none;
+}
