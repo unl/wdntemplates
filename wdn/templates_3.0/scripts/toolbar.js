@@ -6,13 +6,13 @@ WDN.toolbar = function() {
             if (jQuery.browser.ie) {
                 WDN.loadCSS('wdn/templates_3.0/scripts/plugins/colorbox/colorbox-ie.css');
             }
-            WDN.loadJS('wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js', WDN.toolbar.colorboxSetup);
-            
             jQuery('#header').append('<div class="hidden"><div id="feedcontent"></div></div>');
         	jQuery('#header').append('<div class="hidden"><div id="weathercontent"><div class="col"><h3>Local Weather</h3><div id="currentcond"></div></div><div class="col middle"><h3>Lincoln Forecast</h3><div id="weatherforecast"></div></div><div class="two_col"><h3>Local Radar</h3><div id="showradar"><a href="http://radar.weather.gov/radar_lite.php?rid=oax&product=N0R&overlay=11101111&loop=yes"><img src="/ucomm/templatedependents/templatecss/images/transpixel.gif" /></a></div></div></div></div>');
         	jQuery('#header').append('<div class="hidden"><div id="eventscontent"><div class="col left"><h3>Local Site Events</h3><div id="localsiteevents"></div></div><div class="col right"><h3>UNL Events <a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></h3><div id="allunlevents"></div></div></div></div>');
         	jQuery('#header').append('<div class="hidden"><div id="pfcontent"><form onsubmit="WDN.toolbar_peoplefinder.queuePFRequest(document.getElementById(\'pq\').value,\'pfresults\'); return false;" method="get" action="http://peoplefinder.unl.edu/"><div><label for="pq">Search People:</label><input type="text" onkeyup="WDN.toolbar_peoplefinder.queuePFRequest(this.value,\'pfresults\');" name="pq" id="pq"/><img alt="progress" id="pfprogress" src="/ucomm/templatedependents/templatecss/images/transpixel.gif"/> </div></form><div class="toolResultsMask" id="pfResultsMask"><div class="toolResults" id="pfresults"/></div> </div></div>');
         	jQuery('#header').append('<div class="hidden"><div id="cameracontent"><div class="col"><h3>Nebraska Union Plaza</h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam1.jpg" alt="Plaze Cam" id="webcamuri1" /></div><div class="col"><h3>Nebraska Union Rotunda</h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam2.jpg" alt="Rotunda Cam" id="webcamuri2" /></div><div class="col"><h3>Nebraska East Union</h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam3.jpg" alt="East Union" id="webcamuri3" /></div></div></div>');
+        	
+        	WDN.loadJS('wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js', WDN.toolbar.colorboxSetup);
         },
         colorboxSetup : function() {
             WDN.log('Setting up colorbox');
