@@ -14,6 +14,7 @@ Author: WDN
     padding:12px;
     position:relative;
     min-height:115px;
+    height:115px;
 }
 #header:after {
 	display:block;
@@ -24,14 +25,15 @@ Author: WDN
 	background:url('images/bgFade.gif') repeat-x;
 }
 #header h1 {
-	position:absolute;
 	display:block;
+	height:36px;
+    width:480px;
+	position:absolute;
 	background:url('../../images/title.png') no-repeat;
 	text-indent:-9000em;
 	overflow:hidden;
-	height:36px;
-	width:480px;
-	margin:-67px 0 0 102px;
+	top:40px;
+    left:114px;
 }
 
 #wdn_search {
