@@ -29,11 +29,11 @@ WDN.toolbar = function() {
         },
         toolTabsSetup : function() {
         	jQuery('#cboxWrapper').append('<div id="tooltabs"><ul><li class="feed"><a class="feed" href="http://www1.unl.edu/feeds/">RSS Feeds</a></li><li class="weather"><a href="#" class="weather"><span>Weather</span></a></li><li class="calendar"><a href="#" class="calendar">UNL Events</a></li><li class="directory"><a href="#" class="directory">Peoplefinder</a></li><li class="camera"><a href="#" class="camera">Webcams</a></li></ul></div>');      	
-        	jQuery("a.feed").click(function(){WDN.toolbar.toolTabsCurrent("feed")});
-            jQuery("a.weather").click(function(){WDN.toolbar.toolTabsCurrent("weather")});
-            jQuery("a.calendar").click(function(){WDN.toolbar.toolTabsCurrent("calendar")});
-            jQuery("a.directory").click(function(){WDN.toolbar.toolTabsCurrent("directory")});
-            jQuery("a.camera").click(function(){WDN.toolbar.toolTabsCurrent("camera")}); 
+        	jQuery("a.feed").click(function(){WDN.toolbar.toolTabsCurrent("feed");});
+            jQuery("a.weather").click(function(){WDN.toolbar.toolTabsCurrent("weather");});
+            jQuery("a.calendar").click(function(){WDN.toolbar.toolTabsCurrent("calendar");});
+            jQuery("a.directory").click(function(){WDN.toolbar.toolTabsCurrent("directory");});
+            jQuery("a.camera").click(function(){WDN.toolbar.toolTabsCurrent("camera");}); 
         
         },
         toolTabsCurrent : function(selected) {
