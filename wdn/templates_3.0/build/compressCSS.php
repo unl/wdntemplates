@@ -40,7 +40,8 @@
           list($dir) = explode('/',$file);
           $dir .= '/';
       }
-      echo convertPaths(file_get_contents(dirname(__FILE__)."/../css/$file.css"), $dir);
+      $corrected = convertPaths(file_get_contents(dirname(__FILE__)."/../css/$file.css"), $dir);
+      echo preg_replace('/\@import[\s]+url\(.*\);/', '', $corrected);
   }
 
   function convertPaths($css, $dir) {
