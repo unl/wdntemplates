@@ -6,13 +6,23 @@ $files = array(
 'navigation',
 'search',
 'toolbar',
-'plugins/colorbox/jquery.colorbox',
+'toolbar_weather',
+'toolbar_events',
+'toolbar_peoplefinder',
+'toolbar_webcam',
 'plugins/rating/jquery.rating',
+'feedback',
 'global_functions',
 );
 
 $all = '';
-$loaded = 'WDN.loadedJS["wdn/templates_3.0/scripts/jquery.js"]=true;'.PHP_EOL;
+$loaded = '';
+$pre_compressed = '';
+
+foreach (array('jquery','plugins/colorbox/jquery.colorbox') as $already_compressed) {
+    $pre_compressed .= file_get_contents(dirname(__FILE__)."/../scripts/$already_compressed.js").PHP_EOL;
+    $loaded .= 'WDN.loadedJS["wdn/templates_3.0/scripts/'.$already_compressed.'.js"]=true;'.PHP_EOL;
+}
 
 require_once dirname(__FILE__).'/JavaScriptPacker.php';
 foreach ($files as $file) {
@@ -21,9 +31,10 @@ foreach ($files as $file) {
     $loaded .= 'WDN.loadedJS["wdn/templates_3.0/scripts/'.$file.'.js"]=true;'.PHP_EOL;
 }
 
-$all .= PHP_EOL.$loaded.'WDN.initializeTemplate();';
 
-$compressed = file_get_contents(dirname(__FILE__)."/../scripts/jquery.js").PHP_EOL.$all;
+
+
+$compressed = $pre_compressed.PHP_EOL.$all.PHP_EOL.$loaded.'WDN.initializeTemplate();';
 
 file_put_contents(dirname(__FILE__).'/../scripts/all.js', $compressed);
 
