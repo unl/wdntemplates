@@ -17,6 +17,7 @@
     'header/toolbarcontent',
     'header/tooltabs',
     'header/toolbar',
+    'header/colorbox',
     'navigation/breadcrumbs',
     'navigation/navigation',
     'footer/footer',

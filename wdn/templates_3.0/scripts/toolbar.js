@@ -2,10 +2,8 @@ WDN.toolbar = function() {
     var expandedHeight = 0;
     return {
         initialize : function() {
-            WDN.loadCSS('wdn/templates_3.0/scripts/plugins/colorbox/colorbox.css');
-            if (jQuery.browser.ie) {
-                WDN.loadCSS('wdn/templates_3.0/scripts/plugins/colorbox/colorbox-ie.css');
-            }
+            WDN.loadCSS('wdn/templates_3.0/css/header/colorbox.css');
+
             jQuery('#header').append('<div class="hidden"><div id="feedcontent"></div></div>');
         	jQuery('#header').append('<div class="hidden"><div id="weathercontent"><div class="col"><h3>Local Weather</h3><div id="currentcond"></div></div><div class="col middle"><h3>Lincoln Forecast</h3><div id="weatherforecast"></div></div><div class="two_col"><h3>Local Radar</h3><div id="showradar"><a href="http://radar.weather.gov/radar_lite.php?rid=oax&product=N0R&overlay=11101111&loop=yes"><img src="/ucomm/templatedependents/templatecss/images/transpixel.gif" /></a></div></div></div></div>');
         	jQuery('#header').append('<div class="hidden"><div id="eventscontent"><div class="col left"><h3>Local Site Events</h3><div id="localsiteevents"></div></div><div class="col right"><h3>UNL Events <a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></h3><div id="allunlevents"></div></div></div></div>');
