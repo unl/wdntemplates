@@ -20,3 +20,11 @@ body.document #titlegraphic {
 body.document #breadcrumbs ul li.selected a:after {
     background-image:none;
 }
+
+body.document #footer .footer_col {
+    display:none;
+}
+
+body.document #footer #wdn_copyright {
+    border:none;
+}
