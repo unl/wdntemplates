@@ -1,3 +1,8 @@
+/**
+ * This file is part of the UNL WDN templates.
+ * http://wdn.unl.edu/
+ * $Id$
+ */
 /*
  * jQuery JavaScript Library v1.3.2
  * http://jquery.com/

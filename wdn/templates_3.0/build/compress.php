@@ -31,10 +31,13 @@ foreach ($files as $file) {
     $loaded .= 'WDN.loadedJS["wdn/templates_3.0/scripts/'.$file.'.js"]=true;'.PHP_EOL;
 }
 
-
-
-
 $compressed = $pre_compressed.PHP_EOL.$all.PHP_EOL.$loaded.'WDN.initializeTemplate();';
+
+$compressed = '/**
+ * This file is part of the UNL WDN templates.
+ * http://wdn.unl.edu/
+ * $Id$
+ */'.PHP_EOL.$compressed;
 
 file_put_contents(dirname(__FILE__).'/../scripts/all.js', $compressed);
 

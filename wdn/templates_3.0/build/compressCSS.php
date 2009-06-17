@@ -1,5 +1,10 @@
 <?php
   header('Content-type: text/css');
+  echo '/**
+ * This file is part of the UNL WDN templates.
+ * http://wdn.unl.edu/
+ * $Id$
+ */'.PHP_EOL;
   ob_start("compress");
   function compress($buffer) {
     /* remove comments */
