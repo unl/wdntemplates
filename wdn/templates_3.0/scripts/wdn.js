@@ -101,7 +101,11 @@ var WDN = function() {
 		},
 		
 		contentAdjustments : function () {
-			jQuery('#maincontent p.caption, #footer p.caption').each(function(i){if (jQuery(this).height()>20) {jQuery(this).css({border:'1px solid'});}});
+			jQuery('#maincontent p.caption, #footer p.caption').each(function(i){
+				if (jQuery(this).height()>20) {
+					jQuery(this).css({border:'1px solid #ededed',marginleft:'0'});
+				}
+			});
 		},
 		
 		initializePlugin:function (plugin) {
