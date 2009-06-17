@@ -17,6 +17,16 @@ body.document #titlegraphic {
     margin-top:50px;
 }
 
+body.document #breadcrumbs ul li.selected {
+    background:none;
+}
+
+body.document #breadcrumbs ul li.selected a,
+body.document #breadcrumbs ul li.selected a:link,
+body.document #breadcrumbs ul li.selected a:visited 
+{
+    background:none;
+}
 body.document #breadcrumbs ul li.selected a:after {
     background-image:none;
 }

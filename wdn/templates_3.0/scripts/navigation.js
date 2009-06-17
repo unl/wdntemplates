@@ -34,6 +34,10 @@ WDN.navigation = function() {
 		 * @todo determine what it should be
 		 */
 		initialize : function() {
+			if (jQuery('body').hasClass('popup')
+			    || jQuery('body').hasClass('document')) {
+				return;
+			}
 			jQuery('#navigation').append('<div id="navigation-close"></div>');
 			jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
 			jQuery('#navigation-expand-collapse').click(WDN.navigation.setPreferredState);
