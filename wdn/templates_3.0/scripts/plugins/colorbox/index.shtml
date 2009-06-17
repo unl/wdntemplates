@@ -14,7 +14,7 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: fixed.dwt 253 2009-06-09 18:00:03Z bbieber2 $
+    $Id: fixed.dwt 284 2009-06-11 15:34:23Z bbieber2 $
 -->
 <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
 <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
@@ -162,10 +162,9 @@
 				<!-- WDN: see glossary item 'sidebar links' -->
 				<!--#include virtual="../sharedcode/relatedLinks.html" -->
 				<!-- InstanceEndEditable --></div>
-            <div class="footer_col">
-                <h3>Contacting Us</h3>
+            <div class="footer_col"><!-- InstanceBeginEditable name="contactinfo" -->
                 <!--#include virtual="../../../../../sharedcode/footerContactInfo.html" -->
-            </div>
+            <!-- InstanceEndEditable --></div>
             <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
             <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
 			<!--#include virtual="../sharedcode/footer.html" -->

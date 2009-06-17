@@ -27,12 +27,11 @@
 <!-- Place optional header elements here -->
 <!-- TemplateEndEditable -->
 </head>
-<body class="fixed">
+<body class="document">
 <p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
     </div>
     <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
@@ -44,9 +43,7 @@
             </ul>
             <!-- TemplateEndEditable --></div>
         <div id="wdn_navigation_wrapper">
-            <div id="navigation"><!-- TemplateBeginEditable name="navlinks" -->
-                <!--#include virtual="../sharedcode/navigation.html" -->
-                <!-- TemplateEndEditable --></div>
+            <div id="navigation"></div>
         </div>
     </div>
     <div id="wdn_content_wrapper">
@@ -66,19 +63,6 @@
         </div>
         <div id="footer">
             <div id="footer_floater"></div>
-            <div class="footer_col">
-                <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
-            </div>
-            <div class="footer_col"><!-- TemplateBeginEditable name="leftRandomPromo" -->
-                <!--#include virtual="../sharedcode/footerColumn.html" -->
-                <!-- TemplateEndEditable --></div>
-            <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
-                <!--#include virtual="../sharedcode/relatedLinks.html" -->
-                <!-- TemplateEndEditable --></div>
-            <div class="footer_col"><!-- TemplateBeginEditable name="contactinfo" -->
-                <!--#include virtual="../sharedcode/footerContactInfo.html" -->
-            <!-- TemplateEndEditable --></div>
-            <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
             <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
                 <!--#include virtual="../sharedcode/footer.html" -->
                 <!-- TemplateEndEditable -->

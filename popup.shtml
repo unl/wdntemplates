@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><!-- InstanceBegin template="/Templates/popup.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <!--
     Membership and regular participation in the UNL Web Developer Network
@@ -13,10 +13,12 @@
     this code, or its associated visual presentation in whole or in part to
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
+    
+    $Id: popup.dwt 320 2009-06-17 15:33:44Z bbieber2 $
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/debug.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
 <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/debug.js"></script>
+<script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
 <!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
 <!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
@@ -30,21 +32,12 @@
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
     </div>
     <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
-            <!-- WDN: see glossary item 'breadcrumbs' -->
-            <!-- InstanceBeginEditable name="breadcrumbs" -->
-            <ul>
-                <li><a href="http://www.unl.edu/">UNL</a></li>
-                <li>Department</li>
-            </ul>
-            <!-- InstanceEndEditable --></div>
+            </div>
         <div id="wdn_navigation_wrapper">
-            <div id="navigation"><!-- InstanceBeginEditable name="navlinks" -->
-                <!--#include virtual="sharedcode/navigation.html" -->
-                <!-- InstanceEndEditable --></div>
+            <div id="navigation"></div>
         </div>
     </div>
     <div id="wdn_content_wrapper">
@@ -287,20 +280,6 @@
         </div>
         <div id="footer">
             <div id="footer_floater"></div>
-            <div class="footer_col">
-                <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
-            </div>
-            <div class="footer_col"><!-- InstanceBeginEditable name="leftRandomPromo" -->
-                <!--#include virtual="sharedcode/footerColumn.html" -->
-                <!-- InstanceEndEditable --></div>
-            <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
-                <!--#include virtual="sharedcode/relatedLinks.html" -->
-                <!-- InstanceEndEditable --></div>
-            <div class="footer_col">
-                <h3>Contacting Us</h3>
-                <!--#include virtual="sharedcode/footerContactInfo.html" -->
-            </div>
-            <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
             <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
                 <!--#include virtual="sharedcode/footer.html" -->
                 <!-- InstanceEndEditable -->
