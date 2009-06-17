@@ -67,7 +67,7 @@ var WDN = function() {
 			WDN.loadCSS('wdn/templates_3.0/css/script.css');
 			WDN.loadJS('wdn/templates_3.0/scripts/xmlhttp.js');
 			WDN.loadJS('wdn/templates_3.0/scripts/global_functions.js');
-			WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', WDN.jQueryUsage);			
+			WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', WDN.jQueryUsage);
 		},
 		
 		/**
@@ -80,6 +80,7 @@ var WDN = function() {
 				WDN.initializePlugin('navigation');
 				WDN.initializePlugin('search');
 				WDN.initializePlugin('feedback');
+				WDN.contentAdjustments();
 				WDN.initializePlugin('toolbar');
 				WDN.initializePlugin('toolbar_weather');
 				WDN.initializePlugin('toolbar_events');
@@ -97,6 +98,10 @@ var WDN = function() {
 			try {
 				console.log(data);
 			} catch(e) {}
+		},
+		
+		contentAdjustments : function () {
+			jQuery('#maincontent p.caption, #footer p.caption').each(function(i){if (jQuery(this).height()>20) {jQuery(this).css({border:'1px solid'});}});
 		},
 		
 		initializePlugin:function (plugin) {
