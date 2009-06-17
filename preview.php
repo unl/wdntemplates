@@ -70,21 +70,12 @@ function removeRelativePaths($html, $base_url)
 foreach (array('maincontentarea','head') as $key) {
 	$p->$key = removeRelativePaths($p->$key, $_GET['u']);
 }
-if (stristr($_SERVER['HTTP_ACCEPT'], 'application/xhtml+xml')) {
-  header('Content-type: application/xhtml+xml');
-} else {
-  header('Content-type: text/html');
-}
+
 
 echo '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html version="-//W3C//DTD XHTML 1.1//EN"
-      xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.w3.org/1999/xhtml
-                          http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <!--
     Membership and regular participation in the UNL Web Developer Network
