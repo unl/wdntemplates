@@ -9,7 +9,7 @@ $files = array(
 'toolbar_weather',
 'toolbar_events',
 'toolbar_peoplefinder',
-'toolbar_camera',
+'toolbar_webcams',
 'plugins/rating/jquery.rating',
 'feedback',
 'global_functions',

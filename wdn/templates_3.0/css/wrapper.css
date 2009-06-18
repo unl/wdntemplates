@@ -15,8 +15,6 @@ body {
     padding:12px;
     margin:0px;
     border-radius:18px;
-    -moz-border-radius:18px;
-    -webkit-border-radius:18px;
     min-width:960px;
     position:relative;
     height:auto;

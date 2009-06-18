@@ -47,8 +47,6 @@
 #weathercontent #showradar{
 	border:1px solid #ededed;
     border-radius:3px;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
     background: #f7f7f7;
 	padding:9px 5px 5px 5px;
     margin: 0 0 10px 0;

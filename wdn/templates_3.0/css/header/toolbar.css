@@ -11,8 +11,6 @@ ul#wdn_tool_links li {
 	list-style:none;
     border:2px solid #e0e0e0;
     border-radius:5px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
     display:inline-block;
     padding:4px 5px;
     margin:0 2px;

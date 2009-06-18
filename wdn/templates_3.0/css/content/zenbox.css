@@ -13,8 +13,6 @@ Red: primary
 #maincontent div.zenboxsolid.bright, #maincontent div.zenboxfixed.bright, #maincontent div.zenboxfeature.bright, #maincontent div.zenbox.bright {
 	background: #FFFFBF;
     border-radius:5px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
     padding:5px;
     margin-bottom:1em;
 }
