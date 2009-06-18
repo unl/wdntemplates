@@ -72,7 +72,7 @@ foreach (array('maincontentarea','head') as $key) {
 }
 
 
-echo '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
+echo ''.PHP_EOL;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
@@ -89,18 +89,13 @@ echo '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: fixed.dwt 253 2009-06-09 18:00:03Z bbieber2 $
+    $Id: fixed.dwt 321 2009-06-17 15:43:22Z bbieber2 $
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="wdn/templates_3.0/css/debug.css" />
-<link rel="stylesheet" type="text/css" media="print" href="wdn/templates_3.0/css/print.css" />
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/debug.js"></script>
-<!--[if IE 7]>
-    <link rel="stylesheet" type="text/css" media="screen" href="wdn/templates_3.0/css/ie.css" />
-<![endif]-->
-<meta name="author" content="University of Nebraska-Lincoln | Web Developer Network" />
-<meta http-equiv="content-language" content="en" />
-<meta name="language" content="en" />
-<link rel="shortcut icon" href="wdn/templates_3.0/images/favicon.ico" />
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
+<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
+<script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
+<?php include 'wdn/templates_3.0/includes/browserspecifics.html'; ?>
+<?php include 'wdn/templates_3.0/includes/metanfavico.html'; ?>
 <!-- InstanceBeginEditable name="doctitle" -->
 <?php echo $p->doctitle; ?>
 
@@ -114,31 +109,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-
-        <div id="wdn_search">
-    <form id="wdn_search_form" action="http://www.google.com/u/UNL1?sa=Google+Search&amp;q=" method="get">
-        <fieldset>
-            <label for="q">Search this site, all UNL or for a person</label>
-            <input accesskey="f" id="q" alt="Search string" name="q" type="text" />
-            <input class="search" type="image" alt="Search" src="wdn/templates_3.0/css/header/images/searchMagnifyGlass.png" />
-        </fieldset>
-    </form>
-
-</div>
-<ul id="wdn_tool_links">
-    <li><a href="http://www1.unl.edu/feeds/" class="feed"
-        title="Subscribe to RSS feeds">Feeds</a></li>
-    <li><a
-        href="http://forecast.weather.gov/MapClick.php?CityName=Lincoln&amp;state=NE&amp;site=OAX"
-        class="weather" title="Weather">Weather</a></li>
-    <li><a href="http://events.unl.edu/" class="calendar"
-        title="Events">Events</a></li>
-    <li><a href="http://peoplefinder.unl.edu/" class="directory"
-        title="Peoplefinder">Peoplefinder</a></li>
-    <li><a href="http://www.unl.edu/unlpub/cam/cam1.shtml"
-        class="camera" title="Campus Cameras">Camera</a></li>
-
-</ul>
+        <?php include_once 'wdn/templates_3.0/includes/wdnTools.html'; ?>
     </div>
     <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
@@ -152,7 +123,6 @@ echo '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
                 <!-- InstanceEndEditable --></div>
         </div>
     </div>
-
     <div id="wdn_content_wrapper">
         <div id="titlegraphic"><!-- InstanceBeginEditable name="titlegraphic" -->
             <?php echo $p->titlegraphic; ?>
@@ -163,22 +133,14 @@ echo '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
             <?php echo $p->maincontentarea; ?>
             <!-- InstanceEndEditable -->
             <div class="clear"></div>
-            <noscript>
-<p>
-Your browser does not appear to support JavaScript, or you have turned JavaScript off. You may use unl.edu without enabling JavaScript, but certain functions may not be available.
-</p>
-
-</noscript>
+            <?php include 'wdn/templates_3.0/includes/noscript.html'; ?>
             <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
         </div>
         <div id="footer">
-            <div id="footer_floater">
-            </div>
+            <div id="footer_floater"></div>
             <div class="footer_col">
-            <h3>Your Feedback</h3>
-            (feedback form)
+                <?php include 'wdn/templates_3.0/includes/feedback.html'; ?>
             </div>
-            
             <div class="footer_col"><!-- InstanceBeginEditable name="leftRandomPromo" -->
             <h3>Now On UNL.edu</h3>
             <?php echo $p->leftRandomPromo; ?>
@@ -186,28 +148,23 @@ Your browser does not appear to support JavaScript, or you have turned JavaScrip
             <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
             <?php echo $p->leftcollinks; ?>
             <!-- InstanceEndEditable --></div>
-            <div class="footer_col">
-            <h3>Contacting Us</h3>
-            <p><strong>University Communications</strong><br />
-            WICK 17<br />
-            Lincoln  NE  68583-0218</p>
-            
-            </div>
+            <div class="footer_col"><!-- InstanceBeginEditable name="contactinfo" -->
+                <!--#include virtual="sharedcode/footerContactInfo.html" -->
+            <!-- InstanceEndEditable --></div>
             <!-- InstanceBeginEditable name="optionalfooter" -->
             <?php echo $p->optionalfooter; ?>
             <!-- InstanceEndEditable -->
             <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
                 <?php echo $p->footercontent; ?>
+                <!-- InstanceEndEditable -->
                 <ul>
                     <li><a href="http://validator.unl.edu/check/referer">W3C</a></li>
                     <li><a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></li>
                 </ul>
-                <!-- InstanceEndEditable -->
-                <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a>
-            </div>
+                <?php include 'wdn/templates_3.0/includes/wdn.html'; ?>
+                <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
         </div>
     </div>
-
     <div id="wdn_wrapper_footer"> </div>
 </div>
 </body>
