@@ -5,18 +5,18 @@
 #eventscontent {
 	margin:10px 0 0 0;
 }
-#feedcontent, #weathercontent, #pfcontent, #cameracontent{
+#feedscontent, #weathercontent, #peoplefindercontent, #webcamscontent{
 	margin:10px 0 0 0;
 	width:960px;
 }
-#feedcontent h3, #weathercontent h3, #eventscontent h3, #pfcontent h3, #cameracontent h3 {
+#feedscontent h3, #weathercontent h3, #eventscontent h3, #peoplefindercontent h3, #webcamscontent h3 {
 	background:url('../images/headingBGRed.gif') repeat-x bottom;
 	padding:5px;
 	color:#fff;
 	margin-bottom:5px;
 	font-size:1.1em;
 }
-#feedcontent h3:after, #weathercontent h3:after, #eventscontent h3:after, #pfcontent h3:after, #cameracontent h3:after  {
+#feedscontent h3:after, #weathercontent h3:after, #eventscontent h3:after, #peoplefindercontent h3:after, #webcamscontent h3:after  {
 	content:'';
 	width:20px;
 	height:10px;
@@ -25,7 +25,7 @@
 	margin-left:30px;
 	margin-top:5px;
 }
-#feedcontent h3 a, #weathercontent h3 a, #eventscontent h3 a, #pfcontent h3 a, #cameracontent h3 a {
+#feedscontent h3 a, #weathercontent h3 a, #eventscontent h3 a, #peoplefindercontent h3 a, #webcamscontent h3 a {
 	color: #FFFFFF;
 	padding-left:4px;
 	font-style: italic;
@@ -34,12 +34,12 @@
 
 /* Webcam
 ***********/
-#cameracontent .col{
+#webcamscontent .col{
 	float:left;
 	width:300px;
 	padding:0 10px 0 10px;
 }
-#cameracontent .col img{
+#webcamscontent .col img{
 	width:290px;
 }
 /* Weather

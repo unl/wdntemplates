@@ -29,7 +29,7 @@ WDN.toolbar = function() {
         	jQuery("a."+plugin_name).colorbox({width:pwidth, height:pheight, inline:true, href:"#toolbarcontent"});
         	jQuery("a."+plugin_name).click(function(){WDN.toolbar.toolTabsCurrent(plugin_name);});
         },
-        getContent : function(type) {
+        getContent : function(type) { 
         	eval('WDN.toolbar_'+type+'.display();');
         	jQuery("#cboxTitle").css({color:'#f2f2f2'}); //Hide the cboxTitle at the bottom
         },

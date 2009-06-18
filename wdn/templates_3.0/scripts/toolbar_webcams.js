@@ -8,7 +8,7 @@ WDN.toolbar_webcams = function() {
 	    	if (initialized) {
 				return true;
 			}
-    		jQuery('#toolbarcontent').append('<div id="cameracontent"><div class="col"><h3>Nebraska Union Plaza</h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam1.jpg" alt="Plaze Cam" id="webcamuri1" /></div><div class="col"><h3>Nebraska Union Rotunda</h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam2.jpg" alt="Rotunda Cam" id="webcamuri2" /></div><div class="col"><h3>Nebraska East Union</h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam3.jpg" alt="East Union" id="webcamuri3" /></div></div>');
+    		jQuery('#toolbarcontent').append('<div id="webcamscontent"><div class="col"><h3>Nebraska Union Plaza</h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam1.jpg" alt="Plaze Cam" id="webcamuri1" /></div><div class="col"><h3>Nebraska Union Rotunda</h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam2.jpg" alt="Rotunda Cam" id="webcamuri2" /></div><div class="col"><h3>Nebraska East Union</h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam3.jpg" alt="East Union" id="webcamuri3" /></div></div>');
     		initialized = true;
         },
         display : function() {
