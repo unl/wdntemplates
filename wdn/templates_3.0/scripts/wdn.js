@@ -110,8 +110,9 @@ var WDN = function() {
 			});
 		},
 		
-		initializePlugin:function (plugin) {
-			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', function() {eval('WDN.'+plugin+'.initialize();');});
+		initializePlugin:function (plugin, callback) {
+			callback = callback || function() {eval('WDN.'+plugin+'.initialize();');};
+			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', callback);
 		},
 		
 		setCookie : function(name, value, seconds) {

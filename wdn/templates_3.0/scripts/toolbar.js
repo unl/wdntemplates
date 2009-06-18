@@ -1,6 +1,8 @@
 WDN.toolbar = function() {
     var expandedHeight = 0;
     return {
+    	plugins : {},
+    	
         initialize : function() {
             WDN.loadCSS('wdn/templates_3.0/css/header/colorbox.css');
             
@@ -29,6 +31,9 @@ WDN.toolbar = function() {
         	jQuery("a."+plugin_name).colorbox({width:pwidth, height:pheight, inline:true, href:"#toolbarcontent"});
         	jQuery("a."+plugin_name).click(function(){WDN.toolbar.toolTabsCurrent(plugin_name);});
         },
+        setToolContent : function(plugin_name, content) {
+        	jQuery("#toolbarcontent").append('<div id="toolbar_'+plugin_name+'" class="toolbar_plugin">'+content+'</div>');
+        },
         getContent : function(type) { 
         	eval('WDN.toolbar_'+type+'.display();');
         	jQuery("#cboxTitle").css({color:'#f2f2f2'}); //Hide the cboxTitle at the bottom
@@ -41,7 +46,18 @@ WDN.toolbar = function() {
         	WDN.toolbar.registerTool('webcams', 'Webcams', 1002, 390);
         },
         toolTabsCurrent : function(selected) {
-        	WDN.initializePlugin('toolbar_'+selected, function(){WDN.toolbar.getContent(selected);});
+        	jQuery('#toolbarcontent .toolbar_plugin').hide();
+        	WDN.initializePlugin('toolbar_'+selected,
+        			function(){
+        				if (!WDN.toolbar.plugins[selected]) {
+	        				eval('var content = WDN.toolbar_'+selected+'.setupToolContent();'); 
+	        				WDN.toolbar.setToolContent(selected, content);
+	        				WDN.toolbar.plugins[selected] = true;
+        				}
+		        		eval('WDN.toolbar_'+selected+'.initialize();');
+		        		WDN.toolbar.getContent(selected);
+		        		jQuery('#toolbar_'+selected).show();
+	    			});
         	if ( jQuery("#tooltabs li").hasClass("current") ){
         		jQuery("#tooltabs li").removeClass("current");        		
         	}

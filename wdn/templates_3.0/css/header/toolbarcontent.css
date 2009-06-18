@@ -2,21 +2,21 @@
 	margin-top: 10px;
 	height: 320px;
 	}
-#eventscontent {
+#toolbar_events {
 	margin:10px 0 0 0;
 }
-#feedscontent, #weathercontent, #peoplefindercontent, #webcamscontent{
+.toolbar_plugin {
 	margin:10px 0 0 0;
 	width:960px;
 }
-#feedscontent h3, #weathercontent h3, #eventscontent h3, #peoplefindercontent h3, #webcamscontent h3 {
+#toolbarcontent h3 {
 	background:url('../images/headingBGRed.gif') repeat-x bottom;
 	padding:5px;
 	color:#fff;
 	margin-bottom:5px;
 	font-size:1.1em;
 }
-#feedscontent h3:after, #weathercontent h3:after, #eventscontent h3:after, #peoplefindercontent h3:after, #webcamscontent h3:after  {
+#toolbarcontent h3:after  {
 	content:'';
 	width:20px;
 	height:10px;
@@ -25,7 +25,7 @@
 	margin-left:30px;
 	margin-top:5px;
 }
-#feedscontent h3 a, #weathercontent h3 a, #eventscontent h3 a, #peoplefindercontent h3 a, #webcamscontent h3 a {
+#toolbarcontent h3 a {
 	color: #FFFFFF;
 	padding-left:4px;
 	font-style: italic;
@@ -34,17 +34,17 @@
 
 /* Webcam
 ***********/
-#webcamscontent .col{
+#toolbar_webcams .col{
 	float:left;
 	width:300px;
 	padding:0 10px 0 10px;
 }
-#webcamscontent .col img{
+#toolbar_webcams .col img{
 	width:290px;
 }
 /* Weather
 *************/
-#weathercontent #showradar{
+#toolbar_weather #showradar{
 	border:1px solid #ededed;
     border-radius:3px;
     background: #f7f7f7;
@@ -53,51 +53,51 @@
 	position:relative;
 	text-align: center;	
 }
-#weathercontent .col{
+#toolbar_weather .col{
 	float:left;
 	width:250px;
 	padding:0 10px 0 0;
 }
-#weathercontent .col.middle{
+#toolbar_weather .col.middle{
 	padding:0 10px 0 10px;
 }
-#weathercontent .two_col {
+#toolbar_weather .two_col {
 	float:left;
 	width:420px;
 	padding:0 0 0 10px;
 }
-#weathercontent #showradar img {
+#toolbar_weather #showradar img {
 /*	background:url('http://radar.weather.gov/Conus/Loop/uppermissvly_loop.gif') 0 -170px no-repeat; */
 	background:url('http://radar.weather.gov/lite/N0R/OAX_loop.gif') -5px -140px no-repeat;
 	height:330px;
 	width:400px;
 }
-#weathercontent .weathertempf{
+#toolbar_weather .weathertempf{
 	font-size:35px;
 }
 /* Events
 ****************/
-#eventscontent .col.left {
+#toolbar_events .col.left {
 	float:left;
 	padding:0 10px 0 0;
 	width:460px;
 }
-#eventscontent .col.middle {
+#toolbar_events .col.middle {
 	float:left;
 	padding:0 10px 0 10px;
 	width:400px;
 }
-#eventscontent .col.right {
+#toolbar_events .col.right {
 	float:left;
 	padding:0 0 0 10px;
 	width:460px;
 }
 /* Events styles from events.unl.edu
 **************/
-#eventscontent{
+#toolbar_events{
 	color:#434343;
 	}
-#eventscontent h4.sec_main {
+#toolbar_events h4.sec_main {
 	background: url(http://events.unl.edu/templates/default/images/date1.gif) no-repeat;
 	float:left;
 	font-size:1.5em;
@@ -106,7 +106,7 @@
 	font-weight:normal;
 	line-height:1.2;
 	}
-#eventscontent h4.ongoing {
+#toolbar_events h4.ongoing {
 	background: url(http://events.unl.edu/templates/default/images/ongoing.gif) no-repeat;
 	clear:both;
 	font-size:1.5em;
@@ -115,65 +115,67 @@
 	font-weight:normal;
 	line-height:1.2;
 	}
-#eventscontent .day_cal .permalink {
+#toolbar_events .day_cal .permalink {
 	font-size:0.6em;
 	position:relative;
 	}
-
-#eventscontent table {
+#toolbar_events abbr:after {
+	content:'';
+	}
+#toolbar_events table {
 	border-collapse:collapse;
 	clear:both;
 	width:100%;
 	}
-#eventscontent table thead th {
+#toolbar_events table thead th {
 	background:#3E83C9 none repeat scroll 0 0;
 	border-bottom:3px solid #BFD6F5;
 	color:#FFFFFF;
 	padding:2px 7px;
 	}
-#eventscontent table thead th.title {
+#toolbar_events table thead th.title {
 	font-style: normal;
 }
-#eventscontent .day_cal table thead th, #eventscontent .event_cal table thead th {
+#toolbar_events .day_cal table thead th, #toolbar_events .event_cal table thead th {
 	text-align:left !important;
 }
-#eventscontent table td {
+#toolbar_events table td {
 	border-top: 1px solid #D7E6EE;
 	padding: 0 7px 0 7px;
 }
-#eventscontent table td.date {
+#toolbar_events table td.date {
 	width:65px;
 	font-size:0.9em;
 }
-#eventscontent table tr.alt {
+#toolbar_events table tr.alt {
 	background: #ECF4F8;
 }
-#eventscontent span.location {
+#toolbar_events span.location {
 	color:#3A8103;
 	font-size:0.75em;
 	text-transform:uppercase;
 }
-#eventscontent span.location a {
+#toolbar_events span.location a {
 	color:#3A8103;
 	text-transform:uppercase;
 }
-#eventscontent table.ongoing {
+#toolbar_events table.ongoing {
 	margin:5px 0 0 0;
 }
-#eventscontent .dtstart, #eventscontent .dtend, #eventscontent .dtstamp {
+#toolbar_events .dtstart, #toolbar_events .dtend, #toolbar_events .dtstamp {
 	border:medium none;
 }
-#eventscontent .dtend {
+#toolbar_events .dtend {
 	display:block;
 	margin-top:-7px;
 	padding-left:1px;
 }
-#eventscontent abbr, #eventscontent acronym {
+#toolbar_events abbr, #toolbar_events acronym {
 	border-bottom:medium none;
 	text-decoration:none;
 }
 
-#eventscontent .day_cal #feeds,
-#eventscontent .day_cal #day_nav{
+#toolbar_events .day_cal #feeds,
+#toolbar_events .day_cal #day_nav{
 	display:none;
 	}

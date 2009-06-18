@@ -1,14 +1,12 @@
 WDN.toolbar_weather = function() {
     var weatherreq = new WDN.proxy_xmlhttp();
     var forecastreq = new WDN.proxy_xmlhttp();
-    var initialized = false;
     return {     
     	initialize : function() {
-    		if (initialized) {
-    			return true;
-    		}
-    		jQuery('#toolbarcontent').append('<div id="weathercontent"><div class="col"><h3>Local Weather</h3><div id="currentcond"></div></div><div class="col middle"><h3>Lincoln Forecast</h3><div id="weatherforecast"></div></div><div class="two_col"><h3>Local Radar</h3><div id="showradar"><a href="http://radar.weather.gov/radar_lite.php?rid=oax&product=N0R&overlay=11101111&loop=yes"><img src="/ucomm/templatedependents/templatecss/images/transpixel.gif" /></a></div></div></div>');
-    		initialized = true;
+    		
+    	},
+    	setupToolContent : function() {
+    		return '<div class="col"><h3>Local Weather</h3><div id="currentcond"></div></div><div class="col middle"><h3>Lincoln Forecast</h3><div id="weatherforecast"></div></div><div class="two_col"><h3>Local Radar</h3><div id="showradar"><a href="http://radar.weather.gov/radar_lite.php?rid=oax&product=N0R&overlay=11101111&loop=yes"><img src="/ucomm/templatedependents/templatecss/images/transpixel.gif" /></a></div></div>';
     	},
         display : function() {
         	var weatherurl = "http://www.unl.edu/wdn/templates_3.0/scripts/weatherCurrent.html";
