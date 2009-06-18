@@ -31,6 +31,8 @@ foreach ($files as $file) {
     $loaded .= 'WDN.loadedJS["wdn/templates_3.0/scripts/'.$file.'.js"]=true;'.PHP_EOL;
 }
 
+$loaded .= 'WDN.template_path = "/";'.PHP_EOL;
+
 $compressed = $pre_compressed.PHP_EOL.$all.PHP_EOL.$loaded.'WDN.initializeTemplate();';
 
 $compressed = '/**

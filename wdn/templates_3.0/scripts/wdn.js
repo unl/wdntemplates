@@ -8,6 +8,12 @@ var WDN = function() {
 		 */
 		loadedJS : {},
 		
+		/**
+		 * This variable stores the path to the template files.
+		 * It can be set to /, http://www.unl.edu/, or nothing.
+		 */
+		template_path : '',
+		
 		/*
 		 * Loads an external JavaScript file. 
 		 * 
@@ -21,7 +27,7 @@ var WDN = function() {
 			if ((arguments.length>2 && checkLoaded === false) || !WDN.loadedJS[url]){
 				WDN.log("begin loading JS: " + url);
 				var e = document.createElement("script");
-				e.setAttribute('src', url);
+				e.setAttribute('src', WDN.template_path+url);
 				e.setAttribute('type','text/javascript');
 				document.getElementsByTagName('head').item(0).appendChild(e);
 				
@@ -53,7 +59,7 @@ var WDN = function() {
 		 */
 		loadCSS : function(url) {
 			var e = document.createElement("link");
-			e.href = url;
+			e.href = WDN.template_path+url;
 			e.rel = "stylesheet";
 			e.type="text/css";
 			document.getElementsByTagName("head")[0].appendChild(e);
