@@ -5,8 +5,14 @@ WDN.toolbar_peoplefinder = function() {
     var pfresultsdiv = 'pfresults';
     var pfserviceurl = 'http://peoplefinder.unl.edu/service.php?q=';
     var pfreq_q;
+    var initialized = false;
     return {
         initialize : function() {
+	    	if (initialized) {
+				return true;
+			}
+			jQuery('#toolbarcontent').append('<div id="pfcontent"><form onsubmit="WDN.toolbar_peoplefinder.queuePFRequest(document.getElementById(\'pq\').value,\'pfresults\'); return false;" method="get" action="http://peoplefinder.unl.edu/"><div><label for="pq">Search People:</label><input type="text" onkeyup="WDN.toolbar_peoplefinder.queuePFRequest(this.value,\'pfresults\');" name="pq" id="pq"/><img alt="progress" id="pfprogress" src="/ucomm/templatedependents/templatecss/images/transpixel.gif"/> </div></form><div class="toolResultsMask" id="pfResultsMask"><div class="toolResults" id="pfresults"/></div> </div>');
+			initialized = true;
         },
         pf_getUID : function(uid) {
         	var url = "http://peoplefinder.unl.edu/hcards/"+uid;

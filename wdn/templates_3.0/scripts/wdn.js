@@ -82,10 +82,6 @@ var WDN = function() {
 				WDN.initializePlugin('feedback');
 				WDN.contentAdjustments();
 				WDN.initializePlugin('toolbar');
-				WDN.initializePlugin('toolbar_weather');
-				WDN.initializePlugin('toolbar_events');
-				WDN.initializePlugin('toolbar_peoplefinder');
-				WDN.initializePlugin('toolbar_webcam');
 			});
 		},
 		

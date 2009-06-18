@@ -21,7 +21,7 @@
 #tooltabs a.calendar {
 	background:url(images/applianceIcons.png) 0 -140px no-repeat;
 }
-#tooltabs a.directory {
+#tooltabs a.peoplefinder {
 	background:url(images/applianceIcons.png) 0 -160px no-repeat;
 }
 #tooltabs a.camera {
@@ -36,7 +36,7 @@
 #tooltabs li.current a.calendar {
 	background-position: 0 -40px;
 }
-#tooltabs li.current a.directory {
+#tooltabs li.current a.peoplefinder {
 	background-position: 0 -60px;
 }
 #tooltabs li.current a.camera {
