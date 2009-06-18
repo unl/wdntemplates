@@ -12,34 +12,34 @@
 	display:block;
 	margin:11px 0 0 5px;
 }
-#tooltabs a.feed {
+#tooltabs a.feeds {
 	background:url(images/applianceIcons.png) 0 -100px no-repeat;
 }
 #tooltabs a.weather {
 	background:url(images/applianceIcons.png) 0 -120px no-repeat;
 }
-#tooltabs a.calendar {
+#tooltabs a.events {
 	background:url(images/applianceIcons.png) 0 -140px no-repeat;
 }
 #tooltabs a.peoplefinder {
 	background:url(images/applianceIcons.png) 0 -160px no-repeat;
 }
-#tooltabs a.camera {
+#tooltabs a.webcams {
 	background:url(images/applianceIcons.png) 0 -180px no-repeat;
 }
-#tooltabs li.current a.feed {
+#tooltabs li.current a.feeds {
 	background-position: 0 0;
 }
 #tooltabs li.current a.weather {
 	background-position: 0 -20px;
 }
-#tooltabs li.current a.calendar {
+#tooltabs li.current a.events {
 	background-position: 0 -40px;
 }
 #tooltabs li.current a.peoplefinder {
 	background-position: 0 -60px;
 }
-#tooltabs li.current a.camera {
+#tooltabs li.current a.webcams {
 	background-position: 0 -80px;
 }
 #tooltabs ul {

@@ -1,4 +1,4 @@
-WDN.toolbar_webcam = function() {
+WDN.toolbar_webcams = function() {
     var unlwebcam = 'http://www.unl.edu/unlpub/cam/cam1.jpg';
     var rotundawebcam = 'http://www.unl.edu/unlpub/cam/cam2.jpg';
     var NEUwebcam = 'http://www.unl.edu/unlpub/cam/cam3.jpg';
@@ -18,4 +18,3 @@ WDN.toolbar_webcam = function() {
         }
     };
 }();
-WDN.toolbar_camera = WDN.toolbar_webcam;

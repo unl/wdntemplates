@@ -36,9 +36,9 @@ WDN.toolbar = function() {
         toolTabsSetup : function() {
         	jQuery('#cboxWrapper').append('<div id="tooltabs"><ul></ul></div>');
         	WDN.toolbar.registerTool('weather', 'Weather', 1002, 510);
-        	WDN.toolbar.registerTool('calendar', 'Events', 1002, 550);
+        	WDN.toolbar.registerTool('events', 'Events', 1002, 550);
         	WDN.toolbar.registerTool('peoplefinder', 'Peoplefinder', 1002, 550);
-        	WDN.toolbar.registerTool('camera', 'webcam', 1002, 390);
+        	WDN.toolbar.registerTool('webcams', 'Webcams', 1002, 390);
         },
         toolTabsCurrent : function(selected) {
         	WDN.initializePlugin('toolbar_'+selected, function(){WDN.toolbar.getContent(selected);});
