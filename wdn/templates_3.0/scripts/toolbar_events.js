@@ -1,35 +1,40 @@
 WDN.toolbar_events = function() {
     var calreq = new WDN.proxy_xmlhttp();
     var localcalreq = new WDN.proxy_xmlhttp();
+    var havelocalevents = false;
     return {
         initialize : function() {
 
         },
         setupToolContent : function() {
-        	if (myEventsName != "ReplaceThisButLeaveTheQuotes")
-        		return '<div class="col left"><h3>UNL Events <a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></h3><div id="allunlevents"></div></div><div class="col right"><h3>Local Site Events</h3><div id="localsiteevents"></div></div>';
-        	else	
-        		return '<div class="col left"><h3>UNL Events <a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></h3><div id="allunlevents"></div></div>';
+        	var pagelinks = document.getElementsByTagName('link');
+        	for(i=0;i<pagelinks.length;i++)
+        	{
+        	    relatt = pagelinks[i].getAttribute('rel');
+        	    if(relatt=='localevents')
+        	    {
+        	    	havelocalevents = true;
+        	    	localeventshref = pagelinks[i].getAttribute('href');
+        	    	localeventstitle = pagelinks[i].getAttribute('title');
+        	    	return '<div class="col left"><h3>UNL Events <a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></h3><div id="allunlevents"></div></div><div class="col right"><h3>'+localeventstitle+' Events</h3><div id="localsiteevents"></div></div>';
+        	    }
+        	}
+        	return '<div class="col left"><h3>UNL Events <a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></h3><div id="allunlevents"></div></div>';
         },
         display : function() {
-        	if (myEventsName != "ReplaceThisButLeaveTheQuotes")
-        	{
+        	if (havelocalevents)
         		jQuery('#toolbar_events .col.left').css({width:"460px", padding:"0 10px 0 0"});
-        		WDN.toolbar_events.getCalendarResults(myEventsName);
-        	}
-        	else	
-        	{
-        		WDN.toolbar_events.getCalendarResults("donthaveone");
-        	}
+        	else {}
+        	WDN.toolbar_events.getCalendarResults();      	
         },
-        getCalendarResults : function(localEventsName) {
+        getCalendarResults : function() {
         	var calurl = "http://events.unl.edu/?format=hcalendar";
         	calreq.open("GET", calurl, true);
         	calreq.onreadystatechange = WDN.toolbar_events.updateCalendarResults;
         	calreq.send(null);
-        	if (localEventsName != "donthaveone")
+        	if (havelocalevents)
         	{
-        		var calurl = "http://events.unl.edu/"+localEventsName+"/?format=hcalendar";
+        		var calurl = localeventshref;
             	localcalreq.open("GET", calurl, true);
             	localcalreq.onreadystatechange = WDN.toolbar_events.updateLocalCalendarResults;
             	localcalreq.send(null);
