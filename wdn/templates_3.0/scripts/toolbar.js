@@ -1,3 +1,29 @@
+/**
+ * This handles the toolbar at the top of the template page.
+ * 
+ * Tools that wish to be shown within the toolbar modal dialog must follow
+ * this basic structure:
+ * 
+ *
+WDN.toolbar_mytoolname = function() {
+    return {
+        initialize : function() {
+			// This is called when the tool is initialized before it is shown
+        },
+        setupToolContent : function() {
+        	// This is where your tool's content resides
+        	return '<div class="col">mytool content</div>';
+        },
+        display : function() {
+    		// this will be called when the tool is displayed
+        }
+    };
+}();
+
+ * To register a tool - you must call:
+ * WDN.toolbar.registerTool('mytoolname', 'My Tool Title', width, height);
+ * 
+ */
 WDN.toolbar = function() {
     var expandedHeight = 0;
     return {
