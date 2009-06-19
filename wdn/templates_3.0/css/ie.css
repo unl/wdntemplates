@@ -63,3 +63,7 @@ ul#wdn_tool_links li {
 	padding-right:38px;
 	background:url('navigation/images/tabBGLeft_IE7.png') 0 0 no-repeat;
 }
+
+.nav_expanded #navigation {
+	padding-bottom:34px;
+}
