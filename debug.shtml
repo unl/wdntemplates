@@ -7,7 +7,8 @@
     <script type="text/javascript" src="wdn/templates_3.0/scripts/debug.js"></script>
     <!--#include virtual="wdn/templates_3.0/includes/browserspecifics.html" -->
 	<!--#include virtual="wdn/templates_3.0/includes/metanfavico.html" -->
-    <title>UNL | Template</title>    
+    <title>UNL | Template</title>   
+    <script type="text/javascript">var myEventsName = "ReplaceThisButLeaveTheQuotes";</script> 
 </head>
 <body class="fixed">
 <p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
