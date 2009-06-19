@@ -287,7 +287,6 @@
             	<!--#include virtual="sharedcode/relatedLinks.html" -->
             </div>            
             <div class="footer_col">
-            	<h3>Contacting Us</h3>
             	<!--#include virtual="sharedcode/footerContactInfo.html" -->
             </div>                   
             <div id="wdn_copyright">
