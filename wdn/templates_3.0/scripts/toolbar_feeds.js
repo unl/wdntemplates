@@ -1,6 +1,6 @@
 WDN.toolbar_feeds = function() {
     return {
-    	feedAddress : false,
+    	feedAddress : 'http://www1.unl.edu/mediahub/?format=xml',
         initialize : function() {
     		var localRSS = WDN.toolbar_feeds.hasLocalRSS();
 			if (localRSS) {
@@ -8,8 +8,13 @@ WDN.toolbar_feeds = function() {
 			}
         },
         hasLocalRSS : function() {
-        	// Scan for link with rel="*alternate*"
-        	return 'http://www1.unl.edu/mediahub/?format=xml';
+        	var pagelinks = document.getElementsByTagName('link');
+        	for (var i=0;i<pagelinks.length;i++) {
+        	    relatt = pagelinks[i].getAttribute('rel');
+        	    if (relatt=='alternate') {
+        	    	return pagelinks[i].getAttribute('href');
+        	    }
+        	}
         	return false;
         },
         setupToolContent : function() {
@@ -17,7 +22,6 @@ WDN.toolbar_feeds = function() {
         	return '<div class="col"><h3>RSS Feed</h3><ul id="wdn_feed_items"></ul></div>';
         },
         display : function() {
-        	
         	WDN.loadJS('http://query.yahooapis.com/v1/public/yql?q=select+link%2Ctitle+from+rss+where+url%3D%27'+escape(WDN.toolbar_feeds.feedAddress)+'%27+limit+3&format=json&callback=WDN.toolbar_feeds.showBlogPosts');
         },
         showBlogPosts : function(data) {
