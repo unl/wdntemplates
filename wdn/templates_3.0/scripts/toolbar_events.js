@@ -16,7 +16,7 @@ WDN.toolbar_events = function() {
         	    	havelocalevents = true;
         	    	localeventshref = pagelinks[i].getAttribute('href');
         	    	localeventstitle = pagelinks[i].getAttribute('title');
-        	    	return '<div class="col left"><h3>UNL Events <a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></h3><div id="allunlevents"></div></div><div class="col right"><h3>'+localeventstitle+' Events</h3><div id="localsiteevents"></div></div>';
+        	    	return '<div class="col left"><h3>UNL Events <em><a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></em></h3><div id="allunlevents"></div></div><div class="col right"><h3>'+localeventstitle+' Events</h3><div id="localsiteevents"></div></div>';
         	    }
         	}
         	return '<div class="col left"><h3>UNL Events <a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></h3><div id="allunlevents"></div></div>';

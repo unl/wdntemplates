@@ -32,8 +32,12 @@
 #toolbarcontent h3 a {
 	color: #FFFFFF;
 	padding-left:4px;
-	font-style: italic;
+	text-decoration:none;
 }
+#toolbarcontent h3 a:hover {
+	text-decoration:underline;
+}
+
 /* Feeds
 ***********/
 #toolbar_feeds .col.left {
@@ -56,6 +60,17 @@
 	padding:0 0 0 10px;
 	width:220px;
 }
+#toolbar_feeds span {
+	float:left;
+	color:#FFFFFF;
+}
+#toolbar_feeds span.rssicon {
+	height:20px;
+	width:20px;
+	background:url(images/applianceIcons.png) top right no-repeat;
+	float:right;
+}
+
 /* Webcam
 ***********/
 #toolbar_webcams .col.left {
