@@ -81,3 +81,8 @@
 #breadcrumbs img {
     display:none;
 }
+
+#breadcrumbs abbr:after,
+#breadcrumbs acronym:after {
+	content:'';
+}
