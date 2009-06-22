@@ -2,9 +2,6 @@
 	margin-top: 10px;
 	height: 320px;
 	}
-#toolbar_events {
-	margin:10px 0 0 0;
-}
 .toolbar_plugin {
 	margin:10px 0 0 0;
 	width:960px;
@@ -69,6 +66,25 @@
 	width:20px;
 	background:url(images/applianceIcons.png) top right no-repeat;
 	float:right;
+}
+#toolbar_feeds ul li a:hover {
+	color:#FFFFFF;
+}
+#toolbar_feeds ul li a {
+	text-decoration:none;
+}
+#toolbar_feeds ul li:hover a{
+	color:#FFFFFF;
+}
+#toolbar_feeds ul li:hover {
+	background:#AC0302;
+	border-bottom:1px solid #ac0302;
+}
+#toolbar_feeds ul li {
+	padding:0 3px;
+	border-bottom:1px dashed #d3d3d3;
+	margin-bottom:5px;
+	padding-bottom:3px;
 }
 
 /* Webcam
