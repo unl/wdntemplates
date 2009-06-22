@@ -1,10 +1,10 @@
 a.external {
 	padding-right: 13px;
-	background: url(/ucomm/templatedependents/templatecss/images/external_link.png) center right no-repeat;
+	background: url(images/external_link.gif) center right no-repeat;
 	}
 a[href^="http://maps.google.com"], a.application-map {
 	padding: 3px 18px 0px 0px;
-	background: url(/sharedcode/images/iconMap13.png) bottom right no-repeat;
+	background: url(images/iconMap13.png) bottom right no-repeat;
 }
 
 a[href^="mailto:"], 
