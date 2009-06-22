@@ -9,6 +9,10 @@
 	margin:10px 0 0 0;
 	width:960px;
 }
+#toolbarcontent{
+	padding:0 10px;
+	overflow:hidden;
+}
 #toolbarcontent h3 {
 	background:url('../images/headingBGRed.gif') repeat-x bottom;
 	padding:5px;
@@ -30,16 +34,46 @@
 	padding-left:4px;
 	font-style: italic;
 }
-
-
+/* Feeds
+***********/
+#toolbar_feeds .col.left {
+	float:left;
+	padding:0 10px 0 0;
+	width:300px;
+}
+#toolbar_feeds .col.middle1 {
+	float:left;
+	padding:0 10px 0 10px;
+	width:300px;
+}
+#toolbar_feeds .col.middle2 {
+	float:left;
+	padding:0 0 0 10px;
+	width:300px;
+}
+#toolbar_feeds .col.right {
+	float:left;
+	padding:0 0 0 10px;
+	width:220px;
+}
 /* Webcam
 ***********/
-#toolbar_webcams .col{
+#toolbar_webcams .col.left {
+	float:left;
+	width:300px;
+	padding:0 10px 0 0;
+}
+#toolbar_webcams .col.middle {
 	float:left;
 	width:300px;
 	padding:0 10px 0 10px;
 }
-#toolbar_webcams .col img{
+#toolbar_webcams .col.right {
+	float:left;
+	width:300px;
+	padding:0 0 0 10px;
+}
+#toolbar_webcams .col img {
 	width:290px;
 }
 /* Weather
@@ -55,7 +89,7 @@
 }
 #toolbar_weather .col{
 	float:left;
-	width:250px;
+	width:240px;
 	padding:0 10px 0 0;
 }
 #toolbar_weather .col.middle{
@@ -79,7 +113,7 @@
 ****************/
 #toolbar_events .col.left {
 	float:left;
-	padding:0;
+	padding:0 10px 0 0;
 	width:940px;
 }
 #toolbar_events .col.middle {
@@ -92,6 +126,10 @@
 	padding:0 0 0 10px;
 	width:460px;
 }
+#toolbar_events .noentry {
+	clear:both;
+}
+
 /* Events styles from events.unl.edu
 **************/
 #toolbar_events{
