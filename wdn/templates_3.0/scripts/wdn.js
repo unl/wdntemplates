@@ -27,7 +27,10 @@ var WDN = function() {
 			if ((arguments.length>2 && checkLoaded === false) || !WDN.loadedJS[url]){
 				WDN.log("begin loading JS: " + url);
 				var e = document.createElement("script");
-				e.setAttribute('src', WDN.template_path+url);
+				if (url.match(/wdn\/templates_3\.0/)) {
+					url = WDN.template_path+url;
+				}
+				e.setAttribute('src', url);
 				e.setAttribute('type','text/javascript');
 				document.getElementsByTagName('head').item(0).appendChild(e);
 				
