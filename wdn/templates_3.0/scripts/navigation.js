@@ -218,7 +218,9 @@ WDN.navigation = function() {
 
 			var xreq = new WDN.proxy_xmlhttp();
 			var nav_sniffer = 'http://www1.unl.edu/wdn/test/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
-			xreq.open("GET", nav_sniffer+WDN.toAbs(breadcrumb.target.href, window.location), true);
+			nav_sniffer = nav_sniffer+WDN.toAbs(breadcrumb.target.href, window.location);
+			WDN.log('Attempting to retrieve navigation from '+nav_sniffer);
+			xreq.open("GET", nav_sniffer, true);
 			xreq.onreadystatechange = function() {
 				try {
 					if (xreq.readyState == 4) {
@@ -227,17 +229,23 @@ WDN.navigation = function() {
 							WDN.navigation.setNavigationContents(xreq.responseText);
 						} else {
 							// Error message
+							WDN.log('Incorrect status code returned remotely retrieving navigation.');
+							WDN.log(xreq);
 						}
 					}
 					xreq = new WDN.proxy_xmlhttp();
-				} catch(e) {}
+				} catch(e) {
+					WDN.log('Caught error remotely retrieving navigation.');
+					WDN.log(e);
+				}
 			};
 			xreq.send(null);
 			return false;
 		},
 		
 		setNavigationContents : function(contents) {
-            jQuery('#navigation ul:first-child').replaceWith(contents);
+			WDN.log('setNavigationContents called');
+            jQuery('#navigation').html(contents);
             WDN.navigation.currentState = -1;
             WDN.navigation.expand();
 		},
