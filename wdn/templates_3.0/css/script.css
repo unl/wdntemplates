@@ -44,6 +44,10 @@
 }
 */
 
+.nav_expanded #navigation {
+    padding-bottom:28px;
+}
+
 #navigation ul,
 .nav_collapsed #navigation ul {
 	z-index:0;
