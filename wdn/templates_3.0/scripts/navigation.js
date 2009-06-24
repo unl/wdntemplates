@@ -9,7 +9,7 @@ WDN.navigation = function() {
 		
 		navigation : Array(),
 		
-		siteHomepage : '',
+		siteHomepage : false,
 		
 		/**
 		 * Stores an expand/collapse timout.
@@ -56,16 +56,41 @@ WDN.navigation = function() {
 		 * This function should determine which breadcrumb should be selected.
 		 */
 		determineSelectedBreadcrumb : function() {
-			// Right now, stupidly select the second element.
-			jQuery('#breadcrumbs ul li:nth-child(2)').addClass('selected');
-			if (jQuery('#breadcrumbs ul li.selected a').size()) {
-				// Found the homepage url in the breadcrumbs
-				WDN.navigation.siteHomepage = jQuery('#breadcrumbs ul li.selected').find('a').attr('href');
+			// First we search for a defined homepage.
+			var pagelinks = document.getElementsByTagName('link');
+			for (var i=0;i<pagelinks.length;i++) {
+        	    var relatt = pagelinks[i].getAttribute('rel');
+        	    if (relatt=='home') {
+        	    	WDN.log('Setting homepage to '+pagelinks[i].getAttribute('href'));
+        	    	WDN.navigation.siteHomepage = pagelinks[i].getAttribute('href');
+        	    }
+        	}
+			
+			if (WDN.navigation.siteHomepage == false) {
+				WDN.log('No homepage set!');
+				// Right now, stupidly select the second element.
+				jQuery('#breadcrumbs ul li:nth-child(2)').addClass('selected');
+				if (jQuery('#breadcrumbs ul li.selected a').size()) {
+					// Found the homepage url in the breadcrumbs
+					WDN.navigation.siteHomepage = jQuery('#breadcrumbs ul li.selected').find('a').attr('href');
+				} else {
+					// Assume it's the current page
+					WDN.navigation.siteHomepage = window.location;
+					jQuery('#breadcrumbs ul li.selected').wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
+				}
 			} else {
-				// Assume it's the current page
-				WDN.navigation.siteHomepage = window.location;
-				jQuery('#breadcrumbs ul li.selected').wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
+				WDN.log('Homepage has been set.');
+				if (jQuery('#breadcrumbs ul li a[href='+WDN.navigation.siteHomepage+']').size() == 1) {
+					WDN.log('Found one homepage link, everything is good!');
+    	    		jQuery('#breadcrumbs ul li a[href='+WDN.navigation.siteHomepage+']').parent().addClass('selected');
+    	    	} else if (WDN.navigation.siteHomepage = window.location) {
+    	    		WDN.log('We are on the current homepage.');
+    	    		jQuery('#breadcrumbs ul li:last-child').addClass('selected');
+    	    		jQuery('#breadcrumbs ul li.selected').wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
+    	    	}
 			}
+			
+			
 		},
 		
 		/**
@@ -73,21 +98,17 @@ WDN.navigation = function() {
 		 */
 		expand : function() {
 			WDN.log('expand called');
+			
 			if (WDN.navigation.currentState == 1) {
 				return;
 			}
-			/**
-			 * Because we don't know the height, slowly expand to a set height
-			 * then snap the rest of the way.
-			 */
-			jQuery('#navigation ul').animate({height:'198px'},200,function(){
-					jQuery('#navigation ul').css({height:'auto'});
-				});
+
+			jQuery('#navigation ul').css({height:'auto'});
 			jQuery('#navigation ul ul li').show(100);
-			jQuery('#navigation ul ul').show(300, WDN.navigation.updateHelperText);
 			jQuery('#navigation-close').fadeIn();
 			WDN.navigation.setWrapperClass('expanded');
 			WDN.navigation.currentState = 1;
+			WDN.navigation.updateHelperText();
 		},
 		
 		updateHelperText : function() {
@@ -246,7 +267,7 @@ WDN.navigation = function() {
 		
 		setNavigationContents : function(contents) {
 			WDN.log('setNavigationContents called');
-            jQuery('#navigation').html(contents);
+            jQuery('#navigation>ul').replaceWith(contents);
             WDN.navigation.currentState = -1;
             WDN.navigation.expand();
 		},
