@@ -175,6 +175,13 @@
 	font-weight:normal;
 	line-height:1.2;
 	}
+#toolbar_events h4.upcoming-header {
+	background: url(http://events.unl.edu/templates/default/images/newrecurevent.png) no-repeat;
+	font-size:1.5em;
+	padding:4px 0 7px 34px;
+	font-weight:normal;
+	line-height:1.2;
+	}
 #toolbar_events h4.ongoing {
 	background: url(http://events.unl.edu/templates/default/images/ongoing.gif) no-repeat;
 	clear:both;
@@ -210,10 +217,10 @@
 }
 #toolbar_events table td {
 	border-top: 1px solid #D7E6EE;
-	padding: 0 7px 0 7px;
+	padding: 0 4px;
 }
 #toolbar_events table td.date {
-	width:65px;
+	width:95px;
 	font-size:0.9em;
 }
 #toolbar_events table tr.alt {
@@ -235,7 +242,6 @@
 	border:medium none;
 }
 #toolbar_events .dtend {
-	display:block;
 	margin-top:-7px;
 	padding-left:1px;
 }

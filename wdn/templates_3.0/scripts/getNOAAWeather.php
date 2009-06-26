@@ -27,9 +27,9 @@ if (!($observationDataFile && $forecastDataFile) || ($observationDataFile->temp_
 }
 // We assume that the file that we are grabbing stuff from
 // is always formated the same.
-$forecastToday = $forecastDataFile[22];
-$forecastTonight = $forecastDataFile[24];
-$forecastTomorrow = $forecastDataFile[26];
+$forecastToday = $forecastDataFile[21];
+$forecastTonight = $forecastDataFile[23];
+$forecastTomorrow = $forecastDataFile[25];
 $currentForecast = $forecastToday.$forecastTonight.$forecastTomorrow;
 // Now we fix things.
 $currentForecast = preg_replace('/<br>/', '<br />', $currentForecast);
