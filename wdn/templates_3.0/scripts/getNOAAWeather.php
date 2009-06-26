@@ -80,10 +80,10 @@ $outputString = "<div id=\"unltemp\"><span id=\"unlweathertempf\" class=\"weathe
 <div id=\"unlcurrent\" class=\"weatherconditions\"><strong>Currently:</strong> $observationDataFile->weather</div>";
 
 if($adjtemp_exists){
-$outputString += "<div id=\"unladjtemp\" class=\"weatherconditions\">$adjtemp_index <span id=\"unladjtempf\">$adjtemp_f&#176;</span>F/<span id=\"unladjtempc\">$adjtemp_c&#176;</span>C</div>";
+$outputString .= "<div id=\"unladjtemp\" class=\"weatherconditions\">$adjtemp_index <span id=\"unladjtempf\">$adjtemp_f&#176;</span>F/<span id=\"unladjtempc\">$adjtemp_c&#176;</span>C</div>";
 }else{}
 
-$outputString += "<div id=\"unlhumidity\" class=\"weatherconditions\">$observationDataFile->relative_humidity% Relative Humidity</div>
+$outputString .= "<div id=\"unlhumidity\" class=\"weatherconditions\">$observationDataFile->relative_humidity% Relative Humidity</div>
 <div id=\"unlwind\" class=\"weatherconditions\">Winds $windstring</div>
 <div id=\"unlweatherasof\" class=\"weatherasof\">As of $lastupdate</div>
 <div id=\"unlfullforecast\"><a class=\"external\" href=\"http://forecast.weather.gov/MapClick.php?CityName=Lincoln&amp;state=NE&amp;site=OAX\">Complete forecast</a></div>";
