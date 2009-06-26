@@ -76,7 +76,7 @@ else {
 	$adjtemp_exists = false;
 }
 
-$outputString = "<div><div id=\"unltemp\"><span id=\"unlweathertempf\" class=\"weathertempf\">$observationDataFile->temp_f&#176;</span>F/<span id=\"unlweathertempc\" class=\"weathertempc\">$observationDataFile->temp_c&#176;</span>C</div>
+$outputString = "<div id=\"unltemp\"><span id=\"unlweathertempf\" class=\"weathertempf\">$observationDataFile->temp_f&#176;</span>F/<span id=\"unlweathertempc\" class=\"weathertempc\">$observationDataFile->temp_c&#176;</span>C</div>
 <div id=\"unlcurrent\" class=\"weatherconditions\"><strong>Currently:</strong> $observationDataFile->weather</div>";
 
 if($adjtemp_exists){
@@ -86,8 +86,7 @@ $outputString += "<div id=\"unladjtemp\" class=\"weatherconditions\">$adjtemp_in
 $outputString += "<div id=\"unlhumidity\" class=\"weatherconditions\">$observationDataFile->relative_humidity% Relative Humidity</div>
 <div id=\"unlwind\" class=\"weatherconditions\">Winds $windstring</div>
 <div id=\"unlweatherasof\" class=\"weatherasof\">As of $lastupdate</div>
-<div id=\"unlforecast\" class=\"weatherforecast\">$currentForecast</div>
-<div id=\"unlfullforecast\"><a class=\"external\" href=\"http://forecast.weather.gov/MapClick.php?CityName=Lincoln&amp;state=NE&amp;site=OAX\">Complete forecast</a></div></div>";
+<div id=\"unlfullforecast\"><a class=\"external\" href=\"http://forecast.weather.gov/MapClick.php?CityName=Lincoln&amp;state=NE&amp;site=OAX\">Complete forecast</a></div>";
 
 
 file_put_contents($outputFile, $outputString);

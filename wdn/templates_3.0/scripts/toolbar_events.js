@@ -16,10 +16,10 @@ WDN.toolbar_events = function() {
         	    	havelocalevents = true;
         	    	localeventshref = pagelinks[i].getAttribute('href');
         	    	localeventstitle = pagelinks[i].getAttribute('title');
-        	    	return '<div class="col left"><h3>UNL Events <em><a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></em></h3><div id="allunlevents"></div></div><div class="col right"><h3>'+localeventstitle+' Events</h3><div id="localsiteevents"></div></div>';
+        	    	return '<div class="col left"><h3><span>UNL Events <em><a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></em></span><a href="http://events.unl.edu/upcoming/?format=rss"><span class="rssicon"></span></a></h3><div id="allunlevents"></div></div><div class="col right"><h3><span>'+localeventstitle+' Events <em><a href="'+localeventshref+'/upcoming/">(Full Calendar)</a></em></span><a href="'+localeventshref+'/upcoming/?format=rss"><span class="rssicon"></span></a></h3><div id="localsiteevents"></div></div>';
         	    }
         	}
-        	return '<div class="col left"><h3>UNL Events <a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></h3><div id="allunlevents"></div></div>';
+        	return '<div class="col left"><h3><span>UNL Events <em><a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></em></span><a href="http://events.unl.edu/upcoming/?format=rss"><span class="rssicon"></span></a></h3><div id="allunlevents"></div></div>';
         },
         display : function() {
         	if (havelocalevents)
@@ -34,7 +34,7 @@ WDN.toolbar_events = function() {
         	calreq.send(null);
         	if (havelocalevents)
         	{
-        		var calurl = localeventshref;
+        		var calurl = localeventshref+'/upcoming/?format=hcalendar';
             	localcalreq.open("GET", calurl, true);
             	localcalreq.onreadystatechange = WDN.toolbar_events.updateLocalCalendarResults;
             	localcalreq.send(null);

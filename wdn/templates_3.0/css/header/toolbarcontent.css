@@ -3,7 +3,7 @@
 	height: 320px;
 	}
 .toolbar_plugin {
-	margin:10px 0 0 0;
+	margin:20px 0 0 0;
 	width:960px;
 }
 #toolbarcontent{
@@ -34,6 +34,18 @@
 #toolbarcontent h3 a:hover {
 	text-decoration:underline;
 }
+/* RSS Icon in an h3
+**************/
+#toolbarcontent h3 span {
+	float:left;
+	color:#fff;
+}
+#toolbarcontent h3 span.rssicon {
+	height:20px;
+	width:20px;
+	background:url(images/applianceIcons.png) top right no-repeat;
+	float:right;
+}
 
 /* Feeds
 ***********/
@@ -56,16 +68,6 @@
 	float:left;
 	padding:0 0 0 10px;
 	width:220px;
-}
-#toolbar_feeds span {
-	float:left;
-	color:#FFFFFF;
-}
-#toolbar_feeds span.rssicon {
-	height:20px;
-	width:20px;
-	background:url(images/applianceIcons.png) top right no-repeat;
-	float:right;
 }
 #toolbar_feeds ul li a:hover {
 	color:#FFFFFF;
@@ -139,6 +141,9 @@
 }
 #toolbar_weather .weathertempf{
 	font-size:35px;
+}
+#toolbar_weather div#currentcond>div {
+	margin-bottom:5px;
 }
 /* Events
 ****************/
