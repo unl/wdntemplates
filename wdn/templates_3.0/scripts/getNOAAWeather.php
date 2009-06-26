@@ -56,24 +56,34 @@ if ($windVariable == true){
 }
 
 // To add head index or windchill factor information
-// we check if one of the temps is NA
-/* Currently, they don't appear to be supplying either of these values
-if($observationDataFile->heat_index_f != 'NA'){
+// we check if heat_index is available
+if($observationDataFile->heat_index_f != NULL){
+  $adjtemp_exists = true;
   $adjtemp_index = "Heat index";
   $adjtemp_f = $observationDataFile->heat_index_f;
   $adjtemp_c = $observationDataFile->heat_index_c;
 }
-else {
+// If not then we check to see if windchill is available
+else if($observationDataFile->windchill_f != NULL){
+  $adjtemp_exists = true;
   $adjtemp_index = "Windchill";
   $adjtemp_f = $observationDataFile->windchill_f;
   $adjtemp_c = $observationDataFile->windchill_c;
  }
-*/
+//  We get here if neither heat index nor windchill is available
+// so we need to make sure nothing is written to the output string for this item
+else {
+	$adjtemp_exists = false;
+}
 
 $outputString = "<div><div id=\"unltemp\"><span id=\"unlweathertempf\" class=\"weathertempf\">$observationDataFile->temp_f&#176;</span>F/<span id=\"unlweathertempc\" class=\"weathertempc\">$observationDataFile->temp_c&#176;</span>C</div>
-<div id=\"unlcurrent\" class=\"weatherconditions\"><strong>Currently:</strong> $observationDataFile->weather</div>
-<div id=\"unlhumidity\" class=\"weatherconditions\">$observationDataFile->relative_humidity% Relative Humidity</div>
-<div id=\"unladjtemp\" class=\"weatherconditions\">$adjtemp_index <span id=\"unladjtempf\">$adjtemp_f&#176;</span>F/<span id=\"unladjtempc\">$adjtemp_c&#176;</span>C</div>
+<div id=\"unlcurrent\" class=\"weatherconditions\"><strong>Currently:</strong> $observationDataFile->weather</div>";
+
+if($adjtemp_exists){
+$outputString += "<div id=\"unladjtemp\" class=\"weatherconditions\">$adjtemp_index <span id=\"unladjtempf\">$adjtemp_f&#176;</span>F/<span id=\"unladjtempc\">$adjtemp_c&#176;</span>C</div>";
+}else{}
+
+$outputString += "<div id=\"unlhumidity\" class=\"weatherconditions\">$observationDataFile->relative_humidity% Relative Humidity</div>
 <div id=\"unlwind\" class=\"weatherconditions\">Winds $windstring</div>
 <div id=\"unlweatherasof\" class=\"weatherasof\">As of $lastupdate</div>
 <div id=\"unlforecast\" class=\"weatherforecast\">$currentForecast</div>
