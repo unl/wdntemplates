@@ -166,6 +166,203 @@
 	clear:both;
 }
 
+/* Peoplefinder styles from search results page */
+
+#toolbar_peoplefinder  ul{
+	list-style:none;
+	padding:0;
+    margin-bottom:5px;
+}
+#toolbar_peoplefinder ul li.ppl_Sresult{
+	border-bottom:1px solid #ddd;
+	padding:0.7em 0 0.7em 0.7em;
+}
+#toolbar_peoplefinder ul li.ppl_Sresult:hover, #ppl_results ul li.ppl_Sresult.alt:hover{
+	background:#FFFEF0;
+	border-bottom:1px solid #d3d3d3;
+}
+#toolbar_peoplefinder ul li.ppl_Sresult.alt{
+	background:#FAFAFA;
+}
+#toolbar_peoplefinder ul li.ppl_Sresult div.tel{
+	background:url(http://peoplefinder.unl.edu/images/mobile.gif) no-repeat 0 0.75em;
+	padding:0.5em 0 0 1em;
+	position:relative;
+	color:#333;
+}
+#toolbar_peoplefinder .fn{
+	float:left;
+	margin-right:0.2em;
+}
+#toolbar_peoplefinder .cMatch{
+	background:#ffffcc;
+	margin:1em 0 1em 0;
+	padding:0.5em;
+	border:1px solid #d0c8a5;
+}
+#toolbar_peoplefinder .cMatch p {
+	margin:0;
+}
+#toolbar_peoplefinder .cNav{
+	position:absolute;
+	right:0;
+	top:0;
+	font-weight:normal;
+	letter-spacing:-0.1em;
+}
+#toolbar_peoplefinder a.cInfo{
+	background:url(http://peoplefinder.unl.edu/images/person.gif) no-repeat 0 3px;
+	padding:0 0 0 1em;
+	margin-left:0.8em;color:#555;text-decoration:underline;
+}
+#toolbar_peoplefinder .eppa{
+	font-size:0.75em;
+	margin-top:0.2em;
+}
+
+#searchform {
+	margin-bottom: 10px;
+}
+
+.gsc-input {
+	font-size: 1.1em;
+}
+.gs-result .gs-title, .gs-result .gs-title *{
+color : #990000;
+text-decoration: none;
+font-size: 1.1em;
+}
+.gs-result .gs-title a:hover, .gs-result .gs-title a:hover * {
+color : #cc0000;
+}
+
+
+.gs-result.alt {
+background:#FAFAFA;
+}
+.gs-result {
+border-bottom:1px solid #ddd;
+padding: 0.7em;
+}
+.gs-result:hover {
+	background:#FFFEF0;
+	border-bottom:1px solid #d3d3d3;
+}
+
+.gs-search-nav {
+	margin-top: 10px;
+	text-align: right;
+}
+.gs-result .gs-watermark {
+	display: none;
+}
+
+
+/* Toolbar HCard Popup Styles */
+body
+{
+	position: relative;
+}
+
+
+div.hcardPopup
+{
+	position: absolute;
+	background-image: url(images/as_pointer.gif);
+	background-position: center right;
+	background-repeat: no-repeat;
+	padding: 0 10px 0 0;
+}
+
+div.hcardPopup div.as_header,
+div.hcardPopup div.as_footer
+{
+	position: relative;
+	height: 6px;
+	padding: 0 6px;
+	background-image: url(/ucomm/templatedependents/templatecss/components/images/ul_corner_tr.gif);
+	background-position: top right;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+div.hcardPopup div.as_footer
+{
+	background-image: url(/ucomm/templatedependents/templatecss/components/images/ul_corner_br.gif);
+}
+
+div.hcardPopup div.as_header div.as_corner,
+div.hcardPopup div.as_footer div.as_corner
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 6px;
+	width: 6px;
+	background-image: url(/ucomm/templatedependents/templatecss/components/images/ul_corner_tl.gif);
+	background-position: top left;
+	background-repeat: no-repeat;
+}
+div.hcardPopup div.as_footer div.as_corner
+{
+	background-image: url(/ucomm/templatedependents/templatecss/components/images/ul_corner_bl.gif);
+}
+div.hcardPopup div.as_header div.as_bar,
+div.hcardPopup div.as_footer div.as_bar
+{
+	height: 6px;
+	overflow: hidden;
+	background-color: #333;
+}
+
+
+div.hcardPopup ul
+{
+	list-style: none;
+	margin: 0 0 -4px 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+div.hcardPopup ul li
+{
+	color: #ccc;
+	padding: 0;
+	margin: 0 4px 4px;
+	text-align: left;
+}
+
+div.vcard {
+	padding: 5px;
+	color: #fff;
+}
+div.vcard a {
+	color: #fff;
+}
+div.vcard .fn {
+	float: left;
+	font-weight: bold;
+	margin-right: 4px;
+}
+div.vcard .vcardinfo {
+	padding: 6px;
+	line-height: 1.1;
+	position: relative;
+}
+div.vcard .adr, div.vard .tel {
+	margin-top:10px;
+	margin-bottom:10px;
+	font-size:0.9em;
+}
+div.vcard .type {
+	font-weight: bold;
+}
+div.vcard .eppa{
+	font-size:0.75em;
+	margin-top:0.2em;
+}
+
+
 /* Events styles from events.unl.edu
 **************/
 #toolbar_events{
