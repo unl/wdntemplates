@@ -59,14 +59,14 @@ if ($windVariable == true){
 // we check if heat_index is available
 if($observationDataFile->heat_index_f != NULL){
   $adjtemp_exists = true;
-  $adjtemp_index = "Heat index";
+  $adjtemp_index = "Heat Index:";
   $adjtemp_f = $observationDataFile->heat_index_f;
   $adjtemp_c = $observationDataFile->heat_index_c;
 }
 // If not then we check to see if windchill is available
 else if($observationDataFile->windchill_f != NULL){
   $adjtemp_exists = true;
-  $adjtemp_index = "Windchill";
+  $adjtemp_index = "Windchill:";
   $adjtemp_f = $observationDataFile->windchill_f;
   $adjtemp_c = $observationDataFile->windchill_c;
  }
@@ -83,13 +83,15 @@ if($adjtemp_exists){
 $outputString .= "<div id=\"unladjtemp\" class=\"weatherconditions\">$adjtemp_index <span id=\"unladjtempf\">$adjtemp_f&#176;</span>F/<span id=\"unladjtempc\">$adjtemp_c&#176;</span>C</div>";
 }else{}
 
-$outputString .= "<div id=\"unlhumidity\" class=\"weatherconditions\">$observationDataFile->relative_humidity% Relative Humidity</div>
+$outputString .= "<div id=\"unlhumidity\" class=\"weatherconditions\">Relative Humidity: $observationDataFile->relative_humidity%</div>
 <div id=\"unlwind\" class=\"weatherconditions\">Winds $windstring</div>
-<div id=\"unlweatherasof\" class=\"weatherasof\">As of $lastupdate</div>
-<div id=\"unlfullforecast\"><a class=\"external\" href=\"http://forecast.weather.gov/MapClick.php?CityName=Lincoln&amp;state=NE&amp;site=OAX\">Complete forecast</a></div>";
-
+<div id=\"unlweatherasof\" class=\"weatherasof\">Last Update: $lastupdate</div>
+<div id=\"unlfullforecast\"><a class=\"external\" href=\"http://forecast.weather.gov/MapClick.php?CityName=Lincoln&amp;state=NE&amp;site=OAX\">Complete local weather</a></div>";
 
 file_put_contents($outputFile, $outputString);
+
+
+$currentForecast .= "<br /><a class=\"external\" href=\"http://forecast.weather.gov/MapClick.php?FcstType=text&textField1=40.8164&textField2=-96.6882&site=oax&TextType=1\">Complete forecast</a>"
 
 file_put_contents($outputForecastFile, $currentForecast);
 ?>

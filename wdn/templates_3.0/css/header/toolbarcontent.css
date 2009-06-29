@@ -49,25 +49,31 @@
 
 /* Feeds
 ***********/
-#toolbar_feeds .col.left {
+#toolbar_feeds .col.col1 {
 	float:left;
 	padding:0 10px 0 0;
 	width:300px;
 }
-#toolbar_feeds .col.middle1 {
+#toolbar_feeds .col.col2 {
 	float:left;
 	padding:0 10px 0 10px;
 	width:300px;
 }
-#toolbar_feeds .col.middle2 {
+#toolbar_feeds .col.col3 {
 	float:left;
 	padding:0 0 0 10px;
 	width:300px;
 }
-#toolbar_feeds .col.right {
+#toolbar_feeds .col.col4 {
 	float:left;
 	padding:0 0 0 10px;
 	width:220px;
+}
+#toolbar_feeds #wdn_rss_story {
+	display:none;
+	float:left;
+	padding:0 0 0 10px;
+	width:700px;
 }
 #toolbar_feeds ul li a:hover {
 	color:#FFFFFF;
@@ -111,14 +117,15 @@
 }
 /* Weather
 *************/
-#toolbar_weather #showradar{
-	border:1px solid #ededed;
-    border-radius:3px;
-    background: #f7f7f7;
-	padding:9px 5px 5px 5px;
-    margin: 0 0 10px 0;
-	position:relative;
-	text-align: center;	
+#toolbar_weather br {
+	margin-bottom: 20px;
+}
+#toolbar_weather #weatherforecast{
+	margin: -40px 0 0 5px;
+}
+#toolbar_weather #weatherforecast strong{
+	font-size:1.4em;
+	display:block;
 }
 #toolbar_weather .col{
 	float:left;
@@ -133,6 +140,15 @@
 	width:420px;
 	padding:0 0 0 10px;
 }
+#toolbar_weather #showradar{
+	border:1px solid #ededed;
+    border-radius:3px;
+    background: #f7f7f7;
+	padding:9px 5px 5px 5px;
+    margin: 0 0 10px 0;
+	position:relative;
+	text-align: center;	
+}
 #toolbar_weather #showradar img {
 /*	background:url('http://radar.weather.gov/Conus/Loop/uppermissvly_loop.gif') 0 -170px no-repeat; */
 	background:url('http://radar.weather.gov/lite/N0R/OAX_loop.gif') -5px -140px no-repeat;
@@ -144,6 +160,13 @@
 }
 #toolbar_weather div#currentcond>div {
 	margin-bottom:5px;
+}
+#toolbar_weather #currentcond{
+	margin:10px 0 0 5px;
+}
+#toolbar_weather #unltemp, #toolbar_weather #unlcurrent{
+	font-size:1.2em;
+	margin-bottom:15px !important;
 }
 /* Events
 ****************/
