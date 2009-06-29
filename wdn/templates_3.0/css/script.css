@@ -27,6 +27,7 @@
 #wdn_navigation_bar,
 .nav_collapsed #wdn_navigation_bar {
 	position:absolute;
+	 top:90px;
 	margin:0;
 	width:auto;
 	left:12px;
