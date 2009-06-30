@@ -42,7 +42,7 @@ WDN.toolbar = function() {
         },
         toolTabsSetup : function() {
         	jQuery('#cboxWrapper').append('<div id="tooltabs"><ul></ul></div>');
-        	WDN.toolbar.registerTool('feeds', 'RSS Feeds', 1002, 480);
+        	WDN.toolbar.registerTool('feeds', 'RSS Feeds', 1002, 550);
         	WDN.toolbar.registerTool('weather', 'Weather', 1002, 540);
         	WDN.toolbar.registerTool('events', 'Events', 1002, 550);
         	WDN.toolbar.registerTool('peoplefinder', 'Peoplefinder', 1002, 550);
