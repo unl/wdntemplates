@@ -75,18 +75,15 @@
 	padding:0 0 0 10px;
 	width:700px;
 }
+#toolbar_feeds #wdn_rss_story #wdn_rss_story_content {
+	display: inline !important;
+}
 #toolbar_feeds ul li a:hover {
-	color:#FFFFFF;
+	color:#ac0302;
+	text-decoration:underline;
 }
 #toolbar_feeds ul li a {
 	text-decoration:none;
-}
-#toolbar_feeds ul li:hover a{
-	color:#FFFFFF;
-}
-#toolbar_feeds ul li:hover {
-	background:#AC0302;
-	border-bottom:1px solid #ac0302;
 }
 #toolbar_feeds ul li {
 	padding:0 3px;

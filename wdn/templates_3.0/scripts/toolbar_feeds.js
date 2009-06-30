@@ -53,7 +53,7 @@ WDN.toolbar_feeds = function() {
         },
         showPosts1 : function(data) {
         	WDN.toolbar_feeds.showRSSItems('wdn_feed_col1', data);
-			WDN.toolbar_feeds.onClickWeMove(1);
+        	WDN.toolbar_feeds.onClickWeMove(1);
         },
         showPosts2 : function(data) {
         	WDN.toolbar_feeds.showRSSItems('wdn_feed_col2', data);
@@ -67,22 +67,20 @@ WDN.toolbar_feeds = function() {
         showRSSItems : function(ul_id, data) {
         	for (var i=0; i<data.query.count; i++) {
                 jQuery('#'+ul_id+'').append("<li><a tooltip='"+data.query.results.item[i].description+"' href='"+data.query.results.item[i].link+"'>"+data.query.results.item[i].title+"</a></li>");
-            }
+                
+        	}
         	WDN.tooltip.tooltipSetup(ul_id);
         },
         onClickWeMove : function(col) {
-        	jQuery('#toolbar_feeds div.col'+col+' a').click(function(ev){
+        	jQuery('#toolbar_feeds ul#wdn_feed_col'+col+' a').click(function(ev){
         		ev.preventDefault();
 
         	//	jQuery("#wdn_rss_story_content").load("wdn/templates_3.0/scripts/rssStorySniffer.php?u="+WDN.toAbs(this.href, window.location)+"");       		
-        		WDN.toolbar_feeds.getStory("http://ucommrasmussen.unl.edu/workspace/UNL_WDNTemplates/wdn/templates_3.0/scripts/rssStorySniffer.php?u="+WDN.toAbs(this.href, window.location)+"&col="+col+"");
-        		
-        		
-        		
-        		
+        	//	WDN.toolbar_feeds.getStory("http://ucommrasmussen.unl.edu/workspace/UNL_WDNTemplates/wdn/templates_3.0/scripts/rssStorySniffer.php?u="+WDN.toAbs(this.href, window.location)+"&col="+col+"");
+        		jQuery('#wdn_rss_story_content').empty();
             	jQuery('#toolbar_feeds div#wdn_rss_story').slideUp("slow");
-        		
         		jQuery('#toolbar_feeds div').slideUp("slow");
+        		jQuery('#wdn_rss_story_content').append(jQuery(this).attr('href'));
         		jQuery('#toolbar_feeds div.col'+col+'').slideDown("slow", function(){jQuery('#toolbar_feeds div#wdn_rss_story').slideDown();});
             	
         	});
