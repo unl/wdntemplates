@@ -90,6 +90,7 @@ var WDN = function() {
 				WDN.initializePlugin('search');
 				WDN.initializePlugin('feedback');
 				WDN.contentAdjustments();
+				WDN.initializePlugin('tooltip');
 				WDN.initializePlugin('toolbar');
 			});
 		},

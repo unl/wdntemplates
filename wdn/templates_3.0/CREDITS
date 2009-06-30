@@ -24,6 +24,16 @@ jQuery JavaScript Library v1.3.2
  * Copyright (c) 2009 John Resig
  * Dual licensed under the MIT and GPL licenses.
  * http://docs.jquery.com/License
+ 
+qTip jQuery Plugin 1.0.0-rc3
+ * http://craigsworks.com/projects/qtip/
+ * Copyright (c) 2009 Craig Thompson
+ * MIT License
+ 
+Colorbox jQuery Plugin v1.2.2
+ * http://www.colorpowered.com
+ * Copyright (c) 2009 Jack Moore
+ * MIT License
 
 Mime Type Icons
  * http://tango.freedesktop.org/

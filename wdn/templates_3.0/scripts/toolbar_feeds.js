@@ -45,32 +45,30 @@ WDN.toolbar_feeds = function() {
         		jQuery('#toolbar_feeds .col.col1').css({width:"220px"});
         		jQuery('#toolbar_feeds .col.col2').css({width:"220px"});
         		jQuery('#toolbar_feeds .col.col3').css({width:"220px", padding:"0 10px 0 10px"});
-        		WDN.loadJS('http://query.yahooapis.com/v1/public/yql?q=select+link%2Ctitle+from+rss+where+url%3D%27'+escape(WDN.toolbar_feeds.feedAddressLocal)+'%27+limit+7&format=json&callback=WDN.toolbar_feeds.showPostsLocal');
+        		WDN.loadJS('http://query.yahooapis.com/v1/public/yql?q=select+link%2Cdescription%2Ctitle+from+rss+where+url%3D%27'+escape(WDN.toolbar_feeds.feedAddressLocal)+'%27+limit+7&format=json&callback=WDN.toolbar_feeds.showPostsLocal');
         	}
-        	WDN.loadJS('http://query.yahooapis.com/v1/public/yql?q=select+link%2Ctitle+from+rss+where+url%3D%27'+escape(WDN.toolbar_feeds.feedAddress1)+'%27+limit+7&format=json&callback=WDN.toolbar_feeds.showPosts1');
-        	WDN.loadJS('http://query.yahooapis.com/v1/public/yql?q=select+link%2Ctitle+from+rss+where+url%3D%27'+escape(WDN.toolbar_feeds.feedAddress2)+'%27+limit+7&format=json&callback=WDN.toolbar_feeds.showPosts2');
-        	WDN.loadJS('http://query.yahooapis.com/v1/public/yql?q=select+link%2Ctitle+from+rss+where+url%3D%27'+escape(WDN.toolbar_feeds.feedAddress3)+'%27+limit+7&format=json&callback=WDN.toolbar_feeds.showPosts3');
+        	WDN.loadJS('http://query.yahooapis.com/v1/public/yql?q=select+link%2Cdescription%2Ctitle+from+rss+where+url%3D%27'+escape(WDN.toolbar_feeds.feedAddress1)+'%27+limit+7&format=json&callback=WDN.toolbar_feeds.showPosts1');
+        	WDN.loadJS('http://query.yahooapis.com/v1/public/yql?q=select+link%2Cdescription%2Ctitle+from+rss+where+url%3D%27'+escape(WDN.toolbar_feeds.feedAddress2)+'%27+limit+7&format=json&callback=WDN.toolbar_feeds.showPosts2');
+        	WDN.loadJS('http://query.yahooapis.com/v1/public/yql?q=select+link%2Cdescription%2Ctitle+from+rss+where+url%3D%27'+escape(WDN.toolbar_feeds.feedAddress3)+'%27+limit+7&format=json&callback=WDN.toolbar_feeds.showPosts3');
         },
         showPosts1 : function(data) {
-        	WDN.toolbar_feeds.showRSSItems('#wdn_feed_col1', data);
+        	WDN.toolbar_feeds.showRSSItems('wdn_feed_col1', data);
 			WDN.toolbar_feeds.onClickWeMove(1);
         },
         showPosts2 : function(data) {
-        	WDN.toolbar_feeds.showRSSItems('#wdn_feed_col2', data);
-        	WDN.toolbar_feeds.onClickWeMove(2);
+        	WDN.toolbar_feeds.showRSSItems('wdn_feed_col2', data);
         },
         showPosts3 : function(data) {
-        	WDN.toolbar_feeds.showRSSItems('#wdn_feed_col3', data);
-        	WDN.toolbar_feeds.onClickWeMove(3);
+        	WDN.toolbar_feeds.showRSSItems('wdn_feed_col3', data);
         },
         showPostsLocal : function(data) {
-        	WDN.toolbar_feeds.showRSSItems('#wdn_feed_local', data);
-        	WDN.toolbar_feeds.onClickWeMove(4);
+        	WDN.toolbar_feeds.showRSSItems('wdn_feed_local', data);
         },
         showRSSItems : function(ul_id, data) {
         	for (var i=0; i<data.query.count; i++) {
-                jQuery(ul_id).append("<li><a href='"+data.query.results.item[i].link+"'>"+data.query.results.item[i].title+"</a></li>");
+                jQuery('#'+ul_id+'').append("<li><a tooltip='"+data.query.results.item[i].description+"' href='"+data.query.results.item[i].link+"'>"+data.query.results.item[i].title+"</a></li>");
             }
+        	WDN.tooltip.tooltipSetup(ul_id);
         },
         onClickWeMove : function(col) {
         	jQuery('#toolbar_feeds div.col'+col+' a').click(function(ev){

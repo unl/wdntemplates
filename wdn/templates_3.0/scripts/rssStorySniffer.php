@@ -21,7 +21,7 @@ if ($page = @file_get_contents($clean_url)) {
 	if($_GET['col'] = 1)
 		$element = $xpath->query('//*[@id="maincontent"]');
 	else if($_GET['col'] = 2)
-		$element = $xpath->query('//*[@id="maincontent"]');
+		$element = $xpath->query('//*[@id="maincontent"]//*');
 	else if($_GET['col'] = 3)
 		$element = $xpath->query('//*[@id="maincontent"]');
 	else if($_GET['col'] = 4)

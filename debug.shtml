@@ -161,7 +161,9 @@
                 </div>
             </div>
             <div class="col right">
-
+				<a href="http://www.unl.edu" tooltip="Hello World!">This Link Has A Tooltip Attached</a>
+				<br />
+				
                     <img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" class="frame" />
                     <div class="image_small_short"><img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" /></div>
                 <div class="zenbox">
