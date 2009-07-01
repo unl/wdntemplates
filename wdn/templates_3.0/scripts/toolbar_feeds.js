@@ -66,7 +66,7 @@ WDN.toolbar_feeds = function() {
         },
         showRSSItems : function(ul_id, data) {
         	for (var i=0; i<data.query.count; i++) {
-                jQuery('#'+ul_id+'').append("<li><a tooltip='"+data.query.results.item[i].description+"' href='"+data.query.results.item[i].link+"'>"+data.query.results.item[i].title+"</a></li>");
+                jQuery('#'+ul_id+'').append("<li><a tooltip='"+jQuery('<div/>').text(data.query.results.item[i].description).html()+"' href='"+data.query.results.item[i].link+"'>"+data.query.results.item[i].title+"</a></li>");
                 
         	}
         	WDN.tooltip.tooltipSetup(ul_id);
