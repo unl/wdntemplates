@@ -44,6 +44,10 @@ body.popup #titlegraphic {
     background:url('images/shad_pop.gif') repeat-x;
 }
 
+body.popup #titlegraphic h2 {
+	display:none;
+}
+
 body.popup #footer .footer_col {
     display:none;
 }
