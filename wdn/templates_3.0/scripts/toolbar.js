@@ -43,10 +43,18 @@ WDN.toolbar = function() {
         toolTabsSetup : function() {
         	jQuery('#cboxWrapper').append('<div id="tooltabs"><ul></ul></div>');
         	WDN.toolbar.registerTool('feeds', 'RSS Feeds', 1002, 550);
-        	WDN.toolbar.registerTool('weather', 'Weather', 1002, 540);
+        	WDN.toolbar.registerTool('weather', 'Weather', 1002, 500);
         	WDN.toolbar.registerTool('events', 'Events', 1002, 550);
-        	WDN.toolbar.registerTool('peoplefinder', 'Peoplefinder', 1002, 550);
+        	WDN.toolbar.registerTool('peoplefinder', 'Peoplefinder', 1002, 500);
         	WDN.toolbar.registerTool('webcams', 'Webcams', 1002, 400);
+        },
+        setMaskHeight : function(toolName, height) {
+        	if(toolName=='feeds')  // this shortens the feed heights so we can get the message about feeds at the bottom
+        		maskheight = (height-240)+'px';
+        	else
+        		maskheight = (height-155)+'px';
+        	jQuery('#toolbar_'+toolName+' div.toolbarMask').height(maskheight);
+        	jQuery('#toolbar_'+toolName+' div.toolbarMask').css({overflow:"auto", padding:"0 3px 0 0"});
         },
         colorboxSetup : function() {
             WDN.log('Setting up colorbox');
@@ -64,21 +72,22 @@ WDN.toolbar = function() {
         registerTool : function(plugin_name, title, pwidth, pheight) {
         	jQuery('#tooltabs ul').append('<li class="'+plugin_name+'"><a href="#" class="'+plugin_name+'">'+title+'</a></li>');
         	jQuery("a."+plugin_name).colorbox({width:pwidth, height:pheight, inline:true, href:"#toolbarcontent"});
-        	jQuery("a."+plugin_name).click(function(){WDN.toolbar.switchToolFocus(plugin_name);});
+        	jQuery("a."+plugin_name).click(function(){WDN.toolbar.switchToolFocus(plugin_name, pheight);});
         },
         setToolContent : function(plugin_name, content) {
         	jQuery("#toolbarcontent").append('<div id="toolbar_'+plugin_name+'" class="toolbar_plugin">'+content+'</div>');
         },
-        getContent : function(type) { 
+        getContent : function(type, height) { 
         	eval('WDN.toolbar_'+type+'.display();');
-        	jQuery("#cboxTitle").css({color:'#f2f2f2'}); //Hide the cboxTitle at the bottom
+        	jQuery("#cboxTitle").css({height:'0px'}); //Hide the cboxTitle at the bottom
+        	WDN.toolbar.setMaskHeight(type, height); //Now that content is loaded, add the scroll bars
         },
         /**
          * Switches focus to a different tool.
          * 
          * @param string selected The tool to select
          */
-        switchToolFocus : function(selected) {
+        switchToolFocus : function(selected, height) {
         	jQuery('#toolbarcontent .toolbar_plugin').hide();
         	WDN.initializePlugin('toolbar_'+selected,
         			function(){
@@ -88,7 +97,7 @@ WDN.toolbar = function() {
 	        				WDN.toolbar.tools[selected] = true;
         				}
 		        		eval('WDN.toolbar_'+selected+'.initialize();');
-		        		WDN.toolbar.getContent(selected);
+		        		WDN.toolbar.getContent(selected, height);
 		        		jQuery('#toolbar_'+selected).show();
 	    			});
         	if ( jQuery("#tooltabs li").hasClass("current") ){

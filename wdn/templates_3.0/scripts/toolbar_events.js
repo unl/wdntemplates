@@ -16,10 +16,10 @@ WDN.toolbar_events = function() {
         	    	havelocalevents = true;
         	    	localeventshref = pagelinks[i].getAttribute('href');
         	    	localeventstitle = pagelinks[i].getAttribute('title');
-        	    	return '<div class="col left"><h3><span>UNL Events <em><a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></em></span><a href="http://events.unl.edu/upcoming/?format=rss"><span class="rssicon"></span></a></h3><div id="allunlevents"></div></div><div class="col right"><h3><span>'+localeventstitle+' Events <em><a href="'+localeventshref+'/upcoming/">(Full Calendar)</a></em></span><a href="'+localeventshref+'/upcoming/?format=rss"><span class="rssicon"></span></a></h3><div id="localsiteevents"></div></div>';
+        	    	return '<div class="col left"><h3><span>UNL Events <em><a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></em></span><a href="http://events.unl.edu/upcoming/?format=rss"><span class="rssicon"></span></a></h3><div id="allunlevents" class="toolbarMask"></div></div><div class="col right"><h3><span>'+localeventstitle+' Events <em><a href="'+localeventshref+'/upcoming/">(Full Calendar)</a></em></span><a href="'+localeventshref+'/upcoming/?format=rss"><span class="rssicon"></span></a></h3><div id="localsiteevents" class="toolbarMask"></div></div>';
         	    }
         	}
-        	return '<div class="col left"><h3><span>UNL Events <em><a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></em></span><a href="http://events.unl.edu/upcoming/?format=rss"><span class="rssicon"></span></a></h3><div id="allunlevents"></div></div>';
+        	return '<div class="col left"><h3><span>UNL Events <em><a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></em></span><a href="http://events.unl.edu/upcoming/?format=rss"><span class="rssicon"></span></a></h3><div id="allunlevents" class="toolbarMask"></div></div>';
         },
         display : function() {
         	if (havelocalevents)
