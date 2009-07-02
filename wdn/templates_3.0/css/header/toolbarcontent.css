@@ -12,7 +12,6 @@
 	padding:5px;
 	color:#fff;
 	margin-bottom:5px;
-	font-size:1.1em;
 }
 #toolbarcontent h3:after  {
 	content:'';
@@ -36,6 +35,8 @@
 #toolbarcontent h3 span {
 	float:left;
 	color:#fff;
+	height:20px;
+	overflow:hidden;
 }
 #toolbarcontent h3 span.rssicon {
 	height:20px;
@@ -46,6 +47,9 @@
 
 /* Feeds
 ***********/
+#toolbar_feeds h3 span{
+	max-width:190px;
+}
 #toolbar_feeds .col.col1 {
 	float:left;
 	padding:0 10px 0 0;
@@ -80,7 +84,7 @@
 	padding:0 0 0 10px;
 }
 #whatisrss span {
-	font-size:1.9em;
+	font-size:1.7em;
 	display:block;
 	padding-bottom:10px;
 }
@@ -140,12 +144,12 @@
 	margin: 0 0 0 5px;
 }
 #toolbar_weather #weatherforecast strong{
-	font-size:1.4em;
+	font-size:1.2em;
 	display:block;
 	padding-top:10px;
 }
 #toolbar_weather #weatherforecast span.warn{
-	font-size:1.2em;
+	font-size:1.1em;
 	color:#ac0302;
 }
 #toolbar_weather a {
@@ -153,12 +157,12 @@
 }
 #toolbar_weather .col{
 	float:left;
-	width:200px;
+	width:190px;
 	padding:0 10px 0 0;
 }
 #toolbar_weather .col.middle{
 	padding:0 10px 0 10px;
-	width:280px;
+	width:290px;
 }
 #toolbar_weather .two_col {
 	float:left;
@@ -505,7 +509,7 @@ div.vcard .eppa{
 	text-decoration:none;
 }
 
-#toolbar_events .day_cal #feeds,
+#toolbar_events #feeds,
 #toolbar_events .day_cal #day_nav{
 	display:none;
 	}

@@ -1,15 +1,13 @@
 /* Base styles for the maincontent, overriding the css-reset */
 
-#wdn_content_wrapper {
-	
+#wdn_content_wrapper {	
 	float:left;
 	}
 
-
 #maincontent {
 	text-align: left;
-	font: 71%/150% "Lucida Grande",Verdana,Arial;
-	color: #434343;
+	font: 77%/140% "Lucida Grande",Verdana,Arial;
+	color: #494949;
 	float: left;
 	padding: 0 10px;
 	}
