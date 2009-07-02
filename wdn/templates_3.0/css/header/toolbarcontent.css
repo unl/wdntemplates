@@ -66,17 +66,27 @@
 	padding:0 0 0 10px;
 	width:220px;
 }
-#whatisrss{
-		float:left;
+#whatisrss {
+	float:left;
+}
+#whatisrss div.two_col.left {
+	float:left;
+	width:460px;
+	padding:0 10px 0 0;
+}
+#whatisrss div.two_col.right{
+	float:right;
+	width:460px;
+	padding:0 0 0 10px;
 }
 #whatisrss span {
 	font-size:1.9em;
-	margin-right:20px;
+	display:block;
+	padding-bottom:10px;
 }
-#whatisrss .toolbarAddRSSIcon {
-	background:url(images/feed-icon-28x28.png) no-repeat right;
-	width:280px;
-	margin-right:0;
+#whatisrss span img {
+	position:relative;
+	top:6px;
 }
 #toolbar_feeds #wdn_rss_story {
 	display:none;
@@ -143,11 +153,12 @@
 }
 #toolbar_weather .col{
 	float:left;
-	width:240px;
+	width:200px;
 	padding:0 10px 0 0;
 }
 #toolbar_weather .col.middle{
 	padding:0 10px 0 10px;
+	width:280px;
 }
 #toolbar_weather .two_col {
 	float:left;

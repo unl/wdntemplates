@@ -50,7 +50,7 @@ WDN.toolbar = function() {
         },
         setMaskHeight : function(toolName, height) {
         	if(toolName=='feeds')  // this shortens the feed heights so we can get the message about feeds at the bottom
-        		maskheight = (height-240)+'px';
+        		maskheight = (height-280)+'px';
         	else
         		maskheight = (height-155)+'px';
         	jQuery('#toolbar_'+toolName+' div.toolbarMask').height(maskheight);
