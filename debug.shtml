@@ -280,11 +280,11 @@
         </div> <!-- end of maincontent -->        
         <div id="footer">
             <div id="footer_floater"></div>
-            <div class="footer_col">
+            <div class="footer_col" id="footer_feedback">
             	<!--#include virtual="wdn/templates_3.0/includes/feedback.html" -->
             </div>            
-            <div class="footer_col">
-            	<!--#include virtual="sharedcode/footerColumn.html" -->
+            <div class="footer_col" id="footer_socialmedia">
+            	<!--#include virtual="wdn/templates_3.0/includes/socialmediashare.html" -->
             </div>            
             <div class="footer_col">
             	<!--#include virtual="sharedcode/relatedLinks.html" -->

@@ -89,6 +89,7 @@ var WDN = function() {
 				WDN.initializePlugin('navigation');
 				WDN.initializePlugin('search');
 				WDN.initializePlugin('feedback');
+				WDN.initializePlugin('socialmediashare');
 				WDN.contentAdjustments();
 				WDN.initializePlugin('tooltip');
 				WDN.initializePlugin('toolbar');

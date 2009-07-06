@@ -222,8 +222,103 @@
 #toolbar_events .noentry {
 	clear:both;
 }
+/* Events styles from events.unl.edu
+**************/
+#toolbar_events{
+	color:#434343;
+	}
+#toolbar_events h4.sec_main {
+	background: url(http://events.unl.edu/templates/default/images/date1.gif) no-repeat;
+	float:left;
+	font-size:1.5em;
+	font-style:normal;
+	padding:4px 0 7px 30px !important;
+	font-weight:normal;
+	line-height:1.2;
+	}
+#toolbar_events h4.upcoming-header {
+	background: url(http://events.unl.edu/templates/default/images/newrecurevent.png) no-repeat;
+	font-size:1.5em;
+	padding:4px 0 7px 34px;
+	font-weight:normal;
+	line-height:1.2;
+	}
+#toolbar_events h4.ongoing {
+	background: url(http://events.unl.edu/templates/default/images/ongoing.gif) no-repeat;
+	clear:both;
+	font-size:1.5em;
+	margin-top:15px;
+	padding:6px 0 7px 34px;
+	font-weight:normal;
+	line-height:1.2;
+	}
+#toolbar_events .day_cal .permalink {
+	font-size:0.6em;
+	position:relative;
+	}
+#toolbar_events abbr:after {
+	content:'';
+	}
+#toolbar_events table {
+	border-collapse:collapse;
+	clear:both;
+	width:100%;
+	}
+#toolbar_events table thead th {
+	background:#3E83C9 none repeat scroll 0 0;
+	border-bottom:3px solid #BFD6F5;
+	color:#FFFFFF;
+	padding:2px 7px;
+	}
+#toolbar_events table thead th.title {
+	font-style: normal;
+}
+#toolbar_events .day_cal table thead th, #toolbar_events .event_cal table thead th {
+	text-align:left !important;
+}
+#toolbar_events table td {
+	border-top: 1px solid #D7E6EE;
+	padding: 0 4px;
+}
+#toolbar_events table td.date {
+	width:95px;
+	font-size:0.9em;
+	vertical-align:top;
+}
+#toolbar_events table tr.alt {
+	background: #ECF4F8;
+}
+#toolbar_events span.location {
+	color:#3A8103;
+	font-size:0.75em;
+	text-transform:uppercase;
+}
+#toolbar_events span.location a {
+	color:#3A8103;
+	text-transform:uppercase;
+}
+#toolbar_events table.ongoing {
+	margin:5px 0 0 0;
+}
+#toolbar_events .dtstart, #toolbar_events .dtend, #toolbar_events .dtstamp {
+	border:medium none;
+}
+#toolbar_events .dtend {
+	margin-top:-7px;
+	padding-left:1px;
+}
+#toolbar_events abbr, #toolbar_events acronym {
+	border-bottom:medium none;
+	text-decoration:none;
+}
 
-/* Peoplefinder styles from search results page */
+#toolbar_events #feeds,
+#toolbar_events .day_cal #day_nav{
+	display:none;
+	}
+
+/* Peoplefinder styles from search results page
+************************/
 
 #toolbar_peoplefinder  ul{
 	list-style:none;
@@ -315,13 +410,8 @@ padding: 0.7em;
 }
 
 
-/* Toolbar HCard Popup Styles */
-body
-{
-	position: relative;
-}
-
-
+/* Toolbar HCard Popup Styles 
+*******************************/
 div.hcardPopup
 {
 	position: absolute;
@@ -420,96 +510,3 @@ div.vcard .eppa{
 }
 
 
-/* Events styles from events.unl.edu
-**************/
-#toolbar_events{
-	color:#434343;
-	}
-#toolbar_events h4.sec_main {
-	background: url(http://events.unl.edu/templates/default/images/date1.gif) no-repeat;
-	float:left;
-	font-size:1.5em;
-	font-style:normal;
-	padding:4px 0 7px 30px !important;
-	font-weight:normal;
-	line-height:1.2;
-	}
-#toolbar_events h4.upcoming-header {
-	background: url(http://events.unl.edu/templates/default/images/newrecurevent.png) no-repeat;
-	font-size:1.5em;
-	padding:4px 0 7px 34px;
-	font-weight:normal;
-	line-height:1.2;
-	}
-#toolbar_events h4.ongoing {
-	background: url(http://events.unl.edu/templates/default/images/ongoing.gif) no-repeat;
-	clear:both;
-	font-size:1.5em;
-	margin-top:15px;
-	padding:6px 0 7px 34px;
-	font-weight:normal;
-	line-height:1.2;
-	}
-#toolbar_events .day_cal .permalink {
-	font-size:0.6em;
-	position:relative;
-	}
-#toolbar_events abbr:after {
-	content:'';
-	}
-#toolbar_events table {
-	border-collapse:collapse;
-	clear:both;
-	width:100%;
-	}
-#toolbar_events table thead th {
-	background:#3E83C9 none repeat scroll 0 0;
-	border-bottom:3px solid #BFD6F5;
-	color:#FFFFFF;
-	padding:2px 7px;
-	}
-#toolbar_events table thead th.title {
-	font-style: normal;
-}
-#toolbar_events .day_cal table thead th, #toolbar_events .event_cal table thead th {
-	text-align:left !important;
-}
-#toolbar_events table td {
-	border-top: 1px solid #D7E6EE;
-	padding: 0 4px;
-}
-#toolbar_events table td.date {
-	width:95px;
-	font-size:0.9em;
-}
-#toolbar_events table tr.alt {
-	background: #ECF4F8;
-}
-#toolbar_events span.location {
-	color:#3A8103;
-	font-size:0.75em;
-	text-transform:uppercase;
-}
-#toolbar_events span.location a {
-	color:#3A8103;
-	text-transform:uppercase;
-}
-#toolbar_events table.ongoing {
-	margin:5px 0 0 0;
-}
-#toolbar_events .dtstart, #toolbar_events .dtend, #toolbar_events .dtstamp {
-	border:medium none;
-}
-#toolbar_events .dtend {
-	margin-top:-7px;
-	padding-left:1px;
-}
-#toolbar_events abbr, #toolbar_events acronym {
-	border-bottom:medium none;
-	text-decoration:none;
-}
-
-#toolbar_events #feeds,
-#toolbar_events .day_cal #day_nav{
-	display:none;
-	}

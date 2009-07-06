@@ -34,9 +34,9 @@
 	border: none;
 	}
 	
-#maincontent ul, #footer ul{
-    list-style: square;
-    padding: 0 0 1.1em 30px;
+#maincontent ul{
+    list-style: disc;
+    padding: 0 0 1.1em 25px;
 }
     
 #maincontent ol{
@@ -79,6 +79,7 @@ pre {
 
 a.imagelink, #footer a.imagelink {
 	background:none !important;
+	border-bottom:0 !important;
 }
 
 
