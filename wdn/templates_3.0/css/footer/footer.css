@@ -26,14 +26,13 @@ Author: WDN
 	background-repeat: repeat-x;
 	text-align: left;
 	font: 71%/150% "Lucida Grande",Verdana,Arial;
-	color: #434343;
+	color: #494949;
 }
 #footer a,
 #footer a:link,
 #footer a:visited {
-	color: #242424;
-    text-decoration: none;
-	border-bottom:1px dotted #afafaf;
+	color: #494949;
+	text-decoration:underline;
 }
 
 #footer a:hover
@@ -101,12 +100,6 @@ body.liquid #footer .footer_col {width:22.9%}
 	list-style-type:disc;
 	padding:0 0 0 25px;
 }
-#footer_socialmedia ul {
-	padding:0;
-	list-style-image:none;
-	list-style-position:outside;
-	list-style-type:none;
-}
 #footer_socialmedia .col.left {
 	width:95px;
 	float:left;
@@ -115,8 +108,47 @@ body.liquid #footer .footer_col {width:22.9%}
 	width:125px;
 	float:right;
 }
-#footer_socialmedia img {
-	padding-right:5px;
-	position:relative;
-	top:3px;
+#footer_socialmedia ul {
+	padding:0;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+}
+#footer_socialmedia li {
+	height:20px;
+	margin-bottom:2px;
+}
+#footer_socialmedia li a {
+	padding:0 0 5px 20px;
+	text-decoration:none;
+}
+#footer_socialmedia #wdn_facebook {
+	background: url(../../css/footer/images/socialicons/facebook_16.png) no-repeat;
+}
+#footer_socialmedia #wdn_twitter {
+	background: url(../../css/footer/images/socialicons/twitter_16.png) no-repeat;
+}
+#footer_socialmedia #wdn_plurk {
+	background: url(../../css/footer/images/socialicons/plurk_16.png) no-repeat;
+}
+#footer_socialmedia #wdn_myspace {
+	background: url(../../css/footer/images/socialicons/myspace_16.png) no-repeat;
+}
+#footer_socialmedia #wdn_digg {
+	background: url(../../css/footer/images/socialicons/digg_16.png) no-repeat;
+}
+#footer_socialmedia #wdn_googlebookmark {
+	background: url(../../css/footer/images/socialicons/google_16.png) no-repeat;
+}
+#footer_socialmedia #wdn_delicious {
+	background: url(../../css/footer/images/socialicons/delicious_16.png) no-repeat;
+}
+#footer_socialmedia #wdn_reddit {
+	background: url(../../css/footer/images/socialicons/reddit_16.png) no-repeat;
+}
+#footer_socialmedia #wdn_stumbleupon {
+	background: url(../../css/footer/images/socialicons/stumbleupon_16.png) no-repeat;
+}
+#footer_socialmedia #wdn_newsvine {
+	background: url(../../css/footer/images/socialicons/newsvine_16.png) no-repeat;
 }
