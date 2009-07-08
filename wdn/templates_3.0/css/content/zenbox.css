@@ -11,33 +11,35 @@ Red: primary
 /*Set the background of the div*/
 #maincontent div.zenboxsolid, #maincontent div.zenboxfixed, #maincontent div.zenboxfeature, #maincontent div.zenbox,
 #maincontent div.zenboxsolid.bright, #maincontent div.zenboxfixed.bright, #maincontent div.zenboxfeature.bright, #maincontent div.zenbox.bright {
-	background: #FFFFBF;
+	border:1px solid #ededed;
     border-radius:5px;
     padding:5px;
     margin-bottom:1em;
+    background: #f7f7f7;
 }
+/*
 #maincontent div.zenboxsolid.cool, #maincontent div.zenboxfixed.cool, #maincontent div.zenboxfeature.cool, #maincontent div.zenbox.cool {
-	background: #BFDFFF;
+	border:1px solid #BFDFFF
 }
 #maincontent div.zenboxsolid.energetic, #maincontent div.zenboxfixed.energetic, #maincontent div.zenboxfeature.energetic, #maincontent div.zenbox.energetic {
-	background: #FFDFBF;
+	border:1px solid #FFDFBF;
 }
 #maincontent div.zenboxsolid.soothing, #maincontent div.zenboxfixed.soothing, #maincontent div.zenboxfeature.soothing, #maincontent div.zenbox.soothing {
-	background: #BFFFBF;
+	border:1px solid #BFFFBF;
 }
 #maincontent div.zenboxsolid.neutral, #maincontent div.zenboxfixed.neutral, #maincontent div.zenboxfeature.neutral, #maincontent div.zenbox.neutral {
-	background: #D2D2D2;
+	border:1px solid #D2D2D2;
 }
 #maincontent div.zenboxsolid.primary, #maincontent div.zenboxfixed.primary, #maincontent div.zenboxfeature.primary, #maincontent div.zenbox.primary {
-	background: #f5f5f5;
-}
+	border:1px solid #fdc0bf;
+}*/
 /*Set the header <h3> */
 #maincontent div.zenboxsolid h3, #maincontent div.zenboxfixed h3, #maincontent div.zenboxfeature h3, #maincontent div.zenbox h3,
 #maincontent div.zenboxsolid.bright h3, #maincontent div.zenboxfixed.bright h3, #maincontent div.zenboxfeature.bright h3, #maincontent div.zenbox.bright h3 {
 	background:url('../images/headingBGBright.png') repeat-x bottom;
 	padding:5px;
-	margin:-5px;
-	color:#57573e;
+	margin:-6px;
+	color:#3a3a3a;
 	margin-bottom:5px;
 	font-size:1.1em;
 	font-weight: bold;
@@ -92,15 +94,15 @@ Red: primary
 #maincontent div.zenboxsolid ul, #maincontent div.zenboxfixed ul, #maincontent div.zenboxfeature ul, #maincontent div.zenbox ul,
 #maincontent div.zenboxsolid.bright ul, #maincontent div.zenboxfixed.bright ul, #maincontent div.zenboxfeature.bright ul, #maincontent div.zenbox.bright ul {
 	list-style:none;
-	padding: 0 0 1.1em 10px;
+	padding: 0 10px 1.1em 10px;
 }
 #maincontent div.zenboxsolid ul li, #maincontent div.zenboxfixed ul li, #maincontent div.zenboxfeature ul li, #maincontent div.zenbox ul li,
 #maincontent div.zenboxsolid.bright ul li, #maincontent div.zenboxfixed.bright ul li, #maincontent div.zenboxfeature.bright ul li, #maincontent div.zenbox.bright ul li {
-	border-bottom:1px dashed #e8e81c;
+	border-bottom:1px dashed #c9c9c9;
 	margin-left:-5px;
-	padding-left:5px
+	padding:5px 0 3px 3px;
 }
-
+/*
 
 #maincontent div.zenboxsolid.cool ul li, #maincontent div.zenboxfixed.cool ul li, #maincontent div.zenboxfeature.cool ul li, #maincontent div.zenbox.cool ul li {
 	border-bottom:1px dashed #3e83c9;
@@ -120,4 +122,4 @@ Red: primary
 
 #maincontent div.zenboxsolid.primary ul li, #maincontent div.zenboxfixed.primary ul li, #maincontent div.zenboxfeature.primary ul li, #maincontent div.zenbox.primary ul li {
 	border-bottom:1px dashed #3d3d3d;
-}
+}*/
