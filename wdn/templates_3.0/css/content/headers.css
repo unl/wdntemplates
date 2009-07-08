@@ -39,3 +39,15 @@
 #maincontent h6{
     font-size: 1.1em;
     }
+#maincontent .sec_header {
+	padding-bottom:0;
+	border-bottom: #e5e5e5 2px solid;
+}
+#maincontent .sec_main {
+	background: #e5e5e5;
+	border-left:3px solid #c5c5c5;
+	-moz-border-radius:3px;
+    -webkit-border-radius:3px;
+	padding:0.1em 3px 0em 5px;
+	margin:3px 0 3px 0;
+}
