@@ -168,6 +168,7 @@
                     <div class="image_small_short"><img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" /></div>
                 <div class="zenbox">
                     <div class="zenbox">
+                    <h3>Zenbox in a Zenbox</h3>
                         <h4>UNL Events
                             <a title="Subscribe to this feed" href="http://feedburner.com/unlxxxxxxx">
                             <img alt="RSS/Atom Feed" src="icon_rss.png" />
@@ -191,6 +192,21 @@
                 <a href="#" onclick="WDN.navigation.setWrapperClass('expanded'); return false;">Expanded</a>
                 <a href="#" onclick="WDN.navigation.setWrapperClass('collapsed'); return false;">Collapsed</a>
                 <a href="#" onclick="WDN.navigation.setWrapperClass('pinned'); return false;">Pinned</a>
+                <h1 class="sec_main">h1 Sec Main</h1>
+                <h2 class="sec_main">h2 Sec Main</h2>
+                <h3 class="sec_main">h3 Sec Main</h3>
+                <h4 class="sec_main">h4 Sec Main</h4>
+                <h5 class="sec_main">h5 Sec Main</h5>
+                <h6 class="sec_main">h6 Sec Main</h6>
+                <p class="sec_main">p Sec Main</p>
+                <h1 class="sec_header">h1 Sec Header</h1>
+                <h2 class="sec_header">h2 Sec Header</h2>
+                <h3 class="sec_header">h3 Sec Header</h3>
+                <h4 class="sec_header">h4 Sec Header</h4>
+                <h5 class="sec_header">h5 Sec Header</h5>
+                <h6 class="sec_header">h6 Sec Header</h6>
+                <p class="sec_header">p Sec Header</p>
+                <p>This is some text. This is some text. This is some text.</p>
             </div>
             <div class="clear"></div>
             <div class="col left">
@@ -287,6 +303,7 @@
             	<!--#include virtual="wdn/templates_3.0/includes/socialmediashare.html" -->
             </div>            
             <div class="footer_col">
+            	<h3>This is a test</h3>
             	<!--#include virtual="sharedcode/relatedLinks.html" -->
             </div>            
             <div class="footer_col">
