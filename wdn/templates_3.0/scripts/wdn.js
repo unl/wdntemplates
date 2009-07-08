@@ -113,6 +113,10 @@ var WDN = function() {
 					jQuery(this).css({border:'1px solid #ededed',marginleft:'0'});
 				}
 			});
+			//remove the dotted line underneath images that are links
+			jQuery('#maincontent a img, #footer a img').each(function(j){
+				jQuery(this).parent('a').addClass('imagelink');
+			});
 		},
 		
 		initializePlugin:function (plugin, callback) {
