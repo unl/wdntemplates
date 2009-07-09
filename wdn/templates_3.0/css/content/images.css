@@ -1,42 +1,87 @@
-#maincontent .image_large_16x9 img,
-#maincontent .image_large img,
-#maincontent .image_medium_16x9 img, 
-#maincontent .image_medium_4x3 img, 
-#maincontent .image_medium_3x2 img, 
-#maincontent .image_medium img, 
-#maincontent .image_small_16x9 img, 
-#maincontent .image_small_4x3 img, 
-#maincontent .image_small_square img, 
-#maincontent .image_small_tall img, 
-#maincontent .image_small_short img,
-#maincontent .image_small_4x3_vertical img,
-#maincontent .image_small_3x2_vertical img,
-#maincontent .image_small_3x2 img,
+
+.image_large{width: 700px;height: 242px;}
+.image_large img {width:680px;height:210px;}
+
+.image_large_16x9{width: 700px;height: 407px;}
+.image_large_16x9 img {width:680px;height:383px;}
+
+.image_medium{width: 460px;height: 234px;}
+.image_medium img {width:450px;height:210px;}
+
+.image_medium_16x9{width: 460px;height: 277px;}
+.image_medium_16x9 img {width:450px;height:253px;}
+
+.image_medium_4x3{width: 460px;height: 352px;}
+.image_medium_4x3 img {width:450px;height:338px;}
+
+.image_medium_3x2{width: 460px;height: 314px;}
+.image_medium_3x2 img {width:450px;height:300px;}
+
+.image_small_square{width: 220px;height: 234px;}
+.image_small_square img {width:210px;height:210px;}
+
+.image_small_16x9{width: 220px;height: 142px;}
+.image_small_16x9 img {width:210px;height:118px;}
+
+.image_small_tall{width: 220px;height: 339px;}
+.image_small_tall img {width:210px;height:315px;}
+
+.image_small_3x2{width: 220px;height: 164px;}
+.image_small_3x2 img {width:210px;height:140px;}
+
+.image_small_3x2_vertical{width: 220px;height: 339px;}
+.image_small_3x2_vertical img {width:210px;height:315px;}
+
+.image_small_short{width: 220px;height: 104px;}
+.image_small_short img {width:210px;height:80px;}
+
+.image_small_4x3_vertical{width: 220px;height: 304px;}
+.image_small_4x3_vertical img {width:210px;height:280px;}
+
+.image_small_4x3{width: 220px;height: 182px;}
+.image_small_4x3 img {width:210px;height:158px;}
+
+
+#maincontent .image_large_16x9,
+#maincontent .image_large,
+#maincontent .image_medium_16x9, 
+#maincontent .image_medium_4x3, 
+#maincontent .image_medium_3x2, 
+#maincontent .image_medium, 
+#maincontent .image_small_16x9, 
+#maincontent .image_small_4x3, 
+#maincontent .image_small_square, 
+#maincontent .image_small_tall, 
+#maincontent .image_small_short,
+#maincontent .image_small_4x3_vertical,
+#maincontent .image_small_3x2_vertical,
+#maincontent .image_small_3x2,
+#maincontent .unl_liquid_pictureframe,
 #maincontent img.frame,
-#footer .image_large_16x9 img,
-#footer .image_large img,
-#footer .image_medium_16x9 img, 
-#footer .image_medium_4x3 img, 
-#footer .image_medium_3x2 img, 
-#footer .image_medium img, 
-#footer .image_small_16x9 img, 
-#footer .image_small_4x3 img, 
-#footer .image_small_square img, 
-#footer .image_small_tall img, 
-#footer .image_small_short img,
-#footer .image_small_4x3_vertical img,
-#footer .image_small_3x2_vertical img,
-#footer .image_small_3x2 img,
+#footer .image_large_16x9,
+#footer .image_large,
+#footer .image_medium_16x9, 
+#footer .image_medium_4x3, 
+#footer .image_medium_3x2, 
+#footer .image_medium, 
+#footer .image_small_16x9, 
+#footer .image_small_4x3, 
+#footer .image_small_square, 
+#footer .image_small_tall, 
+#footer .image_small_short,
+#footer .image_small_4x3_vertical,
+#footer .image_small_3x2_vertical,
+#footer .image_small_3x2,
 #footer img.frame,
 #cboxLoadedContent img.frame
 {
     border:1px solid #ededed;
     border-radius:3px;
     background: #f7f7f7;
-	padding:5px;
+	padding:4px 0 0 4px;
     margin: 0 0 10px 0;
-	position:relative;
-	text-align: center;
+	white-space:normal;
+	line-height:0.8em;
 }
 
 #maincontent p.caption, #footer p.caption {
