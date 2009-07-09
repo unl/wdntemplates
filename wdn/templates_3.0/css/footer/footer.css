@@ -115,7 +115,7 @@ body.liquid #footer .footer_col {width:22.9%}
 	list-style-type:none;
 }
 #footer_socialmedia li {
-	height:20px;
+	min-height:20px;
 	margin-bottom:2px;
 }
 #footer_socialmedia li a {

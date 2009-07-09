@@ -1,6 +1,6 @@
 .toolbar_plugin {
 	margin:20px 0 0 0;
-	width:940px;
+/*	width:940px; */
 }
 #toolbarcontent{
 	height:100%;
@@ -509,4 +509,6 @@ div.vcard .eppa{
 	margin-top:0.2em;
 }
 
+/* Tour and Maps
+*****************************************/
 

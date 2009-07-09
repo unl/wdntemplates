@@ -47,6 +47,7 @@ WDN.toolbar = function() {
         	WDN.toolbar.registerTool('events', 'Events', 1002, 550);
         	WDN.toolbar.registerTool('peoplefinder', 'Peoplefinder', 1002, 500);
         	WDN.toolbar.registerTool('webcams', 'Webcams', 1002, 400);
+        	WDN.toolbar.registerTool('tourmaps', 'Tour/Maps', 1042, 800);
         },
         setMaskHeight : function(toolName, height) {
         	if(toolName=='feeds')  // this shortens the feed heights so we can get the message about feeds at the bottom
