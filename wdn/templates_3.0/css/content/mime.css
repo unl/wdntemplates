@@ -55,9 +55,9 @@ a.feed-icon
 
 a[href^="mailto:"], a.mail-message-new, a.email {background-image: url(images/mimetypes/mail-message-new.png);}
 a.text-vcard{background-image: url(images/mimetypes/text-vcard.png);}					
-a[href $='.pdf'], a.application-pdf, a.pdf{background-image: url(images/mimetypes/application-pdf.png);}
+a[href $='.pdf'], a.application-pdf, a.pdf{background-image: url(images/mimetypes/application-pdf.png);background-repeat:no-repeat;}
 a.application-certificate{background-image: url(images/mimetypes/application-certificate.png);}
-a[href $='.exe'], a.application-x-executable{background-image: url(images/mimetypes/application-x-executable.png);}
+a[href $='.exe'], a.application-x-executable{background-image: url(images/mimetypes/application-x-executable.png);background-repeat:no-repeat;}
 a.audio-x-generic{background-image: url(images/mimetypes/audio-x-generic.png);}
 a.font-x-generic{background-image: url(images/mimetypes/font-x-generic.png);}
 a.image-x-generic{background-image: url(images/mimetypes/image-x-generic.png);}
@@ -66,7 +66,7 @@ a.text-html{background-image: url(images/mimetypes/text-html.png);}
 a.text-x-generic{background-image: url(images/mimetypes/text-x-generic.png);}
 a.text-x-generic-template{background-image: url(images/mimetypes/text-x-generic-template.png);}
 a.text-x-script{background-image: url(images/mimetypes/text-x-script.png);}
-a[href $='.mov'], a[href $='.wmv'], a[href $='.mp4'], a[href $='.m4v'], a.video-x-generic{background-image: url(images/mimetypes/video-x-generic.png);}
+a[href $='.mov'], a[href $='.wmv'], a[href $='.mp4'], a[href $='.m4v'], a.video-x-generic{background-image: url(images/mimetypes/video-x-generic.png);background-repeat:no-repeat;}
 a.x-office-address-book{background-image: url(images/mimetypes/x-office-address-book.png);}
 a.x-office-calendar{background-image: url(images/mimetypes/x-office-calendar.png);}
 a.x-office-document{background-image: url(images/mimetypes/x-office-document.png);}
@@ -77,8 +77,8 @@ a.x-office-presentation{background-image: url(images/mimetypes/x-office-presenta
 a.x-office-presentation-template{background-image: url(images/mimetypes/x-office-presentation-template.png);}
 a.x-office-spreadsheet{background-image: url(images/mimetypes/x-office-spreadsheet.png);}
 a.x-office-spreadsheet-template{background-image: url(images/mimetypes/x-office-spreadsheet-template.png);}
-a[href *='.doc'], a.application-msword, a.msword{background-image: url(images/mimetypes/application-msword.png);}
-a[href *='.xls'], a.application-vnd-ms-excel{background-image: url(images/mimetypes/application-vnd-ms-excel.png);}
-a[href *='.ppt'], a.application-vnd-ms-powerpoint{background-image: url(images/mimetypes/application-vnd-ms-powerpoint.png);}
-a[href $='.zip'], a.application-zip{background-image: url(images/mimetypes/application-zip.png);}
+a[href *='.doc'], a.application-msword, a.msword{background-image: url(images/mimetypes/application-msword.png);background-repeat:no-repeat;}
+a[href *='.xls'], a.application-vnd-ms-excel{background-image: url(images/mimetypes/application-vnd-ms-excel.png);background-repeat:no-repeat;}
+a[href *='.ppt'], a.application-vnd-ms-powerpoint{background-image: url(images/mimetypes/application-vnd-ms-powerpoint.png);background-repeat:no-repeat;}
+a[href $='.zip'], a.application-zip{background-image: url(images/mimetypes/application-zip.png);background-repeat:no-repeat;}
 a.feed-icon{background-image: url(images/mimetypes/feed-icon.png);}
