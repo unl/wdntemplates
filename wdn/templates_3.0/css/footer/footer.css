@@ -100,55 +100,55 @@ body.liquid #footer .footer_col {width:22.9%}
 	list-style-type:disc;
 	padding:0 0 0 25px;
 }
-#footer_socialmedia .col.left {
+#footer .socialmedia.col.left {
 	width:95px;
 	float:left;
 }
-#footer_socialmedia .col.right {
+#footer .socialmedia.col.right {
 	width:125px;
 	float:right;
 }
-#footer_socialmedia ul {
+#footer ul.socialmedia {
 	padding:0;
 	list-style-image:none;
 	list-style-position:outside;
 	list-style-type:none;
 }
-#footer_socialmedia li {
+#footer ul.socialmedia li {
 	min-height:20px;
 	margin-bottom:2px;
 }
-#footer_socialmedia li a {
+#footer ul.socialmedia li a {
 	padding:0 0 5px 20px;
 	text-decoration:none;
 }
-#footer_socialmedia #wdn_facebook {
+#wdn_facebook {
 	background: url(images/socialicons/facebook_16.png) no-repeat;
 }
-#footer_socialmedia #wdn_twitter {
+#wdn_twitter {
 	background: url(images/socialicons/twitter_16.png) no-repeat;
 }
-#footer_socialmedia #wdn_plurk {
+#wdn_plurk {
 	background: url(images/socialicons/plurk_16.png) no-repeat;
 }
-#footer_socialmedia #wdn_myspace {
+#wdn_myspace {
 	background: url(images/socialicons/myspace_16.png) no-repeat;
 }
-#footer_socialmedia #wdn_digg {
+#wdn_digg {
 	background: url(images/socialicons/digg_16.png) no-repeat;
 }
-#footer_socialmedia #wdn_googlebookmark {
+#wdn_googlebookmark {
 	background: url(images/socialicons/google_16.png) no-repeat;
 }
-#footer_socialmedia #wdn_delicious {
+#wdn_delicious {
 	background: url(images/socialicons/delicious_16.png) no-repeat;
 }
-#footer_socialmedia #wdn_reddit {
+#wdn_reddit {
 	background: url(images/socialicons/reddit_16.png) no-repeat;
 }
-#footer_socialmedia #wdn_stumbleupon {
+#wdn_stumbleupon {
 	background: url(images/socialicons/stumbleupon_16.png) no-repeat;
 }
-#footer_socialmedia #wdn_newsvine {
+#wdn_newsvine {
 	background: url(images/socialicons/newsvine_16.png) no-repeat;
 }
