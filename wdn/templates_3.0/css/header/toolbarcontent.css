@@ -1,3 +1,6 @@
+/* General styles pertaining to the content area of the Tool modal boxes
+****************************/
+
 .toolbar_plugin {
 	margin:20px 0 0 0;
 /*	width:940px; */
@@ -115,7 +118,7 @@
 	padding-bottom:3px;
 }
 
-/* Webcam
+/* Webcams
 ***********/
 #toolbar_webcams .col.left {
 	float:left;
@@ -208,11 +211,6 @@
 	float:left;
 	padding:0 10px 0 0;
 	width:940px;
-}
-#toolbar_events .col.middle {
-	float:left;
-	padding:0 10px 0 10px;
-	width:400px;
 }
 #toolbar_events .col.right {
 	float:left;
@@ -317,8 +315,53 @@
 	display:none;
 	}
 
-/* Peoplefinder styles from search results page
+/* Peoplefinder
 ************************/
+#toolbar_peoplefinder .col.left {
+	float:left;
+	padding:0 10px 0 0;
+	width:460px;
+}
+#toolbar_peoplefinder .col.right {
+	float:right;
+	padding:0 0 0 10px;
+	width:460px;
+}
+#toolbar_peoplefinder form {
+	margin-bottom:15px;
+}
+#toolbar_peoplefinder input {
+	width:300px;
+	padding:2px;
+	border:1px solid #434343;
+	background:#ffffcc;
+	height:25px;
+	font-size:1.5em;
+	}
+
+#toolbar_peoplefinder input:focus {
+	background:#fff;
+	}
+
+#toolbar_peoplefinder #pfprogress {
+	position:absolute;
+	left:325px;
+	top:72px;
+	}
+
+#toolbar_peoplefinder ul{list-style:none;}
+#toolbar_peoplefinder ul li{padding:6px;}
+#toolbar_peoplefinder ul li.alt{background:#666;border-bottom:1px solid #4f4f4f;border-top:1px solid #4f4f4f;}
+#toolbar_peoplefinder .cNav{text-align:right;letter-spacing:-2px;}
+#toolbar_peoplefinder .cNav a{margin-left:4px;}
+#toolbar_peoplefinder .fn{float:left;font-weight:bold;margin-right:4px;}
+#toolbar_peoplefinder .eppa, #peoplefinder .title{font-size:0.8em;}
+#toolbar_peoplefinder .cInfo{margin-left:10px;}
+
+
+
+/* Peoplefinder Search Result
+***************************/
 
 #toolbar_peoplefinder  ul{
 	list-style:none;
@@ -410,7 +453,7 @@ padding: 0.7em;
 }
 
 
-/* Toolbar HCard Popup Styles 
+/* Peoplefinder HCard Popup Styles 
 *******************************/
 div.hcardPopup
 {

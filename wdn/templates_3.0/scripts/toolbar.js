@@ -42,18 +42,20 @@ WDN.toolbar = function() {
         },
         toolTabsSetup : function() {
         	jQuery('#cboxWrapper').append('<div id="tooltabs"><ul></ul></div>');
-        	WDN.toolbar.registerTool('feeds', 'RSS Feeds', 1002, 550);
+        	WDN.toolbar.registerTool('feeds', 'RSS Feeds', 1002, 500);
         	WDN.toolbar.registerTool('weather', 'Weather', 1002, 500);
         	WDN.toolbar.registerTool('events', 'Events', 1002, 550);
-        	WDN.toolbar.registerTool('peoplefinder', 'Peoplefinder', 1002, 500);
+        	WDN.toolbar.registerTool('peoplefinder', 'Peoplefinder', 1002, 550);
         	WDN.toolbar.registerTool('webcams', 'Webcams', 1002, 400);
         	WDN.toolbar.registerTool('tourmaps', 'Tour/Maps', 1042, 800);
         },
         setMaskHeight : function(toolName, height) {
         	if(toolName=='feeds')  // this shortens the feed heights so we can get the message about feeds at the bottom
-        		maskheight = (height-280)+'px';
+        		maskheight = (height-260)+'px';
+        	else if(toolName=='peoplefinder')  // this shortens the feed heights so we can get the message about feeds at the bottom
+        		maskheight = (height-180)+'px';
         	else
-        		maskheight = (height-155)+'px';
+        		maskheight = (height-135)+'px';
         	jQuery('#toolbar_'+toolName+' div.toolbarMask').height(maskheight);
         	jQuery('#toolbar_'+toolName+' div.toolbarMask').css({overflow:"auto", padding:"0 3px 0 0"});
         },
@@ -80,7 +82,7 @@ WDN.toolbar = function() {
         },
         getContent : function(type, height) { 
         	eval('WDN.toolbar_'+type+'.display();');
-        	jQuery("#cboxTitle").css({height:'0px'}); //Hide the cboxTitle at the bottom
+        //	jQuery("#cboxTitle").css({height:'0px'}); //Hide the cboxTitle at the bottom
         	WDN.toolbar.setMaskHeight(type, height); //Now that content is loaded, add the scroll bars
         },
         /**

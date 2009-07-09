@@ -22,7 +22,7 @@
 	#cboxMiddleLeft{width:21px; background:url(images/colorbox/border1.png) -105px 0 repeat-y;}
 	#cboxMiddleRight{width:21px; background:url(images/colorbox/border1.png) -84px 0 repeat-y;}
 	#cboxContent{background:#f2f2f2;}
-            #cboxLoadedContent{margin-bottom:20px; font-size:77%; line-height:140%; }
+            #cboxLoadedContent{font-size:72%; line-height:135%; }
             #cboxTitle{position:absolute; bottom:0px; left:0; text-align:left; padding-right:90px; background:#f2f2f2; font-size:71%; line-height:150%; }
             #cboxCurrent{position:absolute; bottom:0px; right:46px; color:#999;}
             #cboxSlideshow{position:absolute; bottom:0; right:100px; background:url(images/colorbox/controls.png) no-repeat; height:18px; text-indent:-9999px;}
