@@ -74,9 +74,9 @@
             <div class="footer_col">
                 <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
             </div>
-            <div class="footer_col"><!-- TemplateBeginEditable name="leftRandomPromo" -->
-                <!--#include virtual="../sharedcode/footerColumn.html" -->
-                <!-- TemplateEndEditable --></div>
+            <div class="footer_col">
+            	<!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+            </div>
             <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
                 <!--#include virtual="../sharedcode/relatedLinks.html" -->
                 <!-- TemplateEndEditable --></div>

@@ -141,10 +141,9 @@ echo ''.PHP_EOL;
             <div class="footer_col">
                 <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
             </div>
-            <div class="footer_col"><!-- InstanceBeginEditable name="leftRandomPromo" -->
-            <h3>Now On UNL.edu</h3>
-            <?php echo $p->leftRandomPromo; ?>
-            <!-- InstanceEndEditable --></div>
+            <div class="footer_col">
+            	<!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+            </div>
             <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
             <?php echo $p->leftcollinks; ?>
             <!-- InstanceEndEditable --></div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><!-- InstanceBegin template="/Templates/shared_column_left.dwt" codeOutsideHTMLIsLocked="false" -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <!--
     Membership and regular participation in the UNL Web Developer Network
@@ -13,7 +13,7 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: shared_column_left.dwt 376 2009-06-24 15:07:40Z bbieber2 $
+    $Id: fixed.dwt 341 2009-06-18 19:47:26Z bbieber2 $
 -->
 <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
 <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
@@ -23,7 +23,21 @@
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>UNL | Department | New Page</title>
 <!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
-<!-- Place optional header elements here -->
+<style type="text/css">
+table {
+	border:2px solid #C6C6C6;
+	border-bottom-color:#000;
+	border-right-color:#000;
+	border-collapse:separate;
+	border-spacing: 4px;
+}
+table td {
+	padding:4px;
+	border:1px solid #C6C6C6;
+	border-top-color:#000;
+	border-left-color:#000;
+}
+</style>
 <!-- InstanceEndEditable -->
 </head>
 <body class="fixed">
@@ -38,7 +52,7 @@
             <!-- WDN: see glossary item 'breadcrumbs' -->
             <!-- InstanceBeginEditable name="breadcrumbs" -->
             <ul>
-                <li><a href="http://www.unl.edu/" title="University of Nebraska–Lincoln">UNL</a></li>
+                <li><a href="http://www.unl.edu/">UNL</a></li>
                 <li>Department</li>
             </ul>
             <!-- InstanceEndEditable --></div>
@@ -54,17 +68,62 @@
             <!-- InstanceEndEditable --></div>
         <div id="maincontent">
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-            <!-- InstanceBeginEditable name="sharedcolumn" -->
-            <div class="col left">
-                <!--#include virtual="sharedcode/sharedColumn.html" -->
-            </div>
+            <!-- InstanceBeginEditable name="maincontentarea" -->
+            <p>START TEXT AREA</p>
+
+			<table class="four_col">
+				<tr>
+					<td colspan="4">
+                    <pre>table {
+	border:2px solid #C6C6C6;
+	border-bottom-color:#000;
+	border-right-color:#000;
+	border-collapse:separate;
+	border-spacing: 4px;
+}
+table td {
+	padding:4px;
+	border:1px solid #C6C6C6;
+	border-top-color:#000;
+	border-left-color:#000;
+}</pre></td>
+				</tr>
+				<tr>
+					<td style="background-color: #FA6520">background-color: 
+					#FA6520</td>
+
+					<td style="background-color: #FA6520">background-color: 
+					#FA6520</td>
+					<td style="background-color: #FA6520">background-color: 
+					#FA6520</td>
+					<td style="background-color: #FA6520">background-color: 
+					#FA6520</td>
+				</tr>
+				<tr>
+					<td style="background-color: #BFFFBF">background-color: 
+					#BFFFBF</td>
+					<td style="background-color: #BFFFBF">background-color: 
+					#BFFFBF</td>
+
+					<td style="background-color: #BFFFBF">background-color: 
+					#BFFFBF</td>
+					<td style="background-color: #BFFFBF">background-color: 
+					#BFFFBF</td>
+				</tr>
+				<tr>
+					<td><font color="#008000">foreground color: #008000</font></td>
+					<td><font color="#FF0000">foreground color: #FF0000</font></td>
+
+					<td><font color="#0000FF">foreground color:&nbsp; #0000FF</font></td>
+					<td>
+					<p align="center">Centered text</p></td>
+				</tr>
+			</table>
+
+<p>END TEXT AREA</p>
+
+
             <!-- InstanceEndEditable -->
-            <div class="three_col right">
-			<!-- InstanceBeginEditable name="maincontentarea" -->
-            <p><strong>Delete this box and place your content here.</strong><br />
-                Remember to validate your pages before publishing! Sample layouts are available through the <a href="http://wdn.unl.edu//">Web Developer Network</a>. <br />
-    <a href="http://validator.unl.edu/check/referer">Check this page</a> </p>
-            <!-- InstanceEndEditable --></div>
             <div class="clear"></div>
             <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
             <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->

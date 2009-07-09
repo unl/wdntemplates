@@ -152,11 +152,9 @@
             <div class="footer_col">
                 <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
             </div>
-            <div class="footer_col"><!-- InstanceBeginEditable name="leftRandomPromo" -->
-			<div class="image_small_short" id="leftRandomPromo"> <a href="#" id="leftRandomPromoAnchor"><img id="leftRandomPromoImage" alt="" src="/ucomm/templatedependents/templatecss/images/transpixel.gif" /></a>
-				<script type="text/javascript" src="../sharedcode/leftRandomPromo.js"></script>
-			</div>
-			<!-- InstanceEndEditable --></div>
+            <div class="footer_col">
+            	<!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+            </div>
             <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
 				<!-- WDN: see glossary item 'sidebar links' -->
 				<!--#include virtual="../sharedcode/relatedLinks.html" -->
