@@ -89,13 +89,13 @@ echo ''.PHP_EOL;
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: fixed.dwt 341 2009-06-18 19:47:26Z bbieber2 $
+    $Id: fixed.dwt 414 2009-07-09 21:05:52Z bbieber2 $
 -->
 <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
 <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
 <script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
-<!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
-<!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
+<?php include 'wdn/templates_3.0/includes/browserspecifics.html'; ?>
+<?php include 'wdn/templates_3.0/includes/metanfavico.html'; ?>
 <!-- InstanceBeginEditable name="doctitle" -->
 <?php echo $p->doctitle; ?>
 
@@ -109,7 +109,7 @@ echo ''.PHP_EOL;
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
+        <?php include_once 'wdn/templates_3.0/includes/wdnTools.html'; ?>
     </div>
     <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
@@ -133,16 +133,16 @@ echo ''.PHP_EOL;
             <?php echo $p->maincontentarea; ?>
             <!-- InstanceEndEditable -->
             <div class="clear"></div>
-            <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
+            <?php include 'wdn/templates_3.0/includes/noscript.html'; ?>
             <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
         </div>
         <div id="footer">
             <div id="footer_floater"></div>
             <div class="footer_col">
-                <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
+                <?php include 'wdn/templates_3.0/includes/feedback.html'; ?>
             </div>
             <div class="footer_col">
-            	<!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+            	<?php include 'wdn/templates_3.0/includes/socialmediashare.html'; ?>
             </div>
             <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
             <?php echo $p->leftcollinks; ?>
@@ -160,7 +160,7 @@ echo ''.PHP_EOL;
                     <li><a href="http://validator.unl.edu/check/referer">W3C</a></li>
                     <li><a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a></li>
                 </ul>
-                <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
+                <?php include 'wdn/templates_3.0/includes/wdn.html'; ?>
                 <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
         </div>
     </div>
