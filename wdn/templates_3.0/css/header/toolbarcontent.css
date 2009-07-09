@@ -2,7 +2,7 @@
 ****************************/
 
 .toolbar_plugin {
-	margin:20px 0 0 0;
+	margin:8px 0 0 0;
 /*	width:940px; */
 }
 #toolbarcontent{
@@ -46,6 +46,8 @@
 	width:20px;
 	background:url(images/applianceIcons.png) top right no-repeat;
 	float:right;
+	position:relative;
+	top:-2px;
 }
 
 /* Feeds
@@ -184,7 +186,7 @@
 #toolbar_weather #showradar img {
 /*	background:url('http://radar.weather.gov/Conus/Loop/uppermissvly_loop.gif') 0 -170px no-repeat; */
 	background:url('http://radar.weather.gov/lite/N0R/OAX_loop.gif') -5px -140px no-repeat;
-	height:330px;
+	height:350px;
 	width:400px;
 }
 #toolbar_weather .weathertempf{
@@ -290,6 +292,8 @@
 	color:#3A8103;
 	font-size:0.75em;
 	text-transform:uppercase;
+	display:block;
+	padding:1px 0 3px 20px;
 }
 #toolbar_events span.location a {
 	color:#3A8103;
@@ -311,6 +315,7 @@
 }
 
 #toolbar_events #feeds,
+#toolbar_events .description,
 #toolbar_events .day_cal #day_nav{
 	display:none;
 	}
@@ -346,7 +351,7 @@
 #toolbar_peoplefinder #pfprogress {
 	position:absolute;
 	left:325px;
-	top:72px;
+	top:57px;
 	}
 
 #toolbar_peoplefinder ul{list-style:none;}

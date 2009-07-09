@@ -51,11 +51,11 @@ WDN.toolbar = function() {
         },
         setMaskHeight : function(toolName, height) {
         	if(toolName=='feeds')  // this shortens the feed heights so we can get the message about feeds at the bottom
-        		maskheight = (height-260)+'px';
+        		maskheight = (height-257)+'px';
         	else if(toolName=='peoplefinder')  // this shortens the feed heights so we can get the message about feeds at the bottom
-        		maskheight = (height-180)+'px';
+        		maskheight = (height-192)+'px';
         	else
-        		maskheight = (height-135)+'px';
+        		maskheight = (height-121)+'px';
         	jQuery('#toolbar_'+toolName+' div.toolbarMask').height(maskheight);
         	jQuery('#toolbar_'+toolName+' div.toolbarMask').css({overflow:"auto", padding:"0 3px 0 0"});
         },
