@@ -64,6 +64,11 @@ ul#wdn_tool_links li {
 	background:url('navigation/images/tabBGLeft_IE7.png') 0 0 no-repeat;
 }
 
+#wdn_navigation_bar,
+.nav_collapsed #wdn_navigation_bar {
+     top:auto;
+}
+
 .nav_expanded #navigation {
 	padding-bottom:34px;
 }
