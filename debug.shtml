@@ -298,16 +298,16 @@
             <div id="footer_floater"></div>
             <div class="footer_col" id="footer_feedback">
             	<!--#include virtual="wdn/templates_3.0/includes/feedback.html" -->
-            </div>            
-            <div class="footer_col" id="footer_socialmedia">
-            	<!--#include virtual="wdn/templates_3.0/includes/socialmediashare.html" -->
-            </div>            
+            </div>
             <div class="footer_col">
             	<h3>This is a test</h3>
             	<!--#include virtual="sharedcode/relatedLinks.html" -->
             </div>            
             <div class="footer_col">
             	<!--#include virtual="sharedcode/footerContactInfo.html" -->
+            </div>
+            <div class="footer_col">
+                <!--#include virtual="wdn/templates_3.0/includes/socialmediashare.html" -->
             </div>                   
             <div id="wdn_copyright">
                 <!--#include virtual="sharedcode/footer.html" -->                                
