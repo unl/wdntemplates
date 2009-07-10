@@ -74,15 +74,15 @@
             <div class="footer_col">
                 <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
             </div>
-            <div class="footer_col">
-            	<!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
-            </div>
             <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
                 <!--#include virtual="../sharedcode/relatedLinks.html" -->
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col"><!-- TemplateBeginEditable name="contactinfo" -->
                 <!--#include virtual="../sharedcode/footerContactInfo.html" -->
             <!-- TemplateEndEditable --></div>
+            <div class="footer_col">
+            	<!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+            </div>
             <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
             <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
                 <!--#include virtual="../sharedcode/footer.html" -->
