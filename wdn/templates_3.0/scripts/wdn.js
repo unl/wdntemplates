@@ -86,6 +86,7 @@ var WDN = function() {
 		jQueryUsage : function() {
 			jQuery.noConflict();
 			jQuery(document).ready(function() {
+				WDN.browserAdjustments();
 				WDN.initializePlugin('navigation');
 				WDN.initializePlugin('search');
 				WDN.initializePlugin('feedback');
@@ -105,6 +106,12 @@ var WDN = function() {
 			try {
 				console.log(data);
 			} catch(e) {}
+		},
+		
+		browserAdjustments : function() {
+			if (jQuery.browser.msie && jQuery.browser.version == '6.0') {
+				alert('Upgrade!');
+			}
 		},
 		
 		contentAdjustments : function () {
