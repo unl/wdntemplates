@@ -39,7 +39,7 @@
       .hover(fill, reset).focus(fill).blur(reset)
       .click(function() {
         rating = [stars.index(this) + 1, 0];
-        $.post(obj.url, { rating: $("a:first", this)[0].href.slice(1) });
+        $.post(obj.url, { rating: rating[0] });
         reset(); stars.unbind().addClass("done");
         $(this).css("cursor", "default");
         return false;

@@ -10,6 +10,7 @@ WDN.feedback = function() {
 			WDN.log("setting up rating");
 			//jQuery('#wdn_feedback').rating().animate({opacity: 'show'}, 2000);
 			jQuery('#wdn_feedback').rating();
+			
 		}
 	};
 }();
