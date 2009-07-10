@@ -17,6 +17,27 @@ Red: primary
     margin-bottom:1em;
     background: #f7f7f7;
 }
+
+#maincontent div.col_half.zenbox {
+    width:98px;
+}
+
+#maincontent div.col.zenbox {
+    width:218px;
+}
+
+#maincontent div.two_col.zenbox {
+    width:458px;
+}
+
+#maincontent div.three_col.zenbox {
+    width:698px;
+}
+
+#maincontent div.three_col.zenbox {
+    width:938px;
+}
+
 /*
 #maincontent div.zenboxsolid.cool, #maincontent div.zenboxfixed.cool, #maincontent div.zenboxfeature.cool, #maincontent div.zenbox.cool {
 	border:1px solid #BFDFFF
