@@ -86,7 +86,6 @@ var WDN = function() {
 		jQueryUsage : function() {
 			jQuery.noConflict();
 			jQuery(document).ready(function() {
-				WDN.browserAdjustments();
 				WDN.initializePlugin('navigation');
 				WDN.initializePlugin('search');
 				WDN.initializePlugin('feedback');
@@ -94,6 +93,7 @@ var WDN = function() {
 				WDN.contentAdjustments();
 				WDN.initializePlugin('tooltip');
 				WDN.initializePlugin('toolbar');
+				WDN.browserAdjustments();
 			});
 		},
 		
@@ -110,7 +110,12 @@ var WDN = function() {
 		
 		browserAdjustments : function() {
 			if (jQuery.browser.msie && jQuery.browser.version == '6.0') {
-				alert('Upgrade!');
+				jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>');
+				fetchURLInto('http://www.unl.edu/wdn/templates_3.0/includes/browserupgrade.html', 'wdn_upgrade_notice');
+				jQuery('head link[rel=stylesheet]').remove();
+				jQuery('body').removeAttr('class');
+				jQuery('body').addClass('document');
+				WDN.loadCSS('wdn/templates_3.0/css/content/columns.css');
 			}
 		},
 		
