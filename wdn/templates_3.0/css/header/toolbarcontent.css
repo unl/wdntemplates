@@ -369,7 +369,7 @@
 ***************************/
 #toolbar_peoplefinder ul li.ppl_Sresult{
 	border-bottom:1px solid #ddd;
-	padding:0.7em 0 0.7em 0.7em;
+	padding:0.7em 0 0.7em 1.7em;
 }
 #toolbar_peoplefinder ul li.ppl_Sresult.alt{
 	background:#FAFAFA;
@@ -388,7 +388,7 @@
 
 #toolbar_peoplefinder ul li.org_Sresult{
 	border-bottom:1px solid #ddd;
-	padding:0.7em 0 0.7em 0.7em;
+	padding:0.7em 0 0.7em 1.7em;
 }
 #toolbar_peoplefinder ul li.org_Sresult.alt{
 	background:#FAFAFA;
@@ -415,9 +415,6 @@
 	padding:0.5em;
 	border:1px solid #d0c8a5;
 }
-#toolbar_peoplefinder .cMatch p {
-	margin:0;
-}
 #toolbar_peoplefinder a.cInfo{
 	background:url(http://peoplefinder.unl.edu/images/person.gif) no-repeat 0 3px;
 	padding:0 0 0 1em;
@@ -428,139 +425,69 @@
 	margin-top:0.2em;
 }
 
-#searchform {
-	margin-bottom: 10px;
-}
-
-.gsc-input {
-	font-size: 1.1em;
-}
-.gs-result .gs-title, .gs-result .gs-title *{
-color : #990000;
-text-decoration: none;
-font-size: 1.1em;
-}
-.gs-result .gs-title a:hover, .gs-result .gs-title a:hover * {
-color : #cc0000;
-}
-.gs-result.alt {
-background:#FAFAFA;
-}
-.gs-result {
-border-bottom:1px solid #ddd;
-padding: 0.7em;
-}
-.gs-result:hover {
-	background:#FFFEF0;
-	border-bottom:1px solid #d3d3d3;
-}
-
-.gs-search-nav {
-	margin-top: 10px;
-	text-align: right;
-}
-.gs-result .gs-watermark {
-	display: none;
-}
-
-
-/* Peoplefinder HCard Popup Styles 
+/* Peoplefinder VCard 
 *******************************/
-div.hcardPopup
-{
-	position: absolute;
-	background-image: url(images/as_pointer.gif);
-	background-position: center right;
-	background-repeat: no-repeat;
-	padding: 0 10px 0 0;
+#toolbar_peoplefinder .vcard{
+	background-color:#fff;
+    border:1px solid #d3d3d3;
+  	font-size:1em;
 }
-
-div.hcardPopup div.as_header,
-div.hcardPopup div.as_footer
-{
-	position: relative;
-	height: 6px;
-	padding: 0 6px;
-	background-image: url(/ucomm/templatedependents/templatecss/components/images/ul_corner_tr.gif);
-	background-position: top right;
-	background-repeat: no-repeat;
-	overflow: hidden;
+#toolbar_peoplefinder .vcard .fn{
+    color:#ac0302;
+    padding:10px 0px 7px 10px;
+    font-size:1.5em;
+    display:block;
 }
-div.hcardPopup div.as_footer
-{
-	background-image: url(/ucomm/templatedependents/templatecss/components/images/ul_corner_br.gif);
+#toolbar_peoplefinder .vcard .org,
+#toolbar_peoplefinder .vcard .delivery,
+#toolbar_peoplefinder .vcard .organization-name, 
+#toolbar_peoplefinder .vcard .organization-unit {
+	display:block;
 }
-
-div.hcardPopup div.as_header div.as_corner,
-div.hcardPopup div.as_footer div.as_corner
-{
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 6px;
-	width: 6px;
-	background-image: url(/ucomm/templatedependents/templatecss/components/images/ul_corner_tl.gif);
-	background-position: top left;
-	background-repeat: no-repeat;
+#toolbar_peoplefinder .vcard .eppa {
+    float:left;
+    margin-top:10px;
+    font-size:1.1em;
 }
-div.hcardPopup div.as_footer div.as_corner
-{
-	background-image: url(/ucomm/templatedependents/templatecss/components/images/ul_corner_bl.gif);
+#toolbar_peoplefinder .vcardInfo{ 
+	font-size:1.3em;
+    clear:both;
+    background: #FAFAFA;
+    padding:10px 10px 30px 16px;
+    line-height:1.4;
+    position:relative;
+    border-top:2px solid #E3E3E3;
 }
-div.hcardPopup div.as_header div.as_bar,
-div.hcardPopup div.as_footer div.as_bar
-{
-	height: 6px;
-	overflow: hidden;
-	background-color: #333;
-}
-
-
-div.hcardPopup ul
-{
-	list-style: none;
-	margin: 0 0 -4px 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: #333;
-}
-
-div.hcardPopup ul li
-{
-	color: #ccc;
-	padding: 0;
-	margin: 0 4px 4px;
-	text-align: left;
-}
-
-div.vcard {
-	padding: 5px;
-	color: #fff;
-}
-div.vcard a {
-	color: #fff;
-}
-div.vcard .fn {
-	float: left;
-	font-weight: bold;
-	margin-right: 4px;
-}
-div.vcard .vcardinfo {
-	padding: 6px;
-	line-height: 1.1;
-	position: relative;
-}
-div.vcard .adr, div.vard .tel {
-	margin-top:10px;
-	margin-bottom:10px;
+#toolbar_peoplefinder .vcard .adr, #toolbar_peoplefinder .vcard .tel{
+	margin: 10px 0 19px 10px;
 	font-size:0.9em;
 }
-div.vcard .type {
-	font-weight: bold;
+#toolbar_peoplefinder .type{
+	font-weight:bold;
 }
-div.vcard .eppa{
-	font-size:0.75em;
-	margin-top:0.2em;
+#toolbar_peoplefinder .value,
+#toolbar_peoplefinder .street-address,
+#toolbar_peoplefinder .post-office-box {
+	display:block;
+}
+#toolbar_peoplefinder a.downloadVcard{
+	position:absolute;
+	bottom:0;
+	right:0;
+	margin:0 6px 4px 0;
+}
+#toolbar_peoplefinder .title {
+	font-style:oblique;
+}
+#toolbar_peoplefinder .caption {
+	color:#555555;
+	font-size:75%;
+	line-height:normal;
+	text-align:justify;
+}
+#toolbar_peoplefinder div.vcard>a.email {
+	background-image:none;
+	padding:inherit;
 }
 
 /* Tour and Maps
