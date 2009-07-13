@@ -14,6 +14,7 @@
 	position:relative;
 	left:0px;
 	width:100%;
+	top:auto;
 }
 
 .nav_pinned #navigation ul {
