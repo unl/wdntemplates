@@ -40,14 +40,14 @@ Author: WDN
     color: #ba0000;
 }
 
-#footer #footer_floater {
+#footer_floater {
 	background-image: url(images/topSealb.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	height:41px;
 	margin-bottom:18px;
 }
-#footer #wdn_copyright {
+#wdn_copyright {
 	clear: both;
 	border-top:1px solid #ffffff;
 	padding:12px;
@@ -55,15 +55,15 @@ Author: WDN
 	font-size:.9em;
 	line-height:1.4em;
 }
-#footer #wdn_copyright ul {
+#wdn_copyright ul {
 	margin-top:10px;
 }
-#footer #wdn_copyright ul li {
+#wdn_copyright ul li {
 	display:inline;
 }
 #wdn_unl_wordmark {
 	float:right;
-	margin-top:-28px;
+	margin-top:-40px;
 }
 a#wdn_unl_wordmark,
 a#wdn_unl_wordmark:link,

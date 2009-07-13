@@ -14,8 +14,14 @@
 	padding-bottom:22px;
 }
 
-#footer .footer_col h3 {
+#tooltabs a{
+	margin-top:20px;
+}
+
+#footer .footer_col h3,
+#toolbarcontent .toolbar_plugin h3 {
 	background-color:#ac0302;
+	margin-bottom:20px;
 }
 
 #maincontent div.zenboxsolid h3, #maincontent div.zenboxfixed h3, #maincontent div.zenboxfeature h3, #maincontent div.zenbox h3,
@@ -76,4 +82,10 @@ ul#wdn_tool_links li {
 #wdn_search_form input.search {
     color: transparent;
     text-transform: capitalize;
+}
+#wdn_copyright {
+	padding-top:6px;
+}
+#wdn_unl_wordmark {
+	margin: -52px 12px 0 0;
 }

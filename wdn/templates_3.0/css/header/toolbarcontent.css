@@ -367,18 +367,22 @@
 
 /* Peoplefinder Search Result
 ***************************/
-#toolbar_peoplefinder ul li.ppl_Sresult{
+#toolbar_peoplefinder ul li.ppl_Sresult,
+#toolbar_peoplefinder ul li.org_Sresult{
 	border-bottom:1px solid #ddd;
 	padding:0.7em 0 0.7em 1.7em;
 }
-#toolbar_peoplefinder ul li.ppl_Sresult.alt{
+#toolbar_peoplefinder ul li.ppl_Sresult.alt,
+#toolbar_peoplefinder ul li.org_Sresult.alt{
 	background:#FAFAFA;
 }
-#toolbar_peoplefinder ul li.ppl_Sresult:hover, #ppl_results ul li.ppl_Sresult.alt:hover{
+#toolbar_peoplefinder ul li.ppl_Sresult:hover, #ppl_results ul li.ppl_Sresult.alt:hover,
+#toolbar_peoplefinder ul li.org_Sresult:hover, #org_results ul li.org_Sresult.alt:hover{
 	background:#FFFEF0;
 	border-bottom:1px solid #d3d3d3;
 }
-#toolbar_peoplefinder ul li.ppl_Sresult div.tel{
+#toolbar_peoplefinder ul li.ppl_Sresult div.tel a,
+#toolbar_peoplefinder ul li.org_Sresult div.tel a {
 	background:url(http://peoplefinder.unl.edu/images/mobile.gif) no-repeat 0 0.75em;
 	padding:0.5em 0 0 1em;
 	position:relative;
@@ -386,24 +390,6 @@
 	clear:both;
 }
 
-#toolbar_peoplefinder ul li.org_Sresult{
-	border-bottom:1px solid #ddd;
-	padding:0.7em 0 0.7em 1.7em;
-}
-#toolbar_peoplefinder ul li.org_Sresult.alt{
-	background:#FAFAFA;
-}
-#toolbar_peoplefinder ul li.org_Sresult:hover, #org_results ul li.org_Sresult.alt:hover{
-	background:#FFFEF0;
-	border-bottom:1px solid #d3d3d3;
-}
-#toolbar_peoplefinder ul li.org_Sresult div.tel{
-	background:url(http://peoplefinder.unl.edu/images/mobile.gif) no-repeat 0 0.75em;
-	padding:0.5em 0 0 1em;
-	position:relative;
-	color:#333;
-	clear:both;
-}
 
 #toolbar_peoplefinder .fn{
 	float:left;
@@ -418,7 +404,9 @@
 #toolbar_peoplefinder a.cInfo{
 	background:url(http://peoplefinder.unl.edu/images/person.gif) no-repeat 0 3px;
 	padding:0 0 0 1em;
-	margin-left:0.8em;color:#555;text-decoration:underline;
+	margin-left:0.8em;
+	color:#555;
+	text-decoration:underline;
 }
 #toolbar_peoplefinder .eppa{
 	font-size:0.75em;
@@ -455,7 +443,6 @@
     background: #FAFAFA;
     padding:10px 10px 30px 16px;
     line-height:1.4;
-    position:relative;
     border-top:2px solid #E3E3E3;
 }
 #toolbar_peoplefinder .vcard .adr, #toolbar_peoplefinder .vcard .tel{
@@ -488,6 +475,7 @@
 #toolbar_peoplefinder div.vcard>a.email {
 	background-image:none;
 	padding:inherit;
+	text-decoration:none;
 }
 
 /* Tour and Maps
