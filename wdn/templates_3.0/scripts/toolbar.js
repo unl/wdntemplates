@@ -74,8 +74,8 @@ WDN.toolbar = function() {
          */
         registerTool : function(plugin_name, title, pwidth, pheight) {
         	jQuery('#tooltabs ul').append('<li class="'+plugin_name+'"><a href="#" class="'+plugin_name+'">'+title+'</a></li>');
-        	jQuery("#tooltabs a."+plugin_name).colorbox({width:pwidth, height:pheight, inline:true, href:"#toolbarcontent"});
-        	jQuery("#tooltabs a."+plugin_name).click(function(){WDN.toolbar.switchToolFocus(plugin_name, pheight);});
+        	jQuery("a."+plugin_name).colorbox({width:pwidth, height:pheight, inline:true, href:"#toolbarcontent"});
+        	jQuery("a."+plugin_name).click(function(){WDN.toolbar.switchToolFocus(plugin_name, pheight);});
         },
         setToolContent : function(plugin_name, content) {
         	jQuery("#toolbarcontent").append('<div id="toolbar_'+plugin_name+'" class="toolbar_plugin">'+content+'</div>');
