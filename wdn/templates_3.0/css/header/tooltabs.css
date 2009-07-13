@@ -6,11 +6,11 @@
 	height:40px;
 }
 #tooltabs a {
-	height:20px;
+	height:18px;
 	text-decoration:none;
-	padding:0 0 0 25px;
+	padding:2px 0 0 25px;
 	display:block;
-	margin:11px 0 0 5px;
+	margin:13px 0 0 5px;
 }
 #tooltabs a.feeds {
 	background:url(images/applianceIcons.png) 0 -120px no-repeat;
