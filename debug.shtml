@@ -300,7 +300,6 @@
             	<!--#include virtual="wdn/templates_3.0/includes/feedback.html" -->
             </div>
             <div class="footer_col">
-            	<h3>This is a test</h3>
             	<!--#include virtual="sharedcode/relatedLinks.html" -->
             </div>            
             <div class="footer_col">
