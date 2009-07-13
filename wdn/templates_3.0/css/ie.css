@@ -72,3 +72,8 @@ ul#wdn_tool_links li {
 .nav_expanded #navigation {
 	padding-bottom:44px;
 }
+
+#wdn_search_form input.search {
+    color: transparent;
+    text-transform: capitalize;
+}
