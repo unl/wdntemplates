@@ -35,6 +35,7 @@ $currentForecast = $forecastToday.$forecastTonight.$forecastTomorrow;
 $currentForecast = preg_replace('/<br>/', '<br />', $currentForecast);
 $currentForecast = preg_replace('/<b>/', '<strong>', $currentForecast);
 $currentForecast = preg_replace('/<\/b>/', '</strong>', $currentForecast);
+$currentForecast = preg_replace('showsigwx.php', 'http://forecast.weather.gov/showsigwx.php', $currentForecast);
 
 // Split and grab the bits that we need to get just the time
 // Assumes format of: Last Updated on MMM DD, HH:MM am/pm TZ

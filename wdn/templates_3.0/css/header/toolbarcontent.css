@@ -1,6 +1,5 @@
 /* General styles pertaining to the content area of the Tool modal boxes
 ****************************/
-
 .toolbar_plugin {
 	margin:8px 0 0 0;
 /*	width:940px; */
@@ -140,6 +139,7 @@
 #toolbar_webcams .col img {
 	width:290px;
 }
+
 /* Weather
 *************/
 #toolbar_weather br {
@@ -207,6 +207,7 @@
 	font-size:1.2em;
 	margin-bottom:15px !important;
 }
+
 /* Events
 ****************/
 #toolbar_events .col.left {
@@ -222,6 +223,7 @@
 #toolbar_events .noentry {
 	clear:both;
 }
+
 /* Events styles from events.unl.edu
 **************/
 #toolbar_events{
@@ -273,15 +275,12 @@
 #toolbar_events table thead th.title {
 	font-style: normal;
 }
-#toolbar_events .day_cal table thead th, #toolbar_events .event_cal table thead th {
-	text-align:left !important;
-}
 #toolbar_events table td {
 	border-top: 1px solid #D7E6EE;
 	padding: 0 4px;
 }
 #toolbar_events table td.date {
-	width:95px;
+	width:110px;
 	font-size:0.9em;
 	vertical-align:top;
 }
@@ -305,9 +304,12 @@
 #toolbar_events .dtstart, #toolbar_events .dtend, #toolbar_events .dtstamp {
 	border:medium none;
 }
+#toolbar_events .dtstart {
+	padding-right:2px;
+}
 #toolbar_events .dtend {
 	margin-top:-7px;
-	padding-left:1px;
+	padding-left:2px;
 }
 #toolbar_events abbr, #toolbar_events acronym {
 	border-bottom:medium none;
@@ -354,45 +356,58 @@
 	top:57px;
 	}
 
-#toolbar_peoplefinder ul{list-style:none;}
+#toolbar_peoplefinder ul{list-style:none;padding:0;margin-bottom:5px;}
 #toolbar_peoplefinder ul li{padding:6px;}
-#toolbar_peoplefinder ul li.alt{background:#666;border-bottom:1px solid #4f4f4f;border-top:1px solid #4f4f4f;}
-#toolbar_peoplefinder .cNav{text-align:right;letter-spacing:-2px;}
+#toolbar_peoplefinder ul li.alt{background:#fafafa;border-bottom:1px solid #4f4f4f;border-top:1px solid #4f4f4f;}
+#toolbar_peoplefinder .cNav{text-align:right;letter-spacing:-2px;margin:-15px 3px 5px 0;}
 #toolbar_peoplefinder .cNav a{margin-left:4px;}
 #toolbar_peoplefinder .fn{float:left;font-weight:bold;margin-right:4px;}
 #toolbar_peoplefinder .eppa, #peoplefinder .title{font-size:0.8em;}
 #toolbar_peoplefinder .cInfo{margin-left:10px;}
 
-
-
 /* Peoplefinder Search Result
 ***************************/
-
-#toolbar_peoplefinder  ul{
-	list-style:none;
-	padding:0;
-    margin-bottom:5px;
-}
 #toolbar_peoplefinder ul li.ppl_Sresult{
 	border-bottom:1px solid #ddd;
 	padding:0.7em 0 0.7em 0.7em;
 }
+#toolbar_peoplefinder ul li.ppl_Sresult.alt{
+	background:#FAFAFA;
+}
 #toolbar_peoplefinder ul li.ppl_Sresult:hover, #ppl_results ul li.ppl_Sresult.alt:hover{
 	background:#FFFEF0;
 	border-bottom:1px solid #d3d3d3;
-}
-#toolbar_peoplefinder ul li.ppl_Sresult.alt{
-	background:#FAFAFA;
 }
 #toolbar_peoplefinder ul li.ppl_Sresult div.tel{
 	background:url(http://peoplefinder.unl.edu/images/mobile.gif) no-repeat 0 0.75em;
 	padding:0.5em 0 0 1em;
 	position:relative;
 	color:#333;
+	clear:both;
 }
+
+#toolbar_peoplefinder ul li.org_Sresult{
+	border-bottom:1px solid #ddd;
+	padding:0.7em 0 0.7em 0.7em;
+}
+#toolbar_peoplefinder ul li.org_Sresult.alt{
+	background:#FAFAFA;
+}
+#toolbar_peoplefinder ul li.org_Sresult:hover, #org_results ul li.org_Sresult.alt:hover{
+	background:#FFFEF0;
+	border-bottom:1px solid #d3d3d3;
+}
+#toolbar_peoplefinder ul li.org_Sresult div.tel{
+	background:url(http://peoplefinder.unl.edu/images/mobile.gif) no-repeat 0 0.75em;
+	padding:0.5em 0 0 1em;
+	position:relative;
+	color:#333;
+	clear:both;
+}
+
 #toolbar_peoplefinder .fn{
 	float:left;
-	margin-right:0.2em;
+	margin-right:0.4em;
 }
 #toolbar_peoplefinder .cMatch{
 	background:#ffffcc;
@@ -402,13 +417,6 @@
 }
 #toolbar_peoplefinder .cMatch p {
 	margin:0;
-}
-#toolbar_peoplefinder .cNav{
-	position:absolute;
-	right:0;
-	top:0;
-	font-weight:normal;
-	letter-spacing:-0.1em;
 }
 #toolbar_peoplefinder a.cInfo{
 	background:url(http://peoplefinder.unl.edu/images/person.gif) no-repeat 0 3px;
@@ -435,8 +443,6 @@ font-size: 1.1em;
 .gs-result .gs-title a:hover, .gs-result .gs-title a:hover * {
 color : #cc0000;
 }
-
-
 .gs-result.alt {
 background:#FAFAFA;
 }
