@@ -56,5 +56,6 @@
 #maincontent .zenboxfixed h3.sec_main,
 #maincontent .zenboxfeature h3.sec_main,
 #maincontent .zenbox h3.sec_main {
+	border-radius:none;
 	border-left:none;
 }
