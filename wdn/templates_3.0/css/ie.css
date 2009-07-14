@@ -5,6 +5,9 @@
 #wdn_wrapper  {
 	overflow:hidden;
 	border-top:12px solid #e0e0e0;
+	border-left:10px;
+	border-right:10px;
+	padding:12px 10px 12px 10px;
 }
 #header {
 	margin-top:-12px;
