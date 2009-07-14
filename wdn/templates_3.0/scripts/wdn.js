@@ -94,6 +94,7 @@ var WDN = function() {
 				WDN.initializePlugin('tooltip');
 				WDN.initializePlugin('toolbar');
 				WDN.browserAdjustments();
+				WDN.screenAdjustments();
 			});
 		},
 		
@@ -116,6 +117,16 @@ var WDN = function() {
 				jQuery('body').removeAttr('class');
 				jQuery('body').addClass('document');
 				WDN.loadCSS('wdn/templates_3.0/css/content/columns.css');
+			}
+		},
+		
+		screenAdjustments : function() {
+			if(screen.width<=1024) {
+				jQuery('#wdn_wrapper').css({'border-left-width':'7px','border-right-width':'7px','border-bottom-width':'7px'});
+				if(jQuery.browser.mozilla) {
+					jQuery('#wdn_wrapper').css({'-moz-border-radius':'7px','text-align': 'left'});
+					jQuery('body.fixed').css({'width':'998px','text-align': 'center','margin': '0 auto'});
+				}
 			}
 		},
 		
