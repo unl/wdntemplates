@@ -311,7 +311,7 @@
             <div id="wdn_copyright">
                 <!--#include virtual="sharedcode/footer.html" -->                                
                 <!--#include virtual="wdn/templates_3.0/includes/wdn.html" -->
-                <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+                | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
                 <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a>
             </div>
         </div>    
