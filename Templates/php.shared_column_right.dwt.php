@@ -38,7 +38,7 @@
             <!-- WDN: see glossary item 'breadcrumbs' -->
             <!-- TemplateBeginEditable name="breadcrumbs" -->
             <ul>
-                <li><a href="http://www.unl.edu/">UNL</a></li>
+                <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
                 <li>Department</li>
             </ul>
             <!-- TemplateEndEditable --></div>
@@ -54,10 +54,16 @@
             <!-- TemplateEndEditable --></div>
         <div id="maincontent">
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+            <div class="three_col left">
             <!-- TemplateBeginEditable name="maincontentarea" -->
             <p><strong>Delete this box and place your content here.</strong><br />
                 Remember to validate your pages before publishing! Sample layouts are available through the <a href="http://wdn.unl.edu//">Web Developer Network</a>. <br />
-                <a href="http://validator.unl.edu/check/referer">Check this page</a> </p>
+    <a href="http://validator.unl.edu/check/referer">Check this page</a> </p>
+            <!-- TemplateEndEditable --></div>
+            <!-- TemplateBeginEditable name="sharedcolumn" -->
+            <div class="col right">
+                <?php include '../sharedcode/sharedColumn.html'; ?>
+            </div>
             <!-- TemplateEndEditable -->
             <div class="clear"></div>
             <?php virtual('/wdn/templates_3.0/includes/noscript.html'); ?>
@@ -66,7 +72,7 @@
         <div id="footer">
             <div id="footer_floater"></div>
             <div class="footer_col">
-            	<?php virtual('/wdn/templates_3.0/includes/feedback.html'); ?>
+                <?php virtual('/wdn/templates_3.0/includes/feedback.html'); ?>
             </div>
             <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
                 <?php include '../sharedcode/relatedLinks.html'; ?>
@@ -76,7 +82,7 @@
             <!-- TemplateEndEditable --></div>
             <div class="footer_col">
                 <?php virtual('/wdn/templates_3.0/includes/socialmediashare.html'); ?>
-            </div>  
+            </div>
             <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
             <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
                 <?php include '../sharedcode/footer.html'; ?>

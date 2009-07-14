@@ -13,7 +13,7 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: liquid.dwt 452 2009-07-13 19:09:33Z acoleman $
+    $Id$
 -->
 <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
 <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
@@ -44,7 +44,7 @@
             <!-- TemplateEndEditable --></div>
         <div id="wdn_navigation_wrapper">
             <div id="navigation"><!-- TemplateBeginEditable name="navlinks" -->
-                <?php virtual('../sharedcode/navigation.html'); ?>
+                <?php include '../sharedcode/navigation.html'; ?>
                 <!-- TemplateEndEditable --></div>
         </div>
     </div>
@@ -63,29 +63,25 @@
             <?php virtual('/wdn/templates_3.0/includes/noscript.html'); ?>
             <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
         </div>
-         <div id="footer">
+        <div id="footer">
             <div id="footer_floater"></div>
-            <div class="footer_col" id="footer_feedback">
-            	<?php virtual('wdn/templates_3.0/includes/feedback.html'); ?>
+            <div class="footer_col">
+                <?php virtual('/wdn/templates_3.0/includes/feedback.html'); ?>
             </div>
+            <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
+                <?php include '../sharedcode/relatedLinks.html'; ?>
+                <!-- TemplateEndEditable --></div>
+            <div class="footer_col"><!-- TemplateBeginEditable name="contactinfo" -->
+                <?php include '../sharedcode/footerContactInfo.html'; ?>
+            <!-- TemplateEndEditable --></div>
             <div class="footer_col">
-            	<?php virtual('sharedcode/relatedLinks.html'); ?>
-            </div>            
-            <div class="footer_col">
-            	<?php virtual('sharedcode/footerContactInfo.html'); ?>
-            </div>
-            <div class="footer_col">
-                <?php virtual('wdn/templates_3.0/includes/socialmediashare.html'); ?>
+                <?php virtual('/wdn/templates_3.0/includes/socialmediashare.html'); ?>
             </div>  
             <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
             <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
-                <?php virtual('../sharedcode/footer.html'); ?>
+                <?php include '../sharedcode/footer.html'; ?>
                 <!-- TemplateEndEditable -->
-                <ul>
-                    <li><a href="http://validator.unl.edu/check/referer">W3C</a></li>
-                    <li><a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a></li>
-                </ul>
-                <?php virtual('/wdn/templates_3.0/includes/wdn.html'); ?>
+                <?php virtual('/wdn/templates_3.0/includes/wdn.html'); ?> | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a>
                 <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
         </div>
     </div>

@@ -13,7 +13,7 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: shared_column_left.dwt 428 2009-07-10 19:32:49Z bbieber2 $
+    $Id$
 -->
 <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
 <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
@@ -87,11 +87,7 @@
             <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
                 <?php include '../sharedcode/footer.html'; ?>
                 <!-- TemplateEndEditable -->
-                <ul>
-                    <li><a href="http://validator.unl.edu/check/referer">W3C</a></li>
-                    <li><a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a></li>
-                </ul>
-                <?php virtual('/wdn/templates_3.0/includes/wdn.html'); ?>
+                <?php virtual('/wdn/templates_3.0/includes/wdn.html'); ?> | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a>
                 <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
         </div>
     </div>
