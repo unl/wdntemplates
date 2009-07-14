@@ -170,3 +170,8 @@ ul#wdn_tool_links li {
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
 }
+
+#maincontent .sec_main {
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+}
