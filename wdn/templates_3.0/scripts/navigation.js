@@ -1,4 +1,3 @@
-
 WDN.navigation = function() {
 	var expandedHeight = 0;
 	return {
@@ -105,7 +104,10 @@ WDN.navigation = function() {
 
 			jQuery('#navigation ul').css({height:'auto'});
 			jQuery('#navigation ul ul li').show(100);
-			jQuery('#navigation-close').fadeIn();
+			if(jQuery.browser.msie)
+				jQuery('#navigation-close').show();
+			else
+				jQuery('#navigation-close').fadeIn();
 			WDN.navigation.setWrapperClass('expanded');
 			WDN.navigation.currentState = 1;
 			WDN.navigation.updateHelperText();
@@ -134,7 +136,7 @@ WDN.navigation = function() {
 			if (expandedHeight == 0) {
 				//expandedHeight = jQuery('#navigation').height();
 			}
-			jQuery('#navigation-close').fadeOut( function() {
+			jQuery('#navigation-close').hide( function() {
 				jQuery('#navigation-expand-collapse span').text('roll over for full navigation');
 				WDN.navigation.setWrapperClass('collapsed');
 				WDN.navigation.currentState = 0;
