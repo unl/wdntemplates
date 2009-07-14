@@ -52,3 +52,9 @@
 	margin:3px 0 3px 0;
 	margin-bottom:1.01em;
 }
+#maincontent .zenboxsolid h3.sec_main,
+#maincontent .zenboxfixed h3.sec_main,
+#maincontent .zenboxfeature h3.sec_main,
+#maincontent .zenbox h3.sec_main {
+	border-left:none;
+}
