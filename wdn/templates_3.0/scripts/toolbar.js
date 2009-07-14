@@ -31,13 +31,8 @@ WDN.toolbar = function() {
     	
         initialize : function() {
             WDN.loadCSS('wdn/templates_3.0/css/header/colorbox.css');
-            
+            WDN.loadCSS('wdn/templates_3.0/css/header/colorbox-ie.css');
             jQuery('#header').append('<div class="hidden"><div id="toolbarcontent"></div></div>');
-
-            /*
-            jQuery('#header').append('<div class="hidden"><div id="feedcontent"></div></div>');
-        	
-        	*/
         	WDN.loadJS('wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js', WDN.toolbar.colorboxSetup);
         },
         toolTabsSetup : function() {
