@@ -35,7 +35,7 @@ $currentForecast = $forecastToday.$forecastTonight.$forecastTomorrow;
 $currentForecast = preg_replace('/<br>/', '<br />', $currentForecast);
 $currentForecast = preg_replace('/<b>/', '<strong>', $currentForecast);
 $currentForecast = preg_replace('/<\/b>/', '</strong>', $currentForecast);
-$currentForecast = preg_replace('showsigwx.php', 'http://forecast.weather.gov/showsigwx.php', $currentForecast);
+$currentForecast = str_replace('showsigwx.php', 'http://forecast.weather.gov/showsigwx.php', $currentForecast);
 
 // Split and grab the bits that we need to get just the time
 // Assumes format of: Last Updated on MMM DD, HH:MM am/pm TZ
@@ -92,7 +92,7 @@ $outputString .= "<div id=\"unlhumidity\" class=\"weatherconditions\">Relative H
 file_put_contents($outputFile, $outputString);
 
 
-$currentForecast .= "<br /><a class=\"external\" href=\"http://forecast.weather.gov/MapClick.php?FcstType=text&textField1=40.8164&textField2=-96.6882&site=oax&TextType=1\">Complete forecast</a>"
+$currentForecast .= "<br /><a class=\"external\" href=\"http://forecast.weather.gov/MapClick.php?FcstType=text&textField1=40.8164&textField2=-96.6882&site=oax&TextType=1\">Complete forecast</a>";
 
 file_put_contents($outputForecastFile, $currentForecast);
 ?>
