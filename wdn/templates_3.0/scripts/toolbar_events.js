@@ -11,7 +11,7 @@ WDN.toolbar_events = function() {
         	for(i=0;i<pagelinks.length;i++)
         	{
         	    relatt = pagelinks[i].getAttribute('rel');
-        	    if(relatt=='localevents')
+        	    if(relatt=='events')
         	    {
         	    	havelocalevents = true;
         	    	localeventshref = pagelinks[i].getAttribute('href');
