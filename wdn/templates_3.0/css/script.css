@@ -179,6 +179,6 @@ ul#wdn_tool_links li {
 #maincontent .zenboxfixed h3.sec_main,
 #maincontent .zenboxfeature h3.sec_main,
 #maincontent .zenbox h3.sec_main {
-    -moz-border-radius:none;
-    -webkit-border-radius:none;
+    -moz-border-radius:0px;
+    -webkit-border-radius:0px;
 }
