@@ -8,6 +8,7 @@ WDN.tooltip = function() {
 			// ID's of container elements we want to apply tooltips to right away
 			WDN.tooltip.tooltipSetup('wdn_tool_links');
 			WDN.tooltip.tooltipSetup('maincontent');
+			WDN.tooltip.tooltipSetup('footer');
 		},
 		tooltipSetup : function(id) {
 			// Tooltips can be added to any links by calling this function with

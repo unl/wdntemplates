@@ -100,55 +100,56 @@ body.liquid #footer .footer_col {width:22.9%}
 	list-style-type:disc;
 	padding:0 0 0 25px;
 }
-#footer .socialmedia.col.left {
-	width:95px;
-	float:left;
-}
-#footer .socialmedia.col.right {
-	width:125px;
-	float:right;
-}
-#footer ul.socialmedia {
+
+
+#footer ul.wdn_socialmedia {
 	padding:0;
+	margin:0 0 -5px 0;
 	list-style-image:none;
 	list-style-position:outside;
 	list-style-type:none;
 }
-#footer ul.socialmedia li {
-	min-height:20px;
-	margin-bottom:2px;
+#footer ul.wdn_socialmedia li {
+	display:inline-block;
 }
-#footer ul.socialmedia li a {
-	padding:0 0 5px 20px;
-	text-decoration:none;
+#footer ul.wdn_socialmedia li a {
+	display:inline-block;
+	padding:0 0 32px 32px;
+	text-indent:-9000px;
+}
+#wdn_emailthis {
+	background: url(images/socialicons/email_32.png) no-repeat;
 }
 #wdn_facebook {
-	background: url(images/socialicons/facebook_16.png) no-repeat;
+	background: url(images/socialicons/facebook_32.png) no-repeat;
 }
 #wdn_twitter {
-	background: url(images/socialicons/twitter_16.png) no-repeat;
+	background: url(images/socialicons/twitter_32.png) no-repeat;
 }
 #wdn_plurk {
-	background: url(images/socialicons/plurk_16.png) no-repeat;
+	background: url(images/socialicons/plurk_32.png) no-repeat;
 }
 #wdn_myspace {
-	background: url(images/socialicons/myspace_16.png) no-repeat;
+	background: url(images/socialicons/myspace_32.png) no-repeat;
 }
 #wdn_digg {
-	background: url(images/socialicons/digg_16.png) no-repeat;
+	background: url(images/socialicons/digg_32.png) no-repeat;
+}
+#wdn_linkedin {
+	background: url(images/socialicons/linkedin_32.png) no-repeat;
 }
 #wdn_googlebookmark {
-	background: url(images/socialicons/google_16.png) no-repeat;
+	background: url(images/socialicons/google_32.png) no-repeat;
 }
 #wdn_delicious {
-	background: url(images/socialicons/delicious_16.png) no-repeat;
+	background: url(images/socialicons/delicious_32.png) no-repeat;
 }
 #wdn_reddit {
-	background: url(images/socialicons/reddit_16.png) no-repeat;
+	background: url(images/socialicons/reddit_32.png) no-repeat;
 }
 #wdn_stumbleupon {
-	background: url(images/socialicons/stumbleupon_16.png) no-repeat;
+	background: url(images/socialicons/stumbleupon_32.png) no-repeat;
 }
 #wdn_newsvine {
-	background: url(images/socialicons/newsvine_16.png) no-repeat;
+	background: url(images/socialicons/newsvine_32.png) no-repeat;
 }
