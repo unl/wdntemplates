@@ -105,15 +105,11 @@ body.liquid #footer .footer_col {width:22.9%}
 #footer ul.socialmedia {
 	padding:0;
 	margin:0;
-	list-style-image:none;
-	list-style-position:outside;
 	list-style-type:none;
 	text-align:center;
 }
 #footer ul.socialmedia li {
 	display:inline-block;
-	list-style-image:none;
-	list-style-position:outside;
 	list-style-type:none;
 }
 #footer ul.socialmedia li a {
