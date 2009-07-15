@@ -12,8 +12,8 @@ WDN.tooltip = function() {
 		},
 		tooltipSetup : function(id) {
 			// Tooltips can be added to any links by calling this function with
-			// the container id and adding a 'tooltip' attribute to the anchor tag
-			jQuery('#'+id+' a[tooltip]').each(function()
+			// the container id and adding a 'tooltip' attribute to the anchor tag or image tag
+			jQuery('#'+id+' a[tooltip], #'+id+' img[tooltip]').each(function()
 					{	
 					  jQuery(this).qtip({
 		

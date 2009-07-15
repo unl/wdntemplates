@@ -124,8 +124,8 @@ var WDN = function() {
 			if(screen.width<=1024) {
 				jQuery('#wdn_wrapper').css({'border-left-width':'7px','border-right-width':'7px','border-bottom-width':'7px'});
 				if(jQuery.browser.mozilla) {
-					jQuery('#wdn_wrapper').css({'-moz-border-radius':'7px','text-align': 'left'});
-					jQuery('body.fixed').css({'width':'998px','text-align': 'center','margin': '0 auto'});
+					jQuery('#wdn_wrapper').css({'-moz-border-radius':'7px'});
+					jQuery('body.fixed').css({'margin': '0 auto'});
 				}
 			}
 		},

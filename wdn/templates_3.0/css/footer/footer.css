@@ -102,19 +102,19 @@ body.liquid #footer .footer_col {width:22.9%}
 }
 
 
-#footer ul.wdn_socialmedia {
+#footer ul.socialmedia {
 	padding:0;
-	margin:0 0 -5px 0;
+	margin:0;
 	list-style-image:none;
 	list-style-position:outside;
 	list-style-type:none;
 }
-#footer ul.wdn_socialmedia li {
+#footer ul.socialmedia li {
 	display:inline-block;
 }
-#footer ul.wdn_socialmedia li a {
+#footer ul.socialmedia li a {
 	display:inline-block;
-	padding:0 0 32px 32px;
+	padding:0 0 22px 32px;
 	text-indent:-9000px;
 }
 #wdn_emailthis {

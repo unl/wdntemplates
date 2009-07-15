@@ -92,8 +92,17 @@ ul#wdn_tool_links li {
 	width:960px;
 	margin-top:-50px;
 }
-#footer ul.socialmedia li  {
-	padding-bottom:1px;
+#footer ul.socialmedia {
+	margin-bottom:1px;
+	float:left;
+}
+#footer ul.socialmedia li {
+	float:left;
+	width:32px;
+	padding-right:3px;
+}
+#footer ul.socialmedia li a {
+	display:block;
 }
 #wdn_copyright {
 	padding-top:6px;

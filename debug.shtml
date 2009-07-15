@@ -163,8 +163,8 @@
             <div class="col right">
 				<a href="http://www.unl.edu" tooltip="Hello World!">This Link Has A Tooltip Attached</a>
 				<br />
-					<a href="asfd.shtml"  tooltip="Hello World!">
-                    <img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" class="frame" />
+					<a href="asfd.shtml" >
+                    <img  tooltip="attach the tooltip to the img tag, not the link wrapping it" src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" class="frame" />
                     </a>
                     <div class="image_small_short"><img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" /></div>
                 <div class="zenbox">
