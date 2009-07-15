@@ -82,13 +82,26 @@ WDN.toolbar_feeds = function() {
         		//jQuery('#wdn_rss_story_title').empty();
         		jQuery('#wdn_rss_story_content').empty();
 
-        		jQuery('#whatisrss').hide();
-        		jQuery('#toolbar_feeds div.col2').slideUp("slow");
+        		jQuery('#whatisrss').slideUp("slow");
+        		jQuery('#toolbar_feeds div.col4').slideUp("slow");
         		jQuery('#toolbar_feeds div.col3').slideUp("slow");
-        		jQuery('#toolbar_feeds div.col4').slideUp("slow", function(){
-        			jQuery('#toolbar_feeds .col.col1').css({width:"220px"}); //in case the first column was set as one of three columns we resize it to it's 1/4 size
+        		jQuery('#toolbar_feeds div.col2').slideUp("slow", function () { 			
+        			jQuery('#toolbar_feeds .col1').css({width:"220px"}); //in case the first column was set as one of three columns we resize it to it's 1/4 size
         			jQuery('#toolbar_feeds div#wdn_rss_story').show();
+        			jQuery('#toolbar_feeds .col1').prepend('<a class="wdn_rss_showall" href="#">Go back to all feeds</a>');
+        			jQuery('#toolbar_feeds .wdn_rss_showall, #tooltabs .feeds').click(function(){
+        				jQuery('#toolbar_feeds div#wdn_rss_story').hide();
+        				jQuery('#toolbar_feeds .wdn_rss_showall').slideUp("slow");
+        				jQuery('#toolbar_feeds div.col4').slideDown("slow");
+                		jQuery('#toolbar_feeds div.col3').slideDown("slow");
+                		jQuery('#toolbar_feeds div.col2').slideDown("slow");
+                		jQuery('#whatisrss').slideDown("slow");
+                		if(localRSS==false)
+                			jQuery('#toolbar_feeds .col1').css({width:"300px"});
         			});
+        			
+        			
+        		});
         		
         		//jQuery('#wdn_rss_story_title').append('title');
         		jQuery('#wdn_rss_story_content').append('<div class="content_holder" id="preview_holder"><div class="unl_liquid_pictureframe"><div class="unl_liquid_pictureframe_inset"><object id="preview" height="400" width="700"><param value="true" name="allowfullscreen"></param><param value="always" name="allowscriptaccess"></param><embed src="http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/player.swf?file='+jQuery(this).attr("href")+'&amp;image=http://itunes.unl.edu/thumbnails.php?url='+jQuery(this).attr("href")+'&amp;volume=100&amp;autostart=false" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" height="400" width="700"></embed></object><span class="unl_liquid_pictureframe_footer"></span></div></div></div>');

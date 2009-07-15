@@ -176,15 +176,14 @@
 }
 #toolbar_weather #showradar{
 	border:1px solid #ededed;
-    border-radius:3px;
+	-moz-border-radius: 3px;
     background: #f7f7f7;
-	padding:9px 5px 5px 5px !important;
+	padding:9px 5px 7px 5px !important;
     margin: 0 0 10px 0;
 	position:relative;
 	text-align: center;	
 }
-#toolbar_weather #showradar img {
-/*	background:url('http://radar.weather.gov/Conus/Loop/uppermissvly_loop.gif') 0 -170px no-repeat; */
+#showradar img {
 	background:url('http://radar.weather.gov/lite/N0R/OAX_loop.gif') -5px -140px no-repeat;
 	height:350px;
 	width:400px;
@@ -305,6 +304,7 @@
 	border:medium none;
 }
 #toolbar_events .dtstart {
+	font-size:100%;
 	padding-right:2px;
 }
 #toolbar_events .dtend {
