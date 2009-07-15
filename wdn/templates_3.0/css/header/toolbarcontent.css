@@ -302,9 +302,9 @@
 }
 #toolbar_events .dtstart, #toolbar_events .dtend, #toolbar_events .dtstamp {
 	border:medium none;
+	font-size:100%;
 }
 #toolbar_events .dtstart {
-	font-size:100%;
 	padding-right:2px;
 }
 #toolbar_events .dtend {
@@ -361,7 +361,7 @@
 #toolbar_peoplefinder ul li.alt{background:#fafafa;border-bottom:1px solid #4f4f4f;border-top:1px solid #4f4f4f;}
 #toolbar_peoplefinder .cNav{text-align:right;letter-spacing:-2px;margin:-15px 3px 5px 0;}
 #toolbar_peoplefinder .cNav a{margin-left:4px;}
-#toolbar_peoplefinder .fn{float:left;font-weight:bold;margin-right:4px;}
+#toolbar_peoplefinder .fn, #toolbar_peoplefinder .cn{float:left;font-weight:bold;margin-right:4px;}
 #toolbar_peoplefinder .eppa, #peoplefinder .title{font-size:0.8em;}
 #toolbar_peoplefinder .cInfo{margin-left:10px;}
 
@@ -391,7 +391,8 @@
 }
 
 
-#toolbar_peoplefinder .fn{
+#toolbar_peoplefinder .fn,
+#toolbar_peoplefinder .cn {
 	float:left;
 	margin-right:0.4em;
 }
@@ -420,7 +421,8 @@
     border:1px solid #d3d3d3;
   	font-size:1em;
 }
-#toolbar_peoplefinder .vcard .fn{
+#toolbar_peoplefinder .vcard .fn,
+#toolbar_peoplefinder .vcard .cn {
     color:#ac0302;
     padding:10px 0px 7px 10px;
     font-size:1.5em;
@@ -445,7 +447,8 @@
     line-height:1.4;
     border-top:2px solid #E3E3E3;
 }
-#toolbar_peoplefinder .vcard .adr, #toolbar_peoplefinder .vcard .tel{
+#toolbar_peoplefinder .vcard .adr,
+#toolbar_peoplefinder .vcard .tel {
 	margin: 10px 0 19px 10px;
 	font-size:0.9em;
 }
