@@ -111,45 +111,51 @@ body.liquid #footer .footer_col {width:22.9%}
 }
 #footer ul.socialmedia li {
 	display:inline-block;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
 }
 #footer ul.socialmedia li a {
 	display:inline-block;
-	padding:0 0 22px 32px;
+	width:26px;
+	height:26px;
 	text-indent:-9000px;
+	padding:0px;
+	margin:0 3px 5px 0;
 }
 #wdn_emailthis {
-	background: url(images/socialicons/email_32.png) no-repeat;
+	background: url(images/socialMedia.png) 0 0 no-repeat;
 }
 #wdn_facebook {
-	background: url(images/socialicons/facebook_32.png) no-repeat;
-}
-#wdn_twitter {
-	background: url(images/socialicons/twitter_32.png) no-repeat;
-}
-#wdn_plurk {
-	background: url(images/socialicons/plurk_32.png) no-repeat;
-}
-#wdn_myspace {
-	background: url(images/socialicons/myspace_32.png) no-repeat;
-}
-#wdn_digg {
-	background: url(images/socialicons/digg_32.png) no-repeat;
+	background: url(images/socialMedia.png) -26px 0 no-repeat;
 }
 #wdn_linkedin {
-	background: url(images/socialicons/linkedin_32.png) no-repeat;
+	background: url(images/socialMedia.png) -52px 0 no-repeat;
 }
-#wdn_googlebookmark {
-	background: url(images/socialicons/google_32.png) no-repeat;
+#wdn_myspace {
+	background: url(images/socialMedia.png) -78px 0 no-repeat;
+}
+#wdn_twitter {
+	background: url(images/socialMedia.png) -104px 0 no-repeat;
+}
+#wdn_plurk {
+	background: url(images/socialMedia.png) -130px 0 no-repeat;
+}
+#wdn_digg {
+	background: url(images/socialMedia.png) 0 -26px no-repeat;
 }
 #wdn_delicious {
-	background: url(images/socialicons/delicious_32.png) no-repeat;
+	background: url(images/socialMedia.png) -26px -26px no-repeat;
 }
 #wdn_reddit {
-	background: url(images/socialicons/reddit_32.png) no-repeat;
+	background: url(images/socialMedia.png) -52px -26px no-repeat;
 }
 #wdn_stumbleupon {
-	background: url(images/socialicons/stumbleupon_32.png) no-repeat;
+	background: url(images/socialMedia.png) -78px -26px no-repeat;
 }
 #wdn_newsvine {
-	background: url(images/socialicons/newsvine_32.png) no-repeat;
+	background: url(images/socialMedia.png) -104px -26px no-repeat;
+}
+#wdn_googlebookmark {
+	background: url(images/socialMedia.png) -130px -26px no-repeat;
 }
