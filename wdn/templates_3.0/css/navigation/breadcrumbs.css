@@ -43,7 +43,14 @@
 	float:left;
 	padding-top:10px;
 }
+#breadcrumbs ul li{/*Added*/
+	margin-left:2px;
+	padding-left:3px;
+	}
 
+#breadcrumbs ul li:first-child{/*Added*/
+	margin-left:5px;
+	}
 #breadcrumbs ul li.selected{
 	height:44px;
 	background:url('images/tabBGRight.png') top right no-repeat;
@@ -51,6 +58,10 @@
 	margin:-11px 0 0 15px;
 	padding:0px;
 }
+#breadcrumbs ul li.selected{/*Added*/
+	margin-right:-8px;
+	padding-left:-3px;
+	}
 
 #breadcrumbs ul li.selected a,
 #breadcrumbs ul li.selected a:link,
@@ -58,20 +69,25 @@
 {
 	height:31px;
     background:url('images/tabBGLeft.png') 0 0 no-repeat;
-    padding:21px 20px 0 20px;
+    padding:21px 20px 0 12px; /*changed left from 20*/
     margin:0 10px 0 -15px;
     position: relative;
     z-index: 5;
 }
+#breadcrumbs ul li:first-child.selected {
+	margin-left:18px;
+	margin-right:-10px;
+	}
 
 #breadcrumbs ul li.selected a:after {
 	content:'';
-	margin:8px 0 0 40%;
+	margin:8px 0 0 30%;
 	width:20px;
 	height:10px;
 	display:block;
 	text-align:center;
 	background:url('../images/downIndicators.png') no-repeat;
+	padding:0px;
 }
 
 #breadcrumbs ul li div.storednav {
