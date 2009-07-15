@@ -2,6 +2,7 @@ WDN.toolbar_feeds = function() {
 	var localRSS = false;
 	var localRSSTitle;
 	var wehaveinsertedthelocalrsshtml = false;
+	var gobacklinkadded = false;
 	var appendWhatIsRSS = false;
     var story_request = new WDN.proxy_xmlhttp();
     return {
@@ -76,7 +77,7 @@ WDN.toolbar_feeds = function() {
         	WDN.tooltip.tooltipSetup(ul_id);
         },
         onClickWeMove : function(col) {
-        	jQuery('#toolbar_feeds ul#wdn_feed_col'+col+' a').click(function(ev){
+        	jQuery('ul#wdn_feed_col'+col+' a').click(function(ev){
         		ev.preventDefault();
 
         		//jQuery('#wdn_rss_story_title').empty();
@@ -87,11 +88,18 @@ WDN.toolbar_feeds = function() {
         		jQuery('#toolbar_feeds div.col3').slideUp("slow");
         		jQuery('#toolbar_feeds div.col2').slideUp("slow", function () { 			
         			jQuery('#toolbar_feeds .col1').css({width:"220px"}); //in case the first column was set as one of three columns we resize it to it's 1/4 size
-        			jQuery('#toolbar_feeds div#wdn_rss_story').show();
-        			jQuery('#toolbar_feeds .col1').prepend('<a class="wdn_rss_showall" href="#">Go back to all feeds</a>');
+        			jQuery('#wdn_rss_story').show();
+        			if(gobacklinkadded==false) {
+        				jQuery('#toolbar_feeds .col1').prepend('<a class="wdn_rss_showall" href="#" style="font-size:1.2em;">Go back to all feeds</a>');
+        				gobacklinkadded = true;		
+        			}
+        			else
+        				jQuery('#toolbar_feeds .wdn_rss_showall').show();
+            		jQuery('#toolbar_feeds .col1 h3').css({'margin-top':'10px'});
         			jQuery('#toolbar_feeds .wdn_rss_showall, #tooltabs .feeds').click(function(){
-        				jQuery('#toolbar_feeds div#wdn_rss_story').hide();
-        				jQuery('#toolbar_feeds .wdn_rss_showall').slideUp("slow");
+                		jQuery('#toolbar_feeds .col1 h3').css({'margin-top':'0'});
+        				jQuery('#wdn_rss_story').hide();
+        				jQuery('#toolbar_feeds .wdn_rss_showall').hide();
         				jQuery('#toolbar_feeds div.col4').slideDown("slow");
                 		jQuery('#toolbar_feeds div.col3').slideDown("slow");
                 		jQuery('#toolbar_feeds div.col2').slideDown("slow");
