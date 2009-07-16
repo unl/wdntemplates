@@ -21,6 +21,12 @@ WDN.search = function() {
 			if (localSearch) {
 				// Change form action to the local search
 				jQuery('#wdn_search_form').attr('action', localSearch);
+			} else {
+				jQuery('#wdn_search_form').attr('action', 'http://www1.unl.edu/search/');
+				if (WDN.navigation.siteHomepage != false && WDN.navigation.siteHomepage != 'http://www.unl.edu/') {
+					// Add local site to the search parameters
+					jQuery('#wdn_search_form').append('<input type="hidden" name="u" value="'+WDN.navigation.siteHomepage+'" />');
+				}
 			}
 		},
 		hasLocalSearch : function() {
