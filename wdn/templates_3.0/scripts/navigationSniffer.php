@@ -43,11 +43,13 @@ if ($page = @file_get_contents($clean_url)) {
 function removeRelativePaths($html, $base_url)
 {
     $needles = array('href="', 'src="', 'background="');
-    if (substr($base_url,-1) != '/') {
-    	$base_url .= '/';
-    }
     $new_base_url = $base_url;
     $base_url_parts = parse_url($base_url);
+    
+    if (substr($base_url,-1) != '/') {
+        $path = pathinfo($base_url_parts['path']);
+    	$new_base_url = substr($new_base_url, 0, strlen($new_base_url)-strlen($path['basename']));
+    }
 
     foreach ($needles as $needle) {
         $new_txt = '';
