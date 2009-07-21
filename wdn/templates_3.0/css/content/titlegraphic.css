@@ -1,12 +1,36 @@
 #titlegraphic {
-	margin:24px 0 8px 0;
+	margin:24px 0 4px 0;
     padding:0 6px;
 }
 #titlegraphic h1 {
+	font-size:1.8em;
+	}
+#titlegraphic h1,
+#titlegraphic h1 a,
+#titlegraphic h1 a:link
+#titlegraphic h1 a:visited {
     font-family:arial;
-    font-size:1.8em;
     color:#ba0000;
+    text-decoration:none;
 }
+
 #titlegraphic h2 {
     display:none;
+}
+#pagetitle {
+    margin:0 0 8px 0;
+    padding:0 10px;
+}
+#pagetitle h2 {
+	font-size:1.4em;
+    line-height:1.2em;
+}
+#pagetitle h2,
+#pagetitle h2 a,
+#pagetitle h2 a:link,
+#pagetitle h2 a:visited {
+    font-family:arial;
+    color:#6b6b6b;
+    font-weight:normal;
+    text-decoration:none;
 }
