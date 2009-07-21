@@ -43,12 +43,12 @@
 	float:left;
 	padding-top:10px;
 }
-#breadcrumbs ul li{/*Added*/
+#breadcrumbs ul li{
 	margin-left:2px;
 	padding-left:3px;
 	}
 
-#breadcrumbs ul li:first-child{/*Added*/
+#breadcrumbs ul li:first-child{
 	margin-left:5px;
 	}
 #breadcrumbs ul li.selected{
@@ -58,9 +58,8 @@
 	margin:-11px 0 0 15px;
 	padding:0px;
 }
-#breadcrumbs ul li.selected{/*Added*/
+#breadcrumbs ul li.selected{
 	margin-right:-8px;
-	padding-left:-3px;
 	}
 
 #breadcrumbs ul li.selected a,
@@ -69,7 +68,7 @@
 {
 	height:31px;
     background:url('images/tabBGLeft.png') 0 0 no-repeat;
-    padding:21px 20px 0 12px; /*changed left from 20*/
+    padding:21px 20px 0 12px;
     margin:0 10px 0 -15px;
     position: relative;
     z-index: 5;
