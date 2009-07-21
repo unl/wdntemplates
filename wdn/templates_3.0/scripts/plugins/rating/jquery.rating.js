@@ -39,8 +39,30 @@
       .hover(fill, reset).focus(fill).blur(reset)
       .click(function() {
         rating = [stars.index(this) + 1, 0];
-        $.post(obj.url, { rating: rating[0] });
-        reset(); stars.unbind().addClass("done");
+        if (XMLHttpRequest) {
+        	var params = 'rating='+rating[0];
+        	var request = new XMLHttpRequest();
+          if ("withCredentials" in request) {
+        	  WDN.log('We can send a proper CORS post.');
+        	    var url = 'http://www1.unl.edu/comments/';
+        	    request.open('POST', url, true);
+        	    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        	    request.send(params);
+        	  
+          } else if (XDomainRequest) {
+        	  
+			var xdr = new XDomainRequest();
+			xdr.open("post", obj.url);
+			xdr.send(params);
+          } else {
+        	  // Can't do anything for this user, they don't have a capable browser.
+        	  try {
+        		  $.post(obj.url, { rating: rating[0] });
+        	  } catch(e) {}
+          }
+        }
+        reset();
+    	stars.unbind().addClass("done");
         $(this).css("cursor", "default");
         return false;
       });
