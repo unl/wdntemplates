@@ -22,7 +22,7 @@
         <div id="breadcrumbs">
             <ul>
                 <!-- WDN: see glossary item 'breadcrumbs' -->
-                <li><a href="http://www.unl.edu/">UNL</a></li>
+                <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
                 <li><a href="http://ucommbieber.unl.edu/">One line nav</a></li>
                 <li><a href="http://admissions.unl.edu/">Admissions</a></li>
                 <li><a href="http://chemistry.unl.edu/index.shtml">Chemistry Nav</a></li>
