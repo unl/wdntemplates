@@ -36,6 +36,7 @@
         <div id="titlegraphic"><!-- TemplateBeginEditable name="titlegraphic" -->
             <h1>Department</h1>
             <!-- TemplateEndEditable --></div>
+        <div id="pagetitle"><!-- TemplateBeginEditable name="pagetitle" --> <!-- TemplateEndEditable --></div>
         <div id="maincontent">
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             <!-- TemplateBeginEditable name="maincontentarea" -->
