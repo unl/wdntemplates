@@ -6,7 +6,7 @@ WDN.toolbar_weather = function() {
     		
     	},
     	setupToolContent : function() {
-    		return '<div class="col"><h3>Local Weather</h3><div id="currentcond" class="toolbarMask"></div></div><div class="col middle"><h3>Lincoln Forecast</h3><div id="weatherforecast" class="toolbarMask"></div></div><div class="two_col"><h3>Local Radar</h3><div id="showradar"><a href="http://radar.weather.gov/radar_lite.php?rid=oax&product=N0R&overlay=11101111&loop=yes"><img src="/wdn/templates_3.0/css/images/transpixel.gif" /></a></div></div>';
+    		return '<div class="col"><h3>Local Weather</h3><div id="currentcond" class="toolbarMask"></div></div><div class="col middle"><h3>Lincoln Forecast</h3><div id="weatherforecast" class="toolbarMask"></div></div><div class="two_col"><h3>Local Radar</h3><div id="showradar"><a href="http://radar.weather.gov/radar_lite.php?rid=oax&product=N0R&overlay=11101111&loop=yes"><img src="'+WDN.template_path+'wdn/templates_3.0/css/images/transpixel.gif" /></a></div></div>';
     	},
         display : function() {
         	var weatherurl = "http://www.unl.edu/wdn/templates_3.0/scripts/weatherCurrent.html";

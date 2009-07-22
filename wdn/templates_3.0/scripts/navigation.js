@@ -53,7 +53,7 @@ WDN.navigation = function() {
 			//adds the curved end to the right side of the breadcrumbs bar in IE
 			if(jQuery.browser.msie) {
 				jQuery('#breadcrumbs').append('<span></span>');
-				jQuery('#breadcrumbs span').css({'height':'35px', 'width':'8px','position':'absolute','top':'0', 'right':'-3px','margin':'0 0 0 100%','background':'url("/wdn/templates_3.0/css/navigation/images/breadcrumbBarSprite2.png") 0 -72px no-repeat'});
+				jQuery('#breadcrumbs span').css({'height':'35px', 'width':'8px','position':'absolute','top':'0', 'right':'-3px','margin':'0 0 0 100%','background':'url("'+WDN.template_path+'wdn/templates_3.0/css/navigation/images/breadcrumbBarSprite2.png") 0 -72px no-repeat'});
 			}
 		},
 		

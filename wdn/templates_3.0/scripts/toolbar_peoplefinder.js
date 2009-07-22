@@ -37,13 +37,13 @@ WDN.toolbar_peoplefinder = function() {
         	clearTimeout(pfreq_q);
         	if (q.length > 3) {
         		document.getElementById(resultsdiv).innerHTML = '';
-        		document.getElementById("pfprogress").src = 'wdn/templates_3.0/css/images/loadingContent.gif';
+        		document.getElementById("pfprogress").src = WDN.template_path+'wdn/templates_3.0/css/images/loadingContent.gif';
         		pfreq_q = setTimeout('WDN.toolbar_peoplefinder.getPeopleFinderResults("'+escape(q)+'")',400);
         	} else if (q.length>0) {
-        		document.getElementById("pfprogress").src = 'wdn/templates_3.0/css/images/transpixel.gif';
+        		document.getElementById("pfprogress").src = WDN.template_path+'wdn/templates_3.0/css/images/transpixel.gif';
         		document.getElementById(resultsdiv).innerHTML = 'Please enter more information.';
         	} else {
-        		document.getElementById("pfprogress").src = 'wdn/templates_3.0/css/images/transpixel.gif';
+        		document.getElementById("pfprogress").src = WDN.template_path+'wdn/templates_3.0/css/images/transpixel.gif';
         		document.getElementById(resultsdiv).innerHTML = defaultIntro;
         		jQuery('#pfShowRecord').empty();
         	}
@@ -71,7 +71,7 @@ WDN.toolbar_peoplefinder = function() {
         			document.getElementById(pfresultsdiv).innerHTML = 'Error loading results.';
         		}
         	}
-        	document.getElementById("pfprogress").src = 'wdn/templates_3.0/css/images/transpixel.gif';
+        	jQuery("#pfprogress").src = WDN.template_path+'wdn/templates_3.0/css/images/transpixel.gif';
         	wait = false;
         	pfreq = new WDN.proxy_xmlhttp();
         },
@@ -83,7 +83,7 @@ WDN.toolbar_peoplefinder = function() {
         			document.getElementById(pfrecorddiv).innerHTML = 'Error loading results.';
         		}
         	}
-        	document.getElementById("pfprogress").src = 'wdn/templates_3.0/css/images/transpixel.gif';
+        	document.getElementById("pfprogress").src = WDN.template_path+'wdn/templates_3.0/css/images/transpixel.gif';
         	wait = false;
         	pfreq = new WDN.proxy_xmlhttp();
         }
@@ -92,3 +92,5 @@ WDN.toolbar_peoplefinder = function() {
 }();
 
 var pf_getUID = WDN.toolbar_peoplefinder.pf_getUID;
+var queuePFChooser = WDN.toolbar_peoplefinder.queuePFChooser;
+var queuePFRequest = WDN.toolbar_peoplefinder.queuePFRequest;
