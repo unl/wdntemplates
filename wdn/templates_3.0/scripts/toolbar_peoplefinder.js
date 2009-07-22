@@ -30,10 +30,12 @@ WDN.toolbar_peoplefinder = function() {
         	return false;
         },
         queuePFChooser : function(q,resultsdiv) {
+        	pfresultsdiv = resultsdiv;
         	pfserviceurl = 'http://peoplefinder.unl.edu/service.php?chooser=true&q=';
         	WDN.toolbar_peoplefinder.queuePFRequest(q,resultsdiv);
         },
         queuePFRequest : function(q,resultsdiv) {
+        	pfresultsdiv = resultsdiv;
         	clearTimeout(pfreq_q);
         	if (q.length > 3) {
         		document.getElementById(resultsdiv).innerHTML = '';
