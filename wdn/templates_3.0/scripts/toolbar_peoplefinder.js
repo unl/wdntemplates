@@ -71,7 +71,7 @@ WDN.toolbar_peoplefinder = function() {
         			document.getElementById(pfresultsdiv).innerHTML = 'Error loading results.';
         		}
         	}
-        	jQuery("#pfprogress").src = WDN.template_path+'wdn/templates_3.0/css/images/transpixel.gif';
+        	document.getElementById("pfprogress").src = WDN.template_path+'wdn/templates_3.0/css/images/transpixel.gif';
         	wait = false;
         	pfreq = new WDN.proxy_xmlhttp();
         },
