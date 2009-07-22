@@ -21,6 +21,7 @@ Author: WDN
 	width:100%;
 	height:53px;
 	margin: -42px -5px 0 2px;
+	z-index:1000;
 }
 #header h1 {
 	display:block;
@@ -40,7 +41,7 @@ Author: WDN
     height:54px;
     overflow:hidden;
     position:absolute;
-    right:-2px;
+    right:-3px;
     top:0px;
     color:#98999a;
     font-family:Helvetica, arial;
