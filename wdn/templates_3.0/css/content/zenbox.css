@@ -66,23 +66,23 @@ Red: primary
 	font-weight: bold;
 }
 
-#maincontent div.zenboxsolid.cool h3, #maincontent div.zenboxfixed.cool h3, #maincontent div.zenboxfeature.cool h3, #maincontent div.zenbox.cool h3 {
+#maincontent div.zenbox div.zenbox.cool h3, #maincontent div.zenboxsolid.cool h3, #maincontent div.zenboxfixed.cool h3, #maincontent div.zenboxfeature.cool h3, #maincontent div.zenbox.cool h3 {
 	background:url('../images/headingBGCool.png') repeat-x bottom;
 	color:#ffffff;
 }
-#maincontent div.zenboxsolid.energetic h3, #maincontent div.zenboxfixed.energetic h3, #maincontent div.zenboxfeature.energetic h3, #maincontent div.zenbox.energetic h3 {
+#maincontent div.zenbox div.zenbox.energetic h3, #maincontent div.zenboxsolid.energetic h3, #maincontent div.zenboxfixed.energetic h3, #maincontent div.zenboxfeature.energetic h3, #maincontent div.zenbox.energetic h3 {
 	background:url('../images/headingBGEnergetic.png') repeat-x bottom;
 	color:#ffffff;
 }
-#maincontent div.zenboxsolid.soothing h3, #maincontent div.zenboxfixed.soothing h3, #maincontent div.zenboxfeature.soothing h3, #maincontent div.zenbox.soothing h3 {
+#maincontent div.zenbox div.zenbox.soothing h3, #maincontent div.zenboxsolid.soothing h3, #maincontent div.zenboxfixed.soothing h3, #maincontent div.zenboxfeature.soothing h3, #maincontent div.zenbox.soothing h3 {
 	background:url('../images/headingBGSoothing.png') repeat-x bottom;
 	color:#ffffff;
 }
-#maincontent div.zenboxsolid.neutral h3, #maincontent div.zenboxfixed.neutral h3, #maincontent div.zenboxfeature.neutral h3, #maincontent div.zenbox.neutral h3 {
+#maincontent div.zenbox div.zenbox.neutral h3, #maincontent div.zenboxsolid.neutral h3, #maincontent div.zenboxfixed.neutral h3, #maincontent div.zenboxfeature.neutral h3, #maincontent div.zenbox.neutral h3 {
 	background:url('../images/headingBGNuetral.gif') repeat-x bottom;
 	color:#ffffff;
 }
-#maincontent div.zenboxsolid.primary h3, #maincontent div.zenboxfixed.primary h3, #maincontent div.zenboxfeature.primary h3, #maincontent div.zenbox.primary h3 {
+#maincontent div.zenbox div.zenbox.primary h3, #maincontent div.zenboxsolid.primary h3, #maincontent div.zenboxfixed.primary h3, #maincontent div.zenboxfeature.primary h3, #maincontent div.zenbox.primary h3 {
 	background:url('../images/headingBGPrimary.png') repeat-x bottom;
 	color:#ffffff;
 }
@@ -96,19 +96,19 @@ Red: primary
 	margin-left:30px;
 	margin-top:5px;
 }
-#maincontent div.zenboxsolid.cool h3:after, #maincontent div.zenboxfixed.cool h3:after, #maincontent div.zenboxfeature.cool h3:after, #maincontent div.zenbox.cool h3:after {
+#maincontent div.zenbox div.zenbox.cool h3:after, #maincontent div.zenboxsolid.cool h3:after, #maincontent div.zenboxfixed.cool h3:after, #maincontent div.zenboxfeature.cool h3:after, #maincontent div.zenbox.cool h3:after {
 	background-position: -40px;
 }
-#maincontent div.zenboxsolid.energetic h3:after, #maincontent div.zenboxfixed.energetic h3:after, #maincontent div.zenboxfeature.energetic h3:after, #maincontent div.zenbox.energetic h3:after {
+#maincontent div.zenbox div.zenbox.energetic h3:after, #maincontent div.zenboxsolid.energetic h3:after, #maincontent div.zenboxfixed.energetic h3:after, #maincontent div.zenboxfeature.energetic h3:after, #maincontent div.zenbox.energetic h3:after {
 	background-position: -60px;
 }
-#maincontent div.zenboxsolid.soothing h3:after, #maincontent div.zenboxfixed.soothing h3:after, #maincontent div.zenboxfeature.soothing h3:after, #maincontent div.zenbox.soothing h3:after {
+#maincontent div.zenbox div.zenbox.soothing h3:after, #maincontent div.zenboxsolid.soothing h3:after, #maincontent div.zenboxfixed.soothing h3:after, #maincontent div.zenboxfeature.soothing h3:after, #maincontent div.zenbox.soothing h3:after {
 	background-position: -80px;
 }
-#maincontent div.zenboxsolid.neutral h3:after, #maincontent div.zenboxfixed.neutral h3:after, #maincontent div.zenboxfeature.neutral h3:after, #maincontent div.zenbox.neutral h3:after {
+#maincontent div.zenbox div.zenbox.neutral h3:after, #maincontent div.zenboxsolid.neutral h3:after, #maincontent div.zenboxfixed.neutral h3:after, #maincontent div.zenboxfeature.neutral h3:after, #maincontent div.zenbox.neutral h3:after {
 	background-position: -100px;
 }
-#maincontent div.zenboxsolid.primary h3:after, #maincontent div.zenboxfixed.primary h3:after, #maincontent div.zenboxfeature.primary h3:after, #maincontent div.zenbox.primary h3:after {
+#maincontent div.zenbox div.zenbox.primary h3:after, #maincontent div.zenboxsolid.primary h3:after, #maincontent div.zenboxfixed.primary h3:after, #maincontent div.zenboxfeature.primary h3:after, #maincontent div.zenbox.primary h3:after {
 	background-position: 0px;
 }
 /*Style the list elements*/
