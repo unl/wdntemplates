@@ -61,7 +61,7 @@
             </div>
             <!-- TemplateEndEditable -->
             <div class="three_col right"> <!-- TemplateBeginEditable name="maincontentarea" -->
-                <p><strong>Delete this box and place your content here.</strong><br />
+                <p>Place your content here.<br />
                     Remember to validate your pages before publishing! Sample layouts are available through the <a href="http://wdn.unl.edu//">Web Developer Network</a>. <br />
                     <a href="http://validator.unl.edu/check/referer">Check this page</a> </p>
                 <!-- TemplateEndEditable --></div>
