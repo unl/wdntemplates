@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+#wdn_feedback_comments label{
+	display:none;
+}
+#wdn_feedback_comments textarea {
+    border:1px solid #DEDEDE;
+    background-color:#FDFDFD;
+}
+#wdn_feedback_comments input {
+	display:none;
+}
+#wdn_feedback_comments textarea:focus {
+	background-color:lightyellow;border:1px solid #DEDEDE;
+}

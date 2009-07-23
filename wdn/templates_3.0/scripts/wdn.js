@@ -219,6 +219,45 @@ var WDN = function() {
 
 		  return hparts.join('/') + '/' + newlinkparts.join('/');
 
+		},
+		
+		post : function(url, data, callback, type) {
+			try {
+				WDN.log('Using jQuery to post data');
+				jQuery.post(url, data);
+			} catch(e) {
+				WDN.log('Posting failed.');
+				var params = '';
+				for (key in data) {
+				    params = params+'&'+key+'='+data[key];
+				}
+				// Try CORS, or use the proxy
+				if (XMLHttpRequest) {
+					var request = new XMLHttpRequest();
+					if ("withCredentials" in request) {
+						WDN.log('Using CORS');
+						request.open('POST', url, true);
+						request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+						request.send(params);
+					} else if (jQuery.browser.ie && XDomainRequest) {
+						var xdr = new XDomainRequest();
+						xdr.open("post", url);
+						xdr.send(params);
+					} else {
+						try {
+							WDN.log('Using proxy');
+							request = new WDN.proxy_xmlhttp();
+							request.open('POST', url, true);
+							request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+							request.send(params);
+						} catch(e) {}
+					}
+				}
+			}
+		},
+		
+		get : function (url, data, callback, type) {
+			
 		}
 
 	};
