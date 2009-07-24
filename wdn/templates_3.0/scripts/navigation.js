@@ -85,10 +85,16 @@ WDN.navigation = function() {
 				}
 			} else {
 				WDN.log('Homepage has been set.');
-				if (jQuery('#breadcrumbs ul li a[href='+WDN.navigation.siteHomepage+']').size() == 1) {
-					WDN.log('Found one homepage link, everything is good!');
-    	    		jQuery('#breadcrumbs ul li a[href='+WDN.navigation.siteHomepage+']').parent().addClass('selected');
-    	    	} else if (WDN.navigation.siteHomepage = window.location) {
+				// Make all the hrefs absolute.
+				jQuery('#breadcrumbs>ul li a').each(
+						function() {
+							if (this.href == WDN.navigation.siteHomepage) {
+								jQuery(this).parent().addClass('selected');
+								return false;
+							}
+						}
+					);
+				if (WDN.navigation.siteHomepage == window.location) {
     	    		WDN.log('We are on the current homepage.');
     	    		jQuery('#breadcrumbs ul li:last-child').addClass('selected');
     	    		jQuery('#breadcrumbs ul li.selected').wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
