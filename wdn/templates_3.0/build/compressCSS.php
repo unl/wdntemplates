@@ -25,6 +25,7 @@
     'header/colorbox',
     'navigation/breadcrumbs',
     'navigation/navigation',
+    'footer/feedback',
     'footer/footer',
     'content/basestyles',
     'content/columns',
