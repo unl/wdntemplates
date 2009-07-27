@@ -66,8 +66,8 @@ WDN.navigation = function() {
             for (var i=0;i<pagelinks.length;i++) {
                 var relatt = pagelinks[i].getAttribute('rel');
                 if (relatt=='home') {
-                    WDN.log('Setting homepage to '+pagelinks[i].getAttribute('href'));
-                    WDN.navigation.siteHomepage = pagelinks[i].getAttribute('href');
+                	WDN.navigation.siteHomepage = WDN.toAbs(pagelinks[i].getAttribute('href'), window.location.toString());
+                    WDN.log('Setting homepage to '+WDN.navigation.siteHomepage);
                 }
             }
             

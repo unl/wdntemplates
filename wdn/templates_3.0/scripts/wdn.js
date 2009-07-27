@@ -183,7 +183,7 @@ var WDN = function() {
 		    return link;
 		  }
 
-		  var i, hparts = host.split('/');
+		  var i, hparts = base_url.split('/');
 		  if (hparts.length > 3) {
 		    hparts.pop(); // strip trailing thingie, either scriptname or blank 
 		  }
