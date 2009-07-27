@@ -1,4 +1,3 @@
-@CHARSET "UTF-8";
 #wdn_feedback_comments label{
 	display:none;
 }
@@ -10,5 +9,6 @@
 	display:none;
 }
 #wdn_feedback_comments textarea:focus {
-	background-color:lightyellow;border:1px solid #DEDEDE;
+	background-color:#FFFFE0;
+	border:1px solid #DEDEDE;
 }
