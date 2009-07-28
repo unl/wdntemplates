@@ -21,6 +21,14 @@ if (!preg_match('/\.unl\.edu/', $_GET['u'])
     throwError('Requested host is not allowed');
 }
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, OPTIONS');
+header('Access-Control-Allow-Headers: X-Requested-With');
+
+if (strtolower($_SERVER['REQUEST_METHOD']) == 'options') {
+    exit();
+}
+
 $parts = parse_url($_GET['u']);
 
 $clean_url = $parts['scheme'].'://'.$parts['host'].$parts['path'];
