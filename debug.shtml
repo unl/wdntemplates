@@ -9,6 +9,7 @@
     <!--#include virtual="wdn/templates_3.0/includes/browserspecifics.html" -->
 	<!--#include virtual="wdn/templates_3.0/includes/metanfavico.html" -->
     <title>UNL | Template</title>
+    <link rel="home" href="../../" />
 </head>
 <body class="fixed">
 <p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
@@ -23,8 +24,9 @@
             <ul>
                 <!-- WDN: see glossary item 'breadcrumbs' -->
                 <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
-                <li><a href="http://ucommbieber.unl.edu/">One line nav</a></li>
+                <li><a href="http://other.unl.edu/">Un-accessible site</a></li>
                 <li><a href="http://admissions.unl.edu/">Admissions</a></li>
+                <li><a href="../../">One line nav</a></li>
                 <li><a href="http://chemistry.unl.edu/index.shtml">Chemistry Nav</a></li>
                 <li>Current Page</li>
             </ul>
@@ -42,10 +44,95 @@
         </div>        
         <div id="maincontent">
         <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+		    <ul class="wdn_tabs">
+		        <li><a href="#"><span>Your Profile</span></a></li>
+		        <li><a href="http://localhost/workspace/UNL_Social/elgg/pg/dashboard/" class="pagelinks"><span>Dashboard</span></a></li>
+		        <li><a href="http://localhost/workspace/UNL_Social/elgg/pg/friends/demouser"><span>Friends</span></a></li>
+		        <li class="selected"><a href="http://localhost/workspace/UNL_Social/elgg/pg/groups/world/"><span>Groups</span></a></li>
+		        <li><a href="http://localhost/workspace/UNL_Social/elgg/mod/thewire/everyone.php"><span>The wire</span></a></li>
+		        <li><a href="http://localhost/workspace/UNL_Social/elgg/pg/settings/" class="usersettings"><span>Settings</span></a></li>
+		        <li><a href="http://localhost/workspace/UNL_Social/elgg/action/logout"><span>Log out</span></a></li>
+		    </ul>
             <div class="two_col left">
                 <div class="image_medium_3x2"><img src="admissionsPhoto.jpg" alt="Admissions" /></div>
                 <p class="caption">Nebraska fans celebrate the Huskers'
                 win over Texas at the Devaney Sports Center. </p>
+                <p><a href="#" onclick="WDN.post('http://ucommbieber.unl.edu/foo.php',{foo:'bar'}); return false;">POST!</a></p>
+                <small>foobar</small>
+                    <p>Students who major in International Studies choose a regional specialization such as Africa, Asia, Europe, or Latin America, and focus on two of three thematic specializations: cultural encounters, international relations, or power &amp; production. The program is enhanced by a global competency requirement, fulfilled through either international study abroad or an internship, and a foreign language requirement.</p>
+    <p>The International Studies program is unusual at UNL because it is very extensive and supported by a wide range of courses and faculty, yet is not centered in a particular department. The program is organized with an interdisciplinary approach to the study of economic, political, geographic, and historical influences that have shaped our world, and is an important area of expanding emphasis as the university deals with its and Nebraska's place in the global community.</p>
+
+    
+    <div>
+        <div class="zenboxprimary" style="width:200px;height:200px;"></div>
+    </div>
+    <div>
+        <div class="two_col left">
+           <div class="zenbox primary">
+                <h3>Specializations</h3>
+                <div class="zenbox soothing" style="width:210px;float:left;">
+
+                    <h3>Regional</h3>
+                    <ul>
+                        <li><a href="/courses/Africa.aspx">Africa</a></li>
+                        <li><a href="/courses/Asia.aspx">Asia</a></li>
+                        <li><a href="/courses/Europe.aspx">Europe</a></li>
+                        <li><a href="/courses/LatinAmerica.aspx">Latin America</a></li>
+
+                    </ul>
+                </div>
+                
+                <div class="zenbox cool" style="width:210px;float:right;">
+                    <h3>Thematic</h3>
+                    <ul>
+                        <li><a href="javascript:alert('FixMe')">Cultural Encounters</a></li>
+                        <li><a href="javascript:alert('FixMe')">International Relations</a></li>
+
+                        <li><a href="javascript:alert('FixMe')">Power &amp; Productions</a></li>
+                    </ul>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+        <div class="two_col right">
+
+            <div class="zenbox cool">
+                <h3>Specializations</h3>
+                <div class="zenbox soothing" style="width:210px;float:left;">
+                    <h3>Regional</h3>
+                    <ul class="cZen">
+                        <li><a href="/courses/Africa.aspx">Africa</a></li>
+                        <li><a href="/courses/Asia.aspx">Asia</a></li>
+
+                        <li><a href="/courses/Europe.aspx">Europe</a></li>
+                        <li><a href="/courses/LatinAmerica.aspx">Latin America</a></li>
+                    </ul>
+                </div>
+                
+                <div class="zenbox neutral" style="width:210px;float:right;">
+                    <h3>Thematic</h3>
+                    <ul class="cZen">
+
+                        <li><a href="javascript:alert('FixMe')">Cultural Encounters</a></li>
+                        <li><a href="javascript:alert('FixMe')">International Relations</a></li>
+                        <li><a href="javascript:alert('FixMe')">Power &amp; Productions</a></li>
+                    </ul>
+                     <div class="zenbox primary" style="width:210px;float:right;">
+                    <h3>Thematic</h3>
+                    <ul class="cZen">
+
+                        <li><a href="javascript:alert('FixMe')">Cultural Encounters</a></li>
+                        <li><a href="javascript:alert('FixMe')">International Relations</a></li>
+                        <li><a href="javascript:alert('FixMe')">Power &amp; Productions</a></li>
+                    </ul>
+                </div>
+                </div>
+                <div style="clear:both;"></div>
+
+            </div>
+        </div>
+    </div>
+                
                 <div class="col left">
                     <h3>Explore our majors</h3>
                     <p>We offer 150 majors and 275 programs of study to give you an intensive education in your area of interest.</p>

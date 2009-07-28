@@ -28,6 +28,7 @@
     'footer/feedback',
     'footer/footer',
     'content/basestyles',
+    'content/tabs',
     'content/columns',
     'content/headers',
     'content/images',
