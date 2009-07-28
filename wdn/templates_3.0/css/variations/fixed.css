@@ -18,3 +18,7 @@ body.fixed #breadcrumbs {
 body.fixed #wdn_navigation_wrapper {
 	width: 946px;
 }
+
+body.fixed #footer {
+	width:960px;
+}

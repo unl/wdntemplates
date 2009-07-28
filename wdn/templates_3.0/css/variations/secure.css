@@ -1,0 +1,39 @@
+body.secure #wdn_search,
+body.secure #wdn_tool_links {
+    display:none;
+}
+
+body.secure #footer .footer_col {
+    display:none;
+}
+
+body.secure #footer #wdn_copyright {
+    border:none;
+}
+
+body.secure #wdn_identity_management {
+	position:absolute;
+	top:0px;
+	right:0px;
+	margin-right:5px;
+	height:14px;
+	padding:5px;
+	padding-right:25px;
+	background:url(images/secure_icon.png) right no-repeat;
+}
+
+body.secure #wdn_identity_management a,
+body.secure #wdn_identity_management a:link,
+body.secure #wdn_identity_management a:visited {
+	color:#BA0000;
+	font-size:0.8em;
+	font-family:sans-serif;
+	border-bottom:1px dotted #BA0000;
+	text-decoration:none;
+}
+
+body.secure #wdn_identity_management a:focus,
+body.secure #wdn_identity_management a:hover {
+	color:#CC0000 !important;
+    border-bottom:1px dotted #CC0000 !important;
+}
