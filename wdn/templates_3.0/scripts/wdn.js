@@ -226,38 +226,54 @@ var WDN = function() {
 				WDN.log('Using jQuery to post data');
 				jQuery.post(url, data);
 			} catch(e) {
-				WDN.log('Posting failed.');
+				WDN.log('jQuery post() failed.');
 				var params = '';
 				for (key in data) {
 				    params = params+'&'+key+'='+data[key];
 				}
-				// Try CORS, or use the proxy
+				// try using the proxy
 				if (XMLHttpRequest) {
-					var request = new XMLHttpRequest();
-					if ("withCredentials" in request) {
-						WDN.log('Using CORS');
+					try {
+						WDN.log('Using proxy');
+						request = new WDN.proxy_xmlhttp();
 						request.open('POST', url, true);
 						request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 						request.send(params);
-					} else if (jQuery.browser.ie && XDomainRequest) {
-						var xdr = new XDomainRequest();
-						xdr.open("post", url);
-						xdr.send(params);
-					} else {
-						try {
-							WDN.log('Using proxy');
-							request = new WDN.proxy_xmlhttp();
-							request.open('POST', url, true);
-							request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-							request.send(params);
-						} catch(e) {}
-					}
+					} catch(e) {}
 				}
 			}
 		},
 		
 		get : function (url, data, callback, type) {
-			
+			try {
+				WDN.log('Using jQuery to get data');
+				jQuery.get(url, data, callback, type);
+			} catch(e) {
+				WDN.log('jQuery get() failed.');
+				// Try CORS, or use the proxy
+				if (XMLHttpRequest) {
+					var mycallback = function() {
+						var textstatus = 'error';
+						var data = 'error';
+						if ((this.readyState == 4)
+							&& (this.status == '200')) {
+							textstatus = 'success';
+							data = this.responseText;
+						}
+						callback(data, textstatus);
+					};
+					try {
+						WDN.log('Using proxy');
+						request = new WDN.proxy_xmlhttp();
+						request.open('GET', url, true);
+						request.onreadystatechange = mycallback;
+						request.send();
+					} catch(e) {
+						WDN.log('Could not fetch using the proxy');
+						WDN.log(e);
+					}
+				}
+			}
 		}
 
 	};
