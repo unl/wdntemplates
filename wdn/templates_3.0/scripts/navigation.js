@@ -94,11 +94,9 @@ WDN.navigation = function() {
                             }
                         }
                     );
-                if (WDN.navigation.siteHomepage == window.location) {
-                    WDN.log('We are on the current homepage.');
-                    jQuery('#breadcrumbs ul li:last-child').addClass('selected');
-                    jQuery('#breadcrumbs ul li.selected').wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
-                }
+                WDN.log('We are on the current homepage.');
+                jQuery('#breadcrumbs ul li:last-child').addClass('selected');
+                jQuery('#breadcrumbs ul li.selected').wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
             }
             
             
