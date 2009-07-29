@@ -23,7 +23,23 @@
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>UNL | Department | New Page</title>
 <!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
-<!-- Place optional header elements here -->
+<style type="text/css">
+#maincontent .zenbox.fabulous {
+color:#FF3FD2;font-weight:bold;background:url(http://3.bp.blogspot.com/_DmV9AzbuPNQ/SbCtjxM9SmI/AAAAAAAAAkQ/Ul8nqua4c1s/s400/unicorns-rainbow.jpg);border:10px dotted;
+position:relative;
+}
+#maincontent .zenbox.fabulous h3 {
+background-color:#FF3fd2;background-image:url(http://www.joethepeacock.com/uploaded_images/unicorn-puzzle-703228.jpg);font-size:2em;color:#C3A0FF;
+}
+#maincontent .zenbox.fabulous h3:after {
+    background:url(http://www.kathleens-graphics.com/Animated%20Gifs/website%20stuff/Pink_gagWink.gif);
+    width:100%;
+    height:100%;
+    position:absolute;
+    margin:0px;
+    top:0px;
+}
+</style>
 <!-- InstanceEndEditable -->
 </head>
 <body class="secure fixed">
@@ -38,7 +54,7 @@
             <!-- WDN: see glossary item 'breadcrumbs' -->
             <!-- InstanceBeginEditable name="breadcrumbs" -->
             <ul>
-                <li><a href="http://www.unl.edu/" title="University of Nebraska–Lincoln">UNL</a></li>
+                <li><a href="http://www.unl.edu/" title="University of Nebraskaï¿½Lincoln">UNL</a></li>
                 <li>Department</li>
             </ul>
             <!-- InstanceEndEditable --></div>
@@ -56,9 +72,11 @@
         <div id="maincontent">
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             <!-- InstanceBeginEditable name="maincontentarea" -->
-            <p>Place your content here.<br />
-                Remember to validate your pages before publishing! Sample layouts are available through the <a href="http://wdn.unl.edu//">Web Developer Network</a>. <br />
-                <a href="http://validator.unl.edu/check/referer">Check this page</a> </p>
+            <div class="zenbox two_col fabulous">
+                <h3>Zenbox Fabulous</h3>
+                <p>It's fab.</p>
+                <p>In uncertain economic times, a four-year college education is the best investment that someone can make. Named by Kiplinger's as a "Best Value" in college education, a UNL degree pays its graduates back in less than four years when compared to graduates of two-year programs. Now, more than ever, NEBRASKA represents one of the best educational values in the country. </p>
+            </div>
             <!-- InstanceEndEditable -->
             <div class="clear"></div>
             <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
