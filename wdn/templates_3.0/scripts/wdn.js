@@ -231,8 +231,13 @@ var WDN = function() {
 				for (key in data) {
 				    params = params+'&'+key+'='+data[key];
 				}
-				// try using the proxy
-				if (XMLHttpRequest) {
+				// Try XDR, or use the proxy
+				if (jQuery.browser.msie && window.XDomainRequest) {
+					WDN.log('Using XDR');
+					var xdr = new XDomainRequest();
+					xdr.open("post", url);
+					xdr.send(params);
+				} else {
 					try {
 						WDN.log('Using proxy');
 						request = new WDN.proxy_xmlhttp();
@@ -251,19 +256,27 @@ var WDN = function() {
 			} catch(e) {
 				WDN.log('jQuery get() failed.');
 				// Try CORS, or use the proxy
-				if (XMLHttpRequest) {
-					var mycallback = function() {
-						var textstatus = 'error';
-						var data = 'error';
-						if ((this.readyState == 4)
-							&& (this.status == '200')) {
-							textstatus = 'success';
-							data = this.responseText;
-						}
-						callback(data, textstatus);
+				if (jQuery.browser.msie && window.XDomainRequest) {
+					WDN.log('Using XDR');
+					var xdr = new XDomainRequest();
+					xdr.open("get", url);
+					xdr.onload = function() {
+						callback(this.responseText, 'success');
 					};
+					xdr.send();
+				} else {
 					try {
 						WDN.log('Using proxy');
+						var mycallback = function() {
+							var textstatus = 'error';
+							var data = 'error';
+							if ((this.readyState == 4)
+								&& (this.status == '200')) {
+								textstatus = 'success';
+								data = this.responseText;
+							}
+							callback(data, textstatus);
+						};
 						request = new WDN.proxy_xmlhttp();
 						request.open('GET', url, true);
 						request.onreadystatechange = mycallback;

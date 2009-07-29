@@ -51,7 +51,7 @@ WDN.navigation = function() {
             WDN.navigation.initializePreferredState();
             
             //adds the curved end to the right side of the breadcrumbs bar in IE
-            if(jQuery.browser.msie) {
+            if (jQuery.browser.msie) {
                 jQuery('#breadcrumbs').append('<span></span>');
                 jQuery('#breadcrumbs span').css({'height':'35px', 'width':'8px','position':'absolute','top':'0', 'right':'-3px','margin':'0 0 0 100%','background':'url("'+WDN.template_path+'wdn/templates_3.0/css/navigation/images/breadcrumbBarSprite2.png") 0 -72px no-repeat'});
             }
@@ -94,9 +94,11 @@ WDN.navigation = function() {
                             }
                         }
                     );
-                WDN.log('We are on the current homepage.');
-                jQuery('#breadcrumbs ul li:last-child').addClass('selected');
-                jQuery('#breadcrumbs ul li.selected').wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
+                if (jQuery('#breadcrumbs ul li.selected').size() < 1) {
+	                WDN.log('We are on the current homepage.');
+	                jQuery('#breadcrumbs ul li:last-child').addClass('selected');
+	                jQuery('#breadcrumbs ul li.selected').wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
+                }
             }
             
             
