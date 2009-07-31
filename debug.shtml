@@ -248,10 +248,10 @@
                 </div>
             </div>
             <div class="col right">
-				<a href="http://www.unl.edu" title="Hello World!">This Link Has A title Attached</a>
+				<a href="http://www.unl.edu" class="tooltip" title="Hello World!">This Link Has A title Attached</a>
 				<br />
 					<a href="asfd.shtml" >
-                    <img  title="attach the title to the img tag, not the link wrapping it" src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" class="frame" />
+                    <img  title="attach the title to the img tag, not the link wrapping it" src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" class="frame tooltip" />
                     </a>
                     <div class="image_small_short"><img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" /></div>
                 <div class="zenbox">
