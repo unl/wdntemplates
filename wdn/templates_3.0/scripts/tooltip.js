@@ -17,6 +17,12 @@ WDN.tooltip = function() {
 					  jQuery(this).qtip({
 		
 					      content: jQuery(this).attr('title'),
+					      show: { 
+						  	effect: { type: 'fade', length: 0 }
+					  	  },
+					  	  hide: { 
+							effect: { type: 'fade', length: 0 }
+						  },
 					      style: { 
 					    	  width: 200,
 					          padding: 5,
