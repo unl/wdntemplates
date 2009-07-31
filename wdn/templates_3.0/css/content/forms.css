@@ -1,0 +1,279 @@
+/*
+
+This css can be used for styling form elements.
+
+CSS LINK:
+<link rel="stylesheet" type="text/css" href="/ucomm/templatedependents/templatecss/components/forms.css" />
+
+Sample Form Markup:
+
+<form action="?" method="post">
+        <fieldset>
+                <legend>Sample Form Content</legend>
+                <ol>
+                        <li><label for="name" class="element"><span class="required">*</span>Name</label><div class="element"><input id="name" name="$
+                        <li><label for="email" class="element"><span class="required">*</span>Email</label><div class="element"><input id="email" nam$
+                        <li><label class="element">I Can Has Cheezburger?</label><div class="element"><input name="helpful" value="1" type="radio" id$
+                        <li><label for="helpful_comments" class="element">In what way?</label><div class="element"><textarea id="helpful_comments" na$
+                        <li><label for="submit" class="element">&nbsp;</label><div class="element"><input id="submit" name="submit" value="Submit" ty$
+                        <li class="reqnote"><label class="element">&nbsp;</label><span class="required">*</span> denotes required field</li>
+                </ol>
+        </fieldset>
+</form>
+
+
+	-------------------------------------------------------------
+	Form elements
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+#maincontent form.cool {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+#maincontent form.cool fieldset {
+    clear: both;
+    float: left;
+    padding: 0;
+    display: block;
+    border: none;
+    width: 700px;
+    border-bottom: 1px solid #dfdfdf;
+    position: relative;
+    margin: 25px 0 20px 0;
+    background: #ecf4f8 url(images/fieldsetline.gif) no-repeat;
+    padding: 0 0 10px 0;
+}
+
+#maincontent form.cool fieldset fieldset {margin-left:-10px !important;}
+#maincontent form.cool fieldset fieldset fieldset {margin-left:0 !important;}
+
+#maincontent form.cool fieldset ol {
+	margin: 0;
+	padding: 0;
+	clear: left;
+}
+
+#maincontent form.cool fieldset ol:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+}
+
+#maincontent form.cool fieldset li {
+	list-style: none;
+	margin: 0;
+	clear: both;
+	display: block;
+	float:left;
+	width: 100%;
+}
+
+#maincontent form.cool label.element {
+	display: block;
+	float: left;
+	width: 150px;
+	padding: 0;
+	margin: 10px 0 0 0;
+	text-align: right;
+}
+
+#maincontent form.cool .row {
+	width: 700px;
+}
+
+#maincontent form.cool input,#maincontent form.cool textarea,#maincontent form.cool select
+	{
+	width: auto;
+	border: 1px solid #ccc;
+	border-color: #ccc #fff #fff #ccc;
+	padding: 3px;
+	margin: 4px 0;
+}
+
+#maincontent form.cool input:focus,#maincontent form.cool textarea:focus,#maincontent form.cool select:focus
+	{
+	background: #ffffcc;
+}
+
+#maincontent form.cool select {
+	font-size: 0.8em;
+}
+
+#maincontent form.cool option {
+	padding: 0 0.3em;
+}
+
+#maincontent form.cool textarea {
+	overflow: auto;
+}
+
+#maincontent form.cool br {
+	clear: left;
+	margin: 0;
+	padding: 0;
+	line-height: 0.5;
+}
+
+form.cool div.qfgroup,form.cool div.element {
+	display: inline;
+	float: left;
+	margin: 5px 0 0 10px;
+	padding: 0;
+}
+
+form div.qfelement div.qfgroup {
+	margin: 0 0 0 0;
+	margin: 0 !important;
+	line-height: 0.5 !important;
+}
+
+form.cool span.error {
+	color: red;
+}
+
+form.cool div.error {
+	border: 1px solid red;
+	padding: 5px;
+}
+
+#maincontent form.cool fieldset legend {
+	font-weight: bold;
+	top: -11px;
+	border: 1px solid #ccc;
+	padding: 3px 6px;
+	margin: 0 0 23px 0;
+	position: relative;
+	background: #fff;
+}
+
+#maincontent form.cool fieldset span,.required {
+	color: #ff0000;
+}
+
+#maincontent form.cool fieldset li.reqnote {
+    background: #f8e6e9;
+    padding:2px;
+    margin: 0 0 25px 0;
+    bottom: 0;
+    width:140px;
+    font-size:0.9em;
+    left: 0;
+    position: absolute;
+}
+#maincontent form.cool fieldset li.reqnote label{display:none}
+#maincontent form.cool fieldset.hidden {
+	margin: 0;
+	padding: 0;
+	background: 0;
+	border: none;
+}
+
+#maincontent h3 {
+	clear: left;
+}
+
+#maincontent form.cool label{vertical-align:40%;margin-right:12px;margin-left:2px;}
+#maincontent form.cool .element label{vertical-align:20%;margin-right:12px;margin-left:5px;}
+body:last-child:not(:root:root) #maincontent form.cool label{vertical-align:baseline; }
+* html #maincontent form.cool fieldset legend {
+    margin: -13px 0 0 -7px;
+}
+*+html #maincontent form.cool fieldset legend {
+    margin: -13px 0 0 -7px;
+}
+#maincontent form.cool li div.element {
+	position:absolute;
+	left:150px;
+}
+#maincontent form.cool input,#maincontent form textarea,#maincontent form select {
+	width:300px;
+}
+#maincontent form.cool fieldset p {
+	margin: 10px;	
+}
+/*Required Indicators*/
+.required {
+	color:#434343;
+}
+#maincontent form.cool li.required label {
+	background:url(images/forms/requiredIndicator.png) no-repeat top right;
+	padding-right:33px;
+	width:117px;		
+}
+p.required, p.attention {
+	background:url(images/forms/requiredIndicatorBG.png) no-repeat top left;
+	padding:10px 0 16px 45px;
+	margin-bottom:0px;
+	float:right;
+}
+p.attention {
+	background:url(images/forms/alertIndicatorBG.png) no-repeat top left;
+	float:left;	
+}
+/*For the form hints*/
+#maincontent form.cool span.hint {
+	position:relative;
+	display:block;
+	left: 330px;
+	width: 190px;
+	top:-34px;
+  	border: 1px solid #77b5d4;
+  	padding: 10px 12px;
+  	background:#c8e7f7;
+  	color:#77b5d4;
+  	z-index:3;
+}
+#maincontent form.cool input:focus span.hint {
+	display:block;	
+}
+#maincontent form.cool span.hint span.hintPointer{
+  	background:url(images/forms/hintCarret.png) left top no-repeat;
+  	position:absolute;
+  	left:-16px;
+  	top:15px;
+  	width:16px;
+  	height:19px;
+}
+/* End Form hints*/
+
+/*Submit Button*/
+#maincontent form.cool p.submit {
+	margin-top: 0px;
+	margin-left: 160px;
+	background:url(images/forms/submitL.png) top left no-repeat;
+	display:inline-block;
+	height:45px;
+	padding-left:5px;
+	float:left;
+}
+/*#maincontent form.cool p.submit:after {content: ".";display: block;clear: both;height:0;visibility: hidden;}*/
+#maincontent form.cool p.submit input, p.submit a {
+    background:url(images/forms/submitR.png) no-repeat top right;
+    font-size:1.5em;
+    color:#FFF;
+    display:inline-block;
+    padding:10px 45px 15px 10px;
+    border:0;
+    height:45px;
+    border:none;
+    margin:0;
+    width:auto;
+}
+#maincontent form.cool p.submit a {
+	padding:15px 45px 15px 10px;
+}
+
+/*End submit button*/
+
+/*Handle Form Feedback*/
+p.error, p.success {
+	border:1px solid #c50000;
+	background: #dc6767;
+	padding:10px;
+	color:white;
+}
+p.success {
+	border:1px solid #349804;
+	background: #6cbd45;	
+}
