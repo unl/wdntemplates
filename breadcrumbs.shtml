@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!--
+    Membership and regular participation in the UNL Web Developer Network
+    is required to use the UNL templates. Visit the WDN site at 
+    http://wdn.unl.edu/. Click the WDN Registry link to log in and
+    register your unl.edu site.
+    All UNL template code is the property of the UNL Web Developer Network.
+    The code seen in a source code view is not, and may not be used as, a 
+    template. You may not use this code, a reverse-engineered version of 
+    this code, or its associated visual presentation in whole or in part to
+    create a derivative work.
+    This message may not be removed from any pages based on the UNL site template.
+    
+    $Id: fixed.dwt 536 2009-07-23 15:47:30Z bbieber2 $
+-->
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
+<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
+<script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
+<!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
+<!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>UNL | College | Department</title>
+<!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
+<!-- Place optional header elements here -->
+<!-- InstanceEndEditable -->
+</head>
+<body class="fixed">
+<p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
+<div id="wdn_wrapper">
+    <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+        <h1>University of Nebraska&ndash;Lincoln</h1>
+        <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
+    </div>
+    <div id="wdn_navigation_bar">
+        <div id="breadcrumbs">
+            <!-- WDN: see glossary item 'breadcrumbs' -->
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
+            <ul>
+                <li><a href="http://www.unl.edu/" title="University of Nebraska–Lincoln">UNL</a></li>
+                <li><a href="http://college.unl.edu/" title="Our College">College</a></li>
+                <li><a href="http://college.unl.edu/department/">Department</a></li>
+            </ul>
+            <!-- InstanceEndEditable --></div>
+        <div id="wdn_navigation_wrapper">
+            <div id="navigation"><!-- InstanceBeginEditable name="navlinks" -->
+                <ul>
+                	<li><a href="#">About Us</a></li>
+                    <li><a href="#">Students</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <!-- InstanceEndEditable --></div>
+        </div>
+    </div>
+    <div id="wdn_content_wrapper">
+        <div id="titlegraphic"><!-- InstanceBeginEditable name="titlegraphic" -->
+            <h1>My Site</h1>
+            <!-- InstanceEndEditable --></div>
+        <div id="pagetitle"><!-- InstanceBeginEditable name="pagetitle" --> <!-- InstanceEndEditable --></div>
+        <div id="maincontent">
+            <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+            <!-- InstanceBeginEditable name="maincontentarea" -->
+            <p>Consider this webpage for a moment and look at the <strong>navigation</strong>. Is this the navigation for the college, the department, or for UNL? Your guess is as good as mine. We need to associate a breadcrumb element with the current navigation.</p>
+            <p>If you do nothing when upgrading your templates, the SECOND element within the breadcrumbs will be selected by default. <a href="#" onclick="removeSelected(); jQuery('#breadcrumbs ul li:nth-child(2);').addClass('selected'); return false">Click here to see what that looks like.</a> This would visually tell the user that the navigation displayed by default is associated with the "College" level. So the "About Us" link could be interpreted by the end-user that the page would have information about the <strong>college</strong>.</p>
+            
+            <p>If you would like to specify a different breadcrumb element to be associated with the navigation, you need to tell the templates which element to use. This is done through a <code>&lt;link rel="home" href="" /&gt;</code> tag within the head of each page.</p>
+            
+            <p>The value of the href attribute is important and must be specified correctly for this association to work. If the navigation is to be associated with the "Department" level of the breadcrumbs, the href should point to the department's homepage. <a href="#" onclick="removeSelected(); jQuery('#breadcrumbs ul li:nth-child(3);').addClass('selected'); return false">Click here to see what that looks like.</a> This would visually tell the user that the navigation displayed by default is associated with the "Department" level. So the "About Us" link could be interpreted by the end-user that the page would have information about the <strong>department</strong>.</p></p>
+            
+            <p>If you specify this value, make sure you use the <strong>exact</strong> same address within the breadcrumbs throughout your site. Each of the links below may take the user to the same page, but the addresses are different.</p>
+            
+            <pre>
+            http://college.unl.edu/department
+            http://college.unl.edu/department/
+            http://college.unl.edu/department/index.shtml
+            </pre>
+            
+            <p>Consistency is important for many reasons.</p>
+            
+            <a href="#" onclick="removeSelected(); return false">Remove the breadcrumb selected class</a>
+            <script type="text/javascript">
+				WDN.navigation.determineSelectedBreadcrumb = function() {};
+				function removeSelected() {jQuery('.selected').removeClass('selected');}
+            </script>
+            <!-- InstanceEndEditable -->
+            <div class="clear"></div>
+            <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
+            <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+        </div>
+        <div id="footer">
+            <div id="footer_floater"></div>
+            <div class="footer_col">
+                <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
+            </div>
+            <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
+                <!--#include virtual="sharedcode/relatedLinks.html" -->
+                <!-- InstanceEndEditable --></div>
+            <div class="footer_col"><!-- InstanceBeginEditable name="contactinfo" -->
+                <!--#include virtual="sharedcode/footerContactInfo.html" -->
+                <!-- InstanceEndEditable --></div>
+            <div class="footer_col">
+                <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+            </div>
+            <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
+            <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
+                <!--#include virtual="sharedcode/footer.html" -->
+                <!-- InstanceEndEditable -->
+                <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
+                | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a> <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
+        </div>
+    </div>
+    <div id="wdn_wrapper_footer"> </div>
+</div>
+</body>
+<!-- InstanceEnd --></html>
