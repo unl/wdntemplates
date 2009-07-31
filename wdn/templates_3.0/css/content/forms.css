@@ -259,6 +259,7 @@ p.attention {
     border:none;
     margin:0;
     width:auto;
+    cursor:pointer;
 }
 #maincontent form.cool p.submit a {
 	padding:15px 45px 15px 10px;
