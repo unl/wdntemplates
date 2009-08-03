@@ -1,0 +1,128 @@
+﻿.zentable
+{
+    width: 100%;
+}
+
+.zentable th, .zentable td
+{
+    padding: 4px;
+    border-collapse: separate;
+    background-color: #FFFFFF;
+}
+
+.zentable tr th, .zentable .zentable tr th, .zentable.bright tr th, .zentable .zentable.bright tr th
+{
+    color: #3a3a3a;
+    background-color: #F7E700;
+}
+
+.zentable tbody tr:first-child td
+{
+    border-top-width: 3px;
+    border-top-style: solid;
+}
+/* Neutral Bright */
+.zentable tbody tr:nth-child(odd) td, .zentable.bright tbody tr:nth-child(odd) td, .zentable tbody tr.rowEven td, .zentable.bright tbody tr.rowEven td
+{
+    background-color: #FFFDDF;
+}
+
+.zentable tbody tr:nth-child(even) td, .zentable tbody td .zentable tbody tr:nth-child(even) td, .zentable.bright tbody tr:nth-child(even) td, .zentable tbody td .zentable.bright tbody tr:nth-child(even) td,
+.zentable tbody tr.rowOdd td, .zentable tbody td .zentable tbody tr.rowOdd td, .zentable.bright tbody tr.rowOdd td, .zentable tbody td .zentable.bright tbody tr.rowOdd td
+{
+    background-color: #FFFFFF;
+}
+
+.zentable tbody td, .zentable .zentable tbody td, .zentable.bright tbody td, .zentable .zentable.bright tbody td
+{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: #FFF77F;
+}
+
+/* Cool Zentable */
+.zentable.cool tr th, .zentable .zentable.cool tr th
+{
+    background-color: #3982CE;
+    color: #FFFFFF;
+}
+
+table.zentable.cool tbody tr:nth-child(odd) td, .zentable table.zentable.cool tbody tr:nth-child(odd) td, table.zentable.cool tbody tr.rowEven td, .zentable table.zentable.cool tbody tr.rowEven td
+{
+    background-color: #EFF7FF;
+}
+
+
+table.zentable.cool tbody td, .zentable table.zentable.cool tbody td
+{
+    border-color: #BDD7F7;
+}
+/* Soothing Zentable */
+.zentable.soothing tr th, .zentable .zentable.soothing tr th
+{
+    background-color: #39CB39;
+    color: #FFFFFF;
+}
+
+table.zentable.soothing tbody tr:nth-child(odd) td, .zentable table.zentable.soothing tbody tr:nth-child(odd) td, table.zentable.soothing tbody tr.rowEven td, .zentable table.zentable.soothing tbody tr.rowEven td
+{
+    background-color: #EFFFEF;
+}
+
+
+table.zentable.soothing tbody td, .zentable table.zentable.soothing tbody td
+{
+    border-color: #99DF99;
+}
+/* Energetic Zentable */
+.zentable.energetic tr th, .zentable .zentable.energetic tr th
+{
+    background-color: #FF6521;
+    color: #FFFFFF;
+}
+
+table.zentable.energetic tbody tr:nth-child(odd) td, .zentable table.zentable.energetic tbody tr:nth-child(odd) td, table.zentable.energetic tbody tr.rowEven td, .zentable table.zentable.energetic tbody tr.rowEven td
+{
+    background-color: #FFE9DF;
+}
+
+
+table.zentable.energetic tbody td, .zentable table.zentable.energetic tbody td
+{
+    border-color: #FF9B6F;
+}
+
+/* Neutral Zentable */
+.zentable.neutral tr th, .zentable .zentable.neutral tr th
+{
+    background-color: #393C39;
+    color: #FFFFFF;
+}
+
+table.zentable.neutral tbody tr:nth-child(odd) td, .zentable table.zentable.neutral tbody tr:nth-child(odd) td, table.zentable.neutral tbody tr.rowEven td, .zentable table.zentable.neutral tbody tr.rowEven td
+{
+    background-color: #EFEFEF;
+}
+
+
+table.zentable.neutral tbody td, .zentable table.zentable.neutral tbody td
+{
+    border-color: #AFAFAF;
+}
+/* Primary Zentable */
+.zentable.primary tr th, .zentable .zentable.primary tr th
+{
+    background-color: #AD0000;
+    color: #FFFFFF;
+}
+
+table.zentable.primary tbody tr:nth-child(odd) td, .zentable table.zentable.primary tbody tr:nth-child(odd) td, table.zentable.primary tbody tr.rowEven td, .zentable table.zentable.primary tbody tr.rowEven td
+{
+    background-color: #FFEFEF;
+}
+
+
+table.zentable.primary tbody td, .zentable table.zentable.primary tbody td
+{
+    border-color: #EFA4A4;
+}
