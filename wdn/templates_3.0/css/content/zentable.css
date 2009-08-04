@@ -23,7 +23,7 @@
 .zentable tr th, .zentable .zentable tr th, .zentable.bright tr th, .zentable .zentable.bright tr th
 {
     color: #3a3a3a;
-    background-color: #F7E700;
+    background-color: #E8E81C;
 }
 
 .zentable tbody tr:first-child td
@@ -55,7 +55,7 @@
 {
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    border-color: #FFF77F;
+    border-color: #FEFF5F;
 }
 
 /* Cool Zentable */
