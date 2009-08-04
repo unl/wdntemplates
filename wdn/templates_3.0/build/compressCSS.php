@@ -35,6 +35,7 @@
     'content/mime',
     'content/titlegraphic',
     'content/zenbox',
+    'content/zentable',
     'variations/liquid',
     'variations/fixed',
     'variations/popup',

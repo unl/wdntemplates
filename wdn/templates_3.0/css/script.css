@@ -1,4 +1,5 @@
 @CHARSET "UTF-8";
+@media screen {
 #wdn_search form label {
     display:block;
 }
@@ -181,4 +182,6 @@ ul#wdn_tool_links li {
 #maincontent .zenbox h3.sec_main {
     -moz-border-radius:0px;
     -webkit-border-radius:0px;
+}
+
 }
