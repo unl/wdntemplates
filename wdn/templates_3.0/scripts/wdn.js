@@ -118,6 +118,14 @@ var WDN = function() {
 				jQuery('body').addClass('document');
 				WDN.loadCSS('wdn/templates_3.0/css/content/columns.css');
 			}
+            
+            if ((navigator.userAgent.match(/applewebkit/i) && !navigator.userAgent.match(/Version\/[34]/)) ||
+                (navigator.userAgent.match(/firefox/i) && (navigator.userAgent.match(/firefox\/[12]/i) || navigator.userAgent.match(/firefox\/3.[01234]/i))) ||
+                (navigator.userAgent.match(/msie/i))){
+                //old/crappy browser needs help zebra striping
+                jQuery('table.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
+                jQuery('table.zentable tbody tr:nth-child(even)').addClass('rowEven');
+            } 
 		},
 		
 		screenAdjustments : function() {
