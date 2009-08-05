@@ -39,7 +39,8 @@ structure:
 	background:url('images/tabs/inactiveRight.png') no-repeat bottom right;
 }
 #maincontent ul.wdn_tabs li:last-child a {
-	background:url('images/tabs/inactiveRightLast.png') no-repeat bottom right;
+	margin-right:-7px;
+	background:url('images/tabs/inactiveRightLast.png') no-repeat top right;
 }
 #maincontent .wdn_tabs a span {
 	color:#666666;
