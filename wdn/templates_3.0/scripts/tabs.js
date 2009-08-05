@@ -9,6 +9,9 @@ WDN.tabs = function() {
 				jQuery('a[href='+hash+']').parent().addClass('selected');
 			} else {
 				var hash = false;
+				jQuery('ul.wdn_tabs:not(.disableSwitching) li:first').addClass('selected');
+				var href = jQuery('ul.wdn_tabs:not(.disableSwitching) li:first a').attr('href');
+				WDN.tabs.hideDiv(href);
 			};
 		jQuery('ul.wdn_tabs:not(.disableSwitching) a').click(function() { //do something when a tab is clicked
 			jQuery(this).parent().addClass('selected').siblings().removeClass('selected');
