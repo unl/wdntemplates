@@ -1,4 +1,16 @@
+/*
+structure:
+<ul class="wdn_tabs">
+	<li><a href="#"><span>Your Profile</span></a></li>
+	<li><a href="#"><span>Dashboard</span></a></li>
+	<li><a href="#"><span>Friends</span></a></li>
+	<li class="selected"><a href="#"><span>Groups</span></a></li> <!--This is the selected tab, notice the class="selected"-->
+	<li><a href="#"><span>The wire</span></a></li>
+	<li><a href="#"><span>Settings</span></a></li>
+	<li><a href="#"><span>Log out</span></a></li>
+</ul>
 
+*/
 #maincontent ul.wdn_tabs {
 	margin:0 0 40px 0;
 	padding:0px 10px 0 10px;
