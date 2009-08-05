@@ -3,7 +3,7 @@
 This css can be used for styling form elements.
 
 CSS LINK:
-<link rel="stylesheet" type="text/css" href="/ucomm/templatedependents/templatecss/components/forms.css" />
+<link rel="stylesheet" type="text/css" href="/wdn/templates_3.0/css/content/forms.css" />
 
 Sample Form Markup:
 
@@ -40,7 +40,7 @@ Sample Form Markup:
     border-bottom: 1px solid #dfdfdf;
     position: relative;
     margin: 25px 0 20px 0;
-    background: #ecf4f8 url(images/forms/fieldsetline.gif) no-repeat;
+    background: #ecf4f8;
     padding: 0 0 10px 0;
 }
 
