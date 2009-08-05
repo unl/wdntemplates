@@ -65,6 +65,10 @@ Red: primary
 	font-size:1.1em;
 	font-weight: bold;
 }
+#maincontent div.zenboxsolid h3 a:link, #maincontent div.zenboxfixed h3 a, #maincontent div.zenboxfeature h3 a, #maincontent div.zenbox h3 a,
+#maincontent div.zenboxsolid.bright h3 a, #maincontent div.zenboxfixed.bright h3 a, #maincontent div.zenboxfeature.bright h3 a, #maincontent div.zenbox.bright h3 a {
+	color:#3a3a3a;
+}
 
 #maincontent div.zenbox div.zenbox.cool h3, #maincontent div.zenboxsolid.cool h3, #maincontent div.zenboxfixed.cool h3, #maincontent div.zenboxfeature.cool h3, #maincontent div.zenbox.cool h3 {
 	background:url('../images/headingBGCool.png') repeat-x bottom;
@@ -84,6 +88,14 @@ Red: primary
 }
 #maincontent div.zenbox div.zenbox.primary h3, #maincontent div.zenboxsolid.primary h3, #maincontent div.zenboxfixed.primary h3, #maincontent div.zenboxfeature.primary h3, #maincontent div.zenbox.primary h3 {
 	background:url('../images/headingBGPrimary.png') repeat-x bottom;
+	color:#ffffff;
+}
+/*deal with the h3 a links*/
+#maincontent div.zenbox div.zenbox.cool h3 a:link, #maincontent div.zenboxsolid.cool h3 a:link, #maincontent div.zenboxfixed.cool h3 a:link, #maincontent div.zenboxfeature.cool h3 a:link, #maincontent div.zenbox.cool h3 a:link,
+#maincontent div.zenbox div.zenbox.energetic h3 a:link, #maincontent div.zenboxsolid.energetic h3 a:link, #maincontent div.zenboxfixed.energetic h3 a:link, #maincontent div.zenboxfeature.energetic h3 a:link, #maincontent div.zenbox.energetic h3 a:link,  
+#maincontent div.zenbox div.zenbox.soothing h3 a:link, #maincontent div.zenboxsolid.soothing h3 a:link, #maincontent div.zenboxfixed.soothing h3 a:link, #maincontent div.zenboxfeature.soothing h3 a:link, #maincontent div.zenbox.soothing h3 a:link, 
+#maincontent div.zenbox div.zenbox.neutral h3 a:link, #maincontent div.zenboxsolid.neutral h3 a:link, #maincontent div.zenboxfixed.neutral h3 a:link, #maincontent div.zenboxfeature.neutral h3 a:link, #maincontent div.zenbox.neutral h3 a:link, 
+#maincontent div.zenbox div.zenbox.primary h3 a:link, #maincontent div.zenboxsolid.primary h3 a:link, #maincontent div.zenboxfixed.primary h3 a:link, #maincontent div.zenboxfeature.primary h3 a:link, #maincontent div.zenbox.primary h3 a:link{
 	color:#ffffff;
 }
 /*Put the carrot in after the h3*/
