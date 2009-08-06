@@ -1,4 +1,4 @@
-WDN.tooltip = function() {
+WDN.tooltip = function($) {
 	return {
         initialize : function() {
 			WDN.log("initialize tooltip");
@@ -13,10 +13,10 @@ WDN.tooltip = function() {
 		tooltipSetup : function(id) {
 			// Tooltips can be added to any links by calling this function with
 			// the container id and adding a 'title' attribute to the anchor tag or image tag
-			jQuery('#'+id+' a.tooltip, #'+id+' img.tooltip').each(function() {	
+			$('#'+id+' a.tooltip, #'+id+' img.tooltip').each(function() {	
 					  jQuery(this).qtip({
 		
-					      content: jQuery(this).attr('title'),
+					      content: $(this).attr('title'),
 					      show: { 
 						  	effect: { type: 'fade', length: 0 }
 					  	  },
@@ -44,9 +44,9 @@ WDN.tooltip = function() {
 					      	  corner: { target: 'topMiddle', tooltip: 'bottomMiddle' }
 					      }
 					   });
-					  jQuery(this).removeAttr('title');
-					  jQuery(this).removeAttr('alt');
+					  $(this).removeAttr('title');
+					  $(this).removeAttr('alt');
 					});
 		}
 	};
-}();
+}(jQuery);
