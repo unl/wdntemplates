@@ -53,8 +53,18 @@
 }
 
 sub, sup {
-    line-height:0;
-}      
+    line-height: normal;
+    font-size: smaller;
+}
+
+sub {
+	vertical-align: sub;
+}
+
+sup {
+	vertical-align: super;
+}
+
         
 abbr, acronym { text-decoration:none; border-bottom:none;}
 
