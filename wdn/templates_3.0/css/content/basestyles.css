@@ -53,16 +53,19 @@
 }
 
 sub, sup {
-    line-height: normal;
-    font-size: smaller;
+	height: 0;
+    line-height: 1;
+    font-size: 0.75em;
+    vertical-align: baseline;
+    position: relative;
 }
 
 sub {
-	vertical-align: sub;
+	top: .5ex;
 }
 
 sup {
-	vertical-align: super;
+	bottom: 1ex;
 }
 
         

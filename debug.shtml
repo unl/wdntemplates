@@ -59,6 +59,7 @@
                 win over Texas at the Devaney Sports Center. </p>
                 <p><a href="#" onclick="WDN.post('http://ucommbieber.unl.edu/foo.php',{foo:'bar'}); return false;">POST!</a></p>
                 <small>foobar</small>
+                <p id="subsup">asdflkj asdflkj asdflkj asdflkj asdflkj asdf<br />Normal<sup>superscript</sup> Normal<sub>subscript</sub><br />asdflkj asdflkj asdflkjasdf lkjasdflkj asdlfkj asdlfkj asdlfkj asdlfkj asdflkj</p>
                     <p>Students who major in International Studies choose a regional specialization such as Africa, Asia, Europe, or Latin America, and focus on two of three thematic specializations: cultural encounters, international relations, or power &amp; production. The program is enhanced by a global competency requirement, fulfilled through either international study abroad or an internship, and a foreign language requirement.</p>
     <p>The International Studies program is unusual at UNL because it is very extensive and supported by a wide range of courses and faculty, yet is not centered in a particular department. The program is organized with an interdisciplinary approach to the study of economic, political, geographic, and historical influences that have shaped our world, and is an important area of expanding emphasis as the university deals with its and Nebraska's place in the global community.</p>
 
