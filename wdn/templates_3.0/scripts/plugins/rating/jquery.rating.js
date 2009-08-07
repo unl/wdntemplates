@@ -71,4 +71,4 @@
 
 	if ($.browser.msie) try { document.execCommand("BackgroundImageCache", false, true);} catch(e) { }
 
-})(jQuery);
+})(WDN.jQuery);

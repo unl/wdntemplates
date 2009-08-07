@@ -19,7 +19,7 @@ $all = '';
 $loaded = '';
 $pre_compressed = '';
 
-foreach (array('jquery','plugins/colorbox/jquery.colorbox') as $already_compressed) {
+foreach (array('jquery') as $already_compressed) {
     $pre_compressed .= file_get_contents(dirname(__FILE__)."/../scripts/$already_compressed.js").PHP_EOL;
     $loaded .= 'WDN.loadedJS["wdn/templates_3.0/scripts/'.$already_compressed.'.js"]=true;'.PHP_EOL;
 }
@@ -28,6 +28,9 @@ require_once dirname(__FILE__).'/JavaScriptPacker.php';
 foreach ($files as $file) {
     $packer = new JavaScriptPacker(file_get_contents(dirname(__FILE__)."/../scripts/$file.js"), 'Normal', true, false);
     $all .= '//'.$file.PHP_EOL.$packer->pack();
+    if ($file == 'wdn') {
+        $all .= 'WDN.jQuery = jQuery.noConflict(true);';
+    }
     $loaded .= 'WDN.loadedJS["wdn/templates_3.0/scripts/'.$file.'.js"]=true;'.PHP_EOL;
 }
 

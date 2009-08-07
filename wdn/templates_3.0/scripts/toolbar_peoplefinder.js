@@ -47,7 +47,7 @@ WDN.toolbar_peoplefinder = function() {
         	} else {
         		document.getElementById("pfprogress").src = WDN.template_path+'wdn/templates_3.0/css/images/transpixel.gif';
         		document.getElementById(resultsdiv).innerHTML = defaultIntro;
-        		jQuery('#pfShowRecord').empty();
+        		WDN.jQuery('#pfShowRecord').empty();
         	}
         },
         getPeopleFinderResults : function(q) {

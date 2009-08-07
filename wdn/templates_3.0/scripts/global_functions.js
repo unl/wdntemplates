@@ -115,7 +115,7 @@ function newRandomPromo(xmluri){
 };
 
 function addLoadEvent(func){
-	jQuery(document).ready(func);
+	WDN.jQuery(document).ready(func);
 };
 
 var wraphandler = {

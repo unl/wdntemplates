@@ -31,13 +31,13 @@ WDN.toolbar = function() {
     	
         initialize : function() {
             WDN.loadCSS('wdn/templates_3.0/css/header/colorbox.css');
-            if (jQuery.browser.msie)
+            if (WDN.jQuery.browser.msie)
             	WDN.loadCSS('wdn/templates_3.0/css/header/colorbox-ie.css');
-            jQuery('#header').append('<div class="hidden"><div id="toolbarcontent"></div></div>');
+            WDN.jQuery('#header').append('<div class="hidden"><div id="toolbarcontent"></div></div>');
         	WDN.loadJS('wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js', WDN.toolbar.colorboxSetup);
         },
         toolTabsSetup : function() {
-        	jQuery('#cboxWrapper').append('<div id="tooltabs"><ul></ul></div>');
+        	WDN.jQuery('#cboxWrapper').append('<div id="tooltabs"><ul></ul></div>');
         	WDN.toolbar.registerTool('feeds', 'RSS Feeds', 1002, 500);
         	WDN.toolbar.registerTool('weather', 'Weather', 1002, 500);
         	WDN.toolbar.registerTool('events', 'Events', 1002, 550);
@@ -52,8 +52,8 @@ WDN.toolbar = function() {
         		maskheight = (height-172)+'px';
         	else
         		maskheight = (height-121)+'px';
-        	jQuery('#toolbar_'+toolName+' div.toolbarMask').height(maskheight);
-        	jQuery('#toolbar_'+toolName+' div.toolbarMask').css({overflow:"auto", padding:"0 3px 0 0"});
+        	WDN.jQuery('#toolbar_'+toolName+' div.toolbarMask').height(maskheight);
+        	WDN.jQuery('#toolbar_'+toolName+' div.toolbarMask').css({overflow:"auto", padding:"0 3px 0 0"});
         },
         colorboxSetup : function() {
             WDN.log('Setting up colorbox');
@@ -69,16 +69,16 @@ WDN.toolbar = function() {
          * @param int    pheight     Height needed for the plugin
          */
         registerTool : function(plugin_name, title, pwidth, pheight) {
-        	jQuery('#tooltabs ul').append('<li class="'+plugin_name+'"><a href="#" class="'+plugin_name+'">'+title+'</a></li>');
-        	jQuery("a."+plugin_name).colorbox({width:pwidth, height:pheight, inline:true, href:"#toolbarcontent"});
-        	jQuery("a."+plugin_name).click(function(){WDN.toolbar.switchToolFocus(plugin_name, pheight);});
+        	 WDN.jQuery('#tooltabs ul').append('<li class="'+plugin_name+'"><a href="#" class="'+plugin_name+'">'+title+'</a></li>');
+        	 WDN.jQuery("a."+plugin_name).colorbox({width:pwidth, height:pheight, inline:true, href:"#toolbarcontent"});
+        	 WDN.jQuery("a."+plugin_name).click(function(){WDN.toolbar.switchToolFocus(plugin_name, pheight);});
         },
         setToolContent : function(plugin_name, content) {
-        	jQuery("#toolbarcontent").append('<div id="toolbar_'+plugin_name+'" class="toolbar_plugin">'+content+'</div>');
+        	WDN.jQuery("#toolbarcontent").append('<div id="toolbar_'+plugin_name+'" class="toolbar_plugin">'+content+'</div>');
         },
         getContent : function(type, height) { 
         	eval('WDN.toolbar_'+type+'.display();');
-        //	jQuery("#cboxTitle").css({height:'0px'}); //Hide the cboxTitle at the bottom
+        //	WDN.jQuery("#cboxTitle").css({height:'0px'}); //Hide the cboxTitle at the bottom
         	WDN.toolbar.setMaskHeight(type, height); //Now that content is loaded, add the scroll bars
         },
         /**
@@ -87,7 +87,7 @@ WDN.toolbar = function() {
          * @param string selected The tool to select
          */
         switchToolFocus : function(selected, height) {
-        	jQuery('#toolbarcontent .toolbar_plugin').hide();
+        	WDN.jQuery('#toolbarcontent .toolbar_plugin').hide();
         	WDN.initializePlugin('toolbar_'+selected,
         			function(){
         				if (!WDN.toolbar.tools[selected]) {
@@ -97,12 +97,12 @@ WDN.toolbar = function() {
         				}
 		        		eval('WDN.toolbar_'+selected+'.initialize();');
 		        		WDN.toolbar.getContent(selected, height);
-		        		jQuery('#toolbar_'+selected).show();
+		        		WDN.jQuery('#toolbar_'+selected).show();
 	    			});
-        	if ( jQuery("#tooltabs li").hasClass("current") ){
-        		jQuery("#tooltabs li").removeClass("current");        		
+        	if ( WDN.jQuery("#tooltabs li").hasClass("current") ){
+        		WDN.jQuery("#tooltabs li").removeClass("current");        		
         	}
-        	jQuery('#tooltabs li.'+selected+'').addClass("current");
+        	WDN.jQuery('#tooltabs li.'+selected+'').addClass("current");
         }
     };
 }();

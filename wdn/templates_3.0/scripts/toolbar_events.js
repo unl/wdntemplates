@@ -23,7 +23,7 @@ WDN.toolbar_events = function() {
         },
         display : function() {
         	if (havelocalevents)
-        		jQuery('#toolbar_events .col.left').css({width:"460px", padding:"0 10px 0 0"});
+        		WDN.jQuery('#toolbar_events .col.left').css({width:"460px", padding:"0 10px 0 0"});
         	else {}
         	WDN.toolbar_events.getCalendarResults();      	
         },

@@ -526,5 +526,5 @@
     $(function(){
         $.fn.colorbox.init();
     });
-})(jQuery);
+})(WDN.jQuery);
 

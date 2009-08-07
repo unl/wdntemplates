@@ -1,7 +1,6 @@
 WDN.socialmediashare = function() {
 	return {
 		initialize : function() {
-			//jQuery("#wdn_facebook").attr("href", "http://www.facebook.com/share.php?u="+window.location+"");
 			/* No need to use the attr method or even jQuery when working with single elements. Doing it the following way will speed up performance: */
 			function e (id) {
 				return document.getElementById(id);

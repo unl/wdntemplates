@@ -10,22 +10,24 @@ WDN.feedback = function() {
 		ratingSetup : function() {
 			WDN.log("setting up rating");
 			//jQuery('#wdn_feedback').rating().animate({opacity: 'show'}, 2000);
-			jQuery('#wdn_feedback').rating();
+			try {
+				WDN.jQuery('#wdn_feedback').rating();
+			} catch (e) {}
 		},
 		commentSetup : function() {
-			jQuery('#wdn_feedback_comments textarea').keyup(
+			WDN.jQuery('#wdn_feedback_comments textarea').keyup(
 				function(event) {
 					if (this.value.length > 0) {
 						// Add the submit button
-						jQuery('#wdn_feedback_comments input').css({display:'block'});
+						WDN.jQuery('#wdn_feedback_comments input').css({display:'block'});
 					}
 				}
 			);
-			jQuery('#wdn_feedback_comments').submit(
+			WDN.jQuery('#wdn_feedback_comments').submit(
 				function(event) {
-					var comments = jQuery('#wdn_feedback_comments textarea').val();
+					var comments = WDN.jQuery('#wdn_feedback_comments textarea').val();
 					WDN.post('http://www1.unl.edu/comments/', {comment:comments});
-					jQuery('#wdn_feedback_comments').replaceWith('<h4>Thanks!</h4>');
+					WDN.jQuery('#wdn_feedback_comments').replaceWith('<h4>Thanks!</h4>');
 					event.stopPropagation();
 					return false;
 				}

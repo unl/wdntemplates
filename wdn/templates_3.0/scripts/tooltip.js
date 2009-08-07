@@ -14,7 +14,7 @@ WDN.tooltip = function($) {
 			// Tooltips can be added to any links by calling this function with
 			// the container id and adding a 'title' attribute to the anchor tag or image tag
 			$('#'+id+' a.tooltip, #'+id+' img.tooltip').each(function() {	
-					  jQuery(this).qtip({
+					  $(this).qtip({
 		
 					      content: $(this).attr('title'),
 					      show: { 
@@ -49,4 +49,4 @@ WDN.tooltip = function($) {
 					});
 		}
 	};
-}(jQuery);
+}(WDN.jQuery);

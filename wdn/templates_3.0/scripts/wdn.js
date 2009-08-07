@@ -84,8 +84,10 @@ var WDN = function() {
 		 * executed when jquery is loaded
 		 */
 		jQueryUsage : function() {
-			jQuery.noConflict();
-			jQuery(document).ready(function() {
+			if (!WDN.jQuery) {
+				WDN.jQuery = jQuery.noConflict(true);
+			}
+			WDN.jQuery(document).ready(function() {
 				WDN.initializePlugin('navigation');
 				WDN.initializePlugin('search');
 				WDN.initializePlugin('feedback');
@@ -110,12 +112,12 @@ var WDN = function() {
 		},
 		
 		browserAdjustments : function() {
-			if (jQuery.browser.msie && jQuery.browser.version == '6.0') {
-				jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>');
+			if (WDN.jQuery.browser.msie && WDN.jQuery.browser.version == '6.0') {
+				WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>');
 				fetchURLInto('http://www.unl.edu/wdn/templates_3.0/includes/browserupgrade.html', 'wdn_upgrade_notice');
-				jQuery('head link[rel=stylesheet]').remove();
-				jQuery('body').removeAttr('class');
-				jQuery('body').addClass('document');
+				WDN.jQuery('head link[rel=stylesheet]').remove();
+				WDN.jQuery('body').removeAttr('class');
+				WDN.jQuery('body').addClass('document');
 				WDN.loadCSS('wdn/templates_3.0/css/content/columns.css');
 			}
             
@@ -123,30 +125,30 @@ var WDN = function() {
                 (navigator.userAgent.match(/firefox/i) && (navigator.userAgent.match(/firefox\/[12]/i) || navigator.userAgent.match(/firefox\/3.[01234]/i))) ||
                 (navigator.userAgent.match(/msie/i))){
                 //old/crappy browser needs help zebra striping
-                jQuery('table.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
-                jQuery('table.zentable tbody tr:nth-child(even)').addClass('rowEven');
+                WDN.jQuery('table.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
+                WDN.jQuery('table.zentable tbody tr:nth-child(even)').addClass('rowEven');
             } 
 		},
 		
 		screenAdjustments : function() {
 			if(screen.width<=1024) {
-				jQuery('#wdn_wrapper').css({'border-left-width':'7px','border-right-width':'7px','border-bottom-width':'7px'});
-				if(jQuery.browser.mozilla) {
-					jQuery('#wdn_wrapper').css({'-moz-border-radius':'7px'});
-					jQuery('body.fixed').css({'margin': '0 auto'});
+				WDN.jQuery('#wdn_wrapper').css({'border-left-width':'7px','border-right-width':'7px','border-bottom-width':'7px'});
+				if(WDN.jQuery.browser.mozilla) {
+					WDN.jQuery('#wdn_wrapper').css({'-moz-border-radius':'7px'});
+					WDN.jQuery('body.fixed').css({'margin': '0 auto'});
 				}
 			}
 		},
 		
 		contentAdjustments : function () {
-			jQuery('#maincontent p.caption, #footer p.caption').each(function(i){
-				if (jQuery(this).height()>20) {
-					jQuery(this).css({border:'1px solid #ededed',marginleft:'0'});
+			WDN.jQuery('#maincontent p.caption, #footer p.caption').each(function(i){
+				if (WDN.jQuery(this).height()>20) {
+					WDN.jQuery(this).css({border:'1px solid #ededed',marginleft:'0'});
 				}
 			});
 			//remove the dotted line underneath images that are links
-			jQuery('#maincontent a img, #footer a img').each(function(j){
-				jQuery(this).parent('a').addClass('imagelink');
+			WDN.jQuery('#maincontent a img, #footer a img').each(function(j){
+				WDN.jQuery(this).parent('a').addClass('imagelink');
 			});
 		},
 		
@@ -232,7 +234,7 @@ var WDN = function() {
 		post : function(url, data, callback, type) {
 			try {
 				WDN.log('Using jQuery to post data');
-				jQuery.post(url, data);
+				WDN.jQuery.post(url, data);
 			} catch(e) {
 				WDN.log('jQuery post() failed.');
 				var params = '';
@@ -240,7 +242,7 @@ var WDN = function() {
 				    params = params+'&'+key+'='+data[key];
 				}
 				// Try XDR, or use the proxy
-				if (jQuery.browser.msie && window.XDomainRequest) {
+				if (WDN.jQuery.browser.msie && window.XDomainRequest) {
 					WDN.log('Using XDR');
 					var xdr = new XDomainRequest();
 					xdr.open("post", url);
@@ -260,11 +262,11 @@ var WDN = function() {
 		get : function (url, data, callback, type) {
 			try {
 				WDN.log('Using jQuery to get data');
-				jQuery.get(url, data, callback, type);
+				WDN.jQuery.get(url, data, callback, type);
 			} catch(e) {
 				WDN.log('jQuery get() failed.');
 				// Try CORS, or use the proxy
-				if (jQuery.browser.msie && window.XDomainRequest) {
+				if (WDN.jQuery.browser.msie && window.XDomainRequest) {
 					WDN.log('Using XDR');
 					var xdr = new XDomainRequest();
 					xdr.open("get", url);
