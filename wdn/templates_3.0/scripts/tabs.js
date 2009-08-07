@@ -15,7 +15,6 @@ WDN.tabs = function() {
 			};
 		jQuery('ul.wdn_tabs li').each(function(){
 			var content = jQuery(this).children('a').text();
-			WDN.log(content);
 			var contentTitle = jQuery(this).children('a').attr('href');
 			jQuery('div#'+contentTitle).prepend("<h5 class='yesprint'>"+content+"</h5>");
 		}),
@@ -23,14 +22,12 @@ WDN.tabs = function() {
 			jQuery(this).parent().addClass('selected').siblings().removeClass('selected');
 			var href = jQuery(this).attr("href");
 			window.location.hash = href;
-			WDN.log(href);
 			WDN.tabs.hideDiv(href);
 			return false;
 		});
 		},
 		
 		hideDiv: function(theDiv) {
-			WDN.log('hiding: '+theDiv);
 			jQuery('div.wdn_tabs_content div').hide(); //hide all the content divs expect the one selected
 			jQuery('div'+theDiv).show();
 		}
