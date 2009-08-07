@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html version="-//W3C//DTD XHTML 1.1//EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd">
+<html version="-//W3C//DTD XHTML 1.1//EN"
+	xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemalocation="http://www.w3.org/1999/xhtml http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd">
 <head>
-    <link rel="stylesheet" type="text/css" media="screen" href="wdn/templates_3.0/css/debug.css" />
-    <link rel="stylesheet" type="text/css" media="print" href="wdn/templates_3.0/css/print.css" />
-    <!--#include virtual="sharedcode/localSiteLinks.html" -->
-    <script type="text/javascript" src="wdn/templates_3.0/scripts/debug.js"></script>
-    <!--#include virtual="wdn/templates_3.0/includes/browserspecifics.html" -->
-	<!--#include virtual="wdn/templates_3.0/includes/metanfavico.html" -->
-    <title>UNL | Template</title>
+<link rel="stylesheet" type="text/css" media="screen"	href="wdn/templates_3.0/css/debug.css" />
+<link rel="stylesheet" type="text/css" media="print"	href="wdn/templates_3.0/css/print.css" />
+<link rel="stylesheet" type="text/css" media="screen"	href="wdn/templates_3.0/css/content/forms.css" />
+<!--#include virtual="sharedcode/localSiteLinks.html" -->
+<script type="text/javascript" src="wdn/templates_3.0/scripts/debug.js"></script>
+<!--#include virtual="wdn/templates_3.0/includes/browserspecifics.html" -->
+<!--#include virtual="wdn/templates_3.0/includes/metanfavico.html" -->
+<title>UNL | Template</title>
     <link rel="home" href="../../" />
 </head>
 <body class="fixed">
-<p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
+<p class="skipnav"><a class="skipnav" href="#maincontent">Skip
+Navigation</a></p>
 <div id="wdn_wrapper">
     <div id="header">
         <a href="http://www.unl.edu/" title="UNL website"><img src="wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
@@ -45,16 +50,37 @@
         <div id="maincontent">
         <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
 		    <ul class="wdn_tabs">
-		        <li><a href="#"><span>Your Profile</span></a></li>
-		        <li><a href="http://localhost/workspace/UNL_Social/elgg/pg/dashboard/" class="pagelinks"><span>Dashboard</span></a></li>
-		        <li><a href="http://localhost/workspace/UNL_Social/elgg/pg/friends/demouser"><span>Friends</span></a></li>
-		        <li class="selected"><a href="http://localhost/workspace/UNL_Social/elgg/pg/groups/world/"><span>Groups</span></a></li>
-		        <li><a href="http://localhost/workspace/UNL_Social/elgg/mod/thewire/everyone.php"><span>The wire</span></a></li>
-		        <li><a href="http://localhost/workspace/UNL_Social/elgg/pg/settings/" class="usersettings"><span>Settings</span></a></li>
-		        <li><a href="http://localhost/workspace/UNL_Social/elgg/action/logout"><span>Log out</span></a></li>
+		        <li><a href="#tab1"><span>Tab #1</span></a></li>
+		        <li><a href="#tab2"><span>Tab #2</span></a></li>
+		        <li><a href="#tab3"><span>Tab #3</span></a></li>
+		        <li><a href="#tab4"><span>Tab #4</span></a></li>
+		    </ul>
+		    <div id="tab1">
+Content area for tab 1
+</div>
+
+
+<div id="tab2">
+Content area for tab 2
+</div>
+
+
+<div id="tab3">
+Content area for tab 3
+</div>
+
+
+<div id="tab4">
+Content area for tab 4
+</div>
+		    <ul class="wdn_tabs disableSwitching">
+		        <li><a href="http://www.unl.edu/"><span>Your Profile</span></a></li>
+		        <li><a href="http://www.unl.edu/"><span>Dashboard</span></a></li>
+		        <li><a href="http://www.unl.edu/"><span>Friends</span></a></li>
+		        <li><a href="http://www.unl.edu/"><span>Groups</span></a></li>
 		    </ul>
             <div class="two_col left">
-                <div class="image_medium_3x2"><img src="admissionsPhoto.jpg" alt="Admissions" /></div>
+               <img src="admissionsPhoto.jpg" alt="Admissions" class="frame" />
                 <p class="caption">Nebraska fans celebrate the Huskers'
                 win over Texas at the Devaney Sports Center. </p>
                 <p><a href="#" onclick="WDN.post('http://ucommbieber.unl.edu/foo.php',{foo:'bar'}); return false;">POST!</a></p>
@@ -63,76 +89,6 @@
                     <p>Students who major in International Studies choose a regional specialization such as Africa, Asia, Europe, or Latin America, and focus on two of three thematic specializations: cultural encounters, international relations, or power &amp; production. The program is enhanced by a global competency requirement, fulfilled through either international study abroad or an internship, and a foreign language requirement.</p>
     <p>The International Studies program is unusual at UNL because it is very extensive and supported by a wide range of courses and faculty, yet is not centered in a particular department. The program is organized with an interdisciplinary approach to the study of economic, political, geographic, and historical influences that have shaped our world, and is an important area of expanding emphasis as the university deals with its and Nebraska's place in the global community.</p>
 
-    
-    <div>
-        <div class="zenboxprimary" style="width:200px;height:200px;"></div>
-    </div>
-    <div>
-        <div class="two_col left">
-           <div class="zenbox primary">
-                <h3>Specializations</h3>
-                <div class="zenbox soothing" style="width:210px;float:left;">
-
-                    <h3>Regional</h3>
-                    <ul>
-                        <li><a href="/courses/Africa.aspx">Africa</a></li>
-                        <li><a href="/courses/Asia.aspx">Asia</a></li>
-                        <li><a href="/courses/Europe.aspx">Europe</a></li>
-                        <li><a href="/courses/LatinAmerica.aspx">Latin America</a></li>
-
-                    </ul>
-                </div>
-                
-                <div class="zenbox cool" style="width:210px;float:right;">
-                    <h3>Thematic</h3>
-                    <ul>
-                        <li><a href="javascript:alert('FixMe')">Cultural Encounters</a></li>
-                        <li><a href="javascript:alert('FixMe')">International Relations</a></li>
-
-                        <li><a href="javascript:alert('FixMe')">Power &amp; Productions</a></li>
-                    </ul>
-                </div>
-                <div style="clear:both;"></div>
-            </div>
-        </div>
-        <div class="two_col right">
-
-            <div class="zenbox cool">
-                <h3>Specializations</h3>
-                <div class="zenbox soothing" style="width:210px;float:left;">
-                    <h3>Regional</h3>
-                    <ul class="cZen">
-                        <li><a href="/courses/Africa.aspx">Africa</a></li>
-                        <li><a href="/courses/Asia.aspx">Asia</a></li>
-
-                        <li><a href="/courses/Europe.aspx">Europe</a></li>
-                        <li><a href="/courses/LatinAmerica.aspx">Latin America</a></li>
-                    </ul>
-                </div>
-                
-                <div class="zenbox neutral" style="width:210px;float:right;">
-                    <h3>Thematic</h3>
-                    <ul class="cZen">
-
-                        <li><a href="javascript:alert('FixMe')">Cultural Encounters</a></li>
-                        <li><a href="javascript:alert('FixMe')">International Relations</a></li>
-                        <li><a href="javascript:alert('FixMe')">Power &amp; Productions</a></li>
-                    </ul>
-                     <div class="zenbox primary" style="width:210px;float:right;">
-                    <h3>Thematic</h3>
-                    <ul class="cZen">
-
-                        <li><a href="javascript:alert('FixMe')">Cultural Encounters</a></li>
-                        <li><a href="javascript:alert('FixMe')">International Relations</a></li>
-                        <li><a href="javascript:alert('FixMe')">Power &amp; Productions</a></li>
-                    </ul>
-                </div>
-                </div>
-                <div style="clear:both;"></div>
-
-            </div>
-        </div>
-    </div>
                 
                 <div class="col left">
                     <h3>Explore our majors</h3>
@@ -219,7 +175,7 @@
                 </div>                
                 <div id="randomPromo" ></div>                                
             </div>
-            <div class="col middle">
+            <div class="col middle" >
                 <small>THE BUZZ</small>
                 <h3>Enrollment Deposit - Deadline Passed</h3>
                 <p>The deadline for submitting your enrollment deposit has passed.  </p>
@@ -248,6 +204,7 @@
                     </ul>
                 </div>
             </div>
+            
             <div class="col right">
 				<a href="http://www.unl.edu" class="tooltip" title="Hello World!">This Link Has A title Attached</a>
 				<br />
@@ -300,23 +257,23 @@
             <div class="clear"></div>
             <div class="col left">
                 <div class="zenbox">
-                <h3>Mime Types by Rule</h3>
+                <h3><a href="####">Mime Types by Rule</a></h3>
                 <p>The following links do not have classes, the styles are set by CSS rules.</p>
                 <ul>
-                <li><a href="mailto:smeranda2@unl.edu">E-mail</a></li>
-                <li><a href="xxx.pdf">PDF</a></li>
-                <li><a href="xxx.exe">EXE</a></li>
-                <li><a href="xxx.doc">DOC</a>, <a href="xxx.docx">DOCX</a></li>
-                <li><a href="xxx.xls">XLS</a>, <a href="xxx.xlsx">XLSX</a></li>
-                <li><a href="xxx.ppt">PPT</a>, <a href="xxx.pptx">PPTX</a></li>
-                <li><a href="xxx.zip">ZIP</a></li>
-                <li><a href="xxx.mov">MOV</a>, <a href="xxx.wmv">WMV</a>, <a href="xxx.mp4">MP4</a>, <a href="xxx.m4v">M4V</a></li>
+                <li><a href="mailto:smeranda2@unl.edu" title="I have a title, but I don't want a tooptip!">E-mail</a></li>
+                <li><a href="xxx.pdf" title="I have a title, but I don't want a tooptip!" class="tooltip">PDF</a></li>
+                <li><a href="xxx.exe" title="I have a title, but I don't want a tooptip!">EXE</a></li>
+                <li><a href="xxx.doc" title="I have a title, but I don't want a tooptip!">DOC</a>, <a href="xxx.docx" title="I have a title, but I don't want a tooptip!">DOCX</a></li>
+                <li><a href="xxx.xls" title="I have a title, but I don't want a tooptip!">XLS</a>, <a href="xxx.xlsx" title="I have a title, but I don't want a tooptip!">XLSX</a></li>
+                <li><a href="xxx.ppt" title="I have a title, but I don't want a tooptip!">PPT</a>, <a href="xxx.pptx" title="I have a title, but I don't want a tooptip!">PPTX</a></li>
+                <li><a href="xxx.zip" title="I have a title, but I don't want a tooptip!">ZIP</a></li>
+                <li><a href="xxx.mov" title="I have a title, but I don't want a tooptip!">MOV</a>, <a href="xxx.wmv" title="I have a title, but I don't want a tooptip!">WMV</a>, <a href="xxx.mp4" title="I have a title, but I don't want a tooptip!">MP4</a>, <a href="xxx.m4v" title="I have a title, but I don't want a tooptip!">M4V</a></li>
                 </ul>
                 </div>
             </div>
             <div class="col">
             <div class="zenbox bright">
-                <h3>This is a test</h3>
+                <h3><a href="####">This is a test</a></h3>
                 <p>This is some text. This is some text. This is some text.</p>
                 <ul>
                 <li>Item 1</li>
@@ -327,7 +284,7 @@
             </div>
             <div class="col">
             <div class="zenbox cool">
-                <h3>This is a test</h3>
+                <h3><a href="####">This is a test</a></h3>
                 <p>This is some text. This is some text. This is some text.</p>
                 <ul>
                 <li>Item 1</li>
@@ -338,7 +295,7 @@
             </div>
             <div class="col right">
                 <div class="zenbox energetic">
-                <h3>This is a test</h3>
+                <h3><a href="####">This is a test</a></h3>
                 <p>This is some text. This is some text. This is some text.</p>
                 <ul>
                 <li>Item 1</li>
@@ -349,7 +306,7 @@
             </div>
             <div class="col">
             <div class="zenbox neutral">
-                <h3>This is a test</h3>
+                <h3><a href="####">This is a test</a></h3>
                 <p>This is some text. This is some text. This is some text.</p>
                 <ul>
                 <li>Item 1</li>
@@ -360,7 +317,7 @@
             </div>
             <div class="col">
             <div class="zenbox soothing">
-                <h3>This is a test</h3>
+                <h3><a href="####">This is a test</a></h3>
                 <p>This is some text. This is some text. This is some text.</p>
                 <ul>
                 <li>Item 1</li>
@@ -371,7 +328,7 @@
             </div>
             <div class="col right">
             <div class="zenbox primary">
-                <h3>This is a test</h3>
+                <h3><a href="####">This is a test</a></h3>
                 <p>This is some text. This is some text. This is some text.</p>
                 <ul>
                 <li>Item 1</li>
@@ -487,6 +444,66 @@
             </div>
             
             <div class="clear"></div>
+<div class="three_col">
+            <form method="post" class="cool" action="#">
+<p class="required">Indicates a required field.</p>
+<fieldset>
+    <legend>Basic Option</legend>
+    <ol>
+        <li class="required">
+            <label for="theURL" class="element">Long URL</label>
+            <div class="element"><input name="theURL" id="theURL" type="text" value="" />
+            </div>
+        </li>
+    </ol>
+</fieldset>
+<p class="submit"><input type="submit" id="submit1" name="submit" value="Create URL" /></p>
+<fieldset>
+    <legend>Custom Alias</legend>
+    <p>If you would like to control the URL, then enter the alias you would like to use.</p>
+    <ol>
+        <li>
+            <label for="theAlias" class="element">Alias</label>
+            <div class="element"><input name="theAlias" id="theAlias" type="text" />                       
+            </div>
+        </li>
+    </ol>
+    <p class="attention"><a href="?login">Please login to use this feature.</a></p>
+</fieldset>
+<fieldset>
+    <legend>Google Analytics Campaign Tagging</legend>
+    <p>Add your campaign information here and it will be automatically added to your URL when redirected.</p>
+    <ol>
+        <li>
+            <label for="gaSource" class="element">Source</label>
+            <div class="element"><input name="gaSource" id="gaSource" type="text" />            
+            </div>
+        </li>    
+        <li>
+            <label for="gaMedium" class="element">Medium</label>
+            <div class="element"><input name="gaMedium" id="gaMedium" type="text" />            
+            </div>
+        </li>
+        <li>
+            <label for="gaTerm" class="element">Term</label>
+            <div class="element"><input name="gaTerm" id="gaTerm" type="text" />        
+            </div>
+        </li>
+        <li>
+            <label for="gaContent" class="element">Content</label>
+            <div class="element"><input name="gaContent" id="gaContent" type="text" />            
+                </div>
+        </li>
+        <li>
+            <label for="gaName" class="element">Name</label>
+            <div class="element"><input name="gaName" id="gaName" type="text" />            
+            </div>
+        </li>    
+    </ol>
+</fieldset>
+<p class="submit"><input type="submit" id="submit" name="submit" value="Create URL" /></p>
+</form>
+</div>
             <!--#include virtual="wdn/templates_3.0/includes/noscript.html" -->
         </div> <!-- end of maincontent -->        
         <div id="footer">
