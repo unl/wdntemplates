@@ -29,7 +29,7 @@ foreach ($files as $file) {
     $packer = new JavaScriptPacker(file_get_contents(dirname(__FILE__)."/../scripts/$file.js"), 'Normal', true, false);
     $all .= '//'.$file.PHP_EOL.$packer->pack();
     if ($file == 'wdn') {
-        $all .= 'WDN.jQuery = jQuery.noConflict(true);';
+        $all .= 'WDN.jQuery = jQuery.noConflict(true);'.PHP_EOL;
     }
     $loaded .= 'WDN.loadedJS["wdn/templates_3.0/scripts/'.$file.'.js"]=true;'.PHP_EOL;
 }
