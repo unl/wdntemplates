@@ -95,6 +95,7 @@ var WDN = function() {
 				WDN.contentAdjustments();
 				WDN.initializePlugin('tooltip');
 				WDN.initializePlugin('toolbar');
+				WDN.initializePlugin('tabs');
 				WDN.browserAdjustments();
 				WDN.screenAdjustments();
 			});

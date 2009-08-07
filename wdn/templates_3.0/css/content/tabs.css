@@ -11,8 +11,11 @@ structure:
 </ul>
 
 */
+#maincontent .yesprint {
+	display:none;
+	}
 #maincontent ul.wdn_tabs {
-	margin:0 0 40px 0;
+	margin:10px 0 40px 0;
 	padding:0px 10px 0 10px;
 	list-style:none;
 	text-align:left;

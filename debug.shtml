@@ -55,6 +55,7 @@ Navigation</a></p>
 		        <li><a href="#tab3"><span>Tab #3</span></a></li>
 		        <li><a href="#tab4"><span>Tab #4</span></a></li>
 		    </ul>
+		    <div class="wdn_tabs_content">
 		    <div id="tab1">
 Content area for tab 1
 </div>
@@ -72,6 +73,7 @@ Content area for tab 3
 
 <div id="tab4">
 Content area for tab 4
+</div>
 </div>
 		    <ul class="wdn_tabs disableSwitching">
 		        <li><a href="http://www.unl.edu/"><span>Your Profile</span></a></li>
