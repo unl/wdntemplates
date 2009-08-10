@@ -229,7 +229,7 @@
 	color:#434343;
 	}
 #toolbar_events h4.sec_main {
-	background: url(http://events.unl.edu/templates/default/images/date1.gif) no-repeat;
+	background: url(images/date1.gif) no-repeat;
 	float:left;
 	font-size:1.5em;
 	font-style:normal;
@@ -238,14 +238,14 @@
 	line-height:1.2;
 	}
 #toolbar_events h4.upcoming-header {
-	background: url(http://events.unl.edu/templates/default/images/newrecurevent.png) no-repeat;
+	background: url(images/newrecurevent.png) no-repeat;
 	font-size:1.5em;
 	padding:4px 0 7px 34px;
 	font-weight:normal;
 	line-height:1.2;
 	}
 #toolbar_events h4.ongoing {
-	background: url(http://events.unl.edu/templates/default/images/ongoing.gif) no-repeat;
+	background: url(images/ongoing.gif) no-repeat;
 	clear:both;
 	font-size:1.5em;
 	margin-top:15px;
@@ -403,7 +403,7 @@
 	border:1px solid #d0c8a5;
 }
 #toolbar_peoplefinder a.cInfo{
-	background:url(http://peoplefinder.unl.edu/images/person.gif) no-repeat 0 3px;
+	background:url(images/person.gif) no-repeat 0 3px;
 	padding:0 0 0 1em;
 	margin-left:0.8em;
 	color:#555;
