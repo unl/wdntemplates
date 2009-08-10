@@ -10,9 +10,11 @@ $files = array(
 'toolbar_events',
 'toolbar_peoplefinder',
 'toolbar_webcams',
+'tooltip',
 'plugins/rating/jquery.rating',
 'tabs',
 'feedback',
+'socialmediashare',
 'global_functions',
 );
 
