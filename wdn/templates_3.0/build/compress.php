@@ -11,6 +11,7 @@ $files = array(
 'toolbar_peoplefinder',
 'toolbar_webcams',
 'plugins/rating/jquery.rating',
+'tabs',
 'feedback',
 'global_functions',
 );
