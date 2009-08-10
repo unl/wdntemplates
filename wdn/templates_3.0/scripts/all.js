@@ -62,5 +62,6 @@ WDN.loadedJS["wdn/templates_3.0/scripts/toolbar_webcams.js"]=true;
 WDN.loadedJS["wdn/templates_3.0/scripts/plugins/rating/jquery.rating.js"]=true;
 WDN.loadedJS["wdn/templates_3.0/scripts/feedback.js"]=true;
 WDN.loadedJS["wdn/templates_3.0/scripts/global_functions.js"]=true;
+WDN.loadedJS["wdn/templates_3.0/scripts/tabs.js"]=true;
 WDN.template_path = "/";
 WDN.initializeTemplate();
