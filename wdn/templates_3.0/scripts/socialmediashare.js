@@ -6,7 +6,7 @@ WDN.socialmediashare = function() {
 				return document.getElementById(id);
 			};
 			e("wdn_facebook").href = "http://www.facebook.com/share.php?u="+window.location+"";
-			e("wdn_twitter").href = "http://twitter.com/home?status=Reading "+window.location+" #unl";
+			e("wdn_twitter").href = "http://twitter.com/home?status=Reading "+window.location+" %23unl";
 			e("wdn_plurk").href = "http://www.plurk.com/?status="+window.location+" from University%20of%20Nebraska-Lincoln&qualifier=shares";
 			e("wdn_myspace").href = "http://www.myspace.com/Modules/PostTo/Pages/?l=3&u="+window.location+"&t=University%20of%20Nebraska-Lincoln: "+document.title+"";
 			e("wdn_digg").href = "http://digg.com/submit?phase=2&url="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"";
