@@ -12,6 +12,8 @@ $files = array(
 'toolbar_webcams',
 'tooltip',
 'plugins/rating/jquery.rating',
+'plugins/colorbox/jquery.colorbox',
+'plugins/qtip/jquery.qtip',
 'tabs',
 'feedback',
 'socialmediashare',
@@ -29,7 +31,8 @@ foreach (array('jquery') as $already_compressed) {
 
 require_once dirname(__FILE__).'/JavaScriptPacker.php';
 foreach ($files as $file) {
-    $packer = new JavaScriptPacker(file_get_contents(dirname(__FILE__)."/../scripts/$file.js"), 'Normal', true, false);
+    $filename = dirname(__FILE__)."/../scripts/$file.js";
+    $packer = new JavaScriptPacker(file_get_contents($filename), 'Normal', true, false);
     $all .= '//'.$file.PHP_EOL.$packer->pack();
     if ($file == 'wdn') {
         $all .= 'WDN.jQuery = jQuery.noConflict(true);'.PHP_EOL;

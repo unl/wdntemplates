@@ -16,6 +16,7 @@ Author: WDN
 			|- ul>li, a, img
 */
 @import url('feedback.css');
+@import url('rating.css');
 #footer {
 	margin-top:15px;
 	padding-top:26px;

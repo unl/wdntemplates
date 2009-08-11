@@ -1,21 +1,21 @@
 @CHARSET "UTF-8";
 @media screen {
 #wdn_search form label {
-    display:block;
+display:block;
 }
 
 #navigation {
-	z-index:0;
+z-index:0;
 }
 
 .nav_pinned #titlegraphic {
-	margin-top:24px;
+margin-top:24px;
 }
 .nav_pinned #wdn_navigation_bar {
-	position:relative;
-	left:0px;
-	width:100%;
-	top:auto;
+position:relative;
+left:0px;
+width:100%;
+top:auto;
 }
 
 .nav_pinned #navigation ul {
@@ -23,91 +23,84 @@
 }
 
 .nav_pinned #navigation ul ul li {
-	display:block;
+display:block;
 }
 
 #wdn_navigation_bar,
 .nav_collapsed #wdn_navigation_bar {
-	position:absolute;
-	 top:90px;
-	margin:0;
-	width:auto;
-	left:12px;
+position:absolute;
+top:90px;
+margin:0;
+width:auto;
+left:12px;
 }
 
 #titlegraphic,
 .nav_collapsed #titlegraphic {
-	margin-top:120px;
+margin-top:120px;
 }
-
-/*
-#navigation ul ul li,
-.nav_collapsed #navigation ul ul li {
-	display:none;
-}
-*/
 
 .nav_expanded #navigation {
-    padding-bottom:34px;
+padding-bottom:34px;
 }
 
 #navigation ul,
 .nav_collapsed #navigation ul {
-	z-index:0;
-   	height:50px;
-	width:100%;
-	overflow:hidden;
+z-index:0;
+height:50px;
+width:100%;
+overflow:hidden;
 }
 
 #navigation-expand-collapse,
 .nav_collapsed #navigation-expand-collapse {
-	width:100%;
-	height:38px;
-	font-size:.55em;
-	font-weight:bold;
-	color:#727272;
-	background:url('navigation/images/lowerFade.png') repeat-x;
-	cursor:pointer;
+width:100%;
+height:38px;
+font-size:.55em;
+font-weight:bold;
+color:#727272;
+background:url('navigation/images/lowerFade.png') repeat-x;
+cursor:pointer;
 }
 #navigation-expand-collapse span {
-	position:relative;
-	top:24px;
+position:relative;
+top:24px;
 }
 
 #navigation-expand-collapse span:after,
 #navigation-expand-collapse span:before,
 .nav_collapsed #navigation-expand-collapse span:after,
 .nav_collapsed #navigation-expand-collapse span:before {
-	content:'';
-	position:relative;
-	background:url('navigation/images/menuIndicatorsSprite.png');
-	background-position:0px -12px;
-    display:inline-block;
-    overflow:hidden;
-    padding:0px;
-    margin:5px 5px 0px 5px;
-    width:10px;
-	height:6px;
+content:'';
+position:relative;
+background:url('navigation/images/menuIndicatorsSprite.png');
+background-position:0px -12px;
+display:inline-block;
+overflow:hidden;
+padding:0px;
+margin:5px 5px 0px 5px;
+width:10px;
+height:6px;
 }
 
 .nav_expanded #navigation-expand-collapse span:before {
-	background-position:25px -12px;
-	width:15px;
+background-position:25px -12px;
+width:15px;
 }
 
 .nav_pinned #navigation-expand-collapse span:before {
-	background-position:50px -12px;
-	width:10px;
-	padding-top:4px;
+background-position:50px -12px;
+width:10px;
+padding-top:4px;
 }
 
 .nav_pinned #navigation-expand-collapse span {
-	top:20px;
+top:20px;
 }
 
 .nav_expanded #navigation-expand-collapse span:after,
 .nav_pinned #navigation-expand-collapse span:after {
-	display:none;
+display:none;
 }
 
 /* BORDER RADIUS */
@@ -143,45 +136,45 @@
 #footer img.frame,
 #cboxLoadedContent img.frame
 {
-	-moz-border-radius:3px;
-    -webkit-border-radius:3px;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
 }
 
 #maincontent p.caption, #footer p.caption {
-    -moz-border-radius-topleft:3px;
-    -webkit-border-top-left-radius:3px;
+-moz-border-radius-topleft:3px;
+-webkit-border-top-left-radius:3px;
 }
 #maincontent div.zenboxsolid, #maincontent div.zenboxfixed, #maincontent div.zenboxfeature, #maincontent div.zenbox,
 #maincontent div.zenboxsolid.bright, #maincontent div.zenboxfixed.bright, #maincontent div.zenboxfeature.bright, #maincontent div.zenbox.bright {
-	-moz-border-radius:5px;
-    -webkit-border-radius:5px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
 }
 
 #wdn_wrapper {
-	-moz-border-radius:18px;
-    -webkit-border-radius:18px;
+-moz-border-radius:18px;
+-webkit-border-radius:18px;
 }
 
 ul#wdn_tool_links li {
-	-moz-border-radius:5px;
-    -webkit-border-radius:5px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
 }
 
 #weathercontent #showradar{
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
 }
 
 #maincontent .sec_main {
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
 }
 #maincontent .zenboxsolid h3.sec_main,
 #maincontent .zenboxfixed h3.sec_main,
 #maincontent .zenboxfeature h3.sec_main,
 #maincontent .zenbox h3.sec_main {
-    -moz-border-radius:0px;
-    -webkit-border-radius:0px;
+-moz-border-radius:0px;
+-webkit-border-radius:0px;
 }
 
 }

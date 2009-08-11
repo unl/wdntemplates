@@ -28,6 +28,7 @@
     'navigation/navigation',
     'footer/feedback',
     'footer/footer',
+    'footer/rating',
     'content/basestyles',
     'content/tabs',
     'content/columns',
