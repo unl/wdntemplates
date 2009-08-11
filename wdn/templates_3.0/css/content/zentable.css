@@ -23,7 +23,7 @@
 .zentable tr th, .zentable .zentable tr th, .zentable.bright tr th, .zentable .zentable.bright tr th
 {
     color: #3a3a3a;
-    background-color: #E8E81C;
+    background-color: #F5E702;
 }
 
 .zentable tbody tr:first-child td
@@ -55,7 +55,7 @@
 {
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    border-color: #FEFF5F;
+    border-color: #FFF88F;
 }
 
 /* Cool Zentable */
@@ -82,7 +82,7 @@ table.zentable.cool tbody td, .zentable table.zentable.cool tbody td
 /* Soothing Zentable */
 .zentable.soothing tr th, .zentable .zentable.soothing tr th
 {
-    background-color: #39CB39;
+    background-color: #028A02;
     color: #FFFFFF;
 }
 
@@ -97,7 +97,7 @@ table.zentable.soothing tbody tr.rowOdd td, .zentable table.zentable.soothing tb
 
 table.zentable.soothing tbody td, .zentable table.zentable.soothing tbody td
 {
-    border-color: #99DF99;
+    border-color: #B5DFB5;
 }
 
 /* Energetic Zentable */

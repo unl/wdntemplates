@@ -339,19 +339,21 @@ Content area for tab 4
                 </ul>
                 </div>
             </div>
-            <div class="col left">
+                        <div class="col left">
             <table class="zentable bright">
                 <thead>
                     <tr><th>Head 1</th><th>Head 2</th></tr>
                 </thead>
                 <tbody>
                     <tr><td>test1</td><td>test second col</td></tr>
+
                     <tr><td>test2</td><td>test second col</td></tr>
                     <tr><td>test3</td><td>test second col</td></tr>
                     <tr><td>test4</td><td>test second col</td></tr>
                 </tbody>
             </table>
             </div>
+
             <div class="col">
             <table class="zentable cool">
                 <thead>
@@ -359,12 +361,14 @@ Content area for tab 4
                 </thead>
                 <tbody>
                     <tr><td>test1</td><td>test second col</td></tr>
+
                     <tr><td>test2</td><td>test second col</td></tr>
                     <tr><td>test3</td><td>test second col</td></tr>
                     <tr><td>test4</td><td>test second col</td></tr>
                 </tbody>
             </table>
             </div>
+
             <div class="col">
             <table class="zentable energetic">
                 <thead>
@@ -372,12 +376,14 @@ Content area for tab 4
                 </thead>
                 <tbody>
                     <tr><td>test1</td><td>test second col</td></tr>
+
                     <tr><td>test2</td><td>test second col</td></tr>
                     <tr><td>test3</td><td>test second col</td></tr>
                     <tr><td>test4</td><td>test second col</td></tr>
                 </tbody>
             </table>
             </div>
+
             <div class="col right">
             <table class="zentable soothing">
                 <thead>
@@ -385,13 +391,15 @@ Content area for tab 4
                 </thead>
                 <tbody>
                     <tr><td>test1</td><td>test second col</td></tr>
+
                     <tr><td>test2</td><td>test second col</td></tr>
                     <tr><td>test3</td><td>test second col</td></tr>
                     <tr><td>test4</td><td>test second col</td></tr>
                 </tbody>
             </table>
             </div>
-            <div class="clear"><br /></div>
+
+            <div class="clear"><br></div>
             <div class="col left">
             <table class="zentable neutral">
                 <thead>
@@ -399,12 +407,14 @@ Content area for tab 4
                 </thead>
                 <tbody>
                     <tr><td>test1</td><td>test second col</td></tr>
+
                     <tr><td>test2</td><td>test second col</td></tr>
                     <tr><td>test3</td><td>test second col</td></tr>
                     <tr><td>test4</td><td>test second col</td></tr>
                 </tbody>
             </table>
             </div>
+
             <div class="col">
             <table class="zentable primary">
                 <thead>
@@ -412,13 +422,15 @@ Content area for tab 4
                 </thead>
                 <tbody>
                     <tr><td>test1</td><td>test second col</td></tr>
+
                     <tr><td>test2</td><td>test second col</td></tr>
                     <tr><td>test3</td><td>test second col</td></tr>
                     <tr><td>test4</td><td>test second col</td></tr>
                 </tbody>
             </table>
             </div>
-            <div class="clear"><br /></div>
+
+            <div class="clear"><br></div>
             <div class="two_col left">
             <table class="zentable primary">
                 <thead>
@@ -426,17 +438,20 @@ Content area for tab 4
                 </thead>
                 <tbody>
                     <tr><td>test1</td><td>test second col</td></tr>
+
                     <tr><td>test2</td><td>test second col</td></tr>
                     <tr><td>test3</td><td><div class="col">
             <table class="zentable soothing">
                 <thead>
                     <tr><th>Head 1</th><th>Head 2</th></tr>
                 </thead>
+
                 <tbody>
                     <tr><td>test1</td><td>test second col</td></tr>
                     <tr><td>test2</td><td>test second col</td></tr>
                     <tr><td>test3</td><td>test second col</td></tr>
                     <tr><td>test4</td><td>test second col</td></tr>
+
                 </tbody>
             </table>
             </div></td></tr>
@@ -444,7 +459,10 @@ Content area for tab 4
                 </tbody>
             </table>
             </div>
+
             
+            <div class="clear"></div>
+
             <div class="clear"></div>
 <div class="three_col">
             <form method="post" class="cool" action="#">
