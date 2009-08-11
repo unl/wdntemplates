@@ -184,7 +184,7 @@
 	text-align: center;	
 }
 #showradar img {
-	background:url('http://radar.weather.gov/lite/N0R/OAX_loop.gif') -5px -140px no-repeat;
+	background:url('images/colorbox/loading.gif') center no-repeat;
 	height:350px;
 	width:400px;
 }

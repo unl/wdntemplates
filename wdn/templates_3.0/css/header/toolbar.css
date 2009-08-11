@@ -1,5 +1,6 @@
 @import url('toolbarcontent.css');
 @import url('tooltabs.css');
+@import url('colorbox.css');
 
 #wdn_tool_links {
 	position:absolute;
