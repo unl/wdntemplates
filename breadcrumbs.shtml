@@ -63,9 +63,9 @@
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             <!-- InstanceBeginEditable name="maincontentarea" -->
             <p>Consider this webpage for a moment and look at the <strong>navigation</strong>. Is this the navigation for the college, the department, or for UNL? Your guess is as good as mine. We need to associate a breadcrumb element with the current navigation.</p>
-            <p>If you do nothing when upgrading your templates, the SECOND element within the breadcrumbs will be selected by default. <a href="#" onclick="removeSelected(); jQuery('#breadcrumbs ul li:nth-child(2);').addClass('selected'); return false">Click here to see what that looks like.</a> This would visually tell the user that the navigation displayed by default is associated with the "College" level. So the "About Us" link could be interpreted by the end-user that the page would have information about the <strong>college</strong>.</p>
+            <p>If you do nothing when upgrading your templates, the SECOND element within the breadcrumbs will be selected by default. <a href="#" onclick="removeSelected(); WDN.jQuery('#breadcrumbs ul li:nth-child(2);').addClass('selected'); return false">Click here to see what that looks like.</a> This would visually tell the user that the navigation displayed by default is associated with the "College" level. So the "About Us" link could be interpreted by the end-user that the page would have information about the <strong>college</strong>.</p>
             <p>If you would like to specify a different breadcrumb element to be associated with the navigation, you need to tell the templates which element to use. This is done through a <code>&lt;link rel="home" href="" /&gt;</code> tag within the head of each page.</p>
-            <p>The value of the href attribute is important and must be specified correctly for this association to work. If the navigation is to be associated with the "Department" level of the breadcrumbs, the href should point to the department's homepage. <a href="#" onclick="removeSelected(); jQuery('#breadcrumbs ul li:nth-child(3);').addClass('selected'); return false">Click here to see what that looks like.</a> This would visually tell the user that the navigation displayed by default is associated with the "Department" level. So the "About Us" link could be interpreted by the end-user that the page would have information about the <strong>department</strong>.</p>
+            <p>The value of the href attribute is important and must be specified correctly for this association to work. If the navigation is to be associated with the "Department" level of the breadcrumbs, the href should point to the department's homepage. <a href="#" onclick="removeSelected(); WDN.jQuery('#breadcrumbs ul li:nth-child(3);').addClass('selected'); return false">Click here to see what that looks like.</a> This would visually tell the user that the navigation displayed by default is associated with the "Department" level. So the "About Us" link could be interpreted by the end-user that the page would have information about the <strong>department</strong>.</p>
             </p>
             <p>If you specify this value, make sure you use the <strong>exact</strong> same address within the breadcrumbs throughout your site. Each of the links below may take the user to the same page, but the addresses are different.</p>
             <pre>
@@ -77,7 +77,7 @@
             <a href="#" onclick="removeSelected(); return false">Remove the breadcrumb selected class</a>
             <script type="text/javascript">
 				WDN.navigation.determineSelectedBreadcrumb = function() {};
-				function removeSelected() {jQuery('.selected').removeClass('selected');}
+				function removeSelected() {WDN.jQuery('.selected').removeClass('selected');}
             </script>
             <!-- InstanceEndEditable -->
             <div class="clear"></div>
