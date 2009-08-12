@@ -76,8 +76,8 @@
             <p>Consistency is important for many reasons.</p>
             <a href="#" onclick="removeSelected(); return false">Remove the breadcrumb selected class</a>
             <script type="text/javascript">
-				WDN.navigation.determineSelectedBreadcrumb = function() {};
 				function removeSelected() {WDN.jQuery('.selected').removeClass('selected');}
+				setTimeout(removeSelected, 500);
             </script>
             <!-- InstanceEndEditable -->
             <div class="clear"></div>
