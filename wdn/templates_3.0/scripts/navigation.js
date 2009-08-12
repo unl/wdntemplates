@@ -199,10 +199,12 @@ WDN.navigation = function() {
                 
                 WDN.setCookie('n',1,5000);
                 WDN.navigation.preferredState = 1;
+                WDN.analytics.trackNavigationPreferredState("Open");
             } else {
                 WDN.log('Setting preferred navigation state CLOSED');
                 WDN.setCookie('n',0,-100);
                 WDN.navigation.preferredState = 0;
+                WDN.analytics.trackNavigationPreferredState("Closed");
             }
             WDN.navigation.initializePreferredState();
         },
