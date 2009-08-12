@@ -76,6 +76,17 @@ var WDN = function() {
 			WDN.loadCSS('wdn/templates_3.0/css/script.css');
 			WDN.loadJS('wdn/templates_3.0/scripts/xmlhttp.js');
 			WDN.loadJS('wdn/templates_3.0/scripts/global_functions.js');
+			gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");  
+			WDN.loadJS(gaJsHost + "google-analytics.com/ga.js", function(){  
+		   
+		    	try {  
+		        	wdnTracker = _gat._getTracker("UA-9809462-1"); 
+		            wdnTracker._setDomainName(".unl.edu");
+		            wdnTracker._setAllowLinker(true);
+		            wdnTracker._setAllowHash(false);
+		            wdnTracker._trackPageview();  
+		        } catch(err) {} 
+		    });
 			WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', WDN.jQueryUsage);
 		},
 		
