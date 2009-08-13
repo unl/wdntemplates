@@ -6,11 +6,16 @@ WDN.tabs = function() {
 		if (window.location.hash) {
 				var hash = window.location.hash;
 				WDN.tabs.hideDiv('#'+hash);
+				WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li.selected').removeClass('selected');
 				WDN.jQuery('a[href='+hash+']').parent().addClass('selected');
 			} else {
 				var hash = false;
-				WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li:first').addClass('selected');
-				var href = WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li:first a').attr('href');
+				if (WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li.selected').length){
+					var href = WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li.selected:first a').attr('href');
+				}else{
+					WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li:first').addClass('selected');
+					var href = WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li:first a').attr('href');
+				}
 				WDN.tabs.hideDiv(href);
 			};
 			WDN.jQuery('ul.wdn_tabs li').each(function(){
