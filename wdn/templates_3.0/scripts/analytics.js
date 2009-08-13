@@ -10,21 +10,19 @@
 // 
 // _trackEvent(category, action, optional_label, optional_value)
 // _trackPageview('/downloads/'+href);
+//
+// Department variable 'pageTracker' is available to use in this file.
 
-WDN.analytics = function() {
+WDN.analytics = function() {  
+	try {  
+    	wdnTracker = _gat._getTracker("UA-9809462-1"); 
+        wdnTracker._setDomainName(".unl.edu");
+        wdnTracker._setAllowLinker(true);
+        wdnTracker._setAllowHash(false);
+        wdnTracker._trackPageview();  
+    } catch(err) {} 
 	var thisURL = String(window.location);
-	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");  
-    WDN.jQuery.getScript(gaJsHost + "google-analytics.com/ga.js", function(){  
-   
-    	try {  
-        	wdnTracker = _gat._getTracker("UA-9809462-1"); 
-            wdnTracker._setDomainName(".unl.edu");
-            wdnTracker._setAllowLinker(true);
-            wdnTracker._setAllowHash(false);
-            wdnTracker._trackPageview();  
-        } catch(err) {} 
-        WDN.log("WDN site analytics loaded for "+ thisURL);
-    });
+    WDN.log("WDN site analytics loaded for "+ thisURL);
 	return {
 		initialize : function() {
 		        filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v)$/i; //these are the file extensions to track for downloaded content
@@ -56,7 +54,6 @@ WDN.analytics = function() {
 					var socialMedia = WDN.jQuery(this).attr('id');
 					var success = wdnTracker._trackEvent('Page Sharing', socialMedia, thisURL); 
 					WDN.log("social share success? "+success);
-					return false;
 				});
 				WDN.jQuery('#wdn_tool_links a').click(function(){ 
 					var wdnToolLinks = WDN.jQuery(this).attr('id');
