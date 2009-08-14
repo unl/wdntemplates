@@ -34,7 +34,7 @@ Author: WDN
 }
 
 #navigation ul ul li:first-child {
-	display:block;
+	display: block;
 }
 #navigation ul
 {
@@ -63,9 +63,10 @@ Author: WDN
 }
 
 #navigation ul li{
-    float: left;
+	vertical-align: top;
+    display: inline-block;
     padding: 6px 0.6%;
-    width: 15.2%;
+    width: 15.1%;
     margin-bottom: 10px;
 }
 
