@@ -58,6 +58,7 @@
 		z-index:10;
 	}
 	#headlines>div {
+		cursor:pointer;
 		padding-left:20px;
 		position:relative;
 	}
@@ -200,11 +201,10 @@ p#feeds a#rssformat{background:url(http://events.unl.edu/templates/default/image
 					WDN.jQuery("#posters>div.activeposter").removeClass("activeposter").addClass("hiddenposter");
 					WDN.jQuery("#poster"+nextPoster).removeClass("hiddenposter").addClass("activeposter");
 					WDN.jQuery("#poster"+nextPoster).fadeIn("slow", function (){
-						WDN.jQuery("#poster"+nextPoster).removeClass("hiddenposter").addClass("activeposter");
-					});
-					//change the headline panel
-					WDN.jQuery("#headlines>div").removeClass("activepanel");
-					WDN.jQuery("#headline"+nextPoster).addClass("activepanel");
+						//change the headline panel
+						WDN.jQuery("#headlines>div").removeClass("activepanel");
+						WDN.jQuery("#headline"+nextPoster).addClass("activepanel");
+					});					
 			 });
 		  }, speed );
 	   };
