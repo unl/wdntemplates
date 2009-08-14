@@ -103,16 +103,6 @@ p#feeds a#rssformat, p.feeds a.rssformat, p.feeds a twitteformat {background:url
     </style>
     
 <script type="text/javascript">
-WDN.jQuery(document).ready(function() {
-	WDN.jQuery.get("http://events.unl.edu/upcoming/?format=xml&limit=5", {}, function(xml) {
-		WDN.jQuery('Event',xml).each(function(i) {
-			eventName = WDN.jQuery(this).find("EventTitle");
-			WDN.log(eventName);
-			eventLocation = WDN.jQuery(this).find("LocationName");
-			WDN.log(eventLocation);
-		});
-	});
-});
 
 
 	var posters,headlines,thisPoster,nextPoster,posterState,currentSplash=0,splashDelay=10000,transtitonSpeed=20,control=1,loopswitch=1,looptime=0;
@@ -320,8 +310,225 @@ addLoadEvent(function() {
 			</div>
 			<script type="text/javascript">
    				 //<![CDATA[
+   				 //Get dates for the events. Date script from http://joncom.be/code/jquery-phpdate/ http://delete.me.uk/2005/03/iso8601.html
+   				 (function($) {
+  var aDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  var aMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+  // main function
+  $.PHPDate = function(sString, dtDate) {
+    var sElement = "";
+    var sOutput = "";
+
+    // we can cheat with "r"...
+    sString = sString.replace(/r/g, "D, j M Y H;i:s O");
+
+    // loop through string
+    for (var i = 0; i < sString.length; i++) {
+      sElement = sString.charAt(i);
+      switch (sElement) {
+        case "a": sElement = AMPM(dtDate.getHours()); break;
+        case "c":
+          sElement = (dtDate.getFullYear() + "-" +
+                      AddLeadingZero(dtDate.getMonth()) + "-" +
+                      AddLeadingZero(dtDate.getDate()) + "T" +
+                      AddLeadingZero(dtDate.getHours()) + ":" +
+                      AddLeadingZero(dtDate.getMinutes()) + ":" +
+                      AddLeadingZero(dtDate.getSeconds()));
+          var sTemp = dtDate.toString().split(" ")[5];
+          if (sTemp.indexOf("-") > -1) {
+            sElement += sTemp.substr(sTemp.indexOf("-"));
+          } else if (sTemp.indexOf("+") > -1) {
+            sElement += sTemp.substr(sTemp.indexOf("+"));
+          } else {
+            sElement += "+0000";
+          }
+          break;
+        case "d": sElement = AddLeadingZero(dtDate.getDate()); break;
+        case "g": sElement = TwelveHourClock(dtDate.getHours()); break;
+        case "h": sElement = AddLeadingZero(TwelveHourClock(dtDate.getHours())); break;
+        case "i": sElement = AddLeadingZero(dtDate.getMinutes()); break;
+        case "j": sElement = dtDate.getDate(); break;
+        case "l": sElement = aDays[dtDate.getDay()]; break;
+        case "m": sElement = AddLeadingZero(dtDate.getMonth() + 1); break;
+        case "n": sElement = dtDate.getMonth() + 1; break;
+        case "o": (new Date(FirstMonday(dtDate.getFullYear())) > dtDate) ? sElement = (dtDate.getFullYear() - 1) : sElement = dtDate.getFullYear(); break;
+        case "s": sElement = AddLeadingZero(dtDate.getSeconds()); break;
+        case "t":
+          var dtTemp = new Date(dtDate.valueOf());
+          dtTemp.setMonth(dtTemp.getMonth() + 1)
+          dtTemp.setDate(0);
+          sElement = dtTemp.getDate();
+          break;
+        case "u": sElement = dtDate.getMilliseconds(); break;
+        case "w": sElement = dtDate.getDay(); break;
+        case "y": sElement = dtDate.getFullYear().toString().substr(2, 2); break;
+        case "z":
+          var dtFirst = new Date(dtDate.getFullYear(), 0, 1, 0, 0, 0, 0);
+          var dtLast = new Date(dtDate.getFullYear(), dtDate.getMonth(), dtDate.getDate(), 0, 0, 0, 0);
+          sElement = Math.round((dtLast.valueOf() - dtFirst.valueOf()) / 1000 / 60 / 60/ 24);
+          break;
+        case "A": sElement = AMPM(dtDate.getHours()).toUpperCase(); break;
+        case "B":
+          sElement = Math.floor(((dtDate.getHours() * 60 * 60 * 1000) +
+          (dtDate.getMinutes() * 60 * 1000) +
+          (dtDate.getSeconds() * 1000) +
+          (dtDate.getMilliseconds())) / 86400);
+          break;
+        case "D": sElement = aDays[dtDate.getDay()].substr(0, 3); break;
+        case "F": sElement = aMonths[dtDate.getMonth()]; break;
+        case "G": sElement = dtDate.getHours(); break;
+        case "H": sElement = AddLeadingZero(dtDate.getHours()); break;
+        case "I":
+          var dtTempFirst = new Date(dtDate.getFullYear(), 0, 1);
+          var dtTempLast = new Date(dtDate.getFullYear(), dtDate.getMonth(), dtDate.getDate());
+          var iDaysDiff = (dtTempLast.valueOf() - dtTempFirst.valueOf()) / 1000 / 60 / 60 / 24;
+          (iDaysDiff == Math.round(iDaysDiff)) ? sElement = 0 : sElement = 1;
+          break;
+        case "L": ((new Date(dtDate.getFullYear(), 2, 0)).getDate() == 29) ? sElement = 1 : sElement = 0; break;
+        case "M": sElement = aMonths[dtDate.getMonth()].substr(0, 3); break;
+        case "N": (dtDate.getDay() == 0) ? sElement = 7 : sElement = dtDate.getDay(); break;
+        case "O":
+          var sTemp = dtDate.toString().split(" ")[5];
+          if (sTemp.indexOf("-") > -1) {
+            sElement = sTemp.substr(sTemp.indexOf("-"));
+          } else if (sTemp.indexOf("+") > -1) {
+            sElement = sTemp.substr(sTemp.indexOf("+"));
+          } else {
+            sElement = "+0000";
+          }
+          break;
+        case "P":
+          var sTemp = dtDate.toString().split(" ")[5];
+          if (sTemp.indexOf("-") > -1) {
+            var aTemp = sTemp.substr(sTemp.indexOf("-") + 1).split("");
+            sElement = ("-" + aTemp[0] + aTemp[1] + ":" + aTemp[2] + aTemp[3]);
+          } else if (sTemp.indexOf("+") > -1) {
+            var aTemp = sTemp.substr(sTemp.indexOf("+") + 1).split("");
+            sElement = ("+" + aTemp[0] + aTemp[1] + ":" + aTemp[2] + aTemp[3]);
+          } else {
+            sElement = "+00:00";
+          }
+          break;
+        case "S": sElement = DateSuffix(dtDate.getDate()); break;
+        case "T":
+          sElement = dtDate.toString().split(" ")[5];
+          if (sElement.indexOf("+") > -1) {
+            sElement = sElement.substr(0, sElement.indexOf("+"));
+          } else if (sElement.indexOf("-") > -1) {
+            sElement = sElement.substr(0, sElement.indexOf("-"));
+          }
+          break;
+        case "U": sElement = Math.floor(dtDate.getTime() / 1000); break;
+        case "W":
+          var dtTempFirst = new Date(FirstMonday(dtDate.getFullYear()));
+          var dtTempLast = new Date(dtDate.getFullYear(), dtDate.getMonth(), dtDate.getDate());
+          sElement = Math.ceil(Math.round((dtTempLast.valueOf() - dtTempFirst.valueOf()) / 1000 / 60 / 60/ 24) / 7);
+          break;
+        case "Y": sElement = dtDate.getFullYear(); break;
+        case "Z":
+          (dtDate.getTimezoneOffset() < 0) ? sElement = Math.abs(dtDate.getTimezoneOffset() * 60) : sElement = (0 - (dtDate.getTimezoneOffset() * 60));
+          break;
+      }
+      sOutput += sElement.toString();
+      }
+    return sOutput;
+  }
+
+  // add leading zero
+  function AddLeadingZero(iValue) {
+    if (iValue < 10) {
+      iValue = ("0" + iValue);
+    }
+    return iValue;
+  }
+
+  // Ante meridiem and Post meridiem
+  function AMPM(iHours) {
+    if (iHours > 11) {
+      return "pm";
+    } else {
+      return "am";
+    }
+  }
+
+  // date suffix
+  function DateSuffix(iDay) {
+    var sSuffix = "th";
+    switch (parseInt(iDay)) {
+      case 1:
+      case 21:
+      case 31:
+        sSuffix = "st";
+        break;
+      case 2:
+      case 22:
+        sSuffix = "nd";
+        break;
+      case 3:
+      case 23:
+        sSuffix = "rd";
+    }
+    return sSuffix;
+  }
+
+  // find the first Monday in a given year (for ISO 8601 dates)
+  function FirstMonday(iYear) {
+    var dtTemp = new Date(iYear, 0, 1);
+    while (dtTemp.getDay() != 1) {
+      dtTemp.setDate(dtTemp.getDate() + 1);
+    }
+    return dtTemp.valueOf();
+  }
+
+  // 12-Hour clock
+  function TwelveHourClock(iHours) {
+    if (iHours == 0) {
+      iHours = 24;
+    } else if (iHours > 12) {
+      iHours -= 12;
+    }
+    return iHours;
+  }
+})(WDN.jQuery);
+   				Date.prototype.setISO8601 = function (string) {
+   				    var regexp = "([0-9]{4})(-([0-9]{2})(-([0-9]{2})" +
+   				        "(T([0-9]{2}):([0-9]{2})(:([0-9]{2})(\.([0-9]+))?)?" +
+   				        "(Z|(([-+])([0-9]{2}):([0-9]{2})))?)?)?)?";
+   				    var d = string.match(new RegExp(regexp));
+
+   				    var offset = 0;
+   				    var date = new Date(d[1], 0, 1);
+
+   				    if (d[3]) { date.setMonth(d[3] - 1); }
+   				    if (d[5]) { date.setDate(d[5]); }
+   				    if (d[7]) { date.setHours(d[7]); }
+   				    if (d[8]) { date.setMinutes(d[8]); }
+   				    if (d[10]) { date.setSeconds(d[10]); }
+   				    if (d[12]) { date.setMilliseconds(Number("0." + d[12]) * 1000); }
+   				    if (d[14]) {
+   				        offset = (Number(d[16]) * 60) + Number(d[17]);
+   				        offset *= ((d[15] == '-') ? 1 : -1);
+   				    }
+
+   				    offset -= date.getTimezoneOffset();
+   				    time = (Number(date) + (offset * 60 * 1000));
+   				    this.setTime(Number(time));
+   				};
 				var my_calurl = "http://events.unl.edu/?upcoming&format=hcalendar&limit=5"; 
-				fetchURLInto(my_calurl, 'splash_calendar', 'Error loading data.');
+				WDN.get(my_calurl, null, function(content){
+					WDN.jQuery('#splash_calendar').hide().html(content);
+					WDN.jQuery('#splash_calendar abbr').each(function() {
+						var iso = new Date();
+						iso.setISO8601(WDN.jQuery(this).attr('title'));
+						var time = '';
+						if (WDN.jQuery.PHPDate('H',iso)!='00') {
+							time = '<span class="time">'+WDN.jQuery.PHPDate('g:ia',iso)+'</span>';
+						}
+						WDN.jQuery(this).replaceWith('<span class="month">'+WDN.jQuery.PHPDate('M',iso)+'</span> <span class="day">'+WDN.jQuery.PHPDate('j',iso)+'</span>'+time);
+					});
+					WDN.jQuery('#splash_calendar').show();
+				});
    				 //]]>
 			</script>
             </div>
