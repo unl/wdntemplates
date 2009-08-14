@@ -2,14 +2,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html version="-//W3C//DTD XHTML 1.1//EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd">
 <head>
-    <link rel="stylesheet" type="text/css" media="screen" href="wdn/templates_3.0/css/debug.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="wdn/templates_3.0/css/all.css" />
     <link rel="stylesheet" type="text/css" media="print" href="wdn/templates_3.0/css/print.css" />
     <!--#include virtual="sharedcode/localSiteLinks.html" -->
-    <script type="text/javascript" src="wdn/templates_3.0/scripts/debug.js"></script>
+    <script type="text/javascript" src="wdn/templates_3.0/scripts/all.js"></script>
     <!--#include virtual="wdn/templates_3.0/includes/browserspecifics.html" -->
 	<!--#include virtual="wdn/templates_3.0/includes/metanfavico.html" -->
     
-    <style type="text/css">
+<style type="text/css">
 	/** css to hide navigation and titlegraphic **/
 	
 	#wdn_navigation_bar {
@@ -25,37 +25,104 @@
 	.footer_col {
 		display:none;
 	}
+	#wdn_copyright {
+		border-top:none;
+	}
 	
 	
 	/** css for main story rotator **/
-	#splash {margin:0px;border-top:1px solid #ddd; padding-top:1px;border-bottom:1px solid #ddd;}
-	#splash ul {width:320px;float:right;margin:0;}
-	#splash ul li {list-style: none outside none;}
-	#splash ul li {margin:0;font-size: 1.2em;line-height:1.2;padding-left:20px;z-index:69;position:relative;background:transparent;}
-	#splash ul li.active {background:url('wdn/templates_3.0/css/variations/images/splash_selector.png') no-repeat 0 30%;}
-	#splash ul li a {background:#efefef;color:#666;text-decoration:none;padding:12px 1em;display:block;border-top:1px #ccc solid;min-height:88px;}
-	#splash ul li a:focus{color:#efefef !important;}
-	#splash ul li a span {display:block;font-size:11px;padding-top:7px;}
-	#splash ul li:first-child a {border-top:1px #efefef solid;}
-	#splash ul li.active a, #splash ul li a:hover {background:#b80302;color:#fff;border-top:1px #600 solid;}
-	#splash ul li.active:first-child a, #splash ul li:first-child a:hover {border-top:1px #900 solid;}
-	#posters {position:relative;}
-	#posters div {width:640px;height:340px;position:absolute;top:0;z-index:1;}
-	#posters div .logo {position:absolute; top:80px; left:28px;}
-	#posters div p {width:200px; color:#666; position:absolute; top:100px; left:30px;}
-	#posters div p#preview {width:100%; height:100%; top:0; left:0;}
-	div#posters div {background-color:#fff}
-	div#splash1 {background:url('http://ucommxsrv1.unl.edu/graphics/09_splashtest_statemuseum.jpg') no-repeat right;}
-	div#splash2 {background:url('http://ucommxsrv1.unl.edu/graphics/09_splashtest_sheldon.jpg') no-repeat right;}
-	div#splash4 {background:url('/unite/bitmaps/images/develop.jpg') no-repeat 0 0;}
-	.third h3 a:link,
-	.third h3 a:visited {color:#000; text-decoration:none;}
-	.third h3 a:hover {text-decoration:underline;}
-	img.icon {float:left; width:64px; margin:0 1em 0 0;}
+	#splash {
+		height:392px;
+		width:940px;
+		border-top:1px solid #ddd;
+		border-bottom:1px solid #ddd;
+		padding:1px 0;
+		margin:0 0 15px 0;
+	}
+	#headlines {
+		height:392px;
+		width: 320px;
+		float:right;
+		z-index:10;
+	}
+	#headlines>div {
+		cursor:pointer;
+		padding-left:20px;
+		position:relative;
+	}
+	#headlines>div.activepanel {
+		background:url('wdn/templates_3.0/css/variations/images/splash_selector.png') no-repeat 0 30%;
+		z-index:100;
+	}
+	#headlines>div.activepanel div.splash_headline,
+	#headlines div.splash_headline:hover {
+		background:#b80302;
+		color:#fff;
+		border-top:1px solid #660000;
+	}
 
-#videobox0 {visibility:hidden}
+	#headlines div.splash_headline {
+		background:#f5f5f5;
+		height:106px;
+		border-top:1px solid #ccc;
+		color:#666;
+		padding:12px 16px;
+	}
 
-#videobox1 {visibility:hidden}
+	#headline1 div.splash_headline {
+		border:0 !important;
+	}
+	#headline4 {
+		display:none;
+	}
+
+	
+	#headlines {
+		font-size:0.9em;
+		line-height:1.2em;
+	}
+	#headlines h4 {
+		font-size:1.4em;
+	}
+	#headlines>div.activepanel h4, #headlines>div:hover h4{
+		color:#fff;
+	}
+	
+	
+	#posters {
+		position:relative;
+	}
+	#posters h2, #posters h3 {
+		color:#ddd;
+	}
+	#posters>div {
+		width:640px;
+		height:392px;
+		position:absolute;
+		overflow: hidden;
+	}
+	#poster1 {
+		background:#fff url('http://ucommxsrv1.unl.edu/graphics/09_splashtest_statemuseum.jpg') no-repeat;
+	}
+	#poster2 {
+		color:#fff;
+		background:#fff url('http://ucommxsrv1.unl.edu/graphics/09_splashtest_sheldon.jpg') no-repeat;
+	}
+	#poster3 {
+		background:#fff;
+	}
+	#poster4 {
+		background:#fff;
+	}
+	.activeposter {
+		visibility:visible;
+		display:block !important;
+	}
+	.hiddenposter {
+		visibility:hidden;
+	}
+	
+	
 
 	/**audience navigation**/
 	#audience-nav, #audience-nav-ns { clear: both; height: 32px; margin: 0; width: 940px; padding-left: 0px; background: url(wdn/templates_3.0/css/variations/images/audience_nav_fullbg.jpg) no-repeat; }
@@ -103,116 +170,76 @@ p#feeds a#rssformat, p.feeds a.rssformat, p.feeds a twitteformat {background:url
     </style>
     
 <script type="text/javascript">
-
-
-	var posters,headlines,thisPoster,nextPoster,posterState,currentSplash=0,splashDelay=10000,transtitonSpeed=20,control=1,loopswitch=1,looptime=0;
-
-function rotatePoster(){
-  var postergroup = document.getElementById('posters');
-  posters = postergroup.getElementsByTagName('div');
-  for (var i=0; i < posters.length; i++) {
-    if (i==0) {posters[i].style.opacity = 1;} 
-    else {
-      posters[i].style.opacity = 0;
-      posters[i].style.filter = 'alpha(opacity=0)';
-      posters[i].style.display = 'none';
-    }
-  }
-  loopPosters();
-}
-
-function loopPosters(){
-  var headlinegroup = document.getElementById('headlines');
-  headlines = headlinegroup.getElementsByTagName('li');
-  if(currentSplash>=posters.length) currentSplash = 0;
-  for (var i=0; i < headlines.length; i++) {
-    headlines[i].className = '';
-  }
-  headlines[currentSplash].className = 'active';
-
-  thisPoster = (nextPoster)?nextPoster:posters[currentSplash];
-  nextPoster = (posters[++currentSplash])?posters[currentSplash]:posters[currentSplash = 0];
-  thisPoster.style.display = 'block';
-  posterState = 'on';
-  control = 1;
-  looptime = window.setTimeout(posterFader,splashDelay);
-}
-
-function posterFader(){
-  if (loopswitch==1) {
-  if (posterState=='on') {
-    control = control - 0.1;
-    control = parseInt(control*100)/100;
-    if (control >= 0) {
-      thisPoster.style.opacity = control;
-      thisPoster.style.filter = 'alpha(opacity='+(control*100)+')';
-      looptime = window.setTimeout(posterFader,transtitonSpeed);
-    } else {
-      thisPoster.style.display = 'none';
-      nextPoster.style.display = 'block';
-      posterState='off';
-      looptime = window.setTimeout(posterFader,transtitonSpeed);
-    }
-  } else if (posterState=='off') {
-    control = control + 0.1;
-    control = parseInt(control*100)/100;
-    if(control <= 1){
-      nextPoster.style.opacity = control;
-      nextPoster.style.filter = 'alpha(opacity='+(control*100)+')';
-      looptime = window.setTimeout(posterFader,transtitonSpeed);
-    } else {loopPosters();}
-  }
-}};
-
-function select(node,selected) {
-  loopswitch = 0;
-  window.clearTimeout(looptime);
-  var postergroup = document.getElementById('posters');
-  posters = postergroup.getElementsByTagName('div');
-  for (var i=0; i < posters.length; i++) {
-    posters[i].style.opacity = 0;
-    posters[i].style.filter = 'alpha(opacity=0)';
-    posters[i].style.display = 'none';
-  }
-  var currentPoster = document.getElementById(selected);
-  currentPoster.style.opacity = 1
-  currentPoster.style.filter = 'alpha(opacity=1)';
-  currentPoster.style.display = 'block';
-  var headlinegroup = document.getElementById("headlines");
-  headlines = headlinegroup.getElementsByTagName("li");
-  for (var i=0; i < headlines.length; i++) {
-    headlines[i].className = '';
-  }
-  node.parentNode.className='active';
-};
-
-
-// event listener
-if(window.addEventListener) window.addEventListener('load', rotatePoster, false);
-else if(document.addEventListener) document.addEventListener('load', rotatePoster, false);
-else if(window.attachEvent) {
-  window.attachEvent('onload', rotatePoster);
-} else {
-  if(typeof window.onload == 'function') {
-    var existing = onload;
-    window.onload = function() {
-      existing();
-      rotatePoster();
-    }
-  } else {
-    window.onload = function() {
-      rotatePoster();
-    }
-  }
-}
-
-	</script>
- 
- <script type="text/javascript">
-addLoadEvent(function() {
-	newRandomPromo('http://www.unl.edu/ucomm/splash/promo.xml');
-});
+	WDN.jQuery(document).ready(function(){
+		//starts the splash rotator on page ready
+		//splashRotate(number of headlines, speed in milliseconds 4 sec=4000);
+		splashRotate(3, 7000);		
+	});	 
+		 
+	function splashRotate(panels, speed) {
+	   function intervalTrigger() {
+		  int = setInterval( function() {
+			 currentPoster = parseInt(WDN.jQuery("#posters>div.activeposter").attr("id").split('poster')[1]);
+			 if (currentPoster< panels)
+				nextPoster = currentPoster + 1;
+			 else
+				nextPoster = 1;
+			 WDN.jQuery("#posters>div.activeposter").fadeOut("slow", function (){
+			 		//change the poster
+					WDN.jQuery("#posters>div.activeposter").removeClass("activeposter").addClass("hiddenposter");
+					WDN.jQuery("#poster"+nextPoster).removeClass("hiddenposter").addClass("activeposter");
+					WDN.jQuery("#poster"+nextPoster).fadeIn("slow", function (){
+						//change the headline panel
+						WDN.jQuery("#headlines>div").removeClass("activepanel");
+						WDN.jQuery("#headline"+nextPoster).addClass("activepanel");
+					});					
+			 });
+		  }, speed );
+	   };
+		
+	   //start the auto transition
+	   intervalTrigger(); 
+	
+	   WDN.jQuery("#headlines>div").click(function(){
+			//stop the auto-transition now that a panel has been clicked
+			clearInterval(int);
+			//headlines
+			panelClicked = WDN.jQuery(this).attr("id").split('headline')[1];
+			WDN.jQuery("#headlines>div").removeClass("activepanel");
+			WDN.jQuery(this).addClass("activepanel");			
+			//posters
+			WDN.jQuery("#posters>div").removeClass('activeposter').addClass('hiddenposter');
+			WDN.jQuery("#poster"+panelClicked+"").removeClass('hiddenposter').addClass('activeposter');
+	   });
+	   
+	  //adjust for four panels
+	  if (panels==4){
+	  		WDN.jQuery("#headlines div.splash_headline").css('height','73px');
+			WDN.jQuery("#headline4").css('display','inherit');
+			WDN.jQuery("#headline4>div.splash_headline").css('height','74px');
+	  }
+	};
 </script>
+
+ 
+<script type="text/javascript">
+	addLoadEvent(function() {
+		newRandomPromo('http://www.unl.edu/ucomm/splash/promo.xml');
+	});
+</script>
+
+
+
+<script type="text/javascript">
+	WDN.jQuery(document).ready(
+		 function(){
+			 if ((WDN.jQuery.browser.msie && WDN.jQuery.browser.version == '6.0') || (WDN.jQuery.browser.mozilla && parseFloat(WDN.jQuery.browser.version) < 1.9)) {
+				 WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>');
+				 fetchURLInto('http://www.unl.edu/wdn/templates_3.0/includes/browserupgrade.html', 'wdn_upgrade_notice');
+			 }
+		 }
+ 	);
+</script> 
 
     
     <title>UNL | Template</title>
@@ -249,43 +276,59 @@ addLoadEvent(function() {
         </div>        
         <div id="maincontent">
         <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-          <div class="four_col">  
-            
-            
-            	<div id="splash" class="section">
-		<ul id="headlines">
-			<li class="active"><a href="#" onclick="javascript:select(this,'splash1');return false;"><strong>UNL Today</strong><span>The University of Nebraska State Museum will offer free admission to Morrill Hall Thursday nights in July.</span></a></li>
-			<li class=""><a href="#" onclick="javascript:select(this,'splash2');return false;"><strong>Sheldon Museum of Art</strong><span>The Sheldon Museum of Art at the University of Nebraska-Lincoln will host an opening public reception 5-7 p.m. June 26 for "Play's the Thing: The Paintings and Objects of Jun Kaneko."</span></a></li>
-			<li class=""><a href="#" onclick="javascript:select(this,'splash3');return false;"><strong>How is Social Media Impacting The Election in Iran?</strong><span>In this “N the Know” episode, Professor Barney McCoy talks about the social media explosion around the election in Iran.</span></a></li>
-		</ul>
-		<div id="posters">
-			<div style="opacity: 1; display: block;" id="splash1">
-			
-
-				<p>The University of Nebraska State Museum will offer free admission to Morrill Hall Thursday nights in July. Explore more of today's happenings on <a href="http://www.unl.edu/ucomm/unltoday">UNL Today</a>.</p>
+    <div id="splash">
+		<div id="headlines">
+			<div id="headline1" class="activepanel">	
+				<div class="splash_headline">		
+					<h4>UNL Today</h4>
+					<p>
+					Morril Hall Free Admission
+					</p>
+				</div>
 			</div>
-			<div style="opacity: 0; display: none;" id="splash2" class="hide">
-				
-			
-				<p>Beginning May 11, several of the artist's large ceramic pieces will be placed in Sheldon's Great Hall. On June 19, his paintings and works on paper will open in three second-floor galleries. The exhibition will be on view through Oct. 11. <a href="http://newsroom.unl.edu/releases/2009/04/29/Paintings%2C+objects+of+Jun+Kaneko+opens+May+11+at+Sheldon+Museum+of+Art">Read the full news release.</a></p>
+			<div id="headline2">
+				<div class="splash_headline">		
+					<h4>Sheldon Museum</h4>
+					<p>
+					Come see the art
+					</p>
+				</div>
 			</div>
-
-			<div style="opacity: 0; display: none;" id="splash3">
-				<object data="http://www.youtube.com/v/-omonwFkkrY%26hl=en%26fs=1%26color1=0x3a3a3a%26color2=0x999999%26enablejsapi=1%26playerapiid=video1" wmode="transparent" id="video1" type="application/x-shockwave-flash" height="340" width="640"><param value="always" name="allowScriptAccess"></object>
-
-				<!-- Note that the JavaScript below says that you need Flash 9 or better! -->
-				<script type="text/javascript">
-				var params = {allowScriptAccess: "always"};
-				var attrs = {id: "video1", wmode: "transparent"}
-				//swfobject.embedSWF("http://www.youtube.com/v/-omonwFkkrY%26hl=en%26fs=1%26color1=0x3a3a3a%26color2=0x999999%26enablejsapi=1%26playerapiid=video1", "videobox1", "640", "340", "9", null, null, params, attrs);
-				</script>
-
+			<div id="headline3">
+				<div class="splash_headline">		
+					<h4>N The Know</h4>
+					<p>
+					Video 
+					</p>
+				</div>
+			</div>
+            <div id="headline4">
+				<div class="splash_headline">		
+					<h4>Headline 4</h4>
+					<p>
+					Description
+					</p>
+				</div>
 			</div>
 		</div>
+		<div id="posters">
+			<div id="poster1" class="activeposter">
+                The University of Nebraska State Museum will offer free admission to Morrill Hall Thursday nights in July. Explore more of today's happenings on UNL Today.
+
+			</div>
+			<div id="poster2" class="hiddenposter">
+                Beginning May 11, several of the artist's large ceramic pieces will be placed in Sheldon's Great Hall. On June 19, his paintings and works on paper will open in three second-floor galleries. The exhibition will be on view through Oct. 11. Read the full news release.
+
+			</div>
+			<div id="poster3" class="hiddenposter">
+<object height="408" width="640"><param value="true" name="allowfullscreen"></param><param value="always" name="allowscriptaccess"></param><embed src="http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/player.swf?file=http://www.unl.edu/ucomm/ucomm/av/video/podcasts/20090804_NKnow_Ambrosius.mp4&amp;image=http://itunes.unl.edu/thumbnails.php?url=http%3A%2F%2Fwww.unl.edu%2Fucomm%2Fucomm%2Fav%2Fvideo%2Fpodcasts%2F20090804_NKnow_Ambrosius.mp4&amp;volume=100&amp;autostart=false&amp;skin=http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/UNLVideoSkin.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" height="408" width="640"></embed></object>
+				
+			</div>
+            <div id="poster4" class="hiddenposter">
+            	Content for poster 4
+            </div>
+		</div>
 	</div>
-
-
-</div>
             
             <div class="four_col">
             
