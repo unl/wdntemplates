@@ -63,11 +63,13 @@ Author: WDN
 }
 
 #navigation ul li{
-	vertical-align: top;
-    display: inline-block;
-    padding: 6px 0.6%;
     width: 15.1%;
+    display: block;
+    float: left;
+    padding: 6px 0.6%;
     margin-bottom: 10px;
+}
+#navigation ul li{min-height: 0;
 }
 
 #navigation ul li ul {
