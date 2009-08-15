@@ -179,6 +179,7 @@
    				 //<![CDATA[
 				var my_calurl = "http://events.unl.edu/?upcoming&format=hcalendar&limit=5";
 				WDN.get(my_calurl, null, function(content) {
+				    WDN.jQuery(document).ready( function() {
                 		WDN.jQuery('#splash_calendar').hide().html(content);
                         WDN.jQuery('#splash_calendar abbr').each(
                                 function() {
@@ -196,7 +197,8 @@
                                     WDN.jQuery(this).replaceWith(month+' '+day+' '+time);
                                 });
                         WDN.jQuery('#splash_calendar').show("slow");
-                	});
+                        });
+                    });
    				 //]]>
 			</script>
             </div>
