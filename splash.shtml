@@ -470,12 +470,11 @@
              
 			
             <h3 class="sec_header">Find more of UNL on:</h3>
-
-                <p>
-                <a href="http://www.facebook.com/unl.edu" title="Become a fan of UNL on Facebook"><img src="http://ucommxsrv1.unl.edu/graphics/09_splashtest_icon_outpostsfacebook.png" tooltip="Become a fan of UNL on Facebook" alt="Become a fan of the University of Nebraska-Lincoln on Facebook" /></a>
-                <a href="http://www.youtube.com/unl" title="watch videos from UNL on YouTube"><img src="http://ucommxsrv1.unl.edu/graphics/09_splashtest_icon_outpostsyoutube.png" alt="watch videos from the University of Nebraska-Lincoln on YouTube" /></a>
-                <a href="http://itunes.unl.edu/admin/?anonymous=true" title="watch videos from UNL on iTunesU"><img src="http://ucommxsrv1.unl.edu/graphics/09_splashtest_icon_outpostsitunes.png" alt="watch videos from the University of Nebraska-Lincoln on iTunesU" /></a>
-                </p>
+            <p>
+                <a class="imagelink" href="http://www.facebook.com/unl.edu" title="Become a fan of UNL on Facebook"><img src="http://www.unl.edu/ucomm/splash/promo/icon_facebook.jpg" tooltip="Become a fan of UNL on Facebook" alt="Become a fan of the University of Nebraska-Lincoln on Facebook"></a>&nbsp;&nbsp;
+                <a class="imagelink" href="http://www.youtube.com/unl" title="watch videos from UNL on YouTube"><img src="http://www.unl.edu/ucomm/splash/promo/icon_youtube.jpg" alt="watch videos from the University of Nebraska-Lincoln on YouTube"></a>&nbsp;&nbsp;
+                <a class="imagelink" href="http://itunes.unl.edu/admin/?anonymous=true" title="watch videos from UNL on iTunesU"><img src="http://www.unl.edu/ucomm/splash/promo/icon_itunesu.jpg" alt="watch videos from the University of Nebraska-Lincoln on iTunesU"></a>
+            </p>
             
             
             <h3 style="background-image:url(http://ucommxsrv1.unl.edu/graphics/09_splashtest_icon_affiliates.png); background-position:left; background-repeat:no-repeat; padding-left:45px; margin-bottom:10px;">Affiliates</h3>
