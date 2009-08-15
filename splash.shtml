@@ -184,7 +184,6 @@
                                 function() {
                                     // Convert the date and time into something we want.
                                     var eventdate = WDN.jQuery(this).html();
-                                    var parts = eventdate.split(" "); 
                                     var month,day,time = '';
                                     var xp = new RegExp(/[A-Za-z]{3,3}/);
                                     if (xp.test(eventdate)) month = '<span class="month">'+xp.exec(eventdate)+'</span>';
