@@ -567,7 +567,7 @@ p#feeds a#rssformat, p.feeds a.rssformat, p.feeds a twitteformat {background:url
                                     iso.setISO8601(WDN.jQuery(this).attr('title'));
                                     var time = '';
                                     if (WDN.jQuery.PHPDate('H',iso)!='00') {
-                                        time = '<span class="time">'+WDN.jQuery.PHPDate('g:ia',iso)+'</span>';
+                                        time = ' <span class="time">'+WDN.jQuery.PHPDate('g:ia',iso)+'</span>';
                                     }
                                     WDN.jQuery(this).replaceWith('<span class="month">'+WDN.jQuery.PHPDate('M',iso)+'</span> <span class="day">'+WDN.jQuery.PHPDate('j',iso)+'</span>'+time);
                                 });
@@ -683,18 +683,6 @@ p#feeds a#rssformat, p.feeds a.rssformat, p.feeds a twitteformat {background:url
         </div> <!-- end of maincontent -->        
         <div id="footer">
             <div id="footer_floater"></div>
-            <div class="footer_col" id="footer_feedback">
-            	<!--#include virtual="wdn/templates_3.0/includes/feedback.html" -->
-            </div>            
-            <div class="footer_col">
-            	<!--#include virtual="sharedcode/relatedLinks.html" -->
-            </div>            
-            <div class="footer_col">
-            	<!--#include virtual="sharedcode/footerContactInfo.html" -->
-            </div>                   
-            <div class="footer_col" id="footer_socialmedia">
-            	<!--#include virtual="wdn/templates_3.0/includes/socialmediashare.html" -->
-            </div>  
             <div id="wdn_copyright">
                 <!--#include virtual="sharedcode/footer.html" -->                                
                 <!--#include virtual="wdn/templates_3.0/includes/wdn.html" -->
