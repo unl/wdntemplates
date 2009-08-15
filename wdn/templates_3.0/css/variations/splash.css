@@ -33,11 +33,11 @@
     padding-left:20px;
     position:relative;
 }
-#headlines>div.activepanel {
+#headlines>div.active {
     background:url('images/splash_selector.png') no-repeat 0 30%;
     z-index:100;
 }
-#headlines>div.activepanel div.splash_headline,
+#headlines>div.active div.splash_headline,
 #headlines div.splash_headline:hover {
     background:#b80302;
     color:#fff;
@@ -55,10 +55,6 @@
 #headline1 div.splash_headline {
     border:0 !important;
 }
-#headline4 {
-    display:none;
-}
-
 
 #headlines {
     font-size:0.9em;
@@ -67,10 +63,13 @@
 #headlines h4 {
     font-size:1.4em;
 }
-#headlines>div.activepanel h4, #headlines>div:hover h4{
+#headlines>div.active h4, #headlines>div:hover h4{
     color:#fff;
 }
-
+#headlines .hidden {
+    visibility:visible;
+    display:block !important;
+}
 
 #posters {
     position:relative;
@@ -84,27 +83,20 @@
     position:absolute;
     overflow: hidden;
 }
+.poster {
+    background-color:#fff;
+}
 #poster1 {
-    background:#fff url('http://ucommxsrv1.unl.edu/graphics/09_splashtest_statemuseum.jpg') no-repeat;
+    background:url('http://ucommxsrv1.unl.edu/graphics/09_splashtest_statemuseum.jpg') no-repeat;
 }
 #poster2 {
     color:#fff;
-    background:#fff url('http://ucommxsrv1.unl.edu/graphics/09_splashtest_sheldon.jpg') no-repeat;
+    background:url('http://ucommxsrv1.unl.edu/graphics/09_splashtest_sheldon.jpg') no-repeat;
 }
-#poster3 {
-    background:#fff;
-}
-#poster4 {
-    background:#fff;
-}
-.activeposter {
+.active.poster {
     visibility:visible;
     display:block !important;
 }
-.hiddenposter {
-    visibility:hidden;
-}
-
 
 /**audience navigation**/
 #audience-nav, #audience-nav-ns { clear: both; height: 32px; margin: 0; width: 940px; padding-left: 0px; background: url(images/audience_nav_fullbg.jpg) no-repeat; }
