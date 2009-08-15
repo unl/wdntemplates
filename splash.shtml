@@ -173,7 +173,7 @@
             <div class="col left">
             <h2 style="background-image:url(http://ucommxsrv1.unl.edu/graphics/09_splashtest_icon_events.png); background-position:left; background-repeat:no-repeat; padding-left:42px; margin-bottom:10px;">Upcoming Events</h2>
             <div id="splash_calendar">
-   		 		Loading calendar data.
+   		 		<a href="http://events.unl.edu/" title="Events">UNL calendar of events</a>
 			</div>
 			<script type="text/javascript">
    				 //<![CDATA[
