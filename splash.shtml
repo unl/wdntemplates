@@ -559,28 +559,20 @@ p#feeds a#rssformat, p.feeds a.rssformat, p.feeds a twitteformat {background:url
    				    this.setTime(Number(time));
    				};
 				var my_calurl = "http://events.unl.edu/?upcoming&format=hcalendar&limit=5";
-				var request = new WDN.proxy_xmlhttp();
-                request.open('GET', my_calurl, true);
-                request.onreadystatechange = function(){
-                	if ((this.readyState == 4)
-                        && (this.status == '200')) {
-                        var content = this.responseText;
+				WDN.get(my_calurl, null, function(content) {
                 		WDN.jQuery('#splash_calendar').hide().html(content);
-                        WDN.jQuery('#splash_calendar abbr').each(function() {
-                            var iso = new Date();
-                            iso.setISO8601(WDN.jQuery(this).attr('title'));
-                            var time = '';
-                            if (WDN.jQuery.PHPDate('H',iso)!='00') {
-                                time = '<span class="time">'+WDN.jQuery.PHPDate('g:ia',iso)+'</span>';
-                            }
-                            WDN.jQuery(this).replaceWith('<span class="month">'+WDN.jQuery.PHPDate('M',iso)+'</span> <span class="day">'+WDN.jQuery.PHPDate('j',iso)+'</span>'+time);
-                        });
+                        WDN.jQuery('#splash_calendar abbr').each(
+                                function() {
+                                    var iso = new Date();
+                                    iso.setISO8601(WDN.jQuery(this).attr('title'));
+                                    var time = '';
+                                    if (WDN.jQuery.PHPDate('H',iso)!='00') {
+                                        time = '<span class="time">'+WDN.jQuery.PHPDate('g:ia',iso)+'</span>';
+                                    }
+                                    WDN.jQuery(this).replaceWith('<span class="month">'+WDN.jQuery.PHPDate('M',iso)+'</span> <span class="day">'+WDN.jQuery.PHPDate('j',iso)+'</span>'+time);
+                                });
                         WDN.jQuery('#splash_calendar').show();
-                	}
-                    
-                };
-                request.send();
-				
+                	});
    				 //]]>
 			</script>
             </div>
