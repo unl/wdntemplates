@@ -29,6 +29,28 @@
           } 
         }
     }
+    var my_calurl = "http://events.unl.edu/?upcoming&format=hcalendar&limit=5";
+    WDN.get(my_calurl, null, function(content) {
+        WDN.jQuery(document).ready( function() {
+            WDN.jQuery('#splash_calendar').hide().html(content);
+            WDN.jQuery('#splash_calendar abbr').each(
+                    function() {
+                        // Convert the date and time into something we want.
+                        var eventdate = WDN.jQuery(this).html();
+                        var month,day,time = '';
+                        var xp = new RegExp(/[A-Za-z]{3,3}/);
+                        if (xp.test(eventdate)) month = '<span class="month">'+xp.exec(eventdate)+'</span>';
+                        eventdate.replace(xp.exec(eventdate),'');
+                        xp = new RegExp(/[\d]+:[\d]+\s?[a,p]m/);
+                        if (xp.test(eventdate)) time = '<span class="time">'+xp.exec(eventdate)+'</span>';
+                        time = time.replace('0 ','0');
+                        xp = new RegExp(/([\d]{1,2})[a-z]{2}/);
+                        if (xp.test(eventdate)) day = '<span class="day">'+xp.exec(eventdate)[1]+'</span>';
+                        WDN.jQuery(this).replaceWith(month+' '+day+' '+time);
+                    });
+            WDN.jQuery('#splash_calendar').show("slow");
+            });
+        });
 	WDN.jQuery(document).ready(function(){
 		//starts the splash rotator on page ready
 		//splashRotate(number of headlines, speed in milliseconds 4 sec=4000);
@@ -181,32 +203,6 @@
             <div id="splash_calendar">
    		 		<a href="http://events.unl.edu/" title="Events">UNL calendar of events</a>
 			</div>
-			<script type="text/javascript">
-   				 //<![CDATA[
-				var my_calurl = "http://events.unl.edu/?upcoming&format=hcalendar&limit=5";
-				WDN.get(my_calurl, null, function(content) {
-				    WDN.jQuery(document).ready( function() {
-                		WDN.jQuery('#splash_calendar').hide().html(content);
-                        WDN.jQuery('#splash_calendar abbr').each(
-                                function() {
-                                    // Convert the date and time into something we want.
-                                    var eventdate = WDN.jQuery(this).html();
-                                    var month,day,time = '';
-                                    var xp = new RegExp(/[A-Za-z]{3,3}/);
-                                    if (xp.test(eventdate)) month = '<span class="month">'+xp.exec(eventdate)+'</span>';
-                                    eventdate.replace(xp.exec(eventdate),'');
-                                    xp = new RegExp(/[\d]+:[\d]+\s?[a,p]m/);
-                                    if (xp.test(eventdate)) time = '<span class="time">'+xp.exec(eventdate)+'</span>';
-                                    time = time.replace('0 ','0');
-                                    xp = new RegExp(/([\d]{1,2})[a-z]{2}/);
-                                    if (xp.test(eventdate)) day = '<span class="day">'+xp.exec(eventdate)[1]+'</span>';
-                                    WDN.jQuery(this).replaceWith(month+' '+day+' '+time);
-                                });
-                        WDN.jQuery('#splash_calendar').show("slow");
-                        });
-                    });
-   				 //]]>
-			</script>
             </div>
            
             <div class="col">
