@@ -103,7 +103,7 @@
 .audience-nav-static { margin-bottom: 10px !important; }
 #audience-nav li, #audience-nav-ns li { float: left;list-style:none; }
 #audience-nav ul {}
-#audience-nav a, #audience-nav-ns a { background-image: url(images/audience_nav_bg.png); color: #fff; display: inline-block; height: 32px; line-height: 32px; font-size:1em; margin:0px; position: relative; text-align: center; text-decoration: none; width: 150px; }
+#audience-nav a, #audience-nav-ns a { background-image: url(images/audience_nav_bg.png); color: #fff; display: inline-block; height: 32px; line-height: 32px; font-size:1em; font-weight:bold; margin:0px; position: relative; text-align: center; text-decoration: none; width: 150px; }
 #audience-nav a span, #audience-nav-ns a span { background-repeat: no-repeat; display: block; height: 100%; left: 0; position: absolute; top: 0; width: 100%; z-index: 1; cursor: pointer; }
 #audience-nav a:hover,#audience-nav-ns a:hover { background-image: url(images/audience_nav_bg.png); background-position: 0 -32px; color: #fff; }
 #audience-nav a#a-nav01, #audience-nav-ns a#a-nav01-ns { width: 140px; }
@@ -121,6 +121,10 @@ p#feeds a#rssformat, p.feeds a.rssformat, p.feeds a twitteformat {background:url
 /*Splash Calendar Events */
 #maincontent div#splash_calendar h4.upcoming-header, #maincontent div#splash_calendar thead, .vevent .description {display:none;}
 /*Splash News headlines */
+#maincontent #news_headlines ul#the_headlines {list-style:none; padding-left:0px; margin-bottom:0px;padding-bottom:0px;}
+#maincontent #news_headlines ul#the_headlines li {padding-bottom:10px;}
+#maincontent #news_headlines ul#the_headlines li a {padding-bottom:0px;margin-bottom:-10px;}
+#maincontent #news_headlines ul#the_headlines li span {font-size:0.8em;padding-top:0px;}
 #maincontent table#splash_headlines tr td div, #maincontent table.upcoming tr td.date {text-align:center;color:#6b6b6b;text-transform:uppercase;paddong-right:5px;}
 #maincontent table#splash_headlines tr td div span.month, #maincontent table.upcoming tr td span.month {text-transform:uppercase;display:block}
 #maincontent table#splash_headlines tr td div span.day, #maincontent table.upcoming tr td span.day {font-size:1.7em;display:block;}
