@@ -15,7 +15,7 @@
 
 WDN.analytics = function() {  
 	try {  
-    	wdnTracker = _gat._getTracker("UA-9809462-1"); 
+    	wdnTracker = _gat._getTracker("UA-3203435-1"); 
         wdnTracker._setDomainName(".unl.edu");
         wdnTracker._setAllowLinker(true);
         wdnTracker._setAllowHash(false);
