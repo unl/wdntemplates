@@ -51,7 +51,7 @@
                         time = time.replace('0 ','0');
                         xp = new RegExp(/([\d]{1,2})[a-z]{2}/);
                         if (xp.test(eventdate)) day = '<span class="day">'+xp.exec(eventdate)[1]+'</span>';
-                        WDN.jQuery(this).replaceWith(month+' '+day+' '+time);
+                        WDN.jQuery(this).replaceWith('<div'+month+' '+day+' '+time+'</div>');
                     });
             WDN.jQuery('#splash_calendar').show();
             });
