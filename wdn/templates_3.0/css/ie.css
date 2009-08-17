@@ -88,10 +88,11 @@ ul#wdn_tool_links li {
 }
 #footer {
 	padding-top:13px;
+	background-position:top;
 }
 #footer_floater {
 	width:960px;
-	margin-top:-50px;
+	padding-top:24px;
 }
 
 #footer ul.socialmedia {
