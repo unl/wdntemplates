@@ -27,7 +27,7 @@ var WDN = function() {
 			if ((arguments.length>2 && checkLoaded === false) || !WDN.loadedJS[url]){
 				WDN.log("begin loading JS: " + url);
 				var e = document.createElement("script");
-				if (url.match(/wdn\/templates_3\.0/)) {
+				if (url.match(/^wdn\/templates_3\.0/)) {
 					url = WDN.template_path+url;
 				}
 				e.setAttribute('src', url);
@@ -61,8 +61,11 @@ var WDN = function() {
 		 * Load an external css file.
 		 */
 		loadCSS : function(url) {
+			if (url.match(/^wdn\/templates_3\.0/)) {
+				url = WDN.template_path+url;
+			}
 			var e = document.createElement("link");
-			e.href = WDN.template_path+url;
+			e.href = url;
 			e.rel = "stylesheet";
 			e.type="text/css";
 			document.getElementsByTagName("head")[0].appendChild(e);
