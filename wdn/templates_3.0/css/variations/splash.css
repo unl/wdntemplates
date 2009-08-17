@@ -119,6 +119,7 @@ p#feeds a#icsformat {background:url(http://events.unl.edu/templates/default/imag
 p#feeds a#rssformat, p.feeds a.rssformat, p.feeds a twitteformat {background:url(http://events.unl.edu/templates/default/images/rss.gif) no-repeat;margin-left:5px;width:20px;}
     
 /*Splash Calendar Events */
+span.subhead {display:block;text-align:right;font-size:0.75em;margin-top:-15px;}
 #maincontent div#splash_calendar h4.upcoming-header, #maincontent div#splash_calendar thead, .vevent .description {display:none;}
 /*Splash News headlines */
 #maincontent #news_headlines ul#the_headlines {list-style:none; padding-left:0px; margin-bottom:0px;padding-bottom:0px;}

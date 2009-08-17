@@ -207,11 +207,13 @@ Read the full news release.</div>
 			<div class="col left">
 				<h2 style="background-image: url(images/bg_icon_events.png); background-position: left; background-repeat: no-repeat; padding-left: 42px; margin-bottom: 10px;">Upcoming
 				Events</h2>
+				<span class="subhead"><a href="http://events.unl.edu">See all UNL events</a></span>
 				<div id="splash_calendar"><a href="http://events.unl.edu/" title="Events">UNL calendar of events</a></div>
 			</div>
 			<div class="col">
 				<h2 style="background-image: url(images/bg_icon_news.png); background-position: left; background-repeat: no-repeat; padding-left: 46px; margin-bottom: 10px;">Latest
 				News</h2>
+				<span class="subhead"><a href="http://newsroom.unl.edu">See all UNL news</a></span>
 				<div id="news_headlines"></div>
 				<script
 					src="http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%20%3D'http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3DfDULtYTA3RGnslItPxJ3AQ%26_render%3Drss'%3B&amp;format=json&amp;callback=showBlogPosts"
