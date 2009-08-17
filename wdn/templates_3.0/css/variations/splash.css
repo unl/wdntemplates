@@ -121,10 +121,12 @@ p#feeds a#rssformat, p.feeds a.rssformat, p.feeds a twitteformat {background:url
 /*Splash Calendar Events */
 #maincontent div#splash_calendar h4.upcoming-header, #maincontent div#splash_calendar thead, .vevent .description {display:none;}
 /*Splash News headlines */
-#maincontent table#splash_headlines tr td div, #maincontent table.upcoming tr td.date {text-align:center;color:#6b6b6b;text-transform:uppercase;}
-#maincontent table#splash_headlines tr td div span.month {text-transform:uppercase;}
-#maincontent table#splash_headlines tr td div span.day {font-size:1.7em;}
-#maincontent table#splash_headlines tr td a, #maincontent table.upcoming tr td a, #maincontent table.upcoming tr td span.location {border-left:#e5e5e5 solid 2px;padding-left:5px;display:block;font-size:.9em; line-height:130%;}
+#maincontent table#splash_headlines tr td div, #maincontent table.upcoming tr td.date {text-align:center;color:#6b6b6b;text-transform:uppercase;paddong-right:5px;}
+#maincontent table#splash_headlines tr td div span.month, #maincontent table.upcoming tr td span.month {text-transform:uppercase;display:block}
+#maincontent table#splash_headlines tr td div span.day, #maincontent table.upcoming tr td span.day {font-size:1.7em;display:block;}
+#maincontent table.upcoming tr td span.time {display:block;font-size:.8em;}
+#maincontent table.upcoming tr td span.month, #maincontent table.upcoming tr td span.day, #maincontent table.upcoming tr td span.time {padding-right:5px;}
+#maincontent table#splash_headlines tr td a, #maincontent table.upcoming tr td a.summary, #maincontent table.upcoming tr td span.location {border-left:#e5e5e5 solid 2px;padding-left:5px;display:block;font-size:.9em; line-height:130%;}
 #maincontent table.upcoming tr td span.location {font-size:75%; display:block; color:green;}
 
 /*table CSS */
