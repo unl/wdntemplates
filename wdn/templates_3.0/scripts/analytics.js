@@ -16,6 +16,7 @@
 WDN.analytics = function() {  
 	
 	return {
+		thisURL : String(window.location),
 		initialize : function() {
 			try {
 		    	wdnTracker = _gat._getTracker("UA-3203435-1"); 
@@ -24,8 +25,8 @@ WDN.analytics = function() {
 		        wdnTracker._setAllowHash(false);
 		        wdnTracker._trackPageview();
 		    } catch(err) {}
-		    var thisURL = String(window.location);
-		    WDN.log("WDN site analytics loaded for "+ thisURL);
+		    
+		    WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
 		        filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v)$/i; //these are the file extensions to track for downloaded content
 		        WDN.jQuery('#navigation a, #maincontent a').each(function(){  
 					var gahref = WDN.jQuery(this).attr('href');
@@ -33,36 +34,36 @@ WDN.analytics = function() {
 					if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
 						//WDN.jQuery(this).addClass('external'); //Implications for doing this?
 						WDN.jQuery(this).click(function() {
-							wdnTracker._trackEvent('Outgoing Link', gahref, thisURL);
+							wdnTracker._trackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
 						});  
 					}  
 					else if (gahref.match(/^mailto\:/i)){  //deal with mailto: links
 						WDN.jQuery(this).click(function() {  
 							var mailLink = gahref.replace(/^mailto\:/i, '');  
-							wdnTracker._trackEvent('Email', mailLink, thisURL);
+							wdnTracker._trackEvent('Email', mailLink, WDN.analytics.thisURL);
 							return false;
 						});  
 					}  
 					else if (gahref.match(filetypes)){  //deal with file downloads
 						WDN.jQuery(this).click(function() { 
 							var extension = (/[.]/.exec(gahref)) ? /[^.]+$/.exec(gahref) : undefined;
-							wdnTracker._trackEvent('File Download', gahref, thisURL); 
+							wdnTracker._trackEvent('File Download', gahref, WDN.analytics.thisURL); 
 							wdnTracker._trackPageview('downloads/'+gahref);
 						});  
 					}  
 				}); 
 				WDN.jQuery('ul.socialmedia a').click(function(){ 
 					var socialMedia = WDN.jQuery(this).attr('id');
-					var success = wdnTracker._trackEvent('Page Sharing', socialMedia, thisURL); 
+					var success = wdnTracker._trackEvent('Page Sharing', socialMedia, WDN.analytics.thisURL); 
 					WDN.log("social share success? "+success);
 				});
 				WDN.jQuery('#wdn_tool_links a').click(function(){ 
 					var wdnToolLinks = WDN.jQuery(this).attr('id');
-					wdnTracker._trackEvent('WDN Tool Links', wdnToolLinks, thisURL); 
+					wdnTracker._trackEvent('WDN Tool Links', wdnToolLinks, WDN.analytics.thisURL); 
 				});
 		},
 		trackNavigationPreferredState : function(preferredState) {
-			var success = wdnTracker._trackEvent('Navigation Preference', preferredState, thisURL);
+			var success = wdnTracker._trackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
 		}
 	};
 }();
