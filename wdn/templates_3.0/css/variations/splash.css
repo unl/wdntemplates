@@ -109,7 +109,8 @@
 p#feeds, p.feeds{margin:10px 0 0 0;padding:0;}
 p#feeds a, p.feeds a{display:inline-block;text-indent:-9999px;height:20px;}
 p#feeds a#icsformat {background:url(http://events.unl.edu/templates/default/images/ics.gif) no-repeat;width:35px;}
-p#feeds a#rssformat, p.feeds a.rssformat, p.feeds a twitteformat {background:url(http://events.unl.edu/templates/default/images/rss.gif) no-repeat;margin-left:5px;width:20px;}
+p#feeds a#rssformat, p.feeds a.rssformat, p.feeds a twitterformat {background:url(http://events.unl.edu/templates/default/images/rss.gif) no-repeat;margin-left:5px;width:20px;}
+p.feeds a twitterformat {background:url(http://www.unl.edu/ucomm/splash/images/promo/icon_twitter.png) no-repeat;}
     
 /*Splash Calendar Events */
 span.subhead {display:block;text-align:right;font-size:0.75em;margin-top:-15px;}
