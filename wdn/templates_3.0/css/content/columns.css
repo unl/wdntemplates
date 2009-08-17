@@ -7,6 +7,12 @@
 	float:left;
 	position:relative;
 	}
+#maincontent .inner_col {
+	width:200px;
+	padding:0 10px;
+	float:left;
+	position:relative;
+	}
 
 #maincontent .two_col {
 	float:left;
