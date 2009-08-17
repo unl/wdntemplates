@@ -27,9 +27,9 @@
                 
     function showBlogPosts(data) {
         WDN.jQuery('#news_headlines').html('<ul id="the_headlines"></ul>');
-      for(var i=0; i<6; i++) {
+      for(var i=0; i<3; i++) {
           if (i == 1 | i==3 | i==5) {
-        WDN.jQuery("ul#the_headlines").append("<li><a href='"+data.query.results.item[i].link+"'>"+data.query.results.item[i].title+"</a><br /><span>"+formatBlogDate(data.query.results.item[i].pubDate)+"</span></li>");
+        WDN.jQuery("ul#the_headlines").append("<li style='background:#f7f7f7;'><a href='"+data.query.results.item[i].link+"'>"+data.query.results.item[i].title+"</a><br /><span>"+formatBlogDate(data.query.results.item[i].pubDate)+"</span></li>");
           } else {
         WDN.jQuery("ul#the_headlines").append("<li><a href='"+data.query.results.item[i].link+"'>"+data.query.results.item[i].title+"</a><br /><span>"+formatBlogDate(data.query.results.item[i].pubDate)+"</span></li>");
           } 
@@ -222,6 +222,27 @@ Read the full news release.</div>
 					all news</a> <a class="twitterformat" title="follow us on twitter"
 					href="http://events.unl.edu/upcoming/?format=rss">follow us on
 					twitter</a></p>
+				<div class="zenbox">
+					<h4 class="sec_header">Resources</h4>
+						<ul>
+							<li><a href="http://www.unl.edu/ucomm/depts/"
+								title="Colleges &amp; Depts">Colleges &amp; Depts</a></li>
+							<li><a href="/ucomm/international/" title="Intl. Students">International
+							Students</a></li>
+							<li><a href="/ucomm/firstyear/" title="Your First Year">Your
+							First Year</a></li>
+							<li><a
+								href="http://www.nufoundation.org/link.sp?page=about_giving"
+								title="Giving to UNL">Giving to UNL</a></li>
+						<li><a href="http://www1.unl.edu/tour/"
+								onclick="window.open(this.href,'unltourmap','scrollbars=1,width=1024,height=768,innerwidth=1024,innerheight=768'); return false;"
+								title="Campus tour of the University of Nebraska-Lincoln (high bandwidth; requires QuickTime) and downloadable PDF maps">Maps/Tour</a></li>
+						
+							<li><a href="http://newsroom.unl.edu/"
+								title="University of Nebraska-Lincoln News">News</a></li>
+							<li><a href="http://research.unl.edu/" title="Research">Research</a></li>
+						</ul>
+			</div>
 			</div>
 			<div class="col"
 				style="border-left: 1px dotted rgb(204, 204, 204); margin-left: -1px;">
@@ -297,35 +318,7 @@ Read the full news release.</div>
 					</ul>
 				</div>
 			</div>
-			<div class="two_col left" >
-				<div class="zenbox" style="height: 165px;">
-					<h4 class="sec_header">Resources</h4>
-					<div class="inner_col left">
-						<ul>
-							<li><a href="http://www.unl.edu/ucomm/depts/"
-								title="Colleges &amp; Depts">Colleges &amp; Depts</a></li>
-							<li><a href="/ucomm/international/" title="Intl. Students">International
-							Students</a></li>
-							<li><a href="/ucomm/firstyear/" title="Your First Year">Your
-							First Year</a></li>
-							<li><a
-								href="http://www.nufoundation.org/link.sp?page=about_giving"
-								title="Giving to UNL">Giving to UNL</a></li>
-						</ul>
-					</div>
-					<div class="inner_col right">
-						<ul>
-							<li><a href="http://www1.unl.edu/tour/"
-								onclick="window.open(this.href,'unltourmap','scrollbars=1,width=1024,height=768,innerwidth=1024,innerheight=768'); return false;"
-								title="Campus tour of the University of Nebraska-Lincoln (high bandwidth; requires QuickTime) and downloadable PDF maps">Maps/Tour</a></li>
-						
-							<li><a href="http://newsroom.unl.edu/"
-								title="University of Nebraska-Lincoln News">News</a></li>
-							<li><a href="http://research.unl.edu/" title="Research">Research</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			
 <div class="clear"></div>
 <!--#include virtual="wdn/templates_3.0/includes/noscript.html" --></div>
 <!-- end of maincontent -->

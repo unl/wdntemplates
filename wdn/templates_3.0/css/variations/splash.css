@@ -122,7 +122,7 @@ p#feeds a#rssformat, p.feeds a.rssformat, p.feeds a twitteformat {background:url
 #maincontent div#splash_calendar h4.upcoming-header, #maincontent div#splash_calendar thead, .vevent .description {display:none;}
 /*Splash News headlines */
 #maincontent #news_headlines ul#the_headlines {list-style:none; padding-left:0px; margin-bottom:0px;padding-bottom:0px;}
-#maincontent #news_headlines ul#the_headlines li {padding-bottom:10px;}
+#maincontent #news_headlines ul#the_headlines li {padding-bottom:5px;padding-top:5px;}
 #maincontent #news_headlines ul#the_headlines li a {padding-bottom:0px;margin-bottom:-10px;}
 #maincontent #news_headlines ul#the_headlines li span {font-size:0.8em;padding-top:0px;}
 #maincontent table#splash_headlines tr td div, #maincontent table.upcoming tr td.date {text-align:center;color:#6b6b6b;text-transform:uppercase;paddong-right:5px;}
