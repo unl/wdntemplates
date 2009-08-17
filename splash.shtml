@@ -295,7 +295,7 @@ Read the full news release.</div>
 					</ul>
 				</div>
 			</div>
-			<div class="two_col left"">
+			<div class="two_col left" style="margin-top:-70px;">
 				<div class="zenbox" style="height: 165px;">
 					<h4 class="sec_header">Resources</h4>
 					<div class="inner_col left">
