@@ -14,24 +14,25 @@
 // Department variable 'pageTracker' is available to use in this file.
 
 WDN.analytics = function() {  
-	try {  
-    	wdnTracker = _gat._getTracker("UA-3203435-1"); 
-        wdnTracker._setDomainName(".unl.edu");
-        wdnTracker._setAllowLinker(true);
-        wdnTracker._setAllowHash(false);
-        wdnTracker._trackPageview();  
-    } catch(err) {} 
-	var thisURL = String(window.location);
-    WDN.log("WDN site analytics loaded for "+ thisURL);
+	
 	return {
 		initialize : function() {
+			try {
+		    	wdnTracker = _gat._getTracker("UA-3203435-1"); 
+		        wdnTracker._setDomainName(".unl.edu");
+		        wdnTracker._setAllowLinker(true);
+		        wdnTracker._setAllowHash(false);
+		        wdnTracker._trackPageview();
+		    } catch(err) {}
+		    var thisURL = String(window.location);
+		    WDN.log("WDN site analytics loaded for "+ thisURL);
 		        filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v)$/i; //these are the file extensions to track for downloaded content
 		        WDN.jQuery('#navigation a, #maincontent a').each(function(){  
 					var gahref = WDN.jQuery(this).attr('href');
 					//WDN.log(gahref);
 					if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
 						//WDN.jQuery(this).addClass('external'); //Implications for doing this?
-						WDN.jQuery(this).click(function() {    
+						WDN.jQuery(this).click(function() {
 							wdnTracker._trackEvent('Outgoing Link', gahref, thisURL);
 						});  
 					}  
