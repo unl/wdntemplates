@@ -35,7 +35,7 @@
           } 
         }
     }
-    var my_calurl = "http://events.unl.edu/?upcoming&format=hcalendar&limit=6";
+    var my_calurl = "http://events.unl.edu/?upcoming&format=hcalendar&limit=7";
     WDN.get(my_calurl, null, function(content) {
         WDN.jQuery(document).ready( function() {
             WDN.jQuery('#splash_calendar').hide().html(content);
