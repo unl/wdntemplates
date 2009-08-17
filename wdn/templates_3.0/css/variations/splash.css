@@ -86,13 +86,6 @@
 .poster {
     background-color:#fff;
 }
-#poster1 {
-    background:url('http://ucommxsrv1.unl.edu/graphics/09_splashtest_statemuseum.jpg') no-repeat;
-}
-#poster2 {
-    color:#fff;
-    background:url('http://ucommxsrv1.unl.edu/graphics/09_splashtest_sheldon.jpg') no-repeat;
-}
 .active.poster {
     visibility:visible;
     display:block !important;
