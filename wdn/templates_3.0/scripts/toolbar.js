@@ -30,8 +30,7 @@ WDN.toolbar = function() {
     	tools : {},
     	
         initialize : function() {
-    		
-            WDN.jQuery('#header').append('<div class="hidden"><div id="toolbarcontent"></div></div>');
+    		WDN.jQuery('#header').append('<div class="hidden"><div id="toolbarcontent"></div></div>');
         	WDN.loadJS('wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js', WDN.toolbar.colorboxSetup);
         	if (WDN.jQuery.browser.msie) {
             	WDN.loadCSS('wdn/templates_3.0/css/header/colorbox-ie.css');
@@ -88,6 +87,7 @@ WDN.toolbar = function() {
          * @param string selected The tool to select
          */
         switchToolFocus : function(selected, height) {
+        	WDN.jQuery('#tooltabs').show();
         	WDN.jQuery('#toolbarcontent .toolbar_plugin').hide();
         	WDN.initializePlugin('toolbar_'+selected,
         			function(){
@@ -104,6 +104,10 @@ WDN.toolbar = function() {
         		WDN.jQuery("#tooltabs li").removeClass("current");        		
         	}
         	WDN.jQuery('#tooltabs li.'+selected+'').addClass("current");
+        },
+        colorbox : function(element, options) {
+        	WDN.jQuery('#tooltabs').hide();
+        	WDN.jQuery(element).colorbox(options);
         }
     };
 }();
