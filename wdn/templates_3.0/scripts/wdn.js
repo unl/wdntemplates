@@ -119,7 +119,7 @@ var WDN = function() {
 		},
 		
 		browserAdjustments : function() {
-			if (WDN.jQuery.browser.msie && WDN.jQuery.browser.version == '6.0') {
+			if (WDN.jQuery.browser.msie && (WDN.jQuery.browser.version == '6.0') && (!navigator.userAgent.match(/MSIE 8.0/))) {
 				WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>');
 				fetchURLInto('http://www.unl.edu/wdn/templates_3.0/includes/browserupgrade.html', 'wdn_upgrade_notice');
 				WDN.jQuery('head link[rel=stylesheet]').remove();
