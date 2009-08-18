@@ -30,7 +30,9 @@ WDN.analytics = function() {
 		        filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v)$/i; //these are the file extensions to track for downloaded content
 		        WDN.jQuery('#navigation a, #maincontent a').each(function(){  
 					var gahref = WDN.jQuery(this).attr('href');
-					//WDN.log(gahref);
+					if (gahref == undefined) {
+						return true;
+					}
 					if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
 						//WDN.jQuery(this).addClass('external'); //Implications for doing this?
 						WDN.jQuery(this).click(function() {
