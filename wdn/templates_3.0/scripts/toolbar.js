@@ -31,7 +31,7 @@ WDN.toolbar = function() {
     	
         initialize : function() {
     		WDN.jQuery('#header').append('<div class="hidden"><div id="toolbarcontent"></div></div>');
-        	WDN.loadJS('wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js', WDN.toolbar.colorboxSetup);
+        	WDN.loadJS('wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js', WDN.toolbar.toolTabsSetup);
         	if (WDN.jQuery.browser.msie) {
             	WDN.loadCSS('wdn/templates_3.0/css/header/colorbox-ie.css');
     		}
@@ -55,10 +55,6 @@ WDN.toolbar = function() {
         	WDN.jQuery('#toolbar_'+toolName+' div.toolbarMask').height(maskheight);
         	WDN.jQuery('#toolbar_'+toolName+' div.toolbarMask').css({overflow:"auto", padding:"0 3px 0 0"});
         },
-        colorboxSetup : function() {
-            WDN.log('Setting up colorbox');
-            WDN.toolbar.toolTabsSetup();
-        },
         
         /**
          * Just register a tool so we know about it.
@@ -76,9 +72,8 @@ WDN.toolbar = function() {
         setToolContent : function(plugin_name, content) {
         	WDN.jQuery("#toolbarcontent").append('<div id="toolbar_'+plugin_name+'" class="toolbar_plugin">'+content+'</div>');
         },
-        getContent : function(type, height) { 
+        getContent : function(type, height) {
         	eval('WDN.toolbar_'+type+'.display();');
-        //	WDN.jQuery("#cboxTitle").css({height:'0px'}); //Hide the cboxTitle at the bottom
         	WDN.toolbar.setMaskHeight(type, height); //Now that content is loaded, add the scroll bars
         },
         /**
@@ -97,11 +92,11 @@ WDN.toolbar = function() {
 	        				WDN.toolbar.tools[selected] = true;
         				}
 		        		eval('WDN.toolbar_'+selected+'.initialize();');
-		        		WDN.toolbar.getContent(selected, height);
 		        		WDN.jQuery('#toolbar_'+selected).show();
+		        		WDN.toolbar.getContent(selected, height);
 	    			});
         	if ( WDN.jQuery("#tooltabs li").hasClass("current") ){
-        		WDN.jQuery("#tooltabs li").removeClass("current");        		
+        		WDN.jQuery("#tooltabs li").removeClass("current");
         	}
         	WDN.jQuery('#tooltabs li.'+selected+'').addClass("current");
         },

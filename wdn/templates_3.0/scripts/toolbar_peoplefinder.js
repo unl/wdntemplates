@@ -12,9 +12,10 @@ WDN.toolbar_peoplefinder = function() {
     	
         },
         setupToolContent : function() {
-        	return '<h3>Peoplefinder: UNL\'s Online Directory</h3><div class="col left"><form onsubmit="WDN.toolbar_peoplefinder.queuePFRequest(document.getElementById(\'pq\').value,\'pfresults\'); return false;" method="get" action="http://peoplefinder.unl.edu/"><div><input type="text" onkeyup="WDN.toolbar_peoplefinder.queuePFRequest(this.value,\'pfresults\');" name="pq" id="pq"/><img alt="progress" id="pfprogress" src="/ucomm/templatedependents/templatecss/images/transpixel.gif"/></div></form><div id="pfresults" class="toolbarMask">'+defaultIntro+'</div></div><div class="col right"><div id="pfShowRecord"></div></div>';
+        	return '<h3>Peoplefinder: UNL\'s Online Directory</h3><div class="col left"><form onsubmit="WDN.toolbar_peoplefinder.queuePFRequest(document.getElementById(\'pq\').value,\'pfresults\'); return false;" method="get" action="http://peoplefinder.unl.edu/"><div><input type="text" onkeyup="WDN.toolbar_peoplefinder.queuePFRequest(this.value,\'pfresults\');" name="pq" id="pq" /><img alt="progress" id="pfprogress" src="/ucomm/templatedependents/templatecss/images/transpixel.gif"/></div></form><div id="pfresults" class="toolbarMask">'+defaultIntro+'</div></div><div class="col right"><div id="pfShowRecord"></div></div>';
         },
         display : function() {
+        	setTimeout(function(){WDN.jQuery('#pq').focus();},500);
         	return true;
         },
         pf_getUID : function(uid) {
