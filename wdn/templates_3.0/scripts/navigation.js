@@ -18,14 +18,14 @@ WDN.navigation = function() {
         /**
          * The delay before expand occurs
          */
-        expandDelay : 250,
+        expandDelay : 400,
         
         /**
          * The delay before collapse occurs
          */
-        collapseDelay : 60,
+        collapseDelay : 120,
         
-        changeSiteNavDelay : 250,
+        changeSiteNavDelay : 400,
         
         /**
          * Initialize the navigation, and determine what the correct state
@@ -163,10 +163,10 @@ WDN.navigation = function() {
          */
         startExpandDelay : function (event) {
             WDN.log('start expand delay');
+            clearTimeout(WDN.navigation.timeout);
             if (WDN.navigation.currentState == 1) {
                 return;
             }
-            clearTimeout(WDN.navigation.timeout);
             WDN.navigation.timeout = setTimeout(WDN.navigation.expand, WDN.navigation.expandDelay);
         },
         
@@ -175,10 +175,10 @@ WDN.navigation = function() {
          */
         startCollapseDelay: function(event) {
             WDN.log('start collapse delay');
+            clearTimeout(WDN.navigation.timeout);
             if (WDN.navigation.currentState == 0) {
                 return;
             }
-            clearTimeout(WDN.navigation.timeout);
             if (WDN.navigation.preferredState == 1) {
                 return;
             }
