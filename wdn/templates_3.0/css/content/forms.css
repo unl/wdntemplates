@@ -203,12 +203,16 @@ body:last-child:not(:root:root) #maincontent form.cool label{vertical-align:base
 p.required, p.attention {
 	background:url(images/forms/requiredIndicatorBG.png) no-repeat top left;
 	padding:10px 0 16px 45px;
-	margin-bottom:0px;
+	margin-bottom:-25px;
 	float:right;
 }
 p.attention {
 	background:url(images/forms/alertIndicatorBG.png) no-repeat top left;
 	float:left;	
+}
+#maincontent form.cool fieldset span.form-field-description {
+	color:#1091D1;
+	font-size:75%;
 }
 /*For the form hints*/
 #maincontent form.cool span.hint {
