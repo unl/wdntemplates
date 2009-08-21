@@ -16,7 +16,7 @@ body {text-align: left;font: 71%/150% "Lucida Grande",Verdana,Arial;color: #4343
 #maincontent dd {padding: 0 0 0 30px;}
 #header #logo {width:50px!important;height:50px!important;position:absolute;}
 body, #header {width: auto !important;margin: 0 !important;padding: 0 !important}
-#header h1{font-size:2.0 em !important;padding:35px 0 0 0;line-height:1px;position:relative;left:60px;}
+#header h1{font-size:2.0em !important;padding:35px 0 0 0;line-height:1px;position:relative;left:60px;}
 #titlegraphic h1{color:#990000;font-size:2.0em;line-height:normal;}
 #pagetitle h2{font-size:1.7em;color:#666;}
 #titlegraphic h1, #pagetitle h2{font-family:Arial, Helvetica, sans-serif;font-weight:normal;}
