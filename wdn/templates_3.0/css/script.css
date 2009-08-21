@@ -8,6 +8,18 @@ display:block;
 z-index:0;
 }
 
+#navigation > ul > li {
+	min-height: 50px;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 10px;
+	width: 15%;
+	zoom: 1;
+	*display: inline;
+	float:none;
+}
+	
 .nav_pinned #titlegraphic {
 margin-top:24px;
 }
