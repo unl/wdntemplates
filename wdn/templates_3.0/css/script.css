@@ -8,6 +8,15 @@ display:block;
 z-index:0;
 }
 
+/*zentable*/
+.zentable tbody tr:nth-child(odd) td, .zentable.bright tbody tr:nth-child(odd) td{background-color: #FFFDDF;}
+.zentable tbody tr:nth-child(even) td, .zentable tbody td .zentable tbody tr:nth-child(even) td, .zentable.bright tbody tr:nth-child(even) td, .zentable tbody td .zentable.bright tbody tr:nth-child(even) td{background-color: #FFFFFF;}
+table.zentable.cool tbody tr:nth-child(odd) td, .zentable table.zentable.cool tbody tr:nth-child(odd) td{background-color: #EFF7FF;}
+table.zentable.soothing tbody tr:nth-child(odd) td, .zentable table.zentable.soothing tbody tr:nth-child(odd) td{background-color: #EFFFEF;}
+table.zentable.energetic tbody tr:nth-child(odd) td, .zentable table.zentable.energetic tbody tr:nth-child(odd) td{background-color: #FFE9DF;}
+table.zentable.neutral tbody tr:nth-child(odd) td, .zentable table.zentable.neutral tbody tr:nth-child(odd) td{background-color: #EFEFEF;}
+table.zentable.primary tbody tr:nth-child(odd) td, .zentable table.zentable.primary tbody tr:nth-child(odd) td{background-color: #FFEFEF;}
+
 #navigation > ul > li {
 	min-height: 50px;
 	display: -moz-inline-stack;
