@@ -33,19 +33,11 @@
 }
 
 /* Bright Zentable */
-.zentable tbody tr:nth-child(odd) td, .zentable.bright tbody tr:nth-child(odd) td
-{
-    background-color: #FFFDDF;
-}
 .zentable tbody tr.rowOdd td, .zentable.bright tbody tr.rowOdd td
 {
     background-color: #FFFDDF;
 }
 
-.zentable tbody tr:nth-child(even) td, .zentable tbody td .zentable tbody tr:nth-child(even) td, .zentable.bright tbody tr:nth-child(even) td, .zentable tbody td .zentable.bright tbody tr:nth-child(even) td
-{
-    background-color: #FFFFFF;
-}
 .zentable tbody tr.rowEven td, .zentable tbody td .zentable tbody tr.rowEven td, .zentable.bright tbody tr.rowEven td, .zentable tbody td .zentable.bright tbody tr.rowEven td
 {
     background-color: #FFFFFF;
@@ -65,10 +57,6 @@
     color: #FFFFFF;
 }
 
-table.zentable.cool tbody tr:nth-child(odd) td, .zentable table.zentable.cool tbody tr:nth-child(odd) td
-{
-    background-color: #EFF7FF;
-}
 table.zentable.cool tbody tr.rowOdd td, .zentable table.zentable.cool tbody tr.rowOdd td
 {
     background-color: #EFF7FF;
@@ -86,10 +74,6 @@ table.zentable.cool tbody td, .zentable table.zentable.cool tbody td
     color: #FFFFFF;
 }
 
-table.zentable.soothing tbody tr:nth-child(odd) td, .zentable table.zentable.soothing tbody tr:nth-child(odd) td
-{
-    background-color: #EFFFEF;
-}
 table.zentable.soothing tbody tr.rowOdd td, .zentable table.zentable.soothing tbody tr.rowOdd td
 {
     background-color: #EFFFEF;
@@ -107,10 +91,6 @@ table.zentable.soothing tbody td, .zentable table.zentable.soothing tbody td
     color: #FFFFFF;
 }
 
-table.zentable.energetic tbody tr:nth-child(odd) td, .zentable table.zentable.energetic tbody tr:nth-child(odd) td
-{
-    background-color: #FFE9DF;
-}
 table.zentable.energetic tbody tr.rowOdd td, .zentable table.zentable.energetic tbody tr.rowOdd td
 {
     background-color: #FFE9DF;
@@ -128,10 +108,6 @@ table.zentable.energetic tbody td, .zentable table.zentable.energetic tbody td
     color: #FFFFFF;
 }
 
-table.zentable.neutral tbody tr:nth-child(odd) td, .zentable table.zentable.neutral tbody tr:nth-child(odd) td
-{
-    background-color: #EFEFEF;
-}
 table.zentable.neutral tbody tr.rowOdd td, .zentable table.zentable.neutral tbody tr.rowEven td
 {
     background-color: #EFEFEF;
@@ -149,10 +125,6 @@ table.zentable.neutral tbody td, .zentable table.zentable.neutral tbody td
     color: #FFFFFF;
 }
 
-table.zentable.primary tbody tr:nth-child(odd) td, .zentable table.zentable.primary tbody tr:nth-child(odd) td
-{
-    background-color: #FFEFEF;
-}
 table.zentable.primary tbody tr.rowOdd td, .zentable table.zentable.primary tbody tr.rowOdd td
 {
     background-color: #FFEFEF;
