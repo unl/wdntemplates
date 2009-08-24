@@ -66,6 +66,9 @@
 #headlines>div.active h4, #headlines>div:hover h4{
     color:#fff;
 }
+#headlines>div.active h4 a, #headlines>div:hover h4 a{
+    color:#fff;
+}
 #headlines .hidden {
     visibility:visible;
     display:block !important;
