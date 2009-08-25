@@ -18,12 +18,12 @@
     display:none;
 }
 #pagetitle {
-    margin:0 0 8px 0;
+    margin:0 0 18px 0;
     padding:0 10px;
 }
 #pagetitle h2 {
-	font-size:1.4em;
-    line-height:1.2em;
+	font-size:1.3em;
+    line-height:1.1em;
 }
 #pagetitle h2,
 #pagetitle h2 a,
