@@ -21,6 +21,11 @@ body.document #titlegraphic {
     margin-top:50px;
 }
 
+body.document #breadcrumbs ul,
+body.document #breadcrumbs ul:after {
+    height:32px;
+}
+
 body.document #breadcrumbs ul li.selected {
     background:none;
 }
