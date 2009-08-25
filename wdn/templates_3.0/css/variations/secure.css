@@ -3,6 +3,10 @@ body.secure #wdn_tool_links {
     display:none;
 }
 
+body.secure #header {
+    width:985px;
+}
+
 body.secure #footer .footer_col {
     display:none;
 }
@@ -15,7 +19,7 @@ body.secure #wdn_identity_management {
 	position:absolute;
 	top:0px;
 	right:0px;
-	margin-right:5px;
+	margin-right:25px;
 	height:14px;
 	padding:5px;
 	padding-right:25px;

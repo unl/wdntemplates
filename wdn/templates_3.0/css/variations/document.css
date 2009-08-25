@@ -3,6 +3,10 @@ body.document #wdn_wrapper {
 	margin:0 auto;
 }
 
+body.document #header {
+	width:985px;
+}
+
 body.document #breadcrumbs {
 	width: 954px;
 }
