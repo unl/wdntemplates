@@ -1,3 +1,6 @@
+body.popup {
+	background-image:none;
+}
 body.popup #wdn_navigation_bar,
 body.popup #wdn_search,
 body.popup #wdn_tool_links,
