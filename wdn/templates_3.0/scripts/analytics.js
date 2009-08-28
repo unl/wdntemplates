@@ -40,7 +40,6 @@ WDN.analytics = function() {
 						WDN.jQuery(this).click(function() {  
 							var mailLink = gahref.replace(/^mailto\:/i, '');  
 							wdnTracker._trackEvent('Email', mailLink, WDN.analytics.thisURL);
-							return false;
 						});  
 					}  
 					else if (gahref.match(filetypes)){  //deal with file downloads
