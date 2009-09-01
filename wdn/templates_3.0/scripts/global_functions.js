@@ -55,7 +55,7 @@ function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
 		thisNum_int = 0;
 	if(eval(imgArray_str+"["+thisNum_int+"]")!=null){
 		// Try and set img
-		var obj = MM_findObj(elementId_str);
+		var obj = document.getElementById(elementId_str);
 		
 		showIt();
 	}
@@ -65,15 +65,6 @@ function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
 	} else {
 		return true;
 	}
-};
-
-function MM_findObj(n, d) {
-    //v4.01
-	  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
-	    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
-	  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
-	  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
-	  if(!x && d.getElementById) x=d.getElementById(n); return x;
 };
 
 function newRandomPromo(xmluri){
@@ -134,3 +125,81 @@ var wraphandler = {
 };
 
 var XMLHTTP=WDN.proxy_xmlhttp;
+
+/* Zebra Tables
+David F. Miller
+A List Apart #173
+http://www.fivevoltlogic.com
+*/
+
+  // this function is needed to work around 
+  // a bug in IE related to element attributes
+  function hasClass(obj) {
+     var result = false;
+     if (obj.getAttributeNode("class") != null) {
+         result = obj.getAttributeNode("class").value;
+     }
+     return result;
+  }   
+
+ function stripe(id) {
+
+    // the flag we'll use to keep track of 
+    // whether the current row is odd or even
+    var even = false;
+  
+    // if arguments are provided to specify the colours
+    // of the even & odd rows, then use the them;
+    // otherwise use the following defaults: 
+    var evenColor = arguments[1] ? arguments[1] : "#ffffff";
+    var oddColor = arguments[2] ? arguments[2] : "#ecf7fd";
+  
+    // obtain a reference to the desired table
+    // if no such table exists, abort
+    var table = document.getElementById(id);
+    if (! table) { return; }
+    
+    // by definition, tables can have more than one tbody
+    // element, so we'll have to get the list of child
+    // &lt;tbody&gt;s 
+    var tbodies = table.getElementsByTagName("tbody");
+
+    // and iterate through them...
+    for (var h = 0; h < tbodies.length; h++) {
+    
+     // find all the &lt;tr&gt; elements... 
+      var trs = tbodies[h].getElementsByTagName("tr");
+      
+      // ... and iterate through them
+      for (var i = 0; i < trs.length; i++) {
+
+        // avoid rows that have a class attribute
+        // or backgroundColor style
+        if (! hasClass(trs[i]) &&
+            ! trs[i].style.backgroundColor) {
+ 		  
+          // get all the cells in this row...
+          var tds = trs[i].getElementsByTagName("td");
+        
+          // and iterate through them...
+          for (var j = 0; j < tds.length; j++) {
+        
+            var mytd = tds[j];
+
+            // avoid cells that have a class attribute
+            // or backgroundColor style
+            if (! hasClass(mytd) &&
+                ! mytd.style.backgroundColor) {
+        
+              mytd.style.backgroundColor =
+                even ? evenColor : oddColor;
+            
+            }
+          }
+        }
+        // flip from odd to even, or vice-versa
+        even =  ! even;
+      }
+    }
+  }
+
