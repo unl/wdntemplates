@@ -79,6 +79,6 @@ a.x-office-spreadsheet{background-image: url(images/mimetypes/x-office-spreadshe
 a.x-office-spreadsheet-template{background-image: url(images/mimetypes/x-office-spreadsheet-template.png);}
 a[href *='.doc'], a.application-msword, a.msword{background-image: url(images/mimetypes/application-msword.png);background-repeat:no-repeat;}
 a[href *='.xls'], a.application-vnd-ms-excel{background-image: url(images/mimetypes/application-vnd-ms-excel.png);background-repeat:no-repeat;}
-a[href *='.ppt'], a.application-vnd-ms-powerpoint{background-image: url(images/mimetypes/application-vnd-ms-powerpoint.png);background-repeat:no-repeat;}
+a[href *='.ppt'], a[href *='.pps'], a.application-vnd-ms-powerpoint{background-image: url(images/mimetypes/application-vnd-ms-powerpoint.png);background-repeat:no-repeat;}
 a[href $='.zip'], a.application-zip{background-image: url(images/mimetypes/application-zip.png);background-repeat:no-repeat;}
 a.feed-icon{background-image: url(images/mimetypes/feed-icon.png);}
