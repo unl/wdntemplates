@@ -14,6 +14,10 @@
 	padding-bottom:22px;
 }
 
+#tooltabs {
+	top:-11px;	
+}
+
 #tooltabs a{
 	margin-top:20px;
 }
