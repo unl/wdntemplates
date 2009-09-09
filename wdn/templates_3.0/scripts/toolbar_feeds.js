@@ -35,12 +35,12 @@ WDN.toolbar_feeds = function() {
         },
         setupToolContent : function() {
         	// This is where your tools content resides
-        	return '<div class="col col1"><h3><span><a href="'+WDN.toolbar_feeds.feedSite1+'">'+WDN.toolbar_feeds.feedName1+'</a></span><a href="'+WDN.toolbar_feeds.feedAddress1+'"><span class="rssicon"></span></a></h3><div class="toolbarMask"><ul id="wdn_feed_col1"></ul></div></div><div class="col col2"><h3><span><a href="'+WDN.toolbar_feeds.feedSite2+'">'+WDN.toolbar_feeds.feedName2+'</a></span><a href="'+WDN.toolbar_feeds.feedAddress2+'"><span class="rssicon"></span></a></h3><div class="toolbarMask"><ul id="wdn_feed_col2"></ul></div></div><div class="col col3"><h3><span><a href="'+WDN.toolbar_feeds.feedSite3+'">'+WDN.toolbar_feeds.feedName3+'</a></span><a href="'+WDN.toolbar_feeds.feedAddress3+'"><span class="rssicon"></span></a></h3><div class="toolbarMask"><ul id="wdn_feed_col3"></ul></div></div>';
+        	return '<div class="col col1"><h3><span><a href="'+WDN.toolbar_feeds.feedSite1+'">'+WDN.toolbar_feeds.feedName1+'</a></span><a href="'+WDN.toolbar_feeds.feedAddress1+'"><span class="rssicon"></span></a>&nbsp;<!--this space is needed for safari--></h3><div class="toolbarMask"><ul id="wdn_feed_col1"></ul></div></div><div class="col col2"><h3><span><a href="'+WDN.toolbar_feeds.feedSite2+'">'+WDN.toolbar_feeds.feedName2+'</a></span><a href="'+WDN.toolbar_feeds.feedAddress2+'"><span class="rssicon"></span></a>&nbsp;</h3><div class="toolbarMask"><ul id="wdn_feed_col2"></ul></div></div><div class="col col3"><h3><span><a href="'+WDN.toolbar_feeds.feedSite3+'">'+WDN.toolbar_feeds.feedName3+'</a></span><a href="'+WDN.toolbar_feeds.feedAddress3+'"><span class="rssicon"></span></a>&nbsp;</h3><div class="toolbarMask"><ul id="wdn_feed_col3"></ul></div></div>';
         },
         display : function() {
         	if (localRSS) {
         		if (wehaveinsertedthelocalrsshtml == false) {
-        			WDN.jQuery('#toolbar_feeds').append('<div class="col col4"><h3><span>'+localRSSTitle+'</span><a href="'+WDN.toolbar_feeds.feedAddressLocal+'"><span class="rssicon"></span></a></h3><div class="toolbarMask"><ul id="wdn_feed_local"></ul></div></div>');
+        			WDN.jQuery('#toolbar_feeds').append('<div class="col col4"><h3><span>'+localRSSTitle+'</span><a href="'+WDN.toolbar_feeds.feedAddressLocal+'"><span class="rssicon"></span></a>&nbsp;</h3><div class="toolbarMask"><ul id="wdn_feed_local"></ul></div></div>');
         			wehaveinsertedthelocalrsshtml = true;
         		}
         		WDN.jQuery('#toolbar_feeds .col.col1').css({width:"220px"});
