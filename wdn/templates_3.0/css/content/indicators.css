@@ -10,21 +10,21 @@
 	padding: 10px 5px 5px 68px;
 	min-height:60px;
 }
-#indicator div.message h4 {
+.indicator div.message h4 {
 	font-weight:bold;
 	color:#585858;
 	padding:0;
 }
-#indicator div.message p {
+.indicator div.message p {
 	margin-bottom:0px;	
 }
-#indicator a strong {
+.indicator a strong {
 	font-size:1.2em;
 }
-#indicator div.close, #indicator div.minimize {
+.indicator div.close, .indicator div.minimize {
 	float:right;
 	}
-#indicator div.close a, #indicator div.minimize a, #indicator div.maximize a, #indicator div.close a:hover, #indicator div.minimize a:hover, #indicator div.maximize a:hover {
+.indicator div.close a, .indicator div.minimize a, .indicator div.maximize a, .indicator div.close a:hover, .indicator div.minimize a:hover, .indicator div.maximize a:hover {
 	background:url(images/indicators/close.png) no-repeat scroll top left;
 	width:22px;
 	height:20px;
@@ -37,7 +37,13 @@
     position: relative;
 
 }
-#indicator div.close a:hover, #indicator div.minimize a:hover, #indicator div.maximize a:hover {
+.indicator div.minimize a, .indicator div.minimize a:hover {
+	background:url(images/indicators/minimize.png) no-repeat scroll top left;
+}
+.indicator div.maximize a, .indicator div.maximize a:hover {
+	background:url(images/indicators/maximize.png) no-repeat scroll top left;
+}
+.indicator div.close a:hover, .indicator div.minimize a:hover, .indicator div.maximize a:hover {
 	border: 1px solid #999; 
   		-moz-border-radius: 3px;
   		-webkit-border-radius: 3px;
