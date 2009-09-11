@@ -5,7 +5,7 @@
     padding:10px; 
     margin-bottom:10px;
 }
-#indicator div.message {
+.indicator div.message {
 	background:url(images/indicators/identityKey.png) no-repeat top left;
 	padding: 10px 5px 5px 68px;
 	min-height:60px;
