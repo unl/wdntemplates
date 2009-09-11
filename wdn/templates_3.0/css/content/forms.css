@@ -186,7 +186,7 @@ body:last-child:not(:root:root) #maincontent form.cool label{vertical-align:base
 	position:absolute;
 	left:150px;
 }
-#maincontent form.cool input,#maincontent form textarea,#maincontent form select {
+#maincontent form.cool fieldset input,#maincontent form textarea,#maincontent form select {
 	width:300px;
 }
 #maincontent form.cool fieldset p {
@@ -257,6 +257,7 @@ p.attention {
     color:#FFF;
     display:inline-block;
     padding:10px 45px 15px 10px;
+    margin-left:-10px;
     border:0;
     height:45px;
     border:none;
@@ -280,4 +281,51 @@ p.error, p.success {
 p.success {
 	border:1px solid #349804;
 	background: #6cbd45;	
+}
+
+/*
+COMPACT FORM
+
+Use this when you need a form in one_col or two_col. It uses the same markup as above, simply add another class the form. 
+Elments will rearrange/dissapper/change size due to space issues.
+
+*/
+#maincontent form.compact fieldset {
+	width:100%;
+}
+#maincontent form.compact fieldset legend {
+	font-weight: bold;
+	font-size:1.4em;
+	top: 10px;
+	border: none;
+	padding: 10px;
+	padding-top:55px;
+	margin: 0 0 0 10px;
+	position: relative;
+	background: none;
+	display:block;
+}
+#maincontent form.compact li div.element {
+	position:relative;
+	left:0;
+}
+
+#maincontent form.compact label.element {
+	display: none;
+	float: left;
+	width: 0;
+	padding: 0;
+	margin: 10px 0 0 0;
+	text-align: right;
+}
+#maincontent div.two_col form.compact fieldset input {
+	width:430px;
+	font-size:1.6em;
+	color:#9d9d9d;
+}
+#maincontent div.one_col form.compact input, #maincontent div.col form.compact input {
+	width:200px;
+}
+#maincontent form.compact p.submit {
+	margin-left: 10px;
 }
