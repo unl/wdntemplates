@@ -290,6 +290,9 @@ Use this when you need a form in one_col or two_col. It uses the same markup as 
 Elments will rearrange/dissapper/change size due to space issues.
 
 */
+#maincontent form.compact {
+	margin-top:-55px;
+	}
 #maincontent form.compact fieldset {
 	width:100%;
 }
