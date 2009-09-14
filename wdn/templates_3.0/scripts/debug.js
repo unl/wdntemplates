@@ -1,6 +1,6 @@
 
 var e = document.createElement("script");
-e.setAttribute('src', 'wdn/templates_3.0/scripts/wdn.js');
+e.setAttribute('src', '/wdn/templates_3.0/scripts/wdn.js');
 e.setAttribute('type','text/javascript');
 document.getElementsByTagName('head').item(0).appendChild(e);
 
@@ -15,5 +15,3 @@ e.onreadystatechange = function() {
     }
 };
 e.onload = executeCallback;
-        
-    
