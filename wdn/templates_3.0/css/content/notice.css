@@ -1,0 +1,59 @@
+.wdn_notice {
+    border: 1px solid #ddd;
+ 		-moz-border-radius: 5px;
+ 		-webkit-border-radius: 5px;
+    padding:10px; 
+    margin-bottom:10px;
+}
+.wdn_notice div.message {
+	background:url(images/notices/identityKey.png) no-repeat top left;
+	padding: 10px 5px 0px 68px;
+	min-height:60px;
+}
+.wdn_notice div.message h4 {
+	font-weight:bold;
+	color:#585858;
+	padding:0;
+}
+.wdn_notice div.message p {
+	margin-bottom:0px;	
+}
+.wdn_notice a strong {
+	font-size:1.2em;
+}
+.wdn_notice div.close, .wdn_notice div.minimize, .wdn_notice div.maximize {
+	float:right;
+	}
+.wdn_notice div.close a, .wdn_notice div.minimize a, .wdn_notice div.maximize a, .wdn_notice div.close a:hover, .wdn_notice div.minimize a:hover, .wdn_notice div.maximize a:hover {
+	background:url(images/notices/close.png) no-repeat scroll top left;
+	width:22px;
+	height:20px;
+	text-indent: -2000em; 
+    display: block;
+    border: 1px solid #ddd; 
+ 		-moz-border-radius: 3px;
+ 		-webkit-border-radius: 3px;
+    text-decoration: none;
+    position: relative;
+
+}
+.wdn_notice div.minimize a, .wdn_notice div.minimize a:hover {
+	background:url(images/notices/minimize.png) no-repeat scroll top left;
+}
+.wdn_notice div.maximize a, .wdn_notice div.maximize a:hover {
+	background:url(images/notices/maximize.png) no-repeat scroll top left;
+}
+.wdn_notice div.close a:hover, .wdn_notice div.minimize a:hover, .wdn_notice div.maximize a:hover {
+	border: 1px solid #999; 
+  		-moz-border-radius: 3px;
+  		-webkit-border-radius: 3px;
+}
+.wdn_notice.col {
+	
+}
+.wdn_notice.col div.message {
+	min-height:none;
+}
+.wdn_notice.col div.close, .wdn_notice.col div.maximize {
+	margin:10px;
+}
