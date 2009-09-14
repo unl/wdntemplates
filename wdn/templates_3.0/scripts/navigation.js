@@ -74,7 +74,7 @@ WDN.navigation = function() {
             if (WDN.navigation.siteHomepage == false) {
                 WDN.log('No homepage set!');
                 // Right now, stupidly select the second element.
-                WDN.jQuery('#breadcrumbs ul li:nth-child(2)').addClass('selected');
+                WDN.jQuery('#breadcrumbs ul > li:nth-child(2)').addClass('selected');
                 if (WDN.jQuery('#breadcrumbs ul li.selected a').size()) {
                     // Found the homepage url in the breadcrumbs
                     WDN.navigation.siteHomepage = WDN.jQuery('#breadcrumbs ul li.selected').find('a').attr('href');
@@ -96,7 +96,7 @@ WDN.navigation = function() {
                     );
                 if (WDN.jQuery('#breadcrumbs ul li.selected').size() < 1) {
 	                WDN.log('We are on the current homepage.');
-	                WDN.jQuery('#breadcrumbs ul li:last-child').addClass('selected');
+	                WDN.jQuery('#breadcrumbs ul > li:last-child').addClass('selected');
 	                WDN.jQuery('#breadcrumbs ul li.selected').wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
                 }
             }
@@ -240,17 +240,20 @@ WDN.navigation = function() {
                 return true;
             }
 
-            // Store the current navigation
-            WDN.jQuery('#breadcrumbs ul li.selected').append('<div class="storednav"><ul>'+WDN.jQuery('#navigation ul').html()+'</ul></div>');
+            if (WDN.jQuery('#breadcrumbs ul li.selected div.storednav').length == 0) {
+            	WDN.log('Storing it');
+	            // Store the current navigation
+	            WDN.jQuery('#breadcrumbs ul > li.selected:first').append('<div class="storednav"><ul>'+WDN.jQuery('#navigation ul').html()+'</ul></div>');
+            }
             
             // Set the clicked breadcrumb link to selected
             WDN.jQuery('#breadcrumbs ul li.selected').removeClass('selected');
             WDN.jQuery(breadcrumb.target).parent().addClass('selected');
-
             // Check for stored navigation
-            if (WDN.jQuery(breadcrumb.target).siblings('.storednav').length > 0) {
+            if (WDN.jQuery(breadcrumb.target).parent().find('.storednav').length > 0) {
+            	WDN.log("Already got it.");
                 // We've already grabbed the nav for this link
-                WDN.navigation.setNavigationContents(WDN.jQuery(breadcrumb.target).siblings('.storednav').contents());
+                WDN.navigation.setNavigationContents(WDN.jQuery(breadcrumb.target).parent().find('.storednav').html());
                 return true;
             }
 
