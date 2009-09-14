@@ -74,19 +74,19 @@ WDN.navigation = function() {
             if (WDN.navigation.siteHomepage == false) {
                 WDN.log('No homepage set!');
                 // Right now, stupidly select the second element.
-                WDN.jQuery('#breadcrumbs ul > li:nth-child(2)').addClass('selected');
-                if (WDN.jQuery('#breadcrumbs ul li.selected a').size()) {
+                WDN.jQuery('#breadcrumbs > ul >  li:nth-child(2)').addClass('selected');
+                if (WDN.jQuery('#breadcrumbs > ul > li.selected a').size()) {
                     // Found the homepage url in the breadcrumbs
-                    WDN.navigation.siteHomepage = WDN.jQuery('#breadcrumbs ul li.selected').find('a').attr('href');
+                    WDN.navigation.siteHomepage = WDN.jQuery('#breadcrumbs > ul > li.selected').find('a').attr('href');
                 } else {
                     // Assume it's the current page
                     WDN.navigation.siteHomepage = window.location;
-                    WDN.jQuery('#breadcrumbs ul li.selected').wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
+                    WDN.jQuery('#breadcrumbs > ul > li.selected').wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
                 }
             } else {
                 WDN.log('Homepage has been set.');
                 // Make all the hrefs absolute.
-                WDN.jQuery('#breadcrumbs>ul li a').each(
+                WDN.jQuery('#breadcrumbs > ul > li > a').each(
                         function() {
                             if (this.href == WDN.navigation.siteHomepage) {
                             	WDN.jQuery(this).parent().addClass('selected');
@@ -94,10 +94,10 @@ WDN.navigation = function() {
                             }
                         }
                     );
-                if (WDN.jQuery('#breadcrumbs ul li.selected').size() < 1) {
+                if (WDN.jQuery('#breadcrumbs > ul > li.selected').size() < 1) {
 	                WDN.log('We are on the current homepage.');
-	                WDN.jQuery('#breadcrumbs ul > li:last-child').addClass('selected');
-	                WDN.jQuery('#breadcrumbs ul li.selected').wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
+	                WDN.jQuery('#breadcrumbs > ul > li:last-child').addClass('selected');
+	                WDN.jQuery('#breadcrumbs > ul > li.selected').wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
                 }
             }
             
