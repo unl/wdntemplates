@@ -4,7 +4,7 @@ a.external {
 	}
 a[href^="http://maps.google.com"], a.application-map {
 	padding: 3px 18px 0px 0px;
-	background: url(images/iconMap13.png) bottom right no-repeat;
+	background: url(images/map-icon.png) bottom right no-repeat;
 }
 
 a[href^="mailto:"], 
