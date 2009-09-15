@@ -22,7 +22,7 @@ body.popup #wdn_wrapper {
     padding:0px;
     margin:0px;
     width:100%;
-    min-width:none;
+    min-width:0px;
 }
 
 body.popup #wdn_content_wrapper {
