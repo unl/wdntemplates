@@ -40,6 +40,10 @@ body.document #breadcrumbs ul li.selected a:after {
     background-image:none;
 }
 
+body.document #footer {
+    width:960px;
+}
+
 body.document #footer .footer_col {
     display:none;
 }
