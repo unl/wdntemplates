@@ -84,10 +84,10 @@ ul.wdn_tabs span sup {
 	color:#fff;
 	font-weight:bold;
 	font-size:.7em;
-	padding:1px 3px;
+	padding:0px 3px;
 	background:#ac0203;
 	border:1px solid #ac0203;
-		-moz-border-radius: 7px;
- 		-webkit-border-radius: 7px;
- 	bottom:1.8ex;
+		-moz-border-radius: 15px;
+ 		-webkit-border-radius: 15px;
+ 	bottom:1.7ex;
 }
