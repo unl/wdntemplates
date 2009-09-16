@@ -83,11 +83,11 @@ ul.wdn_tabs-nojs span img{margin-right:3px;}
 ul.wdn_tabs span sup {
 	color:#fff;
 	font-weight:bold;
-	font-size:.6em;
-	padding:1px 2px;
+	font-size:.7em;
+	padding:1px 3px;
 	background:#ac0203;
 	border:1px solid #ac0203;
 		-moz-border-radius: 7px;
  		-webkit-border-radius: 7px;
- 	bottom:2ex;
+ 	bottom:1.8ex;
 }
