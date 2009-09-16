@@ -2,7 +2,7 @@
 p {margin: 0 0 1.1em 0;}
 img {border: none;margin:10px 0;}
 a {text-decoration:underline;background:none;}
-body {text-align: left;font: 71%/150% "Lucida Grande",Verdana,Arial;color: #434343;}
+body {text-align: left;font: 71%/150% "Lucida Grande",Verdana,Arial;}
 #maincontent h1, #maincontent h2, #maincontent h3{line-height:1.2;font-weight: normal;padding-top: .2em;padding-bottom: .3em;}
 #maincontent h4, #maincontent h5, #maincontent h6{line-height:1.2;font-weight: normal;padding-top: .1em;padding-bottom: .2em;}
 #maincontent h1{font-size: 1.7em;}
