@@ -61,7 +61,9 @@ WDN.analytics = function() {
 				});
 		},
 		trackNavigationPreferredState : function(preferredState) {
-			var success = wdnTracker._trackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
+			try {
+				var success = wdnTracker._trackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
+			} catch(e){};
 		}
 	};
 }();
