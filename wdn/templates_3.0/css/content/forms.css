@@ -186,7 +186,7 @@ body:last-child:not(:root:root) #maincontent form.cool label{vertical-align:base
 	position:absolute;
 	left:150px;
 }
-#maincontent form.cool fieldset input,#maincontent form textarea,#maincontent form select {
+#maincontent form.cool fieldset input, #maincontent form.cool textarea, #maincontent form.cool select {
 	width:300px;
 }
 #maincontent form.cool fieldset p {
@@ -344,18 +344,18 @@ Elments will rearrange/dissapper/change size due to space issues.
 	margin: 10px 0 0 0;
 	text-align: right;
 }
-#maincontent div.two_col form.compact fieldset input {
+#maincontent form.compact input, #maincontent form.compact textarea, #maincontent form.compact select {
+	width:180px;
+}
+#maincontent div.two_col form.compact fieldset input, #maincontent div.col form.compact fieldset input {
 	width:430px;
 	font-size:1.6em;
 	color:#9d9d9d;
 }
-#maincontent div.two_col form.compact fieldset fieldset input { /* We're assuming the nested fieldset is used only for checkboxes/radios */
-	width:25px;
-	margin-left:20px;
-	vertical-align:2%;
-}
-#maincontent div.one_col form.compact input, #maincontent div.col form.compact input {
-	width:200px;
+#maincontent form.compact fieldset fieldset input { /* We're assuming the nested fieldset is used only for checkboxes/radios */
+	width:25px !important;
+	margin-left:20px !important;
+	vertical-align:2% !important;
 }
 #maincontent form.compact p.submit {
 	margin-left: 10px;
