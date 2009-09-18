@@ -186,7 +186,7 @@ body:last-child:not(:root:root) #maincontent form.cool label{vertical-align:base
 	position:absolute;
 	left:150px;
 }
-#maincontent form.cool fieldset input, #maincontent form.cool textarea, #maincontent form.cool select {
+#maincontent form.cool fieldset input, #maincontent form.cool textarea {
 	width:300px;
 }
 #maincontent form.cool fieldset p {
