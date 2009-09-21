@@ -51,6 +51,7 @@ structure:
 	margin-top:9px;
 	float:left;
 	position:relative;
+	cursor:pointer;
 }
 #maincontent ul.wdn_tabs li.selected a {
 	background:url('images/tabs/activeRightMiddle.png') no-repeat top right;
