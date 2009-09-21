@@ -48,7 +48,12 @@
 #maincontent div.zenboxsolid.primary h3, #maincontent div.zenboxfixed.primary h3, #maincontent div.zenboxfeature.primary h3, #maincontent div.zenbox.primary h3 {
     background-color:#AC0302;
 }
-
+#maincontent form.cool p.submit input, p.submit a {
+    margin-left:-160px;
+}
+#maincontent form.compact p.submit input {
+	margin-left: 0;
+}
 ul#wdn_tool_links li {
 	float:left;
 	width:20px;
