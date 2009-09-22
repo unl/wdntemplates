@@ -151,7 +151,7 @@ form.cool div.error {
 	background: #fff;
 }
 
-#maincontent form.cool fieldset span,.required {
+#maincontent form.cool fieldset span.required {
 	color: #ff0000;
 }
 
