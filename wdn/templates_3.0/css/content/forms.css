@@ -87,6 +87,9 @@ Sample Form Markup:
 	padding: 3px;
 	margin: 4px 0;
 }
+#maincontent form.cool select {
+	width:auto;
+	}
 #maincontent form.cool input[type=checkbox], #maincontent form.cool input[type=radio]  {
 	width:auto;
 	border:none;
