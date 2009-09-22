@@ -43,8 +43,6 @@ Sample Form Markup:
     padding: 0 0 10px 0;
 }
 
-/*#maincontent form.cool fieldset fieldset {margin-left:-10px !important;}*/
-#maincontent form.cool fieldset fieldset fieldset {margin-left:0 !important;}
 
 #maincontent form.cool fieldset ol {
 	margin: 0;
@@ -83,13 +81,17 @@ Sample Form Markup:
 
 #maincontent form.cool input,#maincontent form.cool textarea,#maincontent form.cool select
 	{
-	width: auto;
+	width: 300px;
 	border: 1px solid #ccc;
 	border-color: #ccc #fff #fff #ccc;
 	padding: 3px;
 	margin: 4px 0;
 }
-
+#maincontent form.cool input[type=checkbox], #maincontent form.cool input[type=radio]  {
+	width:auto;
+	border:none;
+	margin:3px 0;
+	}
 #maincontent form.cool input:focus,#maincontent form.cool textarea:focus,#maincontent form.cool select:focus
 	{
 	background: #ffffcc;
@@ -173,19 +175,22 @@ form.cool div.error {
 }
 
 #maincontent form.cool label{vertical-align:40%;margin-right:12px;margin-left:2px;}
-#maincontent form.cool .element label{vertical-align:20%;margin-right:12px;margin-left:5px;}
+#maincontent form.cool .element label{vertical-align:0;margin-right:12px;margin-left:5px;}
 body:last-child:not(:root:root) #maincontent form.cool label{vertical-align:baseline; }
 
 #maincontent form.cool li div.element {
-	position:absolute;
 	left:150px;
-}
-#maincontent form.cool fieldset input, #maincontent form.cool textarea {
-	width:300px;
 }
 #maincontent form.cool fieldset p {
 	margin: 10px;	
 }
+
+#maincontent form.cool fieldset fieldset li div.element {
+	left:0;
+	position:absolute;
+}
+forms.css (line 179)
+
 /*Required Indicators*/
 .required {
 	color:#434343;
