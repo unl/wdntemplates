@@ -122,7 +122,7 @@ var WDN = function() {
 			if (WDN.jQuery.browser.msie && (WDN.jQuery.browser.version == '6.0') && (!navigator.userAgent.match(/MSIE 8.0/))) {
 				WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>');
 				fetchURLInto('http://www.unl.edu/wdn/templates_3.0/includes/browserupgrade.html', 'wdn_upgrade_notice');
-				WDN.jQuery('head link[rel=stylesheet]').remove();
+				WDN.jQuery('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
 				WDN.jQuery('body').removeAttr('class');
 				WDN.jQuery('body').addClass('document');
 				WDN.loadCSS('wdn/templates_3.0/css/content/columns.css');
