@@ -96,7 +96,7 @@
 	position:relative;
 	top:6px;
 }
-#toolbar_feeds #wdn_rss_story {
+#wdn_rss_story {
 	display:none;
 	float:left;
 	padding:0 0 0 10px;
@@ -148,15 +148,15 @@
 #toolbar_weather br {
 	display:none;
 }
-#toolbar_weather #weatherforecast{
+#weatherforecast{
 	margin: 0 0 0 5px;
 }
-#toolbar_weather #weatherforecast strong{
+#weatherforecast strong{
 	font-size:1.2em;
 	display:block;
 	padding-top:10px;
 }
-#toolbar_weather #weatherforecast span.warn{
+#weatherforecast span.warn{
 	font-size:1.1em;
 	color:#ac0302;
 }
@@ -177,7 +177,7 @@
 	width:420px;
 	padding:0 0 0 10px;
 }
-#toolbar_weather #showradar{
+#showradar{
 	border:1px solid #ededed;
 	border-radius:3px;
     background: #f7f7f7;
@@ -188,7 +188,7 @@
 }
 #showradar img {
 	background:url('images/colorbox/loading.gif') center no-repeat;
-	height:350px;
+	height:330px;
 	width:400px;
 }
 #toolbar_weather .weathertempf{
@@ -197,15 +197,15 @@
 #toolbar_weather div#currentcond>div {
 	margin-bottom:5px;
 }
-#toolbar_weather #currentcond{
+#currentcond{
 	margin:10px 0 0 5px;
 }
-#toolbar_weather #unltemp{
+#unltemp{
 	padding-top:15px;
 	font-size:1.2em;
 	margin-bottom:15px !important;
 }
-#toolbar_weather #unlcurrent{
+#unlcurrent{
 	font-size:1.2em;
 	margin-bottom:15px !important;
 }
