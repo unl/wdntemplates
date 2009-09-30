@@ -17,22 +17,22 @@
 	background:url('images/applianceIcons.png') no-repeat 0 -120px;
 }
 #tooltabs a.feeds {
-	background:url(images/applianceIcons.png) 0 -141px no-repeat;
+	background:url(images/applianceIcons.png) 0 -140px no-repeat;
 }
 #tooltabs a.weather {
-	background:url(images/applianceIcons.png) 0 -161px no-repeat;
+	background:url(images/applianceIcons.png) 0 -160px no-repeat;
 }
 #tooltabs a.events {
-	background:url(images/applianceIcons.png) 0 -181px no-repeat;
+	background:url(images/applianceIcons.png) 0 -180px no-repeat;
 }
 #tooltabs a.peoplefinder {
-	background:url(images/applianceIcons.png) 0 -201px no-repeat;
+	background:url(images/applianceIcons.png) 0 -200px no-repeat;
 }
 #tooltabs a.webcams {
-	background:url(images/applianceIcons.png) 0 -221px no-repeat;
+	background:url(images/applianceIcons.png) 0 -220px no-repeat;
 }
 #tooltabs a.tourmaps {
-	background:url(images/applianceIcons.png) 0 -241px no-repeat;
+	background:url(images/applianceIcons.png) 0 -240px no-repeat;
 }
 #tooltabs li.current a.feeds {
 	background-position: 0 0;
