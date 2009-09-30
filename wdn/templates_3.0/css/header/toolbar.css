@@ -24,38 +24,41 @@ ul#wdn_tool_links li {
 	text-indent:-9000px;
 }
 
-#wdn_tool_links a.feeds {
+#wdn_tool_links a.alert {
     background:url('images/applianceIcons.png') no-repeat 0 -120px;
+}
+#wdn_tool_links a.feeds {
+    background:url('images/applianceIcons.png') no-repeat 0 -141px;
 }
 #wdn_tool_links a.feeds:hover {
     background:url('images/applianceIcons.png') no-repeat 0 0;
 }
 #wdn_tool_links a.weather {
-    background:url('images/applianceIcons.png') no-repeat 0 -140px;
+    background:url('images/applianceIcons.png') no-repeat 0 -161px;
 }
 #wdn_tool_links a.weather:hover {
     background:url('images/applianceIcons.png') no-repeat 0 -20px;
 }
 #wdn_tool_links a.events {
-    background:url('images/applianceIcons.png') no-repeat 0 -160px;
+    background:url('images/applianceIcons.png') no-repeat 0 -181px;
 }
 #wdn_tool_links a.events:hover {
     background:url('images/applianceIcons.png') no-repeat 0 -40px;
 }
 #wdn_tool_links a.peoplefinder {
-    background:url('images/applianceIcons.png') no-repeat 0 -180px;
+    background:url('images/applianceIcons.png') no-repeat 0 -201px;
 }
 #wdn_tool_links a.peoplefinder:hover {
     background:url('images/applianceIcons.png') no-repeat 0 -60px;
 }
 #wdn_tool_links a.webcams {
-    background:url('images/applianceIcons.png') no-repeat 0 -200px;
+    background:url('images/applianceIcons.png') no-repeat 0 -221px;
 }
 #wdn_tool_links a.webcams:hover {
     background:url('images/applianceIcons.png') no-repeat 0 -80px;
 }
 #wdn_tool_links a.tourmaps {
-    background:url('images/applianceIcons.png') no-repeat 0 -220px;
+    background:url('images/applianceIcons.png') no-repeat 0 -241px;
 }
 #wdn_tool_links a.tourmaps:hover {
     background:url('images/applianceIcons.png') no-repeat 0 -100px;

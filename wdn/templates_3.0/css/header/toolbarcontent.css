@@ -119,9 +119,9 @@
 	padding-bottom:3px;
 }
 
-/* Webcams
+/* Webcams & Alert
 ***********/
-#toolbar_webcams .col.left {
+#toolbar_webcams .col.left, #toolbar_alert .col.left {
 	float:left;
 	width:300px;
 	padding:0 10px 0 0;
@@ -131,13 +131,16 @@
 	width:300px;
 	padding:0 10px 0 10px;
 }
-#toolbar_webcams .col.right {
+#toolbar_webcams .col.right, #toolbar_alert .two_col.right {
 	float:left;
 	width:300px;
 	padding:0 0 0 10px;
 }
 #toolbar_webcams .col img {
 	width:290px;
+}
+#toolbar_alert .two_col.right {
+	width:600px;
 }
 
 /* Weather

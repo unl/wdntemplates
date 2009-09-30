@@ -40,6 +40,7 @@ WDN.toolbar = function() {
         },
         toolTabsSetup : function() {
         	WDN.jQuery('#cboxWrapper').append('<div id="tooltabs"><ul></ul></div>');
+        //	WDN.toolbar.registerTool('alert', 'Emergency', 1002, 500);
         	WDN.toolbar.registerTool('feeds', 'RSS Feeds', 1002, 500);
         	WDN.toolbar.registerTool('weather', 'Weather', 1002, 500);
         	WDN.toolbar.registerTool('events', 'Events', 1002, 550);
