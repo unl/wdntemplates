@@ -49,6 +49,13 @@ Navigation</a></p>
         </div>        
         <div id="maincontent">
         <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+        <script type="text/javascript">
+        function startChecking()
+        {
+            WDN.initializePlugin('unlalert');
+        }
+        </script>
+        <a href="#" onclick="startChecking(); return false;">Load the alert script</a>
 		    <ul class="wdn_tabs">
 		        <li><a href="#tab1"><span>Tab #1</span></a></li>
 		        <li><a href="#tab2"><span>Tab #2</span></a></li>
