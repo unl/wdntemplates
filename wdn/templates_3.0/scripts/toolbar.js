@@ -35,6 +35,8 @@ WDN.toolbar = function() {
         	if (WDN.jQuery.browser.msie) {
             	WDN.loadCSS('wdn/templates_3.0/css/header/colorbox-ie.css');
     		}
+        	//a callback with the colorbox binding further below displays the tabs, this line hides them on close so they don't show with another instance of the colorbox
+        	WDN.jQuery().bind('cbox_closed', function(){WDN.jQuery("#tooltabs").hide();});
         },
         toolTabsSetup : function() {
         	WDN.jQuery('#cboxWrapper').append('<div id="tooltabs"><ul></ul></div>');
@@ -66,7 +68,7 @@ WDN.toolbar = function() {
          */
         registerTool : function(plugin_name, title, pwidth, pheight) {
         	 WDN.jQuery('#tooltabs ul').append('<li class="'+plugin_name+'"><a href="#" class="'+plugin_name+'">'+title+'</a></li>');
-        	 WDN.jQuery("a."+plugin_name).colorbox({width:pwidth, height:pheight, inline:true, href:"#toolbarcontent"});
+        	 WDN.jQuery("a."+plugin_name).colorbox({width:pwidth, height:pheight, inline:true, href:"#toolbarcontent"}, function(){WDN.jQuery("#tooltabs").show();});
         	 WDN.jQuery("a."+plugin_name).click(function(){WDN.toolbar.switchToolFocus(plugin_name, pheight);});
         },
         setToolContent : function(plugin_name, content) {
@@ -82,7 +84,7 @@ WDN.toolbar = function() {
          * @param string selected The tool to select
          */
         switchToolFocus : function(selected, height) {
-        	WDN.jQuery('#tooltabs').show();
+        //	WDN.jQuery('#tooltabs').show();
         	WDN.jQuery('#toolbarcontent .toolbar_plugin').hide();
         	WDN.initializePlugin('toolbar_'+selected,
         			function(){

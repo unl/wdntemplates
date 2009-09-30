@@ -1,4 +1,5 @@
 #tooltabs {
+	display:none;
 	position:absolute;
 	top:-8px;
 	left:20px;
