@@ -48,6 +48,12 @@
 #maincontent div.zenboxsolid.primary h3, #maincontent div.zenboxfixed.primary h3, #maincontent div.zenboxfeature.primary h3, #maincontent div.zenbox.primary h3 {
     background-color:#AC0302;
 }
+#maincontent form.cool fieldset legend {
+    margin: -13px 0 0 -7px;
+}
+#maincontent form.compact fieldset legend {
+    margin: -5px 0 0 -7px;
+}
 #maincontent form.cool p.submit input, p.submit a {
     margin-left:-160px;
 }
