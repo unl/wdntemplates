@@ -102,7 +102,6 @@ var WDN = function() {
 				WDN.initializePlugin('toolbar');
 				WDN.initializePlugin('tabs');
 				WDN.initializePlugin('analytics');
-				WDN.initializePlugin('flashembed');
 				WDN.browserAdjustments();
 				WDN.screenAdjustments();
 			});
