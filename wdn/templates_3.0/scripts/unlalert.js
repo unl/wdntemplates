@@ -7,6 +7,8 @@ WDN.unlalert = function() {
 		//data_url : 'http://alert1.unl.edu/json/unlcap.js',
 		data_url : 'http://ucommbieber.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/alert.master.server.js',
 		
+		current_id : false,
+		
 		initialize : function()
 		{
 			WDN.log('Initializing the UNL Alert Plugin');
@@ -95,16 +97,18 @@ WDN.unlalert = function() {
 					WDN.jQuery('#maincontent').append('<div id="alertbox"></div>');
 					WDN.jQuery('#wdn_tool_links').prepend('<li><a id="unlalerttool" class="alert tooltip" title="Emergency Alert: An alert has been issued!" href="#alertbox">UNL Alert</a></li>');
 				}
-				WDN.jQuery('#alertbox').html('<a href="#" id="closeAlert" onclick="WDN.unlalert.closeAlert('+uniqueID+'); return false;">(close)</a><div id="alertboxContent"><h1>' + alertTitle + '</h1><p>'+ alertDescription +'<!-- Number '+uniqueID+' --></p></div>');
+				WDN.unlalert.current_id = uniqueID;
+				WDN.jQuery('#alertbox').html('<a href="#" id="closeAlert" onclick="WDN.unlalert.closeAlert(); return false;">(close)</a><div id="alertboxContent"><h1>' + alertTitle + '</h1><p>'+ alertDescription +'<!-- Number '+uniqueID+' --></p></div>');
+				WDN.jQuery().bind('cbox_close', WDN.unlalert.closeAlert);
 				WDN.jQuery('#unlalerttool').colorbox({inline:true,width:"640px",href:"#alertbox",open:true});
 			}
 		},
 		
 		/*------ close alert box ------*/
-	 	closeAlert: function(id) {
+	 	closeAlert: function() {
 	 		//create alert box
 			WDN.jQuery('#alertbox').remove();
-			WDN.unlalert._acknowledgeAlert(id);
+			WDN.unlalert._acknowledgeAlert(WDN.unlalert.current_id);
 		}
 	};
 }();
