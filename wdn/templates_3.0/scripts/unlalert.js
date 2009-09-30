@@ -107,7 +107,7 @@ WDN.unlalert = function() {
 		/*------ close alert box ------*/
 	 	closeAlert: function() {
 	 		//create alert box
-			WDN.jQuery('#alertbox').remove();
+			WDN.jQuery('#alertbox').hide();
 			WDN.unlalert._acknowledgeAlert(WDN.unlalert.current_id);
 		}
 	};
