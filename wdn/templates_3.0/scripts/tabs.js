@@ -28,13 +28,23 @@ WDN.tabs = function() {
 				var href = WDN.jQuery(this).attr("href");
 				window.location.hash = href;
 				WDN.tabs.hideDiv(href);
+				WDN.tabs.cleanLastTab();
 				return false;
 			});
+			WDN.tabs.cleanLastTab();
 		},
 		
 		hideDiv: function(theDiv) {
 			WDN.jQuery('div.wdn_tabs_content > div').hide(); //hide all the content divs except the one selected
 			WDN.jQuery('div'+theDiv).show();
+		},
+		
+		cleanLastTab: function() {
+			WDN.jQuery('ul.wdn_tabs li:last-child a')
+				.css({'margin-right':'-7px', 'background':"url('/workspace/UNL_WDNTemplates/wdn/templates_3.0/css/content/images/tabs/inactiveRightLast.png') no-repeat top right"});
+			WDN.jQuery('ul.wdn_tabs li:last-child.selected a')
+				.css({'background':"url('/workspace/UNL_WDNTemplates/wdn/templates_3.0/css/content/images/tabs/activeRight.png') no-repeat top right"});
+		
 		}
 	};
 }();
