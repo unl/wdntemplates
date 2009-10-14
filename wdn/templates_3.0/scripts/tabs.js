@@ -41,9 +41,9 @@ WDN.tabs = function() {
 		
 		cleanLastTab: function() {
 			WDN.jQuery('ul.wdn_tabs li:last-child a')
-				.css({'margin-right':'-7px', 'background':"url('wdn/templates_3.0/css/content/images/tabs/inactiveRightLast.png') no-repeat top right"});
+				.css({'margin-right':'-7px', 'background':"url('"+WDN.template_path+"wdn/templates_3.0/css/content/images/tabs/inactiveRightLast.png') no-repeat top right"});
 			WDN.jQuery('ul.wdn_tabs li:last-child.selected a')
-				.css({'background':"url('wdn/templates_3.0/css/content/images/tabs/activeRight.png') no-repeat top right"});
+				.css({'background':"url('"+WDN.template_path+"wdn/templates_3.0/css/content/images/tabs/activeRight.png') no-repeat top right"});
 		
 		}
 	};
