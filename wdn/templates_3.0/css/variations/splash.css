@@ -77,6 +77,13 @@
 #posters {
     position:relative;
 }
+
+#posters #poster1 :first-letter {
+	font-size:170%;
+	font-weight:bolder;
+    font-family:Georgia, "Times New Roman", Times, serif;
+}
+
 #posters h2, #posters h3 {
     color:#ddd;
 }
