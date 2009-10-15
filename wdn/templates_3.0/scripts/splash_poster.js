@@ -17,7 +17,7 @@ WDN.splash_poster = function() {
 		/**
 		 * The panel rotation interval in microseconds
 		 */
-		interval : 3000,
+		interval : 7000,
 		
 		/**
 		 * Initialize the splash posters
