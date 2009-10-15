@@ -22,6 +22,7 @@ WDN.tabs = function() {
 				var content = WDN.jQuery(this).children('a').text();
 				var contentTitle = WDN.jQuery(this).children('a').attr('href');
 				WDN.jQuery('div#'+contentTitle).prepend("<h5 class='yesprint'>"+content+"</h5>");
+				return true;
 			}),
 			WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) a').click(function() { //do something when a tab is clicked
 				WDN.jQuery(this).parent().addClass('selected').siblings().removeClass('selected');
@@ -32,11 +33,13 @@ WDN.tabs = function() {
 				return false;
 			});
 			WDN.tabs.cleanLastTab();
+			return true;
 		},
 		
 		hideDiv: function(theDiv) {
 			WDN.jQuery('div.wdn_tabs_content > div').hide(); //hide all the content divs except the one selected
 			WDN.jQuery('div'+theDiv).show();
+			return true;
 		},
 		
 		cleanLastTab: function() {
@@ -44,7 +47,7 @@ WDN.tabs = function() {
 				.css({'margin-right':'-7px', 'background':"url('"+WDN.template_path+"wdn/templates_3.0/css/content/images/tabs/inactiveRightLast.png') no-repeat top right"});
 			WDN.jQuery('ul.wdn_tabs li:last-child.selected a')
 				.css({'background':"url('"+WDN.template_path+"wdn/templates_3.0/css/content/images/tabs/activeRight.png') no-repeat top right"});
-		
+			return true;
 		}
 	};
 }();
