@@ -6,12 +6,12 @@
 //
 //
 
-WDN.splash_poster = function() { 
+WDN.splash_poster = function() {
 	return {
 		initialize : function() {
-	  		WDN.log("splash_poster initialized")
+	  		WDN.log("splash_poster initialized");
 			theInterval = setInterval( function() {
-				currentPoster = parseInt(WDN.jQuery("#posters>div.active").attr("id").split('poster')[1]);
+				posterCount = parseInt(WDN.jQuery("#posters>div.active").attr("id").split('poster')[1]);
 				if (currentPoster< 4) {
 					nextPoster = currentPoster + 1;
 				} else {
@@ -36,11 +36,13 @@ WDN.splash_poster = function() {
 	  			WDN.jQuery("#headline"+panelClicked+",#poster"+panelClicked).removeClass('hidden').addClass("active");
 	  		});
 	  	   
-	  		//adjust for four panels
-	  		WDN.jQuery("#headlines h4").css('font-size','1.3em');
-  			WDN.jQuery("#headlines div.splash_headline").css('height','85px').css('padding','8px 16px 4px');
-	  		WDN.jQuery("#headline4").show();
-	  		WDN.jQuery("#headline4>div.splash_headline").css('height','86px');
+	  		if (WDN.jQuery('#splash .splash_headline').length == 4) {
+		  		//adjust for four panels
+		  		WDN.jQuery("#headlines h4").css('font-size','1.3em');
+	  			WDN.jQuery("#headlines div.splash_headline").css('height','85px').css('padding','8px 16px 4px');
+		  		WDN.jQuery("#headline4").show();
+		  		WDN.jQuery("#headline4>div.splash_headline").css('height','86px');
+	  		}
 	  	}
 	};
 }();
