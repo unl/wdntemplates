@@ -46,7 +46,7 @@ WDN.analytics = function() {
 						WDN.jQuery(this).click(function() { 
 							var extension = (/[.]/.exec(gahref)) ? /[^.]+$/.exec(gahref) : undefined;
 							wdnTracker._trackEvent('File Download', gahref, WDN.analytics.thisURL); 
-							wdnTracker._trackPageview('downloads/'+gahref);
+							wdnTracker._trackPageview(gahref);
 						});  
 					}  
 				}); 
