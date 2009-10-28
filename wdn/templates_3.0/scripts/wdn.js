@@ -241,7 +241,7 @@ var WDN = function() {
 		post : function(url, data, callback, type) {
 			try {
 				WDN.log('Using jQuery to post data');
-				WDN.jQuery.post(url, data);
+				WDN.jQuery.post(url, data, callback, type);
 			} catch(e) {
 				WDN.log('jQuery post() failed.');
 				var params = '';
@@ -254,12 +254,26 @@ var WDN = function() {
 					var xdr = new XDomainRequest();
 					xdr.open("post", url);
 					xdr.send(params);
+					xdr.onload = function() {
+						callback(this.responseText, 'success');
+					}
 				} else {
 					try {
 						WDN.log('Using proxy');
+						var mycallback = function() {
+							var textstatus = 'error';
+							var data = 'error';
+							if ((this.readyState == 4)
+								&& (this.status == '200')) {
+								textstatus = 'success';
+								data = this.responseText;
+							}
+							callback(data, textstatus);
+						};
 						request = new WDN.proxy_xmlhttp();
 						request.open('POST', url, true);
 						request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+						request.onreadystatechange = mycallback;
 						request.send(params);
 					} catch(e) {}
 				}
