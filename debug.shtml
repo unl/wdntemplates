@@ -11,7 +11,6 @@
 <link rel="stylesheet" type="text/css" media="screen"	href="wdn/templates_3.0/css/content/notice.css" />
 <link rel="stylesheet" type="text/css" href="http://wdn.unl.edu/ucomm/templatedependents/templatecss/components/upcomingevents.css" />
 <script type="text/javascript" src="http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/swfobject.js"></script>
-<link rel="stylesheet" type="text/css" media="screen" href="wdn/templates_3.0/css/variations/splash.css" />
 
 <!--#include virtual="sharedcode/localSiteLinks.html" -->
 <script type="text/javascript" src="wdn/templates_3.0/scripts/debug.js"></script>
@@ -23,7 +22,7 @@
 function createShortURL() {
 	var thisURL = window.location.href;
 	WDN.post(
-			"/workspace/UNL_GoURL/api_create.php", 
+			"http://go.unl.edu/api_create.php", 
 			{theURL: thisURL},
 			function(data) {
 				WDN.jQuery('#createShortURL').after("<p>"+data+"</p>");
@@ -110,129 +109,7 @@ Navigation</a></p>
 			   <li><a href="#tab7"><span>Tab #7</span></a></li>
 			   <li><a href="#tab8"><span>Tab #8</span></a></li>
 			</ul>
-		<div id="splash">
-        <div id="headlines">
-          <div id="headline1" class="active">
-            <div class="splash_headline">
-              <h4><a href="http://www.unl.edu/ucomm/unltoday/" title="go to UNL Today" class="tooltip">UNL Today</a></h4>
-
-              <p> Your source for what's happening on campus today. </p>
-            </div>
-          </div>
-          <div id="headline2">
-            <div class="splash_headline">
-              <h4><a href="http://admissions.unl.edu/visit/" title="go to the UNL Admissions website" class="tooltip">Red Letter Days</a></h4>
-              <p>Nebraska's all-day campus visit open house program offered to high school seniors and their families. </p>
-
-            </div>
-          </div>
-          <div id="headline3">
-            <div class="splash_headline">
-              <h4><a href="http://www1.unl.edu/mediahub/search/?q=N+The+Know&amp;submit=Go" title="go to the N The Know Video Series" class="tooltip">N The Know</a></h4>
-              <p>Dr. Nathan Haecker and Jennifer Snyder of the University Health Center discuss how you can prevent the spread of H1N1.</p>
-            </div>
-          </div>
-
-          <div id="headline4">
-            <div class="splash_headline">
-              <h4><a href="http://planetred.unl.edu/?utm_source=internal&amp;utm_medium=external-page&amp;utm_term=&amp;utm_content=posterbox&amp;utm_campaign=pyotm" title="go to the Planet Red website" class="tooltip">Put Yourself on the Map</a></h4>
-              <p>Connect with fellow Huskers worldwide and see videos of featured Huskers on Planet Red.</p>
-            </div>
-          </div>
-          
-        </div>
-        <div id="posters">
-
-          <div id="poster1" class="active poster" style="background-image:url(http://www.unl.edu/ucomm/splash/promo_unltoday.jpg); background-repeat:no-repeat">
-            <p style="position:absolute;width:320px;top:12px;left:12px; color:#000;">For the second year in a row, a University of Nebraska Press published author has been awarded the Nobel Prize for Literature. German writer Herta M&uuml;ller, whose short story collection <em>Nadirs</em> was published by the University of Nebraska Press in 1999, was announced as the winner on October 8 and will receive her prize at a Dec. 10 ceremony in Stockholm, Sweden.<br /><br /> Read more on <a href="http://www.unl.edu/ucomm/unltoday">UNL Today</a>.</p>
-
-          </div>
-          <div id="poster2" class="hidden poster">
-
-            <div id="flashcontent1">
-            Javascript is not enabled for your browser or the latest flash player is not installed. <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=shockwaveFlash" onclick="window.open(this.href); return false;" class="external">Click here</a> to download the latest player.<br /><br /></div>
-
-<script type="text/javascript">
-var flashvars = {
-allowfullscreen: "true",
-quality: "best",
-wmode: "transparent",
-file: "http://nebraska.unl.edu/real_nebraska/video/podcast/RedLetterDay.m4v",
-image: "http://www.unl.edu/ucomm/splash/promo2_admissions.jpg",
-autostart: false,
-skin: "http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/UNLVideoSkin.swf"
-}
-var params = {
-wmode: "transparent"
-}
-var attributes = {}
-swfobject.embedSWF("http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/player.swf", "flashcontent1", "640", "408", "10.0.0", false, flashvars, params, attributes);
-</script>
-          </div>
-          <div id="poster3" class="hidden poster">
-          	<div id="flashcontent2">
-
-            Javascript is not enabled for your browser or the latest flash player is not installed. <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=shockwaveFlash" onclick="window.open(this.href); return false;" class="external">Click here</a> to download the latest player.<br /><br /></div>
-
-<script type="text/javascript">
-var flashvars = {
-allowfullscreen: "true",
-quality: "best",
-wmode: "transparent",
-file: "http://www.unl.edu/ucomm/ucomm/av/video/podcasts/20090908_NKnow_H1N1.mp4",
-image: "http://www.unl.edu/ucomm/splash/promo3_nknow.jpg",
-autostart: false,
-skin: "http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/UNLVideoSkin.swf"
-}
-var params = {
-wmode: "transparent"
-}
-var attributes = {}
-swfobject.embedSWF("http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/player.swf", "flashcontent2", "640", "408", "10.0.0", false, flashvars, params, attributes);
-</script>
-         
-          </div>
-          <div id="poster4" class="hidden poster" style="background-image:url(http://www.unl.edu/ucomm/splash/promo4_planetred.jpg); background-repeat:no-repeat;">
-            <div style="position:absolute;width: 330px; top: 30px; left: 30px;-moz-border-radius:3px;
-border:2px solid #333333;
-padding:10px;
-position:absolute; color:#FFF;">
-					<h2>Join the Conversation</h2>
-
-					<p>
-					Huskers like you are encouraged to join UNL's new social platform and put yourself on the map!
-					</p>
-				</div>
-				<br />
-				<div style="position:absolute;width: 250px; top: 150px; left: 30px; -moz-border-radius:3px;
-border:2px solid #333333;
-padding:10px;
-position:absolute; color:#FFF;">
-
-					<h3>Students, Faculty, Staff</h3>
-					<p>
-
-					Login now with your my.UNL username and password, we have an account waiting for you!
-					</p>
-					<form action="http://planetred.unl.edu/?loginwith=UNLlogin&amp;utm_source=internal&amp;utm_medium=external-page&amp;utm_term=&amp;utm_content=login&amp;utm_campaign=pyotm" method="post">
-<input name="__elgg_token" value="1d7c507f8f865cccce5a13ac68adeb8f" type="hidden" /><input name="__elgg_ts" value="1253219014" type="hidden" /><p><input name="" class="submit_button" value="UNL Login" type="submit" /></p><p><a href="https://login.unl.edu/faq/account-resetpw.shtml">Forgot your my.UNL password?</a></p></form></div>
-				<div style="position:absolute;width: 250px; top: 190px; left: 330px;-moz-border-radius:3px;
-border:2px solid #333333;
-padding:10px;
-position:absolute; color:#FFF;">
-
-					<h3>Huskers Worldwide</h3>
-					<p>
-					Register an account now and get started.
-					</p>
-
-					<form action="http://planetred.unl.edu/account/register.php?utm_source=internal&amp;utm_medium=external-page&amp;utm_term=&amp;utm_content=register&amp;utm_campaign=pyotm" method="post">
-<input name="__elgg_token" value="1d7c507f8f865cccce5a13ac68adeb8f" type="hidden" /><input name="__elgg_ts" value="1253219014" type="hidden" /><p><input name="" class="submit_button" value="Register" type="submit" /></p></form></div>
-
-          </div>
-          
-        </div>
-      </div>
+		
             <!--#include virtual="wdn/templates_3.0/includes/noscript.html" -->
         </div> <!-- end of maincontent -->        
         <div id="footer">
