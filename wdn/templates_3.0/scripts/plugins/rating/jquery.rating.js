@@ -2,7 +2,7 @@
  * Changes made to plugin for purpose of adapting: 
  * 06/09/09
  * 1. Removed Average rating calculation, replaced with a 0 on plugin load.
- * 
+ * 2. Modified post data to include callback.
  */
 (function($) {
   var buildRating = function(obj) {
@@ -40,9 +40,14 @@
       .click(function() {
         rating = [stars.index(this) + 1, 0];
         var url = 'http://www1.unl.edu/comments/';
-        WDN.post(url, { rating: rating[0] });
-        reset();
-    	stars.unbind().addClass("done");
+        WDN.post(
+        		url, 
+        		{ rating: rating[0] },
+        		function() {
+        	        reset();
+        	    	stars.unbind().addClass("done");
+        		}
+        );
         $(this).css("cursor", "default");
         return false;
       });

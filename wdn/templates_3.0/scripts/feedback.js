@@ -25,8 +25,13 @@ WDN.feedback = function() {
 			WDN.jQuery('#wdn_feedback_comments').submit(
 				function(event) {
 					var comments = WDN.jQuery('#wdn_feedback_comments textarea').val();
-					WDN.post('http://www1.unl.edu/comments/', {comment:comments});
-					WDN.jQuery('#wdn_feedback_comments').replaceWith('<h4>Thanks!</h4>');
+					WDN.post(
+						'http://www1.unl.edu/comments/', 
+						{comment:comments},
+						function () {
+							WDN.jQuery('#wdn_feedback_comments').replaceWith('<h4>Thanks!</h4>');
+						}
+					);
 					event.stopPropagation();
 					return false;
 				}

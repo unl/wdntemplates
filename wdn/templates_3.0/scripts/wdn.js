@@ -255,7 +255,7 @@ var WDN = function() {
 					xdr.open("post", url);
 					xdr.send(params);
 					xdr.onload = function() {
-						callback(this.responseText, 'success');
+						callback(xdr.responseText, 'success');
 					}
 				} else {
 					try {
