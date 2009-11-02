@@ -2,7 +2,12 @@ WDN.tabs = function() {
 	return {
 		initialize : function() {
 			WDN.log ("tabs JS loaded");
-			//start by grabbing the #hash in the URL in case we need it	
+			//Detect if the <span> is present. If not, add it
+			WDN.jQuery('ul.wdn_tabs li a:not(:has(span))').each(function(){
+				theHTML = WDN.jQuery(this).html();
+				WDN.jQuery(this).html("<span>"+theHTML+"</span>");
+			});
+			//Grab the #hash in the URL in case we need it	
 			if (window.location.hash) {
 				var hash = window.location.hash;
 				WDN.tabs.hideDiv('#'+hash);
