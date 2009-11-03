@@ -44,10 +44,10 @@
         		url, 
         		{ rating: rating[0] },
         		function() {
-        	        reset();
-        	    	stars.unbind().addClass("done");
         		}
         );
+        reset();
+    	stars.unbind().addClass("done");
         $(this).css("cursor", "default");
         return false;
       });
