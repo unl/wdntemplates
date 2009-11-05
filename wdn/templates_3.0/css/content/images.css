@@ -57,20 +57,19 @@
 	line-height:0.8em;
 }
 
-#maincontent p.caption, #footer p.caption {
-	margin-right:3px;
+#maincontent p.caption, #footer p.caption { 
 	line-height:normal;
 	background:#f7f7f7;
-	padding:2px 2px 2px 4px;
+	border:1px solid #ededed;
+	border-top:none;
+	padding:2px 4px 5px;
 	text-align:left;
 	color:#555;
-	font-size:75%;
+	font-size:80%;
 	position:relative;
-	margin-top:-30px;
-	z-index:2;
-	float:right;
-	display:block;
-	border-top-left-radius:3px;
+	margin-top:-16px;
+	z-index:2; 
+	display:block; 
 }
 
 #maincontent .image_large a.imagetag {
