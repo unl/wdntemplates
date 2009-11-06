@@ -160,7 +160,13 @@ var WDN = function() {
 		},
 		
 		initializePlugin:function (plugin, callback) {
-			callback = callback || function() {eval('WDN.'+plugin+'.initialize();');};
+			callback = callback || function() {
+				try {
+					eval('WDN.'+plugin+'.initialize();');
+				} catch (e) {
+					WDN.log('Could not initialize '+plugin);
+				}
+			};
 			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', callback);
 		},
 		
