@@ -5,26 +5,21 @@
  * @param err [optional] Error message on failure.
  */
 function fetchURLInto(url,id,err) {
-	var xreq = new WDN.proxy_xmlhttp();
-	xreq.open("GET", url, true);
-	xreq.onreadystatechange = function() 
-	{
-		try {
-			if (xreq.readyState == 4) {
-				if (xreq.status == 200) {
-					document.getElementById(id).innerHTML = xreq.responseText;
-				} else {
-					if (undefined == err) {
-						document.getElementById(id).innerHTML = 'Error loading results.';
-					} else {
-						document.getElementById(id).innerHTML = err;
-					}
-				}
+	
+	WDN.get(url,null,function(data, textStatus){
+		
+		if (textStatus=='success') {
+			document.getElementById(id).innerHTML = data;
+		} else {
+			if (undefined == err) {
+				document.getElementById(id).innerHTML = 'Error loading results.';
+			} else {
+				document.getElementById(id).innerHTML = err;
 			}
-			xreq = new WDN.proxy_xmlhttp();
-		} catch(e) {}
-	};
-	xreq.send(null);
+		}
+	}
+		
+	);
 };
 
 function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
