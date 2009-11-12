@@ -56,7 +56,7 @@ WDN.analytics = function() {
 					WDN.log("social share success? "+success);
 				});
 				WDN.jQuery('#wdn_tool_links a').click(function(){ 
-					var wdnToolLinks = WDN.jQuery(this).attr('id');
+					var wdnToolLinks = WDN.jQuery(this).text();
 					wdnTracker._trackEvent('WDN Tool Links', wdnToolLinks, WDN.analytics.thisURL); 
 				});
 		},
