@@ -124,78 +124,77 @@ body.liquid #footer .footer_col {width:22.9%}
 	padding:0px;
 	margin:0 3px 5px 0;
 }
+#wdn_emailthis, #wdn_facebook, #wdn_linkedin, #wdn_myspace, #wdn_twitter, #wdn_plurk, #wdn_digg, #wdn_delicious, #wdn_reddit, #wdn_stumbleupon, #wdn_newsvine, 
+	#wdn_googlebookmark {background: url(images/socialMedia.png) no-repeat}
 #wdn_emailthis {
-	background: url(images/socialMedia.png) 0 -52px no-repeat;
+	background-position: 0 -52px;
 }
 #wdn_facebook {
-	background: url(images/socialMedia.png) -26px -52px no-repeat;
+	background-position: -26px -52px;
 }
 #wdn_linkedin {
-	background: url(images/socialMedia.png) -52px -52px no-repeat;
+	background-position: -52px -52px;
 }
 #wdn_myspace {
-	background: url(images/socialMedia.png) -78px -52px no-repeat;
+	background-position: -78px -52px;
 }
 #wdn_twitter {
-	background: url(images/socialMedia.png) -104px -52px no-repeat;
+	background-position: -104px -52px;
 }
 #wdn_plurk {
-	background: url(images/socialMedia.png) -130px -52px no-repeat;
+	background-position: -130px -52px;
 }
 #wdn_digg {
-	background: url(images/socialMedia.png) 0 -78px no-repeat;
+	background-position: 0 -78px;
 }
 #wdn_delicious {
-	background: url(images/socialMedia.png) -26px -78px no-repeat;
+	background-position: -26px -78px;
 }
 #wdn_reddit {
-	background: url(images/socialMedia.png) -52px -78px no-repeat;
+	background-position: -52px -78px;
 }
 #wdn_stumbleupon {
-	background: url(images/socialMedia.png) -78px -78px no-repeat;
+	background-position: -78px -78px;
 }
 #wdn_newsvine {
-	background: url(images/socialMedia.png) -104px -78px no-repeat;
+	background-position: -104px -78px;
 }
 #wdn_googlebookmark {
-	background: url(images/socialMedia.png) -130px -78px no-repeat;
+	background-position: -130px -78px;
 }
-
-
-
 #wdn_emailthis:hover {
-	background: url(images/socialMedia.png) 0 0 no-repeat;
+	background-position: 0 0;
 }
 #wdn_facebook:hover {
-	background: url(images/socialMedia.png) -26px 0 no-repeat;
+	background-position: -26px 0;
 }
 #wdn_linkedin:hover {
-	background: url(images/socialMedia.png) -52px 0 no-repeat;
+	background-position: -52px 0;
 }
 #wdn_myspace:hover {
-	background: url(images/socialMedia.png) -78px 0 no-repeat;
+	background-position: -78px 0;
 }
 #wdn_twitter:hover {
-	background: url(images/socialMedia.png) -104px 0 no-repeat;
+	background-position: -104px 0;
 }
 #wdn_plurk:hover {
-	background: url(images/socialMedia.png) -130px 0 no-repeat;
+	background-position: -130px 0;
 }
 #wdn_digg:hover {
-	background: url(images/socialMedia.png) 0 -26px no-repeat;
+	background-position: 0 -26px;
 }
 #wdn_delicious:hover {
-	background: url(images/socialMedia.png) -26px -26px no-repeat;
+	background-position: -26px -26px;
 }
 #wdn_reddit:hover {
-	background: url(images/socialMedia.png) -52px -26px no-repeat;
+	background-position: -52px -26px;
 }
 #wdn_stumbleupon:hover {
-	background: url(images/socialMedia.png) -78px -26px no-repeat;
+	background-position: -78px -26px;
 }
 #wdn_newsvine:hover {
-	background: url(images/socialMedia.png) -104px -26px no-repeat;
+	background-position: -104px -26px;
 }
 #wdn_googlebookmark:hover {
-	background: url(images/socialMedia.png) -130px -26px no-repeat;
+	background-position: -130px -26px;
 }
