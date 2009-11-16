@@ -61,6 +61,7 @@
 	line-height:normal;
 	background:#f7f7f7;
 	border:1px solid #ededed;
+	border-radius:3px;
 	border-top:none;
 	padding:2px 4px 5px;
 	text-align:left;
@@ -69,7 +70,7 @@
 	position:relative;
 	margin-top:-16px;
 	z-index:2; 
-	display:block; 
+	display:block;
 }
 
 #maincontent .image_large a.imagetag {

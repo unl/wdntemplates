@@ -155,7 +155,9 @@ display:none;
 #footer .image_small_3x2_vertical,
 #footer .image_small_3x2,
 #footer img.frame,
-#cboxLoadedContent img.frame
+#cboxLoadedContent img.frame,
+#maincontent p.caption,
+#footer p.caption,
 {
 -moz-border-radius:3px;
 -webkit-border-radius:3px;
