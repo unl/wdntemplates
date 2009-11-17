@@ -16,7 +16,7 @@
 WDN.analytics = function() {  
 	
 	return {
-		thisURL : String(window.location),
+		thisURL : String(window.location), //the current page the user is on.
 		initialize : function() {
 			try {
 		    	wdnTracker = _gat._getTracker("UA-3203435-1"); 
@@ -33,37 +33,59 @@ WDN.analytics = function() {
 					if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
 						//WDN.jQuery(this).addClass('external'); //Implications for doing this?
 						WDN.jQuery(this).click(function() {
-							wdnTracker._trackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
+							WDN.analytics.callTrackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
 						});  
 					}  
 					else if (gahref.match(/^mailto\:/i)){  //deal with mailto: links
 						WDN.jQuery(this).click(function() {  
 							var mailLink = gahref.replace(/^mailto\:/i, '');  
-							wdnTracker._trackEvent('Email', mailLink, WDN.analytics.thisURL);
+							WDN.analytics.callTrackEvent('Email', mailLink, WDN.analytics.thisURL);
 						});  
 					}  
 					else if (gahref.match(filetypes)){  //deal with file downloads
 						WDN.jQuery(this).click(function() { 
 							var extension = (/[.]/.exec(gahref)) ? /[^.]+$/.exec(gahref) : undefined;
-							wdnTracker._trackEvent('File Download', gahref, WDN.analytics.thisURL); 
-							wdnTracker._trackPageview(gahref);
+							WDN.analytics.callTrackEvent('File Download', gahref, WDN.analytics.thisURL); 
+							WDN.analytics.callTrackPageview(gahref);
 						});  
 					}  
 				}); 
 				WDN.jQuery('ul.socialmedia a').click(function(){ 
 					var socialMedia = WDN.jQuery(this).attr('id');
-					var success = wdnTracker._trackEvent('Page Sharing', socialMedia, WDN.analytics.thisURL); 
-					WDN.log("social share success? "+success);
+					WDN.analytics.callTrackEvent('Page Sharing', socialMedia, WDN.analytics.thisURL);
 				});
 				WDN.jQuery('#wdn_tool_links a').click(function(){ 
 					var wdnToolLinks = WDN.jQuery(this).text();
-					wdnTracker._trackEvent('WDN Tool Links', wdnToolLinks, WDN.analytics.thisURL); 
+					WDN.analytics.callTrackEvent('WDN Tool Links', wdnToolLinks, WDN.analytics.thisURL);
 				});
 		},
 		trackNavigationPreferredState : function(preferredState) {
 			try {
-				var success = wdnTracker._trackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
+				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
 			} catch(e){};
+		},
+		callTrackPageview: function(thePage){
+			wdnTracker._trackPageview(thePage); //First, track in the wdn analytics
+			WDN.log("Pageview tracking for wdn worked!");
+			/*try {
+				pageTracker._trackPageview(thePage); // Second, track in local site analytics
+				WDN.log("Pageview tracking for local site worked!");
+			} catch(e) {
+				WDN.log("Pageview tracking for local site didn't work."); 
+			}*/
+		},
+		callTrackEvent: function(category, action, label, value) {
+			if (value === undefined) {
+				value = 0;
+			}
+			var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
+			WDN.log("WDN Event tracking success? "+wdnSuccess);
+			/*try {
+				var pageSuccess = pageTracker._trackEvent(category, action, label, value);
+				WDN.log("Page Event tracking success? "+pageSuccess);
+			} catch(e) {
+				WDN.log("Event tracking for local site didn't work.");
+			}*/
 		}
 	};
 }();
