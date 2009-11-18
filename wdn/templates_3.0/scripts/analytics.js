@@ -68,7 +68,7 @@ WDN.analytics = function() {
 			wdnTracker._trackPageview(thePage); //First, track in the wdn analytics
 			WDN.log("Pageview tracking for wdn worked!");
 			/*try {
-				pageTracker._trackPageview(thePage); // Second, track in local site analytics
+				pageTracker._trackPageview(thePage); // Second, track in local site analytics //Don't turn on until Dec WDN Meeting
 				WDN.log("Pageview tracking for local site worked!");
 			} catch(e) {
 				WDN.log("Pageview tracking for local site didn't work."); 
@@ -80,7 +80,7 @@ WDN.analytics = function() {
 			}
 			var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
 			WDN.log("WDN Event tracking success? "+wdnSuccess);
-			/*try {
+			/*try { //Don't turn on until Dec WDN Meeting
 				var pageSuccess = pageTracker._trackEvent(category, action, label, value);
 				WDN.log("Page Event tracking success? "+pageSuccess);
 			} catch(e) {
