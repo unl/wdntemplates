@@ -68,9 +68,16 @@ padding-bottom:34px;
 #navigation ul,
 .nav_collapsed #navigation ul {
 z-index:0;
-height:50px;
 width:100%;
 overflow:hidden;
+}
+	
+.nav_collapsed #navigation ul {
+	height:50px;
+}
+
+#navloading {
+    background:url(header/images/colorbox/loading.gif) center center no-repeat #f2f2f2;
 }
 
 #navigation-expand-collapse,
