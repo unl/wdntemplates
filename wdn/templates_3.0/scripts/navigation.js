@@ -175,7 +175,7 @@ WDN.navigation = function() {
         },
         
         startChangeNavigationDelay: function(breadcrumb) {
-            
+            WDN.navigation.startExpandDelay();
             WDN.navigation.timeout = setTimeout(function(){WDN.navigation.switchSiteNavigation(breadcrumb);}, WDN.navigation.changeSiteNavDelay);
         },
         
@@ -216,6 +216,8 @@ WDN.navigation = function() {
             WDN.jQuery('#wdn_navigation_bar').hover(
                     WDN.navigation.startExpandDelay,
                     mouseout);
+            WDN.jQuery('#wdn_content_wrapper,#header').hover(
+                    WDN.navigation.startCollapseDelay);
             WDN.navigation.updateHelperText();
         },
         
