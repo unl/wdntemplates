@@ -17,6 +17,7 @@ WDN.analytics = function() {
 	
 	return {
 		thisURL : String(window.location), //the current page the user is on.
+		rated : false, // whether the user has rated the current page.
 		initialize : function() {
 			try {
 		    	wdnTracker = _gat._getTracker("UA-3203435-1"); 
@@ -57,6 +58,14 @@ WDN.analytics = function() {
 				WDN.jQuery('#wdn_tool_links a').click(function(){ 
 					var wdnToolLinks = WDN.jQuery(this).text();
 					WDN.analytics.callTrackEvent('WDN Tool Links', wdnToolLinks, WDN.analytics.thisURL);
+				});
+				WDN.jQuery('div.rating div.star a').click(function(){ 
+					if (!WDN.analytics.rated)
+					{
+						WDN.analytics.rated = true;
+						var value = WDN.jQuery(this).text();
+						WDN.analytics.callTrackEvent('Page Rating', WDN.analytics.thisURL, value, value);
+					}
 				});
 		},
 		trackNavigationPreferredState : function(preferredState) {
