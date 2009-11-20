@@ -16,7 +16,7 @@
 			{
 				transitionSpeed : 1500,
 				displayTime : 6000,
-				textholderHeight : .2,
+				textholderHeight : .25,
 				displayProgressBar : 1,
 				displayThumbnails: 1,
 				displayThumbnailNumbers: 1,
@@ -31,6 +31,7 @@
     			var randID = Math.round(Math.random()*100000000);
 				var o=options;
 				var obj = $(this);
+				
 				var curr = 1;
 
 				var numImages = $('img', obj).length; // Number of images
@@ -59,8 +60,11 @@
 			
 				// Build textholder div thats as wide as the carousel and 20%-25% of the height
 				$(obj).append('<div id="textholder'+randID+'" class="textholder" style="position:absolute;bottom:0px;margin-bottom:'+-imgHeight*o.textholderHeight+'px;left:'+$(obj).css('paddingLeft')+'"></div>');
-				var correctTHWidth = parseInt($('#textholder'+randID).css('paddingTop'));
-				var correctTHHeight = parseInt($('#textholder'+randID).css('paddingRight'));
+				//alert("this is cool");
+				var correctTHWidth = 6;
+				var correctTHHeight = 6;
+				//var correctTHWidth = parseInt($('.textholder').css('paddingTop'));
+				//var correctTHHeight = parseInt($('.textholder').css('paddingRight'));
 				$('#textholder'+randID).width(imgWidth-(correctTHWidth * 2)).height((imgHeight*o.textholderHeight)-(correctTHHeight * 10)).css({'backgroundColor':'#FFF','opacity':'0.8'});
 				showtext($('li:eq(1) p', obj).html());
 			
@@ -168,10 +172,10 @@
 				{
 						if(!autopilot)
 						{
-							html = '<img style="position:absolute;top:2px;right:18px;display:none;cursor:pointer" src="/wdn/templates_3.0/scripts/plugins/infinitecarousel/images/down.png" title="Minimize" alt="minimize" id="min" /><img style="position:absolute;top:2px;right:18px;display:none;cursor:pointer" src="images/up.png" title="Maximize" alt="maximize" id="max" />';
+							html = '<img style="position:absolute;top:2px;right:18px;display:none;cursor:pointer" src="/wdn/templates_3.0/scripts/plugins/infinitecarousel/images/down.png" title="Minimize" alt="minimize" id="min" /><img style="position:absolute;top:2px;right:18px;display:none;cursor:pointer" src="/wdn/templates_3.0/scripts/plugins/infinitecarousel/images/up.png" title="Maximize" alt="maximize" id="max" />';
 							html += '<img style="position:absolute;top:2px;right:6px;display:none;cursor:pointer" src="/wdn/templates_3.0/scripts/plugins/infinitecarousel/images/close.png" title="Close" alt="close" id="close" />';
 							$('#textholder'+randID).append(html);
-							$('#min').fadeIn(250).click(function(){$('#textholder'+randID).animate({marginBottom:(-imgHeight*o.textholderHeight)-(correctTHHeight * 2)+24+'px'},500,function(){$("#min,#max").toggle();});});
+							$('#min').fadeIn(250).click(function(){$('#textholder'+randID).animate({marginBottom:(-imgHeight*o.textholderHeight)-(correctTHHeight * 2)+74+'px'},500,function(){$("#min,#max").toggle();});});
 							$('#max').click(function(){$('#textholder'+randID).animate({marginBottom:'0px'},500,function(){$("#min,#max").toggle();});});
 							$('#close').fadeIn(250).click(function(){$('#textholder'+randID).animate({marginBottom:(-imgHeight*o.textholderHeight)-(correctTHHeight * 2)+'px'},500);});
 						}
@@ -292,4 +296,4 @@
   		});
     	}
 	});
-})(jQuery);
+})(WDN.jQuery);
