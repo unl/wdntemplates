@@ -47,7 +47,7 @@ background-color:#FF3fd2;background-image:url(http://www.joethepeacock.com/uploa
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <div id="wdn_identity_management"> <!-- InstanceBeginEditable name="identitymanagement" --><a href="https://login.unl.edu/cas/logout">Logout</a><!-- InstanceEndEditable --> </div>
+        <div id="wdn_identity_management"><div id="explanation"><!-- InstanceBeginEditable name="identitymanagement" --><p><a href="https://login.unl.edu/cas/login">Log in</a> to use this resource.</p><!-- InstanceEndEditable --></div></div>
     </div>
     <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
