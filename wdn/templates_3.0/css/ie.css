@@ -3,7 +3,7 @@
 }
 
 #wdn_wrapper  {
-	overflow:hidden;
+	/*overflow:hidden;*/
 	border-top:12px solid #e0e0e0;
 }
 #header {
