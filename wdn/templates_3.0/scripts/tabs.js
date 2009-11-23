@@ -1,6 +1,7 @@
 WDN.tabs = function() {
 	return {
 		initialize : function() {
+			var ie7 = document.all && navigator.appVersion.indexOf("MSIE 7.") != -1;	
 			WDN.log ("tabs JS loaded");
 			//Detect if the <span> is present. If not, add it
 			WDN.jQuery('ul.wdn_tabs li a:not(:has(span))').each(function(){
@@ -32,7 +33,9 @@ WDN.tabs = function() {
 			WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) a').click(function() { //do something when a tab is clicked
 				WDN.jQuery(this).parent().addClass('selected').siblings().removeClass('selected');
 				var href = WDN.jQuery(this).attr("href");
-				window.location.hash = href;
+				if (!ie7) {
+					window.location.hash = href;
+				}
 				WDN.tabs.hideDiv(href);
 				WDN.tabs.cleanLastTab();
 				return false;
