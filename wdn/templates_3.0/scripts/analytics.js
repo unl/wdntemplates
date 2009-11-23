@@ -64,7 +64,7 @@ WDN.analytics = function() {
 					{
 						WDN.analytics.rated = true;
 						var value = WDN.jQuery(this).text();
-						WDN.analytics.callTrackEvent('Page Rating', WDN.analytics.thisURL, value, value);
+						WDN.analytics.callTrackEvent('Page Rating', 'Rated a '+value, WDN.analytics.thisURL, value);
 					}
 				});
 		},
