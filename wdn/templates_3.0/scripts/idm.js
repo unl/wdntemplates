@@ -62,6 +62,11 @@ WDN.idm = function() {
 				WDN.jQuery('#header').append('<div id="wdn_identity_management"></div>');
 			}
 			
+			if (WDN.jQuery('#wdn_search').length > 0) {
+				// search box is being displayed, adjust the positioning
+				WDN.jQuery('#wdn_identity_management').css({right:'362px'});
+			}
+			
 			WDN.jQuery('#wdn_identity_management').html('<div class="explanation"><p><span class="username">'+uid+'</span> <a href="https://login.unl.edu/cas/logout?url='+escape(window.location)+'">Logout</a></p></div>');
 			WDN.idm.getFriendlyName(uid);
 		},
