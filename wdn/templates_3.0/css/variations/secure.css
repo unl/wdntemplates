@@ -14,46 +14,6 @@ body.secure #footer .footer_col {
 body.secure #footer #wdn_copyright {
     border:none;
 }
-
-#wdn_identity_management {
-	position:absolute;
-	top:-10px;
-	right:29px;
-	height:43px;
-	width:215px;
-	padding-top:5px;
-	padding-bottom:0px;
-	background:url('images/secureBGIDM.png') right no-repeat;
-	background-position: 0px 0px;
-	font-size:0.8em;
-	font-family:sans-serif;
-	vertical-align:top;
-	overflow:visible;
-}
-#wdn_identity_management:hover {
-	cursor:pointer;
-	background-position:0px -48px;
-}
-#wdn_identity_management div#explanation,
-#wdn_identity_management div.explanation {
-	margin-left:45px;
-	margin-right:10px;
-	padding:1px 17px 0px 3px;
-	max-height:	44px;
-	height:44px;
-	overflow:hidden;
-	line-height: 1.3;
-}
-#wdn_identity_management a,
-#wdn_identity_management a:link,
-#wdn_identity_management a:visited {
-	color:#BA0000;
-	border-bottom:1px dotted #BA0000;
-	text-decoration:none;
-}
-
-#wdn_identity_management a:focus,
-#wdn_identity_management a:hover {
-	color:#CC0000 !important;
-    border-bottom:1px dotted #CC0000 !important;
+body.secure #wdn_identity_management {
+	right:27px;
 }
