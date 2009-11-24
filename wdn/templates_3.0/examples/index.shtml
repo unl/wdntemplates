@@ -58,7 +58,7 @@
             <!-- InstanceBeginEditable name="maincontentarea" -->
             <script type="text/javascript">
 			WDN.jQuery(document).ready(function(){
-						WDN.jQuery("#examples a").click(function(e){
+						WDN.jQuery("#examples a:not(.external)").click(function(e){
 							e.preventDefault();
 							loadExample(this.href)});
 							return false;
