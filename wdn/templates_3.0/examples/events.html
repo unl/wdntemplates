@@ -1,0 +1,27 @@
+<h2 class="sec_main">Web Developer Network Calendar</h2>
+<div id="monthwidget">
+    <script type="text/javascript">
+        //<![CDATA[
+        WDN.loadCSS('http://www.unl.edu/ucomm/templatedependents/templatecss/components/monthwidget.css');
+        WDN.loadJS('http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/UNLevent_monthWidget.js', function() {
+        	UNLevent_monthWidget.init('http://events.unl.edu/wdn/'); //Change the URL
+        });
+        //]]>
+    </script>
+</div>
+
+
+<h2 class="sec_main">Upcoming WDN Events</h2>
+<div  id="upcoming">
+    Loading calendar data.
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    WDN.loadCSS('http://www.unl.edu/ucomm/templatedependents/templatecss/components/upcomingevents.css');
+    var my_calurl = "http://events.unl.edu/wdn/upcoming/?format=hcalendar";
+    fetchURLInto(my_calurl, 'upcoming', 'Error loading data.');
+    //]]>
+</script>
+
+
+More information and detailed documentation on <a href="http://www1.unl.edu/wdn/wiki/Extracting_Data_From_The_Calendar">the wiki page.</a>
