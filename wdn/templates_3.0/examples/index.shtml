@@ -79,6 +79,7 @@
 	            <ul id="examples">
 	            	<li><a href="events.html">Events</a></li>
 	            	<li><a href="forms.html">Forms</a></li>
+	            	<li><a href="tooltips.html">Tooltips</a></li>
 	            </ul>
             </div>
             <div class="two_col right">
