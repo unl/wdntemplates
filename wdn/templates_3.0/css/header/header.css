@@ -7,6 +7,7 @@ Author: WDN
 */
 
 @import url('toolbar.css');
+@import url('idm.css');
 
 #header {
     background:url('images/headBG.png') no-repeat top left;
