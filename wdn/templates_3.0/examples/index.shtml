@@ -70,6 +70,7 @@
 					if (textStatus == 'success') {
 						WDN.jQuery('#example').html(data);
 						WDN.jQuery('#example_code').val(data);
+						WDN.initializeTemplate();
 					}
 				});
 			}
@@ -77,14 +78,15 @@
             <div class="two_col left">
 	            <p>Choose an example to view:</p>
 	            <ul id="examples">
-	            	<li><a href="events.html">Events</a></li>
-	            	<li><a href="forms.html">Forms</a></li>
+	            	<li><a href="events.html">Events</a> (<a href="http://www1.unl.edu/wdn/wiki/Tabbed_Content_Areas" class="external">wiki documentation</a>)</li>
+	            	<li><a href="forms.html">Forms</a> (<a href="http://www1.unl.edu/wdn/wiki/Tabbed_Content_Areas" class="external">wiki documentation</a>)</li>
+	            	<li><a href="tabs.html">Tabs</a> (<a href="http://www1.unl.edu/wdn/wiki/Tabbed_Content_Areas" class="external">wiki documentation</a>)</li>
 	            	<li><a href="tooltips.html">Tooltips</a></li>
 	            </ul>
             </div>
             <div class="two_col right">
                 Source code:<br />
-                <textarea id="example_code" rows="10" cols="50" onclick="this.select(); return false;"></textarea>
+                <textarea id="example_code" rows="10" cols="55" onclick="this.select(); return false;"></textarea>
             </div>
             <div id="example" class="four_col left">
             </div>
