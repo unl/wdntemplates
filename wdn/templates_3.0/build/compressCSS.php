@@ -23,6 +23,7 @@
     'header/toolbarcontent',
     'header/tooltabs',
     'header/toolbar',
+    'header/idm',
     'header/colorbox',
     'navigation/breadcrumbs',
     'navigation/navigation',
