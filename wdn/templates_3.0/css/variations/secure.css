@@ -15,7 +15,7 @@ body.secure #footer #wdn_copyright {
     border:none;
 }
 
-body.secure #wdn_identity_management {
+#wdn_identity_management {
 	position:absolute;
 	top:-10px;
 	right:29px;
@@ -30,11 +30,12 @@ body.secure #wdn_identity_management {
 	vertical-align:top;
 	overflow:visible;
 }
-body.secure #wdn_identity_management:hover {
+#wdn_identity_management:hover {
 	cursor:pointer;
 	background-position:0px -48px;
 }
-body.secure #wdn_identity_management div#explanation {
+#wdn_identity_management div#explanation,
+#wdn_identity_management div.explanation {
 	margin-left:45px;
 	margin-right:10px;
 	padding:1px 17px 0px 3px;
@@ -43,16 +44,16 @@ body.secure #wdn_identity_management div#explanation {
 	overflow:hidden;
 	line-height: 1.3;
 }
-body.secure #wdn_identity_management a,
-body.secure #wdn_identity_management a:link,
-body.secure #wdn_identity_management a:visited {
+#wdn_identity_management a,
+#wdn_identity_management a:link,
+#wdn_identity_management a:visited {
 	color:#BA0000;
 	border-bottom:1px dotted #BA0000;
 	text-decoration:none;
 }
 
-body.secure #wdn_identity_management a:focus,
-body.secure #wdn_identity_management a:hover {
+#wdn_identity_management a:focus,
+#wdn_identity_management a:hover {
 	color:#CC0000 !important;
     border-bottom:1px dotted #CC0000 !important;
 }

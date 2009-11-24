@@ -101,6 +101,7 @@ var WDN = function() {
 				WDN.initializePlugin('tooltip');
 				WDN.initializePlugin('toolbar');
 				WDN.initializePlugin('tabs');
+				WDN.initializePlugin('idm');
 				WDN.initializePlugin('analytics');
 				WDN.browserAdjustments();
 				WDN.screenAdjustments();
