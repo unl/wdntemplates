@@ -78,10 +78,11 @@
 	            <p>Choose an example to view:</p>
 	            <ul id="examples">
 	            	<li><a href="events.html">Events</a></li>
+	            	<li><a href="forms.html">Forms</a></li>
 	            </ul>
             </div>
             <div class="two_col right">
-            Source code:
+                Source code:<br />
                 <textarea id="example_code" rows="10" cols="50" onclick="this.select(); return false;"></textarea>
             </div>
             <div id="example" class="four_col left">
