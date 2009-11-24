@@ -17,7 +17,15 @@ WDN.idm = function() {
 			if (WDN.idm.isLoggedIn()) {
 				WDN.idm.displayNotice(WDN.idm.getUserID());
 			}
+			// Any time a link is clicked, unset the user data
+			WDN.jQuery('#wdn_identity_management a').click(WDN.idm.logout);
 		},
+		
+		logout : function() {
+			WDN.setCookie('sso', '0', -1);
+			WDN.idm.user = false;
+		},
+			
 		
 		/**
 		 * Checks if the user is logged in
@@ -54,7 +62,7 @@ WDN.idm = function() {
 				WDN.jQuery('#header').append('<div id="wdn_identity_management"></div>');
 			}
 			
-			WDN.jQuery('#wdn_identity_management').html('<div class="explanation"><p><span class="username">'+uid+'</span></p></div>');
+			WDN.jQuery('#wdn_identity_management').html('<div class="explanation"><p><span class="username">'+uid+'</span> <a href="https://login.unl.edu/cas/logout?url='+escape(window.location)+'">Logout</a></p></div>');
 			WDN.idm.getFriendlyName(uid);
 		},
 		
@@ -76,6 +84,7 @@ WDN.idm = function() {
 		 * @return void
 		 */
 		setUser : function(uid, callback) {
+			WDN.setCookie('sso', uid, 10800);
 			WDN.get('http://peoplefinder.unl.edu/service.php?format=json&uid='+uid, null, function(data, textStatus){
 				if (textStatus == 'success') {
 					eval('WDN.idm.user='+data);
