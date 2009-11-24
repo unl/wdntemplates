@@ -59,7 +59,7 @@ WDN.idm = function() {
 		 */
 		displayNotice : function(uid) {
 			if (WDN.jQuery('#wdn_identity_management').length == 0) {
-				WDN.jQuery('#header').append('<div id="wdn_identity_management"></div>');
+				WDN.jQuery('#header').append('<div id="wdn_identity_management" class="loggedin"></div>');
 			}
 			
 			if (WDN.jQuery('#wdn_search').length > 0) {
