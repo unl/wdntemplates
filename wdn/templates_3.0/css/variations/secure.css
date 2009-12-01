@@ -1,4 +1,6 @@
-body.secure #wdn_search,
+body.secure #wdn_search {
+}
+
 body.secure #wdn_tool_links {
     display:none;
 }
