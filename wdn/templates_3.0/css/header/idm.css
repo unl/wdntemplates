@@ -1,38 +1,30 @@
 #wdn_identity_management {
 	position:absolute;
-	top:-9px;
-	right:386px;
-	height:42px;
-	width:219px;
-	padding-top:4px;
-	padding-bottom:0px;
-	background:url('images/wdn_idmSignOnBG.png') right no-repeat;
+	top:4px;
+	left:120px;
 	background-position: 0px 0px;
-	font-size:0.8em;
+	font-size:1em;
+	font-weight:bold;
+	color:#727272;
 	font-family:sans-serif;
 	vertical-align:top;
 	overflow:visible;
 }
 #wdn_identity_management:hover {
-	cursor:pointer;
-	background-position:0px -42px;
+
 }
-#wdn_identity_management div#explanation {
-	margin-left:12px;
-	margin-right:10px;
-	padding:2px 17px 0px 40px;
-	max-height:	44px;
-	height:44px;
-	overflow:hidden;
-	line-height: 1.3;
-	background:url('images/wdn_idmKeyIcon.png') top left no-repeat;
+#wdn_identity_management img {
+	margin-right:7px;
+	border:1px solid #b8b8b8;
+	vertical-align: bottom;
 }
 #wdn_identity_management a,
 #wdn_identity_management a:link,
 #wdn_identity_management a:visited {
 	color:#BA0000;
-	border-bottom:1px dotted #BA0000;
 	text-decoration:none;
+	font-size:0.7em;
+	font-weight:normal;
 }
 
 #wdn_identity_management a:focus,
@@ -40,16 +32,6 @@
 	color:#CC0000 !important;
     border-bottom:1px dotted #CC0000 !important;
 }
-
-/*Styles for logged in */
-#wdn_identity_management.loggedin {
-	background:url('images/wdn_idmLogInBG.png') right no-repeat;
-	background-position: 0px 0px;
-}
-#wdn_identity_management.loggedin:hover {
-	cursor:pointer;
-	background-position:0px -42px;
-}
-#wdn_identity_management.loggedin div#explanation {
-	background:url('images/wdn_idmProfileSample.png') top left no-repeat;
+#wdn_identity_management a.logout {
+	margin-left:5px;
 }
