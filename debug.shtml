@@ -23,6 +23,9 @@
 
 </style>
 <script type="text/javascript">
+WDN.jQuery(document).ready(function() {
+	WDN.carousel.initialize();
+});
 </script>  
 </head>
 <body class="fixed">
@@ -31,9 +34,20 @@ Navigation</a></p>
 <div id="wdn_wrapper">
     <div id="header">
         <a href="http://www.unl.edu/" title="UNL website"><img src="wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
-        <h1>University of Nebraska&ndash;Lincoln</h1>        
-        <!--#include virtual="wdn/templates_3.0/includes/wdnTools.html" -->
-    </div>
+        <h1>University of Nebraska&ndash;Lincoln</h1>
+        <!--#include virtual="wdn/templates_3.0/includes/wdnTools.html" -->  
+        <div id="wdn_identity_management">
+	        <div id="explanation">
+	        <!-- InstanceBeginEditable name="identitymanagement" -->
+	        	<p>
+	        	<strong>Megan Jones</strong><br />
+	        	<a href="#" style="font-size: 0.7em;">Your Account</a>
+	        	<!-- <a href="https://login.unl.edu/cas/login">Log in</a> to use this resource. -->
+	        	</p>
+	        	<!-- InstanceEndEditable -->
+	        </div>
+        </div>
+     </div>
     <div id="wdn_navigation_bar">    
         <div id="breadcrumbs">
             <ul>
@@ -77,11 +91,7 @@ Navigation</a></p>
         </script>
         <a href="#" onclick="startChecking(); return false;">Load the alert script</a>
 		    -->
-<script type="text/javascript">
-WDN.jQuery(document).ready(function() {
-	WDN.carousel.initialize();
-});
-</script>
+
 		    <ul class="wdn_tabs" style="width:920px;">
 			   <li><a href="#tab1">Tab #1: Slide Show</a></li>
 			   <li><a href="#tab2">Tab #2: Video</a></li>
