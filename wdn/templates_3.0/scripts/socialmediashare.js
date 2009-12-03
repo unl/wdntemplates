@@ -18,6 +18,17 @@ WDN.socialmediashare = function() {
                 e("wdn_stumbleupon").href = "http://www.stumbleupon.com/submit?url="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"";
                 e("wdn_newsvine").href = "http://www.newsvine.com/_tools/seed&save?popoff=0&u="+window.location+"&h=University%20of%20Nebraska-Lincoln: "+document.title+"";
             } catch(e) {}
+            WDN.jQuery('#createURL a').click(function() {
+            	//WDN.jQuery(this).parent('p').remove();
+            	WDN.post(
+            			"http://129.93.245.102/workspace/UNL_GoURL/api_create.php", 
+            			{theURL: window.location.href},
+            			function(data) {
+            				WDN.jQuery('.socialmedia:last').after("<input type='text' value='"+data+"' />");
+            			}
+            	);
+            	return false;
+            });
         }
     };
 }();
