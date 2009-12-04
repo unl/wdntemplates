@@ -198,3 +198,25 @@ body.liquid #footer .footer_col {width:22.9%}
 #wdn_googlebookmark:hover {
 	background-position: -130px -26px;
 }
+#footer a#createURL, #footer input#goURLResponse {
+	display:block;
+	width:177px;
+	background: url('../images/top_shadow.png') repeat-x top #7d7d7d;
+	height:23px;
+	margin-left:15px;
+	border-radius:3px;
+	color:#fff;
+	padding:6px 0px 0px 10px;
+	font-weight:bold;
+	text-decoration:none;
+}
+#footer a#createURL:hover {
+	background-color:#5FB829;
+}
+#footer input#goURLResponse {
+	height:22px;
+	background: url('../images/top_shadow_light.png') repeat-x top #fff;
+	color:#7d7d7d;
+	border:none;
+	
+}
