@@ -59,9 +59,9 @@ WDN.socialmediashare = function() {
 				{theURL: createThisURL},
 				function(data) {
 					WDN.log(createThisURL+" "+data);
-					//if (data != "There was an error. ") {
+					if (data != "There was an error. ") {
 						callback(data);
-					//}
+					}
 				}
 	    	);
 	    }
