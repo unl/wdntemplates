@@ -99,6 +99,13 @@ WDN.unlalert = function() {
 				// Add the alert icon to the tool links
 				WDN.jQuery('#wdn_tool_links').prepend('<li><a id="unlalerttool" class="alert tooltip" title="Emergency Alert: An alert has been issued!" href="#alertbox">UNL Alert</a></li>');
 				WDN.jQuery('#maincontent').append('<div id="alertbox" style="display:none"></div>');
+				WDN.jQuery('#unlalerttool').click(
+					function() {
+						WDN.jQuery('#alertbox').show();
+						WDN.jQuery().bind('cbox_closed', WDN.unlalert.closeAlert);
+						WDN.jQuery('#unlalerttool').colorbox({inline:true,width:"640px",href:"#alertbox",open:true});
+						return false;
+					});
 			}
 			
 			// Add the alert box content
@@ -108,9 +115,7 @@ WDN.unlalert = function() {
 				WDN.log('Alert was previously acknowledged');
 				// Ignore this alert... the user has already acknowledged it.
 			} else {
-				WDN.jQuery().bind('cbox_close', WDN.unlalert.closeAlert);
-				WDN.jQuery('#alertbox').show();
-				WDN.jQuery('#unlalerttool').colorbox({inline:true,width:"640px",href:"#alertbox",open:true});
+				WDN.jQuery('#unlalerttool').click();
 			}
 		},
 		
