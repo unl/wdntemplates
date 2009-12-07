@@ -38,3 +38,8 @@
             #cboxLoadingOverlay{background:url(images/colorbox/loading.gif) center center no-repeat #f2f2f2;}
             #cboxClose{position:absolute; top:-27px; right:-21px; display:block; background:url(images/colorbox/controls.png) -126px 0 no-repeat; width:30px; height:33px; text-indent:-9999px;}
 				#cboxClose.hover{background-position:-95px 0px;}
+
+/*UNL Styles for colorbox elements, inside the frame*/
+#alertboxContent h1.sec_header {
+	border-color: #CC0000;
+}

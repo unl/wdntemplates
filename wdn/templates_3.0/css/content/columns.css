@@ -1,7 +1,7 @@
 /* Contains column properties as well as float and clear */
 
 
-#maincontent .col, #maincontent .one_col{
+#maincontent .col, #maincontent .one_col, #colorbox .col{
 	width:220px;
 	padding:0 10px;
 	float:left;
@@ -14,19 +14,19 @@
 	position:relative;
 	}
 
-#maincontent .two_col {
+#maincontent .two_col, #colorbox .two_col {
 	float:left;
 	width:460px;
 	padding:0 10px;
 	}
 
-#maincontent .three_col {
+#maincontent .three_col, #colorbox .three_col {
 	float:left;
 	width:700px;
 	padding:0 10px;
 	}
 	
-#maincontent .four_col {
+#maincontent .four_col, #colorbox .four_col {
 	float:left;
 	width:940px;
 	}
@@ -38,10 +38,10 @@
 	position:relative;
 	}
 	
-body.liquid #maincontent .col, body.liquid #maincontent .one_col {width:23.2%}
-body.liquid #maincontent .two_col {width:48.6%}
-body.liquid #maincontent .three_col {width:73%}
-body.liquid #maincontent .four_col {width:100%}
+body.liquid #maincontent .col, body.liquid #maincontent .one_col, #colorbox .col {width:23.2%}
+body.liquid #maincontent .two_col, #colorbox .two_col {width:48.6%}
+body.liquid #maincontent .three_col, #colorbox .three_col {width:73%}
+body.liquid #maincontent .four_col, #colorbox .four_col {width:100%}
 body.liquid #maincontent .col_half {width:11%}
 
 body.liquid #maincontent .two_col .col, body.liquid #maincontent .two_col .one_col {width:47%}
