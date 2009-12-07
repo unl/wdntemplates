@@ -76,12 +76,12 @@ WDN.analytics = function() {
 		callTrackPageview: function(thePage){
 			wdnTracker._trackPageview(thePage); //First, track in the wdn analytics
 			WDN.log("Pageview tracking for wdn worked!");
-			/*try {
+			try {
 				pageTracker._trackPageview(thePage); // Second, track in local site analytics //Don't turn on until Dec WDN Meeting
 				WDN.log("Pageview tracking for local site worked!");
 			} catch(e) {
 				WDN.log("Pageview tracking for local site didn't work."); 
-			}*/
+			}
 		},
 		callTrackEvent: function(category, action, label, value) {
 			if (value === undefined) {
@@ -89,12 +89,12 @@ WDN.analytics = function() {
 			}
 			var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
 			WDN.log("WDN Event tracking success? "+wdnSuccess);
-			/*try { //Don't turn on until Dec WDN Meeting
+			try { //Don't turn on until Dec WDN Meeting
 				var pageSuccess = pageTracker._trackEvent(category, action, label, value);
 				WDN.log("Page Event tracking success? "+pageSuccess);
 			} catch(e) {
 				WDN.log("Event tracking for local site didn't work.");
-			}*/
+			}
 		}
 	};
 }();
