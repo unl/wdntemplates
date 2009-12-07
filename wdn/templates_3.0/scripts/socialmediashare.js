@@ -35,13 +35,13 @@ WDN.socialmediashare = function() {
             var utm_medium = "share_this";
             WDN.jQuery('.socialmedia a').hover(function() {
             	utm_source = WDN.jQuery(this).attr('id');
-            	gaTagging = "utm_campaign="+utm_campaign+"&amp;utm_medium="+utm_medium+"&amp;utm_source="+utm_source;
+            	gaTagging = "utm_campaign="+utm_campaign+"&utm_medium="+utm_medium+"&utm_source="+utm_source;
             	//Let's build the URL to be shrunk
             	thisPage = new String(window.location.href);
             	if (thisPage.indexOf('?') != -1) { //check to see if has a ?, if not then go ahead with the ?. Otherwise add with &
-            		thisURL = thisPage+"?"+gaTagging;
+            		thisURL = thisPage+"&"+gaTagging;
             	} else {
-            		thisURL = thisPage+"&amp;"+gaTagging;
+            		thisURL = thisPage+"?"+gaTagging;
             	}
             	WDN.socialmediashare.createURL(
             		thisURL,
