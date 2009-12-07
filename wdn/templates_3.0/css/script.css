@@ -164,7 +164,7 @@ display:none;
 #footer img.frame,
 #cboxLoadedContent img.frame,
 #maincontent p.caption,
-#footer p.caption, #footer a#createURL, #footer input#goURLResponse
+#footer p.caption, #footer a#wdn_createGoURL, #footer input#goURLResponse
 {
 -moz-border-radius:3px;
 -webkit-border-radius:3px;

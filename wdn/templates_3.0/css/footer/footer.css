@@ -198,7 +198,7 @@ body.liquid #footer .footer_col {width:22.9%}
 #wdn_googlebookmark:hover {
 	background-position: -130px -26px;
 }
-#footer a#createURL, #footer input#goURLResponse {
+#footer a#wdn_createGoURL, #footer input#goURLResponse {
 	display:block;
 	width:177px;
 	background: url('../images/top_shadow.png') repeat-x top #7d7d7d;
@@ -210,7 +210,7 @@ body.liquid #footer .footer_col {width:22.9%}
 	font-weight:bold;
 	text-decoration:none;
 }
-#footer a#createURL:hover {
+#footer a#wdn_createGoURL:hover {
 	background-color:#5FB829;
 }
 #footer input#goURLResponse {

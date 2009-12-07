@@ -19,7 +19,7 @@ WDN.socialmediashare = function() {
                 e("wdn_newsvine").href = "http://www.newsvine.com/_tools/seed&save?popoff=0&u="+window.location+"&h=University%20of%20Nebraska-Lincoln: "+document.title+"";
             } catch(e) {}
             
-            WDN.jQuery('a#createURL').click(function() {
+            WDN.jQuery('a#wdn_createGoURL').click(function() {
             	WDN.jQuery(this).remove();
             	WDN.socialmediashare.createURL(window.location.href, 
             		function(data) {
