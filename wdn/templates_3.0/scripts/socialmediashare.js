@@ -7,7 +7,7 @@ WDN.socialmediashare = function() {
             };
             try {
                 e("wdn_facebook").href = "http://www.facebook.com/share.php?u="+window.location+"";
-                e("wdn_twitter").href = "http://twitter.com/home?status=Reading "+window.location+" %23unl";
+                e("wdn_twitter").href = "http://twitter.com/home?status=Reading: "+window.location+" %23unl";
                 e("wdn_plurk").href = "http://www.plurk.com/?status="+window.location+" from University%20of%20Nebraska-Lincoln&qualifier=shares";
                 e("wdn_myspace").href = "http://www.myspace.com/Modules/PostTo/Pages/?l=3&u="+window.location+"&t=University%20of%20Nebraska-Lincoln: "+document.title+"";
                 e("wdn_digg").href = "http://digg.com/submit?phase=2&url="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"";
@@ -46,8 +46,12 @@ WDN.socialmediashare = function() {
             	WDN.socialmediashare.createURL(
             		thisURL,
             		function(data) { //now we have a GoURL, let's replace the href with this new URL.
-            			var regExpURL = new RegExp(window.location);
+            			var strLocation = new String(window.location);
+            			strLocation = strLocation.replace(/\?/g,'\\?');
+            			var regExpURL = new RegExp(strLocation);
+            			WDN.log("regExpURL: "+regExpURL);
 	            		var currentHref = WDN.jQuery('#'+utm_source).attr('href');
+	            		WDN.log("currentHref: "+currentHref);
 	            		WDN.jQuery('#'+utm_source).attr({href : currentHref.replace(regExpURL, data)});
             		}
             	);
@@ -58,7 +62,7 @@ WDN.socialmediashare = function() {
 				"http://go.unl.edu/api_create.php", 
 				{theURL: createThisURL},
 				function(data) {
-					WDN.log(createThisURL+" "+data);
+					WDN.log("current URL: "+createThisURL+" GoURL: "+data);
 					if (data != "There was an error. ") {
 						callback(data);
 					}
