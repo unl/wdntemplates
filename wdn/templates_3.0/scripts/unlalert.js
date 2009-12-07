@@ -4,8 +4,8 @@ var unlAlerts = new function() {};
 WDN.unlalert = function() {
 	return {
 		
-		data_url : 'http://alert1.unl.edu/json/unlcap.js',
-		//data_url : 'http://ucommbieber.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/alert.master.server.js',
+		//data_url : 'http://alert1.unl.edu/json/unlcap.js',
+		data_url : 'http://ucommbieber.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/alert.master.server.js',
 		
 		current_id : false,
 		
@@ -81,27 +81,35 @@ WDN.unlalert = function() {
 		
 		/*------ acknowledge alert, and don't show again ------*/
 		_acknowledgeAlert: function(id) {
-			WDN.setCookie('unlAlertIdClosed_'+id,id,3600);
+			WDN.setCookie('unlAlertIdClosed_'+id, id, 3600);
 		},
 		
 		/*------ building alert message ------*/
 		alertUser: function(root, uniqueID) {
 			WDN.log('Alerting the user');
+			
+			var LatestAlert = root;
+			var alertTitle = LatestAlert.headline;
+			var alertDescription = LatestAlert.description;
+			var alertID = uniqueID;
+			WDN.unlalert.current_id = uniqueID;
+			
+			// Add a div to store the html content
+			if (WDN.jQuery("#alertbox").length == 0) {
+				// Add the alert icon to the tool links
+				WDN.jQuery('#wdn_tool_links').prepend('<li><a id="unlalerttool" class="alert tooltip" title="Emergency Alert: An alert has been issued!" href="#alertbox">UNL Alert</a></li>');
+				WDN.jQuery('#maincontent').append('<div id="alertbox" style="display:none"></div>');
+			}
+			
+			// Add the alert box content
+			WDN.jQuery('#alertbox').html('<div id="alertboxContent"><h1>' + alertTitle + '</h1><p>'+ alertDescription +'<!-- Number '+uniqueID+' --></p></div>');
+			
 			if (WDN.unlalert.alertWasAcknowledged(uniqueID)) {
 				WDN.log('Alert was previously acknowledged');
 				// Ignore this alert... the user has already acknowledged it.
 			} else {
-				var LatestAlert = root;
-				var alertTitle = LatestAlert.headline;
-				var alertDescription = LatestAlert.description;
-				var alertID = uniqueID;
-				if (WDN.jQuery("#alertbox").length == 0) {
-					WDN.jQuery('#maincontent').append('<div id="alertbox"></div>');
-					WDN.jQuery('#wdn_tool_links').prepend('<li><a id="unlalerttool" class="alert tooltip" title="Emergency Alert: An alert has been issued!" href="#alertbox">UNL Alert</a></li>');
-				}
-				WDN.unlalert.current_id = uniqueID;
-				WDN.jQuery('#alertbox').html('<a href="#" id="closeAlert" onclick="WDN.unlalert.closeAlert(); return false;">(close)</a><div id="alertboxContent"><h1>' + alertTitle + '</h1><p>'+ alertDescription +'<!-- Number '+uniqueID+' --></p></div>');
 				WDN.jQuery().bind('cbox_close', WDN.unlalert.closeAlert);
+				WDN.jQuery('#alertbox').show();
 				WDN.jQuery('#unlalerttool').colorbox({inline:true,width:"640px",href:"#alertbox",open:true});
 			}
 		},
