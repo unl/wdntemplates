@@ -101,6 +101,7 @@ var WDN = function() {
 				WDN.initializePlugin('tooltip');
 				WDN.initializePlugin('toolbar');
 				WDN.initializePlugin('tabs');
+				WDN.initializePlugin('unlalert');
 				WDN.initializePlugin('idm');
 				WDN.initializePlugin('analytics');
 				WDN.browserAdjustments();
@@ -132,7 +133,7 @@ var WDN = function() {
             if ((navigator.userAgent.match(/applewebkit/i) && !navigator.userAgent.match(/Version\/[34]/)) ||
                 (navigator.userAgent.match(/firefox/i) && (navigator.userAgent.match(/firefox\/[12]/i) || navigator.userAgent.match(/firefox\/3.[01234]/i))) ||
                 (navigator.userAgent.match(/msie/i))){
-                //old/crappy browser needs help zebra striping
+                // old browser needs help zebra striping
                 WDN.jQuery('table.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
                 WDN.jQuery('table.zentable tbody tr:nth-child(even)').addClass('rowEven');
             } 

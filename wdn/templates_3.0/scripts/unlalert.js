@@ -12,7 +12,10 @@ WDN.unlalert = function() {
 		initialize : function()
 		{
 			WDN.log('Initializing the UNL Alert Plugin');
-			WDN.unlalert.checkIfCallNeeded();
+			if ("https:" != document.location.protocol) {
+				// Don't break authenticated sessions
+				WDN.unlalert.checkIfCallNeeded();
+			}
 		},
 		
 		checkIfCallNeeded: function() {
