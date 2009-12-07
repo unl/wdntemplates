@@ -31,7 +31,6 @@
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <div id="wdn_identity_management"> <!-- TemplateBeginEditable name="identitymanagement" --><a href="https://login.unl.edu/cas/logout">Logout</a><!-- TemplateEndEditable --> </div>
     </div>
     <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
