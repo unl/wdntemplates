@@ -71,7 +71,6 @@ WDN.unlalert = function() {
 		
 		/*------ check if alert was acknowledged ------*/
 		alertWasAcknowledged: function(id) {
-			return false;
 			var c = WDN.getCookie('unlAlertIdClosed_'+id);
 			if (c) {
 				return true;
