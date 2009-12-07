@@ -67,7 +67,13 @@ WDN.idm = function() {
 				WDN.jQuery('#wdn_identity_management').css({right:'362px'});
 			}
 			
-			WDN.jQuery('#wdn_identity_management').html('<div class="explanation"><p><span class="username">'+uid+'</span> <a href="https://login.unl.edu/cas/logout?url='+escape(window.location)+'">Logout</a></p></div>');
+			var icon = '';
+			
+			if ("https:" != document.location.protocol) {
+				icon = '<a href="http://planetred.unl.edu/pg/profile/unl_'+uid+'" title="Your Planet Red Profile"><img src="http://planetred.unl.edu/mod/profile/icondirect.php?username=unl_'+uid+'&size=topbar" alt="Your Profile Pic" /></a>';
+			}
+			
+			WDN.jQuery('#wdn_identity_management').html(icon+' <span class="username">'+uid+'</span> <a href="https://login.unl.edu/cas/logout?url='+escape(window.location)+'">Logout</a>');
 			WDN.idm.getFriendlyName(uid);
 		},
 		
@@ -90,12 +96,17 @@ WDN.idm = function() {
 		 */
 		setUser : function(uid, callback) {
 			WDN.setCookie('sso', uid, 10800);
-			WDN.get('http://peoplefinder.unl.edu/service.php?format=json&uid='+uid, null, function(data, textStatus){
-				if (textStatus == 'success') {
-					eval('WDN.idm.user='+data);
-					if (callback) callback();
-				}
-			});
+			if ("https:" != document.location.protocol) {
+				// Don't break authentication
+				WDN.get('http://peoplefinder.unl.edu/service.php?format=json&uid='+uid, null, function(data, textStatus){
+					if (textStatus == 'success') {
+						eval('WDN.idm.user='+data);
+						if (callback) callback();
+					}
+				});
+			} else {
+				WDN.idm.user={'uid':uid,'cn':uid};
+			}
 		}
 	};
 }();

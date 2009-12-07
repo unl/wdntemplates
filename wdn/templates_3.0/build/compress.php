@@ -15,9 +15,11 @@ $files = array(
 'plugins/rating/jquery.rating',
 'plugins/colorbox/jquery.colorbox',
 'plugins/qtip/jquery.qtip',
+'idm',
 'tabs',
 'feedback',
 'socialmediashare',
+'unlalert',
 'global_functions',
 );
 
