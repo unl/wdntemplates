@@ -9,6 +9,8 @@ WDN.unlalert = function() {
 		
 		current_id : false,
 		
+		calltimeout : false,
+		
 		initialize : function()
 		{
 			WDN.log('Initializing the UNL Alert Plugin');
@@ -26,9 +28,10 @@ WDN.unlalert = function() {
 		
 		dataReceived: function() {
 			WDN.log('UNL Alert data received');
+			clearTimeout(WDN.unlalert.calltimeout);
 		    /* Set cookie to indicate time the data was aquired */
-	    	WDN.setCookie('unlAlertsData','y', 15);
-	    	setTimeout(WDN.unlalert.checkIfCallNeeded, 30000);
+	    	WDN.setCookie('unlAlertsData','y', 60);
+	    	WDN.unlalert.calltimeout = setTimeout(WDN.unlalert.checkIfCallNeeded, 60000);
 		},
 		
 		/*------ Check if the data has expired ------*/
@@ -42,7 +45,7 @@ WDN.unlalert = function() {
 		},
 	
 		_callServer: function() {
-			WDN.log('Checking the alert server for data');
+			WDN.log('Checking the alert server for data '+WDN.unlalert.data_url);
 			var head = document.getElementsByTagName('head').item(0);
 			var old  = document.getElementById('lastLoadedCmds');
 			if (old) head.removeChild(old);
@@ -54,18 +57,18 @@ WDN.unlalert = function() {
 			script.id = 'lastLoadedCmds';
 			void(head.appendChild(script));
 			
-			/* check if alert1 server is up*/
-			var time = setTimeout(function(){
-				if (WDN.unlalert._dataHasExpired()) {
-					// Data still has not loaded successfully, change to alert 2 server and try again.
-					WDN.unlalert.data_url = 'http://alert2.unl.edu/json/unlcap.js';
-					WDN.unlalert._callServer();
-					clearTimeout(time);
-				} else {
-					//only need to run this once, if alert 2 is also down, we're screwed
-					clearTimeout(time);
-				}
-			}, 10000);
+//			/* check if alert1 server is up*/
+//			var time = setTimeout(function(){
+//				if (WDN.unlalert._dataHasExpired()) {
+//					// Data still has not loaded successfully, change to alert 2 server and try again.
+//					WDN.unlalert.data_url = 'http://alert2.unl.edu/json/unlcap.js';
+//					WDN.unlalert._callServer();
+//					clearTimeout(time);
+//				} else {
+//					//only need to run this once, if alert 2 is also down, we're screwed
+//					clearTimeout(time);
+//				}
+//			}, 10000);
 	
 		},
 		
