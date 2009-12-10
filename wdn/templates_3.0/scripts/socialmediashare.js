@@ -7,7 +7,7 @@ WDN.socialmediashare = function() {
             };
             try {
                 e("wdn_facebook").href = "http://www.facebook.com/share.php?u="+window.location+"";
-                e("wdn_twitter").href = "http://twitter.com/home?status=Reading: "+window.location+" %23unl";
+                e("wdn_twitter").href = "http://twitter.com/home?status=Reading: "+window.location+" %23UNL";
                 e("wdn_plurk").href = "http://www.plurk.com/?status="+window.location+" from University%20of%20Nebraska-Lincoln&qualifier=shares";
                 e("wdn_myspace").href = "http://www.myspace.com/Modules/PostTo/Pages/?l=3&u="+window.location+"&t=University%20of%20Nebraska-Lincoln: "+document.title+"";
                 e("wdn_digg").href = "http://digg.com/submit?phase=2&url="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"";
@@ -33,7 +33,7 @@ WDN.socialmediashare = function() {
             var utm_source = "";
             var utm_campaign = "wdn_social";
             var utm_medium = "share_this";
-            WDN.jQuery('.socialmedia a').hover(function() {
+            WDN.jQuery('.socialmedia a').click(function() {
             	utm_source = WDN.jQuery(this).attr('id');
             	gaTagging = "utm_campaign="+utm_campaign+"&utm_medium="+utm_medium+"&utm_source="+utm_source;
             	//Let's build the URL to be shrunk
@@ -53,8 +53,10 @@ WDN.socialmediashare = function() {
 	            		var currentHref = WDN.jQuery('#'+utm_source).attr('href');
 	            		WDN.log("currentHref: "+currentHref);
 	            		WDN.jQuery('#'+utm_source).attr({href : currentHref.replace(regExpURL, data)});
+	                	window.location.href = WDN.jQuery('#'+utm_source).attr('href');
             		}
             	);
+            	return false;
             });
         },
 	    createURL : function(createThisURL, callback) { //function to create a GoURL
