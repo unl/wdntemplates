@@ -1,9 +1,5 @@
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript">
 WDN.loadCSS('http://www.unl.edu/ucomm/templatedependents/templatecss/components/forms.css');
-google.load("jquery", "1.3.2");
-google.load("jqueryui", "1.7.2");
-
 </script>
 <form action="?" method="post">
     <fieldset>
@@ -11,7 +7,6 @@ google.load("jqueryui", "1.7.2");
         <ol>
             <li><label for="name" class="element"><span class="required">*</span>Name</label><div class="element"><input id="name" name="name" type="text" /></div></li>
             <li><label for="email" class="element"><span class="required">*</span>Email</label><div class="element"><input id="email" name="email" type="text" /></div></li>
-            <li><label for="birthdate" class="element"><span class="required">*</span>Birthdate</label><div class="element"><input id="birthdate" name="birthdate" type="text" /></div></li>
             <li><label class="element">I Can Has Cheezburger?</label><div class="element"><input name="helpful" value="1" type="radio" id="cheezyes" /><label for="cheezyes">Yes</label><input name="helpful" value="0" type="radio" id="cheezno" /><label for="cheezno">No</label></div></li>
             <li><label for="helpful_comments" class="element">In what way?</label><div class="element"><textarea id="helpful_comments" name="helpful_comments" cols="60" rows="5"></textarea></div></li>
             <li><label for="submit" class="element">&nbsp;</label><div class="element"><input id="submit" name="submit" value="Submit" type="submit" /></div></li>
