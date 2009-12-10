@@ -172,10 +172,10 @@
 	padding:0 10px 0 10px;
 	width:290px;
 }
-#toolbar_weather .two_col {
-	float:left;
-	width:420px;
-	padding:0 0 0 10px;
+#colorbox #toolbar_weather .two_col {
+	float:right;
+	width:390px;
+	padding:0 0 0 0px;
 }
 #showradar{
 	border:1px solid #ededed;
@@ -188,8 +188,8 @@
 }
 #showradar img {
 	background:url('images/colorbox/loading.gif') center no-repeat;
-	height:330px;
-	width:400px;
+	height:300px;
+	width:378px;
 }
 #toolbar_weather .weathertempf{
 	font-size:35px;

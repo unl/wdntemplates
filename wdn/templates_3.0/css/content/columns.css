@@ -1,5 +1,4 @@
-/* Contains column properties as well as float and clear */
-
+/* Contains column properties (for maincontent and colorbox) as well as float and clear */
 
 #maincontent .col, #maincontent .one_col, #colorbox .col{
 	width:220px;
@@ -31,7 +30,7 @@
 	width:940px;
 	}
 
-#maincontent .col_half{
+#maincontent .col_half, #colorbox .col_half{
 	width:100px;
 	padding:0 10px;
 	float:left;
@@ -42,7 +41,7 @@ body.liquid #maincontent .col, body.liquid #maincontent .one_col, #colorbox .col
 body.liquid #maincontent .two_col, #colorbox .two_col {width:48.6%}
 body.liquid #maincontent .three_col, #colorbox .three_col {width:73%}
 body.liquid #maincontent .four_col, #colorbox .four_col {width:100%}
-body.liquid #maincontent .col_half {width:11%}
+body.liquid #maincontent .col_half, #colorbox .col_half {width:11%}
 
 body.liquid #maincontent .two_col .col, body.liquid #maincontent .two_col .one_col {width:47%}
 body.liquid #maincontent .three_col .two_col {width:63%}
@@ -51,9 +50,9 @@ body.liquid #maincontent .four_col .three_col {width:69%}
 body.liquid #maincontent .four_col .two_col {width:46%}
 body.liquid #maincontent .four_col .col, body.liquid #maincontent .four_col .one_col {width:23%}
 
-#maincontent .left{padding-left:0;float:left;}
-#maincontent .middle{float:left;}
-#maincontent .right{padding-right:0;float:right;}
+#maincontent .left, #colorbox .left {padding-left:0;float:left;}
+#maincontent .middle, #colorbox .middle {float:left;}
+#maincontent .right, #colorbox .right {padding-right:0;float:right;}
 
 #maincontent .clear, #maincontent .clr {
 	clear:both;
@@ -64,3 +63,10 @@ body.liquid #maincontent .four_col .col, body.liquid #maincontent .four_col .one
 	height:auto;
 	background:none;
 	}
+/*Colorbox has padding built in, remove it from the columns */
+#colorbox .col, #colorbox two.col, #colorbox three.col, #colorbox four.col {
+	padding: 0 10px 0 0;	
+}
+#colorbox .right {
+	padding-left:10px;	
+}
