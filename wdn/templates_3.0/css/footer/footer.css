@@ -201,7 +201,7 @@ body.liquid #footer .footer_col {width:22.9%}
 #footer a#wdn_createGoURL, #footer input#goURLResponse {
 	display:block;
 	width:177px;
-	background: url('../images/top_shadow.png') repeat-x top #7d7d7d;
+	background: url('../images/bottom_shadow_medium.png') repeat-x bottom #7d7d7d;
 	height:23px;
 	margin-left:15px;
 	border-radius:3px;
@@ -211,11 +211,11 @@ body.liquid #footer .footer_col {width:22.9%}
 	text-decoration:none;
 }
 #footer a#wdn_createGoURL:hover {
-	background-color:#5FB829;
+	background-color:#028a02;
 }
 #footer input#goURLResponse {
 	height:22px;
-	background: url('../images/top_shadow_light.png') repeat-x top #fff;
+	background: url('../images/bottom_shadow_light.png') repeat-x bottom #fff;
 	color:#7d7d7d;
 	border:none;
 	
