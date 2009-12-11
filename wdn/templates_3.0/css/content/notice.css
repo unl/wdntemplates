@@ -1,12 +1,12 @@
 .wdn_notice {
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
  		-moz-border-radius: 5px;
  		-webkit-border-radius: 5px;
     padding:10px; 
     margin-bottom:10px;
 }
 .wdn_notice div.message {
-	background:url(images/notice/identityKey.png) no-repeat top left;
+	background:url(images/notice/information.png) no-repeat top left;
 	padding: 10px 5px 0px 68px;
 	min-height:60px;
 }
@@ -57,3 +57,21 @@
 .wdn_notice.col div.close, .wdn_notice.col div.maximize {
 	margin:10px;
 }
+
+/* theme support  - Not quite ready*/
+/*
+.wdn_notice.cool {
+	border-color: #3982CE;
+}
+.wdn_notice.bright {
+	border-color: #FFFDDF;
+}
+.wdn_notice.soothing {
+	border-color: #028A02;
+}
+.wdn_notice.energetic {
+	border-color: #FF6521;
+}
+.wdn_notice.primary {
+	border-color: #AD0000;
+}*/
