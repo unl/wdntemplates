@@ -39,18 +39,21 @@
             <!-- InstanceBeginEditable name="breadcrumbs" -->
             <ul>
                 <li><a href="http://www.unl.edu/" title="University of Nebraska–Lincoln">UNL</a></li>
-                <li>Department</li>
+                <li><a id="wdnlink" href="http://wdn.unl.edu/">Web Developer Network</a></li>
+                <li>Template Examples</li>
             </ul>
             <!-- InstanceEndEditable --></div>
         <div id="wdn_navigation_wrapper">
             <div id="navigation"><!-- InstanceBeginEditable name="navlinks" -->
-                <!--#include virtual="../../../sharedcode/navigation.html" -->
                 <!-- InstanceEndEditable --></div>
         </div>
     </div>
     <div id="wdn_content_wrapper">
         <div id="titlegraphic"><!-- InstanceBeginEditable name="titlegraphic" -->
             <h1>Web Developer Network</h1>
+            <script type="text/javascript">
+            WDN.get('http://www1.unl.edu/wdn/test/wdn/templates_3.0/scripts/navigationSniffer.php?u=http://wdn.unl.edu/', null, function(data){document.getElementById('navigation').innerHTML = data;});
+            </script>
             <!-- InstanceEndEditable --></div>
         <div id="pagetitle"><!-- InstanceBeginEditable name="pagetitle" --><h2>Template Examples</h2><!-- InstanceEndEditable --></div>
         <div id="maincontent">
