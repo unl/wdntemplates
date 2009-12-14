@@ -21,7 +21,7 @@
 <!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
 <!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>UNL | Department | WDN Content Styling Examples</title>
+<title>UNL | WDN | Template Examples</title>
 <!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <!-- InstanceEndEditable -->
@@ -38,7 +38,7 @@
             <!-- WDN: see glossary item 'breadcrumbs' -->
             <!-- InstanceBeginEditable name="breadcrumbs" -->
             <ul>
-                <li><a href="http://www.unl.edu/" title="University of Nebraska–Lincoln">UNL</a></li>
+                <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
                 <li><a id="wdnlink" href="http://wdn.unl.edu/">Web Developer Network</a></li>
                 <li>Template Examples</li>
             </ul>
