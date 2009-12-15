@@ -81,18 +81,18 @@
             <div class="col left">
 	            <p>Choose an example to view:</p>
 	            <ul id="examples">
+	            	<li><a href="colorbox.html">Colorbox (Modal Box)</a></li>
 	            	<li><a href="events.html">Events</a> (<a href="http://www1.unl.edu/wdn/wiki/Extracting_Data_From_The_Calendar" class="external">wiki documentation</a>)</li>
 	            	<li><a href="forms.html">Forms</a> (<a href="http://www1.unl.edu/wdn/wiki/Template_Form_Styling" class="external">wiki documentation</a>)</li>
+	            	<li><a href="headers.html">Header Styles</a></li>
+	            	<li><a href="idm.html">Identity Management/Single Sign On</a></li>
+	            	<li><a href="image.html">Image Style and Caption</a></li>
+	            	<li><a href="notice.html">Notice</a></li>
+	            	<li><a href="layouts.html">Page Layouts</a></li>
 	            	<li><a href="tabs.html">Tabs</a> (<a href="http://www1.unl.edu/wdn/wiki/Tabbed_Content_Areas" class="external">wiki documentation</a>)</li>
+	            	<li><a href="tooltips.html">Tooltips</a></li>
 	            	<li><a href="zenboxes.html">Zenboxes</a></li>
 	            	<li><a href="zentables.html">ZenTables</a></li>
-	            	<li><a href="headers.html">Header Styles</a></li>
-	            	<li><a href="layouts.html">Page Layouts</a></li>
-	            	<li><a href="image.html">Image Style and Caption</a></li>
-	            	<li><a href="colorbox.html">Colorbox (Modal Box)</a></li>
-	            	<li><a href="tooltips.html">Tooltips</a></li>
-	            	<li><a href="notice.html">Notice</a></li>
-	            	
 	           	</ul>
             </div>
             <div class="three_col right">
