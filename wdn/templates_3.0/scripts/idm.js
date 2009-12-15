@@ -2,6 +2,11 @@ WDN.idm = function() {
 	return {
 		
 		/**
+		 * The URL to direct the end user to when the logout link is clicked.
+		 */
+		logoutURL : 'https://login.unl.edu/cas/logout?url='+escape(window.location),
+		
+		/**
 		 * If populated, the public directory details for the logged in user
 		 * 
 		 * @var object
@@ -17,8 +22,6 @@ WDN.idm = function() {
 			if (WDN.idm.isLoggedIn()) {
 				WDN.idm.displayNotice(WDN.idm.getUserID());
 			}
-			// Any time a link is clicked, unset the user data
-			WDN.jQuery('#wdn_identity_management a').click(WDN.idm.logout);
 		},
 		
 		logout : function() {
@@ -73,7 +76,11 @@ WDN.idm = function() {
 				icon = '<a href="http://planetred.unl.edu/pg/profile/unl_'+uid+'" title="Your Planet Red Profile"><img src="http://planetred.unl.edu/mod/profile/icondirect.php?username=unl_'+uid+'&size=topbar" alt="Your Profile Pic" /></a>';
 			}
 			
-			WDN.jQuery('#wdn_identity_management').html(icon+' <span class="username">'+uid+'</span> <a href="https://login.unl.edu/cas/logout?url='+escape(window.location)+'">Logout</a>');
+			WDN.jQuery('#wdn_identity_management').html(icon+' <span class="username">'+uid+'</span> <a id="wdn_idm_logout" href="'+WDN.idm.logoutURL+'">Logout</a>');
+			
+			// Any time a link is clicked, unset the user data
+			WDN.jQuery('#wdn_identity_management a').click(WDN.idm.logout);
+			
 			WDN.idm.getFriendlyName(uid);
 		},
 		
@@ -107,6 +114,14 @@ WDN.idm = function() {
 			} else {
 				WDN.idm.user={'uid':uid,'cn':uid};
 			}
+		},
+		
+		/**
+		 * Set the URL to send the user to when the logout link is clicked
+		 */
+		setLogoutURL : function(url) {
+			WDN.jQuery('#wdn_idm_logout').attr('href', url);
+			WDN.idm.logoutURL = url;
 		}
 	};
 }();
