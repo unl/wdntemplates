@@ -86,3 +86,7 @@ a[href *='.xls'], a.application-vnd-ms-excel{background-image: url(images/mimety
 a[href *='.ppt'], a[href *='.pps'], a.application-vnd-ms-powerpoint{background-image: url(images/mimetypes/application-vnd-ms-powerpoint.png);background-repeat:no-repeat;}
 a[href $='.zip'], a.application-zip{background-image: url(images/mimetypes/application-zip.png);background-repeat:no-repeat;}
 a.feed-icon{background-image: url(images/mimetypes/feed-icon.png);}
+
+a.imagelink, #footer a.imagelink {
+    background:none;
+}
