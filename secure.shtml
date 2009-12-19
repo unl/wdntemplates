@@ -47,8 +47,7 @@ background-color:#FF3fd2;background-image:url(http://www.joethepeacock.com/uploa
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <div id="wdn_identity_management"><a href="http://planetred.unl.edu/pg/profile/username" title="Your Planet Red Profile"><img src="http://planetred.unl.edu/mod/profile/graphics/defaulttopbar.gif" alt="Your Profile Pic" /></a> First Last <a href="#" class="logout">Log out</a></div>
-     
+        <div id="wdn_identity_management"><a href="http://planetred.unl.edu/pg/profile/username" title="Your Planet Red Profile"><img src="http://planetred.unl.edu/mod/profile/graphics/defaulttopbar.gif" alt="Your Profile Pic" /></a> First Last <a href="#" class="logout">Log out</a></div>     
     </div>
     <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
