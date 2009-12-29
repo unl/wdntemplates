@@ -48,7 +48,35 @@ Red: primary
 	font-size:1.1em;
 	font-weight: bold;
 }
-/*This is a test */
+/*This is a test 
+  border and shadow effects are only supported in FF3.5+, Chrome 3+ (frame 4+), Safari 3.0+, Opera (?)
+  IE7/8 do not support these CSS3 effects; but fall back to the square arrowed boxes just fine
+ */
+
+/* As long as we're testing effects, why not add a drop shadow? */
+#maincontent div.zenbox2 {
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+	-moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+}
+
+/* And do the same for framed images? */
+#maincontent img.zenframe
+{
+    border:1px solid #ededed;
+    border-radius:3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+    background: #f7f7f7;
+	padding:4px;
+    margin: 0 0 10px 0;
+	white-space:normal;
+	line-height:0.8em;
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    -moz-box-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+}
+
 #maincontent div.zenbox2 h3 {
 	background:url('../images/bottom_shadow_medium.png') repeat-x bottom #f5e62f;
 	color:#fff;
