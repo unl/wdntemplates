@@ -25,6 +25,11 @@ WDN.feedback = function() {
 			WDN.jQuery('#wdn_feedback_comments').submit(
 				function(event) {
 					var comments = WDN.jQuery('#wdn_feedback_comments textarea').val();
+					if (comments.split(' ').length < 4) {
+						// Users must enter in at least 4 words.
+						alert('Please enter more information.');
+						return false;
+					}
 					WDN.post(
 						'http://www1.unl.edu/comments/', 
 						{comment:comments},
