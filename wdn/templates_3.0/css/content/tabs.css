@@ -92,3 +92,38 @@ ul.wdn_tabs span sup {
  		-webkit-border-radius: 15px;
  	bottom:1.7ex;
 }
+
+/*SUB TABS*/
+
+#maincontent ul.wdn_sub_tabs {
+	margin-top:-20px;
+	padding:20px;
+	margin-bottom:20px;
+	background:url('images/tabs/sub_tabs_bg.png') repeat;
+	border-right:1px solid #FFFFFF;
+	border-left:1px solid #FFFFFF;
+	border-bottom:1px solid #EDEDED;
+	-moz-border-radius: 25px; 
+	-webkit-border-radius: 25px;
+}
+#maincontent ul.wdn_sub_tabs li {
+	font-weight:normal;
+	font-size:.9em;
+	padding:5px 8px;
+	margin:0px 3px;
+	background:#F7F7F7;
+	border:1px solid #CCC;
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px; 
+	bottom:1.7ex;
+	display:inline;
+}
+#maincontent ul.wdn_sub_tabs li.selected {
+	background:#FFFFFF;
+}
+#maincontent ul.wdn_sub_tabs li a {
+	color:#737373 !important;
+}
+#maincontent ul.wdn_sub_tabs li a.selected {
+	font-weight:bold;
+}
