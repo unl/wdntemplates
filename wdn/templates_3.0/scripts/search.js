@@ -33,7 +33,8 @@ WDN.search = function() {
         	var pagelinks = document.getElementsByTagName('link');
         	for (var i=0;i<pagelinks.length;i++) {
         	    relatt = pagelinks[i].getAttribute('rel');
-        	    if (relatt=='search') {
+        	    typeatt = pagelinks[i].getAttribute('type');
+        	    if (relatt=='search' && typeatt != 'application/opensearchdescription+xml') {
         	    	return pagelinks[i].getAttribute('href');
         	    }
         	}
