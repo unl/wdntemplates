@@ -29,9 +29,8 @@
 	height:20px;
 	text-indent: -2000em; 
     display: block;
-    border: 1px solid #ddd; 
- 		-moz-border-radius: 3px;
- 		-webkit-border-radius: 3px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
     text-decoration: none;
     position: relative;
 
@@ -50,7 +49,7 @@
 	
 }
 .wdn_notice.col div.message {
-	min-height:none;
+	min-height:0;
 }
 .wdn_notice.col div.close, .wdn_notice.col div.maximize {
 	margin:10px;

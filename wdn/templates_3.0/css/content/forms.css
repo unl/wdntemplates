@@ -192,15 +192,14 @@ body:last-child:not(:root:root) #maincontent form.cool label{vertical-align:base
 	left:0;
 	position:absolute;
 }
-forms.css (line 179)
 
-/*Required Indicators*/
+/* Required Indicators */
 .required {
 	color:#434343;
 }
 #maincontent form.cool li.required input {
 	background:url(images/forms/requiredIndicator.png) #fff no-repeat top right;
-	padding-right:33px;		
+	padding-right:33px;
 }
 p.required, p.attention {
 	background:url(images/forms/requiredIndicatorBG.png) no-repeat top left;

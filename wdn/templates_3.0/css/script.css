@@ -209,6 +209,10 @@ ul#wdn_tool_links li {
 -moz-border-radius: 3px;
 -webkit-border-radius: 3px;
 }
+.wdn_notice div.close a, .wdn_notice div.minimize a, .wdn_notice div.maximize a, .wdn_notice div.close a:hover, .wdn_notice div.minimize a:hover, .wdn_notice div.maximize a:hover {
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+}
 ul.wdn_tabs span sup {
 -moz-border-radius: 15px;
 -webkit-border-radius: 15px;

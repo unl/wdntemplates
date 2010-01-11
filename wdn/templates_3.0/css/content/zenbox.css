@@ -52,13 +52,6 @@ Red: primary
   border and shadow effects are only supported in FF3.5+, Chrome 3+ (frame 4+), Safari 3.0+, Opera (?)
   IE7/8 do not support these CSS3 effects; but fall back to the square arrowed boxes just fine
  */
-
-/* As long as we're testing effects, why not add a drop shadow? */
-#maincontent div.zenbox2 {
-	box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-}
-
-/* And do the same for framed images? */
 #maincontent img.zenframe
 {
     border:1px solid #ededed;
@@ -68,11 +61,10 @@ Red: primary
     margin: 0 0 10px 0;
 	white-space:normal;
 	line-height:0.8em;
-	box-shadow: 2px 2px 3px rgba(0,0,0,0.6);
 }
 
 #maincontent div.zenbox2 h3 {
-	background:url('../images/bottom_shadow_medium.png') repeat-x bottom #f5e62f;
+	background:#f5e62f url('../images/bottom_shadow_medium.png') repeat-x bottom;
 	color:#fff;
 	padding:7px 7px 5px 7px;
 	margin:-6px;
@@ -82,14 +74,14 @@ Red: primary
 	border-radius:5px 5px 0px 0px;
 }
 #maincontent div.zenbox2.bright h3 {
-	background:url('../images/bottom_shadow_light.png') repeat-x bottom #f5e62f;
+	background:#f5e62f url('../images/bottom_shadow_light.png') repeat-x bottom;
 	color:#3a3a3a;
 }
 #maincontent div.zenbox2.cool h3 {
 	background-color:#557BB7;
 }
 #maincontent div.zenbox2.energetic h3 {
-	background:url('../images/bottom_shadow_light.png') repeat-x bottom #FA6520;
+	background:#FA6520 url('../images/bottom_shadow_light.png') repeat-x bottom;
 }
 #maincontent div.zenbox2.soothing h3 {
 	background-color:#028a02;
