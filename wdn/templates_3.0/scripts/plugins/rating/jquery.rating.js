@@ -39,6 +39,8 @@
       .hover(fill, reset).focus(fill).blur(reset)
       .click(function() {
         rating = [stars.index(this) + 1, 0];
+        WDN.log("rating= "+ rating[0]);
+        WDN.analytics.callTrackEvent('Page Rating', 'Rated a '+rating[0], WDN.analytics.thisURL, rating[0]);
         var url = 'http://www1.unl.edu/comments/';
         WDN.post(
         		url, 
