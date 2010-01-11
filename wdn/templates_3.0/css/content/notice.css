@@ -1,9 +1,8 @@
 .wdn_notice {
     border: 2px solid #ddd;
- 		-moz-border-radius: 5px;
- 		-webkit-border-radius: 5px;
     padding:10px; 
     margin-bottom:10px;
+    border-radius:5px;
 }
 .wdn_notice div.message {
 	background:url(images/notice/information.png) no-repeat top left;
@@ -44,9 +43,8 @@
 	background:url(images/notice/maximize.png) no-repeat scroll top left;
 }
 .wdn_notice div.close a:hover, .wdn_notice div.minimize a:hover, .wdn_notice div.maximize a:hover {
-	border: 1px solid #999; 
-  		-moz-border-radius: 3px;
-  		-webkit-border-radius: 3px;
+	border: 1px solid #999;
+	border-radius:3px;
 }
 .wdn_notice.col {
 	

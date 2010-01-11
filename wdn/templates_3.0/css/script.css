@@ -201,5 +201,39 @@ ul#wdn_tool_links li {
 -moz-border-radius:0px;
 -webkit-border-radius:0px;
 }
+.wdn_notice {
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+}
+.wdn_notice div.close a:hover, .wdn_notice div.minimize a:hover, .wdn_notice div.maximize a:hover {
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+}
+ul.wdn_tabs span sup {
+-moz-border-radius: 15px;
+-webkit-border-radius: 15px;
+}
 
+#maincontent ul.wdn_sub_tabs {
+-moz-border-radius: 25px; 
+-webkit-border-radius: 25px;
+}
+#maincontent ul.wdn_sub_tabs li {
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+}
+#maincontent div.zenbox2 {
+-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+-moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+}
+#maincontent img.zenframe {
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+-webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+-moz-box-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+}
+#maincontent div.zenbox2 h3 {
+-moz-border-radius:5px 5px 0px 0px;
+-webkit-border-radius:5px 5px 0px 0px;
+}
 }

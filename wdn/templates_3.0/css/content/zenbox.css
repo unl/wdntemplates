@@ -56,8 +56,6 @@ Red: primary
 /* As long as we're testing effects, why not add a drop shadow? */
 #maincontent div.zenbox2 {
 	box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-	-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-	-moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
 }
 
 /* And do the same for framed images? */
@@ -65,16 +63,12 @@ Red: primary
 {
     border:1px solid #ededed;
     border-radius:3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
     background: #f7f7f7;
 	padding:4px;
     margin: 0 0 10px 0;
 	white-space:normal;
 	line-height:0.8em;
 	box-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    -moz-box-shadow: 2px 2px 3px rgba(0,0,0,0.6);
 }
 
 #maincontent div.zenbox2 h3 {
@@ -85,8 +79,7 @@ Red: primary
 	margin-bottom:8px;
 	font-size:1.1em;
 	font-weight: bold;
-	-moz-border-radius:5px 5px 0px 0px;
-	-webkit-border-radius:5px 5px 0px 0px;
+	border-radius:5px 5px 0px 0px;
 }
 #maincontent div.zenbox2.bright h3 {
 	background:url('../images/bottom_shadow_light.png') repeat-x bottom #f5e62f;

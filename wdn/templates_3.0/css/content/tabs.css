@@ -88,8 +88,7 @@ ul.wdn_tabs span sup {
 	padding:0px 3px;
 	background:#ac0203;
 	border:1px solid #ac0203;
-		-moz-border-radius: 15px;
- 		-webkit-border-radius: 15px;
+	border-radius:15px;
  	bottom:1.7ex;
 }
 
@@ -103,8 +102,7 @@ ul.wdn_tabs span sup {
 	border-right:1px solid #FFFFFF;
 	border-left:1px solid #FFFFFF;
 	border-bottom:1px solid #EDEDED;
-	-moz-border-radius: 25px; 
-	-webkit-border-radius: 25px;
+	border-radius:25px;
 }
 #maincontent ul.wdn_sub_tabs li {
 	font-weight:normal;
@@ -113,8 +111,7 @@ ul.wdn_tabs span sup {
 	margin:0px 3px;
 	background:#F7F7F7;
 	border:1px solid #CCC;
-	-moz-border-radius: 10px; 
-	-webkit-border-radius: 10px; 
+	border-radius:10px;
 	bottom:1.7ex;
 	display:inline;
 }
