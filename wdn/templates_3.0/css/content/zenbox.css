@@ -48,20 +48,6 @@ Red: primary
 	font-size:1.1em;
 	font-weight: bold;
 }
-/*This is a test 
-  border and shadow effects are only supported in FF3.5+, Chrome 3+ (frame 4+), Safari 3.0+, Opera (?)
-  IE7/8 do not support these CSS3 effects; but fall back to the square arrowed boxes just fine
- */
-#maincontent img.zenframe
-{
-    border:1px solid #ededed;
-    border-radius:3px;
-    background: #f7f7f7;
-	padding:4px;
-    margin: 0 0 10px 0;
-	white-space:normal;
-	line-height:0.8em;
-}
 
 #maincontent div.zenbox2 h3 {
 	background:#f5e62f url('../images/bottom_shadow_medium.png') repeat-x bottom;
