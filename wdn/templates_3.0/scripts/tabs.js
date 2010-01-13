@@ -43,7 +43,7 @@ WDN.tabs = function() {
 			});
 			
 			if (WDN.jQuery('#maincontent ul.wdn_tabs li ul').length) {
-				WDN.jQuery('#maincontent ul.wdn_tabs').css({'margin-bottom':'60px'});
+				WDN.jQuery('#maincontent ul.wdn_tabs').css({'margin-bottom':'70px'});
 			}
 			
 			WDN.tabs.cleanLastTab();

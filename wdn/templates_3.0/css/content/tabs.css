@@ -97,8 +97,11 @@ ul.wdn_tabs span sup {
 #maincontent ul.wdn_tabs li {position:realtive;}
 #maincontent ul.wdn_tabs li ul {
 	position:absolute;
+	left:0px;
+	width:100%;
+	max-width:910px;
 	margin:-5px 0 0 0;
-	padding:20px;
+	padding:20px 20px 15px;
 }
 #maincontent ul.wdn_tabs li ul li {
 	font-weight:normal;
@@ -113,6 +116,7 @@ ul.wdn_tabs span sup {
 }
 #maincontent ul.wdn_tabs li ul li.selected {
 	background:#FFFFFF;
+	font-weight:bold;
 }
 #maincontent ul.wdn_tabs ul li a {
 	color:#737373 !important;
@@ -120,3 +124,5 @@ ul.wdn_tabs span sup {
 #maincontent ul.wdn_tabs ul li a.selected {
 	font-weight:bold;
 }
+
+#maincontent ul.wdn_tabs ul a:hover{text-decoration:underline;}
