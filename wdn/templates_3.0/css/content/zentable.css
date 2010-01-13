@@ -23,7 +23,7 @@
 .zentable tr th, .zentable .zentable tr th, .zentable.bright tr th, .zentable .zentable.bright tr th
 {
     color: #3a3a3a;
-    background-color: #F5E702;
+    background:#f5e62f url('../images/bottom_shadow_light.png') repeat-x bottom;
 }
 
 .zentable tbody tr:first-child td
@@ -53,7 +53,7 @@
 /* Cool Zentable */
 .zentable.cool tr th, .zentable .zentable.cool tr th
 {
-    background-color: #3982CE;
+    background: #557BB7 url('../images/bottom_shadow_medium.png') repeat-x bottom;
     color: #FFFFFF;
 }
 
@@ -70,7 +70,7 @@ table.zentable.cool tbody td, .zentable table.zentable.cool tbody td
 /* Soothing Zentable */
 .zentable.soothing tr th, .zentable .zentable.soothing tr th
 {
-    background-color: #028A02;
+    background: #028a02 url('../images/bottom_shadow_medium.png') repeat-x bottom;
     color: #FFFFFF;
 }
 
@@ -87,7 +87,7 @@ table.zentable.soothing tbody td, .zentable table.zentable.soothing tbody td
 /* Energetic Zentable */
 .zentable.energetic tr th, .zentable .zentable.energetic tr th
 {
-    background-color: #FF6521;
+    background:#FA6520 url('../images/bottom_shadow_light.png') repeat-x bottom;
     color: #FFFFFF;
 }
 
@@ -104,7 +104,7 @@ table.zentable.energetic tbody td, .zentable table.zentable.energetic tbody td
 /* Neutral Zentable */
 .zentable.neutral tr th, .zentable .zentable.neutral tr th
 {
-    background-color: #393C39;
+    background: #3c3c3c url('../images/bottom_shadow_medium.png') repeat-x bottom;
     color: #FFFFFF;
 }
 
@@ -121,7 +121,7 @@ table.zentable.neutral tbody td, .zentable table.zentable.neutral tbody td
 /* Primary Zentable */
 .zentable.primary tr th, .zentable .zentable.primary tr th
 {
-    background-color: #AD0000;
+    background: #ac0302 url('../images/bottom_shadow_medium.png') repeat-x bottom;
     color: #FFFFFF;
 }
 

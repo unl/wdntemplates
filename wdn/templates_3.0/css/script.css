@@ -8,15 +8,6 @@ display:block;
 z-index:0;
 }
 
-/*zentable*/
-.zentable tbody tr:nth-child(odd) td, .zentable.bright tbody tr:nth-child(odd) td{background-color: #FFFDDF;}
-.zentable tbody tr:nth-child(even) td, .zentable tbody td .zentable tbody tr:nth-child(even) td, .zentable.bright tbody tr:nth-child(even) td, .zentable tbody td .zentable.bright tbody tr:nth-child(even) td{background-color: #FFFFFF;}
-table.zentable.cool tbody tr:nth-child(odd) td, .zentable table.zentable.cool tbody tr:nth-child(odd) td{background-color: #EFF7FF;}
-table.zentable.soothing tbody tr:nth-child(odd) td, .zentable table.zentable.soothing tbody tr:nth-child(odd) td{background-color: #EFFFEF;}
-table.zentable.energetic tbody tr:nth-child(odd) td, .zentable table.zentable.energetic tbody tr:nth-child(odd) td{background-color: #FFE9DF;}
-table.zentable.neutral tbody tr:nth-child(odd) td, .zentable table.zentable.neutral tbody tr:nth-child(odd) td{background-color: #EFEFEF;}
-table.zentable.primary tbody tr:nth-child(odd) td, .zentable table.zentable.primary tbody tr:nth-child(odd) td{background-color: #FFEFEF;}
-
 #navigation > ul > li {
 	min-height: 50px;
 	display: -moz-inline-stack;
@@ -194,13 +185,6 @@ ul#wdn_tool_links li {
 -moz-border-radius:3px;
 -webkit-border-radius:3px;
 }
-#maincontent .zenboxsolid h3.sec_main,
-#maincontent .zenboxfixed h3.sec_main,
-#maincontent .zenboxfeature h3.sec_main,
-#maincontent .zenbox h3.sec_main {
--moz-border-radius:0px;
--webkit-border-radius:0px;
-}
 .wdn_notice {
 -moz-border-radius: 5px;
 -webkit-border-radius: 5px;
@@ -226,12 +210,28 @@ ul.wdn_tabs span sup {
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 }
-#maincontent img.zenframe {
--moz-border-radius: 3px;
--webkit-border-radius: 3px;
-}
-#maincontent div.zenbox2 h3 {
+
+/* ZENTABLE AND ZENBOXES*/
+.zentable tbody tr:nth-child(odd) td, .zentable.bright tbody tr:nth-child(odd) td{background-color: #FFFDDF;}
+.zentable tbody tr:nth-child(even) td, .zentable tbody td .zentable tbody tr:nth-child(even) td, .zentable.bright tbody tr:nth-child(even) td, .zentable tbody td .zentable.bright tbody tr:nth-child(even) td{background-color: #FFFFFF;}
+table.zentable.cool tbody tr:nth-child(odd) td, .zentable table.zentable.cool tbody tr:nth-child(odd) td{background-color: #EFF7FF;}
+table.zentable.soothing tbody tr:nth-child(odd) td, .zentable table.zentable.soothing tbody tr:nth-child(odd) td{background-color: #EFFFEF;}
+table.zentable.energetic tbody tr:nth-child(odd) td, .zentable table.zentable.energetic tbody tr:nth-child(odd) td{background-color: #FFE9DF;}
+table.zentable.neutral tbody tr:nth-child(odd) td, .zentable table.zentable.neutral tbody tr:nth-child(odd) td{background-color: #EFEFEF;}
+table.zentable.primary tbody tr:nth-child(odd) td, .zentable table.zentable.primary tbody tr:nth-child(odd) td{background-color: #FFEFEF;}
+	
+#maincontent div.zenbox h3 {
 -moz-border-radius:5px 5px 0px 0px;
 -webkit-border-radius:5px 5px 0px 0px;
 }
+#maincontent table.zentable tr th {
+-moz-border-radius:5px 5px 0px 0px;
+-webkit-border-radius:5px 5px 0px 0px;
+}
+#maincontent .zenboxsolid h3.sec_main,
+#maincontent .zenboxfixed h3.sec_main,
+#maincontent .zenboxfeature h3.sec_main,
+#maincontent .zenbox h3.sec_main {
+-moz-border-radius:0px;
+-webkit-border-radius:0px;
 }

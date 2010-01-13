@@ -40,16 +40,6 @@ Red: primary
 /*Set the header <h3> */
 #maincontent div.zenboxsolid h3, #maincontent div.zenboxfixed h3, #maincontent div.zenboxfeature h3, #maincontent div.zenbox h3,
 #maincontent div.zenboxsolid.bright h3, #maincontent div.zenboxfixed.bright h3, #maincontent div.zenboxfeature.bright h3, #maincontent div.zenbox.bright h3 {
-	background:url('../images/headingBGBright.png') repeat-x bottom;
-	padding:5px;
-	margin:-6px;
-	color:#3a3a3a;
-	margin-bottom:5px;
-	font-size:1.1em;
-	font-weight: bold;
-}
-
-#maincontent div.zenbox2 h3 {
 	background:#f5e62f url('../images/bottom_shadow_medium.png') repeat-x bottom;
 	color:#fff;
 	padding:7px 7px 5px 7px;
@@ -59,23 +49,27 @@ Red: primary
 	font-weight: bold;
 	border-radius:5px 5px 0px 0px;
 }
-#maincontent div.zenbox2.bright h3 {
+
+#maincontent div.zenbox2 h3 {
+	
+}
+#maincontent div.zenbox.bright h3 {
 	background:#f5e62f url('../images/bottom_shadow_light.png') repeat-x bottom;
 	color:#3a3a3a;
 }
-#maincontent div.zenbox2.cool h3 {
+#maincontent div.zenbox.cool h3 {
 	background-color:#557BB7;
 }
-#maincontent div.zenbox2.energetic h3 {
+#maincontent div.zenbox.energetic h3 {
 	background:#FA6520 url('../images/bottom_shadow_light.png') repeat-x bottom;
 }
-#maincontent div.zenbox2.soothing h3 {
+#maincontent div.zenbox.soothing h3 {
 	background-color:#028a02;
 }
-#maincontent div.zenbox2.neutral h3 {
+#maincontent div.zenbox.neutral h3 {
 	background-color:#3c3c3c;
 }
-#maincontent div.zenbox2.primary h3 {
+#maincontent div.zenbox.primary h3 {
 	background-color:#ac0302;
 	
 }
@@ -85,26 +79,6 @@ Red: primary
 	color:#3a3a3a;
 }
 
-#maincontent div.zenbox div.zenbox.cool h3, #maincontent div.zenboxsolid.cool h3, #maincontent div.zenboxfixed.cool h3, #maincontent div.zenboxfeature.cool h3, #maincontent div.zenbox.cool h3 {
-	background:url('../images/headingBGCool.png') repeat-x bottom;
-	color:#ffffff;
-}
-#maincontent div.zenbox div.zenbox.energetic h3, #maincontent div.zenboxsolid.energetic h3, #maincontent div.zenboxfixed.energetic h3, #maincontent div.zenboxfeature.energetic h3, #maincontent div.zenbox.energetic h3 {
-	background:url('../images/headingBGEnergetic.png') repeat-x bottom;
-	color:#ffffff;
-}
-#maincontent div.zenbox div.zenbox.soothing h3, #maincontent div.zenboxsolid.soothing h3, #maincontent div.zenboxfixed.soothing h3, #maincontent div.zenboxfeature.soothing h3, #maincontent div.zenbox.soothing h3 {
-	background:url('../images/headingBGSoothing.png') repeat-x bottom;
-	color:#ffffff;
-}
-#maincontent div.zenbox div.zenbox.neutral h3, #maincontent div.zenboxsolid.neutral h3, #maincontent div.zenboxfixed.neutral h3, #maincontent div.zenboxfeature.neutral h3, #maincontent div.zenbox.neutral h3 {
-	background:url('../images/headingBGNuetral.gif') repeat-x bottom;
-	color:#ffffff;
-}
-#maincontent div.zenbox div.zenbox.primary h3, #maincontent div.zenboxsolid.primary h3, #maincontent div.zenboxfixed.primary h3, #maincontent div.zenboxfeature.primary h3, #maincontent div.zenbox.primary h3 {
-	background:url('../images/headingBGPrimary.png') repeat-x bottom;
-	color:#ffffff;
-}
 /*deal with the h3 a links*/
 #maincontent div.zenbox div.zenbox.cool h3 a:link, #maincontent div.zenboxsolid.cool h3 a:link, #maincontent div.zenboxfixed.cool h3 a:link, #maincontent div.zenboxfeature.cool h3 a:link, #maincontent div.zenbox.cool h3 a:link,
 #maincontent div.zenbox div.zenbox.energetic h3 a:link, #maincontent div.zenboxsolid.energetic h3 a:link, #maincontent div.zenboxfixed.energetic h3 a:link, #maincontent div.zenboxfeature.energetic h3 a:link, #maincontent div.zenbox.energetic h3 a:link,  
@@ -112,16 +86,6 @@ Red: primary
 #maincontent div.zenbox div.zenbox.neutral h3 a:link, #maincontent div.zenboxsolid.neutral h3 a:link, #maincontent div.zenboxfixed.neutral h3 a:link, #maincontent div.zenboxfeature.neutral h3 a:link, #maincontent div.zenbox.neutral h3 a:link, 
 #maincontent div.zenbox div.zenbox.primary h3 a:link, #maincontent div.zenboxsolid.primary h3 a:link, #maincontent div.zenboxfixed.primary h3 a:link, #maincontent div.zenboxfeature.primary h3 a:link, #maincontent div.zenbox.primary h3 a:link{
 	color:#ffffff;
-}
-/*Put the carrot in after the h3*/
-#maincontent div.zenboxsolid h3:after, #maincontent div.zenboxfixed h3:after, #maincontent div.zenboxfeature h3:after, #maincontent div.zenbox h3:after {
-	content:'';
-	width:20px;
-	height:10px;
-	display:block;
-	background:url('../images/downIndicators.png') no-repeat -20px;
-	margin-left:30px;
-	margin-top:5px;
 }
 #maincontent div.zenbox div.zenbox.cool h3:after, #maincontent div.zenboxsolid.cool h3:after, #maincontent div.zenboxfixed.cool h3:after, #maincontent div.zenboxfeature.cool h3:after, #maincontent div.zenbox.cool h3:after {
 	background-position: -40px;
@@ -150,24 +114,3 @@ Red: primary
 	margin-left:-5px;
 	padding:5px 0 3px 3px;
 }
-/*
-
-#maincontent div.zenboxsolid.cool ul li, #maincontent div.zenboxfixed.cool ul li, #maincontent div.zenboxfeature.cool ul li, #maincontent div.zenbox.cool ul li {
-	border-bottom:1px dashed #3e83c9;
-}
-
-#maincontent div.zenboxsolid.energetic ul li, #maincontent div.zenboxfixed.energetic ul li, #maincontent div.zenboxfeature.energetic ul li, #maincontent div.zenbox.energetic ul li {
-	border-bottom:1px dashed #fa6520;
-}
-
-#maincontent div.zenboxsolid.soothing ul li, #maincontent div.zenboxfixed.soothing ul li, #maincontent div.zenboxfeature.soothing ul li, #maincontent div.zenbox.soothing ul li {
-	border-bottom:1px dashed #3ec93e;
-}
-
-#maincontent div.zenboxsolid.neutral ul li, #maincontent div.zenboxfixed.neutral ul li, #maincontent div.zenboxfeature.neutral ul li, #maincontent div.zenbox.neutral ul li {
-	border-bottom:1px dashed #3d3d3d;
-}
-
-#maincontent div.zenboxsolid.primary ul li, #maincontent div.zenboxfixed.primary ul li, #maincontent div.zenboxfeature.primary ul li, #maincontent div.zenbox.primary ul li {
-	border-bottom:1px dashed #3d3d3d;
-}*/
