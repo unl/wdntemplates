@@ -210,6 +210,11 @@ ul.wdn_tabs span sup {
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 }
+	
+#maincontent ul.wdn_tabs li ul li {
+-moz-border-radius: 10px; 
+-webkit-border-radius: 10px; 
+}
 
 /* ZENTABLE AND ZENBOXES*/
 .zentable tbody tr:nth-child(odd) td, .zentable.bright tbody tr:nth-child(odd) td{background-color: #FFFDDF;}

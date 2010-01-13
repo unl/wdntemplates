@@ -22,17 +22,17 @@ structure:
 	height:34px;
 	border-bottom:1px solid #e6e6e6;
     }
-#maincontent ul.wdn_tabs li {
+#maincontent ul.wdn_tabs > li {
     display:inline;
     float:left;
 	background:url('images/tabs/ulBG.png') repeat-x left;
 	margin-bottom:-1px;
     }
-#maincontent ul.wdn_tabs li:first-child {
+#maincontent ul.wdn_tabs > li:first-child {
    padding-left:5px;
    background:url('images/tabs/inactiveLeftFirst.png') no-repeat bottom left;
    }
-#maincontent ul.wdn_tabs a {
+#maincontent ul.wdn_tabs > li > a {
 	display:block;
 	height:34px;
     padding:0px 18px 0px 15px;
@@ -41,7 +41,7 @@ structure:
 	font-size:1.05em;
 	background:url('images/tabs/inactiveRight.png') no-repeat bottom right;
 }
-#maincontent ul.wdn_tabs li:last-child a {
+#maincontent ul.wdn_tabs > li:last-child > a {
 	margin-right:-7px;
 	background:url('images/tabs/inactiveRightLast.png') no-repeat top right;
 }
@@ -53,22 +53,22 @@ structure:
 	position:relative;
 	cursor:pointer;
 }
-#maincontent ul.wdn_tabs li.selected a {
+#maincontent ul.wdn_tabs > li.selected > a {
 	background:url('images/tabs/activeRightMiddle.png') no-repeat top right;
 	height:41px;
 	margin-right:0px;
 	padding:7px 22px 0px 15px;
 }
-#maincontent ul.wdn_tabs li:last-child.selected a {
+#maincontent ul.wdn_tabs > li:last-child.selected > a {
 	background:url('images/tabs/activeRight.png') no-repeat top right;
 }
  #maincontent ul.wdn_tabs li.selected a span {
  	font-weight:bold;
 }
-#maincontent ul.wdn_tabs li:first-child.selected {
+#maincontent ul.wdn_tabs > li:first-child.selected {
 	margin-left:2px;
 }
-#maincontent ul.wdn_tabs li.selected {
+#maincontent ul.wdn_tabs > li.selected {
 	background:url('images/tabs/activeLeft.png') no-repeat bottom left;
 	height:41px;
 	margin-top:-6px;
@@ -94,17 +94,13 @@ ul.wdn_tabs span sup {
 
 /*SUB TABS*/
 
-#maincontent ul.wdn_sub_tabs {
-	margin-top:-20px;
+#maincontent ul.wdn_tabs li {position:realtive;}
+#maincontent ul.wdn_tabs li ul {
+	position:absolute;
+	margin:-5px 0 0 0;
 	padding:20px;
-	margin-bottom:20px;
-	background:url('images/tabs/sub_tabs_bg.png') repeat;
-	border-right:1px solid #FFFFFF;
-	border-left:1px solid #FFFFFF;
-	border-bottom:1px solid #EDEDED;
-	border-radius:25px;
 }
-#maincontent ul.wdn_sub_tabs li {
+#maincontent ul.wdn_tabs li ul li {
 	font-weight:normal;
 	font-size:.9em;
 	padding:5px 8px;
@@ -115,12 +111,12 @@ ul.wdn_tabs span sup {
 	bottom:1.7ex;
 	display:inline;
 }
-#maincontent ul.wdn_sub_tabs li.selected {
+#maincontent ul.wdn_tabs li ul li.selected {
 	background:#FFFFFF;
 }
-#maincontent ul.wdn_sub_tabs li a {
+#maincontent ul.wdn_tabs ul li a {
 	color:#737373 !important;
 }
-#maincontent ul.wdn_sub_tabs li a.selected {
+#maincontent ul.wdn_tabs ul li a.selected {
 	font-weight:bold;
 }
