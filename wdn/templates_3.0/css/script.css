@@ -201,19 +201,9 @@ ul.wdn_tabs span sup {
 -moz-border-radius: 15px;
 -webkit-border-radius: 15px;
 }
-
-#maincontent ul.wdn_sub_tabs {
--moz-border-radius: 25px; 
--webkit-border-radius: 25px;
-}
-#maincontent ul.wdn_sub_tabs li {
--moz-border-radius: 10px;
--webkit-border-radius: 10px;
-}
-	
 #maincontent ul.wdn_tabs li ul li {
--moz-border-radius: 10px; 
--webkit-border-radius: 10px; 
+-moz-border-radius: 5px; 
+-webkit-border-radius: 5px; 
 }
 
 /* ZENTABLE AND ZENBOXES*/
@@ -229,9 +219,13 @@ table.zentable.primary tbody tr:nth-child(odd) td, .zentable table.zentable.prim
 -moz-border-radius:5px 5px 0px 0px;
 -webkit-border-radius:5px 5px 0px 0px;
 }
-#maincontent table.zentable tr th {
--moz-border-radius:5px 5px 0px 0px;
--webkit-border-radius:5px 5px 0px 0px;
+#maincontent table.zentable tr th:first-of-type {
+-moz-border-radius-topleft:5px;
+-webkit-border-top-left-radius:5px;
+}
+#maincontent table.zentable tr th:last-of-type {
+-moz-border-radius-topright:5px;
+-webkit-border-top-right-radius:5px;
 }
 #maincontent .zenboxsolid h3.sec_main,
 #maincontent .zenboxfixed h3.sec_main,
