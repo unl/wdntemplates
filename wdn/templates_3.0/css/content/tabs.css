@@ -94,7 +94,7 @@ ul.wdn_tabs span sup {
 
 /*SUB TABS*/
 
-#maincontent ul.wdn_tabs li {position:realtive;}
+#maincontent ul.wdn_tabs li {position:relative;}
 #maincontent ul.wdn_tabs li ul {
 	position:absolute;
 	left:0px;
