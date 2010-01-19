@@ -20,13 +20,7 @@ WDN.toolbar_peoplefinder = function() {
         },
         pf_getUID : function(uid) {
         	var url = "http://peoplefinder.unl.edu/hcards/"+uid;
-        	if (wait==true) {
-        		pfreq.abort();
-        		pfreq = new WDN.proxy_xmlhttp();
-        	}
-        	pfreq.open("GET", url, true);
-        	pfreq.onreadystatechange = WDN.toolbar_peoplefinder.updatePeopleFinderRecord;
-        	pfreq.send(null);
+        	WDN.get(url, null, WDN.toolbar_peoplefinder.updatePeopleFinderRecord);
         	wait=true;
         	return false;
         },
@@ -50,40 +44,27 @@ WDN.toolbar_peoplefinder = function() {
         },
         getPeopleFinderResults : function(q) {
         	var url = pfserviceurl + q;
-        	if (wait==true) {
-        		pfreq.abort();
-        		pfreq = new WDN.proxy_xmlhttp();
-        	}
-        	pfreq.open("GET", url, true);
-        	pfreq.onreadystatechange = WDN.toolbar_peoplefinder.updatePeopleFinderResults;
-        	pfreq.send(null);
-        	wait=true;
+        	WDN.get(url, null, WDN.toolbar_peoplefinder.updatePeopleFinderResults);
         },
         pfCatchUID : function(uid) {
         	alert('I\'ve caught '+uid+'. You should create your own pfCatchUID function.');
         	return false;
         },
-        updatePeopleFinderResults : function() {
-        	if (pfreq.readyState == 4) {
-        		if (pfreq.status == 200) {
-        			document.getElementById(pfresultsdiv).innerHTML = pfreq.responseText;
-        		} else {
-        			document.getElementById(pfresultsdiv).innerHTML = 'Error loading results.';
-        		}
-        	}
+        updatePeopleFinderResults : function(data, textStatus) {
+    		if (textStatus == 'success') {
+    			document.getElementById(pfresultsdiv).innerHTML = data;
+    		} else {
+    			document.getElementById(pfresultsdiv).innerHTML = 'Error loading results.';
+    		}
         	wait = false;
-        	pfreq = new WDN.proxy_xmlhttp();
         },
-        updatePeopleFinderRecord : function() {
-        	if (pfreq.readyState == 4) {
-        		if (pfreq.status == 200) {
-        			document.getElementById(pfrecorddiv).innerHTML = pfreq.responseText;
-        		} else {
-        			document.getElementById(pfrecorddiv).innerHTML = 'Error loading results.';
-        		}
-        	}
+        updatePeopleFinderRecord : function(data, textStatus) {
+        	if (textStatus == 'success') {
+    			document.getElementById(pfrecorddiv).innerHTML = data;
+    		} else {
+    			document.getElementById(pfrecorddiv).innerHTML = 'Error loading results.';
+    		}
         	wait = false;
-        	pfreq = new WDN.proxy_xmlhttp();
         }
 
     };
