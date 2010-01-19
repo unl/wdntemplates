@@ -347,16 +347,11 @@
 	background:#ffffcc;
 	height:25px;
 	font-size:1.5em;
+	color:#434343 !important;
 	}
 
 #toolbar_peoplefinder input:focus {
 	background:#fff;
-	}
-
-#toolbar_peoplefinder #pfprogress {
-	position:absolute;
-	left:325px;
-	top:57px;
 	}
 
 #toolbar_peoplefinder ul{list-style:none;padding:0;margin-bottom:5px;}

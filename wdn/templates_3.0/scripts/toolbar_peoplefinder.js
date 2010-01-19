@@ -12,7 +12,7 @@ WDN.toolbar_peoplefinder = function() {
     	
         },
         setupToolContent : function() {
-        	return '<h3>Peoplefinder: UNL\'s Online Directory</h3><div class="col left"><form onsubmit="WDN.toolbar_peoplefinder.queuePFRequest(document.getElementById(\'pq\').value,\'pfresults\'); return false;" method="get" action="http://peoplefinder.unl.edu/"><div><input type="text" onkeyup="WDN.toolbar_peoplefinder.queuePFRequest(this.value,\'pfresults\');" name="pq" id="pq" /><img alt="progress" id="pfprogress" src="/ucomm/templatedependents/templatecss/images/transpixel.gif"/></div></form><div id="pfresults" class="toolbarMask">'+defaultIntro+'</div></div><div class="col right"><div id="pfShowRecord"></div></div>';
+        	return '<h3>Peoplefinder: UNL\'s Online Directory</h3><div class="col left"><form onsubmit="WDN.toolbar_peoplefinder.queuePFRequest(document.getElementById(\'pq\').value,\'pfresults\'); return false;" method="get" action="http://peoplefinder.unl.edu/"><div><input type="text" onkeyup="WDN.toolbar_peoplefinder.queuePFRequest(this.value,\'pfresults\');" name="pq" id="pq" /></div></form><div id="pfresults" class="toolbarMask">'+defaultIntro+'</div></div><div class="col right"><div id="pfShowRecord"></div></div>';
         },
         display : function() {
         	setTimeout(function(){WDN.jQuery('#pq').focus();},500);
@@ -39,14 +39,11 @@ WDN.toolbar_peoplefinder = function() {
         	pfresultsdiv = resultsdiv;
         	clearTimeout(pfreq_q);
         	if (q.length > 3) {
-        		document.getElementById(resultsdiv).innerHTML = '';
-        		document.getElementById("pfprogress").src = WDN.template_path+'wdn/templates_3.0/css/images/loadingContent.gif';
+        		document.getElementById(resultsdiv).innerHTML = '<img alt="progress" id="pfprogress" src="'+WDN.template_path+'wdn/templates_3.0/css/images/loadingContent.gif" />';
         		pfreq_q = setTimeout('WDN.toolbar_peoplefinder.getPeopleFinderResults("'+escape(q)+'")',400);
         	} else if (q.length>0) {
-        		document.getElementById("pfprogress").src = WDN.template_path+'wdn/templates_3.0/css/images/transpixel.gif';
         		document.getElementById(resultsdiv).innerHTML = 'Please enter more information.';
         	} else {
-        		document.getElementById("pfprogress").src = WDN.template_path+'wdn/templates_3.0/css/images/transpixel.gif';
         		document.getElementById(resultsdiv).innerHTML = defaultIntro;
         		WDN.jQuery('#pfShowRecord').empty();
         	}
@@ -74,7 +71,6 @@ WDN.toolbar_peoplefinder = function() {
         			document.getElementById(pfresultsdiv).innerHTML = 'Error loading results.';
         		}
         	}
-        	document.getElementById("pfprogress").src = WDN.template_path+'wdn/templates_3.0/css/images/transpixel.gif';
         	wait = false;
         	pfreq = new WDN.proxy_xmlhttp();
         },
@@ -86,7 +82,6 @@ WDN.toolbar_peoplefinder = function() {
         			document.getElementById(pfrecorddiv).innerHTML = 'Error loading results.';
         		}
         	}
-        	document.getElementById("pfprogress").src = WDN.template_path+'wdn/templates_3.0/css/images/transpixel.gif';
         	wait = false;
         	pfreq = new WDN.proxy_xmlhttp();
         }
