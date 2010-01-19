@@ -240,3 +240,4 @@ table.zentable.primary tbody tr:nth-child(odd) td, .zentable table.zentable.prim
 -moz-border-radius:0px;
 -webkit-border-radius:0px;
 }
+} /* end @media screen */
