@@ -215,7 +215,7 @@ table.zentable.energetic tbody tr:nth-child(odd) td, .zentable table.zentable.en
 table.zentable.neutral tbody tr:nth-child(odd) td, .zentable table.zentable.neutral tbody tr:nth-child(odd) td{background-color: #EFEFEF;}
 table.zentable.primary tbody tr:nth-child(odd) td, .zentable table.zentable.primary tbody tr:nth-child(odd) td{background-color: #FFEFEF;}
 	
-#maincontent div.zenbox h3 {
+#maincontent div.zenboxsolid h3, #maincontent div.zenboxfixed h3, #maincontent div.zenboxfeature h3, #maincontent div.zenbox h3 {
 -moz-border-radius:5px 5px 0px 0px;
 -webkit-border-radius:5px 5px 0px 0px;
 }

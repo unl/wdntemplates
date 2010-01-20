@@ -49,27 +49,23 @@ Red: primary
 	font-weight: bold;
 	border-radius:5px 5px 0px 0px;
 }
-
-#maincontent div.zenbox2 h3 {
-	
-}
-#maincontent div.zenbox.bright h3 {
+#maincontent div.zenbox.bright h3, #maincontent div.zenboxsolid.bright h3, #maincontent div.zenboxfixed.bright h3, #maincontent div.zenboxfeature.bright h3 {
 	background:#f5e62f url('../images/bottom_shadow_light.png') repeat-x bottom;
 	color:#3a3a3a;
 }
-#maincontent div.zenbox.cool h3 {
+#maincontent div.zenbox.cool h3, #maincontent div.zenboxsolid.cool h3, #maincontent div.zenboxfixed.cool h3, #maincontent div.zenboxfeature.cool h3 {
 	background-color:#557BB7;
 }
-#maincontent div.zenbox.energetic h3 {
+#maincontent div.zenbox.energetic h3, #maincontent div.zenboxsolid.energetic h3, #maincontent div.zenboxfixed.energetic h3, #maincontent div.zenboxfeature.energetic h3 {
 	background:#FA6520 url('../images/bottom_shadow_light.png') repeat-x bottom;
 }
-#maincontent div.zenbox.soothing h3 {
+#maincontent div.zenbox.soothing h3, #maincontent div.zenboxsolid.soothing h3, #maincontent div.zenboxfixed.soothing h3, #maincontent div.zenboxfeature.soothing h3 {
 	background-color:#028a02;
 }
-#maincontent div.zenbox.neutral h3 {
+#maincontent div.zenbox.neutral h3, #maincontent div.zenboxsolid.neutral h3, #maincontent div.zenboxfixed.neutral h3, #maincontent div.zenboxfeature.neutral h3 {
 	background-color:#3c3c3c;
 }
-#maincontent div.zenbox.primary h3 {
+#maincontent div.zenbox.primary h3, #maincontent div.zenboxsolid.primary h3, #maincontent div.zenboxfixed.primary h3, #maincontent div.zenboxfeature.primary h3 {
 	background-color:#ac0302;
 	
 }
