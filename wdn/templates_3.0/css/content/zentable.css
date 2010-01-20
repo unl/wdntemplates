@@ -121,7 +121,7 @@ table.zentable.neutral tbody td, .zentable table.zentable.neutral tbody td
 /* Primary Zentable */
 .zentable.primary tr th, .zentable .zentable.primary tr th
 {
-    background: #ac0302 url('../images/bottom_shadow_medium.png') repeat-x bottom;
+    background: #c20403 url('../images/bottom_shadow_medium.png') repeat-x bottom;
     color: #FFFFFF;
 }
 
