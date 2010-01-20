@@ -12,7 +12,7 @@ WDN.toolbar_peoplefinder = function() {
     	
         },
         setupToolContent : function() {
-        	return '<h3>Peoplefinder: UNL\'s Online Directory</h3><div class="col left"><form onsubmit="WDN.toolbar_peoplefinder.queuePFRequest(document.getElementById(\'pq\').value,\'pfresults\'); return false;" method="get" action="http://peoplefinder.unl.edu/"><div><input type="text" onkeyup="WDN.toolbar_peoplefinder.queuePFRequest(this.value,\'pfresults\');" name="pq" id="pq" /></div></form><div id="pfresults" class="toolbarMask">'+defaultIntro+'</div></div><div class="col right"><div id="pfShowRecord"></div></div>';
+        	return '<h3>Peoplefinder: UNL\'s Online Directory <a href="http://peoplefinder.unl.edu/" class="external">(open in separate window)</a></h3><div class="col left"><form onsubmit="WDN.toolbar_peoplefinder.queuePFRequest(document.getElementById(\'pq\').value,\'pfresults\'); return false;" method="get" action="http://peoplefinder.unl.edu/"><div><input type="text" onkeyup="WDN.toolbar_peoplefinder.queuePFRequest(this.value,\'pfresults\');" name="pq" id="pq" /></div></form><div id="pfresults" class="toolbarMask">'+defaultIntro+'</div></div><div class="col right"><div id="pfShowRecord"></div></div>';
         },
         display : function() {
         	setTimeout(function(){WDN.jQuery('#pq').focus();},500);
