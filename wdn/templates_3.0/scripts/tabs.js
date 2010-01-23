@@ -9,19 +9,18 @@ WDN.tabs = function() {
 				WDN.jQuery(this).html("<span>"+theHTML+"</span>");
 			});
 			
-			//Grab the #hash in the URL in case we need it	
+			//Grab the #hash in the URL in case we need it
 			if (window.location.hash) {
-				var hash = window.location.hash;
-				WDN.tabs.showOnlyDiv(hash);
+				WDN.tabs.showOnlyDiv(window.location.hash);
 			} else {
-				var hash = false;
+				var href;
 				if (WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li.selected').length){
-					var href = WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li.selected:first a').attr('href');
+					href = WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li.selected:first a').attr('href');
 				} else {
-					var href = WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li:first a').attr('href');
+					href = WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li:first a').attr('href');
 				}
 				WDN.tabs.showOnlyDiv(href);
-			};
+			}
 			
 			// Add yesprint class to list items, to act as a table of contents when printed
 			WDN.jQuery('ul.wdn_tabs li').each(function(){
@@ -29,7 +28,7 @@ WDN.tabs = function() {
 				var contentTitle = WDN.jQuery(this).children('a').attr('href');
 				WDN.jQuery('div#'+contentTitle).prepend("<h5 class='yesprint'>"+content+"</h5>");
 				return true;
-			}),
+			});
 			
 			// Set up the event for when a tab is clicked
 			WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) a').click(function() { //do something when a tab is clicked
