@@ -37,7 +37,7 @@ WDN.idm = function() {
 		 */
 		isLoggedIn : function() {
 			var user = WDN.getCookie('sso');
-			if (user != null) {
+			if (user !== null) {
 				return true;
 			}
 			return false;
@@ -61,7 +61,7 @@ WDN.idm = function() {
 		 * @return void
 		 */
 		displayNotice : function(uid) {
-			if (WDN.jQuery('#wdn_identity_management').length == 0) {
+			if (WDN.jQuery('#wdn_identity_management').length === 0) {
 				WDN.jQuery('#header').append('<div id="wdn_identity_management" class="loggedin"></div>');
 			}
 			
@@ -116,7 +116,9 @@ WDN.idm = function() {
 				WDN.get('http://peoplefinder.unl.edu/service.php?format=json&uid='+uid, null, function(data, textStatus){
 					if (textStatus == 'success') {
 						eval('WDN.idm.user='+data);
-						if (callback) callback();
+						if (callback) {
+							callback();
+						}
 					}
 				});
 			} else {
