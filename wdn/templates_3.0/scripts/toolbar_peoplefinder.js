@@ -9,62 +9,62 @@ WDN.toolbar_peoplefinder = function() {
     var pfreq_q;
     return {
         initialize : function() {
-    	
+        
         },
         setupToolContent : function() {
-        	return '<h3>Peoplefinder: UNL\'s Online Directory <a href="http://peoplefinder.unl.edu/" class="external">(open in separate window)</a></h3><div class="col left"><form onsubmit="WDN.toolbar_peoplefinder.queuePFRequest(document.getElementById(\'pq\').value,\'pfresults\'); return false;" method="get" action="http://peoplefinder.unl.edu/"><div><input type="text" onkeyup="WDN.toolbar_peoplefinder.queuePFRequest(this.value,\'pfresults\');" name="pq" id="pq" /></div></form><div id="pfresults" class="toolbarMask">'+defaultIntro+'</div></div><div class="col right"><div id="pfShowRecord"></div></div>';
+            return '<h3>Peoplefinder: UNL\'s Online Directory <a href="http://peoplefinder.unl.edu/" class="external">(open in separate window)</a></h3><div class="col left"><form onsubmit="WDN.toolbar_peoplefinder.queuePFRequest(document.getElementById(\'pq\').value,\'pfresults\'); return false;" method="get" action="http://peoplefinder.unl.edu/"><div><input type="text" onkeyup="WDN.toolbar_peoplefinder.queuePFRequest(this.value,\'pfresults\');" name="pq" id="pq" /></div></form><div id="pfresults" class="toolbarMask">'+defaultIntro+'</div></div><div class="col right"><div id="pfShowRecord"></div></div>';
         },
         display : function() {
-        	setTimeout(function(){WDN.jQuery('#pq').focus();},500);
-        	return true;
+            setTimeout(function(){WDN.jQuery('#pq').focus();},500);
+            return true;
         },
         pf_getUID : function(uid) {
-        	var url = "http://peoplefinder.unl.edu/hcards/"+uid;
-        	WDN.get(url, null, WDN.toolbar_peoplefinder.updatePeopleFinderRecord);
-        	wait=true;
-        	return false;
+            var url = "http://peoplefinder.unl.edu/hcards/"+uid;
+            WDN.get(url, null, WDN.toolbar_peoplefinder.updatePeopleFinderRecord);
+            wait=true;
+            return false;
         },
         queuePFChooser : function(q,resultsdiv) {
-        	pfresultsdiv = resultsdiv;
-        	pfserviceurl = 'http://peoplefinder.unl.edu/service.php?chooser=true&q=';
-        	WDN.toolbar_peoplefinder.queuePFRequest(q,resultsdiv);
+            pfresultsdiv = resultsdiv;
+            pfserviceurl = 'http://peoplefinder.unl.edu/service.php?chooser=true&q=';
+            WDN.toolbar_peoplefinder.queuePFRequest(q,resultsdiv);
         },
         queuePFRequest : function(q,resultsdiv) {
-        	pfresultsdiv = resultsdiv;
-        	clearTimeout(pfreq_q);
-        	if (q.length > 3) {
-        		document.getElementById(resultsdiv).innerHTML = '<img alt="progress" id="pfprogress" src="'+WDN.template_path+'wdn/templates_3.0/css/images/loadingContent.gif" />';
-        		pfreq_q = setTimeout('WDN.toolbar_peoplefinder.getPeopleFinderResults("'+escape(q)+'")',400);
-        	} else if (q.length>0) {
-        		document.getElementById(resultsdiv).innerHTML = 'Please enter more information.';
-        	} else {
-        		document.getElementById(resultsdiv).innerHTML = defaultIntro;
-        		WDN.jQuery('#pfShowRecord').empty();
-        	}
+            pfresultsdiv = resultsdiv;
+            clearTimeout(pfreq_q);
+            if (q.length > 3) {
+                document.getElementById(resultsdiv).innerHTML = '<img alt="progress" id="pfprogress" src="'+WDN.template_path+'wdn/templates_3.0/css/images/loadingContent.gif" />';
+                pfreq_q = setTimeout('WDN.toolbar_peoplefinder.getPeopleFinderResults("'+escape(q)+'")',400);
+            } else if (q.length>0) {
+                document.getElementById(resultsdiv).innerHTML = 'Please enter more information.';
+            } else {
+                document.getElementById(resultsdiv).innerHTML = defaultIntro;
+                WDN.jQuery('#pfShowRecord').empty();
+            }
         },
         getPeopleFinderResults : function(q) {
-        	var url = pfserviceurl + q;
-        	WDN.get(url, null, WDN.toolbar_peoplefinder.updatePeopleFinderResults);
+            var url = pfserviceurl + q;
+            WDN.get(url, null, WDN.toolbar_peoplefinder.updatePeopleFinderResults);
         },
         pfCatchUID : function(uid) {
-        	alert('I\'ve caught '+uid+'. You should create your own pfCatchUID function.');
-        	return false;
+            alert('I\'ve caught '+uid+'. You should create your own pfCatchUID function.');
+            return false;
         },
         updatePeopleFinderResults : function(data, textStatus) {
-    		if (textStatus == 'success') {
-    			document.getElementById(pfresultsdiv).innerHTML = data;
-    		} else {
-    			document.getElementById(pfresultsdiv).innerHTML = 'Error loading results.';
-    		}
-        	wait = false;
+            if (textStatus == 'success') {
+                document.getElementById(pfresultsdiv).innerHTML = data;
+            } else {
+                document.getElementById(pfresultsdiv).innerHTML = 'Error loading results.';
+            }
+            wait = false;
         },
         updatePeopleFinderRecord : function(data, textStatus) {
-        	if (textStatus == 'success') {
-    			document.getElementById(pfrecorddiv).innerHTML = data;
-    		} else {
-    			document.getElementById(pfrecorddiv).innerHTML = 'Error loading results.';
-    		}
-        	wait = false;
+            if (textStatus == 'success') {
+                document.getElementById(pfrecorddiv).innerHTML = data;
+            } else {
+                document.getElementById(pfrecorddiv).innerHTML = 'Error loading results.';
+            }
+            wait = false;
         }
 
     };
