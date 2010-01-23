@@ -1,5 +1,5 @@
 /* Constructor */
-var unlAlerts = new function() {};
+var unlAlerts = function() {};
 
 WDN.unlalert = function() {
 	return {
@@ -29,9 +29,9 @@ WDN.unlalert = function() {
 		dataReceived: function() {
 			WDN.log('UNL Alert data received');
 			clearTimeout(WDN.unlalert.calltimeout);
-		    /* Set cookie to indicate time the data was aquired */
-	    	WDN.setCookie('unlAlertsData','y', 60);
-	    	WDN.unlalert.calltimeout = setTimeout(WDN.unlalert.checkIfCallNeeded, 60000);
+			/* Set cookie to indicate time the data was aquired */
+			WDN.setCookie('unlAlertsData','y', 60);
+			WDN.unlalert.calltimeout = setTimeout(WDN.unlalert.checkIfCallNeeded, 60000);
 		},
 		
 		/*------ Check if the data has expired ------*/
@@ -48,14 +48,16 @@ WDN.unlalert = function() {
 			WDN.log('Checking the alert server for data '+WDN.unlalert.data_url);
 			var head = document.getElementsByTagName('head').item(0);
 			var old  = document.getElementById('lastLoadedCmds');
-			if (old) head.removeChild(old);
+			if (old) {
+				head.removeChild(old);
+			}
 			var currdate = new Date();
 			script = document.createElement('script');
 			script.src = WDN.unlalert.data_url+'?'+currdate.getTime();
 			script.type = 'text/javascript';
 			script.defer = true;
 			script.id = 'lastLoadedCmds';
-			void(head.appendChild(script));
+			head.appendChild(script);
 			
 //			/* check if alert1 server is up*/
 //			var time = setTimeout(function(){
@@ -94,11 +96,10 @@ WDN.unlalert = function() {
 			var LatestAlert = root;
 			var alertTitle = LatestAlert.headline;
 			var alertDescription = LatestAlert.description;
-			var alertID = uniqueID;
 			WDN.unlalert.current_id = uniqueID;
 			
 			// Add a div to store the html content
-			if (WDN.jQuery("#alertbox").length == 0) {
+			if (WDN.jQuery("#alertbox").length === 0) {
 				// Add the alert icon to the tool links
 				WDN.jQuery('#wdn_tool_links').prepend('<li><a id="unlalerttool" class="alert tooltip" title="Emergency Alert: An alert has been issued!" href="#alertbox">UNL Alert</a></li>');
 				WDN.jQuery('#maincontent').append('<div id="alertbox" style="display:none"></div>');
@@ -132,8 +133,8 @@ WDN.unlalert = function() {
 		},
 		
 		/*------ close alert box ------*/
-	 	closeAlert: function() {
-	 		//create alert box
+		closeAlert: function() {
+			//create alert box
 			WDN.jQuery('#alertbox').hide();
 			WDN.unlalert._acknowledgeAlert(WDN.unlalert.current_id);
 		}
@@ -143,9 +144,9 @@ WDN.unlalert = function() {
 /* server side scripts for UNL Alert System */
 unlAlerts.server = {
 
-    /*------ initiate alert message if message is critical ------*/
-    init: function() {
-    	/* We have received the data */
+	/*------ initiate alert message if message is critical ------*/
+	init: function() {
+		/* We have received the data */
 		WDN.unlalert.dataReceived();
 		
 		/* get the root of the alert data tree*/
