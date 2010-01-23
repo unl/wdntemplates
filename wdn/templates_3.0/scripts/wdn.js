@@ -164,7 +164,7 @@ var WDN = function() {
 		initializePlugin:function (plugin, callback) {
 			callback = callback || function() {
 				try {
-					eval('WDN.'+plugin+'.initialize();');
+					WDN[plugin].initialize();
 				} catch (e) {
 					WDN.log('Could not initialize '+plugin);
 				}
@@ -173,12 +173,11 @@ var WDN = function() {
 		},
 		
 		setCookie : function(name, value, seconds) {
+			var expires = "";
 			if (seconds) {
 				var date = new Date();
 				date.setTime(date.getTime()+(seconds*1000));
-				var expires = ";expires="+date.toGMTString();
-			} else {
-				var expires = "";
+				expires = ";expires="+date.toGMTString();
 			}
 			document.cookie = name+"="+value+expires+";path=/;domain=.unl.edu";
 		},
@@ -188,8 +187,12 @@ var WDN = function() {
 			var ca = document.cookie.split(';');
 			for(var i=0;i < ca.length;i++) {
 				var c = ca[i];
-				while (c.charAt(0)==' ') c = c.substring(1,c.length);
-				if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+				while (c.charAt(0) === ' ') {
+					c = c.substring(1,c.length);
+				}
+				if (c.indexOf(nameEQ) === 0) {
+					return c.substring(nameEQ.length,c.length);
+				}
 			}
 			return null;
 		},
@@ -264,15 +267,14 @@ var WDN = function() {
 					xdr.send(params);
 					xdr.onload = function() {
 						callback(xdr.responseText, 'success');
-					}
+					};
 				} else {
 					try {
 						WDN.log('Using proxy');
 						var mycallback = function() {
 							var textstatus = 'error';
 							var data = 'error';
-							if ((this.readyState == 4)
-								&& (this.status == '200')) {
+							if ((this.readyState == 4) && (this.status == '200')) {
 								textstatus = 'success';
 								data = this.responseText;
 							}
@@ -283,7 +285,7 @@ var WDN = function() {
 						request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 						request.onreadystatechange = mycallback;
 						request.send(params);
-					} catch(e) {}
+					} catch(f) {}
 				}
 			}
 		},
@@ -309,8 +311,7 @@ var WDN = function() {
 						var mycallback = function() {
 							var textstatus = 'error';
 							var data = 'error';
-							if ((this.readyState == 4)
-								&& (this.status == '200')) {
+							if ((this.readyState == 4) && (this.status == '200')) {
 								textstatus = 'success';
 								data = this.responseText;
 							}
@@ -320,9 +321,9 @@ var WDN = function() {
 						request.open('GET', url, true);
 						request.onreadystatechange = mycallback;
 						request.send();
-					} catch(e) {
+					} catch(f) {
 						WDN.log('Could not fetch using the proxy');
-						WDN.log(e);
+						WDN.log(f);
 					}
 				}
 			}
