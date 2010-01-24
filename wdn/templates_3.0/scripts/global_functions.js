@@ -11,56 +11,58 @@ function fetchURLInto(url,id,err) {
 		if (textStatus=='success') {
 			document.getElementById(id).innerHTML = data;
 		} else {
-			if (undefined == err) {
+			if (undefined === err) {
 				document.getElementById(id).innerHTML = 'Error loading results.';
 			} else {
 				document.getElementById(id).innerHTML = err;
 			}
 		}
 	}
-		
+
 	);
-};
+}
 
 function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
 	function showIt() {
 		try {
 			
-			if(obj.src!=null && eval(imgArray_str+"["+thisNum_int+"][0]")!=null)
+			if (obj.src !== null && eval(imgArray_str+"["+thisNum_int+"][0]")!=null)
 				obj.src=eval(imgArray_str+"["+thisNum_int+"][0]");
-			if(obj.alt!=null && eval(imgArray_str+"["+thisNum_int+"][1]")!=null)
+			if (obj.alt !== null && eval(imgArray_str+"["+thisNum_int+"][1]")!=null)
 				obj.alt=eval(imgArray_str+"["+thisNum_int+"][1]");
-			if(obj.parentNode.href!=null && eval(imgArray_str+"["+thisNum_int+"][2]")!=null) {
+			if (obj.parentNode.href!=null && eval(imgArray_str+"["+thisNum_int+"][2]")!=null) {
 				obj.parentNode.href=eval(imgArray_str+"["+thisNum_int+"][2]");
-				if(eval(imgArray_str+"["+thisNum_int+"][3]")!=null) {
+				if (eval(imgArray_str+"["+thisNum_int+"][3]")!=null) {
 					var clickEvent = eval(imgArray_str+"["+thisNum_int+"][3]");
 					obj.parentNode.onclick=function() {eval(clickEvent);}
-				}
-				else
+				} else {
 					obj.parentNode.onclick=null;
-			}
-			else
+				}
+			} else {
 				obj.parentNode.href='#';
+			}
 		} catch(e) {}
 	};
 	
-	if(thisNum_int==null)
+	if (thisNum_int === null) {
 		thisNum_int=Math.floor(Math.random()*eval(imgArray_str+".length"));
-	if(thisNum_int >= eval(imgArray_str+".length"))
+	}
+	if (thisNum_int >= eval(imgArray_str+".length")) {
 		thisNum_int = 0;
-	if(eval(imgArray_str+"["+thisNum_int+"]")!=null){
+	}
+	if (eval(imgArray_str+"["+thisNum_int+"]") !== null) {
 		// Try and set img
 		var obj = document.getElementById(elementId_str);
 		
 		showIt();
 	}
 	thisNum_int++;
-	if(secs_int>0) {
+	if (secs_int>0) {
 		return setTimeout("rotateImg('"+imgArray_str+"','"+elementId_str+"',"+secs_int+","+thisNum_int+")",secs_int*1000);
-	} else {
-		return true;
 	}
-};
+	
+	return true;
+}
 
 function newRandomPromo(xmluri){
 	var promoContent = new WDN.proxy_xmlhttp();
@@ -77,12 +79,13 @@ function newRandomPromo(xmluri){
 				var contentContainer = xmlObj.getElementsByTagName('contentContainer')[0].childNodes[0].nodeValue;
 				var promoTitle = xmlObj.getElementsByTagName('promo')[aryId].getAttribute("id");
 				var promoMediaType = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('media')[0].getAttribute("type");
-				try{
+				var promoText = ' ';
+				try {
 					var promoMediaURL = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('media')[0].childNodes[0].nodeValue;
-					var promoText = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('text')[0].childNodes[0].nodeValue;
-				}catch(e){
-					var promoText = ' ';
-				}										
+					promoText = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('text')[0].childNodes[0].nodeValue;
+				} catch(e) {
+					promoText = ' ';
+				}
 				var promoLink = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('link')[0].childNodes[0].nodeValue;
 				
 				//different mime type embed
@@ -94,28 +97,27 @@ function newRandomPromo(xmluri){
 			} else {
 				// Error loading file!
 			}
-		};
+		}
 		promoContent = new XMLHTTP();
- 	};
-	promoContent.send(null);	
-};
+	};
+	promoContent.send(null);
+}
 
 function addLoadEvent(func){
 	WDN.jQuery(document).ready(func);
-};
+}
 
 var wraphandler = {
 
-  addEvent: function( obj, type, fn ) {
-
-    if ( obj.attachEvent ) {
-      obj['e'+type+fn] = fn;
-      obj[type+fn] = function(){obj['e'+type+fn]( window.event );};
-      obj.attachEvent( 'on'+type, obj[type+fn] );
-    } else {
-      obj.addEventListener( type, fn, false );
-    }
-  }
+	addEvent: function( obj, type, fn ) {
+		if ( obj.attachEvent ) {
+			obj['e'+type+fn] = fn;
+			obj[type+fn] = function(){obj['e'+type+fn]( window.event );};
+			obj.attachEvent( 'on'+type, obj[type+fn] );
+		} else {
+			obj.addEventListener( type, fn, false );
+		}
+	}
 
 };
 
@@ -131,7 +133,7 @@ http://www.fivevoltlogic.com
   // a bug in IE related to element attributes
   function hasClass(obj) {
      var result = false;
-     if (obj.getAttributeNode("class") != null) {
+     if (obj.getAttributeNode("class") !== null) {
          result = obj.getAttributeNode("class").value;
      }
      return result;
@@ -172,7 +174,7 @@ http://www.fivevoltlogic.com
         // or backgroundColor style
         if (! hasClass(trs[i]) &&
             ! trs[i].style.backgroundColor) {
- 		  
+
           // get all the cells in this row...
           var tds = trs[i].getElementsByTagName("td");
         
