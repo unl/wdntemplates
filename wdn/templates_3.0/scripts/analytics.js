@@ -20,22 +20,22 @@ WDN.analytics = function() {
 		rated : false, // whether the user has rated the current page.
 		initialize : function() {
 			try {
-		    	wdnTracker = _gat._getTracker("UA-3203435-1"); 
-		        wdnTracker._setDomainName(".unl.edu");
-		        wdnTracker._setAllowLinker(true);
-		        wdnTracker._setAllowHash(false);
-		        wdnTracker._trackPageview();
-		    } catch(err) {}
-		    
-		    WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
-		        filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v)$/i; //these are the file extensions to track for downloaded content
-		        WDN.jQuery('#navigation a[href], #maincontent a[href]').each(function(){  
+				wdnTracker = _gat._getTracker("UA-3203435-1"); 
+				wdnTracker._setDomainName(".unl.edu");
+				wdnTracker._setAllowLinker(true);
+				wdnTracker._setAllowHash(false);
+				wdnTracker._trackPageview();
+			} catch(err) {}
+			
+			WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
+				filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v)$/i; //these are the file extensions to track for downloaded content
+				WDN.jQuery('#navigation a[href], #maincontent a[href]').each(function(){  
 					var gahref = WDN.jQuery(this).attr('href');
 					if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
 						//WDN.jQuery(this).addClass('external'); //Implications for doing this?
 						WDN.jQuery(this).click(function() {
 							WDN.analytics.callTrackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
-						});  
+						});
 					}  
 					else if (gahref.match(/^mailto\:/i)){  //deal with mailto: links
 						WDN.jQuery(this).click(function() {  
@@ -71,7 +71,7 @@ WDN.analytics = function() {
 		trackNavigationPreferredState : function(preferredState) {
 			try {
 				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
-			} catch(e){};
+			} catch(e){}
 		},
 		callTrackPageview: function(thePage){
 			wdnTracker._trackPageview(thePage); //First, track in the wdn analytics
