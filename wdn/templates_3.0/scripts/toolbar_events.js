@@ -1,6 +1,4 @@
 WDN.toolbar_events = function() {
-	var calreq = new WDN.proxy_xmlhttp();
-	var localcalreq = new WDN.proxy_xmlhttp();
 	var havelocalevents = false;
 	return {
 		initialize : function() {
@@ -28,38 +26,26 @@ WDN.toolbar_events = function() {
 		},
 		getCalendarResults : function() {
 			var calurl = "http://events.unl.edu/?format=hcalendar";
-			calreq.open("GET", calurl, true);
-			calreq.onreadystatechange = WDN.toolbar_events.updateCalendarResults;
-			calreq.send(null);
+			WDN.get(calurl, null, WDN.toolbar_events.updateCalendarResults);
 			if (havelocalevents) {
 				calurl = localeventshref+'/upcoming/?format=hcalendar';
-				localcalreq.open("GET", calurl, true);
-				localcalreq.onreadystatechange = WDN.toolbar_events.updateLocalCalendarResults;
-				localcalreq.send(null);
+				WDN.get(calurl, null, WDN.toolbar_events.updateLocalCalendarResults);
 			}
 			
 		},
-		updateCalendarResults : function() {
-			if (calreq.readyState == 4) {
-				if (calreq.status == 200) {
-					document.getElementById("allunlevents").innerHTML = calreq.responseText;
-				} else {
-					document.getElementById("allunlevents").innerHTML = 'Error loading results.';
-				}
+		updateCalendarResults : function(data, textStatus) {
+			if (textStatus == 'success') {
+				document.getElementById("allunlevents").innerHTML = data;
+			} else {
+				document.getElementById("allunlevents").innerHTML = 'Error loading results.';
 			}
-			wait = false;
-			calreq = new WDN.proxy_xmlhttp();
 		},
-		updateLocalCalendarResults : function() {
-			if (localcalreq.readyState == 4) {
-				if (localcalreq.status == 200) {
-					document.getElementById("localsiteevents").innerHTML = localcalreq.responseText;
-				} else {
-					document.getElementById("localsiteevents").innerHTML = 'Error loading results.';
-				}
+		updateLocalCalendarResults : function(data, textStatus) {
+			if (textStatus == 'success') {
+				document.getElementById("localsiteevents").innerHTML = data;
+			} else {
+				document.getElementById("localsiteevents").innerHTML = 'Error loading results.';
 			}
-			wait = false;
-			localcalreq = new WDN.proxy_xmlhttp();
 		}
 	};
 }();
