@@ -53,10 +53,9 @@ WDN.splash_poster = function() {
 	  	startPanelRotation : function() {
 	  		WDN.splash_poster.timeout = setInterval( function() {
 				var currentPoster = parseInt(WDN.jQuery("#posters>div.active").attr("id").split('poster')[1]);
+				var nextPoster = 1;
 				if (currentPoster < WDN.splash_poster.panels) {
-					var nextPoster = currentPoster + 1;
-				} else {
-					var nextPoster = 1;
+					nextPoster = currentPoster + 1;
 				}
 				WDN.jQuery("#posters>div.active").fadeOut("slow", function (){
 					//change the poster

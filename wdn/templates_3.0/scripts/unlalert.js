@@ -113,16 +113,16 @@ WDN.unlalert = function() {
 			}
 			
 			// Add the alert box content
-			WDN.jQuery('#alertbox').html('<div id="alertboxContent">'
-				+ '<div class="col left">'
-					+ '<img src="/wdn/templates_3.0/css/images/alert/generic.png" alt="An emergency has been issued" />'
-				+ '</div>'
-				+ '<div class="two_col right" style="width:70%;">'
-					+ '<h1 class="sec_header">Emergency Alert: An alert has been issued!'
-					+ '<h4>' + alertTitle + '</h4>'
-					+ '<p>'+ alertDescription +'<!-- Number '+uniqueID+' --></p>'
-				+ '</div>'
-			+ '</div>');
+			WDN.jQuery('#alertbox').html('<div id="alertboxContent">' +
+					'<div class="col left">' +
+						'<img src="/wdn/templates_3.0/css/images/alert/generic.png" alt="An emergency has been issued" />' +
+					'</div>' +
+					'<div class="two_col right" style="width:70%;">' +
+						'<h1 class="sec_header">Emergency Alert: An alert has been issued!' +
+						'<h4>' + alertTitle + '</h4>' +
+						'<p>'+ alertDescription +'<!-- Number '+uniqueID+' --></p>' +
+					'</div>' +
+			'</div>');
 			
 			if (WDN.unlalert.alertWasAcknowledged(uniqueID)) {
 				WDN.log('Alert was previously acknowledged');

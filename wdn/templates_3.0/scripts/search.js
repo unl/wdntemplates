@@ -5,14 +5,14 @@ WDN.search = function() {
 			 * Hide the label when the user starts a search
 			 */
 			WDN.jQuery('#wdn_search_form fieldset input#q').focus(WDN.search.hideLabel);
-			if (WDN.jQuery('#wdn_search_form fieldset input#q').val() != "") {
+			if (WDN.jQuery('#wdn_search_form fieldset input#q').val() !== "") {
 				WDN.search.hideLabel();
 			}
 			/**
 			 * Show the label if the user abandons an empty search box
 			 */
 			WDN.jQuery('#wdn_search_form fieldset input#q').blur(function() {
-				if (WDN.jQuery('#wdn_search_form fieldset input#q').val() == "") {
+				if (WDN.jQuery('#wdn_search_form fieldset input#q').val() === "") {
 					WDN.search.showLabel();
 				}
 			});

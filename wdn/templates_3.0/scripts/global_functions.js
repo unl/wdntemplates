@@ -26,15 +26,17 @@ function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
 	function showIt() {
 		try {
 			
-			if (obj.src !== null && eval(imgArray_str+"["+thisNum_int+"][0]")!=null)
+			if (obj.src !== null && eval(imgArray_str+"["+thisNum_int+"][0]")!==null) {
 				obj.src=eval(imgArray_str+"["+thisNum_int+"][0]");
-			if (obj.alt !== null && eval(imgArray_str+"["+thisNum_int+"][1]")!=null)
+			}
+			if (obj.alt !== null && eval(imgArray_str+"["+thisNum_int+"][1]")!==null) {
 				obj.alt=eval(imgArray_str+"["+thisNum_int+"][1]");
-			if (obj.parentNode.href!=null && eval(imgArray_str+"["+thisNum_int+"][2]")!=null) {
+			}
+			if (obj.parentNode.href!==null && eval(imgArray_str+"["+thisNum_int+"][2]")!==null) {
 				obj.parentNode.href=eval(imgArray_str+"["+thisNum_int+"][2]");
-				if (eval(imgArray_str+"["+thisNum_int+"][3]")!=null) {
+				if (eval(imgArray_str+"["+thisNum_int+"][3]")!==null) {
 					var clickEvent = eval(imgArray_str+"["+thisNum_int+"][3]");
-					obj.parentNode.onclick=function() {eval(clickEvent);}
+					obj.parentNode.onclick=function() {eval(clickEvent);};
 				} else {
 					obj.parentNode.onclick=null;
 				}
@@ -42,7 +44,7 @@ function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
 				obj.parentNode.href='#';
 			}
 		} catch(e) {}
-	};
+	}
 	
 	if (thisNum_int === null) {
 		thisNum_int=Math.floor(Math.random()*eval(imgArray_str+".length"));

@@ -33,8 +33,9 @@ WDN.proxy_xmlhttp = function() {
   this.getAllResponseHeaders = function() {
     // Returns all response headers as a string
     var result = '';
-    for (property in _responseHeaders)
+    for (property in _responseHeaders) {
       result += property + ': ' + _responseHeaders[property] + '\r\n';
+    }
     return result;
   };
   
@@ -42,8 +43,9 @@ WDN.proxy_xmlhttp = function() {
     // Returns a response header value
     // Note, that the search is case-insensitive
     for(property in _responseHeaders) {
-      if(property.toLowerCase() == name.toLowerCase())
+      if(property.toLowerCase() == name.toLowerCase()) {
         return _responseHeaders[property];
+      }
     }
     return null;
   };
@@ -54,7 +56,9 @@ WDN.proxy_xmlhttp = function() {
   
   this.open = function(method, url, sync, userName, password) {
     // Setting the internal values
-    if (!_checkParameters(method, url)) return;
+    if (!_checkParameters(method, url)) {
+        return;
+    }
     _method = (method) ? method : '';
     _url = (url) ? url : '';
     _userName = (userName) ? userName : '';
@@ -68,7 +72,9 @@ WDN.proxy_xmlhttp = function() {
   };
   
   this.send = function(data) {
-    if (_stop) return;
+    if (_stop) {
+        return;
+    }
     var src = _createQuery(data);
     _createScript(src);
 //    _setReadyState(2);
@@ -77,7 +83,9 @@ WDN.proxy_xmlhttp = function() {
   this.setRequestHeader = function(name, value) {
     // Set the request header. If the defined header
     // already exists (search is case-insensitive), rewrite it
-    if (_stop) return;
+    if (_stop) {
+        return;
+    }
     for(property in _requestHeaders) {
       if(property.toLowerCase() == name.toLowerCase()) {
         _requestHeaders[property] = value; return;
@@ -110,57 +118,61 @@ WDN.proxy_xmlhttp = function() {
   };
   
   var _createQuery = function(data) {
-    if(!data) data = '';
+    if(!data) {
+      data = '';
+    }
     var headers = '';
-    for (property in _requestHeaders)
+    for (property in _requestHeaders) {
       headers += property + '=' + _requestHeaders[property] + '&';
-    var originalsrc = _method
-    + '$' + _id
-    + '$' + _userName
-    + "$" + _password
-    + "$" + headers
-    + '$' + _escape(data)
-    + '$' + _url;
+    }
+    var originalsrc = _method +
+    '$' + _id + 
+    '$' + _userName +
+    '$' + _password + 
+    '$' + headers + 
+    '$' + _escape(data) +
+    '$' + _url;
     var src = originalsrc;
     var max =  _maximumRequestLength, request = [];
     var total = Math.floor(src.length / max), current = 0;
     while(src.length > 0) {
-      var query = _apiURL + '?'
-      + 'multipart' 
-      + '$' + _id
-      + '$' + current++
-      + '$' + total
-      + '$' + src.substr(0, max);
+      var query = _apiURL + '?' + 'multipart' + '$' + _id + '$' + current++ + '$' + total + '$' + src.substr(0, max);
       request.push(query);
       src = src.substr(max);
     }
-    if(request.length == 1)
+    if(request.length == 1) {
       src = _apiURL + '?' + originalsrc;
-    else
+    } else {
       src = request;
+    }
     return src;
   };
   
   var _checkParameters = function(method, url) {
     // Check the method value (GET, POST, HEAD)
     // and the prefix of the url (http://)
-    if(!method)
+    if(!method) {
       return _throwError('Please, specify the query method (GET, POST or HEAD)');
-    if(!url)
+    }
+    if(!url) {
       return _throwError('Please, specify the URL');
+    }
     if(method.toLowerCase() != 'get' &&
       method.toLowerCase() != 'post' &&
-      method.toLowerCase() != 'head')
+      method.toLowerCase() != 'head') {
       return _throwError('Please, specify either a GET, POST or a HEAD method');
-    if(url.toLowerCase().substr(0,7) != 'http://')
+    }
+    if(url.toLowerCase().substr(0,7) != 'http://') {
       return _throwError('Only HTTP protocol is supported (http://)');
+    }
     return true;
   };
 
   var _createScript = function(src) {
     if ('object' == typeof src) {
-      for(var i = 0; i < src.length; i++)
+      for(var i = 0; i < src.length; i++) {
         _createScript(src[i]);
+      }
       return true;
     }
     // Create the SCRIPT tag
@@ -184,9 +196,11 @@ WDN.proxy_xmlhttp = function() {
   
   var _destroyScripts = function() {
     // Removes the SCRIPT nodes used by the class
-    for(var i = 0; i < _scripts.length; i++)
-      if(_scripts[i].parentNode)
+    for(var i = 0; i < _scripts.length; i++) {
+      if(_scripts[i].parentNode) {
         _scripts[i].parentNode.removeChild(_scripts[i]);
+      }
+    }
   };
   
   var _registerCallback = function() {
@@ -200,24 +214,30 @@ WDN.proxy_xmlhttp = function() {
     // Set the ready state property of the class
     self.readyState = number;
     self.onreadystatechange();
-    if(number == 4) self.onload();
+    if(number == 4) {
+      self.onload();
+    }
   };
     
   var _parseXML = function() {
       var type = self.getResponseHeader('Content-type') + _overrideMime;
-      if(!(type.indexOf('html') > -1 || type.indexOf('xml') > -1)) return;
+      if(!(type.indexOf('html') > -1 || type.indexOf('xml') > -1)) {
+        return;
+      }
+      var xml;
       if(document.implementation &&
-	      document.implementation.createDocument &&
-	      navigator.userAgent.indexOf('Opera') == -1) {
+        document.implementation.createDocument &&
+        navigator.userAgent.indexOf('Opera') == -1) {
         var parser = new DOMParser();
-        var xml = parser.parseFromString(self.responseText, "text/xml");
+        xml = parser.parseFromString(self.responseText, "text/xml");
         self.responseXML = xml;
       } else if (window.ActiveXObject) {
-        var xml = new ActiveXObject('MSXML2.DOMDocument.3.0');
-        if (xml.loadXML(self.responseText))
-        	self.responseXML = xml;
+        xml = new ActiveXObject('MSXML2.DOMDocument.3.0');
+        if (xml.loadXML(self.responseText)) {
+          self.responseXML = xml;
+        }
       } else {
-        var xml = document.body.appendChild(document.createElement('div'));
+        xml = document.body.appendChild(document.createElement('div'));
         xml.style.display = 'none';
         xml.innerHTML = self.responseText;
         _cleanWhitespace(xml, true);
@@ -227,30 +247,40 @@ WDN.proxy_xmlhttp = function() {
   };
   
   var _cleanWhitespace = function(element, deep) {
-    var i = element.childNodes.length; if(i == 0) return;
+    var i = element.childNodes.length;
+    if(i === 0) {
+      return;
+    }
     do {
       var node = element.childNodes[--i];
-      if (node.nodeType == 3 && !_cleanEmptySymbols(node.nodeValue))
+      if (node.nodeType == 3 && !_cleanEmptySymbols(node.nodeValue)) {
         element.removeChild(node);
-      if (node.nodeType == 1 && deep)
+      }
+      if (node.nodeType == 1 && deep) {
         _cleanWhitespace(node, true);
-    } while(i > 0)
+      }
+    } while(i > 0);
   };
 
   var _cleanEmptySymbols = function(string) {
     string = string.replace('\r', '');
     string = string.replace('\n', '');
     string = string.replace(' ', '');
-  	return (string.length == 0) ? false : true; 
+  	return (string.length === 0) ? false : true; 
   };
  
   this._parse = function(object) {
     // Parse the received data and set all
     // the appropriate properties of the class
-    if(_stop) return true;
-    if(object.multipart) return true;
-    if(!object.success)
+    if(_stop) {
+      return true;
+    }
+    if(object.multipart) {
+      return true;
+    }
+    if(!object.success) {
       return _throwError(object.description);
+    }
     _responseHeaders = object.responseHeaders;
     this.status = object.status;
     this.statusText = object.statusText;

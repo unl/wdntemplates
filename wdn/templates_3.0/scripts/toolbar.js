@@ -49,12 +49,15 @@ WDN.toolbar = function() {
         //	WDN.toolbar.registerTool('tourmaps', 'Tour/Maps', 1042, 800);
         },
         setMaskHeight : function(toolName, height) {
-        	if(toolName=='feeds')  // this shortens the feed heights so we can get the message about feeds at the bottom
+        	if (toolName=='feeds') {
+        		// this shortens the feed heights so we can get the message about feeds at the bottom
         		maskheight = (height-257)+'px';
-        	else if(toolName=='peoplefinder')  // this shortens the feed heights so we can get the message about feeds at the bottom
+        	} else if(toolName=='peoplefinder') {
+        		// this shortens the feed heights so we can get the message about feeds at the bottom
         		maskheight = (height-172)+'px';
-        	else
+        	} else {
         		maskheight = (height-121)+'px';
+        	}
         	WDN.jQuery('#toolbar_'+toolName+' div.toolbarMask').height(maskheight);
         	WDN.jQuery('#toolbar_'+toolName+' div.toolbarMask').css({overflow:"auto", padding:"0 3px 0 0"});
         },
