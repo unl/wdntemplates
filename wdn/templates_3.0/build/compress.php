@@ -1,6 +1,7 @@
 <?php
 // Set up the list of all the javascript files
 $files = array(
+'jquery',
 'wdn',
 'xmlhttp',
 'navigation',
@@ -25,31 +26,31 @@ $files = array(
 
 $all = '';
 $loaded = '';
-$pre_compressed = '';
 
-foreach (array('jquery') as $already_compressed) {
-    $pre_compressed .= file_get_contents(dirname(__FILE__)."/../scripts/$already_compressed.js").PHP_EOL;
-}
-
-require_once dirname(__FILE__).'/JavaScriptPacker.php';
 foreach ($files as $file) {
     $filename = dirname(__FILE__)."/../scripts/$file.js";
     $all .= file_get_contents($filename).PHP_EOL;
     if ($file == 'wdn') {
         $all .= 'WDN.jQuery = jQuery.noConflict(true);WDN.loadedJS["wdn/templates_3.0/scripts/jquery.js"]=true;WDN.template_path = "/";'.PHP_EOL;
     }
-    $all .= 'WDN.loadedJS["wdn/templates_3.0/scripts/'.$file.'.js"]=true;'.PHP_EOL;
+    if ($file !== 'jquery'){
+        $all .= 'WDN.loadedJS["wdn/templates_3.0/scripts/'.$file.'.js"]=true;'.PHP_EOL;
+    }
 }
-$packer = new JavaScriptPacker($all, 'Normal', true, false);
-$all = $packer->pack();
 
-$compressed = $pre_compressed.PHP_EOL.$all.PHP_EOL.'WDN.initializeTemplate();';
+$all = $all.PHP_EOL.'WDN.initializeTemplate();';
+
+file_put_contents(dirname(__FILE__).'/../scripts/all_uncompressed.js', $all);
+
+exec('java -jar '.dirname(__FILE__).'/yuicompressor-2.4.2.jar -o '.dirname(__FILE__).'/../scripts/all.js '.dirname(__FILE__).'/../scripts/all_uncompressed.js');
+
+
 
 $compressed = '/**
  * This file is part of the UNL WDN templates.
  * @see http://wdn.unl.edu/
  * $Id$
- */'.PHP_EOL.$compressed;
+ */'.PHP_EOL.file_get_contents(dirname(__FILE__).'/../scripts/all.js');
 
 file_put_contents(dirname(__FILE__).'/../scripts/all.js', $compressed);
 
