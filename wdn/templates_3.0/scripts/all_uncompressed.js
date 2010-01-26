@@ -7148,7 +7148,7 @@ WDN.toolbar = function() {
         	WDN.jQuery("#toolbarcontent").append('<div id="toolbar_'+plugin_name+'" class="toolbar_plugin">'+content+'</div>');
         },
         getContent : function(type, height) {
-        	eval('WDN.toolbar_'+type+'.display();');
+        	WDN['toolbar_'+type].display();
         	WDN.toolbar.setMaskHeight(type, height); //Now that content is loaded, add the scroll bars
         },
         /**
@@ -7162,11 +7162,11 @@ WDN.toolbar = function() {
         	WDN.initializePlugin('toolbar_'+selected,
         			function(){
         				if (!WDN.toolbar.tools[selected]) {
-	        				eval('var content = WDN.toolbar_'+selected+'.setupToolContent();'); 
+	        				var content = WDN['toolbar_'+selected].setupToolContent(); 
 	        				WDN.toolbar.setToolContent(selected, content);
 	        				WDN.toolbar.tools[selected] = true;
         				}
-		        		eval('WDN.toolbar_'+selected+'.initialize();');
+		        		WDN['toolbar_'+selected].initialize();
 		        		WDN.jQuery('#toolbar_'+selected).show();
 		        		WDN.toolbar.getContent(selected, height);
 	    			});
@@ -7182,200 +7182,6 @@ WDN.toolbar = function() {
     };
 }();
 WDN.loadedJS["wdn/templates_3.0/scripts/toolbar.js"]=true;
-WDN.toolbar_weather = function() {
-    var weatherreq = new WDN.proxy_xmlhttp();
-    var forecastreq = new WDN.proxy_xmlhttp();
-    return {
-        initialize : function() {
-            
-        },
-        setupToolContent : function() {
-            return '<div class="col left"><h3>Local Weather</h3><div id="currentcond" class="toolbarMask"></div></div><div class="col middle"><h3>Lincoln Forecast</h3><div id="weatherforecast" class="toolbarMask"></div></div><div class="two_col right"><h3>Local Radar</h3><div id="showradar"><a href="http://radar.weather.gov/radar_lite.php?rid=oax&product=N0R&overlay=11101111&loop=yes"><img src="'+WDN.template_path+'wdn/templates_3.0/css/images/transpixel.gif" /></a></div></div>';
-        },
-        display : function() {
-            var weatherurl = "http://www.unl.edu/wdn/templates_3.0/scripts/weatherCurrent.html";
-            var forecasturl = "http://www.unl.edu/wdn/templates_3.0/scripts/weatherForecast.html";
-
-            WDN.jQuery('#showradar img').css({background:'url(http://radar.weather.gov/lite/N0R/OAX_loop.gif)  -5px -140px no-repeat'});
-
-            weatherreq.open("GET", weatherurl, true);
-            weatherreq.onreadystatechange = WDN.toolbar_weather.updateWeatherResults;
-            weatherreq.send(null);
-
-            forecastreq.open("GET", forecasturl, true);
-            forecastreq.onreadystatechange = WDN.toolbar_weather.updateForecast;
-            forecastreq.send(null);
-        },
-        updateWeatherResults : function() {
-            if (weatherreq.readyState == 4) {
-                if (weatherreq.status == 200) {
-                    document.getElementById("currentcond").innerHTML = weatherreq.responseText;
-                } else {
-                    document.getElementById("currentcond").innerHTML = 'Error loading results.';
-                }
-            }
-            weatherreq = new WDN.proxy_xmlhttp();
-        },
-        updateForecast : function() {
-            if (forecastreq.readyState == 4) {
-                if (forecastreq.status == 200) {
-                    document.getElementById("weatherforecast").innerHTML = forecastreq.responseText;
-                } else {
-                    document.getElementById("weatherforecast").innerHTML = 'Error loading results.';
-                }
-            }
-            forecastreq = new WDN.proxy_xmlhttp();
-        }
-    };
-}();
-
-WDN.loadedJS["wdn/templates_3.0/scripts/toolbar_weather.js"]=true;
-WDN.toolbar_events = function() {
-	var havelocalevents = false;
-	return {
-		initialize : function() {
-
-		},
-		setupToolContent : function() {
-			var pagelinks = document.getElementsByTagName('link');
-			var relatt;
-			for (i=0;i<pagelinks.length;i++) {
-				relatt = pagelinks[i].getAttribute('rel');
-				if (relatt=='events') {
-					havelocalevents = true;
-					localeventshref = pagelinks[i].getAttribute('href');
-					localeventstitle = pagelinks[i].getAttribute('title');
-					return '<div class="col left"><h3><span>UNL Events <em><a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></em></span><a href="http://events.unl.edu/upcoming/?format=rss"><span class="rssicon"></span></a>&nbsp;</h3><div id="allunlevents" class="toolbarMask"></div></div><div class="col right"><h3><span>Upcoming '+localeventstitle+' Events <em><a href="'+localeventshref+'/upcoming/">(See all events)</a></em></span><a href="'+localeventshref+'/upcoming/?format=rss"><span class="rssicon"></span></a>&nbsp;</h3><div id="localsiteevents" class="toolbarMask"></div></div>';
-				}
-			}
-			return '<div class="col left"><h3><span>UNL Events <em><a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></em></span><a href="http://events.unl.edu/upcoming/?format=rss"><span class="rssicon"></span></a>&nbsp;</h3><div id="allunlevents" class="toolbarMask"></div></div><div class="col right"><h3><span>Upcoming UNL Events <em><a href="http://events.unl.edu/upcoming/">(See all events)</a></em></span><a href="http://events.unl.edu/upcoming/?format=rss"><span class="rssicon"></span></a>&nbsp;</h3><div id="localsiteevents" class="toolbarMask"></div></div>';
-		},
-		display : function() {
-			if (havelocalevents) {
-				WDN.jQuery('#toolbar_events .col.left').css({width:"460px", padding:"0 10px 0 0"});
-			}
-			WDN.toolbar_events.getCalendarResults();
-		},
-		getCalendarResults : function() {
-			var calurl = "http://events.unl.edu/?format=hcalendar";
-			WDN.get(calurl, null, WDN.toolbar_events.updateCalendarResults);
-			if (havelocalevents) {
-				calurl = localeventshref+'/upcoming/?format=hcalendar';
-				WDN.get(calurl, null, WDN.toolbar_events.updateLocalCalendarResults);
-			}
-			
-		},
-		updateCalendarResults : function(data, textStatus) {
-			if (textStatus == 'success') {
-				document.getElementById("allunlevents").innerHTML = data;
-			} else {
-				document.getElementById("allunlevents").innerHTML = 'Error loading results.';
-			}
-		},
-		updateLocalCalendarResults : function(data, textStatus) {
-			if (textStatus == 'success') {
-				document.getElementById("localsiteevents").innerHTML = data;
-			} else {
-				document.getElementById("localsiteevents").innerHTML = 'Error loading results.';
-			}
-		}
-	};
-}();
-
-WDN.loadedJS["wdn/templates_3.0/scripts/toolbar_events.js"]=true;
-WDN.toolbar_peoplefinder = function() {
-    var wait = false;
-    var defaultIntro = '<div style="width:350px;padding-top:30px;"><p style="margin-bottom:10px;"><strong style="font-size:1.2em;">People Lookup:</strong><br /><span style="padding-left:40px;display:block;">Enter in as much of the name as you know, first and/or last name in any order.</span></p><p style="margin-bottom:10px;"><strong style="font-size:1.2em;">Reverse Telephone Number Lookup:</strong><br /><span style="padding-left:40px;display:block;">Enter last three or more digits.</span></p><p><strong style="font-size:1.2em;">Department Lookup:</strong><br /><span style="padding-left:40px;display:block;">Begin typing the department name.</span></p></div><div id="pf_copyright" style="margin-top:50px;"><a title="More information about Peoplefinder" onclick="document.getElementById(\'pf_disclaimer\').style.display=\'block\'; return false;" class="imagelink" href="#"><img width="15" height="14" alt="Question Mark" src="http://peoplefinder.unl.edu/images/icon_question.gif"/></a> UNL | Office of University Communications | <a onclick="window.open(this.href); return false;" href="http://www1.unl.edu/wdn/wiki/About_Peoplefinder">About Peoplefinder</a> <div style="display: none;" id="pf_disclaimer"><p><strong>Information obtained from this directory may not be used to provide addresses for mailings to students, faculty or staff. Any solicitation of business, information, contributions or other response from individuals listed in this publication by mail, telephone or other means is forbidden.</strong></p></div></div>';
-    var pfresultsdiv = 'pfresults';
-    var pfrecorddiv = 'pfShowRecord';
-    var pfserviceurl = 'http://peoplefinder.unl.edu/service.php?q=';
-    var pfreq_q;
-    return {
-        initialize : function() {
-        
-        },
-        setupToolContent : function() {
-            return '<h3>Peoplefinder: UNL\'s Online Directory <a href="http://peoplefinder.unl.edu/" class="external">(open in separate window)</a></h3><div class="col left"><form onsubmit="WDN.toolbar_peoplefinder.queuePFRequest(document.getElementById(\'pq\').value,\'pfresults\'); return false;" method="get" action="http://peoplefinder.unl.edu/"><div><input type="text" onkeyup="WDN.toolbar_peoplefinder.queuePFRequest(this.value,\'pfresults\');" name="pq" id="pq" /></div></form><div id="pfresults" class="toolbarMask">'+defaultIntro+'</div></div><div class="col right"><div id="pfShowRecord"></div></div>';
-        },
-        display : function() {
-            setTimeout(function(){WDN.jQuery('#pq').focus();},500);
-            return true;
-        },
-        pf_getUID : function(uid) {
-            var url = "http://peoplefinder.unl.edu/hcards/"+uid;
-            WDN.get(url, null, WDN.toolbar_peoplefinder.updatePeopleFinderRecord);
-            wait=true;
-            return false;
-        },
-        queuePFChooser : function(q,resultsdiv) {
-            pfresultsdiv = resultsdiv;
-            pfserviceurl = 'http://peoplefinder.unl.edu/service.php?chooser=true&q=';
-            WDN.toolbar_peoplefinder.queuePFRequest(q,resultsdiv);
-        },
-        queuePFRequest : function(q,resultsdiv) {
-            pfresultsdiv = resultsdiv;
-            clearTimeout(pfreq_q);
-            if (q.length > 3) {
-                document.getElementById(resultsdiv).innerHTML = '<img alt="progress" id="pfprogress" src="'+WDN.template_path+'wdn/templates_3.0/css/images/loadingContent.gif" />';
-                pfreq_q = setTimeout('WDN.toolbar_peoplefinder.getPeopleFinderResults("'+escape(q)+'")',400);
-            } else if (q.length>0) {
-                document.getElementById(resultsdiv).innerHTML = 'Please enter more information.';
-            } else {
-                document.getElementById(resultsdiv).innerHTML = defaultIntro;
-                WDN.jQuery('#pfShowRecord').empty();
-            }
-        },
-        getPeopleFinderResults : function(q) {
-            var url = pfserviceurl + q;
-            WDN.get(url, null, WDN.toolbar_peoplefinder.updatePeopleFinderResults);
-        },
-        pfCatchUID : function(uid) {
-            alert('I\'ve caught '+uid+'. You should create your own pfCatchUID function.');
-            return false;
-        },
-        updatePeopleFinderResults : function(data, textStatus) {
-            if (textStatus == 'success') {
-                document.getElementById(pfresultsdiv).innerHTML = data;
-            } else {
-                document.getElementById(pfresultsdiv).innerHTML = 'Error loading results.';
-            }
-            wait = false;
-        },
-        updatePeopleFinderRecord : function(data, textStatus) {
-            if (textStatus == 'success') {
-                document.getElementById(pfrecorddiv).innerHTML = data;
-            } else {
-                document.getElementById(pfrecorddiv).innerHTML = 'Error loading results.';
-            }
-            wait = false;
-        }
-
-    };
-}();
-
-var pf_getUID = WDN.toolbar_peoplefinder.pf_getUID;
-var queuePFChooser = WDN.toolbar_peoplefinder.queuePFChooser;
-var queuePFRequest = WDN.toolbar_peoplefinder.queuePFRequest;
-WDN.loadedJS["wdn/templates_3.0/scripts/toolbar_peoplefinder.js"]=true;
-WDN.toolbar_webcams = function() {
-	var unlwebcam = 'http://www.unl.edu/unlpub/cam/cam1.jpg';
-	var rotundawebcam = 'http://www.unl.edu/unlpub/cam/cam2.jpg';
-	var NEUwebcam = 'http://www.unl.edu/unlpub/cam/cam3.jpg';
-	return {
-		initialize : function() {
-
-		},
-		setupToolContent : function() {
-			return '<div class="col left"><h3>Nebraska Union Plaza <a href="http://www.unl.edu/unlpub/cam/cam1.shtml" class="external">(live view)</a></h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam1.jpg" alt="Plaza Cam" id="webcamuri1" /></div><div class="col middle"><h3>Nebraska Union Rotunda <a href="http://www.unl.edu/unlpub/cam/cam2.shtml" class="external">(live view)</a></h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam2.jpg" alt="Rotunda Cam" id="webcamuri2" /></div><div class="col right"><h3>Nebraska East Union <a href="http://www.unl.edu/unlpub/cam/cam3.shtml" class="external">(live view)</a></h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam3.jpg" alt="East Union" id="webcamuri3" /></div>';
-		},
-		display : function() {
-			document.getElementById('webcamuri1').src = unlwebcam;
-			document.getElementById('webcamuri2').src = rotundawebcam;
-			document.getElementById('webcamuri3').src = NEUwebcam;
-		}
-	};
-}();
-WDN.loadedJS["wdn/templates_3.0/scripts/toolbar_webcams.js"]=true;
 WDN.tooltip = function($) {
 	return {
 		initialize : function() {

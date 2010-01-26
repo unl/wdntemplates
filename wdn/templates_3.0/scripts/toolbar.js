@@ -79,7 +79,7 @@ WDN.toolbar = function() {
         	WDN.jQuery("#toolbarcontent").append('<div id="toolbar_'+plugin_name+'" class="toolbar_plugin">'+content+'</div>');
         },
         getContent : function(type, height) {
-        	eval('WDN.toolbar_'+type+'.display();');
+        	WDN['toolbar_'+type].display();
         	WDN.toolbar.setMaskHeight(type, height); //Now that content is loaded, add the scroll bars
         },
         /**
@@ -93,11 +93,11 @@ WDN.toolbar = function() {
         	WDN.initializePlugin('toolbar_'+selected,
         			function(){
         				if (!WDN.toolbar.tools[selected]) {
-	        				eval('var content = WDN.toolbar_'+selected+'.setupToolContent();'); 
+	        				var content = WDN['toolbar_'+selected].setupToolContent(); 
 	        				WDN.toolbar.setToolContent(selected, content);
 	        				WDN.toolbar.tools[selected] = true;
         				}
-		        		eval('WDN.toolbar_'+selected+'.initialize();');
+		        		WDN['toolbar_'+selected].initialize();
 		        		WDN.jQuery('#toolbar_'+selected).show();
 		        		WDN.toolbar.getContent(selected, height);
 	    			});
