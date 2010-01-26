@@ -176,7 +176,7 @@
                 </div>
             </div>
             <div class="col right">
-                <a href="http://www.unl.edu" tooltip="Hello World!">This Link Has A Tooltip Attached</a>
+                <a href="http://www.unl.edu" class="tooltip" title="Hello World!">This Link Has A Tooltip Attached</a>
                 <br />
                 
                     <img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" class="frame" />
@@ -184,11 +184,7 @@
                 <div class="zenbox">
                     <div class="zenbox">
                     <h3>Zenbox in a Zenbox</h3>
-                        <h4>UNL Events
-                            <a title="Subscribe to this feed" href="http://feedburner.com/unlxxxxxxx">
-                            <img alt="RSS/Atom Feed" src="icon_rss.png" />
-                            </a>
-                        </h4>
+                        <h4>UNL Events</h4>
                     </div>
                     <div class="zenbox-blue">
                         <h4>Media Hub
