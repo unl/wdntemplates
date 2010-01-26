@@ -42,9 +42,11 @@ $all = $all.PHP_EOL.'WDN.initializeTemplate();';
 
 file_put_contents(dirname(__FILE__).'/../scripts/all_uncompressed.js', $all);
 
-exec('java -jar '.dirname(__FILE__).'/yuicompressor-2.4.2.jar -o '.dirname(__FILE__).'/../scripts/all.js '.dirname(__FILE__).'/../scripts/all_uncompressed.js');
+// YUI Compressor
+//exec('java -jar '.dirname(__FILE__).'/yuicompressor-2.4.2.jar -o '.dirname(__FILE__).'/../scripts/all.js '.dirname(__FILE__).'/../scripts/all_uncompressed.js');
 
-
+// Closure compiler
+exec('java -jar '.dirname(__FILE__).'/compiler.jar --js='.dirname(__FILE__).'/../scripts/all_uncompressed.js --js_output_file='.dirname(__FILE__).'/../scripts/all.js');
 
 $compressed = '/**
  * This file is part of the UNL WDN templates.
