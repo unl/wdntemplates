@@ -14,7 +14,7 @@
 
 }
 #wdn_identity_management img {
-	margin-right:7px;
+	
 	border:1px solid #b8b8b8;
 	vertical-align: bottom;
 }
@@ -25,13 +25,20 @@
 	text-decoration:none;
 	font-size:0.7em;
 	font-weight:normal;
+	margin-right:5px;
 }
+#wdn_identity_management .username {
+	margin-right:5px;
+	}
 
 #wdn_identity_management a:focus,
 #wdn_identity_management a:hover {
 	color:#CC0000 !important;
-    border-bottom:1px dotted #CC0000 !important;
+    border-bottom:1px dotted #CC0000;
 }
+#wdn_identity_management a:first-of-type:hover {
+border-bottom:none;	
+	}
 #wdn_identity_management a.logout {
 	margin-left:5px;
 }
