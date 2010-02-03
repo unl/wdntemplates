@@ -110,3 +110,17 @@ Red: primary
 	margin-left:-5px;
 	padding:5px 0 3px 3px;
 }
+/* show hide of zenbox content */
+#maincontent div.zenbox a.showHide {
+	float:right;
+	margin-top:-33px;
+	text-indent:-99999px;
+	background:url(images/zenboxShowHide.png) no-repeat top right;
+	background-position:0px 0px;
+	display:block;
+	width:20px;
+	height:20px;
+}
+#maincontent div.zenbox a.showHide.show {
+	background-position: 0 -42px;
+}

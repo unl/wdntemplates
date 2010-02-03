@@ -1,32 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html version="-//W3C//DTD XHTML 1.1//EN"
-	xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemalocation="http://www.w3.org/1999/xhtml http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <link rel="stylesheet" type="text/css" media="screen"	href="wdn/templates_3.0/css/debug.css" />
 <link rel="stylesheet" type="text/css" media="print"	href="wdn/templates_3.0/css/print.css" />
 <link rel="stylesheet" type="text/css" media="screen"	href="wdn/templates_3.0/css/content/forms.css" />
 <link rel="stylesheet" type="text/css" media="screen"	href="wdn/templates_3.0/css/content/notice.css" />
+<link rel="stylesheet" type="text/css" media="screen"	href="wdn/templates_3.0/css/content/pagination.css" />
 
 <!--#include virtual="sharedcode/localSiteLinks.html" -->
 <script type="text/javascript" src="wdn/templates_3.0/scripts/debug.js"></script>
-<script type="text/javascript">var $ = WDN.jQuery;</script>
-<script type="text/javascript" src="wdn/templates_3.0/scripts/plugins/infinitecarousel/jquery.infinitecarousel.js"></script>
-<script type="text/javascript" src="wdn/templates_3.0/scripts/carousel.js"></script>
 <!--#include virtual="wdn/templates_3.0/includes/browserspecifics.html" -->
 <!--#include virtual="wdn/templates_3.0/includes/metanfavico.html" -->
 <title>UNL | Template</title>
-<link rel="home" href="../../" />
 <style type="text/css">
 
-</style>
-<script type="text/javascript">
-WDN.jQuery(document).ready(function() {
-	WDN.carousel.initialize();
-});
-</script>  
+</style>  
 </head>
 <body class="fixed">
 <p class="skipnav"><a class="skipnav" href="#maincontent">Skip
@@ -36,17 +24,7 @@ Navigation</a></p>
         <a href="http://www.unl.edu/" title="UNL website"><img src="wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
         <!--#include virtual="wdn/templates_3.0/includes/wdnTools.html" -->  
-        <div id="wdn_identity_management">
-	        <div id="explanation">
-	        <!-- InstanceBeginEditable name="identitymanagement" -->
-	        	<p>
-	        	<strong>Megan Jones</strong><br />
-	        	<a href="#" style="font-size: 0.7em;">Your Account</a>
-	        	<!-- <a href="https://login.unl.edu/cas/login">Log in</a> to use this resource. -->
-	        	</p>
-	        	<!-- InstanceEndEditable -->
-	        </div>
-        </div>
+        <div id="wdn_identity_management"></div>
      </div>
     <div id="wdn_navigation_bar">    
         <div id="breadcrumbs">
@@ -55,8 +33,8 @@ Navigation</a></p>
                 <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
                 <li><a href="http://other.unl.edu/">Un-accessible site</a></li>
                 <li><a href="http://admissions.unl.edu/">Admissions</a></li>
-                <li><a href="../../">One line nav</a></li>
-                <li><a href="http://chemistry.unl.edu/index.shtml">Chemistry Nav</a></li>
+                <li><a href="http://admissions.unl.edu/visit.aspx">Visit</a></li>
+                <li>This page</li>
                 <li>Current Page</li>
             </ul>
         </div>        
@@ -69,7 +47,7 @@ Navigation</a></p>
     </div>    
     <div id="wdn_content_wrapper">    
         <div id="titlegraphic">
-            <h1>Tabs Example</h1>
+            <h1>Pagination</h1>
         </div>        
         <div id="maincontent">
         <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
@@ -91,75 +69,70 @@ Navigation</a></p>
         </script>
         <a href="#" onclick="startChecking(); return false;">Load the alert script</a>
 		    -->
-
-		    <ul class="wdn_tabs" style="width:920px;">
-			   <li><a href="#tab1">Tab #1: Slide Show</a></li>
-			   <li><a href="#tab2">Tab #2: Video</a></li>
-			   <li><a href="#tab3">Tab #3: We can make it nice and long.</a></li>
-			   <li><a href="#tab4">Tab #4: Multiple Column layout</a></li>
-			
-			</ul>
-			<div class="wdn_tabs_content">
-			   <div id="tab1">
-			   <h4 class="sec_header">Tab 1: Slide Show</h4>
-
-			   
-			   <div class="one_col left">
-                <p>This one is called <a href="http://www.catchmyfame.com/2009/08/27/jquery-infinite-carousel-plugin-1-2-released/">Infinite Carousel</a>
-                
-                </div>
-                
-             
-           <div class="three_col right">
-            <div class="zenbox">
-            <div id="carousel">
-
-			<ul>
-                <li><img alt="" src="http://ucommcoleman.unl.edu/images/ss01.jpg" width="688" height="460" /><h4>Heading</h4><p>Evening sun makes the N flag glow as the cheer squad celebrates a Husker touchdown. University of Nebraska vs. Texas Tech. Photo by Craig Chandler / University Communications</p>
-                </li>
-                <li><img alt="" src="http://ucommcoleman.unl.edu/images/ss02.jpg" width="688" height="460" /><p>Herbie Husker fires up the crowd as the Husker defense stops the Red Raiders. Photo by Craig Chandler / University Communications</p>
-                </li>
-                <li><img alt="" src="http://ucommcoleman.unl.edu/images/ss03.jpg" width="688" height="460" /><p>Balloons fill the air above Memorial Stadium following Alex Henery's second quarter field goal. Photo by Craig Chandler / University Communications</p></li>
-            </ul>
-
-			</div>
-               </div>
-			</div>
-			</div>
-			   <div id="tab2">
-			   <h4 class="sec_header">Tab 2: Video</h4>
-			   <object height="578" width="940"><param name="allowfullscreen" value="true"></param><param name="allowscriptaccess" value="always"></param><param name="wmode" value="transparent"></param><embed src="http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/player.swf?file=http://nebraska.unl.edu/real_nebraska/video/podcast/RNComm286.mp4&amp;image=http://itunes.unl.edu/thumbnails.php?url=http%3A%2F%2Fnebraska.unl.edu%2Freal_nebraska%2Fvideo%2Fpodcast%2FRNComm286.mp4&amp;volume=100&amp;autostart=false&amp;skin=http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/UNLVideoSkin.swf" type="application/x-shockwave-flash" allowscriptaccess="always" wmode="transparent" allowfullscreen="true" height="578" width="940"></embed></object></div>
-			   <div id="tab3">
-			   <h4 class="sec_header">Tab 3</h4>
-			   <img src="/workspace/redBullFlight.jpg" style="" alt="Red Bull Flight" />
-			 </div>
-			   <div id="tab4">
-			   <h4 class="sec_header">Tab 4</h4>
-			   <div class="two_col left">
-			   <h3>Being Here</h3>
-<ul style="list-style:disc;">
-<li><a href="http://www.unl.edu/ucomm/aboutunl/" title="go to About UNL for information on UNL's history and mission">ABOUT UNL</a></li>
-<li><a href="http://visit.unl.edu/" title="go to UNL resources for visitors">UNL
-    VISITORS PAGE</a></li>
-<li><a class="external" href="http://www.lincoln.org/" title="go to the Lincoln Convention and Visitors Bureau website to learn about living in Lincoln">VISITORS
-    GUIDE TO LINCOLN</a></li>
-</ul>
-<img src="http://ucommcoleman.unl.edu/ucomm/chancllr/search/2009/vcianr/images/about.jpg" title="UNL Campus" class="frame" alt="UNL Campus" />
-<p class="caption">Ahh, campus in the fall in Nebraska.</p>
+<!-- <p><a href="http://localhost/workspace/UNL_GoURL/?url=referer">Send referer to Go URL.</a></p>
+<p><a href="#" onclick="WDN.idm.displayNotice('smeranda2');">Seth is logged in.</a></p>-->
+<h2 class="sec_header">Zenbox show/hide</h2>
+<div class="one_col left">
+	<div class="zenbox cool">
+		<h3>Solution</h3>
+		<a href="#" class="showHide">show/hide this</a> 
+		<p>Break the complete dataset of items into smaller sequential parts and show these on separate sequential pages. Provide pagination control to browse from page to page. Let the user browse to the <i>previous</i> and <i>next</i> pages by providing links to such actions. Also, provide links to the absolute start and end of the dataset (first and last).</p> 
+		<p>If the dataset is of defined quantity, also show a link to the last page. If the dataset to show possibly is of varying size (for instance as a result from a search), do not bother to show a link to the last page.</p> 
+		<h4 class="sec_header">Rationale</h4> 
+		<p>First and foremost, pagination parts large datasets into smaller bits that are manageable for the user to read and cope with. Secondly, pagination controls conveys information to the user about, how big the dataset is, and how much is left to read or check out and how much have they already checked out.</p> 
+		<p>Pagination provides the user with a natural break from reading or scanning the contents of the dataset, and allows them to reevaluate whether they wish to continue looking through more data, or navigate away from the page. This is also why pagination controls are most often placed below the list: to provide the user with an option to continue reading through the larger dataset.</p>
+	</div>
+	<div class="zenbox energetic">
+		<h3>Solution</h3>
+		<a href="#" class="showHide">show/hide this</a> 
+		<p>Break the complete dataset of items into smaller sequential parts and show these on separate sequential pages. Provide pagination control to browse from page to page. Let the user browse to the <i>previous</i> and <i>next</i> pages by providing links to such actions. Also, provide links to the absolute start and end of the dataset (first and last).</p> 
+		<p>If the dataset is of defined quantity, also show a link to the last page. If the dataset to show possibly is of varying size (for instance as a result from a search), do not bother to show a link to the last page.</p> 
+		<h4 class="sec_header">Rationale</h4> 
+		<p>First and foremost, pagination parts large datasets into smaller bits that are manageable for the user to read and cope with. Secondly, pagination controls conveys information to the user about, how big the dataset is, and how much is left to read or check out and how much have they already checked out.</p> 
+		<p>Pagination provides the user with a natural break from reading or scanning the contents of the dataset, and allows them to reevaluate whether they wish to continue looking through more data, or navigate away from the page. This is also why pagination controls are most often placed below the list: to provide the user with an option to continue reading through the larger dataset.</p>
+	</div>
+</div>
+<div class="one_col left">
+	<div class="zenbox bright">
+		<h3>Solution</h3>
+		<a href="#" class="showHide">show/hide this</a> 
+		<p>Break the complete dataset of items into smaller sequential parts and show these on separate sequential pages. Provide pagination control to browse from page to page. Let the user browse to the <i>previous</i> and <i>next</i> pages by providing links to such actions. Also, provide links to the absolute start and end of the dataset (first and last).</p> 
+		<p>If the dataset is of defined quantity, also show a link to the last page. If the dataset to show possibly is of varying size (for instance as a result from a search), do not bother to show a link to the last page.</p> 
+		<h4 class="sec_header">Rationale</h4> 
+		<p>First and foremost, pagination parts large datasets into smaller bits that are manageable for the user to read and cope with. Secondly, pagination controls conveys information to the user about, how big the dataset is, and how much is left to read or check out and how much have they already checked out.</p> 
+		<p>Pagination provides the user with a natural break from reading or scanning the contents of the dataset, and allows them to reevaluate whether they wish to continue looking through more data, or navigate away from the page. This is also why pagination controls are most often placed below the list: to provide the user with an option to continue reading through the larger dataset.</p>
+	</div>
+	<div class="zenbox soothing">
+		<h3>Solution</h3>
+		<a href="#" class="showHide">show/hide this</a> 
+		<p>Break the complete dataset of items into smaller sequential parts and show these on separate sequential pages. Provide pagination control to browse from page to page. Let the user browse to the <i>previous</i> and <i>next</i> pages by providing links to such actions. Also, provide links to the absolute start and end of the dataset (first and last).</p> 
+		<p>If the dataset is of defined quantity, also show a link to the last page. If the dataset to show possibly is of varying size (for instance as a result from a search), do not bother to show a link to the last page.</p> 
+		<h4 class="sec_header">Rationale</h4> 
+		<p>First and foremost, pagination parts large datasets into smaller bits that are manageable for the user to read and cope with. Secondly, pagination controls conveys information to the user about, how big the dataset is, and how much is left to read or check out and how much have they already checked out.</p> 
+		<p>Pagination provides the user with a natural break from reading or scanning the contents of the dataset, and allows them to reevaluate whether they wish to continue looking through more data, or navigate away from the page. This is also why pagination controls are most often placed below the list: to provide the user with an option to continue reading through the larger dataset.</p>
+	</div>
 </div>
 <div class="two_col right">
-<h4 class="sec_main">About UNL</h4>
-
-          <p>The University of Nebraska&ndash;Lincoln, chartered in 1869, is an educational institution of international stature. A member of the Association of American Universities since 1909, Nebraska is recognized by the Carnegie Foundation as a Doctoral/Research Extensive university. UNL is a land-grant university and a member of the National Association of State Universities and Land-Grant Colleges (NASULGC). The university is accredited by the Higher Learning Commission of the North Central Association of Colleges and Schools. UNL will celebrate the 140th anniversary of its founding on Feb. 15, 2009.</p>
-          <h5>A STRONG FOUNDATION</h5>
-          <p>UNL&rsquo;s endowment has reached over $1 billion, making it the seventeenth largest public university endowment in the nation and close to the top 50 of all institutions of higher education.  The financial strength of the endowment has enabled the University to not only maintain but also to enhance its competitive position and develop its research and teaching missions in new and exciting ways.  Technology will be a key enabler in creating a culture of instructional and research excellence at UNL.</p>
-</div>
-
+		<div class="zenbox primary">
+		<h3>Solution</h3>
+		<a href="#" class="showHide">show/hide this</a> 
+		<p>Break the complete dataset of items into smaller sequential parts and show these on separate sequential pages. Provide pagination control to browse from page to page. Let the user browse to the <i>previous</i> and <i>next</i> pages by providing links to such actions. Also, provide links to the absolute start and end of the dataset (first and last).</p> 
+		<p>If the dataset is of defined quantity, also show a link to the last page. If the dataset to show possibly is of varying size (for instance as a result from a search), do not bother to show a link to the last page.</p> 
+		<h4 class="sec_header">Rationale</h4> 
+		<p>First and foremost, pagination parts large datasets into smaller bits that are manageable for the user to read and cope with. Secondly, pagination controls conveys information to the user about, how big the dataset is, and how much is left to read or check out and how much have they already checked out.</p> 
+		<p>Pagination provides the user with a natural break from reading or scanning the contents of the dataset, and allows them to reevaluate whether they wish to continue looking through more data, or navigate away from the page. This is also why pagination controls are most often placed below the list: to provide the user with an option to continue reading through the larger dataset.</p>
 	</div>
-			</div>
-
-		
-            <!--#include virtual="wdn/templates_3.0/includes/noscript.html" -->
+	<div class="zenbox neutral">
+		<h3>Solution</h3>
+		<a href="#" class="showHide">show/hide this</a> 
+		<p>Break the complete dataset of items into smaller sequential parts and show these on separate sequential pages. Provide pagination control to browse from page to page. Let the user browse to the <i>previous</i> and <i>next</i> pages by providing links to such actions. Also, provide links to the absolute start and end of the dataset (first and last).</p> 
+		<p>If the dataset is of defined quantity, also show a link to the last page. If the dataset to show possibly is of varying size (for instance as a result from a search), do not bother to show a link to the last page.</p> 
+		<h4 class="sec_header">Rationale</h4> 
+		<p>First and foremost, pagination parts large datasets into smaller bits that are manageable for the user to read and cope with. Secondly, pagination controls conveys information to the user about, how big the dataset is, and how much is left to read or check out and how much have they already checked out.</p> 
+		<p>Pagination provides the user with a natural break from reading or scanning the contents of the dataset, and allows them to reevaluate whether they wish to continue looking through more data, or navigate away from the page. This is also why pagination controls are most often placed below the list: to provide the user with an option to continue reading through the larger dataset.</p>
+	</div>
+</div>
+           <!--#include virtual="wdn/templates_3.0/includes/noscript.html" -->
         </div> <!-- end of maincontent -->        
         <div id="footer">
             <div id="footer_floater"></div>
@@ -185,5 +158,19 @@ Navigation</a></p>
     </div>
     <div style="clear:both;"> </div>
 </div>
+
+
+<script type="text/javascript">
+WDN.jQuery(document).ready(function() { //add a div around all the content in the zenbox to make the hide transistion smoother.
+	WDN.jQuery('.zenbox a.showHide').each(function() {
+		WDN.jQuery(this).nextAll().wrapAll('<div class="toggledContent">');
+	});
+	WDN.jQuery('.zenbox a.showHide').click(function() {
+		WDN.jQuery(this).siblings('.toggledContent').slideToggle();
+		WDN.jQuery(this).toggleClass('show');
+		return false;
+	});
+});
+</script>
 </body>
 </html>
