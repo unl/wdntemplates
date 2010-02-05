@@ -4,6 +4,7 @@
 #wdn_feedback_comments textarea {
     border:1px solid #DEDEDE;
     background-color:#FDFDFD;
+    width:100%;
 }
 #wdn_feedback_comments input {
 	display:none;
