@@ -24,6 +24,7 @@
 {
     color: #3a3a3a;
     background:#f5e62f url('../images/bottom_shadow_light.png') repeat-x bottom;
+    text-align:left;
 }
 
 .zentable tbody tr:first-child td
