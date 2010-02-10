@@ -46,7 +46,7 @@ function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
 		} catch(e) {}
 	}
 	
-	if (thisNum_int === null) {
+	if (thisNum_int == undefined) {
 		thisNum_int=Math.floor(Math.random()*eval(imgArray_str+".length"));
 	}
 	if (thisNum_int >= eval(imgArray_str+".length")) {
