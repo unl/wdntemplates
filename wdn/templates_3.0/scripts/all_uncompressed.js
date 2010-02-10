@@ -6755,6 +6755,7 @@ WDN.navigation = function() {
             WDN.jQuery('#navigation-expand-collapse').click(WDN.navigation.setPreferredState);
             WDN.jQuery('#navigation-close').click(WDN.navigation.collapse);
             WDN.navigation.determineSelectedBreadcrumb();
+            WDN.navigation.linkSiteTitle();
             WDN.jQuery('#breadcrumbs ul li a').hover(WDN.navigation.startChangeNavigationDelay);
 
             // Store the current state of the cookie
@@ -6816,6 +6817,21 @@ WDN.navigation = function() {
             
             
         },
+        
+        /**
+         * This function will check for/add a link to the homepage in the site title.
+         */
+        
+        linkSiteTitle: function() {
+        	// check if the link already exists
+        	if (WDN.jQuery("#titlegraphic h1 a").length > 0) {
+        		return;
+        	}
+        	// create the link using whatever the Homepage is set to
+        	WDN.jQuery("#titlegraphic h1").wrapInner('<a href="' + WDN.navigation.siteHomepage +'" />');
+        },
+        
+        
         
         /**
          * Expand the navigation section.
