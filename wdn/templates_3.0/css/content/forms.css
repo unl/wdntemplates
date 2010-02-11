@@ -249,9 +249,8 @@ p.attention {
 	display:inline-block;
 	height:45px;
 	padding-left:5px;
-	float:left;
 }
-#maincontent form.energetic p.submit {background-position:0% -92px;}
+#maincontent form.energetic p.submit {background-position:0% -92px;margin-left: 42px;margin-top:20px;}
 /*#maincontent form.cool p.submit:after {content: ".";display: block;clear: both;height:0;visibility: hidden;}*/
 #maincontent form.cool p.submit input, p.submit a, #maincontent form.energetic p.submit input {
     background:url(images/forms/submitR.png) no-repeat 100% -138px;
