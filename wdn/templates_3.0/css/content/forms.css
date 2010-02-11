@@ -242,22 +242,23 @@ p.attention {
 /* End Form hints*/
 
 /*Submit Button*/
-#maincontent form.cool p.submit {
+#maincontent form.cool p.submit, #maincontent form.energetic p.submit {
 	margin-top: 0px;
 	margin-left: 160px;
-	background:url(images/forms/submitL.png) top left no-repeat;
+	background:url(images/forms/submitL.png) 0% -138px no-repeat;
 	display:inline-block;
 	height:45px;
 	padding-left:5px;
 	float:left;
 }
+#maincontent form.energetic p.submit {background-position:0% -92px;}
 /*#maincontent form.cool p.submit:after {content: ".";display: block;clear: both;height:0;visibility: hidden;}*/
-#maincontent form.cool p.submit input, p.submit a {
-    background:url(images/forms/submitR.png) no-repeat top right;
+#maincontent form.cool p.submit input, p.submit a, #maincontent form.energetic p.submit input {
+    background:url(images/forms/submitR.png) no-repeat 100% -138px;
     font-size:1.5em;
     color:#FFF;
     display:inline-block;
-    padding:10px 45px 15px 10px;
+    padding:12px 45px 15px 12px;
     margin:0;
     border:0;
     height:45px;
@@ -265,6 +266,7 @@ p.attention {
     width:auto;
     cursor:pointer;
 }
+#maincontent form.energetic p.submit input {background-position:100% -92px;}
 #maincontent form.cool p.submit a {
 	padding:15px 45px 15px 10px;
 }
