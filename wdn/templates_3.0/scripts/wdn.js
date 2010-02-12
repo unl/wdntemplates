@@ -302,7 +302,30 @@ var WDN = function() {
 					var xdr = new XDomainRequest();
 					xdr.open("get", url);
 					xdr.onload = function() {
-						callback(this.responseText, 'success');
+						var responseText = this.responseText, dataType = type || "";
+						if (dataType.toLowerCase() == "xml") {
+							// if returned data type is xml, we need to convert it from a
+							// string to an XML document
+							if (typeof responseText == "string") {
+								var doc;
+								try {
+									if (window.ActiveXObject) {
+										doc = new ActiveXObject('Microsoft.XMLDOM');
+										doc.async = 'false';
+										doc.loadXML(responseText);
+									}
+									else {
+										var parser = new DOMParser();
+										doc = parser.parseFromString(responseText, 'text/xml');
+									}
+								}
+								catch(e) {
+									WDN.log('ERROR parsing XML string for conversion: ' + e);
+								}
+								responseText = doc;
+							}
+						}
+						callback(responseText, 'success', this);
 					};
 					xdr.send();
 				} else {
@@ -315,7 +338,7 @@ var WDN = function() {
 								textstatus = 'success';
 								data = this.responseText;
 							}
-							callback(data, textstatus);
+							callback(data, textstatus, this);
 						};
 						request = new WDN.proxy_xmlhttp();
 						request.open('GET', url, true);
