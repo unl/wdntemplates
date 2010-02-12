@@ -6381,7 +6381,30 @@ var WDN = function() {
 					var xdr = new XDomainRequest();
 					xdr.open("get", url);
 					xdr.onload = function() {
-						callback(this.responseText, 'success');
+						var responseText = this.responseText, dataType = type || "";
+						if (dataType.toLowerCase() == "xml") {
+							// if returned data type is xml, we need to convert it from a
+							// string to an XML document
+							if (typeof responseText == "string") {
+								var doc;
+								try {
+									if (window.ActiveXObject) {
+										doc = new ActiveXObject('Microsoft.XMLDOM');
+										doc.async = 'false';
+										doc.loadXML(responseText);
+									}
+									else {
+										var parser = new DOMParser();
+										doc = parser.parseFromString(responseText, 'text/xml');
+									}
+								}
+								catch(e) {
+									WDN.log('ERROR parsing XML string for conversion: ' + e);
+								}
+								responseText = doc;
+							}
+						}
+						callback(responseText, 'success', this);
 					};
 					xdr.send();
 				} else {
@@ -6394,7 +6417,7 @@ var WDN = function() {
 								textstatus = 'success';
 								data = this.responseText;
 							}
-							callback(data, textstatus);
+							callback(data, textstatus, this);
 						};
 						request = new WDN.proxy_xmlhttp();
 						request.open('GET', url, true);
@@ -10139,7 +10162,11 @@ WDN.idm = function() {
 		 */
 		initialize : function() {
 			if (WDN.idm.isLoggedIn()) {
-				WDN.idm.displayNotice(WDN.idm.getUserID());
+				WDN.loadJS('https://login.unl.edu/demo/pf-whoami/', function() {
+					if (WDN.idm.getUserId()) {
+						WDN.idm.displayNotice(WDN.idm.getUserId());
+					}
+				});
 			}
 		},
 		
@@ -10167,9 +10194,8 @@ WDN.idm = function() {
 		 * 
 		 * @return string
 		 */
-		getUserID : function() {
-			var user = WDN.getCookie('sso');
-			return user;
+		getUserId : function() {
+			return WDN.idm.user.uid;
 		},
 		
 		/**
@@ -10208,41 +10234,7 @@ WDN.idm = function() {
 			// Any time a link is clicked, unset the user data
 			WDN.jQuery('#wdn_identity_management a').click(WDN.idm.logout);
 			
-			WDN.idm.getFriendlyName(uid);
-		},
-		
-		/**
-		 * Retrieves user info and updates the name.
-		 * 
-		 * @param string uid
-		 */
-		getFriendlyName : function(uid) {
-			WDN.idm.setUser(uid, function(){WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn);});
-		},
-		
-		/**
-		 * Sets the user details
-		 * 
-		 * @param string   uid
-		 * @param function callback
-		 * 
-		 * @return void
-		 */
-		setUser : function(uid, callback) {
-			WDN.setCookie('sso', uid, 10800);
-			if ("https:" != document.location.protocol) {
-				// Don't break authentication
-				WDN.get('http://peoplefinder.unl.edu/service.php?format=json&uid='+uid, null, function(data, textStatus){
-					if (textStatus == 'success') {
-						eval('WDN.idm.user='+data);
-						if (callback) {
-							callback();
-						}
-					}
-				});
-			} else {
-				WDN.idm.user={'uid':uid,'cn':uid};
-			}
+			WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn);
 		},
 		
 		/**
