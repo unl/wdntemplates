@@ -9,7 +9,7 @@ Red: primary
 */
 
 /*Set the background of the div*/
-#maincontent div.zenboxsolid, #maincontent div.zenbox2, #maincontent div.zenboxfixed, #maincontent div.zenboxfeature, #maincontent div.zenbox,
+#maincontent div.zenboxsolid, #maincontent div.zenboxfixed, #maincontent div.zenboxfeature, #maincontent div.zenbox,
 #maincontent div.zenboxsolid.bright, #maincontent div.zenboxfixed.bright, #maincontent div.zenboxfeature.bright, #maincontent div.zenbox.bright {
 	border:1px solid #ededed;
     border-radius:5px;
@@ -119,12 +119,12 @@ Red: primary
 	background-position: 0px;
 }
 /*Style the list elements*/
-#maincontent div.zenboxsolid ul, #maincontent div.zenbox2 ul, #maincontent div.zenboxfixed ul, #maincontent div.zenboxfeature ul, #maincontent div.zenbox ul,
+#maincontent div.zenboxsolid ul, #maincontent div.zenboxfixed ul, #maincontent div.zenboxfeature ul, #maincontent div.zenbox ul,
 #maincontent div.zenboxsolid.bright ul, #maincontent div.zenboxfixed.bright ul, #maincontent div.zenboxfeature.bright ul, #maincontent div.zenbox.bright ul {
 	list-style:none;
 	padding: 0 10px 1.1em 10px;
 }
-#maincontent div.zenboxsolid ul li, #maincontent div.zenbox2 ul li, #maincontent div.zenboxfixed ul li, #maincontent div.zenboxfeature ul li, #maincontent div.zenbox ul li,
+#maincontent div.zenboxsolid ul li, #maincontent div.zenboxfixed ul li, #maincontent div.zenboxfeature ul li, #maincontent div.zenbox ul li,
 #maincontent div.zenboxsolid.bright ul li, #maincontent div.zenboxfixed.bright ul li, #maincontent div.zenboxfeature.bright ul li, #maincontent div.zenbox.bright ul li {
 	border-bottom:1px dashed #c9c9c9;
 	margin-left:-5px;
