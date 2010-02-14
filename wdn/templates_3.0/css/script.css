@@ -160,7 +160,7 @@ display:none;
 -moz-border-radius:3px;
 -webkit-border-radius:3px;
 } 
-#maincontent div.zenboxsolid, #maincontent div.zenbox2, #maincontent div.zenboxfixed, #maincontent div.zenboxfeature, #maincontent div.zenbox,
+#maincontent div.zenboxsolid, #maincontent div.zenboxfixed, #maincontent div.zenboxfeature, #maincontent div.zenbox,
 #maincontent div.zenboxsolid.bright, #maincontent div.zenboxfixed.bright, #maincontent div.zenboxfeature.bright, #maincontent div.zenbox.bright {
 -moz-border-radius:5px;
 -webkit-border-radius:5px;
