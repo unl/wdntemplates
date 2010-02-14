@@ -69,7 +69,6 @@ Red: primary
 	background-color:#c20403;
 	
 }
-/* End Test */
 #maincontent div.zenboxsolid h3 a:link, #maincontent div.zenboxfixed h3 a, #maincontent div.zenboxfeature h3 a, #maincontent div.zenbox h3 a,
 #maincontent div.zenboxsolid.bright h3 a, #maincontent div.zenboxfixed.bright h3 a, #maincontent div.zenboxfeature.bright h3 a, #maincontent div.zenbox.bright h3 a {
 	color:#3a3a3a;
@@ -102,21 +101,6 @@ Red: primary
 #maincontent div.zenboxfeature.primary h3 a,
 #maincontent div.zenbox.primary h3 a{
 	color:#ffffff;
-}
-#maincontent div.zenbox div.zenbox.cool h3:after, #maincontent div.zenboxsolid.cool h3:after, #maincontent div.zenboxfixed.cool h3:after, #maincontent div.zenboxfeature.cool h3:after, #maincontent div.zenbox.cool h3:after {
-	background-position: -40px;
-}
-#maincontent div.zenbox div.zenbox.energetic h3:after, #maincontent div.zenboxsolid.energetic h3:after, #maincontent div.zenboxfixed.energetic h3:after, #maincontent div.zenboxfeature.energetic h3:after, #maincontent div.zenbox.energetic h3:after {
-	background-position: -60px;
-}
-#maincontent div.zenbox div.zenbox.soothing h3:after, #maincontent div.zenboxsolid.soothing h3:after, #maincontent div.zenboxfixed.soothing h3:after, #maincontent div.zenboxfeature.soothing h3:after, #maincontent div.zenbox.soothing h3:after {
-	background-position: -80px;
-}
-#maincontent div.zenbox div.zenbox.neutral h3:after, #maincontent div.zenboxsolid.neutral h3:after, #maincontent div.zenboxfixed.neutral h3:after, #maincontent div.zenboxfeature.neutral h3:after, #maincontent div.zenbox.neutral h3:after {
-	background-position: -100px;
-}
-#maincontent div.zenbox div.zenbox.primary h3:after, #maincontent div.zenboxsolid.primary h3:after, #maincontent div.zenboxfixed.primary h3:after, #maincontent div.zenboxfeature.primary h3:after, #maincontent div.zenbox.primary h3:after {
-	background-position: 0px;
 }
 /*Style the list elements*/
 #maincontent div.zenboxsolid ul, #maincontent div.zenboxfixed ul, #maincontent div.zenboxfeature ul, #maincontent div.zenbox ul,
