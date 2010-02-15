@@ -3,9 +3,10 @@ WDN.toolbar_peoplefinder = function() {
     var defaultIntro = '<div style="width:350px;padding-top:30px;"><p style="margin-bottom:10px;"><strong style="font-size:1.2em;">People Lookup:</strong><br /><span style="padding-left:40px;display:block;">Enter in as much of the name as you know, first and/or last name in any order.</span></p><p style="margin-bottom:10px;"><strong style="font-size:1.2em;">Reverse Telephone Number Lookup:</strong><br /><span style="padding-left:40px;display:block;">Enter last three or more digits.</span></p><p><strong style="font-size:1.2em;">Department Lookup:</strong><br /><span style="padding-left:40px;display:block;">Begin typing the department name.</span></p></div><div id="pf_copyright" style="margin-top:50px;"><a title="More information about Peoplefinder" onclick="document.getElementById(\'pf_disclaimer\').style.display=\'block\'; return false;" class="imagelink" href="#"><img width="15" height="14" alt="Question Mark" src="http://peoplefinder.unl.edu/images/icon_question.gif"/></a> UNL | Office of University Communications | <a onclick="window.open(this.href); return false;" href="http://www1.unl.edu/wdn/wiki/About_Peoplefinder">About Peoplefinder</a> <div style="display: none;" id="pf_disclaimer"><p><strong>Information obtained from this directory may not be used to provide addresses for mailings to students, faculty or staff. Any solicitation of business, information, contributions or other response from individuals listed in this publication by mail, telephone or other means is forbidden.</strong></p></div></div>';
     var pfresultsdiv = 'pfresults';
     var pfrecorddiv = 'pfShowRecord';
-    var pfserviceurl = 'http://peoplefinder.unl.edu/service.php?q=';
     var pfreq_q;
     return {
+    	serviceURL : 'http://peoplefinder.unl.edu/',
+    	
         initialize : function() {
         
         },
@@ -17,22 +18,25 @@ WDN.toolbar_peoplefinder = function() {
             return true;
         },
         pf_getUID : function(uid) {
-            var url = "http://peoplefinder.unl.edu/hcards/"+uid;
+            var url = WDN.toolbar_peoplefinder.serviceURL + 'service.php?view=hcard&uid=' + uid;
             WDN.get(url, null, WDN.toolbar_peoplefinder.updatePeopleFinderRecord);
-            wait=true;
             return false;
         },
-        queuePFChooser : function(q,resultsdiv) {
+        queuePFChooser : function(q, resultsdiv) {
             pfresultsdiv = resultsdiv;
-            pfserviceurl = 'http://peoplefinder.unl.edu/service.php?chooser=true&q=';
-            WDN.toolbar_peoplefinder.queuePFRequest(q,resultsdiv);
+            WDN.toolbar_peoplefinder.queuePFRequest(q, resultsdiv, true);
         },
-        queuePFRequest : function(q,resultsdiv) {
+        queuePFRequest : function(q, resultsdiv, chooser) {
             pfresultsdiv = resultsdiv;
+            if (chooser) {
+            	chooser = 'true';
+            } else {
+            	chooser = 'false';
+            }
             clearTimeout(pfreq_q);
             if (q.length > 3) {
                 document.getElementById(resultsdiv).innerHTML = '<img alt="progress" id="pfprogress" src="'+WDN.template_path+'wdn/templates_3.0/css/images/loadingContent.gif" />';
-                pfreq_q = setTimeout('WDN.toolbar_peoplefinder.getPeopleFinderResults("'+escape(q)+'")',400);
+                pfreq_q = setTimeout('WDN.toolbar_peoplefinder.getPeopleFinderResults("'+escape(q)+'", '+chooser+')', 400);
             } else if (q.length>0) {
                 document.getElementById(resultsdiv).innerHTML = 'Please enter more information.';
             } else {
@@ -40,8 +44,11 @@ WDN.toolbar_peoplefinder = function() {
                 WDN.jQuery('#pfShowRecord').empty();
             }
         },
-        getPeopleFinderResults : function(q) {
-            var url = pfserviceurl + q;
+        getPeopleFinderResults : function(q, chooser) {
+        	var url = WDN.toolbar_peoplefinder.serviceURL + 'service.php?q=' + q;
+        	if (chooser) {
+        		url = url + '&chooser=true';
+        	}
             WDN.get(url, null, WDN.toolbar_peoplefinder.updatePeopleFinderResults);
         },
         pfCatchUID : function(uid) {
@@ -54,7 +61,6 @@ WDN.toolbar_peoplefinder = function() {
             } else {
                 document.getElementById(pfresultsdiv).innerHTML = 'Error loading results.';
             }
-            wait = false;
         },
         updatePeopleFinderRecord : function(data, textStatus) {
             if (textStatus == 'success') {
@@ -62,7 +68,6 @@ WDN.toolbar_peoplefinder = function() {
             } else {
                 document.getElementById(pfrecorddiv).innerHTML = 'Error loading results.';
             }
-            wait = false;
         }
 
     };
