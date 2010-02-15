@@ -42,3 +42,9 @@ border-bottom:none;
 #wdn_identity_management a.logout {
 	margin-left:5px;
 }
+img.profile_pic {
+	padding:3px 3px 6px 3px;
+}
+img.profile_pic.small {
+	background:url('images/wdn_idmProfileSmall.png') no-repeat top left;
+}
