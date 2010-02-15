@@ -61,21 +61,22 @@ Navigation</a></p>
 		Since you have logged in with your My.UNL username and password, you can use the advanced features.</p>
 	</div>
 </div>
-        <script type="text/javascript">
-        function startChecking()
-        {
-            WDN.initializePlugin('unlalert');
-        }
-        </script>
+        
         <a href="#" onclick="startChecking(); return false;">Load the alert script</a>
 		    -->
 <!-- <p><a href="http://localhost/workspace/UNL_GoURL/?url=referer">Send referer to Go URL.</a></p>
 <p><a href="#" onclick="WDN.idm.displayNotice('smeranda2');">Seth is logged in.</a></p>-->
+<script type="text/javascript">
+
+WDN.initializePlugin('zenbox');
+</script>
+<form class="energetic">
+<p class="submit"><input type="submit" name="submit" value="Submit and some more to strech it out" /></p>
+</form>
 <h2 class="sec_header">Zenbox show/hide</h2>
 <div class="one_col left">
-	<div class="zenbox cool">
+	<div class="zenbox cool showHide">
 		<h3>Solution</h3>
-		<a href="#" class="showHide">show/hide this</a> 
 		<p>Break the complete dataset of items into smaller sequential parts and show these on separate sequential pages. Provide pagination control to browse from page to page. Let the user browse to the <i>previous</i> and <i>next</i> pages by providing links to such actions. Also, provide links to the absolute start and end of the dataset (first and last).</p> 
 		<p>If the dataset is of defined quantity, also show a link to the last page. If the dataset to show possibly is of varying size (for instance as a result from a search), do not bother to show a link to the last page.</p> 
 		<h4 class="sec_header">Rationale</h4> 
@@ -84,7 +85,6 @@ Navigation</a></p>
 	</div>
 	<div class="zenbox energetic">
 		<h3>Solution</h3>
-		<a href="#" class="showHide">show/hide this</a> 
 		<p>Break the complete dataset of items into smaller sequential parts and show these on separate sequential pages. Provide pagination control to browse from page to page. Let the user browse to the <i>previous</i> and <i>next</i> pages by providing links to such actions. Also, provide links to the absolute start and end of the dataset (first and last).</p> 
 		<p>If the dataset is of defined quantity, also show a link to the last page. If the dataset to show possibly is of varying size (for instance as a result from a search), do not bother to show a link to the last page.</p> 
 		<h4 class="sec_header">Rationale</h4> 
@@ -92,19 +92,17 @@ Navigation</a></p>
 		<p>Pagination provides the user with a natural break from reading or scanning the contents of the dataset, and allows them to reevaluate whether they wish to continue looking through more data, or navigate away from the page. This is also why pagination controls are most often placed below the list: to provide the user with an option to continue reading through the larger dataset.</p>
 	</div>
 </div>
-<div class="one_col left">
+<div class="one_col">
 	<div class="zenbox bright">
-		<h3>Solution</h3>
-		<a href="#" class="showHide">show/hide this</a> 
+		<h3><a href="#">Solution</a></h3>
 		<p>Break the complete dataset of items into smaller sequential parts and show these on separate sequential pages. Provide pagination control to browse from page to page. Let the user browse to the <i>previous</i> and <i>next</i> pages by providing links to such actions. Also, provide links to the absolute start and end of the dataset (first and last).</p> 
 		<p>If the dataset is of defined quantity, also show a link to the last page. If the dataset to show possibly is of varying size (for instance as a result from a search), do not bother to show a link to the last page.</p> 
 		<h4 class="sec_header">Rationale</h4> 
 		<p>First and foremost, pagination parts large datasets into smaller bits that are manageable for the user to read and cope with. Secondly, pagination controls conveys information to the user about, how big the dataset is, and how much is left to read or check out and how much have they already checked out.</p> 
 		<p>Pagination provides the user with a natural break from reading or scanning the contents of the dataset, and allows them to reevaluate whether they wish to continue looking through more data, or navigate away from the page. This is also why pagination controls are most often placed below the list: to provide the user with an option to continue reading through the larger dataset.</p>
 	</div>
-	<div class="zenbox soothing">
+	<div class="zenbox soothing showHide">
 		<h3>Solution</h3>
-		<a href="#" class="showHide">show/hide this</a> 
 		<p>Break the complete dataset of items into smaller sequential parts and show these on separate sequential pages. Provide pagination control to browse from page to page. Let the user browse to the <i>previous</i> and <i>next</i> pages by providing links to such actions. Also, provide links to the absolute start and end of the dataset (first and last).</p> 
 		<p>If the dataset is of defined quantity, also show a link to the last page. If the dataset to show possibly is of varying size (for instance as a result from a search), do not bother to show a link to the last page.</p> 
 		<h4 class="sec_header">Rationale</h4> 
@@ -114,8 +112,7 @@ Navigation</a></p>
 </div>
 <div class="two_col right">
 		<div class="zenbox primary">
-		<h3>Solution</h3>
-		<a href="#" class="showHide">show/hide this</a> 
+		<h3><a href="this.htmn">Solution</a></h3> 
 		<p>Break the complete dataset of items into smaller sequential parts and show these on separate sequential pages. Provide pagination control to browse from page to page. Let the user browse to the <i>previous</i> and <i>next</i> pages by providing links to such actions. Also, provide links to the absolute start and end of the dataset (first and last).</p> 
 		<p>If the dataset is of defined quantity, also show a link to the last page. If the dataset to show possibly is of varying size (for instance as a result from a search), do not bother to show a link to the last page.</p> 
 		<h4 class="sec_header">Rationale</h4> 
@@ -123,8 +120,7 @@ Navigation</a></p>
 		<p>Pagination provides the user with a natural break from reading or scanning the contents of the dataset, and allows them to reevaluate whether they wish to continue looking through more data, or navigate away from the page. This is also why pagination controls are most often placed below the list: to provide the user with an option to continue reading through the larger dataset.</p>
 	</div>
 	<div class="zenbox neutral">
-		<h3>Solution</h3>
-		<a href="#" class="showHide">show/hide this</a> 
+		<h3>Solution</h3> 
 		<p>Break the complete dataset of items into smaller sequential parts and show these on separate sequential pages. Provide pagination control to browse from page to page. Let the user browse to the <i>previous</i> and <i>next</i> pages by providing links to such actions. Also, provide links to the absolute start and end of the dataset (first and last).</p> 
 		<p>If the dataset is of defined quantity, also show a link to the last page. If the dataset to show possibly is of varying size (for instance as a result from a search), do not bother to show a link to the last page.</p> 
 		<h4 class="sec_header">Rationale</h4> 
@@ -162,14 +158,7 @@ Navigation</a></p>
 
 <script type="text/javascript">
 WDN.jQuery(document).ready(function() { //add a div around all the content in the zenbox to make the hide transistion smoother.
-	WDN.jQuery('.zenbox a.showHide').each(function() {
-		WDN.jQuery(this).nextAll().wrapAll('<div class="toggledContent">');
-	});
-	WDN.jQuery('.zenbox a.showHide').click(function() {
-		WDN.jQuery(this).siblings('.toggledContent').slideToggle();
-		WDN.jQuery(this).toggleClass('show');
-		return false;
-	});
+	
 });
 </script>
 </body>
