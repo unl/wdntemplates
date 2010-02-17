@@ -1,0 +1,21 @@
+span.subhead {display:block;text-align:right;font-size:0.75em;margin-top:-15px;}
+#maincontent div#wdn_calendarDisplay thead, .vevent .description {display:none;}
+/*Splash News headlines */
+#maincontent #news_headlines ul#the_headlines {list-style:none; padding-left:0px; margin-bottom:0px;padding-bottom:0px;}
+#maincontent #news_headlines ul#the_headlines li {padding-bottom:5px;padding-top:5px;}
+#maincontent #news_headlines ul#the_headlines li a {padding-bottom:0px;margin-bottom:-10px;}
+#maincontent #news_headlines ul#the_headlines li span {font-size:0.8em;padding-top:0px;}
+#maincontent table.upcoming tr td.date {text-align:center;color:#6b6b6b;text-transform:uppercase;padding-right:5px;}
+#maincontent table.upcoming tr td span.month {text-transform:uppercase;display:block}
+#maincontent table.upcoming tr td span.day {font-size:1.7em;display:block;}
+#maincontent table.upcoming tr td span.time {display:block;font-size:.8em;}
+#maincontent table.upcoming tr td span.month, #maincontent table.upcoming tr td span.day, #maincontent table.upcoming tr td span.time {padding-right:5px;}
+#maincontent #wdn_calendarDisplay tr td a, #maincontent table.upcoming tr td a.summary, #maincontent table.upcoming tr td span.location {border-left:#e5e5e5 solid 2px;padding-left:5px;display:block;font-size:.9em; line-height:130%;}
+#maincontent table.upcoming tr td span.location {font-size:75%; display:block; color:green;}
+#maincontent tbody.vcalendar tr td {padding:7px 0px 7px 0px;}
+
+p#feeds, p.feeds{margin:10px 0;padding:0;}
+p#feeds a, p.feeds a{display:inline-block;text-indent:-9999px;height:20px;}
+p#feeds a#icsformat {background:url(http://events.unl.edu/templates/default/images/ics.gif) no-repeat;width:35px;}
+p#feeds a#rssformat, p.feeds a.rssformat, p.feeds a twitterformat {background:url(http://events.unl.edu/templates/default/images/rss.gif) no-repeat;margin-left:5px;width:20px;}
+p.feeds a twitterformat {background:url(http://www.unl.edu/ucomm/splash/images/promo/icon_twitter.png) no-repeat;}
