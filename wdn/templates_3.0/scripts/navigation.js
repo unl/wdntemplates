@@ -204,7 +204,7 @@ WDN.navigation = function() {
                 // Remove the hover function?
                 //WDN.jQuery('#wdn_navigation_bar').hover();
                 
-                WDN.setCookie('n',1,5000);
+                WDN.setCookie('n',1,1209600);
                 WDN.navigation.preferredState = 1;
                 WDN.analytics.trackNavigationPreferredState("Open");
             } else {
