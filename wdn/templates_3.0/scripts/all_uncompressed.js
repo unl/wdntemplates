@@ -6773,6 +6773,10 @@ WDN.navigation = function() {
                 WDN.jQuery('body').hasClass('document')) {
                 return;
             }
+
+            if (WDN.jQuery('#navigation-close').length > 0) {
+                return;
+            }
             WDN.jQuery('#navigation').append('<div id="navigation-close"></div>');
             WDN.jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
             WDN.jQuery('#navigation-expand-collapse').click(WDN.navigation.setPreferredState);
@@ -6799,13 +6803,10 @@ WDN.navigation = function() {
          */
         determineSelectedBreadcrumb : function() {
             // First we search for a defined homepage.
-            var pagelinks = document.getElementsByTagName('link');
-            for (var i=0;i<pagelinks.length;i++) {
-                var relatt = pagelinks[i].getAttribute('rel');
-                if (relatt=='home') {
-                    WDN.navigation.siteHomepage = WDN.toAbs(pagelinks[i].getAttribute('href'), window.location.toString());
-                    WDN.log('Setting homepage to '+WDN.navigation.siteHomepage);
-                }
+            
+            if (WDN.jQuery('link[rel=home]').length) {
+                WDN.navigation.siteHomepage = WDN.toAbs(WDN.jQuery('link[rel=home]').attr('href'), window.location.toString());
+                WDN.log('Setting homepage to '+WDN.navigation.siteHomepage);
             }
             
             if (WDN.navigation.siteHomepage === false) {
@@ -6939,7 +6940,7 @@ WDN.navigation = function() {
                 // Remove the hover function?
                 //WDN.jQuery('#wdn_navigation_bar').hover();
                 
-                WDN.setCookie('n',1,5000);
+                WDN.setCookie('n',1,1209600);
                 WDN.navigation.preferredState = 1;
                 WDN.analytics.trackNavigationPreferredState("Open");
             } else {
@@ -7085,14 +7086,10 @@ WDN.search = function() {
 			}
 		},
 		hasLocalSearch : function() {
-			var pagelinks = document.getElementsByTagName('link');
-			var relatt, typeatt;
-			for (var i=0; i<pagelinks.length; i++) {
-				relatt = pagelinks[i].getAttribute('rel');
-				typeatt = pagelinks[i].getAttribute('type');
-				if (relatt=='search' && typeatt != 'application/opensearchdescription+xml') {
-					return pagelinks[i].getAttribute('href');
-				}
+			
+			if (WDN.jQuery('link[rel=search]').length
+				&& WDN.jQuery('link[rel=search]').attr('type') != 'application/opensearchdescription+xml') {
+				return WDN.jQuery('link[rel=search]').attr('href');
 			}
 			return false;
 		},
@@ -10776,81 +10773,9 @@ var wraphandler = {
 
 var XMLHTTP=WDN.proxy_xmlhttp;
 
-/* Zebra Tables
-David F. Miller
-A List Apart #173
-http://www.fivevoltlogic.com
-*/
-
-  // this function is needed to work around 
-  // a bug in IE related to element attributes
-  function hasClass(obj) {
-     var result = false;
-     if (obj.getAttributeNode("class") !== null) {
-         result = obj.getAttributeNode("class").value;
-     }
-     return result;
-  }   
-
  function stripe(id) {
-
-    // the flag we'll use to keep track of 
-    // whether the current row is odd or even
-    var even = false;
-  
-    // if arguments are provided to specify the colours
-    // of the even & odd rows, then use the them;
-    // otherwise use the following defaults: 
-    var evenColor = arguments[1] ? arguments[1] : "#ffffff";
-    var oddColor = arguments[2] ? arguments[2] : "#ecf7fd";
-  
-    // obtain a reference to the desired table
-    // if no such table exists, abort
-    var table = document.getElementById(id);
-    if (! table) { return; }
-    
-    // by definition, tables can have more than one tbody
-    // element, so we'll have to get the list of child
-    // &lt;tbody&gt;s 
-    var tbodies = table.getElementsByTagName("tbody");
-
-    // and iterate through them...
-    for (var h = 0; h < tbodies.length; h++) {
-    
-     // find all the &lt;tr&gt; elements... 
-      var trs = tbodies[h].getElementsByTagName("tr");
-      
-      // ... and iterate through them
-      for (var i = 0; i < trs.length; i++) {
-
-        // avoid rows that have a class attribute
-        // or backgroundColor style
-        if (! hasClass(trs[i]) &&
-            ! trs[i].style.backgroundColor) {
-
-          // get all the cells in this row...
-          var tds = trs[i].getElementsByTagName("td");
-        
-          // and iterate through them...
-          for (var j = 0; j < tds.length; j++) {
-        
-            var mytd = tds[j];
-
-            // avoid cells that have a class attribute
-            // or backgroundColor style
-            if (! hasClass(mytd) &&
-                ! mytd.style.backgroundColor) {
-        
-              mytd.style.backgroundColor =
-                even ? evenColor : oddColor;
-            
-            }
-          }
-        }
-        // flip from odd to even, or vice-versa
-        even =  ! even;
-      }
-    }
+	 WDN.jQuery('#'+id).addClass('zentable');
+	 WDN.browserAdjustments();
   }
 
 
