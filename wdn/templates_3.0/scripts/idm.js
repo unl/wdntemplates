@@ -20,7 +20,7 @@ WDN.idm = function() {
 		 */
 		initialize : function() {
 			if (WDN.idm.isLoggedIn()) {
-				WDN.loadJS('https://login.unl.edu/demo/pf-whoami/', function() {
+				WDN.loadJS('https://login.unl.edu/demo/pf-whoami/?id='+WDN.getCookie('sso'), function() {
 					if (WDN.idm.getUserId()) {
 						WDN.idm.displayNotice(WDN.idm.getUserId());
 					}
