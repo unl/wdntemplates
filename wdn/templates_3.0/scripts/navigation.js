@@ -37,6 +37,10 @@ WDN.navigation = function() {
                 WDN.jQuery('body').hasClass('document')) {
                 return;
             }
+
+            if (WDN.jQuery('#navigation-close').length > 0) {
+                return;
+            }
             WDN.jQuery('#navigation').append('<div id="navigation-close"></div>');
             WDN.jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
             WDN.jQuery('#navigation-expand-collapse').click(WDN.navigation.setPreferredState);
