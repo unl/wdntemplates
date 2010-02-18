@@ -44,6 +44,9 @@ WDN.events = function() {
 						}
 				);
 				WDN.jQuery('#wdn_calendarDisplay').show();
+				if (WDN.jQuery('#wdn_calendarDisplay').hasClass('zenbox')) { //if we're using a zenbox, change to H3
+					WDN.jQuery('#wdn_calendarDisplay h4').before('<h3>'+(WDN.jQuery('#wdn_calendarDisplay h4').html()).replace(":", "")+'</h3>').remove();
+				}
 			});
 		}
 	};
