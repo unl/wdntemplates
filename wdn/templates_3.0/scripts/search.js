@@ -30,14 +30,10 @@ WDN.search = function() {
 			}
 		},
 		hasLocalSearch : function() {
-			var pagelinks = document.getElementsByTagName('link');
-			var relatt, typeatt;
-			for (var i=0; i<pagelinks.length; i++) {
-				relatt = pagelinks[i].getAttribute('rel');
-				typeatt = pagelinks[i].getAttribute('type');
-				if (relatt=='search' && typeatt != 'application/opensearchdescription+xml') {
-					return pagelinks[i].getAttribute('href');
-				}
+			
+			if (WDN.jQuery('link[rel=search]').length
+				&& WDN.jQuery('link[rel=search]').attr('type') != 'application/opensearchdescription+xml') {
+				return WDN.jQuery('link[rel=search]').attr('href');
 			}
 			return false;
 		},

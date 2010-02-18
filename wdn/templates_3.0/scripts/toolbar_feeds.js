@@ -23,13 +23,9 @@ WDN.toolbar_feeds = function() {
             }
         },
         hasLocalRSS : function() {
-            var pagelinks = document.getElementsByTagName('link');
-            for (var i=0;i<pagelinks.length;i++) {
-                relatt = pagelinks[i].getAttribute('rel');
-                if (relatt=='alternate') {
-                    localRSSTitle = pagelinks[i].getAttribute('title');
-                    return pagelinks[i].getAttribute('href');
-                }
+            if (WDN.jQuery('link[rel=alternate]').length) {
+                localRSSTitle = WDN.jQuery('link[rel=alternate]').attr('title');
+                return WDN.jQuery('link[rel=alternate]').attr('href');
             }
             return false;
         },

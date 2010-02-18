@@ -67,13 +67,10 @@ WDN.navigation = function() {
          */
         determineSelectedBreadcrumb : function() {
             // First we search for a defined homepage.
-            var pagelinks = document.getElementsByTagName('link');
-            for (var i=0;i<pagelinks.length;i++) {
-                var relatt = pagelinks[i].getAttribute('rel');
-                if (relatt=='home') {
-                    WDN.navigation.siteHomepage = WDN.toAbs(pagelinks[i].getAttribute('href'), window.location.toString());
-                    WDN.log('Setting homepage to '+WDN.navigation.siteHomepage);
-                }
+            
+            if (WDN.jQuery('link[rel=home]').length) {
+                WDN.navigation.siteHomepage = WDN.toAbs(WDN.jQuery('link[rel=home]').attr('href'), window.location.toString());
+                WDN.log('Setting homepage to '+WDN.navigation.siteHomepage);
             }
             
             if (WDN.navigation.siteHomepage === false) {
