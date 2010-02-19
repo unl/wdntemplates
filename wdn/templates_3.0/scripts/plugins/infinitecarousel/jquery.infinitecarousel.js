@@ -16,7 +16,7 @@
 			{
 				transitionSpeed: 800,
 				displayTime: 6000,
-				textholderHeight: .20,
+				textholderHeight: .15,
 				displayProgressBar: true,
 				displayThumbnails: true,
 				displayThumbnailNumbers: true,
@@ -97,7 +97,7 @@
 			if (textholderPadding > 0) $('.textholder',obj).width(imgWidth-textholderPadding);
 
 			$('.close',obj).each(function(i){ // Need to use each() because a loop doesn't work in this situation. see http://www.bennadel.com/blog/534-The-Beauty-Of-The-jQuery-Each-Method.htm
-				$(this).click(function(){$('#textholder'+randID+'_'+(i+1)).animate({marginBottom:(-imgHeight*o.textholderHeight)-containerBorder-1+'px'},500)});
+				$(this).click(function(){$('#textholder'+randID+'_'+(i+1)).animate({marginBottom:(-imgHeight*o.textholderHeight)-containerBorder-12+'px'},500)});
 			});
 			$('.minmax',obj).each(function(i){ // Same reason as previous chunk
 				$(this).click(function(){
@@ -140,7 +140,7 @@
 				}
 			}
 
-			function hideCaption() {$('.textholder',obj).stop().animate({marginBottom:(-imgHeight*o.textholderHeight-containerBorder-1)+'px'},500)}
+			function hideCaption() {$('.textholder',obj).stop().animate({marginBottom:(-imgHeight*o.textholderHeight-containerBorder-12)+'px'},500)}
 
 			if(o.displayThumbnails)
 			{
