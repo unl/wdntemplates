@@ -2,7 +2,7 @@ WDN.tooltip = function($) {
 	return {
 		initialize : function() {
 			WDN.log("initialize tooltip");
-			WDN.loadJS('wdn/templates_3.0/scripts/plugins/qtip/jquery.qtip.js', WDN.tooltip.idInit);
+			WDN.loadJS('wdn/templates_3.0/scripts/plugins/qtip2/jquery.qtip.js', WDN.tooltip.idInit);
 		},
 		idInit : function() {
 			// ID's of container elements we want to apply tooltips to right away
@@ -18,10 +18,10 @@ WDN.tooltip = function($) {
 
 					content: $(this).attr('title'),
 					show: {
-						effect: { type: 'fade', length: 0 }
+						effect: { length: 0 }
 					},
 					hide: {
-						effect: { type: 'fade', length: 0 }
+						effect: { length: 0 }
 					},
 					style: {
 						width: 200,
@@ -36,8 +36,7 @@ WDN.tooltip = function($) {
 							radius: 5,
 							color: '#f8e98e'
 						},
-						tip: 'bottomLeft',
-						name: 'cream'
+						tip: 'bottomLeft'
 					},
 					position: { 
 						adjust: { screen: true },
