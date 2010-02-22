@@ -2,7 +2,7 @@ WDN.tooltip = function($) {
 	return {
 		initialize : function() {
 			WDN.log("initialize tooltip");
-			WDN.loadJS('wdn/templates_3.0/scripts/plugins/qtip2/jquery.qtip.js', WDN.tooltip.idInit);
+			WDN.loadJS('wdn/templates_3.0/scripts/plugins/qtip/jquery.qtip.js', WDN.tooltip.idInit);
 		},
 		idInit : function() {
 			// ID's of container elements we want to apply tooltips to right away
