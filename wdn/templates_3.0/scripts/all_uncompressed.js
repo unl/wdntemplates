@@ -1,5 +1,5 @@
 /*!
- * jQuery JavaScript Library v1.4.1
+ * jQuery JavaScript Library v1.4.2
  * http://jquery.com/
  *
  * Copyright 2010, John Resig
@@ -11,7 +11,7 @@
  * Copyright 2010, The Dojo Foundation
  * Released under the MIT, BSD, and GPL Licenses.
  *
- * Date: Mon Jan 25 19:43:33 2010 -0500
+ * Date: Sat Feb 13 22:33:48 2010 -0500
  */
 (function( window, undefined ) {
 
@@ -86,6 +86,15 @@ jQuery.fn = jQuery.prototype = {
 			this.length = 1;
 			return this;
 		}
+		
+		// The body element only exists once, optimize finding it
+		if ( selector === "body" && !context ) {
+			this.context = document;
+			this[0] = document.body;
+			this.selector = "body";
+			this.length = 1;
+			return this;
+		}
 
 		// Handle HTML strings
 		if ( typeof selector === "string" ) {
@@ -116,7 +125,9 @@ jQuery.fn = jQuery.prototype = {
 						ret = buildFragment( [ match[1] ], [ doc ] );
 						selector = (ret.cacheable ? ret.fragment.cloneNode(true) : ret.fragment).childNodes;
 					}
-
+					
+					return jQuery.merge( this, selector );
+					
 				// HANDLE: $("#id")
 				} else {
 					elem = document.getElementById( match[2] );
@@ -143,6 +154,7 @@ jQuery.fn = jQuery.prototype = {
 				this.selector = selector;
 				this.context = document;
 				selector = document.getElementsByTagName( selector );
+				return jQuery.merge( this, selector );
 
 			// HANDLE: $(expr, $(...))
 			} else if ( !context || context.jquery ) {
@@ -165,16 +177,14 @@ jQuery.fn = jQuery.prototype = {
 			this.context = selector.context;
 		}
 
-		return jQuery.isArray( selector ) ?
-			this.setArray( selector ) :
-			jQuery.makeArray( selector, this );
+		return jQuery.makeArray( selector, this );
 	},
 
 	// Start with an empty selector
 	selector: "",
 
 	// The current version of jQuery being used
-	jquery: "1.4.1",
+	jquery: "1.4.2",
 
 	// The default length of a jQuery object is 0
 	length: 0,
@@ -204,7 +214,14 @@ jQuery.fn = jQuery.prototype = {
 	// (returning the new matched element set)
 	pushStack: function( elems, name, selector ) {
 		// Build a new jQuery matched element set
-		var ret = jQuery( elems || null );
+		var ret = jQuery();
+
+		if ( jQuery.isArray( elems ) ) {
+			push.apply( ret, elems );
+		
+		} else {
+			jQuery.merge( ret, elems );
+		}
 
 		// Add the old object onto the stack (as a reference)
 		ret.prevObject = this;
@@ -219,18 +236,6 @@ jQuery.fn = jQuery.prototype = {
 
 		// Return the newly-formed element set
 		return ret;
-	},
-
-	// Force the current matched set of elements to become
-	// the specified array of elements (destroying the stack in the process)
-	// You should use pushStack() in order to do this, but maintain the stack
-	setArray: function( elems ) {
-		// Resetting the length to 0, then using the native Array push
-		// is a super-fast way to populate an object with array-like properties
-		this.length = 0;
-		push.apply( this, elems );
-
-		return this;
 	},
 
 	// Execute a callback for every element in the matched set.
@@ -492,6 +497,9 @@ jQuery.extend({
 		if ( typeof data !== "string" || !data ) {
 			return null;
 		}
+
+		// Make sure leading/trailing whitespace is removed (IE can't handle it)
+		data = jQuery.trim( data );
 		
 		// Make sure the incoming data is actual JSON
 		// Logic borrowed from http://json.org/json2.js
@@ -619,6 +627,7 @@ jQuery.extend({
 			for ( var l = second.length; j < l; j++ ) {
 				first[ i++ ] = second[ j ];
 			}
+		
 		} else {
 			while ( second[j] !== undefined ) {
 				first[ i++ ] = second[ j++ ];
@@ -807,7 +816,7 @@ function access( elems, key, value, exec, fn, pass ) {
 	}
 	
 	// Getting an attribute
-	return length ? fn( elems[0], key ) : null;
+	return length ? fn( elems[0], key ) : undefined;
 }
 
 function now() {
@@ -871,7 +880,10 @@ function now() {
 		// (WebKit defaults to false instead of true, IE too, if it's in an optgroup)
 		optSelected: document.createElement("select").appendChild( document.createElement("option") ).selected,
 
+		parentNode: div.removeChild( div.appendChild( document.createElement("div") ) ).parentNode === null,
+
 		// Will be defined later
+		deleteExpando: true,
 		checkClone: false,
 		scriptEval: false,
 		noCloneEvent: true,
@@ -891,6 +903,15 @@ function now() {
 	if ( window[ id ] ) {
 		jQuery.support.scriptEval = true;
 		delete window[ id ];
+	}
+
+	// Test to see if it's possible to delete an expando from an element
+	// Fails in Internet Explorer
+	try {
+		delete script.test;
+	
+	} catch(e) {
+		jQuery.support.deleteExpando = false;
 	}
 
 	root.removeChild( script );
@@ -923,6 +944,7 @@ function now() {
 		document.body.appendChild( div );
 		jQuery.boxModel = jQuery.support.boxModel = div.offsetWidth === 2;
 		document.body.removeChild( div ).style.display = 'none';
+
 		div = null;
 	});
 
@@ -962,7 +984,6 @@ jQuery.props = {
 	frameborder: "frameBorder"
 };
 var expando = "jQuery" + now(), uuid = 0, windowData = {};
-var emptyObject = {};
 
 jQuery.extend({
 	cache: {},
@@ -988,8 +1009,7 @@ jQuery.extend({
 
 		var id = elem[ expando ], cache = jQuery.cache, thisCache;
 
-		// Handle the case where there's no name immediately
-		if ( !name && !id ) {
+		if ( !id && typeof name === "string" && data === undefined ) {
 			return null;
 		}
 
@@ -1003,17 +1023,16 @@ jQuery.extend({
 		if ( typeof name === "object" ) {
 			elem[ expando ] = id;
 			thisCache = cache[ id ] = jQuery.extend(true, {}, name);
-		} else if ( cache[ id ] ) {
-			thisCache = cache[ id ];
-		} else if ( typeof data === "undefined" ) {
-			thisCache = emptyObject;
-		} else {
-			thisCache = cache[ id ] = {};
+
+		} else if ( !cache[ id ] ) {
+			elem[ expando ] = id;
+			cache[ id ] = {};
 		}
+
+		thisCache = cache[ id ];
 
 		// Prevent overriding the named cache with undefined values
 		if ( data !== undefined ) {
-			elem[ expando ] = id;
 			thisCache[ name ] = data;
 		}
 
@@ -1045,15 +1064,11 @@ jQuery.extend({
 
 		// Otherwise, we want to remove all of the element's data
 		} else {
-			// Clean up the element expando
-			try {
-				delete elem[ expando ];
-			} catch( e ) {
-				// IE has trouble directly removing the expando
-				// but it's ok with using removeAttribute
-				if ( elem.removeAttribute ) {
-					elem.removeAttribute( expando );
-				}
+			if ( jQuery.support.deleteExpando ) {
+				delete elem[ jQuery.expando ];
+
+			} else if ( elem.removeAttribute ) {
+				elem.removeAttribute( jQuery.expando );
 			}
 
 			// Completely remove the data cache
@@ -1230,12 +1245,13 @@ jQuery.fn.extend({
 						elem.className = value;
 
 					} else {
-						var className = " " + elem.className + " ";
+						var className = " " + elem.className + " ", setClass = elem.className;
 						for ( var c = 0, cl = classNames.length; c < cl; c++ ) {
 							if ( className.indexOf( " " + classNames[c] + " " ) < 0 ) {
-								elem.className += " " + classNames[c];
+								setClass += " " + classNames[c];
 							}
 						}
+						elem.className = jQuery.trim( setClass );
 					}
 				}
 			}
@@ -1264,7 +1280,7 @@ jQuery.fn.extend({
 						for ( var c = 0, cl = classNames.length; c < cl; c++ ) {
 							className = className.replace(" " + classNames[c] + " ", " ");
 						}
-						elem.className = className.substring(1, className.length - 1);
+						elem.className = jQuery.trim( className );
 
 					} else {
 						elem.className = "";
@@ -1520,15 +1536,16 @@ jQuery.extend({
 		}
 
 		// elem is actually elem.style ... set the style
-		// Using attr for specific style information is now deprecated. Use style insead.
+		// Using attr for specific style information is now deprecated. Use style instead.
 		return jQuery.style( elem, name, value );
 	}
 });
-var fcleanup = function( nm ) {
-	return nm.replace(/[^\w\s\.\|`]/g, function( ch ) {
-		return "\\" + ch;
-	});
-};
+var rnamespaces = /\.(.*)$/,
+	fcleanup = function( nm ) {
+		return nm.replace(/[^\w\s\.\|`]/g, function( ch ) {
+			return "\\" + ch;
+		});
+	};
 
 /*
  * A number of helper functions used for managing events.
@@ -1550,107 +1567,104 @@ jQuery.event = {
 			elem = window;
 		}
 
+		var handleObjIn, handleObj;
+
+		if ( handler.handler ) {
+			handleObjIn = handler;
+			handler = handleObjIn.handler;
+		}
+
 		// Make sure that the function being executed has a unique ID
 		if ( !handler.guid ) {
 			handler.guid = jQuery.guid++;
 		}
 
-		// if data is passed, bind to handler
-		if ( data !== undefined ) {
-			// Create temporary function pointer to original handler
-			var fn = handler;
+		// Init the element's event structure
+		var elemData = jQuery.data( elem );
 
-			// Create unique handler function, wrapped around original handler
-			handler = jQuery.proxy( fn );
-
-			// Store data in unique handler
-			handler.data = data;
+		// If no elemData is found then we must be trying to bind to one of the
+		// banned noData elements
+		if ( !elemData ) {
+			return;
 		}
 
-		// Init the element's event structure
-		var events = jQuery.data( elem, "events" ) || jQuery.data( elem, "events", {} ),
-			handle = jQuery.data( elem, "handle" ), eventHandle;
+		var events = elemData.events = elemData.events || {},
+			eventHandle = elemData.handle, eventHandle;
 
-		if ( !handle ) {
-			eventHandle = function() {
+		if ( !eventHandle ) {
+			elemData.handle = eventHandle = function() {
 				// Handle the second event of a trigger and when
 				// an event is called after a page has unloaded
 				return typeof jQuery !== "undefined" && !jQuery.event.triggered ?
 					jQuery.event.handle.apply( eventHandle.elem, arguments ) :
 					undefined;
 			};
-
-			handle = jQuery.data( elem, "handle", eventHandle );
-		}
-
-		// If no handle is found then we must be trying to bind to one of the
-		// banned noData elements
-		if ( !handle ) {
-			return;
 		}
 
 		// Add elem as a property of the handle function
-		// This is to prevent a memory leak with non-native
-		// event in IE.
-		handle.elem = elem;
+		// This is to prevent a memory leak with non-native events in IE.
+		eventHandle.elem = elem;
 
 		// Handle multiple events separated by a space
 		// jQuery(...).bind("mouseover mouseout", fn);
-		types = types.split( /\s+/ );
+		types = types.split(" ");
 
-		var type, i = 0;
+		var type, i = 0, namespaces;
 
 		while ( (type = types[ i++ ]) ) {
+			handleObj = handleObjIn ?
+				jQuery.extend({}, handleObjIn) :
+				{ handler: handler, data: data };
+
 			// Namespaced event handlers
-			var namespaces = type.split(".");
-			type = namespaces.shift();
+			if ( type.indexOf(".") > -1 ) {
+				namespaces = type.split(".");
+				type = namespaces.shift();
+				handleObj.namespace = namespaces.slice(0).sort().join(".");
 
-			if ( i > 1 ) {
-				handler = jQuery.proxy( handler );
-
-				if ( data !== undefined ) {
-					handler.data = data;
-				}
+			} else {
+				namespaces = [];
+				handleObj.namespace = "";
 			}
 
-			handler.type = namespaces.slice(0).sort().join(".");
+			handleObj.type = type;
+			handleObj.guid = handler.guid;
 
 			// Get the current list of functions bound to this event
 			var handlers = events[ type ],
-				special = this.special[ type ] || {};
+				special = jQuery.event.special[ type ] || {};
 
 			// Init the event handler queue
 			if ( !handlers ) {
-				handlers = events[ type ] = {};
+				handlers = events[ type ] = [];
 
 				// Check for a special event handler
 				// Only use addEventListener/attachEvent if the special
 				// events handler returns false
-				if ( !special.setup || special.setup.call( elem, data, namespaces, handler) === false ) {
+				if ( !special.setup || special.setup.call( elem, data, namespaces, eventHandle ) === false ) {
 					// Bind the global event handler to the element
 					if ( elem.addEventListener ) {
-						elem.addEventListener( type, handle, false );
+						elem.addEventListener( type, eventHandle, false );
+
 					} else if ( elem.attachEvent ) {
-						elem.attachEvent( "on" + type, handle );
+						elem.attachEvent( "on" + type, eventHandle );
 					}
 				}
 			}
 			
 			if ( special.add ) { 
-				var modifiedHandler = special.add.call( elem, handler, data, namespaces, handlers ); 
-				if ( modifiedHandler && jQuery.isFunction( modifiedHandler ) ) { 
-					modifiedHandler.guid = modifiedHandler.guid || handler.guid; 
-					modifiedHandler.data = modifiedHandler.data || handler.data; 
-					modifiedHandler.type = modifiedHandler.type || handler.type; 
-					handler = modifiedHandler; 
-				} 
-			} 
-			
+				special.add.call( elem, handleObj ); 
+
+				if ( !handleObj.handler.guid ) {
+					handleObj.handler.guid = handler.guid;
+				}
+			}
+
 			// Add the function to the element's handler list
-			handlers[ handler.guid ] = handler;
+			handlers.push( handleObj );
 
 			// Keep track of which events have been used, for global triggering
-			this.global[ type ] = true;
+			jQuery.event.global[ type ] = true;
 		}
 
 		// Nullify elem to prevent memory leaks in IE
@@ -1660,90 +1674,121 @@ jQuery.event = {
 	global: {},
 
 	// Detach an event or set of events from an element
-	remove: function( elem, types, handler ) {
+	remove: function( elem, types, handler, pos ) {
 		// don't do events on text and comment nodes
 		if ( elem.nodeType === 3 || elem.nodeType === 8 ) {
 			return;
 		}
 
-		var events = jQuery.data( elem, "events" ), ret, type, fn;
+		var ret, type, fn, i = 0, all, namespaces, namespace, special, eventType, handleObj, origType,
+			elemData = jQuery.data( elem ),
+			events = elemData && elemData.events;
 
-		if ( events ) {
-			// Unbind all events for the element
-			if ( types === undefined || (typeof types === "string" && types.charAt(0) === ".") ) {
-				for ( type in events ) {
-					this.remove( elem, type + (types || "") );
+		if ( !elemData || !events ) {
+			return;
+		}
+
+		// types is actually an event object here
+		if ( types && types.type ) {
+			handler = types.handler;
+			types = types.type;
+		}
+
+		// Unbind all events for the element
+		if ( !types || typeof types === "string" && types.charAt(0) === "." ) {
+			types = types || "";
+
+			for ( type in events ) {
+				jQuery.event.remove( elem, type + types );
+			}
+
+			return;
+		}
+
+		// Handle multiple events separated by a space
+		// jQuery(...).unbind("mouseover mouseout", fn);
+		types = types.split(" ");
+
+		while ( (type = types[ i++ ]) ) {
+			origType = type;
+			handleObj = null;
+			all = type.indexOf(".") < 0;
+			namespaces = [];
+
+			if ( !all ) {
+				// Namespaced event handlers
+				namespaces = type.split(".");
+				type = namespaces.shift();
+
+				namespace = new RegExp("(^|\\.)" + 
+					jQuery.map( namespaces.slice(0).sort(), fcleanup ).join("\\.(?:.*\\.)?") + "(\\.|$)")
+			}
+
+			eventType = events[ type ];
+
+			if ( !eventType ) {
+				continue;
+			}
+
+			if ( !handler ) {
+				for ( var j = 0; j < eventType.length; j++ ) {
+					handleObj = eventType[ j ];
+
+					if ( all || namespace.test( handleObj.namespace ) ) {
+						jQuery.event.remove( elem, origType, handleObj.handler, j );
+						eventType.splice( j--, 1 );
+					}
 				}
-			} else {
-				// types is actually an event object here
-				if ( types.type ) {
-					handler = types.handler;
-					types = types.type;
-				}
 
-				// Handle multiple events separated by a space
-				// jQuery(...).unbind("mouseover mouseout", fn);
-				types = types.split(/\s+/);
-				var i = 0;
-				while ( (type = types[ i++ ]) ) {
-					// Namespaced event handlers
-					var namespaces = type.split(".");
-					type = namespaces.shift();
-					var all = !namespaces.length,
-						cleaned = jQuery.map( namespaces.slice(0).sort(), fcleanup ),
-						namespace = new RegExp("(^|\\.)" + cleaned.join("\\.(?:.*\\.)?") + "(\\.|$)"),
-						special = this.special[ type ] || {};
+				continue;
+			}
 
-					if ( events[ type ] ) {
-						// remove the given handler for the given type
-						if ( handler ) {
-							fn = events[ type ][ handler.guid ];
-							delete events[ type ][ handler.guid ];
+			special = jQuery.event.special[ type ] || {};
 
-						// remove all handlers for the given type
-						} else {
-							for ( var handle in events[ type ] ) {
-								// Handle the removal of namespaced events
-								if ( all || namespace.test( events[ type ][ handle ].type ) ) {
-									delete events[ type ][ handle ];
-								}
-							}
+			for ( var j = pos || 0; j < eventType.length; j++ ) {
+				handleObj = eventType[ j ];
+
+				if ( handler.guid === handleObj.guid ) {
+					// remove the given handler for the given type
+					if ( all || namespace.test( handleObj.namespace ) ) {
+						if ( pos == null ) {
+							eventType.splice( j--, 1 );
 						}
 
 						if ( special.remove ) {
-							special.remove.call( elem, namespaces, fn);
+							special.remove.call( elem, handleObj );
 						}
+					}
 
-						// remove generic event handler if no more handlers exist
-						for ( ret in events[ type ] ) {
-							break;
-						}
-						if ( !ret ) {
-							if ( !special.teardown || special.teardown.call( elem, namespaces ) === false ) {
-								if ( elem.removeEventListener ) {
-									elem.removeEventListener( type, jQuery.data( elem, "handle" ), false );
-								} else if ( elem.detachEvent ) {
-									elem.detachEvent( "on" + type, jQuery.data( elem, "handle" ) );
-								}
-							}
-							ret = null;
-							delete events[ type ];
-						}
+					if ( pos != null ) {
+						break;
 					}
 				}
 			}
 
-			// Remove the expando if it's no longer used
-			for ( ret in events ) {
-				break;
-			}
-			if ( !ret ) {
-				var handle = jQuery.data( elem, "handle" );
-				if ( handle ) {
-					handle.elem = null;
+			// remove generic event handler if no more handlers exist
+			if ( eventType.length === 0 || pos != null && eventType.length === 1 ) {
+				if ( !special.teardown || special.teardown.call( elem, namespaces ) === false ) {
+					removeEvent( elem, type, elemData.handle );
 				}
-				jQuery.removeData( elem, "events" );
-				jQuery.removeData( elem, "handle" );
+
+				ret = null;
+				delete events[ type ];
+			}
+		}
+
+		// Remove the expando if it's no longer used
+		if ( jQuery.isEmptyObject( events ) ) {
+			var handle = elemData.handle;
+			if ( handle ) {
+				handle.elem = null;
+			}
+
+			delete elemData.events;
+			delete elemData.handle;
+
+			if ( jQuery.isEmptyObject( elemData ) ) {
+				jQuery.removeData( elem );
 			}
 		}
 	},
@@ -1774,7 +1819,7 @@ jQuery.event = {
 				event.stopPropagation();
 
 				// Only trigger if we've ever bound an event for it
-				if ( this.global[ type ] ) {
+				if ( jQuery.event.global[ type ] ) {
 					jQuery.each( jQuery.cache, function() {
 						if ( this.events && this.events[type] ) {
 							jQuery.event.trigger( event, data, this.handle.elem );
@@ -1825,9 +1870,12 @@ jQuery.event = {
 
 		} else if ( !event.isDefaultPrevented() ) {
 			var target = event.target, old,
-				isClick = jQuery.nodeName(target, "a") && type === "click";
+				isClick = jQuery.nodeName(target, "a") && type === "click",
+				special = jQuery.event.special[ type ] || {};
 
-			if ( !isClick && !(target && target.nodeName && jQuery.noData[target.nodeName.toLowerCase()]) ) {
+			if ( (!special._default || special._default.call( elem, event ) === false) && 
+				!isClick && !(target && target.nodeName && jQuery.noData[target.nodeName.toLowerCase()]) ) {
+
 				try {
 					if ( target[ type ] ) {
 						// Make sure that we don't accidentally re-trigger the onFOO events
@@ -1837,7 +1885,7 @@ jQuery.event = {
 							target[ "on" + type ] = null;
 						}
 
-						this.triggered = true;
+						jQuery.event.triggered = true;
 						target[ type ]();
 					}
 
@@ -1848,53 +1896,57 @@ jQuery.event = {
 					target[ "on" + type ] = old;
 				}
 
-				this.triggered = false;
+				jQuery.event.triggered = false;
 			}
 		}
 	},
 
 	handle: function( event ) {
-		// returned undefined or false
-		var all, handlers;
+		var all, handlers, namespaces, namespace, events;
 
 		event = arguments[0] = jQuery.event.fix( event || window.event );
 		event.currentTarget = this;
 
 		// Namespaced event handlers
-		var namespaces = event.type.split(".");
-		event.type = namespaces.shift();
+		all = event.type.indexOf(".") < 0 && !event.exclusive;
 
-		// Cache this now, all = true means, any handler
-		all = !namespaces.length && !event.exclusive;
+		if ( !all ) {
+			namespaces = event.type.split(".");
+			event.type = namespaces.shift();
+			namespace = new RegExp("(^|\\.)" + namespaces.slice(0).sort().join("\\.(?:.*\\.)?") + "(\\.|$)");
+		}
 
-		var namespace = new RegExp("(^|\\.)" + namespaces.slice(0).sort().join("\\.(?:.*\\.)?") + "(\\.|$)");
+		var events = jQuery.data(this, "events"), handlers = events[ event.type ];
 
-		handlers = ( jQuery.data(this, "events") || {} )[ event.type ];
+		if ( events && handlers ) {
+			// Clone the handlers to prevent manipulation
+			handlers = handlers.slice(0);
 
-		for ( var j in handlers ) {
-			var handler = handlers[ j ];
+			for ( var j = 0, l = handlers.length; j < l; j++ ) {
+				var handleObj = handlers[ j ];
 
-			// Filter the functions by class
-			if ( all || namespace.test(handler.type) ) {
-				// Pass in a reference to the handler function itself
-				// So that we can later remove it
-				event.handler = handler;
-				event.data = handler.data;
+				// Filter the functions by class
+				if ( all || namespace.test( handleObj.namespace ) ) {
+					// Pass in a reference to the handler function itself
+					// So that we can later remove it
+					event.handler = handleObj.handler;
+					event.data = handleObj.data;
+					event.handleObj = handleObj;
+	
+					var ret = handleObj.handler.apply( this, arguments );
 
-				var ret = handler.apply( this, arguments );
+					if ( ret !== undefined ) {
+						event.result = ret;
+						if ( ret === false ) {
+							event.preventDefault();
+							event.stopPropagation();
+						}
+					}
 
-				if ( ret !== undefined ) {
-					event.result = ret;
-					if ( ret === false ) {
-						event.preventDefault();
-						event.stopPropagation();
+					if ( event.isImmediatePropagationStopped() ) {
+						break;
 					}
 				}
-
-				if ( event.isImmediatePropagationStopped() ) {
-					break;
-				}
-
 			}
 		}
 
@@ -1973,50 +2025,53 @@ jQuery.event = {
 		},
 
 		live: {
-			add: function( proxy, data, namespaces, live ) {
-				jQuery.extend( proxy, data || {} );
+			add: function( handleObj ) {
+				jQuery.event.add( this, handleObj.origType, jQuery.extend({}, handleObj, {handler: liveHandler}) ); 
+			},
 
-				proxy.guid += data.selector + data.live; 
-				data.liveProxy = proxy;
-
-				jQuery.event.add( this, data.live, liveHandler, data ); 
+			remove: function( handleObj ) {
+				var remove = true,
+					type = handleObj.origType.replace(rnamespaces, "");
 				
-			},
-
-			remove: function( namespaces ) {
-				if ( namespaces.length ) {
-					var remove = 0, name = new RegExp("(^|\\.)" + namespaces[0] + "(\\.|$)");
-
-					jQuery.each( (jQuery.data(this, "events").live || {}), function() {
-						if ( name.test(this.type) ) {
-							remove++;
-						}
-					});
-
-					if ( remove < 1 ) {
-						jQuery.event.remove( this, namespaces[0], liveHandler );
+				jQuery.each( jQuery.data(this, "events").live || [], function() {
+					if ( type === this.origType.replace(rnamespaces, "") ) {
+						remove = false;
+						return false;
 					}
+				});
+
+				if ( remove ) {
+					jQuery.event.remove( this, handleObj.origType, liveHandler );
 				}
-			},
-			special: {}
+			}
+
 		},
+
 		beforeunload: {
-			setup: function( data, namespaces, fn ) {
+			setup: function( data, namespaces, eventHandle ) {
 				// We only want to do this special case on windows
 				if ( this.setInterval ) {
-					this.onbeforeunload = fn;
+					this.onbeforeunload = eventHandle;
 				}
 
 				return false;
 			},
-			teardown: function( namespaces, fn ) {
-				if ( this.onbeforeunload === fn ) {
+			teardown: function( namespaces, eventHandle ) {
+				if ( this.onbeforeunload === eventHandle ) {
 					this.onbeforeunload = null;
 				}
 			}
 		}
 	}
 };
+
+var removeEvent = document.removeEventListener ?
+	function( elem, type, handle ) {
+		elem.removeEventListener( type, handle, false );
+	} : 
+	function( elem, type, handle ) {
+		elem.detachEvent( "on" + type, handle );
+	};
 
 jQuery.Event = function( src ) {
 	// Allow instantiation without the 'new' keyword
@@ -2095,27 +2150,24 @@ var withinElement = function( event ) {
 	// Check if mouse(over|out) are still within the same parent element
 	var parent = event.relatedTarget;
 
-	// Traverse up the tree
-	while ( parent && parent !== this ) {
-		// Firefox sometimes assigns relatedTarget a XUL element
-		// which we cannot access the parentNode property of
-		try {
+	// Firefox sometimes assigns relatedTarget a XUL element
+	// which we cannot access the parentNode property of
+	try {
+		// Traverse up the tree
+		while ( parent && parent !== this ) {
 			parent = parent.parentNode;
-
-		// assuming we've left the element since we most likely mousedover a xul element
-		} catch(e) {
-			break;
 		}
-	}
 
-	if ( parent !== this ) {
-		// set the correct event type
-		event.type = event.data;
+		if ( parent !== this ) {
+			// set the correct event type
+			event.type = event.data;
 
-		// handle event if we actually just moused on to a non sub-element
-		jQuery.event.handle.apply( this, arguments );
-	}
+			// handle event if we actually just moused on to a non sub-element
+			jQuery.event.handle.apply( this, arguments );
+		}
 
+	// assuming we've left the element since we most likely mousedover a xul element
+	} catch(e) { }
 },
 
 // In case of event delegation, we only need to rename the event.type,
@@ -2143,64 +2195,65 @@ jQuery.each({
 // submit delegation
 if ( !jQuery.support.submitBubbles ) {
 
-jQuery.event.special.submit = {
-	setup: function( data, namespaces, fn ) {
-		if ( this.nodeName.toLowerCase() !== "form" ) {
-			jQuery.event.add(this, "click.specialSubmit." + fn.guid, function( e ) {
-				var elem = e.target, type = elem.type;
+	jQuery.event.special.submit = {
+		setup: function( data, namespaces ) {
+			if ( this.nodeName.toLowerCase() !== "form" ) {
+				jQuery.event.add(this, "click.specialSubmit", function( e ) {
+					var elem = e.target, type = elem.type;
 
-				if ( (type === "submit" || type === "image") && jQuery( elem ).closest("form").length ) {
-					return trigger( "submit", this, arguments );
-				}
-			});
+					if ( (type === "submit" || type === "image") && jQuery( elem ).closest("form").length ) {
+						return trigger( "submit", this, arguments );
+					}
+				});
 	 
-			jQuery.event.add(this, "keypress.specialSubmit." + fn.guid, function( e ) {
-				var elem = e.target, type = elem.type;
+				jQuery.event.add(this, "keypress.specialSubmit", function( e ) {
+					var elem = e.target, type = elem.type;
 
-				if ( (type === "text" || type === "password") && jQuery( elem ).closest("form").length && e.keyCode === 13 ) {
-					return trigger( "submit", this, arguments );
-				}
-			});
+					if ( (type === "text" || type === "password") && jQuery( elem ).closest("form").length && e.keyCode === 13 ) {
+						return trigger( "submit", this, arguments );
+					}
+				});
 
-		} else {
-			return false;
+			} else {
+				return false;
+			}
+		},
+
+		teardown: function( namespaces ) {
+			jQuery.event.remove( this, ".specialSubmit" );
 		}
-	},
-
-	remove: function( namespaces, fn ) {
-		jQuery.event.remove( this, "click.specialSubmit" + (fn ? "."+fn.guid : "") );
-		jQuery.event.remove( this, "keypress.specialSubmit" + (fn ? "."+fn.guid : "") );
-	}
-};
+	};
 
 }
 
 // change delegation, happens here so we have bind.
 if ( !jQuery.support.changeBubbles ) {
 
-var formElems = /textarea|input|select/i;
+	var formElems = /textarea|input|select/i,
 
-function getVal( elem ) {
-	var type = elem.type, val = elem.value;
+	changeFilters,
 
-	if ( type === "radio" || type === "checkbox" ) {
-		val = elem.checked;
+	getVal = function( elem ) {
+		var type = elem.type, val = elem.value;
 
-	} else if ( type === "select-multiple" ) {
-		val = elem.selectedIndex > -1 ?
-			jQuery.map( elem.options, function( elem ) {
-				return elem.selected;
-			}).join("-") :
-			"";
+		if ( type === "radio" || type === "checkbox" ) {
+			val = elem.checked;
 
-	} else if ( elem.nodeName.toLowerCase() === "select" ) {
-		val = elem.selectedIndex;
-	}
+		} else if ( type === "select-multiple" ) {
+			val = elem.selectedIndex > -1 ?
+				jQuery.map( elem.options, function( elem ) {
+					return elem.selected;
+				}).join("-") :
+				"";
 
-	return val;
-}
+		} else if ( elem.nodeName.toLowerCase() === "select" ) {
+			val = elem.selectedIndex;
+		}
 
-function testChange( e ) {
+		return val;
+	},
+
+	testChange = function testChange( e ) {
 		var elem = e.target, data, val;
 
 		if ( !formElems.test( elem.nodeName ) || elem.readOnly ) {
@@ -2223,61 +2276,61 @@ function testChange( e ) {
 			e.type = "change";
 			return jQuery.event.trigger( e, arguments[1], elem );
 		}
-}
+	};
 
-jQuery.event.special.change = {
-	filters: {
-		focusout: testChange, 
+	jQuery.event.special.change = {
+		filters: {
+			focusout: testChange, 
 
-		click: function( e ) {
-			var elem = e.target, type = elem.type;
+			click: function( e ) {
+				var elem = e.target, type = elem.type;
 
-			if ( type === "radio" || type === "checkbox" || elem.nodeName.toLowerCase() === "select" ) {
-				return testChange.call( this, e );
-			}
-		},
+				if ( type === "radio" || type === "checkbox" || elem.nodeName.toLowerCase() === "select" ) {
+					return testChange.call( this, e );
+				}
+			},
 
-		// Change has to be called before submit
-		// Keydown will be called before keypress, which is used in submit-event delegation
-		keydown: function( e ) {
-			var elem = e.target, type = elem.type;
+			// Change has to be called before submit
+			// Keydown will be called before keypress, which is used in submit-event delegation
+			keydown: function( e ) {
+				var elem = e.target, type = elem.type;
 
-			if ( (e.keyCode === 13 && elem.nodeName.toLowerCase() !== "textarea") ||
-				(e.keyCode === 32 && (type === "checkbox" || type === "radio")) ||
-				type === "select-multiple" ) {
-				return testChange.call( this, e );
-			}
-		},
+				if ( (e.keyCode === 13 && elem.nodeName.toLowerCase() !== "textarea") ||
+					(e.keyCode === 32 && (type === "checkbox" || type === "radio")) ||
+					type === "select-multiple" ) {
+					return testChange.call( this, e );
+				}
+			},
 
-		// Beforeactivate happens also before the previous element is blurred
-		// with this event you can't trigger a change event, but you can store
-		// information/focus[in] is not needed anymore
-		beforeactivate: function( e ) {
-			var elem = e.target;
-
-			if ( elem.nodeName.toLowerCase() === "input" && elem.type === "radio" ) {
+			// Beforeactivate happens also before the previous element is blurred
+			// with this event you can't trigger a change event, but you can store
+			// information/focus[in] is not needed anymore
+			beforeactivate: function( e ) {
+				var elem = e.target;
 				jQuery.data( elem, "_change_data", getVal(elem) );
 			}
+		},
+
+		setup: function( data, namespaces ) {
+			if ( this.type === "file" ) {
+				return false;
+			}
+
+			for ( var type in changeFilters ) {
+				jQuery.event.add( this, type + ".specialChange", changeFilters[type] );
+			}
+
+			return formElems.test( this.nodeName );
+		},
+
+		teardown: function( namespaces ) {
+			jQuery.event.remove( this, ".specialChange" );
+
+			return formElems.test( this.nodeName );
 		}
-	},
-	setup: function( data, namespaces, fn ) {
-		for ( var type in changeFilters ) {
-			jQuery.event.add( this, type + ".specialChange." + fn.guid, changeFilters[type] );
-		}
+	};
 
-		return formElems.test( this.nodeName );
-	},
-	remove: function( namespaces, fn ) {
-		for ( var type in changeFilters ) {
-			jQuery.event.remove( this, type + ".specialChange" + (fn ? "."+fn.guid : ""), changeFilters[type] );
-		}
-
-		return formElems.test( this.nodeName );
-	}
-};
-
-var changeFilters = jQuery.event.special.change.filters;
-
+	changeFilters = jQuery.event.special.change.filters;
 }
 
 function trigger( type, elem, args ) {
@@ -2325,11 +2378,16 @@ jQuery.each(["bind", "one"], function( i, name ) {
 			return fn.apply( this, arguments );
 		}) : fn;
 
-		return type === "unload" && name !== "one" ?
-			this.one( type, data, fn ) :
-			this.each(function() {
-				jQuery.event.add( this, type, handler, data );
-			});
+		if ( type === "unload" && name !== "one" ) {
+			this.one( type, data, fn );
+
+		} else {
+			for ( var i = 0, l = this.length; i < l; i++ ) {
+				jQuery.event.add( this[i], type, handler, data );
+			}
+		}
+
+		return this;
 	};
 });
 
@@ -2340,13 +2398,29 @@ jQuery.fn.extend({
 			for ( var key in type ) {
 				this.unbind(key, type[key]);
 			}
-			return this;
+
+		} else {
+			for ( var i = 0, l = this.length; i < l; i++ ) {
+				jQuery.event.remove( this[i], type, fn );
+			}
 		}
 
-		return this.each(function() {
-			jQuery.event.remove( this, type, fn );
-		});
+		return this;
 	},
+	
+	delegate: function( selector, types, data, fn ) {
+		return this.live( types, data, fn, selector );
+	},
+	
+	undelegate: function( selector, types, fn ) {
+		if ( arguments.length === 0 ) {
+				return this.unbind( "live" );
+		
+		} else {
+			return this.die( types, null, fn, selector );
+		}
+	},
+	
 	trigger: function( type, data ) {
 		return this.each(function() {
 			jQuery.event.trigger( type, data, this );
@@ -2390,32 +2464,60 @@ jQuery.fn.extend({
 	}
 });
 
+var liveMap = {
+	focus: "focusin",
+	blur: "focusout",
+	mouseenter: "mouseover",
+	mouseleave: "mouseout"
+};
+
 jQuery.each(["live", "die"], function( i, name ) {
-	jQuery.fn[ name ] = function( types, data, fn ) {
-		var type, i = 0;
+	jQuery.fn[ name ] = function( types, data, fn, origSelector /* Internal Use Only */ ) {
+		var type, i = 0, match, namespaces, preType,
+			selector = origSelector || this.selector,
+			context = origSelector ? this : jQuery( this.context );
 
 		if ( jQuery.isFunction( data ) ) {
 			fn = data;
 			data = undefined;
 		}
 
-		types = (types || "").split( /\s+/ );
+		types = (types || "").split(" ");
 
 		while ( (type = types[ i++ ]) != null ) {
-			type = type === "focus" ? "focusin" : // focus --> focusin
-					type === "blur" ? "focusout" : // blur --> focusout
-					type === "hover" ? types.push("mouseleave") && "mouseenter" : // hover support
-					type;
-			
+			match = rnamespaces.exec( type );
+			namespaces = "";
+
+			if ( match )  {
+				namespaces = match[0];
+				type = type.replace( rnamespaces, "" );
+			}
+
+			if ( type === "hover" ) {
+				types.push( "mouseenter" + namespaces, "mouseleave" + namespaces );
+				continue;
+			}
+
+			preType = type;
+
+			if ( type === "focus" || type === "blur" ) {
+				types.push( liveMap[ type ] + namespaces );
+				type = type + namespaces;
+
+			} else {
+				type = (liveMap[ type ] || type) + namespaces;
+			}
+
 			if ( name === "live" ) {
 				// bind live handler
-				jQuery( this.context ).bind( liveConvert( type, this.selector ), {
-					data: data, selector: this.selector, live: type
-				}, fn );
+				context.each(function(){
+					jQuery.event.add( this, liveConvert( type, selector ),
+						{ data: data, selector: selector, handler: fn, origType: type, origHandler: fn, preType: preType } );
+				});
 
 			} else {
 				// unbind live handler
-				jQuery( this.context ).unbind( liveConvert( type, this.selector ), fn ? { guid: fn.guid + this.selector + type } : null );
+				context.unbind( liveConvert( type, selector ), fn );
 			}
 		}
 		
@@ -2425,45 +2527,46 @@ jQuery.each(["live", "die"], function( i, name ) {
 
 function liveHandler( event ) {
 	var stop, elems = [], selectors = [], args = arguments,
-		related, match, fn, elem, j, i, l, data,
-		live = jQuery.extend({}, jQuery.data( this, "events" ).live);
+		related, match, handleObj, elem, j, i, l, data,
+		events = jQuery.data( this, "events" );
 
 	// Make sure we avoid non-left-click bubbling in Firefox (#3861)
-	if ( event.button && event.type === "click" ) {
+	if ( event.liveFired === this || !events || !events.live || event.button && event.type === "click" ) {
 		return;
 	}
 
-	for ( j in live ) {
-		fn = live[j];
-		if ( fn.live === event.type ||
-				fn.altLive && jQuery.inArray(event.type, fn.altLive) > -1 ) {
+	event.liveFired = this;
 
-			data = fn.data;
-			if ( !(data.beforeFilter && data.beforeFilter[event.type] && 
-					!data.beforeFilter[event.type](event)) ) {
-				selectors.push( fn.selector );
-			}
+	var live = events.live.slice(0);
+
+	for ( j = 0; j < live.length; j++ ) {
+		handleObj = live[j];
+
+		if ( handleObj.origType.replace( rnamespaces, "" ) === event.type ) {
+			selectors.push( handleObj.selector );
+
 		} else {
-			delete live[j];
+			live.splice( j--, 1 );
 		}
 	}
 
 	match = jQuery( event.target ).closest( selectors, event.currentTarget );
 
 	for ( i = 0, l = match.length; i < l; i++ ) {
-		for ( j in live ) {
-			fn = live[j];
-			elem = match[i].elem;
-			related = null;
+		for ( j = 0; j < live.length; j++ ) {
+			handleObj = live[j];
 
-			if ( match[i].selector === fn.selector ) {
+			if ( match[i].selector === handleObj.selector ) {
+				elem = match[i].elem;
+				related = null;
+
 				// Those two events require additional checking
-				if ( fn.live === "mouseenter" || fn.live === "mouseleave" ) {
-					related = jQuery( event.relatedTarget ).closest( fn.selector )[0];
+				if ( handleObj.preType === "mouseenter" || handleObj.preType === "mouseleave" ) {
+					related = jQuery( event.relatedTarget ).closest( handleObj.selector )[0];
 				}
 
 				if ( !related || related !== elem ) {
-					elems.push({ elem: elem, fn: fn });
+					elems.push({ elem: elem, handleObj: handleObj });
 				}
 			}
 		}
@@ -2472,8 +2575,10 @@ function liveHandler( event ) {
 	for ( i = 0, l = elems.length; i < l; i++ ) {
 		match = elems[i];
 		event.currentTarget = match.elem;
-		event.data = match.fn.data;
-		if ( match.fn.apply( match.elem, args ) === false ) {
+		event.data = match.handleObj.data;
+		event.handleObj = match.handleObj;
+
+		if ( match.handleObj.origHandler.apply( match.elem, args ) === false ) {
 			stop = false;
 			break;
 		}
@@ -2483,7 +2588,7 @@ function liveHandler( event ) {
 }
 
 function liveConvert( type, selector ) {
-	return "live." + (type ? type + "." : "") + selector.replace(/\./g, "`").replace(/ /g, "&");
+	return "live." + (type && type !== "*" ? type + "." : "") + selector.replace(/\./g, "`").replace(/ /g, "&");
 }
 
 jQuery.each( ("blur focus focusin focusout load resize scroll unload click dblclick " +
@@ -3228,8 +3333,10 @@ var makeArray = function(array, results) {
 
 // Perform a simple check to determine if the browser is capable of
 // converting a NodeList to an array using builtin methods.
+// Also verifies that the returned array holds DOM nodes
+// (which is not the case in the Blackberry browser)
 try {
-	Array.prototype.slice.call( document.documentElement.childNodes, 0 );
+	Array.prototype.slice.call( document.documentElement.childNodes, 0 )[0].nodeType;
 
 // Provide a fallback method if it does not work
 } catch(e){
@@ -3533,7 +3640,7 @@ function dirCheck( dir, cur, doneName, checkSet, nodeCheck, isXML ) {
 }
 
 var contains = document.compareDocumentPosition ? function(a, b){
-	return a.compareDocumentPosition(b) & 16;
+	return !!(a.compareDocumentPosition(b) & 16);
 } : function(a, b){
 	return a !== b && (a.contains ? a.contains(b) : true);
 };
@@ -3570,7 +3677,7 @@ jQuery.find = Sizzle;
 jQuery.expr = Sizzle.selectors;
 jQuery.expr[":"] = jQuery.expr.filters;
 jQuery.unique = Sizzle.uniqueSort;
-jQuery.getText = getText;
+jQuery.text = getText;
 jQuery.isXMLDoc = isXML;
 jQuery.contains = contains;
 
@@ -3856,7 +3963,8 @@ var rinlinejQuery = / jQuery\d+="(?:\d+|null)"/g,
 	rselfClosing = /^(?:area|br|col|embed|hr|img|input|link|meta|param)$/i,
 	rtagName = /<([\w:]+)/,
 	rtbody = /<tbody/i,
-	rhtml = /<|&\w+;/,
+	rhtml = /<|&#?\w+;/,
+	rnocache = /<script|<object|<embed|<option|<style/i,
 	rchecked = /checked\s*(?:[^=]|=\s*.checked.)/i,  // checked="checked" or checked (html5)
 	fcloseTag = function( all, front, tag ) {
 		return rselfClosing.test( tag ) ?
@@ -3896,7 +4004,7 @@ jQuery.fn.extend({
 			return this.empty().append( (this[0] && this[0].ownerDocument || document).createTextNode( text ) );
 		}
 
-		return jQuery.getText( this );
+		return jQuery.text( this );
 	},
 
 	wrapAll: function( html ) {
@@ -4000,6 +4108,40 @@ jQuery.fn.extend({
 			return set;
 		}
 	},
+	
+	// keepData is for internal use only--do not document
+	remove: function( selector, keepData ) {
+		for ( var i = 0, elem; (elem = this[i]) != null; i++ ) {
+			if ( !selector || jQuery.filter( selector, [ elem ] ).length ) {
+				if ( !keepData && elem.nodeType === 1 ) {
+					jQuery.cleanData( elem.getElementsByTagName("*") );
+					jQuery.cleanData( [ elem ] );
+				}
+
+				if ( elem.parentNode ) {
+					 elem.parentNode.removeChild( elem );
+				}
+			}
+		}
+		
+		return this;
+	},
+
+	empty: function() {
+		for ( var i = 0, elem; (elem = this[i]) != null; i++ ) {
+			// Remove element nodes and prevent memory leaks
+			if ( elem.nodeType === 1 ) {
+				jQuery.cleanData( elem.getElementsByTagName("*") );
+			}
+
+			// Remove any remaining nodes
+			while ( elem.firstChild ) {
+				elem.removeChild( elem.firstChild );
+			}
+		}
+		
+		return this;
+	},
 
 	clone: function( events ) {
 		// Do the clone
@@ -4021,6 +4163,8 @@ jQuery.fn.extend({
 				}
 
 				return jQuery.clean([html.replace(rinlinejQuery, "")
+					// Handle the case in IE 8 where action=/test/> self-closes a tag
+					.replace(/=([^="'>\s]+\/)>/g, '="$1">')
 					.replace(rleadingWhitespace, "")], ownerDocument)[0];
 			} else {
 				return this.cloneNode(true);
@@ -4044,7 +4188,7 @@ jQuery.fn.extend({
 				null;
 
 		// See if we can take a shortcut and just use innerHTML
-		} else if ( typeof value === "string" && !/<script/i.test( value ) &&
+		} else if ( typeof value === "string" && !rnocache.test( value ) &&
 			(jQuery.support.leadingWhitespace || !rleadingWhitespace.test( value )) &&
 			!wrapMap[ (rtagName.exec( value ) || ["", ""])[1].toLowerCase() ] ) {
 
@@ -4083,14 +4227,15 @@ jQuery.fn.extend({
 		if ( this[0] && this[0].parentNode ) {
 			// Make sure that the elements are removed from the DOM before they are inserted
 			// this can help fix replacing a parent with child elements
-			if ( !jQuery.isFunction( value ) ) {
-				value = jQuery( value ).detach();
-
-			} else {
+			if ( jQuery.isFunction( value ) ) {
 				return this.each(function(i) {
 					var self = jQuery(this), old = self.html();
 					self.replaceWith( value.call( this, i, old ) );
 				});
+			}
+
+			if ( typeof value !== "string" ) {
+				value = jQuery(value).detach();
 			}
 
 			return this.each(function() {
@@ -4114,7 +4259,7 @@ jQuery.fn.extend({
 	},
 
 	domManip: function( args, table, callback ) {
-		var results, first, value = args[0], scripts = [];
+		var results, first, value = args[0], scripts = [], fragment, parent;
 
 		// We can't cloneNode fragments that contain checked, in WebKit
 		if ( !jQuery.support.checkClone && arguments.length === 3 && typeof value === "string" && rchecked.test( value ) ) {
@@ -4132,14 +4277,23 @@ jQuery.fn.extend({
 		}
 
 		if ( this[0] ) {
+			parent = value && value.parentNode;
+
 			// If we're in a fragment, just use that instead of building a new one
-			if ( args[0] && args[0].parentNode && args[0].parentNode.nodeType === 11 ) {
-				results = { fragment: args[0].parentNode };
+			if ( jQuery.support.parentNode && parent && parent.nodeType === 11 && parent.childNodes.length === this.length ) {
+				results = { fragment: parent };
+
 			} else {
 				results = buildFragment( args, this, scripts );
 			}
-
-			first = results.fragment.firstChild;
+			
+			fragment = results.fragment;
+			
+			if ( fragment.childNodes.length === 1 ) {
+				first = fragment = fragment.firstChild;
+			} else {
+				first = fragment.firstChild;
+			}
 
 			if ( first ) {
 				table = table && jQuery.nodeName( first, "tr" );
@@ -4149,14 +4303,14 @@ jQuery.fn.extend({
 						table ?
 							root(this[i], first) :
 							this[i],
-						results.cacheable || this.length > 1 || i > 0 ?
-							results.fragment.cloneNode(true) :
-							results.fragment
+						i > 0 || results.cacheable || this.length > 1  ?
+							fragment.cloneNode(true) :
+							fragment
 					);
 				}
 			}
 
-			if ( scripts ) {
+			if ( scripts.length ) {
 				jQuery.each( scripts, evalScript );
 			}
 		}
@@ -4196,10 +4350,16 @@ function cloneCopyEvent(orig, ret) {
 }
 
 function buildFragment( args, nodes, scripts ) {
-	var fragment, cacheable, cacheresults, doc;
+	var fragment, cacheable, cacheresults,
+		doc = (nodes && nodes[0] ? nodes[0].ownerDocument || nodes[0] : document);
 
-	// webkit does not clone 'checked' attribute of radio inputs on cloneNode, so don't cache if string has a checked
-	if ( args.length === 1 && typeof args[0] === "string" && args[0].length < 512 && args[0].indexOf("<option") < 0 && (jQuery.support.checkClone || !rchecked.test( args[0] )) ) {
+	// Only cache "small" (1/2 KB) strings that are associated with the main document
+	// Cloning options loses the selected state, so don't cache them
+	// IE 6 doesn't like it when you put <object> or <embed> elements in a fragment
+	// Also, WebKit does not clone 'checked' attributes on cloneNode, so don't cache
+	if ( args.length === 1 && typeof args[0] === "string" && args[0].length < 512 && doc === document &&
+		!rnocache.test( args[0] ) && (jQuery.support.checkClone || !rchecked.test( args[0] )) ) {
+
 		cacheable = true;
 		cacheresults = jQuery.fragments[ args[0] ];
 		if ( cacheresults ) {
@@ -4210,7 +4370,6 @@ function buildFragment( args, nodes, scripts ) {
 	}
 
 	if ( !fragment ) {
-		doc = (nodes && nodes[0] ? nodes[0].ownerDocument || nodes[0] : document);
 		fragment = doc.createDocumentFragment();
 		jQuery.clean( args, doc, fragment, scripts );
 	}
@@ -4232,46 +4391,22 @@ jQuery.each({
 	replaceAll: "replaceWith"
 }, function( name, original ) {
 	jQuery.fn[ name ] = function( selector ) {
-		var ret = [], insert = jQuery( selector );
-
-		for ( var i = 0, l = insert.length; i < l; i++ ) {
-			var elems = (i > 0 ? this.clone(true) : this).get();
-			jQuery.fn[ original ].apply( jQuery(insert[i]), elems );
-			ret = ret.concat( elems );
-		}
-		return this.pushStack( ret, name, insert.selector );
-	};
-});
-
-jQuery.each({
-	// keepData is for internal use only--do not document
-	remove: function( selector, keepData ) {
-		if ( !selector || jQuery.filter( selector, [ this ] ).length ) {
-			if ( !keepData && this.nodeType === 1 ) {
-				jQuery.cleanData( this.getElementsByTagName("*") );
-				jQuery.cleanData( [ this ] );
+		var ret = [], insert = jQuery( selector ),
+			parent = this.length === 1 && this[0].parentNode;
+		
+		if ( parent && parent.nodeType === 11 && parent.childNodes.length === 1 && insert.length === 1 ) {
+			insert[ original ]( this[0] );
+			return this;
+			
+		} else {
+			for ( var i = 0, l = insert.length; i < l; i++ ) {
+				var elems = (i > 0 ? this.clone(true) : this).get();
+				jQuery.fn[ original ].apply( jQuery(insert[i]), elems );
+				ret = ret.concat( elems );
 			}
-
-			if ( this.parentNode ) {
-				 this.parentNode.removeChild( this );
-			}
+		
+			return this.pushStack( ret, name, insert.selector );
 		}
-	},
-
-	empty: function() {
-		// Remove element nodes and prevent memory leaks
-		if ( this.nodeType === 1 ) {
-			jQuery.cleanData( this.getElementsByTagName("*") );
-		}
-
-		// Remove any remaining nodes
-		while ( this.firstChild ) {
-			this.removeChild( this.firstChild );
-		}
-	}
-}, function( name, fn ) {
-	jQuery.fn[ name ] = function() {
-		return this.each( fn, arguments );
 	};
 });
 
@@ -4286,13 +4421,13 @@ jQuery.extend({
 
 		var ret = [];
 
-		jQuery.each(elems, function( i, elem ) {
+		for ( var i = 0, elem; (elem = elems[i]) != null; i++ ) {
 			if ( typeof elem === "number" ) {
 				elem += "";
 			}
 
 			if ( !elem ) {
-				return;
+				continue;
 			}
 
 			// Convert html string into DOM nodes
@@ -4343,7 +4478,7 @@ jQuery.extend({
 					div.insertBefore( context.createTextNode( rleadingWhitespace.exec(elem)[0] ), div.firstChild );
 				}
 
-				elem = jQuery.makeArray( div.childNodes );
+				elem = div.childNodes;
 			}
 
 			if ( elem.nodeType ) {
@@ -4351,13 +4486,13 @@ jQuery.extend({
 			} else {
 				ret = jQuery.merge( ret, elem );
 			}
-
-		});
+		}
 
 		if ( fragment ) {
 			for ( var i = 0; ret[i]; i++ ) {
 				if ( scripts && jQuery.nodeName( ret[i], "script" ) && (!ret[i].type || ret[i].type.toLowerCase() === "text/javascript") ) {
 					scripts.push( ret[i].parentNode ? ret[i].parentNode.removeChild( ret[i] ) : ret[i] );
+				
 				} else {
 					if ( ret[i].nodeType === 1 ) {
 						ret.splice.apply( ret, [i + 1, 0].concat(jQuery.makeArray(ret[i].getElementsByTagName("script"))) );
@@ -4371,9 +4506,36 @@ jQuery.extend({
 	},
 	
 	cleanData: function( elems ) {
-		for ( var i = 0, elem, id; (elem = elems[i]) != null; i++ ) {
-			jQuery.event.remove( elem );
-			jQuery.removeData( elem );
+		var data, id, cache = jQuery.cache,
+			special = jQuery.event.special,
+			deleteExpando = jQuery.support.deleteExpando;
+		
+		for ( var i = 0, elem; (elem = elems[i]) != null; i++ ) {
+			id = elem[ jQuery.expando ];
+			
+			if ( id ) {
+				data = cache[ id ];
+				
+				if ( data.events ) {
+					for ( var type in data.events ) {
+						if ( special[ type ] ) {
+							jQuery.event.remove( elem, type );
+
+						} else {
+							removeEvent( elem, type, data.handle );
+						}
+					}
+				}
+				
+				if ( deleteExpando ) {
+					delete elem[ jQuery.expando ];
+
+				} else if ( elem.removeAttribute ) {
+					elem.removeAttribute( jQuery.expando );
+				}
+				
+				delete cache[ id ];
+			}
 		}
 	}
 });
@@ -4614,15 +4776,15 @@ var jsc = now(),
 	rquery = /\?/,
 	rts = /(\?|&)_=.*?(&|$)/,
 	rurl = /^(\w+:)?\/\/([^\/?#]+)/,
-	r20 = /%20/g;
+	r20 = /%20/g,
+
+	// Keep a copy of the old load method
+	_load = jQuery.fn.load;
 
 jQuery.fn.extend({
-	// Keep a copy of the old load
-	_load: jQuery.fn.load,
-
 	load: function( url, params, callback ) {
 		if ( typeof url !== "string" ) {
-			return this._load( url );
+			return _load.call( this, url );
 
 		// Don't do a request if no elements are being requested
 		} else if ( !this.length ) {
@@ -5243,7 +5405,7 @@ jQuery.extend({
 			if ( jQuery.isArray(obj) ) {
 				// Serialize array item.
 				jQuery.each( obj, function( i, v ) {
-					if ( traditional ) {
+					if ( traditional || /\[\]$/.test( prefix ) ) {
 						// Treat each array item as a scalar.
 						add( prefix, v );
 					} else {
@@ -6194,9 +6356,11 @@ var WDN = function() {
 		 * To see, open firebug's console.
 		 */
 		log: function(data) {
-			try {
-				console.log(data);
-			} catch(e) {}
+			if ("console" in window && "log" in console) {
+				if (typeof console.log === "function") {
+					console.log(data);
+				}
+			}
 		},
 		
 		browserAdjustments : function() {
@@ -6241,6 +6405,8 @@ var WDN = function() {
 		},
 		
 		initializePlugin:function (plugin, callback) {
+			callback = callback || WDN[plugin]["initialize"] ? WDN[plugin].initialize : null;
+			/*
 			callback = callback || function() {
 				try {
 					WDN[plugin].initialize();
@@ -6248,6 +6414,7 @@ var WDN = function() {
 					WDN.log('Could not initialize '+plugin);
 				}
 			};
+			*/
 			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', callback);
 		},
 		
@@ -6861,7 +7028,7 @@ WDN.navigation = function() {
          * Expand the navigation section.
          */
         expand : function() {
-            WDN.log('expand called');
+            //WDN.log('expand called');
             if (WDN.jQuery.browser.msie) {
                 WDN.jQuery('#navigation-close').show();
             } else {
@@ -6888,7 +7055,7 @@ WDN.navigation = function() {
          * Collapse the navigation
          */
         collapse : function(animate) {
-            WDN.log('collapse called');
+            //WDN.log('collapse called');
             if (WDN.navigation.currentState === 0) {
                 return;
             }
@@ -6905,7 +7072,7 @@ WDN.navigation = function() {
          * Set a delay for expanding the navigation.
          */
         startExpandDelay : function (event) {
-            WDN.log('start expand delay');
+            //WDN.log('start expand delay');
             clearTimeout(WDN.navigation.timeout);
             if (WDN.navigation.currentState == 1) {
                 return;
@@ -6917,7 +7084,7 @@ WDN.navigation = function() {
          * Set a delay for collapsing the navigation.
          */
         startCollapseDelay: function(event) {
-            WDN.log('start collapse delay');
+            //WDN.log('start collapse delay');
             clearTimeout(WDN.navigation.timeout);
             if (WDN.navigation.currentState === 0) {
                 return;
@@ -7037,7 +7204,7 @@ WDN.navigation = function() {
         },
         
         setWrapperClass : function(css_class) {
-            WDN.log('Adding class '+css_class);
+            //WDN.log('Adding class '+css_class);
             if (css_class=='collapsed') {
                 WDN.jQuery('#wdn_wrapper').removeClass('nav_pinned');
                 WDN.jQuery('#wdn_wrapper').removeClass('nav_expanded');
@@ -7238,10 +7405,10 @@ WDN.tooltip = function($) {
 
 					content: $(this).attr('title'),
 					show: {
-						effect: { type: 'fade', length: 0 }
+						effect: { length: 0 }
 					},
 					hide: {
-						effect: { type: 'fade', length: 0 }
+						effect: { length: 0 }
 					},
 					style: {
 						width: 200,
@@ -7256,8 +7423,7 @@ WDN.tooltip = function($) {
 							radius: 5,
 							color: '#f8e98e'
 						},
-						tip: 'bottomLeft',
-						name: 'cream'
+						tip: 'bottomLeft'
 					},
 					position: { 
 						adjust: { screen: true },
@@ -7987,6 +8153,7 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/rating/jquery.rating.js"]=true;
 
 
 WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=true;
+/* UNL: modified by mjuhl */
 /*!
  * jquery.qtip. The jQuery tooltip plugin
  *
@@ -8011,17 +8178,15 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
       // Return API / Interfaces if requested
       if(typeof options == 'string')
       {
-         // Make sure API data exists if requested
-         if(typeof $(this).data('qtip') !== 'object')
-            $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.NO_TOOLTIP_PRESENT, false);
-
          // Return requested object
-         if(options == 'api')
+         if(options == 'api'){
             return $(this).data('qtip').interfaces[ $(this).data('qtip').current ];
-         else if(options == 'interfaces')
+         }
+         else if  (options == 'interfaces') {
             return $(this).data('qtip').interfaces;
+         }
       }
-
+      
       // Validate provided options
       else
       {
@@ -8048,53 +8213,11 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
          // Inherit all style properties into one syle object and include original options
          opts.style = buildStyle.call({ options: opts }, opts.style);
          opts.user = $.extend(true, {}, options);
-      };
+      }
 
       // Iterate each matched element
       return $(this).each(function() // Return original elements as per jQuery guidelines
       {
-         // Check for API commands
-         if(typeof options == 'string')
-         {
-            command = options.toLowerCase();
-            interfaces = $(this).qtip('interfaces');
-
-            // Make sure API data exists$('.qtip').qtip('destroy')
-            if(typeof interfaces == 'object')
-            {
-               // Check if API call is a BLANKET DESTROY command
-               if(blanket === true && command == 'destroy')
-                  while(interfaces.length > 0) interfaces[interfaces.length-1].destroy();
-
-               // API call is not a BLANKET DESTROY command
-               else
-               {
-                  // Check if supplied command effects this tooltip only (NOT BLANKET)
-                  if(blanket !== true) interfaces = [ $(this).qtip('api') ];
-
-                  // Execute command on chosen qTips
-                  for(i = 0; i < interfaces.length; i++)
-                  {
-                     // Destroy command doesn't require tooltip to be rendered
-                     if(command == 'destroy') interfaces[i].destroy();
-
-                     // Only call API if tooltip is rendered and it wasn't a destroy call
-                     else if(interfaces[i].status.rendered === true)
-                     {
-                        if(command == 'show') interfaces[i].show();
-                        else if(command == 'hide') interfaces[i].hide();
-                        else if(command == 'focus') interfaces[i].focus();
-                        else if(command == 'disable') interfaces[i].disable(true);
-                        else if(command == 'enable') interfaces[i].disable(false);
-                     };
-                  };
-               };
-            };
-         }
-
-         // No API commands, continue with qTip creation
-         else
-         {
             // Create unique configuration object
             config = $.extend(true, {}, opts);
             config.hide.effect.length = opts.hide.effect.length;
@@ -8110,8 +8233,8 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
             id = $.fn.qtip.interfaces.length;
             for(i = 0; i < id; i++)
             {
-               if(typeof $.fn.qtip.interfaces[i] == 'undefined'){ id = i; break; };
-            };
+               if(typeof $.fn.qtip.interfaces[i] == 'undefined'){ id = i; break; }
+            }
 
             // Instantiate the tooltip
             obj = new qTip($(this), config, id);
@@ -8133,37 +8256,20 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
             // No qTip data is present, create now
             else $(this).data('qtip', { current: 0, interfaces: [obj] });
 
-            // If prerendering is disabled, create tooltip on showEvent
-            if(config.content.prerender === false && config.show.when.event !== false && config.show.ready !== true)
-            {
-               config.show.when.target.bind(config.show.when.event+'.qtip-'+id+'-create', { qtip: id }, function(event)
-               {
-                  // Retrieve API interface via passed qTip Id
-                  api = $.fn.qtip.interfaces[ event.data.qtip ];
+            
+		   config.show.when.target.bind(config.show.when.event+'.qtip-'+id+'-create', { qtip: id }, function(event)
+		   {
+			  // Retrieve API interface via passed qTip Id
+			  api = $.fn.qtip.interfaces[ event.data.qtip ];
 
-                  // Unbind show event and cache mouse coords
-                  api.options.show.when.target.unbind(api.options.show.when.event+'.qtip-'+event.data.qtip+'-create');
-                  api.cache.mouse = { x: event.pageX, y: event.pageY };
+			  // Unbind show event and cache mouse coords
+			  api.options.show.when.target.unbind(api.options.show.when.event+'.qtip-'+event.data.qtip+'-create');
+			  api.cache.mouse = { x: event.pageX, y: event.pageY };
 
-                  // Render tooltip and start the event sequence
-                  construct.call( api );
-                  api.options.show.when.target.trigger(api.options.show.when.event);
-               });
-            }
-
-            // Prerendering is enabled, create tooltip now
-            else
-            {
-               // Set mouse position cache to top left of the element
-               obj.cache.mouse = {
-                  x: config.show.when.target.offset().left,
-                  y: config.show.when.target.offset().top
-               };
-
-               // Construct the tooltip
-               construct.call(obj);
-            }
-         };
+			  // Render tooltip and start the event sequence
+			  construct.call( api );
+			  api.options.show.when.target.trigger(api.options.show.when.event);
+		   });
       });
    };
 
@@ -8209,8 +8315,8 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
 
             // Make sure tooltip is rendered and if not, return
             if(!self.status.rendered)
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.TOOLTIP_NOT_RENDERED, 'show');
-
+               return self;
+               
             // Only continue if element is visible
             if(self.elements.tooltip.css('display') !== 'none') return self;
 
@@ -8243,41 +8349,15 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
             if(typeof self.options.show.solo == 'object') solo = $(self.options.show.solo);
             else if(self.options.show.solo === true) solo = $('div.qtip').not(self.elements.tooltip);
             if(solo) solo.each(function(){ if($(this).qtip('api').status.rendered === true) $(this).qtip('api').hide(); });
-
+            
             // Show tooltip
-            if(typeof self.options.show.effect.type == 'function')
-            {
-               self.options.show.effect.type.call(self.elements.tooltip, self.options.show.effect.length);
-               self.elements.tooltip.queue(function(){ afterShow(); $(this).dequeue(); });
-            }
-            else
-            {
-               switch(self.options.show.effect.type.toLowerCase())
-               {
-                  case 'fade':
-                     self.elements.tooltip.fadeIn(self.options.show.effect.length, afterShow);
-                     break;
-                  case 'slide':
-                     self.elements.tooltip.slideDown(self.options.show.effect.length, function()
-                     {
-                        afterShow();
-                        if(self.options.position.type !== 'static') self.updatePosition(event, true);
-                     });
-                     break;
-                  case 'grow':
-                     self.elements.tooltip.show(self.options.show.effect.length, afterShow);
-                     break;
-                  default:
-                     self.elements.tooltip.show(null, afterShow);
-                     break;
-               };
-
-               // Add active class to tooltip
-               self.elements.tooltip.addClass(self.options.style.classes.active);
-            };
-
+            
+            self.elements.tooltip.fadeIn(self.options.show.effect.length, afterShow);
+            // Add active class to tooltip
+            self.elements.tooltip.addClass(self.options.style.classes.active);
+            
             // Log event and return
-            return $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.EVENT_SHOWN, 'show');
+            return self;
          },
 
          hide: function(event)
@@ -8286,7 +8366,7 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
 
             // Make sure tooltip is rendered and if not, return
             if(!self.status.rendered)
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.TOOLTIP_NOT_RENDERED, 'hide');
+               return self;
 
             // Only continue if element is visible
             else if(self.elements.tooltip.css('display') === 'none') return self;
@@ -8300,41 +8380,18 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
             if(returned === false) return self;
 
             // Define afterHide callback method
-            function afterHide(){ self.onHide.call(self, event); };
+            function afterHide(){ self.onHide.call(self, event); }
 
             // Maintain toggle functionality if enabled
             self.cache.toggle = 0;
 
             // Hide tooltip
-            if(typeof self.options.hide.effect.type == 'function')
-            {
-               self.options.hide.effect.type.call(self.elements.tooltip, self.options.hide.effect.length);
-               self.elements.tooltip.queue(function(){ afterHide(); $(this).dequeue(); });
-            }
-            else
-            {
-               switch(self.options.hide.effect.type.toLowerCase())
-               {
-                  case 'fade':
-                     self.elements.tooltip.fadeOut(self.options.hide.effect.length, afterHide);
-                     break;
-                  case 'slide':
-                     self.elements.tooltip.slideUp(self.options.hide.effect.length, afterHide);
-                     break;
-                  case 'grow':
-                     self.elements.tooltip.hide(self.options.hide.effect.length, afterHide);
-                     break;
-                  default:
-                     self.elements.tooltip.hide(null, afterHide);
-                     break;
-               };
-
-               // Remove active class to tooltip
-               self.elements.tooltip.removeClass(self.options.style.classes.active);
-            };
-
+            self.elements.tooltip.fadeOut(self.options.hide.effect.length, afterHide);
+            // Remove active class to tooltip
+            self.elements.tooltip.removeClass(self.options.style.classes.active);
+            
             // Log event and return
-            return $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.EVENT_HIDDEN, 'hide');
+            return self;
          },
 
          updatePosition: function(event, animate)
@@ -8343,11 +8400,11 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
 
             // Make sure tooltip is rendered and if not, return
             if(!self.status.rendered)
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.TOOLTIP_NOT_RENDERED, 'updatePosition');
+               return self;
 
             // If tooltip is static, return
             else if(self.options.position.type == 'static')
-               return $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.CANNOT_POSITION_STATIC, 'updatePosition');
+               return self;
 
             // Define property objects
             target = {
@@ -8404,7 +8461,7 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
 
                         for(i = 0; i < coords.length; i++)
                         {
-                           if(i % 2 == 0)
+                           if(i % 2 === 0)
                            {
                               if(coords[i] > target.dimensions.width)
                                  target.dimensions.width = coords[i];
@@ -8417,17 +8474,16 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
                                  target.dimensions.height = coords[i];
                               if(coords[i] < coords[1])
                                  target.position.top = Math.floor(imagePos.top + coords[i]);
-                           };
-                        };
+                           }
+                        }
 
                         target.dimensions.width = target.dimensions.width - (target.position.left - imagePos.left);
                         target.dimensions.height = target.dimensions.height - (target.position.top - imagePos.top);
                         break;
 
                      default:
-                        return $.fn.qtip.log.error.call(self, 4, $.fn.qtip.constants.INVALID_AREA_SHAPE, 'updatePosition');
-                        break;
-                  };
+                        return self;
+                  }
 
                   // Adjust position by 2 pixels (Positioning bug?)
                   target.dimensions.width -= 2; target.dimensions.height -= 2;
@@ -8454,7 +8510,7 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
                      height: self.options.position.target.outerHeight(),
                      width: self.options.position.target.outerWidth()
                   };
-               };
+               }
 
                // Calculate correct target corner position
                newPosition = $.extend({}, target.position);
@@ -8477,7 +8533,7 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
                // Setup target position and dimensions objects
                target.position = newPosition = { left: self.cache.mouse.x, top: self.cache.mouse.y };
                target.dimensions = { height: 1, width: 1 };
-            };
+            }
 
             // Calculate correct target corner position
             if(tooltip.corner.search(/right/i) !== -1)
@@ -8542,22 +8598,7 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
                newPosition.left += (mouseAdjust.search(/right/i) !== -1) ? -6 : 6;
                newPosition.top += (mouseAdjust.search(/bottom/i) !== -1) ? -6 : 6;
             }
-
-            // Initiate bgiframe plugin in IE6 if tooltip overlaps a select box or object element
-            if(!self.elements.bgiframe && $.browser.msie && parseInt($.browser.version.charAt(0)) == 6)
-            {
-               $('select, object').each(function()
-               {
-                  offset = $(this).offset();
-                  offset.bottom = offset.top + $(this).height();
-                  offset.right = offset.left + $(this).width();
-
-                  if(newPosition.top + tooltip.dimensions.height >= offset.top
-                  && newPosition.left + tooltip.dimensions.width >= offset.left)
-                     bgiframe.call(self);
-               });
-            };
-
+            
             // Add user xy adjustments
             newPosition.left += self.options.position.adjust.x;
             newPosition.top += self.options.position.adjust.y;
@@ -8588,8 +8629,6 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
 
                // Call API method and log event if its not a mouse move
                self.onPositionUpdate.call(self, event);
-               if(typeof event !== 'undefined' && event.type && event.type !== 'mousemove')
-                  $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.EVENT_POSITION_UPDATED, 'updatePosition');
             };
 
             return self;
@@ -8601,11 +8640,11 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
 
             // Make sure tooltip is rendered and if not, return
             if(!self.status.rendered)
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.TOOLTIP_NOT_RENDERED, 'updateWidth');
+               return self;
 
             // Make sure supplied width is a number and if not, return
             else if(newWidth && typeof newWidth !== 'number')
-               return $.fn.qtip.log.error.call(self, 2, 'newWidth must be of type number', 'updateWidth');
+               return self;
 
             // Setup elements which must be hidden during width update
             hidden = self.elements.contentWrapper.siblings().add(self.elements.tip).add(self.elements.button);
@@ -8670,87 +8709,7 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
             };
 
             // Log event and return
-            return $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.EVENT_WIDTH_UPDATED, 'updateWidth');
-         },
-
-         updateStyle: function(name)
-         {
-            var tip, borders, context, corner, coordinates;
-
-            // Make sure tooltip is rendered and if not, return
-            if(!self.status.rendered)
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.TOOLTIP_NOT_RENDERED, 'updateStyle');
-
-            // Return if style is not defined or name is not a string
-            else if(typeof name !== 'string' || !$.fn.qtip.styles[name])
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.STYLE_NOT_DEFINED, 'updateStyle');
-
-            // Set the new style object
-            self.options.style = buildStyle.call(self, $.fn.qtip.styles[name], self.options.user.style);
-
-            // Update initial styles of content and title elements
-            self.elements.content.css( jQueryStyle(self.options.style) );
-            if(self.options.content.title.text !== false)
-               self.elements.title.css( jQueryStyle(self.options.style.title, true) );
-
-            // Update CSS border colour
-            self.elements.contentWrapper.css({ borderColor: self.options.style.border.color });
-
-            // Update tip color if enabled
-            if(self.options.style.tip.corner !== false)
-            {
-               if($('<canvas>').get(0).getContext)
-               {
-                  // Retrieve canvas context and clear
-                  tip = self.elements.tooltip.find('.qtip-tip canvas:first');
-                  context = tip.get(0).getContext('2d');
-                  context.clearRect(0,0,300,300);
-
-                  // Draw new tip
-                  corner = tip.parent('div[rel]:first').attr('rel');
-                  coordinates = calculateTip(corner, self.options.style.tip.size.width, self.options.style.tip.size.height);
-                  drawTip.call(self, tip, coordinates, self.options.style.tip.color || self.options.style.border.color);
-               }
-               else if($.browser.msie)
-               {
-                  // Set new fillcolor attribute
-                  tip = self.elements.tooltip.find('.qtip-tip [nodeName="shape"]');
-                  tip.attr('fillcolor', self.options.style.tip.color || self.options.style.border.color);
-               };
-            };
-
-            // Update border colors if enabled
-            if(self.options.style.border.radius > 0)
-            {
-               self.elements.tooltip.find('.qtip-betweenCorners').css({ backgroundColor: self.options.style.border.color });
-
-               if($('<canvas>').get(0).getContext)
-               {
-                  borders = calculateBorders(self.options.style.border.radius);
-                  self.elements.tooltip.find('.qtip-wrapper canvas').each(function()
-                  {
-                     // Retrieve canvas context and clear
-                     context = $(this).get(0).getContext('2d');
-                     context.clearRect(0,0,300,300);
-
-                     // Draw new border
-                     corner = $(this).parent('div[rel]:first').attr('rel');
-                     drawBorder.call(self, $(this), borders[corner],
-                        self.options.style.border.radius, self.options.style.border.color);
-                  });
-               }
-               else if($.browser.msie)
-               {
-                  // Set new fillcolor attribute on each border corner
-                  self.elements.tooltip.find('.qtip-wrapper [nodeName="arc"]').each(function()
-                  {
-                     $(this).attr('fillcolor', self.options.style.border.color);
-                  });
-               };
-            };
-
-            // Log event and return
-            return $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.EVENT_STYLE_UPDATED, 'updateStyle');
+            return self;
          },
 
          updateContent: function(content, reposition)
@@ -8759,11 +8718,11 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
 
             // Make sure tooltip is rendered and if not, return
             if(!self.status.rendered)
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.TOOLTIP_NOT_RENDERED, 'updateContent');
+               return self;
 
             // Make sure content is defined before update
             else if(!content)
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.NO_CONTENT_PROVIDED, 'updateContent');
+               return self;
 
             // Call API method and set new content if a string is returned
             parsedContent = self.beforeContentUpdate.call(self, content);
@@ -8813,62 +8772,7 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
 
             // Call API method and log event
             self.onContentUpdate.call(self);
-            return $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.EVENT_CONTENT_UPDATED, 'loadContent');
-         },
-
-         loadContent: function(url, data, method)
-         {
-            var returned;
-
-            // Make sure tooltip is rendered and if not, return
-            if(!self.status.rendered)
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.TOOLTIP_NOT_RENDERED, 'loadContent');
-
-            // Call API method and if return value is false, halt
-            returned = self.beforeContentLoad.call(self);
-            if(returned === false) return self;
-
-            // Load content using specified request type
-            if(method == 'post')
-               $.post(url, data, setupContent);
-            else
-               $.get(url, data, setupContent);
-
-            function setupContent(content)
-            {
-               // Call API method and log event
-               self.onContentLoad.call(self);
-               $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.EVENT_CONTENT_LOADED, 'loadContent');
-
-               // Update the content
-               self.updateContent(content);
-            };
-
             return self;
-         },
-
-         updateTitle: function(content)
-         {
-            // Make sure tooltip is rendered and if not, return
-            if(!self.status.rendered)
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.TOOLTIP_NOT_RENDERED, 'updateTitle');
-
-            // Make sure content is defined before update
-            else if(!content)
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.NO_CONTENT_PROVIDED, 'updateTitle');
-
-            // Call API method and if return value is false, halt
-            returned = self.beforeTitleUpdate.call(self);
-            if(returned === false) return self;
-
-            // Set the new content and reappend the button if enabled
-            if(self.elements.button) self.elements.button = self.elements.button.clone(true);
-            self.elements.title.html(content);
-            if(self.elements.button) self.elements.title.prepend(self.elements.button);
-
-            // Call API method and log event
-            self.onTitleUpdate.call(self);
-            return $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.EVENT_TITLE_UPDATED, 'updateTitle');
          },
 
          focus: function(event)
@@ -8877,10 +8781,10 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
 
             // Make sure tooltip is rendered and if not, return
             if(!self.status.rendered)
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.TOOLTIP_NOT_RENDERED, 'focus');
+               return self;
 
             else if(self.options.position.type == 'static')
-               return $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.CANNOT_FOCUS_STATIC, 'focus');
+               return self;
 
             // Set z-index variables
             curIndex = parseInt( self.elements.tooltip.css('z-index') );
@@ -8915,97 +8819,9 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
 
                // Call API method and log event
                self.onFocus.call(self, event);
-               $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.EVENT_FOCUSED, 'focus');
             };
 
             return self;
-         },
-
-         disable: function(state)
-         {
-            // Make sure tooltip is rendered and if not, return
-            if(!self.status.rendered)
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.TOOLTIP_NOT_RENDERED, 'disable');
-
-            if(state)
-            {
-               // Tooltip is not already disabled, proceed
-               if(!self.status.disabled)
-               {
-                  // Set the disabled flag and log event
-                  self.status.disabled = true;
-                  $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.EVENT_DISABLED, 'disable');
-               }
-
-               // Tooltip is already disabled, inform user via log
-               else  $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.TOOLTIP_ALREADY_DISABLED, 'disable');
-            }
-            else
-            {
-               // Tooltip is not already enabled, proceed
-               if(self.status.disabled)
-               {
-                  // Reassign events, set disable status and log
-                  self.status.disabled = false;
-                  $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.EVENT_ENABLED, 'disable');
-               }
-
-               // Tooltip is already enabled, inform the user via log
-               else $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.TOOLTIP_ALREADY_ENABLED, 'disable');
-            };
-
-            return self;
-         },
-
-         destroy: function()
-         {
-            var i, returned, interfaces;
-
-            // Call API method and if return value is false, halt
-            returned = self.beforeDestroy.call(self);
-            if(returned === false) return self;
-
-            // Check if tooltip is rendered
-            if(self.status.rendered)
-            {
-               // Remove event handlers and remove element
-               self.options.show.when.target.unbind('mousemove.qtip', self.updatePosition);
-               self.options.show.when.target.unbind('mouseout.qtip', self.hide);
-               self.options.show.when.target.unbind(self.options.show.when.event + '.qtip');
-               self.options.hide.when.target.unbind(self.options.hide.when.event + '.qtip');
-               self.elements.tooltip.unbind(self.options.hide.when.event + '.qtip');
-               self.elements.tooltip.unbind('mouseover.qtip', self.focus);
-               self.elements.tooltip.remove();
-            }
-
-            // Tooltip isn't yet rendered, remove render event
-            else self.options.show.when.target.unbind(self.options.show.when.event+'.qtip-create');
-
-            // Check to make sure qTip data is present on target element
-            if(typeof self.elements.target.data('qtip') == 'object')
-            {
-               // Remove API references from interfaces object
-               interfaces = self.elements.target.data('qtip').interfaces;
-               if(typeof interfaces == 'object' && interfaces.length > 0)
-               {
-                  // Remove API from interfaces array
-                  for(i = 0; i < interfaces.length - 1; i++)
-                     if(interfaces[i].id == self.id) interfaces.splice(i, 1)
-               }
-            }
-            delete $.fn.qtip.interfaces[self.id];
-
-            // Set qTip current id to previous tooltips API if available
-            if(typeof interfaces == 'object' && interfaces.length > 0)
-               self.elements.target.data('qtip').current = interfaces.length -1;
-            else
-               self.elements.target.removeData('qtip');
-
-            // Call API method and log destroy
-            self.onDestroy.call(self);
-            $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.EVENT_DESTROYED, 'destroy');
-
-            return self.elements.target
          },
 
          getPosition: function()
@@ -9014,7 +8830,7 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
 
             // Make sure tooltip is rendered and if not, return
             if(!self.status.rendered)
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.TOOLTIP_NOT_RENDERED, 'getPosition');
+               return self;
 
             show = (self.elements.tooltip.css('display') !== 'none') ? false : true;
 
@@ -9032,7 +8848,7 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
 
             // Make sure tooltip is rendered and if not, return
             if(!self.status.rendered)
-               return $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.TOOLTIP_NOT_RENDERED, 'getDimensions');
+               return self;
 
             show = (!self.elements.tooltip.is(':visible')) ? true : false;
 
@@ -9115,9 +8931,6 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
          // Reset border radius and tip
          self.options.style.border.radius = 0;
          self.options.style.tip.corner = false;
-
-         // Inform via log
-         $.fn.qtip.log.error.call(self, 2, $.fn.qtip.constants.CANVAS_VML_NOT_SUPPORTED, 'render');
       };
 
       // Use the provided content string or DOM array
@@ -9143,7 +8956,6 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
       else
       {
          content = ' ';
-         $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.NO_VALID_CONTENT, 'render');
       };
 
       // Set the tooltips content and create title if enabled
@@ -9154,18 +8966,8 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
       assignEvents.call(self);
       if(self.options.show.ready === true) self.show();
 
-      // Retrieve ajax content if provided
-      if(self.options.content.url !== false)
-      {
-         url = self.options.content.url;
-         data = self.options.content.data;
-         method = self.options.content.method || 'get';
-         self.loadContent(url, data, method);
-      };
-
       // Call API method and log event
       self.onRender.call(self);
-      $.fn.qtip.log.error.call(self, 1, $.fn.qtip.constants.EVENT_RENDERED, 'render');
    };
 
    // Create borders using canvas and VML
@@ -9409,46 +9211,7 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
       paddingSize = self.options.style.tip.size[ (paddingCorner.search(/left|right/) !== -1) ? 'width' : 'height' ];
       self.elements.tooltip.css('padding', 0);
       self.elements.tooltip.css(paddingCorner, paddingSize);
-
-      // Match content margin to prevent gap bug in IE6 ONLY
-      if($.browser.msie && parseInt($.browser.version.charAt(0)) == 6)
-      {
-         newMargin = parseInt(self.elements.tip.css('margin-top')) || 0;
-         newMargin += parseInt(self.elements.content.css('margin-top')) || 0;
-
-         self.elements.tip.css({ marginTop: newMargin });
-      };
    };
-
-   // Create title bar for content
-   function createTitle()
-   {
-      var self = this;
-
-      // Destroy previous title element, if present
-      if(self.elements.title !== null) self.elements.title.remove();
-
-      // Create title element
-      self.elements.title = $('<div class="'+self.options.style.classes.title+'">')
-         .css( jQueryStyle(self.options.style.title, true) )
-         .css({ zoom: ($.browser.msie) ? 1 : 0 })
-         .prependTo(self.elements.contentWrapper);
-
-      // Update title with contents if enabled
-      if(self.options.content.title.text) self.updateTitle.call(self, self.options.content.title.text);
-
-      // Create title close buttons if enabled
-      if(self.options.content.title.button !== false
-      && typeof self.options.content.title.button == 'string')
-      {
-         self.elements.button = $('<a class="'+self.options.style.classes.button+'" style="float:right; position: relative"></a>')
-            .css( jQueryStyle(self.options.style.button, true) )
-            .html(self.options.content.title.button)
-            .prependTo(self.elements.title)
-            .click(function(event){ if(!self.status.disabled) self.hide(event) });
-      };
-   };
-
    // Assign hide and show events
    function assignEvents()
    {
@@ -9836,24 +9599,6 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
       return borders;
    };
 
-   // BGIFRAME JQUERY PLUGIN ADAPTION
-   //   Special thanks to Brandon Aaron for this plugin
-   //   http://plugins.jquery.com/project/bgiframe
-   function bgiframe()
-   {
-      var self, html, dimensions;
-      self = this;
-      dimensions = self.getDimensions();
-
-      // Setup iframe HTML string
-      html = '<iframe class="qtip-bgiframe" frameborder="0" tabindex="-1" src="javascript:false" '+
-         'style="display:block; position:absolute; z-index:-1; filter:alpha(opacity=\'0\'); border: 1px solid red; ' +
-         'height:'+dimensions.height+'px; width:'+dimensions.width+'px" />';
-
-      // Append the new HTML and setup element reference
-      self.elements.bgiframe = self.elements.wrapper.prepend(html).children('.qtip-bgiframe:first');
-   };
-
    // Assign cache and event initialisation on document load
    $(document).ready(function()
    {
@@ -10043,96 +9788,6 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
             content: 'qtip-content',
             active: 'qtip-active'
          }
-      },
-      cream: {
-         border: {
-            width: 3,
-            radius: 0,
-            color: '#F9E98E'
-         },
-         title: {
-            background: '#F0DE7D',
-            color: '#A27D35'
-         },
-         background: '#FBF7AA',
-         color: '#A27D35',
-
-         classes: { tooltip: 'qtip-cream' }
-      },
-      light: {
-         border: {
-            width: 3,
-            radius: 0,
-            color: '#E2E2E2'
-         },
-         title: {
-            background: '#f1f1f1',
-            color: '#454545'
-         },
-         background: 'white',
-         color: '#454545',
-
-         classes: { tooltip: 'qtip-light' }
-      },
-      dark: {
-         border: {
-            width: 3,
-            radius: 0,
-            color: '#303030'
-         },
-         title: {
-            background: '#404040',
-            color: '#f3f3f3'
-         },
-         background: '#505050',
-         color: '#f3f3f3',
-
-         classes: { tooltip: 'qtip-dark' }
-      },
-      red: {
-         border: {
-            width: 3,
-            radius: 0,
-            color: '#CE6F6F'
-         },
-         title: {
-            background: '#f28279',
-            color: '#9C2F2F'
-         },
-         background: '#F79992',
-         color: '#9C2F2F',
-
-         classes: { tooltip: 'qtip-red' }
-      },
-      green: {
-         border: {
-            width: 3,
-            radius: 0,
-            color: '#A9DB66'
-         },
-         title: {
-            background: '#b9db8c',
-            color: '#58792E'
-         },
-         background: '#CDE6AC',
-         color: '#58792E',
-
-         classes: { tooltip: 'qtip-green' }
-      },
-      blue: {
-         border: {
-            width: 3,
-            radius: 0,
-            color: '#ADD9ED'
-         },
-         title: {
-            background: '#D0E9F5',
-            color: '#5E99BD'
-         },
-         background: '#E5F6FE',
-         color: '#4D9FBF',
-
-         classes: { tooltip: 'qtip-blue' }
       }
    };
 })(WDN.jQuery);
@@ -10159,7 +9814,11 @@ WDN.idm = function() {
 		 */
 		initialize : function() {
 			if (WDN.idm.isLoggedIn()) {
-				WDN.idm.displayNotice(WDN.idm.getUserID());
+				WDN.loadJS('https://login.unl.edu/demo/pf-whoami/?id='+WDN.getCookie('sso'), function() {
+					if (WDN.idm.getUserId()) {
+						WDN.idm.displayNotice(WDN.idm.getUserId());
+					}
+				});
 			}
 		},
 		
@@ -10187,9 +9846,8 @@ WDN.idm = function() {
 		 * 
 		 * @return string
 		 */
-		getUserID : function() {
-			var user = WDN.getCookie('sso');
-			return user;
+		getUserId : function() {
+			return WDN.idm.user.uid;
 		},
 		
 		/**
@@ -10228,41 +9886,7 @@ WDN.idm = function() {
 			// Any time a link is clicked, unset the user data
 			WDN.jQuery('#wdn_identity_management a').click(WDN.idm.logout);
 			
-			WDN.idm.getFriendlyName(uid);
-		},
-		
-		/**
-		 * Retrieves user info and updates the name.
-		 * 
-		 * @param string uid
-		 */
-		getFriendlyName : function(uid) {
-			WDN.idm.setUser(uid, function(){WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn);});
-		},
-		
-		/**
-		 * Sets the user details
-		 * 
-		 * @param string   uid
-		 * @param function callback
-		 * 
-		 * @return void
-		 */
-		setUser : function(uid, callback) {
-			WDN.setCookie('sso', uid, 10800);
-			if ("https:" != document.location.protocol) {
-				// Don't break authentication
-				WDN.get('http://peoplefinder.unl.edu/service.php?format=json&uid='+uid, null, function(data, textStatus){
-					if (textStatus == 'success') {
-						eval('WDN.idm.user='+data);
-						if (callback) {
-							callback();
-						}
-					}
-				});
-			} else {
-				WDN.idm.user={'uid':uid,'cn':uid};
-			}
+			WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn);
 		},
 		
 		/**

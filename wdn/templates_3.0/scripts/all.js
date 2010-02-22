@@ -3,6 +3,11 @@
  * @see http://wdn.unl.edu/
  * $Id$
  */
+/**
+ * This file is part of the UNL WDN templates.
+ * @see http://wdn.unl.edu/
+ * $Id$
+ */
 (function(c,p){function y(){if(!d.isReady){try{l.documentElement.doScroll("left")}catch(a){setTimeout(y,1);return}d.ready()}}function E(a,b){b.src?d.ajax({url:b.src,async:false,dataType:"script"}):d.globalEval(b.text||b.textContent||b.innerHTML||"");b.parentNode&&b.parentNode.removeChild(b)}function L(a,b,e,g,f,o){var r=a.length;if(typeof b==="object"){for(var w in b)L(a,w,b[w],g,f,e);return a}if(e!==p){g=!o&&g&&d.isFunction(e);for(w=0;w<r;w++)f(a[w],b,g?e.call(a[w],w,f(a[w],b)):e,o);return a}return r?
 f(a[0],b):null}function G(){return(new Date).getTime()}function N(){return false}function A(){return true}function T(a,b,e){e[0].type=a;return d.event.handle.apply(b,e)}function U(a){var b,e=[],g=[],f=arguments,o,r,w,z,v,I,Q=d.extend({},d.data(this,"events").live);if(!(a.button&&a.type==="click")){for(z in Q){r=Q[z];if(r.live===a.type||r.altLive&&d.inArray(a.type,r.altLive)>-1){o=r.data;o.beforeFilter&&o.beforeFilter[a.type]&&!o.beforeFilter[a.type](a)||g.push(r.selector)}else delete Q[z]}o=d(a.target).closest(g,
 a.currentTarget);v=0;for(I=o.length;v<I;v++)for(z in Q){r=Q[z];w=o[v].elem;g=null;if(o[v].selector===r.selector){if(r.live==="mouseenter"||r.live==="mouseleave")g=d(a.relatedTarget).closest(r.selector)[0];if(!g||g!==w)e.push({elem:w,fn:r})}}v=0;for(I=e.length;v<I;v++){o=e[v];a.currentTarget=o.elem;a.data=o.fn.data;if(o.fn.apply(o.elem,f)===false){b=false;break}}return b}}function V(a,b){return"live."+(a?a+".":"")+b.replace(/\./g,"`").replace(/ /g,"&")}function ba(a){return!a||!a.parentNode||a.parentNode.nodeType===
