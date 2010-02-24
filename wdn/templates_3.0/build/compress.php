@@ -40,7 +40,7 @@ foreach ($files as $file) {
 
 $all = $all.PHP_EOL.'WDN.initializeTemplate();';
 // the next line will remove all WDN.log(...); statements
-$all = preg_replace('/WDN\.log\s*\(.+\);/','/*debug statement removed */',$all);
+$all = preg_replace('/WDN\.log\s*\(.+\);/','//debug statement removed',$all);
 
 file_put_contents(dirname(__FILE__).'/../scripts/all_uncompressed.js', $all);
 
