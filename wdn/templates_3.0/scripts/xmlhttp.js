@@ -33,7 +33,7 @@ WDN.proxy_xmlhttp = function() {
   this.getAllResponseHeaders = function() {
     // Returns all response headers as a string
     var result = '';
-    for (property in _responseHeaders) {
+    for (var property in _responseHeaders) {
       result += property + ': ' + _responseHeaders[property] + '\r\n';
     }
     return result;
@@ -42,7 +42,7 @@ WDN.proxy_xmlhttp = function() {
   this.getResponseHeader = function(name) {
     // Returns a response header value
     // Note, that the search is case-insensitive
-    for(property in _responseHeaders) {
+    for(var property in _responseHeaders) {
       if(property.toLowerCase() == name.toLowerCase()) {
         return _responseHeaders[property];
       }
@@ -86,7 +86,7 @@ WDN.proxy_xmlhttp = function() {
     if (_stop) {
         return;
     }
-    for(property in _requestHeaders) {
+    for(var property in _requestHeaders) {
       if(property.toLowerCase() == name.toLowerCase()) {
         _requestHeaders[property] = value; return;
       }
@@ -122,7 +122,7 @@ WDN.proxy_xmlhttp = function() {
       data = '';
     }
     var headers = '';
-    for (property in _requestHeaders) {
+    for (var property in _requestHeaders) {
       headers += property + '=' + _requestHeaders[property] + '&';
     }
     var originalsrc = _method +
