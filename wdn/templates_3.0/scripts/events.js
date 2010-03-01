@@ -16,7 +16,7 @@ WDN.events = function() {
 			}
 			
 			if (!this.calTitle) {
-				this.calTitle = WDN.jQuery('link[rel=events]').attr('title');
+				this.calTitle = WDN.jQuery('link[rel=events]').attr('title') || '';
 			}
 			
 			if (WDN.jQuery('#wdn_calendarDisplay').length != 0) {
@@ -26,7 +26,7 @@ WDN.events = function() {
 		},
 		display : function() {
 			WDN.get(this.calURL+'/upcoming/?format=hcalendar&limit='+this.limit, null, function(content) {
-				WDN.jQuery('#wdn_calendarDisplay').hide().append(content);
+				WDN.jQuery('#wdn_calendarDisplay').hide().html(content);
 				WDN.jQuery('#wdn_calendarDisplay h4,#wdn_calendarDisplay h3').after('<span class="subhead"><a href="'+WDN.events.calURL+'">See all '+WDN.events.calTitle+' events</a></span>');
 				WDN.jQuery('#wdn_calendarDisplay abbr').each(
 						function() {
