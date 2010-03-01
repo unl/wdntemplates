@@ -50,4 +50,5 @@ img.profile_pic.small {
 }
 img.profile_pic.medium {
 	background:url('images/wdn_idmProfileMedium.png') no-repeat top left;
+	padding:7px 7px 12px 7px;
 }
