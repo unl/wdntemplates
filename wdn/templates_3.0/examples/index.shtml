@@ -73,7 +73,8 @@
 					if (textStatus == 'success') {
 						WDN.jQuery('#example').html(data);
 						WDN.jQuery('#example_code').val(data);
-						WDN.initializeTemplate();
+						WDN.tooltip.tooltipSetup('maincontent');
+						WDN.tabs.initialize();
 					}
 				});
 			}
