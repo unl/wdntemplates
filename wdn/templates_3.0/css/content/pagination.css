@@ -9,7 +9,7 @@ Markup for these:
 	<li><a href="#" title="Go to page 4">4</a></li>
 	<li><a href="#" title="Go to page 5">5</a></li>
 	<li><a href="#" title="Go to page 6">6</a></li>
-	<li class="elipsis">...</li>
+	<li class="ellipsis">...</li>
 	<li><a href="#" title="Go to page 17">17</a></li>
 	<li><a href="#" title="Go to page 18">18</a></li>
 	<li><a href="#" title="Go to page 19">19</a></li>
@@ -22,6 +22,6 @@ Markup for these:
 .wdn_pagination li{display:block;float: left;font: normal 12px "Lucida Grande",Verdana,Arial;margin:0 4px; vertical-align:middle;}
 .wdn_pagination li a{display:block;padding:2px 4px;border:1px solid #dadada;}
 .wdn_pagination li a:hover{color: #fff !important;background:#6e6e6e;border:1px solid #5e5e5e;}
-.wdn_pagination li.elipsis{}
+.wdn_pagination li.ellipsis{}
 .wdn_pagination li.selected{position: relative;color:#3e3e3e;font:bold 22px "Lucida Grande",Verdana,Arial;text-align:bottom;margin: -6px 0 0 0;padding:2px 6px;}
 #maincontent .wdn_pagination li a:focus{color:#fff !important;}
