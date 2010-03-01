@@ -35,7 +35,7 @@ WDN.toolbar_peoplefinder = function() {
             }
             clearTimeout(pfreq_q);
             if (q.length > 3) {
-                document.getElementById(resultsdiv).innerHTML = '<img alt="progress" id="pfprogress" src="'+WDN.template_path+'wdn/templates_3.0/css/images/loadingContent.gif" />';
+                document.getElementById(resultsdiv).innerHTML = '<img alt="progress" id="pfprogress" src="'+WDN.template_path+'wdn/templates_3.0/css/header/images/colorbox/loading.gif" />';
                 pfreq_q = setTimeout('WDN.toolbar_peoplefinder.getPeopleFinderResults("'+escape(q)+'", '+chooser+')', 400);
             } else if (q.length>0) {
                 document.getElementById(resultsdiv).innerHTML = 'Please enter more information.';
