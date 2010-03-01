@@ -48,3 +48,6 @@ img.profile_pic {
 img.profile_pic.small {
 	background:url('images/wdn_idmProfileSmall.png') no-repeat top left;
 }
+img.profile_pic.medium {
+	background:url('images/wdn_idmProfileMedium.png') no-repeat top left;
+}
