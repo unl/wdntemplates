@@ -31,10 +31,12 @@
 <p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
 <div id="wdn_wrapper">
     <div id="header"> 	
+		<!-- TemplateBeginEditable name="sitebranding" -->
 		<div id="affiliate_note"><a href="http://www.unl.edu" title="University of Nebraska&ndash;Lincoln">An affiliate of the University of Nebraska&ndash;Lincoln</a></div>
 		<a href="/" title="Through the Eyes of the Child Initiative"><img src="../sharedcode/affiliate_imgs/affiliate_logo.png" alt="Through the Eyes of the Child Initiative" id="logo" /></a>
     	<h1>Through the Eyes of the Child Initiative</h1>
 		<div id='tag_line'>A Nebraska Supreme Court Initiative</div>
+		<!-- TemplateEndEditable -->
 		<?php virtual('/wdn/templates_3.0/includes/wdnTools.html'); ?>
     </div>
     <div id="wdn_navigation_bar">
