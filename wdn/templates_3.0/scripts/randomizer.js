@@ -1,5 +1,14 @@
-WDN.jQuery(document).ready(function(){
-var HowManyDivs = WDN.jQuery('.wdn-randomizer').children().size();
-var randomNum = Math.floor(Math.random()*HowManyDivs);
-WDN.jQuery('div#wdn-randomizer div:eq(' + randomNum + ')').css("display", "block");
-});
+WDN.randomizer = function() {
+	return {
+		initialize : function() { 
+			WDN.log ("randomizer JS loaded");
+			WDN.loadCSS('/wdn/templates_3.0/css/content/randomizer.css');
+			
+			var howManyDivs = WDN.jQuery('div.wdn_randomizer').children().size();
+			var randomNum = Math.floor(Math.random()*howManyDivs);
+			WDN.jQuery('div.wdn_randomizer div:eq(' + randomNum + ')').css("display", "block");
+			
+			return true;
+		}
+	};
+}();
