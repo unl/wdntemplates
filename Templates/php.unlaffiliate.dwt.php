@@ -17,7 +17,7 @@
 -->
 <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
 <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
-<link rel="stylesheet" type="text/css" media="screen" href="/sharedcode/affiliate.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="../sharedcode/affiliate.css" />
 <script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
 <?php virtual('/wdn/templates_3.0/includes/browserspecifics.html'); ?>
 <?php virtual('/wdn/templates_3.0/includes/metanfavico.html'); ?>
@@ -32,7 +32,7 @@
 <div id="wdn_wrapper">
     <div id="header"> 	
 		<div id="affiliate_note"><a href="http://www.unl.edu" title="University of Nebraska&ndash;Lincoln">An affiliate of the University of Nebraska&ndash;Lincoln</a></div>
-		<a href="/" title="Through the Eyes of the Child Initiative"><img src="/sharedcode/affiliate_imgs/affiliate_logo.png" alt="Through the Eyes of the Child Initiative" id="logo" /></a>
+		<a href="/" title="Through the Eyes of the Child Initiative"><img src="../sharedcode/affiliate_imgs/affiliate_logo.png" alt="Through the Eyes of the Child Initiative" id="logo" /></a>
     	<h1>Through the Eyes of the Child Initiative</h1>
 		<div id='tag_line'>A Nebraska Supreme Court Initiative</div>
 		<?php virtual('/wdn/templates_3.0/includes/wdnTools.html'); ?>
@@ -48,7 +48,7 @@
             <!-- TemplateEndEditable --></div>
         <div id="wdn_navigation_wrapper">
             <div id="navigation"><!-- TemplateBeginEditable name="navlinks" -->
-                <?php virtual('/sharedcode/navigation.html'); ?>
+                <?php include '../sharedcode/navigation.html'; ?>
                 <!-- TemplateEndEditable --></div>
         </div>
     </div>
@@ -74,17 +74,17 @@
                 <?php virtual('/wdn/templates_3.0/includes/feedback.html'); ?>
             </div>
             <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
-                <?php virtual ('/sharedcode/relatedLinks.html'); ?>
+                <?php include '../sharedcode/relatedLinks.html'; ?>
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col"><!-- TemplateBeginEditable name="contactinfo" -->
-                <?php virtual ('/sharedcode/footerContactInfo.html'); ?>
+                <?php include '../sharedcode/footerContactInfo.html'; ?>
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col">
                 <?php virtual('/wdn/templates_3.0/includes/socialmediashare.html'); ?>
             </div>
             <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
             <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
-                <?php virtual ('/sharedcode/footer.html'); ?>
+                <?php include '../sharedcode/footer.html'; ?>
                 <!-- TemplateEndEditable -->
                 <?php virtual('/wdn/templates_3.0/includes/wdn.html'); ?>
                 | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a> <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
