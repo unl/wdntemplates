@@ -287,6 +287,19 @@
         </div>
         <div id="footer">
             <div id="footer_floater"></div>
+            <div class="footer_col">
+                <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
+            </div>
+            <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
+                <!--#include virtual="sharedcode/relatedLinks.html" -->
+                <!-- InstanceEndEditable --></div>
+            <div class="footer_col"><!-- InstanceBeginEditable name="contactinfo" -->
+                <!--#include virtual="sharedcode/footerContactInfo.html" -->
+            <!-- InstanceEndEditable --></div>
+            <div class="footer_col">
+                <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+            </div>
+            <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
             <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
                 <!--#include virtual="sharedcode/footer.html" -->
                 <!-- InstanceEndEditable -->
