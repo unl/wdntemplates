@@ -40,7 +40,7 @@ WDN.socialmediashare = function() {
                 thisPage = new String(window.location.href);
                 
                 WDN.socialmediashare.createURL(
-                    WDN.socialmediashare.buildGAURL(thisPage),
+                    WDN.socialmediashare.buildGAURL(thisPage, gaTagging),
                     function(data) { //now we have a GoURL, let's replace the href with this new URL.
                         var strLocation = new String(window.location);
                         strLocation = strLocation.replace(/\?/g,'\\?');
@@ -55,7 +55,7 @@ WDN.socialmediashare = function() {
                 return false;
             });
         },
-        buildGAURL : function(url) { 
+        buildGAURL : function(url, gaTagging) { 
         	if (url.indexOf('?') != -1) { //check to see if has a ?, if not then go ahead with the ?. Otherwise add with &
                 url = thisPage+"&"+gaTagging;
             } else {
