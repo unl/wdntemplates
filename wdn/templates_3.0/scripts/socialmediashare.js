@@ -38,13 +38,9 @@ WDN.socialmediashare = function() {
                 gaTagging = "utm_campaign="+utm_campaign+"&utm_medium="+utm_medium+"&utm_source="+utm_source;
                 //Let's build the URL to be shrunk
                 thisPage = new String(window.location.href);
-                if (thisPage.indexOf('?') != -1) { //check to see if has a ?, if not then go ahead with the ?. Otherwise add with &
-                    thisURL = thisPage+"&"+gaTagging;
-                } else {
-                    thisURL = thisPage+"?"+gaTagging;
-                }
+                
                 WDN.socialmediashare.createURL(
-                    thisURL,
+                    WDN.socialmediashare.buildGAURL(thisPage),
                     function(data) { //now we have a GoURL, let's replace the href with this new URL.
                         var strLocation = new String(window.location);
                         strLocation = strLocation.replace(/\?/g,'\\?');
@@ -58,6 +54,14 @@ WDN.socialmediashare = function() {
                 );
                 return false;
             });
+        },
+        buildGAURL : function(url) { 
+        	if (url.indexOf('?') != -1) { //check to see if has a ?, if not then go ahead with the ?. Otherwise add with &
+                url = thisPage+"&"+gaTagging;
+            } else {
+                url = thisPage+"?"+gaTagging;
+            }
+        	return url;
         },
         createURL : function(createThisURL, callback) { //function to create a GoURL
             WDN.post(
