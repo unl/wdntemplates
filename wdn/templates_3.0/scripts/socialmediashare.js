@@ -57,9 +57,9 @@ WDN.socialmediashare = function() {
         },
         buildGAURL : function(url, gaTagging) { 
         	if (url.indexOf('?') != -1) { //check to see if has a ?, if not then go ahead with the ?. Otherwise add with &
-                url = thisPage+"&"+gaTagging;
+                url = url+"&"+gaTagging;
             } else {
-                url = thisPage+"?"+gaTagging;
+                url = url+"?"+gaTagging;
             }
         	return url;
         },
