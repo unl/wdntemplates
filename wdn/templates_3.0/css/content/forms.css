@@ -7,7 +7,7 @@ CSS LINK:
 
 Sample Form Markup:
 
-<form action="?" method="post">
+<form class="cool" action="?" method="post">
         <fieldset>
                 <legend>Sample Form Content</legend>
                 <ol>
@@ -25,13 +25,12 @@ Sample Form Markup:
 	Form elements
 	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
 #maincontent form.cool {
-	margin: 0 0 0 0;
-	padding: 0 0 0 0;
+	margin: 0;
+	padding: 0;
 }
 
 #maincontent form.cool fieldset {
     clear: both;
-    float: left;
     padding: 0;
     display: block;
     border: none;
@@ -42,7 +41,6 @@ Sample Form Markup:
     background: #ecf4f8;
     padding: 0 0 10px 0;
 }
-
 
 #maincontent form.cool fieldset ol {
 	margin: 0;
@@ -87,16 +85,18 @@ Sample Form Markup:
 	padding: 3px;
 	margin: 4px 0;
 }
+
 #maincontent form.cool select {
 	width:auto;
-	}
+}
+	
 #maincontent form.cool input[type=checkbox], #maincontent form.cool input[type=radio]  {
 	width:auto;
 	border:none;
 	margin:3px 0;
-	}
-#maincontent form.cool input:focus,#maincontent form.cool textarea:focus,#maincontent form.cool select:focus
-	{
+}
+
+#maincontent form.cool input:focus,#maincontent form.cool textarea:focus,#maincontent form.cool select:focus {
 	background: #ffffcc;
 }
 
