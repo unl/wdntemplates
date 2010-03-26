@@ -9809,7 +9809,11 @@ WDN.idm = function() {
 		 */
 		initialize : function() {
 			if (WDN.idm.isLoggedIn()) {
-				WDN.idm.displayNotice(WDN.idm.getUserID());
+				WDN.loadJS('https://login.unl.edu/demo/pf-whoami/?id='+WDN.getCookie('sso'), function() {
+					if (WDN.idm.getUserId()) {
+						WDN.idm.displayNotice(WDN.idm.getUserId());
+					}
+				});
 			}
 		},
 		
@@ -9837,9 +9841,8 @@ WDN.idm = function() {
 		 * 
 		 * @return string
 		 */
-		getUserID : function() {
-			var user = WDN.getCookie('sso');
-			return user;
+		getUserId : function() {
+			return WDN.idm.user.uid;
 		},
 		
 		/**
@@ -9878,41 +9881,7 @@ WDN.idm = function() {
 			// Any time a link is clicked, unset the user data
 			WDN.jQuery('#wdn_identity_management a').click(WDN.idm.logout);
 			
-			WDN.idm.getFriendlyName(uid);
-		},
-		
-		/**
-		 * Retrieves user info and updates the name.
-		 * 
-		 * @param string uid
-		 */
-		getFriendlyName : function(uid) {
-			WDN.idm.setUser(uid, function(){WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn);});
-		},
-		
-		/**
-		 * Sets the user details
-		 * 
-		 * @param string   uid
-		 * @param function callback
-		 * 
-		 * @return void
-		 */
-		setUser : function(uid, callback) {
-			WDN.setCookie('sso', uid, 10800);
-			if ("https:" != document.location.protocol) {
-				// Don't break authentication
-				WDN.get('http://peoplefinder.unl.edu/service.php?format=json&uid='+uid, null, function(data, textStatus){
-					if (textStatus == 'success') {
-						eval('WDN.idm.user='+data);
-						if (callback) {
-							callback();
-						}
-					}
-				});
-			} else {
-				WDN.idm.user={'uid':uid,'cn':uid};
-			}
+			WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn);
 		},
 		
 		/**
@@ -10093,13 +10062,9 @@ WDN.socialmediashare = function() {
                 gaTagging = "utm_campaign="+utm_campaign+"&utm_medium="+utm_medium+"&utm_source="+utm_source;
                 //Let's build the URL to be shrunk
                 thisPage = new String(window.location.href);
-                if (thisPage.indexOf('?') != -1) { //check to see if has a ?, if not then go ahead with the ?. Otherwise add with &
-                    thisURL = thisPage+"&"+gaTagging;
-                } else {
-                    thisURL = thisPage+"?"+gaTagging;
-                }
+                
                 WDN.socialmediashare.createURL(
-                    thisURL,
+                    WDN.socialmediashare.buildGAURL(thisPage, gaTagging),
                     function(data) { //now we have a GoURL, let's replace the href with this new URL.
                         var strLocation = new String(window.location);
                         strLocation = strLocation.replace(/\?/g,'\\?');
@@ -10113,6 +10078,14 @@ WDN.socialmediashare = function() {
                 );
                 return false;
             });
+        },
+        buildGAURL : function(url, gaTagging) { 
+        	if (url.indexOf('?') != -1) { //check to see if has a ?, if not then go ahead with the ?. Otherwise add with &
+                url = url+"&"+gaTagging;
+            } else {
+                url = url+"?"+gaTagging;
+            }
+        	return url;
         },
         createURL : function(createThisURL, callback) { //function to create a GoURL
             WDN.post(
