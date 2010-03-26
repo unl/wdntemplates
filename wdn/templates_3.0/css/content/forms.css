@@ -7,18 +7,48 @@ CSS LINK:
 
 Sample Form Markup:
 
-<form class="cool" action="?" method="post">
-        <fieldset>
-                <legend>Sample Form Content</legend>
-                <ol>
-                        <li><label for="name" class="element"><span class="required">*</span>Name</label><div class="element"><input id="name" name="$
-                        <li><label for="email" class="element"><span class="required">*</span>Email</label><div class="element"><input id="email" nam$
-                        <li><label class="element">I Can Has Cheezburger?</label><div class="element"><input name="helpful" value="1" type="radio" id$
-                        <li><label for="helpful_comments" class="element">In what way?</label><div class="element"><textarea id="helpful_comments" na$
-                        
-                </ol>
-        </fieldset>
-</form>
+	<form class="cool" action="?" method="post">  
+	        <fieldset>
+	                <legend>Sample Form Content</legend>
+	                <ol>
+	                        <li class="required">
+	                        	<label for="name">Name</label>
+	                        	<input type="text" id="name" name="name" />
+	                        </li>
+	                        <li>
+	                        	<label for="email">Email</label>
+	                        	<input type="text" id="email" name="email" />
+	                        </li>
+	                        <li>
+	                        	<label for="campus">Campus</label>
+	                        	<select name="campus" id="campus">
+	                        		<option value="unl">UNL</option>
+	                        		<option value="unk">UNK</option>
+	                        		<option value="uno">UNO</option>
+	                        		<option value="unmc">UNMC</option>
+	                        	</select>
+	                        </li>
+	                        <li>
+	                        	<fieldset>
+	                       		<legend>The Most Important Question: I Can Has Cheezburger?</legend>
+		                        	<label for="helpful_yes">
+		                        		<input type="radio" value="1" name="helpful_yes" id="helpful_yes" />
+		                        		Yes
+		                        	</label>
+		                        	<label for="helpful_no">
+		                        		<input type="radio" value="0" name="helpful_no" id="helpful_no" />
+		                        		No
+		                        	</label>
+	                        	</fieldset>
+	                        </li>
+	                        <li>
+	                        	<label for="helpful_comments">In what way?</label>
+	                        	<textarea id="helpful_comments" name="comments"></textarea>
+	                        </li>
+	                </ol>
+	        </fieldset> 
+		    <input type="submit" name="submit" value="Submit" />
+	</form>
 
 
 	-------------------------------------------------------------
@@ -64,7 +94,7 @@ Sample Form Markup:
 	width: 100%;
 }
 
-#maincontent form.cool label.element {
+#maincontent form.cool label {
 	display: block;
 	float: left;
 	width: 150px;
@@ -77,31 +107,34 @@ Sample Form Markup:
 	width: 700px;
 }
 
-#maincontent form.cool input,#maincontent form.cool textarea,#maincontent form.cool select
-	{
+#maincontent form.cool input,
+#maincontent form.cool textarea,
+#maincontent form.cool select {
 	width: 300px;
 	border: 1px solid #ccc;
 	border-color: #ccc #fff #fff #ccc;
 	padding: 3px;
-	margin: 4px 0;
-}
-
-#maincontent form.cool select {
-	width:auto;
-}
-	
-#maincontent form.cool input[type=checkbox], #maincontent form.cool input[type=radio]  {
-	width:auto;
-	border:none;
-	margin:3px 0;
-}
-
-#maincontent form.cool input:focus,#maincontent form.cool textarea:focus,#maincontent form.cool select:focus {
-	background: #ffffcc;
+	margin:8px 0 5px 10px;
 }
 
 #maincontent form.cool select {
 	font-size: 0.8em;
+	width:auto;
+}
+	
+#maincontent form.cool input[type=checkbox],
+#maincontent form.cool input[type=radio] {
+	width:auto;
+	border:none;
+	display:block;
+	float:left;
+	margin-top:11px;
+}
+
+#maincontent form.cool input:focus,
+#maincontent form.cool textarea:focus,
+#maincontent form.cool select:focus {
+	background: #ffffcc;
 }
 
 #maincontent form.cool option {
@@ -119,7 +152,7 @@ Sample Form Markup:
 	line-height: 0.5;
 }
 
-form.cool div.qfgroup,form.cool div.element {
+#maincontent form.cool div.qfgroup {
 	display: inline;
 	float: left;
 	margin: 5px 0 0 10px;
@@ -132,15 +165,6 @@ form div.qfelement div.qfgroup {
 	line-height: 0.5 !important;
 }
 
-form.cool span.error {
-	color: red;
-}
-
-form.cool div.error {
-	border: 1px solid red;
-	padding: 5px;
-}
-
 #maincontent form.cool fieldset legend {
 	font-weight: bold;
 	top: -11px;
@@ -149,10 +173,6 @@ form.cool div.error {
 	margin: 0 0 23px 0;
 	position: relative;
 	background: #fff;
-}
-
-#maincontent form.cool fieldset span.required {
-	color: #ff0000;
 }
 
 #maincontent form.cool fieldset li.reqnote {
@@ -165,27 +185,57 @@ form.cool div.error {
     left: 0;
     position: absolute;
 }
-#maincontent form.cool fieldset li.reqnote label{display:none}
+
+#maincontent form.cool fieldset li.reqnote label {
+	display:none;
+}
+
 #maincontent form.cool fieldset.hidden {
 	margin: 0;
 	padding: 0;
 	background: 0;
 	border: none;
-}
+} 
 
-#maincontent h3 {
-	clear: left;
+body:last-child:not(:root:root) #maincontent form.cool label {
+	vertical-align:baseline;
 }
-
-#maincontent form.cool label{vertical-align:40%;margin-right:12px;margin-left:2px;}
-#maincontent form.cool .element label{vertical-align:0;margin-right:12px;margin-left:5px;}
-body:last-child:not(:root:root) #maincontent form.cool label{vertical-align:baseline; }
 
 #maincontent form.cool li div.element {
 	left:150px;
 }
+
 #maincontent form.cool fieldset p {
 	margin: 10px;	
+}
+
+/* Nested Fieldsets (to control groups of radio buttons, check boxes)
+*********************************/
+#maincontent form.cool fieldset fieldset {
+	border: none;
+	margin:10px 0 -5px;
+}
+
+#maincontent form.cool fieldset fieldset legend {
+	border: none;
+	background: none;
+	font-weight: normal;
+	text-align:right;
+	margin:10px 0 0;
+	padding:0 0 0 10px;
+}
+
+#maincontent form.cool fieldset fieldset label {
+	min-width:30px;
+	width:auto;
+	text-align:left;
+	clear: left;
+	margin:0 0 3px 160px;
+}
+
+#maincontent form.cool fieldset fieldset label input[type="radio"],
+#maincontent form.cool fieldset fieldset label input[type="checkbox"] {
+	margin:2px 5px 0 0;
 }
 
 #maincontent form.cool fieldset fieldset li div.element {
@@ -193,9 +243,13 @@ body:last-child:not(:root:root) #maincontent form.cool label{vertical-align:base
 	position:absolute;
 }
 
-/* Required Indicators */
+/* Required Indicators
+*********************************/
 .required {
 	color:#434343;
+}
+#maincontent form.cool fieldset span.required {
+	color: #ff0000;
 }
 #maincontent form.cool li.required input {
 	background:url(images/forms/requiredIndicator.png) #fff no-repeat top right;
@@ -205,6 +259,7 @@ p.required, p.attention {
 	background:url(images/forms/requiredIndicatorBG.png) no-repeat top left;
 	padding:10px 0 16px 45px;
 	margin-bottom:-25px;
+	float:right;
 }
 p.attention {
 	background:url(images/forms/alertIndicatorBG.png) no-repeat top left;
@@ -214,7 +269,9 @@ p.attention {
 	color:#1091D1;
 	font-size:75%;
 }
-/*For the form hints*/
+
+/*For the form hints
+*********************************/
 #maincontent form.cool span.hint {
 	position:relative;
 	display:block;
@@ -237,41 +294,37 @@ p.attention {
   	top:15px;
   	width:16px;
   	height:19px;
-}
-/* End Form hints*/
+} 
 
-/*Submit Button*/
-#maincontent form.cool p.submit, #maincontent form.energetic p.submit {
-	margin-top: 0px;
-	margin-left: 160px;
-	background:url(images/forms/submitL.png) 0% -138px no-repeat;
+/* Submit Button
+*********************************/
+#maincontent form.cool input[type=submit],
+#maincontent form.energetic input[type=submit] {
+	background:url("images/forms/submitR.png") no-repeat;
+	border:medium none;
+	color:#FFFFFF;
+	cursor:pointer;
 	display:inline-block;
+	font-size:1.5em;
 	height:45px;
-	padding-left:5px;
-}
-#maincontent form.energetic p.submit {background-position:0% -92px;margin-left: 42px;margin-top:20px;}
-/*#maincontent form.cool p.submit:after {content: ".";display: block;clear: both;height:0;visibility: hidden;}*/
-#maincontent form.cool p.submit input, p.submit a, #maincontent form.energetic p.submit input {
-    background:url(images/forms/submitR.png) no-repeat 100% -138px;
-    font-size:1.5em;
-    color:#FFF;
-    display:inline-block;
-    padding:12px 45px 15px 12px;
-    margin:0;
-    border:0;
-    height:45px;
-    border:none;
-    width:auto;
-    cursor:pointer;
-}
-#maincontent form.energetic p.submit input {background-position:100% -92px;}
-#maincontent form.cool p.submit a {
-	padding:15px 45px 15px 10px;
+	margin:0 0 0 160px;
+	padding:10px 40px 15px 16px;
+	width:auto;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+} 
+
+#maincontent form.cool input[type=submit] {
+	background-position:100% -138px;
 }
 
-/*End submit button*/
+#maincontent form.energetic input[type=submit] {
+	background-position:100% -92px;
+}
 
-/*Handle Form Feedback*/
+/*Handle Form Feedback
+*********************************/
 p.error, p.success {
 	border:1px solid #c50000;
 	background: #dc6767;
@@ -282,14 +335,19 @@ p.success {
 	border:1px solid #349804;
 	background: #6cbd45;	
 }
+#maincontent form.cool span.error {
+	color: red;
+}
 
-/*
-COMPACT FORM
+#maincontent form.cool div.error {
+	border: 1px solid red;
+	padding: 5px;
+}
 
+/* COMPACT FORM
 Use this when you need a form in one_col or two_col. It uses the same markup as above, simply add another class="compact" to the form. 
 Elments will rearrange/dissapper/change size due to space issues.
-
-*/
+*********************************/
 #maincontent form.compact fieldset {
 	width:100%;
 	margin-top:0;

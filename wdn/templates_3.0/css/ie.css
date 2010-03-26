@@ -49,16 +49,14 @@
     background-color:#AC0302;
 }
 #maincontent form.cool fieldset legend {
-    margin: -13px 0 0 -7px;
+    margin: -13px 0 0 -7px !important;
+}
+#maincontent form.cool fieldset fieldset legend {
+	margin: 4px 0 !important;
+    top: 0 !important;
 }
 #maincontent form.compact fieldset legend {
-    margin: -5px 0 0 -7px;
-}
-#maincontent form.cool p.submit input, p.submit a {
-    margin-left:-160px;
-}
-#maincontent form.compact p.submit input {
-	margin-left: 0;
+    margin: -5px 0 0 -7px !important;
 }
 ul#wdn_tool_links li {
 	float:left;
