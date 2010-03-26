@@ -220,9 +220,8 @@ body:last-child:not(:root:root) #maincontent form.cool label {
 	border: none;
 	background: none;
 	font-weight: normal;
-	text-align:right;
 	margin:10px 0 0;
-	padding:0 0 0 10px;
+	padding:10px 0 0 10px;
 }
 
 #maincontent form.cool fieldset fieldset label {
