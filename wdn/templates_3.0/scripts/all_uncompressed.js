@@ -9809,11 +9809,7 @@ WDN.idm = function() {
 		 */
 		initialize : function() {
 			if (WDN.idm.isLoggedIn()) {
-				WDN.loadJS('https://login.unl.edu/demo/pf-whoami/?id='+WDN.getCookie('sso'), function() {
-					if (WDN.idm.getUserId()) {
-						WDN.idm.displayNotice(WDN.idm.getUserId());
-					}
-				});
+				WDN.idm.displayNotice(WDN.idm.getUserID());
 			}
 		},
 		
@@ -9841,8 +9837,9 @@ WDN.idm = function() {
 		 * 
 		 * @return string
 		 */
-		getUserId : function() {
-			return WDN.idm.user.uid;
+		getUserID : function() {
+			var user = WDN.getCookie('sso');
+			return user;
 		},
 		
 		/**
@@ -9881,7 +9878,41 @@ WDN.idm = function() {
 			// Any time a link is clicked, unset the user data
 			WDN.jQuery('#wdn_identity_management a').click(WDN.idm.logout);
 			
-			WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn);
+			WDN.idm.getFriendlyName(uid);
+		},
+		
+		/**
+		 * Retrieves user info and updates the name.
+		 * 
+		 * @param string uid
+		 */
+		getFriendlyName : function(uid) {
+			WDN.idm.setUser(uid, function(){WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn);});
+		},
+		
+		/**
+		 * Sets the user details
+		 * 
+		 * @param string   uid
+		 * @param function callback
+		 * 
+		 * @return void
+		 */
+		setUser : function(uid, callback) {
+			WDN.setCookie('sso', uid, 10800);
+			if ("https:" != document.location.protocol) {
+				// Don't break authentication
+				WDN.get('http://peoplefinder.unl.edu/service.php?format=json&uid='+uid, null, function(data, textStatus){
+					if (textStatus == 'success') {
+						eval('WDN.idm.user='+data);
+						if (callback) {
+							callback();
+						}
+					}
+				});
+			} else {
+				WDN.idm.user={'uid':uid,'cn':uid};
+			}
 		},
 		
 		/**
