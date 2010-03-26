@@ -268,6 +268,8 @@ p.attention {
 #maincontent form.cool fieldset span.form-field-description {
 	color:#1091D1;
 	font-size:75%;
+	display:inline-block;
+	margin:10px 0 0 5px;
 }
 
 /*For the form hints
