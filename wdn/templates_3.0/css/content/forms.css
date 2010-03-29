@@ -242,6 +242,16 @@ body:last-child:not(:root:root) #maincontent form.cool label {
 	position:absolute;
 }
 
+/* Support for deprecated radio, checkboxes
+*********************************/
+#maincontent form.cool div.element {margin-left:150px;}
+#maincontent form.cool .element label {
+	width:auto;
+	display:inline;
+	text-align:left;
+	margin-left:5px;	
+}
+
 /* Required Indicators
 *********************************/
 .required {
