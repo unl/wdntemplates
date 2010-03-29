@@ -11,8 +11,8 @@ Sample Form Markup:
 	        <fieldset>
 	                <legend>Sample Form Content</legend>
 	                <ol>
-	                        <li class="required">
-	                        	<label for="name">Name</label>
+	                        <li>
+	                        	<label for="name">Name<span class="required">*</span></label>
 	                        	<input type="text" id="name" name="name" />
 	                        </li>
 	                        <li>
