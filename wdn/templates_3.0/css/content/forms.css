@@ -324,6 +324,15 @@ p.attention {
 	background-position:100% -92px;
 }
 
+/* Reset Button
+*********************************/
+#maincontent form.cool input[type=reset],
+#maincontent form.energetic input[type=reset] {
+	border:none;background:none;border-left:1px solid #969696;padding-left:5px;margin-left:6px;width:auto;cursor:pointer;
+} 
+
+
+
 /*Handle Form Feedback
 *********************************/
 p.error, p.success {
