@@ -4,21 +4,15 @@
         //<![CDATA[
         WDN.loadCSS('http://www.unl.edu/ucomm/templatedependents/templatecss/components/monthwidget.css');
         WDN.loadJS('http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/UNLevent_monthWidget.js', function() {
-        	UNLevent_monthWidget.init('http://events.unl.edu/wdn/'); //Change the URL
+            UNLevent_monthWidget.init('http://events.unl.edu/wdn/'); //Change the URL
         });
         //]]>
     </script>
 </div>
 
 
-<h2 class="sec_main">Upcoming WDN Events</h2>
-<div  id="upcoming">
-    Loading calendar data.
+<div class="one_col left">
+    <div id="wdn_calendarDisplay"></div>
 </div>
-<script type="text/javascript">
-    //<![CDATA[
-    WDN.loadCSS('http://www.unl.edu/ucomm/templatedependents/templatecss/components/upcomingevents.css');
-    var my_calurl = "http://events.unl.edu/wdn/upcoming/?format=hcalendar";
-    fetchURLInto(my_calurl, 'upcoming', 'Error loading data.');
-    //]]>
-</script>
+<script type="text/javascript">WDN.initializePlugin('events', function(){WDN.events.limit=5;WDN.events.initialize();});</script>
+
