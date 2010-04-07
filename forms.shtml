@@ -29,7 +29,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="wdn/templates_3.0/css/ie.css" />
 <![endif]-->
 
-<link rel="stylesheet" type="text/css" href="wdn/templates_3.0/css/content/forms.css" />
+<link rel="stylesheet" type="text/css" href="wdn/templates_3.0/css/content/zenform.css" />
+<!--  <link rel="stylesheet" type="text/css" href="wdn/templates_3.0/css/content/forms.css" /> -->
 <!-- InstanceEndEditable -->
 </head>
 <body class="fixed">
@@ -62,76 +63,91 @@
         <div id="maincontent">
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             <!-- InstanceBeginEditable name="maincontentarea" -->
-            <div class="three_col left">
-             <h3>Previous Markup:</h3>
-               <form class="cool" action="?" method="post">
-				        <fieldset>
-				                <legend>Sample Form Content</legend>
-				                <ol>
-				                        <li><label for="name" class="element"><span class="required">*</span>Name</label><div class="element"><input id="name" name="name" /></div></li>
-				                        <li><label for="email" class="element"><span class="required">*</span>Email</label><div class="element"><input id="email" name="email" /></div></li>
-				                        <li><label class="element">I Can Has Cheezburger?</label><div class="element"><input name="helpful" value="1" type="radio" id="helpful" /></div></li>
-				                        <li><label for="helpful_comments" class="element">In what way?</label><div class="element"><textarea id="helpful_comments" name="comments"></textarea></div></li>
-				                        
-				                </ol>
-				        </fieldset>
-				        <p class="submit">
-					        <input type="submit" name="submit" value="Submit" />
-					    </p>
-				</form>
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur purus purus, tincidunt eget vehicula ac, imperdiet in tellus. Sed interdum iaculis viverra. Sed volutpat orci quis dui hendrerit vel tincidunt libero ultricies. Nunc adipiscing mauris eu sem accumsan eleifend. Nam id mattis mauris. Donec condimentum felis non tortor dapibus ac pellentesque velit molestie. Pellentesque libero sapien, laoreet ut iaculis et, suscipit a justo. Phasellus accumsan blandit justo sit amet vehicula. Donec congue metus porttitor arcu ullamcorper id convallis arcu laoreet. Praesent vitae nisi leo, a ultrices justo. Morbi non gravida neque. Integer in elit lorem. Etiam a tellus quis urna aliquam scelerisque sed sed elit. Suspendisse dui dolor, egestas convallis imperdiet eget, aliquam vel diam. Fusce sit amet lorem eget sem cursus fringilla quis ac nisi. Pellentesque imperdiet congue egestas. Integer vehicula magna ut quam fermentum congue. Ut pulvinar iaculis elit, in rutrum sapien fermentum nec.
+			</p>
+            
+            <h1>zenform.css</h1>
+            
+            <div class="two_col left">
+            <p>
+            sadfasdf asdf askdjfh alsdhf lasdhflasd hflahsd flahs dkj haslkfh asldk hfajds hlas fjkasd 
+            jksahf akjsh lkajdhs flakjsd fhlaksjdh flkasdh flkasd hfkdasj hf
+            </p>
+            <form class="zenform energetic" action="?" method="post">  
+		        <fieldset>
+		                <legend>Sample Form Content</legend>
+		                <ol>
+		                        <li>
+		                        	<label for="name">
+		                        		<span class="required">*</span>
+		                        		Name
+		                        		<span class="helper">Enter Your Full Name</span>
+		                        	</label>
+		                        	<input type="text" id="name" name="name" />
+		                        </li>
+		                        <li>
+		                        	<label for="email">Email</label>
+		                        	<input type="text" id="email" name="email" />
+		                        </li>
+		                        <li>
+		                        	<label for="campus">Campus</label>
+		                        	<select name="campus" id="campus">
+		                        		<option value="unl">UNL</option>
+		                        		<option value="unk">UNK</option>
+		                        		<option value="uno">UNO</option>
+		                        		<option value="unmc">UNMC</option>
+		                        	</select>
+		                        </li>
+		                        <li>
+		                        	<fieldset> 
+			                       		<span>
+			                       			<span class="required">*</span>
+			                       			The Most Important Question: I Can Has Cheezburger?
+			                       		</span>
+			                        	<label for="helpful_yes">
+			                        		<input type="radio" value="1" name="helpful_yes" id="helpful_yes" />
+			                        		Yes
+			                        	</label>
+			                        	<label for="helpful_no">
+			                        		<input type="radio" value="0" name="helpful_no" id="helpful_no" />
+			                        		No
+			                        	</label>
+		                        	</fieldset>
+		                        </li>
+		                        <li>
+		                        	<label for="helpful_comments">In what way?</label>
+		                        	<textarea id="helpful_comments" name="comments"></textarea>
+		                        </li>
+		                </ol>
+		        </fieldset> 
+			    <input type="submit" name="submit" value="Submit" />
+			    <input type="reset" name="reset" value="Reset" />
+			</form>
+			</div>
+            
+       
+            
+            <div class="two_col right">
+            <h4>asdfasdf</h4>
+            dasfj;salfja jflaks d;flkasdh fajsh kfjh sdfjhsd kf kjf hsldf als  kasf hlka sfl  jhdklaj haldsh a shf ajsdlfj s
+            askj  fh ljas hdlkjas   jhakljs flksda hklas  a
             </div>
             
             
+                    <div class="clear"><br /><br /><hr /><br /></div>
             
+            <h1>forms.css</h1>
             
-            
-            <div class="clear"><hr /><br /></div>
-            
-            
-            
-            
-            
-            
-            
-            <div class="three_col left">
-             <h3>Previous Markup:</h3>
-               <form class="cool" action="?" method="post">
-		               <p class="required">Indicates a required field.</p>
-				        <fieldset>
-				                <legend>Sample Form Content</legend>
-				                <ol>
-				                        <li class="required"><label for="name" class="element">Name</label><div class="element"><input id="name" name="name" /></div></li>
-				                        <li><label for="email" class="element">Email</label><div class="element"><input id="email" name="email" /></div></li>
-				                        <li><label class="element">I Can Has Cheezburger?</label><div class="element"><input name="helpful" value="1" type="radio" id="helpful" /></div></li>
-				                        <li><label for="helpful_comments" class="element">In what way?</label><div class="element"><textarea id="helpful_comments" name="comments"></textarea></div></li>
-				                        
-				                </ol>
-				        </fieldset>
-				        <p class="submit">
-					        <input type="submit" name="submit" value="Submit" />
-					    </p>
-				</form>
-            </div>
-            
-            
-            
-            
-            
-            
-             <div class="clear"><hr /><br /></div>
-             
-             
-             
-             
-             
+                         
              <div class="three_col left">
              <h3>Current Markup:</h3>
 				<form class="cool" action="?" method="post">  
 				        <fieldset>
 				                <legend>Sample Form Content</legend>
 				                <ol>
-				                        <li class="required">
-				                        	<label for="name">Name</label>
+				                        <li>
+				                        	<label for="name">Name<span class="required">*</span></label>
 				                        	<input type="text" id="name" name="name" />
 				                        </li>
 				                        <li>
@@ -169,6 +185,73 @@
 					    <input type="submit" name="submit" value="Submit" />
 				</form>
             </div>
+            
+            
+            
+            
+                    <div class="clear"><hr /><br /></div>
+                    
+                    
+                    
+                    
+                    
+            <div class="three_col left">
+             <h4>(Previous Markup):</h4>
+               <form class="cool" action="?" method="post">
+				        <fieldset>
+				                <legend>Sample Form Content</legend>
+				                <ol>
+				                        <li><label for="name" class="element"><span class="required">*</span>Name</label><div class="element"><input id="name" name="name" /></div></li>
+				                        <li><label for="email" class="element"><span class="required">*</span>Email</label><div class="element"><input id="email" name="email" /></div></li>
+				                        <li><label class="element">I Can Has Cheezburger?</label><div class="element"><input name="helpful" value="1" type="radio" id="helpful" /></div></li>
+				                        <li><label for="helpful_comments" class="element">In what way?</label><div class="element"><textarea id="helpful_comments" name="comments"></textarea></div></li>
+				                        
+				                </ol>
+				        </fieldset>
+				        <p class="submit">
+					        <input type="submit" name="submit" value="Submit" />
+					    </p>
+				</form>
+            </div>
+            
+            
+            
+            
+            
+            <div class="clear"><hr /><br /></div>
+            
+            
+            
+            
+            
+            
+            
+            <div class="three_col left">
+             <h4>(Previous Markup):</h4>
+               <form class="cool" action="?" method="post">
+		               <p class="required">Indicates a required field.</p>
+				        <fieldset>
+				                <legend>Sample Form Content</legend>
+				                <ol>
+				                        <li class="required"><label for="name" class="element">Name</label><div class="element"><input id="name" name="name" /></div></li>
+				                        <li><label for="email" class="element">Email</label><div class="element"><input id="email" name="email" /></div></li>
+				                        <li><label class="element">I Can Has Cheezburger?</label><div class="element"><input name="helpful" value="1" type="radio" id="helpful" /></div></li>
+				                        <li><label for="helpful_comments" class="element">In what way?</label><div class="element"><textarea id="helpful_comments" name="comments"></textarea></div></li>
+				                        
+				                </ol>
+				        </fieldset>
+				        <p class="submit">
+					        <input type="submit" name="submit" value="Submit" />
+					    </p>
+				</form>
+            </div>
+            
+            
+            
+            
+          
+             
+
              
              
              

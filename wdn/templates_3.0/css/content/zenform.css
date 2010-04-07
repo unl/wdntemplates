@@ -1,0 +1,198 @@
+/*
+CSS LINK:
+<link rel="stylesheet" type="text/css" href="/wdn/templates_3.0/css/content/zenform.css" />
+
+Sample Form Markup:
+
+	<form class="zenform energetic" action="?" method="post">  
+	        <fieldset>
+	                <legend>Sample Form Content</legend>
+	                <ol>
+	                        <li>
+	                        	<label for="name">Name<span class="required">*</span><span class="helper">Enter Your Full Name</span></label>
+	                        	<input type="text" id="name" name="name" />
+	                        </li>
+	                        <li>
+	                        	<label for="email">Email</label>
+	                        	<input type="text" id="email" name="email" />
+	                        </li>
+	                        <li>
+	                        	<label for="campus">Campus</label>
+	                        	<select name="campus" id="campus">
+	                        		<option value="unl">UNL</option>
+	                        		<option value="unk">UNK</option>
+	                        		<option value="uno">UNO</option>
+	                        		<option value="unmc">UNMC</option>
+	                        	</select>
+	                        </li>
+	                        <li>
+		                        <fieldset>
+		                       		<span>
+		                       			The Most Important Question: I Can Has Cheezburger?
+		                       			<span class="required">*</span>
+		                       		</span>
+		                        	<label for="helpful_yes">
+		                        		<input type="radio" value="1" name="helpful_yes" id="helpful_yes" />
+		                        		Yes
+		                        	</label>
+		                        	<label for="helpful_no">
+		                        		<input type="radio" value="0" name="helpful_no" id="helpful_no" />
+		                        		No
+		                        	</label>
+	                        	</fieldset>
+	                        </li>
+	                        <li>
+	                        	<label for="helpful_comments">In what way?</label>
+	                        	<textarea id="helpful_comments" name="comments"></textarea>
+	                        </li>
+	                </ol>
+	        </fieldset> 
+		    <input type="submit" name="submit" value="Submit" />
+			<input type="reset" name="reset" value="Reset" />
+	</form>
+*/
+
+#maincontent form.zenform { 
+	margin:0;
+	padding:0;
+	border:1px solid #B8AFA1;
+	background:#f7f7f7;
+}
+#maincontent form.zenform legend { 
+	display:none;
+} 
+#maincontent form.zenform fieldset ol {
+	margin-top:15px; 	
+}
+#maincontent form.zenform fieldset ol li {
+	list-style:none;
+	padding:5px 20px;
+}
+#maincontent form.zenform fieldset ol li label {
+	font-size:1.3em;
+}
+#maincontent form.zenform fieldset ol li input,
+#maincontent form.zenform fieldset ol li textarea,
+#maincontent form.zenform fieldset ol li select {
+	border:1px solid #b8afa1;
+	color:#5f5f5f;
+}
+#maincontent form.zenform fieldset ol li input[type=text],
+#maincontent form.zenform fieldset ol li input[type=file],
+#maincontent form.zenform fieldset ol li textarea,
+#maincontent form.zenform fieldset ol li select {
+	width:100%;
+	font-size:1.1em;
+}
+#maincontent form.zenform fieldset ol li textarea {
+	font:1.1em "Lucida Grande",Verdana,Arial;	
+}
+#maincontent form.zenform fieldset ol li input[type=text],
+#maincontent form.zenform fieldset ol li input[type=file],
+#maincontent form.zenform fieldset ol li textarea,
+#maincontent form.zenform fieldset ol li select {
+	padding:5px;
+}
+#maincontent form.zenform fieldset ol li input:focus,
+#maincontent form.zenform fieldset ol li select:focus,
+#maincontent form.zenform fieldset ol li textarea:focus {
+	background-color:#F9F8E4;
+}
+#maincontent form.zenform fieldset ol li .required {
+	position:absolute;
+	left:24px;
+	text-indent:-9999px;
+	margin-top:1px;
+	background:url('images/zenform/requiredIndicator.png') no-repeat top right;
+	width:26px;
+	height:20px;
+	display:block;
+}
+#maincontent form.zenform fieldset ol li .helper{
+	font-size:.6em;
+	color:#7c7c7c;
+	padding-left:15px;
+	line-height:1.3em;
+}
+
+
+/* Fieldset inside form
+******************/
+#maincontent form.zenform fieldset fieldset {margin-bottom:10px;}
+#maincontent form.zenform fieldset fieldset > span {display:block;}
+#maincontent form.zenform fieldset fieldset ol {margin-left:-20px;margin-top:0px;}
+#maincontent form.zenform fieldset fieldset ol li {margin-left:-30px;font-size:0.8em;padding:2px 20px;}
+
+
+
+
+
+/* First option */
+#maincontent form.zenform .option_step {
+	list-style:none;
+	text-align:center;
+	margin:0px;	
+}
+#maincontent form.zenform .option_step li {
+	display:inline;
+	margin:40px;
+	float:left;
+	padding:0;
+	width:340px;
+}
+#maincontent form.zenform .option_step li a {
+	display:block;
+	width:350px;
+	height:155px;
+	border:1px solid #b8afa1;
+	border-radius:5px;
+	text-indent:-9999px;
+}
+#maincontent form.zenform p.nextStep {
+	margin-top: 0px;
+	margin-left: 33px;
+	background:url('images/actionButtonL.png') top left no-repeat;
+	display:inline-block;
+	height:37px;
+	padding-left:7px;
+}
+#maincontent form.zenform p.nextStep a {
+    background:url('images/actionButtonR.png') no-repeat top right;
+    font-size:1.1em;
+    color:#494949;
+    display:inline-block;
+    padding:9px 30px 0px 6px;
+    margin:0;
+    border:0;
+    height:37px;
+    border:none;
+    width:auto;
+}
+
+
+/* Submit Button
+*********************************/
+#maincontent form.zenform input[type=submit] {
+	background:url("images/forms/submitR.png") no-repeat 100% -92px;
+	border:medium none;
+	color:#FFFFFF;
+	cursor:pointer;
+	display:inline-block;
+	font-size:1.5em;
+	height:45px;
+	margin:0 0 20px 80px;
+	padding:10px 40px 15px 16px;
+	width:auto;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+#maincontent form.zenform.soothing input[type=submit] {
+	background-position:100% -138px;
+}
+
+/* Reset Button
+*********************************/
+#maincontent form.zenform input[type=reset] {
+	border:none;background:none;border-left:1px solid #969696;padding-left:5px;margin-left:6px;width:auto;cursor:pointer;
+} 
