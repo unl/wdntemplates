@@ -9809,12 +9809,16 @@ WDN.idm = function() {
 		 */
 		initialize : function() {
 			if (WDN.idm.isLoggedIn()) {
-				WDN.idm.displayNotice(WDN.idm.getUserID());
+				WDN.loadJS('https://login.unl.edu/services/whoami/?id='+WDN.getCookie('unl_sso'), function() {
+					if (WDN.idm.getUserId()) {
+						WDN.idm.displayNotice(WDN.idm.getUserId());
+					}
+				});
 			}
 		},
 		
 		logout : function() {
-			WDN.setCookie('sso', '0', -1);
+			WDN.setCookie('unl_sso', '0', -1);
 			WDN.idm.user = false;
 		},
 			
@@ -9825,7 +9829,7 @@ WDN.idm = function() {
 		 * @return bool
 		 */
 		isLoggedIn : function() {
-			var user = WDN.getCookie('sso');
+			var user = WDN.getCookie('unl_sso');
 			if (user !== null) {
 				return true;
 			}
@@ -9837,9 +9841,8 @@ WDN.idm = function() {
 		 * 
 		 * @return string
 		 */
-		getUserID : function() {
-			var user = WDN.getCookie('sso');
-			return user;
+		getUserId : function() {
+			return WDN.idm.user.uid;
 		},
 		
 		/**
@@ -9878,41 +9881,7 @@ WDN.idm = function() {
 			// Any time a link is clicked, unset the user data
 			WDN.jQuery('#wdn_identity_management a').click(WDN.idm.logout);
 			
-			WDN.idm.getFriendlyName(uid);
-		},
-		
-		/**
-		 * Retrieves user info and updates the name.
-		 * 
-		 * @param string uid
-		 */
-		getFriendlyName : function(uid) {
-			WDN.idm.setUser(uid, function(){WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn);});
-		},
-		
-		/**
-		 * Sets the user details
-		 * 
-		 * @param string   uid
-		 * @param function callback
-		 * 
-		 * @return void
-		 */
-		setUser : function(uid, callback) {
-			WDN.setCookie('sso', uid, 10800);
-			if ("https:" != document.location.protocol) {
-				// Don't break authentication
-				WDN.get('http://peoplefinder.unl.edu/service.php?format=json&uid='+uid, null, function(data, textStatus){
-					if (textStatus == 'success') {
-						eval('WDN.idm.user='+data);
-						if (callback) {
-							callback();
-						}
-					}
-				});
-			} else {
-				WDN.idm.user={'uid':uid,'cn':uid};
-			}
+			WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn);
 		},
 		
 		/**

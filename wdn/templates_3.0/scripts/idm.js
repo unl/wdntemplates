@@ -20,7 +20,7 @@ WDN.idm = function() {
 		 */
 		initialize : function() {
 			if (WDN.idm.isLoggedIn()) {
-				WDN.loadJS('https://login.unl.edu/demo/pf-whoami/?id='+WDN.getCookie('sso'), function() {
+				WDN.loadJS('https://login.unl.edu/services/whoami/?id='+WDN.getCookie('unl_sso'), function() {
 					if (WDN.idm.getUserId()) {
 						WDN.idm.displayNotice(WDN.idm.getUserId());
 					}
@@ -29,7 +29,7 @@ WDN.idm = function() {
 		},
 		
 		logout : function() {
-			WDN.setCookie('sso', '0', -1);
+			WDN.setCookie('unl_sso', '0', -1);
 			WDN.idm.user = false;
 		},
 			
@@ -40,7 +40,7 @@ WDN.idm = function() {
 		 * @return bool
 		 */
 		isLoggedIn : function() {
-			var user = WDN.getCookie('sso');
+			var user = WDN.getCookie('unl_sso');
 			if (user !== null) {
 				return true;
 			}
