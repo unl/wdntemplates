@@ -92,7 +92,7 @@ Sample Form Markup:
 	#maincontent form.zenform.primary > h3 {color:#FFF;background:#C20403;}
 	
 #maincontent form.zenform fieldset {
-	float:left; /*needed for webkit*/
+	padding:1px 0 0 0; /* needed for webkit*/
 	width:100%;
 	background:url('images/zenform/process_step_fade.png') repeat-x;
 }
