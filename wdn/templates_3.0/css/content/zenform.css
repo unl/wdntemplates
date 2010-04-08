@@ -4,63 +4,101 @@ CSS LINK:
 
 Sample Form Markup:
 
-	<form class="zenform energetic" action="?" method="post">  
-	        <fieldset>
-	                <legend>Sample Form Content</legend>
-	                <ol>
-	                        <li>
-	                        	<label for="name">Name<span class="required">*</span><span class="helper">Enter Your Full Name</span></label>
-	                        	<input type="text" id="name" name="name" />
-	                        </li>
-	                        <li>
-	                        	<label for="email">Email</label>
-	                        	<input type="text" id="email" name="email" />
-	                        </li>
-	                        <li>
-	                        	<label for="campus">Campus</label>
-	                        	<select name="campus" id="campus">
-	                        		<option value="unl">UNL</option>
-	                        		<option value="unk">UNK</option>
-	                        		<option value="uno">UNO</option>
-	                        		<option value="unmc">UNMC</option>
-	                        	</select>
-	                        </li>
-	                        <li>
-		                        <fieldset>
-		                       		<span>
-		                       			The Most Important Question: I Can Has Cheezburger?
-		                       			<span class="required">*</span>
-		                       		</span>
-		                        	<label for="helpful_yes">
-		                        		<input type="radio" value="1" name="helpful_yes" id="helpful_yes" />
-		                        		Yes
+            <form class="zenform energetic" action="?" method="post">
+            	<h3>Important Survey</h3>
+		        <fieldset>
+		                <legend>Sample Form Content</legend>
+		                <ol>
+		                        <li>
+		                        	<label for="name">
+		                        		<span class="required">*</span>
+		                        		Name
+		                        		<span class="helper">Enter Your Full Name</span>
 		                        	</label>
-		                        	<label for="helpful_no">
-		                        		<input type="radio" value="0" name="helpful_no" id="helpful_no" />
-		                        		No
-		                        	</label>
-	                        	</fieldset>
-	                        </li>
-	                        <li>
-	                        	<label for="helpful_comments">In what way?</label>
-	                        	<textarea id="helpful_comments" name="comments"></textarea>
-	                        </li>
-	                </ol>
-	        </fieldset> 
-		    <input type="submit" name="submit" value="Submit" />
-			<input type="reset" name="reset" value="Reset" />
-	</form>
+		                        	<input type="text" id="name" name="name" />
+		                        </li>
+		                        <li>
+		                        	<label for="email">Email</label>
+		                        	<input type="text" id="email" name="email" />
+		                        </li>
+		                        <li>
+		                        	<label for="campus">Campus</label>
+		                        	<select name="campus" id="campus">
+		                        		<option value="none"></option>
+		                        		<option value="unl">UNL</option>
+		                        		<option value="unk">UNK</option>
+		                        		<option value="uno">UNO</option>
+		                        		<option value="unmc">UNMC</option>
+		                        	</select>
+		                        </li>
+		                        <li>
+		                        	<fieldset> 
+			                       		<span>
+			                       			<span class="required">*</span>
+			                       			The Most Important Question: I Can Has Cheezburger?
+			                       		</span>
+			                       		<ol>
+			                        		<li>
+			                        			<input type="radio" value="1" name="helpful_yes" id="helpful_yes" />
+			                        			<label for="helpful_yes">Yes</label>
+			                        		</li>
+			                        		<li>
+					                        	<input type="radio" value="0" name="helpful_no" id="helpful_no" />
+					                        	<label for="helpful_no">No</label>
+					                        </li>
+			                        		<li>
+			                        			<input type="radio" value="2" name="helpful_maybe" id="helpful_maybe" />
+					                        	<label for="helpful_maybe">Maybe</label>
+					                        </li>
+					                	</ol>
+		                        	</fieldset>
+		                        </li>
+		                        <li>
+		                        	<label for="helpful_comments">In what way?</label>
+		                        	<textarea id="helpful_comments" name="comments" rows="4" cols="auto"></textarea>
+		                        </li>
+		                </ol>
+		        </fieldset> 
+			    <input type="submit" name="submit" value="Submit" />
+			    <input type="reset" name="reset" value="Reset" />
+			</form>
 */
 
 #maincontent form.zenform { 
 	margin:0;
 	padding:0;
-	border:1px solid #B8AFA1;
-	background:#f7f7f7;
+	border:1px solid #D7D7D7;
+	background:#FBFAF6;
 }
-#maincontent form.zenform legend { 
+	#maincontent form.zenform.bright {background:#FBFBF6;}
+	#maincontent form.zenform.cool {background:#ECF6FC;}
+	#maincontent form.zenform.energetic {background:#FBFAF6;}
+	#maincontent form.zenform.soothing {background:#E9F0EA;}
+	#maincontent form.zenform.neutral {background:#F9F9F9;}
+	#maincontent form.zenform.primary {background:#F4F4F4;}
+	
+#maincontent form.zenform > h3 {
+	background:#F8F3E4;
+	border-bottom:1px solid #D7D7D7;
+	color:#DE8727;
+	font-weight:bold;
+	padding:6px 10px 4px;
+}
+	#maincontent form.zenform.bright > h3 {color:#666;background:#F5E62F;}
+	#maincontent form.zenform.cool > h3 {color:#FFFFF0;background:#a9df89;}
+	#maincontent form.zenform.energetic > h3 {color:#DE8727;background:#F8F3E4;}
+	#maincontent form.zenform.soothing > h3 {color:#FFF;background:#7A6D48;}
+	#maincontent form.zenform.neutral > h3 {color:#FFFFF8;background:#777;}
+	#maincontent form.zenform.primary > h3 {color:#FFF;background:#C20403;}
+	
+#maincontent form.zenform fieldset {
+	float:left; /*needed for webkit*/
+	width:100%;
+	background:url('images/zenform/process_step_fade.png') repeat-x;
+}
+#maincontent form.zenform fieldset legend { 
 	display:none;
-} 
+}
 #maincontent form.zenform fieldset ol {
 	margin-top:15px; 	
 }
@@ -98,82 +136,41 @@ Sample Form Markup:
 #maincontent form.zenform fieldset ol li textarea:focus {
 	background-color:#F9F8E4;
 }
-#maincontent form.zenform fieldset ol li .required {
+#maincontent form.zenform fieldset ol li span.required {
 	position:absolute;
 	left:24px;
 	text-indent:-9999px;
 	margin-top:1px;
-	background:url('images/zenform/requiredIndicator.png') no-repeat top right;
+	background:url('images/zenform/requiredIndicator.png') no-repeat 0 -28px;
 	width:26px;
-	height:20px;
+	height:14px;
 	display:block;
 }
-#maincontent form.zenform fieldset ol li .helper{
+	#maincontent form.zenform.bright fieldset ol li span.required {background-position:0 0;}
+	#maincontent form.zenform.cool fieldset ol li span.required {background-position:0 -14px;}
+	#maincontent form.zenform.energetic fieldset ol li span.required {background-position:0 -28px;}
+	#maincontent form.zenform.soothing fieldset ol li span.required {background-position:0 -42px;}
+	#maincontent form.zenform.neutral fieldset ol li span.required {background-position:0 -56px;}
+	#maincontent form.zenform.primary fieldset ol li span.required {background-position:0 -70px;}
+	
+#maincontent form.zenform fieldset ol li span.helper {
 	font-size:.6em;
 	color:#7c7c7c;
 	padding-left:15px;
 	line-height:1.3em;
 }
 
-
 /* Fieldset inside form
-******************/
-#maincontent form.zenform fieldset fieldset {margin-bottom:10px;}
-#maincontent form.zenform fieldset fieldset > span {display:block;}
+******************/ 
+#maincontent form.zenform fieldset fieldset {background:none;}
+#maincontent form.zenform fieldset fieldset > span {display:block;font-size:1.2em;}
 #maincontent form.zenform fieldset fieldset ol {margin-left:-20px;margin-top:0px;}
-#maincontent form.zenform fieldset fieldset ol li {margin-left:-30px;font-size:0.8em;padding:2px 20px;}
-
-
-
-
-
-/* First option */
-#maincontent form.zenform .option_step {
-	list-style:none;
-	text-align:center;
-	margin:0px;	
-}
-#maincontent form.zenform .option_step li {
-	display:inline;
-	margin:40px;
-	float:left;
-	padding:0;
-	width:340px;
-}
-#maincontent form.zenform .option_step li a {
-	display:block;
-	width:350px;
-	height:155px;
-	border:1px solid #b8afa1;
-	border-radius:5px;
-	text-indent:-9999px;
-}
-#maincontent form.zenform p.nextStep {
-	margin-top: 0px;
-	margin-left: 33px;
-	background:url('images/actionButtonL.png') top left no-repeat;
-	display:inline-block;
-	height:37px;
-	padding-left:7px;
-}
-#maincontent form.zenform p.nextStep a {
-    background:url('images/actionButtonR.png') no-repeat top right;
-    font-size:1.1em;
-    color:#494949;
-    display:inline-block;
-    padding:9px 30px 0px 6px;
-    margin:0;
-    border:0;
-    height:37px;
-    border:none;
-    width:auto;
-}
-
+#maincontent form.zenform fieldset fieldset ol li {margin:0;font-size:0.8em;padding:2px 20px 2px 0;}
 
 /* Submit Button
-*********************************/
+******************/
 #maincontent form.zenform input[type=submit] {
-	background:url("images/forms/submitR.png") no-repeat 100% -92px;
+	background:url("images/forms/submitR.png") no-repeat right -92px;
 	border:medium none;
 	color:#FFFFFF;
 	cursor:pointer;
@@ -187,12 +184,21 @@ Sample Form Markup:
 	-webkit-border-radius:5px;
 	border-radius:5px;
 }
-#maincontent form.zenform.soothing input[type=submit] {
-	background-position:100% -138px;
-}
+	#maincontent form.zenform.bright input[type=submit] {background-position:right 0;color:#666;}
+	#maincontent form.zenform.cool input[type=submit] {background-position:right -46px;}
+	#maincontent form.zenform.energetic input[type=submit] {background-position:right -92px;}
+	#maincontent form.zenform.soothing input[type=submit] {background-position:right -138px;}
+	#maincontent form.zenform.neutral input[type=submit] {background-position:right -184px;}
+	#maincontent form.zenform.primary input[type=submit] {background-position:right -230px;}
 
 /* Reset Button
-*********************************/
+******************/
 #maincontent form.zenform input[type=reset] {
-	border:none;background:none;border-left:1px solid #969696;padding-left:5px;margin-left:6px;width:auto;cursor:pointer;
+	border:none;
+	background:none;
+	border-left:1px solid #969696;
+	padding-left:5px;
+	margin-left:6px;
+	width:auto;
+	cursor:pointer;
 } 
