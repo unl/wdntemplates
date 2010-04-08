@@ -244,12 +244,29 @@ body:last-child:not(:root:root) #maincontent form.cool label {
 
 /* Support for deprecated radio, checkboxes
 *********************************/
-#maincontent form.cool div.element {margin-left:150px;}
-#maincontent form.cool .element label {
-	width:auto;
+#maincontent form.cool div.element {
+	left:150px;
 	display:inline;
-	text-align:left;
-	margin-left:5px;	
+	float:left;
+	margin:5px 0 0 10px;
+	padding:0;
+}
+#maincontent form.cool div.element input[type="checkbox"],
+#maincontent form.cool div.element input[type="radio"] {
+	display:inline;
+	float:none;
+	border:medium none;
+	margin:3px 0;
+	width: auto;
+	padding: 3px;
+}
+#maincontent form.cool div.element label {
+	display:inline;
+	float:none;
+	margin-left:5px;
+	margin-right:12px;
+	margin-top:0;
+	vertical-align:0;	
 }
 
 /* Required Indicators
