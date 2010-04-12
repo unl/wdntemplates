@@ -117,6 +117,7 @@ Sample Form Markup:
 }
 #maincontent form.zenform fieldset ol li input[type=text],
 #maincontent form.zenform fieldset ol li input[type=file],
+#maincontent form.zenform fieldset ol li input[type=password],
 #maincontent form.zenform fieldset ol li textarea,
 #maincontent form.zenform fieldset ol li select {
 	width:100%;
@@ -127,6 +128,7 @@ Sample Form Markup:
 }
 #maincontent form.zenform fieldset ol li input[type=text],
 #maincontent form.zenform fieldset ol li input[type=file],
+#maincontent form.zenform fieldset ol li input[type=password],
 #maincontent form.zenform fieldset ol li textarea,
 #maincontent form.zenform fieldset ol li select {
 	padding:5px;
