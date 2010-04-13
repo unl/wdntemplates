@@ -92,6 +92,7 @@
 	            	<li><a href="image.html">Image Style and Caption</a></li>
 	            	<li><a href="notice.html">Notice</a></li>
 	            	<li><a href="layouts.html">Page Layouts</a></li>
+	            	<li><a href="pagination.html">Pagination</a></li>
 	            	<li><a href="randomizer.html">Randomizer</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Random_Div_Display" class="external">wiki documentation</a>)</li>
 	            	<li><a href="tabs.html">Tabs</a> (<a href="http://www1.unl.edu/wdn/wiki/Tabbed_Content_Areas" class="external">wiki documentation</a>)</li>
 	            	<li><a href="tooltips.html">Tooltips</a></li>
