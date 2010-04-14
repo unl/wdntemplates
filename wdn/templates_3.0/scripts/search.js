@@ -20,6 +20,13 @@ WDN.search = function() {
 			var localSearch = WDN.search.hasLocalSearch();
 			if (localSearch) {
 				// Change form action to the local search
+				var qParams = new Object();
+				var url = new String(localSearch);
+				var hashes = url.slice(url.indexOf('?') + 1).split('&');
+				for (var i = 0; i < hashes.length; i++) {
+					var hash = hashes[i].split('=');
+					WDN.jQuery('#wdn_search_form').append('<input type="hidden" name="'+hash[0]+'" value="'+decodeURIComponent(hash[1])+'" />');
+				}
 				WDN.jQuery('#wdn_search_form').attr('action', localSearch);
 			} else {
 				WDN.jQuery('#wdn_search_form').attr('action', 'http://www1.unl.edu/search/');

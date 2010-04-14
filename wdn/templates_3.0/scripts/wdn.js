@@ -167,6 +167,7 @@ var WDN = function() {
 					WDN[plugin].initialize();
 				} catch (e) {
 					WDN.log('Could not initialize '+plugin);
+					WDN.log(e);
 				}
 			};
 			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', callback);
