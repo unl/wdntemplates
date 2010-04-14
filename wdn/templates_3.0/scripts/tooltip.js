@@ -36,10 +36,13 @@ WDN.tooltip = function($) {
 							radius: 5,
 							color: '#f8e98e'
 						},
-						tip: 'bottomLeft'
+						tip: 'bottomMiddle'
 					},
 					position: { 
-						adjust: { screen: true },
+						adjust: { 
+							screen: true,
+							y : -5
+						},
 						corner: { target: 'topMiddle', tooltip: 'bottomMiddle' }
 					}
 				});
