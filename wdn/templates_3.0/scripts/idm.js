@@ -89,8 +89,8 @@ WDN.idm = function() {
 			
 			WDN.jQuery('#wdn_identity_management').html(icon+' <span class="username">'+uid+'</span> <a id="wdn_idm_logout" href="'+WDN.idm.logoutURL+'">Logout</a>');
 			
-			// Any time a link is clicked, unset the user data
-			WDN.jQuery('#wdn_identity_management a').click(WDN.idm.logout);
+			// Any time logout link is clicked, unset the user data
+			WDN.jQuery('#wdn_idm_logout').click(WDN.idm.logout);
 			
 			WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn);
 		},
