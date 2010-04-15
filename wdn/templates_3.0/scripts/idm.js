@@ -93,6 +93,10 @@ WDN.idm = function() {
 			WDN.jQuery('#wdn_idm_logout').click(WDN.idm.logout);
 			
 			WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn);
+			
+			if (WDN.jQuery('link[rel=logout]').length) {
+				WDN.idm.setLogoutURL(WDN.jQuery('link[rel=logout]').attr('href'));
+			}
 		},
 		
 		/**
