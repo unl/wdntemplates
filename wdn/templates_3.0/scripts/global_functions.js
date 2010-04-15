@@ -22,46 +22,80 @@ function fetchURLInto(url,id,err) {
 	);
 }
 
-function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
-	function showIt() {
+function rotateImg(imgArray_str,elementId_str,secs_int){
+	var imgArray;
+	if (typeof imgArray_str == "string") {
 		try {
-			
-			if (obj.src !== null && eval(imgArray_str+"["+thisNum_int+"][0]")!==null) {
-				obj.src=eval(imgArray_str+"["+thisNum_int+"][0]");
-			}
-			if (obj.alt !== null && eval(imgArray_str+"["+thisNum_int+"][1]")!==null) {
-				obj.alt=eval(imgArray_str+"["+thisNum_int+"][1]");
-			}
-			if (obj.parentNode.href!==null && eval(imgArray_str+"["+thisNum_int+"][2]")!==null) {
-				obj.parentNode.href=eval(imgArray_str+"["+thisNum_int+"][2]");
-				if (eval(imgArray_str+"["+thisNum_int+"][3]")!==null) {
-					var clickEvent = eval(imgArray_str+"["+thisNum_int+"][3]");
-					obj.parentNode.onclick=function() {eval(clickEvent);};
-				} else {
-					obj.parentNode.onclick=null;
-				}
-			} else {
-				obj.parentNode.href='#';
-			}
-		} catch(e) {}
+			imgArray = eval("(" + imgArray_str + ")");
+		} catch (e) {
+			return;
+		}
+	} else if (imgArray_str instanceof Array) {
+		imgArray = imgArray_str;
+	} else {
+		return
 	}
 	
-	if (thisNum_int == undefined) {
-		thisNum_int=Math.floor(Math.random()*eval(imgArray_str+".length"));
+	if (!imgArray.length) {
+		return;
 	}
-	if (thisNum_int >= eval(imgArray_str+".length")) {
-		thisNum_int = 0;
-	}
-	if (eval(imgArray_str+"["+thisNum_int+"]") !== null) {
-		// Try and set img
-		var obj = document.getElementById(elementId_str);
+	
+	var Rotator = function(aImgs, sElemId, iSecs) {
+		this.imgArray = aImgs;
+		this.timeout  = iSecs;
+		this.elemId   = sElemId;
 		
-		showIt();
-	}
-	thisNum_int++;
-	if (secs_int>0) {
-		return setTimeout("rotateImg('"+imgArray_str+"','"+elementId_str+"',"+secs_int+","+thisNum_int+")",secs_int*1000);
-	}
+		this.idx = Math.floor(this.imgArray.length * Math.random());
+		
+		this.rotate();
+	};
+	Rotator.prototype.rotate = function() {
+		var el = WDN.jQuery('#' + this.elemId);
+		
+		if (el.length) {
+			try {
+				el.attr({ 
+					src: this.imgArray[this.idx][0],
+					alt: this.imgArray[this.idx][1]
+				});
+			} catch (e) {
+				return;
+			}
+			
+			var link = el.parent("a");
+			var href = this.imgArray[this.idx][2];
+			if (this.imgArray[this.idx][2]) {
+				if (!link.length) {
+					link = WDN.jQuery("<a>");
+					el.wrap(link);
+				}
+				link.attr("href", href);
+				
+				if (this.imgArray[this.idx][3]) {
+					var onclick = eval("(" + this.imgArray[this.idx][3] + ")");
+					if (typeof onclick == "function") {
+						el.click(onclick);
+					}
+				}
+			} else if (link.length) {
+				link.attr("href", "#");
+			}
+			
+			this.idx++;
+			if (this.idx >= this.imgArray.length) {
+				this.idx = 0;
+			}
+			
+			if (this.timeout > 0 && this.imgArray.length > 1) {
+				var self = this;
+				setTimeout(function() {
+					self.rotate();
+				}, this.timeout * 1000);
+			}
+		}
+	};
+	
+	var inst = new Rotator(imgArray, elementId_str, secs_int);
 	
 	return true;
 }
