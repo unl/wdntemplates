@@ -69,6 +69,7 @@ Sample Form Markup:
 	padding:0;
 	border:1px solid #D7D7D7;
 	background:#FBFAF6;
+	position:relative;
 }
 	#maincontent form.zenform.bright {background:#FBFBF6;}
 	#maincontent form.zenform.cool {background:#ECF6FC;}
@@ -140,7 +141,7 @@ Sample Form Markup:
 }
 #maincontent form.zenform fieldset ol li span.required {
 	position:absolute;
-	left:24px;
+	left:10px;
 	text-indent:-9999px;
 	margin-top:1px;
 	background:url('images/zenform/requiredIndicator.png') no-repeat 0 -28px;
