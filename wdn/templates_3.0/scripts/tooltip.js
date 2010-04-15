@@ -2,18 +2,12 @@ WDN.tooltip = function($) {
 	return {
 		initialize : function() {
 			WDN.log("initialize tooltip");
-			WDN.loadJS('wdn/templates_3.0/scripts/plugins/qtip/jquery.qtip.js', WDN.tooltip.idInit);
+			WDN.loadJS('wdn/templates_3.0/scripts/plugins/qtip/jquery.qtip.js', WDN.tooltip.tooltipSetup);
 		},
-		idInit : function() {
-			// ID's of container elements we want to apply tooltips to right away
-			WDN.tooltip.tooltipSetup('wdn_tool_links');
-			WDN.tooltip.tooltipSetup('maincontent');
-			WDN.tooltip.tooltipSetup('footer');
-		},
-		tooltipSetup : function(id) {
-			// Tooltips can be added to any links by calling this function with
-			// the container id and adding a 'title' attribute to the anchor tag or image tag
-			$('#'+id+' a.tooltip, #'+id+' img.tooltip').each(function() {
+		tooltipSetup : function() {
+			WDN.loadCSS('/wdn/templates_3.0/css/header/tooltip.css');
+			// Tooltips can only be used in the appropriate sections, and must have the correct class name and a title attribute
+			$('#wdn_tool_links .tooltip[title], #maincontent .tooltip[title], #footer .tooltip[title]').each(function() {
 				$(this).qtip({
 
 					content: $(this).attr('title'),
@@ -24,19 +18,19 @@ WDN.tooltip = function($) {
 						effect: { length: 0 }
 					},
 					style: {
-						width: 200,
-						padding: 5,
-						'font-family': 'Arial, sans-serif',
-						'font-size': '12px',
-						background: '#faf7aa',
-						color: '#434343',
-						textAlign: 'center',
-						border: {
-							width: 1,
-							radius: 5,
-							color: '#f8e98e'
+						tip: {
+							corner : 'bottomMiddle',
+							size : {x : 17, y : 10}
 						},
-						tip: 'bottomMiddle'
+						width : {
+							min : 100
+						},
+						'background' : 'url("/wdn/templates_3.0/css/header/images/qtip/defaultBG.png") repeat-x bottom',
+						border : {
+							color : '#f7e77c',
+							width : 2
+						},
+						'color' : '#504500'
 					},
 					position: { 
 						adjust: { 
