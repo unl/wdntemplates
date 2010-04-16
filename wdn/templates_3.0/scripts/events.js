@@ -27,10 +27,12 @@ WDN.events = function() {
 			}
 		},
 		display : function() {
-			var container = WDN.events.container;
+			var container = this.container;
+			var calURL    = this.calURL;
+			var calTitle  = this.calTitle;
 			WDN.get(this.calURL+'/upcoming/?format=hcalendar&limit='+this.limit, null, function(content) {
 				WDN.jQuery(container).hide().html(content);
-				WDN.jQuery(container+' h4,'+container+' h3').after('<span class="subhead"><a href="'+WDN.events.calURL+'">See all '+WDN.events.calTitle+' events</a></span>');
+				WDN.jQuery(container+' h4,'+container+' h3').after('<span class="subhead"><a href="'+calURL+'">See all '+calTitle+' events</a></span>');
 				WDN.jQuery(container+' abbr').each(
 						function() {
 							// Convert the date and time into something we want.
