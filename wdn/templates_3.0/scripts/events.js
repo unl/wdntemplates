@@ -27,10 +27,11 @@ WDN.events = function() {
 			}
 		},
 		display : function() {
+			var container = WDN.events.container;
 			WDN.get(this.calURL+'/upcoming/?format=hcalendar&limit='+this.limit, null, function(content) {
-				WDN.jQuery(this.container).hide().html(content);
-				WDN.jQuery(this.container+' h4,'+this.container+' h3').after('<span class="subhead"><a href="'+WDN.events.calURL+'">See all '+WDN.events.calTitle+' events</a></span>');
-				WDN.jQuery(this.container+' abbr').each(
+				WDN.jQuery(container).hide().html(content);
+				WDN.jQuery(container+' h4,'+container+' h3').after('<span class="subhead"><a href="'+WDN.events.calURL+'">See all '+WDN.events.calTitle+' events</a></span>');
+				WDN.jQuery(container+' abbr').each(
 						function() {
 							// Convert the date and time into something we want.
 							var eventdate = WDN.jQuery(this).html();
@@ -52,9 +53,9 @@ WDN.events = function() {
 							WDN.jQuery(this).replaceWith('<div>'+month+' '+day+' '+time+'</div>');
 						}
 				);
-				WDN.jQuery(this.container).show();
-				if (WDN.jQuery(this.container).hasClass('zenbox')) { //if we're using a zenbox, change to H3
-					WDN.jQuery(this.container+' h4').before('<h3>'+(WDN.jQuery(this.container+' h4').html()).replace(":", "")+'</h3>').remove();
+				WDN.jQuery(container).show();
+				if (WDN.jQuery(container).hasClass('zenbox')) { //if we're using a zenbox, change to H3
+					WDN.jQuery(container+' h4').before('<h3>'+(WDN.jQuery(container+' h4').html()).replace(":", "")+'</h3>').remove();
 				}
 			});
 		}
