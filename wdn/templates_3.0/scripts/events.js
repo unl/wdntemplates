@@ -10,6 +10,8 @@ WDN.events = function() {
 		
 		calTitle : false,
 		
+		container : '#wdn_calendarDisplay',
+		
 		initialize : function() {
 			if (!this.calURL) {
 				this.calURL = WDN.jQuery('link[rel=events]').attr('href');
@@ -19,16 +21,16 @@ WDN.events = function() {
 				this.calTitle = WDN.jQuery('link[rel=events]').attr('title') || '';
 			}
 			
-			if (WDN.jQuery('#wdn_calendarDisplay').length != 0) {
+			if (WDN.jQuery(this.container).length != 0) {
 				WDN.loadCSS('wdn/templates_3.0/css/content/events.css');
 				WDN.events.display();
 			}
 		},
 		display : function() {
 			WDN.get(this.calURL+'/upcoming/?format=hcalendar&limit='+this.limit, null, function(content) {
-				WDN.jQuery('#wdn_calendarDisplay').hide().html(content);
-				WDN.jQuery('#wdn_calendarDisplay h4,#wdn_calendarDisplay h3').after('<span class="subhead"><a href="'+WDN.events.calURL+'">See all '+WDN.events.calTitle+' events</a></span>');
-				WDN.jQuery('#wdn_calendarDisplay abbr').each(
+				WDN.jQuery(this.container).hide().html(content);
+				WDN.jQuery(this.container+' h4,'+this.container+' h3').after('<span class="subhead"><a href="'+WDN.events.calURL+'">See all '+WDN.events.calTitle+' events</a></span>');
+				WDN.jQuery(this.container+' abbr').each(
 						function() {
 							// Convert the date and time into something we want.
 							var eventdate = WDN.jQuery(this).html();
@@ -50,9 +52,9 @@ WDN.events = function() {
 							WDN.jQuery(this).replaceWith('<div>'+month+' '+day+' '+time+'</div>');
 						}
 				);
-				WDN.jQuery('#wdn_calendarDisplay').show();
-				if (WDN.jQuery('#wdn_calendarDisplay').hasClass('zenbox')) { //if we're using a zenbox, change to H3
-					WDN.jQuery('#wdn_calendarDisplay h4').before('<h3>'+(WDN.jQuery('#wdn_calendarDisplay h4').html()).replace(":", "")+'</h3>').remove();
+				WDN.jQuery(this.container).show();
+				if (WDN.jQuery(this.container).hasClass('zenbox')) { //if we're using a zenbox, change to H3
+					WDN.jQuery(this.container+' h4').before('<h3>'+(WDN.jQuery(this.container+' h4').html()).replace(":", "")+'</h3>').remove();
 				}
 			});
 		}
