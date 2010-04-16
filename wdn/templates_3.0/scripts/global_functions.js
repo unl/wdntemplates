@@ -5,7 +5,6 @@
  * @param err [optional] Error message on failure.
  */
 function fetchURLInto(url,id,err) {
-	
 	WDN.get(url,null,function(data, textStatus){
 		
 		if (textStatus=='success') {
@@ -17,88 +16,63 @@ function fetchURLInto(url,id,err) {
 				document.getElementById(id).innerHTML = err;
 			}
 		}
+	});
+};
+
+/*
+ * set up a promotional image rotator
+ * @param imageArrayVariableName {string} the name of the variable that contains the image array
+ *        (has to accept a string for backward compatibility)
+ * @param elementID {string} the ID of the IMG element to use
+ * @param rotationDelay {number} the amount of time before the image is swapped in seconds
+ * @param OPTIONAL currentImage {number} the index of the element initially displayed, defaults to 0
+ * 
+ */
+function rotateImg (imageArrayVariableName, elementID, rotationDelay, currentImage) {
+	var imgArray = this[imageArrayVariableName],
+	
+		element = document.getElementById(elementID),
+		
+		arrayLength = imgArray.length;
+	
+	if (!imgArray || !element) {
+		return false; 
 	}
-
-	);
-}
-
-function rotateImg(imgArray_str,elementId_str,secs_int){
-	var imgArray;
-	if (typeof imgArray_str == "string") {
-		try {
-			imgArray = eval("(" + imgArray_str + ")");
-		} catch (e) {
-			return;
+	
+	// randomly select a starting image if not supplied
+	if (!currentImage) {
+		var currentImage = Math.floor(Math.random() * arrayLength);
+	}
+	
+	// the function that will be called to change the image every x seconds
+	function loop () {
+		var imageData = imgArray[currentImage];
+		
+		element.src = imageData[0];
+		element.alt = imageData[1];
+		element.parentNode.href = imageData[2] || "#";
+		if (imageData[3]) {
+			element.parentNode.onclick = function () {
+				return eval("(" + imageData[3] + ")");
+			};
 		}
-	} else if (imgArray_str instanceof Array) {
-		imgArray = imgArray_str;
-	} else {
-		return
-	}
-	
-	if (!imgArray.length) {
-		return;
-	}
-	
-	var Rotator = function(aImgs, sElemId, iSecs) {
-		this.imgArray = aImgs;
-		this.timeout  = iSecs;
-		this.elemId   = sElemId;
 		
-		this.idx = Math.floor(this.imgArray.length * Math.random());
-		
-		this.rotate();
-	};
-	Rotator.prototype.rotate = function() {
-		var el = WDN.jQuery('#' + this.elemId);
-		
-		if (el.length) {
-			try {
-				el.attr({ 
-					src: this.imgArray[this.idx][0],
-					alt: this.imgArray[this.idx][1]
-				});
-			} catch (e) {
-				return;
-			}
-			
-			var link = el.parent("a");
-			var href = this.imgArray[this.idx][2];
-			if (this.imgArray[this.idx][2]) {
-				if (!link.length) {
-					link = WDN.jQuery("<a>");
-					el.wrap(link);
-				}
-				link.attr("href", href);
-				
-				if (this.imgArray[this.idx][3]) {
-					var onclick = eval("(" + this.imgArray[this.idx][3] + ")");
-					if (typeof onclick == "function") {
-						el.click(onclick);
-					}
-				}
-			} else if (link.length) {
-				link.attr("href", "#");
-			}
-			
-			this.idx++;
-			if (this.idx >= this.imgArray.length) {
-				this.idx = 0;
-			}
-			
-			if (this.timeout > 0 && this.imgArray.length > 1) {
-				var self = this;
-				setTimeout(function() {
-					self.rotate();
-				}, this.timeout * 1000);
-			}
+		if (currentImage++ >= arrayLength - 1) {
+			currentImage = 0;
 		}
 	};
 	
-	var inst = new Rotator(imgArray, elementId_str, secs_int);
+	// run once to set the initial image
+	loop();
 	
-	return true;
-}
+	// if we only have one image there is no need to loop
+	if (arrayLength < 2) {
+		return false;
+	}
+	
+	// start the loop
+	return setInterval(loop, rotationDelay * 1000);
+};
 
 function newRandomPromo(xmluri){
 	var promoContent = new WDN.proxy_xmlhttp();
@@ -137,11 +111,11 @@ function newRandomPromo(xmluri){
 		promoContent = new XMLHTTP();
 	};
 	promoContent.send(null);
-}
+};
 
 function addLoadEvent(func){
 	WDN.jQuery(document).ready(func);
-}
+};
 
 var wraphandler = {
 
@@ -159,8 +133,8 @@ var wraphandler = {
 
 var XMLHTTP=WDN.proxy_xmlhttp;
 
- function stripe(id) {
+function stripe(id) {
 	 WDN.jQuery('#'+id).addClass('zentable');
 	 WDN.browserAdjustments();
-  }
+ };
 
