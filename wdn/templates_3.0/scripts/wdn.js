@@ -140,11 +140,15 @@ var WDN = function() {
 		},
 		
 		screenAdjustments : function() {
-			if(screen.width<=1024) {
-				WDN.jQuery('#wdn_wrapper').css({'border-left-width':'7px','border-right-width':'7px','border-bottom-width':'7px'});
-				if(WDN.jQuery.browser.mozilla) {
-					WDN.jQuery('#wdn_wrapper').css({'-moz-border-radius':'7px'});
-					WDN.jQuery('body.fixed').css({'margin': '0 auto'});
+			if (screen.width<=1024) {
+				WDN.jQuery('body').css({'background':'#e0e0e0','overflow-x':'hidden'});
+				WDN.jQuery('#wdn_wrapper').css({'border-left':'0','border-right':'0','border-bottom-width':'7px'});
+				if (WDN.jQuery.browser.msie && WDN.jQuery.browser.version === '7.0' ) {
+					WDN.jQuery('body').css({'background':'#e0e0e0','overflow-x':'hidden','max-width':'990px'});
+				} else if (WDN.jQuery.browser.mozilla) {
+					WDN.jQuery('#wdn_wrapper').css({'-moz-border-radius':'0'}); 
+				} else if (WDN.jQuery.browser.webkit) {
+					WDN.jQuery('#wdn_wrapper').css({'-webkit-border-radius':'0'}); 
 				}
 			}
 		},
