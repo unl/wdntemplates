@@ -69,7 +69,7 @@ WDN.navigation = function() {
             // First we search for a defined homepage.
             
             if (WDN.jQuery('link[rel=home]').length) {
-                WDN.navigation.siteHomepage = WDN.toAbs(WDN.jQuery('link[rel=home]').attr('href'), window.location.toString());
+                WDN.navigation.siteHomepage = WDN.toAbs(WDN.jQuery('link[rel=home]').attr('href'), location.protocol+'//'+location.hostname);
                 WDN.log('Setting homepage to '+WDN.navigation.siteHomepage);
             }
             
@@ -90,7 +90,7 @@ WDN.navigation = function() {
                 // Make all the hrefs absolute.
                 WDN.jQuery('#breadcrumbs > ul > li > a').each(
                         function() {
-                            if (this.href == WDN.navigation.siteHomepage) {
+                            if (WDN.toAbs(this.href, location.protocol+'//'+location.hostname) == WDN.navigation.siteHomepage) {
                                 WDN.jQuery(this).parent().addClass('selected');
                                 return false;
                             }
@@ -270,7 +270,7 @@ WDN.navigation = function() {
             WDN.jQuery('#navigation').append('<div id="navloading" style="height:'+height+'px;"></div>');
             
             var nav_sniffer = 'http://www1.unl.edu/wdn/test/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
-            nav_sniffer = nav_sniffer+escape(WDN.toAbs(breadcrumb.target.href, window.location));
+            nav_sniffer = nav_sniffer+escape(WDN.toAbs(breadcrumb.target.href, location.protocol+'//'+location.hostname));
             WDN.log('Attempting to retrieve navigation from '+nav_sniffer);
             WDN.get(nav_sniffer, '', function(data, textStatus) {
                 WDN.jQuery('#navloading').remove();

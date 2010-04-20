@@ -30,7 +30,7 @@ WDN.search = function() {
 				WDN.jQuery('#wdn_search_form').attr('action', localSearch);
 			} else {
 				WDN.jQuery('#wdn_search_form').attr('action', 'http://www1.unl.edu/search/');
-				if (WDN.navigation.siteHomepage !== false && WDN.navigation.siteHomepage != 'http://www.unl.edu/') {
+				if (WDN.navigation.siteHomepage !== false && WDN.navigation.siteHomepage !== 'http://www.unl.edu/') {
 					// Add local site to the search parameters
 					WDN.jQuery('#wdn_search_form').append('<input type="hidden" name="u" value="'+WDN.navigation.siteHomepage+'" />');
 				}
@@ -40,7 +40,7 @@ WDN.search = function() {
 			
 			if (WDN.jQuery('link[rel=search]').length
 				&& WDN.jQuery('link[rel=search]').attr('type') != 'application/opensearchdescription+xml') {
-				return WDN.jQuery('link[rel=search]').attr('href');
+				return WDN.toAbs(WDN.jQuery('link[rel=search]').attr('href'), location.protocol+'//'+location.hostname);
 			}
 			return false;
 		},

@@ -6968,7 +6968,7 @@ WDN.navigation = function() {
             // First we search for a defined homepage.
             
             if (WDN.jQuery('link[rel=home]').length) {
-                WDN.navigation.siteHomepage = WDN.toAbs(WDN.jQuery('link[rel=home]').attr('href'), window.location.toString());
+                WDN.navigation.siteHomepage = WDN.toAbs(WDN.jQuery('link[rel=home]').attr('href'), location.protocol+'//'+location.hostname);
                 //debug statement removed
             }
             
@@ -6989,7 +6989,7 @@ WDN.navigation = function() {
                 // Make all the hrefs absolute.
                 WDN.jQuery('#breadcrumbs > ul > li > a').each(
                         function() {
-                            if (this.href == WDN.navigation.siteHomepage) {
+                            if (WDN.toAbs(this.href, location.protocol+'//'+location.hostname) == WDN.navigation.siteHomepage) {
                                 WDN.jQuery(this).parent().addClass('selected');
                                 return false;
                             }
@@ -7169,7 +7169,7 @@ WDN.navigation = function() {
             WDN.jQuery('#navigation').append('<div id="navloading" style="height:'+height+'px;"></div>');
             
             var nav_sniffer = 'http://www1.unl.edu/wdn/test/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
-            nav_sniffer = nav_sniffer+escape(WDN.toAbs(breadcrumb.target.href, window.location));
+            nav_sniffer = nav_sniffer+escape(WDN.toAbs(breadcrumb.target.href, location.protocol+'//'+location.hostname));
             //debug statement removed
             WDN.get(nav_sniffer, '', function(data, textStatus) {
                 WDN.jQuery('#navloading').remove();
@@ -7249,7 +7249,7 @@ WDN.search = function() {
 				WDN.jQuery('#wdn_search_form').attr('action', localSearch);
 			} else {
 				WDN.jQuery('#wdn_search_form').attr('action', 'http://www1.unl.edu/search/');
-				if (WDN.navigation.siteHomepage !== false && WDN.navigation.siteHomepage != 'http://www.unl.edu/') {
+				if (WDN.navigation.siteHomepage !== false && WDN.navigation.siteHomepage !== 'http://www.unl.edu/') {
 					// Add local site to the search parameters
 					WDN.jQuery('#wdn_search_form').append('<input type="hidden" name="u" value="'+WDN.navigation.siteHomepage+'" />');
 				}
@@ -7259,7 +7259,7 @@ WDN.search = function() {
 			
 			if (WDN.jQuery('link[rel=search]').length
 				&& WDN.jQuery('link[rel=search]').attr('type') != 'application/opensearchdescription+xml') {
-				return WDN.jQuery('link[rel=search]').attr('href');
+				return WDN.toAbs(WDN.jQuery('link[rel=search]').attr('href'), location.protocol+'//'+location.hostname);
 			}
 			return false;
 		},
@@ -7392,18 +7392,12 @@ WDN.tooltip = function($) {
 	return {
 		initialize : function() {
 			//debug statement removed
-			WDN.loadJS('wdn/templates_3.0/scripts/plugins/qtip/jquery.qtip.js', WDN.tooltip.idInit);
+			WDN.loadJS('wdn/templates_3.0/scripts/plugins/qtip/jquery.qtip.js', WDN.tooltip.tooltipSetup);
 		},
-		idInit : function() {
-			// ID's of container elements we want to apply tooltips to right away
-			WDN.tooltip.tooltipSetup('wdn_tool_links');
-			WDN.tooltip.tooltipSetup('maincontent');
-			WDN.tooltip.tooltipSetup('footer');
-		},
-		tooltipSetup : function(id) {
-			// Tooltips can be added to any links by calling this function with
-			// the container id and adding a 'title' attribute to the anchor tag or image tag
-			$('#'+id+' a.tooltip, #'+id+' img.tooltip').each(function() {
+		tooltipSetup : function() {
+			WDN.loadCSS('/wdn/templates_3.0/css/header/tooltip.css');
+			// Tooltips can only be used in the appropriate sections, and must have the correct class name and a title attribute
+			$('#wdn_tool_links .tooltip[title], #maincontent .tooltip[title], #footer .tooltip[title]').each(function() {
 				$(this).qtip({
 
 					content: $(this).attr('title'),
@@ -7414,19 +7408,19 @@ WDN.tooltip = function($) {
 						effect: { length: 0 }
 					},
 					style: {
-						width: 200,
-						padding: 5,
-						'font-family': 'Arial, sans-serif',
-						'font-size': '12px',
-						background: '#faf7aa',
-						color: '#434343',
-						textAlign: 'center',
-						border: {
-							width: 1,
-							radius: 5,
-							color: '#f8e98e'
+						tip: {
+							corner : 'bottomMiddle',
+							size : {x : 17, y : 10}
 						},
-						tip: 'bottomMiddle'
+						width : {
+							min : 100
+						},
+						'background' : 'url("/wdn/templates_3.0/css/header/images/qtip/defaultBG.png") repeat-x bottom',
+						border : {
+							color : '#f7e77c',
+							width : 2
+						},
+						'color' : '#504500'
 					},
 					position: { 
 						adjust: { 
@@ -10256,6 +10250,10 @@ WDN.idm = function() {
 			WDN.jQuery('#wdn_idm_logout').click(WDN.idm.logout);
 			
 			WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn);
+			
+			if (WDN.jQuery('link[rel=logout]').length) {
+				WDN.idm.setLogoutURL(WDN.jQuery('link[rel=logout]').attr('href'));
+			}
 		},
 		
 		/**
@@ -10650,7 +10648,6 @@ WDN.loadedJS["wdn/templates_3.0/scripts/unlalert.js"]=true;
  * @param err [optional] Error message on failure.
  */
 function fetchURLInto(url,id,err) {
-	
 	WDN.get(url,null,function(data, textStatus){
 		
 		if (textStatus=='success') {
@@ -10662,54 +10659,63 @@ function fetchURLInto(url,id,err) {
 				document.getElementById(id).innerHTML = err;
 			}
 		}
-	}
+	});
+};
 
-	);
-}
-
-function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
-	function showIt() {
-		try {
-			
-			if (obj.src !== null && eval(imgArray_str+"["+thisNum_int+"][0]")!==null) {
-				obj.src=eval(imgArray_str+"["+thisNum_int+"][0]");
-			}
-			if (obj.alt !== null && eval(imgArray_str+"["+thisNum_int+"][1]")!==null) {
-				obj.alt=eval(imgArray_str+"["+thisNum_int+"][1]");
-			}
-			if (obj.parentNode.href!==null && eval(imgArray_str+"["+thisNum_int+"][2]")!==null) {
-				obj.parentNode.href=eval(imgArray_str+"["+thisNum_int+"][2]");
-				if (eval(imgArray_str+"["+thisNum_int+"][3]")!==null) {
-					var clickEvent = eval(imgArray_str+"["+thisNum_int+"][3]");
-					obj.parentNode.onclick=function() {eval(clickEvent);};
-				} else {
-					obj.parentNode.onclick=null;
-				}
-			} else {
-				obj.parentNode.href='#';
-			}
-		} catch(e) {}
-	}
+/*
+ * set up a promotional image rotator
+ * @param imageArrayVariableName {string} the name of the variable that contains the image array
+ *        (has to accept a string for backward compatibility)
+ * @param elementID {string} the ID of the IMG element to use
+ * @param rotationDelay {number} the amount of time before the image is swapped in seconds
+ * @param OPTIONAL currentImage {number} the index of the element initially displayed, defaults to 0
+ * 
+ */
+function rotateImg (imageArrayVariableName, elementID, rotationDelay, currentImage) {
+	var imgArray = this[imageArrayVariableName],
 	
-	if (thisNum_int == undefined) {
-		thisNum_int=Math.floor(Math.random()*eval(imgArray_str+".length"));
-	}
-	if (thisNum_int >= eval(imgArray_str+".length")) {
-		thisNum_int = 0;
-	}
-	if (eval(imgArray_str+"["+thisNum_int+"]") !== null) {
-		// Try and set img
-		var obj = document.getElementById(elementId_str);
+		element = document.getElementById(elementID),
 		
-		showIt();
-	}
-	thisNum_int++;
-	if (secs_int>0) {
-		return setTimeout("rotateImg('"+imgArray_str+"','"+elementId_str+"',"+secs_int+","+thisNum_int+")",secs_int*1000);
+		arrayLength = imgArray.length;
+	
+	if (!imgArray || !element) {
+		return false; 
 	}
 	
-	return true;
-}
+	// randomly select a starting image if not supplied
+	if (!currentImage) {
+		var currentImage = Math.floor(Math.random() * arrayLength);
+	}
+	
+	// the function that will be called to change the image every x seconds
+	function loop () {
+		var imageData = imgArray[currentImage];
+		
+		element.src = imageData[0];
+		element.alt = imageData[1];
+		element.parentNode.href = imageData[2] || "#";
+		if (imageData[3]) {
+			element.parentNode.onclick = function () {
+				return eval("(" + imageData[3] + ")");
+			};
+		}
+		
+		if (currentImage++ >= arrayLength - 1) {
+			currentImage = 0;
+		}
+	};
+	
+	// run once to set the initial image
+	loop();
+	
+	// if we only have one image there is no need to loop
+	if (arrayLength < 2) {
+		return false;
+	}
+	
+	// start the loop
+	return setInterval(loop, rotationDelay * 1000);
+};
 
 function newRandomPromo(xmluri){
 	var promoContent = new WDN.proxy_xmlhttp();
@@ -10748,11 +10754,11 @@ function newRandomPromo(xmluri){
 		promoContent = new XMLHTTP();
 	};
 	promoContent.send(null);
-}
+};
 
 function addLoadEvent(func){
 	WDN.jQuery(document).ready(func);
-}
+};
 
 var wraphandler = {
 
@@ -10770,10 +10776,10 @@ var wraphandler = {
 
 var XMLHTTP=WDN.proxy_xmlhttp;
 
- function stripe(id) {
+function stripe(id) {
 	 WDN.jQuery('#'+id).addClass('zentable');
 	 WDN.browserAdjustments();
-  }
+ };
 
 
 WDN.loadedJS["wdn/templates_3.0/scripts/global_functions.js"]=true;
