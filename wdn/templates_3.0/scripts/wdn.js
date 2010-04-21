@@ -115,9 +115,9 @@ var WDN = function() {
 		 * To see, open firebug's console.
 		 */
 		log: function(data) {
-			try {
+			if ("console" in window && "log" in console) {
 				console.log(data);
-			} catch(e) {}
+			}
 		},
 		
 		browserAdjustments : function() {
@@ -166,14 +166,16 @@ var WDN = function() {
 		},
 		
 		initializePlugin:function (plugin, callback) {
-			callback = callback || function() {
-				try {
-					WDN[plugin].initialize();
-				} catch (e) {
-					WDN.log('Could not initialize '+plugin);
-					WDN.log(e);
-				}
-			};
+			if (!callback) {
+				callback = function () {
+					if ("initialize" in WDN[plugin]) {
+						WDN.log("initializing plugin '" + plugin + "'");
+						WDN[plugin].initialize();
+					} else {
+						WDN.log("no initialize method for plugin " + plugin);
+					}
+				};
+			}
 			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', callback);
 		},
 		
@@ -222,7 +224,7 @@ var WDN = function() {
 		  }
 
 		  if (lparts[0] === '') { // like "/here/dude.png"
-		    host = hparts[0] + '//' + hparts[2];
+		    //host = hparts[0] + '//' + hparts[2]; // variable host not used?
 		    hparts = base_url.split('/'); // re-split host parts from scheme and domain only
 		    delete lparts[0];
 		  }
@@ -254,85 +256,92 @@ var WDN = function() {
 
 		},
 		
-		post : function(url, data, callback, type) {
+		stringToXML: function (string) {
+			var doc;
 			try {
-				WDN.log('Using jQuery to post data');
-				WDN.jQuery.post(url, data, callback, type);
-			} catch(e) {
-				WDN.log('jQuery post() failed.');
-				var params = '';
-				for (key in data) {
-				    params = params+'&'+key+'='+data[key];
+				if (window.ActiveXObject) {
+					doc = new ActiveXObject('Microsoft.XMLDOM');
+					doc.async = 'false';
+					doc.loadXML(string);
 				}
-				// Try XDR, or use the proxy
-				if (WDN.jQuery.browser.msie && window.XDomainRequest) {
-					WDN.log('Using XDR');
-					var xdr = new XDomainRequest();
-					xdr.open("post", url);
-					xdr.send(params);
-					xdr.onload = function() {
-						callback(xdr.responseText, 'success');
-					};
-				} else {
-					try {
-						WDN.log('Using proxy');
-						var mycallback = function() {
-							var textstatus = 'error';
-							var data = 'error';
-							if ((this.readyState == 4) && (this.status == '200')) {
-								textstatus = 'success';
-								data = this.responseText;
-							}
-							callback(data, textstatus);
-						};
-						request = new WDN.proxy_xmlhttp();
-						request.open('POST', url, true);
-						request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-						request.onreadystatechange = mycallback;
-						request.send(params);
-					} catch(f) {}
+				else {
+					var parser = new DOMParser();
+					doc = parser.parseFromString(string, 'text/xml');
 				}
 			}
+			catch(e) {
+				WDN.log('ERROR parsing XML string for conversion: ' + e);
+			}
+			return doc;
 		},
 		
-		get : function (url, data, callback, type) {
+		/*
+		 * This function powers the functions WDN.get and WDN.post and provides cross browser
+		 * support for XHRs and cross-domain requests.
+		 * 
+		 * @param url A string containing the URL to be requested
+		 * @param data A string or object containing data/parameters to go along with the request
+		 * @param callback A function to be called when the request has been completed
+		 * @param [opt] type  The expected data type of the response
+		 * @param method The method to perform the request with. Supported are GET and POST
+		 */
+		
+		request: function (url, data, callback, type, method) {
+			WDN.log("Using WDN.request");
+			var $ = WDN.jQuery;
+			// set the method if none/an invalid one was given
+			if (!method || !/^(get|post)$/i.test(method)) {
+				var method = "get";
+				WDN.log("WDN.request: No valid method specified. Using GET.");
+			}
+			// normalize the method name
+			method = method.toLowerCase();
+			// first, try using jQuery.get or jQuery.post
 			try {
-				WDN.log('Using jQuery to get data');
-				WDN.jQuery.get(url, data, callback, type);
-			} catch(e) {
-				WDN.log('jQuery get() failed.');
+				WDN.log("Using jQuery." + method + " for the request");
+				$[method](url,data,callback,type);
+				WDN.log("jQuery." + method + " worked.");
+			} catch (e) {
+				WDN.log("jQuery." + method + " failed.");
+				
+				// the jQuery method failed, likely because of the same origin policy
+				
+				// if data is an object, convert it to a key=value string
+				if (data && $.isPlainObject(data)) {
+					WDN.log("WDN.request: Converting data object to query string.");
+					var params = '';
+					for (var key in data) {
+					    params = params+'&'+key+'='+data[key];
+					}
+				}
+				
+				// if using get, append the data as a querystring to the url
+				if (params && method == "get") {
+					WDN.log("WDN.request: Appending data parameters to querystring.");
+					if (!/\?/.test(url)) {
+						url += "?";
+					}
+					url += params.substr(1, params.length);
+					params = null;
+				}
+				
 				// Try CORS, or use the proxy
-				if (WDN.jQuery.browser.msie && window.XDomainRequest) {
-					WDN.log('Using XDR');
+				// reference here, it's strongly frowned upon and not really necessary
+				if (window.XDomainRequest) {
+					WDN.log("WDN.request: Using XDR");
 					var xdr = new XDomainRequest();
-					xdr.open("get", url);
-					xdr.onload = function() {
-						var responseText = this.responseText, dataType = type || "";
-						if (dataType.toLowerCase() == "xml") {
-							// if returned data type is xml, we need to convert it from a
-							// string to an XML document
-							if (typeof responseText == "string") {
-								var doc;
-								try {
-									if (window.ActiveXObject) {
-										doc = new ActiveXObject('Microsoft.XMLDOM');
-										doc.async = 'false';
-										doc.loadXML(responseText);
-									}
-									else {
-										var parser = new DOMParser();
-										doc = parser.parseFromString(responseText, 'text/xml');
-									}
-								}
-								catch(e) {
-									WDN.log('ERROR parsing XML string for conversion: ' + e);
-								}
-								responseText = doc;
-							}
+					xdr.open(method, url);
+					xdr.onload = function () {
+						WDN.log("WDN.get: XDR loaded.");
+						var responseText = this.responseText, dataType = (type || "").toLowerCase();
+						// if we are expecting and XML object and get a string, convert it
+						if (typeof responseText == "string" && dataType == "xml") {
+							WDN.log("WDN.get: Converting response to XML document.");
+							responseText = WDN.stringToXML(responseText);
 						}
-						callback(responseText, 'success', this);
+						callback(responseText, "success", this);
 					};
-					xdr.send();
+					xdr.send(params);
 				} else {
 					try {
 						WDN.log('Using proxy');
@@ -345,17 +354,28 @@ var WDN = function() {
 							}
 							callback(data, textstatus, this);
 						};
-						request = new WDN.proxy_xmlhttp();
-						request.open('GET', url, true);
+						var request = new WDN.proxy_xmlhttp();
+						request.open(method.toUpperCase(), url, true);
+						if (method == "post") {
+							request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+						}
 						request.onreadystatechange = mycallback;
-						request.send();
+						request.send(params);
 					} catch(f) {
-						WDN.log('Could not fetch using the proxy');
+						WDN.log("Could no fetch using the proxy.");
 						WDN.log(f);
 					}
 				}
 			}
+			
+		},
+		
+		get: function (url, data, callback, type) {
+			WDN.request(url, data, callback, type, "GET");
+		},
+		
+		post: function (url, data, callback, type) {
+			WDN.request(url, data, callback, type, "POST");
 		}
-
 	};
 }();
