@@ -17,7 +17,7 @@
 /*jslint browser: true, onevar: true, undef: true, nomen: true, eqeqeq: true, bitwise: true, regexp: true, strict: true, newcap: true, immed: true */
 
 /*global window: false, jQuery: false */
-$ = WDN.jQuery;
+
 (function ($) {
 	// Assign cache and event initialisation on document load
 	$(document).ready(function () {
@@ -1998,4 +1998,4 @@ $ = WDN.jQuery;
 			}
 		}
 	};
-}(WDN.jQuery));
+})(WDN.jQuery);
