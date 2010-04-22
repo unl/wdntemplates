@@ -6381,11 +6381,15 @@ var WDN = function() {
 		},
 		
 		screenAdjustments : function() {
-			if(screen.width<=1024) {
-				WDN.jQuery('#wdn_wrapper').css({'border-left-width':'7px','border-right-width':'7px','border-bottom-width':'7px'});
-				if(WDN.jQuery.browser.mozilla) {
-					WDN.jQuery('#wdn_wrapper').css({'-moz-border-radius':'7px'});
-					WDN.jQuery('body.fixed').css({'margin': '0 auto'});
+			if (screen.width<=1024) {
+				WDN.jQuery('body').css({'background':'#e0e0e0','overflow-x':'hidden'});
+				WDN.jQuery('#wdn_wrapper').css({'border-left':'0','border-right':'0','border-bottom-width':'7px'});
+				if (WDN.jQuery.browser.msie && WDN.jQuery.browser.version === '7.0' ) {
+					WDN.jQuery('body').css({'background':'#e0e0e0','overflow-x':'hidden','max-width':'990px'});
+				} else if (WDN.jQuery.browser.mozilla) {
+					WDN.jQuery('#wdn_wrapper').css({'-moz-border-radius':'0'}); 
+				} else if (WDN.jQuery.browser.webkit) {
+					WDN.jQuery('#wdn_wrapper').css({'-webkit-border-radius':'0'}); 
 				}
 			}
 		},
@@ -8172,7 +8176,7 @@ WDN.loadedJS["wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=tr
 /*jslint browser: true, onevar: true, undef: true, nomen: true, eqeqeq: true, bitwise: true, regexp: true, strict: true, newcap: true, immed: true */
 
 /*global window: false, jQuery: false */
-$ = WDN.jQuery;
+
 (function ($) {
 	// Assign cache and event initialisation on document load
 	$(document).ready(function () {
@@ -10153,7 +10157,7 @@ $ = WDN.jQuery;
 			}
 		}
 	};
-}(WDN.jQuery));
+})(WDN.jQuery);
 WDN.loadedJS["wdn/templates_3.0/scripts/plugins/qtip/jquery.qtip.js"]=true;
 WDN.idm = function() {
 	return {
