@@ -154,12 +154,6 @@ Sample Form Markup:
 	font-size:1.3em;
 	color:#717171;
 }
-#maincontent form.zenform fieldset ol li input,
-#maincontent form.zenform fieldset ol li textarea,
-#maincontent form.zenform fieldset ol li select {
-	border:1px solid #eec2c2;
-	color:#5f5f5f;
-}
 
 /* @todo Theme Overrides for inputs*/
 
@@ -174,6 +168,11 @@ Sample Form Markup:
 	width:100%;
 	font-size:1.1em;
 	outline:1px solid #fff;
+	border:1px solid #eec2c2;
+	color:#5f5f5f;
+}
+#maincontent form.zenform fieldset ol li select {
+	outline:none;
 }
 #maincontent form.zenform fieldset ol li select { outline:none;}
 #maincontent form.zenform fieldset ol li textarea {
@@ -265,6 +264,7 @@ Sample Form Markup:
 	-moz-border-radius:9px/10px;
 	-webkit-border-radius:9px/10px;
 	border-radius:9px/10px;
+	display:inline;
 }
 
 /* @todo Theme Overrides for submit button*/
@@ -288,4 +288,5 @@ Sample Form Markup:
 	margin-left:6px;
 	width:auto;
 	cursor:pointer;
+	display:inline;
 } 
