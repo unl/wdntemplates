@@ -62,6 +62,15 @@ Sample Form Markup:
 			    <input type="submit" name="submit" value="Submit" />
 			    <input type="reset" name="reset" value="Reset" />
 			</form>
+			
+Default style is PRIMARY
+Color Schemes:
+	Primary: http://colorschemedesigner.com/#0011TvwomebIu
+	Bright: http://colorschemedesigner.com/#1H11TpSuKebIu
+	Cool: http://colorschemedesigner.com/#3G11TiTAkebIu
+	Energetic: http://colorschemedesigner.com/#0h11TrUvnebIu
+	Soothing: http://colorschemedesigner.com/#2P11TvylEebIu
+	Neutral: http://colorschemedesigner.com/#0011T007yebIu
 */
 
 #maincontent form.zenform { 
@@ -90,8 +99,8 @@ Sample Form Markup:
 	padding:5px;
 }
 
-#maincontent h3.zenformHeading {
-	background-color:#c20403;
+#maincontent h3.zenform {
+	background-color:#c20403; /*This is the base swatch from zenbox*/
 	background-image:-webkit-gradient(
 					    linear,
 					    left top,
@@ -118,13 +127,12 @@ Sample Form Markup:
 	text-shadow: rgba(66, 66, 66, 0.8) 1px 1px 1px;
 }
 
-/* @todo Theme Overrides for h3*/
-	#maincontent form.zenform.bright > h3 {color:#666;background:#F5E62F;}
-	#maincontent form.zenform.cool > h3 {color:#FFFFF0;background:#a9df89;}
-	#maincontent form.zenform.energetic > h3 {color:#DE8727;background:#F8F3E4;}
-	#maincontent form.zenform.soothing > h3 {color:#FFF;background:#7A6D48;}
-	#maincontent form.zenform.neutral > h3 {color:#FFFFF8;background:#777;}
-	#maincontent form.zenform.primary > h3 {color:#FFF;background:#C20403;}
+/* Theme Overrides for h3 @todo: gradients*/
+	#maincontent h3.zenform.bright {color:#3a3a3a;background:#f5e62f;}
+	#maincontent h3.zenform.cool {background:#557BB7;}
+	#maincontent h3.zenform.energetic {color:#DE8727;background:#FA6520;}
+	#maincontent h3.zenform.soothing {background:#028a02;}
+	#maincontent h3.zenform.neutral {background:#3c3c3c;}
 /*End Theme Overrides for h3*/
 
 #maincontent form.zenform fieldset {
@@ -135,8 +143,24 @@ Sample Form Markup:
 	font-weight:bold;
 	letter-spacing:-0.06em;
 	text-shadow: rgba(218, 218, 218, 1) 1px 1px 1px;
-	color:#af0202;
+	color:#af0202; /*darker mono*/
 	padding:15px 5px 5px 5px;
+}
+/*theme overrides for legend font color */
+#maincontent form.zenform.bright > fieldset > legend { 
+	color:#af0202;
+}
+#maincontent form.zenform.cool > fieldset > legend { 
+	color:#af0202;
+}
+#maincontent form.zenform.energetic > fieldset > legend { 
+	color:#af0202;
+}
+#maincontent form.zenform.soothing > fieldset > legend { 
+	color:#af0202;
+}
+#maincontent form.zenform.neutral > fieldset > legend { 
+	color:#af0202;
 }
 #maincontent form.zenform > fieldset > legend + ol {
 	border-top:1px solid #d5d4d4;
