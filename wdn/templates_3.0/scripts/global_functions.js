@@ -5,6 +5,7 @@
  * @param err [optional] Error message on failure.
  */
 function fetchURLInto(url,id,err) {
+	
 	WDN.get(url,null,function(data, textStatus){
 		
 		if (textStatus=='success') {
@@ -16,63 +17,54 @@ function fetchURLInto(url,id,err) {
 				document.getElementById(id).innerHTML = err;
 			}
 		}
-	});
-};
+	}
 
-/*
- * set up a promotional image rotator
- * @param imageArrayVariableName {string} the name of the variable that contains the image array
- *        (has to accept a string for backward compatibility)
- * @param elementID {string} the ID of the IMG element to use
- * @param rotationDelay {number} the amount of time before the image is swapped in seconds
- * @param OPTIONAL currentImage {number} the index of the element initially displayed, defaults to 0
- * 
- */
-function rotateImg (imageArrayVariableName, elementID, rotationDelay, currentImage) {
-	var imgArray = this[imageArrayVariableName],
-	
-		element = document.getElementById(elementID),
-		
-		arrayLength = imgArray.length;
-	
-	if (!imgArray || !element) {
-		return false; 
+	);
+}
+
+function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
+	function showIt() {
+		try {
+			
+			if (obj.src !== null && eval(imgArray_str+"["+thisNum_int+"][0]")!==null) {
+				obj.src=eval(imgArray_str+"["+thisNum_int+"][0]");
+			}
+			if (obj.alt !== null && eval(imgArray_str+"["+thisNum_int+"][1]")!==null) {
+				obj.alt=eval(imgArray_str+"["+thisNum_int+"][1]");
+			}
+			if (obj.parentNode.href!==null && eval(imgArray_str+"["+thisNum_int+"][2]")!==null) {
+				obj.parentNode.href=eval(imgArray_str+"["+thisNum_int+"][2]");
+				if (eval(imgArray_str+"["+thisNum_int+"][3]")!==null) {
+					var clickEvent = eval(imgArray_str+"["+thisNum_int+"][3]");
+					obj.parentNode.onclick=function() {eval(clickEvent);};
+				} else {
+					obj.parentNode.onclick=null;
+				}
+			} else {
+				obj.parentNode.href='#';
+			}
+		} catch(e) {}
 	}
 	
-	// randomly select a starting image if not supplied
-	if (!currentImage) {
-		var currentImage = Math.floor(Math.random() * arrayLength);
+	if (thisNum_int == undefined) {
+		thisNum_int=Math.floor(Math.random()*eval(imgArray_str+".length"));
+	}
+	if (thisNum_int >= eval(imgArray_str+".length")) {
+		thisNum_int = 0;
+	}
+	if (eval(imgArray_str+"["+thisNum_int+"]") !== null) {
+		// Try and set img
+		var obj = document.getElementById(elementId_str);
+		
+		showIt();
+	}
+	thisNum_int++;
+	if (secs_int>0) {
+		return setTimeout("rotateImg('"+imgArray_str+"','"+elementId_str+"',"+secs_int+","+thisNum_int+")",secs_int*1000);
 	}
 	
-	// the function that will be called to change the image every x seconds
-	function loop () {
-		var imageData = imgArray[currentImage];
-		
-		element.src = imageData[0];
-		element.alt = imageData[1];
-		element.parentNode.href = imageData[2] || "#";
-		if (imageData[3]) {
-			element.parentNode.onclick = function () {
-				return eval("(" + imageData[3] + ")");
-			};
-		}
-		
-		if (currentImage++ >= arrayLength - 1) {
-			currentImage = 0;
-		}
-	};
-	
-	// run once to set the initial image
-	loop();
-	
-	// if we only have one image there is no need to loop
-	if (arrayLength < 2) {
-		return false;
-	}
-	
-	// start the loop
-	return setInterval(loop, rotationDelay * 1000);
-};
+	return true;
+}
 
 function newRandomPromo(xmluri){
 	var promoContent = new WDN.proxy_xmlhttp();
@@ -111,11 +103,11 @@ function newRandomPromo(xmluri){
 		promoContent = new XMLHTTP();
 	};
 	promoContent.send(null);
-};
+}
 
 function addLoadEvent(func){
 	WDN.jQuery(document).ready(func);
-};
+}
 
 var wraphandler = {
 
@@ -133,8 +125,8 @@ var wraphandler = {
 
 var XMLHTTP=WDN.proxy_xmlhttp;
 
-function stripe(id) {
+ function stripe(id) {
 	 WDN.jQuery('#'+id).addClass('zentable');
 	 WDN.browserAdjustments();
- };
+  }
 
