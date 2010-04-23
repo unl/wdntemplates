@@ -72,8 +72,8 @@
             <p>
             Please fill out our important survey below.  It will help us serve you better.
             </p>
-            <form class="zenform energetic" action="?" method="post">
-            	<h3>Important Survey</h3>
+            <h3 class="zenformHeading">Important Survey</h3>
+            <form class="zenform" action="?" method="post">
 		        <fieldset>
 		                <legend>Sample Form Content</legend>
 		                <ol>
@@ -101,10 +101,11 @@
 		                        </li>
 		                        <li>
 		                        	<fieldset> 
-			                       		<span>
+			                       		<legend>
 			                       			<span class="required">*</span>
 			                       			The Most Important Question: I Can Has Cheezburger?
-			                       		</span>
+			                       			
+			                       		</legend>
 			                       		<ol>
 			                        		<li>
 			                        			<input type="radio" value="1" name="helpful_yes" id="helpful_yes" />
@@ -165,6 +166,8 @@
             <a href="#" class="neutral">Neutral</a><br />
             <a href="#" class="primary">Primary</a><br />
             </p>
+            <input type="submit" name="submit" value="Submit" class="formSubmitTest" />
+            <p class="formSubmitTest">Submit</p>
             </div>
             
             

@@ -397,73 +397,20 @@ p.success {
 	padding: 5px;
 }
 
-/* COMPACT FORM
-Use this when you need a form in one_col or two_col. It uses the same markup as above, simply add another class="compact" to the form. 
-Elments will rearrange/dissapper/change size due to space issues.
-*********************************/
-#maincontent form.compact fieldset {
-	width:100%;
-	margin-top:0;
-}
-#maincontent form.compact fieldset legend {
-	font-weight: bold;
+/*Testing*/
+
+#formSubmitTest {
+	background:#000;
+	border:medium none;
+	color:#FFFFFF;
+	cursor:pointer;
+	display:inline-block;
 	font-size:1.5em;
-	border: none;
-	padding: 10px;
-	padding-top:55px;
-	margin: 0;
-	margin-top:-10px;
-	background: none;
-}
-#maincontent form.compact fieldset fieldset {
-	border:none;	
-	margin-bottom:0;
-	padding-bottom:0;
-	margin-top:10px;
-}
-#maincontent form.compact fieldset fieldset ol {
-	margin-bottom:-5px;
-	}
-#maincontent form.compact fieldset fieldset legend {
-	font-weight: normal;
-	font-size:1em;
-	top: 0;
-	padding: 0 0 0 10px;
-	margin: 0px;
-	position: relative;
-	background: none;
-	display:block;
-}
-#maincontent form.compact fieldset fieldset .element label {
-	display:inline;
-	margin-left:0;
-	vertical-align:0%;
-}
-#maincontent form.compact li div.element {
-	position:relative;
-	left:0;
-}
-#maincontent form.compact label.element {
-	display: none;
-	float: left;
-	width: 0;
-	padding: 0;
-	margin: 10px 0 0 0;
-	text-align: right;
-}
-#maincontent form.compact input, #maincontent form.compact textarea, #maincontent form.compact select {
-	width:180px;
-}
-#maincontent div.two_col form.compact fieldset input, #maincontent div.col form.compact fieldset input {
-	width:430px;
-	font-size:1.6em;
-	color:#9d9d9d;
-}
-#maincontent form.compact fieldset fieldset input { /* We're assuming the nested fieldset is used only for checkboxes/radios */
-	width:25px !important;
-	margin-left:20px !important;
-	vertical-align:2% !important;
-}
-#maincontent form.compact p.submit {
-	margin-left: 10px;
+	height:45px;
+	margin:0 0 0 160px;
+	padding:10px 40px 15px 16px;
+	width:auto;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
 }
