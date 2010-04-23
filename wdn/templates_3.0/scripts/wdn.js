@@ -298,8 +298,14 @@ var WDN = function() {
 			method = method.toLowerCase();
 			// first, try using jQuery.get or jQuery.post
 			try {
-				WDN.log("Using jQuery." + method + " for the request");
+				WDN.log("Using jQuery." + method + " for the request...");
 				$[method](url,data,callback,type);
+				// Opera fails silently, so force it to throw an error and revert to the proxy
+				// TODO: this should probably only be done if making a cross domain request.
+				if (window.opera && Object.toString(window.opera.version).indexOf("[native code]") > 0) {
+					WDN.log("Opera detected. Raising an error to force proxy.");
+					throw ("Opera");
+				}
 				WDN.log("jQuery." + method + " worked.");
 			} catch (e) {
 				WDN.log("jQuery." + method + " failed.");
@@ -328,11 +334,11 @@ var WDN = function() {
 				// Try CORS, or use the proxy
 				// reference here, it's strongly frowned upon and not really necessary
 				if (window.XDomainRequest) {
-					WDN.log("WDN.request: Using XDR");
+					WDN.log("Using XDomainRequest...");
 					var xdr = new XDomainRequest();
 					xdr.open(method, url);
 					xdr.onload = function () {
-						WDN.log("WDN.get: XDR loaded.");
+						WDN.log("XDomainRequest worked.");
 						var responseText = this.responseText, dataType = (type || "").toLowerCase();
 						// if we are expecting and XML object and get a string, convert it
 						if (typeof responseText == "string" && dataType == "xml") {
