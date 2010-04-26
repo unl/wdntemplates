@@ -6356,9 +6356,9 @@ var WDN = function() {
 		 * To see, open firebug's console.
 		 */
 		log: function(data) {
-			try {
+			if ("console" in window && "log" in console) {
 				console.log(data);
-			} catch(e) {}
+			}
 		},
 		
 		browserAdjustments : function() {
@@ -6407,14 +6407,16 @@ var WDN = function() {
 		},
 		
 		initializePlugin:function (plugin, callback) {
-			callback = callback || function() {
-				try {
-					WDN[plugin].initialize();
-				} catch (e) {
-					//debug statement removed
-					//debug statement removed
-				}
-			};
+			if (!callback) {
+				callback = function () {
+					if ("initialize" in WDN[plugin]) {
+						//debug statement removed
+						WDN[plugin].initialize();
+					} else {
+						//debug statement removed
+					}
+				};
+			}
 			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', callback);
 		},
 		
@@ -6463,7 +6465,7 @@ var WDN = function() {
 		  }
 
 		  if (lparts[0] === '') { // like "/here/dude.png"
-		    host = hparts[0] + '//' + hparts[2];
+		    base_url = hparts[0] + '//' + hparts[2];
 		    hparts = base_url.split('/'); // re-split host parts from scheme and domain only
 		    delete lparts[0];
 		  }
@@ -6495,85 +6497,98 @@ var WDN = function() {
 
 		},
 		
-		post : function(url, data, callback, type) {
+		stringToXML: function (string) {
+			var doc;
 			try {
-				//debug statement removed
-				WDN.jQuery.post(url, data, callback, type);
-			} catch(e) {
-				//debug statement removed
-				var params = '';
-				for (key in data) {
-				    params = params+'&'+key+'='+data[key];
+				if (window.ActiveXObject) {
+					doc = new ActiveXObject('Microsoft.XMLDOM');
+					doc.async = 'false';
+					doc.loadXML(string);
 				}
-				// Try XDR, or use the proxy
-				if (WDN.jQuery.browser.msie && window.XDomainRequest) {
-					//debug statement removed
-					var xdr = new XDomainRequest();
-					xdr.open("post", url);
-					xdr.send(params);
-					xdr.onload = function() {
-						callback(xdr.responseText, 'success');
-					};
-				} else {
-					try {
-						//debug statement removed
-						var mycallback = function() {
-							var textstatus = 'error';
-							var data = 'error';
-							if ((this.readyState == 4) && (this.status == '200')) {
-								textstatus = 'success';
-								data = this.responseText;
-							}
-							callback(data, textstatus);
-						};
-						request = new WDN.proxy_xmlhttp();
-						request.open('POST', url, true);
-						request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-						request.onreadystatechange = mycallback;
-						request.send(params);
-					} catch(f) {}
+				else {
+					var parser = new DOMParser();
+					doc = parser.parseFromString(string, 'text/xml');
 				}
 			}
+			catch(e) {
+				//debug statement removed
+			}
+			return doc;
 		},
 		
-		get : function (url, data, callback, type) {
+		/*
+		 * This function powers the functions WDN.get and WDN.post and provides cross browser
+		 * support for XHRs and cross-domain requests.
+		 * 
+		 * @param url A string containing the URL to be requested
+		 * @param data A string or object containing data/parameters to go along with the request
+		 * @param callback A function to be called when the request has been completed
+		 * @param [opt] type  The expected data type of the response
+		 * @param method The method to perform the request with. Supported are GET and POST
+		 */
+		
+		request: function (url, data, callback, type, method) {
+			//debug statement removed
+			var $ = WDN.jQuery;
+			// set the method if none/an invalid one was given
+			if (!method || !/^(get|post)$/i.test(method)) {
+				var method = "get";
+				//debug statement removed
+			}
+			// normalize the method name
+			method = method.toLowerCase();
+			// first, try using jQuery.get or jQuery.post
 			try {
 				//debug statement removed
-				WDN.jQuery.get(url, data, callback, type);
-			} catch(e) {
+				$[method](url,data,callback,type);
+				// Opera fails silently, so force it to throw an error and revert to the proxy
+				// TODO: this should probably only be done if making a cross domain request.
+				if (window.opera && Object.toString(window.opera.version).indexOf("[native code]") > 0) {
+					//debug statement removed
+					throw ("Opera");
+				}
 				//debug statement removed
+			} catch (e) {
+				//debug statement removed
+				
+				// the jQuery method failed, likely because of the same origin policy
+				
+				// if data is an object, convert it to a key=value string
+				if (data && $.isPlainObject(data)) {
+					//debug statement removed
+					var params = '';
+					for (var key in data) {
+					    params = params+'&'+key+'='+data[key];
+					}
+				}
+				
+				// if using get, append the data as a querystring to the url
+				if (params && method == "get") {
+					//debug statement removed
+					if (!/\?/.test(url)) {
+						url += "?";
+					}
+					url += params.substr(1, params.length);
+					params = null;
+				}
+				
 				// Try CORS, or use the proxy
-				if (WDN.jQuery.browser.msie && window.XDomainRequest) {
+				// reference here, it's strongly frowned upon and not really necessary
+				if (window.XDomainRequest) {
 					//debug statement removed
 					var xdr = new XDomainRequest();
-					xdr.open("get", url);
-					xdr.onload = function() {
-						var responseText = this.responseText, dataType = type || "";
-						if (dataType.toLowerCase() == "xml") {
-							// if returned data type is xml, we need to convert it from a
-							// string to an XML document
-							if (typeof responseText == "string") {
-								var doc;
-								try {
-									if (window.ActiveXObject) {
-										doc = new ActiveXObject('Microsoft.XMLDOM');
-										doc.async = 'false';
-										doc.loadXML(responseText);
-									}
-									else {
-										var parser = new DOMParser();
-										doc = parser.parseFromString(responseText, 'text/xml');
-									}
-								}
-								catch(e) {
-									//debug statement removed
-								}
-								responseText = doc;
-							}
+					xdr.open(method, url);
+					xdr.onload = function () {
+						//debug statement removed
+						var responseText = this.responseText, dataType = (type || "").toLowerCase();
+						// if we are expecting and XML object and get a string, convert it
+						if (typeof responseText == "string" && dataType == "xml") {
+							//debug statement removed
+							responseText = WDN.stringToXML(responseText);
 						}
-						callback(responseText, 'success', this);
+						callback(responseText, "success", this);
 					};
-					xdr.send();
+					xdr.send(params);
 				} else {
 					try {
 						//debug statement removed
@@ -6586,18 +6601,29 @@ var WDN = function() {
 							}
 							callback(data, textstatus, this);
 						};
-						request = new WDN.proxy_xmlhttp();
-						request.open('GET', url, true);
+						var request = new WDN.proxy_xmlhttp();
+						request.open(method.toUpperCase(), url, true);
+						if (method == "post") {
+							request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+						}
 						request.onreadystatechange = mycallback;
-						request.send();
+						request.send(params);
 					} catch(f) {
 						//debug statement removed
 						//debug statement removed
 					}
 				}
 			}
+			
+		},
+		
+		get: function (url, data, callback, type) {
+			WDN.request(url, data, callback, type, "GET");
+		},
+		
+		post: function (url, data, callback, type) {
+			WDN.request(url, data, callback, type, "POST");
 		}
-
 	};
 }();
 
@@ -6972,7 +6998,7 @@ WDN.navigation = function() {
             // First we search for a defined homepage.
             
             if (WDN.jQuery('link[rel=home]').length) {
-                WDN.navigation.siteHomepage = WDN.toAbs(WDN.jQuery('link[rel=home]').attr('href'), location.protocol+'//'+location.hostname);
+                WDN.navigation.siteHomepage = WDN.toAbs(WDN.jQuery('link[rel=home]').attr('href'), window.location.toString());
                 //debug statement removed
             }
             
@@ -6993,7 +7019,7 @@ WDN.navigation = function() {
                 // Make all the hrefs absolute.
                 WDN.jQuery('#breadcrumbs > ul > li > a').each(
                         function() {
-                            if (WDN.toAbs(this.href, location.protocol+'//'+location.hostname) == WDN.navigation.siteHomepage) {
+                            if (this.href == WDN.navigation.siteHomepage) {
                                 WDN.jQuery(this).parent().addClass('selected');
                                 return false;
                             }
@@ -7173,7 +7199,7 @@ WDN.navigation = function() {
             WDN.jQuery('#navigation').append('<div id="navloading" style="height:'+height+'px;"></div>');
             
             var nav_sniffer = 'http://www1.unl.edu/wdn/test/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
-            nav_sniffer = nav_sniffer+escape(WDN.toAbs(breadcrumb.target.href, location.protocol+'//'+location.hostname));
+            nav_sniffer = nav_sniffer+escape(WDN.toAbs(breadcrumb.target.href, window.location));
             //debug statement removed
             WDN.get(nav_sniffer, '', function(data, textStatus) {
                 WDN.jQuery('#navloading').remove();
