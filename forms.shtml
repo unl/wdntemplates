@@ -72,7 +72,7 @@
             <p>
             Please fill out our important survey below.  It will help us serve you better.
             </p>
-            <h3 class="zenformHeading">Important Survey</h3>
+            <h3 class="zenform">Important Survey</h3>
             <form class="zenform" action="?" method="post">
 		        <fieldset>
 		                <legend>Sample Form Content</legend>
@@ -161,13 +161,11 @@
             <p id="zf">
             <a href="#" class="bright">Bright</a><br />
             <a href="#" class="cool">Cool</a><br />
-            <a href="#" class="energetic">Energetic (Default)</a><br />
+            <a href="#" class="energetic">Energetic</a><br />
             <a href="#" class="soothing">Soothing</a><br />
             <a href="#" class="neutral">Neutral</a><br />
-            <a href="#" class="primary">Primary</a><br />
+            <a href="#" class="primary">Primary (Default)</a><br />
             </p>
-            <input type="submit" name="submit" value="Submit" class="formSubmitTest" />
-            <p class="formSubmitTest">Submit</p>
             </div>
             
             

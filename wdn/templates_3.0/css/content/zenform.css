@@ -71,6 +71,9 @@ Color Schemes:
 	Energetic: http://colorschemedesigner.com/#0h11TrUvnebIu
 	Soothing: http://colorschemedesigner.com/#2P11TvylEebIu
 	Neutral: http://colorschemedesigner.com/#0011T007yebIu
+	
+@todo:
+input error reporting - highlight errant field, and some sort of text display (.wdn_notice)
 */
 
 #maincontent form.zenform { 
@@ -127,12 +130,84 @@ Color Schemes:
 	text-shadow: rgba(66, 66, 66, 0.8) 1px 1px 1px;
 }
 
-/* Theme Overrides for h3 @todo: gradients*/
-	#maincontent h3.zenform.bright {color:#3a3a3a;background:#f5e62f;}
-	#maincontent h3.zenform.cool {background:#557BB7;}
-	#maincontent h3.zenform.energetic {color:#DE8727;background:#FA6520;}
-	#maincontent h3.zenform.soothing {background:#028a02;}
-	#maincontent h3.zenform.neutral {background:#3c3c3c;}
+/* Theme Overrides for h3 */
+	#maincontent h3.zenform.bright {
+		color:#3a3a3a;
+		background:#f5e62f;
+		text-shadow:rgba(66, 66, 66, 0.3) 1px 1px 1px;
+		background-image:-webkit-gradient(
+						    linear,
+						    left top,
+						    left bottom,
+						    color-stop(0.3, rgb(245,229,47)),
+    						color-stop(1, rgb(189,176,38))
+						);
+		background-image:-moz-linear-gradient(
+						    center top,
+						    rgb(245,229,47) 30%,
+    						rgb(189,176,38) 100%
+						);
+		}
+	#maincontent h3.zenform.cool {
+		background:#557BB7;
+		background-image:-webkit-gradient(
+						    linear,
+						    left top,
+						    left bottom,
+						    color-stop(0.3, rgb(85,122,183)),
+    						color-stop(1, rgb(33,77,143))
+						);
+		background-image:-moz-linear-gradient(
+						    center top,
+						    rgb(85,122,183) 30%,
+    						rgb(33,77,143) 100%
+						);
+	}
+	#maincontent h3.zenform.energetic {
+		background:#FA6520;
+		background-image:-webkit-gradient(
+						    linear,
+						    left top,
+						    left bottom,
+						    color-stop(0.3, rgb(250,99,39)),
+    						color-stop(1, rgb(194,78,29))
+						);
+		background-image:-moz-linear-gradient(
+						    center top,
+						    rgb(250,99,39) 30%,
+   							rgb(194,78,29) 100%
+						);
+	}
+	#maincontent h3.zenform.soothing {
+		background:#028a02;
+		background-image:-webkit-gradient(
+						    linear,
+						    left top,
+						    left bottom,
+						    color-stop(0.3, rgb(2,138,2)),
+    						color-stop(1, rgb(2,92,2))
+						);
+		background-image:-moz-linear-gradient(
+						    center top,
+						    rgb(2,138,2) 30%,
+    						rgb(2,92,2) 100%
+						);
+	}
+	#maincontent h3.zenform.neutral {
+		background:#3c3c3c;
+		background-image:-webkit-gradient(
+						    linear,
+						    left top,
+						    left bottom,
+						    color-stop(0.3, rgb(60,60,60)),
+    						color-stop(1, rgb(0,0,0))
+						);
+		background-image:-moz-linear-gradient(
+						    center top,
+						    rgb(60,60,60) 30%,
+   							rgb(0,0,0) 100%
+						);
+	}
 /*End Theme Overrides for h3*/
 
 #maincontent form.zenform fieldset {
@@ -148,20 +223,23 @@ Color Schemes:
 }
 /*theme overrides for legend font color */
 #maincontent form.zenform.bright > fieldset > legend { 
-	color:#af0202;
+	color:#565656; /* yellow actually looks horrible */
 }
 #maincontent form.zenform.cool > fieldset > legend { 
-	color:#af0202;
+	color:#385E9B;
 }
 #maincontent form.zenform.energetic > fieldset > legend { 
-	color:#af0202;
+	color:#D35015;
 }
 #maincontent form.zenform.soothing > fieldset > legend { 
-	color:#af0202;
+	color:#017501;
 }
 #maincontent form.zenform.neutral > fieldset > legend { 
-	color:#af0202;
+	color:#332727;
 }
+
+/*end theme overrides for legend font color */
+
 #maincontent form.zenform > fieldset > legend + ol {
 	border-top:1px solid #d5d4d4;
 	padding:0;
@@ -179,11 +257,6 @@ Color Schemes:
 	color:#717171;
 }
 
-/* @todo Theme Overrides for inputs*/
-
-
-/*End Theme Overrides for inputs*/
-
 #maincontent form.zenform fieldset ol li input[type=text],
 #maincontent form.zenform fieldset ol li input[type=file],
 #maincontent form.zenform fieldset ol li input[type=password],
@@ -192,9 +265,49 @@ Color Schemes:
 	width:100%;
 	font-size:1.1em;
 	outline:1px solid #fff;
-	border:1px solid #eec2c2;
+	border:1px solid #eec2c2; /*not in the scheme since it needs to be very light (take lightest hue, drop S to 10%)*/
 	color:#5f5f5f;
 }
+
+/* Theme Overrides for inputs*/
+#maincontent form.zenform.bright fieldset ol li input[type=text],
+#maincontent form.zenform.bright fieldset ol li input[type=file],
+#maincontent form.zenform.bright fieldset ol li input[type=password],
+#maincontent form.zenform.bright fieldset ol li textarea,
+#maincontent form.zenform.bright fieldset ol li select {
+	border:1px solid #FCF7B3; /*no saturation adjustment*/
+}
+#maincontent form.zenform.cool fieldset ol li input[type=text],
+#maincontent form.zenform.cool fieldset ol li input[type=file],
+#maincontent form.zenform.cool fieldset ol li input[type=password],
+#maincontent form.zenform.cool fieldset ol li textarea,
+#maincontent form.zenform.cool fieldset ol li select {
+	border:1px solid #d3dceb; 
+}
+#maincontent form.zenform.energetic fieldset ol li input[type=text],
+#maincontent form.zenform.energetic fieldset ol li input[type=file],
+#maincontent form.zenform.energetic fieldset ol li input[type=password],
+#maincontent form.zenform.energetic fieldset ol li textarea,
+#maincontent form.zenform.energetic fieldset ol li select {
+	border:1px solid #FEC7AE; /*no saturation adjustment*/ 
+}
+#maincontent form.zenform.soothing fieldset ol li input[type=text],
+#maincontent form.zenform.soothing fieldset ol li input[type=file],
+#maincontent form.zenform.soothing fieldset ol li input[type=password],
+#maincontent form.zenform.soothing fieldset ol li textarea,
+#maincontent form.zenform.soothing fieldset ol li select {
+	border:1px solid #c8dec8; 
+}
+#maincontent form.zenform.neutral fieldset ol li input[type=text],
+#maincontent form.zenform.neutral fieldset ol li input[type=file],
+#maincontent form.zenform.neutral fieldset ol li input[type=password],
+#maincontent form.zenform.neutral fieldset ol li textarea,
+#maincontent form.zenform.neutral fieldset ol li select {
+	border:1px solid #C7C7C7; /*already unsaturated */
+}
+
+/*End Theme Overrides for inputs*/
+
 #maincontent form.zenform fieldset ol li select {
 	outline:none;
 }
@@ -229,10 +342,46 @@ Color Schemes:
 	-webkit-box-shadow: 0 0 1px 1px rgba(249, 177, 177, 0.5), 0 0 1px 3px rgba(249, 177, 177, 0.3);
 	-moz-box-shadow: 0 0 1px 2px rgba(249, 177, 177, 0.5), 0 0 1px 3px rgba(249, 177, 177, 0.3);
 	outline:none;
+	border-color:#C20303;
 }
 
 /* @todo Theme Overrides for input focus*/
 
+#maincontent form.zenform.bright fieldset ol li input:focus,
+#maincontent form.zenform.bright fieldset ol li select:focus,
+#maincontent form.zenform.bright fieldset ol li textarea:focus {
+	-webkit-box-shadow: 0 0 1px 1px rgba(235, 239, 132, 0.5), 0 0 1px 3px rgba(235, 239, 132, 0.3);
+	-moz-box-shadow: 0 0 1px 2px rgba(235, 239, 132, 0.5), 0 0 1px 3px rgba(235, 239, 132, 0.3);
+	border-color:#f5e62f;
+}
+#maincontent form.zenform.cool fieldset ol li input:focus,
+#maincontent form.zenform.cool fieldset ol li select:focus,
+#maincontent form.zenform.cool fieldset ol li textarea:focus {
+	-webkit-box-shadow: 0 0 1px 1px rgba(136, 186, 254, 0.5), 0 0 1px 3px rgba(136, 186, 254, 0.3);
+	-moz-box-shadow: 0 0 1px 2px rgba(136, 186, 254, 0.5), 0 0 1px 3px rgba(136, 186, 254, 0.3);
+	border-color:#557BB7;
+}
+#maincontent form.zenform.energetic fieldset ol li input:focus,
+#maincontent form.zenform.energetic fieldset ol li select:focus,
+#maincontent form.zenform.energetic fieldset ol li textarea:focus {
+	-webkit-box-shadow: 0 0 1px 1px rgba(251, 162, 121, 0.5), 0 0 1px 3px rgba(251, 162, 121, 0.3);
+	-moz-box-shadow: 0 0 1px 2px rgba(251, 162, 121, 0.5), 0 0 1px 3px rgba(251, 162, 121, 0.3);
+	border-color:#FA6520;
+}
+#maincontent form.zenform.soothing fieldset ol li input:focus,
+#maincontent form.zenform.soothing fieldset ol li select:focus,
+#maincontent form.zenform.soothing fieldset ol li textarea:focus {
+	-webkit-box-shadow: 0 0 1px 1px rgba(120, 236, 120, 0.5), 0 0 1px 3px rgba(120, 236, 120, 0.3);
+	-moz-box-shadow: 0 0 1px 2px rgba(120, 236, 120, 0.5), 0 0 1px 3px rgba(120, 236, 120, 0.3);
+	border-color:#028a02;
+}
+#maincontent form.zenform.neutral fieldset ol li input:focus,
+#maincontent form.zenform.neutral fieldset ol li select:focus,
+#maincontent form.zenform.neutral fieldset ol li textarea:focus {
+	-webkit-box-shadow: 0 0 1px 1px rgba(173, 173, 173, 0.5), 0 0 1px 3px rgba(173, 173, 173, 0.3);
+	-moz-box-shadow: 0 0 1px 2px rgba(173, 173, 173, 0.5), 0 0 1px 3px rgba(173, 173, 173, 0.3);
+	border-color:#3c3c3c;
+}
 
 /*End Theme Overrides for input focus*/
 #maincontent form.zenform fieldset ol li span.required {
@@ -246,13 +395,12 @@ Color Schemes:
 	display:block;
 }
 
-/*  @todo Theme Overrides for required indicators*/
-	#maincontent form.zenform.bright fieldset ol li span.required {background-position:0 0;}
-	#maincontent form.zenform.cool fieldset ol li span.required {background-position:0 -14px;}
-	#maincontent form.zenform.energetic fieldset ol li span.required {background-position:0 -28px;}
-	#maincontent form.zenform.soothing fieldset ol li span.required {background-position:0 -42px;}
-	#maincontent form.zenform.neutral fieldset ol li span.required {background-position:0 -56px;}
-	#maincontent form.zenform.primary fieldset ol li span.required {background-position:0 -70px;}
+/* Theme Overrides for required indicators*/
+	#maincontent form.zenform.bright fieldset ol li span.required {background-position:0 -13px;}
+	#maincontent form.zenform.cool fieldset ol li span.required {background-position:0 -26px;}
+	#maincontent form.zenform.energetic fieldset ol li span.required {background-position:0 -39px;}
+	#maincontent form.zenform.soothing fieldset ol li span.required {background-position:0 -52px;}
+	#maincontent form.zenform.neutral fieldset ol li span.required {background-position:0 -65px;}
 /*End Theme Overrides for required indicators*/
 
 #maincontent form.zenform fieldset ol li span.helper {
@@ -291,14 +439,13 @@ Color Schemes:
 	display:inline;
 }
 
-/* @todo Theme Overrides for submit button*/
+/* Theme Overrides for submit button*/
 
-	#maincontent form.zenform.bright input[type=submit] {}
-	#maincontent form.zenform.cool input[type=submit] {}
-	#maincontent form.zenform.energetic input[type=submit] {}
-	#maincontent form.zenform.soothing input[type=submit] {}
-	#maincontent form.zenform.neutral input[type=submit] {}
-	#maincontent form.zenform.primary input[type=submit] {}
+	#maincontent form.zenform.bright input[type=submit] {background-color:#DACE3D;}
+	#maincontent form.zenform.cool input[type=submit] {background-color:#385E9B;}
+	#maincontent form.zenform.energetic input[type=submit] {background-color:#D35015;}
+	#maincontent form.zenform.soothing input[type=submit] {background-color:#017501;}
+	#maincontent form.zenform.neutral input[type=submit] {background-color:#332727;}
 
 /*End theme override for submit button*/
 
