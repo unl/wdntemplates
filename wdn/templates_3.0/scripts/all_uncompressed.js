@@ -10321,10 +10321,12 @@ WDN.tabs = function() {
 			}
 			
 			// Add yesprint class to list items, to act as a table of contents when printed
-			WDN.jQuery('ul.wdn_tabs li').each(function(){
-				var content = WDN.jQuery(this).children('a').text();
-				var contentTitle = WDN.jQuery(this).children('a').attr('href');
-				WDN.jQuery('div#'+contentTitle).prepend("<h5 class='yesprint'>"+content+"</h5>");
+			WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li').each(function(){
+				var content    = WDN.jQuery(this).children('a').text();
+				var hash_check = WDN.jQuery(this).children('a').attr('href').split('#');
+				if (hash_check.length == 2 && hash_check[1] !== "") {
+					WDN.jQuery('div#'+hash_check[1]).prepend("<h5 class='yesprint'>"+content+"</h5>");
+				}
 				return true;
 			});
 			
