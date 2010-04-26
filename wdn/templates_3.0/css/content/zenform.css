@@ -220,7 +220,9 @@ input error reporting - highlight errant field, and some sort of text display (.
 	text-shadow: rgba(218, 218, 218, 1) 1px 1px 1px;
 	color:#af0202; /*darker mono*/
 	padding:15px 5px 5px 5px;
+	white-space:normal;
 }
+
 /*theme overrides for legend font color */
 #maincontent form.zenform.bright > fieldset > legend { 
 	color:#565656; /* yellow actually looks horrible */
@@ -345,7 +347,7 @@ input error reporting - highlight errant field, and some sort of text display (.
 	border-color:#C20303;
 }
 
-/* @todo Theme Overrides for input focus*/
+/* Theme Overrides for input focus*/
 
 #maincontent form.zenform.bright fieldset ol li input:focus,
 #maincontent form.zenform.bright fieldset ol li select:focus,
@@ -384,6 +386,7 @@ input error reporting - highlight errant field, and some sort of text display (.
 }
 
 /*End Theme Overrides for input focus*/
+
 #maincontent form.zenform fieldset ol li span.required {
 	position:absolute;
 	left:10px;
@@ -461,3 +464,32 @@ input error reporting - highlight errant field, and some sort of text display (.
 	cursor:pointer;
 	display:inline;
 } 
+
+/* IE Fixes */
+
+/* we need to put a span inside the legend and use a hard width for IE */
+#maincontent form.zenform fieldset legend span.fixIE {
+	width:850px;
+	display:block;	
+}
+#maincontent form.zenform fieldset fieldset legend span.fixIE {
+	width:860px
+}
+#maincontent div.three_col form.zenform fieldset legend span.fixIE {
+	width:645px;
+}
+#maincontent div.three_col form.zenform fieldset fieldset legend span.fixIE {
+	width:625px;
+}
+#maincontent div.two_col form.zenform fieldset legend span.fixIE {
+	width:435px;
+}
+#maincontent div.two_col form.zenform fieldset fieldset legend span.fixIE {
+	width:380px;
+}
+#maincontent div.col form.zenform fieldset legend span.fixIE, #maincontent div.one_col form.zenform fieldset legend span.fixIE {
+	width:190px;
+}
+#maincontent div.col form.zenform fieldset fieldset legend span.fixIE, #maincontent div.one_col form.zenform fieldset fieldset legend span.fixIE {
+	width:140px;
+}
