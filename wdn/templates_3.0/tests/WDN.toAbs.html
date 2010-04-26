@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Relative to Absolute links test</title>
+    <style type="text/css">
+        body {font-family: consolas, courier new, courier;}
+        .even {background: #eee;}
+    </style>
+    <script type="text/javascript" src="../scripts/wdn.js"></script>
+</head>
+<body>
+    <table border="1" id="result">
+        <tr><th>host</th>
+            <th>file</th>
+            <th>result</th></tr>
+    </table>
+    <script type="text/javascript">
+
+        var hosts = [
+            'http://example.org',
+            'http://example.org/',
+            'http://example.org/level1/',
+            'http://example.org/level1/test.php',
+            'http://example.org/level1',
+            'http://example.org/level1/level2',
+            'http://example.org/level1/level2/',
+            'http://example.org/level1/level2/test.html',
+            'http://example.org/level1/level2/level3/'
+        ];
+
+        var files = [
+            'image.png',
+            '/image.png',
+            '../../image.png',
+            '/../../image.png',
+            'dir/image.png',
+            '/dir/image.png',
+            'dir/../image.png',
+            './image.png',
+            './dir/image.png'
+        ];
+
+        var i, j, td, tr, t = document.getElementsByTagName('table')[0];
+        for (i = 0; i < hosts.length; i++) {
+            for (j = 0; j < files.length; j++) {
+                tr = document.createElement('tr');
+                if (j % 2) tr.className = 'even';
+                td = document.createElement('td');
+                td.innerHTML = hosts[i];
+                tr.appendChild(td);
+                td = document.createElement('td');
+                td.innerHTML = files[j];
+                tr.appendChild(td);
+                td = document.createElement('td');
+                td.innerHTML = WDN.toAbs(files[j], hosts[i]);
+                tr.appendChild(td);
+                t.appendChild(tr);
+            }
+        }
+
+    </script>
+</body>
+</html>
+

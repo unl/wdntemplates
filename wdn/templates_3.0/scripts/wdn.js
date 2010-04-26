@@ -224,8 +224,8 @@ var WDN = function() {
 		  }
 
 		  if (lparts[0] === '') { // like "/here/dude.png"
-		    host = hparts[0] + '//' + hparts[2];
-		    hparts = host.split('/'); // re-split host parts from scheme and domain only
+		    base_url = hparts[0] + '//' + hparts[2];
+		    hparts = base_url.split('/'); // re-split host parts from scheme and domain only
 		    delete lparts[0];
 		  }
 
