@@ -1,12 +1,10 @@
-#maincontent div#wdn_calendarDisplay h4.upcoming-header,
 #maincontent .wdn_calendarDisplay h4.upcoming-header {background:url(images/bg_icon_events.png) left top no-repeat; line-height:30px; padding-left:45px; margin-bottom:10px;}
 
-#maincontent div#wdn_calendarDisplay h4.upcoming-header-two_col,
 #maincontent .wdn_calendarDisplay h4.upcoming-header-two_col {background:url(images/bg_icon_events.png) left top no-repeat; line-height:30px; padding-left:45px; margin-bottom:10px;border-bottom:2px solid #E5E5E5;}
 
 span.subhead {display:block;text-align:right;font-size:0.75em;margin-top:-15px;}
-#maincontent div#wdn_calendarDisplay thead, #maincontent .wdn_calendarDisplay thead, .vevent .description {display:none;}
-#maincontent div#wdn_calendarDisplay.two_col .description, #maincontent .wdn_calendarDisplay.two_col .description {display: block;
+#maincontent .wdn_calendarDisplay thead, .vevent .description {display:none;}
+#maincontent .wdn_calendarDisplay.two_col .description {display: block;
 border-left:2px solid #E5E5E5;
 font-size:0.9em;
 line-height:130%;

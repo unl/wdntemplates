@@ -22,6 +22,7 @@ WDN.events = function() {
 			}
 			
 			if (WDN.jQuery(this.container).length != 0) {
+				WDN.jQuery(this.container).addClass('wdn_calendarDisplay');
 				WDN.loadCSS('wdn/templates_3.0/css/content/events.css');
 				WDN.events.display();
 			}
