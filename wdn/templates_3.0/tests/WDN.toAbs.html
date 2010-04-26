@@ -12,9 +12,12 @@
 </head>
 <body>
     <table border="1" id="result">
-        <tr><th>host</th>
+        <tr>
+            <th>host</th>
             <th>file</th>
-            <th>result</th></tr>
+            <th>result</th>
+            <th>pass/fail</th>
+        </tr>
     </table>
     <script type="text/javascript">
 
@@ -42,7 +45,91 @@
             './dir/image.png'
         ];
 
-        var i, j, td, tr, t = document.getElementsByTagName('table')[0];
+        var assertions = [
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/level1/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/level1/dir/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/level1/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/level1/dir/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/level1/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/level1/dir/image.png',
+            'http://example.org/level1/level2/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/level1/level2/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/level2/image.png',
+            'http://example.org/level1/level2/image.png',
+            'http://example.org/level1/level2/dir/image.png',
+            'http://example.org/level1/level2/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/level1/level2/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/level2/image.png',
+            'http://example.org/level1/level2/image.png',
+            'http://example.org/level1/level2/dir/image.png',
+            'http://example.org/level1/level2/level3/image.png',
+            'http://example.org/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/image.png',
+            'http://example.org/level1/level2/level3/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/level2/level3/image.png',
+            'http://example.org/level1/level2/level3/image.png',
+            'http://example.org/level1/level2/level3/dir/image.png'
+        ];
+
+        var i, j, p = true, td, tr, t = document.getElementsByTagName('table')[0];
         for (i = 0; i < hosts.length; i++) {
             for (j = 0; j < files.length; j++) {
                 tr = document.createElement('tr');
@@ -56,8 +143,22 @@
                 td = document.createElement('td');
                 td.innerHTML = WDN.toAbs(files[j], hosts[i]);
                 tr.appendChild(td);
+                td = document.createElement('td');
+                
+                if (WDN.toAbs(files[j], hosts[i]) == assertions[i*files.length+j]) {
+                    td.innerHTML = 'pass';
+                } else {
+                    p = false;
+                    td.innerHTML = 'fail';
+                }
+                assertions[i+j]
+                tr.appendChild(td);
                 t.appendChild(tr);
             }
+        }
+
+        if (p == false) {
+            alert('Tests failed');
         }
 
     </script>
