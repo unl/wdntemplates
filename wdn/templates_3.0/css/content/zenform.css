@@ -75,7 +75,7 @@ Color Schemes:
 @todo:
 input error reporting - highlight errant field, and some sort of text display (.wdn_notice)
 */
-
+#maincontent form.zenform + form.zenform { margin-top:20px; }
 #maincontent form.zenform { 
 	margin:-6px 0 10px 0;
 	padding:0;
