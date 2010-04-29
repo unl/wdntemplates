@@ -16,6 +16,10 @@
 	margin:0 2px;
 	background:url('images/breadcrumbArrowSprite.png') top right no-repeat;
 }
+#breadcrumbs a acronym {
+	display:inline-block;
+	margin-bottom:-1px;
+}
 #breadcrumbs ul li:last-child a,
 #breadcrumbs ul li:last-child a:link,
 #breadcrumbs ul li:last-child a:visited {
