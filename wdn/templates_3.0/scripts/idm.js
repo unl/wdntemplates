@@ -14,13 +14,18 @@ WDN.idm = function() {
 		user : false,
 		
 		/**
+		 * The URL from which the LDAP information is available
+		 */
+		serviceURL : 'https://login.unl.edu/services/whoami/?id=',
+		
+		/**
 		 * Initialize the IdM related scripts
 		 * 
 		 * @return void
 		 */
 		initialize : function() {
 			if (WDN.idm.isLoggedIn()) {
-				WDN.loadJS('https://login.unl.edu/services/whoami/?id='+WDN.getCookie('unl_sso'), function() {
+				WDN.loadJS(WDN.idm.serviceURL + WDN.getCookie('unl_sso'), function() {
 					if (WDN.idm.getUserId()) {
 						WDN.idm.displayNotice(WDN.idm.getUserId());
 					}
