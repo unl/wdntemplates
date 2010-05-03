@@ -61,21 +61,29 @@
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             <!-- InstanceBeginEditable name="maincontentarea" -->
             <script type="text/javascript">
-			WDN.jQuery(document).ready(function(){
-						WDN.jQuery("#examples a:not(.external)").click(function(e){
-							e.preventDefault();
-							loadExample(this.href)});
-							return false;
-						});
-			
+            
+            WDN.jQuery(document).ready(function(){
+                if (window.location.hash) { //returned with #
+                    WDN.log("we have a hash: "+window.location.hash);
+                    var hasher = window.location.hash;
+                    loadExample(hasher.replace('#', ''));
+                }
+				WDN.jQuery("#examples a:not(.external)").click(function(e){
+					e.preventDefault();
+					window.location.hash = WDN.jQuery(this).attr('href'); //this.href returns the whole URL
+					loadExample(WDN.jQuery(this).attr('href'))
+				});
+				return false;
+						
+						
+			});
             function loadExample(file)
 			{
-				WDN.get(file, null, function(data, textStatus) {
+                WDN.get(file, null, function(data, textStatus) {
 					if (textStatus == 'success') {
 						WDN.jQuery('#example').html(data);
 						WDN.jQuery('#example_code').val(data);
 						WDN.tooltip.tooltipSetup('maincontent');
-						WDN.tabs.initialize();
 					}
 				});
 			}
