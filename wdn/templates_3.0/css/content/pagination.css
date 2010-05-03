@@ -24,4 +24,4 @@ Markup for these:
 .wdn_pagination li a:hover{color: #fff !important;background:#6e6e6e;border:1px solid #5e5e5e;}
 .wdn_pagination li.ellipsis{}
 .wdn_pagination li.selected{position: relative;color:#3e3e3e;font:bold 22px "Lucida Grande",Verdana,Arial;text-align:bottom;margin: -6px 0 0 0;padding:2px 6px;}
-#maincontent .wdn_pagination li a:focus{color:#fff !important;}
+#maincontent .wdn_pagination li a:focus{color:#fff !important;background:#6e6e6e;border:1px solid #5e5e5e;}
