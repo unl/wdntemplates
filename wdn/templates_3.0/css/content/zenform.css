@@ -255,9 +255,11 @@ input error reporting - highlight errant field, and some sort of text display (.
 	padding:7px 25px 7px 40px;
 }
 #maincontent form.zenform fieldset ol li label {
-	display:block;
 	font-size:1.3em;
 	color:#717171;
+}
+#maincontent form.zenform > fieldset > ol > li > label {
+	display:block;
 }
 
 #maincontent form.zenform fieldset ol li input[type=text],
