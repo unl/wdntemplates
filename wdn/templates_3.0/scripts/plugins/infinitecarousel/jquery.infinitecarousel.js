@@ -1,11 +1,14 @@
 /*
  * jQuery Infinite Carousel
  * @author admin@catchmyfame.com - http://www.catchmyfame.com
- * @version 2.0.0
- * @date December 30, 2009
+ * @version 2.0.1
+ * @date April 7, 2010
  * @category jQuery plugin
  * @copyright (c) 2009 admin@catchmyfame.com (www.catchmyfame.com)
- * @license Dual licensed MIT and CC Attribution-Share Alike 3.0 - http://creativecommons.org/licenses/by-sa/3.0/
+ * @license CC Attribution-Share Alike 3.0 - http://creativecommons.org/licenses/by-sa/3.0/
+ * 
+ * UNL Changes:
+ * http://its-gforge.unl.edu/gf/project/wdntemplates/scmsvn/?action=browse&path=/trunk/wdn/templates_3.0/scripts/plugins/infinitecarousel/jquery.infinitecarousel.js
  */
 
 (function($){
@@ -73,7 +76,7 @@
 			function startProgressBar(barTime)
 			{
 				barTime = (barTime==null)? o.displayTime:barTime;
-				$('#progress'+randID).width('100%').height(5).hide().fadeIn();
+				$('#progress'+randID).width('100%').height(5);
 				$('#progress'+randID).animate({'width':0},barTime);
 			}
 
@@ -140,7 +143,7 @@
 				}
 			}
 
-			function hideCaption() {$('.textholder',obj).stop().animate({marginBottom:(-imgHeight*o.textholderHeight-containerBorder-12)+'px'},500)}
+			function hideCaption() {$('.textholder',obj).stop().animate({marginBottom:(-imgHeight*o.textholderHeight-containerBorder-12)+'px'},o.transitionSpeed)}
 
 			if(o.displayThumbnails)
 			{
