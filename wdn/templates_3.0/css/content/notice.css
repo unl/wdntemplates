@@ -1,5 +1,6 @@
 .wdn_notice {
-    border: 2px solid #ddd;
+	background:#F8F9D1;
+    border:1px solid #CAD094;
     padding:10px; 
     margin-bottom:10px;
     border-radius:5px;
@@ -8,6 +9,15 @@
 	background:url(images/notice/information.png) no-repeat top left;
 	padding: 10px 5px 0px 68px;
 	min-height:60px;
+}
+.wdn_notice.affirm div.message {
+    background-image:url(images/notice/affirm.png);
+}
+.wdn_notice.negate div.message {
+    background-image:url(images/notice/negate.png);
+}
+.wdn_notice.alert div.message {
+    background-image:url(images/notice/alert.png);
 }
 .wdn_notice div.message h4 {
 	font-weight:bold;
