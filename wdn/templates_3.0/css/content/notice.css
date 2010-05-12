@@ -5,6 +5,20 @@
     margin-bottom:10px;
     border-radius:5px;
 }
+.wdn_notice.affirm {
+	background:#6CBD45;
+    border-color:#349804;
+    color:#FFF !important;
+}
+.wdn_notice.negate {
+	background:#DC6767;
+    border-color:#C50000;
+    color:#FFF !important;
+}
+.wdn_notice.alert {
+	background:#FFFB78;
+	border-color:#666;
+}
 .wdn_notice div.message {
 	background:url(images/notice/information.png) no-repeat top left;
 	padding: 10px 5px 0px 68px;
@@ -24,6 +38,12 @@
 	color:#585858;
 	padding:0;
 }
+	.wdn_notice.affirm div.message h4 {
+		color:#FFF !important;
+	}
+	.wdn_notice.negate div.message h4 {
+		color:#FFF !important;
+	}
 .wdn_notice div.message p {
 	margin-bottom:0px;	
 }
