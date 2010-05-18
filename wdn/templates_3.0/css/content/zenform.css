@@ -90,13 +90,13 @@ input error reporting - highlight errant field, and some sort of text display (.
 	    				linear,
 					    left bottom,
 					    left top,
-					    color-stop(0.2, rgb(220,220,220)),
-					    color-stop(1, rgb(249,249,249))
+					    color-stop(0.2, rgb(225,225,225)),
+					    color-stop(1, rgb(240,240,240))
 					);
 	background-image:-moz-linear-gradient(
 					    center bottom,
-					    rgb(220,220,220) 20%,
-					    rgb(249,249,249) 100%
+					    rgb(225,225,225) 20%,
+					    rgb(240,240,240) 100%
 					);
 	position:relative;
 	padding:5px;
