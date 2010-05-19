@@ -21,6 +21,7 @@ structure:
 	text-align:left;
 	height:34px;
 	border-bottom:1px solid #e6e6e6;
+	position:relative;
     }
 #maincontent ul.wdn_tabs > li {
     display:inline;
