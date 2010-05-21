@@ -6382,10 +6382,10 @@ var WDN = function() {
 		
 		screenAdjustments : function() {
 			if (screen.width<=1024) {
-				WDN.jQuery('body').css({'background':'#e0e0e0','overflow-x':'hidden'});
-				WDN.jQuery('#wdn_wrapper').css({'border-left':'0','border-right':'0','border-bottom-width':'7px'});
-				if (WDN.jQuery.browser.msie && WDN.jQuery.browser.version === '7.0' ) {
-					WDN.jQuery('body').css({'background':'#e0e0e0','overflow-x':'hidden','max-width':'990px'});
+				WDN.jQuery('body').css({'background':'#e0e0e0'});
+				WDN.jQuery('#wdn_wrapper').css({'border-left-width':'0','border-right-width':'0'});
+				if (WDN.jQuery.browser.msie) {
+					WDN.jQuery('#wdn_wrapper').css({'margin':'0 0 0 5px'});
 				} else if (WDN.jQuery.browser.mozilla) {
 					WDN.jQuery('#wdn_wrapper').css({'-moz-border-radius':'0'}); 
 				} else if (WDN.jQuery.browser.webkit) {
@@ -7489,11 +7489,11 @@ WDN.analytics = function() {
 		rated : false, // whether the user has rated the current page.
 		initialize : function() {
 			try {
-				wdnTracker = _gat._getTracker("UA-3203435-1"); 
+				wdnTracker = _gat._getTracker("UA-3203435-1");
 				wdnTracker._setDomainName(".unl.edu");
 				wdnTracker._setAllowLinker(true);
-				wdnTracker._setAllowHash(false);
-				wdnTracker._trackPageview();
+				wdnTracker._setAllowHash(false);	
+				WDN.analytics.trackPrimaryAffiliation();			
 			} catch(err) {}
 			
 			//debug statement removed
@@ -7542,11 +7542,20 @@ WDN.analytics = function() {
 				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
 			} catch(e){}
 		},
+		trackPrimaryAffiliation : function () { //used to set a customVar regarding affiliation role (faculty, staff, student, etc...)
+			//debug statement removed
+			WDN.loadJS(WDN.idm.serviceURL + WDN.getCookie('unl_sso'), function() {
+				//debug statement removed
+				wdnTracker._setCustomVar(1, "Primary Affiliation", WDN.idm.user.eduPersonPrimaryAffiliation, 1);
+				//debug statement removed
+				wdnTracker._trackPageview();
+			});
+		},
 		callTrackPageview: function(thePage){
 			wdnTracker._trackPageview(thePage); //First, track in the wdn analytics
 			//debug statement removed
 			try {
-				pageTracker._trackPageview(thePage); // Second, track in local site analytics //Don't turn on until Dec WDN Meeting
+				pageTracker._trackPageview(thePage); // Second, track in local site analytics 
 				//debug statement removed
 			} catch(e) {
 				//debug statement removed 
@@ -10201,13 +10210,18 @@ WDN.idm = function() {
 		user : false,
 		
 		/**
+		 * The URL from which the LDAP information is available
+		 */
+		serviceURL : 'https://login.unl.edu/services/whoami/?id=',
+		
+		/**
 		 * Initialize the IdM related scripts
 		 * 
 		 * @return void
 		 */
 		initialize : function() {
 			if (WDN.idm.isLoggedIn()) {
-				WDN.loadJS('https://login.unl.edu/services/whoami/?id='+WDN.getCookie('unl_sso'), function() {
+				WDN.loadJS(WDN.idm.serviceURL + WDN.getCookie('unl_sso'), function() {
 					if (WDN.idm.getUserId()) {
 						WDN.idm.displayNotice(WDN.idm.getUserId());
 					}
