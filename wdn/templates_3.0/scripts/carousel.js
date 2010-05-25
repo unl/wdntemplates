@@ -1,4 +1,8 @@
-
+/*
+ * 
+ * Function to create a carousel. See http://www1.unl.edu/wdn/wiki/Carousel for more details
+ * 
+ */
 WDN.carousel = function() {  
 	
 	return {
@@ -46,13 +50,13 @@ WDN.carousel = function() {
 			WDN.log('remainingObjects: '+remainingObjects);
 			for (var i=startingObject; i<totalObjects; i++) { //loop through the objects starting with the random one
 				WDN.log('first loop: '+data[i].img);
-				WDN.jQuery("#wdn_Carousel ul").prepend('<li><img src="'+data[i].img+'" height="'+WDN.carousel.imageHeight()+'" width="'+WDN.carousel.imageWidth()+'" /><p>'+data[i].title +'<a href="'+data[i].link+'">Find out more</a></p>');
+				WDN.jQuery("#wdn_Carousel ul").prepend('<li><img src="'+data[i].img+'" height="'+WDN.carousel.imageHeight()+'" width="'+WDN.carousel.imageWidth()+'" /><p>'+data[i].title +'<a href="'+data[i].link+'">'+data[i].linktext+'</a></p>');
 				if (i>=(startingObject + WDN.carousel.numberToDisplay - 2)){break};
 			}
 			if (remainingObjects > 0) { //now let's go back to the begining and grab more objects to fill in for the remaining spots.
 				for (var j=0; j<remainingObjects; j++) {
 					WDN.log('second loop: '+data[j].img);
-					WDN.jQuery("#wdn_Carousel ul").prepend('<li><img src="'+data[j].img+'" height="'+WDN.carousel.imageHeight()+'" width="'+WDN.carousel.imageWidth()+'" /><p>'+data[j].title +'<a href="'+data[j].link+'">Find out more</a></p>');
+					WDN.jQuery("#wdn_Carousel ul").prepend('<li><img src="'+data[j].img+'" height="'+WDN.carousel.imageHeight()+'" width="'+WDN.carousel.imageWidth()+'" /><p>'+data[j].title +'<a href="'+data[j].link+'">'+data[i].linktext+'</a></p>');
 				}
 			}
 			WDN.carousel.start();
