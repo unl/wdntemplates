@@ -11,6 +11,10 @@ body.fixed #wdn_navigation_wrapper {
 	width: 946px;
 }
 
+body.fixed #maincontent {
+	overflow:hidden;
+}
+
 body.fixed #footer {
 	width:960px;
 }
