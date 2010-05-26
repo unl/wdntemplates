@@ -440,7 +440,7 @@ input error reporting - highlight errant field, and some sort of text display (.
 	padding:10px 36px 10px 16px;
 	width:auto;
 	-moz-border-radius:9px/10px;
-	-webkit-border-radius:9px/10px;
+	-webkit-border-radius:9px 10px;
 	border-radius:9px/10px;
 	display:inline;
 }
