@@ -186,7 +186,8 @@
 			
 			var classlist = elm.attr('class').split(' ');
 			var result = $.all(classlist, function (item) {
-				if ($.trim(item) && Validation.methods[item]) {
+				item = $.trim(item);
+				if (item && Validation.methods[item]) {
 					var test = self.validateTest(item, elm);
 					elm.triggerHandler('validate-element', [test]);
 					return test;
@@ -311,7 +312,7 @@
 			}
 			return true;
 		}),
-		'validate-percents' : new Validator('validate-percents', 'Please enter a number lower than 100', {max:100})
+		'validate-percents' : new Validator('validate-percents', 'Please enter a number lower than 100', {min:0, max:100})
 	};
 	Validation.getContainer = function(elm, options) {
 		var container;
@@ -384,10 +385,6 @@
 		return this;
 	};
 	
-	$.fn.validation.addMethod = function(className, error, test, options) {
-		Validation.methods[className] = new Validator(className, error, test, options);
-	};
-	
 	$.fn.validation.defaults = {
 		onSubmit : true,
 		stopOnFirst : false,
@@ -396,5 +393,11 @@
 		useTitles : false,
 		addClassNameToContainer: false,
 		containerClassName: 'input-box'
+	};
+	
+	$.validation = {
+		addMethod : function(className, error, test, options) {
+			Validation.methods[className] = new Validator(className, error, test, options);
+		}
 	};
 })(WDN.jQuery);
