@@ -58,7 +58,7 @@ WDN.toolbar_peoplefinder = function() {
         updatePeopleFinderResults : function(data, textStatus) {
             if (textStatus == 'success') {
                 document.getElementById(pfresultsdiv).innerHTML = data;
-                if (service_peoplefinder.updatePeopleFinderResults) {
+                if (WDN.toolbar_peoplefinder.configuedWebService) {
                 	service_peoplefinder.updatePeopleFinderResults();
                 }
             } else {
@@ -68,13 +68,14 @@ WDN.toolbar_peoplefinder = function() {
         updatePeopleFinderRecord : function(data, textStatus) {
             if (textStatus == 'success') {
                 document.getElementById(pfrecorddiv).innerHTML = data;
-                if (service_peoplefinder.updatePeopleFinderRecord) {
+                if (WDN.toolbar_peoplefinder.configuedWebService) {
                 	service_peoplefinder.updatePeopleFinderRecord();
                 }
             } else {
                 document.getElementById(pfrecorddiv).innerHTML = 'Error loading results.';
             }
-        }
+        },
+        configuedWebService : false
 
     };
 }();
