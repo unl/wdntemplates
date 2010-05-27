@@ -56,7 +56,7 @@ WDN.carousel = function() {
 			if (remainingObjects > 0) { //now let's go back to the begining and grab more objects to fill in for the remaining spots.
 				for (var j=0; j<remainingObjects; j++) {
 					WDN.log('second loop: '+data[j].img);
-					WDN.jQuery("#wdn_Carousel ul").prepend('<li><img src="'+data[j].img+'" height="'+WDN.carousel.imageHeight()+'" width="'+WDN.carousel.imageWidth()+'" /><p>'+data[j].title +'<a href="'+data[j].link+'">'+data[i].linktext+'</a></p>');
+					WDN.jQuery("#wdn_Carousel ul").prepend('<li><img src="'+data[j].img+'" height="'+WDN.carousel.imageHeight()+'" width="'+WDN.carousel.imageWidth()+'" /><p>'+data[j].title +'<a href="'+data[j].link+'">'+data[j].linktext+'</a></p>');
 				}
 			}
 			WDN.carousel.start();
