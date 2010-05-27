@@ -1,92 +1,108 @@
-a.external {
-	padding-right: 13px;
-	background: url(images/external_link.gif) center right no-repeat;
-	}
-a[href^="http://maps.google.com"], a.application-map {
-	padding: 3px 18px 0px 0px;
-	background: url(images/mimetypes/map-icon.png) bottom right no-repeat;
+/*
+*
+* Many Icons part of the Fugue Icon set: http://p.yusukekamiyamane.com/
+*
+*/
+
+/* These are the additional, easier-to-use, selectors */
+a.external, a.map, a.email, a.vcard, a.pdf, a.audio, a.image, a.document, a.html, a.video, a.calendar, a.presentation, a.spreadsheet, a.zip, a.feed, a.script,
+
+/* CSS attribute rules */
+a[href $='.mov'], a[href $='.wmv'], a[href $='.mp4'], a[href $='.m4v'], a[href $='.zip'], a[href *='.ppt'], a[href *='.pps'], a[href *='.xls'], a[href $='.pdf'], a[href^="mailto:"], a[href^="http://maps.google.com"],
+
+/* These are the selectors based on mime-type */
+a.mail-message-new, a.text-vcard, a.application-pdf, a.audio-x-generic, a.image-x-generic, a.text-html, a.text-x-script, a.video-x-generic, a.x-office-calendar, a.x-office-document,
+a.x-office-document-template, a.x-office-presentation, a.x-office-presentation-template, a.x-office-spreadsheet, a.x-office-spreadsheet-template, a.application-msword,
+a.application-vnd-ms-excel, a.application-vnd-ms-powerpoint, a.application-zip, a.application-map
+
+{
+    background:url('images/mimetypes/mimeTypeSprite.png') no-repeat;
+    padding-right:19px;
+    background-position: right -2px; /*This shows vCard */
 }
 
-a[href^="mailto:"], 
-a[href $='.pdf'], 
-a[href $='.exe'], 
-a[href *='.xls'], 
-a[href *='.ppt'], 
-a[href *='.pps'],
-a[href *='.doc'], 
-a[href $='.zip'], 
-a[href $='.mov'], 
-a[href $='.wmv'], 
-a[href $='.mp4'], 
-a[href $='.m4v'],
-a.mail-message-new,
-a.email,
-a.text-vcard,
-a.application-pdf,
-a.application-certificate,
-a.application-x-executable,
-a.audio-x-generic,
-a.font-x-generic,
-a.image-x-generic,
-a.msword,
-a.package-x-generic,
-a.pdf,
-a.text-html,
-a.text-x-generic,
-a.text-x-generic-template,
-a.text-x-script,
-a.video-x-generic,
-a.x-office-address-book,
-a.x-office-calendar,
-a.x-office-document,
-a.x-office-document-template,
-a.x-office-drawing,
-a.x-office-drawing-template,
-a.x-office-presentation,
-a.x-office-presentation-template,
-a.x-office-spreadsheet,
-a.x-office-spreadsheet-template,
-a.application-msword,
-a.application-vnd-ms-excel,
-a.application-vnd-ms-powerpoint,
-a.application-zip,
-a.feed-icon
-	{
-	padding: 3px 18px 0px 0px;
-	background-position: bottom right;
-	background-repeat: no-repeat;
-	}
-
-a[href^="mailto:"], a.mail-message-new, a.email {background-image: url(images/mimetypes/mail-message-new.png);}
-a.text-vcard{background-image: url(images/mimetypes/text-vcard.png);}					
-a[href $='.pdf'], a.application-pdf, a.pdf{background-image: url(images/mimetypes/application-pdf.png);background-repeat:no-repeat;}
-a.application-certificate{background-image: url(images/mimetypes/application-certificate.png);}
-a[href $='.exe'], a.application-x-executable{background-image: url(images/mimetypes/application-x-executable.png);background-repeat:no-repeat;}
-a.audio-x-generic{background-image: url(images/mimetypes/audio-x-generic.png);}
-a.font-x-generic{background-image: url(images/mimetypes/font-x-generic.png);}
-a.image-x-generic{background-image: url(images/mimetypes/image-x-generic.png);}
-a.package-x-generic{background-image: url(images/mimetypes/package-x-generic.png);}
-a.text-html{background-image: url(images/mimetypes/text-html.png);}
-a.text-x-generic{background-image: url(images/mimetypes/text-x-generic.png);}
-a.text-x-generic-template{background-image: url(images/mimetypes/text-x-generic-template.png);}
-a.text-x-script{background-image: url(images/mimetypes/text-x-script.png);}
-a[href $='.mov'], a[href $='.wmv'], a[href $='.mp4'], a[href $='.m4v'], a.video-x-generic{background-image: url(images/mimetypes/video-x-generic.png);background-repeat:no-repeat;}
-a.x-office-address-book{background-image: url(images/mimetypes/x-office-address-book.png);}
-a.x-office-calendar{background-image: url(images/mimetypes/x-office-calendar.png);}
-a.x-office-document{background-image: url(images/mimetypes/x-office-document.png);}
-a.x-office-document-template{background-image: url(images/mimetypes/x-office-document-template.png);}
-a.x-office-drawing{background-image: url(images/mimetypes/x-office-drawing.png);}
-a.x-office-drawing-template{background-image: url(images/mimetypes/x-office-drawing-template.png);}
-a.x-office-presentation{background-image: url(images/mimetypes/x-office-presentation.png);}
-a.x-office-presentation-template{background-image: url(images/mimetypes/x-office-presentation-template.png);}
-a.x-office-spreadsheet{background-image: url(images/mimetypes/x-office-spreadsheet.png);}
-a.x-office-spreadsheet-template{background-image: url(images/mimetypes/x-office-spreadsheet-template.png);}
-a[href *='.doc'], a.application-msword, a.msword{background-image: url(images/mimetypes/application-msword.png);background-repeat:no-repeat;}
-a[href *='.xls'], a.application-vnd-ms-excel{background-image: url(images/mimetypes/application-vnd-ms-excel.png);background-repeat:no-repeat;}
-a[href *='.ppt'], a[href *='.pps'], a.application-vnd-ms-powerpoint{background-image: url(images/mimetypes/application-vnd-ms-powerpoint.png);background-repeat:no-repeat;}
-a[href $='.zip'], a.application-zip{background-image: url(images/mimetypes/application-zip.png);background-repeat:no-repeat;}
-a.feed-icon{background-image: url(images/mimetypes/feed-icon.png);}
-
-a.imagelink, #footer a.imagelink {
+a.audio, a.audio-x-generic {
+    background-position: right -129px;
+}
+a.calendar, a.x-office-calendar {
+    background-position: right -321px;
+}
+a.clustan {
+    background-position: right -412px;
+}
+a.document, a.x-office-document, a.x-office-document-template, a.application-msword, a[href *='.doc'] {
+    background-position: right -192px;
+}
+a.email, a.mail-message-new, a[href^="mailto:"]  {
+    background-position: right -34px;
+}
+a.external {
+    background-position: right -450px;
+}
+a.feed {
+    background-position: right -385px;
+}
+a.html, a.text-html {
+    background-position: right -481px;
+}
+a.image, a.image-x-generic {
+    background-position: right -163px;
+}
+a.map, a[href^="http://maps.google.com"], a.application-map {
+    background-position: right -64px;
+}
+a.pdf, a.application-pdf, a[href $='.pdf'] {
+    background-position: right -96px;
+}
+a.presentation, a.x-office-presentation, a.x-office-presentation-template, a.application-vnd-ms-powerpoint, a[href *='.ppt'], a[href *='.pps'] {
+    background-position: right -256px;
+}
+a.script, a.text-x-script {
+	background-position: right -513px;
+}
+a.spreadsheet, a.x-office-spreadsheet, a.x-office-spreadsheet-template, a.application-vnd-ms-excel, a[href *='.xls'] {
+    background-position: right -224px;
+}
+a.video, a.video-x-generic, a[href $='.mov'], a[href $='.wmv'], a[href $='.mp4'], a[href $='.m4v'] {
+    background-position: right -352px;
+}
+a.zip, a.application-zip, a[href $='.zip'] {
+    background-position: right -289px;
+}
+a.imagelink, #footer a.imagelink, a.noBG {
     background:none;
 }
+
+/*
+
+To be deprecated in the 2012 Template
+
+*/
+a.application-certificate, 
+a[href $='.exe'], 
+a.application-x-executable, 
+a.font-x-generic,
+a.text-x-generic,
+a.text-x-generic-template,
+a.package-x-generic,
+a.msword,
+a.x-office-address-book,
+a.x-office-drawing,
+a.x-office-drawing-template,
+a.feed-icon
+{
+    padding: 3px 19px 0px 0px;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+a.application-certificate{background-image: url(images/mimetypes/application-certificate.png);}
+a[href $='.exe'], a.application-x-executable{background-image: url(images/mimetypes/application-x-executable.png);background-repeat:no-repeat;}
+a.font-x-generic{background-image: url(images/mimetypes/font-x-generic.png);}
+a.text-x-generic{background-image: url(images/mimetypes/text-x-generic.png);}
+a.text-x-generic-template{background-image: url(images/mimetypes/text-x-generic-template.png);}
+a.package-x-generic{background-image: url(images/mimetypes/package-x-generic.png);}
+a.msword{background-image: url(images/mimetypes/application-msword.png);background-repeat:no-repeat;}
+a.x-office-address-book{background-image: url(images/mimetypes/x-office-address-book.png);}
+a.x-office-drawing{background-image: url(images/mimetypes/x-office-drawing.png);}
+a.x-office-drawing-template{background-image: url(images/mimetypes/x-office-drawing-template.png);}
+a.feed-icon{background-image: url(images/mimetypes/feed-icon.png);}
