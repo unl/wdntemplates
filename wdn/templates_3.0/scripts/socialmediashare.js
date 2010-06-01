@@ -66,8 +66,7 @@ WDN.socialmediashare = function() {
         createURL : function(createThisURL, callback, failure) { //function to create a GoURL
         	failure = failure || function() {};
         	WDN.post(
-        		"http://ucommmeranda.unl.edu/workspace/UNL_GoURL/api_create.php", 
-        		//"http://go.unl.edu/api_create.php", 
+        		"http://go.unl.edu/api_create.php", 
                 {theURL: createThisURL},
                 function(data) {
                     WDN.log("current URL: "+createThisURL+" GoURL: "+data);
