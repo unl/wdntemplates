@@ -3,9 +3,9 @@
     list-style: none;
     color: #ee3409;
     font-weight: bold;
-    font-size:10px !important;
 }
 #maincontent ul.validation-advice li {
+	font-size:10px !important;
     padding: 0 0 0 15px !important;
     background: url('images/formvalidator/validation_advice_bg.gif') no-repeat 0 0;
 }
