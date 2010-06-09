@@ -173,9 +173,9 @@ input error reporting - highlight errant field, and some sort of text display (.
     						color-stop(1, rgb(194,78,29))
 						);
 		background-image:-moz-linear-gradient(
-						    center top,
-						    rgb(250,99,39) 30%,
-   							rgb(194,78,29) 100%
+							center top,
+							rgb(250,99,39) 30%,
+							rgb(194,78,29) 100%
 						);
 	}
 	#maincontent h3.zenform.soothing {
@@ -239,16 +239,18 @@ input error reporting - highlight errant field, and some sort of text display (.
 #maincontent form.zenform.neutral > fieldset > legend { 
 	color:#332727;
 }
-
 /*end theme overrides for legend font color */
 
 #maincontent form.zenform > fieldset > legend + ol {
 	border-top:1px solid #d5d4d4;
-	padding:0;
 }
 #maincontent form.zenform > fieldset > legend + ol > li:first-child {
 	border-top:1px solid #fff;
 	padding-top:25px !important;
+}
+
+#maincontent form.zenform fieldset ol {
+	padding:0;
 }
 #maincontent form.zenform fieldset ol li {
 	list-style:none;
@@ -425,7 +427,7 @@ input error reporting - highlight errant field, and some sort of text display (.
 	white-space:normal; /*force the legend to wrap*/
 	padding-bottom:3px;
 }
-#maincontent form.zenform fieldset fieldset ol {margin-left:-3px;/*for webkit*/margin-top:4px;padding:0;}
+#maincontent form.zenform fieldset fieldset ol {margin-left:-3px;/*for webkit*/margin-top:4px;}
 #maincontent form.zenform fieldset fieldset ol li {margin:0;font-size:0.83em;padding:2px 20px 2px 0; color:##5F5F5F;}
 
 /* Submit Button
