@@ -1,16 +1,24 @@
 .wdnVideo_controls {
-
+    padding:10px;
+    position:relative;
+    z-index:9;
+    bottom:57px;
+    opacity:0.9;
 }
-.wdnVideo_controls .play_pause {
+.wdnVideo_controls .play_pause, .wdnVideo_controls .progress {
     display:inline-block;
-    width:60px;
-    height:40px;
     background:#ac0302;
     border:none;
     border-radius:5px;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
-    padding:10px 21px;
+    float:left;
+    position:absolute;
+}
+.wdnVideo_controls .play_pause {
+	width:60px;
+    height:40px;
+	padding:10px 21px;
 }
 .wdnVideo_controls .play_pause span {
     background:url('images/videoplayer/controls.png') no-repeat;
@@ -19,10 +27,47 @@
     display:block;
     text-indent:-99999px; 
 }
-.wdnVideo_controls .progress {
+.wdnVideo_controls .play_pause.play span {
+    background-position:0px -20px;	
+}
+.wdnVideo_controls .volume, .wdnVideo_controls .fullscreen, .wdnVideo_controls .time, .wdnVideo_controls .progressBar {display:inline-block;}
+.wdnVideo_controls .volume, .wdnVideo_controls .fullscreen {float:right;}
+.wdnVideo_controls .time, .wdnVideo_controls .progressBar {float:left;}
+.wdnVideo_controls .progress { /*width set by JS based on video width */
     display:inline-block;
-    padding-left:80px;
+    padding:6px 10px;
+    max-height:30px;
+    min-width:300px;
+    left:80px;
+    margin-top:10px;
+}
+.wdnVideo_controls .progress .time {
+    font-size:0.8em;	
+    color:#fff;
+    margin-right:5px;
+    margin-top:1px;
+}
+.wdnVideo_controls .progress .progressBar {
+    height:10px;
+    width:70%;
+    border:1px solid #fff;
+    margin-top:3px;	
+}
+.wdnVideo_controls .progress .progressBar span {
+	background:#fff;
+	width:85%;
+	height:100%;
+	display:block;
+	opacity:0.4;
 }
 .wdnVideo_controls .progress .volume li {
     display:inline;
+}
+.wdnVideo_controls .progress .fullscreen {
+    width:12px;
+    height:12px;
+    margin-top:4px;
+    background:url('images/videoplayer/controls.png') no-repeat;
+    background-position:-3px -44px;
+    border:none;
 }
