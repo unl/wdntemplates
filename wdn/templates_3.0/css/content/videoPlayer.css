@@ -1,0 +1,28 @@
+.wdnVideo_controls {
+
+}
+.wdnVideo_controls .play_pause {
+    display:inline-block;
+    width:60px;
+    height:40px;
+    background:#ac0302;
+    border:none;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    padding:10px 21px;
+}
+.wdnVideo_controls .play_pause span {
+    background:url('images/videoplayer/controls.png') no-repeat;
+    width:18px;
+    height:20px;
+    display:block;
+    text-indent:-99999px; 
+}
+.wdnVideo_controls .progress {
+    display:inline-block;
+    padding-left:80px;
+}
+.wdnVideo_controls .progress .volume li {
+    display:inline;
+}
