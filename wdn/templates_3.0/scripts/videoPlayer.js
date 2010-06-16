@@ -107,12 +107,12 @@ WDN.videoPlayer = function() {
 					  '	<span>Play</span>' +
 					  '</button>' +
 					  '<div class="progress">' +
+					  '	<button class="fullscreen" value="no" type="button"></button>'+
 					  '	<ul class="volume">'+
 					  '		<li></li><li></li><li></li><li></li><li></li><li></li>'+
 					  '	</ul>'+
-					  '	<button class="fullscreen" value="no" type="button"></button>'+
 					  '	<span class="time">00:00</span>'+
-					  '	<div class="progressBar"></div>'+
+					  '	<div class="progressBar"><span></span></div>'+
 					  '</div>',
 				
 				positionControls : function(video) { //place the controls relative and over the video
@@ -152,10 +152,10 @@ WDN.videoPlayer = function() {
 					}
 					if(video.paused || video.ended) {
 						video.play();
-						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play').attr('value', 'playing').removeClass('play').addClass('pause').children('span').text('Pause');
+						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'playing').removeClass('play').addClass('pause').children('span').text('Pause');
 					} else {
 						video.pause();
-						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play').attr('value', 'paused').removeClass('pause').addClass('play').children('span').text('Play');
+						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'paused').removeClass('pause').addClass('play').children('span').text('Play');
 					}
 				},
 				
