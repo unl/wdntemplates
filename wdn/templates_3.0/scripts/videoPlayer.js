@@ -109,7 +109,7 @@ WDN.videoPlayer = function() {
 					  '<div class="progress">' +
 					  '	<button class="fullscreen" value="no" type="button"></button>'+
 					  '	<ul class="volume">'+
-					  '		<li></li><li></li><li></li><li></li><li></li><li></li>'+
+					  '		<li class="on"></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>'+
 					  '	</ul>'+
 					  '	<span class="time">00:00</span>'+
 					  '	<div class="progressBar"><span></span></div>'+
