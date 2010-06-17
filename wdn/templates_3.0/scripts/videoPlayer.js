@@ -203,7 +203,21 @@ WDN.videoPlayer = function() {
 				},
 				
 				updatePlayProgress : function(video) {
-					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').children('span').css('width', (video.currentTime / video.duration)*100+'%');
+					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.time').html(WDN.videoPlayer.eventControls.formatTime(video.currentTime)).siblings('.progressBar').children('span').css('width', (video.currentTime / video.duration)*100+'%');
+					WDN.jQuery(video)
+				},
+				
+				updateTimeDisplay : function(video) {
+					
+				},
+				
+				formatTime : function(seconds) {
+					seconds = Math.round(seconds);
+					minutes = Math.floor(seconds / 60);
+					minutes = (minutes >= 10) ? minutes : "0" + minutes;
+					seconds = Math.floor(seconds % 60);
+					seconds = (seconds >= 10) ? seconds : "0" + seconds;
+					return minutes + ":" + seconds;
 				},
 				
 				showControls: function(event) {
