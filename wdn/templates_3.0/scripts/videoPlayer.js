@@ -3,6 +3,7 @@
  * 
  * 1. Check for HTML5 video browser capability
  * 2. Setup HTML5 element or Flash alternative
+ * 3. if HTML5, use custom video controls
  * 
  */
 WDN.videoPlayer = function() {
@@ -156,24 +157,29 @@ WDN.videoPlayer = function() {
 					if(video.paused || video.ended) {
 						video.play();
 						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'playing').removeClass('play').addClass('pause').children('span').text('Pause');
+						WDN.videoPlayer.eventControls.trackPlayProgress(video);
 					} else {
 						video.pause();
 						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'paused').removeClass('pause').addClass('play').children('span').text('Play');
+						WDN.videoPlayer.eventControls.stopTrackPlayProgress(video);
 					}
 				},
 				
 				onPlay : function(event) {
 					video = event.target;
+					
 					WDN.log("We just played "+video.src);
 				},
 				
 				onPause : function(event) {
 					video = event.target;
+					
 					WDN.log("We just paused "+video.src);
 				},
 				
 				onEnd : function(event) {
 					video = event.target;
+					WDN.videoPlayer.eventControls.stopTrackPlayProgress(video);
 					WDN.log("video is over");
 				},
 				
@@ -186,6 +192,18 @@ WDN.videoPlayer = function() {
 					video = event.target;
 					WDN.log("Rats, after all of this and we get an error playing the video.");
 					WDN.videoPlayer.createFallback(video); // fallback to the Flash option
+				},
+				
+				trackPlayProgress : function(video) {
+					playProgressInterval = setInterval("WDN.videoPlayer.eventControls.updatePlayProgress(video)", 30);
+				},
+				
+				stopTrackPlayProgress : function(video) {
+					clearInterval(playProgressInterval);
+				},
+				
+				updatePlayProgress : function(video) {
+					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').children('span').css('width', (video.currentTime / video.duration)*100+'%');
 				},
 				
 				showControls: function(event) {

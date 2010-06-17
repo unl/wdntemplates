@@ -55,7 +55,7 @@
 }
 .wdnVideo_controls .progress .progressBar span {
 	background:#fff;
-	width:85%;
+	width:0%;
 	height:100%;
 	display:block;
 	opacity:0.4;
