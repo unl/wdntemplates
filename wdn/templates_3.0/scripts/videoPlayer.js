@@ -98,6 +98,7 @@ WDN.videoPlayer = function() {
 					video.autobuffer = true;
 					video.controls = false; //remove the standard browser controls
 					WDN.jQuery(video).after(WDN.videoPlayer.setupControls.wdnVideo_Controls);
+					WDN.videoPlayer.setupControls.positionControls(video);
 					WDN.videoPlayer.eventControls.bindControls(video);
 				}, 
 			
@@ -116,7 +117,9 @@ WDN.videoPlayer = function() {
 					  '</div>',
 				
 				positionControls : function(video) { //place the controls relative and over the video
-					
+					progressWidth = video.width - 110;
+					progressBarWidth = progressWidth - 110;
+					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').css('width', progressWidth+'px').children('.progressBar').css('width', progressBarWidth+'px');
 				}
 			};
 		}(),
