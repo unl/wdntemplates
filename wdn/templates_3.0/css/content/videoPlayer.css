@@ -3,7 +3,7 @@
     position:relative;
     z-index:9;
     bottom:57px;
-    opacity:0.9;
+    opacity:0.8;
 }
 .wdnVideo_controls .play_pause, .wdnVideo_controls .progress {
     display:inline-block;
