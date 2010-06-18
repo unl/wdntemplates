@@ -169,7 +169,14 @@ WDN.videoPlayer = function() {
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').mouseup(function(event){
 						WDN.videoPlayer.eventControls.scrubVideo(event.pageX, video);
 					});
-			
+					
+					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.volume').children('li').click(function(){
+						WDN.log(WDN.jQuery(this).index());
+						volume = (WDN.jQuery(this).index() / 8);
+						WDN.jQuery(this).prevAll('li').andSelf().addClass('on');
+						WDN.jQuery(this).nextAll('li').removeClass('on');
+					});
+					
 					WDN.videoPlayer.eventControls.eventListeners(video);
 				},
 				
