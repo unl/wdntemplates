@@ -136,11 +136,14 @@ WDN.videoPlayer = function() {
 						return false;
 					});
 					*/
+				
+					//play and pause
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play').click(function(){
 						WDN.videoPlayer.eventControls.onPlayControlClick(event, video);
 						return false;
 					});
 					
+					//start of video scrub
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').mousedown(function(event){
 						if (video.paused || video.ended) {
 				          videoWasPlaying = false;
@@ -166,10 +169,27 @@ WDN.videoPlayer = function() {
 						};
 					});
 					
+					//video scrubbing
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').mouseup(function(event){
 						WDN.videoPlayer.eventControls.scrubVideo(event.pageX, video);
 					});
 					
+					//fullscreen controls
+					videoIsFullScreen = false;
+					originalWidth = video.width;
+					originalHeight = video.height;
+					originalZIndex = WDN.jQuery(video).css('z-index');
+					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.fullscreen').click(function(){
+						if (!videoIsFullScreen) {
+							WDN.videoPlayer.eventControls.fullScreenOn(video);
+							videoIsFullScreen = true;
+						} else {
+							WDN.videoPlayer.eventControls.fullScreenOff(video, originalWidth, originalHeight, originalZIndex);
+							videoIsFullScreen = false;
+						}
+					});
+					
+					//volume control
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.volume').children('li').click(function(){
 						WDN.log(WDN.jQuery(this).index());
 						volume = (WDN.jQuery(this).index() / 8);
@@ -263,6 +283,21 @@ WDN.videoPlayer = function() {
 					seconds = Math.floor(seconds % 60);
 					seconds = (seconds >= 10) ? seconds : "0" + seconds;
 					return minutes + ":" + seconds;
+				},
+				
+				fullScreenOn : function(video) {
+					video.height = window.innerHeight;
+					video.width = window.innerWidth;
+					WDN.jQuery(video).css({'width' : window.innerWidth + "px", 'height' : window.innerHeight + "px", 'position' : 'fixed', 'left' : '0', 'top' : '0', 'z-index' : '9999999999' });
+					WDN.jQuery(video).siblings('.wdnVideo_controls').css({'z-index' : '99999999999', 'position' : 'fixed' });
+				},
+				
+				fullScreenOff : function(video, originalWidth, originalHeight, originalZIndex) {
+					video.height = originalHeight;
+					video.width = originalWidth;
+					WDN.jQuery(video).removeAttr('style');
+					WDN.jQuery(video).css({'width' : originalWidth + "px", 'height' : originalHeight + "px", 'position' : 'relative', 'left' : '0', 'top' : '0', 'z-index' : originalZIndex });
+					WDN.jQuery(video).siblings('.wdnVideo_controls').css({'z-index' : originalZIndex, 'position' : 'relative' });
 				},
 				
 				showControls: function(event) {
