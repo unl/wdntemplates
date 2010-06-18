@@ -191,8 +191,8 @@ WDN.videoPlayer = function() {
 					
 					//volume control
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.volume').children('li').click(function(){
-						WDN.log(WDN.jQuery(this).index());
 						volume = (WDN.jQuery(this).index() / 8);
+						video.volume = volume;
 						WDN.jQuery(this).prevAll('li').andSelf().addClass('on');
 						WDN.jQuery(this).nextAll('li').removeClass('on');
 					});
