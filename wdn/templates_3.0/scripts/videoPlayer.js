@@ -190,6 +190,9 @@ WDN.videoPlayer = function() {
 					});
 					
 					//volume control
+					video.volume = .75;
+					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.volume').children('li').eq(-2).prevAll('li').addClass('on');
+					
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.volume').children('li').click(function(){
 						volume = (WDN.jQuery(this).index() / 8);
 						video.volume = volume;
