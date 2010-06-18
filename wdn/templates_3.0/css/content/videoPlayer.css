@@ -54,11 +54,12 @@
     margin-top:3px;	
 }
 .wdnVideo_controls .progress .progressBar span {
-	background:#fff;
+	background:#d37676;
 	width:0%;
 	height:100%;
 	display:block;
-	opacity:0.4;
+	opacity:0.8;
+	border-right:4px solid #fff;
 }
 #maincontent .wdnVideo_controls .progress .volume  {
     padding:0;

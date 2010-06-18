@@ -130,10 +130,46 @@ WDN.videoPlayer = function() {
 				
 				bindControls : function(video) {
 					//when play button is clicked
+					/*
+					WDN.jQuery(video).click(function(){
+						WDN.videoPlayer.eventControls.onPlayControlClick(event, video);
+						return false;
+					});
+					*/
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play').click(function(){
 						WDN.videoPlayer.eventControls.onPlayControlClick(event, video);
 						return false;
 					});
+					
+					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').mousedown(function(event){
+						if (video.paused || video.ended) {
+				          videoWasPlaying = false;
+				        } else {
+				          videoWasPlaying = true;
+				          video.pause();
+				          WDN.videoPlayer.eventControls.stopTrackPlayProgress(video);
+				        }
+
+						document.body.focus();
+						document.onselectstart = function () { return false; };
+						document.onmousemove = function(e){
+							WDN.videoPlayer.eventControls.scrubVideo(e.pageX, video);
+						};
+						document.onmouseup = function() {
+							document.onselectstart = function () { return true; };
+							document.onmousemove = null;
+							document.onmouseup = null;
+							if (videoWasPlaying) {
+								video.play();
+								WDN.videoPlayer.eventControls.trackPlayProgress(video);
+							}
+						};
+					});
+					
+					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').mouseup(function(event){
+						WDN.videoPlayer.eventControls.scrubVideo(event.pageX, video);
+					});
+			
 					WDN.videoPlayer.eventControls.eventListeners(video);
 				},
 				
@@ -143,7 +179,6 @@ WDN.videoPlayer = function() {
 					video.addEventListener('pause', WDN.videoPlayer.eventControls.onPause, false);
 					video.addEventListener('ended', WDN.videoPlayer.eventControls.onEnd, false);
 					video.addEventListener('volumechange', WDN.videoPlayer.eventControls.onVolumeChange, false);
-					video.addEventListener('click', WDN.videoPlayer.eventControls.onPlayControlClick, false); //make a click on the video act the same as the play/pause button
 					video.addEventListener('error',WDN.videoPlayer.eventControls.onError, false);
 					//video.addEventListener('mousemove',WDN.videoPlayer.eventControls.showControls, false);
 					//video.addEventListener('mouseout',WDN.videoPlayer.eventControls.hideControls, false);
@@ -202,13 +237,16 @@ WDN.videoPlayer = function() {
 					clearInterval(playProgressInterval);
 				},
 				
-				updatePlayProgress : function(video) {
+				updatePlayProgress : function(video) { //update time and progress bar
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.time').html(WDN.videoPlayer.eventControls.formatTime(video.currentTime)).siblings('.progressBar').children('span').css('width', (video.currentTime / video.duration)*100+'%');
-					WDN.jQuery(video)
 				},
 				
-				updateTimeDisplay : function(video) {
-					
+				scrubVideo : function (clickX, video){ //clickX is X location of the user's click
+					progressBarLocation = WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').offset();
+					progressBarWidth = WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').width();
+					newPercent = Math.max(0, Math.min(1, (clickX - progressBarLocation.left) / progressBarWidth));
+					video.currentTime = newPercent * video.duration;
+					WDN.videoPlayer.eventControls.updatePlayProgress(video);
 				},
 				
 				formatTime : function(seconds) {
