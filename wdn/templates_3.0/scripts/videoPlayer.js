@@ -104,9 +104,10 @@ WDN.videoPlayer = function() {
 				}, 
 			
 				//setup the HTML to house the controls
-				wdnVideo_Controls : '<div class="wdnVideo_controls">' +
+				wdnVideo_Controls : 
+					  '<div class="wdnVideo_controls">' +
 					  '<button class="play_pause play" value="paused" type="button">' +
-					  '	<span>Play</span>' +
+					  '	<span></span>' +
 					  '</button>' +
 					  '<div class="progress">' +
 					  '	<button class="fullscreen" value="no" type="button"></button>'+
@@ -183,6 +184,7 @@ WDN.videoPlayer = function() {
 						if (!videoIsFullScreen) {
 							WDN.videoPlayer.eventControls.fullScreenOn(video);
 							videoIsFullScreen = true;
+							hideControls = setTimeout("WDN.videoPlayer.eventControls.hideControls(video)", 600);
 						} else {
 							WDN.videoPlayer.eventControls.fullScreenOff(video, originalWidth, originalHeight, originalZIndex);
 							videoIsFullScreen = false;
@@ -200,6 +202,27 @@ WDN.videoPlayer = function() {
 						WDN.jQuery(this).nextAll('li').removeClass('on');
 					});
 					
+					//show and hide the controls
+					WDN.jQuery(video).hover(
+						function() {
+							if(hideControls) {
+								clearTimeout(hideControls);
+							};
+							WDN.videoPlayer.eventControls.showControls(video);
+						},
+						function() {
+							hideControls = setTimeout("WDN.videoPlayer.eventControls.hideControls(video)", 600); //wait a few seconds and the hide the controls
+						}
+					);
+					WDN.jQuery(video).siblings('.wdnVideo_controls').hover(
+						function(){
+							if(hideControls) {
+								clearTimeout(hideControls);
+							};
+							WDN.jQuery(this).show();
+						}
+					);
+					
 					WDN.videoPlayer.eventControls.eventListeners(video);
 				},
 				
@@ -210,8 +233,6 @@ WDN.videoPlayer = function() {
 					video.addEventListener('ended', WDN.videoPlayer.eventControls.onEnd, false);
 					video.addEventListener('volumechange', WDN.videoPlayer.eventControls.onVolumeChange, false);
 					video.addEventListener('error',WDN.videoPlayer.eventControls.onError, false);
-					//video.addEventListener('mousemove',WDN.videoPlayer.eventControls.showControls, false);
-					//video.addEventListener('mouseout',WDN.videoPlayer.eventControls.hideControls, false);
 				},
 				
 				//functions for when events are triggered
@@ -221,11 +242,12 @@ WDN.videoPlayer = function() {
 					}
 					if(video.paused || video.ended) {
 						video.play();
-						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'playing').removeClass('play').addClass('pause').children('span').text('Pause');
+						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'playing').removeClass('play').addClass('pause');
 						WDN.videoPlayer.eventControls.trackPlayProgress(video);
+						hideControls = setTimeout("WDN.videoPlayer.eventControls.hideControls(video)", 1900);
 					} else {
 						video.pause();
-						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'paused').removeClass('pause').addClass('play').children('span').text('Play');
+						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'paused').removeClass('pause').addClass('play');
 						WDN.videoPlayer.eventControls.stopTrackPlayProgress(video);
 					}
 				},
@@ -291,8 +313,9 @@ WDN.videoPlayer = function() {
 				fullScreenOn : function(video) {
 					video.height = window.innerHeight;
 					video.width = window.innerWidth;
-					WDN.jQuery(video).css({'width' : window.innerWidth + "px", 'height' : window.innerHeight + "px", 'position' : 'fixed', 'left' : '0', 'top' : '0', 'z-index' : '9999999999' });
-					WDN.jQuery(video).siblings('.wdnVideo_controls').css({'z-index' : '99999999999', 'position' : 'fixed' });
+					WDN.jQuery(video).css({'width' : window.innerWidth + "px", 'height' : window.innerHeight + "px", 'position' : 'fixed', 'left' : '0', 'top' : '0', 'z-index' : '99999' });
+					WDN.jQuery(video).siblings('.wdnVideo_controls').css({'z-index' : '999999', 'position' : 'fixed' });
+					WDN.jQuery('body').append("<div id='videoBlackout'></div>");
 				},
 				
 				fullScreenOff : function(video, originalWidth, originalHeight, originalZIndex) {
@@ -301,17 +324,16 @@ WDN.videoPlayer = function() {
 					WDN.jQuery(video).removeAttr('style');
 					WDN.jQuery(video).css({'width' : originalWidth + "px", 'height' : originalHeight + "px", 'position' : 'relative', 'left' : '0', 'top' : '0', 'z-index' : originalZIndex });
 					WDN.jQuery(video).siblings('.wdnVideo_controls').css({'z-index' : originalZIndex, 'position' : 'relative' });
+					WDN.jQuery('#videoBlackout').remove();
 				},
 				
-				showControls: function(event) {
-					video = event.target;
-					WDN.jQuery(video).siblings('.wdnVideo_controls').fadeIn();
-					WDN.videoPlayer.setupControls.positionControls(video);
+				showControls: function(video) {
+					WDN.jQuery(video).siblings('.holder').remove();
+					WDN.jQuery(video).siblings('.wdnVideo_controls').fadeTo(400, 0.8);
 				},
 				
-				hideControls : function(event) {
-					video = event.target;
-					WDN.jQuery(video).siblings('.wdnVideo_controls').fadeOut();
+				hideControls : function(video) {
+					WDN.jQuery(video).siblings('.wdnVideo_controls').fadeTo(400, 0.0);
 				}
 			};
 		}()

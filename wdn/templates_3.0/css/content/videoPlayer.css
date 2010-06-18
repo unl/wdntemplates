@@ -1,3 +1,12 @@
+#videoBlackout {
+    width:100%;
+    height:100%;
+    background:#000;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:99998; 
+}
 .wdnVideo_controls {
     padding:10px;
     position:relative;
@@ -52,11 +61,13 @@
     width:60%;
     border:1px solid #fff;
     margin-top:3px;	
+    position:relative;
+    padding-right:3px;
 }
 .wdnVideo_controls .progress .progressBar span {
 	background:#d37676;
 	width:0%;
-	height:100%;
+	height:10px;
 	display:block;
 	opacity:0.8;
 	border-right:4px solid #fff;
@@ -67,11 +78,12 @@
 }
 .wdnVideo_controls .progress .volume li {
     display:inline-block;
-    width:4px;
+    border-left:4px solid #fff;
+    width:2px;
     height:10px;
-    background:#fff;
     opacity:0.4;
-    margin-right:2px;
+    margin:0;
+    padding:0px;
 }
 .wdnVideo_controls .progress .volume li.on {
     opacity:0.9;	
