@@ -7,10 +7,10 @@
  * 
  */
 WDN.videoPlayer = function() {
+	var i = 0;
 	return {
 		
 		initialize : function() {
-			i = 0;
 			WDN.jQuery('video').each(function(){
 				var video = WDN.jQuery(this)[0];
 				WDN.videoPlayer.html5Video(video);
@@ -20,11 +20,7 @@ WDN.videoPlayer = function() {
 		},
 		
 		supportsVideo: function() {
-			if (!!document.createElement('video').canPlayType) {
-				return true;
-			} else {
-				return false;
-			}
+			return (!!document.createElement('video').canPlayType);
 		},
 		
 		supportsH264: function() {
@@ -48,9 +44,9 @@ WDN.videoPlayer = function() {
 		},
 		
 		html5Video : function(video) {
-			requiresFallback = true;
+			var requiresFallback = true;
 			if (WDN.videoPlayer.supportsH264() || WDN.videoPlayer.supportsWebM()){ //can we support H264 or WebM?
-				if(video.src || video.children('source')){ //make sure we have a source
+				if(video.src || WDN.jQuery(video).children('source')){ //make sure we have a source
 					requiresFallback = false;
 				}
 			}
@@ -127,64 +123,63 @@ WDN.videoPlayer = function() {
 		}(),
 		
 		eventControls : function() {
+			var playProgressInterval;
+			var hideControls;
+			
 			return {
 				
 				bindControls : function(video) {
-					//when play button is clicked
-					/*
+					//clicking the video
 					WDN.jQuery(video).click(function(){
-						WDN.videoPlayer.eventControls.onPlayControlClick(event, video);
-						return false;
+						WDN.videoPlayer.eventControls.togglePlay(this);
 					});
-					*/
 				
 					//play and pause
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play').click(function(){
-						WDN.videoPlayer.eventControls.onPlayControlClick(event, video);
+						WDN.videoPlayer.eventControls.togglePlay(video);
 						return false;
 					});
 					
-					//start of video scrub
-					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').mousedown(function(event){
-						if (video.paused || video.ended) {
-				          videoWasPlaying = false;
-				        } else {
-				          videoWasPlaying = true;
-				          video.pause();
-				          WDN.videoPlayer.eventControls.stopTrackPlayProgress(video);
-				        }
-
-						document.body.focus();
-						document.onselectstart = function () { return false; };
-						document.onmousemove = function(e){
-							WDN.videoPlayer.eventControls.scrubVideo(e.pageX, video);
-						};
-						document.onmouseup = function() {
-							document.onselectstart = function () { return true; };
-							document.onmousemove = null;
-							document.onmouseup = null;
-							if (videoWasPlaying) {
-								video.play();
-								WDN.videoPlayer.eventControls.trackPlayProgress(video);
-							}
-						};
+					//video scrub
+					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').bind({
+						'mousedown': function(event){
+							if (video.paused || video.ended) {
+					          var videoWasPlaying = false;
+					        } else {
+					          var videoWasPlaying = true;
+					          video.pause();
+					        }
+	
+							document.body.focus();
+							WDN.jQuery(document).bind({
+								'selectstart.wdnvideo': function () { return false; },
+								'mousemove.wdnvideo': function(e){
+									WDN.videoPlayer.eventControls.scrubVideo(e.pageX, video);
+								},
+								'mouseup.wdnvideo': function() {
+									WDN.jQuery(document).unbind('.wdnvideo');
+									if (videoWasPlaying) {
+										video.play();
+									}
+								}
+							});
+						},
+						'mouseup': function(event){
+							WDN.videoPlayer.eventControls.scrubVideo(event.pageX, video);
+						}
 					});
-					
-					//video scrubbing
-					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').mouseup(function(event){
-						WDN.videoPlayer.eventControls.scrubVideo(event.pageX, video);
-					});
-					
 					//fullscreen controls
-					videoIsFullScreen = false;
-					originalWidth = video.width;
-					originalHeight = video.height;
-					originalZIndex = WDN.jQuery(video).css('z-index');
+					var videoIsFullScreen = false;
+					var originalWidth = video.width;
+					var originalHeight = video.height;
+					var originalZIndex = WDN.jQuery(video).css('z-index');
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.fullscreen').click(function(){
 						if (!videoIsFullScreen) {
 							WDN.videoPlayer.eventControls.fullScreenOn(video);
 							videoIsFullScreen = true;
-							hideControls = setTimeout("WDN.videoPlayer.eventControls.hideControls(video)", 600);
+							hideControls = setTimeout(function() {
+								WDN.videoPlayer.eventControls.hideControls(video);
+							}, 600);
 						} else {
 							WDN.videoPlayer.eventControls.fullScreenOff(video, originalWidth, originalHeight, originalZIndex);
 							videoIsFullScreen = false;
@@ -211,7 +206,9 @@ WDN.videoPlayer = function() {
 							WDN.videoPlayer.eventControls.showControls(video);
 						},
 						function() {
-							hideControls = setTimeout("WDN.videoPlayer.eventControls.hideControls(video)", 600); //wait a few seconds and the hide the controls
+							hideControls = setTimeout(function() {
+								WDN.videoPlayer.eventControls.hideControls(video);
+							}, 600); //wait a few seconds and then hide the controls
 						}
 					);
 					WDN.jQuery(video).siblings('.wdnVideo_controls').hover(
@@ -228,44 +225,43 @@ WDN.videoPlayer = function() {
 				
 				//Listen for events
 				eventListeners : function (video) {
-					video.addEventListener('play', WDN.videoPlayer.eventControls.onPlay, false);
-					video.addEventListener('pause', WDN.videoPlayer.eventControls.onPause, false);
-					video.addEventListener('ended', WDN.videoPlayer.eventControls.onEnd, false);
-					video.addEventListener('volumechange', WDN.videoPlayer.eventControls.onVolumeChange, false);
-					video.addEventListener('error',WDN.videoPlayer.eventControls.onError, false);
+					WDN.jQuery(video).bind({
+						'play':         WDN.videoPlayer.eventControls.onPlay,
+						'pause':        WDN.videoPlayer.eventControls.onPause,
+						'ended':        WDN.videoPlayer.eventControls.onEnd,
+						'volumechange': WDN.videoPlayer.eventControls.onVolumeChange,
+						'error':        WDN.videoPlayer.eventControls.onError
+					});
 				},
 				
-				//functions for when events are triggered
-				onPlayControlClick : function(event, video) {
-					if (video === undefined) {
-						video = event.target;
-					}
-					if(video.paused || video.ended) {
+				togglePlay : function(video) {
+					if (video.paused || video.ended) {
 						video.play();
-						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'playing').removeClass('play').addClass('pause');
-						WDN.videoPlayer.eventControls.trackPlayProgress(video);
-						hideControls = setTimeout("WDN.videoPlayer.eventControls.hideControls(video)", 1900);
 					} else {
 						video.pause();
-						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'paused').removeClass('pause').addClass('play');
-						WDN.videoPlayer.eventControls.stopTrackPlayProgress(video);
 					}
 				},
 				
 				onPlay : function(event) {
 					video = event.target;
-					
+					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'playing').removeClass('play').addClass('pause');
+					WDN.videoPlayer.eventControls.trackPlayProgress(video);
+					hideControls = setTimeout(function() {
+						WDN.videoPlayer.eventControls.hideControls(video);
+					}, 1900);
 					WDN.log("We just played "+video.src);
 				},
 				
 				onPause : function(event) {
 					video = event.target;
-					
+					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'paused').removeClass('pause').addClass('play');
+					WDN.videoPlayer.eventControls.stopTrackPlayProgress(video);
 					WDN.log("We just paused "+video.src);
 				},
 				
 				onEnd : function(event) {
 					video = event.target;
+					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'paused').removeClass('pause').addClass('play');
 					WDN.videoPlayer.eventControls.stopTrackPlayProgress(video);
 					WDN.log("video is over");
 				},
@@ -282,7 +278,9 @@ WDN.videoPlayer = function() {
 				},
 				
 				trackPlayProgress : function(video) {
-					playProgressInterval = setInterval("WDN.videoPlayer.eventControls.updatePlayProgress(video)", 30);
+					playProgressInterval = setInterval(function() {
+							WDN.videoPlayer.eventControls.updatePlayProgress(video);
+					}, 30);
 				},
 				
 				stopTrackPlayProgress : function(video) {
@@ -294,16 +292,16 @@ WDN.videoPlayer = function() {
 				},
 				
 				scrubVideo : function (clickX, video){ //clickX is X location of the user's click
-					progressBarLocation = WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').offset();
-					progressBarWidth = WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').width();
-					newPercent = Math.max(0, Math.min(1, (clickX - progressBarLocation.left) / progressBarWidth));
+					var progressBarLocation = WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').offset();
+					var progressBarWidth = WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.progressBar').width();
+					var newPercent = Math.max(0, Math.min(1, (clickX - progressBarLocation.left) / progressBarWidth));
 					video.currentTime = newPercent * video.duration;
 					WDN.videoPlayer.eventControls.updatePlayProgress(video);
 				},
 				
 				formatTime : function(seconds) {
-					seconds = Math.round(seconds);
-					minutes = Math.floor(seconds / 60);
+					var seconds = Math.round(seconds);
+					var minutes = Math.floor(seconds / 60);
 					minutes = (minutes >= 10) ? minutes : "0" + minutes;
 					seconds = Math.floor(seconds % 60);
 					seconds = (seconds >= 10) ? seconds : "0" + seconds;
