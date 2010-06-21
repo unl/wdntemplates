@@ -61,12 +61,11 @@ WDN.videoPlayer = function() {
 		
 		createFallback : function(video) { //call the flash player option
 			WDN.loadJS('/wdn/templates_3.0/scripts/plugins/swfobject/jQuery.swfobject.1.0.9.js', function(){
-				src = video.src || WDN.jQuery(video).children('source').attr('src') || "";
+				src = video.src || WDN.toAbs(WDN.jQuery(video).children('source').attr('src'), window.location.toString()) || "";
 				poster = video.poster || "";
 				width = video.width || WDN.jQuery(video).width();
 				height = video.height || WDN.jQuery(video).height();
 				WDN.jQuery(video).wrap("<div id='wdnVideo_"+i+"' />");
-				WDN.jQuery(video).remove();
 				WDN.jQuery('#wdnVideo_'+i).flash({     
 					swf: '/wdn/templates_3.0/includes/swf/player4.3.swf',   
 					allowfullscreen: 'true',
@@ -77,13 +76,13 @@ WDN.videoPlayer = function() {
 						'skin': '/wdn/templates_3.0/includes/swf/UNLVideoSkin.swf',   
 						'autostart': 'false',
 						'controlbar': 'over'
-						//stretching: 'exactfit',
 					},
 					height: height,
 					width: width,
 					id: 'jwPlayer_'+i,
 					name: 'jwPlayer_'+i
-				});  
+				}); 
+				WDN.jQuery(video).remove();
 			});
 		},
 		
@@ -232,8 +231,8 @@ WDN.videoPlayer = function() {
 						'volumechange': WDN.videoPlayer.eventControls.onVolumeChange,
 						'error':        WDN.videoPlayer.eventControls.onError
 					});
-					WDN.jQuery(body).bind({
-						'unload': 
+					WDN.jQuery(window).bind({
+						'unload': WDN.videoPlayer.eventControls.onClose
 					});
 				},
 				
@@ -334,6 +333,10 @@ WDN.videoPlayer = function() {
 				
 				hideControls : function(video) {
 					WDN.jQuery(video).siblings('.wdnVideo_controls').fadeTo(400, 0.0);
+				},
+				
+				onClose : function(event) {
+					alert("aaaa");
 				}
 			};
 		}()
