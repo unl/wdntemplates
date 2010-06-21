@@ -91,7 +91,7 @@ WDN.videoPlayer = function() {
 			return {
 				
 				initialize : function(video) { //setup custom HTML5 video player
-					video.preload = true;
+					video.preload = "auto";
 					video.autobuffer = true;
 					video.controls = false; //remove the standard browser controls
 					WDN.jQuery(video).after(WDN.videoPlayer.setupControls.wdnVideo_Controls);
@@ -232,10 +232,13 @@ WDN.videoPlayer = function() {
 						'volumechange': WDN.videoPlayer.eventControls.onVolumeChange,
 						'error':        WDN.videoPlayer.eventControls.onError
 					});
+					WDN.jQuery(body).bind({
+						'unload': 
+					});
 				},
 				
 				togglePlay : function(video) {
-					if (video.paused || video.ended) {
+					if (video.paused) {
 						video.play();
 					} else {
 						video.pause();
@@ -261,8 +264,7 @@ WDN.videoPlayer = function() {
 				
 				onEnd : function(event) {
 					video = event.target;
-					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'paused').removeClass('pause').addClass('play');
-					WDN.videoPlayer.eventControls.stopTrackPlayProgress(video);
+					video.pause();
 					WDN.log("video is over");
 				},
 				
