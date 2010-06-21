@@ -20,34 +20,36 @@ WDN.videoPlayer = function() {
 		},
 		
 		supportsVideo: function() {
-			return (!!document.createElement('video').canPlayType);
+			return !!document.createElement('video').canPlayType;
 		},
 		
 		supportsH264: function() {
-			if(WDN.videoPlayer.supportsVideo) {
-				var v = document.createElement("video");
-				if(v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"') != '') {
-					return true;
-				}
+			var v = document.createElement("video");
+			if(v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"') != '') {
+				return true;
 			}
 			return false;
 		},
 		
 		supportsWebM: function() {
-			if(WDN.videoPlayer.supportsVideo) {
-				var v = document.createElement("video");
-				if(v.canPlayType('video/webm; codecs="vp8, vorbis"') != '') {
-					return true;
-				}
+			var v = document.createElement("video");
+			if(v.canPlayType('video/webm; codecs="vp8, vorbis"') != '') {
+				return true;
 			}
 			return false;
 		},
 		
 		html5Video : function(video) {
 			var requiresFallback = true;
-			if (WDN.videoPlayer.supportsH264() || WDN.videoPlayer.supportsWebM()){ //can we support H264 or WebM?
-				if(video.src || WDN.jQuery(video).children('source')){ //make sure we have a source
-					requiresFallback = false;
+			if (WDN.videoPlayer.supportsVideo()){
+				if (WDN.videoPlayer.supportsH264() || WDN.videoPlayer.supportsWebM()){ //can we support H264 or WebM?
+					src = video.src || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery('video > source').attr('src') || "";
+					if (src) {
+						alert('we have a src. it is: '+src);
+					}
+					if(video.src || WDN.jQuery(video).children('source')){ //make sure we have a source
+						requiresFallback = false;
+					}
 				}
 			}
 			WDN.log('requiresFallback (video): '+requiresFallback);
@@ -61,7 +63,8 @@ WDN.videoPlayer = function() {
 		
 		createFallback : function(video) { //call the flash player option
 			WDN.loadJS('/wdn/templates_3.0/scripts/plugins/swfobject/jQuery.swfobject.1.0.9.js', function(){
-				src = video.src || WDN.toAbs(WDN.jQuery(video).children('source').attr('src'), window.location.toString()) || "";
+				src = video.src || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery('source').eq(0).attr('src') || "" ;
+				src = WDN.toAbs(src, window.location.toString());
 				poster = video.poster || "";
 				width = video.width || WDN.jQuery(video).width();
 				height = video.height || WDN.jQuery(video).height();
