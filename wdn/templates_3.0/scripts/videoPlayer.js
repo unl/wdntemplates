@@ -63,7 +63,7 @@ WDN.videoPlayer = function() {
 		
 		createFallback : function(video) { //call the flash player option
 			WDN.loadJS('/wdn/templates_3.0/scripts/plugins/swfobject/jQuery.swfobject.1.0.9.js', function(){
-				src = video.src || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery('source').eq(0).attr('src') || "" ;
+				src = video.src || WDN.jQuery('video').eq(i).attr('src') || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery('source').eq(0).attr('src') || "" ;
 				src = WDN.toAbs(src, window.location.toString());
 				poster = video.poster || "";
 				width = video.width || WDN.jQuery(video).width();
