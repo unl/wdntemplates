@@ -62,13 +62,17 @@ WDN.videoPlayer = function() {
 		},
 		
 		createFallback : function(video) { //call the flash player option
-			WDN.loadJS('/wdn/templates_3.0/scripts/plugins/swfobject/jQuery.swfobject.1.0.9.js', function(){
-				src = video.src || WDN.jQuery('video').eq(i).attr('src') || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery('source').eq(0).attr('src') || "" ;
+			WDN.loadJS('/wdn/templates_3.0/scripts/plugins/swfobject/jquery.swfobject.1-1-1.min.js', function(){
+				var src = video.src|| WDN.jQuery('video').eq(i).attr('src') || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery('source').eq(0).attr('src') || "" ;
 				src = WDN.toAbs(src, window.location.toString());
-				poster = video.poster || "";
-				width = video.width || WDN.jQuery(video).width();
-				height = video.height || WDN.jQuery(video).height();
+				var poster = video.poster || "";
+				var width = video.width || WDN.jQuery(video).width();
+				var height = video.height || WDN.jQuery(video).height();
 				WDN.jQuery(video).wrap("<div id='wdnVideo_"+i+"' />");
+				
+				//Fallback for flash
+				WDN.jQuery('#wdnVideo_'+i).prepend('<p>To view this video you should download <a href="http://get.adobe.com/flashplayer/">Adobe Flash Player</a> or use a browser that supports H264/WebM video. You may also download the <a href="' + src + '">video</a></p>');
+				
 				WDN.jQuery('#wdnVideo_'+i).flash({     
 					swf: '/wdn/templates_3.0/includes/swf/player4.3.swf',   
 					allowfullscreen: 'true',
@@ -84,7 +88,7 @@ WDN.videoPlayer = function() {
 					width: width,
 					id: 'jwPlayer_'+i,
 					name: 'jwPlayer_'+i
-				}); 
+				});
 				WDN.jQuery(video).remove();
 			});
 		},
