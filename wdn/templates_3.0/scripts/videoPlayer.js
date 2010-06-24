@@ -14,7 +14,6 @@ WDN.videoPlayer = function() {
 			WDN.jQuery('video').each(function(){
 				var video = WDN.jQuery(this)[0];
 				WDN.videoPlayer.html5Video(video);
-				i++;
 			});
 			
 		},
@@ -44,9 +43,9 @@ WDN.videoPlayer = function() {
 			if (WDN.videoPlayer.supportsVideo()){
 				if (WDN.videoPlayer.supportsH264() || WDN.videoPlayer.supportsWebM()){ //can we support H264 or WebM?
 					src = video.src || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery('video > source').attr('src') || "";
-					if (src) {
-						alert('we have a src. it is: '+src);
-					}
+//					if (src) {
+//						alert('we have a src. it is: '+src);
+//					}
 					if(video.src || WDN.jQuery(video).children('source')){ //make sure we have a source
 						requiresFallback = false;
 					}
@@ -90,6 +89,7 @@ WDN.videoPlayer = function() {
 					name: 'jwPlayer_'+i
 				});
 				WDN.jQuery(video).remove();
+				i++;
 			});
 		},
 		
@@ -206,25 +206,45 @@ WDN.videoPlayer = function() {
 					//show and hide the controls
 					WDN.jQuery(video).hover(
 						function() {
-							if(hideControls) {
-								clearTimeout(hideControls);
+							var showTimedHide = function() {
+								if(hideControls) {
+									clearTimeout(hideControls);
+								};
+								
+								WDN.videoPlayer.eventControls.showControls(video);
+								
+								hideControls = setTimeout(function() {
+									WDN.videoPlayer.eventControls.hideControls(video);
+								}, 1900);
 							};
-							WDN.videoPlayer.eventControls.showControls(video);
+							
+							showTimedHide();
+							WDN.jQuery(video).bind('mousemove.wdnvideo', showTimedHide);
 						},
 						function() {
+							WDN.jQuery(video).unbind('.wdnvideo');
+							if (hideControls) {
+							 clearTimeout(hideControls);
+							}
 							hideControls = setTimeout(function() {
 								WDN.videoPlayer.eventControls.hideControls(video);
 							}, 600); //wait a few seconds and then hide the controls
 						}
 					);
-					WDN.jQuery(video).siblings('.wdnVideo_controls').hover(
-						function(){
+					WDN.jQuery(video).siblings('.wdnVideo_controls').hover(function(){
 							if(hideControls) {
 								clearTimeout(hideControls);
 							};
-							WDN.jQuery(this).show();
+							
+							WDN.videoPlayer.eventControls.showControls(video);
+					}, function() {
+						if (hideControls) {
+						 clearTimeout(hideControls);
 						}
-					);
+						hideControls = setTimeout(function() {
+							WDN.videoPlayer.eventControls.hideControls(video);
+						}, 600); //wait a few seconds and then hide the controls
+					});
 					
 					WDN.videoPlayer.eventControls.eventListeners(video);
 				},
@@ -334,16 +354,15 @@ WDN.videoPlayer = function() {
 				},
 				
 				showControls: function(video) {
-					WDN.jQuery(video).siblings('.holder').remove();
-					WDN.jQuery(video).siblings('.wdnVideo_controls').fadeTo(400, 0.8);
+					WDN.jQuery(video).siblings('.wdnVideo_controls').stop(true).fadeTo(400, 0.8);
 				},
 				
 				hideControls : function(video) {
-					WDN.jQuery(video).siblings('.wdnVideo_controls').fadeTo(400, 0.0);
+					WDN.jQuery(video).siblings('.wdnVideo_controls').stop(true).fadeTo(400, 0.0);
 				},
 				
 				onClose : function(event) {
-					alert("aaaa");
+//					alert("aaaa");
 				}
 			};
 		}()
