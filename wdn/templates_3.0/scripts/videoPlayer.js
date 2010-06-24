@@ -42,11 +42,8 @@ WDN.videoPlayer = function() {
 			var requiresFallback = true;
 			if (WDN.videoPlayer.supportsVideo()){
 				if (WDN.videoPlayer.supportsH264() || WDN.videoPlayer.supportsWebM()){ //can we support H264 or WebM?
-					src = video.src || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery('video > source').attr('src') || "";
-//					if (src) {
-//						alert('we have a src. it is: '+src);
-//					}
-					if(video.src || WDN.jQuery(video).children('source')){ //make sure we have a source
+					src = video.src || WDN.jQuery(video).children('source').attr('src') || "";
+					if(src){ //make sure we have a source
 						requiresFallback = false;
 					}
 				}
@@ -90,6 +87,9 @@ WDN.videoPlayer = function() {
 				});
 				WDN.jQuery(video).remove();
 				i++;
+				
+				//track that we aren't playing an HTML5 video
+				WDN.analytics.callTrackEvent('Video', 'Not HTML5', src);
 			});
 		},
 		
@@ -278,7 +278,11 @@ WDN.videoPlayer = function() {
 					hideControls = setTimeout(function() {
 						WDN.videoPlayer.eventControls.hideControls(video);
 					}, 1900);
-					WDN.log("We just played "+video.src);
+					if (!videoHasBeenPlayed) {
+						WDN.analytics.callTrackEvent('Video', 'HTML5', video.src || WDN.jQuery(video).children('source').attr());
+						WDN.analytics.callTrackEvent('Video', 'Play', video.src || WDN.jQuery(video).children('source').attr());
+						videoHasBeenPlayed = true;
+					}
 				},
 				
 				onPause : function(event) {
@@ -291,7 +295,7 @@ WDN.videoPlayer = function() {
 				onEnd : function(event) {
 					video = event.target;
 					video.pause();
-					WDN.log("video is over");
+					WDN.analytics.callTrackEvent('Video', 'Completed', video.src || WDN.jQuery(video).children('source').attr(), video.duration);
 				},
 				
 				onVolumeChange : function(event){
@@ -342,6 +346,7 @@ WDN.videoPlayer = function() {
 					WDN.jQuery(video).css({'width' : window.innerWidth + "px", 'height' : window.innerHeight + "px", 'position' : 'fixed', 'left' : '0', 'top' : '0', 'z-index' : '99999' });
 					WDN.jQuery(video).siblings('.wdnVideo_controls').css({'z-index' : '999999', 'position' : 'fixed' });
 					WDN.jQuery('body').append("<div id='videoBlackout'></div>");
+					WDN.analytics.callTrackEvent('Video', 'Fullscreen', video.src || WDN.jQuery(video).children('source').attr());
 				},
 				
 				fullScreenOff : function(video, originalWidth, originalHeight, originalZIndex) {
@@ -362,7 +367,8 @@ WDN.videoPlayer = function() {
 				},
 				
 				onClose : function(event) {
-//					alert("aaaa");
+					video = WDN.jQuery('video').eq(0)[0];
+					WDN.analytics.callTrackEvent('Video', 'Stopped', video.src || WDN.jQuery(video).children('source').attr(), video.currentTime);
 				}
 			};
 		}()
