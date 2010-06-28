@@ -27,9 +27,16 @@ WDN.idm = function() {
 			if (WDN.idm.isLoggedIn()) {
 				WDN.loadJS(WDN.idm.serviceURL + WDN.getCookie('unl_sso'), function() {
 					if (WDN.idm.getUserId()) {
+						if (WDN.idm.user.eduPersonPrimaryAffiliation != undefined) {
+							wdnTracker._setCustomVar(1, "Primary Affiliation", WDN.idm.user.eduPersonPrimaryAffiliation, 1);
+							WDN.log("Tracking primary affiliation: "+WDN.idm.user.eduPersonPrimaryAffiliation);
+						};
+						WDN.analytics.callTrackPageview();
 						WDN.idm.displayNotice(WDN.idm.getUserId());
 					}
 				});
+			} else {
+				WDN.analytics.callTrackPageview();
 			}
 		},
 		

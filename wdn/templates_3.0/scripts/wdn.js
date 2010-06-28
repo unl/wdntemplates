@@ -102,7 +102,7 @@ var WDN = function() {
 				WDN.initializePlugin('toolbar');
 				WDN.initializePlugin('tabs');
 				WDN.initializePlugin('unlalert');
-				WDN.initializePlugin('idm');
+				//WDN.initializePlugin('idm');
 				WDN.initializePlugin('analytics');
 				WDN.browserAdjustments();
 				WDN.screenAdjustments();

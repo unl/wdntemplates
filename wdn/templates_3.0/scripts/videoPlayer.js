@@ -89,7 +89,9 @@ WDN.videoPlayer = function() {
 				i++;
 				
 				//track that we aren't playing an HTML5 video
-				WDN.analytics.callTrackEvent('Video', 'Not HTML5', src);
+				if (WDN.analytics) {
+					WDN.analytics.callTrackEvent('Video', 'Not HTML5', src);
+				}
 			});
 		},
 		
@@ -131,6 +133,7 @@ WDN.videoPlayer = function() {
 		eventControls : function() {
 			var playProgressInterval;
 			var hideControls;
+			var videoHasBeenPlayed;
 			
 			return {
 				

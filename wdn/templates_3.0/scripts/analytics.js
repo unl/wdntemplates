@@ -24,7 +24,7 @@ WDN.analytics = function() {
 				wdnTracker._setDomainName(".unl.edu");
 				wdnTracker._setAllowLinker(true);
 				wdnTracker._setAllowHash(false);	
-				WDN.analytics.trackPrimaryAffiliation();			
+				WDN.initializePlugin('idm'); //we need to track primary affiliation before page is tracked			
 			} catch(err) {}
 			
 			WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
@@ -73,16 +73,17 @@ WDN.analytics = function() {
 				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
 			} catch(e){}
 		},
-		trackPrimaryAffiliation : function () { //used to set a customVar regarding affiliation role (faculty, staff, student, etc...)
-			WDN.log("find the primary affiliation");
-			WDN.loadJS(WDN.idm.serviceURL + WDN.getCookie('unl_sso'), function() {
-				WDN.log("primary affiliation: "+WDN.idm.user.eduPersonPrimaryAffiliation);
-				wdnTracker._setCustomVar(1, "Primary Affiliation", WDN.idm.user.eduPersonPrimaryAffiliation, 1);
-				WDN.log("now we can track the page");
-				wdnTracker._trackPageview();
-			});
+		trackPageView : function () { //used to set a customVar regarding affiliation role (faculty, staff, student, etc...)
+			WDN.log('we can now track the page');
+			
+			
 		},
 		callTrackPageview: function(thePage){
+			WDN.log('we can now track the page');
+			if (!thePage) {
+				wdnTracker._trackPageview();
+				return;
+			}
 			wdnTracker._trackPageview(thePage); //First, track in the wdn analytics
 			WDN.log("Pageview tracking for wdn worked!");
 			try {
@@ -98,7 +99,7 @@ WDN.analytics = function() {
 			}
 			var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
 			WDN.log("WDN Event tracking success? "+wdnSuccess);
-			try { //Don't turn on until Dec WDN Meeting
+			try { 
 				var pageSuccess = pageTracker._trackEvent(category, action, label, value);
 				WDN.log("Page Event tracking success? "+pageSuccess);
 			} catch(e) {
