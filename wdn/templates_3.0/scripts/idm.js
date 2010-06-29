@@ -96,7 +96,7 @@ WDN.idm = function() {
 				} else {
 					planetred_uid = 'unl_' + uid;
 				}
-				icon = '<a href="http://planetred.unl.edu/pg/profile/'+planetred_uid+'" title="Your Planet Red Profile"><img src="http://planetred.unl.edu/mod/profile/icondirect.php?username='+planetred_uid+'&size=topbar" alt="Your Profile Pic" /></a>';
+				icon = '<a href="http://planetred.unl.edu/pg/profile/'+planetred_uid+'" title="Your Planet Red Profile"><img src="http://planetred.unl.edu/pg/icon/'+planetred_uid+'/topbar/" alt="Your Profile Pic" /></a>';
 			}
 			
 			WDN.jQuery('#wdn_identity_management').html(icon+' <span class="username">'+uid+'</span> <a id="wdn_idm_logout" href="'+WDN.idm.logoutURL+'">Logout</a>');
