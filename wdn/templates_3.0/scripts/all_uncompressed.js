@@ -6343,7 +6343,7 @@ var WDN = function() {
 				WDN.initializePlugin('toolbar');
 				WDN.initializePlugin('tabs');
 				WDN.initializePlugin('unlalert');
-				WDN.initializePlugin('idm');
+				//WDN.initializePlugin('idm');
 				WDN.initializePlugin('analytics');
 				WDN.browserAdjustments();
 				WDN.screenAdjustments();
@@ -7493,7 +7493,7 @@ WDN.analytics = function() {
 				wdnTracker._setDomainName(".unl.edu");
 				wdnTracker._setAllowLinker(true);
 				wdnTracker._setAllowHash(false);	
-				WDN.analytics.trackPrimaryAffiliation();			
+				WDN.initializePlugin('idm'); //we need to track primary affiliation before page is tracked			
 			} catch(err) {}
 			
 			//debug statement removed
@@ -7542,16 +7542,17 @@ WDN.analytics = function() {
 				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
 			} catch(e){}
 		},
-		trackPrimaryAffiliation : function () { //used to set a customVar regarding affiliation role (faculty, staff, student, etc...)
+		trackPageView : function () { //used to set a customVar regarding affiliation role (faculty, staff, student, etc...)
 			//debug statement removed
-			WDN.loadJS(WDN.idm.serviceURL + WDN.getCookie('unl_sso'), function() {
-				//debug statement removed
-				wdnTracker._setCustomVar(1, "Primary Affiliation", WDN.idm.user.eduPersonPrimaryAffiliation, 1);
-				//debug statement removed
-				wdnTracker._trackPageview();
-			});
+			
+			
 		},
 		callTrackPageview: function(thePage){
+			//debug statement removed
+			if (!thePage) {
+				wdnTracker._trackPageview();
+				return;
+			}
 			wdnTracker._trackPageview(thePage); //First, track in the wdn analytics
 			//debug statement removed
 			try {
@@ -7567,7 +7568,7 @@ WDN.analytics = function() {
 			}
 			var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
 			//debug statement removed
-			try { //Don't turn on until Dec WDN Meeting
+			try { 
 				var pageSuccess = pageTracker._trackEvent(category, action, label, value);
 				//debug statement removed
 			} catch(e) {
@@ -10223,9 +10224,16 @@ WDN.idm = function() {
 			if (WDN.idm.isLoggedIn()) {
 				WDN.loadJS(WDN.idm.serviceURL + WDN.getCookie('unl_sso'), function() {
 					if (WDN.idm.getUserId()) {
+						if (WDN.idm.user.eduPersonPrimaryAffiliation != undefined) {
+							wdnTracker._setCustomVar(1, "Primary Affiliation", WDN.idm.user.eduPersonPrimaryAffiliation, 1);
+							//debug statement removed
+						};
+						WDN.analytics.callTrackPageview();
 						WDN.idm.displayNotice(WDN.idm.getUserId());
 					}
 				});
+			} else {
+				WDN.analytics.callTrackPageview();
 			}
 		},
 		
@@ -10285,7 +10293,7 @@ WDN.idm = function() {
 				} else {
 					planetred_uid = 'unl_' + uid;
 				}
-				icon = '<a href="http://planetred.unl.edu/pg/profile/'+planetred_uid+'" title="Your Planet Red Profile"><img src="http://planetred.unl.edu/mod/profile/icondirect.php?username='+planetred_uid+'&size=topbar" alt="Your Profile Pic" /></a>';
+				icon = '<a href="http://planetred.unl.edu/pg/profile/'+planetred_uid+'" title="Your Planet Red Profile"><img src="http://planetred.unl.edu/pg/icon/'+planetred_uid+'/topbar/" alt="Your Profile Pic" /></a>';
 			}
 			
 			WDN.jQuery('#wdn_identity_management').html(icon+' <span class="username">'+uid+'</span> <a id="wdn_idm_logout" href="'+WDN.idm.logoutURL+'">Logout</a>');
@@ -10505,14 +10513,17 @@ WDN.socialmediashare = function() {
             }
         	return url;
         },
-        createURL : function(createThisURL, callback) { //function to create a GoURL
-            WDN.post(
-                "http://go.unl.edu/api_create.php", 
+        createURL : function(createThisURL, callback, failure) { //function to create a GoURL
+        	failure = failure || function() {};
+        	WDN.post(
+        		"http://go.unl.edu/api_create.php", 
                 {theURL: createThisURL},
                 function(data) {
                     //debug statement removed
                     if (data != "There was an error. ") {
                         callback(data);
+                    } else {
+                    	failure();
                     }
                 }
             );
