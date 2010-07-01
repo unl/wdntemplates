@@ -18,7 +18,7 @@
 }
 #breadcrumbs a acronym {
 	display:inline-block;
-	margin-bottom:-2px;
+	margin-top:-2px;
 }
 #breadcrumbs ul li:last-child a,
 #breadcrumbs ul li:last-child a:link,
