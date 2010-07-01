@@ -12,7 +12,7 @@
     position:relative;
     z-index:9;
     bottom:62px;
-    opacity:0.8;
+    opacity:0.9;
 }
 .wdnVideo_controls .play_pause, .wdnVideo_controls .progress {
     display:inline-block;
@@ -68,10 +68,11 @@
 .wdnVideo_controls .progress .progressBar span {
 	background:#d37676;
 	width:0%;
-	height:10px;
+	height:8px;
 	display:block;
-	opacity:0.8;
 	border-right:4px solid #fff;
+	margin:1px;
+	margin-right:0px;
 }
 #maincontent .wdnVideo_controls .progress .volume  {
     padding:0;
