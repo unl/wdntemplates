@@ -93,6 +93,7 @@
                     <li><a href="carousel.html">Carousel</a> (<a href="http://www1.unl.edu/wdn/wiki/Carousel" class="external">wiki documentation</a>)</li>
                     <li><a href="colorbox.html">Colorbox (Modal Box)</a></li>
                     <li><a href="events.html">Events</a> (<a href="http://www1.unl.edu/wdn/wiki/Extracting_Data_From_The_Calendar" class="external">wiki documentation</a>)</li>
+                    <li><a href="formvalidator.html">Form Validator</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Validation" class="external">wiki documentation</a>)</li>
                     <li><a href="forms.html">Forms</a> (<a href="http://www1.unl.edu/wdn/wiki/Template_Form_Styling" class="external">wiki documentation</a>)</li>
                     <li><a href="headers.html">Header Styles</a></li>
                     <li><a href="idm.html">Identity Management/Single Sign On</a></li>
