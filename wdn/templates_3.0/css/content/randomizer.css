@@ -1,2 +1,2 @@
 /* Randomizer hide divs */
-div.wdn_randomizer div {display: none;}
+.wdn_randomizer > * {display: none;}
