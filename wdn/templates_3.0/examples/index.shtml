@@ -25,6 +25,7 @@
 <!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <link rel="events" href="http://events.unl.edu/wellness/" title="Wellness" />
+<script type="text/javascript" src="/wdn/templates_3.0/scripts/plugins/hashchange/jQuery.hashchange.1-2.min.js"></script>
 <!-- InstanceEndEditable -->
 </head>
 <body class="fixed">
@@ -60,33 +61,41 @@
         <div id="maincontent">
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             <!-- InstanceBeginEditable name="maincontentarea" -->
-            <script type="text/javascript">
+            <script type="text/javascript"><!--
             
-            WDN.jQuery(document).ready(function(){
-                if (window.location.hash) { //returned with #
-                    WDN.log("we have a hash: "+window.location.hash);
-                    var hasher = window.location.hash;
-                    loadExample('./'+hasher.replace('#', ''));
-                }
-                WDN.jQuery("#examples a:not(.external)").click(function(e){
-                    e.preventDefault();
-                    window.location.hash = WDN.jQuery(this).attr('href'); //this.href returns the whole URL
-                    loadExample(WDN.jQuery(this).attr('href'))
-                });
-                return false;
-            });
-            function loadExample(file)
-            {
-                WDN.get(file, null, function(data, textStatus) {
-                    if (textStatus == 'success') {
-                        WDN.jQuery('#example').html(data);
-                        WDN.jQuery('#example_code').val(data);
-                        WDN.tooltip.tooltipSetup('maincontent');
-                        WDN.tabs.initialize();
+            WDN.jQuery(function($){
+                var cache = { '' : ' ' };
+                var loadExample = function(data) {
+                	$('#example').html(data);
+                    $('#example_code').val(data);
+                    WDN.tooltip.tooltipSetup();
+                    WDN.tabs.initialize();
+                };
+
+                $(window).bind('hashchange' ,function(e) {
+                    var url = location.hash.replace('#', '');
+                    WDN.log("we have a hash: "+url);
+
+                    if (url && !cache[url]) {
+	                    WDN.get('./'+url, null, function(data, textStatus) {
+	                        if (textStatus == 'success') {
+		                        cache[url] = data;
+	                            loadExample(data);
+	                        }
+	                    });
+                    } else if (url) {
+                        loadExample(cache[url]);
                     }
                 });
-            }
-            </script>
+                
+                $("#examples a:not(.external)").click(function(e){
+                    e.preventDefault();
+                    window.location.hash = WDN.jQuery(this).attr('href'); //this.href returns the whole URL
+                });
+
+                $(window).trigger('hashchange');
+            });
+            --></script>
             <div class="col left">
                 <p>Choose an example to view:</p>
                 <ul id="examples">
