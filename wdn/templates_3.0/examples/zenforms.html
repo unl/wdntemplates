@@ -1,66 +1,65 @@
 <script type="text/javascript">
 //<![CDATA[
-	WDN.jQuery(document).ready(function(){
-	     WDN.initializePlugin('zenform');
-	});
+    WDN.jQuery(document).ready(function(){
+         WDN.initializePlugin('zenform');
+    });
 //]]>
 </script>
 <h3 class="zenform">Important Survey</h3>
 <form class="zenform" action="?" method="post">
     <fieldset>
-            <legend>Sample Form Content</legend>
-            <ol>
-                    <li>
-                    	<label for="name">
-                    		<span class="required">*</span>
-                    		Name
-                    		<span class="helper">Enter Your Full Name</span>
-                    	</label>
-                    	<input type="text" id="name" name="name" />
-                    </li>
-                    <li>
-                    	<label for="email">Email</label>
-                    	<input type="text" id="email" name="email" />
-                    </li>
-                    <li>
-                    	<label for="campus">Campus</label>
-                    	<select name="campus" id="campus">
-                    		<option value="none"></option>
-                    		<option value="unl">UNL</option>
-                    		<option value="unk">UNK</option>
-                    		<option value="uno">UNO</option>
-                    		<option value="unmc">UNMC</option>
-                    	</select>
-                    </li>
-                    <li>
-                    	<fieldset> 
-                    		<legend>
-                    			<span class="required">*</span>
-                    			The Most Important Question: I Can Has Cheezburger?
-                    			
-                    		</legend>
-                    		<ol>
-                     		<li>
-                     			<input type="radio" value="1" name="helpful_yes" id="helpful_yes" />
-                     			<label for="helpful_yes">Yes</label>
-                     		</li>
-                     		<li>
-                       	<input type="radio" value="0" name="helpful_no" id="helpful_no" />
-                       	<label for="helpful_no">No</label>
-                       </li>
-                     		<li>
-                     			<input type="radio" value="2" name="helpful_maybe" id="helpful_maybe" />
-                       	<label for="helpful_maybe">Maybe</label>
-                       </li>
-               	</ol>
-                    	</fieldset>
-                    </li>
-                    <li>
-                    	<label for="helpful_comments">In what way?</label>
-                    	<textarea id="helpful_comments" name="comments" rows="4" cols="auto"></textarea>
-                    </li>
-            </ol>
+        <legend>Sample Form Content</legend>
+        <ol>
+            <li>
+                <label for="name">
+                    <span class="required">*</span>
+                    Name
+                    <span class="helper">Enter Your Full Name</span>
+                </label>
+                <input type="text" id="name" name="name" />
+            </li>
+            <li>
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" />
+            </li>
+            <li>
+                <label for="campus">Campus</label>
+                <select name="campus" id="campus">
+                    <option value="none"></option>
+                    <option value="unl">UNL</option>
+                    <option value="unk">UNK</option>
+                    <option value="uno">UNO</option>
+                    <option value="unmc">UNMC</option>
+                </select>
+            </li>
+            <li>
+                <fieldset> 
+                    <legend>
+                        <span class="required">*</span>
+                        The Most Important Question: I Can Has Cheezburger?
+                        
+                    </legend>
+                    <ol>
+                         <li>
+                             <input type="radio" value="1" name="helpful_yes" id="helpful_yes" />
+                             <label for="helpful_yes">Yes</label>
+                         </li>
+                         <li>
+                           <input type="radio" value="0" name="helpful_no" id="helpful_no" />
+                           <label for="helpful_no">No</label>
+                         </li>
+                         <li>
+                             <input type="radio" value="2" name="helpful_maybe" id="helpful_maybe" />
+                             <label for="helpful_maybe">Maybe</label>
+                         </li>
+                    </ol>
+                </fieldset>
+            </li>
+            <li>
+                <label for="helpful_comments">In what way?</label>
+                <textarea id="helpful_comments" name="comments" rows="4" cols="auto"></textarea>
+            </li>
+        </ol>
     </fieldset> 
     <input type="submit" name="submit" value="Submit" />
-    <input type="reset" name="reset" value="Reset" />
 </form>
