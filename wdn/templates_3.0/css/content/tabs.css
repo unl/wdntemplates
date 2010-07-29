@@ -42,7 +42,8 @@ structure:
 	font-size:1.05em;
 	background:url('images/tabs/inactiveRight.png') no-repeat bottom right;
 }
-#maincontent ul.wdn_tabs > li:last-child > a {
+#maincontent ul.wdn_tabs > li:last-child > a,
+#maincontent ul.wdn_tabs > li.last > a {
 	margin-right:-7px;
 	background:url('images/tabs/inactiveRightLast.png') no-repeat top right;
 }
@@ -60,7 +61,8 @@ structure:
 	margin-right:0px;
 	padding:7px 22px 0px 15px;
 }
-#maincontent ul.wdn_tabs > li:last-child.selected > a {
+#maincontent ul.wdn_tabs > li:last-child.selected > a,
+#maincontent ul.wdn_tabs > li.last.selected > a {
 	background:url('images/tabs/activeRight.png') no-repeat top right;
 }
  #maincontent ul.wdn_tabs li.selected a span {
