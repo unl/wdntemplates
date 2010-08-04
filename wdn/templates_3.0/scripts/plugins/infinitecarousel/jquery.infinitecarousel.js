@@ -178,7 +178,7 @@
 				for(i=0;i<=numImages-1;i++)
 				{
 					thumb = $('img:eq('+(i+1)+')', obj).attr('src');
-					$('#thumbs'+randID).append('<div class="thumb" id="thumb'+randID+'_'+(i+1)+'" style="cursor:pointer;background-image:url('+thumb+');display:inline;float:left;width:'+o.thumbnailWidth+';height:'+o.thumbnailHeight+';line-height:'+o.thumbnailHeight+';padding:0;overflow:hidden;text-align:center;border:2px solid #ccc;margin-right:4px;font-size:'+o.thumbnailFontSize+';font-family:Arial;color:#000;text-shadow:0 0 3px #fff">'+(i+1)+'</div>');
+					$('#thumbs'+randID).append('<div class="thumb" id="thumb'+randID+'_'+(i+1)+'" style="cursor:pointer;background-image:url('+thumb+');background-size:auto 100%;-moz-background-size:auto 100%;-webkit-background-size:auto 100%;display:inline;float:left;width:'+o.thumbnailWidth+';height:'+o.thumbnailHeight+';line-height:'+o.thumbnailHeight+';padding:0;overflow:hidden;text-align:center;border:2px solid #ccc;margin-right:4px;font-size:'+o.thumbnailFontSize+';font-family:Arial;color:#000;text-shadow:0 0 3px #fff">'+(i+1)+'</div>');
 					if(i<=o.inView) $('#thumb'+randID+'_'+i).css({'border-color':'#ff0000'});
 					unviewable.push(i+1);
 				}
