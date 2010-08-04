@@ -59,11 +59,15 @@ WDN.videoPlayer = function() {
 		
 		createFallback : function(video) { //call the flash player option
 			WDN.loadJS('/wdn/templates_3.0/scripts/plugins/swfobject/jquery.swfobject.1-1-1.min.js', function(){
-				var src = video.src|| WDN.jQuery('video').eq(i).attr('src') || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery('source').eq(0).attr('src') || "" ;
+				var src = video.src || WDN.jQuery('video').eq(i).attr('src') || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery('source').eq(0).attr('src') || "" ;
 				src = WDN.toAbs(src, window.location.toString());
 				var poster = video.poster || "";
 				var width = video.width || WDN.jQuery(video).width();
 				var height = video.height || WDN.jQuery(video).height();
+				var autostart = 'false'; //default to false
+				if (video.autoplay || WDN.jQuery('video').eq(i).attr('autoplay')) {
+					autostart = 'true';
+				}
 				WDN.jQuery(video).wrap("<div id='wdnVideo_"+i+"' />");
 				
 				//Fallback for flash
@@ -77,7 +81,7 @@ WDN.videoPlayer = function() {
 						'file': src,   
 						'image': poster,   
 						'skin': '/wdn/templates_3.0/includes/swf/UNLVideoSkin.swf',   
-						'autostart': 'false',
+						'autostart': autostart,
 						'controlbar': 'over'
 					},
 					height: height,
