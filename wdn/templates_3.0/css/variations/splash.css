@@ -43,6 +43,13 @@
     color:#fff;
     border-top:1px solid #660000;
 }
+#headlines > div.active a,
+#headlines > div:hover a,
+#headlines > div.active a:focus,
+#headlines > div:hover a:focus {
+    color:#FFFFFF !important;
+    text-decoration:underline;
+}
 
 #headlines div.splash_headline {
     background:#f5f5f5;
