@@ -366,11 +366,19 @@ WDN.videoPlayer = function() {
 				},
 				
 				showControls: function(video) {
-					WDN.jQuery(video).siblings('.wdnVideo_controls').stop(true).fadeTo(400, 0.8);
+					var ctls = WDN.jQuery(video).siblings('.wdnVideo_controls');
+					ctls.stop(true);
+					var opc = ctls.css('opacity');
+					var time = (1 - opc / 0.8) * 400;
+					ctls.fadeTo(time, 0.8);
 				},
 				
 				hideControls : function(video) {
-					WDN.jQuery(video).siblings('.wdnVideo_controls').stop(true).fadeTo(400, 0.0);
+					var ctls = WDN.jQuery(video).siblings('.wdnVideo_controls');
+					ctls.stop(true);
+					var opc = ctls.css('opacity');
+					var time = (opc / 0.8) * 400;
+					ctls.fadeTo(time, 0.0);
 				},
 				
 				onClose : function(event) {
