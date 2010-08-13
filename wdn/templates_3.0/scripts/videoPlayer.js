@@ -94,7 +94,7 @@ WDN.videoPlayer = function() {
 				
 				//track that we aren't playing an HTML5 video
 				if (WDN.analytics) {
-					WDN.analytics.callTrackEvent('Video', 'Not HTML5', src);
+					//WDN.analytics.callTrackEvent('Video', 'Not HTML5', src);
 				}
 			});
 		},
