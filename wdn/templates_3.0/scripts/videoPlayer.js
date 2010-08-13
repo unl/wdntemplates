@@ -353,6 +353,12 @@ WDN.videoPlayer = function() {
 					WDN.jQuery(video).css({'width' : window.innerWidth + "px", 'height' : window.innerHeight + "px", 'position' : 'fixed', 'left' : '0', 'top' : '0', 'z-index' : '99999' });
 					WDN.jQuery(video).siblings('.wdnVideo_controls').css({'z-index' : '999999', 'position' : 'fixed' });
 					WDN.jQuery('body').append("<div id='videoBlackout'></div>");
+					WDN.jQuery(document).bind('keyup.wdnvideoFS', function(e) {
+						if (e.keyCode == 27) {
+							e.preventDefault();
+							WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.fullscreen').click();
+						}
+					});
 					WDN.analytics.callTrackEvent('Video', 'Fullscreen', video.src || WDN.jQuery(video).children('source').attr());
 				},
 				
@@ -363,6 +369,7 @@ WDN.videoPlayer = function() {
 					WDN.jQuery(video).css({'width' : originalWidth + "px", 'height' : originalHeight + "px", 'position' : 'relative', 'left' : '0', 'top' : '0', 'z-index' : originalZIndex });
 					WDN.jQuery(video).siblings('.wdnVideo_controls').css({'z-index' : originalZIndex, 'position' : 'relative' });
 					WDN.jQuery('#videoBlackout').remove();
+					WDN.jQuery(document).unbind('.wdnvideoFS');
 				},
 				
 				showControls: function(video) {
