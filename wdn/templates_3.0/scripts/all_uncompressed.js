@@ -6399,6 +6399,8 @@ var WDN = function() {
 				if (WDN.jQuery(this).height()>20) {
 					WDN.jQuery(this).css({border:'1px solid #ededed',marginleft:'0'});
 				}
+				//set the caption to the same width as the image it goes with so that a long caption doesn't spill over
+				WDN.jQuery(this).width(WDN.jQuery(this).prev().children(0).width());
 			});
 			//remove the dotted line underneath images that are links
 			WDN.jQuery('#maincontent a img, #footer a img').each(function(j){
@@ -10204,6 +10206,11 @@ WDN.idm = function() {
 		logoutURL : 'https://login.unl.edu/cas/logout?url='+escape(window.location),
 		
 		/**
+		 * The URL to direct the end user to when the login link is clicked.
+		 */
+		loginURL : 'https://login.unl.edu/cas/login?service='+escape(window.location),
+		
+		/**
 		 * If populated, the public directory details for the logged in user
 		 * 
 		 * @var object
@@ -10234,6 +10241,9 @@ WDN.idm = function() {
 				});
 			} else {
 				WDN.analytics.callTrackPageview();
+				if (WDN.jQuery('link[rel=login]').length) {
+					WDN.idm.setLoginURL(WDN.jQuery('link[rel=login]').attr('href'));
+				}
 			}
 		},
 		
@@ -10308,12 +10318,39 @@ WDN.idm = function() {
 			}
 		},
 		
+		displayLogin : function()
+		{
+			if (WDN.jQuery('#wdn_identity_management').length === 0) {
+				WDN.jQuery('#header').append('<div id="wdn_identity_management" class="loggedout"></div>');
+			}
+			
+			if (WDN.jQuery('#wdn_search').length > 0) {
+				// search box is being displayed, adjust the positioning
+				WDN.jQuery('#wdn_identity_management').css({right:'362px'});
+			}
+			
+			icon = '<a><img src="http://planetred.unl.edu/mod/profile/graphics/defaulttopbar.gif" alt="Guest User" /></a>';
+			
+			WDN.jQuery('#wdn_identity_management').html(icon+'<span class="username">Guest</span><a id="wdn_idm_login" href="'+WDN.idm.loginURL+'">Login</a>');
+		},
+		
 		/**
 		 * Set the URL to send the user to when the logout link is clicked
 		 */
 		setLogoutURL : function(url) {
 			WDN.jQuery('#wdn_idm_logout').attr('href', url);
 			WDN.idm.logoutURL = url;
+		},
+		
+		
+		/**
+		 * Set the URL to send the user to when the login link is clicked
+		 */
+		setLoginURL : function(url) {
+			if (url) {
+				WDN.idm.loginURL = url;
+			}
+			WDN.idm.displayLogin();
 		}
 	};
 }();
@@ -10391,10 +10428,9 @@ WDN.tabs = function() {
 		},
 		
 		cleanLastTab: function() {
-			WDN.jQuery('ul.wdn_tabs > li:last-child > a').css(
-					{'margin-right':'-7px', 'background':"url('"+WDN.template_path+"wdn/templates_3.0/css/content/images/tabs/inactiveRightLast.png') no-repeat top right"});
-			WDN.jQuery('ul.wdn_tabs > li:last-child.selected > a').css(
-					{'background':"url('"+WDN.template_path+"wdn/templates_3.0/css/content/images/tabs/activeRight.png') no-repeat top right"});
+			if (WDN.jQuery.browser.msie) {
+				WDN.jQuery('ul.wdn_tabs > li:last-child').addClass('last');
+			}
 			return true;
 		}
 	};
