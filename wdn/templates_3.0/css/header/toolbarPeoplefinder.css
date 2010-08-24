@@ -1,0 +1,168 @@
+/* Peoplefinder
+************************/
+#toolbar_peoplefinder .col.left {
+    float:left;
+    padding:0 10px 0 0;
+    width:460px;
+}
+#toolbar_peoplefinder .col.right {
+    float:right;
+    padding:0 0 0 10px;
+    width:460px;
+}
+#toolbar_peoplefinder form {
+    margin-bottom:15px;
+}
+#toolbar_peoplefinder input {
+    width:300px;
+    padding:2px;
+    border:1px solid #434343;
+    background:#ffffcc;
+    height:25px;
+    font-size:1.5em;
+    color:#434343 !important;
+    }
+
+#toolbar_peoplefinder input:focus {
+    background:#fff;
+    }
+
+#toolbar_peoplefinder ul{list-style:none;padding:0;margin-bottom:5px;}
+#toolbar_peoplefinder ul li{padding:6px;}
+#toolbar_peoplefinder ul li.alt{background:#fafafa;border-bottom:1px solid #4f4f4f;border-top:1px solid #4f4f4f;}
+#toolbar_peoplefinder .cNav{text-align:right;letter-spacing:-2px;margin:-15px 3px 5px 0;}
+#toolbar_peoplefinder .cNav a{margin-left:4px;}
+#toolbar_peoplefinder .fn, #toolbar_peoplefinder .cn{font-weight:bold;margin-right:4px;}
+#toolbar_peoplefinder .eppa, #peoplefinder .title{font-size:0.8em;}
+#toolbar_peoplefinder .cInfo{margin-left:10px;}
+
+/* 
+***************************************************
+
+        Individual Peoplefinder Records
+
+***************************************************
+*/
+#toolbar_peoplefinder .vcard {
+    background:#fff;
+    border:1px solid #ccd2d5;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    padding:15px;
+    min-height:130px;
+    position:relative;
+    width:425px;
+    z-index:9;
+    margin:0 auto;
+}
+#toolbar_peoplefinder .vcard > a.email {
+    
+}
+#toolbar_peoplefinder .vcard .eppa, .vcard .epa, #toolbar_peoplefinder .vcard .organization-unit, #toolbar_peoplefinder .vcard .tel, #toolbar_peoplefinder .vcf, #toolbar_peoplefinder .title {display:block;}
+#toolbar_peoplefinder .vcard a.planetred_profile {
+    float:left;
+    margin-right:15px;
+    min-width:114px;
+}
+#toolbar_peoplefinder .vcard .eppa, #toolbar_peoplefinder .vcard .epa {font-style:italic;font-size:0.8em;}
+#toolbar_peoplefinder .vcardInfo {margin-left:129px;}
+#toolbar_peoplefinder .vcard .adr, #toolbar_peoplefinder .departmentInfo .adr {
+    border-left:2px solid #b7b7b7;
+    padding-left:5px;
+    margin:5px 0;   
+}
+#toolbar_peoplefinder .vcard .tel, #toolbar_peoplefinder .vcard span.email, #toolbar_peoplefinder .vcard span.url, #toolbar_peoplefinder .departmentInfo .tel, #toolbar_peoplefinder .departmentInfo span.email, #toolbar_peoplefinder .departmentInfo span.url {
+    background:url('http://peoplefinder/css/images/iconContactSprite.png') no-repeat;
+    padding-left:25px;
+    height:20px;
+}
+#toolbar_peoplefinder .vcard span.email, #toolbar_peoplefinder .vcard span.url, #toolbar_peoplefinder .departmentInfo span.email, #toolbar_peoplefinder .departmentInfo span.url {
+    background-position:0 -21px;
+    display:block;
+    margin-top:5px;
+    margin-bottom:3px;
+}
+#toolbar_peoplefinder .vcard span.url, #toolbar_peoplefinder .departmentInfo span.url {
+    background-position:0 -42px;
+}
+#toolbar_peoplefinder a.email {background:none;}
+#toolbar_peoplefinder a.email span {font-size:1.5em;}
+#toolbar_peoplefinder a.text-vcard{padding-left:24px;padding-right:0;background-position:left -2px;margin:121px 0 0 -122px;float:left;}
+/* 
+/* 
+***************************************************
+
+        Result List Listings
+
+***************************************************
+*/
+#toolbar_peoplefinder #results {min-height: 300px;}
+#toolbar_peoplefinder ul.pfResult {
+    padding:0px;
+    list-style:none;
+    border-bottom: 1px solid #e6e6e6;
+    border-top: 1px solid #d0cece;
+    margin-top:20px;
+}
+#toolbar_peoplefinder ul.pfResult li {
+    border-bottom: 1px solid #d0cece;
+    border-top: 1px solid #e6e6e6;
+    width:100%;
+    padding: 5px 0px;
+    display:block;
+}
+#toolbar_peoplefinder ul.pfResult li div.overflow {
+    min-height:45px;
+    padding: 7px 5px;
+    cursor:pointer;
+}
+#toolbar_peoplefinder ul.pfResult li.selected div.overflow {opacity:0.4}
+#toolbar_peoplefinder ul.pfResult li:hover, #toolbar_peoplefinder ul.pfResult li.selected {
+    background:#ecf4f9;
+}
+#toolbar_peoplefinder ul.pfResult li.selected .vcard {display:none;}
+#toolbar_peoplefinder .eppa, #toolbar_peoplefinder .organization-unit, #toolbar_peoplefinder .tel, #toolbar_peoplefinder .type {display:none;}
+
+
+#toolbar_peoplefinder .planetred_profile, #toolbar_peoplefinder .recordDetails {float:left;}
+#toolbar_peoplefinder .loading {
+    background:url('images/loading.gif') no-repeat top left;
+    height:40px;
+    width:40px;
+    float:left;
+    position:absolute;
+    right:250px;
+    display:none;   
+}
+#toolbar_peoplefinder .recordDetails {
+    margin-left:20px;
+}
+#toolbar_peoplefinder .fn a, #toolbar_peoplefinder .fn {
+    font-size:18px;
+    font-weight:bold;
+    color:#464545 !important;   
+    max-width:530px;
+    max-height:35px;
+    min-height:20px;
+    overflow:hidden;
+}
+#toolbar_peoplefinder .departments .fn, #toolbar_peoplefinder .departments .fn a {height:42px;max-height:42px;line-height:20px;}
+#toolbar_peoplefinder .cInfo {float:right;}
+
+#toolbar_peoplefinder .results {margin-top:15px;}
+#toolbar_peoplefinder .likeResults ul.pfResult {margin-top:0px;}
+
+#toolbar_peoplefinder .result_head {color:#989898;font-size:10px;}
+/* Headings */
+
+
+#toolbar_peoplefinder .results h2, #toolbar_peoplefinder .likeResults h3, #toolbar_peoplefinder #orgChart h2 {
+    font-variant:small-caps;
+    font-weight:bold;
+}
+#toolbar_peoplefinder .results h2, #toolbar_peoplefinder #orgChart h2 {border-bottom:2px dotted #E6E6E6;padding-bottom:0;}
+
+#toolbar_peoplefinder .likeResults h3 {
+    font-size:1em;  
+}

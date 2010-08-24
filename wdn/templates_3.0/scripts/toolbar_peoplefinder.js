@@ -8,9 +8,10 @@ WDN.toolbar_peoplefinder = function() {
     	serviceURL : 'http://peoplefinder.unl.edu/',
     	
         initialize : function() {
-        
+        	
         },
         setupToolContent : function() {
+        	WDN.loadCSS('/wdn/templates_3.0/css/header/toolbarPeoplefinder.css');
             return '<h3>Peoplefinder: UNL\'s Online Directory <a href="http://peoplefinder.unl.edu/" class="external">(open in separate window)</a></h3><div class="col left"><form onsubmit="WDN.toolbar_peoplefinder.queuePFRequest(document.getElementById(\'pq\').value,\'pfresults\'); return false;" method="get" action="http://peoplefinder.unl.edu/"><div><input type="text" onkeyup="WDN.toolbar_peoplefinder.queuePFRequest(this.value,\'pfresults\');" name="pq" id="pq" /></div></form><div id="pfresults" class="toolbarMask">'+defaultIntro+'</div></div><div class="col right"><div id="pfShowRecord"></div></div>';
         },
         display : function() {
@@ -57,7 +58,7 @@ WDN.toolbar_peoplefinder = function() {
         },
         updatePeopleFinderResults : function(data, textStatus) {
             if (textStatus == 'success') {
-                document.getElementById(pfresultsdiv).innerHTML = data;
+            	document.getElementById(pfresultsdiv).innerHTML = data;
                 if (WDN.toolbar_peoplefinder.configuedWebService) {
                 	service_peoplefinder.updatePeopleFinderResults();
                 }
