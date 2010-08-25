@@ -89,6 +89,8 @@
 #toolbar_peoplefinder a.email {background:none;}
 #toolbar_peoplefinder a.email span {font-size:1.5em;}
 #toolbar_peoplefinder a.text-vcard{padding-left:24px;padding-right:0;background-position:left -2px;margin:121px 0 0 -122px;float:left;}
+#toolbar_peoplefinder a.img-qrcode{padding-left:24px;padding-right:0;background: url(http://peoplefinder.unl.edu/css/images/qrcode.png) no-repeat 0 0;margin:141px 0 0 -122px;float:left;}
+
 /* 
 /* 
 ***************************************************
