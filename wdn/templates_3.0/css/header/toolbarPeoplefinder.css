@@ -117,12 +117,9 @@
 #toolbar_peoplefinder ul.pfResult li div.overflow {
     min-height:45px;
     padding: 7px 5px;
-    cursor:pointer;
 }
 #toolbar_peoplefinder ul.pfResult li.selected div.overflow {opacity:0.4}
-#toolbar_peoplefinder ul.pfResult li:hover, #toolbar_peoplefinder ul.pfResult li.selected {
-    background:#ecf4f9;
-}
+
 #toolbar_peoplefinder ul.pfResult li.selected .vcard {display:none;}
 #toolbar_peoplefinder .eppa, #toolbar_peoplefinder .organization-unit, #toolbar_peoplefinder .tel, #toolbar_peoplefinder .type {display:none;}
 
