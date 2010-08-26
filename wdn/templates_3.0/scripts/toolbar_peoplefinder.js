@@ -27,17 +27,22 @@ WDN.toolbar_peoplefinder = function() {
             pfresultsdiv = resultsdiv;
             WDN.toolbar_peoplefinder.queuePFRequest(q, resultsdiv, true);
         },
-        queuePFRequest : function(q, resultsdiv, chooser) {
+        queuePFRequest : function(q, resultsdiv, chooser, cn, sn) {
             pfresultsdiv = resultsdiv;
             if (chooser) {
             	chooser = 'true';
             } else {
             	chooser = 'false';
             }
+            if (cn === undefined && sn === undefined) {
+            	splitQuery = '';
+            } else {
+            	splitQuery = '&cn='+escape(cn)+'&sn='+escape(sn);
+            }
             clearTimeout(pfreq_q);
-            if (q.length > 3) {
+            if (q.length > 3 || splitQuery.length > 10) {
                 document.getElementById(resultsdiv).innerHTML = '<img alt="progress" id="pfprogress" src="'+WDN.template_path+'wdn/templates_3.0/css/header/images/colorbox/loading.gif" />';
-                pfreq_q = setTimeout('WDN.toolbar_peoplefinder.getPeopleFinderResults("'+escape(q)+'", '+chooser+')', 400);
+                pfreq_q = setTimeout('WDN.toolbar_peoplefinder.getPeopleFinderResults("'+escape(q)+splitQuery+'", '+chooser+')', 400);
             } else if (q.length>0) {
                 document.getElementById(resultsdiv).innerHTML = 'Please enter more information.';
             } else {
@@ -57,7 +62,7 @@ WDN.toolbar_peoplefinder = function() {
             return false;
         },
         updatePeopleFinderResults : function(data, textStatus) {
-            if (textStatus == 'success') {
+        	if (textStatus == 'success') {
             	document.getElementById(pfresultsdiv).innerHTML = data;
                 if (WDN.toolbar_peoplefinder.configuedWebService) {
                 	service_peoplefinder.updatePeopleFinderResults();
