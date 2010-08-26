@@ -44,7 +44,7 @@ Author: WDN
     position:absolute;
     right:-3px;
     top:2px;
-    color:#98999a;
+    color:#808080;
     font-family:Helvetica, arial;
 }
 #wdn_search form label {
@@ -64,7 +64,7 @@ Author: WDN
 	border:1px solid #e09a9a;
 	border-top-color:#da6868;
 	padding:4px;
-	color:#98999a;
+	color:#808080;
 }
 #wdn_search .search {
     position:absolute;
