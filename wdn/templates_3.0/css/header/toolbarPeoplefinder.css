@@ -50,7 +50,7 @@
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     padding:15px;
-    min-height:130px;
+    min-height:150px;
     position:relative;
     width:425px;
     z-index:9;
@@ -164,4 +164,11 @@
 
 #toolbar_peoplefinder .likeResults h3 {
     font-size:1em;  
+    background: none;
+    margin: 0;
+    padding: 0.2em 0 0.3em;
+    color: #6b6b6b;
+}
+#toolbar_peoplefinder .likeResults h3:after {
+    display:none;
 }
