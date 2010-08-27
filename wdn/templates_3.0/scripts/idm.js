@@ -32,9 +32,10 @@ WDN.idm = function() {
 			if (WDN.idm.isLoggedIn()) {
 				WDN.loadJS(WDN.idm.serviceURL + WDN.getCookie('unl_sso'), function() {
 					if (WDN.idm.getUserId()) {
-						if (WDN.idm.user.eduPersonPrimaryAffiliation != undefined) {
+						if (WDN.idm.user.eduPersonPrimaryAffiliation[0] != undefined) {
 							wdnTracker._setCustomVar(1, "Primary Affiliation", WDN.idm.user.eduPersonPrimaryAffiliation, 1);
-							WDN.log("Tracking primary affiliation: "+WDN.idm.user.eduPersonPrimaryAffiliation);
+							//_gaq.push(['wdnGA._setCustomVar', 1, 'Primary Affiliation', WDN.idm.user.eduPersonPrimaryAffiliation[0], 1]);
+							WDN.log("Tracking primary affiliation: "+WDN.idm.user.eduPersonPrimaryAffiliation[0]);
 						};
 						WDN.analytics.callTrackPageview();
 						WDN.idm.displayNotice(WDN.idm.getUserId());
