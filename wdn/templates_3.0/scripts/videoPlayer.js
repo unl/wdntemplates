@@ -8,6 +8,11 @@
  */
 WDN.videoPlayer = function() {
 	var i = 0;
+	var src = '';
+	var agent = navigator.userAgent.toLowerCase();
+    var is_iphone = (agent.indexOf('iphone')!='-1');
+    var is_ipad = (agent.indexOf('ipad')!='-1');
+    
 	return {
 		
 		initialize : function() {
@@ -47,13 +52,17 @@ WDN.videoPlayer = function() {
 						requiresFallback = false;
 					}
 				}
+				
 			}
 			WDN.log('requiresFallback (video): '+requiresFallback);
 			if (requiresFallback){
 				WDN.videoPlayer.createFallback(video);
 			} else {
-				WDN.loadCSS('/wdn/templates_3.0/css/content/videoPlayer.css');
-				WDN.videoPlayer.setupControls.initialize(video);
+				if (!is_ipad && !is_iphone){
+					WDN.loadCSS('/wdn/templates_3.0/css/content/videoPlayer.css');
+					WDN.videoPlayer.setupControls.initialize(video);
+				}
+				WDN.videoPlayer.eventControls.bindControls(video);
 			}
 		},
 		
@@ -108,7 +117,8 @@ WDN.videoPlayer = function() {
 					video.controls = false; //remove the standard browser controls
 					WDN.jQuery(video).after(WDN.videoPlayer.setupControls.wdnVideo_Controls);
 					WDN.videoPlayer.setupControls.positionControls(video);
-					WDN.videoPlayer.eventControls.bindControls(video);
+					
+					
 				}, 
 			
 				//setup the HTML to house the controls
