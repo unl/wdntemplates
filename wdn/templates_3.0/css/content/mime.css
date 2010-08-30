@@ -5,7 +5,7 @@
 */
 
 /* These are the additional, easier-to-use, selectors */
-a.external, a.map, a.email, a.vcard, a.pdf, a.audio, a.image, a.document, a.html, a.video, a.calendar, a.presentation, a.spreadsheet, a.zip, a.feed, a.script,
+a.external, a.map, a.email, a.vcard, a.pdf, a.audio, a.image, a.document, a.html, a.video, a.calendar, a.clustan, a.presentation, a.spreadsheet, a.zip, a.feed, a.script,
 
 /* CSS attribute rules */
 a[href $='.mov'], a[href $='.wmv'], a[href $='.mp4'], a[href $='.m4v'], a[href $='.zip'], a[href *='.ppt'], a[href *='.pps'], a[href *='.xls'], a[href $='.pdf'], a[href^="mailto:"], a[href^="http://maps.google.com"],
@@ -28,7 +28,7 @@ a.calendar, a.x-office-calendar {
     background-position: right -321px;
 }
 a.clustan {
-    background-position: right -412px;
+    background-position: right -417px;
 }
 a.document, a.x-office-document, a.x-office-document-template, a.application-msword, a[href *='.doc'] {
     background-position: right -192px;
