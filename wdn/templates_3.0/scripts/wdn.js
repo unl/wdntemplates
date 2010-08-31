@@ -2,6 +2,7 @@
  * This file contains the WDN template javascript code.
  */
 var WDN = function() {
+	var loadingJS = {};
 	return {
 		/**
 		 * This stores what javascript files have been loaded already
@@ -17,28 +18,41 @@ var WDN = function() {
 		/*
 		 * Loads an external JavaScript file. 
 		 * 
-		 * @param String url
-		 * @param Function callback (optional) - will be called once the JS file has been loaded
-		 * @param Bool checkLoaded (optional) - if false, the JS will be loaded without checking whether it's already been loaded
-		 * @param Bool callbackIfLoaded (optional) - if false, the callback will not be executed if the JS has already been loaded
+		 * @param {string} url
+		 * @param {function} callback (optional) - will be called once the JS file has been loaded
+		 * @param {boolean} checkLoaded (optional) - if false, the JS will be loaded without checking whether it's already been loaded
+		 * @param {boolean} callbackIfLoaded (optional) - if false, the callback will not be executed if the JS has already been loaded
 		 */
 		
 		loadJS : function(url,callback,checkLoaded,callbackIfLoaded) {
+			if (url.match(/^wdn\/templates_3\.0/)) {
+				url = WDN.template_path+url;
+			}
+			
 			if ((arguments.length>2 && checkLoaded === false) || !WDN.loadedJS[url]){
+				if (url in loadingJS) {
+					if (callback) {
+						loadingJS[url].push(callback);
+					}
+					return;
+				}
+				loadingJS[url] = [];
 				WDN.log("begin loading JS: " + url);
 				var e = document.createElement("script");
-				if (url.match(/^wdn\/templates_3\.0/)) {
-					url = WDN.template_path+url;
-				}
 				e.setAttribute('src', url);
 				e.setAttribute('type','text/javascript');
 				document.getElementsByTagName('head').item(0).appendChild(e);
 				
-				callback = callback || function() {};
+				if (callback) {
+					loadingJS[url].push(callback);
+				}
 				var executeCallback = function() {
 					WDN.loadedJS[url] = true;
 					WDN.log("finished loading JS file: " + url);
-					callback();
+					for (var i = 0; i < loadingJS[url].length; i++) {
+						loadingJS[url][i]();
+					}
+					delete loadingJS[url];
 				};
 				
 				e.onreadystatechange = function() {

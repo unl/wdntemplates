@@ -32,11 +32,9 @@ WDN.toolbar = function() {
         initialize : function() {
     		WDN.jQuery('#header').append('<div class="hidden"><div id="toolbarcontent"></div></div>');
         	WDN.loadJS('wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js', WDN.toolbar.toolTabsSetup);
-        	if (WDN.jQuery.browser.msie) {
-            	WDN.loadCSS('wdn/templates_3.0/css/header/colorbox-ie.css');
-    		}
+        	
         	//a callback with the colorbox binding further below displays the tabs, this line hides them on close so they don't show with another instance of the colorbox
-        	WDN.jQuery().bind('cbox_closed', function(){WDN.jQuery("#tooltabs").hide();});
+        	WDN.jQuery(document).bind('cbox_closed', function(){WDN.jQuery("#tooltabs").hide();});
         },
         toolTabsSetup : function() {
         	WDN.jQuery('#cboxWrapper').append('<div id="tooltabs"><ul></ul></div>');
