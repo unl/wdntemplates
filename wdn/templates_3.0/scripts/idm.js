@@ -28,21 +28,25 @@ WDN.idm = function() {
 		 * 
 		 * @return void
 		 */
-		initialize : function() {
+		initialize : function(callback) {
+			WDN.log('IS LOGGED IN MO FO!');
 			if (WDN.idm.isLoggedIn()) {
 				WDN.loadJS(WDN.idm.serviceURL + WDN.getCookie('unl_sso'), function() {
 					if (WDN.idm.getUserId()) {
 						if (WDN.idm.user.eduPersonPrimaryAffiliation[0] != undefined) {
-							wdnTracker._setCustomVar(1, "Primary Affiliation", WDN.idm.user.eduPersonPrimaryAffiliation, 1);
-							//_gaq.push(['wdnGA._setCustomVar', 1, 'Primary Affiliation', WDN.idm.user.eduPersonPrimaryAffiliation[0], 1]);
+							//wdnTracker._setCustomVar(1, "Primary Affiliation", WDN.idm.user.eduPersonPrimaryAffiliation, 1);
+							_gaq.push(['_setCustomVar', 1, 'Primary Affiliation', WDN.idm.user.eduPersonPrimaryAffiliation[0], 1]);
 							WDN.log("Tracking primary affiliation: "+WDN.idm.user.eduPersonPrimaryAffiliation[0]);
+							if (!callback) {
+								//do nothing
+							} else {
+								callback();
+							}
 						};
-						WDN.analytics.callTrackPageview();
 						WDN.idm.displayNotice(WDN.idm.getUserId());
 					}
 				});
 			} else {
-				WDN.analytics.callTrackPageview();
 				if (WDN.jQuery('link[rel=login]').length) {
 					WDN.idm.setLoginURL(WDN.jQuery('link[rel=login]').attr('href'));
 				}

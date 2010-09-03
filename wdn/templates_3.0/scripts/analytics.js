@@ -8,24 +8,30 @@
 // 6. Usage of the wdn_tools. Use event tracking DONE
 // 7. Tab content. Use event tracking? Set up a way for departments to take advantage of this tracking?
 // 
-// _trackEvent(category, action, optional_label, optional_value)
-// _trackPageview('/downloads/'+href);
+// WDN.analytics.callTrackEvent(category, action, optional_label, optional_value)
+// WDN.analytics.callTrackPageview('/downloads/'+href);
 //
 // Department variable 'pageTracker' is available to use in this file.
 
-WDN.analytics = function() {  
-	
+WDN.analytics = function() { 
 	return {
 		thisURL : String(window.location), //the current page the user is on.
 		rated : false, // whether the user has rated the current page.
 		initialize : function() {
-			try {
-				wdnTracker = _gat._getTracker("UA-3203435-1");
-				wdnTracker._setDomainName(".unl.edu");
-				wdnTracker._setAllowLinker(true);
-				wdnTracker._setAllowHash(false);	
-				WDN.initializePlugin('idm'); //we need to track primary affiliation before page is tracked			
-			} catch(err) {}
+
+			_gaq.push(
+				['_setAccount', 'UA-9809462-1'],
+				['_setDomainName', '.unl.edu'],
+				['_setAllowLinker', true],
+				['_setAllowHash', false]
+			);
+			WDN.log('all set up');
+			
+			WDN.loadJS('/wdn/templates_3.0/scripts/idm.js', function(){
+				WDN.idm.initialize(function() {
+					WDN.analytics.loadGA();
+				});
+			});
 			
 			WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
 				filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v)$/i; //these are the file extensions to track for downloaded content
@@ -68,23 +74,32 @@ WDN.analytics = function() {
 					}
 				});
 		},
+		
+		loadGA : function(){
+			_gaq.push(['_trackPageview']);
+			WDN.log(_gaq);
+			
+			(function(){
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		},
+		
 		trackNavigationPreferredState : function(preferredState) {
 			try {
 				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
 			} catch(e){}
 		},
-		trackPageView : function () { //used to set a customVar regarding affiliation role (faculty, staff, student, etc...)
-			WDN.log('we can now track the page');
-			
-			
-		},
 		callTrackPageview: function(thePage){
 			WDN.log('we can now track the page');
 			if (!thePage) {
-				wdnTracker._trackPageview();
+				_gaq.push(['_trackPageview']);
+				WDN.log(_gaq);
 				return;
 			}
 			wdnTracker._trackPageview(thePage); //First, track in the wdn analytics
+			_gaq.push(['_trackPageview', thePage]);
 			WDN.log("Pageview tracking for wdn worked!");
 			try {
 				pageTracker._trackPageview(thePage); // Second, track in local site analytics 
@@ -97,7 +112,8 @@ WDN.analytics = function() {
 			if (value === undefined) {
 				value = 0;
 			}
-			var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
+			//var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
+			var wdnSuccess = _gaq.push(['_trackEvent', category, action, label, value]);
 			WDN.log("WDN Event tracking success? "+wdnSuccess);
 			try { 
 				var pageSuccess = pageTracker._trackEvent(category, action, label, value);

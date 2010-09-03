@@ -1,6 +1,7 @@
 /**
  * This file contains the WDN template javascript code.
  */
+var _gaq = _gaq || [];
 var WDN = function() {
 	var loadingJS = {};
 	return {
@@ -109,6 +110,7 @@ var WDN = function() {
 			WDN.jQuery(document).ready(function() {
 				WDN.initializePlugin('navigation');
 				WDN.initializePlugin('search');
+				WDN.initializePlugin('analytics');
 				WDN.initializePlugin('feedback');
 				WDN.initializePlugin('socialmediashare');
 				WDN.contentAdjustments();
@@ -117,7 +119,6 @@ var WDN = function() {
 				WDN.initializePlugin('tabs');
 				WDN.initializePlugin('unlalert');
 				//WDN.initializePlugin('idm');
-				WDN.initializePlugin('analytics');
 				WDN.browserAdjustments();
 				WDN.screenAdjustments();
 			});
