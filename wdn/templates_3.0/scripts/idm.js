@@ -29,7 +29,6 @@ WDN.idm = function() {
 		 * @return void
 		 */
 		initialize : function(callback) {
-			WDN.log('IS LOGGED IN MO FO!');
 			if (WDN.idm.isLoggedIn()) {
 				WDN.loadJS(WDN.idm.serviceURL + WDN.getCookie('unl_sso'), function() {
 					if (WDN.idm.getUserId()) {
