@@ -74,7 +74,7 @@
 	margin:1px;
 	margin-right:0px;
 }
-#maincontent .wdnVideo_controls .progress .volume  {
+#maincontent .wdnVideo_controls .progress .volume, #colorbox .wdnVideo_controls .progress .volume  {
     padding:0;
     margin: 2px 5px 0 0;	
 }
