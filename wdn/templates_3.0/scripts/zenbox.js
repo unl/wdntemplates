@@ -16,6 +16,7 @@ WDN.zenbox = function() {
 					});
 				return false;
 			});
+			WDN.jQuery('.zenbox.showHide.autoHide a.showHide').click();
 		}
 	};
 }();
