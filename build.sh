@@ -8,3 +8,4 @@ zip -r affiliatepsds.zip designfiles/affiliate -x "*/.svn/*"
 echo "Done building the affiliatepsds.zip file."
 
 php wdn/templates_3.0/build/compress.php
+php wdn/templates_3.0/build/compress_mobile.php
