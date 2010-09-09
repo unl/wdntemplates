@@ -56,7 +56,7 @@ WDN.videoPlayer = function() {
 			}
 			WDN.log('requiresFallback (video): '+requiresFallback);
 			if (requiresFallback){
-				WDN.videoPlayer.createFallback(video);
+				WDN.videoPlayer.createFallback.setupJWPlayer(video);
 			} else {
 				if (!is_ipad && !is_iphone){
 					WDN.loadCSS('/wdn/templates_3.0/css/content/videoPlayer.css');
@@ -66,47 +66,91 @@ WDN.videoPlayer = function() {
 			}
 		},
 		
-		createFallback : function(video) { //call the flash player option
-			WDN.loadJS('/wdn/templates_3.0/scripts/plugins/swfobject/jquery.swfobject.1-1-1.min.js', function(){
-				var src = video.src || WDN.jQuery('video').eq(i).attr('src') || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery('source').eq(0).attr('src') || "" ;
-				src = WDN.toAbs(src, window.location.toString());
-				var poster = video.poster || "";
-				var width = video.width || WDN.jQuery(video).width();
-				var height = video.height || WDN.jQuery(video).height();
-				var autostart = 'false'; //default to false
-				if (video.autoplay || WDN.jQuery('video').eq(i).attr('autoplay')) {
-					autostart = 'true';
+		createFallback : function() { //call the flash player option
+			var jwVideoHasBeenPlayed = false;
+			var jwVideo;
+			var currentPosition;
+			var currentDuration;
+			
+			return {
+				
+				setupJWPlayer : function(video) {
+					WDN.loadJS('/wdn/templates_3.0/scripts/plugins/swfobject/jquery.swfobject.1-1-1.min.js', function(){
+						src = video.src || WDN.jQuery('video').eq(i).attr('src') || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery('source').eq(0).attr('src') || "" ;
+						src = WDN.toAbs(src, window.location.toString());
+						var poster = video.poster || "";
+						var width = video.width || WDN.jQuery(video).width();
+						var height = video.height || WDN.jQuery(video).height();
+						var autostart = 'false'; //default to false
+						if (video.autoplay || WDN.jQuery('video').eq(i).attr('autoplay')) {
+							autostart = 'true';
+						}
+						WDN.jQuery(video).wrap("<div id='wdnVideo_"+i+"' />");
+						
+						//Fallback for flash
+						WDN.jQuery('#wdnVideo_'+i).prepend('<p>To view this video you should download <a href="http://get.adobe.com/flashplayer/">Adobe Flash Player</a> or use a browser that supports H264/WebM video. You may also download the <a href="' + src + '">video</a></p>');
+						
+						WDN.jQuery('#wdnVideo_'+i).flash({     
+							swf: '/wdn/templates_3.0/includes/swf/player4.3.swf',   
+							allowfullscreen: 'true',
+							allowscriptaccess: 'always',
+							flashvars: {   
+								'file': src,   
+								'image': poster,   
+								'skin': '/wdn/templates_3.0/includes/swf/UNLVideoSkin.swf',   
+								'autostart': autostart,
+								'controlbar': 'over'
+							},
+							height: height,
+							width: width,
+							id: 'jwPlayer_'+i,
+							name: 'jwPlayer_'+i
+						});
+						WDN.jQuery(video).remove();
+						i++;
+					});
+				},
+				
+				addJWListeners : function(video) {
+					jwVideo = video;
+					WDN.log('listeners added to '+jwVideo);
+					jwVideo.addModelListener('TIME', 'WDN.videoPlayer.createFallback.timeListener');
+					jwVideo.addModelListener('STATE', "WDN.videoPlayer.createFallback.onStateChange");
+					jwVideo.addControllerListener('RESIZE',"WDN.videoPlayer.createFallback.onFullscreen");
+					WDN.jQuery(window).bind({
+						'unload': WDN.videoPlayer.createFallback.onClose
+					});
+					
+				},
+
+				timeListener : function(obj) {
+					currentPosition = obj.position;
+					currentDuration = obj.duration;
+				},
+				
+				onStateChange : function(event) {
+					if (!jwVideoHasBeenPlayed && event.newstate == 'PLAYING') {
+						jwVideoHasBeenPlayed = true;
+						WDN.analytics.callTrackEvent('Video', 'Not HTML5', src);
+						WDN.analytics.callTrackEvent('Video', 'Play', src);
+					}
+					if (event.newstate == 'COMPLETED') {
+						WDN.analytics.callTrackEvent('Video', 'Completed', src, currentDuration);
+					}
+				},
+				
+				onFullscreen : function(event) {
+					if (event.fullscreen == true){
+						WDN.analytics.callTrackEvent('Video', 'Fullscreen', src);
+					}
+				},
+				
+				onClose : function(event) {
+					WDN.analytics.callTrackEvent('Video', 'Stopped', src, currentPosition);
 				}
-				WDN.jQuery(video).wrap("<div id='wdnVideo_"+i+"' />");
-				
-				//Fallback for flash
-				WDN.jQuery('#wdnVideo_'+i).prepend('<p>To view this video you should download <a href="http://get.adobe.com/flashplayer/">Adobe Flash Player</a> or use a browser that supports H264/WebM video. You may also download the <a href="' + src + '">video</a></p>');
-				
-				WDN.jQuery('#wdnVideo_'+i).flash({     
-					swf: '/wdn/templates_3.0/includes/swf/player4.3.swf',   
-					allowfullscreen: 'true',
-					allowscriptaccess: 'always',
-					flashvars: {   
-						'file': src,   
-						'image': poster,   
-						'skin': '/wdn/templates_3.0/includes/swf/UNLVideoSkin.swf',   
-						'autostart': autostart,
-						'controlbar': 'over'
-					},
-					height: height,
-					width: width,
-					id: 'jwPlayer_'+i,
-					name: 'jwPlayer_'+i
-				});
-				WDN.jQuery(video).remove();
-				i++;
-				
-				//track that we aren't playing an HTML5 video
-				if (WDN.analytics) {
-					//WDN.analytics.callTrackEvent('Video', 'Not HTML5', src);
-				}
-			});
-		},
+			};
+		}(),
+		
 		
 		setupControls : function(){
 			return {
@@ -323,7 +367,7 @@ WDN.videoPlayer = function() {
 				onError : function(event) { // See: http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#error-codes
 					video = event.target;
 					WDN.log("Rats, after all of this and we get an error playing the video.");
-					WDN.videoPlayer.createFallback(video); // fallback to the Flash option
+					WDN.videoPlayer.createFallback.setupJWPlayer(video); // fallback to the Flash option
 				},
 				
 				trackPlayProgress : function(video) {
