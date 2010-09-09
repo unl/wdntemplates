@@ -31,10 +31,10 @@ foreach ($files as $file) {
     $filename = dirname(__FILE__)."/../scripts/$file.js";
     $all .= file_get_contents($filename).PHP_EOL;
     if ($file == 'wdn') {
-        $all .= 'WDN.jQuery = jQuery.noConflict(true);WDN.loadedJS["wdn/templates_3.0/scripts/jquery.js"]=true;WDN.template_path = "/";'.PHP_EOL;
+        $all .= 'WDN.jQuery = jQuery.noConflict(true);WDN.loadedJS["/wdn/templates_3.0/scripts/jquery.js"]=1;WDN.template_path = "/";'.PHP_EOL;
     }
     if ($file !== 'jquery'){
-        $all .= 'WDN.loadedJS["wdn/templates_3.0/scripts/'.$file.'.js"]=true;'.PHP_EOL;
+        $all .= 'WDN.loadedJS["/wdn/templates_3.0/scripts/'.$file.'.js"]=1;'.PHP_EOL;
     }
 }
 

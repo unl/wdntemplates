@@ -6289,7 +6289,7 @@ var WDN = function() {
 					loadingJS[url].push(callback);
 				}
 				var executeCallback = function() {
-					WDN.loadedJS[url] = true;
+					WDN.loadedJS[url] = 1;
 					//debug statement removed
 					for (var i = 0; i < loadingJS[url].length; i++) {
 						loadingJS[url][i]();
@@ -6349,9 +6349,12 @@ var WDN = function() {
 				WDN.jQuery = jQuery.noConflict(true);
 			}
 			WDN.jQuery(document).ready(function() {
+				WDN.initializePlugin('analytics');
+				if (WDN.jQuery('body').hasClass('mobile')) {
+					return;
+				}
 				WDN.initializePlugin('navigation');
 				WDN.initializePlugin('search');
-				WDN.initializePlugin('analytics');
 				WDN.initializePlugin('feedback');
 				WDN.initializePlugin('socialmediashare');
 				WDN.contentAdjustments();
@@ -6644,8 +6647,8 @@ var WDN = function() {
 	};
 }();
 
-WDN.jQuery = jQuery.noConflict(true);WDN.loadedJS["wdn/templates_3.0/scripts/jquery.js"]=true;WDN.template_path = "/";
-WDN.loadedJS["wdn/templates_3.0/scripts/wdn.js"]=true;
+WDN.jQuery = jQuery.noConflict(true);WDN.loadedJS["/wdn/templates_3.0/scripts/jquery.js"]=1;WDN.template_path = "/";
+WDN.loadedJS["/wdn/templates_3.0/scripts/wdn.js"]=1;
 // What should be tracked in Google Analytics
 // 
 // 1. File downloads: .pdf, .doc., etc... put in the /downloads directory DONE
@@ -6675,7 +6678,7 @@ WDN.analytics = function() {
 			);
 			//debug statement removed
 			
-			WDN.loadJS('/wdn/templates_3.0/scripts/idm.js', function(){
+			WDN.loadJS('wdn/templates_3.0/scripts/idm.js', function(){
 				WDN.idm.initialize(function() {
 					WDN.analytics.loadGA();
 				});
@@ -6773,6 +6776,8 @@ WDN.analytics = function() {
 	};
 }();
 
-WDN.loadedJS["wdn/templates_3.0/scripts/analytics.js"]=true;
+WDN.loadedJS["/wdn/templates_3.0/scripts/analytics.js"]=1;
+WDN.loadedJS["/wdn/templates_3.0/scripts/xmlhttp.js"]=1;
+WDN.loadedJS["/wdn/templates_3.0/scripts/global_functions.js"]=1;
 
 WDN.initializeTemplate();
