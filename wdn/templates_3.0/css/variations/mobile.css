@@ -9,6 +9,10 @@ body.mobile #header:after {
     display:none;
 }
 
+body.mobile #header {
+    padding:12px;
+}
+
 body.mobile #logo {
     width:50px;
     background-image:none;
