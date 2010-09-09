@@ -27,7 +27,7 @@ WDN.analytics = function() {
 			);
 			WDN.log('all set up');
 			
-			WDN.loadJS('/wdn/templates_3.0/scripts/idm.js', function(){
+			WDN.loadJS('wdn/templates_3.0/scripts/idm.js', function(){
 				WDN.idm.initialize(function() {
 					WDN.analytics.loadGA();
 				});

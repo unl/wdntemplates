@@ -76,7 +76,7 @@ WDN.videoPlayer = function() {
 			return {
 				
 				setupJWPlayer : function(video) {
-					WDN.loadJS('/wdn/templates_3.0/scripts/plugins/swfobject/jquery.swfobject.1-1-1.min.js', function(){
+					WDN.loadJS('wdn/templates_3.0/scripts/plugins/swfobject/jquery.swfobject.1-1-1.min.js', function(){
 						src = video.src || WDN.jQuery('video').eq(i).attr('src') || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery('source').eq(0).attr('src') || "" ;
 						src = WDN.toAbs(src, window.location.toString());
 						var poster = video.poster || "";
