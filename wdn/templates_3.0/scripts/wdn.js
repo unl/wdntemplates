@@ -48,7 +48,7 @@ var WDN = function() {
 					loadingJS[url].push(callback);
 				}
 				var executeCallback = function() {
-					WDN.loadedJS[url] = true;
+					WDN.loadedJS[url] = 1;
 					WDN.log("finished loading JS file: " + url);
 					for (var i = 0; i < loadingJS[url].length; i++) {
 						loadingJS[url][i]();
@@ -108,9 +108,12 @@ var WDN = function() {
 				WDN.jQuery = jQuery.noConflict(true);
 			}
 			WDN.jQuery(document).ready(function() {
+				WDN.initializePlugin('analytics');
+				if (WDN.jQuery('body').hasClass('mobile')) {
+					return;
+				}
 				WDN.initializePlugin('navigation');
 				WDN.initializePlugin('search');
-				WDN.initializePlugin('analytics');
 				WDN.initializePlugin('feedback');
 				WDN.initializePlugin('socialmediashare');
 				WDN.contentAdjustments();
