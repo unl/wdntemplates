@@ -12,6 +12,7 @@ WDN.videoPlayer = function() {
 	var agent = navigator.userAgent.toLowerCase();
     var is_iphone = (agent.indexOf('iphone')!='-1');
     var is_ipad = (agent.indexOf('ipad')!='-1');
+    var requiresFallback = true;
     
 	return {
 		
@@ -44,12 +45,12 @@ WDN.videoPlayer = function() {
 		},
 		
 		html5Video : function(video) {
-			var requiresFallback = true;
 			if (WDN.videoPlayer.supportsVideo()){
 				if (WDN.videoPlayer.supportsH264() || WDN.videoPlayer.supportsWebM()){ //can we support H264 or WebM?
 					src = video.src || WDN.jQuery(video).children('source').attr('src') || "";
 					if(src){ //make sure we have a source
 						requiresFallback = false;
+						
 					}
 				}
 				
@@ -151,6 +152,9 @@ WDN.videoPlayer = function() {
 			};
 		}(),
 		
+		detectVideoType : function(){
+			return requiresFallback;
+		},
 		
 		setupControls : function(){
 			return {
@@ -367,6 +371,7 @@ WDN.videoPlayer = function() {
 				onError : function(event) { // See: http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#error-codes
 					video = event.target;
 					WDN.log("Rats, after all of this and we get an error playing the video.");
+					WDN.jQuery(video).siblings('.wdnVideo_controls').remove();
 					WDN.videoPlayer.createFallback.setupJWPlayer(video); // fallback to the Flash option
 				},
 				
