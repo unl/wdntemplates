@@ -7507,7 +7507,7 @@ WDN.analytics = function() {
 		initialize : function() {
 
 			_gaq.push(
-				['_setAccount', 'UA-9809462-1'],
+				['_setAccount', 'UA-3203435-1'],
 				['_setDomainName', '.unl.edu'],
 				['_setAllowLinker', true],
 				['_setAllowHash', false]
@@ -7585,8 +7585,7 @@ WDN.analytics = function() {
 				//debug statement removed
 				return;
 			}
-			wdnTracker._trackPageview(thePage); //First, track in the wdn analytics
-			_gaq.push(['_trackPageview', thePage]);
+			_gaq.push(['_trackPageview', thePage]); //First, track in the wdn analytics
 			//debug statement removed
 			try {
 				pageTracker._trackPageview(thePage); // Second, track in local site analytics 
@@ -7600,8 +7599,7 @@ WDN.analytics = function() {
 				value = 0;
 			}
 			//var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
-			var wdnSuccess = _gaq.push(['_trackEvent', category, action, label, value]);
-			//debug statement removed
+			_gaq.push(['_trackEvent', category, action, label, value]);
 			try { 
 				var pageSuccess = pageTracker._trackEvent(category, action, label, value);
 				//debug statement removed
