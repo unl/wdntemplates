@@ -50,6 +50,8 @@ body.mobile #titlegraphic {
     padding-bottom:20px;
     font-size:0.8em;
     background:url('images/shad_pop.gif') repeat-x;
+    width:100%;
+    max-width:300px;
 }
 
 body.mobile #titlegraphic h2 {

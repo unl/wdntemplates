@@ -31,6 +31,13 @@
     <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
     </div>
+    <div id="wdn_navigation_bar">
+        <div id="wdn_navigation_wrapper">
+            <div id="navigation"><!-- TemplateBeginEditable name="navlinks" -->
+                <!-- TemplateEndEditable -->
+			</div>
+        </div>
+    </div>
     <div id="wdn_content_wrapper">
         <div id="titlegraphic"><!-- TemplateBeginEditable name="titlegraphic" -->
             <h1>Department</h1>
