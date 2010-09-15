@@ -26,7 +26,11 @@ var WDN = function() {
 		 */
 		
 		loadJS : function(url,callback,checkLoaded,callbackIfLoaded) {
-			if (url.match(/^wdn\/templates_3\.0/)) {
+			if (url.match(/^\/?wdn\/templates_3\.0/)) {
+				// trim off the leading slash
+				if (url.charAt(0) == '/') {
+					url = url.substring(1);
+				}
 				url = WDN.template_path+url;
 			}
 			
