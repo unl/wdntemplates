@@ -34,6 +34,7 @@ WDN.feedback = function() {
 						'http://www1.unl.edu/comments/', 
 						{comment:comments},
 						function () {
+							WDN.analytics.callTrackEvent('Page Comment', 'Sent', window.location);
 						}
 					);
 					WDN.jQuery('#wdn_feedback_comments').replaceWith('<h4>Thanks!</h4>');
