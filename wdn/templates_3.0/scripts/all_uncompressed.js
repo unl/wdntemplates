@@ -6267,7 +6267,11 @@ var WDN = function() {
 		 */
 		
 		loadJS : function(url,callback,checkLoaded,callbackIfLoaded) {
-			if (url.match(/^wdn\/templates_3\.0/)) {
+			if (url.match(/^\/?wdn\/templates_3\.0/)) {
+				// trim off the leading slash
+				if (url.charAt(0) == '/') {
+					url = url.substring(1);
+				}
 				url = WDN.template_path+url;
 			}
 			
@@ -10512,6 +10516,9 @@ WDN.idm = function() {
 				if (WDN.jQuery('link[rel=login]').length) {
 					WDN.idm.setLoginURL(WDN.jQuery('link[rel=login]').attr('href'));
 				}
+				if (callback) {
+					callback();
+				}
 			}
 		},
 		
@@ -10741,6 +10748,7 @@ WDN.feedback = function() {
 						'http://www1.unl.edu/comments/', 
 						{comment:comments},
 						function () {
+							WDN.analytics.callTrackEvent('Page Comment', 'Sent', window.location);
 						}
 					);
 					WDN.jQuery('#wdn_feedback_comments').replaceWith('<h4>Thanks!</h4>');

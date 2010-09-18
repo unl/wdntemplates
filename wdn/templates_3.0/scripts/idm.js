@@ -49,6 +49,9 @@ WDN.idm = function() {
 				if (WDN.jQuery('link[rel=login]').length) {
 					WDN.idm.setLoginURL(WDN.jQuery('link[rel=login]').attr('href'));
 				}
+				if (callback) {
+					callback();
+				}
 			}
 		},
 		
