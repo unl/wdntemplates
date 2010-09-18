@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="wdn/templates_3.0/scripts/all.js|wdn/templates_3.0/scripts/all_uncompressed.js|wdn/templates_3.0/scripts/mobile.js|wdn/templates_3.0/scripts/mobile_uncompressed.js" kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
