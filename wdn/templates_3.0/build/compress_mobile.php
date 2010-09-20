@@ -22,6 +22,7 @@ $files = array(
 //'socialmediashare',
 //'unlalert',
 //'global_functions',
+'plugins/lazyload/jquery.lazyload'
 );
 
 $all = '';
