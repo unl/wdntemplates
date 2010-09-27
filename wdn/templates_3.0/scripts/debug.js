@@ -22,9 +22,12 @@ if (window.ActiveXObject) {
 	e.setAttribute('type','text/javascript');
 	document.getElementsByTagName('head').item(0).appendChild(e);
 
-
+	var callbackCalled = false;
 	var executeCallback = function() {
-	    WDN.initializeTemplate();
+		if (!callbackCalled) {
+			WDN.initializeTemplate();
+		}
+	    calbackCalled = true;
 	};
 
 	e.onreadystatechange = function() {
