@@ -1,7 +1,7 @@
 <?php
 // Set up the list of all the javascript files
 $files = array(
-'jquery',
+//'jquery',
 'wdn',
 //'xmlhttp',
 //'navigation',
@@ -22,7 +22,7 @@ $files = array(
 //'socialmediashare',
 //'unlalert',
 //'global_functions',
-'plugins/lazyload/jquery.lazyload'
+//'plugins/lazyload/jquery.lazyload'
 );
 
 $all = '';
@@ -32,9 +32,9 @@ foreach ($files as $file) {
     $filename = dirname(__FILE__)."/../scripts/$file.js";
     $all .= file_get_contents($filename).PHP_EOL;
     if ($file == 'wdn') {
-        $all .= 'WDN.jQuery = jQuery.noConflict(true);WDN.loadedJS["/wdn/templates_3.0/scripts/jquery.js"]=1;WDN.template_path = "/";'.PHP_EOL;
+        $all .= 'WDN.template_path = "/";'.PHP_EOL;
     }
-    if ($file !== 'jquery'){
+	if ($file !== 'jquery'){
         $all .= 'WDN.loadedJS["/wdn/templates_3.0/scripts/'.$file.'.js"]=1;'.PHP_EOL;
     }
 }
