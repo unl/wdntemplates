@@ -53,11 +53,13 @@ var WDN = function() {
 				}
 				var executeCallback = function() {
 					WDN.loadedJS[url] = 1;
-					WDN.log("finished loading JS file: " + url);
-					for (var i = 0; i < loadingJS[url].length; i++) {
-						loadingJS[url][i]();
+					if (loadingJS[url]) {
+						WDN.log("finished loading JS file: " + url);
+						for (var i = 0; i < loadingJS[url].length; i++) {
+							loadingJS[url][i]();
+						}
+						delete loadingJS[url];
 					}
-					delete loadingJS[url];
 				};
 				
 				e.onreadystatechange = function() {
