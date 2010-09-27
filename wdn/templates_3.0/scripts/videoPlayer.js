@@ -50,6 +50,12 @@ WDN.videoPlayer = function() {
 		},
 		
 		html5Video : function(video) {
+			if (WDN.jQuery(video).data('wdnVideo')) {
+				return;
+			} else {
+				WDN.jQuery(video).data('wdnVideo', true);
+			}
+			
 			if (WDN.videoPlayer.supportsVideo()){
 				if (WDN.videoPlayer.supportsH264() || WDN.videoPlayer.supportsWebM()){ //can we support H264 or WebM?
 					src = video.src || WDN.jQuery(video).children('source').attr('src') || "";
@@ -192,8 +198,8 @@ WDN.videoPlayer = function() {
 					  '</div>',
 				
 				positionControls : function(video) { //place the controls relative and over the video
-					progressWidth = video.width - 110;
-					progressBarWidth = progressWidth - 110;
+					progressWidth = WDN.jQuery(video).width() - 110;
+					progressBarWidth = progressWidth - 77 - WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.time').outerWidth(true);
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').css('width', progressWidth+'px').children('.progressBar').css('width', progressBarWidth+'px');
 				}
 			};
@@ -248,18 +254,12 @@ WDN.videoPlayer = function() {
 					});
 					//fullscreen controls
 					var videoIsFullScreen = false;
-					var originalWidth = video.width;
-					var originalHeight = video.height;
-					var originalZIndex = WDN.jQuery(video).css('z-index');
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.fullscreen').click(function(){
 						if (!videoIsFullScreen) {
 							WDN.videoPlayer.eventControls.fullScreenOn(video);
 							videoIsFullScreen = true;
-							hideControls = setTimeout(function() {
-								WDN.videoPlayer.eventControls.hideControls(video);
-							}, 600);
 						} else {
-							WDN.videoPlayer.eventControls.fullScreenOff(video, originalWidth, originalHeight, originalZIndex);
+							WDN.videoPlayer.eventControls.fullScreenOff(video);
 							videoIsFullScreen = false;
 						}
 					});
@@ -414,28 +414,29 @@ WDN.videoPlayer = function() {
 				},
 				
 				fullScreenOn : function(video) {
-					video.height = window.innerHeight;
-					video.width = window.innerWidth;
-					WDN.jQuery(video).css({'width' : window.innerWidth + "px", 'height' : window.innerHeight + "px", 'position' : 'fixed', 'left' : '0', 'top' : '0', 'z-index' : '99999' });
-					WDN.jQuery(video).siblings('.wdnVideo_controls').css({'z-index' : '999999', 'position' : 'fixed' });
+					WDN.jQuery(video).addClass('fullscreen');
+					WDN.videoPlayer.setupControls.positionControls(video);
+					WDN.jQuery(video).siblings('.wdnVideo_controls').hide();
 					WDN.jQuery('body').append("<div id='videoBlackout'></div>");
+					WDN.jQuery('body').css({'overflow':'hidden'});
 					WDN.jQuery(document).bind('keyup.wdnvideoFS', function(e) {
 						if (e.keyCode == 27) {
 							e.preventDefault();
 							WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.fullscreen').click();
 						}
 					});
+					WDN.videoPlayer.eventControls.showControls(video);
 					WDN.analytics.callTrackEvent('Video', 'Fullscreen', video.src || WDN.jQuery(video).children('source').attr());
 				},
 				
-				fullScreenOff : function(video, originalWidth, originalHeight, originalZIndex) {
-					video.height = originalHeight;
-					video.width = originalWidth;
-					WDN.jQuery(video).removeAttr('style');
-					WDN.jQuery(video).css({'width' : originalWidth + "px", 'height' : originalHeight + "px", 'position' : 'relative', 'left' : '0', 'top' : '0', 'z-index' : originalZIndex });
-					WDN.jQuery(video).siblings('.wdnVideo_controls').css({'z-index' : originalZIndex, 'position' : 'relative' });
+				fullScreenOff : function(video) {
+					WDN.jQuery(video).removeClass('fullscreen');
+					WDN.videoPlayer.setupControls.positionControls(video);
+					WDN.jQuery(video).siblings('.wdnVideo_controls').hide();
 					WDN.jQuery('#videoBlackout').remove();
+					WDN.jQuery('body').css({'overflow':'visible'});
 					WDN.jQuery(document).unbind('.wdnvideoFS');
+					WDN.videoPlayer.eventControls.showControls(video);
 				},
 				
 				showControls: function(video) {
