@@ -100,7 +100,7 @@ var WDN = function() {
 			WDN.loadCSS('wdn/templates_3.0/css/script.css');
 			WDN.loadJS('wdn/templates_3.0/scripts/xmlhttp.js');
 			WDN.loadJS('wdn/templates_3.0/scripts/global_functions.js');
-			//WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', WDN.jQueryUsage);
+			WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', WDN.jQueryUsage);
 		},
 		
 		/**
