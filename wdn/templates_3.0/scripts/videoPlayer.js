@@ -425,6 +425,9 @@ WDN.videoPlayer = function() {
 							WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.fullscreen').click();
 						}
 					});
+					WDN.jQuery(window).bind('resize.wdnvideoFS', function(e) {
+						WDN.videoPlayer.setupControls.positionControls(video);
+					});
 					WDN.videoPlayer.eventControls.showControls(video);
 					WDN.analytics.callTrackEvent('Video', 'Fullscreen', video.src || WDN.jQuery(video).children('source').attr());
 				},
@@ -436,6 +439,7 @@ WDN.videoPlayer = function() {
 					WDN.jQuery('#videoBlackout').remove();
 					WDN.jQuery('body').css({'overflow':'visible'});
 					WDN.jQuery(document).unbind('.wdnvideoFS');
+					WDN.jQuery(window).unbind('.wdnvideoFS');
 					WDN.videoPlayer.eventControls.showControls(video);
 				},
 				
