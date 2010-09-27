@@ -6,6 +6,11 @@
  * 3. if HTML5, use custom video controls
  * 
  */
+function playerReady(thePlayer) {
+    //start the player and JS API
+    WDN.videoPlayer.createFallback.addJWListeners(document.getElementById(thePlayer.id));
+}
+
 WDN.videoPlayer = function() {
 	var i = 0;
 	var src = '';
@@ -91,22 +96,24 @@ WDN.videoPlayer = function() {
 						//Fallback for flash
 						WDN.jQuery('#wdnVideo_'+i).prepend('<p>To view this video you should download <a href="http://get.adobe.com/flashplayer/">Adobe Flash Player</a> or use a browser that supports H264/WebM video. You may also download the <a href="' + src + '">video</a></p>');
 						
-						WDN.jQuery('#wdnVideo_'+i).flash({     
-							swf: '/wdn/templates_3.0/includes/swf/player4.3.swf',   
-							allowfullscreen: 'true',
-							allowscriptaccess: 'always',
-							flashvars: {   
-								'file': src,   
-								'image': poster,   
-								'skin': '/wdn/templates_3.0/includes/swf/UNLVideoSkin.swf',   
-								'autostart': autostart,
-								'controlbar': 'over'
-							},
-							height: height,
-							width: width,
-							id: 'jwPlayer_'+i,
-							name: 'jwPlayer_'+i
-						});
+						WDN.jQuery('#wdnVideo_'+i).flash(
+							{     
+								swf: '/wdn/templates_3.0/includes/swf/player4.3.swf',   
+								allowfullscreen: 'true',
+								allowscriptaccess: 'always',
+								flashvars: {   
+									'file': src,   
+									'image': poster,   
+									'skin': '/wdn/templates_3.0/includes/swf/UNLVideoSkin.swf',   
+									'autostart': autostart,
+									'controlbar': 'over'
+								},
+								height: height,
+								width: width,
+								id: 'jwPlayer_'+i,
+								name: 'jwPlayer_'+i
+							}
+						);
 						WDN.jQuery(video).remove();
 						i++;
 					});
@@ -114,13 +121,13 @@ WDN.videoPlayer = function() {
 				
 				addJWListeners : function(video) {
 					jwVideo = video;
-					WDN.log('listeners added to '+jwVideo);
 					jwVideo.addModelListener('TIME', 'WDN.videoPlayer.createFallback.timeListener');
 					jwVideo.addModelListener('STATE', "WDN.videoPlayer.createFallback.onStateChange");
 					jwVideo.addControllerListener('RESIZE',"WDN.videoPlayer.createFallback.onFullscreen");
 					WDN.jQuery(window).bind({
 						'unload': WDN.videoPlayer.createFallback.onClose
 					});
+					WDN.log('listeners added to '+jwVideo);
 					
 				},
 
