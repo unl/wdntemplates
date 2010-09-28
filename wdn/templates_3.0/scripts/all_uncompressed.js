@@ -6294,11 +6294,13 @@ var WDN = function() {
 				}
 				var executeCallback = function() {
 					WDN.loadedJS[url] = 1;
-					//debug statement removed
-					for (var i = 0; i < loadingJS[url].length; i++) {
-						loadingJS[url][i]();
+					if (loadingJS[url]) {
+						//debug statement removed
+						for (var i = 0; i < loadingJS[url].length; i++) {
+							loadingJS[url][i]();
+						}
+						delete loadingJS[url];
 					}
-					delete loadingJS[url];
 				};
 				
 				e.onreadystatechange = function() {
@@ -7509,14 +7511,12 @@ WDN.analytics = function() {
 		thisURL : String(window.location), //the current page the user is on.
 		rated : false, // whether the user has rated the current page.
 		initialize : function() {
-
 			_gaq.push(
 				['_setAccount', 'UA-3203435-1'],
 				['_setDomainName', '.unl.edu'],
 				['_setAllowLinker', true],
 				['_setAllowHash', false]
 			);
-			//debug statement removed
 			
 			WDN.loadJS('wdn/templates_3.0/scripts/idm.js', function(){
 				WDN.idm.initialize(function() {
@@ -7568,13 +7568,17 @@ WDN.analytics = function() {
 		
 		loadGA : function(){
 			_gaq.push(['_trackPageview']);
-			//debug statement removed
 			
 			(function(){
 				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				if (WDN.jQuery('body').hasClass('debug')) {
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/u/ga_debug.js';
+				} else {
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				}
 			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
+			WDN.analytics.setupHTML5tracking.intialize();
 		},
 		
 		trackNavigationPreferredState : function(preferredState) {
@@ -7586,7 +7590,6 @@ WDN.analytics = function() {
 			//debug statement removed
 			if (!thePage) {
 				_gaq.push(['_trackPageview']);
-				//debug statement removed
 				return;
 			}
 			_gaq.push(['_trackPageview', thePage]); //First, track in the wdn analytics
@@ -7610,7 +7613,74 @@ WDN.analytics = function() {
 			} catch(e) {
 				//debug statement removed
 			}
-		}
+		},
+		
+		setupHTML5tracking: function() {
+			
+			return {
+				intialize : function() {
+					WDN.loadJS(
+						'http://github.com/Modernizr/Modernizr/raw/master/modernizr.js', 
+						function(){
+							if (!window.Modernizr) {
+							    //debug statement removed
+							    return;
+							}
+							
+							WDN.analytics.setupHTML5tracking.checkCookie(Modernizr._version);
+						}
+					);	
+				},
+				
+				checkCookie : function(mdVersion){
+					var userAgent = navigator.userAgent.toLowerCase();//grab the broswer User Agent
+					uAgent = userAgent.replace(/;/g, ''); //strip out the ';' so as not to bork the cookie
+					var __html5 = WDN.getCookie('__html5'); //Previous UNL HTML5 test
+					
+					if (!__html5) { //We haven't run this test before, so let's do it.
+						//debug statement removed
+						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
+						return;
+					}
+					
+					var unlHTML5 = __html5.split('|+|');
+					//Let's check to see if either the browser or modernizr has changed since the last tracking
+					if ((uAgent != unlHTML5[0]) || (mdVersion != unlHTML5[1])){
+						//debug statement removed
+						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
+					} else { //we have a match and nothing has changed, so do nothing more.
+						//debug statement removed
+						return;
+					}
+				},
+				
+				setCookie : function(uAgent, mdVersion) {
+					var name = '__html5';
+					var value = uAgent +'|+|'+mdVersion; //combine gaVisitorID and Modernizr version
+					WDN.setCookie(name, value, 31556926); //set a cookie for one year
+					WDN.analytics.setupHTML5tracking.testBrowser();
+				},
+				
+				testBrowser : function(){
+					for (var prop in Modernizr) {
+						if (typeof Modernizr[prop] === 'function') continue;
+						if (prop == 'inputtypes' || prop == 'input') {
+							for (var field in Modernizr[prop]) {
+								if (Modernizr[prop][field]){
+									////debug statement removed
+									WDN.analytics.callTrackEvent('HTML5/CSS3 Support', prop + '-('+field+')', '');
+								}
+							}
+						} else {
+							if(Modernizr[prop]){
+								////debug statement removed
+								WDN.analytics.callTrackEvent('HTML5/CSS3 Support', prop, '');
+							}
+						}
+					}
+				}
+			};
+		}()
 	};
 }();
 
@@ -10748,7 +10818,7 @@ WDN.feedback = function() {
 						'http://www1.unl.edu/comments/', 
 						{comment:comments},
 						function () {
-							WDN.analytics.callTrackEvent('Page Comment', 'Sent', window.location);
+							//WDN.analytics.callTrackEvent('Page Comment', 'Sent', window.location);
 						}
 					);
 					WDN.jQuery('#wdn_feedback_comments').replaceWith('<h4>Thanks!</h4>');

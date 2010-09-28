@@ -12,7 +12,7 @@ $files = array(
 //'toolbar_peoplefinder',
 //'toolbar_webcams',
 //'tooltip',
-'analytics',
+'mobile_analytics',
 //'plugins/rating/jquery.rating',
 //'plugins/colorbox/jquery.colorbox',
 //'plugins/qtip/jquery.qtip',

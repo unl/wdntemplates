@@ -12,118 +12,110 @@
 // WDN.analytics.callTrackPageview('/downloads/'+href);
 //
 // Department variable 'pageTracker' is available to use in this file.
-
-WDN.analytics = function() { 
+analytics.initialize();
+analytics = function() { 
 	return {
-		thisURL : String(window.location), //the current page the user is on.
-		rated : false, // whether the user has rated the current page.
+		//thisURL : String(window.location), //the current page the user is on.
+		//rated : false, // whether the user has rated the current page.
 		initialize : function() {
-
 			_gaq.push(
 				['_setAccount', 'UA-3203435-1'],
 				['_setDomainName', '.unl.edu'],
 				['_setAllowLinker', true],
 				['_setAllowHash', false]
 			);
-			//debug statement removed
 			
-			WDN.loadJS('wdn/templates_3.0/scripts/idm.js', function(){
-				WDN.idm.initialize(function() {
-					WDN.analytics.loadGA();
-				});
-			});
-			
-			//debug statement removed
-				filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v)$/i; //these are the file extensions to track for downloaded content
-				WDN.jQuery('#navigation a[href], #maincontent a[href]').each(function(){  
-					var gahref = WDN.jQuery(this).attr('href');
-					if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
-						//WDN.jQuery(this).addClass('external'); //Implications for doing this?
-						WDN.jQuery(this).click(function() {
-							WDN.analytics.callTrackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
-						});
-					}  
-					else if (gahref.match(/^mailto\:/i)){  //deal with mailto: links
-						WDN.jQuery(this).click(function() {  
-							var mailLink = gahref.replace(/^mailto\:/i, '');  
-							WDN.analytics.callTrackEvent('Email', mailLink, WDN.analytics.thisURL);
-						});  
-					}  
-					else if (gahref.match(filetypes)){  //deal with file downloads
-						WDN.jQuery(this).click(function() { 
-							var extension = (/[.]/.exec(gahref)) ? /[^.]+$/.exec(gahref) : undefined;
-							WDN.analytics.callTrackEvent('File Download', gahref, WDN.analytics.thisURL); 
-							WDN.analytics.callTrackPageview(gahref);
-						});  
-					}  
-				}); 
-				WDN.jQuery('ul.socialmedia a').click(function(){ 
-					var socialMedia = WDN.jQuery(this).attr('id');
-					WDN.analytics.callTrackEvent('Page Sharing', socialMedia, WDN.analytics.thisURL);
-				});
-				WDN.jQuery('#wdn_tool_links a').click(function(){ 
-					var wdnToolLinks = WDN.jQuery(this).text();
-					WDN.analytics.callTrackEvent('WDN Tool Links', wdnToolLinks, WDN.analytics.thisURL);
-				});
-				WDN.jQuery('div.rating div.star a').click(function(){ 
-					if (!WDN.analytics.rated)
-					{
-						WDN.analytics.rated = true;
-						var value = WDN.jQuery(this).text();
-						WDN.analytics.callTrackEvent('Page Rating', 'Rated a '+value, WDN.analytics.thisURL, value);
-					}
-				});
+			analytics.loadGA();
 		},
 		
 		loadGA : function(){
 			_gaq.push(['_trackPageview']);
-			//debug statement removed
 			
 			(function(){
 				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
-		},
-		
-		trackNavigationPreferredState : function(preferredState) {
-			try {
-				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
-			} catch(e){}
-		},
-		callTrackPageview: function(thePage){
-			//debug statement removed
-			if (!thePage) {
-				_gaq.push(['_trackPageview']);
-				//debug statement removed
-				return;
-			}
-			_gaq.push(['_trackPageview', thePage]); //First, track in the wdn analytics
-			//debug statement removed
-			try {
-				pageTracker._trackPageview(thePage); // Second, track in local site analytics 
-				//debug statement removed
-			} catch(e) {
-				//debug statement removed 
-			}
-		},
+			//analytics.setupHTML5tracking.intialize(); In it's current setup, there is too much reliance on WDN. We either need to bring in WDN to mobile or rework all of below for mobile.
+		}/*,
 		callTrackEvent: function(category, action, label, value) {
 			if (value === undefined) {
 				value = 0;
 			}
 			//var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
 			_gaq.push(['_trackEvent', category, action, label, value]);
-			try { 
-				var pageSuccess = pageTracker._trackEvent(category, action, label, value);
-				//debug statement removed
-			} catch(e) {
-				//debug statement removed
-			}
-		}
+		},
+		
+		setupHTML5tracking: function() {
+			
+			return {
+				intialize : function() {
+					WDN.loadJS(
+						'http://github.com/Modernizr/Modernizr/raw/master/modernizr.js', 
+						function(){
+							if (!window.Modernizr) {
+							    //debug statement removed
+							    return;
+							}
+							
+							WDN.analytics.setupHTML5tracking.checkCookie(Modernizr._version);
+						}
+					);	
+				},
+				
+				checkCookie : function(mdVersion){
+					var userAgent = navigator.userAgent.toLowerCase();//grab the broswer User Agent
+					uAgent = userAgent.replace(/;/g, ''); //strip out the ';' so as not to bork the cookie
+					var __html5 = WDN.getCookie('__html5'); //Previous UNL HTML5 test
+					
+					if (!__html5) { //We haven't run this test before, so let's do it.
+						//debug statement removed
+						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
+						return;
+					}
+					
+					var unlHTML5 = __html5.split('|+|');
+					//Let's check to see if either the browser or modernizr has changed since the last tracking
+					if ((uAgent != unlHTML5[0]) || (mdVersion != unlHTML5[1])){
+						//debug statement removed
+						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
+					} else { //we have a match and nothing has changed, so do nothing more.
+						//debug statement removed
+						return;
+					}
+				},
+				
+				setCookie : function(uAgent, mdVersion) {
+					var name = '__html5';
+					var value = uAgent +'|+|'+mdVersion; //combine gaVisitorID and Modernizr version
+					WDN.setCookie(name, value, 31556926); //set a cookie for one year
+					WDN.analytics.setupHTML5tracking.testBrowser();
+				},
+				
+				testBrowser : function(){
+					for (var prop in Modernizr) {
+						if (typeof Modernizr[prop] === 'function') continue;
+						if (prop == 'inputtypes' || prop == 'input') {
+							for (var field in Modernizr[prop]) {
+								if (Modernizr[prop][field]){
+									////debug statement removed
+									WDN.analytics.callTrackEvent('HTML5/CSS3 Support', prop + '-('+field+')', '');
+								}
+							}
+						} else {
+							if(Modernizr[prop]){
+								////debug statement removed
+								WDN.analytics.callTrackEvent('HTML5/CSS3 Support', prop, '');
+							}
+						}
+					}
+				}
+			};
+		}()*/
 	};
 }();
 
-WDN.loadedJS["/wdn/templates_3.0/scripts/analytics.js"]=1;
+WDN.loadedJS["/wdn/templates_3.0/scripts/mobile_analytics.js"]=1;
 WDN.loadedJS["/wdn/templates_3.0/scripts/xmlhttp.js"]=1;
 WDN.loadedJS["/wdn/templates_3.0/scripts/global_functions.js"]=1;
 
