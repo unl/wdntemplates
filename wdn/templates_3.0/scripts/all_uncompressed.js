@@ -7578,7 +7578,7 @@ WDN.analytics = function() {
 				}
 			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
-			WDN.analytics.setupHTML5tracking.intialize();
+			//WDN.analytics.setupHTML5tracking.intialize();
 		},
 		
 		trackNavigationPreferredState : function(preferredState) {
@@ -7613,21 +7613,16 @@ WDN.analytics = function() {
 			} catch(e) {
 				//debug statement removed
 			}
-		},
+		}/*,
 		
 		setupHTML5tracking: function() {
 			
 			return {
 				intialize : function() {
 					WDN.loadJS(
-						'http://github.com/Modernizr/Modernizr/raw/master/modernizr.js', 
+						'wdn/templates_3.0/scripts/plugins/modernizr/modernizr_1.5.js', 
 						function(){
-							if (!window.Modernizr) {
-							    //debug statement removed
-							    return;
-							}
-							
-							WDN.analytics.setupHTML5tracking.checkCookie(Modernizr._version);
+							WDN.analytics.setupHTML5tracking.checkCookie(mondernizrVersion);
 						}
 					);	
 				},
@@ -7642,10 +7637,10 @@ WDN.analytics = function() {
 						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
 						return;
 					}
-					
-					var unlHTML5 = __html5.split('|+|');
+					//debug statement removed
+					//debug statement removed
 					//Let's check to see if either the browser or modernizr has changed since the last tracking
-					if ((uAgent != unlHTML5[0]) || (mdVersion != unlHTML5[1])){
+					if ((uAgent +'|+|'+mdVersion) != (__html5)){
 						//debug statement removed
 						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
 					} else { //we have a match and nothing has changed, so do nothing more.
@@ -7680,7 +7675,7 @@ WDN.analytics = function() {
 					}
 				}
 			};
-		}()
+		}()*/
 	};
 }();
 

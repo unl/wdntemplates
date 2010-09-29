@@ -85,7 +85,7 @@ WDN.analytics = function() {
 				}
 			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
-			WDN.analytics.setupHTML5tracking.intialize();
+			//WDN.analytics.setupHTML5tracking.intialize();
 		},
 		
 		trackNavigationPreferredState : function(preferredState) {
@@ -120,21 +120,16 @@ WDN.analytics = function() {
 			} catch(e) {
 				WDN.log("Event tracking for local site didn't work.");
 			}
-		},
+		}/*,
 		
 		setupHTML5tracking: function() {
 			
 			return {
 				intialize : function() {
 					WDN.loadJS(
-						'http://github.com/Modernizr/Modernizr/raw/master/modernizr.js', 
+						'wdn/templates_3.0/scripts/plugins/modernizr/modernizr_1.5.js', 
 						function(){
-							if (!window.Modernizr) {
-							    WDN.log('Modernizr object not created.');
-							    return;
-							}
-							
-							WDN.analytics.setupHTML5tracking.checkCookie(Modernizr._version);
+							WDN.analytics.setupHTML5tracking.checkCookie(mondernizrVersion);
 						}
 					);	
 				},
@@ -145,18 +140,18 @@ WDN.analytics = function() {
 					var __html5 = WDN.getCookie('__html5'); //Previous UNL HTML5 test
 					
 					if (!__html5) { //We haven't run this test before, so let's do it.
-						WDN.log('We have not run this test yet, let us track this browser!');
+						WDN.log('We have not run this test yet, let us track this client!');
 						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
 						return;
 					}
-					
-					var unlHTML5 = __html5.split('|+|');
+					WDN.log(uAgent +'|+|'+mdVersion);
+					WDN.log(__html5);
 					//Let's check to see if either the browser or modernizr has changed since the last tracking
-					if ((uAgent != unlHTML5[0]) || (mdVersion != unlHTML5[1])){
-						WDN.log('We don\'t have a match, let us track this browser!');
+					if ((uAgent +'|+|'+mdVersion) != (__html5)){
+						WDN.log('We don\'t have a match, let us track this client!');
 						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
 					} else { //we have a match and nothing has changed, so do nothing more.
-						WDN.log('Already have this browser tracked');
+						WDN.log('Already have this client tracked');
 						return;
 					}
 				},
@@ -187,6 +182,6 @@ WDN.analytics = function() {
 					}
 				}
 			};
-		}()
+		}()*/
 	};
 }();
