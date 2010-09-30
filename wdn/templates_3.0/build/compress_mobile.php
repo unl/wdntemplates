@@ -35,12 +35,12 @@ foreach ($files as $file) {
         $all .= 'WDN.template_path = "/";'.PHP_EOL;
     }
 	if ($file !== 'jquery'){
-        $all .= 'WDN.loadedJS["/wdn/templates_3.0/scripts/'.$file.'.js"]=1;'.PHP_EOL;
+        //$all .= 'WDN.loadedJS["/wdn/templates_3.0/scripts/'.$file.'.js"]=1;'.PHP_EOL;
     }
 }
-$all .= 'WDN.loadedJS["/wdn/templates_3.0/scripts/xmlhttp.js"]=1;'.PHP_EOL;
-$all .= 'WDN.loadedJS["/wdn/templates_3.0/scripts/global_functions.js"]=1;'.PHP_EOL;
-$all = $all.PHP_EOL.'WDN.initializeTemplate();';
+//$all .= 'WDN.loadedJS["/wdn/templates_3.0/scripts/xmlhttp.js"]=1;'.PHP_EOL;
+//$all .= 'WDN.loadedJS["/wdn/templates_3.0/scripts/global_functions.js"]=1;'.PHP_EOL;
+//$all = $all.PHP_EOL.'WDN.initializeTemplate();';
 // the next line will remove all WDN.log(...); statements
 $all = preg_replace('/WDN\.log\s*\(.+\);/','//debug statement removed',$all);
 
