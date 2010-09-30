@@ -12,7 +12,7 @@
 // WDN.analytics.callTrackPageview('/downloads/'+href);
 //
 // Department variable 'pageTracker' is available to use in this file.
-analytics.initialize();
+var _gaq = _gaq || [];
 analytics = function() { 
 	return {
 		//thisURL : String(window.location), //the current page the user is on.
@@ -114,3 +114,4 @@ analytics = function() {
 		}()*/
 	};
 }();
+analytics.initialize();

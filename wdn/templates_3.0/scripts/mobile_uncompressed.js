@@ -12,7 +12,7 @@
 // WDN.analytics.callTrackPageview('/downloads/'+href);
 //
 // Department variable 'pageTracker' is available to use in this file.
-analytics.initialize();
+var _gaq = _gaq || [];
 analytics = function() { 
 	return {
 		//thisURL : String(window.location), //the current page the user is on.
@@ -114,9 +114,4 @@ analytics = function() {
 		}()*/
 	};
 }();
-
-WDN.loadedJS["/wdn/templates_3.0/scripts/mobile_analytics.js"]=1;
-WDN.loadedJS["/wdn/templates_3.0/scripts/xmlhttp.js"]=1;
-WDN.loadedJS["/wdn/templates_3.0/scripts/global_functions.js"]=1;
-
-WDN.initializeTemplate();
+analytics.initialize();
