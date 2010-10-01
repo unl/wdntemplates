@@ -183,7 +183,10 @@ var WDN = function() {
 					WDN.jQuery(this).css({border:'1px solid #ededed',marginleft:'0'});
 				}
 				//set the caption to the same width as the image it goes with so that a long caption doesn't spill over
-				WDN.jQuery(this).width(WDN.jQuery(this).prev('img').width()); 
+				var imgWidth = WDN.jQuery(this).prev('img').width();
+				if (imgWidth) {
+					WDN.jQuery(this).width(imgWidth);
+				}
 			});
 			//remove the dotted line underneath images that are links
 			WDN.jQuery('#maincontent a img, #footer a img').each(function(j){
