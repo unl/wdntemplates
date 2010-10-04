@@ -19,10 +19,10 @@ WDN.analytics = function() {
 		rated : false, // whether the user has rated the current page.
 		initialize : function() {
 			_gaq.push(
-				['_setAccount', 'UA-3203435-1'],
-				['_setDomainName', '.unl.edu'],
-				['_setAllowLinker', true],
-				['_setAllowHash', false]
+				['wdn._setAccount', 'UA-3203435-1'],
+				['wdn._setDomainName', '.unl.edu'],
+				['wdn._setAllowLinker', true],
+				['wdn._setAllowHash', false]
 			);
 			
 			WDN.loadJS('wdn/templates_3.0/scripts/idm.js', function(){
@@ -74,7 +74,7 @@ WDN.analytics = function() {
 		},
 		
 		loadGA : function(){
-			_gaq.push(['_trackPageview']);
+			_gaq.push(['wdn._trackPageview']);
 			
 			(function(){
 				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -83,7 +83,7 @@ WDN.analytics = function() {
 				} else {
 					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 				}
-			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
 			//WDN.analytics.setupHTML5tracking.intialize();
 		},
@@ -96,13 +96,13 @@ WDN.analytics = function() {
 		callTrackPageview: function(thePage){
 			WDN.log('we can now track the page');
 			if (!thePage) {
-				_gaq.push(['_trackPageview']);
+				_gaq.push(['wdn._trackPageview']);
 				return;
 			}
-			_gaq.push(['_trackPageview', thePage]); //First, track in the wdn analytics
+			_gaq.push(['wdn._trackPageview', thePage]); //First, track in the wdn analytics
 			WDN.log("Pageview tracking for wdn worked!");
 			try {
-				pageTracker._trackPageview(thePage); // Second, track in local site analytics 
+				_gaq.push(['_trackPageview', thePage]); // Second, track in local site analytics 
 				WDN.log("Pageview tracking for local site worked!");
 			} catch(e) {
 				WDN.log("Pageview tracking for local site didn't work."); 
@@ -113,9 +113,9 @@ WDN.analytics = function() {
 				value = 0;
 			}
 			//var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
-			_gaq.push(['_trackEvent', category, action, label, value]);
+			_gaq.push(['wdn._trackEvent', category, action, label, value]);
 			try { 
-				var pageSuccess = pageTracker._trackEvent(category, action, label, value);
+				var pageSuccess = _gaq.push(['._trackEvent', category, action, label, value]);
 				WDN.log("Page Event tracking success? "+pageSuccess);
 			} catch(e) {
 				WDN.log("Event tracking for local site didn't work.");
