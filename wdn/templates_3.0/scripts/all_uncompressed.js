@@ -7506,24 +7506,28 @@ WDN.loadedJS["/wdn/templates_3.0/scripts/tooltip.js"]=1;
 // 6. Usage of the wdn_tools. Use event tracking DONE
 // 7. Tab content. Use event tracking? Set up a way for departments to take advantage of this tracking?
 // 
-// _trackEvent(category, action, optional_label, optional_value)
-// _trackPageview('/downloads/'+href);
+// WDN.analytics.callTrackEvent(category, action, optional_label, optional_value)
+// WDN.analytics.callTrackPageview('/downloads/'+href);
 //
 // Department variable 'pageTracker' is available to use in this file.
 
-WDN.analytics = function() {  
-	
+WDN.analytics = function() { 
 	return {
 		thisURL : String(window.location), //the current page the user is on.
 		rated : false, // whether the user has rated the current page.
 		initialize : function() {
-			try {
-				wdnTracker = _gat._getTracker("UA-3203435-1");
-				wdnTracker._setDomainName(".unl.edu");
-				wdnTracker._setAllowLinker(true);
-				wdnTracker._setAllowHash(false);	
-				WDN.initializePlugin('idm'); //we need to track primary affiliation before page is tracked			
-			} catch(err) {}
+			_gaq.push(
+				['wdn._setAccount', 'UA-3203435-1'],
+				['wdn._setDomainName', '.unl.edu'],
+				['wdn._setAllowLinker', true],
+				['wdn._setAllowHash', false]
+			);
+			
+			WDN.loadJS('wdn/templates_3.0/scripts/idm.js', function(){
+				WDN.idm.initialize(function() {
+					WDN.analytics.loadGA();
+				});
+			});
 			
 			//debug statement removed
 				filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v)$/i; //these are the file extensions to track for downloaded content
@@ -7566,26 +7570,37 @@ WDN.analytics = function() {
 					}
 				});
 		},
+		
+		loadGA : function(){
+			_gaq.push(['wdn._trackPageview']);
+			
+			(function(){
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				if (WDN.jQuery('body').hasClass('debug')) {
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/u/ga_debug.js';
+				} else {
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				}
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+			//WDN.analytics.setupHTML5tracking.intialize();
+		},
+		
 		trackNavigationPreferredState : function(preferredState) {
 			try {
 				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
 			} catch(e){}
 		},
-		trackPageView : function () { //used to set a customVar regarding affiliation role (faculty, staff, student, etc...)
-			//debug statement removed
-			
-			
-		},
 		callTrackPageview: function(thePage){
 			//debug statement removed
 			if (!thePage) {
-				wdnTracker._trackPageview();
+				_gaq.push(['wdn._trackPageview']);
 				return;
 			}
-			wdnTracker._trackPageview(thePage); //First, track in the wdn analytics
+			_gaq.push(['wdn._trackPageview', thePage]); //First, track in the wdn analytics
 			//debug statement removed
 			try {
-				pageTracker._trackPageview(thePage); // Second, track in local site analytics 
+				_gaq.push(['_trackPageview', thePage]); // Second, track in local site analytics 
 				//debug statement removed
 			} catch(e) {
 				//debug statement removed 
@@ -7595,15 +7610,77 @@ WDN.analytics = function() {
 			if (value === undefined) {
 				value = 0;
 			}
-			var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
-			//debug statement removed
+			//var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
+			_gaq.push(['wdn._trackEvent', category, action, label, value]);
 			try { 
-				var pageSuccess = pageTracker._trackEvent(category, action, label, value);
+				var pageSuccess = _gaq.push(['._trackEvent', category, action, label, value]);
 				//debug statement removed
 			} catch(e) {
 				//debug statement removed
 			}
-		}
+		}/*,
+		
+		setupHTML5tracking: function() {
+			
+			return {
+				intialize : function() {
+					WDN.loadJS(
+						'wdn/templates_3.0/scripts/plugins/modernizr/modernizr_1.5.js', 
+						function(){
+							WDN.analytics.setupHTML5tracking.checkCookie(mondernizrVersion);
+						}
+					);	
+				},
+				
+				checkCookie : function(mdVersion){
+					var userAgent = navigator.userAgent.toLowerCase();//grab the broswer User Agent
+					uAgent = userAgent.replace(/;/g, ''); //strip out the ';' so as not to bork the cookie
+					var __html5 = WDN.getCookie('__html5'); //Previous UNL HTML5 test
+					
+					if (!__html5) { //We haven't run this test before, so let's do it.
+						//debug statement removed
+						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
+						return;
+					}
+					//debug statement removed
+					//debug statement removed
+					//Let's check to see if either the browser or modernizr has changed since the last tracking
+					if ((uAgent +'|+|'+mdVersion) != (__html5)){
+						//debug statement removed
+						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
+					} else { //we have a match and nothing has changed, so do nothing more.
+						//debug statement removed
+						return;
+					}
+				},
+				
+				setCookie : function(uAgent, mdVersion) {
+					var name = '__html5';
+					var value = uAgent +'|+|'+mdVersion; //combine gaVisitorID and Modernizr version
+					WDN.setCookie(name, value, 31556926); //set a cookie for one year
+					WDN.analytics.setupHTML5tracking.testBrowser();
+				},
+				
+				testBrowser : function(){
+					for (var prop in Modernizr) {
+						if (typeof Modernizr[prop] === 'function') continue;
+						if (prop == 'inputtypes' || prop == 'input') {
+							for (var field in Modernizr[prop]) {
+								if (Modernizr[prop][field]){
+									////debug statement removed
+									WDN.analytics.callTrackEvent('HTML5/CSS3 Support', prop + '-('+field+')', '');
+								}
+							}
+						} else {
+							if(Modernizr[prop]){
+								////debug statement removed
+								WDN.analytics.callTrackEvent('HTML5/CSS3 Support', prop, '');
+							}
+						}
+					}
+				}
+			};
+		}()*/
 	};
 }();
 
@@ -10494,7 +10571,7 @@ WDN.idm = function() {
 					if (WDN.idm.getUserId()) {
 						if (WDN.idm.user.eduPersonPrimaryAffiliation[0] != undefined) {
 							//wdnTracker._setCustomVar(1, "Primary Affiliation", WDN.idm.user.eduPersonPrimaryAffiliation, 1);
-							_gaq.push(['_setCustomVar', 1, 'Primary Affiliation', WDN.idm.user.eduPersonPrimaryAffiliation[0], 1]);
+							_gaq.push(['wdn._setCustomVar', 1, 'Primary Affiliation', WDN.idm.user.eduPersonPrimaryAffiliation[0], 1]);
 							//debug statement removed
 							if (!callback) {
 								//do nothing
