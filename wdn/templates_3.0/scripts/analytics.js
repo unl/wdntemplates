@@ -115,7 +115,7 @@ WDN.analytics = function() {
 			//var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
 			_gaq.push(['wdn._trackEvent', category, action, label, value]);
 			try { 
-				var pageSuccess = _gaq.push(['._trackEvent', category, action, label, value]);
+				var pageSuccess = _gaq.push(['_trackEvent', category, action, label, value]);
 				WDN.log("Page Event tracking success? "+pageSuccess);
 			} catch(e) {
 				WDN.log("Event tracking for local site didn't work.");
