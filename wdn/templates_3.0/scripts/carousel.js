@@ -51,7 +51,9 @@ WDN.carousel = function() {
 			for (var i=startingObject; i<totalObjects; i++) { //loop through the objects starting with the random one
 				WDN.log('first loop: '+data[i].img);
 				WDN.jQuery("#wdn_Carousel ul").prepend('<li><img src="'+data[i].img+'" height="'+WDN.carousel.imageHeight()+'" width="'+WDN.carousel.imageWidth()+'" /><p>'+data[i].title +'<a href="'+data[i].link+'">'+data[i].linktext+'</a></p>');
-				if (i>=(startingObject + WDN.carousel.numberToDisplay - 2)){break};
+				if (i>=(startingObject + WDN.carousel.numberToDisplay - 2)) {
+					break;
+				}
 			}
 			if (remainingObjects > 0) { //now let's go back to the begining and grab more objects to fill in for the remaining spots.
 				for (var j=0; j<remainingObjects; j++) {
