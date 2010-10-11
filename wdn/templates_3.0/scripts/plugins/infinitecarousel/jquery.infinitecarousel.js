@@ -175,12 +175,14 @@
 					thumb = $('img:eq('+(i)+')', obj).attr('src');
 					var thumbDiv = $('<div class="thumb" id="thumb'+randID+'_'+(i+1)+'" />');
 					thumbDiv.hover(function(){
-						var activeOpacity = $('#thumbs'+randID+' div.thumb.active').css('opacity') || 1;
 						$(this).animate({'opacity':activeOpacity},150);
 					}, function(){
-						var inactiveOpacity = $('#thumbs'+randID+' div.thumb:not(.active)').css('opacity') || 0.65;
-						if ($.inArray(this.id.split('_')[1], viewable) >= 0) {
-							$(this).animate({'opacity':inactiveOpacity},250);
+						if ($.inArray(parseInt(this.id.split('_')[1]), viewable) < 0) {
+							$(this).animate({'opacity':inactiveOpacity},250, function() {
+								$(this).css('opacity', null);
+							});
+						} else {
+							$(this).css('opacity', null);
 						}
 					}).bind('click', thumbclick);
 					if (thumb && o.displayThumbnailBackground) {
@@ -191,6 +193,8 @@
 					}
 					$('#thumbs'+randID).append(thumbDiv);
 					if(i<=o.inView) $('#thumb'+randID+'_'+i).addClass('active');
+					var activeOpacity = $('#thumbs'+randID+' div.thumb.active').css('opacity') || 1;
+					var inactiveOpacity = $('#thumbs'+randID+' div.thumb:not(.active)').css('opacity') || 0.65;
 					unviewable.push(i+1);
 				}
 				// Initialize viewable/unviewable arrays
