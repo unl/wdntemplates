@@ -1,4 +1,8 @@
 WDN.tabs = function() {
+	var jq = function(id) {
+		return '#' + id.replace(/(:|\.)/g, '\\$1');
+	};
+	
 	return {
 		useHashChange : true,
 		
@@ -51,9 +55,13 @@ WDN.tabs = function() {
 			
 			// If we have some tabs setup the hash stuff
 			if (WDN.jQuery('ul.wdn_tabs:not(.disableSwitching)').length) {
-				var setupFirstHash = function(hash) { 
+				var isValidTabHash = function(hash) {
+					var validRE = /^[a-z][\w:\-\.]*$/i;
+					return validRE.test(hash);
+				};
+				var setupFirstHash = function(hash) {
 					if (hash) {
-						var ignoreTabs = WDN.jQuery('#' + hash).closest('.wdn_tabs_content').prev('ul.wdn_tabs');
+						var ignoreTabs = WDN.jQuery(jq(hash)).closest('.wdn_tabs_content').prev('ul.wdn_tabs');
 					} else {
 						var ignoreTabs = WDN.jQuery();
 					}
@@ -70,6 +78,9 @@ WDN.tabs = function() {
 						var innerTrig = WDN.jQuery(this);
 						var hash = (!ie7) ? innerTrig.attr('href') : innerTrig.get(0).getAttribute('href', 2);
 						hash = hash.replace('#', '');
+						if (!isValidTabHash(hash)) {
+							return;
+						}
 						WDN.tabs.updateInterface(innerTrig);
 						WDN.tabs.displayFromHash(hash);
 					});
@@ -81,11 +92,10 @@ WDN.tabs = function() {
 							var firstRun = true;
 							$(window).unbind('.wdn_tabs').bind('hashchange.wdn_tabs', function(e) {
 								var hash = location.hash.replace('#', '');
-								if (hash == '' && firstRun) {
-									setupFirstHash();
-									firstRun = false;
-									return true; //we simulated a hash event (allow others to consume);
-								} else if (hash != '' && $('.wdn_tabs_content #' + hash).length) {
+								if (hash && !isValidTabHash(hash)) {
+									return true;
+								}
+								if (hash != '' && $('.wdn_tabs_content ' + jq(hash)).length) {
 									WDN.tabs.displayFromHash(hash, firstRun || !hashFromTabClick);
 									if (firstRun) {
 										setupFirstHash(hash);
@@ -95,6 +105,10 @@ WDN.tabs = function() {
 										hashFromTabClick = false;
 									}
 									return false; //consume this hash event
+								} else if (firstRun) {
+									setupFirstHash();
+									firstRun = false;
+									return true; //we simulated a hash event (allow others to consume);
 								}
 							});
 							$(window).hashchange();
@@ -108,8 +122,10 @@ WDN.tabs = function() {
 				} else {
 					// No hashchange listener, so simulate first run
 					var hash = location.hash.replace('#', '');
-					if (hash && WDN.jQuery('.wdn_tabs_content #' + hash).length) {
-						WDN.tabs.displayFromHash(hash, true);
+					if (isValidTabHash(hash) && WDN.jQuery('.wdn_tabs_content ' + jq(hash)).length) {
+							WDN.tabs.displayFromHash(hash, true);
+					} else {
+						hash = '';
 					}
 					setupFirstHash(hash);
 				}
@@ -140,13 +156,13 @@ WDN.tabs = function() {
 		},
 		
 		displayFromHash: function(hash, forceUpdate) {
-			var sel = WDN.jQuery('#' + hash);
+			var sel = WDN.jQuery(jq(hash));
 			var tabContents = sel.closest('.wdn_tabs_content');
 			tabContents.children().hide();
 			sel.show();
 			
 			if (forceUpdate) {
-				var trig = WDN.jQuery('ul.wdn_tabs li a[href=#'+hash+']');
+				var trig = WDN.jQuery('ul.wdn_tabs li a[href='+jq(hash)+']');
 				if (trig.length) {
 					WDN.tabs.updateInterface(trig);
 				}
