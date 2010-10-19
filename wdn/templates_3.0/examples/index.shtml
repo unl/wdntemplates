@@ -25,7 +25,7 @@
 <!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <link rel="events" href="http://events.unl.edu/wellness/" title="Wellness" />
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/plugins/hashchange/jQuery.hashchange.1-2.min.js"></script>
+<script type="text/javascript" src="/wdn/templates_3.0/scripts/plugins/hashchange/jQuery.hashchange.1-3.min.js"></script>
 <!-- InstanceEndEditable -->
 </head>
 <body class="fixed">
@@ -71,9 +71,14 @@
                     WDN.tooltip.tooltipSetup();
                     WDN.tabs.initialize();
                 };
-
+                
+                var lastHash;
                 $(window).bind('hashchange' ,function(e) {
                     var url = location.hash.replace('#', '');
+                    if (!url.match(/\.html$/i) || url == lastHash) {
+                    	return true;
+                    }
+                    lastHash = url;
                     WDN.log("we have a hash: "+url);
 
                     if (url && !cache[url]) {
