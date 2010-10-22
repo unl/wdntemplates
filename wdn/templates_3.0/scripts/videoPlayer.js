@@ -83,6 +83,8 @@ WDN.videoPlayer = function() {
 			var jwVideo;
 			var currentPosition;
 			var currentDuration;
+			var currentWidth;
+			var currentHeight;
 			
 			return {
 				
