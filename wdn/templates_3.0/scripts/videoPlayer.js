@@ -133,6 +133,7 @@ WDN.videoPlayer = function() {
 					jwVideo = video;
 					jwVideo.addModelListener('TIME', 'WDN.videoPlayer.createFallback.timeListener');
 					jwVideo.addModelListener('STATE', "WDN.videoPlayer.createFallback.onStateChange");
+					jwVideo.addModelListener('META', "WDN.videoPlayer.createFallback.metaListener");
 					jwVideo.addControllerListener('RESIZE',"WDN.videoPlayer.createFallback.onFullscreen");
 					WDN.jQuery(window).bind({
 						'unload': WDN.videoPlayer.createFallback.onClose
@@ -165,6 +166,41 @@ WDN.videoPlayer = function() {
 				
 				onClose : function(event) {
 					WDN.analytics.callTrackEvent('Video', 'Stopped', src, currentPosition);
+				},
+				
+				metaListener : function(meta){
+					if (meta.width != undefined) {
+						currentWidth = meta.width;
+						currentHeight = meta.height;
+					}
+				},
+				
+				getCurrentInfo : function(type) {
+					switch(type)
+					{
+					case "width":
+						return currentWidth;
+						break;
+					case "height":
+						return currentHeight;
+						break;
+					case "position":
+						return currentPosition;
+						break;
+					case "duration":
+						return currentDuration;
+						break;
+					default :
+						return false;
+					}
+				},
+				
+				getCurrentPosition : function() {
+					return currentPosition;
+				},
+				
+				getCurrentDuration : function() {
+					return currentDuration;
 				}
 			};
 		}(),
