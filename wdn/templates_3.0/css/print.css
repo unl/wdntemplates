@@ -24,7 +24,7 @@ body, #header {width: auto !important;margin: 0 !important;padding: 0 !important
 #maincontent{border-top:1px solid #999;}
 
 
-.skipnav, #wdn_search, #wdn_tool_links, #wdn_navigation_bar, #footer .footer_col{display:none;}
+.skipnav, #wdn_identity_management, #wdn_search, #wdn_tool_links, #wdn_navigation_bar, #footer .footer_col{display:none;}
 #wdn_wrapper {border:none;}
 #wdn_content_wrapper{margin:0;}
 #header, #footer {background:none;}
