@@ -88,7 +88,7 @@
 				$('#textholder'+randID+'_'+i).append(html);
 				$('#minmax'+randID+'_'+i).hide();
 				$('#close'+randID+'_'+i).hide();
-				if(!o.autoHideCaptions) showtext($('li:eq('+i+') p', obj).html(),i);
+				if(!o.autoHideCaptions) showtext($('li:eq('+(i-1)+') p', obj).html(),i);
 			}
 			var textholderPadding = parseInt($('#textholder'+randID+'_1').css('padding-left')) + parseInt($('#textholder'+randID+'_1').css('padding-right'));
 			if (textholderPadding > 0) $('.textholder',obj).width(imgWidth-textholderPadding);
