@@ -3,6 +3,22 @@ WDN.tabs = function() {
 		return '#' + id.replace(/(:|\.)/g, '\\$1');
 	};
 	
+	var getHashFromLink = function(link) {
+		var uri = link.href.split('#');
+		
+		if (!uri[1]) {
+			return false;
+		}
+		
+		var currentPage = window.location.toString().split('#')[0];
+		
+		if (currentPage != uri[0]) {
+			return false;
+		}
+		
+		return uri[1];
+	};
+	
 	return {
 		useHashChange : true,
 		
@@ -29,15 +45,19 @@ WDN.tabs = function() {
 			var hashFromTabClick = false;
 			WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) a').click(function() { //do something when a tab is clicked
 				var trig = WDN.jQuery(this);
-				var href = (!ie7) ? trig.attr('href') : trig.get(0).getAttribute('href', 2);
+				var hash = getHashFromLink(this);
+				
+				if (!hash) {
+					return true;
+				}
 				
 				WDN.tabs.updateInterface(trig);
 				hashFromTabClick = true;
-				if (window.location.hash != href) {
-					window.location.hash = href;
+				if (window.location.hash != hash) {
+					window.location.hash = hash;
 				}
 				if (!WDN.tabs.useHashChange) {
-					WDN.tabs.displayFromHash(href.replace('#', ''));
+					WDN.tabs.displayFromHash(hash);
 				}
 				
 				return false;
@@ -76,9 +96,8 @@ WDN.tabs = function() {
 					
 					trig.each(function() {
 						var innerTrig = WDN.jQuery(this);
-						var hash = (!ie7) ? innerTrig.attr('href') : innerTrig.get(0).getAttribute('href', 2);
-						hash = hash.replace('#', '');
-						if (!isValidTabHash(hash)) {
+						var hash = getHashFromLink(this);
+						if (!hash || !isValidTabHash(hash)) {
 							return;
 						}
 						WDN.tabs.updateInterface(innerTrig);
@@ -162,9 +181,9 @@ WDN.tabs = function() {
 			sel.show();
 			
 			if (forceUpdate) {
-				var trig = WDN.jQuery('ul.wdn_tabs li a[href='+jq(hash)+']');
+				var trig = WDN.jQuery('ul.wdn_tabs li a[href$='+jq(hash)+']');
 				if (trig.length) {
-					WDN.tabs.updateInterface(trig);
+					WDN.tabs.updateInterface(trig.first());
 				}
 			}
 		}
