@@ -53,7 +53,7 @@ WDN.tabs = function() {
 				
 				WDN.tabs.updateInterface(trig);
 				hashFromTabClick = true;
-				if (window.location.hash != hash) {
+				if (window.location.hash.replace('#', '') != hash) {
 					window.location.hash = hash;
 				}
 				if (!WDN.tabs.useHashChange) {
