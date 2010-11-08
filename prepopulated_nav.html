@@ -1,0 +1,904 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <!--
+    Membership and regular participation in the UNL Web Developer Network
+    is required to use the UNL templates. Visit the WDN site at 
+    http://wdn.unl.edu/. Click the WDN Registry link to log in and
+    register your unl.edu site.
+    All UNL template code is the property of the UNL Web Developer Network.
+    The code seen in a source code view is not, and may not be used as, a 
+    template. You may not use this code, a reverse-engineered version of 
+    this code, or its associated visual presentation in whole or in part to
+    create a derivative work.
+    This message may not be removed from any pages based on the UNL site template.
+    
+    $Id: fixed.dwt 536 2009-07-23 15:47:30Z bbieber2 $
+-->
+    <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/forms.css" />
+
+    <script type="text/javascript" src="/wdn/templates_3.0/scripts/debug.js"></script>
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/ie.css" />
+<![endif]--><meta name="author" content="University of Nebraska-Lincoln | Web Developer Network" />
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta http-equiv="content-language" content="en" />
+<meta name="language" content="en" />
+<link rel="shortcut icon" href="/wdn/templates_3.0/images/favicon.ico" />
+    <!-- TemplateBeginEditable name="doctitle" -->
+    <title>UNL | A&amp;S | History | Intranet | Research Library</title>
+    <!-- TemplateEndEditable -->
+    <!-- TemplateBeginEditable name="head" -->
+    <!-- Place optional header elements here -->
+    <link rel="home" href="http://historytest.unl.edu/admin/researchlibrary/" />
+    <!-- TemplateEndEditable -->
+    <style type="text/css">
+        #maincontent table tr td {padding:4px;vertical-align:top;}
+        #maincontent table tr th {vertical-align:top;}
+    </style>
+    <script type="text/javascript" src="/includes/javascript/sortmodule.js"></script>
+</head>
+<body class="fixed">
+    <p class="skipnav">
+        <a class="skipnav" href="#maincontent">Skip Navigation</a>
+    </p>
+    <div id="wdn_wrapper">
+        <div id="header">
+            <a href="http://www.unl.edu/" title="UNL website">
+                <img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+            <h1>
+                University of Nebraska&ndash;Lincoln</h1>
+            <div id="wdn_search">
+    <form id="wdn_search_form" action="http://www.google.com/u/UNL1?sa=Google+Search&amp;q=" method="get">
+        <fieldset>
+            <label for="q">Search this site, all UNL or for a person</label>
+            <input accesskey="f" id="q" alt="Search string" name="q" type="text" />
+            <input class="search" type="submit" value="Go" name="submit" />
+        </fieldset>
+    </form>
+</div>
+<ul id="wdn_tool_links">
+    <li><a href="http://www1.unl.edu/feeds/" class="feeds tooltip" title="RSS Feeds: View and Subscribe to News Feeds">Feeds</a></li>
+    <li><a href="http://forecast.weather.gov/MapClick.php?CityName=Lincoln&amp;state=NE&amp;site=OAX" class="weather tooltip" title="Weather: Local Forecast and Radar">Weather</a></li>
+    <li><a href="http://events.unl.edu/" class="events tooltip" title="UNL Events: Calendar of Upcoming Events">Events</a></li>
+    <li><a href="http://peoplefinder.unl.edu/" class="peoplefinder tooltip" title="Peoplefinder: Search the Faculty, Staff, and Student Directories">Peoplefinder</a></li>
+    <li><a href="http://www.unl.edu/unlpub/cam/cam1.shtml" class="webcams tooltip" title="Webcams: Live UNL Campus Cameras">Webcams</a></li>
+</ul>
+        </div>
+        <div id="wdn_navigation_bar">
+            <div id="breadcrumbs">
+                <!-- WDN: see glossary item 'breadcrumbs' -->
+                <!-- TemplateBeginEditable name="breadcrumbs" -->
+                <ul>
+                    <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
+                    <li><a href="http://ascweb.unl.edu/" title="Arts and Sciences">Arts and Sciences</a></li>
+                    <li><a href="http://historytest.unl.edu/">History</a></li>
+                    <li>
+                        <a href="http://historytest.unl.edu/admin/index.asp">Intranet</a>
+                        <div class="storednav">
+                            <ul>
+    <li>
+        <a href="/admin/biographies">Biographies</a>
+        <ul>
+            <li><a href="/admin/biographies/update.asp?mode=contactinfo">Contact Information</a></li>
+            <li><a href="/admin/biographies/update.asp?mode=bioinfo">Biography Information</a></li>
+            <li><a href="/admin/biographies/courses.asp">Courses Taught</a></li>
+            <li><a href="/admin/biographies/expertise.asp">Expertise Areas</a></li>
+            <li><a href="/admin/biographies/photo.asp">Photo(s)</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="/admin/documents">Documents</a>
+        <ul>
+            <li><a href="/admin/documents/addedit_documents.asp">Add Document</a></li>
+            <li><a href="/admin/documents/addedit_links.asp">Add Link</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="/admin/expertareas/index.asp">Expert Areas</a>
+        <ul>
+            <li><a href="/admin/expertareas/add.asp">Add Expert Area</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="/admin/researchlibrary/index.asp">Research Library</a>
+        <ul>
+            <li><a href="/admin/researchlibrary/articles.asp">Articles</a></li>
+            <li><a href="/admin/researchlibrary/books.asp">Books</a></li>
+            <li><a href="/admin/researchlibrary/conferencepapers.asp">Conference Papers</a></li>
+            <li><a href="/admin/researchlibrary/digitalscholarships.asp">Digital Projects</a></li>
+            <li><a href="/admin/researchlibrary/grants.asp">Grants/Awards/Fellowships</a></li>
+            <li><a href="/admin/researchlibrary/lectures.asp">Invited Lectures</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="/admin/administrator/index.asp">Users Administration</a>
+        <ul>
+            <li><a href="/admin/administrator/index.asp">Manage Users</a></li>
+            <li><a href="/admin/administrator/create_user.asp">Create User</a></li>
+            <li><a href="/admin/administrator/current_photos.asp">Manage Current Photos</a></li>
+            <li><a href="/admin/administrator/pending_photos.asp">Manage Pending Photos</a></li>
+            <li><a href="/admin/administrator/reissue.asp">Re-Issue Account Information</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="/admin/help.asp">Help</a>
+        <ul>
+            <li><a href="/admin/users/changepassword.asp">Change Password</a></li>
+            <li><a href="/admin/login.asp?logoff=1">Logoff</a></li>
+        </ul>
+    </li>
+</ul>
+
+                        </div>
+                    </li>
+                    <li>Research Library</li>
+                </ul>
+                <!-- TemplateEndEditable -->
+            </div>
+            <div id="wdn_navigation_wrapper">
+                <div id="navigation">
+                    <!-- TemplateBeginEditable name="navlinks" -->
+                   <ul>
+    <li>
+        <a href="/admin/researchlibrary/articles.asp">Articles</a>
+        <ul>
+            <li><a href="/admin/researchlibrary/add_journal.asp">Add Journal</a></li>
+            <li><a href="/admin/researchlibrary/article.asp">Add Article</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="/admin/researchlibrary/books.asp">Books</a>
+        <ul>
+            <li><a href="/admin/researchlibrary/book.asp">Add Book</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="/admin/researchlibrary/conferencepapers.asp">Conference Papers</a>
+        <ul>
+            <li><a href="/admin/researchlibrary/add_conference.asp">Add Conference</a></li>
+            <li><a href="/admin/researchlibrary/conferencepaper.asp">Add Conference Paper</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="/admin/researchlibrary/digitalscholarships.asp">Digital Projects</a>
+        <ul>
+            <li><a href="/admin/researchlibrary/digitalscholarship.asp">Add Project</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="/admin/researchlibrary/grants.asp">Grants/Awards/Fellowships</a>
+        <ul>
+            <li><a href="/admin/researchlibrary/grant.asp">Add Item</a></li>
+        </ul>
+    </li>
+        <li>
+        <a href="/admin/researchlibrary/lectures.asp">Invited Lectures</a>
+        <ul>
+            <li><a href="/admin/researchlibrary/lecture.asp">Add Lecture</a></li>
+        </ul>
+    </li>
+</ul>
+
+
+                    <!-- TemplateEndEditable -->
+                </div>
+            </div>
+        </div>
+        <div id="wdn_content_wrapper">
+            <div id="titlegraphic">
+                <!-- TemplateBeginEditable name="titlegraphic" -->
+                <h1>History</h1>
+                <!-- TemplateEndEditable -->
+            </div>
+            <div id="pagetitle">
+                <!-- TemplateBeginEditable name="pagetitle" -->
+                <!--<h2></h2>-->
+                <!-- TemplateEndEditable -->
+            </div>
+            <div id="maincontent">
+        <noscript>
+<p>
+Your browser does not appear to support JavaScript, or you have turned JavaScript off. You may use unl.edu without enabling JavaScript, but certain functions may not be available.
+</p>
+</noscript>
+
+        <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->				
+	    <div class="two_col left">
+	    
+    	<table id="tblResearchLibraryIndex" class="zentable cool">
+    	<thead>
+    	<tr>
+    	    <th>Users</th>
+    	    <th>&nbsp;</th>
+    	</tr>
+    	</thead>
+    	<tbody>
+    	
+    	<tr>
+    	    <td>Nicholas&nbsp;Aieta</td>
+    	    <td><a class="imagelink" href="articles.asp?id=62"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Lloyd&nbsp;Ambrosius</td>
+    	    <td><a class="imagelink" href="articles.asp?id=39"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Timothy&nbsp;Anderson</td>
+    	    <td><a class="imagelink" href="articles.asp?id=63"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Benjamin&nbsp;Arrington</td>
+    	    <td><a class="imagelink" href="articles.asp?id=64"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Kory&nbsp;Bajus</td>
+    	    <td><a class="imagelink" href="articles.asp?id=65"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Thomas&nbsp;Berg</td>
+    	    <td><a class="imagelink" href="articles.asp?id=48"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Roger&nbsp;Blomquist</td>
+    	    <td><a class="imagelink" href="articles.asp?id=66"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Thomas&nbsp;Borstelmann</td>
+    	    <td><a class="imagelink" href="articles.asp?id=23"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Peterson&nbsp;Brink</td>
+    	    <td><a class="imagelink" href="articles.asp?id=67"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Scot&nbsp;Bruce</td>
+    	    <td><a class="imagelink" href="articles.asp?id=68"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Amy&nbsp;Burnett</td>
+    	    <td><a class="imagelink" href="articles.asp?id=24"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Stephen&nbsp;Burnett</td>
+    	    <td><a class="imagelink" href="articles.asp?id=27"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>David&nbsp;Cahan</td>
+    	    <td><a class="imagelink" href="articles.asp?id=21"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>David&nbsp;Cassiday</td>
+    	    <td><a class="imagelink" href="articles.asp?id=69"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Yiqing&nbsp;Chen</td>
+    	    <td><a class="imagelink" href="articles.asp?id=70"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>David&nbsp;Christensen</td>
+    	    <td><a class="imagelink" href="articles.asp?id=71"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Parks&nbsp;Coble</td>
+    	    <td><a class="imagelink" href="articles.asp?id=33"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Tonia&nbsp;Compton</td>
+    	    <td><a class="imagelink" href="articles.asp?id=72"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Jessica&nbsp;Coope</td>
+    	    <td><a class="imagelink" href="articles.asp?id=133"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Dawne&nbsp;Curry</td>
+    	    <td><a class="imagelink" href="articles.asp?id=36"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Matthew&nbsp;Deepe</td>
+    	    <td><a class="imagelink" href="articles.asp?id=73"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Christy&nbsp;Dempsey</td>
+    	    <td><a class="imagelink" href="articles.asp?id=49"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Jason&nbsp;Denzin</td>
+    	    <td><a class="imagelink" href="articles.asp?id=74"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Learthen&nbsp;Dorsey</td>
+    	    <td><a class="imagelink" href="articles.asp?id=42"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Jacob&nbsp;Eder</td>
+    	    <td><a class="imagelink" href="articles.asp?id=75"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Peter&nbsp;Eisner</td>
+    	    <td><a class="imagelink" href="articles.asp?id=76"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Brenda&nbsp;Fields</td>
+    	    <td><a class="imagelink" href="articles.asp?id=77"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Amy&nbsp;Forss</td>
+    	    <td><a class="imagelink" href="articles.asp?id=78"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Randal&nbsp;Fulkerson</td>
+    	    <td><a class="imagelink" href="articles.asp?id=79"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Amy&nbsp;Gant</td>
+    	    <td><a class="imagelink" href="articles.asp?id=80"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>James&nbsp;Garza</td>
+    	    <td><a class="imagelink" href="articles.asp?id=131"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Jared&nbsp;Gibson</td>
+    	    <td><a class="imagelink" href="articles.asp?id=81"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Vanessa&nbsp;Gorman</td>
+    	    <td><a class="imagelink" href="articles.asp?id=22"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Andrew&nbsp;Graybill</td>
+    	    <td><a class="imagelink" href="articles.asp?id=28"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Jean&nbsp;Griffith</td>
+    	    <td><a class="imagelink" href="articles.asp?id=82"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Terrel&nbsp;Hanshew</td>
+    	    <td><a class="imagelink" href="articles.asp?id=50"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Joseph&nbsp;Harder</td>
+    	    <td><a class="imagelink" href="articles.asp?id=83"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Samuel&nbsp;Herley</td>
+    	    <td><a class="imagelink" href="articles.asp?id=84"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Michael&nbsp;Hewitt</td>
+    	    <td><a class="imagelink" href="articles.asp?id=85"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Brian&nbsp;Hobbs</td>
+    	    <td><a class="imagelink" href="articles.asp?id=86"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Rose&nbsp;Holz</td>
+    	    <td><a class="imagelink" href="articles.asp?id=51"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Edward&nbsp;Homze</td>
+    	    <td><a class="imagelink" href="articles.asp?id=43"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Margaret&nbsp;Jacobs</td>
+    	    <td><a class="imagelink" href="articles.asp?id=25"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Benjamin&nbsp;Johnson</td>
+    	    <td><a class="imagelink" href="articles.asp?id=87"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Jeannette&nbsp;Jones</td>
+    	    <td><a class="imagelink" href="articles.asp?id=29"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Patrick&nbsp;Jones</td>
+    	    <td><a class="imagelink" href="articles.asp?id=134"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Kurt&nbsp;Kinbacher</td>
+    	    <td><a class="imagelink" href="articles.asp?id=52"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Ann&nbsp;Kleimola</td>
+    	    <td><a class="imagelink" href="articles.asp?id=132"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Roy&nbsp;Koepp</td>
+    	    <td><a class="imagelink" href="articles.asp?id=88"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Amanda&nbsp;Kuhnel</td>
+    	    <td><a class="imagelink" href="articles.asp?id=89"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Stephen&nbsp;Lahey</td>
+    	    <td><a class="imagelink" href="articles.asp?id=53"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Kenneth&nbsp;Lantz</td>
+    	    <td><a class="imagelink" href="articles.asp?id=90"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>James&nbsp;Le Sueur</td>
+    	    <td><a class="imagelink" href="articles.asp?id=30"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Mark&nbsp;Lee</td>
+    	    <td><a class="imagelink" href="articles.asp?id=54"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Svetlana&nbsp;Legotkina</td>
+    	    <td><a class="imagelink" href="articles.asp?id=91"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Jared&nbsp;Leighton</td>
+    	    <td><a class="imagelink" href="articles.asp?id=92"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Carole&nbsp;Levin</td>
+    	    <td><a class="imagelink" href="articles.asp?id=35"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Annie&nbsp;Loring</td>
+    	    <td><a class="imagelink" href="articles.asp?id=93"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Frederick&nbsp;Luebke</td>
+    	    <td><a class="imagelink" href="articles.asp?id=44"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Timothy&nbsp;Mahoney</td>
+    	    <td><a class="imagelink" href="articles.asp?id=31"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Nathan&nbsp;Martin</td>
+    	    <td><a class="imagelink" href="articles.asp?id=94"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Peter&nbsp;Maslowski</td>
+    	    <td><a class="imagelink" href="articles.asp?id=26"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Kim&nbsp;Matthews</td>
+    	    <td><a class="imagelink" href="articles.asp?id=95"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>James&nbsp;McClelland</td>
+    	    <td><a class="imagelink" href="articles.asp?id=45"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Kimberly&nbsp;McVey</td>
+    	    <td><a class="imagelink" href="articles.asp?id=96"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Shannon&nbsp;Meyer</td>
+    	    <td><a class="imagelink" href="articles.asp?id=97"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Diane&nbsp;Miller</td>
+    	    <td><a class="imagelink" href="articles.asp?id=98"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>John&nbsp;Moeller</td>
+    	    <td><a class="imagelink" href="articles.asp?id=99"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Zahra&nbsp;Moss</td>
+    	    <td><a class="imagelink" href="articles.asp?id=100"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Gary&nbsp;Moulton</td>
+    	    <td><a class="imagelink" href="articles.asp?id=46"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>David&nbsp;Nesheim</td>
+    	    <td><a class="imagelink" href="articles.asp?id=101"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Erik&nbsp;Overby</td>
+    	    <td><a class="imagelink" href="articles.asp?id=102"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Stephanie&nbsp;Panting</td>
+    	    <td><a class="imagelink" href="articles.asp?id=103"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Bruce&nbsp;Pauley</td>
+    	    <td><a class="imagelink" href="articles.asp?id=47"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Lisa&nbsp;Pollard</td>
+    	    <td><a class="imagelink" href="articles.asp?id=104"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Nathan&nbsp;Probasco</td>
+    	    <td><a class="imagelink" href="articles.asp?id=105"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Benjamin&nbsp;Rader</td>
+    	    <td><a class="imagelink" href="articles.asp?id=37"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Abby&nbsp;Rasmussen</td>
+    	    <td><a class="imagelink" href="articles.asp?id=106"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Chris&nbsp;Rasmussen</td>
+    	    <td><a class="imagelink" href="articles.asp?id=107"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Randy&nbsp;Reddekopp</td>
+    	    <td><a class="imagelink" href="articles.asp?id=55"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Brenden&nbsp;Rensink</td>
+    	    <td><a class="imagelink" href="articles.asp?id=108"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Kevin&nbsp;Rippe</td>
+    	    <td><a class="imagelink" href="articles.asp?id=110"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Joann&nbsp;Ross</td>
+    	    <td><a class="imagelink" href="articles.asp?id=111"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Mark&nbsp;Rueter</td>
+    	    <td><a class="imagelink" href="articles.asp?id=109"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Nathan&nbsp;Sanderson</td>
+    	    <td><a class="imagelink" href="articles.asp?id=112"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Jeremy&nbsp;Schaub</td>
+    	    <td><a class="imagelink" href="articles.asp?id=113"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Susanna&nbsp;Schrafstetter</td>
+    	    <td><a class="imagelink" href="articles.asp?id=38"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Lisa&nbsp;Schuelke</td>
+    	    <td><a class="imagelink" href="articles.asp?id=114"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Joy&nbsp;Schulz</td>
+    	    <td><a class="imagelink" href="articles.asp?id=115"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Douglas&nbsp;Seefeldt</td>
+    	    <td><a class="imagelink" href="articles.asp?id=4"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Shantella&nbsp;Sherman</td>
+    	    <td><a class="imagelink" href="articles.asp?id=116"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Nicholas&nbsp;Silhacek</td>
+    	    <td><a class="imagelink" href="articles.asp?id=117"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Tom&nbsp;Smith</td>
+    	    <td><a class="imagelink" href="articles.asp?id=118"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Tom&nbsp;Smith</td>
+    	    <td><a class="imagelink" href="articles.asp?id=56"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Shannon&nbsp;Smith-Calitri</td>
+    	    <td><a class="imagelink" href="articles.asp?id=119"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Barbara&nbsp;Sommer</td>
+    	    <td><a class="imagelink" href="articles.asp?id=120"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Ivan&nbsp;St. John</td>
+    	    <td><a class="imagelink" href="articles.asp?id=121"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Heather&nbsp;Stauffer</td>
+    	    <td><a class="imagelink" href="articles.asp?id=122"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Alan&nbsp;Steinweis</td>
+    	    <td><a class="imagelink" href="articles.asp?id=32"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Scott&nbsp;Stempson</td>
+    	    <td><a class="imagelink" href="articles.asp?id=57"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Shayla&nbsp;Swift</td>
+    	    <td><a class="imagelink" href="articles.asp?id=123"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Jamie&nbsp;Tallman</td>
+    	    <td><a class="imagelink" href="articles.asp?id=124"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>William&nbsp;Thomas</td>
+    	    <td><a class="imagelink" href="articles.asp?id=34"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Ahati&nbsp;Toure</td>
+    	    <td><a class="imagelink" href="articles.asp?id=125"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Ann&nbsp;Tschetter</td>
+    	    <td><a class="imagelink" href="articles.asp?id=58"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>John&nbsp;Turner</td>
+    	    <td><a class="imagelink" href="articles.asp?id=59"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Andrew&nbsp;Ulrich</td>
+    	    <td><a class="imagelink" href="articles.asp?id=126"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Robert&nbsp;Voss</td>
+    	    <td><a class="imagelink" href="articles.asp?id=127"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Matthew&nbsp;Walker</td>
+    	    <td><a class="imagelink" href="articles.asp?id=128"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Aaron&nbsp;Wilson</td>
+    	    <td><a class="imagelink" href="articles.asp?id=129"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Kenneth&nbsp;Winkle</td>
+    	    <td><a class="imagelink" href="articles.asp?id=40"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>Leslie&nbsp;Working</td>
+    	    <td><a class="imagelink" href="articles.asp?id=130"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	<tr>
+    	    <td>John&nbsp;Wunder</td>
+    	    <td><a class="imagelink" href="articles.asp?id=41"><img src="/images/icons/page_white_stack.png" alt="edit" /></a></td>
+    	</tr>
+    	
+    	</tbody>
+    	</table>
+	    
+	    </div>
+        <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+      </div>
+    </div>
+    <!-- close main right -->
+ <div id="footer">
+    <div id="footer_floater">
+    </div>
+    <div class="footer_col">
+        <h3>Your Feedback</h3>
+<form action="http://www1.unl.edu/comments/" method="post" id="wdn_feedback" title="WDN Feedback Form:4" class="rating">
+    <fieldset><legend>Please rate this page</legend>
+    <ol>
+        <li><label for="r1">Your Rating:</label> 
+            <select id="r1" name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </li>
+    </ol>
+    <input type="submit" value="Submit" name="submit" /></fieldset>
+</form>
+<form action="http://www1.unl.edu/comments/" method="post" id="wdn_feedback_comments" title="WDN Feedback Form" class="comments">
+    <fieldset><legend>Comments for this page</legend>
+    <ol>
+        <li><label>Comments</label>
+          <textarea rows="2" cols="20" name="comment"></textarea>
+        </li>
+    </ol>
+    <input type="submit" value="Submit" name="submit" /></fieldset>
+</form>
+
+    </div>
+    <div class="footer_col">
+        <!-- TemplateBeginEditable name="leftcollinks" -->
+        <h3>
+    Related Links
+</h3>
+<ul>
+    <li><a href="http://www.unl.edu/regrec/calendar/calendar_main.shtml">Academic Calendar</a></li>
+    <li><a href="/admin/login.asp">Intranet Login</a></li>
+</ul>
+
+        <!-- TemplateEndEditable -->
+    </div>
+    <div class="footer_col">
+        <!-- TemplateBeginEditable name="contactinfo" -->
+        <h3>Contacting Us</h3>
+<p><b>Department of History</b><br />
+612 Oldfather Hall<br />
+Lincoln, NE 68588-0405, USA<br />
+Phone : (402) 472-2414<br />
+Fax : (402) 472-8839
+</p>
+        <!-- TemplateEndEditable -->
+    </div>
+    <div class="footer_col">
+        <h3>Share This Page</h3>
+<ul class="socialmedia">
+    <li><a class="external tooltip" id="wdn_emailthis" href="mailto:" title="Email This Page To A Friend">Email This Page</a></li>
+    <li><a class="external tooltip" id="wdn_facebook" href="http://www.facebook.com/" title="Share This Page On Facebook">Facebook</a></li>
+    <li><a class="external tooltip" id="wdn_linkedin" href="http://www.linkedin.com/" title="Share This Page On LinkedIn">Linked In</a></li>
+    <li><a class="external tooltip" id="wdn_myspace" href="http://www.myspace.com/" title="Share This Page On Myspace">Myspace</a></li>    
+    <li><a class="external tooltip" id="wdn_twitter" href="http://www.twitter.com/" title="Share This Page On Twitter">Twitter</a></li>
+    <li><a class="external tooltip" id="wdn_plurk" href="http://www.plurk.com/" title="Share This Page On Plurk">Plurk</a></li>
+</ul>
+<ul class="socialmedia">
+    <li><a class="external tooltip" id="wdn_digg" href="http://www.digg.com/" title="Digg This Page">Digg</a></li>
+    <li><a class="external tooltip" id="wdn_delicious" href="http://del.icio.us/" title="Share This Page On Del.icio.us">Delicious</a></li>
+    <li><a class="external tooltip" id="wdn_reddit" href="http://www.reddit.com/" title="Share This Page On Reddit">Reddit</a></li>
+    <li><a class="external tooltip" id="wdn_stumbleupon" href="http://www.stumbleupon.com/" title="Share This Page On Stumbleupon">StumbleUpon</a></li>
+    <li><a class="external tooltip" id="wdn_newsvine" href="http://www.newsvine.com/" title="Share This Page On Newsvine">Newsvine</a></li>
+    <li><a class="external tooltip" id="wdn_googlebookmark" href="http://www.google.com/" title="Share This As A Google Bookmark">Google Bookmark</a></li>
+</ul>
+    </div>
+    <!-- TemplateBeginEditable name="optionalfooter" -->
+    <!-- TemplateEndEditable -->
+    <div id="wdn_copyright">
+        <!-- TemplateBeginEditable name="footercontent" -->
+        &copy; 2009 University of Nebraska&ndash;Lincoln | Lincoln, NE 68588 |
+402-472-7211 |
+<a href="http://www.unl.edu/ucomm/aboutunl/"
+    title="Click here to know more about UNL">About UNL</a>
+|
+<a href="http://www1.unl.edu/comments/"
+    title="Click here to direct your comments and questions">comments?</a>
+<br />
+UNL is an equal opportunity employer with a comprehensive plan for
+diversity. Find out more:
+<a href="https://employment.unl.edu/" title="Employment at UNL">employment.unl.edu</a>
+<script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-4968867-12");
+        pageTracker._trackPageview();
+    } catch (err) { }
+</script>
+
+        <!-- TemplateEndEditable -->
+        <br />
+UNL web templates and quality assurance provided by the <a href="http://wdn.unl.edu/" title="UNL Web Developer Network">Web Developer Network</a>
+        | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">
+            CSS</a> <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark">
+                <img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a>
+    </div>
+</div>
+
+        </div>
+        <div id="wdn_wrapper_footer">
+        </div>
+        </body>
+        </html>
