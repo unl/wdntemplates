@@ -1,4 +1,4 @@
-/**
+/** 
  * This plugin is intended for videos.
  * 
  * 1. Check for HTML5 video browser capability
@@ -26,11 +26,20 @@ WDN.videoPlayer = function() {
 				var video = WDN.jQuery(this)[0];
 				WDN.videoPlayer.html5Video(video);
 			});
+			WDN.jQuery('audio').each(function(){
+				var audio = WDN.jQuery(this)[0];
+				WDN.videoPlayer.html5Audio(audio);
+				WDN.jQuery(audio).siblings('.wdnVideo_controls').children('.progress').hide();
+			});
 			
 		},
 		
 		supportsVideo: function() {
 			return !!document.createElement('video').canPlayType;
+		},
+		
+		supportsAudio: function() {
+			return !!document.createElement('audio').canPlayType;
 		},
 		
 		supportsH264: function() {
@@ -44,6 +53,14 @@ WDN.videoPlayer = function() {
 		supportsWebM: function() {
 			var v = document.createElement("video");
 			if(v.canPlayType('video/webm; codecs="vp8, vorbis"') != '') {
+				return true;
+			}
+			return false;
+		},
+		
+		supportsMP3: function() {
+			var v = document.createElement("audio");
+			if(v.canPlayType('audio/mpeg') != '') {
 				return true;
 			}
 			return false;
@@ -72,9 +89,38 @@ WDN.videoPlayer = function() {
 			} else {
 				if (!is_ipad && !is_iphone){
 					WDN.loadCSS('/wdn/templates_3.0/css/content/videoPlayer.css');
-					WDN.videoPlayer.setupControls.initialize(video);
+					WDN.videoPlayer.setupControls.initialize(video, "video");
 				}
 				WDN.videoPlayer.eventControls.bindControls(video);
+			}
+		},
+		
+		html5Audio : function(audio) {
+			if (WDN.jQuery(audio).data('wdnVideo')) {
+				return;
+			} else {
+				WDN.jQuery(audio).data('wdnVideo', true);
+			}
+			
+			if (WDN.videoPlayer.supportsAudio()){
+				if (WDN.videoPlayer.supportsMP3()){ //can we support MP3?
+					src = audio.src || WDN.jQuery(audio).children('source').attr('src') || "";
+					if(src){ //make sure we have a source
+						requiresFallback = false;
+						
+					}
+				}
+				
+			}
+			WDN.log('requiresFallback (video): '+requiresFallback);
+			if (requiresFallback){
+				WDN.videoPlayer.createFallback.setupJWPlayer(audio);
+			} else {
+				if (!is_ipad && !is_iphone){
+					WDN.loadCSS('/wdn/templates_3.0/css/content/videoPlayer.css');
+					WDN.videoPlayer.setupControls.initialize(audio, "audio");
+				}
+				WDN.videoPlayer.eventControls.bindControls(audio);
 			}
 		},
 		
@@ -214,12 +260,20 @@ WDN.videoPlayer = function() {
 		setupControls : function(){
 			return {
 				
-				initialize : function(video) { //setup custom HTML5 video player
+				initialize : function(video, type) { //setup custom HTML5 video player
+
 					video.preload = "auto";
 					video.autobuffer = true;
 					video.controls = false; //remove the standard browser controls
-					WDN.jQuery(video).after(WDN.videoPlayer.setupControls.wdnVideo_Controls);
-					WDN.videoPlayer.setupControls.positionControls(video);
+					video.hideControls = true; //autohide custom controls when video is played
+					if (type == "video") { //if video
+						WDN.jQuery(video).after(WDN.videoPlayer.setupControls.wdnVideo_Controls);
+						WDN.videoPlayer.setupControls.positionControls(video);
+					} else { //if audio
+						video.hideControls = false; //do not autohide controls for audio player
+						WDN.jQuery(video).after(WDN.videoPlayer.setupControls.wdnAudio_Controls);
+					}
+					
 					
 					
 				}, 
@@ -239,10 +293,23 @@ WDN.videoPlayer = function() {
 					  '	<div class="progressBar"><span></span></div>'+
 					  '</div>',
 				
-				positionControls : function(video) { //place the controls relative and over the video
-					progressWidth = WDN.jQuery(video).width() - 110;
-					progressBarWidth = progressWidth - 77 - WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.time').outerWidth(true);
-					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').css('width', progressWidth+'px').children('.progressBar').css('width', progressBarWidth+'px');
+				wdnAudio_Controls : 
+					  '<div class="wdnVideo_controls" style="bottom:5px;">' +
+					  '<button class="play_pause play" value="paused" type="button">' +
+					  '	<span></span>' +
+					  '</button>' +
+					  '<div class="progress">' +
+					  '	<ul class="volume">'+
+					  '		<li class="on"></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>'+
+					  '	</ul>'+
+					  '	<span class="time">00:00</span>'+
+					  '	<div class="progressBar"><span></span></div>'+
+					  '</div>',
+				
+				positionControls : function(video) { //place the controls relative and over the video (for video only, not audio)
+						progressWidth = WDN.jQuery(video).width() - 110;
+						progressBarWidth = progressWidth - 85 - WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.time').outerWidth(true);
+						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').css('width', progressWidth+'px').children('.progressBar').css('width', progressBarWidth+'px');
 				}
 			};
 		}(),
@@ -318,50 +385,51 @@ WDN.videoPlayer = function() {
 					});
 					
 					//show and hide the controls
-					WDN.jQuery(video).hover(
-						function() {
-							var showTimedHide = function() {
+					if (video.hideControls){
+						WDN.jQuery(video).hover(
+							function() {
+								var showTimedHide = function() {
+									if(hideControls) {
+										clearTimeout(hideControls);
+									};
+									
+									WDN.videoPlayer.eventControls.showControls(video);
+									
+									hideControls = setTimeout(function() {
+										WDN.videoPlayer.eventControls.hideControls(video);
+									}, 1900);
+								};
+								
+								showTimedHide();
+								WDN.jQuery(video).bind('mousemove.wdnvideo', showTimedHide);
+							},
+							function() {
+								WDN.jQuery(video).unbind('.wdnvideo');
+								if (hideControls) {
+								 clearTimeout(hideControls);
+								}
+								hideControls = setTimeout(function() {
+									WDN.videoPlayer.eventControls.hideControls(video);
+								}, 600); //wait a few seconds and then hide the controls
+							}
+						);
+						WDN.jQuery(video).siblings('.wdnVideo_controls').hover(function(){
 								if(hideControls) {
 									clearTimeout(hideControls);
 								};
 								
 								WDN.videoPlayer.eventControls.showControls(video);
-								
-								hideControls = setTimeout(function() {
-									WDN.videoPlayer.eventControls.hideControls(video);
-								}, 1900);
-							};
-							
-							showTimedHide();
-							WDN.jQuery(video).bind('mousemove.wdnvideo', showTimedHide);
-						},
-						function() {
-							WDN.jQuery(video).unbind('.wdnvideo');
+						}, function() {
 							if (hideControls) {
 							 clearTimeout(hideControls);
 							}
 							hideControls = setTimeout(function() {
 								WDN.videoPlayer.eventControls.hideControls(video);
 							}, 600); //wait a few seconds and then hide the controls
-						}
-					);
-					WDN.jQuery(video).siblings('.wdnVideo_controls').hover(function(){
-							if(hideControls) {
-								clearTimeout(hideControls);
-							};
-							
-							WDN.videoPlayer.eventControls.showControls(video);
-					}, function() {
-						if (hideControls) {
-						 clearTimeout(hideControls);
-						}
-						hideControls = setTimeout(function() {
-							WDN.videoPlayer.eventControls.hideControls(video);
-						}, 600); //wait a few seconds and then hide the controls
-					});
-					
+						});
+					}
 					WDN.videoPlayer.eventControls.eventListeners(video);
-				},
+					},
 				
 				//Listen for events
 				eventListeners : function (video) {
@@ -379,8 +447,10 @@ WDN.videoPlayer = function() {
 				
 				togglePlay : function(video) {
 					if (video.paused) {
+						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').show('fast');
 						video.play();
 					} else {
+						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').hide('fast');
 						video.pause();
 					}
 				},
@@ -389,9 +459,11 @@ WDN.videoPlayer = function() {
 					video = event.target;
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'playing').removeClass('play').addClass('pause');
 					WDN.videoPlayer.eventControls.trackPlayProgress(video);
-					hideControls = setTimeout(function() {
-						WDN.videoPlayer.eventControls.hideControls(video);
-					}, 1900);
+					if(video.hideControls){
+						hideControls = setTimeout(function() {
+							WDN.videoPlayer.eventControls.hideControls(video);
+						}, 1900);
+					}
 					if (!videoHasBeenPlayed) {
 						WDN.analytics.callTrackEvent('Video', 'HTML5', video.src || WDN.jQuery(video).children('source').attr());
 						WDN.analytics.callTrackEvent('Video', 'Play', video.src || WDN.jQuery(video).children('source').attr());
