@@ -53,6 +53,7 @@ Author: WDN
     left:20px;
     top:20px;
     display:none;
+    font-weight:normal;
 }
 #wdn_search form #q {
 	position:absolute;
