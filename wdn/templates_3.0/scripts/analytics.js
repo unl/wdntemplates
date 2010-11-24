@@ -102,8 +102,12 @@ WDN.analytics = function() {
 			_gaq.push(['wdn._trackPageview', thePage]); //First, track in the wdn analytics
 			WDN.log("Pageview tracking for wdn worked!");
 			try {
-				_gaq.push(['_trackPageview', thePage]); // Second, track in local site analytics 
-				WDN.log("Pageview tracking for local site worked!");
+				if (WDN.analytics.isDefaultTrackerReady()) {
+					_gaq.push(['_trackPageview', thePage]); // Second, track in local site analytics 
+					WDN.log("Pageview tracking for local site worked!");
+				} else {
+					throw "Default Tracker Account Not Set";
+				}
 			} catch(e) {
 				WDN.log("Pageview tracking for local site didn't work."); 
 			}
@@ -115,12 +119,23 @@ WDN.analytics = function() {
 			value = Math.floor(value);
 			//var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
 			_gaq.push(['wdn._trackEvent', category, action, label, value]);
-			try { 
-				var pageSuccess = _gaq.push(['_trackEvent', category, action, label, value]);
-				WDN.log("Page Event tracking success? "+pageSuccess);
+			try {
+				if (WDN.analytics.isDefaultTrackerReady()) {
+					var pageSuccess = _gaq.push(['_trackEvent', category, action, label, value]);
+					WDN.log("Page Event tracking success? "+pageSuccess);
+				} else {
+					throw "Default Tracker Account Not Set";
+				}
 			} catch(e) {
 				WDN.log("Event tracking for local site didn't work.");
 			}
+		},
+		isDefaultTrackerReady: function() {
+			if (typeof _gat != "undefined") {
+				return _gat._getTrackerByName()._getAccount() != 'UA-XXXXX-X';
+			}
+			//assume the account is set async (we could check the _gaq queue, but that seems like overkill)
+			return true;
 		}/*,
 		
 		setupHTML5tracking: function() {
