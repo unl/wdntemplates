@@ -112,6 +112,7 @@ WDN.analytics = function() {
 			if (value === undefined) {
 				value = 0;
 			}
+			value = Math.floor(value);
 			//var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
 			_gaq.push(['wdn._trackEvent', category, action, label, value]);
 			try { 
