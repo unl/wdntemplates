@@ -43,7 +43,7 @@ WDN.unlalert = function() {
 				return true;
 			}
 		},
-	
+		
 		_callServer: function() {
 			WDN.log('Checking the alert server for data '+WDN.unlalert.data_url);
 			var head = document.getElementsByTagName('head').item(0);
@@ -151,16 +151,18 @@ unlAlerts.server = {
 		
 		/* get the root of the alert data tree*/
 		var alertInfo = unlAlerts.data.alert.info;
-
-		/* get unique ID */
-		var alertUniqueID = alertInfo.parameter.value;
 		
-		// If alert file has a info element with severity == extreme
-		if (alertInfo.severity == 'Extreme') {
-			WDN.log("Found an alert, calling alertUser()");
-			return WDN.unlalert.alertUser(alertInfo, alertUniqueID);
-		} else {
-			return false;
+		if (alertInfo) {
+			/* get unique ID */
+			var alertUniqueID = alertInfo.parameter.value;
+			
+			// If alert file has a info element with severity == extreme
+			if (alertInfo.severity == 'Extreme') {
+				WDN.log("Found an alert, calling alertUser()");
+				return WDN.unlalert.alertUser(alertInfo, alertUniqueID);
+			} else {
+				return false;
+			}
 		}
 	}
 };
