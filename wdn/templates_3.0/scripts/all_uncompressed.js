@@ -8539,8 +8539,12 @@ WDN.analytics = function() {
 			_gaq.push(['wdn._trackPageview', thePage]); //First, track in the wdn analytics
 			//debug statement removed
 			try {
-				_gaq.push(['_trackPageview', thePage]); // Second, track in local site analytics 
-				//debug statement removed
+				if (WDN.analytics.isDefaultTrackerReady()) {
+					_gaq.push(['_trackPageview', thePage]); // Second, track in local site analytics 
+					//debug statement removed
+				} else {
+					throw "Default Tracker Account Not Set";
+				}
 			} catch(e) {
 				//debug statement removed 
 			}
@@ -8549,14 +8553,26 @@ WDN.analytics = function() {
 			if (value === undefined) {
 				value = 0;
 			}
+			value = Math.floor(value);
 			//var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
 			_gaq.push(['wdn._trackEvent', category, action, label, value]);
-			try { 
-				var pageSuccess = _gaq.push(['_trackEvent', category, action, label, value]);
-				//debug statement removed
+			try {
+				if (WDN.analytics.isDefaultTrackerReady()) {
+					var pageSuccess = _gaq.push(['_trackEvent', category, action, label, value]);
+					//debug statement removed
+				} else {
+					throw "Default Tracker Account Not Set";
+				}
 			} catch(e) {
 				//debug statement removed
 			}
+		},
+		isDefaultTrackerReady: function() {
+			if (typeof _gat != "undefined") {
+				return _gat._getTrackerByName()._getAccount() != 'UA-XXXXX-X';
+			}
+			//assume the account is set async (we could check the _gaq queue, but that seems like overkill)
+			return true;
 		}/*,
 		
 		setupHTML5tracking: function() {
@@ -12023,7 +12039,7 @@ WDN.unlalert = function() {
 				return true;
 			}
 		},
-	
+		
 		_callServer: function() {
 			//debug statement removed
 			var head = document.getElementsByTagName('head').item(0);
@@ -12131,16 +12147,18 @@ unlAlerts.server = {
 		
 		/* get the root of the alert data tree*/
 		var alertInfo = unlAlerts.data.alert.info;
-
-		/* get unique ID */
-		var alertUniqueID = alertInfo.parameter.value;
 		
-		// If alert file has a info element with severity == extreme
-		if (alertInfo.severity == 'Extreme') {
-			//debug statement removed
-			return WDN.unlalert.alertUser(alertInfo, alertUniqueID);
-		} else {
-			return false;
+		if (alertInfo) {
+			/* get unique ID */
+			var alertUniqueID = alertInfo.parameter.value;
+			
+			// If alert file has a info element with severity == extreme
+			if (alertInfo.severity == 'Extreme') {
+				//debug statement removed
+				return WDN.unlalert.alertUser(alertInfo, alertUniqueID);
+			} else {
+				return false;
+			}
 		}
 	}
 };
