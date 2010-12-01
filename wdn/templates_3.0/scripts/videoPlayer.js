@@ -386,7 +386,7 @@ WDN.videoPlayer = function() {
 						WDN.jQuery(this).nextAll('li').removeClass('on');
 					});
 					
-					//show and hide the controls
+					//show and hide the video controls
 					if (video.isVideo){
 						WDN.jQuery(video).hover(
 							function() {
@@ -412,9 +412,9 @@ WDN.videoPlayer = function() {
 									clearTimeout(hideControls);
 								}
 								if(!video.paused){
-								hideControls = setTimeout(function() {
-									WDN.videoPlayer.eventControls.hideControls(video);
-								}, 600); //wait a few seconds and then hide the controls
+									hideControls = setTimeout(function() {
+										WDN.videoPlayer.eventControls.hideControls(video);
+									}, 600); //wait a few seconds and then hide the controls
 								}
 							}
 						);
@@ -428,9 +428,11 @@ WDN.videoPlayer = function() {
 							if (hideControls) {
 								clearTimeout(hideControls);
 							}
-							hideControls = setTimeout(function() {
-								WDN.videoPlayer.eventControls.hideControls(video);
-							}, 600); //wait a few seconds and then hide the controls
+							if(!video.paused){
+								hideControls = setTimeout(function() {
+									WDN.videoPlayer.eventControls.hideControls(video);
+								}, 600); //wait a few seconds and then hide the controls
+							}
 						});
 					}
 					WDN.videoPlayer.eventControls.eventListeners(video);
