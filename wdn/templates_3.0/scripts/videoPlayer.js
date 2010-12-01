@@ -85,7 +85,7 @@ WDN.videoPlayer = function() {
 			}
 			WDN.log('requiresFallback (video): '+requiresFallback);
 			if (requiresFallback){
-				WDN.videoPlayer.createFallback.setupJWPlayer(video);
+				WDN.videoPlayer.createFallback.setupJWPlayer(video, "video");
 			} else {
 				if (!is_ipad && !is_iphone){
 					WDN.loadCSS('/wdn/templates_3.0/css/content/videoPlayer.css');
@@ -114,7 +114,7 @@ WDN.videoPlayer = function() {
 			}
 			WDN.log('requiresFallback (video): '+requiresFallback);
 			if (requiresFallback){
-				WDN.videoPlayer.createFallback.setupJWPlayer(audio);
+				WDN.videoPlayer.createFallback.setupJWPlayer(audio, "audio");
 			} else {
 				if (!is_ipad && !is_iphone){
 					WDN.loadCSS('/wdn/templates_3.0/css/content/videoPlayer.css');
@@ -134,7 +134,7 @@ WDN.videoPlayer = function() {
 			
 			return {
 				
-				setupJWPlayer : function(video) {
+				setupJWPlayer : function(video, type) {
 					var badIEVideos = document.getElementsByTagName('/video');
 					for (var j = 0; j < badIEVideos.length; j++) {
 						WDN.jQuery(badIEVideos[j]).prevUntil('video').andSelf().remove();
@@ -145,11 +145,13 @@ WDN.videoPlayer = function() {
 						var poster = video.poster || "";
 						var width = video.width || WDN.jQuery(video).width();
 						var height = video.height || WDN.jQuery(video).height();
+						if (type == 'audio')
+							height = 60;
 						var autostart = 'false'; //default to false
 						if (video.autoplay || WDN.jQuery('video').eq(i).attr('autoplay')) {
 							autostart = 'true';
 						}
-						WDN.jQuery(video).wrap("<div id='wdnVideo_"+i+"' />");
+						WDN.jQuery(video).wrap("<div id='wdnVideo_"+i+"' style='min-height:60px;' />");
 						
 						//Fallback for flash
 						WDN.jQuery('#wdnVideo_'+i).prepend('<p>To view this video you should download <a href="http://get.adobe.com/flashplayer/">Adobe Flash Player</a> or use a browser that supports H264/WebM video. You may also download the <a href="' + src + '">video</a></p>');
@@ -447,10 +449,12 @@ WDN.videoPlayer = function() {
 				
 				togglePlay : function(video) {
 					if (video.paused) {
-						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').show('fast');
+						if (!video.hideControls)
+							WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').show('fast');
 						video.play();
 					} else {
-						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').hide('fast');
+						if (!video.hideControls)
+							WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').hide('fast');
 						video.pause();
 					}
 				},
