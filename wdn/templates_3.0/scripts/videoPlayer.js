@@ -89,7 +89,7 @@ WDN.videoPlayer = function() {
 			} else {
 				if (!is_ipad && !is_iphone){
 					WDN.loadCSS('/wdn/templates_3.0/css/content/videoPlayer.css');
-					WDN.videoPlayer.setupControls.initialize(video, "video");
+					WDN.videoPlayer.setupControls.initialize(video);
 				}
 				WDN.videoPlayer.eventControls.bindControls(video);
 			}
@@ -118,7 +118,7 @@ WDN.videoPlayer = function() {
 			} else {
 				if (!is_ipad && !is_iphone){
 					WDN.loadCSS('/wdn/templates_3.0/css/content/videoPlayer.css');
-					WDN.videoPlayer.setupControls.initialize(audio, "audio");
+					WDN.videoPlayer.setupControls.initialize(audio);
 				}
 				WDN.videoPlayer.eventControls.bindControls(audio);
 			}
@@ -262,17 +262,17 @@ WDN.videoPlayer = function() {
 		setupControls : function(){
 			return {
 				
-				initialize : function(video, type) { //setup custom HTML5 video player
+				initialize : function(video) { //setup custom HTML5 video player
 
 					video.preload = "auto";
 					video.autobuffer = true;
 					video.controls = false; //remove the standard browser controls
-					video.hideControls = true; //autohide custom controls when video is played
-					if (type == "video") { //if video
+					video.isVideo = true; //autohide custom controls when video is played
+					if (video.constructor == HTMLVideoElement) { //if video
 						WDN.jQuery(video).after(WDN.videoPlayer.setupControls.wdnVideo_Controls);
 						WDN.videoPlayer.setupControls.positionControls(video);
 					} else { //if audio
-						video.hideControls = false; //do not autohide controls for audio player
+						video.isVideo = false; //do not autohide controls for audio player
 						WDN.jQuery(video).after(WDN.videoPlayer.setupControls.wdnAudio_Controls);
 					}
 					
@@ -387,7 +387,7 @@ WDN.videoPlayer = function() {
 					});
 					
 					//show and hide the controls
-					if (video.hideControls){
+					if (video.isVideo){
 						WDN.jQuery(video).hover(
 							function() {
 								var showTimedHide = function() {
@@ -396,10 +396,11 @@ WDN.videoPlayer = function() {
 									};
 									
 									WDN.videoPlayer.eventControls.showControls(video);
-									
-									hideControls = setTimeout(function() {
-										WDN.videoPlayer.eventControls.hideControls(video);
-									}, 1900);
+									if(!video.paused){
+										hideControls = setTimeout(function() {
+											WDN.videoPlayer.eventControls.hideControls(video);
+										}, 1900);
+									}
 								};
 								
 								showTimedHide();
@@ -408,11 +409,13 @@ WDN.videoPlayer = function() {
 							function() {
 								WDN.jQuery(video).unbind('.wdnvideo');
 								if (hideControls) {
-								 clearTimeout(hideControls);
+									clearTimeout(hideControls);
 								}
+								if(!video.paused){
 								hideControls = setTimeout(function() {
 									WDN.videoPlayer.eventControls.hideControls(video);
 								}, 600); //wait a few seconds and then hide the controls
+								}
 							}
 						);
 						WDN.jQuery(video).siblings('.wdnVideo_controls').hover(function(){
@@ -423,7 +426,7 @@ WDN.videoPlayer = function() {
 								WDN.videoPlayer.eventControls.showControls(video);
 						}, function() {
 							if (hideControls) {
-							 clearTimeout(hideControls);
+								clearTimeout(hideControls);
 							}
 							hideControls = setTimeout(function() {
 								WDN.videoPlayer.eventControls.hideControls(video);
@@ -449,11 +452,11 @@ WDN.videoPlayer = function() {
 				
 				togglePlay : function(video) {
 					if (video.paused) {
-						if (!video.hideControls)
+						if (!video.isVideo) //show the audio controls
 							WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').show('fast');
 						video.play();
 					} else {
-						if (!video.hideControls)
+						if (!video.isVideo) //hide the audio controls
 							WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').hide('fast');
 						video.pause();
 					}
