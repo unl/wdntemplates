@@ -39,9 +39,8 @@ WDN.unlalert = function() {
 			var c = WDN.getCookie('unlAlertsData');
 			if (c) {
 				return false;
-			} else {
-				return true;
 			}
+			return true;
 		},
 		
 		_callServer: function() {
@@ -79,9 +78,8 @@ WDN.unlalert = function() {
 			var c = WDN.getCookie('unlAlertIdClosed_'+id);
 			if (c) {
 				return true;
-			} else {
-				return false;
 			}
+			return false;
 		},
 		
 		/*------ acknowledge alert, and don't show again ------*/
@@ -91,6 +89,11 @@ WDN.unlalert = function() {
 		
 		/*------ building alert message ------*/
 		alertUser: function(root, uniqueID) {
+			
+			if (root.severity != 'Extreme') {
+				return;
+			}
+			
 			WDN.log('Alerting the user');
 			
 			var LatestAlert = root;
@@ -153,16 +156,18 @@ unlAlerts.server = {
 		var alertInfo = unlAlerts.data.alert.info;
 		
 		if (alertInfo) {
-			/* get unique ID */
-			var alertUniqueID = alertInfo.parameter.value;
-			
-			// If alert file has a info element with severity == extreme
-			if (alertInfo.severity == 'Extreme') {
-				WDN.log("Found an alert, calling alertUser()");
-				return WDN.unlalert.alertUser(alertInfo, alertUniqueID);
-			} else {
-				return false;
+			WDN.log("Found an alert, calling alertUser()");
+			if (alertInfo.length) {
+				for (var i = 0; i < alertInfo.length; i++) {
+					WDN.log(alertInfo[i]);
+					WDN.unlalert.alertUser(alertInfo[i], alertInfo[i].parameter.value);
+				}
+				return true;
 			}
+			WDN.log(alertInfo);
+			return WDN.unlalert.alertUser(alertInfo, alertInfo.parameter.value);
 		}
+
+		return false;
 	}
 };
