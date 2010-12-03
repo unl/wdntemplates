@@ -444,8 +444,8 @@ WDN.videoPlayer = function() {
 						'play':         WDN.videoPlayer.eventControls.onPlay,
 						'pause':        WDN.videoPlayer.eventControls.onPause,
 						'ended':        WDN.videoPlayer.eventControls.onEnd,
-						'volumechange': WDN.videoPlayer.eventControls.onVolumeChange,
-						'error':        WDN.videoPlayer.eventControls.onError
+//						'error':        WDN.videoPlayer.eventControls.onError,
+						'volumechange': WDN.videoPlayer.eventControls.onVolumeChange
 					});
 					WDN.jQuery(window).bind({
 						'unload': WDN.videoPlayer.eventControls.onClose
