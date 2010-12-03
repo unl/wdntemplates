@@ -44,7 +44,7 @@ WDN.videoPlayer = function() {
 		
 		supportsH264: function() {
 			var v = document.createElement("video");
-			if(v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"') != '') {
+			if (v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"') != '') {
 				return true;
 			}
 			return false;
@@ -52,7 +52,7 @@ WDN.videoPlayer = function() {
 		
 		supportsWebM: function() {
 			var v = document.createElement("video");
-			if(v.canPlayType('video/webm; codecs="vp8, vorbis"') != '') {
+			if (v.canPlayType('video/webm; codecs="vp8, vorbis"') != '') {
 				return true;
 			}
 			return false;
@@ -60,7 +60,7 @@ WDN.videoPlayer = function() {
 		
 		supportsMP3: function() {
 			var v = document.createElement("audio");
-			if(v.canPlayType('audio/mpeg') != '') {
+			if (v.canPlayType('audio/mpeg') != '') {
 				return true;
 			}
 			return false;
@@ -76,7 +76,7 @@ WDN.videoPlayer = function() {
 			if (WDN.videoPlayer.supportsVideo()){
 				if (WDN.videoPlayer.supportsH264() || WDN.videoPlayer.supportsWebM()){ //can we support H264 or WebM?
 					src = video.src || WDN.jQuery(video).children('source').attr('src') || "";
-					if(src){ //make sure we have a source
+					if (src) { //make sure we have a source
 						requiresFallback = false;
 						
 					}
@@ -105,7 +105,7 @@ WDN.videoPlayer = function() {
 			if (WDN.videoPlayer.supportsAudio()){
 				if (WDN.videoPlayer.supportsMP3()){ //can we support MP3?
 					src = audio.src || WDN.jQuery(audio).children('source').attr('src') || "";
-					if(src){ //make sure we have a source
+					if (src) { //make sure we have a source
 						requiresFallback = false;
 						
 					}
@@ -387,16 +387,16 @@ WDN.videoPlayer = function() {
 					});
 					
 					//show and hide the video controls
-					if (video.isVideo){
+					if (video.isVideo) {
 						WDN.jQuery(video).hover(
 							function() {
 								var showTimedHide = function() {
-									if(hideControls) {
+									if (hideControls) {
 										clearTimeout(hideControls);
 									};
 									
 									WDN.videoPlayer.eventControls.showControls(video);
-									if(!video.paused){
+									if (!video.paused) {
 										hideControls = setTimeout(function() {
 											WDN.videoPlayer.eventControls.hideControls(video);
 										}, 1900);
@@ -411,7 +411,7 @@ WDN.videoPlayer = function() {
 								if (hideControls) {
 									clearTimeout(hideControls);
 								}
-								if(!video.paused){
+								if (!video.paused) {
 									hideControls = setTimeout(function() {
 										WDN.videoPlayer.eventControls.hideControls(video);
 									}, 600); //wait a few seconds and then hide the controls
@@ -419,7 +419,7 @@ WDN.videoPlayer = function() {
 							}
 						);
 						WDN.jQuery(video).siblings('.wdnVideo_controls').hover(function(){
-								if(hideControls) {
+								if (hideControls) {
 									clearTimeout(hideControls);
 								};
 								
@@ -428,7 +428,7 @@ WDN.videoPlayer = function() {
 							if (hideControls) {
 								clearTimeout(hideControls);
 							}
-							if(!video.paused){
+							if (!video.paused) {
 								hideControls = setTimeout(function() {
 									WDN.videoPlayer.eventControls.hideControls(video);
 								}, 600); //wait a few seconds and then hide the controls
@@ -468,7 +468,7 @@ WDN.videoPlayer = function() {
 					video = event.target;
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'playing').removeClass('play').addClass('pause');
 					WDN.videoPlayer.eventControls.trackPlayProgress(video);
-					if(video.hideControls){
+					if (video.hideControls) {
 						hideControls = setTimeout(function() {
 							WDN.videoPlayer.eventControls.hideControls(video);
 						}, 1900);
