@@ -454,12 +454,16 @@ WDN.videoPlayer = function() {
 				
 				togglePlay : function(video) {
 					if (video.paused) {
-						if (!video.isVideo) //show the audio controls
+						if (!video.isVideo){ //show the audio controls
 							WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').show('fast');
+							WDN.jQuery(video).siblings('.title').hide();
+						}
 						video.play();
 					} else {
-						if (!video.isVideo) //hide the audio controls
+						if (!video.isVideo) { //hide the audio controls
 							WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').hide('fast');
+							WDN.jQuery(video).siblings('.title').show();
+						}
 						video.pause();
 					}
 				},

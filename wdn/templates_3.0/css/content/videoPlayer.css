@@ -121,3 +121,8 @@ video.fullscreen + .wdnVideo_controls {
 .audioplayer {
 	height:50px;
 }
+.audioplayer .title {
+	margin-left:80px;
+	color: #ba0000;
+	font-weight: bold;
+}
