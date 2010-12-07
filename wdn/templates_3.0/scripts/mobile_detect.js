@@ -5,21 +5,19 @@ WDN.mobile_detect = function() {
 		message : 'Welcome, mobile user! This page is available in a mobile-friendly view. Would you like to see it?',
 		
 		initialize : function() {
-			if (WDN.mobile_detect.isMobile()) {
-				WDN.loadCSS('/wdn/templates_3.0/css/header/mobile_detect.css');
-				WDN.mobile_detect.showMessage();
-			} else {
-				return false;
+			if (!WDN.mobile_detect.isMobile()) {
+				return true;
 			}
+			WDN.loadCSS('/wdn/templates_3.0/css/header/mobile_detect.css');
+			WDN.mobile_detect.showMessage();
 		},
 		
 		isMobile : function() {
 			var agent = navigator.userAgent.toLowerCase();
 			if (agent.match(/(iPhone|iPod|blackberry|android|htc|kindle|lg|midp|mmp|mobile|nokia|opera mini|palm|pocket|psp|sgh|smartphone|sonyericsson|symbian|treo mini)/i)) {
 				return true;
-			} else {
-				return false;
 			}
+			return false;
 		},
 		
 		showMessage : function() {
