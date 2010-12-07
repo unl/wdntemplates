@@ -118,6 +118,7 @@ var WDN = function() {
 				if (WDN.jQuery('body').hasClass('mobile')) {
 					return;
 				}
+				WDN.initializePlugin('mobile_detect');
 				WDN.initializePlugin('navigation');
 				WDN.initializePlugin('search');
 				WDN.initializePlugin('feedback');
