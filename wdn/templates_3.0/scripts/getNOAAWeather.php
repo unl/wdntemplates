@@ -94,7 +94,7 @@ $outputString .= "<div id=\"unlhumidity\" class=\"weatherconditions\">Relative H
 file_put_contents($outputFile, $outputString);
 
 
-$currentForecast .= "<br /><a class=\"external\" href=\"http://forecast.weather.gov/MapClick.php?FcstType=text&textField1=40.8164&textField2=-96.6882&site=oax&TextType=1\">Complete forecast</a><br /><a href=\"http://snr.unl.edu/LincolnWeather/\">Lincoln Weather and Climate</a>";
+$currentForecast .= "<br /><a class=\"external\" href=\"http://forecast.weather.gov/MapClick.php?FcstType=text&textField1=40.8164&textField2=-96.6882&site=oax&TextType=1\">Complete forecast</a><br /> <a href=\"http://snr.unl.edu/LincolnWeather/\">Lincoln Weather and Climate</a>";
 
 file_put_contents($outputForecastFile, $currentForecast);
 ?>
