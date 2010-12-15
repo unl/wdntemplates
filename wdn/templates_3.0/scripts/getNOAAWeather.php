@@ -87,12 +87,14 @@ $outputString .= "<div id=\"unladjtemp\" class=\"weatherconditions\">$adjtemp_in
 $outputString .= "<div id=\"unlhumidity\" class=\"weatherconditions\">Relative Humidity: $observationDataFile->relative_humidity%</div>
 <div id=\"unlwind\" class=\"weatherconditions\">Winds $windstring</div>
 <div id=\"unlweatherasof\" class=\"weatherasof\">Last Update: $lastupdate</div>
-<div id=\"unlfullforecast\"><a class=\"external\" href=\"http://forecast.weather.gov/MapClick.php?CityName=Lincoln&amp;state=NE&amp;site=OAX\">Complete local weather</a></div>";
+<div id=\"unlfullforecast\"><a class=\"external\" href=\"http://forecast.weather.gov/MapClick.php?CityName=Lincoln&amp;state=NE&amp;site=OAX\">Complete local weather</a><br />
+<a href=\"http://snr.unl.edu/LincolnWeather/\">Lincoln Weather and Climate</a>
+</div>";
 
 file_put_contents($outputFile, $outputString);
 
 
-$currentForecast .= "<br /><a class=\"external\" href=\"http://forecast.weather.gov/MapClick.php?FcstType=text&textField1=40.8164&textField2=-96.6882&site=oax&TextType=1\">Complete forecast</a>";
+$currentForecast .= "<br /><a class=\"external\" href=\"http://forecast.weather.gov/MapClick.php?FcstType=text&textField1=40.8164&textField2=-96.6882&site=oax&TextType=1\">Complete forecast</a><br /><a href=\"http://snr.unl.edu/LincolnWeather/\">Lincoln Weather and Climate</a>";
 
 file_put_contents($outputForecastFile, $currentForecast);
 ?>
