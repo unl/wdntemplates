@@ -31,7 +31,7 @@
                         <tr background="http://www.unl.edu/wdn/templates_3.0/images/email/insideFooter.png" style="background-image: url(http://www.unl.edu/wdn/templates_3.0/images/email/insideFooter.png)">
                             <td style="color:#606060;font-size:10px;line-height:1.4em;padding:12px;font-family:'Lucida Grande',Verdana,Arial;min-height:42px;">
                                 <!--  This the footer -->
-                                <p style="margin-top:95px;"><img src="http://www.unl.edu/wdn/templates_3.0/images/email/wordmark.png" alt="" width="90" height="37" align="right" />&copy; 2010 Nebraska Alumni Association | 1520 R Street, Lincoln, NE 68501 | 888-353-1874 <br /> <a href="#" style="outline: none;color: #ba0000;text-decoration: none;">Comments</a> | 
+                                <p style="margin-top:95px;"><img src="http://www.unl.edu/wdn/templates_3.0/images/email/wordmark.png" alt="" width="90" height="37" align="right" />&copy; 2011 Nebraska Alumni Association | 1520 R Street, Lincoln, NE 68501 | 888-353-1874 <br /> <a href="#" style="outline: none;color: #ba0000;text-decoration: none;">Comments</a> | 
                                     <a href="#" style="outline: none;color: #ba0000;text-decoration: none;">Privacy Policy</a> | <a href="#" style="outline: none;color: #ba0000;text-decoration: none;">Email Preferences</a> | <a href="#" style="outline: none;color: #ba0000;text-decoration: none;">Unsubscribe</a></p>
                             </td>
                         </tr>
