@@ -112,7 +112,7 @@ WDN.videoPlayer = function() {
 				}
 				
 			}
-			WDN.log('requiresFallback (video): '+requiresFallback);
+			WDN.log('requiresFallback (audio): '+requiresFallback);
 			if (requiresFallback){
 				WDN.videoPlayer.createFallback.setupJWPlayer(audio, "audio");
 			} else {
