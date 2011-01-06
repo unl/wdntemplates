@@ -145,12 +145,21 @@ WDN.videoPlayer = function() {
 						var poster = video.poster || "";
 						var width = video.width || WDN.jQuery(video).width();
 						var height = video.height || WDN.jQuery(video).height();
+						var skin = '/wdn/templates_3.0/includes/swf/UNLVideoSkin.swf';
+						var allowfullscreen = 'true';
+						var screencolor = '000000';
+						var icons = 'true';
 						if (type == 'audio')
 							height = 60;
+							skin = '/wdn/templates_3.0/includes/swf/UNLAudioSkin.swf';
+							allowfullscreen = 'false';
+							screencolor = 'FFFFFF';
+							icons = 'false';
 						var autostart = 'false'; //default to false
 						if (video.autoplay || WDN.jQuery('video').eq(i).attr('autoplay')) {
 							autostart = 'true';
 						}
+						WDN.log(skin);
 						WDN.jQuery(video).wrap("<div id='wdnVideo_"+i+"' style='min-height:60px;' />");
 						
 						//Fallback for flash
@@ -159,14 +168,16 @@ WDN.videoPlayer = function() {
 						WDN.jQuery('#wdnVideo_'+i).flash(
 							{     
 								swf: '/wdn/templates_3.0/includes/swf/player4.3.swf',   
-								allowfullscreen: 'true',
+								allowfullscreen: 'false',
 								allowscriptaccess: 'always',
 								flashvars: {   
 									'file': src,   
 									'image': poster,   
-									'skin': '/wdn/templates_3.0/includes/swf/UNLVideoSkin.swf',   
+									'skin': skin,   
 									'autostart': autostart,
-									'controlbar': 'over'
+									'controlbar': 'over',
+									'screencolor' : screencolor,
+									'icons' : icons
 								},
 								height: height,
 								width: width,
