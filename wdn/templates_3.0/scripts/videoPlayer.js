@@ -147,14 +147,16 @@ WDN.videoPlayer = function() {
 						var height = video.height || WDN.jQuery(video).height();
 						var skin = '/wdn/templates_3.0/includes/swf/UNLVideoSkin.swf';
 						var allowfullscreen = 'true';
-						var screencolor = '000000';
+						var screencolor = '';
 						var icons = 'true';
-						if (type == 'audio')
+						WDN.log(type);
+						if (type == 'audio') {
 							height = 60;
 							skin = '/wdn/templates_3.0/includes/swf/UNLAudioSkin.swf';
 							allowfullscreen = 'false';
 							screencolor = 'FFFFFF';
 							icons = 'false';
+						}
 						var autostart = 'false'; //default to false
 						if (video.autoplay || WDN.jQuery('video').eq(i).attr('autoplay')) {
 							autostart = 'true';
@@ -176,7 +178,6 @@ WDN.videoPlayer = function() {
 									'skin': skin,   
 									'autostart': autostart,
 									'controlbar': 'over',
-									'screencolor' : screencolor,
 									'icons' : icons
 								},
 								height: height,
