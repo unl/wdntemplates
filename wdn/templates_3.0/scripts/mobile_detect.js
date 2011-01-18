@@ -15,7 +15,9 @@ WDN.mobile_detect = function() {
 		isMobile : function() {
 			var agent = navigator.userAgent.toLowerCase();
 			if (agent.match(/(iPhone|iPod|blackberry|android|htc|kindle|lg|midp|mmp|mobile|nokia|opera mini|palm|pocket|psp|sgh|smartphone|sonyericsson|symbian|treo mini)/i)) {
-				return true;
+				if (!agent.match(/(iPad)/i)) {
+					return true;
+				}
 			}
 			return false;
 		},
