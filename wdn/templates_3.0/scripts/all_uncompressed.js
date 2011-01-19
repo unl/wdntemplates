@@ -7940,7 +7940,7 @@ WDN.navigation = function() {
          */
         initialize : function() {
             if (WDN.jQuery('body').hasClass('popup') ||
-                WDN.jQuery('body').hasClass('document') || WDN.jQuery('#breadcrumbs ul li').size() == 0) {
+                WDN.jQuery('body').hasClass('document') || (WDN.jQuery('#breadcrumbs ul li').size() == 0)) {
                 return;
             }
 
