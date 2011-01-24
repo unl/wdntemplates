@@ -52,6 +52,7 @@ WDN.navigation = function() {
             	// Already initialized
                 return;
             }
+            
 
             WDN.jQuery('#navigation').append('<div id="navigation-close"></div>');
             WDN.jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
@@ -65,7 +66,8 @@ WDN.navigation = function() {
             if (WDN.getCookie('n') == 1) {
                 WDN.navigation.preferredState = 1;
             }
-            WDN.navigation.initializePreferredState();
+            
+            WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', WDN.navigation.initializePreferredState);
             
             //adds the curved end to the right side of the breadcrumbs bar in IE
             if (WDN.jQuery.browser.msie) {
@@ -242,9 +244,13 @@ WDN.navigation = function() {
                 WDN.navigation.collapse();
                 mouseout = WDN.navigation.startCollapseDelay;
             }
-            WDN.jQuery('#wdn_navigation_bar').hover(
-                    WDN.navigation.startExpandDelay,
-                    mouseout);
+            
+            WDN.jQuery('#wdn_navigation_bar').hoverIntent({
+            	over:        WDN.navigation.expand,
+            	out:         mouseout,
+            	timeout:     WDN.navigation.expandDelay,
+            	sensitivity: 1 // Mouse must not move
+            });
             WDN.jQuery('#wdn_content_wrapper,#header').hover(
                     WDN.navigation.startCollapseDelay);
             WDN.navigation.updateHelperText();
