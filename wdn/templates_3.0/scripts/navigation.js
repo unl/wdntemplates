@@ -69,6 +69,7 @@ WDN.navigation = function() {
             WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', function() {
             	WDN.jQuery('#breadcrumbs ul li a').hoverIntent({
                 	over:        WDN.navigation.switchSiteNavigation,
+                	out:         function(){},
                 	timeout:     WDN.navigation.changeSiteNavDelay,
                 	sensitivity: 1, // Mouse must not move
                 	interval:    120
