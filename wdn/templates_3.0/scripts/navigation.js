@@ -41,14 +41,18 @@ WDN.navigation = function() {
          * @todo determine what it should be
          */
         initialize : function() {
-            if (WDN.jQuery('body').hasClass('popup') ||
-                WDN.jQuery('body').hasClass('document') || (WDN.jQuery('#breadcrumbs ul li').size() == 0)) {
+            if (WDN.jQuery('body').hasClass('popup')
+    			|| WDN.jQuery('body').hasClass('document')
+    			|| WDN.jQuery('#breadcrumbs ul li').size() == 0) {
+            	// This page has no navigation
                 return;
             }
 
             if (WDN.jQuery('#navigation-close').length > 0) {
+            	// Already initialized
                 return;
             }
+
             WDN.jQuery('#navigation').append('<div id="navigation-close"></div>');
             WDN.jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
             WDN.jQuery('#navigation-expand-collapse').click(WDN.navigation.setPreferredState);
