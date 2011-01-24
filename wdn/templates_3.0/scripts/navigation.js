@@ -60,14 +60,21 @@ WDN.navigation = function() {
             WDN.jQuery('#navigation-close').click(WDN.navigation.collapse);
             WDN.navigation.determineSelectedBreadcrumb();
             WDN.navigation.linkSiteTitle();
-            WDN.jQuery('#breadcrumbs ul li a').hover(WDN.navigation.startChangeNavigationDelay);
 
             // Store the current state of the cookie
             if (WDN.getCookie('n') == 1) {
                 WDN.navigation.preferredState = 1;
             }
             
-            WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', WDN.navigation.initializePreferredState);
+            WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', function() {
+            	WDN.jQuery('#breadcrumbs ul li a').hoverIntent({
+                	over:        WDN.navigation.switchSiteNavigation,
+                	timeout:     WDN.navigation.changeSiteNavDelay,
+                	sensitivity: 1, // Mouse must not move
+                	interval:    120
+                });
+            	WDN.navigation.initializePreferredState();
+            });
             
             //adds the curved end to the right side of the breadcrumbs bar in IE
             if (WDN.jQuery.browser.msie) {
@@ -180,35 +187,17 @@ WDN.navigation = function() {
         },
         
         /**
-         * Set a delay for expanding the navigation.
-         */
-        startExpandDelay : function (event) {
-            WDN.log('start expand delay');
-            clearTimeout(WDN.navigation.timeout);
-            if (WDN.navigation.currentState == 1) {
-                return;
-            }
-            WDN.navigation.timeout = setTimeout(WDN.navigation.expand, WDN.navigation.expandDelay);
-        },
-        
-        /**
          * Set a delay for collapsing the navigation.
          */
         startCollapseDelay: function(event) {
             WDN.log('start collapse delay');
             clearTimeout(WDN.navigation.timeout);
-            if (WDN.navigation.currentState === 0) {
-                return;
-            }
-            if (WDN.navigation.preferredState == 1) {
+            if (WDN.navigation.currentState === 0
+            	|| WDN.navigation.preferredState == 1) {
+            	// Already collapsed, or, prefer to stay open
                 return;
             }
             WDN.navigation.timeout = setTimeout(WDN.navigation.collapse, WDN.navigation.collapseDelay);
-        },
-        
-        startChangeNavigationDelay: function(breadcrumb) {
-            WDN.navigation.startExpandDelay();
-            WDN.navigation.timeout = setTimeout(function(){WDN.navigation.switchSiteNavigation(breadcrumb);}, WDN.navigation.changeSiteNavDelay);
         },
         
         setPreferredState : function(event) {
@@ -249,7 +238,8 @@ WDN.navigation = function() {
             	over:        WDN.navigation.expand,
             	out:         mouseout,
             	timeout:     WDN.navigation.expandDelay,
-            	sensitivity: 1 // Mouse must not move
+            	sensitivity: 1, // Mouse must not move
+            	interval:    120
             });
             WDN.jQuery('#wdn_content_wrapper,#header').hover(
                     WDN.navigation.startCollapseDelay);
