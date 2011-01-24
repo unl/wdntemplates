@@ -7939,27 +7939,41 @@ WDN.navigation = function() {
          * @todo determine what it should be
          */
         initialize : function() {
-            if (WDN.jQuery('body').hasClass('popup') ||
-                WDN.jQuery('body').hasClass('document') || (WDN.jQuery('#breadcrumbs ul li').size() == 0)) {
+            if (WDN.jQuery('body').hasClass('popup')
+    			|| WDN.jQuery('body').hasClass('document')
+    			|| WDN.jQuery('#breadcrumbs ul li').size() == 0) {
+            	// This page has no navigation
                 return;
             }
 
             if (WDN.jQuery('#navigation-close').length > 0) {
+            	// Already initialized
                 return;
             }
+            
+
             WDN.jQuery('#navigation').append('<div id="navigation-close"></div>');
             WDN.jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
             WDN.jQuery('#navigation-expand-collapse').click(WDN.navigation.setPreferredState);
             WDN.jQuery('#navigation-close').click(WDN.navigation.collapse);
             WDN.navigation.determineSelectedBreadcrumb();
             WDN.navigation.linkSiteTitle();
-            WDN.jQuery('#breadcrumbs ul li a').hover(WDN.navigation.startChangeNavigationDelay);
 
             // Store the current state of the cookie
             if (WDN.getCookie('n') == 1) {
                 WDN.navigation.preferredState = 1;
             }
-            WDN.navigation.initializePreferredState();
+            
+            WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', function() {
+            	WDN.jQuery('#breadcrumbs ul li a').hoverIntent({
+                	over:        WDN.navigation.switchSiteNavigation,
+                	out:         function(){},
+                	timeout:     WDN.navigation.changeSiteNavDelay,
+                	sensitivity: 1, // Mouse must not move
+                	interval:    120
+                });
+            	WDN.navigation.initializePreferredState();
+            });
             
             //adds the curved end to the right side of the breadcrumbs bar in IE
             if (WDN.jQuery.browser.msie) {
@@ -8072,35 +8086,17 @@ WDN.navigation = function() {
         },
         
         /**
-         * Set a delay for expanding the navigation.
-         */
-        startExpandDelay : function (event) {
-            //debug statement removed
-            clearTimeout(WDN.navigation.timeout);
-            if (WDN.navigation.currentState == 1) {
-                return;
-            }
-            WDN.navigation.timeout = setTimeout(WDN.navigation.expand, WDN.navigation.expandDelay);
-        },
-        
-        /**
          * Set a delay for collapsing the navigation.
          */
         startCollapseDelay: function(event) {
             //debug statement removed
             clearTimeout(WDN.navigation.timeout);
-            if (WDN.navigation.currentState === 0) {
-                return;
-            }
-            if (WDN.navigation.preferredState == 1) {
+            if (WDN.navigation.currentState === 0
+            	|| WDN.navigation.preferredState == 1) {
+            	// Already collapsed, or, prefer to stay open
                 return;
             }
             WDN.navigation.timeout = setTimeout(WDN.navigation.collapse, WDN.navigation.collapseDelay);
-        },
-        
-        startChangeNavigationDelay: function(breadcrumb) {
-            WDN.navigation.startExpandDelay();
-            WDN.navigation.timeout = setTimeout(function(){WDN.navigation.switchSiteNavigation(breadcrumb);}, WDN.navigation.changeSiteNavDelay);
         },
         
         setPreferredState : function(event) {
@@ -8136,9 +8132,14 @@ WDN.navigation = function() {
                 WDN.navigation.collapse();
                 mouseout = WDN.navigation.startCollapseDelay;
             }
-            WDN.jQuery('#wdn_navigation_bar').hover(
-                    WDN.navigation.startExpandDelay,
-                    mouseout);
+            
+            WDN.jQuery('#wdn_navigation_bar').hoverIntent({
+            	over:        WDN.navigation.expand,
+            	out:         mouseout,
+            	timeout:     WDN.navigation.expandDelay,
+            	sensitivity: 1, // Mouse must not move
+            	interval:    120
+            });
             WDN.jQuery('#wdn_content_wrapper,#header').hover(
                     WDN.navigation.startCollapseDelay);
             WDN.navigation.updateHelperText();
@@ -8652,6 +8653,118 @@ WDN.analytics = function() {
 }();
 
 WDN.loadedJS["/wdn/templates_3.0/scripts/analytics.js"]=1;
+/**
+* hoverIntent is similar to jQuery's built-in "hover" function except that
+* instead of firing the onMouseOver event immediately, hoverIntent checks
+* to see if the user's mouse has slowed down (beneath the sensitivity
+* threshold) before firing the onMouseOver event.
+* 
+* hoverIntent r5 // 2007.03.27 // jQuery 1.1.2+
+* <http://cherne.net/brian/resources/jquery.hoverIntent.html>
+* 
+* hoverIntent is currently available for use in all personal or commercial 
+* projects under both MIT and GPL licenses. This means that you can choose 
+* the license that best suits your project, and use it accordingly.
+* 
+* // basic usage (just like .hover) receives onMouseOver and onMouseOut functions
+* $("ul li").hoverIntent( showNav , hideNav );
+* 
+* // advanced usage receives configuration object only
+* $("ul li").hoverIntent({
+*	sensitivity: 7, // number = sensitivity threshold (must be 1 or higher)
+*	interval: 100,   // number = milliseconds of polling interval
+*	over: showNav,  // function = onMouseOver callback (required)
+*	timeout: 0,   // number = milliseconds delay before onMouseOut function call
+*	out: hideNav    // function = onMouseOut callback (required)
+* });
+* 
+* @param  f  onMouseOver function || An object with configuration options
+* @param  g  onMouseOut function  || Nothing (use configuration options object)
+* @author    Brian Cherne <brian@cherne.net>
+*/
+(function($) {
+	$.fn.hoverIntent = function(f,g) {
+		// default configuration options
+		var cfg = {
+			sensitivity: 7,
+			interval: 100,
+			timeout: 0
+		};
+		// override configuration options with user supplied object
+		cfg = $.extend(cfg, g ? { over: f, out: g } : f );
+
+		// instantiate variables
+		// cX, cY = current X and Y position of mouse, updated by mousemove event
+		// pX, pY = previous X and Y position of mouse, set by mouseover and polling interval
+		var cX, cY, pX, pY;
+
+		// A private function for getting mouse position
+		var track = function(ev) {
+			cX = ev.pageX;
+			cY = ev.pageY;
+		};
+
+		// A private function for comparing current and previous mouse position
+		var compare = function(ev,ob) {
+			ob.hoverIntent_t = clearTimeout(ob.hoverIntent_t);
+			// compare mouse positions to see if they've crossed the threshold
+			if ( ( Math.abs(pX-cX) + Math.abs(pY-cY) ) < cfg.sensitivity ) {
+				$(ob).unbind("mousemove",track);
+				// set hoverIntent state to true (so mouseOut can be called)
+				ob.hoverIntent_s = 1;
+				return cfg.over.apply(ob,[ev]);
+			} else {
+				// set previous coordinates for next time
+				pX = cX; pY = cY;
+				// use self-calling timeout, guarantees intervals are spaced out properly (avoids JavaScript timer bugs)
+				ob.hoverIntent_t = setTimeout( function(){compare(ev, ob);} , cfg.interval );
+			}
+		};
+
+		// A private function for delaying the mouseOut function
+		var delay = function(ev,ob) {
+			ob.hoverIntent_t = clearTimeout(ob.hoverIntent_t);
+			ob.hoverIntent_s = 0;
+			return cfg.out.apply(ob,[ev]);
+		};
+
+		// A private function for handling mouse 'hovering'
+		var handleHover = function(e) {
+			// next three lines copied from jQuery.hover, ignore children onMouseOver/onMouseOut
+			var p = (e.type == "mouseover" ? e.fromElement : e.toElement) || e.relatedTarget;
+			while ( p && p != this ) { try { p = p.parentNode; } catch(e) { p = this; } }
+			if ( p == this ) { return false; }
+
+			// copy objects to be passed into t (required for event object to be passed in IE)
+			var ev = $.extend({},e);
+			var ob = this;
+
+			// cancel hoverIntent timer if it exists
+			if (ob.hoverIntent_t) { ob.hoverIntent_t = clearTimeout(ob.hoverIntent_t); }
+
+			// else e.type == "onmouseover"
+			if (e.type == "mouseover") {
+				// set "previous" X and Y position based on initial entry point
+				pX = ev.pageX; pY = ev.pageY;
+				// update "current" X and Y position based on mousemove
+				$(ob).bind("mousemove",track);
+				// start polling interval (self-calling timeout) to compare mouse coordinates over time
+				if (ob.hoverIntent_s != 1) { ob.hoverIntent_t = setTimeout( function(){compare(ev,ob);} , cfg.interval );}
+
+			// else e.type == "onmouseout"
+			} else {
+				// unbind expensive mousemove event
+				$(ob).unbind("mousemove",track);
+				// if hoverIntent state is true, then call the mouseOut function after the specified delay
+				if (ob.hoverIntent_s == 1) { ob.hoverIntent_t = setTimeout( function(){delay(ev,ob);} , cfg.timeout );}
+			}
+		};
+
+		// bind the function to the two event listeners
+		return this.mouseover(handleHover).mouseout(handleHover);
+	};
+})(WDN.jQuery);
+WDN.loadedJS["/wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js"]=1;
 /*
  * Changes made to plugin for purpose of adapting: 
  * 06/09/09

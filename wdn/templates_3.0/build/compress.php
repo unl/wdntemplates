@@ -13,6 +13,7 @@ $files = array(
 //'toolbar_webcams',
 'tooltip',
 'analytics',
+'plugins/hoverIntent/jQuery.hoverIntent',
 'plugins/rating/jquery.rating',
 'plugins/colorbox/jquery.colorbox',
 'plugins/qtip/jquery.qtip',
