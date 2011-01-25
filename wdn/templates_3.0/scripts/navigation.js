@@ -97,7 +97,7 @@ WDN.navigation = function() {
             if (WDN.navigation.siteHomepage === false) {
                 WDN.log('No homepage set!');
                 // Right now, stupidly select the second element.
-                WDN.navigation.setHomepageLI($('#breadcrumbs > ul >  li:nth-child(2)'));
+                WDN.navigation.setHomepageLI($('#breadcrumbs > ul > li:nth-child(2)'));
             } else {
                 WDN.log('Homepage has been set.');
                 // Make all the hrefs absolute.
@@ -183,7 +183,7 @@ WDN.navigation = function() {
             $('#navigation ul:first li:nth-child(6) a:visible:first').css('width','100%');
             WDN.navigation.setWrapperClass('collapsed');
             WDN.navigation.currentState = 0;
-            WDN.navigation.switchSiteNavigation($(WDN.navigation.homepageLI).find('a:first-child'), false);
+            WDN.navigation.switchSiteNavigation($(WDN.navigation.homepageLI).children('a:first-child'), false);
         },
         
         /**
