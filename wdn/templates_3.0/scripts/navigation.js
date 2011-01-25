@@ -226,7 +226,7 @@ WDN.navigation = function() {
          */
         initializePreferredState : function() {
             WDN.log('initializepreferredstate, current state is '+WDN.navigation.currentState);
-            var mouseout = null;
+            var mouseout = WDN.jQuery.noop;
             if (WDN.navigation.preferredState==1) {
                 WDN.navigation.setWrapperClass('pinned');
                 WDN.navigation.expand();
