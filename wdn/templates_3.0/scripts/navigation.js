@@ -252,26 +252,29 @@ WDN.navigation = function() {
                 WDN.log('already showing this nav');
                 return true;
             }
-
-            if (WDN.jQuery('#breadcrumbs ul li.selected div.storednav').length === 0) {
+            
+            var height = WDN.jQuery('#navigation ul').height() || 50;
+            var oldSelected = WDN.jQuery('#breadcrumbs > ul > li.selected:first');
+            
+            if (!WDN.jQuery('div.storednav', oldSelected).length && WDN.jQuery('#navigation > ul').length) {
                 WDN.log('Storing it');
                 // Store the current navigation
-                WDN.navigation.storeNav(WDN.jQuery('#breadcrumbs ul > li.selected:first'), '<ul>'+WDN.jQuery('#navigation ul').html()+'</ul>');
+                WDN.navigation.storeNav(oldSelected, WDN.jQuery('#navigation > ul'));
+            } else {
+            	WDN.jQuery('#navigation > ul').remove();
             }
             
             // Set the hovered breadcrumb link to selected
-            WDN.jQuery('#breadcrumbs ul li.selected').removeClass('selected');
+            oldSelected.removeClass('selected');
             WDN.jQuery(breadcrumb).parent().addClass('selected');
             // Check for stored navigation
-            if (WDN.jQuery(breadcrumb).parent().find('.storednav').length > 0) {
+            if (WDN.jQuery(breadcrumb).siblings('div.storednav').length) {
                 WDN.log("Already got it.");
                 // We've already grabbed the nav for this link
-                WDN.navigation.setNavigationContents(WDN.jQuery(breadcrumb).parent().find('.storednav').html(), expand);
+                WDN.navigation.setNavigationContents(WDN.jQuery(breadcrumb).siblings('div.storednav').children().clone(), expand);
                 return true;
             }
             
-            var height = WDN.jQuery('#navigation ul').height();
-            WDN.jQuery('#navigation ul').hide();
             WDN.jQuery('#navloading').remove();
             WDN.jQuery('#navigation').append('<div id="navloading" style="height:'+height+'px;"></div>');
             
@@ -279,11 +282,13 @@ WDN.navigation = function() {
             nav_sniffer = nav_sniffer+escape(WDN.toAbs(breadcrumb.href, window.location));
             WDN.log('Attempting to retrieve navigation from '+nav_sniffer);
             WDN.get(nav_sniffer, '', function(data, textStatus) {
-                WDN.jQuery('#navloading').remove();
                 try {
                     if (textStatus == 'success') {
-                        WDN.navigation.storeNav(WDN.jQuery('#breadcrumbs ul li a[href="'+breadcrumb.href+'"'), data);
-                        WDN.navigation.setNavigationContents(data, expand);
+                    	var breadcrumbParent = WDN.jQuery(breadcrumb).parent();
+                        WDN.navigation.storeNav(breadcrumbParent, data);
+                        if (breadcrumbParent.hasClass('selected')) {
+                            WDN.navigation.setNavigationContents(data, expand);
+                        }
                     } else {
                         // Error message
                         WDN.log('Incorrect status code returned remotely retrieving navigation.');
@@ -301,7 +306,9 @@ WDN.navigation = function() {
         
         setNavigationContents : function(contents, expand) {
             WDN.log('setNavigationContents called');
-            WDN.jQuery('#navigation>ul').replaceWith(contents);
+            WDN.jQuery('#navloading').remove();
+            WDN.jQuery('#navigation').children('ul').remove()
+            	.end().prepend(contents);
             if (!expand) {
             	return;
             }
@@ -320,7 +327,14 @@ WDN.navigation = function() {
         },
         
         storeNav : function(li, data) {
-        	WDN.jQuery(li).append('<div class="storednav">'+data+'</div>');
+        	var storednavDiv = WDN.jQuery(li).children('div.storednav');
+        	if (storednavDiv.length) {
+        		storednavDiv.empty();
+        	} else {
+        		storednavDiv = WDN.jQuery('<div class="storednav"/>');
+        		WDN.jQuery(li).append(storednavDiv);
+        	}
+        	storednavDiv.append(data);
         }
     };
 }();
