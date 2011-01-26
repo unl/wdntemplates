@@ -55,7 +55,12 @@ WDN.navigation = function() {
             WDN.jQuery('#navigation').append('<div id="navigation-close"></div>');
             WDN.jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
             WDN.jQuery('#navigation-expand-collapse').click(WDN.navigation.setPreferredState);
-            WDN.jQuery('#navigation-close').click(WDN.navigation.collapse);
+            WDN.jQuery('#navigation-close').click(function(evt) {
+            	if (WDN.navigation.preferredState == 1) {
+            		WDN.navigation.setPreferredState(evt);
+            	}
+            	WDN.navigation.collapse();
+            });
             WDN.navigation.determineSelectedBreadcrumb();
             WDN.navigation.linkSiteTitle();
 
