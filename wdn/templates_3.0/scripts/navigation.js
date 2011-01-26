@@ -156,7 +156,7 @@ WDN.navigation = function() {
             WDN.navigation.setWrapperClass('expanded');
             WDN.navigation.currentState = 1;
             WDN.navigation.updateHelperText();
-            WDN.jQuery('#navigation ul:first li:nth-child(6) a:visible:first').css('width','86%');
+            WDN.jQuery('#navigation ul > li:nth-child(6) a:visible:first').css('width','86%');
         },
         
         updateHelperText : function() {
@@ -252,6 +252,9 @@ WDN.navigation = function() {
         
         switchSiteNavigation : function(event, expand) {
             WDN.log('Switch site nav called');
+            if (expand === undefined) {
+            	expand = true;
+            }
             var breadcrumb = (event.target)?event.target:event;
             if (WDN.jQuery(breadcrumb).parent().hasClass('selected')) {
                 WDN.log('already showing this nav');
@@ -299,7 +302,6 @@ WDN.navigation = function() {
                         WDN.log('Incorrect status code returned remotely retrieving navigation.');
                         WDN.log(data);
                         WDN.log(textStatus);
-                        WDN.navigation.setNavigationContents('An error occurred', expand);
                     }
                 } catch(e) {
                     WDN.log('Caught error remotely retrieving navigation.');
