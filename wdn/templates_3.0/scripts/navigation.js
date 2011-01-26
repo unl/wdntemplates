@@ -6,8 +6,6 @@ WDN.navigation = function() {
         
         currentState : -1,
         
-        navigation : Array(),
-
         /**
          * URL determined to be this site's homepage
          */
