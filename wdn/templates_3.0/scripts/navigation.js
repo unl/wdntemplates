@@ -1,12 +1,13 @@
 WDN.navigation = function() {
     var expandedHeight = 0;
-    var $ = WDN.jQuery;
     return {
         
         preferredState : 0,
         
         currentState : -1,
         
+        navigation : Array(),
+
         /**
          * URL determined to be this site's homepage
          */
@@ -40,23 +41,23 @@ WDN.navigation = function() {
          * @todo determine what it should be
          */
         initialize : function() {
-            if ($('body').hasClass('popup')
-    			|| $('body').hasClass('document')
-    			|| $('#breadcrumbs ul li').size() == 0) {
+            if (WDN.jQuery('body').hasClass('popup')
+    			|| WDN.jQuery('body').hasClass('document')
+    			|| WDN.jQuery('#breadcrumbs ul li').size() == 0) {
             	// This page has no navigation
                 return;
             }
 
-            if ($('#navigation-close').length > 0) {
+            if (WDN.jQuery('#navigation-close').length > 0) {
             	// Already initialized
                 return;
             }
             
 
-            $('#navigation').append('<div id="navigation-close"></div>');
-            $('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
-            $('#navigation-expand-collapse').click(WDN.navigation.setPreferredState);
-            $('#navigation-close').click(WDN.navigation.collapse);
+            WDN.jQuery('#navigation').append('<div id="navigation-close"></div>');
+            WDN.jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
+            WDN.jQuery('#navigation-expand-collapse').click(WDN.navigation.setPreferredState);
+            WDN.jQuery('#navigation-close').click(WDN.navigation.collapse);
             WDN.navigation.determineSelectedBreadcrumb();
             WDN.navigation.linkSiteTitle();
 
@@ -66,7 +67,7 @@ WDN.navigation = function() {
             }
             
             WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', function() {
-            	$('#breadcrumbs ul li a').hoverIntent({
+            	WDN.jQuery('#breadcrumbs ul li a').hoverIntent({
                 	over:        WDN.navigation.switchSiteNavigation,
                 	out:         function(){},
                 	timeout:     WDN.navigation.changeSiteNavDelay,
@@ -77,9 +78,9 @@ WDN.navigation = function() {
             });
             
             //adds the curved end to the right side of the breadcrumbs bar in IE
-            if ($.browser.msie) {
-                $('#breadcrumbs').append('<span></span>');
-                $('#breadcrumbs span').css({'height':'35px', 'width':'8px','position':'absolute','top':'0', 'right':'-3px','margin':'0 0 0 100%','background':'url("'+WDN.template_path+'wdn/templates_3.0/css/navigation/images/breadcrumbBarSprite2.png") 0 -72px no-repeat'});
+            if (WDN.jQuery.browser.msie) {
+                WDN.jQuery('#breadcrumbs').append('<span></span>');
+                WDN.jQuery('#breadcrumbs span').css({'height':'35px', 'width':'8px','position':'absolute','top':'0', 'right':'-3px','margin':'0 0 0 100%','background':'url("'+WDN.template_path+'wdn/templates_3.0/css/navigation/images/breadcrumbBarSprite2.png") 0 -72px no-repeat'});
             }
         },
         
@@ -89,29 +90,29 @@ WDN.navigation = function() {
         determineSelectedBreadcrumb : function() {
             // First we search for a defined homepage.
             
-            if ($('link[rel=home]').length) {
-                WDN.navigation.siteHomepage = WDN.toAbs($('link[rel=home]').attr('href'), window.location.toString());
+            if (WDN.jQuery('link[rel=home]').length) {
+                WDN.navigation.siteHomepage = WDN.toAbs(WDN.jQuery('link[rel=home]').attr('href'), window.location.toString());
                 WDN.log('Setting homepage to '+WDN.navigation.siteHomepage);
             }
             
             if (WDN.navigation.siteHomepage === false) {
                 WDN.log('No homepage set!');
                 // Right now, stupidly select the second element.
-                WDN.navigation.setHomepageLI($('#breadcrumbs > ul > li:nth-child(2)'));
+                WDN.navigation.setHomepageLI(WDN.jQuery('#breadcrumbs > ul >  li:nth-child(2)'));
             } else {
                 WDN.log('Homepage has been set.');
                 // Make all the hrefs absolute.
-                $('#breadcrumbs > ul > li > a').each(
+                WDN.jQuery('#breadcrumbs > ul > li > a').each(
                         function() {
                             if (this.href == WDN.navigation.siteHomepage) {
-                                WDN.navigation.setHomepageLI($(this).parent());
+                                WDN.navigation.setHomepageLI(WDN.jQuery(this).parent());
                                 return false;
                             }
                         }
                     );
-                if ($('#breadcrumbs > ul > li.selected').size() < 1) {
+                if (WDN.jQuery('#breadcrumbs > ul > li.selected').size() < 1) {
                     WDN.log('We are on the current homepage.');
-                    WDN.navigation.setHomepageLI($('#breadcrumbs > ul > li:last-child'));
+                    WDN.navigation.setHomepageLI(WDN.jQuery('#breadcrumbs > ul > li:last-child'));
                 }
             }
         },
@@ -119,14 +120,14 @@ WDN.navigation = function() {
         setHomepageLI: function(li)
         {
         	WDN.navigation.homepageLI = li;
-        	$(li).addClass('selected');
-        	if ($(li).children('a').size()) {
+        	WDN.jQuery(li).addClass('selected');
+        	if (WDN.jQuery(li).children('a').size()) {
                 // Found the homepage url in the breadcrumbs
-                WDN.navigation.siteHomepage = $(li).find('a').attr('href');
+                WDN.navigation.siteHomepage = WDN.jQuery(li).find('a').attr('href');
             } else {
                 // Assume it's the current page
                 WDN.navigation.siteHomepage = window.location;
-                $(li).wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
+                WDN.jQuery(li).wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
             }
         },
         
@@ -136,11 +137,11 @@ WDN.navigation = function() {
         
         linkSiteTitle: function() {
             // check if the link already exists
-            if ($("#titlegraphic h1 a").length > 0) {
+            if (WDN.jQuery("#titlegraphic h1 a").length > 0) {
                 return;
             }
             // create the link using whatever the Homepage is set to
-            $("#titlegraphic h1").wrapInner('<a href="' + WDN.navigation.siteHomepage +'" />');
+            WDN.jQuery("#titlegraphic h1").wrapInner('<a href="' + WDN.navigation.siteHomepage +'" />');
         },
         
         /**
@@ -148,21 +149,21 @@ WDN.navigation = function() {
          */
         expand : function() {
             WDN.log('expand called');
-            $('#navigation-close').show();
+            WDN.jQuery('#navigation-close').show();
             WDN.navigation.setWrapperClass('expanded');
             WDN.navigation.currentState = 1;
             WDN.navigation.updateHelperText();
-            $('#navigation ul:first li:nth-child(6) a:visible:first').css('width','86%');
+            WDN.jQuery('#navigation ul:first li:nth-child(6) a:visible:first').css('width','86%');
         },
         
         updateHelperText : function() {
             if (WDN.navigation.preferredState == 1) {
-                $('#navigation-expand-collapse span').text('click to always hide full navigation');
+                WDN.jQuery('#navigation-expand-collapse span').text('click to always hide full navigation');
             } else {
                 if (WDN.navigation.currentState === 0) {
-                    $('#navigation-expand-collapse span').text('roll over for full navigation');
+                    WDN.jQuery('#navigation-expand-collapse span').text('roll over for full navigation');
                 } else {
-                    $('#navigation-expand-collapse span').text('click to always show full navigation');
+                    WDN.jQuery('#navigation-expand-collapse span').text('click to always show full navigation');
                 }
             }
         },
@@ -176,14 +177,14 @@ WDN.navigation = function() {
                 return;
             }
             if (expandedHeight === 0) {
-                //expandedHeight = $('#navigation').height();
+                //expandedHeight = WDN.jQuery('#navigation').height();
             }
-            $('#navigation-close').hide();
-            $('#navigation-expand-collapse span').text('roll over for full navigation');
-            $('#navigation ul:first li:nth-child(6) a:visible:first').css('width','100%');
+            WDN.jQuery('#navigation-close').hide();
+            WDN.jQuery('#navigation-expand-collapse span').text('roll over for full navigation');
+            WDN.jQuery('#navigation ul:first li:nth-child(6) a:visible:first').css('width','100%');
             WDN.navigation.setWrapperClass('collapsed');
             WDN.navigation.currentState = 0;
-            WDN.navigation.switchSiteNavigation($(WDN.navigation.homepageLI).children('a:first-child'), false);
+            WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).find('a:first-child'), false);
         },
         
         /**
@@ -205,7 +206,7 @@ WDN.navigation = function() {
             if (WDN.getCookie('n')!=1) {
                 WDN.log('Setting preferred navigation state OPEN');
                 // Remove the hover function?
-                //$('#wdn_navigation_bar').hover();
+                //WDN.jQuery('#wdn_navigation_bar').hover();
                 
                 WDN.setCookie('n',1,1209600);
                 WDN.navigation.preferredState = 1;
@@ -225,7 +226,7 @@ WDN.navigation = function() {
          */
         initializePreferredState : function() {
             WDN.log('initializepreferredstate, current state is '+WDN.navigation.currentState);
-            var mouseout = $.noop;
+            var mouseout = WDN.jQuery.noop;
             if (WDN.navigation.preferredState==1) {
                 WDN.navigation.setWrapperClass('pinned');
                 WDN.navigation.expand();
@@ -234,14 +235,14 @@ WDN.navigation = function() {
                 mouseout = WDN.navigation.startCollapseDelay;
             }
             
-            $('#wdn_navigation_bar').hoverIntent({
+            WDN.jQuery('#wdn_navigation_bar').hoverIntent({
             	over:        WDN.navigation.expand,
             	out:         mouseout,
             	timeout:     WDN.navigation.expandDelay,
             	sensitivity: 1, // Mouse must not move
             	interval:    120
             });
-            $('#wdn_content_wrapper,#header').hover(
+            WDN.jQuery('#wdn_content_wrapper,#header').hover(
                     WDN.navigation.startCollapseDelay);
             WDN.navigation.updateHelperText();
         },
@@ -249,49 +250,48 @@ WDN.navigation = function() {
         switchSiteNavigation : function(event, expand) {
             WDN.log('Switch site nav called');
             var breadcrumb = (event.target)?event.target:event;
-            if ($(breadcrumb).parent().hasClass('selected')) {
+            if (WDN.jQuery(breadcrumb).parent().hasClass('selected')) {
                 WDN.log('already showing this nav');
                 return true;
             }
 
-            var height = $('#navigation > ul').height() || 50;
-
-            if (!$(breadcrumb).siblings('div.storednav').length && $('#navigation > ul').length) {
+            if (WDN.jQuery('#breadcrumbs ul li.selected div.storednav').length === 0) {
                 WDN.log('Storing it');
                 // Store the current navigation
-                WDN.navigation.storeNav($('#breadcrumbs ul > li.selected:first'), $('#navigation > ul'));
+                WDN.navigation.storeNav(WDN.jQuery('#breadcrumbs ul > li.selected:first'), '<ul>'+WDN.jQuery('#navigation ul').html()+'</ul>');
             }
             
             // Set the hovered breadcrumb link to selected
-            $('#breadcrumbs ul li.selected').removeClass('selected');
-            $(breadcrumb).parent().addClass('selected');
+            WDN.jQuery('#breadcrumbs ul li.selected').removeClass('selected');
+            WDN.jQuery(breadcrumb).parent().addClass('selected');
             // Check for stored navigation
-            if ($(breadcrumb).siblings('div.storednav').length) {
+            if (WDN.jQuery(breadcrumb).parent().find('.storednav').length > 0) {
                 WDN.log("Already got it.");
                 // We've already grabbed the nav for this link
-                WDN.navigation.setNavigationContents($(breadcrumb).siblings('div.storednav').children().clone(), expand);
+                WDN.navigation.setNavigationContents(WDN.jQuery(breadcrumb).parent().find('.storednav').html(), expand);
                 return true;
             }
             
-            $('#navloading').remove();
-            $('#navigation').append('<div id="navloading" style="height:'+height+'px;"></div>');
+            var height = WDN.jQuery('#navigation ul').height();
+            WDN.jQuery('#navigation ul').hide();
+            WDN.jQuery('#navloading').remove();
+            WDN.jQuery('#navigation').append('<div id="navloading" style="height:'+height+'px;"></div>');
             
             var nav_sniffer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
             nav_sniffer = nav_sniffer+escape(WDN.toAbs(breadcrumb.href, window.location));
             WDN.log('Attempting to retrieve navigation from '+nav_sniffer);
             WDN.get(nav_sniffer, '', function(data, textStatus) {
+                WDN.jQuery('#navloading').remove();
                 try {
                     if (textStatus == 'success') {
-                    	var breadcrumbParent = $(breadcrumb).parent();
-                        WDN.navigation.storeNav(breadcrumbParent, data);
-                    	if (breadcrumbParent.hasClass('selected')) {
-                    		WDN.navigation.setNavigationContents(data, expand);
-                    	}
+                        WDN.navigation.storeNav(WDN.jQuery('#breadcrumbs ul li a[href="'+breadcrumb.href+'"'), data);
+                        WDN.navigation.setNavigationContents(data, expand);
                     } else {
                         // Error message
                         WDN.log('Incorrect status code returned remotely retrieving navigation.');
                         WDN.log(data);
                         WDN.log(textStatus);
+                        WDN.navigation.setNavigationContents('An error occurred', expand);
                     }
                 } catch(e) {
                     WDN.log('Caught error remotely retrieving navigation.');
@@ -303,9 +303,7 @@ WDN.navigation = function() {
         
         setNavigationContents : function(contents, expand) {
             WDN.log('setNavigationContents called');
-            $('#navloading').remove();
-            $('#navigation').children('ul').remove()
-            	.end().prepend(contents);
+            WDN.jQuery('#navigation>ul').replaceWith(contents);
             if (!expand) {
             	return;
             }
@@ -316,22 +314,18 @@ WDN.navigation = function() {
         setWrapperClass : function(css_class) {
             WDN.log('Adding class '+css_class);
             if (css_class=='collapsed') {
-                $('#wdn_wrapper').removeClass('nav_pinned').removeClass('nav_expanded').addClass('nav_'+css_class);
+                WDN.jQuery('#wdn_wrapper').removeClass('nav_pinned');
+                WDN.jQuery('#wdn_wrapper').removeClass('nav_expanded');
+                WDN.jQuery('#wdn_wrapper').addClass('nav_'+css_class);
                 return;
             }
             
-            $('#wdn_wrapper').removeClass('nav_collapsed').addClass('nav_'+css_class);
+            WDN.jQuery('#wdn_wrapper').removeClass('nav_collapsed');
+            WDN.jQuery('#wdn_wrapper').addClass('nav_'+css_class);
         },
         
         storeNav : function(li, data) {
-        	var storednavDiv = $(li).children('div.storednav');
-        	if (storednavDiv.length) {
-        		storednavDiv.empty();
-        	} else {
-        		storednavDiv = $('<div class="storednav"/>');
-        		$(li).append(storednavDiv);
-        	}
-        	storednavDiv.append(data);
+        	WDN.jQuery(li).append('<div class="storednav">'+data+'</div>');
         }
     };
 }();
