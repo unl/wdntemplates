@@ -182,7 +182,7 @@ WDN.navigation = function() {
             WDN.jQuery('#navigation ul:first li:nth-child(6) a:visible:first').css('width','100%');
             WDN.navigation.setWrapperClass('collapsed');
             WDN.navigation.currentState = 0;
-            WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).find('a:first-child'), false);
+            WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a:first-child'), false);
         },
         
         /**
