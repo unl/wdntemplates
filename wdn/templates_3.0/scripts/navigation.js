@@ -312,14 +312,11 @@ WDN.navigation = function() {
         setWrapperClass : function(css_class) {
             WDN.log('Adding class '+css_class);
             if (css_class=='collapsed') {
-                WDN.jQuery('#wdn_wrapper').removeClass('nav_pinned');
-                WDN.jQuery('#wdn_wrapper').removeClass('nav_expanded');
-                WDN.jQuery('#wdn_wrapper').addClass('nav_'+css_class);
+                WDN.jQuery('#wdn_wrapper').removeClass('nav_pinned').removeClass('nav_expanded').addClass('nav_'+css_class);
                 return;
             }
             
-            WDN.jQuery('#wdn_wrapper').removeClass('nav_collapsed');
-            WDN.jQuery('#wdn_wrapper').addClass('nav_'+css_class);
+            WDN.jQuery('#wdn_wrapper').removeClass('nav_collapsed').addClass('nav_'+css_class);
         },
         
         storeNav : function(li, data) {
