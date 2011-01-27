@@ -49,6 +49,13 @@ Author: WDN
 	height:41px;
 	margin-bottom:18px;
 }
+#footer_floater.showcase {
+    background-image: url(images/topSealspotlight.png);
+    height:75px;
+    margin-top:-21px;
+    cursor:pointer;
+    margin-bottom:5px;
+}
 #wdn_copyright {
 	clear: both;
 	border-top:1px solid #ffffff;
