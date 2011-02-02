@@ -27,6 +27,17 @@ video.fullscreen + .wdnVideo_controls {
     bottom:62px;
     opacity:0.8;
     min-width: 250px;
+    font: normal normal normal 77%/140% 'Lucida Grande', Verdana, Arial;
+}
+
+.wdnVideo_controls div, span, p, a, ol, ul, li, button {
+	background: transparent;
+	border: 0px;
+	font-size: 100%;
+	margin: 0px;
+	outline: 0px;
+	padding: 0px;
+	vertical-align: baseline;
 }
 .wdnVideo_controls .play_pause, .wdnVideo_controls .progress {
     display:inline-block;

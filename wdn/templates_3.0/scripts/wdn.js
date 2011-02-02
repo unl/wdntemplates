@@ -209,6 +209,20 @@ var WDN = function() {
 			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', callback);
 		},
 		
+		initializePluginExternal:function (plugin, callback) {
+			if (!callback) {
+				callback = function () {
+					if ("initialize" in WDN[plugin]) {
+						WDN.log("initializing plugin '" + plugin + "'");
+						WDN[plugin].initialize();
+					} else {
+						WDN.log("no initialize method for plugin " + plugin);
+					}
+				};
+			}
+			WDN.loadJS('http://www.unl.edu/wdn/templates_3.0/scripts/'+plugin+'.js', callback);
+		},
+		
 		setCookie : function(name, value, seconds) {
 			var expires = "";
 			if (seconds) {
