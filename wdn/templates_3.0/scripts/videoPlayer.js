@@ -24,8 +24,7 @@ WDN.videoPlayer = function() {
 		initialize : function() {
 			WDN.jQuery('video').each(function(){
 				var video = WDN.jQuery(this)[0];
-				//WDN.videoPlayer.html5Video(video);
-				// WDN.videoPlayer.html5Video(WDN.jQuery('video')[0]);
+				WDN.videoPlayer.html5Video(video);
 			});
 			WDN.jQuery('audio').each(function(){
 				var audio = WDN.jQuery(this)[0];
