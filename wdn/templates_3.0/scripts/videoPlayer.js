@@ -24,7 +24,8 @@ WDN.videoPlayer = function() {
 		initialize : function() {
 			WDN.jQuery('video').each(function(){
 				var video = WDN.jQuery(this)[0];
-				WDN.videoPlayer.html5Video(video);
+				//WDN.videoPlayer.html5Video(video);
+				// WDN.videoPlayer.html5Video(WDN.jQuery('video')[0]);
 			});
 			WDN.jQuery('audio').each(function(){
 				var audio = WDN.jQuery(this)[0];
@@ -145,14 +146,14 @@ WDN.videoPlayer = function() {
 						var poster = video.poster || "";
 						var width = video.width || WDN.jQuery(video).width();
 						var height = video.height || WDN.jQuery(video).height();
-						var skin = '/wdn/templates_3.0/includes/swf/UNLVideoSkin.swf';
+						var skin = WDN.template_path + 'wdn/templates_3.0/includes/swf/UNLVideoSkin.swf';
 						var allowfullscreen = 'true';
 						var screencolor = '';
 						var icons = 'true';
 						WDN.log(type);
 						if (type == 'audio') {
 							height = 60;
-							skin = '/wdn/templates_3.0/includes/swf/UNLAudioSkin.swf';
+							skin = WDN.template_path + 'wdn/templates_3.0/includes/swf/UNLAudioSkin.swf';
 							allowfullscreen = 'false';
 							screencolor = 'FFFFFF';
 							icons = 'false';
@@ -169,7 +170,7 @@ WDN.videoPlayer = function() {
 						
 						WDN.jQuery('#wdnVideo_'+i).flash(
 							{     
-								swf: '/wdn/templates_3.0/includes/swf/player4.3.swf',   
+								swf: WDN.template_path + 'wdn/templates_3.0/includes/swf/player4.3.swf',   
 								allowfullscreen: 'false',
 								allowscriptaccess: 'always',
 								flashvars: {   
