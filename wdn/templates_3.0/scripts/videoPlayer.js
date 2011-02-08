@@ -74,7 +74,7 @@ WDN.videoPlayer = function() {
 			}
 			
 			if (WDN.videoPlayer.supportsVideo()){
-				if (WDN.videoPlayer.supportsH264() || WDN.videoPlayer.supportsWebM()){ //can we support H264 or WebM?
+				if (WDN.videoPlayer.supportsH264()){ //can we support H264?
 					src = video.src || WDN.jQuery(video).children('source').attr('src') || "";
 					if (src) { //make sure we have a source
 						requiresFallback = false;
