@@ -21,7 +21,7 @@ WDN.directory_autoComplete = function() {
 		    							rows[e] = {
 			    								label : '<span class="fn">'+data[e].displayName[0]+'</span>',
 			    								value : data[e].displayName[0],
-			    								key : data
+			    								key : data[e]
 			    						};
 		    						}
 			    					if(rows.length == 10){
