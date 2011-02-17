@@ -7543,7 +7543,7 @@ var WDN = function() {
 				
 				// Try CORS, or use the proxy
 				// reference here, it's strongly frowned upon and not really necessary
-				if (window.XDomainRequest) {
+				if (window.XDomainRequest && method != "post") {
 					//debug statement removed
 					var xdr = new XDomainRequest();
 					xdr.open(method, url);
@@ -11766,7 +11766,11 @@ WDN.idm = function() {
 			WDN.jQuery('#wdn_idm_logout').click(WDN.idm.logout);
 
 			if (WDN.idm.user.cn) {
-				WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn[0]);
+				if (WDN.idm.user.cn[1]){
+					WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn[1]);
+				} else {
+					WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn[0]);
+				}
 			}
 			
 			if (WDN.jQuery('link[rel=logout]').length) {
