@@ -363,7 +363,7 @@ var WDN = function() {
 				
 				// Try CORS, or use the proxy
 				// reference here, it's strongly frowned upon and not really necessary
-				if (window.XDomainRequest) {
+				if (window.XDomainRequest && method != "post") {
 					WDN.log("Using XDomainRequest...");
 					var xdr = new XDomainRequest();
 					xdr.open(method, url);
