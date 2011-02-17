@@ -21,7 +21,7 @@ WDN.directory_autoComplete = function() {
 		    							rows[e] = {
 			    								label : '<span class="fn">'+data[e].displayName[0]+'</span>',
 			    								value : data[e].displayName[0],
-			    								key : data[e].uid
+			    								key : data
 			    						};
 		    						}
 			    					if(rows.length == 10){
@@ -39,8 +39,8 @@ WDN.directory_autoComplete = function() {
 			});
 		},
 		
-		callback : function(uid) {
-			alert('You need your own callback! However, I\'ll send you the uid: ' + uid);
+		callback : function(data) {
+			alert('You need your own callback! However, I\'ll send you the uid: ' + data);
 		}
 	};
 }();
