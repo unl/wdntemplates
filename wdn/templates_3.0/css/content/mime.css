@@ -8,7 +8,7 @@
 a.external, a.map, a.email, a.vcard, a.pdf, a.audio, a.image, a.document, a.html, a.video, a.calendar, a.clustan, a.presentation, a.spreadsheet, a.zip, a.feed, a.script,
 
 /* CSS attribute rules */
-a[href $='.mov'], a[href $='.wmv'], a[href $='.mp4'], a[href $='.m4v'], a[href $='.zip'], a[href *='.ppt'], a[href *='.pps'], a[href *='.xls'], a[href $='.pdf'], a[href^="mailto:"], a[href^="http://maps.google.com"],
+a[href $='.mov'], a[href $='.wmv'], a[href $='.mp4'], a[href $='.m4v'], a[href $='.zip'], a[href *='.doc'], a[href *='.ppt'], a[href *='.pps'], a[href *='.xls'], a[href $='.pdf'], a[href^="mailto:"], a[href^="http://maps.google.com"],
 
 /* These are the selectors based on mime-type */
 a.mail-message-new, a.text-vcard, a.application-pdf, a.audio-x-generic, a.image-x-generic, a.text-html, a.text-x-script, a.video-x-generic, a.x-office-calendar, a.x-office-document,
