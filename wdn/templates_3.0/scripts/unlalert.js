@@ -104,7 +104,7 @@ WDN.unlalert = function() {
 			// Add a div to store the html content
 			if (WDN.jQuery("#alertbox").length === 0) {
 				// Add the alert icon to the tool links
-				WDN.jQuery('#wdn_tool_links').prepend('<li><a id="unlalerttool" class="alert tooltip" title="Emergency Alert: An alert has been issued!" href="#alertbox">UNL Alert</a></li>');
+				WDN.jQuery('#wdn_tool_links').prepend('<li style="border-color:#cba166;background:#f1e887;"><a id="unlalerttool" class="alert tooltip" title="Emergency Alert: An alert has been issued!" href="#alertbox">UNL Alert</a></li>');
 				WDN.jQuery('#maincontent').append('<div id="alertbox" style="display:none"></div>');
 				WDN.jQuery('#unlalerttool').click(
 					function() {
