@@ -109,7 +109,7 @@ WDN.unlalert = function() {
 				WDN.jQuery('#unlalerttool').click(
 					function() {
 						WDN.jQuery('#alertbox').show();
-						WDN.jQuery().bind('cbox_closed', WDN.unlalert.closeAlert);
+						WDN.jQuery(document).bind('cbox_closed', WDN.unlalert.closeAlert);
 						WDN.jQuery('#unlalerttool').colorbox({inline:true,width:"640px",href:"#alertbox",open:true});
 						return false;
 					});
