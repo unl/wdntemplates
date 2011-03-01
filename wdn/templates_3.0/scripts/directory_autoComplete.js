@@ -12,7 +12,7 @@ WDN.directory_autoComplete = function() {
 					source: function(request, response) {
 						WDN.jQuery.ajax({
 							delay: 555,
-			    			url: 'http://ucommmeranda.unl.edu/workspace/UNL_Peoplefinder/www/service.php?q='+request.term+'&format=json',
+			    			url: 'http://directory.unl.edu/service.php?q='+request.term+'&format=json',
 			    			dataType: "json",
 			    			success: function(data) {
 			    				var rows = new Array();
