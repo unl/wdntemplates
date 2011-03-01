@@ -16,13 +16,15 @@ WDN.directory_autoComplete = function() {
 			    			dataType: "json",
 			    			success: function(data) {
 			    				var rows = new Array();
+			    				var i = 0;
 			    				for(var e=0; e<data.length; e++){
 		    						if (data[e].displayName){
-		    							rows[e] = {
+		    							rows[i] = {
 			    								label : '<span class="fn">'+data[e].displayName[0]+'</span>',
 			    								value : data[e].displayName[0],
 			    								key : data[e]
 			    						};
+		    							i++;
 		    						}
 			    					if(rows.length == 10){
 			    						break;
