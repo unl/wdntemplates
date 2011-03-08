@@ -30,7 +30,7 @@ body.mobile #wdn_wrapper {
 }
 
 body.mobile #wdn_content_wrapper {
-    width:auto;
+    width:100%;
     margin:0px;
 }
 
@@ -46,15 +46,22 @@ body.mobile #header {
 
 body.mobile #titlegraphic {
     margin-top:15px;
-    padding-left:60px;
-    padding-bottom:20px;
+    padding:0 0 20px 0;
     font-size:0.8em;
     background:url('images/shad_pop.gif') repeat-x;
     width:100%;
 }
+body.mobile #titlegraphic h1 {
+    margin-left:60px;	
+}
 
 body.mobile #titlegraphic h2 {
 	display:none;
+}
+
+body.mobile #maincontent {
+    width:100%;
+    padding:0;	
 }
 
 body.mobile #footer .footer_col {
