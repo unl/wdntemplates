@@ -1,5 +1,32 @@
+/*
+Bring in all the supporting css files - DELETE THIS BEFORE FINALIZING
+
+@import url('reset.css');
+@import url('wrapper.css');
+@import url('content/basestyles.css');
+@import url('content/columns.css');
+@import url('content/header.css');
+@import url('content/images.css');
+@import url('content/mime.css');
+@import url('content/titlegraphic.css');
+@import url('content/zenbox.css');
+/* */
+/*
+    
+*********************************************************************/
+
+/* General Template Settings
+**********************************/
+
 body.mobile {
-	background-image:none;
+    background-image:none;
+}
+body.mobile #wdn_wrapper {
+    border:none;
+    padding:0;
+    margin:0;
+    width:auto;
+    min-width:0px;
 }
 body.mobile #wdn_navigation_bar,
 body.mobile #wdn_search,
@@ -8,32 +35,6 @@ body.mobile #header h1,
 body.mobile #header:after {
     display:none;
 }
-
-body.mobile #header {
-    padding:12px;
-}
-
-body.mobile #logo {
-    width:50px;
-    background-image:none;
-    position:absolute;
-    left:4px;
-    top:4px;
-}
-
-body.mobile #wdn_wrapper {
-    border:none;
-    padding:0px;
-    margin:0px;
-    width:auto;
-    min-width:0px;
-}
-
-body.mobile #wdn_content_wrapper {
-    width:100%;
-    margin:0px;
-}
-
 body.mobile #header {
     height:40px !important;
     overflow:hidden;
@@ -42,31 +43,72 @@ body.mobile #header {
     background:none;
     width:50px;
     position:absolute;
+    padding:12px;
+    z-index:10000;
 }
-
+body.mobile #logo {
+    width:50px;
+    background-image:none;
+    position:absolute;
+    left:4px;
+    top:4px;
+}
 body.mobile #titlegraphic {
+    height:34px;
     margin-top:15px;
     padding:0 0 20px 0;
     font-size:0.8em;
-    background:url('images/shad_pop.gif') repeat-x;
+    background:url('variations/images/shad_pop.gif') repeat-x;
     width:100%;
 }
-body.mobile #titlegraphic h1 {
-    margin-left:60px;	
+body.mobile #titlegraphic > h1 {
+    margin-left:60px; 
+    display:none;  
 }
 
-body.mobile #titlegraphic h2 {
-	display:none;
+body.homepage #titlegraphic > h1 {display:block;}
+body.mobile #titlegraphic > h2 {
+    display:none;
 }
-
-body.mobile #maincontent {
-    padding:0 10px;	
+body.mobile #wdn_content_wrapper {
+    width:100%;
+    margin:0px;
 }
+/* Maincontent overrides
+**********************************/
+#maincontent {
+    font-size:15px;
+    margin-top:-25px;
+    width:100%;
+    padding:0; 
+}
+#maincontent > * {margin:0px 10px !important;}
+#maincontent img {
+    height:auto;
+    padding:0 10px;
+}
+#maincontent .right, #maincontent .left{float:none;}
+#maincontent .col {width:auto !important;margin:0px;}
+#maincontent .two_col {width:auto !important;margin:0px;}
+#maincontent input {font-size:1em;}
+#maincontent p.caption {z-index:0;}
 
-body.mobile #footer .footer_col {
+/* Footer overrides
+**********************************/
+body.mobile #footer, body.mobile #footer .footer_col {
     display:none;
 }
 
 body.mobile #footer #wdn_copyright {
     border:none;
 }
+
+
+/*
+@media only screen and (max-width: 600px) {
+    body.mobile #titlegraphic {width:480px;}
+    div {
+        max-width:480px;
+    }   
+}
+*/
