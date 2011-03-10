@@ -2,7 +2,7 @@
 // Set up the list of all the javascript files
 $files = array(
 //'jquery',
-//'wdn',
+'wdn',
 //'xmlhttp',
 //'navigation',
 //'search',
