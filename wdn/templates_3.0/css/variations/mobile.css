@@ -58,7 +58,7 @@ body.mobile #titlegraphic {
     margin-top:15px;
     padding:0 0 20px 0;
     font-size:0.8em;
-    background:url('variations/images/shad_pop.gif') repeat-x;
+    background:url('images/shad_pop.gif') repeat-x;
     width:100%;
 }
 body.mobile #titlegraphic > h1 {
