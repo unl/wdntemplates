@@ -13,7 +13,6 @@ function playerReady(thePlayer) {
 
 WDN.videoPlayer = function() {
 	var i = 0;
-	var src = '';
 	var agent = navigator.userAgent.toLowerCase();
     var is_iphone = (agent.indexOf('iphone')!='-1');
     var is_ipad = (agent.indexOf('ipad')!='-1');
@@ -67,24 +66,22 @@ WDN.videoPlayer = function() {
 		},
 		
 		html5Video : function(video) {
-			if (WDN.jQuery(video).data('wdnVideo')) {
+			if (WDN.jQuery(video).data('wdn_player')) {
 				return;
 			} else {
-				WDN.jQuery(video).data('wdnVideo', true);
+				WDN.jQuery(video).data('wdn_player', true);
 			}
 			
-			if (WDN.videoPlayer.supportsVideo()){
+			var src = video.src || WDN.jQuery(video).children('source').attr('src') || "";
+			if (WDN.videoPlayer.supportsVideo()) {
 				if (WDN.videoPlayer.supportsH264()){ //can we support H264?
-					src = video.src || WDN.jQuery(video).children('source').attr('src') || "";
 					if (src) { //make sure we have a source
 						requiresFallback = false;
-						
 					}
 				}
-				
 			}
 			WDN.log('requiresFallback (video): '+requiresFallback);
-			if (requiresFallback){
+			if (requiresFallback) {
 				WDN.videoPlayer.createFallback.setupJWPlayer(video, "video");
 			} else {
 				if (!is_ipad && !is_iphone){
@@ -96,21 +93,19 @@ WDN.videoPlayer = function() {
 		},
 		
 		html5Audio : function(audio) {
-			if (WDN.jQuery(audio).data('wdnVideo')) {
+			if (WDN.jQuery(audio).data('wdn_player')) {
 				return;
 			} else {
-				WDN.jQuery(audio).data('wdnVideo', true);
+				WDN.jQuery(audio).data('wdn_player', true);
 			}
-			
+						
+			var src = audio.src || WDN.jQuery(audio).children('source').attr('src') || "";
 			if (WDN.videoPlayer.supportsAudio()){
 				if (WDN.videoPlayer.supportsMP3()){ //can we support MP3?
-					src = audio.src || WDN.jQuery(audio).children('source').attr('src') || "";
 					if (src) { //make sure we have a source
 						requiresFallback = false;
-						
 					}
 				}
-				
 			}
 			WDN.log('requiresFallback (audio): '+requiresFallback);
 			if (requiresFallback){
@@ -124,14 +119,7 @@ WDN.videoPlayer = function() {
 			}
 		},
 		
-		createFallback : function() { //call the flash player option
-			var jwVideoHasBeenPlayed = false;
-			var jwVideo;
-			var currentPosition;
-			var currentDuration;
-			var currentWidth;
-			var currentHeight;
-			
+		createFallback : function() { //call the flash player option			
 			return {
 				
 				setupJWPlayer : function(video, type) {
@@ -139,8 +127,9 @@ WDN.videoPlayer = function() {
 					for (var j = 0; j < badIEVideos.length; j++) {
 						WDN.jQuery(badIEVideos[j]).prevUntil('video').andSelf().remove();
 					}
+					
+					var src = video.src || WDN.jQuery(video).children('source').attr('src');
 					WDN.loadJS('wdn/templates_3.0/scripts/plugins/swfobject/jquery.swfobject.1-1-1.min.js', function(){
-						src = video.src || WDN.jQuery('video').eq(i).attr('src') || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery('source').eq(0).attr('src') || "" ;
 						src = WDN.toAbs(src, window.location.toString());
 						var poster = video.poster || "";
 						var width = video.width || WDN.jQuery(video).width();
@@ -186,54 +175,60 @@ WDN.videoPlayer = function() {
 								name: 'jwPlayer_'+i
 							}
 						);
+						WDN.jQuery('#wdnVideo_'+i).data('wdn_player', {
+							src: src,
+							played: false
+						});
 						WDN.jQuery(video).remove();
 						i++;
 					});
 				},
 				
 				addJWListeners : function(video) {
-					jwVideo = video;
-					jwVideo.addModelListener('TIME', 'WDN.videoPlayer.createFallback.timeListener');
-					jwVideo.addModelListener('STATE', "WDN.videoPlayer.createFallback.onStateChange");
-					jwVideo.addModelListener('META', "WDN.videoPlayer.createFallback.metaListener");
-					jwVideo.addControllerListener('RESIZE',"WDN.videoPlayer.createFallback.onFullscreen");
-					WDN.jQuery(window).bind({
-						'unload': WDN.videoPlayer.createFallback.onClose
-					});
-					WDN.log('listeners added to '+jwVideo);
+					video.addModelListener('TIME', 'WDN.videoPlayer.createFallback.timeListener');
+					video.addModelListener('STATE', "WDN.videoPlayer.createFallback.onStateChange");
+					video.addModelListener('META', "WDN.videoPlayer.createFallback.metaListener");
+					video.addControllerListener('RESIZE',"WDN.videoPlayer.createFallback.onFullscreen");
+					WDN.jQuery(window).bind('unload', {"video": video}, WDN.videoPlayer.createFallback.onClose);
+					WDN.log('listeners added to '+video);
 					
 				},
 
 				timeListener : function(obj) {
-					currentPosition = obj.position;
-					currentDuration = obj.duration;
+					var wdnPlayer = WDN.jQuery('#' + event.id).parent().data('wdn_player');
+					wdnPlayer.position = obj.position;
+					wdnPlayer.duration = obj.duration;
 				},
 				
 				onStateChange : function(event) {
-					if (!jwVideoHasBeenPlayed && event.newstate == 'PLAYING') {
-						jwVideoHasBeenPlayed = true;
-						WDN.analytics.callTrackEvent('Video', 'Not HTML5', src);
-						WDN.analytics.callTrackEvent('Video', 'Play', src);
+					var wdnPlayer = WDN.jQuery('#' + event.id).parent().data('wdn_player');
+					if (!wdnPlayer.played && event.newstate == 'PLAYING') {
+						wdnPlayer.played = true;
+						WDN.videoPlayer.eventControls.trackEvent(wdnPlayer.src, 'Not HTML5');
+						WDN.videoPlayer.eventControls.trackEvent(wdnPlayer.src, 'Play');
 					}
 					if (event.newstate == 'COMPLETED') {
-						WDN.analytics.callTrackEvent('Video', 'Completed', src, currentDuration);
+						WDN.videoPlayer.eventControls.trackEvent(wdnPlayer.src, 'Completed', wdnPlayer.duration);
 					}
 				},
 				
 				onFullscreen : function(event) {
+					var wdnPlayer = WDN.jQuery('#' + event.id).parent().data('wdn_player');
 					if (event.fullscreen == true){
-						WDN.analytics.callTrackEvent('Video', 'Fullscreen', src);
+						WDN.videoPlayer.eventControls.trackEvent(wdnPlayer.src, 'Fullscreen');
 					}
 				},
 				
 				onClose : function(event) {
-					WDN.analytics.callTrackEvent('Video', 'Stopped', src, currentPosition);
+					var wdnPlayer = WDN.jQuery(event.data.video).parent().data('wdn_player');
+					WDN.videoPlayer.eventControls.trackEvent(wdnPlayer.src, 'Stopped', wdnPlayer.position);
 				},
 				
 				metaListener : function(meta){
+					var wdnPlayer = WDN.jQuery('#' + event.id).parent().data('wdn_player');
 					if (meta.width != undefined) {
-						currentWidth = meta.width;
-						currentHeight = meta.height;
+						wdnPlayer.width = meta.width;
+						wdnPlayer.height = meta.height;
 					}
 				},
 				
@@ -288,8 +283,13 @@ WDN.videoPlayer = function() {
 						WDN.jQuery(video).after(WDN.videoPlayer.setupControls.wdnAudio_Controls);
 					}
 					
-					
-					
+					WDN.jQuery(video).data('wdn_player', {
+						played: false,
+						timeouts: {
+							progress: null,
+							controls: null
+						}
+					});
 				}, 
 			
 				//setup the HTML to house the controls
@@ -336,6 +336,7 @@ WDN.videoPlayer = function() {
 			return {
 				
 				bindControls : function(video) {
+					var wdnPlayer = WDN.jQuery(video).data('wdn_player');
 					//clicking the video
 					WDN.jQuery(video).click(function(){
 						WDN.videoPlayer.eventControls.togglePlay(this);
@@ -403,13 +404,13 @@ WDN.videoPlayer = function() {
 						WDN.jQuery(video).hover(
 							function() {
 								var showTimedHide = function() {
-									if (hideControls) {
-										clearTimeout(hideControls);
+									if (wdnPlayer.timeouts.controls) {
+										clearTimeout(wdnPlayer.timeouts.controls);
 									};
 									
 									WDN.videoPlayer.eventControls.showControls(video);
 									if (!video.paused) {
-										hideControls = setTimeout(function() {
+										wdnPlayer.timeouts.controls = setTimeout(function() {
 											WDN.videoPlayer.eventControls.hideControls(video);
 										}, 1900);
 									}
@@ -420,35 +421,35 @@ WDN.videoPlayer = function() {
 							},
 							function() {
 								WDN.jQuery(video).unbind('.wdnvideo');
-								if (hideControls) {
-									clearTimeout(hideControls);
+								if (wdnPlayer.timeouts.controls) {
+									clearTimeout(wdnPlayer.timeouts.controls);
 								}
 								if (!video.paused) {
-									hideControls = setTimeout(function() {
+									wdnPlayer.timeouts.controls = setTimeout(function() {
 										WDN.videoPlayer.eventControls.hideControls(video);
 									}, 600); //wait a few seconds and then hide the controls
 								}
 							}
 						);
 						WDN.jQuery(video).siblings('.wdnVideo_controls').hover(function(){
-								if (hideControls) {
-									clearTimeout(hideControls);
+								if (wdnPlayer.timeouts.controls) {
+									clearTimeout(wdnPlayer.timeouts.controls);
 								};
 								
 								WDN.videoPlayer.eventControls.showControls(video);
 						}, function() {
-							if (hideControls) {
-								clearTimeout(hideControls);
+							if (wdnPlayer.timeouts.controls) {
+								clearTimeout(wdnPlayer.timeouts.controls);
 							}
 							if (!video.paused) {
-								hideControls = setTimeout(function() {
+								wdnPlayer.timeouts.controls = setTimeout(function() {
 									WDN.videoPlayer.eventControls.hideControls(video);
 								}, 600); //wait a few seconds and then hide the controls
 							}
 						});
 					}
 					WDN.videoPlayer.eventControls.eventListeners(video);
-					},
+				},
 				
 				//Listen for events
 				eventListeners : function (video) {
@@ -459,9 +460,7 @@ WDN.videoPlayer = function() {
 //						'error':        WDN.videoPlayer.eventControls.onError,
 						'volumechange': WDN.videoPlayer.eventControls.onVolumeChange
 					});
-					WDN.jQuery(window).bind({
-						'unload': WDN.videoPlayer.eventControls.onClose
-					});
+					WDN.jQuery(window).bind('unload', {video: video}, WDN.videoPlayer.eventControls.onClose);
 				},
 				
 				togglePlay : function(video) {
@@ -482,17 +481,18 @@ WDN.videoPlayer = function() {
 				
 				onPlay : function(event) {
 					video = event.target;
+					var wdnPlayer = WDN.jQuery(video).data('wdn_player');
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'playing').removeClass('play').addClass('pause');
 					WDN.videoPlayer.eventControls.trackPlayProgress(video);
-					if (video.hideControls) {
-						hideControls = setTimeout(function() {
+					if (wdnPlayer.timeouts.controls) {
+						wdnPlayer.timeouts.controls = setTimeout(function() {
 							WDN.videoPlayer.eventControls.hideControls(video);
 						}, 1900);
 					}
-					if (!videoHasBeenPlayed) {
-						WDN.analytics.callTrackEvent('Video', 'HTML5', video.src || WDN.jQuery(video).children('source').attr());
-						WDN.analytics.callTrackEvent('Video', 'Play', video.src || WDN.jQuery(video).children('source').attr());
-						videoHasBeenPlayed = true;
+					if (!wdnPlayer.played) {
+						WDN.videoPlayer.eventControls.trackEvent(video, 'HTML5');
+						WDN.videoPlayer.eventControls.trackEvent(video, 'Play');
+						wdnPlayer.played = true;
 					}
 				},
 				
@@ -506,7 +506,7 @@ WDN.videoPlayer = function() {
 				onEnd : function(event) {
 					video = event.target;
 					video.pause();
-					WDN.analytics.callTrackEvent('Video', 'Completed', video.src || WDN.jQuery(video).children('source').attr(), video.duration);
+					WDN.videoPlayer.eventControls.trackEvent(video, 'Completed', video.duration);
 				},
 				
 				onVolumeChange : function(event){
@@ -568,7 +568,7 @@ WDN.videoPlayer = function() {
 						WDN.videoPlayer.setupControls.positionControls(video);
 					});
 					WDN.videoPlayer.eventControls.showControls(video);
-					WDN.analytics.callTrackEvent('Video', 'Fullscreen', video.src || WDN.jQuery(video).children('source').attr());
+					WDN.videoPlayer.eventControls.trackEvent(video, 'Fullscreen');
 				},
 				
 				fullScreenOff : function(video) {
@@ -599,8 +599,18 @@ WDN.videoPlayer = function() {
 				},
 				
 				onClose : function(event) {
-					video = WDN.jQuery('video').eq(0)[0];
-					WDN.analytics.callTrackEvent('Video', 'Stopped', video.src || WDN.jQuery(video).children('source').attr(), video.currentTime);
+					video = event.data.video;
+					WDN.videoPlayer.eventControls.trackEvent(video, 'Stopped', video.currentTime);
+				},
+				
+				trackEvent : function(video, eventType, eventValue) {
+					var src = video;
+					if (typeof video == "object") {
+						src = video.src || WDN.jQuery(video).children('source').attr('src');
+					}
+					if (WDN.analytics) {
+						WDN.analytics.callTrackEvent('Video', eventType, src, eventValue);
+					}
 				}
 			};
 		}()
