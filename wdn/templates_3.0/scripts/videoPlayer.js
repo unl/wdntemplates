@@ -321,8 +321,8 @@ WDN.videoPlayer = function() {
 					  '</div>',
 				
 				positionControls : function(video) { //place the controls relative and over the video (for video only, not audio)
-						progressWidth = WDN.jQuery(video).width() - 110;
-						progressBarWidth = progressWidth - 85 - WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.time').outerWidth(true);
+						var progressWidth = WDN.jQuery(video).width() - 110;
+						var progressBarWidth = progressWidth - 85 - WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').children('.time').outerWidth(true);
 						WDN.jQuery(video).siblings('.wdnVideo_controls').children('.progress').css('width', progressWidth+'px').children('.progressBar').css('width', progressBarWidth+'px');
 				}
 			};
@@ -480,7 +480,7 @@ WDN.videoPlayer = function() {
 				},
 				
 				onPlay : function(event) {
-					video = event.target;
+					var video = event.target;
 					var wdnPlayer = WDN.jQuery(video).data('wdn_player');
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'playing').removeClass('play').addClass('pause');
 					WDN.videoPlayer.eventControls.trackPlayProgress(video);
@@ -497,25 +497,25 @@ WDN.videoPlayer = function() {
 				},
 				
 				onPause : function(event) {
-					video = event.target;
+					var video = event.target;
 					WDN.jQuery(video).siblings('.wdnVideo_controls').children('.play_pause').attr('value', 'paused').removeClass('pause').addClass('play');
 					WDN.videoPlayer.eventControls.stopTrackPlayProgress(video);
 					WDN.log("We just paused "+video.src);
 				},
 				
 				onEnd : function(event) {
-					video = event.target;
+					var video = event.target;
 					video.pause();
 					WDN.videoPlayer.eventControls.trackEvent(video, 'Completed', video.duration);
 				},
 				
 				onVolumeChange : function(event){
-					video = event.target;
+					var video = event.target;
 					WDN.log("volume change");
 				},
 				
 				onError : function(event) { // See: http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#error-codes
-					video = event.target;
+					var video = event.target;
 					WDN.log("Rats, after all of this and we get an error playing the video.");
 					WDN.jQuery(video).siblings('.wdnVideo_controls').remove();
 					WDN.videoPlayer.createFallback.setupJWPlayer(video); // fallback to the Flash option
@@ -599,7 +599,7 @@ WDN.videoPlayer = function() {
 				},
 				
 				onClose : function(event) {
-					video = event.data.video;
+					var video = event.data.video;
 					WDN.videoPlayer.eventControls.trackEvent(video, 'Stopped', video.currentTime);
 				},
 				
