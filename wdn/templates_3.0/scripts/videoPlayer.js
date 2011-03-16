@@ -230,41 +230,9 @@ WDN.videoPlayer = function() {
 						wdnPlayer.width = meta.width;
 						wdnPlayer.height = meta.height;
 					}
-				},
-				
-				getCurrentInfo : function(type) {
-					switch(type)
-					{
-					case "width":
-						return currentWidth;
-						break;
-					case "height":
-						return currentHeight;
-						break;
-					case "position":
-						return currentPosition;
-						break;
-					case "duration":
-						return currentDuration;
-						break;
-					default :
-						return false;
-					}
-				},
-				
-				getCurrentPosition : function() {
-					return currentPosition;
-				},
-				
-				getCurrentDuration : function() {
-					return currentDuration;
 				}
 			};
 		}(),
-		
-		detectVideoType : function(){
-			return requiresFallback;
-		},
 		
 		setupControls : function(){
 			return {
