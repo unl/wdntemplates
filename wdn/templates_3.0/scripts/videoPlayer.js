@@ -221,7 +221,9 @@ WDN.videoPlayer = function() {
 				
 				onClose : function(event) {
 					var wdnPlayer = WDN.jQuery(event.data.video).parent().data('wdn_player');
-					WDN.videoPlayer.eventControls.trackEvent(wdnPlayer.src, 'Stopped', wdnPlayer.position);
+					if (wdnPlayer.played) { //only if the video has played
+						WDN.videoPlayer.eventControls.trackEvent(wdnPlayer.src, 'Stopped', wdnPlayer.position);
+					}
 				},
 				
 				metaListener : function(meta){
@@ -568,7 +570,10 @@ WDN.videoPlayer = function() {
 				
 				onClose : function(event) {
 					var video = event.data.video;
-					WDN.videoPlayer.eventControls.trackEvent(video, 'Stopped', video.currentTime);
+					var wdnPlayer = WDN.jQuery(video).data('wdn_player');
+					if (wdnPlayer.played) { // only if the video has been played
+						WDN.videoPlayer.eventControls.trackEvent(video, 'Stopped', video.currentTime);
+					}
 				},
 				
 				trackEvent : function(video, eventType, eventValue) {
