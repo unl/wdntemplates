@@ -88,8 +88,13 @@ body.mobile #wdn_content_wrapper {
     padding:0 10px;
 }
 #maincontent .right, #maincontent .left{float:none;}
-#maincontent .col {width:auto !important;margin:0px;}
-#maincontent .two_col {width:auto !important;margin:0px;}
+#maincontent .col,
+#maincontent .two_col,
+#maincontent .three_col,
+#maincontent .four_col {
+	width:auto !important;
+	margin:0px;
+}
 #maincontent input {font-size:1em;}
 #maincontent p.caption {z-index:0;}
 
