@@ -134,18 +134,16 @@ WDN.videoPlayer = function() {
 						var poster = video.poster || "";
 						var width = video.width || WDN.jQuery(video).width();
 						var height = video.height || WDN.jQuery(video).height();
-						var skin = WDN.template_path + 'wdn/templates_3.0/includes/swf/UNLVideoSkin.swf';
-						var allowfullscreen = 'true';
-						var screencolor = '';
-						var icons = 'true';
+						var skin = 'wdn/templates_3.0/includes/swf/UNLVideoSkin.swf';
+						var allowfullscreen = 'true', icons = 'true';
 						WDN.log(type);
 						if (type == 'audio') {
 							height = 60;
-							skin = WDN.template_path + 'wdn/templates_3.0/includes/swf/UNLAudioSkin.swf';
+							skin = 'wdn/templates_3.0/includes/swf/UNLAudioSkin.swf';
 							allowfullscreen = 'false';
-							screencolor = 'FFFFFF';
 							icons = 'false';
 						}
+						skin = WDN.template_path + skin;
 						var autostart = 'false'; //default to false
 						if (video.autoplay || WDN.jQuery('video').eq(i).attr('autoplay')) {
 							autostart = 'true';
@@ -159,8 +157,9 @@ WDN.videoPlayer = function() {
 						WDN.jQuery('#wdnVideo_'+i).flash(
 							{     
 								swf: WDN.template_path + 'wdn/templates_3.0/includes/swf/player4.3.swf',   
-								allowfullscreen: 'false',
+								allowfullscreen: allowfullscreen,
 								allowscriptaccess: 'always',
+								wmode: 'transparent',
 								flashvars: {   
 									'file': src,   
 									'image': poster,   
