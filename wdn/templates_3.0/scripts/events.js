@@ -24,43 +24,44 @@ WDN.events = function() {
 			if (WDN.jQuery(this.container).length != 0) {
 				WDN.jQuery(this.container).addClass('wdn_calendarDisplay');
 				WDN.loadCSS('wdn/templates_3.0/css/content/events.css');
-				WDN.events.display();
+				WDN.events.getEvents();
 			}
 		},
-		display : function() {
-			var container = this.container;
-			var calURL    = this.calURL;
-			var calTitle  = this.calTitle;
-			WDN.get(this.calURL+'upcoming/?format=hcalendar&limit='+this.limit, null, function(content) {
-				WDN.jQuery(container).hide().html(content);
-				WDN.jQuery(container+' h4,'+container+' h3').after('<span class="subhead"><a href="'+calURL+'upcoming/">See all '+calTitle+' events</a></span>');
-				WDN.jQuery(container+' abbr').each(
-						function() {
-							// Convert the date and time into something we want.
-							var eventdate = WDN.jQuery(this).html();
-							var month,day,time = '';
-							var xp = new RegExp(/[A-Za-z]{3,3}/);
-							if (xp.test(eventdate)) {
-								month = '<span class="month">'+xp.exec(eventdate)+'</span>';
-							}
-							eventdate.replace(xp.exec(eventdate),'');
-							xp = new RegExp(/[\d]+:[\d]+\s?[a,p]m/);
-							if (xp.test(eventdate)) {
-								time = '<span class="time">'+xp.exec(eventdate)+'</span>';
-							}
-							time = time.replace('0 ','0');
-							xp = new RegExp(/([\d]{1,2})[a-z]{2}/);
-							if (xp.test(eventdate)) {
-								day = '<span class="day">'+xp.exec(eventdate)[1]+'</span>';
-							}
-							WDN.jQuery(this).replaceWith('<div>'+month+' '+day+' '+time+'</div>');
+		getEvents : function() {
+			WDN.get(this.calURL+'upcoming/?format=hcalendar&limit='+this.limit, null, this.display);			
+		},
+		display : function(data, textStatus) {
+			var container = WDN.events.container;
+			var calURL    = WDN.events.calURL;
+			var calTitle  = WDN.events.calTitle;
+			WDN.jQuery(container).hide().html(data);
+			WDN.jQuery(container+' h4,'+container+' h3').after('<span class="subhead"><a href="'+calURL+'upcoming/">See all '+calTitle+' events</a></span>');
+			WDN.jQuery(container+' abbr').each(
+					function() {
+						// Convert the date and time into something we want.
+						var eventdate = WDN.jQuery(this).html();
+						var month,day,time = '';
+						var xp = new RegExp(/[A-Za-z]{3,3}/);
+						if (xp.test(eventdate)) {
+							month = '<span class="month">'+xp.exec(eventdate)+'</span>';
 						}
-				);
-				WDN.jQuery(container).show();
-				if (WDN.jQuery(container).hasClass('zenbox')) { //if we're using a zenbox, change to H3
-					WDN.jQuery(container+' h4').before('<h3>'+(WDN.jQuery(container+' h4').html()).replace(":", "")+'</h3>').remove();
-				}
-			});
+						eventdate.replace(xp.exec(eventdate),'');
+						xp = new RegExp(/[\d]+:[\d]+\s?[a,p]m/);
+						if (xp.test(eventdate)) {
+							time = '<span class="time">'+xp.exec(eventdate)+'</span>';
+						}
+						time = time.replace('0 ','0');
+						xp = new RegExp(/([\d]{1,2})[a-z]{2}/);
+						if (xp.test(eventdate)) {
+							day = '<span class="day">'+xp.exec(eventdate)[1]+'</span>';
+						}
+						WDN.jQuery(this).replaceWith('<div>'+month+' '+day+' '+time+'</div>');
+					}
+			);
+			WDN.jQuery(container).show();
+			if (WDN.jQuery(container).hasClass('zenbox')) { //if we're using a zenbox, change to H3
+				WDN.jQuery(container+' h4').before('<h3>'+(WDN.jQuery(container+' h4').html()).replace(":", "")+'</h3>').remove();
+			}
 		}
 	};
 }();
