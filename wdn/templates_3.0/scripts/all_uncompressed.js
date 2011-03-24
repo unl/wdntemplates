@@ -12453,7 +12453,13 @@ WDN.mobile_detect = function() {
 		
 		message : 'Welcome, mobile user! This page is available in a mobile-friendly view. Would you like to see it?',
 		
+		mobilesite : 'http://m.unl.edu/?view=proxy&u=',
+		
 		initialize : function() {
+			//debug statement removed
+			if (!WDN.mobile_detect.wantsMobile()){
+				return true;
+			}
 			if (!WDN.mobile_detect.isMobile()) {
 				return true;
 			}
@@ -12471,8 +12477,39 @@ WDN.mobile_detect = function() {
 			return false;
 		},
 		
+		wantsMobile : function() {
+			c = WDN.getCookie('wdn_mobile');
+			if (c=='no'){
+				return false;
+			}
+			return true;
+		},
+		
+		setMobileCookie : function() { //user wants mobile, so set the cookie to yes mobile
+			//debug statement removed
+			WDN.setCookie('wdn_mobile', 'yes', 86400);
+		},
+		
+		removeMobileCookie : function() { //user doesn't want mobile, so set expire the cookie to no mobile
+			//debug statement removed
+			WDN.setCookie('wdn_mobile', 'no', 86400);
+			
+		},
+		
 		showMessage : function() {
-			WDN.jQuery('#wdn_wrapper').before('<div id="wdn_mobileMessage">'+WDN.mobile_detect.message+' <a id="wdn_mobileYes" href="http://m.unl.edu/?view=proxy&u='+encodeURI(window.location.href)+'" title="View mobile version">Yes</a><a id="wdn_mobileNo" href="#">No</a></div>');
+			WDN.jQuery('#wdn_wrapper').before('<div id="wdn_mobileMessage">'+WDN.mobile_detect.message+' <a id="wdn_mobileYes" href="'+WDN.mobile_detect.mobilesite+encodeURI(window.location.href)+'" title="View mobile version">Yes</a><a id="wdn_mobileNo" href="#">No</a></div>');
+			WDN.jQuery('#wdn_mobileYes').click(function(){
+				WDN.mobile_detect.setMobileCookie();
+			});
+			WDN.jQuery('#wdn_mobileNo').click(function(){
+				WDN.mobile_detect.removeMobileCookie();
+				WDN.mobile_detect.hideMessage();
+				return false;
+			});
+		},
+		
+		hideMessage : function() {
+			WDN.jQuery('#wdn_mobileMessage').hide();
 		}
 	};
 }();
