@@ -131,24 +131,31 @@ WDN.videoPlayer = function() {
 					var src = video.src || WDN.jQuery(video).children('source').attr('src');
 					WDN.loadJS('wdn/templates_3.0/scripts/plugins/swfobject/jquery.swfobject.1-1-1.min.js', function(){
 						src = WDN.toAbs(src, window.location.toString());
-						var poster = video.poster || "";
 						var width = video.width || WDN.jQuery(video).width();
 						var height = video.height || WDN.jQuery(video).height();
-						var skin = 'wdn/templates_3.0/includes/swf/UNLVideoSkin.swf';
-						var allowfullscreen = 'true', icons = 'true';
+						var allowfullscreen = 'true';
+						var flashVars = {
+							'file': src,
+							'image': video.poster || "",
+							'skin': 'wdn/templates_3.0/includes/swf/UNLVideoSkin.swf',
+							'icons': 'true',
+							'autostart': 'false',
+							'controlbar': 'over'
+						};
 						WDN.log(type);
 						if (type == 'audio') {
 							height = 60;
-							skin = 'wdn/templates_3.0/includes/swf/UNLAudioSkin.swf';
 							allowfullscreen = 'false';
-							icons = 'false';
+							flashVars.skin = 'wdn/templates_3.0/includes/swf/UNLAudioSkin.swf';
+							flashVars.icons = 'false';
+							flashVars.screencolor = 'FFFFFF';
+							flashVars.controlbar = 'bottom';
 						}
-						skin = WDN.template_path + skin;
-						var autostart = 'false'; //default to false
+						flashVars.skin = WDN.template_path + flashVars.skin;
 						if (video.autoplay || WDN.jQuery('video').eq(i).attr('autoplay')) {
-							autostart = 'true';
+							flashVars.autostart = 'true';
 						}
-						WDN.log(skin);
+						WDN.log(flashVars.skin);
 						WDN.jQuery(video).wrap("<div id='wdnVideo_"+i+"' style='min-height:60px;' />");
 						
 						//Fallback for flash
@@ -160,14 +167,7 @@ WDN.videoPlayer = function() {
 								allowfullscreen: allowfullscreen,
 								allowscriptaccess: 'always',
 								wmode: 'transparent',
-								flashvars: {   
-									'file': src,   
-									'image': poster,   
-									'skin': skin,   
-									'autostart': autostart,
-									'controlbar': 'over',
-									'icons' : icons
-								},
+								flashvars: flashVars,
 								height: height,
 								width: width,
 								id: 'jwPlayer_'+i,
