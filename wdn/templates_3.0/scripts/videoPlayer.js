@@ -123,17 +123,32 @@ WDN.videoPlayer = function() {
 			return {
 				
 				setupJWPlayer : function(video, type) {
-					var badIEVideos = document.getElementsByTagName('/video');
-					for (var j = 0; j < badIEVideos.length; j++) {
-						WDN.jQuery(badIEVideos[j]).prevUntil('video').andSelf().remove();
+					var $media = WDN.jQuery(video), $children;
+					// IE 7 & 8 do not render video/audio elements in the DOM
+					// This fix corrects the heirarchy
+					var badIEElements = document.getElementsByTagName('/' + type);
+					if (badIEElements.length) {
+						var childAsSiblings = [], cur = $media;
+						while (cur.length) {
+							cur = cur.next();
+							if (WDN.jQuery.inArray(cur[0], badIEElements) < 0) {
+								childAsSiblings.push(cur[0]);
+							} else {
+								cur.remove();
+								break;
+							}
+						}
+						$children = WDN.jQuery(childAsSiblings);
+					} else {
+						$children = $media.children();
 					}
 					
-					var src = video.src || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery(video).siblings('source').attr('src');
+					var src = video.src || $children.filter('source').attr('src');
 					WDN.loadJS('wdn/templates_3.0/scripts/plugins/swfobject/jquery.swfobject.1-1-1.min.js', function(){
 						if (typeof src !== 'undefined')
 							src = WDN.toAbs(src, window.location.toString());
-						var width = video.width || WDN.jQuery(video).width();
-						var height = video.height || WDN.jQuery(video).height();
+						var width = video.width || $media.width();
+						var height = video.height || $media.height();
 						var allowfullscreen = 'true';
 						var flashVars = {
 							'file': src,
@@ -157,7 +172,7 @@ WDN.videoPlayer = function() {
 							flashVars.autostart = 'true';
 						}
 						WDN.log(flashVars.skin);
-						WDN.jQuery(video).wrap("<div id='wdnVideo_"+i+"' style='min-height:60px;' />");
+						$media.wrap("<div id='wdnVideo_"+i+"' style='min-height:60px;' />");
 						
 						//Fallback for flash
 						WDN.jQuery('#wdnVideo_'+i).prepend('<p>To view this video you should download <a href="http://get.adobe.com/flashplayer/">Adobe Flash Player</a> or use a browser that supports H264/WebM video. You may also download the <a href="' + src + '">video</a></p>');
@@ -179,7 +194,8 @@ WDN.videoPlayer = function() {
 							src: src,
 							played: false
 						});
-						WDN.jQuery(video).remove();
+						$media.remove();
+						$children.remove();
 						i++;
 					});
 				},
