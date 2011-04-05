@@ -109,11 +109,23 @@ body.mobile #footer #wdn_copyright {
 }
 
 
-/*
-@media only screen and (max-width: 600px) {
-    body.mobile #titlegraphic {width:480px;}
-    div {
-        max-width:480px;
-    }   
+/* CSS3 Media Queries */
+@media screen and (max-width: 480px) {
+    body.mobile #titlegraphic h1 {max-width:50%;}
+    * {
+        max-width:100%;
+    }
+    img {
+        max-width:95% !important;
+    }
+    
 }
-*/
+@media screen and (max-width: 320px) {
+    body.mobile #titlegraphic h1 {max-width:50%;}
+    * {
+        max-width:100%;
+    }
+    img {
+        max-width:95% !important;
+    }
+}
