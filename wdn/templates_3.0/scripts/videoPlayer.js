@@ -128,9 +128,10 @@ WDN.videoPlayer = function() {
 						WDN.jQuery(badIEVideos[j]).prevUntil('video').andSelf().remove();
 					}
 					
-					var src = video.src || WDN.jQuery(video).children('source').attr('src');
+					var src = video.src || WDN.jQuery(video).children('source').attr('src') || WDN.jQuery(video).siblings('source').attr('src');
 					WDN.loadJS('wdn/templates_3.0/scripts/plugins/swfobject/jquery.swfobject.1-1-1.min.js', function(){
-						src = WDN.toAbs(src, window.location.toString());
+						if (typeof src !== 'undefined')
+							src = WDN.toAbs(src, window.location.toString());
 						var width = video.width || WDN.jQuery(video).width();
 						var height = video.height || WDN.jQuery(video).height();
 						var allowfullscreen = 'true';

@@ -241,7 +241,8 @@ var WDN = function() {
 		 * @param string base_url The base to use
 		 */
 		toAbs: function (link, base_url) {
-
+		  if (typeof link == 'undefined')
+			  return;
 		  var lparts = link.split('/');
 		  if (/http:|https:|ftp:/.test(lparts[0])) {
 		    // already abs, return
