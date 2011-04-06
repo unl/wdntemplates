@@ -42,7 +42,7 @@ var WDN = function() {
 					return;
 				}
 				loadingJS[url] = [];
-				//debug statement removed
+				WDN.log("begin loading JS: " + url);
 				var e = document.createElement("script");
 				e.setAttribute('src', url);
 				e.setAttribute('type','text/javascript');
@@ -54,7 +54,7 @@ var WDN = function() {
 				var executeCallback = function() {
 					WDN.loadedJS[url] = 1;
 					if (loadingJS[url]) {
-						//debug statement removed
+						WDN.log("finished loading JS file: " + url);
 						for (var i = 0; i < loadingJS[url].length; i++) {
 							loadingJS[url][i]();
 						}
@@ -70,7 +70,7 @@ var WDN = function() {
 				e.onload = executeCallback;
 				
 			} else {
-				//debug statement removed
+				WDN.log("JS file already loaded: " + url);
 				if ((arguments.length > 3 && callbackIfLoaded === false) || !callback){
 					return;
 				}
@@ -199,10 +199,10 @@ var WDN = function() {
 			if (!callback) {
 				callback = function () {
 					if ("initialize" in WDN[plugin]) {
-						//debug statement removed
+						WDN.log("initializing plugin '" + plugin + "'");
 						WDN[plugin].initialize();
 					} else {
-						//debug statement removed
+						WDN.log("no initialize method for plugin " + plugin);
 					}
 				};
 			}
@@ -301,7 +301,7 @@ var WDN = function() {
 				}
 			}
 			catch(e) {
-				//debug statement removed
+				WDN.log('ERROR parsing XML string for conversion: ' + e);
 			}
 			return doc;
 		},
@@ -318,34 +318,34 @@ var WDN = function() {
 		 */
 		
 		request: function (url, data, callback, type, method) {
-			//debug statement removed
+			WDN.log("Using WDN.request");
 			var $ = WDN.jQuery;
 			// set the method if none/an invalid one was given
 			if (!method || !/^(get|post)$/i.test(method)) {
 				var method = "get";
-				//debug statement removed
+				WDN.log("WDN.request: No valid method specified. Using GET.");
 			}
 			// normalize the method name
 			method = method.toLowerCase();
 			// first, try using jQuery.get or jQuery.post
 			try {
-				//debug statement removed
+				WDN.log("Using jQuery." + method + " for the request...");
 				$[method](url,data,callback,type);
 				// Opera fails silently, so force it to throw an error and revert to the proxy
 				// TODO: this should probably only be done if making a cross domain request.
 				if (window.opera && Object.toString(window.opera.version).indexOf("[native code]") > 0) {
-					//debug statement removed
+					WDN.log("Opera detected. Raising an error to force proxy.");
 					throw ("Opera");
 				}
-				//debug statement removed
+				WDN.log("jQuery." + method + " worked.");
 			} catch (e) {
-				//debug statement removed
+				WDN.log("jQuery." + method + " failed.");
 				
 				// the jQuery method failed, likely because of the same origin policy
 				
 				// if data is an object, convert it to a key=value string
 				if (data && $.isPlainObject(data)) {
-					//debug statement removed
+					WDN.log("WDN.request: Converting data object to query string.");
 					var params = '';
 					for (var key in data) {
 					    params = params+'&'+key+'='+data[key];
@@ -354,7 +354,7 @@ var WDN = function() {
 				
 				// if using get, append the data as a querystring to the url
 				if (params && method == "get") {
-					//debug statement removed
+					WDN.log("WDN.request: Appending data parameters to querystring.");
 					if (!/\?/.test(url)) {
 						url += "?";
 					}
@@ -365,15 +365,15 @@ var WDN = function() {
 				// Try CORS, or use the proxy
 				// reference here, it's strongly frowned upon and not really necessary
 				if (window.XDomainRequest && method != "post") {
-					//debug statement removed
+					WDN.log("Using XDomainRequest...");
 					var xdr = new XDomainRequest();
 					xdr.open(method, url);
 					xdr.onload = function () {
-						//debug statement removed
+						WDN.log("XDomainRequest worked.");
 						var responseText = this.responseText, dataType = (type || "").toLowerCase();
 						// if we are expecting and XML object and get a string, convert it
 						if (typeof responseText == "string" && dataType == "xml") {
-							//debug statement removed
+							WDN.log("WDN.get: Converting response to XML document.");
 							responseText = WDN.stringToXML(responseText);
 						}
 						callback(responseText, "success", this);
@@ -381,7 +381,7 @@ var WDN = function() {
 					xdr.send(params);
 				} else {
 					try {
-						//debug statement removed
+						WDN.log('Using proxy');
 						var mycallback = function() {
 							var textstatus = 'error';
 							var data = 'error';
@@ -399,8 +399,8 @@ var WDN = function() {
 						request.onreadystatechange = mycallback;
 						request.send(params);
 					} catch(f) {
-						//debug statement removed
-						//debug statement removed
+						WDN.log("Could no fetch using the proxy.");
+						WDN.log(f);
 					}
 				}
 			}
@@ -474,7 +474,7 @@ analytics = function() {
 						'http://github.com/Modernizr/Modernizr/raw/master/modernizr.js', 
 						function(){
 							if (!window.Modernizr) {
-							    //debug statement removed
+							    WDN.log('Modernizr object not created.');
 							    return;
 							}
 							
@@ -489,7 +489,7 @@ analytics = function() {
 					var __html5 = WDN.getCookie('__html5'); //Previous UNL HTML5 test
 					
 					if (!__html5) { //We haven't run this test before, so let's do it.
-						//debug statement removed
+						WDN.log('We have not run this test yet, let us track this browser!');
 						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
 						return;
 					}
@@ -497,10 +497,10 @@ analytics = function() {
 					var unlHTML5 = __html5.split('|+|');
 					//Let's check to see if either the browser or modernizr has changed since the last tracking
 					if ((uAgent != unlHTML5[0]) || (mdVersion != unlHTML5[1])){
-						//debug statement removed
+						WDN.log('We don\'t have a match, let us track this browser!');
 						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
 					} else { //we have a match and nothing has changed, so do nothing more.
-						//debug statement removed
+						WDN.log('Already have this browser tracked');
 						return;
 					}
 				},
@@ -518,13 +518,13 @@ analytics = function() {
 						if (prop == 'inputtypes' || prop == 'input') {
 							for (var field in Modernizr[prop]) {
 								if (Modernizr[prop][field]){
-									////debug statement removed
+									//WDN.log(prop + ' ('+field+') ' + Modernizr[prop][field]);
 									WDN.analytics.callTrackEvent('HTML5/CSS3 Support', prop + '-('+field+')', '');
 								}
 							}
 						} else {
 							if(Modernizr[prop]){
-								////debug statement removed
+								//WDN.log(prop + ': ' + Modernizr[prop]);
 								WDN.analytics.callTrackEvent('HTML5/CSS3 Support', prop, '');
 							}
 						}
@@ -542,7 +542,7 @@ mobile_support = function() {
 			mobile_support.setOrientation();
 		},
 		
-		setOrientation : function() { //add class name to body for styling purposes.
+		setOrientation : function() { //add class name to html for styling purposes.
 			var orient = Math.abs(window.orientation) === 90 ? 'landscape' : 'portrait';
 			document.getElementsByTagName('html')[0].setAttribute("class", orient);
 		}

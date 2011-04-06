@@ -5,7 +5,7 @@ mobile_support = function() {
 			mobile_support.setOrientation();
 		},
 		
-		setOrientation : function() { //add class name to body for styling purposes.
+		setOrientation : function() { //add class name to html for styling purposes.
 			var orient = Math.abs(window.orientation) === 90 ? 'landscape' : 'portrait';
 			document.getElementsByTagName('html')[0].setAttribute("class", orient);
 		}
