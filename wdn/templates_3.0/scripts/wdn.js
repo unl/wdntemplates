@@ -102,7 +102,23 @@ var WDN = function() {
 			WDN.loadCSS('wdn/templates_3.0/css/script.css');
 			WDN.loadJS('wdn/templates_3.0/scripts/xmlhttp.js');
 			WDN.loadJS('wdn/templates_3.0/scripts/global_functions.js');
-			WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', WDN.jQueryUsage);
+			WDN.loadJQuery(WDN.jQueryUsage);
+		},
+
+		/**
+		 * Load jQuery included with the templates as WDN.jQuery
+		 * 
+		 * @param callback Called when the document is ready
+		 */
+		loadJQuery : function(callback) {
+			WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', function(){
+				if (!WDN.jQuery) {
+					WDN.jQuery = jQuery.noConflict(true);
+				}
+				WDN.jQuery(document).ready(function() {
+					callback();
+				});
+			});
 		},
 		
 		/**
@@ -110,28 +126,23 @@ var WDN = function() {
 		 * executed when jquery is loaded
 		 */
 		jQueryUsage : function() {
-			if (!WDN.jQuery) {
-				WDN.jQuery = jQuery.noConflict(true);
+			WDN.initializePlugin('analytics');
+			if (WDN.jQuery('body').hasClass('mobile')) {
+				return;
 			}
-			WDN.jQuery(document).ready(function() {
-				WDN.initializePlugin('analytics');
-				if (WDN.jQuery('body').hasClass('mobile')) {
-					return;
-				}
-				WDN.initializePlugin('mobile_detect');
-				WDN.initializePlugin('navigation');
-				WDN.initializePlugin('search');
-				WDN.initializePlugin('feedback');
-				WDN.initializePlugin('socialmediashare');
-				WDN.contentAdjustments();
-				WDN.initializePlugin('tooltip');
-				WDN.initializePlugin('toolbar');
-				WDN.initializePlugin('tabs');
-				WDN.initializePlugin('unlalert');
-				//WDN.initializePlugin('idm');
-				WDN.browserAdjustments();
-				WDN.screenAdjustments();
-			});
+			WDN.initializePlugin('mobile_detect');
+			WDN.initializePlugin('navigation');
+			WDN.initializePlugin('search');
+			WDN.initializePlugin('feedback');
+			WDN.initializePlugin('socialmediashare');
+			WDN.contentAdjustments();
+			WDN.initializePlugin('tooltip');
+			WDN.initializePlugin('toolbar');
+			WDN.initializePlugin('tabs');
+			WDN.initializePlugin('unlalert');
+			//WDN.initializePlugin('idm');
+			WDN.browserAdjustments();
+			WDN.screenAdjustments();
 		},
 		
 		/**
