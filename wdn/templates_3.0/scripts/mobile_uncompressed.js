@@ -42,7 +42,7 @@ var WDN = function() {
 					return;
 				}
 				loadingJS[url] = [];
-				WDN.log("begin loading JS: " + url);
+				//debug statement removed
 				var e = document.createElement("script");
 				e.setAttribute('src', url);
 				e.setAttribute('type','text/javascript');
@@ -54,7 +54,7 @@ var WDN = function() {
 				var executeCallback = function() {
 					WDN.loadedJS[url] = 1;
 					if (loadingJS[url]) {
-						WDN.log("finished loading JS file: " + url);
+						//debug statement removed
 						for (var i = 0; i < loadingJS[url].length; i++) {
 							loadingJS[url][i]();
 						}
@@ -70,7 +70,7 @@ var WDN = function() {
 				e.onload = executeCallback;
 				
 			} else {
-				WDN.log("JS file already loaded: " + url);
+				//debug statement removed
 				if ((arguments.length > 3 && callbackIfLoaded === false) || !callback){
 					return;
 				}
@@ -102,7 +102,23 @@ var WDN = function() {
 			WDN.loadCSS('wdn/templates_3.0/css/script.css');
 			WDN.loadJS('wdn/templates_3.0/scripts/xmlhttp.js');
 			WDN.loadJS('wdn/templates_3.0/scripts/global_functions.js');
-			WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', WDN.jQueryUsage);
+			WDN.loadJQuery(WDN.jQueryUsage);
+		},
+
+		/**
+		 * Load jQuery included with the templates as WDN.jQuery
+		 * 
+		 * @param callback Called when the document is ready
+		 */
+		loadJQuery : function(callback) {
+			WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', function(){
+				if (!WDN.jQuery) {
+					WDN.jQuery = jQuery.noConflict(true);
+				}
+				WDN.jQuery(document).ready(function() {
+					callback();
+				});
+			});
 		},
 		
 		/**
@@ -110,28 +126,23 @@ var WDN = function() {
 		 * executed when jquery is loaded
 		 */
 		jQueryUsage : function() {
-			if (!WDN.jQuery) {
-				WDN.jQuery = jQuery.noConflict(true);
+			WDN.initializePlugin('analytics');
+			if (WDN.jQuery('body').hasClass('mobile')) {
+				return;
 			}
-			WDN.jQuery(document).ready(function() {
-				WDN.initializePlugin('analytics');
-				if (WDN.jQuery('body').hasClass('mobile')) {
-					return;
-				}
-				WDN.initializePlugin('mobile_detect');
-				WDN.initializePlugin('navigation');
-				WDN.initializePlugin('search');
-				WDN.initializePlugin('feedback');
-				WDN.initializePlugin('socialmediashare');
-				WDN.contentAdjustments();
-				WDN.initializePlugin('tooltip');
-				WDN.initializePlugin('toolbar');
-				WDN.initializePlugin('tabs');
-				WDN.initializePlugin('unlalert');
-				//WDN.initializePlugin('idm');
-				WDN.browserAdjustments();
-				WDN.screenAdjustments();
-			});
+			WDN.initializePlugin('mobile_detect');
+			WDN.initializePlugin('navigation');
+			WDN.initializePlugin('search');
+			WDN.initializePlugin('feedback');
+			WDN.initializePlugin('socialmediashare');
+			WDN.contentAdjustments();
+			WDN.initializePlugin('tooltip');
+			WDN.initializePlugin('toolbar');
+			WDN.initializePlugin('tabs');
+			WDN.initializePlugin('unlalert');
+			//WDN.initializePlugin('idm');
+			WDN.browserAdjustments();
+			WDN.screenAdjustments();
 		},
 		
 		/**
@@ -199,10 +210,10 @@ var WDN = function() {
 			if (!callback) {
 				callback = function () {
 					if ("initialize" in WDN[plugin]) {
-						WDN.log("initializing plugin '" + plugin + "'");
+						//debug statement removed
 						WDN[plugin].initialize();
 					} else {
-						WDN.log("no initialize method for plugin " + plugin);
+						//debug statement removed
 					}
 				};
 			}
@@ -301,7 +312,7 @@ var WDN = function() {
 				}
 			}
 			catch(e) {
-				WDN.log('ERROR parsing XML string for conversion: ' + e);
+				//debug statement removed
 			}
 			return doc;
 		},
@@ -318,34 +329,34 @@ var WDN = function() {
 		 */
 		
 		request: function (url, data, callback, type, method) {
-			WDN.log("Using WDN.request");
+			//debug statement removed
 			var $ = WDN.jQuery;
 			// set the method if none/an invalid one was given
 			if (!method || !/^(get|post)$/i.test(method)) {
 				var method = "get";
-				WDN.log("WDN.request: No valid method specified. Using GET.");
+				//debug statement removed
 			}
 			// normalize the method name
 			method = method.toLowerCase();
 			// first, try using jQuery.get or jQuery.post
 			try {
-				WDN.log("Using jQuery." + method + " for the request...");
+				//debug statement removed
 				$[method](url,data,callback,type);
 				// Opera fails silently, so force it to throw an error and revert to the proxy
 				// TODO: this should probably only be done if making a cross domain request.
 				if (window.opera && Object.toString(window.opera.version).indexOf("[native code]") > 0) {
-					WDN.log("Opera detected. Raising an error to force proxy.");
+					//debug statement removed
 					throw ("Opera");
 				}
-				WDN.log("jQuery." + method + " worked.");
+				//debug statement removed
 			} catch (e) {
-				WDN.log("jQuery." + method + " failed.");
+				//debug statement removed
 				
 				// the jQuery method failed, likely because of the same origin policy
 				
 				// if data is an object, convert it to a key=value string
 				if (data && $.isPlainObject(data)) {
-					WDN.log("WDN.request: Converting data object to query string.");
+					//debug statement removed
 					var params = '';
 					for (var key in data) {
 					    params = params+'&'+key+'='+data[key];
@@ -354,7 +365,7 @@ var WDN = function() {
 				
 				// if using get, append the data as a querystring to the url
 				if (params && method == "get") {
-					WDN.log("WDN.request: Appending data parameters to querystring.");
+					//debug statement removed
 					if (!/\?/.test(url)) {
 						url += "?";
 					}
@@ -365,15 +376,15 @@ var WDN = function() {
 				// Try CORS, or use the proxy
 				// reference here, it's strongly frowned upon and not really necessary
 				if (window.XDomainRequest && method != "post") {
-					WDN.log("Using XDomainRequest...");
+					//debug statement removed
 					var xdr = new XDomainRequest();
 					xdr.open(method, url);
 					xdr.onload = function () {
-						WDN.log("XDomainRequest worked.");
+						//debug statement removed
 						var responseText = this.responseText, dataType = (type || "").toLowerCase();
 						// if we are expecting and XML object and get a string, convert it
 						if (typeof responseText == "string" && dataType == "xml") {
-							WDN.log("WDN.get: Converting response to XML document.");
+							//debug statement removed
 							responseText = WDN.stringToXML(responseText);
 						}
 						callback(responseText, "success", this);
@@ -381,7 +392,7 @@ var WDN = function() {
 					xdr.send(params);
 				} else {
 					try {
-						WDN.log('Using proxy');
+						//debug statement removed
 						var mycallback = function() {
 							var textstatus = 'error';
 							var data = 'error';
@@ -399,8 +410,8 @@ var WDN = function() {
 						request.onreadystatechange = mycallback;
 						request.send(params);
 					} catch(f) {
-						WDN.log("Could no fetch using the proxy.");
-						WDN.log(f);
+						//debug statement removed
+						//debug statement removed
 					}
 				}
 			}
@@ -418,6 +429,7 @@ var WDN = function() {
 }();
 
 WDN.template_path = "/";
+WDN.loadedJS["/wdn/templates_3.0/scripts/wdn.js"]=1;
 // What should be tracked in Google Analytics
 // 
 // 1. File downloads: .pdf, .doc., etc... put in the /downloads directory DONE
@@ -474,7 +486,7 @@ analytics = function() {
 						'http://github.com/Modernizr/Modernizr/raw/master/modernizr.js', 
 						function(){
 							if (!window.Modernizr) {
-							    WDN.log('Modernizr object not created.');
+							    //debug statement removed
 							    return;
 							}
 							
@@ -489,7 +501,7 @@ analytics = function() {
 					var __html5 = WDN.getCookie('__html5'); //Previous UNL HTML5 test
 					
 					if (!__html5) { //We haven't run this test before, so let's do it.
-						WDN.log('We have not run this test yet, let us track this browser!');
+						//debug statement removed
 						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
 						return;
 					}
@@ -497,10 +509,10 @@ analytics = function() {
 					var unlHTML5 = __html5.split('|+|');
 					//Let's check to see if either the browser or modernizr has changed since the last tracking
 					if ((uAgent != unlHTML5[0]) || (mdVersion != unlHTML5[1])){
-						WDN.log('We don\'t have a match, let us track this browser!');
+						//debug statement removed
 						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
 					} else { //we have a match and nothing has changed, so do nothing more.
-						WDN.log('Already have this browser tracked');
+						//debug statement removed
 						return;
 					}
 				},
@@ -518,13 +530,13 @@ analytics = function() {
 						if (prop == 'inputtypes' || prop == 'input') {
 							for (var field in Modernizr[prop]) {
 								if (Modernizr[prop][field]){
-									//WDN.log(prop + ' ('+field+') ' + Modernizr[prop][field]);
+									////debug statement removed
 									WDN.analytics.callTrackEvent('HTML5/CSS3 Support', prop + '-('+field+')', '');
 								}
 							}
 						} else {
 							if(Modernizr[prop]){
-								//WDN.log(prop + ': ' + Modernizr[prop]);
+								////debug statement removed
 								WDN.analytics.callTrackEvent('HTML5/CSS3 Support', prop, '');
 							}
 						}
@@ -535,6 +547,7 @@ analytics = function() {
 	};
 }();
 analytics.initialize();
+WDN.loadedJS["/wdn/templates_3.0/scripts/mobile_analytics.js"]=1;
 mobile_support = function() {
 	return {
 		initialize : function() {
@@ -549,3 +562,4 @@ mobile_support = function() {
 	};
 }();
 mobile_support.initialize();
+WDN.loadedJS["/wdn/templates_3.0/scripts/mobile_support.js"]=1;
