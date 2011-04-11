@@ -36,7 +36,7 @@ foreach ($files as $file) {
         $all .= 'WDN.template_path = "/";'.PHP_EOL;
     }
 	if ($file !== 'jquery'){
-        //$all .= 'WDN.loadedJS["/wdn/templates_3.0/scripts/'.$file.'.js"]=1;'.PHP_EOL;
+        $all .= 'WDN.loadedJS["/wdn/templates_3.0/scripts/'.$file.'.js"]=1;'.PHP_EOL;
     }
 }
 //$all .= 'WDN.loadedJS["/wdn/templates_3.0/scripts/xmlhttp.js"]=1;'.PHP_EOL;
