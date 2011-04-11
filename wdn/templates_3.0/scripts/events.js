@@ -28,15 +28,21 @@ WDN.events = function() {
 			}
 		},
 		getEvents : function() {
-			WDN.get(this.calURL+'upcoming/?format=hcalendar&limit='+this.limit, null, this.display);			
+			var container = this.container;
+			var calURL    = this.calURL;
+			var calTitle  = this.calTitle;
+			WDN.get(this.calURL+'upcoming/?format=hcalendar&limit='+this.limit, null, function(data, textStatus) {
+					WDN.events.container = container;
+					WDN.events.calURL    = calURL;
+					WDN.events.calTitle  = calTitle;
+					WDN.events.display(data, textStatus);
+				}
+			);			
 		},
 		display : function(data, textStatus) {
-			var container = WDN.events.container;
-			var calURL    = WDN.events.calURL;
-			var calTitle  = WDN.events.calTitle;
-			WDN.jQuery(container).hide().html(data);
-			WDN.jQuery(container+' h4,'+container+' h3').after('<span class="subhead"><a href="'+calURL+'upcoming/">See all '+calTitle+' events</a></span>');
-			WDN.jQuery(container+' abbr').each(
+			WDN.jQuery(this.container).hide().html(data);
+			WDN.jQuery(this.container+' h4,'+this.container+' h3').after('<span class="subhead"><a href="'+this.calURL+'upcoming/">See all '+this.calTitle+' events</a></span>');
+			WDN.jQuery(this.container+' abbr').each(
 					function() {
 						// Convert the date and time into something we want.
 						var eventdate = WDN.jQuery(this).html();
@@ -58,9 +64,9 @@ WDN.events = function() {
 						WDN.jQuery(this).replaceWith('<div>'+month+' '+day+' '+time+'</div>');
 					}
 			);
-			WDN.jQuery(container).show();
-			if (WDN.jQuery(container).hasClass('zenbox')) { //if we're using a zenbox, change to H3
-				WDN.jQuery(container+' h4').before('<h3>'+(WDN.jQuery(container+' h4').html()).replace(":", "")+'</h3>').remove();
+			WDN.jQuery(this.container).show();
+			if (WDN.jQuery(this.container).hasClass('zenbox')) { //if we're using a zenbox, change to H3
+				WDN.jQuery(this.container+' h4').before('<h3>'+(WDN.jQuery(this.container+' h4').html()).replace(":", "")+'</h3>').remove();
 			}
 		}
 	};
