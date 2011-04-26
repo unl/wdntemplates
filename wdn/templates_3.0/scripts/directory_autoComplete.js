@@ -12,6 +12,9 @@ WDN.directory_autoComplete = function() {
 					source: function(request, response) {
 						WDN.get('http://directory.unl.edu/service.php?q='+request.term+'&format=json', false,
 			    			function(data) {
+								if (!(data instanceof Object)) {
+									data = eval('(' + data + ')'); //for IE.  (Force to json object)
+								}
 			    				var rows = new Array();
 			    				var i = 0;
 			    				for(var e=0; e<data.length; e++){
