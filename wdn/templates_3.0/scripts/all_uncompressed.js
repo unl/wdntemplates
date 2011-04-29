@@ -12499,12 +12499,12 @@ WDN.mobile_detect = function() {
 		
 		setMobileCookie : function() { //user wants mobile, so set the cookie to yes mobile
 			//debug statement removed
-			WDN.setCookie('wdn_mobile', 'yes', 86400);
+			WDN.setCookie('wdn_mobile', 'yes', 1200);
 		},
 		
 		removeMobileCookie : function() { //user doesn't want mobile, so set expire the cookie to no mobile
 			//debug statement removed
-			WDN.setCookie('wdn_mobile', 'no', 86400);
+			WDN.setCookie('wdn_mobile', 'no', 1200);
 			
 		},
 		
