@@ -119,7 +119,8 @@ WDN.videoPlayer = function() {
 			}
 		},
 		
-		createFallback : function() { //call the flash player option			
+		createFallback : function() { //call the flash player option	
+			var currentPosition = 0; //the current position of the video last played
 			return {
 				
 				setupJWPlayer : function(video, type) {
@@ -149,6 +150,7 @@ WDN.videoPlayer = function() {
 							src = WDN.toAbs(src, window.location.toString());
 						var width = video.width || $media.width();
 						var height = video.height || $media.height();
+						var enablejs = 'true';
 						var allowfullscreen = 'true';
 						var flashVars = {
 							'file': src,
@@ -211,9 +213,14 @@ WDN.videoPlayer = function() {
 				},
 
 				timeListener : function(obj) {
-					var wdnPlayer = WDN.jQuery('#' + event.id).parent().data('wdn_player');
+					currentPosition = obj.position;
+					var wdnPlayer = WDN.jQuery('#' + obj.id).parent().data('wdn_player');
 					wdnPlayer.position = obj.position;
 					wdnPlayer.duration = obj.duration;
+				},
+				
+				getCurrentPosition : function() {
+					return currentPosition;
 				},
 				
 				onStateChange : function(event) {
