@@ -105,7 +105,8 @@ WDN.unlalert = function() {
 			// Add a div to store the html content
 			if (WDN.jQuery("#alertbox").length === 0) {
 				// Add the alert icon to the tool links
-				WDN.jQuery('#wdn_tool_links').prepend('<li style="border-color:#cba166;background:#f1e887;"><a id="unlalerttool" class="alert tooltip" title="Emergency Alert: An alert has been issued!" href="#alertbox">UNL Alert</a></li>');
+				WDN.jQuery('#wdn_tool_links').prepend('<li style="border-color:#cba166;background:#f1e887;"><a id="unlalerttool" class="alert" title="UNL Alert: An alert has been issued." href="#alertbox">UNL Alert</a></li>');
+				WDN.tooltip.addTooltip(WDN.jQuery('#unlalerttool'));
 				WDN.jQuery('#maincontent').append('<div id="alertbox" style="display:none"></div>');
 				WDN.jQuery('#unlalerttool').click(
 					function() {
@@ -122,8 +123,8 @@ WDN.unlalert = function() {
 						'<img src="/wdn/templates_3.0/css/images/alert/generic.png" alt="An emergency has been issued" />' +
 					'</div>' +
 					'<div class="two_col right" style="width:70%;">' +
-						'<h1 class="sec_header">Emergency Alert: An alert has been issued!' +
-						'<h4>' + alertTitle + '<span class="effectiveDate">' + effectiveDate + '</span></h4>' +
+						'<h1 class="sec_header">UNL Alert: ' + alertTitle + '</h1>' +
+						'<h4 class="effectiveDate">Issued at ' + effectiveDate + '</h4>' +
 						'<p>'+ alertDescription +'<!-- Number '+uniqueID+' --></p>' +
 					'</div>' +
 			'</div>');
