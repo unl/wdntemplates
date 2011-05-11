@@ -99,6 +99,7 @@ WDN.unlalert = function() {
 			var LatestAlert = root;
 			var alertTitle = LatestAlert.headline;
 			var alertDescription = LatestAlert.description;
+			var effectiveDate = LatestAlert.effective;
 			WDN.unlalert.current_id = uniqueID;
 			
 			// Add a div to store the html content
@@ -122,7 +123,7 @@ WDN.unlalert = function() {
 					'</div>' +
 					'<div class="two_col right" style="width:70%;">' +
 						'<h1 class="sec_header">Emergency Alert: An alert has been issued!' +
-						'<h4>' + alertTitle + '</h4>' +
+						'<h4>' + alertTitle + '<span class="effectiveDate">' + effectiveDate + '</span></h4>' +
 						'<p>'+ alertDescription +'<!-- Number '+uniqueID+' --></p>' +
 					'</div>' +
 			'</div>');
