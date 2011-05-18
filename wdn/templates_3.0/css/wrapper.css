@@ -1,7 +1,13 @@
+html{
+    font-size: 100%;
+}
+
 .skipnav {display: none;}
 
 body {
 	background:url(images/bg.jpg) top center no-repeat;
+	font-size:1em;
+	line-height: 1;
 }
 
 .hidden {
@@ -10,12 +16,14 @@ body {
 
 #wdn_wrapper {
 	background:#FFF;
-    border:12px solid #E0E0E0;
-    border-top:37px solid #E0E0E0;
+    border:12px solid #eee;
+    border-top:35px solid #eee;
     padding:12px;
-    margin:0px;
-    border-radius:18px;
-    min-width:960px;
+    margin:0px auto 15px;
+    border-radius:10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    width:960px;
     position:relative;
     height:auto;
 }

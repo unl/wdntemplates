@@ -3,352 +3,93 @@
 <head>
 <link rel="stylesheet" type="text/css" media="screen"	href="wdn/templates_3.0/css/debug.css" />
 <link rel="stylesheet" type="text/css" media="print"	href="wdn/templates_3.0/css/print.css" />
-<link rel="stylesheet" type="text/css" media="screen"	href="wdn/templates_3.0/css/content/forms.css" />
-<link rel="stylesheet" type="text/css" media="screen"	href="wdn/templates_3.0/css/content/notice.css" />
-<link rel="stylesheet" type="text/css" media="screen"	href="wdn/templates_3.0/css/content/pagination.css" />
-<link rel="stylesheet" type="text/css" media="screen"	href="ldap.css" />
-<link rel="events" href="http://events.unl.edu/myred/" title="MyRED" />
-<link rel="alternate" type="application/rss+xml" title="RSS Feed of My Debug Page" href="?format=xml" />
-<link rel="alternate" type="application/json" title="JSON for my Debug Page" href="?format=xml" />
-<link rel="alternate" type="application/ical" title="iCal for my Debug Page" href="?format=xml" />
-<link rel="alternate" type="application/html" title="HTML for my Debug Page" href="?format=xml" />
-<link rel="alternate" type="application/vCard" title="vCard for my Debug Page" href="?format=xml" />
-<!--#include virtual="sharedcode/localSiteLinks.html" -->
 <script type="text/javascript" src="wdn/templates_3.0/scripts/debug.js"></script>
+<link rel="events" href="http://events.unl.edu/myred/" title="MyRED" />
+<!--#include virtual="sharedcode/localSiteLinks.html" -->
 <!--#include virtual="wdn/templates_3.0/includes/browserspecifics.html" -->
 <!--#include virtual="wdn/templates_3.0/includes/metanfavico.html" -->
 <title>UNL | Template</title>
 <style type="text/css">
-
-</style>  
+    .grid6, .supporting h3 {
+        text-align:center;
+    }
+    .supporting h3 {
+        text-transform:uppercase;
+        letter-spacing:-0.04em;
+        font-size:1.2em;
+        font-weight:800;
+    }
+    .supporting {
+        text-align:left;
+        background:#f1f1f1;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        -moz-border-radius:5px;
+        padding:10px;
+    }
+</style>
 </head>
-<body class="fixed">
+<body class="fixed debug">
 <p class="skipnav"><a class="skipnav" href="#maincontent">Skip
 Navigation</a></p>
 <div id="wdn_wrapper">
     <div id="header">
         <a href="http://www.unl.edu/" title="UNL website"><img src="wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <!--#include virtual="wdn/templates_3.0/includes/wdnTools.html" -->  
+        <!--#include virtual="wdn/templates_3.0/includes/wdnTools.html" -->
         <div id="wdn_identity_management"></div>
      </div>
-    <div id="wdn_navigation_bar">    
+    <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
             <ul>
                 <!-- WDN: see glossary item 'breadcrumbs' -->
                 <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
-                <li><a href="http://other.unl.edu/">Un-accessible site</a></li>
+                <li class="selected"><a href="http://other.unl.edu/">Un-accessible site</a></li>
                 <li><a href="http://admissions.unl.edu/">Admissions</a></li>
                 <li><a href="http://admissions.unl.edu/visit.aspx">Visit</a></li>
                 <li>This page</li>
-                <li>Current Page</li>
             </ul>
-        </div>        
+        </div>
         <div id="wdn_navigation_wrapper">
-            <div id="navigation">
-                <!--#include virtual="sharedcode/navigation.html" -->                
+            <div id="navigation" class="mega">
+                <!--#include virtual="sharedcode/navigation.html" -->
                 <!-- End Navigation Markup -->
             </div>
         </div>
-    </div>    
-    <div id="wdn_content_wrapper">    
+    </div>
+    <div id="wdn_content_wrapper">
         <div id="titlegraphic">
-            <h1>UNL Login</h1>
-        </div>        
+            <h1>College of Agricultural Sciences and Natural Resources (CASNR)</h1>
+        </div>
+        <div id="pagetitle"><h2>Iterative Navigation Examples</h2></div>
         <div id="maincontent">
-        new:
-        <object type="application/x-shockwave-flash" style="width:700px;height:406px" data="http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/player.swf"<param name="movie" value="http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/player.swf" ></param><param name="allowfullscreen" value="true"></param><param name="allowscriptaccess" value="always"></param><param name="wmode" value="transparent"></param><param name="flashvars" value="file=http://www.unl.edu/ucomm/ucomm/av/video/podcasts/20080930_nc_hibbing.mp4&amp;image=http://itunes.unl.edu/thumbnails.php?url=http%3A%2F%2Fwww.unl.edu%2Fucomm%2Fucomm%2Fav%2Fvideo%2Fpodcasts%2F20080930_nc_hibbing.mp4&amp;volume=100&amp;autostart=false&amp;skin=http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/UNLVideoSkin.swf" /> </object>
-        
-        old:
-        <object type="application/x-shockwave-flash" style="width:700px;height:406px" data="http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/player.swf">
-        	<param name="movie" value="http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/player.swf" ></param>
-        	<param name="allowfullscreen" value="true"></param>
-        	<param name="allowscriptaccess" value="always"></param>
-        	<param name="wmode" value="transparent"></param>
-        	<param name="FlashVars" value="file=http://www.unl.edu/ucomm/ucomm/av/video/podcasts/20080930_nc_hibbing.mp4&amp;image=http://itunes.unl.edu/thumbnails.php?url=http%3A%2F%2Fwww.unl.edu%2Fucomm%2Fucomm%2Fav%2Fvideo%2Fpodcasts%2F20080930_nc_hibbing.mp4&amp;volume=100&amp;autostart=false&amp;skin=http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/UNLVideoSkin.swf" /> 
-        </object>
-        <div class="two_col left">       
-                <form id="login"> 
-                <!-- Congratulations on bringing CAS online!  The default authentication handler authenticates where usernames equal passwords: go ahead, try it out.  -->
-                   <p id="loginInstructions">To login use your <span>My.UNL Account</span></p>
-                    <fieldset>
-                    <legend>You must login with your My.UNL Account</legend>
-                    <ol>
-                    <li>
-
-                        <label for="username"><span class="accesskey">U</span>sername:</label>
-						
-						
-						
-						
-						<input id="username" name="username" class="required" tabindex="1" accesskey="n" type="text" value="" size="25" autocomplete="false"/>
-						
-                    </li>
-                    <li>
-                        <label for="password"><span class="accesskey">P</span>assword:</label>
-						
-						
-						<input id="password" name="password" class="required" tabindex="2" accesskey="p" type="password" value="" size="25" autocomplete="off"/>
-
-                    </li>
-                    <li>
-                    	<fieldset>
-                    	<ol>
-                    	<li>
-                        <input id="warn" name="warn" value="true" tabindex="3" accesskey="w" type="checkbox" />
-                        <label for="warn"><span class="accesskey">W</span>arn me before logging me into other sites.</label>
-                        </li>
-                        </ol>
-                        </fieldset>
-                    </li>
-                    </ol>
-                    <p class="submit">
-						<input type="hidden" name="lt" value="_cDBB424BE-EFA7-848F-9A30-6B3399ACEAA9_kA1B13847-6A86-4466-8B7D-0376414BB8B2" />
-						<input type="hidden" name="_eventId" value="submit" />
-
-                        <input class="btn-submit" id="submit" name="submit" accesskey="l" value="LOGIN" tabindex="4" type="submit" />
-                        <input class="btn-reset" name="reset" accesskey="c" value="CLEAR" tabindex="5" type="reset" />
-                    </p>
-                    </fieldset>
-                </form>
+            <div class="grid6 first">
+                <img src="tests/box.png" alt="box image" />
+                <div class="supporting">
+                
+                    <h3>Megabox Navigation</h3>
+                    <p>Megabox navigation, the current type of navigation used in the WDN Templates, shows all the navigation available with one user interaction.</p>
+                    <a class="switch mega" href="#">Switch to Megabox</a>
                 </div>
-                <div class="two_col right">
-                	<h3 class="sec_header" style="margin-top:45px;">What is this?</h3>
-                	<p>
-                	Your My.UNL account allows you access to these UNL resources:
-                	</p>
-                	<ul>
-                		<li><a href="http://planetred.unl.edu">Planet Red</a></li>
-                		<li><a href="http://events.unl.edu">UNL Events</a></li>
-                		<li><a href="http://www1.unl.edu/wdn/">WDN Site Registry</a></li>
-                		<li><a href="http://www1.unl.edu/mediahub/">MediaHub</a></li>
-                		<li><a href="http://go.unl.edu/">GoURL</a></li>
-                		<li><a href="http://ucommxsrv1.unl.edu/procurement/">Bid Listing Manager</a></li>
-                		<li><a href="http://ucommxsrv1.unl.edu/studentjobs/">Student Jobs Application</a></li>
-                		<li><a href="http://ucommxsrv1.unl.edu/ticketsystem/">Ticket System</a></li>
-                		<li><a href="http://creq.unl.edu/">Course Approval</a></li>
-                		<li><a href="http://ucommxsrv1.unl.edu/ugradforms/ucare/">UCARE Application</a></li>
-                		<li><a href="http://newsroom.unl.edu/releases/">UCOMM Newsroom</a></li>
-                	</ul>
+            </div>
+            <div class="grid6" id="switch_flag">
+                <img src="tests/flag.png" alt="flag image" />
+                
+                <div class="supporting">
+                
+                    <h3>Flag Navigation</h3>
+                    <p>Flag navigation, shows only the navigation related to selected primary navigational label.</p>
+                    <a class="switch flag" href="#">Switch to Flag</a>
                 </div>
-                        <!--                 
-<table class="zentable primary">
- <thead><tr>
- <th>MimeTypes</th>
- <th>Current</th>
- <th>Proposal</th>
- <th>Outcome</th>
- </tr></thead>
-  <tbody>
-   <tr>
-    <td>a.external</td>
-    <td><img src="wdn/templates_3.0/css/content/images/external_link.gif" /></td>
-    <td>Continue using selector</td>
-    <td><a class="external">Test</a></td>
-   </tr>
-   <tr>
-    <td>a.map</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/map-icon.png" /></td>
-    <td>Continue using selector</td>
-    <td><a class="map">Test</a></td>
-   </tr>
-   <tr>
-    <td>a.mail-message-new</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/mail-message-new.png" /></td>
-    <td>Deprecate (use a.mail)</td>
-    <td><a class="mail-message-new">Test</a></td>
-   </tr>
-   <tr>
-    <td>a.email</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/mail-message-new.png" /></td>
-    <td>Continue using selector</td>
-    <td><a class="email">Test</a></td>
-   </tr>
-   <tr>
-    <td>a.text-vcard</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/text-vcard.png" /></td>
-    <td>Deprecate (use a.vcard)</td>
-    <td><a class="text-vcard">Test</a></td>
-   </tr>
-   <tr>
- <td>a.application-pdf</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/application-pdf.png" /></td>
-    <td>Deprecate (use a.pdf)</td>
-    <td><a class="application-pdf">Test</a></td>
-   </tr>
-   <tr>
- <td>a.application-certificate</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/application-certificate.png" /></td>
-    <td>Deprecate</td>
-    <td><a class="application-certificate">Test</a></td>
-   </tr>
-   <tr>
- <td>a.application-x-executable</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/application-x-executable.png" /></td>
-    <td>Deprecate</td>
-    <td><a class="application-x-executable">Test</a></td>
-   </tr>
-   <tr>
- <td>a.audio-x-generic</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/audio-x-generic.png" /></td>
-    <td>Deprecate (use a.audio)</td>
-    <td><a class="audio-x-generic">Test</a></td>
-   </tr>
-   <tr>
- <td>a.font-x-generic</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/font-x-generic.png" /></td>
-    <td>Deprecate</td>
-    <td><a class="font-x-generic">Test</a></td>
-   </tr>
-   <tr>
- <td>a.image-x-generic</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/image-x-generic.png" /></td>
-    <td>Deprecate (use a.image)</td>
-    <td><a class="image-x-generic">Test</a></td>
-   </tr>
-   <tr>
- <td>a.msword</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/application-msword.png" /></td>
-    <td>Deprecate (use a.document)</td>
-    <td><a class="msword">Test</a></td>
-   </tr>
-   <tr>
- <td>a.package-x-generic</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/package-x-generic.png" /></td>
-    <td>Deprecate</td>
-    <td><a class="package-x-generic">Test</a></td>
-   </tr>
-   <tr>
- <td>a.pdf</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/application-pdf.png" /></td>
-    <td>Continue using selector</td>
-    <td><a class="pdf">Test</a></td>
-   </tr>
-   <tr>
- <td>a.text-html</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/text-html.png" /></td>
-    <td>Deprecate (use a.html)</td>
-    <td><a class="text-html">Test</a></td>
-   </tr>
-   <tr>
- <td>a.text-x-generic</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/text-x-generic.png" /></td>
-    <td>Deprecate</td>
-    <td><a class="text-x-generic">Test</a></td>
-   </tr>
-   <tr>
- <td>a.text-x-generic-template</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/text-x-generic-template.png" /></td>
-    <td>Deprecate</td>
-    <td><a class="text-x-generic-template">Test</a></td>
-   </tr>
-   <tr>
- <td>a.text-x-script</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/text-x-script.png" /></td>
-    <td>Deprecate</td>
-    <td><a class="text-x-script">Test</a></td>
-   </tr>
-   <tr>
- <td>a.video-x-generic</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/video-x-generic.png" /></td>
-    <td>Deprecate (use a.video)</td>
-    <td><a class="mail-message-new">Test</a></td>
-   </tr>
-   <tr>
- <td>a.x-office-address-book</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/x-office-address-book.png" /></td>
-    <td>Deprecate</td>
-    <td><a class="mail-message-new">Test</a></td>
-   </tr>
-   <tr>
- <td>a.x-office-calendar</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/x-office-calendar.png" /></td>
-    <td>Deprecate (use a.calendar)</td>
-    <td><a class="x-office-calendar">Test</a></td>
-   </tr>
-   <tr>
- <td>a.x-office-document</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/x-office-document.png" /></td>
-    <td>Deprecate</td>
-    <td><a class="x-office-document">Test</a></td>
-   </tr>
-   <tr>
- <td>a.x-office-document-template</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/x-office-document-template.png" /></td>
-    <td>Deprecate</td>
-    <td><a class="x-office-document-template">Test</a></td>
-   </tr>
-   <tr>
- <td>a.x-office-drawing</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/x-office-drawing.png" /></td>
-    <td>Deprecate</td>
-    <td><a class="x-office-drawing">Test</a></td>
-   </tr>
-   <tr>
- <td>a.x-office-drawing-template</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/x-office-drawing-template.png" /></td>
-    <td>Deprecate</td>
-    <td><a class="x-office-drawing-template">Test</a></td>
-   </tr>
-   <tr>
- <td>a.x-office-presentation</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/x-office-presentation.png" /></td>
-    <td>Deprecate (use a.presentation)</td>
-    <td><a class="x-office-presentation">Test</a></td>
-   </tr>
-   <tr>
- <td>a.x-office-presentation-template</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/x-office-presentation-template.png" /></td>
-    <td>Deprecate</td>
-    <td><a class="x-office-presentation-template">Test</a></td>
-   </tr>
-   <tr>
- <td>a.x-office-spreadsheet</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/x-office-spreadsheet.png" /></td>
-    <td>Deprecate (use a.spreadsheet)</td>
-    <td><a class="x-office-spreadsheet">Test</a></td>
-   </tr>
-   <tr>
- <td>a.x-office-spreadsheet-template</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/x-office-spreadsheet-template.png" /></td>
-    <td>Deprecate</td>
-    <td><a class="x-office-spreadsheet-template">Test</a></td>
-   </tr>
-   <tr>
- <td>a.application-msword</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/application-msword.png" /></td>
-    <td>Deprecate (use a.document)</td>
-    <td><a class="application-msword">Test</a></td>
-   </tr>
-   <tr>
- <td>a.application-vnd-ms-excel</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/application-vnd-ms-excel.png" /></td>
-    <td>Deprecate (use a.spreadsheet)</td>
-    <td><a class="application-vnd-ms-excel">Test</a></td>
-   </tr>
-   <tr>
- <td>a.application-vnd-ms-powerpoint</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/application-vnd-ms-powerpoint.png" /></td>
-    <td>Deprecate (use a.presentation)</td>
-    <td><a class="application-vnd-ms-powerpoint">Test</a></td>
-   </tr>
-   <tr>
- <td>a.application-zip</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/application-zip.png" /></td>
-    <td>Deprecate (use a.zip)</td>
-    <td><a class="application-zip">Test</a></td>
-   </tr>
-   <tr>
- <td>a.feed-icon</td>
-    <td><img src="wdn/templates_3.0/css/content/images/mimetypes/feed-icon.png" /></td>
-    <td>Deprecate (use a.feed)</td>
-    <td><a class="feed-icon">Test</a></td>
-   </tr>
-  </tbody>
-</table>
-       --> 
+            </div>
+            <!-- InstanceEndEditable --> 
+            <div class="clear"></div> 
+            <noscript> 
+			<p>
+			Your browser does not appear to support JavaScript, or you have turned JavaScript off. You may use unl.edu without enabling JavaScript, but certain functions may not be available.
+			</p>
+			</noscript> 
         <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-
            <!--#include virtual="wdn/templates_3.0/includes/noscript.html" -->
         </div> <!-- end of maincontent -->        
         <div id="footer">
@@ -375,22 +116,9 @@ Navigation</a></p>
     </div>
     <div style="clear:both;"> </div>
 </div>
-
-<script type="text/javascript">
-	WDN.initializePlugin('carousel');
-</script>
-<script type="text/javascript">
-WDN.loadJS('wdn/templates_3.0/scripts/plugins/qtip/jquery.qtip.js');
-/*
-WDN.jQuery(document).ready(function($){
-	$("a.course").qtip({
-	   	content: {
-		//url: 'http://localhost/workspace/UNL_UndergraduateBulletin/www/courses/NRES/103?format=partial'
-		url: 'http://localhost/workspace/UNL_WDNTemplates/fixed.shtml'
-	}
-	});
-});
-*/
-</script>
+            <script type="text/javascript">
+            
+            
+            </script>
 </body>
 </html>
