@@ -65,35 +65,52 @@ Author: WDN
 }
 #wdn_copyright {
 	clear: both;
-	border-top:1px solid #fff;
+	border-top:2px solid #fff;
     -webkit-box-shadow: 0px -1px 0px #cecece;
     -moz-box-shadow: 0px -1px 0px #cecece;
     box-shadow: 0px -1px 0px #cecece;
 	padding: 15px 24px;
-	color:#606060;
+	color:#fff;
 	line-height:1.6em;
 	min-height:42px;
-	background:#e0e0e0;
+    background:#c00;
 	border-radius:0 0 10px 10px;
 	margin:-23px -12px;
+	text-shadow:0px 1px 0px #730201;
+    background-image: linear-gradient(top, #b70302 0%, #9d0201 100%);
+    background-image: -moz-linear-gradient(top, #b70302 0%, #9d0201 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b70302), color-stop(100%,#9d0201));
 }
+#footer #wdn_copyright a {color:#fff;}
 #wdn_copyright ul {
 	margin-top:10px;
 }
 #wdn_copyright ul li {
 	display:inline;
 }
-#wdn_unl_wordmark {
+#wdn_logos {
 	position:absolute;
-	right:12px;
-	bottom:15px;
-}
-a#wdn_unl_wordmark,
-a#wdn_unl_wordmark:link,
-a#wdn_unl_wordmark:visited {
-	border:none;
+	right:0px;
+	bottom:12px;
 }
 
+#wdn_logos a,
+#wdn_logos a:link,
+#wdn_logos a:visited {
+	border:none;
+	vertical-align:baseline;
+}
+#wdn_logos #unl_wordmark {
+    padding-right:6px;
+    border-right:1px solid #c6c6c6;
+    margin-right:9px;
+    -webkit-box-shadow: 1px 0px 0px #9d0201;
+    -moz-box-shadow: 0px 1px 0px #9d0201;
+    box-shadow: 1px 0px 0px #9d0201;
+    display:inline-block;
+}
+#wdn_logos #cic_wordmark {margin-left:10px;}
+#wdn_unl_wordmark{display:none;}
 #footer .footer_col {
 	width:222px;
 	margin-top:50px;
