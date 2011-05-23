@@ -25,11 +25,13 @@ WDN.carousel = function() {
 		initialize : function() {
 			WDN.log('carousel initialized');
 			WDN.loadCSS('/wdn/templates_3.0/css/content/carousel.css');
-			if (WDN.carousel.supportJSON) {
-				WDN.loadJS(WDN.carousel.supportJSON);
-			} else {
-				WDN.carousel.start();
-			}
+			WDN.loadJQuery(function(){
+				if (WDN.carousel.supportJSON) {
+					WDN.loadJS(WDN.carousel.supportJSON);
+				} else {
+					WDN.carousel.start();
+				}
+			});
 		},
 		
 		start : function() {
