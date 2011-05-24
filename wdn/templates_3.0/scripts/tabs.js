@@ -1,4 +1,4 @@
-WDN.tabs = function() {
+WDN.tabs = (function() {
 	var jq = function(id) {
 		return '#' + id.replace(/(:|\.)/g, '\\$1');
 	};
@@ -12,8 +12,18 @@ WDN.tabs = function() {
 		
 		var currentPage = window.location.toString().split('#')[0];
 		
-		if (currentPage != uri[0]) {
-			return false;
+		if (document.getElementsByTagName('base')[0]) {
+			var basehref = document.getElementsByTagName('base')[0].getAttribute('href');
+		}
+		
+		if (basehref) {
+			if (currentPage != uri[0] && basehref != uri[0]) {
+				return false;
+			}
+		} else {
+			if (currentPage != uri[0]) {
+				return false;
+			}
 		}
 		
 		return uri[1];
@@ -23,7 +33,7 @@ WDN.tabs = function() {
 		useHashChange : true,
 		
 		initialize : function() {
-			var ie7 = document.all && navigator.appVersion.indexOf("MSIE 7.") != -1;	
+			var ie7 = document.all && navigator.appVersion.indexOf("MSIE 7.") != -1;
 			WDN.log ("tabs JS loaded");
 			//Detect if the <span> is present. If not, add it
 			WDN.jQuery('ul.wdn_tabs > li > a:not(:has(span))').each(function(){
@@ -156,7 +166,7 @@ WDN.tabs = function() {
 		updateInterface: function(trig) {
 			var tabs = trig.closest('ul.wdn_tabs');
 			var curr = trig.closest('li').siblings('.selected');
-						
+			
 			// Remove any selected tab class
 			WDN.jQuery('li.selected', tabs).removeClass('selected');
 			
@@ -188,5 +198,4 @@ WDN.tabs = function() {
 			}
 		}
 	};
-}();
-	
+})();
