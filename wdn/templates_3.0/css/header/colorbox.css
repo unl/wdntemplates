@@ -43,4 +43,8 @@
 #alertboxContent h1.sec_header {
 	border-color: #CC0000;
 }
+#alertboxContent .effectiveDate {
+    font-size:0.5em;
+    display:block;	
+}
 
