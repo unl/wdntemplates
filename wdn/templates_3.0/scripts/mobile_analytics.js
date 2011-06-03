@@ -29,7 +29,7 @@ analytics = function() {
 		},
 		
 		loadGA : function(){
-			_gaq.push(['_trackPageview']);
+			_gaq.push(['_trackPageview'],['m._trackPageview']);
 			
 			(function(){
 				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
