@@ -32,7 +32,7 @@ WDN.analytics = function() {
 			});
 			
 			WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
-				filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v)$/i; //these are the file extensions to track for downloaded content
+				filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i; //these are the file extensions to track for downloaded content
 				WDN.jQuery('#navigation a[href], #maincontent a[href]').each(function(){  
 					var gahref = WDN.jQuery(this).attr('href');
 					if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
