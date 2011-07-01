@@ -16,7 +16,7 @@ a.x-office-document-template, a.x-office-presentation, a.x-office-presentation-t
 a.application-vnd-ms-excel, a.application-vnd-ms-powerpoint, a.application-zip, a.application-map
 {
     background:url('images/mimetypes/mimeTypeSprite.png') no-repeat;
-    padding-right:19px;
+    padding-right:19px !important;
     background-position: right -2px; /*This shows vCard */
 }
 
