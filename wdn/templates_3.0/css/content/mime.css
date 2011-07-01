@@ -14,7 +14,6 @@ a[href $='.mov'], a[href $='.wmv'], a[href $='.mp4'], a[href $='.m4v'], a[href $
 a.mail-message-new, a.text-vcard, a.application-pdf, a.audio-x-generic, a.image-x-generic, a.text-html, a.text-x-script, a.video-x-generic, a.x-office-calendar, a.x-office-document,
 a.x-office-document-template, a.x-office-presentation, a.x-office-presentation-template, a.x-office-spreadsheet, a.x-office-spreadsheet-template, a.application-msword,
 a.application-vnd-ms-excel, a.application-vnd-ms-powerpoint, a.application-zip, a.application-map
-
 {
     background:url('images/mimetypes/mimeTypeSprite.png') no-repeat;
     padding-right:19px;
@@ -33,7 +32,7 @@ a.clustan {
 a.document, a.x-office-document, a.x-office-document-template, a.application-msword, a[href *='.doc'] {
     background-position: right -192px;
 }
-a.email, a.mail-message-new, a[href^="mailto:"]  {
+a.email, a.mail-message-new, a[href^="mailto:"] {
     background-position: right -34px;
 }
 a.external {

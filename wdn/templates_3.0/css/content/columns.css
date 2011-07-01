@@ -1,72 +1,78 @@
 /* Contains column properties (for maincontent and colorbox) as well as float and clear */
 
-#maincontent .col, #maincontent .one_col, #colorbox .col{
-	width:220px;
-	padding:0 10px;
-	float:left;
-	position:relative;
-	}
+#maincontent .col, #maincontent .one_col, #colorbox .col {
+    width: 220px;
+    padding: 0 10px;
+    float: left;
+    position: relative;
+}
 #maincontent .inner_col {
-	width:200px;
-	padding:0 10px;
-	float:left;
-	position:relative;
-	}
+    width: 200px;
+    padding: 0 10px;
+    float: left;
+    position: relative;
+}
 
 #maincontent .two_col, #colorbox .two_col {
-	float:left;
-	width:460px;
-	padding:0 10px;
-	}
+    float: left;
+    width: 460px;
+    padding: 0 10px;
+}
 
 #maincontent .three_col, #colorbox .three_col {
-	float:left;
-	width:700px;
-	padding:0 10px;
-	}
-	
+    float: left;
+    width: 700px;
+    padding: 0 10px;
+}
+
 #maincontent .four_col, #colorbox .four_col {
-	float:left;
-	width:940px;
-	}
+    float: left;
+    width: 940px;
+    padding: 0 10px;
+}
+#maincontent .four_col > .left, #maincontent .three_col > .left {
+    padding-left: 0;
+}
+#maincontent .four_col > .right, #maincontent .three_col > .right {
+    padding-right: 0;
+}
+#maincontent .col_half, #colorbox .col_half {
+    width: 100px;
+    padding: 0 10px;
+    float: left;
+    position: relative;
+}
 
-#maincontent .col_half, #colorbox .col_half{
-	width:100px;
-	padding:0 10px;
-	float:left;
-	position:relative;
-	}
-	
-body.liquid #maincontent .col, body.liquid #maincontent .one_col, #colorbox .col {width:23.2%}
-body.liquid #maincontent .two_col, #colorbox .two_col {width:48.6%}
-body.liquid #maincontent .three_col, #colorbox .three_col {width:73%}
-body.liquid #maincontent .four_col, #colorbox .four_col {width:100%}
-body.liquid #maincontent .col_half, #colorbox .col_half {width:11%}
+body.liquid #maincontent .col, body.liquid #maincontent .one_col, #colorbox .col {width: 23.2%}
+body.liquid #maincontent .two_col, #colorbox .two_col {width: 48.6%}
+body.liquid #maincontent .three_col, #colorbox .three_col {width: 73%}
+body.liquid #maincontent .four_col, #colorbox .four_col {width: 100%}
+body.liquid #maincontent .col_half, #colorbox .col_half {width: 11%}
 
-body.liquid #maincontent .two_col .col, body.liquid #maincontent .two_col .one_col {width:47%}
-body.liquid #maincontent .three_col .two_col {width:63%}
-body.liquid #maincontent .three_col .col, body.liquid #maincontent .three_col .one_col {width:31%}
-body.liquid #maincontent .four_col .three_col {width:69%}
-body.liquid #maincontent .four_col .two_col {width:46%}
-body.liquid #maincontent .four_col .col, body.liquid #maincontent .four_col .one_col {width:23%}
+body.liquid #maincontent .two_col .col, body.liquid #maincontent .two_col .one_col {width: 47%}
+body.liquid #maincontent .three_col .two_col {width: 63%}
+body.liquid #maincontent .three_col .col, body.liquid #maincontent .three_col .one_col {width: 31%}
+body.liquid #maincontent .four_col .three_col {width: 69%}
+body.liquid #maincontent .four_col .two_col {width: 46%}
+body.liquid #maincontent .four_col .col, body.liquid #maincontent .four_col .one_col {width: 23%}
 
-#maincontent .left, #colorbox .left {padding-left:0;float:left;}
-#maincontent .middle, #colorbox .middle {float:left;}
-#maincontent .right, #colorbox .right {padding-right:0;float:right;}
+#maincontent .left, #colorbox .left {float: left;}
+#maincontent .middle, #colorbox .middle {float: left;}
+#maincontent .right, #colorbox .right {float: right;}
 
 #maincontent .clear, #maincontent .clr {
-	clear:both;
-	margin:0;
-	padding:0;
-	min-height:0;
-	width:auto;
-	height:auto;
-	background:none;
-	}
+    clear: both;
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    width: auto;
+    height: auto;
+    background: none;
+}
 /*Colorbox has padding built in, remove it from the columns */
 #colorbox .col, #colorbox two.col, #colorbox three.col, #colorbox four.col {
-	padding: 0 10px 0 0;	
+    padding: 0 10px 0 0;
 }
 #colorbox .right {
-	padding-left:10px;	
+    padding-left: 10px;
 }

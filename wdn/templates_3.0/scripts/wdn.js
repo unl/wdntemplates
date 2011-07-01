@@ -170,29 +170,25 @@ var WDN = function() {
                 (navigator.userAgent.match(/firefox/i) && (navigator.userAgent.match(/firefox\/[12]/i) || navigator.userAgent.match(/firefox\/3.[01234]/i))) ||
                 (navigator.userAgent.match(/msie/i))){
                 // old browser needs help zebra striping
-                WDN.jQuery('table.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
-                WDN.jQuery('table.zentable tbody tr:nth-child(even)').addClass('rowEven');
+                WDN.jQuery('.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
+                WDN.jQuery('.zentable tbody tr:nth-child(even)').addClass('rowEven');
             } 
 		},
 		
 		screenAdjustments : function() {
 			if (screen.width<=1024) {
 				WDN.jQuery('body').css({'background':'#e0e0e0'});
-				WDN.jQuery('#wdn_wrapper').css({'border-left-width':'0','border-right-width':'0'});
 				if (WDN.jQuery.browser.msie) {
 					WDN.jQuery('#wdn_wrapper').css({'margin':'0 0 0 5px'});
-				} else if (WDN.jQuery.browser.mozilla) {
-					WDN.jQuery('#wdn_wrapper').css({'-moz-border-radius':'0'}); 
-				} else if (WDN.jQuery.browser.webkit) {
-					WDN.jQuery('#wdn_wrapper').css({'-webkit-border-radius':'0'}); 
 				}
 			}
 		},
 		
 		contentAdjustments : function () {
+			WDN.jQuery('#footer_floater').css("zoom", 1);
 			WDN.jQuery('#maincontent p.caption, #footer p.caption').each(function(i){
 				if (WDN.jQuery(this).height()>20) {
-					WDN.jQuery(this).css({border:'1px solid #ededed',marginleft:'0'});
+					WDN.jQuery(this).css({border:'1px solid #DDD',marginleft:'0'});
 				}
 				//set the caption to the same width as the image it goes with so that a long caption doesn't spill over
 				var imgWidth = WDN.jQuery(this).prev('img').width();

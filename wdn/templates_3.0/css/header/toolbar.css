@@ -3,66 +3,76 @@
 @import url('colorbox.css');
 
 #wdn_tool_links {
-	position:absolute;
-    right:10px;
-    top:71px;
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 37px;
+    padding: 12px;
+    background: url('images/topRightCorner.png') top right no-repeat;
 }
 ul#wdn_tool_links li {
-	display:inline;
-	list-style:none;
-    border:2px solid #e0e0e0;
-    border-radius:5px;
-    display:inline-block;
-    padding:4px 5px;
-    margin:0 2px;
-    background-color:#fff;
+    display: inline;
+    list-style: none;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 4px 5px;
+    margin: 0 2px;
+    background-color: #fff;
+}
+ul#wdn_tool_links li:last-child {
+    margin-right: 0;
+}
+ul#wdn_tool_links li.focus {
+    border-color: #cba166;
+    background: #f1e887;
 }
 #wdn_tool_links a {
-	display:inline-block;
-	width:20px;
-	height:20px;
-	text-indent:-9000px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-indent: -9000px;
 }
 
 #wdn_tool_links a.feeds {
-    background:url('images/applianceIcons.png') no-repeat 0 -140px;
+    background: url('images/applianceIcons.png') no-repeat 0 -140px;
 }
 #wdn_tool_links a.feeds:hover {
-    background:url('images/applianceIcons.png') no-repeat 0 0;
+    background: url('images/applianceIcons.png') no-repeat 0 0;
 }
 #wdn_tool_links a.weather {
-    background:url('images/applianceIcons.png') no-repeat 0 -160px;
+    background: url('images/applianceIcons.png') no-repeat 0 -160px;
 }
 #wdn_tool_links a.weather:hover {
-    background:url('images/applianceIcons.png') no-repeat 0 -20px;
+    background: url('images/applianceIcons.png') no-repeat 0 -20px;
 }
 #wdn_tool_links a.events {
-    background:url('images/applianceIcons.png') no-repeat 0 -180px;
+    background: url('images/applianceIcons.png') no-repeat 0 -180px;
 }
 #wdn_tool_links a.events:hover {
-    background:url('images/applianceIcons.png') no-repeat 0 -40px;
+    background: url('images/applianceIcons.png') no-repeat 0 -40px;
 }
 #wdn_tool_links a.peoplefinder {
-    background:url('images/applianceIcons.png') no-repeat 0 -200px;
+    background: url('images/applianceIcons.png') no-repeat 0 -200px;
 }
 #wdn_tool_links a.peoplefinder:hover {
-    background:url('images/applianceIcons.png') no-repeat 0 -60px;
+    background: url('images/applianceIcons.png') no-repeat 0 -60px;
 }
 #wdn_tool_links a.webcams {
-    background:url('images/applianceIcons.png') no-repeat 0 -220px;
+    background: url('images/applianceIcons.png') no-repeat 0 -220px;
 }
 #wdn_tool_links a.webcams:hover {
-    background:url('images/applianceIcons.png') no-repeat 0 -80px;
+    background: url('images/applianceIcons.png') no-repeat 0 -80px;
 }
 #wdn_tool_links a.tourmaps {
-    background:url('images/applianceIcons.png') no-repeat 0 -220px;
+    background: url('images/applianceIcons.png') no-repeat 0 -220px;
 }
 #wdn_tool_links a.tourmaps:hover {
-    background:url('images/applianceIcons.png') no-repeat 0 -100px;
+    background: url('images/applianceIcons.png') no-repeat 0 -100px;
 }
 #wdn_tool_links a.alert {
-    background:url('images/applianceIcons.png') no-repeat 0 -260px;
+    background: url('images/applianceIcons.png') no-repeat 0 -260px;
 }
 #wdn_tool_links a.alert:hover {
-    background:url('images/applianceIcons.png') no-repeat 0 -120px;
+    background: url('images/applianceIcons.png') no-repeat 0 -120px;
 }

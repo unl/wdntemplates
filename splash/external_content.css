@@ -1,0 +1,646 @@
+/*
+*
+* Styles for the Splash Carousel
+*
+*/
+#maincontent .wdn_carousel {
+    height:340px;
+    background:url('images/sliderBG.png') no-repeat bottom center;
+    position:relative;
+}
+#maincontent .wdn_carousel .sliderControl {
+    position:absolute;
+    top: 110px;
+    opacity:0.3;
+    filter: alpha(opacity=30);
+    text-indent:-99999px;
+    z-index:12;
+}
+#maincontent .wdn_carousel .sliderControl:hover {
+    opacity:0.7;
+    filter: alpha(opacity=70);
+}
+#maincontent .wdn_carousel .sliderControl a {
+    background: url('images/sliderLeft.png') no-repeat;
+    height:93px;
+    width:45px;
+    display:block;
+}
+#maincontent .wdn_carousel .sliderControl.left {
+    left:5px;
+}
+#maincontent .wdn_carousel .sliderControl.right {
+	right:5px;
+}
+#maincontent .wdn_carousel .sliderControl.right a {
+    background: url('images/sliderRight.png') no-repeat;
+}
+#maincontent .currentScroller {
+    width:960px;
+    height:310px;
+    overflow:hidden;
+}
+#maincontent .currentScroller > ul {
+    margin:0;
+    padding:0;
+    width: 4800px; /* for 5 stories */
+    list-style:none;
+}
+#maincontent .currentScroller > ul > li {
+    position:relative;
+    display:inline;
+    float:left;
+    width:960px;
+    height:310px;
+    background:#fff;
+}
+#maincontent .currentScroller .promoText {
+    position:absolute;
+    bottom:5%;
+    left:50px;
+    width:270px;
+    color:#fff;
+    text-shadow: -1px -1px 1px #787878;
+}
+
+#maincontent .currentScroller .promoText a {
+	text-decoration:underline;
+	color:#fff;
+}
+#maincontent .currentScroller .promoText a:focus, #maincontent .currentScroller .unlToday a:focus {
+    color:#fff !important;
+}
+#maincontent .currentScroller .video .promoText a:focus, #maincontent .currentScroller .innovation .promoText a:focus {
+    color:#CC0000 !important;
+}
+
+#maincontent .currentScroller .promoText h3 {
+    font-size:3em;
+    line-height:1.1em;
+    color:#fff;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+#maincontent .currentScroller .promoText p {
+    font-size:1.3em;
+    line-height: 1.2em;
+}
+#maincontent .currentScroller .innovation .promoText {
+	right: 30px;
+	left: auto;
+	width: 300px;
+	color: #555;
+	text-shadow: -1px 0 -1px #EEE;
+}
+#maincontent .currentScroller .innovation .promoText h3 {
+	color: #555;
+}
+
+/*
+UNL Today Slide
+*/
+#maincontent .currentScroller .unltoday {
+    position:absolute;
+    background:#12516E;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    padding:5px;
+    top:10px;
+    left:582px;
+    width:310px;
+    color:#555;
+    box-shadow:2px 2px 2px #0e374a;
+    -webkit-box-shadow:2px 2px 2px #0e374a;
+    -moz-box-shadow:2px 2px 2px #0e374a;
+}
+#maincontent .currentScroller .unltoday .inner {
+    border:1px solid #fff;
+    display:inline-block;
+    border-radius:3px;	
+    -moz-border-radius:3px;	
+    -webkit-border-radius:3px;	    
+    padding:10px;
+}
+#maincontent .currentScroller .unltoday p {
+    color:#baced7; 
+}
+#maincontent .currentScroller .unltoday p a{
+    color:#baced7; 
+    text-decoration:underline;	
+}
+#maincontent .currentScroller .unltoday .subhead {
+    font-weight:bold;
+    font-size:0.95em;
+    letter-spacing:0.03em; 
+    border-bottom:1px solid #baced7;
+    text-shadow: #0e374a 1px 1px 1px;
+    padding:3px 0;
+    box-shadow:0px 1px 0px #0e374a;
+    -moz-box-shadow:0px 1px 0px #0e374a;
+    -webkit-box-shadow:0px 1px 0px #0e374a;
+    margin-bottom:0.5em;
+}
+#maincontent .currentScroller .unltoday .subhead span {
+    color:#baced7;
+}
+#maincontent .currentScroller .unltoday h3 {
+    font-size:1.8em;
+    color:#fff;
+    text-shadow: #0e374a 1px 1px 1px;
+    font-weight:bold;
+    text-transform:uppercase;
+    margin-bottom:10px;
+    line-height:1em;
+}
+#maincontent .currentScroller .unltoday h3 a {
+	color:#fff;
+}
+#maincontent .currentScroller .unltoday h3 a:hover {
+    color:#d8e4e9;
+}
+#maincontent .currentScroller .unltoday ul{
+    margin:0 0 5px 0;
+    padding:0 8px;	
+}
+#maincontent .currentScroller .unltoday ul li {
+    font-size:1.0em;
+    line-height:1em;
+    list-style:none;
+    padding:8px 0;
+    font-weight:bold;
+    border-bottom:1px solid #0e374a;
+}
+#maincontent .currentScroller .unltoday ul li a {
+	color:#fff;
+}
+/* 
+Big Ten Video Slide 
+*/
+
+#maincontent .currentScroller ul li.video {
+	background: rgb(246,246,246); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(246,246,246,1) 1%, rgba(225,225,225,1) 29%, rgba(241,241,241,1) 30%, rgba(255,255,255,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(246,246,246,1)), color-stop(29%,rgba(225,225,225,1)), color-stop(30%,rgba(241,241,241,1)), color-stop(100%,rgba(255,255,255,1)));
+	background: -webkit-linear-gradient(top, rgba(246,246,246,1) 1%,rgba(225,225,225,1) 29%,rgba(241,241,241,1) 30%,rgba(255,255,255,1) 100%);
+	background: -o-linear-gradient(top, rgba(246,246,246,1) 1%,rgba(225,225,225,1) 29%,rgba(241,241,241,1) 30%,rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(top, rgba(246,246,246,1) 1%,rgba(225,225,225,1) 29%,rgba(241,241,241,1) 30%,rgba(255,255,255,1) 100%);
+	background: linear-gradient(top, rgba(246,246,246,1) 1%,rgba(225,225,225,1) 29%,rgba(241,241,241,1) 30%,rgba(255,255,255,1) 100%);
+}
+#bigTenVideo {
+    background:url('images/tv20110701.png') no-repeat 0 0;
+    height:310px;
+    width:480px;
+    cursor:pointer;
+    z-index:11;
+    position:absolute;
+}
+#bigTenVideo #theVideo {
+    position:absolute;
+    width:364px;
+    height:199px;
+    top:9px;
+    left:82px;
+    cursor:pointer;
+    visibility:hidden;
+}
+#maincontent .currentScroller ul li.video .promoText {
+    right:50px;
+    left:auto;
+    width:360px;
+    bottom:30%;
+    color:#555;
+    text-shadow: -1px -1px #ffffff;
+    z-index:10;
+}
+#maincontent .currentScroller ul li.video .promoText h3 {color:#555;}
+#maincontent .currentScroller .video .promoText a, #maincontent .currentScroller .innovation .promoText a  {
+    color:#ba0000;
+}
+#maincontent .currentScroller .innovation .promoText {
+    text-shadow: -1px -1px #ffffff;
+}
+/* Move to full height presentation */
+#maincontent div.wdn_carousel.full {
+    height:570px;	
+}
+#maincontent .wdn_carousel.full .sliderControl {
+	display:none;
+}
+#maincontent .wdn_carousel.full .currentScroller {
+    height:540px;   
+}
+#maincontent .wdn_carousel.full .currentScroller ul li.video {
+	height:540px;
+}
+#maincontent .wdn_carousel.full .currentScroller ul li.video #bigTenVideo {
+    height:540px;
+}
+#maincontent .wdn_carousel.full .currentScroller ul li.video #bigTenVideo #theVideo {
+    top:0;
+    left:0;
+    width:960px;
+    height:540px;
+    visibility:visible;
+}
+/*
+*
+* Styles for the Academic Colleges Bar
+*
+*/
+.assert {
+    display:inline-block;
+    background:#edebe1;
+    border-width:1px 0;
+    border-color:#d9d4b8;
+    border-style:solid;
+    width:100%;
+    position:relative;
+    margin-bottom:20px;
+}
+.assert:after {
+    width:100%;
+    height:20px;
+    display:block;
+    content: ' ';
+    position:absolute;
+    top:100%;
+    border-top:1px solid #d9d4b8;
+    /*background: rgb(243,244,244); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(243,244,244,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(243,244,244,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(243,244,244,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(243,244,244,1) 0%,rgba(255,255,255,1) 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, rgba(243,244,244,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f4f4', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(top, rgba(243,244,244,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+    z-index:10;
+}
+#maincontent .assert h4 {
+    text-transform:uppercase;
+    width:105px;
+    padding:12px 0 9px 10px;
+    background:#fff;
+    float:left;
+    position:absolute;
+    top:-2px;
+    font-weight:bold;
+    text-shadow:-1px 0 -1px #eee;
+    box-shadow:1px 0px 6px #ccc;
+    z-index:11;
+}
+#maincontent .assert h4:after {
+    width:22px;
+    height:62px;
+    display:block;
+    content:" ";
+    position:absolute;
+    left:100%;
+    top:0;
+    background:url('images/assertRight.png') top left no-repeat;
+    z-index:11;
+}
+#maincontent .assert > ul {
+    margin-left:150px;
+    list-style:none;
+    float:left;
+    padding:3px 0;
+    /* IE7 hack to fix z-index layers */
+    *position:relative;
+    *z-index:12;
+}
+#maincontent .assert > ul > li {
+    display:table-cell;
+    float:left;
+    margin-right:25px;
+    line-height:2em;
+    position:relative;
+    padding:0 4px;
+    height:26px;
+}
+#maincontent .assert ul li div {
+    position:absolute;
+    bottom:2.6em;
+    border:1px solid #12516e;
+    -webkit-border-radius:3px 3px 0 3px;
+    -moz-border-radius:3px 3px 0 3px;
+    border-radius:3px 3px 0 3px;
+    min-width:255px;
+    width:auto;
+    font-size:0.8em;
+    line-height:1em;
+    padding:10px;
+    background:#fafafa;
+    display:none;
+    right:0;
+    z-index:12;
+}
+#maincontent .assert ul li div img {float:left;}
+#maincontent .assert ul li div span {display:none;}
+#maincontent .assert ul li ul {
+    list-style:none;
+    padding:0;
+    margin-left:98px;
+}
+#maincontent .assert ul li ul li {
+    padding:5px 2px;
+    border-bottom:1px dotted #b1c5ce;
+}
+/*hover rules */
+#maincontent .assert > ul > li:hover div{
+    display:block;
+}
+#maincontent .assert > ul > li:hover {
+    background:#12516e;
+    color:#fafafa;
+    border-radius:0 0 3px 3px;
+    -webkit-border-radius:0 0 3px 3px;
+    -moz-border-radius:0 0 3px 3px;
+}
+#maincontent .assert > ul > li:hover > a {
+    color:#fafafa;
+}
+#maincontent .assert > ul > li > a:focus {
+    color:#fafafa !important;	
+}
+#maincontent .assert > ul > li:hover > a span{
+    color:#aac2e3;    
+}
+#maincontent .assert ul li ul li a:hover {
+    text-decoration:underline;    
+}
+#maincontent .assert ul li.outlier > a > span {
+    font-size:8px;
+    display:block;
+    color:#7a7a7a;
+    text-transform:uppercase;
+    line-height:0.5em;
+    margin-bottom:-3px;
+    margin-top:1px;
+}
+#maincontent .assert > ul > li.outlier:hover > a span {
+    display:none;
+}
+#maincontent .assert > ul > li a {
+    color:#000;
+    display:inline-block;
+    margin-top:0.2em;
+}
+#maincontent .assert > ul > li > a {
+    display:inline-block;
+    margin-top:0.2em;
+}
+#maincontent .assert ul > li.outlier > a {
+    margin-top:0em;
+}
+#maincontent .assert > ul > li.outlier:hover a {
+	margin-top:0.2em;
+}
+/* End Styles for the Academic Colleges Bar */
+
+.band {
+    display:inline-block;
+    background:#edebe1;
+    border-width:1px 0;
+    border-color:#d9d4b8;
+    border-style:solid;
+    padding:10px 0;
+    margin-bottom:20px;
+}
+.band > div {
+}
+/*
+*
+* Styles for the Become a Husker Section
+*
+*/
+.callout {
+    border:4px solid #ccc;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    margin-left:10px;
+    width:204px;
+    background:#eae7d5;
+    position:relative;
+    height:300px;
+}
+#maincontent .callout h3 {
+    position:absolute;
+    background:#ac0302 url('images/gobig.png') no-repeat 24px 6px;
+    color:#fff;
+    text-transform:uppercase;
+    font-size:18px;
+    text-shadow:1px 1px 1px #424242;
+    text-indent:-9999em;
+    left:-14px;
+    right:-14px;
+    line-height:18px;
+    padding:12px 0 12px 19px;
+    top:10px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+#maincontent .callout h3:before {
+    content:' ';
+    display:block;
+    border-top: 0px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #7c0201;
+    left:0;
+    position:absolute;
+    bottom:-10px;
+}
+#maincontent .callout h3:after {
+    content:' ';
+    display:block;
+    background:url('images/calloutRibbonEnding.png') no-repeat 0 0;
+    right:0;
+    position:absolute;
+    top:0;
+    height:42px;
+    width:17px;
+}
+#maincontent .callout ul {
+    list-style:none;
+}
+#maincontent .callout > ul {
+    font-size:1.3em;   
+    font-weight:bold;
+    padding:0;
+    margin:62px 10px 0 10px;
+}
+#maincontent .callout > ul > li {
+    border-bottom:2px dotted #b1c5ce;
+    padding:5px 0;
+}
+#maincontent .callout > ul > li:last-child {
+    border-bottom:none;	
+}
+#maincontent .callout ul a {
+    color: #12516e;
+}
+#maincontent .callout ul li ul {
+    padding:0;
+    margin:5px 0 0 10px;
+}
+#maincontent .callout ul li ul li {
+    display:inline;
+    font-size:0.6em;
+    font-weight:normal;
+}
+#maincontent .callout ul li ul a {
+    padding:2px 6px;
+}
+#maincontent .callout ul li ul a:hover {
+    color: #fff;
+    background:#12516e;
+    border-radius:1em;
+}
+#maincontent .callout ul a:focus {
+    color: #fff !important;
+}
+/* End styles for the Become a Husker Section */
+
+/*
+*
+* Styles for the Stories
+*
+*/
+
+.stories {
+	width:738px;
+	float:left;
+	display:inline;
+}
+
+.stories .article {
+	width:200px;
+    float: left;
+    margin-left: 15px;
+    display:inline;
+    background:#fff;
+    border:4px solid #d2ceb4;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;    
+    padding:10px;
+    height:280px;
+    overflow:hidden;
+}
+.stories .article img {
+    max-width:200px;
+    width:200px;
+}
+#maincontent .stories .article h4 {
+    font-size:1.1em;
+    font-weight:bold;
+    line-height:1.3em;
+    margin-top:7px;
+    margin-bottom:7px;
+}
+#maincontent .stories .article p {
+    font-size:1em;
+    line-height:1.4em;
+}
+#maincontent .stories .article h4 a {
+    color:#12516e;
+}
+#maincontent .stories .article h4 a:hover {
+    text-decoration:underline;
+}
+/* End styles for the Stories
+
+/*
+*
+* Styles for the Remainder
+*
+*/
+#maincontent .remainder h5 {
+    text-transform:uppercase;
+    font-weight:bold;
+    text-shadow:-1px 0 -1px #eee;
+    border-bottom:1px solid #e2dfd1;
+    line-height:1em;
+    padding:0;
+}
+#maincontent .remainder ul {
+    list-style:none;    
+    padding:10px 0;
+}
+#maincontent .remainder ul li {
+    display:inline-block;
+    margin-bottom:10px;
+    margin-right:13px;
+    font-size:10px;
+}
+#maincontent .remainder ul li a {
+    color:#000;
+    border-bottom:1px solid #ccc;
+}
+#maincontent .remainder ul li a:hover {
+    border-bottom:1px solid #fff;
+}
+#maincontent #outposts {text-align:center;}
+#maincontent #outposts ul {
+    margin:0;
+    margin-top:20px;
+    padding:0;
+    list-style:none;
+    display:inline-block;
+}
+#maincontent #outposts li {
+    display:inline;
+    float:left;
+    margin-right:5px;
+}
+#maincontent #outposts li a {
+    display:block;
+    float:left;
+    text-indent:-99999px;
+    width:38px;
+    height:38px;
+    background:url('images/outpostSprite.gif') no-repeat;
+    background-position:0 -41px;
+    -webkit-transition:opacity ease 0.2s;
+    -moz-transition:opacity ease 0.2s;
+    -o-transition:opacity ease 0.2s;
+    -ms-transition:opacity ease 0.2s;
+    transition:opacity ease 0.2s;
+    opacity:0.6;
+    filter: alpha(opacity=60);
+}
+#maincontent #outposts li a:hover {
+    opacity:1;
+    filter: alpha(opacity=100);
+}
+#maincontent #outposts li.facebook a {
+    background-position: -45px -41px;
+}
+#maincontent #outposts li.facebook a:hover {
+    background-position: -45px -41px;
+}
+#maincontent #outposts li.twitter a {
+    background-position: -88px -41px;
+}
+#maincontent #outposts li.twitter a:hover {
+    background-position: -88px -41px;
+}
+#maincontent #outposts li.flickr a {
+    background-position: -132px -41px;
+}
+#maincontent #outposts li.flickr a:hover {
+    background-position: -132px -41px;
+}
+#maincontent #outposts li.youtube a {
+    background-position: -176px -41px;
+}
+#maincontent #outposts li.youtube a:hover {
+    background-position: -176px -41px;
+}
+#maincontent #outposts li.foursquare a {
+    background-position: -265px -41px;
+}
+#maincontent #outposts li.foursquare a:hover {
+    background-position: -265px -41px;
+}

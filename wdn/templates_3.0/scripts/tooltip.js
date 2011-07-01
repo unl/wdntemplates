@@ -7,7 +7,10 @@ WDN.tooltip = function($) {
 		tooltipSetup : function() {
 			WDN.loadCSS('/wdn/templates_3.0/css/header/tooltip.css');
 			// Tooltips can only be used in the appropriate sections, and must have the correct class name and a title attribute
-			$('#wdn_tool_links .tooltip[title], #maincontent .tooltip[title], #footer .tooltip[title]').each(function() {
+			WDN.tooltip.addTooltip($('#wdn_tool_links .tooltip[title], #maincontent .tooltip[title], #footer .tooltip[title]'));
+		},
+		addTooltip : function($elements) {
+			$elements.each(function() {
 				WDN.tooltip.addTooltip(this);
 			});
 		},

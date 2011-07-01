@@ -21,10 +21,11 @@
         },
         reset = function() {
           drain();
-          stars.slice(0, rating[0]).addClass("on");
-          if(percent = rating[1] ? rating[1] * 10 : null) {
-            stars.eq(rating[0]).addClass("on").children("a").css("width", percent + "%");
-          }
+          //stars.slice(0, rating[0]).addClass("on");
+          WDN.log(rating[0]);
+          //if(percent = rating[1] ? rating[1] * 10 : null) {
+            stars.eq(rating[0]-1).addClass("on").prevAll('.star').addClass('on');
+          //}
         },
         cancelOn = function() {
           drain();

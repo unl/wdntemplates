@@ -19,9 +19,9 @@ Markup for these:
 */
 
 .wdn_pagination{padding:10px 0 0 0;margin:10px 0;}
-.wdn_pagination li{display:block;float: left;font: normal 12px "Lucida Grande",Verdana,Arial;margin:2px 4px; vertical-align:middle;}
+.wdn_pagination li{display:block;float: left;font-size:12px;margin:2px 4px; vertical-align:middle;}
 .wdn_pagination li a{display:block;padding:2px 4px;border:1px solid #dadada;}
 .wdn_pagination li a:hover{color: #fff !important;background:#6e6e6e;border:1px solid #5e5e5e;}
 .wdn_pagination li.ellipsis{}
-.wdn_pagination li.selected{position: relative;color:#3e3e3e;font:bold 22px "Lucida Grande",Verdana,Arial;text-align:bottom;margin: -4px 0 -2px 0;padding:2px 6px;}
+.wdn_pagination li.selected{position: relative;color:#3e3e3e;font-weight:bold;font-size: 22px;text-align:bottom;margin: -4px 0 -2px 0;padding:2px 6px;}
 #maincontent .wdn_pagination li a:focus{color:#fff !important;background:#6e6e6e;border:1px solid #5e5e5e;}

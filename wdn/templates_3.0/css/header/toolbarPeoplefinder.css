@@ -187,7 +187,7 @@
     background: none;
     margin: 0;
     padding: 0.2em 0 0.3em;
-    color: #6b6b6b;
+    color: #444;
 }
 #toolbar_peoplefinder .likeResults h3:after {
     display:none;

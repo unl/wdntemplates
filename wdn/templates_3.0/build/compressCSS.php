@@ -19,6 +19,8 @@
     $files = array(
     'reset',
     'wrapper',
+    'fonts/fonts',
+    'grid',
     'header/header',
     'header/toolbarcontent',
     'header/tooltabs',
@@ -56,7 +58,9 @@
   }
 
   function convertPaths($css, $dir) {
-      return str_replace(array('../images/','images/','IMAGES'), array('IMAGES/',$dir.'images/','images'), $css);
+      return str_replace(
+        array('../images/', 'images/',      'IMAGES', 'URWGrotesk/'),
+        array('IMAGES/',    $dir.'images/', 'images', 'fonts/URWGrotesk/'), $css);
   }
   
   ob_end_flush();

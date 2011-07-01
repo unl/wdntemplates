@@ -1,24 +1,24 @@
-@CHARSET "UTF-8";
 ul.ui-autocomplete {
-    background:#fff;
+    background: #fff;
     padding: 0 5px 5px 5px;
-    color: #494949;
-    font: 77%/140% "Lucida Grande",Verdana,Arial;	
-    border:1px solid #828282;
-    width:auto;
-    max-width:300px;
+    color: #333;
+    font-size: 77%;
+    line-hight:140%;
+    border: 1px solid #828282;
+    width: auto;
+    max-width:3 00px;
 }
 ul.ui-autocomplete li {
 }
 input.ui-autocomplete-loading {
-    background:url('images/small_ajax_loader.gif') #fff right center no-repeat !important;
+    background: url('images/small_ajax_loader.gif') #fff right center no-repeat !important;
 }
 #ui-active-menuitem {
-	font-size:1.2em;
-	display:block;
-	width:100%;
-	background:#f1f1f1;
-	font-weight:bold;
+    font-size: 1.2em;
+    display: block;
+    width: 100%;
+    background: #f1f1f1;
+    font-weight: bold;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
 }

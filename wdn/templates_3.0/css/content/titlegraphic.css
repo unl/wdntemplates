@@ -1,36 +1,17 @@
-#titlegraphic {
-	margin:24px 0 4px 0;
-    padding:0 8px;
-}
-#titlegraphic h1 {
-	font-size:1.8em;
-	}
-#titlegraphic h1,
-#titlegraphic h1 a,
-#titlegraphic h1 a:link
-#titlegraphic h1 a:visited {
-    font-family:arial;
-    color:#ba0000;
-    text-decoration:none;
-}
-
-#titlegraphic h2 {
-    display:none;
-}
 #pagetitle {
-    margin:0 0 18px 0;
-    padding:0 10px;
+    margin: 25px 0 25px 0;
 }
 #pagetitle h2 {
-	font-size:1.3em;
-    line-height:1.1em;
+    margin: 0 0 18px 0;
+    font-weight: normal;
+    font-size: 2.2em;
+    line-height: 1.1em;
+    letter-spacing: -0.02em;
+    text-shadow: -1px -1px 0 #f1f1f1;
+    font-family: 'URWGroteskCon-Lig';
 }
 #pagetitle h2,
-#pagetitle h2 a,
-#pagetitle h2 a:link,
-#pagetitle h2 a:visited {
-    font-family:arial;
-    color:#6b6b6b;
-    font-weight:normal;
-    text-decoration:none;
+#pagetitle h2 a {
+    color: #535353;
+    text-decoration: none;
 }

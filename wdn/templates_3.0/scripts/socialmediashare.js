@@ -1,29 +1,18 @@
 WDN.socialmediashare = function() {
     return {
         initialize : function() {
-            /* No need to use the attr method or even jQuery when working with single elements. Doing it the following way will speed up performance: */
-            function e (id) {
-                return document.getElementById(id);
-            }
             try {
-                e("wdn_facebook").href = "http://www.facebook.com/share.php?u="+window.location+"";
-                e("wdn_twitter").href = "http://twitter.com/home?status=Reading: "+window.location+" %23UNL";
-                e("wdn_plurk").href = "http://www.plurk.com/?status="+window.location+" from University%20of%20Nebraska-Lincoln&qualifier=shares";
-                e("wdn_myspace").href = "http://www.myspace.com/Modules/PostTo/Pages/?l=3&u="+window.location+"&t=University%20of%20Nebraska-Lincoln: "+document.title+"";
-                e("wdn_digg").href = "http://digg.com/submit?phase=2&url="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"";
-                e("wdn_linkedin").href = "http://www.linkedin.com/shareArticle?mini=true&url="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"&summary=&source=";
-                e("wdn_googlebookmark").href = "http://www.google.com/bookmarks/mark?op=edit&bkmk="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"";
-                e("wdn_delicious").href = "http://del.icio.us/post?url="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"";
-                e("wdn_reddit").href = "http://reddit.com/submit?url="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"";
-                e("wdn_stumbleupon").href = "http://www.stumbleupon.com/submit?url="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"";
-                e("wdn_newsvine").href = "http://www.newsvine.com/_tools/seed&save?popoff=0&u="+window.location+"&h=University%20of%20Nebraska-Lincoln: "+document.title+"";
-            } catch(f) {}
+            	WDN.jQuery("#wdn_emailthis").children('a').attr({'href': 'mailto:?body=Great%20content%20from%20UNL%3A%0A'+encodeURIComponent(window.location)});
+                WDN.jQuery("#wdn_facebook").children('a').attr({'href': "http://www.facebook.com/share.php?u="+encodeURIComponent(window.location)});
+                WDN.jQuery("#wdn_twitter").children('a').attr({'href': "http://twitter.com/share?text=Great+content+from+%23UNL&related=higher+ed,nebraska,university,big+ten&via=unlnews&url="+encodeURIComponent(window.location)});
+           } catch(f) {}
             
             WDN.jQuery('a#wdn_createGoURL').click(function() {
-                WDN.jQuery(this).remove();
+                WDN.jQuery(this).text('Creating...');
                 WDN.socialmediashare.createURL(window.location.href, 
                     function(data) {
-                        WDN.jQuery('.socialmedia:last').after("<input type='text' id='goURLResponse' value='"+data+"' />");
+                		data = data.replace(/http:\/\//g,'');
+                        WDN.jQuery('.socialmedia li:first-child').empty().html("<input type='text' id='goURLResponse' value='"+data+"' />");
                         WDN.jQuery('#goURLResponse').focus().select();
                     }
                 );
@@ -33,8 +22,8 @@ WDN.socialmediashare = function() {
             var utm_source = "";
             var utm_campaign = "wdn_social";
             var utm_medium = "share_this";
-            WDN.jQuery('.socialmedia a').click(function() {
-                utm_source = WDN.jQuery(this).attr('id');
+            WDN.jQuery('.socialmedia a:not(#wdn_createGoURL)').click(function() {
+                utm_source = WDN.jQuery(this).parent('li').attr('id');
                 gaTagging = "utm_campaign="+utm_campaign+"&utm_medium="+utm_medium+"&utm_source="+utm_source;
                 //Let's build the URL to be shrunk
                 thisPage = new String(window.location.href);
@@ -42,11 +31,10 @@ WDN.socialmediashare = function() {
                 WDN.socialmediashare.createURL(
                     WDN.socialmediashare.buildGAURL(thisPage, gaTagging),
                     function(data) { //now we have a GoURL, let's replace the href with this new URL.
-                        var strLocation = new String(window.location);
-                        strLocation = strLocation.replace(/\?/g,'\\?');
+                        var strLocation = encodeURIComponent(window.location);
                         var regExpURL = new RegExp(strLocation);
                         WDN.log("regExpURL: "+regExpURL);
-                        var currentHref = WDN.jQuery('#'+utm_source).attr('href');
+                        var currentHref = WDN.jQuery('#'+utm_source).children('a').attr('href');
                         WDN.log("currentHref: "+currentHref);
                         WDN.jQuery('#'+utm_source).attr({href : currentHref.replace(regExpURL, data)});
                         window.location.href = WDN.jQuery('#'+utm_source).attr('href');

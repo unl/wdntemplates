@@ -27,7 +27,7 @@ WDN.feedback = function() {
 					var comments = WDN.jQuery('#wdn_feedback_comments textarea').val();
 					if (comments.split(' ').length < 4) {
 						// Users must enter in at least 4 words.
-						alert('Please enter more information.');
+						alert('Please enter more information, give me at least 4 words!');
 						return false;
 					}
 					WDN.post(

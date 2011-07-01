@@ -1,22 +1,15 @@
 body.secure #wdn_search {
-	right: 22px;
+    right: 22px;
 }
 
 body.secure #wdn_tool_links {
-    display:none;
-}
-
-body.secure #header {
-    width:985px;
+    display: none;
 }
 
 body.secure #footer .footer_col {
-    display:none;
+    display: none;
 }
 
 body.secure #footer #wdn_copyright {
-    border:none;
-}
-body.secure #wdn_identity_management {
-	right:27px;
+    border: none;
 }

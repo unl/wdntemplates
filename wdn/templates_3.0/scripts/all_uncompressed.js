@@ -7350,29 +7350,25 @@ var WDN = function() {
                 (navigator.userAgent.match(/firefox/i) && (navigator.userAgent.match(/firefox\/[12]/i) || navigator.userAgent.match(/firefox\/3.[01234]/i))) ||
                 (navigator.userAgent.match(/msie/i))){
                 // old browser needs help zebra striping
-                WDN.jQuery('table.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
-                WDN.jQuery('table.zentable tbody tr:nth-child(even)').addClass('rowEven');
+                WDN.jQuery('.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
+                WDN.jQuery('.zentable tbody tr:nth-child(even)').addClass('rowEven');
             } 
 		},
 		
 		screenAdjustments : function() {
 			if (screen.width<=1024) {
 				WDN.jQuery('body').css({'background':'#e0e0e0'});
-				WDN.jQuery('#wdn_wrapper').css({'border-left-width':'0','border-right-width':'0'});
 				if (WDN.jQuery.browser.msie) {
 					WDN.jQuery('#wdn_wrapper').css({'margin':'0 0 0 5px'});
-				} else if (WDN.jQuery.browser.mozilla) {
-					WDN.jQuery('#wdn_wrapper').css({'-moz-border-radius':'0'}); 
-				} else if (WDN.jQuery.browser.webkit) {
-					WDN.jQuery('#wdn_wrapper').css({'-webkit-border-radius':'0'}); 
 				}
 			}
 		},
 		
 		contentAdjustments : function () {
+			WDN.jQuery('#footer_floater').css("zoom", 1);
 			WDN.jQuery('#maincontent p.caption, #footer p.caption').each(function(i){
 				if (WDN.jQuery(this).height()>20) {
-					WDN.jQuery(this).css({border:'1px solid #ededed',marginleft:'0'});
+					WDN.jQuery(this).css({border:'1px solid #DDD',marginleft:'0'});
 				}
 				//set the caption to the same width as the image it goes with so that a long caption doesn't spill over
 				var imgWidth = WDN.jQuery(this).prev('img').width();
@@ -7908,14 +7904,15 @@ WDN.proxy_xmlhttp = function() {
 };
 
 WDN.loadedJS["/wdn/templates_3.0/scripts/xmlhttp.js"]=1;
-WDN.navigation = function() {
+WDN.navigation = (function() {
     var expandedHeight = 0;
+    var ul_h, lockHover = false;
     return {
-        
+
         preferredState : 0,
-        
+
         currentState : -1,
-        
+
         /**
          * URL determined to be this site's homepage
          */
@@ -7925,24 +7922,33 @@ WDN.navigation = function() {
          * DOM element for the "HOME" LI
          */
         homepageLI : false,
-        
+
         /**
          * Stores an expand/collapse timeout.
          */
         timeout : false,
-        
+
         /**
          * The delay before expand occurs
          */
         expandDelay : 400,
-        
+
         /**
          * The delay before collapse occurs
          */
         collapseDelay : 120,
-        
+
         changeSiteNavDelay : 400,
-        
+
+        cssTransitionsSupport : (function() {
+            q = false;
+            var div = document.createElement('div');
+            div.innerHTML = '<div style="-webkit-transition:color 1s linear;-ms-transition:color 1s linear;-o-transition:color 1s linear;-moz-transition:color 1s linear;"></div>';
+            q = (div.firstChild.style.webkitTransition !== undefined) || (div.firstChild.style.MozTransition !== undefined) || (div.firstChild.style.OTransition !== undefined) || (div.firstChild.style.MsTransition !== undefined);
+            delete div;
+            return q;
+        })(),
+
         /**
          * Initialize the navigation, and determine what the correct state
          * should be (expanded/collapsed).
@@ -7950,27 +7956,21 @@ WDN.navigation = function() {
          */
         initialize : function() {
             if (WDN.jQuery('body').hasClass('popup')
-    			|| WDN.jQuery('body').hasClass('document')
-    			|| WDN.jQuery('#breadcrumbs ul li').size() == 0) {
-            	// This page has no navigation
-                return;
-            }
-
-            if (WDN.jQuery('#navigation-close').length > 0) {
-            	// Already initialized
+                || WDN.jQuery('#breadcrumbs ul li').size() == 0) {
+                // This page has no navigation
                 return;
             }
             
+            // find the last-link in breadcrumbs
+            WDN.jQuery('#breadcrumbs > ul > li > a').last().parent().addClass('last-link');
+            
+            if (WDN.jQuery('body').hasClass('document')) {
+            	return;
+            }
 
-            WDN.jQuery('#navigation').append('<div id="navigation-close"></div>');
-            WDN.jQuery('#navigation').append('<div id="navigation-expand-collapse"><span></span></div>');
-            WDN.jQuery('#navigation-expand-collapse').click(WDN.navigation.setPreferredState);
-            WDN.jQuery('#navigation-close').click(function(evt) {
-            	if (WDN.navigation.preferredState == 1) {
-            		WDN.navigation.setPreferredState(evt);
-            	}
-            	WDN.navigation.collapse();
-            });
+            //debug statement removed
+            WDN.navigation.fixPresentation();
+
             WDN.navigation.determineSelectedBreadcrumb();
             WDN.navigation.linkSiteTitle();
 
@@ -7978,40 +7978,173 @@ WDN.navigation = function() {
             if (WDN.getCookie('n') == 1) {
                 WDN.navigation.preferredState = 1;
             }
-            
-            WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', function() {
-            	WDN.jQuery('#breadcrumbs ul li a').hoverIntent({
-                	over:        WDN.navigation.switchSiteNavigation,
-                	out:         function(){},
-                	timeout:     WDN.navigation.changeSiteNavDelay,
-                	sensitivity: 1, // Mouse must not move
-                	interval:    120
-                });
-            	WDN.navigation.initializePreferredState();
+
+            // add an expand toggler UI element
+            var $toggler = WDN.jQuery('<div class="expand_toggle"><a href="#" title="Click to expand/collapse navigation" /></div>').prependTo('#wdn_navigation_wrapper');
+            $toggler.children('a').click(function(evt) {
+                if (WDN.navigation.currentState === 0) {
+                    WDN.navigation.expand();
+                } else {
+                    WDN.navigation.collapse();
+                }
+                return false;
             });
-            
-            //adds the curved end to the right side of the breadcrumbs bar in IE
-            if (WDN.jQuery.browser.msie) {
-                WDN.jQuery('#breadcrumbs').append('<span></span>');
-                WDN.jQuery('#breadcrumbs span').css({'height':'35px', 'width':'8px','position':'absolute','top':'0', 'right':'-3px','margin':'0 0 0 100%','background':'url("'+WDN.template_path+'wdn/templates_3.0/css/navigation/images/breadcrumbBarSprite2.png") 0 -72px no-repeat'});
-            }
+            $toggler.hover(function() {
+                lockHover = !lockHover;
+                WDN.jQuery('#wdn_navigation_bar').mouseout();
+            }, function() {
+                lockHover = !lockHover;
+                WDN.jQuery('#wdn_navigation_bar').mouseover();
+            });
+
+            // add the pinned state UI element
+            var $pin = WDN.jQuery('<div class="pin_state"><a href="#" /></div>').appendTo('#wdn_navigation_wrapper');
+            $pin.children('a').click(function(evt) {
+                WDN.navigation.setPreferredState(evt);
+                return false;
+            });
+
+            WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', function() {
+                WDN.jQuery('#breadcrumbs ul li a').hoverIntent({
+                    over:        WDN.navigation.switchSiteNavigation,
+                    out:         function(){},
+                    timeout:     WDN.navigation.changeSiteNavDelay,
+                    sensitivity: 1, // Mouse must not move
+                    interval:    120
+                });
+                WDN.navigation.initializePreferredState();
+            });
         },
-        
+
+        /**
+         * This function cleans up the navigation visual presentations
+         */
+        fixPresentation : function() {
+            var primaries = WDN.jQuery('#navigation > ul > li');
+            var primaryCount = primaries.length;
+            while (primaryCount % 6 > 0) {
+                WDN.jQuery('#navigation > ul').append('<li class="empty"><a /><ul><li/></ul></li>');
+                primaryCount++;
+            }
+            primaries = WDN.jQuery('#navigation > ul > li');
+
+            var secondaries = primaries.has('ul');
+            if (secondaries.length) {
+                primaries.not(':has(ul)').each(function(){
+                    WDN.jQuery(this).append('<ul><li/></ul>');
+                });
+            }
+
+            // fix old IE for CSS3
+            var majorIEVersion = WDN.jQuery.browser.version.split(".")[0];
+            if (WDN.jQuery.browser.msie && majorIEVersion < 9) {
+                //debug statement removed
+                var $bar_starts = WDN.jQuery('#navigation > ul > li:nth-child(6n+1)');
+                $bar_starts.addClass('start');
+                WDN.jQuery('#navigation > ul > li:nth-child(6n+6)').addClass('end');
+                WDN.jQuery('#navigation > ul > li:nth-child(n+7)').addClass('mid-bar');
+                $bar_starts.last().prevAll().addClass('top-bars');
+                WDN.jQuery('#navigation > ul > li ul li:last-child').addClass('last');
+            }
+
+            var ah = [];
+            var primaryLinks = WDN.jQuery('> a', primaries);
+            primaryLinks.each(function(i){
+                var row = Math.floor(i/6);
+                var height = WDN.jQuery(this).outerHeight();
+                if (!ah[row] || height > ah[row]) {
+                    ah[row] = height;
+                }
+            });
+
+            primaryLinks.each(function(i){
+                var row = Math.floor(i/6);
+                var height = WDN.jQuery(this).outerHeight();
+                var pad = parseFloat(WDN.jQuery(this).css('padding-top'));
+                if (height < ah[row]) {
+                    var new_ah = [(ah[row] - height) / 2];
+                    new_ah[1] = new_ah[0];
+
+                    if (WDN.jQuery.browser.msie) {
+                         if (majorIEVersion == 8) {
+                             new_ah[0] -= 1;
+                         } else if (majorIEVersion == 7 && WDN.jQuery(this).parent().hasClass('empty')) {
+                             new_ah[0] -= 1;
+                             new_ah[1] -= 1;
+                         }
+                    }
+                    WDN.jQuery(this).css({
+                        'padding-top' : new_ah[0] + pad + 'px',
+                        'padding-bottom' : new_ah[1] + pad + 'px'
+                    });
+                }
+            });
+
+            ul_h = [];
+            var secondaryLists = WDN.jQuery('> ul', primaries);
+            secondaryLists.each(function(i){
+                var row = Math.floor(i/6), height;
+                if (WDN.jQuery('body').hasClass('liquid') && !(WDN.jQuery.browser.msie && majorIEVersion < 8)) {
+                    height = WDN.jQuery(this).outerHeight();
+                } else {
+                    height = WDN.jQuery(this).height();
+                }
+                if (!ul_h[row] || height > ul_h[row]) {
+                    ul_h[row] = height;
+                }
+            });
+            //loop through again and apply new height
+            secondaryLists.each(function(i){
+                var row = Math.floor(i/6);
+                WDN.jQuery(this).css({'height':ul_h[row]+'px'});
+            });
+
+            // Fix liquid box-sizing
+            if (WDN.jQuery('body').hasClass('liquid') && WDN.jQuery.browser.msie && majorIEVersion < 8) {
+                // Fix box-size
+                var firstRun = true;
+                var resizeFunc = function() {
+                    var $wrapper = WDN.jQuery('#wdn_navigation_wrapper');
+
+                    $wrapper.css('width', '');
+                    $wrapper.css('padding-right', 0);
+                    $wrapper.each(function() {
+                        var contentWidth = WDN.jQuery(this).width();
+                        var outerWidth = WDN.jQuery(this).outerWidth();
+                        WDN.jQuery(this).css('width', contentWidth * 2 - outerWidth);
+                    });
+
+                };
+                resizeFunc();
+                WDN.jQuery(window).unbind('resize').bind('resize', resizeFunc);
+            }
+
+            //debug statement removed
+        },
+
+        transitionEnd: function() {
+            WDN.navigation.setWrapperClass('expanded');
+        },
+
         /**
          * This function should determine which breadcrumb should be selected.
          */
         determineSelectedBreadcrumb : function() {
             // First we search for a defined homepage.
-            
+
             if (WDN.jQuery('link[rel=home]').length) {
                 WDN.navigation.siteHomepage = WDN.toAbs(WDN.jQuery('link[rel=home]').attr('href'), window.location.toString());
                 //debug statement removed
             }
-            
+
             if (WDN.navigation.siteHomepage === false) {
                 //debug statement removed
-                // Right now, stupidly select the second element.
-                WDN.navigation.setHomepageLI(WDN.jQuery('#breadcrumbs > ul >  li:nth-child(2)'));
+                if (WDN.jQuery('#breadcrumbs > ul > li').size() == 1) {
+                	WDN.navigation.setHomepageLI(WDN.jQuery('#breadcrumbs > ul > li:nth-child(1)'));
+                } else {
+                	// Right now, stupidly select the second element.
+                	WDN.navigation.setHomepageLI(WDN.jQuery('#breadcrumbs > ul > li:nth-child(2)'));
+                }
             } else {
                 //debug statement removed
                 // Make all the hrefs absolute.
@@ -8030,11 +8163,10 @@ WDN.navigation = function() {
             }
         },
 
-        setHomepageLI: function(li)
-        {
-        	WDN.navigation.homepageLI = li;
-        	WDN.jQuery(li).addClass('selected');
-        	if (WDN.jQuery(li).children('a').size()) {
+        setHomepageLI: function(li) {
+            WDN.navigation.homepageLI = li;
+            WDN.jQuery(li).addClass('selected');
+            if (WDN.jQuery(li).children('a').size()) {
                 // Found the homepage url in the breadcrumbs
                 WDN.navigation.siteHomepage = WDN.jQuery(li).find('a').attr('href');
             } else {
@@ -8043,84 +8175,72 @@ WDN.navigation = function() {
                 WDN.jQuery(li).wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
             }
         },
-        
+
         /**
          * This function will check for/add a link to the homepage in the site title.
          */
-        
+
         linkSiteTitle: function() {
             // check if the link already exists
-            if (WDN.jQuery("#titlegraphic h1 a").length > 0) {
+            if (WDN.jQuery("#titlegraphic h1 a").length > 0 || !WDN.navigation.siteHomepage) {
                 return;
             }
             // create the link using whatever the Homepage is set to
             WDN.jQuery("#titlegraphic h1").wrapInner('<a href="' + WDN.navigation.siteHomepage +'" />');
         },
-        
+
         /**
          * Expand the navigation section.
          */
         expand : function() {
             //debug statement removed
-            WDN.jQuery('#navigation-close').show();
-            WDN.navigation.setWrapperClass('expanded');
-            WDN.navigation.currentState = 1;
-            WDN.navigation.updateHelperText();
-            WDN.jQuery('#navigation ul > li:nth-child(6) a:visible:first').css('width','86%');
-        },
-        
-        updateHelperText : function() {
-            if (WDN.navigation.preferredState == 1) {
-                WDN.jQuery('#navigation-expand-collapse span').text('click to always hide full navigation');
-            } else {
-                if (WDN.navigation.currentState === 0) {
-                    WDN.jQuery('#navigation-expand-collapse span').text('roll over for full navigation');
-                } else {
-                    WDN.jQuery('#navigation-expand-collapse span').text('click to always show full navigation');
-                }
+            if (WDN.navigation.currentState === 1) {
+                return;
             }
+
+            if (WDN.navigation.currentState !== -1 && WDN.navigation.preferredState != 1 && WDN.navigation.cssTransitionsSupport) {
+                WDN.navigation.setWrapperClass('changing');
+            } else {
+                WDN.navigation.transitionEnd();
+            }
+
+            WDN.navigation.currentState = 1;
         },
-        
+
         /**
          * Collapse the navigation
          */
-        collapse : function(animate) {
+        collapse : function(switchNav) {
             //debug statement removed
             if (WDN.navigation.currentState === 0) {
                 return;
             }
-            if (expandedHeight === 0) {
-                //expandedHeight = WDN.jQuery('#navigation').height();
-            }
-            WDN.jQuery('#navigation-close').hide();
-            WDN.jQuery('#navigation-expand-collapse span').text('roll over for full navigation');
-            WDN.jQuery('#navigation ul:first li:nth-child(6) a:visible:first').css('width','100%');
+
             WDN.navigation.setWrapperClass('collapsed');
             WDN.navigation.currentState = 0;
-            WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a:first-child'), false);
+            if (switchNav !== false) {
+                WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a:first-child'), false);
+            }
         },
-        
+
         /**
          * Set a delay for collapsing the navigation.
          */
         startCollapseDelay: function(event) {
             //debug statement removed
             clearTimeout(WDN.navigation.timeout);
-            if (WDN.navigation.currentState === 0
-            	|| WDN.navigation.preferredState == 1) {
-            	// Already collapsed, or, prefer to stay open
+            if (WDN.navigation.currentState === 0 || WDN.navigation.preferredState == 1) {
+                // Already collapsed, or, prefer to stay open
                 return;
             }
             WDN.navigation.timeout = setTimeout(WDN.navigation.collapse, WDN.navigation.collapseDelay);
         },
-        
+
         setPreferredState : function(event) {
             //debug statement removed
             if (WDN.getCookie('n')!=1) {
                 //debug statement removed
-                // Remove the hover function?
-                //WDN.jQuery('#wdn_navigation_bar').hover();
-                
+
                 WDN.setCookie('n',1,1209600);
                 WDN.navigation.preferredState = 1;
                 WDN.analytics.trackNavigationPreferredState("Open");
@@ -8132,56 +8252,96 @@ WDN.navigation = function() {
             }
             WDN.navigation.initializePreferredState();
         },
-        
+
         /**
          * This function determines the user's preference for navigation.
          * There are two options, expanded or collapsed.
          */
         initializePreferredState : function() {
             //debug statement removed
-            var mouseout = WDN.jQuery.noop;
-            if (WDN.navigation.preferredState==1) {
-                WDN.navigation.setWrapperClass('pinned');
+
+            WDN.jQuery('#navigation').addClass('disableTransition');
+            var mouseout;
+            var pinUI = WDN.jQuery('#wdn_navigation_wrapper .pin_state a');
+
+            if (WDN.navigation.preferredState == 1) {
+                mouseout = WDN.jQuery.noop;
+                pinUI.attr('title', 'Click to un-pin');
                 WDN.navigation.expand();
             } else {
-                WDN.navigation.collapse();
-                mouseout = WDN.navigation.startCollapseDelay;
+                mouseout = function() {
+                    if (!lockHover) {
+                        WDN.navigation.startCollapseDelay();
+                    }
+                };
+                pinUI.attr('title', 'Click to pin open');
+                WDN.navigation.collapse(false);
             }
-            
+
+            WDN.navigation.applyStateFixes();
+
+            if (WDN.navigation.cssTransitionsSupport) {
+                WDN.jQuery('#navigation').bind(
+                    'webkitTransitionEnd transitionend oTransitionEnd msTransitionEnd',
+                    function(event) {
+                        if (WDN.navigation.currentState == 1) {
+                            WDN.navigation.transitionEnd();
+                        }
+                    }
+                );
+            }
+
             WDN.jQuery('#wdn_navigation_bar').hoverIntent({
-            	over:        WDN.navigation.expand,
-            	out:         mouseout,
-            	timeout:     WDN.navigation.expandDelay,
-            	sensitivity: 1, // Mouse must not move
-            	interval:    120
+                over:        function() {
+                    if (!lockHover) {
+                        WDN.navigation.expand();
+                    }
+                },
+                out:         mouseout,
+                timeout:     WDN.navigation.expandDelay,
+                sensitivity: 1, // Mouse must not move
+                interval:    120
             });
-            WDN.jQuery('#wdn_content_wrapper,#header').hover(
-                    WDN.navigation.startCollapseDelay);
-            WDN.navigation.updateHelperText();
+
+            WDN.jQuery('#navigation').removeClass('disableTransition');
         },
-        
+
+        applyStateFixes : function() {
+            WDN.jQuery('#wdn_content_wrapper').css('margin-top', '');
+
+            if (WDN.navigation.preferredState == 1) {
+                WDN.navigation.setWrapperPState('pinned');
+            } else {
+                WDN.navigation.setWrapperPState('unpinned');
+                var nav_height = WDN.jQuery('#wdn_navigation_wrapper').height();
+                if (nav_height > 41) {
+                    WDN.jQuery('#wdn_content_wrapper').css('margin-top', nav_height);
+                }
+            }
+        },
+
         switchSiteNavigation : function(event, expand) {
             //debug statement removed
             if (expand === undefined) {
-            	expand = true;
+                expand = true;
             }
-            var breadcrumb = (event.target)?event.target:event;
+            var breadcrumb = (event.target) ? event.target : event;
             if (WDN.jQuery(breadcrumb).parent().hasClass('selected')) {
                 //debug statement removed
                 return true;
             }
-            
-            var height = WDN.jQuery('#navigation ul').height() || 50;
+
+            var height = WDN.jQuery('#navigation > ul').height() || 50;
             var oldSelected = WDN.jQuery('#breadcrumbs > ul > li.selected:first');
-            
+
             if (!WDN.jQuery('div.storednav', oldSelected).length && WDN.jQuery('#navigation > ul').length) {
                 //debug statement removed
                 // Store the current navigation
                 WDN.navigation.storeNav(oldSelected, WDN.jQuery('#navigation > ul'));
             } else {
-            	WDN.jQuery('#navigation > ul').remove();
+                WDN.jQuery('#navigation > ul').remove();
             }
-            
+
             // Set the hovered breadcrumb link to selected
             oldSelected.removeClass('selected');
             WDN.jQuery(breadcrumb).parent().addClass('selected');
@@ -8192,17 +8352,17 @@ WDN.navigation = function() {
                 WDN.navigation.setNavigationContents(WDN.jQuery(breadcrumb).siblings('div.storednav').children().clone(), expand);
                 return true;
             }
-            
+
             WDN.jQuery('#navloading').remove();
             WDN.jQuery('#navigation').append('<div id="navloading" style="height:'+height+'px;"></div>');
-            
+
             var nav_sniffer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
             nav_sniffer = nav_sniffer+escape(WDN.toAbs(breadcrumb.href, window.location));
             //debug statement removed
             WDN.get(nav_sniffer, '', function(data, textStatus) {
                 try {
                     if (textStatus == 'success') {
-                    	var breadcrumbParent = WDN.jQuery(breadcrumb).parent();
+                        var breadcrumbParent = WDN.jQuery(breadcrumb).parent();
                         WDN.navigation.storeNav(breadcrumbParent, data);
                         if (breadcrumbParent.hasClass('selected')) {
                             WDN.navigation.setNavigationContents(data, expand);
@@ -8220,41 +8380,55 @@ WDN.navigation = function() {
             });
             return false;
         },
-        
+
         setNavigationContents : function(contents, expand) {
             //debug statement removed
+            WDN.jQuery('#navigation').addClass('disableTransition');
             WDN.jQuery('#navloading').remove();
             WDN.jQuery('#navigation').children('ul').remove()
-            	.end().prepend(contents);
-            if (!expand) {
-            	return;
-            }
+                .end().prepend(contents);
+
             WDN.navigation.currentState = -1;
-            WDN.navigation.expand();
+            WDN.navigation.setWrapperClass('expanded');
+            WDN.navigation.fixPresentation();
+            WDN.navigation.collapse(false);
+            WDN.navigation.applyStateFixes();
+
+            WDN.jQuery('#navigation').removeClass('disableTransition');
+
+            if (expand) {
+                WDN.navigation.expand();
+            }
         },
-        
+
         setWrapperClass : function(css_class) {
-            //debug statement removed
+            var $wrapper = WDN.jQuery('#wdn_wrapper');
+            $wrapper.removeClass('nav_changing');
+
             if (css_class=='collapsed') {
-                WDN.jQuery('#wdn_wrapper').removeClass('nav_pinned').removeClass('nav_expanded').addClass('nav_'+css_class);
+                $wrapper.removeClass('nav_expanded nav_changing').addClass('nav_'+css_class);
                 return;
             }
-            
-            WDN.jQuery('#wdn_wrapper').removeClass('nav_collapsed').addClass('nav_'+css_class);
+
+            $wrapper.removeClass('nav_collapsed').addClass('nav_'+css_class);
         },
-        
+
+        setWrapperPState : function(css_class) {
+            WDN.jQuery('#wdn_wrapper').removeClass('nav_changing nav_unpinned nav_pinned').addClass('nav_' + css_class);
+        },
+
         storeNav : function(li, data) {
-        	var storednavDiv = WDN.jQuery(li).children('div.storednav');
-        	if (storednavDiv.length) {
-        		storednavDiv.empty();
-        	} else {
-        		storednavDiv = WDN.jQuery('<div class="storednav"/>');
-        		WDN.jQuery(li).append(storednavDiv);
-        	}
-        	storednavDiv.append(data);
+            var storednavDiv = WDN.jQuery(li).children('div.storednav');
+            if (storednavDiv.length) {
+                storednavDiv.empty();
+            } else {
+                storednavDiv = WDN.jQuery('<div class="storednav"/>');
+                WDN.jQuery(li).append(storednavDiv);
+            }
+            storednavDiv.append(data);
         }
     };
-}();
+})();
 WDN.loadedJS["/wdn/templates_3.0/scripts/navigation.js"]=1;
 WDN.search = function() {
 	return {
@@ -8436,7 +8610,10 @@ WDN.tooltip = function($) {
 		tooltipSetup : function() {
 			WDN.loadCSS('/wdn/templates_3.0/css/header/tooltip.css');
 			// Tooltips can only be used in the appropriate sections, and must have the correct class name and a title attribute
-			$('#wdn_tool_links .tooltip[title], #maincontent .tooltip[title], #footer .tooltip[title]').each(function() {
+			WDN.tooltip.addTooltip($('#wdn_tool_links .tooltip[title], #maincontent .tooltip[title], #footer .tooltip[title]'));
+		},
+		addTooltip : function($elements) {
+			$elements.each(function() {
 				$(this).qtip({
 
 					content: $(this).attr('title'),
@@ -8500,7 +8677,8 @@ WDN.analytics = function() {
 				['wdn._setAccount', 'UA-3203435-1'],
 				['wdn._setDomainName', '.unl.edu'],
 				['wdn._setAllowLinker', true],
-				['wdn._setAllowHash', false]
+				['wdn._setAllowHash', false],
+				['wdn._trackPageLoadTime']
 			);
 			
 			WDN.loadJS('wdn/templates_3.0/scripts/idm.js', function(){
@@ -8510,7 +8688,7 @@ WDN.analytics = function() {
 			});
 			
 			//debug statement removed
-				filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v)$/i; //these are the file extensions to track for downloaded content
+				filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i; //these are the file extensions to track for downloaded content
 				WDN.jQuery('#navigation a[href], #maincontent a[href]').each(function(){  
 					var gahref = WDN.jQuery(this).attr('href');
 					if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
@@ -8816,10 +8994,11 @@ WDN.loadedJS["/wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.
         },
         reset = function() {
           drain();
-          stars.slice(0, rating[0]).addClass("on");
-          if(percent = rating[1] ? rating[1] * 10 : null) {
-            stars.eq(rating[0]).addClass("on").children("a").css("width", percent + "%");
-          }
+          //stars.slice(0, rating[0]).addClass("on");
+          //debug statement removed
+          //if(percent = rating[1] ? rating[1] * 10 : null) {
+            stars.eq(rating[0]-1).addClass("on").prevAll('.star').addClass('on');
+          //}
         },
         cancelOn = function() {
           drain();
@@ -11691,12 +11870,9 @@ WDN.idm = function() {
 				WDN.loadJS(WDN.idm.serviceURL + WDN.getCookie('unl_sso'), function() {
 					if (WDN.idm.getUserId()) {
 						if (WDN.idm.user.eduPersonPrimaryAffiliation[0] != undefined) {
-							//wdnTracker._setCustomVar(1, "Primary Affiliation", WDN.idm.user.eduPersonPrimaryAffiliation, 1);
 							_gaq.push(['wdn._setCustomVar', 1, 'Primary Affiliation', WDN.idm.user.eduPersonPrimaryAffiliation[0], 1]);
 							//debug statement removed
-							if (!callback) {
-								//do nothing
-							} else {
+							if (callback) {
 								callback();
 							}
 						};
@@ -11753,37 +11929,32 @@ WDN.idm = function() {
 				WDN.jQuery('#header').append('<div id="wdn_identity_management" class="loggedin"></div>');
 			}
 			
-			if (WDN.jQuery('#wdn_search').length > 0) {
-				// search box is being displayed, adjust the positioning
-				WDN.jQuery('#wdn_identity_management').css({right:'362px'});
-			}
-			
 			var icon = '';
+			// in planet red's use of CAS, staff usernames are converted like jdoe2 -> unl_jdoe2
+			//  and student usernames are converted like s-jdoe3 -> unl_s_jdoe3
+			var planetred_uid;
+			if (uid.substring(2,0) == 's-') {
+				planetred_uid = 'unl_' + uid.replace('-','_');
+			} else {
+				planetred_uid = 'unl_' + uid;
+			}
+			icon = '<a href="http://planetred.unl.edu/pg/profile/'+planetred_uid+'" title="Your Planet Red Profile"><img src="//planetred.unl.edu/pg/icon/'+planetred_uid+'/topbar/" alt="Your Profile Pic" /></a>';
 			
-			if ("https:" != document.location.protocol) { 
-				// in planet red's use of CAS, staff usernames are converted like jdoe2 -> unl_jdoe2
-				//  and student usernames are converted like s-jdoe3 -> unl_s_jdoe3
-				var planetred_uid;
-				if (uid.substring(2,0) == 's-') {
-					planetred_uid = 'unl_' + uid.replace('-','_');
-				} else {
-					planetred_uid = 'unl_' + uid;
+			var disp_name;
+			if (WDN.idm.user.cn) {
+				for (var i in WDN.idm.user.cn) {
+					if (!disp_name || WDN.idm.user.cn[i].length < disp_name.length) {
+						disp_name = WDN.idm.user.cn[i];
+					}
 				}
-				icon = '<a href="http://planetred.unl.edu/pg/profile/'+planetred_uid+'" title="Your Planet Red Profile"><img src="http://planetred.unl.edu/pg/icon/'+planetred_uid+'/topbar/" alt="Your Profile Pic" /></a>';
+			} else {
+				disp_name = uid;
 			}
 			
-			WDN.jQuery('#wdn_identity_management').html(icon+' <span class="username">'+uid+'</span> <a id="wdn_idm_logout" href="'+WDN.idm.logoutURL+'">Logout</a>');
+			WDN.jQuery('#wdn_identity_management').html(icon+'<span class="username">'+disp_name+'</span><a id="wdn_idm_logout" title="Logout" href="'+WDN.idm.logoutURL+'">Logout</a>');
 			
 			// Any time logout link is clicked, unset the user data
 			WDN.jQuery('#wdn_idm_logout').click(WDN.idm.logout);
-
-			if (WDN.idm.user.cn) {
-				if (WDN.idm.user.cn[1]){
-					WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn[1]);
-				} else {
-					WDN.jQuery('#wdn_identity_management .username').html(WDN.idm.user.cn[0]);
-				}
-			}
 			
 			if (WDN.jQuery('link[rel=logout]').length) {
 				WDN.idm.setLogoutURL(WDN.jQuery('link[rel=logout]').attr('href'));
@@ -11801,9 +11972,9 @@ WDN.idm = function() {
 				WDN.jQuery('#wdn_identity_management').css({right:'362px'});
 			}
 			
-			icon = '<a><img src="http://planetred.unl.edu/mod/profile/graphics/defaulttopbar.gif" alt="Guest User" /></a>';
+			icon = '<a><img src="//planetred.unl.edu/mod/profile/graphics/defaulttopbar.gif" alt="Guest User" /></a>';
 			
-			WDN.jQuery('#wdn_identity_management').html(icon+'<span class="username">Guest</span><a id="wdn_idm_login" href="'+WDN.idm.loginURL+'">Login</a>');
+			WDN.jQuery('#wdn_identity_management').html(icon+'<span class="username">Guest</span><a id="wdn_idm_login" title="Login" href="'+WDN.idm.loginURL+'">Login</a>');
 		},
 		
 		/**
@@ -11827,7 +11998,7 @@ WDN.idm = function() {
 	};
 }();
 WDN.loadedJS["/wdn/templates_3.0/scripts/idm.js"]=1;
-WDN.tabs = function() {
+WDN.tabs = (function() {
 	var jq = function(id) {
 		return '#' + id.replace(/(:|\.)/g, '\\$1');
 	};
@@ -11841,8 +12012,18 @@ WDN.tabs = function() {
 		
 		var currentPage = window.location.toString().split('#')[0];
 		
-		if (currentPage != uri[0]) {
-			return false;
+		if (document.getElementsByTagName('base')[0]) {
+			var basehref = document.getElementsByTagName('base')[0].getAttribute('href');
+		}
+		
+		if (basehref) {
+			if (currentPage != uri[0] && basehref != uri[0]) {
+				return false;
+			}
+		} else {
+			if (currentPage != uri[0]) {
+				return false;
+			}
 		}
 		
 		return uri[1];
@@ -11852,7 +12033,7 @@ WDN.tabs = function() {
 		useHashChange : true,
 		
 		initialize : function() {
-			var ie7 = document.all && navigator.appVersion.indexOf("MSIE 7.") != -1;	
+			var ie7 = document.all && navigator.appVersion.indexOf("MSIE 7.") != -1;
 			//debug statement removed
 			//Detect if the <span> is present. If not, add it
 			WDN.jQuery('ul.wdn_tabs > li > a:not(:has(span))').each(function(){
@@ -11985,7 +12166,7 @@ WDN.tabs = function() {
 		updateInterface: function(trig) {
 			var tabs = trig.closest('ul.wdn_tabs');
 			var curr = trig.closest('li').siblings('.selected');
-						
+			
 			// Remove any selected tab class
 			WDN.jQuery('li.selected', tabs).removeClass('selected');
 			
@@ -12017,8 +12198,8 @@ WDN.tabs = function() {
 			}
 		}
 	};
-}();
-	
+})();
+
 WDN.loadedJS["/wdn/templates_3.0/scripts/tabs.js"]=1;
 WDN.feedback = function() {
 	
@@ -12049,7 +12230,7 @@ WDN.feedback = function() {
 					var comments = WDN.jQuery('#wdn_feedback_comments textarea').val();
 					if (comments.split(' ').length < 4) {
 						// Users must enter in at least 4 words.
-						alert('Please enter more information.');
+						alert('Please enter more information, give me at least 4 words!');
 						return false;
 					}
 					WDN.post(
@@ -12071,29 +12252,18 @@ WDN.loadedJS["/wdn/templates_3.0/scripts/feedback.js"]=1;
 WDN.socialmediashare = function() {
     return {
         initialize : function() {
-            /* No need to use the attr method or even jQuery when working with single elements. Doing it the following way will speed up performance: */
-            function e (id) {
-                return document.getElementById(id);
-            }
             try {
-                e("wdn_facebook").href = "http://www.facebook.com/share.php?u="+window.location+"";
-                e("wdn_twitter").href = "http://twitter.com/home?status=Reading: "+window.location+" %23UNL";
-                e("wdn_plurk").href = "http://www.plurk.com/?status="+window.location+" from University%20of%20Nebraska-Lincoln&qualifier=shares";
-                e("wdn_myspace").href = "http://www.myspace.com/Modules/PostTo/Pages/?l=3&u="+window.location+"&t=University%20of%20Nebraska-Lincoln: "+document.title+"";
-                e("wdn_digg").href = "http://digg.com/submit?phase=2&url="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"";
-                e("wdn_linkedin").href = "http://www.linkedin.com/shareArticle?mini=true&url="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"&summary=&source=";
-                e("wdn_googlebookmark").href = "http://www.google.com/bookmarks/mark?op=edit&bkmk="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"";
-                e("wdn_delicious").href = "http://del.icio.us/post?url="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"";
-                e("wdn_reddit").href = "http://reddit.com/submit?url="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"";
-                e("wdn_stumbleupon").href = "http://www.stumbleupon.com/submit?url="+window.location+"&title=University%20of%20Nebraska-Lincoln: "+document.title+"";
-                e("wdn_newsvine").href = "http://www.newsvine.com/_tools/seed&save?popoff=0&u="+window.location+"&h=University%20of%20Nebraska-Lincoln: "+document.title+"";
-            } catch(f) {}
+            	WDN.jQuery("#wdn_emailthis").children('a').attr({'href': 'mailto:?body=Great%20content%20from%20UNL%3A%0A'+encodeURIComponent(window.location)});
+                WDN.jQuery("#wdn_facebook").children('a').attr({'href': "http://www.facebook.com/share.php?u="+encodeURIComponent(window.location)});
+                WDN.jQuery("#wdn_twitter").children('a').attr({'href': "http://twitter.com/share?text=Great+content+from+%23UNL&related=higher+ed,nebraska,university,big+ten&via=unlnews&url="+encodeURIComponent(window.location)});
+           } catch(f) {}
             
             WDN.jQuery('a#wdn_createGoURL').click(function() {
-                WDN.jQuery(this).remove();
+                WDN.jQuery(this).text('Creating...');
                 WDN.socialmediashare.createURL(window.location.href, 
                     function(data) {
-                        WDN.jQuery('.socialmedia:last').after("<input type='text' id='goURLResponse' value='"+data+"' />");
+                		data = data.replace(/http:\/\//g,'');
+                        WDN.jQuery('.socialmedia li:first-child').empty().html("<input type='text' id='goURLResponse' value='"+data+"' />");
                         WDN.jQuery('#goURLResponse').focus().select();
                     }
                 );
@@ -12103,8 +12273,8 @@ WDN.socialmediashare = function() {
             var utm_source = "";
             var utm_campaign = "wdn_social";
             var utm_medium = "share_this";
-            WDN.jQuery('.socialmedia a').click(function() {
-                utm_source = WDN.jQuery(this).attr('id');
+            WDN.jQuery('.socialmedia a:not(#wdn_createGoURL)').click(function() {
+                utm_source = WDN.jQuery(this).parent('li').attr('id');
                 gaTagging = "utm_campaign="+utm_campaign+"&utm_medium="+utm_medium+"&utm_source="+utm_source;
                 //Let's build the URL to be shrunk
                 thisPage = new String(window.location.href);
@@ -12112,11 +12282,10 @@ WDN.socialmediashare = function() {
                 WDN.socialmediashare.createURL(
                     WDN.socialmediashare.buildGAURL(thisPage, gaTagging),
                     function(data) { //now we have a GoURL, let's replace the href with this new URL.
-                        var strLocation = new String(window.location);
-                        strLocation = strLocation.replace(/\?/g,'\\?');
+                        var strLocation = encodeURIComponent(window.location);
                         var regExpURL = new RegExp(strLocation);
                         //debug statement removed
-                        var currentHref = WDN.jQuery('#'+utm_source).attr('href');
+                        var currentHref = WDN.jQuery('#'+utm_source).children('a').attr('href');
                         //debug statement removed
                         WDN.jQuery('#'+utm_source).attr({href : currentHref.replace(regExpURL, data)});
                         window.location.href = WDN.jQuery('#'+utm_source).attr('href');
@@ -12155,14 +12324,37 @@ WDN.loadedJS["/wdn/templates_3.0/scripts/socialmediashare.js"]=1;
 var unlAlerts = function() {};
 
 WDN.unlalert = function() {
+	var _getClosedAlerts = function() {
+		var c = WDN.getCookie('unlAlertsC');
+		if (c) {
+			return c.split(',');
+		}
+		
+		return [];
+	};
+	var _pushClosedAlert = function(id) {
+		var closed = _getClosedAlerts();
+		if (WDN.jQuery.inArray(id, closed) >= 0) {
+			return;
+		}
+		
+		closed.push(id);
+		WDN.setCookie('unlAlertsC', closed.join(','), 3600);
+	};
+	var _checkCookie = function(name) {
+		var c = WDN.getCookie(name);
+		if (c) {
+			return true;
+		}
+		return false;
+	};
+	
+	var activeIds = [], calltimeout;
+	
 	return {
 		
 		data_url : 'http://alert1.unl.edu/json/unlcap.js',
 		//data_url : 'http://ucommbieber.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/alert.master.server.js',
-		
-		current_id : false,
-		
-		calltimeout : false,
 		
 		initialize : function()
 		{
@@ -12174,26 +12366,26 @@ WDN.unlalert = function() {
 		},
 		
 		checkIfCallNeeded: function() {
-			if (WDN.unlalert._dataHasExpired()) {
+			if (WDN.unlalert._dataHasExpired() || WDN.unlalert._hasPreviousAlert()) {
 				WDN.unlalert._callServer();
 			}
 		},
 		
 		dataReceived: function() {
 			//debug statement removed
-			clearTimeout(WDN.unlalert.calltimeout);
+			clearTimeout(calltimeout);
 			/* Set cookie to indicate time the data was aquired */
-			WDN.setCookie('unlAlertsData','y', 60);
-			WDN.unlalert.calltimeout = setTimeout(WDN.unlalert.checkIfCallNeeded, 60000);
+			WDN.setCookie('unlAlertsData', 1, 60);
+			calltimeout = setTimeout(WDN.unlalert.checkIfCallNeeded, 60000);
 		},
 		
 		/*------ Check if the data has expired ------*/
 		_dataHasExpired: function() {
-			var c = WDN.getCookie('unlAlertsData');
-			if (c) {
-				return false;
-			}
-			return true;
+			return !_checkCookie('unlAlertsData');
+		},
+		
+		_hasPreviousAlert: function() {
+			return _checkCookie('unlAlertsA');
 		},
 		
 		_callServer: function() {
@@ -12210,78 +12402,82 @@ WDN.unlalert = function() {
 			script.defer = true;
 			script.id = 'lastLoadedCmds';
 			head.appendChild(script);
-			
-//			/* check if alert1 server is up*/
-//			var time = setTimeout(function(){
-//				if (WDN.unlalert._dataHasExpired()) {
-//					// Data still has not loaded successfully, change to alert 2 server and try again.
-//					WDN.unlalert.data_url = 'http://alert2.unl.edu/json/unlcap.js';
-//					WDN.unlalert._callServer();
-//					clearTimeout(time);
-//				} else {
-//					//only need to run this once, if alert 2 is also down, we're screwed
-//					clearTimeout(time);
-//				}
-//			}, 10000);
-	
 		},
 		
 		/*------ check if alert was acknowledged ------*/
 		alertWasAcknowledged: function(id) {
-			var c = WDN.getCookie('unlAlertIdClosed_'+id);
-			if (c) {
-				return true;
-			}
-			return false;
+			var closed = _getClosedAlerts();
+			return WDN.jQuery.inArray(id, closed) >= 0;
 		},
 		
 		/*------ acknowledge alert, and don't show again ------*/
 		_acknowledgeAlert: function(id) {
-			WDN.setCookie('unlAlertIdClosed_'+id, id, 3600);
+			_pushClosedAlert(id);
 		},
 		
 		/*------ building alert message ------*/
-		alertUser: function(root, uniqueID) {
-			
-			if (root.severity != 'Extreme') {
-				return;
+		alertUser: function(root) {
+			if (!WDN.jQuery.isArray(root)) {
+				root = [root];
 			}
 			
 			//debug statement removed
+			WDN.setCookie('unlAlertsA', 1, 60);
+			activeIds = [];
+			var $alertBox = WDN.jQuery("#alertbox"), $alertContent;
+			var firstAlert = !$alertBox.length;
+			var allAck = true;
 			
-			var LatestAlert = root;
-			var alertTitle = LatestAlert.headline;
-			var alertDescription = LatestAlert.description;
-			var effectiveDate = LatestAlert.effective;
-			WDN.unlalert.current_id = uniqueID;
-			
-			// Add a div to store the html content
-			if (WDN.jQuery("#alertbox").length === 0) {
-				// Add the alert icon to the tool links
-				WDN.jQuery('#wdn_tool_links').prepend('<li style="border-color:#cba166;background:#f1e887;"><a id="unlalerttool" class="alert tooltip" title="Emergency Alert: An alert has been issued!" href="#alertbox">UNL Alert</a></li>');
-				WDN.jQuery('#maincontent').append('<div id="alertbox" style="display:none"></div>');
-				WDN.jQuery('#unlalerttool').click(
-					function() {
-						WDN.jQuery('#alertbox').show();
-						WDN.jQuery(document).bind('cbox_closed', WDN.unlalert.closeAlert);
-						WDN.jQuery('#unlalerttool').colorbox({inline:true,width:"640px",href:"#alertbox",open:true});
-						return false;
-					});
+			for (var i = 0; i < root.length; i++) {
+				if (root[i].severity !== 'Extreme') {
+					continue;
+				}
+				
+				var uniqueID = root[i].parameter.value;
+				activeIds.push(uniqueID);
+				
+				if (!allAck || !WDN.unlalert.alertWasAcknowledged(uniqueID)) {
+					allAck = false;
+				}
+				
+				// Add a div to store the html content
+				if (!$alertBox.length) {
+					$alertBox = WDN.jQuery('<div id="alertbox" />').appendTo('#maincontent').hide();
+					$alertContent = WDN.jQuery('<div class="two_col right" />').appendTo($alertBox)
+						.parent().prepend('<div class="col left"><img src="/wdn/templates_3.0/css/images/alert/generic.png" alt="An emergency has been issued" /></div>').end();
+				} else if (i === 0) {
+					$alertContent = $alertBox.children('.two_col').empty();
+				}
+				
+				var alertTitle = root[i].headline;
+				var alertDescription = root[i].description;
+				var effectiveDate = root[i].effective || '';
+				if (effectiveDate.length) {
+					// transform the ISO effective date into a JS date by inserting a missing colon
+					effectiveDate = new Date(effectiveDate.slice(0, -2) + ":" + effectiveDate.slice(-2)).toLocaleString();
+				}
+				
+				var alertContentHTML = '<h1 class="sec_header">UNL Alert: ' + alertTitle + '</h1>';
+				if (effectiveDate) {
+					alertContentHTML += '<h4 class="effectiveDate">Issued at ' + effectiveDate + '</h4>';
+				}
+				alertContentHTML += '<p>'+ alertDescription +'<!-- Number '+uniqueID+' --></p>';
+				$alertContent.append(alertContentHTML);
 			}
 			
-			// Add the alert box content
-			WDN.jQuery('#alertbox').html('<div id="alertboxContent">' +
-					'<div class="col left">' +
-						'<img src="/wdn/templates_3.0/css/images/alert/generic.png" alt="An emergency has been issued" />' +
-					'</div>' +
-					'<div class="two_col right" style="width:70%;">' +
-						'<h1 class="sec_header">Emergency Alert: An alert has been issued!' +
-						'<h4>' + alertTitle + '<span class="effectiveDate">' + effectiveDate + '</span></h4>' +
-						'<p>'+ alertDescription +'<!-- Number '+uniqueID+' --></p>' +
-					'</div>' +
-			'</div>');
+			if ($alertBox.length && firstAlert) {
+				// Add the alert icon to the tool links
+				WDN.jQuery('#wdn_tool_links').prepend('<li class="focus"><a id="unlalerttool" class="alert" title="UNL Alert: An alert has been issued." href="#alertbox">UNL Alert</a></li>');
+				WDN.tooltip.addTooltip(WDN.jQuery('#unlalerttool'));
+				WDN.jQuery('#unlalerttool').click(function() {
+					$alertBox.show();
+					WDN.jQuery(document).bind('cbox_closed', WDN.unlalert.closeAlert);
+					WDN.jQuery('#unlalerttool').colorbox({inline:true,width:"640px",href:"#alertbox",open:true});
+					return false;
+				});
+			}
 			
-			if (WDN.unlalert.alertWasAcknowledged(uniqueID)) {
+			if (allAck) {
 				//debug statement removed
 				// Ignore this alert... the user has already acknowledged it.
 			} else {
@@ -12293,7 +12489,9 @@ WDN.unlalert = function() {
 		closeAlert: function() {
 			//create alert box
 			WDN.jQuery('#alertbox').hide();
-			WDN.unlalert._acknowledgeAlert(WDN.unlalert.current_id);
+			for (var i = 0; i < activeIds.length; i++) {
+				WDN.unlalert._acknowledgeAlert(activeIds[i]);
+			}
 		}
 	};
 }();
@@ -12311,20 +12509,16 @@ unlAlerts.server = {
 		
 		if (alertInfo) {
 			//debug statement removed
-			if (alertInfo.length) {
-				for (var i = 0; i < alertInfo.length; i++) {
-					//debug statement removed
-					WDN.unlalert.alertUser(alertInfo[i], alertInfo[i].parameter.value);
-				}
-				return true;
-			}
-			//debug statement removed
-			return WDN.unlalert.alertUser(alertInfo, alertInfo.parameter.value);
+			WDN.unlalert.alertUser(alertInfo);
+			
+			return true;
 		}
 
+		WDN.setCookie('unlAlertsA', '', -1);
 		return false;
 	}
 };
+
 WDN.loadedJS["/wdn/templates_3.0/scripts/unlalert.js"]=1;
 /**
  * Fetches the contents of a URL into a div.

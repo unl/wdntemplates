@@ -92,8 +92,8 @@ body.mobile #wdn_content_wrapper {
 #maincontent .two_col,
 #maincontent .three_col,
 #maincontent .four_col {
-	width:auto !important;
-	margin:0px;
+    width:auto !important;
+    margin:0px;
 }
 #maincontent input {font-size:1em;}
 #maincontent p.caption {z-index:0;}

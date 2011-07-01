@@ -17,7 +17,8 @@ if (!preg_match('/\.unl\.edu/', $_GET['u'])
 	&& !preg_match('/quiltstudy\.org/', $_GET['u'])
 	&& !preg_match('/digital-community\.com/', $_GET['u'])
     && !preg_match('/huskeralum\.org/', $_GET['u'])
-    && !preg_match('/huskeralum\.com/', $_GET['u'])) {
+    && !preg_match('/huskeralum\.com/', $_GET['u'])
+    && !preg_match('/throughtheeyes.org/', $_GET['u'])) {
     throwError('Requested host is not allowed');
 }
 
@@ -43,32 +44,41 @@ $p->breadcrumbs = str_replace('<a href="http://admissions.unl.edu/apply/" title=
 
 function removeRelativePaths($html, $base_url)
 {
+    $needles = array('href="', 'src="', 'background="', 'loadCSS("', 'loadCSS(\'');
+    $new_base_url = $base_url;
+    $base_url_parts = parse_url($base_url);
 
-    $needles = array('href="', 'src="', 'background="','href=\'','src=\'');
-    $base_url = new SplFileInfo($base_url);
-    $base_url = $base_url->getPath().'/';
+    if (substr($base_url, -1) != '/') {
+        $path = pathinfo($base_url_parts['path']);
+        $new_base_url = substr($new_base_url, 0, strlen($new_base_url)-strlen($path['basename']));
+    }
 
     foreach ($needles as $needle) {
         $new_txt = '';
         while ($pos = strpos($html, $needle)) {
             $pos += strlen($needle);
-            if (substr($html,$pos,7) != 'http://'
-                 && substr($html,$pos,8) != 'https://'
-                 && substr($html,$pos,6) != 'ftp://'
-                 && substr($html,$pos,9) != 'mailto://') {
-                 $new_txt .= substr($html,0,$pos).$base_url;
+            if (substr($html, $pos, 7) != 'http://'
+                && substr($html, $pos, 8) != 'https://'
+                && substr($html, $pos, 6) != 'ftp://'
+                && substr($html, $pos, 7) != 'mailto:'
+                && substr($html, $pos, 1) != '#') {
+                if (substr($html, $pos, 1) == '/') {
+                    $new_txt .= substr($html, 0, $pos).$base_url_parts['scheme'].'://'.$base_url_parts['host'];
+                } else {
+                    $new_txt .= substr($html, 0, $pos).$new_base_url;
+                }
             } else {
-                $new_txt .= substr($html,0,$pos);
+                $new_txt .= substr($html, 0, $pos);
             }
-            $html = substr($html,$pos);
+            $html = substr($html, $pos);
         }
         $html = $new_txt.$html;
     }
     return $html;
 }
 
-foreach (array('maincontentarea','head') as $key) {
-	$p->$key = removeRelativePaths($p->$key, $_GET['u']);
+foreach (array('maincontentarea','head', 'doctitle') as $key) {
+	$p->$key = str_replace(array('//<![CDATA[', '//]]>'), ' ', removeRelativePaths($p->$key, $_GET['u']));
 }
 
 
@@ -91,9 +101,9 @@ echo ''.PHP_EOL;
     
     $Id: fixed.dwt 414 2009-07-09 21:05:52Z bbieber2 $
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/debug.css" />
 <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
+<script type="text/javascript" src="/wdn/templates_3.0/scripts/debug.js"></script>
 <?php include 'wdn/templates_3.0/includes/browserspecifics.html'; ?>
 <?php include 'wdn/templates_3.0/includes/metanfavico.html'; ?>
 <!-- InstanceBeginEditable name="doctitle" -->
@@ -115,11 +125,11 @@ echo ''.PHP_EOL;
         <div id="breadcrumbs">
             <!-- WDN: see glossary item 'breadcrumbs' -->
             <!-- InstanceBeginEditable name="breadcrumbs" -->
-            <?php echo $p->breadcrumbs; ?>
+            <?php echo (isset($p->breadcrumbs))?$p->breadcrumbs:''; ?>
         <!-- InstanceEndEditable --></div>
         <div id="wdn_navigation_wrapper">
             <div id="navigation"><!-- InstanceBeginEditable name="navlinks" -->
-                <?php echo $p->navlinks; ?>
+                <?php echo (isset($p->navlinks))?$p->navlinks:''; ?>
                 <!-- InstanceEndEditable --></div>
         </div>
     </div>
@@ -127,6 +137,7 @@ echo ''.PHP_EOL;
         <div id="titlegraphic"><!-- InstanceBeginEditable name="titlegraphic" -->
             <?php echo $p->titlegraphic; ?>
             <!-- InstanceEndEditable --></div>
+        <div id="pagetitle"><!-- InstanceBeginEditable name="pagetitle" --><?php echo (isset($p->pagetitle))?$p->pagetitle:''; ?><!-- InstanceEndEditable --></div>
         <div id="maincontent">
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             <!-- InstanceBeginEditable name="maincontentarea" -->
@@ -141,20 +152,17 @@ echo ''.PHP_EOL;
             <div class="footer_col">
                 <?php include 'wdn/templates_3.0/includes/feedback.html'; ?>
             </div>
-            <div class="footer_col">
-            	<?php include 'wdn/templates_3.0/includes/socialmediashare.html'; ?>
-            </div>
             <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
-            <?php echo $p->leftcollinks; ?>
+            <?php echo (isset($p->leftcollinks))?$p->leftcollinks:''; ?>
             <!-- InstanceEndEditable --></div>
             <div class="footer_col"><!-- InstanceBeginEditable name="contactinfo" -->
-                <!--#include virtual="sharedcode/footerContactInfo.html" -->
+                <?php echo (isset($p->contactinfo))?$p->contactinfo:''; ?>
             <!-- InstanceEndEditable --></div>
-            <!-- InstanceBeginEditable name="optionalfooter" -->
-            <?php echo $p->optionalfooter; ?>
-            <!-- InstanceEndEditable -->
+            <div class="footer_col">
+                <?php include 'wdn/templates_3.0/includes/socialmediashare.html'; ?>
+            </div>
             <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
-                <?php echo $p->footercontent; ?>
+                <?php echo (isset($p->footercontent))?$p->footercontent:''; ?>
                 <!-- InstanceEndEditable -->
                 <ul>
                     <li><a href="http://validator.unl.edu/check/referer">W3C</a></li>

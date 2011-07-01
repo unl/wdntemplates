@@ -170,29 +170,25 @@ var WDN = function() {
                 (navigator.userAgent.match(/firefox/i) && (navigator.userAgent.match(/firefox\/[12]/i) || navigator.userAgent.match(/firefox\/3.[01234]/i))) ||
                 (navigator.userAgent.match(/msie/i))){
                 // old browser needs help zebra striping
-                WDN.jQuery('table.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
-                WDN.jQuery('table.zentable tbody tr:nth-child(even)').addClass('rowEven');
+                WDN.jQuery('.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
+                WDN.jQuery('.zentable tbody tr:nth-child(even)').addClass('rowEven');
             } 
 		},
 		
 		screenAdjustments : function() {
 			if (screen.width<=1024) {
 				WDN.jQuery('body').css({'background':'#e0e0e0'});
-				WDN.jQuery('#wdn_wrapper').css({'border-left-width':'0','border-right-width':'0'});
 				if (WDN.jQuery.browser.msie) {
 					WDN.jQuery('#wdn_wrapper').css({'margin':'0 0 0 5px'});
-				} else if (WDN.jQuery.browser.mozilla) {
-					WDN.jQuery('#wdn_wrapper').css({'-moz-border-radius':'0'}); 
-				} else if (WDN.jQuery.browser.webkit) {
-					WDN.jQuery('#wdn_wrapper').css({'-webkit-border-radius':'0'}); 
 				}
 			}
 		},
 		
 		contentAdjustments : function () {
+			WDN.jQuery('#footer_floater').css("zoom", 1);
 			WDN.jQuery('#maincontent p.caption, #footer p.caption').each(function(i){
 				if (WDN.jQuery(this).height()>20) {
-					WDN.jQuery(this).css({border:'1px solid #ededed',marginleft:'0'});
+					WDN.jQuery(this).css({border:'1px solid #DDD',marginleft:'0'});
 				}
 				//set the caption to the same width as the image it goes with so that a long caption doesn't spill over
 				var imgWidth = WDN.jQuery(this).prev('img').width();
@@ -447,8 +443,6 @@ WDN.loadedJS["/wdn/templates_3.0/scripts/wdn.js"]=1;
 var _gaq = _gaq || [];
 analytics = function() { 
 	return {
-		//thisURL : String(window.location), //the current page the user is on.
-		//rated : false, // whether the user has rated the current page.
 		initialize : function() {
 			_gaq.push(
 				['_setAccount', 'UA-3203435-1'],
@@ -456,94 +450,25 @@ analytics = function() {
 				['_setAllowLinker', true],
 				['_setAllowHash', false]
 			);
+			_gaq.push(
+				['m._setAccount', 'UA-3203435-4'],
+				['m._setDomainName', '.unl.edu'],
+				['m._setAllowLinker', true],
+				['m._setAllowHash', false]
+			);
 			
 			analytics.loadGA();
 		},
 		
 		loadGA : function(){
-			_gaq.push(['_trackPageview']);
+			_gaq.push(['_trackPageview'],['m._trackPageview']);
 			
 			(function(){
 				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
-			//analytics.setupHTML5tracking.intialize(); In it's current setup, there is too much reliance on WDN. We either need to bring in WDN to mobile or rework all of below for mobile.
-		}/*,
-		callTrackEvent: function(category, action, label, value) {
-			if (value === undefined) {
-				value = 0;
-			}
-			//var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
-			_gaq.push(['_trackEvent', category, action, label, value]);
-		},
-		
-		setupHTML5tracking: function() {
-			
-			return {
-				intialize : function() {
-					WDN.loadJS(
-						'http://github.com/Modernizr/Modernizr/raw/master/modernizr.js', 
-						function(){
-							if (!window.Modernizr) {
-							    //debug statement removed
-							    return;
-							}
-							
-							WDN.analytics.setupHTML5tracking.checkCookie(Modernizr._version);
-						}
-					);	
-				},
-				
-				checkCookie : function(mdVersion){
-					var userAgent = navigator.userAgent.toLowerCase();//grab the broswer User Agent
-					uAgent = userAgent.replace(/;/g, ''); //strip out the ';' so as not to bork the cookie
-					var __html5 = WDN.getCookie('__html5'); //Previous UNL HTML5 test
-					
-					if (!__html5) { //We haven't run this test before, so let's do it.
-						//debug statement removed
-						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
-						return;
-					}
-					
-					var unlHTML5 = __html5.split('|+|');
-					//Let's check to see if either the browser or modernizr has changed since the last tracking
-					if ((uAgent != unlHTML5[0]) || (mdVersion != unlHTML5[1])){
-						//debug statement removed
-						WDN.analytics.setupHTML5tracking.setCookie(uAgent, mdVersion);
-					} else { //we have a match and nothing has changed, so do nothing more.
-						//debug statement removed
-						return;
-					}
-				},
-				
-				setCookie : function(uAgent, mdVersion) {
-					var name = '__html5';
-					var value = uAgent +'|+|'+mdVersion; //combine gaVisitorID and Modernizr version
-					WDN.setCookie(name, value, 31556926); //set a cookie for one year
-					WDN.analytics.setupHTML5tracking.testBrowser();
-				},
-				
-				testBrowser : function(){
-					for (var prop in Modernizr) {
-						if (typeof Modernizr[prop] === 'function') continue;
-						if (prop == 'inputtypes' || prop == 'input') {
-							for (var field in Modernizr[prop]) {
-								if (Modernizr[prop][field]){
-									////debug statement removed
-									WDN.analytics.callTrackEvent('HTML5/CSS3 Support', prop + '-('+field+')', '');
-								}
-							}
-						} else {
-							if(Modernizr[prop]){
-								////debug statement removed
-								WDN.analytics.callTrackEvent('HTML5/CSS3 Support', prop, '');
-							}
-						}
-					}
-				}
-			};
-		}()*/
+		}
 	};
 }();
 analytics.initialize();

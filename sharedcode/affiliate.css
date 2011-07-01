@@ -121,11 +121,11 @@ background:url(/sharedcode/affiliate_imgs/downIndicators.png) no-repeat;
 background-color: #654424;
 }
 
-table.zentable.primary tbody tr:nth-child(2n+1) td, .zentable table.zentable.primary tbody tr:nth-child(2n+1) td {
+.zentable.primary tbody tr:nth-child(2n+1) td {
 background-color: #f5efe8!important;
 }
 
-table.zentable.primary tbody td, .zentable table.zentable.primary tbody td {
+.zentable.primary tbody td {
 border-color: #CFB59B;
 }
 
@@ -135,11 +135,11 @@ background-color: #0F4F66;
 color: #fff;
 }
 
-table.zentable.cooler tbody tr:nth-child(2n+1) td, .zentable table.zentable.cooler tbody tr:nth-child(2n+1) td {
+.zentable.cooler tbody tr:nth-child(2n+1) td {
 background-color: #EFF7FF!important;
 }
 
-table.zentable.cooler tbody td, .zentable table.zentable.cooler tbody td {
+.zentable.cooler tbody td {
 border-color: #bdd7f7;
 }
 
@@ -214,6 +214,3 @@ color: #0081AF;
 #footer a:focus, #footer a:active {
 color: #00BCFF;
 }
-
-
-

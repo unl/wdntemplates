@@ -1,61 +1,57 @@
-#maincontent h1, #maincontent h2, #maincontent h3, #colorbox h1, #colorbox h2{
-    line-height:1.2;
-    font-weight: normal;
+#maincontent h1, #maincontent h2, #maincontent h3, #colorbox h1, #colorbox h2, #maincontent h4, #maincontent h5, #maincontent h6, #colorbox h4 {
+    line-height: 1.2;
+    font-weight: 500;
     padding-top: .2em;
     padding-bottom: .3em;
-    color:#6b6b6b;
-    font-family:Helvetica, Arial, sans-serif;
-    }
+    color: #555;
+    font-family: Helvetica, "Lucida Grande", Verdana, Arial;
+}
 
-#maincontent h4, #maincontent h5, #maincontent h6, #colorbox h4{
-    line-height:1.2;
-    font-weight: normal;
+#maincontent h4, #maincontent h5, #maincontent h6, #colorbox h4 {
     padding-top: .1em;
     padding-bottom: .2em;
-    color:#6b6b6b;
-    font-family:Helvetica, Arial, sans-serif;   
-    }
+}
 
-#maincontent h1, #colorbox h1{
+#maincontent h1, #colorbox h1 {
     font-size: 1.8em;
-    }
-        
-#maincontent h2, #colorbox h2{
+}
+
+#maincontent h2, #colorbox h2 {
     font-size: 1.7em;
-    }
-        
-#maincontent h3{
+}
+
+#maincontent h3 {
     font-size: 1.6em;
-    }
+}
 
-#maincontent h4, #colorbox h4{
+#maincontent h4, #colorbox h4 {
     font-size: 1.4em;
-    }
+}
 
-#maincontent h5{
+#maincontent h5 {
     font-size: 1.3em;
-    }
+}
 
-#maincontent h6{
+#maincontent h6 {
     font-size: 1.1em;
-    }
+}
 #maincontent .sec_header, #colorbox .sec_header {
-	padding-bottom:0;
-	border-bottom: #e5e5e5 2px solid;
-	margin-bottom:1.03em;
+    padding-bottom: 0;
+    border-bottom: #DDD 2px solid;
+    margin-bottom: 1.03em;
 }
 #maincontent .sec_main, #colorbox .sec_main {
-	background: #e5e5e5;
-	border-left:3px solid #c5c5c5;
-	border-radius:3px;
-	padding:0.1em 8px 0em 5px;
-	margin:3px 0 3px 0;
-	margin-bottom:1.01em;
+    background: #DDD;
+    border-left: 3px solid #c5c5c5;
+    border-radius: 3px;
+    padding: 0.1em 8px 0em 5px;
+    margin: 3px 0 3px 0;
+    margin-bottom: 1.01em;
 }
 #maincontent .zenboxsolid h3.sec_main,
 #maincontent .zenboxfixed h3.sec_main,
 #maincontent .zenboxfeature h3.sec_main,
 #maincontent .zenbox h3.sec_main {
-	border-radius:0px;
-	border-left:none;
+    border-radius: 0px;
+    border-left: none;
 }

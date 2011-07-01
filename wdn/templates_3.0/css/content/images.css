@@ -48,37 +48,37 @@
 #footer img.frame,
 #cboxLoadedContent img.frame
 {
-    border:1px solid #ededed;
+    border:1px solid #DDD;
     border-radius:3px;
     background: #f7f7f7;
-	padding:4px;
+    padding:4px;
     margin: 0 0 10px 0;
-	white-space:normal;
-	line-height:0.8em;
+    white-space:normal;
+    line-height:0.8em;
 }
 
 #maincontent p.caption, #footer p.caption { 
-	line-height:normal;
-	background:#f7f7f7;
-	border:1px solid #ededed;
-	border-radius:3px;
-	border-top:none;
-	padding:2px 4px 5px;
-	text-align:left;
-	color:#555;
-	font-size:80%;
-	position:relative;
-	margin-top:-16px;
-	z-index:2; 
-	display:block;
+    line-height:normal;
+    background:#f7f7f7;
+    border:1px solid #DDD;
+    border-radius:3px;
+    border-top:none;
+    padding:2px 4px 5px;
+    text-align:left;
+    color:#555;
+    font-size:80%;
+    position:relative;
+    margin-top:-16px;
+    z-index:2; 
+    display:block;
 }
 
 #maincontent .image_large a.imagetag {
-	position: absolute;
-	background: none;
-	top:0;
-	left:0;
-	}
+    position: absolute;
+    background: none;
+    top:0;
+    left:0;
+    }
 
 /*
 /
@@ -89,43 +89,43 @@
 
 .image_large a img, 
 .image_medium a img {
-	width:auto;
-	height:auto;
-	}
-	
+    width:auto;
+    height:auto;
+    }
+    
 #imagetag, .imagetag {
-	width:auto;
-	height:auto;
-	}
+    width:auto;
+    height:auto;
+    }
 
 .image_large img{
-	margin: 0 auto;
-	}
+    margin: 0 auto;
+    }
 
 
 img.right_image {
-	float: right;
-	margin: 3px 0 0 7px;
-	padding: 3px;
-	border: 1px solid #ccc;
-	}
+    float: right;
+    margin: 3px 0 0 7px;
+    padding: 3px;
+    border: 1px solid #ccc;
+    }
 
 img.left_image {
-	float: left;
-	margin: 3px 7px 0 0;
-	padding: 3px;
-	border: 1px solid #ccc;
-	}
-	
+    float: left;
+    margin: 3px 7px 0 0;
+    padding: 3px;
+    border: 1px solid #ccc;
+    }
+    
 img.center_image {
-	float:none;
-	margin: 3px 7px 0 0;
-	padding: 3px;
-	border: 1px solid #ccc;
-	}
+    float:none;
+    margin: 3px 7px 0 0;
+    padding: 3px;
+    border: 1px solid #ccc;
+    }
 
 .unl_liquid_pictureframe{
-	display:inline-block;
+    display:inline-block;
     background:url(/ucomm/templatedependents/templatecss/images/promo_680x210.gif) no-repeat left bottom;
     padding-bottom:15px;
     position:relative;
@@ -133,7 +133,7 @@ img.center_image {
     }
 
 .unl_liquid_pictureframe_inset {
-	display:inline-block;
+    display:inline-block;
     background:#fff;
     border:1px solid #d1cfcf;
     padding:4px;
@@ -141,7 +141,7 @@ img.center_image {
     }
 
 .unl_liquid_pictureframe_footer{
-	display:inline-block;
+    display:inline-block;
     background:url(/ucomm/templatedependents/templatecss/images/promo_680x210.gif) no-repeat right bottom;
     position:absolute;
     margin:0 -2px 0 0;

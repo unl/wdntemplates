@@ -1,83 +1,86 @@
-/*
-All styles for the header
-Created: 05/22/2009
-Last edited: 05/22/2009
-Author: WDN
-
-*/
-
 @import url('toolbar.css');
 @import url('idm.css');
 
 #header {
-    background:url('images/headBG.png') no-repeat top left;
-    margin:-39px -11px -22px -13px;
-    padding:12px;
-    position:relative;
-    min-height:115px;
+    margin: -49px -12px 0 -12px;
+    position: relative;
 }
-#header:after {
-	display:block;
-	content:'';
-	width:100%;
-	height:53px;
-	margin: -42px -5px 0 2px;
-	z-index:1000;
+#header > a {
+    background: #fff;
+    border-radius: 5px;
+    float: left;
+    display: inline-block;
+    margin-top: 12px;
+    padding: 12px 12px 0 12px;
 }
 #header h1 {
-	display:block;
-	height:36px;
-    width:480px;
-	position:absolute;
-	background:url('../../images/title.png') no-repeat;
-	text-indent:-9000em;
-	overflow:hidden;
-	top:40px;
-    left:114px;
+    margin: 13px 0 0 0;
+    padding: 12px 10px;
+    float: left;
+    background: url('images/bottomLeftCorner.png') bottom left no-repeat;
+    color: #3e3e3e;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    line-height: 0;
+    font-weight: normal;
+    text-shadow: 0 0 3px #fff;
 }
-
+#titlegraphic h1 {
+    padding: 4px 15px;
+    position: absolute;
+    top: 10px;
+    left: 84px;
+    font-size: 40px;
+    letter-spacing: -1px;
+    text-shadow: 0 0 3px #fff;
+    font-weight: normal;
+}
+#titlegraphic h1,
+#titlegraphic h1 a {
+    text-decoration: none;
+    color: #555;
+}
+#titlegraphic h2 {
+    display: none;
+}
 #wdn_search {
-    background:url('images/searchBG.png') no-repeat;
-    width:360px;
-    height:54px;
-    overflow:hidden;
-    position:absolute;
-    right:-3px;
-    top:2px;
-    color:#808080;
-    font-family:Helvetica, arial;
+    float: right;
+    max-height: 37px;
+    background: #b70302; /* old browsers */
+    background-image: -moz-linear-gradient(top, #b70302 0%, #9d0201 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b70302), color-stop(100%,#9d0201));
+    padding: 8px 10px 8px 10px;
+    margin: -9px 12px 0 0;
+    border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
 }
 #wdn_search form label {
-    position:absolute;
-    z-index:10;
-    left:20px;
-    top:20px;
-    display:none;
-    font-weight:normal;
+    display: none;
+    position: absolute;
+    margin: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 0.8em;
+    color: #a1a1a1;
 }
 #wdn_search form #q {
-	position:absolute;
-	left:13px;
-	top:12px;
-	width:285px;
-	font-size:1em;
-	z-index:9;
-	border:1px solid #e09a9a;
-	border-top-color:#da6868;
-	padding:4px;
-	color:#808080;
+    border: 1px solid #e18887;
+    font-size: 10px;
+    padding: 3px 22px 3px 4px;
+    line-height: 1.4em;
+    width: 263px;
 }
 #wdn_search .search {
-    position:absolute;
-    right:18px;
-    top:12px;
-    background:url('images/searchMagnifyGlass.png') no-repeat;
-    display:block;
-    width:31px;
-    height:29px;
-    text-indent:-9999em;
-    border:none;
+    background: url('images/searchMagnifyGlass.png') no-repeat;
+    text-indent: -9999em;
+    border: none;
+    width: 18px;
+    height: 19px;
+    display: block;
+    position: absolute;
+    right: 26px;
+    top: 1px;
 }
 #wdn_search .search:hover {
-	cursor:pointer;
+    cursor: pointer;
 }

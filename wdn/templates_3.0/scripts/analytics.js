@@ -22,7 +22,8 @@ WDN.analytics = function() {
 				['wdn._setAccount', 'UA-3203435-1'],
 				['wdn._setDomainName', '.unl.edu'],
 				['wdn._setAllowLinker', true],
-				['wdn._setAllowHash', false]
+				['wdn._setAllowHash', false],
+				['wdn._trackPageLoadTime']
 			);
 			
 			WDN.loadJS('wdn/templates_3.0/scripts/idm.js', function(){

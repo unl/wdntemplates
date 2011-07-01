@@ -1,0 +1,10 @@
+/*
+ * jQuery.SerialScroll - Animated scrolling of series
+ * Copyright (c) 2007-2009 Ariel Flesler - aflesler(at)gmail(dot)com | http://flesler.blogspot.com
+ * Dual licensed under MIT and GPL.
+ * Date: 06/14/2009
+ * @author Ariel Flesler
+ * @version 1.2.2
+ * http://flesler.blogspot.com/2008/02/jqueryserialscroll.html
+ */
+(function(b){var k=b.serialScroll=function(a){b.scrollTo.window().serialScroll(a)};k.defaults={duration:1E3,axis:"x",event:"click",start:0,step:1,lock:!0,cycle:!0,constant:!0};b.fn.serialScroll=function(a){var a=b.extend({},k.defaults,a),h=a.event,l=a.step,s=a.lazy;return this.each(function(){function g(a){a.data+=j;e(a,this)}function e(m,b){if(!isNaN(b))m.data=b,b=n;var c=m.data,e=m.type,f=a.exclude?i().slice(0,-a.exclude):i(),h=f.length,o=f[c],g=a.duration;e&&m.preventDefault();p&&(clearTimeout(q),q=setTimeout(k,a.interval));if(!o){c=c<0?0:h-1;if(j==c)if(a.cycle)c=h-c-1;else return;o=f[c]}if(o&&!(e&&j==c||a.lock&&d.is(":animated")||e&&a.onBefore&&a.onBefore.call(b,m,o,d,i(),c)===!1))a.stop&&d.queue("fx",[]).stop(),a.constant&&(g=Math.abs(g/l*(j-c))),d.scrollTo(o,g,a).trigger("notify.serialScroll",[c])}function k(){d.trigger("next.serialScroll")}function i(){return b(t,n)}function u(a){if(!isNaN(a))return a;for(var b=i(),c;(c=b.index(a))==-1&&a!=n;)a=a.parentNode;return c}var r=a.target?this:document,d=b(a.target||this,r),n=d[0],t=a.items,j=a.start,p=a.interval,f=a.navigation,q;s||(t=i());a.force&&e({},j);b(a.prev||[],r).bind(h,-l,g);b(a.next||[],r).bind(h,l,g);n.ssbound||d.bind("prev.serialScroll",-l,g).bind("next.serialScroll",l,g).bind("goto.serialScroll",e);p&&d.bind("start.serialScroll",function(){p||(clearTimeout(q),p=!0,k())}).bind("stop.serialScroll",function(){clearTimeout(q);p=!1});d.bind("notify.serialScroll",function(a,b){var c=u(b);c>-1&&(j=c)});n.ssbound=!0;a.jump&&(s?d:i()).bind(h,function(a){e(a,u(a.target))});f&&(f=b(f,r).bind(h,function(a){a.data=Math.round(i().length/f.length)*f.index(this);e(a,this)}))})}})(WDN.jQuery);

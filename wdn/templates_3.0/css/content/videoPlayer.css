@@ -1,139 +1,141 @@
 video.fullscreen {
-    width:100%;
-    height:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:9000;	
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9000;    
 }
 video.fullscreen + .wdnVideo_controls {
-    z-index:9001;
-    position:fixed;
-    left:0;	
+    z-index: 9001;
+    position: fixed;
+    left: 0;    
 }
 #videoBlackout {
-    width:100%;
-    height:100%;
-    background:#000;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:8999; 
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 8999;
 }
 .wdnVideo_controls {
-    padding:10px;
-    position:relative;
-    z-index:9;
-    bottom:62px;
-    opacity:0.8;
+    padding: 10px;
+    position: relative;
+    z-index: 9;
+    bottom: 62px;
+    opacity: 0.8;
     min-width: 250px;
-    font: normal normal normal 77%/140% 'Lucida Grande', Verdana, Arial;
+    font-size: 77%;
+    line-height: 140%;
+    font-weight: normal;
 }
 
 .wdnVideo_controls div, span, p, a, ol, ul, li, button {
-	background: transparent;
-	border: 0px;
-	font-size: 100%;
-	margin: 0px;
-	outline: 0px;
-	padding: 0px;
-	vertical-align: baseline;
+    background: transparent;
+    border: 0px;
+    font-size: 100%;
+    margin: 0px;
+    outline: 0px;
+    padding: 0px;
+    vertical-align: baseline;
 }
 .wdnVideo_controls .play_pause, .wdnVideo_controls .progress {
-    display:inline-block;
-    background:#ac0302;
-    border:none;
-    border-radius:5px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    float:left;
-    position:absolute;
+    display: inline-block;
+    background: #ac0302;
+    border: none;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    float: left;
+    position: absolute;
 }
 .wdnVideo_controls .play_pause {
-	width:60px;
-    height:40px;
-	padding:10px 21px;
+    width: 60px;
+    height: 40px;
+    padding: 10px 21px;
 }
 .wdnVideo_controls .play_pause span {
-    background:url('images/videoplayer/controls.png') no-repeat;
-    width:18px;
-    height:20px;
-    display:block;
-    text-indent:-99999px; 
+    background: url('images/videoplayer/controls.png') no-repeat;
+    width: 18px;
+    height: 20px;
+    display: block;
+    text-indent: -99999px; 
 }
 .wdnVideo_controls .play_pause.play span {
-    background-position:0px -20px;	
+    background-position: 0px -20px;    
 }
-.wdnVideo_controls .volume, .wdnVideo_controls .fullscreen, .wdnVideo_controls .time, .wdnVideo_controls .progressBar {display:inline-block;}
-.wdnVideo_controls .volume, .wdnVideo_controls .fullscreen {float:right;}
+.wdnVideo_controls .volume, .wdnVideo_controls .fullscreen, .wdnVideo_controls .time, .wdnVideo_controls .progressBar {display: inline-block;}
+.wdnVideo_controls .volume, .wdnVideo_controls .fullscreen {float: right;}
 .wdnVideo_controls .progress { /*width set by JS based on video width */
-    display:inline-block;
-    padding:6px 10px;
-    max-height:30px;
-    left:80px;
+    display: inline-block;
+    padding: 6px 10px;
+    max-height: 30px;
+    left: 80px;
     margin: 10px 10px 0 0;
-    position:absolute;
-    right:10px;
+    position: absolute;
+    right: 10px;
 }
 .wdnVideo_controls .progress .time {
-    font-size:0.8em;
+    font-size: 0.8em;
     font-weight: bold;
-    color:#fff;
-    margin-right:5px;
-    margin-top:1px;
-    position:absolute;
-    top:4px;
+    color: #fff;
+    margin-right: 5px;
+    margin-top: 1px;
+    position: absolute;
+    top: 4px;
 }
 .wdnVideo_controls .progress .progressBar {
-    height:10px;
-    width:auto;
-    border:1px solid #fff;
-    margin:0 60px 0 40px;
-    position:relative;
-    padding-right:3px;
-    display:block
+    height: 10px;
+    width: auto;
+    border: 1px solid #fff;
+    margin: 0 60px 0 40px;
+    position: relative;
+    padding-right: 3px;
+    display: block
 }
 .wdnVideo_controls .progress .progressBar span {
-	background:#d37676;
-	width:0%;
-	height:8px;
-	display:block;
-	border-right:4px solid #fff;
-	margin:1px;
-	margin-right:0px;
+    background: #d37676;
+    width: 0%;
+    height: 8px;
+    display: block;
+    border-right: 4px solid #fff;
+    margin: 1px;
+    margin-right: 0px;
 }
-#maincontent .wdnVideo_controls .progress .volume, #colorbox .wdnVideo_controls .progress .volume  {
-    padding:0;
-    margin:2px 5px 0 0;
-    position:absolute:
-    right:0px;	
+#maincontent .wdnVideo_controls .progress .volume, #colorbox .wdnVideo_controls .progress .volume {
+    padding: 0;
+    margin: 2px 5px 0 0;
+    position: absolute: 
+    right: 0px;    
 }
 .wdnVideo_controls .progress .volume li {
-    display:inline-block;
-    border-left:4px solid #fff;
-    width:2px;
-    height:10px;
-    opacity:0.4;
-    margin:0;
-    padding:0px;
+    display: inline-block;
+    border-left: 4px solid #fff;
+    width: 2px;
+    height: 10px;
+    opacity: 0.4;
+    margin: 0;
+    padding: 0px;
 }
 .wdnVideo_controls .progress .volume li.on {
-    opacity:0.9;	
+    opacity: 0.9;    
 }
 .wdnVideo_controls .progress .fullscreen {
-    width:12px;
-    height:12px;
-    margin-top:4px;
-    background:url('images/videoplayer/controls.png') no-repeat;
-    background-position:-3px -44px;
-    border:none;
-    padding:0;
+    width: 12px;
+    height: 12px;
+    margin-top: 4px;
+    background: url('images/videoplayer/controls.png') no-repeat;
+    background-position: -3px -44px;
+    border: none;
+    padding: 0;
 }
 .audioplayer {
-	height:50px;
+    height: 50px;
 }
 .audioplayer .title {
-	margin-left:80px;
-	color: #ba0000;
-	font-weight: bold;
+    margin-left: 80px;
+    color: #ba0000;
+    font-weight: bold;
 }

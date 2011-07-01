@@ -1,31 +1,19 @@
-#wdn_navigation_wrapper {
-	margin-right:24px;
-}
+body.liquid #wdn_wrapper,
+#header { zoom:1; }
+body.popup #header { left:0; }
 
-#wdn_wrapper  {
-	/*overflow:hidden;*/
-	border-top:12px solid #e0e0e0;
+#titlegraphic h1 {
+    top:10px;
 }
-#header {
-	margin-top:-12px;
-}
-
-#wdn_content_wrapper {
-	padding-bottom:22px;
-}
+body.popup #titlegraphic { zoom:1; }
 
 #tooltabs {
-	top:-11px;	
+    top:-11px;
 }
 
-#tooltabs a{
-	margin-top:20px;
-}
-
-#footer .footer_col h3,
 #toolbarcontent .toolbar_plugin h3 {
-	background-color:#ac0302;
-	margin-bottom:20px;
+    background-color:#ac0302;
+    margin-bottom:20px;
 }
 
 #maincontent div.zenboxsolid h3, #maincontent div.zenboxfixed h3, #maincontent div.zenboxfeature h3, #maincontent div.zenbox h3,
@@ -52,36 +40,70 @@
     margin: -13px 0 0 -7px !important;
 }
 #maincontent form.cool fieldset fieldset legend {
-	margin: 4px 0 !important;
+    margin: 4px 0 !important;
     top: 0 !important;
 }
 #maincontent form.compact fieldset legend {
     margin: -5px 0 0 -7px !important;
 }
 ul#wdn_tool_links li {
-	float:left;
-	width:20px;
+    float:left;
+    width:20px;
 }
 #wdn_tool_links a {
-	display:block;
+    display:block;
 }
 
-#breadcrumbs {
-	width:958px;
-}	
-
-#breadcrumbs ul li.selected {
-	position:relative;
-	margin-left:0px;
+/** CSS3 Workarounds for #navigation **/
+body.fixed #wdn_navigation_wrapper {*width:960px;}
+#navigation > ul > li.start  {
+    clear:left;
+}
+#navigation > ul > li.start > a  {
+    border-left:none;
+}
+#navigation > ul > li.end > a {
+    border-right:none;
+}
+#navigation > ul > li.mid-bar > a {
+    border-top:1px solid #870d0c;
 }
 
-#breadcrumbs ul li.selected a,
-#breadcrumbs ul li.selected a:link,
-#breadcrumbs ul li.selected a:visited 
-{
-	padding-right:36px;
-	background:url('navigation/images/tabBGLeft_IE7.png') 0 0 no-repeat;
+#navigation > ul > li > ul {
+    left:0;
 }
+#navigation > ul > li.start > ul {
+    border-left-color:#c9c9c9;
+    margin-left:0;
+}
+#navigation > ul > li.end > ul {
+    border-right:1px solid #c9c9c9 !important;
+    margin-right:0;
+}
+#navigation > ul > li ~ li.empty ~ li.empty.end ul {
+    width: 149px;
+}
+.nav_collapsed #navigation > ul > li.top-bars ul {
+    display: none;
+}
+
+#navigation > ul > li ul li.last a {border-bottom:none;}
+/** **/
+
+#footer { *width:984px; }
+body.liquid #footer,
+body.popup #footer { *width:auto; zoom:1; }
+
+#footer_floater { left: 0; }
+
+#wdn_copyright {
+    *margin: 0 -12px -23px;
+    *position: relative;
+}
+#wdn_logos { 
+    *right: 24px;
+}
+
 
 #wdn_navigation_bar,
 .nav_collapsed #wdn_navigation_bar {
@@ -89,44 +111,14 @@ ul#wdn_tool_links li {
 }
 
 .nav_expanded #navigation {
-	padding-bottom:44px;
+    padding-bottom:44px;
 }
 #wdn_search .search {
-	color:transparent;	
+    color:transparent;
 }
 #wdn_search_form input.search {
     color: transparent;
     text-transform: capitalize;
-}
-#footer {
-	padding-top:13px;
-	background-position:top;
-}
-#footer_floater {
-	width:960px;
-	padding-top:24px;
-}
-
-#footer ul.socialmedia {
-	clear:both;
-	padding:0 0 0 18px;
-	margin-bottom:-15px;
-}
-#footer ul.socialmedia li {
-	float:left;
-	width:26px;
-	padding-right:5px;
-}
-#footer ul.socialmedia li a {
-	display:block;
-}
-
-
-#wdn_copyright {
-	padding-top:6px;
-}
-#wdn_unl_wordmark {
-	margin: -52px 12px 0 0;
 }
 
 /* These are the additional, easier-to-use, selectors */
