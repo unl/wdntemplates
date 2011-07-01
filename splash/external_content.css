@@ -407,14 +407,12 @@ Big Ten Video Slide
     padding:10px 0;
     margin-bottom:20px;
 }
-.band > div {
-}
 /*
 *
 * Styles for the Become a Husker Section
 *
 */
-.callout {
+#maincontent .callout {
     border:4px solid #ccc;
     border-radius:3px;
     -webkit-border-radius:3px;
