@@ -114,6 +114,8 @@ WDN.navigation = (function() {
          * This function cleans up the navigation visual presentations
          */
         fixPresentation : function() {
+        	WDN.jQuery('#wdn_navigation_wrapper').removeClass('empty-secondary');
+        	
             var primaries = WDN.jQuery('#navigation > ul > li');
             var primaryCount = primaries.length;
             while (primaryCount % 6 > 0) {
@@ -131,9 +133,9 @@ WDN.navigation = (function() {
 
             // fix old IE for CSS3
             var majorIEVersion = WDN.jQuery.browser.version.split(".")[0];
+            var $bar_starts = WDN.jQuery('#navigation > ul > li:nth-child(6n+1)');
             if (WDN.jQuery.browser.msie && majorIEVersion < 9) {
                 WDN.log("Fixing IE CSS3");
-                var $bar_starts = WDN.jQuery('#navigation > ul > li:nth-child(6n+1)');
                 $bar_starts.addClass('start');
                 WDN.jQuery('#navigation > ul > li:nth-child(6n+6)').addClass('end');
                 WDN.jQuery('#navigation > ul > li:nth-child(n+7)').addClass('mid-bar');
@@ -192,6 +194,18 @@ WDN.navigation = (function() {
                 var row = Math.floor(i/6);
                 WDN.jQuery(this).css({'height':ul_h[row]+'px'});
             });
+
+            // look for no secondary links
+            if (!WDN.jQuery('li > a', secondaryLists).length) {
+            	WDN.jQuery('#wdn_navigation_wrapper').addClass('empty-secondary');
+            } else { // look for entire empty rows
+	            $bar_starts.each(function() {
+	            	var $primary_bar = WDN.jQuery(this).nextUntil(':nth-child(6n+1)').andSelf();
+	            	if (!WDN.jQuery('> ul li > a', $primary_bar).length) {
+	            		$primary_bar.addClass('row-empty');
+	            	}
+	            });
+            }
 
             // Fix liquid box-sizing
             if (WDN.jQuery('body').hasClass('liquid') && WDN.jQuery.browser.msie && majorIEVersion < 8) {
@@ -452,6 +466,7 @@ WDN.navigation = (function() {
 
             WDN.jQuery('#navloading').remove();
             WDN.jQuery('<div id="navloading" />').css(dimms).appendTo('#navigation');
+            WDN.jQuery('#wdn_navigation_wrapper').addClass('nav-loading');
 
             var nav_sniffer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
             nav_sniffer = nav_sniffer+escape(WDN.toAbs(breadcrumb.href, window.location));
@@ -480,6 +495,7 @@ WDN.navigation = (function() {
 
         setNavigationContents : function(contents, expand) {
             WDN.log('setNavigationContents called');
+            WDN.jQuery('#wdn_navigation_wrapper').removeClass('nav-loading');
             WDN.jQuery('#navigation').addClass('disableTransition');
             WDN.jQuery('#navloading').remove();
             WDN.jQuery('#navigation').children('ul').remove()

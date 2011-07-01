@@ -26,7 +26,11 @@
     background-position: 0 -30px;
 }
 
-.nav_pinned #wdn_navigation_bar .expand_toggle {
+.nav_pinned #wdn_navigation_bar .expand_toggle,
+#wdn_navigation_bar .empty-secondary .expand_toggle,
+#wdn_navigation_bar .empty-secondary .pin_state,
+#wdn_navigation_bar .nav-loading .expand_toggle,
+#wdn_navigation_bar .nav-loading .pin_state {
     display: none;
 }
 
@@ -241,15 +245,24 @@
 }
 
 /* Round the corners of the bottom row */
-#navigation > ul > li:nth-last-child(6) ul {
-    border-radius: 0 0 0 5px;
-    -webkit-border-radius: 0 0 0 5px;
-    -moz-border-radius: 0 0 0 5px;   
+#navigation > ul > li:nth-last-child(6) > ul,
+.empty-secondary #navigation > ul > li:nth-last-child(6) > a,
+#navigation > ul > li.row-empty:nth-last-child(6) > a {
+    border-bottom-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;   
 }
-#navigation > ul > li:last-child > ul {
-    border-radius: 0 0 5px 0;
-    -webkit-border-radius: 0 0 5px 0;
-    -moz-border-radius: 0 0 5px 0;
+#navigation > ul > li:last-child > ul,
+.empty-secondary #navigation > ul > li:last-child > a,
+#navigation > ul > li.row-empty:last-child > a {
+	border-bottom-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+}
+
+.empty-secondary #navigation > ul > li > ul,
+#navigation > ul > li.row-empty > ul {
+	display: none;
 }
 
 /* Don't display the the secondary ul's for the top rows */
