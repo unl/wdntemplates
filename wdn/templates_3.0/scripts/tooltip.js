@@ -1,4 +1,4 @@
-WDN.tooltip = function($) {
+WDN.tooltip = (function($) {
 	return {
 		initialize : function() {
 			WDN.log("initialize tooltip");
@@ -7,16 +7,15 @@ WDN.tooltip = function($) {
 		tooltipSetup : function() {
 			WDN.loadCSS('/wdn/templates_3.0/css/header/tooltip.css');
 			// Tooltips can only be used in the appropriate sections, and must have the correct class name and a title attribute
-			WDN.tooltip.addTooltip($('#wdn_tool_links .tooltip[title], #maincontent .tooltip[title], #footer .tooltip[title]'));
+			WDN.tooltip.addTooltips($('#wdn_tool_links .tooltip[title], #maincontent .tooltip[title], #footer .tooltip[title]'));
 		},
-		addTooltip : function($elements) {
+		addTooltips : function($elements) {
 			$elements.each(function() {
 				WDN.tooltip.addTooltip(this);
 			});
 		},
 		addTooltip: function(el) {
 			$(el).qtip({
-
 				content: $(el).attr('title'),
 				show: {
 					effect: { length: 0 }
@@ -39,8 +38,8 @@ WDN.tooltip = function($) {
 					},
 					'color' : '#504500'
 				},
-				position: { 
-					adjust: { 
+				position: {
+					adjust: {
 						screen: true,
 						y : -5
 					},
@@ -51,4 +50,4 @@ WDN.tooltip = function($) {
 			$(el).removeAttr('alt');
 		}
 	};
-}(WDN.jQuery);
+})(WDN.jQuery);
