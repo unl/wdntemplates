@@ -84,7 +84,8 @@ body.fixed #wdn_navigation_wrapper {*width:960px;}
     width: 149px;
 }
 .nav_collapsed #navigation > ul > li.top-bars ul {
-    display: none;
+    padding-bottom: 0;
+    padding-top: 0;
 }
 
 #navigation > ul > li ul li.last a {border-bottom:none;}

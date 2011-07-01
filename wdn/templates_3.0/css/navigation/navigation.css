@@ -255,7 +255,8 @@
 /* Don't display the the secondary ul's for the top rows */
 /* (duplicated in ie.css with .top-bars class) */
 .nav_collapsed #navigation > ul > li:nth-last-child(n+7) ul {
-    display: none;
+    padding-bottom: 0;
+    padding-top: 0;
 }
 
 /* Force the last row height to 0 */
