@@ -286,7 +286,7 @@ WDN.jQuery(function(){
                     <h3 class="ribbon">Go Big</h3>
                     <ul>
                         <li>
-                            <a href="http://admissions.unl.edu/apply/index.aspx">Apply</a>
+                            <a href="http://admissions.unl.edu/">Apply</a>
                             <ul>
                                 <li>
                                     <a href="http://admissions.unl.edu/apply/">Undergrad</a>
@@ -300,7 +300,7 @@ WDN.jQuery(function(){
                             </ul>
                         </li>
                         <li>
-                            <a href="http://admissions.unl.edu/visit/">Visit</a>
+                            <a href="http://visit.unl.edu/">Visit</a>
                             <ul>
                                 <li>
                                     <a href="http://admissions.unl.edu/daily_visit/index.aspx">Schedule a Visit</a>
