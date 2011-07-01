@@ -11,7 +11,7 @@
 <!--#include virtual="wdn/templates_3.0/includes/metanfavico.html" -->
 <title>UNL | WDN Template - Grid System</title>
 <style type="text/css">
-    .demo .grid1, .demo .grid2, .demo .grid3, .demo .grid4, .demo .grid5, .demo .grid6, .demo .grid7, .demo .grid8, .demo .grid9, .demo .grid10, .demo .grid11, .demo .col div, .demo .two_col div, .demo .three_col div, .demo .col_half div, .demo .four_col div {
+    #maincontent .demo .grid1, #maincontent .demo .grid2, #maincontent .demo .grid3, #maincontent .demo .grid4, #maincontent .demo .grid5, #maincontent .demo .grid6, #maincontent .demo .grid7, #maincontent .demo .grid8, .demo .grid9, #maincontent .demo .grid10, #maincontent .demo .grid11, #maincontent .demo .col div, #maincontent .demo .two_col div, #maincontent .demo .three_col div, #maincontent .demo .col_half div, #maincontent .demo .four_col div {
 	    margin-bottom: 15px;
 	    padding-top: 5px;
 	    padding-bottom: 5px;
