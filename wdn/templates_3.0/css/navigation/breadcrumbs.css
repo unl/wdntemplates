@@ -7,6 +7,9 @@
     display: inline-block;
     margin-top: -2px;
 }
+#breadcrumbs > a {
+    display:none;	
+}
 #breadcrumbs > ul {
     list-style: none;
     display: inline-block;
