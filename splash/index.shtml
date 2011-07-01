@@ -24,9 +24,9 @@
 <title>University of Nebraska&ndash;Lincoln</title>
 <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<!--#include virtual="../sharedcode/localSiteLinks.html" -->
-<script type="text/javascript" src="balloons/releasetheballoons.js"></script>
-<script type="text/javascript" src="counter/js/flipcounter.js"></script>
+<!--#include virtual="/ucomm/sharedcode/localSiteLinks.html" -->
+<script type="text/javascript" src="/ucomm/splash/balloons/releasetheballoons.js"></script>
+<script type="text/javascript" src="/ucomm/splash/counter/js/flipcounter.js"></script>
 <script type="text/javascript" src="/wdn/templates_3.0/scripts/plugins/serialScroll/jquery.serialScroll-1.2.2-min.js"></script> 
 <script type="text/javascript" src="/wdn/templates_3.0/scripts/plugins/scrollTo/jquery.scrollTo-1.4.2-min.js"></script>       
 <script type="text/javascript">
@@ -90,7 +90,7 @@ WDN.jQuery(function(){
     #maincontent {margin-top:20px;}
     .nav_pinned #navigation > ul {margin-top:10px;}
 </style>
-<link rel="stylesheet" type="text/css" media="screen" href="external_content.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/ucomm/splash/external_content.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/content/mediaelement.css" />
 <!--[if IE 7]><style type="text/css">
 #maincontent .assert > ul {width:820px; margin-left:0px; float:right;}
@@ -120,7 +120,7 @@ WDN.jQuery(function(){
             <div id="navigation">
                 <h3 class="wdn_list_descriptor hidden">Navigation</h3>
                 <!-- TemplateBeginEditable name="navlinks" -->
-                <!--#include virtual="../sharedcode/navigation.html" -->
+                <!--#include virtual="/ucomm/sharedcode/navigation.html" -->
                 <!-- TemplateEndEditable --></div>
         </div>
     </div>
@@ -136,7 +136,7 @@ WDN.jQuery(function(){
                 <div class="currentScroller">
                   <ul class="scrollerItems">
                       <li>
-                          <a href="http://www.unl.edu/ucomm/unltoday/" title="Read more about the celebration on campus"><img src="images/gbr_balloon_promo.jpg" alt="UNL joins the Big Ten, and we're celebrating!" height="310" width="960" /></a>
+                          <a href="http://www.unl.edu/ucomm/unltoday/" title="Read more about the celebration on campus"><img src="/ucomm/splash/images/gbr_balloon_promo.jpg" alt="UNL joins the Big Ten, and we're celebrating!" height="310" width="960" /></a>
                           <div class="promoText">
                               <h3>Going Big</h3>
                               <p>Today, UNL joins the Big Ten, and we're celebrating. Read the <a href="http://www.unl.edu/ucomm/unltoday/" title="go to UNL Today">welcome messages</a>, and get in on the fun right here by launching your own GO B1G RED balloons. </p>
@@ -154,7 +154,7 @@ WDN.jQuery(function(){
                            </div>
                       </li>
                       <li>
-                      	<img src="images/promo_unltoday.jpg" alt="UNL Today lead story image" height="310" width="960" />
+                      	<img src="/ucomm/splash/images/promo_unltoday.jpg" alt="UNL Today lead story image" height="310" width="960" />
                            <div class="unltoday sidebar">
                             <div class="inner">
                                 <!--#include file="promo_unltoday.html" -->
@@ -163,7 +163,7 @@ WDN.jQuery(function(){
                            </div>
                       </li>
                       <li class="innovation">
-                          <a href="http://innovate.unl.edu/" title="Go to the Innovation Campus site"><img src="images/innovation_campus.jpg" alt="Nebraska Innovation Campus" height="310" width="960" /></a>
+                          <a href="http://innovate.unl.edu/" title="Go to the Innovation Campus site"><img src="/ucomm/splash/images/innovation_campus.jpg" alt="Nebraska Innovation Campus" height="310" width="960" /></a>
                           <div class="promoText">
                               <h3>Big Innovation</h3>
                               <p>Tomorrow begins today. Explore the <a href="http://innovate.unl.edu/" class="tooltip" title="go to the Nebraska Innovation Campus website">Nebraska Innovation Campus</a> site for a more detailed overview and vision of this research and development center for Nebraska and the world.</p>
@@ -183,7 +183,7 @@ WDN.jQuery(function(){
                 <ul>
                     <li>
                         <div class="moreOptions">
-                            <img alt="College of Agricultural Sciences and Natural Resources recruitment photo" src="images/collegeCASNR.jpg" height="58" width="88" />
+                            <img alt="College of Agricultural Sciences and Natural Resources recruitment photo" src="/ucomm/splash/images/collegeCASNR.jpg" height="58" width="88" />
                             <ul>
                                 <li><a href="http://bulletin.unl.edu/undergraduate/college/Agricultural+Sciences+%26+Natural+Resources/majors"><span>Agricultural Sciences &amp; Natural Resources</span> Undergrad Majors</a></li>
                                 <li><a href="http://www.unl.edu/gradstudies/prospective/majors.shtml">Grad Programs</a></li>
@@ -194,7 +194,7 @@ WDN.jQuery(function(){
                     </li>
                     <li>
                         <div class="moreOptions">
-                            <img alt="College of Architecture recruitment photo" src="images/collegeARCH.jpg" height="58" width="88" />
+                            <img alt="College of Architecture recruitment photo" src="/ucomm/splash/images/collegeARCH.jpg" height="58" width="88" />
                             <ul>
                                 <li><a href="http://bulletin.unl.edu/undergraduate/college/Architecture/majors"><span>Architecture</span> Undergrad Majors</a></li>
                                 <li><a href="http://www.unl.edu/gradstudies/prospective/majors.shtml">Grad Programs</a></li>
@@ -205,7 +205,7 @@ WDN.jQuery(function(){
                     </li>
                     <li>
                         <div class="moreOptions">
-                            <img alt="College of Arts &amp; Sciences recruitment photo" src="images/collegeAS.jpg" height="58" width="88" />
+                            <img alt="College of Arts &amp; Sciences recruitment photo" src="/ucomm/splash/images/collegeAS.jpg" height="58" width="88" />
                             <ul>
                                 <li><a href="http://bulletin.unl.edu/undergraduate/college/Arts+%26+Sciences/majors"><span>Arts &amp; Sciences</span> Undergrad Majors</a></li>
                                 <li><a href="http://www.unl.edu/gradstudies/prospective/majors.shtml">Grad Programs</a></li>
@@ -216,7 +216,7 @@ WDN.jQuery(function(){
                     </li>
                     <li>
                         <div class="moreOptions">
-                            <img alt="College of Business Administration recruitment photo" src="images/collegeCBA.jpg" height="58" width="88" />
+                            <img alt="College of Business Administration recruitment photo" src="/ucomm/splash/images/collegeCBA.jpg" height="58" width="88" />
                             <ul>
                                 <li><a href="http://bulletin.unl.edu/undergraduate/college/Business+Administration/majors"><span>Business Administration</span> Undergrad Majors</a></li>
                                 <li><a href="http://www.unl.edu/gradstudies/prospective/majors.shtml">Grad Programs</a></li>
@@ -227,7 +227,7 @@ WDN.jQuery(function(){
                     </li>
                     <li>
                         <div class="moreOptions">
-                            <img alt="College of Education &amp; Human Sciences recruitment photo" src="images/collegeEHS.jpg" height="58" width="88" />
+                            <img alt="College of Education &amp; Human Sciences recruitment photo" src="/ucomm/splash/images/collegeEHS.jpg" height="58" width="88" />
                             <ul>
                                 <li><a href="http://bulletin.unl.edu/undergraduate/college/Education+%26+Human+Sciences/majors"><span>Education &amp; Human Sciences</span> Undergrad Majors</a></li>
                                 <li><a href="http://www.unl.edu/gradstudies/prospective/majors.shtml">Grad Programs</a></li>
@@ -249,7 +249,7 @@ WDN.jQuery(function(){
                     </li>
                     <li>
                         <div class="moreOptions">
-                            <img alt="College of Journalism &amp; Mass Communications recruitment photo" src="images/collegeJMC.jpg" height="58" width="88" />
+                            <img alt="College of Journalism &amp; Mass Communications recruitment photo" src="/ucomm/splash/images/collegeJMC.jpg" height="58" width="88" />
                             <ul>
                                 <li><a href="http://bulletin.unl.edu/undergraduate/college/Journalism/majors"><span>Journalism</span> Undergrad Majors</a></li>
                                 <li><a href="http://www.unl.edu/gradstudies/prospective/majors.shtml">Grad Programs</a></li>
@@ -260,7 +260,7 @@ WDN.jQuery(function(){
                     </li>
                     <li class="outlier">
                         <div class="moreOptions">
-                            <img alt="College of Fine &amp; Performing Arts recruitment photo" src="images/collegeFPA.jpg" height="58" width="88" />
+                            <img alt="College of Fine &amp; Performing Arts recruitment photo" src="/ucomm/splash/images/collegeFPA.jpg" height="58" width="88" />
                             <ul>
                                 <li><a href="http://bulletin.unl.edu/undergraduate/college/Fine+%26+Performing+Arts/majors"><span>Fine &amp; Performing Arts</span> Undergrad Majors</a></li>
                                 <li><a href="http://www.unl.edu/gradstudies/prospective/majors.shtml">Grad Programs</a></li>
@@ -271,7 +271,7 @@ WDN.jQuery(function(){
                     </li>
                     <li>
                         <div class="moreOptions">
-                            <img alt="College of Law recruitment photo" src="images/collegeLAW.jpg" height="58" width="88" />
+                            <img alt="College of Law recruitment photo" src="/ucomm/splash/images/collegeLAW.jpg" height="58" width="88" />
                             <ul>
                                 <li><a href="http://law.unl.edu/academics/degree_programs.shtml" title="View degree program information for the College of Law"><span>Law</span> Degree Programs</a></li>
                                 <li><a href="http://directory.unl.edu/departments/75" title="View contact information for the College of Law"><span>Law</span> Directory</a></li>
@@ -337,7 +337,7 @@ WDN.jQuery(function(){
                         </li>
                     </ul>
                 </div>
-                <!--#include virtual="features.html" -->
+                <!--#include virtual="/ucomm/splash/features.html" -->
             </div>
             <div class="grid8 first remainder">
                 <h5>Affiliates</h5>
@@ -367,7 +367,7 @@ WDN.jQuery(function(){
                     <li class="flickr"><a href="http://www.flickr.com/photos/universityofnebraska/">Flickr</a></li>
                 </ul>
             </div>
-            <div style="clear:both;position:absolute;bottom:-151px;float:left;padding-left:10px;padding-top:6px;margin-bottom:-4px;width:290px;height:129px;background-color:#EDEBE1;z-index:106;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;box-shadow:0px 0px 2px #555;-moz-box-shadow:0px 0px 2px #555;-webkit-box-shadow:0px 0px 2px #555;"><p style="font-size:11px;color:#333;margin-bottom:8px;width:280px;"><em>Read welcome messages from the CIC's <a href="http://newsroom.unl.edu/announce/?view=story&amp;id=2675" title="read a welcome from the Committee on Institutional Cooperation from Barbara McFadden Allen" style="color:#a80201">Barbara McFadden Allen</a>, the Big Ten's <a href="http://newsroom.unl.edu/announce/?view=story&amp;id=2676" title="read a welcome from the Big Ten's James E. Delany" style="color:#a80201">James E. Delany</a>, and the Big Ten Network's <a href="http://newsroom.unl.edu/announce/?view=story&amp;id=2677" title="read the Big Ten Network welcome from President Mark Silverman" style="color:#a80201">Mark Silverman</a></em></p><a href="http://newsroom.unl.edu/announce/?view=story&amp;id=2675" title="read a welcome from the Committee on Institutional Cooperation from Barbara McFadden Allen"><img src="images/welcome_mcfaddenallen.png" alt="Barbara McFadden Allen" style="margin-bottom:-1px;padding-right:24px;" /></a><a href="http://newsroom.unl.edu/announce/?view=story&amp;id=2676" title="read a welcome from the Big Ten's James E. Delany"><img src="images/welcome_delany.png" alt="James E. Delany" style="margin-bottom:-1px;padding-right:24px;" /></a><a href="http://newsroom.unl.edu/announce/?view=story&amp;id=2677" title="read the Big Ten Network welcome from President Mark Silverman"><img src="images/welcome_silverman.png" alt="Mark Silverman" style="margin-bottom:-1px;" /></a></div>
+            <div style="clear:both;position:absolute;bottom:-151px;float:left;padding-left:10px;padding-top:6px;margin-bottom:-4px;width:290px;height:129px;background-color:#EDEBE1;z-index:106;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;box-shadow:0px 0px 2px #555;-moz-box-shadow:0px 0px 2px #555;-webkit-box-shadow:0px 0px 2px #555;"><p style="font-size:11px;color:#333;margin-bottom:8px;width:280px;"><em>Read welcome messages from the CIC's <a href="http://newsroom.unl.edu/announce/?view=story&amp;id=2675" title="read a welcome from the Committee on Institutional Cooperation from Barbara McFadden Allen" style="color:#a80201">Barbara McFadden Allen</a>, the Big Ten's <a href="http://newsroom.unl.edu/announce/?view=story&amp;id=2676" title="read a welcome from the Big Ten's James E. Delany" style="color:#a80201">James E. Delany</a>, and the Big Ten Network's <a href="http://newsroom.unl.edu/announce/?view=story&amp;id=2677" title="read the Big Ten Network welcome from President Mark Silverman" style="color:#a80201">Mark Silverman</a></em></p> <a href="http://newsroom.unl.edu/announce/?view=story&amp;id=2675" title="read a welcome from the Committee on Institutional Cooperation from Barbara McFadden Allen"><img src="/ucomm/splash/images/welcome_mcfaddenallen.png" alt="Barbara McFadden Allen" style="margin-bottom:-1px;padding-right:24px;" /></a> <a href="http://newsroom.unl.edu/announce/?view=story&amp;id=2676" title="read a welcome from the Big Ten's James E. Delany"><img src="/ucomm/splash/images/welcome_delany.png" alt="James E. Delany" style="margin-bottom:-1px;padding-right:24px;" /></a> <a href="http://newsroom.unl.edu/announce/?view=story&amp;id=2677" title="read the Big Ten Network welcome from President Mark Silverman"><img src="/ucomm/splash/images/welcome_silverman.png" alt="Mark Silverman" style="margin-bottom:-1px;" /></a></div>
         
             <!-- TemplateEndEditable -->
             <div class="clear"></div>
@@ -381,20 +381,20 @@ WDN.jQuery(function(){
                 <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
             </div>
             <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
-                <!--#include virtual="relatedLinks.html" -->
+                <!--#include virtual="/ucomm/splash/relatedLinks.html" -->
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col"><!-- TemplateBeginEditable name="contactinfo" -->
-                <!--#include virtual="../sharedcode/footerContactInfo.html" -->
+                <!--#include virtual="/ucomm/sharedcode/footerContactInfo.html" -->
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col">
                 <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
             </div>
             <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
             <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
-                <!--#include virtual="../sharedcode/footer.html" -->
+                <!--#include virtual="/ucomm/sharedcode/footer.html" -->
                 <!-- TemplateEndEditable -->
                 <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
-                | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a> <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
+                | <a href="http://validator.w3.org/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a> <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
         </div>
     </div>
     <div id="wdn_wrapper_footer"> </div>

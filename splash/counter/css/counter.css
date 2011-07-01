@@ -10,7 +10,7 @@ So you can have multiple counters on a page, just make sure each one has a class
 */
 
 .flip-counter ul.cd{float:left;list-style-type:none;margin:0;padding:0}
-.flip-counter li{background:url(../img/digits.png) 0 0 no-repeat}
+.flip-counter li{background:url(/ucomm/splash/counter/img/digits.png) 0 0 no-repeat}
 .flip-counter li.t{background-position:0 0;width:30px;height:22px}
 .flip-counter li.b{background-position:0 0;width:30px;height:36px}
 .flip-counter li.s{background-position:-30px -583px;width:8px;height:58px}
