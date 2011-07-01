@@ -8020,6 +8020,8 @@ WDN.navigation = (function() {
          * This function cleans up the navigation visual presentations
          */
         fixPresentation : function() {
+        	WDN.jQuery('#wdn_navigation_wrapper').removeClass('empty-secondary');
+        	
             var primaries = WDN.jQuery('#navigation > ul > li');
             var primaryCount = primaries.length;
             while (primaryCount % 6 > 0) {
@@ -8037,9 +8039,9 @@ WDN.navigation = (function() {
 
             // fix old IE for CSS3
             var majorIEVersion = WDN.jQuery.browser.version.split(".")[0];
+            var $bar_starts = WDN.jQuery('#navigation > ul > li:nth-child(6n+1)');
             if (WDN.jQuery.browser.msie && majorIEVersion < 9) {
                 //debug statement removed
-                var $bar_starts = WDN.jQuery('#navigation > ul > li:nth-child(6n+1)');
                 $bar_starts.addClass('start');
                 WDN.jQuery('#navigation > ul > li:nth-child(6n+6)').addClass('end');
                 WDN.jQuery('#navigation > ul > li:nth-child(n+7)').addClass('mid-bar');
@@ -8098,6 +8100,18 @@ WDN.navigation = (function() {
                 var row = Math.floor(i/6);
                 WDN.jQuery(this).css({'height':ul_h[row]+'px'});
             });
+
+            // look for no secondary links
+            if (!WDN.jQuery('li > a', secondaryLists).length) {
+            	WDN.jQuery('#wdn_navigation_wrapper').addClass('empty-secondary');
+            } else { // look for entire empty rows
+	            $bar_starts.each(function() {
+	            	var $primary_bar = WDN.jQuery(this).nextUntil(':nth-child(6n+1)').andSelf();
+	            	if (!WDN.jQuery('> ul li > a', $primary_bar).length) {
+	            		$primary_bar.addClass('row-empty');
+	            	}
+	            });
+            }
 
             // Fix liquid box-sizing
             if (WDN.jQuery('body').hasClass('liquid') && WDN.jQuery.browser.msie && majorIEVersion < 8) {
@@ -8331,7 +8345,10 @@ WDN.navigation = (function() {
                 return true;
             }
 
-            var height = WDN.jQuery('#navigation > ul').height() || 50;
+            var dimms = {
+        		width: WDN.jQuery('#navigation > ul').width() || 960,
+    			height: WDN.jQuery('#navigation > ul').height() || 50
+            };
             var oldSelected = WDN.jQuery('#breadcrumbs > ul > li.selected:first');
 
             if (!WDN.jQuery('div.storednav', oldSelected).length && WDN.jQuery('#navigation > ul').length) {
@@ -8354,7 +8371,8 @@ WDN.navigation = (function() {
             }
 
             WDN.jQuery('#navloading').remove();
-            WDN.jQuery('#navigation').append('<div id="navloading" style="height:'+height+'px;"></div>');
+            WDN.jQuery('<div id="navloading" />').css(dimms).appendTo('#navigation');
+            WDN.jQuery('#wdn_navigation_wrapper').addClass('nav-loading');
 
             var nav_sniffer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
             nav_sniffer = nav_sniffer+escape(WDN.toAbs(breadcrumb.href, window.location));
@@ -8383,6 +8401,7 @@ WDN.navigation = (function() {
 
         setNavigationContents : function(contents, expand) {
             //debug statement removed
+            WDN.jQuery('#wdn_navigation_wrapper').removeClass('nav-loading');
             WDN.jQuery('#navigation').addClass('disableTransition');
             WDN.jQuery('#navloading').remove();
             WDN.jQuery('#navigation').children('ul').remove()
@@ -8601,7 +8620,7 @@ WDN.toolbar = function() {
     };
 }();
 WDN.loadedJS["/wdn/templates_3.0/scripts/toolbar.js"]=1;
-WDN.tooltip = function($) {
+WDN.tooltip = (function($) {
 	return {
 		initialize : function() {
 			//debug statement removed
@@ -8610,16 +8629,15 @@ WDN.tooltip = function($) {
 		tooltipSetup : function() {
 			WDN.loadCSS('/wdn/templates_3.0/css/header/tooltip.css');
 			// Tooltips can only be used in the appropriate sections, and must have the correct class name and a title attribute
-			WDN.tooltip.addTooltip($('#wdn_tool_links .tooltip[title], #maincontent .tooltip[title], #footer .tooltip[title]'));
+			WDN.tooltip.addTooltips($('#wdn_tool_links .tooltip[title], #maincontent .tooltip[title], #footer .tooltip[title]'));
 		},
-		addTooltip : function($elements) {
+		addTooltips : function($elements) {
 			$elements.each(function() {
 				WDN.tooltip.addTooltip(this);
 			});
 		},
 		addTooltip: function(el) {
 			$(el).qtip({
-
 				content: $(el).attr('title'),
 				show: {
 					effect: { length: 0 }
@@ -8642,8 +8660,8 @@ WDN.tooltip = function($) {
 					},
 					'color' : '#504500'
 				},
-				position: { 
-					adjust: { 
+				position: {
+					adjust: {
 						screen: true,
 						y : -5
 					},
@@ -8654,7 +8672,7 @@ WDN.tooltip = function($) {
 			$(el).removeAttr('alt');
 		}
 	};
-}(WDN.jQuery);
+})(WDN.jQuery);
 WDN.loadedJS["/wdn/templates_3.0/scripts/tooltip.js"]=1;
 // What should be tracked in Google Analytics
 // 
@@ -8716,8 +8734,19 @@ WDN.analytics = function() {
 				}); 
 				WDN.jQuery('ul.socialmedia a').click(function(){ 
 					var socialMedia = WDN.jQuery(this).parent().attr('id');
-					WDN.analytics.callTrackEvent('Page Sharing', socialMedia, WDN.analytics.thisURL);
-					
+					socialMedia = socialMedia.replace(/wdn_/gi, '');
+					console.log(socialMedia);
+					//WDN.analytics.callTrackEvent('Page Sharing', socialMedia, WDN.analytics.thisURL);
+					_gaq.push(['wdn._trackSocial', socialMedia, 'share']);
+					try {
+						if (WDN.analytics.isDefaultTrackerReady()) {
+							_gaq.push(['_trackSocial', socialMedia, 'share']);
+						} else {
+							throw "Default Tracker Account Not Set";
+						}
+					} catch(e) {
+						//debug statement removed
+					}
 				});
 				WDN.jQuery('#wdn_tool_links a').click(function(){ 
 					var wdnToolLinks = WDN.jQuery(this).text();
