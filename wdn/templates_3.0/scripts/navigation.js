@@ -425,7 +425,10 @@ WDN.navigation = (function() {
                 return true;
             }
 
-            var height = WDN.jQuery('#navigation > ul').height() || 50;
+            var dimms = {
+        		width: WDN.jQuery('#navigation > ul').width() || 960,
+    			height: WDN.jQuery('#navigation > ul').height() || 50
+            };
             var oldSelected = WDN.jQuery('#breadcrumbs > ul > li.selected:first');
 
             if (!WDN.jQuery('div.storednav', oldSelected).length && WDN.jQuery('#navigation > ul').length) {
@@ -448,7 +451,7 @@ WDN.navigation = (function() {
             }
 
             WDN.jQuery('#navloading').remove();
-            WDN.jQuery('#navigation').append('<div id="navloading" style="height:'+height+'px;"></div>');
+            WDN.jQuery('<div id="navloading" />').css(dimms).appendTo('#navigation');
 
             var nav_sniffer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
             nav_sniffer = nav_sniffer+escape(WDN.toAbs(breadcrumb.href, window.location));
