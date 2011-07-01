@@ -238,7 +238,7 @@ WDN.jQuery(function(){
                     </li>
                     <li>
                         <div class="moreOptions left">
-                            <img alt="College of Engineering recruitment photo" src="images/collegeENG.jpg" height="58" width="88" />
+                            <img alt="College of Engineering recruitment photo" src="/ucomm/splash/images/collegeENG.jpg" height="58" width="88" />
                             <ul>
                                 <li><a href="http://bulletin.unl.edu/undergraduate/college/Engineering/majors"><span>Engineering</span> Undergrad Majors</a></li>
                                 <li><a href="http://www.unl.edu/gradstudies/prospective/majors.shtml">Grad Programs</a></li>
