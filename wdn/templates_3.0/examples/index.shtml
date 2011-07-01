@@ -54,7 +54,7 @@
         <div id="titlegraphic"><!-- InstanceBeginEditable name="titlegraphic" -->
             <h1>Web Developer Network</h1>
             <script type="text/javascript">
-            WDN.get('http://www1.unl.edu/wdn/test/wdn/templates_3.0/scripts/navigationSniffer.php?u=http://wdn.unl.edu/', null, function(data){document.getElementById('navigation').innerHTML = data; WDN.navigation.initialize();});
+            WDN.get('http://www1.unl.edu/wdn/test/wdn/templates_3.0/scripts/navigationSniffer.php?u=http://wdn.unl.edu/', null, function(data){WDN.navigation.setNavigationContents(data);});
             </script>
             <!-- InstanceEndEditable --></div>
         <div id="pagetitle"><!-- InstanceBeginEditable name="pagetitle" --><h2>Template Examples</h2><!-- InstanceEndEditable --></div>
