@@ -10,22 +10,21 @@
     overflow: hidden;
 }
 #toolbarcontent h3 {
-    background: url('../images/headingBGRed.gif') repeat-x bottom;
-    padding: 5px;
-    color: #fff;
     margin-bottom: 5px;
-}
-#toolbarcontent h3:after {
-    content: '';
-    width: 20px;
-    height: 10px;
-    display: block;
-    background: url('../images/downIndicators.png') no-repeat;
-    margin-left: 30px;
-    margin-top: 5px;
+    font-size: 2.2em;
+    text-transform: uppercase;
+    color: #444;
+    border-bottom: 1px solid #888;
+    text-align: center;
+    margin-bottom: 0.8em;
+    font-family: 'URWGroteskCon-Lig';
+    font-weight: normal;
+    -webkit-box-shadow: 0px 1px 0px #ffffff;
+    -moz-box-shadow: 0px 1px 0px #ffffff;
+    box-shadow: 0px 1px 0px #ffffff;
 }
 #toolbarcontent h3 a {
-    color: #FFFFFF;
+    color: #444;
     padding-left: 4px;
     text-decoration: none;
 }
@@ -36,9 +35,7 @@
 **************/
 #toolbarcontent h3 span {
     float: left;
-    color: #fff;
     height: 20px;
-    overflow: hidden;
 }
 #toolbarcontent h3 span.rssicon {
     height: 20px;
@@ -46,7 +43,7 @@
     background: url(images/applianceIcons.png) top right no-repeat;
     float: right;
     position: relative;
-    top: -2px;
+    top: -6px;
 }
 
 /* Feeds
