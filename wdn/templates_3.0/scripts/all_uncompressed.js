@@ -8715,8 +8715,9 @@ WDN.analytics = function() {
 					}  
 				}); 
 				WDN.jQuery('ul.socialmedia a').click(function(){ 
-					var socialMedia = WDN.jQuery(this).attr('id');
+					var socialMedia = WDN.jQuery(this).parent().attr('id');
 					WDN.analytics.callTrackEvent('Page Sharing', socialMedia, WDN.analytics.thisURL);
+					
 				});
 				WDN.jQuery('#wdn_tool_links a').click(function(){ 
 					var wdnToolLinks = WDN.jQuery(this).text();
