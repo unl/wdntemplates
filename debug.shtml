@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" media="print"    href="wdn/templates_3.0/css/print.css" />
 <script type="text/javascript" src="wdn/templates_3.0/scripts/debug.js"></script>
 <link rel="events" href="http://events.unl.edu/myred/" title="MyRED" />
-<link rel="home" href="http://www.unl.edu/" title="UNL" />
+<link rel="home" href="http://cba.unl.edu/" title="CBA" />
 <!--#include virtual="sharedcode/localSiteLinks.html" -->
 <!--#include virtual="wdn/templates_3.0/includes/browserspecifics.html" -->
 <!--#include virtual="wdn/templates_3.0/includes/metanfavico.html" -->
@@ -62,8 +62,7 @@ Navigation</a></p>
             <h2 class="wdn_list_descriptor hidden">Breadcrumbs</h2>
             <ul>
                 <!-- WDN: see glossary item 'breadcrumbs' -->
-                <li class="selected"><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
-                <li>Home</li>
+                <li><a href="http://www.unl.edu/">UNL</a></li><li>CBA</li>
             </ul>
         </div>
         <div id="wdn_navigation_wrapper">

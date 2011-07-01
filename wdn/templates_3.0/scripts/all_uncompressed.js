@@ -7962,7 +7962,7 @@ WDN.navigation = (function() {
             }
             
             // find the last-link in breadcrumbs
-            WDN.jQuery('#breadcrumbs > ul > li > a').last().parent().addClass('last-link');
+            WDN.jQuery('#breadcrumbs > ul > li:not(:first-child) > a').last().parent().addClass('last-link');
             
             if (WDN.jQuery('body').hasClass('document')) {
             	return;
