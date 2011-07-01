@@ -24,7 +24,6 @@
 <title>University of Nebraska&ndash;Lincoln</title>
 <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<!--#include virtual="/ucomm/sharedcode/localSiteLinks.html" -->
 <script type="text/javascript" src="/ucomm/splash/balloons/releasetheballoons.js"></script>
 <script type="text/javascript" src="/ucomm/splash/counter/js/flipcounter.js"></script>
 <script type="text/javascript" src="/wdn/templates_3.0/scripts/plugins/serialScroll/jquery.serialScroll-1.2.2-min.js"></script> 
@@ -47,6 +46,7 @@ WDN.jQuery(function(){
     function(){
         WDN.jQuery('#bigTenVideo video').mediaelementplayer({
             features: ['playpause','progress','current','duration','tracks','volume'],
+            pluginPath: '/wdn/templates_3.0/scripts/',
             success: function(mediaElement, domObject) {
             	if (forcePlay) {
             		mediaElement.play();
