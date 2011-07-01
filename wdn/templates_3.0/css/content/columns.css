@@ -30,10 +30,10 @@
     width: 940px;
     padding: 0 10px;
 }
-#maincontent .four_col > .left, #maincontent .three_col > .left, #maincontent .two_col > .left {
+#maincontent .four_col .left, #maincontent .three_col .left, #maincontent .two_col .left {
     padding-left: 0;
 }
-#maincontent .four_col > .right, #maincontent .three_col > .right, #maincontent .two_col > .right {
+#maincontent .four_col .right, #maincontent .three_col .right, #maincontent .two_col .right {
     padding-right: 0;
 }
 #maincontent .col_half, #colorbox .col_half {
