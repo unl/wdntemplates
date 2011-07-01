@@ -58,8 +58,19 @@ WDN.analytics = function() {
 				}); 
 				WDN.jQuery('ul.socialmedia a').click(function(){ 
 					var socialMedia = WDN.jQuery(this).parent().attr('id');
-					WDN.analytics.callTrackEvent('Page Sharing', socialMedia, WDN.analytics.thisURL);
-					
+					socialMedia = socialMedia.replace(/wdn_/gi, '');
+					console.log(socialMedia);
+					//WDN.analytics.callTrackEvent('Page Sharing', socialMedia, WDN.analytics.thisURL);
+					_gaq.push(['wdn._trackSocial', socialMedia, 'share']);
+					try {
+						if (WDN.analytics.isDefaultTrackerReady()) {
+							_gaq.push(['_trackSocial', socialMedia, 'share']);
+						} else {
+							throw "Default Tracker Account Not Set";
+						}
+					} catch(e) {
+						WDN.log("Social Media tracking for local site didn't work.");
+					}
 				});
 				WDN.jQuery('#wdn_tool_links a').click(function(){ 
 					var wdnToolLinks = WDN.jQuery(this).text();
