@@ -104,16 +104,16 @@
 }
 #toolbar_feeds ul li a:hover {
     color: #ac0302;
-    text-decoration: underline;
 }
 #toolbar_feeds ul li a {
     text-decoration: none;
+    padding: 1px 8px;
+    display:inline-block;
 }
 #toolbar_feeds ul li {
-    padding: 0 3px;
-    border-bottom: 1px dashed #d3d3d3;
-    margin-bottom: 5px;
-    padding-bottom: 3px;
+    padding: 0 3px 3px 0;
+    margin: 2px 0;
+    border-bottom: 1px dotted #c0c0c0;
 }
 
 /* Webcams & Alert
