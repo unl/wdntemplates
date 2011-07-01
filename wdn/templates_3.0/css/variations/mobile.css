@@ -62,7 +62,6 @@ body.mobile #titlegraphic {
     width:100%;
 }
 body.mobile #titlegraphic > h1 {
-    margin-left:60px; 
     display:none;  
 }
 
