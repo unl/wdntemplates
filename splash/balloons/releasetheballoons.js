@@ -90,7 +90,7 @@ var UNL_Balloons = (function() {
 
 			var i;
 			for (i=lastBalloon+1;i<=lastBalloon+balloonBatch;i++) {
-				$('#wdn_content_wrapper').append('<div class="balloon" id="balloon'+i+'">BALLOON FLOATING ACROSS THE SCREEN!</div>');
+				$('#wdn_content_wrapper').append('<div class="balloon" id="balloon'+i+'"></div>');
 				$('#balloon'+i).offset({'left' : centerPosition, 'top' : footerPosition});
 				WDN.log('Added balloon'+i);
 				balloonRegistry.push(i);
