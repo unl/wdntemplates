@@ -14,6 +14,7 @@
     padding: 12px 12px 0 12px;
 }
 #header h1 {
+    height: 0; /* Safari */
     margin: 13px 0 0 0;
     padding: 12px 10px;
     float: left;
