@@ -8,33 +8,33 @@ body.popup #header { left:0; }
 body.popup #titlegraphic { zoom:1; }
 
 #tooltabs {
-    top:-11px;
+    top: -11px;
 }
 
 #toolbarcontent .toolbar_plugin h3 {
-    background-color:#ac0302;
-    margin-bottom:20px;
+    background-color: #ac0302;
+    margin-bottom: 20px;
 }
 
 #maincontent div.zenboxsolid h3, #maincontent div.zenboxfixed h3, #maincontent div.zenboxfeature h3, #maincontent div.zenbox h3,
 #maincontent div.zenboxsolid.bright h3, #maincontent div.zenboxfixed.bright h3, #maincontent div.zenboxfeature.bright h3, #maincontent div.zenbox.bright h3 {
-    background-color:#E8E81C;
+    background-color: #E8E81C;
 }
 
 #maincontent div.zenboxsolid.cool h3, #maincontent div.zenboxfixed.cool h3, #maincontent div.zenboxfeature.cool h3, #maincontent div.zenbox.cool h3 {
-    background-color:#3E83C9;
+    background-color: #3E83C9;
 }
 #maincontent div.zenboxsolid.energetic h3, #maincontent div.zenboxfixed.energetic h3, #maincontent div.zenboxfeature.energetic h3, #maincontent div.zenbox.energetic h3 {
-    background-color:#FA6520;
+    background-color: #FA6520;
 }
 #maincontent div.zenboxsolid.soothing h3, #maincontent div.zenboxfixed.soothing h3, #maincontent div.zenboxfeature.soothing h3, #maincontent div.zenbox.soothing h3 {
-    background-color:#028A02;
+    background-color: #028A02;
 }
 #maincontent div.zenboxsolid.neutral h3, #maincontent div.zenboxfixed.neutral h3, #maincontent div.zenboxfeature.neutral h3, #maincontent div.zenbox.neutral h3 {
-    background-color:#3D3D3D;
+    background-color: #3D3D3D;
 }
 #maincontent div.zenboxsolid.primary h3, #maincontent div.zenboxfixed.primary h3, #maincontent div.zenboxfeature.primary h3, #maincontent div.zenbox.primary h3 {
-    background-color:#AC0302;
+    background-color: #AC0302;
 }
 #maincontent form.cool fieldset legend {
     margin: -13px 0 0 -7px !important;
@@ -47,17 +47,19 @@ body.popup #titlegraphic { zoom:1; }
     margin: -5px 0 0 -7px !important;
 }
 ul#wdn_tool_links li {
-    float:left;
-    width:20px;
+    float: left;
+    width: 20px;
 }
 #wdn_tool_links a {
-    display:block;
+    display: block;
 }
 
 /** CSS3 Workarounds for #navigation **/
-body.fixed #wdn_navigation_wrapper {*width:960px;}
+body.fixed #wdn_navigation_wrapper {
+    *width:960px;
+}
 #navigation > ul > li.start  {
-    clear:left;
+    clear: left;
 }
 #navigation > ul > li.start > a  {
     border-left:none;
@@ -73,12 +75,12 @@ body.fixed #wdn_navigation_wrapper {*width:960px;}
     left:0;
 }
 #navigation > ul > li.start > ul {
-    border-left-color:#c9c9c9;
-    margin-left:0;
+    border-left-color: #c9c9c9;
+    margin-left: 0;
 }
 #navigation > ul > li.end > ul {
-    border-right:1px solid #c9c9c9 !important;
-    margin-right:0;
+    border-right: 1px solid #c9c9c9 !important;
+    margin-right: 0;
 }
 #navigation > ul > li ~ li.empty ~ li.empty.end ul {
     width: 149px;
@@ -114,8 +116,12 @@ body.popup #footer { *width:auto; zoom:1; }
 .nav_expanded #navigation {
     padding-bottom:44px;
 }
+
+#wdn_search {
+    *zoom: 1.01;
+}
 #wdn_search .search {
-    color:transparent;
+    color: transparent;
 }
 #wdn_search_form input.search {
     color: transparent;
