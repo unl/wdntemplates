@@ -4,71 +4,72 @@
 *
 */
 
-/* These are the additional, easier-to-use, selectors */
-a.external, a.map, a.email, a.vcard, a.pdf, a.audio, a.image, a.document, a.html, a.video, a.calendar, a.clustan, a.presentation, a.spreadsheet, a.zip, a.feed, a.script,
+/* These are the additional:after, easier-to-use:after, selectors */
+a.external:after, a.map:after, a.email:after, a.vcard:after, a.pdf:after, a.audio:after, a.image:after, a.document:after, a.html:after, a.video:after, a.calendar:after, a.clustan:after, a.presentation:after, a.spreadsheet:after, a.zip:after, a.feed:after, a.script:after,
 
 /* CSS attribute rules */
-a[href $='.mov'], a[href $='.wmv'], a[href $='.mp4'], a[href $='.m4v'], a[href $='.zip'], a[href *='.doc'], a[href *='.ppt'], a[href *='.pps'], a[href *='.xls'], a[href $='.pdf'], a[href^="mailto:"], a[href^="http://maps.google.com"],
+a[href $='.mov']:after, a[href $='.wmv']:after, a[href $='.mp4']:after, a[href $='.m4v']:after, a[href $='.zip']:after, a[href *='.doc']:after, a[href *='.ppt']:after, a[href *='.pps']:after, a[href *='.xls']:after, a[href $='.pdf']:after, a[href^="mailto:"]:after, a[href^="http://maps.google.com"]:after,
 
 /* These are the selectors based on mime-type */
-a.mail-message-new, a.text-vcard, a.application-pdf, a.audio-x-generic, a.image-x-generic, a.text-html, a.text-x-script, a.video-x-generic, a.x-office-calendar, a.x-office-document,
-a.x-office-document-template, a.x-office-presentation, a.x-office-presentation-template, a.x-office-spreadsheet, a.x-office-spreadsheet-template, a.application-msword,
-a.application-vnd-ms-excel, a.application-vnd-ms-powerpoint, a.application-zip, a.application-map
+a.mail-message-new:after, a.text-vcard:after, a.application-pdf:after, a.audio-x-generic:after, a.image-x-generic:after, a.text-html:after, a.text-x-script:after, a.video-x-generic:after, a.x-office-calendar:after, a.x-office-document:after,
+a.x-office-document-template:after, a.x-office-presentation:after, a.x-office-presentation-template:after, a.x-office-spreadsheet:after, a.x-office-spreadsheet-template:after, a.application-msword:after,
+a.application-vnd-ms-excel:after, a.application-vnd-ms-powerpoint:after, a.application-zip:after, a.application-map
 {
+	content:'';
+    padding-right:19px;
     background:url('images/mimetypes/mimeTypeSprite.png') no-repeat;
-    padding-right:19px !important;
     background-position: right -2px; /*This shows vCard */
 }
 
-a.audio, a.audio-x-generic {
+a.audio:after, a.audio-x-generic:after {
     background-position: right -129px;
 }
-a.calendar, a.x-office-calendar {
+a.calendar:after, a.x-office-calendar:after {
     background-position: right -321px;
 }
-a.clustan {
+a.clustan:after {
     background-position: right -417px;
 }
-a.document, a.x-office-document, a.x-office-document-template, a.application-msword, a[href *='.doc'] {
+a.document:after, a.x-office-document:after, a.x-office-document-template:after, a.application-msword:after, a[href *='.doc']:after {
     background-position: right -192px;
 }
-a.email, a.mail-message-new, a[href^="mailto:"] {
+a.email:after, a.mail-message-new:after, a[href^="mailto:"]:after {
     background-position: right -34px;
 }
-a.external {
+a.external:after {
     background-position: right -450px;
 }
-a.feed {
+a.feed:after {
     background-position: right -385px;
 }
-a.html, a.text-html {
+a.html:after, a.text-html:after {
     background-position: right -481px;
 }
-a.image, a.image-x-generic {
+a.image:after, a.image-x-generic:after {
     background-position: right -163px;
 }
-a.map, a[href^="http://maps.google.com"], a.application-map {
+a.map:after, a[href^="http://maps.google.com"]:after, a.application-map:after {
     background-position: right -64px;
 }
-a.pdf, a.application-pdf, a[href $='.pdf'] {
+a.pdf:after, a.application-pdf:after, a[href $='.pdf']:after {
     background-position: right -96px;
 }
-a.presentation, a.x-office-presentation, a.x-office-presentation-template, a.application-vnd-ms-powerpoint, a[href *='.ppt'], a[href *='.pps'] {
+a.presentation:after, a.x-office-presentation:after, a.x-office-presentation-template:after, a.application-vnd-ms-powerpoint:after, a[href *='.ppt']:after, a[href *='.pps']:after {
     background-position: right -256px;
 }
-a.script, a.text-x-script {
+a.script:after, a.text-x-script:after {
 	background-position: right -513px;
 }
-a.spreadsheet, a.x-office-spreadsheet, a.x-office-spreadsheet-template, a.application-vnd-ms-excel, a[href *='.xls'] {
+a.spreadsheet:after, a.x-office-spreadsheet:after, a.x-office-spreadsheet-template:after, a.application-vnd-ms-excel:after, a[href *='.xls']:after {
     background-position: right -224px;
 }
-a.video, a.video-x-generic, a[href $='.mov'], a[href $='.wmv'], a[href $='.mp4'], a[href $='.m4v'] {
+a.video:after, a.video-x-generic:after, a[href $='.mov']:after, a[href $='.wmv']:after, a[href $='.mp4']:after, a[href $='.m4v']:after {
     background-position: right -352px;
 }
-a.zip, a.application-zip, a[href $='.zip'] {
+a.zip:after, a.application-zip:after, a[href $='.zip']:after {
     background-position: right -289px;
 }
-a.imagelink, #footer a.imagelink, a.noBG {
+a.imagelink:after, #footer a.imagelink:after, a.noBG:after {
     background:none;
 }
 
@@ -77,31 +78,31 @@ a.imagelink, #footer a.imagelink, a.noBG {
 To be deprecated in the 2012 Template
 
 */
-a.application-certificate, 
-a[href $='.exe'], 
-a.application-x-executable, 
-a.font-x-generic,
-a.text-x-generic,
-a.text-x-generic-template,
-a.package-x-generic,
-a.msword,
-a.x-office-address-book,
-a.x-office-drawing,
-a.x-office-drawing-template,
-a.feed-icon
+a.application-certificate:after, 
+a[href $='.exe']:after, 
+a.application-x-executable:after, 
+a.font-x-generic:after,
+a.text-x-generic:after,
+a.text-x-generic-template:after,
+a.package-x-generic:after,
+a.msword:after,
+a.x-office-address-book:after,
+a.x-office-drawing:after,
+a.x-office-drawing-template:after,
+a.feed-icon:after
 {
     padding: 3px 19px 0px 0px;
     background-position: bottom right;
     background-repeat: no-repeat;
 }
-a.application-certificate{background-image: url(images/mimetypes/application-certificate.png);}
-a[href $='.exe'], a.application-x-executable{background-image: url(images/mimetypes/application-x-executable.png);background-repeat:no-repeat;}
-a.font-x-generic{background-image: url(images/mimetypes/font-x-generic.png);}
-a.text-x-generic{background-image: url(images/mimetypes/text-x-generic.png);}
-a.text-x-generic-template{background-image: url(images/mimetypes/text-x-generic-template.png);}
-a.package-x-generic{background-image: url(images/mimetypes/package-x-generic.png);}
-a.msword{background-image: url(images/mimetypes/application-msword.png);background-repeat:no-repeat;}
-a.x-office-address-book{background-image: url(images/mimetypes/x-office-address-book.png);}
-a.x-office-drawing{background-image: url(images/mimetypes/x-office-drawing.png);}
-a.x-office-drawing-template{background-image: url(images/mimetypes/x-office-drawing-template.png);}
-a.feed-icon{background-image: url(images/mimetypes/feed-icon.png);}
+a.application-certificate:after{background-image: url(images/mimetypes/application-certificate.png);}
+a[href $='.exe']:after, a.application-x-executable:after{background-image: url(images/mimetypes/application-x-executable.png);background-repeat:no-repeat;}
+a.font-x-generic:after{background-image: url(images/mimetypes/font-x-generic.png);}
+a.text-x-generic:after{background-image: url(images/mimetypes/text-x-generic.png);}
+a.text-x-generic-template:after{background-image: url(images/mimetypes/text-x-generic-template.png);}
+a.package-x-generic:after{background-image: url(images/mimetypes/package-x-generic.png);}
+a.msword:after{background-image: url(images/mimetypes/application-msword.png);background-repeat:no-repeat;}
+a.x-office-address-book:after{background-image: url(images/mimetypes/x-office-address-book.png);}
+a.x-office-drawing:after{background-image: url(images/mimetypes/x-office-drawing.png);}
+a.x-office-drawing-template:after{background-image: url(images/mimetypes/x-office-drawing-template.png);}
+a.feed-icon:after{background-image: url(images/mimetypes/feed-icon.png);}
