@@ -221,7 +221,7 @@ var WDN = function() {
 			if (seconds) {
 				var date = new Date();
 				date.setTime(date.getTime()+(seconds*1000));
-				expires = ";expires="+date.toGMTString();
+				expires = ";expires="+date.toUTCString();
 			}
 			if (path == null) {
 				path = '/';
