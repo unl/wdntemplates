@@ -15,7 +15,7 @@
     border-radius: 5px;
     padding: 4px;
 }
-#wdn_identity_management: empty{display: none;}
+#wdn_identity_management:empty{display: none;}
 #wdn_identity_management img {
     border: 1px solid #b8b8b8;
     vertical-align: bottom;
@@ -29,7 +29,7 @@
     font-weight: normal;
     margin-right: 5px;
 }
-#wdn_identity_management a: focus,
+#wdn_identity_management a:focus,
 #wdn_identity_management a:hover {
     color: #CC0000;
     border-bottom: 1px dotted #CC0000;
@@ -52,7 +52,7 @@
     vertical-align: middle;
     opacity: 0.6;
 }
-a#wdn_idm_logout:hover, a#wdn_idm_logout: focus {
+a#wdn_idm_logout:hover, a#wdn_idm_logout:focus {
     opacity: 1;
     border-bottom: none;
 }

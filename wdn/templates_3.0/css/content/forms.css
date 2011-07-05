@@ -131,9 +131,9 @@ Sample Form Markup:
     margin-top: 11px;
 }
 
-#maincontent form.cool input: focus,
-#maincontent form.cool textarea: focus,
-#maincontent form.cool select: focus {
+#maincontent form.cool input:focus,
+#maincontent form.cool textarea:focus,
+#maincontent form.cool select:focus {
     background: #ffffcc;
 }
 
@@ -328,7 +328,7 @@ form.cool fieldset ol li .helper {
     color: #77b5d4;
     z-index: 3;
 }
-#maincontent form.cool input: focus span.hint {
+#maincontent form.cool input:focus span.hint {
     display: block;
 }
 #maincontent form.cool span.hint span.hintPointer{
