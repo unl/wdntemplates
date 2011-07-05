@@ -10,9 +10,12 @@ body.popup #titlegraphic { zoom:1; }
 #tooltabs {
     top: -11px;
 }
+#tooltabs a {
+	*margin-top: 18px;
+}
 
 #toolbarcontent .toolbar_plugin h3 {
-    background-color: #ac0302;
+	padding: 3px 0;
     margin-bottom: 20px;
 }
 
