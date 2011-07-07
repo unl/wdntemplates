@@ -1,52 +1,77 @@
 <style>
- td {color:#494949; font-size: 12px; line-height: 140%; font-family: 'Lucida Grande',Verdana,Arial;}
+ td {color:#494949; font-size: 12px; font-family: 'Lucida Grande',Verdana,Arial;}
 </style>
 
 <div>
-<table cellspacing="0" cellpadding="0" border="0" width="98%" style="margin-top:10px; margin-bottom:10px;">
-<tr>
-    <td align="center" valign="top">
-        <!-- [ header starts here] -->
-        <table cellspacing="0" cellpadding="0" border="0" width="600">
-            <tr>
-                <td valign="top"><a href="http://www.unl.edu/" style="outline:none;display:block;height:126px;"><img src="http://www.unl.edu/wdn/templates_3.0/images/email/header.png" alt="The University of Nebraska-Lincoln" width="600" height="126" border="0"/></a></td>
-            </tr>
-        </table>
-        <!-- [ middle starts here] -->
-        <table cellspacing="0" cellpadding="0" border="0" width="600">
-            <tr>
-                <td width="12" bgcolor="#E0E0E0">&nbsp;</td>
-                <td width="10">&nbsp;</td>
-                <td align="left" valign="top" width="556">
-                    <table cellspacing="0" cellpadding="0" border="0">
-                        <tr>
-                            <td style="color:#494949; font-size: 12px; line-height: 140%; font-family: 'Lucida Grande',Verdana,Arial;">
-                                <!-- This is the main content -->
-                                <h1 style="color:#BA0000;font-family:arial;text-decoration:none;font-size:1.6em;line-height:1;font-weight:bold;margin-bottom:1em;">Email Title</h1>
-                                <p style="margin:1.1em 0;"><strong>Dear Seth</strong>:</p>
-                                <p style="margin:1.1em 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus magna. Fusce sollicitudin urna et leo. Integer adipiscing. Phasellus eget lorem eu turpis facilisis semper. In ut purus eu dolor tempus placerat. Ut ac arcu id odio feugiat gravida. Cras nec erat quis justo rutrum vulputate. Quisque odio. Proin tincidunt dignissim neque. Pellentesque interdum purus ultrices enim. Pellentesque vel mi. Nunc mollis sodales dolor. Praesent id elit at ligula feugiat pretium. Sed sit amet lectus.</p>
-                                <p style="margin:1.1em 0;">Pellentesque nec lorem nec est accumsan congue. Donec lectus sapien, varius et, iaculis eu, pellentesque vitae, orci. Sed fringilla, leo sed rutrum scelerisque, nulla arcu porttitor massa, nec volutpat eros arcu a dolor. Fusce at ante. Integer sagittis porttitor elit. Sed lobortis felis sit amet risus. Vestibulum convallis, libero ut ullamcorper varius, neque urna gravida enim, sed laoreet erat mauris ac ipsum. Etiam ultricies, purus a ornare malesuada, sapien tellus adipiscing lorem, vel auctor metus sem et lectus. Phasellus lorem quam, mattis et, mattis ac, iaculis sit amet, lectus. Fusce suscipit dui quis nulla. Praesent elit. Nulla tincidunt, urna quis pulvinar placerat, mi nunc egestas diam, a tincidunt metus enim eget risus. Quisque rutrum nulla at leo. Sed ultricies tincidunt mi. Quisque velit ligula, consectetur eget, imperdiet in, varius ac, purus. Integer ac nisl sed elit sodales fermentum. Suspendisse tempus, metus id cursus malesuada, sapien turpis blandit nisl, at porttitor massa tortor ac lacus. Curabitur pretium orci at odio. Praesent a velit non tortor faucibus iaculis. Nulla et sem.</p>
-                          </td>
-                        </tr>
-                        <tr background="http://www.unl.edu/wdn/templates_3.0/images/email/insideFooter.png" style="background-image: url(http://www.unl.edu/wdn/templates_3.0/images/email/insideFooter.png)">
-                            <td style="color:#606060;font-size:10px;line-height:1.4em;padding:12px;font-family:'Lucida Grande',Verdana,Arial;min-height:42px;">
-                                <!--  This the footer -->
-                                <p style="margin-top:95px;"><img src="http://www.unl.edu/wdn/templates_3.0/images/email/wordmark.png" alt="" width="90" height="37" align="right" />&copy; 2011 Nebraska Alumni Association | 1520 R Street, Lincoln, NE 68501 | 888-353-1874 <br /> <a href="#" style="outline: none;color: #ba0000;text-decoration: none;">Comments</a> | 
-                                    <a href="#" style="outline: none;color: #ba0000;text-decoration: none;">Privacy Policy</a> | <a href="#" style="outline: none;color: #ba0000;text-decoration: none;">Email Preferences</a> | <a href="#" style="outline: none;color: #ba0000;text-decoration: none;">Unsubscribe</a></p>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-              <td width="10"></td>
-                <td width="12" bgcolor="#E0E0E0"></td>
-            </tr>
-        </table>
-        <table cellspacing="0" cellpadding="0" border="0" width="600">
-            <tr>
-                <td><img src="http://www.unl.edu/wdn/templates_3.0/images/email/footer.png" alt="The University of Nebraska-Lincoln" width="600" height="22" /></td>
-            </tr>
-        </table>
-    </td>
-</tr>
-</table>
+    <table cellspacing="0" cellpadding="0" border="0" width="98%" style="margin-top:10px; margin-bottom:10px;">
+        <tr>
+            <td align="center" valign="top">
+                <table width="600" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td rowspan="3">
+                            <img src="/wdn/templates_3.0/images/email/email2_01.gif" width="22" height="95" alt="Left header slice" /></td>
+                        <td rowspan="2">
+                            <a href="http://www.unl.edu/" style="outline:none;display:block;">
+                                <img src="/wdn/templates_3.0/images/email/email2_02.gif" width="67" height="70" alt="Red N" />
+                            </a>
+                        </td>
+                        <td>
+                            <img src="/wdn/templates_3.0/images/email/email2_03.gif" width="489" height="31" alt="University of Nebraska-Lincoln" />
+                        </td>
+                        <td rowspan="3">
+                            <img src="/wdn/templates_3.0/images/email/email2_04.gif" width="22" height="95" alt="Right header slice" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h1 style="color:#565656;font-family:arial;text-decoration:none;font-size:21px;line-height:1;font-weight:bold;margin:0;">Inside CBA</h1>
+                            <h2 style="color:#565656;font-family:arial;text-decoration:none;font-size:10px;line-height:1;font-weight:normal;margin:0;padding-top:2px;">College of Business Administration</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <img src="/wdn/templates_3.0/images/email/email2_06.gif" width="556" height="25" alt="Red bar seperator"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="/wdn/templates_3.0/images/email/email2_07.gif" width="22" height="100%" alt="Left maincontent slice"></td>
+                        <td style="color:#494949; font-size: 12px; line-height: 140%; font-family: 'Lucida Grande',Verdana,Arial;" colspan="2" valign="top">
+                              <!-- This is the main content -->
+                              <p style="margin:1.1em 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus magna. Fusce sollicitudin urna et leo. Integer adipiscing. Phasellus eget lorem eu turpis facilisis semper. In ut purus eu dolor tempus placerat. Ut ac arcu id odio feugiat gravida. Cras nec erat quis justo rutrum vulputate. Quisque odio. Proin tincidunt dignissim neque. Pellentesque interdum purus ultrices enim. Pellentesque vel mi. Nunc mollis sodales dolor. Praesent id elit at ligula feugiat pretium. Sed sit amet lectus.</p>
+                              <p style="margin:1.1em 0;">Pellentesque nec lorem nec est accumsan congue. Donec lectus sapien, varius et, iaculis eu, pellentesque vitae, orci. Sed fringilla, leo sed rutrum scelerisque, nulla arcu porttitor massa, nec volutpat eros arcu a dolor. Fusce at ante. Integer sagittis porttitor elit. Sed lobortis felis sit amet risus. Vestibulum convallis, libero ut ullamcorper varius, neque urna gravida enim, sed laoreet erat mauris ac ipsum. Etiam ultricies, purus a ornare malesuada, sapien tellus adipiscing lorem, vel auctor metus sem et lectus. Phasellus lorem quam, mattis et, mattis ac, iaculis sit amet, lectus. Fusce suscipit dui quis nulla. Praesent elit. Nulla tincidunt, urna quis pulvinar placerat, mi nunc egestas diam, a tincidunt metus enim eget risus. Quisque rutrum nulla at leo. Sed ultricies tincidunt mi. Quisque velit ligula, consectetur eget, imperdiet in, varius ac, purus. Integer ac nisl sed elit sodales fermentum. Suspendisse tempus, metus id cursus malesuada, sapien turpis blandit nisl, at porttitor massa tortor ac lacus. Curabitur pretium orci at odio. Praesent a velit non tortor faucibus iaculis. Nulla et sem.</p>
+                        </td>
+                        <td >
+                            <img src="/wdn/templates_3.0/images/email/email2_09.gif" width="22" height="100%" alt="Right main content slice"></td>
+                    </tr>
+                    <tr>
+                    <td colspan="4">
+                        <img src="/wdn/templates_3.0/images/email/email3_10.gif" width="600" height="51" alt="N Seal"></td>
+	                </tr>
+	                <tr>
+	                    <td colspan="4">
+	                    <table bgcolor="EEEEEE" style="background:#eeeeee;" width="100%">
+	                        <tr>
+	                            <td width="22">
+	                            
+	                            </td>
+	                            <td style="color:#606060;font-size:10px;line-height:1.4em;padding:12px;font-family:'Lucida Grande',Verdana,Arial;min-height:42px;">
+	                            <p style="width:556px;">
+	                                <img src="http://www.unl.edu/wdn/templates_3.0/images/email/wordmark.png" alt="" width="90" height="37" align="right" />
+	                                &copy; 2011 University of Nebraska&ndash;Lincoln <br />
+	                                aadafadf
+	                            </p>
+	                            </td>
+	                            <td width="22">
+	                            
+	                            </td>
+	                        </tr>
+	                    </table>
+	                </tr>
+	                <tr>
+	                    <td colspan="4">
+	                        <img src="/wdn/templates_3.0/images/email/email3_14.gif" width="600" height="12" alt="Very bottom of table"></td>
+	                </tr>
+	            </table>
+	        </td>
+	    </tr>
+	</table>
 </div>

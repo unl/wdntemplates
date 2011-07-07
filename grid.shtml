@@ -23,7 +23,6 @@
 	#maincontent h3 {
 	   margin:30px 0 20px 0;
 	   line-height:0.8;
-	   color:#027eac;
 	   border-bottom:3px solid #91c7db;
 	    -webkit-box-shadow: 0px 1px 0px #3ba9d2;
 	    -moz-box-shadow: 0px 1px 0px #3ba9d2;
