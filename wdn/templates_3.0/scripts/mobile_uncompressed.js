@@ -216,14 +216,22 @@ var WDN = function() {
 			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', callback);
 		},
 		
-		setCookie : function(name, value, seconds) {
+		setCookie : function(name, value, seconds, path, domain) {
 			var expires = "";
 			if (seconds) {
 				var date = new Date();
 				date.setTime(date.getTime()+(seconds*1000));
-				expires = ";expires="+date.toGMTString();
+				expires = ";expires="+date.toUTCString();
 			}
-			document.cookie = name+"="+value+expires+";path=/;domain=.unl.edu";
+			if (path == null) {
+				path = '/';
+			} else if (path.charAt(0) !== '/') {
+				path = WDN.toAbs(path, window.location.pathname);
+			}
+			if (domain == null) {
+				domain = '.unl.edu';
+			}
+			document.cookie = name+"="+value+expires+";path="+path+";domain="+domain;
 		},
 		
 		getCookie : function(name) {
