@@ -46,7 +46,7 @@
 #footer .image_small_3x2_vertical,
 #footer .image_small_3x2,
 #footer img.frame,
-#cboxLoadedContent img.frame
+#cboxLoadedContent img.frame, figure
 {
     border:1px solid #DDD;
     border-radius:3px;
@@ -56,8 +56,15 @@
     white-space:normal;
     line-height:0.8em;
 }
-
-#maincontent p.caption, #footer p.caption { 
+figure img {
+	width:100%;
+	height:auto;
+}
+figure figcaption { 
+	font-size:80%;
+	margin:3px 0;
+}
+#maincontent p.caption, #footer p.caption {
     line-height:normal;
     background:#f7f7f7;
     border:1px solid #DDD;
