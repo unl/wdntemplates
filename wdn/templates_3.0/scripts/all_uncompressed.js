@@ -7967,10 +7967,7 @@ WDN.navigation = (function() {
                 || WDN.jQuery('#breadcrumbs ul li').size() == 0) {
                 // This page has no navigation
                 return;
-            }
-            
-            // find the last-link in breadcrumbs
-            WDN.jQuery('#breadcrumbs > ul > li:not(:first-child) > a').last().parent().addClass('last-link');
+            }            
             
             if (WDN.jQuery('body').hasClass('document')) {
             	return;
@@ -7980,6 +7977,8 @@ WDN.navigation = (function() {
             WDN.navigation.fixPresentation();
 
             WDN.navigation.determineSelectedBreadcrumb();
+            // find the last-link in breadcrumbs
+            WDN.jQuery('#breadcrumbs > ul > li > a').last().parent().addClass('last-link');
             WDN.navigation.linkSiteTitle();
 
             // Store the current state of the cookie
