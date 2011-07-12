@@ -83,9 +83,7 @@ WDN.idm = function() {
 		/**
 		 * Update the SSO tab and display user info
 		 * 
-		 * @param string uid
-		 * 
-		 * @return void
+		 * @param {string} uid
 		 */
 		displayNotice : function(uid) {
 			if (WDN.jQuery('#wdn_identity_management').length === 0) {

@@ -65,10 +65,10 @@ WDN.toolbar = function() {
         /**
          * Just register a tool so we know about it.
          * 
-         * @param string plugin_name The JS file containing the tool.
-         * @param string title       The title to display for the tool tab
-         * @param int    pwidth      Width needed for the plugin
-         * @param int    pheight     Height needed for the plugin
+         * @param {string} plugin_name The JS file containing the tool.
+         * @param {string} title       The title to display for the tool tab
+         * @param {number} pwidth      Width needed for the plugin
+         * @param {number} pheight     Height needed for the plugin
          */
         registerTool : function(plugin_name, title, pwidth, pheight) {
         	 WDN.jQuery('#tooltabs ul').append('<li class="'+plugin_name+'"><a href="#" class="'+plugin_name+'">'+title+'</a></li>');

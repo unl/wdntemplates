@@ -252,8 +252,8 @@ var WDN = function() {
 		/**
 		 * Converts a relative link to an absolute link.
 		 * 
-		 * @param string link The relative link
-		 * @param string base_url The base to use
+		 * @param {string} link The relative link
+		 * @param {string} base_url The base to use
 		 */
 		toAbs: function (link, base_url) {
 		  if (typeof link == 'undefined')
@@ -325,11 +325,11 @@ var WDN = function() {
 		 * This function powers the functions WDN.get and WDN.post and provides cross browser
 		 * support for XHRs and cross-domain requests.
 		 * 
-		 * @param url A string containing the URL to be requested
-		 * @param data A string or object containing data/parameters to go along with the request
-		 * @param callback A function to be called when the request has been completed
-		 * @param [opt] type  The expected data type of the response
-		 * @param method The method to perform the request with. Supported are GET and POST
+		 * @param {string} url A string containing the URL to be requested
+		 * @param {string } data A string or object containing data/parameters to go along with the request
+		 * @param {function} callback A function to be called when the request has been completed
+		 * @param {string=} type [opt] The expected data type of the response
+		 * @param {string=} method The method to perform the request with. Supported are GET and POST
 		 */
 		
 		request: function (url, data, callback, type, method) {
