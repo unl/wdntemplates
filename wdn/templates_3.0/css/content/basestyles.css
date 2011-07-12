@@ -43,7 +43,7 @@
 }
 
 strong, b {
-	font-weight: bold;
+	font-weight: bolder;
 }
 
 em, i {
@@ -75,12 +75,13 @@ abbr:after, acronym:after {
     float: none;
     color: #c60202;
 }
-.code {
-    font-size: 90%;
-    font-weight: bold;
-    font-family: "Courier New", Courier, mono;
-}
-pre {
+pre, code, tt, kbd, samp, .code {
     font-family: "Courier New", Courier, mono;
     font-size: 95%;
+}
+big {
+	font-size: larger;
+}
+small {
+	font-size: smaller;
 }
