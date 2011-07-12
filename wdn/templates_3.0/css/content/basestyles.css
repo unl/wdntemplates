@@ -85,6 +85,10 @@ big {
 small {
 	font-size: smaller;
 }
-tr, td, th {
-	vertical-align: inherit;
+tr, th, td {
+	margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
 }
