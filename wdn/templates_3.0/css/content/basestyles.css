@@ -41,6 +41,15 @@
 #maincontent dd {
     padding: 0 0 0 30px;
 }
+
+strong, b {
+	font-weight: bold;
+}
+
+em, i {
+	font-style: italic;
+}
+
 sub, sup {
     height: 0;
     line-height: 1;
