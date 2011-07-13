@@ -85,10 +85,16 @@ big {
 small {
 	font-size: smaller;
 }
-tr, th, td {
+tbody, tfoot, thead, tr, th, td {
 	margin: 0;
     padding: 0;
     border: 0;
     font-size: 100%;
     font: inherit;
+}
+th {
+	font-weight: bold;
+}
+tbody, tfoot, thead {
+	vertical-align: middle;
 }
