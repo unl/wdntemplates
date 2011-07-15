@@ -35,7 +35,7 @@ http://www.fontspring.com/blog/further-hardening-of-the-bulletproof-syntax
          url('URWGrotesk/style_5721.svg#style_5721') format('svg'); /* Legacy iOS */
 }
 .formal, #titlegraphic h1, #header h1, #pagetitle h2 {
-    font-family: 'URWGroteskCon-Lig';
+    font-family: 'URWGroteskCon-Lig', Helvetica, Arial, sans-serif;
 }
 body {
     font-family: "Lucida Grande", Verdana, Arial, sans-serif;
