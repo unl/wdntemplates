@@ -30,7 +30,7 @@
     left:5px;
 }
 #maincontent .wdn_carousel .sliderControl.right {
-	right:5px;
+    right:5px;
 }
 #maincontent .wdn_carousel .sliderControl.right a {
     background: url('images/sliderRight.png') no-repeat;
@@ -64,8 +64,8 @@
 }
 
 #maincontent .currentScroller .promoText a {
-	text-decoration:underline;
-	color:#fff;
+    text-decoration:underline;
+    color:#fff;
 }
 #maincontent .currentScroller .promoText a:focus, #maincontent .currentScroller .unlToday a:focus {
     color:#fff !important;
@@ -74,26 +74,29 @@
     color:#CC0000 !important;
 }
 
-#maincontent .currentScroller .promoText h3 {
+#maincontent .currentScroller .promoText h3, #maincontent .currentScroller .promoText h4 {
     font-size:3em;
     line-height:1.1em;
     color:#fff;
     font-weight:bold;
     text-transform:uppercase;
 }
+#maincontent .currentScroller .promoText h4 {
+	font-size:1.5em;
+}
 #maincontent .currentScroller .promoText p {
     font-size:1.3em;
     line-height: 1.2em;
 }
 #maincontent .currentScroller .innovation .promoText {
-	right: 30px;
-	left: auto;
-	width: 300px;
-	color: #555;
-	text-shadow: -1px 0 -1px #EEE;
+    right: 30px;
+    left: auto;
+    width: 300px;
+    color: #555;
+    text-shadow: -1px 0 -1px #EEE;
 }
 #maincontent .currentScroller .innovation .promoText h3 {
-	color: #555;
+    color: #555;
 }
 
 /*
@@ -117,9 +120,9 @@ UNL Today Slide
 #maincontent .currentScroller .unltoday .inner {
     border:1px solid #fff;
     display:inline-block;
-    border-radius:3px;	
-    -moz-border-radius:3px;	
-    -webkit-border-radius:3px;	    
+    border-radius:3px;  
+    -moz-border-radius:3px; 
+    -webkit-border-radius:3px;      
     padding:10px;
 }
 #maincontent .currentScroller .unltoday p {
@@ -127,7 +130,7 @@ UNL Today Slide
 }
 #maincontent .currentScroller .unltoday p a{
     color:#baced7; 
-    text-decoration:underline;	
+    text-decoration:underline;  
 }
 #maincontent .currentScroller .unltoday .subhead {
     font-weight:bold;
@@ -154,14 +157,14 @@ UNL Today Slide
     line-height:1em;
 }
 #maincontent .currentScroller .unltoday h3 a {
-	color:#fff;
+    color:#fff;
 }
 #maincontent .currentScroller .unltoday h3 a:hover {
     color:#d8e4e9;
 }
 #maincontent .currentScroller .unltoday ul{
     margin:0 0 5px 0;
-    padding:0 8px;	
+    padding:0 8px;  
 }
 #maincontent .currentScroller .unltoday ul li {
     font-size:1.0em;
@@ -172,20 +175,20 @@ UNL Today Slide
     border-bottom:1px solid #0e374a;
 }
 #maincontent .currentScroller .unltoday ul li a {
-	color:#fff;
+    color:#fff;
 }
 /* 
 Big Ten Video Slide 
 */
 
 #maincontent .currentScroller ul li.video {
-	background: rgb(246,246,246); /* Old browsers */
-	background: -moz-linear-gradient(top, rgba(246,246,246,1) 1%, rgba(225,225,225,1) 29%, rgba(241,241,241,1) 30%, rgba(255,255,255,1) 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(246,246,246,1)), color-stop(29%,rgba(225,225,225,1)), color-stop(30%,rgba(241,241,241,1)), color-stop(100%,rgba(255,255,255,1)));
-	background: -webkit-linear-gradient(top, rgba(246,246,246,1) 1%,rgba(225,225,225,1) 29%,rgba(241,241,241,1) 30%,rgba(255,255,255,1) 100%);
-	background: -o-linear-gradient(top, rgba(246,246,246,1) 1%,rgba(225,225,225,1) 29%,rgba(241,241,241,1) 30%,rgba(255,255,255,1) 100%);
-	background: -ms-linear-gradient(top, rgba(246,246,246,1) 1%,rgba(225,225,225,1) 29%,rgba(241,241,241,1) 30%,rgba(255,255,255,1) 100%);
-	background: linear-gradient(top, rgba(246,246,246,1) 1%,rgba(225,225,225,1) 29%,rgba(241,241,241,1) 30%,rgba(255,255,255,1) 100%);
+    background: rgb(246,246,246); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(246,246,246,1) 1%, rgba(225,225,225,1) 29%, rgba(241,241,241,1) 30%, rgba(255,255,255,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(246,246,246,1)), color-stop(29%,rgba(225,225,225,1)), color-stop(30%,rgba(241,241,241,1)), color-stop(100%,rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top, rgba(246,246,246,1) 1%,rgba(225,225,225,1) 29%,rgba(241,241,241,1) 30%,rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(top, rgba(246,246,246,1) 1%,rgba(225,225,225,1) 29%,rgba(241,241,241,1) 30%,rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(top, rgba(246,246,246,1) 1%,rgba(225,225,225,1) 29%,rgba(241,241,241,1) 30%,rgba(255,255,255,1) 100%);
+    background: linear-gradient(top, rgba(246,246,246,1) 1%,rgba(225,225,225,1) 29%,rgba(241,241,241,1) 30%,rgba(255,255,255,1) 100%);
 }
 #bigTenVideo {
     background:url('images/tv20110701.png') no-repeat 0 0;
@@ -222,16 +225,16 @@ Big Ten Video Slide
 }
 /* Move to full height presentation */
 #maincontent div.wdn_carousel.full {
-    height:570px;	
+    height:570px;   
 }
 #maincontent .wdn_carousel.full .sliderControl {
-	display:none;
+    display:none;
 }
 #maincontent .wdn_carousel.full .currentScroller {
     height:540px;   
 }
 #maincontent .wdn_carousel.full .currentScroller ul li.video {
-	height:540px;
+    height:540px;
 }
 #maincontent .wdn_carousel.full .currentScroller ul li.video #bigTenVideo {
     height:540px;
@@ -361,7 +364,7 @@ Big Ten Video Slide
     color:#fafafa;
 }
 #maincontent .assert > ul > li > a:focus {
-    color:#fafafa !important;	
+    color:#fafafa !important;   
 }
 #maincontent .assert > ul > li:hover > a span{
     color:#aac2e3;    
@@ -394,7 +397,7 @@ Big Ten Video Slide
     margin-top:0em;
 }
 #maincontent .assert > ul > li.outlier:hover a {
-	margin-top:0.2em;
+    margin-top:0.2em;
 }
 /* End Styles for the Academic Colleges Bar */
 
@@ -473,7 +476,7 @@ Big Ten Video Slide
     padding:5px 0;
 }
 #maincontent .callout > ul > li:last-child {
-    border-bottom:none;	
+    border-bottom:none; 
 }
 #maincontent .callout ul a {
     color: #12516e;
@@ -507,13 +510,13 @@ Big Ten Video Slide
 */
 
 .stories {
-	width:738px;
-	float:left;
-	display:inline;
+    width:738px;
+    float:left;
+    display:inline;
 }
 
 .stories .article {
-	width:200px;
+    width:200px;
     float: left;
     margin-left: 15px;
     display:inline;
