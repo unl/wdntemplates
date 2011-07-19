@@ -13,6 +13,14 @@ body.liquid #wdn_navigation_wrapper {
     -webkit-box-sizing: border-box;
 }
 
+body.liquid #wdn_navigation_bar .expand_toggle {
+	right: 27px;
+}
+
+body.liquid .nav_unpinned #wdn_navigation_bar .pin_state {
+	right: 19px;
+}
+
 body.liquid #navigation > ul {
     width: 100%;
 }
