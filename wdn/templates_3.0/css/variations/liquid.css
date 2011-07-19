@@ -13,6 +13,10 @@ body.liquid #wdn_navigation_wrapper {
     -webkit-box-sizing: border-box;
 }
 
+body.liquid .nav_pinned #wdn_navigation_wrapper {
+	padding-right: 0;
+}
+
 body.liquid #wdn_navigation_bar .expand_toggle {
 	right: 27px;
 }
