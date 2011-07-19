@@ -7432,8 +7432,8 @@ var WDN = function() {
 		/**
 		 * Converts a relative link to an absolute link.
 		 * 
-		 * @param string link The relative link
-		 * @param string base_url The base to use
+		 * @param {string} link The relative link
+		 * @param {string} base_url The base to use
 		 */
 		toAbs: function (link, base_url) {
 		  if (typeof link == 'undefined')
@@ -7505,11 +7505,11 @@ var WDN = function() {
 		 * This function powers the functions WDN.get and WDN.post and provides cross browser
 		 * support for XHRs and cross-domain requests.
 		 * 
-		 * @param url A string containing the URL to be requested
-		 * @param data A string or object containing data/parameters to go along with the request
-		 * @param callback A function to be called when the request has been completed
-		 * @param [opt] type  The expected data type of the response
-		 * @param method The method to perform the request with. Supported are GET and POST
+		 * @param {string} url A string containing the URL to be requested
+		 * @param {string } data A string or object containing data/parameters to go along with the request
+		 * @param {function} callback A function to be called when the request has been completed
+		 * @param {string=} type [opt] The expected data type of the response
+		 * @param {string=} method The method to perform the request with. Supported are GET and POST
 		 */
 		
 		request: function (url, data, callback, type, method) {
@@ -7967,24 +7967,25 @@ WDN.navigation = (function() {
                 || WDN.jQuery('#breadcrumbs ul li').size() == 0) {
                 // This page has no navigation
                 return;
-            }            
-            
-            if (WDN.jQuery('body').hasClass('document')) {
-            	return;
             }
-
-            //debug statement removed
-            WDN.navigation.fixPresentation();
 
             WDN.navigation.determineSelectedBreadcrumb();
             // find the last-link in breadcrumbs
             WDN.jQuery('#breadcrumbs > ul > li > a').last().parent().addClass('last-link');
             WDN.navigation.linkSiteTitle();
+            
+            if (WDN.jQuery('body').hasClass('document')) {
+            	// The rest deals with navigation elements not in document
+            	return;
+            }
 
             // Store the current state of the cookie
             if (WDN.getCookie('n') == 1) {
                 WDN.navigation.preferredState = 1;
             }
+
+            //debug statement removed
+            WDN.navigation.fixPresentation();
 
             // add an expand toggler UI element
             var $toggler = WDN.jQuery('<div class="expand_toggle"><a href="#" title="Click to expand/collapse navigation" /></div>').prependTo('#wdn_navigation_wrapper');
@@ -8579,10 +8580,10 @@ WDN.toolbar = function() {
         /**
          * Just register a tool so we know about it.
          * 
-         * @param string plugin_name The JS file containing the tool.
-         * @param string title       The title to display for the tool tab
-         * @param int    pwidth      Width needed for the plugin
-         * @param int    pheight     Height needed for the plugin
+         * @param {string} plugin_name The JS file containing the tool.
+         * @param {string} title       The title to display for the tool tab
+         * @param {number} pwidth      Width needed for the plugin
+         * @param {number} pheight     Height needed for the plugin
          */
         registerTool : function(plugin_name, title, pwidth, pheight) {
         	 WDN.jQuery('#tooltabs ul').append('<li class="'+plugin_name+'"><a href="#" class="'+plugin_name+'">'+title+'</a></li>');
@@ -11960,9 +11961,7 @@ WDN.idm = function() {
 		/**
 		 * Update the SSO tab and display user info
 		 * 
-		 * @param string uid
-		 * 
-		 * @return void
+		 * @param {string} uid
 		 */
 		displayNotice : function(uid) {
 			if (WDN.jQuery('#wdn_identity_management').length === 0) {
