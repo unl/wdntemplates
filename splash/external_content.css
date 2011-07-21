@@ -110,8 +110,8 @@ UNL Today Slide
     -webkit-border-radius:5px;
     padding:5px;
     top:10px;
-    left:582px;
-    width:310px;
+    left:540px;
+    width:350px;
     color:#555;
     box-shadow:2px 2px 2px #0e374a;
     -webkit-box-shadow:2px 2px 2px #0e374a;
@@ -148,7 +148,7 @@ UNL Today Slide
     color:#baced7;
 }
 #maincontent .currentScroller .unltoday h3 {
-    font-size:1.8em;
+    font-size:1.4em;
     color:#fff;
     text-shadow: #0e374a 1px 1px 1px;
     font-weight:bold;
