@@ -1,20 +1,41 @@
 /*
-	The following fixes png-transparency for IE6.  
-	*********
-	** It is also necessary for png-transparency to cooperate with the fade transition in IE7 & IE8
-	*********
-	
-	Since this method does not support CSS background-positioning, it is incompatible with CSS sprites.  
-	Colorbox preloads navigation hover classes to account for this.
+  The following fixes a problem where IE7 and IE8 replace a PNG's alpha transparency with a black fill
+  when an alpha filter (opacity change) is set on the element or ancestor element.  This style is not applied to IE9.
 */
-#cboxTopLeft{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/wdn/templates_3.0/css/header/images/colorbox/borderTopLeft.png, sizingMethod='scale');}
-#cboxTopCenter{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/wdn/templates_3.0/css/header/images/colorbox/borderTopCenter.png, sizingMethod='scale');}
-#cboxTopRight{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/wdn/templates_3.0/css/header/images/colorbox/borderTopRight.png, sizingMethod='scale');}
-#cboxBottomLeft{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/wdn/templates_3.0/css/header/images/colorbox/borderBottomLeft.png, sizingMethod='scale');}
-#cboxBottomCenter{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/wdn/templates_3.0/css/header/images/colorbox/borderBottomCenter.png, sizingMethod='scale');}
-#cboxBottomRight{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/wdn/templates_3.0/css/header/images/colorbox/borderBottomRight.png, sizingMethod='scale');}
-#cboxMiddleLeft{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/wdn/templates_3.0/css/header/images/colorbox/borderMiddleLeft.png, sizingMethod='scale');}
-#cboxMiddleRight{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/wdn/templates_3.0/css/header/images/colorbox/borderMiddleRight.png, sizingMethod='scale');}
+.cboxIE #cboxTopLeft,
+.cboxIE #cboxTopCenter,
+.cboxIE #cboxTopRight,
+.cboxIE #cboxBottomLeft,
+.cboxIE #cboxBottomCenter,
+.cboxIE #cboxBottomRight,
+.cboxIE #cboxMiddleLeft,
+.cboxIE #cboxMiddleRight,
+.cboxIE #cboxClose {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
+}
 
-#cboxClose{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/wdn/templates_3.0/css/header/images/colorbox/close.png, sizingMethod='scale'); height:33px;}
-#cboxClose.hover{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/wdn/templates_3.0/css/header/images/colorbox/closeHover.png, sizingMethod='scale'); height:33px;}
+/*
+  The following provides PNG transparency support for IE6
+*/
+.cboxIE6 #cboxTopLeft{background:url(images/borderTopLeft.png);}
+.cboxIE6 #cboxTopCenter{background:url(images/borderTopCenter.png);}
+.cboxIE6 #cboxTopRight{background:url(images/borderTopRight.png);}
+.cboxIE6 #cboxBottomLeft{background:url(images/borderBottomLeft.png);}
+.cboxIE6 #cboxBottomCenter{background:url(images/borderBottomCenter.png);}
+.cboxIE6 #cboxBottomRight{background:url(images/borderBottomRight.png);}
+.cboxIE6 #cboxMiddleLeft{background:url(images/borderMiddleLeft.png);}
+.cboxIE6 #cboxMiddleRight{background:url(images/borderMiddleRight.png);}
+
+.cboxIE6 #cboxTopLeft,
+.cboxIE6 #cboxTopCenter,
+.cboxIE6 #cboxTopRight,
+.cboxIE6 #cboxBottomLeft,
+.cboxIE6 #cboxBottomCenter,
+.cboxIE6 #cboxBottomRight,
+.cboxIE6 #cboxMiddleLeft,
+.cboxIE6 #cboxMiddleRight {
+    _behavior: expression(this.src = this.src ? this.src : this.currentStyle.backgroundImage.split('"')[1], this.style.background = "none", this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" + this.src + ", sizingMethod='scale')");
+}
+
+.cboxIE6 #cboxClose{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/wdn/templates_3.0/css/header/images/colorbox/close.png, sizingMethod='scale'); height:33px;}
+.cboxIE6 #cboxClose.hover{background:transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=/wdn/templates_3.0/css/header/images/colorbox/closeHover.png, sizingMethod='scale'); height:33px;}
