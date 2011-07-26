@@ -85,7 +85,7 @@
     position: relative;
     z-index: 100;
 }
-#navigation > ul {
+#navigation /* DESIGNTIME */ > ul {
     float: left; 
     position: relative;
     width: 960px;
@@ -96,7 +96,7 @@
 }
 
 /* Primary Elements */
-#navigation > ul > li {
+#navigation /* DESIGNTIME */ > ul > li {
     width: 160px;
     float: left;
     text-align: center;
@@ -105,12 +105,12 @@
 
 /* Clear the first element of a row of 6 */
 /* (duplicated in ie.css with .start class) */
-#navigation > ul > li:nth-child(6n+1) {
+#navigation /* DESIGNTIME */ > ul > li:nth-child(6n+1) {
     clear: left;
 }
 
 /* Primary Links */
-#navigation > ul > li > a {
+#navigation /* DESIGNTIME */ > ul > li > a {
     display: block;
     color: #fff;
     text-shadow: 1px 1px 1px #424242;
@@ -133,47 +133,47 @@
 
 /* Clear the first element of a row of 6 */
 /* (duplicated in ie.css with .start class) */
-#navigation > ul > li:nth-child(6n+1) > a {
+#navigation /* DESIGNTIME */ > ul > li:nth-child(6n+1) > a {
     border-left: none;
 }
 
 /* Clear the last element of a row of 6 */
 /* (duplicated in ie.css with .end class) */
-#navigation > ul > li:nth-child(6n+6) > a {
+#navigation /* DESIGNTIME */ > ul > li:nth-child(6n+6) > a {
     border-right: none;
 }
 
 /* Add a separator between rows */
 /* (duplicated in ie.css with .mid-bar class) */
-#navigation > ul > li:nth-child(n+7) > a {
+#navigation /* DESIGNTIME */ > ul > li:nth-child(n+7) > a {
     border-top: 1px solid #c83a3a;
     box-shadow: 0px -1px 0px #870d0c;
 }
 
 /* Combine empty primary elements */
-#navigation > ul > li ~ li.empty > a {
+#navigation /* DESIGNTIME */ > ul > li ~ li.empty > a {
     border-right-color: transparent;
     /* width: 159px; /* accommodate the missing border */
 }
-#navigation > ul > li ~ li.empty ~ li.empty > a {
+#navigation /* DESIGNTIME */ > ul > li ~ li.empty ~ li.empty > a {
     border-left-color: transparent;
     /* width: 160px; /* accommodate the missing border */   
 }
 
 /* Round the corners of the top row */
-#navigation > ul > li:first-child > a {
+#navigation /* DESIGNTIME */ > ul > li:first-child > a {
     border-radius: 5px 0px 0 0; 
     -webkit-border-radius: 5px 0px 0 0; 
     -moz-border-radius: 5px 0px 0 0;
 }
-#navigation > ul > li:nth-child(6) > a {
+#navigation /* DESIGNTIME */ > ul > li:nth-child(6) > a {
     border-radius: 0 5px 0 0; 
     -webkit-border-radius: 0 5px 0 0; 
     -moz-border-radius: 0 5px 0 0;
 }
 
 /* Hover states of primary elements */
-#navigation > ul > li:hover > a {
+#navigation /* DESIGNTIME */ > ul > li:hover > a {
     background: #c12726; /* Old browsers */
     background: -moz-linear-gradient(top, #c12726 0%, #ac2625 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c12726), color-stop(100%,#ac2625)); /* Chrome,Safari4+ */
@@ -182,7 +182,7 @@
     background: -ms-linear-gradient(top, #c12726 0%,#ac2625 100%); /* IE10+ */
     background: linear-gradient(top, #c12726 0%,#ac2625 100%); /* W3C */
 }
-#navigation > ul > li.empty:hover > a {
+#navigation /* DESIGNTIME */ > ul > li.empty:hover > a {
     background: #b70302; /* Old browsers */
     background: -moz-linear-gradient(top, #b70302 0%, #9d0201 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b70302), color-stop(100%,#9d0201)); /* Chrome,Safari4+ */
@@ -192,12 +192,12 @@
     background: linear-gradient(top, #b70302 0%,#9d0201 100%); /* W3C */ 
     /* Note: Removed IE gradient support for IE9 border radius preference */
 }
-#navigation > ul > li > a:hover {
+#navigation /* DESIGNTIME */ > ul > li > a:hover {
     color: #fff !important;
 }
 
 /* Secondaries */
-#navigation > ul > li > ul {
+#navigation /* DESIGNTIME */ > ul > li > ul {
     position: relative;
     top: 0;
     width: 148px;
@@ -222,7 +222,7 @@
 }
 
 /* Disable transitions class for instant calculations between states */
-#navigation.disableTransition > ul > li ul {
+#navigation.disableTransition /* DESIGNTIME */ > ul > li ul {
     -webkit-transition: none;
     -moz-transition: none;
     -o-transition: none;
@@ -232,70 +232,70 @@
 
 /* Add strong border around first-in-row secondaries */
 /* (duplicated in ie.css with .start class) */
-#navigation > ul > li:nth-child(6n+1) ul {
+#navigation /* DESIGNTIME */ > ul > li:nth-child(6n+1) ul {
     border-left-color: #c9c9c9;
     margin-left: 0;
 }
 
 /* Add strong border around last-in-row secondaries */
 /* (duplicated in ie.css with .end class) */
-#navigation > ul > li:nth-child(6n+6) > ul {
+#navigation /* DESIGNTIME */ > ul > li:nth-child(6n+6) > ul {
     border-right: 1px solid #c9c9c9 !important;
     margin-right: 0;
 }
 
 /* Round the corners of the bottom row */
-#navigation > ul > li:nth-last-child(6) > ul,
-.empty-secondary #navigation > ul > li:nth-last-child(6) > a,
-#navigation > ul > li.row-empty:nth-last-child(6) > a {
+#navigation /* DESIGNTIME */ > ul > li:nth-last-child(6) > ul,
+.empty-secondary #navigation /* DESIGNTIME */ > ul > li:nth-last-child(6) > a,
+#navigation /* DESIGNTIME */ > ul > li.row-empty:nth-last-child(6) > a {
     border-bottom-left-radius: 5px;
     -webkit-border-bottom-left-radius: 5px;
     -moz-border-radius-bottomleft: 5px;   
 }
-#navigation > ul > li:last-child > ul,
-.empty-secondary #navigation > ul > li:last-child > a,
-#navigation > ul > li.row-empty:last-child > a {
+#navigation /* DESIGNTIME */ > ul > li:last-child > ul,
+.empty-secondary #navigation /* DESIGNTIME */ > ul > li:last-child > a,
+#navigation /* DESIGNTIME */ > ul > li.row-empty:last-child > a {
 	border-bottom-right-radius: 5px;
     -webkit-border-bottom-right-radius: 5px;
     -moz-border-radius-bottomright: 5px;
 }
 
-.empty-secondary #navigation > ul > li > ul,
-#navigation > ul > li.row-empty > ul {
+.empty-secondary #navigation /* DESIGNTIME */ > ul > li > ul,
+#navigation /* DESIGNTIME */ > ul > li.row-empty > ul {
 	display: none;
 }
 
 /* Don't display the the secondary ul's for the top rows */
 /* (duplicated in ie.css with .top-bars class) */
-.nav_collapsed #navigation > ul > li:nth-last-child(n+7) ul {
+.nav_collapsed #navigation /* DESIGNTIME */ > ul > li:nth-last-child(n+7) ul {
     padding-bottom: 0;
     padding-top: 0;
 }
 
 /* Force the last row height to 0 */
-.nav_collapsed #navigation > ul > li ul {
+.nav_collapsed #navigation /* DESIGNTIME */ > ul > li ul {
     height: 0 !important;
 }
 
 /* Collapse borders on empty secondaries */
-#navigation > ul > li ~ li.empty ul {
+#navigation /* DESIGNTIME */ > ul > li ~ li.empty ul {
     border-right: none;
     width: 149px;
 }
-#navigation > ul > li ~ li.empty ~ li.empty ul {
+#navigation /* DESIGNTIME */ > ul > li ~ li.empty ~ li.empty ul {
     border-left: none;
     width: 150px;
 }
 /* (duplicated in ie.css with .end class) */
-#navigation > ul > li ~ li.empty ~ li.empty:nth-child(6n+6) ul {
+#navigation /* DESIGNTIME */ > ul > li ~ li.empty ~ li.empty:nth-child(6n+6) ul {
     width: 149px;
 }
-#navigation > ul > li ~ li.empty:nth-child(6n+6) ul {
+#navigation /* DESIGNTIME */ > ul > li ~ li.empty:nth-child(6n+6) ul {
     width: 148px;
 }
 
 /* Hover states for secondaries */
-#navigation > ul > li:hover ul {
+#navigation /* DESIGNTIME */ > ul > li:hover ul {
     /* http: //www.colorzilla.com/gradient-editor/#fbfbfb+0,f0f0f0+100;Custom */
     background: rgb(251,251,251); /* Old browsers */
     background: -moz-linear-gradient(top, rgba(251,251,251,1) 0%, rgba(240,240,240,1) 100%); /* FF3.6+ */
@@ -306,7 +306,7 @@
     /* filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', endColorstr='#f0f0f0',GradientType=0 ); /* IE6-9 */
     background: linear-gradient(top, rgba(251,251,251,1) 0%,rgba(240,240,240,1) 100%); /* W3C */
 }
-#navigation > ul > li.empty:hover ul {
+#navigation /* DESIGNTIME */ > ul > li.empty:hover ul {
     background: rgb(233,233,233);
     background: -moz-linear-gradient(top, rgba(251,251,251,0.95) 0%, rgba(215,215,215,0.95) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(251,251,251,0.95)), color-stop(100%,rgba(215,215,215,0.95))); /* Chrome,Safari4+ */
@@ -318,7 +318,7 @@
 }
 
 /* Secondary elements */
-#navigation > ul > li ul li {
+#navigation /* DESIGNTIME */ > ul > li ul li {
     clear: both;
     padding: 0 5px;
     margin: 0;
@@ -326,15 +326,15 @@
 }
 
 /* Hide the secondary elements during transition */
-.nav_collapsed #navigation > ul > li ul li,
-.nav_changing #navigation > ul > li ul li,
+.nav_collapsed #navigation /* DESIGNTIME */ > ul > li ul li,
+.nav_changing #navigation /* DESIGNTIME */ > ul > li ul li,
 .nav_collapsed .pin_state,
 .nav_changing .pin_state {
     display: none;
 }
 
 /* Secondary links */
-#navigation > ul > li ul li a {
+#navigation /* DESIGNTIME */ > ul > li ul li a {
     font-size: 0.71em;
     padding: 3px 0px 3px 0px;
     font-weight: normal;
@@ -342,30 +342,30 @@
     border-bottom: 1px dotted #bababa;
     line-height: 1.14em;
 }
-#navigation > ul > li:hover ul a {
+#navigation /* DESIGNTIME */ > ul > li:hover ul a {
     color: #242424;
 }
-#navigation > ul > li ul li a:hover {
+#navigation /* DESIGNTIME */ > ul > li ul li a:hover {
     color: #BA0000;
 }
-#navigation > ul > li ul li img {
+#navigation /* DESIGNTIME */ > ul > li ul li img {
     display: none !important;
 }
 
 /* Format the last secondary link */
 /* (duplicated in ie.css with .last class) */
-#navigation > ul > li ul li:last-child > a {
+#navigation /* DESIGNTIME */ > ul > li ul li:last-child > a {
     border-bottom: none;
 }
-#navigation > ul > li ul li > ul {
+#navigation /* DESIGNTIME */ > ul > li ul li > ul {
 	border-bottom: none;
 }
-#navigation > ul > li ul li:last-child >ul {
+#navigation /* DESIGNTIME */ > ul > li ul li:last-child >ul {
     border-top:1px dotted #bababa;	
 }
-#navigation > ul > li ul li:last-child > ul li:last-child > a {
+#navigation /* DESIGNTIME */ > ul > li ul li:last-child > ul li:last-child > a {
     border-bottom:none;
 }
-#navigation > ul > li ul li > ul li:last-child > a {
+#navigation /* DESIGNTIME */ > ul > li ul li > ul li:last-child > a {
     border-bottom:1px dotted #bababa;
 }

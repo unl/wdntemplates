@@ -66,4 +66,10 @@ include dirname(__FILE__).'/compressCSS.php';
 
 $css = ob_get_clean();
 file_put_contents(dirname(__FILE__).'/../css/all.css', $css);
+
+ob_start();
+include dirname(__FILE__).'/compressDtCSS.php';
+
+$css = ob_get_clean();
+file_put_contents(dirname(__FILE__).'/../css/designtime.css', $css);
 ?>
