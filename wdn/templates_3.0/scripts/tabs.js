@@ -62,12 +62,14 @@ WDN.tabs = (function() {
 				}
 				
 				WDN.tabs.updateInterface(trig);
-				hashFromTabClick = true;
-				if (window.location.hash.replace('#', '') != hash) {
-					window.location.hash = hash;
-				}
+				
 				if (!WDN.tabs.useHashChange) {
 					WDN.tabs.displayFromHash(hash);
+				} else {
+					hashFromTabClick = true;
+					if (window.location.hash.replace('#', '') != hash) {
+						window.location.hash = hash;
+					}
 				}
 				
 				return false;
