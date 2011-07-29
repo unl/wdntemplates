@@ -62,7 +62,13 @@ body.mobile #titlegraphic {
     width:100%;
 }
 body.mobile #titlegraphic > h1 {
-    display:none;  
+    display:none;
+    left:45px;
+    font-size:30px;
+}
+
+body.mobile #wdn_wrapper {
+	box-shadow:none;
 }
 
 body.homepage #titlegraphic > h1 {display:block;}
