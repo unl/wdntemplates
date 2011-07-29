@@ -9,20 +9,29 @@ body.document #pagetitle {
 }
 
 body.document #breadcrumbs ul li.selected {
-    background: none;
+    padding: 5px 5px 6px 8px;
+    color: #686868;
+    margin: 3px 0;
+    position: relative;
+    z-index: 2;
+    background: #eee;
+    border: none;
+    border-radius: 0;
+    line-height: 1;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
-body.document #breadcrumbs ul li a,
-body.document #breadcrumbs ul li a:link,
-body.document #breadcrumbs ul li a:visited {
-    margin: 0;
+body.document #breadcrumbs ul li.last-link {
+    border-radius: 0 3px 3px 0; 
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
 }
 body.document #breadcrumbs ul li.selected a,
 body.document #breadcrumbs ul li.selected a:link,
 body.document #breadcrumbs ul li.selected a:visited {
-    background: none;
-}
-body.document #breadcrumbs ul li.selected a:after {
-    background-image: none;
+    color: #686868;
+    background-position: right 3px;
 }
 
 body.document #footer .footer_col {
