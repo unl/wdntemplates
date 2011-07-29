@@ -15,8 +15,8 @@ WDN.mobile_detect = function() {
 				return true;
 			}
 			if ('https:' == document.location.protocol) {
-			    // https sites cannot be proxied by the mobile proxy
-			    return true;
+				// https sites cannot be proxied by the mobile proxy
+				return true;
 			}
 			WDN.loadCSS('/wdn/templates_3.0/css/header/mobile_detect.css');
 			WDN.mobile_detect.showMessage();
