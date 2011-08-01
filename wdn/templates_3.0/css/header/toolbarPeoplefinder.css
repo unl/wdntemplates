@@ -107,6 +107,7 @@
 #toolbar_peoplefinder a.email span {font-size:1.5em;}
 #toolbar_peoplefinder a.text-vcard{padding-left:24px;padding-right:0;background-position:left -2px;margin:121px 0 0 -122px;float:left;}
 #toolbar_peoplefinder a.img-qrcode{padding-left:24px;padding-right:0;background: url(http://peoplefinder.unl.edu/css/images/qrcode.png) no-repeat 0 0;margin:141px 0 0 -122px;float:left;}
+#toolbar_peoplefinder a.print{padding-left:24px;padding-right:0;margin:161px 0 0 -122px;float:left;}
 #toolbar_peoplefinder div.wdn_annotate.on{float:left;clear:left;}
 #toolbar_peoplefinder div.wdn_annotate.on a{padding:0 0 0 24px;margin-top:2px;background-color:transparent;background-position:0 2px;border:none;}
 #toolbar_peoplefinder img.profile_pic.medium {width:100px;height:100px;}
