@@ -5,7 +5,7 @@
 */
 
 /* These are the additional:after, easier-to-use:after, selectors */
-a.external:after, a.map:after, a.email:after, a.vcard:after, a.pdf:after, a.audio:after, a.image:after, a.document:after, a.html:after, a.video:after, a.calendar:after, a.clustan:after, a.presentation:after, a.spreadsheet:after, a.zip:after, a.feed:after, a.script:after,
+a.external:after, a.map:after, a.email:after, a.vcard:after, a.pdf:after, a.audio:after, a.image:after, a.document:after, a.html:after, a.video:after, a.calendar:after, a.clustan:after, a.presentation:after, a.spreadsheet:after, a.zip:after, a.feed:after, a.script:after, a.print:after,
 
 /* CSS attribute rules */
 a[href $='.mov']:after, a[href $='.wmv']:after, a[href $='.mp4']:after, a[href $='.m4v']:after, a[href $='.zip']:after, a[href *='.doc']:after, a[href *='.ppt']:after, a[href *='.pps']:after, a[href *='.xls']:after, a[href $='.pdf']:after, a[href^="mailto:"]:after, a[href^="http://maps.google.com"]:after,
@@ -71,6 +71,9 @@ a.zip:after, a.application-zip:after, a[href $='.zip']:after {
 }
 a.imagelink:after, #footer a.imagelink:after, a.noBG:after {
     background:none;
+}
+a.print:after {
+	background-position: right -544px;
 }
 
 /*
