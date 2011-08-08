@@ -109,7 +109,7 @@ Author: WDN
     border-right: 1px solid #c6c6c6;
     margin-right: 9px;
     -webkit-box-shadow: 1px 0px 0px #9d0201;
-    -moz-box-shadow: 0px 1px 0px #9d0201;
+    -moz-box-shadow: 1px 0px 0px #9d0201;
     box-shadow: 1px 0px 0px #9d0201;
 }
 #wdn_logos #b1g_wordmark {margin: 25px 0 0 -46px; padding-right: 6px;}
