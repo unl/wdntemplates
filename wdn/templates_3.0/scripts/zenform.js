@@ -8,7 +8,9 @@ WDN.zenform = function() {
 		initialize : function() {
 			WDN.log('zenform initialized');
 			WDN.loadCSS('/wdn/templates_3.0/css/content/zenform.css');
-			if(WDN.jQuery.browser.msie) { WDN.zenform.fixIE() }
+			if (WDN.jQuery.browser.msie) {
+				WDN.zenform.fixIE();
+			}
 		},
 		
 		fixIE : function() {
