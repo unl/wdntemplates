@@ -1,5 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--#include virtual="/wdn/templates_3.0/includes/metanfavico_html5.html" -->
 <head>
 <!--
     Membership and regular participation in the UNL Web Developer Network
@@ -15,21 +17,21 @@
     
     $Id: mobile.dwt 756 2009-09-15 02:31:02Z bbieber2 $
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/mobile.css" />
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/mobile.js"></script>
-<!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
-<!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/variations/mobile.css" />
+<script type="text/javascript" src="/wdn/templates_3.0/scripts/mobile_uncompressed.js"></script>
+<!--#include virtual="/wdn/templates_3.0/includes/browserspecifics_html5.html" -->
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>UNL | Department | New Page</title>
 <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <!-- TemplateEndEditable -->
 </head>
-<body class="mobile">
-<p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
+<body class="html5 mobile">a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://m.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
+        <!--#include virtual="/wdn/templates_3.0/includes/wdnTools_html5.html" -->
     </div>
     <div id="wdn_content_wrapper">
         <div id="titlegraphic"><!-- TemplateBeginEditable name="titlegraphic" -->
