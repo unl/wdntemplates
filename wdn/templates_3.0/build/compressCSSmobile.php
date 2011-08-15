@@ -1,21 +1,21 @@
 <?php
-  header('Content-type: text/css');
-  echo '/**
- * This file is part of the UNL WDN templates.
- * http://wdn.unl.edu/
- * $Id$
- */'.PHP_EOL;
-  ob_start("compress");
-  function compress($buffer) {
-    /* remove comments */
-    $buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
-    /* remove tabs, spaces, newlines, etc. */
-    $buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $buffer);
-    $buffer = str_replace(', ', ',', $buffer);
-    return $buffer;
-  }
+    header('Content-type: text/css');
+    echo '/**
+    * This file is part of the UNL WDN templates.
+    * http://wdn.unl.edu/
+    * $Id$
+    */'.PHP_EOL;
+    ob_start("compress");
+    function compress($buffer) {
+        /* remove comments */
+        $buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
+        /* remove tabs, spaces, newlines, etc. */
+        $buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $buffer);
+        $buffer = str_replace(', ', ',', $buffer);
+        return $buffer;
+    }
 
-  /* your css files */
+    /* your css files */
     $files = array(
     'reset',
     'wrapper',
@@ -47,21 +47,21 @@
 //    'variations/secure',
     'variations/mobile',
     );
-  foreach ($files as $file) {
-      $dir = '';
-      if (strpos($file,'/')!==false) {
-          list($dir) = explode('/',$file);
-          $dir .= '/';
-      }
-      $corrected = convertPaths(file_get_contents(dirname(__FILE__)."/../css/$file.css"), $dir);
-      echo preg_replace('/\@import[\s]+url\(.*\);/', '', $corrected);
-  }
+    foreach ($files as $file) {
+        $dir = '';
+        if (strpos($file,'/')!==false) {
+            list($dir) = explode('/',$file);
+            $dir .= '/';
+        }
+        $corrected = convertPaths(file_get_contents(dirname(__FILE__)."/../css/$file.css"), $dir);
+        echo preg_replace('/\@import[\s]+url\(.*\);/', '', $corrected);
+    }
 
     function convertPaths($css, $dir) {
         return str_replace(
           array('../images/', 'images/',      'IMAGES', 'URWGrotesk/'),
           array('IMAGES/',    $dir.'images/', 'images', 'fonts/URWGrotesk/'), $css);
     }
-  
-  ob_end_flush();
+
+    ob_end_flush();
 ?>
