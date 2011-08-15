@@ -57,9 +57,11 @@
       echo preg_replace('/\@import[\s]+url\(.*\);/', '', $corrected);
   }
 
-  function convertPaths($css, $dir) {
-      return str_replace(array('../images/','images/','IMAGES'), array('IMAGES/',$dir.'images/','images'), $css);
-  }
+    function convertPaths($css, $dir) {
+        return str_replace(
+          array('../images/', 'images/',      'IMAGES', 'URWGrotesk/'),
+          array('IMAGES/',    $dir.'images/', 'images', 'fonts/URWGrotesk/'), $css);
+    }
   
   ob_end_flush();
 ?>
