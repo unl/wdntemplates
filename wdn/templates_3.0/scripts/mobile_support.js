@@ -4,9 +4,10 @@ mobile_support = function() {
 			window.addEventListener('orientationchange', mobile_support.setOrientation, false);
 			document.addEventListener('DOMContentLoaded', 
 				function(){
-					mobile_support.setOrientation();
 					// For our smarter browsers (the ones that are reading this), let's enhance the nav
 					mobile_support.enhanceNavigation.initialize();
+					mobile_support.setOrientation();
+					document.getElementById('wdn_search_form').setAttribute('action','http://www1.unl.edu/search/');
 				},
 				false
 			);
@@ -15,6 +16,10 @@ mobile_support = function() {
 		setOrientation : function() { //add class name to html for styling purposes.
 			var orient = Math.abs(window.orientation) === 90 ? 'landscape' : 'portrait';
 			document.getElementsByTagName('html')[0].setAttribute("class", orient);
+		},
+		
+		updateSearch : function() {
+			
 		},
 		
 		enhanceNavigation: function(){
