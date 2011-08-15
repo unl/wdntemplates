@@ -7262,7 +7262,7 @@ var WDN = function() {
 		 * Load an external css file.
 		 */
 		loadCSS : function(url) {
-			if (url.match(/^wdn\/templates_3\.0/)) {
+			if (url.match(/^\/?wdn\/templates_3\.0/)) {
 				url = WDN.template_path+url;
 			}
 			var e = document.createElement("link");
