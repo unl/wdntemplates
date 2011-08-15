@@ -33,10 +33,10 @@
 //    'footer/rating',
     'content/basestyles',
 //    'content/tabs',
-    'content/titlegraphic',
+//    'content/titlegraphic',
     'content/headers',
     'content/zenbox',
-    'content/columns',
+//    'content/columns',
     'content/images',
     'content/mime',
 //    'content/zentable',
@@ -45,8 +45,8 @@
 //    'variations/popup',
 //    'variations/document',
 //    'variations/secure',
-    'variations/mobile',
-    );
+      'variations/mobile',
+);
     foreach ($files as $file) {
         $dir = '';
         if (strpos($file,'/')!==false) {

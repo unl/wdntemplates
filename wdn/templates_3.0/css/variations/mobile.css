@@ -18,9 +18,6 @@ Bring in all the supporting css files - DELETE THIS BEFORE FINALIZING
 /* General Template Settings
 **********************************/
 
-body.mobile {
-    
-}
 body.mobile #wdn_wrapper {
     border:none;
     background:none;
@@ -101,7 +98,7 @@ body.mobile #wdn_search form #q {
     padding:0 0 0 20px;
     width:30px;
     height:25px;
-    background:url('/wdn/templates_3.0/css/header/images/searchMagnifyGlass_mobile.png') no-repeat 5px 5px;
+    background:url('images/searchMagnifyGlass_mobile.png') no-repeat 5px 5px;
     -webkit-transition: width 0.3s ease;
     -moz-transition: width 0.3s ease;
     -o-transition: width 0.3s ease;
@@ -210,12 +207,16 @@ body.mobile #navigation ul li {
     position:relative;
 }
 body.mobile #navigation ul li a {
-    text-decoration:none;
+	text-decoration:none;
     color:#333;
     padding:1em;
+    display:block;
+}
+body.mobile #navigation ul li.hasSecondary a {
     display:inline-block;
 }
-body.mobile #navigation > ul > li:after {
+
+body.mobile #navigation > ul > li.hasSecondary:after {
     background: rgba(0,0,0,.4) url('images/icons-18-white.png') no-repeat -108px 50%;
     content: '';
     width:1.2em;
@@ -242,9 +243,6 @@ body.mobile #navigation ul ul li a {
 }
 body.mobile #navigation > ul > li:hover ul {
     left:0;
-}
-body.mobile #navigation ul ul a {
-    	
 }
 body.mobile #titlegraphic {
     display:none;	

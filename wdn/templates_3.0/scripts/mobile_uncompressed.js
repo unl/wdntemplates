@@ -517,9 +517,8 @@ mobile_support = function() {
 								event.stopPropagation();
 								mobile_support.enhanceNavigation.showSecondary(this);
 							};
-							primaryAs = primaryNavs[i].getElementsByTagName('a')[0];
-							if(primaryAs.nextSibling != null){
-								primaryAs.parentNode.className = 'hasSecondary';
+							if((primaryNavs[i].getElementsByTagName('ul')).length > 0){
+								primaryNavs[i].className = 'hasSecondary';
 							}
 						}
 					};
