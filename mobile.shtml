@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<!-- InstanceBegin template="/Templates/mobile.dwt" codeOutsideHTMLIsLocked="false" -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<!--#include virtual="/wdn/templates_3.0/includes/metanfavico_html5.html" -->
 <!--
     Membership and regular participation in the UNL Web Developer Network
     is required to use the UNL templates. Visit the WDN site at 
@@ -16,257 +16,171 @@
     
     $Id: mobile.dwt 536 2009-07-23 15:47:30Z bbieber2 $
 -->
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
 <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/mobile.css" />
 <script type="text/javascript" src="/wdn/templates_3.0/scripts/mobile.js"></script>
-<!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
-<!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
-<!-- InstanceBeginEditable name="doctitle" -->
-<title>UNL | Department | New Page</title>
-<!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
-<!--#include virtual="sharedcode/localSiteLinks.html" -->
+<!--#include virtual="/wdn/templates_3.0/includes/browserspecifics_html5.html" -->
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>UNL Mobile Site Testing</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<!-- InstanceEndEditable -->
+<!-- TemplateEndEditable -->
 </head>
-<body class="mobile">
+<body class="html5 mobile">
 <p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
+        <!--#include virtual="/wdn/templates_3.0/includes/wdnTools_html5.html" -->
+    </div>
+    <div id="wdn_navigation_bar">
+        <div id="breadcrumbs">
+            <!-- WDN: see glossary item 'breadcrumbs' -->
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
+            <ul>
+                <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
+                <li>Department</li>
+            </ul>
+            <!-- InstanceEndEditable -->
+        </div>
+        <div id="wdn_navigation_wrapper">
+            <div id="navigation">
+                <!-- InstanceBeginEditable name="navlinks" -->
+                    <!--#include virtual="sharedcode/navigation.html" -->
+                <!-- InstanceEndEditable -->
+            </div>
+        </div>
     </div>
     <div id="wdn_content_wrapper">
         <div id="titlegraphic"><!-- InstanceBeginEditable name="titlegraphic" -->
             <h1>Undergraduate Office of Admissions</h1>
             <!-- InstanceEndEditable --></div>
-        <div id="pagetitle"><!-- InstanceBeginEditable name="pagetitle" --> <!-- InstanceEndEditable --></div>
+        <div id="pagetitle"><!-- InstanceBeginEditable name="pagetitle" --><h2>This is my Page</h2><!-- InstanceEndEditable --></div>
         <div id="maincontent">
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             <!-- InstanceBeginEditable name="maincontentarea" -->
-            <div class="two_col left">
-                <div class="image_medium"><img src="admissionsPhoto.jpg" alt="Admissions" /></div>
-                <p class="caption">Nebraska fans celebrate the Huskers'
-                win over Texas at the Devaney Sports Center. </p>
-                <div class="col left">
-                    <h3>Explore our majors</h3>
-                    <p>We offer 150 majors and 275 programs of study to give you an intensive education in your area of interest.</p>
-                    <ul>
-                        <li>Majors by academic college
-                            <ul>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=ANR">Agricultural Sciences &amp; Natural Resources</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=ARH">Architecture</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=ASC">Arts &amp; Sciences</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=CBA">Business Administration</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=GEN">Division of General Studies</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=EHS">Education &amp; Human Sciences</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=ENG">Engineering</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=FPA">Hixson-Lied Fine &amp; Performing Arts</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=JMC">Journalism &amp; Mass Communications</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=PAC">Public Affairs &amp; Community Service</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/majors/alpha.php">View alphabetized list of majors</a></li>
-                    </ul>
-                </div>
-                <div class="col right">
-                    <h3>Join our Mailing List</h3>
-                    <form id="inforquest" class="admissform" action="inforequest.asp" method="post">
-                        <fieldset>
-                        <legend>Your Information</legend>
-                        <ol>
-                            <li>
-                                <label for="StudentType">Student Type<em>*</em></label>
-                                <select style="width: 200px;" id="StudentType" name="StudentType">
-                                    <option value="">Please Select</option>
-                                    <optgroup style="font-size: 100%;" label="High School Students">
-                                    <option value="Sr.">High School Senior (Class of 2009)</option>
-                                    <option value="Jr.">High School Junior (Class of 2010)</option>
-                                    <option value="So.">High School Sophomore (Class of 2011)</option>
-                                    <option value="Fr.">High School Freshman (Class of 2012)</option>
-                                    <option value="Pipsqueak">Middle School or Younger</option>
-                                    </optgroup>
-                                    <optgroup style="font-size: 100%;" label="Transfer Students">
-                                    <option value="Transfer">College Transfer</option>
-                                    <option value="Intl trans">International Transfer</option>
-                                    </optgroup>
-                                    <optgroup style="font-size: 100%;" label="International Students">
-                                    <option value="Intl fr">International Freshman</option>
-                                    <option value="Intl Readmit">International Readmit</option>
-                                    <option value="Intl trans">International Transfer</option>
-                                    </optgroup>
-                                    <optgroup style="font-size: 100%;" label="Other Students">
-                                    <option value="Return">Returning Student</option>
-                                    <option value="Non-trad">Nontraditional Student</option>
-                                    <option value="Undetermined">Unsure</option>
-                                    </optgroup>
-                                </select>
-                            </li>
-                            <li>
-                                <label for="ProspectTerm">Enrollment Term<em>*</em></label>
-                                <select style="width: 200px;" id="ProspectTerm" name="ProspectTerm">
-                                    <option value="">Please Select</option>
-                                    <option value="Spring 2010">Spring 2010</option>
-                                    <option value="Summer 2010">Summer 2010</option>
-                                    <option value="Fall 2010">Fall 2010</option>
-                                    <option value="Spring 2011">Spring 2011</option>
-                                    <option value="Summer 2011">Summer 2011</option>
-                                    <option value="Fall 2011">Fall 2011</option>
-                                    <option value="Spring 2012">Spring 2012</option>
-                                    <option value="Summer 2012">Summer 2012</option>
-                                    <option value="Fall 2012">Fall 2012</option>
-                                    <option value="Spring 2012">Spring 2013</option>
-                                    <option value="Summer 2012">Summer 2013</option>
-                                    <option value="Fall 2012">Fall 2013</option>
-                                    <option value="Spring 2014">Spring 2014</option>
-                                    <option value="Summer 2014">Summer 2014</option>
-                                    <option value="Fall 2014">Fall 2014</option>
-                                </select>
-                            </li>
-                            <li>
-                                <input type="hidden" value="Admissions Homepage" name="WebForm"/>
-                                <input type="submit" value="Continue" name="Submit"/>
-                            </li>
-                        </ol>
-                        </fieldset>
-                    </form>
-                </div>                
-                <div id="randomPromo" ></div>                                
-            </div>
-            <div class="col middle">
-                <small>THE BUZZ</small>
-                <h3>Enrollment Deposit - Deadline Passed</h3>
-                <p>The deadline for submitting your enrollment deposit has passed.  </p>
-                <ul class="arrowList">
-                    <li><a href="http://admissions.unl.edu/deposit">Learn more</a></li>
-                </ul>
-                <h3>UNL named "Best Value" in Education</h3>
-                <p>In uncertain economic times, a four-year college education is the best investment
-                that someone can make. Named by Kiplinger's as a "Best Value" in
-                college education, a UNL degree pays its graduates back in less than four years
-                when compared to graduates of two-year programs. Now, more than ever, NEBRASKA
-                represents one of the best educational values in the country. </p>
-                <div class="zenbox">
-                    <h4>Local News 
-                    <br />
-                        <a title="Subscribe to these headlines" href="http://feedburner.com/unlxxxxxxx">
-                        <img alt="RSS/Atom Feed" src="icon_rss.png" />
-                        </a>
-                    </h4>
-                    <ul>
-                        <li><a href="http://feedproxy.google.com/~r/unladmissions/~3/zAnMKay8As0/2%2C400+to+receive+degrees+at+May+8-9+UNL+commencements">2,400 to receive degrees at May 8-9 UNL commencements</a></li>
-                        <li><a href="http://feedproxy.google.com/~r/unladmissions/~3/UhkpP4MkXAg/url">UNL Ceremonies to Award Degrees - KOLN</a></li>
-                        <li><a href="http://feedproxy.google.com/~r/unladmissions/~3/ljH7yw0vUO4/url">UNL says its 4 organic farms now certified - KPTM-TV</a></li>
-                        <li><a href="http://feedproxy.google.com/~r/unladmissions/~3/sdQMGTJmiF8/Advertising+students+win+district+competition">Advertising students win district competition</a></li>
-                        <li><a href="http://feedproxy.google.com/~r/unladmissions/~3/lYhuCk0WAoI/5+to+receive+UNL+Alumni+Achievement+awards">5 to receive UNL Alumni Achievement awards</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col right">
-                    <img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" class="frame" />
-                    <div class="image_small_short"><img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" /></div>
-                <div class="zenbox">
-                    <div class="zenbox">
-                        <h4>UNL Events
-                            <a title="Subscribe to this feed" href="http://feedburner.com/unlxxxxxxx">
-                            <img alt="RSS/Atom Feed" src="icon_rss.png" />
-                            </a>
-                        </h4>
-                    </div>
-                    <div class="zenbox-blue">
-                        <h4>Media Hub
-                            <a title="Subscribe to this feed" href="http://feedburner.com/unlxxxxxxx">
-                            <img alt="RSS/Atom Feed" src="icon_mediahub.png" />
-                            </a>
-                        </h4>
-                    </div>
-                </div>
-                <h1>h1 Related Links</h1>
-                <h2>h2 Related Links</h2>
-                <h3>h3 Related Links</h3>
-                <h4>h4 Related Links</h4>
-                <h5>h5 Related Links</h5>
-                <h6>h6 Related Links</h6>
-                <a href="#" onclick="WDN.navigation.setWrapperClass('expanded'); return false;">Expanded</a>
-                <a href="#" onclick="WDN.navigation.setWrapperClass('collapsed'); return false;">Collapsed</a>
-                <a href="#" onclick="WDN.navigation.setWrapperClass('pinned'); return false;">Pinned</a>
-            </div>
-            <div class="clear"></div>
-            <div class="col left">
-                <div class="zenbox">
-                <h3>This is a test</h3>
-                <p>This is some text. This is some text. This is some text.</p>
-                <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                </ul>
-                </div>
-            </div>
-            <div class="col left">
-            <div class="zenbox bright">
-                <h3>This is a test</h3>
-                <p>This is some text. This is some text. This is some text.</p>
-                <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                </ul>
-                </div>
-            </div>
-            <div class="col left">
-            <div class="zenbox cool">
-                <h3>This is a test</h3>
-                <p>This is some text. This is some text. This is some text.</p>
-                <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                </ul>
-                </div>
-            </div>
-            <div class="col left">
-                <div class="zenbox energetic">
-                <h3>This is a test</h3>
-                <p>This is some text. This is some text. This is some text.</p>
-                <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                </ul>
-                </div>
-            </div>
-            <div class="clear"></div>
-            <div class="col left">
-            <div class="zenbox neutral">
-                <h3>This is a test</h3>
-                <p>This is some text. This is some text. This is some text.</p>
-                <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                </ul>
-                </div>
-            </div>
-            <div class="col left">
-            <div class="zenbox soothing">
-                <h3>This is a test</h3>
-                <p>This is some text. This is some text. This is some text.</p>
-                <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                </ul>
-                </div>
-            </div>
-            <div class="col left">
-            <div class="zenbox primary">
-                <h3>This is a test</h3>
-                <p>This is some text. This is some text. This is some text.</p>
-                <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                </ul>
-                </div>
-            </div>
+            <div class="grid8 first"> 
+<div id="newsletterWeb"> 
+                <div id="newsColumnIntro" class="newsColumn"> 
+    <article class="story" id="story_2928"> 
+            <figure class="twocol"><a href="http://newsroom.unl.edu/announce/todayatunl/452/2928"><img src="http://newsroom.unl.edu/announce/file10983.jpg" alt="Nicole Maass of Omaha, is jubilant after receiving her diploma during commencement exercises in May. Also pictured are summer commencement speakers (from top) John Rosenow and John Hibbing." /></a><figcaption>Nicole Maass of Omaha, is jubilant after receiving her diploma during commencement exercises in May. Also pictured are summer commencement speakers (from top) John Rosenow and John Hibbing.</figcaption></figure><h4> 
+    <a href="http://newsroom.unl.edu/announce/todayatunl/452/2928"> 
+      Summer commencement features earth-friendly regalia    </a> 
+</h4> 
+<p> 
+UNL's summer graduates will wear &quot;green&quot; at commencement exercises Aug. 12 and 13 at the Bob Devaney Sports Center. The debut of the green regalia coincides with an Earth-friendly-themed commencement, to include speaker John Rosenow, founder and chief executive officer of the Arbor Day Foundation. <a href="http://newsroom.unl.edu/announce/todayatunl/452/2928">Continue reading&hellip;</a></p> 
+        <div class="clear"></div> 
+        </article> 
+</div>                <div class="grid4 first"> 
+        <div id="newsColumn1" class="newsColumn"> 
+    <article class="story" id="story_2932"> 
+            <h4> 
+    <a href="http://newsroom.unl.edu/announce/todayatunl/452/2932"> 
+      Study redefines impacts of education on religious beliefs    </a> 
+</h4> 
+<p> 
+<a href="http://newsroom.unl.edu/announce/todayatunl/452/2932"><img src="http://newsroom.unl.edu/announce/file10988.png" style="margin-right:15px; float:left;" class="frame" alt="Philip Schwadel, associate professor of sociology." /></a>A new study authored by UNL's Philip Schwadel challenges that age-old notion with findings that show education has a positive effect on Americans' churchgoing habits, devotional practices, emphasis on religion in daily life and support for religious leaders to weigh in on the issues of the day. <a href="http://newsroom.unl.edu/announce/todayatunl/452/2932">Continue reading&hellip;</a></p> 
+        <div class="clear"></div> 
+        </article> 
+    <article class="story" id="story_2877"> 
+            <h4> 
+    <a href="http://newsroom.unl.edu/announce/todayatunl/452/2877"> 
+      New classroom 'clickers' picked for fall semester    </a> 
+</h4> 
+<p> 
+<a href="http://newsroom.unl.edu/announce/todayatunl/452/2877"><img src="http://newsroom.unl.edu/announce/file10889.png" style="margin-right:15px; float:left;" class="frame" alt="lcclick_210x210.png" /></a>UNL will open the fall semester with a new classroom &quot;clicker&quot; system. The new student response system, iClicker2, allows instructors to poll students on the fly, with results uploaded to Blackboard in one click. The new system is portable and can be used in any classroom. <a href="http://newsroom.unl.edu/announce/todayatunl/452/2877">Continue reading&hellip;</a></p> 
+ 
+More details at: <a href="http://go.unl.edu/qii" title="Go to the supporting webpage">http://go.unl.edu/qii</a> 
+        <div class="clear"></div> 
+        </article> 
+    <article class="story" id="story_2829"> 
+            <h4> 
+    <a href="http://newsroom.unl.edu/announce/todayatunl/452/2829"> 
+      'Brand Summit' for communicators is Aug. 17    </a> 
+</h4> 
+<p> 
+<a href="http://newsroom.unl.edu/announce/todayatunl/452/2829"><img src="http://newsroom.unl.edu/announce/file10740.jpg" style="margin-right:15px; float:left;" class="frame" alt="thinkbig.jpg" /></a>A forum to discuss campus communications goals and opportunities in UNL's inaugural year in the Big Ten Conference is 1 to 3 p.m., Aug. 17 in the Jackie Gaughan Multicultural Center, room 202. The &quot;Brand Summit&quot; will provide direction on how to best use the Big Ten in UNL images and messages. <a href="http://newsroom.unl.edu/announce/todayatunl/452/2829">Continue reading&hellip;</a></p> 
+ 
+More details at: <a href="http://go.unl.edu/c46" title="Go to the supporting webpage">http://go.unl.edu/c46</a> 
+        <div class="clear"></div> 
+        </article> 
+</div>    </div> 
+    <div class="grid4"> 
+        <div id="newsColumn2" class="newsColumn"> 
+    <article class="story" id="story_2931"> 
+            <h4> 
+    <a href="http://newsroom.unl.edu/announce/todayatunl/452/2931"> 
+      3 ROTC cadets to receive military commissions    </a> 
+</h4> 
+<p> 
+<a href="http://newsroom.unl.edu/announce/todayatunl/452/2931"><img src="http://newsroom.unl.edu/announce/file10986.jpg" style="margin-right:15px; float:left;" class="frame" alt="rotc_patches.jpg" /></a>Three cadets in the UNL ROTC program will receive military commissions in commissioning ceremonies Aug. 13 following UNL commencement exercises. Those cadets are Nathan Derenge, Scott Kwiatkowski and Vincent Mathis. <a href="http://newsroom.unl.edu/announce/todayatunl/452/2931">Continue reading&hellip;</a></p> 
+        <div class="clear"></div> 
+        </article> 
+    <article class="story" id="story_2905"> 
+            <h4> 
+    <a href="http://newsroom.unl.edu/announce/todayatunl/452/2905"> 
+      Osher Lifelong Learning Institute Open House    </a> 
+</h4> 
+<p> 
+The UNL Osher Lifelong Learning Institute (OLLI) will hold an open house to kick off its new season.   The open house will be Sunday, Aug. 14 beginning at 1:30 p.m. The location is The Nebraska Champions Club, 707 Stadium Drive. <br />
+<br />
+Open to public.  Free Parking. <a href="http://newsroom.unl.edu/announce/todayatunl/452/2905">Continue reading&hellip;</a></p> 
+ 
+More details at: <a href="http://go.unl.edu/h47" title="Go to the supporting webpage">http://go.unl.edu/h47</a> 
+        <div class="clear"></div> 
+        </article> 
+    <article class="story" id="story_2898"> 
+            <h4> 
+    <a href="http://newsroom.unl.edu/announce/todayatunl/452/2898"> 
+      'In a Better World' opens at the Ross, 'The Trip' and 'Buck' continue    </a> 
+</h4> 
+<p> 
+<a href="http://newsroom.unl.edu/announce/todayatunl/452/2898"><img src="http://newsroom.unl.edu/announce/file10915.jpg" style="margin-right:15px; float:left;" class="frame" alt="In a Better World" /></a>Academy Award winning &quot;In A Better World,&quot; opens today at the Mary Riepma Ross Media Arts Center. Also showing is &quot;The Trip,&quot; a road trip comedy from director Michael Winterbottom, and &quot;Buck&quot;, a documentary about the horse whisperer Buck Brannaman.<br />
+ <a href="http://newsroom.unl.edu/announce/todayatunl/452/2898">Continue reading&hellip;</a></p> 
+ 
+More details at: <a href="#" title="Go to the supporting webpage">[object HTMLInputElement]</a> 
+        <div class="clear"></div> 
+        </article> 
+</div>    </div> 
+    
+    <div class="clear"></div> 
+                
+    <div class="clear"></div> 
+ 
+    <div style="clear:both;display:block;text-align:center;font-size:.8em;border-top:1px solid #E0E0E0;margin-top:5px;padding-top:5px"> 
+        Originally published Friday August 12, 2011        -
+        <a href="http://newsroom.unl.edu/announce/todayatunl/submit">Submit an Item</a> 
+    </div> 
+</div> 
+</div> 
+<div class="grid4"> 
+    <div class="sidebar top"> 
+    <div class="inner_sidebar"> 
+        <div class="archives"> 
+            <h3> 
+                Today@UNL                <span>Recent Newsletters</span> 
+            </h3> 
+            <ul> 
+            <li><a href="http://newsroom.unl.edu/announce/todayatunl/445" title="Go to the Today@UNL newsletter from Tue. Aug. 09, 2011">Tue. Aug. 09, 2011</a></li><li><a href="http://newsroom.unl.edu/announce/todayatunl/442" title="Go to the Today@UNL newsletter from Fri. Aug. 05, 2011">Fri. Aug. 05, 2011</a></li><li><a href="http://newsroom.unl.edu/announce/todayatunl/427" title="Go to the Today@UNL newsletter from Tue. Aug. 02, 2011">Tue. Aug. 02, 2011</a></li><li><a href="http://newsroom.unl.edu/announce/todayatunl/419" title="Go to the Today@UNL newsletter from Fri. July 29, 2011">Fri. July 29, 2011</a></li><li><a href="http://newsroom.unl.edu/announce/todayatunl/417" title="Go to the Today@UNL newsletter from Tue. July 26, 2011">Tue. July 26, 2011</a></li>            </ul> 
+            <a href="http://newsroom.unl.edu/announce/todayatunl/archive">Full archives</a> 
+        </div> 
+    </div> 
+</div> 
+<div class="sidebar bottom"> 
+    <div class="inner_sidebar"> 
+                <div class="subscribe"> 
+        <h3>Today@UNL<span>Subscribe Today!</span></h3> 
+                <form method="get" action="http://listserv.unl.edu/signup-anon/" id="subscribe"> 
+            <label for="address">Email</label> 
+            <input type="email" id="address" name="ADDRESS" value="" /> 
+            <input type="hidden" value="http://newsroom.unl.edu/announce/todayatunl?subscribed" name="SUCCESS_URL" /> 
+            <input type="hidden" value="BOTH" name="LOCKTYPE" /> 
+            <input type="hidden" name="LISTNAME" value="today_subscribers" /> 
+            <input type="submit" value="Subscribe" name="submit" /> 
+        </form> 
+                </div> 
+            </div> 
+</div></div> 
             <!-- InstanceEndEditable -->
             <div class="clear"></div>
             <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
@@ -274,15 +188,24 @@
         </div>
         <div id="footer">
             <div id="footer_floater"></div>
-            <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
-                <!--#include virtual="sharedcode/footer.html" -->
-                <!-- InstanceEndEditable -->
-                <ul>
-                    <li><a href="http://validator.unl.edu/check/referer">W3C</a></li>
-                    <li><a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a></li>
-                </ul>
+            <div class="footer_col">
+                <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
+            </div>
+            <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
+                <!--#include virtual="../sharedcode/relatedLinks.html" -->
+                <!-- TemplateEndEditable --></div>
+            <div class="footer_col"><!-- TemplateBeginEditable name="contactinfo" -->
+                <!--#include virtual="../sharedcode/footerContactInfo.html" -->
+                <!-- TemplateEndEditable --></div>
+            <div class="footer_col">
+                <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+            </div>
+            <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
+            <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
+                <!--#include virtual="../sharedcode/footer.html" -->
+                <!-- TemplateEndEditable -->
                 <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
-                <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
+                | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a> <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
         </div>
     </div>
     <div id="wdn_wrapper_footer"> </div>

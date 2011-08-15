@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <!--
@@ -25,13 +25,22 @@
 <!-- Place optional header elements here -->
 <!-- TemplateEndEditable -->
 </head>
-<body class="mobile">
+<body class="html5 mobile">
 <p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://m.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
     </div>
     <div id="wdn_navigation_bar">
+    	<div id="breadcrumbs">
+            <!-- WDN: see glossary item 'breadcrumbs' -->
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
+            <ul>
+                <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
+                <li>Department</li>
+            </ul>
+            <!-- InstanceEndEditable -->
+        </div>
         <div id="wdn_navigation_wrapper">
             <div id="navigation"><!-- TemplateBeginEditable name="navlinks" -->
                 <!-- TemplateEndEditable -->
@@ -56,6 +65,19 @@
         </div>
         <div id="footer">
             <div id="footer_floater"></div>
+            <div class="footer_col">
+                <?php virtual('/wdn/templates_3.0/includes/feedback.html'); ?>
+            </div>
+            <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
+                <?php include '../sharedcode/relatedLinks.html'; ?>
+                <!-- TemplateEndEditable --></div>
+            <div class="footer_col"><!-- TemplateBeginEditable name="contactinfo" -->
+                <?php include '../sharedcode/footerContactInfo.html'; ?>
+                <!-- TemplateEndEditable --></div>
+            <div class="footer_col">
+                <?php virtual('/wdn/templates_3.0/includes/socialmediashare.html'); ?>
+            </div>
+            <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
             <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
                 <?php include '../sharedcode/footer.html'; ?>
                 <!-- TemplateEndEditable -->
