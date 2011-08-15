@@ -57,20 +57,29 @@
         <div id="maincontent">
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             <!-- InstanceBeginEditable name="maincontentarea" -->
-            <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<video height="529" width="940" src="http://www.unl.edu/ucomm/ucomm/av/video/podcasts/20110701_bigredday.mp4" controls poster="http://itunes.unl.edu/thumbnails.php?url=http://www.unl.edu/ucomm/ucomm/av/video/podcasts/20110701_bigredday.mp4"></video>
-<script type="text/javascript">
-    jQuery = WDN.jQuery;
-    
-    WDN.jQuery('document').ready(function(){
-        WDN.jQuery.getScript(
-            'http://www.unl.edu/wdn/templates_3.0/scripts/mediaelement.js', 
-            function(){
-                WDN.jQuery('video,audio').mediaelementplayer();
-            }
-        );
-    });
-</script>
+            <script type="text/javascript">
+			 WDN.initializePlugin('carousel');
+			</script>
+			<div class="three_col left">
+			    <div class="zenbox">
+			        <div id="wdn_Carousel">
+			            <ul>
+			                <li>
+			                    <img alt="Photo of cheerleaders" src="/wdn/templates_3.0/examples/samplecontent/carouselCheerleaders.jpg" /><p>The Husker Spirit Squad showed their tough side as they posed for photos by spectators Sunday afternoon. 2010 Big Red Road Show at Omaha Qwest Center on February 8, 2010.<span style="font-size:0.6em;font-style:italic">Photo by Craig Chandler / University Communications</span></p>
+			                </li>
+			                <li>
+			                    <img alt="Graduation photo" src="/wdn/templates_3.0/examples/samplecontent/carouselGraduation.jpg" /><p>Nina Lorincz of Omaha made her mortar board into a special message for her parents Saturday. December 2009 Undergraduate Commencement in Bob Devaney Sports Center.<span style="font-size:0.6em;font-style:italic">Photo by Craig Chandler / University Communications</span></p>
+			                </li>
+			                <li>
+			                    <img alt="December snowstorm" src="/wdn/templates_3.0/examples/samplecontent/carouselSnow.jpg" /><p>A December snowstorm caused the University to close at noon on December 8, 2009.<span style="font-size:0.6em;font-style:italic">Photo by Greg Nathan / University Communications</span></p>
+			                </li>
+			                <li>
+			                    <img alt="Husker Football" src="/wdn/templates_3.0/examples/samplecontent/carouselFootball.jpg" /><p>Ndamukong Suh and Larry Asante sandwich Kansas State quarterback Grant Gregory. University of Nebraska&ndash;Lincoln vs. Kansas State Wildcats football.<span style="font-size:0.6em;font-style:italic">Photo by Craig Chandler / University Communications</span></p>
+			                </li>
+			            </ul>
+			        </div>
+			    </div>
+			</div> 
             <!-- InstanceEndEditable -->
             <div class="clear"></div>
             <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
