@@ -7263,6 +7263,9 @@ var WDN = function() {
 		 */
 		loadCSS : function(url) {
 			if (url.match(/^\/?wdn\/templates_3\.0/)) {
+				if (url.charAt(0) == '/') {
+					url = url.substring(1);
+				}
 				url = WDN.template_path+url;
 			}
 			var e = document.createElement("link");
