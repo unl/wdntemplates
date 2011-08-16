@@ -30,7 +30,7 @@ body, #header {width: auto !important;margin: 0 !important;padding: 0 !important
 #header, #footer {background:none;}
 #header {margin:auto;height:auto;}
 #titlegraphic {margin-top:2.5em;}
-.noprint {display:none;}
+.noprint, .hidden {display:none;}
 .yesprint {display:block;}
 ul.wdn_tabs {display:none;}
 #maincontent div.wdn_tabs_content div {display:block !important;}
