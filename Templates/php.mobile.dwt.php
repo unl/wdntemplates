@@ -18,7 +18,7 @@
     $Id: php.mobile.dwt.php 536 2009-07-23 15:47:30Z bbieber2 $
 -->
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/variations/mobile.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/mobile.css" />
 <script type="text/javascript" src="/wdn/templates_3.0/scripts/mobile.js"></script>
 <?php virtual('/wdn/templates_3.0/includes/browserspecifics_html5.html'); ?>
 <!-- TemplateBeginEditable name="doctitle" -->
@@ -32,7 +32,7 @@
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://m.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <?php virtual('/wdn/templates_3.0/includes/wdnTools.html'); ?>
+        <?php virtual('/wdn/templates_3.0/includes/wdnTools_html5.html'); ?>
     </div>
     <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
