@@ -32,10 +32,6 @@ mobile_support = function() {
 			}
 		},
 		
-		updateSearch : function() {
-			
-		},
-		
 		enhanceNavigation: function(){
 			return {
 				initialize : function(){
