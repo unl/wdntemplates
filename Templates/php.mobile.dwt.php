@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html lang="en">
+<head>
+<?php virtual('/wdn/templates_3.0/includes/metanfavico_html5.html'); ?>
 <head>
 <!--
     Membership and regular participation in the UNL Web Developer Network
@@ -15,10 +17,10 @@
     
     $Id: php.mobile.dwt.php 536 2009-07-23 15:47:30Z bbieber2 $
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/mobile.css" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/variations/mobile.css" />
 <script type="text/javascript" src="/wdn/templates_3.0/scripts/mobile.js"></script>
-<?php virtual('/wdn/templates_3.0/includes/browserspecifics.html'); ?>
-<?php virtual('/wdn/templates_3.0/includes/metanfavico.html'); ?>
+<?php virtual('/wdn/templates_3.0/includes/browserspecifics_html5.html'); ?>
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>UNL | Department | New Page</title>
 <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" -->
@@ -30,21 +32,21 @@
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://m.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
+        <?php virtual('/wdn/templates_3.0/includes/wdnTools.html'); ?>
     </div>
     <div id="wdn_navigation_bar">
-    	<div id="breadcrumbs">
+        <div id="breadcrumbs">
             <!-- WDN: see glossary item 'breadcrumbs' -->
-            <!-- InstanceBeginEditable name="breadcrumbs" -->
+            <!-- TemplateBeginEditable name="breadcrumbs" -->
             <ul>
                 <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
                 <li>Department</li>
             </ul>
-            <!-- InstanceEndEditable -->
-        </div>
+            <!-- TemplateEndEditable --></div>
         <div id="wdn_navigation_wrapper">
             <div id="navigation"><!-- TemplateBeginEditable name="navlinks" -->
-                <!-- TemplateEndEditable -->
-			</div>
+                <?php include '../sharedcode/navigation.html'; ?>
+                <!-- TemplateEndEditable --></div>
         </div>
     </div>
     <div id="wdn_content_wrapper">
