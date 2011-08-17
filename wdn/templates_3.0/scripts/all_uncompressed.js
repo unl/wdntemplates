@@ -7263,6 +7263,7 @@ var WDN = function() {
 		 */
 		loadCSS : function(url) {
 			if (url.match(/^\/?wdn\/templates_3\.0/)) {
+				// trim off the leading slash
 				if (url.charAt(0) == '/') {
 					url = url.substring(1);
 				}

@@ -83,6 +83,7 @@ var WDN = function() {
 		 */
 		loadCSS : function(url) {
 			if (url.match(/^\/?wdn\/templates_3\.0/)) {
+				// trim off the leading slash
 				if (url.charAt(0) == '/') {
 					url = url.substring(1);
 				}
@@ -516,6 +517,10 @@ mobile_support = function() {
 						mobile_support.enhanceNavigation.showPrimary(navigation.getElementsByTagName('ul')[0]);
 					};
 					primaryNav = navigation.getElementsByTagName('ul')[0];
+					if(primaryNav == undefined){
+						navigation.className = 'disabled';
+						return;
+					}
 					secondaryNavs = primaryNav.getElementsByTagName('ul');
 					primaryNavs = navigation.getElementsByTagName('ul')[0].children;
 					var i = 0;
