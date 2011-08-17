@@ -17,7 +17,7 @@
     
     $Id: php.mobile.dwt.php 536 2009-07-23 15:47:30Z bbieber2 $
 -->
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/mobile.css" />
 <script type="text/javascript" src="/wdn/templates_3.0/scripts/mobile.js"></script>
 <?php virtual('/wdn/templates_3.0/includes/browserspecifics_html5.html'); ?>
