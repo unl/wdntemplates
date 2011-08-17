@@ -27,10 +27,10 @@
 <!-- Place optional header elements here -->
 <!-- TemplateEndEditable -->
 </head>
-<body class="html5 fixed">
+<body class="html5 mobile">
 <p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
 <div id="wdn_wrapper">
-    <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+    <div id="header"> <a href="http://m.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
         <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
     </div>
