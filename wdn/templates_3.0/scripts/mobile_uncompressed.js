@@ -513,15 +513,16 @@ mobile_support = function() {
 			return {
 				initialize : function(){
 					navigation = document.getElementById("navigation");
-					navigation.onclick = function() {
-						mobile_support.enhanceNavigation.showPrimary(navigation.getElementsByTagName('ul')[0]);
-					};
 					primaryNav = navigation.getElementsByTagName('ul')[0];
 					if(primaryNav == undefined){
 						navigation.className = 'disabled';
 						return;
 					}
 					secondaryNavs = primaryNav.getElementsByTagName('ul');
+					//Bind the click/tap to the navigation bar to present user with navigation and ability to close navigation.
+					navigation.onclick = function() {
+						mobile_support.enhanceNavigation.showPrimary(navigation.getElementsByTagName('ul')[0]);
+					};
 					primaryNavs = navigation.getElementsByTagName('ul')[0].children;
 					var i = 0;
 					for(i=0;i<=primaryNavs.length;i++){
