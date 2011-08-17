@@ -7,10 +7,20 @@ mobile_support = function() {
 					// For our smarter browsers (the ones that are reading this), let's enhance the nav
 					mobile_support.enhanceNavigation.initialize();
 					mobile_support.fixOrientation(document);
-					document.getElementById('wdn_search_form').setAttribute('action','http://www1.unl.edu/search/');
+					mobile_support.fixSearch();
 				},
 				false
 			);
+		},
+		
+		fixSearch : function(){
+			document.getElementById('wdn_search_form').setAttribute('action','http://www1.unl.edu/search/');
+			var fs = document.getElementById('wdn_search_form').getElementsByTagName('fieldset')[0];
+			mi = document.createElement('input');
+			mi.setAttribute('name', 'format');
+			mi.setAttribute('value', 'mobile');
+			mi.setAttribute('type', 'hidden');
+			fs.appendChild(mi);
 		},
 		
 		fixOrientation : function(doc) { //iOS has a bug for scaling when rotating devices. This is a hack to fix the bug. See: https://gist.github.com/901295
