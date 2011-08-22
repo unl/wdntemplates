@@ -369,3 +369,6 @@
 #navigation /* DESIGNTIME */ > ul > li ul li > ul li:last-child > a {
     border-bottom:1px dotted #bababa;
 }
+#local_search{
+    display:none;
+}
