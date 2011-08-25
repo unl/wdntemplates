@@ -348,14 +348,21 @@ var WDN = function() {
 			method = method.toLowerCase();
 			// first, try using jQuery.get or jQuery.post
 			try {
+				if (url.match(/:\/\/(.[^/]+)/)[1] != window.location.host) {
+					WDN.log('This is a cross-origin request');
+					// IE9 fails silently, so force it to throw an error and use XDR
+					if (odoc.body.style.opacity!=undefined) {
+						WDN.log('IE9 detected. Raising an error to force XDR.');
+						throw("IE9, use XDR");
+					}
+					// Opera fails silently, so force it to throw an error and revert to the proxy
+					if (window.opera && Object.toString(window.opera.version).indexOf("[native code]") > 0) {
+						WDN.log("Opera detected. Raising an error to force proxy.");
+						throw ("Opera");
+					}
+				}
 				WDN.log("Using jQuery." + method + " for the request...");
 				$[method](url,data,callback,type);
-				// Opera fails silently, so force it to throw an error and revert to the proxy
-				// TODO: this should probably only be done if making a cross domain request.
-				if (window.opera && Object.toString(window.opera.version).indexOf("[native code]") > 0) {
-					WDN.log("Opera detected. Raising an error to force proxy.");
-					throw ("Opera");
-				}
 				WDN.log("jQuery." + method + " worked.");
 			} catch (e) {
 				WDN.log("jQuery." + method + " failed.");
