@@ -10,17 +10,30 @@
 #wdn_feedback_comments ol {
     margin-top: 20px;
 }
+#wdn_feedback_comments ol li {
+	position:relative;
+}
+
+#wdn_feedback_comments li.wdn_comment_email, #wdn_feedback_comments li.wdn_comment_name {
+	display:none;
+}
+
 #wdn_feedback_comments label{
-    display: none;
+    position:absolute;
+    margin:2px;
+    left:2px;
+    color: #A1A1A1;
+}
+#wdn_feedback_comments input, #wdn_feedback_comments textarea {
+	border: 1px solid #DEDEDE;
+    background-color: #FDFDFD;
+    padding: 0;
+    width: 210px;
 }
 #wdn_feedback_comments textarea {
-    border: 1px solid #DEDEDE;
-    background-color: #FDFDFD;
-    width: 210px;
     height: 50px;
-    padding: 0;
 }
-#wdn_feedback_comments input {
+#wdn_feedback_comments input.wdn_comment_submit {
     background: -moz-linear-gradient(top, #efece9 0%, #f2f1ed 50%, #e7e4e3 51%, #e4e0dd 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efece9), color-stop(50%,#f2f1ed), color-stop(51%,#e7e4e3), color-stop(100%,#e4e0dd)); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top, #efece9 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%); /* Chrome10+,Safari5.1+ */
@@ -45,7 +58,7 @@
     display: none;
 }
 
-#wdn_feedback_comments input:hover {
+#wdn_feedback_comments input.wdn_comment_submit:hover {
     background: -moz-linear-gradient(top, #e5e2df 0%, #f2f1ed 50%, #e7e4e3 51%, #e4e0dd 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5e2df), color-stop(50%,#f2f1ed), color-stop(51%,#e7e4e3), color-stop(100%,#e4e0dd)); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top, #e5e2df 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%); /* Chrome10+,Safari5.1+ */
@@ -66,7 +79,7 @@
   -webkit-box-shadow: inset 0 0 3px 2px #ccc, 0 1px 0 0 #eee;
   box-shadow: inset 0 0 3px 2px #ccc, 0 1px 0 0 #eee;
 }
-#wdn_feedback_comments textarea:focus {
+#wdn_feedback_comments textarea:focus, #wdn_feedback_comments input:focus {
     background-color: #FFFFE0;
     border: 1px solid #DEDEDE;
 }

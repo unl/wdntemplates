@@ -14,11 +14,17 @@ WDN.feedback = function() {
 			} catch (e) {}
 		},
 		commentSetup : function() {
+			WDN.jQuery('#wdn_feedback_comments label').click(function(){
+				WDN.jQuery(this).next().focus();
+			});
+			WDN.jQuery('#wdn_feedback_comments input[type=text], #wdn_feedback_comments textarea').focus(function(){
+				WDN.jQuery(this).prev().hide();
+			});
 			WDN.jQuery('#wdn_feedback_comments textarea').keyup(
 				function(event) {
 					if (this.value.length > 0) {
 						// Add the submit button
-						WDN.jQuery('#wdn_feedback_comments input').css({display:'block'});
+						WDN.jQuery('.wdn_comment_email,.wdn_comment_name,#wdn_feedback_comments input').slideDown();
 					}
 				}
 			);
@@ -31,13 +37,13 @@ WDN.feedback = function() {
 						return false;
 					}
 					WDN.post(
-						'http://www1.unl.edu/comments/', 
-						{comment:comments},
+						'http://ucommtest.unl.edu/workspace/UNL_WDN_Comments/', 
+						WDN.jQuery('#wdn_feedback_comments').serialize(),
 						function () {
 							//WDN.analytics.callTrackEvent('Page Comment', 'Sent', window.location);
+							WDN.jQuery('#wdn_feedback_comments').replaceWith('<h4>Thanks!</h4>');
 						}
 					);
-					WDN.jQuery('#wdn_feedback_comments').replaceWith('<h4>Thanks!</h4>');
 					event.stopPropagation();
 					return false;
 				}
