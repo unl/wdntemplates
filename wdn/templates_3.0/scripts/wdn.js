@@ -371,16 +371,18 @@ var WDN = function() {
 				WDN.log(e);
 				
 				// the jQuery method failed, likely because of the same origin policy
-				
+
+				var params = data;
+
 				// if data is an object, convert it to a key=value string
 				if (data && $.isPlainObject(data)) {
 					WDN.log("WDN.request: Converting data object to query string.");
-					var params = '';
+					params = '';
 					for (var key in data) {
 					    params = params+'&'+key+'='+data[key];
 					}
 				}
-				
+
 				// if using get, append the data as a querystring to the url
 				if (params && method == "get") {
 					WDN.log("WDN.request: Appending data parameters to querystring.");
@@ -392,8 +394,7 @@ var WDN = function() {
 				}
 				
 				// Try CORS, or use the proxy
-				// reference here, it's strongly frowned upon and not really necessary
-				if (window.XDomainRequest && method != "post") {
+				if (window.XDomainRequest) {
 					WDN.log("Using XDomainRequest...");
 					var xdr = new XDomainRequest();
 					xdr.open(method, url);
