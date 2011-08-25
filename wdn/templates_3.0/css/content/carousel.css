@@ -7,6 +7,7 @@
     -webkit-border-top-right-radius: 6px;
     color: #000;
     background: url('images/carousel/bg.png');
+    line-height:1em;
 }
 #maincontent.photoCredits {
     font-size: 0.8em;
