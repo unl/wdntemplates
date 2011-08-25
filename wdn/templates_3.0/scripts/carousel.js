@@ -37,8 +37,11 @@ WDN.carousel = function() {
 		start : function() {
 			WDN.loadJS('wdn/templates_3.0/scripts/plugins/infinitecarousel/jquery.infinitecarousel.min.js', function () {
 				WDN.jQuery('#wdn_Carousel').infiniteCarousel({imagePath: '/wdn/templates_3.0/css/content/images/carousel/', 
-				displayThumbnails: WDN.carousel.displayThumbnails, textholderHeight: WDN.carousel.textholderHeight
+					displayThumbnails: WDN.carousel.displayThumbnails, textholderHeight: WDN.carousel.textholderHeight
 				});
+				if (WDN.jQuery(window).width() <= 480){
+					WDN.jQuery('#wdn_Carousel img').css({'top' : (WDN.carousel.imageHeight() * -1), 'left' : (WDN.carousel.imageWidth())});
+				}
 			});
 		},
 		

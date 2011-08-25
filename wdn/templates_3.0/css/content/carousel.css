@@ -18,7 +18,10 @@
     position: relative;
     overflow: hidden;
 }
-
+#maincontent .ic-wrapper img {
+    position:relative;
+    max-width:inherit;	
+}
 #maincontent div.ic-wrapper > ul {
     list-style: none;
     margin: 0;
@@ -34,6 +37,7 @@ body.mobile #maincontent div.ic-wrapper > ul {
 #maincontent div.ic-wrapper > ul > li {
     display: inline;
     float: left;
+    position:relative;
     padding: 0;
     margin: 0;
     border-bottom: none;
@@ -153,4 +157,13 @@ body.mobile #maincontent div.ic-wrapper > ul {
     background-position: -13px 0;
 }
 
-/* END JS STYLES */ 
+/* END JS STYLES */
+@media screen and (max-width: 480px) {
+    * {max-width:inherit;}
+    img {max-width:inherit !important;}
+    
+}
+@media screen and (max-width: 320px) {
+	* {max-width:inherit;}
+	img {max-width:inherit !important;}
+}
