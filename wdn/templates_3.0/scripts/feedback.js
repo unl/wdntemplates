@@ -37,7 +37,7 @@ WDN.feedback = function() {
 						return false;
 					}
 					WDN.post(
-						'http://ucommtest.unl.edu/workspace/UNL_WDN_Comments/', 
+						'http://www1.unl.edu/comments/', 
 						WDN.jQuery('#wdn_feedback_comments').serialize(),
 						function () {
 							//WDN.analytics.callTrackEvent('Page Comment', 'Sent', window.location);
