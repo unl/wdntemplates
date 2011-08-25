@@ -352,7 +352,8 @@ var WDN = function() {
 					&& (url.match(/:\/\/(.[^/]+)/)[1] != window.location.host)) {
 					WDN.log('This is a cross-origin request');
 					// IE9 fails silently, so force it to throw an error and use XDR
-					if (odoc.body.style.opacity!=undefined) {
+					if (WDN.jQuery.browser.msie
+						&& parseInt(WDN.jQuery.browser.version, 10) == 9) {
 						WDN.log('IE9 detected. Raising an error to force XDR.');
 						throw("IE9, use XDR");
 					}
@@ -367,6 +368,7 @@ var WDN = function() {
 				WDN.log("jQuery." + method + " worked.");
 			} catch (e) {
 				WDN.log("jQuery." + method + " failed.");
+				WDN.log(e);
 				
 				// the jQuery method failed, likely because of the same origin policy
 				
