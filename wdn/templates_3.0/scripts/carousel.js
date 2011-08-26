@@ -8,12 +8,6 @@ WDN.carousel = function() {
 	return {
 		supportJSON : false,
 		
-		numberToDisplay : 5,
-		
-		displayThumbnails : true,
-		
-		textholderHeight : .15,
-		
 		imageHeight : function(){
 			return WDN.jQuery('#wdn_Carousel img').attr("height");
 		},
