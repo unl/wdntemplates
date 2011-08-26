@@ -1,0 +1,94 @@
+/*
+ * jQuery Blueberry Slider v0.4 BETA
+ * http://marktyrrell.com/labs/blueberry/
+ *
+ * Copyright (C) 2011, Mark Tyrrell <me@marktyrrell.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+ 
+ /* WDN Hacks for deprecation */
+#maincontent #wdn_Carousel .wdn_slides {
+    padding:0;	
+}
+
+#wdn_Carousel { margin: 0 auto; }
+#wdn_Carousel .wdn_slides {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+#wdn_Carousel .wdn_slides li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+#wdn_Carousel .wdn_slides li div {
+    position: relative;
+}
+#wdn_Carousel .wdn_slides li div p {
+    position: absolute;
+    bottom: 0%;;
+    background:rgba(255,255,255,0.9);
+    padding:0.3em;
+    width:auto;
+}
+#wdn_Carousel .wdn_slides li {
+    display: block;
+    width: 100%;
+    max-width: none;
+}
+#wdn_Carousel .wdn_slides li img {
+    width:100%;
+    max-width: none;
+}
+#wdn_Carousel .wdn_slides li.active { display: block; position: relative; }
+#wdn_Carousel .crop li img { width: auto; }
+
+#wdn_Carousel .pager {
+    height: 40px;
+    text-align: center;
+}
+#wdn_Carousel .pager li { display: inline-block; }
+#wdn_Carousel .pager li a,
+#wdn_Carousel .pager li a span {
+    display: block;
+    height: 4px;
+    width: 4px;
+}
+#wdn_Carousel .pager li a {
+    padding: 18px 8px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -o-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+
+}
+#wdn_Carousel .pager li a span {
+    overflow: hidden;
+    background: #c0c0c0;
+    text-indent: -9999px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    border-radius: 2px;
+
+}
+#wdn_Carousel .pager li.active a span { background: #404040; }

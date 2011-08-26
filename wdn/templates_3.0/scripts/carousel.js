@@ -24,8 +24,10 @@ WDN.carousel = function() {
 		
 		initialize : function() {
 			WDN.log('carousel initialized');
-			WDN.loadCSS('/wdn/templates_3.0/css/content/carousel.css');
+			WDN.loadCSS('/wdn/templates_3.0/scripts/plugins/blueberry/blueberry.css');
 			WDN.loadJQuery(function(){
+				WDN.carousel.cleanUpDeprecated();
+				WDN.jQuery('#wdn_Carousel img').removeAttr('width').removeAttr('height');
 				if (WDN.carousel.supportJSON) {
 					WDN.loadJS(WDN.carousel.supportJSON);
 				} else {
@@ -34,14 +36,24 @@ WDN.carousel = function() {
 			});
 		},
 		
-		start : function() {
-			WDN.loadJS('wdn/templates_3.0/scripts/plugins/infinitecarousel/jquery.infinitecarousel.min.js', function () {
-				WDN.jQuery('#wdn_Carousel').infiniteCarousel({imagePath: '/wdn/templates_3.0/css/content/images/carousel/', 
-					displayThumbnails: WDN.carousel.displayThumbnails, textholderHeight: WDN.carousel.textholderHeight
+		cleanUpDeprecated : function() {
+			if (WDN.jQuery('#wdn_Carousel .wdn_slides').length) {
+				return;
+			} else {
+				WDN.jQuery('#wdn_Carousel').parent('.three_col').css({'padding' : 0});
+				WDN.jQuery('#wdn_Carousel > ul:first').addClass('wdn_slides').children('li').each(function(){
+					console.log(WDN.jQuery(this));
+					WDN.jQuery(this).wrapInner('<div />');
 				});
-				if (WDN.jQuery(window).width() <= 480){
-					WDN.jQuery('#wdn_Carousel img').css({'top' : (WDN.carousel.imageHeight() * -1), 'left' : (WDN.carousel.imageWidth())});
+				if (WDN.jQuery('#wdn_Carousel').parent(".zenbox")){
+					WDN.jQuery('#wdn_Carousel').unwrap(".zenbox");
 				}
+			}
+		},
+		
+		start : function() {
+			WDN.loadJS('wdn/templates_3.0/scripts/plugins/blueberry/blueberry.v0.4.js', function () {
+				WDN.jQuery('#wdn_Carousel').blueberry();
 			});
 		},
 		
@@ -55,7 +67,7 @@ WDN.carousel = function() {
 			WDN.log('remainingObjects: '+remainingObjects);
 			for (var i=startingObject; i<totalObjects; i++) { //loop through the objects starting with the random one
 				WDN.log('first loop: '+data[i].img);
-				WDN.jQuery("#wdn_Carousel ul").prepend('<li><img src="'+data[i].img+'" height="'+WDN.carousel.imageHeight()+'" width="'+WDN.carousel.imageWidth()+'" /><p>'+data[i].title +'<a href="'+data[i].link+'">'+data[i].linktext+'</a></p>');
+				WDN.jQuery("#wdn_Carousel ul").prepend('<li><div><img src="'+data[i].img+'" height="'+WDN.carousel.imageHeight()+'" width="'+WDN.carousel.imageWidth()+'" /><p>'+data[i].title +'<a href="'+data[i].link+'">'+data[i].linktext+'</a></p></div>');
 				if (i>=(startingObject + WDN.carousel.numberToDisplay - 2)) {
 					break;
 				}
@@ -63,7 +75,7 @@ WDN.carousel = function() {
 			if (remainingObjects > 0) { //now let's go back to the begining and grab more objects to fill in for the remaining spots.
 				for (var j=0; j<remainingObjects; j++) {
 					WDN.log('second loop: '+data[j].img);
-					WDN.jQuery("#wdn_Carousel ul").prepend('<li><img src="'+data[j].img+'" height="'+WDN.carousel.imageHeight()+'" width="'+WDN.carousel.imageWidth()+'" /><p>'+data[j].title +'<a href="'+data[j].link+'">'+data[j].linktext+'</a></p>');
+					WDN.jQuery("#wdn_Carousel ul").prepend('<li><div><img src="'+data[j].img+'" height="'+WDN.carousel.imageHeight()+'" width="'+WDN.carousel.imageWidth()+'" /><p>'+data[j].title +'<a href="'+data[j].link+'">'+data[j].linktext+'</a></p></div>');
 				}
 			}
 			WDN.carousel.start();

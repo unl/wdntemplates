@@ -25,8 +25,6 @@
 <!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
 <!--#include virtual="sharedcode/localSiteLinks.html" -->
 <!-- Place optional header elements here -->
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/mediaelement.js"></script>
-<link rel="stylesheet" type="text/css" media="screen" href="http://mediaelementjs.com/js/mejs-2.1.9/mediaelementplayer.min.css" />
 <!-- InstanceEndEditable -->
 </head>
 <body class="fixed">
@@ -59,16 +57,28 @@
         <div id="maincontent">
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             <!-- InstanceBeginEditable name="maincontentarea" -->
-            <video src="video_assets/hb_960_1200kbps.mp4" controls width="960" video="528">
-                <track src="video_assets/test.vtt" kind="subtitles" type="text/vtt" srclang="en" />
-            </video>
-            <script>
-            WDN.jQuery(document).ready(function() {
-                WDN.jQuery('video').mediaelementplayer({
-                	 features: ['playpause','progress','current','duration','tracks','volume','fullscreen']
-                });
-            });
-            </script>
+            <script type="text/javascript">
+            WDN.initializePlugin(
+                    'carousel', 
+                    function(){
+                        WDN.carousel.supportJSON = 'sharedcode/carouselJSON.js';
+                        WDN.carousel.displayThumbnails = false;
+                        WDN.carousel.textholderHeight = .09;
+                        WDN.carousel.numberToDisplay=5;
+                        WDN.carousel.initialize();
+                    }
+                );
+</script>
+    <div class="zenbox_law">
+        <div id="wdn_Carousel">
+            <ul>
+                <li>
+                    <img alt="Proud Member of the Big Ten Conference" src="http://law.unl.edu/splash/images/Reasons_bigten.jpg" width="930" height="280" />
+                    <p>Proud Member of the Big Ten Conference<a href="prospective/">Click here to see all the reasons to attend Nebraska Law</a></p>
+                </li>
+            </ul>
+        </div>
+    </div>
             <!-- InstanceEndEditable -->
             <div class="clear"></div>
             <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
