@@ -159,3 +159,16 @@ body.mobile #maincontent div.ic-wrapper > ul {
 }
 
 /* END JS STYLES */
+@media screen and (max-width: 480px) {
+    #maincontent div.ic-wrapper span {
+        font-size:0.5em;
+        line-height:1em;
+    }
+    
+}
+@media screen and (max-width: 320px) {
+	#maincontent div.ic-wrapper span {
+        font-size:0.5em;
+        line-height:1em;
+    }
+}
