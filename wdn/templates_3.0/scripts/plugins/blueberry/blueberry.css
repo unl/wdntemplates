@@ -45,6 +45,7 @@
     background:rgba(255,255,255,0.9);
     padding:0.3em;
     width:auto;
+    margin-bottom:0;
 }
 #wdn_Carousel .wdn_slides li {
     display: block;
