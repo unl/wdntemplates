@@ -159,12 +159,3 @@ body.mobile #maincontent div.ic-wrapper > ul {
 }
 
 /* END JS STYLES */
-@media screen and (max-width: 480px) {
-    * {max-width:inherit;}
-    img {max-width:inherit !important;}
-    
-}
-@media screen and (max-width: 320px) {
-	* {max-width:inherit;}
-	img {max-width:inherit !important;}
-}
