@@ -28,6 +28,8 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	width: 100%;
+	height: 100%;	
 }
 .mejs-poster {
 	position: absolute;
@@ -105,17 +107,23 @@
 	height: 26px;
 	font-size: 11px;
 	line-height: 11px;
+	background: 0;
 	font-family: Helvetica, Arial;
+	border: 0;
 }
-.mejs-controls .mejs-button span {
+
+.mejs-controls .mejs-button button {
 	cursor: pointer;
 	display: block;
 	font-size: 0px;
 	line-height: 0;
 	text-decoration: none;
 	margin: 7px 5px;
+	padding: 0;
+	position: absolute;
 	height: 16px;
 	width: 16px;
+	border: 0;
 	background: transparent url(images/mediaelement/controls.png) 0 0 no-repeat;
 }
 /* End: CONTROL BAR */
@@ -144,17 +152,17 @@
 
 
 /* Start: Play/pause */
-.mejs-controls .mejs-play span {
+.mejs-controls .mejs-play button {
 	background-position:0 0;
 }
-.mejs-controls .mejs-pause span {
+.mejs-controls .mejs-pause button {
 	background-position:0 -16px;
 }
 /* End: Play/pause */
 
 
 /* Stop */
-.mejs-controls .mejs-stop span {
+.mejs-controls .mejs-stop button {
 	background-position: -112px 0;
 }
 /* End: Play/pause */
@@ -184,14 +192,12 @@
 	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#1E1E1E,endColorstr=#3C3C3C);
 }
 .mejs-controls .mejs-time-rail .mejs-time-loaded {
-	background: #6d0019;
-	background: -moz-linear-gradient(top, #6d0019 0%, #8f0222 32%, #a81e3c 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6d0019), color-stop(32%,#8f0222), color-stop(100%,#a81e3c));
-	background: -webkit-linear-gradient(top, #6d0019 0%,#8f0222 32%,#a81e3c 100%);
-	background: -o-linear-gradient(top, #6d0019 0%,#8f0222 32%,#a81e3c 100%);
-	background: -ms-linear-gradient(top, #6d0019 0%,#8f0222 32%,#a81e3c 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0019', endColorstr='#a81e3c',GradientType=0 );
-	background: linear-gradient(top, #6d0019 0%,#8f0222 32%,#a81e3c 100%);
+	background: #3caac8;
+	background: rgba(60,170,200,0.8);
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(44,124,145,0.8)), to(rgba(78,183,212,0.8))); 
+	background: -moz-linear-gradient(top,  rgba(44,124,145,0.8),  rgba(78,183,212,0.8)); 	
+	background: linear-gradient(rgba(44,124,145,0.8),  rgba(78,183,212,0.8)); 	
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#2C7C91,endColorstr=#4EB7D4);
 	width: 0;
 }
 .mejs-controls .mejs-time-rail .mejs-time-current {
@@ -268,10 +274,10 @@
 /* End: Progress bar */
 
 /* Start: Fullscreen */
-.mejs-controls .mejs-fullscreen-button span {
+.mejs-controls .mejs-fullscreen-button button {
 	background-position:-32px 0;
 }
-.mejs-controls .mejs-unfullscreen span {
+.mejs-controls .mejs-unfullscreen button {
 	background-position:-32px -16px;
 }
 /* End: Fullscreen */
@@ -281,11 +287,11 @@
 .mejs-controls .mejs-volume-button {
 }
 
-.mejs-controls .mejs-mute span {
+.mejs-controls .mejs-mute button {
 	background-position:-16px -16px;
 }
 
-.mejs-controls .mejs-unmute span {
+.mejs-controls .mejs-unmute button {
 	background-position:-16px 0;
 }
 
@@ -364,7 +370,7 @@
 	position: relative;
 }
 
-.mejs-controls .mejs-captions-button span {
+.mejs-controls .mejs-captions-button button {
 	background-position:-48px 0;
 }
 .mejs-controls .mejs-captions-button .mejs-captions-selector {
@@ -540,19 +546,19 @@
 
 
 /* Start: Loop */
-.mejs-controls .mejs-loop-off span{
+.mejs-controls .mejs-loop-off button{
 	background-position: -64px -16px;
 }
-.mejs-controls .mejs-loop-on span {
+.mejs-controls .mejs-loop-on button {
 	background-position: -64px 0;
 }
 /* End: Loop */
 
 /* Start: backlight */
-.mejs-controls .mejs-backlight-off span{
+.mejs-controls .mejs-backlight-off button{
 	background-position: -80px -16px;
 }
-.mejs-controls .mejs-backlight-on span {
+.mejs-controls .mejs-backlight-on button {
 	background-position: -80px 0;
 }
 /* End: backlight */
