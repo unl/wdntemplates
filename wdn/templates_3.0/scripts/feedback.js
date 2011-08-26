@@ -17,8 +17,8 @@ WDN.feedback = function() {
 			WDN.jQuery('#wdn_feedback_comments label').click(function(){
 				WDN.jQuery(this).next().focus();
 			});
-			WDN.jQuery('#wdn_feedback_comments input[type=text], #wdn_feedback_comments textarea').focus(function(){
-				WDN.jQuery(this).prev().hide();
+			WDN.jQuery('#wdn_comment_email, #wdn_comment_name, #wdn_feedback_comments textarea').focus(function(){
+				WDN.jQuery(this).siblings('label').hide();
 			});
 			WDN.jQuery('#wdn_feedback_comments textarea').keyup(
 				function(event) {
