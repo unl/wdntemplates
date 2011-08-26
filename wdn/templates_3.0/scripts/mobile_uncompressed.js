@@ -348,29 +348,41 @@ var WDN = function() {
 			method = method.toLowerCase();
 			// first, try using jQuery.get or jQuery.post
 			try {
+				if (url.match(/^https?:/)
+					&& (url.match(/:\/\/(.[^/]+)/)[1] != window.location.host)) {
+					//debug statement removed
+					// IE9 fails silently, so force it to throw an error and use XDR
+					if (WDN.jQuery.browser.msie
+						&& parseInt(WDN.jQuery.browser.version, 10) == 9) {
+						//debug statement removed
+						throw("IE9, use XDR");
+					}
+					// Opera fails silently, so force it to throw an error and revert to the proxy
+					if (window.opera && Object.toString(window.opera.version).indexOf("[native code]") > 0) {
+						//debug statement removed
+						throw ("Opera");
+					}
+				}
 				//debug statement removed
 				$[method](url,data,callback,type);
-				// Opera fails silently, so force it to throw an error and revert to the proxy
-				// TODO: this should probably only be done if making a cross domain request.
-				if (window.opera && Object.toString(window.opera.version).indexOf("[native code]") > 0) {
-					//debug statement removed
-					throw ("Opera");
-				}
 				//debug statement removed
 			} catch (e) {
 				//debug statement removed
+				//debug statement removed
 				
 				// the jQuery method failed, likely because of the same origin policy
-				
+
+				var params = data;
+
 				// if data is an object, convert it to a key=value string
 				if (data && $.isPlainObject(data)) {
 					//debug statement removed
-					var params = '';
+					params = '';
 					for (var key in data) {
 					    params = params+'&'+key+'='+data[key];
 					}
 				}
-				
+
 				// if using get, append the data as a querystring to the url
 				if (params && method == "get") {
 					//debug statement removed
@@ -382,8 +394,7 @@ var WDN = function() {
 				}
 				
 				// Try CORS, or use the proxy
-				// reference here, it's strongly frowned upon and not really necessary
-				if (window.XDomainRequest && method != "post") {
+				if (window.XDomainRequest) {
 					//debug statement removed
 					var xdr = new XDomainRequest();
 					xdr.open(method, url);
