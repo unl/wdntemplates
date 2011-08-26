@@ -1,6 +1,6 @@
 /*
 Bring in all the supporting css files - DELETE THIS BEFORE FINALIZING
-/* */
+/*
 @import url('../reset.css');
 @import url('../wrapper.css');
 @import url('../fonts/fonts.css');
@@ -17,7 +17,9 @@ Bring in all the supporting css files - DELETE THIS BEFORE FINALIZING
 
 /* General Template Settings
 **********************************/
-
+body.mobile{
+	text-rendering:optimizeLegibility;
+}
 body.mobile #wdn_wrapper {
     border:none;
     background:none;
@@ -262,6 +264,10 @@ body.mobile #pagetitle h2 {
     font-size:1.8em;
     color:#000;
     margin:0;
+}
+body.mobile #pagetitle h2 a {
+    color:#000;
+    text-decoration:none;	
 }
 body.mobile #wdn_content_wrapper {
     background:#fff;
