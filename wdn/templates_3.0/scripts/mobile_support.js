@@ -78,6 +78,13 @@ mobile_support = function() {
 				},
 				
 				showSecondary : function(secondaryNav){
+					secondarySiblings = secondaryNav.parentNode.children;
+					var i = 0;
+					for(i=0;i<=secondarySiblings.length;i++){
+						if(secondarySiblings[i] != undefined && secondarySiblings[i].getElementsByTagName('ul')[0] != undefined) {
+							secondarySiblings[i].getElementsByTagName('ul')[0].style.left = '100%';
+						}
+					}
 					secondaryNav.getElementsByTagName('ul')[0].style.left = 0;
 					navNav.className = 'secondary';
 				},
