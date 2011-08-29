@@ -46,7 +46,7 @@
     background:rgba(255,255,255,0.9);
     padding:0.3em;
     width:auto;
-    margin-bottom:0;
+    margin:0;
     left:0%;
 }
 #wdn_Carousel .wdn_Carousel_slides li {
@@ -62,36 +62,39 @@
 #wdn_Carousel .crop li img { width: auto; }
 
 #wdn_Carousel .pager {
-    height: 40px;
     text-align: center;
+    padding:0;
 }
 #wdn_Carousel .pager li { display: inline-block; zoom:1; *display:inline;}
 #wdn_Carousel .pager li a,
 #wdn_Carousel .pager li a span {
     display: block;
-    height: 4px;
-    width: 4px;
+    height: 8px;
+    width: 8px;
 }
 #wdn_Carousel .pager li a {
     padding: 18px 8px;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -o-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -khtml-border-radius: 6px;
-    border-radius: 6px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+
+}
+#wdn_Carousel .pager li a, #wdn_Carousel .pager li a span {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
 
 }
 #wdn_Carousel .pager li a span {
     overflow: hidden;
     background: #c0c0c0;
     text-indent: -9999px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -o-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -khtml-border-radius: 2px;
-    border-radius: 2px;
 }
 #wdn_Carousel .pager li.active a span {
     background: #404040;
@@ -104,29 +107,16 @@ and (max-device-width : 480px) {
     }
     #wdn_Carousel .wdn_Carousel_slides {
         height: auto !important;
-        background: #e7e7e7;
     }
     #wdn_Carousel .wdn_Carousel_slides li div p {
         position: static;
-        background: none;
+        background: #e7e7e7;
+        font-size:0.8em;
+        line-height:1em;
+        margin-top:-5px;
     }
     #wdn_Carousel .pager {
-        border-top: 1px solid #666;
-        border-bottom: 1px solid #666;
         padding: 0;
         margin-bottom: 20px;
-    }
-    #wdn_Carousel .pager li a {
-    }
-    #wdn_Carousel .pager li a,
-    #wdn_Carousel .pager li a span {
-        height: 10px;
-        width: 10px;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -o-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -khtml-border-radius: 10px;
-        border-radius: 10px;
     }
 }
