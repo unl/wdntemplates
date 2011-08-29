@@ -182,9 +182,14 @@
 		},
 		validateField : function(elm) {
 			elm = $(elm);
-			var self = this;
+			var self = this,
+			className = elm.attr('class'),
+			classlist = [];
 			
-			var classlist = elm.attr('class').split(' ');
+			if (className) {
+				var classlist = className.split(' ');
+			}
+			
 			var result = $.all(classlist, function (item) {
 				item = $.trim(item);
 				if (item && Validation.methods[item]) {
