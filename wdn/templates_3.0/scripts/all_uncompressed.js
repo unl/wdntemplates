@@ -14306,16 +14306,13 @@ WDN.unlalert = function() {
 	
 	return {
 		
-		data_url : 'http://alert1.unl.edu/json/unlcap.js',
+		data_url : document.location.protocol+'//alert.unl.edu/json/unlcap.js',
 		//data_url : 'http://ucommbieber.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/alert.master.server.js',
 		
 		initialize : function()
 		{
 			//debug statement removed
-			if ("https:" != document.location.protocol) {
-				// Don't break authenticated sessions
-				WDN.unlalert.checkIfCallNeeded();
-			}
+			WDN.unlalert.checkIfCallNeeded();
 		},
 		
 		checkIfCallNeeded: function() {
