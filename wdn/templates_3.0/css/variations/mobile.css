@@ -1,20 +1,3 @@
-/*
-Bring in all the supporting css files - DELETE THIS BEFORE FINALIZING
-/*
-@import url('../reset.css');
-@import url('../wrapper.css');
-@import url('../fonts/fonts.css');
-@import url('../header/header.css');
-@import url('../content/basestyles.css');
-@import url('../content/headers.css');
-@import url('../content/images.css');
-@import url('../content/mime.css');
-@import url('../content/zenbox.css');
-
-/*
-    
-*********************************************************************/
-
 /* General Template Settings
 **********************************/
 body.mobile{
@@ -98,7 +81,7 @@ body.mobile #wdn_search form label {
 body.mobile #wdn_search form #q {
     border:0;
     padding:0 0 0 20px;
-    width:30px;
+    width:40px;
     height:25px;
     background:url('images/searchMagnifyGlass_mobile.png') no-repeat 5px 5px;
     -webkit-transition: width 0.3s ease;
