@@ -8,6 +8,10 @@ mobile_support = function() {
 					mobile_support.enhanceNavigation.initialize();
 					mobile_support.fixOrientation(document);
 					mobile_support.fixSearch();
+					//scroll to the top of content for devices which have the address bar available at top.
+					if (window.pageYOffset < 1) {
+						window.scrollTo(0, 1);
+					}
 				},
 				false
 			);
