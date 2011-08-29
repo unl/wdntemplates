@@ -41,8 +41,9 @@
 }
 #wdn_Carousel .wdn_Carousel_slides li div p {
     position: absolute;
-    bottom: 0%;;
-    background:rgba(255,255,255,0.9);
+    bottom: 0%;
+    background-color:#fff;
+    background-color:rgba(255,255,255,0.9);
     padding:0.3em;
     width:auto;
     margin-bottom:0;
