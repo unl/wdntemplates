@@ -113,7 +113,7 @@ and (max-device-width : 480px) {
         background: #e7e7e7;
         font-size:0.8em;
         line-height:1em;
-        margin-top:-5px;
+        /* margin-top:-5px; We want this for new proxy? */
     }
     #wdn_Carousel .pager {
         padding: 0;
