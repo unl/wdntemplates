@@ -353,9 +353,9 @@ var WDN = function() {
 					WDN.log('This is a cross-origin request');
 					// IE9 fails silently, so force it to throw an error and use XDR
 					if (WDN.jQuery.browser.msie
-						&& parseInt(WDN.jQuery.browser.version, 10) == 9) {
-						WDN.log('IE9 detected. Raising an error to force XDR.');
-						throw("IE9, use XDR");
+						&& parseInt(WDN.jQuery.browser.version, 10) < 10) {
+						WDN.log('IE detected. Raising an error to force XDR or proxy.');
+						throw("IE, use XDR or proxy");
 					}
 					// Opera fails silently, so force it to throw an error and revert to the proxy
 					if (window.opera && Object.toString(window.opera.version).indexOf("[native code]") > 0) {

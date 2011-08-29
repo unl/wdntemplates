@@ -353,9 +353,9 @@ var WDN = function() {
 					//debug statement removed
 					// IE9 fails silently, so force it to throw an error and use XDR
 					if (WDN.jQuery.browser.msie
-						&& parseInt(WDN.jQuery.browser.version, 10) == 9) {
+						&& parseInt(WDN.jQuery.browser.version, 10) < 10) {
 						//debug statement removed
-						throw("IE9, use XDR");
+						throw("IE, use XDR or proxy");
 					}
 					// Opera fails silently, so force it to throw an error and revert to the proxy
 					if (window.opera && Object.toString(window.opera.version).indexOf("[native code]") > 0) {
