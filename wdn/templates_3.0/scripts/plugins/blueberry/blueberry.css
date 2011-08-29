@@ -96,7 +96,7 @@
 #wdn_Carousel .pager li.active a span {
     background: #404040;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 320px) {
     #wdn_Carousel {
         overflow: initial;
     }
