@@ -18,6 +18,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+/*
+ * Mods for UNL use include:
+ *  - renaming .slides to .wdn_Carousel_slides
+ */
 
 (function($){
 	$.fn.extend({
@@ -35,13 +39,13 @@
 				keynav: true
 			};
 			var options =  $.extend(defaults, options);
- 
+
 			return this.each(function() {
 				var o = options;
 				var obj = $(this);
 
 				//store the slide and pager li
-				var slides = $('.wdn_slides li', obj);
+				var slides = $('.wdn_Carousel_slides li', obj);
 				var pager = $('.pager li', obj);
 
 				//set initial current and next slide index values
@@ -59,7 +63,7 @@
 
 				//hide all slides, fade in the first, add active class to first slide
 				slides.hide().eq(current).fadeIn(o.duration).addClass('active');
-				
+
 
 				//build pager if it doesn't already exist and if enabled
 				if(pager.length) {
@@ -134,10 +138,9 @@
 
 				//calculate and set height based on image width/height ratio and specified line height
 				var setsize = function(){
-					sliderWidth = $('.wdn_slides', obj).width();
+					sliderWidth = $('.wdn_Carousel_slides', obj).width();
 					cropHeight = Math.floor(((sliderWidth/imgRatio)/o.lineheight))*o.lineheight;
-                    console.log(sliderWidth + ' ' + imgRatio + ' ' + o.lineheight);
-					$('.wdn_slides', obj).css({height: cropHeight});
+					$('.wdn_Carousel_slides', obj).css({height: cropHeight});
 				};
 				setsize();
 
@@ -145,11 +148,8 @@
 				$(window).resize(function(){
 					setsize();
 				});
-				
-				
 
 				//Add keyboard navigation
-
 				if(o.keynav){
 					$(document).keyup(function(e){
 
@@ -174,7 +174,6 @@
 
 					});
 				}
-
 
 			});
 		}

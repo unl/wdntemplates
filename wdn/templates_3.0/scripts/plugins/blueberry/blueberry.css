@@ -20,26 +20,26 @@
  */
  
  /* WDN Hacks for deprecation */
-#maincontent #wdn_Carousel .wdn_slides {
+#maincontent #wdn_Carousel .wdn_Carousel_slides {
     padding:0;	
 }
 
 #wdn_Carousel { margin: 0 auto; }
-#wdn_Carousel .wdn_slides {
+#wdn_Carousel .wdn_Carousel_slides {
     display: block;
     position: relative;
     overflow: hidden;
 }
-#wdn_Carousel .wdn_slides li {
+#wdn_Carousel .wdn_Carousel_slides li {
     position: absolute;
     top: 0;
     left: 0;
     overflow: hidden;
 }
-#wdn_Carousel .wdn_slides li div {
+#wdn_Carousel .wdn_Carousel_slides li div {
     position: relative;
 }
-#wdn_Carousel .wdn_slides li div p {
+#wdn_Carousel .wdn_Carousel_slides li div p {
     position: absolute;
     bottom: 0%;;
     background:rgba(255,255,255,0.9);
@@ -47,16 +47,16 @@
     width:auto;
     margin-bottom:0;
 }
-#wdn_Carousel .wdn_slides li {
+#wdn_Carousel .wdn_Carousel_slides li {
     display: block;
     width: 100%;
     max-width: none;
 }
-#wdn_Carousel .wdn_slides li img {
+#wdn_Carousel .wdn_Carousel_slides li img {
     width:100%;
     max-width: none;
 }
-#wdn_Carousel .wdn_slides li.active { display: block; position: relative; }
+#wdn_Carousel .wdn_Carousel_slides li.active { display: block; position: relative; }
 #wdn_Carousel .crop li img { width: auto; }
 
 #wdn_Carousel .pager {
