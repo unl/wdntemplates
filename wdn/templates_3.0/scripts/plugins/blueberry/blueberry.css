@@ -64,7 +64,7 @@
     height: 40px;
     text-align: center;
 }
-#wdn_Carousel .pager li { display: inline-block; }
+#wdn_Carousel .pager li { display: inline-block; zoom:1; *display:inline;}
 #wdn_Carousel .pager li a,
 #wdn_Carousel .pager li a span {
     display: block;
