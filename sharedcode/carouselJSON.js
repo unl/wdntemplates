@@ -11,14 +11,14 @@ WDN.carousel.buildFoundation(
 			"img" : "http://law.unl.edu/splash/images/Reasons_bigten.jpg",
 			"link" : "/prospective/whynebraska.shtml",
 			"linktext" : "Click here to see all the reasons to attend Nebraska Law",
-			"title" : "Proud Member of the Big Ten Conference",
+			"title" : "Proud Member of the Big Ten Conference"
 		},	
 		
 		{ 
 			"img" : "http://law.unl.edu/splash/images/Reasons_LocatedInStateCapitol.jpg",
 			"link" : "/prospective/whynebraska.shtml",
 			"linktext" : "Click here to see all the reasons to attend Nebraska Law",
-			"title" : "Located in the State Capitol",
+			"title" : "Located in the State Capitol"
 		},
 		{ 
 			"img" : "http://law.unl.edu/splash/images/Reasons_NationallyRecognizedCriminalAndCivil.jpg",
