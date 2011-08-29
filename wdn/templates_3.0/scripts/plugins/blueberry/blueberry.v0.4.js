@@ -140,6 +140,7 @@
 				var setsize = function(){
 					sliderWidth = $('.wdn_Carousel_slides', obj).width();
 					cropHeight = Math.floor(((sliderWidth/imgRatio)/o.lineheight))*o.lineheight;
+					WDN.log(sliderWidth + ' ' + imgRatio + ' ' + o.lineheight);
 					$('.wdn_Carousel_slides', obj).css({height: cropHeight});
 				};
 				setsize();
