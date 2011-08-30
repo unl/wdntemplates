@@ -81,7 +81,7 @@ body.mobile #wdn_search form label {
 body.mobile #wdn_search form #q {
     border:0;
     padding:0 0 0 20px;
-    width:40px;
+    width:50px;
     height:25px;
     background:url('images/searchMagnifyGlass_mobile.png') no-repeat 5px 5px;
     -webkit-transition: width 0.3s ease;
@@ -166,7 +166,7 @@ body.mobile #navigation.disabled {
 }
 body.mobile #navigation ul {
 	position:absolute;
-	left:100%;
+	left:110%;
 	top:100%;
 	width:100%;
 	text-align:left;
@@ -208,7 +208,6 @@ body.mobile #navigation ul li a {
 body.mobile #navigation ul li.hasSecondary a {
     display:inline-block;
 }
-
 body.mobile #navigation > ul > li.hasSecondary:after {
     background: rgba(0,0,0,.4) url('images/icons-18-white.png') no-repeat -108px 50%;
     content: '';
@@ -220,8 +219,7 @@ body.mobile #navigation > ul > li.hasSecondary:after {
     top:1em;
     -webkit-border-radius:1em;
     -moz-border-radius:1em;
-    border-radius:1em;
-    	
+    border-radius:1em;	
 }
 body.mobile #navigation > ul ul {
     z-index:11;
@@ -229,7 +227,8 @@ body.mobile #navigation > ul ul {
     border-top:3px solid rgba(0,0,0,.4);
 }
 body.mobile #navigation ul ul li {
-    padding-left:10%;	
+    padding-left:10%;
+    font-size:1em;	
 }
 body.mobile #navigation ul ul li a {
     width:100%;	
@@ -237,6 +236,8 @@ body.mobile #navigation ul ul li a {
 body.mobile #navigation > ul > li:hover ul {
     left:0;
 }
+/* End Navigation */
+
 body.mobile #titlegraphic {
     display:none;	
 }
@@ -255,14 +256,14 @@ body.mobile #pagetitle h2 a {
 body.mobile #wdn_content_wrapper {
     background:#fff;
     clear:both;
-    width:100%;
+    width:auto;
+    padding:0 3px;
 }
 /* Maincontent overrides
 **********************************/
 #maincontent {
     font-size:1em;
-    width:auto;
-    padding:3px;
+    width:100%;
 }
 #maincontent img {
     height:auto;

@@ -604,7 +604,7 @@ mobile_support = function() {
 				
 				traverseNavigation : function() {
 					if (navNav.className == 'primary') { //we're showing the primary nav, so close it
-						primaryNav.style.left = '100%';
+						primaryNav.style.left = '110%';
 						navNav.parentNode.removeChild(navNav);
 					} else { // we're showing the secondary nav, close it and trigger primary
 						var i = 0;
