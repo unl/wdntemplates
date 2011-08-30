@@ -36,7 +36,7 @@ WDN.carousel = (function() {
 				WDN.jQuery('#wdn_Carousel > ul:first').addClass('wdn_Carousel_slides').children('li').each(function() {
 					WDN.jQuery(this).wrapInner('<div />');
 				});
-				if (WDN.jQuery('#wdn_Carousel').parent('.zenbox')) {
+				if (WDN.jQuery('#wdn_Carousel').parent('.zenbox').length) {
 					WDN.jQuery('#wdn_Carousel').unwrap();
 				}
 			}
