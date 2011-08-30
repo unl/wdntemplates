@@ -270,6 +270,17 @@ body.mobile #wdn_content_wrapper {
     max-width:100%;
     width:100%;
 }
+#maincontent img.frame {
+    border:0;
+    padding:0;	
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
+}
+#maincontent p.caption {
+	padding:0;
+	border:0;
+}
 #maincontent .right, #maincontent .left{float:none;}
 #maincontent .col,
 #maincontent .two_col,
