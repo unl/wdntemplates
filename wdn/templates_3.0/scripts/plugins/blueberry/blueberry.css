@@ -115,6 +115,10 @@ and (max-device-width : 480px) {
         line-height:1em;
         /* margin-top:-5px; We want this for new proxy? */
     }
+    #wdn_Carousel .wdn_Carousel_slides li div p span {
+        margin-left:0.5em;
+        font-size:0.8em;
+    }
     #wdn_Carousel .pager {
         padding: 0;
         margin-bottom: 20px;
