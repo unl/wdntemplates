@@ -1,80 +1,3 @@
-/*
-CSS LINK:
-<link rel="stylesheet" type="text/css" href="/wdn/templates_3.0/css/content/zenform.css" />
-
-Sample Form Markup:
-
-<form class="zenform energetic" action="?" method="post">
-    <h3>Important Survey</h3>
-    <fieldset>
-        <legend>Sample Form Content</legend>
-        <ol>
-            <li>
-                <label for="name">
-                    <span class="required">*</span>
-                    Name
-                    <span class="helper">Enter Your Full Name</span>
-                </label>
-                <input type="text" id="name" name="name" />
-            </li>
-            <li>
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" />
-            </li>
-            <li>
-                <label for="campus">Campus</label>
-                <select name="campus" id="campus">
-                    <option value="none"></option>
-                    <option value="unl">UNL</option>
-                    <option value="unk">UNK</option>
-                    <option value="uno">UNO</option>
-                    <option value="unmc">UNMC</option>
-                </select>
-            </li>
-            <li>
-                <fieldset> 
-                    <legend>
-                        <span class="required">*</span>
-                        The Most Important Question: I Can Has Cheezburger?
-                    </legend>
-                    <ol>
-                        <li>
-                            <input type="radio" value="1" name="helpful_yes" id="helpful_yes" />
-                            <label for="helpful_yes">Yes</label>
-                        </li>
-                        <li>
-                            <input type="radio" value="0" name="helpful_no" id="helpful_no" />
-                            <label for="helpful_no">No</label>
-                        </li>
-                        <li>
-                            <input type="radio" value="2" name="helpful_maybe" id="helpful_maybe" />
-                            <label for="helpful_maybe">Maybe</label>
-                        </li>
-                    </ol>
-                </fieldset>
-            </li>
-            <li>
-                <label for="helpful_comments">In what way?</label>
-                <textarea id="helpful_comments" name="comments" rows="4" cols="auto"></textarea>
-            </li>
-        </ol>
-    </fieldset> 
-    <input type="submit" name="submit" value="Submit" />
-    <input type="reset" name="reset" value="Reset" />
-</form>
-
-Default style is PRIMARY
-Color Schemes:
-    Primary: http://colorschemedesigner.com/#0011TvwomebIu
-    Bright: http://colorschemedesigner.com/#1H11TpSuKebIu
-    Cool: http://colorschemedesigner.com/#3G11TiTAkebIu
-    Energetic: http://colorschemedesigner.com/#0h11TrUvnebIu
-    Soothing: http://colorschemedesigner.com/#2P11TvylEebIu
-    Neutral: http://colorschemedesigner.com/#0011T007yebIu
-    
-@todo:
-input error reporting - highlight errant field, and some sort of text display (.wdn_notice)
-*/
 #maincontent form.zenform + form.zenform { margin-top:20px; }
 #maincontent form.zenform { 
     margin:-6px 0 10px 0;
@@ -267,6 +190,9 @@ input error reporting - highlight errant field, and some sort of text display (.
 #maincontent form.zenform fieldset ol li input[type=text],
 #maincontent form.zenform fieldset ol li input[type=file],
 #maincontent form.zenform fieldset ol li input[type=password],
+#maincontent form.zenform fieldset ol li input[type=email],
+#maincontent form.zenform fieldset ol li input[type=url],
+#maincontent form.zenform fieldset ol li input[type=number],
 #maincontent form.zenform fieldset ol li textarea,
 #maincontent form.zenform fieldset ol li select {
     width:100%;
@@ -280,6 +206,9 @@ input error reporting - highlight errant field, and some sort of text display (.
 #maincontent form.zenform.bright fieldset ol li input[type=text],
 #maincontent form.zenform.bright fieldset ol li input[type=file],
 #maincontent form.zenform.bright fieldset ol li input[type=password],
+#maincontent form.zenform.bright fieldset ol li input[type=email],
+#maincontent form.zenform.bright fieldset ol li input[type=url],
+#maincontent form.zenform.bright fieldset ol li input[type=number],
 #maincontent form.zenform.bright fieldset ol li textarea,
 #maincontent form.zenform.bright fieldset ol li select {
     border:1px solid #FCF7B3; /*no saturation adjustment*/
@@ -287,6 +216,9 @@ input error reporting - highlight errant field, and some sort of text display (.
 #maincontent form.zenform.cool fieldset ol li input[type=text],
 #maincontent form.zenform.cool fieldset ol li input[type=file],
 #maincontent form.zenform.cool fieldset ol li input[type=password],
+#maincontent form.zenform.cool fieldset ol li input[type=email],
+#maincontent form.zenform.cool fieldset ol li input[type=url],
+#maincontent form.zenform.cool fieldset ol li input[type=number],
 #maincontent form.zenform.cool fieldset ol li textarea,
 #maincontent form.zenform.cool fieldset ol li select {
     border:1px solid #d3dceb; 
@@ -294,6 +226,9 @@ input error reporting - highlight errant field, and some sort of text display (.
 #maincontent form.zenform.energetic fieldset ol li input[type=text],
 #maincontent form.zenform.energetic fieldset ol li input[type=file],
 #maincontent form.zenform.energetic fieldset ol li input[type=password],
+#maincontent form.zenform.energetic fieldset ol li input[type=email],
+#maincontent form.zenform.energetic fieldset ol li input[type=url],
+#maincontent form.zenform.energetic fieldset ol li input[type=number],
 #maincontent form.zenform.energetic fieldset ol li textarea,
 #maincontent form.zenform.energetic fieldset ol li select {
     border:1px solid #FEC7AE; /*no saturation adjustment*/ 
@@ -301,6 +236,9 @@ input error reporting - highlight errant field, and some sort of text display (.
 #maincontent form.zenform.soothing fieldset ol li input[type=text],
 #maincontent form.zenform.soothing fieldset ol li input[type=file],
 #maincontent form.zenform.soothing fieldset ol li input[type=password],
+#maincontent form.zenform.soothing fieldset ol li input[type=email],
+#maincontent form.zenform.soothing fieldset ol li input[type=url],
+#maincontent form.zenform.soothing fieldset ol li input[type=number],
 #maincontent form.zenform.soothing fieldset ol li textarea,
 #maincontent form.zenform.soothing fieldset ol li select {
     border:1px solid #c8dec8; 
@@ -308,6 +246,9 @@ input error reporting - highlight errant field, and some sort of text display (.
 #maincontent form.zenform.neutral fieldset ol li input[type=text],
 #maincontent form.zenform.neutral fieldset ol li input[type=file],
 #maincontent form.zenform.neutral fieldset ol li input[type=password],
+#maincontent form.zenform.neutral fieldset ol li input[type=email],
+#maincontent form.zenform.neutral fieldset ol li input[type=url],
+#maincontent form.zenform.neutral fieldset ol li input[type=number],
 #maincontent form.zenform.neutral fieldset ol li textarea,
 #maincontent form.zenform.neutral fieldset ol li select {
     border:1px solid #C7C7C7; /*already unsaturated */
@@ -325,6 +266,9 @@ input error reporting - highlight errant field, and some sort of text display (.
 #maincontent form.zenform fieldset ol li input[type=text],
 #maincontent form.zenform fieldset ol li input[type=file],
 #maincontent form.zenform fieldset ol li input[type=password],
+#maincontent form.zenform fieldset ol li input[type=email],
+#maincontent form.zenform fieldset ol li input[type=url],
+#maincontent form.zenform fieldset ol li input[type=number],
 #maincontent form.zenform fieldset ol li textarea,
 #maincontent form.zenform fieldset ol li select {
     padding:5px;
