@@ -25,6 +25,30 @@
 <!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
 <!--#include virtual="sharedcode/localSiteLinks.html" -->
 <!-- Place optional header elements here -->
+<style><!--
+#wdn_Carousel p {
+    background:none;
+    background-color:rgba(198,02,02,0.5) !important;
+    padding: 6px 0px 2px 6px; 
+    font-family: Georgia,'Times New Roman',Times,serif; 
+    color: #fff;
+    font-size:1.2em;
+    line-height:1.2em;
+    -moz-border-radius:0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+}
+#wdn_Carousel p span {
+    font-size: 0.7em;
+    font-style: italic;
+}
+#wdn_Carousel p span a {
+    color:#fff !important;
+    font-size:0.7em;
+    font-style:italic;
+    margin-left:10px;
+}
+--></style>
 <!-- InstanceEndEditable -->
 </head>
 <body class="fixed">
@@ -58,27 +82,47 @@
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             <!-- InstanceBeginEditable name="maincontentarea" -->
             <script type="text/javascript">
-            WDN.initializePlugin(
-                    'carousel', 
-                    function(){
-                        WDN.carousel.supportJSON = 'sharedcode/carouselJSON.js';
-                        WDN.carousel.displayThumbnails = false;
-                        WDN.carousel.textholderHeight = .09;
-                        WDN.carousel.numberToDisplay=5;
-                        WDN.carousel.initialize();
-                    }
-                );
+            WDN.initializePlugin('carousel');
 </script>
-    <div class="zenbox_law">
-        <div id="wdn_Carousel">
-            <ul>
-                <li>
-                    <img alt="Proud Member of the Big Ten Conference" src="http://law.unl.edu/splash/images/Reasons_bigten.jpg" width="930" height="280" />
-                    <p>Proud Member of the Big Ten Conference<a href="prospective/">Click here to see all the reasons to attend Nebraska Law</a></p>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <div class="zenbox_music"> 
+<div id="wdn_Carousel"> 
+            
+<ul> 
+<li style="text-align: center;"> 
+                    <a href="http://music.unl.edu/downbeat-student-awards"><img alt="Westbrook" src="http://music.unl.edu/sites/music.unl.edu/files/pictures/01_wmb.png" height="280" width="930" /></a> 
+<p>UNL School of Music is located in the Westbrook Music Building. <span>&nbsp;&nbsp;&nbsp;Photo by Nikki Moore<br /></span></p> 
+</li> 
+<li style="text-align: center;"> 
+                    <a href="http://newsroom.unl.edu/announce/todayatunl/442/2847"><img alt="Band Earns Bowling Award" src="http://music.unl.edu/sites/music.unl.edu/files/pictures/00_bandAward.png" height="280" width="930" /></a> 
+<p>Band earns Bowling Award. <i>Click photo to read more...</i> <span>&nbsp;&nbsp;&nbsp;August 5, 2011<br /></span></p> 
+</li> 
+<li style="text-align: center;"> 
+                    <a href="http://www.unl.edu/finearts/news/2011/hlcfpa/nielsen/"><img alt="Lance Nielsen" src="http://music.unl.edu/sites/music.unl.edu/files/pictures/00_nielsen.png" height="280" width="930" /></a> 
+<p>Three Degrees... Three Conferences... One University. <i>Click photo to read more...</i> <span>&nbsp;&nbsp;&nbsp;July 1, 2011<br /></span></p> 
+</li> 
+<li style="text-align: center;"> 
+                    <img alt="Westbrook" src="http://music.unl.edu/files/pictures/05_marchingband.png" height="280" width="930" /> 
+<p>University of Nebraska Cornhusker Marching Band - "The Pride of all Nebraska" <span>&nbsp;&nbsp;&nbsp;Photo by Rose Johnson<br /></span></p> 
+</li> 
+<li style="text-align: center;"> 
+                    <img alt="violin" src="http://music.unl.edu/sites/music.unl.edu/files/pictures/02_violin.png" height="280" width="930" /> 
+<p>The opera rehearsal... <span>&nbsp;&nbsp;&nbsp;Photo by Nikki Moore<br /></span></p> 
+</li> 
+<li> 
+                    <img alt="blossoms" src="http://music.unl.edu/sites/music.unl.edu/files/pictures/03_flowers.png" height="280" width="930" /> 
+<p>Outside of Westbrook Music Building <span>&nbsp;&nbsp;&nbsp;Photo by Nikki Moore<br /></span></p> 
+</li> 
+<li> 
+                    <img alt="elijah" src="http://music.unl.edu/sites/music.unl.edu/files/pictures/04_elijah.png" height="280" width="930" /> 
+<p>A staged version of the oratorio ELIJAH. <span>&nbsp;&nbsp;&nbsp;Photo by Nikki Moore<br /></span></p> 
+</li> 
+<li> 
+                    <img alt="lights" src="http://music.unl.edu/sites/music.unl.edu/files/pictures/05_lights.png" height="280" width="930" /> 
+<p>The Lied Center for the Performing Arts.<span style="font-size: 0.7em; font-style: italic;">&nbsp;&nbsp;&nbsp;Photo by Nikki Moore</span></p> 
+</li> 
+</ul> 
+</div> 
+</div> 
             <!-- InstanceEndEditable -->
             <div class="clear"></div>
             <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->

@@ -35,6 +35,7 @@
     'content/tabs',
     'content/columns',
     'content/headers',
+    'content/images_deprecated',
     'content/images',
     'content/mime',
     'content/titlegraphic',

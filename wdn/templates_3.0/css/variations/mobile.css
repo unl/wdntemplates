@@ -268,7 +268,7 @@ body.mobile #wdn_content_wrapper {
 #maincontent img {
     height:auto;
     max-width:100%;
-    
+    width:100%;
 }
 #maincontent .right, #maincontent .left{float:none;}
 #maincontent .col,
