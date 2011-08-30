@@ -1,0 +1,60 @@
+.image_large, .image_large img {width:680px;height:210px;}
+.image_large_16x9, .image_large_16x9 img {width:680px;height:383px;}
+.image_medium, .image_medium img {width:450px;height:210px;}
+.image_medium_16x9, .image_medium_16x9 img {width:450px;height:253px;}
+.image_medium_4x3, .image_medium_4x3 img {width:450px;height:338px;}
+.image_medium_3x2, .image_medium_3x2 img {width:450px;height:300px;}
+.image_small_square, .image_small_square img {width:210px;height:210px;}
+.image_small_16x9, .image_small_16x9 img {width:210px;height:118px;}
+.image_small_tall, .image_small_tall img {width:210px;height:315px;}
+.image_small_3x2, .image_small_3x2 img {width:210px;height:140px;}
+.image_small_3x2_vertical, .image_small_3x2_vertical img {width:210px;height:315px;}
+.image_small_short, .image_small_short img {width:210px;height:80px;}
+.image_small_4x3_vertical, .image_small_4x3_vertical img {width:210px;height:280px;}
+.image_small_4x3, .image_small_4x3 img {width:210px;height:158px;}
+
+
+#maincontent .image_large_16x9,
+#maincontent .image_large,
+#maincontent .image_medium_16x9, 
+#maincontent .image_medium_4x3, 
+#maincontent .image_medium_3x2, 
+#maincontent .image_medium, 
+#maincontent .image_small_16x9, 
+#maincontent .image_small_4x3, 
+#maincontent .image_small_square, 
+#maincontent .image_small_tall, 
+#maincontent .image_small_short,
+#maincontent .image_small_4x3_vertical,
+#maincontent .image_small_3x2_vertical,
+#maincontent .image_small_3x2,
+#maincontent .unl_liquid_pictureframe,
+#footer .image_large_16x9,
+#footer .image_large,
+#footer .image_medium_16x9, 
+#footer .image_medium_4x3, 
+#footer .image_medium_3x2, 
+#footer .image_medium, 
+#footer .image_small_16x9, 
+#footer .image_small_4x3, 
+#footer .image_small_square, 
+#footer .image_small_tall, 
+#footer .image_small_short,
+#footer .image_small_4x3_vertical,
+#footer .image_small_3x2_vertical,
+#footer .image_small_3x2
+{
+    border:1px solid #DDD;
+    border-radius:3px;
+    background: #f7f7f7;
+    padding:4px;
+    margin: 0 0 10px 0;
+    white-space:normal;
+    line-height:0.8em;
+}
+#maincontent .image_large a.imagetag {
+    position: absolute;
+    background: none;
+    top:0;
+    left:0;
+}
