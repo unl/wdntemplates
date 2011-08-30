@@ -349,7 +349,7 @@ var WDN = function() {
 			// first, try using jQuery.get or jQuery.post
 			try {
 				if (url.match(/^https?:/)
-					&& (url.match(/:\/\/(.[^/]+)/)[1] != window.location.host)) {
+					&& (url.match(/:\/\/(.[^\/]+)/)[1] != window.location.host)) {
 					WDN.log('This is a cross-origin request');
 					// IE9 fails silently, so force it to throw an error and use XDR
 					if (WDN.jQuery.browser.msie
