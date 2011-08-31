@@ -1,8 +1,6 @@
 /* General Template Settings
 **********************************/
-body.mobile{
-	text-rendering:optimizeLegibility;
-}
+body {text-rendering:auto;}
 body.mobile #wdn_wrapper {
     border:none;
     background:none;
