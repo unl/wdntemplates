@@ -12,6 +12,7 @@ WDN.toolbar_peoplefinder = function() {
         },
         setupToolContent : function() {
         	WDN.loadCSS('/wdn/templates_3.0/css/header/toolbarPeoplefinder.css');
+        	WDN.loadCSS('/wdn/templates_3.0/css/content/vcard.css');
             return '<h3>UNL\'s Online Directory <a href="http://directory.unl.edu/" class="external">(open in separate window)</a></h3><div class="col left"><form onsubmit="WDN.toolbar_peoplefinder.queuePFRequest(document.getElementById(\'pq\').value,\'pfresults\'); return false;" method="get" action="http://directory.unl.edu/"><div><input type="text" onkeyup="WDN.toolbar_peoplefinder.queuePFRequest(this.value,\'pfresults\');" name="pq" id="pq" /></div></form><div id="pfresults" class="toolbarMask">'+defaultIntro+'</div></div><div class="col right"><div id="pfShowRecord"></div></div>';
         },
         display : function() {
