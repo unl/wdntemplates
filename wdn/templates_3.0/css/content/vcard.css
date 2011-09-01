@@ -55,7 +55,6 @@
     float:left;
     margin-right:15px;
     width:114px;
-    height:150px
 }
 
 .vcard .eppa, .vcard .epa {font-style:italic;font-size:0.8em;}
@@ -67,7 +66,7 @@
     display:inline-block;
 }
 .vcard .adr .type, .departmentInfo .adr .type {
-	background:#e6ebee;
+	background:#e8f2f7;
 	padding:1px 8px 3px 8px;
 	margin:0 0 5px -5px;
 	display:block;
