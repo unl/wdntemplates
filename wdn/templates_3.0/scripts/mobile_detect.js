@@ -14,6 +14,9 @@ WDN.mobile_detect = function() {
 			if (!WDN.mobile_detect.isMobile()) {
 				return true;
 			}
+			if (!WDN.jQuery('body').hasClass('mobile')) {
+				return true;
+			}
 			if ('https:' == document.location.protocol) {
 				// https sites cannot be proxied by the mobile proxy
 				return true;
