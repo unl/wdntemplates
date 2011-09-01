@@ -263,7 +263,7 @@ body.mobile #wdn_content_wrapper {
     width:auto;
     padding:3px;
 }
-#maincontent img {
+#maincontent img, #maincontent video {
     height:auto;
     max-width:100%;
     width:100%;
