@@ -111,8 +111,11 @@
 
 /* Primary Links */
 #navigation /* DESIGNTIME */ > ul > li > a {
+	color: rgb(255, 255, 255); /* Old browsers (must be separate for ie7) */
+}
+#navigation /* DESIGNTIME */ > ul > li > a {
     display: block;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.99);
     text-shadow: 1px 1px 1px #424242;
     font-weight: 500;
     font-size: 0.875em;
@@ -193,7 +196,8 @@
     /* Note: Removed IE gradient support for IE9 border radius preference */
 }
 #navigation /* DESIGNTIME */ > ul > li > a:hover {
-    color: #fff !important;
+	color: rgb(255, 255, 255) !important;
+    color: rgba(255, 255, 255, 0.99) !important;
 }
 
 /* Secondaries */
