@@ -136,9 +136,9 @@ WDN.jQuery(function(){
                 <div class="currentScroller">
                   <ul class="scrollerItems">
                         <li>
-                            <img src="images/promo_majors_chemistry.jpg" alt="Chemistry, one of the 149 undergraduate majors available." />
+                            <img src="images/promo_majors_physics.jpg" alt="Physics, one of the 149 undergraduate majors available." />
                             <div class="promoText" style="background:#000;padding:10px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;">
-	                            <h3>Chemistry</h3>
+	                            <h3>Physics</h3>
 	                            <h4>And 149 other Big Red Majors.</h4>
 	                            <p><a href="http://bulletin.unl.edu/undergraduate/" title="Link to the Undergraduate Bulletin">Find your major today</a>.</p>
                             </div>
