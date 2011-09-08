@@ -103,12 +103,14 @@ Navigation</a></p>
         </div>
         <div id="pagetitle"><h2>Demo: Grid System</h2></div>
         <div id="maincontent">
-        <div class="grid6 first"> 
+        <div class="grid9 first"> 
         <p>The 2011 Iterative Navigation templates came with a new grid system. This allows for easier-to-implement, more flexible layout options.</p> 
+        <div class="grid3 first"> <img src="images/grid_Monitor.png" alt="Grid supporting demonstration" /> </div>
+        <div class="grid6">
         <p>The new grid system should be used for all layouts. The old grid system, while still available, is in the process of being deprecated. <em>It is displayed below only as reference.</em></p> 
         <p>To implement, use the class names from below. Ex: <code>&lt;div class="grid6"&gt;</code>. For the first column in a row (the left-most column), you must add the class <code>first</code>. Ex: <code>&lt;div class="grid6 first"&gt;</code></p> 
-      </div> 
-      <div class="grid3"> <img src="images/grid_Monitor.png" alt="Grid supporting demonstration" /> </div> 
+        </div>
+      </div>  
       <div class="grid3 summary">
         <p>Column Widths</p>
         <dl>
