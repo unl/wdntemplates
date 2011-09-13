@@ -14186,14 +14186,13 @@ WDN.feedback = function() {
 						alert('Please enter more information, give me at least 4 words!');
 						return false;
 					}
+					WDN.jQuery('#wdn_feedback_comments form input[type="submit"]').attr('disabled', 'disabled');
 					WDN.post(
 						'http://www1.unl.edu/comments/', 
-						WDN.jQuery('#wdn_feedback_comments').serialize(),
-						function () {
-							//WDN.analytics.callTrackEvent('Page Comment', 'Sent', window.location);
-							WDN.jQuery('#wdn_feedback_comments').replaceWith('<h4>Thanks!</h4>');
-						}
+						WDN.jQuery('#wdn_feedback_comments').serialize()
 					);
+					WDN.jQuery('#wdn_feedback_comments').hide();
+					WDN.jQuery('#footer_feedback').append('<h4>Thanks!</h4>');
 					event.stopPropagation();
 					return false;
 				}
