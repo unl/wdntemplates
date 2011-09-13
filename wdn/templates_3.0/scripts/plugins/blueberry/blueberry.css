@@ -1,6 +1,7 @@
 /*
- * jQuery Blueberry Slider v0.4 BETA
- * http://marktyrrell.com/labs/blueberry/
+ * jQuery Blueberry Slider v0.5 BETA
+ * Originally created and developed by: http://marktyrrell.com/labs/blueberry/
+ * Forked and expanded by: https://github.com/smeranda/
  *
  * Copyright (C) 2011, Mark Tyrrell <me@marktyrrell.com>
  *
@@ -18,87 +19,125 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
- 
- /* WDN Hacks for deprecation */
-#maincontent #wdn_Carousel .wdn_Carousel_slides {
-    padding:0;	
-}
 
-#wdn_Carousel { margin: 0 auto; }
-#wdn_Carousel .wdn_Carousel_slides {
+#wdn_Carousel { margin: 0 auto; position: relative; }
+#wdn_Carousel .slides {
     display: block;
     position: relative;
     overflow: hidden;
+    -webkit-box-shadow: 0px 0px 1px 3px rgba(199,227,234, 0.5);
+    -moz-box-shadow: 0px 0px 1px 3px rgba(199,227,234, 0.5);
+    box-shadow: 0px 0px 1px 3px rgba(199,227,234, 0.5);
+    padding: 0;
+    margin: 0;
 }
-#wdn_Carousel .wdn_Carousel_slides li {
+#wdn_Carousel .slides > li {
     position: absolute;
     top: 0;
     left: 0;
     overflow: hidden;
-}
-#wdn_Carousel .wdn_Carousel_slides li div {
-    position: relative;
-}
-#wdn_Carousel .wdn_Carousel_slides li div p {
-    position: absolute;
-    bottom: 0%;
-    background-color:#fff;
-    background:rgba(255,255,255,0.9);
-    padding:0.3em;
-    width:auto;
-    margin:0;
-    left:0%;
-}
-#wdn_Carousel .wdn_Carousel_slides li {
     display: block;
     width: 100%;
     max-width: none;
+    vertical-align: bottom;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
 }
-#wdn_Carousel .wdn_Carousel_slides li img {
+#wdn_Carousel .slides > li > img, #wdn_Carousel .slides > li > a {
+    display: block;
+}
+#wdn_Carousel .slides > li > img + div, #wdn_Carousel .slides > li > a + div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width:100%;
-    max-width: none;
+    font-size: 100%;
+    line-height: 1.2;
 }
-#wdn_Carousel .wdn_Carousel_slides li.active { display: block; position: relative; }
-#wdn_Carousel .crop li img { width: auto; }
+#wdn_Carousel .slides > li > img + div *, #wdn_Carousel .slides > li > a + div * {
+    font-size: 100%;
+}
+#wdn_Carousel .slides > li > img, #wdn_Carousel .slides > li > a > img, #wdn_Carousel .slides > li video, #wdn_Carousel .slides > li audio {
+    width: 100%;
+    max-width: 100%;
+}
+#wdn_Carousel .slides > li > div img {
+    width: auto;
+    max-width: 100%;
+}
+#wdn_Carousel .slides > li.active { display: block; position: relative; }
+#wdn_Carousel .crop > li > img { width: auto; }
 
+/* For the pagination between slides (the dots) */
 #wdn_Carousel .pager {
+    height: auto;
+    display: inline;
+    float: right;
     text-align: center;
+    margin-top: -40px;
+    position: relative;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #679cbb;
+    border-top-color: #85b9d7;
+    border-left-color: #85b9d7;
+    background: rgb(167,206,229); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(167,206,229,1) 0%, rgba(134,187,214,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(167,206,229,1)), color-stop(100%,rgba(134,187,214,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(167,206,229,1) 0%,rgba(134,187,214,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(167,206,229,1) 0%,rgba(134,187,214,1) 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, rgba(167,206,229,1) 0%,rgba(134,187,214,1) 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cee5', endColorstr='#86bbd6',GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(top, rgba(167,206,229,1) 0%,rgba(134,187,214,1) 100%); /* W3C */
+    -webkit-box-shadow: inset 1px 1px 1px 1px #9ccae5, -1px 1px 1px 1px rgba(55,55,55,0.3);
+    -moz-box-shadow: inset 1px 1px 1px 1px #9ccae5, -1px 1px 1px 1px rgba(55,55,55,0.3);
+    box-shadow: inset 1px 1px 1px 1px #9ccae5, -1px 1px 1px 1px rgba(55,55,55,0.3);
+    opacity: 0.5;
+    -webkit-transition: opacity 0.2s ease;
+    -moz-transition: opacity 0.2s ease;
+    -o-transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease;
     padding:0;
 }
-#wdn_Carousel .pager li { display: inline-block; zoom:1; *display:inline;}
-#wdn_Carousel .pager li a,
-#wdn_Carousel .pager li a span {
+#wdn_Carousel:hover .pager{
+    opacity: 1;
+}
+#wdn_Carousel .pager > li { 
+    display: inline-block;
+    font-weight: bold;
+    text-shadow: 0px 0px 2px #16425c;
+    border-right: 1px solid #9ad0eb;
+    line-height: 1;
+    zoom:1; *display:inline; /*IE Hacks*/
+}
+#wdn_Carousel .pager > li a {
     display: block;
-    height: 8px;
-    width: 8px;
+    padding: 5px 8px;
+    color: #fff;
+    font-weight:bold;
 }
-#wdn_Carousel .pager li a {
-    padding: 18px 8px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -o-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    border-radius: 10px;
+#wdn_Carousel .pager > li.nav a {
+    font-size: 80%;
+    color: #c7e3ea;
+}
+#wdn_Carousel .pager > li a:hover {
+    text-decoration: none;
+}
+#wdn_Carousel .pager > li.active { 
+    background: #446999; /* Old browsers */
+    background: -moz-radial-gradient(50% 100%, circle cover, rgba(157, 218, 233, 0.5), rgba(255, 255, 255, 0) 38%), -moz-linear-gradient(top, #446999 0%, #5189b5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#446999), color-stop(100%,#5189b5)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(50% 100%, circle cover, rgba(157, 218, 233, 0.5), rgba(255, 255, 255, 0) 38%), -webkit-linear-gradient(top, #446999 0%,#5189b5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(50% 100%, circle cover, rgba(157, 218, 233, 0.5), rgba(255, 255, 255, 0) 38%), -o-linear-gradient(top, #446999 0%,#5189b5 100%); /* Opera11.10+ */
+    background: -ms-radial-gradient(50% 100%, circle cover, rgba(157, 218, 233, 0.5), rgba(255, 255, 255, 0) 38%), -ms-linear-gradient(top, #446999 0%,#5189b5 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#446999', endColorstr='#5189b5',GradientType=0 ); /* IE6-9 */
+    background: radial-gradient(50% 100%, circle cover, rgba(157, 218, 233, 0.5), rgba(255, 255, 255, 0) 38%), linear-gradient(top, #446999 0%,#5189b5 100%); /* W3C */
+    color: #fff;
+}
 
-}
-#wdn_Carousel .pager li a, #wdn_Carousel .pager li a span {
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -o-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    border-radius: 10px;
-
-}
-#wdn_Carousel .pager li a span {
-    overflow: hidden;
-    background: #c0c0c0;
-    text-indent: -9999px;
-}
-#wdn_Carousel .pager li.active a span {
-    background: #404040;
-}
+/* WDN Overrides */
+#wdn_Carousel .slides div p {margin:0;}
+#maincontent #wdn_Carousel a:focus {color:#fff !important;}
 @media only screen 
 and (min-device-width: 320px)
 and (max-device-width : 480px) {

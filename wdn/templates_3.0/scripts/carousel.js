@@ -31,10 +31,11 @@ WDN.carousel = (function() {
 		},
 
 		cleanUpDeprecated : function() {
-			if (!WDN.jQuery('#wdn_Carousel .wdn_Carousel_slides').length) {
-				//WDN.jQuery('#wdn_Carousel').parent('.three_col').css({'padding' : 0});
-				WDN.jQuery('#wdn_Carousel > ul:first').addClass('wdn_Carousel_slides').children('li').each(function() {
+			if (!WDN.jQuery('#wdn_Carousel .slides').length) {
+				WDN.jQuery('#wdn_Carousel > ul:first > li > a, #wdn_Carousel > ul:first > li > img').addClass('toMove');
+				WDN.jQuery('#wdn_Carousel > ul:first').addClass('slides').children('li').each(function() {
 					WDN.jQuery(this).wrapInner('<div />');
+					WDN.jQuery(this).find('.toMove').insertBefore(WDN.jQuery(this).children('div')).removeClass('toMove');
 				});
 				if (WDN.jQuery('#wdn_Carousel').parent('.zenbox').length) {
 					WDN.jQuery('#wdn_Carousel').unwrap();
@@ -43,7 +44,7 @@ WDN.carousel = (function() {
 		},
 
 		start : function() {
-			WDN.loadJS('/wdn/templates_3.0/scripts/plugins/blueberry/blueberry.v0.4.js', function() {
+			WDN.loadJS('/wdn/templates_3.0/scripts/plugins/blueberry/blueberry.v0.5.js', function() {
 				WDN.jQuery('#wdn_Carousel').blueberry();
 			});
 		},
