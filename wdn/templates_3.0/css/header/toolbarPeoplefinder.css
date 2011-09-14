@@ -21,20 +21,18 @@
     height:25px;
     font-size:1.5em;
     color:#434343 !important;
-    }
+}
 
 #toolbar_peoplefinder input:focus {
     background:#fff;
-    }
+}
 
-#toolbar_peoplefinder ul{list-style:none;padding:0;margin-bottom:5px;}
-#toolbar_peoplefinder ul li{padding:6px;}
-#toolbar_peoplefinder ul li.alt{background:#fafafa;border-bottom:1px solid #4f4f4f;border-top:1px solid #4f4f4f;}
-#toolbar_peoplefinder .cNav{text-align:right;letter-spacing:-2px;margin:-15px 3px 5px 0;}
-#toolbar_peoplefinder .cNav a{margin-left:4px;}
-#toolbar_peoplefinder .fn, #toolbar_peoplefinder .cn{font-weight:bold;margin-right:4px;}
-#toolbar_peoplefinder .eppa, #peoplefinder .title{font-size:0.8em;}
-#toolbar_peoplefinder .cInfo{margin-left:10px;}
+#toolbar_peoplefinder .pfintro p { margin-bottom: 1.1em; }
+#toolbar_peoplefinder .pfintro ul { list-style: disc; padding: 0 0 1.1em 25px; }
+#toolbar_peoplefinder #pf_copyright { margin: 1.1em 0; }
+#toolbar_peoplefinder #pf_disclaimer { font-size:0.8em; }
+
+#toolbar_peoplefinder a {color:#BA0000; text-decoration: none; }
 
 /* 
 ***************************************************
@@ -43,7 +41,6 @@
 
 ***************************************************
 */
-#toolbar_peoplefinder #results {min-height: 300px;}
 #toolbar_peoplefinder ul.pfResult {
     padding:0px;
     list-style:none;
@@ -57,30 +54,28 @@
     width:100%;
     padding: 5px 0px;
     display:inline-block;
+    position:relative;
 }
 #toolbar_peoplefinder ul.pfResult li div.overflow {
     min-height:47px;
     padding: 7px 5px;
+    display:inline-block;
 }
-#toolbar_peoplefinder ul.pfResult li.selected div.overflow {opacity:0.4}
+#toolbar_peoplefinder ul.pfResult li:hover {
+    background:#ecf4f9;
+}
 
-#toolbar_peoplefinder ul.pfResult li.selected .vcard {display:none;}
-#toolbar_peoplefinder .eppa,  #toolbar_peoplefinder .type {display:none;}
-#toolbar_peoplefinder .tel a {color:#BA0000;}
 #toolbar_peoplefinder .on-campus-dialing {font-size:80%;text-transform:uppercase;color:#897B42;}
 
 #toolbar_peoplefinder .planetred_profile, #toolbar_peoplefinder .recordDetails {float:left;}
 #toolbar_peoplefinder .loading {
-    background:url('images/loading.gif') no-repeat top left;
-    height:40px;
-    width:40px;
-    float:left;
-    position:absolute;
-    right:250px;
-    display:none;   
+    display:none;
 }
 #toolbar_peoplefinder .recordDetails {
     margin-left:20px;
+}
+#toolbar_peoplefinder .recordDetails .eppa {
+	display:none;
 }
 #toolbar_peoplefinder .fn a, #toolbar_peoplefinder .fn {
     font-size:18px;
@@ -91,29 +86,39 @@
     min-height:20px;
     overflow:hidden;
 }
-#toolbar_peoplefinder .departments .fn, #toolbar_peoplefinder .departments .fn a {max-height:42px;line-height:20px;}
-#toolbar_peoplefinder .cInfo {float:right;}
+#toolbar_peoplefinder .departments .fn, 
+#toolbar_peoplefinder .departments .fn a {
+	max-height:42px;
+    line-height:20px;
+}
+#toolbar_peoplefinder .cInfo {position:absolute; right:5px;}
 
 #toolbar_peoplefinder .results {margin-top:15px;}
 #toolbar_peoplefinder .likeResults ul.pfResult {margin-top:0px;}
 
 #toolbar_peoplefinder .result_head {color:#989898;font-size:10px;}
+
+
 /* Headings */
-
-
-#toolbar_peoplefinder .results h2, #toolbar_peoplefinder .likeResults h3, #toolbar_peoplefinder #orgChart h2 {
+#toolbar_peoplefinder .results h3, 
+#toolbar_peoplefinder .likeResults h3 {
     font-variant:small-caps;
     font-weight:bold;
+    /* these overrides are needed to fix styles from the toolbarcontent.css */
+    font-family: Helvetica,"Lucida Grande",Verdana,Arial;
+    font-size: 1.6em;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-transform: none;
+    text-align: left;
 }
-#toolbar_peoplefinder .results h2, #toolbar_peoplefinder #orgChart h2 {border-bottom:2px dotted #E6E6E6;padding-bottom:0;}
+#toolbar_peoplefinder .results h3 {border-bottom:2px dotted #E6E6E6;padding-bottom:0;}
 
 #toolbar_peoplefinder .likeResults h3 {
     font-size:1em;  
-    background: none;
     margin: 0;
     padding: 0.2em 0 0.3em;
     color: #444;
-}
-#toolbar_peoplefinder .likeResults h3:after {
-    display:none;
 }
