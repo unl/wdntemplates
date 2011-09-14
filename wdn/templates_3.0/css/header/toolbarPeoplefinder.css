@@ -65,7 +65,7 @@
 #toolbar_peoplefinder ul.pfResult li.selected div.overflow {opacity:0.4}
 
 #toolbar_peoplefinder ul.pfResult li.selected .vcard {display:none;}
-#toolbar_peoplefinder .eppa, #toolbar_peoplefinder .organization-unit, #toolbar_peoplefinder .type {display:none;}
+#toolbar_peoplefinder .eppa,  #toolbar_peoplefinder .type {display:none;}
 #toolbar_peoplefinder .tel a {color:#BA0000;}
 #toolbar_peoplefinder .on-campus-dialing {font-size:80%;text-transform:uppercase;color:#897B42;}
 
