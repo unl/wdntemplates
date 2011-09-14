@@ -15,6 +15,7 @@
     padding:1em;
     position:relative;
     overflow:auto;
+    min-height: 148px;
 }
 .vcard .vcardInfo .org, .vcard .vcardInfo > .title {
     background: #f2f9fe; /* Old browsers */
