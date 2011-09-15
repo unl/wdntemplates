@@ -14,7 +14,7 @@ WDN.mobile_detect = function() {
 			if (!WDN.mobile_detect.isMobile()) {
 				return true;
 			}
-			if (!WDN.jQuery('body').hasClass('mobile')) {
+			if (WDN.jQuery('body').hasClass('mobile')) {
 				return true;
 			}
 			if ('https:' == document.location.protocol) {
