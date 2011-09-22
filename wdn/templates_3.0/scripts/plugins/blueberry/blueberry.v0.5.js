@@ -66,7 +66,7 @@
 				if(pager.length) {
 					pager.eq(current).addClass('active');
 				} else if(o.pager){
-					obj.append('<ul class="pager"></ul>');
+					obj.append('<div class="pagerWrapper"><ul class="pager"></ul></div>');
 					slides.each(function(index) {
 						$('.pager', obj).append('<li><a href="#">'+(index+1)+'</a></li>');
 					});
