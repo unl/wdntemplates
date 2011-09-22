@@ -31,6 +31,7 @@
 				lineheight: 1,
 				height: 'auto', //reserved
 				hoverpause: true,
+				clickstop: true,
 				pager: true,
 				nav: true, //reserved
 				keynav: true,
@@ -156,6 +157,15 @@
 						//start the timer on mouseout
 						rotateTimer();
 					});
+				}
+
+				//stop the slides from progressing if one is clicked.
+				if(o.clickstop){
+				    slides.click(function(){
+				        WDN.log('slide clicked');
+				        clearTimeout(obj.play);
+				        slides.unbind('mouseenter mouseleave');
+				    });
 				}
 
 				//calculate and set height based on image width/height ratio and specified line height
