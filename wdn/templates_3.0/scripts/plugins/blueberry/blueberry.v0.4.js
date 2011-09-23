@@ -80,8 +80,6 @@
 				//rotate to selected slide on pager click
 				if(pager){
 					$('a', pager).click(function() {
-						//stop the timer
-						clearTimeout(obj.play);
 						//set the slide index based on pager index
 						next = $(this).parent().index();
 						//rotate the slides
@@ -116,6 +114,7 @@
 				};
 				//create a timer to control slide rotation interval
 				var rotateTimer = function(){
+					clearTimeout(obj.play);
 					obj.play = setTimeout(function(){
 						//trigger slide rotate function at end of timer
 						rotate();
@@ -158,15 +157,12 @@
 
 							case 39: case 32: //right arrow & space
 
-								clearTimeout(obj.play);
-
 								rotate();
 
 								break;
 
 
 							case 37: // left arrow
-								clearTimeout(obj.play);
 								next = current - 1;
 								rotate();
 
