@@ -122,7 +122,11 @@
     font-weight:bold;
     line-height:2em;
     border-right:1px solid #d3cdb5;
+    /* IE 7 hack */
+    *display: inline;
+    _height: 300px;
 }
+div.wdn_annotate.on {display:inline;}
 #maincontent .vcard .text-vcard:focus, #maincontent .vcard .img-qrcode:focus, #maincontent .vcard .print:focus, #maincontent .vcard .wdn_annotate.on a:focus{
 	color:#282401 !important;
 }
