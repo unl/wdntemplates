@@ -137,3 +137,10 @@ a.mail-message-new, a.text-vcard, a.application-pdf, a.audio-x-generic, a.image-
 a.x-office-document-template, a.x-office-presentation, a.x-office-presentation-template, a.x-office-spreadsheet, a.x-office-spreadsheet-template, a.application-msword,
 a.application-vnd-ms-excel, a.application-vnd-ms-powerpoint, a.application-zip, a.application-map
 {zoom:1}
+
+.vcard .text-vcard, .vcard .img-qrcode, .vcard .print, .vcard .wdn_annotate.on a {
+    /* IE 7 hack */
+    *display: inline;
+    _height: 300px;
+    zoom:normal;
+}
