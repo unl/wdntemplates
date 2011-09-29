@@ -238,7 +238,7 @@
 			$('.validation-advice li', advices).hide();
 			elm.removeClass('validation-failed');
             elm.removeClass('validation-passed');
-            if (self.options.addClassNameToContainer) {
+            if (this.options.addClassNameToContainer) {
             	var container = Validation.getContainer(elm, this.options);
             	containter.removeClass('validation-passed').removeClass('validation-error');
             }
