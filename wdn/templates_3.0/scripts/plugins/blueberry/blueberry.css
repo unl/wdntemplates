@@ -63,7 +63,7 @@
     width: auto;
     max-width: 100%;
 }
-#wdn_Carousel .slides > li > div > p {
+#wdn_Carousel .slides > li > div > p.draggingAlong {
     background: rgb(242, 237, 222);
     background: rgba(242, 237, 222, 0.9);
     text-shadow: 0 1px 0 #F2EDDE;
