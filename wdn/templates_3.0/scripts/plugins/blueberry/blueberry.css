@@ -63,6 +63,13 @@
     width: auto;
     max-width: 100%;
 }
+#wdn_Carousel .slides > li > div > p {
+    background: rgb(242, 237, 222);
+    background: rgba(242, 237, 222, 0.9);
+    text-shadow: 0 1px 0 #F2EDDE;
+    color:#655f3c;
+    padding:0.7em;
+}
 #wdn_Carousel .slides > li.active { display: block; position: relative; }
 #wdn_Carousel .crop > li > img { width: auto; }
 
