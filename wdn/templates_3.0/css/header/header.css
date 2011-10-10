@@ -44,6 +44,17 @@
     text-decoration: none;
     color: #555;
 }
+#titlegraphic h1 span {
+    display:block;
+    font-size:42%;
+    color:#6E6E6E;
+    margin-top:-0.25em;
+    letter-spacing:0em;
+    text-transform:uppercase;
+}
+#titlegraphic h1 span a {
+    color:#6e6e6e;
+}
 #titlegraphic h2 {
     display: none;
 }
