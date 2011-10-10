@@ -26,7 +26,9 @@ Navigation</a></p>
             <h2 class="wdn_list_descriptor hidden">Breadcrumbs</h2>
             <ul>
                 <!-- WDN: see glossary item 'breadcrumbs' -->
-                <li><a href="http://www.unl.edu/">UNL</a></li><li>CBA</li>
+                <li><a href="http://www.unl.edu/">UNL</a></li>
+                <li><a href="http://cas.unl.edu/">ASC</a></li>
+                <li>Computer Science</li>
             </ul>
         </div>
         <div id="wdn_navigation_wrapper">
@@ -39,7 +41,7 @@ Navigation</a></p>
     </div>
     <div id="wdn_content_wrapper">
         <div id="titlegraphic">
-            <h1>UNIVERSITY OF NEBRASKA&ndash;LINCOLN</h1>
+            <h1>Computer Science <span>A department of the <a href="http://cas.unl.edu/">College of Arts &amp; Sciences</a> and the College of Engineering</span></h1>
         </div>
         <div id="pagetitle"><h2>Demo: Grid System</h2></div>
         <div id="maincontent">
