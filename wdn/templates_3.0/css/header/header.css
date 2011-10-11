@@ -46,11 +46,12 @@
 }
 #titlegraphic h1 span {
     display:block;
-    font-size:42%;
+    font-size:25%;
     color:#6E6E6E;
-    margin-top:-0.25em;
+    margin-top:-0.6em;
     letter-spacing:0em;
     text-transform:uppercase;
+    font-family: Helvetica, "Lucida Grande", Verdana, Arial;
 }
 #titlegraphic h1 span a {
     color:#6e6e6e;
