@@ -1,10 +1,11 @@
 #maincontent h1, #maincontent h2, #maincontent h3, #colorbox h1, #colorbox h2, #maincontent h4, #maincontent h5, #maincontent h6, #colorbox h4 {
     line-height: 1.2;
-    font-weight: 500;
-    padding-top: .2em;
     padding-bottom: .3em;
-    color: #555;
     font-family: Helvetica, "Lucida Grande", Verdana, Arial;
+    color: #535353;
+    font-weight: bold;
+    padding-top: 0.4em;
+    position: relative;
 }
 
 #maincontent h4, #maincontent h5, #maincontent h6, #colorbox h4 {
@@ -13,11 +14,11 @@
 }
 
 #maincontent h1, #colorbox h1 {
-    font-size: 1.8em;
+    font-size: 2em;
 }
 
 #maincontent h2, #colorbox h2 {
-    font-size: 1.7em;
+    font-size: 1.8em;
 }
 
 #maincontent h3 {
@@ -36,22 +37,25 @@
     font-size: 1.1em;
 }
 #maincontent .sec_header, #colorbox .sec_header {
-    padding-bottom: 0;
-    border-bottom: #DDD 2px solid;
-    margin-bottom: 1.03em;
+    background: none;
+    border-bottom: 1px solid #cecece;
+    position: relative;
+    padding: 0;
+    margin: 3px 0 1.01em 0;
 }
-#maincontent .sec_main, #colorbox .sec_main {
-    background: #DDD;
-    border-left: 3px solid #c5c5c5;
-    border-radius: 3px;
-    padding: 0.1em 8px 0em 5px;
-    margin: 3px 0 3px 0;
-    margin-bottom: 1.01em;
-}
-#maincontent .zenboxsolid h3.sec_main,
-#maincontent .zenboxfixed h3.sec_main,
-#maincontent .zenboxfeature h3.sec_main,
-#maincontent .zenbox h3.sec_main {
-    border-radius: 0px;
-    border-left: none;
+#maincontent .sec_header:after {
+    position: absolute;
+    background: #f2f2f2; /* Old browsers */
+    background: -moz-linear-gradient(top, #f2f2f2 0%, #ffffff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f2f2f2 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #f2f2f2 0%,#ffffff 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, #f2f2f2 0%,#ffffff 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(top, #f2f2f2 0%,#ffffff 100%); /* W3C */
+    bottom: -6px;
+    width: 100%;
+    height: 4px;
+    left: 0;
+    content: '';
 }
