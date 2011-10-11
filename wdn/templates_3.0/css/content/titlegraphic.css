@@ -1,14 +1,16 @@
 #pagetitle {
-    margin: 25px 0 25px 0;
+    margin: 17px 0 15px 0;
 }
 #pagetitle h2 {
     margin: 0 0 18px 0;
-    font-weight: normal;
-    font-size: 2.2em;
     line-height: 1.1em;
     letter-spacing: -0.02em;
-    text-shadow: -1px -1px 0 #f1f1f1;
-    font-family: 'URWGroteskCon-Lig', Helvetica, Arial, sans-serif;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: -0.038em;
+    padding-bottom: 0.1em;
+    word-spacing: -0.05em;
 }
 #pagetitle h2,
 #pagetitle h2 a {
