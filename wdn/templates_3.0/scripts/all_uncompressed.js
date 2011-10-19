@@ -9183,6 +9183,7 @@ var WDN = function() {
 					WDN.jQuery(this).width(imgWidth);
 				}
 			});
+			WDN.jQuery('#titlegraphic h1 span').parent('h1').css({'top':'3px'});
 			//remove the dotted line underneath images that are links
 			WDN.jQuery('#maincontent a img, #footer a img').each(function(j){
 				WDN.jQuery(this).parent('a').addClass('imagelink');
@@ -10479,7 +10480,7 @@ WDN.tooltip = (function($) {
 					width : {
 						min : 100
 					},
-					'background' : 'url("/wdn/templates_3.0/css/header/images/qtip/defaultBG.png") repeat-x bottom',
+					'background' : 'url("/wdn/templates_3.0/css/header/images/qtip/defaultBG.png") repeat-x bottom #FAF6BD',
 					border : {
 						color : '#f7e77c',
 						width : 2
@@ -14207,7 +14208,8 @@ WDN.socialmediashare = function() {
             try {
             	WDN.jQuery("#wdn_emailthis").children('a').attr({'href': 'mailto:?body=Great%20content%20from%20UNL%3A%0A'+encodeURIComponent(window.location)});
                 WDN.jQuery("#wdn_facebook").children('a').attr({'href': "http://www.facebook.com/share.php?u="+encodeURIComponent(window.location)});
-                WDN.jQuery("#wdn_twitter").children('a').attr({'href': "http://twitter.com/share?text=Great+content+from+%23UNL&related=higher+ed,nebraska,university,big+ten&via=unlnews&url="+encodeURIComponent(window.location)});
+                /* https://dev.twitter.com/docs/tweet-button */
+                WDN.jQuery("#wdn_twitter").children('a').attr({'href': "http://twitter.com/share?text=Great+content+from+%23UNL&via=unlnews&url="+encodeURIComponent(window.location)});
            } catch(f) {}
             
             WDN.jQuery('a#wdn_createGoURL').click(function() {
