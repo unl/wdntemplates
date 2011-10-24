@@ -409,6 +409,7 @@ var WDN = function() {
 						}
 						callback(responseText, "success", this);
 					};
+					xdr.onprogress = function(){};
 					xdr.send(params);
 				} else {
 					try {
