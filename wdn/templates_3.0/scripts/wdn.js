@@ -347,6 +347,11 @@ var WDN = function() {
 			}
 			// normalize the method name
 			method = method.toLowerCase();
+			if ($.isFunction(data)) {
+				type = type || callback;
+				callback = data;
+				data = undefined;
+			}
 			// first, try using jQuery.get or jQuery.post
 			try {
 				if (url.match(/^https?:/)
@@ -392,6 +397,10 @@ var WDN = function() {
 					}
 					url += params.substr(1, params.length);
 					params = null;
+				}
+				
+				if (!params) {
+					params = "";
 				}
 				
 				// Try CORS, or use the proxy
