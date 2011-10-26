@@ -9,22 +9,22 @@ var WDN = function() {
 		 * This stores what javascript files have been loaded already
 		 */
 		loadedJS : {},
-		
+
 		/**
 		 * This variable stores the path to the template files.
 		 * It can be set to /, http://www.unl.edu/, or nothing.
 		 */
 		template_path : '',
-		
+
 		/*
-		 * Loads an external JavaScript file. 
-		 * 
+		 * Loads an external JavaScript file.
+		 *
 		 * @param {string} url
 		 * @param {function} callback (optional) - will be called once the JS file has been loaded
 		 * @param {boolean} checkLoaded (optional) - if false, the JS will be loaded without checking whether it's already been loaded
 		 * @param {boolean} callbackIfLoaded (optional) - if false, the callback will not be executed if the JS has already been loaded
 		 */
-		
+
 		loadJS : function(url,callback,checkLoaded,callbackIfLoaded) {
 			if (url.match(/^\/?wdn\/templates_3\.0/)) {
 				// trim off the leading slash
@@ -33,7 +33,7 @@ var WDN = function() {
 				}
 				url = WDN.template_path+url;
 			}
-			
+
 			if ((arguments.length>2 && checkLoaded === false) || !WDN.loadedJS[url]){
 				if (url in loadingJS) {
 					if (callback) {
@@ -47,7 +47,7 @@ var WDN = function() {
 				e.setAttribute('src', url);
 				e.setAttribute('type','text/javascript');
 				document.getElementsByTagName('head').item(0).appendChild(e);
-				
+
 				if (callback) {
 					loadingJS[url].push(callback);
 				}
@@ -61,14 +61,14 @@ var WDN = function() {
 						delete loadingJS[url];
 					}
 				};
-				
+
 				e.onreadystatechange = function() {
 					if (e.readyState == "loaded" || e.readyState == "complete"){
 						executeCallback();
 					}
 				};
 				e.onload = executeCallback;
-				
+
 			} else {
 				WDN.log("JS file already loaded: " + url);
 				if ((arguments.length > 3 && callbackIfLoaded === false) || !callback){
@@ -77,7 +77,7 @@ var WDN = function() {
 				callback();
 			}
 		},
-		
+
 		/**
 		 * Load an external css file.
 		 */
@@ -95,13 +95,13 @@ var WDN = function() {
 			e.type="text/css";
 			document.getElementsByTagName("head")[0].appendChild(e);
 		},
-		
+
 		/**
 		 * This function is called on page load to initialize template related
 		 * data.
 		 */
 		initializeTemplate : function() {
-			//gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");  
+			//gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 			//WDN.loadJS(gaJsHost + "google-analytics.com/ga.js");
 			WDN.loadCSS('wdn/templates_3.0/css/script.css');
 			WDN.loadJS('wdn/templates_3.0/scripts/xmlhttp.js');
@@ -111,7 +111,7 @@ var WDN = function() {
 
 		/**
 		 * Load jQuery included with the templates as WDN.jQuery
-		 * 
+		 *
 		 * @param callback Called when the document is ready
 		 */
 		loadJQuery : function(callback) {
@@ -124,7 +124,7 @@ var WDN = function() {
 				});
 			});
 		},
-		
+
 		/**
 		 * All things needed by jQuery can be put in here, and they'll get
 		 * executed when jquery is loaded
@@ -148,10 +148,10 @@ var WDN = function() {
 			WDN.browserAdjustments();
 			WDN.screenAdjustments();
 		},
-		
+
 		/**
 		 * This function logs data for debugging purposes.
-		 * 
+		 *
 		 * To see, open firebug's console.
 		 */
 		log: function(data) {
@@ -159,7 +159,7 @@ var WDN = function() {
 				console.log(data);
 			}
 		},
-		
+
 		browserAdjustments : function() {
 			if (WDN.jQuery.browser.msie && (WDN.jQuery.browser.version == '6.0') && (!navigator.userAgent.match(/MSIE 8.0/))) {
 				WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>');
@@ -169,16 +169,16 @@ var WDN = function() {
 				WDN.jQuery('body').addClass('document');
 				WDN.loadCSS('wdn/templates_3.0/css/content/columns.css');
 			}
-            
+
             if ((navigator.userAgent.match(/applewebkit/i) && !navigator.userAgent.match(/Version\/[34]/)) ||
                 (navigator.userAgent.match(/firefox/i) && (navigator.userAgent.match(/firefox\/[12]/i) || navigator.userAgent.match(/firefox\/3.[01234]/i))) ||
                 (navigator.userAgent.match(/msie/i))){
                 // old browser needs help zebra striping
                 WDN.jQuery('.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
                 WDN.jQuery('.zentable tbody tr:nth-child(even)').addClass('rowEven');
-            } 
+            }
 		},
-		
+
 		screenAdjustments : function() {
 			if (screen.width<=1024) {
 				WDN.jQuery('body').css({'background':'#e0e0e0'});
@@ -187,7 +187,7 @@ var WDN = function() {
 				}
 			}
 		},
-		
+
 		contentAdjustments : function () {
 			WDN.jQuery('#footer_floater').css("zoom", 1);
 			WDN.jQuery('#maincontent p.caption, #footer p.caption').each(function(i){
@@ -206,7 +206,7 @@ var WDN = function() {
 				WDN.jQuery(this).parent('a').addClass('imagelink');
 			});
 		},
-		
+
 		initializePlugin:function (plugin, callback) {
 			if (!callback) {
 				callback = function () {
@@ -220,7 +220,7 @@ var WDN = function() {
 			}
 			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', callback);
 		},
-		
+
 		setCookie : function(name, value, seconds, path, domain) {
 			var expires = "";
 			if (seconds) {
@@ -238,7 +238,7 @@ var WDN = function() {
 			}
 			document.cookie = name+"="+value+expires+";path="+path+";domain="+domain;
 		},
-		
+
 		getCookie : function(name) {
 			var nameEQ = name + "=";
 			var ca = document.cookie.split(';');
@@ -253,10 +253,10 @@ var WDN = function() {
 			}
 			return null;
 		},
-		
+
 		/**
 		 * Converts a relative link to an absolute link.
-		 * 
+		 *
 		 * @param {string} link The relative link
 		 * @param {string} base_url The base to use
 		 */
@@ -271,7 +271,7 @@ var WDN = function() {
 
 		  var i, hparts = base_url.split('/');
 		  if (hparts.length > 3) {
-		    hparts.pop(); // strip trailing thingie, either scriptname or blank 
+		    hparts.pop(); // strip trailing thingie, either scriptname or blank
 		  }
 
 		  if (lparts[0] === '') { // like "/here/dude.png"
@@ -306,7 +306,7 @@ var WDN = function() {
 		  return hparts.join('/') + '/' + newlinkparts.join('/');
 
 		},
-		
+
 		stringToXML: function (string) {
 			var doc;
 			try {
@@ -325,18 +325,18 @@ var WDN = function() {
 			}
 			return doc;
 		},
-		
+
 		/*
 		 * This function powers the functions WDN.get and WDN.post and provides cross browser
 		 * support for XHRs and cross-domain requests.
-		 * 
+		 *
 		 * @param {string} url A string containing the URL to be requested
 		 * @param {string } data A string or object containing data/parameters to go along with the request
 		 * @param {function} callback A function to be called when the request has been completed
 		 * @param {string=} type [opt] The expected data type of the response
 		 * @param {string=} method The method to perform the request with. Supported are GET and POST
 		 */
-		
+
 		request: function (url, data, callback, type, method) {
 			WDN.log("Using WDN.request");
 			var $ = WDN.jQuery;
@@ -376,7 +376,7 @@ var WDN = function() {
 			} catch (e) {
 				WDN.log("jQuery." + method + " failed.");
 				WDN.log(e);
-				
+
 				// the jQuery method failed, likely because of the same origin policy
 
 				var params = data;
@@ -399,11 +399,11 @@ var WDN = function() {
 					url += params.substr(1, params.length);
 					params = null;
 				}
-				
+
 				if (!params) {
 					params = "";
 				}
-				
+
 				// Try CORS, or use the proxy
 				if (window.XDomainRequest) {
 					WDN.log("Using XDomainRequest...");
@@ -412,10 +412,13 @@ var WDN = function() {
 					xdr.onload = function () {
 						WDN.log("XDomainRequest worked.");
 						var responseText = this.responseText, dataType = (type || "").toLowerCase();
-						// if we are expecting and XML object and get a string, convert it
+						// Convert if we are expecting an XML or JSON object and get a string
 						if (typeof responseText == "string" && dataType == "xml") {
 							WDN.log("WDN.get: Converting response to XML document.");
 							responseText = WDN.stringToXML(responseText);
+						} else if (typeof responseText == "string" && dataType == "json") {
+							WDN.log("WDN.get: Converting response to JSON.");
+							responseText = $.parseJSON(responseText);
 						}
 						callback(responseText, "success", this);
 					};
@@ -446,13 +449,13 @@ var WDN = function() {
 					}
 				}
 			}
-			
+
 		},
-		
+
 		get: function (url, data, callback, type) {
 			WDN.request(url, data, callback, type, "GET");
 		},
-		
+
 		post: function (url, data, callback, type) {
 			WDN.request(url, data, callback, type, "POST");
 		}
