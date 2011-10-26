@@ -423,7 +423,8 @@ var WDN = function() {
 						callback(responseText, "success", this);
 					};
 					xdr.onprogress = function(){};
-					xdr.send(params);
+					// IE9 fails silently with empty response body ~60% of the time without setTimeout hack
+					setTimeout(function() {xdr.send(params)}, 0);
 				} else {
 					try {
 						WDN.log('Using proxy');
