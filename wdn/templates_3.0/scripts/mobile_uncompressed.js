@@ -340,6 +340,12 @@ var WDN = function() {
 		request: function (url, data, callback, type, method) {
 			//debug statement removed
 			var $ = WDN.jQuery;
+			if ($.isFunction(data)) {
+				method = method || type;
+				type = callback;
+				callback = data;
+				data = undefined;
+			}
 			// set the method if none/an invalid one was given
 			if (!method || !/^(get|post)$/i.test(method)) {
 				var method = "get";
@@ -394,6 +400,10 @@ var WDN = function() {
 					params = null;
 				}
 				
+				if (!params) {
+					params = "";
+				}
+				
 				// Try CORS, or use the proxy
 				if (window.XDomainRequest) {
 					//debug statement removed
@@ -409,6 +419,7 @@ var WDN = function() {
 						}
 						callback(responseText, "success", this);
 					};
+					xdr.onprogress = function(){};
 					xdr.send(params);
 				} else {
 					try {
