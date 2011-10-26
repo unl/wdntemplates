@@ -340,6 +340,12 @@ var WDN = function() {
 		request: function (url, data, callback, type, method) {
 			WDN.log("Using WDN.request");
 			var $ = WDN.jQuery;
+			if ($.isFunction(data)) {
+				method = method || type;
+				type = callback;
+				callback = data;
+				data = undefined;
+			}
 			// set the method if none/an invalid one was given
 			if (!method || !/^(get|post)$/i.test(method)) {
 				var method = "get";
@@ -347,11 +353,6 @@ var WDN = function() {
 			}
 			// normalize the method name
 			method = method.toLowerCase();
-			if ($.isFunction(data)) {
-				type = type || callback;
-				callback = data;
-				data = undefined;
-			}
 			// first, try using jQuery.get or jQuery.post
 			try {
 				if (url.match(/^https?:/)
