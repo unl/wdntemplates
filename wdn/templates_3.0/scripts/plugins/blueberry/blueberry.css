@@ -63,12 +63,15 @@
     width: auto;
     max-width: 100%;
 }
-#wdn_Carousel .slides > li > div > p.draggingAlong {
+#wdn_Carousel .slides > li > div > p.caption {
     background: rgb(242, 237, 222);
     background: rgba(242, 237, 222, 0.9);
     text-shadow: 0 1px 0 #F2EDDE;
     color:#655f3c;
     padding:0.7em;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
 }
 #wdn_Carousel .slides > li.active { display: block; position: relative; }
 #wdn_Carousel .crop > li > img { width: auto; }
@@ -151,18 +154,13 @@ and (max-device-width : 480px) {
     #wdn_Carousel {
         overflow: initial;
     }
-    #wdn_Carousel .wdn_Carousel_slides {
+    #wdn_Carousel .slides {
         height: auto !important;
     }
-    #wdn_Carousel .wdn_Carousel_slides li div p {
-        position: static;
-        background: #e7e7e7;
-        font-size:0.8em;
-        line-height:1em;
-        /* margin-top:-5px; We want this for new proxy? */
+    #wdn_Carousel .slides li div p.caption {
+        font-size:0.6em;
     }
-    #wdn_Carousel .wdn_Carousel_slides li div p span {
-        margin-left:0.5em;
+    #wdn_Carousel .slides li div p span {
         font-size:0.8em;
     }
     #wdn_Carousel .pager {
