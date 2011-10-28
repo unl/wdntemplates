@@ -244,8 +244,10 @@ body.mobile #pagetitle {
 }
 body.mobile #pagetitle h2 {
     font-size:1.8em;
-    color:#000;
+    color:#333;
     margin:0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight:bold;
 }
 body.mobile #pagetitle h2 a {
     color:#000;
