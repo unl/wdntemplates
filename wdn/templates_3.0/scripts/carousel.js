@@ -6,6 +6,8 @@
 WDN.carousel = (function() {
 
 	return {
+		pluginOptions : {},
+		
 		supportJSON : false,
 
 		imageHeight : function() {
@@ -46,7 +48,7 @@ WDN.carousel = (function() {
 
 		start : function() {
 			WDN.loadJS('/wdn/templates_3.0/scripts/plugins/blueberry/blueberry.v0.5.js', function() {
-				WDN.jQuery('#wdn_Carousel').blueberry();
+				WDN.jQuery('#wdn_Carousel').blueberry(WDN.carousel.pluginOptions);
 			});
 		},
 
