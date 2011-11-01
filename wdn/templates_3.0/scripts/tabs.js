@@ -35,11 +35,6 @@ WDN.tabs = (function() {
 		initialize : function() {
 			var ie7 = document.all && navigator.appVersion.indexOf("MSIE 7.") != -1;
 			WDN.log ("tabs JS loaded");
-			//Detect if the <span> is present. If not, add it
-			WDN.jQuery('ul.wdn_tabs > li > a:not(:has(span))').each(function(){
-				theHTML = WDN.jQuery(this).html();
-				WDN.jQuery(this).html("<span>"+theHTML+"</span>");
-			});
 			
 			// Add yesprint class to list items, to act as a table of contents when printed
 			WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li').each(function(){
