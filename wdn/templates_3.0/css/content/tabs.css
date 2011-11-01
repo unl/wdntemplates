@@ -42,9 +42,9 @@ structure:
     border-top-color:#B8B8B8;
     border-right-color:#919191;
     border-style:solid;
-    border-radius:7px 7px 0px 0px;
-    -webkit-border-radius:7px 7px 0px 0px;
-    -moz-border-radius:7px 7px 0px 0px;
+    border-radius:5px 5px 0px 0px;
+    -webkit-border-radius:5px 5px 0px 0px;
+    -moz-border-radius:5px 5px 0px 0px;
 }
 #maincontent ul.wdn_tabs > li:hover {
     background:#999;
