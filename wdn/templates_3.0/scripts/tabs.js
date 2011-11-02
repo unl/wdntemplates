@@ -73,6 +73,9 @@ WDN.tabs = (function() {
 			// Adds spacing if subtabs are present
 			if (WDN.jQuery('#maincontent ul.wdn_tabs li ul').length) {
 				WDN.jQuery('#maincontent ul.wdn_tabs').css({'margin-bottom':'70px'});
+				if (ie7) {
+					WDN.jQuery('#maincontent ul.wdn_tabs li ul li').css({'display':'inline'});
+				}
 			}
 			
 			// Allows for CSS correction of last tab
