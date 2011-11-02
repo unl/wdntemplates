@@ -50,6 +50,7 @@ structure:
     -webkit-box-shadow: 1px -1px 0px 0px rgba(0,0,0,0.1);
     -moz-box-shadow: 1px -1px 0px 0px rgba(0,0,0,0.1);
     box-shadow: 1px -1px 0px 0px rgba(0,0,0,0.1);
+    line-height:100%;
 }
 #maincontent ul.wdn_tabs > li:hover {
     background-image: -webkit-linear-gradient(top, #f4f4f4 0%,#CECECE 100%); /* W3C */
