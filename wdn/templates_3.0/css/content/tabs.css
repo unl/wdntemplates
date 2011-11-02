@@ -121,9 +121,9 @@ ul.wdn_tabs sup {
     margin: 7px -2px 0px 0px;
     background: #F7F7F7;
     border:1px solid #CCC;
-    border-radius:5px 5px 0px 0px;
-    -webkit-border-radius:5px 5px 0px 0px;
-    -moz-border-radius:5px 5px 0px 0px;
+    border-radius:5px 5px 5px 5px;
+    -webkit-border-radius:5px 5px 5px 5px;
+    -moz-border-radius:5px 5px 5px 5px;
     bottom: 1ex;
     display: inline-block;
 }
