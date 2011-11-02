@@ -113,7 +113,6 @@ ul.wdn_tabs sup {
     max-width: 920px;
     margin: -5px 0 0 0;
     padding: 20px 20px 0px;
-    border-bottom: 1px solid #e6e6e6;
 }
 #maincontent ul.wdn_tabs li ul li {
     font-weight: normal;
@@ -121,11 +120,7 @@ ul.wdn_tabs sup {
     padding: 5px 8px;
     margin: 7px -2px 0px 0px;
     background: #F7F7F7;
-    border-width: 1px 1px 0px 1px;
-    border-type:solid;
-    border-color:#CCC;
-    border-top-color:#919191;
-    border-right-color:#919191;
+    border:1px solid #CCC;
     border-radius:5px 5px 0px 0px;
     -webkit-border-radius:5px 5px 0px 0px;
     -moz-border-radius:5px 5px 0px 0px;
@@ -135,9 +130,10 @@ ul.wdn_tabs sup {
 #maincontent ul.wdn_tabs li ul li.selected {
     background: #FFFFFF!important;
     font-weight: bold;
-    padding:10px 8px 5px 8px;
-    margin:2px -2px -1px 0px;
-    border-bottom:1px solid #FFFFFF;
+    border-color:#AAA;
+    -moz-box-shadow:inset 1px 1px 3px #bbb;
+    -webkit-box-shadow:inset 1px 1px 3px #bbb;
+    box-shadow:inset 1px 1px 3px #bbb;
 }
 #maincontent ul.wdn_tabs ul li a, #maincontent ul.wdn_tabs li ul li.selected:hover a {
     color: #737373 !important;
