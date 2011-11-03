@@ -20,53 +20,71 @@ function fetchURLInto(url,id,err) {
 	}
 
 	);
-}
+};
 
-function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
-	function showIt() {
-		try {
-			
-			if (obj.src !== null && eval(imgArray_str+"["+thisNum_int+"][0]")!==null) {
-				obj.src=eval(imgArray_str+"["+thisNum_int+"][0]");
-			}
-			if (obj.alt !== null && eval(imgArray_str+"["+thisNum_int+"][1]")!==null) {
-				obj.alt=eval(imgArray_str+"["+thisNum_int+"][1]");
-			}
-			if (obj.parentNode.href!==null && eval(imgArray_str+"["+thisNum_int+"][2]")!==null) {
-				obj.parentNode.href=eval(imgArray_str+"["+thisNum_int+"][2]");
-				if (eval(imgArray_str+"["+thisNum_int+"][3]")!==null) {
-					var clickEvent = eval(imgArray_str+"["+thisNum_int+"][3]");
-					obj.parentNode.onclick=function() {eval(clickEvent);};
-				} else {
-					obj.parentNode.onclick=null;
-				}
-			} else {
-				obj.parentNode.href='#';
-			}
-		} catch(e) {}
+function rotateImg(imgArray,elemId,secs,i) {
+	if (typeof imgArray == "string") {
+		if (window[imgArray] === undefined) {
+			return false;
+		}
+		imgArray = window[imgArray];
 	}
 	
-	if (thisNum_int == undefined) {
-		thisNum_int=Math.floor(Math.random()*eval(imgArray_str+".length"));
+	if (!imgArray.length) {
+		return false;
 	}
-	if (thisNum_int >= eval(imgArray_str+".length")) {
-		thisNum_int = 0;
+	
+	var obj = document.getElementById(elemId);
+	if (!obj) {
+		return false;
 	}
-	if (eval(imgArray_str+"["+thisNum_int+"]") !== null) {
-		// Try and set img
-		var obj = document.getElementById(elementId_str);
-		
-		showIt();
+
+	if (i === undefined) {
+		i = Math.floor(Math.random() * imgArray.length);
 	}
-	thisNum_int++;
-	if (secs_int>0) {
-		return setTimeout("rotateImg('"+imgArray_str+"','"+elementId_str+"',"+secs_int+","+thisNum_int+")",secs_int*1000);
+	if (i >= imgArray.length) {
+		i = 0;
+	}
+	
+	if (!!imgArray[i]) {
+		try {
+			if (obj.src && imgArray[i][0]) {
+				obj.src = imgArray[i][0];
+			}
+			
+			if (obj.alt && imgArray[i][1]) {
+				obj.alt = imgArray[i][1];
+			}
+			
+			if (obj.parentNode.href && imgArray[i][2]) {
+				obj.parentNode.href = imgArray[i][2];
+				if (imgArray[i][3]) {
+					obj.parentNode.onclick = function() {
+						eval("(" + imgArray[i][3] + ")");
+					};
+				} else {
+					obj.parentNode.onclick = null;
+				}
+			} else {
+				obj.parentNode.href = "#";
+			}
+		} catch (e) {
+			return false;
+		}
+	}
+	
+	i++;
+	
+	if (secs > 0) {
+		return setTimeout(function() {
+			rotateImg(imgArray, elemId, secs, i);
+		}, secs * 1000);
 	}
 	
 	return true;
-}
+};
 
-function newRandomPromo(xmluri){
+function newRandomPromo(xmluri) {
 	var promoContent = new WDN.proxy_xmlhttp();
 	promoContent.open("GET", xmluri, true);
 	promoContent.onreadystatechange = function(){
@@ -103,11 +121,11 @@ function newRandomPromo(xmluri){
 		promoContent = new XMLHTTP();
 	};
 	promoContent.send(null);
-}
+};
 
-function addLoadEvent(func){
+function addLoadEvent(func) {
 	WDN.jQuery(document).ready(func);
-}
+};
 
 var wraphandler = {
 
@@ -125,8 +143,8 @@ var wraphandler = {
 
 var XMLHTTP=WDN.proxy_xmlhttp;
 
- function stripe(id) {
-	 WDN.jQuery('#'+id).addClass('zentable');
-	 WDN.browserAdjustments();
-  }
+function stripe(id) {
+	WDN.jQuery('#'+id).addClass('zentable');
+	WDN.browserAdjustments();
+};
 
