@@ -103,7 +103,7 @@ WDN.monthwidget = function() {
                     	WDN.jQuery('.eventContainer', this).hide();
                     	return false;
                     },
-                    timeout: 100,
+                    timeout: 100
                 });
 				
 				$container.show();
