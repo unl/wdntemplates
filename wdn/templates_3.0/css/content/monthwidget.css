@@ -48,6 +48,12 @@
     background:#f9f9f9;
 }
 
+* html .eventContainer, *html .eventBox{height:50px;}
+* html .eventContainer{margin:-8px 0 0 3px;}
+* html .eventContainer.pos2{margin-left:-235px;}
+*+html .eventContainer{margin:-8px 0 0 3px;}
+*+html .eventContainer.pos2{margin-left:-235px;}
+
 table.wp-calendar {clear:both;width:200px;border-collapse:collapse;}
 
 /* Calendar Widget */
@@ -82,6 +88,8 @@ table.wp-calendar .today_image{
     margin:-32px 0 0 -12px;
     background:url(http://events.unl.edu/templates/default/images/todayimage.png) no-repeat 0 0;
 }
+* html table.wp-calendar td .today_image{margin: -15px 0 0 -23px;}
+*+html table.wp-calendar td .today_image{margin: -15px 0 0 -23px;}
 table.wp-calendar caption {}
 
 /*caption nav*/
