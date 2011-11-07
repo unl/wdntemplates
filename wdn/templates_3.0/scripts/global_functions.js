@@ -48,11 +48,11 @@ function rotateImg(imgArray,elemId,secs,i) {
 	
 	if (!!imgArray[i]) {
 		try {
-			if (obj.src && imgArray[i][0]) {
+			if (imgArray[i][0]) {
 				obj.src = imgArray[i][0];
 			}
 			
-			if (obj.alt && imgArray[i][1]) {
+			if (imgArray[i][1]) {
 				obj.alt = imgArray[i][1];
 			}
 			
