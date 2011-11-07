@@ -3,7 +3,8 @@
 $files = array(
 'jquery',
 'wdn',
-'xmlhttp',
+// 'xmlhttp',
+'wdn_ajax',
 'navigation',
 'search',
 'toolbar',
