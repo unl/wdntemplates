@@ -103,8 +103,7 @@ var WDN = (function() {
 			//gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 			//WDN.loadJS(gaJsHost + "google-analytics.com/ga.js");
 			WDN.loadCSS('wdn/templates_3.0/css/script.css');
-			WDN.loadJS('wdn/templates_3.0/scripts/xmlhttp.js');
-			WDN.loadJS('wdn/templates_3.0/scripts/global_functions.js');
+//			WDN.loadJS('wdn/templates_3.0/scripts/xmlhttp.js');
 			WDN.loadJQuery(WDN.jQueryUsage);
 		},
 
@@ -118,8 +117,11 @@ var WDN = (function() {
 				if (!WDN.jQuery) {
 					WDN.jQuery = jQuery.noConflict(true);
 				}
-				WDN.jQuery(document).ready(function() {
-					callback();
+				// Load our required AJAX plugin
+				WDN.loadJS('wdn/templates_3.0/scripts/wdn_ajax.js', function() {
+					WDN.jQuery(document).ready(function() {
+						callback();
+					});
 				});
 			});
 		},
@@ -129,6 +131,7 @@ var WDN = (function() {
 		 * executed when jquery is loaded
 		 */
 		jQueryUsage: function () {
+			WDN.loadJS('wdn/templates_3.0/scripts/global_functions.js');
 			WDN.initializePlugin('analytics');
 			if (WDN.jQuery('body').hasClass('mobile')) {
 				return;
@@ -161,11 +164,9 @@ var WDN = (function() {
 
 		browserAdjustments: function () {
 			if (WDN.jQuery.browser.msie && (WDN.jQuery.browser.version == '6.0') && (!navigator.userAgent.match(/MSIE 8.0/))) {
-				WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>');
-				fetchURLInto('http://www.unl.edu/wdn/templates_3.0/includes/browserupgrade.html', 'wdn_upgrade_notice');
+				var $body = WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>').removeAttr('class').addClass('document');
+				WDN.jQuery('#wdn_upgrade_notice').load(WDN.template_path + 'wdn/templates_3.0/includes/browserupgrade.html');
 				WDN.jQuery('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
-				WDN.jQuery('body').removeAttr('class');
-				WDN.jQuery('body').addClass('document');
 				WDN.loadCSS('wdn/templates_3.0/css/content/columns.css');
 			}
 
@@ -306,34 +307,10 @@ var WDN = (function() {
 		},
 
 		stringToXML: function (string) {
-			var doc;
-			try {
-				if (window.ActiveXObject) {
-					doc = new ActiveXObject('Microsoft.XMLDOM');
-					doc.async = 'false';
-					doc.loadXML(string);
-				} else {
-					var parser = new DOMParser();
-					doc = parser.parseFromString(string, 'text/xml');
-				}
-			} catch(e) {
-				WDN.log('ERROR parsing XML string for conversion: ' + e);
-			}
-			return doc;
+			return WDN.jQuery.parseXML(string);
 		},
 
-		/**
-		 * This function powers the functions WDN.get and WDN.post and provides cross browser
-		 * support for XHRs and cross-domain requests.
-		 *
-		 * @param {string} url A string containing the URL to be requested
-		 * @param {string } data A string or object containing data/parameters to go along with the request
-		 * @param {function} callback A function to be called when the request has been completed
-		 * @param {string=} type [opt] The expected data type of the response
-		 * @param {string=} method The method to perform the request with. Supported are GET and POST
-		 */
 		request: function (url, data, callback, type, method) {
-			WDN.log("Using WDN.request");
 			var $ = WDN.jQuery;
 			if ($.isFunction(data)) {
 				method = method || type;
@@ -341,116 +318,22 @@ var WDN = (function() {
 				callback = data;
 				data = undefined;
 			}
-			// set the method if none/an invalid one was given
-			if (!method || !/^(get|post)$/i.test(method)) {
-				var method = "get";
-				WDN.log("WDN.request: No valid method specified. Using GET.");
-			}
-			// normalize the method name
-			method = method.toLowerCase();
-			// first, try using jQuery.get or jQuery.post
-			try {
-				if (url.match(/^https?:/) && (url.match(/:\/\/(.[^\/]+)/)[1] != window.location.host)) {
-					WDN.log('This is a cross-origin request');
-					// IE9 fails silently, so force it to throw an error and use XDR
-					if ($.browser.msie && parseInt($.browser.version, 10) < 10) {
-						WDN.log('IE detected. Raising an error to force XDR or proxy.');
-						throw("IE, use XDR or proxy");
-					}
-					// Opera fails silently, so force it to throw an error and revert to the proxy
-					if (window.opera && Object.toString(window.opera.version).indexOf("[native code]") > 0) {
-						WDN.log("Opera detected. Raising an error to force proxy.");
-						throw ("Opera");
-					}
-				}
-				WDN.log("Using jQuery." + method + " for the request...");
-				$[method](url,data,callback,type);
-				WDN.log("jQuery." + method + " worked.");
-			} catch (e) {
-				WDN.log("jQuery." + method + " failed.");
-				WDN.log(e);
-
-				// the jQuery method failed, likely because of the same origin policy
-
-				var params = data;
-
-				// if data is an object, convert it to a key=value string
-				if (data && $.isPlainObject(data)) {
-					WDN.log("WDN.request: Converting data object to query string.");
-					params = '';
-					for (var key in data) {
-						params = params+'&'+key+'='+data[key];
-					}
-				}
-
-				// if using get, append the data as a querystring to the url
-				if (params && method == "get") {
-					WDN.log("WDN.request: Appending data parameters to querystring.");
-					if (!/\?/.test(url)) {
-						url += "?";
-					}
-					url += params.substr(1, params.length);
-					params = null;
-				}
-
-				if (!params) {
-					params = "";
-				}
-
-				// Try CORS, or use the proxy
-				if (window.XDomainRequest) {
-					WDN.log("Using XDomainRequest...");
-					var xdr = new XDomainRequest();
-					xdr.open(method, url);
-					xdr.onload = function () {
-						WDN.log("XDomainRequest worked.");
-						var responseText = this.responseText, dataType = (type || "").toLowerCase();
-						// Convert if we are expecting an XML or JSON object and get a string
-						if (typeof responseText == "string" && dataType == "xml") {
-							WDN.log("WDN.get: Converting response to XML document.");
-							responseText = WDN.stringToXML(responseText);
-						} else if (typeof responseText == "string" && dataType == "json") {
-							WDN.log("WDN.get: Converting response to JSON.");
-							responseText = $.parseJSON(responseText);
-						}
-						callback(responseText, "success", this);
-					};
-					xdr.onprogress = function(){};
-					// IE9 fails silently with empty response body ~60% of the time without setTimeout hack
-					setTimeout(function() {xdr.send(params)}, 0);
-				} else {
-					try {
-						WDN.log('Using proxy');
-						var mycallback = function() {
-							var textstatus = 'error';
-							var data = 'error';
-							if ((this.readyState == 4) && (this.status == '200')) {
-								textstatus = 'success';
-								data = this.responseText;
-							}
-							callback(data, textstatus, this);
-						};
-						var request = new WDN.proxy_xmlhttp();
-						request.open(method.toUpperCase(), url, true);
-						if (method == "post") {
-							request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-						}
-						request.onreadystatechange = mycallback;
-						request.send(params);
-					} catch(f) {
-						WDN.log("Could no fetch using the proxy.");
-						WDN.log(f);
-					}
-				}
-			}
+			
+			return $.ajax({
+				type: method,
+				url: url,
+				data: data,
+				success: callback,
+				dataType: type
+			});
 		},
 
 		get: function (url, data, callback, type) {
-			WDN.request(url, data, callback, type, "GET");
+			return WDN.jQuery.get(url, data, callback, type);
 		},
 
 		post: function (url, data, callback, type) {
-			WDN.request(url, data, callback, type, "POST");
+			return WDN.jQuery.post(url, data, callback, type);
 		}
 	};
 })();
