@@ -5,6 +5,7 @@
     margin:-25px 0 0 5px;
     width:210px;    
     min-height:50px;
+    *height: 50px;
     left:0;
     text-align:left;
     font-size:11px;
@@ -30,12 +31,15 @@
     display:block;
     width:218px;
     min-height:50px;
+    *height: 50px;
     position:absolute;
     margin:-16px 0 0 18px;
+    *margin:-8px 0 0 3px;
     z-index:9999;
 }
 .eventContainer.pos2{
 	margin-left: -216px;
+	*margin-left: -235px;
 	background-position: right top;
 }
 
@@ -47,12 +51,6 @@
 .eventBox a:hover{
     background:#f9f9f9;
 }
-
-* html .eventContainer, *html .eventBox{height:50px;}
-* html .eventContainer{margin:-8px 0 0 3px;}
-* html .eventContainer.pos2{margin-left:-235px;}
-*+html .eventContainer{margin:-8px 0 0 3px;}
-*+html .eventContainer.pos2{margin-left:-235px;}
 
 table.wp-calendar {clear:both;width:200px;border-collapse:collapse;}
 
