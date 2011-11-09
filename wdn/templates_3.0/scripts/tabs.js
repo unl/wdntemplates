@@ -78,10 +78,6 @@ WDN.tabs = (function() {
 				}
 			}
 			
-			// Allows for CSS correction of last tab
-			if (WDN.jQuery.browser.msie) {
-				WDN.jQuery('ul.wdn_tabs > li:last-child').addClass('last');
-			}
 			
 			// If we have some tabs setup the hash stuff
 			if (WDN.jQuery('ul.wdn_tabs:not(.disableSwitching)').length) {
