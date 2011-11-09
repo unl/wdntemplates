@@ -13966,10 +13966,6 @@ WDN.tabs = (function() {
 				}
 			}
 			
-			// Allows for CSS correction of last tab
-			if (WDN.jQuery.browser.msie) {
-				WDN.jQuery('ul.wdn_tabs > li:last-child').addClass('last');
-			}
 			
 			// If we have some tabs setup the hash stuff
 			if (WDN.jQuery('ul.wdn_tabs:not(.disableSwitching)').length) {
@@ -14077,6 +14073,7 @@ WDN.tabs = (function() {
 			var tabContents = sel.closest('.wdn_tabs_content');
 			tabContents.children().hide();
 			sel.show();
+			sel.find('ul.slides').css({'height':'auto'});
 			
 			if (forceUpdate) {
 				var trig = WDN.jQuery('ul.wdn_tabs li a[href$='+jq(hash)+']');
