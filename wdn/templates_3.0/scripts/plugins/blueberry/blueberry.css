@@ -40,6 +40,7 @@
     line-height: 1;
     padding: 0;
     margin: 0;
+    opacity:0;
 }
 #wdn_Carousel .slides > li > img, #wdn_Carousel .slides > li > a {
     display: block;
@@ -73,7 +74,7 @@
     -moz-border-radius:0;
     border-radius:0;
 }
-#wdn_Carousel .slides > li.active { display: block; position: relative; }
+#wdn_Carousel .slides > li.active { display: block; position: relative; opacity:1; }
 #wdn_Carousel .crop > li > img { width: auto; }
 
 /* For the pagination between slides (the numbers) */

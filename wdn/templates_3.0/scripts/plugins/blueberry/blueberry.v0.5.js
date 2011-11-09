@@ -46,6 +46,8 @@
 				//store the slide and pager lis
 				var slides = $('.slides > li', obj);
 				var pager = $('.pager li', obj);
+				
+				slides.css({'-webkit-transition' : 'opacity '+o.duration+'ms linear', '-moz-transition' : 'opacity '+o.duration+'ms linear', 'transition' : 'opacity '+o.duration+'ms linear'});
 
 				//set initial current and next slide index values
 				var current = 0;
@@ -56,7 +58,7 @@
 				var cropHeight = 0;
 
 				//hide all slides, fade in the first, add active class to first slide
-				slides.hide().eq(current).fadeIn(o.duration).addClass('active');
+				slides.eq(current).addClass('active');
 
 				//build pager if it doesn't already exist and if enabled
 				if(pager.length) {
@@ -94,12 +96,10 @@
 
 				//primary function to change slides
 				var rotate = function(){
-					//set the size of the slider
-					setsize();
 					//fade out current slide and remove active class,
 					//fade in next slide and add active class
-					slides.eq(current).fadeOut(o.duration).removeClass('active')
-						.end().eq(next).fadeIn(o.duration).addClass('active').queue(function(){
+					slides.eq(current).removeClass('active')
+						.end().eq(next).addClass('active').queue(function(){
 							//add rotateTimer function to end of animation queue
 							//this prevents animation buildup caused by requestAnimationFrame
 							//rotateTimer starts a timer for the next rotate
@@ -117,6 +117,9 @@
 					//set next as first slide if current is the last
 					current = next;
 					next = current >= slides.length-1 ? 0 : current+1;
+					//set the size of the slider
+					setsize();
+					console.log(current);
 				};
 				
 				//rotate the slide on direction click
