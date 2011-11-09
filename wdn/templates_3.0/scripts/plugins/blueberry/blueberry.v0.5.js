@@ -119,7 +119,6 @@
 					next = current >= slides.length-1 ? 0 : current+1;
 					//set the size of the slider
 					setsize();
-					console.log(current);
 				};
 				
 				//rotate the slide on direction click
@@ -178,7 +177,6 @@
 					sliderWidth = $('.slides', obj).width();
 					cropHeight = Math.floor(((sliderWidth/slideRatio)/o.lineheight))*o.lineheight;
                     $('.slides', obj).css({height: cropHeight});
-                    //console.log(sliderWidth +', '+ cropHeight +', '+ slideRatio +', '+ slideHeight +', '+ slideWidth);
 				};
 
 				//bind setsize function to window resize event
