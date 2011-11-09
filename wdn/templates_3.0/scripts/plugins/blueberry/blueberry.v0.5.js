@@ -51,11 +51,6 @@
 				var current = 0;
 				var next = current+1;
 
-				//get height and width of initial slide image and calculate size ratio
-				var slideHeight = slides.eq(current).height();
-				var slideWidth = slides.eq(current).width();
-				var slideRatio = slideWidth/slideHeight;
-
 				//define vars for setsize function
 				var sliderWidth = 0;
 				var cropHeight = 0;
@@ -99,6 +94,8 @@
 
 				//primary function to change slides
 				var rotate = function(){
+					//set the size of the slider
+					setsize();
 					//fade out current slide and remove active class,
 					//fade in next slide and add active class
 					slides.eq(current).fadeOut(o.duration).removeClass('active')
@@ -170,13 +167,16 @@
 
 				//calculate and set height based on image width/height ratio and specified line height
 				var setsize = function(){
+					//get height and width of initial slide image and calculate size ratio
+					var slideHeight = slides.eq(current).height();
+					var slideWidth = slides.eq(current).width();
+					var slideRatio = slideWidth/slideHeight;
+					
 					sliderWidth = $('.slides', obj).width();
 					cropHeight = Math.floor(((sliderWidth/slideRatio)/o.lineheight))*o.lineheight;
                     $('.slides', obj).css({height: cropHeight});
+                    //console.log(sliderWidth +', '+ cropHeight +', '+ slideRatio +', '+ slideHeight +', '+ slideWidth);
 				};
-				
-				//set the size of the slider
-				setsize();
 
 				//bind setsize function to window resize event
 				$(window).resize(function(){

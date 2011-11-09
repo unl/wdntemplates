@@ -185,6 +185,7 @@ WDN.tabs = (function() {
 			var tabContents = sel.closest('.wdn_tabs_content');
 			tabContents.children().hide();
 			sel.show();
+			sel.find('ul.slides').css({'height':'auto'});
 			
 			if (forceUpdate) {
 				var trig = WDN.jQuery('ul.wdn_tabs li a[href$='+jq(hash)+']');
