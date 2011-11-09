@@ -124,6 +124,7 @@ Red: primary #c20403
     width:20px;
     height:20px;
 }
+#maincontent div.zenbox.showHide h3 {position:initial;}
 #maincontent div.zenbox a.showHide.show {
     background-position: 0 -42px;
 }
