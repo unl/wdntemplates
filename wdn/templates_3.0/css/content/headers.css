@@ -5,7 +5,6 @@
     color: #535353;
     font-weight: bold;
     padding-top: 0.4em;
-    position: relative;
 }
 
 #maincontent h4, #maincontent h5, #maincontent h6, #colorbox h4 {
@@ -42,6 +41,7 @@
     position: relative;
     padding: 0;
     margin: 3px 0 1.01em 0;
+    position: relative;
 }
 #maincontent .sec_header:after {
     position: absolute;
