@@ -29,7 +29,7 @@
 <body class="fixed debug">
     <nav class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </nav>
     <div id="wdn_wrapper">
-        <header> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+        <header role="banner"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
             <h1>University of Nebraska&ndash;Lincoln</h1>
             <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
         </header>
@@ -45,7 +45,7 @@
                 <!-- TemplateEndEditable -->
             </nav>
             <div id="wdn_navigation_wrapper">
-                <nav>
+                <nav role="navigation">
                     <h3 class="wdn_list_descriptor hidden">Navigation</h3>
                     <!-- TemplateBeginEditable name="navlinks" -->
                     <!--#include virtual="sharedcode/navigation.html" -->
@@ -58,7 +58,7 @@
                 <h1>Department <span>A division of the College of Arts &amp; Sciences</span></h1>
                 <!-- TemplateEndEditable --></div>
             <div id="pagetitle"><!-- TemplateBeginEditable name="pagetitle" -->This is Your Page Title<!-- TemplateEndEditable --></div>
-            <div id="maincontent">
+            <div id="maincontent" role="main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- TemplateBeginEditable name="maincontentarea" -->
                 <h3>Place your content here.</h3>
