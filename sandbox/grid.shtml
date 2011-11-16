@@ -6,7 +6,7 @@
 <script type="text/javascript" src="wdn/templates_3.0/scripts/debug.js"></script>
 <link rel="events" href="http://events.unl.edu/myred/" title="MyRED" />
 <link rel="home" href="http://www.unl.edu/" title="UNL" />
-<!--#include virtual="sharedcode/localSiteLinks.html" -->
+<!--#include virtual="../sharedcode/localSiteLinks.html" -->
 <!--#include virtual="wdn/templates_3.0/includes/browserspecifics.html" -->
 <!--#include virtual="wdn/templates_3.0/includes/metanfavico.html" -->
 <title>UNL | WDN Template - Grid System</title>
@@ -92,7 +92,7 @@ Navigation</a></p>
         </div>
         <div id="wdn_navigation_wrapper">
             <div id="navigation">
-                <!--#include virtual="sharedcode/navigation.html" -->
+                <!--#include virtual="../sharedcode/navigation.html" -->
                 <!-- End Navigation Markup -->
             </div>
         </div>
@@ -226,16 +226,16 @@ Navigation</a></p>
                 <!--#include virtual="wdn/templates_3.0/includes/feedback.html" -->
             </div>
             <div class="footer_col">
-                <!--#include virtual="sharedcode/relatedLinks.html" -->
+                <!--#include virtual="../sharedcode/relatedLinks.html" -->
             </div>            
             <div class="footer_col">
-                <!--#include virtual="sharedcode/footerContactInfo.html" -->
+                <!--#include virtual="../sharedcode/footerContactInfo.html" -->
             </div>
             <div class="footer_col">
                 <!--#include virtual="wdn/templates_3.0/includes/socialmediashare.html" -->
             </div>                   
             <div id="wdn_copyright">
-                <!--#include virtual="sharedcode/footer.html" -->                                
+                <!--#include virtual="../sharedcode/footer.html" -->                                
                 <!--#include virtual="wdn/templates_3.0/includes/wdn.html" -->
                 | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a>
                 <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a>
