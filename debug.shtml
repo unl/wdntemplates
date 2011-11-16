@@ -57,7 +57,7 @@
             <div id="titlegraphic"><!-- TemplateBeginEditable name="titlegraphic" -->
                 <h1>Department <span>A division of the College of Arts &amp; Sciences</span></h1>
                 <!-- TemplateEndEditable --></div>
-            <div id="pagetitle"><!-- TemplateBeginEditable name="pagetitle" -->This is Your Page Title<!-- TemplateEndEditable --></div>
+            <div id="pagetitle"><!-- TemplateBeginEditable name="pagetitle" --><h2>This is Your Page Title</h2><!-- TemplateEndEditable --></div>
             <div id="maincontent" role="main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- TemplateBeginEditable name="maincontentarea" -->
