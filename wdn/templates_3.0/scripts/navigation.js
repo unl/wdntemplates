@@ -116,13 +116,13 @@ WDN.navigation = (function() {
         fixPresentation : function() {
         	WDN.jQuery('#wdn_navigation_wrapper').removeClass('empty-secondary');
         	
-            var primaries = WDN.jQuery('#navigation > ul > li');
+            var primaries = WDN.jQuery('#wdn_navigation_wrapper nav > ul > li');
             var primaryCount = primaries.length;
             while (primaryCount % 6 > 0) {
-                WDN.jQuery('#navigation > ul').append('<li class="empty"><a /><ul><li/></ul></li>');
+                WDN.jQuery('#wdn_navigation_wrapper nav > ul').append('<li class="empty"><a /><ul><li/></ul></li>');
                 primaryCount++;
             }
-            primaries = WDN.jQuery('#navigation > ul > li');
+            primaries = WDN.jQuery('#wdn_navigation_wrapper nav > ul > li');
 
             var secondaries = primaries.has('ul');
             if (secondaries.length) {
@@ -133,14 +133,14 @@ WDN.navigation = (function() {
 
             // fix old IE for CSS3
             var majorIEVersion = WDN.jQuery.browser.version.split(".")[0];
-            var $bar_starts = WDN.jQuery('#navigation > ul > li:nth-child(6n+1)');
+            var $bar_starts = WDN.jQuery('#wdn_navigation_wrapper nav > ul > li:nth-child(6n+1)');
             if (WDN.jQuery.browser.msie && majorIEVersion < 9) {
                 WDN.log("Fixing IE CSS3");
                 $bar_starts.addClass('start');
-                WDN.jQuery('#navigation > ul > li:nth-child(6n+6)').addClass('end');
-                WDN.jQuery('#navigation > ul > li:nth-child(n+7)').addClass('mid-bar');
+                WDN.jQuery('#wdn_navigation_wrapper nav > ul > li:nth-child(6n+6)').addClass('end');
+                WDN.jQuery('#wdn_navigation_wrapper nav > ul > li:nth-child(n+7)').addClass('mid-bar');
                 $bar_starts.last().prevAll().addClass('top-bars');
-                WDN.jQuery('#navigation > ul > li ul li:last-child').addClass('last');
+                WDN.jQuery('#wdn_navigation_wrapper nav > ul > li ul li:last-child').addClass('last');
             }
 
             var ah = [];
@@ -368,7 +368,7 @@ WDN.navigation = (function() {
         initializePreferredState : function() {
             WDN.log('initializepreferredstate, current state is '+WDN.navigation.currentState);
 
-            WDN.jQuery('#navigation').addClass('disableTransition');
+            WDN.jQuery('#wdn_navigation_wrapper nav').addClass('disableTransition');
             var mouseout;
             var pinUI = WDN.jQuery('#wdn_navigation_wrapper .pin_state a');
 
@@ -389,7 +389,7 @@ WDN.navigation = (function() {
             WDN.navigation.applyStateFixes();
 
             if (WDN.navigation.cssTransitionsSupport) {
-                WDN.jQuery('#navigation').bind(
+                WDN.jQuery('#wdn_navigation_wrapper nav').bind(
                     'webkitTransitionEnd transitionend oTransitionEnd msTransitionEnd',
                     function(event) {
                         if (WDN.navigation.currentState == 1) {
@@ -411,7 +411,7 @@ WDN.navigation = (function() {
                 interval:    120
             });
 
-            WDN.jQuery('#navigation').removeClass('disableTransition');
+            WDN.jQuery('#wdn_navigation_wrapper nav').removeClass('disableTransition');
         },
 
         applyStateFixes : function() {
@@ -440,17 +440,17 @@ WDN.navigation = (function() {
             }
 
             var dimms = {
-        		width: WDN.jQuery('#navigation > ul').width() || 960,
-    			height: WDN.jQuery('#navigation > ul').height() || 50
+        		width: WDN.jQuery('#wdn_navigation_wrapper nav > ul').width() || 960,
+    			height: WDN.jQuery('#wdn_navigation_wrapper nav > ul').height() || 50
             };
             var oldSelected = WDN.jQuery('#breadcrumbs > ul > li.selected:first');
 
-            if (!WDN.jQuery('div.storednav', oldSelected).length && WDN.jQuery('#navigation > ul').length) {
+            if (!WDN.jQuery('div.storednav', oldSelected).length && WDN.jQuery('#wdn_navigation_wrapper nav > ul').length) {
                 WDN.log('Storing it');
                 // Store the current navigation
-                WDN.navigation.storeNav(oldSelected, WDN.jQuery('#navigation > ul'));
+                WDN.navigation.storeNav(oldSelected, WDN.jQuery('#wdn_navigation_wrapper nav > ul'));
             } else {
-                WDN.jQuery('#navigation > ul').remove();
+                WDN.jQuery('#wdn_navigation_wrapper nav > ul').remove();
             }
 
             // Set the hovered breadcrumb link to selected
@@ -465,7 +465,7 @@ WDN.navigation = (function() {
             }
 
             WDN.jQuery('#navloading').remove();
-            WDN.jQuery('<div id="navloading" />').css(dimms).appendTo('#navigation');
+            WDN.jQuery('<div id="navloading" />').css(dimms).appendTo('#wdn_navigation_wrapper nav');
             WDN.jQuery('#wdn_navigation_wrapper').addClass('nav-loading');
 
             var nav_sniffer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
@@ -496,9 +496,9 @@ WDN.navigation = (function() {
         setNavigationContents : function(contents, expand) {
             WDN.log('setNavigationContents called');
             WDN.jQuery('#wdn_navigation_wrapper').removeClass('nav-loading');
-            WDN.jQuery('#navigation').addClass('disableTransition');
+            WDN.jQuery('#wdn_navigation_wrapper nav').addClass('disableTransition');
             WDN.jQuery('#navloading').remove();
-            WDN.jQuery('#navigation').children('ul').remove()
+            WDN.jQuery('#wdn_navigation_wrapper nav').children('ul').remove()
                 .end().prepend(contents);
 
             WDN.navigation.currentState = -1;
@@ -507,7 +507,7 @@ WDN.navigation = (function() {
             WDN.navigation.collapse(false);
             WDN.navigation.applyStateFixes();
 
-            WDN.jQuery('#navigation').removeClass('disableTransition');
+            WDN.jQuery('#wdn_navigation_wrapper nav').removeClass('disableTransition');
 
             if (expand) {
                 WDN.navigation.expand();
