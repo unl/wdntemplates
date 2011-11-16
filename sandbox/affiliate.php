@@ -50,7 +50,7 @@
 		<!-- InstanceEndEditable --></div>
         <div id="wdn_navigation_wrapper">
             <div id="navigation"><!-- InstanceBeginEditable name="navlinks" -->
-                <?php virtual('/sharedcode/navigation.html'); ?>
+                <?php virtual('../sharedcode/navigation.html'); ?>
                 <!-- InstanceEndEditable --></div>
         </div>
     </div>
@@ -159,17 +159,17 @@
                 <?php virtual('/wdn/templates_3.0/includes/feedback.html'); ?>
             </div>
             <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
-                <?php virtual('/sharedcode/relatedLinks.html'); ?>
+                <?php virtual('../sharedcode/relatedLinks.html'); ?>
                 <!-- InstanceEndEditable --></div>
             <div class="footer_col"><!-- InstanceBeginEditable name="contactinfo" -->
-                <?php virtual('/sharedcode/footerContactInfo.html'); ?>
+                <?php virtual('../sharedcode/footerContactInfo.html'); ?>
                 <!-- InstanceEndEditable --></div>
             <div class="footer_col">
                 <?php virtual('/wdn/templates_3.0/includes/socialmediashare.html'); ?>
             </div>
             <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
             <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
-                <?php virtual('/sharedcode/footer.html'); ?>
+                <?php virtual('../sharedcode/footer.html'); ?>
                 <!-- InstanceEndEditable -->
                 <?php virtual('/wdn/templates_3.0/includes/wdn.html'); ?>
                 | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a> <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
