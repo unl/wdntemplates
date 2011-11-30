@@ -410,7 +410,12 @@ WDN.navigation = (function() {
                 sensitivity: 1, // Mouse must not move
                 interval:    120
             });
-
+            WDN.jQuery('#wdn_navigation_wrapper nav > ul > li > a').focusin(function(){
+                WDN.navigation.expand()
+            }).focusout(function(){
+                //WDN.navigation.collapse() 
+            });
+            WDN.jQuery('#breadcrumbs > ul > li > a').focus(function(){WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a:first-child'), false)})
             WDN.jQuery('#wdn_navigation_wrapper nav').removeClass('disableTransition');
         },
 
