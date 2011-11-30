@@ -90,6 +90,7 @@ WDN.idm = function() {
 		displayNotice : function(uid) {
 			if (WDN.jQuery('#wdn_identity_management').length === 0) {
 				WDN.jQuery('#header').append('<div id="wdn_identity_management" class="loggedin"></div>');
+				WDN.jQuery('header[role="banner"]').append('<div id="wdn_identity_management" class="loggedin"></div>');
 			}
 			
 			var icon = '';
