@@ -138,7 +138,7 @@ var getProxyClass = function( s, jqXHR ) {
 			
 			if (total > 1) {
 				for (var i = 0; i < total; i++) {
-					request.push(jQuery.param({
+					requests.push(jQuery.param({
 						mp: total,
 						mo: i,
 						c: jsonpCallback,
