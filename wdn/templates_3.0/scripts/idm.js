@@ -29,7 +29,18 @@ WDN.idm = function() {
 		 * @return void
 		 */
 		initialize : function(callback) {
-			if (WDN.idm.isLoggedIn()) {
+			var loginCheckFailure = function() {
+				if (WDN.jQuery('link[rel=login]').length) {
+					WDN.idm.setLoginURL(WDN.jQuery('link[rel=login]').attr('href'));
+				} else if (WDN.jQuery('link[rel=logout]').length) {
+					WDN.idm.displayLogin();
+				}
+				if (callback) {
+					callback();
+				}
+			};
+			
+			if (WDN.getCookie('unl_sso')) {
 				WDN.loadJS(WDN.idm.serviceURL + WDN.getCookie('unl_sso'), function() {
 					if (WDN.idm.getUserId()) {
 						if (WDN.idm.user.eduPersonPrimaryAffiliation[0] != undefined) {
@@ -40,17 +51,12 @@ WDN.idm = function() {
 							}
 						};
 						WDN.idm.displayNotice(WDN.idm.getUserId());
+					} else {
+						loginCheckFailure();
 					}
 				});
 			} else {
-				if (WDN.jQuery('link[rel=login]').length) {
-					WDN.idm.setLoginURL(WDN.jQuery('link[rel=login]').attr('href'));
-				} else if (WDN.jQuery('link[rel=logout]').length) {
-					WDN.idm.displayLogin();
-				}
-				if (callback) {
-					callback();
-				}
+				loginCheckFailure();
 			}
 		},
 		
@@ -66,11 +72,7 @@ WDN.idm = function() {
 		 * @return bool
 		 */
 		isLoggedIn : function() {
-			var user = WDN.getCookie('unl_sso');
-			if (user !== null) {
-				return true;
-			}
-			return false;
+			return !!WDN.idm.getUserId();
 		},
 		
 		/**
