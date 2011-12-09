@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" media="screen"   href="wdn/templates_3.0/css/debug.css" />
+<link rel="stylesheet" type="text/css" media="print"    href="wdn/templates_3.0/css/print.css" />
+<script type="text/javascript" src="wdn/templates_3.0/scripts/debug.js"></script>
+<link rel="events" href="http://events.unl.edu/myred/" title="MyRED" />
+<link rel="home" href="http://www.unl.edu/" title="UNL" />
+<!--#include virtual="../sharedcode/localSiteLinks.html" -->
+<!--#include virtual="wdn/templates_3.0/includes/browserspecifics.html" -->
+<!--#include virtual="wdn/templates_3.0/includes/metanfavico.html" -->
+<title>UNL | WDN Template - Grid System</title>
+<style type="text/css">
+    #maincontent .demo .grid1, #maincontent .demo .grid2, #maincontent .demo .grid3, #maincontent .demo .grid4, #maincontent .demo .grid5, #maincontent .demo .grid6, #maincontent .demo .grid7, #maincontent .demo .grid8, .demo .grid9, #maincontent .demo .grid10, #maincontent .demo .grid11, #maincontent .demo .col div, #maincontent .demo .two_col div, #maincontent .demo .three_col div, #maincontent .demo .col_half div, #maincontent .demo .four_col div {
+	    margin-bottom: 15px;
+	    padding-top: 5px;
+	    padding-bottom: 5px;
+	    background: rgba(111,191,77,.4);
+	    border: solid 1px #6FBF4D;
+	    border-width: 1px 0;
+	    text-align:center;
+	}
+	#maincontent h3 {
+	   margin:30px 0 20px 0;
+	   line-height:0.8;
+	   border-bottom:3px solid #A7CEE5;
+	    -webkit-box-shadow: 0px 1px 0px #3ba9d2;
+	    -moz-box-shadow: 0px 1px 0px #3ba9d2;
+	    box-shadow: 0px 1px 0px #3ba9d2;
+	    text-shadow:1px 1px 1px #91c7db;
+	    font-size:2.3em;
+	}
+	#maincontent h3 {
+	   clear:both;
+	}
+    .summary {
+        background-color:#F2EDDE;
+        border-radius:3px; 
+        overflow:hidden;
+    }
+    #maincontent .summary  p {
+        display:block;
+        background-color:#6FBF4D;
+        -moz-transform: rotate(30deg);
+        -webkit-transform: rotate(30deg);
+        -o-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+        transform: rotate(30deg);
+        float:right;
+        margin-top:1em;
+        margin-right:-3.5em;
+        margin-bottom:-0.3em;
+        font-size:1.3em;
+        font-weight:bold;
+        color:#fff;
+        text-shadow:-1px -1px 0px #3b8029;
+        padding:1em 4em;
+        -webkit-box-shadow: 0px 1px 1px 1px #b4a885;
+        -moz-box-shadow: 0px 1px 1px 1px #b4a885;
+        box-shadow: 0px 1px 1px 1px #b4a885;
+    }
+    #maincontent dl {
+        line-height:1.8em;
+        margin:0 10px 10px 10px;
+    }
+    #maincontent dt {
+        border-bottom:1px dashed #E5DCA7;
+    }
+    #maincontent dd {
+        margin-top:-1.8em;
+        margin-left:5em;
+    }
+</style>
+</head>
+<body class="fixed debug">
+<p class="skipnav"><a class="skipnav" href="#maincontent">Skip
+Navigation</a></p>
+<div id="wdn_wrapper">
+    <div id="header">
+        <a href="http://www.unl.edu/" title="UNL website"><img src="wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+        <h1>University of Nebraska&ndash;Lincoln</h1>
+        <!--#include virtual="wdn/templates_3.0/includes/wdnTools.html" -->
+        <div id="wdn_identity_management"></div>
+     </div>
+    <div id="wdn_navigation_bar">
+        <div id="breadcrumbs">
+            <ul>
+                <!-- WDN: see glossary item 'breadcrumbs' -->
+                <li class="selected"><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
+                <li>Home</li>
+            </ul>
+        </div>
+        <div id="wdn_navigation_wrapper">
+            <div id="navigation">
+                <!--#include virtual="../sharedcode/navigation.html" -->
+                <!-- End Navigation Markup -->
+            </div>
+        </div>
+    </div>
+    <div id="wdn_content_wrapper">
+        <div id="titlegraphic">
+            <h1>Web Developer Network</h1>
+        </div>
+        <div id="pagetitle"><h2>Demo: Grid System</h2></div>
+        <div id="maincontent">
+        <div class="grid9 first"> 
+        <p>The 2011 Iterative Navigation templates came with a new grid system. This allows for easier-to-implement, more flexible layout options.</p> 
+        <div class="grid3 first"> <img src="images/grid_Monitor.png" alt="Grid supporting demonstration" /> </div>
+        <div class="grid6">
+        <p>The new grid system should be used for all layouts. The old grid system, while still available, is in the process of being deprecated. <em>It is displayed below only as reference.</em></p> 
+        <p>To implement, use the class names from below. Ex: <code>&lt;div class="grid6"&gt;</code>. For the first column in a row (the left-most column), you must add the class <code>first</code>. Ex: <code>&lt;div class="grid6 first"&gt;</code></p> 
+        </div>
+      </div>  
+      <div class="grid3 summary">
+        <p>Column Widths</p>
+        <dl>
+            <dt><code>.grid1</code></dt>
+            <dd>58px</dd>
+            <dt><code>.grid2</code></dt>
+            <dd>140px</dd>
+            <dt><code>.grid3</code></dt>
+            <dd>222px</dd>
+            <dt><code>.grid4</code></dt>
+            <dd>304px</dd>
+            <dt><code>.grid5</code></dt>
+            <dd>386px</dd>
+            <dt><code>.grid6</code></dt>
+            <dd>468px</dd>
+            <dt><code>.grid7</code></dt>
+            <dd>550px</dd>
+            <dt><code>.grid8</code></dt>
+            <dd>632px</dd>
+            <dt><code>.grid9</code></dt>
+            <dd>714px</dd>
+            <dt><code>.grid10</code></dt>
+            <dd>796px</dd>
+            <dt><code>.grid11</code></dt>
+            <dd>878px</dd>
+        </dl>
+      </div>
+      <div class="demo"> 
+        <h3>New, Supported Grid System</h3> 
+        <div class="grid1 first"> grid1 </div> 
+        <div class="grid11"> grid11 </div> 
+        <div class="grid2 first"> grid2 </div> 
+        <div class="grid10"> grid10 </div> 
+        <div class="grid3 first"> grid3 </div> 
+        <div class="grid9"> grid9 </div> 
+        <div class="grid4 first"> grid4 </div> 
+        <div class="grid8"> grid8 </div> 
+        <div class="grid4 first"> grid4 </div> 
+        <div class="grid4"> grid4 </div> 
+        <div class="grid4"> grid4 </div> 
+        <div class="grid5 first"> grid5 </div> 
+        <div class="grid7"> grid7 </div> 
+        <div class="grid6 first"> grid6 </div> 
+        <div class="grid6"> grid6 </div> 
+        <div class="grid3 first"> grid3 </div> 
+        <div class="grid3"> grid3 </div> 
+        <div class="grid1"> grid1 </div> 
+        <div class="grid5"> grid5 </div> 
+        <div class="grid1 first"> grid1 </div> 
+        <div class="grid5"> grid5 </div> 
+        <div class="grid3"> grid3 </div> 
+        <div class="grid3"> grid3 </div> 
+        <div class="grid3 first"> 3 </div> 
+        <div class="grid9"> 
+          <div class="grid3 first">3</div> 
+          <div class="grid3">3</div> 
+          <div class="grid3">3</div> 
+          <div class="grid5 first">5</div> 
+          <div class="grid2">2</div> 
+          <div class="grid2">2</div> 
+        </div> 
+        <div class="grid8 first"> 
+          <div class="grid3 first">3</div> 
+          <div class="grid3">3</div> 
+          <div class="grid2">2</div> 
+          <div class="grid1 first">1</div> 
+          <div class="grid1">1</div> 
+          <div class="grid6">6</div> 
+        </div> 
+        <div class="grid4"> 4 </div> 
+        <h3>Old, Deprecated Grid System</h3> 
+        <div class="col left"> 
+          <div> col </div> 
+        </div> 
+        <div class="three_col right"> 
+          <div> three_col </div> 
+        </div> 
+        <div class="two_col left"> 
+          <div> two_col </div> 
+        </div> 
+        <div class="two_col right"> 
+          <div> two_col </div> 
+        </div> 
+        <div class="two_col left"> 
+          <div> two_col </div> 
+        </div> 
+        <div class="col_half"> 
+          <div> col_half </div> 
+        </div> 
+        <div class="col_half"> 
+          <div> col_half </div> 
+        </div> 
+        <div class="col right"> 
+          <div> col </div> 
+        </div> 
+        <div class="four_col"> 
+          <div> four_col </div> 
+        </div> 
+      </div> 
+            <!-- InstanceEndEditable --> 
+            <div class="clear"></div> 
+            <noscript> 
+            <p>
+            Your browser does not appear to support JavaScript, or you have turned JavaScript off. You may use unl.edu without enabling JavaScript, but certain functions may not be available.
+            </p>
+            </noscript> 
+        <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+           <!--#include virtual="wdn/templates_3.0/includes/noscript.html" -->
+        </div> <!-- end of maincontent -->        
+        <div id="footer">
+            <div id="footer_floater"></div>
+            <div class="footer_col" id="footer_feedback">
+                <!--#include virtual="wdn/templates_3.0/includes/feedback.html" -->
+            </div>
+            <div class="footer_col">
+                <!--#include virtual="../sharedcode/relatedLinks.html" -->
+            </div>            
+            <div class="footer_col">
+                <!--#include virtual="../sharedcode/footerContactInfo.html" -->
+            </div>
+            <div class="footer_col">
+                <!--#include virtual="wdn/templates_3.0/includes/socialmediashare.html" -->
+            </div>                   
+            <div id="wdn_copyright">
+                <!--#include virtual="../sharedcode/footer.html" -->                                
+                <!--#include virtual="wdn/templates_3.0/includes/wdn.html" -->
+                | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a>
+                <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a>
+            </div>
+        </div>    
+    </div>
+    <div style="clear:both;"> </div>
+</div>
+            <script type="text/javascript">
+            
+            
+            </script>
+</body>
+</html>

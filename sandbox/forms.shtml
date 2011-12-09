@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!--
+    Membership and regular participation in the UNL Web Developer Network
+    is required to use the UNL templates. Visit the WDN site at 
+    http://wdn.unl.edu/. Click the WDN Registry link to log in and
+    register your unl.edu site.
+    All UNL template code is the property of the UNL Web Developer Network.
+    The code seen in a source code view is not, and may not be used as, a 
+    template. You may not use this code, a reverse-engineered version of 
+    this code, or its associated visual presentation in whole or in part to
+    create a derivative work.
+    This message may not be removed from any pages based on the UNL site template.
+    
+    $Id: fixed.dwt 536 2009-07-23 15:47:30Z bbieber2 $
+-->
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
+<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
+<script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
+
+<!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>UNL | Forms Examples</title>
+<!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
+<!--#include virtual="../sharedcode/localSiteLinks.html" -->
+<!-- Place optional header elements here -->
+<!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" media="screen" href="wdn/templates_3.0/css/ie.css" />
+<![endif]-->
+
+<!-- InstanceEndEditable -->
+</head>
+<body class="fixed">
+<p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
+<div id="wdn_wrapper">
+    <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+        <h1>University of Nebraska&ndash;Lincoln</h1>
+        <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
+    </div>
+    <div id="wdn_navigation_bar">
+        <div id="breadcrumbs">
+            <!-- WDN: see glossary item 'breadcrumbs' -->
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
+            <ul>
+                <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
+                <li>Department</li>
+            </ul>
+            <!-- InstanceEndEditable --></div>
+        <div id="wdn_navigation_wrapper">
+            <div id="navigation"><!-- InstanceBeginEditable name="navlinks" -->
+                <!--#include virtual="../sharedcode/navigation.html" -->
+                <!-- InstanceEndEditable --></div>
+        </div>
+    </div>
+    <div id="wdn_content_wrapper">
+        <div id="titlegraphic"><!-- InstanceBeginEditable name="titlegraphic" -->
+            <h1>WDN</h1>
+            <!-- InstanceEndEditable --></div>
+        <div id="pagetitle"><!-- InstanceBeginEditable name="pagetitle" --><h2>Forms Example</h2><!-- InstanceEndEditable --></div>
+        <div id="maincontent">
+            <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+            <!-- InstanceBeginEditable name="maincontentarea" -->
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur purus purus, tincidunt eget vehicula ac, imperdiet in tellus. Sed interdum iaculis viverra. Sed volutpat orci quis dui hendrerit vel tincidunt libero ultricies. Nunc adipiscing mauris eu sem accumsan eleifend. Nam id mattis mauris. Donec condimentum felis non tortor dapibus ac pellentesque velit molestie. Pellentesque libero sapien, laoreet ut iaculis et, suscipit a justo. Phasellus accumsan blandit justo sit amet vehicula. Donec congue metus porttitor arcu ullamcorper id convallis arcu laoreet. Praesent vitae nisi leo, a ultrices justo. Morbi non gravida neque. Integer in elit lorem. Etiam a tellus quis urna aliquam scelerisque sed sed elit. Suspendisse dui dolor, egestas convallis imperdiet eget, aliquam vel diam. Fusce sit amet lorem eget sem cursus fringilla quis ac nisi. Pellentesque imperdiet congue egestas. Integer vehicula magna ut quam fermentum congue. Ut pulvinar iaculis elit, in rutrum sapien fermentum nec.
+			</p>
+            
+            <h1>zenform.css</h1>
+            
+            <div class="two_col left">
+            <p>
+            Please fill out our important survey below.  It will help us serve you better.
+            </p>
+            <h3 class="zenform">Important Survey</h3>
+            <form class="zenform" action="?" method="post">
+		        <fieldset>
+		                <legend>Sample Form Content</legend>
+		                <ol>
+		                        <li>
+		                        	<label for="name">
+		                        		<span class="required">*</span>
+		                        		Name
+		                        		<span class="helper">Enter Your Full Name</span>
+		                        	</label>
+		                        	<input type="text" id="name" name="name" />
+		                        </li>
+		                        <li>
+		                        	<label for="email">Email</label>
+		                        	<input type="text" id="email" name="email" />
+		                        </li>
+		                        <li>
+		                        	<label for="campus">Campus</label>
+		                        	<select name="campus" id="campus">
+		                        		<option value="none"></option>
+		                        		<option value="unl">UNL</option>
+		                        		<option value="unk">UNK</option>
+		                        		<option value="uno">UNO</option>
+		                        		<option value="unmc">UNMC</option>
+		                        	</select>
+		                        </li>
+		                        <li>
+		                        	<fieldset> 
+			                       		<legend>
+			                       			<span class="required">*</span>
+			                       			The Most Important Question: I Can Has Cheezburger?
+			                       			
+			                       		</legend>
+			                       		<ol>
+			                        		<li>
+			                        			<input type="radio" value="1" name="helpful_yes" id="helpful_yes" />
+			                        			<label for="helpful_yes">Yes</label>
+			                        		</li>
+			                        		<li>
+					                        	<input type="radio" value="0" name="helpful_no" id="helpful_no" />
+					                        	<label for="helpful_no">No</label>
+					                        </li>
+			                        		<li>
+			                        			<input type="radio" value="2" name="helpful_maybe" id="helpful_maybe" />
+					                        	<label for="helpful_maybe">Maybe</label>
+					                        </li>
+					                	</ol>
+		                        	</fieldset>
+		                        </li>
+		                        <li>
+		                        	<label for="helpful_comments">In what way?</label>
+		                        	<textarea id="helpful_comments" name="comments" rows="4" cols="auto"></textarea>
+		                        </li>
+		                </ol>
+		        </fieldset> 
+			    <input type="submit" name="submit" value="Submit" />
+			    <input type="reset" name="reset" value="Reset" />
+			</form>
+			</div>
+            
+       
+            
+            <div class="two_col right">
+            <h4>Example</h4>
+            <p>
+            The form to the left is in a two_col div.
+            </p>
+            <p>
+            View the different zen colors with clicks below.
+            </p>
+            
+            <script type="text/javascript">
+         	 //<![CDATA[
+         	 (function($) {
+            	$(document).ready(function(){
+                	WDN.initializePlugin('zenform');
+					$("p#zf a").click(function(e){
+						e.preventDefault();
+						$(".zenform").attr('class','zenform '+$(this).attr('class'));
+					});
+            	});
+            	
+         	 })(WDN.jQuery);
+            //]]>
+            </script>
+            <p id="zf">
+            <a href="#" class="bright">Bright</a><br />
+            <a href="#" class="cool">Cool</a><br />
+            <a href="#" class="energetic">Energetic</a><br />
+            <a href="#" class="soothing">Soothing</a><br />
+            <a href="#" class="neutral">Neutral</a><br />
+            <a href="#" class="primary">Primary (Default)</a><br />
+            </p>
+            </div>
+            <div class="clear"></div>
+            <div class="three_col left">
+            <h3 class="zenform">Important Survey</h3>
+            <form class="zenform" action="?" method="post">
+		        <fieldset>
+		                <legend>Sample Form Content The Most Important Question: I Can Has Cheezburger? The Most Important Question: I Can Has Cheezburger?</legend>
+		                <ol>
+		                        <li>
+		                        	<label for="name">
+		                        		<span class="required">*</span>
+		                        		Name
+		                        		<span class="helper">Enter Your Full Name</span>
+		                        	</label>
+		                        	<input type="text" id="name" name="name" />
+		                        </li>
+		                        <li>
+		                        	<label for="email">Email</label>
+		                        	<input type="text" id="email" name="email" />
+		                        </li>
+		                        <li>
+		                        	<label for="campus">Campus</label>
+		                        	<select name="campus" id="campus">
+		                        		<option value="none"></option>
+		                        		<option value="unl">UNL</option>
+		                        		<option value="unk">UNK</option>
+		                        		<option value="uno">UNO</option>
+		                        		<option value="unmc">UNMC</option>
+		                        	</select>
+		                        </li>
+		                        <li>
+		                        	<fieldset> 
+			                       		<legend>
+			                       			<span class="required">*</span>
+			                       			The Most Important Question: I Can Has Cheezburger? The Most Important Question: I Can Has Cheezburger? The Most Important Question: I Can Has Cheezburger?
+			                       			
+			                       		</legend>
+			                       		<ol>
+			                        		<li>
+			                        			<input type="radio" value="1" name="helpful_yes" id="helpful_yes" />
+			                        			<label for="helpful_yes">Yes</label>
+			                        		</li>
+			                        		<li>
+					                        	<input type="radio" value="0" name="helpful_no" id="helpful_no" />
+					                        	<label for="helpful_no">No</label>
+					                        </li>
+			                        		<li>
+			                        			<input type="radio" value="2" name="helpful_maybe" id="helpful_maybe" />
+					                        	<label for="helpful_maybe">Maybe</label>
+					                        </li>
+					                	</ol>
+		                        	</fieldset>
+		                        </li>
+		                        <li>
+		                        	<label for="helpful_comments">In what way?</label>
+		                        	<textarea id="helpful_comments" name="comments" rows="4" cols="auto"></textarea>
+		                        </li>
+		                </ol>
+		        </fieldset> 
+			    <input type="submit" name="submit" value="Submit" />
+			    <input type="reset" name="reset" value="Reset" />
+			</form>
+            </div>
+            <div class="col right">
+            <h3 class="zenform">Important Survey</h3>
+            <form class="zenform" action="?" method="post">
+		        <fieldset>
+		                <legend>Sample Form Content</legend>
+		                <ol>
+		                        <li>
+		                        	<label for="name">
+		                        		<span class="required">*</span>
+		                        		Name
+		                        		<span class="helper">Enter Your Full Name</span>
+		                        	</label>
+		                        	<input type="text" id="name" name="name" />
+		                        </li>
+		                        <li>
+		                        	<label for="email">Email</label>
+		                        	<input type="text" id="email" name="email" />
+		                        </li>
+		                        <li>
+		                        	<label for="campus">Campus</label>
+		                        	<select name="campus" id="campus">
+		                        		<option value="none"></option>
+		                        		<option value="unl">UNL</option>
+		                        		<option value="unk">UNK</option>
+		                        		<option value="uno">UNO</option>
+		                        		<option value="unmc">UNMC</option>
+		                        	</select>
+		                        </li>
+		                        <li>
+		                        	<fieldset> 
+			                       		<legend>
+			                       			<span class="required">*</span>
+			                       			The Most Important Question: I Can Has Cheezburger?
+			                       			
+			                       		</legend>
+			                       		<ol>
+			                        		<li>
+			                        			<input type="radio" value="1" name="helpful_yes" id="helpful_yes" />
+			                        			<label for="helpful_yes">Yes</label>
+			                        		</li>
+			                        		<li>
+					                        	<input type="radio" value="0" name="helpful_no" id="helpful_no" />
+					                        	<label for="helpful_no">No</label>
+					                        </li>
+			                        		<li>
+			                        			<input type="radio" value="2" name="helpful_maybe" id="helpful_maybe" />
+					                        	<label for="helpful_maybe">Maybe</label>
+					                        </li>
+					                	</ol>
+		                        	</fieldset>
+		                        </li>
+		                        <li>
+		                        	<label for="helpful_comments">In what way?</label>
+		                        	<textarea id="helpful_comments" name="comments" rows="4" cols="auto"></textarea>
+		                        </li>
+		                </ol>
+		        </fieldset> 
+			    <input type="submit" name="submit" value="Submit" />
+			    <input type="reset" name="reset" value="Reset" />
+			</form>
+            </div>
+            <div class="clear"></div>
+            <h3 class="zenform">Important Survey</h3>
+            <form class="zenform" action="?" method="post">
+		        <fieldset>
+		                <legend>Sample Form Content The Most Important Question: I Can Has Cheezburger? The Most Important Question: I Can Has Cheezburger? The Most Important Question: I Can Has Cheezburger?</legend>
+		                <ol>
+		                        <li>
+		                        	<label for="name">
+		                        		<span class="required">*</span>
+		                        		Name
+		                        		<span class="helper">Enter Your Full Name</span>
+		                        	</label>
+		                        	<input type="text" id="name" name="name" />
+		                        </li>
+		                        <li>
+		                        	<label for="email">Email</label>
+		                        	<input type="text" id="email" name="email" />
+		                        </li>
+		                        <li>
+		                        	<label for="campus">Campus</label>
+		                        	<select name="campus" id="campus">
+		                        		<option value="none"></option>
+		                        		<option value="unl">UNL</option>
+		                        		<option value="unk">UNK</option>
+		                        		<option value="uno">UNO</option>
+		                        		<option value="unmc">UNMC</option>
+		                        	</select>
+		                        </li>
+		                        <li>
+		                        	<fieldset> 
+			                       		<legend>
+			                       			<span class="required">*</span>
+			                       			The Most Important Question: I Can Has Cheezburger? 
+			                       			
+			                       		</legend>
+			                       		<ol>
+			                        		<li>
+			                        			<input type="radio" value="1" name="helpful_yes" id="helpful_yes" />
+			                        			<label for="helpful_yes">Yes</label>
+			                        		</li>
+			                        		<li>
+					                        	<input type="radio" value="0" name="helpful_no" id="helpful_no" />
+					                        	<label for="helpful_no">No</label>
+					                        </li>
+			                        		<li>
+			                        			<input type="radio" value="2" name="helpful_maybe" id="helpful_maybe" />
+					                        	<label for="helpful_maybe">Maybe</label>
+					                        </li>
+					                	</ol>
+		                        	</fieldset>
+		                        </li>
+		                        <li>
+		                        	<label for="helpful_comments">In what way?</label>
+		                        	<textarea id="helpful_comments" name="comments" rows="4" cols="auto"></textarea>
+		                        </li>
+		                </ol>
+		        </fieldset> 
+			    <input type="submit" name="submit" value="Submit" />
+			    <input type="reset" name="reset" value="Reset" />
+			</form>
+         
+             
+             
+             
+             
+             
+            <!-- InstanceEndEditable -->
+            <div class="clear"></div>
+            <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
+            <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+        </div>
+        <div id="footer">
+            <div id="footer_floater"></div>
+            <div class="footer_col">
+                <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
+            </div>
+            <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
+                <!--#include virtual="../sharedcode/relatedLinks.html" -->
+                <!-- InstanceEndEditable --></div>
+            <div class="footer_col"><!-- InstanceBeginEditable name="contactinfo" -->
+                <!--#include virtual="../sharedcode/footerContactInfo.html" -->
+            <!-- InstanceEndEditable --></div>
+            <div class="footer_col">
+                <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+            </div>
+            <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
+            <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
+                <!--#include virtual="../sharedcode/footer.html" -->
+                <!-- InstanceEndEditable -->
+                <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
+                | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a> <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
+        </div>
+    </div>
+    <div id="wdn_wrapper_footer"> </div>
+</div>
+</body>
+<!-- InstanceEnd --></html>

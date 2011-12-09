@@ -13,6 +13,12 @@ WDN.events = function() {
 		container : '#wdn_calendarDisplay',
 		
 		initialize : function() {
+			WDN.loadJQuery(function() {
+				WDN.events.setup();
+			});
+		},
+
+		setup : function() {
 			if (!this.calURL) {
 				this.calURL = WDN.jQuery('link[rel=events]').attr('href');
 			}

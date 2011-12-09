@@ -19,19 +19,20 @@
 }
 
 #wdn_feedback_comments label{
-    position:absolute;
-    margin:2px;
-    left:2px;
+    text-indent: -9999em;
     color: #A1A1A1;
+    position: absolute;
 }
 #wdn_feedback_comments input, #wdn_feedback_comments textarea {
 	border: 1px solid #DEDEDE;
     background-color: #FDFDFD;
     padding: 0;
     width: 210px;
+    outline: none;
 }
 #wdn_feedback_comments textarea {
     height: 50px;
+    overflow: auto;
 }
 #wdn_feedback_comments input.wdn_comment_submit {
     background: -moz-linear-gradient(top, #efece9 0%, #f2f1ed 50%, #e7e4e3 51%, #e4e0dd 100%); /* FF3.6+ */
