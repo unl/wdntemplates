@@ -98,3 +98,6 @@ th {
 tbody, tfoot, thead {
 	vertical-align: middle;
 }
+#maincontent pre {
+    overflow:auto;
+}

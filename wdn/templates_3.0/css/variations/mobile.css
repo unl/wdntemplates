@@ -243,9 +243,11 @@ body.mobile #pagetitle {
     margin:0.5em 0 0 3px;
 }
 body.mobile #pagetitle h2 {
-    font-size:1.8em;
-    color:#000;
+    font-size:1.5em;
+    color:#333;
     margin:0;
+    font-family: Helvetica,"Lucida Grande",Verdana,Arial;
+    font-weight:bold;
 }
 body.mobile #pagetitle h2 a {
     color:#000;

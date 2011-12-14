@@ -18,6 +18,7 @@ WDN.idm = function() {
 		 */
 		user : false,
 		
+		
 		/**
 		 * The URL from which the LDAP information is available
 		 */
@@ -83,13 +84,32 @@ WDN.idm = function() {
 		},
 		
 		/**
+		 * Function to parse the correct display name.
+		 *
+		 * @return string
+		 */
+		displayName : function(){
+		    var disp_name;
+		    if (WDN.idm.user.cn) {
+		    	for (var i in WDN.idm.user.cn) {
+		    		if (!disp_name || WDN.idm.user.cn[i].length < disp_name.length) {
+		    			disp_name = WDN.idm.user.cn[i];
+		    		}
+		    	}
+		    } else {
+		    	disp_name = uid;
+		    }
+		    return disp_name;
+		},
+		
+		/**
 		 * Update the SSO tab and display user info
 		 * 
 		 * @param {string} uid
 		 */
 		displayNotice : function(uid) {
 			if (WDN.jQuery('#wdn_identity_management').length === 0) {
-				WDN.jQuery('#header').append('<div id="wdn_identity_management" class="loggedin"></div>');
+				WDN.jQuery('header[role="banner"]').append('<div id="wdn_identity_management" class="loggedin"></div>');
 			}
 			
 			var icon = '';
@@ -103,18 +123,9 @@ WDN.idm = function() {
 			}
 			icon = '<a href="http://planetred.unl.edu/pg/profile/'+planetred_uid+'" title="Your Planet Red Profile"><img src="//planetred.unl.edu/pg/icon/'+planetred_uid+'/topbar/" alt="Your Profile Pic" /></a>';
 			
-			var disp_name;
-			if (WDN.idm.user.cn) {
-				for (var i in WDN.idm.user.cn) {
-					if (!disp_name || WDN.idm.user.cn[i].length < disp_name.length) {
-						disp_name = WDN.idm.user.cn[i];
-					}
-				}
-			} else {
-				disp_name = uid;
-			}
 			
-			WDN.jQuery('#wdn_identity_management').html(icon+'<span class="username">'+disp_name+'</span><a id="wdn_idm_logout" title="Logout" href="'+WDN.idm.logoutURL+'">Logout</a>');
+			
+			WDN.jQuery('#wdn_identity_management').html(icon+'<span class="username">'+WDN.idm.displayName()+'</span><a id="wdn_idm_logout" title="Logout" href="'+WDN.idm.logoutURL+'">Logout</a>');
 			
 			// Any time logout link is clicked, unset the user data
 			WDN.jQuery('#wdn_idm_logout').click(WDN.idm.logout);
@@ -122,6 +133,7 @@ WDN.idm = function() {
 			if (WDN.jQuery('link[rel=logout]').length) {
 				WDN.idm.setLogoutURL(WDN.jQuery('link[rel=logout]').attr('href'));
 			}
+			WDN.idm.updateCommentForm();
 		},
 		
 		displayLogin : function()
@@ -138,6 +150,16 @@ WDN.idm = function() {
 			icon = '<a><img src="//planetred.unl.edu/mod/profile/graphics/defaulttopbar.gif" alt="Guest User" /></a>';
 			
 			WDN.jQuery('#wdn_identity_management').html(icon+'<span class="username">Guest</span><a id="wdn_idm_login" title="Login" href="'+WDN.idm.loginURL+'">Login</a>');
+		},
+		
+		/**
+		 * Add user details to the comment form
+		 */
+		updateCommentForm : function () {
+		    WDN.jQuery('#wdn_comment_name').val(WDN.idm.displayName());
+		    if (WDN.idm.user.mail) {
+		        WDN.jQuery('#wdn_comment_email').val(WDN.idm.user.mail[0]);
+		    }
 		},
 		
 		/**

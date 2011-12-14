@@ -35,11 +35,6 @@ WDN.tabs = (function() {
 		initialize : function() {
 			var ie7 = document.all && navigator.appVersion.indexOf("MSIE 7.") != -1;
 			WDN.log ("tabs JS loaded");
-			//Detect if the <span> is present. If not, add it
-			WDN.jQuery('ul.wdn_tabs > li > a:not(:has(span))').each(function(){
-				theHTML = WDN.jQuery(this).html();
-				WDN.jQuery(this).html("<span>"+theHTML+"</span>");
-			});
 			
 			// Add yesprint class to list items, to act as a table of contents when printed
 			WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li').each(function(){
@@ -78,12 +73,11 @@ WDN.tabs = (function() {
 			// Adds spacing if subtabs are present
 			if (WDN.jQuery('#maincontent ul.wdn_tabs li ul').length) {
 				WDN.jQuery('#maincontent ul.wdn_tabs').css({'margin-bottom':'70px'});
+				if (ie7) {
+					WDN.jQuery('#maincontent ul.wdn_tabs li ul li').css({'display':'inline'});
+				}
 			}
 			
-			// Allows for CSS correction of last tab
-			if (WDN.jQuery.browser.msie) {
-				WDN.jQuery('ul.wdn_tabs > li:last-child').addClass('last');
-			}
 			
 			// If we have some tabs setup the hash stuff
 			if (WDN.jQuery('ul.wdn_tabs:not(.disableSwitching)').length) {
@@ -191,6 +185,7 @@ WDN.tabs = (function() {
 			var tabContents = sel.closest('.wdn_tabs_content');
 			tabContents.children().hide();
 			sel.show();
+			sel.find('ul.slides').css({'height':'auto'});
 			
 			if (forceUpdate) {
 				var trig = WDN.jQuery('ul.wdn_tabs li a[href$='+jq(hash)+']');

@@ -8985,30 +8985,29 @@ window.jQuery = window.$ = jQuery;
  * This file contains the WDN template javascript code.
  */
 var _gaq = _gaq || [];
-var WDN = function() {
+var WDN = (function() {
 	var loadingJS = {};
 	return {
 		/**
 		 * This stores what javascript files have been loaded already
 		 */
-		loadedJS : {},
-		
+		loadedJS: {},
+
 		/**
 		 * This variable stores the path to the template files.
 		 * It can be set to /, http://www.unl.edu/, or nothing.
 		 */
-		template_path : '',
-		
-		/*
-		 * Loads an external JavaScript file. 
-		 * 
+		template_path: '',
+
+		/**
+		 * Loads an external JavaScript file.
+		 *
 		 * @param {string} url
 		 * @param {function} callback (optional) - will be called once the JS file has been loaded
 		 * @param {boolean} checkLoaded (optional) - if false, the JS will be loaded without checking whether it's already been loaded
 		 * @param {boolean} callbackIfLoaded (optional) - if false, the callback will not be executed if the JS has already been loaded
 		 */
-		
-		loadJS : function(url,callback,checkLoaded,callbackIfLoaded) {
+		loadJS: function (url,callback,checkLoaded,callbackIfLoaded) {
 			if (url.match(/^\/?wdn\/templates_3\.0/)) {
 				// trim off the leading slash
 				if (url.charAt(0) == '/') {
@@ -9016,8 +9015,8 @@ var WDN = function() {
 				}
 				url = WDN.template_path+url;
 			}
-			
-			if ((arguments.length>2 && checkLoaded === false) || !WDN.loadedJS[url]){
+
+			if ((arguments.length>2 && checkLoaded === false) || !WDN.loadedJS[url]) {
 				if (url in loadingJS) {
 					if (callback) {
 						loadingJS[url].push(callback);
@@ -9030,11 +9029,11 @@ var WDN = function() {
 				e.setAttribute('src', url);
 				e.setAttribute('type','text/javascript');
 				document.getElementsByTagName('head').item(0).appendChild(e);
-				
+
 				if (callback) {
 					loadingJS[url].push(callback);
 				}
-				var executeCallback = function() {
+				var executeCallback = function () {
 					WDN.loadedJS[url] = 1;
 					if (loadingJS[url]) {
 						//debug statement removed
@@ -9044,27 +9043,27 @@ var WDN = function() {
 						delete loadingJS[url];
 					}
 				};
-				
-				e.onreadystatechange = function() {
-					if (e.readyState == "loaded" || e.readyState == "complete"){
+
+				e.onreadystatechange = function () {
+					if (e.readyState == "loaded" || e.readyState == "complete") {
 						executeCallback();
 					}
 				};
 				e.onload = executeCallback;
-				
+
 			} else {
 				//debug statement removed
-				if ((arguments.length > 3 && callbackIfLoaded === false) || !callback){
+				if ((arguments.length > 3 && callbackIfLoaded === false) || !callback) {
 					return;
 				}
 				callback();
 			}
 		},
-		
+
 		/**
 		 * Load an external css file.
 		 */
-		loadCSS : function(url) {
+		loadCSS: function (url) {
 			if (url.match(/^\/?wdn\/templates_3\.0/)) {
 				// trim off the leading slash
 				if (url.charAt(0) == '/') {
@@ -9075,44 +9074,47 @@ var WDN = function() {
 			var e = document.createElement("link");
 			e.href = url;
 			e.rel = "stylesheet";
-			e.type="text/css";
+			e.type = "text/css";
 			document.getElementsByTagName("head")[0].appendChild(e);
 		},
-		
+
 		/**
 		 * This function is called on page load to initialize template related
 		 * data.
 		 */
-		initializeTemplate : function() {
-			//gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");  
+		initializeTemplate: function () {
+			//gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 			//WDN.loadJS(gaJsHost + "google-analytics.com/ga.js");
 			WDN.loadCSS('wdn/templates_3.0/css/script.css');
-			WDN.loadJS('wdn/templates_3.0/scripts/xmlhttp.js');
-			WDN.loadJS('wdn/templates_3.0/scripts/global_functions.js');
+//			WDN.loadJS('wdn/templates_3.0/scripts/xmlhttp.js');
 			WDN.loadJQuery(WDN.jQueryUsage);
 		},
 
 		/**
 		 * Load jQuery included with the templates as WDN.jQuery
-		 * 
+		 *
 		 * @param callback Called when the document is ready
 		 */
-		loadJQuery : function(callback) {
+		loadJQuery: function (callback) {
 			WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', function(){
 				if (!WDN.jQuery) {
 					WDN.jQuery = jQuery.noConflict(true);
 				}
-				WDN.jQuery(document).ready(function() {
-					callback();
+				// Load our required AJAX plugin
+				WDN.loadJS('wdn/templates_3.0/scripts/wdn_ajax.js', function() {
+					WDN.jQuery(document).ready(function() {
+						callback();
+					});
 				});
 			});
 		},
-		
+
 		/**
 		 * All things needed by jQuery can be put in here, and they'll get
 		 * executed when jquery is loaded
 		 */
-		jQueryUsage : function() {
+		jQueryUsage: function () {
+			WDN.loadJS('wdn/templates_3.0/scripts/global_functions.js');
 			WDN.initializePlugin('analytics');
 			if (WDN.jQuery('body').hasClass('mobile')) {
 				return;
@@ -9131,38 +9133,36 @@ var WDN = function() {
 			WDN.browserAdjustments();
 			WDN.screenAdjustments();
 		},
-		
+
 		/**
 		 * This function logs data for debugging purposes.
-		 * 
+		 *
 		 * To see, open firebug's console.
 		 */
-		log: function(data) {
+		log: function (data) {
 			if ("console" in window && "log" in console) {
 				console.log(data);
 			}
 		},
-		
-		browserAdjustments : function() {
+
+		browserAdjustments: function () {
 			if (WDN.jQuery.browser.msie && (WDN.jQuery.browser.version == '6.0') && (!navigator.userAgent.match(/MSIE 8.0/))) {
-				WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>');
-				fetchURLInto('http://www.unl.edu/wdn/templates_3.0/includes/browserupgrade.html', 'wdn_upgrade_notice');
+				var $body = WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>').removeAttr('class').addClass('document');
+				WDN.jQuery('#wdn_upgrade_notice').load(WDN.template_path + 'wdn/templates_3.0/includes/browserupgrade.html');
 				WDN.jQuery('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
-				WDN.jQuery('body').removeAttr('class');
-				WDN.jQuery('body').addClass('document');
 				WDN.loadCSS('wdn/templates_3.0/css/content/columns.css');
 			}
-            
-            if ((navigator.userAgent.match(/applewebkit/i) && !navigator.userAgent.match(/Version\/[34]/)) ||
-                (navigator.userAgent.match(/firefox/i) && (navigator.userAgent.match(/firefox\/[12]/i) || navigator.userAgent.match(/firefox\/3.[01234]/i))) ||
-                (navigator.userAgent.match(/msie/i))){
-                // old browser needs help zebra striping
-                WDN.jQuery('.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
-                WDN.jQuery('.zentable tbody tr:nth-child(even)').addClass('rowEven');
-            } 
+
+			if ((navigator.userAgent.match(/applewebkit/i) && !navigator.userAgent.match(/Version\/[34]/)) ||
+				(navigator.userAgent.match(/firefox/i) && (navigator.userAgent.match(/firefox\/[12]/i) || navigator.userAgent.match(/firefox\/3.[01234]/i))) ||
+				(navigator.userAgent.match(/msie/i))) {
+				// old browser needs help zebra striping
+				WDN.jQuery('.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
+				WDN.jQuery('.zentable tbody tr:nth-child(even)').addClass('rowEven');
+			}
 		},
-		
-		screenAdjustments : function() {
+
+		screenAdjustments: function () {
 			if (screen.width<=1024) {
 				WDN.jQuery('body').css({'background':'#e0e0e0'});
 				if (WDN.jQuery.browser.msie) {
@@ -9170,10 +9170,10 @@ var WDN = function() {
 				}
 			}
 		},
-		
-		contentAdjustments : function () {
+
+		contentAdjustments: function () {
 			WDN.jQuery('#footer_floater').css("zoom", 1);
-			WDN.jQuery('#maincontent p.caption, #footer p.caption').each(function(i){
+			WDN.jQuery('#maincontent p.caption, #footer p.caption').each(function(i) {
 				if (WDN.jQuery(this).height()>20) {
 					WDN.jQuery(this).css({border:'1px solid #DDD',marginleft:'0'});
 				}
@@ -9183,13 +9183,14 @@ var WDN = function() {
 					WDN.jQuery(this).width(imgWidth);
 				}
 			});
+			WDN.jQuery('#titlegraphic h1 span').parent('h1').css({'top':'3px'});
 			//remove the dotted line underneath images that are links
 			WDN.jQuery('#maincontent a img, #footer a img').each(function(j){
 				WDN.jQuery(this).parent('a').addClass('imagelink');
 			});
 		},
-		
-		initializePlugin:function (plugin, callback) {
+
+		initializePlugin: function (plugin, callback) {
 			if (!callback) {
 				callback = function () {
 					if ("initialize" in WDN[plugin]) {
@@ -9202,8 +9203,8 @@ var WDN = function() {
 			}
 			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', callback);
 		},
-		
-		setCookie : function(name, value, seconds, path, domain) {
+
+		setCookie: function (name, value, seconds, path, domain) {
 			var expires = "";
 			if (seconds) {
 				var date = new Date();
@@ -9220,8 +9221,8 @@ var WDN = function() {
 			}
 			document.cookie = name+"="+value+expires+";path="+path+";domain="+domain;
 		},
-		
-		getCookie : function(name) {
+
+		getCookie: function (name) {
 			var nameEQ = name + "=";
 			var ca = document.cookie.split(';');
 			for(var i=0;i < ca.length;i++) {
@@ -9235,501 +9236,443 @@ var WDN = function() {
 			}
 			return null;
 		},
-		
+
 		/**
 		 * Converts a relative link to an absolute link.
-		 * 
+		 *
 		 * @param {string} link The relative link
 		 * @param {string} base_url The base to use
 		 */
 		toAbs: function (link, base_url) {
-		  if (typeof link == 'undefined')
-			  return;
-		  var lparts = link.split('/');
-		  if (/http:|https:|ftp:/.test(lparts[0])) {
-		    // already abs, return
-		    return link;
-		  }
+			if (typeof link == 'undefined')
+				return;
+			var lparts = link.split('/');
+			if (/http:|https:|ftp:/.test(lparts[0])) {
+				// already abs, return
+				return link;
+			}
 
-		  var i, hparts = base_url.split('/');
-		  if (hparts.length > 3) {
-		    hparts.pop(); // strip trailing thingie, either scriptname or blank 
-		  }
+			var i, hparts = base_url.split('/');
+			if (hparts.length > 3) {
+				hparts.pop(); // strip trailing thingie, either scriptname or blank
+			}
 
-		  if (lparts[0] === '') { // like "/here/dude.png"
-		    base_url = hparts[0] + '//' + hparts[2];
-		    hparts = base_url.split('/'); // re-split host parts from scheme and domain only
-		    delete lparts[0];
-		  }
+			if (lparts[0] === '') { // like "/here/dude.png"
+				base_url = hparts[0] + '//' + hparts[2];
+				hparts = base_url.split('/'); // re-split host parts from scheme and domain only
+				delete lparts[0];
+			}
 
-		  for(i = 0; i < lparts.length; i++) {
-		    if (lparts[i] === '..') {
-		      // remove the previous dir level, if exists
-		      if (typeof lparts[i - 1] !== 'undefined') {
-		        delete lparts[i - 1];
-		      } else if (hparts.length > 3) { // at least leave scheme and domain
-		        hparts.pop(); // strip one dir off the host for each /../
-		      }
-		      delete lparts[i];
-		    }
-		    if(lparts[i] === '.') {
-		      delete lparts[i];
-		    }
-		  }
+			for(i = 0; i < lparts.length; i++) {
+				if (lparts[i] === '..') {
+					// remove the previous dir level, if exists
+					if (typeof lparts[i - 1] !== 'undefined') {
+						delete lparts[i - 1];
+					} else if (hparts.length > 3) { // at least leave scheme and domain
+						hparts.pop(); // strip one dir off the host for each /../
+					}
+					delete lparts[i];
+				}
+				if (lparts[i] === '.') {
+					delete lparts[i];
+				}
+			}
 
-		  // remove deleted
-		  var newlinkparts = [];
-		  for (i = 0; i < lparts.length; i++) {
-		    if (typeof lparts[i] !== 'undefined') {
-		      newlinkparts[newlinkparts.length] = lparts[i];
-		    }
-		  }
+			// remove deleted
+			var newlinkparts = [];
+			for (i = 0; i < lparts.length; i++) {
+				if (typeof lparts[i] !== 'undefined') {
+					newlinkparts[newlinkparts.length] = lparts[i];
+				}
+			}
 
-		  return hparts.join('/') + '/' + newlinkparts.join('/');
-
+			return hparts.join('/') + '/' + newlinkparts.join('/');
 		},
-		
+
 		stringToXML: function (string) {
-			var doc;
-			try {
-				if (window.ActiveXObject) {
-					doc = new ActiveXObject('Microsoft.XMLDOM');
-					doc.async = 'false';
-					doc.loadXML(string);
-				}
-				else {
-					var parser = new DOMParser();
-					doc = parser.parseFromString(string, 'text/xml');
-				}
-			}
-			catch(e) {
-				//debug statement removed
-			}
-			return doc;
+			return WDN.jQuery.parseXML(string);
 		},
-		
-		/*
-		 * This function powers the functions WDN.get and WDN.post and provides cross browser
-		 * support for XHRs and cross-domain requests.
-		 * 
-		 * @param {string} url A string containing the URL to be requested
-		 * @param {string } data A string or object containing data/parameters to go along with the request
-		 * @param {function} callback A function to be called when the request has been completed
-		 * @param {string=} type [opt] The expected data type of the response
-		 * @param {string=} method The method to perform the request with. Supported are GET and POST
-		 */
-		
+
 		request: function (url, data, callback, type, method) {
-			//debug statement removed
 			var $ = WDN.jQuery;
-			// set the method if none/an invalid one was given
-			if (!method || !/^(get|post)$/i.test(method)) {
-				var method = "get";
-				//debug statement removed
+			if ($.isFunction(data)) {
+				method = method || type;
+				type = callback;
+				callback = data;
+				data = undefined;
 			}
-			// normalize the method name
-			method = method.toLowerCase();
-			// first, try using jQuery.get or jQuery.post
-			try {
-				if (url.match(/^https?:/)
-					&& (url.match(/:\/\/(.[^\/]+)/)[1] != window.location.host)) {
-					//debug statement removed
-					// IE9 fails silently, so force it to throw an error and use XDR
-					if (WDN.jQuery.browser.msie
-						&& parseInt(WDN.jQuery.browser.version, 10) < 10) {
-						//debug statement removed
-						throw("IE, use XDR or proxy");
-					}
-					// Opera fails silently, so force it to throw an error and revert to the proxy
-					if (window.opera && Object.toString(window.opera.version).indexOf("[native code]") > 0) {
-						//debug statement removed
-						throw ("Opera");
-					}
-				}
-				//debug statement removed
-				$[method](url,data,callback,type);
-				//debug statement removed
-			} catch (e) {
-				//debug statement removed
-				//debug statement removed
-				
-				// the jQuery method failed, likely because of the same origin policy
+			
+			return $.ajax({
+				type: method,
+				url: url,
+				data: data,
+				success: callback,
+				dataType: type
+			});
+		},
 
-				var params = data;
+		get: function (url, data, callback, type) {
+			return WDN.jQuery.get(url, data, callback, type);
+		},
 
-				// if data is an object, convert it to a key=value string
-				if (data && $.isPlainObject(data)) {
-					//debug statement removed
-					params = '';
-					for (var key in data) {
-					    params = params+'&'+key+'='+data[key];
-					}
-				}
+		post: function (url, data, callback, type) {
+			return WDN.jQuery.post(url, data, callback, type);
+		}
+	};
+})();
+WDN.jQuery = jQuery.noConflict(true);WDN.loadedJS["/wdn/templates_3.0/scripts/jquery.js"]=1;WDN.template_path = "/";
+WDN.loadedJS["/wdn/templates_3.0/scripts/wdn.js"]=1;
+/* The getProxyClass returns the constructor for an object based on
+ * the XMLHTTP class initially developed by Alex Serebryakov (#0.9.1)
+ * from www.ajaxextended.com (dead) and now extended at 
+ * https://github.com/coolaj86/ajax-extended/
+ */
 
-				// if using get, append the data as a querystring to the url
-				if (params && method == "get") {
-					//debug statement removed
-					if (!/\?/.test(url)) {
-						url += "?";
-					}
-					url += params.substr(1, params.length);
-					params = null;
-				}
-				
-				// Try CORS, or use the proxy
-				if (window.XDomainRequest) {
-					//debug statement removed
-					var xdr = new XDomainRequest();
-					xdr.open(method, url);
-					xdr.onload = function () {
-						//debug statement removed
-						var responseText = this.responseText, dataType = (type || "").toLowerCase();
-						// if we are expecting and XML object and get a string, convert it
-						if (typeof responseText == "string" && dataType == "xml") {
-							//debug statement removed
-							responseText = WDN.stringToXML(responseText);
-						}
-						callback(responseText, "success", this);
-					};
-					xdr.send(params);
-				} else {
-					try {
-						//debug statement removed
-						var mycallback = function() {
-							var textstatus = 'error';
-							var data = 'error';
-							if ((this.readyState == 4) && (this.status == '200')) {
-								textstatus = 'success';
-								data = this.responseText;
-							}
-							callback(data, textstatus, this);
-						};
-						var request = new WDN.proxy_xmlhttp();
-						request.open(method.toUpperCase(), url, true);
-						if (method == "post") {
-							request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-						}
-						request.onreadystatechange = mycallback;
-						request.send(params);
-					} catch(f) {
-						//debug statement removed
-						//debug statement removed
-					}
+(function( jQuery ) {
+	
+// Default proxy settings
+jQuery.ajaxSetup({
+	proxyUrl: "//ucommsrv.unl.edu/jsonp_proxy/",
+	maxProxyLength: 2000,
+	proxyKey: "c3dfb553c7a870a52fc4e3ba7c223a4f"
+}); 
+
+var getProxyClass = function( s, jqXHR ) {
+	return function() {
+		// public members
+		this.status = null;
+		this.statusText = null;
+		this.responseText = null;
+		this.readyState = 0;
+		
+		this.onreadystatechange = this.onerror = this.onload = jQuery.noop;
+		
+		// private members
+		var _reqHeaders = {},
+			_method, _url, _async,
+			_user, _password,
+			_respHeaders = {},
+			_scripts = [];
+		
+		// private methods
+		var _setReadyState = function(state) {
+			this.readyState = state;
+			if (this.onreadystatechange) {
+				this.onreadystatechange();
+			}
+			if (state == 4) {
+				this.onload();
+			}
+		};
+		
+		var _destroyScripts = function() {
+			for (var i = 0; i < _scripts.length; i++) {
+				_scripts[ i ].onload = _scripts[ i ].onreadystatechange = null;
+				if ( _scripts[ i ].parentNode ) {
+					_scripts[ i ].parentNode.removeChild(_scripts[ i ]);
 				}
 			}
 			
-		},
+			_scripts = [];
+		};
 		
-		get: function (url, data, callback, type) {
-			WDN.request(url, data, callback, type, "GET");
-		},
+		// public methods
+		this.open = function(method, url, async, user, password) {
+			if (!method) {
+				throw "Missing AJAX method";
+			}
+			_method = method;
+			
+			if (!url) {
+				throw "Missing AJAX url";
+			}
+			
+			if (!/^\/\//.test(s.proxyUrl)) {
+				if (url.substr(0,5) !== s.proxyUrl.substr(0, 5)) {
+					throw "Given proxy doesn't support requests to requested URI scheme";
+				}
+			}
+			_url = url;
+			
+			_user = user;
+			_password = password;
+			
+			_setReadyState.call(this, 1);
+		};
+		this.openRequest = function(method, url, async, user, password) {
+			this.open(method, url, async, user, password);
+		};
+		this.getResponseHeader = function(name) {
+			for (var i in _respHeaders) {
+				if (i.toLowerCase() == name.toLowerCase()) {
+					return _respHeaders[i];
+				}
+			}
+			return null;
+		};
+		this.getAllResponseHeaders = function() {
+			var result = [];
+			for (var i in _respHeaders) {
+				result.push(i + ": " + _respHeaders[i]);
+			}
+			
+			if (result.length) {
+				return result.join("\r\n");
+			}
+			
+			return null;
+		};
+		this.setRequestHeader = function(name, value) {
+			for (var i in _reqHeaders) {
+				if (i.toLowerCase() == name.toLowerCase()) {
+					_reqHeaders[i] = value;
+					return;
+				}
+			}
+			
+			_reqHeaders[name] = value;
+		};
+		this.send = function(body) {
+			var responseContainer,
+				jsonpCallback = s.jsonpCallback =
+					jQuery.isFunction( s.jsonpCallback ) ? s.jsonpCallback() : s.jsonpCallback,
+				previous = window [ jsonpCallback ];
+				
+			var req = {
+					m: _method,
+					u: _url,
+					h: _reqHeaders,
+					c: jsonpCallback
+				}, 
+				script, __self = this,
+				head = document.head || document.getElementsByTagName( "head" )[0] || document.documentElement,
+				i, requests = [], max = s.maxProxyLength, total = 1;
+
+			if (body) {
+				req.d = body;
+			}
+			if (_user || _password) {
+				req.au = _user || "";
+				req.ap = _password || "";
+			}
+			var origSrc = jQuery.param(req);
+			if (max > 0) {
+				total = Math.ceil(origSrc.length / max);
+			}
+			
+			if (total > 1) {
+				for (var i = 0; i < total; i++) {
+					request.push(jQuery.param({
+						mp: total,
+						mo: i,
+						c: jsonpCallback,
+						md: origSrc.substr(i * max, max),
+						k: s.proxyKey
+					}));
+				}
+			} else {
+				requests.push(origSrc + '&k=' + s.proxyKey);
+			}
+			
+			// Install callback
+			window[ jsonpCallback ] = function( response ) {
+				_respHeaders = response.responseHeaders;
+				__self.status = response.status;
+				__self.statusText = response.statusText;
+				__self.responseText = response.responseText;
+				
+				_destroyScripts.call(__self);
+				_setReadyState.call(__self, 4);
+			};
+			
+			var alwaysFunc = function() {
+				// Set callback back to previous value
+				window[ jsonpCallback ] = previous;
+			};
+			
+			if (jqXHR) {
+				jqXHR.always(alwaysFunc);
+			} else {
+				var prevOnError = this.onerror, prevOnLoad = this.onload;
+				this.onerror = function() {
+					alwaysFunc();
+					prevOnError.call(this);
+				};
+				this.onload = function() {
+					alwaysFunc();
+					prevOnLoad.call(this);
+				};
+			}
+			
+			for (i = 0; i < requests.length; i++) {
+				script = document.createElement( "script" );
+				
+				script.type = "text/javascript";
+				
+				if (_async) {
+					script.async = "async";
+				}
+				
+				if ( s.scriptCharset ) {
+					script.charset = s.scriptCharset;
+				}
+				
+				script.src = s.proxyUrl + '?' + requests[i];
+				
+				// Attach handlers for all browsers
+				script.onload = script.onreadystatechange = function() {
+					if ( !script.readyState || /loaded|complete/.test( script.readyState ) ) {
+						var i = jQuery.inArray(script, _scripts);
+						if (i >= 0) {
+							_scripts.splice(i, 1);
+						}
+						
+						script = undefined;
+						if (_scripts.length == 0 && __self.readyState != 4) {
+							__self.onerror();
+						}
+					}
+				};
+				// Use insertBefore instead of appendChild  to circumvent an IE6 bug.
+				// This arises when a base node is used (#2709 and #4378).
+				head.insertBefore( script, head.firstChild );
+				_scripts.push( script );
+			}
+		};
 		
-		post: function (url, data, callback, type) {
-			WDN.request(url, data, callback, type, "POST");
-		}
+		this.abort = function() {
+			_destroyScripts.call(this);
+		};
 	};
-}();
-
-WDN.jQuery = jQuery.noConflict(true);WDN.loadedJS["/wdn/templates_3.0/scripts/jquery.js"]=1;WDN.template_path = "/";
-WDN.loadedJS["/wdn/templates_3.0/scripts/wdn.js"]=1;
-// XMLHTTP JS class is is developed by Alex Serebryakov (#0.9.1)
-// For more information, consult www.ajaxextended.com
-
-// What's new in 0.9.1:
-// - fixed the _createQuery function (used to force multipart requests)
-// - fixed the getResponseHeader function (incorrect search)
-// - fixed the _parseXML function (bug in the ActiveX parsing section)
-// - fixed the _destroyScripts function (DOM errors reported)
-
-WDN.proxy_xmlhttp = function() {
-
-  // The following two options are configurable
-  // you don't need to change the rest. Plug & play!
-  var _maximumRequestLength = 1500;
-  var _apiURL = 'http://ucommxsrv1.unl.edu/xmlhttp/';
-
-  this.status = null;
-  this.statusText = null;
-  this.responseText = null;
-  this.responseXML = null;
-  this.synchronous = false;
-  this.readyState = 0;
-  
-  this.onreadystatechange =  function() { };
-  this.onerror = function() { };
-  this.onload = function() { };
-  
-  this.abort = function() {
-    _stop = true;
-    _destroyScripts();
-  };
-  
-  this.getAllResponseHeaders = function() {
-    // Returns all response headers as a string
-    var result = '';
-    for (var property in _responseHeaders) {
-      result += property + ': ' + _responseHeaders[property] + '\r\n';
-    }
-    return result;
-  };
-  
-  this.getResponseHeader = function(name) {
-    // Returns a response header value
-    // Note, that the search is case-insensitive
-    for(var property in _responseHeaders) {
-      if(property.toLowerCase() == name.toLowerCase()) {
-        return _responseHeaders[property];
-      }
-    }
-    return null;
-  };
-  
-  this.overrideMimeType = function(type) {
-    _overrideMime = type;
-  };
-  
-  this.open = function(method, url, sync, userName, password) {
-    // Setting the internal values
-    if (!_checkParameters(method, url)) {
-        return;
-    }
-    _method = (method) ? method : '';
-    _url = (url) ? url : '';
-    _userName = (userName) ? userName : '';
-    _password = (password) ? password : '';
-    _setReadyState(1);
-  };
-  
-  this.openRequest = function(method, url, sync, userName, password) {
-    // This method is inserted for compatibility purposes only
-    return this.open(method, url, sync, userName, password);
-  };
-  
-  this.send = function(data) {
-    if (_stop) {
-        return;
-    }
-    var src = _createQuery(data);
-    _createScript(src);
-//    _setReadyState(2);
-  };
-  
-  this.setRequestHeader = function(name, value) {
-    // Set the request header. If the defined header
-    // already exists (search is case-insensitive), rewrite it
-    if (_stop) {
-        return;
-    }
-    for(var property in _requestHeaders) {
-      if(property.toLowerCase() == name.toLowerCase()) {
-        _requestHeaders[property] = value; return;
-      }
-    }
-    _requestHeaders[name] = value;
-  };
-  
-  var _method = '';
-  var _url = '';
-  var _userName = '';
-  var _password = '';
-  var _requestHeaders = {
-    "HTTP-Referer": escape(document.location),
-    "Content-Type": "application/x-www-form-urlencoded"
-  };
-  var _responseHeaders = { };
-  var _overrideMime = "";
-  var self = this;
-  var _id = '';
-  var _scripts = [];
-  var _stop = false;
-  
-  var _throwError = function(description) {
-    // Stop script execution and run
-    // the user-defined error handler
-    self.onerror(description);
-    self.abort();
-    return false;
-  };
-  
-  var _createQuery = function(data) {
-    if(!data) {
-      data = '';
-    }
-    var headers = '';
-    for (var property in _requestHeaders) {
-      headers += property + '=' + _requestHeaders[property] + '&';
-    }
-    var originalsrc = _method +
-    '$' + _id + 
-    '$' + _userName +
-    '$' + _password + 
-    '$' + headers + 
-    '$' + _escape(data) +
-    '$' + _url;
-    var src = originalsrc;
-    var max =  _maximumRequestLength, request = [];
-    var total = Math.floor(src.length / max), current = 0;
-    while(src.length > 0) {
-      var query = _apiURL + '?' + 'multipart' + '$' + _id + '$' + current++ + '$' + total + '$' + src.substr(0, max);
-      request.push(query);
-      src = src.substr(max);
-    }
-    if(request.length == 1) {
-      src = _apiURL + '?' + originalsrc;
-    } else {
-      src = request;
-    }
-    return src;
-  };
-  
-  var _checkParameters = function(method, url) {
-    // Check the method value (GET, POST, HEAD)
-    // and the prefix of the url (http://)
-    if(!method) {
-      return _throwError('Please, specify the query method (GET, POST or HEAD)');
-    }
-    if(!url) {
-      return _throwError('Please, specify the URL');
-    }
-    if(method.toLowerCase() != 'get' &&
-      method.toLowerCase() != 'post' &&
-      method.toLowerCase() != 'head') {
-      return _throwError('Please, specify either a GET, POST or a HEAD method');
-    }
-    if(url.toLowerCase().substr(0,7) != 'http://') {
-      return _throwError('Only HTTP protocol is supported (http://)');
-    }
-    return true;
-  };
-
-  var _createScript = function(src) {
-    if ('object' == typeof src) {
-      for(var i = 0; i < src.length; i++) {
-        _createScript(src[i]);
-      }
-      return true;
-    }
-    // Create the SCRIPT tag
-    var script = document.createElement('script');
-    script.src = src;
-    script.type = 'text/javascript';
-    if (navigator.userAgent.indexOf('Safari')){
-      script.charset = 'utf-8'; // Safari bug
-    }
-    script = document.getElementsByTagName('head')[0].appendChild(script);
-    _scripts.push(script);
-    return script;
-  };
-  
-  var _escape = function(string) {
-    // Native escape() function doesn't quote the plus sign +
-    string = escape(string);
-    string = string.replace('+', '%2B');
-    return string;
-  };
-  
-  var _destroyScripts = function() {
-    // Removes the SCRIPT nodes used by the class
-    for(var i = 0; i < _scripts.length; i++) {
-      if(_scripts[i].parentNode) {
-        _scripts[i].parentNode.removeChild(_scripts[i]);
-      }
-    }
-  };
-  
-  var _registerCallback = function() {
-    // Register a callback variable (in global scope)
-    // that points to current instance of the class
-    _id = 'v' + Math.random().toString().substr(2);
-    window[_id] = self;
-  };
-  
-  var _setReadyState = function(number) {
-    // Set the ready state property of the class
-    self.readyState = number;
-    self.onreadystatechange();
-    if(number == 4) {
-      self.onload();
-    }
-  };
-    
-  var _parseXML = function() {
-      var type = self.getResponseHeader('Content-type') + _overrideMime;
-      if(!(type.indexOf('html') > -1 || type.indexOf('xml') > -1)) {
-        return;
-      }
-      var xml;
-      if(document.implementation &&
-        document.implementation.createDocument &&
-        navigator.userAgent.indexOf('Opera') == -1) {
-        var parser = new DOMParser();
-        xml = parser.parseFromString(self.responseText, "text/xml");
-        self.responseXML = xml;
-      } else if (window.ActiveXObject) {
-        xml = new ActiveXObject('MSXML2.DOMDocument.3.0');
-        if (xml.loadXML(self.responseText)) {
-          self.responseXML = xml;
-        }
-      } else {
-        xml = document.body.appendChild(document.createElement('div'));
-        xml.style.display = 'none';
-        xml.innerHTML = self.responseText;
-        _cleanWhitespace(xml, true);
-        self.responseXML = xml.childNodes[0];
-        document.body.removeChild(xml);
-     }
-  };
-  
-  var _cleanWhitespace = function(element, deep) {
-    var i = element.childNodes.length;
-    if(i === 0) {
-      return;
-    }
-    do {
-      var node = element.childNodes[--i];
-      if (node.nodeType == 3 && !_cleanEmptySymbols(node.nodeValue)) {
-        element.removeChild(node);
-      }
-      if (node.nodeType == 1 && deep) {
-        _cleanWhitespace(node, true);
-      }
-    } while(i > 0);
-  };
-
-  var _cleanEmptySymbols = function(string) {
-    string = string.replace('\r', '');
-    string = string.replace('\n', '');
-    string = string.replace(' ', '');
-  	return (string.length === 0) ? false : true; 
-  };
- 
-  this._parse = function(object) {
-    // Parse the received data and set all
-    // the appropriate properties of the class
-    if(_stop) {
-      return true;
-    }
-    if(object.multipart) {
-      return true;
-    }
-    if(!object.success) {
-      return _throwError(object.description);
-    }
-    _responseHeaders = object.responseHeaders;
-    this.status = object.status;
-    this.statusText = object.statusText;
-    this.responseText = object.responseText;
-    _parseXML();
-    _destroyScripts();
-    _setReadyState(4);
-    return true;
-  };
-    
-   _registerCallback();
-
 };
 
-WDN.loadedJS["/wdn/templates_3.0/scripts/xmlhttp.js"]=1;
+// Do we really need to expose the proxy object?
+/*
+window[ 'XMLHTTP' ] = WDN.proxy_xmlhttp = function() {
+	var proxy = getProxyClass(jQuery.ajaxSettings);
+	
+	// Give a deprecation notice
+	if ("console" in window && "warn" in console) {
+		console.warn("DEPRECATION WARNING - Direct use of the proxy object is deprecated. Please use the jQuery AJAX methods.");
+	}
+	
+	return proxy.call(this);
+};
+*/
+
+if ( jQuery.support.ajax ) {
+	
+	jQuery.ajaxTransport(function( s, originalOptions, jqXHR ) {
+		if ( s.crossDomain && !jQuery.support.cors && !s.isLocal ) {
+			 
+			// Cross domain for IE
+			if ( window.XDomainRequest ) {
+
+				// Get a new XDomainRequest
+				var xdr = new XDomainRequest();
+				
+				return {
+					send: function( _, complete ) {
+
+						if ( s.timeout ) {
+							xdr.timeout = s.timeout;
+						}
+						
+						// Apply custom fields if provided
+						if ( s.xhrFields ) {
+							for ( i in s.xhrFields ) {
+								xdr[ i ] = s.xhrFields[ i ];
+							}
+							
+							if ( !s.xhrFields.onprogress ) {
+								xdr.onprogress = jQuery.noop;
+							}
+						}
+						
+						xdr.onerror = function() {
+							complete( -1, "XDomainRequest Error" );
+						};
+						
+						xdr.ontimeout = function() {
+							complete( 0, "XDomainRequest Timeout" );
+						};
+						
+						xdr.onload = function() {
+							complete( 200, "success", {text: xdr.responseText} );
+						};
+						
+						xdr.open( s.type, s.url );
+						
+						// Do send the request
+						// This may raise an exception which is actually
+						// handled in jQuery.ajax (so no try/catch here)
+//						xdr.send( ( s.hasContent && s.data ) || null );
+						// Workaround for IE 9 issue load
+						setTimeout( function() {
+							xdr.send( ( s.hasContent && s.data ) || null );
+						}, 0);
+					},
+					
+					abort: function() {
+						xdr.abort();
+					}
+				};
+			
+			} else {
+				
+				// Use the Proxy
+				var JSONPProxy = getProxyClass( s, jqXHR );
+				
+				return {
+					send: function( headers, complete ) {
+						var xhr = new JSONPProxy();
+						
+						if ( s.username ) {
+							xhr.open( s.type, s.url, s.async, s.username, s.password );
+						} else {
+							xhr.open( s.type, s.url, s.async );
+						}
+						
+						for ( i in headers ) {
+							xhr.setRequestHeader( i, headers[ i ] );
+						}
+						
+						xhr.onerror = function() {
+							complete( -1, "Proxy Error, callback not called");
+						};
+						
+						xhr.send( ( s.hasContent && s.data ) || null );
+						
+						var callback = function() {
+							if (callback && xhr.readyState === 4) {
+								callback = undefined;
+								
+								xhr.onerror = xhr.onreadystatechange = jQuery.noop;
+								
+								complete(xhr.status, xhr.statusText, { text: xhr.responseText }, xhr.getAllResponseHeaders());
+							}
+						};
+						
+						if (xhr.readyState === 4) {
+							callback();
+						} else {
+							xhr.onreadystatechange = callback;
+						}
+					},
+					
+					abort: function( headers, complete ) {
+						xhr.abort();
+					}
+				};
+				
+			}
+			
+		}
+	});
+}
+	
+})( WDN.jQuery );
+WDN.loadedJS["/wdn/templates_3.0/scripts/wdn_ajax.js"]=1;
 WDN.navigation = (function() {
     var expandedHeight = 0;
     var ul_h, lockHover = false;
@@ -10479,7 +10422,7 @@ WDN.tooltip = (function($) {
 					width : {
 						min : 100
 					},
-					'background' : 'url("/wdn/templates_3.0/css/header/images/qtip/defaultBG.png") repeat-x bottom',
+					'background' : 'url("/wdn/templates_3.0/css/header/images/qtip/defaultBG.png") repeat-x bottom #FAF6BD',
 					border : {
 						color : '#f7e77c',
 						width : 2
@@ -13980,11 +13923,6 @@ WDN.tabs = (function() {
 		initialize : function() {
 			var ie7 = document.all && navigator.appVersion.indexOf("MSIE 7.") != -1;
 			//debug statement removed
-			//Detect if the <span> is present. If not, add it
-			WDN.jQuery('ul.wdn_tabs > li > a:not(:has(span))').each(function(){
-				theHTML = WDN.jQuery(this).html();
-				WDN.jQuery(this).html("<span>"+theHTML+"</span>");
-			});
 			
 			// Add yesprint class to list items, to act as a table of contents when printed
 			WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li').each(function(){
@@ -14023,12 +13961,11 @@ WDN.tabs = (function() {
 			// Adds spacing if subtabs are present
 			if (WDN.jQuery('#maincontent ul.wdn_tabs li ul').length) {
 				WDN.jQuery('#maincontent ul.wdn_tabs').css({'margin-bottom':'70px'});
+				if (ie7) {
+					WDN.jQuery('#maincontent ul.wdn_tabs li ul li').css({'display':'inline'});
+				}
 			}
 			
-			// Allows for CSS correction of last tab
-			if (WDN.jQuery.browser.msie) {
-				WDN.jQuery('ul.wdn_tabs > li:last-child').addClass('last');
-			}
 			
 			// If we have some tabs setup the hash stuff
 			if (WDN.jQuery('ul.wdn_tabs:not(.disableSwitching)').length) {
@@ -14136,6 +14073,7 @@ WDN.tabs = (function() {
 			var tabContents = sel.closest('.wdn_tabs_content');
 			tabContents.children().hide();
 			sel.show();
+			sel.find('ul.slides').css({'height':'auto'});
 			
 			if (forceUpdate) {
 				var trig = WDN.jQuery('ul.wdn_tabs li a[href$='+jq(hash)+']');
@@ -14207,7 +14145,8 @@ WDN.socialmediashare = function() {
             try {
             	WDN.jQuery("#wdn_emailthis").children('a').attr({'href': 'mailto:?body=Great%20content%20from%20UNL%3A%0A'+encodeURIComponent(window.location)});
                 WDN.jQuery("#wdn_facebook").children('a').attr({'href': "http://www.facebook.com/share.php?u="+encodeURIComponent(window.location)});
-                WDN.jQuery("#wdn_twitter").children('a').attr({'href': "http://twitter.com/share?text=Great+content+from+%23UNL&related=higher+ed,nebraska,university,big+ten&via=unlnews&url="+encodeURIComponent(window.location)});
+                /* https://dev.twitter.com/docs/tweet-button */
+                WDN.jQuery("#wdn_twitter").children('a').attr({'href': "http://twitter.com/share?text=Great+content+from+%23UNL&via=unlnews&url="+encodeURIComponent(window.location)});
            } catch(f) {}
             
             WDN.jQuery('a#wdn_createGoURL').click(function() {
@@ -14476,131 +14415,115 @@ WDN.loadedJS["/wdn/templates_3.0/scripts/unlalert.js"]=1;
  * @param err [optional] Error message on failure.
  */
 function fetchURLInto(url,id,err) {
-	
-	WDN.get(url,null,function(data, textStatus){
-		
-		if (textStatus=='success') {
-			document.getElementById(id).innerHTML = data;
-		} else {
-			if (undefined === err) {
-				document.getElementById(id).innerHTML = 'Error loading results.';
-			} else {
-				document.getElementById(id).innerHTML = err;
+	WDN.jQuery('#' + id).load(url, function(data, status, jqXHR) {
+		if (jqXHR.isRejected()) {
+			if (err === undefined) {
+				err = 'Error loading results.';
 			}
+			WDN.jQuery(this).html(err);
 		}
+	});
+};
+
+function rotateImg(imgArray,elemId,secs,i) {
+	if (typeof imgArray == "string") {
+		if (window[imgArray] === undefined) {
+			return false;
+		}
+		imgArray = window[imgArray];
+	}
+	
+	if (!imgArray.length) {
+		return false;
+	}
+	
+	var obj = document.getElementById(elemId);
+	if (!obj) {
+		return false;
 	}
 
-	);
-}
-
-function rotateImg(imgArray_str,elementId_str,secs_int,thisNum_int){
-	function showIt() {
+	if (i === undefined) {
+		i = Math.floor(Math.random() * imgArray.length);
+	}
+	if (i >= imgArray.length) {
+		i = 0;
+	}
+	
+	if (!!imgArray[i]) {
 		try {
+			if (imgArray[i][0]) {
+				obj.src = imgArray[i][0];
+			}
 			
-			if (obj.src !== null && eval(imgArray_str+"["+thisNum_int+"][0]")!==null) {
-				obj.src=eval(imgArray_str+"["+thisNum_int+"][0]");
+			if (imgArray[i][1]) {
+				obj.alt = imgArray[i][1];
 			}
-			if (obj.alt !== null && eval(imgArray_str+"["+thisNum_int+"][1]")!==null) {
-				obj.alt=eval(imgArray_str+"["+thisNum_int+"][1]");
-			}
-			if (obj.parentNode.href!==null && eval(imgArray_str+"["+thisNum_int+"][2]")!==null) {
-				obj.parentNode.href=eval(imgArray_str+"["+thisNum_int+"][2]");
-				if (eval(imgArray_str+"["+thisNum_int+"][3]")!==null) {
-					var clickEvent = eval(imgArray_str+"["+thisNum_int+"][3]");
-					obj.parentNode.onclick=function() {eval(clickEvent);};
+			
+			if (obj.parentNode.href && imgArray[i][2]) {
+				obj.parentNode.href = imgArray[i][2];
+				if (imgArray[i][3]) {
+					obj.parentNode.onclick = function() {
+						eval("(" + imgArray[i][3] + ")");
+					};
 				} else {
-					obj.parentNode.onclick=null;
+					obj.parentNode.onclick = null;
 				}
 			} else {
-				obj.parentNode.href='#';
+				obj.parentNode.href = "#";
 			}
-		} catch(e) {}
+		} catch (e) {
+			return false;
+		}
 	}
 	
-	if (thisNum_int == undefined) {
-		thisNum_int=Math.floor(Math.random()*eval(imgArray_str+".length"));
-	}
-	if (thisNum_int >= eval(imgArray_str+".length")) {
-		thisNum_int = 0;
-	}
-	if (eval(imgArray_str+"["+thisNum_int+"]") !== null) {
-		// Try and set img
-		var obj = document.getElementById(elementId_str);
-		
-		showIt();
-	}
-	thisNum_int++;
-	if (secs_int>0) {
-		return setTimeout("rotateImg('"+imgArray_str+"','"+elementId_str+"',"+secs_int+","+thisNum_int+")",secs_int*1000);
+	i++;
+	
+	if (secs > 0) {
+		return setTimeout(function() {
+			rotateImg(imgArray, elemId, secs, i);
+		}, secs * 1000);
 	}
 	
 	return true;
-}
-
-function newRandomPromo(xmluri){
-	var promoContent = new WDN.proxy_xmlhttp();
-	promoContent.open("GET", xmluri, true);
-	promoContent.onreadystatechange = function(){
-		if (promoContent.readyState == 4) {
-			if (promoContent.status == 200) {
-				var xmlObj = promoContent.responseXML.documentElement;
-				var promoNum = xmlObj.getElementsByTagName('promo').length;	
-				//generates random number
-				var aryId=Math.floor(Math.random()*promoNum);
-				
-				//pull promo data
-				var contentContainer = xmlObj.getElementsByTagName('contentContainer')[0].childNodes[0].nodeValue;
-				var promoTitle = xmlObj.getElementsByTagName('promo')[aryId].getAttribute("id");
-				var promoMediaType = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('media')[0].getAttribute("type");
-				var promoText = ' ';
-				try {
-					var promoMediaURL = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('media')[0].childNodes[0].nodeValue;
-					promoText = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('text')[0].childNodes[0].nodeValue;
-				} catch(e) {
-					promoText = ' ';
-				}
-				var promoLink = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('link')[0].childNodes[0].nodeValue;
-				
-				//different mime type embed
-				if (promoMediaType == 'image') {
-					document.getElementById(contentContainer).innerHTML = '<a class="imagelink" href="' + promoLink + '" title="' + promoTitle + '" /><img src="' + promoMediaURL + '" alt="promo" class="frame" /></a>\n<p>' + promoText + '</p>\n';
-				} else if (promoMediaType == 'flash') {
-					document.getElementById(contentContainer).innerHTML = '<div class="image_small_short">\n<object width="210" height="80" wmode="opaque"><param name="movie" value="' + promoMediaURL + '"><embed src="' + promoMediaURL + '" width="210" height="80"></embed></object>\n</div>\n<p>' + promoText +'</p>\n';
-				}
-			} else {
-				// Error loading file!
-			}
-		}
-		promoContent = new XMLHTTP();
-	};
-	promoContent.send(null);
-}
-
-function addLoadEvent(func){
-	WDN.jQuery(document).ready(func);
-}
-
-var wraphandler = {
-
-	addEvent: function( obj, type, fn ) {
-		if ( obj.attachEvent ) {
-			obj['e'+type+fn] = fn;
-			obj[type+fn] = function(){obj['e'+type+fn]( window.event );};
-			obj.attachEvent( 'on'+type, obj[type+fn] );
-		} else {
-			obj.addEventListener( type, fn, false );
-		}
-	}
-
 };
 
-var XMLHTTP=WDN.proxy_xmlhttp;
+function newRandomPromo(xmluri) {
+	WDN.jQuery.get(xmluri, function(data) {
+		var xmlObj = data.documentElement;
+		var promoNum = xmlObj.getElementsByTagName('promo').length;	
+		//generates random number
+		var aryId=Math.floor(Math.random()*promoNum);
+		
+		//pull promo data
+		var contentContainer = xmlObj.getElementsByTagName('contentContainer')[0].childNodes[0].nodeValue;
+		var promoTitle = xmlObj.getElementsByTagName('promo')[aryId].getAttribute("id");
+		var promoMediaType = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('media')[0].getAttribute("type");
+		var promoText = ' ';
+		try {
+			var promoMediaURL = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('media')[0].childNodes[0].nodeValue;
+			promoText = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('text')[0].childNodes[0].nodeValue;
+		} catch(e) {
+			promoText = ' ';
+		}
+		var promoLink = xmlObj.getElementsByTagName('promo')[aryId].getElementsByTagName('link')[0].childNodes[0].nodeValue;
+		
+		//different mime type embed
+		if (promoMediaType == 'image') {
+			document.getElementById(contentContainer).innerHTML = '<a class="imagelink" href="' + promoLink + '" title="' + promoTitle + '" /><img src="' + promoMediaURL + '" alt="promo" class="frame" /></a>\n<p>' + promoText + '</p>\n';
+		} else if (promoMediaType == 'flash') {
+			document.getElementById(contentContainer).innerHTML = '<div class="image_small_short">\n<object width="210" height="80" wmode="opaque"><param name="movie" value="' + promoMediaURL + '"><embed src="' + promoMediaURL + '" width="210" height="80"></embed></object>\n</div>\n<p>' + promoText +'</p>\n';
+		}
+	}, 'xml');
+};
 
- function stripe(id) {
-	 WDN.jQuery('#'+id).addClass('zentable');
-	 WDN.browserAdjustments();
-  }
+function addLoadEvent(func) {
+	WDN.jQuery(document).ready(func);
+};
 
+function stripe(id) {
+	WDN.jQuery('#'+id).addClass('zentable');
+	WDN.browserAdjustments();
+};
 
 WDN.loadedJS["/wdn/templates_3.0/scripts/global_functions.js"]=1;
 WDN.mobile_detect = function() {

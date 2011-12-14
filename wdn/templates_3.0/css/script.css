@@ -78,14 +78,6 @@ ul#wdn_tool_links li {
 -moz-border-radius: 3px;
 -webkit-border-radius: 3px;
 }
-ul.wdn_tabs span sup {
--moz-border-radius: 15px;
--webkit-border-radius: 15px;
-}
-#maincontent ul.wdn_tabs li ul li {
--moz-border-radius: 5px; 
--webkit-border-radius: 5px; 
-}
 
 /* ZENTABLE AND ZENBOXES*/
 .zentable tbody tr:nth-child(odd) td, .zentable.bright tbody tr:nth-child(odd) td {background-color: #FFFDDF;}

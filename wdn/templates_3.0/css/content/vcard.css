@@ -66,6 +66,7 @@
     padding-left:5px;
     margin:5px 0;
     display:inline-block;
+    max-width:80%;
 }
 .vcard .adr .type, .departmentInfo .adr .type {
 	background:#e8f2f7;

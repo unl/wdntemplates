@@ -31,7 +31,7 @@ WDN.tooltip = (function($) {
 					width : {
 						min : 100
 					},
-					'background' : 'url("/wdn/templates_3.0/css/header/images/qtip/defaultBG.png") repeat-x bottom',
+					'background' : 'url("/wdn/templates_3.0/css/header/images/qtip/defaultBG.png") repeat-x bottom #FAF6BD',
 					border : {
 						color : '#f7e77c',
 						width : 2
