@@ -1,6 +1,12 @@
 /* General Template Settings
 **********************************/
-body {text-rendering:auto;}
+html, body {
+    height: 100%;
+}
+body {
+    text-rendering:auto;
+    display: -webkit-box;
+}
 body.mobile #wdn_wrapper {
     border:none;
     background:none;
@@ -11,7 +17,9 @@ body.mobile #wdn_wrapper {
     -webkit-box-shadow:none;
     -moz-box-shadow:none;
     box-shadow:none;
-    overflow:hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-box-flex: 1;
 }
 body.mobile #breadcrumbs,
 body.mobile #wdn_tool_links,
@@ -133,15 +141,6 @@ body.mobile #navigation.primary:before, body.mobile #navigation.secondary:before
 }
 body.mobile #navigation.disabled:before {
     content: '';	
-}
-body.mobile #wdn_navigation_wrapper > a {
-    position:absolute;
-    z-index:11;
-    padding:4px;
-    top:3px;
-    left:3px;
-    cursor:pointer;	
-    text-shadow:0px 1px 1px #333;
 }
 body.mobile #navigation {
     background: #b70302; /* Old browsers */
