@@ -44,6 +44,9 @@
     text-decoration: none;
     color: #555;
 }
+#titlegraphic h1.with-sub {
+	top: 3px;
+}
 #titlegraphic h1 span {
     display:block;
     font-size:25%;
