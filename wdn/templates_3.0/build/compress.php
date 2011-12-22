@@ -172,7 +172,7 @@ EOD;
         $all = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $all);
         // remove tabs, spaces, newlines, etc.
         $all = str_replace(array("\r\n", "\r", "\n", "\t"), '', $all);
-        $all = str_replace(array('  ', '    ', '    '), ' ', $all);
+        $all = str_replace(array('    ', '   ', '  '), ' ', $all);
         $all = str_replace(', ', ',', $all);
 
         file_put_contents("{$outDir}/{$outFile}.css", $all);
