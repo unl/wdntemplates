@@ -167,7 +167,7 @@ body.mobile #navigation.disabled {
 }
 body.mobile #navigation ul {
 	position:absolute;
-	left:100%;
+	left:110%;
 	top:100%;
 	width:100%;
 	text-align:left;
