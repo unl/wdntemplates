@@ -479,24 +479,23 @@ mobile_support = function() {
 						}
 					}
 					secondaryNav.getElementsByTagName('ul')[0].style.left = 0;
-					navNav.className = 'secondary';
+					navigation.className = 'secondary';
 				},
 				
 				setupNavNav : function() {
-					navNav = document.createElement('a');
-					navNav.setAttribute('id', 'navNav');
-					navNav.innerHTML = 'Back';
-					navNav.className = 'primary';
-					document.getElementById('wdn_navigation_wrapper').insertBefore(navNav, navigation);
-					navNav.onclick = function(){
-						mobile_support.enhanceNavigation.traverseNavigation(navNav);
+					navigation.className = 'primary';
+					navigation.onclick = function(){
+						mobile_support.enhanceNavigation.traverseNavigation(navigation);
 					};
 				},
 				
 				traverseNavigation : function() {
-					if (navNav.className == 'primary') { //we're showing the primary nav, so close it
+					if (navigation.className == 'primary') { //we're showing the primary nav, so close it
 						primaryNav.style.left = '110%';
-						navNav.parentNode.removeChild(navNav);
+						navigation.className = '';
+						navigation.onclick = function(){
+						    mobile_support.enhanceNavigation.showPrimary(navigation.getElementsByTagName('ul')[0]);
+						};
 					} else { // we're showing the secondary nav, close it and trigger primary
 						var i = 0;
 						for(i=0;i<=secondaryNavs.length;i++){
@@ -504,7 +503,7 @@ mobile_support = function() {
 								secondaryNavs[i].style.left = '100%';
 							}
 						};
-						navNav.className = 'primary';
+						navigation.className = 'primary';
 					}
 				}
 			};

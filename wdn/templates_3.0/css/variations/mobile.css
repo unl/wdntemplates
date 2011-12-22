@@ -126,7 +126,10 @@ body.mobile #wdn_navigation_wrapper > a, body.mobile #navigation:before {
 	box-shadow: inset 1px 1px 2px 0px #df7a7a;
 }
 body.mobile #navigation:before {
-    content: 'Site Navigation \002B';	
+    content: 'Navigation \002B';	
+}
+body.mobile #navigation.primary:before, body.mobile #navigation.secondary:before {
+    content: 'Back';	
 }
 body.mobile #navigation.disabled:before {
     content: '';	
