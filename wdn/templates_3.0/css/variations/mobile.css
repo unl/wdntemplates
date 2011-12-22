@@ -239,8 +239,20 @@ body.mobile #navigation > ul > li:hover ul {
 }
 /* End Navigation */
 
-body.mobile #titlegraphic {
-    display:none;	
+body.mobile #titlegraphic h1 {
+    font-size: 0.75em;
+    color: #fff;
+    top: 56px;
+    left: 3px;
+    text-shadow: none;
+    font-family: Helvetica,"Lucida Grande",Verdana,Arial;
+    padding: 0;
+    width: 175px;
+    line-height: 120%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    letter-spacing: 0;
 }
 body.mobile #pagetitle {
     margin:0.5em 0 0 3px;
