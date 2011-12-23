@@ -7,14 +7,14 @@
     display: inline-block;
     margin-top: -2px;
 }
-#breadcrumbs /* DESIGNTIME */ > a {
+#breadcrumbs > a {
     display:none;	
 }
-#breadcrumbs /* DESIGNTIME */ > ul {
+#breadcrumbs > ul {
     list-style: none;
     display: inline-block;
 }
-#breadcrumbs /* DESIGNTIME */ > ul > li {
+#breadcrumbs > ul > li {
     float: left;
     padding: 5px 5px 6px 8px;
     color: #686868; /* @TODO need to check contrast */
@@ -23,25 +23,25 @@
     z-index: 2;
     background: #eee;
 }
-#breadcrumbs /* DESIGNTIME */ > ul > li > a {
+#breadcrumbs > ul > li > a {
     padding-right: 11px;
     font-weight: bold;
     background: url('images/2011_breadcrumb_li.png') no-repeat right 3px;
 }
-#breadcrumbs /* DESIGNTIME */ > ul > li:first-child {
+#breadcrumbs > ul > li:first-child {
     border-radius: 3px 0 0 3px; 
     -webkit-border-radius: 3px 0 0 3px;
     -moz-border-radius: 3px 0 0 3px; 
 }
-#breadcrumbs /* DESIGNTIME */ > ul > li.last-link {
+#breadcrumbs > ul > li.last-link {
     border-radius: 0 3px 3px 0; 
     -webkit-border-radius: 0 3px 3px 0;
     -moz-border-radius: 0 3px 3px 0;
 }
-#breadcrumbs /* DESIGNTIME */ > ul > li.last-link ~ li { /* This is the non-link element */
+#breadcrumbs > ul > li.last-link ~ li { /* This is the non-link element */
     background: none;
 }
-#breadcrumbs /* DESIGNTIME */ > ul > li.selected    {
+#breadcrumbs > ul > li.selected    {
     margin: 0;
     padding: 5px 3px 3px 6px;
     border: 2px solid #f1f1f1;
@@ -53,13 +53,13 @@
     box-shadow: 1px 1px 1px #cccccc;
     z-index: 3;
 }
-#breadcrumbs /* DESIGNTIME */ > ul > li > a, 
-#breadcrumbs /* DESIGNTIME */ > ul > li > a:link, 
-#breadcrumbs /* DESIGNTIME */ > ul > li > a:visited {
+#breadcrumbs > ul > li > a, 
+#breadcrumbs > ul > li > a:link, 
+#breadcrumbs > ul > li > a:visited {
     text-decoration: none;
     color: #686868; /* @TODO need to check contrast */
 }
-#breadcrumbs /* DESIGNTIME */ > ul > li.selected > a{
+#breadcrumbs > ul > li.selected > a{
     color: #ac0302;
     background-position: right -13px;
 }
