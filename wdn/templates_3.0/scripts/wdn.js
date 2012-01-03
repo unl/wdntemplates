@@ -200,7 +200,7 @@ var WDN = (function() {
 					WDN.jQuery(this).width(imgWidth);
 				}
 			});
-			WDN.jQuery('#titlegraphic h1 span').parent('h1').css({'top':'3px'});
+			WDN.jQuery('#titlegraphic h1 span').parent('h1').addClass('with-sub');
 			//remove the dotted line underneath images that are links
 			WDN.jQuery('#maincontent a img, #footer a img').each(function(j){
 				WDN.jQuery(this).parent('a').addClass('imagelink');

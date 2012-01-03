@@ -1,13 +1,13 @@
 #!/bin/sh
-zip -r wdn.zip wdn -x "*/.svn/*"
+zip -r downloads/wdn.zip wdn -x "*/.git*"
 echo "Done building the wdn.zip file."
 
-zip -r UNLTemplates.zip Templates sharedcode -x "*/.svn/*"
+zip -r downloads/UNLTemplates.zip Templates sharedcode -x "*/.git*"
 echo "Done building the UNLTemplates.zip file."
 
-zip -r affiliatepsds.zip designfiles/affiliate -x "*/.svn/*"
+zip -r downloads/affiliatepsds.zip designfiles/affiliate -x "*/.git*"
 echo "Done building the affiliatepsds.zip file."
 
-echo "Now running svn status *.zip"
-svn status *.zip
-echo "Any modified files are ready to be committed with svn commit *.zip"
+echo "Now running git status *.zip"
+git status *.zip
+echo "Any modified files are ready to be committed with git commit *.zip"
