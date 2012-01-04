@@ -45,7 +45,7 @@
                 <!-- TemplateEndEditable -->
             </nav>
             <div id="wdn_navigation_wrapper">
-                <nav role="navigation">
+                <nav id="navigation" role="navigation">
                     <h3 class="wdn_list_descriptor hidden">Navigation</h3>
                     <!-- TemplateBeginEditable name="navlinks" -->
                     <!--#include virtual="../sharedcode/navigation.html" -->
