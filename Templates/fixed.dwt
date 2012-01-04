@@ -29,7 +29,7 @@
 <body class="fixed">
     <nav class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </nav>
     <div id="wdn_wrapper">
-        <header role="banner"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+        <header id="header" role="banner"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
             <h1>University of Nebraska&ndash;Lincoln</h1>
             <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
         </header>
@@ -72,7 +72,7 @@
                 <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
-            <footer>
+            <footer id="footer">
                 <div id="footer_floater"></div>
                 <div class="footer_col">
                     <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
