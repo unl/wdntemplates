@@ -25,8 +25,9 @@
 <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <!-- TemplateEndEditable -->
+<!-- TemplateParam name="class" type="text" value="fixed" -->
 </head>
-<body class="fixed">
+<body class="@@(_document['class'])@@">
     <nav class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </nav>
     <div id="wdn_wrapper">
         <header id="header" role="banner"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
