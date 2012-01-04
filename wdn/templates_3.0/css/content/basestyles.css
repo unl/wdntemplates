@@ -1,15 +1,11 @@
 /* Base styles for the maincontent, overriding the css-reset */
 
-#wdn_content_wrapper {
-    float:left;
-}
 #maincontent {
     position: relative;
     text-align: left;
     font-size: 77%;
     line-height:140%;
     color: #333;
-    float: left;
     margin-bottom: 50px;
 }
 

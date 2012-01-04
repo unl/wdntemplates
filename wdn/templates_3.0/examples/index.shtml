@@ -1,6 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
 <!--
     Membership and regular participation in the UNL Web Developer Network
     is required to use the UNL templates. Visit the WDN site at 
@@ -13,13 +14,12 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: fixed.dwt 536 2009-07-23 15:47:30Z bbieber2 $
+    $Id$
 -->
 <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
 <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
 <script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
 <!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
-<!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>UNL | WDN | Template Examples</title>
 <!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
@@ -29,152 +29,156 @@
 <!-- InstanceEndEditable -->
 </head>
 <body class="fixed">
-<p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
-<div id="wdn_wrapper">
-    <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
-        <h1>University of Nebraska&ndash;Lincoln</h1>
-        <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
-    </div>
-    <div id="wdn_navigation_bar">
-        <div id="breadcrumbs">
-            <!-- WDN: see glossary item 'breadcrumbs' -->
-            <!-- InstanceBeginEditable name="breadcrumbs" -->
-            <ul>
-                <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
-                <li><a id="wdnlink" href="http://wdn.unl.edu/">Web Developer Network</a></li>
-                <li>Template Examples</li>
-            </ul>
-            <!-- InstanceEndEditable --></div>
-        <div id="wdn_navigation_wrapper">
-            <div id="navigation"><!-- InstanceBeginEditable name="navlinks" -->
-                <!-- InstanceEndEditable --></div>
-        </div>
-    </div>
-    <div id="wdn_content_wrapper">
-        <div id="titlegraphic"><!-- InstanceBeginEditable name="titlegraphic" -->
-            <h1>Web Developer Network</h1>
-            <script type="text/javascript">
-            WDN.get('http://www1.unl.edu/wdn/templates_3.0/scripts/navigationSniffer.php?u=http://wdn.unl.edu/', null, function(data){WDN.navigation.setNavigationContents(data);});
-            </script>
-            <!-- InstanceEndEditable --></div>
-        <div id="pagetitle"><!-- InstanceBeginEditable name="pagetitle" --><h2>Template Examples</h2><!-- InstanceEndEditable --></div>
-        <div id="maincontent">
-            <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-            <!-- InstanceBeginEditable name="maincontentarea" -->
-            <script type="text/javascript"><!--
-            
-            WDN.jQuery(function($){
-                var cache = { '' : ' ' };
-                var loadExample = function(data) {
-                	$('#example').html(data);
-                    $('#example_code').val(data);
-                    WDN.tooltip.tooltipSetup();
-                    WDN.tabs.initialize();
-                };
-                
-                var lastHash;
-                $(window).bind('hashchange' ,function(e) {
-                    var url = location.hash.replace('#', '');
-                    if (!url.match(/\.html$/i) || url == lastHash) {
-                    	return true;
-                    }
-                    lastHash = url;
-                    WDN.log("we have a hash: "+url);
-
-                    if (url && !cache[url]) {
-	                    WDN.get('./'+url, null, function(data, textStatus) {
-	                        if (textStatus == 'success') {
-		                        cache[url] = data;
-	                            loadExample(data);
-	                        }
-	                    });
-                    } else if (url) {
-                        loadExample(cache[url]);
-                    }
-                });
-                
-                $("#examples a:not(.external)").click(function(e){
-                    e.preventDefault();
-                    window.location.hash = WDN.jQuery(this).attr('href'); //this.href returns the whole URL
-                });
-
-                $(window).trigger('hashchange');
-            });
-            --></script>
-            <div class="col left">
-                <p>Choose an example to view:</p>
-                <ul id="examples">
-                	<li><a href="audioplayer.html">Audio player</a> (mediahub.unl.edu)</li>
-                    <li><a href="carousel.html">Carousel</a> (<a href="http://www1.unl.edu/wdn/wiki/Carousel" class="external">wiki documentation</a>)</li>
-                    <li><a href="colorbox.html">Colorbox (Modal Box)</a></li>
-                    <li><a href="events.html">Events</a> (<a href="http://www1.unl.edu/wdn/wiki/Extracting_Data_From_The_Calendar" class="external">wiki documentation</a>)</li>
-                    <li><a href="formvalidator.html">Form Validator</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Validation" class="external">wiki documentation</a>)</li>
-                    <li><a href="forms.html">Forms</a> (<a href="http://www1.unl.edu/wdn/wiki/Template_Form_Styling" class="external">wiki documentation</a>)</li>
-                    <li><a href="headers.html">Header Styles</a></li>
-                    <li><a href="idm.html">Identity Management/Single Sign On</a></li>
-                    <li><a href="image.html">Image Style and Caption</a></li>
-                    <li><a href="notice.html">Notice</a></li>
-                    <li><a href="layouts.html">Page Layouts</a></li>
-                    <li><a href="pagination.html">Pagination</a> (<a href="http://www1.unl.edu/wdn/wiki/Pagination" class="external">wiki documentation</a>)</li>
-                    <li><a href="randomizer.html">Randomizer</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Random_Div_Display" class="external">wiki documentation</a>)</li>
-                    <li><a href="tabs.html">Tabs</a> (<a href="http://www1.unl.edu/wdn/wiki/Tabbed_Content_Areas" class="external">wiki documentation</a>)</li>
-                    <li><a href="tooltips.html">Tooltips</a></li>
-                    <li><a href="videoplayer.html">Video player</a> (mediahub.unl.edu)</li>
-                    <li><a href="zenboxes.html">Zenboxes</a> (<a href="http://www1.unl.edu/wdn/wiki/Zenbox" class="external">wiki documentation</a> wiki documentaiton)</li>
-                    <li><a href="zenforms.html">Zenforms</a> (<a href="http://www1.unl.edu/wdn/wiki/Zenform" class="external">wiki documentation</a>)</li>
-                    <li><a href="zentables.html">Zentables</a></li>
-                   </ul>
-            </div>
-            <div class="three_col right">
-                Source code:<br />
-                <textarea id="example_code" rows="10" cols="85" onclick="this.select(); return false;"></textarea>
-            </div>
-            <div id="example" class="four_col left" style="margin-top:8px;">
-            </div>
-            <!-- InstanceEndEditable -->
-            <div class="clear"></div>
-            <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
-            <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
-        </div>
-        <div id="footer">
-            <div id="footer_floater"></div>
-            <div class="footer_col">
-                <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
-            </div>
-            <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
-                <h3>Related Links</h3>
+    <nav class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </nav>
+    <div id="wdn_wrapper">
+        <header role="banner"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+            <h1>University of Nebraska&ndash;Lincoln</h1>
+            <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
+        </header>
+        <div id="wdn_navigation_bar">
+            <nav id="breadcrumbs">
+                <!-- WDN: see glossary item 'breadcrumbs' -->
+                <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
+                <!-- TemplateBeginEditable name="breadcrumbs" -->
                 <ul>
-                    <li class="first"><a href="http://ucomm.unl.edu/">University Communications</a>
-                        <ul>
-                            <li><a href="http://ucomm.unl.edu/resources.shtml">Print Resources </a></li>
-                        </ul>
-                    </li>
-                    <li><a href="http://www.unl.edu/ucomm/chancllr/">Office of the Chancellor</a>  </li>
-                
-                    <li><a class="external" href="http://ucommdev.unl.edu/webdev/community/profile.php?mode=register" title="To become a WDN member, register on the bulletin board.">Bulletin Board Registration</a></li>
+                    <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
+                    <li id="wdnlink"><a href="http://wdn.unl.edu/">Web Developer Network</a></li>
+                    <li>Template Examples</li>
                 </ul>
-                <!-- InstanceEndEditable --></div>
-            <div class="footer_col"><!-- InstanceBeginEditable name="contactinfo" -->
-                <h3>Contacting Us</h3>
-                <p>
-                The WDN is coordinated by:<br />
-                <strong>University Communications</strong><br />
-                Internet and Interactive Media<br />
-                WICK 17<br />
-                Lincoln NE 68583-0218</p>
-                <!-- InstanceEndEditable --></div>
-            <div class="footer_col">
-                <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+                <!-- TemplateEndEditable -->
+            </nav>
+            <div id="wdn_navigation_wrapper">
+                <nav role="navigation">
+                    <h3 class="wdn_list_descriptor hidden">Navigation</h3>
+                    <!-- TemplateBeginEditable name="navlinks" -->
+                    <script type="text/javascript">
+                    WDN.get('http://www1.unl.edu/wdn/templates_3.0/scripts/navigationSniffer.php?u=http://wdn.unl.edu/', null, function(data){WDN.navigation.setNavigationContents(data);});
+                    </script>
+                    <!-- TemplateEndEditable -->
+                </nav>
             </div>
-            <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
-            <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
-                <!--#include virtual="/sharedcode/footer.html" -->
+        </div>
+        <div id="wdn_content_wrapper">
+            <div id="titlegraphic"><!-- InstanceBeginEditable name="titlegraphic" -->
+                <h1>Web Developer Network</h1>
+                <!-- InstanceEndEditable --></div>
+            <div id="pagetitle"><!-- InstanceBeginEditable name="pagetitle" --><h2>Template Examples</h2><!-- InstanceEndEditable --></div>
+            <div id="maincontent" role="main">
+                <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+                <!-- InstanceBeginEditable name="maincontentarea" -->
+                <script type="text/javascript"><!--
+                
+                WDN.jQuery(function($){
+                    var cache = { '' : ' ' };
+                    var loadExample = function(data) {
+                    	$('#example').html(data);
+                        $('#example_code').val(data);
+                        WDN.tooltip.tooltipSetup();
+                        WDN.tabs.initialize();
+                    };
+                    
+                    var lastHash;
+                    $(window).bind('hashchange' ,function(e) {
+                        var url = location.hash.replace('#', '');
+                        if (!url.match(/\.html$/i) || url == lastHash) {
+                        	return true;
+                        }
+                        lastHash = url;
+                        WDN.log("we have a hash: "+url);
+    
+                        if (url && !cache[url]) {
+    	                    WDN.get('./'+url, null, function(data, textStatus) {
+    	                        if (textStatus == 'success') {
+    		                        cache[url] = data;
+    	                            loadExample(data);
+    	                        }
+    	                    });
+                        } else if (url) {
+                            loadExample(cache[url]);
+                        }
+                    });
+                    
+                    $("#examples a:not(.external)").click(function(e){
+                        e.preventDefault();
+                        window.location.hash = WDN.jQuery(this).attr('href'); //this.href returns the whole URL
+                    });
+    
+                    $(window).trigger('hashchange');
+                });
+                --></script>
+                <div class="col left">
+                    <p>Choose an example to view:</p>
+                    <ul id="examples">
+                    	<li><a href="audioplayer.html">Audio player</a> (mediahub.unl.edu)</li>
+                        <li><a href="carousel.html">Carousel</a> (<a href="http://www1.unl.edu/wdn/wiki/Carousel" class="external">wiki documentation</a>)</li>
+                        <li><a href="colorbox.html">Colorbox (Modal Box)</a></li>
+                        <li><a href="events.html">Events</a> (<a href="http://www1.unl.edu/wdn/wiki/Extracting_Data_From_The_Calendar" class="external">wiki documentation</a>)</li>
+                        <li><a href="formvalidator.html">Form Validator</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Validation" class="external">wiki documentation</a>)</li>
+                        <li><a href="forms.html">Forms</a> (<a href="http://www1.unl.edu/wdn/wiki/Template_Form_Styling" class="external">wiki documentation</a>)</li>
+                        <li><a href="headers.html">Header Styles</a></li>
+                        <li><a href="idm.html">Identity Management/Single Sign On</a></li>
+                        <li><a href="image.html">Image Style and Caption</a></li>
+                        <li><a href="notice.html">Notice</a></li>
+                        <li><a href="layouts.html">Page Layouts</a></li>
+                        <li><a href="pagination.html">Pagination</a> (<a href="http://www1.unl.edu/wdn/wiki/Pagination" class="external">wiki documentation</a>)</li>
+                        <li><a href="randomizer.html">Randomizer</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Random_Div_Display" class="external">wiki documentation</a>)</li>
+                        <li><a href="tabs.html">Tabs</a> (<a href="http://www1.unl.edu/wdn/wiki/Tabbed_Content_Areas" class="external">wiki documentation</a>)</li>
+                        <li><a href="tooltips.html">Tooltips</a></li>
+                        <li><a href="videoplayer.html">Video player</a> (mediahub.unl.edu)</li>
+                        <li><a href="zenboxes.html">Zenboxes</a> (<a href="http://www1.unl.edu/wdn/wiki/Zenbox" class="external">wiki documentation</a> wiki documentaiton)</li>
+                        <li><a href="zenforms.html">Zenforms</a> (<a href="http://www1.unl.edu/wdn/wiki/Zenform" class="external">wiki documentation</a>)</li>
+                        <li><a href="zentables.html">Zentables</a></li>
+                       </ul>
+                </div>
+                <div class="three_col right">
+                    Source code:<br />
+                    <textarea id="example_code" rows="10" cols="85" onclick="this.select(); return false;"></textarea>
+                </div>
+                <div id="example" class="four_col left" style="margin-top:8px;">
+                </div>
                 <!-- InstanceEndEditable -->
-                <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
-                | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a> <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
+                <div class="clear"></div>
+                <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
+                <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+            </div>
+            <footer>
+                <div id="footer_floater"></div>
+                <div class="footer_col">
+                    <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
+                </div>
+                <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
+                    <h3>Related Links</h3>
+                    <ul>
+                        <li class="first"><a href="http://ucomm.unl.edu/">University Communications</a>
+                            <ul>
+                                <li><a href="http://ucomm.unl.edu/resources.shtml">Print Resources </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="http://www.unl.edu/ucomm/chancllr/">Office of the Chancellor</a>  </li>
+                    
+                        <li><a class="external" href="http://ucommdev.unl.edu/webdev/community/profile.php?mode=register" title="To become a WDN member, register on the bulletin board.">Bulletin Board Registration</a></li>
+                    </ul>
+                    <!-- TemplateEndEditable --></div>
+                <div class="footer_col"><!-- TemplateBeginEditable name="contactinfo" -->
+                    <h3>Contacting Us</h3>
+                    <p>
+                    The WDN is coordinated by:<br />
+                    <strong>University Communications</strong><br />
+                    Internet and Interactive Media<br />
+                    WICK 17<br />
+                    Lincoln NE 68583-0218</p>
+                    <!-- TemplateEndEditable --></div>
+                <div class="footer_col">
+                    <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+                </div>
+                <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
+                <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
+                    <!-- TemplateEndEditable -->
+                    &copy; 2012 University of Nebraska–Lincoln | Lincoln, NE 68588 | 402-472-7211
+                    <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
+                </div>
+            </footer>
         </div>
     </div>
-    <div id="wdn_wrapper_footer"> </div>
-</div>
 </body>
 <!-- InstanceEnd --></html>
