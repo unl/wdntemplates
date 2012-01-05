@@ -1,6 +1,6 @@
 #!/bin/sh
 echo 'Compressing Desktop and Mobile CSS and JS'
-php wdn/templates_3.0/build/compress.php
+php build/compress.php
 
 echo 'Done'
 

@@ -14,6 +14,12 @@ class UNL_WDNTemplates_Compressor
 
 EOD;
 
+    protected $_srcDir = '../';
+
+    protected $_templateDir = 'wdn/templates_3.0/';
+
+    protected $_templatePath = '/';
+
     protected $_jsFiles = array(
         'jquery',
         'wdn',
@@ -92,7 +98,7 @@ EOD;
 
     public function buildJs($mobile = false)
     {
-        $outDir = realpath(dirname(__FILE__) . '/../scripts');
+        $outDir = realpath(dirname(__FILE__) . "/{$this->_srcDir}{$this->_templateDir}scripts");
         $outFile = $mobile ? 'mobile' : 'all';
         $files = $mobile ? $this->_mobileJsFiles : $this->_jsFiles;
         $all = '';
@@ -103,13 +109,13 @@ EOD;
 
             if ($file == 'wdn') {
                 if (!$mobile) {
-                    $all .= 'WDN.jQuery = jQuery.noConflict(true);WDN.loadedJS["/wdn/templates_3.0/scripts/jquery.js"]=1;';
+                    $all .= PHP_EOL . 'WDN.jQuery = jQuery.noConflict(true);WDN.loadedJS["' . $this->_templatePath . $this->_templateDir . 'scripts/jquery.js"]=1;';
                 }
-                $all .= 'WDN.template_path = "/";' . PHP_EOL;
+                $all .= 'WDN.template_path = "' . $this->_templatePath . '";' . PHP_EOL;
             }
 
             if ($file !== 'jquery') {
-                $all .= 'WDN.loadedJS["/wdn/templates_3.0/scripts/' . $file . '.js"]=1;' . PHP_EOL;
+                $all .= 'WDN.loadedJS["' . $this->_templatePath . $this->_templateDir . 'scripts/' . $file . '.js"]=1;' . PHP_EOL;
             }
         }
 
@@ -153,7 +159,7 @@ EOD;
 
     public function buildCss($mobile = false)
     {
-        $outDir = realpath(dirname(__FILE__) . '/../css');
+        $outDir = realpath(dirname(__FILE__) . "/{$this->_srcDir}{$this->_templateDir}css");
         $outFile = $mobile ? 'mobile' : 'all';
         $files = $mobile ? $this->_mobileCssFiles : $this->_cssFiles;
         $all = '';
