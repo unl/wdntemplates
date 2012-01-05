@@ -24,7 +24,8 @@
 <!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>UNL | Department | New Page</title>
-<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <!-- TemplateEndEditable -->
 </head>
