@@ -10,7 +10,7 @@
     padding: 12px;
     background: url('images/topRightCorner.png') top right no-repeat;
 }
-ul#wdn_tool_links li {
+#wdn_tool_links li {
     display: inline;
     list-style: none;
     border: 2px solid #e0e0e0;
@@ -20,10 +20,10 @@ ul#wdn_tool_links li {
     margin: 0 2px;
     background-color: #fff;
 }
-ul#wdn_tool_links li:last-child {
+#wdn_tool_links li:last-child {
     margin-right: 0;
 }
-ul#wdn_tool_links li.focus {
+#wdn_tool_links li.focus {
     border-color: #cba166;
     background: #f1e887;
 }

@@ -6,6 +6,8 @@ html, body {
 body {
     text-rendering:auto;
     display: -webkit-box;
+    display: -moz-box;
+    display: box;
 }
 body.mobile #wdn_wrapper {
     border:none;
@@ -20,6 +22,8 @@ body.mobile #wdn_wrapper {
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
 }
 body.mobile #breadcrumbs,
 body.mobile #wdn_tool_links,

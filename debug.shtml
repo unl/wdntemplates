@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
+<!--[if IEMobile 7 ]><html class="ie iem7"><![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
 <!--
@@ -16,21 +21,25 @@
     
     $Id$
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/debug.css" />
-<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/debug.js"></script>
+<!--#include virtual="/wdn/templates_3.0/includes/scriptsandstyles.html" -->
 <!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>UNL | Department | New Page</title>
-<!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
 <body class="fixed debug">
-    <nav class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </nav>
+    <nav class="skipnav">
+        <a class="skipnav" href="#maincontent">Skip Navigation</a>
+    </nav>
     <div id="wdn_wrapper">
-        <header id="header" role="banner"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+        <header id="header" role="banner">
+            <a href="http://www.unl.edu/" title="UNL website">
+                <img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" />
+            </a>
             <h1>University of Nebraska&ndash;Lincoln</h1>
             <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
         </header>
@@ -55,9 +64,11 @@
             </div>
         </div>
         <div id="wdn_content_wrapper">
-            <div id="titlegraphic"><!-- InstanceBeginEditable name="titlegraphic" -->
+            <div id="titlegraphic">
+                <!-- InstanceBeginEditable name="titlegraphic" -->
                 <h1>Department <span>A division of the College of Arts &amp; Sciences</span></h1>
-                <!-- InstanceEndEditable --></div>
+                <!-- InstanceEndEditable -->
+            </div>
             <div id="pagetitle">
                 <!-- InstanceBeginEditable name="pagetitle" -->
                 <h2>This is Your Page Title</h2>
@@ -75,20 +86,23 @@
             </div>
             <footer id="footer">
                 <div id="footer_floater"></div>
-                <div class="footer_col">
+                <div class="footer_col" id="wdn_footer_feedback">
                     <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
                 </div>
-                <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
+                <div class="footer_col" id="wdn_footer_related">
+                    <!-- InstanceBeginEditable name="leftcollinks" -->
                     <!--#include virtual="sharedcode/relatedLinks.html" -->
                     <!-- InstanceEndEditable --></div>
-                <div class="footer_col"><!-- InstanceBeginEditable name="contactinfo" -->
+                <div class="footer_col" id="wdn_footer_contact">
+                    <!-- InstanceBeginEditable name="contactinfo" -->
                     <!--#include virtual="sharedcode/footerContactInfo.html" -->
                     <!-- InstanceEndEditable --></div>
-                <div class="footer_col">
+                <div class="footer_col" id="wdn_footer_share">
                     <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
                 </div>
                 <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
-                <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
+                <div id="wdn_copyright">
+                    <!-- InstanceBeginEditable name="footercontent" -->
                     <!--#include virtual="sharedcode/footer.html" -->
                     <!-- InstanceEndEditable -->
                     <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->

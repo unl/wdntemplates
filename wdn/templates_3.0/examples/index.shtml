@@ -31,7 +31,7 @@
 <body class="fixed">
     <nav class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </nav>
     <div id="wdn_wrapper">
-        <header role="banner"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+        <header id="header" role="banner"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
             <h1>University of Nebraska&ndash;Lincoln</h1>
             <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
         </header>
@@ -48,7 +48,7 @@
                 <!-- TemplateEndEditable -->
             </nav>
             <div id="wdn_navigation_wrapper">
-                <nav role="navigation">
+                <nav id="navigation" role="navigation">
                     <h3 class="wdn_list_descriptor hidden">Navigation</h3>
                     <!-- TemplateBeginEditable name="navlinks" -->
                     <script type="text/javascript">
@@ -141,7 +141,7 @@
                 <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
-            <footer>
+            <footer id="footer">
                 <div id="footer_floater"></div>
                 <div class="footer_col">
                     <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
@@ -174,7 +174,7 @@
                 <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
                 <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
                     <!-- TemplateEndEditable -->
-                    &copy; 2012 University of Nebraska–Lincoln | Lincoln, NE 68588 | 402-472-7211
+                    &copy; 2012 University of Nebraska-Lincoln | Lincoln, NE 68588 | 402-472-7211
                     <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
                 </div>
             </footer>
