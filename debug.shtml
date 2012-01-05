@@ -29,9 +29,14 @@
 <!-- TemplateEndEditable -->
 </head>
 <body class="fixed debug">
-    <nav class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </nav>
+    <nav class="skipnav">
+        <a class="skipnav" href="#maincontent">Skip Navigation</a>
+    </nav>
     <div id="wdn_wrapper">
-        <header role="banner"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+        <header role="banner">
+            <a href="http://www.unl.edu/" title="UNL website">
+                <img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" />
+            </a>
             <h1>University of Nebraska&ndash;Lincoln</h1>
             <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
         </header>
@@ -56,10 +61,15 @@
             </div>
         </div>
         <div id="wdn_content_wrapper">
-            <div id="titlegraphic"><!-- TemplateBeginEditable name="titlegraphic" -->
+            <div id="titlegraphic">
+                <!-- TemplateBeginEditable name="titlegraphic" -->
                 <h1>Department <span>A division of the College of Arts &amp; Sciences</span></h1>
                 <!-- TemplateEndEditable --></div>
-            <div id="pagetitle"><!-- TemplateBeginEditable name="pagetitle" --><h2>This is Your Page Title</h2><!-- TemplateEndEditable --></div>
+            <div id="pagetitle">
+                <!-- TemplateBeginEditable name="pagetitle" -->
+                <h2>This is Your Page Title</h2>
+                <!-- TemplateEndEditable -->
+            </div>
             <div id="maincontent" role="main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- TemplateBeginEditable name="maincontentarea" -->
@@ -76,17 +86,20 @@
             <div class="footer_col" id="wdn_footer_feedback">
                 <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
             </div>
-            <div class="footer_col" id="wdn_footer_related"><!-- TemplateBeginEditable name="leftcollinks" -->
+            <div class="footer_col" id="wdn_footer_related">
+                <!-- TemplateBeginEditable name="leftcollinks" -->
                 <!--#include virtual="sharedcode/relatedLinks.html" -->
                 <!-- TemplateEndEditable --></div>
-            <div class="footer_col" id="wdn_footer_contact"><!-- TemplateBeginEditable name="contactinfo" -->
+            <div class="footer_col" id="wdn_footer_contact">
+                <!-- TemplateBeginEditable name="contactinfo" -->
                 <!--#include virtual="sharedcode/footerContactInfo.html" -->
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col" id="wdn_footer_share">
                 <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
             </div>
             <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
-            <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
+            <div id="wdn_copyright">
+                <!-- TemplateBeginEditable name="footercontent" -->
                 <!--#include virtual="sharedcode/footer.html" -->
                 <!-- TemplateEndEditable -->
                 <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
