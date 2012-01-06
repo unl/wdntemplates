@@ -8980,7 +8980,6 @@ jQuery.each([ "Height", "Width" ], function( i, name ) {
 // Expose jQuery to the global object
 window.jQuery = window.$ = jQuery;
 })(window);
-
 /**
  * This file contains the WDN template javascript code.
  */
@@ -9183,7 +9182,7 @@ var WDN = (function() {
 					WDN.jQuery(this).width(imgWidth);
 				}
 			});
-			WDN.jQuery('#titlegraphic h1 span').parent('h1').css({'top':'3px'});
+			WDN.jQuery('#titlegraphic h1 span').parent('h1').addClass('with-sub');
 			//remove the dotted line underneath images that are links
 			WDN.jQuery('#maincontent a img, #footer a img').each(function(j){
 				WDN.jQuery(this).parent('a').addClass('imagelink');
@@ -9671,8 +9670,7 @@ if ( jQuery.support.ajax ) {
 	});
 }
 	
-})( WDN.jQuery );
-WDN.loadedJS["/wdn/templates_3.0/scripts/wdn_ajax.js"]=1;
+})( WDN.jQuery );WDN.loadedJS["/wdn/templates_3.0/scripts/wdn_ajax.js"]=1;
 WDN.navigation = (function() {
     var expandedHeight = 0;
     var ul_h, lockHover = false;
@@ -10085,20 +10083,30 @@ WDN.navigation = (function() {
                 sensitivity: 1, // Mouse must not move
                 interval:    120
             });
-
+            WDN.jQuery('#navigation > ul > li > a').focusin(function(){
+                WDN.navigation.expand();
+            }).focusout(function(){
+                //WDN.navigation.collapse() 
+            });
+            WDN.jQuery('#breadcrumbs > ul > li > a').focus(function(){
+            	WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a:first-child'), false);
+        	});
             WDN.jQuery('#navigation').removeClass('disableTransition');
         },
 
         applyStateFixes : function() {
-            WDN.jQuery('#wdn_content_wrapper').css('margin-top', '');
+        	var $cWrapper = WDN.jQuery('#wdn_content_wrapper');
+            $cWrapper.css('margin-top', '');
 
             if (WDN.navigation.preferredState == 1) {
                 WDN.navigation.setWrapperPState('pinned');
             } else {
                 WDN.navigation.setWrapperPState('unpinned');
-                var nav_height = WDN.jQuery('#wdn_navigation_wrapper').height();
-                if (nav_height > 41) {
-                    WDN.jQuery('#wdn_content_wrapper').css('margin-top', nav_height);
+                var nav_height = WDN.jQuery('#wdn_navigation_wrapper').outerHeight(true), 
+                	defaultMargin = parseInt($cWrapper.css('margin-top'), 10);
+                
+                if (nav_height > defaultMargin) {
+                	$cWrapper.css('margin-top', nav_height);
                 }
             }
         },
@@ -10216,8 +10224,7 @@ WDN.navigation = (function() {
             storednavDiv.append(data);
         }
     };
-})();
-WDN.loadedJS["/wdn/templates_3.0/scripts/navigation.js"]=1;
+})();WDN.loadedJS["/wdn/templates_3.0/scripts/navigation.js"]=1;
 WDN.search = function() {
 	return {
 		initialize : function() {
@@ -10272,7 +10279,6 @@ WDN.search = function() {
 		}
 	};
 }();
-
 WDN.loadedJS["/wdn/templates_3.0/scripts/search.js"]=1;
 /**
  * This handles the toolbar at the top of the template page.
@@ -10387,8 +10393,7 @@ WDN.toolbar = function() {
         	WDN.jQuery(element).colorbox(options);
         }
     };
-}();
-WDN.loadedJS["/wdn/templates_3.0/scripts/toolbar.js"]=1;
+}();WDN.loadedJS["/wdn/templates_3.0/scripts/toolbar.js"]=1;
 WDN.tooltip = (function($) {
 	return {
 		initialize : function() {
@@ -10441,8 +10446,7 @@ WDN.tooltip = (function($) {
 			$(el).removeAttr('alt');
 		}
 	};
-})(WDN.jQuery);
-WDN.loadedJS["/wdn/templates_3.0/scripts/tooltip.js"]=1;
+})(WDN.jQuery);WDN.loadedJS["/wdn/templates_3.0/scripts/tooltip.js"]=1;
 // What should be tracked in Google Analytics
 // 
 // 1. File downloads: .pdf, .doc., etc... put in the /downloads directory DONE
@@ -10467,8 +10471,7 @@ WDN.analytics = function() {
 				['wdn._setAccount', 'UA-3203435-1'],
 				['wdn._setDomainName', '.unl.edu'],
 				['wdn._setAllowLinker', true],
-				['wdn._setAllowHash', false],
-				['wdn._trackPageLoadTime']
+				['wdn._setAllowHash', false]
 			);
 			
 			WDN.loadJS('wdn/templates_3.0/scripts/idm.js', function(){
@@ -10659,7 +10662,6 @@ WDN.analytics = function() {
 		}()*/
 	};
 }();
-
 WDN.loadedJS["/wdn/templates_3.0/scripts/analytics.js"]=1;
 /**
 * hoverIntent is similar to jQuery's built-in "hover" function except that
@@ -10771,8 +10773,7 @@ WDN.loadedJS["/wdn/templates_3.0/scripts/analytics.js"]=1;
 		// bind the function to the two event listeners
 		return this.mouseover(handleHover).mouseout(handleHover);
 	};
-})(WDN.jQuery);
-WDN.loadedJS["/wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js"]=1;
+})(WDN.jQuery);WDN.loadedJS["/wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js"]=1;
 /*
  * Changes made to plugin for purpose of adapting: 
  * 06/09/09
@@ -10854,8 +10855,7 @@ WDN.loadedJS["/wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.
 
 	if ($.browser.msie) try { document.execCommand("BackgroundImageCache", false, true);} catch(e) { }
 
-})(WDN.jQuery);
-WDN.loadedJS["/wdn/templates_3.0/scripts/plugins/rating/jquery.rating.js"]=1;
+})(WDN.jQuery);WDN.loadedJS["/wdn/templates_3.0/scripts/plugins/rating/jquery.rating.js"]=1;
 // ColorBox v1.3.17.2 - a full featured, light-weight, customizable lightbox based on jQuery 1.3+
 // Copyright (c) 2011 Jack Moore - jack@colorpowered.com
 // Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
@@ -11719,8 +11719,7 @@ WDN.loadedJS["/wdn/templates_3.0/scripts/plugins/rating/jquery.rating.js"]=1;
 	// Initializes ColorBox when the DOM has loaded
 	$(publicMethod.init);
 
-}(WDN.jQuery, document, this));
-WDN.loadedJS["/wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=1;
+}(WDN.jQuery, document, this));WDN.loadedJS["/wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=1;
 /*!
 * jquery.qtip. The jQuery tooltip plugin
 *
@@ -13721,8 +13720,7 @@ WDN.loadedJS["/wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js"]=1
 			}
 		}
 	};
-})(WDN.jQuery);
-WDN.loadedJS["/wdn/templates_3.0/scripts/plugins/qtip/jquery.qtip.js"]=1;
+})(WDN.jQuery);WDN.loadedJS["/wdn/templates_3.0/scripts/plugins/qtip/jquery.qtip.js"]=1;
 WDN.idm = function() {
 	return {
 		
@@ -13742,6 +13740,7 @@ WDN.idm = function() {
 		 * @var object
 		 */
 		user : false,
+		
 		
 		/**
 		 * The URL from which the LDAP information is available
@@ -13808,13 +13807,32 @@ WDN.idm = function() {
 		},
 		
 		/**
+		 * Function to parse the correct display name.
+		 *
+		 * @return string
+		 */
+		displayName : function(){
+		    var disp_name;
+		    if (WDN.idm.user.cn) {
+		    	for (var i in WDN.idm.user.cn) {
+		    		if (!disp_name || WDN.idm.user.cn[i].length < disp_name.length) {
+		    			disp_name = WDN.idm.user.cn[i];
+		    		}
+		    	}
+		    } else {
+		    	disp_name = uid;
+		    }
+		    return disp_name;
+		},
+		
+		/**
 		 * Update the SSO tab and display user info
 		 * 
 		 * @param {string} uid
 		 */
 		displayNotice : function(uid) {
 			if (WDN.jQuery('#wdn_identity_management').length === 0) {
-				WDN.jQuery('#header').append('<div id="wdn_identity_management" class="loggedin"></div>');
+				WDN.jQuery('header[role="banner"]').append('<div id="wdn_identity_management" class="loggedin"></div>');
 			}
 			
 			var icon = '';
@@ -13828,18 +13846,9 @@ WDN.idm = function() {
 			}
 			icon = '<a href="http://planetred.unl.edu/pg/profile/'+planetred_uid+'" title="Your Planet Red Profile"><img src="//planetred.unl.edu/pg/icon/'+planetred_uid+'/topbar/" alt="Your Profile Pic" /></a>';
 			
-			var disp_name;
-			if (WDN.idm.user.cn) {
-				for (var i in WDN.idm.user.cn) {
-					if (!disp_name || WDN.idm.user.cn[i].length < disp_name.length) {
-						disp_name = WDN.idm.user.cn[i];
-					}
-				}
-			} else {
-				disp_name = uid;
-			}
 			
-			WDN.jQuery('#wdn_identity_management').html(icon+'<span class="username">'+disp_name+'</span><a id="wdn_idm_logout" title="Logout" href="'+WDN.idm.logoutURL+'">Logout</a>');
+			
+			WDN.jQuery('#wdn_identity_management').html(icon+'<span class="username">'+WDN.idm.displayName()+'</span><a id="wdn_idm_logout" title="Logout" href="'+WDN.idm.logoutURL+'">Logout</a>');
 			
 			// Any time logout link is clicked, unset the user data
 			WDN.jQuery('#wdn_idm_logout').click(WDN.idm.logout);
@@ -13847,6 +13856,7 @@ WDN.idm = function() {
 			if (WDN.jQuery('link[rel=logout]').length) {
 				WDN.idm.setLogoutURL(WDN.jQuery('link[rel=logout]').attr('href'));
 			}
+			WDN.idm.updateCommentForm();
 		},
 		
 		displayLogin : function()
@@ -13863,6 +13873,16 @@ WDN.idm = function() {
 			icon = '<a><img src="//planetred.unl.edu/mod/profile/graphics/defaulttopbar.gif" alt="Guest User" /></a>';
 			
 			WDN.jQuery('#wdn_identity_management').html(icon+'<span class="username">Guest</span><a id="wdn_idm_login" title="Login" href="'+WDN.idm.loginURL+'">Login</a>');
+		},
+		
+		/**
+		 * Add user details to the comment form
+		 */
+		updateCommentForm : function () {
+		    WDN.jQuery('#wdn_comment_name').val(WDN.idm.displayName());
+		    if (WDN.idm.user.mail) {
+		        WDN.jQuery('#wdn_comment_email').val(WDN.idm.user.mail[0]);
+		    }
 		},
 		
 		/**
@@ -13884,8 +13904,7 @@ WDN.idm = function() {
 			WDN.idm.displayLogin();
 		}
 	};
-}();
-WDN.loadedJS["/wdn/templates_3.0/scripts/idm.js"]=1;
+}();WDN.loadedJS["/wdn/templates_3.0/scripts/idm.js"]=1;
 WDN.tabs = (function() {
 	var jq = function(id) {
 		return '#' + id.replace(/(:|\.)/g, '\\$1');
@@ -14084,7 +14103,6 @@ WDN.tabs = (function() {
 		}
 	};
 })();
-
 WDN.loadedJS["/wdn/templates_3.0/scripts/tabs.js"]=1;
 WDN.feedback = function() {
 	
@@ -14102,12 +14120,6 @@ WDN.feedback = function() {
 			} catch (e) {}
 		},
 		commentSetup : function() {
-			WDN.jQuery('#wdn_feedback_comments label').click(function(){
-				WDN.jQuery(this).next().focus();
-			});
-			WDN.jQuery('#wdn_comment_email, #wdn_comment_name, #wdn_feedback_comments textarea').focus(function(){
-				WDN.jQuery(this).siblings('label').hide();
-			});
 			WDN.jQuery('#wdn_feedback_comments textarea').keyup(
 				function(event) {
 					if (this.value.length > 0) {
@@ -14137,8 +14149,7 @@ WDN.feedback = function() {
 			);
 		}
 	};
-}();
-WDN.loadedJS["/wdn/templates_3.0/scripts/feedback.js"]=1;
+}();WDN.loadedJS["/wdn/templates_3.0/scripts/feedback.js"]=1;
 WDN.socialmediashare = function() {
     return {
         initialize : function() {
@@ -14209,8 +14220,7 @@ WDN.socialmediashare = function() {
             );
         }
     };
-}();
-WDN.loadedJS["/wdn/templates_3.0/scripts/socialmediashare.js"]=1;
+}();WDN.loadedJS["/wdn/templates_3.0/scripts/socialmediashare.js"]=1;
 /* Constructor */
 var unlAlerts = function() {};
 
@@ -14406,7 +14416,6 @@ unlAlerts.server = {
 		return false;
 	}
 };
-
 WDN.loadedJS["/wdn/templates_3.0/scripts/unlalert.js"]=1;
 /**
  * Fetches the contents of a URL into a div.
@@ -14524,7 +14533,6 @@ function stripe(id) {
 	WDN.jQuery('#'+id).addClass('zentable');
 	WDN.browserAdjustments();
 };
-
 WDN.loadedJS["/wdn/templates_3.0/scripts/global_functions.js"]=1;
 WDN.mobile_detect = function() {
 	
@@ -14598,7 +14606,6 @@ WDN.mobile_detect = function() {
 			WDN.jQuery('#wdn_mobileMessage').hide();
 		}
 	};
-}();
-WDN.loadedJS["/wdn/templates_3.0/scripts/mobile_detect.js"]=1;
+}();WDN.loadedJS["/wdn/templates_3.0/scripts/mobile_detect.js"]=1;
 
 WDN.initializeTemplate();

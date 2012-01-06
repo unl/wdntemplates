@@ -23,7 +23,7 @@ Font Implementation syntax:
 http://www.fontspring.com/blog/further-hardening-of-the-bulletproof-syntax
 */
 
-#maincontent h1.formal, #maincontent h2.formal, #maincontent h3.formal, #maincontent h4.formal, #maincontent h5.formal, #maincontent h6.formal, #titlegraphic h1, #wdn_wrapper > header h1 {
+#maincontent h1.formal, #maincontent h2.formal, #maincontent h3.formal, #maincontent h4.formal, #maincontent h5.formal, #maincontent h6.formal, #titlegraphic h1, #header h1 {
     font-family: 'URWGroteskCon-Lig', Helvetica, Arial, sans-serif;
 }
 body {

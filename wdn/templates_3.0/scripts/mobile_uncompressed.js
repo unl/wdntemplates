@@ -200,7 +200,7 @@ var WDN = (function() {
 					WDN.jQuery(this).width(imgWidth);
 				}
 			});
-			WDN.jQuery('#titlegraphic h1 span').parent('h1').css({'top':'3px'});
+			WDN.jQuery('#titlegraphic h1 span').parent('h1').addClass('with-sub');
 			//remove the dotted line underneath images that are links
 			WDN.jQuery('#maincontent a img, #footer a img').each(function(j){
 				WDN.jQuery(this).parent('a').addClass('imagelink');
@@ -336,8 +336,7 @@ var WDN = (function() {
 			return WDN.jQuery.post(url, data, callback, type);
 		}
 	};
-})();
-WDN.template_path = "/";
+})();WDN.template_path = "/";
 WDN.loadedJS["/wdn/templates_3.0/scripts/wdn.js"]=1;
 // What should be tracked in Google Analytics
 // 
@@ -385,14 +384,23 @@ analytics = function() {
 		}
 	};
 }();
-analytics.initialize();
-WDN.loadedJS["/wdn/templates_3.0/scripts/mobile_analytics.js"]=1;
+analytics.initialize();WDN.loadedJS["/wdn/templates_3.0/scripts/mobile_analytics.js"]=1;
 mobile_support = function() {
 	return {
 		initialize : function() {
 			window.addEventListener('orientationchange', mobile_support.setOrientation, false);
 			document.addEventListener('DOMContentLoaded', 
 				function(){
+					var body = document.getElementsByTagName('body')[0],
+					head = document.getElementsByTagName('head')[0],
+					meta = document.createElement('meta');
+					
+					body.className = body.className.replace(/fixed|mobile/, '');
+					body.className = 'mobile ' + body.className;
+					
+					meta.name = 'viewport';
+					head.appendChild(meta);
+					
 					// For our smarter browsers (the ones that are reading this), let's enhance the nav
 					mobile_support.enhanceNavigation.initialize();
 					mobile_support.fixOrientation(document);
@@ -510,5 +518,4 @@ mobile_support = function() {
 		}()
 	};
 }();
-mobile_support.initialize();
-WDN.loadedJS["/wdn/templates_3.0/scripts/mobile_support.js"]=1;
+mobile_support.initialize();WDN.loadedJS["/wdn/templates_3.0/scripts/mobile_support.js"]=1;
