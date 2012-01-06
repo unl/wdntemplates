@@ -19,7 +19,11 @@
     ordered & tabbed in a way that represents the nesting of the generated HTML.
 */
 #cboxOverlay{background:#383838;}
-#colorbox{color:#333; font-size:77%; line-height: 140%;}
+#colorbox{color:#333; font-size:72%; line-height: 135%;}
+#colorbox a {color: #434343; text-decoration: underline;}
+#colorbox a:hover,
+#colorbox a:active,
+#colorbox a:focus {color: #ba0000;}
 #colorbox p {margin-bottom: 1.1em;}
     #cboxContent{
 	        background:#fff; border:1px solid #e3e3e3; margin:18px 14px 5px 5px; padding: 10px 10px 30px; 
