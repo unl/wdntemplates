@@ -1,73 +1,72 @@
 <script type="text/javascript">
-WDN.jQuery(document).ready(function(){
-	//fade
-	WDN.jQuery("a[rel='example1']").colorbox({transition:"fade"});
-	//elastic
-	WDN.jQuery("a[rel='example2']").colorbox({transition:"elastic"});
-	//fixed height and width
-	WDN.jQuery("a[rel='example3']").colorbox({transition:"none", width:"75%", height:"75%"});
-	//slideshow
-	WDN.jQuery(".slideshow").colorbox({slideshow:true});
-	//single photo with a callback
-	WDN.jQuery("a.single").colorbox({}, function(){
-		alert('Howdy, this is an example callback.');
-	});
-	//ajax call to another page on the server
-	WDN.jQuery("a[title='Homer Defined']").colorbox();
-	//inline calls
-	WDN.jQuery("#click").click(function(e){ 
-		e.preventDefault();
-		WDN.jQuery('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
-	});
-	WDN.jQuery("#inline").colorbox({width:"50%", inline:true, href:"#inline_example1", title:"hello"});
-	//flash video in a ajax page
-	WDN.jQuery(".flash").colorbox({href:"samplecontent/flash.html"});
-	//outside webpage (iframe)
-	WDN.jQuery("a[href='http://ebay.com']").colorbox({width:"100%", height:"80%", iframe:true});	
+WDN.jQuery(function($){
+	//Examples of how to assign the ColorBox event to elements
+    $(".group1").colorbox({rel:'group1'});
+    $(".group2").colorbox({rel:'group2', transition:"fade"});
+    $(".group3").colorbox({rel:'group3', transition:"none", width:"75%", height:"75%"});
+    $(".group4").colorbox({rel:'group4', slideshow:true});
+    $(".ajax").colorbox();
+    $(".youtube").colorbox({iframe:true, innerWidth:425, innerHeight:344});
+    $(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
+    $(".inline").colorbox({inline:true, width:"50%"});
+    $(".callbacks").colorbox({
+        onOpen:function(){ alert('onOpen: colorbox is about to open'); },
+        onLoad:function(){ alert('onLoad: colorbox has started to load the targeted content'); },
+        onComplete:function(){ alert('onComplete: colorbox has displayed the loaded content'); },
+        onCleanup:function(){ alert('onCleanup: colorbox has begun the close process'); },
+        onClosed:function(){ alert('onClosed: colorbox has completely closed'); }
+    });
+    
+    //Example of preserving a JavaScript event for inline calls.
+    $("#click").click(function(){ 
+        $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+        return false;
+    });	
 });
 </script>
 
 
 
 
-<h2>fade transition</h2>
-<p><a href="samplecontent/stadium.jpg" rel="example1" title="Memorial Stadium">Grouped Photo 1</a></p>
-<p><a href="samplecontent/kauffman.jpg" rel="example1" title="Kauffman Center">Grouped Photo 2</a></p>
-<p><a href="samplecontent/love.jpg" rel="example1" title="Love Library">Grouped Photo 3</a></p>
+<h3>Elastic Transition</h3>
+<p><a href="samplecontent/stadium.jpg" class="group1" title="Memorial Stadium">Grouped Photo 1</a></p>
+<p><a href="samplecontent/kauffman.jpg" class="group1" title="Kauffman Center">Grouped Photo 2</a></p>
+<p><a href="samplecontent/love.jpg" class="group1" title="Love Library">Grouped Photo 3</a></p>
 
-<h2>elastic transition</h2>
-<p><a href="samplecontent/stadium.jpg" rel="example2" title="Memorial Stadium">Grouped Photo 1</a></p>
-<p><a href="samplecontent/kauffman.jpg" rel="example2" title="Kauffman Center">Grouped Photo 2</a></p>
-<p><a href="samplecontent/love.jpg" rel="example2" title="Love Library">Grouped Photo 3</a></p>
+<h3>Fade Transition</h3>
+<p><a href="samplecontent/stadium.jpg" class="group2" title="Memorial Stadium">Grouped Photo 1</a></p>
+<p><a href="samplecontent/kauffman.jpg" class="group2" title="Kauffman Center">Grouped Photo 2</a></p>
+<p><a href="samplecontent/love.jpg" class="group2" title="Love Library">Grouped Photo 3</a></p>
 
-<h2>no transition + fixed width and height (75% of screen size)</h2>
-<p><a href="samplecontent/stadium.jpg" rel="example3"  class='ohoopee' title="Memorial Stadium">Grouped Photo 1</a></p>
-<p><a href="samplecontent/kauffman.jpg" rel="example3"  class='ohoopee' title="Kauffman Center">Grouped Photo 2</a></p>
-<p><a href="samplecontent/love.jpg" rel="example3"  class='ohoopee' title="Love Library">Grouped Photo 3</a></p>
+<h3>No Transition + fixed width and height (75% of screen size)</h3>
+<p><a href="samplecontent/stadium.jpg" class="group3"  class='ohoopee' title="Memorial Stadium">Grouped Photo 1</a></p>
+<p><a href="samplecontent/kauffman.jpg" class="group3"  class='ohoopee' title="Kauffman Center">Grouped Photo 2</a></p>
+<p><a href="samplecontent/love.jpg" class="group3"  class='ohoopee' title="Love Library">Grouped Photo 3</a></p>
 
-<h2>slideshow</h2>
-<p><a href="samplecontent/stadium.jpg" rel="example4"  class='slideshow' title="Memorial Stadium">Grouped Photo 1</a></p>
-<p><a href="samplecontent/kauffman.jpg" rel="example4"  class='slideshow' title="Kauffman Center">Grouped Photo 2</a></p>
-<p><a href="samplecontent/love.jpg" rel="example4"  class='slideshow' title="Love Library">Grouped Photo 3</a></p>
+<h3>Slideshow</h3>
+<p><a href="samplecontent/stadium.jpg" class="group4"  class='slideshow' title="Memorial Stadium">Grouped Photo 1</a></p>
+<p><a href="samplecontent/kauffman.jpg" class="group4"  class='slideshow' title="Kauffman Center">Grouped Photo 2</a></p>
+<p><a href="samplecontent/love.jpg" class="group4"  class='slideshow' title="Love Library">Grouped Photo 3</a></p>
 
-<h2>Single photo with callback example</h2>
-<p><a class='single' href="samplecontent/stadium.jpg" title="Memorial Stadium">Single Photo</a></p>
+<h3>Other Content Types</h3>
+<p><a class='ajax' href="samplecontent/ajax.html" title="Homer Defined">Outside HTML (Ajax)</a></p>
+<p><a class='ajax' href="samplecontent/flash.html" title="Royksopp: Remind Me">Flash / Video (Ajax/Embedded)</a></p>
+<p><a class='youtube' href="http://www.youtube.com/embed/617ANIA5Rqs?rel=0&amp;wmode=transparent" title="The Knife: We Share Our Mother's Health">Flash / Video (Iframe/Direct Link To YouTube)</a></p>
+<p><a class='iframe' href="http://threadless.com">Outside Webpage (Iframe)</a></p>
+<p><a class='inline' href="#inline_content">Inline HTML</a></p>
 
-<h2>Other Content Types</h2>
-<p><a href="http://ebay.com">Outside webpage (IFrame)</a></p>
-<p><a title="Homer Defined" href="samplecontent/ajax.html">Another Page On Your Site (Ajax)</a></p>
-<p><a id="inline" href="#">Inline HTML</a></p>
-<p><a class="flash" href="http://www.vimeo.com/2285902" title="Royksopp: Remind Me">Flash / Video</a></p>
+<h3>Demonstration of using callbacks</h3>
+<p><a class='callbacks' href="samplecontent/carouselGraduation.jpg" title="UNL Graduation">Example with alerts</a>. Callbacks and event-hooks allow users to extend functionality without having to rewrite parts of the plugin.</p>
 
 <!-- This contains the hidden content for inline calls -->
 <div class='hidden'>
-	<div id='inline_example1' style='padding:10px; background:#fff;'>
-	<p><strong>This content comes from a hidden element on this page.</strong></p>
-	<p>The inline option preserves bound JavaScript events and changes, and it puts the content back where it came from when it is closed.<br />
-	<a id="click" href="#" style='padding:5px; background:#ccc;'>Click me, it will be preserved!</a></p>
-	
-	<p><strong>If you try to open a new ColorBox while it is already open, it will update itself with the new content.</strong></p>
-	<p>Updating Content Example:<br />
-	<a class="flash" href="#">Click here to load new content</a></p>
-	</div>
+	<div id='inline_content' style='padding:10px; background:#fff;'>
+    <p><strong>This content comes from a hidden element on this page.</strong></p>
+    <p>The inline option preserves bound JavaScript events and changes, and it puts the content back where it came from when it is closed.</p>
+    <p><a id="click" href="#" style='padding:5px; background:#ccc;'>Click me, it will be preserved!</a></p>
+    
+    <p><strong>If you try to open a new ColorBox while it is already open, it will update itself with the new content.</strong></p>
+    <p>Updating Content Example:<br />
+    <a class="ajax" href="samplecontent/flash.html">Click here to load new content</a></p>
+    </div>
 </div>
