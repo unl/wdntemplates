@@ -32,11 +32,6 @@ WDN.toolbar = function() {
         initialize : function() {
     		WDN.jQuery('#header').append('<div class="hidden"><div id="toolbarcontent"></div></div>');
         	WDN.loadJS('wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js', WDN.toolbar.toolTabsSetup);
-        	if (WDN.jQuery.browser.msie) {
-        		WDN.loadCSS('wdn/templates_3.0/css/header/colorbox-ie.css');
-        	}
-        	//a callback with the colorbox binding further below displays the tabs, this line hides them on close so they don't show with another instance of the colorbox
-        	WDN.jQuery(document).bind('cbox_closed', function(){WDN.jQuery("#tooltabs").hide();});
         },
         toolTabsSetup : function() {
         	WDN.jQuery('#cboxWrapper').append('<div id="tooltabs"><ul></ul></div>');
@@ -71,9 +66,29 @@ WDN.toolbar = function() {
          * @param {number} pheight     Height needed for the plugin
          */
         registerTool : function(plugin_name, title, pwidth, pheight) {
-        	 WDN.jQuery('#tooltabs ul').append('<li class="'+plugin_name+'"><a href="#" class="'+plugin_name+'">'+title+'</a></li>');
-        	 WDN.jQuery("a."+plugin_name).colorbox({width:pwidth, height:pheight, inline:true, href:"#toolbarcontent"}, function(){WDN.jQuery("#tooltabs").show();});
-        	 WDN.jQuery("a."+plugin_name).click(function(){WDN.toolbar.switchToolFocus(plugin_name, pheight);});
+        	var $toolTabs = WDN.jQuery('#tooltabs ul');
+        	$toolTabs.append('<li class="'+plugin_name+'"><a href="#" class="'+plugin_name+'">'+title+'</a></li>');
+        	WDN.jQuery("a." + plugin_name, WDN.jQuery('#wdn_tool_links'))
+        		.add("a." + plugin_name, $toolTabs)
+        		.colorbox({
+	    			width: pwidth, 
+	    			height: pheight, 
+	    			inline: true, 
+	    			href: "#toolbarcontent",
+	    			onComplete: function() {
+	    				WDN.jQuery("#tooltabs").show();
+	    			},
+	    			onOpen: function() {
+	    				WDN.jQuery("#colorbox").addClass('withTabs');
+	    			},
+	    			onClose: function() {
+	    				WDN.jQuery("#colorbox").removeClass('withTabs');
+	    				WDN.jQuery("#tooltabs").hide();
+	    			}
+		 		})
+		 		.click(function() {
+		 			WDN.toolbar.switchToolFocus(plugin_name, pheight);
+		 		});
         },
         setToolContent : function(plugin_name, content) {
         	WDN.jQuery("#toolbarcontent").append('<div id="toolbar_'+plugin_name+'" class="toolbar_plugin">'+content+'</div>');

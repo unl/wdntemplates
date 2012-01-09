@@ -10,8 +10,8 @@ WDN.toolbar_weather = function() {
             WDN.jQuery('#showradar img').css({background:'url(http://radar.weather.gov/lite/N0R/OAX_loop.gif)  -5px -140px no-repeat'});
             
             var reqs = {
-        		"#currentcond": "http://www.unl.edu/wdn/templates_3.0/scripts/weatherCurrent.html",
-        		"#weatherforecast": "http://www.unl.edu/wdn/templates_3.0/scripts/weatherForecast.html"
+        		"#currentcond": "http://www.unl.edu/wdn/templates_3.0/includes/weatherCurrent.html",
+        		"#weatherforecast": "http://www.unl.edu/wdn/templates_3.0/includes/weatherForecast.html"
             };
             
             WDN.jQuery.each(reqs, function(id, url) {

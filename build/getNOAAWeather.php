@@ -12,7 +12,7 @@ $forecastDataFile = file('http://forecast.weather.gov/MapClick.php?FcstType=text
 $outputFile = "weatherCurrent.html";
 $outputForecastFile = "weatherForecast.html";
 // Change directory to the correct location.
-chdir(dirname(__FILE__));
+chdir(realpath(dirname(__FILE__) . '/../wdn/templates_3.0/includes'));
 // Local copies used for testing.
 //$observationDataFile = simplexml_load_file('klnk.xml');
 //$forcastDataFile = file('currentForecast.html');
