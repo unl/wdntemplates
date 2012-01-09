@@ -116,13 +116,13 @@ WDN.navigation = (function() {
         fixPresentation : function() {
         	WDN.jQuery('#wdn_navigation_wrapper').removeClass('empty-secondary');
         	
-            var primaries = WDN.jQuery('#wdn_navigation_wrapper nav > ul > li');
+            var primaries = WDN.jQuery('#navigation > ul > li');
             var primaryCount = primaries.length;
             while (primaryCount % 6 > 0) {
-                WDN.jQuery('#wdn_navigation_wrapper nav > ul').append('<li class="empty"><a /><ul><li/></ul></li>');
+                WDN.jQuery('#navigation > ul').append('<li class="empty"><a /><ul><li/></ul></li>');
                 primaryCount++;
             }
-            primaries = WDN.jQuery('#wdn_navigation_wrapper nav > ul > li');
+            primaries = WDN.jQuery('#navigation > ul > li');
 
             var secondaries = primaries.has('ul');
             if (secondaries.length) {
@@ -133,14 +133,14 @@ WDN.navigation = (function() {
 
             // fix old IE for CSS3
             var majorIEVersion = WDN.jQuery.browser.version.split(".")[0];
-            var $bar_starts = WDN.jQuery('#wdn_navigation_wrapper nav > ul > li:nth-child(6n+1)');
+            var $bar_starts = WDN.jQuery('#navigation > ul > li:nth-child(6n+1)');
             if (WDN.jQuery.browser.msie && majorIEVersion < 9) {
                 WDN.log("Fixing IE CSS3");
                 $bar_starts.addClass('start');
-                WDN.jQuery('#wdn_navigation_wrapper nav > ul > li:nth-child(6n+6)').addClass('end');
-                WDN.jQuery('#wdn_navigation_wrapper nav > ul > li:nth-child(n+7)').addClass('mid-bar');
+                WDN.jQuery('#navigation > ul > li:nth-child(6n+6)').addClass('end');
+                WDN.jQuery('#navigation > ul > li:nth-child(n+7)').addClass('mid-bar');
                 $bar_starts.last().prevAll().addClass('top-bars');
-                WDN.jQuery('#wdn_navigation_wrapper nav > ul > li ul li:last-child').addClass('last');
+                WDN.jQuery('#navigation > ul > li ul li:last-child').addClass('last');
             }
 
             var ah = [];
@@ -368,7 +368,7 @@ WDN.navigation = (function() {
         initializePreferredState : function() {
             WDN.log('initializepreferredstate, current state is '+WDN.navigation.currentState);
 
-            WDN.jQuery('#wdn_navigation_wrapper nav').addClass('disableTransition');
+            WDN.jQuery('#navigation').addClass('disableTransition');
             var mouseout;
             var pinUI = WDN.jQuery('#wdn_navigation_wrapper .pin_state a');
 
@@ -389,7 +389,7 @@ WDN.navigation = (function() {
             WDN.navigation.applyStateFixes();
 
             if (WDN.navigation.cssTransitionsSupport) {
-                WDN.jQuery('#wdn_navigation_wrapper nav').bind(
+                WDN.jQuery('#navigation').bind(
                     'webkitTransitionEnd transitionend oTransitionEnd msTransitionEnd',
                     function(event) {
                         if (WDN.navigation.currentState == 1) {
@@ -410,7 +410,7 @@ WDN.navigation = (function() {
                 sensitivity: 1, // Mouse must not move
                 interval:    120
             });
-            WDN.jQuery('#wdn_navigation_wrapper nav > ul > li > a').focusin(function(){
+            WDN.jQuery('#navigation > ul > li > a').focusin(function(){
                 WDN.navigation.expand();
             }).focusout(function(){
                 //WDN.navigation.collapse() 
@@ -418,7 +418,7 @@ WDN.navigation = (function() {
             WDN.jQuery('#breadcrumbs > ul > li > a').focus(function(){
             	WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a:first-child'), false);
         	});
-            WDN.jQuery('#wdn_navigation_wrapper nav').removeClass('disableTransition');
+            WDN.jQuery('#navigation').removeClass('disableTransition');
         },
 
         applyStateFixes : function() {
@@ -450,17 +450,17 @@ WDN.navigation = (function() {
             }
 
             var dimms = {
-        		width: WDN.jQuery('#wdn_navigation_wrapper nav > ul').width() || 960,
-    			height: WDN.jQuery('#wdn_navigation_wrapper nav > ul').height() || 50
+        		width: WDN.jQuery('#navigation > ul').width() || 960,
+    			height: WDN.jQuery('#navigation > ul').height() || 50
             };
             var oldSelected = WDN.jQuery('#breadcrumbs > ul > li.selected:first');
 
-            if (!WDN.jQuery('div.storednav', oldSelected).length && WDN.jQuery('#wdn_navigation_wrapper nav > ul').length) {
+            if (!WDN.jQuery('div.storednav', oldSelected).length && WDN.jQuery('#navigation > ul').length) {
                 WDN.log('Storing it');
                 // Store the current navigation
-                WDN.navigation.storeNav(oldSelected, WDN.jQuery('#wdn_navigation_wrapper nav > ul'));
+                WDN.navigation.storeNav(oldSelected, WDN.jQuery('#navigation > ul'));
             } else {
-                WDN.jQuery('#wdn_navigation_wrapper nav > ul').remove();
+                WDN.jQuery('#navigation > ul').remove();
             }
 
             // Set the hovered breadcrumb link to selected
@@ -475,7 +475,7 @@ WDN.navigation = (function() {
             }
 
             WDN.jQuery('#navloading').remove();
-            WDN.jQuery('<div id="navloading" />').css(dimms).appendTo('#wdn_navigation_wrapper nav');
+            WDN.jQuery('<div id="navloading" />').css(dimms).appendTo('#navigation');
             WDN.jQuery('#wdn_navigation_wrapper').addClass('nav-loading');
 
             var nav_sniffer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
@@ -506,9 +506,9 @@ WDN.navigation = (function() {
         setNavigationContents : function(contents, expand) {
             WDN.log('setNavigationContents called');
             WDN.jQuery('#wdn_navigation_wrapper').removeClass('nav-loading');
-            WDN.jQuery('#wdn_navigation_wrapper nav').addClass('disableTransition');
+            WDN.jQuery('#navigation').addClass('disableTransition');
             WDN.jQuery('#navloading').remove();
-            WDN.jQuery('#wdn_navigation_wrapper nav').children('ul').remove()
+            WDN.jQuery('#navigation').children('ul').remove()
                 .end().prepend(contents);
 
             WDN.navigation.currentState = -1;
@@ -517,7 +517,7 @@ WDN.navigation = (function() {
             WDN.navigation.collapse(false);
             WDN.navigation.applyStateFixes();
 
-            WDN.jQuery('#wdn_navigation_wrapper nav').removeClass('disableTransition');
+            WDN.jQuery('#navigation').removeClass('disableTransition');
 
             if (expand) {
                 WDN.navigation.expand();

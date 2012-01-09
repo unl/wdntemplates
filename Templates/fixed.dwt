@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if IEMobile 7 ]><html class="ie iem7"><![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html lang="en"><!--<![endif]-->
 <head>
 <!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
 <!--
@@ -16,20 +20,19 @@
     
     $Id$
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
-<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
+<!--#include virtual="/wdn/templates_3.0/includes/scriptsandstyles.html" -->
 <!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>UNL | Department | New Page</title>
 <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <!-- TemplateEndEditable -->
+<!-- TemplateParam name="class" type="text" value="fixed" -->
 </head>
-<body class="fixed">
+<body class="@@(_document['class'])@@">
     <nav class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </nav>
     <div id="wdn_wrapper">
-        <header role="banner"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+        <header id="header" role="banner"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
             <h1>University of Nebraska&ndash;Lincoln</h1>
             <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
         </header>
@@ -45,7 +48,7 @@
                 <!-- TemplateEndEditable -->
             </nav>
             <div id="wdn_navigation_wrapper">
-                <nav role="navigation">
+                <nav id="navigation" role="navigation">
                     <h3 class="wdn_list_descriptor hidden">Navigation</h3>
                     <!-- TemplateBeginEditable name="navlinks" -->
                     <!--#include virtual="../sharedcode/navigation.html" -->
@@ -73,7 +76,7 @@
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
         </div>
-        <footer>
+        <footer id="footer">
             <div id="footer_floater"></div>
             <div class="footer_col">
                 <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->

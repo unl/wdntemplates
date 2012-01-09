@@ -4,6 +4,10 @@ mobile_support = function() {
 			window.addEventListener('orientationchange', mobile_support.setOrientation, false);
 			document.addEventListener('DOMContentLoaded', 
 				function(){
+					var body = document.getElementsByTagName('body')[0];
+					body.className = body.className.replace(/fixed|mobile/, '');
+					body.className = 'mobile ' + body.className;
+					
 					// For our smarter browsers (the ones that are reading this), let's enhance the nav
 					mobile_support.enhanceNavigation.initialize();
 					mobile_support.fixOrientation(document);
