@@ -3,7 +3,8 @@
  */
 var _gaq = _gaq || [];
 var WDN = (function() {
-	var loadingJS = {};
+	var loadingJS = {},
+		pluginParams = {};
 	return {
 		/**
 		 * This stores what javascript files have been loaded already
@@ -219,6 +220,25 @@ var WDN = (function() {
 				};
 			}
 			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', callback);
+		},
+		
+		setPluginParam: function (plugin, name, value) {
+			if ( !pluginParams[ plugin ]) {
+				pluginParams[ plugin ] = {};
+			}
+			pluginParams[ plugin ][ name ] = value;
+		},
+		
+		getPluginParam: function (plugin, name) {
+			if ( !pluginParams[ plugin ] ) {
+				return null;
+			}
+			
+			if (!name) {
+				return pluginParams[ plugin ];
+			}
+			
+			return pluginParams[ plugin ][ name ];
 		},
 
 		setCookie: function (name, value, seconds, path, domain) {
