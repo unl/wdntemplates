@@ -1,115 +1,184 @@
 WDN.toolbar_feeds = function() {
-    var localRSS = false;
-    var localRSSTitle;
-    var wehaveinsertedthelocalrsshtml = false;
     var gobacklinkadded = false;
-    var appendWhatIsRSS = false;
+    /**
+     * expected pluginParam is in the form of
+     * { 
+     *     feeds: [
+     *         {
+     *             url: 'http://mediahub.unl.edu/?format=xml',
+     *             link: 'http://mediahub.unl.edu/',
+     *             title: 'UNL Media Hub'
+     *         }
+     *     ]
+     * }
+     */
+    var defaultFeeds = [
+	        {
+	        	url: 'http://mediahub.unl.edu/?format=xml',
+	        	link: 'http://mediahub.unl.edu/',
+	        	title: 'UNL Media Hub'
+	        },
+	        {
+	        	url: 'http://newsroom.unl.edu/releases/?format=xml',
+	        	link: 'http://newsroom.unl.edu/',
+	        	title: 'UNL Newsroom',
+	        	limit: 5
+	        },
+	        {
+	        	url: 'http://www.huskers.com/rss.dbml?db_oem_id=100&media=news',
+	        	link: 'http://www.huskers.com/',
+	        	title: 'Husker Athletics News'
+	        }
+	    ],
+	    feeds;
 
     return {
-        feedAddress1 : 'http://www1.unl.edu/mediahub/?format=xml',
-        feedSite1 : 'http://www1.unl.edu/mediahub/',
-        feedName1 : 'UNL Media Hub',
-        feedAddress2 : 'http://newsroom.unl.edu/releases/?format=xml',
-        feedSite2 : 'http://newsroom.unl.edu/',
-        feedName2 : 'UNL Newsroom',
-        feedAddress3 : 'http://www.huskers.com/rss.dbml?db_oem_id=100&media=news',
-        feedSite3 : 'http://www.huskers.com/',
-        feedName3 : 'Husker Athletics News',
-        feedAddressLocal : false,
+    	cb: [],
         initialize : function() {
-            localRSS = WDN.toolbar_feeds.hasLocalRSS();
-            if (localRSS) {
-                WDN.toolbar_feeds.feedAddressLocal = localRSS;
+        	if (feeds) {
+        		return;
+        	}
+        	
+        	var feedsParam = WDN.getPluginParam('feeds', 'feeds'),
+        		$localFeed = WDN.jQuery('link[rel=alternate]'),
+        		i = 0,
+        		foundLocal = false;
+        	
+            if (!feedsParam || !feedsParam.length) {
+            	feeds = defaultFeeds;
+            } else {
+            	feeds = feedsParam.slice(0, 3);
+            }
+            
+            if ($localFeed.length) {
+            	for (; i < feeds.length; i++) {
+            		if (feeds[i].url === $localFeed[0].href) {
+            			foundLocal = true;
+            			break;
+            		}
+            	}
+            	if (!foundLocal) {
+            		feeds.push({
+                		url: $localFeed[0].href,
+                		title: $localFeed.attr('title')
+                	});
+            	}
             }
         },
-        hasLocalRSS : function() {
-            if (WDN.jQuery('link[rel=alternate]').length) {
-                localRSSTitle = WDN.jQuery('link[rel=alternate]').attr('title');
-                return WDN.jQuery('link[rel=alternate]').attr('href');
-            }
-            return false;
-        },
-        setupToolContent : function() {
-            // This is where your tools content resides
-            return '<div class="col col1"><h3><span><a href="'+WDN.toolbar_feeds.feedSite1+'">'+WDN.toolbar_feeds.feedName1+'</a></span><a href="'+WDN.toolbar_feeds.feedAddress1+'"><span class="rssicon"></span></a>&nbsp;<!--this space is needed for safari--></h3><div class="toolbarMask"><ul id="wdn_feed_col1"></ul></div></div><div class="col col2"><h3><span><a href="'+WDN.toolbar_feeds.feedSite2+'">'+WDN.toolbar_feeds.feedName2+'</a></span><a href="'+WDN.toolbar_feeds.feedAddress2+'"><span class="rssicon"></span></a>&nbsp;</h3><div class="toolbarMask"><ul id="wdn_feed_col2"></ul></div></div><div class="col col3"><h3><span><a href="'+WDN.toolbar_feeds.feedSite3+'">'+WDN.toolbar_feeds.feedName3+'</a></span><a href="'+WDN.toolbar_feeds.feedAddress3+'"><span class="rssicon"></span></a>&nbsp;</h3><div class="toolbarMask"><ul id="wdn_feed_col3"></ul></div></div>';
+        setupToolContent : function(contentCallback) {
+        	WDN.jQuery.ajax({
+            	url: WDN.template_path + 'wdn/templates_3.0/includes/tools/feeds.html',
+            	success: function(data) {
+            		var $tempDiv = WDN.jQuery('<div/>'),
+            			gridNum = 12 / feeds.length;
+            		
+            		WDN.jQuery.each(feeds, function(i, feed) {
+            			var $feedDiv = WDN.jQuery('<div />').addClass('feed_col grid' + gridNum + (i == 0 ? ' first' : '')),
+            				$feedHeading = WDN.jQuery('<h3/>').append('<span>' + feed.title + '</span><a href="' + feed.url + '"><span class="rssicon"/></a></h3>');
+            			
+            			if (feed.link) {
+            				$feedHeading.children('span').wrapInner('<a href="' + feed.link + '"/>');
+            			}
+            			
+            			$feedDiv.append($feedHeading).append('<ul id="wdn_feed' + (i + 1) + '"/>').appendTo($tempDiv);
+            			
+            			WDN.toolbar_feeds.cb[i] = function(jsonData) {
+            				WDN.toolbar_feeds.showRSSItems(i, jsonData);
+            				// if MediaHub, bind handler
+            				if (feed.url === defaultFeeds[0].url) {
+            					WDN.toolbar_feeds.bindShowMediaPlayer(i);
+            				}
+            			};
+            		});
+            		
+            		$tempDiv.append(data);
+            		contentCallback($tempDiv.children());
+            	},
+            	error: function() {
+            		contentCallback("An error occurred while loading this section");
+            	}
+            });
         },
         display : function() {
-            if (localRSS) {
-                if (wehaveinsertedthelocalrsshtml === false) {
-                    WDN.jQuery('#toolbar_feeds').append('<div class="col col4"><h3><span>'+localRSSTitle+'</span><a href="'+WDN.toolbar_feeds.feedAddressLocal+'"><span class="rssicon"></span></a>&nbsp;</h3><div class="toolbarMask"><ul id="wdn_feed_local"></ul></div></div>');
-                    wehaveinsertedthelocalrsshtml = true;
-                }
-                WDN.jQuery('#toolbar_feeds .col.col1').css({width:"220px"});
-                WDN.jQuery('#toolbar_feeds .col.col2').css({width:"220px"});
-                WDN.jQuery('#toolbar_feeds .col.col3').css({width:"220px", padding:"0 10px 0 10px"});
-                WDN.loadJS('http://query.yahooapis.com/v1/public/yql?q=select+link%2Cdescription%2Ctitle+from+rss+where+url%3D%27'+escape(WDN.toolbar_feeds.feedAddressLocal)+'%27+limit+7&format=json&callback=WDN.toolbar_feeds.showPostsLocal');
-            }
-            if (appendWhatIsRSS === false) {
-                WDN.jQuery('#toolbar_feeds').append('<div id="wdn_rss_story"><div id="wdn_rss_story_content"></div></div>');
-                WDN.jQuery('#toolbar_feeds').append('<div id="whatisrss"><div class="two_col left"><span>What is <img src="'+WDN.template_path+'wdn/templates_3.0/css/header/images/feed-icon-28x28.png" alt="RSS Icon" /> ?</span>RSS, or Really Simple Syndication, is an open-standard XML format used to publish frequently updated works such as blog entries, news headlines, audio, and video. You can subscribe to these feeds by using a news reader program. The application connects to the news services at preset intervals and downloads new items as they are published. <a href="http://www1.unl.edu/feeds/about.php">Learn More...</a></div><div class="two_col right"><span>Feeds from unl.edu</span>Displayed above from left to right are RSS feeds from the <a href="http://www1.unl.edu/mediahub/">Media Hub</a>, an aggregate of available video and audio from unl.edu, <a href="http://newsroom.unl.edu/">News Releases</a> from <a href="http://ucomm.unl.edu/">University Communications</a>, <a href="http://www.huskers.com/">Athletics News</a>, and a feed off the site you\'re currently on (if available).  Click the orange RSS icon within the red header to grab the feed. <strong><a href="http://www1.unl.edu/feeds/">Find more available feeds at the UNL RSS Feeds Site...</a></strong></div></div>');
-                appendWhatIsRSS=true;
-            }
-            WDN.loadJS('http://query.yahooapis.com/v1/public/yql?q=select+link%2Cdescription%2Ctitle+from+rss+where+url%3D%27'+escape(WDN.toolbar_feeds.feedAddress1)+'%27+limit+7&format=json&callback=WDN.toolbar_feeds.showPosts1');
-            WDN.loadJS('http://query.yahooapis.com/v1/public/yql?q=select+link%2Cdescription%2Ctitle+from+rss+where+url%3D%27'+escape(WDN.toolbar_feeds.feedAddress2)+'%27+limit+5&format=json&callback=WDN.toolbar_feeds.showPosts2');
-            WDN.loadJS('http://query.yahooapis.com/v1/public/yql?q=select+link%2Cdescription%2Ctitle+from+rss+where+url%3D%27'+escape(WDN.toolbar_feeds.feedAddress3)+'%27+limit+7&format=json&callback=WDN.toolbar_feeds.showPosts3');
+        	var yqlEndpoint = 'http://query.yahooapis.com/v1/public/yql?q=',
+        		q = 'select link,description,title from rss where url=';
+        	
+        	for (var i = 0; i < feeds.length; i++) {
+        		WDN.loadJS(yqlEndpoint + escape(q + "'" + feeds[i].url + "' limit " + (feeds[i].limit ? feeds[i].limit : 7))
+    				+ '&format=json&callback=WDN.toolbar_feeds.cb[' + i + ']'
+				);
+        	}
         },
-        showPosts1 : function(data) {
-            WDN.toolbar_feeds.showRSSItems('wdn_feed_col1', data);
-            WDN.toolbar_feeds.onClickWeMove(1);
-        },
-        showPosts2 : function(data) {
-            WDN.toolbar_feeds.showRSSItems('wdn_feed_col2', data);
-        },
-        showPosts3 : function(data) {
-            WDN.toolbar_feeds.showRSSItems('wdn_feed_col3', data);
-        },
-        showPostsLocal : function(data) {
-            WDN.toolbar_feeds.showRSSItems('wdn_feed_local', data);
-        },
-        showRSSItems : function(ul_id, data) {
+        showRSSItems : function(colIdx, data) {
+        	var $feedList = WDN.jQuery('#wdn_feed' + (colIdx + 1)).empty(); 
             for (var i=0; i<data.query.count; i++) {
-                WDN.jQuery('#'+ul_id+'').append("<li><a tooltip='"+WDN.jQuery('<div/>').text(data.query.results.item[i].description).html()+"' href='"+data.query.results.item[i].link+"'>"+data.query.results.item[i].title+"</a></li>");
+                $feedList.append('<li><a title="' 
+            		+ WDN.jQuery.trim(WDN.jQuery('<div/>').html(data.query.results.item[i].description).text())
+            		+ '" href="' + data.query.results.item[i].link + '">' 
+            		+ data.query.results.item[i].title + '</a></li>');
             }
-            WDN.tooltip.tooltipSetup(ul_id);
         },
-        onClickWeMove : function(col) {
-            WDN.jQuery('ul#wdn_feed_col'+col+' a').click(function(ev){
+        bindShowMediaPlayer : function(col) {
+            WDN.jQuery('#wdn_feed' + (col + 1) +' a').click(function(ev){
+                var raudio = /\.mp3$/,
+                	rvideo = /\.(m4v|mp4|mov)$/;
+                
+                if (!this.href.match(raudio) && !this.href.match(rvideo)) {
+                	return;
+                }
+                
                 ev.preventDefault();
-
-                //WDN.jQuery('#wdn_rss_story_title').empty();
-                WDN.jQuery('#wdn_rss_story_content').empty();
-
-                WDN.jQuery('#whatisrss').slideUp("slow");
-                WDN.jQuery('#toolbar_feeds div.col4').slideUp("slow");
-                WDN.jQuery('#toolbar_feeds div.col3').slideUp("slow");
-                WDN.jQuery('#toolbar_feeds div.col2').slideUp("slow", function () {
-                    WDN.jQuery('#toolbar_feeds .col1').css({width:"220px"}); //in case the first column was set as one of three columns we resize it to it's 1/4 size
-                    WDN.jQuery('#wdn_rss_story').show();
-                    if (gobacklinkadded === false) {
-                        WDN.jQuery('#toolbar_feeds .col1').prepend('<a class="wdn_rss_showall" href="#" style="font-size:1.2em;">Go back to all feeds</a>');
-                        gobacklinkadded = true;
-                    } else {
-                        WDN.jQuery('#toolbar_feeds .wdn_rss_showall').show();
-                    }
-                    WDN.jQuery('#toolbar_feeds .col1 h3').css({'margin-top':'10px'});
-                    WDN.jQuery('#toolbar_feeds .wdn_rss_showall, #tooltabs .feeds').click(function(){
-                        WDN.jQuery('#toolbar_feeds .col1 h3').css({'margin-top':'0'});
-                        WDN.jQuery('#wdn_rss_story').hide();
-                        WDN.jQuery('#toolbar_feeds .wdn_rss_showall').hide();
-                        WDN.jQuery('#toolbar_feeds div.col4').slideDown("slow");
-                        WDN.jQuery('#toolbar_feeds div.col3').slideDown("slow");
-                        WDN.jQuery('#toolbar_feeds div.col2').slideDown("slow");
-                        WDN.jQuery('#whatisrss').slideDown("slow");
-                        if (localRSS === false) {
-                            WDN.jQuery('#toolbar_feeds .col1').css({width:"300px"});
-                        }
+                WDN.loadCSS('wdn/templates_3.0/css/content/mediaelement.css');
+                
+                var self = this,
+                	$this = WDN.jQuery(this), 
+                	$col = $this.closest('div'),
+                	$sibs = $col.siblings('.feed_col'),
+                	$story = WDN.jQuery('#wdn_rss_story'),
+                	$media,
+                	loadPlayer = function() {
+                		$story.empty();
+                		WDN.jQuery('.wdn_rss_media strong', $col).text('Now Playing: ' + $this.text());
+                		
+                		if (self.href.match(rvideo)) {
+                			$media = WDN.jQuery('<video/>').prop('autoplay', true).prop('controls', true).attr('poster', 'http://itunes.unl.edu/thumbnails.php?url=' + escape(self.href)); 
+                		} else {
+                			$media = WDN.jQuery('<audio/>');
+                		}
+                		
+                		$media.attr('width', '700').attr('height', '394').attr('id', 'wdn_rss_player').attr('src', self.href).appendTo($story);
+                		
+                		WDN.loadJS('wdn/templates_3.0/scripts/mediaelement.js', function() {
+                			var player = new MediaElementPlayer('#wdn_rss_player');
+                		});
+                	};
+                
+                if (!$story.is(':visible')) {
+                	var oldClass = $col[0].className,
+                		onComplete = function() {
+                        	$col[0].className = 'grid3 first';
+                        	$story.show();
+                        	WDN.jQuery('<a href="#"/>').html('&larr; Go back to all feeds').appendTo('<div/>')
+                        		.click(function() {
+                        			$story.empty().hide();
+                        			$col[0].className = oldClass;
+                        			WDN.jQuery('#whatisrss').slideDown(200);
+                        			$sibs.animate({ width: 'toggle' }, 600);
+                        			WDN.jQuery(this).parent().remove();
+                        			return false;
+                        		})
+                        		.parent().addClass('wdn_rss_media').prepend(WDN.jQuery('<strong/>'))
+                        		.prependTo($col);
+                        	loadPlayer();
+                        };
+                	WDN.jQuery('#whatisrss').slideUp(200);
+                	
+                    $sibs.each(function(i) {
+                    	WDN.jQuery(this).animate({ width: 'toggle' }, 600, i === 0 ? onComplete : null);
                     });
-
-                });
-
-                //WDN.jQuery('#wdn_rss_story_title').append('title');
-                WDN.jQuery('#wdn_rss_story_content').append('<div class="content_holder" id="preview_holder"><div class="unl_liquid_pictureframe"><div class="unl_liquid_pictureframe_inset"><object id="preview" height="400" width="700"><param value="true" name="allowfullscreen"></param><param value="always" name="allowscriptaccess"></param><embed src="http://www.unl.edu/ucomm/templatedependents/templatesharedcode/scripts/components/mediaplayer/player.swf?file='+WDN.jQuery(this).attr("href")+'&amp;image=http://itunes.unl.edu/thumbnails.php?url='+WDN.jQuery(this).attr("href")+'&amp;volume=100&amp;autostart=false" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" height="400" width="700"></embed></object><span class="unl_liquid_pictureframe_footer"></span></div></div></div>');
-
+                } else {
+                	loadPlayer();
+                }
             });
         }
         

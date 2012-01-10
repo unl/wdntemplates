@@ -63,7 +63,14 @@
     padding-top: 7px;
     background: url('images/feed-icon-28x28.png') no-repeat 0 0;
 }
-#wdn_rss_story {
+#toolbar_feeds .wdn_rss_media {
+	margin-bottom: 2em;
+}
+#toolbar_feeds .wdn_rss_media strong {
+	display: block;
+	margin-bottom: 1.1em;
+}
+#toolbar_feeds #wdn_rss_story {
     display: none;
     float: left;
     padding: 0 0 0 10px;
