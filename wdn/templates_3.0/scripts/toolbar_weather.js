@@ -29,6 +29,6 @@ WDN.toolbar_weather = function() {
 	            	}
 	            });
             });
-        },
+        }
     };
 }();
