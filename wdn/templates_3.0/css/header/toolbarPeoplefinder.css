@@ -1,15 +1,5 @@
 /* Peoplefinder
 ************************/
-#toolbar_peoplefinder .col.left {
-    float:left;
-    padding:0 10px 0 0;
-    width:460px;
-}
-#toolbar_peoplefinder .col.right {
-    float:right;
-    padding:0 0 0 10px;
-    width:460px;
-}
 #toolbar_peoplefinder form {
     margin-bottom:15px;
 }
@@ -31,6 +21,8 @@
 #toolbar_peoplefinder .pfintro ul { list-style: disc; padding: 0 0 1.1em 25px; }
 #toolbar_peoplefinder #pf_copyright { margin: 1.1em 0; }
 #toolbar_peoplefinder #pf_disclaimer { font-size:0.8em; }
+#toolbar_peoplefinder #pf_progress { background: url('images/colorbox/loading.gif') no-repeat center center; height: 56px; }
+#pfresults { overflow: auto; height: 390px; }
 
 #toolbar_peoplefinder a {color:#BA0000; text-decoration: none; }
 
