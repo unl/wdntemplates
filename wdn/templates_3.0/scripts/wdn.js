@@ -103,7 +103,7 @@ var WDN = (function() {
 		initializeTemplate: function () {
 			//gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 			//WDN.loadJS(gaJsHost + "google-analytics.com/ga.js");
-			WDN.loadCSS('wdn/templates_3.0/css/script.css');
+			//WDN.loadCSS('wdn/templates_3.0/css/script.css');
 //			WDN.loadJS('wdn/templates_3.0/scripts/xmlhttp.js');
 			WDN.loadJQuery(WDN.jQueryUsage);
 		},

@@ -1,0 +1,34 @@
+// These functions set the WDN colors as found at:
+// http://wdn.unl.edu/documentation/colors.shtml
+
+
+//Primary color
+@colorPrimary: #B70302; //red
+
+//Secondary colors
+@colorManilla: #E5DCA7;  //manilla
+@colorNeutral: #F2EDDE; //neutral manilla
+@colorTriad: #A7CEE5; //triad blue  
+@colorComplementary: #6FBF4D; //complementary green
+
+// Highlights and shadow colors
+
+//primary
+@highlightPrimary: lighten(@colorPrimary, 2.5%);
+@shadowPrimary: darken(@colorPrimary, 5%);
+
+//manilla
+@highlightManilla: lighten(saturate(@colorManilla, 15%), 5%);
+@shadowManilla: darken(desaturate(@colorManilla, 20%), 9%);
+
+//neutral manilla
+@highlightNeutral: lighten(saturate(@colorNeutral, 50%), 5%);
+@shadowNeutral: darken(desaturate(@colorNeutral, 25%), 9%);
+
+//triad blue
+@highlightTriad: lighten(saturate(@colorTriad, 20%), 5%);
+@shadowTriad: darken(desaturate(@colorTriad, 20%), 9%);
+
+//complementary green
+@highlightComplementary: lighten(saturate(@colorComplementary, 5%), 5%);
+@shadowComplementary: darken(@colorComplementary, 8%);

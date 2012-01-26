@@ -1,0 +1,150 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/header/header.less
+*
+* ---------------------------
+* Styles associated with the document header
+* ---------------------------
+*/
+@import "../_mixins/all.less";
+
+#header {
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 90%, rgba(100,100,100,0.40) 95%, rgba(114,114,114,0.60) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(90%,rgba(0,0,0,0)), color-stop(98%,rgba(100,100,100,0.40)), color-stop(100%,rgba(114,114,114,0.60))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0) 90%,rgba(100,100,100,0.40) 95%,rgba(114,114,114,0.60) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(0,0,0,0) 90%,rgba(100,100,100,0.40) 95%,rgba(114,114,114,0.60) 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, rgba(0,0,0,0) 90%,rgba(100,100,100,0.40) 95%,rgba(114,114,114,0.60) 100%); /* IE10+ */
+	background: linear-gradient(top, rgba(0,0,0,0) 90%,rgba(100,100,100,0.40) 95%,rgba(114,114,114,0.60) 100%); /* W3C */
+	padding: 4px;
+	font-family: 'URWGroteskCon-Lig', Helvetica, Arial, sans-serif;
+	
+	> a {
+	    text-decoration: none;
+	    height: 35px;
+	    float: left;
+	}
+	
+}
+
+#logo {
+    width: 40px; 
+}
+
+#wdn_institution_title {
+    display: none;
+}
+
+#wdn_site_title {
+    display: block;
+    font-size: 2em;
+    line-height: 1.2;
+    margin: 7px 0 -3px 45px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 55%;
+    
+    > span {
+        display: none;
+    }
+}
+
+@media (min-width: 320px) {
+    
+}
+@media (min-width: 480px) {
+
+}
+@media (min-width: 600px) {
+    #wdn_site_title {
+        width: 60%;
+    }
+}
+@media (min-width: 768px) {
+    #header {
+        background: #fff;
+        
+        a > {
+            position: relative;
+            z-index: 1;
+            margin-right: 2px;
+            
+            > img {
+                width: 55px;
+            }
+        }
+    }
+    #wdn_institution_title {
+        display: block;
+        text-transform: uppercase;
+        line-height: 0;
+        font-weight: normal;
+        margin: 13px 0 0 0;
+    }
+}
+@media (min-width: 960px) {
+
+}
+@media (min-width: 1040px) {
+    #header {
+        margin: -53px -12px 0 -16px;
+        background: none;
+        
+        > a {
+            background: #fff;
+            .border-radius(5px);
+            margin: 12px 0 0 0;
+            padding: 12px 12px 0 12px;
+            position: inherit;
+            
+            &:after {
+                content: '';
+            }
+            
+            > img {
+                width: auto;
+            }
+        }
+        
+        
+    }
+    
+    #logo {
+        width: auto;
+    }
+    
+    #wdn_institution_title {
+        height: 0; /* Safari */
+        margin: 13px 0 0 90px;
+        padding: 12px 10px;
+        background: url('images/bottomLeftCorner.png') bottom left no-repeat;
+        color: rgba(62, 62, 62, 0.99);
+        font-size: 1.5em;
+        text-shadow: 0 0 3px #fff;
+    }
+    
+    #wdn_site_title {
+        position: inherit;
+        display: block;
+        margin: 12px 0 0 99px;
+        color:#555;
+        font-size: 2.5em;
+        text-shadow: 0 0 3px #fff;
+        font-weight: normal;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        
+        > span {
+            display:block;
+            font-size:25%;
+            color:#6E6E6E;
+            margin-top:-0.6em;
+            letter-spacing:0em;
+            text-transform:uppercase;
+            font-family: Helvetica, "Lucida Grande", Verdana, Arial;
+            line-height: 0.8;
+        }
+    }
+    
+}

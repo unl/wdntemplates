@@ -1,0 +1,88 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/wrapper/wrapper.less
+*
+* ---------------------------
+* Styles associated with the exterior chrome/wrapper of the design
+* ---------------------------
+*/
+@import "../_mixins/all.less";
+html {
+    height: 100%;
+    
+    > body {
+        height: 100%;
+        background-image: url('images/bg.jpg');
+            font-size: 1em;
+            line-height: 1em;
+            
+            > .skipnav {
+                display: none;
+            }
+            
+        }
+}
+
+//save some bits by not nesting
+#wdn_wrapper {
+    overflow: hidden;
+    position: relative;
+}
+@media (min-width: 320px) {
+
+}
+@media (min-width: 480px) {
+
+}
+@media (min-width: 600px) {
+
+}
+@media (min-width: 768px) {
+
+}
+@media (min-width: 960px) {
+
+}
+@media (min-width: 1040px) {
+    body {
+        
+        > .skipnav {
+            display: block;
+            position: absolute;
+            z-index: 11;
+            
+            a {
+                color:#fff;
+                text-decoration:none;
+                font-size:0.8em;
+                text-shadow: 1px 1px 1px #424242;
+                font-weight:bold;
+                text-indent:-9999em;
+                float: left;
+                
+                &:focus {
+                    text-indent: 0;
+                    .box-shadow(0px, 1px, 5px, #aaa);
+                    .linear-gradient(@highlightPrimary, @shadowPrimary);
+                    .border-radius(3px);
+                    padding: 0.5em;
+                }
+            }
+        }
+    }
+    
+    #wdn_wrapper {
+        width: 960px;
+        /* width: 92%; // If we want fluid */
+        background: #fff;
+        border: 12px solid #eee;
+        border-top: 35px solid #eee;
+        padding: 12px 12px 10px;
+        margin: 10px auto 20px;
+        .box-shadow(0px, 1px, 5px, #aaa);
+        .border-radius(10px);
+        overflow: visible;
+        height: auto;
+    }
+}

@@ -1,0 +1,138 @@
+// Border Radius Functions
+.border-radius(@radius: 10px)
+{
+	.border-radius2(@radius, @radius);
+}
+
+.border-radius2(@radius_top, @radius_bottom)
+{
+	.border-radius4(@radius_top, @radius_top, @radius_bottom, @radius_bottom);
+}
+
+.border-radius4(@radius_top_left, @radius_top_right, @radius_bottom_right, @radius_bottom_left)
+{
+	-webkit-border-radius: @arguments;
+	-moz-border-radius: @arguments;
+	border-radius: @arguments;
+}
+
+// Shadows
+.box-shadow(@none)
+{
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+.box-shadow(@shadow_x, @shadow_y, @shadow_rad, @shadow_color)
+{
+	box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+}
+.box-shadow(@shadow_x, @shadow_y, @shadow_rad, @shadow_color, @shadow_x2, @shadow_y2, @shadow_rad2, @shadow_color2)
+{
+	box-shadow: @shadow_x @shadow_y @shadow_rad @shadow_color, @shadow_x2 @shadow_y2 @shadow_rad2 @shadow_color2;
+	-webkit-box-shadow: @shadow_x @shadow_y @shadow_rad @shadow_color, @shadow_x2 @shadow_y2 @shadow_rad2 @shadow_color2;
+	-moz-box-shadow: @shadow_x @shadow_y @shadow_rad @shadow_color, @shadow_x2 @shadow_y2 @shadow_rad2 @shadow_color2;
+}
+.box-shadow(@inset, @shadow_x, @shadow_y, @shadow_rad, @shadow_blur, @shadow_color)
+{
+	box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+}
+
+//opacity
+.opacity(@op:100)
+{
+	filter: alpha(opacity= @op);
+	opacity: @op/100;
+}
+
+// Gradients
+.linear-gradient(@from:#000, @to:#EEE)
+{
+	background: @from; // Old browsers
+	background: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to)); //Chrome, Safari4+
+	background: -moz-linear-gradient(top, @from, @to); // FF3.6+
+	background: -webkit-linear-gradient(top, @from, @to); // Chrome10+, Safari5.1+
+	background: -o-linear-gradient(top, @from, @to); // Opera11.10+
+	background: -ms-linear-gradient(top, @from, @to); // IE10+
+	filter: formatstring(~"progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}')", @from, @to); // IE6,IE7
+	-ms-filter: formatstring(~"{2}progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}'){2}", @from, @to, '"'); // IE8
+	background: linear-gradient(top, @from, @to); // W3C
+}
+
+// Box Flex
+.box-flex-display()
+{
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+}
+.box-flex(@flex:1)
+{
+    -webkit-box-flex: @flex;
+    -moz-box-flex: @flex;
+    box-flex: @flex;
+}
+
+.background-clip(@r)
+{
+    -moz-background-clip: @r;
+    -webkit-background-clip: @r;
+    background-clip: @r;
+}
+
+//transitions
+.transition(@none)
+{
+	-moz-transition: none;
+	-webkit-transition: none;
+	-o-transition: none;
+	transition: none;
+}
+.transition(@range, @time, @ease)
+{
+	-moz-transition: @arguments;
+	-webkit-transition: @arguments;
+	-o-transition: @arguments;
+	transition: @arguments;
+}
+
+// Transformations
+.skew(@angle_x:35, @angle_y:0)
+{
+	-webkit-transform: skew(formatstring("{0}deg", @angle_x), formatstring("{0}deg", @angle_y));
+	-moz-transform: skew(formatstring("{0}deg", @angle_x), formatstring("{0}deg", @angle_y));
+	-o-transform: skew(formatstring("{0}deg", @angle_x), formatstring("{0}deg", @angle_y));
+	-ms-transform: skew(formatstring("{0}deg", @angle_x), formatstring("{0}deg", @angle_y));
+	transform: skew(formatstring("{0}deg", @angle_x), formatstring("{0}deg", @angle_y));
+}
+
+.scale(@scale_x: 1)
+{
+	-webkit-transform: scale(@scale_x);
+	-moz-transform: scale(@scale_x);
+	-o-transform: scale(@scale_x);
+	-ms-transform: scale(@scale_x);
+	transform: scale(@scale_x);
+}
+
+.rotate(@angle:35deg)
+{
+	-webkit-transform: rotate(@angle);
+	-moz-transform: rotate(@angle);
+	-o-transform: rotate(@angle);
+	-ms-transform: rotate(@angle);
+	transform: rotate(@angle);
+}
+
+.translate(@move_x: 10px, @move_y: 10px)
+{
+	-webkit-transform: translate(@move_x, @move_y);
+	-moz-transform: translate(@move_x, @move_y);
+	-o-transform: translate(@move_x, @move_y);
+	-ms-transform:translate(@move_x, @move_y);
+	transform: translate(@move_x, @move_y);
+}
