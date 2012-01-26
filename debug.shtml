@@ -22,7 +22,6 @@
     $Id$
 -->
 <!--#include virtual="/wdn/templates_3.0/includes/scriptsandstyles_debug.html" -->
-<!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>Debugging Out | WDN Testing Page | University of Nebraska&ndash;Lincoln</title>
 <!-- InstanceEndEditable -->
