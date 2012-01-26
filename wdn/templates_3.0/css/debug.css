@@ -4,6 +4,7 @@
 @import url('wrapper/wrapper.css') (min-width: 320px);
 @import url('header/header.css') (min-width: 320px);
 @import url('header/search.css') (min-width: 320px);
+@import url('header/idm.css') (min-width: 320px);
 @import url('header/tools.css') (min-width: 320px);
 @import url('navigation/breadcrumbs.css') (min-width: 320px);
 @import url('navigation/navigation.css') (min-width: 320px);

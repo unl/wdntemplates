@@ -1,68 +1,100 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/header/idm.less
+*
+* ---------------------------
+* Styles associated with the IDM indicator
+* ---------------------------
+*/
 #wdn_identity_management {
-    position: absolute;
-    top: 7px;
-    left: 400px;
-    background-position: 0px 0px;
-    font-size: 1em;
-    font-weight: bold;
-    color: #727272;
-    font-family: sans-serif;
-    vertical-align: top;
-    overflow: visible;
-    background: #f1f1f1;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    padding: 4px;
+  position: absolute;
+  z-index: 1;
+  top: 50px;
+  left: 1px;
+  font-family: Helvetica, "Lucida Grande", Verdana, Arial;
+  padding: 3px;
+  -webkit-border-radius: 0 0 3px 0;
+  -moz-border-radius: 0 0 3px 0;
+  border-radius: 0 0 3px 0;
 }
-#wdn_identity_management:empty{display: none;}
-#wdn_identity_management img {
-    border: 1px solid #b8b8b8;
-    vertical-align: bottom;
+#wdn_identity_management > a {
+  font-weight: bold;
+  font-size: 80%;
+  line-height: 1;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: -1px -1px 1px #9e0302;
+  display: block;
+  padding: 3px;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
 }
-#wdn_identity_management a,
-#wdn_identity_management a:link,
-#wdn_identity_management a:visited {
-    color: #BA0000;
-    text-decoration: none;
-    font-size: 0.7em;
-    font-weight: normal;
-    margin-right: 5px;
+#wdn_identity_management > a img {
+  -webkit-border-radius: 2px 2px 2px 2px;
+  -moz-border-radius: 2px 2px 2px 2px;
+  border-radius: 2px 2px 2px 2px;
+  border: 1px solid #9e0302;
 }
-#wdn_identity_management a:focus,
-#wdn_identity_management a:hover {
-    color: #CC0000;
-    border-bottom: 1px dotted #CC0000;
+#wdn_identity_management > a span {
+  vertical-align: 35%;
 }
-#wdn_identity_management .username {
-    margin-right: 5px;
+#wdn_identity_management > a span:after {
+  content: '\25BC';
+  font-size: 30%;
+  margin-left: 5px;
 }
-
-#wdn_identity_management a:first-of-type:hover {
-    border-bottom: none;
+#wdn_identity_management:hover > a {
+  background: #a00100;
 }
-#wdn_idm_logout {
-    position: relative;
-    top: -2px;
-    display: inline-block;
-    text-indent: -999999em;
-    background: url('images/wdn_idmLogout.png') no-repeat 0 1px;
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    opacity: 0.6;
+#wdn_identity_management:hover #wdn_idm_user_options {
+  display: block;
 }
-a#wdn_idm_logout:hover, a#wdn_idm_logout:focus {
-    opacity: 1;
-    border-bottom: none;
+#wdn_identity_management > #wdn_idm_user_options {
+  display: none;
+  background: #a00100;
+  padding: 3px;
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+  font-size: 80%;
 }
-img.profile_pic {
-    padding: 3px 3px 6px 3px;
+#wdn_identity_management > #wdn_idm_user_options li {
+  border-bottom: 1px solid #ad0302;
+  padding: 5px;
 }
-img.profile_pic.small {
-    background: url('images/wdn_idmProfileSmall.png') no-repeat top left;
+#wdn_identity_management > #wdn_idm_user_options li:last-child {
+  border-bottom: 0;
 }
-img.profile_pic.medium {
-    background: url('images/wdn_idmProfileMedium.png') no-repeat top left;
-    padding: 7px 7px 12px 7px;
+#wdn_identity_management > #wdn_idm_user_options li a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  display: block;
+}
+#wdn_identity_management > #wdn_idm_user_options li a:hover {
+  color: #fff;
+}
+.loggedout#wdn_identity_management > a {
+  font-weight: normal;
+}
+@media (min-width: 320px) {
+  
+}
+@media (min-width: 480px) {
+  
+}
+@media (min-width: 600px) {
+  
+}
+@media (min-width: 768px) {
+  #wdn_identity_management {
+    top: 0;
+  }
+}
+@media (min-width: 960px) {
+  
+}
+@media (min-width: 1040px) {
+  
 }
