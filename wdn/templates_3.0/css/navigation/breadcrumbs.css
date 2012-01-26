@@ -1,69 +1,113 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/navigation/breadcrumbs.less
+*
+* ---------------------------
+* Styles associated with the breadcrumbs
+* ---------------------------
+*/
 #breadcrumbs {
+  display: none;
+}
+@media (min-width: 320px) {
+  
+}
+@media (min-width: 480px) {
+  
+}
+@media (min-width: 600px) {
+  
+}
+@media (min-width: 768px) {
+  #breadcrumbs {
+    display: block;
     font-size: 0.689em;
     display: inline-block;
-    margin-top: 10px;
-}
-#breadcrumbs a acronym {
+  }
+  #breadcrumbs > a {
+    display: none;
+  }
+  #breadcrumbs > a acronym {
     display: inline-block;
     margin-top: -2px;
-}
-#breadcrumbs > a {
-    display:none;	
-}
-#breadcrumbs > ul {
+  }
+  #breadcrumbs > ul {
     list-style: none;
     display: inline-block;
-}
-#breadcrumbs > ul > li {
+  }
+  #breadcrumbs > ul > li {
     float: left;
     padding: 5px 5px 6px 8px;
-    color: #686868; /* @TODO need to check contrast */
+    color: #686868;
+    /* @TODO need to check contrast */
+  
     margin: 3px 0;
     position: relative;
     z-index: 2;
     background: #eee;
-}
-#breadcrumbs > ul > li > a {
-    padding-right: 11px;
-    font-weight: bold;
-    background: url('images/2011_breadcrumb_li.png') no-repeat right 3px;
-}
-#breadcrumbs > ul > li:first-child {
-    border-radius: 3px 0 0 3px; 
+    line-height: 1;
+  }
+  #breadcrumbs > ul > li:first-child {
     -webkit-border-radius: 3px 0 0 3px;
-    -moz-border-radius: 3px 0 0 3px; 
-}
-#breadcrumbs > ul > li.last-link {
-    border-radius: 0 3px 3px 0; 
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+  }
+  #breadcrumbs > ul > li.last-link {
     -webkit-border-radius: 0 3px 3px 0;
     -moz-border-radius: 0 3px 3px 0;
-}
-#breadcrumbs > ul > li.last-link ~ li { /* This is the non-link element */
+    border-radius: 0 3px 3px 0;
+  }
+  #breadcrumbs > ul > li ~ li {
+    /* This is the non-link element */
+  
     background: none;
-}
-#breadcrumbs > ul > li.selected    {
+  }
+  #breadcrumbs > ul > li > a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #686868;
+  }
+  #breadcrumbs > ul > li > a:after {
+    content: '\25b6';
+    margin: 0 2px 0 6px;
+    font-size: 80%;
+  }
+  #breadcrumbs > ul > li > a:link {
+    text-decoration: none;
+    color: #686868;
+  }
+  #breadcrumbs > ul > li > a:visited {
+    text-decoration: none;
+    color: #686868;
+  }
+  #breadcrumbs > ul > li.selected {
     margin: 0;
     padding: 5px 3px 3px 6px;
     border: 2px solid #f1f1f1;
-    border-radius: 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
     background: #fff;
     line-height: 1.2em;
+    box-shadow: 1px 1px 1px #cccccc;
     -webkit-box-shadow: 1px 1px 1px #cccccc;
     -moz-box-shadow: 1px 1px 1px #cccccc;
-    box-shadow: 1px 1px 1px #cccccc;
     z-index: 3;
-}
-#breadcrumbs > ul > li > a, 
-#breadcrumbs > ul > li > a:link, 
-#breadcrumbs > ul > li > a:visited {
-    text-decoration: none;
-    color: #686868; /* @TODO need to check contrast */
-}
-#breadcrumbs > ul > li.selected > a{
+  }
+  #breadcrumbs > ul > li.selected > a {
     color: #ac0302;
-    background-position: right -13px;
+  }
+  #breadcrumbs > ul > li.selected > a:after {
+    content: '\25BC';
+  }
+  #breadcrumbs .storednav {
+    display: none;
+  }
 }
-#breadcrumbs .storednav {
-    display:none;
+@media (min-width: 960px) {
+  
 }
-
+@media (min-width: 1040px) {
+  
+}

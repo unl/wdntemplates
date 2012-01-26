@@ -101,7 +101,6 @@
             <div class="footer_col" id="wdn_footer_share">
                 <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
             </div>
-            <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
             <div id="wdn_copyright">
                 <!-- InstanceBeginEditable name="footercontent" -->
                 <!--#include virtual="sharedcode/footer.html" -->

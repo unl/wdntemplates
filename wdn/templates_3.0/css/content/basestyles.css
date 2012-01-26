@@ -38,62 +38,6 @@
     padding: 0 0 0 30px;
 }
 
-strong, b {
-	font-weight: bolder;
-}
-
-em, i {
-	font-style: italic;
-}
-
-sub, sup {
-    height: 0;
-    line-height: 1;
-    font-size: 0.75em;
-    vertical-align: baseline;
-    position: relative;
-}
-sub {
-    top: .5ex;
-}
-sup {
-    bottom: 1ex;
-}
-abbr, acronym {
-    text-decoration: none;
-    border-bottom: none;
-}
-abbr:after, acronym:after {
-    font-size: 60%;
-    content: "?";
-    vertical-align: super;
-    display: inline;
-    float: none;
-    color: #c60202;
-}
-pre, code, tt, kbd, samp, .code {
-    font-family: "Courier New", Courier, mono;
-    font-size: 95%;
-}
-big {
-	font-size: larger;
-}
-small {
-	font-size: smaller;
-}
-tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-}
-th {
-	font-weight: bold;
-}
-tbody, tfoot, thead {
-	vertical-align: middle;
-}
 #maincontent pre {
     overflow:auto;
 }

@@ -1,19 +1,24 @@
-@import url('reset.css');
-@import url('grid.css');
-@import url('fonts/fonts.css');
-@import url('wrapper.css');
-@import url('header/header.css');
-@import url('navigation/navigation.css');
+@import url('foundation/reset.css') (min-width: 320px);
+@import url('foundation/global.css') (min-width: 320px);
+@import url('fonts/fonts.css') (min-width: 320px);
+@import url('wrapper/wrapper.css') (min-width: 320px);
+@import url('header/header.css') (min-width: 320px);
+@import url('header/search.css') (min-width: 320px);
+@import url('header/tools.css') (min-width: 320px);
+@import url('navigation/breadcrumbs.css') (min-width: 320px);
+@import url('navigation/navigation.css') (min-width: 320px);
+@import url('content/maincontent.css') (min-width: 320px);
+@import url('content/grid.css') (min-width: 320px);
+@import url('content/headers.css') (min-width: 320px);
+@import url('footer/footer.css') (min-width: 320px);
+@import url('footer/feedback.css') (min-width: 320px);
+@import url('footer/share.css') (min-width: 320px);
+@import url('') (min-width: 480px);
+@import url('') (min-width: 600px);
+@import url('') (min-width: 768px);
+@import url('') (min-width: 960px);
+@import url('') (min-width: 1040px);
 
-@import url('content/content.css');
-
-@import url('footer/footer.css');
-
-@import url('variations/liquid.css');
-@import url('variations/fixed.css');
-@import url('variations/popup.css');
-@import url('variations/document.css');
-@import url('variations/secure.css');
 
 
 /**

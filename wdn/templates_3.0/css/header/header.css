@@ -1,105 +1,145 @@
-@import url('toolbar.css');
-@import url('idm.css');
-
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/header/header.less
+*
+* ---------------------------
+* Styles associated with the document header
+* ---------------------------
+*/
 #header {
-    margin: -49px -12px 0 -12px;
-    position: relative;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(100, 100, 100, 0.4) 95%, rgba(114, 114, 114, 0.6) 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(90%, rgba(0, 0, 0, 0)), color-stop(98%, rgba(100, 100, 100, 0.4)), color-stop(100%, rgba(114, 114, 114, 0.6)));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(100, 100, 100, 0.4) 95%, rgba(114, 114, 114, 0.6) 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(100, 100, 100, 0.4) 95%, rgba(114, 114, 114, 0.6) 100%);
+  /* Opera11.10+ */
+
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(100, 100, 100, 0.4) 95%, rgba(114, 114, 114, 0.6) 100%);
+  /* IE10+ */
+
+  background: linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(100, 100, 100, 0.4) 95%, rgba(114, 114, 114, 0.6) 100%);
+  /* W3C */
+
+  padding: 4px;
+  font-family: 'URWGroteskCon-Lig', Helvetica, Arial, sans-serif;
 }
 #header > a {
+  text-decoration: none;
+  height: 35px;
+  float: left;
+}
+#logo {
+  width: 40px;
+}
+#wdn_institution_title {
+  display: none;
+}
+#wdn_site_title {
+  display: block;
+  font-size: 2em;
+  line-height: 1.2;
+  margin: 7px 0 -3px 45px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 55%;
+}
+#wdn_site_title > span {
+  display: none;
+}
+@media (min-width: 320px) {
+  
+}
+@media (min-width: 480px) {
+  
+}
+@media (min-width: 600px) {
+  #wdn_site_title {
+    width: 60%;
+  }
+}
+@media (min-width: 768px) {
+  #header {
     background: #fff;
-    border-radius: 5px;
-    float: left;
-    display: inline-block;
-    margin-top: 12px;
-    padding: 12px 12px 0 12px;
-}
-#header h1 {
-    color: #3e3e3e; /* old browsers (must be separate for ie7) */
-}
-#header h1 {
-    height: 0; /* Safari */
-    margin: 13px 0 0 0;
-    padding: 12px 10px;
-    float: left;
-    background: url('images/bottomLeftCorner.png') bottom left no-repeat;
-    color: rgba(62, 62, 62, 0.99);
-    font-size: 1.5em;
+  }
+  #header a {
+    position: relative;
+    z-index: 1;
+    margin-right: 2px;
+  }
+  #header a > img {
+    width: 55px;
+  }
+  #wdn_institution_title {
+    display: block;
     text-transform: uppercase;
     line-height: 0;
     font-weight: normal;
-    text-shadow: 0 0 3px #fff;
+    margin: 13px 0 0 0;
+  }
 }
-#titlegraphic h1 {
-    padding: 4px 15px;
-    position: absolute;
-    top: 10px;
-    left: 84px;
-    font-size: 40px;
-    letter-spacing: -1px;
+@media (min-width: 960px) {
+  
+}
+@media (min-width: 1040px) {
+  #header {
+    margin: -53px -12px 0 -16px;
+    background: none;
+  }
+  #header > a {
+    background: #fff;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 12px 0 0 0;
+    padding: 12px 12px 0 12px;
+    position: inherit;
+  }
+  #header > a:after {
+    content: '';
+  }
+  #header > a > img {
+    width: auto;
+  }
+  #logo {
+    width: auto;
+  }
+  #wdn_institution_title {
+    height: 0;
+    /* Safari */
+  
+    margin: 13px 0 0 90px;
+    padding: 12px 10px;
+    background: url('images/bottomLeftCorner.png') bottom left no-repeat;
+    color: rgba(62, 62, 62, 0.99);
+    font-size: 1.5em;
+    text-shadow: 0 0 3px #fff;
+  }
+  #wdn_site_title {
+    position: inherit;
+    display: block;
+    margin: 12px 0 0 99px;
+    color: #555;
+    font-size: 2.5em;
     text-shadow: 0 0 3px #fff;
     font-weight: normal;
-}
-#titlegraphic h1,
-#titlegraphic h1 a {
-    text-decoration: none;
-    color: #555;
-}
-#titlegraphic h1.with-sub {
-	top: 3px;
-}
-#titlegraphic h1 span {
-    display:block;
-    font-size:25%;
-    color:#6E6E6E;
-    margin-top:-0.6em;
-    letter-spacing:0em;
-    text-transform:uppercase;
-    font-family: Helvetica, "Lucida Grande", Verdana, Arial;
-}
-#titlegraphic h1 span a {
-    color:#6e6e6e;
-}
-#titlegraphic h2 {
-    display: none;
-}
-#wdn_search {
-    float: right;
-    max-height: 37px;
-    background: #b70302; /* old browsers */
-    background-image: -moz-linear-gradient(top, #b70302 0%, #9d0201 100%);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b70302), color-stop(100%,#9d0201));
-    padding: 8px 10px 8px 10px;
-    margin: -9px 12px 0 0;
-    border-radius: 0 0 4px 4px;
-    -moz-border-radius: 0 0 4px 4px;
-    -webkit-border-radius: 0 0 4px 4px;
-}
-#wdn_search form label {
-    display: none;
-    position: absolute;
-    margin: 4px;
-    font-family: Arial, sans-serif;
-    font-size: 0.8em;
-    color: #a1a1a1;
-}
-#wdn_search form #q {
-    border: 1px solid #e18887;
-    font-size: 10px;
-    padding: 3px 22px 3px 4px;
-    line-height: 1.4em;
-    width: 263px;
-}
-#wdn_search .search {
-    background: url('images/searchMagnifyGlass.png') no-repeat;
-    text-indent: -9999em;
-    border: none;
-    width: 18px;
-    height: 19px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+  }
+  #wdn_site_title > span {
     display: block;
-    position: absolute;
-    right: 26px;
-    top: 1px;
-}
-#wdn_search .search:hover {
-    cursor: pointer;
+    font-size: 25%;
+    color: #6E6E6E;
+    margin-top: -0.6em;
+    letter-spacing: 0em;
+    text-transform: uppercase;
+    font-family: Helvetica, "Lucida Grande", Verdana, Arial;
+    line-height: 0.8;
+  }
 }
