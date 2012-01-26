@@ -1,17 +1,13 @@
 /* General styles pertaining to the content area of the Tool modal boxes
 ****************************/
-.toolbar_plugin {
-    margin: 8px 0 0 0;
-/*    width: 940px; */
-}
 #toolbarcontent {
     height: 100%;
-    padding: 0 10px;
     overflow: hidden;
 }
 #toolbarcontent h3 {
     margin-bottom: 5px;
     font-size: 2.2em;
+    line-height:1;
     text-transform: uppercase;
     color: #444;
     border-bottom: 1px solid #888;
@@ -31,9 +27,13 @@
 #toolbarcontent h3 a:hover {
     text-decoration: underline;
 }
+#toolbarcontent .first {
+	margin-left: 0;
+	clear: left;
+}
 /* RSS Icon in an h3
 **************/
-#toolbarcontent h3 span {
+#toolbarcontent h3 > span {
     float: left;
     height: 20px;
 }
@@ -43,57 +43,34 @@
     background: url(images/applianceIcons.png) top right no-repeat;
     float: right;
     position: relative;
-    top: -6px;
 }
 
 /* Feeds
 ***********/
-#toolbar_feeds h3 span{
+#toolbar_feeds h3 > span{
     max-width: 190px;
 }
-#toolbar_feeds .col.col1 {
-    float: left;
-    padding: 0 10px 0 0;
-    width: 300px;
+#whatisrss .first h3 {
+	margin-top: -7px;
 }
-#toolbar_feeds .col.col2 {
-    float: left;
-    padding: 0 10px 0 10px;
-    width: 300px;
+#whatisrss span.rss-icon {
+    display: inline-block;
+    float: none;
+    max-width: none;
+    text-indent: -9999em;
+    width: 28px;
+    height: 28px;
+    padding-top: 7px;
+    background: url('images/feed-icon-28x28.png') no-repeat 0 0;
 }
-#toolbar_feeds .col.col3 {
-    float: left;
-    padding: 0 0 0 10px;
-    width: 300px;
+#toolbar_feeds .wdn_rss_media {
+	margin-bottom: 2em;
 }
-#toolbar_feeds .col.col4 {
-    float: left;
-    padding: 0 0 0 10px;
-    width: 220px;
+#toolbar_feeds .wdn_rss_media strong {
+	display: block;
+	margin-bottom: 1.1em;
 }
-#whatisrss {
-    float: left;
-}
-#whatisrss div.two_col.left {
-    float: left;
-    width: 460px;
-    padding: 0 10px 0 0;
-}
-#whatisrss div.two_col.right {
-    float: right;
-    width: 460px;
-    padding: 14px 0 0 10px;
-}
-#whatisrss span {
-    font-size: 1.7em;
-    display: block;
-    padding-bottom: 10px;
-}
-#whatisrss span img {
-    position: relative;
-    top: 6px;
-}
-#wdn_rss_story {
+#toolbar_feeds #wdn_rss_story {
     display: none;
     float: left;
     padding: 0 0 0 10px;
@@ -101,6 +78,10 @@
 }
 #toolbar_feeds #wdn_rss_story #wdn_rss_story_content {
     display: inline !important;
+}
+#toolbar_feeds ul {
+	overflow: auto;
+	height: 245px;
 }
 #toolbar_feeds ul li a:hover {
     color: #ac0302;
@@ -116,38 +97,14 @@
     border-bottom: 1px dotted #c0c0c0;
 }
 
-/* Webcams & Alert
+/* Webcams
 ***********/
-#toolbar_webcams .col.left, #toolbar_alert .col.left {
-    float: left;
-    width: 300px;
-    padding: 0 10px 0 0;
-}
-#toolbar_webcams .col.middle {
-    float: left;
-    width: 300px;
-    padding: 0 10px 0 10px;
-}
-#toolbar_webcams .col.right, #toolbar_alert .two_col.right {
-    float: left;
-    width: 300px;
-    padding: 0 0 0 10px;
-}
-#toolbar_webcams .col img {
-    width: 290px;
-}
-#toolbar_alert .two_col.right {
-    width: 600px;
+#toolbar_webcams img {
+    width: 294px;
 }
 
 /* Weather
 *************/
-#toolbar_weather br {
-    display: none;
-}
-#weatherforecast{
-    margin: 0 0 0 5px;
-}
 #weatherforecast strong{
     font-size: 1.2em;
     display: block;
@@ -160,33 +117,18 @@
 #toolbar_weather a {
     color: #ac0302;
 }
-#toolbar_weather .col{
-    float: left;
-    width: 190px;
-    padding: 0 10px 0 0;
-}
-#toolbar_weather .col.middle{
-    padding: 0 10px 0 10px;
-    width: 290px;
-}
-#colorbox #toolbar_weather .two_col {
-    float: right;
-    width: 390px;
-    padding: 0 0 0 0px;
-}
-#showradar{
-    border: 1px solid #DDD;
+#showradar {
+	border: 1px solid #DDD;
     border-radius: 3px;
     background: #f7f7f7;
-    padding: 9px 5px 7px 5px !important;
+    padding: 5px;
     margin: 0 0 10px 0;
-    position: relative;
-    text-align: center;    
 }
-#showradar img {
-    background: url('images/colorbox/loading.gif') center no-repeat;
+#showradar a {
+    display: block;
+    background: url(http://radar.weather.gov/lite/N0R/OAX_loop.gif) -88px -128px no-repeat;
     height: 300px;
-    width: 378px;
+    width: 374px; 
 }
 #toolbar_weather .weathertempf{
     font-size: 35px;
@@ -207,27 +149,13 @@
     margin-bottom: 15px !important;
 }
 
-/* Events
-****************/
-#toolbar_events .col.left {
-    float: left;
-    padding: 0 10px 0 0;
-    width: 940px;
-}
-#toolbar_events .col.right {
-    float: left;
-    padding: 0 0 0 10px;
-    width: 460px;
-}
-#toolbar_events .noentry {
-    clear: both;
-}
-
 /* Events styles from events.unl.edu
 **************/
-#toolbar_events{
-    color: #434343;
-    }
+#allunlevents,
+#localsiteevents {
+	overflow: auto;
+	height: 435px;
+}
 #toolbar_events h4.sec_main {
     background: url(images/date1.gif) no-repeat;
     float: left;

@@ -1,44 +1,63 @@
 WDN.toolbar_events = function() {
-	var havelocalevents = false;
-	return {
-		initialize : function() {
+	var getLocalEventSettings = function() {
+		var $eventLink = WDN.jQuery('link[rel=events]'),
+			eventParams = WDN.getPluginParam('events');
+		if ($eventLink.length) {
+			return {
+				href: $eventLink[0].href,
+				title: $eventLink[0].title
+			};
+		} else if (eventParams) {
+			return eventParams;
+		}
 		
-		},
-		setupToolContent : function() {
-			if (WDN.jQuery('link[rel=events]').attr('href') != null) {
-				havelocalevents = true;
-				return '<div class="col left"><h3><span>UNL Events <em><a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></em></span><a href="http://events.unl.edu/upcoming/?format=rss"><span class="rssicon"></span></a>&nbsp;</h3><div id="allunlevents" class="toolbarMask"></div></div><div class="col right"><h3><span>Upcoming '+WDN.jQuery('link[rel=events]').attr('title')+' Events <em><a href="'+WDN.jQuery('link[rel=events]').attr('href')+'/upcoming/">(See all events)</a></em></span><a href="'+WDN.jQuery('link[rel=events]').attr('href')+'/upcoming/?format=rss"><span class="rssicon"></span></a>&nbsp;</h3><div id="localsiteevents" class="toolbarMask"></div></div>';
-			}
-			return '<div class="col left"><h3><span>UNL Events <em><a href="http://events.unl.edu">(See the full calendar at events.unl.edu)</a></em></span><a href="http://events.unl.edu/upcoming/?format=rss"><span class="rssicon"></span></a>&nbsp;</h3><div id="allunlevents" class="toolbarMask"></div></div><div class="col right"><h3><span>Upcoming UNL Events <em><a href="http://events.unl.edu/upcoming/">(See all events)</a></em></span><a href="http://events.unl.edu/upcoming/?format=rss"><span class="rssicon"></span></a>&nbsp;</h3><div id="localsiteevents" class="toolbarMask"></div></div>';
+		return null;
+	};
+	
+	return {
+		initialize : function() {},
+		setupToolContent : function(contentCallback) {
+			WDN.jQuery.ajax({
+            	url: WDN.template_path + 'wdn/templates_3.0/includes/tools/events.html',
+            	success: function(data) {
+            		var $tempDiv = WDN.jQuery('<div/>').append(data),
+            			localSettings = getLocalEventSettings();
+            		
+            		if (localSettings) {
+            			try {
+            				WDN.jQuery('.events_local_label', $tempDiv).text(localSettings.title);
+            				WDN.jQuery('.events_local_link', $tempDiv).attr('href', localSettings.href + '/upcoming/');
+            				WDN.jQuery('.events_local_rss', $tempDiv).attr('href', localSettings.href + '/upcoming/?format=rss');
+            			} catch (e) {}
+            		}
+            		
+            		contentCallback($tempDiv.children());
+            	},
+            	error: function() {
+            		contentCallback("An error occurred while loading this section");
+            	}
+            });
 		},
 		display : function() {
-			if (havelocalevents) {
-				WDN.jQuery('#toolbar_events .col.left').css({width:"460px", padding:"0 10px 0 0"});
-			}
-			WDN.toolbar_events.getCalendarResults();
-		},
-		getCalendarResults : function() {
-			var calurl = "http://events.unl.edu/?format=hcalendar";
-			WDN.get(calurl, null, WDN.toolbar_events.updateCalendarResults);
-			if (havelocalevents) {
-				calurl = WDN.jQuery('link[rel=events]').attr('href')+'/upcoming/?format=hcalendar';
-				WDN.get(calurl, null, WDN.toolbar_events.updateLocalCalendarResults);
+			var reqs = {
+        		'#allunlevents': 'http://events.unl.edu/?format=hcalendar'
+            }, localSettings = getLocalEventSettings();
+			
+			if (localSettings) {
+				reqs['#localsiteevents'] = localSettings.href + '/upcoming/?format=hcalendar';
 			}
 			
-		},
-		updateCalendarResults : function(data, textStatus) {
-			if (textStatus == 'success') {
-				document.getElementById("allunlevents").innerHTML = data;
-			} else {
-				document.getElementById("allunlevents").innerHTML = 'Error loading results.';
-			}
-		},
-		updateLocalCalendarResults : function(data, textStatus) {
-			if (textStatus == 'success') {
-				document.getElementById("localsiteevents").innerHTML = data;
-			} else {
-				document.getElementById("localsiteevents").innerHTML = 'Error loading results.';
-			}
+			WDN.jQuery.each(reqs, function(id, url) {
+	            WDN.jQuery.ajax({
+	            	url: url,
+	            	success: function(data) {
+	            		WDN.jQuery(id).html(data);
+	            	},
+	            	error: function() {
+	            		WDN.jQuery(id).html('Error loading results');
+	            	}
+	            });
+            });
 		}
 	};
 }();

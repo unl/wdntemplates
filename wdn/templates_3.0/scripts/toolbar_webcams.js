@@ -1,18 +1,29 @@
 WDN.toolbar_webcams = function() {
-	var unlwebcam = 'http://www.unl.edu/unlpub/cam/cam1.jpg';
-	var rotundawebcam = 'http://www.unl.edu/unlpub/cam/cam2.jpg';
-	var NEUwebcam = 'http://www.unl.edu/unlpub/cam/cam3.jpg';
+	var counter = 0;
 	return {
-		initialize : function() {
-
-		},
-		setupToolContent : function() {
-			return '<div class="col left"><h3>Nebraska Union Plaza <a href="http://www.unl.edu/unlpub/cam/cam1.shtml" class="external">(live view)</a></h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam1.jpg" alt="Plaza Cam" id="webcamuri1" /></div><div class="col middle"><h3>Nebraska Union Rotunda <a href="http://www.unl.edu/unlpub/cam/cam2.shtml" class="external">(live view)</a></h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam2.jpg" alt="Rotunda Cam" id="webcamuri2" /></div><div class="col right"><h3>Nebraska East Union <a href="http://www.unl.edu/unlpub/cam/cam3.shtml" class="external">(live view)</a></h3><img class="frame" src="http://www.unl.edu/unlpub/cam/cam3.jpg" alt="East Union" id="webcamuri3" /></div>';
+		initialize : function() {},
+		setupToolContent : function(contentCallback) {
+			WDN.jQuery.ajax({
+            	url: WDN.template_path + 'wdn/templates_3.0/includes/tools/webcams.html',
+            	success: function(data) {
+            		contentCallback(data);
+            	},
+            	error: function() {
+            		contentCallback("An error occurred while loading this section");
+            	}
+            });
 		},
 		display : function() {
-			document.getElementById('webcamuri1').src = unlwebcam;
-			document.getElementById('webcamuri2').src = rotundawebcam;
-			document.getElementById('webcamuri3').src = NEUwebcam;
+			if (counter++ < 1) {
+				return;
+			}
+			
+			var now = WDN.jQuery.now(), i = 0, $cam;
+			
+			for (; i < 3; i++) {
+				$cam = WDN.jQuery('#webcamuri' + (i + 1));
+				$cam[0].src = $cam[0].src.replace(/(\?t=\d+)?$/, '?t=' + now);
+			}
 		}
 	};
 }();
