@@ -145,10 +145,10 @@ EOD;
 
         switch($this->_compiler) {
             case self::JS_COMPILER_CLOSURE:
-                return "java -jar {$cwd}/compiler.jar --js={$in} --js_output_file={$out}";
+                return "java -jar {$cwd}/bin/compiler.jar --js={$in} --js_output_file={$out}";
                 break;
             case self::JS_COMPILER_UGLIFYJS:
-                return "{$cwd}/uglifyjs -nc --unsafe {$in} > {$out}";
+                return "/usr/bin/env PATH=\"\$PATH:{$cwd}/bin\" uglifyjs -nc --unsafe {$in} > {$out}";
                 break;
             default:
                 break;
