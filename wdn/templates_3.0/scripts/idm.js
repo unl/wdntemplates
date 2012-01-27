@@ -140,7 +140,7 @@ WDN.idm = function() {
 			if (WDN.jQuery('#wdn_identity_management').hasClass('hidden')) {
 				WDN.jQuery('#wdn_identity_management').removeClass('hidden');
 			}
-			WDN.jQuery('a[rel=login]').attr('href', WDN.idm.loginURL);
+			WDN.jQuery('#wdn_idm_login a').attr('href', WDN.idm.loginURL);
 		},
 		
 		/**
