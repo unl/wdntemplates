@@ -187,7 +187,8 @@ EOD;
             file_put_contents("{$outDir}/variations/{$min_width}.css", $media_section_css);
         }
 
-        file_put_contents("{$outDir}/variations/ie.css", implode(' ', $media_sections));
+        // Now place a single file with all media width sections combined (for IE)
+        file_put_contents("{$outDir}/variations/combined_widths.css", implode(' ', $media_sections));
 
         return $this;
     }
