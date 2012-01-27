@@ -135,7 +135,7 @@
   }
   .rating:not(:checked) > input:focus + label {
     color: gold;
-    text-shadow: 1px 1px goldenrod, 2px 2px #b57340, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px #daa520, 2px 2px #b57340, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
   }
   .rating:not(:checked) > legend {
     font-size: 90%;
@@ -158,7 +158,7 @@
   }
   .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {
     color: gold;
-    text-shadow: 1px 1px goldenrod, 2px 2px #b57340, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px #daa520, 2px 2px #b57340, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
   }
   .rating > input:checked ~ label {
     color: #f70;
@@ -175,6 +175,6 @@
   .rating > input:checked ~ label:hover ~ label,
   .rating > label:hover ~ input:checked ~ label {
     color: #ea0;
-    text-shadow: 1px 1px goldenrod, 2px 2px #b57340, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px #daa520, 2px 2px #b57340, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
   }
 }
