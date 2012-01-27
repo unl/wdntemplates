@@ -6,18 +6,18 @@
 * run `make debug` to rebuild this file
 * ---------------------------
 */
-@import url('foundation/reset.css')
-@import url('foundation/global.css')
-@import url('fonts/fonts.css')
-@import url('wrapper/wrapper.css')
-@import url('header/header.css')
-@import url('header/search.css')
-@import url('header/tools.css')
-@import url('navigation/breadcrumbs.css')
-@import url('navigation/navigation.css')
-@import url('content/maincontent.css')
-@import url('content/grid.css')
-@import url('content/headers.css')
-@import url('footer/footer.css')
-@import url('footer/feedback.css')
-@import url('footer/share.css')
+@import url('foundation/reset.css');
+@import url('foundation/global.css');
+@import url('fonts/fonts.css');
+@import url('wrapper/wrapper.css');
+@import url('header/header.css');
+@import url('header/search.css');
+@import url('header/tools.css');
+@import url('navigation/breadcrumbs.css');
+@import url('navigation/navigation.css');
+@import url('content/maincontent.css');
+@import url('content/grid.css');
+@import url('content/headers.css');
+@import url('footer/footer.css');
+@import url('footer/feedback.css');
+@import url('footer/share.css');

@@ -645,7 +645,7 @@ EOD;
         $content = '';
 
         foreach ($files as $file) {
-            $content .= "@import url('{$inPath}{$file}.css')" . PHP_EOL;
+            $content .= "@import url('{$inPath}{$file}.css');" . PHP_EOL;
         }
 
         file_put_contents("{$outDir}/{$outFiles[0]}", $this->_debugHeader . $content);
