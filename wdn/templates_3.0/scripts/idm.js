@@ -108,8 +108,8 @@ WDN.idm = function() {
 		 * @param {string} uid
 		 */
 		displayNotice : function(uid) {
-			if (WDN.jQuery('#wdn_identity_management').length === 0) {
-				WDN.jQuery('header[role="banner"]').append('<div id="wdn_identity_management" class="loggedin"></div>');
+			if (WDN.jQuery('#wdn_identity_management').hasClass('hidden')) {
+				WDN.jQuery('#wdn_identity_management').removeClass('hidden').addClass('loggedin');
 			}
 			
 			var icon = '';
@@ -121,14 +121,13 @@ WDN.idm = function() {
 			} else {
 				planetred_uid = 'unl_' + uid;
 			}
-			icon = '<a href="http://planetred.unl.edu/pg/profile/'+planetred_uid+'" title="Your Planet Red Profile"><img src="//planetred.unl.edu/pg/icon/'+planetred_uid+'/topbar/" alt="Your Profile Pic" /></a>';
-			
-			
-			
-			WDN.jQuery('#wdn_identity_management').html(icon+'<span class="username">'+WDN.idm.displayName()+'</span><a id="wdn_idm_logout" title="Logout" href="'+WDN.idm.logoutURL+'">Logout</a>');
+			WDN.jQuery('.wdn_idm_user_profile').attr('href', 'http://planetred.unl.edu/pg/profile/'+planetred_uid);
+			WDN.jQuery('#wdn_idm_userpic').attr('src', '//planetred.unl.edu/pg/icon/'+planetred_uid+'/topbar/');
+			WDN.jQuery('#wdn_idm_username').text(WDN.idm.displayName());
+			WDN.jQuery('#wdn_identity_management').addClass('loggedin');
 			
 			// Any time logout link is clicked, unset the user data
-			WDN.jQuery('#wdn_idm_logout').click(WDN.idm.logout);
+			WDN.jQuery('#wdn_idm_logout a').click(WDN.idm.logout);
 			
 			if (WDN.jQuery('link[rel=logout]').length) {
 				WDN.idm.setLogoutURL(WDN.jQuery('link[rel=logout]').attr('href'));
@@ -138,18 +137,10 @@ WDN.idm = function() {
 		
 		displayLogin : function()
 		{
-			if (WDN.jQuery('#wdn_identity_management').length === 0) {
-				WDN.jQuery('#header').append('<div id="wdn_identity_management" class="loggedout"></div>');
+			if (WDN.jQuery('#wdn_identity_management').hasClass('hidden')) {
+				WDN.jQuery('#wdn_identity_management').removeClass('hidden');
 			}
-			
-			if (WDN.jQuery('#wdn_search').length > 0) {
-				// search box is being displayed, adjust the positioning
-				WDN.jQuery('#wdn_identity_management').css({right:'362px'});
-			}
-			
-			icon = '<a><img src="//planetred.unl.edu/mod/profile/graphics/defaulttopbar.gif" alt="Guest User" /></a>';
-			
-			WDN.jQuery('#wdn_identity_management').html(icon+'<span class="username">Guest</span><a id="wdn_idm_login" title="Login" href="'+WDN.idm.loginURL+'">Login</a>');
+			WDN.jQuery('#wdn_idm_login a').attr('href', WDN.idm.loginURL);
 		},
 		
 		/**
@@ -166,7 +157,7 @@ WDN.idm = function() {
 		 * Set the URL to send the user to when the logout link is clicked
 		 */
 		setLogoutURL : function(url) {
-			WDN.jQuery('#wdn_idm_logout').attr('href', url);
+			WDN.jQuery('#wdn_idm_logout a').attr('href', url);
 			WDN.idm.logoutURL = url;
 		},
 		
