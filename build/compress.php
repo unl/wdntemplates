@@ -49,49 +49,21 @@ EOD;
     );
 
     protected $_cssFiles = array(
-        'reset',
-        'wrapper',
-        'grid',
+        'foundation/reset',
+        'foundation/global',
         'fonts/fonts',
+        'wrapper/wrapper',
         'header/header',
-        'header/toolbarcontent',
-        'header/tooltabs',
-        'header/toolbar',
-        'header/idm',
-        'header/colorbox',
+        'header/search',
+        'header/tools',
         'navigation/breadcrumbs',
         'navigation/navigation',
-        'footer/feedback',
+        'content/maincontent',
+        'content/grid',
+        'content/headers',
         'footer/footer',
-        'footer/rating',
-        'content/basestyles',
-        'content/tabs',
-        'content/columns',
-        'content/headers',
-        'content/images_deprecated',
-        'content/images',
-        'content/mime',
-        'content/titlegraphic',
-        'content/zenbox',
-        'content/zentable',
-        'variations/liquid',
-        'variations/fixed',
-        'variations/popup',
-        'variations/document',
-        'variations/secure',
-    );
-
-    protected $_mobileCssFiles = array(
-        'reset',
-        'wrapper',
-        'fonts/fonts',
-        'header/header',
-        'content/basestyles',
-        'content/headers',
-        'content/zenbox',
-        'content/images',
-        'content/mime',
-        'variations/mobile',
+        'footer/feedback',
+        'footer/share',
     );
 
     protected $_compiler = self::JS_COMPILER_CLOSURE;
@@ -157,12 +129,24 @@ EOD;
         return false;
     }
 
-    public function buildCss($mobile = false)
+    public function buildCss()
     {
         $outDir = realpath(dirname(__FILE__) . "/{$this->_srcDir}{$this->_templateDir}css");
-        $outFile = $mobile ? 'mobile' : 'all';
-        $files = $mobile ? $this->_mobileCssFiles : $this->_cssFiles;
-        $all = '';
+        $outFile = 'all';
+        $files = $this->_cssFiles;
+
+        // All the base styles
+        $base             = '';
+
+        // Each section of minimum width css declarations
+        $media_sections = array(
+            320  => '',
+            480  => '',
+            600  => '',
+            768  => '',
+            960  => '',
+            1040 => '',
+        );
 
         foreach ($files as $file) {
             $dir = '';
@@ -171,17 +155,39 @@ EOD;
                 $dir .= '/';
             }
 
-            $all .= $this->_cleanCssFile(file_get_contents("{$outDir}/{$file}.css"), $dir);
+            $contents = $this->_cleanCssFile(file_get_contents("{$outDir}/{$file}.css"), $dir);
+
+            // remove comments
+            $contents = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $contents);
+            // remove tabs, spaces, newlines, etc.
+            $contents = str_replace(array("\r\n", "\r", "\n", "\t"), '', $contents);
+            $contents = str_replace(array('    ', '   ', '  '), ' ', $contents);
+            $contents = str_replace(', ', ',', $contents);
+
+            // Now we have a clean, compressed individual css file
+
+            // Split into sections for each minimum resolution and base
+            $css_sections = explode('@media ', $contents);
+
+            foreach ($css_sections as $section) {
+                if (preg_match('/^\(min-width:\s+?([\d]+)px\)\s\{(.*)\}$/', $section, $matches)) {
+                    // Found a section
+                    $media_sections[$matches[1]] .= $matches[2];
+                } else {
+                    // this is a "base" CSS section
+                    $base .= $contents;
+                }
+            }
+
         }
 
-        // remove comments
-        $all = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $all);
-        // remove tabs, spaces, newlines, etc.
-        $all = str_replace(array("\r\n", "\r", "\n", "\t"), '', $all);
-        $all = str_replace(array('    ', '   ', '  '), ' ', $all);
-        $all = str_replace(', ', ',', $all);
+        file_put_contents("{$outDir}/variations/base.css", $base);
 
-        file_put_contents("{$outDir}/{$outFile}.css", $all);
+        foreach ($media_sections as $min_width=>$media_section_css) {
+            file_put_contents("{$outDir}/variations/{$min_width}.css", $media_section_css);
+        }
+
+        file_put_contents("{$outDir}/variations/ie.css", implode(' ', $media_sections));
 
         return $this;
     }
@@ -205,7 +211,7 @@ EOD;
         }
 
         return $this->buildJs($mobile)
-            ->buildCss($mobile);
+            ->buildCss();
 
     }
 }
