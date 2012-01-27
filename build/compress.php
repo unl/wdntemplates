@@ -175,19 +175,20 @@ EOD;
                     $media_sections[$matches[1]] .= $matches[2];
                 } else {
                     // this is a "base" CSS section
-                    $base .= $contents;
+                    $base .= $section;
                 }
             }
 
         }
 
-        file_put_contents("{$outDir}/variations/base.css", $base);
+        file_put_contents("{$outDir}/compressed/base.css", $base);
 
         foreach ($media_sections as $min_width=>$media_section_css) {
-            file_put_contents("{$outDir}/variations/{$min_width}.css", $media_section_css);
+            file_put_contents("{$outDir}/compressed/{$min_width}.css", $media_section_css);
         }
 
-        file_put_contents("{$outDir}/variations/ie.css", implode(' ', $media_sections));
+        // Now place a single file with all media width sections combined (for IE)
+        file_put_contents("{$outDir}/compressed/combined_widths.css", implode(' ', $media_sections));
 
         return $this;
     }
