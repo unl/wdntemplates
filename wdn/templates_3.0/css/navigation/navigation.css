@@ -526,6 +526,9 @@
     /* Default for single bar nav */
   
   }
+  #navigation {
+    background: transparent;
+  }
   #navigation > ul {
     width: 960px;
   }
