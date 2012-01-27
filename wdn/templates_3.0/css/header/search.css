@@ -86,7 +86,7 @@
     background-position: 2px;
     padding: 0;
     font-size: 0.625em;
-    padding: 3px 22px 3px 4px;
+    padding: 3px 4px 3px 22px;
     height: auto;
     margin-top: 0;
   }
@@ -113,6 +113,7 @@
   #wdn_search form #q {
     width: 263px;
     background-image: none;
+    padding: 3px 22px 3px 4px;
   }
   #wdn_search form #q:focus {
     width: 263px;

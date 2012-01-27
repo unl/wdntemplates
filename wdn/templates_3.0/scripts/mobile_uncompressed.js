@@ -3,7 +3,8 @@
  */
 var _gaq = _gaq || [];
 var WDN = (function() {
-	var loadingJS = {};
+	var loadingJS = {},
+		pluginParams = {};
 	return {
 		/**
 		 * This stores what javascript files have been loaded already
@@ -102,7 +103,7 @@ var WDN = (function() {
 		initializeTemplate: function () {
 			//gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 			//WDN.loadJS(gaJsHost + "google-analytics.com/ga.js");
-			WDN.loadCSS('wdn/templates_3.0/css/script.css');
+			//WDN.loadCSS('wdn/templates_3.0/css/script.css');
 //			WDN.loadJS('wdn/templates_3.0/scripts/xmlhttp.js');
 			WDN.loadJQuery(WDN.jQueryUsage);
 		},
@@ -219,6 +220,25 @@ var WDN = (function() {
 				};
 			}
 			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', callback);
+		},
+		
+		setPluginParam: function (plugin, name, value) {
+			if ( !pluginParams[ plugin ]) {
+				pluginParams[ plugin ] = {};
+			}
+			pluginParams[ plugin ][ name ] = value;
+		},
+		
+		getPluginParam: function (plugin, name) {
+			if ( !pluginParams[ plugin ] ) {
+				return null;
+			}
+			
+			if (!name) {
+				return pluginParams[ plugin ];
+			}
+			
+			return pluginParams[ plugin ][ name ];
 		},
 
 		setCookie: function (name, value, seconds, path, domain) {
@@ -391,15 +411,9 @@ mobile_support = function() {
 			window.addEventListener('orientationchange', mobile_support.setOrientation, false);
 			document.addEventListener('DOMContentLoaded', 
 				function(){
-					var body = document.getElementsByTagName('body')[0],
-					head = document.getElementsByTagName('head')[0],
-					meta = document.createElement('meta');
-					
+					var body = document.getElementsByTagName('body')[0];
 					body.className = body.className.replace(/fixed|mobile/, '');
 					body.className = 'mobile ' + body.className;
-					
-					meta.name = 'viewport';
-					head.appendChild(meta);
 					
 					// For our smarter browsers (the ones that are reading this), let's enhance the nav
 					mobile_support.enhanceNavigation.initialize();

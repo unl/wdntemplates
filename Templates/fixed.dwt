@@ -21,56 +21,64 @@
     $Id$
 -->
 <!--#include virtual="/wdn/templates_3.0/includes/scriptsandstyles.html" -->
-<!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
-<!-- TemplateBeginEditable name="doctitle" -->
-<title>UNL | Department | New Page</title>
-<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" -->
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Use a descriptive page title | Optional Site Title (use for context) | University of Nebraska&ndash;Lincoln</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<!-- TemplateEndEditable -->
-<!-- TemplateParam name="class" type="text" value="fixed" -->
+
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="class" type="text" value="fixed" -->
 </head>
 <body class="@@(_document['class'])@@">
-    <nav class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </nav>
-    <div id="wdn_wrapper">
-        <header id="header" role="banner"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
-            <h1>University of Nebraska&ndash;Lincoln</h1>
+    <nav class="skipnav">
+        <a class="skipnav" href="#maincontent">Skip Navigation</a>
+    </nav>
+    <div id="wdn_wrapper" class="nav_unpinned nav_expanded">
+        <header id="header" role="banner">
+            <a href="http://www.unl.edu/" title="UNL website">
+                <img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" />
+            </a>
+            <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
+            <!-- InstanceBeginEditable name="titlegraphic" -->
+            <span id="wdn_site_title">The Title of My Site</span>
+            <!-- InstanceEndEditable -->
+            <!--#include virtual="/wdn/templates_3.0/includes/idm.html" -->
             <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
         </header>
         <div id="wdn_navigation_bar">
             <nav id="breadcrumbs">
                 <!-- WDN: see glossary item 'breadcrumbs' -->
                 <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
-                <!-- TemplateBeginEditable name="breadcrumbs" -->
+                <!-- InstanceBeginEditable name="breadcrumbs" -->
                 <ul>
                     <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
-                    <li>Department</li>
+                    <li class="selected"><a href="#" title="Site Title">Site Title</a></li>
+                    <li>Page Title</li>
                 </ul>
-                <!-- TemplateEndEditable -->
+                <!-- InstanceEndEditable -->
             </nav>
             <div id="wdn_navigation_wrapper">
                 <nav id="navigation" role="navigation">
                     <h3 class="wdn_list_descriptor hidden">Navigation</h3>
-                    <!-- TemplateBeginEditable name="navlinks" -->
-                    <!--#include virtual="../sharedcode/navigation.html" -->
-                    <!-- TemplateEndEditable -->
+                    <!-- InstanceBeginEditable name="navlinks" -->
+                    <!--#include virtual="sharedcode/navigation.html" -->
+                    <!-- InstanceEndEditable -->
                 </nav>
             </div>
         </div>
         <div id="wdn_content_wrapper">
-            <div id="titlegraphic"><!-- TemplateBeginEditable name="titlegraphic" -->
-                <h1>Department <span>A division of the College of Arts &amp; Sciences</span></h1>
-                <!-- TemplateEndEditable --></div>
             <div id="pagetitle">
-                <!-- TemplateBeginEditable name="pagetitle" -->
-                <h2>This is Your Page Title</h2>
-                <!-- TemplateEndEditable -->
+                <!-- InstanceBeginEditable name="pagetitle" -->
+                <h1>This is your page title. It's now an &lt;h1&gt;, baby!</h1>
+                <!-- InstanceEndEditable -->
             </div>
             <div id="maincontent" role="main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-                <!-- TemplateBeginEditable name="maincontentarea" -->
-                <h3>Place your content here.</h3>
-                <p>Remember to validate your pages before publishing! Sample layouts are available through the <a href="http://wdn.unl.edu/">Web Developer Network</a>.</p>
-                <!-- TemplateEndEditable -->
+                <!-- InstanceBeginEditable name="maincontentarea" -->
+                  <h2>This is a blank page</h2>
+                  <p>Impress your audience with awesome content!</p> 
+                  <!-- InstanceEndEditable -->
                 <div class="clear"></div>
                 <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
@@ -78,23 +86,30 @@
         </div>
         <footer id="footer">
             <div id="footer_floater"></div>
-            <div class="footer_col">
+            <div class="footer_col" id="wdn_footer_feedback">
                 <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
             </div>
-            <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
-                <!--#include virtual="../sharedcode/relatedLinks.html" -->
-                <!-- TemplateEndEditable --></div>
-            <div class="footer_col"><!-- TemplateBeginEditable name="contactinfo" -->
-                <!--#include virtual="../sharedcode/footerContactInfo.html" -->
-                <!-- TemplateEndEditable --></div>
-            <div class="footer_col">
+            <div class="footer_col" id="wdn_footer_related">
+                <!-- InstanceBeginEditable name="leftcollinks" -->
+                <!--#include virtual="sharedcode/relatedLinks.html" -->
+                <!-- InstanceEndEditable --></div>
+            <div class="footer_col" id="wdn_footer_contact">
+                <!-- InstanceBeginEditable name="contactinfo" -->
+                <!--#include virtual="sharedcode/footerContactInfo.html" -->
+                <!-- InstanceEndEditable --></div>
+            <div class="footer_col" id="wdn_footer_share">
                 <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
             </div>
-            <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
-            <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
-                <!--#include virtual="../sharedcode/footer.html" -->
-                <!-- TemplateEndEditable -->
-                <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
+            <!-- InstanceBeginEditable name="optionalfooter" -->
+            <!-- InstanceEndEditable -->
+            <div id="wdn_copyright">
+                <div>
+                    <!-- InstanceBeginEditable name="footercontent" -->
+                    <!--#include virtual="sharedcode/footer.html" -->
+                    <!-- InstanceEndEditable -->
+                    <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
+                </div>
+                <!--#include virtual="/wdn/templates_3.0/includes/logos.html" -->
             </div>
         </footer>
     </div>

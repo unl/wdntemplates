@@ -14,7 +14,7 @@ WDN.feedback = function() {
 			} catch (e) {}
 		},
 		commentSetup : function() {
-			WDN.jQuery('#wdn_feedback_comments textarea').keyup(
+			WDN.jQuery('#wdn_feedback_comments textarea').attr('x-webkit-speech', 'x-webkit-speech').keyup(
 				function(event) {
 					if (this.value.length > 0) {
 						// Add the submit button
