@@ -1,6 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><!-- InstanceBegin template="/Templates/liquid.dwt" codeOutsideHTMLIsLocked="false" -->
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="ie iem7"><![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
+<!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
 <!--
     Membership and regular participation in the UNL Web Developer Network
     is required to use the UNL templates. Visit the WDN site at 
@@ -13,225 +19,155 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: liquid.dwt 536 2009-07-23 15:47:30Z bbieber2 $
+    $Id$
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
-<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
-<!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
-<!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
+<!--#include virtual="/wdn/templates_3.0/includes/scriptsandstyles.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>UNL | Department | New Page</title>
-<!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
-<!--#include virtual="sharedcode/localSiteLinks.html" -->
-<!-- Place optional header elements here -->
+<title>A sort of fixed template | WDN Testing Page | University of Nebraska&ndash;Lincoln</title>
 <!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- Place optional header elements here -->
+<style type="text/css">
+#maincontent .grid1, #maincontent  .grid2, #maincontent  .grid3, #maincontent  .grid4, #maincontent  .grid5, #maincontent  .grid6, #maincontent  .grid7, #maincontent  .grid8, #maincontent  .grid9, #maincontent  .grid10, #maincontent  .grid11, #maincontent  .grid12 {
+    margin-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: rgba(111,191,77,.4);
+    border: solid 1px #6FBF4D;
+    border-width: 1px 0;
+    text-align:center;
+}
+</style>
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="class" type="text" value="liquid" -->
 </head>
 <body class="liquid">
-<p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
-<div id="wdn_wrapper">
-    <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
-        <h1>University of Nebraska&ndash;Lincoln</h1>
-        <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
-    </div>
-    <div id="wdn_navigation_bar">
-        <div id="breadcrumbs">
-            <!-- WDN: see glossary item 'breadcrumbs' -->
-            <!-- InstanceBeginEditable name="breadcrumbs" -->
-            <ul>
-                <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
-                <li>Department</li>
-            </ul>
-            <!-- InstanceEndEditable --></div>
-        <div id="wdn_navigation_wrapper">
-            <div id="navigation"><!-- InstanceBeginEditable name="navlinks" -->
-                <!--#include virtual="sharedcode/navigation.html" -->
-                <!-- InstanceEndEditable --></div>
-        </div>
-    </div>
-    <div id="wdn_content_wrapper">
-        <div id="titlegraphic"><!-- InstanceBeginEditable name="titlegraphic" -->
-            <h1>Department</h1>
-            <!-- InstanceEndEditable --></div>
-        <div id="pagetitle"><!-- InstanceBeginEditable name="pagetitle" --> <!-- InstanceEndEditable --></div>
-        <div id="maincontent">
-            <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-            <!-- InstanceBeginEditable name="maincontentarea" -->
-            <div class="two_col left">
-                <div class="image_medium"><img src="admissionsPhoto.jpg" alt="Admissions" /></div>
-                <p class="caption">Nebraska fans celebrate the Huskers'
-                win over Texas at the Devaney Sports Center. </p>
-                <div class="col left">
-                    <h3>Explore our majors</h3>
-                    <p>We offer 150 majors and 275 programs of study to give you an intensive education in your area of interest.</p>
-                    <ul>
-                        <li>Majors by academic college
-                            <ul>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=ANR">Agricultural Sciences &amp; Natural Resources</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=ARH">Architecture</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=ASC">Arts &amp; Sciences</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=CBA">Business Administration</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=GEN">Division of General Studies</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=EHS">Education &amp; Human Sciences</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=ENG">Engineering</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=FPA">Hixson-Lied Fine &amp; Performing Arts</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=JMC">Journalism &amp; Mass Communications</a></li>
-                                <li><a href="/majors/collegelist.php&amp;collegeCode=PAC">Public Affairs &amp; Community Service</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/majors/alpha.php">View alphabetized list of majors</a></li>
-                    </ul>
-                </div>
-                <div class="col right">
-                    <h3>Join our Mailing List</h3>
-                    <form id="inforquest" class="admissform" action="inforequest.asp" method="post">
-                        <fieldset>
-                        <legend>Your Information</legend>
-                        <ol>
-                            <li>
-                                <label for="StudentType">Student Type<em>*</em></label>
-                                <select style="width: 200px;" id="StudentType" name="StudentType">
-                                    <option value="">Please Select</option>
-                                    <optgroup style="font-size: 100%;" label="High School Students">
-                                    <option value="Sr.">High School Senior (Class of 2009)</option>
-                                    <option value="Jr.">High School Junior (Class of 2010)</option>
-                                    <option value="So.">High School Sophomore (Class of 2011)</option>
-                                    <option value="Fr.">High School Freshman (Class of 2012)</option>
-                                    <option value="Pipsqueak">Middle School or Younger</option>
-                                    </optgroup>
-                                    <optgroup style="font-size: 100%;" label="Transfer Students">
-                                    <option value="Transfer">College Transfer</option>
-                                    <option value="Intl trans">International Transfer</option>
-                                    </optgroup>
-                                    <optgroup style="font-size: 100%;" label="International Students">
-                                    <option value="Intl fr">International Freshman</option>
-                                    <option value="Intl Readmit">International Readmit</option>
-                                    <option value="Intl trans">International Transfer</option>
-                                    </optgroup>
-                                    <optgroup style="font-size: 100%;" label="Other Students">
-                                    <option value="Return">Returning Student</option>
-                                    <option value="Non-trad">Nontraditional Student</option>
-                                    <option value="Undetermined">Unsure</option>
-                                    </optgroup>
-                                </select>
-                            </li>
-                            <li>
-                                <label for="ProspectTerm">Enrollment Term<em>*</em></label>
-                                <select style="width: 200px;" id="ProspectTerm" name="ProspectTerm">
-                                    <option value="">Please Select</option>
-                                    <option value="Spring 2010">Spring 2010</option>
-                                    <option value="Summer 2010">Summer 2010</option>
-                                    <option value="Fall 2010">Fall 2010</option>
-                                    <option value="Spring 2011">Spring 2011</option>
-                                    <option value="Summer 2011">Summer 2011</option>
-                                    <option value="Fall 2011">Fall 2011</option>
-                                    <option value="Spring 2012">Spring 2012</option>
-                                    <option value="Summer 2012">Summer 2012</option>
-                                    <option value="Fall 2012">Fall 2012</option>
-                                    <option value="Spring 2012">Spring 2013</option>
-                                    <option value="Summer 2012">Summer 2013</option>
-                                    <option value="Fall 2012">Fall 2013</option>
-                                    <option value="Spring 2014">Spring 2014</option>
-                                    <option value="Summer 2014">Summer 2014</option>
-                                    <option value="Fall 2014">Fall 2014</option>
-                                </select>
-                            </li>
-                            <li>
-                                <input type="hidden" value="Admissions Homepage" name="WebForm"/>
-                                <input type="submit" value="Continue" name="Submit"/>
-                            </li>
-                        </ol>
-                        </fieldset>
-                    </form>
-                </div>                
-                <div id="randomPromo" ></div>                                
-            </div>
-            <div class="col middle">
-                <small>THE BUZZ</small>
-                <h3>Enrollment Deposit - Deadline Passed</h3>
-                <p>The deadline for submitting your enrollment deposit has passed.  </p>
-                <ul class="arrowList">
-                    <li><a href="http://admissions.unl.edu/deposit">Learn more</a></li>
-                </ul>
-                <h3>UNL named "Best Value" in Education</h3>
-                <p>In uncertain economic times, a four-year college education is the best investment
-                that someone can make. Named by Kiplinger's as a "Best Value" in
-                college education, a UNL degree pays its graduates back in less than four years
-                when compared to graduates of two-year programs. Now, more than ever, NEBRASKA
-                represents one of the best educational values in the country. </p>
-                <div class="zenbox-gray">
-                    <h4>Local News 
-                    <br />
-                        <a title="Subscribe to these headlines" href="http://feedburner.com/unlxxxxxxx">
-                        <img alt="RSS/Atom Feed" src="icon_rss.png" />
-                        </a>
-                    </h4>
-                    <ul>
-                        <li><a href="http://feedproxy.google.com/~r/unladmissions/~3/zAnMKay8As0/2%2C400+to+receive+degrees+at+May+8-9+UNL+commencements">2,400 to receive degrees at May 8-9 UNL commencements</a></li>
-                        <li><a href="http://feedproxy.google.com/~r/unladmissions/~3/UhkpP4MkXAg/url">UNL Ceremonies to Award Degrees - KOLN</a></li>
-                        <li><a href="http://feedproxy.google.com/~r/unladmissions/~3/ljH7yw0vUO4/url">UNL says its 4 organic farms now certified - KPTM-TV</a></li>
-                        <li><a href="http://feedproxy.google.com/~r/unladmissions/~3/sdQMGTJmiF8/Advertising+students+win+district+competition">Advertising students win district competition</a></li>
-                        <li><a href="http://feedproxy.google.com/~r/unladmissions/~3/lYhuCk0WAoI/5+to+receive+UNL+Alumni+Achievement+awards">5 to receive UNL Alumni Achievement awards</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col right">
-                    <img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" class="frame" />
-                    <div class="image_small_short"><img src="images/promos/fieldGuide.jpg" alt="UNL.edu Field Guide" /></div>
-                <div class="zenbox-yellow">
-                    <div class="zenbox-blue">
-                        <h4>UNL Events
-                            <a title="Subscribe to this feed" href="http://feedburner.com/unlxxxxxxx">
-                            <img alt="RSS/Atom Feed" src="icon_rss.png" />
-                            </a>
-                        </h4>
-                    </div>
-                    <div class="zenbox-blue">
-                        <h4>Media Hub
-                            <a title="Subscribe to this feed" href="http://feedburner.com/unlxxxxxxx">
-                            <img alt="RSS/Atom Feed" src="icon_mediahub.png" />
-                            </a>
-                        </h4>
-                    </div>
-                </div>
-                <h1>h1 Related Links</h1>
-                <h2>h2 Related Links</h2>
-                <h3>h3 Related Links</h3>
-                <h4>h4 Related Links</h4>
-                <h5>h5 Related Links</h5>
-                <h6>h6 Related Links</h6>
-                <a href="#" onclick="WDN.navigation.setWrapperClass('expanded'); return false;">Expanded</a>
-                <a href="#" onclick="WDN.navigation.setWrapperClass('collapsed'); return false;">Collapsed</a>
-                <a href="#" onclick="WDN.navigation.setWrapperClass('pinned'); return false;">Pinned</a>
-            </div>
+    <nav class="skipnav">
+        <a class="skipnav" href="#maincontent">Skip Navigation</a>
+    </nav>
+    <div id="wdn_wrapper" class="nav_unpinned nav_expanded">
+        <header id="header" role="banner">
+            <a href="http://www.unl.edu/" title="UNL website">
+                <img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" />
+            </a>
+            <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
+            <!-- InstanceBeginEditable name="titlegraphic" -->
+            <span id="wdn_site_title">College of Agricultural Sciences &amp; Natural Resources <span>A division of the College of Arts &amp; Sciences</span></span>
             <!-- InstanceEndEditable -->
-            <div class="clear"></div>
-            <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
-            <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+            <!--#include virtual="/wdn/templates_3.0/includes/idm.html" -->
+            <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
+        </header>
+        <div id="wdn_navigation_bar">
+            <nav id="breadcrumbs">
+                <!-- WDN: see glossary item 'breadcrumbs' -->
+                <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
+                <!-- InstanceBeginEditable name="breadcrumbs" -->
+                <ul>
+                    <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
+                    <li class="selected"><a href="http://admissions.unl.edu/" title="Office of Admissions">Admissions</a></li>
+                    <li>Red Letter Day</li>
+                </ul>
+                <!-- InstanceEndEditable -->
+            </nav>
+            <div id="wdn_navigation_wrapper">
+                <nav id="navigation" role="navigation">
+                    <h3 class="wdn_list_descriptor hidden">Navigation</h3>
+                    <!-- InstanceBeginEditable name="navlinks" -->
+                    <!--#include virtual="sharedcode/navigation.html" -->
+                    <!-- InstanceEndEditable -->
+                </nav>
+            </div>
         </div>
-        <div id="footer">
+        <div id="wdn_content_wrapper">
+            <div id="pagetitle">
+                <!-- InstanceBeginEditable name="pagetitle" -->
+                <h1>Debugging Out!</h1>
+                <!-- InstanceEndEditable -->
+            </div>
+            <div id="maincontent" role="main">
+                <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+                <!-- InstanceBeginEditable name="maincontentarea" -->
+                  <h2 class="sec_header">New, Supported Grid System</h2> 
+                  <div class="grid1 first"> grid1 </div> 
+                  <div class="grid11"> grid11 </div> 
+                  <div class="grid2 first"> grid2 </div> 
+                  <div class="grid10"> grid10 </div> 
+                  <div class="grid3 first"> grid3 </div> 
+                  <div class="grid9"> grid9 </div> 
+                  <div class="grid4 first"> grid4 </div> 
+                  <div class="grid8"> grid8 </div> 
+                  <div class="grid4 first"> grid4 </div> 
+                  <div class="grid4"> grid4 </div> 
+                  <div class="grid4"> grid4 </div> 
+                  <div class="grid5 first"> grid5 </div> 
+                  <div class="grid7"> grid7 </div> 
+                  <div class="grid6 first"> grid6 </div> 
+                  <div class="grid6"> grid6 </div> 
+                  <div class="grid3 first"> grid3 </div> 
+                  <div class="grid3"> grid3 </div> 
+                  <div class="grid1"> grid1 </div> 
+                  <div class="grid5"> grid5 </div> 
+                  <h3 class="sec_header">Heading 3</h3>
+                  <h4 class="sec_header">Heading 4</h4>
+                  <h5 class="sec_header">Heading 5</h5>
+                  <h6 class="sec_header">Heading 6</h6>
+                  <div class="grid1 first"> grid1 </div> 
+                  <div class="grid5"> grid5 </div> 
+                  <div class="grid3"> grid3 </div> 
+                  <div class="grid3"> grid3 </div> 
+                  <div class="grid3 first"> 3 </div> 
+                  <div class="grid9"> 
+                    <div class="grid3 first">3</div> 
+                    <div class="grid3">3</div> 
+                    <div class="grid3">3</div> 
+                    <div class="grid5 first">5</div> 
+                    <div class="grid2">2</div> 
+                    <div class="grid2">2</div> 
+                  </div> 
+                  <div class="grid8 first"> 
+                    <div class="grid3 first">3</div> 
+                    <div class="grid3">3</div> 
+                    <div class="grid2">2</div> 
+                    <div class="grid1 first">1</div> 
+                    <div class="grid1">1</div> 
+                    <div class="grid6">6</div> 
+                  </div> 
+                  <div class="grid4"> 4 </div>
+                  <!-- InstanceEndEditable -->
+                <div class="clear"></div>
+                <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
+                <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+            </div>
+        </div>
+        <footer id="footer">
             <div id="footer_floater"></div>
-            <div class="footer_col">
+            <div class="footer_col" id="wdn_footer_feedback">
                 <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
             </div>
-            <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
+            <div class="footer_col" id="wdn_footer_related">
+                <!-- InstanceBeginEditable name="leftcollinks" -->
                 <!--#include virtual="sharedcode/relatedLinks.html" -->
                 <!-- InstanceEndEditable --></div>
-            <div class="footer_col"><!-- InstanceBeginEditable name="contactinfo" -->
+            <div class="footer_col" id="wdn_footer_contact">
+                <!-- InstanceBeginEditable name="contactinfo" -->
                 <!--#include virtual="sharedcode/footerContactInfo.html" -->
-            <!-- InstanceEndEditable --></div>
-            <div class="footer_col">
+                <!-- InstanceEndEditable --></div>
+            <div class="footer_col" id="wdn_footer_share">
                 <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
             </div>
-            <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
-            <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
-                <!--#include virtual="sharedcode/footer.html" -->
-                <!-- InstanceEndEditable -->
-                <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
+            <!-- InstanceBeginEditable name="optionalfooter" -->
+            <!-- InstanceEndEditable -->
+            <div id="wdn_copyright">
+                <div>
+                    <!-- InstanceBeginEditable name="footercontent" -->
+                    <!--#include virtual="sharedcode/footer.html" -->
+                    <!-- InstanceEndEditable -->
+                    <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
+                </div>
+                <!--#include virtual="/wdn/templates_3.0/includes/logos.html" -->
             </div>
-        </div>
+        </footer>
     </div>
-    <div id="wdn_wrapper_footer"> </div>
-</div>
 </body>
-<!-- InstanceEnd --></html>
+<!-- InstanceEnd -->
+</html>
