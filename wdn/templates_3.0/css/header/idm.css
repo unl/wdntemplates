@@ -61,11 +61,7 @@
   font-size: 80%;
 }
 #wdn_identity_management > #wdn_idm_user_options li {
-  border-bottom: 1px solid #ad0302;
   padding: 5px;
-}
-#wdn_identity_management > #wdn_idm_user_options li:last-child {
-  border-bottom: 0;
 }
 #wdn_identity_management > #wdn_idm_user_options li a {
   color: rgba(255, 255, 255, 0.8);
@@ -83,6 +79,12 @@
 }
 #wdn_identity_management.loggedin > #wdn_idm_user_options #wdn_idm_login {
   display: none;
+}
+#wdn_identity_management.loggedin > #wdn_idm_user_options li {
+  border-bottom: 1px solid #ad0302;
+}
+#wdn_identity_management.loggedin > #wdn_idm_user_options li:last-child {
+  border-bottom: 0;
 }
 @media (min-width: 320px) {
   
@@ -118,7 +120,6 @@
     background: #d8d8d8;
   }
   #wdn_identity_management > #wdn_idm_user_options li {
-    border-bottom: 1px solid #dfdfdf;
     padding: 2px 5px;
   }
   #wdn_identity_management > #wdn_idm_user_options li a {
@@ -127,6 +128,12 @@
   }
   #wdn_identity_management > #wdn_idm_user_options li a:hover {
     color: #3f3f3f;
+  }
+  #wdn_identity_management.loggedin > #wdn_idm_user_options li {
+    border-bottom: 1px solid #dfdfdf;
+  }
+  #wdn_identity_management.loggedin > #wdn_idm_user_options li:last-child {
+    border-bottom: 0;
   }
 }
 @media (min-width: 960px) {

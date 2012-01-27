@@ -64,11 +64,7 @@
         font-size: 80%;
         
         li {
-            border-bottom: 1px solid lighten(@shadowPrimary, 3%);
             padding: 5px;
-            &:last-child {
-                border-bottom: 0;
-            }
             
             a {
                 color: rgba(255,255,255,0.8);
@@ -94,6 +90,13 @@
             }
             #wdn_idm_login {
                 display: none;
+            }
+            
+            li {
+                border-bottom: 1px solid lighten(@shadowPrimary, 3%);
+                &:last-child {
+                    border-bottom: 0;
+                }
             }
         }
     }
@@ -137,7 +140,6 @@
             background: darken(#f1f1f1, 10%);
             
             li {
-                border-bottom: 1px solid lighten(darken(#f1f1f1, 10%), 3%);
                 padding: 2px 5px;
                 
                 a {
@@ -145,6 +147,17 @@
                     font-size: 80%;
                     &:hover {
                         color: darken(#727272, 20%);
+                    }
+                }
+            }
+        }
+        &.loggedin {
+            > #wdn_idm_user_options {
+            
+                li {
+                    border-bottom: 1px solid lighten(darken(#f1f1f1, 10%), 3%);
+                    &:last-child {
+                        border-bottom: 0;
                     }
                 }
             }
