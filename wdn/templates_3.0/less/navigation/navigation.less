@@ -145,8 +145,8 @@
     }
     
     #wdn_navigation_wrapper {
-    	background: transparent;
-    	margin-top: 0;
+    	background: none;
+    	margin: 5px 0 17px;
     	
     	&:after {
     	    content: " ";
@@ -158,11 +158,71 @@
 	        clear: both;
     	}
     	
+    	.expand_toggle {
+            position: absolute;
+            top: -20px;
+            right: 3px;
+            z-index: 101;
+            height: 30px;
+            width: 28px;
+            
+            a {
+                display: block;
+                height: 100%;
+                background-image: url(images/expand_toggle.png);
+                background-repeat: no-repeat;
+                text-indent: -9999em;
+            }
+        }
+        
+        .pin_state {
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            z-index: 101;
+            height: 28px;
+            width: 19px;
+            
+            a {
+                display: block;
+                height: 100%;
+                background-image: url(images/pin_state.png);
+                background-repeat: no-repeat;
+                text-indent: -9999em;
+            }
+        }
+        
+        &.empty-secondary {
+            
+            #navigation > ul > li {
+            
+                &:nth-last-child(6) > a {
+                    .border-radius-bottom-left(5px);
+                }
+                
+                &:last-child > a {
+                    .border-radius-bottom-right(5px);
+                }
+                
+                ul {
+                    display: none;
+                }
+            }
+        }
+        
+        &.empty-secondary, &.nav-loading {
+            
+            .pin_state, .expand_toggle {
+                display: none;
+            }
+        }
+    	
     }
     #wdn_navigation_bar {
         width: 100%;
         clear: both;
         background: #fff;
+        position: relative;
     }
     .nav_unpinned {
         
@@ -182,18 +242,15 @@
         z-index: 100;
         background: none;
         padding: 0;
-        .linear-gradient(@highlightPrimary, @shadowPrimary);
+        background: #fff;
         
         &:before {
             display: none;
         }
         
         > ul {
-            float: left; 
-            position: relative;
+            position: static;
             width: 100%;
-            left: 0;
-            top: 0;
             .box-shadow(none);
             border: none;
             .transition(none);
@@ -211,6 +268,7 @@
                 /* (duplicated in ie.css with .start class) */
                 &:nth-child(6n+1) {
                     clear: left;
+                    width: 17%;
                     
                     /* Clear the first element of a row of 6 */
                     /* (duplicated in ie.css with .start class) */
@@ -229,6 +287,7 @@
                 }
                 
                 &:nth-child(6n+6) {
+                    width: 17%;
                 
                     /* Clear the last element of a row of 6 */
                     /* (duplicated in ie.css with .end class) */
@@ -248,60 +307,47 @@
                 
                 /* Add a separator between rows */
                 /* (duplicated in ie.css with .mid-bar class) */
-                &:nth-child(6n+7) {
+                &:nth-child(n+7) {
                     border-top: 1px solid #c83a3a;
                     .box-shadow(0px, -1px, 0px, #870d0c);
                 }
                 
                 &:first-child {
-                    width: 17%;
-                }
-                
-                &:last-child {
                     
-                    > ul {
-                        .border-radius(0,0,5px,0);
+                    > a {
+                        .border-radius4(5px,0,0,0);
                     }
                 }
                 
                 &:nth-child(6) {
-                    width: 17%;
+                    
+                    > a {
+                        .border-radius4(0,5px,0,0);
+                    }
+                }
+                
+                &:last-child {
+                    
+                    > ul, &.row-empty > a {
+                        .border-radius-bottom-right(5px);
+                    }
                 }
                 
                 &:nth-last-child(6) {
                     
-                    > ul, > a {
-                        .border-radius(0,0,0,5px);
-                    }
-                    &.row-empty {
-                        
-                        > a {
-                            .border-radius(0,0,5px,0);
-                        }
-                    }
-                }
-                
-                &:nth-last-child(6) {
-                    
-                    > ul, > a {
-                        .border-radius(0,0,5px,0);
-                    }
-                    &.row-empty {
-                        
-                        > a {
-                            .border-radius(0,0,5px,0);
-                        }
+                    > ul, &.row-empty > a {
+                        .border-radius-bottom-left(5px);
                     }
                 }
                 
                 &:hover {
                     
                     > a {
-                        .linear-gradient(#c12726, #ac2625);
+                        .linear-gradient-no-filter(#c12726, #ac2625);
                     }
                     
-                    ul {
-                        .linear-gradient(#fbfbfb, #f0f0f0);
+                    > ul {
+                        .linear-gradient-no-filter(#fbfbfb, #f0f0f0);
                         
                         a {
                             color: #242424;
@@ -309,17 +355,21 @@
                     }
                     
                     &.empty {
-                        .linear-gradient(rgba(251,251,251,0.95), rgba(215,215,215,0.95));
+                        
+                        > a {
+                            .linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);
+                        }
+                        
+                        > ul {
+                            .linear-gradient-no-filter(rgba(251,251,251,0.95), rgba(215,215,215,0.95));
+                        }
                     }
                 }
                 
-                &.empty {
+                &.row-empty {
                     
-                    &:hover {
-                    
-                        > a {
-                            .linear-gradient(@highlightPrimary, @shadowPrimary);
-                        }
+                    > ul {
+                        display: none;
                     }
                 }
                 
@@ -338,8 +388,12 @@
                     &.empty {
                         
                         /* Combine empty primary elements */
-                        > a {
+                        > a, > ul {
                             border-right-color: transparent;
+                        }
+                        
+                        > ul:after {
+                            display: none;
                         }
                     }
                     
@@ -347,8 +401,12 @@
                         
                         &.empty {
                             
-                            > a {
+                            > a, > ul {
                                 border-left-color: transparent;
+                            }
+                            
+                            > ul:before {
+                                display: none;
                             }
                         }
                     }
@@ -372,7 +430,7 @@
                     padding: 0.47em 2px;
                     border-right: 1px solid #870d0c;
                     border-left: 1px solid #c83a3a;
-                    .linear-gradient(@highlightPrimary, @shadowPrimary);
+                    .linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);
                     
                     &:hover {
                         color: rgba(255, 255, 255, 0.99);
@@ -382,6 +440,7 @@
                 /* Secondaries */
                 
                 > ul {
+                    z-index: auto;
                     position: relative;
                     top: 0;
                     left: 0;
@@ -389,7 +448,7 @@
                     padding: 3px 0;
                     border-bottom: 1px solid #c9c9c9;
                     border-top: none;
-                    .linear-gradient(rgba(251,251,251,0.95), rgba(215,215,215,0.95));
+                    .linear-gradient-no-filter(rgba(251,251,251,0.95), rgba(215,215,215,0.95));
                     .transition(all, linear, 0.1s);
                     .box-shadow(none);
                     /* Create the 'border' effects*/
@@ -478,19 +537,50 @@
             overflow-x:visible;
             height: auto;
         }
-        #navigation { //need to set the max-height with JS?
-            height: 100%;
-            display: inline-block;
-            max-height: 28px;
+    }
+    .nav_pinned {
+    
+        #wdn_navigation_wrapper .expand_toggle {
+            display: none;
         }
     }
-    //classes associated with in-process navigation
-    .nav_changing {
-    
+    //classes associated with expanded navigation
+    .nav_expanded {
+        
+        #wdn_navigation_wrapper {
+        
+            .expand_toggle a {
+                background-position: 0 -30px;
+            }
+            
+            .pin_state a {
+                background-position: 0 -28px;
+            }
+        }
     }
-    //classes associated with closed nav 
-    .nav_unpinned, .nav_collapsed {
+    //classes associated with collapsed navigation
+    .nav_collapsed {
     
+        #navigation> ul > li {
+        
+            /* Don't display the the secondary ul's for the top rows */
+            /* (duplicated in ie.css with .top-bars class) */
+            &:nth-last-child(n+7) ul {
+                padding-bottom: 0;
+                padding-top: 0;
+            }
+            
+            ul {
+                height: 0 !important;
+            }
+        }
+    }
+    //classes associated with changing or collapsed nav 
+    .nav_changing, .nav_collapsed {
+        
+        #navigation > ul > li ul li, .pin_state {
+            display: none;
+        }
     }
 }
 @media (min-width: 960px) {
@@ -498,8 +588,11 @@
 }
 @media (min-width: 1040px) {
     #wdn_navigation_wrapper {
-    	margin:5px 0 0;
     	width: 960px;
+    	
+    	.pin_state {
+    	    right: -5px
+    	}
     }
     .nav_unpinned {
         
@@ -508,6 +601,7 @@
         }
     }
     #navigation {
+        background: none;
         
         > ul {
             width: 960px;
@@ -516,6 +610,7 @@
                 width: 160px;
                 
                 &:nth-child(6n+1) {
+                    width: 160px;
                 
                     ul {
                         border-left-color: #c9c9c9;
@@ -523,25 +618,11 @@
                 }
                 
                 &:nth-child(6n+6) {
+                    width: 160px;
                     
                     ul {
                         border-right: 1px solid #c9c9c9 !important;
                     }
-                }
-                &:first-child {
-                    width: 160px;
-                
-                     a {
-                         .border-radius4(5px, 0, 0, 0);
-                     }
-                }
-                
-                &:last-child {
-                    width: 160px;
-                
-                     a {
-                         .border-radius4(0, 5px, 0, 0);
-                     }
                 }
                 
                 > ul {
@@ -555,6 +636,7 @@
             }
         }
     }
+    
     //classes associated with open/expanded nav
     .nav_pinned, .nav_open, .nav_expanded {
         
@@ -564,18 +646,5 @@
             overflow-x:visible;
             height: auto;
         }
-        #navigation { //need to set the max-height with JS?
-            height: 0;
-            max-height: 0;
-            display: block;
-        }
-    }
-    //classes associated with in-process navigation
-    .nav_changing {
-    
-    }
-    //classes associated with closed nav 
-    .nav_unpinned, .nav_collapsed {
-    
     }
 }

@@ -15,6 +15,30 @@
 	-moz-border-radius: @arguments;
 	border-radius: @arguments;
 }
+.border-radius-top-left(@radius)
+{
+    -webkit-border-top-left-radius: @radius;
+    -moz-border-top-left-radius: @radius;
+    border-top-left-radius: @radius;
+}
+.border-radius-top-right(@radius)
+{
+    -webkit-border-top-right-radius: @radius;
+    -moz-border-top-right-radius: @radius;
+    border-top-right-radius: @radius;
+}
+.border-radius-bottom-left(@radius)
+{
+    -webkit-border-bottom-left-radius: @radius;
+    -moz-border-bottom-left-radius: @radius;
+    border-bottom-left-radius: @radius;
+}
+.border-radius-bottom-right(@radius)
+{
+    -webkit-border-bottom-right-radius: @radius;
+    -moz-border-bottom-right-radius: @radius;
+    border-bottom-right-radius: @radius;
+}
 
 // Shadows
 .box-shadow(@none)
@@ -61,6 +85,16 @@
 	filter: formatstring(~"progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}')", @from, @to); // IE6,IE7
 	-ms-filter: formatstring(~"{2}progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}'){2}", @from, @to, '"'); // IE8
 	background: linear-gradient(top, @from, @to); // W3C
+}
+.linear-gradient-no-filter(@from:#000, @to:#EEE)
+{
+    background: @from; // Old browsers
+    background: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to)); //Chrome, Safari4+
+    background: -moz-linear-gradient(top, @from, @to); // FF3.6+
+    background: -webkit-linear-gradient(top, @from, @to); // Chrome10+, Safari5.1+
+    background: -o-linear-gradient(top, @from, @to); // Opera11.10+
+    background: -ms-linear-gradient(top, @from, @to); // IE10+
+    background: linear-gradient(top, @from, @to); // W3C
 }
 
 // Box Flex
