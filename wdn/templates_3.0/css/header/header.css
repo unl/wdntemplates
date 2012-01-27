@@ -68,12 +68,12 @@
   #header {
     background: #fff;
   }
-  #header a {
+  #header > a {
     position: relative;
     z-index: 1;
     margin-right: 2px;
   }
-  #header a > img {
+  #header > a > img {
     width: 55px;
   }
   #wdn_institution_title {

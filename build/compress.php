@@ -112,6 +112,7 @@ EOD;
         'wrapper/wrapper',
         'header/header',
         'header/search',
+        'header/idm',
         'header/tools',
         'navigation/breadcrumbs',
         'navigation/navigation',
