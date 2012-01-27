@@ -33,7 +33,9 @@ html > body > .skipnav {
   
 }
 @media (min-width: 768px) {
-  
+  #wdn_wrapper {
+    background: #fff;
+  }
 }
 @media (min-width: 960px) {
   
