@@ -824,7 +824,8 @@ switch ($otherArgs[0]) {
         $compressor->clean();
         break;
     case 'debug':
-        $compressor->buildCssDebug();
+        $compressor->buildCssDebug()
+            ->buildLess();
         break;
     case 'javascript':
         foreach (array(true, false) as $mobile) {
