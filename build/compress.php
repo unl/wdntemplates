@@ -181,14 +181,14 @@ EOD;
 
         }
 
-        file_put_contents("{$outDir}/variations/base.css", $base);
+        file_put_contents("{$outDir}/compressed/base.css", $base);
 
         foreach ($media_sections as $min_width=>$media_section_css) {
-            file_put_contents("{$outDir}/variations/{$min_width}.css", $media_section_css);
+            file_put_contents("{$outDir}/compressed/{$min_width}.css", $media_section_css);
         }
 
         // Now place a single file with all media width sections combined (for IE)
-        file_put_contents("{$outDir}/variations/combined_widths.css", implode(' ', $media_sections));
+        file_put_contents("{$outDir}/compressed/combined_widths.css", implode(' ', $media_sections));
 
         return $this;
     }
