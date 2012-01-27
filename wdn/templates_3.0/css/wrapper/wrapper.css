@@ -33,7 +33,9 @@ html > body > .skipnav {
   
 }
 @media (min-width: 768px) {
-  
+  #wdn_wrapper {
+    background: #fff;
+  }
 }
 @media (min-width: 960px) {
   
@@ -76,7 +78,6 @@ html > body > .skipnav {
     width: 960px;
     /* width: 92%; // If we want fluid */
   
-    background: #fff;
     border: 12px solid #eee;
     border-top: 35px solid #eee;
     padding: 12px 12px 10px;
