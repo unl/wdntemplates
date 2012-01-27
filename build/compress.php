@@ -175,7 +175,7 @@ EOD;
                     $media_sections[$matches[1]] .= $matches[2];
                 } else {
                     // this is a "base" CSS section
-                    $base .= $contents;
+                    $base .= $section;
                 }
             }
 
