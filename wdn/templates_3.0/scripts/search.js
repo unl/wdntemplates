@@ -4,7 +4,7 @@ WDN.search = function() {
 		    /**
 		     * Add the experimental text-to-speech
 		     */
-            WDN.jQuery('#q').attr('x-webkit-speech', 'x-webkit-speech')
+            WDN.jQuery('#q').attr('x-webkit-speech', 'x-webkit-speech');
 			/**
 			 * Hide the label when the user starts a search
 			 */
