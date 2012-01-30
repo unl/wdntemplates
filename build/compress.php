@@ -580,7 +580,7 @@ EOD;
                 $dir .= '/';
             }
 
-            $contents = $this->_cleanCssFile(file_get_contents("{$inDir}/{$file}.css"), $dir);
+            $contents = $this->_cleanCssFile(file_get_contents("{$inDir}/{$file}.css"), '../' . $dir);
 
             // remove comments
             $contents = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $contents);
