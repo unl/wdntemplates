@@ -561,7 +561,7 @@ EOD;
         $files = $this->_getCssPrereqs();
         $i = count($outFiles);
 
-        if (!$this->_checkMtime("{$outDir}/{$outFiles[$i - 3]}", $inDir, $files, 'css', 'css')) {
+        if (!$this->_checkMtime("{$outDir}/{$outFiles[$i - 2]}", $inDir, $files, 'css', 'css')) {
             return $this;
         }
 
@@ -608,7 +608,7 @@ EOD;
 
         }
 
-        file_put_contents("{$outDir}/{$outFiles[$i - 3]}", $base);
+        file_put_contents("{$outDir}/{$outFiles[$i - 2]}", $base);
 
         $i = 0;
         foreach ($media_sections as $min_width => $media_section_css) {
