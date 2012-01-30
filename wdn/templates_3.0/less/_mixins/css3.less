@@ -82,8 +82,7 @@
 	background: -webkit-linear-gradient(top, @from, @to); // Chrome10+, Safari5.1+
 	background: -o-linear-gradient(top, @from, @to); // Opera11.10+
 	background: -ms-linear-gradient(top, @from, @to); // IE10+
-	filter: formatstring(~"progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}')", @from, @to); // IE6,IE7
-	-ms-filter: formatstring(~"{2}progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}'){2}", @from, @to, '"'); // IE8
+	filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{from}', endColorstr='@{to}')"; // IE6,IE7
 	background: linear-gradient(top, @from, @to); // W3C
 }
 .linear-gradient-no-filter(@from:#000, @to:#EEE)
@@ -137,11 +136,11 @@
 // Transformations
 .skew(@angle_x:35, @angle_y:0)
 {
-	-webkit-transform: skew(formatstring("{0}deg", @angle_x), formatstring("{0}deg", @angle_y));
-	-moz-transform: skew(formatstring("{0}deg", @angle_x), formatstring("{0}deg", @angle_y));
-	-o-transform: skew(formatstring("{0}deg", @angle_x), formatstring("{0}deg", @angle_y));
-	-ms-transform: skew(formatstring("{0}deg", @angle_x), formatstring("{0}deg", @angle_y));
-	transform: skew(formatstring("{0}deg", @angle_x), formatstring("{0}deg", @angle_y));
+	-webkit-transform: skew(@{angle_x}deg, @{angle_y}deg);
+	-moz-transform: skew(@{angle_x}deg, @{angle_y}deg);
+	-o-transform: skew(@{angle_x}deg, @{angle_y}deg);
+	-ms-transform: skew(@{angle_x}deg, @{angle_y}deg);
+	transform: skew(@{angle_x}deg, @{angle_y}deg);
 }
 
 .scale(@scale_x: 1)
