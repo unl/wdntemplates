@@ -3,12 +3,23 @@ WDN.feedback = function() {
 	return {
         initialize : function() {
 			//WDN.log("initialize feedback");
-			WDN.loadJS('wdn/templates_3.0/scripts/plugins/rating/jquery.rating.js', WDN.feedback.ratingSetup);
+			WDN.feedback.ratingSetup();
 			WDN.feedback.commentSetup();
 		},
 		ratingSetup : function() {
 			WDN.log("setting up rating");
-			//jQuery('#wdn_feedback').rating().animate({opacity: 'show'}, 2000);
+			WDN.jQuery('#wdn_feedback input').click(function() {
+			    selectedRating = WDN.jQuery(this).attr('value');
+			    WDN.log("rating="+ selectedRating);
+			    WDN.analytics.callTrackEvent('Page Rating', 'Rated a '+selectedRating, WDN.analytics.thisURL, selectedRating);
+			    var url = 'http://www1.unl.edu/comments/';
+			    WDN.post(
+			    		url, 
+			    		{ rating: selectedRating },
+			    		function() {
+			    		}
+			    );
+			});
 			try {
 				WDN.jQuery('#wdn_feedback').rating();
 			} catch (e) {}
