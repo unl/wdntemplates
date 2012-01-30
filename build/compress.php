@@ -63,31 +63,31 @@ EOD;
      * @var array
      */
     protected $_jsFiles = array(
-        'mobile' => array(
+        'all' => array(
             'wdn',
+            'modernizr-wdn'
+        ),
+        '320' => array(
             'mobile_analytics',
             'mobile_support',
         ),
-        'desktop' => array(
+        '768' => array(
             'jquery',
-            'wdn',
             'wdn_ajax',
+            'global_functions',
+            'analytics',
+            'idm',
             'navigation',
             'search',
-            'toolbar',
-            'tooltip',
-            'analytics',
-            'plugins/hoverIntent/jQuery.hoverIntent',
-            'plugins/rating/jquery.rating',
-            'plugins/colorbox/jquery.colorbox',
-            'plugins/qtip/jquery.qtip',
-            'idm',
-            'tabs',
             'feedback',
             'socialmediashare',
+            'tooltip',
+            'toolbar',
+            'tabs',
             'unlalert',
-            'global_functions',
-            'mobile_detect',
+            'plugins/hoverIntent/jQuery.hoverIntent',
+            'plugins/colorbox/jquery.colorbox',
+            'plugins/qtip/jquery.qtip',
         )
     );
 
@@ -122,6 +122,8 @@ EOD;
         'footer/footer',
         'footer/feedback',
         'footer/share',
+        'script' => array('ignore' => true),
+        'content/css3_selector_failover' => array('ignore' => true),
         'variations/ie' => array('ignore' => true),
         'variations/touch' => array('ignore' => true),
     );
@@ -138,18 +140,11 @@ EOD;
     protected $_buildTargets = array(
         'js' => array(
             'in' => 'scripts',
-            'out' => 'scripts',
+            'out' => 'scripts/compressed',
             'files' => array(
                 'all.js',
-                'all_uncompressed.js',
-            )
-        ),
-        'js_mobile' => array(
-            'in' => 'scripts',
-            'out' => 'scripts',
-            'files' => array(
-                'mobile.js',
-                'mobile_uncompressed.js',
+                '320.js',
+                '768.js',
             )
         ),
         'css' => array(
@@ -314,6 +309,12 @@ EOD;
         return $this;
     }
 
+    /**
+     * Returns the real path to the given template resource
+     *
+     * @param string $path
+     * @return string
+     */
     protected function _getSrcTemplatePath($path)
     {
         return realpath(dirname(__FILE__) . "/{$this->_srcDir}{$this->_templateDir}{$path}");
@@ -362,74 +363,88 @@ EOD;
     /**
      * Compiles the template javascript and minifies it.
      *
-     * @param boolean $mobile Should mobile javascript files be used
      * @return UNL_WDNTemplates_Compressor
      */
-    public function buildJs($mobile = false)
+    public function buildJs()
     {
-        if ($mobile) {
-            $inDir = $this->_getSrcTemplatePath($this->_buildTargets['js_mobile']['in']);
-            $outDir = $this->_getSrcTemplatePath($this->_buildTargets['js_mobile']['out']);
-            $outFiles = $this->_buildTargets['js_mobile']['files'];
-            $files = $this->_jsFiles['mobile'];
-        } else {
-            $inDir = $this->_getSrcTemplatePath($this->_buildTargets['js']['in']);
-            $outDir = $this->_getSrcTemplatePath($this->_buildTargets['js']['out']);
-            $outFiles = $this->_buildTargets['js']['files'];
-            $files = $this->_jsFiles['desktop'];
-        }
 
-        // Check if we need a new compression
-        if (!$this->_checkMtime("{$outDir}/{$outFiles[0]}", $inDir, $files, 'js', 'javascript')) {
-            return $this;
-        }
+        $inDir = $this->_getSrcTemplatePath($this->_buildTargets['js']['in']);
+        $outDir = $this->_getSrcTemplatePath($this->_buildTargets['js']['out']);
+        $outFiles = $this->_buildTargets['js']['files'];
 
-        $all = '';
+        $this->_announce('Building javascript');
 
-        $this->_announce('Building javascript' . ($mobile ? ' for mobile' : ''));
-
-        foreach ($files as $file) {
-            $filename = "{$inDir}/{$file}.js";
-            $all .= file_get_contents($filename);
-
-            if ($file == 'wdn') {
-                if (!$mobile) {
-                    $all .= PHP_EOL . 'WDN.jQuery = jQuery.noConflict(true);WDN.loadedJS["' .
-                        $this->_templatePath . $this->_templateDir . $this->_buildTargets['js']['in'] .
-                        '/jquery.js"]=1;';
-                }
-                $all .= 'WDN.template_path = "' . $this->_templatePath . '";' . PHP_EOL;
+        $i = 0;
+        foreach ($this->_jsFiles as $sub => $files) {
+            $outro = '';
+            if ($sub == 'all') {
+                $outro = PHP_EOL . 'WDN.initializeTemplate();' . PHP_EOL;
             }
 
-            if ($file !== 'jquery') {
-                $all .= 'WDN.loadedJS["' . $this->_templatePath . $this->_templateDir .
-                    $this->_buildTargets['js' . ($mobile ? '_mobile' : '')]['in'] . '/' . $file . '.js"]=1;' . PHP_EOL;
+            if (!$this->_buildJsTarget($inDir, $outDir, $outFiles[$i++], $files, $outro)) {
+                return $this;
             }
         }
-
-        if (!$mobile) {
-            $all .= PHP_EOL . 'WDN.initializeTemplate();' . PHP_EOL;
-        }
-
-        // the next line will remove all WDN.log(...); statements
-        $all = preg_replace('/WDN\.log\s*\(.+\);/', '//debug statement removed', $all);
-
-        file_put_contents("{$outDir}/{$outFiles[1]}", $all);
-
-        $compileCmd = $this->_getCompilerCmd("{$outDir}/{$outFiles[1]}", "{$outDir}/{$outFiles[0]}");
-        if ($compileCmd) {
-            exec($compileCmd);
-        } else {
-            $this->_announce('[ERROR] javascript build failed, compiler unknown');
-            return $this;
-        }
-
-        $all = $this->_wdnHeader . file_get_contents("{$outDir}/{$outFiles[0]}");
-        file_put_contents("{$outDir}/{$outFiles[0]}", $all);
 
         $this->_announce('javascript build complete');
 
         return $this;
+    }
+
+    /**
+     * Builds a given javascript sub-target
+     *
+     * @param string $inDir
+     * @param string $outDir
+     * @param string $outFile
+     * @param array $files
+     * @param string $outro [OPTIONAL]
+     * @return boolean
+     */
+    protected function _buildJsTarget($inDir, $outDir, $outFile, $files, $outro = '')
+    {
+        // Check if we need a new compression
+        if ($this->_checkMtime("{$outDir}/{$outFile}", $inDir, $files, 'js', 'javascript')) {
+            $all = '';
+
+            foreach ($files as $file) {
+                $filename = "{$inDir}/{$file}.js";
+                $all .= file_get_contents($filename);
+
+                if ($file == 'wdn') {
+                    $all .= 'WDN.template_path = "' . $this->_templatePath . '";' . PHP_EOL;
+                } else {
+                    if ($file == 'jquery') {
+                        $all .= PHP_EOL . 'WDN.jQuery = jQuery.noConflict(true);';
+                    }
+
+                    $all .= 'WDN.loadedJS["' . $this->_templatePath . $this->_templateDir .
+                        $this->_buildTargets['js']['in'] . '/' . $file . '.js"]=1;' . PHP_EOL;
+                }
+            }
+
+            $all .= $outro;
+
+            // the next line will remove all WDN.log(...); statements
+            $all = preg_replace('/WDN\.log\s*\(.+\);/', '', $all);
+
+            file_put_contents("{$outDir}/temp.js", $all);
+
+            $compileCmd = $this->_getCompilerCmd("{$outDir}/temp.js", "{$outDir}/{$outFile}");
+            if ($compileCmd) {
+                exec($compileCmd);
+                unlink("{$outDir}/temp.js");
+            } else {
+                unlink("{$outDir}/temp.js");
+                $this->_announce('[ERROR] javascript build failed, compiler unknown');
+                return false;
+            }
+
+            $all = $this->_wdnHeader . file_get_contents("{$outDir}/{$outFile}");
+            file_put_contents("{$outDir}/{$outFile}", $all);
+        }
+
+        return true;
     }
 
     /**
@@ -818,7 +833,6 @@ if (empty($otherArgs[0])) {
 
 switch ($otherArgs[0]) {
     case 'all':
-        $compressor->buildJs(true);
         $compressor->make();
         break;
     case 'clean':
@@ -829,9 +843,7 @@ switch ($otherArgs[0]) {
             ->buildLess();
         break;
     case 'javascript':
-        foreach (array(true, false) as $mobile) {
-            $compressor->buildJs($mobile);
-        }
+        $compressor->buildJs();
         break;
     case 'less-css':
         $compressor->buildLess()

@@ -46,5 +46,5 @@ if (_wdn_js) {
 	_wdn_js.send(null);
 	eval(_wdn_js.responseText);
 	WDN.template_path = _wdn_scripts_url.replace("wdn/templates_3.0/scripts/","");
-	eval('WDN.initializeTemplate();');
+	WDN.initializeTemplate(true);
 }
