@@ -34,15 +34,6 @@ WDN.navigation = (function() {
 
         changeSiteNavDelay : 400,
 
-        cssTransitionsSupport : (function() {
-            q = false;
-            var div = document.createElement('div');
-            div.innerHTML = '<div style="-webkit-transition:color 1s linear;-ms-transition:color 1s linear;-o-transition:color 1s linear;-moz-transition:color 1s linear;"></div>';
-            q = (div.firstChild.style.webkitTransition !== undefined) || (div.firstChild.style.MozTransition !== undefined) || (div.firstChild.style.OTransition !== undefined) || (div.firstChild.style.MsTransition !== undefined);
-            delete div;
-            return q;
-        })(),
-
         /**
          * Initialize the navigation, and determine what the correct state
          * should be (expanded/collapsed).
@@ -306,7 +297,7 @@ WDN.navigation = (function() {
                 return;
             }
 
-            if (WDN.navigation.currentState !== -1 && WDN.navigation.preferredState != 1 && WDN.navigation.cssTransitionsSupport) {
+            if (WDN.navigation.currentState !== -1 && WDN.navigation.preferredState != 1 && Modernizr.csstransitions) {
                 WDN.navigation.setWrapperClass('changing');
             } else {
                 WDN.navigation.transitionEnd();
@@ -388,7 +379,7 @@ WDN.navigation = (function() {
 
             WDN.navigation.applyStateFixes();
 
-            if (WDN.navigation.cssTransitionsSupport) {
+            if (Modernizr.csstransitions) {
                 WDN.jQuery('#navigation').bind(
                     'webkitTransitionEnd transitionend oTransitionEnd msTransitionEnd',
                     function(event) {
@@ -412,13 +403,12 @@ WDN.navigation = (function() {
             });
             WDN.jQuery('#navigation > ul > li > a').focusin(function(){
                 WDN.navigation.expand();
-            }).focusout(function(){
-                //WDN.navigation.collapse() 
-            });
-            WDN.jQuery('#breadcrumbs > ul > li > a').focus(function(){
+            })
+            .focus(function(){
             	WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a:first-child'), false);
         	});
             WDN.jQuery('#navigation').removeClass('disableTransition');
+            WDN.navigation.navReady(true);
         },
 
         applyStateFixes : function() {
@@ -538,6 +528,15 @@ WDN.navigation = (function() {
 
         setWrapperPState : function(css_class) {
             WDN.jQuery('#wdn_wrapper').removeClass('nav_changing nav_unpinned nav_pinned').addClass('nav_' + css_class);
+        },
+        
+        navReady : function(ready) {
+        	var $wrapper = WDN.jQuery('#wdn_wrapper');
+        	if (ready) {
+        		$wrapper.addClass('nav_ready');
+        	} else {
+        		$wrapper.removeClass('nav_ready');
+        	}
         },
 
         storeNav : function(li, data) {

@@ -529,6 +529,9 @@
     -o-transition: none;
     transition: none;
   }
+  .nav_ready #wdn_navigation_wrapper {
+    visibility: visible;
+  }
   .nav_pinned #wdn_navigation_bar, .nav_open #wdn_navigation_bar, .nav_expanded #wdn_navigation_bar {
     width: auto;
     overflow-y: visible;
