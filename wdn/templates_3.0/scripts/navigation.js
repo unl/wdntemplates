@@ -122,11 +122,10 @@ WDN.navigation = (function() {
                 });
             }
 
-            // fix old IE for CSS3
-            var majorIEVersion = WDN.jQuery.browser.version.split(".")[0];
-            var $bar_starts = WDN.jQuery('#navigation > ul > li:nth-child(6n+1)');
-            if (WDN.jQuery.browser.msie && majorIEVersion < 9) {
-                WDN.log("Fixing IE CSS3");
+            // css3 selector fixes
+            var $html = WDN.jQuery(document.documentElement),
+            	$bar_starts = WDN.jQuery('#navigation > ul > li:nth-child(6n+1)');
+            if ($html.hasClass('no-css-nth-child')) {
                 $bar_starts.addClass('start');
                 WDN.jQuery('#navigation > ul > li:nth-child(6n+6)').addClass('end');
                 WDN.jQuery('#navigation > ul > li:nth-child(n+7)').addClass('mid-bar');
@@ -152,14 +151,6 @@ WDN.navigation = (function() {
                     var new_ah = [(ah[row] - height) / 2];
                     new_ah[1] = new_ah[0];
 
-                    if (WDN.jQuery.browser.msie) {
-                         if (majorIEVersion == 8) {
-                             new_ah[0] -= 1;
-                         } else if (majorIEVersion == 7 && WDN.jQuery(this).parent().hasClass('empty')) {
-                             new_ah[0] -= 1;
-                             new_ah[1] -= 1;
-                         }
-                    }
                     WDN.jQuery(this).css({
                         'padding-top' : new_ah[0] + pad + 'px',
                         'padding-bottom' : new_ah[1] + pad + 'px'
@@ -171,7 +162,7 @@ WDN.navigation = (function() {
             var secondaryLists = WDN.jQuery('> ul', primaries);
             secondaryLists.each(function(i){
                 var row = Math.floor(i/6), height;
-                if (WDN.jQuery('body').hasClass('liquid') && !(WDN.jQuery.browser.msie && majorIEVersion < 8)) {
+                if (WDN.jQuery('body').hasClass('liquid') && $html.hasClass('boxsizing')) {
                     height = WDN.jQuery(this).outerHeight();
                 } else {
                     height = WDN.jQuery(this).height();
@@ -199,7 +190,7 @@ WDN.navigation = (function() {
             }
 
             // Fix liquid box-sizing
-            if (WDN.jQuery('body').hasClass('liquid') && WDN.jQuery.browser.msie && majorIEVersion < 8) {
+            if (WDN.jQuery('body').hasClass('liquid') && $html.hasClass('no-boxsizing')) {
                 // Fix box-size
                 var firstRun = true;
                 var resizeFunc = function() {
