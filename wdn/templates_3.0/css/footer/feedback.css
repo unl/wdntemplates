@@ -166,8 +166,6 @@
   }
   .rating > label:active {
     position: relative;
-    top: 2px;
-    left: 2px;
   }
   .rating > input:checked + label:hover,
   .rating > input:checked + label:hover ~ label,
