@@ -65,8 +65,7 @@
     background: -webkit-linear-gradient(top, #b70302, #9d0201);
     background: -o-linear-gradient(top, #b70302, #9d0201);
     background: -ms-linear-gradient(top, #b70302, #9d0201);
-    filter: formatstring(progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}'), #b70302, #9d0201);
-    -ms-filter: formatstring({2}progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}'){2}, #b70302, #9d0201, '"');
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b70302', endColorstr='#9d0201');
     background: linear-gradient(top, #b70302, #9d0201);
     padding: 8px 10px 8px 10px;
     margin: -9px 12px 0 0;
