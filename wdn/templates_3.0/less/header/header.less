@@ -18,6 +18,7 @@
 	background: linear-gradient(top, rgba(0,0,0,0) 90%,rgba(100,100,100,0.40) 95%,rgba(114,114,114,0.60) 100%); /* W3C */
 	padding: 4px;
 	font-family: 'URWGroteskCon-Lig', Helvetica, Arial, sans-serif;
+	min-height: 40px;  /* Used to retain height for old #titelgraphic markup */
 	
 	> a {
 	    text-decoration: none;
@@ -50,6 +51,34 @@
     }
 }
 
+/* Retain styles for old markup. Remove August 1, 2012*/
+#titlegraphic {
+    position: absolute;
+    top: 4px;
+    width: 66%;
+    
+    h1 {
+        display: block;
+        font-size: 2em;
+        line-height: 1.2;
+        margin: 7px 0 -3px 45px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        font-family: 'URWGroteskCon-Lig', Helvetica, Arial, sans-serif;
+        color: #000;
+        
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        
+        span {
+            display: none;
+        }
+    }
+}
+
 @media (min-width: 320px) {
     
 }
@@ -64,6 +93,7 @@
 @media (min-width: 768px) {
     #header {
         background: #fff;
+        min-height: 55px;  /* Used to retain height for old #titelgraphic markup */
         
         > a {
             position: relative;
@@ -82,6 +112,13 @@
         font-weight: normal;
         margin: 13px 0 0 0;
     }
+    
+    /* Retain styles for old markup. Remove August 1, 2012*/
+    #titlegraphic {
+        top: 17px;
+        left: 16px;
+        width: 66%;
+    }
 }
 @media (min-width: 960px) {
 
@@ -90,6 +127,7 @@
     #header {
         margin: -53px -12px 0 -16px;
         background: none;
+        min-height: 95px; /* Used to retain height for old #titelgraphic markup */
         
         > a {
             background: #fff;
@@ -147,4 +185,33 @@
         }
     }
     
+    /* Retain styles for old markup. Remove August 1, 2012*/
+    #titlegraphic {
+        top: 5px;
+        left: 53px;
+        font-size: 1.25em;
+        text-shadow: 0 0 3px #fff;
+        font-weight: normal;
+        
+        > h1 {
+            letter-spacing: -1px;
+            line-height: 1.1;
+            color:#555;
+        
+            span {
+                display:block;
+                font-size:25%;
+                color:#6E6E6E;
+                margin-top:-0.6em;
+                letter-spacing:0em;
+                text-transform:uppercase;
+                font-family: Helvetica, "Lucida Grande", Verdana, Arial;
+                line-height: 0.8;
+            }
+            
+            > a {
+                color:#555;
+            }
+        }
+    }
 }
