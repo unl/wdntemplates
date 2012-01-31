@@ -60,13 +60,9 @@
     -webkit-border-radius: 5px 5px 5px 5px;
     -moz-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
-    filter: alpha(opacity=80);
-    opacity: 0.8;
   }
   #wdn_tool_links li a:hover {
     background-position: 5px 4px;
-    filter: alpha(opacity=80);
-    opacity: 1;
   }
   #wdn_tool_links li a.weather {
     background-position: 5px -220px;

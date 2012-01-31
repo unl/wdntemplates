@@ -36,7 +36,7 @@ WDN.toolbar = function() {
         	WDN.toolbar.registerTool('feeds', 'RSS Feeds', 1002, 500);
         	WDN.toolbar.registerTool('weather', 'Weather', 1002, 500);
         	WDN.toolbar.registerTool('events', 'Events', 1002, 550);
-        	WDN.toolbar.registerTool('peoplefinder', 'Directory', 1002, 550);
+        	WDN.toolbar.registerTool('directory', 'Directory', 1002, 550);
         	WDN.toolbar.registerTool('webcams', 'Webcams', 1002, 350);
         //	WDN.toolbar.registerTool('tourmaps', 'Tour/Maps', 1042, 800);
         },

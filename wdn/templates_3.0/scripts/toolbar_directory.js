@@ -1,4 +1,4 @@
-WDN.toolbar_peoplefinder = function() {
+WDN.toolbar_directory = function() {
     var pfresultsdiv = 'pfresults',
     	pfrecorddiv = 'pfShowRecord',
     	defaultIntro,
@@ -9,7 +9,6 @@ WDN.toolbar_peoplefinder = function() {
     	
         initialize : function() {},
         setupToolContent : function(contentCallback) {
-        	WDN.loadCSS('/wdn/templates_3.0/css/header/toolbarPeoplefinder.css');
         	WDN.loadCSS('/wdn/templates_3.0/css/content/vcard.css');
         	WDN.jQuery.ajax({
             	url: WDN.template_path + 'wdn/templates_3.0/includes/tools/peoplefinder.html',
@@ -18,11 +17,11 @@ WDN.toolbar_peoplefinder = function() {
             			$pq = WDN.jQuery('#pq', $tempDiv);
             		
             		WDN.jQuery('form', $tempDiv).submit(function() {
-            			WDN.toolbar_peoplefinder.queuePFRequest($pq.val(), 'pfresults');
+            			WDN.toolbar_directory.queuePFRequest($pq.val(), 'pfresults');
             			return false;
             		});
             		$pq.keyup(function() {
-            			WDN.toolbar_peoplefinder.queuePFRequest($pq.val(), 'pfresults');
+            			WDN.toolbar_directory.queuePFRequest($pq.val(), 'pfresults');
             		});
             		defaultIntro = WDN.jQuery('#pfresults', $tempDiv).children().clone();
             		
@@ -39,12 +38,12 @@ WDN.toolbar_peoplefinder = function() {
     		}, 500);
         },
         pf_getUID : function(uid) {
-            var url = WDN.toolbar_peoplefinder.serviceURL + 'service.php?view=hcard&uid=' + uid;
-            WDN.get(url, WDN.toolbar_peoplefinder.updatePeopleFinderRecord);
+            var url = WDN.toolbar_directory.serviceURL + 'service.php?view=hcard&uid=' + uid;
+            WDN.get(url, WDN.toolbar_directory.updatePeopleFinderRecord);
             return false;
         },
         queuePFChooser : function(q, resultsdiv) {
-            WDN.toolbar_peoplefinder.queuePFRequest(q, resultsdiv, true);
+            WDN.toolbar_directory.queuePFRequest(q, resultsdiv, true);
         },
         queuePFRequest : function(q, resultsdiv, chooser, cn, sn) {
             pfresultsdiv = resultsdiv;
@@ -59,7 +58,7 @@ WDN.toolbar_peoplefinder = function() {
             if (q.length > 2 || splitQuery.length > 10) {
                 $results.html('<div id="pf_progress"/>');
                 pfreq_q = setTimeout(function() {
-                	WDN.toolbar_peoplefinder.getPeopleFinderResults(escape(q) + splitQuery, chooser);
+                	WDN.toolbar_directory.getPeopleFinderResults(escape(q) + splitQuery, chooser);
                 }, 400);
             } else if (q.length>0) {
             	$results.html('Please enter more information.');
@@ -69,11 +68,11 @@ WDN.toolbar_peoplefinder = function() {
             }
         },
         getPeopleFinderResults : function(q, chooser) {
-        	var url = WDN.toolbar_peoplefinder.serviceURL + 'service.php?q=' + q;
+        	var url = WDN.toolbar_directory.serviceURL + 'service.php?q=' + q;
         	if (chooser) {
         		url += '&chooser=true';
         	}
-            WDN.get(url, WDN.toolbar_peoplefinder.updatePeopleFinderResults);
+            WDN.get(url, WDN.toolbar_directory.updatePeopleFinderResults);
         },
         pfCatchUID : function(uid) {
             alert('I\'ve caught '+uid+'. You should create your own pfCatchUID function.');
@@ -83,8 +82,21 @@ WDN.toolbar_peoplefinder = function() {
         	var $results = WDN.jQuery('#' + pfresultsdiv);
         	if (textStatus == 'success') {
             	$results.html(data);
-                if (WDN.toolbar_peoplefinder.configuedWebService) {
+                if (WDN.toolbar_directory.configuedWebService) {
                 	service_peoplefinder.updatePeopleFinderResults();
+                } else {
+                	WDN.jQuery('.ppl_Sresult', $results).click(function(evt) {
+                		var cInfo = WDN.jQuery('.cInfo', this).get(0);
+                		if (evt.target != cInfo) {
+                			WDN.jQuery('.cInfo', this).click();
+                		}
+                	});
+                	
+                	WDN.jQuery('.dep_result', $results).click(function(evt) {
+                		var href = WDN.jQuery('.cInfo', this)[0].href;
+                		WDN.get(href + '/summary?format=partial', WDN.toolbar_directory.updatePeopleFinderRecord);
+                		return false;
+                	});
                 }
             } else {
                 $results.html('Error loading results.');
@@ -94,7 +106,7 @@ WDN.toolbar_peoplefinder = function() {
         	var $record = WDN.jQuery('#' + pfrecorddiv);
             if (textStatus == 'success') {
                 $record.html(data);
-                if (WDN.toolbar_peoplefinder.configuedWebService) {
+                if (WDN.toolbar_directory.configuedWebService) {
                 	service_peoplefinder.updatePeopleFinderRecord();
                 }
             } else {
@@ -106,6 +118,6 @@ WDN.toolbar_peoplefinder = function() {
     };
 }();
 
-var pf_getUID = WDN.toolbar_peoplefinder.pf_getUID;
-var queuePFChooser = WDN.toolbar_peoplefinder.queuePFChooser;
-var queuePFRequest = WDN.toolbar_peoplefinder.queuePFRequest;
+var pf_getUID = WDN.toolbar_directory.pf_getUID;
+var queuePFChooser = WDN.toolbar_directory.queuePFChooser;
+var queuePFRequest = WDN.toolbar_directory.queuePFRequest;
