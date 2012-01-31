@@ -4,7 +4,11 @@
 var _gaq = _gaq || [];
 var WDN = (function() {
 	var loadingJS = {},
-		pluginParams = {};
+		pluginParams = {},
+		_head = document.head || document.getElementsByTagName('head')[0],
+		_currentWidthScript,
+		_initd = false;
+	
 	return {
 		/**
 		 * This stores what javascript files have been loaded already
@@ -46,7 +50,7 @@ var WDN = (function() {
 				var e = document.createElement("script");
 				e.setAttribute('src', url);
 				e.setAttribute('type','text/javascript');
-				document.getElementsByTagName('head').item(0).appendChild(e);
+				_head.appendChild(e);
 
 				if (callback) {
 					loadingJS[url].push(callback);
@@ -93,19 +97,97 @@ var WDN = (function() {
 			e.href = url;
 			e.rel = "stylesheet";
 			e.type = "text/css";
-			document.getElementsByTagName("head")[0].appendChild(e);
+			_head.appendChild(e);
+		},
+		
+		getClientWidth: function() {
+			return document.clientWidth || document.documentElement.clientWidth ||
+				document.body.parentNode.clientWidth || document.body.clientWidth;
 		},
 
 		/**
 		 * This function is called on page load to initialize template related
 		 * data.
 		 */
-		initializeTemplate: function () {
-			//gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-			//WDN.loadJS(gaJsHost + "google-analytics.com/ga.js");
-			//WDN.loadCSS('wdn/templates_3.0/css/script.css');
-//			WDN.loadJS('wdn/templates_3.0/scripts/xmlhttp.js');
-			WDN.loadJQuery(WDN.jQueryUsage);
+		initializeTemplate: function (debug) {
+			if (_initd) {
+				return;
+			}
+			_initd = true;
+			
+			var clientWidth, initFunctions, resizeTimeout, onResize;
+			
+			WDN.loadCSS('wdn/templates_3.0/css/script.css');
+			WDN.loadJS('wdn/templates_3.0/scripts/modernizr-wdn.js');
+			
+			initFunctions = {
+				"320": function() {
+					WDN.initializePlugin('mobile_analytics');
+					WDN.initializePlugin('mobile_support');
+				},
+				"768": function() {
+					WDN.loadJQuery(function() {
+						WDN.loadJS('wdn/templates_3.0/scripts/global_functions.js');
+						WDN.initializePlugin('analytics');
+						WDN.initializePlugin('navigation');
+						WDN.initializePlugin('search');
+						WDN.initializePlugin('feedback');
+						WDN.initializePlugin('socialmediashare');
+						WDN.contentAdjustments();
+						WDN.initializePlugin('tooltip');
+						WDN.initializePlugin('toolbar');
+						WDN.initializePlugin('tabs');
+						WDN.initializePlugin('unlalert');
+						WDN.browserAdjustments();
+					});
+				}
+			};
+			
+			clientWidth = WDN.getClientWidth();
+			switch (true) {
+				case clientWidth >= 768:
+					_currentWidthScript = '768';
+					break;
+				default:
+					_currentWidthScript = '320';
+					break;
+			}
+			
+			if (debug) {
+				initFunctions[_currentWidthScript]();
+			} else {
+				WDN.loadJS('wdn/templates_3.0/scripts/compressed/' + _currentWidthScript + '.js', initFunctions[_currentWidthScript]);
+			}
+			
+			onResize = function() {
+				if (resizeTimeout) {
+					clearTimeout(resizeTimeout);
+				}
+				
+				resizeTimeout = setTimeout(function() {
+					var clientWidth = WDN.getClientWidth();
+					switch (true) {
+						case clientWidth >= 768:
+							if (_currentWidthScript != '768') {
+								//TODO: destroy 320 stuff
+								//TODO: load and init 768 interface
+							} 
+							break;
+						default:
+							if (_currentWidthScript != '320') {
+								//TODO: destroy 768 stuff
+								//TODO: load and init 320 interface
+							}
+							break;
+					}
+				}, 500);
+			};
+			
+			if (window.addEventListener) {
+				window.addEventListener('resize', onResize, false);
+			} else if (window.attachEvent) {
+				window.attachEvent('onresize', onResize);
+			}
 		},
 
 		/**
@@ -128,31 +210,6 @@ var WDN = (function() {
 		},
 
 		/**
-		 * All things needed by jQuery can be put in here, and they'll get
-		 * executed when jquery is loaded
-		 */
-		jQueryUsage: function () {
-			WDN.loadJS('wdn/templates_3.0/scripts/global_functions.js');
-			WDN.initializePlugin('analytics');
-			if (WDN.jQuery('body').hasClass('mobile')) {
-				return;
-			}
-			WDN.initializePlugin('mobile_detect');
-			WDN.initializePlugin('navigation');
-			WDN.initializePlugin('search');
-			WDN.initializePlugin('feedback');
-			WDN.initializePlugin('socialmediashare');
-			WDN.contentAdjustments();
-			WDN.initializePlugin('tooltip');
-			WDN.initializePlugin('toolbar');
-			WDN.initializePlugin('tabs');
-			WDN.initializePlugin('unlalert');
-			//WDN.initializePlugin('idm');
-			WDN.browserAdjustments();
-			WDN.screenAdjustments();
-		},
-
-		/**
 		 * This function logs data for debugging purposes.
 		 *
 		 * To see, open firebug's console.
@@ -164,27 +221,25 @@ var WDN = (function() {
 		},
 
 		browserAdjustments: function () {
-			if (WDN.jQuery.browser.msie && (WDN.jQuery.browser.version == '6.0') && (!navigator.userAgent.match(/MSIE 8.0/))) {
+			$html = WDN.jQuery(document.documentElement);
+			if ($html.hasClass('ie6')) {
 				var $body = WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>').removeAttr('class').addClass('document');
 				WDN.jQuery('#wdn_upgrade_notice').load(WDN.template_path + 'wdn/templates_3.0/includes/browserupgrade.html');
 				WDN.jQuery('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
 				WDN.loadCSS('wdn/templates_3.0/css/content/columns.css');
+				return;
 			}
-
-			if ((navigator.userAgent.match(/applewebkit/i) && !navigator.userAgent.match(/Version\/[34]/)) ||
-				(navigator.userAgent.match(/firefox/i) && (navigator.userAgent.match(/firefox\/[12]/i) || navigator.userAgent.match(/firefox\/3.[01234]/i))) ||
-				(navigator.userAgent.match(/msie/i))) {
-				// old browser needs help zebra striping
-				WDN.jQuery('.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
-				WDN.jQuery('.zentable tbody tr:nth-child(even)').addClass('rowEven');
-			}
-		},
-
-		screenAdjustments: function () {
-			if (screen.width<=1024) {
-				WDN.jQuery('body').css({'background':'#e0e0e0'});
-				if (WDN.jQuery.browser.msie) {
-					WDN.jQuery('#wdn_wrapper').css({'margin':'0 0 0 5px'});
+			
+			var css3Tests = 'no-css-first-child no-css-last-child no-css-nth-child no-css-nth-of-type no-css-nth-last-child'.split(' ');
+			for (var i = 0; i < css3Tests.length; i++) {
+				if ($html.hasClass(css3Tests[i])) {
+					WDN.loadCSS('wdn/templates_3.0/css/content/css3_selector_failover.css');
+					
+					// base css3 workarounds
+					WDN.jQuery('.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
+					WDN.jQuery('.zentable tbody tr:nth-child(even)').addClass('rowEven');
+					
+					break;
 				}
 			}
 		},

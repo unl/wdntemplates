@@ -34,15 +34,6 @@ WDN.navigation = (function() {
 
         changeSiteNavDelay : 400,
 
-        cssTransitionsSupport : (function() {
-            q = false;
-            var div = document.createElement('div');
-            div.innerHTML = '<div style="-webkit-transition:color 1s linear;-ms-transition:color 1s linear;-o-transition:color 1s linear;-moz-transition:color 1s linear;"></div>';
-            q = (div.firstChild.style.webkitTransition !== undefined) || (div.firstChild.style.MozTransition !== undefined) || (div.firstChild.style.OTransition !== undefined) || (div.firstChild.style.MsTransition !== undefined);
-            delete div;
-            return q;
-        })(),
-
         /**
          * Initialize the navigation, and determine what the correct state
          * should be (expanded/collapsed).
@@ -97,7 +88,16 @@ WDN.navigation = (function() {
                 WDN.navigation.setPreferredState(evt);
                 return false;
             });
+            
+            WDN.jQuery('#navigation > ul > li > a').focusin(function(){
+                WDN.navigation.expand();
+            })
+            .focus(function(){
+            	WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a:first-child'), false);
+        	});
 
+            WDN.navigation.initializePreferredState();
+            
             WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', function() {
                 WDN.jQuery('#breadcrumbs ul li a').hoverIntent({
                     over:        WDN.navigation.switchSiteNavigation,
@@ -106,7 +106,6 @@ WDN.navigation = (function() {
                     sensitivity: 1, // Mouse must not move
                     interval:    120
                 });
-                WDN.navigation.initializePreferredState();
             });
         },
 
@@ -131,11 +130,10 @@ WDN.navigation = (function() {
                 });
             }
 
-            // fix old IE for CSS3
-            var majorIEVersion = WDN.jQuery.browser.version.split(".")[0];
-            var $bar_starts = WDN.jQuery('#navigation > ul > li:nth-child(6n+1)');
-            if (WDN.jQuery.browser.msie && majorIEVersion < 9) {
-                WDN.log("Fixing IE CSS3");
+            // css3 selector fixes
+            var $html = WDN.jQuery(document.documentElement),
+            	$bar_starts = WDN.jQuery('#navigation > ul > li:nth-child(6n+1)');
+            if ($html.hasClass('no-css-nth-child')) {
                 $bar_starts.addClass('start');
                 WDN.jQuery('#navigation > ul > li:nth-child(6n+6)').addClass('end');
                 WDN.jQuery('#navigation > ul > li:nth-child(n+7)').addClass('mid-bar');
@@ -158,17 +156,9 @@ WDN.navigation = (function() {
                 var height = WDN.jQuery(this).outerHeight();
                 var pad = parseFloat(WDN.jQuery(this).css('padding-top'));
                 if (height < ah[row]) {
-                    var new_ah = [(ah[row] - height) / 2];
-                    new_ah[1] = new_ah[0];
+                    var ah_temp = (ah[row] - height) / 2,
+                    	new_ah = [Math.floor(ah_temp), Math.ceil(ah_temp)];
 
-                    if (WDN.jQuery.browser.msie) {
-                         if (majorIEVersion == 8) {
-                             new_ah[0] -= 1;
-                         } else if (majorIEVersion == 7 && WDN.jQuery(this).parent().hasClass('empty')) {
-                             new_ah[0] -= 1;
-                             new_ah[1] -= 1;
-                         }
-                    }
                     WDN.jQuery(this).css({
                         'padding-top' : new_ah[0] + pad + 'px',
                         'padding-bottom' : new_ah[1] + pad + 'px'
@@ -180,7 +170,7 @@ WDN.navigation = (function() {
             var secondaryLists = WDN.jQuery('> ul', primaries);
             secondaryLists.each(function(i){
                 var row = Math.floor(i/6), height;
-                if (WDN.jQuery('body').hasClass('liquid') && !(WDN.jQuery.browser.msie && majorIEVersion < 8)) {
+                if (WDN.jQuery('body').hasClass('liquid') && $html.hasClass('boxsizing')) {
                     height = WDN.jQuery(this).outerHeight();
                 } else {
                     height = WDN.jQuery(this).height();
@@ -208,7 +198,7 @@ WDN.navigation = (function() {
             }
 
             // Fix liquid box-sizing
-            if (WDN.jQuery('body').hasClass('liquid') && WDN.jQuery.browser.msie && majorIEVersion < 8) {
+            if (WDN.jQuery('body').hasClass('liquid') && $html.hasClass('no-boxsizing')) {
                 // Fix box-size
                 var firstRun = true;
                 var resizeFunc = function() {
@@ -306,7 +296,7 @@ WDN.navigation = (function() {
                 return;
             }
 
-            if (WDN.navigation.currentState !== -1 && WDN.navigation.preferredState != 1 && WDN.navigation.cssTransitionsSupport) {
+            if (WDN.navigation.currentState !== -1 && WDN.navigation.preferredState != 1 && Modernizr.csstransitions) {
                 WDN.navigation.setWrapperClass('changing');
             } else {
                 WDN.navigation.transitionEnd();
@@ -388,7 +378,7 @@ WDN.navigation = (function() {
 
             WDN.navigation.applyStateFixes();
 
-            if (WDN.navigation.cssTransitionsSupport) {
+            if (Modernizr.csstransitions) {
                 WDN.jQuery('#navigation').bind(
                     'webkitTransitionEnd transitionend oTransitionEnd msTransitionEnd',
                     function(event) {
@@ -399,26 +389,23 @@ WDN.navigation = (function() {
                 );
             }
 
-            WDN.jQuery('#wdn_navigation_bar').hoverIntent({
-                over:        function() {
-                    if (!lockHover) {
-                        WDN.navigation.expand();
-                    }
-                },
-                out:         mouseout,
-                timeout:     WDN.navigation.expandDelay,
-                sensitivity: 1, // Mouse must not move
-                interval:    120
+            WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', function() {
+	            WDN.jQuery('#wdn_navigation_bar').hoverIntent({
+	                over: function() {
+	                    if (!lockHover) {
+	                        WDN.navigation.expand();
+	                    }
+	                },
+	                out:         mouseout,
+	                timeout:     WDN.navigation.expandDelay,
+	                sensitivity: 1, // Mouse must not move
+	                interval:    120
+	            });
             });
-            WDN.jQuery('#navigation > ul > li > a').focusin(function(){
-                WDN.navigation.expand();
-            }).focusout(function(){
-                //WDN.navigation.collapse() 
-            });
-            WDN.jQuery('#breadcrumbs > ul > li > a').focus(function(){
-            	WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a:first-child'), false);
-        	});
+            
             WDN.jQuery('#navigation').removeClass('disableTransition');
+            
+            WDN.navigation.navReady(true);
         },
 
         applyStateFixes : function() {
@@ -538,6 +525,15 @@ WDN.navigation = (function() {
 
         setWrapperPState : function(css_class) {
             WDN.jQuery('#wdn_wrapper').removeClass('nav_changing nav_unpinned nav_pinned').addClass('nav_' + css_class);
+        },
+        
+        navReady : function(ready) {
+        	var $wrapper = WDN.jQuery('#wdn_wrapper');
+        	if (ready) {
+        		$wrapper.addClass('nav_ready');
+        	} else {
+        		$wrapper.removeClass('nav_ready');
+        	}
         },
 
         storeNav : function(li, data) {

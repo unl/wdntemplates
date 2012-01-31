@@ -1,0 +1,14 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/script.less
+*
+* ---------------------------
+* Styles that are loaded by javascript
+* ---------------------------
+*/
+@media (min-width: 768px) {
+  #wdn_navigation_wrapper {
+    visibility: hidden;
+  }
+}

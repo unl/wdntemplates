@@ -7,11 +7,7 @@
 * Styles associated with the exterior chrome/wrapper of the design
 * ---------------------------
 */
-html {
-  height: 100%;
-}
 html > body {
-  height: 100%;
   background-image: url('images/bg.jpg');
   font-size: 1em;
   line-height: 1em;
@@ -66,8 +62,7 @@ html > body > .skipnav {
     background: -webkit-linear-gradient(top, #c40302, #9e0302);
     background: -o-linear-gradient(top, #c40302, #9e0302);
     background: -ms-linear-gradient(top, #c40302, #9e0302);
-    filter: formatstring(progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}'), #c40302, #9e0302);
-    -ms-filter: formatstring({2}progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}'){2}, #c40302, #9e0302, '"');
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c40302', endColorstr='#9e0302');
     background: linear-gradient(top, #c40302, #9e0302);
     -webkit-border-radius: 3px 3px 3px 3px;
     -moz-border-radius: 3px 3px 3px 3px;
