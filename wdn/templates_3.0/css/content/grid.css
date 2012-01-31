@@ -126,6 +126,9 @@
   #maincontent .grid11 {
     width: 91.4%;
   }
+  #maincontent .grid12 {
+    width: 100%;
+  }
   #maincontent *[class^="grid"]:nth-of-type(odd) {
     margin-left: 2.54%;
     clear: none;
@@ -239,6 +242,9 @@
   }
   #maincontent .grid11 {
     width: 878px;
+  }
+  #maincontent .grid12 {
+    width: 960px;
   }
   #maincontent *[class^="grid"]:nth-of-type(odd) {
     margin-left: 24px;
