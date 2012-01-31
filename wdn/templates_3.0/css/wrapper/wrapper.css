@@ -7,11 +7,7 @@
 * Styles associated with the exterior chrome/wrapper of the design
 * ---------------------------
 */
-html {
-  height: 100%;
-}
 html > body {
-  height: 100%;
   background-image: url('images/bg.jpg');
   font-size: 1em;
   line-height: 1em;
