@@ -88,7 +88,16 @@ WDN.navigation = (function() {
                 WDN.navigation.setPreferredState(evt);
                 return false;
             });
+            
+            WDN.jQuery('#navigation > ul > li > a').focusin(function(){
+                WDN.navigation.expand();
+            })
+            .focus(function(){
+            	WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a:first-child'), false);
+        	});
 
+            WDN.navigation.initializePreferredState();
+            
             WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', function() {
                 WDN.jQuery('#breadcrumbs ul li a').hoverIntent({
                     over:        WDN.navigation.switchSiteNavigation,
@@ -97,7 +106,6 @@ WDN.navigation = (function() {
                     sensitivity: 1, // Mouse must not move
                     interval:    120
                 });
-                WDN.navigation.initializePreferredState();
             });
         },
 
@@ -381,24 +389,22 @@ WDN.navigation = (function() {
                 );
             }
 
-            WDN.jQuery('#wdn_navigation_bar').hoverIntent({
-                over:        function() {
-                    if (!lockHover) {
-                        WDN.navigation.expand();
-                    }
-                },
-                out:         mouseout,
-                timeout:     WDN.navigation.expandDelay,
-                sensitivity: 1, // Mouse must not move
-                interval:    120
+            WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', function() {
+	            WDN.jQuery('#wdn_navigation_bar').hoverIntent({
+	                over: function() {
+	                    if (!lockHover) {
+	                        WDN.navigation.expand();
+	                    }
+	                },
+	                out:         mouseout,
+	                timeout:     WDN.navigation.expandDelay,
+	                sensitivity: 1, // Mouse must not move
+	                interval:    120
+	            });
             });
-            WDN.jQuery('#navigation > ul > li > a').focusin(function(){
-                WDN.navigation.expand();
-            })
-            .focus(function(){
-            	WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a:first-child'), false);
-        	});
+            
             WDN.jQuery('#navigation').removeClass('disableTransition');
+            
             WDN.navigation.navReady(true);
         },
 
