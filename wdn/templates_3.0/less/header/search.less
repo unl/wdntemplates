@@ -32,9 +32,18 @@
             .transition(width, 0.3s, ease);
             font-size: 80%;
             outline: none;
+            position: relative;
+            z-index: 1;
             
             &:focus {
                 width: 200px;
+            }
+            
+            &:-moz-placeholder {
+                color: #fff;
+            }
+            &::-webkit-input-placeholder {
+                color: #fff;
             }
         }
         .search {
@@ -103,15 +112,6 @@
         top: -36px;
         
         form {
-        
-            label {
-                display: block;
-                position: absolute;
-                font-family: Arial, sans-serif;
-                color: #a1a1a1;
-                font-size: 0.8em;
-                margin: 3px 4px 4px;
-            }
             
             #q {
                 width: 263px;
@@ -121,6 +121,13 @@
                 &:focus {
                     width: 263px;
                     outline: 0;
+                }
+                
+                &:-moz-placeholder {
+                    color: #888;
+                }
+                &::-webkit-input-placeholder {
+                    color: #888;
                 }
             }
             

@@ -34,9 +34,17 @@
   transition: width 0.3s ease;
   font-size: 80%;
   outline: none;
+  position: relative;
+  z-index: 1;
 }
 #wdn_search form #q:focus {
   width: 200px;
+}
+#wdn_search form #q:-moz-placeholder {
+  color: #fff;
+}
+#wdn_search form #q::-webkit-input-placeholder {
+  color: #fff;
 }
 #wdn_search form .search {
   display: none;
@@ -101,14 +109,6 @@
   #wdn_search {
     top: -36px;
   }
-  #wdn_search form label {
-    display: block;
-    position: absolute;
-    font-family: Arial, sans-serif;
-    color: #a1a1a1;
-    font-size: 0.8em;
-    margin: 3px 4px 4px;
-  }
   #wdn_search form #q {
     width: 263px;
     background-image: none;
@@ -117,6 +117,12 @@
   #wdn_search form #q:focus {
     width: 263px;
     outline: 0;
+  }
+  #wdn_search form #q:-moz-placeholder {
+    color: #888;
+  }
+  #wdn_search form #q::-webkit-input-placeholder {
+    color: #888;
   }
   #wdn_search form .search {
     background: url('images/searchMagnifyGlass.png') no-repeat;
