@@ -148,8 +148,8 @@ WDN.navigation = (function() {
                 var height = WDN.jQuery(this).outerHeight();
                 var pad = parseFloat(WDN.jQuery(this).css('padding-top'));
                 if (height < ah[row]) {
-                    var new_ah = [(ah[row] - height) / 2];
-                    new_ah[1] = new_ah[0];
+                    var ah_temp = (ah[row] - height) / 2,
+                    	new_ah = [Math.floor(ah_temp), Math.ceil(ah_temp)];
 
                     WDN.jQuery(this).css({
                         'padding-top' : new_ah[0] + pad + 'px',
