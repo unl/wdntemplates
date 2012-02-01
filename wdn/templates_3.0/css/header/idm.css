@@ -12,7 +12,7 @@
   z-index: 1;
   top: 50px;
   left: 1px;
-  font-family: Helvetica, "Lucida Grande", Verdana, Arial;
+  font-family: Helvetica, Arial, FreeSans, "Liberation Sans", "Nimbus Sans L", sans-serif;
   padding: 3px;
   -webkit-border-radius: 0 0 3px 0;
   -moz-border-radius: 0 0 3px 0;

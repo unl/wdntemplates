@@ -12,7 +12,7 @@
 }
 #pagetitle h1 {
   line-height: 1;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, FreeSans, "Liberation Sans", "Nimbus Sans L", sans-serif;
   font-size: 1.7em;
   font-weight: bold;
   letter-spacing: -0.038em;
@@ -35,7 +35,7 @@
 #colorbox h6 {
   line-height: 1.2;
   padding-bottom: 0.3em;
-  font-family: Helvetica, "Lucida Grande", Verdana, Arial;
+  font-family: Helvetica, Arial, FreeSans, "Liberation Sans", "Nimbus Sans L", sans-serif;
   color: #535353;
   font-weight: bold;
   padding-top: 0.4em;

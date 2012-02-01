@@ -27,7 +27,7 @@
   /* W3C */
 
   padding: 4px;
-  font-family: 'URWGroteskCon-Lig', Helvetica, Arial, sans-serif;
+  font-family: "URWGroteskCon-Lig", Helvetica, Arial, sans-serif;
   min-height: 40px;
   /* Used to retain height for old #titelgraphic markup */
 
@@ -70,7 +70,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  font-family: 'URWGroteskCon-Lig', Helvetica, Arial, sans-serif;
+  font-family: "URWGroteskCon-Lig", Helvetica, Arial, sans-serif;
   color: #000;
 }
 #titlegraphic h1 a {
@@ -178,7 +178,7 @@
     margin-top: -0.6em;
     letter-spacing: 0em;
     text-transform: uppercase;
-    font-family: Helvetica, "Lucida Grande", Verdana, Arial;
+    font-family: Helvetica, Arial, FreeSans, "Liberation Sans", "Nimbus Sans L", sans-serif;
     line-height: 0.8;
   }
   /* Retain styles for old markup. Remove August 1, 2012*/
@@ -201,7 +201,7 @@
     margin-top: -0.6em;
     letter-spacing: 0em;
     text-transform: uppercase;
-    font-family: Helvetica, "Lucida Grande", Verdana, Arial;
+    font-family: Helvetica, Arial, FreeSans, "Liberation Sans", "Nimbus Sans L", sans-serif;
     line-height: 0.8;
   }
   #titlegraphic > h1 > a {

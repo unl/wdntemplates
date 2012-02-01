@@ -14,7 +14,7 @@
   right: 5px;
 }
 #wdn_search form {
-  font-family: Helvetica, "Lucida Grande", Verdana, Arial;
+  font-family: Helvetica, Arial, FreeSans, "Liberation Sans", "Nimbus Sans L", sans-serif;
 }
 #wdn_search form label {
   display: none;
