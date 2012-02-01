@@ -641,7 +641,7 @@ EOD;
         //converts css paths
         $css = str_replace(
             array('../images/', 'images/', 'IMAGES', 'URWGrotesk/'),
-            array('IMAGES/', $dir . 'images/', 'images', 'fonts/URWGrotesk/'),
+            array('IMAGES/', $dir . 'images/', 'images', $dir . 'URWGrotesk/'),
             $css
         );
 
