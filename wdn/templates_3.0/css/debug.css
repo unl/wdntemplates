@@ -14,11 +14,15 @@
 @import url('header/search.css');
 @import url('header/idm.css');
 @import url('header/tools.css');
+@import url('header/tools_content.css');
+@import url('header/colorbox.css');
+@import url('header/tooltabs.css');
 @import url('navigation/breadcrumbs.css');
 @import url('navigation/navigation.css');
 @import url('content/maincontent.css');
 @import url('content/grid.css');
 @import url('content/headers.css');
+@import url('content/images.css');
 @import url('footer/footer.css');
 @import url('footer/feedback.css');
 @import url('footer/share.css');

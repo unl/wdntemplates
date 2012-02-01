@@ -34,7 +34,7 @@
     <nav class="skipnav">
         <a class="skipnav" href="#maincontent">Skip Navigation</a>
     </nav>
-    <div id="wdn_wrapper" class="nav_unpinned nav_expanded">
+    <div id="wdn_wrapper">
         <header id="header" role="banner">
             <a href="http://www.unl.edu/" title="UNL website">
                 <img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" />

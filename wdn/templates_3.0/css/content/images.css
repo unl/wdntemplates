@@ -1,36 +1,50 @@
-#maincontent img.frame,
-#footer img.frame,
-#cboxLoadedContent img.frame, figure
-{
-    border:1px solid #DDD;
-    border-radius:3px;
-    
-    background: #f7f7f7;
-    padding:4px;
-    margin: 0 0 10px 0;
-    white-space:normal;
-    line-height:0.8em;
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/content/images.less
+*
+* ---------------------------
+* Styles associated with the images and captions
+* ---------------------------
+*/
+#maincontent img.frame, #footer img.frame, #colorbox img.frame {
+  border: 1px solid #DDD;
+  border-radius: 3px;
+  background: #f7f7f7;
+  padding: 4px;
+  margin: 0 0 10px 0;
+  white-space: normal;
+  line-height: 0.8em;
+}
+#maincontent p.caption, #footer p.caption, #colorbox p.caption {
+  line-height: normal;
+  background: #f7f7f7;
+  border: 1px solid #DDD;
+  border-radius: 3px;
+  border-top: none;
+  padding: 2px 4px 5px;
+  text-align: left;
+  color: #555;
+  font-size: 80%;
+  position: relative;
+  margin-top: -16px;
+  z-index: 2;
+  display: block;
+}
+figure {
+  border: 1px solid #DDD;
+  border-radius: 3px;
+  background: #f7f7f7;
+  padding: 4px;
+  margin: 0 0 10px 0;
+  white-space: normal;
+  line-height: 0.8em;
 }
 figure img {
-    width:100%;
-    height:auto;
+  width: 100%;
+  height: auto;
 }
-figure figcaption { 
-    font-size:80%;
-    margin:3px 0;
-}
-#maincontent p.caption, #footer p.caption {
-    line-height:normal;
-    background:#f7f7f7;
-    border:1px solid #DDD;
-    border-radius:3px;
-    border-top:none;
-    padding:2px 4px 5px;
-    text-align:left;
-    color:#555;
-    font-size:80%;
-    position:relative;
-    margin-top:-16px;
-    z-index:2; 
-    display:block;
+figure figcaption {
+  font-size: 80%;
+  margin: 3px 0;
 }

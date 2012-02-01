@@ -12,8 +12,7 @@
 // WDN.analytics.callTrackPageview('/downloads/'+href);
 //
 // Department variable 'pageTracker' is available to use in this file.
-var _gaq = _gaq || [];
-analytics = function() { 
+WDN.mobile_analytics = function() {
 	return {
 		initialize : function() {
 			_gaq.push(
@@ -29,7 +28,7 @@ analytics = function() {
 				['m._setAllowHash', false]
 			);
 			
-			analytics.loadGA();
+			WDN.mobile_analytics.loadGA();
 		},
 		
 		loadGA : function(){
@@ -44,4 +43,3 @@ analytics = function() {
 		}
 	};
 }();
-analytics.initialize();

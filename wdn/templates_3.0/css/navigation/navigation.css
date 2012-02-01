@@ -19,8 +19,6 @@
   background: -webkit-linear-gradient(top, #c40302, #9e0302);
   background: -o-linear-gradient(top, #c40302, #9e0302);
   background: -ms-linear-gradient(top, #c40302, #9e0302);
-  filter: formatstring(progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}'), #c40302, #9e0302);
-  -ms-filter: formatstring({2}progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}'){2}, #c40302, #9e0302, '"');
   background: linear-gradient(top, #c40302, #9e0302);
   color: #fff;
   width: 100%;
@@ -49,8 +47,6 @@
   background: -webkit-linear-gradient(top, #c40302, #9e0302);
   background: -o-linear-gradient(top, #c40302, #9e0302);
   background: -ms-linear-gradient(top, #c40302, #9e0302);
-  filter: formatstring(progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}'), #c40302, #9e0302);
-  -ms-filter: formatstring({2}progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}'){2}, #c40302, #9e0302, '"');
   background: linear-gradient(top, #c40302, #9e0302);
   box-shadow: inset 1px 1px 2px 0px #df7a7a;
   -webkit-box-shadow: inset 1px 1px 2px 0px #df7a7a;
@@ -89,8 +85,6 @@
   background: -webkit-linear-gradient(top, #ffffff, #e5e5e5);
   background: -o-linear-gradient(top, #ffffff, #e5e5e5);
   background: -ms-linear-gradient(top, #ffffff, #e5e5e5);
-  filter: formatstring(progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}'), #ffffff, #e5e5e5);
-  -ms-filter: formatstring({2}progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}'){2}, #ffffff, #e5e5e5, '"');
   background: linear-gradient(top, #ffffff, #e5e5e5);
   font-weight: bold;
   text-shadow: 0 1px 1px #fff;
@@ -156,6 +150,8 @@
   #wdn_navigation_wrapper {
     background: none;
     margin: 5px 0 17px;
+    display: inline-block;
+    display: block;
   }
   #wdn_navigation_wrapper:after {
     content: " ";
@@ -444,6 +440,7 @@
     padding: 3px 0;
     border-bottom: 1px solid #c9c9c9;
     border-top: none;
+    background: #fbfbfb;
     background: rgba(251, 251, 251, 0.95);
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(251, 251, 251, 0.95)), to(rgba(215, 215, 215, 0.95)));
     background: -moz-linear-gradient(top, rgba(251, 251, 251, 0.95), rgba(215, 215, 215, 0.95));
@@ -528,6 +525,9 @@
     -webkit-transition: none;
     -o-transition: none;
     transition: none;
+  }
+  .nav_ready #wdn_navigation_wrapper {
+    visibility: visible;
   }
   .nav_pinned #wdn_navigation_bar, .nav_open #wdn_navigation_bar, .nav_expanded #wdn_navigation_bar {
     width: auto;
