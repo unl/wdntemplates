@@ -48,6 +48,9 @@
 #wdn_search form #q::-webkit-input-placeholder {
   color: #fff;
 }
+#wdn_search form #q.placeholder {
+  color: #fff;
+}
 #wdn_search form .search {
   display: none;
 }
@@ -124,6 +127,9 @@
     color: #888;
   }
   #wdn_search form #q::-webkit-input-placeholder {
+    color: #888;
+  }
+  #wdn_search form #q.placeholder {
     color: #888;
   }
   #wdn_search form .search {
