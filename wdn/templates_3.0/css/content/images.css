@@ -31,20 +31,3 @@
   z-index: 2;
   display: block;
 }
-figure {
-  border: 1px solid #DDD;
-  border-radius: 3px;
-  background: #f7f7f7;
-  padding: 4px;
-  margin: 0 0 10px 0;
-  white-space: normal;
-  line-height: 0.8em;
-}
-figure img {
-  width: 100%;
-  height: auto;
-}
-figure figcaption {
-  font-size: 80%;
-  margin: 3px 0;
-}
