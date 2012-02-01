@@ -17,7 +17,8 @@
   font-family: Helvetica, "Lucida Grande", Verdana, Arial;
 }
 #wdn_search form label {
-  display: none;
+  position: absolute;
+  left: -9999em;
 }
 #wdn_search form #q {
   border: 0;
