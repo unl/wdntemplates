@@ -1,0 +1,42 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/content/css3_selector_failover.less
+*
+* ---------------------------
+* Styles for browsers that don't support certain CSS3 selctors
+* ---------------------------
+*/
+#navigation > ul > li.start {
+  clear: left;
+}
+#navigation > ul > li.start > a {
+  border-left: none;
+}
+#navigation > ul > li.end > a {
+  border-right: none;
+}
+#navigation > ul > li.mid-bar > a {
+  border-top: 1px solid #870d0c;
+}
+#navigation > ul > li > ul {
+  left: 0;
+}
+#navigation > ul > li.start > ul {
+  border-left-color: #c9c9c9;
+  margin-left: 0;
+}
+#navigation > ul > li.end > ul {
+  border-right: 1px solid #c9c9c9 !important;
+  margin-right: 0;
+}
+#navigation > ul > li ~ li.empty ~ li.empty.end ul {
+  width: 149px;
+}
+.nav_collapsed #navigation > ul > li.top-bars ul {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+#navigation > ul > li ul li.last a {
+  border-bottom: none;
+}

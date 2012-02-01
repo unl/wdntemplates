@@ -74,10 +74,10 @@ WDN.toolbar_feeds = function() {
             		
             		WDN.jQuery.each(feeds, function(i, feed) {
             			var $feedDiv = WDN.jQuery('<div />').addClass('feed_col grid' + gridNum + (i == 0 ? ' first' : '')),
-            				$feedHeading = WDN.jQuery('<h3/>').append('<span>' + feed.title + '</span><a href="' + feed.url + '"><span class="rssicon"/></a>');
+            				$feedHeading = WDN.jQuery('<h3/>').append('<a>' + feed.title + '</a><a class="rssicon" href="' + feed.url + '">RSS</a>');
             			
             			if (feed.link) {
-            				$feedHeading.children('span').wrapInner('<a href="' + feed.link + '"/>');
+            				$feedHeading.children('a').first().attr('href', feed.link);
             			}
             			
             			$feedDiv.append($feedHeading).append('<ul id="wdn_feed' + (i + 1) + '"/>').appendTo($tempDiv);

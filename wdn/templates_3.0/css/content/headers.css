@@ -83,8 +83,7 @@
   background: -webkit-linear-gradient(top, #ededed, rgba(255, 255, 255, 0));
   background: -o-linear-gradient(top, #ededed, rgba(255, 255, 255, 0));
   background: -ms-linear-gradient(top, #ededed, rgba(255, 255, 255, 0));
-  filter: formatstring(progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}'), #ededed, rgba(255, 255, 255, 0));
-  -ms-filter: formatstring({2}progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}'){2}, #ededed, rgba(255, 255, 255, 0), '"');
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='rgba(255, 255, 255, 0)');
   background: linear-gradient(top, #ededed, rgba(255, 255, 255, 0));
   bottom: -7px;
   width: 100%;

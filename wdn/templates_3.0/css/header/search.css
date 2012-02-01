@@ -34,9 +34,18 @@
   transition: width 0.3s ease;
   font-size: 80%;
   outline: none;
+  position: relative;
+  z-index: 1;
+  -webkit-appearance: none;
 }
 #wdn_search form #q:focus {
   width: 200px;
+}
+#wdn_search form #q:-moz-placeholder {
+  color: #fff;
+}
+#wdn_search form #q::-webkit-input-placeholder {
+  color: #fff;
 }
 #wdn_search form .search {
   display: none;
@@ -65,8 +74,7 @@
     background: -webkit-linear-gradient(top, #b70302, #9d0201);
     background: -o-linear-gradient(top, #b70302, #9d0201);
     background: -ms-linear-gradient(top, #b70302, #9d0201);
-    filter: formatstring(progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}'), #b70302, #9d0201);
-    -ms-filter: formatstring({2}progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}'){2}, #b70302, #9d0201, '"');
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b70302', endColorstr='#9d0201');
     background: linear-gradient(top, #b70302, #9d0201);
     padding: 8px 10px 8px 10px;
     margin: -9px 12px 0 0;
@@ -102,14 +110,6 @@
   #wdn_search {
     top: -36px;
   }
-  #wdn_search form label {
-    display: block;
-    position: absolute;
-    font-family: Arial, sans-serif;
-    color: #a1a1a1;
-    font-size: 0.8em;
-    margin: 3px 4px 4px;
-  }
   #wdn_search form #q {
     width: 263px;
     background-image: none;
@@ -118,6 +118,12 @@
   #wdn_search form #q:focus {
     width: 263px;
     outline: 0;
+  }
+  #wdn_search form #q:-moz-placeholder {
+    color: #888;
+  }
+  #wdn_search form #q::-webkit-input-placeholder {
+    color: #888;
   }
   #wdn_search form .search {
     background: url('images/searchMagnifyGlass.png') no-repeat;
@@ -129,6 +135,7 @@
     position: absolute;
     right: 14px;
     top: 10px;
+    z-index: 1;
   }
   #wdn_search form .search:hover {
     cursor: pointer;
