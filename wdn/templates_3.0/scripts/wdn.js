@@ -115,7 +115,7 @@ var WDN = (function() {
 			}
 			_initd = true;
 			
-			var clientWidth, initFunctions, resizeTimeout, onResize;
+			var clientWidth, initFunctions, resizeTimeout, onResize, widthScript;
 			
 			WDN.loadCSS('wdn/templates_3.0/css/script.css');
 			WDN.loadJS('wdn/templates_3.0/scripts/modernizr-wdn.js');
@@ -156,7 +156,18 @@ var WDN = (function() {
 			if (debug) {
 				initFunctions[_currentWidthScript]();
 			} else {
-				WDN.loadJS('wdn/templates_3.0/scripts/compressed/' + _currentWidthScript + '.js', initFunctions[_currentWidthScript]);
+				widthScript = 'wdn/templates_3.0/scripts/compressed/' + _currentWidthScript + '.js';
+				
+				if (document.documentElement.className.match(/\bwdn-async\b/)) {
+					WDN.loadJS(widthScript, initFunctions[_currentWidthScript]);
+				} else {
+					WDN.INIT = function() {
+						initFunctions[_currentWidthScript]();
+						delete WDN.INIT;
+					};
+					document.write('<script type="text/javascript" src="' + WDN.template_path + widthScript + '"></script>');
+					document.write('<script type="text/javascript">WDN.INIT();</script>');
+				}
 			}
 			
 			onResize = function() {
