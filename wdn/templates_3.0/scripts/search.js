@@ -5,6 +5,12 @@ WDN.search = function() {
 		     * Add the experimental text-to-speech
 		     */
             WDN.jQuery('#q').attr('x-webkit-speech', 'x-webkit-speech');
+            
+            if (WDN.hasDocumentClass('no-inputplaceholder')) {
+				WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/placeholder/jquery.placeholder.min.js'), function() {
+					WDN.jQuery('#q').placeholder();
+				});
+			}
 
 			var localSearch = WDN.search.hasLocalSearch();
 			if (localSearch) {
