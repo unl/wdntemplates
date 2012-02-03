@@ -25,7 +25,7 @@
     left: 0px;
     width: 900px;
     font-size: 1.4em;
-    z-index: 9999;
+    z-index: 110;
   }
   #tooltabs ul {
     margin: 0 0 0 35px;
