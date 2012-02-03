@@ -47,7 +47,7 @@ WDN.carousel = (function() {
 		},
 
 		start : function() {
-			WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/blueberry/blueberry.v0.5.js'), function() {
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/blueberry/blueberry.js'), function() {
 				WDN.jQuery('#wdn_Carousel').blueberry(WDN.carousel.pluginOptions);
 			});
 		},
