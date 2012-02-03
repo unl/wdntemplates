@@ -52,13 +52,13 @@
   -webkit-border-radius: 20px 20px 20px 20px;
   -moz-border-radius: 20px 20px 20px 20px;
   border-radius: 20px 20px 20px 20px;
-  background-color: #f3f3f3;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3 0%), to(#dddddd 50%));
-  background-image: -webkit-linear-gradient(top, #f3f3f3 0%, #dddddd 50%, #d2d2d2 50%, #dfdfdf 100%);
-  background-image: -moz-linear-gradient(top, #f3f3f3 0%, #dddddd 50%, #d2d2d2 50%, #dfdfdf 100%);
-  background-image: -ms-linear-gradient(top, #f3f3f3 0%, #dddddd 50%, #d2d2d2 50%, #dfdfdf 100%);
-  background-image: -o-linear-gradient(top, #f3f3f3 0%, #dddddd 50%, #d2d2d2 50%, #dfdfdf 100%);
-  background-image: linear-gradient(top, #f3f3f3 0%, #dddddd 50%, #d2d2d2 50%, #dfdfdf 100%);
+  background: #f3f3f3;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#dddddd));
+  background: -moz-linear-gradient(top, #f3f3f3, #dddddd);
+  background: -webkit-linear-gradient(top, #f3f3f3, #dddddd);
+  background: -o-linear-gradient(top, #f3f3f3, #dddddd);
+  background: -ms-linear-gradient(top, #f3f3f3, #dddddd);
+  background: linear-gradient(top, #f3f3f3, #dddddd);
 }
 #wdn_copyright {
   display: none;
@@ -210,7 +210,11 @@
     display: inline-block;
   }
   #wdn_copyright #wdn_logos #unl_wordmark {
+    background: url('../images/spriteSheet.png') -110px 0 no-repeat;
     display: block;
+    width: 100px;
+    height: 39px;
+    text-indent: -9999em;
     padding-bottom: 6px;
     border-bottom: 1px solid #c6c6c6;
     margin-bottom: 9px;
@@ -219,7 +223,19 @@
     -moz-box-shadow: 0 1px 0 #9d0201;
   }
   #wdn_copyright #wdn_logos #b1g_wordmark {
+    background: url('../images/spriteSheet.png') -161px -61px no-repeat;
+    display: block;
+    width: 40px;
+    height: 14px;
+    text-indent: -9999em;
     float: right;
+  }
+  #wdn_copyright #wdn_logos #cic_wordmark {
+    background: url('../images/spriteSheet.png') -161px -41px no-repeat;
+    display: block;
+    width: 46px;
+    height: 18px;
+    text-indent: -9999em;
   }
 }
 @media (min-width: 768px) {
