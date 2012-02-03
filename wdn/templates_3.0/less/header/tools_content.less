@@ -10,36 +10,9 @@
 @import "../_mixins/all.less";
 
 @media (min-width: 1040px) {
-    @gutterWidth: 24px;
-    @columnWidth: 58px;
-    .theWidth (@theColumn: 1) {
-        width: (@columnWidth * @theColumn) + (@gutterWidth * (@theColumn - 1));
-    }
-    
     #toolbarcontent {
         height: 100%;
         overflow: hidden;
-        
-        .first {
-            margin-left: 0 !important;
-            clear: left;
-        }
-        
-        .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11 {
-            float: left;
-            margin-left: @gutterWidth;
-        }
-        .grid1 { .theWidth(1); }
-        .grid2 { .theWidth(2); }
-        .grid3 { .theWidth(3); }
-        .grid4 { .theWidth(4); }
-        .grid5 { .theWidth(5); }
-        .grid6 { .theWidth(6); }
-        .grid7 { .theWidth(7); }
-        .grid8 { .theWidth(8); }
-        .grid9 { .theWidth(9); }
-        .grid10 { .theWidth(10); }
-        .grid11 { .theWidth(11); }
         
         .toolbar_plugin h3 {
             padding: 0;

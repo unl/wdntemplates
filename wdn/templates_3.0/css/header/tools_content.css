@@ -12,57 +12,6 @@
     height: 100%;
     overflow: hidden;
   }
-  #toolbarcontent .first {
-    margin-left: 0 !important;
-    clear: left;
-  }
-  #toolbarcontent .grid1,
-  #toolbarcontent .grid2,
-  #toolbarcontent .grid3,
-  #toolbarcontent .grid4,
-  #toolbarcontent .grid5,
-  #toolbarcontent .grid6,
-  #toolbarcontent .grid7,
-  #toolbarcontent .grid8,
-  #toolbarcontent .grid9,
-  #toolbarcontent .grid10,
-  #toolbarcontent .grid11 {
-    float: left;
-    margin-left: 24px;
-  }
-  #toolbarcontent .grid1 {
-    width: 58px;
-  }
-  #toolbarcontent .grid2 {
-    width: 140px;
-  }
-  #toolbarcontent .grid3 {
-    width: 222px;
-  }
-  #toolbarcontent .grid4 {
-    width: 304px;
-  }
-  #toolbarcontent .grid5 {
-    width: 386px;
-  }
-  #toolbarcontent .grid6 {
-    width: 468px;
-  }
-  #toolbarcontent .grid7 {
-    width: 550px;
-  }
-  #toolbarcontent .grid8 {
-    width: 632px;
-  }
-  #toolbarcontent .grid9 {
-    width: 714px;
-  }
-  #toolbarcontent .grid10 {
-    width: 796px;
-  }
-  #toolbarcontent .grid11 {
-    width: 878px;
-  }
   #toolbarcontent .toolbar_plugin h3 {
     padding: 0;
     margin-bottom: 5px;

@@ -45,9 +45,9 @@
   #wdn_tool_links li:last-child {
     margin-right: 0;
   }
-  #wdn_tool_links li.focus {
+  #wdn_tool_links li.focus a {
     border-color: #cba166;
-    background: #f1e887;
+    background-color: #f1e887;
   }
   #wdn_tool_links li a {
     display: block;
