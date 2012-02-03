@@ -1,0 +1,313 @@
+// mixin functions for using base UNL sprite
+
+.wdnSprite(@dir, @x, @y) {
+    background: url('@{dir}images/spriteSheet.png') @x @y no-repeat;
+    display: block;
+}
+
+.B1G(@dir, @x: -161px, @y: -61px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 40px;
+    height: 14px;
+}
+
+.bottomLeftCorner(@dir, @x: -198px, @y: -240px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 5px;
+    height: 5px;
+}
+
+.cic(@dir, @x: -161px, @y: -41px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 46px;
+    height: 18px;
+}
+
+.date1(@dir, @x: -212px, @y: -202px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 24px;
+    height: 24px;
+}
+
+.expand_toggle(@dir, @x: -110px, @y: -41px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 28px;
+    height: 60px;
+}
+
+.feed-icon-28x28(@dir, @x: -64px, @y: -234px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 28px;
+    height: 28px;
+}
+
+.generic(@dir, @x: 0, @y: 0) {
+    .wdnSprite(@dir, @x, @y);
+    width: 108px;
+    height: 108px;
+}
+
+.mime_cal(@dir, @x: -77px, @y: -110px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_clustan(@dir, @x: -105px, @y: -110px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_code(@dir, @x: -133px, @y: -110px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_document(@dir, @x: -161px, @y: -110px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_external(@dir, @x: -25px, @y: -153px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_film(@dir, @x: -53px, @y: -153px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_globe(@dir, @x: -81px, @y: -153px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_html(@dir, @x: -109px, @y: -153px) {
+    background: url(spriteSheet.png)   no-repeat;
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_image(@dir, @x: -137px, @y: -153px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_mail(@dir, @x: -165px, @y: -153px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_map(@dir, @x: -212px, @y: 0) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_music(@dir, @x: -212px, @y: -32px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_pdf(@dir, @x: -212px, @y: -64px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_presentation(@dir, @x: -212px, @y: -96px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_print(@dir, @x: -212px, @y: -128px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_rss(@dir, @x: -212px, @y: -160px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_spreadsheet(@dir, @x: 0, @y: -202px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_vcard(@dir, @x: -28px, @y: -202px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.mime_zip(@dir, @x: -56px, @y: -202px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 26px;
+    height: 30px;
+}
+
+.newrecurevent(@dir, @x: -94px, @y: -234px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 22px;
+    height: 22px;
+}
+
+.ongoing(@dir, @x: -84px, @y: -202px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 30px;
+    height: 30px;
+}
+
+.pin_state(@dir, @x: -140px, @y: -41px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 19px;
+    height: 56px;
+}
+
+.right_arrow(@dir, @x: -136px, @y: -234px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 15px;
+    height: 16px;
+}
+
+.searchMagnifyGlass(@dir, @x: -189px, @y: -110px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 18px;
+    height: 19px;
+}
+
+.searchMagnifyGlass_mobile(@dir, @x: -193px, @y: -153px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 15px;
+    height: 16px;
+}
+
+.socialMedia(@dir, @x: 0, @y: -110px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 23px;
+    height: 90px;
+}
+
+.tool_cal_bw(@dir, @x: -161px, @y: -77px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 20px;
+    height: 20px;
+}
+
+.tool_cal_c(@dir, @x: -183px, @y: -77px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 20px;
+    height: 20px;
+}
+
+.tool_cam_bw(@dir, @x: -116px, @y: -202px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 30px;
+    height: 30px;
+}
+
+.tool_cam_c(@dir, @x: -148px, @y: -202px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 30px;
+    height: 30px;
+}
+
+.tool_dir_bw(@dir, @x: -180px, @y: -202px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 30px;
+    height: 30px;
+}
+
+.tool_dir_c(@dir, @x: -240px, @y: 0) {
+    .wdnSprite(@dir, @x, @y);
+    width: 30px;
+    height: 30px;
+}
+
+.tool_map_bw(@dir, @x: -240px, @y: -32px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 30px;
+    height: 30px;
+}
+
+.tool_map_c(@dir, @x: -240px, @y: -64px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 30px;
+    height: 30px;
+}
+
+.tool_rss_bw(@dir, @x: -240px, @y: -96px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 30px;
+    height: 30px;
+}
+
+.tool_rss_c(@dir, @x: -240px, @y: -128px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 30px;
+    height: 30px;
+}
+
+.tool_siren_bw(@dir, @x: -240px, @y: -160px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 30px;
+    height: 30px;
+}
+
+.tool_siren_c(@dir, @x: -240px, @y: -192px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 30px;
+    height: 30px;
+}
+
+.tool_weat_bw(@dir, @x: 0, @y: -234px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 30px;
+    height: 30px;
+}
+
+.tool_weat_c(@dir, @x: -32px, @y: -234px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 30px;
+    height: 30px;
+}
+
+.topRightCorner(@dir, @x: -169px, @y: -240px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 5px;
+    height: 5px;
+}
+
+.topSealb(@dir, @x: -25px, @y: -110px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 50px;
+    height: 41px;
+}
+
+.wdn_idmLogout(@dir, @x: -118px, @y: -234px) {
+    .wdnSprite(@dir, @x, @y);
+    width: 16px;
+    height: 16px;
+}
+
+.wordmark_white(@dir, @x: -110px, @y: 0) {
+    .wdnSprite(@dir, @x, @y);
+    width: 100px;
+    height: 39px;
+}
