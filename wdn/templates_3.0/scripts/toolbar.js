@@ -28,7 +28,7 @@ WDN.toolbar = function() {
     	
         initialize : function() {
     		WDN.jQuery('#header').append('<div class="hidden"><div id="toolbarcontent"></div></div>');
-        	WDN.loadJS('wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js', WDN.toolbar.toolTabsSetup);
+        	WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/colorbox/jquery.colorbox.js'), WDN.toolbar.toolTabsSetup);
         },
         
         toolTabsSetup : function() {
@@ -95,7 +95,7 @@ WDN.toolbar = function() {
 	    			onOpen: function() {
 	    				WDN.jQuery("#colorbox").addClass('withTabs');
 	    			},
-	    			onClose: function() {
+	    			onClosed: function() {
 	    				WDN.jQuery("#colorbox").removeClass('withTabs');
 	    				WDN.jQuery("#tooltabs").hide();
 	    			}

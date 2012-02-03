@@ -9,9 +9,9 @@ WDN.toolbar_directory = function() {
     	
         initialize : function() {},
         setupToolContent : function(contentCallback) {
-        	WDN.loadCSS('/wdn/templates_3.0/css/content/vcard.css');
+        	WDN.loadCSS(WDN.getTemplateFilePath('css/content/vcard.css'));
         	WDN.jQuery.ajax({
-            	url: WDN.template_path + 'wdn/templates_3.0/includes/tools/peoplefinder.html',
+            	url: WDN.getTemplateFilePath('includes/tools/peoplefinder.html', true),
             	success: function(data) {
             		var $tempDiv = WDN.jQuery('<div/>').append(data),
             			$pq = WDN.jQuery('#pq', $tempDiv);
