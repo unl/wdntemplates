@@ -179,12 +179,30 @@ var WDN = (function() {
 				if (WDN.hasDocumentClass('wdn-async')) {
 					WDN.loadJS(widthScript, initFunctions[_currentWidthScript]);
 				} else {
-					WDN.INIT = function() {
-						initFunctions[_currentWidthScript]();
-						delete WDN.INIT;
-					};
-					document.write('<script type="text/javascript" src="' + WDN.template_path + widthScript + '"></script>');
-					document.write('<script type="text/javascript">WDN.INIT();</script>');
+					var xhr;
+					if (window.ActiveXObject) {
+						xhr = new ActiveXObject("Microsoft.XMLHTTP");
+					} else if (window.XMLHttpRequest) {
+						xhr = new XMLHttpRequest();
+					}
+					
+					if (xhr) {
+						xhr.open("GET", WDN.template_path + widthScript, false);
+						xhr.send(null);
+						if (/\S/.test(xhr.responseText)) {
+							(window.execScript || function(data) {
+								window["eval"].call(window, data);
+							})(xhr.responseText);
+							initFunctions[_currentWidthScript]();
+						}
+					} else {
+						WDN.INIT = function() {
+							initFunctions[_currentWidthScript]();
+							delete WDN.INIT;
+						};
+						document.write('<script type="text/javascript" src="' + WDN.template_path + widthScript + '"></script>');
+						document.write('<script type="text/javascript">WDN.INIT();</script>');
+					}
 				}
 			}
 			
@@ -372,49 +390,47 @@ var WDN = (function() {
 		 * @param {string} base_url The base to use
 		 */
 		toAbs: function (link, base_url) {
-			if (typeof link == 'undefined')
+			if (typeof link == 'undefined') {
 				return;
-			var lparts = link.split('/');
-			if (/http:|https:|ftp:/.test(lparts[0])) {
+			}
+			
+			base_url = '' + base_url;
+			var lparts = link.split('/'), rScheme = /^[a-z][a-z0-9+.-]*:/i;
+			
+			if (rScheme.test(lparts[0])) {
 				// already abs, return
 				return link;
 			}
 
-			var i, hparts = base_url.split('/');
-			if (hparts.length > 3) {
-				hparts.pop(); // strip trailing thingie, either scriptname or blank
+			var schemeAndAuthority = '',
+				schemeMatch = base_url.match(rScheme),
+				hparts = base_url.split('/'),
+				part;
+			
+			if (schemeMatch) {
+				schemeAndAuthority = [hparts.shift(), hparts.shift(), hparts.shift()].join('/') + '/';
+			} else if (base_url && hparts[0] === '') {
+				// root relative
+				schemeAndAuthority += '/';
+				hparts.shift();
 			}
+			hparts.pop(); // strip trailing thingie, either scriptname or blank
 
 			if (lparts[0] === '') { // like "/here/dude.png"
-				base_url = hparts[0] + '//' + hparts[2];
-				hparts = base_url.split('/'); // re-split host parts from scheme and domain only
-				delete lparts[0];
+				hparts = []; // re-split host parts from scheme and domain only
+				lparts.shift();
 			}
 
-			for(i = 0; i < lparts.length; i++) {
-				if (lparts[i] === '..') {
-					// remove the previous dir level, if exists
-					if (typeof lparts[i - 1] !== 'undefined') {
-						delete lparts[i - 1];
-					} else if (hparts.length > 3) { // at least leave scheme and domain
-						hparts.pop(); // strip one dir off the host for each /../
-					}
-					delete lparts[i];
-				}
-				if (lparts[i] === '.') {
-					delete lparts[i];
+			while (lparts.length) {
+				part = lparts.shift();
+				if (part === '..') {
+					hparts.pop(); // strip one dir off the host for each /../
+				} else if (part !== '.') {
+					hparts.push(part);
 				}
 			}
 
-			// remove deleted
-			var newlinkparts = [];
-			for (i = 0; i < lparts.length; i++) {
-				if (typeof lparts[i] !== 'undefined') {
-					newlinkparts[newlinkparts.length] = lparts[i];
-				}
-			}
-
-			return hparts.join('/') + '/' + newlinkparts.join('/');
+			return schemeAndAuthority + hparts.join('/');
 		},
 
 		stringToXML: function (string) {
