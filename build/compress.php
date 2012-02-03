@@ -601,7 +601,7 @@ EOD;
             foreach ($css_sections as $section) {
                 if (preg_match('/^\(min-width:\s+?([\d]+)px\)\s\{(.*)\}$/', $section, $matches)) {
                     // Found a section
-                    if (isset($media_sections[$matches[1]])) {
+                    if (isset($media_sections[$matches[1]]) && $matches[2] != ' ') {
                         $media_sections[$matches[1]] .= $matches[2];
                     }
                 } else {
@@ -832,36 +832,38 @@ if ($opts->getOption('p')) {
 
 $otherArgs = $opts->getRemainingArgs();
 if (empty($otherArgs[0])) {
-    $otherArgs[0] = 'all';
+    $otherArgs[] = 'all';
 }
 
-switch ($otherArgs[0]) {
-    case 'all':
-        $compressor->make();
-        break;
-    case 'clean':
-        $compressor->clean();
-        break;
-    case 'debug':
-        $compressor->buildCssDebug()
-            ->buildLess();
-        break;
-    case 'javascript':
-        $compressor->buildJs();
-        break;
-    case 'less-css':
-        $compressor->buildLess()
-            ->buildCss();
-        break;
-    case 'css':
-        $compressor->buildCss();
-        break;
-    case 'less':
-        $compressor->buildLess();
-        break;
-    default:
-        echo 'I do not understand target "' . $otherArgs[0] . '". Please provide a valid build target.' . PHP_EOL;
-        return false;
+foreach ($otherArgs as $target) {
+    switch ($target) {
+        case 'all':
+            $compressor->make();
+            break;
+        case 'clean':
+            $compressor->clean();
+            break;
+        case 'debug':
+            $compressor->buildCssDebug()
+                ->buildLess();
+            break;
+        case 'javascript':
+            $compressor->buildJs();
+            break;
+        case 'less-css':
+            $compressor->buildLess()
+                ->buildCss();
+            break;
+        case 'css':
+            $compressor->buildCss();
+            break;
+        case 'less':
+            $compressor->buildLess();
+            break;
+        default:
+            echo 'I do not understand target "' . $target . '". Please provide a valid build target.' . PHP_EOL;
+            return false;
+    }
 }
 
 return true;
