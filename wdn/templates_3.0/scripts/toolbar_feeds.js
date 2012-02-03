@@ -128,7 +128,7 @@ WDN.toolbar_feeds = function() {
                 }
                 
                 ev.preventDefault();
-                WDN.loadCSS(WDN.getTemplateFilePath('css/content/mediaelement.css'));
+                WDN.loadCSS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/css/mediaelementplayer.css'));
                 
                 var self = this,
                 	$this = WDN.jQuery(this), 
@@ -148,7 +148,7 @@ WDN.toolbar_feeds = function() {
                 		
                 		$media.attr('width', '700').attr('height', '394').attr('id', 'wdn_rss_player').attr('src', self.href).appendTo($story);
                 		
-                		WDN.loadJS(WDN.getTemplateFilePath('scripts/mediaelement-and-player.min.js'), function() {
+                		WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/mediaelement-and-player.min.js'), function() {
                 			$media.mediaelementplayer();
                 		});
                 	};
