@@ -45,6 +45,9 @@ WDN.toolbar_events = function() {
 			
 			if (localSettings) {
 				reqs['#localsiteevents'] = localSettings.href + '/upcoming/?format=hcalendar';
+			} else {
+				WDN.jQuery('#allunlevents').parent().removeClass('grid6')
+					.next().hide();
 			}
 			
 			WDN.jQuery.each(reqs, function(id, url) {
