@@ -1,40 +1,47 @@
 .B1G {
-  background: url(spriteSheet.png) -161px -61px no-repeat;
+  background: url(spriteSheet.png) -141px -121px repeat-y;
   display: block;
   width: 40px;
   height: 14px;
 }
 
 .bottomLeftCorner {
-  background: url(spriteSheet.png) -198px -240px no-repeat;
+  background: url(spriteSheet.png) -190px -108px no-repeat;
   display: block;
   width: 5px;
   height: 5px;
 }
 
 .cic {
-  background: url(spriteSheet.png) -161px -41px no-repeat;
+  background: url(spriteSheet.png) -137px -156px no-repeat;
   display: block;
   width: 46px;
   height: 18px;
 }
 
 .date1 {
-  background: url(spriteSheet.png) -212px -202px no-repeat;
+  background: url(spriteSheet.png) -99px -531px no-repeat;
   display: block;
   width: 24px;
   height: 24px;
 }
 
-.expand_toggle {
-  background: url(spriteSheet.png) -110px -41px no-repeat;
+.expand_toggle_minus {
+  background: url(spriteSheet.png) -168px -447px no-repeat;
   display: block;
   width: 28px;
-  height: 60px;
+  height: 28px;
+}
+
+.expand_toggle_plus {
+  background: url(spriteSheet.png) -168px -405px no-repeat;
+  display: block;
+  width: 28px;
+  height: 28px;
 }
 
 .feed-icon-28x28 {
-  background: url(spriteSheet.png) -64px -234px no-repeat;
+  background: url(spriteSheet.png) -165px -489px no-repeat;
   display: block;
   width: 28px;
   height: 28px;
@@ -47,310 +54,338 @@
   height: 108px;
 }
 
-.mime_cal {
-  background: url(spriteSheet.png) -77px -110px no-repeat;
+.logo {
+  background: url(spriteSheet.png) -110px 0px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 86px;
+  height: 87px;
+}
+
+.mime_calendar {
+  background: url(spriteSheet.png) -102px -188px no-repeat;
+  display: block;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_clustan {
-  background: url(spriteSheet.png) -105px -110px no-repeat;
+  background: url(spriteSheet.png) -140px -188px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
-}
-
-.mime_code {
-  background: url(spriteSheet.png) -133px -110px no-repeat;
-  display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_document {
-  background: url(spriteSheet.png) -161px -110px no-repeat;
+  background: url(spriteSheet.png) 0px -237px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_external {
-  background: url(spriteSheet.png) -25px -153px no-repeat;
+  background: url(spriteSheet.png) -38px -237px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_film {
-  background: url(spriteSheet.png) -53px -153px no-repeat;
+  background: url(spriteSheet.png) -76px -237px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_globe {
-  background: url(spriteSheet.png) -81px -153px no-repeat;
+  background: url(spriteSheet.png) -114px -237px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_html {
-  background: url(spriteSheet.png) -109px -153px no-repeat;
+  background: url(spriteSheet.png) -152px -237px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_image {
-  background: url(spriteSheet.png) -137px -153px no-repeat;
+  background: url(spriteSheet.png) 0px -279px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_mail {
-  background: url(spriteSheet.png) -165px -153px no-repeat;
+  background: url(spriteSheet.png) -38px -279px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_map {
-  background: url(spriteSheet.png) -212px 0px no-repeat;
+  background: url(spriteSheet.png) -76px -279px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_music {
-  background: url(spriteSheet.png) -212px -32px no-repeat;
+  background: url(spriteSheet.png) -114px -279px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_pdf {
-  background: url(spriteSheet.png) -212px -64px no-repeat;
+  background: url(spriteSheet.png) -152px -279px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_presentation {
-  background: url(spriteSheet.png) -212px -96px no-repeat;
+  background: url(spriteSheet.png) 0px -321px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_print {
-  background: url(spriteSheet.png) -212px -128px no-repeat;
+  background: url(spriteSheet.png) -38px -321px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_rss {
-  background: url(spriteSheet.png) -212px -160px no-repeat;
+  background: url(spriteSheet.png) -76px -321px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_spreadsheet {
-  background: url(spriteSheet.png) 0px -202px no-repeat;
+  background: url(spriteSheet.png) -114px -321px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_vcard {
-  background: url(spriteSheet.png) -28px -202px no-repeat;
+  background: url(spriteSheet.png) -152px -321px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
 }
 
 .mime_zip {
-  background: url(spriteSheet.png) -56px -202px no-repeat;
+  background: url(spriteSheet.png) 0px -363px no-repeat;
   display: block;
-  width: 26px;
-  height: 30px;
+  width: 36px;
+  height: 40px;
+}
+
+.mobile_nav_arrow {
+  background: url(spriteSheet.png) -150px -89px no-repeat;
+  display: block;
+  width: 10px;
+  height: 18px;
+}
+
+.n_40 {
+  background: url(spriteSheet.png) -77px -110px no-repeat;
+  display: block;
+  width: 60px;
+  height: 61px;
+}
+
+.n_55 {
+  background: url(spriteSheet.png) 0px -110px no-repeat;
+  display: block;
+  width: 75px;
+  height: 76px;
 }
 
 .newrecurevent {
-  background: url(spriteSheet.png) -94px -234px no-repeat;
+  background: url(spriteSheet.png) -148px -532px no-repeat;
   display: block;
   width: 22px;
   height: 22px;
 }
 
 .ongoing {
-  background: url(spriteSheet.png) -84px -202px no-repeat;
+  background: url(spriteSheet.png) -164px -363px no-repeat;
   display: block;
   width: 30px;
   height: 30px;
 }
 
-.pin_state {
-  background: url(spriteSheet.png) -140px -41px no-repeat;
+.push_pin_down {
+  background: url(spriteSheet.png) -46px -532px no-repeat;
   display: block;
   width: 19px;
-  height: 56px;
+  height: 24px;
 }
 
-.right_arrow {
-  background: url(spriteSheet.png) -136px -234px no-repeat;
+.push_pin_up {
+  background: url(spriteSheet.png) -178px -188px no-repeat;
   display: block;
-  width: 15px;
-  height: 16px;
+  width: 19px;
+  height: 24px;
 }
 
 .searchMagnifyGlass {
-  background: url(spriteSheet.png) -189px -110px no-repeat;
+  background: url(spriteSheet.png) -110px -89px no-repeat;
   display: block;
   width: 18px;
   height: 19px;
 }
 
 .searchMagnifyGlass_mobile {
-  background: url(spriteSheet.png) -193px -153px no-repeat;
+  background: url(spriteSheet.png) -108px -170px no-repeat;
   display: block;
   width: 15px;
   height: 16px;
 }
 
-.socialMedia {
-  background: url(spriteSheet.png) 0px -110px no-repeat;
+.sm_facebook {
+  background: url(spriteSheet.png) -82px -640px no-repeat;
   display: block;
-  width: 23px;
-  height: 90px;
+  width: 37px;
+  height: 39px;
+}
+
+.sm_mail {
+  background: url(spriteSheet.png) -82px -608px no-repeat;
+  display: block;
+  width: 37px;
+  height: 39px;
+}
+
+.sm_twitter {
+  background: url(spriteSheet.png) -82px -567px / auto 960px no-repeat;
+  display: block;
+  width: 37px;
+  height: 39px;
 }
 
 .tool_cal_bw {
-  background: url(spriteSheet.png) -161px -77px no-repeat;
+  background: url(spriteSheet.png) -38px -363px no-repeat;
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
 }
 
 .tool_cal_c {
-  background: url(spriteSheet.png) -183px -77px no-repeat;
+  background: url(spriteSheet.png) -80px -363px no-repeat;
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
 }
 
 .tool_cam_bw {
-  background: url(spriteSheet.png) -116px -202px no-repeat;
+  background: url(spriteSheet.png) -122px -363px no-repeat;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .tool_cam_c {
-  background: url(spriteSheet.png) -148px -202px no-repeat;
+  background: url(spriteSheet.png) 0px -405px no-repeat;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .tool_dir_bw {
-  background: url(spriteSheet.png) -180px -202px no-repeat;
+  background: url(spriteSheet.png) -42px -405px no-repeat;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .tool_dir_c {
-  background: url(spriteSheet.png) -240px 0px no-repeat;
+  background: url(spriteSheet.png) -84px -405px no-repeat;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .tool_map_bw {
-  background: url(spriteSheet.png) -240px -32px no-repeat;
+  background: url(spriteSheet.png) -126px -405px no-repeat;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .tool_map_c {
-  background: url(spriteSheet.png) -240px -64px no-repeat;
+  background: url(spriteSheet.png) 0px -447px no-repeat;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .tool_rss_bw {
-  background: url(spriteSheet.png) -240px -96px no-repeat;
+  background: url(spriteSheet.png) -42px -447px no-repeat;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .tool_rss_c {
-  background: url(spriteSheet.png) -240px -128px no-repeat;
+  background: url(spriteSheet.png) -84px -447px no-repeat;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .tool_siren_bw {
-  background: url(spriteSheet.png) -240px -160px no-repeat;
+  background: url(spriteSheet.png) -126px -447px no-repeat;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .tool_siren_c {
-  background: url(spriteSheet.png) -240px -192px no-repeat;
+  background: url(spriteSheet.png) 0px -489px no-repeat;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .tool_weat_bw {
-  background: url(spriteSheet.png) 0px -234px no-repeat;
+  background: url(spriteSheet.png) -42px -489px no-repeat;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
-.tool_weat_c {
-  background: url(spriteSheet.png) -32px -234px no-repeat;
+.tools_weat_c {
+  background: url(spriteSheet.png) -84px -489px no-repeat;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .topRightCorner {
-  background: url(spriteSheet.png) -169px -240px no-repeat;
+  background: url(spriteSheet.png) -190px -89px no-repeat;
   display: block;
   width: 5px;
   height: 5px;
 }
 
 .topSealb {
-  background: url(spriteSheet.png) -25px -110px no-repeat;
+  background: url(spriteSheet.png) -78px -681px round;
   display: block;
   width: 50px;
   height: 41px;
 }
 
-.wdn_idmLogout {
-  background: url(spriteSheet.png) -118px -234px no-repeat;
-  display: block;
-  width: 16px;
-  height: 16px;
-}
-
 .wordmark_white {
-  background: url(spriteSheet.png) -110px 0px no-repeat;
+  background: url(spriteSheet.png) 0px -188px no-repeat;
   display: block;
   width: 100px;
-  height: 39px;
+  height: 47px;
 }
