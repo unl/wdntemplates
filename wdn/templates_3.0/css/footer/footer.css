@@ -177,7 +177,6 @@
     background: -webkit-linear-gradient(top, #c40302, #9e0302);
     background: -o-linear-gradient(top, #c40302, #9e0302);
     background: -ms-linear-gradient(top, #c40302, #9e0302);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c40302', endColorstr='#9e0302');
     background: linear-gradient(top, #c40302, #9e0302);
     color: #fff;
     line-height: 1.6em;

@@ -14,14 +14,14 @@
     position: absolute;
     top: 10px;
     right: 5px;
-    
+
     form {
         font-family: Helvetica, "Lucida Grande", Verdana, Arial;
-    
+
         label {
             display: none;
         }
-        
+
         #q {
             border: 0;
             width: 50px;
@@ -35,11 +35,11 @@
             position: relative;
             z-index: 1;
             -webkit-appearance: none;
-            
+
             &:focus {
                 width: 200px;
             }
-            
+
             &:-moz-placeholder {
                 color: #fff;
             }
@@ -54,7 +54,7 @@
 }
 
 @media (min-width: 320px) {
-    
+
 }
 @media (min-width: 480px) {
     #wdn_search {
@@ -75,16 +75,14 @@
     #wdn_search {
         top: 15px;
         max-height: 37px;
-        .linear-gradient(#b70302, #9d0201);
+        .linear-gradient-no-filter(#b70302, #9d0201);
         padding: 8px 10px 8px 10px;
         margin: -9px 12px 0 0;
         .border-radius4(0, 0, 4px, 4px);
         right: 0;
         top: 9px;
-        
+
         form {
-            
-            
             #q {
                 border: 1px solid #e18887;
                 line-height: 1.4em;
@@ -96,7 +94,7 @@
                 padding: 3px 4px 3px 22px;
                 height: auto;
                 margin-top: 0;
-                
+
                 &:focus {
                     width: 200px;
                     outline: 0;
@@ -111,19 +109,19 @@
 @media (min-width: 1040px) {
     #wdn_search {
         top: -36px;
-        
+
         form {
-            
+
             #q {
                 width: 263px;
                 background-image: none;
                 padding: 3px 22px 3px 4px;
-                
+
                 &:focus {
                     width: 263px;
                     outline: 0;
                 }
-                
+
                 &:-moz-placeholder {
                     color: #888;
                 }
@@ -131,7 +129,7 @@
                     color: #888;
                 }
             }
-            
+
             .search {
                 background: url('images/searchMagnifyGlass.png') no-repeat;
                 text-indent: -9999em;
@@ -143,7 +141,7 @@
                 right: 14px;
                 top: 10px;
                 z-index: 1;
-                
+
                 &:hover {
                     cursor: pointer;
                 }

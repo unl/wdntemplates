@@ -50,3 +50,6 @@
 .ie7 #navigation > ul > li > ul, .ie8 #navigation > ul > li > ul {
   background: #fbfbfb;
 }
+.ie7 #wdn_copyright, .ie8 #wdn_copyright {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c40302', endColorstr='#9e0302');
+}
