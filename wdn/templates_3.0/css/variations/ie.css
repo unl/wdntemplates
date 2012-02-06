@@ -7,6 +7,10 @@
 * Styles associated with IE 6 - 9 versions
 * ---------------------------
 */
+.ie #wdn_footer_feedback #wdn_feedback_comments .wdn_comment_name label, .ie #wdn_footer_feedback #wdn_feedback_comments .wdn_comment_email label {
+  text-indent: 0;
+  right: 2px;
+}
 .ie #footer .footer_col .socialmedia li {
   display: inline-block;
   float: left;
@@ -45,4 +49,7 @@
 }
 .ie7 #navigation > ul > li > ul, .ie8 #navigation > ul > li > ul {
   background: #fbfbfb;
+}
+.ie7 #wdn_copyright, .ie8 #wdn_copyright {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c40302', endColorstr='#9e0302');
 }
