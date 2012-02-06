@@ -436,7 +436,12 @@ EOD;
 
             $compileCmd = $this->_getCompilerCmd("{$outDir}/temp.js", "{$outDir}/{$outFile}");
             if ($compileCmd) {
-                exec($compileCmd);
+                exec($compileCmd, $null, $retVal);
+                unset($null);
+                if ($retVal !== 0) {
+                    $this->_announce('javascript build failed, check the output for other errors');
+                    exit($retVal);
+                }
                 unlink("{$outDir}/temp.js");
             } else {
                 unlink("{$outDir}/temp.js");
@@ -720,7 +725,13 @@ EOD;
                 continue;
             }
 
-            exec($this->_getLocalBinCmd(dirname(__FILE__), 'lessc', $prereq, $target));
+            exec($this->_getLocalBinCmd(dirname(__FILE__), 'lessc', $prereq, $target), $null, $retVal);
+            unset($null);
+
+            if ($retVal !== 0) {
+                $this->_announce('less build failed, check the output for other errors.');
+                exit($retVal);
+            }
         }
 
         $this->_announce('less build complete');
@@ -802,12 +813,12 @@ try {
     $opts->parse();
 } catch (Zend_Console_Getopt_Exception $e) {
     echo $e->getUsageMessage();
-    return false;
+    exit(1);
 }
 
 if ($opts->getOption('h')) {
     echo $opts->getUsageMessage();
-    return true;
+    exit;
 }
 
 if ($opts->getOption('f')) {
@@ -862,8 +873,8 @@ foreach ($otherArgs as $target) {
             break;
         default:
             echo 'I do not understand target "' . $target . '". Please provide a valid build target.' . PHP_EOL;
-            return false;
+            exit(1);
     }
 }
 
-return true;
+exit;
