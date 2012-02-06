@@ -8,6 +8,7 @@
 * ---------------------------
 */
 @import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
 
 #header {
     background: -moz-linear-gradient(top, rgba(0,0,0,0) 90%, rgba(100,100,100,0.40) 95%, rgba(114,114,114,0.60) 100%); /* FF3.6+ */
@@ -145,7 +146,19 @@
             }
         }
         
+        .corner-fix-bottom-left {
+            .bottomLeftCorner('../');
+            position: absolute;
+            top: -5px;
+            left: 90px;
+        }
         
+        .corner-fix-top-right {
+            .topRightCorner('../');
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
     }
     
     #logo {
@@ -156,7 +169,6 @@
         height: 0; /* Safari */
         margin: 13px 0 0 90px;
         padding: 12px 10px;
-        background: url('images/bottomLeftCorner.png') bottom left no-repeat;
         color: rgba(62, 62, 62, 0.99);
         font-size: 1.5em;
         text-shadow: 0 0 3px #fff;

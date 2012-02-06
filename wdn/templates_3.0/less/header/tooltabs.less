@@ -8,6 +8,7 @@
 * ---------------------------
 */
 @import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
 
 @media (min-width: 1040px) {
     #colorbox.withTabs {
@@ -61,64 +62,68 @@
                     border-bottom-color:#fff;
                     
                     a {
-                        &.feeds {
-                            background-position:  8px 6px;
+                        &.feeds span.icon {
+                            .tool_rss_c('../', -245px, -134px);
                         }
                         
-                        &.weather {
-                            background-position: 8px -22px;
+                        &.weather span.icon {
+                            .tool_weat_c('../');
                         }
                         
-                        &.events {
-                            background-position: 8px -50px;
+                        &.events span.icon {
+                            .tool_cal_c('../');
                         }
                         
-                        &.directory {
-                            background-position: 8px -78px;
+                        &.directory span.icon {
+                            .tool_dir_c('../');
                         }
                         
-                        &.webcams {
-                            background-position:  8px -106px;
+                        &.webcams span.icon {
+                            .tool_cam_c('../');
                         }
                         
-                        &.tourmaps {
-                             background-position:  8px -134px;
+                        &.tourmaps span.icon {
+                            .tool_map_c('../');
                         }
                     }
                 }
                 
                 a {
                     display: block;
-                    padding: 7px 10px 5px 32px;
+                    padding: 7px 10px 5px;
                     text-decoration: none;
                     color: #333;
                     font-size: 1.0em;
                     position:relative;
                     height: 16px;
-                    background: url('images/applianceIcons.png') no-repeat -20px 0;
                     
-                    &.feeds {
-                        background-position: 8px -192px;
+                    span.icon {
+                        float: left;
+                        margin: -2px 2px 0 0;
                     }
                     
-                    &.weather {
-                        background-position: 8px -220px;
+                    &.feeds span.icon {
+                        .tool_rss_bw('../', -245px, -101px);
                     }
                     
-                    &.events {
-                        background-position: 8px -248px;
+                    &.weather span.icon {
+                        .tool_weat_bw('../', -6px, -240px);
                     }
                     
-                    &.directory {
-                        background-position: 8px -276px;
+                    &.events span.icon {
+                        .tool_cal_bw('../');
                     }
                     
-                    &.webcams {
-                        background-position: 8px -304px;
+                    &.directory span.icon {
+                        .tool_dir_bw('../');
                     }
                     
-                    &.tourmaps {
-                        background-position: 8px -332px;
+                    &.webcams span.icon {
+                        .tool_cam_bw('../');
+                    }
+                    
+                    &.tourmaps span.icon {
+                        .tool_map_bw('../');
                     }
                 }
             }

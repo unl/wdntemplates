@@ -8,6 +8,7 @@
 * ---------------------------
 */
 @import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
 
 #footer {
     padding: 10px 4px 4px;
@@ -43,13 +44,7 @@
             border-bottom: 1px solid #b4b4b4;
             border-right: 1px solid #dfdfdf;
             .border-radius(20px);
-            background-color: #f3f3f3;
-            background-image: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3 0%), to(#dddddd 50%));
-            background-image: -webkit-linear-gradient(top, #f3f3f3 0%, #dddddd 50%, #d2d2d2 50%, #dfdfdf 100%);
-            background-image: -moz-linear-gradient(top, #f3f3f3 0%, #dddddd 50%, #d2d2d2 50%, #dfdfdf 100%);
-            background-image: -ms-linear-gradient(top, #f3f3f3 0%, #dddddd 50%, #d2d2d2 50%, #dfdfdf 100%);
-            background-image: -o-linear-gradient(top, #f3f3f3 0%, #dddddd 50%, #d2d2d2 50%, #dfdfdf 100%);
-            background-image: linear-gradient(top, #f3f3f3 0%, #dddddd 50%, #d2d2d2 50%, #dfdfdf 100%);
+            .linear-gradient-no-filter(#f3f3f3, #dddddd);
         }
     }
 }
@@ -153,13 +148,8 @@
         }
     }
     #footer_floater {
-        background-image: url(images/topSealb.png);
-        background-position: 49.5%;
-        background-repeat: no-repeat;
-        height: 41px;
-        width: 100%;
-        margin-top: -71px;
-        position: absolute;
+        .topSealb('../');
+        margin: -71px auto 0;
     }
     
     #wdn_footer_contact, #wdn_footer_share {
@@ -211,14 +201,21 @@
                 display: inline-block;
             }
             #unl_wordmark {
-                display: block;
+                .wordmark_white('../');
+                text-indent: -9999em;
                 padding-bottom: 6px;
                 border-bottom: 1px solid #c6c6c6;
                 margin-bottom: 9px;
                 .box-shadow(0, 1px, 0, #9d0201);
             }
             #b1g_wordmark {
+                .B1G('../');
+                text-indent: -9999em;
                 float: right;
+            }
+            #cic_wordmark {
+                .cic('../');
+                text-indent: -9999em;
             }
         }
     }

@@ -5,22 +5,22 @@
     display: block;
 }
 
-.B1G(@dir, @x: -161px, @y: -61px) {
+.wdnSprite(@dir, @x, @y, @w, @h) {
     .wdnSprite(@dir, @x, @y);
-    width: 40px;
-    height: 14px;
+    width: @w;
+    height: @h;
+}
+
+.B1G(@dir, @x: -161px, @y: -61px) {
+    .wdnSprite(@dir, @x, @y, 40px, 14px);
 }
 
 .bottomLeftCorner(@dir, @x: -198px, @y: -240px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 5px;
-    height: 5px;
+    .wdnSprite(@dir, @x, @y, 5px, 5px);
 }
 
 .cic(@dir, @x: -161px, @y: -41px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 46px;
-    height: 18px;
+    .wdnSprite(@dir, @x, @y, 46px, 18px);
 }
 
 .date1(@dir, @x: -212px, @y: -202px) {
@@ -29,22 +29,20 @@
     height: 24px;
 }
 
-.expand_toggle(@dir, @x: -110px, @y: -41px) {
+.expand_toggle_off(@dir, @x: -110px, @y: -41px) {
     .wdnSprite(@dir, @x, @y);
-    width: 28px;
-    height: 60px;
+}
+
+.expand_toggle_on(@dir, @x: -110px, @y: -71px) {
+    .wdnSprite(@dir, @x, @y);
 }
 
 .feed-icon-28x28(@dir, @x: -64px, @y: -234px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 28px;
-    height: 28px;
+    .wdnSprite(@dir, @x, @y, 28px, 28px);
 }
 
-.generic(@dir, @x: 0, @y: 0) {
-    .wdnSprite(@dir, @x, @y);
-    width: 108px;
-    height: 108px;
+.alert_generic(@dir, @x: 0, @y: 0) {
+    .wdnSprite(@dir, @x, @y, 108px, 108px);
 }
 
 .mime_cal(@dir, @x: -77px, @y: -110px) {
@@ -174,140 +172,106 @@
     height: 30px;
 }
 
-.pin_state(@dir, @x: -140px, @y: -41px) {
+.pin_state_off(@dir, @x: -140px, @y: -41px) {
     .wdnSprite(@dir, @x, @y);
-    width: 19px;
-    height: 56px;
+}
+
+.pin_state_on(@dir, @x: -140px, @y: -69px) {
+    .wdnSprite(@dir, @x, @y);
 }
 
 .right_arrow(@dir, @x: -136px, @y: -234px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 15px;
-    height: 16px;
+    .wdnSprite(@dir, @x, @y, 15px, 16px);
 }
 
 .searchMagnifyGlass(@dir, @x: -189px, @y: -110px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 18px;
-    height: 19px;
+    .wdnSprite(@dir, @x, @y, 18px, 19px);
 }
 
 .searchMagnifyGlass_mobile(@dir, @x: -193px, @y: -153px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 15px;
-    height: 16px;
+    .wdnSprite(@dir, @x, @y, 15px, 16px);
 }
 
-.socialMedia(@dir, @x: 0, @y: -110px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 23px;
-    height: 90px;
+.socialMedia_email(@dir, @x: center, @y: -110px) {
+    .wdnSprite(@dir, @x, @y, 23px, 23px);
+}
+
+.socialMedia_facebook(@dir, @x: center, @y: -139px) {
+    .wdnSprite(@dir, @x, @y, 23px, 23px);
+}
+
+.socialMedia_twitter(@dir, @x: center, @y: -168px) {
+    .wdnSprite(@dir, @x, @y, 23px, 23px);
 }
 
 .tool_cal_bw(@dir, @x: -161px, @y: -77px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 20px;
-    height: 20px;
+    .wdnSprite(@dir, @x, @y, 20px, 20px);
 }
 
 .tool_cal_c(@dir, @x: -183px, @y: -77px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 20px;
-    height: 20px;
+    .wdnSprite(@dir, @x, @y, 20px, 20px);
 }
 
 .tool_cam_bw(@dir, @x: -116px, @y: -202px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 30px;
-    height: 30px;
+    .wdnSprite(@dir, @x, @y, 20px, 20px);
 }
 
 .tool_cam_c(@dir, @x: -148px, @y: -202px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 30px;
-    height: 30px;
+    .wdnSprite(@dir, @x, @y, 20px, 20px);
 }
 
 .tool_dir_bw(@dir, @x: -180px, @y: -202px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 30px;
-    height: 30px;
+    .wdnSprite(@dir, @x, @y, 20px, 20px);
 }
 
 .tool_dir_c(@dir, @x: -240px, @y: 0) {
-    .wdnSprite(@dir, @x, @y);
-    width: 30px;
-    height: 30px;
+    .wdnSprite(@dir, @x, @y, 20px, 20px);
 }
 
 .tool_map_bw(@dir, @x: -240px, @y: -32px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 30px;
-    height: 30px;
+    .wdnSprite(@dir, @x, @y, 20px, 20px);
 }
 
 .tool_map_c(@dir, @x: -240px, @y: -64px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 30px;
-    height: 30px;
+    .wdnSprite(@dir, @x, @y, 20px, 20px);
 }
 
 .tool_rss_bw(@dir, @x: -240px, @y: -96px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 30px;
-    height: 30px;
+    .wdnSprite(@dir, @x, @y, 20px, 20px);
 }
 
-.tool_rss_c(@dir, @x: -240px, @y: -128px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 30px;
-    height: 30px;
+.tool_rss_c(@dir, @x: -240px, @y: -129px) {
+    .wdnSprite(@dir, @x, @y, 20px, 20px);
 }
 
-.tool_siren_bw(@dir, @x: -240px, @y: -160px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 30px;
-    height: 30px;
+.tool_siren_bw(@dir, @x: -240px, @y: -161px) {
+    .wdnSprite(@dir, @x, @y, 20px, 20px);
 }
 
 .tool_siren_c(@dir, @x: -240px, @y: -192px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 30px;
-    height: 30px;
+    .wdnSprite(@dir, @x, @y, 20px, 20px);
 }
 
 .tool_weat_bw(@dir, @x: 0, @y: -234px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 30px;
-    height: 30px;
+    .wdnSprite(@dir, @x, @y, 20px, 20px);
 }
 
 .tool_weat_c(@dir, @x: -32px, @y: -234px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 30px;
-    height: 30px;
+    .wdnSprite(@dir, @x, @y, 20px, 20px);
 }
 
 .topRightCorner(@dir, @x: -169px, @y: -240px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 5px;
-    height: 5px;
+    .wdnSprite(@dir, @x, @y, 5px, 5px);
 }
 
-.topSealb(@dir, @x: -25px, @y: -110px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 50px;
-    height: 41px;
+.topSealb(@dir, @x: center, @y: -110px) {
+    .wdnSprite(@dir, @x, @y, 50px, 41px);
 }
 
 .wdn_idmLogout(@dir, @x: -118px, @y: -234px) {
-    .wdnSprite(@dir, @x, @y);
-    width: 16px;
-    height: 16px;
+    .wdnSprite(@dir, @x, @y, 16px, 16px);
 }
 
 .wordmark_white(@dir, @x: -110px, @y: 0) {
-    .wdnSprite(@dir, @x, @y);
-    width: 100px;
-    height: 39px;
+    .wdnSprite(@dir, @x, @y, 100px, 39px);
 }

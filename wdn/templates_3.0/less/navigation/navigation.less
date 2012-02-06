@@ -8,6 +8,7 @@
 * ---------------------------
 */
 @import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
 
 #wdn_navigation_wrapper {
     background: #fff;
@@ -91,7 +92,8 @@
             &.hasSecondary {
             
                 &:after {
-                    background: rgba(0,0,0,.4) url('images/icons-18-white.png') no-repeat -108px 50%;
+                    .right_arrow('../');
+                    background-color: rgba(0,0,0,.4);
                     content: '';
                     width:1.2em;
                     height:1.2em;
@@ -169,10 +171,8 @@
             width: 28px;
             
             a {
-                display: block;
+                .expand_toggle_off('../');
                 height: 100%;
-                background-image: url(images/expand_toggle.png);
-                background-repeat: no-repeat;
                 text-indent: -9999em;
             }
         }
@@ -186,10 +186,8 @@
             width: 19px;
             
             a {
-                display: block;
+                .pin_state_off('../');
                 height: 100%;
-                background-image: url(images/pin_state.png);
-                background-repeat: no-repeat;
                 text-indent: -9999em;
             }
         }
@@ -551,8 +549,14 @@
     }
     .nav_pinned {
     
-        #wdn_navigation_wrapper .expand_toggle {
-            display: none;
+        #wdn_navigation_wrapper {
+            .expand_toggle {
+                display: none;
+            }
+            
+            .pin_state a {
+                .pin_state_on('../');   
+            }
         }
     }
     
@@ -560,13 +564,8 @@
     .nav_expanded {
         
         #wdn_navigation_wrapper {
-        
             .expand_toggle a {
-                background-position: 0 -30px;
-            }
-            
-            .pin_state a {
-                background-position: 0 -28px;
+                .expand_toggle_on('../');
             }
         }
     }

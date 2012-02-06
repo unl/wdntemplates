@@ -8,6 +8,7 @@
 * ---------------------------
 */
 @import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
 
 #cboxOverlay, #colorbox {
     display: none;
@@ -243,7 +244,7 @@
     }
     
     #alertbox .alert-icon {
-        height: 108px;
-        background: url(../images/alert/generic.png) top center no-repeat;
+        .alert_generic('../');
+        margin: auto;
     }
 }

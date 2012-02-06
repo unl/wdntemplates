@@ -8,6 +8,7 @@
 * ---------------------------
 */
 @import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
 
 @media (min-width: 1040px) {
     #toolbarcontent {
@@ -36,12 +37,9 @@
                 }
                 
                 &.rssicon {
-                    display: block;
+                    .tool_rss_c('../', -245px, -133px);
                     float: right;
-                    width: 20px;
-                    height: 20px;
                     text-indent: -9999px;
-                    background: url(images/applianceIcons.png) top right no-repeat;
                 }
             }
         }
@@ -60,13 +58,11 @@
                 }
                 
                 .rss-icon {
+                    .feed-icon-28x28('../');
                     display: inline;
                     display: inline-block;
                     text-indent: -9999em;
-                    width: 28px;
-                    height: 28px;
                     padding-top: 7px;
-                    background: url('images/feed-icon-28x28.png') no-repeat 0 0;
                 }
             }
             
