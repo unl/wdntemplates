@@ -127,7 +127,7 @@ WDN.unlalert = function() {
 						WDN.jQuery('<div/>').addClass('hidden').appendTo('body')
 					);
 					$alertContent = WDN.jQuery('<div/>').addClass('grid6').appendTo($alertBox)
-						.parent().prepend('<div class="grid2 first alert-icon"/>').end();
+						.parent().prepend('<div class="grid2 first"><span class="alert-icon"/></div>').end();
 				} else if (i === 0) {
 					$alertContent = $alertBox.children('.grid6').empty();
 				}

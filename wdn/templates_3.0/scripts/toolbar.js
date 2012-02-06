@@ -51,7 +51,7 @@ WDN.toolbar = function() {
          */
         registerTool : function(plugin_name, title, pwidth, pheight) {
         	var $toolTabs = WDN.jQuery('#tooltabs ul');
-        	$toolTabs.append('<li class="'+plugin_name+'"><a href="#" class="'+plugin_name+'">'+title+'</a></li>');
+        	$toolTabs.append('<li class="'+plugin_name+'"><a href="#" class="'+plugin_name+'"><span class="icon"></span>'+title+'</a></li>');
         	WDN.jQuery("a." + plugin_name, WDN.jQuery('#wdn_tool_links'))
         		.add("a." + plugin_name, $toolTabs)
 		 		.click(function(ev) {
