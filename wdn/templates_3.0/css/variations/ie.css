@@ -7,6 +7,18 @@
 * Styles associated with IE 6 - 9 versions
 * ---------------------------
 */
+.ie #footer .footer_col .socialmedia li {
+  display: inline-block;
+  float: left;
+}
+.ie #footer .footer_col .socialmedia li a {
+  width: 80px;
+  padding-left: 6px;
+}
+.ie #footer .footer_col .socialmedia li.outpost a {
+  width: 40px;
+  padding-left: 0;
+}
 .ie7 #wdn_search_form .search {
   text-transform: capitalize;
 }
