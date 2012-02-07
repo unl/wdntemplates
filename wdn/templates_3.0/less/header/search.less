@@ -8,6 +8,9 @@
 * ---------------------------
 */
 @import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
+
+@dir: '../';
 
 #wdn_search {
     float: right;
@@ -19,7 +22,8 @@
         font-family: Helvetica, "Lucida Grande", Verdana, Arial;
 
         label {
-            display: none;
+            position: absolute;
+            left: -9999em;
         }
 
         #q {
@@ -27,7 +31,6 @@
             width: 50px;
             height: 25px;
             padding: 0 0 0 20px;
-            background:#fff url('images/searchMagnifyGlass_mobile.png') no-repeat 5px 5px;
             .border-radius(1em);
             .transition(width, 0.3s, ease);
             font-size: 80%;
@@ -46,9 +49,23 @@
             &::-webkit-input-placeholder {
                 color: #fff;
             }
+            &.placeholder {
+                color: #fff;
+            }
         }
         .search {
-            display: none;
+            #wdnSprite > .searchMagnifyGlass_mobile(@dir);
+            padding: 0;
+            text-indent: -9999em;
+            border: none;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            z-index: 1;
+            
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 }
@@ -88,7 +105,6 @@
                 line-height: 1.4em;
                 width: 115px;
                 .border-radius(0px);
-                background-position: 2px;
                 padding: 0;
                 font-size: 0.625em;
                 padding: 3px 4px 3px 22px;
@@ -99,6 +115,11 @@
                     width: 200px;
                     outline: 0;
                 }
+            }
+            
+            .search {
+                top: 11px;
+                left: 13px;
             }
         }
     }
@@ -128,23 +149,16 @@
                 &::-webkit-input-placeholder {
                     color: #888;
                 }
+                &.placeholder {
+                    color: #888;
+                }
             }
 
             .search {
-                background: url('images/searchMagnifyGlass.png') no-repeat;
-                text-indent: -9999em;
-                border: none;
-                width: 18px;
-                height: 19px;
-                display: block;
-                position: absolute;
+                #wdnSprite > .searchMagnifyGlass(@dir);
+                left: auto;
                 right: 14px;
                 top: 10px;
-                z-index: 1;
-
-                &:hover {
-                    cursor: pointer;
-                }
             }
         }
     }

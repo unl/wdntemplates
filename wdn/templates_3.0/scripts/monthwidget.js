@@ -20,7 +20,7 @@ WDN.monthwidget = function() {
 			}
 			
 			if (WDN.jQuery(this.container).length) {
-				WDN.loadCSS('wdn/templates_3.0/css/content/monthwidget.css');
+				WDN.loadCSS(WDN.getTemplateFilePath('css/content/monthwidget.css'));
 				this.getEvents();
 			}
 		},
@@ -38,7 +38,7 @@ WDN.monthwidget = function() {
 		display : function(data) {
 			var $container = WDN.jQuery(this.container);
 			$container.hide().html(data);
-			WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', function() {
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/hoverIntent/jQuery.hoverIntent.js'), function() {
 				var now = new Date(), today = now.getDate();
 				var month = WDN.jQuery('span.monthvalue a', $container).attr('href');
 				month = month.substr(month.length - 3, 2);

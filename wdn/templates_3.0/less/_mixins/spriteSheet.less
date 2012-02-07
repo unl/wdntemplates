@@ -1,0 +1,399 @@
+// mixin functions for using base UNL sprite
+
+@logo_x: -120px;
+@logo_y: -26px;
+
+@tool_cal_bw_x: -48px;
+@tool_cal_bw_y: -391px;
+@tool_cal_c_x: -90px;
+@tool_cal_c_y: -391px;
+@tool_cam_bw_x: -132px;
+@tool_cam_bw_y: -391px;
+@tool_cam_c_x: -10px;
+@tool_cam_c_y: -433px;
+@tool_dir_bw_x: -52px;
+@tool_dir_bw_y: -433px;
+@tool_dir_c_x: -94px;
+@tool_dir_c_y: -433px;
+@tool_map_bw_x: -146px;
+@tool_map_bw_y: -433px;
+@tool_map_c_x: 10px;
+@tool_map_c_y: -465px;
+@tool_rss_bw_x: -52px;
+@tool_rss_bw_y: -475px;
+@tool_rss_c_x: -94px;
+@tool_rss_c_y: -476px;
+@tool_siren_bw_x: -136px;
+@tool_siren_bw_y: -445px;
+@tool_siren_c_x: 10px;
+@tool_siren_c_y: -517px;
+@tool_weat_bw_x: -52px;
+@tool_weat_bw_y: -517px;
+@tool_weat_c_x: -94px;
+@tool_weat_c_y: -517px;
+
+#wdnSprite {
+    @alert_generic_x: 0;
+    @alert_generic_y: -18px;
+    @B1G_x: -141px;
+    @B1G_y: -139px;
+    @bottomLeftCorner_x: -190px;
+    @bottomLeftCorner_y: -126px;
+    @cic_x: -137px;
+    @cic_y: -174px;
+    @date1_x: -99px;
+    @date1_y: -549px;
+    @expand_toggle_minus_x: -168px;
+    @expand_toggle_minus_y: -465px;
+    @expand_toggle_plus_x: -168px;
+    @expand_toggle_plus_y: -423px;
+    @feed-icon-28x28_x: -165px;
+    @feed-icon-28x28_y: -507px;
+    @mime_calendar_x: -112px;
+    @mime_calendar_y: -216px;
+    @mime_clustan_x: -150px;
+    @mime_clustan_y: -216px;
+    @mime_document_x: -10px;
+    @mime_document_y: -265px;
+    @mime_external_x: -48px;
+    @mime_external_y: -265px;
+    @mime_film_x: -86px;
+    @mime_film_y: -265px;
+    @mime_globe_x: -124px;
+    @mime_globe_y: -265px;
+    @mime_html_x: -162px;
+    @mime_html_y: -265px;
+    @mime_image_x: -10px;
+    @mime_image_y: -307px;
+    @mime_mail_x: -48px;
+    @mime_mail_y: -307px;
+    @mime_map_x: -86px;
+    @mime_map_y: -307px;
+    @mime_music_x: -124px;
+    @mime_music_y: -307px;
+    @mime_pdf_x: -162px;
+    @mime_pdf_y: -307px;
+    @mime_presentation_x: -10px;
+    @mime_presentation_y: -349px;
+    @mime_print_x: -48px;
+    @mime_print_y: -349px;
+    @mime_rss_x: -86px;
+    @mime_rss_y: -349px;
+    @mime_spreadsheet_x: -134px;
+    @mime_spreadsheet_y: -349px;
+    @mime_vcard_x: -162px;
+    @mime_vcard_y: -349px;
+    @mime_zip_x: -10px;
+    @mime_zip_y: -391px;
+    @mobile_nav_arrow_x: -150px;
+    @mobile_nav_arrow_y: -107px;
+    @n_40_x: -86px;
+    @n_40_y: -137px;
+    @n_55_x: -10px;
+    @n_55_y: -136px;
+    @newrecurevent_x: -148px;
+    @newrecurevent_y: -550px;
+    @ongoing_x: -164px;
+    @ongoing_y: -381px;
+    @push_pin_down_x: -46px;
+    @push_pin_down_y: -544px;
+    @push_pin_up_x: -178px;
+    @push_pin_up_y: -206px;
+    @searchMagnifyGlass_x: -110px;
+    @searchMagnifyGlass_y: -107px;
+    @searchMagnifyGlass_mobile_x: -108px;
+    @searchMagnifyGlass_mobile_y: -188px;
+    @sm_facebook_x: center;
+    @sm_facebook_y: -658px;
+    @sm_mail_x: center;
+    @sm_mail_y: -626px;
+    @sm_twitter_x: center;
+    @sm_twitter_y: -585px;
+    @topRightCorner_x: -190px;
+    @topRightCorner_y: -107px;
+    @topSealb_x: -78px;
+    @topSealb_y: -699px;
+    @wordmark_white_x: 0;
+    @wordmark_white_y: -206px;
+    
+    .w_h(@w) {
+        .w_h(@w, @w);
+    }
+    
+    .w_h(@w, @h) {
+        width: @w;
+        height: @h;
+    }
+    
+    .sprite(@dir, @x, @y) {
+        background: url('@{dir}images/spriteSheet.png') @x @y no-repeat;
+        display: block;
+    }
+    .sprite(@dir, @x, @y, @w, @h) {
+        .sprite(@dir, @x, @y);
+        .w_h(@w, @h);
+    }
+    
+    .alert_generic(@dir) {
+        .sprite(@dir, @alert_generic_x, @alert_generic_y, 108px, 108px);
+    }
+    
+    .B1G(@dir) {
+        .sprite(@dir, @B1G_x, @B1G_y, 40px, 14px);
+    }
+    
+    .bottomLeftCorner(@dir) {
+        .sprite(@dir, @bottomLeftCorner_x, @bottomLeftCorner_y, 5px, 5px);
+    }
+    
+    .cic(@dir) {
+        .sprite(@dir, @cic_x, @cic_y, 46px, 18px);
+    }
+    
+    .date1(@dir) {
+        .sprite(@dir, @date1_x, @date1_y, 24px, 24px);
+    }
+    
+    .expand_toggle_minus(@dir) {
+        .sprite(@dir, @expand_toggle_minus_x, @expand_toggle_minus_y);
+    }
+    
+    .expand_toggle_plus(@dir) {
+        .sprite(@dir, @expand_toggle_plus_x, @expand_toggle_plus_y);
+    }
+    
+    .feed-icon-28x28(@dir) {
+        .sprite(@dir, @feed-icon-28x28_x, @feed-icon-28x28_y, 28px, 28px);
+    }
+    
+    .logo(@dir) {
+        .sprite(@dir, @logo_x, @logo_y, 66px, 67px);
+    }
+    
+    .__mime() {
+        .w_h(16px);
+    }
+    
+    .mime_cal(@dir) {
+        .sprite(@dir, @mime_cal_x, @mime_cal_y);
+        .__mime();
+    }
+    
+    .mime_clustan(@dir) {
+        .sprite(@dir, @mime_clustan_x, @mime_clustan_y);
+        .__mime();
+    }
+    
+    .mime_document(@dir) {
+        .sprite(@dir, @mime_document_x, @mime_document_y);
+        .__mime();
+    }
+    
+    .mime_external(@dir) {
+        .sprite(@dir, @mime_external_x, @mime_external_y);
+        .__mime();
+    }
+    
+    .mime_film(@dir) {
+        .sprite(@dir, @mime_film_x, @mime_film_y);
+        .__mime();
+    }
+    
+    .mime_globe(@dir) {
+        .sprite(@dir, @mime_globe_x, @mime_globe_y);
+        .__mime();
+    }
+    
+    .mime_html(@dir) {
+        .sprite(@dir, @mime_html_x, @mime_html_y);
+        .__mime();
+    }
+    
+    .mime_image(@dir) {
+        .sprite(@dir, @mime_image_x, @mime_image_y);
+        .__mime();
+    }
+    
+    .mime_mail(@dir) {
+        .sprite(@dir, @mime_mail_x, @mime_mail_y);
+        .__mime();
+    }
+    
+    .mime_map(@dir) {
+        .sprite(@dir, @mime_map_x, @mime_map_y);
+        .__mime();
+    }
+    
+    .mime_music(@dir) {
+        .sprite(@dir, @mime_music_x, @mime_music_y);
+        .__mime();
+    }
+    
+    .mime_pdf(@dir) {
+        .sprite(@dir, @mime_pdf_x, @mime_pdf_y);
+        .__mime();
+    }
+    
+    .mime_presentation(@dir) {
+        .sprite(@dir, @mime_presentation_x, @mime_presentation_y);
+        .__mime();
+    }
+    
+    .mime_print(@dir) {
+        .sprite(@dir, @mime_print_x, @mime_print_y);
+        .__mime();
+    }
+    
+    .mime_rss(@dir) {
+        .sprite(@dir, @mime_rss_x, @mime_rss_y);
+        .__mime();
+    }
+    
+    .mime_spreadsheet(@dir) {
+        .sprite(@dir, @mime_spreadsheet_x, @mime_spreadsheet_y);
+        .__mime();
+    }
+    
+    .mime_vcard(@dir) {
+        .sprite(@dir, @mime_vcard_x, @mime_vcard_y);
+        .__mime();
+    }
+    
+    .mime_zip(@dir) {
+        .sprite(@dir, @mime_zip_x, @mime_zip_y);
+        .__mime();
+    }
+    
+    .mobile_nav_arrow(@dir) {
+        .sprite(@dir, @mobile_nav_arrow_x, @mobile_nav_arrow_y, 10px, 18px);
+    }
+    
+    .n_40(@dir) {
+        .sprite(@dir, @n_40_x, @n_40_y, 40px, 41px);
+    }
+    
+    .n_55(@dir) {
+        .sprite(@dir, @n_55_x, @n_55_y, 55px, 56px);
+    }
+    
+    .newrecurevent(@dir) {
+        .sprite(@dir, @newrecurevent_x, @newrecurevent_y, 22px, 22px);
+    }
+    
+    .ongoing(@dir) {
+        .sprite(@dir, @ongoing_x, @ongoing_y, 30px, 30px);
+    }
+    
+    .push_pin_down(@dir) {
+        .sprite(@dir, @push_pin_down_x, @push_pin_down_y);
+    }
+    
+    .push_pin_up(@dir) {
+        .sprite(@dir, @push_pin_up_x, @push_pin_up_y);
+    }
+    
+    .searchMagnifyGlass(@dir) {
+        .sprite(@dir, @searchMagnifyGlass_x, @searchMagnifyGlass_y, 18px, 19px);
+    }
+    
+    .searchMagnifyGlass_mobile(@dir) {
+        .sprite(@dir, @searchMagnifyGlass_mobile_x, @searchMagnifyGlass_mobile_y, 15px, 16px);
+    }
+    
+    .sm_facebook(@dir) {
+        .sprite(@dir, @sm_facebook_x, @sm_facebook_y);
+    }
+    
+    .sm_mail(@dir) {
+        .sprite(@dir, @sm_mail_x, @sm_mail_y);
+    }
+    
+    .sm_twitter(@dir) {
+        .sprite(@dir, @sm_twitter_x, @sm_twitter_y);
+    }
+    
+    .__tool() {
+        .w_h(20px);
+    }
+    
+    .tool_cal_bw(@dir) {
+        .sprite(@dir, @tool_cal_bw_x, @tool_cal_bw_y);
+        .__tool();
+    }
+    
+    .tool_cal_c(@dir) {
+        .sprite(@dir, @tool_cal_c_x, @tool_cal_c_y);
+    }
+    
+    .tool_cam_bw(@dir) {
+        .sprite(@dir, @tool_cam_bw_x, @tool_cam_bw_y);
+        .__tool();
+    }
+    
+    .tool_cam_c(@dir) {
+        .sprite(@dir, @tool_cam_c_x, @tool_cam_c_y);
+        .__tool();
+    }
+    
+    .tool_dir_bw(@dir) {
+        .sprite(@dir, @tool_dir_bw_x, @tool_dir_bw_y);
+        .__tool();
+    }
+    
+    .tool_dir_c(@dir) {
+        .sprite(@dir, @tool_dir_c_x, @tool_dir_c_y);
+        .__tool();
+    }
+    
+    .tool_map_bw(@dir) {
+        .sprite(@dir, @tool_map_bw_x, @tool_map_bw_y);
+        .__tool();
+    }
+    
+    .tool_map_c(@dir) {
+        .sprite(@dir, @tool_map_c_x, @tool_map_c_y);
+        .__tool();
+    }
+    
+    .tool_rss_bw(@dir) {
+        .sprite(@dir, @tool_rss_bw_x, @tool_rss_bw_y);
+        .__tool();
+    }
+    
+    .tool_rss_c(@dir) {
+        .sprite(@dir, @tool_rss_c_x, @tool_rss_c_y);
+        .__tool();
+    }
+    
+    .tool_siren_bw(@dir) {
+        .sprite(@dir, @tool_siren_bw_x, @tool_siren_bw_y);
+        .__tool();
+    }
+    
+    .tool_siren_c(@dir) {
+        .sprite(@dir, @tool_siren_c_x, @tool_siren_c_y);
+        .__tool();
+    }
+    
+    .tool_weat_bw(@dir) {
+        .sprite(@dir, @tool_weat_bw_x, @tool_weat_bw_y);
+        .__tool();
+    }
+    
+    .tool_weat_c(@dir) {
+        .sprite(@dir, @tool_weat_c_x, @tool_weat_c_y);
+        .__tool();
+    }
+    
+    .topRightCorner(@dir) {
+        .sprite(@dir, @topRightCorner_x, @topRightCorner_y, 5px, 5px);
+    }
+    
+    .topSealb(@dir) {
+        .sprite(@dir, @topSealb_x, @topSealb_y, 50px, 41px);
+    }
+    
+    .wordmark_white(@dir) {
+        .sprite(@dir, @wordmark_white_x, @wordmark_white_y, 100px, 39px);
+    }
+}

@@ -8,6 +8,9 @@
 * ---------------------------
 */
 @import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
+
+@dir: '../';
 
 @media (min-width: 1040px) {
     #colorbox.withTabs {
@@ -30,7 +33,7 @@
         left: 0px;
         width: 900px;
         font-size: 1.4em;
-        z-index: 9999;
+        z-index: 110;
         
         ul {
             margin: 0 0 0 35px;
@@ -61,64 +64,68 @@
                     border-bottom-color:#fff;
                     
                     a {
-                        &.feeds {
-                            background-position:  8px 6px;
+                        &.feeds span.icon {
+                            #wdnSprite > .tool_rss_c(@dir);
                         }
                         
-                        &.weather {
-                            background-position: 8px -22px;
+                        &.weather span.icon {
+                            #wdnSprite > .tool_weat_c(@dir);
                         }
                         
-                        &.events {
-                            background-position: 8px -50px;
+                        &.events span.icon {
+                            #wdnSprite > .tool_cal_c(@dir);
                         }
                         
-                        &.directory {
-                            background-position: 8px -78px;
+                        &.directory span.icon {
+                            #wdnSprite > .tool_dir_c(@dir);
                         }
                         
-                        &.webcams {
-                            background-position:  8px -106px;
+                        &.webcams span.icon {
+                            #wdnSprite > .tool_cam_c(@dir);
                         }
                         
-                        &.tourmaps {
-                             background-position:  8px -134px;
+                        &.tourmaps span.icon {
+                            #wdnSprite > .tool_map_c(@dir);
                         }
                     }
                 }
                 
                 a {
                     display: block;
-                    padding: 7px 10px 5px 32px;
+                    padding: 7px 10px 5px;
                     text-decoration: none;
                     color: #333;
                     font-size: 1.0em;
                     position:relative;
                     height: 16px;
-                    background: url('images/applianceIcons.png') no-repeat -20px 0;
                     
-                    &.feeds {
-                        background-position: 8px -192px;
+                    span.icon {
+                        float: left;
+                        margin: -2px 2px 0 0;
                     }
                     
-                    &.weather {
-                        background-position: 8px -220px;
+                    &.feeds span.icon {
+                        #wdnSprite > .tool_rss_bw(@dir);
                     }
                     
-                    &.events {
-                        background-position: 8px -248px;
+                    &.weather span.icon {
+                        #wdnSprite > .tool_weat_bw(@dir);
                     }
                     
-                    &.directory {
-                        background-position: 8px -276px;
+                    &.events span.icon {
+                        #wdnSprite > .tool_cal_bw(@dir);
                     }
                     
-                    &.webcams {
-                        background-position: 8px -304px;
+                    &.directory span.icon {
+                        #wdnSprite > .tool_dir_bw(@dir);
                     }
                     
-                    &.tourmaps {
-                        background-position: 8px -332px;
+                    &.webcams span.icon {
+                        #wdnSprite > .tool_cam_bw(@dir);
+                    }
+                    
+                    &.tourmaps span.icon {
+                        #wdnSprite > .tool_map_bw(@dir);
                     }
                 }
             }

@@ -8,6 +8,9 @@
 * ---------------------------
 */
 @import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
+
+@dir: '../';
 
 #header {
     background: -moz-linear-gradient(top, rgba(0,0,0,0) 90%, rgba(100,100,100,0.40) 95%, rgba(114,114,114,0.60) 100%); /* FF3.6+ */
@@ -26,10 +29,10 @@
 	    float: left;
 	}
 	
-}
-
-#logo {
-    width: 40px; 
+	#logo {
+        #wdnSprite > .n_40(@dir);
+        text-indent: -9999em;
+    }
 }
 
 #wdn_institution_title {
@@ -99,10 +102,10 @@
             position: relative;
             z-index: 1;
             margin-right: 2px;
-            
-            > img {
-                width: 55px;
-            }
+        }
+        
+        #logo {
+            #wdnSprite > .n_55(@dir);
         }
     }
     #wdn_institution_title {
@@ -130,7 +133,6 @@
         min-height: 95px; /* Used to retain height for old #titelgraphic markup */
         
         > a {
-            background: #fff;
             .border-radius(5px);
             margin: 12px 0 0 0;
             padding: 12px 12px 0 12px;
@@ -145,18 +147,30 @@
             }
         }
         
+        #logo {
+            #wdnSprite > .sprite(@dir, @logo_x + 12, @logo_y + 10, 66px, 67px);
+            background-color: #fff;
+        }
         
-    }
-    
-    #logo {
-        width: auto;
+        .corner-fix-bottom-left {
+            #wdnSprite > .bottomLeftCorner(@dir);
+            position: absolute;
+            top: -5px;
+            left: 90px;
+        }
+        
+        .corner-fix-top-right {
+            #wdnSprite > .topRightCorner(@dir);
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
     }
     
     #wdn_institution_title {
         height: 0; /* Safari */
         margin: 13px 0 0 90px;
         padding: 12px 10px;
-        background: url('images/bottomLeftCorner.png') bottom left no-repeat;
         color: rgba(62, 62, 62, 0.99);
         font-size: 1.5em;
         text-shadow: 0 0 3px #fff;

@@ -48,9 +48,7 @@
     </nav>
     <div id="wdn_wrapper">
         <header id="header" role="banner">
-            <a href="http://www.unl.edu/" title="UNL website">
-                <img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" />
-            </a>
+            <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
             <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
             <!-- InstanceBeginEditable name="titlegraphic" -->
             <span id="wdn_site_title">College of Agricultural Sciences &amp; Natural Resources <span>A division of the College of Arts &amp; Sciences</span></span>

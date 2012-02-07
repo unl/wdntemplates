@@ -3,8 +3,8 @@ WDN.directory_autoComplete = function() {
 		keymatch : false,
 		
 		initialize : function() {
-			WDN.loadJS('/wdn/templates_3.0/scripts/plugins/ui/jQuery.ui.js', function(){
-				WDN.loadCSS('/wdn/templates_3.0/css/content/autocomplete.css');
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/ui/jQuery.ui.js'), function(){
+				WDN.loadCSS(WDN.getTemplateFilePath('css/content/autocomplete.css'));
 				WDN.jQuery('input.wdn_directory_autoComplete').attr("autocomplete", "off");
 				WDN.jQuery('input.wdn_directory_autoComplete').autocomplete({
 					delay: 555,

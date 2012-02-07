@@ -25,6 +25,12 @@ WDN.feedback = function() {
 			} catch (e) {}
 		},
 		commentSetup : function() {
+			if (WDN.hasDocumentClass('no-inputplaceholder')) {
+				WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/place/jquery.placeholder.min.js'), function() {
+					WDN.jQuery('#wdn_feedback_comments').find('[placeholder]').placeholder();
+				});
+			}
+			
 			WDN.jQuery('#wdn_feedback_comments textarea').attr('x-webkit-speech', 'x-webkit-speech').keyup(
 				function(event) {
 					if (this.value.length > 0) {

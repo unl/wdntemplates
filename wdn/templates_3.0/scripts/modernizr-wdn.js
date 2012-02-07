@@ -722,3 +722,8 @@ Modernizr.selectorSupported = function(selector) {
 Modernizr.addTest("boxsizing",function(){
  return Modernizr.testAllProps("boxSizing") && (document.documentMode === undefined || document.documentMode > 7);
 });
+
+Modernizr.addTest("inputplaceholder", function() {
+	var input = document.createElement('input');
+	return !!('placeholder' in input);
+});
