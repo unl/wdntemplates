@@ -10,6 +10,8 @@
 @import "../_mixins/all.less";
 @import "../_mixins/spriteSheet.less";
 
+@dir: '../';
+
 #wdn_tool_links {
     display: none;
 }
@@ -53,48 +55,48 @@
             }
             
             a {
-                .tool_rss_bw('../');
+                #wdnSprite > .sprite(@dir, @tool_rss_bw_x + 5, @tool_rss_bw_y + 4, 20px, 20px);
                 padding: 4px 5px;
                 text-indent: -9000px;
                 border: 2px solid #e0e0e0;
                 .border-radius(5px);
                 &:hover {
-                    .tool_rss_c('../');
+                    #wdnSprite > .sprite(@dir, @tool_rss_c_x + 5, @tool_rss_c_y + 4);
                 }
                 &.weather {
-                    .tool_weat_bw('../');
+                    #wdnSprite > .sprite(@dir, @tool_weat_bw_x + 5, @tool_weat_bw_y + 4);
                     &:hover {
-                        .tool_weat_c('../');
+                        #wdnSprite > .sprite(@dir, @tool_weat_c_x + 5, @tool_weat_c_y + 4);
                     }
                 }
                 &.events {
-                    .tool_cal_bw('../');
+                    #wdnSprite > .sprite(@dir, @tool_cal_bw_x + 5, @tool_cal_bw_y + 4);
                     &:hover {
-                        .tool_cal_c('../');
+                        #wdnSprite > .sprite(@dir, @tool_cal_c_x + 5, @tool_cal_c_y + 4);
                     }
                 }
                 &.directory {
-                    .tool_dir_bw('../');
+                    #wdnSprite > .sprite(@dir, @tool_dir_bw_x + 5, @tool_dir_bw_y + 4);
                     &:hover {
-                        .tool_dir_c('../');
+                        #wdnSprite > .sprite(@dir, @tool_dir_c_x + 5, @tool_dir_c_y + 4);
                     }
                 }
                 &.webcams {
-                    .tool_cam_bw('../');
+                    #wdnSprite > .sprite(@dir, @tool_cam_bw_x + 5, @tool_cam_bw_y + 4);
                     &:hover {
-                        .tool_cam_c('../');
+                        #wdnSprite > .sprite(@dir, @tool_cam_c_x + 5, @tool_cam_c_y + 4);
                     }
                 }
                 &.maps {
-                    .tool_map_bw('../');
+                    #wdnSprite > .sprite(@dir, @tool_map_bw_x + 5, @tool_map_bw_y + 4);
                     &:hover {
-                        .tool_map_c('../');
+                        #wdnSprite > .sprite(@dir, @tool_map_c_x + 5, @tool_map_c_y + 4);
                     }
                 }
                 &.alert {
-                    .tool_siren_bw('../');
+                    #wdnSprite > .sprite(@dir, @tool_siren_bw_x + 5, @tool_siren_c_y + 4);
                     &:hover {
-                        .tool_siren_bw('../');
+                        #wdnSprite > .sprite(@dir, @tool_siren_c_x + 5, @tool_siren_c_y + 4);
                     }
                 }
             }

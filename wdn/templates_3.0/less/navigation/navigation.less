@@ -10,6 +10,8 @@
 @import "../_mixins/all.less";
 @import "../_mixins/spriteSheet.less";
 
+@dir: '../';
+
 #wdn_navigation_wrapper {
     background: #fff;
 	margin-top:-2px;
@@ -92,7 +94,7 @@
             &.hasSecondary {
             
                 &:after {
-                    .right_arrow('../');
+                    #wdnSprite > .mobile_nav_arrow(@dir);
                     background-color: rgba(0,0,0,.4);
                     content: '';
                     width:1.2em;
@@ -171,7 +173,7 @@
             width: 28px;
             
             a {
-                .expand_toggle_off('../');
+                #wdnSprite > .expand_toggle_plus(@dir);
                 height: 100%;
                 text-indent: -9999em;
             }
@@ -186,7 +188,7 @@
             width: 19px;
             
             a {
-                .pin_state_off('../');
+                #wdnSprite > .push_pin_up(@dir);
                 height: 100%;
                 text-indent: -9999em;
             }
@@ -555,7 +557,7 @@
             }
             
             .pin_state a {
-                .pin_state_on('../');   
+                #wdnSprite > .push_pin_down(@dir);   
             }
         }
     }
@@ -565,7 +567,7 @@
         
         #wdn_navigation_wrapper {
             .expand_toggle a {
-                .expand_toggle_on('../');
+                #wdnSprite > .expand_toggle_minus(@dir);
             }
         }
     }

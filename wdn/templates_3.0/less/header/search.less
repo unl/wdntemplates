@@ -10,6 +10,8 @@
 @import "../_mixins/all.less";
 @import "../_mixins/spriteSheet.less";
 
+@dir: '../';
+
 #wdn_search {
     float: right;
     position: absolute;
@@ -52,7 +54,7 @@
             }
         }
         .search {
-            .searchMagnifyGlass_mobile('../');
+            #wdnSprite > .searchMagnifyGlass_mobile(@dir);
             padding: 0;
             text-indent: -9999em;
             border: none;
@@ -155,7 +157,7 @@
             }
             
             .search {
-                .searchMagnifyGlass('../');
+                #wdnSprite > .searchMagnifyGlass(@dir);
                 left: auto;
                 right: 14px;
                 top: 10px;

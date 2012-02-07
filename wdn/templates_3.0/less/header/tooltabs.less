@@ -10,6 +10,8 @@
 @import "../_mixins/all.less";
 @import "../_mixins/spriteSheet.less";
 
+@dir: '../';
+
 @media (min-width: 1040px) {
     #colorbox.withTabs {
         padding-top: 11px;
@@ -63,27 +65,27 @@
                     
                     a {
                         &.feeds span.icon {
-                            .tool_rss_c('../', -245px, -134px);
+                            #wdnSprite > .tool_rss_c(@dir);
                         }
                         
                         &.weather span.icon {
-                            .tool_weat_c('../');
+                            #wdnSprite > .tool_weat_c(@dir);
                         }
                         
                         &.events span.icon {
-                            .tool_cal_c('../');
+                            #wdnSprite > .tool_cal_c(@dir);
                         }
                         
                         &.directory span.icon {
-                            .tool_dir_c('../');
+                            #wdnSprite > .tool_dir_c(@dir);
                         }
                         
                         &.webcams span.icon {
-                            .tool_cam_c('../');
+                            #wdnSprite > .tool_cam_c(@dir);
                         }
                         
                         &.tourmaps span.icon {
-                            .tool_map_c('../');
+                            #wdnSprite > .tool_map_c(@dir);
                         }
                     }
                 }
@@ -103,27 +105,27 @@
                     }
                     
                     &.feeds span.icon {
-                        .tool_rss_bw('../', -245px, -101px);
+                        #wdnSprite > .tool_rss_bw(@dir);
                     }
                     
                     &.weather span.icon {
-                        .tool_weat_bw('../', -6px, -240px);
+                        #wdnSprite > .tool_weat_bw(@dir);
                     }
                     
                     &.events span.icon {
-                        .tool_cal_bw('../');
+                        #wdnSprite > .tool_cal_bw(@dir);
                     }
                     
                     &.directory span.icon {
-                        .tool_dir_bw('../');
+                        #wdnSprite > .tool_dir_bw(@dir);
                     }
                     
                     &.webcams span.icon {
-                        .tool_cam_bw('../');
+                        #wdnSprite > .tool_cam_bw(@dir);
                     }
                     
                     &.tourmaps span.icon {
-                        .tool_map_bw('../');
+                        #wdnSprite > .tool_map_bw(@dir);
                     }
                 }
             }

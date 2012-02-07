@@ -10,6 +10,8 @@
 @import "../_mixins/all.less";
 @import "../_mixins/spriteSheet.less";
 
+@dir: '../';
+
 @media (min-width: 1040px) {
     #toolbarcontent {
         height: 100%;
@@ -37,7 +39,7 @@
                 }
                 
                 &.rssicon {
-                    .tool_rss_c('../', -245px, -133px);
+                    #wdnSprite > .tool_rss_c(@dir);
                     float: right;
                     text-indent: -9999px;
                 }
@@ -53,12 +55,15 @@
             
             #whatisrss {
             
-                .first h3 {
-                    margin-top: -7px;
+                .grid6 {
+                    margin-top: 9px;
+                }
+                .first {
+                    margin-top: 0;
                 }
                 
                 .rss-icon {
-                    .feed-icon-28x28('../');
+                    #wdnSprite > .feed-icon-28x28(@dir);
                     display: inline;
                     display: inline-block;
                     text-indent: -9999em;
@@ -184,25 +189,25 @@
             
             h4 {
                 font-size: 1.5em;
-                padding: 4px 0 7px 34px;
+                padding: 4px 0 7px;
                 font-weight: normal;
                 line-height: 1.2;
                 
-                &.sec_main {
-                    background: url(images/date1.gif) no-repeat;
-                    float: left;
-                    padding-right: 30px;
+                &.sec_main:before {
+                    #wdnSprite > .date1(@dir);
+                }
+                &.upcoming-header:before {
+                    #wdnSprite > .newrecurevent(@dir);
+                }
+                &.ongoing:before {
+                    #wdnSprite > .ongoing(@dir);
                 }
                 
-                &.upcoming-header {
-                    background: url(images/newrecurevent.png) no-repeat;
-                }
-                
-                &.ongoing {
-                    background: url(images/ongoing.gif) no-repeat;
-                    clear: both;
-                    margin-top: 15px;
-                    padding-top: 6px;
+                &.sec_main:before, &.upcoming-header:before, &.ongoing:before {
+                    content: '';
+                    margin-right: 4px;
+                    display: inline;
+                    display: inline-block;
                 }
             }
             

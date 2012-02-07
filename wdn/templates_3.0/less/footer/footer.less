@@ -10,6 +10,8 @@
 @import "../_mixins/all.less";
 @import "../_mixins/spriteSheet.less";
 
+@dir: '../';
+
 #footer {
     padding: 10px 4px 4px;
 }
@@ -148,7 +150,7 @@
         }
     }
     #footer_floater {
-        .topSealb('../');
+        #wdnSprite > .topSealb(@dir);
         margin: -71px auto 0;
     }
     
@@ -201,7 +203,7 @@
                 display: inline-block;
             }
             #unl_wordmark {
-                .wordmark_white('../');
+                #wdnSprite > .wordmark_white(@dir);
                 text-indent: -9999em;
                 padding-bottom: 6px;
                 border-bottom: 1px solid #c6c6c6;
@@ -209,12 +211,12 @@
                 .box-shadow(0, 1px, 0, #9d0201);
             }
             #b1g_wordmark {
-                .B1G('../');
+                #wdnSprite > .B1G(@dir);
                 text-indent: -9999em;
                 float: right;
             }
             #cic_wordmark {
-                .cic('../');
+                #wdnSprite > .cic(@dir);
                 text-indent: -9999em;
             }
         }

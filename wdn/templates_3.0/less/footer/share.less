@@ -10,6 +10,8 @@
 @import "../_mixins/all.less";
 @import "../_mixins/spriteSheet.less";
 
+@dir: '../';
+
 // Share is hidden inside footer.less until 600px
 
 @media (min-width: 320px) {
@@ -78,6 +80,10 @@
                 background: none;
                 font-size: 90%;
                 white-space: nowrap;
+                
+                &:after, .after-fix {
+                    display: none;
+                }               
             }
             
             &.outpost a {
@@ -89,7 +95,7 @@
             
             &#wdn_emailthis {
                 a {
-                    .socialMedia_email('../');
+                    #wdnSprite > .sm_mail(@dir);
                     width: 100%;
                     height: 35px;
                 }
@@ -106,7 +112,7 @@
             
             &#wdn_facebook {
                 a {
-                    .socialMedia_facebook('../');
+                    #wdnSprite > .sm_facebook(@dir);
                     width: 100%;
                     height: 35px;
                 }
@@ -123,7 +129,7 @@
             
             &#wdn_twitter {
                 a {
-                    .socialMedia_twitter('../');
+                    #wdnSprite > .sm_twitter(@dir);
                     width: 100%;
                     height: 35px;
                 }
