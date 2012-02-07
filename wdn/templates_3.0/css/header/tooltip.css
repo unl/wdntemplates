@@ -1,31 +1,4 @@
-.qtip-defaults {
-    color:#333;
+.qtip {
     font-size:80%;
-    font-style:normal;
-    font-variant:normal;
-    font-weight:normal;
     line-height:110%;
-    text-align:center;
-}
-
-.qtip-contentWrapper {
-    -moz-border-radius:5px !important;
-    -webkit-border-radius:5px !important;
-}
-
-.qtip .qtip-tip[rel=bottomleft] + .qtip-wrapper .qtip-contentWrapper {
-    -moz-border-radius-bottomleft: 0 !important;
-    -webkit-border-bottom-left-radius: 0 !important;
-}
-.qtip .qtip-tip[rel=topleft] + .qtip-wrapper .qtip-contentWrapper {
-    -moz-border-radius-topleft: 0 !important;
-    -webkit-border-top-left-radius: 0 !important;
-}
-.qtip .qtip-tip[rel=bottomright] + .qtip-wrapper .qtip-contentWrapper {
-    -moz-border-radius-bottomright: 0 !important;
-    -webkit-border-bottom-right-radius: 0 !important;
-}
-.qtip .qtip-tip[rel=topright] + .qtip-wrapper .qtip-contentWrapper {
-    -moz-border-radius-topright: 0 !important;
-    -webkit-border-top-right-radius: 0 !important;
 }

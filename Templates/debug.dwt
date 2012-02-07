@@ -3,7 +3,8 @@
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
-<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
+<!--[if !(IEMobile)|!(IE)]><!--><html lang="en"><!--<![endif]-->
 <head>
 <!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
 <!--
@@ -36,9 +37,7 @@
     </nav>
     <div id="wdn_wrapper">
         <header id="header" role="banner">
-            <a href="http://www.unl.edu/" title="UNL website">
-                <img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" />
-            </a>
+            <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
             <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
             <!-- TemplateBeginEditable name="titlegraphic" -->
             <span id="wdn_site_title">The Title of My Site</span>

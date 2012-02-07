@@ -4,7 +4,7 @@ WDN.toolbar_webcams = function() {
 		initialize : function() {},
 		setupToolContent : function(contentCallback) {
 			WDN.jQuery.ajax({
-            	url: WDN.template_path + 'wdn/templates_3.0/includes/tools/webcams.html',
+            	url: WDN.getTemplateFilePath('includes/tools/webcams.html', true),
             	success: function(data) {
             		contentCallback(data);
             	},

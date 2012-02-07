@@ -1,6 +1,7 @@
 WDN.navigation = (function() {
-    var expandedHeight = 0;
-    var ul_h, lockHover = false;
+    var expandedHeight = 0,
+    	ul_h, lockHover = false,
+    	snifferServer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/';
     return {
 
         preferredState : 0,
@@ -98,7 +99,7 @@ WDN.navigation = (function() {
 
             WDN.navigation.initializePreferredState();
             
-            WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', function() {
+            WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/hoverIntent/jQuery.hoverIntent.js'), function() {
                 WDN.jQuery('#breadcrumbs ul li a').hoverIntent({
                     over:        WDN.navigation.switchSiteNavigation,
                     out:         function(){},
@@ -389,7 +390,7 @@ WDN.navigation = (function() {
                 );
             }
 
-            WDN.loadJS('wdn/templates_3.0/scripts/plugins/hoverIntent/jQuery.hoverIntent.js', function() {
+            WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/hoverIntent/jQuery.hoverIntent.js'), function() {
 	            WDN.jQuery('#wdn_navigation_bar').hoverIntent({
 	                over: function() {
 	                    if (!lockHover) {
@@ -465,8 +466,8 @@ WDN.navigation = (function() {
             WDN.jQuery('<div id="navloading" />').css(dimms).appendTo('#navigation');
             WDN.jQuery('#wdn_navigation_wrapper').addClass('nav-loading');
 
-            var nav_sniffer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/navigationSniffer.php?u=';
-            nav_sniffer = nav_sniffer+escape(WDN.toAbs(breadcrumb.href, window.location));
+            var nav_sniffer = snifferServer + 'navigationSniffer.php';
+            nav_sniffer += '?u=' + escape(WDN.toAbs(breadcrumb.href, window.location));
             WDN.log('Attempting to retrieve navigation from '+nav_sniffer);
             WDN.get(nav_sniffer, '', function(data, textStatus) {
                 try {

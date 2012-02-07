@@ -6,8 +6,22 @@ var WDN = (function() {
 	var loadingJS = {},
 		pluginParams = {},
 		_head = document.head || document.getElementsByTagName('head')[0],
+		_docEl = document.documentElement,
 		_currentWidthScript,
-		_initd = false;
+		_initd = false,
+		_sanitizeTemplateUrl = function(url) {
+			var reTemplateUrl = new RegExp('^/?' + WDN.dependent_path.replace('.', '\\.'));
+			if (url.match(reTemplateUrl)) {
+				if (url.charAt(0) === '/') {
+					// trim off the leading slash
+					url = url.substring(1);
+				}
+				
+				url = WDN.template_path + url;
+			}
+			
+			return url;
+		};
 	
 	return {
 		/**
@@ -20,6 +34,22 @@ var WDN = (function() {
 		 * It can be set to /, http://www.unl.edu/, or nothing.
 		 */
 		template_path: '',
+		
+		/**
+		 * This variable stores the path to the template dependents
+		 */
+		dependent_path: 'wdn/templates_3.0/',
+		
+		getTemplateFilePath: function(file, withTemplatePath) {
+			file = '' + file;
+			var filePath = WDN.dependent_path + file;
+			
+			if (withTemplatePath) {
+				filePath = WDN.template_path + filePath;
+			}
+			
+			return filePath;
+		},
 
 		/**
 		 * Loads an external JavaScript file.
@@ -30,13 +60,7 @@ var WDN = (function() {
 		 * @param {boolean} callbackIfLoaded (optional) - if false, the callback will not be executed if the JS has already been loaded
 		 */
 		loadJS: function (url,callback,checkLoaded,callbackIfLoaded) {
-			if (url.match(/^\/?wdn\/templates_3\.0/)) {
-				// trim off the leading slash
-				if (url.charAt(0) == '/') {
-					url = url.substring(1);
-				}
-				url = WDN.template_path+url;
-			}
+			url = _sanitizeTemplateUrl(url);
 
 			if ((arguments.length>2 && checkLoaded === false) || !WDN.loadedJS[url]) {
 				if (url in loadingJS) {
@@ -86,13 +110,7 @@ var WDN = (function() {
 		 * Load an external css file.
 		 */
 		loadCSS: function (url) {
-			if (url.match(/^\/?wdn\/templates_3\.0/)) {
-				// trim off the leading slash
-				if (url.charAt(0) == '/') {
-					url = url.substring(1);
-				}
-				url = WDN.template_path+url;
-			}
+			url = _sanitizeTemplateUrl(url);
 			var e = document.createElement("link");
 			e.href = url;
 			e.rel = "stylesheet";
@@ -101,7 +119,7 @@ var WDN = (function() {
 		},
 		
 		getClientWidth: function() {
-			return document.clientWidth || document.documentElement.clientWidth ||
+			return document.clientWidth || _docEl.clientWidth ||
 				document.body.parentNode.clientWidth || document.body.clientWidth;
 		},
 
@@ -115,10 +133,10 @@ var WDN = (function() {
 			}
 			_initd = true;
 			
-			var clientWidth, initFunctions, resizeTimeout, onResize;
+			var clientWidth, initFunctions, resizeTimeout, onResize, widthScript;
 			
-			WDN.loadCSS('wdn/templates_3.0/css/script.css');
-			WDN.loadJS('wdn/templates_3.0/scripts/modernizr-wdn.js');
+			WDN.loadCSS(WDN.getTemplateFilePath('css/script.css'));
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/modernizr-wdn.js'));
 			
 			initFunctions = {
 				"320": function() {
@@ -127,7 +145,7 @@ var WDN = (function() {
 				},
 				"768": function() {
 					WDN.loadJQuery(function() {
-						WDN.loadJS('wdn/templates_3.0/scripts/global_functions.js');
+						WDN.loadJS(WDN.getTemplateFilePath('scripts/global_functions.js'));
 						WDN.initializePlugin('analytics');
 						WDN.initializePlugin('navigation');
 						WDN.initializePlugin('search');
@@ -156,7 +174,36 @@ var WDN = (function() {
 			if (debug) {
 				initFunctions[_currentWidthScript]();
 			} else {
-				WDN.loadJS('wdn/templates_3.0/scripts/compressed/' + _currentWidthScript + '.js', initFunctions[_currentWidthScript]);
+				widthScript = WDN.getTemplateFilePath('scripts/compressed/' + _currentWidthScript + '.js');
+				
+				if (WDN.hasDocumentClass('wdn-async')) {
+					WDN.loadJS(widthScript, initFunctions[_currentWidthScript]);
+				} else {
+					var xhr;
+					if (window.ActiveXObject) {
+						xhr = new ActiveXObject("Microsoft.XMLHTTP");
+					} else if (window.XMLHttpRequest) {
+						xhr = new XMLHttpRequest();
+					}
+					
+					if (xhr) {
+						xhr.open("GET", WDN.template_path + widthScript, false);
+						xhr.send(null);
+						if (/\S/.test(xhr.responseText)) {
+							(window.execScript || function(data) {
+								window["eval"].call(window, data);
+							})(xhr.responseText);
+							initFunctions[_currentWidthScript]();
+						}
+					} else {
+						WDN.INIT = function() {
+							initFunctions[_currentWidthScript]();
+							delete WDN.INIT;
+						};
+						document.write('<script type="text/javascript" src="' + WDN.template_path + widthScript + '"></script>');
+						document.write('<script type="text/javascript">WDN.INIT();</script>');
+					}
+				}
 			}
 			
 			onResize = function() {
@@ -196,12 +243,12 @@ var WDN = (function() {
 		 * @param callback Called when the document is ready
 		 */
 		loadJQuery: function (callback) {
-			WDN.loadJS('wdn/templates_3.0/scripts/jquery.js', function(){
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/jquery.js'), function(){
 				if (!WDN.jQuery) {
 					WDN.jQuery = jQuery.noConflict(true);
 				}
 				// Load our required AJAX plugin
-				WDN.loadJS('wdn/templates_3.0/scripts/wdn_ajax.js', function() {
+				WDN.loadJS(WDN.getTemplateFilePath('scripts/wdn_ajax.js'), function() {
 					WDN.jQuery(document).ready(function() {
 						callback();
 					});
@@ -221,19 +268,18 @@ var WDN = (function() {
 		},
 
 		browserAdjustments: function () {
-			$html = WDN.jQuery(document.documentElement);
-			if ($html.hasClass('ie6')) {
+			if (WDN.hasDocumentClass('ie6')) {
 				var $body = WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>').removeAttr('class').addClass('document');
-				WDN.jQuery('#wdn_upgrade_notice').load(WDN.template_path + 'wdn/templates_3.0/includes/browserupgrade.html');
+				WDN.jQuery('#wdn_upgrade_notice').load(getTemplateFilePath('includes/browserupgrade.html', true));
 				WDN.jQuery('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
-				WDN.loadCSS('wdn/templates_3.0/css/content/columns.css');
+				WDN.loadCSS(WDN.getTemplateFilePath('css/content/columns.css'));
 				return;
 			}
 			
 			var css3Tests = 'no-css-first-child no-css-last-child no-css-nth-child no-css-nth-of-type no-css-nth-last-child'.split(' ');
 			for (var i = 0; i < css3Tests.length; i++) {
-				if ($html.hasClass(css3Tests[i])) {
-					WDN.loadCSS('wdn/templates_3.0/css/content/css3_selector_failover.css');
+				if (WDN.hasDocumentClass(css3Tests[i])) {
+					WDN.loadCSS(WDN.getTemplateFilePath('css/content/css3_selector_failover.css'));
 					
 					// base css3 workarounds
 					WDN.jQuery('.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
@@ -274,7 +320,7 @@ var WDN = (function() {
 					}
 				};
 			}
-			WDN.loadJS('wdn/templates_3.0/scripts/'+plugin+'.js', callback);
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/' + plugin + '.js'), callback);
 		},
 		
 		setPluginParam: function (plugin, name, value) {
@@ -328,6 +374,14 @@ var WDN = (function() {
 			}
 			return null;
 		},
+		
+		hasDocumentClass: function(className) {
+			if (WDN.jQuery) {
+				return WDN.jQuery(_docEl).hasClass(className);
+			} else {
+				return _docEl.className.match(new RegExp('\\b' + className + '\\b'));
+			}
+		},
 
 		/**
 		 * Converts a relative link to an absolute link.
@@ -336,49 +390,47 @@ var WDN = (function() {
 		 * @param {string} base_url The base to use
 		 */
 		toAbs: function (link, base_url) {
-			if (typeof link == 'undefined')
+			if (typeof link == 'undefined') {
 				return;
-			var lparts = link.split('/');
-			if (/http:|https:|ftp:/.test(lparts[0])) {
+			}
+			
+			base_url = '' + base_url;
+			var lparts = link.split('/'), rScheme = /^[a-z][a-z0-9+.-]*:/i;
+			
+			if (rScheme.test(lparts[0])) {
 				// already abs, return
 				return link;
 			}
 
-			var i, hparts = base_url.split('/');
-			if (hparts.length > 3) {
-				hparts.pop(); // strip trailing thingie, either scriptname or blank
+			var schemeAndAuthority = '',
+				schemeMatch = base_url.match(rScheme),
+				hparts = base_url.split('/'),
+				part;
+			
+			if (schemeMatch) {
+				schemeAndAuthority = [hparts.shift(), hparts.shift(), hparts.shift()].join('/') + '/';
+			} else if (base_url && hparts[0] === '') {
+				// root relative
+				schemeAndAuthority += '/';
+				hparts.shift();
 			}
+			hparts.pop(); // strip trailing thingie, either scriptname or blank
 
 			if (lparts[0] === '') { // like "/here/dude.png"
-				base_url = hparts[0] + '//' + hparts[2];
-				hparts = base_url.split('/'); // re-split host parts from scheme and domain only
-				delete lparts[0];
+				hparts = []; // re-split host parts from scheme and domain only
+				lparts.shift();
 			}
 
-			for(i = 0; i < lparts.length; i++) {
-				if (lparts[i] === '..') {
-					// remove the previous dir level, if exists
-					if (typeof lparts[i - 1] !== 'undefined') {
-						delete lparts[i - 1];
-					} else if (hparts.length > 3) { // at least leave scheme and domain
-						hparts.pop(); // strip one dir off the host for each /../
-					}
-					delete lparts[i];
-				}
-				if (lparts[i] === '.') {
-					delete lparts[i];
+			while (lparts.length) {
+				part = lparts.shift();
+				if (part === '..') {
+					hparts.pop(); // strip one dir off the host for each /../
+				} else if (part !== '.') {
+					hparts.push(part);
 				}
 			}
 
-			// remove deleted
-			var newlinkparts = [];
-			for (i = 0; i < lparts.length; i++) {
-				if (typeof lparts[i] !== 'undefined') {
-					newlinkparts[newlinkparts.length] = lparts[i];
-				}
-			}
-
-			return hparts.join('/') + '/' + newlinkparts.join('/');
+			return schemeAndAuthority + hparts.join('/');
 		},
 
 		stringToXML: function (string) {

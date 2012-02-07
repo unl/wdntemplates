@@ -8,38 +8,14 @@
 * ---------------------------
 */
 @import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
+
+@dir: '../';
 
 @media (min-width: 1040px) {
-    @gutterWidth: 24px;
-    @columnWidth: 58px;
-    .theWidth (@theColumn: 1) {
-        width: (@columnWidth * @theColumn) + (@gutterWidth * (@theColumn - 1));
-    }
-    
     #toolbarcontent {
         height: 100%;
         overflow: hidden;
-        
-        .first {
-            margin-left: 0 !important;
-            clear: left;
-        }
-        
-        .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11 {
-            float: left;
-            margin-left: @gutterWidth;
-        }
-        .grid1 { .theWidth(1); }
-        .grid2 { .theWidth(2); }
-        .grid3 { .theWidth(3); }
-        .grid4 { .theWidth(4); }
-        .grid5 { .theWidth(5); }
-        .grid6 { .theWidth(6); }
-        .grid7 { .theWidth(7); }
-        .grid8 { .theWidth(8); }
-        .grid9 { .theWidth(9); }
-        .grid10 { .theWidth(10); }
-        .grid11 { .theWidth(11); }
         
         .toolbar_plugin h3 {
             padding: 0;
@@ -63,12 +39,9 @@
                 }
                 
                 &.rssicon {
-                    display: block;
+                    #wdnSprite > .tool_rss_c(@dir);
                     float: right;
-                    width: 20px;
-                    height: 20px;
                     text-indent: -9999px;
-                    background: url(images/applianceIcons.png) top right no-repeat;
                 }
             }
         }
@@ -82,18 +55,19 @@
             
             #whatisrss {
             
-                .first h3 {
-                    margin-top: -7px;
+                .grid6 {
+                    margin-top: 9px;
+                }
+                .first {
+                    margin-top: 0;
                 }
                 
                 .rss-icon {
+                    #wdnSprite > .feed-icon-28x28(@dir);
                     display: inline;
                     display: inline-block;
                     text-indent: -9999em;
-                    width: 28px;
-                    height: 28px;
                     padding-top: 7px;
-                    background: url('images/feed-icon-28x28.png') no-repeat 0 0;
                 }
             }
             
@@ -215,25 +189,25 @@
             
             h4 {
                 font-size: 1.5em;
-                padding: 4px 0 7px 34px;
+                padding: 4px 0 7px;
                 font-weight: normal;
                 line-height: 1.2;
                 
-                &.sec_main {
-                    background: url(images/date1.gif) no-repeat;
-                    float: left;
-                    padding-right: 30px;
+                &.sec_main:before {
+                    #wdnSprite > .date1(@dir);
+                }
+                &.upcoming-header:before {
+                    #wdnSprite > .newrecurevent(@dir);
+                }
+                &.ongoing:before {
+                    #wdnSprite > .ongoing(@dir);
                 }
                 
-                &.upcoming-header {
-                    background: url(images/newrecurevent.png) no-repeat;
-                }
-                
-                &.ongoing {
-                    background: url(images/ongoing.gif) no-repeat;
-                    clear: both;
-                    margin-top: 15px;
-                    padding-top: 6px;
+                &.sec_main:before, &.upcoming-header:before, &.ongoing:before {
+                    content: '';
+                    margin-right: 4px;
+                    display: inline;
+                    display: inline-block;
                 }
             }
             

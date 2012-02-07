@@ -1,9 +1,10 @@
 WDN.toolbar_weather = function() {
+	var weatherServer = 'http://www.unl.edu/';
     return {
         initialize : function() {},
         setupToolContent : function(contentCallback) {
         	WDN.jQuery.ajax({
-            	url: WDN.template_path + 'wdn/templates_3.0/includes/tools/weather.html',
+            	url: WDN.getTemplateFilePath('includes/tools/weather.html', true),
             	success: function(data) {
             		contentCallback(data);
             	},
@@ -14,8 +15,8 @@ WDN.toolbar_weather = function() {
         },
         display : function() {
             var reqs = {
-        		"#currentcond": "http://www.unl.edu/wdn/templates_3.0/includes/weatherCurrent.html",
-        		"#weatherforecast": "http://www.unl.edu/wdn/templates_3.0/includes/weatherForecast.html"
+        		"#currentcond": weatherServer + WDN.getTemplateFilePath('includes/weatherCurrent.html'),
+        		"#weatherforecast": weatherServer + WDN.getTemplateFilePath('includes/weatherForecast.html')
             };
             
             WDN.jQuery.each(reqs, function(id, url) {

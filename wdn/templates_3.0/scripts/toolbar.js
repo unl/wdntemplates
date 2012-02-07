@@ -28,7 +28,7 @@ WDN.toolbar = function() {
     	
         initialize : function() {
     		WDN.jQuery('#header').append('<div class="hidden"><div id="toolbarcontent"></div></div>');
-        	WDN.loadJS('wdn/templates_3.0/scripts/plugins/colorbox/jquery.colorbox.js', WDN.toolbar.toolTabsSetup);
+        	WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/colorbox/jquery.colorbox.js'), WDN.toolbar.toolTabsSetup);
         },
         
         toolTabsSetup : function() {
@@ -51,7 +51,7 @@ WDN.toolbar = function() {
          */
         registerTool : function(plugin_name, title, pwidth, pheight) {
         	var $toolTabs = WDN.jQuery('#tooltabs ul');
-        	$toolTabs.append('<li class="'+plugin_name+'"><a href="#" class="'+plugin_name+'">'+title+'</a></li>');
+        	$toolTabs.append('<li class="'+plugin_name+'"><a href="#" class="'+plugin_name+'"><span class="icon"></span>'+title+'</a></li>');
         	WDN.jQuery("a." + plugin_name, WDN.jQuery('#wdn_tool_links'))
         		.add("a." + plugin_name, $toolTabs)
 		 		.click(function(ev) {
@@ -95,7 +95,7 @@ WDN.toolbar = function() {
 	    			onOpen: function() {
 	    				WDN.jQuery("#colorbox").addClass('withTabs');
 	    			},
-	    			onClose: function() {
+	    			onClosed: function() {
 	    				WDN.jQuery("#colorbox").removeClass('withTabs');
 	    				WDN.jQuery("#tooltabs").hide();
 	    			}

@@ -25,7 +25,7 @@ WDN.analytics = function() {
 				['wdn._setAllowHash', false]
 			);
 			
-			WDN.loadJS('wdn/templates_3.0/scripts/idm.js', function(){
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/idm.js'), function(){
 				WDN.idm.initialize(function() {
 					WDN.analytics.loadGA();
 				});

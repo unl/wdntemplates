@@ -123,6 +123,7 @@ EOD;
         'content/grid',
         'content/headers',
         'content/images',
+        'content/mime',
         'footer/footer',
         'footer/feedback',
         'footer/share',
@@ -436,7 +437,12 @@ EOD;
 
             $compileCmd = $this->_getCompilerCmd("{$outDir}/temp.js", "{$outDir}/{$outFile}");
             if ($compileCmd) {
-                exec($compileCmd);
+                exec($compileCmd, $null, $retVal);
+                unset($null);
+                if ($retVal !== 0) {
+                    $this->_announce('javascript build failed, check the output for other errors');
+                    exit($retVal);
+                }
                 unlink("{$outDir}/temp.js");
             } else {
                 unlink("{$outDir}/temp.js");
@@ -601,7 +607,7 @@ EOD;
             foreach ($css_sections as $section) {
                 if (preg_match('/^\(min-width:\s+?([\d]+)px\)\s\{(.*)\}$/', $section, $matches)) {
                     // Found a section
-                    if (isset($media_sections[$matches[1]])) {
+                    if (isset($media_sections[$matches[1]]) && $matches[2] != ' ') {
                         $media_sections[$matches[1]] .= $matches[2];
                     }
                 } else {
@@ -640,8 +646,8 @@ EOD;
     {
         //converts css paths
         $css = str_replace(
-            array('../images/', 'images/', 'IMAGES', 'URWGrotesk/'),
-            array('IMAGES/', $dir . 'images/', 'images', '../fonts/URWGrotesk/'),
+            array('../images/', 'images/', '@IMAGES', 'URWGrotesk/'),
+            array('@IMAGES/', $dir . 'images/', $dir . '../images', $dir . 'URWGrotesk/'),
             $css
         );
 
@@ -720,7 +726,13 @@ EOD;
                 continue;
             }
 
-            exec($this->_getLocalBinCmd(dirname(__FILE__), 'lessc', $prereq, $target));
+            exec($this->_getLocalBinCmd(dirname(__FILE__), 'lessc', $prereq, $target), $null, $retVal);
+            unset($null);
+
+            if ($retVal !== 0) {
+                $this->_announce('less build failed, check the output for other errors.');
+                exit($retVal);
+            }
         }
 
         $this->_announce('less build complete');
@@ -802,12 +814,12 @@ try {
     $opts->parse();
 } catch (Zend_Console_Getopt_Exception $e) {
     echo $e->getUsageMessage();
-    return false;
+    exit(1);
 }
 
 if ($opts->getOption('h')) {
     echo $opts->getUsageMessage();
-    return true;
+    exit;
 }
 
 if ($opts->getOption('f')) {
@@ -832,36 +844,38 @@ if ($opts->getOption('p')) {
 
 $otherArgs = $opts->getRemainingArgs();
 if (empty($otherArgs[0])) {
-    $otherArgs[0] = 'all';
+    $otherArgs[] = 'all';
 }
 
-switch ($otherArgs[0]) {
-    case 'all':
-        $compressor->make();
-        break;
-    case 'clean':
-        $compressor->clean();
-        break;
-    case 'debug':
-        $compressor->buildCssDebug()
-            ->buildLess();
-        break;
-    case 'javascript':
-        $compressor->buildJs();
-        break;
-    case 'less-css':
-        $compressor->buildLess()
-            ->buildCss();
-        break;
-    case 'css':
-        $compressor->buildCss();
-        break;
-    case 'less':
-        $compressor->buildLess();
-        break;
-    default:
-        echo 'I do not understand target "' . $otherArgs[0] . '". Please provide a valid build target.' . PHP_EOL;
-        return false;
+foreach ($otherArgs as $target) {
+    switch ($target) {
+        case 'all':
+            $compressor->make();
+            break;
+        case 'clean':
+            $compressor->clean();
+            break;
+        case 'debug':
+            $compressor->buildCssDebug()
+                ->buildLess();
+            break;
+        case 'javascript':
+            $compressor->buildJs();
+            break;
+        case 'less-css':
+            $compressor->buildLess()
+                ->buildCss();
+            break;
+        case 'css':
+            $compressor->buildCss();
+            break;
+        case 'less':
+            $compressor->buildLess();
+            break;
+        default:
+            echo 'I do not understand target "' . $target . '". Please provide a valid build target.' . PHP_EOL;
+            exit(1);
+    }
 }
 
-return true;
+exit;
