@@ -123,6 +123,7 @@ EOD;
         'content/grid',
         'content/headers',
         'content/images',
+        'content/mime',
         'footer/footer',
         'footer/feedback',
         'footer/share',
@@ -645,8 +646,8 @@ EOD;
     {
         //converts css paths
         $css = str_replace(
-            array('../images/', 'images/', 'IMAGES', 'URWGrotesk/'),
-            array('IMAGES/', $dir . 'images/', 'images', $dir . 'URWGrotesk/'),
+            array('../images/', 'images/', '@IMAGES', 'URWGrotesk/'),
+            array('@IMAGES/', $dir . 'images/', '../images', $dir . 'URWGrotesk/'),
             $css
         );
 

@@ -1,111 +1,150 @@
 /*
 *
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/content/mime.less
+*
+* ---------------------------
+* Styles associated with the mime-type link icons
+* ---------------------------
+*/
+/*
+*
 * Many Icons part of the Fugue Icon set: http://p.yusukekamiyamane.com/
 *
 */
-
-/* These are the additional:after, easier-to-use:after, selectors */
-a.external:after, a.map:after, a.email:after, a.vcard:after, a.pdf:after, a.audio:after, a.image:after, a.document:after, a.html:after, a.video:after, a.calendar:after, a.clustan:after, a.presentation:after, a.spreadsheet:after, a.zip:after, a.feed:after, a.script:after, a.print:after,
-
+/* These are the additional, easier-to-use selectors */
+a.external:after,
+a.map:after,
+a.email:after,
+a.vcard:after,
+a.pdf:after,
+a.audio:after,
+a.image:after,
+a.document:after,
+a.html:after,
+a.video:after,
+a.calendar:after,
+a.clustan:after,
+a.presentation:after,
+a.spreadsheet:after,
+a.zip:after,
+a.feed:after,
+a.script:after,
+a.print:after,
+a.external .after-fix,
+a.map .after-fix,
+a.email .after-fix,
+a.vcard .after-fix,
+a.pdf .after-fix,
+a.audio .after-fix,
+a.image .after-fix,
+a.document .after-fix,
+a.html .after-fix,
+a.video .after-fix,
+a.calendar .after-fix,
+a.clustan .after-fix,
+a.presentation .after-fix,
+a.spreadsheet .after-fix,
+a.zip .after-fix,
+a.feed .after-fix,
+a.script .after-fix,
+a.print .after-fix {
+  content: '';
+  background: url('../images/spriteSheet.png') -48px -265px no-repeat;
+  display: block;
+  width: 16px;
+  height: 16px;
+  display: inline;
+  display: inline-block;
+  margin-left: 4px;
+}
 /* CSS attribute rules */
-a[href $='.mov']:after, a[href $='.wmv']:after, a[href $='.mp4']:after, a[href $='.m4v']:after, a[href $='.zip']:after, a[href *='.doc']:after, a[href *='.ppt']:after, a[href *='.pps']:after, a[href *='.xls']:after, a[href $='.pdf']:after, a[href^="mailto:"]:after, a[href^="http://maps.google.com"]:after,
-
+a[href$='.mov']:after,
+a[href$='.wmv']:after,
+a[href$='.mp4']:after,
+a[href$='.m4v']:after,
+a[href$='.zip']:after,
+a[href*='.doc']:after,
+a[href*='.ppt']:after,
+a[href*='.pps']:after,
+a[href*='.xls']:after,
+a[href$='.pdf']:after,
+a[href^="mailto:"]:after,
+a[href^="http://maps.google.com"]:after,
+a[href$='.mov'] .after-fix,
+a[href$='.wmv'] .after-fix,
+a[href$='.mp4'] .after-fix,
+a[href$='.m4v'] .after-fix,
+a[href$='.zip'] .after-fix,
+a[href*='.doc'] .after-fix,
+a[href*='.ppt'] .after-fix,
+a[href*='.pps'] .after-fix,
+a[href*='.xls'] .after-fix,
+a[href$='.pdf'] .after-fix,
+a[href^="mailto:"] .after-fix,
+a[href^="http://maps.google.com"] .after-fix {
+  content: '';
+  background: url('../images/spriteSheet.png') -48px -265px no-repeat;
+  display: block;
+  width: 16px;
+  height: 16px;
+  display: inline;
+  display: inline-block;
+  margin-left: 4px;
+}
 /* These are the selectors based on mime-type */
-a.mail-message-new:after, a.text-vcard:after, a.application-pdf:after, a.audio-x-generic:after, a.image-x-generic:after, a.text-html:after, a.text-x-script:after, a.video-x-generic:after, a.x-office-calendar:after, a.x-office-document:after,
-a.x-office-document-template:after, a.x-office-presentation:after, a.x-office-presentation-template:after, a.x-office-spreadsheet:after, a.x-office-spreadsheet-template:after, a.application-msword:after,
-a.application-vnd-ms-excel:after, a.application-vnd-ms-powerpoint:after, a.application-zip:after, a.application-map
-{
-	content:'';
-    padding-right:19px;
-    background:url('images/mimetypes/mimeTypeSprite.png') no-repeat;
-    background-position: right -2px; /*This shows vCard */
+a.mail-message-new:after,
+a.text-vcard:after,
+a.application-pdf:after,
+a.audio-x-generic:after,
+a.image-x-generic:after,
+a.text-html:after,
+a.text-x-script:after,
+a.video-x-generic:after,
+a.x-office-calendar:after,
+a.x-office-document:after,
+a.x-office-document-template:after,
+a.x-office-presentation:after,
+a.x-office-presentation-template:after,
+a.x-office-spreadsheet:after,
+a.x-office-spreadsheet-template:after,
+a.application-msword:after:after,
+a.application-vnd-ms-excel:after,
+a.application-vnd-ms-powerpoint:after,
+a.application-zip:after,
+a.application-map:after,
+a.mail-message-new .after-fix,
+a.text-vcard .after-fix,
+a.application-pdf .after-fix,
+a.audio-x-generic .after-fix,
+a.image-x-generic .after-fix,
+a.text-html .after-fix,
+a.text-x-script .after-fix,
+a.video-x-generic .after-fix,
+a.x-office-calendar .after-fix,
+a.x-office-document .after-fix,
+a.x-office-document-template .after-fix,
+a.x-office-presentation .after-fix,
+a.x-office-presentation-template .after-fix,
+a.x-office-spreadsheet .after-fix,
+a.x-office-spreadsheet-template .after-fix,
+a.application-msword:after .after-fix,
+a.application-vnd-ms-excel .after-fix,
+a.application-vnd-ms-powerpoint .after-fix,
+a.application-zip .after-fix,
+a.application-map .after-fix {
+  content: '';
+  background: url('../images/spriteSheet.png') -48px -265px no-repeat;
+  display: block;
+  width: 16px;
+  height: 16px;
+  display: inline;
+  display: inline-block;
+  margin-left: 4px;
 }
-
-a.audio:after, a.audio-x-generic:after {
-    background-position: right -129px;
+a.imagelink:after,
+a.noBG:after,
+a.imagelink .after-fix,
+a.noBG .after-fix {
+  display: none;
 }
-a.calendar:after, a.x-office-calendar:after {
-    background-position: right -321px;
-}
-a.clustan:after {
-    background-position: right -417px;
-}
-a.document:after, a.x-office-document:after, a.x-office-document-template:after, a.application-msword:after, a[href *='.doc']:after {
-    background-position: right -192px;
-}
-a.email:after, a.mail-message-new:after, a[href^="mailto:"]:after {
-    background-position: right -34px;
-}
-a.external:after {
-    background-position: right -450px;
-}
-a.feed:after {
-    background-position: right -385px;
-}
-a.html:after, a.text-html:after {
-    background-position: right -481px;
-}
-a.image:after, a.image-x-generic:after {
-    background-position: right -163px;
-}
-a.map:after, a[href^="http://maps.google.com"]:after, a.application-map:after {
-    background-position: right -64px;
-}
-a.pdf:after, a.application-pdf:after, a[href $='.pdf']:after {
-    background-position: right -96px;
-}
-a.presentation:after, a.x-office-presentation:after, a.x-office-presentation-template:after, a.application-vnd-ms-powerpoint:after, a[href *='.ppt']:after, a[href *='.pps']:after {
-    background-position: right -256px;
-}
-a.script:after, a.text-x-script:after {
-	background-position: right -513px;
-}
-a.spreadsheet:after, a.x-office-spreadsheet:after, a.x-office-spreadsheet-template:after, a.application-vnd-ms-excel:after, a[href *='.xls']:after {
-    background-position: right -224px;
-}
-a.video:after, a.video-x-generic:after, a[href $='.mov']:after, a[href $='.wmv']:after, a[href $='.mp4']:after, a[href $='.m4v']:after {
-    background-position: right -352px;
-}
-a.zip:after, a.application-zip:after, a[href $='.zip']:after {
-    background-position: right -289px;
-}
-a.imagelink:after, #footer a.imagelink:after, a.noBG:after {
-    background:none;
-}
-a.print:after {
-	background-position: right -544px;
-}
-
-/*
-
-To be deprecated in the 2012 Template
-
-*/
-a.application-certificate:after, 
-a[href $='.exe']:after, 
-a.application-x-executable:after, 
-a.font-x-generic:after,
-a.text-x-generic:after,
-a.text-x-generic-template:after,
-a.package-x-generic:after,
-a.msword:after,
-a.x-office-address-book:after,
-a.x-office-drawing:after,
-a.x-office-drawing-template:after,
-a.feed-icon:after
-{
-    padding: 3px 19px 0px 0px;
-    background-position: bottom right;
-    background-repeat: no-repeat;
-}
-a.application-certificate:after{background-image: url(images/mimetypes/application-certificate.png);}
-a[href $='.exe']:after, a.application-x-executable:after{background-image: url(images/mimetypes/application-x-executable.png);background-repeat:no-repeat;}
-a.font-x-generic:after{background-image: url(images/mimetypes/font-x-generic.png);}
-a.text-x-generic:after{background-image: url(images/mimetypes/text-x-generic.png);}
-a.text-x-generic-template:after{background-image: url(images/mimetypes/text-x-generic-template.png);}
-a.package-x-generic:after{background-image: url(images/mimetypes/package-x-generic.png);}
-a.msword:after{background-image: url(images/mimetypes/application-msword.png);background-repeat:no-repeat;}
-a.x-office-address-book:after{background-image: url(images/mimetypes/x-office-address-book.png);}
-a.x-office-drawing:after{background-image: url(images/mimetypes/x-office-drawing.png);}
-a.x-office-drawing-template:after{background-image: url(images/mimetypes/x-office-drawing-template.png);}
-a.feed-icon:after{background-image: url(images/mimetypes/feed-icon.png);}

@@ -1,0 +1,101 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/content/mime.less
+*
+* ---------------------------
+* Styles associated with the mime-type link icons
+* ---------------------------
+*/
+@import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
+
+@dir: '../';
+
+.__mime() {
+    content: '';
+    #wdnSprite > .mime_external(@dir);
+    display: inline;
+    display: inline-block;
+    margin-left: 4px;
+}
+
+/*
+*
+* Many Icons part of the Fugue Icon set: http://p.yusukekamiyamane.com/
+*
+*/
+
+/* These are the additional, easier-to-use selectors */
+a.external,
+a.map,
+a.email,
+a.vcard,
+a.pdf,
+a.audio,
+a.image,
+a.document,
+a.html,
+a.video,
+a.calendar,
+a.clustan,
+a.presentation,
+a.spreadsheet,
+a.zip,
+a.feed,
+a.script,
+a.print {
+    &:after, .after-fix {
+        .__mime();
+    }
+}
+
+/* CSS attribute rules */
+a[href $='.mov'],
+a[href $='.wmv'],
+a[href $='.mp4'],
+a[href $='.m4v'],
+a[href $='.zip'],
+a[href *='.doc'],
+a[href *='.ppt'],
+a[href *='.pps'],
+a[href *='.xls'],
+a[href $='.pdf'],
+a[href^="mailto:"],
+a[href^="http://maps.google.com"] {
+    &:after, .after-fix {
+        .__mime();
+    }
+}
+
+/* These are the selectors based on mime-type */
+a.mail-message-new,
+a.text-vcard,
+a.application-pdf,
+a.audio-x-generic,
+a.image-x-generic,
+a.text-html,
+a.text-x-script,
+a.video-x-generic,
+a.x-office-calendar,
+a.x-office-document,
+a.x-office-document-template,
+a.x-office-presentation,
+a.x-office-presentation-template,
+a.x-office-spreadsheet,
+a.x-office-spreadsheet-template,
+a.application-msword:after,
+a.application-vnd-ms-excel,
+a.application-vnd-ms-powerpoint,
+a.application-zip,
+a.application-map {
+    &:after, .after-fix {
+        .__mime();
+    }
+}
+
+a.imagelink, a.noBG {
+    &:after, .after-fix {
+        display: none;
+    }
+}
