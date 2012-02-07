@@ -17,6 +17,21 @@
 // .ie8                IE 8
 // .iem7               IE 7 mobile
 
+.ie {
+    #footer .footer_col .socialmedia li {
+        display: inline-block;
+        float: left;
+    }
+    #footer .footer_col .socialmedia li a {
+        width: 80px;
+        padding-left: 6px;
+    }
+    #footer .footer_col .socialmedia li.outpost a {
+        width: 40px;
+        padding-left: 0;
+    }
+}
+
 .ie7 {
 
     #wdn_search_form .search {
@@ -24,29 +39,26 @@
     }
 
     #wdn_tool_links {
-        
         li {
             display: inline;
         }
     }
-    
+
     #wdn_navigation_bar {
         zoom: 1;
     }
-    
+
     #footer {
         zoom: 1;
-        
-        
     }
-    
+
     #footer_floater {
         left: 0;
     }
-    
+
     #wdn_copyright {
         position: relative;
-        
+
         #wdn_logos {
             display: block;
             position: absolute;

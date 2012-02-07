@@ -3,22 +3,23 @@
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
-<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
+<!--[if !(IEMobile)|!(IE)]><!--><html lang="en"><!--<![endif]-->
 <!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
 <!--
     Membership and regular participation in the UNL Web Developer Network
-    is required to use the UNL templates. Visit the WDN site at 
+    is required to use the UNL templates. Visit the WDN site at
     http://wdn.unl.edu/. Click the WDN Registry link to log in and
     register your unl.edu site.
     All UNL template code is the property of the UNL Web Developer Network.
-    The code seen in a source code view is not, and may not be used as, a 
-    template. You may not use this code, a reverse-engineered version of 
+    The code seen in a source code view is not, and may not be used as, a
+    template. You may not use this code, a reverse-engineered version of
     this code, or its associated visual presentation in whole or in part to
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
-    
+
     $Id$
 -->
 <!--#include virtual="/wdn/templates_3.0/includes/scriptsandstyles.html" -->
@@ -85,51 +86,51 @@
             <div id="maincontent" role="main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                  <h2 class="sec_header">New, Supported Grid System</h2> 
-                  <div class="grid1 first"> grid1 </div> 
-                  <div class="grid11"> grid11 </div> 
-                  <div class="grid2 first"> grid2 </div> 
-                  <div class="grid10"> grid10 </div> 
-                  <div class="grid3 first"> grid3 </div> 
-                  <div class="grid9"> grid9 </div> 
-                  <div class="grid4 first"> grid4 </div> 
-                  <div class="grid8"> grid8 </div> 
-                  <div class="grid4 first"> grid4 </div> 
-                  <div class="grid4"> grid4 </div> 
-                  <div class="grid4"> grid4 </div> 
-                  <div class="grid5 first"> grid5 </div> 
-                  <div class="grid7"> grid7 </div> 
-                  <div class="grid6 first"> grid6 </div> 
-                  <div class="grid6"> grid6 </div> 
-                  <div class="grid3 first"> grid3 </div> 
-                  <div class="grid3"> grid3 </div> 
-                  <div class="grid1"> grid1 </div> 
-                  <div class="grid5"> grid5 </div> 
+                  <h2 class="sec_header">New, Supported Grid System</h2>
+                  <div class="grid1 first"> grid1 </div>
+                  <div class="grid11"> grid11 </div>
+                  <div class="grid2 first"> grid2 </div>
+                  <div class="grid10"> grid10 </div>
+                  <div class="grid3 first"> grid3 </div>
+                  <div class="grid9"> grid9 </div>
+                  <div class="grid4 first"> grid4 </div>
+                  <div class="grid8"> grid8 </div>
+                  <div class="grid4 first"> grid4 </div>
+                  <div class="grid4"> grid4 </div>
+                  <div class="grid4"> grid4 </div>
+                  <div class="grid5 first"> grid5 </div>
+                  <div class="grid7"> grid7 </div>
+                  <div class="grid6 first"> grid6 </div>
+                  <div class="grid6"> grid6 </div>
+                  <div class="grid3 first"> grid3 </div>
+                  <div class="grid3"> grid3 </div>
+                  <div class="grid1"> grid1 </div>
+                  <div class="grid5"> grid5 </div>
                   <h3 class="sec_header">Heading 3</h3>
                   <h4 class="sec_header">Heading 4</h4>
                   <h5 class="sec_header">Heading 5</h5>
                   <h6 class="sec_header">Heading 6</h6>
-                  <div class="grid1 first"> grid1 </div> 
-                  <div class="grid5"> grid5 </div> 
-                  <div class="grid3"> grid3 </div> 
-                  <div class="grid3"> grid3 </div> 
-                  <div class="grid3 first"> 3 </div> 
-                  <div class="grid9"> 
-                    <div class="grid3 first">3</div> 
-                    <div class="grid3">3</div> 
-                    <div class="grid3">3</div> 
-                    <div class="grid5 first">5</div> 
-                    <div class="grid2">2</div> 
-                    <div class="grid2">2</div> 
-                  </div> 
-                  <div class="grid8 first"> 
-                    <div class="grid3 first">3</div> 
-                    <div class="grid3">3</div> 
-                    <div class="grid2">2</div> 
-                    <div class="grid1 first">1</div> 
-                    <div class="grid1">1</div> 
-                    <div class="grid6">6</div> 
-                  </div> 
+                  <div class="grid1 first"> grid1 </div>
+                  <div class="grid5"> grid5 </div>
+                  <div class="grid3"> grid3 </div>
+                  <div class="grid3"> grid3 </div>
+                  <div class="grid3 first"> 3 </div>
+                  <div class="grid9">
+                    <div class="grid3 first">3</div>
+                    <div class="grid3">3</div>
+                    <div class="grid3">3</div>
+                    <div class="grid5 first">5</div>
+                    <div class="grid2">2</div>
+                    <div class="grid2">2</div>
+                  </div>
+                  <div class="grid8 first">
+                    <div class="grid3 first">3</div>
+                    <div class="grid3">3</div>
+                    <div class="grid2">2</div>
+                    <div class="grid1 first">1</div>
+                    <div class="grid1">1</div>
+                    <div class="grid6">6</div>
+                  </div>
                   <div class="grid4"> 4 </div>
                   <!-- InstanceEndEditable -->
                 <div class="clear"></div>
