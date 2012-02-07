@@ -20,7 +20,7 @@ WDN.carousel = (function() {
 
 		initialize : function() {
 			WDN.log('carousel initialized');
-			WDN.loadCSS('/wdn/templates_3.0/scripts/plugins/blueberry/blueberry.css');
+			WDN.loadCSS(WDN.getTemplateFilePath('scripts/plugins/blueberry/blueberry.css'));
 			WDN.loadJQuery(function(){
 				WDN.carousel.cleanUpDeprecated();
 				WDN.jQuery('#wdn_Carousel img').removeAttr('width').removeAttr('height');
@@ -47,7 +47,7 @@ WDN.carousel = (function() {
 		},
 
 		start : function() {
-			WDN.loadJS('/wdn/templates_3.0/scripts/plugins/blueberry/blueberry.v0.5.js', function() {
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/blueberry/blueberry.js'), function() {
 				WDN.jQuery('#wdn_Carousel').blueberry(WDN.carousel.pluginOptions);
 			});
 		},

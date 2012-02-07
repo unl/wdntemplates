@@ -8,6 +8,9 @@
 * ---------------------------
 */
 @import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
+
+@dir: '../';
 
 #header {
     background: -moz-linear-gradient(top, rgba(0,0,0,0) 90%, rgba(100,100,100,0.40) 95%, rgba(114,114,114,0.60) 100%); /* FF3.6+ */
@@ -18,6 +21,7 @@
 	background: linear-gradient(top, rgba(0,0,0,0) 90%,rgba(100,100,100,0.40) 95%,rgba(114,114,114,0.60) 100%); /* W3C */
 	padding: 4px;
 	font-family: 'URWGroteskCon-Lig', Helvetica, Arial, sans-serif;
+	min-height: 40px;  /* Used to retain height for old #titelgraphic markup */
 	
 	> a {
 	    text-decoration: none;
@@ -25,10 +29,10 @@
 	    float: left;
 	}
 	
-}
-
-#logo {
-    width: 40px; 
+	#logo {
+        #wdnSprite > .n_40(@dir);
+        text-indent: -9999em;
+    }
 }
 
 #wdn_institution_title {
@@ -50,6 +54,34 @@
     }
 }
 
+/* Retain styles for old markup. Remove August 1, 2012*/
+#titlegraphic {
+    position: absolute;
+    top: 4px;
+    width: 66%;
+    
+    h1 {
+        display: block;
+        font-size: 2em;
+        line-height: 1.2;
+        margin: 7px 0 -3px 45px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        font-family: 'URWGroteskCon-Lig', Helvetica, Arial, sans-serif;
+        color: #000;
+        
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        
+        span {
+            display: none;
+        }
+    }
+}
+
 @media (min-width: 320px) {
     
 }
@@ -64,15 +96,16 @@
 @media (min-width: 768px) {
     #header {
         background: #fff;
+        min-height: 55px;  /* Used to retain height for old #titelgraphic markup */
         
-        a > {
+        > a {
             position: relative;
             z-index: 1;
             margin-right: 2px;
-            
-            > img {
-                width: 55px;
-            }
+        }
+        
+        #logo {
+            #wdnSprite > .n_55(@dir);
         }
     }
     #wdn_institution_title {
@@ -82,6 +115,13 @@
         font-weight: normal;
         margin: 13px 0 0 0;
     }
+    
+    /* Retain styles for old markup. Remove August 1, 2012*/
+    #titlegraphic {
+        top: 17px;
+        left: 16px;
+        width: 66%;
+    }
 }
 @media (min-width: 960px) {
 
@@ -90,9 +130,9 @@
     #header {
         margin: -53px -12px 0 -16px;
         background: none;
+        min-height: 95px; /* Used to retain height for old #titelgraphic markup */
         
         > a {
-            background: #fff;
             .border-radius(5px);
             margin: 12px 0 0 0;
             padding: 12px 12px 0 12px;
@@ -107,18 +147,30 @@
             }
         }
         
+        #logo {
+            #wdnSprite > .sprite(@dir, @logo_x + 12, @logo_y + 10, 66px, 67px);
+            background-color: #fff;
+        }
         
-    }
-    
-    #logo {
-        width: auto;
+        .corner-fix-bottom-left {
+            #wdnSprite > .bottomLeftCorner(@dir);
+            position: absolute;
+            top: -5px;
+            left: 90px;
+        }
+        
+        .corner-fix-top-right {
+            #wdnSprite > .topRightCorner(@dir);
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
     }
     
     #wdn_institution_title {
         height: 0; /* Safari */
         margin: 13px 0 0 90px;
         padding: 12px 10px;
-        background: url('images/bottomLeftCorner.png') bottom left no-repeat;
         color: rgba(62, 62, 62, 0.99);
         font-size: 1.5em;
         text-shadow: 0 0 3px #fff;
@@ -147,4 +199,33 @@
         }
     }
     
+    /* Retain styles for old markup. Remove August 1, 2012*/
+    #titlegraphic {
+        top: 5px;
+        left: 53px;
+        font-size: 1.25em;
+        text-shadow: 0 0 3px #fff;
+        font-weight: normal;
+        
+        > h1 {
+            letter-spacing: -1px;
+            line-height: 1.1;
+            color:#555;
+        
+            span {
+                display:block;
+                font-size:25%;
+                color:#6E6E6E;
+                margin-top:-0.6em;
+                letter-spacing:0em;
+                text-transform:uppercase;
+                font-family: Helvetica, "Lucida Grande", Verdana, Arial;
+                line-height: 0.8;
+            }
+            
+            > a {
+                color:#555;
+            }
+        }
+    }
 }

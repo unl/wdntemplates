@@ -17,3 +17,74 @@
 // .ie8                IE 8
 // .iem7               IE 7 mobile
 
+@import "../_mixins/all.less";
+
+.ie {
+    #wdn_footer_feedback {
+        #wdn_feedback_comments .wdn_comment_name  label,
+        #wdn_feedback_comments .wdn_comment_email  label {
+            text-indent: 0;
+            right: 2px;
+        }
+    }
+
+    #footer .footer_col .socialmedia li {
+        display: inline-block;
+        float: left;
+    }
+    #footer .footer_col .socialmedia li a {
+        width: 80px;
+        padding-left: 6px;
+    }
+    #footer .footer_col .socialmedia li.outpost a {
+        width: 40px;
+        padding-left: 0;
+    }
+}
+
+.ie7 {
+
+    #wdn_search_form .search {
+        text-transform: capitalize;
+    }
+
+    #wdn_tool_links {
+        li {
+            display: inline;
+        }
+    }
+
+    #wdn_navigation_bar {
+        zoom: 1;
+    }
+
+    #footer {
+        zoom: 1;
+    }
+
+    #footer_floater {
+        left: 0;
+    }
+
+    #wdn_copyright {
+        position: relative;
+
+        #wdn_logos {
+            display: block;
+            position: absolute;
+            top: 16px;
+            right: 16px;
+        }
+    }
+}
+
+.ie7, .ie8 {
+
+    #navigation > ul > li > ul {
+        background: #fbfbfb;
+    }
+
+    #wdn_copyright {
+        .linear-gradient-filter(@highlightPrimary, @shadowPrimary);
+    }
+}

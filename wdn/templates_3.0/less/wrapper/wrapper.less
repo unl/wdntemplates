@@ -9,10 +9,7 @@
 */
 @import "../_mixins/all.less";
 html {
-    height: 100%;
-    
     > body {
-        height: 100%;
         background-image: url('images/bg.jpg');
             font-size: 1em;
             line-height: 1em;
@@ -39,7 +36,9 @@ html {
 
 }
 @media (min-width: 768px) {
-
+    #wdn_wrapper {
+        background: #fff;
+    }
 }
 @media (min-width: 960px) {
 
@@ -75,7 +74,6 @@ html {
     #wdn_wrapper {
         width: 960px;
         /* width: 92%; // If we want fluid */
-        background: #fff;
         border: 12px solid #eee;
         border-top: 35px solid #eee;
         padding: 12px 12px 10px;

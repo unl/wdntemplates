@@ -1,22 +1,17 @@
 WDN.search = function() {
 	return {
 		initialize : function() {
-			/**
-			 * Hide the label when the user starts a search
-			 */
-			WDN.jQuery('#wdn_search_form fieldset input#q').focus(WDN.search.hideLabel);
-			if (WDN.jQuery('#wdn_search_form fieldset input#q').val() !== "") {
-				WDN.search.hideLabel();
+		    /**
+		     * Add the experimental text-to-speech
+		     */
+            WDN.jQuery('#q').attr('x-webkit-speech', 'x-webkit-speech');
+            
+            if (WDN.hasDocumentClass('no-inputplaceholder')) {
+				WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/placeholder/jquery.placeholder.min.js'), function() {
+					WDN.jQuery('#q').placeholder();
+				});
 			}
-			/**
-			 * Show the label if the user abandons an empty search box
-			 */
-			WDN.jQuery('#wdn_search_form fieldset input#q').blur(function() {
-				if (WDN.jQuery('#wdn_search_form fieldset input#q').val() === "") {
-					WDN.search.showLabel();
-				}
-			});
-			
+
 			var localSearch = WDN.search.hasLocalSearch();
 			if (localSearch) {
 				// Change form action to the local search
@@ -43,12 +38,6 @@ WDN.search = function() {
 				return WDN.toAbs(WDN.jQuery('link[rel=search]').attr('href'), location.protocol+'//'+location.hostname);
 			}
 			return false;
-		},
-		hideLabel : function() {
-			WDN.jQuery('#wdn_search_form fieldset label').hide();
-		},
-		showLabel : function() {
-			WDN.jQuery('#wdn_search_form fieldset label').show();
 		}
 	};
 }();

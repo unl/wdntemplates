@@ -1,0 +1,252 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/header/colorbox.less
+*
+* ---------------------------
+* Styles associated with colorbox and colorbox content
+* ---------------------------
+*/
+@import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
+
+@dir: '../';
+
+#cboxOverlay, #colorbox {
+    display: none;
+}
+
+@media (min-width: 1040px) {
+    @gutterWidth: 24px;
+    @columnWidth: 58px;
+    .theWidth (@theColumn: 1) {
+        width: (@columnWidth * @theColumn) + (@gutterWidth * (@theColumn - 1));
+    }
+    
+    #cboxOverlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 110;
+        overflow: hidden;
+        display: block;
+        background: #383838;
+    }
+    
+    #cboxWrapper {
+       
+    }
+    
+    #cboxMiddleLeft, #cboxBottomLeft {
+        clear: left;
+    }
+    
+    #colorbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 110;
+        overflow: hidden;
+        display: block;
+        margin-left: 6px;
+        color: #333;
+        font-size: 72%;
+        line-height: 135%;
+        
+        .first {
+            margin-left: 0 !important;
+            clear: left;
+        }
+        
+        .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11 {
+            float: left;
+            margin-left: @gutterWidth;
+        }
+        .grid1 { .theWidth(1); }
+        .grid2 { .theWidth(2); }
+        .grid3 { .theWidth(3); }
+        .grid4 { .theWidth(4); }
+        .grid5 { .theWidth(5); }
+        .grid6 { .theWidth(6); }
+        .grid7 { .theWidth(7); }
+        .grid8 { .theWidth(8); }
+        .grid9 { .theWidth(9); }
+        .grid10 { .theWidth(10); }
+        .grid11 { .theWidth(11); }
+        
+        a {
+            color: #434343;
+            text-decoration: underline;
+            
+            &:hover, &:active, &:focus {
+                color: #ba0000;
+            }
+        }
+        
+        p {
+            margin-bottom: 1.1em;
+        }
+        
+        #cboxLoadingOverlay, #cboxLoadingGraphic {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #cboxLoadingGraphic {
+            background: url(images/colorbox/loading.gif) no-repeat center center;
+        }
+        
+        #cboxLoadedContent{
+            overflow: auto;
+        }
+        
+        #cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+            cursor: pointer;
+            background: url(images/colorbox/controls.png);
+        }
+        
+        #cboxContent {
+            position: relative;
+            margin: 18px 14px 5px 5px;
+            padding: 10px 10px 30px; 
+            background: #fff;
+            border: 1px solid #e3e3e3;
+            .border-radius4(10px, 0, 10px, 0);
+            .box-shadow(0, 0, 5px, #fff);
+            
+            .cboxPhoto {
+                display: block;
+                margin: auto;
+                border: 0;
+            }
+            
+            .cboxIframe {
+                width: 100%;
+                height: 100%;
+                display: block;
+                border: 0;
+                background: #fff;
+            }
+            
+            #cboxError{
+                padding: 50px;
+                border: 1px solid #ccc;
+            }
+            
+            #cboxTitle {
+                margin: 0;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 0 65px 6px 10px;
+                .box-sizing(padding-box);
+                
+            }
+            
+            #cboxCurrent {
+                position: absolute; 
+                bottom: 30px;
+                right: 10px;
+                padding: 6px;
+                background: #fff;
+                .border-radius-top-left(8px);
+                text-shadow: 1px 1px 1px #e3e3e3;
+                .opacity(25);
+                .transition(opacity, linear, 0.1s);
+                
+                &:hover {
+                    .opacity(100);
+                }
+            }
+            
+            #cboxSlideshow {
+                position: absolute; 
+                bottom: 7px; 
+                right: 66px; 
+                background: url(images/colorbox/controls.png) no-repeat; 
+                height: 18px; 
+                text-indent: -9999px;
+                width: 13px;
+            }
+            
+            #cboxPrevious, #cboxNext {
+                position:absolute; 
+                background: url(images/colorbox/controls.png) 0 0 no-repeat; 
+                width: 18px; 
+                height: 18px;
+                text-indent: -9999px;
+                bottom: 7px;
+            }
+            
+            #cboxPrevious {
+                right: 35px;
+                
+                &:hover {
+                    background-position: 0 -20px;
+                }
+            }
+            
+            #cboxNext {
+                right: 10px;
+                
+                &:hover {
+                    background-position: -20px -20px;
+                }
+            }
+            
+            #cboxClose {
+                position: absolute;
+                top: -18px;
+                right: -14px;
+                width: 30px;
+                height:33px;
+                display: block;
+                background: url(images/colorbox/controls.png) -126px 0 no-repeat;
+                text-indent: -9999px;
+                
+                &:hover {
+                    background-position: -95px 0px;
+                }
+            }
+        }
+        
+        &.cboxSlideshow_on {
+            #cboxTitle {
+                padding-right: 94px;
+            }
+            
+            #cboxSlideshow {
+                background-position: -82px -0px;
+                
+                &:hover {
+                    background-position: -82px -20px;
+                }
+            }
+        }
+        
+        &.cboxSlideshow_off {
+            #cboxTitle {
+                padding-right: 94px;
+            }
+            
+            #cboxSlideshow {
+                background-position: -64px -0px;
+                
+                &:hover {
+                    background-position: -64px -20px;
+                }
+            }
+        }
+    }
+    
+    #alertbox .alert-icon {
+        #wdnSprite > .alert_generic(@dir);
+        margin: auto;
+    }
+}

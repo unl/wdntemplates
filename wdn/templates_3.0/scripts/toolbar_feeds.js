@@ -67,17 +67,17 @@ WDN.toolbar_feeds = function() {
         },
         setupToolContent : function(contentCallback) {
         	WDN.jQuery.ajax({
-            	url: WDN.template_path + 'wdn/templates_3.0/includes/tools/feeds.html',
+            	url: WDN.getTemplateFilePath('includes/tools/feeds.html', true),
             	success: function(data) {
             		var $tempDiv = WDN.jQuery('<div/>'),
             			gridNum = 12 / feeds.length;
             		
             		WDN.jQuery.each(feeds, function(i, feed) {
             			var $feedDiv = WDN.jQuery('<div />').addClass('feed_col grid' + gridNum + (i == 0 ? ' first' : '')),
-            				$feedHeading = WDN.jQuery('<h3/>').append('<span>' + feed.title + '</span><a href="' + feed.url + '"><span class="rssicon"/></a>');
+            				$feedHeading = WDN.jQuery('<h3/>').append('<a>' + feed.title + '</a><a class="rssicon" href="' + feed.url + '">RSS</a>');
             			
             			if (feed.link) {
-            				$feedHeading.children('span').wrapInner('<a href="' + feed.link + '"/>');
+            				$feedHeading.children('a').first().attr('href', feed.link);
             			}
             			
             			$feedDiv.append($feedHeading).append('<ul id="wdn_feed' + (i + 1) + '"/>').appendTo($tempDiv);
@@ -128,7 +128,7 @@ WDN.toolbar_feeds = function() {
                 }
                 
                 ev.preventDefault();
-                WDN.loadCSS('wdn/templates_3.0/css/content/mediaelement.css');
+                WDN.loadCSS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/css/mediaelementplayer.css'));
                 
                 var self = this,
                 	$this = WDN.jQuery(this), 
@@ -148,8 +148,8 @@ WDN.toolbar_feeds = function() {
                 		
                 		$media.attr('width', '700').attr('height', '394').attr('id', 'wdn_rss_player').attr('src', self.href).appendTo($story);
                 		
-                		WDN.loadJS('wdn/templates_3.0/scripts/mediaelement.js', function() {
-                			var player = new MediaElementPlayer('#wdn_rss_player');
+                		WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/mediaelement-and-player.min.js'), function() {
+                			$media.mediaelementplayer();
                 		});
                 	};
                 

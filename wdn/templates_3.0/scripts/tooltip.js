@@ -2,10 +2,10 @@ WDN.tooltip = (function($) {
 	return {
 		initialize : function() {
 			WDN.log("initialize tooltip");
-			WDN.loadJS('wdn/templates_3.0/scripts/plugins/qtip/jquery.qtip.js', WDN.tooltip.tooltipSetup);
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/qtip/jquery.qtip.js'), WDN.tooltip.tooltipSetup);
 		},
 		tooltipSetup : function() {
-			WDN.loadCSS('/wdn/templates_3.0/css/header/tooltip.css');
+			WDN.loadCSS(WDN.getTemplateFilePath('css/header/tooltip.css'));
 			// Tooltips can only be used in the appropriate sections, and must have the correct class name and a title attribute
 			WDN.tooltip.addTooltips($('#wdn_tool_links .tooltip[title], #maincontent .tooltip[title], #footer .tooltip[title]'));
 		},
@@ -16,7 +16,6 @@ WDN.tooltip = (function($) {
 		},
 		addTooltip: function(el) {
 			$(el).qtip({
-				content: $(el).attr('title'),
 				show: {
 					effect: { length: 0 }
 				},
@@ -24,30 +23,24 @@ WDN.tooltip = (function($) {
 					effect: { length: 0 }
 				},
 				style: {
+					name: 'cream',
 					tip: {
 						corner : 'bottomMiddle',
 						size : {x : 17, y : 10}
 					},
-					width : {
-						min : 100
-					},
-					'background' : 'url("/wdn/templates_3.0/css/header/images/qtip/defaultBG.png") repeat-x bottom #FAF6BD',
-					border : {
-						color : '#f7e77c',
-						width : 2
-					},
-					'color' : '#504500'
+					width : { min : 100	},
+					border: { radius: 3 }
 				},
 				position: {
 					adjust: {
 						screen: true,
-						y : -5
+						y : -5,
+						scroll: false,
+						resize: false
 					},
 					corner: { target: 'topMiddle', tooltip: 'bottomMiddle' }
 				}
 			});
-			$(el).removeAttr('title');
-			$(el).removeAttr('alt');
 		}
 	};
 })(WDN.jQuery);

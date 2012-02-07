@@ -1,0 +1,465 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/header/tools_content.less
+*
+* ---------------------------
+* Styles associated with the WDN Tools content
+* ---------------------------
+*/
+@import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
+
+@dir: '../';
+
+@media (min-width: 1040px) {
+    #toolbarcontent {
+        height: 100%;
+        overflow: hidden;
+        
+        .toolbar_plugin h3 {
+            padding: 0;
+            margin-bottom: 5px;
+            font-size: 2.2em;
+            line-height: 1;
+            text-transform: uppercase;
+            color: #444;
+            border-bottom: 1px solid #888;
+            margin-bottom: 0.8em;
+            font-family: 'URWGroteskCon-Lig', Helvetica, Arial, sans-serif;
+            font-weight: normal;
+            .box-shadow(0, 1px, 0, #fff);
+            
+            a {
+                color: #444;
+                text-decoration: none;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+                
+                &.rssicon {
+                    #wdnSprite > .tool_rss_c(@dir);
+                    float: right;
+                    text-indent: -9999px;
+                }
+            }
+        }
+        
+        #toolbar_feeds {
+        /* Feeds Tool **************************/
+        
+            h3 a {
+                max-width: 190px;
+            }
+            
+            #whatisrss {
+            
+                .grid6 {
+                    margin-top: 9px;
+                }
+                .first {
+                    margin-top: 0;
+                }
+                
+                .rss-icon {
+                    #wdnSprite > .feed-icon-28x28(@dir);
+                    display: inline;
+                    display: inline-block;
+                    text-indent: -9999em;
+                    padding-top: 7px;
+                }
+            }
+            
+            .wdn_rss_media {
+                margin-bottom: 2em;
+                
+                strong {
+                    display: block;
+                    margin-bottom: 1.1em;
+                }
+            }
+            
+            #wdn_rss_story {
+                display: none;
+                float: left;
+                padding: 0 0 0 10px;
+                width: 700px;
+                
+                #wdn_rss_story_content {
+                    display: inline !important;
+                }
+            }
+            
+            ul {
+                overflow: auto;
+                height: 245px;
+                
+                li {
+                    padding: 0 3px 3px 0;
+                    margin: 2px 0;
+                    border-bottom: 1px dotted #c0c0c0;
+                    
+                    a {
+                        display: inline;
+                        display: inline-block;
+                        text-decoration: none;
+                        padding: 1px 8px;
+                        
+                        &:hover {
+                            color: #ac0302;
+                        }
+                    }
+                }
+            }
+        }
+        
+        #toolbar_webcams {
+        /* Webcams Tool ************************/
+            img {
+                width: 294px;
+            }
+        }
+        
+        #toolbar_weather {
+        /* Weather Tool ************************/
+            
+            #weatherforecast {
+                strong {
+                    display: block;
+                    font-size: 1.2em;
+                    padding-top: 10px;
+                }
+                
+                span.warn {
+                    font-size: 1.1em;
+                    color: #ac0302
+                }
+            }
+            
+            a {
+                color: #ac0302;
+            }
+            
+            #showradar {
+                border: 1px solid #DDD;
+                border-radius: 3px;
+                background: #f7f7f7;
+                padding: 5px;
+                margin: 0 0 10px 0;
+                
+                a {
+                    display: block;
+                    background: url(http://radar.weather.gov/lite/N0R/OAX_loop.gif) -88px -128px no-repeat;
+                    height: 300px;
+                    width: 374px;
+                }
+            }
+            
+            .weathertempf {
+                font-size: 35px;
+            }
+            
+            #currentcond {
+                margin: 10px 0 0 5px;
+                
+                > div {
+                    margin-bottom: 5px;
+                }
+            }
+            
+            #unlcurrent {
+                font-size: 1.2em;
+                margin-bottom: 15px !important;
+            }
+            
+            #unltemp {
+                padding-top: 15px;
+                #unlcurrent;
+            }
+        }
+        
+        #toolbar_events {
+        /* Events Tool *************************/
+            
+            #allunlevents, #localsiteevents {
+                overflow: auto;
+                height: 435px;
+            }
+            
+            h4 {
+                font-size: 1.5em;
+                padding: 4px 0 7px;
+                font-weight: normal;
+                line-height: 1.2;
+                
+                &.sec_main:before {
+                    #wdnSprite > .date1(@dir);
+                }
+                &.upcoming-header:before {
+                    #wdnSprite > .newrecurevent(@dir);
+                }
+                &.ongoing:before {
+                    #wdnSprite > .ongoing(@dir);
+                }
+                
+                &.sec_main:before, &.upcoming-header:before, &.ongoing:before {
+                    content: '';
+                    margin-right: 4px;
+                    display: inline;
+                    display: inline-block;
+                }
+            }
+            
+            .day_cal .permalink {
+                font-size: 0.6em;
+                position: relative;
+            }
+            
+            abbr, acronym {
+                border-bottom: medium none;
+                text-decoration: none;
+                
+                &:after {
+                    content: '';
+                }
+            }
+            
+            table {
+                border-collapse: collapse;
+                clear: both;
+                width: 100%;
+                
+                thead th {
+                    background: #3E83C9 none repeat scroll 0 0;
+                    border-bottom: 3px solid #BFD6F5;
+                    color: #FFFFFF;
+                    padding: 2px 7px;
+                    
+                    &.title {
+                        font-style: normal;
+                    }
+                }
+                
+                td {
+                    border-top: 1px solid #D7E6EE;
+                    padding: 0 4px;
+                    
+                    &.date {
+                        width: 110px;
+                        font-size: 0.9em;
+                        vertical-align: top;
+                    }
+                }
+                
+                tr.alt {
+                    background: #ECF4F8;
+                }
+                
+                &.ongoing {
+                    margin: 5px 0 0 0;
+                }
+            }
+            
+            span.location {
+                color: #3A8103;
+                font-size: 0.75em;
+                text-transform: uppercase;
+                display: block;
+                padding: 1px 0 3px 20px;
+                
+                a {
+                    color: #3A8103;
+                    text-transform: uppercase;
+                }
+            }
+            
+            .dtstart, .dtend, .dtstamp {
+                border: medium none;
+                font-size: 100%;
+            }
+            
+            .dtstart {
+                padding-right: 2px;
+            }
+            
+            .dtend {
+                margin-top: -7px;
+                padding-left: 2px;
+            }
+            
+            #feeds, .description, .day_cal #day_nav {
+                display: none;
+            }
+        }
+        
+        #toolbar_directory {
+        /* Directory Tool **********************/
+            form {
+                margin-bottom: 15px;
+                
+                input {
+                    width: 300px;
+                    padding: 2px;
+                    border: 1px solid #434343;
+                    background: #ffffcc;
+                    height: 25px;
+                    font-size: 1.5em;
+                    color: #434343 !important;
+                    
+                    &:focus {
+                        background: #fff;
+                    }
+                }
+            }
+            
+            a {
+                color: #ba0000;
+                text-decoration: none;
+            }
+            
+            .pfintro {
+                ul {
+                    list-style: disc;
+                    padding: 0 0 1.1em 25px;
+                }
+            }
+            
+            #pf_copyright {
+                margin: 1.1em 0;
+            }
+            
+            #pf_disclaimer {
+                font-size: 0.8em;
+            }
+            
+            #pf_progress {
+                background: url('images/colorbox/loading.gif') no-repeat center center; 
+                height: 56px;
+            }
+            
+            #pfresults {
+                overflow: auto;
+                height: 390px;
+            }
+            
+            ul.pfResult {
+                padding: 0;
+                list-style: none;
+                border-bottom: 1px solid #e6e6e6;
+                border-top: 1px solid #d0cece;
+                margin-top: 20px;
+                
+                li {
+                    border-bottom: 1px solid #d0cece;
+                    border-top: 1px solid #e6e6e6;
+                    width:100%;
+                    padding: 5px 0;
+                    display:inline-block;
+                    position:relative;
+                    cursor: pointer;
+                
+                    div.overflow {
+                        min-height:47px;
+                        padding: 7px 5px;
+                        display:inline-block;
+                    }
+                    
+                    &:hover {
+                        background:#ecf4f9;
+                    }
+                }
+            }
+            
+            .on-campus-dailing {
+                font-size: 80%;
+                text-transform: uppercase;
+                color: #897b42;
+            }
+            
+            .planetred_profile {
+                float: left;
+            }
+            
+            .loading {
+                display: none;
+            }
+            
+            .recordDetails {
+                .planetred_profile;
+                margin-left: 20px;
+                
+                .eppa {
+                    display: none;
+                }
+            }
+            
+            .fn, .fn a {
+                font-size: 18px;
+                font-weight: bold;
+                color: #464545 !important;   
+                max-width: 290px;
+                max-height: 35px;
+                min-height: 20px;
+                overflow: hidden;
+            }
+            
+            .departments {
+                .fn, .fn a {
+                    max-height:42px;
+                    line-height:20px;
+                }
+            }
+            
+            .departmentInfo {
+                .photo {
+                    float: left;
+                    margin-right: 20px;
+                }
+            }
+            
+            .cInfo {
+                position: absolute;
+                right: 5px;
+            }
+            
+            .results {
+                margin-top: 15px;
+                
+                h3 {
+                    border-bottom:2px dotted #E6E6E6;
+                    padding-bottom:0;
+                    font-variant:small-caps;
+                    font-weight:bold;
+                    font-family: Helvetica,"Lucida Grande",Verdana,Arial;
+                    font-size: 1.6em;
+                    .box-shadow(none);
+                    text-transform: none;
+                }
+            }
+            
+            .likeResults {
+                ul.pfResult {
+                    margin-top: 0;
+                }
+                
+                h3 {
+                    font-variant:small-caps;
+                    font-weight:bold;
+                    font-family: Helvetica,"Lucida Grande",Verdana,Arial;
+                    .box-shadow(none);
+                    text-transform: none;
+                    font-size: 1em;
+                    margin: 0;
+                    padding: 0.2em 0 0.3em;
+                    color: #444;
+                }
+            }
+            
+            .result_head {
+                color: #989898;
+                font-size: 10px;
+            }
+        }
+    }
+}

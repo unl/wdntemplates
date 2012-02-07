@@ -1,7 +1,7 @@
-mobile_support = function() {
+WDN.mobile_support = function() {
 	return {
 		initialize : function() {
-			window.addEventListener('orientationchange', mobile_support.setOrientation, false);
+			window.addEventListener('orientationchange', WDN.mobile_support.setOrientation, false);
 			document.addEventListener('DOMContentLoaded', 
 				function(){
 					var body = document.getElementsByTagName('body')[0];
@@ -9,9 +9,9 @@ mobile_support = function() {
 					body.className = 'mobile ' + body.className;
 					
 					// For our smarter browsers (the ones that are reading this), let's enhance the nav
-					mobile_support.enhanceNavigation.initialize();
-					mobile_support.fixOrientation(document);
-					mobile_support.fixSearch();
+					WDN.mobile_support.enhanceNavigation.initialize();
+					WDN.mobile_support.fixOrientation(document);
+					WDN.mobile_support.fixSearch();
 					//scroll to the top of content for devices which have the address bar available at top.
 					if (window.pageYOffset < 1) {
 						window.scrollTo(0, 1);
@@ -62,7 +62,7 @@ mobile_support = function() {
 					secondaryNavs = primaryNav.getElementsByTagName('ul');
 					//Bind the click/tap to the navigation bar to present user with navigation and ability to close navigation.
 					navigation.onclick = function() {
-						mobile_support.enhanceNavigation.showPrimary(navigation.getElementsByTagName('ul')[0]);
+						WDN.mobile_support.enhanceNavigation.showPrimary(navigation.getElementsByTagName('ul')[0]);
 					};
 					primaryNavs = navigation.getElementsByTagName('ul')[0].children;
 					var i = 0;
@@ -70,7 +70,7 @@ mobile_support = function() {
 						if(primaryNavs[i] != undefined){
 							primaryNavs[i].onclick = function(){
 								event.stopPropagation();
-								mobile_support.enhanceNavigation.showSecondary(this);
+								WDN.mobile_support.enhanceNavigation.showSecondary(this);
 							};
 							if((primaryNavs[i].getElementsByTagName('ul')).length > 0){
 								primaryNavs[i].className = 'hasSecondary';
@@ -82,7 +82,7 @@ mobile_support = function() {
 				showPrimary : function(primaryNav){
 					primaryNav = primaryNav;
 					primaryNav.style.left = 0;
-					mobile_support.enhanceNavigation.setupNavNav();
+					WDN.mobile_support.enhanceNavigation.setupNavNav();
 				},
 				
 				showSecondary : function(secondaryNav){
@@ -100,7 +100,7 @@ mobile_support = function() {
 				setupNavNav : function() {
 					navigation.className = 'primary';
 					navigation.onclick = function(){
-						mobile_support.enhanceNavigation.traverseNavigation(navigation);
+						WDN.mobile_support.enhanceNavigation.traverseNavigation(navigation);
 					};
 				},
 				
@@ -109,7 +109,7 @@ mobile_support = function() {
 						primaryNav.style.left = '110%';
 						navigation.className = '';
 						navigation.onclick = function(){
-						    mobile_support.enhanceNavigation.showPrimary(navigation.getElementsByTagName('ul')[0]);
+						    WDN.mobile_support.enhanceNavigation.showPrimary(navigation.getElementsByTagName('ul')[0]);
 						};
 					} else { // we're showing the secondary nav, close it and trigger primary
 						var i = 0;
@@ -125,4 +125,3 @@ mobile_support = function() {
 		}()
 	};
 }();
-mobile_support.initialize();
