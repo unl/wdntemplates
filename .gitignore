@@ -1,3 +1,7 @@
 *.espressostorage
 /sandbox/*
 *_old.css
+.externalToolBuilders
+.settings
+.project
+.buildpath
