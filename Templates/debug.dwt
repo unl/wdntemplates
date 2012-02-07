@@ -36,9 +36,7 @@
     </nav>
     <div id="wdn_wrapper">
         <header id="header" role="banner">
-            <a href="http://www.unl.edu/" title="UNL website">
-                <img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" />
-            </a>
+            <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
             <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
             <!-- TemplateBeginEditable name="titlegraphic" -->
             <span id="wdn_site_title">The Title of My Site</span>
