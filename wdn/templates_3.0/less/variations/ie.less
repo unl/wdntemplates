@@ -17,7 +17,17 @@
 // .ie8                IE 8
 // .iem7               IE 7 mobile
 
+@import "../_mixins/all.less";
+
 .ie {
+    #wdn_footer_feedback {
+        #wdn_feedback_comments .wdn_comment_name  label,
+        #wdn_feedback_comments .wdn_comment_email  label {
+            text-indent: 0;
+            right: 2px;
+        }
+    }
+
     #footer .footer_col .socialmedia li {
         display: inline-block;
         float: left;
@@ -72,5 +82,9 @@
 
     #navigation > ul > li > ul {
         background: #fbfbfb;
+    }
+
+    #wdn_copyright {
+        .linear-gradient-filter(@highlightPrimary, @shadowPrimary);
     }
 }
