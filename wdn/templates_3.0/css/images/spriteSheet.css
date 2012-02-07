@@ -22,7 +22,7 @@
 .date1 {
   background: url(spriteSheet.png) -99px -549px no-repeat;
   display: block;
-  width: 24px;
+  width: 22px;
   height: 24px;
 }
 
@@ -65,133 +65,140 @@
   background: url(spriteSheet.png) -102px -206px no-repeat;
   display: block;
   width: 36px;
-  height: 40px;
+  height: 35px;
 }
 
 .mime_clustan {
   background: url(spriteSheet.png) -140px -206px no-repeat;
   display: block;
-  width: 36px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
+}
+
+.mime_code {
+  background: url(spriteSheet.png) -12px -548px no-repeat;
+  display: block;
+  width: 15px;
+  height: 15px;
 }
 
 .mime_document {
   background: url(spriteSheet.png) 0px -255px no-repeat;
   display: block;
   width: 36px;
-  height: 40px;
+  height: 35px;
 }
 
 .mime_external {
   background: url(spriteSheet.png) -38px -255px no-repeat;
   display: block;
-  width: 36px;
-  height: 40px;
+  width: 33px;
+  height: 34px;
 }
 
 .mime_film {
   background: url(spriteSheet.png) -76px -255px no-repeat;
   display: block;
-  width: 36px;
-  height: 40px;
+  width: 34px;
+  height: 35px;
 }
 
 .mime_globe {
   background: url(spriteSheet.png) -114px -255px no-repeat;
   display: block;
-  width: 36px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
 }
 
 .mime_html {
   background: url(spriteSheet.png) -152px -255px no-repeat;
   display: block;
-  width: 36px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
 }
 
 .mime_image {
   background: url(spriteSheet.png) 0px -297px no-repeat;
   display: block;
   width: 36px;
-  height: 40px;
+  height: 33px;
 }
 
 .mime_mail {
   background: url(spriteSheet.png) -38px -297px no-repeat;
   display: block;
   width: 36px;
-  height: 40px;
+  height: 33px;
 }
 
 .mime_map {
   background: url(spriteSheet.png) -76px -297px no-repeat;
   display: block;
-  width: 36px;
-  height: 40px;
+  width: 34px;
+  height: 35px;
 }
 
 .mime_music {
   background: url(spriteSheet.png) -114px -297px no-repeat;
   display: block;
-  width: 36px;
-  height: 40px;
+  width: 33px;
+  height: 35px;
 }
 
 .mime_pdf {
   background: url(spriteSheet.png) -152px -297px no-repeat;
   display: block;
   width: 36px;
-  height: 40px;
+  height: 35px;
 }
 
 .mime_presentation {
   background: url(spriteSheet.png) 0px -339px no-repeat;
   display: block;
   width: 36px;
-  height: 40px;
+  height: 35px;
 }
 
 .mime_print {
   background: url(spriteSheet.png) -38px -339px no-repeat;
   display: block;
-  width: 36px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
 }
 
 .mime_rss {
   background: url(spriteSheet.png) -76px -339px no-repeat;
   display: block;
   width: 36px;
-  height: 40px;
+  height: 35px;
 }
 
 .mime_spreadsheet {
   background: url(spriteSheet.png) -114px -339px no-repeat;
   display: block;
   width: 36px;
-  height: 40px;
+  height: 35px;
 }
 
 .mime_vcard {
   background: url(spriteSheet.png) -152px -339px no-repeat;
   display: block;
   width: 36px;
-  height: 40px;
+  height: 33px;
 }
 
 .mime_zip {
   background: url(spriteSheet.png) 0px -381px no-repeat;
   display: block;
   width: 36px;
-  height: 40px;
+  height: 35px;
 }
 
 .mobile_nav_arrow {
   background: url(spriteSheet.png) -150px -107px no-repeat;
   display: block;
-  width: 10px;
-  height: 18px;
+  width: 8px;
+  height: 12px;
 }
 
 .n_40 {
@@ -212,7 +219,7 @@
   background: url(spriteSheet.png) -148px -550px no-repeat;
   display: block;
   width: 22px;
-  height: 22px;
+  height: 18px;
 }
 
 .ongoing {
@@ -225,8 +232,8 @@
 .push_pin_down {
   background: url(spriteSheet.png) -46px -550px no-repeat;
   display: block;
-  width: 19px;
-  height: 24px;
+  width: 18px;
+  height: 21px;
 }
 
 .push_pin_up {
@@ -254,21 +261,21 @@
   background: url(spriteSheet.png) -82px -658px no-repeat;
   display: block;
   width: 37px;
-  height: 39px;
+  height: 38px;
 }
 
 .sm_mail {
   background: url(spriteSheet.png) -82px -626px no-repeat;
   display: block;
   width: 37px;
-  height: 39px;
+  height: 37px;
 }
 
 .sm_twitter {
   background: url(spriteSheet.png) -82px -585px / auto 960px no-repeat;
   display: block;
   width: 37px;
-  height: 39px;
+  height: 37px;
 }
 
 .tag {
@@ -295,85 +302,85 @@
 .tool_cam_bw {
   background: url(spriteSheet.png) -122px -381px no-repeat;
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 38px;
 }
 
 .tool_cam_c {
   background: url(spriteSheet.png) 0px -423px no-repeat;
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 37px;
 }
 
 .tool_dir_bw {
   background: url(spriteSheet.png) -42px -423px no-repeat;
   display: block;
   width: 40px;
-  height: 40px;
+  height: 37px;
 }
 
 .tool_dir_c {
   background: url(spriteSheet.png) -84px -423px no-repeat;
   display: block;
   width: 40px;
-  height: 40px;
+  height: 37px;
 }
 
 .tool_map_bw {
   background: url(spriteSheet.png) -126px -423px no-repeat;
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 39px;
+  height: 38px;
 }
 
 .tool_map_c {
   background: url(spriteSheet.png) 0px -465px no-repeat;
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 39px;
+  height: 38px;
 }
 
 .tool_rss_bw {
   background: url(spriteSheet.png) -42px -465px no-repeat;
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 39px;
 }
 
 .tool_rss_c {
   background: url(spriteSheet.png) -84px -465px no-repeat;
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 39px;
 }
 
 .tool_siren_bw {
   background: url(spriteSheet.png) -126px -465px no-repeat;
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 39px;
 }
 
 .tool_siren_c {
   background: url(spriteSheet.png) 0px -507px no-repeat;
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 39px;
 }
 
 .tool_weat_bw {
   background: url(spriteSheet.png) -42px -507px no-repeat;
   display: block;
   width: 40px;
-  height: 40px;
+  height: 39px;
 }
 
 .tools_weat_c {
   background: url(spriteSheet.png) -84px -507px no-repeat;
   display: block;
   width: 40px;
-  height: 40px;
+  height: 39px;
 }
 
 .topRightCorner {
@@ -393,6 +400,6 @@
 .wordmark_white {
   background: url(spriteSheet.png) 0px -206px no-repeat;
   display: block;
-  width: 100px;
+  width: 98px;
   height: 47px;
 }
