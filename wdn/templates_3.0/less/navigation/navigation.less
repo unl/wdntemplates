@@ -69,7 +69,7 @@
 	        border:1px solid #d6d6d6;
 	        border-width:1px 0 0 0;
 	        position:relative;
-	        font-family: Helvetica,Arial,sans-serif;
+	        font-family: @impactFont;
 	        
 	        a {
 	            text-decoration:none;
@@ -198,14 +198,6 @@
             
             #navigation > ul > li {
             
-                &:nth-last-child(6) > a {
-                    .border-radius-bottom-left(5px);
-                }
-                
-                &:last-child > a {
-                    .border-radius-bottom-right(5px);
-                }
-                
                 ul {
                     display: none;
                 }
@@ -314,34 +306,7 @@
                     .box-shadow(0px, -1px, 0px, #870d0c);
                 }
                 
-                &:first-child {
-                    
-                    > a {
-                        .border-radius4(5px,0,0,0);
-                    }
-                }
-                
-                &:nth-child(6) {
-                    
-                    > a {
-                        .border-radius4(0,5px,0,0);
-                    }
-                }
-                
-                &:last-child {
-                    
-                    > ul, &.row-empty > a {
-                        .border-radius-bottom-right(5px);
-                    }
-                }
-                
-                &:nth-last-child(6) {
-                    
-                    > ul, &.row-empty > a {
-                        .border-radius-bottom-left(5px);
-                    }
-                }
-                
+                                
                 &:hover {
                     
                     > a {
@@ -606,6 +571,20 @@
     	.pin_state {
     	    right: -5px
     	}
+    	
+    	&.empty-secondary {
+    	    
+    	    #navigation > ul > li {
+    	    
+    	        &:nth-last-child(6) > a {
+    	            .border-radius-bottom-left(5px);
+    	        }
+    	        
+    	        &:last-child > a {
+    	            .border-radius-bottom-right(5px);
+    	        }
+    	    }
+    	}
     }
     .nav_unpinned {
         
@@ -635,6 +614,33 @@
                     
                     ul {
                         border-right: 1px solid #c9c9c9 !important;
+                    }
+                }
+                &:first-child {
+                    
+                    > a {
+                        .border-radius4(5px,0,0,0);
+                    }
+                }
+                
+                &:nth-child(6) {
+                    
+                    > a {
+                        .border-radius4(0,5px,0,0);
+                    }
+                }
+                
+                &:last-child {
+                    
+                    > ul, &.row-empty > a {
+                        .border-radius-bottom-right(5px);
+                    }
+                }
+                
+                &:nth-last-child(6) {
+                    
+                    > ul, &.row-empty > a {
+                        .border-radius-bottom-left(5px);
                     }
                 }
                 

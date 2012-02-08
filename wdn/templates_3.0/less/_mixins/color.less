@@ -32,3 +32,10 @@
 //complementary green
 @highlightComplementary: lighten(saturate(@colorComplementary, 5%), 5%);
 @shadowComplementary: darken(@colorComplementary, 8%);
+
+//Text Colors
+@baseText: #535353;
+
+.baseText(@color:@baseText) {
+    color: @color;
+}
