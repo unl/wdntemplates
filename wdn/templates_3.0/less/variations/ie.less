@@ -34,11 +34,11 @@
     }
     #footer .footer_col .socialmedia li a {
         width: 80px;
-        padding-left: 6px;
+        padding: 9px 6px 0;
     }
     #footer .footer_col .socialmedia li.outpost a {
-        width: 40px;
-        padding-left: 0;
+        width: 38px !important;
+        padding: 0;
     }
 }
 
@@ -79,6 +79,12 @@
 }
 
 .ie7, .ie8 {
+
+    #header {
+        .corner-fix-top-right, .corner-fix-bottom-left {
+            display: none;
+        }
+    }
 
     #navigation > ul > li > ul {
         background: #fbfbfb;
