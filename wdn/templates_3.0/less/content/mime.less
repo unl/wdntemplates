@@ -32,6 +32,7 @@ a.pdf,
 a.audio,
 a.image,
 a.document,
+a.globe,
 a.html,
 a.video,
 a.calendar,
@@ -129,6 +130,13 @@ a.external {
 a.feed {
     &:after, .after-fix {
         #wdnSprite > .mime_rss(@dir);
+        .__mime();
+    }
+}
+
+a.globe {
+    &:after, .after-fix {
+        #wdnSprite > .mime_globe(@dir);
         .__mime();
     }
 }
