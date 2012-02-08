@@ -235,6 +235,9 @@
   #footer .footer_col h3 {
     font-size: 2.2em;
   }
+  #wdn_copyright {
+    margin: 0 -16px -16px;
+  }
 }
 @media (min-width: 960px) {
   #wdn_copyright > div {

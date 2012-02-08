@@ -145,6 +145,11 @@
 @media (min-width: 768px) {
   #wdn_navigation_bar {
     float: none;
+    width: auto;
+    margin: 0 10px;
+    clear: both;
+    background: #fff;
+    position: relative;
     margin-top: 0;
   }
   #wdn_navigation_wrapper {
@@ -192,6 +197,16 @@
     background-repeat: no-repeat;
     text-indent: -9999em;
   }
+  #wdn_navigation_wrapper.empty-secondary #navigation > ul > li:nth-last-child(6) > a {
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  #wdn_navigation_wrapper.empty-secondary #navigation > ul > li:last-child > a {
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
   #wdn_navigation_wrapper.empty-secondary #navigation > ul > li ul {
     display: none;
   }
@@ -200,12 +215,6 @@
   #wdn_navigation_wrapper.empty-secondary .expand_toggle,
   #wdn_navigation_wrapper.nav-loading .expand_toggle {
     display: none;
-  }
-  #wdn_navigation_bar {
-    width: 100%;
-    clear: both;
-    background: #fff;
-    position: relative;
   }
   .nav_unpinned #wdn_navigation_wrapper {
     position: absolute;
@@ -278,9 +287,7 @@
   }
   #navigation > ul > li:nth-child(6n+1) ul {
     margin-left: 0;
-  }
-  #navigation > ul > li:nth-child(6n+1) ul:before {
-    background: #c9c9c9 !important;
+    border-left-color: #c9c9c9;
   }
   #navigation > ul > li:nth-child(6n+6) {
     width: 17%;
@@ -298,15 +305,33 @@
   }
   #navigation > ul > li:nth-child(6n+6) ul {
     margin-right: 0;
-  }
-  #navigation > ul > li:nth-child(6n+6) ul:after {
-    background: #c9c9c9 !important;
+    border-right: 1px solid #c9c9c9 !important;
   }
   #navigation > ul > li:nth-child(n+7) {
     border-top: 1px solid #c83a3a;
     box-shadow: 0px -1px 0px #870d0c;
     -webkit-box-shadow: 0px -1px 0px #870d0c;
     -moz-box-shadow: 0px -1px 0px #870d0c;
+  }
+  #navigation > ul > li:first-child > a {
+    -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+    border-radius: 5px 0 0 0;
+  }
+  #navigation > ul > li:nth-child(6) > a {
+    -webkit-border-radius: 0 5px 0 0;
+    -moz-border-radius: 0 5px 0 0;
+    border-radius: 0 5px 0 0;
+  }
+  #navigation > ul > li:last-child > ul, #navigation > ul > li:last-child.row-empty > a {
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  #navigation > ul > li:nth-last-child(6) > ul, #navigation > ul > li:nth-last-child(6).row-empty > a {
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
   }
   #navigation > ul > li:hover > a {
     background: #c12726;
@@ -402,6 +427,17 @@
     color: rgba(255, 255, 255, 0.99);
   }
   #navigation > ul > li > ul {
+    width: 158px;
+    border-right: 1px solid #d5d5d5;
+    border-left: 1px solid #f1f1f1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  #navigation > ul > li > ul:after, #navigation > ul > li > ul:before {
+    display: none;
+  }
+  #navigation > ul > li > ul {
     z-index: auto;
     position: relative;
     top: 0;
@@ -425,28 +461,6 @@
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
-    /* Create the 'border' effects*/
-  
-  }
-  #navigation > ul > li > ul:after {
-    content: ' ';
-    height: 100%;
-    width: 1px;
-    background: #d5d5d5;
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  #navigation > ul > li > ul:before {
-    content: ' ';
-    height: 100%;
-    width: 1px;
-    background: #f1f1f1;
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
   }
   #navigation > ul > li > ul > li {
     width: auto;
@@ -475,6 +489,7 @@
     display: none !important;
   }
   #navigation > ul > li > ul > li:last-child {
+    margin-bottom: 5px;
     /* Format the last secondary link */
   
     /* (duplicated in ie.css with .last class) */
@@ -538,21 +553,14 @@
   
 }
 @media (min-width: 1040px) {
+  #wdn_navigation_bar {
+    margin: 0;
+  }
   #wdn_navigation_wrapper {
     width: 960px;
   }
   #wdn_navigation_wrapper .pin_state {
     right: -5px;
-  }
-  #wdn_navigation_wrapper.empty-secondary #navigation > ul > li:nth-last-child(6) > a {
-    -webkit-border-bottom-left-radius: 5px;
-    -moz-border-bottom-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-  }
-  #wdn_navigation_wrapper.empty-secondary #navigation > ul > li:last-child > a {
-    -webkit-border-bottom-right-radius: 5px;
-    -moz-border-bottom-right-radius: 5px;
-    border-bottom-right-radius: 5px;
   }
   .nav_unpinned #wdn_content_wrapper {
     margin-top: 56px;
@@ -571,42 +579,8 @@
   #navigation > ul > li:nth-child(6n+1) {
     width: 160px;
   }
-  #navigation > ul > li:nth-child(6n+1) ul {
-    border-left-color: #c9c9c9;
-  }
   #navigation > ul > li:nth-child(6n+6) {
     width: 160px;
-  }
-  #navigation > ul > li:nth-child(6n+6) ul {
-    border-right: 1px solid #c9c9c9 !important;
-  }
-  #navigation > ul > li:first-child > a {
-    -webkit-border-radius: 5px 0 0 0;
-    -moz-border-radius: 5px 0 0 0;
-    border-radius: 5px 0 0 0;
-  }
-  #navigation > ul > li:nth-child(6) > a {
-    -webkit-border-radius: 0 5px 0 0;
-    -moz-border-radius: 0 5px 0 0;
-    border-radius: 0 5px 0 0;
-  }
-  #navigation > ul > li:last-child > ul, #navigation > ul > li:last-child.row-empty > a {
-    -webkit-border-bottom-right-radius: 5px;
-    -moz-border-bottom-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-  #navigation > ul > li:nth-last-child(6) > ul, #navigation > ul > li:nth-last-child(6).row-empty > a {
-    -webkit-border-bottom-left-radius: 5px;
-    -moz-border-bottom-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-  }
-  #navigation > ul > li > ul {
-    width: 158px;
-    border-right: 1px solid #d5d5d5;
-    border-left: 1px solid #f1f1f1;
-  }
-  #navigation > ul > li > ul:after, #navigation > ul > li > ul:before {
-    display: none;
   }
   .nav_pinned #wdn_navigation_bar, .nav_open #wdn_navigation_bar, .nav_expanded #wdn_navigation_bar {
     width: auto;

@@ -53,7 +53,7 @@
             </a>
             <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
             <!-- InstanceBeginEditable name="titlegraphic" -->
-            <!--<span id="wdn_site_title">College of Agricultural Sciences &amp; Natural Resources <span>A division of the College of Arts &amp; Sciences</span></span>-->
+            <span id="wdn_site_title">College of Agricultural Sciences &amp; Natural Resources <span>A division of the College of Arts &amp; Sciences</span></span>
             <!-- InstanceEndEditable -->
             <!--#include virtual="/wdn/templates_3.0/includes/idm.html" -->
             <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
@@ -80,11 +80,13 @@
             </div>
         </div>
         <div id="wdn_content_wrapper">
+            <!--
             <div id="titlegraphic">
                 <h1>
                     <a href="#">College of Agricultural Sciences &amp; Natural Resources <span>A division of the College of Arts &amp; Sciences</span></a>
                 </h1>
             </div>
+            -->
             <div id="pagetitle">
                 <!-- InstanceBeginEditable name="pagetitle" -->
                 <h1>Debugging Out!</h1>

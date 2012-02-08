@@ -141,6 +141,11 @@
     
     #wdn_navigation_bar {
     	float: none;
+	    width: auto;
+	    margin: 0 10px;
+	    clear: both;
+	    background: #fff;
+	    position: relative;
     	margin-top: 0;
     }
     
@@ -198,6 +203,14 @@
             
             #navigation > ul > li {
             
+                &:nth-last-child(6) > a {
+                    .border-radius-bottom-left(5px);
+                }
+                
+                &:last-child > a {
+                    .border-radius-bottom-right(5px);
+                }
+                
                 ul {
                     display: none;
                 }
@@ -211,12 +224,6 @@
             }
         }
     	
-    }
-    #wdn_navigation_bar {
-        width: 100%;
-        clear: both;
-        background: #fff;
-        position: relative;
     }
     .nav_unpinned {
         
@@ -274,10 +281,11 @@
                     /* (duplicated in ie.css with .start class) */
                     ul {
                         margin-left: 0;
-                        &:before {
-                           background:#c9c9c9 !important;
-                        }
+                        border-left-color: #c9c9c9;
                     }
+                        ul {
+                            
+                        }
                 }
                 
                 &:nth-child(6n+6) {
@@ -293,9 +301,7 @@
                     /* (duplicated in ie.css with .end class) */
                     ul {
                         margin-right: 0;
-                        &:after {
-                           background:#c9c9c9 !important;
-                        }
+                        border-right: 1px solid #c9c9c9 !important;
                     }
                 }
                 
@@ -306,6 +312,33 @@
                     .box-shadow(0px, -1px, 0px, #870d0c);
                 }
                 
+                &:first-child {
+                    
+                    > a {
+                        .border-radius4(5px,0,0,0);
+                    }
+                }
+                
+                &:nth-child(6) {
+                    
+                    > a {
+                        .border-radius4(0,5px,0,0);
+                    }
+                }
+                
+                &:last-child {
+                    
+                    > ul, &.row-empty > a {
+                        .border-radius-bottom-right(5px);
+                    }
+                }
+                
+                &:nth-last-child(6) {
+                    
+                    > ul, &.row-empty > a {
+                        .border-radius-bottom-left(5px);
+                    }
+                }
                                 
                 &:hover {
                     
@@ -407,6 +440,15 @@
                 /* Secondaries */
                 
                 > ul {
+                    width: 158px;
+                    border-right: 1px solid #d5d5d5;
+                    border-left: 1px solid #f1f1f1;
+                    .box-sizing(border-box);
+                    &:after, &:before {
+                        display: none;
+                    }
+                }
+                > ul {
                     z-index: auto;
                     position: relative;
                     top: 0;
@@ -419,27 +461,6 @@
                     .linear-gradient-no-filter(rgba(251,251,251,0.95), rgba(215,215,215,0.95));
                     .transition(all, linear, 0.1s);
                     .box-shadow(none);
-                    /* Create the 'border' effects*/
-                    &:after {
-                        content: ' ';
-                        height: 100%;
-                        width: 1px;
-                        background:#d5d5d5;
-                        display: block;
-                        position: absolute;
-                        right: 0;
-                        top: 0;
-                    }
-                    &:before {
-                        content: ' ';
-                        height: 100%;
-                        width: 1px;
-                        background:#f1f1f1;
-                        display: block;
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                    }
                     
                     > li {
                         width: auto;
@@ -470,6 +491,7 @@
                         }
                         
                         &:last-child {
+                            margin-bottom: 5px;
                         
                             /* Format the last secondary link */
                             /* (duplicated in ie.css with .last class) */
@@ -564,25 +586,14 @@
 
 }
 @media (min-width: 1040px) {
+    #wdn_navigation_bar {
+        margin: 0;
+    }
     #wdn_navigation_wrapper {
     	width: 960px;
     	
     	.pin_state {
     	    right: -5px
-    	}
-    	
-    	&.empty-secondary {
-    	    
-    	    #navigation > ul > li {
-    	    
-    	        &:nth-last-child(6) > a {
-    	            .border-radius-bottom-left(5px);
-    	        }
-    	        
-    	        &:last-child > a {
-    	            .border-radius-bottom-right(5px);
-    	        }
-    	    }
     	}
     }
     .nav_unpinned {
@@ -602,54 +613,10 @@
                 
                 &:nth-child(6n+1) {
                     width: 160px;
-                
-                    ul {
-                        border-left-color: #c9c9c9;
-                    }
                 }
                 
                 &:nth-child(6n+6) {
                     width: 160px;
-                    
-                    ul {
-                        border-right: 1px solid #c9c9c9 !important;
-                    }
-                }
-                &:first-child {
-                    
-                    > a {
-                        .border-radius4(5px,0,0,0);
-                    }
-                }
-                
-                &:nth-child(6) {
-                    
-                    > a {
-                        .border-radius4(0,5px,0,0);
-                    }
-                }
-                
-                &:last-child {
-                    
-                    > ul, &.row-empty > a {
-                        .border-radius-bottom-right(5px);
-                    }
-                }
-                
-                &:nth-last-child(6) {
-                    
-                    > ul, &.row-empty > a {
-                        .border-radius-bottom-left(5px);
-                    }
-                }
-                
-                > ul {
-                    width: 158px;
-                    border-right: 1px solid #d5d5d5;
-                    border-left: 1px solid #f1f1f1;
-                    &:after, &:before {
-                        display: none;
-                    }
                 }
             }
         }

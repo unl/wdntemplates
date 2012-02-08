@@ -75,6 +75,7 @@
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
+    padding: 10px;
   }
 }
 @media (min-width: 960px) {

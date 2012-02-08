@@ -66,7 +66,6 @@
 }
 @media (min-width: 768px) {
   #wdn_search {
-    top: 15px;
     max-height: 37px;
     background: #b70302;
     background: -webkit-gradient(linear, left top, left bottom, from(#b70302), to(#9d0201));
@@ -76,17 +75,18 @@
     background: -ms-linear-gradient(top, #b70302, #9d0201);
     background: linear-gradient(top, #b70302, #9d0201);
     padding: 8px 10px 8px 10px;
-    margin: -9px 12px 0 0;
+    margin: -12px 12px 0 0;
     -webkit-border-radius: 0 0 4px 4px;
     -moz-border-radius: 0 0 4px 4px;
     border-radius: 0 0 4px 4px;
     right: 0;
-    top: 9px;
+    z-index: 2;
+    top: 0;
   }
   #wdn_search form #q {
     border: 1px solid #e18887;
     line-height: 1.4em;
-    width: 115px;
+    width: 200px;
     -webkit-border-radius: 0px 0px 0px 0px;
     -moz-border-radius: 0px 0px 0px 0px;
     border-radius: 0px 0px 0px 0px;
