@@ -86,7 +86,6 @@ EOD;
             'tabs',
             'unlalert',
             'plugins/hoverIntent/jQuery.hoverIntent',
-            'plugins/colorbox/jquery.colorbox',
             'plugins/qtip/jquery.qtip',
         )
     );
@@ -114,9 +113,6 @@ EOD;
         'header/search',
         'header/idm',
         'header/tools',
-        'header/tools_content',
-        'header/colorbox',
-        'header/tooltabs',
         'navigation/breadcrumbs',
         'navigation/navigation',
         'content/maincontent',

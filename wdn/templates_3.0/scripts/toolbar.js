@@ -24,22 +24,36 @@ WDN.toolbar_mytoolname = function() {
  * 
  */
 WDN.toolbar = function() {
-    return {
-    	
-        initialize : function() {
-    		WDN.jQuery('#header').append('<div class="hidden"><div id="toolbarcontent"></div></div>');
-        	WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/colorbox/jquery.colorbox.js'), WDN.toolbar.toolTabsSetup);
-        },
-        
-        toolTabsSetup : function() {
-        	WDN.jQuery('#cboxWrapper').prepend('<div id="tooltabs"><ul></ul></div>');
-        	WDN.toolbar.registerTool('feeds', 'RSS Feeds', 1002, 500);
-        	WDN.toolbar.registerTool('weather', 'Weather', 1002, 500);
-        	WDN.toolbar.registerTool('events', 'Events', 1002, 550);
-        	WDN.toolbar.registerTool('directory', 'Directory', 1002, 550);
-        	WDN.toolbar.registerTool('webcams', 'Webcams', 1002, 350);
-        //	WDN.toolbar.registerTool('tourmaps', 'Tour/Maps', 1042, 800);
-        },
+	return {
+		
+		initialize : function() {
+			WDN.jQuery('#wdn_tool_links a').click(function(ev) {
+				ev.preventDefault();
+				WDN.jQuery('#wdn_tool_links a').unbind('click');
+				WDN.jQuery('#header').append('<div class="hidden"><div id="toolbarcontent"></div></div>');
+				var that = WDN.jQuery(this);
+				WDN.initializePlugin('modal', function() {
+					WDN.modal.initialize(function() {
+						WDN.toolbar.setup();
+						WDN.jQuery(that).click();
+					});
+				});
+			});
+		},
+		
+		setup : function() {
+			WDN.loadCSS(WDN.getTemplateFilePath('css/header/tooltabs.css'));
+			WDN.loadCSS(WDN.getTemplateFilePath('css/header/tools_content.css'));
+			
+			// The id #cboxWrapper is specified in jquery.colorbox.js 
+			WDN.jQuery('#cboxWrapper').prepend('<div id="tooltabs"><ul></ul></div>');
+			
+			WDN.toolbar.registerTool('feeds', 'RSS Feeds', 1002, 500);
+			WDN.toolbar.registerTool('weather', 'Weather', 1002, 500);
+			WDN.toolbar.registerTool('events', 'Events', 1002, 550);
+			WDN.toolbar.registerTool('directory', 'Directory', 1002, 550);
+			WDN.toolbar.registerTool('webcams', 'Webcams', 1002, 350);
+		},
         
         /**
          * Just register a tool so we know about it.
