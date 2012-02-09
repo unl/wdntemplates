@@ -6,32 +6,18 @@ WDN.unlalert = (function() {
 		if (!Array.prototype.indexOf) {
 			Array.prototype.indexOf = function (searchElement) {
 				"use strict";
-				if (this == null) {
-					throw new TypeError();
-				}
+				if (this == null) {throw new TypeError();}
 				var t = Object(this);
 				var len = t.length >>> 0;
-				if (len === 0) {
-					return -1;
-				}
+				if (len === 0) {return -1;}
 				var n = 0;
 				if (arguments.length > 0) {
 					n = Number(arguments[1]);
-					if (n != n) {
-						n = 0;
-					} else if (n != 0 && n != Infinity && n != -Infinity) {
-						n = (n > 0 || -1) * Math.floor(Math.abs(n));
-					}
+					if (n != n) {n = 0;} else if (n != 0 && n != Infinity && n != -Infinity) {n = (n > 0 || -1) * Math.floor(Math.abs(n));}
 				}
-				if (n >= len) {
-					return -1;
-				}
+				if (n >= len) {return -1;}
 				var k = n >= 0 ? n : Math.max(len - Math.abs(n), 0);
-				for (; k < len; k++) {
-					if (k in t && t[k] === searchElement) {
-						return k;
-					}
-				}
+				for (; k < len; k++) {if (k in t && t[k] === searchElement) {return k;}}
 				return -1;
 			};
 		}
@@ -41,7 +27,6 @@ WDN.unlalert = (function() {
 		if (c) {
 			return c.split(',');
 		}
-		
 		return [];
 	};
 	var _pushClosedAlert = function(id) {
@@ -49,7 +34,6 @@ WDN.unlalert = (function() {
 		if (closed.indexOf(id) != -1) {
 			return;
 		}
-		
 		closed.push(id);
 		WDN.setCookie('unlAlertsC', closed.join(','), 3600);
 	};
@@ -69,37 +53,37 @@ WDN.unlalert = (function() {
 		}
 		WDN.setCookie('unlAlertsA', value, time);
 	};
-	
+
 	var activeIds = [], calltimeout;
-	
+
 	return {
 		
 		data_url : document.location.protocol+'//alert.unl.edu/json/unlcap.js',
 //		data_url : '//ucommabel.unl.edu/workspace/wdntemplates/scripts/public/alertSimulator.php',
-		
+
 		initialize: function() {
 			WDN.log('Initializing the UNL Alert Plugin');
 			_browserCompat();
 			WDN.unlalert.checkIfCallNeeded();
 		},
-		
+
 		checkIfCallNeeded: function() {
 			if (WDN.unlalert._dataHasExpired() || WDN.unlalert._hasPreviousAlert()) {
 				WDN.unlalert._callServer();
 			}
 		},
-		
+
 		// Data has expired if unlAlertsData cookie is non existent
 		_dataHasExpired: function() {
 			return !_checkCookie('unlAlertsData');
 		},
-		
+
 		// Used in addition to _dataHasExpired so that if an alert is loaded
 		// and the page is reloaded we check the server again right away instead of waiting
 		_hasPreviousAlert: function() {
 			return _checkCookie('unlAlertsA');
 		},
-		
+
 		// Appends script at the data_url to the head, incoming script executes unlAlerts.server.init()
 		_callServer: function() {
 			WDN.log('Checking the alert server for data '+WDN.unlalert.data_url);
@@ -116,32 +100,31 @@ WDN.unlalert = (function() {
 			script.id = 'lastLoadedCmds';
 			head.appendChild(script);
 		},
-		
+
 		// Called from unlAlerts.server.init()
 		dataReceived: function() {
 			WDN.log('UNL Alert data received');
 			clearTimeout(calltimeout);
 			// Set cookie to indicate time the data was aquired
-			WDN.setCookie('unlAlertsData', 1, 10);
-			calltimeout = setTimeout(WDN.unlalert.checkIfCallNeeded, 10000);
+			WDN.setCookie('unlAlertsData', 1, 60);
+			calltimeout = setTimeout(WDN.unlalert.checkIfCallNeeded, 60000);
 		},
-		
+
 		/*------ check if alert was acknowledged ------*/
 		alertWasAcknowledged: function(id) {
 			var closed = _getClosedAlerts();
-			return closed.indexOf(id);
+			return (closed.indexOf(id) != -1 ? true : false);
 		},
-		
+
 		/*------ acknowledge alert, and don't show again ------*/
 		_acknowledgeAlert: function(id) {
 			_pushClosedAlert(id);
 		},
-		
-		
+
 		// Build/Activate alert message, root is unlAlerts.data.alert.info object from server
 		alertUser: function(root) {
 			WDN.log('Alerting the user');
-			
+
 			if (!(root instanceof Array)) {
 				root = [root];
 			}
@@ -149,26 +132,26 @@ WDN.unlalert = (function() {
 			activeIds = [];
 			var $alertWrapper = document.getElementById('unlalert'), $alertContent;
 			var allAck = true;
-			
+
 			for (var i = 0; i < root.length; i++) {
 				if (root[i].severity !== 'Extreme') {
 					continue;
 				}
-				
+
 				var uniqueID = root[i].parameter.value;
 				activeIds.push(uniqueID);
-				
+
 				if (!allAck || !WDN.unlalert.alertWasAcknowledged(uniqueID)) {
 					allAck = false;
 				}
-				
+
 				// Add a div to store the html content
 				if ($alertWrapper == null) {
 					$alertWrapper = document.createElement('div');
 					$alertWrapper.id = 'unlalert';
 					var body = document.getElementsByTagName('body').item(0);
 					body.insertBefore($alertWrapper, body.childNodes[0]);
-					
+
 					$alertContent = document.createElement('div');
 					$alertContent.id = 'unlalert_content';
 					$alertWrapper.appendChild($alertContent);
@@ -176,7 +159,7 @@ WDN.unlalert = (function() {
 					$alertContent = document.getElementById('unlalert_content');
 					$alertContent.innerHTML = '';
 				}
-				
+
 				var alertTitle = root[i].headline;
 				var alertDescription = root[i].description;
 				var effectiveDate = root[i].effective || '';
@@ -184,7 +167,7 @@ WDN.unlalert = (function() {
 					// transform the ISO effective date into a JS date by inserting a missing colon
 					effectiveDate = new Date(effectiveDate.slice(0, -2) + ":" + effectiveDate.slice(-2)).toLocaleString();
 				}
-				
+
 				var alertContentHTML = '<h1>Emergency UNL Alert: ' + alertTitle + '</h1>';
 				if (effectiveDate) {
 					alertContentHTML += '<h4 class="effectiveDate">Issued at ' + effectiveDate + '</h4>';
@@ -192,7 +175,7 @@ WDN.unlalert = (function() {
 				alertContentHTML += '<p>'+ alertDescription +'<!-- Number '+uniqueID+' --></p>';
 				$alertContent.innerHTML += alertContentHTML;
 			}
-			
+
 			// Add an visibility toggle tab
 			var $alertToggle = document.getElementById('unlalert_toggle');
 			if ($alertToggle == null) {
@@ -206,23 +189,31 @@ WDN.unlalert = (function() {
 					$alertToggle.attachEvent('onclick', WDN.unlalert.toggleAlert);
 				}
 			}
-			
+
 			if (allAck) {
 				WDN.log('No unlalert display: all were previously acknowledged');
 			} else {
 				// Only trigger when $alertContent is hidden, otherwise an active, unacknowledged alert will be hidden
 				if ($alertContent.style.display != 'block') {
-					$alertToggle.click();
+					// Use until $alertToggle.click() is widely supported
+					if (document.createEvent) {
+						var evt = document.createEvent("HTMLEvents");
+						evt.initEvent('click', true, true );
+						return !$alertToggle.dispatchEvent(evt);
+					} else {// IE
+						var evt = document.createEventObject();
+						return $alertToggle.fireEvent('onclick', evt)
+					}
 				}
 			}
 		},
-		
+
 		// Toggle visible alert message open/closed
 		toggleAlert: function() {
 			WDN.log('Toggle UNL Alert Visibility');
 			var $alertContent = document.getElementById('unlalert_content'),
 				$alertToggle = document.getElementById('unlalert_toggle');
-			
+
 			if ($alertContent.style.display == 'block') {
 				$alertContent.style.display = 'none';
 				$alertToggle.style.width = '20px';
@@ -234,7 +225,7 @@ WDN.unlalert = (function() {
 				$alertToggle.style.width = '50px';
 			}
 		}, 
-		
+
 		noAlert: function() {
 			_flagPreviousAlert(false);
 		}
@@ -247,7 +238,7 @@ var unlAlerts = {
 	server: {
 		init: function() {
 			WDN.unlalert.dataReceived();
-			
+
 			// There is an alert if unlAlerts.data.alert.info exists
 			if (unlAlerts.data.alert && unlAlerts.data.alert.info) {
 				WDN.log("Found an alert, calling WDN.unlalert.alertUser()");
