@@ -65,7 +65,8 @@ EOD;
     protected $_jsFiles = array(
         'all' => array(
             'wdn',
-            'modernizr-wdn'
+            'modernizr-wdn',
+            'unlalert',
         ),
         '320' => array(
             'mobile_analytics',
@@ -84,7 +85,6 @@ EOD;
             'tooltip',
             'toolbar',
             'tabs',
-            'unlalert',
             'plugins/hoverIntent/jQuery.hoverIntent',
             'plugins/qtip/jquery.qtip',
         )
