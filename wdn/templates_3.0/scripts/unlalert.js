@@ -63,6 +63,7 @@ WDN.unlalert = (function() {
 
 		initialize: function() {
 			WDN.log('Initializing the UNL Alert Plugin');
+			WDN.loadCSS(WDN.getTemplateFilePath('css/header/unlalert.css'));
 			_browserCompat();
 			WDN.unlalert.checkIfCallNeeded();
 		},
@@ -149,6 +150,10 @@ WDN.unlalert = (function() {
 				if ($alertWrapper == null) {
 					$alertWrapper = document.createElement('div');
 					$alertWrapper.id = 'unlalert';
+					// Position off the screen, will be corrected by incoming css file, avoids flash of unstyled content
+					$alertWrapper.style.position = 'absolute';
+					$alertWrapper.style.top = '-1000px';
+					
 					var body = document.getElementsByTagName('body').item(0);
 					body.insertBefore($alertWrapper, body.childNodes[0]);
 
@@ -159,20 +164,21 @@ WDN.unlalert = (function() {
 					$alertContent = document.getElementById('unlalert_content');
 					$alertContent.innerHTML = '';
 				}
-
-				var alertTitle = root[i].headline;
-				var alertDescription = root[i].description;
+				
 				var effectiveDate = root[i].effective || '';
 				if (effectiveDate.length) {
 					// transform the ISO effective date into a JS date by inserting a missing colon
 					effectiveDate = new Date(effectiveDate.slice(0, -2) + ":" + effectiveDate.slice(-2)).toLocaleString();
 				}
+				var web = root[i].web || 'http://www.unl.edu/';
 
-				var alertContentHTML = '<h1>Emergency UNL Alert: ' + alertTitle + '</h1>';
+				var alertContentHTML = '<h1><span>Emergency UNL Alert:</span> ' + root[i].headline + '</h1>';
 				if (effectiveDate) {
 					alertContentHTML += '<h4 class="effectiveDate">Issued at ' + effectiveDate + '</h4>';
 				}
-				alertContentHTML += '<p>'+ alertDescription +'<!-- Number '+uniqueID+' --></p>';
+				alertContentHTML += '<p>' + root[i].description + ' ' + root[i].instruction + ' <!-- ID '+uniqueID+' -->';
+				alertContentHTML += 'Additional info (if available) at <a href="' + web + '">' + web + '</a></p>';
+				
 				$alertContent.innerHTML += alertContentHTML;
 			}
 
@@ -181,7 +187,7 @@ WDN.unlalert = (function() {
 			if ($alertToggle == null) {
 				$alertToggle = document.createElement('div');
 				$alertToggle.id = 'unlalert_toggle';
-				$alertToggle.innerHTML = 'Toggle Alert Visibility';
+				$alertToggle.innerHTML = 'View UNL Alert';
 				$alertWrapper.appendChild($alertToggle);
 				if ($alertToggle.addEventListener) {
 					$alertToggle.addEventListener('click', WDN.unlalert.toggleAlert, false);
@@ -216,13 +222,15 @@ WDN.unlalert = (function() {
 
 			if ($alertContent.style.display == 'block') {
 				$alertContent.style.display = 'none';
-				$alertToggle.style.width = '20px';
+				$alertToggle.className = '';
+				$alertToggle.innerHTML = 'View UNL Alert';
 				for (var i = 0; i < activeIds.length; i++) {
 					WDN.unlalert._acknowledgeAlert(activeIds[i]);
 				}
 			} else {
 				$alertContent.style.display = 'block';
-				$alertToggle.style.width = '50px';
+				$alertToggle.className = 'close';
+				$alertToggle.innerHTML = 'x';
 			}
 		}, 
 
