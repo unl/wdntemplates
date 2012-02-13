@@ -12,121 +12,119 @@
 
 @dir: '../';
 
-@media (min-width: 1040px) {
-    #colorbox.withTabs {
-        padding-top: 11px;
-        
-        #cboxWrapper {
-            position: relative;
-            top: -11px;
-        }
-        
-        #cboxContent {
-            margin-top: 29px;
-        }
+#colorbox.withTabs {
+    padding-top: 11px;
+    
+    #cboxWrapper {
+        position: relative;
+        top: -11px;
     }
     
-    #tooltabs {
-        display: none;
-        position: absolute;
-        top:0;
-        left: 0px;
-        width: 900px;
-        font-size: 1.4em;
-        z-index: 110;
+    #cboxContent {
+        margin-top: 29px;
+    }
+}
+
+#tooltabs {
+    display: none;
+    position: absolute;
+    top:0;
+    left: 0px;
+    width: 900px;
+    font-size: 1.4em;
+    z-index: 110;
+    
+    ul {
+        margin: 0 0 0 35px;
+        list-style: none;
+        position: relative;
+        width: 100%;
         
-        ul {
-            margin: 0 0 0 35px;
-            list-style: none;
-            position: relative;
-            width: 100%;
+        li {
+            border-width:1px;
+            text-shadow:-1px -1px 1px #fff;
             
-            li {
-                border-width:1px;
-                text-shadow:-1px -1px 1px #fff;
-                
-                display: inline-block !important; /*this was changed from block to inline-block to better support multiple rows of tabs*/
-                float: left;
-                margin-left:0.2em;
-                margin-bottom:-1px;
-                border-color:#DDD;
-                border-top-color:#C9C9C9;
-                border-right-color:#C9C9C9;
-                border-style:solid;
-                border-bottom: 1px solid #C9C9C9;
-                .border-radius2(5px, 0);
-                .box-shadow(1px, -1px, 0, rgba(255,255,255,0.5));
-                line-height:100%;
-                .linear-gradient(#f4f4f4, #e2e2e2);
-                
-                &.current {
-                    .linear-gradient(#f7f7f7, #fff);
-                    border-bottom-color:#fff;
-                    
-                    a {
-                        &.feeds span.icon {
-                            #wdnSprite > .tool_rss_c(@dir);
-                        }
-                        
-                        &.weather span.icon {
-                            #wdnSprite > .tool_weat_c(@dir);
-                        }
-                        
-                        &.events span.icon {
-                            #wdnSprite > .tool_cal_c(@dir);
-                        }
-                        
-                        &.directory span.icon {
-                            #wdnSprite > .tool_dir_c(@dir);
-                        }
-                        
-                        &.webcams span.icon {
-                            #wdnSprite > .tool_cam_c(@dir);
-                        }
-                        
-                        &.tourmaps span.icon {
-                            #wdnSprite > .tool_map_c(@dir);
-                        }
-                    }
-                }
+            display: inline-block !important; /*this was changed from block to inline-block to better support multiple rows of tabs*/
+            float: left;
+            margin-left:0.2em;
+            margin-bottom:-1px;
+            border-color:#DDD;
+            border-top-color:#C9C9C9;
+            border-right-color:#C9C9C9;
+            border-style:solid;
+            border-bottom: 1px solid #C9C9C9;
+            .border-radius2(5px, 0);
+            .box-shadow(1px, -1px, 0, rgba(255,255,255,0.5));
+            line-height:100%;
+            .linear-gradient(#f4f4f4, #e2e2e2);
+            
+            &.current {
+                .linear-gradient(#f7f7f7, #fff);
+                border-bottom-color:#fff;
                 
                 a {
-                    display: block;
-                    padding: 7px 10px 5px;
-                    text-decoration: none;
-                    color: #333;
-                    font-size: 1.0em;
-                    position:relative;
-                    height: 16px;
-                    
-                    span.icon {
-                        float: left;
-                        margin: -2px 2px 0 0;
-                    }
-                    
                     &.feeds span.icon {
-                        #wdnSprite > .tool_rss_bw(@dir);
+                        #wdnSprite > .tool_rss_c(@dir);
                     }
                     
                     &.weather span.icon {
-                        #wdnSprite > .tool_weat_bw(@dir);
+                        #wdnSprite > .tool_weat_c(@dir);
                     }
                     
                     &.events span.icon {
-                        #wdnSprite > .tool_cal_bw(@dir);
+                        #wdnSprite > .tool_cal_c(@dir);
                     }
                     
                     &.directory span.icon {
-                        #wdnSprite > .tool_dir_bw(@dir);
+                        #wdnSprite > .tool_dir_c(@dir);
                     }
                     
                     &.webcams span.icon {
-                        #wdnSprite > .tool_cam_bw(@dir);
+                        #wdnSprite > .tool_cam_c(@dir);
                     }
                     
                     &.tourmaps span.icon {
-                        #wdnSprite > .tool_map_bw(@dir);
+                        #wdnSprite > .tool_map_c(@dir);
                     }
+                }
+            }
+            
+            a {
+                display: block;
+                padding: 7px 10px 5px;
+                text-decoration: none;
+                color: #333;
+                font-size: 1.0em;
+                position:relative;
+                height: 16px;
+                
+                span.icon {
+                    float: left;
+                    margin: -2px 2px 0 0;
+                }
+                
+                &.feeds span.icon {
+                    #wdnSprite > .tool_rss_bw(@dir);
+                }
+                
+                &.weather span.icon {
+                    #wdnSprite > .tool_weat_bw(@dir);
+                }
+                
+                &.events span.icon {
+                    #wdnSprite > .tool_cal_bw(@dir);
+                }
+                
+                &.directory span.icon {
+                    #wdnSprite > .tool_dir_bw(@dir);
+                }
+                
+                &.webcams span.icon {
+                    #wdnSprite > .tool_cam_bw(@dir);
+                }
+                
+                &.tourmaps span.icon {
+                    #wdnSprite > .tool_map_bw(@dir);
                 }
             }
         }
