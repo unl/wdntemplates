@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
+<!--#include virtual="/wdn/templates_3.1/includes/metanfavico.html" -->
 <!--
     Membership and regular participation in the UNL Web Developer Network
     is required to use the UNL templates. Visit the WDN site at 
@@ -16,24 +16,24 @@
     
     $Id$
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
-<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
-<!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.1/css/all.css" />
+<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.1/css/print.css" />
+<script type="text/javascript" src="/wdn/templates_3.1/scripts/all.js"></script>
+<!--#include virtual="/wdn/templates_3.1/includes/browserspecifics.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>UNL | WDN | Template Examples</title>
 <!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <link rel="events" href="http://events.unl.edu/wellness/" title="Wellness" />
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/plugins/hashchange/jQuery.hashchange.1-3.min.js"></script>
+<script type="text/javascript" src="/wdn/templates_3.1/scripts/plugins/hashchange/jQuery.hashchange.1-3.min.js"></script>
 <!-- InstanceEndEditable -->
 </head>
 <body class="fixed">
     <nav class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </nav>
     <div id="wdn_wrapper">
-        <header id="header" role="banner"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+        <header id="header" role="banner"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.1/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
             <h1>University of Nebraska&ndash;Lincoln</h1>
-            <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
+            <!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
         </header>
         <div id="wdn_navigation_bar">
             <nav id="breadcrumbs">
@@ -52,7 +52,7 @@
                     <h3 class="wdn_list_descriptor hidden">Navigation</h3>
                     <!-- TemplateBeginEditable name="navlinks" -->
                     <script type="text/javascript">
-                    WDN.get('http://www1.unl.edu/wdn/templates_3.0/scripts/navigationSniffer.php?u=http://wdn.unl.edu/', null, function(data){WDN.navigation.setNavigationContents(data);});
+                    WDN.get('http://www1.unl.edu/wdn/templates_3.1/scripts/navigationSniffer.php?u=http://wdn.unl.edu/', null, function(data){WDN.navigation.setNavigationContents(data);});
                     </script>
                     <!-- TemplateEndEditable -->
                 </nav>
@@ -138,13 +138,13 @@
                 </div>
                 <!-- InstanceEndEditable -->
                 <div class="clear"></div>
-                <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
+                <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
             <footer id="footer">
                 <div id="footer_floater"></div>
                 <div class="footer_col">
-                    <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
+                    <!--#include virtual="/wdn/templates_3.1/includes/feedback.html" -->
                 </div>
                 <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
                     <h3>Related Links</h3>
@@ -169,13 +169,13 @@
                     Lincoln NE 68583-0218</p>
                     <!-- TemplateEndEditable --></div>
                 <div class="footer_col">
-                    <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+                    <!--#include virtual="/wdn/templates_3.1/includes/socialmediashare.html" -->
                 </div>
                 <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
                 <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
                     <!-- TemplateEndEditable -->
                     &copy; 2012 University of Nebraska-Lincoln | Lincoln, NE 68588 | 402-472-7211
-                    <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
+                    <!--#include virtual="/wdn/templates_3.1/includes/wdn.html" -->
                 </div>
             </footer>
         </div>

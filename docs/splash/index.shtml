@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--#include virtual="/wdn/templates_3.0/includes/metanfavico_html5.html" -->
+<!--#include virtual="/wdn/templates_3.1/includes/metanfavico_html5.html" -->
 <!--
     Membership and regular participation in the UNL Web Developer Network
     is required to use the UNL templates. Visit the WDN site at 
@@ -16,16 +16,16 @@
     
     $Id: fixed_html5.dwt 1801 2011-06-29 20:56:10Z kabel $
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
-<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
-<!--#include virtual="/wdn/templates_3.0/includes/browserspecifics_html5.html" -->
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.1/css/all.css" />
+<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.1/css/print.css" />
+<script type="text/javascript" src="/wdn/templates_3.1/scripts/all.js"></script>
+<!--#include virtual="/wdn/templates_3.1/includes/browserspecifics_html5.html" -->
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>University of Nebraska&ndash;Lincoln</title>
 <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/plugins/serialScroll/jquery.serialScroll-1.2.2-min.js"></script> 
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/plugins/scrollTo/jquery.scrollTo-1.4.2-min.js"></script>       
+<script type="text/javascript" src="/wdn/templates_3.1/scripts/plugins/serialScroll/jquery.serialScroll-1.2.2-min.js"></script> 
+<script type="text/javascript" src="/wdn/templates_3.1/scripts/plugins/scrollTo/jquery.scrollTo-1.4.2-min.js"></script>       
 <script type="text/javascript">
 
 WDN.jQuery(function(){
@@ -40,11 +40,11 @@ WDN.jQuery(function(){
     	WDN.jQuery('.wdn_carousel').addClass('full');
     	forcePlay = true;
     });
-    WDN.jQuery.getScript('http://www.unl.edu/wdn/templates_3.0/scripts/mediaelement.js', 
+    WDN.jQuery.getScript('http://www.unl.edu/wdn/templates_3.1/scripts/mediaelement.js', 
     function(){
         WDN.jQuery('#bigTenVideo video').mediaelementplayer({
             features: ['playpause','progress','current','duration','tracks','volume'],
-            pluginPath: '/wdn/templates_3.0/scripts/',
+            pluginPath: '/wdn/templates_3.1/scripts/',
             success: function(mediaElement, domObject) {
             	if (forcePlay) {
             		mediaElement.play();
@@ -91,7 +91,7 @@ WDN.jQuery(function(){
     .nav_pinned #navigation > ul {margin-top:10px;}
 </style>
 <link rel="stylesheet" type="text/css" media="screen" href="external_content.css" />
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/content/mediaelement.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.1/css/content/mediaelement.css" />
 <!--[if IE 7]><style type="text/css">
 #maincontent .assert > ul {width:820px; margin-left:0px; float:right;}
 #maincontent .currentScroller {position:relative;}
@@ -103,9 +103,9 @@ WDN.jQuery(function(){
 <body class="html5 fixed">
 <p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
 <div id="wdn_wrapper">
-    <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+    <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.1/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
+        <!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
     </div>
     <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
@@ -351,14 +351,14 @@ WDN.jQuery(function(){
             </div>
             <!-- TemplateEndEditable -->
             <div class="clear"></div>
-            <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
+            <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
             <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
         </div>
 		<div id="footer">
         	
             <div id="footer_floater"></div>
 			<div class="footer_col">
-                <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
+                <!--#include virtual="/wdn/templates_3.1/includes/feedback.html" -->
             </div>
             <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
                 <!--#include virtual="relatedLinks.html" -->
@@ -367,14 +367,14 @@ WDN.jQuery(function(){
                 <!--#include virtual="../sharedcode/footerContactInfo.html" -->
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col">
-                <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+                <!--#include virtual="/wdn/templates_3.1/includes/socialmediashare.html" -->
             </div>
             <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
             <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
                 <!--#include virtual="../sharedcode/footer.html" -->
                 <!-- TemplateEndEditable -->
-                <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
-                | <a href="http://validator.w3.org/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a> <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
+                <!--#include virtual="/wdn/templates_3.1/includes/wdn.html" -->
+                | <a href="http://validator.w3.org/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a> <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.1/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
         </div>
     </div>
     <div id="wdn_wrapper_footer"> </div>

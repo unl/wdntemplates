@@ -8,19 +8,19 @@
             <td align="center" valign="top">
                 <table width="600" border="0" cellpadding="0" cellspacing="0">
                     <tr>
-                        <td rowspan="3" colspan="2" style="line-height:0;" width="22" background="http://www.unl.edu/wdn/templates_3.0/images/email/email2_07.gif" bgcolor="EEEEEE" valign="top">
-                            <img src="http://www.unl.edu/wdn/templates_3.0/images/email/email2_01.gif" width="22" height="95" alt="Left header slice" />
+                        <td rowspan="3" colspan="2" style="line-height:0;" width="22" background="http://www.unl.edu/wdn/templates_3.1/images/email/email2_07.gif" bgcolor="EEEEEE" valign="top">
+                            <img src="http://www.unl.edu/wdn/templates_3.1/images/email/email2_01.gif" width="22" height="95" alt="Left header slice" />
                         </td>
                         <td rowspan="2" valign="top" style="line-height:0;">
                             <a href="http://www.unl.edu/" style="outline:none;display:block">
-                                <img src="http://www.unl.edu/wdn/templates_3.0/images/email/email2_02.gif" width="67" height="70" alt="Red N" />
+                                <img src="http://www.unl.edu/wdn/templates_3.1/images/email/email2_02.gif" width="67" height="70" alt="Red N" />
                             </a>
                         </td>
                         <td valign="top" style="line-height:0;">
-                            <img src="http://www.unl.edu/wdn/templates_3.0/images/email/email2_03.gif" width="489" height="31" alt="University of Nebraska-Lincoln" />
+                            <img src="http://www.unl.edu/wdn/templates_3.1/images/email/email2_03.gif" width="489" height="31" alt="University of Nebraska-Lincoln" />
                         </td>
-                        <td rowspan="3" colspan="2" style="line-height:0;" width="22" background="http://www.unl.edu/wdn/templates_3.0/images/email/email2_09.gif" bgcolor="EEEEEE" valign="top">
-                            <img src="http://www.unl.edu/wdn/templates_3.0/images/email/email2_04.gif" width="22" height="95" alt="Right header slice" />
+                        <td rowspan="3" colspan="2" style="line-height:0;" width="22" background="http://www.unl.edu/wdn/templates_3.1/images/email/email2_09.gif" bgcolor="EEEEEE" valign="top">
+                            <img src="http://www.unl.edu/wdn/templates_3.1/images/email/email2_04.gif" width="22" height="95" alt="Right header slice" />
                         </td>
                     </tr>
                     <tr>
@@ -31,7 +31,7 @@
                     </tr>
                     <tr height="25">
                         <td colspan="2" style="line-height:0;" height="25">
-                            <img src="http://www.unl.edu/wdn/templates_3.0/images/email/email2_06.gif" width="556" height="25" alt="Red bar seperator" />
+                            <img src="http://www.unl.edu/wdn/templates_3.1/images/email/email2_06.gif" width="556" height="25" alt="Red bar seperator" />
                         </td>
                     </tr>
                     <tr>
@@ -54,7 +54,7 @@
                     </tr>
                     <tr bgcolor="EEEEEE">
                         <td colspan="6" valign="top" style="line-height:0;" width="600">
-                            <img src="http://www.unl.edu/wdn/templates_3.0/images/email/email3_10.gif" width="600" height="51" alt="N Seal" />
+                            <img src="http://www.unl.edu/wdn/templates_3.1/images/email/email3_10.gif" width="600" height="51" alt="N Seal" />
                         </td>
                     </tr>
                     <tr>
@@ -66,7 +66,7 @@
                                     </td>
                                     <td width="556" style="color:#606060;font-size:10px;line-height:1em;font-family:'Lucida Grande',Verdana,Arial;min-height:42px;">
                                         <p style="line-height:1.1em;">
-                                            <img src="http://www.unl.edu/wdn/templates_3.0/images/email/wordmark.png" alt="University of Nebraska&ndash;Lincoln" width="90" height="37" align="right" />
+                                            <img src="http://www.unl.edu/wdn/templates_3.1/images/email/wordmark.png" alt="University of Nebraska&ndash;Lincoln" width="90" height="37" align="right" />
                                             &copy; 2011 University of Nebraska&ndash;Lincoln <br />
                                             aadafadf
                                         </p>
@@ -80,7 +80,7 @@
                     </tr>
                     <tr>
                         <td colspan="6" style="line-height:0;" width="600">
-                            <img src="http://www.unl.edu/wdn/templates_3.0/images/email/email3_14.gif" width="600" height="12" alt="Very bottom of table" />
+                            <img src="http://www.unl.edu/wdn/templates_3.1/images/email/email3_14.gif" width="600" height="12" alt="Very bottom of table" />
                         </td>
                     </tr>
                 </table>
