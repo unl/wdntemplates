@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <link rel="home" href="http://www.unl.edu/" title="UNL" /> 
-<link rel="stylesheet" type="text/css" media="screen"   href="../wdn/templates_3.0/css/debug.css" />
-<link rel="stylesheet" type="text/css" media="print"    href="../wdn/templates_3.0/css/print.css" />
-<script type="text/javascript" src="../wdn/templates_3.0/scripts/debug.js"></script>
+<link rel="stylesheet" type="text/css" media="screen"   href="../wdn/templates_3.1/css/debug.css" />
+<link rel="stylesheet" type="text/css" media="print"    href="../wdn/templates_3.1/css/print.css" />
+<script type="text/javascript" src="../wdn/templates_3.1/scripts/debug.js"></script>
 <?php virtual("../sharedcode/localSiteLinks.html"); ?>
-<?php virtual("../wdn/templates_3.0/includes/browserspecifics.html"); ?>
-<?php virtual("../wdn/templates_3.0/includes/metanfavico.html"); ?>
+<?php virtual("../wdn/templates_3.1/includes/browserspecifics.html"); ?>
+<?php virtual("../wdn/templates_3.1/includes/metanfavico.html"); ?>
 <title>UNL | Template</title>
 <link rel="stylesheet" type="text/css" media="screen"   href="nav_tests.css" />
 </head>
@@ -16,9 +16,9 @@
 Navigation</a></p>
 <div id="wdn_wrapper">
     <div id="header">
-        <a href="http://www.unl.edu/" title="UNL website"><img src="../wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+        <a href="http://www.unl.edu/" title="UNL website"><img src="../wdn/templates_3.1/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <?php virtual("../wdn/templates_3.0/includes/wdnTools.html"); ?>
+        <?php virtual("../wdn/templates_3.1/includes/wdnTools.html"); ?>
         <div id="wdn_identity_management"></div>
      </div>
     <div id="wdn_navigation_bar">
@@ -60,12 +60,12 @@ Navigation</a></p>
             </p>
             </noscript> 
         <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-           <?php virtual("../wdn/templates_3.0/includes/noscript.html"); ?>
+           <?php virtual("../wdn/templates_3.1/includes/noscript.html"); ?>
         </div> <!-- end of maincontent -->        
         <div id="footer">
             <div id="footer_floater"></div>
             <div class="footer_col" id="footer_feedback">
-                <?php virtual("../wdn/templates_3.0/includes/feedback.html"); ?>
+                <?php virtual("../wdn/templates_3.1/includes/feedback.html"); ?>
             </div>
             <div class="footer_col">
                 <?php virtual("../sharedcode/relatedLinks.html"); ?>
@@ -74,13 +74,13 @@ Navigation</a></p>
                 <?php virtual("../sharedcode/footerContactInfo.html"); ?>
             </div>
             <div class="footer_col">
-                <?php virtual("../wdn/templates_3.0/includes/socialmediashare.html"); ?>
+                <?php virtual("../wdn/templates_3.1/includes/socialmediashare.html"); ?>
             </div>                   
             <div id="wdn_copyright">
                 <?php virtual("../sharedcode/footer.html"); ?>                               
-                <?php virtual("../wdn/templates_3.0/includes/wdn.html"); ?>
+                <?php virtual("../wdn/templates_3.1/includes/wdn.html"); ?>
                 | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
-                <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="../wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a>
+                <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="../wdn/templates_3.1/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a>
             </div>
         </div>    
     </div>

@@ -47,7 +47,7 @@ EOD;
      *
      * @var string
      */
-    protected $_templateDir = 'wdn/templates_3.0/';
+    protected $_templateDir = 'wdn/templates_3.1/';
 
     /**
      * The URI to the loaded javascript template files

@@ -7,7 +7,7 @@
 <!--[if !(IEMobile)|!(IE)]><!--><html lang="en"><!--<![endif]-->
 <!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<!--#include virtual="/wdn/templates_3.0/includes/metanfavico.html" -->
+<!--#include virtual="/wdn/templates_3.1/includes/metanfavico.html" -->
 <!--
     Membership and regular participation in the UNL Web Developer Network
     is required to use the UNL templates. Visit the WDN site at
@@ -22,7 +22,7 @@
 
     $Id$
 -->
-<!--#include virtual="/wdn/templates_3.0/includes/scriptsandstyles.html" -->
+<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>The WDN Document Template | WDN Testing Page | University of Nebraska&ndash;Lincoln</title>
 <!-- InstanceEndEditable -->
@@ -53,8 +53,8 @@
             <!-- InstanceBeginEditable name="titlegraphic" -->
             <span id="wdn_site_title">College of Agricultural Sciences &amp; Natural Resources <span>A division of the College of Arts &amp; Sciences</span></span>
             <!-- InstanceEndEditable -->
-            <!--#include virtual="/wdn/templates_3.0/includes/idm.html" -->
-            <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
+            <!--#include virtual="/wdn/templates_3.1/includes/idm.html" -->
+            <!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
         </header>
         <div id="wdn_navigation_bar">
             <nav id="breadcrumbs">
@@ -134,14 +134,14 @@
                   <div class="grid4"> 4 </div>
                   <!-- InstanceEndEditable -->
                 <div class="clear"></div>
-                <!--#include virtual="/wdn/templates_3.0/includes/noscript.html" -->
+                <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
         </div>
         <footer id="footer">
             <div id="footer_floater"></div>
             <div class="footer_col" id="wdn_footer_feedback">
-                <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
+                <!--#include virtual="/wdn/templates_3.1/includes/feedback.html" -->
             </div>
             <div class="footer_col" id="wdn_footer_related">
                 <!-- InstanceBeginEditable name="leftcollinks" -->
@@ -152,7 +152,7 @@
                 <!--#include virtual="sharedcode/footerContactInfo.html" -->
                 <!-- InstanceEndEditable --></div>
             <div class="footer_col" id="wdn_footer_share">
-                <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+                <!--#include virtual="/wdn/templates_3.1/includes/socialmediashare.html" -->
             </div>
             <!-- InstanceBeginEditable name="optionalfooter" -->
             <!-- InstanceEndEditable -->
@@ -161,9 +161,9 @@
                     <!-- InstanceBeginEditable name="footercontent" -->
                     <!--#include virtual="sharedcode/footer.html" -->
                     <!-- InstanceEndEditable -->
-                    <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
+                    <!--#include virtual="/wdn/templates_3.1/includes/wdn.html" -->
                 </div>
-                <!--#include virtual="/wdn/templates_3.0/includes/logos.html" -->
+                <!--#include virtual="/wdn/templates_3.1/includes/logos.html" -->
             </div>
         </footer>
     </div>
