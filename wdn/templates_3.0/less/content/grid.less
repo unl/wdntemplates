@@ -31,6 +31,11 @@
             float: left;
             display: inline;
         }
+        .grid12 {
+            width: 100% !important;
+            clear: left !important;
+            margin-left: 0 !important;
+        }
         
         *[class^="grid"]:nth-of-type(odd) {
             margin-left: 0;
@@ -91,6 +96,7 @@
         .grid9 { .theWidth(9); }
         .grid10 { .theWidth(10); }
         .grid11 { .theWidth(11); }
+        .grid12 { width:100%; }
         
         //clear out rule from 480
         *[class^="grid"]:nth-of-type(odd) {
@@ -205,6 +211,7 @@
         .grid9 { .theWidth(9); }
         .grid10 { .theWidth(10); }
         .grid11 { .theWidth(11); }
+        .grid12 { width:960px;}
         
         //clear out rule from 480
         *[class^="grid"]:nth-of-type(odd) {
