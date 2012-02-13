@@ -63,7 +63,6 @@ WDN.unlalert = (function() {
 
 		initialize: function() {
 			WDN.log('Initializing the UNL Alert Plugin');
-			WDN.loadCSS(WDN.getTemplateFilePath('css/header/unlalert.css'));
 			_browserCompat();
 			WDN.unlalert.checkIfCallNeeded();
 		},
@@ -148,6 +147,8 @@ WDN.unlalert = (function() {
 
 				// Add a div to store the html content
 				if ($alertWrapper == null) {
+					WDN.loadCSS(WDN.getTemplateFilePath('css/header/unlalert.css'));
+					
 					$alertWrapper = document.createElement('div');
 					$alertWrapper.id = 'unlalert';
 					// Position off the screen, will be corrected by incoming css file, avoids flash of unstyled content
@@ -174,7 +175,7 @@ WDN.unlalert = (function() {
 
 				var alertContentHTML = '<h1><span>Emergency UNL Alert:</span> ' + root[i].headline + '</h1>';
 				if (effectiveDate) {
-					alertContentHTML += '<h4 class="effectiveDate">Issued at ' + effectiveDate + '</h4>';
+					alertContentHTML += '<h4>Issued at ' + effectiveDate + '</h4>';
 				}
 				alertContentHTML += '<p>' + root[i].description + ' ' + root[i].instruction + ' <!-- ID '+uniqueID+' -->';
 				alertContentHTML += 'Additional info (if available) at <a href="' + web + '">' + web + '</a></p>';
@@ -208,7 +209,7 @@ WDN.unlalert = (function() {
 						return !$alertToggle.dispatchEvent(evt);
 					} else {// IE
 						var evt = document.createEventObject();
-						return $alertToggle.fireEvent('onclick', evt)
+						return $alertToggle.fireEvent('onclick', evt);
 					}
 				}
 			}
