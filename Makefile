@@ -9,16 +9,16 @@ COMPRESS = php build/compress.php ${COMPRESS_FLAGS} ${JS_COMPILER}
 GIT = git
 JAVA = java
 
-JS_PLUGIN = wdn/templates_3.0/scripts/plugins/validator/jquery.validator.min.js
-JS_SRC = wdn/templates_3.0/scripts/plugins/validator/jquery.validator.js
+JS_PLUGIN = wdn/templates_3.1/scripts/plugins/validator/jquery.validator.min.js
+JS_SRC = wdn/templates_3.1/scripts/plugins/validator/jquery.validator.js
 
 all:
 	@@echo "Compressing Desktop and Mobile CSS and JS"
 	${COMPRESS}
 	@@echo "Done"
 	@@echo "Running git status"
-	${GIT} status wdn/templates_3.0
-	@@echo "Any modified files are ready to be committed with git commit wdn/templates_3.0"
+	${GIT} status wdn/templates_3.1
+	@@echo "Any modified files are ready to be committed with git commit wdn/templates_3.1"
 	@@echo "Commit compressed files, then run \`make zips\` to update .zip files."
 
 clean:

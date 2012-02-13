@@ -6,8 +6,8 @@
 
 WDN.jQuery(document).ready(function(){
     WDN.initializePlugin('zenform');
-    WDN.loadCSS('/wdn/templates_3.0/css/content/formvalidator.css');
-    WDN.loadJS('/wdn/templates_3.0/scripts/plugins/validator/jquery.validator.js', function() {
+    WDN.loadCSS('/wdn/templates_3.1/css/content/formvalidator.css');
+    WDN.loadJS('/wdn/templates_3.1/scripts/plugins/validator/jquery.validator.js', function() {
         WDN.jQuery.validation.addMethod('validate-confirm-email', 'This field must match the value of the email field.', {equalToField:'#email'});
     	WDN.jQuery('form.zenform').validation();
     });
