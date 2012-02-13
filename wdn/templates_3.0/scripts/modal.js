@@ -2,7 +2,7 @@ WDN.modal = (function() {
     return {
         initialize : function(callback) {
             WDN.log("initialize modal");
-            WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/colorbox/jquery.colorbox.js'), callback);
+            WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/colorbox/jquery.colorbox-min.js'), callback);
             WDN.modal.setup();
         },
         
