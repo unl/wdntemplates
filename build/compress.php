@@ -58,7 +58,7 @@ EOD;
 
     /**
      * JavaScript files for the templates orginized into arrays for
-     * mobile and desktop
+     * mobile and desktop. Names ending in .min will not be further compressed
      *
      * @var array
      */
@@ -73,7 +73,11 @@ EOD;
             'mobile_support',
         ),
         '768' => array(
-            'jquery',
+            // Not further compressed, prepended to below
+            'jquery.min',
+            'plugins/hoverIntent/jQuery.hoverIntent.min',
+            'plugins/qtip/jquery.qtip.min',
+            // Compressed and merged
             'wdn_ajax',
             'global_functions',
             'analytics',
@@ -85,8 +89,6 @@ EOD;
             'tooltip',
             'toolbar',
             'tabs',
-            'plugins/hoverIntent/jQuery.hoverIntent',
-            'plugins/qtip/jquery.qtip',
         )
     );
 
@@ -410,20 +412,27 @@ EOD;
     {
         // Check if we need a new compression
         if ($this->_checkMtime("{$outDir}/{$outFile}", $inDir, $files, 'js', 'javascript')) {
+            $min = '';
             $all = '';
 
             foreach ($files as $file) {
+                if (substr($file, -4) == '.min') {
+                    $set = 'min';
+                } else {
+                    $set = 'all';
+                }
+
                 $filename = "{$inDir}/{$file}.js";
-                $all .= file_get_contents($filename);
+                $$set .= file_get_contents($filename) . PHP_EOL;
 
                 if ($file == 'wdn') {
-                    $all .= 'WDN.template_path = "' . $this->_templatePath . '";' . PHP_EOL;
+                    $$set .= 'WDN.template_path = "' . $this->_templatePath . '";' . PHP_EOL;
                 } else {
-                    if ($file == 'jquery') {
-                        $all .= PHP_EOL . 'WDN.jQuery = jQuery.noConflict(true);';
+                    if ($file == 'jquery.min' || $file == 'jquery') {
+                        $$set .= 'WDN.jQuery = jQuery.noConflict(true);';
                     }
 
-                    $all .= 'WDN.loadedJS["' . $this->_templatePath . $this->_templateDir .
+                    $$set .= 'WDN.loadedJS["' . $this->_templatePath . $this->_templateDir .
                         $this->_buildTargets['js']['in'] . '/' . $file . '.js"]=1;' . PHP_EOL;
                 }
             }
@@ -450,8 +459,8 @@ EOD;
                 return false;
             }
 
-            $all = $this->_wdnHeader . file_get_contents("{$outDir}/{$outFile}");
-            file_put_contents("{$outDir}/{$outFile}", $all);
+            $output = $min . $this->_wdnHeader . file_get_contents("{$outDir}/{$outFile}");
+            file_put_contents("{$outDir}/{$outFile}", $output);
         }
 
         return true;
