@@ -79,6 +79,7 @@ foreach (array('maincontentarea','head', 'doctitle') as $key) {
 	$p->$key = str_replace(array('//<![CDATA[', '//]]>'), ' ', removeRelativePaths($p->$key, $_GET['u']));
 }
 
+$p->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span id="wdn_site_title">', '</span>'), $p->titlegraphic);
 
 echo ''.PHP_EOL;
 ?>
