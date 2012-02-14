@@ -15,12 +15,12 @@
     
     $Id$
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
-<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.1/css/all.css" />
+<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.1/css/print.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="../sharedcode/affiliate.css" />
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
-<jsp:include page="/wdn/templates_3.0/includes/browserspecifics.html" />
-<jsp:include page="/wdn/templates_3.0/includes/metanfavico.html" />
+<script type="text/javascript" src="/wdn/templates_3.1/scripts/all.js"></script>
+<jsp:include page="/wdn/templates_3.1/includes/browserspecifics.html" />
+<jsp:include page="/wdn/templates_3.1/includes/metanfavico.html" />
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>UNL | Department | New Page</title>
 <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" -->
@@ -37,7 +37,7 @@
     	<h1>Through the Eyes of the Child Initiative</h1>
 		<div id='tag_line'>A Nebraska Supreme Court Initiative</div>
 		<!-- TemplateEndEditable -->
-		<jsp:include page="/wdn/templates_3.0/includes/wdnTools.html" />
+		<jsp:include page="/wdn/templates_3.1/includes/wdnTools.html" />
     </div>
     <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
@@ -67,13 +67,13 @@
                 <a href="http://validator.unl.edu/check/referer">Check this page</a> </p>
             <!-- TemplateEndEditable -->
             <div class="clear"></div>
-            <jsp:include page="/wdn/templates_3.0/includes/noscript.html" />
+            <jsp:include page="/wdn/templates_3.1/includes/noscript.html" />
             <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
         </div>
         <div id="footer">
             <div id="footer_floater"></div>
             <div class="footer_col">
-                <jsp:include page="/wdn/templates_3.0/includes/feedback.html" />
+                <jsp:include page="/wdn/templates_3.1/includes/feedback.html" />
             </div>
             <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
                 <%@ include file="../sharedcode/relatedLinks.html" %>
@@ -82,13 +82,13 @@
                 <%@ include file="../sharedcode/footerContactInfo.html" %>
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col">
-                <jsp:include page="/wdn/templates_3.0/includes/socialmediashare.html" />
+                <jsp:include page="/wdn/templates_3.1/includes/socialmediashare.html" />
             </div>
             <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
             <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
                 <%@ include file="../sharedcode/footer.html" %>
                 <!-- TemplateEndEditable -->
-                <jsp:include page="/wdn/templates_3.0/includes/wdn.html" />
+                <jsp:include page="/wdn/templates_3.1/includes/wdn.html" />
             </div>
         </div>
     </div>

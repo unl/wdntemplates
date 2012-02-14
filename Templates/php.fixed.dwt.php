@@ -15,11 +15,11 @@
     
     $Id$
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
-<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
-<script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
-<?php virtual('/wdn/templates_3.0/includes/browserspecifics.html'); ?>
-<?php virtual('/wdn/templates_3.0/includes/metanfavico.html'); ?>
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.1/css/all.css" />
+<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.1/css/print.css" />
+<script type="text/javascript" src="/wdn/templates_3.1/scripts/all.js"></script>
+<?php virtual('/wdn/templates_3.1/includes/browserspecifics.html'); ?>
+<?php virtual('/wdn/templates_3.1/includes/metanfavico.html'); ?>
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>UNL | Department | New Page</title>
 <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" -->
@@ -29,9 +29,9 @@
 <body class="fixed">
 <p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
 <div id="wdn_wrapper">
-    <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+    <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.1/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <?php virtual('/wdn/templates_3.0/includes/wdnTools.html'); ?>
+        <?php virtual('/wdn/templates_3.1/includes/wdnTools.html'); ?>
     </div>
     <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
@@ -61,13 +61,13 @@
                 <a href="http://validator.unl.edu/check/referer">Check this page</a> </p>
             <!-- TemplateEndEditable -->
             <div class="clear"></div>
-            <?php virtual('/wdn/templates_3.0/includes/noscript.html'); ?>
+            <?php virtual('/wdn/templates_3.1/includes/noscript.html'); ?>
             <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
         </div>
         <div id="footer">
             <div id="footer_floater"></div>
             <div class="footer_col">
-                <?php virtual('/wdn/templates_3.0/includes/feedback.html'); ?>
+                <?php virtual('/wdn/templates_3.1/includes/feedback.html'); ?>
             </div>
             <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
                 <?php include '../sharedcode/relatedLinks.html'; ?>
@@ -76,13 +76,13 @@
                 <?php include '../sharedcode/footerContactInfo.html'; ?>
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col">
-                <?php virtual('/wdn/templates_3.0/includes/socialmediashare.html'); ?>
+                <?php virtual('/wdn/templates_3.1/includes/socialmediashare.html'); ?>
             </div>
             <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
             <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
                 <?php include '../sharedcode/footer.html'; ?>
                 <!-- TemplateEndEditable -->
-                <?php virtual('/wdn/templates_3.0/includes/wdn.html'); ?>
+                <?php virtual('/wdn/templates_3.1/includes/wdn.html'); ?>
             </div>
         </div>
     </div>

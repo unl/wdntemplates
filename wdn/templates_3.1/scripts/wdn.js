@@ -38,7 +38,7 @@ var WDN = (function() {
 		/**
 		 * This variable stores the path to the template dependents
 		 */
-		dependent_path: 'wdn/templates_3.0/',
+		dependent_path: 'wdn/templates_3.1/',
 		
 		getTemplateFilePath: function(file, withTemplatePath) {
 			file = '' + file;
