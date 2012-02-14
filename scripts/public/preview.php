@@ -85,7 +85,7 @@ foreach (array('maincontentarea','head', 'doctitle') as $key) {
 echo ''.PHP_EOL;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><!-- InstanceBegin template="/Templates/php.fixed.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
 <!--
     Membership and regular participation in the UNL Web Developer Network
@@ -99,13 +99,13 @@ echo ''.PHP_EOL;
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: fixed.dwt 414 2009-07-09 21:05:52Z bbieber2 $
+    $Id$
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.1/css/debug.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.1/css/all.css" />
 <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.1/css/print.css" />
-<script type="text/javascript" src="/wdn/templates_3.1/scripts/debug.js"></script>
-<?php include 'wdn/templates_3.1/includes/browserspecifics.html'; ?>
-<?php include 'wdn/templates_3.1/includes/metanfavico.html'; ?>
+<script type="text/javascript" src="/wdn/templates_3.1/scripts/all.js"></script>
+<?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/browserspecifics.html'; ?>
+<?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/metanfavico.html'; ?>
 <!-- InstanceBeginEditable name="doctitle" -->
 <?php echo $p->doctitle; ?>
 
@@ -119,14 +119,14 @@ echo ''.PHP_EOL;
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.1/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <?php include_once 'wdn/templates_3.1/includes/wdnTools.html'; ?>
+        <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/wdnTools.html'; ?>
     </div>
     <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
             <!-- WDN: see glossary item 'breadcrumbs' -->
             <!-- InstanceBeginEditable name="breadcrumbs" -->
             <?php echo (isset($p->breadcrumbs))?$p->breadcrumbs:''; ?>
-        <!-- InstanceEndEditable --></div>
+            <!-- InstanceEndEditable --></div>
         <div id="wdn_navigation_wrapper">
             <div id="navigation"><!-- InstanceBeginEditable name="navlinks" -->
                 <?php echo (isset($p->navlinks))?$p->navlinks:''; ?>
@@ -137,39 +137,36 @@ echo ''.PHP_EOL;
         <div id="titlegraphic"><!-- InstanceBeginEditable name="titlegraphic" -->
             <?php echo $p->titlegraphic; ?>
             <!-- InstanceEndEditable --></div>
-        <div id="pagetitle"><!-- InstanceBeginEditable name="pagetitle" --><?php echo (isset($p->pagetitle))?$p->pagetitle:''; ?><!-- InstanceEndEditable --></div>
+        <div id="pagetitle"><!-- InstanceBeginEditable name="pagetitle" --> <!-- InstanceEndEditable --></div>
         <div id="maincontent">
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             <!-- InstanceBeginEditable name="maincontentarea" -->
             <?php echo $p->maincontentarea; ?>
             <!-- InstanceEndEditable -->
             <div class="clear"></div>
-            <?php include 'wdn/templates_3.1/includes/noscript.html'; ?>
+            <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/noscript.html'; ?>
             <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
         </div>
         <div id="footer">
             <div id="footer_floater"></div>
             <div class="footer_col">
-                <?php include 'wdn/templates_3.1/includes/feedback.html'; ?>
+                <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/feedback.html'; ?>
             </div>
             <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
-            <?php echo (isset($p->leftcollinks))?$p->leftcollinks:''; ?>
-            <!-- InstanceEndEditable --></div>
+                <?php echo (isset($p->leftcollinks))?$p->leftcollinks:''; ?>
+                <!-- InstanceEndEditable --></div>
             <div class="footer_col"><!-- InstanceBeginEditable name="contactinfo" -->
                 <?php echo (isset($p->contactinfo))?$p->contactinfo:''; ?>
-            <!-- InstanceEndEditable --></div>
+                <!-- InstanceEndEditable --></div>
             <div class="footer_col">
-                <?php include 'wdn/templates_3.1/includes/socialmediashare.html'; ?>
+                <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/socialmediashare.html'; ?>
             </div>
+            <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
             <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
                 <?php echo (isset($p->footercontent))?$p->footercontent:''; ?>
                 <!-- InstanceEndEditable -->
-                <ul>
-                    <li><a href="http://validator.unl.edu/check/referer">W3C</a></li>
-                    <li><a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a></li>
-                </ul>
-                <?php include 'wdn/templates_3.1/includes/wdn.html'; ?>
-                <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.1/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
+                <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/wdn.html'; ?>
+            </div>
         </div>
     </div>
     <div id="wdn_wrapper_footer"> </div>
