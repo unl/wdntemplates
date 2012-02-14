@@ -76,7 +76,7 @@ function removeRelativePaths($html, $base_url)
 }
 
 foreach (array('maincontentarea','head', 'doctitle') as $key) {
-	$p->$key = str_replace(array('//<![CDATA[', '//]]>'), ' ', removeRelativePaths($p->$key, $_GET['u']));
+	$p->$key = str_replace(array('//<![CDATA[', '//]]>', '<!--//--><![CDATA[', '//><!--', '// <![CDATA[', '// ]]>'), PHP_EOL, removeRelativePaths($p->$key, $_GET['u']));
 }
 
 $p->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span id="wdn_site_title">', '</span>'), $p->titlegraphic);
@@ -107,6 +107,9 @@ echo ''.PHP_EOL;
     $Id$
 -->
 <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/scriptsandstyles.html'; ?>
+<script type="text/javascript">
+WDN.template_path = 'http://ucommbieber.unl.edu/';
+</script>
 <!-- InstanceBeginEditable name="doctitle" -->
 <?php echo $p->doctitle; ?>
 <!-- InstanceEndEditable -->
