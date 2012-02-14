@@ -4,7 +4,7 @@ if (empty($_GET['u'])) {
 	throwError();
 }
 
-if (!filter_var($_GET['u'], FILTER_VALIDATE_URL)) {
+if (!filter_var($_GET['u'], FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)) {
 	throwError();
 }
 
