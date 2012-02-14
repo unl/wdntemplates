@@ -38,7 +38,7 @@ if (empty($_GET['c'])) {
 
 header('Content-type: text/javascript');
 ?>
-unlAlerts.data = <?php echo json_encode($data) ?>;
+unlAlerts.data = <?php echo json_encode($data); echo "\n"; ?>
 try {
     unlAlerts.server.init();
 } catch (e) {}

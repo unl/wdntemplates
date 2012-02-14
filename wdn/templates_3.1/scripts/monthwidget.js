@@ -38,7 +38,7 @@ WDN.monthwidget = function() {
 		display : function(data) {
 			var $container = WDN.jQuery(this.container);
 			$container.hide().html(data);
-			WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/hoverIntent/jQuery.hoverIntent.js'), function() {
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/hoverIntent/jQuery.hoverIntent.min.js'), function() {
 				var now = new Date(), today = now.getDate();
 				var month = WDN.jQuery('span.monthvalue a', $container).attr('href');
 				month = month.substr(month.length - 3, 2);

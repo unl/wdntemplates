@@ -1,0 +1,67 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/header/header.less
+*
+* ---------------------------
+* Styles associated with the document header
+* ---------------------------
+*/
+@import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
+
+@dir: '../';
+
+#unlalert {
+    // Avoid flash of unstyled content, JS initially positions this off screen
+    position: static !important;
+    top: auto !important;
+}
+
+#unlalert_content {
+    display: none;
+    background: #F25F19;
+    color: white;
+    width: 100%;
+    padding-bottom: 5px;
+    box-shadow: 0 1px 5px #AAAAAA;
+    
+    > * {
+        padding-left: 50px;
+    }
+    h1 span {
+        color: #752E0D
+    }
+    a {
+        color: #FFFFFF;
+    }
+    p {
+        font-size: .85em;
+    }
+}
+
+#unlalert_toggle {
+    z-index: 2;
+    color: #FFFFFF;
+    display: block;
+    position: absolute;
+    left: 5px;
+    box-shadow: 0 1px 5px #AAAAAA;
+    line-height: 0;
+    padding: 10px 6px 14px;
+    cursor: pointer;
+
+    top: 0;
+    font-size: 1em;
+    background-color: #F25F19;
+    border-width: 0;
+    border-radius: 0 0 6px 6px;
+    
+    &.close {
+        top: 3px;
+        font-size: 1.2em;
+        background-color: #000000;
+        border: 2px solid #FFFFFF;
+        border-radius: 20px;
+    }
+}

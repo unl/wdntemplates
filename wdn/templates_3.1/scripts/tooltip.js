@@ -5,7 +5,6 @@ WDN.tooltip = (function($) {
 			WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/qtip/jquery.qtip.js'), WDN.tooltip.tooltipSetup);
 		},
 		tooltipSetup : function() {
-			WDN.loadCSS(WDN.getTemplateFilePath('css/header/tooltip.css'));
 			// Tooltips can only be used in the appropriate sections, and must have the correct class name and a title attribute
 			WDN.tooltip.addTooltips($('#wdn_tool_links .tooltip[title], #maincontent .tooltip[title], #footer .tooltip[title]'));
 		},
