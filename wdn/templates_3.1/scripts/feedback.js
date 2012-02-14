@@ -20,9 +20,6 @@ WDN.feedback = function() {
 			    		}
 			    );
 			});
-			try {
-				WDN.jQuery('#wdn_feedback').rating();
-			} catch (e) {}
 		},
 		commentSetup : function() {
 			if (WDN.hasDocumentClass('no-inputplaceholder')) {
