@@ -28,6 +28,9 @@ function throwError($message = null)
 	}
 	exit();
 }
+
+set_include_path('phar://' . __DIR__ . '/UNL_Templates-1.2.0.phar/UNL_Templates-1.2.0/'.PATH_SEPARATOR.'phar://' . __DIR__ . '/UNL_Templates-1.2.0.phar/UNL_Templates-1.2.0/php');
+
 require_once 'UNL/Templates.php';
 require_once 'UNL/Templates/Scanner.php';
 
@@ -79,9 +82,15 @@ foreach (array('maincontentarea','head', 'doctitle') as $key) {
 
 echo ''.PHP_EOL;
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><!-- InstanceBegin template="/Templates/php.fixed.dwt.php" codeOutsideHTMLIsLocked="false" -->
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="ie iem7"><![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
+<!--[if !(IEMobile)|!(IE)]><!--><html lang="en"><!--<![endif]-->
 <head>
+<!--#include virtual="/wdn/templates_3.1/includes/metanfavico.html" -->
 <!--
     Membership and regular participation in the UNL Web Developer Network
     is required to use the UNL templates. Visit the WDN site at 
@@ -96,75 +105,91 @@ echo ''.PHP_EOL;
     
     $Id$
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.1/css/all.css" />
-<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.1/css/print.css" />
-<script type="text/javascript" src="/wdn/templates_3.1/scripts/all.js"></script>
-<?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/browserspecifics.html'; ?>
-<?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/metanfavico.html'; ?>
+<?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/scriptsandstyles.html'; ?>
 <!-- InstanceBeginEditable name="doctitle" -->
 <?php echo $p->doctitle; ?>
-
-<!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <?php echo $p->head; ?>
 <!-- InstanceEndEditable -->
+<!-- InstanceParam name="class" type="text" value="fixed" -->
 </head>
 <body class="fixed">
-<p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
-<div id="wdn_wrapper">
-    <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.1/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
-        <h1>University of Nebraska&ndash;Lincoln</h1>
-        <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/wdnTools.html'; ?>
-    </div>
-    <div id="wdn_navigation_bar">
-        <div id="breadcrumbs">
-            <!-- WDN: see glossary item 'breadcrumbs' -->
-            <!-- InstanceBeginEditable name="breadcrumbs" -->
-            <?php echo (isset($p->breadcrumbs))?$p->breadcrumbs:''; ?>
-            <!-- InstanceEndEditable --></div>
-        <div id="wdn_navigation_wrapper">
-            <div id="navigation"><!-- InstanceBeginEditable name="navlinks" -->
-                <?php echo (isset($p->navlinks))?$p->navlinks:''; ?>
-                <!-- InstanceEndEditable --></div>
-        </div>
-    </div>
-    <div id="wdn_content_wrapper">
-        <div id="titlegraphic"><!-- InstanceBeginEditable name="titlegraphic" -->
+    <nav class="skipnav">
+        <a class="skipnav" href="#maincontent">Skip Navigation</a>
+    </nav>
+    <div id="wdn_wrapper">
+        <header id="header" role="banner">
+            <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
+            <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
+            <!-- InstanceBeginEditable name="titlegraphic" -->
             <?php echo $p->titlegraphic; ?>
-            <!-- InstanceEndEditable --></div>
-        <div id="pagetitle"><!-- InstanceBeginEditable name="pagetitle" --> <!-- InstanceEndEditable --></div>
-        <div id="maincontent">
-            <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-            <!-- InstanceBeginEditable name="maincontentarea" -->
-            <?php echo $p->maincontentarea; ?>
             <!-- InstanceEndEditable -->
-            <div class="clear"></div>
-            <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/noscript.html'; ?>
-            <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+            <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/idm.html'; ?>
+            <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/wdnTools.html'; ?>
+        </header>
+        <div id="wdn_navigation_bar">
+            <nav id="breadcrumbs">
+                <!-- WDN: see glossary item 'breadcrumbs' -->
+                <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
+                <!-- InstanceBeginEditable name="breadcrumbs" -->
+                <?php echo (isset($p->breadcrumbs))?$p->breadcrumbs:''; ?>
+                <!-- InstanceEndEditable -->
+            </nav>
+            <div id="wdn_navigation_wrapper">
+                <nav id="navigation" role="navigation">
+                    <h3 class="wdn_list_descriptor hidden">Navigation</h3>
+                    <!-- InstanceBeginEditable name="navlinks" -->
+                    <?php echo (isset($p->navlinks))?$p->navlinks:''; ?>
+                    <!-- InstanceEndEditable -->
+                </nav>
+            </div>
         </div>
-        <div id="footer">
+        <div id="wdn_content_wrapper">
+            <div id="pagetitle">
+                <!-- InstanceBeginEditable name="pagetitle" -->
+                <?php echo $p->pagetitle; ?>
+                <!-- InstanceEndEditable -->
+            </div>
+            <div id="maincontent" role="main">
+                <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+                <!-- InstanceBeginEditable name="maincontentarea" -->
+                  <?php echo $p->maincontentarea; ?>
+                  <!-- InstanceEndEditable -->
+                <div class="clear"></div>
+                <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/noscript.html'; ?>
+                <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+            </div>
+        </div>
+        <footer id="footer">
             <div id="footer_floater"></div>
-            <div class="footer_col">
+            <div class="footer_col" id="wdn_footer_feedback">
                 <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/feedback.html'; ?>
             </div>
-            <div class="footer_col"><!-- InstanceBeginEditable name="leftcollinks" -->
+            <div class="footer_col" id="wdn_footer_related">
+                <!-- InstanceBeginEditable name="leftcollinks" -->
                 <?php echo (isset($p->leftcollinks))?$p->leftcollinks:''; ?>
                 <!-- InstanceEndEditable --></div>
-            <div class="footer_col"><!-- InstanceBeginEditable name="contactinfo" -->
+            <div class="footer_col" id="wdn_footer_contact">
+                <!-- InstanceBeginEditable name="contactinfo" -->
                 <?php echo (isset($p->contactinfo))?$p->contactinfo:''; ?>
                 <!-- InstanceEndEditable --></div>
-            <div class="footer_col">
+            <div class="footer_col" id="wdn_footer_share">
                 <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/socialmediashare.html'; ?>
             </div>
-            <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
-            <div id="wdn_copyright"><!-- InstanceBeginEditable name="footercontent" -->
-                <?php echo (isset($p->footercontent))?$p->footercontent:''; ?>
-                <!-- InstanceEndEditable -->
-                <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/wdn.html'; ?>
+            <!-- InstanceBeginEditable name="optionalfooter" -->
+            <!-- InstanceEndEditable -->
+            <div id="wdn_copyright">
+                <div>
+                    <!-- InstanceBeginEditable name="footercontent" -->
+                    <?php echo (isset($p->footercontent))?$p->footercontent:''; ?>
+                    <!-- InstanceEndEditable -->
+                    <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/wdn.html'; ?>
+                </div>
+                <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/logos.html'; ?>
             </div>
-        </div>
+        </footer>
     </div>
-    <div id="wdn_wrapper_footer"> </div>
-</div>
 </body>
 <!-- InstanceEnd --></html>
