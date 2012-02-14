@@ -4,12 +4,7 @@ if (empty($_GET['u'])) {
 	throwError();
 }
 
-/**
- * @todo just gimme a regular expression someone.
- */
-require_once 'Validate.php';
-$v = new Validate();
-if (!$v->uri($_GET['u'], array('allowed_schemes' => array('http', 'https')))) {
+if (!filter_var($_GET['u'], FILTER_VALIDATE_URL)) {
 	throwError();
 }
 
