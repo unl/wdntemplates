@@ -244,7 +244,7 @@ var WDN = (function() {
 		 * @param callback Called when the document is ready
 		 */
 		loadJQuery: function (callback) {
-			WDN.loadJS(WDN.getTemplateFilePath('scripts/jquery.js'), function(){
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/jquery.min.js'), function() {
 				if (!WDN.jQuery) {
 					WDN.jQuery = jQuery.noConflict(true);
 				}

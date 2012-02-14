@@ -426,10 +426,10 @@ EOD;
                 $$set .= file_get_contents($filename) . PHP_EOL;
 
                 if ($file == 'wdn') {
-                    $$set .= 'WDN.template_path = "' . $this->_templatePath . '";' . PHP_EOL;
+                    $$set .= 'WDN.template_path="' . $this->_templatePath . '";' . PHP_EOL;
                 } else {
-                    if ($file == 'jquery.min' || $file == 'jquery') {
-                        $$set .= 'WDN.jQuery = jQuery.noConflict(true);';
+                    if ($file == 'jquery.min') {
+                        $$set .= 'WDN.jQuery=jQuery.noConflict(true);';
                     }
 
                     $$set .= 'WDN.loadedJS["' . $this->_templatePath . $this->_templateDir .

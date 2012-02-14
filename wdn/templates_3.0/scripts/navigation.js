@@ -99,7 +99,7 @@ WDN.navigation = (function() {
 
             WDN.navigation.initializePreferredState();
             
-            WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/hoverIntent/jQuery.hoverIntent.js'), function() {
+            WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/hoverIntent/jQuery.hoverIntent.min.js'), function() {
                 WDN.jQuery('#breadcrumbs ul li a').hoverIntent({
                     over:        WDN.navigation.switchSiteNavigation,
                     out:         function(){},
@@ -390,7 +390,7 @@ WDN.navigation = (function() {
                 );
             }
 
-            WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/hoverIntent/jQuery.hoverIntent.js'), function() {
+            WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/hoverIntent/jQuery.hoverIntent.min.js'), function() {
 	            WDN.jQuery('#wdn_navigation_bar').hoverIntent({
 	                over: function() {
 	                    if (!lockHover) {
