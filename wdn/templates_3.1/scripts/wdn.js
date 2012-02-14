@@ -157,7 +157,7 @@ var WDN = (function() {
 						WDN.initializePlugin('toolbar');
 						WDN.initializePlugin('tabs');
 						WDN.browserAdjustments();
-					});
+					}, debug);
 					WDN.initializePlugin('unlalert');
 				}
 			};
@@ -242,9 +242,16 @@ var WDN = (function() {
 		 * Load jQuery included with the templates as WDN.jQuery
 		 *
 		 * @param callback Called when the document is ready
+		 * @param forceDebug Should the debug jQuery be loaded
 		 */
-		loadJQuery: function (callback) {
-			WDN.loadJS(WDN.getTemplateFilePath('scripts/jquery.min.js'), function() {
+		loadJQuery: function (callback, forceDebug) {
+			var jQueryPath = 'scripts/jquery.', body = document.getElementsByTagName('body');
+			if (!(forceDebug || (body.length && body[0].className.match(/\bdebug\b/)))) {
+				jQueryPath += 'min.';
+			}
+			jQueryPath += 'js';
+			
+			WDN.loadJS(WDN.getTemplateFilePath(jQueryPath), function() {
 				if (!WDN.jQuery) {
 					WDN.jQuery = jQuery.noConflict(true);
 				}
