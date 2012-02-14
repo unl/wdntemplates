@@ -22,7 +22,7 @@ var WDN = (function() {
 			
 			return url;
 		};
-	
+
 	return {
 		/**
 		 * This stores what javascript files have been loaded already
@@ -117,7 +117,7 @@ var WDN = (function() {
 			e.type = "text/css";
 			_head.appendChild(e);
 		},
-		
+
 		getClientWidth: function() {
 			return document.clientWidth || _docEl.clientWidth ||
 				document.body.parentNode.clientWidth || document.body.clientWidth;
@@ -142,6 +142,7 @@ var WDN = (function() {
 				"320": function() {
 					WDN.initializePlugin('mobile_analytics');
 					WDN.initializePlugin('mobile_support');
+					WDN.initializePlugin('unlalert');
 				},
 				"768": function() {
 					WDN.loadJQuery(function() {
@@ -155,9 +156,9 @@ var WDN = (function() {
 						WDN.initializePlugin('tooltip');
 						WDN.initializePlugin('toolbar');
 						WDN.initializePlugin('tabs');
-						WDN.initializePlugin('unlalert');
 						WDN.browserAdjustments();
 					});
+					WDN.initializePlugin('unlalert');
 				}
 			};
 			
@@ -243,7 +244,7 @@ var WDN = (function() {
 		 * @param callback Called when the document is ready
 		 */
 		loadJQuery: function (callback) {
-			WDN.loadJS(WDN.getTemplateFilePath('scripts/jquery.js'), function(){
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/jquery.min.js'), function() {
 				if (!WDN.jQuery) {
 					WDN.jQuery = jQuery.noConflict(true);
 				}
