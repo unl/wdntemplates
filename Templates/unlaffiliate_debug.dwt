@@ -6,7 +6,7 @@
 <!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
 <!--[if !(IEMobile)|!(IE)]><!--><html lang="en"><!--<![endif]-->
 <head>
-<jsp:include page="/wdn/templates_3.1/includes/metanfavico.html" />
+<!--#include virtual="/wdn/templates_3.1/includes/metanfavico.html" -->
 <!--
     Membership and regular participation in the UNL Web Developer Network
     is required to use the UNL templates. Visit the WDN site at 
@@ -21,7 +21,7 @@
     
     $Id$
 -->
-<jsp:include page="/wdn/templates_3.1/includes/scriptsandstyles.html" />
+<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles_debug.html" -->
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>Use a descriptive page title | Optional Site Title (use for context) | UNL Affiliate</title>
 <!-- TemplateEndEditable -->
@@ -30,7 +30,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="../sharedcode/affiliate.css" />
 <link href="../sharedcode/affiliate_imgs/favicon.ico" rel="shortcut icon" />
 <!-- TemplateEndEditable -->
-<!-- TemplateParam name="class" type="text" value="fixed" -->
+<!-- TemplateParam name="class" type="text" value="fixed debug" -->
 </head>
 <body class="@@(_document['class'])@@">
     <nav class="skipnav">
@@ -42,8 +42,8 @@
             <a id="logo" href="http://www.throughtheeyes.org/" title="Through the Eyes of the Child Initiative">Through the Eyes of the Child Initiative</a>
             <!-- TemplateEndEditable -->
             <span id="wdn_institution_title"><!-- TemplateBeginEditable name="sitebranding_affiliate" --><a href="http://www.unl.edu" title="University of Nebraska&ndash;Lincoln">An affiliate of the University of Nebraska&ndash;Lincoln</a><!-- TemplateEndEditable --></span>            
-            <span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" -->Throught the Eyes of a Child Initiative<span>A Nebraska Supreme Court Initiative</span><!-- TemplateEndEditable --></span>
-            <jsp:include page="/wdn/templates_3.1/includes/wdnTools.html" />
+    		<span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" -->Throught the Eyes of a Child Initiative<span>A Nebraska Supreme Court Initiative</span><!-- TemplateEndEditable --></span>
+    		<!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
         </header>
         <div id="wdn_navigation_bar">
             <nav id="breadcrumbs">
@@ -59,7 +59,7 @@
                 <nav id="navigation" role="navigation">
                     <h3 class="wdn_list_descriptor hidden">Navigation</h3>
                     <!-- TemplateBeginEditable name="navlinks" -->
-                    <%@ include file="../sharedcode/navigation.html" %>
+                    <!--#include virtual="../sharedcode/navigation.html" -->
                     <!-- TemplateEndEditable -->
                 </nav>
             </div>
@@ -77,36 +77,36 @@
                 <p>Impress your audience with awesome content!</p> 
                 <!-- TemplateEndEditable -->
                 <div class="clear"></div>
-                <jsp:include page="/wdn/templates_3.1/includes/noscript.html" />
+                <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
         </div>
         <footer id="footer">
             <div id="footer_floater"></div>
             <div class="footer_col" id="wdn_footer_feedback">
-                <jsp:include page="/wdn/templates_3.1/includes/feedback.html" />
+                <!--#include virtual="/wdn/templates_3.1/includes/feedback.html" -->
             </div>
             <div class="footer_col" id="wdn_footer_related">
                 <!-- TemplateBeginEditable name="leftcollinks" -->
-                <%@ include file="../sharedcode/relatedLinks.html" %>
+                <!--#include virtual="../sharedcode/relatedLinks.html" -->
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col" id="wdn_footer_contact">
                 <!-- TemplateBeginEditable name="contactinfo" -->
-                <%@ include file="../sharedcode/footerContactInfo.html" %>
+                <!--#include virtual="../sharedcode/footerContactInfo.html" -->
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col" id="wdn_footer_share">
-                <jsp:include page="/wdn/templates_3.1/includes/socialmediashare.html" />
+                <!--#include virtual="/wdn/templates_3.1/includes/socialmediashare.html" -->
             </div>
             <!-- TemplateBeginEditable name="optionalfooter" -->
             <!-- TemplateEndEditable -->
             <div id="wdn_copyright">
                 <div>
                     <!-- TemplateBeginEditable name="footercontent" -->
-                    <%@ include file="../sharedcode/footer.html" %>
+                    <!--#include virtual="../sharedcode/footer.html" -->
                     <!-- TemplateEndEditable -->
-                    <jsp:include page="/wdn/templates_3.1/includes/wdn.html" />
+                    <!--#include virtual="/wdn/templates_3.1/includes/wdn.html" -->
                 </div>
-                <jsp:include page="/wdn/templates_3.1/includes/logos.html" />
+                <!--#include virtual="/wdn/templates_3.1/includes/logos.html" -->
             </div>
         </footer>
     </div>
