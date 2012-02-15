@@ -29,7 +29,7 @@
 <!-- Place optional header elements here -->
 
 <!-- TemplateEndEditable -->
-<!-- InstanceParam name="class" type="text" value="fixed debug" -->
+<!-- TemplateParam name="class" type="text" value="fixed debug" -->
 </head>
 <body class="@@(_document['class'])@@">
     <nav class="skipnav">
