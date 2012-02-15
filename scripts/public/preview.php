@@ -1,16 +1,16 @@
 <?php
 
 if (empty($_GET['u'])) {
-	throwError();
+    throwError();
 }
 
 if (!filter_var($_GET['u'], FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)) {
-	throwError();
+    throwError();
 }
 
 if (!preg_match('/\.unl\.edu/', $_GET['u'])
-	&& !preg_match('/quiltstudy\.org/', $_GET['u'])
-	&& !preg_match('/digital-community\.com/', $_GET['u'])
+    && !preg_match('/quiltstudy\.org/', $_GET['u'])
+    && !preg_match('/digital-community\.com/', $_GET['u'])
     && !preg_match('/huskeralum\.org/', $_GET['u'])
     && !preg_match('/huskeralum\.com/', $_GET['u'])
     && !preg_match('/throughtheeyes.org/', $_GET['u'])) {
@@ -19,14 +19,14 @@ if (!preg_match('/\.unl\.edu/', $_GET['u'])
 
 function throwError($message = null)
 {
-	$header = "HTTP/1.0 500 Server Error";
-	header($header);
-	if ($message) {
-		echo $message;
-	} else {
-		echo 'Error';
-	}
-	exit();
+    $header = "HTTP/1.0 500 Server Error";
+    header($header);
+    if ($message) {
+        echo $message;
+    } else {
+        echo 'Error';
+    }
+    exit();
 }
 
 set_include_path('phar://' . __DIR__ . '/UNL_Templates-1.2.0.phar/UNL_Templates-1.2.0/src'.PATH_SEPARATOR.'phar://' . __DIR__ . '/UNL_Templates-1.2.0.phar/UNL_Templates-1.2.0/php');
@@ -37,8 +37,8 @@ require_once 'UNL/Templates/Scanner.php';
 $p = new UNL_Templates_Scanner(file_get_contents($_GET['u']));
 
 $p->breadcrumbs = str_replace('<a href="http://admissions.unl.edu/apply/" title="apply now"><img src="/ucomm/templatedependents/templatecss/images/badge_applynow.png" alt="apply now" id="badge" /></a>',
-							  '',
-								$p->breadcrumbs);
+                              '',
+                                $p->breadcrumbs);
 
 function removeRelativePaths($html, $base_url)
 {
@@ -76,7 +76,7 @@ function removeRelativePaths($html, $base_url)
 }
 
 foreach (array('maincontentarea','head', 'doctitle') as $key) {
-	$p->$key = removeRelativePaths($p->$key, $_GET['u']);
+    $p->$key = removeRelativePaths($p->$key, $_GET['u']);
 }
 
 $p->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span id="wdn_site_title">', '</span>'), $p->titlegraphic);
