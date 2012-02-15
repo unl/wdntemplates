@@ -27,7 +27,7 @@ set_include_path('phar://' . __DIR__ . '/UNL_Templates-1.2.0.phar/UNL_Templates-
 require_once 'UNL/Templates.php';
 require_once 'UNL/Templates/Scanner.php';
 
-$p = new UNL_Templates_Scanner(file_get_contents($_GET['u']));
+$scanned_page = new UNL_Templates_Scanner(file_get_contents($_GET['u']));
 
 function removeRelativePaths($html, $base_url)
 {
@@ -65,10 +65,10 @@ function removeRelativePaths($html, $base_url)
 }
 
 foreach (array('maincontentarea','head', 'doctitle') as $key) {
-    $p->$key = removeRelativePaths($p->$key, $_GET['u']);
+    $scanned_page->$key = removeRelativePaths($scanned_page->$key, $_GET['u']);
 }
 
-$p->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span id="wdn_site_title">', '</span>'), $p->titlegraphic);
+$scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span id="wdn_site_title">', '</span>'), $scanned_page->titlegraphic);
 
 ?>
 <!DOCTYPE html>
@@ -96,11 +96,11 @@ $p->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span id="wdn_site
 -->
 <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/scriptsandstyles.html'; ?>
 <!-- InstanceBeginEditable name="doctitle" -->
-<?php echo $p->doctitle; ?>
+<?php echo $scanned_page->doctitle; ?>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<?php echo $p->head; ?>
+<?php echo $scanned_page->head; ?>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed" -->
 </head>
@@ -113,7 +113,7 @@ $p->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span id="wdn_site
             <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
             <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
             <!-- InstanceBeginEditable name="titlegraphic" -->
-            <?php echo $p->titlegraphic; ?>
+            <?php echo $scanned_page->titlegraphic; ?>
             <!-- InstanceEndEditable -->
             <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/idm.html'; ?>
             <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/wdnTools.html'; ?>
@@ -123,14 +123,14 @@ $p->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span id="wdn_site
                 <!-- WDN: see glossary item 'breadcrumbs' -->
                 <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
                 <!-- InstanceBeginEditable name="breadcrumbs" -->
-                <?php echo (isset($p->breadcrumbs))?$p->breadcrumbs:''; ?>
+                <?php echo (isset($scanned_page->breadcrumbs))?$scanned_page->breadcrumbs:''; ?>
                 <!-- InstanceEndEditable -->
             </nav>
             <div id="wdn_navigation_wrapper">
                 <nav id="navigation" role="navigation">
                     <h3 class="wdn_list_descriptor hidden">Navigation</h3>
                     <!-- InstanceBeginEditable name="navlinks" -->
-                    <?php echo (isset($p->navlinks))?$p->navlinks:''; ?>
+                    <?php echo (isset($scanned_page->navlinks))?$scanned_page->navlinks:''; ?>
                     <!-- InstanceEndEditable -->
                 </nav>
             </div>
@@ -138,13 +138,13 @@ $p->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span id="wdn_site
         <div id="wdn_content_wrapper">
             <div id="pagetitle">
                 <!-- InstanceBeginEditable name="pagetitle" -->
-                <?php echo $p->pagetitle; ?>
+                <?php echo $scanned_page->pagetitle; ?>
                 <!-- InstanceEndEditable -->
             </div>
             <div id="maincontent" role="main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                  <?php echo $p->maincontentarea; ?>
+                  <?php echo $scanned_page->maincontentarea; ?>
                   <!-- InstanceEndEditable -->
                 <div class="clear"></div>
                 <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/noscript.html'; ?>
@@ -158,11 +158,11 @@ $p->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span id="wdn_site
             </div>
             <div class="footer_col" id="wdn_footer_related">
                 <!-- InstanceBeginEditable name="leftcollinks" -->
-                <?php echo (isset($p->leftcollinks))?$p->leftcollinks:''; ?>
+                <?php echo (isset($scanned_page->leftcollinks))?$scanned_page->leftcollinks:''; ?>
                 <!-- InstanceEndEditable --></div>
             <div class="footer_col" id="wdn_footer_contact">
                 <!-- InstanceBeginEditable name="contactinfo" -->
-                <?php echo (isset($p->contactinfo))?$p->contactinfo:''; ?>
+                <?php echo (isset($scanned_page->contactinfo))?$scanned_page->contactinfo:''; ?>
                 <!-- InstanceEndEditable --></div>
             <div class="footer_col" id="wdn_footer_share">
                 <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/socialmediashare.html'; ?>
@@ -172,7 +172,7 @@ $p->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span id="wdn_site
             <div id="wdn_copyright">
                 <div>
                     <!-- InstanceBeginEditable name="footercontent" -->
-                    <?php echo (isset($p->footercontent))?$p->footercontent:''; ?>
+                    <?php echo (isset($scanned_page->footercontent))?$scanned_page->footercontent:''; ?>
                     <!-- InstanceEndEditable -->
                     <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/wdn.html'; ?>
                 </div>
