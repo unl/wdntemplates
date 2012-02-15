@@ -10,7 +10,7 @@ WDN.idm = function() {
 			WDN.setPluginParam('idm', 'logout', $logoutLink.attr('href'));
 		}
 		
-		return WDN.getPluginParam('idm');
+		return WDN.getPluginParam('idm') || {};
 	};
 	
 	return {
