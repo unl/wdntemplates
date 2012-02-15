@@ -43,6 +43,7 @@
             <!-- TemplateEndEditable -->
             <span id="wdn_institution_title"><!-- TemplateBeginEditable name="sitebranding_affiliate" --><a href="http://www.unl.edu" title="University of Nebraska&ndash;Lincoln">An affiliate of the University of Nebraska&ndash;Lincoln</a><!-- TemplateEndEditable --></span>
     		<span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" -->Throught the Eyes of a Child Initiative<span>A Nebraska Supreme Court Initiative</span><!-- TemplateEndEditable --></span>
+    		<?php virtual("/wdn/templates_3.1/includes/idm.html"); ?>
     		<?php virtual("/wdn/templates_3.1/includes/wdnTools.html"); ?>
         </header>
         <div id="wdn_navigation_bar">

@@ -43,7 +43,8 @@
             <!-- InstanceEndEditable -->
             <span id="wdn_institution_title"><!-- InstanceBeginEditable name="sitebranding_affiliate" --><a href="http://www.unl.edu" title="University of Nebraska&ndash;Lincoln">An affiliate of the University of Nebraska&ndash;Lincoln</a><!-- InstanceEndEditable --></span>            
     		<span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" -->Throught the Eyes of a Child Initiative<span>A Nebraska Supreme Court Initiative</span><!-- InstanceEndEditable --></span>
-    		<!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
+    		<!--#include virtual="/wdn/templates_3.1/includes/idm.html" -->
+            <!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
         </header>
         <div id="wdn_navigation_bar">
             <nav id="breadcrumbs">
@@ -67,14 +68,14 @@
         <div id="wdn_content_wrapper">
             <div id="pagetitle">
                 <!-- InstanceBeginEditable name="pagetitle" -->
-                <h2>This is Your Page Title</h2>
+                <h1>This is your page title. It's now an &lt;h1&gt;, baby!</h1>
                 <!-- InstanceEndEditable -->
             </div>
             <div id="maincontent" role="main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                <h3>Place your content here.</h3>
-                <p>Remember to validate your pages before publishing! Sample layouts are available through the <a href="http://wdn.unl.edu/">Web Developer Network</a>.</p>
+                <h2>This is a blank page</h2>
+                <p>Impress your audience with awesome content!</p>
                 <!-- InstanceEndEditable -->
                 <div class="clear"></div>
                 <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
