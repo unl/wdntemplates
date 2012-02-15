@@ -105,17 +105,16 @@ WDN.idm = function() {
 		 *
 		 * @return string
 		 */
-		displayName : function(){
-		    var disp_name;
+		displayName : function(uid){
+		    var disp_name = uid || '';
 		    if (WDN.idm.user.cn) {
 		    	for (var i in WDN.idm.user.cn) {
 		    		if (!disp_name || WDN.idm.user.cn[i].length < disp_name.length) {
 		    			disp_name = WDN.idm.user.cn[i];
 		    		}
 		    	}
-		    } else {
-		    	disp_name = uid;
 		    }
+		    
 		    return disp_name;
 		},
 		
@@ -142,7 +141,7 @@ WDN.idm = function() {
 			}
 			WDN.jQuery('.wdn_idm_user_profile').attr('href', 'http://planetred.unl.edu/pg/profile/'+planetred_uid);
 			WDN.jQuery('#wdn_idm_userpic').attr('src', '//planetred.unl.edu/pg/icon/'+planetred_uid+'/topbar/');
-			WDN.jQuery('#wdn_idm_username').text(WDN.idm.displayName());
+			WDN.jQuery('#wdn_idm_username').text(WDN.idm.displayName(uid));
 			WDN.jQuery('#wdn_identity_management').addClass('loggedin');
 			
 			// Any time logout link is clicked, unset the user data
