@@ -1,10 +1,7 @@
 <?php
 
-if (empty($_GET['u'])) {
-    throwError();
-}
-
-if (!filter_var($_GET['u'], FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)) {
+if (empty($_GET['u'])
+    || !filter_var($_GET['u'], FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)) {
     throwError();
 }
 
@@ -17,15 +14,11 @@ if (!preg_match('/\.unl\.edu/', $_GET['u'])
     throwError('Requested host is not allowed');
 }
 
-function throwError($message = null)
+function throwError($message = 'Error')
 {
     $header = "HTTP/1.0 500 Server Error";
     header($header);
-    if ($message) {
-        echo $message;
-    } else {
-        echo 'Error';
-    }
+    echo $message;
     exit();
 }
 
