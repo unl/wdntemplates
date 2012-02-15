@@ -29,10 +29,6 @@ require_once 'UNL/Templates/Scanner.php';
 
 $p = new UNL_Templates_Scanner(file_get_contents($_GET['u']));
 
-$p->breadcrumbs = str_replace('<a href="http://admissions.unl.edu/apply/" title="apply now"><img src="/ucomm/templatedependents/templatecss/images/badge_applynow.png" alt="apply now" id="badge" /></a>',
-                              '',
-                                $p->breadcrumbs);
-
 function removeRelativePaths($html, $base_url)
 {
     $needles = array('href="', 'src="', 'background="', 'loadCSS("', 'loadCSS(\'');
