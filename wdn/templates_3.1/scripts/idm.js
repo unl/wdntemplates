@@ -1,4 +1,18 @@
 WDN.idm = function() {
+	var getLocalIdmSettings = function() {
+		var $loginLink = WDN.jQuery('link[rel=login]'),
+			$logoutLink = WDN.jQuery('link[rel=logout]');
+		
+		if ($loginLink.length) {
+			WDN.setPluginParam('idm', 'login', $loginLink.attr('href'));
+		}
+		if ($logoutLink.length) {
+			WDN.setPluginParam('idm', 'logout', $logoutLink.attr('href'));
+		}
+		
+		return WDN.getPluginParam('idm');
+	};
+	
 	return {
 		
 		/**
@@ -18,7 +32,6 @@ WDN.idm = function() {
 		 */
 		user : false,
 		
-		
 		/**
 		 * The URL from which the LDAP information is available
 		 */
@@ -30,7 +43,20 @@ WDN.idm = function() {
 		 * @return void
 		 */
 		initialize : function(callback) {
-			if (WDN.idm.isLoggedIn()) {
+			var localSettings = getLocalIdmSettings(), 
+				loginCheckFailure = function() {
+					if (localSettings.login) {
+						WDN.idm.setLoginURL(localSettings.login);
+					} else if (localSettings.logout) {
+						WDN.idm.displayLogin();
+					}
+					
+					if (callback) {
+						callback();
+					}
+				};
+			
+			if (WDN.getCookie('unl_sso')) {
 				WDN.loadJS(WDN.idm.serviceURL + WDN.getCookie('unl_sso'), function() {
 					if (WDN.idm.getUserId()) {
 						if (WDN.idm.user.eduPersonPrimaryAffiliation[0] != undefined) {
@@ -41,17 +67,12 @@ WDN.idm = function() {
 							}
 						};
 						WDN.idm.displayNotice(WDN.idm.getUserId());
+					} else {
+						loginCheckFailure();
 					}
 				});
 			} else {
-				if (WDN.jQuery('link[rel=login]').length) {
-					WDN.idm.setLoginURL(WDN.jQuery('link[rel=login]').attr('href'));
-				} else if (WDN.jQuery('link[rel=logout]').length) {
-					WDN.idm.displayLogin();
-				}
-				if (callback) {
-					callback();
-				}
+				loginCheckFailure();
 			}
 		},
 		
@@ -67,11 +88,7 @@ WDN.idm = function() {
 		 * @return bool
 		 */
 		isLoggedIn : function() {
-			var user = WDN.getCookie('unl_sso');
-			if (user !== null) {
-				return true;
-			}
-			return false;
+			return !!WDN.idm.getUserId();
 		},
 		
 		/**
@@ -129,7 +146,7 @@ WDN.idm = function() {
 			// Any time logout link is clicked, unset the user data
 			WDN.jQuery('#wdn_idm_logout a').click(WDN.idm.logout);
 			
-			if (WDN.jQuery('link[rel=logout]').length) {
+			if (localSettings.logout) {
 				WDN.idm.setLogoutURL(WDN.jQuery('link[rel=logout]').attr('href'));
 			}
 			WDN.idm.updateCommentForm();

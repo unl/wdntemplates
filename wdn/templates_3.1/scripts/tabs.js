@@ -184,7 +184,7 @@ WDN.tabs = (function() {
 			var sel = WDN.jQuery(jq(hash));
 			var tabContents = sel.closest('.wdn_tabs_content');
 			tabContents.children().hide();
-			sel.show();
+			sel.show().parentsUntil('.wdn_tabs_content').show();
 			sel.find('ul.slides').css({'height':'auto'});
 			
 			if (forceUpdate) {
