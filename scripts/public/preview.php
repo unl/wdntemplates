@@ -29,7 +29,7 @@ function throwError($message = null)
 	exit();
 }
 
-set_include_path('phar://' . __DIR__ . '/UNL_Templates-1.2.0.phar/UNL_Templates-1.2.0/'.PATH_SEPARATOR.'phar://' . __DIR__ . '/UNL_Templates-1.2.0.phar/UNL_Templates-1.2.0/php');
+set_include_path('phar://' . __DIR__ . '/UNL_Templates-1.2.0.phar/UNL_Templates-1.2.0/src'.PATH_SEPARATOR.'phar://' . __DIR__ . '/UNL_Templates-1.2.0.phar/UNL_Templates-1.2.0/php');
 
 require_once 'UNL/Templates.php';
 require_once 'UNL/Templates/Scanner.php';
@@ -76,7 +76,7 @@ function removeRelativePaths($html, $base_url)
 }
 
 foreach (array('maincontentarea','head', 'doctitle') as $key) {
-	$p->$key = str_replace(array('//<![CDATA[', '//]]>', '<!--//--><![CDATA[', '//><!--', '// <![CDATA[', '// ]]>'), PHP_EOL, removeRelativePaths($p->$key, $_GET['u']));
+	$p->$key = removeRelativePaths($p->$key, $_GET['u']);
 }
 
 $p->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span id="wdn_site_title">', '</span>'), $p->titlegraphic);
