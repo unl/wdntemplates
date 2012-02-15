@@ -107,9 +107,6 @@ echo ''.PHP_EOL;
     $Id$
 -->
 <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/scriptsandstyles.html'; ?>
-<script type="text/javascript">
-WDN.template_path = 'http://ucommbieber.unl.edu/';
-</script>
 <!-- InstanceBeginEditable name="doctitle" -->
 <?php echo $p->doctitle; ?>
 <!-- InstanceEndEditable -->
