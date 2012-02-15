@@ -125,6 +125,8 @@ WDN.idm = function() {
 		 * @param {string} uid
 		 */
 		displayNotice : function(uid) {
+			var localSettings = getLocalIdmSettings();
+			
 			if (WDN.jQuery('#wdn_identity_management').hasClass('hidden')) {
 				WDN.jQuery('#wdn_identity_management').removeClass('hidden').addClass('loggedin');
 			}
