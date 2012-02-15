@@ -1,69 +1,44 @@
-#logo { width: 66px; }
-#affiliate_note {
-    background: url("/wdn/templates_3.1/css/header/images/bottomLeftCorner.png") no-repeat scroll left bottom transparent;
-    color: #3E3E3E;
-    float: left;
-    font-family: 'URWGroteskCon-Lig',Helvetica,Arial,sans-serif;
-    font-size: 1.5em;
-    font-weight: normal;
-    line-height: 0;
-    margin: 13px 0 0;
-    padding: 12px 10px;
-    text-shadow: 0 0 3px #fff;
-    text-transform: uppercase;
-}
-
-#affiliate_note a, #affiliate_note a:visited {
-	color: #3E3E3E;
+#wdn_institution_title a {
+	color: inherit;
 	text-decoration: none;
 }
-
-#affiliate_note a:hover {
-	color: #3E3E3E;
+#wdn_institution_title a:hover, #wdn_institution_title a:active {
 	text-decoration: underline;
 }
 
-#affiliate_note a:active {
-	color: #3E3E3E;
-	text-decoration: underline;
+#header #logo { 
+	background-image: url("affiliate_imgs/affiliate_logo.png");
+	background-position: 0 0;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain; 
 }
 
-/* IdM Adjustment */
-#wdn_identity_management {
-	left: 470px;
-    max-width: 145px;
+/* IdM */
+#wdn_identity_management > a {
+	text-shadow: -1px -1px 1px #654424;
 }
-
-/* Search box */
-#wdn_search {
-	background: #906337; /* Old browsers */
-	background: -moz-linear-gradient(top,  #906337 0%, #654424 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#906337), color-stop(100%,#654424)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #906337 0%,#654424 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #906337 0%,#654424 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #906337 0%,#654424 100%); /* IE10+ */
-	background: linear-gradient(top,  #906337 0%,#654424 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#906337', endColorstr='#654424',GradientType=0 ); /* IE6-9 */
-}
-#wdn_search form #q {
+#wdn_identity_management > a img {
 	border-color: #654424;
+}
+#wdn_identity_management:hover > a {
+   	background: #6d441c;
+}
+#wdn_identity_management > #wdn_idm_user_options {
+	background: #6d441c;
+}
+#wdn_identity_management.loggedin > #wdn_idm_user_options li {
+	border-color: #674525;
 }
 
 /* Nav */
-#breadcrumbs > ul > li > a {
-    background-image: url("affiliate_imgs/2011_breadcrumb_li.png");
-}
-
-#breadcrumbs > ul > li.selected > a {
-	color: #654424;
-}
-
-#navigation > ul > li > a {
-	color: #fff;
-	text-shadow: 1px 1px 1px #424242;
-	border-right-color: #654424;
-    border-left-color: #906337;
-    background: #906337; /* Old browsers */
+#navigation:before {
+	border-color: #654424;
+	-webkit-box-shadow: 1px 1px 2px 0 #dfae7a inset;
+	-moz-box-shadow: 1px 1px 2px 0 #dfae7a inset;
+	box-shadow: 1px 1px 2px 0 #dfae7a inset;
+	background: #906337; /* Old browsers */
     background: -moz-linear-gradient(top,  #906337 0%, #654424 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#906337), color-stop(100%,#654424)); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top,  #906337 0%,#654424 100%); /* Chrome10+,Safari5.1+ */
@@ -72,26 +47,8 @@
     background: linear-gradient(top,  #906337 0%,#654424 100%); /* W3C */
 }
 
-#navigation > ul > li:nth-child(n+7) > a,
-#navigation > ul > li.mid-bar > a {
-	border-top-color: #906337;
-	-webkit-box-shadow: 0 -1px 0 #654424;
-	-moz-box-shadow: 0 -1px 0 #654424;
-	box-shadow: 0 -1px 0 #654424;
-}
-
-#navigation > ul > li:hover > a {
-	background: #A3774B; /* Old browsers */
-    background: -moz-linear-gradient(top,  #A3774B 0%, #765330 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#A3774B), color-stop(100%,#765330)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #A3774B 0%,#765330 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #A3774B 0%,#765330 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #A3774B 0%,#765330 100%); /* IE10+ */
-    background: linear-gradient(top,  #A3774B 0%,#765330 100%); /* W3C */
-}
-
-#navigation > ul > li.empty:hover a {
-    background: #906337; /* Old browsers */
+#navigation {
+	background: #906337; /* Old browsers */
     background: -moz-linear-gradient(top,  #906337 0%, #654424 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#906337), color-stop(100%,#654424)); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top,  #906337 0%,#654424 100%); /* Chrome10+,Safari5.1+ */
@@ -99,7 +56,6 @@
     background: -ms-linear-gradient(top,  #906337 0%,#654424 100%); /* IE10+ */
     background: linear-gradient(top,  #906337 0%,#654424 100%); /* W3C */
 }
-
 
 /* main content */
 #maincontent a, #maincontent a:visited {
@@ -139,10 +95,124 @@
     text-shadow: 0 1px 0 #311B07;
 }
 
-#wdn_logos #unl_wordmark {
+#wdn_copyright #wdn_logos #unl_wordmark {
 	-webkit-box-shadow: 1px 0 0 #513316;
 	-moz-box-shadow: 1px 0 0 #513316;
 	box-shadow: 1px 0 0 #513316;
+}
+
+/*** MEDIA QUERIES REQUIRED FOR RESPONSIVE DESIGN OVERRIDES ***/
+@media (min-width: 320px) {
+    
+}
+
+@media (min-width: 480px) {
+    
+}
+
+@media (min-width: 600px) {
+	
+}
+
+@media (min-width: 768px) {
+	/* Search box */
+	#wdn_search {
+	    background: #906337; /* Old browsers */
+	    background: -moz-linear-gradient(top,  #906337 0%, #654424 100%); /* FF3.6+ */
+	    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#906337), color-stop(100%,#654424)); /* Chrome,Safari4+ */
+	    background: -webkit-linear-gradient(top,  #906337 0%,#654424 100%); /* Chrome10+,Safari5.1+ */
+	    background: -o-linear-gradient(top,  #906337 0%,#654424 100%); /* Opera 11.10+ */
+	    background: -ms-linear-gradient(top,  #906337 0%,#654424 100%); /* IE10+ */
+	    background: linear-gradient(top,  #906337 0%,#654424 100%); /* W3C */
+	    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#906337', endColorstr='#654424',GradientType=0 ); /* IE6-9 */
+	}
+	#wdn_search form #q {
+	    border-color: #654424;
+	}
+	
+	/* IdM */
+	#wdn_identity_management > a {
+	    text-shadow: none;
+	}
+	#wdn_identity_management > a img {
+	    border-color: #727272;
+	}
+	#wdn_identity_management:hover > a {
+	    background: #dbdbdb;
+	}
+	#wdn_identity_management > #wdn_idm_user_options {
+	    background: #dbdbdb;
+	}
+	#wdn_identity_management.loggedin > #wdn_idm_user_options li {
+	    border-color: #DFDFDF;
+	}
+	
+    /* Nav */
+	#breadcrumbs > ul > li.selected > a {
+	    color: #654424;
+	}
+	
+	#navigation {
+	   background: none;
+	}
+	
+	#navigation > ul > li > a {
+	    color: #fff;
+	    text-shadow: 1px 1px 1px #424242;
+	    border-right-color: #654424;
+	    border-left-color: #906337;
+	    background: #906337; /* Old browsers */
+	    background: -moz-linear-gradient(top,  #906337 0%, #654424 100%); /* FF3.6+ */
+	    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#906337), color-stop(100%,#654424)); /* Chrome,Safari4+ */
+	    background: -webkit-linear-gradient(top,  #906337 0%,#654424 100%); /* Chrome10+,Safari5.1+ */
+	    background: -o-linear-gradient(top,  #906337 0%,#654424 100%); /* Opera 11.10+ */
+	    background: -ms-linear-gradient(top,  #906337 0%,#654424 100%); /* IE10+ */
+	    background: linear-gradient(top,  #906337 0%,#654424 100%); /* W3C */
+	}
+	
+	#navigation > ul > li:nth-child(n+7) > a,
+	#navigation > ul > li.mid-bar > a {
+	    border-top-color: #906337;
+	    -webkit-box-shadow: 0 -1px 0 #654424;
+	    -moz-box-shadow: 0 -1px 0 #654424;
+	    box-shadow: 0 -1px 0 #654424;
+	}
+	
+	#navigation > ul > li:hover > a {
+	    background: #A3774B; /* Old browsers */
+	    background: -moz-linear-gradient(top,  #A3774B 0%, #765330 100%); /* FF3.6+ */
+	    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#A3774B), color-stop(100%,#765330)); /* Chrome,Safari4+ */
+	    background: -webkit-linear-gradient(top,  #A3774B 0%,#765330 100%); /* Chrome10+,Safari5.1+ */
+	    background: -o-linear-gradient(top,  #A3774B 0%,#765330 100%); /* Opera 11.10+ */
+	    background: -ms-linear-gradient(top,  #A3774B 0%,#765330 100%); /* IE10+ */
+	    background: linear-gradient(top,  #A3774B 0%,#765330 100%); /* W3C */
+	}
+	
+	#navigation > ul > li.empty:hover a {
+	    background: #906337; /* Old browsers */
+	    background: -moz-linear-gradient(top,  #906337 0%, #654424 100%); /* FF3.6+ */
+	    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#906337), color-stop(100%,#654424)); /* Chrome,Safari4+ */
+	    background: -webkit-linear-gradient(top,  #906337 0%,#654424 100%); /* Chrome10+,Safari5.1+ */
+	    background: -o-linear-gradient(top,  #906337 0%,#654424 100%); /* Opera 11.10+ */
+	    background: -ms-linear-gradient(top,  #906337 0%,#654424 100%); /* IE10+ */
+	    background: linear-gradient(top,  #906337 0%,#654424 100%); /* W3C */
+	}
+	
+	#navigation > ul > li > ul > li a:hover {
+	    color: #0081AF;
+	}
+}
+
+@media (min-width: 1040px) {
+	#header #logo {
+	   background-position: 10px 6px;
+	}
+	
+	/* IdM Adjustment */
+	#wdn_identity_management {
+	    left: 470px;
+	    max-width: 145px;
+	}
 }
 
 /* ** OPTIONAL CO-BRANDING REMOVAL **
@@ -152,11 +222,13 @@
 #wdn_tool_links { display: none; }
 #footer_floater {
 	background-image: url("affiliate_imgs/topSeal_affiliate.png");
+	background-position: 0 0;
 }
-#wdn_copyright {
-	padding-right: 15px;
+#wdn_copyright > div {
+	padding: 0;
+	width: 100%;
 }
-#wdn_logos {
+#wdn_copyright #wdn_logos {
 	display: none;
 }
 /* */
