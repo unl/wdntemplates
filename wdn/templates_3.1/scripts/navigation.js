@@ -1,7 +1,7 @@
 WDN.navigation = (function() {
     var expandedHeight = 0,
     	ul_h, lockHover = false,
-    	snifferServer = 'http://www1.unl.edu/wdn/templates_3.1/scripts/';
+    	snifferServer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/';
     return {
 
         preferredState : 0,
