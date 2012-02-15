@@ -147,7 +147,7 @@ WDN.idm = function() {
 			WDN.jQuery('#wdn_idm_logout a').click(WDN.idm.logout);
 			
 			if (localSettings.logout) {
-				WDN.idm.setLogoutURL(WDN.jQuery('link[rel=logout]').attr('href'));
+				WDN.idm.setLogoutURL(localSettings.logout);
 			}
 			WDN.idm.updateCommentForm();
 		},
