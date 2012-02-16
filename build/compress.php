@@ -126,6 +126,7 @@ EOD;
         'content/headers',
         'content/images',
         'content/mime',
+        'content/pagination' => array('ignore' => true),
         'footer/footer',
         'footer/feedback',
         'footer/share',

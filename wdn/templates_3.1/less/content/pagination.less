@@ -7,6 +7,8 @@
 * Styles associated with pagination links
 * ---------------------------
 */
+@import "../_mixins/all.less";
+
 /*
 Markup for these:
 <div class="wdn_pagination">
@@ -26,26 +28,33 @@ Markup for these:
 </ul>
 </div>
 */
-#maincontent .wdn_pagination li {
-  display: block;
-  float: left;
-  font-size: 12px;
-  margin: 2px 4px;
-  vertical-align: middle;
-}
-#maincontent .wdn_pagination li a {
-  display: block;
-  padding: 2px 4px;
-  border: 1px solid #dadada;
-}
-#maincontent .wdn_pagination li a:hover, #maincontent .wdn_pagination li a:active {
-  color: #fff;
-  background: #6e6e6e;
-  border: 1px solid #5e5e5e;
-}
-#maincontent .wdn_pagination li.selected {
-  color: #3e3e3e;
-  font-weight: bold;
-  font-size: 22px;
-  padding: 2px;
+
+#maincontent .wdn_pagination {
+    
+    li {
+        display:block;
+        float: left;
+        font-size:12px;
+        margin:2px 4px;
+        vertical-align:middle;
+        a {
+            display:block;
+            padding:2px 4px;
+            border:1px solid #dadada;
+            &:hover, &:active {
+                color: #fff;
+                background: #6e6e6e;
+                border: 1px solid #5e5e5e;
+            }
+        }
+        &.ellipsis {
+        
+        }
+        &.selected {
+            color:#3e3e3e;
+            font-weight:bold;
+            font-size: 22px;
+            padding:2px;
+        }
+    }
 }
