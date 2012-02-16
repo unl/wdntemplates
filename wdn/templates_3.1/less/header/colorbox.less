@@ -98,7 +98,7 @@
     
     #cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
         cursor: pointer;
-        background: url(images/colorbox/controls.png);
+        background: url(images/colorbox/controls.png) 0 0 no-repeat;
     }
     
     #cboxContent {
@@ -157,18 +157,16 @@
         }
         
         #cboxSlideshow {
-            position: absolute; 
-            bottom: 7px; 
-            right: 66px; 
-            background: url(images/colorbox/controls.png) no-repeat; 
-            height: 18px; 
+            position: absolute;
+            bottom: 7px;
+            right: 66px;
+            height: 18px;
             text-indent: -9999px;
             width: 13px;
         }
         
         #cboxPrevious, #cboxNext {
             position:absolute; 
-            background: url(images/colorbox/controls.png) 0 0 no-repeat; 
             width: 18px; 
             height: 18px;
             text-indent: -9999px;
@@ -185,6 +183,7 @@
         
         #cboxNext {
             right: 10px;
+            background-position: -20px 0;
             
             &:hover {
                 background-position: -20px -20px;
@@ -198,7 +197,7 @@
             width: 30px;
             height:33px;
             display: block;
-            background: url(images/colorbox/controls.png) -126px 0 no-repeat;
+            background-position: -126px 0;
             text-indent: -9999px;
             
             &:hover {
@@ -207,7 +206,7 @@
         }
     }
     
-    &.cboxSlideshow_on {
+    &.cboxSlideshow_on #cboxContent {
         #cboxTitle {
             padding-right: 94px;
         }
@@ -221,7 +220,7 @@
         }
     }
     
-    &.cboxSlideshow_off {
+    &.cboxSlideshow_off #cboxContent {
         #cboxTitle {
             padding-right: 94px;
         }
