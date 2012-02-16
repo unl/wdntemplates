@@ -1,36 +1,31 @@
-* {margin: 0;padding: 0;}
-p {margin: 0 0 1.1em 0;}
-img {border: none;margin:10px 0;}
-a {text-decoration:underline;background:none;}
-body {text-align: left;font: 71%/150% "Lucida Grande",Verdana,Arial;}
-#maincontent h1, #maincontent h2, #maincontent h3{line-height:1.2;font-weight: normal;padding-top: .2em;padding-bottom: .3em;}
-#maincontent h4, #maincontent h5, #maincontent h6{line-height:1.2;font-weight: normal;padding-top: .1em;padding-bottom: .2em;}
-#maincontent h1{font-size: 1.7em;}
-#maincontent h2{font-size: 1.5em;}
-#maincontent h3{font-size: 1.4em;}
-#maincontent h4{font-size: 1.3em;}
-#maincontent h5{font-size: 1.2em;}
-#maincontent h6{font-size: 0.9em;}
-#maincontent ul, #footer ul{list-style: square;padding: 0 0 1.1em 30px;}
-#maincontent ol{padding: 0 0 1.1em 36px;}
+#maincontent a {text-decoration:underline; word-wrap: break-word; color: #444;}
+a:after {content: " (" attr(href) ")" !important; display: inline !important; height: auto !important; width: auto !important; background: none !important;}
+body, #header {width: auto !important; margin: 0 !important; padding: 0 !important; color:#333; min-height:0;}
+#wdn_content_wrapper {margin: 0 !important; padding: 0 !important; box-shadow:none; border: none;}
+#wdn_wrapper {margin:0; padding: 0; box-shadow: none; border:none;}
+
+h1, h2, h3, h4, h5, h6 {font-weight: normal !important;}
+#maincontent {border-top:1px solid #aaa; margin-top: 10px; padding-top: 7px;}
+#maincontent ul {list-style: square; padding: 0 0 1.1em 30px;}
+#maincontent ol {padding: 0 0 1.1em 36px;}
 #maincontent dd {padding: 0 0 0 30px;}
-#header #logo {width:50px!important;height:50px!important;position:absolute;}
-body, #header {width: auto !important;margin: 0 !important;padding: 0 !important}
-#header h1{font-size:2.0em !important;padding:35px 0 0 0;line-height:1px;position:relative;left:60px;}
-#titlegraphic h1{color:#990000;font-size:2.0em;line-height:normal;}
-#titlegraphic h2{display:none;}
-#pagetitle h2{font-size:1.7em;color:#666;}
-#titlegraphic h1, #pagetitle h2{font-family:Arial, Helvetica, sans-serif;font-weight:normal;}
-#maincontent{border-top:1px solid #999;}
-
-
-.skipnav, #wdn_identity_management, #wdn_search, #wdn_tool_links, #wdn_navigation_bar, #footer .footer_col{display:none;}
-#wdn_wrapper {border:none;}
-#wdn_content_wrapper{margin:0;}
-#header, #footer {background:none;}
-#header {margin:auto;height:auto;}
-#titlegraphic {margin-top:2.5em;}
-.noprint, .hidden {display:none;}
-.yesprint {display:block;}
 ul.wdn_tabs {display:none;}
 #maincontent div.wdn_tabs_content div {display:block !important;}
+
+#header #logo {margin: 0; padding: 0; font-size: 0; color: #FFF; height: 0; width: auto; display: inline; float: none;}
+#header #logo:before {content:url('../../images/logo-print.png'); display: block; font-size: 12px; margin-right: 10px; height: 55px; width: 70px; float: left;}
+#header #logo:after {display: none !important;}
+#wdn_institution_title {margin: 0; padding: 0; display: block; float: left; height: auto;
+  font-size: 0.9em; line-height: 1.1em; font-family: "Lucida Grande",Verdana,Arial; text-transform: none;}
+#wdn_site_title {margin: 0; padding: 0; position: relative; top: -2px; overflow: initial; text-decoration: none;
+    font-size: 1em; line-height: 1.2em; display: block; width: auto; font-family: "Lucida Grande",Verdana,Arial;}
+#wdn_site_title span {display:none;}
+#pagetitle {margin: 0; padding: 0;}
+#pagetitle h1 {margin: 0; padding: 0; font-size: 1.3em; line-height: 1em; color: #666;}
+
+.skipnav, #wdn_identity_management, #wdn_search, #wdn_tool_links, #wdn_navigation_bar, #footer {display:none;}
+.noprint, .hidden {display:none;}
+.yesprint {display:block;}
+
+.ie #logo, .ie #header #logo:after, .ie .footer_col, .ie #wdn_copyright {display:none !important;}
+.ie #wdn_site_title {clear: left;}
