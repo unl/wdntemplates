@@ -1,0 +1,137 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/content/zentable.less
+*
+* ---------------------------
+* Styles associated with the zentables
+* ---------------------------
+*/
+@import "../_mixins/all.less";
+
+.zentable {
+    width: 100%;
+    
+    th, td {
+        padding: 4px;
+        border-collapse: separate;
+        background-color: #FFFFFF;
+    }
+    
+    tr th {
+        /* defaults to bright class style */
+        color: #3A3A3A;
+        background: #F5E62F url('../images/bottom_shadow_light.png') repeat-x bottom;
+        text-align: left;
+        
+        &:first-child {
+            .border-radius-top-left(5px);
+        }
+        
+        &:last-child {
+            .border-radius-top-right(5px);
+        }
+    }
+    
+    th a {
+        text-decoration: underline;
+        color: #FFF !important;
+    }
+    
+    tbody {
+        tr:first-child td {
+            border-top-width: 3px;
+            border-top-style: solid;
+        }
+        
+        tr:nth-child(even) td {
+            background-color: #fff;
+        }
+        
+        tr:nth-child(odd) td {
+            background-color: #FFFDDF;
+        }
+        
+        td {
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-color: #FFF88F;
+        }
+    }
+    
+    &.cool {
+        /* Cool Zentable */
+        tr th {
+            background: #557BB7 url('../images/bottom_shadow_medium.png') repeat-x bottom;
+            color: #FFFFFF;
+        }
+        tbody {
+            td {
+                border-color: #BDD7F7;
+            }
+            tr:nth-child(odd) td {
+                background-color: #EFF7FF;
+            }
+        }
+    }
+    &.soothing {
+        /* Soothing Zentable */
+        tr th {
+            background: #028A02 url('../images/bottom_shadow_medium.png') repeat-x bottom;
+            color: #FFFFFF;
+        }
+        tbody {
+            td {
+                border-color: #B5DFB5;
+            }
+            tr:nth-child(odd) td {
+                background-color: #EFFFEF;
+            }
+        }
+    }
+    &.energetic {
+        /* Energetic Zentable */
+        tr th {
+            background: #FA6520 url('../images/bottom_shadow_medium.png') repeat-x bottom;
+            color: #FFFFFF;
+        }
+        tbody {
+            td {
+                border-color: #FF9B6F;
+            }
+            tr:nth-child(odd) td {
+                background-color: #FFE9DF;
+            }
+        }
+    }
+    &.neutral {
+        /* Neutral Zentable */
+        tr th {
+            background: #3C3C3C url('../images/bottom_shadow_medium.png') repeat-x bottom;
+            color: #FFFFFF;
+        }
+        tbody {
+            td {
+                border-color: #AFAFAF;
+            }
+            tr:nth-child(odd) td {
+                background-color: #EFEFEF;
+            }
+        }
+    }
+    &.primary {
+        /* Primary Zentable */
+        tr th {
+            background: #c20403 url('../images/bottom_shadow_medium.png') repeat-x bottom;
+            color: #FFFFFF;
+        }
+        tbody {
+            td {
+                border-color: #EFA4A4;
+            }
+            tr:nth-child(odd) td {
+                background-color: #FFEFEF;
+            }
+        }
+    }
+}
