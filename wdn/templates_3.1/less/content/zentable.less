@@ -15,13 +15,12 @@
     th, td {
         padding: 4px;
         border-collapse: separate;
-        background-color: #FFFFFF;
     }
     
     tr th {
         /* defaults to bright class style */
-        color: #3A3A3A;
-        background: #F5E62F url('../images/bottom_shadow_light.png') repeat-x bottom;
+        color: darken(@baseText, 10%);
+        .linear-gradient-2-stop(@zenBright, 70%, desaturate(@zenBright, 30%), 100%);
         text-align: left;
         
         &:first-child {
@@ -49,88 +48,88 @@
         }
         
         tr:nth-child(odd) td {
-            background-color: #FFFDDF;
+            background-color: hsl(hue(@zenBright), 100%, 94%);
         }
         
         td {
             border-bottom-style: solid;
             border-bottom-width: 1px;
-            border-color: #FFF88F;
+            border-color: hsl(hue(@zenBright), 100%, 78%);
         }
     }
     
     &.cool {
         /* Cool Zentable */
         tr th {
-            background: #557BB7 url('../images/bottom_shadow_medium.png') repeat-x bottom;
-            color: #FFFFFF;
+            color: #fff;
+            .linear-gradient-2-stop(@zenCool, 70%, desaturate(@zenCool, 30%), 100%);
         }
         tbody {
             td {
-                border-color: #BDD7F7;
+                border-color: hsl(hue(@zenCool), 62%, 78%);
             }
             tr:nth-child(odd) td {
-                background-color: #EFF7FF;
+                background-color: hsl(hue(@zenCool), 100%, 97%);
             }
         }
     }
     &.soothing {
         /* Soothing Zentable */
         tr th {
-            background: #028A02 url('../images/bottom_shadow_medium.png') repeat-x bottom;
-            color: #FFFFFF;
+            color: #fff;
+            .linear-gradient-2-stop(@zenSoothing, 70%, desaturate(@zenSoothing, 50%), 100%);
         }
         tbody {
             td {
-                border-color: #B5DFB5;
+                border-color: hsl(hue(@zenSoothing), 62%, 78%);
             }
             tr:nth-child(odd) td {
-                background-color: #EFFFEF;
+                background-color: hsl(hue(@zenSoothing), 100%, 97%);
             }
         }
     }
     &.energetic {
         /* Energetic Zentable */
         tr th {
-            background: #FA6520 url('../images/bottom_shadow_medium.png') repeat-x bottom;
-            color: #FFFFFF;
+            color: #fff;
+            .linear-gradient-2-stop(@zenEnergetic, 70%, desaturate(@zenEnergetic, 30%), 100%);
         }
         tbody {
             td {
-                border-color: #FF9B6F;
+                border-color: hsl(hue(@zenEnergetic), 100%, 78%);
             }
             tr:nth-child(odd) td {
-                background-color: #FFE9DF;
+                background-color: hsl(hue(@zenEnergetic), 100%, 94%);
             }
         }
     }
     &.neutral {
         /* Neutral Zentable */
         tr th {
-            background: #3C3C3C url('../images/bottom_shadow_medium.png') repeat-x bottom;
-            color: #FFFFFF;
+            color: #fff;
+            .linear-gradient-2-stop(@zenNeutral, 70%, lighten(@zenNeutral, 15%), 100%);
         }
         tbody {
             td {
-                border-color: #AFAFAF;
+                border-color: hsl(hue(@zenNeutral), 0%, 78%);
             }
             tr:nth-child(odd) td {
-                background-color: #EFEFEF;
+                background-color: hsl(hue(@zenNeutral), 0%, 94%);
             }
         }
     }
     &.primary {
         /* Primary Zentable */
         tr th {
-            background: #c20403 url('../images/bottom_shadow_medium.png') repeat-x bottom;
-            color: #FFFFFF;
+            color: #fff;
+            .linear-gradient-2-stop(@zenPrimary, 70%, desaturate(@zenPrimary, 50%), 100%);
         }
         tbody {
             td {
-                border-color: #EFA4A4;
+                border-color: hsl(hue(@zenPrimary), 62%, 78%);
             }
             tr:nth-child(odd) td {
-                background-color: #FFEFEF;
+                background-color: hsl(hue(@zenPrimary), 100%, 97%);
             }
         }
     }
