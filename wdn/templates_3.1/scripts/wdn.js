@@ -278,7 +278,7 @@ var WDN = (function() {
 		browserAdjustments: function () {
 			if (WDN.hasDocumentClass('ie6')) {
 				var $body = WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>').removeAttr('class').addClass('document');
-				WDN.jQuery('#wdn_upgrade_notice').load(getTemplateFilePath('includes/browserupgrade.html', true));
+				WDN.jQuery('#wdn_upgrade_notice').load(WDN.getTemplateFilePath('includes/browserupgrade.html', true));
 				WDN.jQuery('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
 				WDN.loadCSS(WDN.getTemplateFilePath('css/content/columns.css'));
 				return;
