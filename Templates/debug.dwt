@@ -29,7 +29,7 @@
 <!-- Place optional header elements here -->
 
 <!-- TemplateEndEditable -->
-<!-- InstanceParam name="class" type="text" value="fixed debug" -->
+<!-- TemplateParam name="class" type="text" value="fixed debug" -->
 </head>
 <body class="@@(_document['class'])@@">
     <nav class="skipnav">
@@ -39,9 +39,7 @@
         <header id="header" role="banner">
             <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
             <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
-            <!-- TemplateBeginEditable name="titlegraphic" -->
-            <span id="wdn_site_title">The Title of My Site</span>
-            <!-- TemplateEndEditable -->
+            <span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" -->The Title of My Site<!-- TemplateEndEditable --></span>
             <!--#include virtual="/wdn/templates_3.1/includes/idm.html" -->
             <!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
         </header>
@@ -61,7 +59,7 @@
                 <nav id="navigation" role="navigation">
                     <h3 class="wdn_list_descriptor hidden">Navigation</h3>
                     <!-- TemplateBeginEditable name="navlinks" -->
-                    <!--#include virtual="sharedcode/navigation.html" -->
+                    <!--#include virtual="../sharedcode/navigation.html" -->
                     <!-- TemplateEndEditable -->
                 </nav>
             </div>
@@ -75,9 +73,9 @@
             <div id="maincontent" role="main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- TemplateBeginEditable name="maincontentarea" -->
-                  <h2>This is a blank page</h2>
-                  <p>Impress your audience with awesome content!</p> 
-                  <!-- TemplateEndEditable -->
+                <h2>This is a blank page</h2>
+                <p>Impress your audience with awesome content!</p> 
+                <!-- TemplateEndEditable -->
                 <div class="clear"></div>
                 <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
@@ -90,11 +88,11 @@
             </div>
             <div class="footer_col" id="wdn_footer_related">
                 <!-- TemplateBeginEditable name="leftcollinks" -->
-                <!--#include virtual="sharedcode/relatedLinks.html" -->
+                <!--#include virtual="../sharedcode/relatedLinks.html" -->
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col" id="wdn_footer_contact">
                 <!-- TemplateBeginEditable name="contactinfo" -->
-                <!--#include virtual="sharedcode/footerContactInfo.html" -->
+                <!--#include virtual="../sharedcode/footerContactInfo.html" -->
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col" id="wdn_footer_share">
                 <!--#include virtual="/wdn/templates_3.1/includes/socialmediashare.html" -->
@@ -104,7 +102,7 @@
             <div id="wdn_copyright">
                 <div>
                     <!-- TemplateBeginEditable name="footercontent" -->
-                    <!--#include virtual="sharedcode/footer.html" -->
+                    <!--#include virtual="../sharedcode/footer.html" -->
                     <!-- TemplateEndEditable -->
                     <!--#include virtual="/wdn/templates_3.1/includes/wdn.html" -->
                 </div>

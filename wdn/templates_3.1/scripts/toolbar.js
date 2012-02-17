@@ -79,8 +79,8 @@ WDN.toolbar = function() {
          * Switches focus to a different tool.
          * 
          * @param {string} plugin_name The tool to select
-         * @param {number} ColorBox width
-         * @param {number} ColorBox height
+         * @param {number} width ColorBox width
+         * @param {number} height ColorBox height
          */
         switchToolFocus : function(plugin_name, width, height) {
         	var toolContainer = '#toolbarcontent',

@@ -3,6 +3,21 @@
  * 
  */
 WDN.events = function() {
+	var getLocalEventSettings = function() {
+		var $eventLink = WDN.jQuery('link[rel=events]'),
+			eventParams = WDN.getPluginParam('events');
+		if ($eventLink.length) {
+			return {
+				href: $eventLink[0].href,
+				title: $eventLink[0].title
+			};
+		} else if (eventParams) {
+			return eventParams;
+		}
+		
+		return null;
+	};
+	
 	return {
 		limit : 10,
 		
@@ -19,12 +34,14 @@ WDN.events = function() {
 		},
 
 		setup : function() {
+			var localSettings = getLocalEventSettings();
+			
 			if (!this.calURL) {
-				this.calURL = WDN.jQuery('link[rel=events]').attr('href');
+				this.calURL = localSettings.href;
 			}
 			
 			if (!this.calTitle) {
-				this.calTitle = WDN.jQuery('link[rel=events]').attr('title') || '';
+				this.calTitle = localSettings.title || '';
 			}
 			
 			if (WDN.jQuery(this.container).length != 0) {

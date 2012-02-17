@@ -7,6 +7,8 @@
 * Styles associated with the images and captions
 * ---------------------------
 */
+@import "../_mixins/all.less";
+
 .figure() {
     border:1px solid #DDD;
     border-radius:3px;
@@ -15,6 +17,8 @@
     margin: 0 0 10px 0;
     white-space:normal;
     line-height:0.8em;
+    display: inline-block;
+    .box-sizing(border-box);
 }
 
 #maincontent, #footer, #colorbox {

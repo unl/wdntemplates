@@ -1,0 +1,145 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/content/zentable.less
+*
+* ---------------------------
+* Styles associated with the zentables
+* ---------------------------
+*/
+@import "../_mixins/all.less";
+
+.zentable {
+    width: 100%;
+    
+    th, td {
+        padding: 4px;
+        border-collapse: separate;
+    }
+    
+    tr th {
+        text-align: left;
+        /* defaults to bright class style */
+        .zen-bright();
+        
+        &:first-child {
+            .border-radius-top-left(5px);
+        }
+        
+        &:last-child {
+            .border-radius-top-right(5px);
+        }
+        
+        a {
+            text-decoration: underline;
+            color: darken(@baseText, 10%);
+        }
+    }
+    
+    tbody {
+        tr:first-child td {
+            border-top-width: 3px;
+            border-top-style: solid;
+        }
+        
+        tr:nth-child(even) td {
+            background-color: #fff;
+        }
+        
+        tr:nth-child(odd) td {
+            background-color: hsl(hue(@zenBright), 100%, 94%);
+        }
+        
+        td {
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-color: hsl(hue(@zenBright), 100%, 78%);
+        }
+    }
+    
+    &.cool {
+        /* Cool Zentable */
+        tr th {
+            .zen-cool();
+            a {
+                color: #fff;
+            }
+        }
+        tbody {
+            td {
+                border-color: hsl(hue(@zenCool), 62%, 78%);
+            }
+            tr:nth-child(odd) td {
+                background-color: hsl(hue(@zenCool), 100%, 97%);
+            }
+        }
+    }
+    &.soothing {
+        /* Soothing Zentable */
+        tr th {
+            .zen-soothing();
+            a {
+                color: #fff;
+            }
+        }
+        tbody {
+            td {
+                border-color: hsl(hue(@zenSoothing), 62%, 78%);
+            }
+            tr:nth-child(odd) td {
+                background-color: hsl(hue(@zenSoothing), 100%, 97%);
+            }
+        }
+    }
+    &.energetic {
+        /* Energetic Zentable */
+        tr th {
+            .zen-energetic();
+            a {
+                color: #fff;
+            }
+        }
+        tbody {
+            td {
+                border-color: hsl(hue(@zenEnergetic), 100%, 78%);
+            }
+            tr:nth-child(odd) td {
+                background-color: hsl(hue(@zenEnergetic), 100%, 94%);
+            }
+        }
+    }
+    &.neutral {
+        /* Neutral Zentable */
+        tr th {
+            .zen-neutral();
+            a {
+                color: #fff;
+            }
+        }
+        tbody {
+            td {
+                border-color: hsl(hue(@zenNeutral), 0%, 78%);
+            }
+            tr:nth-child(odd) td {
+                background-color: hsl(hue(@zenNeutral), 0%, 94%);
+            }
+        }
+    }
+    &.primary {
+        /* Primary Zentable */
+        tr th {
+            .zen-primary();
+            a {
+                color: #fff;
+            }
+        }
+        tbody {
+            td {
+                border-color: hsl(hue(@zenPrimary), 62%, 78%);
+            }
+            tr:nth-child(odd) td {
+                background-color: hsl(hue(@zenPrimary), 100%, 97%);
+            }
+        }
+    }
+}
