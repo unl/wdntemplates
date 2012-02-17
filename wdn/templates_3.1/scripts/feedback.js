@@ -25,7 +25,7 @@ WDN.feedback = function() {
 			} catch (e) {}
 		},
 		commentSetup : function() {
-			if (WDN.hasDocumentClass('no-inputplaceholder')) {
+			if (WDN.hasDocumentClass('no-placeholder')) {
 				WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/place/jquery.placeholder.min.js'), function() {
 					WDN.jQuery('#wdn_feedback_comments').find('[placeholder]').placeholder();
 				});

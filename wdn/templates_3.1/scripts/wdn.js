@@ -284,9 +284,9 @@ var WDN = (function() {
 				return;
 			}
 			
-			var css3Tests = 'no-css-first-child no-css-last-child no-css-nth-child no-css-nth-of-type no-css-nth-last-child'.split(' ');
+			var css3Tests = 'firstchild lastchild nthchild nthoftype nthlastchild'.split(' ');
 			for (var i = 0; i < css3Tests.length; i++) {
-				if (WDN.hasDocumentClass(css3Tests[i])) {
+				if (WDN.hasDocumentClass('no-css-' + css3Tests[i])) {
 					WDN.loadCSS(WDN.getTemplateFilePath('css/content/css3_selector_failover.css'));
 					
 					// base css3 workarounds
@@ -381,7 +381,7 @@ var WDN = (function() {
 			if (WDN.jQuery) {
 				return WDN.jQuery(_docEl).hasClass(className);
 			} else {
-				return _docEl.className.match(new RegExp('\\b' + className + '\\b'));
+				return _docEl.className.match(new RegExp('(^|\\s)' + className + '(\\s|$)'));
 			}
 		},
 
