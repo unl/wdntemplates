@@ -1,7 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if IEMobile 7 ]><html class="ie iem7"><![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
+<!--[if !(IEMobile)|!(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
 <head>
-<!--#include virtual="/wdn/templates_3.1/includes/metanfavico_html5.html" -->
+<!--#include virtual="/wdn/templates_3.1/includes/metanfavico.html" -->
 <!--
     Membership and regular participation in the UNL Web Developer Network
     is required to use the UNL templates. Visit the WDN site at 
@@ -14,15 +19,13 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: fixed_html5.dwt 1801 2011-06-29 20:56:10Z kabel $
+    $Id$
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.1/css/all.css" />
-<link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.1/css/print.css" />
-<script type="text/javascript" src="/wdn/templates_3.1/scripts/all.js"></script>
-<!--#include virtual="/wdn/templates_3.1/includes/browserspecifics_html5.html" -->
-<!-- TemplateBeginEditable name="doctitle" -->
+<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles.html" -->
+<!-- InstanceBeginEditable name="doctitle" -->
 <title>University of Nebraska&ndash;Lincoln</title>
-<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <script type="text/javascript" src="/wdn/templates_3.1/scripts/plugins/serialScroll/jquery.serialScroll-1.2.2-min.js"></script> 
 <script type="text/javascript" src="/wdn/templates_3.1/scripts/plugins/scrollTo/jquery.scrollTo-1.4.2-min.js"></script>       
@@ -40,7 +43,7 @@ WDN.jQuery(function(){
     	WDN.jQuery('.wdn_carousel').addClass('full');
     	forcePlay = true;
     });
-    WDN.jQuery.getScript('http://www.unl.edu/wdn/templates_3.1/scripts/mediaelement.js', 
+    WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/mediaelement-and-player.min.js'), 
     function(){
         WDN.jQuery('#bigTenVideo video').mediaelementplayer({
             features: ['playpause','progress','current','duration','tracks','volume'],
@@ -84,55 +87,64 @@ WDN.jQuery(function(){
 </script>
 <style type="text/css">
     /* Splash Overrides */
-    #header h1, #breadcrumbs, #pagetitle {display:none;}
-    #titlegraphic h1 {text-transform:uppercase;}
+    #wdn_institution_title { visibility: hidden; }
+	#breadcrumbs, #pagetitle {display:none;}
+    #wdn_site_title {text-transform:uppercase;}
     #wdn_navigation_wrapper {margin-top:10px;}
     #maincontent {margin-top:20px;}
     .nav_pinned #navigation > ul {margin-top:10px;}
 </style>
 <link rel="stylesheet" type="text/css" media="screen" href="external_content.css" />
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.1/css/content/mediaelement.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.1/scripts/plugins/mediaelement/css/mediaelementplayer.css" />
 <!--[if IE 7]><style type="text/css">
 #maincontent .assert > ul {width:820px; margin-left:0px; float:right;}
 #maincontent .currentScroller {position:relative;}
 #maincontent .remainder ul li {display:inline;}
-</style><![endif]-->
-
-<!-- TemplateEndEditable -->
+</style><![endif]-->		
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="class" type="text" value="fixed" -->
 </head>
-<body class="html5 fixed">
-<p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
-<div id="wdn_wrapper">
-    <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.1/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
-        <h1>University of Nebraska&ndash;Lincoln</h1>
-        <!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
-    </div>
-    <div id="wdn_navigation_bar">
-        <div id="breadcrumbs">
-            <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
-            <!-- WDN: see glossary item 'breadcrumbs' -->
-            <!-- TemplateBeginEditable name="breadcrumbs" -->
-            <ul>
-                <li>UNL</li>
-            </ul>
-            <!-- TemplateEndEditable --></div>
-        <div id="wdn_navigation_wrapper">
-            <div id="navigation">
-                <h3 class="wdn_list_descriptor hidden">Navigation</h3>
-                <!-- TemplateBeginEditable name="navlinks" -->
-                <!--#include virtual="../sharedcode/navigation.html" -->
-                <!-- TemplateEndEditable --></div>
+<body class="fixed">
+    <nav class="skipnav">
+        <a class="skipnav" href="#maincontent">Skip Navigation</a>
+    </nav>
+    <div id="wdn_wrapper">
+        <header id="header" role="banner">
+            <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
+            <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
+            <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" -->University of Nebraska&ndash;Lincoln<!-- InstanceEndEditable --></span>
+            <!--#include virtual="/wdn/templates_3.1/includes/idm.html" -->
+            <!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
+        </header>
+        <div id="wdn_navigation_bar">
+            <nav id="breadcrumbs">
+                <!-- WDN: see glossary item 'breadcrumbs' -->
+                <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
+                <!-- InstanceBeginEditable name="breadcrumbs" -->
+                <ul>
+                    <li>UNL</li>
+                </ul>
+                <!-- InstanceEndEditable -->
+            </nav>
+            <div id="wdn_navigation_wrapper">
+                <nav id="navigation" role="navigation">
+                    <h3 class="wdn_list_descriptor hidden">Navigation</h3>
+                    <!-- InstanceBeginEditable name="navlinks" -->
+                    <!--#include virtual="../../sharedcode/navigation.html" -->
+                    <!-- InstanceEndEditable -->
+                </nav>
+            </div>
         </div>
-    </div>
-    <div id="wdn_content_wrapper">
-        <div id="titlegraphic"><!-- TemplateBeginEditable name="titlegraphic" -->
-            <h1>University of Nebraska&ndash;Lincoln</h1>
-            <!-- TemplateEndEditable --></div>
-        <div id="pagetitle"><!-- TemplateBeginEditable name="pagetitle" --><h2>Welcome to the University of Nebraska&ndash;Lincoln</h2><!-- TemplateEndEditable --></div>
-        <div id="maincontent">
-            <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-            <!-- TemplateBeginEditable name="maincontentarea" -->
-            <div class="wdn_carousel">
+        <div id="wdn_content_wrapper">
+            <div id="pagetitle">
+                <!-- InstanceBeginEditable name="pagetitle" -->
+                <h1>Welcome to the University of Nebraska&ndash;Lincoln</h1>
+                <!-- InstanceEndEditable -->
+            </div>
+            <div id="maincontent" role="main">
+                <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+                <!-- InstanceBeginEditable name="maincontentarea" -->
+                <div class="wdn_carousel">
                 <div class="currentScroller">
                   <ul class="scrollerItems">
                         <li>
@@ -349,35 +361,40 @@ WDN.jQuery(function(){
                     <li class="flickr"><a href="http://www.flickr.com/photos/universityofnebraska/">Flickr</a></li>
                 </ul>
             </div>
-            <!-- TemplateEndEditable -->
-            <div class="clear"></div>
-            <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
-            <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+                <!-- InstanceEndEditable -->
+                <div class="clear"></div>
+                <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
+                <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+            </div>
         </div>
-		<div id="footer">
-        	
+        <footer id="footer">
             <div id="footer_floater"></div>
-			<div class="footer_col">
+            <div class="footer_col" id="wdn_footer_feedback">
                 <!--#include virtual="/wdn/templates_3.1/includes/feedback.html" -->
             </div>
-            <div class="footer_col"><!-- TemplateBeginEditable name="leftcollinks" -->
-                <!--#include virtual="relatedLinks.html" -->
-                <!-- TemplateEndEditable --></div>
-            <div class="footer_col"><!-- TemplateBeginEditable name="contactinfo" -->
-                <!--#include virtual="../sharedcode/footerContactInfo.html" -->
-                <!-- TemplateEndEditable --></div>
-            <div class="footer_col">
+            <div class="footer_col" id="wdn_footer_related">
+                <!-- InstanceBeginEditable name="leftcollinks" -->
+                <!--#include virtual="../../sharedcode/relatedLinks.html" -->
+                <!-- InstanceEndEditable --></div>
+            <div class="footer_col" id="wdn_footer_contact">
+                <!-- InstanceBeginEditable name="contactinfo" -->
+                <!--#include virtual="../../sharedcode/footerContactInfo.html" -->
+                <!-- InstanceEndEditable --></div>
+            <div class="footer_col" id="wdn_footer_share">
                 <!--#include virtual="/wdn/templates_3.1/includes/socialmediashare.html" -->
             </div>
-            <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
-            <div id="wdn_copyright"><!-- TemplateBeginEditable name="footercontent" -->
-                <!--#include virtual="../sharedcode/footer.html" -->
-                <!-- TemplateEndEditable -->
-                <!--#include virtual="/wdn/templates_3.1/includes/wdn.html" -->
-                | <a href="http://validator.w3.org/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a> <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.1/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
-        </div>
+            <!-- InstanceBeginEditable name="optionalfooter" -->
+            <!-- InstanceEndEditable -->
+            <div id="wdn_copyright">
+                <div>
+                    <!-- InstanceBeginEditable name="footercontent" -->
+                    <!--#include virtual="../../sharedcode/footer.html" -->
+                    <!-- InstanceEndEditable -->
+                    <!--#include virtual="/wdn/templates_3.1/includes/wdn.html" -->
+                </div>
+                <!--#include virtual="/wdn/templates_3.1/includes/logos.html" -->
+            </div>
+        </footer>
     </div>
-    <div id="wdn_wrapper_footer"> </div>
-</div>
 </body>
-</html>
+<!-- InstanceEnd --></html>

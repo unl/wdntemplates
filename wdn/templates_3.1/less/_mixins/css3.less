@@ -74,30 +74,44 @@
 }
 
 // Gradients
-.linear-gradient(@from:#000, @to:#EEE)
+.linear-gradient(@from, @to)
 {
-	background: @from; // Old browsers
-	background: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to)); // Chrome, Safari4+
-	background: -moz-linear-gradient(top, @from, @to); // FF3.6+
-	background: -webkit-linear-gradient(top, @from, @to); // Chrome10+, Safari5.1+
-	background: -o-linear-gradient(top, @from, @to); // Opera11.10+
-	background: -ms-linear-gradient(top, @from, @to); // IE10+
-	filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{from}', endColorstr='@{to}')"; // IE6,IE7,IE8
-	background: linear-gradient(top, @from, @to); // W3C
+	.linear-gradient(@from, @to, @from);
 }
-.linear-gradient-no-filter(@from:#000, @to:#EEE)
+.linear-gradient(@from, @to, @failover)
 {
-    background: @from; // Old browsers
-    background: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to)); // Chrome, Safari4+
-    background: -moz-linear-gradient(top, @from, @to); // FF3.6+
-    background: -webkit-linear-gradient(top, @from, @to); // Chrome10+, Safari5.1+
-    background: -o-linear-gradient(top, @from, @to); // Opera11.10+
-    background: -ms-linear-gradient(top, @from, @to); // IE10+
-    background: linear-gradient(top, @from, @to); // W3C
+	.linear-gradient-no-filter(@from, @to, @failover);
+	.linear-gradient-filter(@from, @to);
 }
-.linear-gradient-filter(@from:#000, @to:#EEE)
+.linear-gradient-no-filter(@from, @to)
 {
-    filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{from}', endColorstr='@{to}')"; // IE6,IE7,IE8
+    .linear-gradient-no-filter(@from, @to, @from);
+}
+.linear-gradient-no-filter(@from, @to, @failover)
+{
+	.linear-gradient-2-stop(@from, 0%, @to, 100%, @failover);
+}
+.linear-gradient-filter(@from, @to)
+{
+    filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{from}', endColorstr='@{to}', GradientType=0)"; // IE6-9
+}
+.linear-gradient-failover(@failover)
+{
+    background: @failover; // Old browsers
+}
+.linear-gradient-2-stop(@from, @from_stop, @to, @to_stop)
+{
+    .linear-gradient-2-stop(@from, @from_stop, @to, @to_stop, @from);
+}
+.linear-gradient-2-stop(@from, @from_stop, @to, @to_stop, @failover)
+{
+    .linear-gradient-failover(@failover);
+    background: -moz-linear-gradient(top,  @from @from_stop, @to @to_stop); // FF3.6+
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@from_stop,@from), color-stop(@to_stop,@to)); // Chrome, Safari4+
+    background: -webkit-linear-gradient(top,  @from @from_stop,@to @to_stop); // Chrome10+, Safari5.1+
+    background: -o-linear-gradient(top,  @from @from_stop,@to @to_stop); // Opera 11.10+
+    background: -ms-linear-gradient(top,  @from @from_stop,@to @to_stop); // IE10+
+    background: linear-gradient(top,  @from @from_stop,@to @to_stop); // W3C
 }
 
 // Box Flex
@@ -146,13 +160,13 @@
 }
 
 // Transformations
-.skew(@angle_x:35, @angle_y:0)
+.skew(@angle_x:35deg, @angle_y:0deg)
 {
-	-webkit-transform: skew(@{angle_x}deg, @{angle_y}deg);
-	-moz-transform: skew(@{angle_x}deg, @{angle_y}deg);
-	-o-transform: skew(@{angle_x}deg, @{angle_y}deg);
-	-ms-transform: skew(@{angle_x}deg, @{angle_y}deg);
-	transform: skew(@{angle_x}deg, @{angle_y}deg);
+	-webkit-transform: skew(@angle_x, @angle_y);
+	-moz-transform: skew(@angle_x, @angle_y);
+	-o-transform: skew(@angle_x, @angle_y);
+	-ms-transform: skew(@angle_x, @angle_y);
+	transform: skew(@angle_x, @angle_y);
 }
 
 .scale(@scale_x: 1)

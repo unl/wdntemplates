@@ -21,7 +21,7 @@
     
     $Id$
 -->
-<jsp:include page="/wdn/templates_3.1/includes/scriptsandstyles.html" />
+<jsp:include page="/wdn/templates_3.1/includes/scriptsandstyles_debug.html" />
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>Use a descriptive page title | Optional Site Title (use for context) | UNL Affiliate</title>
 <!-- TemplateEndEditable -->
@@ -30,7 +30,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="../sharedcode/affiliate.css" />
 <link href="../sharedcode/affiliate_imgs/favicon.ico" rel="shortcut icon" />
 <!-- TemplateEndEditable -->
-<!-- TemplateParam name="class" type="text" value="fixed" -->
+<!-- TemplateParam name="class" type="text" value="fixed debug" -->
 </head>
 <body class="@@(_document['class'])@@">
     <nav class="skipnav">
@@ -42,8 +42,8 @@
             <a id="logo" href="http://www.throughtheeyes.org/" title="Through the Eyes of the Child Initiative">Through the Eyes of the Child Initiative</a>
             <!-- TemplateEndEditable -->
             <span id="wdn_institution_title"><!-- TemplateBeginEditable name="sitebranding_affiliate" --><a href="http://www.unl.edu" title="University of Nebraska&ndash;Lincoln">An affiliate of the University of Nebraska&ndash;Lincoln</a><!-- TemplateEndEditable --></span>            
-            <span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" -->Throught the Eyes of a Child Initiative<span>A Nebraska Supreme Court Initiative</span><!-- TemplateEndEditable --></span>
-            <jsp:include page="/wdn/templates_3.1/includes/idm.html" />
+    		<span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" -->Throught the Eyes of a Child Initiative<span>A Nebraska Supreme Court Initiative</span><!-- TemplateEndEditable --></span>
+    		<jsp:include page="/wdn/templates_3.1/includes/idm.html" />
             <jsp:include page="/wdn/templates_3.1/includes/wdnTools.html" />
         </header>
         <div id="wdn_navigation_bar">

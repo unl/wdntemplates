@@ -1,0 +1,43 @@
+// legacy "Zen" colors
+@zenBright: #f5e62f;
+@zenCool: #557BB7;
+@zenSoothing: #028a02;
+@zenEnergetic: #FA6520;
+@zenNeutral: #3c3c3c;
+@zenPrimary: #c20403;
+
+.zen-bright()
+{
+    color: darken(@baseText, 10%);
+    .linear-gradient-2-stop(@zenBright, 70%, desaturate(@zenBright, 30%), 100%);
+}
+
+.zen-cool()
+{
+    color: #fff;
+    .linear-gradient-2-stop(@zenCool, 70%, desaturate(@zenCool, 30%), 100%);
+}
+
+.zen-soothing() 
+{
+    color: #fff;
+    .linear-gradient-2-stop(@zenSoothing, 70%, desaturate(@zenSoothing, 50%), 100%);
+}
+
+.zen-energetic() 
+{
+    color: #fff;
+    .linear-gradient-2-stop(@zenEnergetic, 70%, desaturate(@zenEnergetic, 30%), 100%);
+}
+
+.zen-neutral() 
+{
+    color: #fff;
+    .linear-gradient-2-stop(@zenNeutral, 70%, lighten(@zenNeutral, 15%), 100%);
+}
+
+.zen-primary() 
+{
+    color: #fff;
+    .linear-gradient-2-stop(@zenPrimary, 70%, desaturate(@zenPrimary, 50%), 100%);
+}
