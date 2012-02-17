@@ -18,10 +18,9 @@
     }
     
     tr th {
-        /* defaults to bright class style */
-        color: darken(@baseText, 10%);
-        .linear-gradient-2-stop(@zenBright, 70%, desaturate(@zenBright, 30%), 100%);
         text-align: left;
+        /* defaults to bright class style */
+        .zen-bright();
         
         &:first-child {
             .border-radius-top-left(5px);
@@ -30,11 +29,11 @@
         &:last-child {
             .border-radius-top-right(5px);
         }
-    }
-    
-    th a {
-        text-decoration: underline;
-        color: #FFF !important;
+        
+        a {
+            text-decoration: underline;
+            color: darken(@baseText, 10%);
+        }
     }
     
     tbody {
@@ -61,8 +60,10 @@
     &.cool {
         /* Cool Zentable */
         tr th {
-            color: #fff;
-            .linear-gradient-2-stop(@zenCool, 70%, desaturate(@zenCool, 30%), 100%);
+            .zen-cool();
+            a {
+                color: #fff;
+            }
         }
         tbody {
             td {
@@ -76,8 +77,10 @@
     &.soothing {
         /* Soothing Zentable */
         tr th {
-            color: #fff;
-            .linear-gradient-2-stop(@zenSoothing, 70%, desaturate(@zenSoothing, 50%), 100%);
+            .zen-soothing();
+            a {
+                color: #fff;
+            }
         }
         tbody {
             td {
@@ -91,8 +94,10 @@
     &.energetic {
         /* Energetic Zentable */
         tr th {
-            color: #fff;
-            .linear-gradient-2-stop(@zenEnergetic, 70%, desaturate(@zenEnergetic, 30%), 100%);
+            .zen-energetic();
+            a {
+                color: #fff;
+            }
         }
         tbody {
             td {
@@ -106,8 +111,10 @@
     &.neutral {
         /* Neutral Zentable */
         tr th {
-            color: #fff;
-            .linear-gradient-2-stop(@zenNeutral, 70%, lighten(@zenNeutral, 15%), 100%);
+            .zen-neutral();
+            a {
+                color: #fff;
+            }
         }
         tbody {
             td {
@@ -121,8 +128,10 @@
     &.primary {
         /* Primary Zentable */
         tr th {
-            color: #fff;
-            .linear-gradient-2-stop(@zenPrimary, 70%, desaturate(@zenPrimary, 50%), 100%);
+            .zen-primary();
+            a {
+                color: #fff;
+            }
         }
         tbody {
             td {
