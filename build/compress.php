@@ -128,6 +128,7 @@ EOD;
         'content/mime',
         'content/tabs',
         'content/pagination' => array('ignore' => true),
+        'content/zenbox',
         'content/zentable',
         'footer/footer',
         'footer/feedback',
