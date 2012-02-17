@@ -33,24 +33,15 @@ WDN.tabs = (function() {
 		useHashChange : true,
 		
 		initialize : function() {
-			var ie7 = document.all && navigator.appVersion.indexOf("MSIE 7.") != -1;
 			WDN.log ("tabs JS loaded");
 			
-			// Add yesprint class to list items, to act as a table of contents when printed
-			WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li').each(function(){
-				var content    = WDN.jQuery(this).children('a').text();
-				var hash_check = WDN.jQuery(this).children('a').attr('href').split('#');
-				if (hash_check.length == 2 && hash_check[1] !== "") {
-					WDN.jQuery('div#'+hash_check[1]).prepend("<h5 class='yesprint'>"+content+"</h5>");
-				}
-				return true;
-			});
-			
 			// Set up the event for when a tab is clicked
-			var hashFromTabClick = false;
-			WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) a').click(function() { //do something when a tab is clicked
-				var trig = WDN.jQuery(this);
-				var hash = getHashFromLink(this);
+			var hashFromTabClick = false,
+				$tabsWithSwitch = WDN.jQuery('ul.wdn_tabs').not('.disableSwitching');
+			
+			$tabsWithSwitch.find('a').click(function() { //do something when a tab is clicked
+				var trig = WDN.jQuery(this),
+					hash = getHashFromLink(this);
 				
 				if (!hash) {
 					return true;
@@ -70,29 +61,19 @@ WDN.tabs = (function() {
 				return false;
 			});
 			
-			// Adds spacing if subtabs are present
-			if (WDN.jQuery('#maincontent ul.wdn_tabs li ul').length) {
-				WDN.jQuery('#maincontent ul.wdn_tabs').css({'margin-bottom':'70px'});
-				if (ie7) {
-					WDN.jQuery('#maincontent ul.wdn_tabs li ul li').css({'display':'inline'});
-				}
-			}
-			
-			
 			// If we have some tabs setup the hash stuff
-			if (WDN.jQuery('ul.wdn_tabs:not(.disableSwitching)').length) {
+			if ($tabsWithSwitch.length) {
 				var isValidTabHash = function(hash) {
 					var validRE = /^[a-z][\w:\-\.]*$/i;
 					return validRE.test(hash);
 				};
 				var setupFirstHash = function(hash) {
+					var ignoreTabs = WDN.jQuery();
 					if (hash) {
-						var ignoreTabs = WDN.jQuery(jq(hash)).closest('.wdn_tabs_content').prev('ul.wdn_tabs');
-					} else {
-						var ignoreTabs = WDN.jQuery();
+						ignoreTabs = WDN.jQuery(jq(hash)).closest('.wdn_tabs_content').prev('ul.wdn_tabs');
 					}
 					
-					var tabs = WDN.jQuery('ul.wdn_tabs:not(.disableSwitching)').not(ignoreTabs);
+					var tabs = $tabsWithSwitch.not(ignoreTabs);
 					
 					if (WDN.jQuery('li.selected', tabs).length) {
 						var trig = WDN.jQuery('li.selected:first a:first', tabs);
@@ -160,8 +141,10 @@ WDN.tabs = (function() {
 		},
 		
 		updateInterface: function(trig) {
-			var tabs = trig.closest('ul.wdn_tabs');
-			var curr = trig.closest('li').siblings('.selected');
+			var tabs = trig.closest('ul.wdn_tabs'),
+				curr = trig.closest('li').siblings('.selected'),
+				sibs = trig.siblings(),
+				parentTabs = trig.parents('li');
 			
 			// Remove any selected tab class
 			WDN.jQuery('li.selected', tabs).removeClass('selected');
@@ -170,11 +153,19 @@ WDN.tabs = (function() {
 			WDN.jQuery('ul', tabs).hide();
 			
 			// Add the selected class to the tab (and sub-tab)
-			trig.parents('li').addClass('selected');
+			parentTabs.addClass('selected');
+			
+			tabs.css('margin-bottom', '');
 			
 			// Show any relevant sub-tabs
-			trig.siblings().show();
-			trig.closest('ul').show();
+			if (sibs.length || parentTabs.length > 1) {
+				if (!sibs.length) {
+					sibs = trig.closest('ul');
+				}
+				sibs.show();
+				
+				tabs.css('margin-bottom', (parseInt(tabs.css('margin-bottom'), 10) + sibs.outerHeight(true))  + 'px');
+			}
 			
 			var nsel = trig.closest('li').siblings('.selected');
 			trig.trigger('tabchanged', [curr, nsel, tabs]);
