@@ -6,7 +6,7 @@ WDN.search = function() {
 		     */
             WDN.jQuery('#q').attr('x-webkit-speech', 'x-webkit-speech');
             
-            if (WDN.hasDocumentClass('no-inputplaceholder')) {
+            if (WDN.hasDocumentClass('no-placeholder')) {
 				WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/placeholder/jquery.placeholder.min.js'), function() {
 					WDN.jQuery('#q').placeholder();
 				});
