@@ -106,13 +106,15 @@ WDN.idm = function() {
 		 * @return string
 		 */
 		displayName : function(uid){
-		    var disp_name = uid || '';
+		    var disp_name = '';
 		    if (WDN.idm.user.cn) {
 		    	for (var i in WDN.idm.user.cn) {
 		    		if (!disp_name || WDN.idm.user.cn[i].length < disp_name.length) {
 		    			disp_name = WDN.idm.user.cn[i];
 		    		}
 		    	}
+		    } else {
+		    	disp_name = uid;
 		    }
 		    
 		    return disp_name;
