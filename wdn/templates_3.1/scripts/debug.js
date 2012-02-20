@@ -44,7 +44,7 @@ if (xhr) {
 	    _wdn_scripts_url,
 	    'wdn.js"></script>\n',
 	    '<script type="text/javascript">WDN_READY();</script>'
-    ].join());
+    ].join(''));
 }
 
 })();
