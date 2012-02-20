@@ -311,18 +311,68 @@ var WDN = (function() {
 			});
 		},
 
-		initializePlugin: function (plugin, callback) {
-			if (!callback) {
-				callback = function () {
-					if ("initialize" in WDN[plugin]) {
-						WDN.log("initializing plugin '" + plugin + "'");
-						WDN[plugin].initialize();
+		/**
+		 * 
+		 * @param {string} plugin - The plugin name (must get registerd in WDN namespace)
+		 * @param {array=} args (optional) - The arguments to pass to plugin initialize funciton
+		 * @param {function()=} callback (optional) - A provided callback on plugin load
+		 * @param {string=} insert (optional) - Where the provided callback should be called relative to plugin initialize (before|after|replace)
+		 */
+		initializePlugin: function (plugin, args, callback, insert) {
+			// if args is a function, it is the callback
+			if (Object.prototype.toString.call(args) === '[object Function]') {
+				insert = callback;
+				callback = args;
+				args = undefined;
+			}
+			
+			// ensure that args is an array (if available)
+			if (args && Object.prototype.toString.call(args) !== '[object Array]') {
+				args = [args];
+			}
+			
+			var onLoad = function () {
+				if ("initialize" in WDN[plugin]) {
+					WDN.log("initializing plugin '" + plugin + "'");
+					WDN[plugin].initialize.apply(this, args);
+				} else {
+					WDN.log("no initialize method for plugin " + plugin);
+				}
+			};
+			
+			if (callback) {
+				// validate the insert param
+				var _insertVals = 'before after replace'.split(' '),
+					_goodInsert = false, i;
+				for (i = 0; i < _insertVals.length; i++) {
+					if (insert === _insertVals[i]) {
+						_goodInsert = true;
+						break;
+					}
+				}
+				if (!_goodInsert) {
+					insert = 'replace';
+				}
+				
+				// construct the load callback based on insert
+				onLoad = function() {
+					if (insert === 'replace') {
+						callback();
 					} else {
-						WDN.log("no initialize method for plugin " + plugin);
+						if (insert === 'before') {
+							callback();
+						}
+						
+						onLoad();
+						
+						if (insert === 'after') {
+							callback();
+						}
 					}
 				};
 			}
-			WDN.loadJS(WDN.getTemplateFilePath('scripts/' + plugin + '.js'), callback);
+			
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/' + plugin + '.js'), onLoad);
 		},
 		
 		setPluginParam: function (plugin, name, value) {
