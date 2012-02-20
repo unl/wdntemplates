@@ -5,6 +5,8 @@ var _gaq = _gaq || [];
 var WDN = (function() {
 	var loadingJS = {},
 		pluginParams = {},
+		loadingCSS = {},
+		loadedCSS = {},
 		_head = document.head || document.getElementsByTagName('head')[0],
 		_docEl = document.documentElement,
 		_currentWidthScript,
@@ -72,8 +74,8 @@ var WDN = (function() {
 				loadingJS[url] = [];
 				WDN.log("begin loading JS: " + url);
 				var e = document.createElement("script");
-				e.setAttribute('src', url);
-				e.setAttribute('type','text/javascript');
+				e.src = url;
+				e.type = 'text/javascript';
 				_head.appendChild(e);
 
 				if (callback) {
@@ -109,13 +111,59 @@ var WDN = (function() {
 		/**
 		 * Load an external css file.
 		 */
-		loadCSS: function (url) {
+		loadCSS: function (url, callback, checkLoaded, callbackIfLoaded) {
 			url = _sanitizeTemplateUrl(url);
-			var e = document.createElement("link");
-			e.href = url;
-			e.rel = "stylesheet";
-			e.type = "text/css";
-			_head.appendChild(e);
+			
+			var _getLink = function() {
+					var e = document.createElement("link");
+					e.href = url;
+					e.rel = "stylesheet";
+					e.type = "text/css";
+					return e;
+				},
+				e = _getLink(),
+				dummyObj,
+				executeCallback = function() {
+					dummyObj = undefined;
+					
+					loadedCSS[url] = true;
+					if (loadingCSS[url]) {
+						for (var i = 0; i < loadingCSS[url].length; i++) {
+							loadingCSS[url][i]();
+						}
+						delete loadingCSS[url];
+					}
+				};
+			
+			if (!callback) {
+				e.onload = function() {
+					loadedCSS[url] = true;
+				};
+				_head.appendChild(e);
+				
+				return;
+			}
+			
+			// Workaround for webkit and old gecko not firing onload events for <link>
+			// http://www.backalleycoder.com/2011/03/20/link-tag-css-stylesheet-load-event/
+			
+			if (checkLoaded === false || !(url in loadedCSS)) {
+				if (url in loadingCSS) {
+					loadingCSS[url].push(callback);
+					return;
+				}
+				
+				loadingCSS[url] = [callback];
+				
+				dummyObj = document.createElement('img');
+				dummyObj.onerror = executeCallback;
+				dummyObj.src = url;
+				_head.appendChild(e);
+			} else {
+				if (callbackIfLoaded !== false) {
+					callback();
+				}
+			}
 		},
 
 		getClientWidth: function() {
@@ -323,12 +371,14 @@ var WDN = (function() {
 			if (Object.prototype.toString.call(args) === '[object Function]') {
 				insert = callback;
 				callback = args;
-				args = undefined;
+				args = [];
 			}
 			
 			// ensure that args is an array (if available)
 			if (args && Object.prototype.toString.call(args) !== '[object Array]') {
 				args = [args];
+			} else if (!args) {
+				args = [];
 			}
 			
 			var onLoad = function () {
