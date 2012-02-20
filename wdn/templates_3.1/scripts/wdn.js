@@ -381,7 +381,7 @@ var WDN = (function() {
 				args = [];
 			}
 			
-			var onLoad = function () {
+			var defaultOnLoad = onLoad = function () {
 				if ("initialize" in WDN[plugin]) {
 					WDN.log("initializing plugin '" + plugin + "'");
 					WDN[plugin].initialize.apply(this, args);
@@ -413,7 +413,7 @@ var WDN = (function() {
 							callback();
 						}
 						
-						onLoad();
+						defaultOnLoad();
 						
 						if (insert === 'after') {
 							callback();
