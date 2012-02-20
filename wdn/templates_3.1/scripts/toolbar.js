@@ -7,11 +7,9 @@
  *
 WDN.toolbar_mytoolname = function() {
     return {
-        initialize : function() {
+        initialize : function(callback(content)) {
 			// This is called when the tool is initialized before it is shown
-        },
-        setupToolContent : function(callback(content)) {
-        	// Loader for initial content, callback must provide content param
+			// Loads initial content, callback must provide content param
         },
         display : function() {
     		// this will be called when the tool is displayed
@@ -32,12 +30,10 @@ WDN.toolbar = function() {
 				WDN.jQuery('#wdn_tool_links a').unbind('click');
 				WDN.jQuery('#header').append('<div class="hidden"><div id="toolbarcontent"></div></div>');
 				var that = WDN.jQuery(this);
-				WDN.initializePlugin('modal', function() {
-					WDN.modal.initialize(function() {
-						WDN.toolbar.setup();
-						WDN.jQuery(that).click();
-					});
-				});
+				WDN.initializePlugin('modal', [function() {
+					WDN.toolbar.setup();
+					WDN.jQuery(that).click();
+				}]);
 			});
 		},
 		
@@ -117,14 +113,11 @@ WDN.toolbar = function() {
         	};
         	
         	if (!$toolContent.length) {
-        		WDN.initializePlugin('toolbar_' + plugin_name, function() {
-        			WDN[toolbarName].initialize();
-        			WDN[toolbarName].setupToolContent(function(content) {
-        				$toolContent = WDN.jQuery('<div id="' + toolbarName + '" class="toolbar_plugin" />')
-        					.append(content).appendTo(toolContainer);
-        				contentReady();
-    				});
-        		});
+        		WDN.initializePlugin('toolbar_' + plugin_name, [function(content) {
+    				$toolContent = WDN.jQuery('<div id="' + toolbarName + '" class="toolbar_plugin" />')
+    					.append(content).appendTo(toolContainer);
+    				contentReady();
+				}]);
         	} else {
         		contentReady();
         	}
