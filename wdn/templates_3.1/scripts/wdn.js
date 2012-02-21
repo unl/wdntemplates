@@ -57,9 +57,9 @@ var WDN = (function() {
 		 * Loads an external JavaScript file.
 		 *
 		 * @param {string} url
-		 * @param {function} callback (optional) - will be called once the JS file has been loaded
-		 * @param {boolean} checkLoaded (optional) - if false, the JS will be loaded without checking whether it's already been loaded
-		 * @param {boolean} callbackIfLoaded (optional) - if false, the callback will not be executed if the JS has already been loaded
+		 * @param {function()=} callback (optional) - will be called once the JS file has been loaded
+		 * @param {boolean=} checkLoaded (optional) - if false, the JS will be loaded without checking whether it's already been loaded
+		 * @param {boolean=} callbackIfLoaded (optional) - if false, the callback will not be executed if the JS has already been loaded
 		 */
 		loadJS: function (url,callback,checkLoaded,callbackIfLoaded) {
 			url = _sanitizeTemplateUrl(url);
@@ -181,10 +181,9 @@ var WDN = (function() {
 			}
 			_initd = true;
 			
-			var clientWidth, initFunctions, resizeTimeout, onResize, widthScript;
+			var clientWidth, initFunctions;
 			
 			WDN.loadCSS(WDN.getTemplateFilePath('css/script.css'));
-			WDN.loadJS(WDN.getTemplateFilePath('scripts/modernizr-wdn.js'));
 			
 			initFunctions = {
 				"320": function() {
@@ -210,80 +209,93 @@ var WDN = (function() {
 				}
 			};
 			
-			clientWidth = WDN.getClientWidth();
-			switch (true) {
-				case clientWidth >= 768:
-					_currentWidthScript = '768';
-					break;
-				default:
-					_currentWidthScript = '320';
-					break;
-			}
-			
-			if (debug) {
-				initFunctions[_currentWidthScript]();
-			} else {
-				widthScript = WDN.getTemplateFilePath('scripts/compressed/' + _currentWidthScript + '.js');
-				
-				if (WDN.hasDocumentClass('wdn-async')) {
-					WDN.loadJS(widthScript, initFunctions[_currentWidthScript]);
-				} else {
-					var xhr;
-					if (window.ActiveXObject) {
-						xhr = new ActiveXObject("Microsoft.XMLHTTP");
-					} else if (window.XMLHttpRequest) {
-						xhr = new XMLHttpRequest();
-					}
-					
-					if (xhr) {
-						xhr.open("GET", WDN.template_path + widthScript, false);
-						xhr.send(null);
-						if (/\S/.test(xhr.responseText)) {
-							(window.execScript || function(data) {
-								window["eval"].call(window, data);
-							})(xhr.responseText);
-							initFunctions[_currentWidthScript]();
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/modernizr-wdn.js'), function() {
+				var resizeTimeout, onResize, widthScript,
+					getMediaQueryWidth = function() {
+						switch (true) {
+							case Modernizr.mq('only screen and (min-width: 768px)'):
+								return '768';
+							default:
+								return '320';
 						}
-					} else {
-						WDN.INIT = function() {
-							initFunctions[_currentWidthScript]();
-							delete WDN.INIT;
-						};
-						document.write('<script type="text/javascript" src="' + WDN.template_path + widthScript + '"></script>');
-						document.write('<script type="text/javascript">WDN.INIT();</script>');
-					}
-				}
-			}
-			
-			onResize = function() {
-				if (resizeTimeout) {
-					clearTimeout(resizeTimeout);
+					};
+				
+				if (WDN.hasDocumentClass('mediaqueries')) {
+					_currentWidthScript = getMediaQueryWidth();
+				} else {
+					// default to the desktop presen
+					_currentWidthScript = '768';
 				}
 				
-				resizeTimeout = setTimeout(function() {
-					var clientWidth = WDN.getClientWidth();
-					switch (true) {
-						case clientWidth >= 768:
-							if (_currentWidthScript != '768') {
-								//TODO: destroy 320 stuff
-								//TODO: load and init 768 interface
-							} 
-							break;
-						default:
-							if (_currentWidthScript != '320') {
-								//TODO: destroy 768 stuff
-								//TODO: load and init 320 interface
+				if (debug) {
+					initFunctions[_currentWidthScript]();
+				} else {
+					widthScript = WDN.getTemplateFilePath('scripts/compressed/' + _currentWidthScript + '.js');
+					
+					if (WDN.hasDocumentClass('wdn-async')) {
+						WDN.loadJS(widthScript, initFunctions[_currentWidthScript]);
+					} else {
+						var xhr;
+						if (window.ActiveXObject) {
+							xhr = new ActiveXObject("Microsoft.XMLHTTP");
+						} else if (window.XMLHttpRequest) {
+							xhr = new XMLHttpRequest();
+						}
+						
+						if (xhr) {
+							xhr.open("GET", WDN.template_path + widthScript, false);
+							xhr.send(null);
+							if (/\S/.test(xhr.responseText)) {
+								(window.execScript || function(data) {
+									window["eval"].call(window, data);
+								})(xhr.responseText);
+								initFunctions[_currentWidthScript]();
 							}
-							break;
+						} else {
+							WDN.INIT = function() {
+								initFunctions[_currentWidthScript]();
+								delete WDN.INIT;
+							};
+							document.write('<script type="text/javascript" src="' + WDN.template_path + widthScript + '"></script>');
+							document.write('<script type="text/javascript">WDN.INIT();</script>');
+						}
 					}
-				}, 500);
-			};
-			
-			if (window.addEventListener) {
-				window.addEventListener('resize', onResize, false);
-			} else if (window.attachEvent) {
-				window.attachEvent('onresize', onResize);
-			}
+				}
+				
+				if (WDN.hasDocumentClass('mediaqueries')) {
+					onResize = function() {
+						if (resizeTimeout) {
+							clearTimeout(resizeTimeout);
+						}
+						
+						resizeTimeout = setTimeout(function() {
+							var newWidthScript = getMediaQueryWidth();
+							if (_currentWidthScript != newWidthScript) {
+								WDN.log('Min-width breakpoint changed from ' + _currentWidthScript + ' to ' + newWidthScript);
+								//TODO: Do some resize stuff
+								
+								// Register new plugins and call WDN functions as needed
+								switch (newWidthScript) {
+									case '768':
+										
+										break;
+									case '320':
+										
+										break;
+								}
+								
+								//_currentWidthScript = newWidthScript;
+							}
+						}, 500);
+					};
+					
+					if (window.addEventListener) {
+						window.addEventListener('resize', onResize, false);
+					} else if (window.attachEvent) {
+						window.attachEvent('onresize', onResize);
+					}
+				}
+			});
 		},
 
 		/**
@@ -360,7 +372,7 @@ var WDN = (function() {
 		},
 
 		/**
-		 * 
+		 *
 		 * @param {string} plugin - The plugin name (must get registerd in WDN namespace)
 		 * @param {array=} args (optional) - The arguments to pass to plugin initialize funciton
 		 * @param {function()=} callback (optional) - A provided callback on plugin load
