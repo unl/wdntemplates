@@ -134,11 +134,13 @@ WDN.navigation = (function() {
             // css3 selector fixes
             var $html = WDN.jQuery(document.documentElement),
             	$bar_starts = WDN.jQuery('#navigation > ul > li:nth-child(6n+1)');
-            if ($html.hasClass('no-css-nth-child')) {
+            if ($html.hasClass('no-css-nthchild')) {
                 $bar_starts.addClass('start');
                 WDN.jQuery('#navigation > ul > li:nth-child(6n+6)').addClass('end');
                 WDN.jQuery('#navigation > ul > li:nth-child(n+7)').addClass('mid-bar');
                 $bar_starts.last().prevAll().addClass('top-bars');
+            }
+            if ($html.hasClass('no-css-lastchild')) {
                 WDN.jQuery('#navigation > ul > li ul li:last-child').addClass('last');
             }
 
