@@ -7,6 +7,7 @@ var WDN = (function() {
 		pluginParams = {},
 		loadingCSS = {},
 		loadedCSS = {},
+		loadedPlugins = {},
 		_head = document.head || document.getElementsByTagName('head')[0],
 		_docEl = document.documentElement,
 		_currentWidthScript,
@@ -394,6 +395,7 @@ var WDN = (function() {
 			}
 			
 			var defaultOnLoad = onLoad = function () {
+				loadedPlugins[plugin] = true;
 				if ("initialize" in WDN[plugin]) {
 					WDN.log("initializing plugin '" + plugin + "'");
 					WDN[plugin].initialize.apply(this, args);
@@ -419,6 +421,7 @@ var WDN = (function() {
 				// construct the load callback based on insert
 				onLoad = function() {
 					if (insert === 'replace') {
+						loadedPlugins[plugin] = true;
 						callback();
 					} else {
 						if (insert === 'before') {
