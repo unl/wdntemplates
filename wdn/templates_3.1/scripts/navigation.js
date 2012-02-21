@@ -572,11 +572,10 @@ WDN.navigation = (function() {
 					navigation.addEventListener('click', traverseNavigation, false);
 				},
 				showSecondary = function(secondaryNav) {
-					secondarySiblings = secondaryNav.parentNode.children;
-					for (var i=0; i < secondarySiblings.length; i++){
-						secondarySiblings[i].className = '';
+					for (var i=0; i < primaryNavs.length; i++){
+						primaryNavs[i].className = primaryNavs[i].className.replace(/(^|\s)active(\s|$)/, '');
 					}
-					secondaryNav.className = 'active';
+					secondaryNav.className += ' active';
 					navigation.className = navigation.className.replace(/(^|\s)primary(\s|$)/, '') + ' secondary';
 				},
 				traverseNavigation = function() {
@@ -586,9 +585,9 @@ WDN.navigation = (function() {
 						navigation.addEventListener('click', showPrimary, false);
 					} else { // we're showing the secondary nav, close it and trigger primary
 						for (var i=0; i < primaryNavs.length; i++){
-							primaryNavs.className = '';
+							primaryNavs[i].className = primaryNavs[i].className.replace(/(^|\s)active(\s|$)/, '');
 						};
-						navigation.className = 'primary';
+						navigation.className = 'primary active';
 					}
 				};
 			
