@@ -829,3 +829,5 @@ Modernizr.addTest('placeholder', function(){
            );
 
 });
+
+Modernizr.addTest('mediaqueries', Modernizr.mq('only all'));
