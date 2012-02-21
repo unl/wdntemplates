@@ -83,8 +83,10 @@
 	        }
     	}
     }
-    &:hover > ul {
-        left: 0;
+    &:hover, &.active {
+        > ul {
+            left: 0;
+        }
     }
     
     > ul {
@@ -107,7 +109,7 @@
                 }
             }
             
-            &:hover {
+            &:hover, &.active {
                 
                 ul {
                     left: 0;

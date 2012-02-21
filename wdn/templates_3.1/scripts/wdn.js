@@ -8,6 +8,8 @@ var WDN = (function() {
 		loadingCSS = {},
 		loadedCSS = {},
 		loadedPlugins = {},
+		isReady = false,
+		readyList,
 		_head = document.head || document.getElementsByTagName('head')[0],
 		_docEl = document.documentElement,
 		_currentWidthScript,
@@ -167,9 +169,44 @@ var WDN = (function() {
 			}
 		},
 
-		getClientWidth: function() {
-			return document.clientWidth || _docEl.clientWidth ||
-				document.body.parentNode.clientWidth || document.body.clientWidth;
+		getCurrentWidthScript: function() {
+			return _currentWidthScript;
+		},
+		
+		ready: function(fn) {
+			if (WDN.jQuery) {
+				WDN.jQuery(fn);
+			} else {
+				var ready = function() {
+					isReady = true;
+					for (var i = 0; i < readyList.length; i++) {
+						readyList[i]();
+					}
+					readyList = [];
+				};
+				
+				// bind ready
+				if (!readyList) {
+					readyList = [];
+					var domReady = function() {
+						document.removeEventListener('DOMContentLoaded', domReady, false);
+						ready();
+					};
+					
+					if (document.readyState === "complete") {
+						setTimeout(ready, 1);
+					} else {
+						document.addEventListener( "DOMContentLoaded", domReady, false );
+						window.addEventListener( "load", ready, false );
+					}
+				}
+				
+				readyList.push(fn);
+				
+				if (isReady) {
+					ready();
+				}
+			}
 		},
 
 		/**
@@ -188,9 +225,13 @@ var WDN = (function() {
 			
 			initFunctions = {
 				"320": function() {
-					WDN.initializePlugin('mobile_analytics');
-					WDN.initializePlugin('mobile_support');
-					WDN.initializePlugin('unlalert');
+					WDN.ready(function() {
+						WDN.initializePlugin('analytics');
+						WDN.initializePlugin('navigation');
+						WDN.initializePlugin('search');
+						WDN.browserAdjustments();
+						WDN.initializePlugin('unlalert');
+					});
 				},
 				"768": function() {
 					WDN.loadJQuery(function() {
@@ -337,11 +378,14 @@ var WDN = (function() {
 		},
 
 		browserAdjustments: function () {
+			var body = document.getElementsByTagName('body')[0];
+			
 			if (WDN.hasDocumentClass('ie6')) {
-				var $body = WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>').removeAttr('class').addClass('document');
-				WDN.jQuery('#wdn_upgrade_notice').load(WDN.getTemplateFilePath('includes/browserupgrade.html', true));
-				WDN.jQuery('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
-				WDN.loadCSS(WDN.getTemplateFilePath('css/content/columns.css'));
+				WDN.loadJQuery(function() {
+					WDN.jQuery(body).prepend('<div id="wdn_upgrade_notice"></div>').removeAttr('class').addClass('document');
+					WDN.jQuery('#wdn_upgrade_notice').load(WDN.getTemplateFilePath('includes/browserupgrade.html', true));
+					WDN.jQuery('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
+				});
 				return;
 			}
 			
@@ -351,8 +395,10 @@ var WDN = (function() {
 					WDN.loadCSS(WDN.getTemplateFilePath('css/content/css3_selector_failover.css'));
 					
 					// base css3 workarounds
-					WDN.jQuery('.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
-					WDN.jQuery('.zentable tbody tr:nth-child(even)').addClass('rowEven');
+					if (WDN.jQuery) {
+						WDN.jQuery('.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
+						WDN.jQuery('.zentable tbody tr:nth-child(even)').addClass('rowEven');
+					}
 					
 					break;
 				}
@@ -361,6 +407,33 @@ var WDN = (function() {
 			// base after/before fixes
 			if (WDN.hasDocumentClass('no-generatedcontent')) {
 				WDN.initializePlugin('generated_content');
+			}
+			
+			if (_currentWidthScript == '320') {
+				body.className = 'mobile' + body.className.replace(/fixed|mobile/, '');
+				
+				//scroll to the top of content for devices which have the address bar available at top.
+				if (window.pageYOffset < 1) {
+					window.scrollTo(0, 1);
+				}
+				
+				// iOS has a bug for scaling when rotating devices. This is a hack to fix the bug. 
+				// https://gist.github.com/901295
+				var addEvent = 'addEventListener',
+			    type = 'gesturestart',
+			    qsa = 'querySelectorAll',
+			    scales = [1, 1],
+			    meta = qsa in document ? document[qsa]('meta[name=viewport]') : [],
+		    	fix = function() {
+					meta.content = 'width=device-width,minimum-scale=' + scales[0] + ',maximum-scale=' + scales[1];
+					document.removeEventListener(type, fix, true);
+				};
+		
+				if ((meta = meta[meta.length - 1]) && addEvent in document) {
+					fix();
+					scales = [.25, 1.6];
+					document[addEvent](type, fix, true);
+				}
 			}
 		},
 

@@ -18,6 +18,9 @@ WDN.analytics = function() {
 		thisURL : String(window.location), //the current page the user is on.
 		rated : false, // whether the user has rated the current page.
 		initialize : function() {
+			var widthScript = WDN.getCurrentWidthScript();
+			WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
+			
 			_gaq.push(
 				['wdn._setAccount', 'UA-3203435-1'],
 				['wdn._setDomainName', '.unl.edu'],
@@ -25,13 +28,23 @@ WDN.analytics = function() {
 				['wdn._setAllowHash', false]
 			);
 			
-			WDN.loadJS(WDN.getTemplateFilePath('scripts/idm.js'), function(){
-				WDN.idm.initialize(function() {
-					WDN.analytics.loadGA();
+			if (widthScript == '320') {
+				_gaq.push(
+					['m._setAccount', 'UA-3203435-4'],
+					['m._setDomainName', '.unl.edu'],
+					['m._setAllowLinker', true],
+					['m._setAllowHash', false]
+				);
+				WDN.analytics.loadGA(true);
+			} else {
+				WDN.loadJS(WDN.getTemplateFilePath('scripts/idm.js'), function(){
+					WDN.idm.initialize(function() {
+						WDN.analytics.loadGA();
+					});
 				});
-			});
-			
-			WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
+				
+				//TODO: Remove jQuery from the events below
+				
 				filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i; //these are the file extensions to track for downloaded content
 				WDN.jQuery('#navigation a[href], #maincontent a[href]').each(function(){  
 					var gahref = WDN.jQuery(this).attr('href');
@@ -83,14 +96,19 @@ WDN.analytics = function() {
 						WDN.analytics.callTrackEvent('Page Rating', 'Rated a '+value, WDN.analytics.thisURL, value);
 					}
 				});
+			}
 		},
 		
-		loadGA : function(){
+		loadGA : function(mobile){
 			_gaq.push(['wdn._trackPageview']);
+			
+			if (mobile) {
+				_gaq.push(['m._trackPageview']);
+			}
 			
 			(function(){
 				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				if (WDN.jQuery('body').hasClass('debug')) {
+				if (document.body.className.match(/(^|\s)debug(\s|$)/)) {
 					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/u/ga_debug.js';
 				} else {
 					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -106,12 +124,19 @@ WDN.analytics = function() {
 		},
 		
 		callTrackPageview: function(thePage){
+			var widthScript = WDN.getCurrentWidthScript();
 			WDN.log('we can now track the page');
 			if (!thePage) {
 				_gaq.push(['wdn._trackPageview']);
+				if (widthScript == '320') {
+					_gaq.push(['m._trackPageview']);
+				}
 				return;
 			}
 			_gaq.push(['wdn._trackPageview', thePage]); //First, track in the wdn analytics
+			if (widthScript == '320') {
+				_gaq.push(['m._trackPageview', thePage]);
+			}
 			WDN.log("Pageview tracking for wdn worked!");
 			try {
 				if (WDN.analytics.isDefaultTrackerReady()) {
@@ -126,12 +151,16 @@ WDN.analytics = function() {
 		},
 		
 		callTrackEvent: function(category, action, label, value) {
+			var widthScript = WDN.getCurrentWidthScript();
 			if (value === undefined) {
 				value = 0;
 			}
 			value = Math.floor(value);
 			//var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
 			_gaq.push(['wdn._trackEvent', category, action, label, value]);
+			if (widthScript == '320') {
+				_gaq.push(['m._trackEvent', category, action, label, value]);
+			}
 			try {
 				if (WDN.analytics.isDefaultTrackerReady()) {
 					var pageSuccess = _gaq.push(['_trackEvent', category, action, label, value]);

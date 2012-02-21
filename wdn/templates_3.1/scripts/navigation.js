@@ -41,6 +41,12 @@ WDN.navigation = (function() {
          * @todo determine what it should be
          */
         initialize : function() {
+        	var widthScript = WDN.getCurrentWidthScript();
+        	if (widthScript == '320') {
+        		WDN.navigation.setupMobile();
+        		return;
+        	}
+        	
             if (WDN.jQuery('body').hasClass('popup')
                 || WDN.jQuery('#breadcrumbs ul li').size() == 0) {
                 // This page has no navigation
@@ -548,6 +554,57 @@ WDN.navigation = (function() {
                 WDN.jQuery(li).append(storednavDiv);
             }
             storednavDiv.append(data);
+        }, 
+        
+        setupMobile: function() {
+        	var navigation = document.getElementById("navigation"),
+				primaryNav = navigation.getElementsByTagName('ul');
+        	
+			if(!primaryNav.length){
+				navigation.className = 'disabled';
+				return;
+			}
+			
+			var primaryNavs = primaryNav[0].children,
+				showPrimary = function() {
+					navigation.className = 'primary active';
+					navigation.removeEventListener('click', showPrimary, false);
+					navigation.addEventListener('click', traverseNavigation, false);
+				},
+				showSecondary = function(secondaryNav) {
+					secondarySiblings = secondaryNav.parentNode.children;
+					for (var i=0; i < secondarySiblings.length; i++){
+						secondarySiblings[i].className = '';
+					}
+					secondaryNav.className = 'active';
+					navigation.className = navigation.className.replace(/(^|\s)primary(\s|$)/, '') + ' secondary';
+				},
+				traverseNavigation = function() {
+					if (navigation.className.match(/(^|\s)primary(\s|$)/)) { //we're showing the primary nav, so close it
+						navigation.className = '';
+						navigation.removeEventListener('click', traverseNavigation, false);
+						navigation.addEventListener('click', showPrimary, false);
+					} else { // we're showing the secondary nav, close it and trigger primary
+						for (var i=0; i < primaryNavs.length; i++){
+							primaryNavs.className = '';
+						};
+						navigation.className = 'primary';
+					}
+				};
+			
+			//Bind the click/tap to the navigation bar to present user with navigation and ability to close navigation.
+			navigation.addEventListener('click', showPrimary, false);
+			
+			for (var i=0; i < primaryNavs.length; i++) {
+				primaryNavs[i].addEventListener('click', function(event) {
+					event.stopPropagation();
+					showSecondary(this);
+				}, false);
+				
+				if (primaryNavs[i].getElementsByTagName('ul').length){
+					primaryNavs[i].className = 'hasSecondary';
+				}
+			};
         }
     };
 })();

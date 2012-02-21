@@ -1,42 +1,71 @@
 WDN.search = function() {
+	var $$ = function(selector) {
+		if (selector.match(/^#[\w\-]+$/)) {
+			return [document.getElementById(selector.slice(1))];
+		}
+		return (WDN.jQuery || function(sel) {
+			if (document.querySelectorAll) {
+				return document.querySelectorAll(sel);
+			}
+			return [];
+		})(selector);
+	};
+	
 	return {
 		initialize : function() {
-		    /**
+			var domQ = $$('#q')[0],
+				domSearchForm = $$('#wdn_search_form')[0];
+			
+			/**
 		     * Add the experimental text-to-speech
 		     */
-            WDN.jQuery('#q').attr('x-webkit-speech', 'x-webkit-speech');
-            
-            if (WDN.hasDocumentClass('no-placeholder')) {
-				WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/placeholder/jquery.placeholder.min.js'), function() {
-					WDN.jQuery('#q').placeholder();
-				});
-			}
+            domQ.setAttribute('x-webkit-speech', 'x-webkit-speech');
 
-			var localSearch = WDN.search.hasLocalSearch();
+			var localSearch = WDN.search.getLocalSearch();
 			if (localSearch) {
 				// Change form action to the local search
-				var qParams = new Object();
-				var url = new String(localSearch);
-				var hashes = url.slice(url.indexOf('?') + 1).split('&');
-				for (var i = 0; i < hashes.length; i++) {
-					var hash = hashes[i].split('=');
-					WDN.jQuery('#wdn_search_form').append('<input type="hidden" name="'+hash[0]+'" value="'+decodeURIComponent(hash[1])+'" />');
+				var qsPos = localSearch.indexOf('?'), hashes, hash, htmlUpdate = '';
+				if (qsPos > -1) {
+					hashes = localSearch.slice(qsPos + 1).split('&');
+					for (var i = 0; i < hashes.length; i++) {
+						hash = hashes[i].split('=');
+						htmlUpdate += '<input type="hidden" name="'+hash[0]+'" value="'+decodeURIComponent(hash[1])+'" />';
+					}
+					domSearchForm.innerHTML += htmlUpdate;
 				}
-				WDN.jQuery('#wdn_search_form').attr('action', localSearch);
+				domSearchForm.setAttribute('action', localSearch);
 			} else {
-				WDN.jQuery('#wdn_search_form').attr('action', 'http://www1.unl.edu/search/');
-				if (WDN.navigation.siteHomepage !== false && WDN.navigation.siteHomepage !== 'http://www.unl.edu/') {
-					// Add local site to the search parameters
-					WDN.jQuery('#wdn_search_form').append('<input type="hidden" name="u" value="'+WDN.navigation.siteHomepage+'" />');
+				domSearchForm.setAttribute('action', 'http://www1.unl.edu/search/');
+				if ('navigation' in WDN && WDN.navigation.siteHomepage !== false && 
+					WDN.navigation.siteHomepage !== 'http://www.unl.edu/'
+				) {
+					docSearchForm.innerHTML += '<input type="hidden" name="u" value="'+WDN.navigation.siteHomepage+'" />';
+				}
+			}
+			
+			var widthScript = WDN.getCurrentWidthScript();
+			if (widthScript == '320') {
+				var mobileSearch = document.createElement('input');
+				mobileSearch.id = "wdn_search_mobile";
+				mobileSearch.setAttribute('name', 'format');
+				mobileSearch.setAttribute('value', 'mobile');
+				mobileSearch.setAttribute('type', 'hidden');
+				domSearchForm.appendChild(mobileSearch);
+			} else {
+				
+				if (WDN.hasDocumentClass('no-placeholder')) {
+					WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/placeholder/jquery.placeholder.min.js'), function() {
+						WDN.jQuery('#q').placeholder();
+					});
 				}
 			}
 		},
-		hasLocalSearch : function() {
-			
-			if (WDN.jQuery('link[rel=search]').length
-				&& WDN.jQuery('link[rel=search]').attr('type') != 'application/opensearchdescription+xml') {
-				return WDN.toAbs(WDN.jQuery('link[rel=search]').attr('href'), location.protocol+'//'+location.hostname);
+		getLocalSearch : function() {
+			var link = $$('link[rel=search]');
+			if (link.length && link[link.length - 1].type != 'application/opensearchdescription+xml') {
+				return link[link.length - 1].href;
 			}
+			
 			return false;
 		}
 	};
