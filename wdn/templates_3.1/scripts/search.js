@@ -39,7 +39,7 @@ WDN.search = function() {
 				if ('navigation' in WDN && WDN.navigation.siteHomepage !== false && 
 					WDN.navigation.siteHomepage !== 'http://www.unl.edu/'
 				) {
-					docSearchForm.innerHTML += '<input type="hidden" name="u" value="'+WDN.navigation.siteHomepage+'" />';
+					domSearchForm.innerHTML += '<input type="hidden" name="u" value="'+WDN.navigation.siteHomepage+'" />';
 				}
 			}
 			
