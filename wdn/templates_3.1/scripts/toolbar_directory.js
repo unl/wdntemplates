@@ -7,8 +7,7 @@ WDN.toolbar_directory = function() {
     return {
     	serviceURL : 'http://directory.unl.edu/',
     	
-        initialize : function() {},
-        setupToolContent : function(contentCallback) {
+        initialize : function(contentCallback) {
         	WDN.loadCSS(WDN.getTemplateFilePath('css/content/vcard.css'));
         	WDN.jQuery.ajax({
             	url: WDN.getTemplateFilePath('includes/tools/peoplefinder.html', true),

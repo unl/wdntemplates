@@ -5,6 +5,11 @@ var _gaq = _gaq || [];
 var WDN = (function() {
 	var loadingJS = {},
 		pluginParams = {},
+		loadingCSS = {},
+		loadedCSS = {},
+		loadedPlugins = {},
+		isReady = false,
+		readyList,
 		_head = document.head || document.getElementsByTagName('head')[0],
 		_docEl = document.documentElement,
 		_currentWidthScript,
@@ -55,9 +60,9 @@ var WDN = (function() {
 		 * Loads an external JavaScript file.
 		 *
 		 * @param {string} url
-		 * @param {function} callback (optional) - will be called once the JS file has been loaded
-		 * @param {boolean} checkLoaded (optional) - if false, the JS will be loaded without checking whether it's already been loaded
-		 * @param {boolean} callbackIfLoaded (optional) - if false, the callback will not be executed if the JS has already been loaded
+		 * @param {function()=} callback (optional) - will be called once the JS file has been loaded
+		 * @param {boolean=} checkLoaded (optional) - if false, the JS will be loaded without checking whether it's already been loaded
+		 * @param {boolean=} callbackIfLoaded (optional) - if false, the callback will not be executed if the JS has already been loaded
 		 */
 		loadJS: function (url,callback,checkLoaded,callbackIfLoaded) {
 			url = _sanitizeTemplateUrl(url);
@@ -72,8 +77,8 @@ var WDN = (function() {
 				loadingJS[url] = [];
 				WDN.log("begin loading JS: " + url);
 				var e = document.createElement("script");
-				e.setAttribute('src', url);
-				e.setAttribute('type','text/javascript');
+				e.src = url;
+				e.type = 'text/javascript';
 				_head.appendChild(e);
 
 				if (callback) {
@@ -109,18 +114,99 @@ var WDN = (function() {
 		/**
 		 * Load an external css file.
 		 */
-		loadCSS: function (url) {
+		loadCSS: function (url, callback, checkLoaded, callbackIfLoaded) {
 			url = _sanitizeTemplateUrl(url);
-			var e = document.createElement("link");
-			e.href = url;
-			e.rel = "stylesheet";
-			e.type = "text/css";
-			_head.appendChild(e);
+			
+			var _getLink = function() {
+					var e = document.createElement("link");
+					e.href = url;
+					e.rel = "stylesheet";
+					e.type = "text/css";
+					return e;
+				},
+				e = _getLink(),
+				dummyObj,
+				executeCallback = function() {
+					dummyObj = undefined;
+					
+					loadedCSS[url] = true;
+					if (loadingCSS[url]) {
+						for (var i = 0; i < loadingCSS[url].length; i++) {
+							loadingCSS[url][i]();
+						}
+						delete loadingCSS[url];
+					}
+				};
+			
+			if (!callback) {
+				e.onload = function() {
+					loadedCSS[url] = true;
+				};
+				_head.appendChild(e);
+				
+				return;
+			}
+			
+			// Workaround for webkit and old gecko not firing onload events for <link>
+			// http://www.backalleycoder.com/2011/03/20/link-tag-css-stylesheet-load-event/
+			
+			if (checkLoaded === false || !(url in loadedCSS)) {
+				if (url in loadingCSS) {
+					loadingCSS[url].push(callback);
+					return;
+				}
+				
+				loadingCSS[url] = [callback];
+				
+				dummyObj = document.createElement('img');
+				dummyObj.onerror = executeCallback;
+				dummyObj.src = url;
+				_head.appendChild(e);
+			} else {
+				if (callbackIfLoaded !== false) {
+					callback();
+				}
+			}
 		},
 
-		getClientWidth: function() {
-			return document.clientWidth || _docEl.clientWidth ||
-				document.body.parentNode.clientWidth || document.body.clientWidth;
+		getCurrentWidthScript: function() {
+			return _currentWidthScript;
+		},
+		
+		ready: function(fn) {
+			if (WDN.jQuery) {
+				WDN.jQuery(fn);
+			} else {
+				var ready = function() {
+					isReady = true;
+					for (var i = 0; i < readyList.length; i++) {
+						readyList[i]();
+					}
+					readyList = [];
+				};
+				
+				// bind ready
+				if (!readyList) {
+					readyList = [];
+					var domReady = function() {
+						document.removeEventListener('DOMContentLoaded', domReady, false);
+						ready();
+					};
+					
+					if (document.readyState === "complete") {
+						setTimeout(ready, 1);
+					} else {
+						document.addEventListener( "DOMContentLoaded", domReady, false );
+						window.addEventListener( "load", ready, false );
+					}
+				}
+				
+				readyList.push(fn);
+				
+				if (isReady) {
+					ready();
+				}
+			}
 		},
 
 		/**
@@ -133,16 +219,19 @@ var WDN = (function() {
 			}
 			_initd = true;
 			
-			var clientWidth, initFunctions, resizeTimeout, onResize, widthScript;
+			var clientWidth, initFunctions;
 			
 			WDN.loadCSS(WDN.getTemplateFilePath('css/script.css'));
-			WDN.loadJS(WDN.getTemplateFilePath('scripts/modernizr-wdn.js'));
 			
 			initFunctions = {
 				"320": function() {
-					WDN.initializePlugin('mobile_analytics');
-					WDN.initializePlugin('mobile_support');
-					WDN.initializePlugin('unlalert');
+					WDN.ready(function() {
+						WDN.initializePlugin('analytics');
+						WDN.initializePlugin('navigation');
+						WDN.initializePlugin('search');
+						WDN.browserAdjustments();
+						WDN.initializePlugin('unlalert');
+					});
 				},
 				"768": function() {
 					WDN.loadJQuery(function() {
@@ -162,80 +251,114 @@ var WDN = (function() {
 				}
 			};
 			
-			clientWidth = WDN.getClientWidth();
-			switch (true) {
-				case clientWidth >= 768:
-					_currentWidthScript = '768';
-					break;
-				default:
-					_currentWidthScript = '320';
-					break;
-			}
-			
-			if (debug) {
-				initFunctions[_currentWidthScript]();
-			} else {
-				widthScript = WDN.getTemplateFilePath('scripts/compressed/' + _currentWidthScript + '.js');
-				
-				if (WDN.hasDocumentClass('wdn-async')) {
-					WDN.loadJS(widthScript, initFunctions[_currentWidthScript]);
-				} else {
-					var xhr;
-					if (window.ActiveXObject) {
-						xhr = new ActiveXObject("Microsoft.XMLHTTP");
-					} else if (window.XMLHttpRequest) {
-						xhr = new XMLHttpRequest();
-					}
-					
-					if (xhr) {
-						xhr.open("GET", WDN.template_path + widthScript, false);
-						xhr.send(null);
-						if (/\S/.test(xhr.responseText)) {
-							(window.execScript || function(data) {
-								window["eval"].call(window, data);
-							})(xhr.responseText);
-							initFunctions[_currentWidthScript]();
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/modernizr-wdn.js'), function() {
+				var resizeTimeout, onResizeReady, onResize, widthScript,
+					getMediaQueryWidth = function() {
+						switch (true) {
+							case Modernizr.mq('only screen and (min-width: 768px)'):
+								return '768';
+							default:
+								return '320';
 						}
-					} else {
-						WDN.INIT = function() {
-							initFunctions[_currentWidthScript]();
-							delete WDN.INIT;
-						};
-						document.write('<script type="text/javascript" src="' + WDN.template_path + widthScript + '"></script>');
-						document.write('<script type="text/javascript">WDN.INIT();</script>');
-					}
-				}
-			}
-			
-			onResize = function() {
-				if (resizeTimeout) {
-					clearTimeout(resizeTimeout);
+					};
+				
+				if (WDN.hasDocumentClass('mediaqueries')) {
+					_currentWidthScript = getMediaQueryWidth();
+				} else {
+					// default to the desktop presen
+					_currentWidthScript = '768';
 				}
 				
-				resizeTimeout = setTimeout(function() {
-					var clientWidth = WDN.getClientWidth();
-					switch (true) {
-						case clientWidth >= 768:
-							if (_currentWidthScript != '768') {
-								//TODO: destroy 320 stuff
-								//TODO: load and init 768 interface
-							} 
-							break;
-						default:
-							if (_currentWidthScript != '320') {
-								//TODO: destroy 768 stuff
-								//TODO: load and init 320 interface
+				if (debug) {
+					initFunctions[_currentWidthScript]();
+				} else {
+					widthScript = WDN.getTemplateFilePath('scripts/compressed/' + _currentWidthScript + '.js');
+					
+					if (WDN.hasDocumentClass('wdn-async')) {
+						WDN.loadJS(widthScript, initFunctions[_currentWidthScript]);
+					} else {
+						var xhr;
+						if (window.ActiveXObject) {
+							xhr = new ActiveXObject("Microsoft.XMLHTTP");
+						} else if (window.XMLHttpRequest) {
+							xhr = new XMLHttpRequest();
+						}
+						
+						if (xhr) {
+							xhr.open("GET", WDN.template_path + widthScript, false);
+							xhr.send(null);
+							if (/\S/.test(xhr.responseText)) {
+								(window.execScript || function(data) {
+									window["eval"].call(window, data);
+								})(xhr.responseText);
+								initFunctions[_currentWidthScript]();
 							}
-							break;
+						} else {
+							WDN.INIT = function() {
+								initFunctions[_currentWidthScript]();
+								delete WDN.INIT;
+							};
+							document.write('<script type="text/javascript" src="' + WDN.template_path + widthScript + '"></script>');
+							document.write('<script type="text/javascript">WDN.INIT();</script>');
+						}
 					}
-				}, 500);
-			};
-			
-			if (window.addEventListener) {
-				window.addEventListener('resize', onResize, false);
-			} else if (window.attachEvent) {
-				window.attachEvent('onresize', onResize);
-			}
+				}
+				
+				if (WDN.hasDocumentClass('mediaqueries')) {
+					onResizeReady = function() {
+						var oldWidthScript = _currentWidthScript,
+							newWidthScript = getMediaQueryWidth();
+						if (oldWidthScript != newWidthScript) {
+							_currentWidthScript = newWidthScript;
+							WDN.log('Min-width breakpoint changed from ' + oldWidthScript + ' to ' + newWidthScript);
+							// Register new plugins and call WDN functions as needed
+							switch (newWidthScript) {
+								case '768':
+									WDN.loadJQuery(function() {
+										for (var i in loadedPlugins) {
+											if (i in WDN && 'onResize' in WDN[i]) {
+												WDN[i].onResize(oldWidthScript, newWidthScript);
+											}
+										}
+										WDN.initializePlugin('feedback');
+										WDN.initializePlugin('socialmediashare');
+										WDN.contentAdjustments();
+										WDN.initializePlugin('tooltip');
+										WDN.initializePlugin('toolbar');
+										WDN.initializePlugin('tabs');
+									}, debug);
+									break;
+								case '320':
+									// nothing new
+									for (var i in loadedPlugins) {
+										if (i in WDN && 'onResize' in WDN[i]) {
+											WDN[i].onResize(oldWidthScript, newWidthScript);
+										}
+									}
+									break;
+							}
+						} else {
+							for (var i in loadedPlugins) {
+								if (i in WDN && 'onResize' in WDN[i]) {
+									WDN[i].onResize();
+								}
+							}
+						}
+					};
+					onResize = function() {
+						if (resizeTimeout) {
+							clearTimeout(resizeTimeout);
+						}
+						resizeTimeout = setTimeout(onResizeReady, 500);
+					};
+					
+					if (window.addEventListener) {
+						window.addEventListener('resize', onResize, false);
+					} else if (window.attachEvent) {
+						window.attachEvent('onresize', onResize);
+					}
+				}
+			});
 		},
 
 		/**
@@ -276,11 +399,14 @@ var WDN = (function() {
 		},
 
 		browserAdjustments: function () {
+			var body = document.getElementsByTagName('body')[0];
+			
 			if (WDN.hasDocumentClass('ie6')) {
-				var $body = WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>').removeAttr('class').addClass('document');
-				WDN.jQuery('#wdn_upgrade_notice').load(WDN.getTemplateFilePath('includes/browserupgrade.html', true));
-				WDN.jQuery('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
-				WDN.loadCSS(WDN.getTemplateFilePath('css/content/columns.css'));
+				WDN.loadJQuery(function() {
+					WDN.jQuery(body).prepend('<div id="wdn_upgrade_notice"></div>').removeAttr('class').addClass('document');
+					WDN.jQuery('#wdn_upgrade_notice').load(WDN.getTemplateFilePath('includes/browserupgrade.html', true));
+					WDN.jQuery('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
+				});
 				return;
 			}
 			
@@ -290,8 +416,10 @@ var WDN = (function() {
 					WDN.loadCSS(WDN.getTemplateFilePath('css/content/css3_selector_failover.css'));
 					
 					// base css3 workarounds
-					WDN.jQuery('.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
-					WDN.jQuery('.zentable tbody tr:nth-child(even)').addClass('rowEven');
+					if (WDN.jQuery) {
+						WDN.jQuery('.zentable tbody tr:nth-child(odd)').addClass('rowOdd');
+						WDN.jQuery('.zentable tbody tr:nth-child(even)').addClass('rowEven');
+					}
 					
 					break;
 				}
@@ -300,6 +428,33 @@ var WDN = (function() {
 			// base after/before fixes
 			if (WDN.hasDocumentClass('no-generatedcontent')) {
 				WDN.initializePlugin('generated_content');
+			}
+			
+			if (_currentWidthScript == '320') {
+				body.className = 'mobile' + body.className.replace(/fixed|mobile/, '');
+				
+				//scroll to the top of content for devices which have the address bar available at top.
+				if (window.pageYOffset < 1) {
+					window.scrollTo(0, 1);
+				}
+				
+				// iOS has a bug for scaling when rotating devices. This is a hack to fix the bug. 
+				// https://gist.github.com/901295
+				var addEvent = 'addEventListener',
+			    type = 'gesturestart',
+			    qsa = 'querySelectorAll',
+			    scales = [1, 1],
+			    meta = qsa in document ? document[qsa]('meta[name=viewport]') : [],
+		    	fix = function() {
+					meta.content = 'width=device-width,minimum-scale=' + scales[0] + ',maximum-scale=' + scales[1];
+					document.removeEventListener(type, fix, true);
+				};
+		
+				if ((meta = meta[meta.length - 1]) && addEvent in document) {
+					fix();
+					scales = [.25, 1.6];
+					document[addEvent](type, fix, true);
+				}
 			}
 		},
 
@@ -311,18 +466,72 @@ var WDN = (function() {
 			});
 		},
 
-		initializePlugin: function (plugin, callback) {
-			if (!callback) {
-				callback = function () {
-					if ("initialize" in WDN[plugin]) {
-						WDN.log("initializing plugin '" + plugin + "'");
-						WDN[plugin].initialize();
+		/**
+		 *
+		 * @param {string} plugin - The plugin name (must get registerd in WDN namespace)
+		 * @param {array=} args (optional) - The arguments to pass to plugin initialize funciton
+		 * @param {function()=} callback (optional) - A provided callback on plugin load
+		 * @param {string=} insert (optional) - Where the provided callback should be called relative to plugin initialize (before|after|replace)
+		 */
+		initializePlugin: function (plugin, args, callback, insert) {
+			// if args is a function, it is the callback
+			if (Object.prototype.toString.call(args) === '[object Function]') {
+				insert = callback;
+				callback = args;
+				args = [];
+			}
+			
+			// ensure that args is an array (if available)
+			if (args && Object.prototype.toString.call(args) !== '[object Array]') {
+				args = [args];
+			} else if (!args) {
+				args = [];
+			}
+			
+			var defaultOnLoad = onLoad = function () {
+				loadedPlugins[plugin] = true;
+				if ("initialize" in WDN[plugin]) {
+					WDN.log("initializing plugin '" + plugin + "'");
+					WDN[plugin].initialize.apply(this, args);
+				} else {
+					WDN.log("no initialize method for plugin " + plugin);
+				}
+			};
+			
+			if (callback) {
+				// validate the insert param
+				var _insertVals = 'before after replace'.split(' '),
+					_goodInsert = false, i;
+				for (i = 0; i < _insertVals.length; i++) {
+					if (insert === _insertVals[i]) {
+						_goodInsert = true;
+						break;
+					}
+				}
+				if (!_goodInsert) {
+					insert = 'replace';
+				}
+				
+				// construct the load callback based on insert
+				onLoad = function() {
+					if (insert === 'replace') {
+						loadedPlugins[plugin] = true;
+						callback();
 					} else {
-						WDN.log("no initialize method for plugin " + plugin);
+						if (insert === 'before') {
+							callback();
+						}
+						
+						defaultOnLoad();
+						
+						if (insert === 'after') {
+							callback();
+						}
 					}
 				};
 			}
-			WDN.loadJS(WDN.getTemplateFilePath('scripts/' + plugin + '.js'), callback);
+			
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/' + plugin + '.js'), onLoad);
 		},
 		
 		setPluginParam: function (plugin, name, value) {

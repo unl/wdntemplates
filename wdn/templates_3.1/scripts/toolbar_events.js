@@ -15,8 +15,7 @@ WDN.toolbar_events = function() {
 	};
 	
 	return {
-		initialize : function() {},
-		setupToolContent : function(contentCallback) {
+		initialize : function(contentCallback) {
 			WDN.jQuery.ajax({
             	url: WDN.getTemplateFilePath('includes/tools/events.html', true),
             	success: function(data) {

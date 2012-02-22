@@ -1,8 +1,7 @@
 WDN.toolbar_weather = function() {
 	var weatherServer = 'http://www.unl.edu/';
     return {
-        initialize : function() {},
-        setupToolContent : function(contentCallback) {
+        initialize : function(contentCallback) {
         	WDN.jQuery.ajax({
             	url: WDN.getTemplateFilePath('includes/tools/weather.html', true),
             	success: function(data) {

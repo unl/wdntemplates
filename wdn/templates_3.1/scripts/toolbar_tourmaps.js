@@ -1,7 +1,6 @@
 WDN.toolbar_tourmaps = function() {
     return {     
-    	initialize : function() {},
-    	setupToolContent : function(contentCallback) {
+    	initialize : function(contentCallback) {
     		contentCallback('<div id="tourmapscontent"></div>');
     	},
         display : function() {

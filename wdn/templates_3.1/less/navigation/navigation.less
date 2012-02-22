@@ -83,8 +83,10 @@
 	        }
     	}
     }
-    &:hover > ul {
-        left: 0;
+    &:hover, &.active {
+        > ul {
+            left: 0;
+        }
     }
     
     > ul {
@@ -107,17 +109,25 @@
                 }
             }
             
-            &:hover {
+            &:hover, &.active {
                 
                 ul {
                     left: 0;
                 }
             }
             
+            &.empty { 
+                display: none;
+            }
+            
             > ul {
                 z-index:11;
                 bottom:0;
                 border-top:3px solid rgba(0,0,0,.4);
+                
+                &.empty {
+                    display: none;
+                }
                 
                 > li {
                     padding-left:10%;
@@ -227,7 +237,7 @@
         }
         
         #wdn_content_wrapper {
-            margin-top: 27px; /* Default for single bar nav */
+            margin-top: 58px; /* Default for single bar nav */
         }
     }
     #navigation {
@@ -336,7 +346,7 @@
                 &.row-empty {
                     
                     > ul {
-                        display: none;
+                        display: none !important;
                     }
                 }
                 
@@ -350,6 +360,11 @@
                         display: block;
                     }
                 }
+                
+                &.empty {
+                    display: list-item;
+                }
+                
                 ~ li {
                     
                     &.empty {
@@ -439,6 +454,10 @@
                         position: absolute;
                         left: 0;
                         top: 0;
+                    }
+                    
+                    &.empty {
+                        display: block;
                     }
                     
                     > li {
@@ -585,12 +604,6 @@
     	        }
     	    }
     	}
-    }
-    .nav_unpinned {
-        
-        #wdn_content_wrapper {
-            margin-top: 58px; /* Default for single bar nav */
-        }
     }
     #navigation {
         background: none;
