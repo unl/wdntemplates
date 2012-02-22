@@ -252,7 +252,7 @@ var WDN = (function() {
 			};
 			
 			WDN.loadJS(WDN.getTemplateFilePath('scripts/modernizr-wdn.js'), function() {
-				var resizeTimeout, onResize, widthScript,
+				var resizeTimeout, onResizeReady, onResize, widthScript,
 					getMediaQueryWidth = function() {
 						switch (true) {
 							case Modernizr.mq('only screen and (min-width: 768px)'):
@@ -305,30 +305,51 @@ var WDN = (function() {
 				}
 				
 				if (WDN.hasDocumentClass('mediaqueries')) {
+					onResizeReady = function() {
+						var oldWidthScript = _currentWidthScript,
+							newWidthScript = getMediaQueryWidth();
+						if (oldWidthScript != newWidthScript) {
+							_currentWidthScript = newWidthScript;
+							WDN.log('Min-width breakpoint changed from ' + oldWidthScript + ' to ' + newWidthScript);
+							// Register new plugins and call WDN functions as needed
+							switch (newWidthScript) {
+								case '768':
+									WDN.loadJQuery(function() {
+										for (var i in loadedPlugins) {
+											if (i in WDN && 'onResize' in WDN[i]) {
+												WDN[i].onResize(oldWidthScript, newWidthScript);
+											}
+										}
+										WDN.initializePlugin('feedback');
+										WDN.initializePlugin('socialmediashare');
+										WDN.contentAdjustments();
+										WDN.initializePlugin('tooltip');
+										WDN.initializePlugin('toolbar');
+										WDN.initializePlugin('tabs');
+									}, debug);
+									break;
+								case '320':
+									// nothing new
+									for (var i in loadedPlugins) {
+										if (i in WDN && 'onResize' in WDN[i]) {
+											WDN[i].onResize(oldWidthScript, newWidthScript);
+										}
+									}
+									break;
+							}
+						} else {
+							for (var i in loadedPlugins) {
+								if (i in WDN && 'onResize' in WDN[i]) {
+									WDN[i].onResize();
+								}
+							}
+						}
+					};
 					onResize = function() {
 						if (resizeTimeout) {
 							clearTimeout(resizeTimeout);
 						}
-						
-						resizeTimeout = setTimeout(function() {
-							var newWidthScript = getMediaQueryWidth();
-							if (_currentWidthScript != newWidthScript) {
-								WDN.log('Min-width breakpoint changed from ' + _currentWidthScript + ' to ' + newWidthScript);
-								//TODO: Do some resize stuff
-								
-								// Register new plugins and call WDN functions as needed
-								switch (newWidthScript) {
-									case '768':
-										
-										break;
-									case '320':
-										
-										break;
-								}
-								
-								//_currentWidthScript = newWidthScript;
-							}
-						}, 500);
+						resizeTimeout = setTimeout(onResizeReady, 500);
 					};
 					
 					if (window.addEventListener) {

@@ -1,7 +1,8 @@
 WDN.navigation = (function() {
     var expandedHeight = 0,
     	ul_h, lockHover = false,
-    	snifferServer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/';
+    	snifferServer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/',
+    	desktopInitd = false;
     return {
 
         preferredState : 0,
@@ -53,10 +54,12 @@ WDN.navigation = (function() {
                 return;
             }
 
-            WDN.navigation.determineSelectedBreadcrumb();
-            // find the last-link in breadcrumbs
-            WDN.jQuery('#breadcrumbs > ul > li > a').last().parent().addClass('last-link');
-            WDN.navigation.linkSiteTitle();
+            if (!desktopInitd) {
+	            WDN.navigation.determineSelectedBreadcrumb();
+	            // find the last-link in breadcrumbs
+	            WDN.jQuery('#breadcrumbs > ul > li > a').last().parent().addClass('last-link');
+	            WDN.navigation.linkSiteTitle();
+            }
             
             if (WDN.jQuery('body').hasClass('document')) {
             	// The rest deals with navigation elements not in document
@@ -64,37 +67,41 @@ WDN.navigation = (function() {
             }
 
             // Store the current state of the cookie
-            if (WDN.getCookie('n') == 1) {
-                WDN.navigation.preferredState = 1;
+            if (!desktopInitd) {
+	            if (WDN.getCookie('n') == 1) {
+	                WDN.navigation.preferredState = 1;
+	            }
             }
 
             WDN.log('let us fix the presentation');
             WDN.navigation.fixPresentation();
 
-            // add an expand toggler UI element
-            var $toggler = WDN.jQuery('<div class="expand_toggle"><a href="#" title="Click to expand/collapse navigation" /></div>').prependTo('#wdn_navigation_wrapper');
-            $toggler.children('a').click(function(evt) {
-                if (WDN.navigation.currentState === 0) {
-                    WDN.navigation.expand();
-                } else {
-                    WDN.navigation.collapse();
-                }
-                return false;
-            });
-            $toggler.hover(function() {
-                lockHover = !lockHover;
-                WDN.jQuery('#wdn_navigation_bar').mouseout();
-            }, function() {
-                lockHover = !lockHover;
-                WDN.jQuery('#wdn_navigation_bar').mouseover();
-            });
-
-            // add the pinned state UI element
-            var $pin = WDN.jQuery('<div class="pin_state"><a href="#" /></div>').appendTo('#wdn_navigation_wrapper');
-            $pin.children('a').click(function(evt) {
-                WDN.navigation.setPreferredState(evt);
-                return false;
-            });
+            if (!desktopInitd) {
+	            // add an expand toggler UI element
+	            var $toggler = WDN.jQuery('<div class="expand_toggle"><a href="#" title="Click to expand/collapse navigation" /></div>').prependTo('#wdn_navigation_wrapper');
+	            $toggler.children('a').click(function(evt) {
+	                if (WDN.navigation.currentState === 0) {
+	                    WDN.navigation.expand();
+	                } else {
+	                    WDN.navigation.collapse();
+	                }
+	                return false;
+	            });
+	            $toggler.hover(function() {
+	                lockHover = !lockHover;
+	                WDN.jQuery('#wdn_navigation_bar').mouseout();
+	            }, function() {
+	                lockHover = !lockHover;
+	                WDN.jQuery('#wdn_navigation_bar').mouseover();
+	            });
+	
+	            // add the pinned state UI element
+	            var $pin = WDN.jQuery('<div class="pin_state"><a href="#" /></div>').appendTo('#wdn_navigation_wrapper');
+	            $pin.children('a').click(function(evt) {
+	                WDN.navigation.setPreferredState(evt);
+	                return false;
+	            });
+            }
             
             WDN.jQuery('#navigation > ul > li > a').focusin(function(){
                 WDN.navigation.expand();
@@ -114,6 +121,37 @@ WDN.navigation = (function() {
                     interval:    120
                 });
             });
+            
+            desktopInitd = true;
+        },
+        
+        destroy: function(widthScript) {
+        	if (widthScript == '320') {
+        		WDN.navigation.destroyMobile();
+        		return;
+        	}
+        	
+        	WDN.navigation.currentState = -1;
+        	
+        	WDN.navigation.navReady(false);
+        	
+        	// unfix presentation
+        	WDN.jQuery('#navigation').unbind();
+        	
+        	WDN.jQuery('#navigation > ul > li > a').unbind('focusin').unbind('focus').css({
+        		'padding-top': '',
+        		'padding-bottom': ''
+        	});
+        	
+        	WDN.jQuery('#navigation > ul > li > ul').css('height', '');
+        	
+        	WDN.jQuery('#wdn_wrapper').removeClass('nav_collapsed nav_expanded nav_changing nav_pinned nav_unpinned');
+        	
+        	WDN.jQuery('#wdn_content_wrapper').css('margin-top', '');
+        	
+        	WDN.jQuery('#wdn_navigation_bar').unbind();
+        	
+        	WDN.jQuery('#breadcrumbs ul li a').unbind();
         },
 
         /**
@@ -123,17 +161,18 @@ WDN.navigation = (function() {
         	WDN.jQuery('#wdn_navigation_wrapper').removeClass('empty-secondary');
         	
             var primaries = WDN.jQuery('#navigation > ul > li');
-            var primaryCount = primaries.length;
+            var primaryCount = primaries.length, fakePrimaries = [];
             while (primaryCount % 6 > 0) {
-                WDN.jQuery('#navigation > ul').append('<li class="empty"><a /><ul><li/></ul></li>');
+                fakePrimaries.push(WDN.jQuery('<li class="empty"><a /><ul class="empty"><li/></ul></li>')[0]);
                 primaryCount++;
             }
+            WDN.jQuery('#navigation > ul').append(fakePrimaries);
             primaries = WDN.jQuery('#navigation > ul > li');
 
             var secondaries = primaries.has('ul');
             if (secondaries.length) {
                 primaries.not(':has(ul)').each(function(){
-                    WDN.jQuery(this).append('<ul><li/></ul>');
+                    WDN.jQuery(this).append('<ul class="empty"><li/></ul>');
                 });
             }
 
@@ -151,7 +190,10 @@ WDN.navigation = (function() {
             }
 
             var ah = [];
-            var primaryLinks = WDN.jQuery('> a', primaries);
+            var primaryLinks = WDN.jQuery('> a', primaries).css({
+            	'padding-top' : '',
+                'padding-bottom' : ''
+            });
             primaryLinks.each(function(i){
                 var row = Math.floor(i/6);
                 var height = WDN.jQuery(this).outerHeight();
@@ -175,24 +217,32 @@ WDN.navigation = (function() {
                 }
             });
 
-            ul_h = [];
-            var secondaryLists = WDN.jQuery('> ul', primaries);
-            secondaryLists.each(function(i){
-                var row = Math.floor(i/6), height;
-                if (WDN.jQuery('body').hasClass('liquid') && $html.hasClass('boxsizing')) {
-                    height = WDN.jQuery(this).outerHeight();
-                } else {
-                    height = WDN.jQuery(this).height();
-                }
-                if (!ul_h[row] || height > ul_h[row]) {
-                    ul_h[row] = height;
-                }
-            });
-            //loop through again and apply new height
-            secondaryLists.each(function(i){
-                var row = Math.floor(i/6);
-                WDN.jQuery(this).css({'height':ul_h[row]+'px'});
-            });
+            var secondaryLists = WDN.jQuery('> ul', primaries),
+        		recalcSecondaryHeight = function() {
+		            ul_h = [];
+		            secondaryLists.css('height', '').each(function(i){
+		                var row = Math.floor(i/6), height;
+		                if (WDN.jQuery('body').hasClass('liquid') && $html.hasClass('boxsizing')) {
+		                    height = WDN.jQuery(this).outerHeight();
+		                } else {
+		                    height = WDN.jQuery(this).height();
+		                }
+		                if (!ul_h[row] || height > ul_h[row]) {
+		                    ul_h[row] = height;
+		                }
+		            });
+		            //loop through again and apply new height
+		            secondaryLists.each(function(i){
+		                var row = Math.floor(i/6);
+		                WDN.jQuery(this).css({'height':ul_h[row]+'px'});
+		            });
+	            };
+            
+            if (WDN.navigation.currentState == 0) {
+            	WDN.jQuery('#navigation').bind('expand', recalcSecondaryHeight);
+            } else {
+            	recalcSecondaryHeight();
+            }
 
             // look for no secondary links
             if (!WDN.jQuery('li > a', secondaryLists).length) {
@@ -223,7 +273,7 @@ WDN.navigation = (function() {
 
                 };
                 resizeFunc();
-                WDN.jQuery(window).unbind('resize').bind('resize', resizeFunc);
+                WDN.jQuery(window).unbind('resize.wdn_navigation').bind('resize.wdn_navigation', resizeFunc);
             }
 
             WDN.log('we have fixed the presentation.');
@@ -231,6 +281,7 @@ WDN.navigation = (function() {
 
         transitionEnd: function() {
             WDN.navigation.setWrapperClass('expanded');
+            WDN.jQuery('#navigation').trigger('expand').unbind('expand');
         },
 
         /**
@@ -595,15 +646,51 @@ WDN.navigation = (function() {
 			navigation.addEventListener('click', showPrimary, false);
 			
 			for (var i=0; i < primaryNavs.length; i++) {
+				if (primaryNavs[i].className.match(/(^|\s)empty(\s|$)/)) {
+					continue;
+				}
 				primaryNavs[i].addEventListener('click', function(event) {
 					event.stopPropagation();
 					showSecondary(this);
 				}, false);
 				
-				if (primaryNavs[i].getElementsByTagName('ul').length){
-					primaryNavs[i].className = 'hasSecondary';
+				var secondaries = primaryNavs[i].getElementsByTagName('ul');
+				if (secondaries.length && !secondaries[0].className.match(/(^|\s)empty(\s|$)/)){
+					primaryNavs[i].className += ' hasSecondary';
 				}
 			};
+        },
+        
+        destroyMobile: function() {
+        	var navigation = document.getElementById("navigation"),
+				primaryNav = navigation.getElementsByTagName('ul'),
+				primaryNavs;
+        	
+        	navigation.className = '';
+		
+			if(!primaryNav.length){
+				return;
+			}
+			
+			primaryNavs = primaryNav[0].children;
+			navigation.onclick = null;
+			for (var i = 0; i < primaryNavs.length; i++) {
+				primaryNavs[i].className = primaryNavs[i].className.replace(/(^|\s)(active|hasSecondary)(\s|$)/, '');
+				primaryNavs[i].onclick = null;
+			}
+        },
+        
+        onResize: function(oldWidthScript, newWidthScript) {
+        	if (!oldWidthScript) {
+        		if (WDN.getCurrentWidthScript() == '768') {
+        			WDN.navigation.fixPresentation();
+        			WDN.navigation.applyStateFixes();
+        		}
+        		return;
+        	}
+        	
+        	WDN.navigation.destroy(oldWidthScript);
+        	WDN.navigation.initialize();
         }
     };
 })();
