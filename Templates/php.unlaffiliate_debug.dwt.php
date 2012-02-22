@@ -6,22 +6,22 @@
 <!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
 <!--[if !(IEMobile)|!(IE)]><!--><html lang="en"><!--<![endif]-->
 <head>
-<jsp:include page="/wdn/templates_3.1/includes/metanfavico.html" />
+<?php virtual("/wdn/templates_3.1/includes/metanfavico.html"); ?>
 <!--
     Membership and regular participation in the UNL Web Developer Network
-    is required to use the UNL templates. Visit the WDN site at 
+    is required to use the UNL templates. Visit the WDN site at
     http://wdn.unl.edu/. Click the WDN Registry link to log in and
     register your unl.edu site.
     All UNL template code is the property of the UNL Web Developer Network.
-    The code seen in a source code view is not, and may not be used as, a 
-    template. You may not use this code, a reverse-engineered version of 
+    The code seen in a source code view is not, and may not be used as, a
+    template. You may not use this code, a reverse-engineered version of
     this code, or its associated visual presentation in whole or in part to
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
-    
+
     $Id$
 -->
-<jsp:include page="/wdn/templates_3.1/includes/scriptsandstyles.html" />
+<?php virtual("/wdn/templates_3.1/includes/scriptsandstyles_debug.html"); ?>
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>Use a descriptive page title | Optional Site Title (use for context) | UNL Affiliate</title>
 <!-- TemplateEndEditable -->
@@ -30,7 +30,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="../sharedcode/affiliate.css" />
 <link href="../sharedcode/affiliate_imgs/favicon.ico" rel="shortcut icon" />
 <!-- TemplateEndEditable -->
-<!-- TemplateParam name="class" type="text" value="fixed" -->
+<!-- TemplateParam name="class" type="text" value="fixed debug" -->
 </head>
 <body class="@@(_document['class'])@@">
     <nav class="skipnav">
@@ -41,10 +41,10 @@
             <!-- TemplateBeginEditable name="sitebranding_logo" -->
             <a id="logo" href="http://www.throughtheeyes.org/" title="Through the Eyes of the Child Initiative">Through the Eyes of the Child Initiative</a>
             <!-- TemplateEndEditable -->
-            <span id="wdn_institution_title"><!-- TemplateBeginEditable name="sitebranding_affiliate" --><a href="http://www.unl.edu" title="University of Nebraska&ndash;Lincoln">An affiliate of the University of Nebraska&ndash;Lincoln</a><!-- TemplateEndEditable --></span>            
-            <span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" -->Throught the Eyes of a Child Initiative<span>A Nebraska Supreme Court Initiative</span><!-- TemplateEndEditable --></span>
-            <jsp:include page="/wdn/templates_3.1/includes/idm.html" />
-            <jsp:include page="/wdn/templates_3.1/includes/wdnTools.html" />
+            <span id="wdn_institution_title"><!-- TemplateBeginEditable name="sitebranding_affiliate" --><a href="http://www.unl.edu" title="University of Nebraska&ndash;Lincoln">An affiliate of the University of Nebraska&ndash;Lincoln</a><!-- TemplateEndEditable --></span>
+    		<span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" -->Throught the Eyes of a Child Initiative<span>A Nebraska Supreme Court Initiative</span><!-- TemplateEndEditable --></span>
+    		<?php virtual("/wdn/templates_3.1/includes/idm.html"); ?>
+    		<?php virtual("/wdn/templates_3.1/includes/wdnTools.html"); ?>
         </header>
         <div id="wdn_navigation_bar">
             <nav id="breadcrumbs">
@@ -60,7 +60,7 @@
                 <nav id="navigation" role="navigation">
                     <h3 class="wdn_list_descriptor hidden">Navigation</h3>
                     <!-- TemplateBeginEditable name="navlinks" -->
-                    <%@ include file="../sharedcode/navigation.html" %>
+                    <?php include "../sharedcode/navigation.html"; ?>
                     <!-- TemplateEndEditable -->
                 </nav>
             </div>
@@ -75,39 +75,39 @@
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- TemplateBeginEditable name="maincontentarea" -->
                 <h2>This is a blank page</h2>
-                <p>Impress your audience with awesome content!</p> 
+                <p>Impress your audience with awesome content!</p>
                 <!-- TemplateEndEditable -->
                 <div class="clear"></div>
-                <jsp:include page="/wdn/templates_3.1/includes/noscript.html" />
+                <?php virtual("/wdn/templates_3.1/includes/noscript.html"); ?>
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
         </div>
         <footer id="footer">
             <div id="footer_floater"></div>
             <div class="footer_col" id="wdn_footer_feedback">
-                <jsp:include page="/wdn/templates_3.1/includes/feedback.html" />
+                <?php virtual("/wdn/templates_3.1/includes/feedback.html"); ?>
             </div>
             <div class="footer_col" id="wdn_footer_related">
                 <!-- TemplateBeginEditable name="leftcollinks" -->
-                <%@ include file="../sharedcode/relatedLinks.html" %>
+                <?php include "../sharedcode/relatedLinks.html"; ?>
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col" id="wdn_footer_contact">
                 <!-- TemplateBeginEditable name="contactinfo" -->
-                <%@ include file="../sharedcode/footerContactInfo.html" %>
+                <?php include "../sharedcode/footerContactInfo.html"; ?>
                 <!-- TemplateEndEditable --></div>
             <div class="footer_col" id="wdn_footer_share">
-                <jsp:include page="/wdn/templates_3.1/includes/socialmediashare.html" />
+                <?php virtual("/wdn/templates_3.1/includes/socialmediashare.html"); ?>
             </div>
             <!-- TemplateBeginEditable name="optionalfooter" -->
             <!-- TemplateEndEditable -->
             <div id="wdn_copyright">
                 <div>
                     <!-- TemplateBeginEditable name="footercontent" -->
-                    <%@ include file="../sharedcode/footer.html" %>
+                    <?php include "../sharedcode/footer.html"; ?>
                     <!-- TemplateEndEditable -->
-                    <jsp:include page="/wdn/templates_3.1/includes/wdn.html" />
+                    <?php virtual("/wdn/templates_3.1/includes/wdn.html"); ?>
                 </div>
-                <jsp:include page="/wdn/templates_3.1/includes/logos.html" />
+                <?php virtual("/wdn/templates_3.1/includes/logos.html"); ?>
             </div>
         </footer>
     </div>

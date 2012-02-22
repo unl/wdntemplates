@@ -1,0 +1,144 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/content/tabs.less
+*
+* ---------------------------
+* Styles associated with content tabs
+* ---------------------------
+*/
+@import "../_mixins/all.less";
+
+/*
+Markup for these:
+<ul class="wdn_tabs">
+    <li><a href="#"><span>Your Profile</span></a></li>
+    <li><a href="#"><span>Dashboard</span></a></li>
+    <li><a href="#"><span>Friends</span></a></li>
+    <li class="selected"><a href="#"><span>Groups</span></a></li> <!--This is the selected tab, notice the class="selected"-->
+    <li><a href="#"><span>The wire</span></a></li>
+    <li><a href="#"><span>Settings</span></a></li>
+    <li><a href="#"><span>Log out</span></a></li>
+</ul>
+*/
+
+#maincontent ul.wdn_tabs {
+    margin: 10px 0 20px 0;
+    padding: 0 1%;
+    list-style: none;
+    text-align: left;
+    height: auto;
+    border-bottom: 1px solid #C9C9C9;
+    position: relative;
+    display:inline-block;
+    width:100%;
+    .box-sizing(border-box);
+
+    li {
+        .linear-gradient-no-filter(#f4f4f4, #e2e2e2);
+        border-width:1px;
+        text-shadow:-1px -1px 1px #fff;
+        
+        &:hover {
+            .linear-gradient-no-filter(#f4f4f4, #cecece, #cecece);
+        }
+        
+        &.selected {
+            .linear-gradient-no-filter(#f7f7f7, #fff);
+        }
+        
+        ul {
+            /* SUB TABS */
+            position: absolute;
+            left: 0;
+            width: 100%;
+            .box-sizing(border-box);
+            margin: -5px 0 0 0;
+            padding: 20px 20px 0;
+            
+            li {
+                font-weight: normal;
+                font-size: 0.9em;
+                line-height:100%;
+                margin: 7px 0 0 0;
+                border:1px solid #C9C9C9;
+                .border-radius(2em);
+                bottom: 1px;
+                display: inline-block;
+                .box-shadow(inset, 0, 1px, 3px, 3px, #ddd);
+                
+                &.selected {
+                    .box-shadow(none);
+                    
+                    &:hover a {
+                        color: #454545;
+                    }
+                }
+                
+                a {
+                    color: #454545;
+                    font-weight: normal;
+                    display:block;
+                    padding:0.4em 0.8em;
+                }
+                
+                &:hover a {
+                    color:#000;
+                }
+            }
+        }
+    }
+    
+    > li {
+        display: inline-block !important; /*this was changed from block to inline-block to better support multiple rows of tabs*/
+        float: left;
+        border-color:#DDD;
+        border-top-color:#C9C9C9;
+        border-right-color:#C9C9C9;
+        border-style:solid;
+        border-bottom: 1px solid #C9C9C9;
+        .border-radius4(5px, 5px, 0, 0);
+        margin-left:0.2em;
+        margin-bottom:-1px;
+        .box-shadow(1px, -1px, 0, rgba(0,0,0,0.1));
+        line-height:100%;
+        
+        > a {
+            display: block;
+            padding: 0.6em 1em;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.0em;
+            position:relative;
+        }
+        
+        &.selected {
+            border-bottom-color:#fff;
+        }
+        
+        a {
+            margin-bottom:1px;
+        }
+    }
+    
+    sup {
+        color: #fff;
+        font-weight: bold;
+        font-size: .7em;
+        padding: 3px 4px;
+        background: #ac0203;
+        -moz-background-clip: padding-box;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        border: 1px solid #fff;
+        .border-radius(1em);
+        bottom: 0.7em;
+        .box-shadow(1px, 1px, 1px, rgba(0, 0, 0, 0.2));
+        position:absolute;
+        top:-4px;
+        right:-4px;
+        display:block;
+        height:1em;
+        text-shadow:none;
+    }
+}

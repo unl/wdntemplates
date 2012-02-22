@@ -3,6 +3,21 @@
  * 
  */
 WDN.monthwidget = function() {
+	var getLocalEventSettings = function() {
+		var $eventLink = WDN.jQuery('link[rel=events]'),
+			eventParams = WDN.getPluginParam('events');
+		if ($eventLink.length) {
+			return {
+				href: $eventLink[0].href,
+				title: $eventLink[0].title
+			};
+		} else if (eventParams) {
+			return eventParams;
+		}
+		
+		return null;
+	};
+	
 	return {
 		calURL : false,
 		
@@ -15,8 +30,10 @@ WDN.monthwidget = function() {
 		},
 
 		setup : function() {
+			var localSettings = getLocalEventSettings();
+			
 			if (!this.calURL) {
-				this.calURL = WDN.jQuery('link[rel=events]').attr('href');
+				this.calURL = localSettings.href;
 			}
 			
 			if (WDN.jQuery(this.container).length) {

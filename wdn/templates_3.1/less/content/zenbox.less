@@ -1,0 +1,142 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/content/zenbox.less
+*
+* ---------------------------
+* Styles associated with the zenboxes
+* ---------------------------
+*/
+@import "../_mixins/all.less";
+
+#maincontent {
+    .zenheading {
+        .border-radius(5px);
+        padding: 7px 7px 5px;
+        margin: 3px 0 1.01em;
+        /* defaults to bright class style */
+        .zen-bright();
+        
+        &.cool {
+            .zen-cool();
+        }
+        
+        &.soothing {
+            .zen-soothing();
+        }
+        
+        &.energetic {
+            .zen-energetic();
+        }
+        
+        &.neutral {
+            .zen-neutral();
+        }
+        
+        &.primary {
+            .zen-primary();
+        }
+    }
+
+    .zenboxsolid, .zenboxfixed, .zenboxfixed, .zenboxfeature, // the legacy classes 
+    .zenbox {
+        border:1px solid #DDD;
+        .border-radius(5px);
+        padding: 5px;
+        margin-bottom:1em;
+        background: #f7f7f7;
+        
+        h3, /* Retain styles for old markup. Remove August 1, 2012*/
+        .heading {
+            padding:7px 7px 5px;
+            margin:-6px;
+            margin-bottom:8px;
+            font-size:1.1em;
+            font-weight: bold;
+            .border-radius4(5px, 5px, 0, 0);
+            /* defaults to bright class style */
+            .zen-bright();
+            
+            a {
+                color: darken(@baseText, 10%);
+                text-decoration: underline;
+            }
+        }
+        
+        ul {
+            list-style:none;
+            padding: 0 10px 1.1em 10px;
+            
+            li {
+                border-bottom:1px dashed #c9c9c9;
+                margin-left:-5px;
+                padding:5px 0 3px 3px;
+            }
+        }
+        
+        a.showHide {
+            float:right;
+            margin-top:-33px;
+            text-indent:-99999px;
+            background:url(images/zenboxShowHide.png) no-repeat top right;
+            background-position:0 0;
+            display:block;
+            width:20px;
+            height:20px;
+            
+            &.show {
+                background-position: 0 -42px;
+            }
+        }
+        
+        &.cool {
+            h3, /* Retain styles for old markup. Remove August 1, 2012*/
+            .heading {
+                .zen-cool();
+                a {
+                    color: #fff;
+                }
+            }
+        }
+        
+        &.soothing {
+            h3, /* Retain styles for old markup. Remove August 1, 2012*/
+            .heading {
+                .zen-soothing();
+                a {
+                    color: #fff;
+                }
+            }
+        }
+        
+        &.energetic {
+            h3, /* Retain styles for old markup. Remove August 1, 2012*/
+            .heading {
+                .zen-energetic();
+                a {
+                    color: #fff;
+                }
+            }
+        }
+        
+        &.neutral {
+            h3, /* Retain styles for old markup. Remove August 1, 2012*/
+            .heading {
+                .zen-neutral();
+                a {
+                    color: #fff;
+                }
+            }
+        }
+        
+        &.primary {
+            h3, /* Retain styles for old markup. Remove August 1, 2012*/
+            .heading {
+                .zen-primary();
+                a {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

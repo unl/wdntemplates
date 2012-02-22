@@ -157,7 +157,7 @@ var WDN = (function() {
 						WDN.initializePlugin('toolbar');
 						WDN.initializePlugin('tabs');
 						WDN.browserAdjustments();
-					});
+					}, debug);
 					WDN.initializePlugin('unlalert');
 				}
 			};
@@ -242,9 +242,16 @@ var WDN = (function() {
 		 * Load jQuery included with the templates as WDN.jQuery
 		 *
 		 * @param callback Called when the document is ready
+		 * @param forceDebug Should the debug jQuery be loaded
 		 */
-		loadJQuery: function (callback) {
-			WDN.loadJS(WDN.getTemplateFilePath('scripts/jquery.min.js'), function() {
+		loadJQuery: function (callback, forceDebug) {
+			var jQueryPath = 'scripts/jquery.', body = document.getElementsByTagName('body');
+			if (!(forceDebug || (body.length && body[0].className.match(/\bdebug\b/)))) {
+				jQueryPath += 'min.';
+			}
+			jQueryPath += 'js';
+			
+			WDN.loadJS(WDN.getTemplateFilePath(jQueryPath), function() {
 				if (!WDN.jQuery) {
 					WDN.jQuery = jQuery.noConflict(true);
 				}
@@ -271,15 +278,15 @@ var WDN = (function() {
 		browserAdjustments: function () {
 			if (WDN.hasDocumentClass('ie6')) {
 				var $body = WDN.jQuery('body').prepend('<div id="wdn_upgrade_notice"></div>').removeAttr('class').addClass('document');
-				WDN.jQuery('#wdn_upgrade_notice').load(getTemplateFilePath('includes/browserupgrade.html', true));
+				WDN.jQuery('#wdn_upgrade_notice').load(WDN.getTemplateFilePath('includes/browserupgrade.html', true));
 				WDN.jQuery('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
 				WDN.loadCSS(WDN.getTemplateFilePath('css/content/columns.css'));
 				return;
 			}
 			
-			var css3Tests = 'no-css-first-child no-css-last-child no-css-nth-child no-css-nth-of-type no-css-nth-last-child'.split(' ');
+			var css3Tests = 'firstchild lastchild nthchild nthoftype nthlastchild'.split(' ');
 			for (var i = 0; i < css3Tests.length; i++) {
-				if (WDN.hasDocumentClass(css3Tests[i])) {
+				if (WDN.hasDocumentClass('no-css-' + css3Tests[i])) {
 					WDN.loadCSS(WDN.getTemplateFilePath('css/content/css3_selector_failover.css'));
 					
 					// base css3 workarounds
@@ -374,7 +381,7 @@ var WDN = (function() {
 			if (WDN.jQuery) {
 				return WDN.jQuery(_docEl).hasClass(className);
 			} else {
-				return _docEl.className.match(new RegExp('\\b' + className + '\\b'));
+				return _docEl.className.match(new RegExp('(^|\\s)' + className + '(\\s|$)'));
 			}
 		},
 
