@@ -1,5 +1,5 @@
 /*!
- * Modernizr v2.5.2
+ * Modernizr v2.5.3
  * www.modernizr.com
  *
  * Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
@@ -24,7 +24,7 @@
 
 window.Modernizr = (function( window, document, undefined ) {
 
-    var version = '2.5.2',
+    var version = '2.5.3',
 
     Modernizr = {},
     
@@ -113,6 +113,8 @@ window.Modernizr = (function( window, document, undefined ) {
       fakeBody.innerHTML += style;
       fakeBody.appendChild(div);
       if(!body){
+          //avoid crashing IE8, if background image is used
+          fakeBody.style.background = "";
           docElement.appendChild(fakeBody);
       }
 
@@ -770,42 +772,42 @@ Modernizr.selectorSupported = function(selector) {
             }
         },
 
-	    link = doc.createElement("style");
-	    link.type = 'text/css';
-	
-	    (head || root).insertBefore(link, (head || root).firstChild);
-	
-	    sheet = link.sheet || link.styleSheet;
-	
-	    if (!(sheet && selector)) return false;
-	
-	    support = impl.hasFeature('CSS2', '') ?
-	  
-    		function(selector) {
-		      try {
-		          sheet.insertRule(selector + '{ }', 0);
-		          sheet.deleteRule(sheet.cssRules.length - 1);
-		      } catch (e) {
-		          return false;
-		      }
-		      return true;
-		      
-		  } : function(selector) {
-		    
-		      sheet.cssText = selector + ' { }';
-		      return sheet.cssText.length !== 0 && !(/unknown/i).test(sheet.cssText) && sheet.cssText.indexOf(selector) === 0;
-		  };
-	  
-	  result = support(selector);
-	  link.parentNode.removeChild(link);
-	  link = sheet = undefined;
-	  return result;
+        link = doc.createElement("style");
+        link.type = 'text/css';
+    
+        (head || root).insertBefore(link, (head || root).firstChild);
+    
+        sheet = link.sheet || link.styleSheet;
+    
+        if (!(sheet && selector)) return false;
+    
+        support = impl.hasFeature('CSS2', '') ?
+      
+            function(selector) {
+              try {
+                  sheet.insertRule(selector + '{ }', 0);
+                  sheet.deleteRule(sheet.cssRules.length - 1);
+              } catch (e) {
+                  return false;
+              }
+              return true;
+              
+          } : function(selector) {
+            
+              sheet.cssText = selector + ' { }';
+              return sheet.cssText.length !== 0 && !(/unknown/i).test(sheet.cssText) && sheet.cssText.indexOf(selector) === 0;
+          };
+      
+      result = support(selector);
+      link.parentNode.removeChild(link);
+      link = sheet = undefined;
+      return result;
 };
 
 (function() {
     var i, selector, selectors = ':first-child :last-child :nth-child(n) *:nth-of-type(n) :nth-last-child(n)'.split(' ');
     for (i = 0; i < selectors.length; i++) {
-    	selector = selectors[i];
+        selector = selectors[i];
         Modernizr.addTest('css-' + selectors[i].replace(/[*:-]|\([^)]\)/g, ''), function() {
             return Modernizr.selectorSupported(selector);
         });
@@ -829,3 +831,5 @@ Modernizr.addTest('placeholder', function(){
            );
 
 });
+
+Modernizr.addTest('mediaqueries', Modernizr.mq('only all'));

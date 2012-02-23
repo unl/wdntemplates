@@ -66,11 +66,13 @@ EOD;
         'all' => array(
             'wdn',
             'modernizr-wdn',
+            'analytics',
+            'navigation',
+            'search',
             'unlalert',
         ),
         '320' => array(
-            'mobile_analytics',
-            'mobile_support',
+
         ),
         '768' => array(
             // Not further compressed, prepended to below
@@ -80,10 +82,7 @@ EOD;
             // Compressed and merged
             'wdn_ajax',
             'global_functions',
-            'analytics',
             'idm',
-            'navigation',
-            'search',
             'feedback',
             'socialmediashare',
             'tooltip',

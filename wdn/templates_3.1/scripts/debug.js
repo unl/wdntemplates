@@ -34,17 +34,24 @@ if (xhr) {
 		_setupTemplate();
 	}
 } else {
-	var _prevWDN_READY = window['WDN_READY'];
+	var _prevWDN_READY = window['WDN_READY'], _prevWDN_READYSTATE = window['WDN_READYSTATE'];
 	window['WDN_READY'] = function() {
 		window['WDN_READY'] = _prevWDN_READY;
 		_setupTemplate();
 	};
+	window['WDN_READYSTATE'] = function() {
+		var e = document.getElementById('wdn_debug_sript');
+		if (e.readyState == 'loaded' || e.readyState == 'complete') {
+			e.onload = undefined;
+			window['WDN_READYSTATE'] = _prevWDN_READYSTATE;
+			WDN_READY();
+		}
+	};
 	document.write([
-	    '<script type="text/javascript" src="',
+	    '<script type="text/javascript" id="wdn_debug_sript" src="',
 	    _wdn_scripts_url,
-	    'wdn.js"></script>\n',
-	    '<script type="text/javascript">WDN_READY();</script>'
-    ].join());
+	    'wdn.js" onload="WDN_READY();" onreadystatechange="WDN_READYSTATE();"></script>'
+    ].join(''));
 }
 
 })();

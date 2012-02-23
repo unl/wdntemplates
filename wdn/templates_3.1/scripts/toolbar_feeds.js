@@ -34,7 +34,7 @@ WDN.toolbar_feeds = function() {
 
     return {
     	cb: [],
-        initialize : function() {
+        initialize : function(contentCallback) {
         	if (feeds) {
         		return;
         	}
@@ -64,9 +64,8 @@ WDN.toolbar_feeds = function() {
                 	});
             	}
             }
-        },
-        setupToolContent : function(contentCallback) {
-        	WDN.jQuery.ajax({
+            
+            WDN.jQuery.ajax({
             	url: WDN.getTemplateFilePath('includes/tools/feeds.html', true),
             	success: function(data) {
             		var $tempDiv = WDN.jQuery('<div/>'),
