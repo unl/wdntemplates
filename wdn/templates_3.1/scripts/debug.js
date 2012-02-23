@@ -40,7 +40,7 @@ if (xhr) {
 		_setupTemplate();
 	};
 	window['WDN_READYSTATE'] = function() {
-		var e = document.getElementById('wdn_debug_sript');
+		var e = document.getElementById('wdn_debug_script');
 		if (e.readyState == 'loaded' || e.readyState == 'complete') {
 			e.onload = undefined;
 			window['WDN_READYSTATE'] = _prevWDN_READYSTATE;
@@ -48,7 +48,7 @@ if (xhr) {
 		}
 	};
 	document.write([
-	    '<script type="text/javascript" id="wdn_debug_sript" src="',
+	    '<script type="text/javascript" id="wdn_debug_script" src="',
 	    _wdn_scripts_url,
 	    'wdn.js" onload="WDN_READY();" onreadystatechange="WDN_READYSTATE();"></script>'
     ].join(''));
