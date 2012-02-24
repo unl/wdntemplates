@@ -47,13 +47,13 @@
         }
         
         tr:nth-child(odd) td {
-            background-color: hsl(hue(@zenBright), 100%, 94%);
+            background-color: hsl(hue(@colorManilla), 80%, 94%);
         }
         
         td {
             border-bottom-style: solid;
             border-bottom-width: 1px;
-            border-color: hsl(hue(@zenBright), 100%, 78%);
+            border-color: hsl(hue(@colorManilla), 80%, 78%);
         }
     }
     
@@ -67,10 +67,10 @@
         }
         tbody {
             td {
-                border-color: hsl(hue(@zenCool), 62%, 78%);
+                border-color: hsl(hue(@colorTriad), 62%, 78%);
             }
             tr:nth-child(odd) td {
-                background-color: hsl(hue(@zenCool), 100%, 97%);
+                background-color: hsl(hue(@colorTriad), 100%, 97%);
             }
         }
     }
@@ -84,27 +84,10 @@
         }
         tbody {
             td {
-                border-color: hsl(hue(@zenSoothing), 62%, 78%);
+                border-color: hsl(hue(@colorComplementary), 62%, 78%);
             }
             tr:nth-child(odd) td {
-                background-color: hsl(hue(@zenSoothing), 100%, 97%);
-            }
-        }
-    }
-    &.energetic {
-        /* Energetic Zentable */
-        tr th {
-            .zen-energetic();
-            a {
-                color: #fff;
-            }
-        }
-        tbody {
-            td {
-                border-color: hsl(hue(@zenEnergetic), 100%, 78%);
-            }
-            tr:nth-child(odd) td {
-                background-color: hsl(hue(@zenEnergetic), 100%, 94%);
+                background-color: hsl(hue(@colorComplementary), 100%, 97%);
             }
         }
     }
@@ -135,10 +118,10 @@
         }
         tbody {
             td {
-                border-color: hsl(hue(@zenPrimary), 62%, 78%);
+                border-color: hsl(hue(@colorPrimary), 62%, 78%);
             }
             tr:nth-child(odd) td {
-                background-color: hsl(hue(@zenPrimary), 100%, 97%);
+                background-color: hsl(hue(@colorPrimary), 100%, 97%);
             }
         }
     }
