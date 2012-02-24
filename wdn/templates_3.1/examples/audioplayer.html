@@ -1,13 +1,6 @@
-<div class="audioplayer">
-	<audio preload="auto">
-		<source src="http://elkhorn.unl.edu/citmp3/current/ogg2.mp3" type="audio/mpeg" />
-		<div class="fallback">
-			<div class="fallback-text">
-				<p>Please use a modern browser or install <a href="http://get.adobe.com/flashplayer/">Flash-Plugin</a></p>
-				<p><a class="source" href="http://elkhorn.unl.edu/citmp3/current/ogg2.mp3">http://elkhorn.unl.edu/citmp3/current/ogg2.mp3</a></p>
-			</div>
-		</div>
-	</audio>
-	<span class="title">Bed Bugs: Prevention &amp; Control</span>
-</div>
-<script type="text/javascript">WDN.initializePlugin("videoPlayer");</script>
+<audio id='player' preload="auto" src="http://elkhorn.unl.edu/citmp3/current/ogg2.mp3"></audio>
+<script type="text/javascript">
+WDN.initializePlugin('mediaelement_wdn', [function() {
+	WDN.jQuery('#player').mediaelementplayer();
+}]);
+</script>
