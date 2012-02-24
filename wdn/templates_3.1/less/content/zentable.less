@@ -53,7 +53,7 @@
         td {
             border-bottom-style: solid;
             border-bottom-width: 1px;
-            border-color: hsl(hue(@colorManilla), 80%, 78%);
+            border-color: desaturate(hsl(hue(@colorManilla), 80%, 78%), 10%);
         }
     }
     
@@ -67,7 +67,7 @@
         }
         tbody {
             td {
-                border-color: hsl(hue(@colorTriad), 62%, 78%);
+                border-color: lighten(hsl(hue(@colorTriad), 82%, 78%), 10%);
             }
             tr:nth-child(odd) td {
                 background-color: hsl(hue(@colorTriad), 100%, 97%);
