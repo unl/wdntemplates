@@ -2,14 +2,21 @@
 
 # Use this tool to install rcs-keywords filters
 
-cleanKey="filter.rcs-keywords.clean"
-cleanValue=".git_filters/rcs-keywords.clean"
-smudgeKey="filter.rcs-keywords.smudge"
-smudgeValue=".git_filters/rcs-keywords.smudge %f"
+section="filter.rcs-keywords"
+clean=".git_filters/rcs-keywords.clean"
+smudge=".git_filters/rcs-keywords.smudge %f"
 
-if [ -z "`git config $cleanKey`" -o -z "`git config $smudgeKey`" ]; then
+if [ "$1" = "remove" ]; then
+    echo "Removing rcs-keywords filter from git-config"
+    git config --remove-section $section
+    echo "Done"
+    exit
+fi
+
+
+if [ -z "`git config $section.clean`" -o -z "`git config $section.smudge`" ]; then
 	echo "Writing rcs-keywords filter to git-config"
-	git config $cleanKey $cleanValue
-	git config $smudgeKey "$smudgeValue"
+	git config $section.clean $clean
+	git config $section.smudge "$smudge"
 	echo "Done"
 fi
