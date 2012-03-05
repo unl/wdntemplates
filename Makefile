@@ -16,10 +16,6 @@ all:
 	@@echo "Compressing Desktop and Mobile CSS and JS"
 	${COMPRESS}
 	@@echo "Done"
-	@@echo "Running git status"
-	${GIT} status wdn/templates_3.1
-	@@echo "Any modified files are ready to be committed with git commit wdn/templates_3.1"
-	@@echo "Commit compressed files, then run \`make zips\` to update .zip files."
 
 clean:
 	${COMPRESS} clean
@@ -36,9 +32,6 @@ zips:
 	@@echo "Done building the wdn.zip file."
 	${GIT} archive -o downloads/UNLTemplates.zip HEAD Templates sharedcode
 	@@echo "Done building the UNLTemplates.zip file."
-	@@echo "Running git status"
-	${GIT} status *.zip
-	@@echo "Any modified files are ready to be committed with git commit *.zip"
 
 js-plugin: ${JS_PLUGIN}
 
