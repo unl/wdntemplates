@@ -625,6 +625,11 @@ class UNL_WDNTemplates_Compressor
             $contents = str_replace(array("\r\n", "\r", "\n", "\t"), '', $contents);
             $contents = str_replace(array('    ', '   ', '  '), ' ', $contents);
             $contents = str_replace(', ', ',', $contents);
+            $contents = str_replace('; ', ';', $contents);
+            $contents = str_replace(': ', ':', $contents);
+            $contents = str_replace('{ ', '{', $contents);
+            $contents = str_replace(' {', '{', $contents);
+            $contents = str_replace(' }', '}', $contents);
 
             // Now we have a clean, compressed individual css file
 
@@ -632,7 +637,7 @@ class UNL_WDNTemplates_Compressor
             $css_sections = explode('@media ', $contents);
 
             foreach ($css_sections as $section) {
-                if (preg_match('/^\(min-width:\s+?([\d]+)px\)\s\{(.*)\}$/', $section, $matches)) {
+                if (preg_match('/^\(min-width:([\d]+)px\)\{(.*)\}$/', $section, $matches)) {
                     // Found a section
                     if (isset($media_sections[$matches[1]]) && $matches[2] != ' ') {
                         $media_sections[$matches[1]] .= $matches[2];
@@ -642,7 +647,6 @@ class UNL_WDNTemplates_Compressor
                     $base .= $section;
                 }
             }
-
         }
 
         file_put_contents("{$outDir}/{$outFiles[$i - 2]}", $this->_expandKeywords($outFiles[$i - 2], $this->_wdnHeader) . $base);
