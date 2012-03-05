@@ -637,7 +637,7 @@ class UNL_WDNTemplates_Compressor
             $css_sections = explode('@media ', $contents);
 
             foreach ($css_sections as $section) {
-                if (preg_match('/^\(min-width:+?([\d]+)px\)\{(.*)\}$/', $section, $matches)) {
+                if (preg_match('/^\(min-width:([\d]+)px\)\{(.*)\}$/', $section, $matches)) {
                     // Found a section
                     if (isset($media_sections[$matches[1]]) && $matches[2] != ' ') {
                         $media_sections[$matches[1]] .= $matches[2];
