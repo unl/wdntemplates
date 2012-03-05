@@ -609,31 +609,39 @@ WDN.navigation = (function() {
         
         setupMobile: function() {
         	var navigation = document.getElementById("navigation"),
-				primaryNav = navigation.getElementsByTagName('ul');
+				primaryNav = navigation.getElementsByTagName('ul'),
+				triggerEvent;
         	
 			if(!primaryNav.length){
 				navigation.className = 'disabled';
 				return;
 			}
 			
+//			if (Modernizr.touch) {
+//				triggerEvent = 'touchstart';
+//			} else {
+				triggerEvent = 'click';
+//			}
+			
 			var primaryNavs = primaryNav[0].children,
 				showPrimary = function() {
 					navigation.className = 'primary active';
-					navigation.removeEventListener('click', showPrimary, false);
-					navigation.addEventListener('click', traverseNavigation, false);
+					navigation.removeEventListener(triggerEvent, showPrimary, false);
+					navigation.addEventListener(triggerEvent, traverseNavigation, false);
 				},
-				showSecondary = function(secondaryNav) {
+				showSecondary = function(event) {
+					event.stopPropagation();
 					for (var i=0; i < primaryNavs.length; i++){
 						primaryNavs[i].className = primaryNavs[i].className.replace(/(^|\s)active(\s|$)/, '');
 					}
-					secondaryNav.className += ' active';
+					this.className += ' active';
 					navigation.className = navigation.className.replace(/(^|\s)primary(\s|$)/, '') + ' secondary';
 				},
 				traverseNavigation = function() {
 					if (navigation.className.match(/(^|\s)primary(\s|$)/)) { //we're showing the primary nav, so close it
 						navigation.className = '';
-						navigation.removeEventListener('click', traverseNavigation, false);
-						navigation.addEventListener('click', showPrimary, false);
+						navigation.removeEventListener(triggerEvent, traverseNavigation, false);
+						navigation.addEventListener(triggerEvent, showPrimary, false);
 					} else { // we're showing the secondary nav, close it and trigger primary
 						for (var i=0; i < primaryNavs.length; i++){
 							primaryNavs[i].className = primaryNavs[i].className.replace(/(^|\s)active(\s|$)/, '');
@@ -643,16 +651,27 @@ WDN.navigation = (function() {
 				};
 			
 			//Bind the click/tap to the navigation bar to present user with navigation and ability to close navigation.
-			navigation.addEventListener('click', showPrimary, false);
+			navigation.addEventListener(triggerEvent, showPrimary, false);
+			
+			navigation.ondestroy = function() {
+				this.ondestroy = null;
+				
+				navigation.className = '';
+				
+				this.removeEventListener(triggerEvent, showPrimary, false);
+				this.removeEventListener(triggerEvent, traverseNavigation, false);
+				
+				for (var i = 0; i < primaryNavs.length; i++) {
+					primaryNavs[i].className = primaryNavs[i].className.replace(/(^|\s)(active|hasSecondary)(\s|$)/, '');
+					primaryNavs[i].removeEventListener(triggerEvent, showSecondary, false);
+				}
+			};
 			
 			for (var i=0; i < primaryNavs.length; i++) {
 				if (primaryNavs[i].className.match(/(^|\s)empty(\s|$)/)) {
 					continue;
 				}
-				primaryNavs[i].addEventListener('click', function(event) {
-					event.stopPropagation();
-					showSecondary(this);
-				}, false);
+				primaryNavs[i].addEventListener(triggerEvent, showSecondary, false);
 				
 				var secondaries = primaryNavs[i].getElementsByTagName('ul');
 				if (secondaries.length && !secondaries[0].className.match(/(^|\s)empty(\s|$)/)){
@@ -662,21 +681,10 @@ WDN.navigation = (function() {
         },
         
         destroyMobile: function() {
-        	var navigation = document.getElementById("navigation"),
-				primaryNav = navigation.getElementsByTagName('ul'),
-				primaryNavs;
-        	
-        	navigation.className = '';
+        	var navigation = document.getElementById("navigation");
 		
-			if(!primaryNav.length){
-				return;
-			}
-			
-			primaryNavs = primaryNav[0].children;
-			navigation.onclick = null;
-			for (var i = 0; i < primaryNavs.length; i++) {
-				primaryNavs[i].className = primaryNavs[i].className.replace(/(^|\s)(active|hasSecondary)(\s|$)/, '');
-				primaryNavs[i].onclick = null;
+			if (navigation.ondestroy){
+				navigation.ondestroy();
 			}
         },
         

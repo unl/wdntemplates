@@ -254,6 +254,17 @@ var WDN = (function() {
 			WDN.loadJS(WDN.getTemplateFilePath('scripts/modernizr-wdn.js'), function() {
 				var resizeTimeout, onResizeReady, onResize, widthScript,
 					getMediaQueryWidth = function() {
+						// test for false positive
+						if (Modernizr.mq('only screen and (min-width: 512000px)')) {
+							var offsetWidth = _docEl.offsetWidth;
+							switch (true) {
+								case offsetWidth >= 768:
+									return '768';
+								default:
+									return '320';
+							}
+						}
+					
 						switch (true) {
 							case Modernizr.mq('only screen and (min-width: 768px)'):
 								return '768';
@@ -590,7 +601,7 @@ var WDN = (function() {
 			if (WDN.jQuery) {
 				return WDN.jQuery(_docEl).hasClass(className);
 			} else {
-				return _docEl.className.match(new RegExp('(^|\\s)' + className + '(\\s|$)'));
+				return (new RegExp('(^|\\s)' + className + '(\\s|$)')).test(_docEl.className);
 			}
 		},
 

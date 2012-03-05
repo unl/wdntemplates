@@ -462,11 +462,28 @@ EOD;
                 return false;
             }
 
-            $output = $min . $this->_wdnHeader . file_get_contents("{$outDir}/{$outFile}");
+            $output = $min . $this->_expandKeywords($outFile, $this->_wdnHeader) . file_get_contents("{$outDir}/{$outFile}");
             file_put_contents("{$outDir}/{$outFile}", $output);
         }
 
         return true;
+    }
+
+    /**
+     * Expands keywords in the $input like svn
+     *
+     * @param unknown_type $file
+     * @param unknown_type $input
+     * @return mixed
+     */
+    protected function _expandKeywords($file, $input)
+    {
+        $output = $input;
+        $date = date('D M j G:i:s Y O'); // format to match git default
+        $author = trim(`git config --get user.name`);
+
+        $output = str_replace('$Id$', '$Id: ' . implode(' | ', array($file, $date, $author)) . '  $', $input);
+        return $output;
     }
 
     /**
@@ -630,17 +647,19 @@ EOD;
 
         }
 
-        file_put_contents("{$outDir}/{$outFiles[$i - 2]}", $base);
+        file_put_contents("{$outDir}/{$outFiles[$i - 2]}", $this->_expandKeywords($outFiles[$i - 2], $this->_wdnHeader) . $base);
 
         $i = 0;
         foreach ($media_sections as $min_width => $media_section_css) {
-            file_put_contents("{$outDir}/{$outFiles[$i]}", $media_section_css);
+            file_put_contents("{$outDir}/{$outFiles[$i]}",
+                $this->_expandKeywords($outFiles[$i], $this->_wdnHeader) . $media_section_css);
             $i++;
         }
 
         // Now place a single file with all media width sections combined (for IE)
         $i++;
-        file_put_contents("{$outDir}/{$outFiles[$i]}", implode(' ', $media_sections));
+        file_put_contents("{$outDir}/{$outFiles[$i]}",
+            $this->_expandKeywords($outFiles[$i], $this->_wdnHeader) . implode(' ', $media_sections));
 
         $this->_announce('css build complete');
 
