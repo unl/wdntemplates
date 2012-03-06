@@ -10,11 +10,11 @@
 @import "../_mixins/all.less";
 
 #maincontent {
+    /*
     .zenheading {
         .border-radius(5px);
         padding: 7px 7px 5px;
         margin: 3px 0 1.01em;
-        /* defaults to bright class style */
         .zen-bright();
         
         &.cool {
@@ -37,6 +37,7 @@
             .zen-primary();
         }
     }
+    */
 
     .zenboxsolid, .zenboxfixed, .zenboxfixed, .zenboxfeature, // the legacy classes 
     .zenbox {
@@ -89,27 +90,27 @@
         }
         
         &.cool {
-            h3, /* Retain styles for old markup. Remove August 1, 2012*/
+            h3, /* Retain styles for old markup. Remove May 1, 2012*/
             .heading {
                 .zen-cool();
                 a {
-                    color: #fff;
+                    color: darken(@colorTriad, 60%);
                 }
             }
         }
         
         &.soothing {
-            h3, /* Retain styles for old markup. Remove August 1, 2012*/
+            h3, /* Retain styles for old markup. Remove May 1, 2012*/
             .heading {
                 .zen-soothing();
                 a {
-                    color: #fff;
+                    color: darken(@colorComplementary, 50%);
                 }
             }
         }
         
         &.energetic {
-            h3, /* Retain styles for old markup. Remove August 1, 2012*/
+            h3, /* Retain styles for old markup. Remove May 1, 2012*/
             .heading {
                 .zen-energetic();
                 a {
@@ -119,7 +120,7 @@
         }
         
         &.neutral {
-            h3, /* Retain styles for old markup. Remove August 1, 2012*/
+            h3, /* Retain styles for old markup. Remove May 1, 2012*/
             .heading {
                 .zen-neutral();
                 a {
@@ -129,7 +130,7 @@
         }
         
         &.primary {
-            h3, /* Retain styles for old markup. Remove August 1, 2012*/
+            h3, /* Retain styles for old markup. Remove May 1, 2012*/
             .heading {
                 .zen-primary();
                 a {
