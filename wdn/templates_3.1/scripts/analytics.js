@@ -21,10 +21,21 @@ WDN.analytics = function() {
 			var widthScript = WDN.getCurrentWidthScript();
 			WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
 			
+			var version_match = /\?html=(\d\.\d)&dep=(\d\.\d)/; 
+			var version = document.getElementById("wdn_dependents").getAttribute("src");
+			
+			// Set the defaults
+			var html_version = 3.0;
+			var dependents_version = 3.0;
+			var versions = version_match.exec(version);
+			html_version = versions[1];
+			dependents_version = versions[2];
+			
 			_gaq.push(
 				['wdn._setAccount', 'UA-3203435-1'],
 				['wdn._setDomainName', '.unl.edu'],
-				['wdn._setCustomVar', 1, 'Template Version', '3.1', 3],
+				['wdn._setCustomVar', 1, 'Template HTML Version', html_version, 3],
+				['wdn._setCustomVar', 1, 'Template Dependents Version', dependents_version, 3],
 				['wdn._setAllowLinker', true],
 				['wdn._setAllowHash', false]
 			);
@@ -33,7 +44,8 @@ WDN.analytics = function() {
 				_gaq.push(
 					['m._setAccount', 'UA-3203435-4'],
 					['m._setDomainName', '.unl.edu'],
-					['m._setCustomVar', 1, 'Template Version', '3.1', 3],
+					['m._setCustomVar', 1, 'Template HTML Version', html_version, 3],
+					['m._setCustomVar', 1, 'Template Dependents Version', dependents_version, 3],
 					['m._setAllowLinker', true],
 					['m._setAllowHash', false]
 				);
