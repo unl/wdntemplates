@@ -34,8 +34,8 @@ WDN.analytics = function() {
 			_gaq.push(
 				['wdn._setAccount', 'UA-3203435-1'],
 				['wdn._setDomainName', '.unl.edu'],
-				['wdn._setCustomVar', 1, 'Template HTML Version', html_version, 3],
-				['wdn._setCustomVar', 1, 'Template Dependents Version', dependents_version, 3],
+				['wdn._setCustomVar', 2, 'Template HTML Version', html_version, 3],
+				['wdn._setCustomVar', 3, 'Template Dependents Version', dependents_version, 3],
 				['wdn._setAllowLinker', true],
 				['wdn._setAllowHash', false]
 			);
@@ -44,8 +44,8 @@ WDN.analytics = function() {
 				_gaq.push(
 					['m._setAccount', 'UA-3203435-4'],
 					['m._setDomainName', '.unl.edu'],
-					['m._setCustomVar', 1, 'Template HTML Version', html_version, 3],
-					['m._setCustomVar', 1, 'Template Dependents Version', dependents_version, 3],
+					['m._setCustomVar', 2, 'Template HTML Version', html_version, 3],
+					['m._setCustomVar', 3, 'Template Dependents Version', dependents_version, 3],
 					['m._setAllowLinker', true],
 					['m._setAllowHash', false]
 				);

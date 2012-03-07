@@ -28,7 +28,6 @@ html.ie {
 }
 body {
     font: 1em/1.4em "Lucida Grande", Verdana, Arial, sans-serif;
-    text-rendering: optimizeLegibility;
 }
 @font-face {
     font-family: 'URWGroteskCon-Lig';
