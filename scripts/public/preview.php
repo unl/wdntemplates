@@ -77,7 +77,7 @@ $scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span i
 <!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
 <!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
-<!--[if !(IEMobile)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<!--[if !(IEMobile)|!(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/php.fixed.dwt.php" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
 <head>
 <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/metanfavico.html'; ?>
 <!--
