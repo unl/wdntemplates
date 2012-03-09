@@ -19,7 +19,7 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: jsp.fixed.dwt.jsp | 1e98ba6f3cd3310802e61545987e6582d0abac6f | Wed Feb 15 11:42:58 2012 -0600 | Kevin Abel  $
+    $Id$
 -->
 <jsp:include page="/wdn/templates_3.1/includes/scriptsandstyles.html" />
 <!-- TemplateBeginEditable name="doctitle" -->

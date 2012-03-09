@@ -19,7 +19,7 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
 
-    $Id: php.unlaffiliate.dwt.php | e973a9bceae50610048c6504b7c9e53b62c55354 | Wed Feb 15 16:09:12 2012 -0600 | Kevin Abel  $
+    $Id$
 -->
 <?php virtual("/wdn/templates_3.1/includes/scriptsandstyles.html"); ?>
 <!-- TemplateBeginEditable name="doctitle" -->
