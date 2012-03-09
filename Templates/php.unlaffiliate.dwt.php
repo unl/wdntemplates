@@ -32,7 +32,7 @@
 <!-- TemplateEndEditable -->
 <!-- TemplateParam name="class" type="text" value="fixed" -->
 </head>
-<body class="@@(_document['class'])@@">
+<body class="@@(_document['class'])@@" data-version="$HTML_VERSION$">
     <nav class="skipnav">
         <a class="skipnav" href="#maincontent">Skip Navigation</a>
     </nav>
