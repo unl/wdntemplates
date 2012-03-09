@@ -4,7 +4,7 @@
 <!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
 <!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
-<!--[if !(IEMobile)|!(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/unlaffiliate.dwt" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
+<!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/unlaffiliate.dwt" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
 <head>
 <!--#include virtual="/wdn/templates_3.1/includes/metanfavico.html" -->
 <!--
@@ -19,7 +19,7 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id$
+    $Id: unlaffiliate.dwt | e973a9bceae50610048c6504b7c9e53b62c55354 | Wed Feb 15 16:09:12 2012 -0600 | Kevin Abel  $
 -->
 <!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
