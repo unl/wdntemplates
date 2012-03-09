@@ -19,7 +19,7 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id$
+    $Id: jsp.unlaffiliate_debug.dwt.jsp | e973a9bceae50610048c6504b7c9e53b62c55354 | Wed Feb 15 16:09:12 2012 -0600 | Kevin Abel  $
 -->
 <jsp:include page="/wdn/templates_3.1/includes/scriptsandstyles_debug.html" />
 <!-- TemplateBeginEditable name="doctitle" -->
@@ -32,7 +32,7 @@
 <!-- TemplateEndEditable -->
 <!-- TemplateParam name="class" type="text" value="fixed debug" -->
 </head>
-<body class="@@(_document['class'])@@">
+<body class="@@(_document['class'])@@" data-version="$HTML_VERSION$">
     <nav class="skipnav">
         <a class="skipnav" href="#maincontent">Skip Navigation</a>
     </nav>

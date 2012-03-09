@@ -19,16 +19,15 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
 
-    $Id: php.unlaffiliate.dwt.php | e973a9bceae50610048c6504b7c9e53b62c55354 | Wed Feb 15 16:09:12 2012 -0600 | Kevin Abel  $
+    $Id$
 -->
-<?php virtual("/wdn/templates_3.1/includes/scriptsandstyles.html"); ?>
+<?php virtual("/wdn/templates_3.1/includes/scriptsandstyles_local.html"); ?>
 <!-- TemplateBeginEditable name="doctitle" -->
-<title>Use a descriptive page title | Optional Site Title (use for context) | UNL Affiliate</title>
+<title>Use a descriptive page title | Optional Site Title (use for context) | University of Nebraska&ndash;Lincoln</title>
 <!-- TemplateEndEditable -->
 <!-- TemplateBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<link rel="stylesheet" type="text/css" media="screen" href="../sharedcode/affiliate.css" />
-<link href="../sharedcode/affiliate_imgs/favicon.ico" rel="shortcut icon" />
+
 <!-- TemplateEndEditable -->
 <!-- TemplateParam name="class" type="text" value="fixed" -->
 </head>
@@ -38,13 +37,11 @@
     </nav>
     <div id="wdn_wrapper">
         <header id="header" role="banner">
-            <!-- TemplateBeginEditable name="sitebranding_logo" -->
-            <a id="logo" href="http://www.throughtheeyes.org/" title="Through the Eyes of the Child Initiative">Through the Eyes of the Child Initiative</a>
-            <!-- TemplateEndEditable -->
-            <span id="wdn_institution_title"><!-- TemplateBeginEditable name="sitebranding_affiliate" --><a href="http://www.unl.edu" title="University of Nebraska&ndash;Lincoln">An affiliate of the University of Nebraska&ndash;Lincoln</a><!-- TemplateEndEditable --></span>
-    		<span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" -->Throught the Eyes of a Child Initiative<span>A Nebraska Supreme Court Initiative</span><!-- TemplateEndEditable --></span>
-    		<?php virtual("/wdn/templates_3.1/includes/idm.html"); ?>
-    		<?php virtual("/wdn/templates_3.1/includes/wdnTools.html"); ?>
+            <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
+            <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
+            <span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" -->The Title of My Site<!-- TemplateEndEditable --></span>
+            <?php virtual("/wdn/templates_3.1/includes/idm.html"); ?>
+            <?php virtual("/wdn/templates_3.1/includes/wdnTools.html"); ?>
         </header>
         <div id="wdn_navigation_bar">
             <nav id="breadcrumbs">
@@ -52,7 +49,9 @@
                 <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
                 <!-- TemplateBeginEditable name="breadcrumbs" -->
                 <ul>
-                    <li><a href="http://www.throughtheeyes.org/" title="Through the Eyes of the Child Initiative">Home</a></li>
+                    <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
+                    <li class="selected"><a href="#" title="Site Title">Site Title</a></li>
+                    <li>Page Title</li>
                 </ul>
                 <!-- TemplateEndEditable -->
             </nav>
