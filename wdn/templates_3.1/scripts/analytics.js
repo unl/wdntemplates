@@ -13,12 +13,16 @@
 //
 // Department variable 'pageTracker' is available to use in this file.
 
-WDN.analytics = function() { 
+WDN.analytics = function() {
+	var initd = {
+		'desktop': false,
+		'mobile': false
+	};
 	return {
 		thisURL : String(window.location), //the current page the user is on.
 		rated : false, // whether the user has rated the current page.
 		initialize : function() {
-			var widthScript = WDN.getCurrentWidthScript();
+			var widthScript = WDN.getCurrentWidthScript(), isMobile = widthScript == '320';
 			WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
 			
 			var version_html = document.body.getAttribute("data-version"),
@@ -52,7 +56,7 @@ WDN.analytics = function() {
 				['wdn._setAllowHash', false]
 			);
 			
-			if (widthScript == '320') {
+			if (isMobile) {
 				_gaq.push(
 					['m._setAccount', 'UA-3203435-4'],
 					['m._setDomainName', '.unl.edu'],
@@ -61,14 +65,17 @@ WDN.analytics = function() {
 					['m._setAllowLinker', true],
 					['m._setAllowHash', false]
 				);
-				WDN.analytics.loadGA(true);
-			} else {
+			}
+			
+			if (!initd['desktop'] && !initd['mobile']) {
 				WDN.loadJS(WDN.getTemplateFilePath('scripts/idm.js'), function(){
 					WDN.idm.initialize(function() {
-						WDN.analytics.loadGA();
+						WDN.analytics.loadGA(isMobile);
 					});
 				});
-				
+			}
+			
+			if (!isMobile && !initd['desktop']) {	
 				//TODO: Remove jQuery from the events below
 				
 				filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i; //these are the file extensions to track for downloaded content
@@ -122,6 +129,10 @@ WDN.analytics = function() {
 						WDN.analytics.callTrackEvent('Page Rating', 'Rated a '+value, WDN.analytics.thisURL, value);
 					}
 				});
+				
+				initd['desktop'] = true;
+			} else {
+				initd['mobile'] = true;
 			}
 		},
 		
