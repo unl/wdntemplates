@@ -40,9 +40,11 @@
             display: inline-block;
             margin: 0 2px;
             background-color: #fff;
+            
             &:last-child {
                 margin-right: 0;
             }
+            
             &.focus a {
                 border-color: #cba166;
                 background-color: #f1e887;
@@ -54,8 +56,44 @@
                 text-indent: -9000px;
                 border: 2px solid #e0e0e0;
                 .border-radius(5px);
+                position: relative;
+                text-decoration: none;
+                
                 &:hover {
                     #wdnSprite > .sprite(@dir, @tool_rss_c_x + 5, @tool_rss_c_y + 4);
+                    
+                    &:before { //tootlips
+                        content: attr(data-title);
+                        padding: 4px;
+                        position: absolute;
+                        bottom: 130%;
+                        right: 0;
+                        width: 175px;
+                        max-width: 175px;
+                        .border-radius(3px);
+                        z-index: 2;
+                        text-indent: 0;
+                        font-family: @impactFont;
+                        font-weight: bold;
+                        color: darken(#95B8CC, 50%);
+                        font-size: 0.7em;
+                        text-shadow: 1px 1px 1px #B1DAF2;
+                        line-height: 1;
+                        .linear-gradient(fadeout(#B1DAF2, 5%), fadeout(#95B8CC, 5%));
+                    }
+                    
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        right: 5px;
+                        bottom: 100%;
+                        z-index: 1;
+                        width: 0;
+                        height: 0;
+                        border-left: 10px solid transparent;
+                    	border-right: 10px solid transparent;
+                    	border-top: 10px solid fadeout(#95B8CC, 5%);
+                    }
                 }
                 &.weather {
                     #wdnSprite > .sprite(@dir, @tool_weat_bw_x + 5, @tool_weat_bw_y + 4);

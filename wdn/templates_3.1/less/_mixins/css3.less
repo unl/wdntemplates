@@ -143,6 +143,18 @@
     background-clip: @r;
 }
 
+// background size
+.background-size(@arguments) {
+    .background-size(@arguments, @arguments);
+}
+
+.background-size(@x, @y) {
+    -moz-background-size: @x @y;
+    -o-background-size: @x @y;
+    -webkit-background-size: @x @y;
+    background-size: @x @y;  
+}
+
 //transitions
 .transition(@none)
 {
