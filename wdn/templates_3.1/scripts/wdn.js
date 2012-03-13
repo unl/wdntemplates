@@ -242,7 +242,7 @@ var WDN = (function() {
 						WDN.initializePlugin('feedback');
 						WDN.initializePlugin('socialmediashare');
 						WDN.contentAdjustments();
-						WDN.initializePlugin('tooltip');
+						//WDN.initializePlugin('tooltip');
 						WDN.initializePlugin('toolbar');
 						WDN.initializePlugin('tabs');
 						WDN.browserAdjustments();
