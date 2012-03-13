@@ -1,0 +1,162 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/header/search.less
+*
+* ---------------------------
+* Styles associated with the global search bar
+* ---------------------------
+*/
+@import "../_mixins/all.less";
+@import "../_mixins/spriteSheet.less";
+
+@dir: '../';
+
+#wdn_search {
+    float: right;
+    position: absolute;
+    top: 10px;
+    right: 5px;
+
+    form {
+        font-family: @impactFont;
+        label {
+            position: absolute;
+            left: -9999em;
+        }
+
+        #q {
+            border: 0;
+            width: 50px;
+            height: 25px;
+            padding: 0 0 0 20px;
+            .border-radius(1em);
+            .transition(width, 0.3s, ease);
+            font-size: 80%;
+            outline: none;
+            position: relative;
+            z-index: 1;
+            -webkit-appearance: none;
+            &:focus {
+                width: 200px;
+            }
+
+            &:-moz-placeholder {
+                color: #fff;
+            }
+            &::-webkit-input-placeholder {
+                color: #fff;
+            }
+            &.placeholder {
+                color: #fff;
+            }
+        }
+        .search {
+            #wdnSprite > .searchMagnifyGlass_mobile(@dir);
+            padding: 0;
+            text-indent: -9999em;
+            border: none;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            z-index: 1;
+            
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media (min-width: 320px) {
+
+}
+@media (min-width: 480px) {
+    #wdn_search {
+        form {
+            #q {
+                width: 115px;
+                &:focus {
+                    width: 200px;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 600px) {
+
+}
+@media (min-width: 768px) {
+    #wdn_search {
+        max-height: 37px;
+        .linear-gradient-no-filter(#b70302, #9d0201);
+        padding: 8px 10px 8px 10px;
+        margin: -9px 12px 0 0;
+        .border-radius4(0, 0, 4px, 4px);
+        right: 0;
+        top: -3px;
+
+        form {
+            #q {
+                border: 1px solid #e18887;
+                line-height: 1.4em;
+                width: 180px;
+                .border-radius(0px);
+                padding: 0;
+                font-size: 0.625em;
+                padding: 3px 4px 3px 22px;
+                height: auto;
+                margin-top: 0;
+
+                &:focus {
+                    width: 200px;
+                    outline: 0;
+                }
+            }
+            
+            .search {
+                top: 11px;
+                left: 13px;
+            }
+        }
+    }
+}
+@media (min-width: 960px) {
+
+}
+@media (min-width: 1040px) {
+    #wdn_search {
+        top: -36px;
+
+        form {
+
+            #q {
+                width: 263px;
+                background-image: none;
+                padding: 3px 22px 3px 4px;
+
+                &:focus {
+                    width: 263px;
+                    outline: 0;
+                }
+
+                &:-moz-placeholder {
+                    color: #888;
+                }
+                &::-webkit-input-placeholder {
+                    color: #888;
+                }
+                &.placeholder {
+                    color: #888;
+                }
+            }
+
+            .search {
+                #wdnSprite > .searchMagnifyGlass(@dir);
+                left: auto;
+                right: 14px;
+                top: 10px;
+            }
+        }
+    }
+}

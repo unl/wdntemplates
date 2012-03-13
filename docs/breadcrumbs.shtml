@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="ie iem7"><![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
+<!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
+<head>
+<!--#include virtual="/wdn/templates_3.1/includes/metanfavico.html" -->
+<!--
+    Membership and regular participation in the UNL Web Developer Network
+    is required to use the UNL templates. Visit the WDN site at 
+    http://wdn.unl.edu/. Click the WDN Registry link to log in and
+    register your unl.edu site.
+    All UNL template code is the property of the UNL Web Developer Network.
+    The code seen in a source code view is not, and may not be used as, a 
+    template. You may not use this code, a reverse-engineered version of 
+    this code, or its associated visual presentation in whole or in part to
+    create a derivative work.
+    This message may not be removed from any pages based on the UNL site template.
+    
+    $Id: fixed.dwt | ea2608181e2b6604db76106fd982b39218ddcb8b | Fri Mar 9 12:20:43 2012 -0600 | Kevin Abel  $
+-->
+<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles.html" -->
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>UNL | College | Department</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- Place optional header elements here -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="class" type="text" value="fixed" -->
+</head>
+<body class="fixed" data-version="3.1">
+    <nav class="skipnav">
+        <a class="skipnav" href="#maincontent">Skip Navigation</a>
+    </nav>
+    <div id="wdn_wrapper">
+        <header id="header" role="banner">
+            <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
+            <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
+            <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" -->My Site<!-- InstanceEndEditable --></span>
+            <!--#include virtual="/wdn/templates_3.1/includes/idm.html" -->
+            <!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
+        </header>
+        <div id="wdn_navigation_bar">
+            <nav id="breadcrumbs">
+                <!-- WDN: see glossary item 'breadcrumbs' -->
+                <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
+                <!-- InstanceBeginEditable name="breadcrumbs" -->
+            <ul>
+                <li><a href="http://www.unl.edu/" title="University of Nebraska–Lincoln">UNL</a></li>
+                <li><a href="http://college.unl.edu/" title="Our College">College</a></li>
+                <li><a href="http://college.unl.edu/department/">Department</a></li>
+            </ul>
+            <!-- InstanceEndEditable -->
+            </nav>
+            <div id="wdn_navigation_wrapper">
+                <nav id="navigation" role="navigation">
+                    <h3 class="wdn_list_descriptor hidden">Navigation</h3>
+                    <!-- InstanceBeginEditable name="navlinks" -->
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Students</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <!-- InstanceEndEditable -->
+                </nav>
+            </div>
+        </div>
+        <div id="wdn_content_wrapper">
+            <div id="pagetitle">
+                <!-- InstanceBeginEditable name="pagetitle" --> <!-- InstanceEndEditable -->
+            </div>
+            <div id="maincontent" role="main">
+                <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+                <!-- InstanceBeginEditable name="maincontentarea" -->
+            <p>Consider this webpage for a moment and look at the <strong>navigation</strong>. Is this the navigation for the college, the department, or for UNL? Your guess is as good as mine. We need to associate a breadcrumb element with the current navigation.</p>
+            <p>If you do nothing when upgrading your templates, the SECOND element within the breadcrumbs will be selected by default. <a href="#" onclick="removeSelected(); WDN.jQuery('#breadcrumbs ul li:nth-child(2);').addClass('selected'); return false">Click here to see what that looks like.</a> This would visually tell the user that the navigation displayed by default is associated with the "College" level. So the "About Us" link could be interpreted by the end-user that the page would have information about the <strong>college</strong>.</p>
+            <p>If you would like to specify a different breadcrumb element to be associated with the navigation, you need to tell the templates which element to use. This is done through a <code>&lt;link rel="home" href="" /&gt;</code> tag within the head of each page.</p>
+            <p>The value of the href attribute is important and must be specified correctly for this association to work. If the navigation is to be associated with the "Department" level of the breadcrumbs, the href should point to the department's homepage. <a href="#" onclick="removeSelected(); WDN.jQuery('#breadcrumbs ul li:nth-child(3);').addClass('selected'); return false">Click here to see what that looks like.</a> This would visually tell the user that the navigation displayed by default is associated with the "Department" level. So the "About Us" link could be interpreted by the end-user that the page would have information about the <strong>department</strong>.</p>
+            </p>
+            <p>If you specify this value, make sure you use the <strong>exact</strong> same address within the breadcrumbs throughout your site. Each of the links below may take the user to the same page, but the addresses are different.</p>
+            <pre>
+            http://college.unl.edu/department
+            http://college.unl.edu/department/
+            http://college.unl.edu/department/index.shtml
+            </pre>
+            <p>Consistency is important for many reasons.</p>
+            <a href="#" onclick="removeSelected(); return false">Remove the breadcrumb selected class</a>
+            <script type="text/javascript">
+				function removeSelected() {WDN.jQuery('.selected').removeClass('selected');}
+				setTimeout(removeSelected, 500);
+            </script>
+            <!-- InstanceEndEditable -->
+                <div class="clear"></div>
+                <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
+                <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+            </div>
+        </div>
+        <footer id="footer">
+            <div id="footer_floater"></div>
+            <div class="footer_col" id="wdn_footer_feedback">
+                <!--#include virtual="/wdn/templates_3.1/includes/feedback.html" -->
+            </div>
+            <div class="footer_col" id="wdn_footer_related">
+                <!-- InstanceBeginEditable name="leftcollinks" -->
+                <!--#include virtual="../sharedcode/relatedLinks.html" -->
+                <!-- InstanceEndEditable --></div>
+            <div class="footer_col" id="wdn_footer_contact">
+                <!-- InstanceBeginEditable name="contactinfo" -->
+                <!--#include virtual="../sharedcode/footerContactInfo.html" -->
+                <!-- InstanceEndEditable --></div>
+            <div class="footer_col" id="wdn_footer_share">
+                <!--#include virtual="/wdn/templates_3.1/includes/socialmediashare.html" -->
+            </div>
+            <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
+            <div id="wdn_copyright">
+                <div>
+                    <!-- InstanceBeginEditable name="footercontent" -->
+                <!--#include virtual="../sharedcode/footer.html" -->
+                <!-- InstanceEndEditable -->
+                    <!--#include virtual="/wdn/templates_3.1/includes/wdn.html" -->
+                </div>
+                <!--#include virtual="/wdn/templates_3.1/includes/logos.html" -->
+            </div>
+        </footer>
+    </div>
+</body>
+<!-- InstanceEnd --></html>

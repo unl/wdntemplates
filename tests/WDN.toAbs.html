@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Relative to Absolute links test</title>
+    <style type="text/css">
+        #result td, #result th, #result { border: inset thin; }
+        body {font-family: consolas, courier new, courier;}
+        .even {background: #eee;}
+    </style>
+    <script type="text/javascript" src="../wdn/templates_3.1/scripts/wdn.js"></script>
+</head>
+<body>
+    <table id="result">
+        <tr>
+            <th>base</th>
+            <th>target</th>
+            <th>result</th>
+            <th>pass/fail</th>
+        </tr>
+    </table>
+    <script type="text/javascript">
+
+        var bases = [
+            'http://example.org',
+            'http://example.org/',
+            'http://example.org/level1/',
+            'http://example.org/level1/test.php',
+            'http://example.org/level1',
+            'http://example.org/level1/level2',
+            'http://example.org/level1/level2/',
+            'http://example.org/level1/level2/test.html',
+            'http://example.org/level1/level2/level3/',
+            '',
+            'test.html',
+            '/',
+            '/level1/',
+            '/level1/test.php',
+            '/level1',
+            '/level1/level2',
+            '/level1/level2/',
+            '/level1/level2/test.html',
+            '/level1/level2/level3/'
+        ];
+
+        var targets = [
+            'image.png',
+            '/image.png',
+            '../../image.png',
+            '/../../image.png',
+            'dir/image.png',
+            '/dir/image.png',
+            'dir/../image.png',
+            './image.png',
+            './dir/image.png'
+        ];
+
+        var assertions = [
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/level1/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/level1/dir/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/level1/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/level1/dir/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/level1/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/level1/dir/image.png',
+            'http://example.org/level1/level2/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/level1/level2/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/level2/image.png',
+            'http://example.org/level1/level2/image.png',
+            'http://example.org/level1/level2/dir/image.png',
+            'http://example.org/level1/level2/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/image.png',
+            'http://example.org/level1/level2/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/level2/image.png',
+            'http://example.org/level1/level2/image.png',
+            'http://example.org/level1/level2/dir/image.png',
+            'http://example.org/level1/level2/level3/image.png',
+            'http://example.org/image.png',
+            'http://example.org/level1/image.png',
+            'http://example.org/image.png',
+            'http://example.org/level1/level2/level3/dir/image.png',
+            'http://example.org/dir/image.png',
+            'http://example.org/level1/level2/level3/image.png',
+            'http://example.org/level1/level2/level3/image.png',
+            'http://example.org/level1/level2/level3/dir/image.png',
+            'image.png',
+            'image.png',
+            'image.png',
+            'image.png',
+            'dir/image.png',
+            'dir/image.png',
+            'image.png',
+            'image.png',
+            'dir/image.png',
+            'image.png',
+            'image.png',
+            'image.png',
+            'image.png',
+            'dir/image.png',
+            'dir/image.png',
+            'image.png',
+            'image.png',
+            'dir/image.png',
+            '/image.png',
+            '/image.png',
+            '/image.png',
+            '/image.png',
+            '/dir/image.png',
+            '/dir/image.png',
+            '/image.png',
+            '/image.png',
+            '/dir/image.png',
+            '/level1/image.png',
+            '/image.png',
+            '/image.png',
+            '/image.png',
+            '/level1/dir/image.png',
+            '/dir/image.png',
+            '/level1/image.png',
+            '/level1/image.png',
+            '/level1/dir/image.png',
+            '/level1/image.png',
+            '/image.png',
+            '/image.png',
+            '/image.png',
+            '/level1/dir/image.png',
+            '/dir/image.png',
+            '/level1/image.png',
+            '/level1/image.png',
+            '/level1/dir/image.png',
+            '/image.png',
+            '/image.png',
+            '/image.png',
+            '/image.png',
+            '/dir/image.png',
+            '/dir/image.png',
+            '/image.png',
+            '/image.png',
+            '/dir/image.png',
+            '/level1/image.png',
+            '/image.png',
+            '/image.png',
+            '/image.png',
+            '/level1/dir/image.png',
+            '/dir/image.png',
+            '/level1/image.png',
+            '/level1/image.png',
+            '/level1/dir/image.png',
+            '/level1/level2/image.png',
+            '/image.png',
+            '/image.png',
+            '/image.png',
+            '/level1/level2/dir/image.png',
+            '/dir/image.png',
+            '/level1/level2/image.png',
+            '/level1/level2/image.png',
+            '/level1/level2/dir/image.png',
+            '/level1/level2/image.png',
+            '/image.png',
+            '/image.png',
+            '/image.png',
+            '/level1/level2/dir/image.png',
+            '/dir/image.png',
+            '/level1/level2/image.png',
+            '/level1/level2/image.png',
+            '/level1/level2/dir/image.png',
+            '/level1/level2/level3/image.png',
+            '/image.png',
+            '/level1/image.png',
+            '/image.png',
+            '/level1/level2/level3/dir/image.png',
+            '/dir/image.png',
+            '/level1/level2/level3/image.png',
+            '/level1/level2/level3/image.png',
+            '/level1/level2/level3/dir/image.png'
+        ];
+
+        var i, j, p = true, td, tr, t = document.getElementsByTagName('table')[0], result;
+        for (i = 0; i < bases.length; i++) {
+            for (j = 0; j < targets.length; j++) {
+            	result = WDN.toAbs(targets[j], bases[i]);
+                tr = document.createElement('tr');
+                if (j % 2) tr.className = 'even';
+                td = document.createElement('td');
+                td.innerHTML = bases[i];
+                tr.appendChild(td);
+                td = document.createElement('td');
+                td.innerHTML = targets[j];
+                tr.appendChild(td);
+                td = document.createElement('td');
+                td.innerHTML = result;
+                tr.appendChild(td);
+                td = document.createElement('td');
+                
+                if (result == assertions[i*targets.length+j]) {
+                    td.innerHTML = 'pass';
+                } else {
+                    p = false;
+                    td.innerHTML = 'fail';
+                }
+                tr.appendChild(td);
+                t.appendChild(tr);
+            }
+        }
+
+        if (p == false) {
+            alert('Tests failed');
+        }
+
+    </script>
+</body>
+</html>
+

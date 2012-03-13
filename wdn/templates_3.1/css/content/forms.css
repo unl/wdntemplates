@@ -1,0 +1,416 @@
+/*
+
+This css can be used for styling form elements.
+
+CSS LINK: 
+<link rel="stylesheet" type="text/css" href="/wdn/templates_3.1/css/content/forms.css" />
+
+Sample Form Markup: 
+
+    <form class="cool" action="?" method="post">  
+        <fieldset>
+              <legend>Sample Form Content</legend>
+              <ol>
+                    <li>
+                      <label for="name">Name<span class="required">*</span></label>
+                      <input type="text" id="name" name="name" />
+                    </li>
+                    <li>
+                      <label for="email">Email</label>
+                      <input type="text" id="email" name="email" />
+                    </li>
+                    <li>
+                      <label for="campus">Campus</label>
+                      <select name="campus" id="campus">
+                        <option value="unl">UNL</option>
+                        <option value="unk">UNK</option>
+                        <option value="uno">UNO</option>
+                        <option value="unmc">UNMC</option>
+                      </select>
+                    </li>
+                    <li>
+                      <fieldset>
+                         <legend>The Most Important Question: I Can Has Cheezburger?</legend>
+                        <label for="helpful_yes">
+                            <input type="radio" value="1" name="helpful_yes" id="helpful_yes" />
+                            Yes
+                        </label>
+                        <label for="helpful_no">
+                            <input type="radio" value="0" name="helpful_no" id="helpful_no" />
+                            No
+                        </label>
+                      </fieldset>
+                    </li>
+                    <li>
+                      <label for="helpful_comments">In what way?</label>
+                      <textarea id="helpful_comments" name="comments"></textarea>
+                    </li>
+              </ol>
+        </fieldset> 
+        <input type="submit" name="submit" value="Submit" />
+    </form>
+
+
+    -------------------------------------------------------------
+    Form elements
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    */
+#maincontent form.cool {
+    margin: 0;
+    padding: 0;
+}
+
+#maincontent form.cool fieldset {
+    clear: both;
+    padding: 0;
+    display: block;
+    border: none;
+    width: 700px;
+    border-bottom: 1px solid #dfdfdf;
+    position: relative;
+    margin: 25px 0 20px 0;
+    background: #ecf4f8;
+    padding: 0 0 10px 0;
+}
+
+#maincontent form.cool fieldset ol {
+    margin: 0;
+    padding: 0;
+    clear: left;
+}
+
+#maincontent form.cool fieldset ol:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+}
+
+#maincontent form.cool fieldset li {
+    list-style: none;
+    margin: 0;
+    clear: both;
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+#maincontent form.cool label {
+    display: block;
+    float: left;
+    width: 150px;
+    padding: 0;
+    margin: 10px 0 0 0;
+    text-align: right;
+}
+
+#maincontent form.cool .row {
+    width: 700px;
+}
+
+#maincontent form.cool input,
+#maincontent form.cool textarea,
+#maincontent form.cool select {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-color: #ccc #fff #fff #ccc;
+    padding: 3px;
+    margin: 8px 0 5px 10px;
+}
+
+#maincontent form.cool select {
+    font-size: 0.8em;
+    width: auto;
+}
+    
+#maincontent form.cool input[type=checkbox],
+#maincontent form.cool input[type=radio] {
+    width: auto;
+    border: none;
+    display: block;
+    float: left;
+    margin-top: 11px;
+}
+
+#maincontent form.cool input:focus,
+#maincontent form.cool textarea:focus,
+#maincontent form.cool select:focus {
+    background: #ffffcc;
+}
+
+#maincontent form.cool option {
+    padding: 0 0.3em;
+}
+
+#maincontent form.cool textarea {
+    overflow: auto;
+}
+
+#maincontent form.cool br {
+    clear: left;
+    margin: 0;
+    padding: 0;
+    line-height: 0.5;
+}
+
+#maincontent form.cool div.qfgroup {
+    display: inline;
+    float: left;
+    margin: 5px 0 0 10px;
+    padding: 0;
+}
+
+form div.qfelement div.qfgroup {
+    margin: 0 0 0 0;
+    margin: 0 !important;
+    line-height: 0.5 !important;
+}
+
+#maincontent form.cool fieldset legend {
+    font-weight: bold;
+    top: -11px;
+    border: 1px solid #ccc;
+    padding: 3px 6px;
+    margin: 0 0 23px 0;
+    position: relative;
+    background: #fff;
+}
+
+#maincontent form.cool fieldset li.reqnote {
+    background: #f8e6e9;
+    padding: 2px;
+    margin: 0 0 25px 0;
+    bottom: 0;
+    width: 140px;
+    font-size: 0.9em;
+    left: 0;
+    position: absolute;
+}
+
+#maincontent form.cool fieldset li.reqnote label {
+    display: none;
+}
+
+#maincontent form.cool fieldset.hidden {
+    margin: 0;
+    padding: 0;
+    background: 0;
+    border: none;
+} 
+
+body:last-child: not(: root: root) #maincontent form.cool label {
+    vertical-align: baseline;
+}
+
+#maincontent form.cool li div.element {
+    left: 150px;
+}
+
+#maincontent form.cool fieldset p {
+    margin: 10px;    
+}
+
+/* Nested Fieldsets (to control groups of radio buttons, check boxes)
+*********************************/
+#maincontent form.cool fieldset fieldset {
+    border: none;
+    margin: 10px 0 -5px;
+}
+
+#maincontent form.cool fieldset fieldset legend {
+    border: none;
+    background: none;
+    font-weight: normal;
+    margin: 10px 0 0;
+    padding: 10px 0 0 10px;
+}
+
+#maincontent form.cool fieldset fieldset label {
+    min-width: 30px;
+    width: auto;
+    text-align: left;
+    clear: left;
+    margin: 0 0 3px 160px;
+}
+
+#maincontent form.cool fieldset fieldset label input[type="radio"],
+#maincontent form.cool fieldset fieldset label input[type="checkbox"] {
+    margin: 2px 5px 0 0;
+}
+
+#maincontent form.cool fieldset fieldset li div.element {
+    left: 0;
+    position: absolute;
+}
+
+/* Support for deprecated radio, checkboxes
+*********************************/
+#maincontent form.cool div.element {
+    left: 150px;
+    display: inline;
+    float: left;
+    margin: 5px 0 0 10px;
+    padding: 0;
+}
+#maincontent form.cool div.element input[type="checkbox"],
+#maincontent form.cool div.element input[type="radio"] {
+    display: inline;
+    float: none;
+    border: medium none;
+    margin: 3px 0;
+    width: auto;
+    padding: 3px;
+}
+#maincontent form.cool div.element label {
+    display: inline;
+    float: none;
+    margin-left: 5px;
+    margin-right: 12px;
+    margin-top: 0;
+    vertical-align: 0;    
+}
+
+/* Required Indicators
+*********************************/
+.required {
+    color: #434343;
+}
+#maincontent form.cool fieldset span.required {
+    color: #ff0000;
+}
+#maincontent form.cool li.required input {
+    background: url(images/forms/requiredIndicator.png) #fff no-repeat top right;
+    padding-right: 33px;
+}
+p.required, p.attention {
+    background: url(images/forms/requiredIndicatorBG.png) no-repeat top left;
+    padding: 10px 0 16px 45px;
+    margin-bottom: -25px;
+    float: right;
+}
+p.attention {
+    background: url(images/forms/alertIndicatorBG.png) no-repeat top left;
+    float: left;    
+}
+#maincontent form.cool fieldset span.form-field-description {
+    color: #1091D1;
+    font-size: 75%;
+    display: inline-block;
+    margin: 10px 0 0 5px;
+}
+
+
+/* helper text
+*********************************/
+fieldset ol li .helper{
+    font-size: .6em;
+    color: #7c7c7c;
+    padding-left: 15px;
+    line-height: 1.3em;
+}
+form.cool fieldset ol li .helper {
+    display: block;
+    color: #23a4ee;
+}
+
+
+
+/*For the form hints
+*********************************/
+#maincontent form.cool span.hint {
+    position: relative;
+    display: block;
+    left: 330px;
+    width: 190px;
+    top: -34px;
+    border: 1px solid #77b5d4;
+    padding: 10px 12px;
+    background: #c8e7f7;
+    color: #77b5d4;
+    z-index: 3;
+}
+#maincontent form.cool input:focus span.hint {
+    display: block;
+}
+#maincontent form.cool span.hint span.hintPointer{
+    background: url(images/forms/hintCarret.png) left top no-repeat;
+    position: absolute;
+    left: -16px;
+    top: 15px;
+    width: 16px;
+    height: 19px;
+} 
+
+/* Submit Button
+*********************************/
+#maincontent form.cool input[type=submit],
+#maincontent form.energetic input[type=submit] {
+    background: url("images/forms/submitR.png") no-repeat;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.5em;
+    height: 45px;
+    margin: 0 0 0 160px;
+    padding: 10px 40px 15px 16px;
+    width: auto;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+} 
+
+#maincontent form.cool input[type=submit] {
+    background-position: 100% -138px;
+}
+
+#maincontent form.energetic input[type=submit] {
+    background-position: 100% -92px;
+}
+
+/* Reset Button
+*********************************/
+#maincontent form.cool input[type=reset],
+#maincontent form.energetic input[type=reset] {
+    border: none;background: none;border-left: 1px solid #969696;padding-left: 5px;margin-left: 6px;width: auto;cursor: pointer;
+} 
+
+
+
+/*Handle Form Feedback
+*********************************/
+p.error, p.success {
+    border: 1px solid #c50000;
+    background: #dc6767;
+    padding: 10px;
+    color: white;
+}
+p.success {
+    border: 1px solid #349804;
+    background: #6cbd45;    
+}
+#maincontent form.cool span.error {
+    color: red;
+}
+
+#maincontent form.cool div.error {
+    border: 1px solid red;
+    padding: 5px;
+}
+
+/*Testing*/
+
+#formSubmitTest {
+    background: #000;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.5em;
+    height: 45px;
+    margin: 0 0 0 160px;
+    padding: 10px 40px 15px 16px;
+    width: auto;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}

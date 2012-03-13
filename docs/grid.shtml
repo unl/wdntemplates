@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="ie iem7"><![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
+<!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
+<head>
+<!--#include virtual="/wdn/templates_3.1/includes/metanfavico.html" -->
+<!--
+    Membership and regular participation in the UNL Web Developer Network
+    is required to use the UNL templates. Visit the WDN site at 
+    http://wdn.unl.edu/. Click the WDN Registry link to log in and
+    register your unl.edu site.
+    All UNL template code is the property of the UNL Web Developer Network.
+    The code seen in a source code view is not, and may not be used as, a 
+    template. You may not use this code, a reverse-engineered version of 
+    this code, or its associated visual presentation in whole or in part to
+    create a derivative work.
+    This message may not be removed from any pages based on the UNL site template.
+    
+    $Id: fixed.dwt | ea2608181e2b6604db76106fd982b39218ddcb8b | Fri Mar 9 12:20:43 2012 -0600 | Kevin Abel  $
+-->
+<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles.html" -->
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>UNL | WDN Template - Grid System</title><!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- Place optional header elements here -->
+<style type="text/css">
+    #maincontent .demo .grid1, #maincontent .demo .grid2, #maincontent .demo .grid3, #maincontent .demo .grid4, #maincontent .demo .grid5, #maincontent .demo .grid6, #maincontent .demo .grid7, #maincontent .demo .grid8, .demo .grid9, #maincontent .demo .grid10, #maincontent .demo .grid11, #maincontent .demo .col div, #maincontent .demo .two_col div, #maincontent .demo .three_col div, #maincontent .demo .col_half div, #maincontent .demo .four_col div {
+	    margin-bottom: 15px;
+	    padding-top: 5px;
+	    padding-bottom: 5px;
+	    background: rgba(111,191,77,.4);
+	    border: solid 1px #6FBF4D;
+	    border-width: 1px 0;
+	    text-align:center;
+	}
+	#maincontent h3 {
+	   margin:30px 0 20px 0;
+	   line-height:0.8;
+	   border-bottom:3px solid #A7CEE5;
+	    -webkit-box-shadow: 0px 1px 0px #3ba9d2;
+	    -moz-box-shadow: 0px 1px 0px #3ba9d2;
+	    box-shadow: 0px 1px 0px #3ba9d2;
+	    text-shadow:1px 1px 1px #91c7db;
+	    font-size:2.3em;
+	}
+	#maincontent h3 {
+	   clear:both;
+	}
+    .summary {
+        background-color:#F2EDDE;
+        border-radius:3px; 
+        overflow:hidden;
+    }
+    #maincontent .summary  p {
+        display:block;
+        background-color:#6FBF4D;
+        -moz-transform: rotate(30deg);
+        -webkit-transform: rotate(30deg);
+        -o-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+        transform: rotate(30deg);
+        float:right;
+        margin-top:1em;
+        margin-right:-3.5em;
+        margin-bottom:-0.3em;
+        font-size:1.3em;
+        font-weight:bold;
+        color:#fff;
+        text-shadow:-1px -1px 0px #3b8029;
+        padding:1em 4em;
+        -webkit-box-shadow: 0px 1px 1px 1px #b4a885;
+        -moz-box-shadow: 0px 1px 1px 1px #b4a885;
+        box-shadow: 0px 1px 1px 1px #b4a885;
+    }
+    #maincontent dl {
+        line-height:1.8em;
+        margin:0 10px 10px 10px;
+    }
+    #maincontent dt {
+        border-bottom:1px dashed #E5DCA7;
+    }
+    #maincontent dd {
+        margin-top:-1.8em;
+        margin-left:5em;
+    }
+</style>
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="class" type="text" value="fixed" -->
+</head>
+<body class="fixed" data-version="3.1">
+    <nav class="skipnav">
+        <a class="skipnav" href="#maincontent">Skip Navigation</a>
+    </nav>
+    <div id="wdn_wrapper">
+        <header id="header" role="banner">
+            <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
+            <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
+            <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" -->Web Developer Network<!-- InstanceEndEditable --></span>
+            <!--#include virtual="/wdn/templates_3.1/includes/idm.html" -->
+            <!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
+        </header>
+        <div id="wdn_navigation_bar">
+            <nav id="breadcrumbs">
+                <!-- WDN: see glossary item 'breadcrumbs' -->
+                <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
+                <!-- InstanceBeginEditable name="breadcrumbs" -->
+                <ul>
+                    <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
+                    <li>Home</li>
+                </ul>
+                <!-- InstanceEndEditable -->
+            </nav>
+            <div id="wdn_navigation_wrapper">
+                <nav id="navigation" role="navigation">
+                    <h3 class="wdn_list_descriptor hidden">Navigation</h3>
+                    <!-- InstanceBeginEditable name="navlinks" -->
+                    <!--#include virtual="../sharedcode/navigation.html" -->
+                    <!-- InstanceEndEditable -->
+                </nav>
+            </div>
+        </div>
+        <div id="wdn_content_wrapper">
+            <div id="pagetitle">
+                <!-- InstanceBeginEditable name="pagetitle" -->
+                <h1>Demo: Grid System</h1>
+                <!-- InstanceEndEditable -->
+            </div>
+            <div id="maincontent" role="main">
+                <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+                <!-- InstanceBeginEditable name="maincontentarea" -->
+                <div class="grid9 first"> 
+                <p>The 2011 Iterative Navigation templates came with a new grid system. This allows for easier-to-implement, more flexible layout options.</p> 
+                <div class="grid3 first"> <img src="images/grid_Monitor.png" alt="Grid supporting demonstration" /> </div>
+                <div class="grid6">
+                <p>The new grid system should be used for all layouts. The old grid system, while still available, is in the process of being deprecated. <em>It is displayed below only as reference.</em></p> 
+                <p>To implement, use the class names from below. Ex: <code>&lt;div class="grid6"&gt;</code>. For the first column in a row (the left-most column), you must add the class <code>first</code>. Ex: <code>&lt;div class="grid6 first"&gt;</code></p> 
+                </div>
+              </div>  
+              <div class="grid3 summary">
+                <p>Column Widths</p>
+                <dl>
+                    <dt><code>.grid1</code></dt>
+                    <dd>58px</dd>
+                    <dt><code>.grid2</code></dt>
+                    <dd>140px</dd>
+                    <dt><code>.grid3</code></dt>
+                    <dd>222px</dd>
+                    <dt><code>.grid4</code></dt>
+                    <dd>304px</dd>
+                    <dt><code>.grid5</code></dt>
+                    <dd>386px</dd>
+                    <dt><code>.grid6</code></dt>
+                    <dd>468px</dd>
+                    <dt><code>.grid7</code></dt>
+                    <dd>550px</dd>
+                    <dt><code>.grid8</code></dt>
+                    <dd>632px</dd>
+                    <dt><code>.grid9</code></dt>
+                    <dd>714px</dd>
+                    <dt><code>.grid10</code></dt>
+                    <dd>796px</dd>
+                    <dt><code>.grid11</code></dt>
+                    <dd>878px</dd>
+                </dl>
+              </div>
+              <div class="demo"> 
+                <h3>New, Supported Grid System</h3> 
+                <div class="grid1 first"> grid1 </div> 
+                <div class="grid11"> grid11 </div> 
+                <div class="grid2 first"> grid2 </div> 
+                <div class="grid10"> grid10 </div> 
+                <div class="grid3 first"> grid3 </div> 
+                <div class="grid9"> grid9 </div> 
+                <div class="grid4 first"> grid4 </div> 
+                <div class="grid8"> grid8 </div> 
+                <div class="grid4 first"> grid4 </div> 
+                <div class="grid4"> grid4 </div> 
+                <div class="grid4"> grid4 </div> 
+                <div class="grid5 first"> grid5 </div> 
+                <div class="grid7"> grid7 </div> 
+                <div class="grid6 first"> grid6 </div> 
+                <div class="grid6"> grid6 </div> 
+                <div class="grid3 first"> grid3 </div> 
+                <div class="grid3"> grid3 </div> 
+                <div class="grid1"> grid1 </div> 
+                <div class="grid5"> grid5 </div> 
+                <div class="grid1 first"> grid1 </div> 
+                <div class="grid5"> grid5 </div> 
+                <div class="grid3"> grid3 </div> 
+                <div class="grid3"> grid3 </div> 
+                <div class="grid3 first"> 3 </div> 
+                <div class="grid9"> 
+                  <div class="grid3 first">3</div> 
+                  <div class="grid3">3</div> 
+                  <div class="grid3">3</div> 
+                  <div class="grid5 first">5</div> 
+                  <div class="grid2">2</div> 
+                  <div class="grid2">2</div> 
+                </div> 
+                <div class="grid8 first"> 
+                  <div class="grid3 first">3</div> 
+                  <div class="grid3">3</div> 
+                  <div class="grid2">2</div> 
+                  <div class="grid1 first">1</div> 
+                  <div class="grid1">1</div> 
+                  <div class="grid6">6</div> 
+                </div> 
+                <div class="grid4"> 4 </div> 
+                <h3>Old, Deprecated Grid System</h3> 
+                <div class="col left"> 
+                  <div> col </div> 
+                </div> 
+                <div class="three_col right"> 
+                  <div> three_col </div> 
+                </div> 
+                <div class="two_col left"> 
+                  <div> two_col </div> 
+                </div> 
+                <div class="two_col right"> 
+                  <div> two_col </div> 
+                </div> 
+                <div class="two_col left"> 
+                  <div> two_col </div> 
+                </div> 
+                <div class="col_half"> 
+                  <div> col_half </div> 
+                </div> 
+                <div class="col_half"> 
+                  <div> col_half </div> 
+                </div> 
+                <div class="col right"> 
+                  <div> col </div> 
+                </div> 
+                <div class="four_col"> 
+                  <div> four_col </div> 
+                </div> 
+              </div> 
+                <!-- InstanceEndEditable -->
+                <div class="clear"></div>
+                <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
+                <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+            </div>
+        </div>
+        <footer id="footer">
+            <div id="footer_floater"></div>
+            <div class="footer_col" id="wdn_footer_feedback">
+                <!--#include virtual="/wdn/templates_3.1/includes/feedback.html" -->
+            </div>
+            <div class="footer_col" id="wdn_footer_related">
+                <!-- InstanceBeginEditable name="leftcollinks" -->
+                <!--#include virtual="../sharedcode/relatedLinks.html" -->
+                <!-- InstanceEndEditable --></div>
+            <div class="footer_col" id="wdn_footer_contact">
+                <!-- InstanceBeginEditable name="contactinfo" -->
+                <!--#include virtual="../sharedcode/footerContactInfo.html" -->
+                <!-- InstanceEndEditable --></div>
+            <div class="footer_col" id="wdn_footer_share">
+                <!--#include virtual="/wdn/templates_3.1/includes/socialmediashare.html" -->
+            </div>
+            <!-- InstanceBeginEditable name="optionalfooter" -->
+            <!-- InstanceEndEditable -->
+            <div id="wdn_copyright">
+                <div>
+                    <!-- InstanceBeginEditable name="footercontent" -->
+                    <!--#include virtual="../sharedcode/footer.html" -->
+                    <!-- InstanceEndEditable -->
+                    <!--#include virtual="/wdn/templates_3.1/includes/wdn.html" -->
+                </div>
+                <!--#include virtual="/wdn/templates_3.1/includes/logos.html" -->
+            </div>
+        </footer>
+    </div>
+</body>
+<!-- InstanceEnd --></html>

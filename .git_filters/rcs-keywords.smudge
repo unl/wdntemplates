@@ -1,0 +1,68 @@
+#!/usr/bin/perl
+#
+# @brief  Git filter to implement rcs keyword expansion as seen in cvs and svn.
+# @author Martin Turon
+# @author Kimmo R. M. Hovi
+#
+# Usage:
+#    .git_filter/rcs-keywords.smudge file_path < file_contents
+#
+# 
+# To add keyword expansion:
+#    <project>/.gitattributes                    - *.c filter=rcs-keywords
+#    <project>/.git_filters/rcs-keywords.smudge  - copy this file to project
+#    <project>/.git_filters/rcs-keywords.clean   - copy companion to project
+#    ~/.gitconfig                                - add [filter] lines below
+#
+# [filter "rcs-keywords"]
+#   clean  = .git_filters/rcs-keywords.clean
+#   smudge = .git_filters/rcs-keywords.smudge %f
+#
+# Copyright (c) 2009-2011 Turon Technologies, Inc.  All rights reserved.
+# Copyright (c) 2012 Fair Warning, Inc.
+
+$path = shift;
+$path =~ /.*\/(.*)/;
+$filename = $1;
+
+if (0 == length($filename)) {
+    $filename = $path;
+}
+
+# Need to grab filename and to use git log for this to be accurate.
+$tag = `git describe --always --tag`;
+chop($tag);
+$rev = `git log -n 1 -- $path | head -n 3`;
+$rev =~ /^Author:\s*(.*)\s*$/m;
+$author = $1;
+$author =~ /\s*(.*)\s*<.*/;
+$name = $1;
+$rev =~ /^Date:\s*(.*)\s*$/m;
+$date = $1;
+$rev =~ /^commit (.*)$/m;
+$ident = $1;
+$com = `git log -1 | head -n 1`;
+$com =~ /^commit (.*)$/m;
+$commit = $1;
+
+# custom keywords for tracking versions
+$html = `cat VERSION_HTML`;
+chomp($html);
+$dep = `cat VERSION_DEP`;
+chomp($dep);
+
+while (<STDIN>) {
+    s/\$(Date)[^\$]*\$/\$$1:   $date \$/;
+    s/\$(Author)[^\$]*\$/\$$1: $author \$/;
+    s/\$(Id)[^\$]*\$/\$$1: $filename | $ident | $date | $name \$/;
+    s/\$(File)[^\$]*\$/\$$1:   $filename \$/;
+    s/\$(Source)[^\$]*\$/\$$1: $path \$/;
+    s/\$(Revision)[^\$]*\$/\$$1: $ident \$/;
+    s/\$(Header)[^\$]*\$/\$$1: $path $ident $date $name \$/;
+    s/\$(Commit)[^\$]*\$/\$$1: $commit \$/;
+    s/\$(Name)[^\$]*\$/\$$1: $tag \$/;
+    s/\$HTML_VERSION\$/$html/;
+    s/\$DEP_VERSION\$/$dep/;
+} continue {
+    print or die "-p destination: $!\n";
+}
