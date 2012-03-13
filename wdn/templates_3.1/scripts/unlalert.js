@@ -94,10 +94,11 @@ WDN.unlalert = (function() {
 			}
 			var currdate = new Date();
 			var script = document.createElement('script');
-			script.src = WDN.unlalert.data_url+'?'+currdate.getTime();
 			script.type = 'text/javascript';
 			script.defer = true;
+			script.async = true;
 			script.id = 'lastLoadedCmds';
+			script.src = WDN.unlalert.data_url+'?'+currdate.getTime();
 			head.appendChild(script);
 		},
 

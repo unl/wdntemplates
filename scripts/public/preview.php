@@ -77,22 +77,22 @@ $scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span i
 <!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
 <!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
-<!--[if !(IEMobile)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/php.fixed.dwt.php" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
 <head>
 <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/metanfavico.html'; ?>
 <!--
     Membership and regular participation in the UNL Web Developer Network
-    is required to use the UNL templates. Visit the WDN site at 
+    is required to use the UNL templates. Visit the WDN site at
     http://wdn.unl.edu/. Click the WDN Registry link to log in and
     register your unl.edu site.
     All UNL template code is the property of the UNL Web Developer Network.
-    The code seen in a source code view is not, and may not be used as, a 
-    template. You may not use this code, a reverse-engineered version of 
+    The code seen in a source code view is not, and may not be used as, a
+    template. You may not use this code, a reverse-engineered version of
     this code, or its associated visual presentation in whole or in part to
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
-    
-    $Id$
+
+    $Id: php.fixed.dwt.php | ea2608181e2b6604db76106fd982b39218ddcb8b | Fri Mar 9 12:20:43 2012 -0600 | Kevin Abel  $
 -->
 <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/scriptsandstyles.html'; ?>
 <!-- InstanceBeginEditable name="doctitle" -->
@@ -104,7 +104,7 @@ $scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span i
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed" -->
 </head>
-<body class="fixed">
+<body class="fixed" data-version="3.1">
     <nav class="skipnav">
         <a class="skipnav" href="#maincontent">Skip Navigation</a>
     </nav>
@@ -112,9 +112,9 @@ $scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span i
         <header id="header" role="banner">
             <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
             <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
-            <!-- InstanceBeginEditable name="titlegraphic" -->
+            <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" -->
             <?php echo $scanned_page->titlegraphic; ?>
-            <!-- InstanceEndEditable -->
+            <!-- InstanceEndEditable --></span>
             <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/idm.html'; ?>
             <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/wdnTools.html'; ?>
         </header>

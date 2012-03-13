@@ -4,7 +4,7 @@
 <!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
 <!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
-<!--[if !(IEMobile)|!(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/php.unlaffiliate.dwt.php" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
+<!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/php.unlaffiliate.dwt.php" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
 <head>
 <?php virtual("/wdn/templates_3.1/includes/metanfavico.html"); ?>
 <!--
@@ -19,7 +19,7 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
 
-    $Id$
+    $Id: php.unlaffiliate.dwt.php | ea2608181e2b6604db76106fd982b39218ddcb8b | Fri Mar 9 12:20:43 2012 -0600 | Kevin Abel  $
 -->
 <?php virtual("/wdn/templates_3.1/includes/scriptsandstyles.html"); ?>
 <!-- InstanceBeginEditable name="doctitle" -->
@@ -33,7 +33,7 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed" -->
 </head>
-<body class="fixed">
+<body class="fixed" data-version="3.1">
     <nav class="skipnav">
         <a class="skipnav" href="#maincontent">Skip Navigation</a>
     </nav>
