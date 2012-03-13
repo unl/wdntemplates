@@ -28,9 +28,9 @@ less:
 
 zips:
 	@@echo "Making ZIPs"
-	${GIT} archive -o downloads/wdn.zip HEAD wdn 
+	${GIT} archive --format=zip HEAD wdn > downloads/wdn.zip 
 	@@echo "Done building the wdn.zip file."
-	${GIT} archive -o downloads/UNLTemplates.zip HEAD Templates sharedcode
+	${GIT} archive --format=zip HEAD Templates sharedcode > downloads/UNLTemplates.zip
 	@@echo "Done building the UNLTemplates.zip file."
 
 js-plugin: ${JS_PLUGIN}
