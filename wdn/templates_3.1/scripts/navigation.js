@@ -1,6 +1,6 @@
 WDN.navigation = (function() {
-    var expandedHeight = 0,
-    	ul_h, lockHover = false,
+    var lastWidth,
+    	lockHover = false,
     	snifferServer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/',
     	desktopInitd = false;
     return {
@@ -42,6 +42,7 @@ WDN.navigation = (function() {
          * @todo determine what it should be
          */
         initialize : function() {
+        	lastWidth = document.documentElement.offsetWidth;
         	var widthScript = WDN.getCurrentWidthScript();
         	if (widthScript == '320') {
         		WDN.navigation.setupMobile();
@@ -219,14 +220,9 @@ WDN.navigation = (function() {
 
             var secondaryLists = WDN.jQuery('> ul', primaries),
         		recalcSecondaryHeight = function() {
-		            ul_h = [];
+		            var ul_h = [];
 		            secondaryLists.css('height', '').each(function(i){
-		                var row = Math.floor(i/6), height;
-		                if (WDN.jQuery('body').hasClass('liquid') && $html.hasClass('boxsizing')) {
-		                    height = WDN.jQuery(this).outerHeight();
-		                } else {
-		                    height = WDN.jQuery(this).height();
-		                }
+		                var row = Math.floor(i/6), height = WDN.jQuery(this).height();
 		                if (!ul_h[row] || height > ul_h[row]) {
 		                    ul_h[row] = height;
 		                }
@@ -438,12 +434,15 @@ WDN.navigation = (function() {
 
             WDN.navigation.applyStateFixes();
 
+            var endCount = 0;
             if (Modernizr.csstransitions) {
                 WDN.jQuery('#navigation').bind(
                     'webkitTransitionEnd transitionend oTransitionEnd msTransitionEnd',
                     function(event) {
-                        if (WDN.navigation.currentState == 1) {
+                    	endCount++;
+                        if (WDN.navigation.currentState == 1 && endCount >= 6) {
                             WDN.navigation.transitionEnd();
+                            endCound = 0;
                         }
                     }
                 );
@@ -476,11 +475,14 @@ WDN.navigation = (function() {
                 WDN.navigation.setWrapperPState('pinned');
             } else {
                 WDN.navigation.setWrapperPState('unpinned');
-                var nav_height = WDN.jQuery('#wdn_navigation_wrapper').outerHeight(true), 
-                	defaultMargin = parseInt($cWrapper.css('margin-top'), 10);
                 
-                if (nav_height > defaultMargin) {
-                	$cWrapper.css('margin-top', nav_height);
+                if (WDN.navigation.currentState === 0) {
+	                var nav_height = WDN.jQuery('#wdn_navigation_wrapper').outerHeight(true), 
+	                	defaultMargin = parseInt($cWrapper.css('margin-top'), 10);
+	                
+	                if (nav_height > defaultMargin) {
+	                	$cWrapper.css('margin-top', nav_height);
+	                }
                 }
             }
         },
@@ -572,15 +574,10 @@ WDN.navigation = (function() {
         },
 
         setWrapperClass : function(css_class) {
-            var $wrapper = WDN.jQuery('#wdn_wrapper');
+            var $wrapper = WDN.jQuery('#wdn_wrapper'), offClass;
             $wrapper.removeClass('nav_changing');
-
-            if (css_class=='collapsed') {
-                $wrapper.removeClass('nav_expanded nav_changing').addClass('nav_'+css_class);
-                return;
-            }
-
-            $wrapper.removeClass('nav_collapsed').addClass('nav_'+css_class);
+            offClass = css_class == 'collapsed' ? 'expanded' : 'collapsed';
+            $wrapper.removeClass('nav_'+offClass).addClass('nav_'+css_class);
         },
 
         setWrapperPState : function(css_class) {
@@ -691,6 +688,11 @@ WDN.navigation = (function() {
         onResize: function(oldWidthScript, newWidthScript) {
         	if (!oldWidthScript) {
         		if (WDN.getCurrentWidthScript() == '768') {
+        			var newWidth = WDN.jQuery(document.documentElement).width();
+                	if (lastWidth === newWidth) {
+                		return;
+                	}
+                	lastWidth = newWidth;
         			WDN.navigation.fixPresentation();
         			WDN.navigation.applyStateFixes();
         		}
