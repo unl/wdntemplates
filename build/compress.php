@@ -65,6 +65,7 @@ class UNL_WDNTemplates_Compressor
             'wdn',
             'modernizr-wdn',
             'analytics',
+            'idm',
             'navigation',
             'search',
             'unlalert',
@@ -80,7 +81,6 @@ class UNL_WDNTemplates_Compressor
             // Compressed and merged
             'wdn_ajax',
             'global_functions',
-            'idm',
             'feedback',
             'socialmediashare',
             'tooltip',
