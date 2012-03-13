@@ -35,7 +35,6 @@ WDN.events = function() {
 
 		setup : function() {
 			var localSettings = getLocalEventSettings();
-			
 			if (!this.calURL) {
 				this.calURL = localSettings.href;
 			}

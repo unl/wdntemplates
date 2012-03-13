@@ -35,6 +35,16 @@ WDN.tabs = (function() {
 		initialize : function() {
 			WDN.log ("tabs JS loaded");
 			
+			// Add yesprint class to list items, to act as a table of contents when printed
+			WDN.jQuery('ul.wdn_tabs:not(.disableSwitching) li').each(function(){
+				var content    = WDN.jQuery(this).children('a').text();
+				var hash_check = WDN.jQuery(this).children('a').attr('href').split('#');
+				if (hash_check.length == 2 && hash_check[1] !== "") {
+					WDN.jQuery('div#'+hash_check[1]).prepend("<h5 class='yesprint'>"+content+"</h5>");
+				}
+				return true;
+			});
+
 			// Set up the event for when a tab is clicked
 			var hashFromTabClick = false,
 				$tabsWithSwitch = WDN.jQuery('ul.wdn_tabs').not('.disableSwitching');
@@ -61,6 +71,14 @@ WDN.tabs = (function() {
 				return false;
 			});
 			
+			// Adds spacing if subtabs are present
+			if (WDN.jQuery('#maincontent ul.wdn_tabs li ul').length) {
+				WDN.jQuery('#maincontent ul.wdn_tabs').css({'margin-bottom':'70px'});
+				if (ie7) {
+					WDN.jQuery('#maincontent ul.wdn_tabs li ul li').css({'display':'inline'});
+				}
+			}
+
 			// If we have some tabs setup the hash stuff
 			if ($tabsWithSwitch.length) {
 				var isValidTabHash = function(hash) {
