@@ -1,8 +1,8 @@
-WDN.tooltip = (function($) {
+WDN.tooltip = (function() {
 	var _wdnQTip,
 		_sanitizeTooltipElems = function(elems) {
 			elems.each(function() {
-				var $this = $(this);
+				var $this = WDN.jQuery(this);
 				$this.attr('oldtitle', $this.attr('title'));
 			})
 			.removeAttr('title');
@@ -12,11 +12,13 @@ WDN.tooltip = (function($) {
 		initialize : function() {
 			WDN.log("initialize tooltip");
 			WDN.loadCSS(WDN.getTemplateFilePath('scripts/plugins/qtip/jquery.qtip.min.css'));
-			WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/qtip/jquery.qtip.min.js'), WDN.tooltip.tooltipSetup);
+			WDN.loadJQuery(function() {
+				WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/qtip/jquery.qtip.min.js'), WDN.tooltip.tooltipSetup);
+			});
 		},
 		tooltipSetup : function() {
 			// Tooltips can only be used in the appropriate sections, and must have the correct class name and a title attribute
-			var elems = $('#wdn_tool_links .tooltip[title], #maincontent .tooltip[title], #footer .tooltip[title]');
+			var elems = WDN.jQuery('#maincontent .tooltip[title]');
 			
 			if (_wdnQTip) {
 				WDN.tooltip.addTooltip(elems);
@@ -25,7 +27,7 @@ WDN.tooltip = (function($) {
 			
 			_sanitizeTooltipElems(elems);
 			
-			_wdnQTip = $('<div />').qtip({
+			_wdnQTip = WDN.jQuery('<div />').qtip({
 				content: ' ',
 				style: {
 					tip: {
@@ -42,7 +44,7 @@ WDN.tooltip = (function($) {
 						y: -5,
 						method: "flip"
 					},
-					viewport: $(window),
+					viewport: WDN.jQuery(window),
 					at: "top center",
 					my: "bottom center"
 				},
@@ -54,7 +56,7 @@ WDN.tooltip = (function($) {
 				},
 				events: {
 					show: function(event, api) {
-						var target = $(event.originalEvent.target);
+						var target = WDN.jQuery(event.originalEvent.target);
 						
 						if (target.length) {
 							api.set('content.text', target.attr('oldtitle'));
@@ -67,7 +69,7 @@ WDN.tooltip = (function($) {
 			WDN.tooltip.addTooltip($elements);
 		},
 		addTooltip: function(el) {
-			var elems = $(el);
+			var elems = WDN.jQuery(el);
 			_sanitizeTooltipElems(elems);
 			
 			var oldElems = _wdnQTip.qtip('option', 'show.target'),
@@ -81,4 +83,4 @@ WDN.tooltip = (function($) {
 			}
 		}
 	};
-})(WDN.jQuery);
+})();
