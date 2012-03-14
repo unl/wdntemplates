@@ -68,7 +68,7 @@ foreach (array('maincontentarea','head', 'doctitle') as $key) {
     $scanned_page->$key = removeRelativePaths($scanned_page->$key, $_GET['u']);
 }
 
-$scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('<span id="wdn_site_title">', '</span>'), $scanned_page->titlegraphic);
+$scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('', ''), $scanned_page->titlegraphic);
 
 ?>
 <!DOCTYPE html>
