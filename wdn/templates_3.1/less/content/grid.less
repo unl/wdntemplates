@@ -93,6 +93,12 @@
             margin-left: 0;
         }
         
+        //duplicated in order to take priority
+        .first {
+            margin-left: 0 !important;
+            clear: left;
+        }
+        
         // support for deprecated grid, to be removed July 1, 2012
         .col {
             width: 23%;
@@ -161,6 +167,15 @@
             clear: none;
         }
         
+        // Stronger selectors
+        *[class^="grid"].first:nth-of-type(odd) {
+            clear: left;
+        }
+        
+        *[class^="grid"].first:nth-of-type(3n+1) {
+            clear: left;
+        }
+        
         *[class^="grid"] > .grid1 {
             .theWidth(1);
             margin-left: @gutterWidth;
@@ -215,6 +230,12 @@
             .theWidth(11);
             margin-left: @gutterWidth;
         }
+        
+        //duplicated in order to take priority
+        .first {
+            margin-left: 0 !important;
+            clear: left;
+        }
     }
 }
 @media (min-width: 960px) {
@@ -232,6 +253,12 @@
         *[class^="grid"]:nth-of-type(3n+1) {
             margin-left: @gutterWidth;
             clear: none;
+        }
+        
+        //duplicated in order to take priority
+        .first {
+            margin-left: 0 !important;
+            clear: left;
         }
         
     }
