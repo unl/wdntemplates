@@ -12,16 +12,18 @@ MARKER=`cat VERSION_DEP | sed 's/[0-9.]//g'`
 # Bump the number
 VN=`cat VERSION_DEP | sed 's/[^0-9.]//g'`
 
-# Reassemble and write back out
+# Reassemble next version number
 VN=${VN%.*}.$((${VN##*.}+1))
+
+# Create the release-x.y.z branch
+git checkout -b release-$VN develop
+
+# Update the VERSION_DEP file
 echo $VN$MARKER > VERSION_DEP
 
 ANNOUNCE=`date +"%b %d, %Y:"`" WDN Templates $VN released"
 
 echo $ANNOUNCE
-
-# Create the release-x.y.z branch
-git checkout -b release-$VN develop
 
 # Commit the version number change
 git commit -a -m "Bumped dependency version number to $VN"
