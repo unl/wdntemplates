@@ -47,10 +47,18 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    width: 55%;
+    width: 70%;
+    letter-spacing: -1px;
     
-    > span {
+    span {
         display: none;
+    }
+    
+    abbr {
+        
+        &:after {
+            display: none;
+        }
     }
 }
 
@@ -90,7 +98,7 @@
 }
 @media (min-width: 600px) {
     #wdn_site_title {
-        width: 65%;
+        //width: 65%;
     }
 }
 @media (min-width: 768px) {
@@ -116,8 +124,9 @@
     
     #wdn_site_title {
         color:#555;
+        font-size: 2em;
         
-        > span {
+        span {
             display:block;
             font-size:25%;
             color:#6E6E6E;
@@ -126,6 +135,19 @@
             text-transform:uppercase;
             font-family: @impactFont;
             line-height: 0.8;
+        }
+        
+        abbr {
+            display: block;
+            height: 0;
+            
+            &:before {
+                content: attr(title);
+                position: absolute;
+                left: 66px;
+                top: 29px;
+                height: auto;
+            }
         }
     }
     
@@ -198,7 +220,14 @@
         font-weight: normal;
         line-height: 1.1;
         width: 68%;
-        letter-spacing: -1px;
+        
+        abbr {
+        
+            &:before {
+                left: 100px;
+                top: 10px;
+            }
+        }
     }
     
     /* Retain styles for old markup. Remove August 1, 2012*/
