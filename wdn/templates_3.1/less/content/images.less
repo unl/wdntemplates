@@ -17,29 +17,33 @@
     margin: 0 0 10px 0;
     white-space:normal;
     line-height:0.8em;
-    display: inline-block;
     .box-sizing(border-box);
+}
+.caption() {
+    line-height: normal;
+    text-align: left;
+    color: #444;
+    font-size: 80%;
 }
 
 #maincontent, #footer, #colorbox {
-    img.frame {
+    .frame {
         .figure();
+        
+        figcaption {
+            .caption();
+        }
     }
     
     p.caption {
-        line-height: normal;
         background: #f7f7f7;
         border: 1px solid #DDD;
         border-radius: 3px;
         border-top: none;
         padding: 2px 4px 5px;
-        text-align: left;
-        color: #555;
-        font-size: 80%;
         position: relative;
         margin-top: -16px;
-        z-index: 2; 
-        display: block;
+        z-index: 2;
+        .caption();   
     }
-    
 }

@@ -25,6 +25,9 @@ ANNOUNCE=`date +"%b %d, %Y:"`" WDN Templates $VN released"
 
 echo $ANNOUNCE
 
+echo "Cancel now, if this is not what you want! (5 seconds)"
+sleep 5
+
 # Commit the version number change
 git commit -a -m "Bumped dependency version number to $VN"
 
@@ -37,16 +40,23 @@ git merge --no-ff release-$VN
 echo "Tagging the release"
 git tag -a $VN -m "Release $VN"
 
+echo "Pushing master to origin, upstream, and live. Cancel now if this is not what you want! (5 seconds)"
+sleep 5
+
 # Push to live server!
 echo "Pushing to origin and master server"
 git push origin master
-git push upstream master
+git push upstream master --tags
 git push live master
 
 # Now go back to develop and merge back in
 echo "Merging back to develop"
 git checkout develop
 git merge --no-ff release-$VN
+
+# Now push to develop
+git push origin develop
+git push upstream develop
 
 # Remove old branch
 git branch -d release-$VN
