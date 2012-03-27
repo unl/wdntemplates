@@ -206,3 +206,14 @@
 	-ms-transform:translate(@move_x, @move_y);
 	transform: translate(@move_x, @move_y);
 }
+
+// Columns
+.columns(@column-count) {
+   .columns(@column-count, auto);
+}
+
+.columns(@column-count, @column-width) {
+    -webkit-columns: @arguments;
+       -moz-columns: @arguments;
+            columns: @arguments;
+}
