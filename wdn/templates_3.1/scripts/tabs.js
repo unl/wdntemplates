@@ -139,7 +139,7 @@ WDN.tabs = (function() {
 						});
 					};
 					if (!WDN.jQuery.fn.hashchange) {
-						WDN.loadJS(WDN.getTempalteFilePath('scripts/plugins/hashchange/jQuery.hashchange.1-3.min.js'), setupHashChange);
+						WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/hashchange/jQuery.hashchange.1-3.min.js'), setupHashChange);
 					} else {
 						setupHashChange();
 					}
