@@ -291,8 +291,10 @@ class UNL_WDNTemplates_Compressor
             case self::JS_COMPILER_CLOSURE:
             case self::JS_COMPILER_UGLIFYJS:
                 $this->_compiler = $compiler;
+                break;
             default:
                 $this->_compiler = self::JS_COMPILER_CLOSURE;
+                break;
         }
 
         return $this;
