@@ -113,6 +113,14 @@
     background: linear-gradient(top,  @from @from_stop,@to @to_stop); // W3C
 }
 
+.repeating-linear-gradient(@angle, @color_stop1, @color_stop2, @color_stop3, @color_stop4) {
+    background: -webkit-repeating-linear-gradient(@angle, @color_stop1, @color_stop2, @color_stop3, @color_stop4);
+    background: -moz-repeating-linear-gradient(@angle, @color_stop1, @color_stop2, @color_stop3, @color_stop4);
+    background: -ms-repeating-linear-gradient(@angle, @color_stop1, @color_stop2, @color_stop3, @color_stop4);
+    background: -o-repeating-linear-gradient(@angle, @color_stop1, @color_stop2, @color_stop3, @color_stop4);
+    background: repeating-linear-gradient(@angle, @color_stop1, @color_stop2, @color_stop3, @color_stop4);
+}
+
 // Box Flex
 .box-flex-display()
 {
