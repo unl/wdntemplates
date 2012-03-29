@@ -524,7 +524,8 @@ class UNL_WDNTemplates_Compressor
      */
     protected function _getLocalBinCmd($cwd, $cmd, $in, $out)
     {
-        return "/usr/bin/env PATH=\"\$PATH:{$cwd}/bin\" {$cmd} {$in} > {$out}";
+        $uname = trim(`uname`);
+        return "/usr/bin/env PATH=\"\$PATH:{$cwd}/bin:{$cwd}/bin/{$uname}\" {$cmd} {$in} > {$out}";
     }
 
     /**
