@@ -52,6 +52,11 @@
             margin-left: 0;
         }
         
+        .first:first-of-type {
+            margin-left: 0 !important;
+            clear: left;
+        }
+        
         // support for deprecated grid, to be removed July 1, 2012
         .col, .two_col, .three_col, .four_col {
             width: 48%;
@@ -63,10 +68,6 @@
             &.right {
                 float: right;
             }
-        }
-        .first {
-            margin-left: 0 !important;
-            clear: left;
         }
     }
 }
@@ -91,12 +92,6 @@
         *[class^="grid"] > *[class^="grid"] {
             width: 100%;
             margin-left: 0;
-        }
-        
-        //duplicated in order to take priority
-        .first {
-            margin-left: 0 !important;
-            clear: left;
         }
         
         // support for deprecated grid, to be removed July 1, 2012
@@ -159,20 +154,24 @@
         *[class^="grid"]:nth-of-type(odd) {
             margin-left: @gutterWidth;
             clear: none;
+            
+            &.first {
+                clear: left;
+            }
         }
         
         //clear out rule for 600
         *[class^="grid"]:nth-of-type(3n+1) {
             margin-left: @gutterWidth;
             clear: none;
+            
+            &.first {
+                clear: left;
+            }
         }
         
-        // Stronger selectors
-        *[class^="grid"].first:nth-of-type(odd) {
-            clear: left;
-        }
-        
-        *[class^="grid"].first:nth-of-type(3n+1) {
+        .first {
+            margin-left: 0 !important;
             clear: left;
         }
         
@@ -230,12 +229,6 @@
             .theWidth(11);
             margin-left: @gutterWidth;
         }
-        
-        //duplicated in order to take priority
-        .first {
-            margin-left: 0 !important;
-            clear: left;
-        }
     }
 }
 @media (min-width: 960px) {
@@ -253,12 +246,6 @@
         *[class^="grid"]:nth-of-type(3n+1) {
             margin-left: @gutterWidth;
             clear: none;
-        }
-        
-        //duplicated in order to take priority
-        .first {
-            margin-left: 0 !important;
-            clear: left;
         }
         
     }
