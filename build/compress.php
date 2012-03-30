@@ -82,7 +82,6 @@ class UNL_WDNTemplates_Compressor
             'global_functions',
             'feedback',
             'socialmediashare',
-            'tooltip',
             'toolbar',
             'tabs',
         )
