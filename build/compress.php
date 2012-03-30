@@ -77,7 +77,6 @@ class UNL_WDNTemplates_Compressor
             // Not further compressed, prepended to below
             'jquery.min',
             'plugins/hoverIntent/jQuery.hoverIntent.min',
-            'plugins/qtip/jquery.qtip.min',
             // Compressed and merged
             'wdn_ajax',
             'global_functions',
