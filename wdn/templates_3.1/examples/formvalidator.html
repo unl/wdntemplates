@@ -1,18 +1,9 @@
 <script type="text/javascript">
-//<![CDATA[
-// PLEASE NOTE: DUE TO THE ASYNC NATURE OF THESE EXAMPLES
-// THIS INIT SCRIPT IS DIFFERENT THAN THE RECOMMENDED SETUP
-// DESCRIBED ON THE WIKI PAGE AT http://www1.unl.edu/wdn/wiki/JQuery_Validation
-
-WDN.jQuery(document).ready(function(){
-    WDN.initializePlugin('zenform');
-    WDN.loadCSS('/wdn/templates_3.1/css/content/formvalidator.css');
-    WDN.loadJS('/wdn/templates_3.1/scripts/plugins/validator/jquery.validator.js', function() {
-        WDN.jQuery.validation.addMethod('validate-confirm-email', 'This field must match the value of the email field.', {equalToField:'#email'});
-    	WDN.jQuery('form.zenform').validation();
-    });
-});
-//]]>
+WDN.initializePlugin('zenform');
+WDN.initializePlugin('form_validation', [function() {
+    WDN.jQuery.validation.addMethod('validate-confirm-email', 'This field must match the value of the email field.', {equalToField:'#email'});
+	WDN.jQuery('form.zenform').validation();
+}]);
 </script>
 <p><em><strong>Please Note:</strong> Due to the asynchronous nature of these example pages, the script used to initialize the form validator is different to the recommended setup described on the <a class="external" href="http://www1.unl.edu/wdn/wiki/JQuery_Validation">wiki page</a>.</em></p>
 <h3 class="zenform">Important Survey</h3>
