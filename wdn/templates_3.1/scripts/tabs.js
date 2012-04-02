@@ -34,7 +34,7 @@ WDN.tabs = (function() {
 		
 		initialize : function() {
 			WDN.log ("tabs JS loaded");
-
+			
 			// Set up the event for when a tab is clicked
 			var hashFromTabClick = false,
 				$tabsWithSwitch = WDN.jQuery('ul.wdn_tabs').not('.disableSwitching');
@@ -61,14 +61,6 @@ WDN.tabs = (function() {
 				return false;
 			});
 			
-			// Adds spacing if subtabs are present
-			if (WDN.jQuery('#maincontent ul.wdn_tabs li ul').length) {
-				WDN.jQuery('#maincontent ul.wdn_tabs').css({'margin-bottom':'70px'});
-				if (ie7) {
-					WDN.jQuery('#maincontent ul.wdn_tabs li ul li').css({'display':'inline'});
-				}
-			}
-
 			// If we have some tabs setup the hash stuff
 			if ($tabsWithSwitch.length) {
 				var isValidTabHash = function(hash) {
