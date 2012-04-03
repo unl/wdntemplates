@@ -81,7 +81,6 @@
 .linear-gradient(@from, @to, @failover)
 {
 	.linear-gradient-no-filter(@from, @to, @failover);
-	.linear-gradient-filter(@from, @to);
 }
 .linear-gradient-no-filter(@from, @to)
 {
@@ -112,6 +111,14 @@
     background: -o-linear-gradient(top,  @from @from_stop,@to @to_stop); // Opera 11.10+
     background: -ms-linear-gradient(top,  @from @from_stop,@to @to_stop); // IE10+
     background: linear-gradient(top,  @from @from_stop,@to @to_stop); // W3C
+}
+
+.repeating-linear-gradient(@angle, @color_stop1, @color_stop2, @color_stop3, @color_stop4) {
+    background: -webkit-repeating-linear-gradient(@angle, @color_stop1, @color_stop2, @color_stop3, @color_stop4);
+    background: -moz-repeating-linear-gradient(@angle, @color_stop1, @color_stop2, @color_stop3, @color_stop4);
+    background: -ms-repeating-linear-gradient(@angle, @color_stop1, @color_stop2, @color_stop3, @color_stop4);
+    background: -o-repeating-linear-gradient(@angle, @color_stop1, @color_stop2, @color_stop3, @color_stop4);
+    background: repeating-linear-gradient(@angle, @color_stop1, @color_stop2, @color_stop3, @color_stop4);
 }
 
 // Box Flex
@@ -206,4 +213,15 @@
 	-o-transform: translate(@move_x, @move_y);
 	-ms-transform:translate(@move_x, @move_y);
 	transform: translate(@move_x, @move_y);
+}
+
+// Columns
+.columns(@column-count) {
+   .columns(@column-count, auto);
+}
+
+.columns(@column-count, @column-width) {
+    -webkit-columns: @arguments;
+       -moz-columns: @arguments;
+            columns: @arguments;
 }

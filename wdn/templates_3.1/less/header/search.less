@@ -35,10 +35,10 @@
             font-size: 80%;
             outline: none;
             position: relative;
-            z-index: 1;
             -webkit-appearance: none;
             &:focus {
                 width: 200px;
+                .box-shadow(-1px, 1px, 7px, #aaa);
             }
 
             &:-moz-placeholder {
@@ -75,7 +75,6 @@
     #wdn_search {
         form {
             #q {
-                width: 115px;
                 &:focus {
                     width: 200px;
                 }
@@ -84,7 +83,16 @@
     }
 }
 @media (min-width: 600px) {
-
+    #wdn_search {
+        form {
+            #q {
+                width: 100px;
+                &:focus {
+                    width: 200px;
+                }
+            }
+        }
+    }
 }
 @media (min-width: 768px) {
     #wdn_search {

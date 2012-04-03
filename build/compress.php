@@ -77,13 +77,11 @@ class UNL_WDNTemplates_Compressor
             // Not further compressed, prepended to below
             'jquery.min',
             'plugins/hoverIntent/jQuery.hoverIntent.min',
-            'plugins/qtip/jquery.qtip.min',
             // Compressed and merged
             'wdn_ajax',
             'global_functions',
             'feedback',
             'socialmediashare',
-            'tooltip',
             'toolbar',
             'tabs',
         )
@@ -291,8 +289,10 @@ class UNL_WDNTemplates_Compressor
             case self::JS_COMPILER_CLOSURE:
             case self::JS_COMPILER_UGLIFYJS:
                 $this->_compiler = $compiler;
+                break;
             default:
                 $this->_compiler = self::JS_COMPILER_CLOSURE;
+                break;
         }
 
         return $this;
@@ -522,7 +522,8 @@ class UNL_WDNTemplates_Compressor
      */
     protected function _getLocalBinCmd($cwd, $cmd, $in, $out)
     {
-        return "/usr/bin/env PATH=\"\$PATH:{$cwd}/bin\" {$cmd} {$in} > {$out}";
+        $uname = trim(`uname`);
+        return "/usr/bin/env PATH=\"\$PATH:{$cwd}/bin:{$cwd}/bin/{$uname}\" {$cmd} {$in} > {$out}";
     }
 
     /**
