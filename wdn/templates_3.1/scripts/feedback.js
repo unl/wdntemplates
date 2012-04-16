@@ -23,7 +23,7 @@ WDN.feedback = function() {
 		},
 		commentSetup : function() {
 			if (WDN.hasDocumentClass('no-placeholder')) {
-				WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/place/jquery.placeholder.min.js'), function() {
+				WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/placeholder/jquery.placeholder.min.js'), function() {
 					WDN.jQuery('#wdn_feedback_comments').find('[placeholder]').placeholder();
 				});
 			}
