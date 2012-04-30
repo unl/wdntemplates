@@ -53,17 +53,23 @@
 	-webkit-box-shadow: @arguments;
 	-moz-box-shadow: @arguments;
 }
-.box-shadow(@shadow_x, @shadow_y, @shadow_rad, @shadow_color, @shadow_x2, @shadow_y2, @shadow_rad2, @shadow_color2)
+.box-shadow(@shadow_x, @shadow_y, @shadow_rad, @shadow_spread, @shadow_color)
 {
-	box-shadow: @shadow_x @shadow_y @shadow_rad @shadow_color, @shadow_x2 @shadow_y2 @shadow_rad2 @shadow_color2;
-	-webkit-box-shadow: @shadow_x @shadow_y @shadow_rad @shadow_color, @shadow_x2 @shadow_y2 @shadow_rad2 @shadow_color2;
-	-moz-box-shadow: @shadow_x @shadow_y @shadow_rad @shadow_color, @shadow_x2 @shadow_y2 @shadow_rad2 @shadow_color2;
+	box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
 }
 .box-shadow(@inset, @shadow_x, @shadow_y, @shadow_rad, @shadow_blur, @shadow_color)
 {
 	box-shadow: @arguments;
 	-webkit-box-shadow: @arguments;
 	-moz-box-shadow: @arguments;
+}
+.box-shadow(@shadow_x, @shadow_y, @shadow_rad, @shadow_color, @shadow_x2, @shadow_y2, @shadow_rad2, @shadow_color2)
+{
+	box-shadow: @shadow_x @shadow_y @shadow_rad @shadow_color, @shadow_x2 @shadow_y2 @shadow_rad2 @shadow_color2;
+	-webkit-box-shadow: @shadow_x @shadow_y @shadow_rad @shadow_color, @shadow_x2 @shadow_y2 @shadow_rad2 @shadow_color2;
+	-moz-box-shadow: @shadow_x @shadow_y @shadow_rad @shadow_color, @shadow_x2 @shadow_y2 @shadow_rad2 @shadow_color2;
 }
 
 //opacity
