@@ -21,13 +21,14 @@
     
     $Id: unlaffiliate.dwt | ea2608181e2b6604db76106fd982b39218ddcb8b | Fri Mar 9 12:20:43 2012 -0600 | Kevin Abel  $
 -->
-<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles.html" -->
+<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles_debug.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>UNL Affiliate | New Page</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <link rel="stylesheet" type="text/css" media="screen" href="sharedcode/affiliate.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="sharedcode/affiliate/css/affiliate_v2.css" />
 <link href="sharedcode/affiliate_imgs/favicon.ico" rel="shortcut icon" />
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed" -->
