@@ -132,6 +132,7 @@ class UNL_WDNTemplates_Compressor
         'content/css3_selector_failover' => array('ignore' => true),
         'variations/ie' => array('ignore' => true),
         'variations/touch' => array('ignore' => true),
+        'variations/print' => array('ignore' => true),
     );
 
     protected $_supportedMediaWidths = array(
