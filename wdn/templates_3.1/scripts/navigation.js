@@ -442,7 +442,7 @@ WDN.navigation = (function() {
                     	endCount++;
                         if (WDN.navigation.currentState == 1 && endCount >= 6) {
                             WDN.navigation.transitionEnd();
-                            endCound = 0;
+                            endCount = 0;
                         }
                     }
                 );
