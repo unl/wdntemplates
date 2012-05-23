@@ -192,7 +192,6 @@ WDN.analytics = function() {
 			if (value === undefined) {
 				value = 0;
 			}
-			console.log(noninteraction);
 			if (noninteraction === undefined) {
 			    noninteraction = false;
 			}
