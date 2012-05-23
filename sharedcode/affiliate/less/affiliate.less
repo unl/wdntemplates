@@ -1,0 +1,244 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS!
+*
+* ---------------------------
+* This file is for setting up a UNL affiliate template. 
+* The UNL Affiliate template is sites that have approved expemptions by the Chancellor.
+* ---------------------------
+*/
+
+// Import needed files. This shouldn't be changed.
+@import "../../../wdn/templates_3.1/less/_mixins/all.less";
+
+//
+// 1. Setup the colors to use
+//
+
+    // This is your primary color. In many cases, this may be the only color you need to specify
+    @colorPrimary: #000000; // <- Set this to contol all brand colors on the page.
+    @colorSecondary: #005288;
+    
+    // Compiled colors based on the primary color. You may update if needed.
+    @highlightPrimary: lighten(@colorPrimary, 2.5%); // Used in gradients a subtle highlights
+    @shadowPrimary: darken(@colorPrimary, 5%); // Used mostly in gradients, as the darker color
+    @linkColor: @colorPrimary; // For text links throughout the page
+    @linkHover: lighten(@linkColor, 2.5%); // The hover state of text links
+
+//
+// 2. Choose regions to display
+//
+
+    // For the 'seal' used in-between the maincontent and footer
+    @sealBackground: none; // <- Use path to image you'd like to use (50px x 41px). If blank (''), you'll get the academic 'N'. If you don't want an image, use 'none'.
+    
+    
+ 
+/* Site Logo */
+#header #logo { 
+	background-image: url('../images/affiliate_logo.png');
+	background-position: 0 0;
+	.background-size(contain);
+}
+
+/* Institution title is longer and now a link back to UNL.edu */   
+#wdn_institution_title {
+
+    a {
+    	color: inherit;
+    	text-decoration: none;
+    	
+    	&:hover, &:active {
+    	    text-decoration: underline;
+    	}
+	}
+}
+
+/* IdM */
+#wdn_identity_management {
+    > a {
+    	text-shadow: -1px -1px 1px @highlightPrimary;
+    	
+    	img {
+    	    border-color: @highlightPrimary;
+    	}
+    }
+    
+    &:hover {
+        
+        > a {
+            background: darken(@colorPrimary, 10%);
+        }
+    }
+    
+    > #wdn_idm_user_options {
+    	background: darken(@colorPrimary, 10%);
+    }
+    
+    &.loggedin {
+        > #wdn_idm_user_options li {
+        	border-color: @highlightPrimary;
+        }
+    }
+}
+
+/* Nav */
+#navigation:before {
+	border-color: @shadowPrimary;
+	-webkit-box-shadow: 1px 1px 2px 0 #dfae7a inset;
+	-moz-box-shadow: 1px 1px 2px 0 #dfae7a inset;
+	box-shadow: 1px 1px 2px 0 #dfae7a inset;
+	.box-shadow(inset, 1px, 1px, 2px, 0, lighten(@highlightPrimary, 15%));
+    .linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);
+}
+
+#navigation {
+	.linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);
+}
+
+/* main content */
+#maincontent {
+    a {
+        color: @linkColor;
+        &:hover {
+            color: @linkHover;
+        }
+        &:focus {
+            color: lighten(@linkColor, 5%);
+        }
+    }
+}
+
+@media (min-width: 320px) {
+    
+}
+@media (min-width: 480px) {
+
+}
+@media (min-width: 600px) {
+    #wdn_copyright {
+    	.linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);
+        text-shadow: 0 1px 0 saturate(@colorPrimary, 30%);
+        
+        a {
+            &:hover {
+                color: lighten(@colorPrimary, 70%);
+                text-decoration: none;
+            }
+        }
+        
+        #wdn_logos #unl_wordmark {
+        	.box-shadow(1px 0 0 saturate(@colorPrimary, 30%));
+        }
+    }
+}
+@media (min-width: 768px) {
+    /* Search box */
+    #wdn_search {
+        .linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);
+        
+        form #q {
+            border-color: darken(@shadowPrimary, 10%);
+        }
+    }
+    
+    /* IdM */
+    #wdn_identity_management {
+        > a {
+        	text-shadow: none;
+        	
+        	img {
+        	    border-color: #727272;
+        	}
+        }
+        
+        &:hover {
+            
+            > a {
+                background: darken(#f1f1f1, 10%);
+            }
+        }
+        
+        > #wdn_idm_user_options {
+        	background: darken(#f1f1f1, 10%);
+        }
+        
+        &.loggedin {
+            > #wdn_idm_user_options li {
+            	border-color: lighten(darken(#f1f1f1, 10%), 3%);
+            }
+        }
+    }
+    
+    /* Navigation */
+    #breadcrumbs > ul > li.selected > a {
+        color: @shadowPrimary;
+    }
+    
+    #navigation {
+        background: #fff;
+        
+        > ul {
+        
+            > li {
+            
+                &.empty {
+                
+                    &:hover a {
+                        .linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);
+                    }
+                }
+                
+                > a {
+                    color: #fff;
+                    text-shadow: 1px 1px 1px #424242;
+                    border-right-color: @shadowPrimary;
+                    border-left-color: @highlightPrimary;
+                    .linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);
+                                            
+                    &:hover {
+                        .linear-gradient-no-filter(lighten(@highlightPrimary, 5%), lighten(@shadowPrimary, 5%));
+                    }
+                }
+                
+                &:hover > a {
+                    .linear-gradient-no-filter(lighten(@highlightPrimary, 5%), lighten(@shadowPrimary, 5%));
+                }
+            }
+        }
+    }
+}
+@media (min-width: 960px) {
+
+}
+@media (min-width: 1040px) {
+    #header #logo {
+	   background-position: 10px 6px;
+	}
+	/* IdM Adjustment */
+	#wdn_identity_management {
+	    left: 470px;
+	    max-width: 145px;
+	}
+}
+
+// 
+// Affiliate overrides
+//
+
+// footer_floater
+.footer_floater(@sealBackground) when (isurl(@sealBackground)) {
+    background-image: @sealBackground;
+    background-position: 0 0;
+}
+.footer_floater(@sealBackground) when (@sealBackground = none) {
+    background: none;
+}
+.footer_floater(@sealBackground) when not (isurl(@sealBackground)) {
+    
+}
+
+#footer_floater {
+    color: black;
+    .footer_floater(@sealBackground);
+}
