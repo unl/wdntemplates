@@ -156,7 +156,7 @@ WDN.analytics = function() {
 		
 		trackNavigationPreferredState : function(preferredState) {
 			try {
-				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
+				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL, 0, true);
 			} catch(e){}
 		},
 		
@@ -194,7 +194,7 @@ WDN.analytics = function() {
 			}
 			console.log(noninteraction);
 			if (noninteraction === undefined) {
-			    noninteraction = true;
+			    noninteraction = false;
 			}
 			value = Math.floor(value);
 			//var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
