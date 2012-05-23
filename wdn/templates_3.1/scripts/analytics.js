@@ -156,7 +156,7 @@ WDN.analytics = function() {
 		
 		trackNavigationPreferredState : function(preferredState) {
 			try {
-				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL, 0, false);
+				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
 			} catch(e){}
 		},
 		
