@@ -2273,13 +2273,10 @@ if (typeof jQuery != 'undefined') {
 				// set the layers
 				t.layers.children('.mejs-layer')
 					.width('100%')
-					.height('100%');
-
+					.height('100%');					
+			
+			
 			} else {
-				// START UNL CHANGE: all browsers appear to need this
-				t.width = parseInt(width, 10);
-				t.height = parseInt(height, 10);
-				// END UNL CHANGE
 
 				t.container
 					.width(t.width)
