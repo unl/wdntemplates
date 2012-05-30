@@ -354,7 +354,7 @@ WDN.navigation = (function() {
             var endCount = 0;
             if (Modernizr.csstransitions) {
                 WDN.jQuery('#navigation').bind(
-                    'webkitTransitionEnd transitionend oTransitionEnd MsTransitionEnd',
+                    'webkitTransitionEnd transitionend oTransitionEnd MSTransitionEnd',
                     function(event) {
                     	endCount++;
                         if (WDN.navigation.currentState == 1 && endCount >= 6) {
