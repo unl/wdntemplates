@@ -75,32 +75,53 @@ WDN.analytics = function() {
 				});
 			}
 			
-			if (!isMobile && !initd['desktop']) {	
-				//TODO: Remove jQuery from the events below
+			if (!isMobile && !initd['desktop']) {
+			    //target specific link areas
+				var nav = document.getElementById('navigation');
+				var main = document.getElementById('maincontent');
 				
-				filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i; //these are the file extensions to track for downloaded content
-				WDN.jQuery('#navigation a[href], #maincontent a[href]').each(function(){  
-					var gahref = WDN.jQuery(this).attr('href');
-					if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
-						//WDN.jQuery(this).addClass('external'); //Implications for doing this?
-						WDN.jQuery(this).click(function() {
+				//get the links in these areas
+				var navLinks = nav.getElementsByTagName("a");
+				var mainLinks = main.getElementsByTagName("a");
+			
+				function evaluate(link) {
+				    var gahref = link.getAttribute("href");
+				    if (!gahref) {
+				        return;
+				    }
+				    filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i; //these are the file extensions to track for downloaded content
+				    if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
+						//WDN.jQuery(this).addClass('external'); //Implications for doing this?						
+						link.onclick = (function() {
 							WDN.analytics.callTrackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
 						});
 					}  
 					else if (gahref.match(/^mailto\:/i)){  //deal with mailto: links
-						WDN.jQuery(this).click(function() {  
+						link.onclick = (function() {  
 							var mailLink = gahref.replace(/^mailto\:/i, '');  
 							WDN.analytics.callTrackEvent('Email', mailLink, WDN.analytics.thisURL);
 						});  
 					}  
 					else if (gahref.match(filetypes)){  //deal with file downloads
-						WDN.jQuery(this).click(function() { 
+						link.onclick = (function() { 
 							var extension = (/[.]/.exec(gahref)) ? /[^.]+$/.exec(gahref) : undefined;
 							WDN.analytics.callTrackEvent('File Download', gahref, WDN.analytics.thisURL); 
 							WDN.analytics.callTrackPageview(gahref);
 						});  
-					}  
-				}); 
+					}
+				}
+				
+				//loop through all the links and pass them to type evaluation
+				for (var i=0; i<navLinks.length; i++) {
+				    evaluate(navLinks[i]);
+				}
+				for (var j=0; j<mainLinks.length; j++) {
+				    evaluate(mainLinks[j]);
+				}
+				
+				
+				
+				
 				WDN.jQuery('ul.socialmedia a').click(function(){ 
 					var socialMedia = WDN.jQuery(this).parent().attr('id');
 					socialMedia = socialMedia.replace(/wdn_/gi, '');
