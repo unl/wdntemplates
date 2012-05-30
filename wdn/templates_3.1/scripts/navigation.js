@@ -55,8 +55,6 @@ WDN.navigation = (function() {
 
             if (!desktopInitd) {
 	            WDN.navigation.determineSelectedBreadcrumb();
-	            // find the last-link in breadcrumbs
-	            WDN.jQuery('#breadcrumbs > ul > li > a').last().parent().addClass('last-link');
 	            WDN.navigation.linkSiteTitle();
             }
             
@@ -106,7 +104,7 @@ WDN.navigation = (function() {
                 WDN.navigation.expand();
             })
             .focus(function(){
-            	WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a:first-child'), false);
+            	WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a').get(0), false);
         	});
 
             WDN.navigation.initializePreferredState();
@@ -128,63 +126,82 @@ WDN.navigation = (function() {
          * This function should determine which breadcrumb should be selected.
          */
         determineSelectedBreadcrumb : function() {
-            // First we search for a defined homepage.
-
-            if (WDN.jQuery('link[rel=home]').length) {
-                WDN.navigation.siteHomepage = WDN.toAbs(WDN.jQuery('link[rel=home]').attr('href'), window.location.toString());
-                WDN.log('Setting homepage to '+WDN.navigation.siteHomepage);
-            }
-
-            if (WDN.navigation.siteHomepage === false) {
-                WDN.log('No homepage set!');
-                if (WDN.jQuery('#breadcrumbs > ul > li').size() == 1) {
-                	WDN.navigation.setHomepageLI(WDN.jQuery('#breadcrumbs > ul > li:nth-child(1)'));
-                } else {
-                	// Right now, stupidly select the second element.
-                	WDN.navigation.setHomepageLI(WDN.jQuery('#breadcrumbs > ul > li:nth-child(2)'));
-                }
-            } else {
-                WDN.log('Homepage has been set.');
-                // Make all the hrefs absolute.
-                WDN.jQuery('#breadcrumbs > ul > li > a').each(
-                        function() {
-                            if (this.href == WDN.navigation.siteHomepage) {
-                                WDN.navigation.setHomepageLI(WDN.jQuery(this).parent());
-                                return false;
-                            }
-                        }
-                    );
-                if (WDN.jQuery('#breadcrumbs > ul > li.selected').size() < 1) {
-                    WDN.log('We are on the current homepage.');
-                    WDN.navigation.setHomepageLI(WDN.jQuery('#breadcrumbs > ul > li:last-child'));
-                }
-            }
+        	// First we search for a defined homepage.
+        	var $homeLink = WDN.jQuery('link[rel=home]');
+        	if ($homeLink.length) {
+        		WDN.log('Setting homepage to ' + WDN.navigation.siteHomepage);
+        		WDN.navigation.siteHomepage = WDN.toAbs($homeLink.attr('href'), window.location.toString());
+        	}
+        	
+        	var $breadcrumbs = WDN.jQuery('#breadcrumbs > ul > li');
+        	if (!$breadcrumbs.length) {
+        		WDN.log('This page is missing breadcrumbs');
+        		return;
+        	}
+        	
+        	$breadcrumbs.removeClass('selected');
+        	
+        	if (WDN.navigation.siteHomepage === false) {
+        		WDN.log('No homepage set!');
+        		if ($breadcrumbs.length < 2) {
+        			WDN.navigation.setHomepageLI($breadcrumbs[0]);
+        		} else {
+        			// Right now, stupidly select the second element.
+        			WDN.navigation.setHomepageLI($breadcrumbs[1]);
+        		}
+        	} else {
+        		WDN.log('Homepage has been set.');
+        		WDN.jQuery('> a', $breadcrumbs).each(function() {
+    				if (this.href == WDN.navigation.siteHomepage) {
+    					WDN.navigation.setHomepageLI(WDN.jQuery(this).parent());
+    					return false;
+    				}
+        		});
+        		
+        		if (!$breadcrumbs.filter('.selected').length) {
+        			WDN.log('We are on the current homepage.');
+        			WDN.navigation.setHomepageLI($breadcrumbs[$breadcrumbs.length-1]);
+        		}
+        	}
+        	
+        	WDN.jQuery('> a', $breadcrumbs).last().parent().addClass('last-link');
         },
-
+        
         setHomepageLI: function(li) {
-            WDN.navigation.homepageLI = li;
-            WDN.jQuery(li).addClass('selected');
-            if (WDN.jQuery(li).children('a').size()) {
-                // Found the homepage url in the breadcrumbs
-                WDN.navigation.siteHomepage = WDN.jQuery(li).find('a').attr('href');
-            } else {
-                // Assume it's the current page
-                WDN.navigation.siteHomepage = window.location;
-                WDN.jQuery(li).wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
+        	WDN.navigation.homepageLI = li;
+            var $li = WDN.jQuery(li);
+            $li.addClass('selected');
+            
+            var $homeCrumbLink = $li.children('a');
+            
+            if (!WDN.navigation.siteHomepage) {
+            	if ($homeCrumbLink.length) {
+            		WDN.navigation.siteHomepage = WDN.toAbs($homeCrumbLink.attr('href'), window.location.toString());
+            	} else {
+            		WDN.navigation.siteHomepage = window.location.toString();
+            	}
+            }
+            
+            if (!$homeCrumbLink.length) {
+            	$li.wrapInner(WDN.jQuery('<a/>', {href : WDN.navigation.siteHomepage}));
             }
         },
-
+        
         /**
          * This function will check for/add a link to the homepage in the site title.
          */
-
         linkSiteTitle: function() {
-            // check if the link already exists
-            if (WDN.jQuery("#titlegraphic h1 a").length > 0 || !WDN.navigation.siteHomepage) {
+        	var $siteTitle = WDN.jQuery('#wdn_site_title');
+        	
+        	// check if the link already exists
+            if (!WDN.navigation.siteHomepage || $siteTitle.children('a').length) {
                 return;
             }
+            
             // create the link using whatever the Homepage is set to
-            WDN.jQuery("#titlegraphic h1").wrapInner('<a href="' + WDN.navigation.siteHomepage +'" />');
+            $siteTitle.contents().filter(function() {
+            	return this.nodeType == 3;
+            }).first().wrap(WDN.jQuery('<a/>', {href : WDN.navigation.siteHomepage}));
         },
 
         /**
