@@ -130,7 +130,7 @@ WDN.analytics = function() {
         						WDN.log("Social Media tracking for local site didn't work.");
         					}
         				});
-					} 
+					}
 				}
 				
 				//loop through all the links and pass them to type evaluation
@@ -146,14 +146,6 @@ WDN.analytics = function() {
 				for (var m=0; m<shareLinks.length; m++) {
 				    evaluate(shareLinks[m], 'share');
 				}
-				WDN.jQuery('div.rating div.star a').click(function(){ 
-					if (!WDN.analytics.rated)
-					{
-						WDN.analytics.rated = true;
-						var value = WDN.jQuery(this).text();
-						WDN.analytics.callTrackEvent('Page Rating', 'Rated a '+value, WDN.analytics.thisURL, value);
-					}
-				});
 				
 				initd['desktop'] = true;
 			} else {
