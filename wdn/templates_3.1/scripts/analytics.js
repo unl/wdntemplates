@@ -14,10 +14,6 @@
 // Department variable 'pageTracker' is available to use in this file.
 
 WDN.analytics = function() {
-	var initd = {
-		'desktop': false,
-		'mobile': false
-	};
 	return {
 		thisURL : String(window.location), //the current page the user is on.
 		rated : false, // whether the user has rated the current page.
@@ -67,13 +63,11 @@ WDN.analytics = function() {
 				);
 			}
 			
-			if (!initd['desktop'] && !initd['mobile']) {
-				WDN.loadJS(WDN.getTemplateFilePath('scripts/idm.js'), function(){
-					WDN.idm.initialize(function() {
-						WDN.analytics.loadGA(isMobile);
-					});
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/idm.js'), function(){
+				WDN.idm.initialize(function() {
+					WDN.analytics.loadGA(isMobile);
 				});
-			}
+			});
 			
 			//get the links in the selected areas
 			var navLinks = document.getElementById('navigation').getElementsByTagName("a"); //navigation
