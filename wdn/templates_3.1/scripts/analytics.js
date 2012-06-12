@@ -85,6 +85,7 @@ WDN.analytics = function() {
 						//WDN.jQuery(this).addClass('external'); //Implications for doing this?
 						WDN.jQuery(this).click(function() {
 							WDN.analytics.callTrackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
+							WDN.analytics.callTrackPageview(gahref);
 						});
 					}  
 					else if (gahref.match(/^mailto\:/i)){  //deal with mailto: links
