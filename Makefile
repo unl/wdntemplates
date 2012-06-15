@@ -26,9 +26,9 @@ debug:
 less:
 	${COMPRESS} less
 
-zips:
+zips: all
 	@@echo "Making ZIPs"
-	${GIT} archive --format=zip HEAD wdn > downloads/wdn.zip 
+	zip -qr downloads/wdn.zip wdn 
 	@@echo "Done building the wdn.zip file."
 	${GIT} archive --format=zip HEAD Templates sharedcode > downloads/UNLTemplates.zip
 	@@echo "Done building the UNLTemplates.zip file."

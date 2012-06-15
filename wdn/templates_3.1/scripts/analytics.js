@@ -85,6 +85,7 @@ WDN.analytics = function() {
 						//WDN.jQuery(this).addClass('external'); //Implications for doing this?
 						WDN.jQuery(this).click(function() {
 							WDN.analytics.callTrackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
+							WDN.analytics.callTrackPageview(gahref);
 						});
 					}  
 					else if (gahref.match(/^mailto\:/i)){  //deal with mailto: links
@@ -156,7 +157,7 @@ WDN.analytics = function() {
 		
 		trackNavigationPreferredState : function(preferredState) {
 			try {
-				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
+				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL, 0, true);
 			} catch(e){}
 		},
 		
@@ -187,20 +188,23 @@ WDN.analytics = function() {
 			}
 		},
 		
-		callTrackEvent: function(category, action, label, value) {
+		callTrackEvent: function(category, action, label, value, noninteraction) {
 			var widthScript = WDN.getCurrentWidthScript();
 			if (value === undefined) {
 				value = 0;
 			}
+			if (noninteraction === undefined) {
+			    noninteraction = false;
+			}
 			value = Math.floor(value);
 			//var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
-			_gaq.push(['wdn._trackEvent', category, action, label, value]);
+			_gaq.push(['wdn._trackEvent', category, action, label, value, noninteraction]);
 			if (widthScript == '320') {
-				_gaq.push(['m._trackEvent', category, action, label, value]);
+				_gaq.push(['m._trackEvent', category, action, label, value, noninteraction]);
 			}
 			try {
 				if (WDN.analytics.isDefaultTrackerReady()) {
-					var pageSuccess = _gaq.push(['_trackEvent', category, action, label, value]);
+					var pageSuccess = _gaq.push(['_trackEvent', category, action, label, value, noninteraction]);
 					WDN.log("Page Event tracking success? "+pageSuccess);
 				} else {
 					throw "Default Tracker Account Not Set";
