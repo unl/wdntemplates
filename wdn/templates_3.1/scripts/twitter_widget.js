@@ -29,9 +29,16 @@ WDN.twitter_widget = function() {
                     themeColors : { color: '#000000', background: '#a7cee5'},
 		};
 
+		var foo = 'bar';
+		WDN.log('****** ' + foo);// + typeof userConfig + '******');
+
 		if(!userConfig) {
-                    WDN.log('using defaults for twitter_widget...');
+                    WDN.log('*** using defaults for twitter_widget...');
+		} else if(userConfig === 'foo') { //- ctypeof userConfig === 'string') {
+		    WDN.log('*** using twitterAccount = ' + userConfig + ' and defaults...');
+		    config.twitterAccount = userConfig;
 		} else {
+		    WDN.log('*** using userConfig settings...');
                     config.twitterAccount = userConfig.twitterAccount != null ? userConfig.twitterAccount : config.twitterAccount;
 		    config.id = userConfig.id != null ? userConfig.id : config.id;
                     config.rpp = userConfig.rpp != null ? userConfig.rpp : config.rpp;
