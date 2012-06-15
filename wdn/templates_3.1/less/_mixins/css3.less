@@ -141,9 +141,6 @@
 
 // background size
 .background-size(@arguments) when (@arguments = cover), (@arguments = contain) {
-    -moz-background-size: @arguments;
-    -o-background-size: @arguments;
-    -webkit-background-size: @arguments;
     background-size: @arguments; 
 }
 .background-size(@arguments) when not (@arguments = cover) and not (@arguments = contain) {
@@ -151,9 +148,6 @@
 }
 
 .background-size(@x, @y) {
-    -moz-background-size: @x @y;
-    -o-background-size: @x @y;
-    -webkit-background-size: @x @y;
     background-size: @x @y;  
 }
 
