@@ -1,0 +1,32 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/content/twitterbox.less
+*
+* ---------------------------
+* Styles associated with the zenboxes
+* ---------------------------
+*/#maincontent #wdn_twitter_box {
+  color: #000000;
+  background-color: #a7cee5;
+}
+#maincontent #wdn_twitter_box.bright {
+  background-color: #e5dca7;
+}
+#maincontent #wdn_twitter_box.cool {
+  background-color: #a7cee5;
+}
+#maincontent #wdn_twitter_box.energetic {
+  background-color: #e5dca7;
+}
+#maincontent #wdn_twitter_box.neutral {
+  color: #ffffff;
+  background-color: #3c3c3c;
+}
+#maincontent #wdn_twitter_box.primary {
+  color: #ffffff;
+  background-color: #b70302;
+}
+#maincontent #wdn_twitter_box.soothing {
+  background-color: #6fbf4d;
+}
