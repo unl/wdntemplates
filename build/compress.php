@@ -122,7 +122,7 @@ class UNL_WDNTemplates_Compressor
         'content/images',
         'content/mime',
         'content/tabs',
-	'content/twitterbox',
+	'content/twitterbox' => array('ignore' => true),
         'content/pagination' => array('ignore' => true),
         'content/zenbox',
         'content/zentable',

@@ -38,6 +38,7 @@ WDN.twitter_widget = function() {
 	    } else {
 		WDN.log('initializing twitter_widget on element with id = '+config.id+'...');
 	    }
+	    WDN.loadCSS(WDN.getTemplateFilePath('css/content/twitterbox.css'));
 	    //grab theme from div's style rather than configuration
             config.themeColors.color = WDN.jQuery('#'+config.id).css('color');
             config.themeColors.background = WDN.jQuery('#'+config.id).css('background-color');
