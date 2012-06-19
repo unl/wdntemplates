@@ -14,10 +14,6 @@
 // Department variable 'pageTracker' is available to use in this file.
 
 WDN.analytics = function() {
-	var initd = {
-		'desktop': false,
-		'mobile': false
-	};
 	return {
 		thisURL : String(window.location), //the current page the user is on.
 		rated : false, // whether the user has rated the current page.
@@ -67,73 +63,82 @@ WDN.analytics = function() {
 				);
 			}
 			
-			if (!initd['desktop'] && !initd['mobile']) {
-				WDN.loadJS(WDN.getTemplateFilePath('scripts/idm.js'), function(){
-					WDN.idm.initialize(function() {
-						WDN.analytics.loadGA(isMobile);
-					});
+			WDN.loadJS(WDN.getTemplateFilePath('scripts/idm.js'), function(){
+				WDN.idm.initialize(function() {
+					WDN.analytics.loadGA(isMobile);
 				});
-			}
+			});
 			
-			if (!isMobile && !initd['desktop']) {	
-				//TODO: Remove jQuery from the events below
-				
-				filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i; //these are the file extensions to track for downloaded content
-				WDN.jQuery('#navigation a[href], #maincontent a[href]').each(function(){  
-					var gahref = WDN.jQuery(this).attr('href');
-					if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
-						//WDN.jQuery(this).addClass('external'); //Implications for doing this?
-						WDN.jQuery(this).click(function() {
+			//get the links in the selected areas
+			var navLinks = document.getElementById('navigation').getElementsByTagName("a"); //navigation
+			var mainLinks = document.getElementById('maincontent').getElementsByTagName("a"); //maincontent
+			var toolLinks = document.getElementById('wdn_tool_links').getElementsByTagName("a"); //wdn_tools
+			var shareLinks = document.getElementById('wdn_footer_share').getElementsByTagName("a"); //wdn_sharing
+		
+			function evaluate(link, location) {
+			    var gahref = link.getAttribute("href");
+			    //make sure we actually have an href to evaluate
+			    if (!gahref) {
+			        return;
+			    }
+			    if (location === 'main' || location === 'nav'){
+				    filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i; //these are the file extensions to track for downloaded content
+				    if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
+						//WDN.jQuery(this).addClass('external'); //Implications for doing this?						
+						link.onclick = (function() {
 							WDN.analytics.callTrackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
 							WDN.analytics.callTrackPageview(gahref);
 						});
 					}  
 					else if (gahref.match(/^mailto\:/i)){  //deal with mailto: links
-						WDN.jQuery(this).click(function() {  
+						link.onclick = (function() {  
 							var mailLink = gahref.replace(/^mailto\:/i, '');  
 							WDN.analytics.callTrackEvent('Email', mailLink, WDN.analytics.thisURL);
 						});  
 					}  
 					else if (gahref.match(filetypes)){  //deal with file downloads
-						WDN.jQuery(this).click(function() { 
+						link.onclick = (function() { 
 							var extension = (/[.]/.exec(gahref)) ? /[^.]+$/.exec(gahref) : undefined;
 							WDN.analytics.callTrackEvent('File Download', gahref, WDN.analytics.thisURL); 
 							WDN.analytics.callTrackPageview(gahref);
 						});  
-					}  
-				}); 
-				WDN.jQuery('ul.socialmedia a').click(function(){ 
-					var socialMedia = WDN.jQuery(this).parent().attr('id');
-					socialMedia = socialMedia.replace(/wdn_/gi, '');
-					console.log(socialMedia);
-					//WDN.analytics.callTrackEvent('Page Sharing', socialMedia, WDN.analytics.thisURL);
-					_gaq.push(['wdn._trackSocial', socialMedia, 'share']);
-					try {
-						if (WDN.analytics.isDefaultTrackerReady()) {
-							_gaq.push(['_trackSocial', socialMedia, 'share']);
-						} else {
-							throw "Default Tracker Account Not Set";
-						}
-					} catch(e) {
-						WDN.log("Social Media tracking for local site didn't work.");
 					}
-				});
-				WDN.jQuery('#wdn_tool_links a').click(function(){ 
-					var wdnToolLinks = WDN.jQuery(this).text();
-					WDN.analytics.callTrackEvent('WDN Tool Links', wdnToolLinks, WDN.analytics.thisURL);
-				});
-				WDN.jQuery('div.rating div.star a').click(function(){ 
-					if (!WDN.analytics.rated)
-					{
-						WDN.analytics.rated = true;
-						var value = WDN.jQuery(this).text();
-						WDN.analytics.callTrackEvent('Page Rating', 'Rated a '+value, WDN.analytics.thisURL, value);
-					}
-				});
-				
-				initd['desktop'] = true;
-			} else {
-				initd['mobile'] = true;
+				} else if (location === 'tools') {
+				    link.onclick = (function(){
+				        WDN.analytics.callTrackEvent('WDN Tool Links', link.text, WDN.analytics.thisURL);
+				    });
+				    
+				} else if (location === 'share') {
+				    link.onclick = (function(){
+    					var socialMedia = link.parentNode.getAttribute('id');
+    					socialMedia = socialMedia.replace(/wdn_/gi, '');
+    					//WDN.analytics.callTrackEvent('Page Sharing', socialMedia, WDN.analytics.thisURL);
+    					_gaq.push(['wdn._trackSocial', socialMedia, 'share']);
+    					try {
+    						if (WDN.analytics.isDefaultTrackerReady()) {
+    							_gaq.push(['_trackSocial', socialMedia, 'share']);
+    						} else {
+    							throw "Default Tracker Account Not Set";
+    						}
+    					} catch(e) {
+    						WDN.log("Social Media tracking for local site didn't work.");
+    					}
+    				});
+				}
+			}
+			
+			//loop through all the links and pass them to type evaluation
+			for (var i=0; i<navLinks.length; i++) {
+			    evaluate(navLinks[i], 'nav');
+			}
+			for (var j=0; j<mainLinks.length; j++) {
+			    evaluate(mainLinks[j], 'main');
+			}
+			for (var k=0; k<toolLinks.length; k++) {
+			    evaluate(toolLinks[k], 'tools');
+			}
+			for (var m=0; m<shareLinks.length; m++) {
+			    evaluate(shareLinks[m], 'share');
 			}
 		},
 		
