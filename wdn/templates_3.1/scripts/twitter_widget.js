@@ -1,6 +1,5 @@
 /**
  * This plugin can be used to load a twitter widget 
- * see also http://twitter.com/javascripts/widgets/widget.js
  * 
  */
 WDN.twitter_widget = function() {
@@ -34,17 +33,14 @@ WDN.twitter_widget = function() {
 		WDN.twitter_widget.config.twitterAccount = WDN.twitter_widget.userConfig;
 	    } else {
 		WDN.log('using provided userConfig settings for twitter_widget...');
-                WDN.twitter_widget.config.twitterAccount = WDN.twitter_widget.userConfig.twitterAccount != null ? WDN.twitter_widget.userConfig.twitterAccount : WDN.twitter_widget.config.twitterAccount;
-		WDN.twitter_widget.config.rpp = WDN.twitter_widget.userConfig.rpp != null ? WDN.twitter_widget.userConfig.rpp : WDN.twitter_widget.config.rpp;
-                WDN.twitter_widget.config.width = WDN.twitter_widget.userConfig.width != null ? WDN.twitter_widget.userConfig.width : WDN.twitter_widget.config.width;
-                WDN.twitter_widget.config.height = WDN.twitter_widget.userConfig.height != null ? WDN.twitter_widget.userConfig.height : WDN.twitter_widget.config.height;
+		WDN.jQuery.extend( WDN.twitter_widget.config, WDN.twitter_widget.userConfig); 
 	    }
 
 	    if(!WDN.jQuery('#wdn_twitter_box').length) {
                 WDN.log('unable to initialize twitter_widget as wdn_twitter_box element does not exist');
                 return;
 	    }
-	    //grab theme from div's style rather than configuration
+	    //grab theme from div's style
             WDN.twitter_widget.config.themeColors.color = WDN.jQuery('#wdn_twitter_box').css('color');
             WDN.twitter_widget.config.themeColors.background = WDN.jQuery('#wdn_twitter_box').css('background-color');
 	    //but then immediately clear it out so that the twitter widget can handle styling
