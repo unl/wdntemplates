@@ -50,7 +50,7 @@ WDN.feedback = function() {
 						WDN.jQuery('#wdn_feedback_comments').serialize()
 					);
 					WDN.jQuery('#wdn_feedback_comments').hide();
-					WDN.jQuery('#wdn_feedback').append('<h4>Thanks!</h4>');
+					WDN.jQuery('#wdn_footer_feedback').append('<h4>Thanks!</h4>');
 					event.stopPropagation();
 					return false;
 				}
