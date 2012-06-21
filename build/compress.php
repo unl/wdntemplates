@@ -124,6 +124,7 @@ class UNL_WDNTemplates_Compressor
         'content/tabs',
 	'content/twitterbox' => array('ignore' => true),
         'content/pagination' => array('ignore' => true),
+        'content/rsswidget' => array('ignore' => true),
         'content/zenbox',
         'content/zentable',
         'footer/footer',
