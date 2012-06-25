@@ -1,0 +1,46 @@
+<p>You can include an RSS Feed widget anywhere in the main content area of your
+  page by including an empty div element with the id 'wdn_rss_widget':</p>
+
+<div id="wdn_rss_widget" class="zenbox primary"></div>
+
+<p>and including the plugin initialization (which will include the "UNL In The News"
+  RSS news feed):</p>
+
+<script type="text/javascript">
+WDN.initializePlugin('rss_widget');
+</script>
+
+<p>Alternatively, you could load the RSS widget with your own RSS feed:</p>
+
+<code>
+WDN.initializePlugin('rss_widget', 'http://newsroom.unl.edu/announce/cse?format=xml');
+</code>
+
+<p>You can also customize a few things by providing a JavaScript object like
+  this:</p>
+<code>
+WDN.initializePlugin('rss_widget', { url: 'http://newsroom.unl.edu/announce/cse?format=xml',
+                                     pause: 8000,
+                                     limit: 10,
+                                     num_show: 3});
+</code>
+
+<p>Where each attribute is as follows:</p>
+<ul>
+  <li>url - the URL of the RSS feed (defaults to "UNL In The News")</li>
+  <li>pause - the amount of time between news item cycles (in milliseconds,
+    defaults to 5000 = 5 seconds)</li>
+  <li>limit - the maximum number of items to pull from the RSS feed (defaults
+    to 10)</li>
+  <li>The number of items to display at one time (defaults to 3)</li>
+</ul>
+
+<p>Further, you can stylize your rss widget with some colors by making it a
+  zenbox and providing a specific subclass:</p>
+<code>
+&lt;div id="wdn_rss_widget" class="zenbox primary"&gt;&lt;/div&gt;
+</code>
+<p>Possible options for the subclasses: bright, cool, energetic, neutral, primary,
+  soothing (see the zenbox documentation for the colors these themes correspond
+  to).</p>
+
