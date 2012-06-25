@@ -5,8 +5,8 @@
 WDN.mediaelement_wdn = function() {
 	return {
 		initialize : function(callback) {
-			var min = '';
-			if (!WDN.jQuery('body').hasClass('debug')) {
+			var min = '', body = document.getElementsByTagName('body');
+			if (!body.length || !body[0].className.match(/(^|\s)debug(\s|$)/)) {
 				min = '.min';
 			}
 			
