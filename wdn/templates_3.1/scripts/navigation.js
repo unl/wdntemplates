@@ -112,8 +112,9 @@ WDN.navigation = (function() {
             WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/hoverIntent/jQuery.hoverIntent.min.js'), function() {
                 WDN.jQuery('#breadcrumbs ul li a').hoverIntent({
                     over:        WDN.navigation.switchSiteNavigation,
-                    out:         WDN.jQuery.noop,
-                    timeout:     WDN.navigation.changeSiteNavDelay,
+                    out:         function() {
+                    	WDN.jQuery('#navigation > ul > li').removeClass('highlight');
+                    },
                     sensitivity: 1, // Mouse must not move
                     interval:    120
                 });
