@@ -1,0 +1,16 @@
+Changes made to mediaelement-and-player.js
+
+* wrap the entire thing in an anonymous function to use WDN.jQuery
+    var mejs = mejs || {};
+    (function(mejs, jQuery) {
+    //code
+    })(mejs, WDN.jQuery);
+
+* converted height/width float to int
+
+    See: https://github.com/johndyer/mediaelement/commit/99c372549aa3b314ab312927a4f9db2485494b04#src/js/mep-player.js-P74
+
+    // START UNL CHANGE: all browsers appear to need this
+    t.width = parseInt(width, 10);
+    t.height = parseInt(height, 10);
+    // END UNL CHANGE
