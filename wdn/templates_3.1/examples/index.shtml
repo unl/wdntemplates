@@ -160,8 +160,10 @@ WDN.loadJQuery(function() {
                         <li><a href="layouts.html">Page Layouts</a></li>
                         <li><a href="pagination.html">Pagination</a> (<a href="http://www1.unl.edu/wdn/wiki/Pagination" class="external">wiki documentation</a>)</li>
                         <li><a href="randomizer.html">Randomizer</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Random_Div_Display" class="external">wiki documentation</a>)</li>
+                        <li><a href="rss_widget.html">RSS Feed Widget</a></li>
                         <li><a href="tabs.html">Tabs</a> (<a href="http://www1.unl.edu/wdn/wiki/Tabbed_Content_Areas" class="external">wiki documentation</a>)</li>
                         <li><a href="tooltips.html">Tooltips</a></li>
+			<li><a href="twitter_widget.html">Twitter Widget</a></li>
                         <li><a href="videoplayer.html">Video player</a> (mediahub.unl.edu)</li>
                         <li><a href="zenboxes.html">Zenboxes</a> (<a href="http://www1.unl.edu/wdn/wiki/Zenbox" class="external">wiki documentation</a>)</li>
                         <li><a href="zenforms.html">Zenforms</a> (<a href="http://www1.unl.edu/wdn/wiki/Zenform" class="external">wiki documentation</a>)</li>

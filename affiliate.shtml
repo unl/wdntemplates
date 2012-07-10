@@ -27,7 +27,7 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<link rel="stylesheet" type="text/css" media="screen" href="sharedcode/affiliate.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="sharedcode/affiliate/css/affiliate.css" />
 <link href="sharedcode/affiliate_imgs/favicon.ico" rel="shortcut icon" />
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed" -->
