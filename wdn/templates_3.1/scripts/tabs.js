@@ -35,6 +35,10 @@ WDN.tabs = (function() {
 		initialize : function() {
 			WDN.log ("tabs JS loaded");
 			
+			if (WDN.getPluginParam('tabs', 'useHashChange') === false) {
+				WDN.tabs.useHashChange = false;
+			}
+			
 			// Set up the event for when a tab is clicked
 			var hashFromTabClick = false,
 				$tabsWithSwitch = WDN.jQuery('ul.wdn_tabs').not('.disableSwitching');
@@ -182,6 +186,7 @@ WDN.tabs = (function() {
 				var trig = WDN.jQuery('ul.wdn_tabs li a[href$='+jq(hash)+']');
 				if (trig.length) {
 					WDN.tabs.updateInterface(trig.first());
+					trig.get(0).scrollIntoView();
 				}
 			}
 		}
