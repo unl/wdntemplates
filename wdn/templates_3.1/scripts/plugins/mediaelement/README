@@ -6,11 +6,8 @@ Changes made to mediaelement-and-player.js
     //code
     })(mejs, WDN.jQuery);
 
-* converted height/width float to int
+* add some css for IE8 to css/mediaelementplayer.css and css/mediaelementplayer.min.css
 
-    See: https://github.com/johndyer/mediaelement/commit/99c372549aa3b314ab312927a4f9db2485494b04#src/js/mep-player.js-P74
-
-    // START UNL CHANGE: all browsers appear to need this
-    t.width = parseInt(width, 10);
-    t.height = parseInt(height, 10);
-    // END UNL CHANGE
+    .ie8 .me-plugin {
+         width: 100%;
+    }
