@@ -246,6 +246,7 @@ var WDN = (function() {
 						WDN.initializePlugin('toolbar');
 						WDN.initializePlugin('tabs');
 						WDN.browserAdjustments();
+						WDN.loadJS("http://ucommchat.unl.edu/js/chat.php?version=3.1");
 					}, debug);
 					WDN.initializePlugin('unlalert');
 				}
