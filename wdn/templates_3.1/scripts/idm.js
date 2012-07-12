@@ -153,7 +153,11 @@ WDN.idm = function() {
 			} else {
 				planetred_uid = 'unl_' + uid;
 			}
-			document.getElementById('wdn_idm_userurl').setAttribute('href', 'http://planetred.unl.edu/pg/profile/'+planetred_uid);
+			var user_profiles = document.getElementsByClassName('wdn_idm_user_profile');
+			
+			for (var j = 0; j < user_profiles.length; j++) {
+			    user_profiles[j].setAttribute('href', 'http://planetred.unl.edu/pg/profile/'+planetred_uid);
+			}
 			document.getElementById('wdn_idm_userpic').setAttribute('src', '//planetred.unl.edu/pg/icon/'+planetred_uid+'/topbar/');
 			var username = document.getElementById('wdn_idm_username');
 			while (username.firstChild) {
