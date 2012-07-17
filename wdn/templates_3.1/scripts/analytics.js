@@ -102,7 +102,7 @@ WDN.analytics = function() {
 						});  
 					}  
 				}); 
-				WDN.jQuery('ul.socialmedia a').click(function(){ 
+				WDN.jQuery('.socialmedia .outpost a').click(function(){ 
 					var socialMedia = WDN.jQuery(this).parent().attr('id');
 					socialMedia = socialMedia.replace(/wdn_/gi, '');
 					console.log(socialMedia);
