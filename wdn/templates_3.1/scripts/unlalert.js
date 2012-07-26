@@ -187,8 +187,7 @@ WDN.unlalert = (function() {
 				}
 				alertContentHTML += '<p>' + root[i].description + ' ' + root[i].instruction + ' <!-- ID '+uniqueID+' -->';
 				
-				//Not as important to post
-				//alertContentHTML += 'Additional info (if available) at <a href="' + web + '">' + web + '</a></p>';
+				alertContentHTML += '<span id="info">' + 'Additional info (if available) at <a href="' + web + '">' + web + '</a></span></p>';
 				
 				$alertContent.innerHTML += alertContentHTML;
 			}

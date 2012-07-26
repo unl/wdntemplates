@@ -50,17 +50,36 @@
     display: none;
     color: white;
     margin: 0 auto;
+    line-height: 115%;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);
     
     h1 span {
         color: #752E0D;
         text-shadow: 1px -1px 1px rgba(255, 255, 255, 0.3);
+        font-weight: bold;
+        font-size: 0.9em;
     }
     a {
         color: #FFFFFF;
     }
     p {
         font-size: .85em;
+    }
+    #info {
+        display: block;
+        color: #752E0D;
+        font-size: 0.9em;
+        text-shadow: 1px -1px 1px rgba(255, 255, 255, 0.3);
+        
+        a {
+            color: #752E0D;
+            text-shadow: 1px -1px 1px rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }
 
@@ -82,7 +101,7 @@
     border-radius: 0 0 6px 6px;
     
     &.close {
-        top: 4px;
+        top: 12px;
         font-size: 1.2em;
         background-color: #000000;
         border: 2px solid #FFFFFF;
@@ -93,7 +112,7 @@
 @media (min-width: 320px) {
     #unlalert_content {
         width: 88%;
-        padding: 2px 40px 5px; //Just add padding to sides
+        padding-left: 40px;
     }
 }
 @media (min-width: 480px) {
@@ -111,6 +130,6 @@
 @media (min-width: 1040px) {
     #unlalert_content {
         width: 984px; // Same size as wdn_wrapper
-        padding: 2px 0 5px;
+        padding: 2px 0;
     }
 }
