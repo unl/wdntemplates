@@ -1,5 +1,10 @@
 <?php
 
+if (function_exists('mb_internal_encoding')) {
+    // If available, use it!
+    mb_internal_encoding('UTF-8');
+}
+
 require_once 'lib/php/Zend/Exception.php';
 require_once 'lib/php/Zend/Console/Getopt.php';
 require_once 'lib/php/Zend/Console/Getopt/Exception.php';
