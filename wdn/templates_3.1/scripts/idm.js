@@ -191,8 +191,16 @@ WDN.idm = function() {
 		 * Add user details to the comment form
 		 */
 		updateCommentForm : function () {
-			var commentName  = document.getElementById('wdn_comment_name'),
-				commentEmail = document.getElementById('wdn_comment_email');
+			//Determine which comment form we are using. (WDN or the new Chat System).
+			if (document.getElementById('wdn_feedback_comments') != null) {
+				//WDN form
+				var commentName  = document.getElementById('wdn_comment_name'),
+					commentEmail = document.getElementById('wdn_comment_email');
+			}else {
+				//UNL Chat System
+				var commentName  = document.getElementById('visitorChat_name'),
+					commentEmail = document.getElementById('visitorChat_email');
+			}
 		    
 			commentName.value = WDN.idm.displayName();
 		    if (WDN.idm.user.mail) {
