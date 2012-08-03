@@ -46,6 +46,8 @@
 		return result;
 	};
 	
+	var Validator, Validation;
+	
 	Validator = function(className, error, test, options) {
 		if (typeof test == 'function') {
 			this.options = options;
