@@ -76,7 +76,7 @@ WDN.analytics = function() {
 			var shareLinks = document.getElementById('wdn_footer_share').getElementsByTagName("a"); //wdn_sharing
 		
 			function evaluate(link, location) {
-			    var gahref = link.getAttribute("href");
+			    var gahref = link.getAttribute("href"), origOnClick = link.onclick;
 			    //make sure we actually have an href to evaluate
 			    if (!gahref) {
 			        return;
@@ -87,24 +87,36 @@ WDN.analytics = function() {
 						//WDN.jQuery(this).addClass('external'); //Implications for doing this?						
 						link.onclick = (function() {
 							WDN.analytics.callTrackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
+            				if (origOnClick != null && !origOnClick()) {
+            				    WDN.log('performing original onlick now');
+            				}
 						});
 					}  
 					else if (gahref.match(/^mailto\:/i)){  //deal with mailto: links
 						link.onclick = (function() {  
 							var mailLink = gahref.replace(/^mailto\:/i, '');  
 							WDN.analytics.callTrackEvent('Email', mailLink, WDN.analytics.thisURL);
+            				if (origOnClick != null && !origOnClick()) {
+            				    WDN.log('performing original onlick now');
+            				}
 						});  
 					}  
 					else if (gahref.match(filetypes)){  //deal with file downloads
-						link.onclick = (function() { 
+						link.onclick = (function() {
 							var extension = (/[.]/.exec(gahref)) ? /[^.]+$/.exec(gahref) : undefined;
 							WDN.analytics.callTrackEvent('File Download', gahref, WDN.analytics.thisURL); 
 							WDN.analytics.callTrackPageview(gahref);
+        				if (origOnClick != null && !origOnClick()) {
+        				    WDN.log('performing original onlick now');
+        				}
 						});  
 					}
 				} else if (location === 'tools') {
 				    link.onclick = (function(){
 				        WDN.analytics.callTrackEvent('WDN Tool Links', link.text, WDN.analytics.thisURL);
+        				if (origOnClick != null && !origOnClick()) {
+        				    WDN.log('performing original onlick now');
+        				}
 				    });
 				    
 				} else if (location === 'share') {
@@ -122,6 +134,9 @@ WDN.analytics = function() {
     					} catch(e) {
     						WDN.log("Social Media tracking for local site didn't work.");
     					}
+        				if (origOnClick != null && !origOnClick()) {
+        				    WDN.log('performing original onlick now');
+        				}
     				});
 				}
 			}
