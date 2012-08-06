@@ -12,7 +12,9 @@ var WDN = (function() {
 		readyList,
 		_head = document.head || document.getElementsByTagName('head')[0],
 		_docEl = document.documentElement,
+		_oldWidthScript,
 		_currentWidthScript,
+		_currentWidthBreakpoint,
 		_initd = false,
 		_sanitizeTemplateUrl = function(url) {
 			var reTemplateUrl = new RegExp('^/?' + WDN.dependent_path.replace('.', '\\.'));
@@ -173,6 +175,56 @@ var WDN = (function() {
 			return _currentWidthScript;
 		},
 		
+		setCurrentWidths: function(callback) {
+		    _oldWidthScript = _currentWidthScript;
+		    var getMediaQueryWidth = function() {
+				// test for false positive
+				if (Modernizr.mq('only screen and (min-width: 512000px)')) {
+					var offsetWidth = _docEl.offsetWidth;
+					switch (true) {
+						case offsetWidth >= 768:
+							return '768';
+						default:
+							return '320';
+					}
+				}
+			
+				switch (true) {
+					case Modernizr.mq('only screen and (min-width: 1040px)'):
+					    return '1040';
+					case Modernizr.mq('only screen and (min-width: 960px)'):
+					    return '960';
+					case Modernizr.mq('only screen and (min-width: 768px)'):
+						return '768';
+					case Modernizr.mq('only screen and (min-width: 600px)'):
+					    return '600';
+					case Modernizr.mq('only screen and (min-width: 480px)'):
+					    return '480';
+					default:
+						return '320';
+				}
+			}
+			if (WDN.hasDocumentClass('mediaqueries')) {
+			    if (getMediaQueryWidth() >= 768) {
+			        _currentWidthScript = '768';
+			    } else {
+			        _currentWidthScript = '320';   
+			    }
+			    _currentWidthBreakpoint = getMediaQueryWidth();
+			} else {
+				// default to the desktop presentation
+				_currentWidthScript = '768';
+				_currentWidthBreakpoint = '960';
+			}
+			if(callback) {
+			    callback();
+			}
+		},
+		
+		getCurrentWidthBreakpoint: function() {
+		    return _currentWidthBreakpoint;
+		},
+		
 		ready: function(fn) {
 			if (WDN.jQuery) {
 				WDN.jQuery(fn);
@@ -253,109 +305,87 @@ var WDN = (function() {
 			};
 			
 			WDN.loadJS(WDN.getTemplateFilePath('scripts/modernizr-wdn.js'), function() {
-				var resizeTimeout, onResizeReady, onResize, widthScript,
-					getMediaQueryWidth = function() {
-						// test for false positive
-						if (Modernizr.mq('only screen and (min-width: 512000px)')) {
-							var offsetWidth = _docEl.offsetWidth;
-							switch (true) {
-								case offsetWidth >= 768:
-									return '768';
-								default:
-									return '320';
-							}
-						}
-					
-						switch (true) {
-							case Modernizr.mq('only screen and (min-width: 768px)'):
-								return '768';
-							default:
-								return '320';
-						}
-					};
+				var resizeTimeout, onResizeReady, onResize, widthScript;
 				
-				if (WDN.hasDocumentClass('mediaqueries')) {
-					_currentWidthScript = getMediaQueryWidth();
-				} else {
-					// default to the desktop presen
-					_currentWidthScript = '768';
-				}
-				
-				if (debug) {
-					initFunctions[_currentWidthScript]();
-				} else {
-					widthScript = WDN.getTemplateFilePath('scripts/compressed/' + _currentWidthScript + '.js');
-					
-					if (WDN.hasDocumentClass('wdn-async')) {
-						WDN.loadJS(widthScript, initFunctions[_currentWidthScript]);
-					} else {
-						var xhr;
-						if (window.ActiveXObject) {
-							xhr = new ActiveXObject("Microsoft.XMLHTTP");
-						} else if (window.XMLHttpRequest) {
-							xhr = new XMLHttpRequest();
-						}
-						
-						if (xhr) {
-							xhr.open("GET", WDN.template_path + widthScript, false);
-							xhr.send(null);
-							if (/\S/.test(xhr.responseText)) {
-								(window.execScript || function(data) {
-									window["eval"].call(window, data);
-								})(xhr.responseText);
-								initFunctions[_currentWidthScript]();
-							}
-						} else {
-							WDN.INIT = function() {
-								initFunctions[_currentWidthScript]();
-								delete WDN.INIT;
-							};
-							document.write('<script type="text/javascript" src="' + WDN.template_path + widthScript + '"></script>');
-							document.write('<script type="text/javascript">WDN.INIT();</script>');
-						}
-					}
-				}
+				WDN.setCurrentWidths(function(){
+    				if (debug) {
+    					initFunctions[_currentWidthScript]();
+    				} else {
+    					widthScript = WDN.getTemplateFilePath('scripts/compressed/' + _currentWidthScript + '.js');
+    					
+    					if (WDN.hasDocumentClass('wdn-async')) {
+    						WDN.loadJS(widthScript, initFunctions[_currentWidthScript]);
+    					} else {
+    						var xhr;
+    						if (window.ActiveXObject) {
+    							xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    						} else if (window.XMLHttpRequest) {
+    							xhr = new XMLHttpRequest();
+    						}
+    						
+    						if (xhr) {
+    							xhr.open("GET", WDN.template_path + widthScript, false);
+    							xhr.send(null);
+    							if (/\S/.test(xhr.responseText)) {
+    								(window.execScript || function(data) {
+    									window["eval"].call(window, data);
+    								})(xhr.responseText);
+    								initFunctions[_currentWidthScript]();
+    							}
+    						} else {
+    							WDN.INIT = function() {
+    								initFunctions[_currentWidthScript]();
+    								delete WDN.INIT;
+    							};
+    							document.write('<script type="text/javascript" src="' + WDN.template_path + widthScript + '"></script>');
+    							document.write('<script type="text/javascript">WDN.INIT();</script>');
+    						}
+    					}
+    				}
+				});
 				
 				if (WDN.hasDocumentClass('mediaqueries')) {
 					onResizeReady = function() {
-						var oldWidthScript = _currentWidthScript,
-							newWidthScript = getMediaQueryWidth();
-						if (oldWidthScript != newWidthScript) {
-							_currentWidthScript = newWidthScript;
-							WDN.log('Min-width breakpoint changed from ' + oldWidthScript + ' to ' + newWidthScript);
-							// Register new plugins and call WDN functions as needed
-							switch (newWidthScript) {
-								case '768':
-									WDN.loadJQuery(function() {
-										for (var i in loadedPlugins) {
-											if (i in WDN && 'onResize' in WDN[i]) {
-												WDN[i].onResize(oldWidthScript, newWidthScript);
-											}
-										}
-										WDN.initializePlugin('feedback');
-										WDN.initializePlugin('socialmediashare');
-										WDN.contentAdjustments();
-										WDN.initializePlugin('tooltip');
-										WDN.initializePlugin('toolbar');
-										WDN.initializePlugin('tabs');
-									}, debug);
-									break;
-								case '320':
-									// nothing new
-									for (var i in loadedPlugins) {
-										if (i in WDN && 'onResize' in WDN[i]) {
-											WDN[i].onResize(oldWidthScript, newWidthScript);
-										}
-									}
-									break;
-							}
-						} else {
-							for (var i in loadedPlugins) {
-								if (i in WDN && 'onResize' in WDN[i]) {
-									WDN[i].onResize();
-								}
-							}
-						}
+					    WDN.setCurrentWidths(function(){
+    						var oldWidthScript = _oldWidthScript,
+    							newWidthScript = WDN.getCurrentWidthScript();
+    						if (oldWidthScript != newWidthScript) {
+    							_currentWidthScript = newWidthScript;
+    							WDN.log('Min-width breakpoint changed from ' + oldWidthScript + ' to ' + newWidthScript);
+    							// Register new plugins and call WDN functions as needed
+    							switch (newWidthScript) {
+    								case '768':
+    									WDN.loadJQuery(function() {
+    										for (var i in loadedPlugins) {
+    											if (i in WDN && 'onResize' in WDN[i]) {
+    												WDN[i].onResize(oldWidthScript, newWidthScript);
+    											}
+    										}
+    										WDN.initializePlugin('feedback');
+    										WDN.initializePlugin('socialmediashare');
+    										WDN.contentAdjustments();
+    										WDN.initializePlugin('tooltip');
+    										WDN.initializePlugin('toolbar');
+    										WDN.initializePlugin('tabs');
+    									}, debug);
+    									break;
+    								case '320':
+    									// nothing new
+    									for (var i in loadedPlugins) {
+    										if (i in WDN && 'onResize' in WDN[i]) {
+    											WDN[i].onResize(oldWidthScript, newWidthScript);
+    										}
+    									}
+    									break;
+    							}
+    						} else {
+    							for (var i in loadedPlugins) {
+    								if (i in WDN && 'onResize' in WDN[i]) {
+    									WDN[i].onResize();
+    								}
+    							}
+    						}
+						});
 					};
 					onResize = function() {
 						if (resizeTimeout) {
