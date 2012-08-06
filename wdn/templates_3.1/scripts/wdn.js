@@ -13,6 +13,7 @@ var WDN = (function() {
 		_head = document.head || document.getElementsByTagName('head')[0],
 		_docEl = document.documentElement,
 		_oldWidthScript,
+		_oldWidthBreakpoint,
 		_currentWidthScript,
 		_currentWidthBreakpoint,
 		_initd = false,
@@ -177,6 +178,7 @@ var WDN = (function() {
 		
 		setCurrentWidths: function(callback) {
 		    _oldWidthScript = _currentWidthScript;
+		    _oldWidthBreakpoint = _currentWidthBreakpoint;
 		    var getMediaQueryWidth = function() {
 				// test for false positive
 				if (Modernizr.mq('only screen and (min-width: 512000px)')) {
@@ -283,6 +285,7 @@ var WDN = (function() {
 						WDN.initializePlugin('search');
 						WDN.browserAdjustments();
 						WDN.initializePlugin('unlalert');
+						WDN.initializePlugin('images');
 					});
 				},
 				"768": function() {
@@ -301,6 +304,7 @@ var WDN = (function() {
                         WDN.initializePlugin('chat');
 					}, debug);
 					WDN.initializePlugin('unlalert');
+					WDN.initializePlugin('images');
 				}
 			};
 			
@@ -347,18 +351,22 @@ var WDN = (function() {
 				if (WDN.hasDocumentClass('mediaqueries')) {
 					onResizeReady = function() {
 					    WDN.setCurrentWidths(function(){
+					        // Update current widths and retain old to compare
     						var oldWidthScript = _oldWidthScript,
+		                        oldWidthBreakpoint = _oldWidthBreakpoint;
     							newWidthScript = WDN.getCurrentWidthScript();
+    							newWidthBreakpoint = WDN.getCurrentWidthBreakpoint();
     						if (oldWidthScript != newWidthScript) {
     							_currentWidthScript = newWidthScript;
-    							WDN.log('Min-width breakpoint changed from ' + oldWidthScript + ' to ' + newWidthScript);
+    							WDN.log('Min-width breakpoint for scripts changed from ' + oldWidthScript + ' to ' + newWidthScript);
+    							WDN.log('Min-width breakpoint changed from ' + oldWidthBreakpoint + ' to ' + newWidthBreakpoint);
     							// Register new plugins and call WDN functions as needed
     							switch (newWidthScript) {
     								case '768':
     									WDN.loadJQuery(function() {
     										for (var i in loadedPlugins) {
     											if (i in WDN && 'onResize' in WDN[i]) {
-    												WDN[i].onResize(oldWidthScript, newWidthScript);
+    												WDN[i].onResize(oldWidthScript, newWidthScript, oldWidthBreakpoint, newWidthBreakpoint);
     											}
     										}
     										WDN.initializePlugin('feedback');
@@ -373,7 +381,7 @@ var WDN = (function() {
     									// nothing new
     									for (var i in loadedPlugins) {
     										if (i in WDN && 'onResize' in WDN[i]) {
-    											WDN[i].onResize(oldWidthScript, newWidthScript);
+    											WDN[i].onResize(oldWidthScript, newWidthScript, oldWidthBreakpoint, newWidthBreakpoint);
     										}
     									}
     									break;
@@ -381,7 +389,7 @@ var WDN = (function() {
     						} else {
     							for (var i in loadedPlugins) {
     								if (i in WDN && 'onResize' in WDN[i]) {
-    									WDN[i].onResize();
+    									WDN[i].onResize(oldWidthScript, newWidthScript, oldWidthBreakpoint, newWidthBreakpoint);
     								}
     							}
     						}
