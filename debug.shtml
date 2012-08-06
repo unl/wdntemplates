@@ -85,7 +85,7 @@
                 <!-- InstanceBeginEditable name="maincontentarea" -->
                     <h2>Link Testing</h2>
                     <p><a href="http://www.google.com/">This is an outgoing link</a>.</p>
-                    <p><a href="myfile.pdf">This is a file download link</a>.</p>
+                    <p><a href="myfile.pdf" onclick="alert ('yes');">This is a file download link</a>.</p>
                     <p><a href="mailto:bob@unl.edu">This is an email link</a>.</p>
                     <p><a href="">This is a null href</a>.</p>
                     <p><a href="fixed.shtml">This is a local file</a>.</p>
