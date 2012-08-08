@@ -151,6 +151,15 @@
     background-size: @x @y;  
 }
 
+// background origin
+.background-origin(@x, @y) {
+    -webkit-transform-origin: @arguments;
+    -moz-transform-origin: @arguments;
+    -ms-transform-origin: @arguments;
+    -o-transform-origin: @arguments;
+    transform-origin: @arguments;
+}
+
 //transitions
 .transition(@none)
 {
