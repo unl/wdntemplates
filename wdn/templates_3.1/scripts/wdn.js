@@ -246,6 +246,7 @@ var WDN = (function() {
 						WDN.initializePlugin('toolbar');
 						WDN.initializePlugin('tabs');
 						WDN.browserAdjustments();
+                        WDN.initializePlugin('chat');
 					}, debug);
 					WDN.initializePlugin('unlalert');
 				}
@@ -407,6 +408,37 @@ var WDN = (function() {
 			if ("console" in window && "log" in console) {
 				console.log(data);
 			}
+		},
+
+		getHTMLVersion:function () {
+			var version_html = document.body.getAttribute("data-version");
+			
+			// Set the defaults
+			if (version_html == '$HTML_VERSION$') {
+				version_html = '3.DEV';
+			}
+			if (!version_html) {
+				version_html = '3.0';
+			}
+			
+			return version_html;
+		},
+
+		getDepVersion:function () {
+			var version_dep = document.getElementById("wdn_dependents").getAttribute("src");
+			
+			if (/\?dep=\$DEP_VERSION\$/.test(version_dep)) {
+				version_dep = '3.1.DEV';
+			} else {
+				var version_match = version_dep.match(/\?dep=(\d+(?:\.\d+)*)/);
+				if (version_match) {
+					version_dep = version_match[1];
+				} else {
+					version_dep = '3.0';
+				}
+			}
+			
+			return version_dep;
 		},
 
 		browserAdjustments: function () {

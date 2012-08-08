@@ -1,5 +1,10 @@
 <?php
 
+if (function_exists('mb_internal_encoding')) {
+    // If available, use it!
+    mb_internal_encoding('UTF-8');
+}
+
 require_once 'lib/php/Zend/Exception.php';
 require_once 'lib/php/Zend/Console/Getopt.php';
 require_once 'lib/php/Zend/Console/Getopt/Exception.php';
@@ -84,6 +89,7 @@ class UNL_WDNTemplates_Compressor
             'socialmediashare',
             'toolbar',
             'tabs',
+            'chat',
         )
     );
 
@@ -122,7 +128,7 @@ class UNL_WDNTemplates_Compressor
         'content/images',
         'content/mime',
         'content/tabs',
-	'content/twitterbox' => array('ignore' => true),
+        'content/twitterbox' => array('ignore' => true),
         'content/pagination' => array('ignore' => true),
         'content/rsswidget' => array('ignore' => true),
         'content/zenbox',
