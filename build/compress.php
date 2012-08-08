@@ -89,6 +89,7 @@ class UNL_WDNTemplates_Compressor
             'socialmediashare',
             'toolbar',
             'tabs',
+            'chat',
         )
     );
 
