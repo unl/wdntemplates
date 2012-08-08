@@ -1,7 +1,7 @@
 /*
 *
 * !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
-* less/foundation/gloabl.less
+* less/foundation/global.less
 *
 * ---------------------------
 * Styles associated with the global elements of the design
@@ -10,4 +10,14 @@
 @import "../_mixins/all.less";
 .hidden, .wdn_list_descriptor {
     display: none;
+}
+
+/* HOORAY FOR DOCUMENT MODE!!! */
+body.document #navigation,
+body.document #footer .footer_col,
+body.document #wdn_tool_links {
+    display:none;
+}
+body.document #wdn_copyright {
+    margin-top:8px;
 }
