@@ -392,7 +392,7 @@ var WDN = (function() {
 				}
 				// Load our required AJAX plugin
 				WDN.loadJS(WDN.getTemplateFilePath('scripts/wdn_ajax.js'), function() {
-					WDN.jQuery(document).ready(function() {
+					WDN.jQuery(function() {
 						callback();
 					});
 				});
@@ -474,7 +474,7 @@ var WDN = (function() {
 			}
 			
 			if (_currentWidthScript == '320') {
-				body.className = 'mobile' + body.className.replace(/fixed|mobile/, '');
+				body.className = 'mobile ' + body.className.replace(/fixed|mobile/, '');
 				
 				//scroll to the top of content for devices which have the address bar available at top.
 				if (window.pageYOffset < 1) {
