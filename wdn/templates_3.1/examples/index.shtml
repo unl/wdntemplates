@@ -21,7 +21,7 @@
     
     $Id: fixed.dwt | ea2608181e2b6604db76106fd982b39218ddcb8b | Fri Mar 9 12:20:43 2012 -0600 | Kevin Abel  $
 -->
-<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles.html" -->
+<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles_local.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>WDN Template Examples | UNL</title>
 <!-- InstanceEndEditable -->
@@ -98,6 +98,22 @@ WDN.loadJQuery(function() {
     border-width: 1px 0;
     text-align:center;
 }
+
+#example.jqueryui #sortable li,
+#example.jqueryui #selectable li {
+    margin: 0 3px 3px 3px; 
+    padding: 0.4em; 
+    padding-left: 1.5em; 
+    font-size: 1.4em; 
+    height: 18px;
+}
+#example.jqueryui #sortable li span { position: absolute; margin-left: -1.3em; }
+#example.jqueryui #selectable li { padding-left:0.4em }
+
+#example.jqueryui .ui-selecting { background: #FFFAEB; }
+#example.jqueryui .ui-selected { background: #F2EDDE; }
+
+.ui-effects-transfer { border: 2px dotted gray; } 
 </style>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed" -->
@@ -156,6 +172,7 @@ WDN.loadJQuery(function() {
                         <li><a href="headers.html">Header Styles</a></li>
                         <li><a href="idm.html">Identity Management/Single Sign On</a></li>
                         <li><a href="image.html">Image Style and Caption</a></li>
+                        <li><a href="jqueryui.html">jQuery UI elements/effects</a></li>
                         <li><a href="notice.html">Notice</a></li>
                         <li><a href="layouts.html">Page Layouts</a></li>
                         <li><a href="pagination.html">Pagination</a> (<a href="http://www1.unl.edu/wdn/wiki/Pagination" class="external">wiki documentation</a>)</li>
