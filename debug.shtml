@@ -83,52 +83,10 @@
             <div id="maincontent" role="main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                  <h2 class="sec_header">New, Supported Grid System</h2>
-                  <div class="grid1 first"> grid1 </div>
-                  <div class="grid11"> grid11 </div>
-                  <div class="grid2 first"> grid2 </div>
-                  <div class="grid10"> grid10 </div>
-                  <div class="grid3 first"> grid3 </div>
-                  <div class="grid9"> grid9 </div>
-                  <div class="grid4 first"> grid4 </div>
-                  <div class="grid8"> grid8 </div>
-                  <div class="grid4 first"> grid4 </div>
-                  <div class="grid4"> grid4 </div>
-                  <div class="grid4"> grid4 </div>
-                  <div class="grid5 first"> grid5 </div>
-                  <div class="grid7"> grid7 </div>
-                  <div class="grid6 first"> grid6 </div>
-                  <div class="grid6"> grid6 </div>
-                  <div class="grid3 first"> grid3 </div>
-                  <div class="grid3"> grid3 </div>
-                  <div class="grid1"> grid1 </div>
-                  <div class="grid5"> grid5 </div>
-                  <h3 class="sec_header">Heading 3</h3>
-                  <h4 class="sec_header">Heading 4</h4>
-                  <h5 class="sec_header">Heading 5</h5>
-                  <h6 class="sec_header">Heading 6</h6>
-                  <div class="grid1 first"> grid1 </div>
-                  <div class="grid5"> grid5 </div>
-                  <div class="grid3"> grid3 </div>
-                  <div class="grid3"> grid3 </div>
-                  <div class="grid3 first"> 3 </div>
-                  <div class="grid9">
-                    <div class="grid3 first">3</div>
-                    <div class="grid3">3</div>
-                    <div class="grid3">3</div>
-                    <div class="grid5 first">5</div>
-                    <div class="grid2">2</div>
-                    <div class="grid2">2</div>
-                  </div>
-                  <div class="grid8 first">
-                    <div class="grid3 first">3</div>
-                    <div class="grid3">3</div>
-                    <div class="grid2">2</div>
-                    <div class="grid1 first">1</div>
-                    <div class="grid1">1</div>
-                    <div class="grid6">6</div>
-                  </div>
-                  <div class="grid4"> 4 </div>
+                  <h2 class="sec_header">Image manipulation test</h2>
+                  <p>In mobile-first, we're going to use a small image and then swap out as we get larger. For this to work, we'll need the let the browser know which images to attempt.</p>
+                  <p>The original image is the smallest file, test_320.jpg. Upon page load, a new file attempts to load based on the current media query break point. If a file is not found, the image is unchanged. This happens again for each resize.</p>
+                  <img src="images/test_320.jpg" alt="this is a test image" class="wdn_image_swap" />
                   <!-- InstanceEndEditable -->
                 <div class="clear"></div>
                 <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
