@@ -225,3 +225,35 @@
        -moz-columns: @arguments;
             columns: @arguments;
 }
+
+// CSS3 Image Filters
+//
+//  As found at: https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html#FilterFunction
+//
+//  Options available include:
+//  
+//  grayscale(<number> | <percentage>)
+//  sepia(<number> | <percentage>)
+//  saturate(<number> | <percentage>)
+//  hue-rotate(<angle>)
+//  invert(<number> | <percentage>)
+//  opacity(<number> | <percentage>)
+//  brightness(<number> | <percentage>)
+//  contrast(<number> | <percentage>)
+//  blur(<length>)
+//  drop-shadow(<shadow>)
+
+// drop shadow uses a different @amount argument format, and therefore can't go through the normal string interpolation
+.filter(@name, @amount) when (@name = drop-shadow) {
+    -webkit-filter: drop-shadow(@amount);
+       -moz-filter: drop-shadow(@amount);
+        -ms-filter: drop-shadow(@amount);
+         -o-filter: drop-shadow(@amount);
+}
+
+.filter(@name, @amount) when not (@name = drop-shadow) {
+    -webkit-filter: ~`'@{name}'+'(@{amount})'`;
+       -moz-filter: ~`'@{name}'+'(@{amount})'`;
+        -ms-filter: ~`'@{name}'+'(@{amount})'`;
+         -o-filter: ~`'@{name}'+'(@{amount})'`;
+}
