@@ -24,28 +24,9 @@ WDN.analytics = function() {
 		initialize : function() {
 			var widthScript = WDN.getCurrentWidthScript(), isMobile = widthScript == '320';
 			WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
-			
-			var version_html = document.body.getAttribute("data-version"),
-				version_dep  = document.getElementById("wdn_dependents").getAttribute("src");
-			
-			// Set the defaults
-			if (version_html == '$HTML_VERSION$') {
-				version_html = '3.DEV';
-			}
-			if (!version_html) {
-				version_html = '3.0';
-			}
-			
-			if (/\?dep=\$DEP_VERSION\$/.test(version_dep)) {
-				version_dep = '3.1.DEV';
-			} else {
-				var version_match = version_dep.match(/\?dep=(\d+(?:\.\d+)*)/);
-				if (version_match) {
-					version_dep = version_match[1];
-				} else {
-					version_dep = '3.0';
-				}
-			}			
+
+            var version_html = WDN.getHTMLVersion(),
+                version_dep  = WDN.getDepVersion();
 			
 			_gaq.push(
 				['wdn._setAccount', 'UA-3203435-1'],

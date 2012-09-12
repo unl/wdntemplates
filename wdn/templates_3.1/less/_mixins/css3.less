@@ -151,6 +151,15 @@
     background-size: @x @y;  
 }
 
+// background origin
+.transform-origin(@x, @y) {
+    -webkit-transform-origin: @arguments;
+    -moz-transform-origin: @arguments;
+    -ms-transform-origin: @arguments;
+    -o-transform-origin: @arguments;
+    transform-origin: @arguments;
+}
+
 //transitions
 .transition(@none)
 {
@@ -215,4 +224,28 @@
     -webkit-columns: @arguments;
        -moz-columns: @arguments;
             columns: @arguments;
+}
+
+// CSS3 Image Filters
+//
+//  As found at: https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html#FilterFunction
+//
+//  Options available include:
+//  
+//  grayscale(<number> | <percentage>)
+//  sepia(<number> | <percentage>)
+//  saturate(<number> | <percentage>)
+//  hue-rotate(<angle>)
+//  invert(<number> | <percentage>)
+//  opacity(<number> | <percentage>)
+//  brightness(<number> | <percentage>)
+//  contrast(<number> | <percentage>)
+//  blur(<length>)
+//  drop-shadow(<shadow>)
+
+.filter(@arguments) {
+    -webkit-filter: @arguments;
+       -moz-filter: @arguments;
+        -ms-filter: @arguments;
+         -o-filter: @arguments;
 }
