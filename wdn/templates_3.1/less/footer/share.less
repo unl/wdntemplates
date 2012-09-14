@@ -29,7 +29,6 @@
         display: inline-block;
         .background-clip(padding-box);
         width: 100%;
-        .box-flex-display();
         
         > li {
             border: 1px solid #f5f2ef;
@@ -47,13 +46,11 @@
             background: -o-linear-gradient(top, #efece9 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%);
             background: -ms-linear-gradient(top, #efece9 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%);
             background: linear-gradient(top, #efece9 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%);
-            .box-flex(1);
+            width: 40%;
+            float: left;
+            .box-sizing(border-box);
             &:first-child {
                 .border-radius4(3px, 0, 0, 3px);
-                a:hover {
-                    color: #fff;
-                    text-shadow: none;
-                }
             }
             &:last-child {
                 .border-radius4(0, 3px, 3px, 0);
@@ -67,10 +64,14 @@
                 background: -o-linear-gradient(bottom, #69ad77 0%,#5ea36c 50%,#449955 51%,#358446 100%); /* Opera11.10+ */
                 background: -ms-linear-gradient(bottom, #69ad77 0%,#5ea36c 50%,#449955 51%,#358446 100%); /* IE10+ */
                 background: linear-gradient(bottom, #69ad77 0%,#5ea36c 50%,#449955 51%,#358446 100%); /* W3C */
+                
+                a {
+                    color: #fff;
+                    text-shadow: none
+                }
             }    
             
             > a {
-                float: left;
                 border-radius: 0;
                 height: 26px;
                 border: none;
@@ -86,11 +87,15 @@
                 }               
             }
             
-            &.outpost a {
-                .text-hidden();
-                height: 35px;
-                padding: 0 !important;
-                display: inline-block;
+            &.outpost {
+                width: 20%;
+            
+                a {
+                    .text-hidden();
+                    height: 35px;
+                    padding: 0 !important;
+                    display: inline-block;
+                }
             }
             
             &#wdn_emailthis {
@@ -157,6 +162,7 @@
             border: 0;
             height: 35px;
             .border-radius(0);
+            font-size: 90%;
         }
     }
 }
