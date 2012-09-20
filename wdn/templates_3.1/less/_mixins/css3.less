@@ -178,6 +178,15 @@
 	transition: @arguments;
 }
 
+.transition-timing-function(@function)
+{
+	-webkit-transition-timing-function: @function; 
+       -moz-transition-timing-function: @function; 
+        -ms-transition-timing-function: @function; 
+         -o-transition-timing-function: @function; 
+            transition-timing-function: @function;
+}
+
 // Transformations
 .skew(@angle_x:35deg, @angle_y:0deg)
 {
