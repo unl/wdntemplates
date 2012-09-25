@@ -14,7 +14,9 @@ tree.mixin.Call.prototype = {
 
         for (var i = 0; i < env.frames.length; i++) {
             if ((mixins = env.frames[i].find(this.selector)).length > 0) {
-                args = this.arguments && this.arguments.map(function (a) { return a.eval(env) });
+                args = this.arguments && this.arguments.map(function (a) {
+                    return { name: a.name, value: a.value.eval(env) };
+                });
                 for (var m = 0; m < mixins.length; m++) {
                     if (mixins[m].match(args, env)) {
                         try {
@@ -22,7 +24,7 @@ tree.mixin.Call.prototype = {
                                   rules, mixins[m].eval(env, this.arguments, this.important).rules);
                             match = true;
                         } catch (e) {
-                            throw { message: e.message, index: e.index, filename: this.filename, stack: e.stack, call: this.index };
+                            throw { message: e.message, index: this.index, filename: this.filename, stack: e.stack };
                         }
                     }
                 }
@@ -45,11 +47,12 @@ tree.mixin.Call.prototype = {
     }
 };
 
-tree.mixin.Definition = function (name, params, rules, condition) {
+tree.mixin.Definition = function (name, params, rules, condition, variadic) {
     this.name = name;
     this.selectors = [new(tree.Selector)([new(tree.Element)(null, name)])];
     this.params = params;
     this.condition = condition;
+    this.variadic = variadic;
     this.arity = params.length;
     this.rules = rules;
     this._lookups = {};
@@ -68,12 +71,27 @@ tree.mixin.Definition.prototype = {
     rulesets:  function ()     { return this.parent.rulesets.apply(this) },
 
     evalParams: function (env, args) {
-        var frame = new(tree.Ruleset)(null, []);
+        var frame = new(tree.Ruleset)(null, []), varargs, arg;
 
-        for (var i = 0, val; i < this.params.length; i++) {
-            if (this.params[i].name) {
-                if (val = (args && args[i]) || this.params[i].value) {
-                    frame.rules.unshift(new(tree.Rule)(this.params[i].name, val.eval(env)));
+        for (var i = 0, val, name; i < this.params.length; i++) {
+            arg = args && args[i]
+
+            if (arg && arg.name) {
+                frame.rules.unshift(new(tree.Rule)(arg.name, arg.value.eval(env)));
+                args.splice(i, 1);
+                i--;
+                continue;
+            }
+			
+            if (name = this.params[i].name) {
+                if (this.params[i].variadic && args) {
+                    varargs = [];
+                    for (var j = i; j < args.length; j++) {
+                        varargs.push(args[j].value.eval(env));
+                    }
+                    frame.rules.unshift(new(tree.Rule)(name, new(tree.Expression)(varargs).eval(env)));
+                } else if (val = (arg && arg.value) || this.params[i].value) {
+                    frame.rules.unshift(new(tree.Rule)(name, val.eval(env)));
                 } else {
                     throw { type: 'Runtime', message: "wrong number of arguments for " + this.name +
                             ' (' + args.length + ' for ' + this.arity + ')' };
@@ -83,10 +101,10 @@ tree.mixin.Definition.prototype = {
         return frame;
     },
     eval: function (env, args, important) {
-        var frame = this.evalParams(env, args), context, _arguments = [], rules;
+        var frame = this.evalParams(env, args), context, _arguments = [], rules, start;
 
         for (var i = 0; i < Math.max(this.params.length, args && args.length); i++) {
-            _arguments.push(args[i] || this.params[i].value);
+            _arguments.push((args[i] && args[i].value) || this.params[i].value);
         }
         frame.rules.unshift(new(tree.Rule)('@arguments', new(tree.Expression)(_arguments).eval(env)));
 
@@ -102,8 +120,12 @@ tree.mixin.Definition.prototype = {
     match: function (args, env) {
         var argsLength = (args && args.length) || 0, len, frame;
 
-        if (argsLength < this.required)                               { return false }
-        if ((this.required > 0) && (argsLength > this.params.length)) { return false }
+        if (! this.variadic) {
+            if (argsLength < this.required)                               { return false }
+            if (argsLength > this.params.length)                          { return false }
+            if ((this.required > 0) && (argsLength > this.params.length)) { return false }
+        }
+
         if (this.condition && !this.condition.eval({
             frames: [this.evalParams(env, args)].concat(env.frames)
         }))                                                           { return false }
@@ -112,7 +134,7 @@ tree.mixin.Definition.prototype = {
 
         for (var i = 0; i < len; i++) {
             if (!this.params[i].name) {
-                if (args[i].eval(env).toCSS() != this.params[i].value.eval(env).toCSS()) {
+                if (args[i].value.eval(env).toCSS() != this.params[i].value.eval(env).toCSS()) {
                     return false;
                 }
             }
