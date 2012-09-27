@@ -74,6 +74,7 @@ class UNL_WDNTemplates_Compressor
             'navigation',
             'search',
             'unlalert',
+            'images',
         ),
         '320' => array(
 
