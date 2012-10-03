@@ -67,7 +67,7 @@
         <div id="wdn_content_wrapper">
             <div id="pagetitle">
                 <!-- TemplateBeginEditable name="pagetitle" -->
-                <h1>This is your page title. It's now an &lt;h1&gt;, baby!</h1>
+                <h1>Please Title Your Page Here</h1>
                 <!-- TemplateEndEditable -->
             </div>
             <div id="maincontent" role="main">
