@@ -11,9 +11,10 @@
 // `import,push`, we also pass it a callback, which it'll call once
 // the file has been fetched, and parsed.
 //
-tree.Import = function (path, imports, features, index) {
+tree.Import = function (path, imports, features, once, index) {
     var that = this;
 
+    this.once = once;
     this.index = index;
     this._path = path;
     this.features = features && new(tree.Value)(features);
@@ -29,8 +30,9 @@ tree.Import = function (path, imports, features, index) {
 
     // Only pre-compile .less files
     if (! this.css) {
-        imports.push(this.path, function (e, root) {
+        imports.push(this.path, function (e, root, imported) {
             if (e) { e.index = index }
+            if (imported && that.once) that.skip = imported;
             that.root = root || new(tree.Ruleset)([], []);
         });
     }
@@ -58,6 +60,8 @@ tree.Import.prototype = {
     eval: function (env) {
         var ruleset, features = this.features && this.features.eval(env);
 
+        if (this.skip) return [];
+
         if (this.css) {
             return this;
         } else {
@@ -71,7 +75,7 @@ tree.Import.prototype = {
                                 [i, 1].concat(ruleset.rules[i].eval(env)));
                 }
             }
-            return this.features ? new(tree.Directive)('@media', ruleset.rules, this.features.value) : ruleset.rules;
+            return this.features ? new(tree.Media)(ruleset.rules, this.features.value) : ruleset.rules;
         }
     }
 };
