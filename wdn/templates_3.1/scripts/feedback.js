@@ -4,7 +4,6 @@ WDN.feedback = function() {
         initialize : function() {
 			//WDN.log("initialize feedback");
 			WDN.feedback.ratingSetup();
-			WDN.feedback.commentSetup();
 		},
 		ratingSetup : function() {
 			WDN.log("setting up rating");
