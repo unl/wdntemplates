@@ -205,7 +205,7 @@ WDN.navigation = (function() {
             }).remove();
             // create the link using whatever the Homepage is set to
             $siteTitle.contents().filter(function() {
-            	return this.nodeType == 3 && this.nodeValue;
+            	return this.nodeType == 3;
             }).first().wrap(WDN.jQuery('<a/>', {href : WDN.navigation.siteHomepage}));
         },
 
