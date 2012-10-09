@@ -67,11 +67,11 @@
                 </nav>
             </div>
         </div>
-        <div id="wdn_content_wrapper">
+        <div id="wdn_content_wrapper" role="main">
             <div id="pagetitle">
                 <!-- InstanceBeginEditable name="pagetitle" --> <!-- InstanceEndEditable -->
             </div>
-            <div id="maincontent" role="main">
+            <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
             <p>Consider this webpage for a moment and look at the <strong>navigation</strong>. Is this the navigation for the college, the department, or for UNL? Your guess is as good as mine. We need to associate a breadcrumb element with the current navigation.</p>

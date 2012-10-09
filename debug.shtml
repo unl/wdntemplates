@@ -74,13 +74,13 @@
                 </nav>
             </div>
         </div>
-        <div id="wdn_content_wrapper">
+        <div id="wdn_content_wrapper" role="main">
             <div id="pagetitle">
                 <!-- InstanceBeginEditable name="pagetitle" -->
                 <h1>Debugging Out!</h1>
                 <!-- InstanceEndEditable -->
             </div>
-            <div id="maincontent" role="main">
+            <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
                   <h2 class="sec_header">Image manipulation test</h2>

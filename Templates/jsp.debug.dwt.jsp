@@ -64,13 +64,13 @@
                 </nav>
             </div>
         </div>
-        <div id="wdn_content_wrapper">
+        <div id="wdn_content_wrapper" role="main">
             <div id="pagetitle">
                 <!-- TemplateBeginEditable name="pagetitle" -->
                 <h1>Please Title Your Page Here</h1>
                 <!-- TemplateEndEditable -->
             </div>
-            <div id="maincontent" role="main">
+            <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- TemplateBeginEditable name="maincontentarea" -->
                 <h2>This is a blank page</h2>

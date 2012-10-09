@@ -135,13 +135,13 @@ $scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('', ''),
                 </nav>
             </div>
         </div>
-        <div id="wdn_content_wrapper">
+        <div id="wdn_content_wrapper" role="main">
             <div id="pagetitle">
                 <!-- InstanceBeginEditable name="pagetitle" -->
                 <?php echo $scanned_page->pagetitle; ?>
                 <!-- InstanceEndEditable -->
             </div>
-            <div id="maincontent" role="main">
+            <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
                   <?php echo $scanned_page->maincontentarea; ?>
