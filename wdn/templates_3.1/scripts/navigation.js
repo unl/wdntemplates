@@ -199,6 +199,10 @@ WDN.navigation = (function() {
                 return;
             }
             
+            // remove excess space text nodes see #371
+            $siteTitle.contents().filter(function() {
+            	return this.nodeType == 3 && /^\s*$/.test(this.nodeValue);
+            }).remove();
             // create the link using whatever the Homepage is set to
             $siteTitle.contents().filter(function() {
             	return this.nodeType == 3;
