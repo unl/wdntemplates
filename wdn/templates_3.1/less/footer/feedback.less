@@ -42,7 +42,7 @@
                         }
                         
                         label {
-                            text-indent: -9999em;
+                            .text-hidden();
                             color: #a1a1a1;
                             position: absolute;
                         }
@@ -147,9 +147,9 @@
             
             > label {
                 float:right;
-                width:1em;
-                padding:0 .1em;
-                margin-top: -1.1em;
+                width:1.1em;
+                padding:0;
+                margin: -1.1em 0 0 0;
                 overflow:hidden;
                 white-space:nowrap;
                 cursor:pointer;
@@ -158,7 +158,8 @@
                 color:#fbfbfb;
                 text-shadow:-1px -1px 0px #ddd, 1px 1px 3px #666;
                 &:before {
-                    content: '★ ';
+                    content: '★';
+                    margin-right:1.1em;
                 }
                 &:hover, &:hover ~ label {
                     color: gold;

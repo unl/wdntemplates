@@ -6,3 +6,5 @@
 .project
 .buildpath
 /wdn/templates_3.0*
+
+sharedcode/affiliate/less/buros.less

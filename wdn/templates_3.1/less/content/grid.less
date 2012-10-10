@@ -52,6 +52,11 @@
             margin-left: 0;
         }
         
+        .first:first-of-type {
+            margin-left: 0 !important;
+            clear: left;
+        }
+        
         // support for deprecated grid, to be removed July 1, 2012
         .col, .two_col, .three_col, .four_col {
             width: 48%;
@@ -63,10 +68,6 @@
             &.right {
                 float: right;
             }
-        }
-        .first {
-            margin-left: 0 !important;
-            clear: left;
         }
     }
 }
@@ -153,12 +154,25 @@
         *[class^="grid"]:nth-of-type(odd) {
             margin-left: @gutterWidth;
             clear: none;
+            
+            &.first {
+                clear: left;
+            }
         }
         
         //clear out rule for 600
         *[class^="grid"]:nth-of-type(3n+1) {
             margin-left: @gutterWidth;
             clear: none;
+            
+            &.first {
+                clear: left;
+            }
+        }
+        
+        .first {
+            margin-left: 0 !important;
+            clear: left;
         }
         
         *[class^="grid"] > .grid1 {

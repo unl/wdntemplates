@@ -15,7 +15,8 @@
 #wdn_navigation_wrapper {
     background: #fff;
 	margin-top:-2px;
-	position:relative;	
+	position:relative;
+    -webkit-font-smoothing: antialiased;
 }
 #navigation {
     .linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);
@@ -186,7 +187,7 @@
             a {
                 #wdnSprite > .expand_toggle_plus(@dir);
                 height: 100%;
-                text-indent: -9999em;
+                .text-hidden();
             }
         }
         
@@ -201,7 +202,7 @@
             a {
                 #wdnSprite > .push_pin_up(@dir);
                 height: 100%;
-                text-indent: -9999em;
+                .text-hidden();
             }
         }
         
@@ -353,6 +354,16 @@
                     .box-shadow(0px, -1px, 0px, #870d0c);
                 }
                 
+                &.highlight {
+                    > a {
+                        .linear-gradient-no-filter(#c12726, #ac2625);
+                    }
+                    
+                    > ul {
+                        .linear-gradient-no-filter(#FDFFF0, #EEF2CB);
+                    }
+                }
+                
                                 
                 &:hover {
                     
@@ -444,9 +455,11 @@
                     color: rgba(255, 255, 255, 0.99);
                     text-shadow: 1px 1px 1px #424242;
                     font-weight: 500;
+                    // Commented out due to rendering changes in Chrome. @TODO revisit with new release http://code.google.com/p/chromium/issues/detail?id=152304
+                    // -webkit-text-stroke: 0.55px;
                     font-size: 0.875em;
                     margin: auto 0;
-                    padding: 0.47em 2px;
+                    padding: 0.47em 1px;
                     border-right: 1px solid #870d0c;
                     border-left: 1px solid #c83a3a;
                     .linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);

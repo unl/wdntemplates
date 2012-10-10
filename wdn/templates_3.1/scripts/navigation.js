@@ -39,7 +39,6 @@ WDN.navigation = (function() {
         /**
          * Initialize the navigation, and determine what the correct state
          * should be (expanded/collapsed).
-         * @todo determine what it should be
          */
         initialize : function() {
         	lastWidth = document.documentElement.offsetWidth;
@@ -49,26 +48,23 @@ WDN.navigation = (function() {
         		return;
         	}
         	
-            if (WDN.jQuery('body').hasClass('popup')
-                || WDN.jQuery('#breadcrumbs ul li').size() == 0) {
+            if (WDN.jQuery('body').hasClass('popup') || !WDN.jQuery('#breadcrumbs > ul > li').length) {
                 // This page has no navigation
                 return;
             }
 
             if (!desktopInitd) {
 	            WDN.navigation.determineSelectedBreadcrumb();
-	            // find the last-link in breadcrumbs
-	            WDN.jQuery('#breadcrumbs > ul > li > a').last().parent().addClass('last-link');
 	            WDN.navigation.linkSiteTitle();
             }
             
-            if (WDN.jQuery('body').hasClass('document')) {
+            if (WDN.jQuery('body').hasClass('document') || !WDN.jQuery('#navigation > ul > li').length) {
             	// The rest deals with navigation elements not in document
             	return;
             }
 
-            // Store the current state of the cookie
             if (!desktopInitd) {
+            	// Store the current state of the cookie
 	            if (WDN.getCookie('n') == 1) {
 	                WDN.navigation.preferredState = 1;
 	            }
@@ -108,7 +104,7 @@ WDN.navigation = (function() {
                 WDN.navigation.expand();
             })
             .focus(function(){
-            	WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a:first-child'), false);
+            	WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a').get(0), false);
         	});
 
             WDN.navigation.initializePreferredState();
@@ -116,8 +112,9 @@ WDN.navigation = (function() {
             WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/hoverIntent/jQuery.hoverIntent.min.js'), function() {
                 WDN.jQuery('#breadcrumbs ul li a').hoverIntent({
                     over:        WDN.navigation.switchSiteNavigation,
-                    out:         function(){},
-                    timeout:     WDN.navigation.changeSiteNavDelay,
+                    out:         function() {
+                    	WDN.jQuery('#navigation > ul > li').removeClass('highlight');
+                    },
                     sensitivity: 1, // Mouse must not move
                     interval:    120
                 });
@@ -126,33 +123,86 @@ WDN.navigation = (function() {
             desktopInitd = true;
         },
         
-        destroy: function(widthScript) {
-        	if (widthScript == '320') {
-        		WDN.navigation.destroyMobile();
+        /**
+         * This function should determine which breadcrumb should be selected.
+         */
+        determineSelectedBreadcrumb : function() {
+        	// First we search for a defined homepage.
+        	var $homeLink = WDN.jQuery('link[rel=home]');
+        	if ($homeLink.length) {
+        		WDN.log('Setting homepage to ' + WDN.navigation.siteHomepage);
+        		WDN.navigation.siteHomepage = WDN.toAbs($homeLink.attr('href'), window.location.toString());
+        	}
+        	
+        	var $breadcrumbs = WDN.jQuery('#breadcrumbs > ul > li');
+        	if (!$breadcrumbs.length) {
+        		WDN.log('This page is missing breadcrumbs');
         		return;
         	}
         	
-        	WDN.navigation.currentState = -1;
+        	$breadcrumbs.removeClass('selected');
         	
-        	WDN.navigation.navReady(false);
+        	if (WDN.navigation.siteHomepage === false) {
+        		WDN.log('No homepage set!');
+        		if ($breadcrumbs.length < 2) {
+        			WDN.navigation.setHomepageLI($breadcrumbs[0]);
+        		} else {
+        			// Right now, stupidly select the second element.
+        			WDN.navigation.setHomepageLI($breadcrumbs[1]);
+        		}
+        	} else {
+        		WDN.log('Homepage has been set.');
+        		WDN.jQuery('> a', $breadcrumbs).each(function() {
+    				if (this.href == WDN.navigation.siteHomepage) {
+    					WDN.navigation.setHomepageLI(WDN.jQuery(this).parent());
+    					return false;
+    				}
+        		});
+        		
+        		if (!$breadcrumbs.filter('.selected').length) {
+        			WDN.log('We are on the current homepage.');
+        			WDN.navigation.setHomepageLI($breadcrumbs[$breadcrumbs.length-1]);
+        		}
+        	}
         	
-        	// unfix presentation
-        	WDN.jQuery('#navigation').unbind();
+        	WDN.jQuery('> a', $breadcrumbs).last().parent().addClass('last-link');
+        },
+        
+        setHomepageLI: function(li) {
+        	WDN.navigation.homepageLI = li;
+            var $li = WDN.jQuery(li);
+            $li.addClass('selected');
+            
+            var $homeCrumbLink = $li.children('a');
+            
+            if (!WDN.navigation.siteHomepage) {
+            	if ($homeCrumbLink.length) {
+            		WDN.navigation.siteHomepage = WDN.toAbs($homeCrumbLink.attr('href'), window.location.toString());
+            	} else {
+            		WDN.navigation.siteHomepage = window.location.toString();
+            	}
+            }
+            
+            if (!$homeCrumbLink.length) {
+            	$li.wrapInner(WDN.jQuery('<a/>', {href : WDN.navigation.siteHomepage}));
+            }
+        },
+        
+        /**
+         * This function will check for/add a link to the homepage in the site title.
+         */
+        linkSiteTitle: function() {
+        	var $siteTitle = WDN.jQuery('#wdn_site_title');
         	
-        	WDN.jQuery('#navigation > ul > li > a').unbind('focusin').unbind('focus').css({
-        		'padding-top': '',
-        		'padding-bottom': ''
-        	});
-        	
-        	WDN.jQuery('#navigation > ul > li > ul').css('height', '');
-        	
-        	WDN.jQuery('#wdn_wrapper').removeClass('nav_collapsed nav_expanded nav_changing nav_pinned nav_unpinned');
-        	
-        	WDN.jQuery('#wdn_content_wrapper').css('margin-top', '');
-        	
-        	WDN.jQuery('#wdn_navigation_bar').unbind();
-        	
-        	WDN.jQuery('#breadcrumbs ul li a').unbind();
+        	// check if the link already exists
+            if (!WDN.navigation.siteHomepage || $siteTitle.children('a').length) {
+                return;
+            }
+            
+            // create the link using whatever the Homepage is set to
+            $siteTitle.contents().filter(function() {
+            	return this.nodeType == 3;
+            }).first().wrap(WDN.jQuery('<a/>', {href : WDN.navigation.siteHomepage}));
         },
 
         /**
@@ -274,139 +324,7 @@ WDN.navigation = (function() {
 
             WDN.log('we have fixed the presentation.');
         },
-
-        transitionEnd: function() {
-            WDN.navigation.setWrapperClass('expanded');
-            WDN.jQuery('#navigation').trigger('expand').unbind('expand');
-        },
-
-        /**
-         * This function should determine which breadcrumb should be selected.
-         */
-        determineSelectedBreadcrumb : function() {
-            // First we search for a defined homepage.
-
-            if (WDN.jQuery('link[rel=home]').length) {
-                WDN.navigation.siteHomepage = WDN.toAbs(WDN.jQuery('link[rel=home]').attr('href'), window.location.toString());
-                WDN.log('Setting homepage to '+WDN.navigation.siteHomepage);
-            }
-
-            if (WDN.navigation.siteHomepage === false) {
-                WDN.log('No homepage set!');
-                if (WDN.jQuery('#breadcrumbs > ul > li').size() == 1) {
-                	WDN.navigation.setHomepageLI(WDN.jQuery('#breadcrumbs > ul > li:nth-child(1)'));
-                } else {
-                	// Right now, stupidly select the second element.
-                	WDN.navigation.setHomepageLI(WDN.jQuery('#breadcrumbs > ul > li:nth-child(2)'));
-                }
-            } else {
-                WDN.log('Homepage has been set.');
-                // Make all the hrefs absolute.
-                WDN.jQuery('#breadcrumbs > ul > li > a').each(
-                        function() {
-                            if (this.href == WDN.navigation.siteHomepage) {
-                                WDN.navigation.setHomepageLI(WDN.jQuery(this).parent());
-                                return false;
-                            }
-                        }
-                    );
-                if (WDN.jQuery('#breadcrumbs > ul > li.selected').size() < 1) {
-                    WDN.log('We are on the current homepage.');
-                    WDN.navigation.setHomepageLI(WDN.jQuery('#breadcrumbs > ul > li:last-child'));
-                }
-            }
-        },
-
-        setHomepageLI: function(li) {
-            WDN.navigation.homepageLI = li;
-            WDN.jQuery(li).addClass('selected');
-            if (WDN.jQuery(li).children('a').size()) {
-                // Found the homepage url in the breadcrumbs
-                WDN.navigation.siteHomepage = WDN.jQuery(li).find('a').attr('href');
-            } else {
-                // Assume it's the current page
-                WDN.navigation.siteHomepage = window.location;
-                WDN.jQuery(li).wrapInner('<a href="'+WDN.navigation.siteHomepage+'"></a>');
-            }
-        },
-
-        /**
-         * This function will check for/add a link to the homepage in the site title.
-         */
-
-        linkSiteTitle: function() {
-            // check if the link already exists
-            if (WDN.jQuery("#titlegraphic h1 a").length > 0 || !WDN.navigation.siteHomepage) {
-                return;
-            }
-            // create the link using whatever the Homepage is set to
-            WDN.jQuery("#titlegraphic h1").wrapInner('<a href="' + WDN.navigation.siteHomepage +'" />');
-        },
-
-        /**
-         * Expand the navigation section.
-         */
-        expand : function() {
-            WDN.log('expand called');
-            if (WDN.navigation.currentState === 1) {
-                return;
-            }
-
-            if (WDN.navigation.currentState !== -1 && WDN.navigation.preferredState != 1 && Modernizr.csstransitions) {
-                WDN.navigation.setWrapperClass('changing');
-            } else {
-                WDN.navigation.transitionEnd();
-            }
-
-            WDN.navigation.currentState = 1;
-        },
-
-        /**
-         * Collapse the navigation
-         */
-        collapse : function(switchNav) {
-            WDN.log('collapse called');
-            if (WDN.navigation.currentState === 0) {
-                return;
-            }
-
-            WDN.navigation.setWrapperClass('collapsed');
-            WDN.navigation.currentState = 0;
-            if (switchNav !== false) {
-                WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a:first-child'), false);
-            }
-        },
-
-        /**
-         * Set a delay for collapsing the navigation.
-         */
-        startCollapseDelay: function(event) {
-            WDN.log('start collapse delay');
-            clearTimeout(WDN.navigation.timeout);
-            if (WDN.navigation.currentState === 0 || WDN.navigation.preferredState == 1) {
-                // Already collapsed, or, prefer to stay open
-                return;
-            }
-            WDN.navigation.timeout = setTimeout(WDN.navigation.collapse, WDN.navigation.collapseDelay);
-        },
-
-        setPreferredState : function(event) {
-            WDN.log('set preferred state');
-            if (WDN.getCookie('n')!=1) {
-                WDN.log('Setting preferred navigation state OPEN');
-
-                WDN.setCookie('n',1,1209600);
-                WDN.navigation.preferredState = 1;
-                WDN.analytics.trackNavigationPreferredState("Open");
-            } else {
-                WDN.log('Setting preferred navigation state CLOSED');
-                WDN.setCookie('n',0,-100);
-                WDN.navigation.preferredState = 0;
-                WDN.analytics.trackNavigationPreferredState("Closed");
-            }
-            WDN.navigation.initializePreferredState();
-        },
-
+        
         /**
          * This function determines the user's preference for navigation.
          * There are two options, expanded or collapsed.
@@ -437,12 +355,12 @@ WDN.navigation = (function() {
             var endCount = 0;
             if (Modernizr.csstransitions) {
                 WDN.jQuery('#navigation').bind(
-                    'webkitTransitionEnd transitionend oTransitionEnd msTransitionEnd',
+                    'webkitTransitionEnd transitionend oTransitionEnd MSTransitionEnd',
                     function(event) {
                     	endCount++;
                         if (WDN.navigation.currentState == 1 && endCount >= 6) {
                             WDN.navigation.transitionEnd();
-                            endCound = 0;
+                            endCount = 0;
                         }
                     }
                 );
@@ -486,57 +404,253 @@ WDN.navigation = (function() {
                 }
             }
         },
+        
+        setWrapperPState : function(css_class) {
+        	var prefix = 'nav_', states = ['changing', 'unpinned', 'pinned'];
+        	WDN.jQuery('#wdn_wrapper').removeClass(prefix + states.join(' ' + prefix)).addClass(prefix + css_class);
+        },
+        
+        navReady : function(ready) {
+        	var $wrapper = WDN.jQuery('#wdn_wrapper');
+        	if (ready) {
+        		$wrapper.addClass('nav_ready');
+        	} else {
+        		$wrapper.removeClass('nav_ready');
+        	}
+        },
+        
+        setPreferredState : function(event) {
+            WDN.log('set preferred state');
+            if (WDN.getCookie('n')!=1) {
+                WDN.log('Setting preferred navigation state OPEN');
+
+                WDN.setCookie('n',1,1209600); // 2 weeks
+                WDN.navigation.preferredState = 1;
+                WDN.analytics.trackNavigationPreferredState("Open");
+            } else {
+                WDN.log('Setting preferred navigation state CLOSED');
+                WDN.setCookie('n',0,-100);
+                WDN.navigation.preferredState = 0;
+                WDN.analytics.trackNavigationPreferredState("Closed");
+            }
+            WDN.navigation.initializePreferredState();
+        },
+
+        setWrapperClass : function(css_class) {
+            var $wrapper = WDN.jQuery('#wdn_wrapper'), offClass, prefix = 'nav_';
+            $wrapper.removeClass(prefix + 'changing');
+            offClass = css_class == 'collapsed' ? 'expanded' : 'collapsed';
+            $wrapper.removeClass(prefix + offClass).addClass(prefix + css_class);
+        },
+        
+        /**
+         * Expand the navigation section.
+         */
+        expand : function() {
+            WDN.log('expand called');
+            if (WDN.navigation.currentState === 1) {
+                return;
+            }
+
+            if (WDN.navigation.currentState !== -1 && WDN.navigation.preferredState != 1 && Modernizr.csstransitions) {
+                WDN.navigation.setWrapperClass('changing');
+            } else {
+                WDN.navigation.transitionEnd();
+            }
+
+            WDN.navigation.currentState = 1;
+        },
+        
+        /**
+         * A function to signal the end of navigation expansion
+         */
+        transitionEnd: function() {
+        	WDN.navigation.setWrapperClass('expanded');
+        	WDN.jQuery('#navigation').trigger('expand').unbind('expand');
+        },
+        
+        /**
+         * Set a delay for collapsing the navigation.
+         */
+        startCollapseDelay: function(event) {
+        	WDN.log('start collapse delay');
+        	clearTimeout(WDN.navigation.timeout);
+        	if (WDN.navigation.currentState === 0 || WDN.navigation.preferredState == 1) {
+        		// Already collapsed, or, prefer to stay open
+        		return;
+        	}
+        	WDN.navigation.timeout = setTimeout(WDN.navigation.collapse, WDN.navigation.collapseDelay);
+        },
+
+        /**
+         * Collapse the navigation
+         */
+        collapse : function(switchNav) {
+            WDN.log('collapse called');
+            if (WDN.navigation.currentState === 0) {
+                return;
+            }
+
+            WDN.navigation.setWrapperClass('collapsed');
+            WDN.navigation.currentState = 0;
+            
+            if (switchNav !== false) {
+                WDN.navigation.switchSiteNavigation(WDN.jQuery(WDN.navigation.homepageLI).children('a').get(0), false);
+            }
+        },
 
         switchSiteNavigation : function(event, expand) {
             WDN.log('Switch site nav called');
             if (expand === undefined) {
                 expand = true;
             }
-            var breadcrumb = (event.target) ? event.target : event;
-            if (WDN.jQuery(breadcrumb).parent().hasClass('selected')) {
+            var breadcrumb = event.target || event;
+            
+            if (!breadcrumb) {
+            	return false;
+            }
+            
+            var breadcrumbParent = WDN.jQuery(breadcrumb).parent(),
+            	$navList = WDN.jQuery('#navigation > ul');
+            
+            $navList.children('li').removeClass('highlight');
+            
+            if (breadcrumbParent.hasClass('selected')) {
                 WDN.log('already showing this nav');
                 return true;
             }
-
-            var dimms = {
-        		width: WDN.jQuery('#navigation > ul').width() || 960,
-    			height: WDN.jQuery('#navigation > ul').height() || 50
-            };
-            var oldSelected = WDN.jQuery('#breadcrumbs > ul > li.selected:first');
-
-            if (!WDN.jQuery('div.storednav', oldSelected).length && WDN.jQuery('#navigation > ul').length) {
-                WDN.log('Storing it');
-                // Store the current navigation
-                WDN.navigation.storeNav(oldSelected, WDN.jQuery('#navigation > ul'));
-            } else {
-                WDN.jQuery('#navigation > ul').remove();
+            
+            var isAfterHome = !!breadcrumbParent.prevAll().filter(WDN.navigation.homepageLI).length,
+            	oldSelected = WDN.jQuery('#breadcrumbs > ul > li.selected').first(),
+            	foundInCurrent = false;
+            
+            // Look for link in existing/stored navigation
+            if (isAfterHome) {
+            	// If the home navigation is currently displayed
+            	if (WDN.jQuery(WDN.navigation.homepageLI).hasClass('selected')) {
+		            WDN.jQuery('a', $navList).each(function() {
+		            	if (this.href == breadcrumb.href) {
+		            		foundInCurrent = true;
+		            		WDN.jQuery(this).parents('#navigation > ul > li').addClass('highlight');
+		            		return false;
+		            	}
+		            });
+		            
+		            if (foundInCurrent) {
+		            	WDN.log('Link found in home navigation');
+		            	return true;
+		            }
+            	}
+            	
+            	// Check stored navigation up to selected
+            	var $previousCrumbs = breadcrumbParent.prevUntil('.selected');
+            	
+	            $previousCrumbs.each(function() {
+	            	var $storedNav = WDN.jQuery(this).children('div.storednav');
+	            	
+	            	if ($storedNav.length) {
+	            		WDN.jQuery('a', $storedNav.children()).each(function() {
+	            			if (this.href == breadcrumb.href) {
+	            				foundInCurrent = true;
+	            				var tempPrimary = WDN.jQuery(this).parents('div.storednav > ul > li');
+	            				tempPrimary.addClass('highlight');
+	            				
+	            				WDN.navigation.setNavigationContents($storedNav.children().clone(), expand);
+	            				
+	            				tempPrimary.removeClass('highlight');
+	            				
+	            				return false;
+	            			}
+	            		});
+	            	}
+	            	
+	            	if (foundInCurrent) {
+	            		oldSelected.removeClass('selected');
+        				WDN.jQuery(this).addClass('selected');
+        				
+	            		return false;
+	            	}
+	            });
+	            
+	            if (foundInCurrent) {
+	            	WDN.log('Link found in stored navigation');
+	            	return true;
+	            }
             }
 
-            // Set the hovered breadcrumb link to selected
-            oldSelected.removeClass('selected');
-            WDN.jQuery(breadcrumb).parent().addClass('selected');
-            // Check for stored navigation
-            if (WDN.jQuery(breadcrumb).siblings('div.storednav').length) {
-                WDN.log("Already got it.");
-                // We've already grabbed the nav for this link
-                WDN.navigation.setNavigationContents(WDN.jQuery(breadcrumb).siblings('div.storednav').children().clone(), expand);
-                return true;
+            var $storedNav = WDN.jQuery(breadcrumb).siblings('div.storednav'),
+	            oldNavCompare = $navList.clone()
+		    		.find('li.empty').remove().end()
+		    		.find('*').removeAttr('style').end()
+		    		.find('a').each(function() {
+		    			WDN.jQuery(this).attr('href', this.href);
+		    		}).end()
+		    		.html();
+            
+            if ($storedNav.length) {
+            	WDN.log("Already got it.");
+            	// We've already grabbed the nav for this link
+            	var $storedChildren = $storedNav.children();
+            	
+            	if (!$storedChildren.length) {
+            		WDN.log('Duplicated navigation previously loaded');
+            		return true;
+            	}
+            	
+            	if (isAfterHome) {
+	            	var newNavCompare = $storedChildren.clone()
+	            		.find('li.empty').remove().end()
+			    		.find('*').removeAttr('style').end()
+			    		.find('a').each(function() {
+			    			WDN.jQuery(this).attr('href', this.href);
+			    		}).end()
+			    		.html();
+	            	
+	            	if (oldNavCompare == newNavCompare) {
+	        			WDN.log('Duplicate navigation detected.');
+	        			return true;
+	            	}
+            	}
+            	
+        		if (!WDN.jQuery('div.storednav', oldSelected).length) {
+                    WDN.navigation.storeNav(oldSelected, $navList);
+            	}
+        		
+        		oldSelected.removeClass('selected');
+        		breadcrumbParent.addClass('selected');
+        		
+        		WDN.navigation.setNavigationContents($storedChildren.clone(), expand);
+            	return true;
             }
 
-            WDN.jQuery('#navloading').remove();
-            WDN.jQuery('<div id="navloading" />').css(dimms).appendTo('#navigation');
-            WDN.jQuery('#wdn_navigation_wrapper').addClass('nav-loading');
+            // Fetch the navigation
+            WDN.jQuery('#breadcrumbs > ul > li').removeClass('pending');
+            WDN.jQuery(breadcrumb).parent().addClass('pending');
 
             var nav_sniffer = snifferServer + 'navigationSniffer.php';
-            nav_sniffer += '?u=' + escape(WDN.toAbs(breadcrumb.href, window.location));
+            nav_sniffer += '?u=' + escape(breadcrumb.href);
             WDN.log('Attempting to retrieve navigation from '+nav_sniffer);
             WDN.get(nav_sniffer, '', function(data, textStatus) {
                 try {
                     if (textStatus == 'success') {
-                        var breadcrumbParent = WDN.jQuery(breadcrumb).parent();
-                        WDN.navigation.storeNav(breadcrumbParent, data);
-                        if (breadcrumbParent.hasClass('selected')) {
-                            WDN.navigation.setNavigationContents(data, expand);
+                    	var $temp = WDN.jQuery('<div/>').append(data).children('ul');
+                        
+                        if (!isAfterHome || $temp.html() != oldNavCompare) {
+                        	if (!WDN.jQuery('div.storednav', oldSelected).length) {
+                                WDN.navigation.storeNav(oldSelected, $navList);
+                        	}
+                        	
+                        	WDN.navigation.storeNav(breadcrumbParent, $temp.clone());
+                        	
+                        	if (breadcrumbParent.hasClass('pending')) {
+                        		// Set the hovered breadcrumb link to selected
+                        		oldSelected.removeClass('selected');
+                                breadcrumbParent.removeClass('pending').addClass('selected');
+                                
+                                WDN.navigation.setNavigationContents($temp, expand);
+                            }
+                        } else {
+                        	WDN.navigation.storeNav(breadcrumbParent, '');
                         }
                     } else {
                         // Error message
@@ -551,14 +665,24 @@ WDN.navigation = (function() {
             });
             return false;
         },
+        
+        storeNav : function(li, data) {
+        	var storednavDiv = WDN.jQuery(li).children('div.storednav');
+        	if (storednavDiv.length) {
+        		storednavDiv.empty();
+        	} else {
+        		storednavDiv = WDN.jQuery('<div/>', {'class' : 'storednav'});
+        		WDN.jQuery(li).append(storednavDiv);
+        	}
+        	storednavDiv.append(data);
+        },
 
         setNavigationContents : function(contents, expand) {
             WDN.log('setNavigationContents called');
-            WDN.jQuery('#wdn_navigation_wrapper').removeClass('nav-loading');
             WDN.jQuery('#navigation').addClass('disableTransition');
-            WDN.jQuery('#navloading').remove();
-            WDN.jQuery('#navigation').children('ul').remove()
-                .end().prepend(contents);
+            WDN.jQuery('#navigation')
+            	.children('ul').remove().end()
+            	.prepend(contents);
 
             WDN.navigation.currentState = -1;
             WDN.navigation.setWrapperClass('expanded');
@@ -572,37 +696,6 @@ WDN.navigation = (function() {
                 WDN.navigation.expand();
             }
         },
-
-        setWrapperClass : function(css_class) {
-            var $wrapper = WDN.jQuery('#wdn_wrapper'), offClass;
-            $wrapper.removeClass('nav_changing');
-            offClass = css_class == 'collapsed' ? 'expanded' : 'collapsed';
-            $wrapper.removeClass('nav_'+offClass).addClass('nav_'+css_class);
-        },
-
-        setWrapperPState : function(css_class) {
-            WDN.jQuery('#wdn_wrapper').removeClass('nav_changing nav_unpinned nav_pinned').addClass('nav_' + css_class);
-        },
-        
-        navReady : function(ready) {
-        	var $wrapper = WDN.jQuery('#wdn_wrapper');
-        	if (ready) {
-        		$wrapper.addClass('nav_ready');
-        	} else {
-        		$wrapper.removeClass('nav_ready');
-        	}
-        },
-
-        storeNav : function(li, data) {
-            var storednavDiv = WDN.jQuery(li).children('div.storednav');
-            if (storednavDiv.length) {
-                storednavDiv.empty();
-            } else {
-                storednavDiv = WDN.jQuery('<div class="storednav"/>');
-                WDN.jQuery(li).append(storednavDiv);
-            }
-            storednavDiv.append(data);
-        }, 
         
         setupMobile: function() {
         	var navigation = document.getElementById("navigation"),
@@ -683,6 +776,35 @@ WDN.navigation = (function() {
 			if (navigation.ondestroy){
 				navigation.ondestroy();
 			}
+        },
+        
+        destroy: function(widthScript) {
+        	if (widthScript == '320') {
+        		WDN.navigation.destroyMobile();
+        		return;
+        	}
+        	
+        	WDN.navigation.currentState = -1;
+        	
+        	WDN.navigation.navReady(false);
+        	
+        	// unfix presentation
+        	WDN.jQuery('#navigation').unbind();
+        	
+        	WDN.jQuery('#navigation > ul > li > a').unbind('focusin').unbind('focus').css({
+        		'padding-top': '',
+        		'padding-bottom': ''
+        	});
+        	
+        	WDN.jQuery('#navigation > ul > li > ul').css('height', '');
+        	
+        	WDN.jQuery('#wdn_wrapper').removeClass('nav_collapsed nav_expanded nav_changing nav_pinned nav_unpinned');
+        	
+        	WDN.jQuery('#wdn_content_wrapper').css('margin-top', '');
+        	
+        	WDN.jQuery('#wdn_navigation_bar').unbind();
+        	
+        	WDN.jQuery('#breadcrumbs ul li a').unbind();
         },
         
         onResize: function(oldWidthScript, newWidthScript) {

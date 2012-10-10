@@ -24,28 +24,9 @@ WDN.analytics = function() {
 		initialize : function() {
 			var widthScript = WDN.getCurrentWidthScript(), isMobile = widthScript == '320';
 			WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
-			
-			var version_html = document.body.getAttribute("data-version"),
-				version_dep  = document.getElementById("wdn_dependents").getAttribute("src");
-			
-			// Set the defaults
-			if (version_html == '$HTML_VERSION$') {
-				version_html = '3.DEV';
-			}
-			if (!version_html) {
-				version_html = '3.0';
-			}
-			
-			if (/\?dep=\$DEP_VERSION\$/.test(version_dep)) {
-				version_dep = '3.1.DEV';
-			} else {
-				var version_match = version_dep.match(/\?dep=(\d+(?:\.\d+)*)/);
-				if (version_match) {
-					version_dep = version_match[1];
-				} else {
-					version_dep = '3.0';
-				}
-			}			
+
+            var version_html = WDN.getHTMLVersion(),
+                version_dep  = WDN.getDepVersion();
 			
 			_gaq.push(
 				['wdn._setAccount', 'UA-3203435-1'],
@@ -85,6 +66,7 @@ WDN.analytics = function() {
 						//WDN.jQuery(this).addClass('external'); //Implications for doing this?
 						WDN.jQuery(this).click(function() {
 							WDN.analytics.callTrackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
+							WDN.analytics.callTrackPageview(gahref);
 						});
 					}  
 					else if (gahref.match(/^mailto\:/i)){  //deal with mailto: links
@@ -101,7 +83,7 @@ WDN.analytics = function() {
 						});  
 					}  
 				}); 
-				WDN.jQuery('ul.socialmedia a').click(function(){ 
+				WDN.jQuery('.socialmedia .outpost a').click(function(){ 
 					var socialMedia = WDN.jQuery(this).parent().attr('id');
 					socialMedia = socialMedia.replace(/wdn_/gi, '');
 					console.log(socialMedia);
@@ -156,7 +138,7 @@ WDN.analytics = function() {
 		
 		trackNavigationPreferredState : function(preferredState) {
 			try {
-				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL);
+				WDN.analytics.callTrackEvent('Navigation Preference', preferredState, WDN.analytics.thisURL, 0, true);
 			} catch(e){}
 		},
 		
@@ -187,20 +169,23 @@ WDN.analytics = function() {
 			}
 		},
 		
-		callTrackEvent: function(category, action, label, value) {
+		callTrackEvent: function(category, action, label, value, noninteraction) {
 			var widthScript = WDN.getCurrentWidthScript();
 			if (value === undefined) {
 				value = 0;
 			}
+			if (noninteraction === undefined) {
+			    noninteraction = false;
+			}
 			value = Math.floor(value);
 			//var wdnSuccess = wdnTracker._trackEvent(category, action, label, value);
-			_gaq.push(['wdn._trackEvent', category, action, label, value]);
+			_gaq.push(['wdn._trackEvent', category, action, label, value, noninteraction]);
 			if (widthScript == '320') {
-				_gaq.push(['m._trackEvent', category, action, label, value]);
+				_gaq.push(['m._trackEvent', category, action, label, value, noninteraction]);
 			}
 			try {
 				if (WDN.analytics.isDefaultTrackerReady()) {
-					var pageSuccess = _gaq.push(['_trackEvent', category, action, label, value]);
+					var pageSuccess = _gaq.push(['_trackEvent', category, action, label, value, noninteraction]);
 					WDN.log("Page Event tracking success? "+pageSuccess);
 				} else {
 					throw "Default Tracker Account Not Set";

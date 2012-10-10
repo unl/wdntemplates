@@ -1,0 +1,200 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS!
+*
+* ---------------------------
+* This file is for setting up a UNL affiliate template. 
+* The UNL Affiliate template is sites that have approved expemptions by the Chancellor.
+* ---------------------------
+*/
+/* Site Logo */
+#header #logo {
+  background-image: url('../images/affiliate_logo.png');
+  background-position: 0 0;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  -webkit-background-size: contain;
+  background-size: contain;
+}
+/* Institution title is longer and now a link back to UNL.edu */#wdn_institution_title a {
+  color: inherit;
+  text-decoration: none;
+}
+#wdn_institution_title a:hover,
+#wdn_institution_title a:active {
+  text-decoration: underline;
+}
+/* IdM */
+#wdn_identity_management > a {
+  text-shadow: -1px -1px 1px #060606;
+}
+#wdn_identity_management > a img {
+  border-color: #060606;
+}
+#wdn_identity_management:hover > a {
+  background: #000000;
+}
+#wdn_identity_management > #wdn_idm_user_options {
+  background: #000000;
+}
+#wdn_identity_management.loggedin > #wdn_idm_user_options li {
+  border-color: #060606;
+}
+/* Nav */
+#navigation:before {
+  border-color: #000000;
+  -webkit-box-shadow: 1px 1px 2px 0 #dfae7a inset;
+  -moz-box-shadow: 1px 1px 2px 0 #dfae7a inset;
+  box-shadow: 1px 1px 2px 0 #dfae7a inset;
+  box-shadow: inset 1px 1px 2px 0 #2d2d2d;
+  -webkit-box-shadow: inset 1px 1px 2px 0 #2d2d2d;
+  -moz-box-shadow: inset 1px 1px 2px 0 #2d2d2d;
+  background: #060606;
+  background: -moz-linear-gradient(top, #060606 0%, #000000 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #060606), color-stop(100%, #000000));
+  background: -webkit-linear-gradient(top, #060606 0%, #000000 100%);
+  background: -o-linear-gradient(top, #060606 0%, #000000 100%);
+  background: -ms-linear-gradient(top, #060606 0%, #000000 100%);
+  background: linear-gradient(top, #060606 0%, #000000 100%);
+}
+#navigation {
+  background: #060606;
+  background: -moz-linear-gradient(top, #060606 0%, #000000 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #060606), color-stop(100%, #000000));
+  background: -webkit-linear-gradient(top, #060606 0%, #000000 100%);
+  background: -o-linear-gradient(top, #060606 0%, #000000 100%);
+  background: -ms-linear-gradient(top, #060606 0%, #000000 100%);
+  background: linear-gradient(top, #060606 0%, #000000 100%);
+}
+/* main content */
+#maincontent a {
+  color: #000000;
+}
+#maincontent a:hover {
+  color: #060606;
+}
+#maincontent a:focus {
+  color: #0d0d0d;
+}
+@media (min-width: 320px) {
+  
+}
+@media (min-width: 480px) {
+  
+}
+@media (min-width: 600px) {
+  #wdn_copyright {
+    background: #060606;
+    background: -moz-linear-gradient(top, #060606 0%, #000000 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #060606), color-stop(100%, #000000));
+    background: -webkit-linear-gradient(top, #060606 0%, #000000 100%);
+    background: -o-linear-gradient(top, #060606 0%, #000000 100%);
+    background: -ms-linear-gradient(top, #060606 0%, #000000 100%);
+    background: linear-gradient(top, #060606 0%, #000000 100%);
+    text-shadow: 0 1px 0 #000000;
+  }
+  #wdn_copyright a:hover {
+    color: #b3b3b3;
+    text-decoration: none;
+  }
+  #wdn_copyright #wdn_logos #unl_wordmark {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+}
+@media (min-width: 768px) {
+  /* Search box */
+  #wdn_search {
+    background: #060606;
+    background: -moz-linear-gradient(top, #060606 0%, #000000 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #060606), color-stop(100%, #000000));
+    background: -webkit-linear-gradient(top, #060606 0%, #000000 100%);
+    background: -o-linear-gradient(top, #060606 0%, #000000 100%);
+    background: -ms-linear-gradient(top, #060606 0%, #000000 100%);
+    background: linear-gradient(top, #060606 0%, #000000 100%);
+  }
+  #wdn_search form #q {
+    border-color: #000000;
+  }
+  /* IdM */
+  #wdn_identity_management > a {
+    text-shadow: none;
+  }
+  #wdn_identity_management > a img {
+    border-color: #727272;
+  }
+  #wdn_identity_management:hover > a {
+    background: #d8d8d8;
+  }
+  #wdn_identity_management > #wdn_idm_user_options {
+    background: #d8d8d8;
+  }
+  #wdn_identity_management.loggedin > #wdn_idm_user_options li {
+    border-color: #dfdfdf;
+  }
+  /* Navigation */
+  #breadcrumbs > ul > li.selected > a {
+    color: #000000;
+  }
+  #navigation {
+    background: #fff;
+  }
+  #navigation > ul > li.empty:hover a {
+    background: #060606;
+    background: -moz-linear-gradient(top, #060606 0%, #000000 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #060606), color-stop(100%, #000000));
+    background: -webkit-linear-gradient(top, #060606 0%, #000000 100%);
+    background: -o-linear-gradient(top, #060606 0%, #000000 100%);
+    background: -ms-linear-gradient(top, #060606 0%, #000000 100%);
+    background: linear-gradient(top, #060606 0%, #000000 100%);
+  }
+  #navigation > ul > li > a {
+    color: #fff;
+    text-shadow: 1px 1px 1px #424242;
+    border-right-color: #000000;
+    border-left-color: #060606;
+    background: #060606;
+    background: -moz-linear-gradient(top, #060606 0%, #000000 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #060606), color-stop(100%, #000000));
+    background: -webkit-linear-gradient(top, #060606 0%, #000000 100%);
+    background: -o-linear-gradient(top, #060606 0%, #000000 100%);
+    background: -ms-linear-gradient(top, #060606 0%, #000000 100%);
+    background: linear-gradient(top, #060606 0%, #000000 100%);
+  }
+  #navigation > ul > li > a:hover {
+    background: #131313;
+    background: -moz-linear-gradient(top, #131313 0%, #0d0d0d 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #131313), color-stop(100%, #0d0d0d));
+    background: -webkit-linear-gradient(top, #131313 0%, #0d0d0d 100%);
+    background: -o-linear-gradient(top, #131313 0%, #0d0d0d 100%);
+    background: -ms-linear-gradient(top, #131313 0%, #0d0d0d 100%);
+    background: linear-gradient(top, #131313 0%, #0d0d0d 100%);
+  }
+  #navigation > ul > li:hover > a {
+    background: #131313;
+    background: -moz-linear-gradient(top, #131313 0%, #0d0d0d 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #131313), color-stop(100%, #0d0d0d));
+    background: -webkit-linear-gradient(top, #131313 0%, #0d0d0d 100%);
+    background: -o-linear-gradient(top, #131313 0%, #0d0d0d 100%);
+    background: -ms-linear-gradient(top, #131313 0%, #0d0d0d 100%);
+    background: linear-gradient(top, #131313 0%, #0d0d0d 100%);
+  }
+}
+@media (min-width: 960px) {
+  
+}
+@media (min-width: 1040px) {
+  #header #logo {
+    background-position: 10px 6px;
+  }
+  /* IdM Adjustment */
+  #wdn_identity_management {
+    left: 470px;
+    max-width: 145px;
+  }
+}
+#footer_floater {
+  color: black;
+  background: none;
+}
