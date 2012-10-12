@@ -42,7 +42,7 @@
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
 <body class="fixed debug" data-version="3.1">
-    <nav class="skipnav">
+    <nav class="skipnav" role="navigation">
         <a class="skipnav" href="#maincontent">Skip Navigation</a>
     </nav>
     <div id="wdn_wrapper">
@@ -93,7 +93,7 @@
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
         </div>
-        <footer id="footer">
+        <footer id="footer" role="contentinfo">
             <div id="footer_floater"></div>
             <div class="footer_col" id="wdn_footer_feedback">
                 <!--#include virtual="/wdn/templates_3.1/includes/feedback.html" -->

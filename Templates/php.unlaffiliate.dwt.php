@@ -33,7 +33,7 @@
 <!-- TemplateParam name="class" type="text" value="fixed" -->
 </head>
 <body class="@@(_document['class'])@@" data-version="$HTML_VERSION$">
-    <nav class="skipnav">
+    <nav class="skipnav" role="navigation">
         <a class="skipnav" href="#maincontent">Skip Navigation</a>
     </nav>
     <div id="wdn_wrapper">

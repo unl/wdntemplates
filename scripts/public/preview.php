@@ -105,7 +105,7 @@ $scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('', ''),
 <!-- InstanceParam name="class" type="text" value="fixed" -->
 </head>
 <body class="fixed" data-version="3.1">
-    <nav class="skipnav">
+    <nav class="skipnav" role="navigation">
         <a class="skipnav" href="#maincontent">Skip Navigation</a>
     </nav>
     <div id="wdn_wrapper">
