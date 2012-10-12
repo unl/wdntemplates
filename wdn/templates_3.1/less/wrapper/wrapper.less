@@ -15,9 +15,29 @@ html {
         line-height: 1em;
         
         > .skipnav {
-            display: none;
+            display: block;
+            position: absolute;
+            z-index: 11;
+            
+            a {
+                color:#fff;
+                text-decoration:none;
+                font-size:0.8em;
+                text-shadow: 1px 1px 1px #424242;
+                font-weight:bold;
+                .text-hidden();
+                float: left;
+                padding: 0.5em;
+                
+                &:focus {
+                    text-indent: 0;
+                    .box-shadow(0px, 1px, 5px, #aaa);
+                    .linear-gradient(@highlightPrimary, @shadowPrimary);
+                    .border-radius(3px);
+                    line-height: 1em;
+                }
+            }
         }
-        
     }
 }
 
@@ -57,30 +77,6 @@ html {
     html {
         > body {
             background-image: url('images/bg.jpg');
-            
-            > .skipnav {
-                display: block;
-                position: absolute;
-                z-index: 11;
-                
-                a {
-                    color:#fff;
-                    text-decoration:none;
-                    font-size:0.8em;
-                    text-shadow: 1px 1px 1px #424242;
-                    font-weight:bold;
-                    .text-hidden();
-                    float: left;
-                    
-                    &:focus {
-                        text-indent: 0;
-                        .box-shadow(0px, 1px, 5px, #aaa);
-                        .linear-gradient(@highlightPrimary, @shadowPrimary);
-                        .border-radius(3px);
-                        padding: 0.5em;
-                    }
-                }
-            }
         }
         
         #wdn_wrapper {
