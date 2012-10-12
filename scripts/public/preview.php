@@ -118,7 +118,7 @@ $scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('', ''),
             <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/idm.html'; ?>
             <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/wdnTools.html'; ?>
         </header>
-        <div id="wdn_navigation_bar">
+        <div id="wdn_navigation_bar" role="navigation">
             <nav id="breadcrumbs">
                 <!-- WDN: see glossary item 'breadcrumbs' -->
                 <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>

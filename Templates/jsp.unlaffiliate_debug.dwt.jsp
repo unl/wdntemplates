@@ -46,7 +46,7 @@
     		<jsp:include page="/wdn/templates_3.1/includes/idm.html" />
             <jsp:include page="/wdn/templates_3.1/includes/wdnTools.html" />
         </header>
-        <div id="wdn_navigation_bar">
+        <div id="wdn_navigation_bar" role="navigation">
             <nav id="breadcrumbs">
                 <!-- WDN: see glossary item 'breadcrumbs' -->
                 <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
