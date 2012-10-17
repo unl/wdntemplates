@@ -34,7 +34,7 @@
 <!-- InstanceParam name="class" type="text" value="fixed" -->
 </head>
 <body class="fixed" data-version="3.1">
-    <nav class="skipnav">
+    <nav class="skipnav" role="navigation">
         <a class="skipnav" href="#maincontent">Skip Navigation</a>
     </nav>
     <div id="wdn_wrapper">
@@ -47,7 +47,7 @@
     		<?php virtual("/wdn/templates_3.1/includes/idm.html"); ?>
     		<?php virtual("/wdn/templates_3.1/includes/wdnTools.html"); ?>
         </header>
-        <div id="wdn_navigation_bar">
+        <div id="wdn_navigation_bar" role="navigation">
             <nav id="breadcrumbs">
                 <!-- WDN: see glossary item 'breadcrumbs' -->
                 <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
@@ -67,11 +67,11 @@
                 </nav>
             </div>
         </div>
-        <div id="wdn_content_wrapper">
+        <div id="wdn_content_wrapper" role="main">
             <div id="pagetitle">
                 <!-- InstanceBeginEditable name="pagetitle" --> <!-- InstanceEndEditable -->
             </div>
-            <div id="maincontent" role="main">
+            <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
 
