@@ -27,23 +27,13 @@
             right: 2px;
         }
     }
-
-    #footer .footer_col .socialmedia li {
-        display: inline-block;
-        float: left;
-    }
-    #footer .footer_col .socialmedia li a {
-        width: 80px;
-        padding: 9px 6px 0;
-    }
-    #footer .footer_col .socialmedia li.outpost a {
-        width: 38px !important;
-        padding: 0;
-    }
 }
 
 .ie7 {
-
+    #wdn_site_title abbr {
+        color: #555;
+    }
+    
     #wdn_search_form .search {
         text-transform: capitalize;
     }
@@ -56,6 +46,11 @@
 
     #wdn_navigation_bar {
         zoom: 1;
+        z-index: 5;
+    }
+    
+    #wdn_navigation_wrapper .pin_state {
+        display: none;
     }
 
     #footer {
@@ -83,6 +78,10 @@
     #header {
         .corner-fix-top-right, .corner-fix-bottom-left {
             display: none;
+        }
+        
+        #wdn_site_title {
+            margin-top: 5px;
         }
     }
 

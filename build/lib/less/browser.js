@@ -39,7 +39,7 @@ if (less.env === 'development') {
     }
     less.watchTimer = setInterval(function () {
         if (less.watchMode) {
-            loadStyleSheets(function (root, sheet, env) {
+            loadStyleSheets(function (e, root, _, sheet, env) {
                 if (root) {
                     createCSS(root.toCSS(), sheet, env.lastModified);
                 }
@@ -78,7 +78,7 @@ less.refresh = function (reload) {
     var startTime, endTime;
     startTime = endTime = new(Date);
 
-    loadStyleSheets(function (root, sheet, env) {
+    loadStyleSheets(function (e, root, _, sheet, env) {
         if (env.local) {
             log("loading " + sheet.href + " from cache.");
         } else {
@@ -121,6 +121,7 @@ function loadStyleSheets(callback, reload) {
 }
 
 function loadStyleSheet(sheet, callback, reload, remaining) {
+    var contents  = sheet.contents || {};  // Passing a ref to top importing parser content cache trough 'sheet' arg.
     var url       = window.location.href.replace(/[#?].*$/, '');
     var href      = sheet.href.replace(/\?.*$/, '');
     var css       = cache && cache.getItem(href);
@@ -135,6 +136,7 @@ function loadStyleSheet(sheet, callback, reload, remaining) {
             href = url.slice(0, url.lastIndexOf('/') + 1) + href;
         }
     }
+    var filename = href.match(/([^\/]+)$/)[1];
 
     xhr(sheet.href, sheet.type, function (data, lastModified) {
         if (!reload && styles && lastModified &&
@@ -142,18 +144,21 @@ function loadStyleSheet(sheet, callback, reload, remaining) {
             new(Date)(styles.timestamp).valueOf())) {
             // Use local copy
             createCSS(styles.css, sheet);
-            callback(null, sheet, { local: true, remaining: remaining });
+            callback(null, null, data, sheet, { local: true, remaining: remaining });
         } else {
             // Use remote copy (re-parse)
             try {
+                contents[filename] = data;  // Updating top importing parser content cache
                 new(less.Parser)({
                     optimization: less.optimization,
                     paths: [href.replace(/[\w\.-]+$/, '')],
-                    mime: sheet.type
+                    mime: sheet.type,
+                    filename: filename,
+                    'contents': contents    // Passing top importing parser content cache ref down.
                 }).parse(data, function (e, root) {
                     if (e) { return error(e, href) }
                     try {
-                        callback(root, sheet, { local: false, lastModified: lastModified, remaining: remaining });
+                        callback(e, root, data, sheet, { local: false, lastModified: lastModified, remaining: remaining });
                         removeNode(document.getElementById('less-error-message:' + extractId(href)));
                     } catch (e) {
                         error(e, href);
@@ -190,9 +195,10 @@ function createCSS(styles, sheet, lastModified) {
     if ((css = document.getElementById(id)) === null) {
         css = document.createElement('style');
         css.type = 'text/css';
-        css.media = sheet.media || 'screen';
+        if( sheet.media ){ css.media = sheet.media; }
         css.id = id;
-        document.getElementsByTagName('head')[0].appendChild(css);
+        var nextEl = sheet && sheet.nextSibling || null;
+        document.getElementsByTagName('head')[0].insertBefore(css, nextEl);
     }
 
     if (css.styleSheet) { // IE
@@ -281,29 +287,32 @@ function log(str) {
 
 function error(e, href) {
     var id = 'less-error-message:' + extractId(href);
-
-    var template = ['<ul>',
-                        '<li><label>[-1]</label><pre class="ctx">{0}</pre></li>',
-                        '<li><label>[0]</label><pre>{current}</pre></li>',
-                        '<li><label>[1]</label><pre class="ctx">{2}</pre></li>',
-                    '</ul>'].join('\n');
-
-    var elem = document.createElement('div'), timer, content;
+    var template = '<li><label>{line}</label><pre class="{class}">{content}</pre></li>';
+    var elem = document.createElement('div'), timer, content, error = [];
+    var filename = e.filename || href;
 
     elem.id        = id;
     elem.className = "less-error-message";
 
     content = '<h3>'  + (e.message || 'There is an error in your .less file') +
-              '</h3>' + '<p><a href="' + href   + '">' + href + "</a> ";
+              '</h3>' + '<p>in <a href="' + filename   + '">' + filename + "</a> ";
 
-    if (e.extract) {
+    var errorline = function (e, i, classname) {
+        if (e.extract[i]) {
+            error.push(template.replace(/\{line\}/, parseInt(e.line) + (i - 1))
+                               .replace(/\{class\}/, classname)
+                               .replace(/\{content\}/, e.extract[i]));
+        }
+    };
+
+    if (e.stack) {
+        content += '<br/>' + e.stack.split('\n').slice(1).join('<br/>');
+    } else if (e.extract) {
+        errorline(e, 0, '');
+        errorline(e, 1, 'line');
+        errorline(e, 2, '');
         content += 'on line ' + e.line + ', column ' + (e.column + 1) + ':</p>' +
-            template.replace(/\[(-?\d)\]/g, function (_, i) {
-                return (parseInt(e.line) + parseInt(i)) || '';
-            }).replace(/\{(\d)\}/g, function (_, i) {
-                return e.extract[parseInt(i)] || '';
-            }).replace(/\{current\}/, e.extract[1].slice(0, e.column) + '<span class="error">' +
-                                      e.extract[1].slice(e.column)    + '</span>');
+                    '<ul>' + error.join('') + '</ul>';
     }
     elem.innerHTML = content;
 
@@ -322,13 +331,13 @@ function error(e, href) {
             'color: #cc7777;',
         '}',
         '.less-error-message pre {',
-            'color: #ee4444;',
+            'color: #dd6666;',
             'padding: 4px 0;',
             'margin: 0;',
             'display: inline-block;',
         '}',
-        '.less-error-message pre.ctx {',
-            'color: #dd4444;',
+        '.less-error-message pre.line {',
+            'color: #ff0000;',
         '}',
         '.less-error-message h3 {',
             'font-size: 20px;',

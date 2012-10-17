@@ -53,7 +53,7 @@
             a {
                 #wdnSprite > .sprite(@dir, @tool_rss_bw_x + 5, @tool_rss_bw_y + 4, 20px, 20px);
                 padding: 4px 5px;
-                text-indent: -9000px;
+                .text-hidden();
                 border: 2px solid #e0e0e0;
                 .border-radius(5px);
                 position: relative;
@@ -66,12 +66,12 @@
                         content: attr(data-title);
                         padding: 4px;
                         position: absolute;
+                        z-index: 1;
                         bottom: 130%;
                         right: 0;
                         width: 175px;
                         max-width: 175px;
                         .border-radius(3px);
-                        z-index: 2;
                         text-indent: 0;
                         font-family: @impactFont;
                         font-weight: bold;
@@ -79,7 +79,7 @@
                         font-size: 0.7em;
                         text-shadow: 1px 1px 1px #B1DAF2;
                         line-height: 1;
-                        .linear-gradient(fadeout(#B1DAF2, 5%), fadeout(#95B8CC, 5%));
+                        .linear-gradient(#B1DAF2, #95B8CC);
                     }
                     
                     &:after {
@@ -91,8 +91,8 @@
                         width: 0;
                         height: 0;
                         border-left: 10px solid transparent;
-                    	border-right: 10px solid transparent;
-                    	border-top: 10px solid fadeout(#95B8CC, 5%);
+                        border-right: 10px solid transparent;
+                        border-top: 10px solid fadeout(#95B8CC, 5%);
                     }
                 }
                 &.weather {

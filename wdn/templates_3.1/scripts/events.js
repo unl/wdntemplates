@@ -34,13 +34,17 @@ WDN.events = function() {
 		},
 
 		setup : function() {
-			var localSettings = getLocalEventSettings();
+			var localSettings = getLocalEventSettings() || {};
 			if (!this.calURL) {
 				this.calURL = localSettings.href;
 			}
 			
 			if (!this.calTitle) {
 				this.calTitle = localSettings.title || '';
+			}
+			
+			if (localSettings.limit) {
+				this.limit = localSettings.limit;
 			}
 			
 			if (WDN.jQuery(this.container).length != 0) {
