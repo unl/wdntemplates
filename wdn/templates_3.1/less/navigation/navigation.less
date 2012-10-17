@@ -31,10 +31,11 @@
     padding:8px 0 0 0;
     cursor:pointer;
     &:before {
-        content: 'Navigation \002B';
+        content: '\2261';
         text-align:right;
         border:1px solid #8c0100;
-        padding:3px;
+        padding:0px 5px 1px 5px;
+        font-size: 1.3em;
         color:#fff;
         .border-radius(5px);
         margin-right:5px;
@@ -43,6 +44,8 @@
     }
     &.primary:before, &.secondary:before {
         content: 'Back';
+        font-size: 1em;
+        padding: 3px 5px;
     }
     &.disabled {
         cursor: default;
@@ -459,8 +462,7 @@
                     color: rgba(255, 255, 255, 0.99);
                     text-shadow: 1px 1px 1px #424242;
                     font-weight: 500;
-                    // Commented out due to rendering changes in Chrome. @TODO revisit with new release http://code.google.com/p/chromium/issues/detail?id=152304
-                    // -webkit-text-stroke: 0.55px;
+                    -webkit-text-stroke: 0.55px;
                     font-size: 0.875em;
                     margin: auto 0;
                     padding: 0.47em 1px;
