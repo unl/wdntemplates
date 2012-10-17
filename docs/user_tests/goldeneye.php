@@ -21,7 +21,7 @@ Navigation</a></p>
         <?php virtual("../wdn/templates_3.1/includes/wdnTools.html"); ?>
         <div id="wdn_identity_management"></div>
      </div>
-    <div id="wdn_navigation_bar">
+    <div id="wdn_navigation_bar" role="navigation">
         <div id="breadcrumbs">
             <ul>
                 <!-- WDN: see glossary item 'breadcrumbs' -->

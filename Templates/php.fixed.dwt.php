@@ -32,7 +32,7 @@
 <!-- TemplateParam name="class" type="text" value="fixed" -->
 </head>
 <body class="@@(_document['class'])@@" data-version="$HTML_VERSION$">
-    <nav class="skipnav">
+    <nav class="skipnav" role="navigation">
         <a class="skipnav" href="#maincontent">Skip Navigation</a>
     </nav>
     <div id="wdn_wrapper">
@@ -43,7 +43,7 @@
             <?php virtual("/wdn/templates_3.1/includes/idm.html"); ?>
             <?php virtual("/wdn/templates_3.1/includes/wdnTools.html"); ?>
         </header>
-        <div id="wdn_navigation_bar">
+        <div id="wdn_navigation_bar" role="navigation">
             <nav id="breadcrumbs">
                 <!-- WDN: see glossary item 'breadcrumbs' -->
                 <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
@@ -64,13 +64,13 @@
                 </nav>
             </div>
         </div>
-        <div id="wdn_content_wrapper">
+        <div id="wdn_content_wrapper" role="main">
             <div id="pagetitle">
                 <!-- TemplateBeginEditable name="pagetitle" -->
-                <h1>This is your page title. It's now an &lt;h1&gt;, baby!</h1>
+                <h1>Please Title Your Page Here</h1>
                 <!-- TemplateEndEditable -->
             </div>
-            <div id="maincontent" role="main">
+            <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- TemplateBeginEditable name="maincontentarea" -->
                 <h2>This is a blank page</h2>
