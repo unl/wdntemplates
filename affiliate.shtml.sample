@@ -1,24 +1,25 @@
+*********** Copy this file to affiliate.shtml and remove this line to test.
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]><html class="ie iem7"><![endif]-->
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
 <!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
-<!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/unlaffiliate.dwt" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
+<!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!--<![endif]-->
 <head>
 <!--#include virtual="/wdn/templates_3.1/includes/metanfavico.html" -->
 <!--
     Membership and regular participation in the UNL Web Developer Network
-    is required to use the UNL templates. Visit the WDN site at 
+    is required to use the UNL templates. Visit the WDN site at
     http://wdn.unl.edu/. Click the WDN Registry link to log in and
     register your unl.edu site.
     All UNL template code is the property of the UNL Web Developer Network.
-    The code seen in a source code view is not, and may not be used as, a 
-    template. You may not use this code, a reverse-engineered version of 
+    The code seen in a source code view is not, and may not be used as, a
+    template. You may not use this code, a reverse-engineered version of
     this code, or its associated visual presentation in whole or in part to
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
-    
+
     $Id: unlaffiliate.dwt | ea2608181e2b6604db76106fd982b39218ddcb8b | Fri Mar 9 12:20:43 2012 -0600 | Kevin Abel  $
 -->
 <!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles.html" -->
@@ -41,7 +42,7 @@
             <!-- InstanceBeginEditable name="sitebranding_logo" -->
             <a id="logo" href="http://www.throughtheeyes.org/" title="Through the Eyes of the Child Initiative">Through the Eyes of the Child Initiative</a>
             <!-- InstanceEndEditable -->
-            <span id="wdn_institution_title"><!-- InstanceBeginEditable name="sitebranding_affiliate" --><a href="http://www.unl.edu" title="University of Nebraska&ndash;Lincoln">An affiliate of the University of Nebraska&ndash;Lincoln</a><!-- InstanceEndEditable --></span>            
+            <span id="wdn_institution_title"><!-- InstanceBeginEditable name="sitebranding_affiliate" --><a href="http://www.unl.edu" title="University of Nebraska&ndash;Lincoln">An affiliate of the University of Nebraska&ndash;Lincoln</a><!-- InstanceEndEditable --></span>
     		<span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" -->Throught the Eyes of a Child Initiative<span>A Nebraska Supreme Court Initiative</span><!-- InstanceEndEditable --></span>
     		<!--#include virtual="/wdn/templates_3.1/includes/idm.html" -->
             <!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
@@ -111,4 +112,4 @@
         </footer>
     </div>
 </body>
-<!-- InstanceEnd --></html>
+</html>
