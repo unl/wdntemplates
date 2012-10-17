@@ -7,18 +7,20 @@
 * Styles associated with the exterior chrome/wrapper of the design
 * ---------------------------
 */
+
 @import "../_mixins/all.less";
+
 html {
     > body {
         background: url('images/bg.jpg');
         font-size: 1em;
         line-height: 1em;
-        
+
         > .skipnav {
             display: block;
             position: absolute;
             z-index: 11;
-            
+
             a {
                 color:#fff;
                 text-decoration:none;
@@ -28,7 +30,7 @@ html {
                 .text-hidden();
                 float: left;
                 padding: 0.5em;
-                
+
                 &:focus {
                     text-indent: 0;
                     .box-shadow(0px, 1px, 5px, #aaa);
@@ -41,11 +43,32 @@ html {
     }
 }
 
-//save some bits by not nesting
 #wdn_wrapper {
     overflow: hidden;
     position: relative;
 }
+
+#wdn_content_wrapper {
+    background: #fff;
+    padding: 4px;
+    .box-shadow(0, 1px, 3px, #7a7a7a);
+}
+
+#maincontent {
+    position: relative;
+    margin-bottom: 15px;
+    font-size: 77%;
+    line-height: 140%;
+    color: #333;
+
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+        height: 0;
+    }
+}
+
 @media (min-width: 320px) {
 
 }
@@ -53,7 +76,9 @@ html {
 
 }
 @media (min-width: 600px) {
-
+    #maincontent {
+        margin-bottom: 50px;
+    }
 }
 @media (min-width: 768px) {
     html {
@@ -61,6 +86,7 @@ html {
             background: #eee;
             text-rendering: optimizeLegibility;
         }
+
         #wdn_wrapper {
             background: #fff;
             border: 12px solid #eee;
@@ -68,6 +94,10 @@ html {
             .border-radius(18px);
             padding: 5px 5px 0 5px;
         }
+    }
+
+    #wdn_content_wrapper {
+        .box-shadow(none);
     }
 }
 @media (min-width: 960px) {
@@ -78,7 +108,7 @@ html {
         > body {
             background-image: url('images/bg.jpg');
         }
-        
+
         #wdn_wrapper {
             width: 960px;
             /* width: 92%; // If we want fluid */
@@ -89,5 +119,9 @@ html {
             .border-radius(10px);
             height: auto;
         }
+    }
+
+    #wdn_content_wrapper {
+        padding: 0;
     }
 }
