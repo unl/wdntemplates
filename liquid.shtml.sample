@@ -1,4 +1,4 @@
-*********** Copy this file to liquid.shtml and remove this line to test.<br />
+*********** Copy this file to liquid.shtml and remove these two lines to test.<br />
 *********** Do not use this file in production. See /Templates or http://wdn.unl.edu/
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]><html class="ie iem7"><![endif]-->
