@@ -18,7 +18,7 @@
     .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11, .grid12 {
         width: auto;
     }
-    
+
     // support for deprecated grid, to be removed July 1, 2012
     .col, .two_col, .three_col, .four_col {
         width: auto;
@@ -26,7 +26,7 @@
 }
 
 @media (min-width: 320px) {
-    
+
 }
 @media (min-width: 480px) {
     #maincontent {
@@ -41,22 +41,22 @@
             clear: left !important;
             margin-left: 0 !important;
         }
-        
+
         *[class^="grid"]:nth-of-type(odd) {
             margin-left: 0;
             clear: left;
         }
-        
+
         *[class^="grid"] > *[class^="grid"] {
             width: 100%;
             margin-left: 0;
         }
-        
+
         .first:first-of-type {
             margin-left: 0 !important;
             clear: left;
         }
-        
+
         // support for deprecated grid, to be removed July 1, 2012
         .col, .two_col, .three_col, .four_col {
             width: 48%;
@@ -64,7 +64,7 @@
             padding-right: 1%;
             display: inline;
             float: left;
-            
+
             &.right {
                 float: right;
             }
@@ -76,50 +76,50 @@
         .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11, .grid12 {
             width: 32%;
         }
-        
+
         //clear out rule from 480
         *[class^="grid"]:nth-of-type(odd) {
             margin-left: 2%;
             clear: none;
         }
-        
+
         *[class^="grid"]:nth-of-type(3n+1) {
             margin-left: 0;
             clear: left;
         }
-        
+
         //duplicated in order to take priority
         *[class^="grid"] > *[class^="grid"] {
             width: 100%;
             margin-left: 0;
         }
-        
+
         // support for deprecated grid, to be removed July 1, 2012
         .col {
             width: 23%;
-        } 
-        
+        }
+
         .two_col {
             width: 48%;
-        } 
-        
+        }
+
         .three_col {
             width: 73%;
         }
-        
+
         .four_col {
             width: 100%;
         }
-        
+
         //nested columns
         .two_col .col {
             width: 48%;
         }
-        
+
         .three_col .col {
             width: 31%;
         }
-        
+
         .three_col .two_col {
             width: 64%;
         }
@@ -149,82 +149,82 @@
         .grid10 { .theWidth(10); }
         .grid11 { .theWidth(11); }
         .grid12 { width:100%; }
-        
+
         //clear out rule from 480
         *[class^="grid"]:nth-of-type(odd) {
             margin-left: @gutterWidth;
             clear: none;
-            
+
             &.first {
                 clear: left;
             }
         }
-        
+
         //clear out rule for 600
         *[class^="grid"]:nth-of-type(3n+1) {
             margin-left: @gutterWidth;
             clear: none;
-            
+
             &.first {
                 clear: left;
             }
         }
-        
+
         .first {
             margin-left: 0 !important;
             clear: left;
         }
-        
+
         *[class^="grid"] > .grid1 {
             .theWidth(1);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid2 {
             .theWidth(2);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid3 {
             .theWidth(3);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid4 {
             .theWidth(4);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid5 {
             .theWidth(5);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid6 {
             .theWidth(6);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid7 {
             .theWidth(7);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid8 {
             .theWidth(8);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid9 {
             .theWidth(9);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid10 {
             .theWidth(10);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid11 {
             .theWidth(11);
             margin-left: @gutterWidth;
@@ -232,7 +232,7 @@
     }
 }
 @media (min-width: 960px) {
-    
+
     @gutterWidth: 2.54%;
     @columnWidth: 6%;
     #maincontent {
@@ -241,13 +241,13 @@
             margin-left: @gutterWidth;
             clear: none;
         }
-        
+
         //clear out rule for 600
         *[class^="grid"]:nth-of-type(3n+1) {
             margin-left: @gutterWidth;
             clear: none;
         }
-        
+
     }
 }
 @media (min-width: 1040px) {
@@ -272,70 +272,70 @@
         .grid10 { .theWidth(10); }
         .grid11 { .theWidth(11); }
         .grid12 { width:960px;}
-        
+
         //clear out rule from 480
         *[class^="grid"]:nth-of-type(odd) {
             margin-left: @gutterWidth;
             clear: none;
         }
-        
+
         //clear out rule for 600
         *[class^="grid"]:nth-of-type(3n+1) {
             margin-left: @gutterWidth;
             clear: none;
         }
-        
+
         //duplicated for priority
         *[class^="grid"] > .grid1 {
             .theWidth(1);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid2 {
             .theWidth(2);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid3 {
             .theWidth(3);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid4 {
             .theWidth(4);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid5 {
             .theWidth(5);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid6 {
             .theWidth(6);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid7 {
             .theWidth(7);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid8 {
             .theWidth(8);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid9 {
             .theWidth(9);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid10 {
             .theWidth(10);
             margin-left: @gutterWidth;
         }
-        
+
         *[class^="grid"] > .grid11 {
             .theWidth(11);
             margin-left: @gutterWidth;
