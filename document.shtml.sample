@@ -1,4 +1,5 @@
-*********** Copy this file to document.shtml and remove this line to test.
+*********** Copy this file to document.shtml and remove this line to test.<br />
+*********** Do not use this file in production. See /Templates or http://wdn.unl.edu/
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]><html class="ie iem7"><![endif]-->
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
