@@ -75,7 +75,7 @@ WDN.navigation = (function() {
 
             if (!desktopInitd) {
 	            // add an expand toggler UI element
-	            var $toggler = WDN.jQuery('<div class="expand_toggle"><a href="#" title="Click to expand/collapse navigation" /></div>').prependTo('#wdn_navigation_wrapper');
+	            var $toggler = WDN.jQuery('<div class="expand_toggle"><a href="#" title="Click to expand/collapse navigation">Expand or Collapse Navigation</a></div>').prependTo('#wdn_navigation_wrapper');
 	            $toggler.children('a').click(function(evt) {
 	                if (WDN.navigation.currentState === 0) {
 	                    WDN.navigation.expand();
@@ -93,7 +93,7 @@ WDN.navigation = (function() {
 	            });
 	
 	            // add the pinned state UI element
-	            var $pin = WDN.jQuery('<div class="pin_state"><a href="#" /></div>').appendTo('#wdn_navigation_wrapper');
+	            var $pin = WDN.jQuery('<div class="pin_state"><a href="#" >Pin/Unpin navigation</a></div>').appendTo('#wdn_navigation_wrapper');
 	            $pin.children('a').click(function(evt) {
 	                WDN.navigation.setPreferredState(evt);
 	                return false;
@@ -199,6 +199,10 @@ WDN.navigation = (function() {
                 return;
             }
             
+            // remove excess space text nodes see #371
+            $siteTitle.contents().filter(function() {
+            	return this.nodeType == 3 && /^\s*$/.test(this.nodeValue);
+            }).remove();
             // create the link using whatever the Homepage is set to
             $siteTitle.contents().filter(function() {
             	return this.nodeType == 3;
