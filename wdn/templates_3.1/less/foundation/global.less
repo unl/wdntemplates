@@ -11,3 +11,49 @@
 .hidden, .wdn_list_descriptor {
     display: none;
 }
+
+a {
+    outline: none;
+    color: @colorPrimary;
+    text-decoration: none;
+    &:hover {
+        color: @highlightPrimary;
+    }
+    &:focus {
+        color: #cc0000;
+    }
+}
+
+p {
+    margin: 0 0 1.1em 0;
+}
+
+img {
+    border: none;
+}
+
+ul, ol {
+    list-style: disc;
+    padding: 0 0 1.1em 1.5em;
+}
+
+ol {
+    list-style: decimal;
+}
+
+dd {
+    padding: 0 0 0 1.6em;
+}
+
+pre {
+    overflow: auto;
+}
+
+.clear {
+    clear: both;
+}
+
+img, video, audio {
+    max-width: 100%;
+    height: auto;
+}
