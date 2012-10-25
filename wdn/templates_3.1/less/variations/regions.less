@@ -68,7 +68,8 @@
             .hide();
         }
         
-        nav {
+        #navigation {
+            cursor: default;
         
             &:before {
                 display: none;
@@ -77,6 +78,14 @@
             > * {
                 .hide();
             }
+        }
+    }
+    
+    &.hide-wdn_identity_management {
+    
+        #wdn_navigation_wrapper #navigation {
+            height: 12px;
+            padding: 0;
         }
     }
 }
@@ -104,31 +113,13 @@
     }
 }
 
-.hide-wdn_footer_feedback { // Ramifications for chat? If a user elects to fallback to email, the form actually won't be displayed.
 
-    #wdn_footer_feedback {
-        .hide();
-    }
-}
 
-.hide-wdn_footer_related {
-
-    #wdn_footer_related {
-        .hide();
-    }
-
-}
-
-.hide-wdn_footer_contact {
-
-    #wdn_footer_contact {
-        .hide();
-    }
-}
-
+.hide-wdn_footer_feedback,
+.hide-wdn_footer_contact,
 .hide-wdn_footer_share {
 
-    #wdn_footer_share {
+    .footer_col {
         .hide();
     }
 }
@@ -189,7 +180,7 @@
 }
 @media (min-width: 768px) {
     
-    .clustan-bomb, .hide-wdn_navigation_wrapper {  // Retain a red horizontal bar for presentation
+    .hide-wdn_navigation_wrapper {  // Retain a red horizontal bar for presentation
     
         #navigation {
             .linear-gradient(@highlightPrimary, @shadowPrimary);
@@ -200,6 +191,25 @@
         #wdn_content_wrapper {
             margin-top: 0;
         }
+        
+        &.hide-wdn_breadcrumbs {
+            
+            #navigation {
+                margin-top: 15px;
+            }
+        }
+    }
+    
+    .hide-wdn_footer_related {
+
+        #wdn_footer_related {
+            .hide();
+        }
+        
+        #footer .footer_col {
+            width: 30%;
+        }
+    
     }
 }
 @media (min-width: 960px) {
@@ -207,4 +217,10 @@
 }
 @media (min-width: 1040px) {
 
+    .clustan-bomb, .hide-wdn_navigation_wrapper {  // Retain a red horizontal bar for presentation
+    
+        #navigation {
+            margin-top: 0;
+        }
+    }
 }
