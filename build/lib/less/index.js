@@ -3,7 +3,7 @@ var path = require('path'),
     fs = require('fs');
 
 var less = {
-    version: [1, 3, 0],
+    version: [1, 3, 1],
     Parser: require('./parser').Parser,
     importer: require('./parser').importer,
     tree: require('./tree'),
@@ -41,7 +41,8 @@ var less = {
         var error = [];
         var stylize = options.color ? require('./lessc_helper').stylize : function (str) { return str };
 
-        if (ctx.stack) { return stylize(ctx.stack, 'red') }
+        // only output a stack if it isn't a less error
+        if (ctx.stack && !ctx.type) { return stylize(ctx.stack, 'red') }
 
         if (!ctx.hasOwnProperty('index')) {
             return ctx.stack || ctx.message;
@@ -119,7 +120,8 @@ less.Parser.importer = function (file, paths, callback, env) {
             new(less.Parser)({
                 paths: [path.dirname(pathname)].concat(paths),
                 filename: pathname,
-                contents: env.contents
+                contents: env.contents,
+                dumpLineNumbers: env.dumpLineNumbers
             }).parse(data, function (e, root) {
                 callback(e, root);
             });
