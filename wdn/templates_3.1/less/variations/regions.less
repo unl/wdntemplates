@@ -1,0 +1,210 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/variations/regions.less
+*
+* ---------------------------
+* Styles associated with the display of specific regions.
+* ---------------------------
+*/
+@import "../_mixins/all.less";
+
+.hide() {
+    display: none;
+}
+
+.hide-wdn_institution_title {
+
+    #wdn_institution_title {
+        .hide();
+    }
+        
+    @media only screen and (min-width : 1040px) {
+        
+        #wdn_site_title { //accomodate for the missing vertical space above
+            margin: 45px 0 0 99px;
+        }
+    }
+}
+
+.hide-wdn_identity_management {
+    
+    #wdn_identity_management {
+        .hide();
+    }
+}
+
+.hide-wdn_search {
+
+    #wdn_search {
+        .hide();
+    }
+    
+    #wdn_site_title { // we don't need to truncate for search if we don't have search
+        width: auto;
+    }
+}
+
+.hide-wdn_tool_links { // Should anything be done for alert?
+    
+    #wdn_tool_links {
+        .hide();
+    }
+
+}
+
+.hide-wdn_breadcrumbs {
+
+    #breadcrumbs {
+        .hide();
+    }
+}
+
+.hide-wdn_navigation_wrapper { // Hide certain parts in order to retain presentational UI
+
+    #wdn_navigation_wrapper {
+    
+        > div {
+            .hide();
+        }
+        
+        nav {
+        
+            &:before {
+                display: none;
+            }
+        
+            > * {
+                .hide();
+            }
+        }
+    }
+}
+
+.hide-pagetitle {
+    
+    #pagetitle {
+        .text-hidden();  // Since this has the H1, keep the text readable by screen readers
+        height: 0;
+        margin: 0;
+    }
+}
+
+.hide-footer {
+
+    #footer {
+        .hide();
+    }
+}
+
+.hide-footer_floater {
+
+    #footer_floater {
+        background: none;
+    }
+}
+
+.hide-wdn_footer_feedback { // Ramifications for chat? If a user elects to fallback to email, the form actually won't be displayed.
+
+    #wdn_footer_feedback {
+        .hide();
+    }
+}
+
+.hide-wdn_footer_related {
+
+    #wdn_footer_related {
+        .hide();
+    }
+
+}
+
+.hide-wdn_footer_contact {
+
+    #wdn_footer_contact {
+        .hide();
+    }
+}
+
+.hide-wdn_footer_share {
+
+    #wdn_footer_share {
+        .hide();
+    }
+}
+
+.hide-wdn_copyright { // Keep the UI presentation, but hide the content.
+    
+    #wdn_copyright {
+    
+        > div {
+            .hide();
+        }
+    }
+}
+
+.hide-wdn_attribution {
+    
+    #wdn_attribution {
+        .hide();
+    }
+}
+
+.hide-wdn_logos {
+
+    #wdn_logos {
+        .hide();
+    }
+}
+
+.affiliate {
+
+}
+
+.terminal {
+
+}
+
+.clustan-bomb {
+
+    .hide-wdn_institution_title;
+    .hide-wdn_identity_management;
+    .hide-wdn_search;
+    .hide-wdn_tool_links;
+    .hide-wdn_breadcrumbs;
+    .hide-wdn_navigation_wrapper;
+    .hide-pagetitle;
+    .hide-footer;
+    .hide-wdn_copyright;
+}
+
+@media (min-width: 320px) {
+    
+}
+@media (min-width: 480px) {
+
+}
+@media (min-width: 600px) {
+
+}
+@media (min-width: 768px) {
+    
+    .clustan-bomb, .hide-wdn_navigation_wrapper {  // Retain a red horizontal bar for presentation
+    
+        #navigation {
+            .linear-gradient(@highlightPrimary, @shadowPrimary);
+            height: 12px;
+            border-radius: 5px;
+        }
+        
+        #wdn_content_wrapper {
+            margin-top: 0;
+        }
+    }
+}
+@media (min-width: 960px) {
+
+}
+@media (min-width: 1040px) {
+
+}
