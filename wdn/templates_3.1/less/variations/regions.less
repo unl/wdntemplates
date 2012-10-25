@@ -45,14 +45,6 @@
     }
 }
 
-.hide-wdn_tool_links { // Should anything be done for alert?
-    
-    #wdn_tool_links {
-        .hide();
-    }
-
-}
-
 .hide-wdn_breadcrumbs {
 
     #breadcrumbs {
@@ -157,15 +149,6 @@
 
 .clustan-bomb {
 
-    .hide-wdn_institution_title;
-    .hide-wdn_identity_management;
-    .hide-wdn_search;
-    .hide-wdn_tool_links;
-    .hide-wdn_breadcrumbs;
-    .hide-wdn_navigation_wrapper;
-    .hide-pagetitle;
-    //.hide-footer;
-    .hide-wdn_copyright;
 }
 
 @media (min-width: 320px) {
@@ -210,6 +193,13 @@
         }
     }
     
+    .hide-wdn_search {
+        
+        #wdn_site_title { // reset to normal
+            width: 70%;
+        }
+    }
+    
     .hide-wdn_footer_related {
 
         #wdn_footer_related {
@@ -219,7 +209,17 @@
         #footer .footer_col {
             width: 30%;
         }
+    }
     
+    .hide-wdn_tool_links {
+    
+        #wdn_tool_links {
+            .hide();
+        }
+    
+        #wdn_site_title { // we don't need to truncate for search if we don't have search
+            width: auto;
+        }
     }
 }
 @media (min-width: 960px) {
@@ -227,10 +227,18 @@
 }
 @media (min-width: 1040px) {
 
-    .clustan-bomb, .hide-wdn_navigation_wrapper {  // Retain a red horizontal bar for presentation
+    .hide-wdn_navigation_wrapper {  // Retain a red horizontal bar for presentation
     
         #navigation {
             margin-top: 0;
+        }
+    }
+    
+    
+    .hide-wdn_search {
+        
+        #wdn_site_title { // reset to normal
+            width: 68%;
         }
     }
 }
