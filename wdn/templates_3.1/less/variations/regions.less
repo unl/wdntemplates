@@ -99,13 +99,6 @@
     }
 }
 
-.hide-footer {
-
-    #footer {
-        .hide();
-    }
-}
-
 .hide-footer_floater {
 
     #footer_floater {
@@ -113,7 +106,12 @@
     }
 }
 
-
+.hide-footer {
+    
+    #footer {
+        .hide();
+    }
+}
 
 .hide-wdn_footer_feedback,
 .hide-wdn_footer_contact,
@@ -127,6 +125,7 @@
 .hide-wdn_copyright { // Keep the UI presentation, but hide the content.
     
     #wdn_copyright {
+        padding: 0;
     
         > div {
             .hide();
@@ -165,7 +164,7 @@
     .hide-wdn_breadcrumbs;
     .hide-wdn_navigation_wrapper;
     .hide-pagetitle;
-    .hide-footer;
+    //.hide-footer;
     .hide-wdn_copyright;
 }
 
@@ -176,7 +175,18 @@
 
 }
 @media (min-width: 600px) {
+    .hide-footer {
 
+        #footer {
+            display: block;
+            
+            .footer_col {
+                .hide();
+            }
+        }
+        .hide-footer_floater;
+        .hide-wdn_copyright;
+}
 }
 @media (min-width: 768px) {
     
