@@ -132,13 +132,6 @@
     }
 }
 
-.hide-wdn_logos {
-
-    #wdn_logos {
-        .hide();
-    }
-}
-
 .affiliate {
 
 }
@@ -169,7 +162,18 @@
         }
         .hide-footer_floater;
         .hide-wdn_copyright;
-}
+    }
+    .hide-wdn_logos {
+    
+        #wdn_copyright > div {
+            width: 100%;
+            padding-right: 0;
+        }
+
+        #wdn_logos {
+            .hide();
+        }
+    }
 }
 @media (min-width: 768px) {
     
