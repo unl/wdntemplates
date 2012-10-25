@@ -164,6 +164,12 @@
     #wdn_navigation_bar {
     	float: none;
     	margin-top: 0;
+    	.box-sizing(border-box);
+        width: 100%;
+        clear: both;
+        background: #fff;
+        position: relative;
+        padding: 0 4px;
     }
     
     #wdn_navigation_wrapper {
@@ -238,13 +244,7 @@
         }
     	
     }
-    #wdn_navigation_bar {
-        width: 100%;
-        clear: both;
-        background: #fff;
-        position: relative;
-        padding: 4px;
-    }
+    
     .nav_unpinned {
         #wdn_navigation_bar {
             .box-sizing(border-box);
@@ -254,7 +254,7 @@
             position: absolute;
             z-index: 100;
             width: 100%;
-            padding: 0 4px 0 0;
+            padding: 0 1% 0 0;
         }
         
         #wdn_content_wrapper {
@@ -565,7 +565,6 @@
     .nav_pinned, .nav_open, .nav_expanded {
         
         #wdn_navigation_bar {
-            width: auto;
             overflow-y:visible;
             overflow-x:visible;
             height: auto;
