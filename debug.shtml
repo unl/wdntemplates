@@ -41,7 +41,7 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
-<body class="fixed debug clustan-bomb" data-version="3.1">
+<body class="fixed debug terminal" data-version="3.1">
     <nav class="skipnav" role="navigation">
         <a class="skipnav" href="#maincontent">Skip Navigation</a>
     </nav>
