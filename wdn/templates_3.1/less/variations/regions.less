@@ -13,20 +13,6 @@
     display: none;
 }
 
-.hide-wdn_institution_title {
-
-    #wdn_institution_title {
-        .hide();
-    }
-        
-    @media only screen and (min-width : 1040px) {
-        
-        #wdn_site_title { //accomodate for the missing vertical space above
-            margin: 45px 0 0 99px;
-        }
-    }
-}
-
 .hide-wdn_identity_management {
     
     #wdn_identity_management {
@@ -42,13 +28,6 @@
     
     #wdn_site_title { // we don't need to truncate for search if we don't have search
         width: auto;
-    }
-}
-
-.hide-wdn_breadcrumbs {
-
-    #breadcrumbs {
-        .hide();
     }
 }
 
@@ -91,43 +70,9 @@
     }
 }
 
-.hide-footer_floater {
-
-    #footer_floater {
-        background: none;
-    }
-}
-
 .hide-footer {
     
     #footer {
-        .hide();
-    }
-}
-
-.hide-wdn_footer_feedback,
-.hide-wdn_footer_contact,
-.hide-wdn_footer_share {
-
-    .footer_col {
-        .hide();
-    }
-}
-
-.hide-wdn_copyright { // Keep the UI presentation, but hide the content.
-    
-    #wdn_copyright {
-        padding: 0;
-    
-        > div {
-            .hide();
-        }
-    }
-}
-
-.hide-wdn_attribution {
-    
-    #wdn_attribution {
         .hide();
     }
 }
@@ -137,11 +82,8 @@
 }
 
 .terminal {
-
-}
-
-.clustan-bomb {
-
+    .hide-wdn_navigation_wrapper;
+    
 }
 
 @media (min-width: 320px) {
@@ -151,6 +93,25 @@
 
 }
 @media (min-width: 600px) {
+    
+    .hide-footer_floater {
+    
+        #footer_floater {
+            background: none;
+        }
+    }
+    
+    .hide-wdn_copyright { // Keep the UI presentation, but hide the content.
+    
+        #wdn_copyright {
+            padding: 0;
+        
+            > div {
+                .hide();
+            }
+        }
+    }
+    
     .hide-footer {
 
         #footer {
@@ -163,6 +124,23 @@
         .hide-footer_floater;
         .hide-wdn_copyright;
     }
+    
+    .hide-wdn_footer_feedback,
+    .hide-wdn_footer_contact,
+    .hide-wdn_footer_share {
+    
+        .footer_col {
+            .hide();
+        }
+    }
+    
+    .hide-wdn_attribution {
+        
+        #wdn_attribution {
+            .hide();
+        }
+    }
+
     .hide-wdn_logos {
     
         #wdn_copyright > div {
@@ -176,6 +154,14 @@
     }
 }
 @media (min-width: 768px) {
+
+    
+    .hide-wdn_institution_title {
+    
+        #wdn_institution_title {
+            .hide();
+        }
+    }
     
     .hide-wdn_navigation_wrapper {  // Retain a red horizontal bar for presentation
     
@@ -201,6 +187,13 @@
         
         #wdn_site_title { // reset to normal
             width: 70%;
+        }
+    }
+    
+    .hide-wdn_breadcrumbs {
+    
+        #breadcrumbs {
+            .hide();
         }
     }
     
@@ -231,13 +224,18 @@
 }
 @media (min-width: 1040px) {
 
+    .hide-wdn_institution_title {
+        #wdn_site_title { //accomodate for the missing vertical space above
+            margin: 45px 0 0 99px;
+        }
+    }
+
     .hide-wdn_navigation_wrapper {  // Retain a red horizontal bar for presentation
     
         #navigation {
             margin-top: 0;
         }
     }
-    
     
     .hide-wdn_search {
         
