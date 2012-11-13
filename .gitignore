@@ -8,3 +8,10 @@
 /wdn/templates_3.0*
 
 sharedcode/affiliate/less/buros.less
+
+affiliate.shtml
+debug.shtml
+document.shtml
+email.shtml
+fixed.shtml
+liquid.shtml

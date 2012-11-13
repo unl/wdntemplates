@@ -1,3 +1,5 @@
+*********** Copy this file to email.shtml and remove these two lines to test.<br />
+*********** Do not use this file in production. See /Templates or http://wdn.unl.edu/
 <style>
  td {color:#494949; font-size: 12px; font-family: 'Lucida Grande',Verdana,Arial;}
 </style>
