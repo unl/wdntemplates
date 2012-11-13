@@ -58,7 +58,7 @@ WDN.navigation = (function() {
 	            WDN.navigation.linkSiteTitle();
             }
             
-            if (WDN.jQuery('body').hasClass('document') || !WDN.jQuery('#navigation > ul > li').length) {
+            if (WDN.jQuery('body').is('.document, .terminal') || !WDN.jQuery('#navigation > ul > li').length) {
             	// The rest deals with navigation elements not in document
             	return;
             }
