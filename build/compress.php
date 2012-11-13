@@ -142,6 +142,7 @@ class UNL_WDNTemplates_Compressor
         'variations/ie' => array('ignore' => true),
         'variations/touch' => array('ignore' => true),
         'variations/print' => array('ignore' => true),
+        'variations/regions',
     );
 
     protected $_supportedMediaWidths = array(
