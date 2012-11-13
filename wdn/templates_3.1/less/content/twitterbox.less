@@ -6,41 +6,36 @@
 * ---------------------------
 * Styles associated with the zenboxes
 * ---------------------------
-*/ 
+*/
 @import "../_mixins/all.less";
 
-#maincontent {
+#wdn_twitter_box {
+    color: #000000;
+    background-color: @colorTriad;
 
-    #wdn_twitter_box {
-      color: #000000;
-      background-color: @colorTriad;
-
-      &.bright {
+    &.bright {
         background-color: @colorManilla;
-      }
-
-      &.cool {
-        background-color: @colorTriad;
-      }
-
-      &.energetic {
-        background-color: @colorManilla;
-      }
-
-      &.neutral {
-        color: #ffffff;
-	background-color: #3c3c3c;
-      }
-
-      &.primary {
-        color: #ffffff;
-	background-color: @colorPrimary;
-      }
-
-      &.soothing {
-        background-color: @colorComplementary;
-      }
-
     }
 
+    &.cool {
+        background-color: @colorTriad;
+    }
+
+    &.energetic {
+        background-color: @colorManilla;
+    }
+
+    &.neutral {
+        color: #ffffff;
+        background-color: #3c3c3c;
+    }
+
+    &.primary {
+        color: #ffffff;
+        background-color: @colorPrimary;
+    }
+
+    &.soothing {
+        background-color: @colorComplementary;
+    }
 }

@@ -123,7 +123,6 @@ class UNL_WDNTemplates_Compressor
         'header/unlalert' => array('ignore' => true),
         'navigation/breadcrumbs',
         'navigation/navigation',
-        'content/maincontent',
         'content/grid',
         'content/headers',
         'content/images',
