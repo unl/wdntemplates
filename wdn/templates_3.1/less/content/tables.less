@@ -1,7 +1,7 @@
 /*
 *
 * !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
-* less/content/table.less
+* less/content/tables.less
 *
 * ---------------------------
 * Styles associated with the responsive tables
@@ -74,106 +74,63 @@
 	}
 }
 
-// For all the media queries
-
-// 320px wide
-.320() {
-
-}
-
-// 480px wide
-.480() {
-
-}
-
-// 600px wide
-.600() {
-	
-}
-
-// 768px wide
-.768() {
-	#maincontent {
-	
-		.wdn_responsive_table {
-			font-size: 90%;
-		
-			thead tr {
-				display: table-row;
-				
-				td {
-					background: fadeout(@colorGray, 30%);
-				}
-			}
-			
-			th {
-				font-size: 110%;
-			}
-			
-			td {
-				text-align: center;
-				word-wrap: break-word;
-				break-word: break-all;
-			}
-			
-			th, td {
-				display: table-cell;
-				border: 1px solid @colorGray;
-			}
-			
-			tbody {
-	            th {
-	                //width: 22%;
-	            }
-	            
-	            td:before {
-	                display: none !important;
-	            }
-	            
-	            tr td:empty {
-	                display: table-cell;
-	            }
-	        }
-		}
-	}
-}
-
-// 960px wide
-.960() {
-
-}
-
-// 1040px wide
-.1040() {
-
-}
-
-// This is what's outputed in the media queries
 @media (min-width: 320px) {
-    .320();   
+    
 }
 @media (min-width: 480px) {
-    .480();
+
 }
 @media (min-width: 600px) {
-    .600();
+
 }
 @media (min-width: 768px) {
-    .768();
+    #maincontent {
+    
+    	.wdn_responsive_table {
+    		font-size: 90%;
+    	
+    		thead tr {
+    			display: table-row;
+    			
+    			td {
+    				background: fadeout(@colorGray, 30%);
+    			}
+    		}
+    		
+    		th {
+    			font-size: 110%;
+    		}
+    		
+    		td {
+    			text-align: center;
+    			word-wrap: break-word;
+    			break-word: break-all;
+    		}
+    		
+    		th, td {
+    			display: table-cell;
+    			border: 1px solid @colorGray;
+    		}
+    		
+    		tbody {
+                th {
+                    //width: 22%;
+                }
+                
+                td:before {
+                    display: none !important;
+                }
+                
+                tr td:empty {
+                    display: table-cell;
+                }
+            }
+    	}
+    }
 }
 @media (min-width: 960px) {
-    .960();
+
 }
 @media (min-width: 1040px) {
-    .1040();
-}
 
-// Output the media queries without the media queries for IE7 & IE8
-ie7, .ie8 {
-    .320();
-    .480();
-    .600();
-    .768();
-    .960();
-    .1040();
 }
