@@ -1,0 +1,179 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/content/table.less
+*
+* ---------------------------
+* Styles associated with the responsive tables
+* ---------------------------
+*/
+@import "../_mixins/all.less";
+
+@colorGray: #dedede;
+
+// Add all base (screen width doesn't matter) here
+#maincontent {
+
+	.wdn_responsive_table {
+		width: 100%;
+		max-width: 100%;
+		font-family: @impactFont;
+		font-weight: bold;
+		line-height: 1.3;
+		
+		caption {
+			line-height: 1em;
+			font-size: 1.875em;
+		}
+		
+		thead tr {
+			display: none;
+		}
+		
+		th {
+			background: fadeout(@colorGray, 30%);
+			text-shadow: 1px 1px 1px #fff;
+		}
+		
+		tr {
+			border: 1px solid @colorGray;
+			
+			&:nth-of-type(even) {
+                background: fadeout(@colorGray, 60%); // Just in case we're over a background
+            }
+            
+            &:nth-of-type(odd) {
+                background: fadeout(@colorGray, 90%); // Just in case we're over a background
+            }
+		}
+		
+		th,td {
+            display:block;
+            padding: 4px;
+        }
+        
+        td {
+            width: auto;
+            font-weight: normal;
+        }
+        
+        tbody tr {
+            
+            td {
+                &:before {
+                    display: block;
+                    font-weight: bold;
+                    content: attr(data-header);
+                }
+                
+                &:empty {
+                    display: none;
+                }
+            }
+        }
+	}
+}
+
+// For all the media queries
+
+// 320px wide
+.320() {
+
+}
+
+// 480px wide
+.480() {
+
+}
+
+// 600px wide
+.600() {
+	
+}
+
+// 768px wide
+.768() {
+	#maincontent {
+	
+		.wdn_responsive_table {
+			font-size: 90%;
+		
+			thead tr {
+				display: table-row;
+				
+				td {
+					background: fadeout(@colorGray, 30%);
+				}
+			}
+			
+			th {
+				font-size: 110%;
+			}
+			
+			td {
+				text-align: center;
+				word-wrap: break-word;
+				break-word: break-all;
+			}
+			
+			th, td {
+				display: table-cell;
+				border: 1px solid @colorGray;
+			}
+			
+			tbody {
+	            th {
+	                //width: 22%;
+	            }
+	            
+	            td:before {
+	                display: none !important;
+	            }
+	            
+	            tr td:empty {
+	                display: table-cell;
+	            }
+	        }
+		}
+	}
+}
+
+// 960px wide
+.960() {
+
+}
+
+// 1040px wide
+.1040() {
+
+}
+
+// This is what's outputed in the media queries
+@media (min-width: 320px) {
+    .320();   
+}
+@media (min-width: 480px) {
+    .480();
+}
+@media (min-width: 600px) {
+    .600();
+}
+@media (min-width: 768px) {
+    .768();
+}
+@media (min-width: 960px) {
+    .960();
+}
+@media (min-width: 1040px) {
+    .1040();
+}
+
+// Output the media queries without the media queries for IE7 & IE8
+ie7, .ie8 {
+    .320();
+    .480();
+    .600();
+    .768();
+    .960();
+    .1040();
+}
