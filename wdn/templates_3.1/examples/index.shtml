@@ -21,7 +21,7 @@
     
     $Id: fixed.dwt | ea2608181e2b6604db76106fd982b39218ddcb8b | Fri Mar 9 12:20:43 2012 -0600 | Kevin Abel  $
 -->
-<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles.html" -->
+<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles_local.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>WDN Template Examples | UNL</title>
 <!-- InstanceEndEditable -->
@@ -178,6 +178,7 @@ WDN.loadJQuery(function() {
                         <li><a href="pagination.html">Pagination</a> (<a href="http://www1.unl.edu/wdn/wiki/Pagination" class="external">wiki documentation</a>)</li>
                         <li><a href="randomizer.html">Randomizer</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Random_Div_Display" class="external">wiki documentation</a>)</li>
                         <li><a href="rss_widget.html">RSS Feed Widget</a></li>
+                        <li><a href="table.html">Responsive Data Table</a></li>
                         <li><a href="tabs.html">Tabs</a> (<a href="http://www1.unl.edu/wdn/wiki/Tabbed_Content_Areas" class="external">wiki documentation</a>)</li>
                         <li><a href="tooltips.html">Tooltips</a></li>
 			<li><a href="twitter_widget.html">Twitter Widget</a></li>

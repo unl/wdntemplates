@@ -128,6 +128,7 @@ class UNL_WDNTemplates_Compressor
         'content/headers',
         'content/images',
         'content/mime',
+        'content/tables',
         'content/tabs',
         'content/twitterbox' => array('ignore' => true),
         'content/pagination' => array('ignore' => true),
