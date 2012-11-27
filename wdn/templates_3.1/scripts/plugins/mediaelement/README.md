@@ -15,14 +15,17 @@
 
 * add some css for IE8 to `css/mediaelementplayer.css` and `css/mediaelementplayer.min.css`
 
+    ```css
     .ie8 .me-plugin {
          width: 100%;
     }
+    ```
 
 ## Changes to Google Analytics Plugin
 
 * use `WDN.analytics` event tracking for Google Analytics Plugin
 
+    ```javascript
     media.addEventListener('play', function() {
         WDN.analytics.callTrackEvent( 
     		player.options.googleAnalyticsCategory, 
@@ -30,7 +33,10 @@
     		(media.title === '') ? media.src : media.title
         );
     }, false);
+    ```
     
 * Change `googleAnalyticsCategory` value: 
 
-    googleAnalyticsCategory: 'Media'
+    ```javascript
+    googleAnalyticsCategory: 'Media',
+    ```
