@@ -4,10 +4,12 @@
 
 * wrap the entire thing in an anonymous function to use `WDN.jQuery`
 
+    ```javascript
     var mejs = mejs || {};
     (function(mejs, jQuery) {
     //code
     })(mejs, WDN.jQuery);
+    ```
 
 ## Changes to CSS
 
