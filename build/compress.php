@@ -128,6 +128,7 @@ class UNL_WDNTemplates_Compressor
         'content/headers',
         'content/images',
         'content/mime',
+        'content/tables',
         'content/tabs',
         'content/twitterbox' => array('ignore' => true),
         'content/pagination' => array('ignore' => true),
@@ -142,6 +143,7 @@ class UNL_WDNTemplates_Compressor
         'variations/ie' => array('ignore' => true),
         'variations/touch' => array('ignore' => true),
         'variations/print' => array('ignore' => true),
+        'variations/regions',
     );
 
     protected $_supportedMediaWidths = array(
