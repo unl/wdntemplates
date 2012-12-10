@@ -15,6 +15,20 @@
         <input type="submit" value="Submit" name="submit" />
     </fieldset>
 </form>
-<p id="wdn_feedback_comments">
-    <a href="http://www1.unl.edu/comments/">Submit a comment about this page</a>
-</p>
+<form action="http://www1.unl.edu/comments/" method="post" id="wdn_feedback_comments" title="WDN Feedback Form" class="comments">
+    <fieldset><legend>Comments for this page</legend>
+    <ol>
+        <li class="wdn_comment_name">
+            <label for="wdn_comment_name">Name (optional)</label>
+            <input type="text" name="name" id="wdn_comment_name" placeholder="Your Name" />
+        </li>
+        <li class="wdn_comment_email">
+            <label for="wdn_comment_email">Email (optional)</label>
+            <input type="text" name="email" id="wdn_comment_email" placeholder="Your Email" />
+        </li>
+        <li><label for="wdn_comments">Comments</label>
+          <textarea rows="2" cols="20" name="comment" id="wdn_comments" placeholder="Your Comment"></textarea>
+        </li>
+    </ol>
+    <input type="submit" value="Submit" name="submit" class="wdn_comment_submit" /></fieldset>
+</form>
