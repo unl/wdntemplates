@@ -59,7 +59,7 @@ WDN.unlalert = (function() {
 	return {
 		
 		data_url : document.location.protocol+'//alert.unl.edu/json/unlcap.js',
-//		data_url : '//ucommabel.unl.edu/workspace/wdntemplates/scripts/public/alertSimulator.php',
+//		data_url : '//ucommwiedel.unl.edu/wdntemplates/scripts/public/alertSimulator.php',
 
 		initialize: function() {
 			WDN.log('Initializing the UNL Alert Plugin');
@@ -149,24 +149,31 @@ WDN.unlalert = (function() {
 				// Add a div to store the html content
 				if ($alertWrapper == null) {
 					WDN.loadCSS(WDN.getTemplateFilePath('css/header/unlalert.css'));
-					
 					$alertWrapper = document.createElement('div');
 					$alertWrapper.id = 'unlalert';
+															
 					// Position off the screen, will be corrected by incoming css file, avoids flash of unstyled content
 					$alertWrapper.style.position = 'absolute';
 					$alertWrapper.style.top = '-1000px';
-					
+													
 					var body = document.getElementsByTagName('body').item(0);
 					body.insertBefore($alertWrapper, body.childNodes[0]);
 
+					//Create content and set ARIA-Alert
 					$alertContent = document.createElement('div');
 					$alertContent.id = 'unlalert_content';
+					$alertContent.setAttribute('role', 'alert');
 					$alertWrapper.appendChild($alertContent);
+						
 				} else if (i === 0) {
 					$alertContent = document.getElementById('unlalert_content');
 					$alertContent.innerHTML = '';
 				}
 				
+				//Set focus after creation
+				$alertWrapper.setAttribute('tabindex', '1');
+			    $alertWrapper.focus();
+							
 				var effectiveDate = root[i].effective || '';
 				if (effectiveDate.length) {
 					// transform the ISO effective date into a JS date by inserting a missing colon
@@ -179,7 +186,8 @@ WDN.unlalert = (function() {
 					alertContentHTML += '<h4>Issued at ' + effectiveDate + '</h4>';
 				}
 				alertContentHTML += '<p>' + root[i].description + ' ' + root[i].instruction + ' <!-- ID '+uniqueID+' -->';
-				alertContentHTML += 'Additional info (if available) at <a href="' + web + '">' + web + '</a></p>';
+				
+				alertContentHTML += '<span id="info">' + 'Additional info (if available) at <a href="' + web + '">' + web + '</a></span></p>';
 				
 				$alertContent.innerHTML += alertContentHTML;
 			}
@@ -209,7 +217,7 @@ WDN.unlalert = (function() {
 						evt.initEvent('click', true, true );
 						return !$alertToggle.dispatchEvent(evt);
 					} else {// IE
-						var evt = document.createEventObject();
+						var evt = document.createEventObject();						
 						return $alertToggle.fireEvent('onclick', evt);
 					}
 				}
@@ -217,7 +225,7 @@ WDN.unlalert = (function() {
 		},
 
 		// Toggle visible alert message open/closed
-		toggleAlert: function() {
+		toggleAlert: function() {	
 			WDN.log('Toggle UNL Alert Visibility');
 			var $alertContent = document.getElementById('unlalert_content'),
 				$alertToggle = document.getElementById('unlalert_toggle');
@@ -226,6 +234,7 @@ WDN.unlalert = (function() {
 				$alertContent.style.display = 'none';
 				$alertToggle.className = '';
 				$alertToggle.innerHTML = 'View UNL Alert';
+				
 				for (var i = 0; i < activeIds.length; i++) {
 					WDN.unlalert._acknowledgeAlert(activeIds[i]);
 				}
@@ -259,4 +268,3 @@ var unlAlerts = {
 		}
 	}
 };
-

@@ -12,31 +12,74 @@
 
 @dir: '../';
 
+/* Pulsate Animation (flashes orange and yellow) */
+@keyframes pulsate {
+    25%   {background:#F8F80D;}
+    50%  {background:#F25F19;}
+    75%  {background:#F8F80D;}
+}
+@-moz-keyframes pulsate {
+    25%   {background:#F8F80D;}
+    50%  {background:#F25F19;}
+    75%  {background:#F8F80D;}
+}
+@-webkit-keyframes pulsate {
+    25%   {background:#F8F80D;}
+    50%  {background:#F25F19;}
+    75%  {background:#F8F80D;}
+}
+@-o-keyframes pulsate {
+    25%   {background:#F8F80D;}
+    50%  {background:#F25F19;}
+    75%  {background:#F8F80D;}
+}
+
 #unlalert {
     // Avoid flash of unstyled content, JS initially positions this off screen
     position: static !important;
     top: auto !important;
+    background: #F25F19;
+    animation: pulsate 1.6s;
+    -moz-animation: pulsate 1.6s;
+    -webkit-animation: pulsate 1.6s;
+    -o-animation: pulsate 1.6s;
+    box-shadow: inset 0 -15px 10px -8px rgba(255, 255, 255, 0.25), 0 1px 5px #AAAAAA;
 }
 
 #unlalert_content {
     display: none;
-    background: #F25F19;
     color: white;
-    width: 100%;
-    padding-bottom: 5px;
-    box-shadow: 0 1px 5px #AAAAAA;
+    margin: 0 auto;
+    line-height: 115%;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);
     
-    > * {
-        padding-left: 50px;
-    }
     h1 span {
-        color: #752E0D
+        color: #752E0D;
+        text-shadow: 1px -1px 1px rgba(255, 255, 255, 0.3);
+        font-weight: bold;
+        font-size: 0.9em;
     }
     a {
         color: #FFFFFF;
     }
     p {
         font-size: .85em;
+    }
+    #info {
+        display: block;
+        color: #752E0D;
+        font-size: 0.9em;
+        text-shadow: 1px -1px 1px rgba(255, 255, 255, 0.3);
+        
+        a {
+            color: #752E0D;
+            text-shadow: 1px -1px 1px rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }
 
@@ -45,7 +88,7 @@
     color: #FFFFFF;
     display: block;
     position: absolute;
-    left: 5px;
+    left: 6px;
     box-shadow: 0 1px 5px #AAAAAA;
     line-height: 0;
     padding: 10px 6px 14px;
@@ -58,10 +101,35 @@
     border-radius: 0 0 6px 6px;
     
     &.close {
-        top: 3px;
+        top: 12px;
         font-size: 1.2em;
         background-color: #000000;
         border: 2px solid #FFFFFF;
         border-radius: 20px;
+    }
+}
+
+@media (min-width: 320px) {
+    #unlalert_content {
+        width: 88%;
+        padding-left: 40px;
+    }
+}
+@media (min-width: 480px) {
+
+}
+@media (min-width: 600px) {
+
+}
+@media (min-width: 768px) {
+
+}
+@media (min-width: 960px) {
+    
+}
+@media (min-width: 1040px) {
+    #unlalert_content {
+        width: 984px; // Same size as wdn_wrapper
+        padding: 2px 0;
     }
 }
