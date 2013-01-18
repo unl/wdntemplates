@@ -33,8 +33,7 @@ WDN.analytics = function() {
 				['wdn._setDomainName', '.unl.edu'],
 				['wdn._setCustomVar', 2, 'Template HTML Version', version_html, 3],
 				['wdn._setCustomVar', 3, 'Template Dependents Version', version_dep, 3],
-				['wdn._setAllowLinker', true],
-				['wdn._setAllowHash', false]
+				['wdn._setAllowLinker', true]
 			);
 			
 			if (isMobile) {
@@ -43,8 +42,7 @@ WDN.analytics = function() {
 					['m._setDomainName', '.unl.edu'],
 					['m._setCustomVar', 2, 'Template HTML Version', version_html, 3],
 					['m._setCustomVar', 3, 'Template Dependents Version', version_dep, 3],
-					['m._setAllowLinker', true],
-					['m._setAllowHash', false]
+					['m._setAllowLinker', true]
 				);
 			}
 			
