@@ -26,7 +26,8 @@ WDN.analytics = function() {
 			WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
 
             var version_html = WDN.getHTMLVersion(),
-                version_dep  = WDN.getDepVersion();
+                version_dep  = WDN.getDepVersion(),
+                ga_linkattribution_pluginURL = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
 			
 			_gaq.push(
 				['wdn._setAccount', 'UA-3203435-1'],
@@ -34,7 +35,7 @@ WDN.analytics = function() {
 				['wdn._setCustomVar', 2, 'Template HTML Version', version_html, 3],
 				['wdn._setCustomVar', 3, 'Template Dependents Version', version_dep, 3],
 				['wdn._setAllowLinker', true],
-				['wdn._setAllowHash', false]
+				['wdn._require', 'inpage_linkid', ga_linkattribution_pluginURL]
 			);
 			
 			if (isMobile) {
@@ -44,7 +45,7 @@ WDN.analytics = function() {
 					['m._setCustomVar', 2, 'Template HTML Version', version_html, 3],
 					['m._setCustomVar', 3, 'Template Dependents Version', version_dep, 3],
 					['m._setAllowLinker', true],
-					['m._setAllowHash', false]
+					['m._require', 'inpage_linkid', ga_linkattribution_pluginURL]
 				);
 			}
 			
