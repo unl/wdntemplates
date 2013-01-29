@@ -42,9 +42,10 @@
 
 #wdn_site_title {
     display: block;
-    font-size: 2em;
-    line-height: 1.2;
-    margin: 7px 0 -3px 45px;
+    .font-size(24);
+    font-weight: 300;
+    line-height: 1.3;
+    margin: 5px 0 0 45px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -123,13 +124,14 @@
         display: block;
         text-transform: uppercase;
         line-height: 0;
-        font-weight: normal;
-        margin: 13px 0 0 0;
+        .font-size(12);
+        font-weight: 300;
+        margin: 11px 0 0 0;
     }
     
     #wdn_site_title {
         color:#555;
-        font-size: 2em;
+        .font-size(26);
         
         a {
             color: #555;
@@ -139,7 +141,6 @@
             display:block;
             font-size:25%;
             color:#6E6E6E;
-            margin-top:-0.8em;
             letter-spacing:0em;
             text-transform:uppercase;
             font-family: @impactFont;
@@ -211,21 +212,20 @@
     
     #wdn_institution_title {
         height: 0; /* Safari */
-        margin: 13px 0 0 90px;
+        margin: 10px 0 0 90px;
         padding: 12px 10px;
         color: rgba(62, 62, 62, 0.99);
-        font-size: 1.5em;
+        .font-size(17);
         text-shadow: 0 0 3px #fff;
     }
     
     #wdn_site_title {
         position: inherit;
         display: block;
-        margin: 12px 0 0 99px;
-        font-size: 2.5em;
+        margin: 10px 0 0 99px;
+        .font-size(28);
         text-shadow: 0 0 3px #fff;
-        font-weight: normal;
-        line-height: 1.1;
+        font-weight: 300;
         width: 68%;
     }
     
