@@ -1,3 +1,10 @@
+// px values needed to support IE 7 & 8
+.font-size(@sizeValue: 16){
+    @pxValue: @sizeValue;
+    @remValue: (@sizeValue * 0.0625);
+    font-size: ~"@{pxValue}px"; 
+    font-size: ~"@{remValue}rem";
+}
 //http://my.opera.com/area42/blog/css-font-matching-windows-mac-and-linux
 //Standard font
 @baseFont: "Lucida Grande",Verdana,Arial,sans-serif;
