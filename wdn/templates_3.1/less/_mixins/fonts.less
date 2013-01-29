@@ -5,18 +5,25 @@
     font-size: ~"@{pxValue}px"; 
     font-size: ~"@{remValue}rem";
 }
+
+/* 
+    Import the Google Webfonts
+    http://www.google.com/webfonts#UsePlace:use/Collection:Rokkitt|Raleway:400,800|Oswald:300
+ */
+@import url(http://fonts.googleapis.com/css?family=Rokkitt|Raleway:400,800|Oswald:300);
+
 //http://my.opera.com/area42/blog/css-font-matching-windows-mac-and-linux
 //Standard font
-@baseFont: "Lucida Grande",Verdana,Arial,sans-serif;
+@baseFont: "Lucida Grande", Verdana, Arial, sans-serif;
 
 //Used for headings, Impact 
-@impactFont: Helvetica, Arial, FreeSans, "Liberation Sans", "Nimbus Sans L", sans-serif;
+@impactFont: 'Raleway', Helvetica, Arial, FreeSans, "Liberation Sans", "Nimbus Sans L", sans-serif;
 
 //UNL brand font
-@brandFont: "URWGroteskCon-Lig", Helvetica, Arial, sans-serif;
+@brandFont: 'Oswald', Helvetica, Arial, sans-serif;
 
 //Serif, formal font
-@serifFont: Georgia,"Bitstream Charter","Century Schoolbook L","Liberation Serif",Times,serif;
+@serifFont: 'Rokkitt', Georgia, "Bitstream Charter", "Century Schoolbook L", "Liberation Serif", Times, serif;
 
 .text-hidden() 
 {
