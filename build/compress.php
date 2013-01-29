@@ -111,7 +111,6 @@ class UNL_WDNTemplates_Compressor
     protected $_cssFiles = array(
         'foundation/reset' => array('noless' => true),
         'foundation/global',
-        'fonts/fonts' => array('noless' => true),
         'wrapper/wrapper',
         'header/header',
         'header/search',
