@@ -14,9 +14,9 @@
 
 #wdn_navigation_wrapper {
     background: #fff;
-	margin-top:-2px;
 	position:relative;
     -webkit-font-smoothing: antialiased;
+    line-height: 1;
 }
 #navigation {
     .linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);
@@ -28,14 +28,14 @@
     height:25px;
     position:relative;
     text-align:right;
-    padding:8px 0 0 0;
+    padding:6px 0 2px 0;
     cursor:pointer;
     &:before {
         content: '\2261';
         text-align:right;
         border:1px solid #8c0100;
         padding:0px 8px 1px 9px;
-        font-size: 1.3em;
+        .font-size(18);
         color:#fff;
         .border-radius(5px);
         margin-right:5px;
@@ -45,8 +45,8 @@
     }
     &.primary:before, &.secondary:before {
         content: 'Back';
-        font-size: 1em;
-        padding: 3px 5px;
+        .font-size(16);
+        padding: 0px 5px 3px 5px;
     }
     &.disabled {
         cursor: default;
