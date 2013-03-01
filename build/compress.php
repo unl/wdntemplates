@@ -125,6 +125,7 @@ class UNL_WDNTemplates_Compressor
         'navigation/navigation',
         'content/maincontent',
         'content/grid',
+        'content/grid-v3' => array('ignore' => true),
         'content/headers',
         'content/images',
         'content/mime',
