@@ -1,0 +1,33 @@
+@import "../content/grid-v3-mixins.less";
+
+[class*="wdn-grid-set"] {
+    margin-left: @gutter-size-ie * -1;
+    
+    // Overrule this rule when deep nesting occurs: .grid-set > .blah > .grid-set > .wdn-col > .grid-set
+    [class*="wdn-col"] {
+        
+        [class*="wdn-grid-set"] {
+            margin-left: @gutter-size-ie * -1;
+        }
+    }
+}
+
+[class*="wdn-col"] {
+    padding-left: @gutter-size-ie;
+    
+    // Use this when only a background is needed (no border). This option isn't recommended, instead one should use a nested element with a class of .col-island (see below). 
+    &.col-padding {
+        padding: (@gutter-size-ie / 2) 0 (@gutter-size-ie / 2) @gutter-size-ie;
+    }
+}
+
+// When a border is needed, nest inside a column.
+.visual-island {
+    padding: @gutter-size-ie / 2;
+}
+
+.grid-setup(@grid-col-class, e(%("%s", @grid-set)));
+.grid-setup(e(%("bp1-%s", @grid-col-class)), e(%("bp1-%s", @grid-set)));
+.grid-setup(e(%("bp2-%s", @grid-col-class)), e(%("bp2-%s", @grid-set)));
+.grid-setup(e(%("bp3-%s", @grid-col-class)), e(%("bp3-%s", @grid-set)));
+.grid-setup(e(%("bp4-%s", @grid-col-class)), e(%("bp4-%s", @grid-set)));
