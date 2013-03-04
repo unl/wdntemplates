@@ -10,6 +10,11 @@
             margin-left: @gutter-size-ie * -1;
         }
     }
+    
+    // When the `grid-set` is a direct child of another `grid-set`, avoid the double negative `margin-left`.
+    > [class*="wdn-grid-set"] {
+        margin-left: 0;
+    }
 }
 
 [class*="wdn-col"] {
