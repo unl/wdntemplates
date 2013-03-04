@@ -1,0 +1,25 @@
+@import "../_mixins/all.less";
+
+// Breakpoint rules (removing 600px BP)
+@bp1: ~"min-width: 480px";
+@bp2: ~"min-width: 768px";
+@bp3: ~"min-width: 960px";
+@bp4: ~"min-width: 1040px";
+
+// Start of grid-specific rules
+@gutter-size-ie: 24px;
+@gutter-size: 1.4rem;
+@grid-set: wdn-grid-set;
+@grid-col-class: wdn-col;
+
+/* We're not in the future, but someday we will. Hold on until then.
+.grid-col-width-cal(@width) {
+    width: -webkit-calc(@width ~"-" @gutter-size);
+    width: -moz-calc(@width ~"-" @gutter-size);
+    width: calc(@width ~"-" @gutter-size);
+}
+*/
+
+.grid-col-width-cal(@width) {
+    width: @width;
+}
