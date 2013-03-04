@@ -14,34 +14,20 @@
 // Department variable 'pageTracker' is available to use in this file.
 
 WDN.analytics = function() {
+	var initd = {
+		'desktop': false,
+		'mobile': false
+	};
 	return {
 		thisURL : String(window.location), //the current page the user is on.
 		rated : false, // whether the user has rated the current page.
 		initialize : function() {
 			var widthScript = WDN.getCurrentWidthScript(), isMobile = widthScript == '320';
 			WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
-			
-			var version_html = document.body.getAttribute("data-version"),
-				version_dep  = document.getElementById("wdn_dependents").getAttribute("src");
-			
-			// Set the defaults
-			if (version_html == '$HTML_VERSION$') {
-				version_html = '3.DEV';
-			}
-			if (!version_html) {
-				version_html = '3.0';
-			}
-			
-			if (/\?dep=\$DEP_VERSION\$/.test(version_dep)) {
-				version_dep = '3.1.DEV';
-			} else {
-				var version_match = version_dep.match(/\?dep=(\d+(?:\.\d+)*)/);
-				if (version_match) {
-					version_dep = version_match[1];
-				} else {
-					version_dep = '3.0';
-				}
-			}			
+
+            var version_html = WDN.getHTMLVersion(),
+                version_dep  = WDN.getDepVersion(),
+                ga_linkattribution_pluginURL = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
 			
 			_gaq.push(
 				['wdn._setAccount', 'UA-3203435-1'],
@@ -49,7 +35,7 @@ WDN.analytics = function() {
 				['wdn._setCustomVar', 2, 'Template HTML Version', version_html, 3],
 				['wdn._setCustomVar', 3, 'Template Dependents Version', version_dep, 3],
 				['wdn._setAllowLinker', true],
-				['wdn._setAllowHash', false]
+				['wdn._require', 'inpage_linkid', ga_linkattribution_pluginURL]
 			);
 			
 			if (isMobile) {
@@ -59,100 +45,77 @@ WDN.analytics = function() {
 					['m._setCustomVar', 2, 'Template HTML Version', version_html, 3],
 					['m._setCustomVar', 3, 'Template Dependents Version', version_dep, 3],
 					['m._setAllowLinker', true],
-					['m._setAllowHash', false]
+					['m._require', 'inpage_linkid', ga_linkattribution_pluginURL]
 				);
 			}
 			
-			WDN.loadJS(WDN.getTemplateFilePath('scripts/idm.js'), function(){
-				WDN.idm.initialize(function() {
-					WDN.analytics.loadGA(isMobile);
+			if (!initd['desktop'] && !initd['mobile']) {
+				WDN.loadJS(WDN.getTemplateFilePath('scripts/idm.js'), function(){
+					WDN.idm.initialize(function() {
+						WDN.analytics.loadGA(isMobile);
+					});
 				});
-			});
+			}
 			
-			//get the links in the selected areas
-			var navLinks = document.getElementById('navigation').getElementsByTagName("a"); //navigation
-			var mainLinks = document.getElementById('maincontent').getElementsByTagName("a"); //maincontent
-			var toolLinks = document.getElementById('wdn_tool_links').getElementsByTagName("a"); //wdn_tools
-			var shareLinks = document.getElementById('wdn_footer_share').getElementsByTagName("a"); //wdn_sharing
-		
-			function evaluate(link, location) {
-			    var gahref = link.getAttribute("href"), origOnClick = link.onclick;
-			    //make sure we actually have an href to evaluate
-			    if (!gahref) {
-			        return;
-			    }
-			    if (location === 'main' || location === 'nav'){
-				    filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i; //these are the file extensions to track for downloaded content
-				    if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
-						//WDN.jQuery(this).addClass('external'); //Implications for doing this?						
-						link.onclick = (function() {
+			if (!isMobile && !initd['desktop']) {	
+				//TODO: Remove jQuery from the events below
+				
+				filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i; //these are the file extensions to track for downloaded content
+				WDN.jQuery('#navigation a[href], #maincontent a[href]').each(function(){  
+					var gahref = WDN.jQuery(this).attr('href');
+					if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
+						//WDN.jQuery(this).addClass('external'); //Implications for doing this?
+						WDN.jQuery(this).click(function() {
 							WDN.analytics.callTrackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
-            				if (origOnClick != null && !origOnClick()) {
-            				    WDN.log('performing original onlick now');
-            				}
+							WDN.analytics.callTrackPageview(gahref);
 						});
 					}  
 					else if (gahref.match(/^mailto\:/i)){  //deal with mailto: links
-						link.onclick = (function() {  
+						WDN.jQuery(this).click(function() {  
 							var mailLink = gahref.replace(/^mailto\:/i, '');  
 							WDN.analytics.callTrackEvent('Email', mailLink, WDN.analytics.thisURL);
-            				if (origOnClick != null && !origOnClick()) {
-            				    WDN.log('performing original onlick now');
-            				}
 						});  
 					}  
 					else if (gahref.match(filetypes)){  //deal with file downloads
-						link.onclick = (function() {
+						WDN.jQuery(this).click(function() { 
 							var extension = (/[.]/.exec(gahref)) ? /[^.]+$/.exec(gahref) : undefined;
 							WDN.analytics.callTrackEvent('File Download', gahref, WDN.analytics.thisURL); 
 							WDN.analytics.callTrackPageview(gahref);
-        				if (origOnClick != null && !origOnClick()) {
-        				    WDN.log('performing original onlick now');
-        				}
 						});  
+					}  
+				}); 
+				WDN.jQuery('.socialmedia .outpost a').click(function(){ 
+					var socialMedia = WDN.jQuery(this).parent().attr('id');
+					socialMedia = socialMedia.replace(/wdn_/gi, '');
+					console.log(socialMedia);
+					//WDN.analytics.callTrackEvent('Page Sharing', socialMedia, WDN.analytics.thisURL);
+					_gaq.push(['wdn._trackSocial', socialMedia, 'share']);
+					try {
+						if (WDN.analytics.isDefaultTrackerReady()) {
+							_gaq.push(['_trackSocial', socialMedia, 'share']);
+						} else {
+							throw "Default Tracker Account Not Set";
+						}
+					} catch(e) {
+						WDN.log("Social Media tracking for local site didn't work.");
 					}
-				} else if (location === 'tools') {
-				    link.onclick = (function(){
-				        WDN.analytics.callTrackEvent('WDN Tool Links', link.text, WDN.analytics.thisURL);
-        				if (origOnClick != null && !origOnClick()) {
-        				    WDN.log('performing original onlick now');
-        				}
-				    });
-				    
-				} else if (location === 'share') {
-				    link.onclick = (function(){
-    					var socialMedia = link.parentNode.getAttribute('id');
-    					socialMedia = socialMedia.replace(/wdn_/gi, '');
-    					//WDN.analytics.callTrackEvent('Page Sharing', socialMedia, WDN.analytics.thisURL);
-    					_gaq.push(['wdn._trackSocial', socialMedia, 'share']);
-    					try {
-    						if (WDN.analytics.isDefaultTrackerReady()) {
-    							_gaq.push(['_trackSocial', socialMedia, 'share']);
-    						} else {
-    							throw "Default Tracker Account Not Set";
-    						}
-    					} catch(e) {
-    						WDN.log("Social Media tracking for local site didn't work.");
-    					}
-        				if (origOnClick != null && !origOnClick()) {
-        				    WDN.log('performing original onlick now');
-        				}
-    				});
-				}
-			}
-			
-			//loop through all the links and pass them to type evaluation
-			for (var i=0; i<navLinks.length; i++) {
-			    evaluate(navLinks[i], 'nav');
-			}
-			for (var j=0; j<mainLinks.length; j++) {
-			    evaluate(mainLinks[j], 'main');
-			}
-			for (var k=0; k<toolLinks.length; k++) {
-			    evaluate(toolLinks[k], 'tools');
-			}
-			for (var m=0; m<shareLinks.length; m++) {
-			    evaluate(shareLinks[m], 'share');
+				});
+				WDN.jQuery('#wdn_tool_links a').click(function(){ 
+					var wdnToolLinks = WDN.jQuery(this).text();
+					WDN.analytics.callTrackEvent('WDN Tool Links', wdnToolLinks, WDN.analytics.thisURL);
+				});
+				WDN.jQuery('div.rating div.star a').click(function(){ 
+					if (!WDN.analytics.rated)
+					{
+						WDN.analytics.rated = true;
+						var value = WDN.jQuery(this).text();
+						WDN.analytics.callTrackEvent('Page Rating', 'Rated a '+value, WDN.analytics.thisURL, value);
+					}
+				});
+				
+				initd['desktop'] = true;
+			} else {
+				initd['mobile'] = true;
 			}
 		},
 		

@@ -22,6 +22,7 @@
 	padding: 4px;
 	font-family: @brandFont;
 	min-height: 40px;  /* Used to retain height for old #titelgraphic markup */
+    -webkit-font-smoothing: antialiased;
 	
 	> a {
 	    text-decoration: none;
@@ -31,7 +32,7 @@
 	
 	#logo {
         #wdnSprite > .n_40(@dir);
-        text-indent: -9999em;
+        .text-hidden();
     }
 }
 
@@ -225,7 +226,7 @@
         text-shadow: 0 0 3px #fff;
         font-weight: normal;
         line-height: 1.1;
-        width: 68%;
+        width: 71%;
     }
     
     /* Retain styles for old markup. Remove August 1, 2012*/

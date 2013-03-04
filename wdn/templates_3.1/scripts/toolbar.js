@@ -48,7 +48,6 @@ WDN.toolbar = function() {
 			WDN.toolbar.registerTool('weather', 'Weather', 1002, 500);
 			WDN.toolbar.registerTool('events', 'Events', 1002, 550);
 			WDN.toolbar.registerTool('directory', 'Directory', 1002, 550);
-			WDN.toolbar.registerTool('webcams', 'Webcams', 1002, 350);
 		},
         
         /**

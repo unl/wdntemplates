@@ -1,5 +1,10 @@
 <?php
 
+if (function_exists('mb_internal_encoding')) {
+    // If available, use it!
+    mb_internal_encoding('UTF-8');
+}
+
 require_once 'lib/php/Zend/Exception.php';
 require_once 'lib/php/Zend/Console/Getopt.php';
 require_once 'lib/php/Zend/Console/Getopt/Exception.php';
@@ -69,6 +74,7 @@ class UNL_WDNTemplates_Compressor
             'navigation',
             'search',
             'unlalert',
+            'images',
         ),
         '320' => array(
 
@@ -84,6 +90,7 @@ class UNL_WDNTemplates_Compressor
             'socialmediashare',
             'toolbar',
             'tabs',
+            'chat',
         )
     );
 
@@ -121,8 +128,11 @@ class UNL_WDNTemplates_Compressor
         'content/headers',
         'content/images',
         'content/mime',
+        'content/tables',
         'content/tabs',
+        'content/twitterbox' => array('ignore' => true),
         'content/pagination' => array('ignore' => true),
+        'content/rsswidget' => array('ignore' => true),
         'content/zenbox',
         'content/zentable',
         'footer/footer',
@@ -133,6 +143,7 @@ class UNL_WDNTemplates_Compressor
         'variations/ie' => array('ignore' => true),
         'variations/touch' => array('ignore' => true),
         'variations/print' => array('ignore' => true),
+        'variations/regions',
     );
 
     protected $_supportedMediaWidths = array(

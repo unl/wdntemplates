@@ -31,9 +31,14 @@ sleep 5
 # Commit the version number change
 git commit -a -m "Bumped dependency version number to $VN"
 
-# Merge back to master
-echo "Merging to master"
+# Make sure master is up to date if another developer performed a release
+echo "Updating master to upstream state"
 git checkout master
+git fetch upstream
+git merge --ff upstream master
+
+# Merge back to master
+echo "Merging release branch into master"
 git merge --no-ff release-$VN
 
 # Tag the release
