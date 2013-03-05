@@ -70,6 +70,7 @@ class UNL_WDNTemplates_Compressor
             'wdn',
             'modernizr-wdn',
             'analytics',
+            'analytics_scroll_depth',
             'idm',
             'navigation',
             'search',
