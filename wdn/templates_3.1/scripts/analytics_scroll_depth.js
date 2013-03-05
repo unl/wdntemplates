@@ -1,12 +1,9 @@
 WDN.analytics_scroll_depth = function() {
-    var cache, startTime, isMobile;
+    var cache, startTime, isMobile = WDN.getCurrentWidthScript() == '320';
 
     return {
         
         initialize : function() {
-            var widthScript = WDN.getCurrentWidthScript(); 
-            
-            WDN.analytics_scroll_depth.isMobile = widthScript == '320';
             
             // Start the timer
             WDN.analytics_scroll_depth.startTime = +new Date;
