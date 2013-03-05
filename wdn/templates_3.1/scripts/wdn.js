@@ -292,6 +292,7 @@ var WDN = (function() {
 					WDN.loadJQuery(function() {
 						WDN.loadJS(WDN.getTemplateFilePath('scripts/global_functions.js'));
 						WDN.initializePlugin('analytics');
+						WDN.initializePlugin('analytics_scroll_depth');
 						WDN.initializePlugin('navigation');
 						WDN.initializePlugin('search');
 						WDN.initializePlugin('feedback');
