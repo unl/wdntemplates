@@ -6,10 +6,10 @@ WDN.analytics_scroll_depth = function() {
         initialize : function() {
             
             // Start the timer
-            WDN.analytics_scroll_depth.startTime = +new Date;
+            startTime = +new Date;
             
             // Prime the cache
-            WDN.analytics_scroll_depth.cache = [];
+            cache = [];
             
             // Send the baseline event
             WDN.analytics.callTrackEvent('Scroll Depth', 'Baseline', WDN.analytics.thisURL, null, true);
@@ -64,10 +64,10 @@ WDN.analytics_scroll_depth = function() {
                 marks = WDN.analytics_scroll_depth.calculateMarks(docHeight),
                 
                 // Timing
-                timing = +new Date - WDN.analytics_scroll_depth.startTime;
+                timing = +new Date - startTime;
             
             // If we're done tracking then remove the event
-            if (WDN.analytics_scroll_depth.cache.length >= 4) {
+            if (cache.length >= 4) {
                 if (window.removeEventListener) {
                     window.removeEventListener('scroll', WDN.analytics_scroll_depth.calculateDepth, false);
                 } else if (window.detachEvent) { // Since we're supporting IE8
@@ -84,12 +84,12 @@ WDN.analytics_scroll_depth = function() {
             for (var key in marks) {
                 
                 // Make sure we haven't tracked this mark and that we've scrolled far enough
-                if (WDN.analytics_scroll_depth.cache.indexOf(key) === -1 && scrollDistance >= marks[key]) {
+                if (cache.indexOf(key) === -1 && scrollDistance >= marks[key]) {
                     WDN.analytics.callTrackEvent('Scroll Depth', key, WDN.analytics.thisURL, null, true);
                     _gaq.push(['wdn._trackTiming', 'Scroll Depth', key, timing, WDN.analytics.thisURL, 100]);
                     
                     // track in the mobile tracking account
-                    if (WDN.analytics_scroll_depth.isMobile) {
+                    if (isMobile) {
                         _gaq.push(['m._trackTiming', 'Scroll Depth', key, timing, WDN.analytics.thisURL, 100]);
                     }
                     
@@ -105,7 +105,7 @@ WDN.analytics_scroll_depth = function() {
                     }
                     
                     // Keep track of what we tracked so we don't retrack
-                    WDN.analytics_scroll_depth.cache.push(key);
+                    cache.push(key);
                 }
             }
         }
