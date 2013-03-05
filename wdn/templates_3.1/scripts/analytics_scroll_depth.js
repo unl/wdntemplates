@@ -52,9 +52,16 @@ WDN.analytics_scroll_depth = function() {
             * We calculate document and window height on each scroll event to
             * account for dynamic DOM changes.
             */
-            var docHeight = document.height,
-                winHeight = window.innerHeight,
-                scrollDistance = window.pageYOffset + winHeight,
+            var docHeight = document.height || document.documentElement.scrollHeight,
+            
+                // Determine the window height. IE8 needs the document.body.clientHeight
+                winHeight = window.innerHeight || document.body.clientHeight, 
+                
+                // Determine the current offset. IE8 needs the document.body.scrollTop
+                yOffset = window.pageYOffset || document.body.scrollTop,
+                
+                // Determine the distance scrolled
+                scrollDistance = yOffset + winHeight,
                 
                 // Recalculate percentage marks
                 marks = WDN.analytics_scroll_depth.calculateMarks(docHeight),
@@ -76,9 +83,10 @@ WDN.analytics_scroll_depth = function() {
         },
         
         checkMarks : function(marks, scrollDistance, timing) {
-        
             // Loop through the marks
             for (var key in marks) {
+                
+                // Make sure we haven't tracked this mark and that we've scrolled far enough
                 if (WDN.analytics_scroll_depth.cache.indexOf(key) === -1 && scrollDistance >= marks[key]) {
                     WDN.analytics.callTrackEvent('Scroll Depth', key, WDN.analytics.thisURL, null, true);
                     _gaq.push(['wdn._trackTiming', 'Scroll Depth', key, timing, WDN.analytics.thisURL, 100]);
@@ -98,6 +106,8 @@ WDN.analytics_scroll_depth = function() {
                     } catch(e) {
                     	WDN.log("Event timing for local site didn't work.");
                     }
+                    
+                    // Keep track of what we tracked so we don't retrack
                     WDN.analytics_scroll_depth.cache.push(key);
                 }
             }
