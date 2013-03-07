@@ -83,11 +83,12 @@
             <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                  <h2 class="sec_header">Image manipulation test</h2>
-                  <figure class="frame">
-                    <img src="images/test_320.jpg" alt="this is a test image" />
-                    <figcaption>This is a test</figcaption>
-                </figure>
+                  <h2 class="sec_header">GA Tracking Test</h2>
+                  <a href="myfile.pdf">A PDF file</a>
+                  <br />
+                  <a href="http://www.google.com/" onclick="return false;">Another site</a>
+                  <br />
+                  <a href="mailto:bob@aol.com">An email link</a>
                   <!-- InstanceEndEditable -->
                 <div class="clear"></div>
                 <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
