@@ -23,20 +23,21 @@ WDN.analytics = function() {
 		rated : false, // whether the user has rated the current page.
 		initialize : function() {
 			var widthScript = WDN.getCurrentWidthScript(), isMobile = widthScript == '320';
-			WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL);
+			WDN.log("WDN site analytics loaded for "+ WDN.analytics.thisURL) ;
 
             var version_html = WDN.getHTMLVersion(),
-                version_dep  = WDN.getDepVersion();
-			
+                version_dep  = WDN.getDepVersion(),
+                ga_linkattribution_pluginURL = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+
 			_gaq.push(
 				['wdn._setAccount', 'UA-3203435-1'],
 				['wdn._setDomainName', '.unl.edu'],
 				['wdn._setCustomVar', 2, 'Template HTML Version', version_html, 3],
 				['wdn._setCustomVar', 3, 'Template Dependents Version', version_dep, 3],
 				['wdn._setAllowLinker', true],
-				['wdn._setAllowHash', false]
+				['wdn._require', 'inpage_linkid', ga_linkattribution_pluginURL]
 			);
-			
+
 			if (isMobile) {
 				_gaq.push(
 					['m._setAccount', 'UA-3203435-4'],
@@ -44,10 +45,10 @@ WDN.analytics = function() {
 					['m._setCustomVar', 2, 'Template HTML Version', version_html, 3],
 					['m._setCustomVar', 3, 'Template Dependents Version', version_dep, 3],
 					['m._setAllowLinker', true],
-					['m._setAllowHash', false]
+					['m._require', 'inpage_linkid', ga_linkattribution_pluginURL]
 				);
 			}
-			
+
 			if (!initd['desktop'] && !initd['mobile']) {
 				WDN.loadJS(WDN.getTemplateFilePath('scripts/idm.js'), function(){
 					WDN.idm.initialize(function() {
@@ -55,34 +56,9 @@ WDN.analytics = function() {
 					});
 				});
 			}
-			
-			if (!isMobile && !initd['desktop']) {	
-				//TODO: Remove jQuery from the events below
-				
-				filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i; //these are the file extensions to track for downloaded content
-				WDN.jQuery('#navigation a[href], #maincontent a[href]').each(function(){  
-					var gahref = WDN.jQuery(this).attr('href');
-					if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){  //deal with the outbound links
-						//WDN.jQuery(this).addClass('external'); //Implications for doing this?
-						WDN.jQuery(this).click(function() {
-							WDN.analytics.callTrackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
-							WDN.analytics.callTrackPageview(gahref);
-						});
-					}  
-					else if (gahref.match(/^mailto\:/i)){  //deal with mailto: links
-						WDN.jQuery(this).click(function() {  
-							var mailLink = gahref.replace(/^mailto\:/i, '');  
-							WDN.analytics.callTrackEvent('Email', mailLink, WDN.analytics.thisURL);
-						});  
-					}  
-					else if (gahref.match(filetypes)){  //deal with file downloads
-						WDN.jQuery(this).click(function() { 
-							var extension = (/[.]/.exec(gahref)) ? /[^.]+$/.exec(gahref) : undefined;
-							WDN.analytics.callTrackEvent('File Download', gahref, WDN.analytics.thisURL); 
-							WDN.analytics.callTrackPageview(gahref);
-						});  
-					}  
-				}); 
+
+			if (!isMobile && !initd['desktop']) {
+				/* At >768, we bring in .socialmedia and #wdn_toollinks and .rating, so keep using jQuery for these. */
 				WDN.jQuery('.socialmedia .outpost a').click(function(){ 
 					var socialMedia = WDN.jQuery(this).parent().attr('id');
 					socialMedia = socialMedia.replace(/wdn_/gi, '');
@@ -116,6 +92,56 @@ WDN.analytics = function() {
 			} else {
 				initd['mobile'] = true;
 			}
+			
+			WDN.analytics.bindLinks();
+		},
+		
+		bindLinks : function() {
+            WDN.log('Begin binding links for analytics');
+            //get the links in the navigation and maincontent
+            var nav = document.getElementById('navigation'), navLinks = nav.getElementsByTagName("a"), main = document.getElementById('maincontent'), mainLinks = main.getElementsByTagName("a"), evaluateLinks, filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i;
+            
+            evaluateLinks = function(link) {
+                var gahref = link.getAttribute("href");
+                if (!gahref) {
+                    return;
+                }
+
+                function bindEvent(el, eventName, eventHandler) {
+                    if (el.addEventListener){
+                        el.addEventListener(eventName, eventHandler, false); 
+                    } else if (el.attachEvent){
+                        el.attachEvent('on'+eventName, eventHandler);
+                    }
+                }
+ 
+                if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){
+                    bindEvent(link, 'click', function() {
+                        WDN.analytics.callTrackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
+                        WDN.analytics.callTrackPageview(gahref);
+                    });
+                } else if (gahref.match(/^mailto\:/i)){
+                    var mailLink = gahref.replace(/^mailto\:/i, '');  
+                    bindEvent(link, 'click', function() {
+                        WDN.analytics.callTrackEvent('Email', mailLink, WDN.analytics.thisURL);
+                    });
+                } else if (gahref.match(filetypes)){
+                    var extension = (/[.]/.exec(gahref)) ? /[^.]+$/.exec(gahref) : undefined;
+                    bindEvent(link, 'click', function() {
+                        WDN.analytics.callTrackEvent('File Download', gahref, WDN.analytics.thisURL);
+                        WDN.analytics.callTrackPageview(gahref);
+                    });
+                }
+            }
+
+            //loop through all the links and pass them to type evaluation
+            for (var i=0; i<navLinks.length; i++) {
+                evaluateLinks(navLinks[i]);
+            }
+            
+            for (var j=0; j<mainLinks.length; j++) {
+                evaluateLinks(mainLinks[j]);
+            }
 		},
 		
 		loadGA : function(mobile){
