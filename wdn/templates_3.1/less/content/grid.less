@@ -56,7 +56,19 @@
             margin-left: 0 !important;
             clear: left;
         }
-
+        
+        // support for deprecated grid, to be removed July 1, 2012
+        .col, .two_col, .three_col, .four_col {
+            width: 48%;
+            padding-left: 1%;
+            padding-right: 1%;
+            display: inline;
+            float: left;
+            
+            &.right {
+                float: right;
+            }
+        }
     }
 }
 @media (min-width: 600px) {
@@ -80,6 +92,36 @@
         *[class^="grid"] > *[class^="grid"] {
             width: 100%;
             margin-left: 0;
+        }
+        
+        // support for deprecated grid, to be removed July 1, 2012
+        .col {
+            width: 23%;
+        } 
+        
+        .two_col {
+            width: 48%;
+        } 
+        
+        .three_col {
+            width: 73%;
+        }
+        
+        .four_col {
+            width: 100%;
+        }
+        
+        //nested columns
+        .two_col .col {
+            width: 48%;
+        }
+        
+        .three_col .col {
+            width: 31%;
+        }
+        
+        .three_col .two_col {
+            width: 64%;
         }
     }
 }
