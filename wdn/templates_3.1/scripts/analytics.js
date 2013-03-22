@@ -118,7 +118,7 @@ WDN.analytics = function() {
                 if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){
                     bindEvent(link, 'click', function() {
                         WDN.analytics.callTrackEvent('Outgoing Link', gahref, WDN.analytics.thisURL);
-                        WDN.analytics.callTrackPageview(gahref);
+                        WDN.analytics.callTrackPageview(gahref, false);
                     });
                 } else if (gahref.match(/^mailto\:/i)){
                     var mailLink = gahref.replace(/^mailto\:/i, '');  
@@ -168,7 +168,10 @@ WDN.analytics = function() {
 			} catch(e){}
 		},
 		
-		callTrackPageview: function(thePage){
+		callTrackPageview: function(thePage, trackInWDNAccount){
+            if (trackInWDNAccount === undefined) {
+                trackInWDNAccount = true;
+            }
 			var widthScript = WDN.getCurrentWidthScript();
 			WDN.log('we can now track the page');
 			if (!thePage) {
@@ -178,11 +181,13 @@ WDN.analytics = function() {
 				}
 				return;
 			}
-			_gaq.push(['wdn._trackPageview', thePage]); //First, track in the wdn analytics
-			if (widthScript == '320') {
-				_gaq.push(['m._trackPageview', thePage]);
+			if (trackInWDNAccount) {
+    			_gaq.push(['wdn._trackPageview', thePage]); //First, track in the wdn analytics
+    			if (widthScript == '320') {
+    				_gaq.push(['m._trackPageview', thePage]);
+    			}
+    			WDN.log("Pageview tracking for wdn worked!");
 			}
-			WDN.log("Pageview tracking for wdn worked!");
 			try {
 				if (WDN.analytics.isDefaultTrackerReady()) {
 					_gaq.push(['_trackPageview', thePage]); // Second, track in local site analytics 
