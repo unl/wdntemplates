@@ -27,7 +27,7 @@
         text-shadow: -1px -1px 1px @shadowPrimary;
         display: block;
         padding: 3px;
-        .border-radius4(3px, 3px, 0, 0);
+        .border-radius(3px);
         
         img {
             .border-radius(2px);
@@ -35,26 +35,7 @@
         }
         span {
             vertical-align: 35%;
-            &:after {
-                content: '\25BC';
-                font-size: 8px;
-                margin-left: 5px;
-                speak: none;
-            }
-        }
-        
-    }
-    
-    &:hover {
-    
-        > a {
-            background: saturate(@shadowPrimary, 20%);
-            
-        }
-    
-        #wdn_idm_user_options {
-            display: block;
-        }
+        }   
     }
     
     > #wdn_idm_user_options {
@@ -83,6 +64,32 @@
     }
     
     &.loggedin {
+    
+        a {
+            .border-radius4(3px, 3px, 0, 0);
+            
+            span {
+            
+                &:after {
+                    content: '\25BC';
+                    font-size: 8px;
+                    margin-left: 5px;
+                    speak: none;
+                }
+            }
+        }
+        
+        &:hover {
+        
+            > a {
+                background: saturate(@shadowPrimary, 20%);
+                
+            }
+        
+            #wdn_idm_user_options {
+                display: block;
+            }
+        }
     
         > #wdn_idm_user_options {
         
