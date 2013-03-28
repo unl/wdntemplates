@@ -62,7 +62,6 @@ WDN.analytics = function() {
 				WDN.jQuery('.socialmedia .outpost a').click(function(){ 
 					var socialMedia = WDN.jQuery(this).parent().attr('id');
 					socialMedia = socialMedia.replace(/wdn_/gi, '');
-					console.log(socialMedia);
 					//WDN.analytics.callTrackEvent('Page Sharing', socialMedia, WDN.analytics.thisURL);
 					_gaq.push(['wdn._trackSocial', socialMedia, 'share']);
 					try {
