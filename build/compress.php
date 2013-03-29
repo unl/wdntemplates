@@ -70,6 +70,7 @@ class UNL_WDNTemplates_Compressor
             'wdn',
             'modernizr-wdn',
             'analytics',
+            'analytics_scroll_depth',
             'idm',
             'navigation',
             'search',
@@ -124,6 +125,7 @@ class UNL_WDNTemplates_Compressor
         'navigation/navigation',
         'content/maincontent',
         'content/grid',
+        'content/grid-v3' => array('ignore' => true),
         'content/headers',
         'content/images',
         'content/mime',
@@ -142,6 +144,7 @@ class UNL_WDNTemplates_Compressor
         'variations/ie' => array('ignore' => true),
         'variations/touch' => array('ignore' => true),
         'variations/print' => array('ignore' => true),
+        'variations/grid-v3-ie' => array('ignore' => true),
         'variations/regions',
     );
 

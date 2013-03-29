@@ -2,7 +2,7 @@ WDN.socialmediashare = function() {
     return {
         initialize : function() {
             try {
-            	WDN.jQuery("#wdn_emailthis").children('a').attr({'href': 'mailto:?body=Great%20content%20from%20UNL%3A%0A'+encodeURIComponent(window.location)});
+            	WDN.jQuery("#wdn_emailthis").children('a').attr({'href': 'mailto:?body=Great%20content%20from%20UNL%3A%0A'+encodeURIComponent(window.location)+'&subject='+WDN.jQuery('#pagetitle h1').text()});
                 WDN.jQuery("#wdn_facebook").children('a').attr({'href': "http://www.facebook.com/share.php?u="+encodeURIComponent(window.location)});
                 /* https://dev.twitter.com/docs/tweet-button */
                 WDN.jQuery("#wdn_twitter").children('a').attr({'href': "http://twitter.com/share?text=Great+content+from+%23UNL&via=unlnews&url="+encodeURIComponent(window.location)});
