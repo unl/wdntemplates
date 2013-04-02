@@ -42,7 +42,7 @@
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
 <body class="fixed debug" data-version="3.1">
-    <nav class="skipnav">
+    <nav class="skipnav" role="navigation">
         <a class="skipnav" href="#maincontent">Skip Navigation</a>
     </nav>
     <div id="wdn_wrapper">
@@ -53,7 +53,7 @@
             <!--#include virtual="/wdn/templates_3.1/includes/idm.html" -->
             <!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
         </header>
-        <div id="wdn_navigation_bar">
+        <div id="wdn_navigation_bar" role="navigation">
             <nav id="breadcrumbs">
                 <!-- WDN: see glossary item 'breadcrumbs' -->
                 <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
@@ -74,26 +74,28 @@
                 </nav>
             </div>
         </div>
-        <div id="wdn_content_wrapper">
+        <div id="wdn_content_wrapper" role="main">
             <div id="pagetitle">
                 <!-- InstanceBeginEditable name="pagetitle" -->
                 <h1>Debugging Out!</h1>
                 <!-- InstanceEndEditable -->
             </div>
-            <div id="maincontent" role="main">
+            <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                  <h2 class="sec_header">Image manipulation test</h2>
-                  <p>In mobile-first, we're going to use a small image and then swap out as we get larger. For this to work, we'll need the let the browser know which images to attempt.</p>
-                  <p>The original image is the smallest file, test_320.jpg. Upon page load, a new file attempts to load based on the current media query break point. If a file is not found, the image is unchanged. This happens again for each resize.</p>
-                  <img src="images/test_320.jpg" alt="this is a test image" class="wdn_image_swap" />
+                  <h2 class="sec_header">GA Tracking Test</h2>
+                  <a href="myfile.pdf">A PDF file</a>
+                  <br />
+                  <a href="http://www.google.com/" onclick="return false;">Another site</a>
+                  <br />
+                  <a href="mailto:bob@aol.com">An email link</a>
                   <!-- InstanceEndEditable -->
                 <div class="clear"></div>
                 <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
         </div>
-        <footer id="footer">
+        <footer id="footer" role="contentinfo">
             <div id="footer_floater"></div>
             <div class="footer_col" id="wdn_footer_feedback">
                 <!--#include virtual="/wdn/templates_3.1/includes/feedback.html" -->
