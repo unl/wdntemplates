@@ -60,7 +60,7 @@ WDN.idm = (function() {
 				loginCheckFailure = function() {
 					if (localSettings.login) {
 						WDN.idm.setLoginURL(localSettings.login);
-					} else if (localSettings.logout) {
+					} else {
 						WDN.idm.displayLogin();
 					}
 
@@ -157,6 +157,7 @@ WDN.idm = (function() {
 
 			for (var j = 0; j < user_profiles.length; j++) {
 			    user_profiles[j].setAttribute('href', 'http://planetred.unl.edu/pg/profile/'+planetred_uid);
+			    user_profiles[j].setAttribute('title', 'Review and update your profile');
 			}
 			document.getElementById('wdn_idm_userpic').setAttribute('src', '//planetred.unl.edu/pg/icon/'+planetred_uid+'/topbar/');
 			var username = document.getElementById('wdn_idm_username');
@@ -183,7 +184,7 @@ WDN.idm = (function() {
 
 		displayLogin : function() {
 			var idm = document.getElementById('wdn_identity_management'),
-				loginLink = document.getElementById('wdn_idm_login').getElementsByTagName('a')[0];
+				loginLink = document.getElementById('wdn_idm_login');
 
 			idm.className = idm.className.replace(/(^|\s)hidden(\s|$)/, '');
 			loginLink.setAttribute('href', WDN.idm.loginURL);
