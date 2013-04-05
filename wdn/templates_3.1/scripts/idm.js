@@ -185,6 +185,10 @@ WDN.idm = (function() {
 		displayLogin : function() {
 			var idm = document.getElementById('wdn_identity_management'),
 				loginLink = document.getElementById('wdn_idm_login');
+			
+			if (null == idm) {
+				return;
+			}
 
 			idm.className = idm.className.replace(/(^|\s)hidden(\s|$)/, '');
 			loginLink.setAttribute('href', WDN.idm.loginURL);
