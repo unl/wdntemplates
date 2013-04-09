@@ -85,7 +85,7 @@ WDN.analytics_scroll_depth = function() {
                 
                 // Make sure we haven't tracked this mark and that we've scrolled far enough
                 if (cache.indexOf(key) === -1 && scrollDistance >= marks[key]) {
-                    WDN.analytics.callTrackEvent('Scroll Depth', key, WDN.analytics.thisURL, null, true);
+                    WDN.analytics.callTrackEvent('Scroll Depth', key, WDN.analytics.thisURL, parseInt(key)/100, true);
                     _gaq.push(['wdn._trackTiming', 'Scroll Depth', key, timing, WDN.analytics.thisURL, 100]);
                     
                     // track in the mobile tracking account
