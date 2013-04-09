@@ -35,7 +35,7 @@ git commit -a -m "Bumped dependency version number to $VN"
 echo "Updating master to upstream state"
 git checkout master
 git fetch upstream
-git merge --ff upstream master
+git merge --ff upstream/master
 
 # Merge back to master
 echo "Merging release branch into master"
