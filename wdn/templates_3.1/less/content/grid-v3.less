@@ -47,10 +47,12 @@
 }
 
 // reset for list grids
-ul, ol {
-    &.@{grid-set} {
-        padding-left: 0;
-        list-style: none;
+#maincontent {
+    ul, ol {
+        &[class*="wdn-grid-set"] {
+            padding: 0;
+            list-style: none;
+        }
     }
 }
 
