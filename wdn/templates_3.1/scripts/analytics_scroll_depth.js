@@ -11,9 +11,6 @@ WDN.analytics_scroll_depth = function() {
             // Prime the cache
             cache = [];
             
-            // Send the baseline event
-            // WDN.analytics.callTrackEvent('Scroll Depth', 'Baseline', WDN.analytics.thisURL, null, true);
-            
             // bind the scroll event
             if(window.addEventListener) {
                 window.addEventListener('scroll', WDN.analytics_scroll_depth.calculateDepth, false);
