@@ -581,15 +581,19 @@ WDN.navigation = (function() {
 	            	return true;
 	            }
             }
-
-            var $storedNav = WDN.jQuery(breadcrumb).siblings('div.storednav'),
-	            oldNavCompare = $navList.clone()
-		    		.find('li.empty').remove().end()
-		    		.find('*').removeAttr('style').end()
+            
+            var sanitizeNav = function($list) {
+            	return $list
+	            	.find('li.empty').remove().end()
+		    		.find('*').removeAttr('style class').end()
 		    		.find('a').each(function() {
 		    			WDN.jQuery(this).attr('href', this.href);
 		    		}).end()
 		    		.html();
+            };
+
+            var $storedNav = WDN.jQuery(breadcrumb).siblings('div.storednav'),
+	            oldNavCompare = sanitizeNav($navList.clone());
             
             if ($storedNav.length) {
             	WDN.log("Already got it.");
@@ -602,13 +606,7 @@ WDN.navigation = (function() {
             	}
             	
             	if (isAfterHome) {
-	            	var newNavCompare = $storedChildren.clone()
-	            		.find('li.empty').remove().end()
-			    		.find('*').removeAttr('style').end()
-			    		.find('a').each(function() {
-			    			WDN.jQuery(this).attr('href', this.href);
-			    		}).end()
-			    		.html();
+	            	var newNavCompare = sanitizeNav($storedChildren.clone());
 	            	
 	            	if (oldNavCompare == newNavCompare) {
 	        			WDN.log('Duplicate navigation detected.');
