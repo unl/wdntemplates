@@ -1,0 +1,29 @@
+p {
+    margin: 0 0 1.5em 0;
+}
+
+.heading-size(@size) {
+    font-size: @size * 1rem;
+    line-height: 1.5/(@size/2) * 1em;
+    margin: 1.5/@size * 1em 0 1.5/(@size * 2) * 1em;
+}
+
+h1 {
+    .heading-size(3.157);
+}
+
+h2 {
+    .heading-size(2.369);
+}
+
+h3 {
+    .heading-size(1.777);
+}
+
+h4 {
+    .heading-size(1.333)
+}
+
+h5 {
+    .heading-size(1);
+}
