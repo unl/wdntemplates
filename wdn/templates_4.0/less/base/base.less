@@ -1,0 +1,30 @@
+* {
+    .box-sizing(border-box);
+}
+
+html {
+    font-size: @base-font-size -2;
+    line-height: 1.5;
+    color: @base-text;
+    .base-font();
+    background-color: @neutral;
+    text-rendering: optimizeLegibility;
+
+    @media (@bp3) {
+        font-size: @base-font-size;
+    }
+}
+
+q {
+    quotes: '“' '”' '‘' '’';
+    font-style: italic;
+    
+    &:before {
+        content: open-quote;
+    }
+
+    &:after {
+        content: close-quote;
+    }
+
+}
