@@ -10,7 +10,7 @@ tree.mixin.Call = function (elements, args, index, filename, important) {
 };
 tree.mixin.Call.prototype = {
     eval: function (env) {
-        var mixins, args, rules = [], match = false, i, m, f, isRecursive, isOneFound;
+        var mixins, mixin, args, rules = [], match = false, i, m, f, isRecursive, isOneFound;
 
         args = this.arguments && this.arguments.map(function (a) {
             return { name: a.name, value: a.value.eval(env) };
@@ -20,9 +20,10 @@ tree.mixin.Call.prototype = {
             if ((mixins = env.frames[i].find(this.selector)).length > 0) {
                 isOneFound = true;
                 for (m = 0; m < mixins.length; m++) {
+                    mixin = mixins[m];
                     isRecursive = false;
                     for(f = 0; f < env.frames.length; f++) {
-                        if (mixins[m] === (env.frames[f].originalRuleset || env.frames[f])) {
+                        if ((!(mixin instanceof tree.mixin.Definition)) && mixin === (env.frames[f].originalRuleset || env.frames[f])) {
                             isRecursive = true;
                             break;
                         }
@@ -30,14 +31,16 @@ tree.mixin.Call.prototype = {
                     if (isRecursive) {
                         continue;
                     }
-                    if (mixins[m].match(args, env)) {
-                        try {
-                            Array.prototype.push.apply(
-                                  rules, mixins[m].eval(env, this.arguments, this.important).rules);
-                            match = true;
-                        } catch (e) {
-                            throw { message: e.message, index: this.index, filename: this.filename, stack: e.stack };
+                    if (mixin.matchArgs(args, env)) {
+                        if (!mixin.matchCondition || mixin.matchCondition(args, env)) {
+                            try {
+                                Array.prototype.push.apply(
+                                      rules, mixin.eval(env, args, this.important).rules);
+                            } catch (e) {
+                                throw { message: e.message, index: this.index, filename: this.filename, stack: e.stack };
+                            }
                         }
+                        match = true;
                     }
                 }
                 if (match) {
@@ -93,8 +96,8 @@ tree.mixin.Definition.prototype = {
     find:      function ()     { return this.parent.find.apply(this, arguments) },
     rulesets:  function ()     { return this.parent.rulesets.apply(this) },
 
-    evalParams: function (env, args, evaldArguments) {
-        var frame = new(tree.Ruleset)(null, []), varargs, arg, params = this.params.slice(0), i, j, val, name, isNamedFound;
+    evalParams: function (env, mixinEnv, args, evaldArguments) {
+        var frame = new(tree.Ruleset)(null, []), varargs, arg, params = this.params.slice(0), i, j, val, name, isNamedFound, argIndex;
         
         if (args) {
             args = args.slice(0);
@@ -122,54 +125,69 @@ tree.mixin.Definition.prototype = {
                 }
             }
         }
-
+        argIndex = 0;
         for (i = 0; i < params.length; i++) {
             if (evaldArguments[i]) continue;
             
-            arg = args && args[i]
-			
+            arg = args && args[argIndex];
+
             if (name = params[i].name) {
                 if (params[i].variadic && args) {
                     varargs = [];
-                    for (j = i; j < args.length; j++) {
+                    for (j = argIndex; j < args.length; j++) {
                         varargs.push(args[j].value.eval(env));
                     }
                     frame.rules.unshift(new(tree.Rule)(name, new(tree.Expression)(varargs).eval(env)));
-                } else if (val = (arg && arg.value) || params[i].value) {
-                    frame.rules.unshift(new(tree.Rule)(name, val.eval(env)));
-                    evaldArguments[i] = val.eval(env)
                 } else {
-                    throw { type: 'Runtime', message: "wrong number of arguments for " + this.name +
+                    val = arg && arg.value;
+                    if (val) {
+                        val = val.eval(env);
+                    } else if (params[i].value) {
+                        val = params[i].value.eval(mixinEnv);
+                    } else {
+                        throw { type: 'Runtime', message: "wrong number of arguments for " + this.name +
                             ' (' + args.length + ' for ' + this.arity + ')' };
+                    }
+                    
+                    frame.rules.unshift(new(tree.Rule)(name, val));
+                    evaldArguments[i] = val;
                 }
             }
             
             if (params[i].variadic && args) {
-                for (j = i; j < args.length; j++) {
+                for (j = argIndex; j < args.length; j++) {
                     evaldArguments[j] = args[j].value.eval(env);
                 }
             }
+            argIndex++;
         }
 
         return frame;
     },
     eval: function (env, args, important) {
-        var _arguments = [], frame = this.evalParams(env, args, _arguments), context, rules, start, ruleset;
+        var _arguments = [],
+            mixinFrames = this.frames.concat(env.frames),
+            frame = this.evalParams(env, {frames: mixinFrames}, args, _arguments), 
+            context, rules, start, ruleset;
 
         frame.rules.unshift(new(tree.Rule)('@arguments', new(tree.Expression)(_arguments).eval(env)));
 
         rules = important ?
-            this.rules.map(function (r) {
-                return new(tree.Rule)(r.name, r.value, '!important', r.index);
-            }) : this.rules.slice(0);
+            this.parent.makeImportant.apply(this).rules : this.rules.slice(0);
 
         ruleset = new(tree.Ruleset)(null, rules).eval({
-            frames: [this, frame].concat(this.frames, env.frames)
+            frames: [this, frame].concat(mixinFrames)
         });
         ruleset.originalRuleset = this;
         return ruleset;
     },
-    match: function (args, env) {
+    matchCondition: function (args, env) {
+        if (this.condition && !this.condition.eval({
+            frames: [this.evalParams(env, {frames: this.frames.concat(env.frames)}, args, [])].concat(env.frames)
+        }))                                                           { return false }
+        return true;
+    },
+    matchArgs: function (args, env) {
         var argsLength = (args && args.length) || 0, len, frame;
 
         if (! this.variadic) {
@@ -177,10 +195,6 @@ tree.mixin.Definition.prototype = {
             if (argsLength > this.params.length)                          { return false }
             if ((this.required > 0) && (argsLength > this.params.length)) { return false }
         }
-
-        if (this.condition && !this.condition.eval({
-            frames: [this.evalParams(env, args, [])].concat(env.frames)
-        }))                                                           { return false }
 
         len = Math.min(argsLength, this.arity);
 
