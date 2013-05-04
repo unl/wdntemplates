@@ -27,17 +27,7 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<style type="text/css">
-#maincontent .grid1, #maincontent  .grid2, #maincontent  .grid3, #maincontent  .grid4, #maincontent  .grid5, #maincontent  .grid6, #maincontent  .grid7, #maincontent  .grid8, #maincontent  .grid9, #maincontent  .grid10, #maincontent  .grid11, #maincontent  .grid12 {
-    margin-bottom: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background: rgba(111,191,77,.4);
-    border: solid 1px #6FBF4D;
-    border-width: 1px 0;
-    text-align:center;
-}
-</style>
+
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
@@ -83,12 +73,7 @@
             <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                  <h2 class="sec_header">GA Tracking Test</h2>
-                  <a href="myfile.pdf">A PDF file</a>
-                  <br />
-                  <a href="http://www.google.com/" onclick="return false;">Another site</a>
-                  <br />
-                  <a href="mailto:bob@aol.com">An email link</a>
+                  
                   <!-- InstanceEndEditable -->
                 <div class="clear"></div>
                 <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
