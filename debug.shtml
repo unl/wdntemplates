@@ -6,7 +6,7 @@
 <!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
 <!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
 <head>
-<!--#include virtual="/wdn/templates_3.1/includes/metanfavico.html" -->
+<!--#include virtual="/wdn/templates_4.0/includes/metanfavico.html" -->
 <!--
     Membership and regular participation in the UNL Web Developer Network
     is required to use the UNL templates. Visit the WDN site at 
@@ -21,7 +21,7 @@
     
     $Id: debug.dwt | ea2608181e2b6604db76106fd982b39218ddcb8b | Fri Mar 9 12:20:43 2012 -0600 | Kevin Abel  $
 -->
-<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles_debug.html" -->
+<!--#include virtual="/wdn/templates_4.0/includes/scriptsandstyles_debug.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>Debugging Out | WDN Testing Page | University of Nebraska&ndash;Lincoln</title>
 <!-- InstanceEndEditable -->
@@ -31,22 +31,28 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
-<body class="fixed debug" data-version="3.1">
+<body class="fixed debug" data-version="4.0">
     <nav class="skipnav" role="navigation">
-        <a class="skipnav" href="#maincontent">Skip Navigation</a>
+        <a class="wdn-text-hidden" href="#maincontent">Skip Navigation</a>
     </nav>
     <div id="wdn_wrapper">
-        <header id="header" role="banner">
+        <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide" checked="checked" />
+        <header id="header" role="banner" class="wdn-content-slide">
             <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
             <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
-            <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" --><a href="#">The Charles W. Durham School of Architectural Engineering &amp; Construction</a> <span>A division of the College of Arts &amp; Sciences</span><!-- InstanceEndEditable --></span>
-            <!--#include virtual="/wdn/templates_3.1/includes/idm.html" -->
-            <!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
+            <span id="wdn_site_title">
+                <!-- InstanceBeginEditable name="titlegraphic" -->
+                <a href="#">The Charles W. Durham School of Architectural Engineering &amp; Construction</a> 
+                <span>A division of the College of Arts &amp; Sciences</span>
+                <!-- InstanceEndEditable -->
+            </span>
+            <!--#include virtual="/wdn/templates_4.0/includes/idm.html" -->
+            <!--#include virtual="/wdn/templates_4.0/includes/wdnTools.html" -->
         </header>
         <div id="wdn_navigation_bar" role="navigation">
             <nav id="breadcrumbs">
                 <!-- WDN: see glossary item 'breadcrumbs' -->
-                <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
+                <h3 class="wdn_list_descriptor wdn-text-hidden">Breadcrumbs</h3>
                 <!-- InstanceBeginEditable name="breadcrumbs" -->
                 <ul>
                     <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
@@ -57,14 +63,19 @@
             </nav>
             <div id="wdn_navigation_wrapper">
                 <nav id="navigation" role="navigation">
-                    <h3 class="wdn_list_descriptor hidden">Navigation</h3>
+                    <h3 class="wdn_list_descriptor wdn-text-hidden">Navigation</h3>
                     <!-- InstanceBeginEditable name="navlinks" -->
                     <!--#include virtual="sharedcode/navigation.html" -->
                     <!-- InstanceEndEditable -->
                 </nav>
             </div>
         </div>
-        <div id="wdn_content_wrapper" role="main">
+        <!-- Navigation Trigger -->
+        <div id="wdn_menu_trigger" class="wdn-content-slide">
+            <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
+        </div>
+        <!-- End navigation trigger -->
+        <div id="wdn_content_wrapper" role="main" class="wdn-content-slide">
             <div id="pagetitle">
                 <!-- InstanceBeginEditable name="pagetitle" -->
                 <h1>Debugging Out!</h1>
@@ -76,25 +87,17 @@
                   
                   <!-- InstanceEndEditable -->
                 <div class="clear"></div>
-                <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
+                <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
         </div>
         <footer id="footer" role="contentinfo">
             <div id="footer_floater"></div>
             <div class="footer_col" id="wdn_footer_feedback">
-                <!--#include virtual="/wdn/templates_3.1/includes/feedback.html" -->
+                <!--#include virtual="/wdn/templates_4.0/includes/feedback.html" -->
             </div>
             <div class="footer_col" id="wdn_footer_related">
-                <!-- InstanceBeginEditable name="leftcollinks" -->
-                <!--#include virtual="sharedcode/relatedLinks.html" -->
-                <!-- InstanceEndEditable --></div>
-            <div class="footer_col" id="wdn_footer_contact">
-                <!-- InstanceBeginEditable name="contactinfo" -->
-                <!--#include virtual="sharedcode/footerContactInfo.html" -->
-                <!-- InstanceEndEditable --></div>
-            <div class="footer_col" id="wdn_footer_share">
-                <!--#include virtual="/wdn/templates_3.1/includes/socialmediashare.html" -->
+                <!--#include virtual="/wdn/templates_4.0/includes/socialmediashare.html" -->
             </div>
             <!-- InstanceBeginEditable name="optionalfooter" -->
             <!-- InstanceEndEditable -->
@@ -103,9 +106,9 @@
                     <!-- InstanceBeginEditable name="footercontent" -->
                     <!--#include virtual="sharedcode/footer.html" -->
                     <!-- InstanceEndEditable -->
-                    <!--#include virtual="/wdn/templates_3.1/includes/wdn.html" -->
+                    <!--#include virtual="/wdn/templates_4.0/includes/wdn.html" -->
                 </div>
-                <!--#include virtual="/wdn/templates_3.1/includes/logos.html" -->
+                <!--#include virtual="/wdn/templates_4.0/includes/logos.html" -->
             </div>
         </footer>
     </div>

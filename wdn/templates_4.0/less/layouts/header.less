@@ -1,0 +1,54 @@
+#header {
+    min-height: 53px;
+    padding: 5px;
+}
+/*
+* Logo
+*/
+
+#logo {
+    .text-hidden();
+    background-image: url(../images/n.svg);
+    background-size: 45px 43px;
+    width: 45px;
+    height: 43px;
+    margin-right: 5px;
+}
+
+/*
+* Institution and site title layouts
+*/
+
+#wdn_institution_title {
+    float: left;
+    padding-top: 3px;
+    text-transform: uppercase;
+    .light-brand-font();
+    text-shadow: 0 1px 0 #fff;
+    color: lighten(@base-text, 5%);
+    .rem(12);
+    line-height: 1;
+    white-space: nowrap;
+}
+#wdn_site_title {
+    float: left;
+    width: ~'-webkit-calc(90% - 55px)';
+    width: ~'calc(90% - 55px)';
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: @base-text;
+    text-shadow: 0 1px 0 #fff;
+    letter-spacing: -1px;
+    .rem(24);
+    line-height: 1.2;
+    white-space: nowrap;
+
+    a {
+        color: @base-text;
+        text-decoration: none;
+    }
+
+    span {
+        .text-hidden();
+    }
+}

@@ -1,0 +1,62 @@
+#wdn_search {
+    position: absolute;
+    right: 5px;
+    top: 12px;
+
+    fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    label {
+        text-indent: -999em;
+        position: absolute;
+        color: fadeout(#d1ceb3, 35%);
+        .rem(12);
+        left: 5px;
+        top: 3px;
+
+        &:before {
+            text-indent: 999em;
+        }
+    }
+
+    input[type="submit"] {
+        display: none;
+    }
+}
+
+#q {
+    border-radius: 3px;
+    border: 1px solid #d1ceb3;
+    padding: 5px 5px 5px 22px;
+    .rem(12);
+    color: fadeout(@base-text, 25%);
+    .transition(width 0.3s ease);
+    width: 50px;
+    .box-sizing(border-box);
+
+    &::-webkit-input-placeholder {
+       opacity: 0;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+       opacity: 0;
+    }
+
+    &::-moz-placeholder {  /* Firefox 19+ */
+       opacity: 0; 
+    }
+
+    &:-ms-input-placeholder {  
+       opacity: 0; 
+    }
+
+    &:focus {
+        width: 200px;
+        border-color: darken(#d1ceb3, 15%);
+        .box-shadow(1px 1px 3px #d1ceb3);
+        outline: none;
+    }
+}

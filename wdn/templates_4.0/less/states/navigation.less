@@ -1,0 +1,18 @@
+.skipnav {
+
+    a:focus {
+        text-indent: 0;
+        line-height: 1;
+    }
+}
+
+#wdn_menu_toggle:checked { // Change states when toggle is checked
+
+    ~ .wdn-content-slide {
+        left: 200px;
+    }
+
+    ~ #wdn_navigation_bar {
+        left: 0;
+    }
+}
