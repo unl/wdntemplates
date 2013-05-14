@@ -202,7 +202,7 @@ $scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('', ''),
                     <?php echo (isset($scanned_page->footercontent))?$scanned_page->footercontent:''; ?>
                     <!-- InstanceEndEditable -->
                     <?php include dirname(__DIR__) . '/../wdn/templates_4.0/includes/wdn.html'; ?>
-                    <?php include dirname(__DIR__) . '/../wdn/templates_4.0/includes/logos.html'; ?>Œ
+                    <?php include dirname(__DIR__) . '/../wdn/templates_4.0/includes/logos.html'; ?>
                 </div>
             </div>
         </footer>
