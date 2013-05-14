@@ -91,17 +91,43 @@
                 </div>
             <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
             <div id="maincontent">
-                <div class="wdn-band">
+                <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+                <!-- InstanceBeginEditable name="maincontentarea" -->
+                <div class="wdn-band" style="line-height: 0;">
                     <img src="sandbox/arch.jpg" alt="" class="wdn-stretch" />
                 </div>
-                <div class="wdn-band wdn-text-band wdn-center">
+                <div class="wdn-band wdn-text-band">
                     <div class="wdn-inner-wrapper">
-                        <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-                        <!-- InstanceBeginEditable name="maincontentarea" -->
-                        <h1>We are the College of Architecture. This is our story.</h1>
-                        <p>Throw everything in here.</p>  
-                        <!-- InstanceEndEditable -->
-                        <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+                        <h1 class="wdn-center">We are the College of Architecture. This is our story.</h1>
+                        <p>Pug seitan thundercats, banksy DIY tofu williamsburg artisan put a bird on it fap flannel odd future twee cliche letterpress. Yr marfa godard, bicycle rights synth messenger bag truffaut blue bottle tattooed pour-over brooklyn bushwick. </p>
+                        <p>Messenger bag locavore hoodie kale chips, quinoa pop-up mlkshk forage put a bird on it helvetica fashion axe authentic bicycle rights american apparel wolf. Bespoke you probably haven't heard of them 8-bit, squid twee +1 deep v. Ugh flannel ethnic pork belly, four loko stumptown ethical. Swag pour-over fixie ugh pug artisan wayfarers art party street art. Banh mi occupy skateboard, hella fanny pack wayfarers Austin.</p>
+                    </div>
+                </div>
+                <div class="wdn-band" id="infographic-facts" style="background-color: rgba(71, 64, 23, 0.1);">
+                    <div class="wdn-inner-wrapper wdn-center">
+                        <h2 class="wdn-center brand-font">Let our numbers do the talking</h2>
+                        <div class="wdn-grid-set-halves bp2-wdn-grid-set-fourths">
+                            <div class="wdn-col">
+                                <img src="sandbox/4.0_mockup/infographic-ratio.png" alt="" />
+                                <h3 class="number brand-font">7:1</h3>
+                                <p class="">student/faculty ratio</p>
+                            </div>
+                            <div class="wdn-col">
+                                <img src="sandbox/4.0_mockup/infographic-map.png" alt="" />
+                                <h3 class="number brand-font">122</h3>
+                                <p>countries represented by our alums</p>
+                            </div>
+                            <div class="wdn-col">
+                                <img src="sandbox/4.0_mockup/infographic-success.png" alt="" />
+                                <h3 class="number brand-font">4,063</h3>
+                                <p>available internships and counting</p>
+                            </div>
+                            <div class="wdn-col">
+                                <img src="sandbox/4.0_mockup/infographic-chart.png" alt="" />
+                                <h3 class="number brand-font">92%</h3>
+                                <p>students employed within 1 year graduation</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="wdn-band twitter-band">
@@ -117,12 +143,12 @@
                         </div>
                     </div>
                 </div>
+                <!-- InstanceEndEditable -->
+                <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
         </div>
         <div class="wdn-band wdn-content-slide" id="wdn_optional_footer">
             <div class="wdn-inner-wrapper">
-                <!-- InstanceBeginEditable name="optionalfooter" -->
-                <!-- InstanceEndEditable -->
             </div>
         </div>
         <footer id="footer" role="contentinfo" class="wdn-content-slide wdn-band">

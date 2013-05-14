@@ -4,7 +4,7 @@
 
 html {
     font-size: @base-font-size;
-    line-height: 1.5;
+    line-height: 1.49;
     color: @base-text;
     .base-font();
     background-color: @neutral;
@@ -42,6 +42,16 @@ q {
 
     .wdn-inner-wrapper {
         .clear-fix();
+
+        #maincontent & {
+            padding: 1em 5px;
+        }
+
+        @media (@bp3) {
+            #maincontent & {
+                padding: 1em 0;
+            }
+        }
     }
 
     .wdn-stretch { // Use this class for presentational elements that stretch the full-width of the band
