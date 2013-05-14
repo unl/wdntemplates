@@ -27,7 +27,7 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
@@ -183,5 +183,31 @@
             </div>
         </footer>
     </div>
+    <script>
+        var navPin = (function() {
+            var header = $('#header'), breadcrumbs = $('#breadcrumbs'), nav = $('#navigation'), hh, bh;
+
+            return {
+
+                initialize : function() {
+                    $(window).on('scroll', function() {
+                        navPin.setPosition();
+                    });
+                },
+
+                setPosition : function () {
+                    hh = header.height();
+                    bh = breadcrumbs.height();
+                    if ($(window).scrollTop() >= hh + bh) {
+                        nav.addClass('nav-scrolling');
+                    } else {
+                        nav.removeClass('nav-scrolling'); 
+                    }
+                }                
+            }
+        })();
+
+        navPin.initialize();
+    </script>
 </body>
 <!-- InstanceEnd --></html>
