@@ -9,9 +9,10 @@ html {
     .base-font();
     background-color: @neutral;
     text-rendering: optimizeLegibility;
+    font-size: @base-font-size;
 
-    @media (@bp3) {
-        font-size: @base-font-size;
+    @media (@bp2) {
+        font-size: @base-font-size + 2px;
     }
 }
 
@@ -47,20 +48,31 @@ q {
         max-width: 100%;
         width: 100%;
     }
+
+    .wdn-center {
+        text-align: center;
+    }
 }
 
 @media (@bp3) {
     #maincontent {
 
         > * {
-            max-width: 960px;
+            max-width: 60rem;
+        }
+
+        .wdn-text-band {
+
+            .wdn-inner-wrapper {
+                max-width: 50rem;
+            }
         }
     }
 
     .wdn-band {
 
         .wdn-inner-wrapper {
-            width: 960px;
+            width: 60rem;
             margin: 0 auto;
         }
     }

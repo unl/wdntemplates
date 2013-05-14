@@ -44,7 +44,7 @@
                 <div id="wdn_site_title">
                     <span>
                         <!-- InstanceBeginEditable name="titlegraphic" -->
-                        <a href="#">Department of English </a> 
+                        <a href="#">College of Architecture </a> 
                         <!--<span>A division of the College of Arts &amp; Sciences</span>-->
                         <!-- InstanceEndEditable -->
                     </span>
@@ -60,8 +60,8 @@
                 <!-- InstanceBeginEditable name="breadcrumbs" -->
                 <ul>
                     <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln" class="wdn-icon-home">UNL</a></li>
-                    <li class="selected"><a href="http://admissions.unl.edu/" title="Office of Admissions">Admissions</a></li>
-                    <li>Red Letter Day</li>
+                    <li class="selected"><a href="http://architecture.unl.edu/" title="College of Architecture">College of Architecture</a></li>
+                    <li>Home</li>
                 </ul>
                 <!-- InstanceEndEditable -->
             </nav>
@@ -92,16 +92,29 @@
             <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
             <div id="maincontent">
                 <div class="wdn-band">
-                    <img src="sandbox/fpa-test.png" alt="" class="wdn-stretch" />
+                    <img src="sandbox/arch.jpg" alt="" class="wdn-stretch" />
                 </div>
-                <div class="wdn-band">
+                <div class="wdn-band wdn-text-band wdn-center">
                     <div class="wdn-inner-wrapper">
                         <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                         <!-- InstanceBeginEditable name="maincontentarea" -->
-                            <h1>Debugging Out!</h1>
+                        <h1>We are the College of Architecture. This is our story.</h1>
                         <p>Throw everything in here.</p>  
                         <!-- InstanceEndEditable -->
                         <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
+                    </div>
+                </div>
+                <div class="wdn-band twitter-band">
+                    <div class="wdn-inner-wrapper">
+                        <div class="wdn-grid-set">
+                            <div class="wdn-col-one-seventh wdn-icon">
+                                &#xf057;
+                            </div>
+                            <div class="wdn-col-six-sevenths">
+                                <a href="" class="author">@MyTweeter</a>
+                                <p class="tweet">Welcome to 2013 class of #Huskers. Great choice you have made &amp; the other thing - UNL has great academic programs you will love. Welcome!</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -109,7 +122,6 @@
         <div class="wdn-band wdn-content-slide" id="wdn_optional_footer">
             <div class="wdn-inner-wrapper">
                 <!-- InstanceBeginEditable name="optionalfooter" -->
-                This is the optional footer we keep kicking around.
                 <!-- InstanceEndEditable -->
             </div>
         </div>
