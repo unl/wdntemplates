@@ -7,6 +7,7 @@
         border: none;
         margin: 0;
         padding: 0;
+        position: relative;
     }
 
     label {
@@ -16,6 +17,7 @@
         .rem(12);
         left: 5px;
         top: 3px;
+        text-align: left;
 
         &:before {
             text-indent: 999em;
@@ -32,10 +34,11 @@
     border: 1px solid #d1ceb3;
     padding: 5px 5px 5px 22px;
     .rem(12);
-    color: fadeout(@base-text, 25%);
+    color: darken(#d1ceb3, 25%);
     .transition(width 0.3s ease);
     width: 50px;
     .box-sizing(border-box);
+    .sans-serif-font();
 
     &::-webkit-input-placeholder {
        opacity: 0;
@@ -58,5 +61,33 @@
         border-color: darken(#d1ceb3, 15%);
         .box-shadow(1px 1px 3px #d1ceb3);
         outline: none;
+    }
+
+    @media (@bp-nav-full) {
+        width: 160px;
+
+        &::-webkit-input-placeholder {
+           opacity: 0.6;
+           color: darken(#d1ceb3, 25%);
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+           opacity: 0.6;
+           color: darken(#d1ceb3, 25%);
+        }
+
+        &::-moz-placeholder {  /* Firefox 19+ */
+           opacity: 0.6; 
+           color: darken(#d1ceb3, 25%);
+        }
+
+        &:-ms-input-placeholder {  
+           opacity: 0.6; 
+           color: darken(#d1ceb3, 25%);
+        }
+
+        &:focus {
+            width: 250px;
+        }
     }
 }

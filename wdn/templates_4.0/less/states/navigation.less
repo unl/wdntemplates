@@ -6,13 +6,28 @@
     }
 }
 
-#wdn_menu_toggle:checked { // Change states when toggle is checked
+@media (@bp-nav-hidden) {
+    #wdn_menu_toggle:checked { // Change states when toggle is checked
 
-    ~ .wdn-content-slide {
-        left: 200px;
+        ~ .wdn-content-slide {
+            left: 200px;
+        }
+
+        ~ #wdn_navigation_bar {
+            left: 0;
+        }
     }
+}
 
-    ~ #wdn_navigation_bar {
-        left: 0;
+@media (@bp-nav-full) {
+    #wdn_menu_toggle:checked { // Change states when toggle is checked
+
+        ~ #wdn_navigation_bar #navigation li ul {
+            height: 100%;
+        }
+
+        ~ .wdn_menu_trigger label:after {
+            .rotate(180deg);
+        }
     }
 }

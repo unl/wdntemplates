@@ -1,0 +1,144 @@
+#wdn_optional_footer {
+    background-color: fadeout(#cbc8b2, 85%);
+}
+
+#footer {
+    background-color: #525151;
+    text-shadow: 1px 1px 0px #000;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAN0lEQVQYV2P08fb+v2XrVkYGHAAkD5bEpRAmDjcBXSEyH8UamAS6Bgy3YLOaNJMIuomg74gJJwBEZT/MvrJ6dQAAAABJRU5ErkJggg==);
+    background-repeat: repeat;
+    border-top: 5px solid #e6e4d0;
+    color: #c3c3c3;
+    .sans-serif-font();
+    .rem(12);
+
+    a {
+        color: #c3c3c3;
+        text-decoration: underline;
+    }
+}
+
+#footer_floater {
+    border-top: 54px solid #5e5e5e;
+    text-align: center;
+}
+
+#wdn_footer_flag {
+    display: none;
+}
+
+.footer_col {
+    margin: -54px 5px auto 5px;
+
+    h3 {
+        .light-brand-font();
+        line-height: 1;
+        text-transform: uppercase;
+        .rem(20);
+        height: 54px;
+    }
+}
+
+#wdn_footer_related {
+    margin-top: auto;
+}
+@media (@bp1) {
+    .footer_col {
+        width: 38%;
+    }
+
+    #wdn_footer_contact {
+        float: left;
+    }
+
+    #wdn_footer_related {
+        float: right;
+        margin-top: -54px;
+    }
+}
+@media (@bp-nav-full) {
+    .footer_col {
+        position: relative;
+        margin-top: 0 !important;
+        margin: 0;
+    }
+
+    #footer_floater {
+        width: 100%;
+        position: absolute;
+        height: 54px;
+    }
+
+    #wdn_footer_flag {
+        display: block;
+        background: url(../images/n_flag_inward.svg) no-repeat;
+        background-position: center bottom;
+        margin-top: -54px;
+        overflow: hidden;
+
+        &:hover {
+            #wdn_social {
+                margin-top: 0;
+            }
+
+            a {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    #wdn_social {
+        margin: 0;
+        list-style: none;
+        padding: 0;
+        display: inline-block;
+        margin-bottom: 115px;
+        .transition(all linear 0.2s);
+        width: 122px;
+        height: 42px;
+        background-color: fadeout(#000, 90%);
+        margin-top: -42px;
+
+        li {
+            display: inline-block;
+        }
+
+        a {
+            .text-hidden();
+            opacity: 0;
+            text-align: left;
+            width: 1em;
+            .rem(28);
+            line-height: 1.5;
+            text-decoration: none;
+            color: #5E0000;
+            text-shadow: none;
+            .transition(all linear 0.3s);
+
+            &:before {
+                text-indent: 9999em;
+            }
+
+            &:first-child {
+                margin-right: 5px;
+            }
+
+            &:last-child {
+                margin-left: 5px;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+#wdn_copyright {
+    clear: both;
+    background-color: fadeout(#000, 67%);
+    border-top: 1px solid transparent;
+    .box-shadow(0px -2px 0px 0px fadeout(#000, 75%));
+    background-clip: padding-box;
+    padding: 5px;
+}

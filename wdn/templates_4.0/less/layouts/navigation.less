@@ -9,25 +9,58 @@
 #wdn_menu_toggle {
     display: none;
 }
-
-#wdn_menu_trigger { // Holds the label for the toggle of the navigation
+.nav-bar() {
     background-color: @brand;
     .background-image(~"linear-gradient(bottom, rgba(0,0,0,.15) 0%, rgba(255,255,255,0) 20%)");
     border-top: 1px solid lighten(@brand, 10%);
     .box-shadow(0px -2px 0px 0px #5f5f4e);
     .clear-fix();
-    color: #fff;
+}
+.wdn_menu_trigger { // Holds the label for the toggle of the navigation
+
+    // Styles specifc to only the mobile view
+    @media (@bp-nav-hidden) {
+        .nav-bar();
+    }
+}
+
+.wdn-icon-menu { // Hide the label text off screen
+    text-indent: -99em;
+    float: left;
+    line-height: 0;
+    cursor: pointer;
+    position: relative;
+    color: #e7b5b5;
     font-size: 1.5rem;
 
-    .wdn-icon-menu { // Hide the label text off screen
-        text-indent: -99em;
-        float: left;
+    // Styles specifc to only the mobile view
+    @media (@bp-nav-hidden) {
         line-height: 1;
-        cursor: pointer;
+    }
 
-        &:before { // Show the navigation icon
+    &:before { // Show the navigation icon
+        text-indent: 99em;
+        padding: 0.25em 5px;
+        position: relative;
+    }
+
+    @media (@bp-nav-full) {
+
+        &:before {
+            z-index: 2;
+        }
+
+        &:after {
+            background: url(../images/menu_shadow.png) no-repeat 0 0;
+            display: block;
+            height: 19px;
+            width: 40px;
             text-indent: 99em;
-            padding: 0.25em 5px;
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1;
         }
     }
 }
@@ -36,17 +69,11 @@
 @nav-width: 200px;
 
 #wdn_navigation_bar {
-    position: absolute;
-    top: 0;
-    left: (@nav-width * -1); // Hide off-screen
-    width: @nav-width;
-    overflow: hidden;
-    .transition(left 0.3s ease);
-    background-color: #3b3b3b;
-    border-right: 3px solid #000;
-    .brand-font();
+    .light-brand-font();
     color: #fff;
-    text-shadow: 1px 1px 0px #000;
+    text-shadow: 1px 1px 0px darken(@brand, 19%);
+    overflow-y: scroll;
+    // We need to set height for mobile with JS?
 
     a {
         text-decoration: none;
@@ -56,28 +83,44 @@
     ul {
         .list-reset();
     }
+
+    // Styles specifc to only the mobile view
+    @media (@bp-nav-hidden) {
+        position: absolute;
+        top: 0;
+        left: (@nav-width * -1); // Hide off-screen
+        width: @nav-width;
+        overflow: hidden;
+        .transition(left 0.3s ease);
+        background-color: #3b3b3b;
+        border-right: 3px solid #000;
+    }
 }
 
 #breadcrumbs {
-    padding: 0 5px;
-    .light-brand-font();
+    padding: 0 5px 5px;
+    .sans-serif-font();
     .rem(10);
     background-color: fadeout(#fff, 90%);
+    opacity: 0.8;
 
     li {
         display: inline;
         text-transform: none;
+        margin: 2px 0;
 
-        &:first-child {
+        &:first-child { // First element to be replaced with 'home' icon.
             a {
                 text-indent: -99em;
+                .rem(14);
+                width: 1em;
 
                 &:before {
                     font-family: "fontello";
                     font-style: normal;
                     font-weight: normal;
                     text-indent: 99em;
-                    content: '\2302';
+                    content: '🔨';
                     speak: none;
                     display: inline-block;
                     text-decoration: inherit;
@@ -91,16 +134,21 @@
         }
 
         &:after {
+            font-family: "fontello";
             text-indent: 99em;
             font-style: normal;
             font-weight: normal;
             speak: none;
-            content: '\25BA';
-            .rem(6);
+            content: '\F0C8';
+            .rem(18);
             margin: 0 2px 0 6px;
             line-height: 0;
             color: fadeout(#fff, 25%);
             vertical-align: middle;
+
+            @media (@bp-nav-full) {
+                color: fadeout(@base-text, 45%);
+            }
         }
 
         &:last-child {
@@ -111,20 +159,35 @@
         }
     }
 
+    // Styles specific to the full view
+    @media (@bp-nav-full) {
+        color: @base-text;
+        text-shadow: -1px 0 0 #fff;
+        padding: 0;
+        height: 24px;
+    }
+
     a {
-        padding: 5px 0;
         display: inline-block;
+
+        // Styles specific to the full view
+        @media (@bp-nav-full) {
+            color: #44433c;
+            padding: 0;
+        }
     }
 }
 
 #navigation {
-    padding: 5px;
 
     a {
-        display: block;
-        border-bottom: 1px solid fadeout(#fff, 90%);
         padding: 5px ;
         .transition(background 0.3s ease);
+        display: block;
+
+        @media (@bp-nav-hidden) {
+            border-bottom: 1px solid fadeout(#fff, 90%);
+        }
 
         &:hover {
             background-color: rgba(255, 255, 255, 0.1);
@@ -133,13 +196,114 @@
 
     li {
         text-transform: uppercase;
-        .rem(12);
+        .rem(16);
 
         li {
             .rem(11);
-            .light-brand-font();
+            .sans-serif-font();
             text-transform: none;
             padding-left: 10px;
+            float: none;
+        }
+
+        // Styles specific to the full view
+        @media (@bp-nav-full) {
+            float: left;
+            width: 16.6666%;
+            text-align: center;
+
+            ul {
+                height: 0;
+                overflow: hidden;
+                .transition(all linear 0.3s);
+            }
+
+            li {
+                width: 100%;
+                padding: 0;
+                border-bottom: 1px solid fadeout(#fff, 90%);
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                a {
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    // Styles specific to the full view
+    @media (@bp-nav-hidden) {
+        padding: 5px;
+    }
+
+    // Styles specific to the full view
+    @media (@bp-nav-full) {
+        .nav-bar();
+        position: absolute;
+        z-index: 1;
+        padding-left: 40px;
+        width: 100%;
+
+        > ul {
+            width: 100%;
+            margin: 0;
+
+            > li {
+                box-shadow: 1px 0 0 0 rgba(0,0,0, 0.15);
+                border-right: 1px solid fadeout(#fff, 65%);
+
+                &:first-child {
+                    box-shadow: inset 1px 0 0 0 rgba(0,0,0, 0.15), 1px 0 0 0 rgba(0,0,0,0.15);
+                    border-left: 1px solid fadeout(#fff, 65%),;
+                }
+
+                &:nth-of-type(7n) {
+                    clear: left;
+                    box-shadow: inset 1px 0 0 0 rgba(0,0,0, 0.15), 1px 0 0 0 rgba(0,0,0,0.15);
+                    border-left: 1px solid fadeout(#fff, 65%),;
+                }
+            }
+
+            &:hover {
+
+                ul {
+                    height: 100%;
+                }
+
+                li {
+
+                    a {
+                        @media (@bp-nav-full) {
+                            .background-image(~"linear-gradient(bottom, rgba(0,0,0,.10) 0%, rgba(255,255,255,0) 40%)");
+                        }
+                    }
+
+                    &:hover {
+                        background-color: rgba(255, 255, 255, 0.1);
+                    }
+
+                    li {
+                        display: block;
+
+                        a {
+                            background-image: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (@bp-nav-max) {
+        padding-left: 0;
+
+        > ul {
+            width: 960px;
+            margin: 0 auto;
+            display: block;
         }
     }
 }

@@ -1,18 +1,46 @@
 #header {
     min-height: 53px;
-    padding: 5px;
+
+    .wdn-inner-wrapper {
+        position: relative;
+    }
+
+    @media (@bp-nav-hidden) {
+        padding: 5px;
+    }
+    @media (@bp-nav-full) {
+        text-align: center;
+        background: url(../images/stripes.svg) repeat-x 0 -5px;
+    }
 }
 /*
 * Logo
 */
 
 #logo {
-    .text-hidden();
     background-image: url(../images/n.svg);
     background-size: 45px 43px;
     width: 45px;
     height: 43px;
     margin-right: 5px;
+
+    @media (@bp-nav-hidden) {
+        .text-hidden();
+    }
+
+    @media (@bp-nav-full) {
+        text-indent: -9999em;
+        line-height: 0;
+        position: absolute;
+        background-image: url(../images/n_flag.svg);
+        background-size: 112px 67px;
+        width: 112px;
+        height: 67px;
+        top: -3px;
+        left: 50%;
+        margin-left: -56px;
+        margin-right: 0;
+    }
 }
 
 /*
@@ -29,26 +57,58 @@
     .rem(12);
     line-height: 1;
     white-space: nowrap;
+
+    @media (@bp-nav-full) {
+        .rem(18);
+        padding-top: 12px;
+    }
 }
 #wdn_site_title {
-    float: left;
-    width: ~'-webkit-calc(90% - 55px)';
-    width: ~'calc(90% - 55px)';
-    text-overflow: ellipsis;
-    overflow: hidden;
     color: @base-text;
     text-shadow: 0 1px 0 #fff;
     letter-spacing: -1px;
     .rem(24);
     line-height: 1.2;
-    white-space: nowrap;
 
     a {
         color: @base-text;
         text-decoration: none;
     }
 
-    span {
-        .text-hidden();
+    @media (@bp-nav-hidden) {
+        float: left;
+        width: ~'-webkit-calc(90% - 55px)';
+        width: ~'calc(90% - 55px)';
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        span span {
+            .text-hidden();
+        }
+    }
+
+    @media (@bp-nav-full) {
+        display: block;
+        width: 100%;
+        float: none;
+        padding-top: 67px;
+        .rem(30);
+
+        span {
+            position: relative;
+
+            span {
+                display: block;
+                text-indent: 0;
+                .rem(10);
+                text-transform: uppercase;
+                letter-spacing: 0;
+                position: absolute;
+                top: -7px;
+                right: 0;
+                text-align: right;
+            }
+        }
     }
 }

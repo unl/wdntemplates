@@ -15,6 +15,10 @@ html {
     }
 }
 
+body {
+    background-image: url(../images/bg.jpg);
+}
+
 q {
     quotes: '“' '”' '‘' '’';
     font-style: italic;
@@ -30,4 +34,34 @@ q {
 
 .hidden {
     display: none;
+}
+
+.wdn-band {
+    max-width: 100% !important; //important is required to overpower the wildcard selector above
+
+    .wdn-inner-wrapper {
+        .clear-fix();
+    }
+
+    .wdn-stretch { // Use this class for presentational elements that stretch the full-width of the band
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media (@bp3) {
+    #maincontent {
+
+        > * {
+            max-width: 960px;
+        }
+    }
+
+    .wdn-band {
+
+        .wdn-inner-wrapper {
+            width: 960px;
+            margin: 0 auto;
+        }
+    }
 }

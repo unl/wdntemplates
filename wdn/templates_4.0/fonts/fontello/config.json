@@ -4,15 +4,9 @@
   "css_use_suffix": false,
   "glyphs": [
     {
-      "uid": "513ac180ff85bd275f2b736720cbbf5e",
-      "css": "home",
-      "code": 8962,
-      "src": "entypo"
-    },
-    {
       "uid": "37f6cfbb4062ed0d01b351ec35c334ff",
       "css": "right-open-mini",
-      "code": 9658,
+      "code": 61640,
       "src": "entypo"
     },
     {
@@ -32,6 +26,24 @@
       "css": "wrench",
       "code": 128295,
       "src": "fontawesome"
+    },
+    {
+      "uid": "w3nzesrlbezu6f30q7ytyq919p6gdlb6",
+      "css": "home",
+      "code": 128296,
+      "src": "typicons"
+    },
+    {
+      "uid": "ccf7ed45e7f05a89376f38abaa9d7d13",
+      "css": "twitter-circled",
+      "code": 61527,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "96aafeab29734d1510805687f7695f8f",
+      "css": "facebook-circled",
+      "code": 61521,
+      "src": "mfglabs"
     }
   ]
 }
