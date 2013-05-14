@@ -159,7 +159,7 @@ $scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('', ''),
                         </div>
                     </div>
                 </div>
-            <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
+            <?php include dirname(__DIR__) . '/../wdn/templates_4.0/includes/noscript.html'; ?>
             <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
