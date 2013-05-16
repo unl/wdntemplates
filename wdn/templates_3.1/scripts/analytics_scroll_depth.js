@@ -1,6 +1,12 @@
 WDN.analytics_scroll_depth = function() {
     var cache, startTime, isMobile = WDN.getCurrentWidthScript() == '320';
 
+    var scrollTimeout = null;
+    function scrollEventDelay() {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(WDN.analytics_scroll_depth.calculateDepth, 100);
+    };
+
     return {
         
         initialize : function() {
@@ -16,9 +22,9 @@ WDN.analytics_scroll_depth = function() {
             
             // bind the scroll event
             if(window.addEventListener) {
-                window.addEventListener('scroll', WDN.analytics_scroll_depth.calculateDepth, false);
+                window.addEventListener('scroll', scrollEventDelay, false);
             } else if (window.attachEvent) { // Don't forget to support IE8
-                window.attachEvent('onscroll', WDN.analytics_scroll_depth.calculateDepth);
+                window.attachEvent('onscroll', scrollEventDelay);
             }
             
             // For IE8 support of ECMA5 script
@@ -69,9 +75,9 @@ WDN.analytics_scroll_depth = function() {
             // If we're done tracking then remove the event
             if (cache.length >= 4) {
                 if (window.removeEventListener) {
-                    window.removeEventListener('scroll', WDN.analytics_scroll_depth.calculateDepth, false);
+                    window.removeEventListener('scroll', scrollEventDelay, false);
                 } else if (window.detachEvent) { // Since we're supporting IE8
-                    window.detachEvent('onscroll', WDN.analytics_scroll_depth.calculateDepth);
+                    window.detachEvent('onscroll', scrollEventDelay);
                 }
                 return;
             }
