@@ -9,6 +9,7 @@
 #wdn_menu_toggle {
     display: none;
 }
+
 .nav-bar() {
     background-color: @brand;
     .background-image(~"linear-gradient(bottom, rgba(0,0,0,.15) 0%, rgba(255,255,255,0) 20%)");
@@ -21,6 +22,12 @@
     // Styles specifc to only the mobile view
     @media (@bp-nav-hidden) {
         .nav-bar();
+    }
+
+    @media (@bp-nav-full) {
+        .wdn-icon-menu {
+            display: none;
+        }
     }
 }
 
@@ -51,16 +58,17 @@
         }
 
         &:after {
-            background: url(../images/menu_shadow.png) no-repeat 0 0;
+            background: url(../images/menu_shadow.png) no-repeat 5px 0;
             display: block;
             height: 19px;
             width: 40px;
             text-indent: 99em;
             content: '';
             position: absolute;
-            top: 100%;
+            top: 110%;
             left: 0;
             z-index: 1;
+            speak: none;
         }
     }
 }
@@ -250,6 +258,10 @@
     // Styles specific to the full view
     @media (@bp-nav-hidden) {
         padding: 5px;
+
+        .wdn-icon-menu {
+            display: none;
+        }
     }
 
     // Styles specific to the full view
@@ -257,7 +269,7 @@
         .nav-bar();
         position: absolute;
         z-index: 1;
-        padding-left: 40px;
+        padding-right: 40px;
         width: 100%;
 
         > ul {
@@ -309,6 +321,15 @@
             }
         }
 
+        .wdn-icon-menu {
+            float: none;
+            position: absolute;
+
+            &:before {
+                margin: 10px 0 0 5px;
+            }
+        }
+
         &.nav-scrolling {
             position: fixed;
             top: 0;
@@ -316,7 +337,7 @@
     }
 
     @media (@bp-nav-max) {
-        padding-left: 0;
+        padding-right: 0;
 
         > ul {
             width: 60rem;
