@@ -76,7 +76,7 @@
             </div>
         </div>
         <!-- Navigation Trigger -->
-        <div class="wdn_menu_trigger wdn-content-slide">
+        <div class="wdn-menu-trigger wdn-content-slide">
             <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
         </div>
         <!-- End navigation trigger -->
