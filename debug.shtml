@@ -76,7 +76,7 @@
             </div>
         </div>
         <!-- Navigation Trigger -->
-        <div class="wdn_menu_trigger wdn-content-slide">
+        <div class="wdn-menu-trigger wdn-content-slide">
             <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
         </div>
         <!-- End navigation trigger -->
@@ -147,41 +147,16 @@
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
         </div>
-        <div class="wdn-band wdn-content-slide" id="wdn_optional_footer">
-            <div class="wdn-inner-wrapper">
-            </div>
-        </div>
-        <footer id="footer" role="contentinfo" class="wdn-content-slide wdn-band">
-            <div id="footer_floater">
-                <div id="wdn_footer_flag">
-                    <ul id="wdn_social">
-                        <li>
-                            <a href="https://www.facebook.com/UNLincoln" class="wdn-icon-facebook-circled">Facebook</a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/UNLincoln" class="wdn-icon-twitter-circled">Twitter</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="wdn-inner-wrapper">
-                <div class="footer_col" id="wdn_footer_contact">
-                    <!--#include virtual="sharedcode/footerContactInfo.html" -->
-                </div>
-                <div class="footer_col" id="wdn_footer_related">
-                    <!--#include virtual="sharedcode/relatedLinks.html" -->
-                </div>
-            </div>
-            <div id="wdn_copyright">
-                <div class="wdn-inner-wrapper">
-                    <!-- InstanceBeginEditable name="footercontent" -->
-                    <!--#include virtual="sharedcode/footer.html" -->
-                    <!-- InstanceEndEditable -->
-                    <!--#include virtual="/wdn/templates_4.0/includes/wdn.html" -->
-                    <!--#include virtual="/wdn/templates_4.0/includes/logos.html" -->
-                </div>
-            </div>
-        </footer>
+        <!--#include virtual="/wdn/templates_4.0/includes/footer/top.html" -->
+        <!--#include virtual="sharedcode/footerContactInfo.html" -->
+        <!--#include virtual="/wdn/templates_4.0/includes/footer/middle.html" -->
+        <!--#include virtual="sharedcode/relatedLinks.html" -->
+        <!--#include virtual="/wdn/templates_4.0/includes/footer/bottom_top.html" -->
+        <!-- InstanceBeginEditable name="footercontent" -->
+            <!--#include virtual="sharedcode/footer.html" -->
+        <!-- InstanceEndEditable -->
+        <!--#include virtual="/wdn/templates_4.0/includes/footer/bottom.shtml" -->
+
     </div>
     <script>
         var navPin = (function() {
