@@ -39,7 +39,7 @@
         <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide" />
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
             <div class="wdn-inner-wrapper">
-                <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
+                <!--#include virtual="/wdn/templates_4.0/includes/logo.html" -->
                 <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
                 <div id="wdn_site_title">
                     <span>
