@@ -174,10 +174,12 @@
             </div>
             <div id="wdn_copyright">
                 <div class="wdn-inner-wrapper">
-                    <!-- InstanceBeginEditable name="footercontent" -->
-                    <!--#include virtual="sharedcode/footer.html" -->
-                    <!-- InstanceEndEditable -->
-                    <!--#include virtual="/wdn/templates_4.0/includes/wdn.html" -->
+                    <div class="wdn-footer-text">
+                        <!-- InstanceBeginEditable name="footercontent" -->
+                        <!--#include virtual="sharedcode/footer.html" -->
+                        <!-- InstanceEndEditable -->
+                        <!--#include virtual="/wdn/templates_4.0/includes/wdn.html" -->
+                    </div>
                     <!--#include virtual="/wdn/templates_4.0/includes/logos.html" -->
                 </div>
             </div>
