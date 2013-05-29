@@ -65,10 +65,11 @@
             text-indent: 99em;
             content: '';
             position: absolute;
-            top: 110%;
+            top: 25px;
             left: 0;
             z-index: 1;
             speak: none;
+            .transition(all 0.2s linear);
         }
     }
 }
@@ -209,10 +210,6 @@
 
         @media (@bp-nav-hidden) {
             border-bottom: 1px solid fadeout(#fff, 90%);
-        }
-
-        &:hover {
-            background-color: rgba(255, 255, 255, 0.1);
         }
     }
 
