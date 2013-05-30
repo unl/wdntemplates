@@ -33,7 +33,7 @@
         }
 
     @media (@bp-nav-hidden) {
-        
+        float: left;
     }
 
     @media (@bp-nav-full) {
@@ -65,8 +65,20 @@
     }
 }
 
-@media (@bp-nav-full) {
-    #wdn_social {
+#wdn_logo_link { // Make the acnchor tag clickable
+    width: 45px;
+    height: 43px;
+
+    @media (@bp-nav-full) {
+        width: 122px;
+        height: 70px;
+    }
+}
+
+#wdn_social {
+    display: none;
+
+    @media (@bp-nav-full) {
         margin: 0;
         list-style: none;
         padding: 0;
