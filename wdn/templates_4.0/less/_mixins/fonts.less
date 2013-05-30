@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300);
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300); // Need to move outside of the css and into HTML to allow simultaneous network requests
 
 .base-font() {
     font-family: Georgia, Helvetica, Arial;
@@ -26,60 +26,9 @@
     font-weight: 400;
 }
 
-@base-font-size: 14px;
-
 .text-hidden() {
     text-indent: -9999em;
     line-height: 0;
     float: left;
     clip: rect(0,0,0,0);
 }
-
-.brand-font {
-    .brand-font();
-}
-
-/* 
-*
-* Icon Font - see /wdn/templates_4.0/fonts/fontello/readme.md
-*
-*/
-
-@font-face {
-    font-family: 'fontello';
-    src: url('../fonts/fontello/fontello.eot?99411882');
-    src: url('../fonts/fontello/fontello.eot?99411882#iefix') format('embedded-opentype'),
-       url('../fonts/fontello/fontello.woff?99411882') format('woff'),
-       url('../fonts/fontello/fontello.ttf?99411882') format('truetype'),
-       url('../fonts/fontello/fontello.svg?99411882#fontello') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-[class^="wdn-icon-"]:before, [class*=" wdn-icon-"]:before {
-    font-family: "fontello";
-    font-style: normal;
-    font-weight: normal;
-    speak: none;
-
-    display: inline-block;
-    text-decoration: inherit;
-    width: 1em;
-    margin-right: .2em;
-    text-align: center;
-    /* opacity: .8; */
-
-    /* For safety - reset parent styles, that can break glyph codes*/
-    font-variant: normal;
-    text-transform: none;
-
-    /* Uncomment for 3D effect */
-    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-}
-.wdn-icon-home:before { content: '🔨'; } /* '\1f528' */
-.wdn-icon-right-open-mini:before { content: '\f0c8'; } /* '' */
-.wdn-icon-facebook-circled:before { content: '\f051'; } /* '' */
-.wdn-icon-twitter-circled:before { content: '\f057'; } /* '' */
-.wdn-icon-menu:before { content: '\f0c9'; } /* '' */
-.wdn-icon-search:before { content: '🔍'; } /* '\1f50d' */
-.wdn-icon-wrench:before { content: '🔧'; } /* '\1f527' */
