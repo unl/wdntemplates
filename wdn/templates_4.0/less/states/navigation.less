@@ -73,4 +73,21 @@
             }
         }
     }
+
+    .selected a {
+        position: relative;
+
+        &:before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 12px solid #5f5f4e;
+            position: absolute;
+            left: ~"calc(50% - 12px)";
+            left: ~"-webkit-calc(50% - 12px)";
+            bottom: -8px;
+        }
+    }
 }
