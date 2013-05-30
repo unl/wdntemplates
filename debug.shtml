@@ -32,9 +32,7 @@
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
 <body class="fixed debug" data-version="4.0">
-    <nav class="skipnav" role="navigation">
-        <a class="wdn-text-hidden" href="#maincontent">Skip Navigation</a>
-    </nav>
+    <!--#include virtual="/wdn/templates_4.0/includes/skipnav.html" -->
     <div id="wdn_wrapper">
         <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide" />
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
@@ -93,6 +91,7 @@
             <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
+                <!--
                 <div class="wdn-band" style="line-height: 0;">
                     <img src="sandbox/arch.jpg" alt="" class="wdn-stretch" />
                 </div>
@@ -143,6 +142,7 @@
                         </div>
                     </div>
                 </div>
+                -->
                 <!-- InstanceEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
