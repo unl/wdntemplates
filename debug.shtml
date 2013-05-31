@@ -91,7 +91,6 @@
             <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                <!--
                 <div class="wdn-band" style="line-height: 0;">
                     <img src="sandbox/arch.jpg" alt="" class="wdn-stretch" />
                 </div>
@@ -142,7 +141,6 @@
                         </div>
                     </div>
                 </div>
-                -->
                 <!-- InstanceEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
@@ -154,7 +152,6 @@
         <footer id="footer" role="contentinfo" class="wdn-content-slide wdn-band">
             <div id="footer_floater">
                 <div id="wdn_footer_flag">
-                    
                 </div>
             </div>
             <div class="wdn-inner-wrapper">
