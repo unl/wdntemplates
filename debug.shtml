@@ -150,7 +150,7 @@
             </div>
         </div>
         <footer id="footer" role="contentinfo" class="wdn-content-slide wdn-band">
-            <!--#include virtual="sharedcode/footer_floater.html" -->
+            <!--#include virtual="/wdn/templates_4.0/includes/footer_floater.html" -->
             <div class="wdn-inner-wrapper">
                 <div class="footer_col" id="wdn_footer_contact">
                     <!--#include virtual="sharedcode/footerContactInfo.html" -->
