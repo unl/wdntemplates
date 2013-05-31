@@ -1,0 +1,1 @@
+Font icons used in are from [Fontello](http://fontello.com/). To add more more icons to the font, use the `config.json` as a starter.

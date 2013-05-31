@@ -1,0 +1,29 @@
+@twitter-brand: #28aae1;
+
+.twitter-band {
+    background-color: lighten(@twitter-brand, 40%);
+    border-width: 2px 0 2px 0;
+    border-color: lighten(@twitter-brand, 30%);
+    border-style: solid;
+    color: darken(@twitter-brand, 20%);
+    .sans-serif-font();
+
+    .wdn-icon {
+        font-family: 'fontello';
+        .rem(65);
+        font-style: normal;
+        font-weight: normal;
+        color: @twitter-brand;
+        line-height: 1;
+    }
+
+    .tweet {
+        display: inline;
+    }
+
+    .author {
+        display: block;
+        color: @twitter-brand;
+        text-decoration: none;
+    }
+}

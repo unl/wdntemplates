@@ -1,0 +1,105 @@
+#wdn_search {
+    position: absolute;
+    right: 5px;
+    top: 8px;
+
+    fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+
+    label {
+        text-indent: -999em;
+        position: absolute;
+        color: fadeout(#d1ceb3, 35%);
+        .rem(12);
+        left: 5px;
+        top: 6px;
+        text-align: left;
+
+        @media (@bp-nav-full) {
+            top: 4px;
+        }
+
+        &:before {
+            text-indent: 999em;
+        }
+    }
+
+    input[type="submit"] {
+        display: none;
+    }
+}
+
+#q {
+    border-radius: 3px;
+    border: 2px solid #d1ceb3;
+    padding: 5px 5px 5px 22px;
+    .rem(12);
+    color: darken(#d1ceb3, 25%);
+    .transition(width 0.3s ease);
+    width: 50px;
+    .box-sizing(border-box);
+    .sans-serif-font();
+
+    &::-webkit-input-placeholder {
+       opacity: 0;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+       opacity: 0;
+    }
+
+    &::-moz-placeholder {  /* Firefox 19+ */
+       opacity: 0; 
+    }
+
+    &:-ms-input-placeholder {  
+       opacity: 0; 
+    }
+
+    &:focus {
+        width: 200px;
+        border-color: darken(#d1ceb3, 15%);
+        .box-shadow(1px 1px 3px #d1ceb3);
+        outline: none;
+    }
+
+    @media (@bp-nav-full) {
+        width: 215px;
+
+        &::-webkit-input-placeholder {
+           opacity: 0.8;
+           color: darken(#d1ceb3, 25%);
+           font-size: 10px;
+           padding-top: 2px;
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+           opacity: 0.8;
+           color: darken(#d1ceb3, 25%);
+           font-size: 10px;
+           padding-top: 2px;
+        }
+
+        &::-moz-placeholder {  /* Firefox 19+ */
+           opacity: 0.8; 
+           color: darken(#d1ceb3, 25%);
+           font-size: 10px;
+           padding-top: 2px;
+        }
+
+        &:-ms-input-placeholder {  
+           opacity: 0.8; 
+           color: darken(#d1ceb3, 25%);
+           font-size: 10px;
+           padding-top: 2px;
+        }
+
+        &:focus {
+            width: 250px;
+        }
+    }
+}

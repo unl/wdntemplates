@@ -1,0 +1,24 @@
+<!-- Load our base CSS file -->
+    <link rel="stylesheet" type="text/css" media="all" href="/wdn/templates_3.1/css/compressed/base.css">
+<!-- Then load the various media queries (use 'only' to force non CSS3 compliant browser to ignore) -->
+<!-- Since this file is media query imports, IE 7 & 8 will not parse it -->
+<!--[if gt IE 8]><!-->
+    <link rel="stylesheet" type="text/css" media="all and (min-width: 320px)" href="/wdn/templates_3.1/css/variations/media_queries.css">
+<!--<![endif]-->
+    
+<!-- Load the template JS file -->
+    <script type="text/javascript" src="/wdn/templates_3.1/scripts/compressed/all.js?dep=$DEP_VERSION$" id="wdn_dependents"></script>
+
+<!-- For old IE, bring in all the styles w/o media queries -->
+<!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" media="all" href="/wdn/templates_3.1/css/compressed/combined_widths.css" />
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- For all IE versions, bring in the tweaks -->
+<!--[if IE]>
+    <link rel="stylesheet" type="text/css" media="all" href="/wdn/templates_3.1/css/variations/ie.css" />
+<![endif]-->
+
+<!-- Load the print styles -->
+    <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.1/css/variations/print.css" />

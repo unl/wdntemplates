@@ -5,6 +5,7 @@
 .settings
 .project
 .buildpath
-/wdn/templates_3.0*
+/wdn/templates_3.*
 
 sharedcode/affiliate/less/buros.less
+/UNL_WDNTemplates.sublime-*
