@@ -65,11 +65,11 @@
             </nav>
             <div id="wdn_navigation_wrapper">
                 <nav id="navigation" role="navigation" class="wdn-band">
-                        <h3 class="wdn_list_descriptor wdn-text-hidden">Navigation</h3>
-                        <!-- InstanceBeginEditable name="navlinks" -->
-                        <!--#include virtual="sharedcode/navigation.html" -->
-                        <!-- InstanceEndEditable -->
-                        <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
+                    <h3 class="wdn_list_descriptor wdn-text-hidden">Navigation</h3>
+                    <!-- InstanceBeginEditable name="navlinks" -->
+                    <!--#include virtual="sharedcode/navigation.html" -->
+                    <!-- InstanceEndEditable -->
+                    <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
                 </nav>
             </div>
         </div>
