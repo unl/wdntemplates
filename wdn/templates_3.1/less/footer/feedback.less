@@ -81,7 +81,7 @@
                     background: -webkit-linear-gradient(top, #efece9 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%); // Chrome10+,Safari5.1+
                     background: -o-linear-gradient(top, #efece9 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%); // Opera11.10+
                     background: -ms-linear-gradient(top, #efece9 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%); // IE10+
-                    background: linear-gradient(top, #efece9 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%); // W3C
+                    background: linear-gradient(to bottom, #efece9 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%); // W3C
                     border: 1px solid #ccc;
                     border-bottom: 1px solid #bbb;
                     .border-radius(3px);
@@ -101,7 +101,7 @@
                         background: -webkit-linear-gradient(top, #e5e2df 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%); /* Chrome10+,Safari5.1+ */
                         background: -o-linear-gradient(top, #e5e2df 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%); /* Opera11.10+ */
                         background: -ms-linear-gradient(top, #e5e2df 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%); /* IE10+ */
-                        background: linear-gradient(top, #e5e2df 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%); /* W3C */
+                        background: linear-gradient(to bottom, #e5e2df 0%,#f2f1ed 50%,#e7e4e3 51%,#e4e0dd 100%); /* W3C */
                         border: 1px solid #bbb;
                         border-bottom: 1px solid #999;
                         cursor: pointer;
@@ -160,6 +160,7 @@
                 &:before {
                     content: '★';
                     margin-right:1.1em;
+                    speak: none;
                 }
                 &:hover, &:hover ~ label {
                     color: gold;

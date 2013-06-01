@@ -42,7 +42,7 @@
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
 <body class="fixed debug" data-version="3.1">
-    <nav class="skipnav">
+    <nav class="skipnav" role="navigation">
         <a class="skipnav" href="#maincontent">Skip Navigation</a>
     </nav>
     <div id="wdn_wrapper">
@@ -53,7 +53,7 @@
             <!--#include virtual="/wdn/templates_3.1/includes/idm.html" -->
             <!--#include virtual="/wdn/templates_3.1/includes/wdnTools.html" -->
         </header>
-        <div id="wdn_navigation_bar">
+        <div id="wdn_navigation_bar" role="navigation">
             <nav id="breadcrumbs">
                 <!-- WDN: see glossary item 'breadcrumbs' -->
                 <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
@@ -69,31 +69,100 @@
                 <nav id="navigation" role="navigation">
                     <h3 class="wdn_list_descriptor hidden">Navigation</h3>
                     <!-- InstanceBeginEditable name="navlinks" -->
-                    <!--#include virtual="sharedcode/navigation.html" -->
+                    <ul>
+            <li><a title="Freshmen Student" href="/freshmen-student.aspx" style="padding-top: 14.5833px; padding-bottom: 14.5833px;">Freshmen Student</a>
+                <ul style="height: 243px;">
+                    <li><a title="Freshmen Student - Reservation" href="/freshmen-student/reservation.aspx">Reservation</a></li>
+                    <li><a title="Freshmen Student - Freshmen Orientation Overview" href="/freshmen-student/freshmen-orientation-overview.aspx">Freshmen Orientation Overview</a></li>
+                    <li><a title="Freshmen Student - Freshmen Spring Orientation Schedule" href="/freshmen-student/freshmen-spring-orientation-schedule.aspx">Freshmen Spring Orientation Schedule</a></li>
+                    <li><a title="Freshmen Student - Freshmen Summer Orientation Schedule" href="/freshmen-student/freshmen-summer-orientation-schedule.aspx">Freshmen Summer Orientation Schedule</a></li>
+                    <li><a title="Freshmen Student - Freshmen Parent Information" href="/freshmen-student/freshmen-parents-information.aspx">Freshmen Parent Information</a></li>
+                    <li><a title="Freshmen Student - Parent Spring Orientation Schedule" href="/freshmen-student/parent-spring-orientation-schedule.aspx">Parent Spring Orientation Schedule</a></li>
+                    <li><a title="Freshmen Student - Parent Summer Orientation Schedule" href="/freshmen-student/parent-summer-orientation-schedule.aspx">Parent Summer Orientation Schedule</a></li>
+                </ul>
+            </li>
+            <li><a title="Transfer Student" href="/transfer.aspx" style="padding-top: 14.5833px; padding-bottom: 14.5833px;">Transfer Student</a>
+                <ul style="height: 243px;">
+                    <li><a title="Transfer Student - Reservation" href="/transfer/reservation.aspx">Reservation</a></li>
+                    <li><a title="Transfer Student - Transfer Orientation Overview" href="/transfer/transfer-orientation-overview.aspx">Transfer Orientation Overview</a></li>
+                    <li><a title="Transfer Student - Advising Inventory" href="/transfer/advising-inventory.aspx">Advising Inventory</a></li>
+                    <li><a title="Transfer Student - Transfer Fall Orientation Schedule" href="/transfer/transfer-fall-orientation-schedule.aspx">Transfer Fall Orientation Schedule</a></li>
+                    <li><a title="Transfer Student - Transfer Spring Orientation Schedule" href="/transfer/transfer-spring-orientation-schedule.aspx">Transfer Spring Orientation Schedule</a></li>
+                    <li><a title="Transfer Student - Transfer Summer Orientation Schedule" href="/transfer/transfer-summer-orientation-schedule.aspx">Transfer Summer Orientation Schedule</a></li>
+                    <li><a title="Transfer Student - Transfer Parent/Guest Information" href="/transfer/transfer-parent-guest-information.aspx">Transfer Parent/Guest Information</a></li>
+                    <li><a title="Transfer Student - Transfer Parent/Guest Summer Orientation Schedule" href="/transfer/transfer-parents-guest-summer-orientation-schedule.aspx">Transfer Parent/Guest Summer Orientation Schedule</a></li>
+                </ul>
+            </li>
+            <li><a title="International Undergraduate Students" href="/international-undergraduate-students.aspx">International Undergraduate Students</a>
+                <ul style="height: 243px;">
+                    <li><a title="International Undergraduate Students - Reservation" href="/international-undergraduate-students/reservation.aspx">Reservation</a></li>
+                    <li><a title="International Undergraduate Students - NSE International Student Welcome Week" href="/international-undergraduate-students/nse-international-student-welcome-week.aspx">NSE International Student Welcome Week</a></li>
+                    <li><a title="International Undergraduate Students - Pre-Arrival Information" href="/international-undergraduate-students/prearrival-information.aspx">Pre-Arrival Information</a></li>
+                    <li><a title="International Undergraduate Students - Arrival Form" href="/international-undergraduate-students/arrival-form.aspx">Arrival Form</a></li>
+                    <li><a title="International Undergraduate Students - International Orientation" href="/international-undergraduate-students/international-orientation.aspx">International Orientation</a></li>
+                </ul>
+            </li>
+            <li><a title="Placement Exams" href="/nse-placement-exams.aspx" style="padding-top: 14.5833px; padding-bottom: 14.5833px;">Placement Exams</a>
+                <ul style="height: 243px;">
+                    <li><a title="Placement Exams - Math Placement Exam" href="/nse-placement-exams/math-placement-exam.aspx">Math Placement Exam</a></li>
+                    <li><a title="Placement Exams - Modern Language Exam" href="/nse-placement-exams/modern-language-exam.aspx">Modern Language Exam</a></li>
+                    <li><a title="Placement Exams - Computer Science Exam" href="/nse-placement-exams/computer-science-exam.aspx">Computer Science Exam</a></li>
+                </ul>
+            </li>
+            <li><a title="Programs" href="/programs.aspx" style="padding-top: 14.5833px; padding-bottom: 14.5833px;">Programs</a>
+                <ul style="height: 243px;">
+                    <li><a title="Programs - Power Up Weekend" href="/programs/summer-camp.aspx">Power Up Weekend</a></li>
+                    <li><a title="Programs - Big Red Welcome" href="/programs/big-red-welcome.aspx">Big Red Welcome</a></li>
+                    <li><a title="Programs - Mid Semester Check" href="/programs/mid-semester-check.aspx">Mid Semester Check</a></li>
+                    <li><a title="Programs - International Student Programs" href="/programs/international-student-programs.aspx">International Student Programs</a></li>
+                    <li><a title="Programs - Take A Parent To Lunch" href="/programs/take-a-parent-to-lunch.aspx">Take A Parent To Lunch</a></li>
+                    <li><a title="Programs - Winter Welcome" href="/programs/winter-welcome.aspx">Winter Welcome</a></li>
+                    <li><a title="Programs - Non Traditional Student" href="/programs/non-traditional-student.aspx">Non Traditional Student</a></li>
+                    <li><a title="Programs - Student Veteran and Military Service Members" href="/programs/student-veteran-military-service-members.aspx">Student Veteran and Military Service Members</a></li>
+                    <li><a title="Programs - Summer Session Registration Information" href="/programs/summer-session-registration-information.aspx">Summer Session Registration Information</a></li>
+                </ul>
+            </li>
+            <li><a title="Staff" href="/staff.aspx" style="padding-top: 14.5833px; padding-bottom: 14.5833px;">Staff</a>
+                <ul style="height: 243px;">
+                    <li><a title="Staff - NSE Staff" href="/staff/nse-staff.aspx">NSE Staff</a></li>
+                    <li><a title="Staff - 2012-2013 Orientation Leaders" href="/staff/2012-2013-orientation-leaders.aspx">2012-2013 Orientation Leaders</a></li>
+                    <li><a title="Staff - Orientation Leaders Application" href="/staff/orientation-leaders-application.aspx">Orientation Leaders Application</a></li>
+                    <li><a title="Staff - Orientation Leader Criteria" href="/staff/orientation-leader-criteria.aspx">Orientation Leader Criteria</a></li>
+                    <li><a title="Staff - 2011-2012 Orientation Leaders" href="/staff/2011-2012-orientation-leaders.aspx">2011-2012 Orientation Leaders</a></li>
+                    <li><a title="Staff - 2010-2011 Orientation Leaders" href="/staff/2010-2011-orientation-leaders.aspx">2010-2011 Orientation Leaders</a></li>
+                    <li><a title="Staff - 2009-2010 Orientation Leaders" href="/staff/2009-2010-orientation-leaders.aspx">2009-2010 Orientation Leaders</a></li>
+                </ul>
+            </li>
+        </ul>
                     <!-- InstanceEndEditable -->
                 </nav>
             </div>
         </div>
-        <div id="wdn_content_wrapper">
+        <div id="wdn_content_wrapper" role="main">
             <div id="pagetitle">
                 <!-- InstanceBeginEditable name="pagetitle" -->
                 <h1>Debugging Out!</h1>
                 <!-- InstanceEndEditable -->
             </div>
-            <div id="maincontent" role="main">
+            <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                  <h2 class="sec_header">Image manipulation test</h2>
-                  <p>In mobile-first, we're going to use a small image and then swap out as we get larger. For this to work, we'll need the let the browser know which images to attempt.</p>
-                  <p>The original image is the smallest file, test_320.jpg. Upon page load, a new file attempts to load based on the current media query break point. If a file is not found, the image is unchanged. This happens again for each resize.</p>
-                  <img src="images/test_320.jpg" alt="this is a test image" class="wdn_image_swap" />
+                  <h2 class="sec_header">GA Tracking Test</h2>
+                  <a href="myfile.pdf">A PDF file</a>
+                  <br />
+                  <a href="http://www.google.com/" onclick="return false;">Another site</a>
+                  <br />
+                  <a href="mailto:bob@aol.com">An email link</a>
+                  <div style="height:3000px">
+                  I'm a big div, now.
+                  </div>
                   <!-- InstanceEndEditable -->
                 <div class="clear"></div>
                 <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
         </div>
-        <footer id="footer">
+        <footer id="footer" role="contentinfo">
             <div id="footer_floater"></div>
             <div class="footer_col" id="wdn_footer_feedback">
                 <!--#include virtual="/wdn/templates_3.1/includes/feedback.html" -->

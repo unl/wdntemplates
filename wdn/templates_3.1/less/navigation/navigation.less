@@ -15,7 +15,8 @@
 #wdn_navigation_wrapper {
     background: #fff;
 	margin-top:-2px;
-	position:relative;	
+	position:relative;
+    -webkit-font-smoothing: antialiased;
 }
 #navigation {
     .linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);
@@ -30,18 +31,22 @@
     padding:8px 0 0 0;
     cursor:pointer;
     &:before {
-        content: 'Navigation \002B';
+        content: '\2261';
         text-align:right;
         border:1px solid #8c0100;
-        padding:3px;
+        padding:0px 8px 1px 9px;
+        font-size: 1.3em;
         color:#fff;
         .border-radius(5px);
         margin-right:5px;
         .linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);
         .box-shadow(inset, 1px, 1px, 2px, 0px, #df7a7a);
+        speak: none;
     }
     &.primary:before, &.secondary:before {
         content: 'Back';
+        font-size: 1em;
+        padding: 3px 5px;
     }
     &.disabled {
         cursor: default;
@@ -141,6 +146,10 @@
         }
     }
 }
+    
+.pin_state, .expand_toggle {
+    .text-hidden();
+}
 
 @media (min-width: 320px) {
     
@@ -156,6 +165,12 @@
     #wdn_navigation_bar {
     	float: none;
     	margin-top: 0;
+    	.box-sizing(border-box);
+        width: 100%;
+        clear: both;
+        background: #fff;
+        position: relative;
+        padding: 0 4px;
     }
     
     #wdn_navigation_wrapper {
@@ -230,13 +245,7 @@
         }
     	
     }
-    #wdn_navigation_bar {
-        width: 100%;
-        clear: both;
-        background: #fff;
-        position: relative;
-        padding: 4px;
-    }
+    
     .nav_unpinned {
         #wdn_navigation_bar {
             .box-sizing(border-box);
@@ -246,7 +255,7 @@
             position: absolute;
             z-index: 100;
             width: 100%;
-            padding: 0 4px 0 0;
+            padding: 0 1% 0 0;
         }
         
         #wdn_content_wrapper {
@@ -278,7 +287,6 @@
                 text-align: center;
                 position: relative;
                 border-top: none;
-                font-family: sans-serif;
                 background: transparent;
                 
                 /* Clear the first element of a row of 6 */
@@ -442,27 +450,19 @@
                 }
                 
                 > a {
-                    color: rgb(255, 255, 255); /* Old browsers (must be separate for ie7) */
-                    
-                    &:hover {
-                        color: rgb(255, 255, 255);
-                    }
-                }
-                
-                > a {
                     display: block;
-                    color: rgba(255, 255, 255, 0.99);
+                    color: #fff;
                     text-shadow: 1px 1px 1px #424242;
                     font-weight: 500;
                     font-size: 0.875em;
                     margin: auto 0;
-                    padding: 0.47em 2px;
+                    padding: 0.47em 1px;
                     border-right: 1px solid #870d0c;
                     border-left: 1px solid #c83a3a;
                     .linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);
                     
                     &:hover {
-                        color: rgba(255, 255, 255, 0.99);
+                        color: #fff;
                     }
                 }
                 
@@ -556,7 +556,6 @@
     .nav_pinned, .nav_open, .nav_expanded {
         
         #wdn_navigation_bar {
-            width: auto;
             overflow-y:visible;
             overflow-x:visible;
             height: auto;

@@ -12,8 +12,13 @@ tree.Ruleset.prototype = {
         var ruleset = new(tree.Ruleset)(selectors, this.rules.slice(0), this.strictImports);
         var rules = [];
         
+        ruleset.originalRuleset = this;
         ruleset.root = this.root;
         ruleset.allowImports = this.allowImports;
+
+        if(this.debugInfo) {
+            ruleset.debugInfo = this.debugInfo;
+        }
 
         // push the current ruleset to the frames stack
         env.frames.unshift(ruleset);
@@ -132,6 +137,7 @@ tree.Ruleset.prototype = {
             rulesets = [], // node.Ruleset instances
             paths = [],    // Current selectors
             selector,      // The fully rendered selector
+            debugInfo,     // Line number debugging
             rule;
 
         if (! this.root) {
@@ -170,6 +176,7 @@ tree.Ruleset.prototype = {
             css.push(rules.join(env.compress ? '' : '\n'));
         } else {
             if (rules.length > 0) {
+                debugInfo = tree.debugInfo(env, this);
                 selector = paths.map(function (p) {
                     return p.map(function (s) {
                         return s.toCSS(env);
@@ -184,7 +191,7 @@ tree.Ruleset.prototype = {
                 }
                 rules = _rules;
 
-                css.push(selector,
+                css.push(debugInfo + selector + 
                         (env.compress ? '{' : ' {\n  ') +
                         rules.join(env.compress ? '' : '\n  ') +
                         (env.compress ? '}' : '\n}\n'));
@@ -192,7 +199,7 @@ tree.Ruleset.prototype = {
         }
         css.push(rulesets);
 
-        return css.join('') + (env.compress ? '\n' : '');
+        return css.join('')  + (env.compress ? '\n' : '');
     },
 
     joinSelectors: function (paths, context, selectors) {

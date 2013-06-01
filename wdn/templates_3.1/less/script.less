@@ -8,8 +8,19 @@
 * ---------------------------
 */
 @media (min-width: 768px) {
+    
+    html > body {
+        text-rendering: optimizeLegibility;
+    }
 
 	#wdn_navigation_wrapper {
 		visibility: hidden;
+	}
+	
+	.terminal, .hide-wdn_navigation_wrapper { // We still need to see some parts
+	
+    	#wdn_navigation_wrapper {
+    		visibility: visible;
+    	}
 	}
 }

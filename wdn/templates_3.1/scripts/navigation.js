@@ -58,7 +58,7 @@ WDN.navigation = (function() {
 	            WDN.navigation.linkSiteTitle();
             }
             
-            if (WDN.jQuery('body').hasClass('document') || !WDN.jQuery('#navigation > ul > li').length) {
+            if (WDN.jQuery('body').is('.document, .terminal') || !WDN.jQuery('#navigation > ul > li').length) {
             	// The rest deals with navigation elements not in document
             	return;
             }
@@ -75,7 +75,7 @@ WDN.navigation = (function() {
 
             if (!desktopInitd) {
 	            // add an expand toggler UI element
-	            var $toggler = WDN.jQuery('<div class="expand_toggle"><a href="#" title="Click to expand/collapse navigation" /></div>').prependTo('#wdn_navigation_wrapper');
+	            var $toggler = WDN.jQuery('<div class="expand_toggle"><a href="#" title="Click to expand/collapse navigation">Expand or Collapse Navigation</a></div>').prependTo('#wdn_navigation_wrapper');
 	            $toggler.children('a').click(function(evt) {
 	                if (WDN.navigation.currentState === 0) {
 	                    WDN.navigation.expand();
@@ -93,7 +93,7 @@ WDN.navigation = (function() {
 	            });
 	
 	            // add the pinned state UI element
-	            var $pin = WDN.jQuery('<div class="pin_state"><a href="#" /></div>').appendTo('#wdn_navigation_wrapper');
+	            var $pin = WDN.jQuery('<div class="pin_state"><a href="#" >Pin/Unpin navigation</a></div>').appendTo('#wdn_navigation_wrapper');
 	            $pin.children('a').click(function(evt) {
 	                WDN.navigation.setPreferredState(evt);
 	                return false;
@@ -199,6 +199,10 @@ WDN.navigation = (function() {
                 return;
             }
             
+            // remove excess space text nodes see #371
+            $siteTitle.contents().filter(function() {
+            	return this.nodeType == 3 && /^\s*$/.test(this.nodeValue);
+            }).remove();
             // create the link using whatever the Homepage is set to
             $siteTitle.contents().filter(function() {
             	return this.nodeType == 3;
@@ -577,15 +581,19 @@ WDN.navigation = (function() {
 	            	return true;
 	            }
             }
-
-            var $storedNav = WDN.jQuery(breadcrumb).siblings('div.storednav'),
-	            oldNavCompare = $navList.clone()
-		    		.find('li.empty').remove().end()
-		    		.find('*').removeAttr('style').end()
+            
+            var sanitizeNav = function($list) {
+            	return $list
+	            	.find('li.empty').remove().end()
+		    		.find('*').removeAttr('style class').end()
 		    		.find('a').each(function() {
 		    			WDN.jQuery(this).attr('href', this.href);
 		    		}).end()
 		    		.html();
+            };
+
+            var $storedNav = WDN.jQuery(breadcrumb).siblings('div.storednav'),
+	            oldNavCompare = sanitizeNav($navList.clone());
             
             if ($storedNav.length) {
             	WDN.log("Already got it.");
@@ -598,13 +606,7 @@ WDN.navigation = (function() {
             	}
             	
             	if (isAfterHome) {
-	            	var newNavCompare = $storedChildren.clone()
-	            		.find('li.empty').remove().end()
-			    		.find('*').removeAttr('style').end()
-			    		.find('a').each(function() {
-			    			WDN.jQuery(this).attr('href', this.href);
-			    		}).end()
-			    		.html();
+	            	var newNavCompare = sanitizeNav($storedChildren.clone());
 	            	
 	            	if (oldNavCompare == newNavCompare) {
 	        			WDN.log('Duplicate navigation detected.');

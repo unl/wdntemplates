@@ -32,6 +32,14 @@
         
         figcaption {
             .caption();
+            
+            ~ img, ~ video, ~ audio {
+                margin-top: 5px;
+            }
+        }
+        
+        img ~ figcaption, video ~ figcaption, audio ~ figcaption {
+            margin-top: 5px;
         }
     }
     
