@@ -17,12 +17,6 @@ WDN.analytics_scroll_depth = function() {
             } else if (window.attachEvent) { // Don't forget to support IE8
                 window.attachEvent('onscroll', WDN.analytics_scroll_depth.calculateDepth);
             }
-            
-            window.Object.defineProperty(Element.prototype, 'documentOffsetTop', {
-                get: function () { 
-                    return this.offsetTop + ( this.offsetParent ? this.offsetParent.documentOffsetTop : 0 );
-                }
-            });
 
             // For IE8 support of ECMA5 script
             if(!Array.prototype.indexOf) {
