@@ -1,3 +1,4 @@
+@footer-text-color: #c3c3c3;
 #wdn_optional_footer {
     background-color: fadeout(#cbc8b2, 85%);
 }
@@ -8,13 +9,28 @@
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAN0lEQVQYV2P08fb+v2XrVkYGHAAkD5bEpRAmDjcBXSEyH8UamAS6Bgy3YLOaNJMIuomg74gJJwBEZT/MvrJ6dQAAAABJRU5ErkJggg==);
     background-repeat: repeat;
     border-top: 5px solid #e6e4d0;
-    color: #c3c3c3;
+    color: @footer-text-color;
     .sans-serif-font();
     .rem(12);
 
     a {
         color: #c3c3c3;
         text-decoration: underline;
+    }
+
+    [class^="wdn-icon-"] {
+        position: relative;
+        margin-left: 1.5em;
+        padding-left: 1em;
+
+        &:before {
+            position: absolute;
+            left: -1em;
+            top: -0.25em;
+            font-size: 1.5em;
+            color: fadeout(lighten(@footer-text-color, 35%), 65%);
+            text-shadow: none;
+        }
     }
 
     @media (@bp3) {
