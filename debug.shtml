@@ -182,7 +182,9 @@
     </div>
     <script>
         var navPin = (function() {
-            var header = $('#header'), breadcrumbs = $('#breadcrumbs'), nav = $('#navigation'), hh, bh;
+            var header = $('#header'), breadcrumbs = $('#breadcrumbs'), nav = $('#navigation'), hh, bh, wrapper = $('#wdn_wrapper');
+
+            wrapper.ontouchstart = function () {}
 
             return {
 
