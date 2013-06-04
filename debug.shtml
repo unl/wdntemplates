@@ -151,32 +151,32 @@
                 <!-- InstanceEndEditable -->
             </div>
         </div>
-        <div class="wdn-band" id="wdn_footer_related">
-            <div class="wdn-inner-wrapper">
-                <!-- InstanceBeginEditable name="leftcollinks" -->
-                <!--#include virtual="sharedcode/relatedLinks.html" -->
-                <!-- InstanceEndEditable -->
-            </div>
-        </div>
-        <footer id="footer" role="contentinfo" class="wdn-content-slide wdn-band">
-            <!--#include virtual="/wdn/templates_4.0/includes/footer_floater.html" -->
-            <div class="wdn-inner-wrapper">
-                <div class="footer_col" id="wdn_footer_contact">
-                    <!-- InstanceBeginEditable name="contactinfo" -->
-                    <!--#include virtual="sharedcode/footerContactInfo.html" -->
+        <footer id="footer" role="contentinfo" class="wdn-content-slide">
+            <div class="wdn-band" id="wdn_footer_related">
+                <div class="wdn-inner-wrapper">
+                    <!-- InstanceBeginEditable name="leftcollinks" -->
+                    <!--#include virtual="sharedcode/relatedLinks.html" -->
                     <!-- InstanceEndEditable -->
                 </div>
             </div>
-            <div id="wdn_copyright">
+            <div class="wdn-band">
                 <div class="wdn-inner-wrapper">
-                    <div class="wdn-footer-text">
-                        <!-- InstanceBeginEditable name="footercontent" -->
-                        <!--#include virtual="sharedcode/footer.html" -->
+                    <div class="footer_col" id="wdn_footer_contact">
+                        <!-- InstanceBeginEditable name="contactinfo" -->
+                        <!--#include virtual="sharedcode/footerContactInfo.html" -->
                         <!-- InstanceEndEditable -->
-                        <!--#include virtual="/wdn/templates_4.0/includes/wdn.html" -->
                     </div>
-                    <!--#include virtual="/wdn/templates_4.0/includes/logos.html" -->
+                    <div id="wdn_copyright">
+                        <div class="wdn-footer-text">
+                            <!-- InstanceBeginEditable name="footercontent" -->
+                            <!--#include virtual="sharedcode/footer.html" -->
+                            <!-- InstanceEndEditable -->
+                            <!--#include virtual="/wdn/templates_4.0/includes/wdn.html" -->
+                        </div>
+                        <!--#include virtual="/wdn/templates_4.0/includes/logos.html" -->
+                    </div>
                 </div>
+                <!--#include virtual="/wdn/templates_4.0/includes/footer_floater.html" -->
             </div>
         </footer>
     </div>
