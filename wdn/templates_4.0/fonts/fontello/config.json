@@ -10,6 +10,12 @@
       "src": "entypo"
     },
     {
+      "uid": "767fede84586366cd7d6c835be745454",
+      "css": "mobile",
+      "code": 128241,
+      "src": "entypo"
+    },
+    {
       "uid": "9dd9e835aebe1060ba7190ad2b2ed951",
       "css": "search",
       "code": 128269,
@@ -28,6 +34,12 @@
       "src": "fontawesome"
     },
     {
+      "uid": "937f4db8b6ff3348a1d9fcd5e12fd2fe",
+      "css": "mail",
+      "code": 9993,
+      "src": "iconic"
+    },
+    {
       "uid": "w3nzesrlbezu6f30q7ytyq919p6gdlb6",
       "css": "home",
       "code": 128296,
@@ -44,6 +56,12 @@
       "css": "facebook-circled",
       "code": 61521,
       "src": "mfglabs"
+    },
+    {
+      "uid": "22cfc7af2c4f158b37317c65c92b48c2",
+      "css": "location",
+      "code": 57466,
+      "src": "elusive"
     }
   ]
 }
