@@ -162,9 +162,12 @@
             <div class="wdn-band">
                 <div class="wdn-inner-wrapper">
                     <div class="footer_col" id="wdn_footer_contact">
-                        <!-- InstanceBeginEditable name="contactinfo" -->
-                        <!--#include virtual="sharedcode/footerContactInfo.html" -->
-                        <!-- InstanceEndEditable -->
+                        <h3>Contact Us</h3>
+                        <div class="wdn-contact-wrapper">
+                            <!-- InstanceBeginEditable name="contactinfo" -->
+                            <!--#include virtual="sharedcode/footerContactInfo.html" -->
+                            <!-- InstanceEndEditable -->
+                        </div>
                     </div>
                     <div id="wdn_copyright">
                         <div class="wdn-footer-text">
@@ -173,11 +176,12 @@
                             <!-- InstanceEndEditable -->
                             <!--#include virtual="/wdn/templates_4.0/includes/wdn.html" -->
                         </div>
-                        <!--#include virtual="/wdn/templates_4.0/includes/logos.html" -->
+
+                    <!--#include virtual="/wdn/templates_4.0/includes/logos.html" -->
                     </div>
                 </div>
-                <!--#include virtual="/wdn/templates_4.0/includes/footer_floater.html" -->
             </div>
+            <!--#include virtual="/wdn/templates_4.0/includes/footer_floater.html" -->
         </footer>
     </div>
     <script>
