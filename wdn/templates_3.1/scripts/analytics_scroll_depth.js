@@ -17,16 +17,13 @@ WDN.analytics_scroll_depth = function() {
             // Prime the cache
             cache = [];
             
-            // Send the baseline event
-            WDN.analytics.callTrackEvent('Scroll Depth', 'Baseline', WDN.analytics.thisURL, null, true);
-            
             // bind the scroll event
             if(window.addEventListener) {
                 window.addEventListener('scroll', scrollEventDelay, false);
             } else if (window.attachEvent) { // Don't forget to support IE8
                 window.attachEvent('onscroll', scrollEventDelay);
             }
-            
+
             // For IE8 support of ECMA5 script
             if(!Array.prototype.indexOf) {
                 Array.prototype.indexOf = function(needle) {
@@ -40,22 +37,23 @@ WDN.analytics_scroll_depth = function() {
             }
         },
         
-        calculateMarks : function(docHeight) {
+        calculateMarks : function(elHeight, elOffset) {
             return {
-                '25%' : parseInt(docHeight * 0.25, 10),
-                '50%' : parseInt(docHeight * 0.50, 10),
-                '75%' : parseInt(docHeight * 0.75, 10),
-                // 1px cushion to trigger 100% event in iOS
-                '100%': docHeight - 1
+                '25%' : elOffset + parseInt(elHeight * 0.25, 10),
+                '50%' : elOffset + parseInt(elHeight * 0.50, 10),
+                '75%' : elOffset + parseInt(elHeight * 0.75, 10),
+                '100%': elOffset + elHeight
             };
         },
         
         calculateDepth : function() {
             /*
-            * We calculate document and window height on each scroll event to
-            * account for dynamic DOM changes.
+            * We calculate #maincontent and window height on each scroll event to account for dynamic DOM changes.
             */
-            var docHeight = document.height || document.documentElement.scrollHeight,
+            var maincontent = document.getElementById('maincontent'),
+
+                // Determine the height of #maincontent                
+                elemHeight = maincontent.offsetHeight,
             
                 // Determine the window height. IE8 needs the document.body.clientHeight
                 winHeight = window.innerHeight || document.body.clientHeight, 
@@ -63,15 +61,18 @@ WDN.analytics_scroll_depth = function() {
                 // Determine the current offset. IE8 needs the document.body.scrollTop
                 yOffset = window.pageYOffset || document.body.scrollTop,
                 
+                // Determine how far down the page #maincontent begins
+                elemOffset = maincontent.getBoundingClientRect().top + yOffset,
+                
                 // Determine the distance scrolled
                 scrollDistance = yOffset + winHeight,
                 
                 // Recalculate percentage marks
-                marks = WDN.analytics_scroll_depth.calculateMarks(docHeight),
+                marks = WDN.analytics_scroll_depth.calculateMarks(elemHeight, elemOffset),
                 
                 // Timing
                 timing = +new Date - startTime;
-            
+
             // If we're done tracking then remove the event
             if (cache.length >= 4) {
                 if (window.removeEventListener) {
@@ -91,7 +92,7 @@ WDN.analytics_scroll_depth = function() {
                 
                 // Make sure we haven't tracked this mark and that we've scrolled far enough
                 if (cache.indexOf(key) === -1 && scrollDistance >= marks[key]) {
-                    WDN.analytics.callTrackEvent('Scroll Depth', key, WDN.analytics.thisURL, parseInt(key)/100, true);
+                    WDN.analytics.callTrackEvent('Scroll Depth', key, WDN.analytics.thisURL, parseInt(key), true);
                     _gaq.push(['wdn._trackTiming', 'Scroll Depth', key, timing, WDN.analytics.thisURL, 100]);
                     
                     // track in the mobile tracking account
