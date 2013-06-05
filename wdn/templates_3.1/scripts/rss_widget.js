@@ -1,51 +1,66 @@
 WDN.rss_widget = (function() {
-	
-	return {
-            defaultConfig : {
-		url: 'http://ucommxsrv1.unl.edu/rssfeeds/unlinthenewsrss.xml',
-		pause: 5000,
-		width: 'auto',
-		height: 'auto',
-		limit: 10,
-		num_show: 3
-            },
+    
+    return {
+	defaultConfig : {
+	    url: 'http://ucommxsrv1.unl.edu/rssfeeds/unlinthenewsrss.xml',
+	    elementId : 'wdn_rss_widget',
+	    pause: 5000,
+	    width: 'auto',
+	    height: 'auto',
+	    limit: 10,
+	    num_show: 3
+        },
 
-            userConfig : null,
+        configs : [],
 
-	    initialize : function(usrConfig) {
-		WDN.log('initializing rss_widget');
-		WDN.rss_widget.userConfig = usrConfig;
-		WDN.loadCSS(WDN.getTemplateFilePath('css/content/rsswidget.css'));
-		WDN.loadJQuery(function() {
-		    WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/rsswidget/jquery.zrssfeed.mod.min.js'), WDN.rss_widget.setup);
-		});
-	    },
-	    setup : function() {
-		WDN.log('setting up...');
+	initialize : function(userConfig) {
+	    WDN.log('initializing rss_widget');
+	    if(!userConfig || arguments.length == 0) {
+		WDN.log('rss_widget using default configuration');
+		WDN.rss_widget.configs.push(WDN.rss_widget.defaultConfig);
+	    } else {
+		for(var i=0; i<arguments.length; i++) {
+		    var userConfig = arguments[i];
+		      //allow them to pass a string (url) or an object
+		    if( (typeof userConfig) === 'string' ) {  
+			WDN.log('rss_widget using url = ' + userConfig);
+			var config = {};
+			WDN.jQuery.extend(config, WDN.rss_widget.defaultConfig);
+			config.url = userConfig;
+			WDN.rss_widget.configs.push(config);
+		    } else {
+			WDN.log('rss_widget using (single) custom configuration')
+			var config = {};
+			WDN.jQuery.extend(config, WDN.rss_widget.defaultConfig);
+			WDN.jQuery.extend(config, userConfig);
+			WDN.rss_widget.configs.push(config);
+		    }
+		}
+	    }
+	    WDN.loadCSS(WDN.getTemplateFilePath('css/content/rsswidget.css'));
+	    WDN.loadJQuery(function() {
+		WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/rsswidget/jquery.zrssfeed.mod.min.js'), WDN.rss_widget.setup);
+	    });
+	},
+	setup : function() {
 
-		if(WDN.rss_widget.userConfig == null) {
-                    WDN.log('using defaults for rss_widget...');
-		} else if( (typeof WDN.rss_widget.userConfig) === 'string') {
-                    WDN.log('using url = ' + WDN.rss_widget.userConfig + ' and defaults for rss_widget...');
-                    WDN.rss_widget.defaultConfig.url = WDN.rss_widget.userConfig;
+	    for(var i=0; i<WDN.rss_widget.configs.length; i++) {
+		var config = WDN.rss_widget.configs[i];
+		WDN.log('initializing rss_widget for ' + config.url + ' to element ' + config.elementId);
+		var jqElem = WDN.jQuery('#'+config.elementId);
+		if(!jqElem.length) {
+		    WDN.log('rss_widget unable to setup as element with id ' + config.elementId + ' does not exist');
 		} else {
-                    WDN.log('using provided userConfig settings for rss_widget...');
-                    WDN.jQuery.extend(WDN.rss_widget.defaultConfig, WDN.rss_widget.userConfig);
+		    jqElem.rssfeed(config.url,
+				   { 
+				       titletag: 'div', 
+				       limit: config.limit, 
+				   },
+				   function(e) {
+				       WDN.jQuery(e).find('div.rssBody').vTicker({ showItems: config.num_show, pause: config.pause });
+				   });
 		}
-
-		if(!WDN.jQuery('#wdn_rss_widget').length) {
-                    WDN.log('unable to initialize rss_widget as wdn_rss_widget element does not exist');
-                    return;
-		}
-
-
-		WDN.jQuery('#wdn_rss_widget').rssfeed(WDN.rss_widget.defaultConfig.url,
-						      { titletag: 'div', 
-							limit: WDN.rss_widget.defaultConfig.limit, },
-		     function(e) {
-			 WDN.jQuery(e).find('div.rssBody').vTicker({ showItems: WDN.rss_widget.defaultConfig.num_show,
-								     pause: WDN.rss_widget.defaultConfig.pause });
-		     });
-		}
-	};
+	    }
+	}
+    };
 })();
