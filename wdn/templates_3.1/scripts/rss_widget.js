@@ -3,7 +3,7 @@ WDN.rss_widget = (function() {
     return {
 	defaultConfig : {
 	    url: 'http://ucommxsrv1.unl.edu/rssfeeds/unlinthenewsrss.xml',
-	    elementId : 'wdn-rss-widget',
+	    elementId : 'wdn_rss_widget',
 	    pause: 5000,
 	    width: 'auto',
 	    height: 'auto',
