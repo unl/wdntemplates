@@ -1,7 +1,7 @@
 
 <div class="grid8 first"> 
 <p>You can include an RSS Feed widget anywhere in the main content area of your
-  page by including an empty div element with the id <code>'wdn_rss_widget'</code>
+  page by including an empty div element with the id <code>wdn_rss_widget</code>
   and including the plugin initialization (which will include the "UNL In The News"
   RSS news feed):</p>
 
@@ -9,11 +9,14 @@
 WDN.initializePlugin('rss_widget');
 </code></p>
 
+<p>To get the default stylization of the plugin, you also need to give it the
+  style class <code>wdn-rss-widget</code>.</p>
+
 <script type="text/javascript">
 WDN.initializePlugin('rss_widget');
 </script>
 
-<p>Alternatively, you could load the RSS widget with your own RSS feed by
+<p>Alternatively, you can load the RSS widget with your own RSS feed by
   providing a URL as the second parameter:</p>
 
 <p><code>
@@ -65,13 +68,13 @@ WDN.initializePlugin('rss_widget', [
 
 <p>Note that if you use multiple RSS feed widgets, you should provide distinct 
 <code>elementId</code>s for each one.  Moreover, each div should have the style
-class, <code>wdn_rss_widget</code> added to it to receive the same styling.
+class, <code>wdn-rss-widget</code> added to it to receive the same styling.
 
 <p>You can stylize your rss widget(s) further by adding zenbox style
   classes:</p>
 <p>
 <code>
-&lt;div id="wdn_rss_widget" class="zenbox primary"&gt;&lt;/div&gt;
+&lt;div id="wdn_rss_widget" class="wdn-rss-widget zenbox primary"&gt;&lt;/div&gt;
 </code>
 </p>
 
