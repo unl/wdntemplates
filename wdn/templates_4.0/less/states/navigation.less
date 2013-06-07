@@ -32,8 +32,9 @@
 
         ~ #wdn_navigation_bar {
 
+
             #navigation li ul {
-                height: 100%;
+                height: auto;
             }
 
             .wdn-icon-menu:after {
@@ -42,52 +43,37 @@
             }
         }
     }
-
-    #navigation { // Change states when nav is hovered
-
-        &:hover {
-
-            ul {
-                height: 100%;
+    
+    .js {
+        #wdn_navigation_bar {
+            visibility: hidden;
+        }
+        
+        .nav_ready #wdn_navigation_bar {
+            visibility: visible;
+        }
+        
+        #navigation {
+            position: absolute;
+            
+            &.nav-scrolling {
+                position: fixed;
+                top: 0;
             }
-
-            li {
-
-                a {
-                    @media (@bp-nav-full) {
-                        .background-image(~"linear-gradient(bottom, rgba(0,0,0,.10) 0%, rgba(255,255,255,0) 40%)");
-                    }
-                }
-
-                &:hover {
-                    background-color: rgba(255, 255, 255, 0.1);
-                }
-
-                li {
-                    display: block;
-
-                    a {
-                        background-image: none;
-                    }
-                }
+            
+            li ul {
+                height: auto;
             }
         }
     }
-
-    .selected a {
-        position: relative;
-
-        &:before {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 12px solid transparent;
-            border-right: 12px solid transparent;
-            border-bottom: 12px solid #5f5f4e;
-            position: absolute;
-            left: ~"calc(50% - 12px)";
-            left: ~"-webkit-calc(50% - 12px)";
-            bottom: -8px;
+    
+    #navigation li ul {
+        .nav_collapsed & {
+            height: 0 !important;
+        }
+        
+        .nav_expanded & {
+            
         }
     }
 }
