@@ -182,12 +182,12 @@
         .nav-bar();
         position: absolute;
         z-index: 1;
-        padding-right: 40px;
         width: 100%;
 
         > ul {
             width: 100%;
             margin: 0;
+            padding: 0 40px;
 
             > li {
                 box-shadow: 1px 0 0 0 rgba(0,0,0, 0.15);
@@ -232,6 +232,10 @@
                     }
                 }
             }
+
+            @media (@bp4) {
+                padding: 0;
+            }
         }
 
         .wdn-icon-menu {
@@ -241,11 +245,6 @@
             &:before {
                 margin: 10px 0 0 5px;
             }
-        }
-
-        &.nav-scrolling {
-            position: fixed;
-            top: 0;
         }
     }
 
