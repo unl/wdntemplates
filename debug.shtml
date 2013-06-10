@@ -35,6 +35,7 @@
     <!--#include virtual="/wdn/templates_4.0/includes/skipnav.html" -->
     <div id="wdn_wrapper">
         <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide" />
+        <!--#include virtual="/wdn/templates_4.0/includes/noscript-padding.html" -->
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
             <div class="wdn-inner-wrapper">
                 <!--#include virtual="/wdn/templates_4.0/includes/logo.html" -->
