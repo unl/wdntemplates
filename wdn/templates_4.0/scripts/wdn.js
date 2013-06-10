@@ -52,7 +52,7 @@
 		 */
 		loadJS: function (url,callback) {
 			url = _sanitizeTemplateUrl(url);
-			require(url, callback);
+			require([url], callback);
 		},
 
 		/**
@@ -197,7 +197,7 @@
 			
 			require([plugin], function(pluginObj) {
 				var defaultOnLoad = onLoad = function () {
-					if ("initialize" in pluginObj) {
+					if (pluginObj && "initialize" in pluginObj) {
 						WDN.log("initializing plugin '" + plugin + "'");
 						pluginObj.initialize.apply(this, args);
 					} else {
@@ -222,7 +222,6 @@
 					// construct the load callback based on insert
 					onLoad = function() {
 						if (insert === 'replace') {
-							loadedPlugins[plugin] = true;
 							callback();
 						} else {
 							if (insert === 'before') {
@@ -352,12 +351,22 @@
 			return schemeAndAuthority + hparts.join('/');
 		}
 	};
-		
+	
 	if ( typeof define === "function" && define.amd ) {
 		define( "wdn", [], function () { return WDN; } );
 	}
 	
 	if ( typeof window === "object" && typeof window.document === "object" ) {
+		if (window.WDN) {
+			var i = 0;
+			for (; i < window.WDN.plugins.length; i++) {
+				WDN.initializePlugin.apply(this, window.WDN.plugins[i]);
+			}
+			for (i = 0; i < window.WDN.params.length; i++) {
+				WDN.setPluginParam.apply(this, window.WDN.params[i]);
+			}
+		}
+		
 		window.WDN = WDN;
 	}
 })(window);
