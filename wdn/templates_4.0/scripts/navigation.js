@@ -123,15 +123,15 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
         }
         
         // css3 selector fixes
-        var $bar_starts = WDN.jQuery('#navigation > ul > li:nth-child(6n+1)');
+        var $bar_starts = $('#navigation > ul > li:nth-child(6n+1)');
         if (!Modernizr['css-nthchild']) {
             $bar_starts.addClass('start');
-            WDN.jQuery('#navigation > ul > li:nth-child(6n+6)').addClass('end');
-            WDN.jQuery('#navigation > ul > li:nth-child(n+7)').addClass('mid-bar');
+            $('#navigation > ul > li:nth-child(6n+6)').addClass('end');
+            $('#navigation > ul > li:nth-child(n+7)').addClass('mid-bar');
             $bar_starts.last().prevAll().addClass('top-bars');
         }
         if (!Modernizr['css-lastchild']) {
-            WDN.jQuery('#navigation > ul > li ul li:last-child').addClass('last');
+            $('#navigation > ul > li ul li:last-child').addClass('last');
         }
 
         var ah = [];
