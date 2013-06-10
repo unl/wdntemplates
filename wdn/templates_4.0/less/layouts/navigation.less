@@ -69,7 +69,7 @@
             left: 0;
             z-index: 1;
             speak: none;
-            .transition(all 0.2s linear);
+            //.transition(all 0.2s linear); // this causes Firefox to stutter a bit
         }
     }
 }
@@ -81,7 +81,7 @@
     .light-brand-font();
     color: #fff;
     text-shadow: 1px 1px 0px darken(@brand, 19%);
-    overflow-y: scroll;
+    //overflow-y: scroll;
     // We need to set height for mobile with JS?
 
     a {
@@ -105,9 +105,6 @@
         background-color: #3b3b3b;
         border-right: 3px solid #000;
         height: 100%;
-    }
-    @media (@bp-nav-full) {
-       height: 37px;
     }
 
     .wdn_list_descriptor { //quickly thrown in to diagnose a height issue. Not the way to go down the road.
@@ -149,7 +146,7 @@
             ul {
                 height: 0;
                 overflow: hidden;
-                .transition(all linear 0.3s);
+                .transition(height linear 0.3s);
             }
 
             li {
@@ -180,7 +177,7 @@
     // Styles specific to the full view
     @media (@bp-nav-full) {
         .nav-bar();
-        position: absolute;
+        position: relative;
         z-index: 1;
         width: 100%;
 
@@ -206,11 +203,6 @@
             }
 
             &:hover {
-
-                ul {
-                    height: 100%;
-                }
-
                 li {
 
                     a {
@@ -241,6 +233,8 @@
         .wdn-icon-menu {
             float: none;
             position: absolute;
+            top: 0;
+            right: 40px;
 
             &:before {
                 margin: 10px 0 0 5px;
@@ -261,5 +255,6 @@
 
 .wdn-content-slide {
     position: relative;
+    left: 0;
     .transition(left 0.3s ease);
 }

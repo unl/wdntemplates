@@ -27,11 +27,11 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
 <body class="fixed debug" data-version="4.0">
+    <noscript><div id="noscript-pad"></div></noscript>
     <!--#include virtual="/wdn/templates_4.0/includes/skipnav.html" -->
     <div id="wdn_wrapper">
         <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide" />
@@ -185,33 +185,6 @@
         </footer>
         <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
     </div>
-    <script>
-        var navPin = (function() {
-            var header = $('#header'), breadcrumbs = $('#breadcrumbs'), nav = $('#navigation'), hh, bh, wrapper = $('#wdn_wrapper');
-
-            wrapper.ontouchstart = function () {}
-
-            return {
-
-                initialize : function() {
-                    $(window).on('scroll', function() {
-                        navPin.setPosition();
-                    });
-                },
-
-                setPosition : function () {
-                    hh = header.height();
-                    bh = breadcrumbs.height();
-                    if ($(window).scrollTop() >= hh + bh) {
-                        nav.addClass('nav-scrolling');
-                    } else {
-                        nav.removeClass('nav-scrolling'); 
-                    }
-                }                
-            }
-        })();
-
-        navPin.initialize();
-    </script>
+    <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
 </body>
 <!-- InstanceEnd --></html>
