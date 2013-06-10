@@ -80,14 +80,13 @@
         <!-- End navigation trigger -->
         <div id="wdn_content_wrapper" role="main" class="wdn-content-slide">
             <div class="wdn-band">
-                    <div class="wdn-inner-wrapper">
-                        <div id="pagetitle">
-                            <!-- InstanceBeginEditable name="pagetitle" -->
-                            <!-- InstanceEndEditable -->
-                        </div>
+                <div class="wdn-inner-wrapper">
+                    <div id="pagetitle">
+                        <!-- InstanceBeginEditable name="pagetitle" -->
+                        <!-- InstanceEndEditable -->
                     </div>
                 </div>
-            <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
+            </div>
             <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
@@ -183,6 +182,7 @@
             </div>
             <!--#include virtual="/wdn/templates_4.0/includes/footer_floater.html" -->
         </footer>
+        <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
     </div>
     <script>
         var navPin = (function() {
