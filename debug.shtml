@@ -31,10 +31,10 @@
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
 <body class="fixed debug" data-version="4.0">
-    <noscript><div id="noscript-pad"></div></noscript>
     <!--#include virtual="/wdn/templates_4.0/includes/skipnav.html" -->
     <div id="wdn_wrapper">
         <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide" />
+        <!--#include virtual="/wdn/templates_4.0/includes/noscript-padding.html" -->
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
             <div class="wdn-inner-wrapper">
                 <!--#include virtual="/wdn/templates_4.0/includes/logo.html" -->
@@ -182,7 +182,7 @@
             </div>
             <!--#include virtual="/wdn/templates_4.0/includes/footer_floater.html" -->
         </footer>
+        <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
     </div>
-    <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
 </body>
 <!-- InstanceEnd --></html>
