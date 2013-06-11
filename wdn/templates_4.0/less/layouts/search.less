@@ -1,7 +1,4 @@
 #wdn_search {
-    position: absolute;
-    right: 5px;
-    top: 8px;
 
     fieldset {
         border: none;
@@ -11,10 +8,6 @@
     }
 
     label {
-        text-indent: -999em;
-        position: absolute;
-        color: fadeout(#d1ceb3, 35%);
-        .rem(12);
         left: 5px;
         top: 6px;
         text-align: left;
@@ -24,13 +17,16 @@
         }
 
         &:before {
-            text-indent: 999em;
         }
     }
 
     input[type="submit"] {
         display: none;
     }
+}
+
+#wdn_search_form {
+    display: none;
 }
 
 #q {
@@ -40,7 +36,7 @@
     .rem(12);
     color: darken(#d1ceb3, 25%);
     .transition(width 0.3s ease);
-    width: 50px;
+    width: 40px;
     .box-sizing(border-box);
     .sans-serif-font();
 

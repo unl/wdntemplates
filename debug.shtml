@@ -33,9 +33,10 @@
 <body class="fixed debug" data-version="4.0">
     <!--#include virtual="/wdn/templates_4.0/includes/skipnav.html" -->
     <div id="wdn_wrapper">
-        <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide" />
+        <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" />
         <!--#include virtual="/wdn/templates_4.0/includes/noscript-padding.html" -->
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
+            <!--#include virtual="/wdn/templates_4.0/includes/wdnResources.html" -->
             <div class="wdn-inner-wrapper">
                 <!--#include virtual="/wdn/templates_4.0/includes/logo.html" -->
                 <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
@@ -47,8 +48,10 @@
                         <!-- InstanceEndEditable -->
                     </span>
                 </div>
-                <!--#include virtual="/wdn/templates_4.0/includes/idm.html" -->
-                <!--#include virtual="/wdn/templates_4.0/includes/wdnTools.html" -->
+                <div id="wdn_resources">
+                    <!--#include virtual="/wdn/templates_4.0/includes/idm.html" -->
+                    <!--#include virtual="/wdn/templates_4.0/includes/wdnTools.html" -->
+                </div>
             </div>
         </header>
         <div id="wdn_navigation_bar" role="navigation" class="wdn-band">
