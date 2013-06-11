@@ -25,7 +25,6 @@ function throwError($message = 'Error')
 }
 
 set_include_path('phar://' . __DIR__ . '/UNL_Templates-1.4.0RC1.phar/UNL_Templates-1.4.0RC1/src'.PATH_SEPARATOR.'phar://' . __DIR__ . '/UNL_Templates-1.4.0RC1.phar/UNL_Templates-1.4.0RC1/php');
-set_include_path('/Users/bbieber/workspace/UNL_Templates/src:/Users/bbieber/workspace/UNL_Templates/vendor/php');
 
 require_once 'UNL/Templates.php';
 require_once 'UNL/Templates/Version4.php';
