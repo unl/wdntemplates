@@ -80,8 +80,7 @@ $scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('', ''),
 $four_template = new UNL_Templates_Scanner(file_get_contents(__DIR__ . '/../../debug.shtml'));
 
 foreach ($scanned_page->getRegions() as $region) {
-    if ($region instanceof UNL_DWT_Region
-        && $region->type == 'string') {
+    if ($region->type == 'string') {
         $four_template->{$region->name} = $region->value;
     }
 }
