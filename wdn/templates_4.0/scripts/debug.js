@@ -26,4 +26,18 @@ for (i = 0; i < load.length; i++) {
 	].join(''));
 }
 
+// API exposure to for async processing
+if (typeof window.WDN == "undefined") {
+	window.WDN = {
+		plugins: [],
+		params: [],
+	};
+	window.WDN.initializePlugin = function() {
+		window.WDN.plugins.push(arguments);
+	};
+	window.WDN.setPluginParam = function() {
+		window.WDN.params.push(arguments);
+	};
+}
+
 })();
