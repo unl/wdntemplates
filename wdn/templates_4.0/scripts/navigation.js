@@ -123,15 +123,15 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
         }
         
         // css3 selector fixes
-        var $bar_starts = WDN.jQuery('#navigation > ul > li:nth-child(6n+1)');
+        var $bar_starts = $('#navigation > ul > li:nth-child(6n+1)');
         if (!Modernizr['css-nthchild']) {
             $bar_starts.addClass('start');
-            WDN.jQuery('#navigation > ul > li:nth-child(6n+6)').addClass('end');
-            WDN.jQuery('#navigation > ul > li:nth-child(n+7)').addClass('mid-bar');
+            $('#navigation > ul > li:nth-child(6n+6)').addClass('end');
+            $('#navigation > ul > li:nth-child(n+7)').addClass('mid-bar');
             $bar_starts.last().prevAll().addClass('top-bars');
         }
         if (!Modernizr['css-lastchild']) {
-            WDN.jQuery('#navigation > ul > li ul li:last-child').addClass('last');
+            $('#navigation > ul > li ul li:last-child').addClass('last');
         }
 
         var ah = [];
@@ -210,18 +210,20 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
         Plugin.collapse(false);
         applyStateFixes();
 
-        require([hoverPlugin], function() {
-            $('#wdn_navigation_bar').hoverIntent({
-                over: function() {
-                    if (!lockHover) {
-                        Plugin.expand();
-                    }
-                },
-                out:         mouseout,
-                timeout:     expandDelay,
-                sensitivity: 1, // Mouse must not move
-                interval:    120
-            });
+        WDN.loadJQuery(function() {
+	        require([hoverPlugin], function() {
+	            $('#wdn_navigation_bar').hoverIntent({
+	                over: function() {
+	                    if (!lockHover) {
+	                        Plugin.expand();
+	                    }
+	                },
+	                out:         mouseout,
+	                timeout:     expandDelay,
+	                sensitivity: 1, // Mouse must not move
+	                interval:    120
+	            });
+	        });
         });
         
         navReady(true);
@@ -541,15 +543,17 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 
             initializePreferredState();
             
-            require([hoverPlugin], function() {
-                $('#breadcrumbs ul li a').hoverIntent({
-                    over:        switchSiteNavigation,
-                    out:         function() {
-                    	$('#navigation > ul > li').removeClass('highlight');
-                    },
-                    sensitivity: 1, // Mouse must not move
-                    interval:    120
-                });
+            WDN.loadJQuery(function() {
+	            require([hoverPlugin], function() {
+	                $('#breadcrumbs ul li a').hoverIntent({
+	                    over:        switchSiteNavigation,
+	                    out:         function() {
+	                    	$('#navigation > ul > li').removeClass('highlight');
+	                    },
+	                    sensitivity: 1, // Mouse must not move
+	                    interval:    120
+	                });
+	            });
             });
             
             initd = true;

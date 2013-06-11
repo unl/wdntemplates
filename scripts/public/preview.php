@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(0);
+
 if (empty($_GET['u'])
     || !filter_var($_GET['u'], FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)) {
     throwError();
@@ -22,8 +24,7 @@ function throwError($message = 'Error')
     exit();
 }
 
-set_include_path('phar://' . __DIR__ . '/UNL_Templates-1.2.0.phar/UNL_Templates-1.2.0/src'.PATH_SEPARATOR.'phar://' . __DIR__ . '/UNL_Templates-1.2.0.phar/UNL_Templates-1.2.0/php');
-set_include_path('/Users/bbieber/workspace/UNL_Templates/src:/Users/bbieber/workspace/UNL_Templates/vendor/php');
+set_include_path('phar://' . __DIR__ . '/UNL_Templates-1.3.0.tgz/UNL_Templates-1.3.0/php');
 
 require_once 'UNL/Templates.php';
 require_once 'UNL/Templates/Scanner.php';
@@ -106,14 +107,13 @@ $scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('', ''),
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
 <body class="fixed debug" data-version="4.0">
-    <nav class="skipnav" role="navigation">
-        <a class="wdn-text-hidden" href="#maincontent">Skip Navigation</a>
-    </nav>
+    <?php include dirname(__DIR__) . '/../wdn/templates_4.0/includes/skipnav.html'; ?>
     <div id="wdn_wrapper">
         <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide" />
+        <?php include dirname(__DIR__) . '/../wdn/templates_4.0/includes/noscript-padding.html'; ?>
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
             <div class="wdn-inner-wrapper">
-                <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
+                <?php include dirname(__DIR__) . '/../wdn/templates_4.0/includes/logo.html'; ?>
                 <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
                 <div id="wdn_site_title">
                     <span>
@@ -136,30 +136,29 @@ $scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('', ''),
             </nav>
             <div id="wdn_navigation_wrapper">
                 <nav id="navigation" role="navigation" class="wdn-band">
-                        <!--<label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>-->
-                        <h3 class="wdn_list_descriptor wdn-text-hidden">Navigation</h3>
-                        <!-- InstanceBeginEditable name="navlinks" -->
-                        <?php echo (isset($scanned_page->navlinks))?$scanned_page->navlinks:''; ?>
-                        <!-- InstanceEndEditable -->
+                    <h3 class="wdn_list_descriptor wdn-text-hidden">Navigation</h3>
+                    <!-- InstanceBeginEditable name="navlinks" -->
+                    <?php echo (isset($scanned_page->navlinks))?$scanned_page->navlinks:''; ?>
+                    <!-- InstanceEndEditable -->
+                    <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
                 </nav>
             </div>
         </div>
         <!-- Navigation Trigger -->
-        <div class="wdn_menu_trigger wdn-content-slide">
+        <div class="wdn-menu-trigger wdn-content-slide">
             <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
         </div>
         <!-- End navigation trigger -->
         <div id="wdn_content_wrapper" role="main" class="wdn-content-slide">
             <div class="wdn-band">
-                    <div class="wdn-inner-wrapper">
-                        <div id="pagetitle">
-                            <!-- InstanceBeginEditable name="pagetitle" -->
-                            <?php echo $scanned_page->pagetitle; ?>
-                            <!-- InstanceEndEditable -->
-                        </div>
+                <div class="wdn-inner-wrapper">
+                    <div id="pagetitle">
+                        <!-- InstanceBeginEditable name="pagetitle" -->
+                        <?php echo (isset($scanned_page->pagetitle))?$scanned_page->pagetitle:''; ?>
+                        <!-- InstanceEndEditable -->
                     </div>
                 </div>
-            <?php include dirname(__DIR__) . '/../wdn/templates_4.0/includes/noscript.html'; ?>
+            </div>
             <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
@@ -171,41 +170,43 @@ $scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('', ''),
         <div class="wdn-band wdn-content-slide" id="wdn_optional_footer">
             <div class="wdn-inner-wrapper">
                 <!-- InstanceBeginEditable name="optionalfooter" -->
-                This is the optional footer we keep kicking around.
+                <?php echo (isset($scanned_page->optionalfooter))?$scanned_page->optionalfooter:''; ?>
                 <!-- InstanceEndEditable -->
             </div>
         </div>
-        <footer id="footer" role="contentinfo" class="wdn-content-slide wdn-band">
-            <div id="footer_floater">
-                <div id="wdn_footer_flag">
-                    <ul id="wdn_social">
-                        <li>
-                            <a href="https://www.facebook.com/UNLincoln" class="wdn-icon-facebook-circled">Facebook</a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/UNLincoln" class="wdn-icon-twitter-circled">Twitter</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="wdn-inner-wrapper">
-                <div class="footer_col" id="wdn_footer_contact">
-                    <?php echo (isset($scanned_page->contactinfo))?$scanned_page->contactinfo:''; ?>
-                </div>
-                <div class="footer_col" id="wdn_footer_related">
-                    <?php echo (isset($scanned_page->leftcollinks))?$scanned_page->leftcollinks:''; ?>
-                </div>
-            </div>
-            <div id="wdn_copyright">
+        <footer id="footer" role="contentinfo" class="wdn-content-slide">
+            <div class="wdn-band" id="wdn_footer_related">
                 <div class="wdn-inner-wrapper">
-                    <!-- InstanceBeginEditable name="footercontent" -->
-                    <?php echo (isset($scanned_page->footercontent))?$scanned_page->footercontent:''; ?>
+                    <!-- InstanceBeginEditable name="leftcollinks" -->
+                    <?php echo (isset($scanned_page->leftcollinks))?$scanned_page->leftcollinks:''; ?>
                     <!-- InstanceEndEditable -->
-                    <?php include dirname(__DIR__) . '/../wdn/templates_4.0/includes/wdn.html'; ?>
-                    <?php include dirname(__DIR__) . '/../wdn/templates_4.0/includes/logos.html'; ?>
                 </div>
             </div>
+            <div class="wdn-band">
+                <div class="wdn-inner-wrapper">
+                    <div class="footer_col" id="wdn_footer_contact">
+                        <h3>Contact Us</h3>
+                        <div class="wdn-contact-wrapper">
+                            <!-- InstanceBeginEditable name="contactinfo" -->
+                            <?php echo (isset($scanned_page->contactinfo))?$scanned_page->contactinfo:''; ?>
+                            <!-- InstanceEndEditable -->
+                        </div>
+                    </div>
+                    <div id="wdn_copyright">
+                        <div class="wdn-footer-text">
+                            <!-- InstanceBeginEditable name="footercontent" -->
+                            <?php echo (isset($scanned_page->footercontent))?$scanned_page->footercontent:''; ?>
+                            <!-- InstanceEndEditable -->
+                            <?php include dirname(__DIR__) . '/../wdn/templates_4.0/includes/wdn.html'; ?>
+                        </div>
+
+                    <?php include dirname(__DIR__) . '/../wdn/templates_4.0/includes/logos.html'; ?>
+                    </div>
+                </div>
+            </div>
+            <?php include dirname(__DIR__) . '/../wdn/templates_4.0/includes/footer_floater.html'; ?>
         </footer>
+        <?php include dirname(__DIR__) . '/../wdn/templates_4.0/includes/noscript.html'; ?>
     </div>
 </body>
 <!-- InstanceEnd --></html>

@@ -127,6 +127,10 @@
     li {
         text-transform: uppercase;
         .rem(16);
+        
+        &.empty {
+            display: none;
+        }
 
         li {
             .rem(11);
@@ -142,6 +146,11 @@
             float: left;
             width: 16.6666%;
             text-align: center;
+            
+            &.empty {
+                display: list-item;
+                visibility: hidden;
+            }
 
             ul {
                 height: 0;
@@ -153,7 +162,7 @@
                 width: 100%;
                 padding: 0;
                 border-bottom: 1px solid fadeout(#fff, 90%);
-
+                
                 &:last-child {
                     border-bottom: none;
                 }
@@ -235,6 +244,10 @@
         .wdn-icon-menu {
             float: left;
             top: 0;
+            
+            .empty-secondary & {
+                display: none;
+            }
 
             &:before {
                 margin: 10px 0 0 5px;
