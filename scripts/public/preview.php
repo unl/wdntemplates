@@ -68,22 +68,24 @@ function removeRelativePaths($html, $base_url)
     return $html;
 }
 
-foreach (array('maincontentarea','head', 'doctitle') as $key) {
-    $scanned_page->$key = removeRelativePaths($scanned_page->$key, $_GET['u']);
-}
-
-$scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('', ''), $scanned_page->titlegraphic);
-
-
 // Grab the version four template from the local debug file
 $four_template = new UNL_Templates_Scanner(file_get_contents(__DIR__ . '/../../debug.shtml'));
 
 foreach ($scanned_page->getRegions() as $region) {
-    if ($region instanceof UNL_DWT_Region
-        && $region->type == 'string') {
+    if ($region instanceof UNL_DWT_Region && $region->type == 'string') {
+        if (in_array($region->name, array('maincontentarea','head', 'doctitle'))) {
+            $region->value = removeRelativePaths($region->value, $_GET['u']);
+        }
+        
+        if ($region->name === 'titlegraphic') {
+            $region->value = str_replace(array('<h1>', '</h1>'), array('', ''), $region->value);
+        }
+        
         $four_template->{$region->name} = $region->value;
     }
 }
+
+$four_template->maincontentarea = '<div class="wdn-band"><div class="wdn-inner-wrapper">'.$four_template->maincontentarea.'</div></div>';
 
 // Create a helper object for making the include replacements
 $version_four_helper = new UNL_Templates_Version4();
@@ -93,6 +95,3 @@ $html = $version_four_helper->makeIncludeReplacements((string)$four_template);
 
 // echo the final HTML
 echo $html;
-
-
-?>
