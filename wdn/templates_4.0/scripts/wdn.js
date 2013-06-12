@@ -23,7 +23,15 @@
 			
 			return url;
 		};
-		
+	
+	var require = function() {
+		if (typeof window.require === "function" ) {
+			window.require.apply(this, arguments);
+		} else {
+			
+		}
+	};
+	
 	var WDN = {
 		/**
 		 * This variable stores the path to the template files.
@@ -349,6 +357,36 @@
 			}
 
 			return schemeAndAuthority + hparts.join('/');
+		},
+		
+		stringToXML: function (string) {
+			return WDN.jQuery.parseXML(string);
+		},
+
+		request: function (url, data, callback, type, method) {
+			var $ = WDN.jQuery;
+			if ($.isFunction(data)) {
+				method = method || type;
+				type = callback;
+				callback = data;
+				data = undefined;
+			}
+			
+			return $.ajax({
+				type: method,
+				url: url,
+				data: data,
+				success: callback,
+				dataType: type
+			});
+		},
+
+		get: function (url, data, callback, type) {
+			return WDN.jQuery.get(url, data, callback, type);
+		},
+
+		post: function (url, data, callback, type) {
+			return WDN.jQuery.post(url, data, callback, type);
 		}
 	};
 	
@@ -357,16 +395,16 @@
 	}
 	
 	if ( typeof window === "object" && typeof window.document === "object" ) {
-		if (window.WDN) {
-			var i = 0;
-			for (; i < window.WDN.plugins.length; i++) {
-				WDN.initializePlugin.apply(this, window.WDN.plugins[i]);
-			}
-			for (i = 0; i < window.WDN.params.length; i++) {
-				WDN.setPluginParam.apply(this, window.WDN.params[i]);
-			}
-		}
-		
 		window.WDN = WDN;
 	}
+	
+	(function() {
+		var i = 0, scripts = document.getElementsByTagName('script'), root;
+		for (; i < scripts.length; i++) {
+			root = scripts[i].getAttribute('data-wdn_root');
+			if (root) {
+				WDN.template_path = WDN.toAbs('../../../', root);
+			}
+		}
+	})();
 })(window);
