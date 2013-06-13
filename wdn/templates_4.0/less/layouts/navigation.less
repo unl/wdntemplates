@@ -20,11 +20,11 @@
 .wdn-menu-trigger { // Holds the label for the toggle of the navigation
 
     // Styles specifc to only the mobile view
-    @media (@bp-nav-hidden) {
+    @media @bp-nav-hidden {
         .nav-bar();
     }
 
-    @media (@bp-nav-full) {
+    @media @bp-nav-full {
         .wdn-icon-menu {
             display: none;
         }
@@ -41,7 +41,7 @@
     font-size: 1.5rem;
 
     // Styles specifc to only the mobile view
-    @media (@bp-nav-hidden) {
+    @media @bp-nav-hidden {
         line-height: 1;
     }
 
@@ -51,7 +51,7 @@
         position: relative;
     }
 
-    @media (@bp-nav-full) {
+    @media @bp-nav-full {
 
         &:before {
             z-index: 2;
@@ -94,7 +94,7 @@
     }
 
     // Styles specifc to only the mobile view
-    @media (@bp-nav-hidden) {
+    @media @bp-nav-hidden {
         position: absolute;
         top: 0;
         left: (@nav-width * -1); // Hide off-screen
@@ -119,7 +119,7 @@
         .transition(height 0.3s ease);
         display: block;
 
-        @media (@bp-nav-hidden) {
+        @media @bp-nav-hidden {
             border-bottom: 1px solid fadeout(#fff, 90%);
         }
     }
@@ -141,7 +141,7 @@
         }
 
         // Styles specific to the full view
-        @media (@bp-nav-full) {
+        @media @bp-nav-full {
             .rem(14);
             float: left;
             width: 16.6666%;
@@ -175,7 +175,7 @@
     }
 
     // Styles specific to the full view
-    @media (@bp-nav-hidden) {
+    @media @bp-nav-hidden {
         padding: 5px;
 
         .wdn-icon-menu {
@@ -184,7 +184,7 @@
     }
 
     // Styles specific to the full view
-    @media (@bp-nav-full) {
+    @media @bp-nav-full {
         .nav-bar();
         position: relative;
         z-index: 1;
@@ -217,7 +217,7 @@
                 li {
 
                     a {
-                        @media (@bp-nav-full) {
+                        @media @bp-nav-full {
                             .background-image(~"linear-gradient(bottom, rgba(0,0,0,.10) 0%, rgba(255,255,255,0) 40%)");
                         }
                     }
@@ -236,7 +236,7 @@
                 }
             }
 
-            @media (@bp4) {
+            @media @bp4 {
                 padding: 0;
             }
         }
@@ -255,7 +255,7 @@
         }
     }
 
-    @media (@bp-nav-max) {
+    @media @bp-nav-max {
         padding-right: 0;
 
         > ul {
