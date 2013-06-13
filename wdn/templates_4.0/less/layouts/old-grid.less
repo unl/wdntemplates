@@ -16,12 +16,16 @@
 .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11, .grid12 {
     width: auto;
 
-    @media (@only-bp1) {
+    @media @only-bp1 {
         width: 49%;
-        margin: 0 1%;
+        margin: 0 0.5%;
+
+        &.first {
+            clear: left;
+        }
     }
 
-    @media @bp1 {
+    @media (@bp1) {
         float: left;
     }
 
