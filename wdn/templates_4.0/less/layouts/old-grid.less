@@ -13,45 +13,29 @@
     width: (@columnWidth * @theColumn) + (@gutterWidth * (@theColumn - 1));
 }
 
-#maincontent {
-    .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11, .grid12 {
-        width: auto;
+.grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11, .grid12 {
+    width: auto;
+
+    @media (@only-bp1) {
+        width: 49%;
+        margin: 0 1%;
+    }
+
+    @media @bp1 {
+        float: left;
+    }
+
+    > [class^="grid"] {
+        width: 100%;
+        margin-left: 0;
     }
 }
 
-@media (min-width: 320px) {
-    
+.grid12 {
+    width: 98%;
+    margin: 0 1%;
 }
-@media (min-width: 480px) {
-    #maincontent {
-        .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11, .grid12 {
-            width: 49%;
-            margin-left: 2%;
-            float: left;
-            display: inline;
-        }
-        .grid12 {
-            width: 100% !important;
-            clear: left !important;
-            margin-left: 0 !important;
-        }
-        
-        *[class^="grid"]:nth-of-type(odd) {
-            margin-left: 0;
-            clear: left;
-        }
-        
-        *[class^="grid"] > *[class^="grid"] {
-            width: 100%;
-            margin-left: 0;
-        }
-        
-        .first:first-of-type {
-            margin-left: 0 !important;
-            clear: left;
-        }
-    }
-}
+
 @media (min-width: 600px) {
     #maincontent {
         .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11, .grid12 {
@@ -199,6 +183,10 @@
             clear: none;
         }
         
+        .first {
+            margin-left: ~'-webkit-calc(50% - 480px)' !important; // minus .wdn-float-center:width - paddings
+            margin-left: ~'calc(50% - 480px)' !important;
+        }
     }
 }
 @media (min-width: 1040px) {
