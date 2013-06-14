@@ -159,22 +159,3 @@
         margin-left: ~'calc(50% - 480px)' !important;
     }
 }
-
-@media (min-width: 1960px) {
-    
-    @gutterWidth: 2.54%;
-    @columnWidth: 6%;
-    #maincontent {
-        //clear out rule from 480
-        *[class^="grid"]:nth-of-type(odd) {
-            margin-left: @gutterWidth;
-            clear: none;
-        }
-        
-        //clear out rule for 600
-        *[class^="grid"]:nth-of-type(3n+1) {
-            margin-left: @gutterWidth;
-            clear: none;
-        }
-    }
-}
