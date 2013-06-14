@@ -11,7 +11,7 @@ html {
     text-rendering: optimizeLegibility;
     font-size: @base-font-size;
 
-    @media (@bp2) {
+    @media @bp2 {
         font-size: @base-font-size + 2px;
     }
 }
@@ -47,7 +47,7 @@ q {
             padding: 1em 5px;
         }
         
-        @media (@bp3) {
+        @media @bp3 {
             #maincontent & {
                 padding: 1em 0;
             }
@@ -64,10 +64,10 @@ q {
     }
 }
 
-@media (@bp3) {
+@media @bp3 {
     #maincontent {
 
-        > * {
+        > *:not([class^="grid"]) {
             max-width: 60rem;
             margin: 0 auto;
         }
