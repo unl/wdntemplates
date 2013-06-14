@@ -85,7 +85,7 @@ foreach ($scanned_page->getRegions() as $region) {
     }
 }
 
-$four_template->maincontentarea = '<div class="wdn-band"><div class="wdn-inner-wrapper">'.$four_template->maincontentarea.'</div></div>';
+$four_template->maincontentarea = $four_template->maincontentarea;
 
 // Create a helper object for making the include replacements
 $version_four_helper = new UNL_Templates_Version4();
