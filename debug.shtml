@@ -27,6 +27,17 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
+<style type="text/css">
+ #maincontent .grid1, #maincontent .grid2, #maincontent .grid3, #maincontent .grid4, #maincontent .grid5, #maincontent .grid6, #maincontent .grid7, #maincontent .grid8, .grid9, #maincontent .grid10, #maincontent .grid11, #maincontent .col div, #maincontent .two_col div, #maincontent .three_col div, #maincontent .col_half div, #maincontent .four_col div {
+        margin-bottom: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background: rgba(111,191,77,.4);
+        border: solid 1px #6FBF4D;
+        border-width: 1px 0;
+        text-align:center;
+    }
+</style>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
@@ -90,6 +101,48 @@
             <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
+        <h3>Current, Supported (but soon-to-be-deprecated) Grid System</h3> 
+        <div class="grid1 first"> grid1 </div> 
+        <div class="grid11"> grid11 </div> 
+        <div class="grid2 first"> grid2 </div> 
+        <div class="grid10"> grid10 </div> 
+        <div class="grid3 first"> grid3 </div> 
+        <div class="grid9"> grid9 </div> 
+        <div class="grid4 first"> grid4 </div> 
+        <div class="grid8"> grid8 </div> 
+        <div class="grid4 first"> grid4 </div> 
+        <div class="grid4"> grid4 </div> 
+        <div class="grid4"> grid4 </div> 
+        <div class="grid5 first"> grid5 </div> 
+        <div class="grid7"> grid7 </div> 
+        <div class="grid6 first"> grid6 </div> 
+        <div class="grid6"> grid6 </div> 
+        <div class="grid3 first"> grid3 </div> 
+        <div class="grid3"> grid3 </div> 
+        <div class="grid1"> grid1 </div> 
+        <div class="grid5"> grid5 </div> 
+        <div class="grid1 first"> grid1 </div> 
+        <div class="grid5"> grid5 </div> 
+        <div class="grid3"> grid3 </div> 
+        <div class="grid3"> grid3 </div> 
+        <div class="grid3 first"> 3 </div> 
+        <div class="grid9"> 
+          <div class="grid3 first">3</div> 
+          <div class="grid3">3</div> 
+          <div class="grid3">3</div> 
+          <div class="grid5 first">5</div> 
+          <div class="grid2">2</div> 
+          <div class="grid2">2</div> 
+        </div> 
+        <div class="grid8 first"> 
+          <div class="grid3 first">3</div> 
+          <div class="grid3">3</div> 
+          <div class="grid2">2</div> 
+          <div class="grid1 first">1</div> 
+          <div class="grid1">1</div> 
+          <div class="grid6">6</div> 
+        </div> 
+        <div class="grid4"> 4 </div>
                 <div class="wdn-band" style="line-height: 0;">
                     <img src="sandbox/arch.jpg" alt="" class="wdn-stretch" />
                 </div>
