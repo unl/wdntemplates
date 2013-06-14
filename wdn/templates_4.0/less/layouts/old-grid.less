@@ -13,7 +13,7 @@
     width: (@columnWidth * @theColumn) + (@gutterWidth * (@theColumn - 1));
 }
 
-.grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11, .grid12 {
+.grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11 {
     width: auto;
 
     @media @only-bp1 {
@@ -100,7 +100,10 @@
     .grid9 { .thisWidth(9); }
     .grid10 { .thisWidth(10); }
     .grid11 { .thisWidth(11); }
-    .grid12 { width:960px;}
+    .grid12 { 
+        width:960px;
+        margin: 0 auto;
+    }
 
     .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11 {
         margin-left: @gutterWidth;
@@ -157,24 +160,5 @@
     .first {
         margin-left: ~'-webkit-calc(50% - 480px)' !important;
         margin-left: ~'calc(50% - 480px)' !important;
-    }
-}
-
-@media (min-width: 1960px) {
-    
-    @gutterWidth: 2.54%;
-    @columnWidth: 6%;
-    #maincontent {
-        //clear out rule from 480
-        *[class^="grid"]:nth-of-type(odd) {
-            margin-left: @gutterWidth;
-            clear: none;
-        }
-        
-        //clear out rule for 600
-        *[class^="grid"]:nth-of-type(3n+1) {
-            margin-left: @gutterWidth;
-            clear: none;
-        }
     }
 }
