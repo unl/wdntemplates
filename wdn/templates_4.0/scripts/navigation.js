@@ -610,7 +610,11 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
             		go();
             	}
             }
-        }
+        },
+        
+        getSiteHomepage : function() {
+        	return siteHomepage;
+        },
     };
     
     return Plugin;
