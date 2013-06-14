@@ -124,7 +124,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 							selPrefix = 'li.selected';
 						
 						if (!firstTrig) {
-							if ($(selPrefix, tabs).length) {
+							if (!$(selPrefix, tabs).length) {
 								selPrefix = '> li';
 							}
 							firstTrig = $(selPrefix + ':first a:first', tabs);
