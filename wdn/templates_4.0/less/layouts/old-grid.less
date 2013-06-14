@@ -100,7 +100,7 @@
     .grid9 { .thisWidth(9); }
     .grid10 { .thisWidth(10); }
     .grid11 { .thisWidth(11); }
-    .grid12 { 
+    .grid12 {
         width:960px;
         margin: 0 auto;
     }
@@ -112,53 +112,53 @@
     [class^="grid"] > .grid1 {
         .thisWidth(1);
     }
-    
+
     [class^="grid"] > .grid2 {
         .thisWidth(2);
     }
-    
+
     [class^="grid"] > .grid3 {
         .thisWidth(3);
     }
-    
+
     [class^="grid"] > .grid4 {
         .thisWidth(4);
     }
-    
+
     [class^="grid"] > .grid5 {
         .thisWidth(5);
     }
-    
+
     [class^="grid"] > .grid6 {
         .thisWidth(6);
     }
-    
+
     [class^="grid"] > .grid7 {
         .thisWidth(7);
     }
-    
+
     [class^="grid"] > .grid8 {
         .thisWidth(8);
     }
-    
+
     [class^="grid"] > .grid9 {
         .thisWidth(9);
     }
-    
+
     [class^="grid"] > .grid10 {
         .thisWidth(10);
     }
-    
+
     [class^="grid"] > .grid11 {
         .thisWidth(11);
     }
 
-    [class^="grid"] .first {
-        margin-left: 0 !important;
-    }
-        
-    .first {
+    [class^="grid"].first {
         margin-left: ~'-webkit-calc(50% - 480px)' !important;
         margin-left: ~'calc(50% - 480px)' !important;
+    }
+
+    [class^="grid"] .first {
+        margin-left: 0 !important;
     }
 }
