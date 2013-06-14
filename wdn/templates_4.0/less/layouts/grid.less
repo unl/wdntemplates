@@ -153,24 +153,24 @@ li.@{grid-col-class} {
 
 .grid-setup(@grid-col-class, e(%("%s", @grid-set)));
 
-@media only screen and (@bp1) {
+@media @bp1 {
     .grid-setup(e(%("bp1-%s", @grid-col-class)), e(%("bp1-%s", @grid-set)));
 }
 
-/* -- Breakpoint 2 (.bp2)
+/* -- Breakpoint 2 .bp2
 ------------------------------------------------------------- */
-@media only screen and (@bp2) {
+@media @bp2 {
     .grid-setup(e(%("bp2-%s", @grid-col-class)), e(%("bp2-%s", @grid-set)));
 }
 
-/* -- Breakpoint 3 (.bp3)
+/* -- Breakpoint 3 .bp3
 ------------------------------------------------------------- */
-@media only screen and (@bp3) {
+@media @bp3 {
     .grid-setup(e(%("bp3-%s", @grid-col-class)), e(%("bp3-%s", @grid-set)));
 }
 
-/* -- Breakpoint 4 (.bp4)
+/* -- Breakpoint 4 .bp4
 ------------------------------------------------------------- */
-@media only screen and (@bp4) {
+@media @bp4 {
     .grid-setup(e(%("bp4-%s", @grid-col-class)), e(%("bp4-%s", @grid-set)));
 }

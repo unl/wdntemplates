@@ -13,283 +13,152 @@
     width: (@columnWidth * @theColumn) + (@gutterWidth * (@theColumn - 1));
 }
 
-#maincontent {
-    .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11, .grid12 {
-        width: auto;
-    }
-}
+.grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11 {
+    width: auto;
 
-@media (min-width: 320px) {
-    
-}
-@media (min-width: 480px) {
-    #maincontent {
-        .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11, .grid12 {
+    @media @only-bp1 {
+        width: 49%;
+        margin: 0 0.5%;
+    }
+
+    @media @bp1 {
+        float: left;
+
+        &.first {
+            clear: left;
+        }
+    }
+
+    @media @bp2 {
+
+        &.first {
+            margin-left: 0;
+        }
+    }
+
+    @media @only-bp2 {
+        > [class^="grid"] {
             width: 49%;
-            margin-left: 2%;
-            float: left;
-            display: inline;
-        }
-        .grid12 {
-            width: 100% !important;
-            clear: left !important;
-            margin-left: 0 !important;
-        }
-        
-        *[class^="grid"]:nth-of-type(odd) {
-            margin-left: 0;
-            clear: left;
-        }
-        
-        *[class^="grid"] > *[class^="grid"] {
-            width: 100%;
-            margin-left: 0;
-        }
-        
-        .first:first-of-type {
-            margin-left: 0 !important;
-            clear: left;
+            margin: 0 0.5%;
         }
     }
-}
-@media (min-width: 600px) {
-    #maincontent {
-        .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11, .grid12 {
-            width: 32%;
-        }
-        
-        //clear out rule from 480
-        *[class^="grid"]:nth-of-type(odd) {
-            margin-left: 2%;
-            clear: none;
-        }
-        
-        *[class^="grid"]:nth-of-type(3n+1) {
-            margin-left: 0;
-            clear: left;
-        }
-        
-        //duplicated in order to take priority
-        *[class^="grid"] > *[class^="grid"] {
-            width: 100%;
-            margin-left: 0;
-        }
-    }
-}
-@media (min-width: 768px) {
 
-    // LESS function to combine column and gutter widths for determining individual column widths
-    @gutterWidth: 2.54%;
-    @columnWidth: 6%;
-    .theWidth (@theColumn: 1) {
-        width: (@columnWidth * @theColumn) + (@gutterWidth * (@theColumn - 1));
-    }
-    #maincontent {
-        .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11 {
-            margin-left: @gutterWidth;
-        }
-        .grid1 { .theWidth(1); }
-        .grid2 { .theWidth(2); }
-        .grid3 { .theWidth(3); }
-        .grid4 { .theWidth(4); }
-        .grid5 { .theWidth(5); }
-        .grid6 { .theWidth(6); }
-        .grid7 { .theWidth(7); }
-        .grid8 { .theWidth(8); }
-        .grid9 { .theWidth(9); }
-        .grid10 { .theWidth(10); }
-        .grid11 { .theWidth(11); }
-        .grid12 { width:100%; }
-        
-        //clear out rule from 480
-        *[class^="grid"]:nth-of-type(odd) {
-            margin-left: @gutterWidth;
-            clear: none;
-            
-            &.first {
-                clear: left;
-            }
-        }
-        
-        //clear out rule for 600
-        *[class^="grid"]:nth-of-type(3n+1) {
-            margin-left: @gutterWidth;
-            clear: none;
-            
-            &.first {
-                clear: left;
-            }
-        }
-        
-        .first {
-            margin-left: 0 !important;
-            clear: left;
-        }
-        
-        *[class^="grid"] > .grid1 {
-            .theWidth(1);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid2 {
-            .theWidth(2);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid3 {
-            .theWidth(3);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid4 {
-            .theWidth(4);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid5 {
-            .theWidth(5);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid6 {
-            .theWidth(6);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid7 {
-            .theWidth(7);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid8 {
-            .theWidth(8);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid9 {
-            .theWidth(9);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid10 {
-            .theWidth(10);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid11 {
-            .theWidth(11);
-            margin-left: @gutterWidth;
-        }
+    @media @bp3 {
+
     }
 }
-@media (min-width: 960px) {
-    
+
+.grid12 {
+    width: 98%;
+    margin: 0 1%;
+}
+
+@media @only-bp2 {
+
     @gutterWidth: 2.54%;
     @columnWidth: 6%;
-    #maincontent {
-        //clear out rule from 480
-        *[class^="grid"]:nth-of-type(odd) {
-            margin-left: @gutterWidth;
-            clear: none;
-        }
-        
-        //clear out rule for 600
-        *[class^="grid"]:nth-of-type(3n+1) {
-            margin-left: @gutterWidth;
-            clear: none;
-        }
-        
+    .thisWidth (@theColumn: 1) {
+        .theWidth(@theColumn, @columnWidth, @gutterWidth);
+        margin-left: @gutterWidth;
+    }
+
+    .grid1 { .thisWidth(1); }
+    .grid2 { .thisWidth(2); }
+    .grid3 { .thisWidth(3); }
+    .grid4 { .thisWidth(4); }
+    .grid5 { .thisWidth(5); }
+    .grid6 { .thisWidth(6); }
+    .grid7 { .thisWidth(7); }
+    .grid8 { .thisWidth(8); }
+    .grid9 { .thisWidth(9); }
+    .grid10 { .thisWidth(10); }
+    .grid11 { .thisWidth(11); }
+
+    .first {
+        margin-left: 0;
     }
 }
-@media (min-width: 1040px) {
+
+@media @bp3 {
+
     @gutterWidth: 24px;
     @columnWidth: 58px;
-    .theWidth (@theColumn: 1) {
-        width: (@columnWidth * @theColumn) + (@gutterWidth * (@theColumn - 1));
+
+    .thisWidth (@theColumn: 1) {
+        .theWidth(@theColumn, @columnWidth, @gutterWidth);
+        margin-left: @gutterWidth;
     }
-    #maincontent {
-        .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11 {
-            margin-left: @gutterWidth;
-        }
-        .grid1 { .theWidth(1); }
-        .grid2 { .theWidth(2); }
-        .grid3 { .theWidth(3); }
-        .grid4 { .theWidth(4); }
-        .grid5 { .theWidth(5); }
-        .grid6 { .theWidth(6); }
-        .grid7 { .theWidth(7); }
-        .grid8 { .theWidth(8); }
-        .grid9 { .theWidth(9); }
-        .grid10 { .theWidth(10); }
-        .grid11 { .theWidth(11); }
-        .grid12 { width:960px;}
+
+    .grid1 { .thisWidth(1); }
+    .grid2 { .thisWidth(2); }
+    .grid3 { .thisWidth(3); }
+    .grid4 { .thisWidth(4); }
+    .grid5 { .thisWidth(5); }
+    .grid6 { .thisWidth(6); }
+    .grid7 { .thisWidth(7); }
+    .grid8 { .thisWidth(8); }
+    .grid9 { .thisWidth(9); }
+    .grid10 { .thisWidth(10); }
+    .grid11 { .thisWidth(11); }
+    .grid12 { 
+        width:960px;
+        margin: 0 auto;
+    }
+
+    .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11 {
+        margin-left: @gutterWidth;
+    }
+
+    [class^="grid"] > .grid1 {
+        .thisWidth(1);
+    }
+    
+    [class^="grid"] > .grid2 {
+        .thisWidth(2);
+    }
+    
+    [class^="grid"] > .grid3 {
+        .thisWidth(3);
+    }
+    
+    [class^="grid"] > .grid4 {
+        .thisWidth(4);
+    }
+    
+    [class^="grid"] > .grid5 {
+        .thisWidth(5);
+    }
+    
+    [class^="grid"] > .grid6 {
+        .thisWidth(6);
+    }
+    
+    [class^="grid"] > .grid7 {
+        .thisWidth(7);
+    }
+    
+    [class^="grid"] > .grid8 {
+        .thisWidth(8);
+    }
+    
+    [class^="grid"] > .grid9 {
+        .thisWidth(9);
+    }
+    
+    [class^="grid"] > .grid10 {
+        .thisWidth(10);
+    }
+    
+    [class^="grid"] > .grid11 {
+        .thisWidth(11);
+    }
+
+    [class^="grid"] .first {
+        margin-left: 0 !important;
+    }
         
-        //clear out rule from 480
-        *[class^="grid"]:nth-of-type(odd) {
-            margin-left: @gutterWidth;
-            clear: none;
-        }
-        
-        //clear out rule for 600
-        *[class^="grid"]:nth-of-type(3n+1) {
-            margin-left: @gutterWidth;
-            clear: none;
-        }
-        
-        //duplicated for priority
-        *[class^="grid"] > .grid1 {
-            .theWidth(1);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid2 {
-            .theWidth(2);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid3 {
-            .theWidth(3);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid4 {
-            .theWidth(4);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid5 {
-            .theWidth(5);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid6 {
-            .theWidth(6);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid7 {
-            .theWidth(7);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid8 {
-            .theWidth(8);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid9 {
-            .theWidth(9);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid10 {
-            .theWidth(10);
-            margin-left: @gutterWidth;
-        }
-        
-        *[class^="grid"] > .grid11 {
-            .theWidth(11);
-            margin-left: @gutterWidth;
-        }
+    .first {
+        margin-left: ~'-webkit-calc(50% - 480px)' !important;
+        margin-left: ~'calc(50% - 480px)' !important;
     }
 }

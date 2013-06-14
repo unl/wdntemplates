@@ -11,7 +11,7 @@ html {
     text-rendering: optimizeLegibility;
     font-size: @base-font-size;
 
-    @media (@bp2) {
+    @media @bp2 {
         font-size: @base-font-size + 2px;
     }
 }
@@ -35,57 +35,4 @@ q {
 
 .hidden {
     display: none;
-}
-
-.wdn-band {
-    max-width: 100% !important; //important is required to overpower the wildcard selector above
-
-    .wdn-inner-wrapper {
-        .clear-fix();
-
-        #maincontent & {
-            padding: 1em 5px;
-        }
-        
-        @media (@bp3) {
-            #maincontent & {
-                padding: 1em 0;
-            }
-        }
-    }
-
-    .wdn-stretch { // Use this class for presentational elements that stretch the full-width of the band
-        max-width: 100%;
-        width: 100%;
-    }
-
-    .wdn-center {
-        text-align: center;
-    }
-}
-
-@media (@bp3) {
-    #maincontent {
-
-        > * {
-            max-width: 60rem;
-            margin: 0 auto;
-        }
-
-    }
-
-    .wdn-band {
-
-        .wdn-inner-wrapper {
-            width: 60rem;
-            margin: 0 auto;
-        }
-    }
-    
-    .wdn-text-band {
-
-        .wdn-inner-wrapper {
-            max-width: 50rem;
-        }
-    }
 }
