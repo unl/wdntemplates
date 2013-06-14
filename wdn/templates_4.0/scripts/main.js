@@ -1,10 +1,21 @@
 var _gaq = _gaq || [];
 
 require.config({
-	"baseUrl": window.WDN.getTemplateFilePath('scripts', true),
-    "shim": {
-        "wdn_ajax": ["jquery"],
-    }
+// 	'enforceDefine': true,
+	'baseUrl': window.WDN.getTemplateFilePath('scripts', true),
+    'shim': {
+    	'jquery': {
+    		exports: 'jQuery',
+    		init: function() {
+    			window.WDN.jQuery = this.jQuery.noConflict(true);
+    			return window.WDN.jQuery;
+    		}
+    	},
+        'wdn_ajax': {
+        	deps: ['jquery'],
+        	exports: 'WDN.jQuery.ajaxSettings.proxyKey'
+        }
+    },
 });
 
 //Modernizr, WDN are loaded prior to requireJS
