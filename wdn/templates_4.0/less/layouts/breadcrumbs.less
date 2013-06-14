@@ -1,5 +1,5 @@
 #breadcrumbs {
-    padding: 0 5px 5px;
+    padding: 0 5px 0 38px;
     .sans-serif-font();
     .rem(10);
     background-color: fadeout(#fff, 90%);
@@ -11,15 +11,17 @@
     }
 
     li {
-        display: inline;
+        display: inline-block;
         text-transform: none;
-        margin: 2px 0;
+        overflow: hidden;
 
         @media @bp-nav-full {
             color: @base-text;
         }
 
         &:first-child { // First element to be replaced with 'home' icon.
+            margin-left: -33px;
+            
             a {
                 text-indent: -99em;
                 .rem(14);
@@ -68,29 +70,32 @@
             }
         }
     }
+    
+    .selected a {
+        position: relative;
+
+        &:after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 12px solid #ffffff;
+            position: absolute;
+            left: ~"calc(50% - 12px)";
+            left: ~"-webkit-calc(50% - 12px)";
+            bottom: -8px;
+        }
+    }
 
     // Styles specific to the full view
     @media @bp-nav-full {
         color: @base-text;
         text-shadow: -1px 0 0 #fff;
-        padding: 0;
-        height: 24px;
+        padding: 0 0 0 33px;
         
-        .selected a {
-            position: relative;
-
-            &:after {
-                content: '';
-                width: 0;
-                height: 0;
-                border-left: 12px solid transparent;
-                border-right: 12px solid transparent;
-                border-bottom: 12px solid #5f5f4e;
-                position: absolute;
-                left: ~"calc(50% - 12px)";
-                left: ~"-webkit-calc(50% - 12px)";
-                bottom: -8px;
-            }
+        .selected a:after {
+            border-bottom-color: #5f5f4e;
         }
     }
 

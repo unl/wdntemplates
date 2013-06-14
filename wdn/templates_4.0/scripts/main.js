@@ -1,14 +1,26 @@
 var _gaq = _gaq || [];
 
 require.config({
-	//"baseUrl": '/wdn/templates_4.0/scripts',
-    "shim": {
-        "wdn_ajax": ["jquery"],
-    }
+// 	'enforceDefine': true,
+	'baseUrl': window.WDN.getTemplateFilePath('scripts', true),
+    'shim': {
+    	'jquery': {
+    		exports: 'jQuery',
+    		init: function() {
+    			window.WDN.jQuery = this.jQuery.noConflict(true);
+    			return window.WDN.jQuery;
+    		}
+    	},
+        'wdn_ajax': {
+        	deps: ['jquery'],
+        	exports: 'WDN.jQuery.ajaxSettings.proxyKey'
+        }
+    },
 });
 
-//Modernizr is loaded prior to requireJS
+//Modernizr, WDN are loaded prior to requireJS
 define('modernizr', [], function () { return window.Modernizr; });
+define('wdn', [], function() { return window.WDN; });
 
 define(['wdn', 'require'], function(WDN, require) {
 	WDN.initializePlugin('navigation');
