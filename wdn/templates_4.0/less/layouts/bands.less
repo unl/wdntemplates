@@ -1,5 +1,15 @@
+// implement the same content padding
+#maincontent > *:not([class^="grid"]) {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 .wdn-band {
     max-width: 100% !important; //important is required to overpower the wildcard selector above
+    
+    #maincontent > & {
+        padding: 0;
+    }
 
     .wdn-inner-wrapper {
         .clear-fix();
@@ -30,7 +40,10 @@
 
         > *:not([class^="grid"]) {
             max-width: 60rem;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 
