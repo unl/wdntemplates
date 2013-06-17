@@ -13,6 +13,10 @@
     float: left;
     background-color: @color;
     padding: 0.5em;
+    .brand-font();
+    text-transform: uppercase;
+    .rem(9);
+    cursor: pointer;
 
     &:nth-of-type(3n) {
         background-color: darken(@color, 5%);
@@ -21,7 +25,14 @@
     &:nth-of-type(2n) {
         background-color: darken(@color, 10%);
     }
-}
 
-.wdn-resource-label {
+    [class^=wdn-icon] {
+        text-decoration: none;
+        color: fadeout(darken(@color, 70%), 10%);
+        cursor: pointer;
+
+        &:before {
+            font-size: 1.5em;
+        }
+    }
 }
