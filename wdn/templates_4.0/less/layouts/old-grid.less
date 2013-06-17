@@ -74,7 +74,7 @@
     .grid10 { .thisWidth(10); }
     .grid11 { .thisWidth(11); }
 
-    .first {
+    [class^="grid"].first {
         margin-left: 0;
     }
 }
@@ -153,12 +153,12 @@
         .thisWidth(11);
     }
 
-    [class^="grid"] .first {
-        margin-left: 0 !important;
-    }
-        
-    .first {
+    [class^="grid"].first {
         margin-left: ~'-webkit-calc(50% - 480px)' !important;
         margin-left: ~'calc(50% - 480px)' !important;
+    }
+    
+    [class^="grid"] .first {
+        margin-left: 0 !important;
     }
 }

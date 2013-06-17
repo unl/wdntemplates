@@ -508,7 +508,8 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 	            });
 	            
 	            var onscroll = function() {
-                    clearTimeout(scrollTimeout);
+//                    don't clear the timeout (wait for last event) as it causes poor UX
+//                    clearTimeout(scrollTimeout);
                     scrollTimeout = setTimeout(function() {
                     	var breadcrumbs = $('#breadcrumbs'), nav = $('#navigation');
                         if ($(window).scrollTop() >= breadcrumbs.offset().top + breadcrumbs.height()) {
@@ -609,7 +610,11 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
             		go();
             	}
             }
-        }
+        },
+        
+        getSiteHomepage : function() {
+        	return siteHomepage;
+        },
     };
     
     return Plugin;
