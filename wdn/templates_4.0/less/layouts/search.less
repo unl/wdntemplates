@@ -64,7 +64,6 @@
     color: darken(#d1ceb3, 45%);
     .transition(width 0.3s ease);
     width: 50px;
-    .box-sizing(border-box);
     .sans-serif-font();
 
     &::-webkit-input-placeholder {
@@ -85,9 +84,12 @@
 
     &:focus {
         width: 200px;
-        border-color: darken(#d1ceb3, 15%);
-        .box-shadow(1px 1px 3px #d1ceb3);
+        border-color: darken(#d1ceb3, 10%);
         outline: none;
+
+        @media @bp-nav-hidden {
+            .box-shadow(1px 1px 3px #d1ceb3);
+        }
     }
 
     @media @bp-nav-hidden {
