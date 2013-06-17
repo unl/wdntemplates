@@ -2,37 +2,60 @@
 * WDN Resources Wrapper
 */
 @color: #eeecde;
-#wdn_resources {
-    float: right;
-    position: absolute;
-    top: 0;
-    right: 0;
+
+.wdn-resource-app-trigger {
+    display: none;
 }
 
 .wdn-resource-label {
-    float: left;
-    background-color: @color;
-    padding: 0.5em;
     .brand-font();
     text-transform: uppercase;
-    .rem(9);
     cursor: pointer;
-
-    &:nth-of-type(3n) {
-        background-color: darken(@color, 5%);
-    }
-
-    &:nth-of-type(2n) {
-        background-color: darken(@color, 10%);
-    }
 
     [class^=wdn-icon] {
         text-decoration: none;
-        color: fadeout(darken(@color, 70%), 10%);
         cursor: pointer;
 
         &:before {
             font-size: 1.5em;
+        }
+    }
+}
+
+@media @bp-nav-full {
+    #wdn_resources {
+        float: right;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .wdn-resource-app-trigger {
+        display: block;
+    }
+
+    .wdn-resource-label {
+        float: left;
+        background-color: @color;
+        padding: 0.5em;
+        .rem(9);
+
+        &:nth-of-type(3n) {
+            background-color: darken(@color, 5%);
+        }
+
+        &:nth-of-type(2n) {
+            background-color: darken(@color, 10%);
+        }
+
+        [class^=wdn-icon] {
+            text-decoration: none;
+            color: fadeout(darken(@color, 70%), 10%);
+            cursor: pointer;
+
+            &:before {
+                font-size: 1.5em;
+            }
         }
     }
 }

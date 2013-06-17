@@ -2,6 +2,18 @@
     #wdn_identity_management {
         display: none;
     }
+
+    .wdn-resource-login-trigger {
+        .rem(12);
+        position: absolute;
+        bottom: -33px; // position over the nav bar
+        right: 0;
+        z-index: 10; // overlay the nav bar
+
+        a {
+            color: #e7b5b5;
+        }
+    }
 }
 @media @bp-nav-full{
     #wdn_identity_management {
