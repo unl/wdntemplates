@@ -36,7 +36,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 					domSearchForm.append(htmlUpdate);
 				}
 				
-				domSearchForm.setAttribute('action', localSearch);
+				domSearchForm[0].setAttribute('action', localSearch);
 			} else {
 				if (siteHomepage && siteHomepage !== 'http://www.unl.edu/') {
 					domSearchForm.append($('<input>', {
