@@ -1,0 +1,87 @@
+// Modular Scale for vertical rythm: http://modularscale.com/scale/?px1=16&px2=&ra1=1.333&ra2=0
+
+p {
+    margin: 0 0 1.49em 0;
+}
+
+.heading-size(@size) {
+    font-size: @size * 1rem;
+    line-height: 1.49/(@size/2) * 1em;
+    margin: 1.49/@size * 1em 0 1.49/(@size) * 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+h1 {
+    .heading-size(3.157);
+}
+
+h2 {
+    .heading-size(2.369);
+}
+
+h3 {
+    .heading-size(1.777);
+}
+
+h4 {
+    .heading-size(1.333)
+}
+
+h5 {
+    .heading-size(1);
+}
+
+.wdn-text-hidden {
+    .text-hidden();
+}
+
+/* 
+*
+* Icon Font - see /wdn/templates_4.0/fonts/fontello/readme.md
+*
+*/
+
+@font-face {
+    font-family: 'fontello';
+    src: url('../fonts/fontello/fontello.eot?99411882');
+    src: url('../fonts/fontello/fontello.eot?99411882#iefix') format('embedded-opentype'),
+       url('../fonts/fontello/fontello.woff?99411882') format('woff'),
+       url('../fonts/fontello/fontello.ttf?99411882') format('truetype'),
+       url('../fonts/fontello/fontello.svg?99411882#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="wdn-icon-"]:before, [class*=" wdn-icon-"]:before {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    /* opacity: .8; */
+
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+
+    /* Uncomment for 3D effect */
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+.wdn-icon-home:before { content: '🔨'; } /* '\1f528' */
+.wdn-icon-mail:before { content: '\2709'; } /* '✉' */
+.wdn-icon-location:before { content: '\e07a'; } /* '' */
+.wdn-icon-right-open-mini:before { content: '\f0c8'; } /* '' */
+.wdn-icon-facebook-circled:before { content: '\f051'; } /* '' */
+.wdn-icon-twitter-circled:before { content: '\f057'; } /* '' */
+.wdn-icon-menu:before { content: '\f0c9'; } /* '' */
+.wdn-icon-phone:before { content: '📱'; } /* '\1f4f1' */
+.wdn-icon-search:before { content: '🔍'; } /* '\1f50d' */
+.wdn-icon-wrench:before { content: '🔧'; } /* '\1f527' */

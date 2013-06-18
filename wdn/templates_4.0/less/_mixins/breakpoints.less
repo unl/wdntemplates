@@ -1,0 +1,14 @@
+@bp1: ~" (min-width: 480px)";
+@bp2: ~" (min-width: 768px)";
+@bp3: ~" (min-width: 980px)";
+@bp4: ~" (min-width: 1044px)";
+
+// For styles which shouldn't cascade to other breakpoints
+@only-bp1: ~" (min-width: 480px) and (max-width: 767px) ";
+@only-bp2: ~" (min-width: 768px) and (max-width: 979px)";
+@only-bp3: ~" (min-width: 980px) and (max-width: 1043px)";
+
+// The navigation breaks from the traditional media queries
+@bp-nav-hidden: ~" (max-width: 699px)";
+@bp-nav-full: ~" (min-width: 700px)";
+@bp-nav-max: @bp3;

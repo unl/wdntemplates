@@ -1,0 +1,164 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/content/grid.less
+*
+* ---------------------------
+* Styles associated with the grid system
+* ---------------------------
+*/
+
+// LESS function to combine column and gutter widths for determining individual column widths
+.theWidth (@theColumn: 1, @columnWidth: 8%, @gutterWidth: 2.22222222%) {
+    width: (@columnWidth * @theColumn) + (@gutterWidth * (@theColumn - 1));
+}
+
+.grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11 {
+    width: auto;
+
+    @media @only-bp1 {
+        width: 49%;
+        margin: 0 0.5%;
+    }
+
+    @media @bp1 {
+        float: left;
+
+        &.first {
+            clear: left;
+        }
+    }
+
+    @media @bp2 {
+
+        &.first {
+            margin-left: 0;
+        }
+    }
+
+    @media @only-bp2 {
+        > [class^="grid"] {
+            width: 49%;
+            margin: 0 0.5%;
+        }
+    }
+
+    @media @bp3 {
+
+    }
+}
+
+.grid12 {
+    width: 98%;
+    margin: 0 1%;
+}
+
+@media @only-bp2 {
+
+    @gutterWidth: 2.54%;
+    @columnWidth: 6%;
+    .thisWidth (@theColumn: 1) {
+        .theWidth(@theColumn, @columnWidth, @gutterWidth);
+        margin-left: @gutterWidth;
+    }
+
+    .grid1 { .thisWidth(1); }
+    .grid2 { .thisWidth(2); }
+    .grid3 { .thisWidth(3); }
+    .grid4 { .thisWidth(4); }
+    .grid5 { .thisWidth(5); }
+    .grid6 { .thisWidth(6); }
+    .grid7 { .thisWidth(7); }
+    .grid8 { .thisWidth(8); }
+    .grid9 { .thisWidth(9); }
+    .grid10 { .thisWidth(10); }
+    .grid11 { .thisWidth(11); }
+
+    [class^="grid"].first {
+        margin-left: 0;
+    }
+}
+
+@media @bp3 {
+
+    @gutterWidth: 24px;
+    @columnWidth: 58px;
+
+    .thisWidth (@theColumn: 1) {
+        .theWidth(@theColumn, @columnWidth, @gutterWidth);
+        margin-left: @gutterWidth;
+    }
+
+    .grid1 { .thisWidth(1); }
+    .grid2 { .thisWidth(2); }
+    .grid3 { .thisWidth(3); }
+    .grid4 { .thisWidth(4); }
+    .grid5 { .thisWidth(5); }
+    .grid6 { .thisWidth(6); }
+    .grid7 { .thisWidth(7); }
+    .grid8 { .thisWidth(8); }
+    .grid9 { .thisWidth(9); }
+    .grid10 { .thisWidth(10); }
+    .grid11 { .thisWidth(11); }
+    .grid12 { 
+        width:960px;
+        margin: 0 auto;
+    }
+
+    .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11 {
+        margin-left: @gutterWidth;
+    }
+
+    [class^="grid"] > .grid1 {
+        .thisWidth(1);
+    }
+    
+    [class^="grid"] > .grid2 {
+        .thisWidth(2);
+    }
+    
+    [class^="grid"] > .grid3 {
+        .thisWidth(3);
+    }
+    
+    [class^="grid"] > .grid4 {
+        .thisWidth(4);
+    }
+    
+    [class^="grid"] > .grid5 {
+        .thisWidth(5);
+    }
+    
+    [class^="grid"] > .grid6 {
+        .thisWidth(6);
+    }
+    
+    [class^="grid"] > .grid7 {
+        .thisWidth(7);
+    }
+    
+    [class^="grid"] > .grid8 {
+        .thisWidth(8);
+    }
+    
+    [class^="grid"] > .grid9 {
+        .thisWidth(9);
+    }
+    
+    [class^="grid"] > .grid10 {
+        .thisWidth(10);
+    }
+    
+    [class^="grid"] > .grid11 {
+        .thisWidth(11);
+    }
+
+    [class^="grid"].first {
+        margin-left: ~'-webkit-calc(50% - 480px)' !important;
+        margin-left: ~'calc(50% - 480px)' !important;
+    }
+    
+    [class^="grid"] .first {
+        margin-left: 0 !important;
+    }
+}

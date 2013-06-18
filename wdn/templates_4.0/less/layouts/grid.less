@@ -1,0 +1,176 @@
+@import "grid-mixins.less";
+
+[class*="wdn-grid-set"] {
+    margin: 0 (@gutter-size/2) * -1;
+    .box-sizing(border-box);
+    clear:left;
+    .clear-fix();
+    
+    // Since a column provides the `padding-left`, if another grid set is nested without being nested inside a `wdn-col` we need ensure the nested grid doesn't have double negative `margin-left`.
+    :not([class*="wdn-col"]) {
+        
+        [class*="wdn-grid-set"] {
+            margin-left: 0;
+        }
+    }
+    
+    // Overrule this rule when deep nesting occurs: .grid-set > .blah > .grid-set > .wdn-col > .grid-set
+    [class*="wdn-col"] {
+        
+        [class*="wdn-grid-set"] {
+            margin-left: @gutter-size * -1;
+        }
+    }
+    
+    // When the `grid-set` is a direct child of another `grid-set`, avoid the double negative `margin-left`.
+    > [class*="wdn-grid-set"] {
+        margin-left: 0;
+    }
+}
+
+[class*="wdn-col"] {
+    float: left;
+    .grid-col-width-cal(100%);
+    padding: 0 (@gutter-size/2);
+    .box-sizing(border-box);
+    
+    // Use this when only a background is needed (no border). This option isn't recommended, instead one should use a nested element with a class of .col-island (see below). 
+    &.col-padding {
+        padding: (@gutter-size / 2) 0 (@gutter-size / 2) @gutter-size;
+        background-clip: content-box;
+    }
+}
+
+// When a border is needed, nest inside a column.
+.visual-island {
+    padding: @gutter-size / 2;
+}
+
+// reset for list grids
+#maincontent {
+    ul, ol {
+        &[class*="wdn-grid-set"] {
+            padding: 0;
+            list-style: none;
+        }
+    }
+}
+
+li.@{grid-col-class} {
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+// ability to center columns
+.centered {
+    float: none !important;
+    margin: 0 auto !important;
+}
+
+// Function to setup the widths for each grid at various breakpoints
+.grid-setup(@namespace, @namespace-set) {
+    .@{namespace}-full, .@{namespace}-set-full .@{grid-col-class} {
+        .grid-col-width-cal(100%);
+    }
+    
+    // Halves
+    .@{namespace}-one-half, .@{namespace}-two-fourths, .@{namespace}-three-sixths, .@{namespace-set}-halves .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/2));
+    }
+    
+    // Thirds
+    .@{namespace}-one-third, .@{namespace}-two-sixths, .@{namespace-set}-thirds .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/3));
+    }
+    
+    .@{namespace}-two-thirds, .@{namespace}-four-sixths {
+        .grid-col-width-cal(percentage(2/3));
+    }
+    
+    // Fourths
+    .@{namespace}-one-fourth, .@{namespace-set}-fourths .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/4));
+    }
+    
+    .@{namespace}-three-fourths {
+        .grid-col-width-cal(percentage(3/4));
+    }
+    
+    // Fifths
+    .@{namespace}-one-fifth, .@{namespace-set}-fifths .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/5));
+    }
+    
+    .@{namespace}-two-fifths {
+        .grid-col-width-cal(percentage(2/5));
+    }
+    
+    .@{namespace}-three-fifths {
+        .grid-col-width-cal(percentage(3/5));
+    }
+    
+    .@{namespace}-four-fifths {
+        .grid-col-width-cal(percentage(4/5));
+    }
+    
+    // Sixths
+    .@{namespace}-one-sixth, .@{namespace-set}-sixths .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/6));
+    }
+    
+    .@{namespace}-five-sixths {
+        .grid-col-width-cal(percentage(5/6));
+    }
+    
+    // Sevenths
+    .@{namespace}-one-seventh, .@{namespace-set}-sevenths .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/7));
+    }
+    
+    .@{namespace}-two-sevenths {
+        .grid-col-width-cal(percentage(2/7));
+    }
+    
+    .@{namespace}-three-sevenths {
+        .grid-col-width-cal(percentage(3/7));
+    }
+    
+    .@{namespace}-four-sevenths {
+        .grid-col-width-cal(percentage(4/7));
+    }
+    
+    .@{namespace}-five-sevenths {
+        .grid-col-width-cal(percentage(5/7));
+    }
+    
+    .@{namespace}-six-sevenths {
+        .grid-col-width-cal(percentage(6/7));
+    }
+}
+
+/* -- Non-breakpoint states for columns - MOBILE FIRST
+------------------------------------------------------------- */
+
+.grid-setup(@grid-col-class, e(%("%s", @grid-set)));
+
+@media @bp1 {
+    .grid-setup(e(%("bp1-%s", @grid-col-class)), e(%("bp1-%s", @grid-set)));
+}
+
+/* -- Breakpoint 2 .bp2
+------------------------------------------------------------- */
+@media @bp2 {
+    .grid-setup(e(%("bp2-%s", @grid-col-class)), e(%("bp2-%s", @grid-set)));
+}
+
+/* -- Breakpoint 3 .bp3
+------------------------------------------------------------- */
+@media @bp3 {
+    .grid-setup(e(%("bp3-%s", @grid-col-class)), e(%("bp3-%s", @grid-set)));
+}
+
+/* -- Breakpoint 4 .bp4
+------------------------------------------------------------- */
+@media @bp4 {
+    .grid-setup(e(%("bp4-%s", @grid-col-class)), e(%("bp4-%s", @grid-set)));
+}

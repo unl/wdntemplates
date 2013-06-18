@@ -1,0 +1,79 @@
+.skipnav {
+
+    a:focus {
+        text-indent: 0;
+        line-height: 1;
+    }
+}
+
+#navigation {
+    a {
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+}
+
+@media @bp-nav-hidden {
+    #wdn_menu_toggle:checked { // Change states when toggle is checked
+
+        ~ .wdn-content-slide, ~ noscript .wdn-content-slide {
+            left: 200px;
+        }
+
+        ~ #wdn_navigation_bar {
+            left: 0;
+        }
+    }
+}
+
+@media @bp-nav-full {
+    #wdn_menu_toggle:checked { // Change states when toggle is checked
+
+        ~ #wdn_navigation_bar {
+
+
+            #navigation li ul {
+                height: auto;
+            }
+
+            .wdn-icon-menu:after {
+                .rotate(180deg);
+                top: -14px;
+            }
+        }
+    }
+    
+    .js {
+        #wdn_navigation_bar {
+            visibility: hidden;
+        }
+        
+        .nav_ready #wdn_navigation_bar {
+            visibility: visible;
+        }
+        
+        #navigation {
+            position: absolute;
+            
+            &.nav-scrolling {
+                position: fixed;
+                top: 0;
+            }
+            
+            li ul {
+                height: auto;
+            }
+        }
+    }
+    
+    #navigation li ul {
+        .nav_collapsed & {
+            height: 0 !important;
+        }
+        
+        .nav_expanded & {
+            
+        }
+    }
+}
