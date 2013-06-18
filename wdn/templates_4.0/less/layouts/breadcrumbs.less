@@ -1,5 +1,5 @@
 #breadcrumbs {
-    padding: 0 5px 0 38px;
+    padding: 5px 5px 5px 38px;
     .sans-serif-font();
     .rem(10);
     background-color: fadeout(#fff, 90%);
@@ -9,10 +9,10 @@
         width: 60rem;
         margin-top: -1px;
     }
+    
     li {
-        display: inline-block;
+        display: inline;
         text-transform: none;
-        overflow: hidden;
 
         @media @bp-nav-full {
             color: @base-text;
@@ -43,13 +43,6 @@
                 }
 
             }
-
-            &.selected {
-                a:after{
-                    bottom:-6px;
-                } 
-            }
-
         }
 
         &:after {
@@ -100,6 +93,7 @@
         color: @base-text;
         text-shadow: -1px 0 0 #fff;
         padding: 0 0 0 33px;
+        margin-bottom: 2px;
         
         .selected a:after {
             border-bottom-color: #5f5f4e;
@@ -108,6 +102,8 @@
 
     a {
         display: inline-block;
+        overflow: hidden;
+        vertical-align: bottom;
 
         // Styles specific to the full view
         @media @bp-nav-full {
