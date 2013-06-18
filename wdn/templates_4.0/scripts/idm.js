@@ -139,8 +139,9 @@ define(['wdn'], function(WDN) {
                 user_profiles[j].setAttribute('href', 'http:' + planetRed + 'profile/'+planetred_uid);
                 user_profiles[j].setAttribute('title', 'Review and update your profile');
             }
-            document.getElementById('wdn_idm_userpic').setAttribute('src', planetRed + 'icon/'+planetred_uid+'/topbar/');
             var username = document.getElementById('wdn_idm_username');
+            username.style.backgroundImage = "url(" + planetRed + "icon/" + planetred_uid + "/topbar/)";
+
             while (username.firstChild) {
                 username.removeChild(username.firstChild);
             }
