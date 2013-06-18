@@ -103,13 +103,13 @@ define(['wdn', 'idm'], function(WDN, idm) {
 					})();
 				}]);
 
-				var toolLinks = document.getElementById('wdn_tool_links').getElementsByTagName('a');
-				for (; i<toolLinks.length; i++) {
-	                bindEvent(toolLinks[i], 'click', function() {
-	                	var wdnToolLinks = this.textContent || this.innerText || '';
-						Plugin.callTrackEvent('WDN Tool Links', wdnToolLinks, thisURL);
-	                });
-	            }
+//				var toolLinks = document.getElementById('wdn_tool_links').getElementsByTagName('a');
+//				for (; i<toolLinks.length; i++) {
+//	                bindEvent(toolLinks[i], 'click', function() {
+//	                	var wdnToolLinks = this.textContent || this.innerText || '';
+//						Plugin.callTrackEvent('WDN Tool Links', wdnToolLinks, thisURL);
+//	                });
+//	            }
 			}
 			
 			bindLinks();
