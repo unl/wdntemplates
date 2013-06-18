@@ -10,7 +10,10 @@
 .wdn-resource-label {
     .brand-font();
     text-transform: uppercase;
-    cursor: pointer;
+    
+    @media @bp-nav-full {
+        cursor: pointer;
+    }
 
     [class^=wdn-icon] {
         text-decoration: none;

@@ -1,17 +1,10 @@
 .loggedin {
 
-    #wdn_idm_username {
-        background-repeat: no-repeat;
-        white-space: nowrap;
-
-        &:before { //maintain vertical space
-            content: '.';
-            opacity: 0;
-        }
+    .wdn-profile-options {
 
         &:hover {
 
-            ~ #wdn_idm_user_options {
+            #wdn_idm_user_options {
                 display: block;
 
                 @media @bp-nav-hidden {
@@ -37,10 +30,39 @@
                 }
             }
         }
+
+    }
+
+    #wdn_idm_username {
+        background-repeat: no-repeat;
+        white-space: nowrap;
+
+        &:before { //maintain vertical space
+            content: '.';
+            opacity: 0;
+        }
     }
 }
 
 #wdn_idm_user_options {
+
+    &:hover {
+        @media @bp-nav-hidden {
+            right: -5px;
+            .brand-gradient();
+            border-bottom-left-radius: 3px;
+        }
+
+        @media @bp-nav-full {
+            left: 0;
+            background-color: #f8f5ec;
+            border-bottom: 2px solid darken(#f8f5ec, 15%);
+
+            a {
+                color: fadeout(darken(@resource-color, 70%), 10%);
+            }
+        }
+    }
 
     a:hover {
         @media @bp-nav-hidden {
