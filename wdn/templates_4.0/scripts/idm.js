@@ -30,9 +30,9 @@ define(['wdn'], function(WDN) {
         logoutURL = loginSrv + 'cas/logout?url=' + encLoc,
         loginURL = loginSrv + 'cas/login?service=' + encLoc,
         serviceURL = loginSrv + 'services/whoami/?id=',
-        planetRed = '//planetred.unl.edu/pg/', 
+        planetRed = '//planetred.unl.edu/pg/',
         user = false;
-        
+
     var displayName = function(uid) {
         var disp_name = '';
         if (user.uid && user.uid === uid && user.cn) {
