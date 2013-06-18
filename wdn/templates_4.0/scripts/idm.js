@@ -164,16 +164,14 @@ define(['wdn'], function(WDN) {
 
         displayLogin : function() {
             var idm = document.getElementById('wdn_identity_management'),
-                loginLinks = WDN.jQuery('.wdn-idm-login');
+                loginLink = document.getElementById('wdn_idm_username');
 
             if (null === idm) {
                 return;
             }
 
             idm.className = idm.className.replace(/(^|\s)hidden(\s|$)/, '');
-            loginLinks.each(function () {
-                WDN.jQuery(this).attr('href', loginURL);
-            });
+            loginLink.setAttribute('href', loginURL);
         },
 
         /**
