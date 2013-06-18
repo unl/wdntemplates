@@ -1,7 +1,7 @@
 /*
 * WDN Resources Wrapper
 */
-@color: #f8f5ec;
+@resource-color: #f8f5ec;
 
 .wdn-resource-app-trigger {
     display: none;
@@ -36,21 +36,21 @@
 
     .wdn-resource-label {
         float: left;
-        background-color: @color;
+        background-color: @resource-color;
         padding: 0.5em;
         .rem(10);
 
         &:nth-of-type(3n) {
-            background-color: darken(@color, 3%);
+            background-color: darken(@resource-color, 3%);
         }
 
         &:nth-of-type(2n) {
-            background-color: darken(@color, 7%);
+            background-color: darken(@resource-color, 7%);
         }
 
         [class^=wdn-icon] {
             text-decoration: none;
-            color: fadeout(darken(@color, 70%), 10%);
+            color: fadeout(darken(@resource-color, 70%), 10%);
             cursor: pointer;
 
             &:before {

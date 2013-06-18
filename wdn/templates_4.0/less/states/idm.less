@@ -1,0 +1,43 @@
+#wdn_identity_management.loggedin {
+
+    &:hover {
+
+        #wdn_idm_user_options {
+            display: block;
+
+            @media @bp-nav-hidden {
+                right: -5px;
+                .brand-gradient();
+                border-bottom-left-radius: 3px;
+            }
+
+            @media @bp-nav-full {
+                left: 0;
+                background-color: #f8f5ec;
+                border-bottom: 2px solid darken(#f8f5ec, 15%);
+
+                a {
+                    color: fadeout(darken(@resource-color, 70%), 10%);
+                }
+            }
+        }
+
+        @media @bp-nav-hidden {
+            a {
+                color: #fff;
+            }
+        }
+    }
+}
+#wdn_idm_user_options {
+
+    a:hover {
+        @media @bp-nav-hidden {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        @media @bp-nav-full {
+            background-color: darken(@resource-color, 2%);
+        }
+    }
+}
