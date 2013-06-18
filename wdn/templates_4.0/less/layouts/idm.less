@@ -1,16 +1,75 @@
-@media @bp-nav-hidden {
-    #wdn_identity_management {
-        display: none;
-    }
-}
-@media @bp-nav-full{
-    #wdn_identity_management {
-        position: absolute;
-        top: 15px;
-        right: 30%;
+#wdn_identity_management {
+    position: relative;
+
+    @media @bp-nav-hidden {
+        line-height: 0;
     }
 
-    #wdn_idm_user_options, #wdn_idm_username {
-        display: none;
+    @media @bp-nav-full {
+    }
+}
+
+.wdn-icon-user:before {
+    @media @bp-nav-hidden {
+        vertical-align: top;
+    }
+}
+
+.wdn-profile-options {
+    display: inline;
+}
+
+#wdn_idm_user_options {
+    display: none;
+    position: absolute;
+    top: 0.5em;
+    right: -5px;
+    .list-reset();
+
+    @media @bp-nav-hidden {
+        right: -5px;
+        .brand-gradient();
+        border-bottom-left-radius: 3px;
+    }
+
+    @media @bp-nav-full {
+        margin-top: 1.75em;
+        left: 0;
+        background-color: #f8f5ec;
+        border-bottom: 2px solid darken(#f8f5ec, 15%);
+
+    }
+
+    li {
+        margin-top: 0.5em;
+        line-height: 1.5;
+    }
+
+    a {
+        text-decoration: none;
+        display: block;
+        padding: 0.5em 1em;
+    }
+}
+
+#wdn_idm_username {
+    background-repeat: no-repeat;
+    white-space: nowrap;
+}
+
+@media @bp-nav-hidden {
+
+    .wdn-resource-login-trigger {
+        .rem(12);
+        line-height: 1;
+        position: relative;
+        bottom: -65px; // position over the nav bar
+        right: 0;
+        z-index: 1; // overlay the nav bar
+        text-align: right;
+
+        a {
+            color: #e7b5b5;
+        }
     }
 }
