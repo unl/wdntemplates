@@ -50,6 +50,7 @@ function removeRelativePaths($html, $base_url)
             $pos += strlen($needle);
             if (substr($html, $pos, 7) != 'http://'
                 && substr($html, $pos, 8) != 'https://'
+                && substr($html, $pos, 2) != '//'
                 && substr($html, $pos, 6) != 'ftp://'
                 && substr($html, $pos, 7) != 'mailto:'
                 && substr($html, $pos, 1) != '#') {
