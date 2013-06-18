@@ -9,7 +9,6 @@
         width: 60rem;
         margin-top: -1px;
     }
-
     li {
         display: inline-block;
         text-transform: none;
@@ -42,7 +41,15 @@
                     font-variant: normal;
                     text-transform: none;
                 }
+
             }
+
+            &.selected {
+                a:after{
+                    bottom:-6px;
+                } 
+            }
+
         }
 
         &:after {
@@ -69,7 +76,7 @@
                 display: none;
             }
         }
-    }
+    }  
     
     .selected a {
         position: relative;
