@@ -1,10 +1,17 @@
 .loggedin {
 
-    &#wdn_identity_management {
+    #wdn_idm_username {
+        background-repeat: no-repeat;
+        white-space: nowrap;
+
+        &:before { //maintain vertical space
+            content: '.';
+            opacity: 0;
+        }
 
         &:hover {
 
-            #wdn_idm_user_options {
+            ~ #wdn_idm_user_options {
                 display: block;
 
                 @media @bp-nav-hidden {
@@ -29,15 +36,6 @@
                     color: #fff;
                 }
             }
-        }
-    }   
-
-    #wdn_idm_username {
-        background-repeat: no-repeat;
-
-        &:before { //maintain vertical space
-            content: '.';
-            opacity: 0;
         }
     }
 }
