@@ -4,6 +4,9 @@
     @media @bp-nav-hidden {
         line-height: 0;
     }
+
+    @media @bp-nav-full {
+    }
 }
 
 .wdn-icon-user:before {
@@ -21,6 +24,20 @@
     right: -5px;
     .list-reset();
 
+    @media @bp-nav-hidden {
+        right: -5px;
+        .brand-gradient();
+        border-bottom-left-radius: 3px;
+    }
+
+    @media @bp-nav-full {
+        margin-top: 1.75em;
+        left: 0;
+        background-color: #f8f5ec;
+        border-bottom: 2px solid darken(#f8f5ec, 15%);
+
+    }
+
     li {
         margin-top: 0.5em;
         line-height: 1.5;
@@ -31,6 +48,11 @@
         display: block;
         padding: 0.5em 1em;
     }
+}
+
+#wdn_idm_username {
+    background-repeat: no-repeat;
+    white-space: nowrap;
 }
 
 @media @bp-nav-hidden {
