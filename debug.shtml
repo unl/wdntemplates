@@ -104,6 +104,13 @@
             <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
+                <h1>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h1>
+                <h2>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h2>
+                <h3>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h3>
+                <h4>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h4>
+                <h5>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h5>
+                <h6>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h6>
+                <!--
         <h3>Current, Supported (but soon-to-be-deprecated) Grid System</h3> 
         <div class="grid1 first"> grid1 </div> 
         <div class="grid11"> grid11 </div> 
@@ -196,6 +203,7 @@
                         </div>
                     </div>
                 </div>
+            -->
                 <!-- InstanceEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
