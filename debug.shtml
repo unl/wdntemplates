@@ -105,9 +105,9 @@
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
                 <h1>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h1>
-                <h2>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h2>
+                <h2 class="wdn-impact">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h2>
                 <h3>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h3>
-                <h4>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h4>
+                <h4 class="wdn-impact">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h4>
                 <h5>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h5>
                 <h6>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h6>
                 <!--
