@@ -34,8 +34,14 @@
 <body class="fixed debug" data-version="4.0">
     <!--#include virtual="/wdn/templates_4.0/includes/skipnav.html" -->
     <div id="wdn_wrapper">
+<<<<<<< HEAD
         <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide" />
+=======
+        <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" />
+        <!--#include virtual="/wdn/templates_4.0/includes/noscript-padding.html" -->
+>>>>>>> fa9a182e60bdb4d393a17201c792266046dc11f9
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
+            <!--#include virtual="/wdn/templates_4.0/includes/wdnResources.html" -->
             <div class="wdn-inner-wrapper">
                 <!--#include virtual="/wdn/templates_4.0/includes/logo.html" -->
                 <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
@@ -47,8 +53,10 @@
                         <!-- InstanceEndEditable -->
                     </span>
                 </div>
-                <!--#include virtual="/wdn/templates_4.0/includes/idm.html" -->
-                <!--#include virtual="/wdn/templates_4.0/includes/wdnTools.html" -->
+                <div id="wdn_resources">
+                    <!--#include virtual="/wdn/templates_4.0/includes/idm.html" -->
+                    <!--#include virtual="/wdn/templates_4.0/includes/wdnTools.html" -->
+                </div>
             </div>
         </header>
         <div id="wdn_navigation_bar" role="navigation" class="wdn-band">
@@ -181,14 +189,14 @@
                 <div class="wdn-band" style="line-height: 0;">
                     <img src="sandbox/arch.jpg" alt="" class="wdn-stretch" />
                 </div>
-                <div class="wdn-band wdn-text-band">
+                <div class="wdn-band wdn-text-band wdn-wind">
                     <div class="wdn-inner-wrapper">
                         <h1 class="wdn-center">We are the College of Architecture. This is our story.</h1>
                         <p>Pug seitan thundercats, banksy DIY tofu williamsburg artisan put a bird on it fap flannel odd future twee cliche letterpress. Yr marfa godard, bicycle rights synth messenger bag truffaut blue bottle tattooed pour-over brooklyn bushwick. </p>
                         <p>Messenger bag locavore hoodie kale chips, quinoa pop-up mlkshk forage put a bird on it helvetica fashion axe authentic bicycle rights american apparel wolf. Bespoke you probably haven't heard of them 8-bit, squid twee +1 deep v. Ugh flannel ethnic pork belly, four loko stumptown ethical. Swag pour-over fixie ugh pug artisan wayfarers art party street art. Banh mi occupy skateboard, hella fanny pack wayfarers Austin.</p>
                     </div>
                 </div>
-                <div class="wdn-band" id="infographic-facts" style="background-color: rgba(71, 64, 23, 0.1);">
+                <div class="wdn-band wdn-fire">
                     <div class="wdn-inner-wrapper wdn-center">
                         <h2 class="wdn-center brand-font">Let our numbers do the talking</h2>
                         <div class="wdn-grid-set-halves bp2-wdn-grid-set-fourths">

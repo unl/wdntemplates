@@ -1,0 +1,57 @@
+.loggedin {
+
+    .wdn-profile-options {
+
+        &:hover {
+
+            #wdn_idm_user_options {
+                display: block;
+
+                @media @bp-nav-full {
+
+                    a {
+                        color: fadeout(darken(@resource-color, 70%), 10%);
+                    }
+                }
+            }
+
+            @media @bp-nav-hidden {
+                a {
+                    color: #fff;
+                }
+            }
+        }
+
+    }
+
+    #wdn_idm_username {
+
+        &:before { //maintain vertical space
+            content: '.';
+            opacity: 0;
+        }
+    }
+}
+
+#wdn_idm_user_options {
+
+    &:hover {
+
+        @media @bp-nav-full {
+
+            a {
+                color: fadeout(darken(@resource-color, 70%), 10%);
+            }
+        }
+    }
+
+    a:hover {
+        @media @bp-nav-hidden {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        @media @bp-nav-full {
+            background-color: darken(@resource-color, 2%);
+        }
+    }
+}

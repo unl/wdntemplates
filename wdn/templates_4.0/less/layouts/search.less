@@ -1,30 +1,39 @@
 #wdn_search {
-    position: absolute;
-    right: 5px;
-    top: 8px;
 
     fieldset {
         border: none;
         margin: 0;
         padding: 0;
         position: relative;
+        display: inline;
     }
 
-    label {
+    .wdn-nav-full {
+        display: none;
+
+        @media @bp-nav-full {
+            display: block;
+            text-align: left;
+            display: inline;
+            top: 4px;
+        }
+    }
+
+    .wdn-nav-hidden {
         text-indent: -999em;
         position: absolute;
-        color: fadeout(#d1ceb3, 35%);
+        color: fadeout(#d1ceb3, 25%);
         .rem(12);
         left: 5px;
         top: 6px;
         text-align: left;
-
-        @media @bp-nav-full {
-            top: 4px;
+        &:before {
+            font-size: 1em;
+            text-indent: 999em;
         }
 
-        &:before {
-            text-indent: 999em;
+        @media @bp-nav-full {
+            display: none;
         }
     }
 
@@ -33,15 +42,28 @@
     }
 }
 
+#wdn_search_form {
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 8px;
+
+    @media @bp-nav-full {
+        display: inline;
+        position: relative;
+        float: none;
+        top: -2px;
+    }
+}
+
 #q {
-    border-radius: 3px;
-    border: 2px solid #d1ceb3;
+    border: 1px solid #d1ceb3;
     padding: 5px 5px 5px 22px;
-    .rem(12);
-    color: darken(#d1ceb3, 25%);
+    .rem(10);
+    line-height: 1;
+    color: darken(#d1ceb3, 45%);
     .transition(width 0.3s ease);
-    width: 50px;
-    .box-sizing(border-box);
+    width: 5px;
     .sans-serif-font();
 
     &::-webkit-input-placeholder {
@@ -62,13 +84,24 @@
 
     &:focus {
         width: 200px;
-        border-color: darken(#d1ceb3, 15%);
-        .box-shadow(1px 1px 3px #d1ceb3);
+        border-color: darken(#d1ceb3, 10%);
         outline: none;
+
+        @media @bp-nav-hidden {
+            .box-shadow(1px 1px 3px #d1ceb3);
+        }
+    }
+
+    @media @bp-nav-hidden {
+        .rem(16);
+        border-radius: 3px;
     }
 
     @media @bp-nav-full {
-        width: 215px;
+        width: 0;
+        padding: 0;
+        border-color: fadeout(#d1ceb3, 100%);
+        background-color: fadeout(#ffffff, 100%);
 
         &::-webkit-input-placeholder {
            opacity: 0.8;
@@ -99,7 +132,16 @@
         }
 
         &:focus {
-            width: 250px;
+            width: 150px;
+            padding: 2px 5px;
+            background-color: fadeout(#ffffff, 5%);
+        }
+    }
+
+    @media @bp-nav-max {
+
+        &:focus {
+            width: 200px;
         }
     }
 }
