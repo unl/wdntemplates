@@ -1,0 +1,84 @@
+// legacy "Zen" color
+//@zenNeutral: #3c3c3c;
+
+.zen-bright()
+{
+    color: darken(@colorBright, 30%);
+    //.linear-gradient-2-stop(@colorManilla, 80%, desaturate(@colorManilla, 30%), 100%);
+    background:@colorBright;
+    //text-shadow: 1px 1px 1px lighten(@colorBright, 20%);
+}
+
+.zen-cool()
+{
+    color: darken(@colorTriad, 40%);
+    //.linear-gradient-2-stop(@colorTriad, 80%, desaturate(@colorTriad, 50%), 100%);
+    //.linear-gradient-2-stop(@colorTriad, 80%, desaturate(@colorTriad, 50%), 100%);
+    background:@colorTriad;
+    //text-shadow: 1px 1px 1px lighten(@colorTriad, 20%);
+}
+
+.zen-soothing() 
+{
+    color: darken(@colorComplementary, 40%);
+    //.linear-gradient-2-stop(@colorComplementary, 80%, desaturate(@colorComplementary, 30%), 100%);
+    background: @colorComplementary;
+    //ext-shadow: 1px 1px 1px lighten(@colorComplementary, 20%);
+}
+
+.zen-darksoothing() 
+{
+    color: #fff;
+    //.linear-gradient-2-stop(@colorComplementary, 80%, desaturate(@colorComplementary, 30%), 100%);
+    background: @colorDarkcomp;
+    //ext-shadow: 1px 1px 1px lighten(@colorComplementary, 20%);
+}
+
+.zen-energetic() 
+{
+    color: darken(@colorEnergetic, 36%);
+    background: @colorEnergetic;
+    //text-shadow: 1px 1px 1px lighten(@colorEnergetic, 20%);
+}
+
+.zen-neutral() 
+{
+    //color: #fff;
+    color: darken(@colorNeutral, 60%);
+    //.linear-gradient-2-stop(@zenNeutral, 80%, darken(@zenNeutral, 10%), 100%);
+    background: @colorNeutral;
+    //text-shadow: 1px 1px 1px darken(@colorNeutral, 20%);
+}
+
+.zen-darkneutral() 
+{
+    //color: #fff;
+    color: #fff;
+    //.linear-gradient-2-stop(@zenNeutral, 80%, darken(@zenNeutral, 10%), 100%);
+    background: @colorDarkneutral;
+    //text-shadow: 1px 1px 1px darken(@colorNeutral, 20%);
+}
+
+.zen-primary() 
+{
+    color: #fff;
+    //.linear-gradient-2-stop(@colorPrimary, 80%, desaturate(@colorPrimary, 50%), 100%);
+    background:@brand;
+    //text-shadow: 1px 1px 1px darken(@brand, 20%);
+}
+
+.zen-coal() 
+{
+    color: #fff;
+    //.linear-gradient-2-stop(@colorPrimary, 80%, desaturate(@colorPrimary, 50%), 100%);
+    background:@colorCoal;
+    //text-shadow: 1px 1px 1px darken(@brand, 20%);
+}
+
+.zen-darkcool() 
+{
+    color: #fff;
+    //.linear-gradient-2-stop(@colorPrimary, 80%, desaturate(@colorPrimary, 50%), 100%);
+    background:@colorDarktriad;
+    //text-shadow: 1px 1px 1px darken(@brand, 20%);
+}
