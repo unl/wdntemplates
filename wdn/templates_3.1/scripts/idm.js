@@ -81,6 +81,8 @@ WDN.idm = (function() {
 						};
 						WDN.idm.displayNotice(WDN.idm.getUserId());
 					} else {
+						// User's CAS session is no longer active, kill cookie
+						WDN.idm.logout();
 						loginCheckFailure();
 					}
 				});
