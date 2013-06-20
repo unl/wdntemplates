@@ -27,19 +27,25 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<style type="text/css">
+ #maincontent .grid1, #maincontent .grid2, #maincontent .grid3, #maincontent .grid4, #maincontent .grid5, #maincontent .grid6, #maincontent .grid7, #maincontent .grid8, .grid9, #maincontent .grid10, #maincontent .grid11, #maincontent .col div, #maincontent .two_col div, #maincontent .three_col div, #maincontent .col_half div, #maincontent .four_col div {
+        margin-bottom: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background: rgba(111,191,77,.4);
+        border: solid 1px #6FBF4D;
+        border-width: 1px 0;
+        text-align:center;
+    }
+</style>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
 <body class="fixed debug" data-version="4.0">
     <!--#include virtual="/wdn/templates_4.0/includes/skipnav.html" -->
     <div id="wdn_wrapper">
-<<<<<<< HEAD
-        <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide" />
-=======
         <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" />
         <!--#include virtual="/wdn/templates_4.0/includes/noscript-padding.html" -->
->>>>>>> fa9a182e60bdb4d393a17201c792266046dc11f9
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
             <!--#include virtual="/wdn/templates_4.0/includes/wdnResources.html" -->
             <div class="wdn-inner-wrapper">
@@ -72,84 +78,12 @@
                 <!-- InstanceEndEditable -->
             </nav>
             <div id="wdn_navigation_wrapper">
-<<<<<<< HEAD
-                <nav id="navigation" role="navigation">
-                    <h3 class="wdn_list_descriptor hidden">Navigation</h3>
-                    <!-- InstanceBeginEditable name="navlinks" -->
-                    <ul>
-            <li><a title="Freshmen Student" href="/freshmen-student.aspx" style="padding-top: 14.5833px; padding-bottom: 14.5833px;">Freshmen Student</a>
-                <ul style="height: 243px;">
-                    <li><a title="Freshmen Student - Reservation" href="/freshmen-student/reservation.aspx">Reservation</a></li>
-                    <li><a title="Freshmen Student - Freshmen Orientation Overview" href="/freshmen-student/freshmen-orientation-overview.aspx">Freshmen Orientation Overview</a></li>
-                    <li><a title="Freshmen Student - Freshmen Spring Orientation Schedule" href="/freshmen-student/freshmen-spring-orientation-schedule.aspx">Freshmen Spring Orientation Schedule</a></li>
-                    <li><a title="Freshmen Student - Freshmen Summer Orientation Schedule" href="/freshmen-student/freshmen-summer-orientation-schedule.aspx">Freshmen Summer Orientation Schedule</a></li>
-                    <li><a title="Freshmen Student - Freshmen Parent Information" href="/freshmen-student/freshmen-parents-information.aspx">Freshmen Parent Information</a></li>
-                    <li><a title="Freshmen Student - Parent Spring Orientation Schedule" href="/freshmen-student/parent-spring-orientation-schedule.aspx">Parent Spring Orientation Schedule</a></li>
-                    <li><a title="Freshmen Student - Parent Summer Orientation Schedule" href="/freshmen-student/parent-summer-orientation-schedule.aspx">Parent Summer Orientation Schedule</a></li>
-                </ul>
-            </li>
-            <li><a title="Transfer Student" href="/transfer.aspx" style="padding-top: 14.5833px; padding-bottom: 14.5833px;">Transfer Student</a>
-                <ul style="height: 243px;">
-                    <li><a title="Transfer Student - Reservation" href="/transfer/reservation.aspx">Reservation</a></li>
-                    <li><a title="Transfer Student - Transfer Orientation Overview" href="/transfer/transfer-orientation-overview.aspx">Transfer Orientation Overview</a></li>
-                    <li><a title="Transfer Student - Advising Inventory" href="/transfer/advising-inventory.aspx">Advising Inventory</a></li>
-                    <li><a title="Transfer Student - Transfer Fall Orientation Schedule" href="/transfer/transfer-fall-orientation-schedule.aspx">Transfer Fall Orientation Schedule</a></li>
-                    <li><a title="Transfer Student - Transfer Spring Orientation Schedule" href="/transfer/transfer-spring-orientation-schedule.aspx">Transfer Spring Orientation Schedule</a></li>
-                    <li><a title="Transfer Student - Transfer Summer Orientation Schedule" href="/transfer/transfer-summer-orientation-schedule.aspx">Transfer Summer Orientation Schedule</a></li>
-                    <li><a title="Transfer Student - Transfer Parent/Guest Information" href="/transfer/transfer-parent-guest-information.aspx">Transfer Parent/Guest Information</a></li>
-                    <li><a title="Transfer Student - Transfer Parent/Guest Summer Orientation Schedule" href="/transfer/transfer-parents-guest-summer-orientation-schedule.aspx">Transfer Parent/Guest Summer Orientation Schedule</a></li>
-                </ul>
-            </li>
-            <li><a title="International Undergraduate Students" href="/international-undergraduate-students.aspx">International Undergraduate Students</a>
-                <ul style="height: 243px;">
-                    <li><a title="International Undergraduate Students - Reservation" href="/international-undergraduate-students/reservation.aspx">Reservation</a></li>
-                    <li><a title="International Undergraduate Students - NSE International Student Welcome Week" href="/international-undergraduate-students/nse-international-student-welcome-week.aspx">NSE International Student Welcome Week</a></li>
-                    <li><a title="International Undergraduate Students - Pre-Arrival Information" href="/international-undergraduate-students/prearrival-information.aspx">Pre-Arrival Information</a></li>
-                    <li><a title="International Undergraduate Students - Arrival Form" href="/international-undergraduate-students/arrival-form.aspx">Arrival Form</a></li>
-                    <li><a title="International Undergraduate Students - International Orientation" href="/international-undergraduate-students/international-orientation.aspx">International Orientation</a></li>
-                </ul>
-            </li>
-            <li><a title="Placement Exams" href="/nse-placement-exams.aspx" style="padding-top: 14.5833px; padding-bottom: 14.5833px;">Placement Exams</a>
-                <ul style="height: 243px;">
-                    <li><a title="Placement Exams - Math Placement Exam" href="/nse-placement-exams/math-placement-exam.aspx">Math Placement Exam</a></li>
-                    <li><a title="Placement Exams - Modern Language Exam" href="/nse-placement-exams/modern-language-exam.aspx">Modern Language Exam</a></li>
-                    <li><a title="Placement Exams - Computer Science Exam" href="/nse-placement-exams/computer-science-exam.aspx">Computer Science Exam</a></li>
-                </ul>
-            </li>
-            <li><a title="Programs" href="/programs.aspx" style="padding-top: 14.5833px; padding-bottom: 14.5833px;">Programs</a>
-                <ul style="height: 243px;">
-                    <li><a title="Programs - Power Up Weekend" href="/programs/summer-camp.aspx">Power Up Weekend</a></li>
-                    <li><a title="Programs - Big Red Welcome" href="/programs/big-red-welcome.aspx">Big Red Welcome</a></li>
-                    <li><a title="Programs - Mid Semester Check" href="/programs/mid-semester-check.aspx">Mid Semester Check</a></li>
-                    <li><a title="Programs - International Student Programs" href="/programs/international-student-programs.aspx">International Student Programs</a></li>
-                    <li><a title="Programs - Take A Parent To Lunch" href="/programs/take-a-parent-to-lunch.aspx">Take A Parent To Lunch</a></li>
-                    <li><a title="Programs - Winter Welcome" href="/programs/winter-welcome.aspx">Winter Welcome</a></li>
-                    <li><a title="Programs - Non Traditional Student" href="/programs/non-traditional-student.aspx">Non Traditional Student</a></li>
-                    <li><a title="Programs - Student Veteran and Military Service Members" href="/programs/student-veteran-military-service-members.aspx">Student Veteran and Military Service Members</a></li>
-                    <li><a title="Programs - Summer Session Registration Information" href="/programs/summer-session-registration-information.aspx">Summer Session Registration Information</a></li>
-                </ul>
-            </li>
-            <li><a title="Staff" href="/staff.aspx" style="padding-top: 14.5833px; padding-bottom: 14.5833px;">Staff</a>
-                <ul style="height: 243px;">
-                    <li><a title="Staff - NSE Staff" href="/staff/nse-staff.aspx">NSE Staff</a></li>
-                    <li><a title="Staff - 2012-2013 Orientation Leaders" href="/staff/2012-2013-orientation-leaders.aspx">2012-2013 Orientation Leaders</a></li>
-                    <li><a title="Staff - Orientation Leaders Application" href="/staff/orientation-leaders-application.aspx">Orientation Leaders Application</a></li>
-                    <li><a title="Staff - Orientation Leader Criteria" href="/staff/orientation-leader-criteria.aspx">Orientation Leader Criteria</a></li>
-                    <li><a title="Staff - 2011-2012 Orientation Leaders" href="/staff/2011-2012-orientation-leaders.aspx">2011-2012 Orientation Leaders</a></li>
-                    <li><a title="Staff - 2010-2011 Orientation Leaders" href="/staff/2010-2011-orientation-leaders.aspx">2010-2011 Orientation Leaders</a></li>
-                    <li><a title="Staff - 2009-2010 Orientation Leaders" href="/staff/2009-2010-orientation-leaders.aspx">2009-2010 Orientation Leaders</a></li>
-                </ul>
-            </li>
-        </ul>
-                    <!-- InstanceEndEditable -->
-=======
                 <nav id="navigation" role="navigation" class="wdn-band">
-                        <h3 class="wdn_list_descriptor wdn-text-hidden">Navigation</h3>
-                        <!-- InstanceBeginEditable name="navlinks" -->
-                        <!--#include virtual="sharedcode/navigation.html" -->
-                        <!-- InstanceEndEditable -->
-                        <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
->>>>>>> abd336a612bce06d39dcb031eced3ec422ebf8f6
+                    <h3 class="wdn_list_descriptor wdn-text-hidden">Navigation</h3>
+                    <!-- InstanceBeginEditable name="navlinks" -->
+                    <!--#include virtual="sharedcode/navigation.html" -->
+                    <!-- InstanceEndEditable -->
+                    <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
                 </nav>
             </div>
         </div>
@@ -160,32 +94,68 @@
         <!-- End navigation trigger -->
         <div id="wdn_content_wrapper" role="main" class="wdn-content-slide">
             <div class="wdn-band">
-                    <div class="wdn-inner-wrapper">
-                        <div id="pagetitle">
-                            <!-- InstanceBeginEditable name="pagetitle" -->
-                            <!-- InstanceEndEditable -->
-                        </div>
+                <div class="wdn-inner-wrapper">
+                    <div id="pagetitle">
+                        <!-- InstanceBeginEditable name="pagetitle" -->
+                        <!-- InstanceEndEditable -->
                     </div>
                 </div>
-            <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
+            </div>
             <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-<<<<<<< HEAD
-                  <h2 class="sec_header">GA Tracking Test</h2>
-                  <a href="myfile.pdf">A PDF file</a>
-                  <br />
-                  <a href="http://www.google.com/" onclick="return false;">Another site</a>
-                  <br />
-                  <a href="mailto:bob@aol.com">An email link</a>
-                  <div style="height:3000px">
-                  I'm a big div, now.
-                  </div>
-                  <!-- InstanceEndEditable -->
-                <div class="clear"></div>
-                <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
-=======
+                <h1>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h1>
+                <h2 class="wdn-brand">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h2>
+                <h2 class="wdn-impact">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h2>
+                <h3 class="wdn-brand">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h3>
+                <h3 class="wdn-impact">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h3>
+                <h4 class="wdn-brand">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h4>
+                <h4 class="wdn-impact">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h4>
+                <h5>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h5>
+                <h6>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h6>
                 <!--
+        <h3>Current, Supported (but soon-to-be-deprecated) Grid System</h3> 
+        <div class="grid1 first"> grid1 </div> 
+        <div class="grid11"> grid11 </div> 
+        <div class="grid2 first"> grid2 </div> 
+        <div class="grid10"> grid10 </div> 
+        <div class="grid3 first"> grid3 </div> 
+        <div class="grid9"> grid9 </div> 
+        <div class="grid4 first"> grid4 </div> 
+        <div class="grid8"> grid8 </div> 
+        <div class="grid4 first"> grid4 </div> 
+        <div class="grid4"> grid4 </div> 
+        <div class="grid4"> grid4 </div> 
+        <div class="grid5 first"> grid5 </div> 
+        <div class="grid7"> grid7 </div> 
+        <div class="grid6 first"> grid6 </div> 
+        <div class="grid6"> grid6 </div> 
+        <div class="grid3 first"> grid3 </div> 
+        <div class="grid3"> grid3 </div> 
+        <div class="grid1"> grid1 </div> 
+        <div class="grid5"> grid5 </div> 
+        <div class="grid1 first"> grid1 </div> 
+        <div class="grid5"> grid5 </div> 
+        <div class="grid3"> grid3 </div> 
+        <div class="grid3"> grid3 </div> 
+        <div class="grid3 first"> 3 </div> 
+        <div class="grid9"> 
+          <div class="grid3 first">3</div> 
+          <div class="grid3">3</div> 
+          <div class="grid3">3</div> 
+          <div class="grid5 first">5</div> 
+          <div class="grid2">2</div> 
+          <div class="grid2">2</div> 
+        </div> 
+        <div class="grid8 first"> 
+          <div class="grid3 first">3</div> 
+          <div class="grid3">3</div> 
+          <div class="grid2">2</div> 
+          <div class="grid1 first">1</div> 
+          <div class="grid1">1</div> 
+          <div class="grid6">6</div> 
+        </div> 
+        <div class="grid4"> 4 </div>
                 <div class="wdn-band" style="line-height: 0;">
                     <img src="sandbox/arch.jpg" alt="" class="wdn-stretch" />
                 </div>
@@ -236,68 +206,50 @@
                         </div>
                     </div>
                 </div>
-                -->
+            -->
                 <!-- InstanceEndEditable -->
->>>>>>> abd336a612bce06d39dcb031eced3ec422ebf8f6
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
         </div>
         <div class="wdn-band wdn-content-slide" id="wdn_optional_footer">
             <div class="wdn-inner-wrapper">
+                <!-- InstanceBeginEditable name="optionalfooter" -->
+                <!-- InstanceEndEditable -->
             </div>
         </div>
-        <footer id="footer" role="contentinfo" class="wdn-content-slide wdn-band">
-            <div id="footer_floater">
-                <div id="wdn_footer_flag">
-                    
-                </div>
-            </div>
-            <div class="wdn-inner-wrapper">
-                <div class="footer_col" id="wdn_footer_contact">
-                    <!--#include virtual="sharedcode/footerContactInfo.html" -->
-                </div>
-                <div class="footer_col" id="wdn_footer_related">
-                    <!--#include virtual="sharedcode/relatedLinks.html" -->
-                </div>
-            </div>
-            <div id="wdn_copyright">
+        <footer id="footer" role="contentinfo" class="wdn-content-slide">
+            <div class="wdn-band" id="wdn_footer_related">
                 <div class="wdn-inner-wrapper">
-                    <div class="wdn-footer-text">
-                        <!-- InstanceBeginEditable name="footercontent" -->
-                        <!--#include virtual="sharedcode/footer.html" -->
-                        <!-- InstanceEndEditable -->
-                        <!--#include virtual="/wdn/templates_4.0/includes/wdn.html" -->
-                    </div>
-                    <!--#include virtual="/wdn/templates_4.0/includes/logos.html" -->
+                    <!-- InstanceBeginEditable name="leftcollinks" -->
+                    <!--#include virtual="sharedcode/relatedLinks.html" -->
+                    <!-- InstanceEndEditable -->
                 </div>
             </div>
+            <div class="wdn-band">
+                <div class="wdn-inner-wrapper">
+                    <div class="footer_col" id="wdn_footer_contact">
+                        <h3>Contact Us</h3>
+                        <div class="wdn-contact-wrapper">
+                            <!-- InstanceBeginEditable name="contactinfo" -->
+                            <!--#include virtual="sharedcode/footerContactInfo.html" -->
+                            <!-- InstanceEndEditable -->
+                        </div>
+                    </div>
+                    <div id="wdn_copyright">
+                        <div class="wdn-footer-text">
+                            <!-- InstanceBeginEditable name="footercontent" -->
+                            <!--#include virtual="sharedcode/footer.html" -->
+                            <!-- InstanceEndEditable -->
+                            <!--#include virtual="/wdn/templates_4.0/includes/wdn.html" -->
+                        </div>
+
+                    <!--#include virtual="/wdn/templates_4.0/includes/logos.html" -->
+                    </div>
+                </div>
+            </div>
+            <!--#include virtual="/wdn/templates_4.0/includes/footer_floater.html" -->
         </footer>
+        <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
     </div>
-    <script>
-        var navPin = (function() {
-            var header = $('#header'), breadcrumbs = $('#breadcrumbs'), nav = $('#navigation'), hh, bh;
-
-            return {
-
-                initialize : function() {
-                    $(window).on('scroll', function() {
-                        navPin.setPosition();
-                    });
-                },
-
-                setPosition : function () {
-                    hh = header.height();
-                    bh = breadcrumbs.height();
-                    if ($(window).scrollTop() >= hh + bh) {
-                        nav.addClass('nav-scrolling');
-                    } else {
-                        nav.removeClass('nav-scrolling'); 
-                    }
-                }                
-            }
-        })();
-
-        navPin.initialize();
-    </script>
 </body>
 <!-- InstanceEnd --></html>
