@@ -48,8 +48,10 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 			}
 				
 			if (!Modernizr.placeholder) {
-				require(['plugins/placeholder/jquery.placeholder.min.js'], function() {
-					domQ.placeholder();
+				WDN.loadJQuery(function() {
+					require(['plugins/placeholder/jquery.placeholder.min'], function() {
+						domQ.placeholder();
+					});
 				});
 			}
 		}
