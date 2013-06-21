@@ -1,5 +1,5 @@
 //micro-clearfix
-.clear-fix() {
+.clear-fix () {
     
     &:after {
         content: "";
@@ -11,34 +11,34 @@
 //http://css-tricks.com/remux-an-experimental-approach-to-responsive-web-design/
 @rem-fallback: false; // switch to include px fallback
 
-.rem(@px-value) {
+.rem (@px-value) {
     @rem-value: ((round((@px-value / unit(@base-font-size)) * 10000000)) / 10000000);
     
-    .result(@px-value, @rem-fallback) when (@rem-fallback = true) {
+    .result (@px-value, @rem-fallback) when (@rem-fallback = true) {
         font-size: ~"@{px-value}px";
         font-size: ~"@{rem-value}rem";
     }
-    .result(@px-value, @rem-fallback) when (@rem-fallback = false) {
+    .result (@px-value, @rem-fallback) when (@rem-fallback = false) {
         font-size: ~"@{rem-value}rem";
     }
     
-    .result(unit(@px-value), @rem-fallback);
+    .result (unit(@px-value), @rem-fallback);
 }
 
-.list-reset() {
+.list-reset () {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.text-hidden() {
+.text-hidden () {
     text-indent: -9999em;
     line-height: 0;
     float: left;
     clip: rect(0,0,0,0);
 }
 
-.brand-gradient() {
+.brand-gradient () {
     background-color: @brand;
     .background-image(~"linear-gradient(bottom, rgba(0,0,0,.15) 0%, rgba(255,255,255,0) 20%)");
 }
