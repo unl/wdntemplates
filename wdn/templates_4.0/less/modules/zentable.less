@@ -1,0 +1,220 @@
+/*
+*
+* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
+* less/content/zentable.less
+*
+* ---------------------------
+* Styles associated with the zentables
+* ---------------------------
+*/
+
+.zentable {
+    width: 100%;
+    
+    th, td {
+        padding: 4px;
+        border-collapse: separate;
+    }
+    
+    tr th {
+        text-align: left;
+        /* defaults to bright class style */
+        .zen-bright();
+        
+        &:first-child {
+            .border-top-left-radius(5px);
+
+        }
+        
+        &:last-child {
+            .border-top-right-radius(5px);
+        }
+        
+        a {
+            text-decoration: underline;
+            color: darken(@baseText, 10%);
+        }
+    }
+    
+    tbody {
+        tr:first-child td {
+            border-top-width: 3px;
+            border-top-style: solid;
+        }
+        
+        tr:nth-child(even) td {
+            background-color:none trasparent;
+            //background-color: #fff;
+            
+        }
+        
+        tr:nth-child(odd) td {
+            //background-color: hsl(hue(@colorManilla), 80%, 94%);
+            background-color: rgba(255,255,255,.4);
+
+        }
+        
+        td {
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-color: hsl(hue(@colorManilla), 70%, 78%);
+        }
+    }
+    
+    &.cool {
+        /* Cool Zentable */
+        tr th {
+            .zen-cool();
+            a {
+                color: #fff;
+            }
+        }
+        tbody {
+            td {
+                border-color: hsl(hue(@colorTriad), 80%, 70%);
+            }
+            /*tr:nth-child(odd) td {
+                background-color: hsl(hue(@colorTriad), 100%, 97%);
+            }*/
+        }
+    }
+    &.soothing {
+        /* Soothing Zentable */
+        tr th {
+            .zen-soothing();
+            a {
+                color: #fff;
+            }
+        }
+        tbody {
+            td {
+                border-color: hsl(hue(@colorComplementary), 66%, 44%);
+            }
+            /*tr:nth-child(odd) td {
+                background-color: hsl(hue(@colorComplementary), 100%, 97%);
+            }*/
+        }
+    }
+    &.darksoothing {
+        /* Soothing Zentable */
+        tr th {
+            .zen-darksoothing();
+            a {
+                color: #fff;
+            }
+        }
+        tbody {
+            td {
+                border-color: hsl(hue(@colorDarkcomp), 45%, 56%);
+            }
+            /*tr:nth-child(odd) td {
+                background-color: hsl(hue(@colorComplementary), 100%, 97%);
+            }*/
+        }
+    }
+    &.neutral {
+        /* Neutral Zentable */
+        tr th {
+            .zen-neutral();
+            a {
+                color: #fff;
+            }
+        }
+        tbody {
+            td {
+                border-color: hsl(hue(@colorNeutral), 35%, 72%);
+            }
+            /*tr:nth-child(odd) td {
+                background-color: hsl(hue(@colorNeutral), 0%, 94%);
+            }*/
+        }
+    }
+    &.darkneutral {
+        /* Neutral Zentable */
+        tr th {
+            .zen-darkneutral();
+            a {
+                color: #fff;
+            }
+        }
+        tbody {
+            td {
+                border-color: hsl(hue(@colorDarkneutral), 45%, 36%);
+            }
+            /*tr:nth-child(odd) td {
+                background-color: hsl(hue(@colorNeutral), 0%, 94%);
+            }*/
+        }
+    }
+    &.primary {
+        /* Primary Zentable */
+        tr th {
+            .zen-primary();
+            a {
+                color: #fff;
+            }
+        }
+        tbody {
+            td {
+                border-color: hsl(hue(@brand), 62%, 78%);
+            }
+            /*tr:nth-child(odd) td {
+                background-color: hsl(hue(@brand), 100%, 97%);
+            }*/
+        }
+    }
+
+    &.energetic {
+        /* Primary Zentable */
+        tr th {
+            .zen-energetic();
+            a {
+                color: #fff;
+            }
+        }
+        tbody {
+            td {
+                border-color: hsl(hue(@colorEnergetic), 90%, 60%);
+            }
+            /*tr:nth-child(odd) td {
+                background-color: hsl(hue(@colorEnergetic), 100%, 97%);
+            }*/
+        }
+    }
+
+    &.coal {
+        /* Primary Zentable */
+        tr th {
+            .zen-coal();
+            a {
+                color: #fff;
+            }
+        }
+        tbody {
+            td {
+                border-color: hsl(hue(@colorCoal), 74%, 18%);
+            }
+            /*tr:nth-child(odd) td {
+                background-color: hsl(hue(@colorEnergetic), 100%, 97%);
+            }*/
+        }
+    }
+
+    &.darkcool {
+        /* Primary Zentable */
+        tr th {
+            .zen-darkcool();
+            a {
+                color: #fff;
+            }
+        }
+        tbody {
+            td {
+                border-color: hsl(hue(@colorDarktriad), 84%, 60%);
+            }
+            /*tr:nth-child(odd) td {
+                background-color: hsl(hue(@colorEnergetic), 100%, 97%);
+            }*/
+        }
+    }
+}
