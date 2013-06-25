@@ -14,9 +14,10 @@ table {
     }
     
     th {
-        .zen-neutral();
         .impact-font();
         font-weight: 500;
+        color: darken(@colorNeutral, 60%);
+        background: fadeout(@colorNeutral,20%);
     }
     
     th, td {
@@ -45,7 +46,7 @@ table {
             border-top-style: solid;
             border-bottom-style: solid;
             border-bottom-width: 1px;
-            border-color: hsl(hue(@colorNeutral), 35%, 72%);
+            border-color:desaturate(darken(@colorNeutral, 3%), 10%);
             &:before {
                 display: block;
                 font-weight: bold;
@@ -58,7 +59,8 @@ table {
 
             @media(max-width:768px) {
                 &:first-child{
-                    .zen-neutral();  
+                    color: darken(@colorNeutral, 60%);
+                    background: fadeout(@colorNeutral,20%); 
                 }
             }
         }
