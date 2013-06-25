@@ -3,7 +3,7 @@
 
 @tab-background-color: #3b3816; // Based on page background
 
-.wdn_tabs, .wdn-tabs {
+.wdn_tabs {
     .list-reset;
     .clear-fix;
     .rem(0); // Hack to avoid white-space issue between inline-block children (`li`s)
@@ -30,6 +30,14 @@
             display: block;
             text-decoration: none;
         }
+        
+        // old sub-tabs may still exist in markup
+        ul {
+            .list-reset;
+            .clear-fix;
+            .rem(0);
+            padding: 0 0 0 0.4rem;
+        }
     }
 
     a {
@@ -40,4 +48,8 @@
 .wdn_tabs_content {
     background-color: fadeout(@tab-background-color, 90%);
     padding: 1rem;
+    
+    #maincontent > & {
+        padding: 1rem;
+    }
 }
