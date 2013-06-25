@@ -287,7 +287,6 @@
                 text-align: center;
                 position: relative;
                 border-top: none;
-                font-family: sans-serif;
                 background: transparent;
                 
                 /* Clear the first element of a row of 6 */
@@ -451,19 +450,10 @@
                 }
                 
                 > a {
-                    color: rgb(255, 255, 255); /* Old browsers (must be separate for ie7) */
-                    
-                    &:hover {
-                        color: rgb(255, 255, 255);
-                    }
-                }
-                
-                > a {
                     display: block;
-                    color: rgba(255, 255, 255, 0.99);
+                    color: #fff;
                     text-shadow: 1px 1px 1px #424242;
                     font-weight: 500;
-                    -webkit-text-stroke: 0.55px;
                     font-size: 0.875em;
                     margin: auto 0;
                     padding: 0.47em 1px;
@@ -472,7 +462,7 @@
                     .linear-gradient-no-filter(@highlightPrimary, @shadowPrimary);
                     
                     &:hover {
-                        color: rgba(255, 255, 255, 0.99);
+                        color: #fff;
                     }
                 }
                 
