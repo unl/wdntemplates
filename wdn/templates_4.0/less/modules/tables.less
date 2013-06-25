@@ -1,0 +1,150 @@
+.primary {
+    /* Primary ZTable */
+    tr th {
+        @media(min-width: 768px){
+            .zen-primary();
+        }
+        a {
+            color: #fff;
+        }
+    }
+    tbody {
+        td {
+            @media(max-width:768px) {
+                &:first-child{
+                  .zen-primary();  
+                }
+            }     
+            border-color:darken(@brand,5%);
+        }
+    }
+}
+.cool {
+    /* Cool Table */
+    tr th {
+        @media(min-width: 768px){
+            .zen-cool();
+        }
+
+        a {
+            color: #fff;
+        }
+    }
+    tbody {
+        td {
+            @media(max-width:768px) {
+                &:first-child{
+                  .zen-cool();  
+                }
+            }        
+            border-color: darken(@colorTriad, 6%);
+        }
+    }
+}
+.darkcool {
+    /* Dark Cool Table */
+    tr th {
+        @media(min-width: 768px){
+            .zen-darkcool();
+        }
+        a {
+            color: #fff;
+        }
+    }
+    tbody {
+        td {
+            @media(max-width:768px) {
+                &:first-child{
+                  .zen-darkcool();  
+                }
+            }     
+            border-color:@colorDarktriad;
+        }
+    }
+}
+
+.soothing {
+    /* Soothing Table */
+    tr th {
+        @media(min-width: 768px){
+            .zen-soothing();
+        }
+        
+        a {
+            color: #fff;
+        }
+    }
+    tbody {
+        td {
+            @media(max-width:768px) {
+                &:first-child{
+                  .zen-soothing();  
+                }
+            }     
+            border-color:@colorComplementary;
+        }
+    }
+}
+.neutral {
+    /* Neutral Table */
+    tr th {
+        @media(min-width: 768px){
+            .zen-neutral();
+        }
+        a {
+            color: #fff;
+        }
+    }
+    tbody {
+        td {
+            @media(max-width:768px) {
+                &:first-child{
+                  .zen-neutral();  
+                }
+            }     
+            border-color:desaturate(darken(@colorNeutral, 3%), 10%);
+        }
+    }
+}
+.darkneutral {
+    /* Dark Neutral Table */
+    tr th {
+        @media(min-width: 768px){
+            .zen-darkneutral();
+        }
+        a {
+            color: #fff;
+        }
+    }
+    tbody {
+        td {
+            @media(max-width:768px) {
+                &:first-child{
+                  .zen-darkneutral();  
+                }
+            }     
+            border-color:@colorDarkneutral;
+        }
+    }
+}
+.energetic {
+    /* Energetic Table */
+    tr th {
+        @media(min-width: 768px){
+            .zen-energetic();
+        }
+        a {
+            color: #fff;
+        }
+    }
+    tbody {
+        td {
+            @media(max-width:768px) {
+                &:first-child{
+                  .zen-energetic();  
+                }
+            }     
+            border-color:@colorEnergetic;
+        }
+    }
+}
