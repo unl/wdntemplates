@@ -28,7 +28,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 						hashes = localSearch.slice(qsPos + 1).split('&');
 						for (var i = 0; i < hashes.length; i++) {
 							hash = hashes[i].split('=');
-							htmlUpdate.add($('<input>', {
+							htmlUpdate = htmlUpdate.add($('<input>', {
 								type: "hidden",
 								name: hash[0],
 								value: decodeURIComponent(hash[1])
@@ -37,7 +37,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 						domSearchForm.append(htmlUpdate);
 					}
 					
-					domSearchForm[0].setAttribute('action', localSearch);
+					domSearchForm.attr('action', localSearch);
 				} else {
 					if (siteHomepage && siteHomepage !== 'http://www.unl.edu/') {
 						domSearchForm.append($('<input>', {
@@ -46,6 +46,11 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 							value: siteHomepage
 						}));
 					}
+				}
+				
+				var localPlaceholder = WDN.getPluginParam('search', 'placeholder');
+				if (localPlaceholder) {
+					domQ.attr('placeholder', localPlaceholder);
 				}
 					
 				if (!Modernizr.placeholder) {
