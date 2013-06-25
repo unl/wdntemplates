@@ -27,17 +27,7 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<style type="text/css">
-#maincontent .grid1, #maincontent  .grid2, #maincontent  .grid3, #maincontent  .grid4, #maincontent  .grid5, #maincontent  .grid6, #maincontent  .grid7, #maincontent  .grid8, #maincontent  .grid9, #maincontent  .grid10, #maincontent  .grid11, #maincontent  .grid12 {
-    margin-bottom: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background: rgba(111,191,77,.4);
-    border: solid 1px #6FBF4D;
-    border-width: 1px 0;
-    text-align:center;
-}
-</style>
+
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
@@ -83,12 +73,118 @@
             <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                  <h2 class="sec_header">GA Tracking Test</h2>
-                  <a href="myfile.pdf">A PDF file</a>
-                  <br />
-                  <a href="http://www.google.com/" onclick="return false;">Another site</a>
-                  <br />
-                  <a href="mailto:bob@aol.com">An email link</a>
+                <div id="content" class="region region-content content grid9 first">
+  <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-4781" class="node node-page clearfix">
+
+  
+      
+  
+  <div class="content">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden clearfix">
+    <div class="field-items">
+          <div class="field-item even"><h4 class="sserifstoryheadnavy" style="text-align: left;">Adviser Information</h4>
+<p>You will usually be assigned a faculty adviser through your college dean or your major department chairperson. Exploratory and Pre-Professional students will be advised through the <a href="http://www.unl.edu/dgs/">Exploratory and Pre-Professional Advising Center</a> (formerly Division of General Studies), 33 Canfield Administration Building North. If you are an undergraduate, your adviser's name may be obtained on <a href="http://myred.unl.edu/">MyRED</a>, at your college dean's office, or your college's advising office.</p>
+<p>Periods during which advisers have the most demands on their time include the week before the start of Priority Registration, the first two weeks of Priority Registration, the week prior to classes, and the first week of classes. Therefore, you are urged to see your adviser or change your college or major during lower demand periods so that you will have a shorter wait or have easier access to an appointment with an adviser.</p>
+<p>The college adviser at the <a href="http://online.unl.edu/">Office of Online &amp; Distance Education</a>, 1520 N 20<sup>th</sup> Circle (20<sup>th</sup> and Holdrege), is available to advise students who are taking online/distance courses. Contact the Office of Online &amp; Distance Education, (402) 472-9329, to speak with the adviser.</p>
+<p align="center"><a href="http://cas.unl.edu/advisingcenter.html">COLLEGE OF ARTS AND SCIENCES</a></p>
+<p>All students in the College can meet with professional advisers in the Arts and Sciences Advising Center, 107 Oldfather Hall for assistance with choosing or changing majors and minors, understanding degree requirements and audits, completing paperwork, adding/dropping courses, and planning for graduation. &nbsp;Students in the College who have declared a major will also be assigned a chief major adviser in their major field of study.&nbsp; If you have questions about a particular major or minor field of study, contact the chief adviser. A complete list of chief advisers is available in the Advising Center or at <a href="http://cas.unl.edu/">cas.unl.edu</a>.</p>
+<p>&nbsp;</p>
+<h4 class="sserifstoryheadnavy" style="text-align: left;"><a href="http://stuafs.unl.edu/ja/">Discrimination and Harassment</a></h4>
+<p>It is the policy of the University of Nebraska to administer all of its educational programs and related supporting services in a manner which does not discriminate based upon age, race, ethnicity, color, national origin, gender, sex, pregnancy, disability, sexual orientation, genetic information, veteran's status, marital status, religion or political affiliation. &nbsp;</p>
+<p>Any unwanted communication of a sexual nature, whether verbal, physical, written, or pictorial, which has the purpose or effect of intimidating the person receiving the communication, or any solicitation of sexual conduct of any nature when submission to or rejection of such contact is used as the basis for either implicitly or explicitly imposing favorable or adverse terms and conditions of academic standing constitutes sexual harassment and will not be condoned or tolerated. &nbsp;</p>
+<p>Appropriate corrective action will be taken toward any student or employee who is found to have violated UNL's non-discrimination or sexual harassment policies. Further, UNL commits itself toward the assurance of non-retaliation toward the person suspecting or experiencing discrimination or sexual harassment.</p>
+<p>If you suspect or experience discrimination, sexual harassment, or retaliation toward yourself or others, please keep records of specifics and report the conduct.</p>
+<p>If you do not feel comfortable telling the person to stop the behavior, or if the behavior does not cease once you have made the request that it do so, you may tell an administrator, professor or counselor. These individuals are then required to pass the information on to the people who can take corrective action.</p>
+<p>You may also contact the <a href="http://stuafs.unl.edu/ja/">Office of Student Judicial Affairs</a>, 106 Canfield Administration Building South, (402) 472-2021, the <a href="http://www.unl.edu/equity/">Office of Equity Access and Diversity Programs</a>, 128 Canfield Administration Building North, (402) 472-3417, or the Director of the Office for Civil Rights, Department of Education, Washington, D.C. 20202.</p>
+<p>More information regarding discrimination, harassment and avenues available is posted on most bulletin boards in buildings throughout the UNL campus.</p>
+<p>&nbsp;</p>
+<h4 class="sserifstoryheadnavy" style="text-align: left;"><a href="http://health.unl.edu/billing/">Health Insurance Program</a></h4>
+<p>All students registered for classes at UNL have access to the <a href="http://health.unl.edu/">University Health Center</a>. The University encourages students to maintain adequate health insurance coverage throughout their enrollment at UNL.</p>
+<p>Students who pay the Health Center portion of the UPFF fee assessment have access to specialty services, are not charged for medical clinic visits, and are charged subsidized rates for other Health Center services.</p>
+<p>Students who do not pay the fee are charged non-subsidized rates for medical clinic and other services.</p>
+<p>Students registered for 7 or more credit hours are automatically assessed the fee.</p>
+<p>Part-time students may pay the fee at the Health Center prior to using the services for the first time.</p>
+<p>Graduate research and teaching assistants may be eligible to have a portion of the student insurance premium paid on their behalf as a benefit of eligible assistant employment.</p>
+<p>The student insurance plan includes health and dental insurance, and a pharmacy benefit. Questions should be directed to the department that employs the graduate assistant.</p>
+<p>For more information about the Student Insurance Program, contact the <a href="http://health.unl.edu/billing/">University Health Center</a> at (402) 472-7435.</p>
+<p><b>International students registered for classes at the University of Nebraska-Lincoln are required to purchase health insurance</b> and will be billed for coverage under the University’s student health insurance plan for each semester of enrollment.</p>
+<p>Because this insurance plan requires students to have access to the University Health Center, all international students who are enrolled in fewer than 7 credit hours will also be assessed the Health Center portion of the UPFF to maintain this access.</p>
+<p>International students may obtain a waiver from purchasing the University’s student health insurance if they have proof of equivalent insurance benefits under another plan.</p>
+<p>Students must submit an English translation of their insurance plan and waiver applications for evaluation by the University Health Center Business Office, 1500 U St., Lincoln NE 68588-0618 by the 14th day of classes for the term. Waiver information is available at the <a href="http://health.unl.edu/billing/insurancewaiverpolicy/">Health Center Website</a>.</p>
+<p>International students see <a href="http://studentaccounts.unl.edu">Student Accounts</a> for policy information about Health Insurance fees.</p>
+<p>&nbsp;</p>
+<h4 class="sserifstoryheadnavy" style="text-align: left;"><a href="http://www.unl.edu/scholfa/">Scholarships and Financial Aid</a></h4>
+<p><b>Inter-campus and Joint Registration (Financial Aid)</b>. Students who will be jointly registered at the University of Nebraska at Kearney (UNK) and UNL or the University of Nebraska at Omaha (UNO) and UNL, will be funded for financial aid by the institution at which they are originally enrolled and are pursuing a degree.</p>
+<p>If a student enrolls for all credits on one campus through an inter-campus registration, that campus is responsible for providing financial aid to the student. For example, if a student receiving a degree from UNL enrolls for 6 credit hours at UNL and 6 credit hours at UNO, UNL would fund that student. If that same student took all credits at UNO, UNO is responsible for providing financial aid.</p>
+<p>This applies to students enrolled in Engineering, Social Work, Criminal Justice, Public Administration and other majors offered at UNL and UNO.</p>
+<p>Students considering inter-campus enrollment who have federal financial aid should check with the Office of Scholarships and Financial Aid, 17 Canfield Administration Building South, (402) 472-2030, prior to enrolling.</p>
+<p><b>Satisfactory Progress for Financial Aid</b>. In order to receive financial assistance, you must be enrolled or accepted for enrollment in an eligible program and attend on at least a half-time basis.</p>
+<p>Satisfactory progress for the purpose of receiving financial assistance is defined on the Office of <a href="http://www.unl.edu/scholfa/">Scholarships and Financial Aid</a> web site. It is your responsibility to understand the University's policy regarding satisfactory academic progress for financial aid recipients.</p>
+<p>If, after the last day to add classes (census date) in each term, you decide to drop a course or courses and/or withdraw from the University, it is highly recommended that you contact the Office of Scholarships and Financial Aid, 17 Canfield Administration Building South, (402) 472-2030, <b>before you act</b> to discuss the possible need for repayment of federal aid and your eligibility for subsequent aid in future semesters. For application materials visit the <a href="http://www.unl.edu/scholfa/">Scholarship and Financial Aid Office</a>.</p>
+<p>&nbsp;</p>
+<h4 class="sserifstoryheadnavy" style="text-align: left;"><a href="http://bursar.unl.edu/">Senior Learning Passport Program</a></h4>
+<p>The Senior Learning Passport Program is available to individuals who are at least 65 years of age. Senior learners may attend and "sit-in" on undergraduate courses (courses numbered 100 - 499) on a space available basis and with the instructor's permission.</p>
+<p>The Learning Passport may be used for up to two classes per semester and is valid for one year from the date of the non-refundable $25 fee payment. For more information, contact the office of the <a href="http://bursar.unl.edu/">Bursar's Office</a>, 121 Canfield Administration Building North, PO Box 880412, Lincoln, NE 68588-0412, (402) 472-1734.</p>
+<p>&nbsp;</p>
+<h4 class="sserifstoryheadnavy" style="text-align: left;"><a href="http://admissions.unl.edu/index.aspx">Visiting Students</a></h4>
+<p>If you are a visiting student, you must apply for admission each term. Any student denied admission as a degree-seeking student is not eligible to apply for admission as a visiting student. Registration is limited to 6 hours per semester.</p>
+The <a href="http://explorecenter.unl.edu/">Exploratory and Pre-Professional Advising Center</a> (formerly General Studies), 33 Canfield Administration Building North, serves as the college dean's office for visiting students and intercampus students. Visiting students are ineligible to receive federal financial assistance.<br />
+<p>&nbsp;</p>
+<h4 class="sserifstoryheadnavy" style="text-align: left;"><a href="http://www.unl.edu/gradstudies/">Non-Degree, Visiting Graduate Student</a></h4>
+<p>Admission is available to applicants who are actively pursuing graduate studies at U.S. institutions other than the University of Nebraska campuses, and requires submission of an application, application fee, and letter of good standing from the home institution.</p>
+Enrollment is limited to two consecutive terms (semesters and/or full summer enrollment).<br />
+<p><a title="Back to Top" href="/regrec/general-campus-information">Back to top</a></p></div>
+      </div>
+</div>
+  </div>
+
+  
+  
+</div>
+  </div>
+</div>
+</div>
+
+
+<div id="sidebar-second" class="region region-sidebar-second sidebar-second grid3 sidebar">
+  <div id="block-block-105" class="block block-block">
+
+    
+  <div class="content">
+    <img src="images/grades.png" alt="Records" title="Registration" style="width: 210px; display: block; margin-left: auto; margin-right: auto;" height="80" /><br /><sp>
+<div>
+<div class="zenbox soothing">
+<h3><a href="index.shtml">Campus Information</a></h3>
+<ul>
+<li><a title="Building/Location Codes" href="/regrec/buildinglocation-codes">Building/Location Codes</a></li>
+<li><a href="http://maps.unl.edu/">Campus Map</a></li>
+<li><a href="http://police.unl.edu/statistics">Crime Statistics</a></li>
+<li><a href="http://police.unl.edu/policies/drug-free-campus-policy">Drug Policy</a></li>
+<li><a title="Official Notices" href="/regrec/official-notices">Official Notices</a></li>
+</ul>
+</div>
+<div class="zenbox cool">
+<h3><a href="/regrec/myred-portal-information">For Faculty/Staff:</a></h3>
+<ul>
+<li><a title="Final Exam Schedule" href="/regrec/final-exam-information-spring">Final Exam Schedule</a></li>
+<li><a title="MyRED Access/Orientation" href="/regrec/myred-portal-information">MyRED Access/Orientation</a></li>
+<li><a title="Submitting Grades" href="/regrec/submitting-grades">Submitting Grades</a></li>
+</ul>
+</div>
+<div title="Upcoming Dates" id="wdn_calendarDisplay">
+<script type="text/javascript">// <![CDATA[
+WDN.initializePlugin('events', function(){WDN.events.limit=4;WDN.events.initialize();});
+// ]]></script>
+</div>
+</div>
+</sp>  </div>
+</div>
+</div>
+
                   <!-- InstanceEndEditable -->
                 <div class="clear"></div>
                 <!--#include virtual="/wdn/templates_3.1/includes/noscript.html" -->
