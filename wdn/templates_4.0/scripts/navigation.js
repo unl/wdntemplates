@@ -37,7 +37,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
     		WDN.log('Setting homepage to ' + siteHomepage);
     	}
     	
-    	var $breadcrumbs = $([breadSel, prmySel].join(' '));
+    	var $breadcrumbs = $(breadPrmySel);
     	if (!$breadcrumbs.length) {
     		WDN.log('This page is missing breadcrumbs');
     		return;
@@ -111,8 +111,8 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
     
     var fixPresentation = function() {
     	if (!isFullNav()) {
-    		$([navSel, prmySel, '> ul'].join(' ')).css('height', '');
-    		$([navSel, prmySel, '> a'].join(' ')).css({
+    		$(navPrmySel + ' > ul').css('height', '');
+    		$(navPrmySel + ' > a').css({
             	'padding-top' : '',
                 'padding-bottom' : ''
             });
