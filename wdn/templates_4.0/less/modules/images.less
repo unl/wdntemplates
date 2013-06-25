@@ -1,6 +1,7 @@
 .wdn-caption-animate {
     position: relative;
     overflow: hidden;
+    border: 3px solid @faded-neutral;
 
     img {
         width: 100%; // Image needs to fill the frame to allow aligned caption presentation.
@@ -14,16 +15,15 @@
         height: auto;
         width: 100%;
         bottom: 0;
-        opacity: 1;
+        opacity: 0.5;
         padding: 0.5em;
-        background-color: @babyBlue;
-        color: #ffffff;
-        text-shadow: 0 1px 0 darken(@babyBlue, 25%);
+        background-color: @light-neutral;
+        color: darken(@light-neutral, 75%);
 
         // animation support
-        .transform(translateY(100%));
-        -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
-        -moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
-        transition: transform 0.4s, opacity 0.1s 0.3s;
+        .transform(translateY(90%));
+        -webkit-transition: -webkit-transform 0.4s, opacity 0.3s 0.1s;
+        -moz-transition: -moz-transform 0.4s, opacity 0.3s 0.1s;
+        transition: transform 0.4s, opacity 0.3s 0.1s;
     }
 }
