@@ -10,50 +10,52 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 	
 	return {
 		initialize : function() {
-			var domQ = $('#q'),
-				domSearchForm = $('#wdn_search_form'),
-				siteHomepage = nav.getSiteHomepage();
-			
-			/**
-		     * Add the experimental text-to-speech
-		     */
-            domQ[0].setAttribute('x-webkit-speech', 'x-webkit-speech');
-
-			var localSearch = getLocalSearch();
-			if (localSearch) {
-				// Change form action to the local search
-				var qsPos = localSearch.indexOf('?'), hashes, hash, htmlUpdate = $();
-				if (qsPos > -1) {
-					hashes = localSearch.slice(qsPos + 1).split('&');
-					for (var i = 0; i < hashes.length; i++) {
-						hash = hashes[i].split('=');
-						htmlUpdate.add($('<input>', {
+			$(function() {
+				var domQ = $('#q'),
+					domSearchForm = $('#wdn_search_form'),
+					siteHomepage = nav.getSiteHomepage();
+				
+				/**
+			     * Add the experimental text-to-speech
+			     */
+	            domQ[0].setAttribute('x-webkit-speech', 'x-webkit-speech');
+	
+				var localSearch = getLocalSearch();
+				if (localSearch) {
+					// Change form action to the local search
+					var qsPos = localSearch.indexOf('?'), hashes, hash, htmlUpdate = $();
+					if (qsPos > -1) {
+						hashes = localSearch.slice(qsPos + 1).split('&');
+						for (var i = 0; i < hashes.length; i++) {
+							hash = hashes[i].split('=');
+							htmlUpdate.add($('<input>', {
+								type: "hidden",
+								name: hash[0],
+								value: decodeURIComponent(hash[1])
+							}));
+						}
+						domSearchForm.append(htmlUpdate);
+					}
+					
+					domSearchForm[0].setAttribute('action', localSearch);
+				} else {
+					if (siteHomepage && siteHomepage !== 'http://www.unl.edu/') {
+						domSearchForm.append($('<input>', {
 							type: "hidden",
-							name: hash[0],
-							value: decodeURIComponent(hash[1])
+							name: "u",
+							value: siteHomepage
 						}));
 					}
-					domSearchForm.append(htmlUpdate);
 				}
-				
-				domSearchForm[0].setAttribute('action', localSearch);
-			} else {
-				if (siteHomepage && siteHomepage !== 'http://www.unl.edu/') {
-					domSearchForm.append($('<input>', {
-						type: "hidden",
-						name: "u",
-						value: siteHomepage
-					}));
-				}
-			}
-				
-			if (!Modernizr.placeholder) {
-				WDN.loadJQuery(function() {
-					require(['plugins/placeholder/jquery.placeholder.min'], function() {
-						domQ.placeholder();
+					
+				if (!Modernizr.placeholder) {
+					WDN.loadJQuery(function() {
+						require(['plugins/placeholder/jquery.placeholder.min'], function() {
+							domQ.placeholder();
+						});
 					});
-				});
-			}
+				}
+			});
 		}
 	};
 });

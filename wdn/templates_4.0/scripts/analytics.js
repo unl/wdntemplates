@@ -12,7 +12,7 @@
 // WDN.analytics.callTrackPageview('/downloads/'+href);
 //
 // Department variable 'pageTracker' is available to use in this file.
-define(['wdn', 'idm'], function(WDN, idm) {
+define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 	var Plugin,
 		thisURL = String(window.location),
 		initd = false;
@@ -74,25 +74,17 @@ define(['wdn', 'idm'], function(WDN, idm) {
 		initialize : function() {
 			WDN.log("WDN site analytics loaded for "+ thisURL) ;
 
-            var version_html = WDN.getHTMLVersion(),
-                version_dep  = WDN.getDepVersion(),
+            var version_dep  = WDN.getDepVersion(),
                 ga_linkattribution_pluginURL = '//www.google-analytics.com/plugins/ga/inpage_linkid.js',
-                i = 0;
-
-			_gaq.push(
-				['wdn._setAccount', 'UA-3203435-1'],
-				['wdn._setDomainName', '.unl.edu'],
-				['wdn._setCustomVar', 2, 'Template HTML Version', version_html, 3],
-				['wdn._setCustomVar', 3, 'Template Dependents Version', version_dep, 3],
-				['wdn._setAllowLinker', true],
-				['wdn._require', 'inpage_linkid', ga_linkattribution_pluginURL]
-			);
-
-			if (!initd) {
-				WDN.initializePlugin('idm', [function() {
-					_gaq.push(['wdn._trackPageview']);
-					
-					(function(){
+                i = 0,
+                domReady = function() {
+            		var version_html = WDN.getHTMLVersion();
+            		_gaq.push(
+            			['wdn._setCustomVar', 2, 'Template HTML Version', version_html, 3],
+            			['wdn._trackPageview']
+            		);
+            		
+            		(function(){
 						var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 						if (document.body.className.match(/(^|\s)debug(\s|$)/)) {
 							ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/u/ga_debug.js';
@@ -101,6 +93,19 @@ define(['wdn', 'idm'], function(WDN, idm) {
 						}
 						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 					})();
+	            };
+
+			_gaq.push(
+				['wdn._setAccount', 'UA-3203435-1'],
+				['wdn._setDomainName', '.unl.edu'],
+				['wdn._setCustomVar', 3, 'Template Dependents Version', version_dep, 3],
+				['wdn._setAllowLinker', true],
+				['wdn._require', 'inpage_linkid', ga_linkattribution_pluginURL]
+			);
+
+			if (!initd) {
+				WDN.initializePlugin('idm', [function() {
+					$(domReady);
 				}]);
 
 //				var toolLinks = document.getElementById('wdn_tool_links').getElementsByTagName('a');
@@ -112,7 +117,7 @@ define(['wdn', 'idm'], function(WDN, idm) {
 //	            }
 			}
 			
-			bindLinks();
+			$(bindLinks);
 			initd = true;
 		},
 		
