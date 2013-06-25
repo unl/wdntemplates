@@ -1,8 +1,9 @@
 .primary {
-    /* Primary ZTable */
+    /* Primary Table */
     tr th {
         @media(min-width: 768px){
-            .zen-primary();
+            color: #fff;
+            background:fadeout(@brand, 20%);
         }
         a {
             color: #fff;
@@ -10,20 +11,24 @@
     }
     tbody {
         td {
+            border-color:darken(@brand,5%);
+
             @media(max-width:768px) {
                 &:first-child{
-                  .zen-primary();  
+                    color: #fff;
+                    background:fadeout(@brand, 20%);
                 }
-            }     
-            border-color:darken(@brand,5%);
+            }
         }
     }
 }
+
 .cool {
     /* Cool Table */
     tr th {
         @media(min-width: 768px){
-            .zen-cool();
+            color: darken(@colorTriad, 70%);
+            background: fadeout(@colorTriad, 20%);
         }
 
         a {
@@ -32,20 +37,23 @@
     }
     tbody {
         td {
+            border-color: darken(@colorTriad, 6%);
+
             @media(max-width:768px) {
                 &:first-child{
-                  .zen-cool();  
+                    color: darken(@colorTriad, 70%);
+                    background: fadeout(@colorTriad, 20%);  
                 }
             }        
-            border-color: darken(@colorTriad, 6%);
         }
     }
 }
-.darkcool {
+.dark-cool {
     /* Dark Cool Table */
     tr th {
         @media(min-width: 768px){
-            .zen-darkcool();
+            color: #fff;
+            background:fadeout(@colorDarktriad, 20%);
         }
         a {
             color: #fff;
@@ -53,12 +61,14 @@
     }
     tbody {
         td {
+            border-color:@colorDarktriad;
+
             @media(max-width:768px) {
                 &:first-child{
-                  .zen-darkcool();  
+                    color: #fff;
+                    background:fadeout(@colorDarktriad, 20%);  
                 }
             }     
-            border-color:@colorDarktriad;
         }
     }
 }
@@ -67,21 +77,25 @@
     /* Soothing Table */
     tr th {
         @media(min-width: 768px){
-            .zen-soothing();
+            color:#fff;
+            background: fadeout(@colorComplementary, 20%);
         }
         
         a {
             color: #fff;
         }
     }
+
     tbody {
         td {
+            border-color:@colorComplementary;
+
             @media(max-width:768px) {
                 &:first-child{
-                  .zen-soothing();  
+                    color:#fff;
+                    background: fadeout(@colorComplementary, 20%);
                 }
             }     
-            border-color:@colorComplementary;
         }
     }
 }
@@ -89,28 +103,35 @@
     /* Neutral Table */
     tr th {
         @media(min-width: 768px){
-            .zen-neutral();
+            color: darken(@colorNeutral, 60%);
+            background: fadeout(@colorNeutral,20%);
         }
+
         a {
             color: #fff;
         }
     }
+
     tbody {
         td {
+            border-color:desaturate(darken(@colorNeutral, 3%), 10%);
+
             @media(max-width:768px) {
                 &:first-child{
-                  .zen-neutral();  
+                    color: darken(@colorNeutral, 60%);
+                    background: fadeout(@colorNeutral,20%);  
                 }
             }     
-            border-color:desaturate(darken(@colorNeutral, 3%), 10%);
         }
     }
 }
-.darkneutral {
+
+.dark-neutral {
     /* Dark Neutral Table */
     tr th {
         @media(min-width: 768px){
-            .zen-darkneutral();
+            color: #fff;
+            background: fadeout(@colorDarkneutral, 10%);
         }
         a {
             color: #fff;
@@ -118,12 +139,14 @@
     }
     tbody {
         td {
+            border-color:@colorDarkneutral;
+
             @media(max-width:768px) {
                 &:first-child{
-                  .zen-darkneutral();  
+                    color: #fff;
+                    background: fadeout(@colorDarkneutral, 10%); 
                 }
             }     
-            border-color:@colorDarkneutral;
         }
     }
 }
@@ -131,7 +154,8 @@
     /* Energetic Table */
     tr th {
         @media(min-width: 768px){
-            .zen-energetic();
+            color: #000;
+            background: fadeout(@colorEnergetic, 20%);
         }
         a {
             color: #fff;
@@ -139,12 +163,14 @@
     }
     tbody {
         td {
+            border-color:@colorEnergetic;
+
             @media(max-width:768px) {
                 &:first-child{
-                  .zen-energetic();  
+                    color: #000;
+                    background: fadeout(@colorEnergetic, 20%);  
                 }
             }     
-            border-color:@colorEnergetic;
         }
     }
 }
