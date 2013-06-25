@@ -1,42 +1,25 @@
-/*
-*
-* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS CSS!
-* less/content/tables.less
-*
-* ---------------------------
-* Styles associated with the responsive tables
-* ---------------------------
-*/
-
-//@colorGray: #dedede;
-
-// Add all base (screen width doesn't matter) here
 table {
-	width: 100%;
-	max-width: 100%;
-	line-height: 1.3;
+    width: 100%;
+    max-width: 100%;
+    line-height: @base-line-height;
     .base-font();
-	
-	caption {
-		line-height: 1em;
-		font-size: 1.875em;
+    
+    caption {
+        font-size: 1.875rem;
         .impact-font();
-	}
-	
-	thead tr {
-		display: none;
-	}
-	
-	th {
+    }
+    
+    thead tr {
+        display: none;
+    }
+    
+    th {
         .zen-neutral();
         .impact-font();
         font-weight: 500;
-	}
-	
-	tr {
-	}
-	
-	th,td {
+    }
+    
+    th, td {
         display:block;
         padding: 4px;
     }
@@ -46,15 +29,16 @@ table {
         font-weight: normal;
     }
     
-    tbody tr {
-        
-        &:nth-of-type(even) {
-                background-color:none trasparent;
+    tbody {
+        tr {
+            &:nth-of-type(even) {
+                background-color:transparent;
             }
-        
-        &:nth-of-type(odd) {
-            background-color: rgba(255,255,255,.4);
-        }
+            
+            &:nth-of-type(odd) {
+                background-color: fadeout(#ffffff, 60%);
+            }
+        }   
 
         td {
             border-top-width: 1px;
@@ -74,7 +58,7 @@ table {
 
             @media(max-width:768px) {
                 &:first-child{
-                  .zen-neutral();  
+                    .zen-neutral();  
                 }
             }
         }
@@ -96,42 +80,39 @@ table {
 }
 @media (min-width: 768px) {
 
-	table {
-		font-size: 90%;
-	
-		thead tr {
-			display: table-row;
-			
-			td {
-			}
-		}
-		
-		th {
-			font-size: 110%;
-		}
-		
-		td {
-			text-align: center;
-			word-wrap: break-word;
-			word-break: break-all;
-		}
-		
-		th, td {
-			display: table-cell;
-		}
-		
-		.flush-left {
+    table {
+        font-size: 90%;
+    
+        thead tr {
+            display: table-row;
+        }
+        
+        th {
+            font-size: 110%;
+        }
+        
+        td {
+            text-align: center;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+        
+        th, td {
+            display: table-cell;
+        }
+        
+        .flush-left {
             text-align: left;
-		}
-		
-		tbody {
+        }
+        
+        tbody {
+        
             tr {
                 &:first-child td {
                     border-top-width: 3px;
-        }
-
-
+                }
             }
+
             td:before {
                 display: none !important;
             }
@@ -140,7 +121,7 @@ table {
                 display: table-cell;
             }
         }
-	}
+    }
 }
 @media (min-width: 960px) {
 
