@@ -108,7 +108,7 @@
                     <div class="wdn-inner-wrapper">
                         <div class="bp1-wdn-grid-set-thirds">
                             <div class="wdn-col">
-                                <figure class="wdn-frame">
+                                <figure class="wdn-caption-animate">
                                     <img src="images/test_320.jpg" alt="Just an image test" />
                                     <figcaption>
                                         <p>Our students are the brightest and best in their respective fields. Take that Northwestern!</p>
@@ -116,7 +116,7 @@
                                 </figure>
                             </div>
                             <div class="wdn-col">
-                                <figure class="wdn-frame">
+                                <figure class="wdn-caption-animate">
                                     <img src="images/test_320.jpg" alt="Just an image test" />
                                     <figcaption>
                                         <p>Our students are the brightest and best in their respective fields. Take that Northwestern!</p>
@@ -124,7 +124,7 @@
                                 </figure>
                             </div>
                             <div class="wdn-col">
-                                <figure class="wdn-frame">
+                                <figure class="wdn-caption-animate">
                                     <img src="images/test_320.jpg" alt="Just an image test" />
                                     <figcaption>
                                         Our students are the brightest and best in their respective fields. Take that Northwestern!
