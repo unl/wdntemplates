@@ -53,16 +53,12 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 			// Add the selected class to the tab (and sub-tab)
 			parentTabs.addClass(selected);
 			
-			tabs.css('margin-bottom', '');
-			
 			// Show any relevant sub-tabs
 			if (sibs.length || parentTabs.length > 1) {
 				if (!sibs.length) {
 					sibs = trig.closest('ul');
 				}
 				sibs.show();
-				
-				tabs.css('margin-bottom', (parseInt(tabs.css('margin-bottom'), 10) + sibs.outerHeight(true))  + 'px');
 			}
 			
 			nsel = trig.closest('li').siblings('.' + selected);
@@ -120,14 +116,19 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 							ignoreTabs = $(jq(hash)).closest(contentSelector).prev(tabSelector);
 						}
 						
-						var tabs = $tabsWithSwitch.not(ignoreTabs),
-							selPrefix = 'li.selected';
+						var tabs = $tabsWithSwitch.not(ignoreTabs);
 						
 						if (!firstTrig) {
-							if (!$(selPrefix, tabs).length) {
-								selPrefix = '> li';
-							}
-							firstTrig = $(selPrefix + ':first a:first', tabs);
+							firstTrig = [];
+							tabs.each(function() {
+								var selPrefix = 'li.selected';
+								
+								if (!$(selPrefix, this).length) {
+									selPrefix = '> li';
+								}
+								firstTrig.push($(selPrefix + ':first a:first', this)[0]);
+							});
+							firstTrig = $(firstTrig);
 						}
 						
 						firstTrig.each(function() {
