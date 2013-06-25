@@ -1,5 +1,5 @@
 // implement the same content padding
-#maincontent > *:not([class^="grid"]) {
+#maincontent > * {
     padding-left: 5px;
     padding-right: 5px;
 }
@@ -7,7 +7,7 @@
 .wdn-band {
     max-width: 100% !important; //important is required to overpower the wildcard selector above
     
-    #maincontent > & {
+    #maincontent > *& {
         padding: 0;
     }
 
@@ -38,7 +38,7 @@
 @media @bp3 {
     #maincontent {
 
-        > *:not([class^="grid"]) {
+        > * {
             max-width: 60rem;
             margin-left: auto;
             margin-right: auto;
