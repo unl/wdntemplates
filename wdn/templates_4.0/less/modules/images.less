@@ -1,0 +1,29 @@
+.wdn-frame {
+    position: relative;
+    overflow: hidden;
+
+    img {
+        width: 100%; // Image needs to fill the frame to allow aligned caption presentation.
+        max-width: 100%;
+        display: block;
+        .transition(transform 0.4s);
+    }
+
+    figcaption {
+        position: absolute;
+        height: auto;
+        width: 100%;
+        bottom: 0;
+        opacity: 1;
+        padding: 0.5em;
+        background-color: @babyBlue;
+        color: #ffffff;
+        text-shadow: 0 1px 0 darken(@babyBlue, 25%);
+
+        // animation support
+        .transform(translateY(100%));
+        -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
+        -moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
+        transition: transform 0.4s, opacity 0.1s 0.3s;
+    }
+}

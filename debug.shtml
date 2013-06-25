@@ -104,12 +104,36 @@
             <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                <figure class="wdn-frame">
-                    <img src="images/test_320.jpg" alt="Just an image test" />
-                    <figcaption>
-                        <p>Our students are the brightest and best in their respective fields. Take that Northwestern!</p>
-                    </figcaption>
-                </figure>
+                <div class="wdn-band">
+                    <div class="wdn-inner-wrapper">
+                        <div class="bp1-wdn-grid-set-thirds">
+                            <div class="wdn-col">
+                                <figure class="wdn-frame">
+                                    <img src="images/test_320.jpg" alt="Just an image test" />
+                                    <figcaption>
+                                        <p>Our students are the brightest and best in their respective fields. Take that Northwestern!</p>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="wdn-col">
+                                <figure class="wdn-frame">
+                                    <img src="images/test_320.jpg" alt="Just an image test" />
+                                    <figcaption>
+                                        <p>Our students are the brightest and best in their respective fields. Take that Northwestern!</p>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="wdn-col">
+                                <figure class="wdn-frame">
+                                    <img src="images/test_320.jpg" alt="Just an image test" />
+                                    <figcaption>
+                                        Our students are the brightest and best in their respective fields. Take that Northwestern!
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- InstanceEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>

@@ -1,0 +1,17 @@
+.wdn-frame {
+    
+    &:hover {
+
+        img {
+            .transform(translateY(-50px));
+        }
+
+        figcaption {
+            opacity: 1;
+            .transform(translateY(0px));
+            -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
+            -moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
+            transition: transform 0.4s, opacity 0.1s 0.3s;
+        }
+    }
+}
