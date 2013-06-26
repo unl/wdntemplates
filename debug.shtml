@@ -27,17 +27,6 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<style type="text/css">
- #maincontent .grid1, #maincontent .grid2, #maincontent .grid3, #maincontent .grid4, #maincontent .grid5, #maincontent .grid6, #maincontent .grid7, #maincontent .grid8, .grid9, #maincontent .grid10, #maincontent .grid11, #maincontent .col div, #maincontent .two_col div, #maincontent .three_col div, #maincontent .col_half div, #maincontent .four_col div {
-        margin-bottom: 15px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        background: rgba(111,191,77,.4);
-        border: solid 1px #6FBF4D;
-        border-width: 1px 0;
-        text-align:center;
-    }
-</style>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
@@ -104,109 +93,88 @@
             <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                <h1>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h1>
-                <h2 class="wdn-brand">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h2>
-                <h2 class="wdn-impact">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h2>
-                <h3 class="wdn-brand">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h3>
-                <h3 class="wdn-impact">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h3>
-                <h4 class="wdn-brand">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h4>
-                <h4 class="wdn-impact">The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h4>
-                <h5>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h5>
-                <h6>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</h6>
-                <!--
-        <h3>Current, Supported (but soon-to-be-deprecated) Grid System</h3> 
-        <div class="grid1 first"> grid1 </div> 
-        <div class="grid11"> grid11 </div> 
-        <div class="grid2 first"> grid2 </div> 
-        <div class="grid10"> grid10 </div> 
-        <div class="grid3 first"> grid3 </div> 
-        <div class="grid9"> grid9 </div> 
-        <div class="grid4 first"> grid4 </div> 
-        <div class="grid8"> grid8 </div> 
-        <div class="grid4 first"> grid4 </div> 
-        <div class="grid4"> grid4 </div> 
-        <div class="grid4"> grid4 </div> 
-        <div class="grid5 first"> grid5 </div> 
-        <div class="grid7"> grid7 </div> 
-        <div class="grid6 first"> grid6 </div> 
-        <div class="grid6"> grid6 </div> 
-        <div class="grid3 first"> grid3 </div> 
-        <div class="grid3"> grid3 </div> 
-        <div class="grid1"> grid1 </div> 
-        <div class="grid5"> grid5 </div> 
-        <div class="grid1 first"> grid1 </div> 
-        <div class="grid5"> grid5 </div> 
-        <div class="grid3"> grid3 </div> 
-        <div class="grid3"> grid3 </div> 
-        <div class="grid3 first"> 3 </div> 
-        <div class="grid9"> 
-          <div class="grid3 first">3</div> 
-          <div class="grid3">3</div> 
-          <div class="grid3">3</div> 
-          <div class="grid5 first">5</div> 
-          <div class="grid2">2</div> 
-          <div class="grid2">2</div> 
-        </div> 
-        <div class="grid8 first"> 
-          <div class="grid3 first">3</div> 
-          <div class="grid3">3</div> 
-          <div class="grid2">2</div> 
-          <div class="grid1 first">1</div> 
-          <div class="grid1">1</div> 
-          <div class="grid6">6</div> 
-        </div> 
-        <div class="grid4"> 4 </div>
-                <div class="wdn-band" style="line-height: 0;">
-                    <img src="sandbox/arch.jpg" alt="" class="wdn-stretch" />
-                </div>
-                <div class="wdn-band wdn-text-band wdn-wind">
-                    <div class="wdn-inner-wrapper">
-                        <h1 class="wdn-center">We are the College of Architecture. This is our story.</h1>
-                        <p>Pug seitan thundercats, banksy DIY tofu williamsburg artisan put a bird on it fap flannel odd future twee cliche letterpress. Yr marfa godard, bicycle rights synth messenger bag truffaut blue bottle tattooed pour-over brooklyn bushwick. </p>
-                        <p>Messenger bag locavore hoodie kale chips, quinoa pop-up mlkshk forage put a bird on it helvetica fashion axe authentic bicycle rights american apparel wolf. Bespoke you probably haven't heard of them 8-bit, squid twee +1 deep v. Ugh flannel ethnic pork belly, four loko stumptown ethical. Swag pour-over fixie ugh pug artisan wayfarers art party street art. Banh mi occupy skateboard, hella fanny pack wayfarers Austin.</p>
+                <h1>We're Debugging Out!</h1>
+                <ul class="wdn_tabs">
+                   <li><a href="#tab1">Tab #1</a></li>
+                   <li><a href="#tab2">Tab #2</a></li>
+                   <li><a href="#tab3">Tab #3</a>
+                       <ul>
+                           <li><a href="#tab3a">Tab #3a</a></li>
+                           <li><a href="#tab3b">Tab #3b</a></li>
+                       </ul>
+                   </li>
+                   <li><a href="#tab4">Tab #4: Multiple Column layout</a></li>
+                </ul>
+                <div class="wdn_tabs_content clear">
+                    <div id="tab1">
+                        <h4 class="sec_header">Tab 1</h4>
+                        <p>Content for Tab 1</p>
+                    </div>
+                    <div id="tab2">
+                        <h4 class="sec_header">Tab 2</h4>
+                        <p>Content for Tab 2</p>
+                    </div>
+                    <div id="tab3">
+                        <h4 class="sec_header">Tab 3</h4>
+                        <p>Content for Tab 3 (see sub-tabs above.)</p>
+                    </div>
+                    <div id="tab3a">
+                        <h4 class="sec_header">Tab 3a</h4>
+                        <p>Content for Tab 3a</p>
+                    </div>
+                    <div id="tab3b">
+                        <h4 class="sec_header">Tab 3b</h4>
+                        <p>Content for Tab 3b</p>
+                    </div>
+                    <div id="tab4">
+                        <h4 class="sec_header">Tab 4</h4>
+                        <div style="margin: 0 -1rem;">
+                            <div class="grid6 first">
+                                <h3>Being Here</h3>
+                                <ul style="list-style:disc;">
+                                    <li><a href="http://www.unl.edu/ucomm/aboutunl/" title="go to About UNL for information on UNL's history and mission">ABOUT UNL</a></li>
+                                    <li><a href="http://visit.unl.edu/" title="go to UNL resources for visitors">UNL VISITORS PAGE</a></li>
+                                    <li><a class="external" href="http://www.lincoln.org/" title="go to the Lincoln Convention and Visitors Bureau website to learn about living in Lincoln">VISITORS GUIDE TO LINCOLN</a></li>
+                                </ul>
+                            </div>
+                            <div class="grid6">
+                                <h4 class="sec_main">About UNL</h4>
+                                <p>The University of Nebraska&ndash;Lincoln, chartered in 1869, is an educational institution of international stature. A member of the Association of American Universities since 1909, Nebraska is recognized by the Carnegie Foundation as a Doctoral/Research Extensive university. UNL is a land-grant university and a member of the National Association of State Universities and Land-Grant Colleges (NASULGC). The university is accredited by the Higher Learning Commission of the North Central Association of Colleges and Schools. UNL will celebrate the 140th anniversary of its founding on Feb. 15, 2009.</p>
+                                <h5>A STRONG FOUNDATION</h5>
+                                <p>UNL&rsquo;s endowment has reached over $1 billion, making it the seventeenth largest public university endowment in the nation and close to the top 50 of all institutions of higher education.  The financial strength of the endowment has enabled the University to not only maintain but also to enhance its competitive position and develop its research and teaching missions in new and exciting ways.  Technology will be a key enabler in creating a culture of instructional and research excellence at UNL.</p>
+                            </div>
+                         </div>
                     </div>
                 </div>
-                <div class="wdn-band wdn-fire">
-                    <div class="wdn-inner-wrapper wdn-center">
-                        <h2 class="wdn-center brand-font">Let our numbers do the talking</h2>
-                        <div class="wdn-grid-set-halves bp2-wdn-grid-set-fourths">
-                            <div class="wdn-col">
-                                <img src="sandbox/4.0_mockup/infographic-ratio.png" alt="" />
-                                <h3 class="number brand-font">7:1</h3>
-                                <p class="">student/faculty ratio</p>
-                            </div>
-                            <div class="wdn-col">
-                                <img src="sandbox/4.0_mockup/infographic-map.png" alt="" />
-                                <h3 class="number brand-font">122</h3>
-                                <p>countries represented by our alums</p>
-                            </div>
-                            <div class="wdn-col">
-                                <img src="sandbox/4.0_mockup/infographic-success.png" alt="" />
-                                <h3 class="number brand-font">4,063</h3>
-                                <p>available internships and counting</p>
-                            </div>
-                            <div class="wdn-col">
-                                <img src="sandbox/4.0_mockup/infographic-chart.png" alt="" />
-                                <h3 class="number brand-font">92%</h3>
-                                <p>students employed within 1 year graduation</p>
+                
+                <div class="wdn-band" style="background-color: #2C7AC8;">
+                    <div class="wdn-inner-wrapper">
+                        <ul class="wdn_tabs">
+                           <li><a href="#tab10">Tab #1</a></li>
+                           <li><a href="#tab20">Tab #2</a></li>
+                           <li><a href="#tab30">Tab #3</a>
+                           </li>
+                        </ul>
+                        <div class="wdn_tabs_content">
+                            <div id="tab10">
+                                <h1>Test</h1>
+                                <h2>Subtabs are now tabs in your tabs!</h2>
+                                <ul class="wdn_tabs">
+                                   <li class="selected"><a href="#tab10a">Tab #1a</a></li>
+                                   <li><a href="#tab10b">Tab #1b</a></li>
+                               </ul>
+                               <div class="wdn_tabs_content">
+                                    <div id="tab10a">
+                                        Sub tab 10a
+                                    </div>
+                                    <div id="tab10b">
+                                        Sub tab 10b
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="wdn-band twitter-band">
-                    <div class="wdn-inner-wrapper">
-                        <div class="wdn-grid-set">
-                            <div class="wdn-col-one-seventh wdn-icon">
-                                &#xf057;
-                            </div>
-                            <div class="wdn-col-six-sevenths">
-                                <a href="" class="author">@MyTweeter</a>
-                                <p class="tweet">Welcome to 2013 class of #Huskers. Great choice you have made &amp; the other thing - UNL has great academic programs you will love. Welcome!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            -->
                 <!-- InstanceEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
