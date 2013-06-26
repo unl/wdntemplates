@@ -1,0 +1,44 @@
+.frame, .wdn-frame {
+    border: 3px solid @faded-neutral;
+
+    img {
+        width: 100%;
+        max-width: 100%;
+        display: block;
+    }
+
+    figcaption {
+        height: auto;
+        padding: 0.5em;
+        background-color: @light-neutral;
+        color: darken(@light-neutral, 75%);
+        .rem(10);
+    }
+}
+
+.wdn-caption-animate {
+    position: relative;
+    overflow: hidden;
+
+    img {
+        .transition(transform 0.4s);
+    }
+
+    figcaption {
+        position: absolute;
+        min-height: 50px;
+        width: 100%;
+        bottom: 0;
+        opacity: 0.5;
+
+        // animation support
+        .transform(translateY(90%));
+        -webkit-transition: -webkit-transform 0.4s, opacity 0.3s 0.1s;
+        -moz-transition: -moz-transform 0.4s, opacity 0.3s 0.1s;
+        transition: transform 0.4s, opacity 0.3s 0.1s;
+
+        * {
+            margin: auto;
+        }
+    }
+}
