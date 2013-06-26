@@ -155,6 +155,10 @@
         text-decoration: none;
     }
 
+    abbr[title] {
+        border-bottom: none;
+    }
+
     @media @bp-nav-hidden {
         float: left;
         width: ~'-webkit-calc(90% - 55px)';
@@ -189,6 +193,21 @@
                 top: -7px;
                 right: 0;
                 text-align: right;
+            }
+        }
+
+        // Hide the abbreviation, and show the site title (if available)
+        abbr[title] {
+            color: rgba(0, 0, 0, 0);
+            text-shadow: none;
+            display: block;
+            margin-bottom: -2.1428571rem;
+
+            &:before {
+                content: attr(title);
+                display: block;
+                color: @base-text;
+                text-shadow: 0 1px 0 #fff;
             }
         }
     }
