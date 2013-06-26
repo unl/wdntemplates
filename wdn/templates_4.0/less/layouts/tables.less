@@ -16,8 +16,8 @@ table {
     th {
         .impact-font();
         font-weight: 500;
-        color: darken(@colorNeutral, 60%);
-        background: fadeout(@colorNeutral,20%);
+        color: @dark-neutral;
+        background: fadeout(darken(@light-neutral,14%),20%);
     }
     
     th, td {
@@ -46,7 +46,7 @@ table {
             border-top-style: solid;
             border-bottom-style: solid;
             border-bottom-width: 1px;
-            border-color:desaturate(darken(@colorNeutral, 3%), 10%);
+            border-color: darken(@light-neutral, 20%);
             &:before {
                 display: block;
                 font-weight: bold;
@@ -59,8 +59,8 @@ table {
 
             @media(max-width:768px) {
                 &:first-child{
-                    color: darken(@colorNeutral, 60%);
-                    background: fadeout(@colorNeutral,20%); 
+                    color: @dark-neutral;
+                    background: fadeout(darken(@light-neutral,14%),20%); 
                 }
             }
         }

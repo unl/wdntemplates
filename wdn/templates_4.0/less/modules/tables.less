@@ -29,8 +29,8 @@
     /* Cool Table */
     tr th {
         @media(min-width: 768px){
-            color: darken(@colorTriad, 70%);
-            background: fadeout(@colorTriad, 20%);
+            color: darken(@light-triad, 70%);
+            background: fadeout(@light-triad, 20%);
         }
 
         a {
@@ -40,12 +40,12 @@
 
     tbody {
         td {
-            border-color: darken(@colorTriad, 6%);
+            border-color: darken(@light-triad, 6%);
 
             @media(max-width:768px) {
                 &:first-child{
-                    color: darken(@colorTriad, 70%);
-                    background: fadeout(@colorTriad, 20%);  
+                    color: darken(@light-triad, 70%);
+                    background: fadeout(@light-triad, 20%);  
                 }
             }        
         }
@@ -56,7 +56,7 @@
     tr th {
         @media(min-width: 768px){
             color: #fff;
-            background:fadeout(@colorDarktriad, 20%);
+            background:fadeout(@dark-triad, 20%);
         }
         
         a {
@@ -66,12 +66,12 @@
 
     tbody {
         td {
-            border-color:@colorDarktriad;
+            border-color:@dark-triad;
 
             @media(max-width:768px) {
                 &:first-child{
                     color: #fff;
-                    background:fadeout(@colorDarktriad, 20%);  
+                    background:fadeout(@dark-triad, 20%);  
                 }
             }     
         }
@@ -83,7 +83,7 @@
     tr th {
         @media(min-width: 768px){
             color:#fff;
-            background: fadeout(@colorComplementary, 20%);
+            background: fadeout(@dark-complement, 20%);
         }
         
         a {
@@ -93,12 +93,12 @@
 
     tbody {
         td {
-            border-color:@colorComplementary;
+            border-color:@dark-complement;
 
             @media(max-width:768px) {
                 &:first-child{
                     color:#fff;
-                    background: fadeout(@colorComplementary, 20%);
+                    background: fadeout(@dark-complement, 20%);
                 }
             }     
         }
@@ -108,8 +108,8 @@
     /* Neutral Table */
     tr th {
         @media(min-width: 768px){
-            color: darken(@colorNeutral, 60%);
-            background: fadeout(@colorNeutral,20%);
+            color: @dark-neutral;
+            background: fadeout(darken(@light-neutral,14%),20%);
         }
 
         a {
@@ -119,12 +119,12 @@
 
     tbody {
         td {
-            border-color:desaturate(darken(@colorNeutral, 3%), 10%);
+            border-color: darken(@light-neutral, 20%);
 
             @media(max-width:768px) {
                 &:first-child{
-                    color: darken(@colorNeutral, 60%);
-                    background: fadeout(@colorNeutral,20%);  
+                    color: @dark-neutral;
+                    background: fadeout(darken(@light-neutral,14%),20%);  
                 }
             }     
         }
@@ -136,7 +136,7 @@
     tr th {
         @media(min-width: 768px){
             color: #fff;
-            background: fadeout(@colorDarkneutral, 10%);
+            background: fadeout(@dark-neutral, 10%);
         }
 
         a {
@@ -146,12 +146,12 @@
 
     tbody {
         td {
-            border-color:@colorDarkneutral;
+            border-color:@dark-neutral;
 
             @media(max-width:768px) {
                 &:first-child{
                     color: #fff;
-                    background: fadeout(@colorDarkneutral, 10%); 
+                    background: fadeout(@dark-neutral, 10%); 
                 }
             }     
         }
@@ -162,7 +162,7 @@
     tr th {
         @media(min-width: 768px){
             color: #000;
-            background: fadeout(@colorEnergetic, 20%);
+            background: fadeout(@dark-energetic, 20%);
         }
 
         a {
@@ -172,12 +172,12 @@
 
     tbody {
         td {
-            border-color:@colorEnergetic;
+            border-color:@dark-energetic;
 
             @media(max-width:768px) {
                 &:first-child{
                     color: #000;
-                    background: fadeout(@colorEnergetic, 20%);  
+                    background: fadeout(@dark-energetic, 20%);  
                 }
             }     
         }
