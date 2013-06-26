@@ -1,52 +1,32 @@
-// These functions set the WDN colors as found at:
-// http://wdn.unl.edu/documentation/colors.shtml
 
-//PRIMARY
+// Go Big Red
 @brand: #ac0302;
-@darkCompliment: #352e01;
-@bright: rgb(209, 84, 165); //#D154A5
-@lightCompliment: rgb(221, 199, 240); //#DDC7F0
-@neutral: #f6f5ea;
 
-@base-text: @darkCompliment;
+// A few neutral shades, light tan and dark brown
+@light-neutral: #f6f5ea;
+@dark-neutral: #352e01;
 
-// Warnings
-@warning: #FFA500;
+    // To be used for subtle color variations. Works OK on most banded colors
+    @faded-neutral: fadeout(#3b3816, 95%);
 
-//Secondary colors
-@colorManilla: #FFF2D4; //#E5DCA7;  //manilla
-@colorNeutral: #ded19f; //#F2EDDE; //neutral manilla
-@colorDarkneutral: #5b523e; //#F2EDDE; //neutral manilla
-@colorBright: #FBF4E2; 
-@colorTriad: #bddeff; //#88CBDF; //#A7CEE5; //triad blue 
-@colorDarktriad: #2c7ac8; // dark triad
-@colorComplementary: #008a15; //#9DC8BA; //#6FBF4D; //complementary green
-@colorEnergetic: #F4740C;//#F9A25E;  //complemntary orage
+// Color triads, in the blue family
+@light-triad: #BDDEFF;
+@dark-triad: #2A79C8;
 
+// Color complementary, in the green family
+@light-complement: #D7E7D9;
+@dark-complement: #008A15;
 
-// Highlights and shadow colors
+// Color complementary, in the orange family
+@light-energetic: #F8e3d2;
+@dark-energetic: #F4740C;
 
-//primary
-@highlightPrimary: lighten(@brand, 2.5%);
-//@shadowPrimary: darken(@colorPrimary, 5%);
+// 
+// Assign base colors
+//
 
-//manilla
-@highlightManilla: lighten(saturate(@colorManilla, 15%), 5%);
-//@shadowManilla: darken(desaturate(@colorManilla, 20%), 9%);
+    // Base text color
+    @base-text: @dark-neutral;
 
-//neutral manilla
-@highlightNeutral: lighten(saturate(@colorNeutral, 50%), 5%);
-//@shadowNeutral: darken(desaturate(@colorNeutral, 25%), 9%);
-
-//triad blue
-@highlightTriad: lighten(saturate(@colorTriad, 20%), 5%);
-//@shadowTriad: darken(desaturate(@colorTriad, 20%), 9%);
-
-//complementary green
-@highlightComplementary: lighten(saturate(@colorComplementary, 5%), 5%);
-//@shadowComplementary: darken(@colorComplementary, 8%);
-
-//complementary orange
-@highlightEnergetic: lighten(saturate(@colorEnergetic, 5%), 5%);
-//@shadowComplementary: darken(@colorComplementary, 8%);
-
+    // Warnings. Since Red is our brand color, we're using a brighter orange
+    @warning: #FFA500;
