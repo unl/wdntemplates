@@ -108,7 +108,7 @@
                     <div class="wdn-inner-wrapper">
                         <div class="bp1-wdn-grid-set-thirds">
                             <div class="wdn-col">
-                                <figure class="wdn-caption-animate">
+                                <figure class="wdn-frame wdn-caption-animate">
                                     <img src="images/test_transparent.png" alt="Just an image test" />
                                     <figcaption>
                                         <p>Our students are the brightest and best in their respective fields. Take that Northwestern!</p>
@@ -116,18 +116,19 @@
                                 </figure>
                             </div>
                             <div class="wdn-col">
-                                <figure class="wdn-caption-animate">
+                                <figure class="wdn-frame wdn-caption-animate">
                                     <img src="images/test_wide.jpg" alt="Just an image test" />
                                     <figcaption>
+                                        <h2>Heading</h2>
                                         <p>Our students are the brightest and best in their respective fields. Take that Northwestern!</p>
                                     </figcaption>
                                 </figure>
                             </div>
                             <div class="wdn-col">
-                                <figure class="wdn-caption-animate">
+                                <figure class="wdn-frame wdn-caption-animate">
                                     <img src="images/test_tall.jpg" alt="Just an image test" />
                                     <figcaption>
-                                        Our students are the brightest and best in their respective fields. Take that Northwestern!
+                                        Shorter.
                                     </figcaption>
                                 </figure>
                             </div>
