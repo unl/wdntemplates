@@ -8,9 +8,26 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
     	hoverPlugin = 'plugins/hoverIntent/jquery.hoverIntent',
     	expandDelay = 400,
     	collapseDelay = 120,
-    	changeSiteNavDelay = 400,
-    	homepageLI, siteHomepage, timeout, scrollTimeout, transTimeout, resizeTimeout,
-    	currentState = -1;
+    	resizeThrottle = 500,
+    	homepageLI, siteHomepage, timeout, scrollTimeout, resizeTimeout,
+    	currentState = -1,
+    	breadSel = '#breadcrumbs',
+    	navSel = '#navigation',
+    	prmySel = '> ul > li',
+    	navPrmySel = navSel + ' ' + prmySel,
+    	breadPrmySel = breadSel + ' ' + prmySel,
+    	menuTogSel = '#wdn_menu_toggle',
+    	storeSel = 'div.storednav',
+    	sldCls = 'selected',
+    	hltCls = 'highlight';
+    
+    var isFullNav = function() {
+    	if (Modernizr.mediaqueries) {
+    		return Modernizr.mq(fullNavBp);
+    	} else {
+    		return window.document.documentElement.clientWidth >= 700;
+    	}
+    };
     
     var determineSelectedBreadcrumb = function () {
     	// First we search for a defined homepage.
@@ -20,13 +37,13 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
     		WDN.log('Setting homepage to ' + siteHomepage);
     	}
     	
-    	var $breadcrumbs = $('#breadcrumbs > ul > li');
+    	var $breadcrumbs = $(breadPrmySel);
     	if (!$breadcrumbs.length) {
     		WDN.log('This page is missing breadcrumbs');
     		return;
     	}
     	
-    	$breadcrumbs.removeClass('selected');
+    	$breadcrumbs.removeClass(sldCls);
     	
     	if (!siteHomepage) {
     		WDN.log('No homepage set!');
@@ -45,7 +62,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 				}
     		});
     		
-    		if (!$breadcrumbs.filter('.selected').length) {
+    		if (!$breadcrumbs.filter('.' + sldCls).length) {
     			WDN.log('We are on the current homepage.');
     			setHomepageLI($breadcrumbs[$breadcrumbs.length-1]);
     		}
@@ -57,7 +74,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
     var setHomepageLI = function(li) {
     	homepageLI = li;
         var $li = $(li);
-        $li.addClass('selected');
+        $li.addClass(sldCls);
         
         var $homeCrumbLink = $li.children('a');
         
@@ -93,26 +110,27 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
     };
     
     var fixPresentation = function() {
-    	if (!Modernizr.mq(fullNavBp)) {
-    		$('#navigation > ul > li > ul').css('height', '');
-    		$('#navigation > ul > li > a').css({
+    	if (!isFullNav()) {
+    		$(navPrmySel + ' > ul').css('height', '');
+    		$(navPrmySel + ' > a').css({
             	'padding-top' : '',
                 'padding-bottom' : ''
             });
         	return;
         }
     	
-    	$('#wdn_navigation_wrapper').removeClass('empty-secondary');
+    	var navWrap = $('#wdn_navigation_wrapper');
+    	navWrap.removeClass('empty-secondary');
     	
-        var primaries = $('#navigation > ul > li');
+        var primaries = $(navPrmySel);
         var primaryCount = primaries.length, fakePrimaries = [];
         while (primaryCount % 6 > 0) {
             fakePrimaries.push($('<li class="empty"><a /><ul class="empty"><li/></ul></li>')[0]);
             primaryCount++;
         }
         if (fakePrimaries.length) {
-        	$('#navigation > ul').append(fakePrimaries);
-        	primaries = $('#navigation > ul > li');
+        	$(navSel + ' > ul').append(fakePrimaries);
+        	primaries = $(navPrmySel);
         }
 
         var secondaries = primaries.has('ul');
@@ -123,15 +141,15 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
         }
         
         // css3 selector fixes
-        var $bar_starts = $('#navigation > ul > li:nth-child(6n+1)');
+        var $bar_starts = $(navPrmySel + ':nth-child(6n+1)');
         if (!Modernizr['css-nthchild']) {
             $bar_starts.addClass('start');
-            $('#navigation > ul > li:nth-child(6n+6)').addClass('end');
-            $('#navigation > ul > li:nth-child(n+7)').addClass('mid-bar');
+            $(navPrmySel + ':nth-child(6n+6)').addClass('end');
+            $(navPrmySel + ':nth-child(n+7)').addClass('mid-bar');
             $bar_starts.last().prevAll().addClass('top-bars');
         }
         if (!Modernizr['css-lastchild']) {
-            $('#navigation > ul > li ul li:last-child').addClass('last');
+            $(navPrmySel + ' ul li:last-child').addClass('last');
         }
 
         var ah = [];
@@ -180,14 +198,13 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
             };
         
         if (currentState == 0) {
-        	$('#navigation').bind('expand', recalcSecondaryHeight);
+        	$(navSel).bind('expand', recalcSecondaryHeight);
         } else {
         	recalcSecondaryHeight();
         }
 
         // look for no secondary links
         if (!$('li > a', secondaryLists).length) {
-        	$('#wdn_navigation_wrapper').addClass('empty-secondary');
         } else { // look for entire empty rows
             $bar_starts.each(function() {
             	var $primary_bar = $(this).nextUntil(':nth-child(6n+1)').andSelf();
@@ -233,17 +250,17 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
     	var $cWrapper = $('#wdn_content_wrapper');
         $cWrapper.css('padding-top', '');
         
-        if (!Modernizr.mq(fullNavBp)) {
+        if (!isFullNav()) {
         	return;
         }
         
         if (currentState === 0) {
-            var nav_height = $('#navigation').outerHeight(true);
+            var nav_height = $(navSel).outerHeight();
             $cWrapper.css('padding-top', nav_height);
         }
     };
     
-    var startCollapseDelay = function(event) {
+    var startCollapseDelay = function() {
     	WDN.log('start collapse delay');
     	clearTimeout(timeout);
     	if (currentState === 0) {
@@ -265,27 +282,28 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
         }
         
         var breadcrumbParent = $(breadcrumb).parent(),
-        	$navList = $('#navigation > ul');
+        	$navList = $(navSel + ' > ul');
         
-        $navList.children('li').removeClass('highlight');
+        $navList.children('li').removeClass(hltCls);
         
-        if (breadcrumbParent.hasClass('selected')) {
+        if (breadcrumbParent.hasClass(sldCls)) {
             WDN.log('already showing this nav');
             return true;
         }
         
         var isAfterHome = !!breadcrumbParent.prevAll().filter(homepageLI).length,
-        	oldSelected = $('#breadcrumbs > ul > li.selected').first(),
-        	foundInCurrent = false;
+        	oldSelected = $(breadPrmySel + '.' + sldCls).first(),
+        	foundInCurrent = false,
+        	pendCls = 'pending';
         
         // Look for link in existing/stored navigation
         if (isAfterHome) {
         	// If the home navigation is currently displayed
-        	if ($(homepageLI).hasClass('selected')) {
+        	if ($(homepageLI).hasClass(sldCls)) {
 	            $('a', $navList).each(function() {
 	            	if (this.href == breadcrumb.href) {
 	            		foundInCurrent = true;
-	            		$(this).parents('#navigation > ul > li').addClass('highlight');
+	            		$(this).parents(navPrmySel).addClass(hltCls);
 	            		return false;
 	            	}
 	            });
@@ -297,21 +315,22 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
         	}
         	
         	// Check stored navigation up to selected
-        	var $previousCrumbs = breadcrumbParent.prevUntil('.selected');
+        	var $previousCrumbs = breadcrumbParent.prevUntil('.' + sldCls);
         	
             $previousCrumbs.each(function() {
-            	var $storedNav = $(this).children('div.storednav');
+            	
+            	var $storedNav = $(this).children(storeSel);
             	
             	if ($storedNav.length) {
             		$('a', $storedNav.children()).each(function() {
             			if (this.href == breadcrumb.href) {
             				foundInCurrent = true;
-            				var tempPrimary = $(this).parents('div.storednav > ul > li');
-            				tempPrimary.addClass('highlight');
+            				var tempPrimary = $(this).parents(storeSel + ' ' + prmySel);
+            				tempPrimary.addClass(hltCls);
             				
             				setNavigationContents($storedNav.children().clone(), expand);
             				
-            				tempPrimary.removeClass('highlight');
+            				tempPrimary.removeClass(hltCls);
             				
             				return false;
             			}
@@ -319,8 +338,8 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
             	}
             	
             	if (foundInCurrent) {
-            		oldSelected.removeClass('selected');
-    				$(this).addClass('selected');
+            		oldSelected.removeClass(sldCls);
+    				$(this).addClass(sldCls);
     				
             		return false;
             	}
@@ -342,7 +361,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 	    		.html();
         };
 
-        var $storedNav = $(breadcrumb).siblings('div.storednav'),
+        var $storedNav = $(breadcrumb).siblings(storeSel),
             oldNavCompare = sanitizeNav($navList.clone());
         
         if ($storedNav.length) {
@@ -364,20 +383,20 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
             	}
         	}
         	
-    		if (!$('div.storednav', oldSelected).length) {
+    		if (!$(storeSel, oldSelected).length) {
                 storeNav(oldSelected, $navList);
         	}
     		
-    		oldSelected.removeClass('selected');
-    		breadcrumbParent.addClass('selected');
+    		oldSelected.removeClass(sldCls);
+    		breadcrumbParent.addClass(sldCls);
     		
     		setNavigationContents($storedChildren.clone(), expand);
         	return true;
         }
 
         // Fetch the navigation
-        $('#breadcrumbs > ul > li').removeClass('pending');
-        $(breadcrumb).parent().addClass('pending');
+        $(breadPrmySel).removeClass(pendCls);
+        $(breadcrumb).parent().addClass(pendCls);
 
         var nav_sniffer = snifferServer + 'navigationSniffer.php';
         nav_sniffer += '?u=' + escape(breadcrumb.href);
@@ -388,16 +407,16 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
                 	var $temp = $('<div/>').append(data).children('ul');
                     
                     if (!isAfterHome || $temp.html() != oldNavCompare) {
-                    	if (!$('div.storednav', oldSelected).length) {
+                    	if (!$(storeSel, oldSelected).length) {
                             storeNav(oldSelected, $navList);
                     	}
                     	
                     	storeNav(breadcrumbParent, $temp.clone());
                     	
-                    	if (breadcrumbParent.hasClass('pending')) {
+                    	if (breadcrumbParent.hasClass(pendCls)) {
                     		// Set the hovered breadcrumb link to selected
-                    		oldSelected.removeClass('selected');
-                            breadcrumbParent.removeClass('pending').addClass('selected');
+                    		oldSelected.removeClass(sldCls);
+                            breadcrumbParent.removeClass(pendCls).addClass(sldCls);
                             
                             setNavigationContents($temp, expand);
                         }
@@ -419,7 +438,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
     };
     
     var storeNav = function(li, data) {
-    	var storednavDiv = $(li).children('div.storednav');
+    	var storednavDiv = $(li).children(storeSel);
     	if (storednavDiv.length) {
     		storednavDiv.empty();
     	} else {
@@ -431,7 +450,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
     
     var setNavigationContents = function(contents, expand) {
     	WDN.log('setNavigationContents called');
-        $('#navigation')
+        $(navSel)
         	.children('ul').remove().end()
         	.prepend(contents);
 
@@ -450,114 +469,101 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
     };
     
     var navReady = function(ready) {
-    	var $wrapper = $('#wdn_wrapper');
+    	var $wrapper = $('#wdn_wrapper'), cls = 'nav_ready';
     	if (ready) {
-    		$wrapper.addClass('nav_ready');
+    		$wrapper.addClass(cls);
     	} else {
-    		$wrapper.removeClass('nav_ready');
+    		$wrapper.removeClass(cls);
     	}
-    };
-    
-    var destroy = function() {
-    	navReady(false);
-    	
-    	// unfix presentation
-    	$('#navigation').unbind();
-    	
-    	$('#navigation > ul > li > a').unbind('focusin').unbind('focus').css({
-    		'padding-top': '',
-    		'padding-bottom': ''
-    	});
-    	
-    	$('#navigation > ul > li > ul').css('height', '');
-    	
-    	$('#wdn_wrapper').removeClass('nav_collapsed nav_expanded nav_changing nav_pinned nav_unpinned');
-    	
-    	$('#wdn_content_wrapper').css('margin-top', '');
-    	
-    	$('#wdn_navigation_bar').unbind();
-    	
-    	$('#breadcrumbs ul li a').unbind();
     };
     
     var Plugin = {
         initialize : function() {
-        	if (!initd) {
-	            determineSelectedBreadcrumb();
-	            linkSiteTitle();
-        	}
-            
-            if ($('body').is('.document, .terminal') || !$('#navigation > ul > li').length) {
-            	// The rest deals with navigation elements not in document
-            	return;
-            }
-
-            WDN.log('let us fix the presentation');
-            fixPresentation();
-
-            if (!initd) {
-	            // add an expand toggler UI element
-	            var $toggler = $('#wdn_menu_toggle');
-	            $toggler.change(function(evt) {
-	            	lockHover = this.checked;
-	                if (currentState === 0) {
-	                    Plugin.expand();
-	                } else {
-	                    Plugin.collapse();
-	                }
+        	$(function () {
+	        	if (!initd) {
+		            determineSelectedBreadcrumb();
+		            linkSiteTitle();
+	        	}
+	            
+	            if ($('body').is('.document, .terminal') || !$(navPrmySel).length) {
+	            	// The rest deals with navigation elements not in document
+	            	return;
+	            }
+	
+	            WDN.log('let us fix the presentation');
+	            fixPresentation();
+	
+	            if (!initd) {
+		            // add an expand toggler UI element
+		            var $toggler = $(menuTogSel);
+		            $toggler.change(function() {
+		            	lockHover = this.checked;
+		                if (currentState === 0) {
+		                    Plugin.expand();
+		                } else {
+		                    Plugin.collapse();
+		                }
+		            });
+		            
+		            var nav = $(navSel);
+		            var onscroll = function() {
+//	                    don't clear the timeout (wait for last event) as it causes poor UX
+//	                    clearTimeout(scrollTimeout);
+	                    scrollTimeout = setTimeout(function() {
+	                    	var breadcrumbs = $(breadSel), cls = 'nav-scrolling';
+	                        if ($(window).scrollTop() >= breadcrumbs.offset().top + breadcrumbs.height()) {
+	                        	if (currentState != 0) {
+	                        		Plugin.collapse();
+	                        	}
+	                            nav.addClass(cls);
+	                        } else {
+	                            nav.removeClass(cls); 
+	                        }
+	                    }, 50);
+		            };
+		            // pin the navigation 
+		            onscroll();
+		            $(window).on('scroll', onscroll);
+		            
+		            var navWidth = nav.width();
+		            $(window).on('resize', function() {
+		            	clearTimeout(resizeTimeout);
+		            	resizeTimeout = setTimeout(function() {
+		            		if (nav.width() === navWidth) {
+		            			return;
+		            		}
+		            		navWidth = nav.width();
+		            		
+		            		fixPresentation();
+		            		applyStateFixes();
+		            	}, resizeThrottle);
+		            });
+	            }
+	            
+	            $(navPrmySel + ' > a').focusin(function(){
+	                Plugin.expand();
+	            })
+	            .focus(function(){
+	            	switchSiteNavigation($(homepageLI).children('a').get(0), false);
+	        	});
+	
+	            initializePreferredState();
+	            
+	            WDN.loadJQuery(function() {
+		            require([hoverPlugin], function() {
+		                $(breadPrmySel + ' a').hoverIntent({
+		                    over: switchSiteNavigation,
+		                    out: function() {
+		                    	$(navPrmySel).removeClass(hltCls);
+		                    },
+		                    sensitivity: 1, // Mouse must not move
+		                    interval:    120
+		                });
+		            });
 	            });
 	            
-	            var onscroll = function() {
-//                    don't clear the timeout (wait for last event) as it causes poor UX
-//                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(function() {
-                    	var breadcrumbs = $('#breadcrumbs'), nav = $('#navigation');
-                        if ($(window).scrollTop() >= breadcrumbs.offset().top + breadcrumbs.height()) {
-                        	if (currentState != 0) {
-                        		Plugin.collapse();
-                        	}
-                            nav.addClass('nav-scrolling');
-                        } else {
-                            nav.removeClass('nav-scrolling'); 
-                        }
-                    }, 50);
-	            };
-	            // pin the navigation 
-	            onscroll();
-	            $(window).on('scroll', onscroll);
-	            
-	            $(window).on('resize', function() {
-	            	clearTimeout(resizeTimeout);
-	            	resizeTimeout = setTimeout(function() {
-	            		fixPresentation();
-	            		applyStateFixes();
-	            	}, 500);
-	            });
-            }
-            
-            $('#navigation > ul > li > a').focusin(function(){
-                Plugin.expand();
-            })
-            .focus(function(){
-            	switchSiteNavigation($(homepageLI).children('a').get(0), false);
+	            initd = true;
         	});
-
-            initializePreferredState();
-            
-            WDN.loadJQuery(function() {
-	            require([hoverPlugin], function() {
-	                $('#breadcrumbs ul li a').hoverIntent({
-	                    over:        switchSiteNavigation,
-	                    out:         function() {
-	                    	$('#navigation > ul > li').removeClass('highlight');
-	                    },
-	                    sensitivity: 1, // Mouse must not move
-	                    interval:    120
-	                });
-	            });
-            });
-            
-            initd = true;
         },
         
         /**
@@ -571,7 +577,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 
             var expandEnd = function() {
             	setWrapperClass('expanded');
-            	$('#navigation').trigger('expand').unbind('expand');
+            	$(navSel).trigger('expand').unbind('expand');
             };
             if (Plugin.currentState !== -1 && Modernizr.csstransitions) {
                 setWrapperClass('changing');
@@ -583,7 +589,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
             }
 
             currentState = 1;
-            $('#wdn_menu_toggle')[0].checked = true;
+            $(menuTogSel)[0].checked = true;
         },
 
         /**
@@ -597,7 +603,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 
             setWrapperClass('collapsed');
             currentState = 0;
-            $('#wdn_menu_toggle')[0].checked = false;
+            $(menuTogSel)[0].checked = false;
             
             if (switchNav !== false) {
             	var go = function() {

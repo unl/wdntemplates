@@ -53,16 +53,12 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 			// Add the selected class to the tab (and sub-tab)
 			parentTabs.addClass(selected);
 			
-			tabs.css('margin-bottom', '');
-			
 			// Show any relevant sub-tabs
 			if (sibs.length || parentTabs.length > 1) {
 				if (!sibs.length) {
 					sibs = trig.closest('ul');
 				}
 				sibs.show();
-				
-				tabs.css('margin-bottom', (parseInt(tabs.css('margin-bottom'), 10) + sibs.outerHeight(true))  + 'px');
 			}
 			
 			nsel = trig.closest('li').siblings('.' + selected);
@@ -75,121 +71,126 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 		initialize : function() {
 			WDN.log("tabs JS loaded");
 			
-			if (WDN.getPluginParam('tabs', 'useHashChange') === false) {
-				useHashChange = false;
-			}
-			
-			// Set up the event for when a tab is clicked
-			var hashFromTabClick = false,
-				$tabsWithSwitch = $(tabSelector).not('.disableSwitching');
-			
-			$tabsWithSwitch.find('a').click(function() { //do something when a tab is clicked
-				var trig = $(this),
-					hash = getHashFromLink(this);
-				
-				if (!hash) {
-					return true;
+			$(function() {
+				if (WDN.getPluginParam('tabs', 'useHashChange') === false) {
+					useHashChange = false;
 				}
 				
-				updateInterface(trig);
+				// Set up the event for when a tab is clicked
+				var hashFromTabClick = false,
+					$tabsWithSwitch = $(tabSelector).not('.disableSwitching');
 				
-				if (!useHashChange) {
-					WDN.tabs.displayFromHash(hash);
-				} else {
-					hashFromTabClick = true;
-					if (getCleanHash() != hash) {
-						window.location.hash = hash;
+				$tabsWithSwitch.find('a').click(function() { //do something when a tab is clicked
+					var trig = $(this),
+						hash = getHashFromLink(this);
+					
+					if (!hash) {
+						return true;
 					}
-				}
-				
-				return false;
-			});
-			
-			// If we have some tabs setup the hash stuff
-			if ($tabsWithSwitch.length) {
-				var 
-					isValidTabHash = function(hash) {
-						return validRE.test(hash);
-					},
-					isTabExists = function(hash) {
-						return isValidTabHash(hash) && $(contentSelector + ' ' + jq(hash)).length;
-					},
-					setupFirstHash = function(hash) {
-						var ignoreTabs = $();
-						if (hash) {
-							ignoreTabs = $(jq(hash)).closest(contentSelector).prev(tabSelector);
+					
+					updateInterface(trig);
+					
+					if (!useHashChange) {
+						WDN.tabs.displayFromHash(hash);
+					} else {
+						hashFromTabClick = true;
+						if (getCleanHash() != hash) {
+							window.location.hash = hash;
 						}
-						
-						var tabs = $tabsWithSwitch.not(ignoreTabs),
-							selPrefix = 'li.selected';
-						
-						if (!firstTrig) {
-							if (!$(selPrefix, tabs).length) {
-								selPrefix = '> li';
-							}
-							firstTrig = $(selPrefix + ':first a:first', tabs);
-						}
-						
-						firstTrig.each(function() {
-							var innerTrig = $(this);
-							var hash = getHashFromLink(this);
-							if (!hash || !isValidTabHash(hash)) {
-								return;
-							}
-							updateInterface(innerTrig);
-							Plugin.displayFromHash(hash);
-						});
-					};
+					}
+					
+					return false;
+				});
 				
-				if (useHashChange) {
-					var setupHashChange = function() {
-						var firstRun = true;
-						$(window).off('.wdn_tabs').on('hashchange.wdn_tabs', function() {
-							var hash = getCleanHash();
-							if (hash && !isValidTabHash(hash)) {
-								return true;
+				// If we have some tabs setup the hash stuff
+				if ($tabsWithSwitch.length) {
+					var 
+						isValidTabHash = function(hash) {
+							return validRE.test(hash);
+						},
+						isTabExists = function(hash) {
+							return isValidTabHash(hash) && $(contentSelector + ' ' + jq(hash)).length;
+						},
+						setupFirstHash = function(hash) {
+							var ignoreTabs = $();
+							if (hash) {
+								ignoreTabs = $(jq(hash)).closest(contentSelector).prev(tabSelector);
 							}
 							
-							if (isTabExists(hash)) {
-								Plugin.displayFromHash(hash, firstRun || !hashFromTabClick);
-								
-								if (firstRun) {
-									setupFirstHash(hash);
-									firstRun = false;
-								}
-								if (hashFromTabClick) {
-									hashFromTabClick = false;
-								}
-								return false; //consume this hash event
-							} else if (firstRun || hash === '') {
-								setupFirstHash();
-								firstRun = false;
-								return true; //we simulated a hash event (allow others to consume);
+							var tabs = $tabsWithSwitch.not(ignoreTabs);
+							
+							if (!firstTrig) {
+								firstTrig = [];
+								tabs.each(function() {
+									var selPrefix = 'li.selected';
+									
+									if (!$(selPrefix, this).length) {
+										selPrefix = '> li';
+									}
+									firstTrig.push($(selPrefix + ':first a:first', this)[0]);
+								});
+								firstTrig = $(firstTrig);
 							}
-						});
-						$(window).hashchange();
-					};
+							
+							firstTrig.each(function() {
+								var innerTrig = $(this);
+								var hash = getHashFromLink(this);
+								if (!hash || !isValidTabHash(hash)) {
+									return;
+								}
+								updateInterface(innerTrig);
+								Plugin.displayFromHash(hash);
+							});
+						};
 					
-					if (!$.fn.hashchange) {
-						WDN.loadJQuery(function() {
-							require([hashPlugin], setupHashChange);
-						});
+					if (useHashChange) {
+						var setupHashChange = function() {
+							var firstRun = true;
+							$(window).off('.wdn_tabs').on('hashchange.wdn_tabs', function() {
+								var hash = getCleanHash();
+								if (hash && !isValidTabHash(hash)) {
+									return true;
+								}
+								
+								if (isTabExists(hash)) {
+									Plugin.displayFromHash(hash, firstRun || !hashFromTabClick);
+									
+									if (firstRun) {
+										setupFirstHash(hash);
+										firstRun = false;
+									}
+									if (hashFromTabClick) {
+										hashFromTabClick = false;
+									}
+									return false; //consume this hash event
+								} else if (firstRun || hash === '') {
+									setupFirstHash();
+									firstRun = false;
+									return true; //we simulated a hash event (allow others to consume);
+								}
+							});
+							$(window).hashchange();
+						};
+						
+						if (!$.fn.hashchange) {
+							WDN.loadJQuery(function() {
+								require([hashPlugin], setupHashChange);
+							});
+						} else {
+							setupHashChange();
+						}
 					} else {
-						setupHashChange();
+						// No hashchange listener, so simulate first run
+						var hash = getCleanHash();
+						if (isTabExists(hash)) {
+							Plugin.displayFromHash(hash, true);
+						} else {
+							hash = '';
+						}
+						setupFirstHash(hash);
 					}
-				} else {
-					// No hashchange listener, so simulate first run
-					var hash = getCleanHash();
-					if (isTabExists(hash)) {
-						Plugin.displayFromHash(hash, true);
-					} else {
-						hash = '';
-					}
-					setupFirstHash(hash);
 				}
-			}
-			
-			return true;
+			});
 		},
 		
 		displayFromHash: function(hash, forceUpdate) {
