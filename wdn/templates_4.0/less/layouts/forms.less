@@ -1,0 +1,107 @@
+form {
+	position: relative;
+	margin:1rem 0;
+	padding:0;
+	border:0;
+	background:none;
+	color: @base-text;
+
+	h3 {}
+
+	fieldset {
+		width:100%;
+
+		legend {
+			font-size:1.25rem;
+			font-weight:bold;
+			white-space: normal;
+			padding:1rem .25rem .25rem .25rem;
+
+			&+ ol, &+ ul {
+				border-top:1px solid @brand;
+
+				&> li:first-child {
+					border-top:1px solid @faded-neutral;
+					padding-top:1.5rem;
+				}
+			}
+
+
+		}
+
+		ol, ul {
+			padding:0;
+
+			li {
+				list-style: none;
+				padding: .375rem 1.5rem .375rem 2.5rem;
+
+				label {
+					font-size:1rem;
+					display: block;
+				}
+
+				input, textarea, select {
+					width:100%;
+					background-color:#fff;
+					font-size:1.1rem;
+					outline:none;
+					border:1px solid #dbdac8;
+					//color: @base-text;
+					padding: .25rem;
+					margin-top:2px;
+					.border-radius(2px);
+
+					&:focus {
+						.box-shadow(0 0 6px fadeout(@brand, 50%));
+						outline:none;
+						border:1px solid @brand;
+					}
+				}
+
+				span.required {
+					position:absolute;
+				    left:10px;
+				    text-indent:-999999px;
+				    margin-top:2px;
+				    background:url('../images/zenform/requiredIndicator.png') no-repeat 0 0px;
+				    width:24px;
+				    height:12px;
+				    display:block;
+				}
+
+				span.helper {
+					font-size:.625rem;
+					/*change color to ref colors.less*/
+					color:#514936;
+				}
+			}
+		}
+
+		/* Fieldset inside form */
+		fieldset {}
+	}
+
+	input[type="submit"] {
+		background-color:@brand;
+		.box-shadow(0 3px 0px saturate(@brand, 50%));
+		.border-radius(2px);
+		font-size:1.5rem;
+		cursor: pointer;
+		margin:10px 10px 20px 37px;
+		padding:10px 36px 10px 16px;
+		width:auto;
+		display:inline;
+	}
+
+	input[type="reset"] {
+		border:none;
+		background:none;
+		border-left:2px solid @dark-complement;
+		padding-left:14px;
+		margin-left:6px;
+		width: auto;
+		cursor: pointer;
+		display: inline;
+	}
+}
