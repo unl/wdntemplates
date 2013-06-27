@@ -6,92 +6,127 @@ form {
 	background:none;
 	color: @base-text;
 
-	h3 {}
+	ol, ul {
+		.list-reset ();
+	}
 
 	fieldset {
+		border:0;
+		margin:0;
+		padding:0;
+	}
+
+	legend {
+		.impact-font();
 		width:100%;
+		position: relative;
+		font-size:1.25rem;
+		font-weight:bold;
+		white-space: normal;
+		padding:0;
+		border-bottom:1px solid @base-text;
+		margin-bottom:1rem;
+	}
+
+	fieldset fieldset {
+		margin-bottom:1rem;
 
 		legend {
-			font-size:1.25rem;
-			font-weight:bold;
-			white-space: normal;
-			padding:1rem .25rem .25rem .25rem;
+			//make this look like a label
+			.base-font();
+			font-size:1.1rem;
+			border:0;
+			font-weight: normal;
+			margin:0;
+		}
+	}
 
-			&+ ol, &+ ul {
-				border-top:1px solid @brand;
+	label {
+		position: relative;
+		font-size:1.1rem;
+	}
 
-				&> li:first-child {
-					border-top:1px solid @faded-neutral;
-					padding-top:1.5rem;
-				}
-			}
+	input[type=text], input[type=file], input[type=password], input[type=email], input[type=url], input[type=number], textarea, select {
+		display:inline-block;
+		width:100%;
+		background-color:#fff;
+		.sans-serif-font();
+		font-size:1.1rem;
+		outline:none;
+		border:1px solid #dbdac8;
+		//color: @base-text;
+		padding: .75rem;
+		margin-bottom:1rem;
+		.border-radius(2px);
 
-
+		&:focus {
+			outline:none;
+			//.box-shadow(0 0 6px fadeout(@brand, 50%));
+			//border:1px solid @brand;
 		}
 
-		ol, ul {
-			padding:0;
-
-			li {
-				list-style: none;
-				padding: .375rem 1.5rem .375rem 2.5rem;
-
-				label {
-					font-size:1rem;
-					display: block;
-				}
-
-				input, textarea, select {
-					width:100%;
-					background-color:#fff;
-					font-size:1.1rem;
-					outline:none;
-					border:1px solid #dbdac8;
-					//color: @base-text;
-					padding: .25rem;
-					margin-top:2px;
-					.border-radius(2px);
-
-					&:focus {
-						.box-shadow(0 0 6px fadeout(@brand, 50%));
-						outline:none;
-						border:1px solid @brand;
-					}
-				}
-
-				span.required {
-					position:absolute;
-				    left:10px;
-				    text-indent:-999999px;
-				    margin-top:2px;
-				    background:url('../images/zenform/requiredIndicator.png') no-repeat 0 0px;
-				    width:24px;
-				    height:12px;
-				    display:block;
-				}
-
-				span.helper {
-					font-size:.625rem;
-					/*change color to ref colors.less*/
-					color:#514936;
-				}
-			}
+		&.wdn-error {
+			border:1px solid @brand;
+			//.box-shadow(0 0 6px fadeout(@brand, 50%));
+			//background-color:@brand;
+			animation:wdn-error 1.5s infinite alternate;
+			-webkit-animation:wdn-error 1.5s infinite alternate; /* Safari and Chrome */
 		}
+	}
 
-		/* Fieldset inside form */
-		fieldset {}
+	input[type="radio"] {
+		width:auto;
+		margin:.25rem;
+		margin-bottom:0;
+
+		&+ label {
+			font-size:.875rem;
+			vertical-align: middle;		
+		}
+	}
+
+	span.required {
+		position:absolute;
+	    left:-24px;
+	    top:50%;
+	    text-indent:-999999px;
+	    margin-top:-7px;
+	    background:url('../images/requiredIndicator.png') no-repeat 0px 0px;
+	    width:12px;
+	    height:15px;
+	    display:block;
+	}
+
+	span.helper {
+		font-size:.625rem;
+		/*change color to ref colors.less*/
+		color:#514936;
+		margin-left:1rem;
+	}
+
+	&> fieldset > ol > li > label {
+		display: block;
 	}
 
 	input[type="submit"] {
-		background-color:@brand;
-		.box-shadow(0 3px 0px saturate(@brand, 50%));
+		.brand-font();
+		background-color:lighten(@dark-triad, 10%);
+		color:#fff;
+		text-shadow: -1px 1px 0px darken(@dark-triad, 20%);
+		.box-shadow(0 3px 0px @dark-triad);
 		.border-radius(2px);
-		font-size:1.5rem;
+		font-size:1rem;
 		cursor: pointer;
-		margin:10px 10px 20px 37px;
-		padding:10px 36px 10px 16px;
+		margin:.75rem .75rem 1.25rem 0rem;
+		padding:.5rem 1rem .5rem 1rem;
 		width:auto;
 		display:inline;
+		border:0;
+
+
+		&:hover {
+			background-color:@dark-triad;
+		}
 	}
 
 	input[type="reset"] {
@@ -103,5 +138,34 @@ form {
 		width: auto;
 		cursor: pointer;
 		display: inline;
+		border:0;
+	}
+
+	@media (min-width: 960px) {
+		input[type=text], input[type=file], input[type=password], input[type=email], input[type=url], input[type=number], textarea, select, legend {
+			width:50%;
+		}
+	}
+}
+
+@keyframes wdn-error {
+	from {
+		.box-shadow(0 0 6px fadeout(@brand, 20%));
+		border:1px solid @brand;
+	}
+	to {
+		.box-shadow(0 0 6px fadeout(@brand, 90%));
+		border:1px solid fadeout(@brand, 80%);
+	}
+}
+
+@-webkit-keyframes wdn-error {
+	from {
+		.box-shadow(0 0 6px fadeout(@brand, 20%));
+		border:1px solid @brand;
+	}
+	to {
+		.box-shadow(0 0 6px fadeout(@brand, 90%));
+		border:1px solid fadeout(@brand, 80%);
 	}
 }
