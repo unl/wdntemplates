@@ -116,7 +116,7 @@
                                 </figure>
                             </div>
                             <div class="wdn-col">
-                                <figure class="wdn-frame wdn-caption-animate">
+                                <figure class="wdn-frame">
                                     <img src="images/test_wide.jpg" alt="Just an image test" />
                                     <figcaption>
                                         <h2>Heading</h2>
