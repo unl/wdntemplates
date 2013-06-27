@@ -198,13 +198,12 @@
 
         // Hide the abbreviation, and show the site title (if available)
         abbr[title] {
-            color: rgba(0, 0, 0, 0);
-            text-shadow: none;
+            font-size: 0;
             display: block;
-            margin-bottom: -2.1428571rem;
 
             &:before {
                 content: attr(title);
+                .rem(30);
                 display: block;
                 color: @base-text;
                 text-shadow: 0 1px 0 #fff;
