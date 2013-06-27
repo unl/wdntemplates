@@ -44,7 +44,7 @@
 <body class="fixed debug" data-version="4.0">
     <!--#include virtual="/wdn/templates_4.0/includes/skipnav.html" -->
     <div id="wdn_wrapper">
-        <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" />
+        <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" role="form" />
         <!--#include virtual="/wdn/templates_4.0/includes/noscript-padding.html" -->
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
             <!--#include virtual="/wdn/templates_4.0/includes/wdnResources.html" -->
@@ -83,13 +83,13 @@
                     <!-- InstanceBeginEditable name="navlinks" -->
                     <!--#include virtual="sharedcode/navigation.html" -->
                     <!-- InstanceEndEditable -->
-                    <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
+                    <label for="wdn_menu_toggle" class="wdn-icon-menu" role="form">Menu</label>
                 </nav>
             </div>
         </div>
         <!-- Navigation Trigger -->
         <div class="wdn-menu-trigger wdn-content-slide">
-            <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
+            <label for="wdn_menu_toggle" class="wdn-icon-menu" role="form">Menu</label>
         </div>
         <!-- End navigation trigger -->
         <div id="wdn_content_wrapper" role="main" class="wdn-content-slide">
