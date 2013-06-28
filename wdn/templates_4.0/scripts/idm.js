@@ -113,6 +113,38 @@ define(['wdn'], function(WDN) {
             return user && user.uid;
         },
 
+        getDisplayName : function() {
+            return user && user.displayName[0];
+        },
+
+        getFirstName : function() {
+            return user && user.givenName[0];
+        },
+
+        getLastName : function() {
+            return user && user.sn[0];
+        },
+
+        getPrimaryAffiliation : function() {
+            return user && user.eduPersonPrimaryAffiliation[0];
+        },
+
+        getEmailAddress : function() {
+            return user && user.mail[0];
+        },
+
+        getPostalAddress : function() {
+            return user && user.postalAddress[0];
+        },
+
+        getTelephoneNumber : function() {
+            return user && user.telephoneNumber[0];
+        },
+
+        getTitle : function() {
+            return user && user.title[0];
+        },
+
         /**
          * Update the SSO tab and display user info
          *
