@@ -113,35 +113,107 @@ define(['wdn'], function(WDN) {
             return user && user.uid;
         },
 
+        /**
+         * Get the logged in user's display name (full name)
+         * 
+         * @returns {false|string}
+         */
         getDisplayName : function() {
+            if (!user || user.displayName == null) {
+                return false;
+            }
+            
             return user && user.displayName[0];
         },
 
+        /**
+         * Get the logged in user's last name only
+         *
+         * @returns {false|string}
+         */
         getFirstName : function() {
+            if (!user || user.givenName == null) {
+                return false;
+            }
+            
             return user && user.givenName[0];
         },
 
+        /**
+         * Get the logged in user's first name only
+         *
+         * @returns {false|string}
+         */
         getLastName : function() {
+            if (!user || user.sn == null) {
+                return false;
+            }
+            
             return user && user.sn[0];
         },
 
+        /**
+         * Get the logged in user's primary affiliation.  IE: staff or faculty
+         *
+         * @returns {false|string}
+         */
         getPrimaryAffiliation : function() {
+            if (!user || user.eduPersonPrimaryAffiliation == null) {
+                return false;
+            }
+            
             return user && user.eduPersonPrimaryAffiliation[0];
         },
 
+        /**
+         * Get the logged in user's email address
+         *
+         * @returns {false|string}
+         */
         getEmailAddress : function() {
+            if (!user || user.mail == null) {
+                return false;
+            }
+            
             return user && user.mail[0];
         },
 
+        /**
+         * Get the logged in user's postal address
+         *
+         * @returns {false|string}
+         */
         getPostalAddress : function() {
+            if (!user || user.postalAddress == null) {
+                return false;
+            }
+            
             return user && user.postalAddress[0];
         },
 
+        /**
+         * Get the logged in user's telephone number
+         *
+         * @returns {false|string}
+         */
         getTelephoneNumber : function() {
+            if (!user || user.telephoneNumber == null) {
+                return false;
+            }
+            
             return user && user.telephoneNumber[0];
         },
 
+        /**
+         * Get the logged in user's title
+         *
+         * @returns {false|string}
+         */
         getTitle : function() {
+            if (!user || user.title == null) {
+                return false;
+            }
+            
             return user && user.title[0];
         },
 
