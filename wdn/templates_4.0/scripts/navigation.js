@@ -217,35 +217,6 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
         WDN.log('we have fixed the presentation.');
     };
     
-    var initializePreferredState = function() {
-        WDN.log('initializepreferredstate, current state is '+ currentState);
-        var mouseout = function() {
-            if (!lockHover) {
-                startCollapseDelay();
-            }
-        };
-        Plugin.collapse(false);
-        applyStateFixes();
-
-        WDN.loadJQuery(function() {
-	        require([hoverPlugin], function() {
-	            $('#wdn_navigation_bar').hoverIntent({
-	                over: function() {
-	                    if (!lockHover) {
-	                        Plugin.expand();
-	                    }
-	                },
-	                out:         mouseout,
-	                timeout:     expandDelay,
-	                sensitivity: 1, // Mouse must not move
-	                interval:    120
-	            });
-	        });
-        });
-        
-        navReady(true);
-    };
-    
     var applyStateFixes = function() {
     	var $cWrapper = $('#wdn_content_wrapper');
         $cWrapper.css('padding-top', '');
@@ -477,6 +448,48 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
     	}
     };
     
+    var initializePreferredState = function() {
+        WDN.log('initializepreferredstate, current state is '+ currentState);
+        var min = '', body = document.getElementsByTagName('body');
+		if (!body.length || !body[0].className.match(/(^|\s)debug(\s|$)/)) {
+			min = '.min';
+		}
+        var mouseout = function() {
+            if (!lockHover) {
+                startCollapseDelay();
+            }
+        };
+        Plugin.collapse(false);
+        applyStateFixes();
+
+        WDN.loadJQuery(function() {
+	        require([hoverPlugin + min], function() {
+	            $('#wdn_navigation_bar').hoverIntent({
+	                over: function() {
+	                    if (!lockHover) {
+	                        Plugin.expand();
+	                    }
+	                },
+	                out:         mouseout,
+	                timeout:     expandDelay,
+	                sensitivity: 1, // Mouse must not move
+	                interval:    120
+	            });
+	            
+	            $(breadPrmySel + ' a').hoverIntent({
+                    over: switchSiteNavigation,
+                    out: function() {
+                    	$(navPrmySel).removeClass(hltCls);
+                    },
+                    sensitivity: 1, // Mouse must not move
+                    interval:    120
+                });
+	        });
+        });
+        
+        navReady(true);
+    };
+    
     var Plugin = {
         initialize : function() {
         	$(function () {
@@ -492,6 +505,8 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 	
 	            WDN.log('let us fix the presentation');
 	            fixPresentation();
+	            // the built JS will probably run before the web-font loads, so re-render on load
+	            $(window).load(fixPresentation);
 	
 	            if (!initd) {
 		            // add an expand toggler UI element
@@ -538,29 +553,16 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 		            		applyStateFixes();
 		            	}, resizeThrottle);
 		            });
+	            
+		            $(navPrmySel + ' > a').focusin(function(){
+		                Plugin.expand();
+		            })
+		            .focus(function(){
+		            	switchSiteNavigation($(homepageLI).children('a').get(0), false);
+		        	});
+		
+		            initializePreferredState();
 	            }
-	            
-	            $(navPrmySel + ' > a').focusin(function(){
-	                Plugin.expand();
-	            })
-	            .focus(function(){
-	            	switchSiteNavigation($(homepageLI).children('a').get(0), false);
-	        	});
-	
-	            initializePreferredState();
-	            
-	            WDN.loadJQuery(function() {
-		            require([hoverPlugin], function() {
-		                $(breadPrmySel + ' a').hoverIntent({
-		                    over: switchSiteNavigation,
-		                    out: function() {
-		                    	$(navPrmySel).removeClass(hltCls);
-		                    },
-		                    sensitivity: 1, // Mouse must not move
-		                    interval:    120
-		                });
-		            });
-	            });
 	            
 	            initd = true;
         	});
