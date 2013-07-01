@@ -12,7 +12,7 @@ SRC_PATHS=(
 
 for j in ${SRC_PATHS[@]}; do
 	for i in `ls $j`; do
-		./.git_filters/rcs-keywords.clean < $i > temp
+		./.git_filters/rcs-keywords.smudge $i < $i > temp
 		mv temp $i
 	done
 done
