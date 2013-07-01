@@ -65,8 +65,6 @@ form {
 
 		&.wdn-error {
 			border:1px solid @brand;
-			//.box-shadow(0 0 6px fadeout(@brand, 50%));
-			//background-color:@brand;
 			animation:wdn-error 1.2s infinite alternate;
 			-webkit-animation:wdn-error 1.2s infinite alternate; /* Safari and Chrome */
 		}
@@ -97,14 +95,13 @@ form {
 
 	span.helper {
 		font-size:.625rem;
-		/*change color to ref colors.less*/
-		color:#514936;
 		margin-left:1rem;
 	}
 
-	//&> fieldset > ol > li > label {
-	//	display: block;
-	//}
+// KEEP STYLING FOR LISTS
+	&> fieldset > ol > li > label {
+		display: block;
+	}
 
 	input[type="submit"] {
 		.brand-font();
@@ -120,7 +117,6 @@ form {
 		width:auto;
 		display:inline;
 		border:0;
-
 
 		&:hover {
 			background-color:@dark-triad;
