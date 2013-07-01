@@ -29,7 +29,7 @@ Once all of the above dependencies are met, simply running GNU Make `make` at th
 * `clean` - removes all built files
 * `js` - builds and minifies combined JS
 * `less` - builds all CSS files from their LESS counterparts
-* `zips` - builds the ZIP's used for template distribution
+* `dist` - builds the ZIP's used for template distribution
 
 The JavaScript build process can be further customized by passing parameters GNU Make. The following are the flags that are supported.
 

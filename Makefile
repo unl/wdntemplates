@@ -12,6 +12,8 @@ RJS := r.js
 RJS_FLAGS :=
 JS_BUILD_CONF := build/build.js
 
+SMUDGE_STATUS := $(shell $(GIT) config filter.rcs-keywords.smudge)
+
 all: less js
 
 less:
@@ -24,8 +26,14 @@ clean:
 	rm -rf $(TEMPLATE_DIR)/css
 	rm -rf $(TEMPLATE_DIR)/scripts/compressed
 
-zips: all
+dist: all
+	@if test -z "$(SMUDGE_STATUS)"; then \
+		./scripts/smudge.sh; \
+	fi
 	zip -qr downloads/wdn.zip wdn
-	${GIT} archive --format=zip HEAD Templates sharedcode > downloads/UNLTemplates.zip
+	zip -qr downloads/UNLTemplates.zip Templates sharedcode
+	@if test -z "$(SMUDGE_STATUS)"; then \
+		./scripts/clean.sh; \
+	fi
 	
-.PHONY: all clean less js zips
+.PHONY: all clean less js dist
