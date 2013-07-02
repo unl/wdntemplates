@@ -58,6 +58,12 @@
       "src": "iconic"
     },
     {
+      "uid": "11e664deed5b2587456a4f9c01d720b6",
+      "css": "cancel",
+      "code": 59397,
+      "src": "iconic"
+    },
+    {
       "uid": "ccf7ed45e7f05a89376f38abaa9d7d13",
       "css": "twitter-circled",
       "code": 61527,
@@ -73,6 +79,18 @@
       "uid": "2c576f7c6c3233c31abad0899fc9f4af",
       "css": "user",
       "code": 59392,
+      "src": "elusive"
+    },
+    {
+      "uid": "23710230c21b4af140947e3604cc67a5",
+      "css": "comment",
+      "code": 59395,
+      "src": "elusive"
+    },
+    {
+      "uid": "afdb6de29702e88d79539d600c42d4a8",
+      "css": "comment-alt",
+      "code": 59396,
       "src": "elusive"
     },
     {
