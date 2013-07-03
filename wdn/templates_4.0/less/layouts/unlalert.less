@@ -1,0 +1,49 @@
+@import "../_mixins/all.less";
+
+#unlalert {
+    // Avoid flash of unstyled content, JS initially positions this off screen
+    position: relative !important;
+    top: auto !important;
+    z-index: 2;
+    background: #F25F19;
+    color: #FFFFFF;
+    padding: 5px;
+    .clear-fix;
+    
+    #unlalert_content {
+	    display: none;
+	    font-size: 0.8em;
+	    margin-left: 1.5em;
+
+	    h1 {
+	    	font-size: 1.5em;
+	    	 
+	    	span {
+	        	color: #752E0D
+	        }
+	    }
+	    
+	    a {
+	        color: #FFFFFF;
+	    }
+	}
+	
+	#unlalert_toggle {
+		float: left;
+		color: #ffffff;
+	}
+    
+    &.show {
+    	#unlalert_toggle {
+			text-indent: -99em;
+		}
+		
+		.wdn-icon-cancel {
+			text-indent: 99em;
+		}
+    	
+    	#unlalert_content {
+    		display: block;
+    	}
+    }
+}

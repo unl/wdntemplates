@@ -21,6 +21,7 @@
     	'analytics',
     	'navigation',
     	'search',
+    	'unlalert',
     	'legacy'
     ],
     insertRequire: ['main'],
