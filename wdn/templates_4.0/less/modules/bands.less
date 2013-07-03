@@ -1,21 +1,48 @@
 .wdn-band(@color) { // Class name to put on the band
 
     background-color: @color;
-    color: darken(@color, 55%);
 
-    .wdn-button {
-        background-color: darken(@color, 25%); 
+    // Based on color passed, we need to make light/dark presentation decisions
+    .color-selector(@color) when (lightness(@color) >= 50%) { // We have a light color
+        color: darken(@color, 75%);
+        display: block;
+
+        a {
+            color: darken(@color, 85%);
+        }
     }
+
+    .color-selector(@color) when (lightness(@color) < 50%) { // We have a dark color
+        color: #ffffff;
+
+        a {
+            color: lighten(@color, 85%);
+        }
+    }
+
+    .color-selector(@color);
 }
 
-
-
-.wdn-fire {
-    .wdn-band(#F1CB00);
+.wdn-dark-triad-band {
+    .wdn-band(@dark-triad);
 }
 
-.wdn-wind {
-    .wdn-band(#4E917A);
+.wdn-light-triad-band {
+    .wdn-band(@light-triad);
 }
 
+.wdn-dark-complement-band {
+    .wdn-band(@dark-complement);
+}
 
+.wdn-light-complement-band {
+    .wdn-band(@light-complement);
+}
+
+.wdn-dark-neutral-band {
+    .wdn-band(@dark-neutral);
+}
+
+.wdn-light-neutral-band {
+    .wdn-band(@light-neutral);
+}

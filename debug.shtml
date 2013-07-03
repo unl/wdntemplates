@@ -97,6 +97,7 @@
                 <div class="wdn-inner-wrapper">
                     <div id="pagetitle">
                         <!-- InstanceBeginEditable name="pagetitle" -->
+                        <h1>Button Tests</h1>
                         <!-- InstanceEndEditable -->
                     </div>
                 </div>
@@ -106,33 +107,67 @@
                 <!-- InstanceBeginEditable name="maincontentarea" -->
                 <div class="wdn-band">
                     <div class="wdn-inner-wrapper">
-                        <div class="bp1-wdn-grid-set-thirds">
-                            <div class="wdn-col">
-                                <figure class="wdn-frame wdn-caption-animate">
-                                    <img src="images/test_transparent.png" alt="Just an image test" />
-                                    <figcaption>
-                                        <p>Our students are the brightest and best in their respective fields. Take that Northwestern!</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                            <div class="wdn-col">
-                                <figure class="wdn-frame">
-                                    <img src="images/test_wide.jpg" alt="Just an image test" />
-                                    <figcaption>
-                                        <h2>Heading</h2>
-                                        <p>Our students are the brightest and best in their respective fields. Take that Northwestern!</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                            <div class="wdn-col">
-                                <figure class="wdn-frame wdn-caption-animate">
-                                    <img src="images/test_tall.jpg" alt="Just an image test" />
-                                    <figcaption>
-                                        Shorter.
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
+                        <a href="">This is a regular link</a>
+                    </div>
+                </div>
+                <div class="wdn-band wdn-dark-triad-band">
+                    <div class="wdn-inner-wrapper">
+                        <p>This is a paragraph test.</p>
+                        <a href="">This is a link</a>
+                        <a href="asdf" class="wdn-button">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
+                    </div>
+                </div>
+                <div class="wdn-band wdn-light-triad-band">
+                    <div class="wdn-inner-wrapper">
+                        <p>This is a paragraph test.</p>
+                        <a href="">This is a link</a>
+                        <a href="asdf" class="wdn-button">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
+                    </div>
+                </div>
+                <div class="wdn-band wdn-dark-complement-band">
+                    <div class="wdn-inner-wrapper">
+                        <p>This is a paragraph test.</p>
+                        <a href="">This is a link</a>
+                        <a href="asdf" class="wdn-button">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
+                    </div>
+                </div>
+                <div class="wdn-band wdn-light-complement-band">
+                    <div class="wdn-inner-wrapper">
+                        <p>This is a paragraph test.</p>
+                        <a href="">This is a link</a>
+                        <a href="asdf" class="wdn-button">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
+                    </div>
+                </div>
+                <div class="wdn-band wdn-dark-neutral-band">
+                    <div class="wdn-inner-wrapper">
+                        <p>This is a paragraph test.</p>
+                        <a href="">This is a link</a>
+                        <a href="asdf" class="wdn-button">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
+                    </div>
+                </div>
+                <div class="wdn-band wdn-light-neutral-band">
+                    <div class="wdn-inner-wrapper">
+                        <p>This is a paragraph test.</p>
+                        <a href="">This is a link</a>
+                        <a href="asdf" class="wdn-button">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
+                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
                     </div>
                 </div>
                 <!-- InstanceEndEditable -->
