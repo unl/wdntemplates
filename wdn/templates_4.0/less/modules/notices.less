@@ -1,12 +1,12 @@
 .wdn_notice {
-    background: #F8F9D1;
-    border: 1px solid #CAD094;
+    background: @light-triad;
+    border: 1px solid @dark-triad;
     padding: 10px; 
     margin-bottom: 10px;
     border-radius: 5px;
 
     div.message {
-		background: url(images/notice/information.png) no-repeat top left;
+		background: url(../images/notice/information.png) no-repeat top left;
 	    padding: 10px 5px 0px 68px;
 	    min-height: 60px;
 
@@ -14,6 +14,7 @@
 		    font-weight: bold;
 		    color: #585858;
 		    padding: 0;
+		    margin:0;
 		}
 
 		p {
@@ -22,8 +23,8 @@
 	}
 
     &.affirm {
-	    background: #6CBD45;
-	    border-color: #349804;
+	    background: lighten(@dark-complement, 8%);
+	    border-color: @dark-complement;
 	    color: #FFF !important;
 
 	    div.message {
@@ -36,8 +37,8 @@
 	}
 
     &.negate {
-	    background: #DC6767;
-	    border-color: #C50000;
+	    background: @brand;
+	    border-color: darken(@brand, 30%);
 	    color: #FFF !important;
 
 	    div.message {
@@ -50,8 +51,8 @@
 	}
 
 	&.alert {
-	    background: #FFFB78;
-	    border-color: #666;
+	    background: #fff600;
+	    border-color: @dark-neutral;
 
 	    div.message {
 		    background-image: url(../images/notice/alert.png);
@@ -66,13 +67,11 @@
 		float:right;
 
 		a, a:hover {
-			background: url(../images/notice/close.png) no-repeat scroll top left;
-		    width: 22px;
-		    height: 20px;
+			//background: url(../images/notice/close.png) no-repeat scroll top left;
+		    width: 16px;
+		    height: 16px;
 		    text-indent: -2000em;
 		    display: block;
-		    border: 1px solid #ddd;
-		    border-radius: 3px;
 		    text-decoration: none;
 		    position: relative;
 		}
@@ -91,9 +90,12 @@
 	}
 
 	div.close {
+		&:before {
+			position: absolute;
+			line-height: normal;
+		}
 		a, a:hover {
-			border: 1px solid #999;
-    		border-radius: 3px;
+			//border: 1px solid #999;
 		}
 	}
 
