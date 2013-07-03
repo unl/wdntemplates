@@ -27,6 +27,7 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
+<link type="text/css" rel="stylesheet" href="/wdn/templates_4.0/css/modules/notices.css"/>
 <style type="text/css">
  #maincontent .grid1, #maincontent .grid2, #maincontent .grid3, #maincontent .grid4, #maincontent .grid5, #maincontent .grid6, #maincontent .grid7, #maincontent .grid8, .grid9, #maincontent .grid10, #maincontent .grid11, #maincontent .col div, #maincontent .two_col div, #maincontent .three_col div, #maincontent .col_half div, #maincontent .four_col div {
         margin-bottom: 15px;
