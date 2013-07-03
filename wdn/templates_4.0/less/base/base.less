@@ -43,11 +43,12 @@ q {
 
 a {
     color: @brand;
-    text-decoration: underline;
+    text-decoration: none;
     .transition(color 0.3s);
+    border-bottom: 1px dotted @brand;
 
     &:hover {
         color: darken(@brand, 10%);
-        text-decoration: underline;
+        border-bottom: 1px dotted lighten(@brand, 10%);
     }
 }
