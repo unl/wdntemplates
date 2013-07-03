@@ -623,7 +623,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
         
         getSiteHomepage : function() {
         	return siteHomepage;
-        },
+        }
     };
     
     return Plugin;
