@@ -41,7 +41,7 @@ q {
     clear: both;
 }
 
-a {
+a:not(.wdn-button) {
     color: @brand;
     text-decoration: none;
     .transition(color 0.3s);
@@ -49,6 +49,6 @@ a {
 
     &:hover {
         color: darken(@brand, 10%);
-        border-bottom: 1px dotted lighten(@brand, 10%);
+        border-bottom-color: darken(@brand, 10%);
     }
 }

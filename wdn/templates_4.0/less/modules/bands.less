@@ -7,16 +7,26 @@
         color: darken(@color, 65%);
         display: block;
 
-        a {
+        a:not(.wdn-button) {
             color: darken(@color, 85%);
+            border-bottom-color: darken(@color, 85%);
+
+            &:hover {
+                border-bottom-color: darken(@color, 85%);
+            }
         }
     }
 
     .color-selector(@color) when (lightness(@color) < 50%) { // We have a dark color
         color: #ffffff;
 
-        a {
+        a:not(.wdn-button) {
             color: lighten(@color, 85%);
+            border-bottom-color: lighten(@color, 85%);
+
+            &:hover {
+                border-bottom-color: lighten(@color, 85%);
+            }
         }
     }
 
