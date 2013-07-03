@@ -1,0 +1,109 @@
+.wdn_notice {
+    background: #F8F9D1;
+    border: 1px solid #CAD094;
+    padding: 10px; 
+    margin-bottom: 10px;
+    border-radius: 5px;
+
+    div.message {
+		background: url(images/notice/information.png) no-repeat top left;
+	    padding: 10px 5px 0px 68px;
+	    min-height: 60px;
+
+	    h4 {
+		    font-weight: bold;
+		    color: #585858;
+		    padding: 0;
+		}
+
+		p {
+		    margin-bottom: 0px;
+		}
+	}
+
+    &.affirm {
+	    background: #6CBD45;
+	    border-color: #349804;
+	    color: #FFF !important;
+
+	    div.message {
+    		background-image: url(../images/notice/affirm.png);
+
+    		h4 {
+		        color: #FFF !important;
+		    }
+		}
+	}
+
+    &.negate {
+	    background: #DC6767;
+	    border-color: #C50000;
+	    color: #FFF !important;
+
+	    div.message {
+		    background-image: url(../images/notice/negate.png);
+
+		    h4 {
+		        color: #FFF !important;
+		    }
+		}
+	}
+
+	&.alert {
+	    background: #FFFB78;
+	    border-color: #666;
+
+	    div.message {
+		    background-image: url(../images/notice/alert.png);
+		}
+	}
+
+	a strong {
+	    font-size: 1.2em;
+	}
+
+	div.close, div.minimize, div.maximize {
+		float:right;
+
+		a, a:hover {
+			background: url(../images/notice/close.png) no-repeat scroll top left;
+		    width: 22px;
+		    height: 20px;
+		    text-indent: -2000em;
+		    display: block;
+		    border: 1px solid #ddd;
+		    border-radius: 3px;
+		    text-decoration: none;
+		    position: relative;
+		}
+	}
+
+	div.minimize {
+		a, a:hover {
+			background: url(../images/notice/minimize.png) no-repeat scroll top left;
+		}
+	}
+
+	div.maximize {
+		a, a:hover {
+			background: url(../images/notice/maximize.png) no-repeat scroll top left;
+		}
+	}
+
+	div.close {
+		a, a:hover {
+			border: 1px solid #999;
+    		border-radius: 3px;
+		}
+	}
+
+	&.col {
+		div.message {
+			min-height: 0;
+		}
+
+		div.close, div.maximize {
+			margin: 10px;
+		}
+	}
+}
