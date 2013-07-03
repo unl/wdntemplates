@@ -13,7 +13,6 @@
 define(['jquery', 'wdn'], function($, WDN) {
 	var Plugin = {
 		initialize : function() {
-			WDN.log ('notice initialized');
 			WDN.loadCSS(WDN.getTemplateFilePath('css/content/notice.css'));
 			$('div.close a').click(function() {
 				$(this).parent('.close').parent('.wdn_notice').slideUp("slow");
