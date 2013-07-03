@@ -23,6 +23,12 @@ The resources are built using a standard Makefile for [GNU Make](http://www.gnu.
 * [Git](http://git-scm.com/) -- version control system
 * [NodeJS](http://www.nodejs.org/) -- used to run the libraries that process and minimize LESS and JS files
 
+__NOTE:__ This repository uses symlinks for certain NodeJS library binaries (`lessc`, `r.js`). Some environments do not support symlinks well. So, if you experience build issues, please attempt to globally install the following node modules from NPM (`npm -g install`):
+
+* `requirejs`
+* `less`
+* `uglify-js`
+
 Once all of the above dependencies are met, simply running GNU Make `make` at the project root will build all resources. The following are all of the supported targets for `make`.
 
 * `all` - builds all needed CSS and JavaScript
