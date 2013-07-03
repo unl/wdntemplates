@@ -72,8 +72,8 @@ define(['jquery', 'wdn'], function($, WDN) {
 		WDN.setCookie(ckPrfx + 'A', value, time);
 	},
 	
-	dataUrl = document.location.protocol+'//alert.unl.edu/json/unlcap.js',
-//	dataUrl = '//ucommabel.unl.edu/workspace/wdntemplates/scripts/public/alertSimulator.php',
+//	dataUrl = document.location.protocol+'//alert.unl.edu/json/unlcap.js',
+	dataUrl = '//ucommabel.unl.edu/workspace/wdntemplates/scripts/public/alertSimulator.php',
 	
 	_callServer = function() {
 		WDN.log('Checking the alert server for data '+ dataUrl);
@@ -202,8 +202,8 @@ define(['jquery', 'wdn'], function($, WDN) {
 				'id': idPrfx + togSuf,
 				'href': 'javascript:void(0)'
 			})
-			.text('Toggle Alert Visibility')
-			.prepend($('<i>', {'class': 'wdn-icon-attention'}))
+			.append($('<i>', {'class': 'wdn-icon-attention'}))
+			.append($('<span>').text('Toggle Alert Visibility'))
 			.click(toggleAlert)
 			.prependTo($alertContent.parent());
 		}

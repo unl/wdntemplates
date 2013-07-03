@@ -522,14 +522,15 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 		            
 		            var nav = $(navSel);
 		            var onscroll = function() {
+		            	
 //	                    don't clear the timeout (wait for last event) as it causes poor UX
 //	                    clearTimeout(scrollTimeout);
 	                    scrollTimeout = setTimeout(function() {
 	                    	var breadcrumbs = $(breadSel), cls = 'nav-scrolling';
+	                    	if (isFullNav() && currentState !== 0) {
+	                    		Plugin.collapse();
+	                    	}
 	                        if ($(window).scrollTop() >= breadcrumbs.offset().top + breadcrumbs.height()) {
-	                        	if (currentState != 0) {
-	                        		Plugin.collapse();
-	                        	}
 	                            nav.addClass(cls);
 	                        } else {
 	                            nav.removeClass(cls); 
