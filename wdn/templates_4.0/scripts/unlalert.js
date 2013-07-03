@@ -202,8 +202,8 @@ define(['jquery', 'wdn'], function($, WDN) {
 				'id': idPrfx + togSuf,
 				'href': 'javascript:void(0)'
 			})
-			.text('Toggle Alert Visibility')
-			.prepend($('<i>', {'class': 'wdn-icon-attention'}))
+			.append($('<i>', {'class': 'wdn-icon-attention'}))
+			.append($('<span>').text('Toggle Alert Visibility'))
 			.click(toggleAlert)
 			.prependTo($alertContent.parent());
 		}
