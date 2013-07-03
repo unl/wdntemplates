@@ -38,15 +38,28 @@ q {
 }
 
 .clear {
-    .clear-fix();
+    clear: both;
 }
 
 a {
-    color: @brand;
-    text-decoration: none;
-    .transition(color 0.3s);
+    &:not(.wdn-button) {
+        color: @brand;
+        text-decoration: none;
+        .transition(color 0.3s);
+        border-bottom-style: dotted;
+        border-bottom-width: 1px;
+        border-bottom-color: transparent;
 
-    &:hover {
-        color: darken(@brand, 10%);
+        #maincontent & {
+            border-bottom-color: @brand;
+        }
+
+        &:hover {
+            color: darken(@brand, 10%);
+
+            #maincontent & {
+                border-bottom-color: darken(@brand, 10%);
+            }
+        }
     }
 }
