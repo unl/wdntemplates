@@ -521,8 +521,8 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 		            });
 		            
 		            var nav = $(navSel);
+		            nav.on('reshift', applyStateFixes);
 		            var onscroll = function() {
-		            	
 //	                    don't clear the timeout (wait for last event) as it causes poor UX
 //	                    clearTimeout(scrollTimeout);
 	                    scrollTimeout = setTimeout(function() {
