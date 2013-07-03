@@ -44,7 +44,7 @@
 <body class="fixed debug" data-version="4.0">
     <!--#include virtual="/wdn/templates_4.0/includes/skipnav.html" -->
     <div id="wdn_wrapper">
-        <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" />
+        <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" role="form" />
         <!--#include virtual="/wdn/templates_4.0/includes/noscript-padding.html" -->
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
             <!--#include virtual="/wdn/templates_4.0/includes/wdnResources.html" -->
@@ -83,13 +83,13 @@
                     <!-- InstanceBeginEditable name="navlinks" -->
                     <!--#include virtual="sharedcode/navigation.html" -->
                     <!-- InstanceEndEditable -->
-                    <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
+                    <label for="wdn_menu_toggle" class="wdn-icon-menu" role="form">Menu</label>
                 </nav>
             </div>
         </div>
         <!-- Navigation Trigger -->
         <div class="wdn-menu-trigger wdn-content-slide">
-            <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
+            <label for="wdn_menu_toggle" class="wdn-icon-menu" role="form">Menu</label>
         </div>
         <!-- End navigation trigger -->
         <div id="wdn_content_wrapper" role="main" class="wdn-content-slide">
@@ -97,7 +97,6 @@
                 <div class="wdn-inner-wrapper">
                     <div id="pagetitle">
                         <!-- InstanceBeginEditable name="pagetitle" -->
-                        <h1>Button Tests</h1>
                         <!-- InstanceEndEditable -->
                     </div>
                 </div>
@@ -105,71 +104,91 @@
             <div id="maincontent">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                <div class="wdn-band">
-                    <div class="wdn-inner-wrapper">
-                        <a href="">This is a regular link</a>
+                <h1>We're Debugging Out</h1>
+                <ul class="wdn_tabs">
+                   <li><a href="#tab1">Tab #1</a></li>
+                   <li><a href="#tab2">Tab #2</a></li>
+                   <li><a href="#tab3">Tab #3</a>
+                       <ul>
+                           <li><a href="#tab3a">Tab #3a</a></li>
+                           <li><a href="#tab3b">Tab #3b</a></li>
+                       </ul>
+                   </li>
+                   <li><a href="#tab4">Tab #4: Multiple Column layout</a></li>
+                </ul>
+                <div class="wdn_tabs_content clear">
+                    <div id="tab1">
+                        <h4 class="sec_header">Tab 1</h4>
+                        <p>Content for Tab 1</p>
+                        <a href="adfs">This is a link presentation test</a>
+                    </div>
+                    <div id="tab2">
+                        <h4 class="sec_header">Tab 2</h4>
+                        <p>Content for Tab 2</p>
+                    </div>
+                    <div id="tab3">
+                        <h4 class="sec_header">Tab 3</h4>
+                        <p>Content for Tab 3 (see sub-tabs above.)</p>
+                    </div>
+                    <div id="tab3a">
+                        <h4 class="sec_header">Tab 3a</h4>
+                        <p>Content for Tab 3a</p>
+                    </div>
+                    <div id="tab3b">
+                        <h4 class="sec_header">Tab 3b</h4>
+                        <p>Content for Tab 3b</p>
+                    </div>
+                    <div id="tab4">
+                        <h4 class="sec_header">Tab 4</h4>
+                        <div style="margin: 0 -1rem;">
+                            <div class="grid6 first">
+                                <h3>Being Here</h3>
+                                <ul style="list-style:disc;">
+                                    <li><a href="http://www.unl.edu/ucomm/aboutunl/" title="go to About UNL for information on UNL's history and mission">ABOUT UNL</a></li>
+                                    <li><a href="http://visit.unl.edu/" title="go to UNL resources for visitors">UNL VISITORS PAGE</a></li>
+                                    <li><a class="external" href="http://www.lincoln.org/" title="go to the Lincoln Convention and Visitors Bureau website to learn about living in Lincoln">VISITORS GUIDE TO LINCOLN</a></li>
+                                </ul>
+                            </div>
+                            <div class="grid6">
+                                <h4 class="sec_main">About UNL</h4>
+                                <p>The University of Nebraska&ndash;Lincoln, chartered in 1869, is an educational institution of international stature. A member of the Association of American Universities since 1909, Nebraska is recognized by the Carnegie Foundation as a Doctoral/Research Extensive university. UNL is a land-grant university and a member of the National Association of State Universities and Land-Grant Colleges (NASULGC). The university is accredited by the Higher Learning Commission of the North Central Association of Colleges and Schools. UNL will celebrate the 140th anniversary of its founding on Feb. 15, 2009.</p>
+                                <h5>A STRONG FOUNDATION</h5>
+                                <p>UNL&rsquo;s endowment has reached over $1 billion, making it the seventeenth largest public university endowment in the nation and close to the top 50 of all institutions of higher education.  The financial strength of the endowment has enabled the University to not only maintain but also to enhance its competitive position and develop its research and teaching missions in new and exciting ways.  Technology will be a key enabler in creating a culture of instructional and research excellence at UNL.</p>
+                            </div>
+                         </div>
                     </div>
                 </div>
-                <div class="wdn-band wdn-dark-triad-band">
+                <!--
+                <div class="wdn-band" style="background-color: #2C7AC8;">
                     <div class="wdn-inner-wrapper">
-                        <p>This is a paragraph test.</p>
-                        <a href="">This is a link</a>
-                        <a href="asdf" class="wdn-button">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
+                        <ul class="wdn_tabs">
+                           <li><a href="#tab10">Tab #1</a></li>
+                           <li><a href="#tab20">Tab #2</a></li>
+                           <li><a href="#tab30">Tab #3</a>
+                           </li>
+                        </ul>
+                        <div class="wdn_tabs_content">
+                            <div id="tab10">
+                                <h1>Test</h1>
+                                <a href="adfs">This is a link presentation test</a>
+                                <h2>Subtabs are now tabs in your tabs!</h2>
+                                <ul class="wdn_tabs">
+                                   <li class="selected"><a href="#tab10a">Tab #1a</a></li>
+                                   <li><a href="#tab10b">Tab #1b</a></li>
+                               </ul>
+                               <div class="wdn_tabs_content">
+                                    <div id="tab10a">
+                                        Sub tab 10a
+                                    </div>
+                                    <div id="tab10b">
+                                        Sub tab 10b
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="wdn-band wdn-light-triad-band">
-                    <div class="wdn-inner-wrapper">
-                        <p>This is a paragraph test.</p>
-                        <a href="">This is a link</a>
-                        <a href="asdf" class="wdn-button">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
-                    </div>
-                </div>
-                <div class="wdn-band wdn-dark-complement-band">
-                    <div class="wdn-inner-wrapper">
-                        <p>This is a paragraph test.</p>
-                        <a href="">This is a link</a>
-                        <a href="asdf" class="wdn-button">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
-                    </div>
-                </div>
-                <div class="wdn-band wdn-light-complement-band">
-                    <div class="wdn-inner-wrapper">
-                        <p>This is a paragraph test.</p>
-                        <a href="">This is a link</a>
-                        <a href="asdf" class="wdn-button">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
-                    </div>
-                </div>
-                <div class="wdn-band wdn-dark-neutral-band">
-                    <div class="wdn-inner-wrapper">
-                        <p>This is a paragraph test.</p>
-                        <a href="">This is a link</a>
-                        <a href="asdf" class="wdn-button">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
-                    </div>
-                </div>
-                <div class="wdn-band wdn-light-neutral-band">
-                    <div class="wdn-inner-wrapper">
-                        <p>This is a paragraph test.</p>
-                        <a href="">This is a link</a>
-                        <a href="asdf" class="wdn-button">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
-                    </div>
-                </div>
+            -->
                 <!-- InstanceEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>

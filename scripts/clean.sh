@@ -4,11 +4,17 @@ if [ ! -d ".git_filters" ]; then
     exit 1
 fi
 
-dir="Templates"
-for i in `ls $dir`; do
-    echo "Cleaning Template: $i"
-	./.git_filters/rcs-keywords.clean < $dir/$i > $dir/temp
-	mv $dir/temp $dir/$i
+# This array should match what's in .gitattributes
+SRC_PATHS=(
+	"Templates/*dwt*"
+	"wdn/templates_4.0/includes/scriptsandstyles*.html"
+)
+
+for j in ${SRC_PATHS[@]}; do
+	for i in `ls $j`; do
+		./.git_filters/rcs-keywords.clean < $i > temp
+		mv temp $i
+	done
 done
-rm -f Templates/temp
-echo "Done"
+
+rm -f temp

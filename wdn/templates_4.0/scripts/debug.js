@@ -15,9 +15,9 @@ for (i = 0; i < l; i++) {
 	}
 }
 
-load.push('wdn.js" data-wdn_root="' + _wdn_scripts_url);
 load.push('modernizr-wdn.js');
 load.push('require.js" data-main="' + _wdn_scripts_url + 'main.js');
+load.push('wdn.js" data-wdn_root="' + _wdn_scripts_url);
 
 for (i = 0; i < load.length; i++) {
 	document.write([

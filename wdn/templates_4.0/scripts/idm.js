@@ -34,18 +34,32 @@ define(['wdn'], function(WDN) {
         user = false;
 
     var displayName = function(uid) {
-        var disp_name = '';
-        if (user.uid && user.uid === uid && user.cn) {
-            for (var i in user.cn) {
+        var disp_name = uid;
+        
+        if (uid){
+        	if (user.uid && user.uid === uid) {
+                return userDisplayName();
+            }
+        } else {
+        	return userDisplayName();
+        }
+
+        return disp_name;
+    },
+    
+    userDisplayName = function() {
+    	var disp_name = '', i;
+    	if (user.cn) {
+            for (i in user.cn) {
                 if (!disp_name || user.cn[i].length < disp_name.length) {
                     disp_name = user.cn[i];
                 }
             }
-        } else {
-            disp_name = uid;
+        } else if (user.displayName) {
+        	disp_name = user.displayName[0];
         }
-
-        return disp_name;
+    	
+    	return disp_name;
     };
 
     var Plugin = {
@@ -116,14 +130,10 @@ define(['wdn'], function(WDN) {
         /**
          * Get the logged in user's display name (full name)
          * 
-         * @returns {false|string}
+         * @returns {string}
          */
         getDisplayName : function() {
-            if (!user || user.displayName == null) {
-                return false;
-            }
-            
-            return user && user.displayName[0];
+            return userDisplayName();
         },
 
         /**

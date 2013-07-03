@@ -46,9 +46,9 @@ $com =~ /^commit (.*)$/m;
 $commit = $1;
 
 # custom keywords for tracking versions
-$html = `cat VERSION_HTML`;
+$html = `git show :VERSION_HTML`;
 chomp($html);
-$dep = `cat VERSION_DEP`;
+$dep = `git show :VERSION_DEP`;
 chomp($dep);
 
 while (<STDIN>) {
