@@ -1,5 +1,5 @@
 *.espressostorage
-/sandbox/*
+/sandbox
 *_old.css
 .externalToolBuilders
 .settings
@@ -9,4 +9,5 @@
 
 sharedcode/affiliate/less/buros.less
 /UNL_WDNTemplates.sublime-*
-/wdn/templates_4.0/css/all.css
+/wdn/templates_4.0/css
+/wdn/templates_4.0/scripts/compressed

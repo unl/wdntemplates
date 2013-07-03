@@ -1,8 +1,7 @@
 var _gaq = _gaq || [];
 
 require.config({
-// 	'enforceDefine': true,
-	'baseUrl': window.WDN.getTemplateFilePath('scripts', true),
+    'baseUrl': window.WDN.getTemplateFilePath('scripts', true),
     'shim': {
     	'jquery': {
     		exports: 'jQuery',
@@ -20,13 +19,13 @@ require.config({
 
 //Modernizr, WDN are loaded prior to requireJS
 define('modernizr', [], function () { return window.Modernizr; });
-define('wdn', [], function() { return window.WDN; });
 
 define(['wdn', 'require'], function(WDN, require) {
 	WDN.initializePlugin('analytics');
 	WDN.initializePlugin('navigation');
 	WDN.initializePlugin('search');
-	WDN.initializePlugin('tabs');
+	WDN.initializePlugin('unlalert');
+	require(['legacy'], function(){});
 	
 //	require(['//ucommchat.unl.edu/js/chat.php?version=' + WDN.getHTMLVersion()], function(){});
 });

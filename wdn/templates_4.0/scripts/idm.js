@@ -34,18 +34,32 @@ define(['wdn'], function(WDN) {
         user = false;
 
     var displayName = function(uid) {
-        var disp_name = '';
-        if (user.uid && user.uid === uid && user.cn) {
-            for (var i in user.cn) {
+        var disp_name = uid;
+        
+        if (uid){
+        	if (user.uid && user.uid === uid) {
+                return userDisplayName();
+            }
+        } else {
+        	return userDisplayName();
+        }
+
+        return disp_name;
+    },
+    
+    userDisplayName = function() {
+    	var disp_name = '', i;
+    	if (user.cn) {
+            for (i in user.cn) {
                 if (!disp_name || user.cn[i].length < disp_name.length) {
                     disp_name = user.cn[i];
                 }
             }
-        } else {
-            disp_name = uid;
+        } else if (user.displayName) {
+        	disp_name = user.displayName[0];
         }
-
-        return disp_name;
+    	
+    	return disp_name;
     };
 
     var Plugin = {
@@ -111,6 +125,106 @@ define(['wdn'], function(WDN) {
          */
         getUserId : function() {
             return user && user.uid;
+        },
+
+        /**
+         * Get the logged in user's display name (full name)
+         * 
+         * @returns {string}
+         */
+        getDisplayName : function() {
+            return userDisplayName();
+        },
+
+        /**
+         * Get the logged in user's last name only
+         *
+         * @returns {false|string}
+         */
+        getFirstName : function() {
+            if (!user || user.givenName == null) {
+                return false;
+            }
+            
+            return user && user.givenName[0];
+        },
+
+        /**
+         * Get the logged in user's first name only
+         *
+         * @returns {false|string}
+         */
+        getLastName : function() {
+            if (!user || user.sn == null) {
+                return false;
+            }
+            
+            return user && user.sn[0];
+        },
+
+        /**
+         * Get the logged in user's primary affiliation.  IE: staff or faculty
+         *
+         * @returns {false|string}
+         */
+        getPrimaryAffiliation : function() {
+            if (!user || user.eduPersonPrimaryAffiliation == null) {
+                return false;
+            }
+            
+            return user && user.eduPersonPrimaryAffiliation[0];
+        },
+
+        /**
+         * Get the logged in user's email address
+         *
+         * @returns {false|string}
+         */
+        getEmailAddress : function() {
+            if (!user || user.mail == null) {
+                return false;
+            }
+            
+            return user && user.mail[0];
+        },
+
+        /**
+         * Get the logged in user's postal address
+         *
+         * @returns {false|string}
+         */
+        getPostalAddress : function() {
+            if (!user || user.postalAddress == null) {
+                return false;
+            }
+            
+            return user && user.postalAddress[0];
+        },
+
+        /**
+         * Get the logged in user's telephone number
+         *
+         * @returns {false|string}
+         */
+        getTelephoneNumber : function() {
+            if (!user || user.telephoneNumber == null) {
+                return false;
+            }
+            
+            return user && user.telephoneNumber[0];
+        },
+
+        /**
+         * Get the logged in user's title
+         *
+         * @returns {false|string}
+         */
+        getTitle : function() {
+            if (!user || user.title == null) {
+                return false;
+            }
+            
+            return user && user.title[0];
         },
 
         /**

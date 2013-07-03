@@ -10,46 +10,45 @@
 		document = window.document,
 		_head = document.head || document.getElementsByTagName('head')[0],
 		_docEl = document.documentElement,
+		/**
+		 * This variable stores the path to the template files.
+		 * It can be set to /, http://www.unl.edu/, or nothing.
+		 */
+		template_path = '',
+		
+		dependent_path = 'wdn/templates_4.0/',
+		
 		_sanitizeTemplateUrl = function(url) {
-			var reTemplateUrl = new RegExp('^/?' + WDN.dependent_path.replace('.', '\\.'));
+			var reTemplateUrl = new RegExp('^/?' + dependent_path.replace('.', '\\.'));
 			if (url.match(reTemplateUrl)) {
 				if (url.charAt(0) === '/') {
 					// trim off the leading slash
 					url = url.substring(1);
 				}
 				
-				url = WDN.template_path + url;
+				url = template_path + url;
 			}
 			
 			return url;
 		};
+		
 	
-	var require = function() {
-		if (typeof window.require === "function" ) {
-			window.require.apply(this, arguments);
-		} else {
-			
-		}
+	var req = function() {
+		//TODO: Make this work if require is gone
+		(window.require).apply(this, arguments);
 	};
 	
+	//#TEMPLATE_PATH
+	//#DEPENDENT_PATH
+	
 	var WDN = {
-		/**
-		 * This variable stores the path to the template files.
-		 * It can be set to /, http://www.unl.edu/, or nothing.
-		 */
-		template_path: '',
-		
-		/**
-		 * This variable stores the path to the template dependents
-		 */
-		dependent_path: 'wdn/templates_4.0/',
 		
 		getTemplateFilePath: function(file, withTemplatePath) {
 			file = '' + file;
-			var filePath = WDN.dependent_path + file;
+			var filePath = dependent_path + file;
 			
 			if (withTemplatePath) {
-				filePath = WDN.template_path + filePath;
+				filePath = template_path + filePath;
 			}
 			
 			return filePath;
@@ -60,7 +59,7 @@
 		 */
 		loadJS: function (url,callback) {
 			url = _sanitizeTemplateUrl(url);
-			require([url], callback);
+			req([url], callback);
 		},
 
 		/**
@@ -203,7 +202,7 @@
 				args = [];
 			}
 			
-			require([plugin], function(pluginObj) {
+			req([plugin], function(pluginObj) {
 				var defaultOnLoad = onLoad = function () {
 					if (pluginObj && "initialize" in pluginObj) {
 						WDN.log("initializing plugin '" + plugin + "'");
@@ -403,7 +402,7 @@
 		for (; i < scripts.length; i++) {
 			root = scripts[i].getAttribute('data-wdn_root');
 			if (root) {
-				WDN.template_path = WDN.toAbs('../../../', root);
+				template_path = WDN.toAbs('../../../', root);
 			}
 		}
 	})();

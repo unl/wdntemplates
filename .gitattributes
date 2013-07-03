@@ -1,2 +1,2 @@
-Templates/* filter=rcs-keywords
-wdn/templates_3.1/includes/scriptsandstyles*.html filter=rcs-keywords
+Templates/*dwt* filter=rcs-keywords
+wdn/templates_4.0/includes/scriptsandstyles*.html filter=rcs-keywords
