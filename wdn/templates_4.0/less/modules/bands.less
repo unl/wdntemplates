@@ -5,14 +5,21 @@
     // Based on color passed, we need to make light/dark presentation decisions
     .color-selector(@color) when (lightness(@color) >= 50%) { // We have a light color
         color: darken(@color, 65%);
-        display: block;
 
-        a:not(.wdn-button) {
-            color: darken(@color, 85%);
-            border-bottom-color: darken(@color, 85%);
+        a {
+            &:not(.wdn-button) {
+                color: darken(@color, 85%);
 
-            &:hover {
-                border-bottom-color: darken(@color, 85%);
+                #maincontent & { // Stronger selector, could use !important but that causes more issues
+                    border-bottom-color: darken(@color, 85%);
+                }
+
+                &:hover {
+
+                    #maincontent & { // Stronger selector, could use !important but that causes more issues
+                        border-bottom-color: darken(@color, 85%);
+                    }
+                }
             }
         }
     }
@@ -20,12 +27,20 @@
     .color-selector(@color) when (lightness(@color) < 50%) { // We have a dark color
         color: #ffffff;
 
-        a:not(.wdn-button) {
-            color: lighten(@color, 85%);
-            border-bottom-color: lighten(@color, 85%);
+        a {
+            &:not(.wdn-button) {
+                color: lighten(@color, 85%);
 
-            &:hover {
-                border-bottom-color: lighten(@color, 85%);
+                #maincontent & { // Stronger selector, could use !important but that causes more issues
+                    border-bottom-color: lighten(@color, 85%);
+                }
+
+                &:hover {
+
+                    #maincontent & { // Stronger selector, could use !important but that causes more issues
+                        border-bottom-color: lighten(@color, 85%);
+                    }
+                }
             }
         }
     }
