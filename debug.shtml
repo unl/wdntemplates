@@ -56,9 +56,7 @@
                 </div>
                 <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
             </div>
-            <div id="wdn_app_wrapper">
-                yes
-            </div>
+            <!--#include virtual="/wdn/templates_4.0/includes/apps.html" -->
             <div class="wdn-inner-wrapper">
                 <div id="wdn_site_title">
                     <span>
