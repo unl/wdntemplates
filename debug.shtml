@@ -50,7 +50,16 @@
             <!--#include virtual="/wdn/templates_4.0/includes/wdnResources.html" -->
             <div class="wdn-inner-wrapper">
                 <!--#include virtual="/wdn/templates_4.0/includes/logo.html" -->
+                <div id="wdn_resources">
+                    <!--#include virtual="/wdn/templates_4.0/includes/idm.html" -->
+                    <!--#include virtual="/wdn/templates_4.0/includes/wdnTools.html" -->
+                </div>
                 <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
+            </div>
+            <div id="wdn_app_wrapper">
+                yes
+            </div>
+            <div class="wdn-inner-wrapper">
                 <div id="wdn_site_title">
                     <span>
                         <!-- InstanceBeginEditable name="titlegraphic" -->
@@ -58,10 +67,6 @@
                         <!--<span>A division of the College of Arts &amp; Sciences</span>-->
                         <!-- InstanceEndEditable -->
                     </span>
-                </div>
-                <div id="wdn_resources">
-                    <!--#include virtual="/wdn/templates_4.0/includes/idm.html" -->
-                    <!--#include virtual="/wdn/templates_4.0/includes/wdnTools.html" -->
                 </div>
             </div>
         </header>
