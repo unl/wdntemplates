@@ -5,8 +5,19 @@
 @media @bp-nav-full {
     
     #wdn_app_wrapper {
-        display: block;
         clear: both;
+        display: block;
         text-align: left;
+        height: 0;
+        overflow: hidden;
+        .transition(height 0.3s linear);
+        background-color: @dark-neutral;
+        margin-top: 12px;
+        color: #ffffff;
+    }
+
+    .wdn-app-col {
+        max-height: 200px;
+        overflow: scroll;
     }
 }
