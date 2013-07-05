@@ -43,7 +43,7 @@ WDN.tabs = (function() {
 			var hashFromTabClick = false,
 				$tabsWithSwitch = WDN.jQuery('ul.wdn_tabs').not('.disableSwitching');
 			
-			$tabsWithSwitch.find('a').click(function() { //do something when a tab is clicked
+			$tabsWithSwitch.on('click', 'a', function() { //do something when a tab is clicked
 				var trig = WDN.jQuery(this),
 					hash = getHashFromLink(this);
 				
