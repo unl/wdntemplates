@@ -9,7 +9,6 @@
  *  class="wdn_notice duration_5" // closes after 5 seconds
  */
 
-
 define(['jquery', 'wdn'], function($, WDN) {
 	var Plugin = {
 		initialize : function() {
@@ -32,3 +31,4 @@ define(['jquery', 'wdn'], function($, WDN) {
 
 	return Plugin;
 });
+
