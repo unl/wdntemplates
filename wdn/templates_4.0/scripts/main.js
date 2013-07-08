@@ -14,7 +14,7 @@ require.config({
         	deps: ['jquery'],
         	exports: 'WDN.jQuery.ajaxSettings.proxyKey'
         }
-    },
+    }
 });
 
 //Modernizr, WDN are loaded prior to requireJS
