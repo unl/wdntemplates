@@ -56,20 +56,7 @@
         color: darken(@color, 65%);
 
         a {
-            &:not(.wdn-button) {
-                color: darken(@color, 85%);
-
-                #maincontent & { // Stronger selector, could use !important but that causes more issues
-                    border-bottom-color: darken(@color, 85%);
-                }
-
-                &:hover {
-
-                    #maincontent & { // Stronger selector, could use !important but that causes more issues
-                        border-bottom-color: darken(@color, 85%);
-                    }
-                }
-            }
+            color: darken(@color, 85%);
         }
     }
 
@@ -77,20 +64,7 @@
         color: #ffffff;
 
         a {
-            &:not(.wdn-button) {
-                color: lighten(@color, 85%);
-
-                #maincontent & { // Stronger selector, could use !important but that causes more issues
-                    border-bottom-color: lighten(@color, 85%);
-                }
-
-                &:hover {
-
-                    #maincontent & { // Stronger selector, could use !important but that causes more issues
-                        border-bottom-color: lighten(@color, 85%);
-                    }
-                }
-            }
+            color: lighten(@color, 85%);
         }
     }
 
