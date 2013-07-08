@@ -104,7 +104,7 @@
                     </div>
                 </div>
             </div>
-            <div id="maincontent">
+            <div id="maincontent" class="wdn-main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
                 <h1>We're Debugging Out</h1>
