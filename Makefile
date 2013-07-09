@@ -19,7 +19,8 @@ LESS_ALL := all.less
 LESS_ALL_OUT := all.css
 CSS_OBJS := \
 	$(TEMPLATE_CSS)/$(LESS_ALL_OUT) \
-	$(TEMPLATE_CSS)/layouts/unlalert.css
+	$(TEMPLATE_CSS)/layouts/unlalert.css \
+	$(TEMPLATE_CSS)/modules/notices.css
 
 RJS := r.js
 RJS_FLAGS :=
