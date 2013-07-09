@@ -12,7 +12,10 @@ define(['wdn', 'require'], function(WDN, require) {
         			if (!body.length || !body[0].className.match(/(^|\s)debug(\s|$)/)) {
         				min = '-min';
         			}
-            		require([pluginPath + 'jquery.colorbox' + min], callback);
+            		require([pluginPath + 'jquery.colorbox' + min], function() {
+            			WDN.jQuery.colorbox.settings.className = 'wdn-main';
+            			callback();
+            		});
             	});
             };
             
