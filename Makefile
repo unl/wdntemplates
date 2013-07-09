@@ -19,6 +19,8 @@ LESS_ALL := all.less
 LESS_ALL_OUT := all.css
 CSS_OBJS := \
 	$(TEMPLATE_CSS)/$(LESS_ALL_OUT) \
+	$(TEMPLATE_CSS)/print.css \
+	$(TEMPLATE_CSS)/layouts/monthwidget.css \
 	$(TEMPLATE_CSS)/layouts/unlalert.css
 
 RJS := r.js
