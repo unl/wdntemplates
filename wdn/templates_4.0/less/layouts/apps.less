@@ -11,13 +11,13 @@
         height: 0;
         overflow: hidden;
         .transition(height 0.3s linear);
-        background-color: @dark-neutral;
+        background-color: darken(@resource-color, 3%);
         margin-top: 12px;
         color: #ffffff;
     }
 
     .wdn-app-col {
         max-height: 200px;
-        overflow: scroll;
+        overflow-y: auto;
     }
 }
