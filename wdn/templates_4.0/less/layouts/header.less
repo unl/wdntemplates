@@ -4,6 +4,12 @@
     .wdn-inner-wrapper {
         position: relative;
 
+        @media @bp-nav-hidden {
+            &:after {
+                clear: none;
+            }
+        }
+
         @media @bp3 {
             width: 60rem;
         }
@@ -160,7 +166,6 @@
     }
 
     @media @bp-nav-hidden {
-        float: left;
         width: ~'-webkit-calc(90% - 55px)';
         width: ~'-moz-calc(90% - 55px)';
         width: ~'calc(90% - 55px)';
@@ -175,8 +180,7 @@
 
     @media @bp-nav-full {
         width: 100%;
-        float: none;
-        padding-top: 72px;
+        padding-top: 27px;
         .rem(30);
 
         span {
@@ -200,6 +204,7 @@
         abbr[title] {
             font-size: 0;
             display: block;
+            color: fadeout(#ffffff, 100%);
 
             &:before {
                 content: attr(title);

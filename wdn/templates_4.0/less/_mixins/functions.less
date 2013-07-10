@@ -42,3 +42,31 @@
     background-color: @brand;
     .background-image(~"linear-gradient(bottom, rgba(0,0,0,.15) 0%, rgba(255,255,255,0) 20%)");
 }
+
+/* 
+* Function for creating color bands 
+*/
+
+.wdn-band(@color) { // Class name to put on the band
+
+    background-color: @color;
+
+    // Based on color passed, we need to make light/dark presentation decisions
+    .color-selector(@color) when (lightness(@color) >= 50%) { // We have a light color
+        color: darken(@color, 65%);
+
+        a {
+            color: darken(@color, 85%);
+        }
+    }
+
+    .color-selector(@color) when (lightness(@color) < 50%) { // We have a dark color
+        color: #ffffff;
+
+        a {
+            color: lighten(@color, 85%);
+        }
+    }
+
+    .color-selector(@color);
+}
