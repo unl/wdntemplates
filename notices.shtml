@@ -59,7 +59,7 @@ WDN.initializePlugin('notice');
                 <div id="wdn_site_title">
                     <span>
                         <!-- InstanceBeginEditable name="titlegraphic" -->
-                        <abbr title="Hixson-Lied College of Fine and Performing Arts">HLCFPA</abbr>
+                        WDN Notifications
                         <!--<span>A division of the College of Arts &amp; Sciences</span>-->
                         <!-- InstanceEndEditable -->
                     </span>
