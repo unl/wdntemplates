@@ -42,6 +42,12 @@ The JavaScript build process can be further customized by passing parameters GNU
 __EXAMPLE:__ Build for use in a special CDN or server location
 `make RJS_FLAGS="wdnTemplatePath=//www.unl.edu/"`
 
+__EXAMPLE:__ Customize the UNLchat url.  Could be useful for integrating a custom instance of UNLchat or for development
+`make RJS_FLAGS="unlChatURl=//ucommchat-test.unl.edu/assests/js"`
+
+__EXAMPLE:__ Two or more parameters are separated with a space
+`make RJS_FLAGS="wdnTemplatePath=//www.unl.edu/ unlChatURl=//ucommchat-test.unl.edu/assests/js"`
+
 __PLEASE NOTE:__ The build process has been optimized for a Linux or OS X environment. While it is technically possible to build on Windows, the specifics of setting up your environment correctly are beyond the scope of this project.
 
 ## Further support

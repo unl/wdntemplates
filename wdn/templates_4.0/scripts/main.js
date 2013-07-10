@@ -26,8 +26,12 @@ define(['wdn', 'require'], function(WDN, require) {
 	WDN.initializePlugin('search');
 	WDN.initializePlugin('unlalert');
 	require(['legacy'], function(){});
+    
+    var unlchat_url = '//ucommchat.unl.edu/assets/js';
+
+    //#UNLCHAT_URL
 
     WDN.loadJQuery(function() {
-        require(['//ucommchat.unl.edu/assets/js?for=client&version=' + WDN.getHTMLVersion()], function(){});
+        require([unlchat_url + '?for=client&version=' + WDN.getHTMLVersion()], function(){});
     });
 });
