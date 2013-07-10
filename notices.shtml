@@ -116,16 +116,16 @@ WDN.initializePlugin('notice');
                             <div class="close wdn-icon-cancel">
                                 <a href="#" title="Close this notice">Close this notice</a>
                             </div>
-                            <div class="message">
+                            <div class="message wdn-icon-info">
                                 <h4>This is my Title!</h4>
                                 <p>This is my content. Check out the wiki for more documentation.</p>
                             </div>
                         </div>
-                        <div class="wdn_notice affirm">
+                        <div class="wdn_notice affirm duration">
                             <div class="close wdn-icon-cancel">
                                 <a href="#" title="Close this notice">Close this notice</a>
                             </div>
-                            <div class="message">
+                            <div class="message wdn-icon-ok">
                                 <h4>Great Success!</h4>
                                 <p>This is my content. Check out the wiki for more documentation.</p>
                             </div>
@@ -134,7 +134,7 @@ WDN.initializePlugin('notice');
                             <div class="close wdn-icon-cancel">
                                 <a href="#" title="Close this notice">Close this notice</a>
                             </div>
-                            <div class="message">
+                            <div class="message wdn-icon-cancel">
                                 <h4>Denial Notice!</h4>
                                 <p>This is my content. Check out the wiki for more documentation.</p>
                             </div>
@@ -143,7 +143,7 @@ WDN.initializePlugin('notice');
                             <div class="close wdn-icon-cancel">
                                 <a href="#" title="Close this notice">Close this notice</a>
                             </div>
-                            <div class="message">
+                            <div class="message wdn-icon-attention">
                                 <h4>Important Alert!</h4>
                                 <p>This is my content. Check out the wiki for more documentation.</p>
                             </div>

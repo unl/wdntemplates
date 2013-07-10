@@ -8,13 +8,15 @@
     border-radius: 5px;
 
     div.message {
-		background: url(../images/notice/information.png) no-repeat top left;
-	    padding: 10px 5px 0px 68px;
+    	position: relative;
+		//background: url(../../images/notice/information.png) no-repeat top left;
+	    padding: 5px 5px 0px 68px;
 	    min-height: 60px;
+	    color: darken(@light-triad, 65%);
 
 	    h4 {
 		    font-weight: bold;
-		    color: #585858;
+		   
 		    padding: 0;
 		    margin:0;
 		}
@@ -22,18 +24,33 @@
 		p {
 		    margin-bottom: 0px;
 		}
+
+		&:before {
+			position: absolute;
+			left:0;
+			width:50px;
+			height:50px;
+			font-size:3.0rem;
+			line-height: normal;
+			text-shadow:0px 1px 0px lighten(darken(@light-triad, 65%), 15%), 0px -1px 0px darken(darken(@light-triad, 65%), 10%);
+		}
 	}
 
     &.affirm {
 	    background: lighten(@dark-complement, 8%);
 	    border-color: @dark-complement;
-	    color: #FFF !important;
+	    color: #fff;
 
 	    div.message {
-    		background-image: url(../images/notice/affirm.png);
+    		color: #FFF;
 
     		h4 {
-		        color: #FFF !important;
+		        //color: #FFF !important;
+		    }
+
+		    &:before {
+		    	color:@dark-complement;
+		    	text-shadow:0px 1px 0px lighten(@dark-complement, 15%), 0px -1px 0px darken(@dark-complement, 10%);
 		    }
 		}
 	}
@@ -41,53 +58,43 @@
     &.negate {
 	    background: @brand;
 	    border-color: darken(@brand, 30%);
-	    color: #FFF !important;
+	    color: #fff;
 
 	    div.message {
-		    background-image: url(../images/notice/negate.png);
+		    color: #FFF;
 
-		    h4 {
-		        color: #FFF !important;
+		    &:before {
+		    	color:darken(@brand, 10%);
+		    	text-shadow:0px 1px 0px lighten(@brand, 15%), 0px -1px 0px darken(@brand, 20%);
 		    }
 		}
 	}
 
 	&.alert {
 	    background: #fff600;
-	    border-color: @dark-neutral;
-
+	    border-color: lighten(@warning, 20%);
+	    
 	    div.message {
-		    background-image: url(../images/notice/alert.png);
+		    color: @dark-neutral;
+		
+			&:before {
+				color:@warning;
+				text-shadow:0px 1px 0px lighten(@warning, 40%), 0px -1px 0px darken(@warning, 30%);
+			}	
 		}
-	}
-
-	a strong {
-	    font-size: 1.2em;
 	}
 
 	div.close, div.minimize, div.maximize {
 		float:right;
 
 		a, a:hover {
-			//background: url(../images/notice/close.png) no-repeat scroll top left;
 		    width: 16px;
 		    height: 16px;
 		    text-indent: -2000em;
 		    display: block;
 		    text-decoration: none;
 		    position: relative;
-		}
-	}
-
-	div.minimize {
-		a, a:hover {
-			background: url(../images/notice/minimize.png) no-repeat scroll top left;
-		}
-	}
-
-	div.maximize {
-		a, a:hover {
-			background: url(../images/notice/maximize.png) no-repeat scroll top left;
+		    z-index: 100;
 		}
 	}
 
@@ -97,17 +104,12 @@
 			line-height: normal;
 		}
 		a, a:hover {
-			//border: 1px solid #999;
+			border:none;
 		}
 	}
 
-	&.col {
-		div.message {
-			min-height: 0;
-		}
-
-		div.close, div.maximize {
-			margin: 10px;
-		}
-	}
+	&[class^="duration"] {
+		position: absolute;
+	} 
 }
+

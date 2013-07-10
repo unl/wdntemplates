@@ -14,7 +14,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 		initialize : function() {
 			WDN.loadCSS(WDN.getTemplateFilePath('css/content/notice.css'));
 			$('div.close a').click(function() {
-				$(this).parent('.close').parent('.wdn_notice').slideUp("slow");
+				$(this).parent('.close').parent('.wdn_notice').fadeOut("slow");
 				return false;
 			});
 			$('.wdn_notice[class*=duration]').each(function(){
@@ -24,7 +24,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 				if (dur_class.length > 1) {
 					duration = dur_class[1]*1000;
 				}
-				setTimeout(function(){$(el).slideUp("slow");}, duration);
+				setTimeout(function(){$(el).fadeOut("slow");}, duration);
 			});
 		}
 	};
