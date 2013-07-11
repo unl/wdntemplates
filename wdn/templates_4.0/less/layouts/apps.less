@@ -1,23 +1,95 @@
 #wdn_app_wrapper {
     display: none;
+    .brand-font;
 }
 
 @media @bp-nav-full {
     
     #wdn_app_wrapper {
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
         clear: both;
         display: block;
         text-align: left;
         height: 0;
         overflow: hidden;
-        .transition(height 0.3s linear);
-        background-color: darken(@resource-color, 3%);
+        .transition(all 0.3s linear);
         margin-top: 12px;
-        color: #ffffff;
     }
 
     .wdn-app-col {
-        max-height: 200px;
+        max-height: 300px;
         overflow-y: auto;
     }
+}
+
+.wdn-resource-title {
+    .impact-font;
+    text-transform: uppercase;
+    .rem(16);
+    display: block;
+    margin: 0.5em 0;
+    color: fadeout(@base-text, 35%);
+}
+
+#wdn_current_weather {
+    width: 30%;
+    float: left;
+}
+
+#wdn_temp_wrapper {
+    .rem(42);
+    .impact-font;
+    margin-bottom: 0.25em;
+}
+
+.wdn-temp {
+    display: block;
+    line-height: 1;
+}
+
+#wdn_radar_wrapper {
+    float: left;
+    width: 65%;
+    margin-left: 5%;
+    background: url(http://radar.weather.gov/lite/N0R/OAX_loop.gif) -90px -215px no-repeat;
+    height: 200px;
+    .background-clip(content-box);
+}
+
+.wdn-sub-resource-title {
+    .rem(11);
+    font-weight: 400;
+    color: fadeout(@base-text, 35%);
+}
+
+.wdn-weather-conditions {
+    .rem(13);
+    display: block;
+    margin-bottom: 0.25em;
+}
+
+.wdn-weather-secondary {
+    .rem(14);
+    font-weight: 400;
+    vertical-align: top;
+    display: block;
+}
+
+.wdn-weather-context {
+    font-size: 50%;
+}
+
+.wdn-weather-label {
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.wdn-action-link {
+    .light-brand-font;
+    .rem(11);
+    display: block;
+    text-align: right;
+    border-top: 1px solid @light-neutral;
 }
