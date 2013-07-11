@@ -18,7 +18,7 @@ form {
 
 	legend {
 		.impact-font();
-		width:100%;
+		//width:100%;
 		position: relative;
 		font-size:1.25rem;
 		font-weight:bold;
@@ -104,23 +104,8 @@ form {
 	}
 
 	input[type="submit"] {
-		.brand-font();
-		background-color:lighten(@dark-triad, 10%);
-		color:#fff;
-		text-shadow: -1px 1px 0px darken(@dark-triad, 20%);
-		.box-shadow(0 3px 0px @dark-triad);
-		.border-radius(2px);
-		font-size:1rem;
-		cursor: pointer;
-		margin:.75rem .75rem 1.25rem 0rem;
-		padding:.5rem 1rem .5rem 1rem;
-		width:auto;
-		display:inline;
-		border:0;
-
-		&:hover {
-			background-color:@dark-triad;
-		}
+		.wdn-button;
+		
 	}
 
 	input[type="reset"] {
