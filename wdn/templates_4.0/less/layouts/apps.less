@@ -93,3 +93,38 @@
     text-align: right;
     border-top: 1px solid @light-neutral;
 }
+
+/* Directory */
+.wdn-fieldset-collapse {
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    input {
+        margin-top: 0;
+        border: 1px solid #d1ceb3;
+        padding: 5px;
+        color: darken(#d1ceb3, 45%);
+        .sans-serif-font();
+
+        &::-webkit-input-placeholder {
+           opacity: 0.8;
+           color: darken(#d1ceb3, 25%);
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+           opacity: 0.8;
+           color: darken(#d1ceb3, 25%);
+        }
+
+        &::-moz-placeholder {  /* Firefox 19+ */
+           opacity: 0.8; 
+           color: darken(#d1ceb3, 25%);
+        }
+
+        &:-ms-input-placeholder {  
+           opacity: 0.8; 
+           color: darken(#d1ceb3, 25%);
+        }
+    }
+}
