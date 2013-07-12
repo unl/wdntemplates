@@ -7,16 +7,14 @@
     margin-bottom: 10px;
     border-radius: 5px;
 
-    div.message {
+    .message {
         position: relative;
-        //background: url(../../images/notice/information.png) no-repeat top left;
         padding: 5px 5px 0px 68px;
         min-height: 60px;
         color: darken(@light-triad, 65%);
 
         h4 {
             font-weight: bold;
-           
             padding: 0;
             margin:0;
         }
@@ -41,12 +39,8 @@
         border-color: @dark-complement;
         color: #fff;
 
-        div.message {
+        .message {
             color: #FFF;
-
-            h4 {
-                //color: #FFF !important;
-            }
 
             &:before {
                 color:@dark-complement;
@@ -60,7 +54,7 @@
         border-color: darken(@brand, 30%);
         color: #fff;
 
-        div.message {
+        .message {
             color: #FFF;
 
             &:before {
@@ -74,7 +68,7 @@
         background: #fff600;
         border-color: lighten(@warning, 20%);
         
-        div.message {
+        .message {
             color: @dark-neutral;
         
             &:before {
@@ -84,7 +78,7 @@
         }
     }
 
-    div.close, div.minimize, div.maximize {
+    .close, .minimize, .maximize {
         float:right;
 
         a, a:hover {
@@ -98,7 +92,8 @@
         }
     }
 
-    div.close {
+    .close {
+
         &:before {
             position: absolute;
             line-height: normal;
