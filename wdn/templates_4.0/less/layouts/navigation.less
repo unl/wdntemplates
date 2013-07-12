@@ -213,10 +213,6 @@
                     padding-bottom: 0.5rem;
                 }
             }
-
-            @media @bp4 {
-                padding: 0;
-            }
         }
 
         .wdn-icon-menu {
@@ -240,6 +236,12 @@
             width: 60rem;
             margin: 0 auto;
             display: block;
+        }
+    }
+    
+    @media @bp4 {
+    	> ul {
+	        padding: 0;
         }
     }
 }
