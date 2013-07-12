@@ -1,0 +1,185 @@
+.primary {
+    /* Primary Table */
+    tr th {
+        @media(min-width: 768px){
+            color: #fff;
+            background:fadeout(@brand, 20%);
+        }
+
+        a {
+            color: #fff;
+        }
+    }
+
+    tbody {
+        td {
+            border-color:darken(@brand,5%);
+
+            @media(max-width:768px) {
+                &:first-child{
+                    color: #fff;
+                    background:fadeout(@brand, 20%);
+                }
+            }
+        }
+    }
+}
+
+.cool {
+    /* Cool Table */
+    tr th {
+        @media(min-width: 768px){
+            color: darken(@light-triad, 70%);
+            background: fadeout(@light-triad, 20%);
+        }
+
+        a {
+            color: #fff;
+        }
+    }
+
+    tbody {
+        td {
+            border-color: darken(@light-triad, 6%);
+
+            @media(max-width:768px) {
+                &:first-child{
+                    color: darken(@light-triad, 70%);
+                    background: fadeout(@light-triad, 20%);  
+                }
+            }        
+        }
+    }
+}
+.dark-cool {
+    /* Dark Cool Table */
+    tr th {
+        @media(min-width: 768px){
+            color: #fff;
+            background:fadeout(@dark-triad, 20%);
+        }
+        
+        a {
+            color: #fff;
+        }
+    }
+
+    tbody {
+        td {
+            border-color:@dark-triad;
+
+            @media(max-width:768px) {
+                &:first-child{
+                    color: #fff;
+                    background:fadeout(@dark-triad, 20%);  
+                }
+            }     
+        }
+    }
+}
+
+.soothing {
+    /* Soothing Table */
+    tr th {
+        @media(min-width: 768px){
+            color:#fff;
+            background: fadeout(@dark-complement, 20%);
+        }
+        
+        a {
+            color: #fff;
+        }
+    }
+
+    tbody {
+        td {
+            border-color:@dark-complement;
+
+            @media(max-width:768px) {
+                &:first-child{
+                    color:#fff;
+                    background: fadeout(@dark-complement, 20%);
+                }
+            }     
+        }
+    }
+}
+.neutral {
+    /* Neutral Table */
+    tr th {
+        @media(min-width: 768px){
+            color: @dark-neutral;
+            background: fadeout(darken(@light-neutral,14%),20%);
+        }
+
+        a {
+            color: #fff;
+        }
+    }
+
+    tbody {
+        td {
+            border-color: darken(@light-neutral, 20%);
+
+            @media(max-width:768px) {
+                &:first-child{
+                    color: @dark-neutral;
+                    background: fadeout(darken(@light-neutral,14%),20%);  
+                }
+            }     
+        }
+    }
+}
+
+.dark-neutral {
+    /* Dark Neutral Table */
+    tr th {
+        @media(min-width: 768px){
+            color: #fff;
+            background: fadeout(@dark-neutral, 10%);
+        }
+
+        a {
+            color: #fff;
+        }
+    }
+
+    tbody {
+        td {
+            border-color:@dark-neutral;
+
+            @media(max-width:768px) {
+                &:first-child{
+                    color: #fff;
+                    background: fadeout(@dark-neutral, 10%); 
+                }
+            }     
+        }
+    }
+}
+.energetic {
+    /* Energetic Table */
+    tr th {
+        @media(min-width: 768px){
+            color: #000;
+            background: fadeout(@dark-energetic, 20%);
+        }
+
+        a {
+            color: #fff;
+        }
+    }
+
+    tbody {
+        td {
+            border-color:@dark-energetic;
+
+            @media(max-width:768px) {
+                &:first-child{
+                    color: #000;
+                    background: fadeout(@dark-energetic, 20%);  
+                }
+            }     
+        }
+    }
+}

@@ -1,0 +1,118 @@
+table {
+    width: 100%;
+    max-width: 100%;
+    line-height: @base-line-height;
+    .base-font();
+    
+    caption {
+        font-size: 1.875rem;
+        .impact-font();
+    }
+    
+    thead tr {
+        display: none;
+    }
+    
+    th {
+        .brand-font();
+        color: @dark-neutral;
+        background: fadeout(darken(@light-neutral,14%),20%);
+    }
+    
+    th, td {
+        display:block;
+        padding: 4px;
+    }
+    
+    td {
+        width: auto;
+        font-weight: normal;
+    }
+    
+    tbody {
+        tr {
+            &:nth-of-type(even) {
+                background-color:transparent;
+            }
+            
+            &:nth-of-type(odd) {
+                background-color: fadeout(#ffffff, 60%);
+            }
+        }   
+
+        td {
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-color: darken(@light-neutral, 20%);
+            &:before {
+                display: block;
+                font-weight: bold;
+                content: attr(data-header);
+            }
+            
+            &:empty {
+                display: none;
+            }
+
+            @media(max-width:768px) {
+                &:first-child{
+                    color: @dark-neutral;
+                    background: fadeout(darken(@light-neutral,14%),20%); 
+                }
+            }
+        }
+
+        th {
+            text-align: left;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+
+    table {
+        font-size: 90%;
+    
+        thead tr {
+            display: table-row;
+        }
+        
+        th {
+            font-size: 110%;
+        }
+        
+        td {
+            text-align: center;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+        
+        th, td {
+            display: table-cell;
+        }
+        
+        .flush-left {
+            text-align: left;
+        }
+        
+        tbody {
+        
+            tr {
+                &:first-child td {
+                    border-top-width: 3px;
+                }
+            }
+
+            td:before {
+                display: none !important;
+            }
+            
+            tr td:empty {
+                display: table-cell;
+            }
+        }
+    }
+}
+
