@@ -21,7 +21,8 @@ CSS_OBJS := \
 	$(TEMPLATE_CSS)/$(LESS_ALL_OUT) \
 	$(TEMPLATE_CSS)/print.css \
 	$(TEMPLATE_CSS)/layouts/monthwidget.css \
-	$(TEMPLATE_CSS)/layouts/unlalert.css
+	$(TEMPLATE_CSS)/layouts/unlalert.css \
+	$(TEMPLATE_CSS)/modules/notices.css
 
 RJS := r.js
 RJS_FLAGS :=
