@@ -65,8 +65,9 @@ form {
 
 		&.wdn-error {
 			border:1px solid @brand;
+			-webkit-animation:wdn-error 1.2s infinite alternate; // Safari and Chrome
+			-moz-animation:wdn-error 1.2s infinite alternate; // Firfox 
 			animation:wdn-error 1.2s infinite alternate;
-			-webkit-animation:wdn-error 1.2s infinite alternate; /* Safari and Chrome */
 		}
 	}
 
@@ -104,6 +105,7 @@ form {
 	}
 
 	input[type="submit"] {
+		border:0;
 		.wdn-button;
 		
 	}
@@ -121,7 +123,7 @@ form {
 	}
 }
 
-@keyframes wdn-error {
+@-webkit-keyframes wdn-error {
 	from {
 		.box-shadow(0 0 6px fadeout(@brand, 20%));
 		border:1px solid @brand;
@@ -132,7 +134,18 @@ form {
 	}
 }
 
-@-webkit-keyframes wdn-error {
+@-moz-keyframes wdn-error {
+	from {
+		.box-shadow(0 0 6px fadeout(@brand, 20%));
+		border:1px solid @brand;
+	}
+	to {
+		.box-shadow(0 0 6px fadeout(@brand, 90%));
+		border:1px solid fadeout(@brand, 80%);
+	}
+}
+
+@keyframes wdn-error {
 	from {
 		.box-shadow(0 0 6px fadeout(@brand, 20%));
 		border:1px solid @brand;
