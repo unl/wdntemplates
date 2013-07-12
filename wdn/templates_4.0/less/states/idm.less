@@ -1,3 +1,19 @@
+@media @bp-nav-hidden {
+    #wdn_identity_management {
+		.nav-scrolling & {
+			position: fixed;
+			right: 4px;
+			top: 16px;
+			z-index: 2;
+			.transition(right 0.3s ease);
+		}
+		
+		.nav-scrolling #wdn_menu_toggle:checked ~ .wdn-content-slide & {
+			right: -200px
+		}
+    }
+}
+
 .loggedin {
 
     .wdn-profile-options {
