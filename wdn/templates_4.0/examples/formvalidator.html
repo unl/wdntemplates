@@ -1,5 +1,4 @@
 <script type="text/javascript">
-WDN.initializePlugin('zenform');
 WDN.initializePlugin('form_validation', [function() {
     WDN.jQuery.validation.addMethod('validate-confirm-email', 'This field must match the value of the email field.', {equalToField:'#email'});
 	WDN.jQuery('form.zenform').validation();

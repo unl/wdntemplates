@@ -24,6 +24,7 @@ CSS_OBJS := \
 	$(TEMPLATE_CSS)/$(LESS_ALL_OUT_IE) \
 	$(TEMPLATE_CSS)/ie.css \
 	$(TEMPLATE_CSS)/print.css \
+	$(TEMPLATE_CSS)/layouts/formvalidator.css \
 	$(TEMPLATE_CSS)/layouts/monthwidget.css \
 	$(TEMPLATE_CSS)/layouts/unlalert.css \
 	$(TEMPLATE_CSS)/modules/notices.css
