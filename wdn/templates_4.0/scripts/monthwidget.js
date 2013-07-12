@@ -56,7 +56,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                 		infoBox = $('<div class="eventContainer"><div class="eventBox">Loading...</div></div>');
                 		infoBox.appendTo($('div:first', this));
                 		if ($(this).position().left + $(this).width() + infoBox.width() 
-                			>= $(infoBox[0].offsetParent).outerWidth()) {
+                			>= $($container[0].offsetParent).outerWidth()) {
                 			infoBox.addClass('pos2');
                 		}
                 		var eventBox = $('.eventBox', this);

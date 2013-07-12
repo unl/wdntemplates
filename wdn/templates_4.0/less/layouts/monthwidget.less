@@ -73,7 +73,7 @@
 		    	display: block;
 		    	position: absolute;
 		    	left: -6px;
-		    	top: 5px;
+		    	top: 6px;
 		    }
 		    
 		    .eventBox{
@@ -107,11 +107,14 @@
 			}
 			
 			&.pos2 {
-				background-position: right top;
+				right: auto;
+				left: -225px;
 				
-				.eventBox {
-					margin-right: 5px;
-					margin-left: 0px;
+				&:before {
+					border-color: transparent transparent transparent @dark-neutral;
+					border-width: 6px 0 6px 6px;
+					left: auto;
+					right: -6px;
 				}
 			}
 		}
@@ -147,12 +150,13 @@
 			&.prev, &.next {
 				font-size: 0;
 				display:inline-block;
+				text-decoration: none;
 			}
 			
-			&.prev:before {
+			&.prev:after {
 				.rem(30);
 				.fontello();
-				content: '\e807';
+				content: '\e80a';
 			}
 			
 			&.next:before {
