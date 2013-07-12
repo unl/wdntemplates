@@ -38,13 +38,18 @@ q {
 }
 
 .clear {
-    .clear-fix();
+    clear: both;
 }
 
 a {
     color: @brand;
     text-decoration: none;
     .transition(color 0.3s);
+
+    .wdn-main & {
+        border-bottom-style: dotted;
+        border-bottom-width: 1px;
+    }
 
     &:hover {
         color: darken(@brand, 10%);

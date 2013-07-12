@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 if [ ! -d ".git_filters" ]; then
     echo "The script must be run from the repository root"
     exit 1

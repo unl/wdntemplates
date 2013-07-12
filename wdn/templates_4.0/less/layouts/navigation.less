@@ -93,7 +93,7 @@
 
     // Styles specifc to only the mobile view
     @media @bp-nav-hidden {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: (@nav-width * -1); // Hide off-screen
         width: @nav-width;
@@ -190,7 +190,7 @@
         > ul {
             width: 100%;
             margin: 0;
-            padding-right: 40px;
+            padding-right: 42px;
 
             > li {
                 box-shadow: 1px 0 0 0 rgba(0,0,0, 0.15);
@@ -212,10 +212,6 @@
                     padding-top: 0.5rem;
                     padding-bottom: 0.5rem;
                 }
-            }
-
-            @media @bp4 {
-                padding: 0;
             }
         }
 
@@ -240,6 +236,12 @@
             width: 60rem;
             margin: 0 auto;
             display: block;
+        }
+    }
+    
+    @media @bp4 {
+    	> ul {
+	        padding: 0;
         }
     }
 }

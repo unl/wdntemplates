@@ -1,0 +1,51 @@
+// legacy "Zen" color
+//@zenNeutral: #3c3c3c;
+
+.zen-bright()
+{
+    color: darken(@colorBright, 30%);
+    background:@colorBright;
+
+}
+
+.zen-cool()
+{
+    color: darken(@colorTriad, 70%);
+    background: fadeout(@colorTriad, 20%);
+}
+
+.zen-soothing() 
+{
+    color:#fff;
+    background: fadeout(@colorComplementary, 20%);
+}
+
+.zen-energetic() 
+{
+    color: #000;
+    background: fadeout(@colorEnergetic, 20%);
+}
+
+.zen-neutral() 
+{
+    color: darken(@colorNeutral, 60%);
+    background: fadeout(@colorNeutral,20%);
+}
+
+.zen-darkneutral() 
+{
+    color: #fff;
+    background: fadeout(@colorDarkneutral, 10%);
+}
+
+.zen-primary() 
+{
+    color: #fff;
+    background:fadeout(@brand, 20%);
+}
+
+.zen-darkcool() 
+{
+    color: #fff;
+    background:fadeout(@colorDarktriad, 20%);
+}

@@ -14,7 +14,7 @@ require.config({
         	deps: ['jquery'],
         	exports: 'WDN.jQuery.ajaxSettings.proxyKey'
         }
-    },
+    }
 });
 
 //Modernizr, WDN are loaded prior to requireJS
@@ -26,6 +26,12 @@ define(['wdn', 'require'], function(WDN, require) {
 	WDN.initializePlugin('search');
 	WDN.initializePlugin('unlalert');
 	require(['legacy'], function(){});
-	
-//	require(['//ucommchat.unl.edu/js/chat.php?version=' + WDN.getHTMLVersion()], function(){});
+    
+    var unlchat_url = '//ucommchat.unl.edu/assets/js';
+
+    //#UNLCHAT_URL
+
+    WDN.loadJQuery(function() {
+        require([unlchat_url + '?for=client&version=' + WDN.getHTMLVersion()], function(){});
+    });
 });
