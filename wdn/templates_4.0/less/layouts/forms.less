@@ -1,144 +1,148 @@
 form {
-	position: relative;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	background: none;
-	color: @base-text;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: @base-text;
 
-	ol, ul {
-		.list-reset;
-	}
+    ol, ul {
+        .list-reset;
+    }
 
-	fieldset {
-		border: 0;
-		margin: 0;
-		padding: 0;
-	}
+    fieldset {
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
 
-	legend {
-		.impact-font;
-		position: relative;
-		.rem(20);
-		font-weight: bold;
-		white-space: normal;
-		padding: 0;
-		border-bottom: 1px solid @base-text;
-		margin-bottom: 1rem;
-		width: 100%;
-	}
+    legend {
+        .impact-font;
+        position: relative;
+        .rem(20);
+        font-weight: bold;
+        white-space: normal;
+        padding: 0;
+        border-bottom: 1px solid @base-text;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
 
-	fieldset fieldset {
-		margin-bottom: 1rem;
+    fieldset fieldset {
+        margin-bottom: 1rem;
 
-		legend {
-			.base-font;
-			.rem(18);
-			border: 0;
-			font-weight: normal;
-			margin: 0;
-		}
-	}
+        legend {
+            .base-font;
+            .rem(18);
+            border: 0;
+            font-weight: normal;
+            margin: 0;
+        }
+    }
 
-	label {
-		position: relative;
-		.rem(18);
-	}
+    label {
+        position: relative;
+        .rem(18);
+    }
 
-	input[type=text], input[type=file], input[type=password], input[type=email], input[type=url], input[type=number], textarea, select {
-		display: inline-block;
-		width: 100%;
-		background-color: #ffffff;
-		.sans-serif-font;
-		.rem(18);
-		outline: none;
-		border: 1px solid #dbdac8;
-		color: fadeout(@base-text, 40%);
-		padding: 0.75rem;
-		margin-bottom: 1rem;
-		.border-radius(2px);
+    input[type=text], input[type=file], input[type=password], input[type=email], input[type=url], input[type=number], textarea, select {
+        display: inline-block;
+        width: 100%;
+        background-color: #ffffff;
+        .sans-serif-font;
+        .rem(18);
+        outline: none;
+        border: 1px solid #dbdac8;
+        color: fadeout(@base-text, 40%);
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        .border-radius(2px);
 
-		&:focus {
-			outline: none;
-			color: @base-text;
-		}
+        &:focus {
+            outline: none;
+            color: @base-text;
+        }
 
-		&.wdn-error {
-			border: 1px solid @brand;
-			animation: wdn-error 1.2s infinite alternate;
-			-webkit-animation: wdn-error 1.2s infinite alternate; /* Safari and Chrome */
-		}
-	}
+        &.wdn-error {
+            border: 1px solid @brand;
+            animation: wdn-error 1.2s infinite alternate;
+            -webkit-animation: wdn-error 1.2s infinite alternate; /* Safari and Chrome */
+        }
+    }
 
-	input[type="radio"] {
-		width: auto;
-		margin: 0.25rem;
-		margin-bottom: 0;
+    input[type="radio"] {
+        width: auto;
+        margin: 0.25rem;
+        margin-bottom: 0;
 
-		&+ label {
-			font-size: 0.875rem;
-			vertical-align: middle;
-			.wdn-sans-serif;	
-		}
-	}
+        &+ label {
+            font-size: 0.875rem;
+            vertical-align: middle;
+            .wdn-sans-serif;    
+        }
+    }
 
-	span.required {
-		position: absolute;
-	    left: -18px;
-	    top: 50%;
-	    text-indent: -999999px;
-	    margin-top: -8px;
-	    background: url('../images/requiredIndicator.png') no-repeat 0px 0px;
-	    width: 12px;
-	    height: 15px;
-	    display: block;
-	}
+    span.required {
+        
+        text-indent: -999999px;
+        margin-top: -8px;
+        background: url('../images/requiredIndicator.png') no-repeat 0px 0px;
+        width: 12px;
+        height: 15px;
+        display: block;
 
-	span.helper {
-		.rem(10);
-	}
+        @media @bp3 {
+            position: absolute;
+            left: -18px;
+            top: 50%;
+        }
+    }
+
+    span.helper {
+        .rem(10);
+    }
 
 // KEEP STYLING FOR LISTS
-	&> fieldset > ol > li > label {
-		display: block;
-	}
+    &> fieldset > ol > li > label {
+        display: block;
+    }
 
-	input[type="submit"] {
-		.wdn-button;
-		width: auto;
-	}
+    input[type="submit"] {
+        .wdn-button;
+        width: auto;
+    }
 
-	input[type="reset"] {
-		border: none;
-		background: none;
-		border-left: 2px solid @dark-complement;
-		padding-left: 14px;
-		margin-left: 6px;
-		width: auto;
-		cursor: pointer;
-		display: inline;
-		border: 0;
-	}
+    input[type="reset"] {
+        border: none;
+        background: none;
+        border-left: 2px solid @dark-complement;
+        padding-left: 14px;
+        margin-left: 6px;
+        width: auto;
+        cursor: pointer;
+        display: inline;
+        border: 0;
+    }
 }
 
 @keyframes wdn-error {
-	from {
-		.box-shadow(0 0 6px fadeout(@brand, 20%));
-		border: 1px solid @brand;
-	}
-	to {
-		.box-shadow(0 0 6px fadeout(@brand, 90%));
-		border: 1px solid fadeout(@brand, 80%);
-	}
+    from {
+        .box-shadow(0 0 6px fadeout(@brand, 20%));
+        border: 1px solid @brand;
+    }
+    to {
+        .box-shadow(0 0 6px fadeout(@brand, 90%));
+        border: 1px solid fadeout(@brand, 80%);
+    }
 }
 
 @-webkit-keyframes wdn-error {
-	from {
-		.box-shadow(0 0 6px fadeout(@brand, 20%));
-		border: 1px solid @brand;
-	}
-	to {
-		.box-shadow(0 0 6px fadeout(@brand, 90%));
-		border: 1px solid fadeout(@brand, 80%);
-	}
+    from {
+        .box-shadow(0 0 6px fadeout(@brand, 20%));
+        border: 1px solid @brand;
+    }
+    to {
+        .box-shadow(0 0 6px fadeout(@brand, 90%));
+        border: 1px solid fadeout(@brand, 80%);
+    }
 }
