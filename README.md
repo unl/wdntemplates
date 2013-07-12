@@ -23,6 +23,12 @@ The resources are built using a standard Makefile for [GNU Make](http://www.gnu.
 * [Git](http://git-scm.com/) -- version control system
 * [NodeJS](http://www.nodejs.org/) -- used to run the libraries that process and minimize LESS and JS files
 
+__NOTE:__ This repository uses symlinks for certain NodeJS library binaries (`lessc`, `r.js`). Some environments do not support symlinks well. So, if you experience build issues, please attempt to globally install the following node modules from NPM (`npm -g install`):
+
+* `requirejs`
+* `less`
+* `uglify-js`
+
 Once all of the above dependencies are met, simply running GNU Make `make` at the project root will build all resources. The following are all of the supported targets for `make`.
 
 * `all` - builds all needed CSS and JavaScript
@@ -35,6 +41,12 @@ The JavaScript build process can be further customized by passing parameters GNU
 
 __EXAMPLE:__ Build for use in a special CDN or server location
 `make RJS_FLAGS="wdnTemplatePath=//www.unl.edu/"`
+
+__EXAMPLE:__ Customize the UNLchat url.  Could be useful for integrating a custom instance of UNLchat or for development
+`make RJS_FLAGS="unlChatURl=//ucommchat-test.unl.edu/assests/js"`
+
+__EXAMPLE:__ Two or more parameters are separated with a space
+`make RJS_FLAGS="wdnTemplatePath=//www.unl.edu/ unlChatURl=//ucommchat-test.unl.edu/assests/js"`
 
 __PLEASE NOTE:__ The build process has been optimized for a Linux or OS X environment. While it is technically possible to build on Windows, the specifics of setting up your environment correctly are beyond the scope of this project.
 

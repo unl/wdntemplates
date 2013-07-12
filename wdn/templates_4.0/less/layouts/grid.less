@@ -6,22 +6,6 @@
     clear:left;
     .clear-fix();
     
-    // Since a column provides the `padding-left`, if another grid set is nested without being nested inside a `wdn-col` we need ensure the nested grid doesn't have double negative `margin-left`.
-    :not([class*="wdn-col"]) {
-        
-        [class*="wdn-grid-set"] {
-            margin-left: 0;
-        }
-    }
-    
-    // Overrule this rule when deep nesting occurs: .grid-set > .blah > .grid-set > .wdn-col > .grid-set
-    [class*="wdn-col"] {
-        
-        [class*="wdn-grid-set"] {
-            margin-left: @gutter-size * -1;
-        }
-    }
-    
     // When the `grid-set` is a direct child of another `grid-set`, avoid the double negative `margin-left`.
     > [class*="wdn-grid-set"] {
         margin-left: 0;

@@ -18,6 +18,7 @@ $alertInfo = array(
     'severity' => 'Extreme',
     'certainty' => 'Likely',
     'headline' => '(Simulation) Winter Weather Advisory',
+    'effective' => date('Y-m-d\TH:i:sO'),
     'description' => 'The university has been closed Feb 3 due to inclement weather - THIS IS JUST A TEST',
     'instruction' => 'Only necessary personnel should come to work',
     'web' => 'http://www.unl.edu/',

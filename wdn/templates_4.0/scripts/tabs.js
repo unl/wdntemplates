@@ -80,7 +80,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				var hashFromTabClick = false,
 					$tabsWithSwitch = $(tabSelector).not('.disableSwitching');
 				
-				$tabsWithSwitch.find('a').click(function() { //do something when a tab is clicked
+				$tabsWithSwitch.on('click', 'a', function() { //do something when a tab is clicked
 					var trig = $(this),
 						hash = getHashFromLink(this);
 					
