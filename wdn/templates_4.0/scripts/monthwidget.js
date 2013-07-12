@@ -12,13 +12,12 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				href: $eventLink[0].href,
 				title: $eventLink[0].title
 			};
-		} else if (eventParams) {
-			return eventParams;
 		}
-		
-		return null;
+
+		return eventParams || {};
 	},
-	container = '#monthwidget';
+	container = '#monthwidget',
+	defaultCal = 'http://events.unl.edu/';
 	
 	var display = function(data, config) {
 		var $container = $(config.container);
@@ -34,17 +33,19 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				month = month.substr(1);
 			}
 			
-			var $days = $('tbody td', $container);
+			var $days = $('tbody td', $container).not('.prev, .next');
 			
 			if (month - 1 == now.getMonth()) {
-				$days.not('.prev, .next').each(function() {
+				$days.each(function() {
 					var $this = $(this);
 					if ($this.text() == today) {
-						$this.addClass('today').append('<div class="today_image"/>');
+						$this.addClass('today').append('<i class="today_image"/>');
 						return false;
 					}
 				});
 			}
+			
+			$days.wrapInner('<div/>');
 			
 			$days.has('a').hoverIntent({
                 over: function() {
@@ -53,7 +54,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                 		infoBox.show();
                 	} else {
                 		infoBox = $('<div class="eventContainer"><div class="eventBox">Loading...</div></div>');
-                		infoBox.appendTo(this);
+                		infoBox.appendTo($('div:first', this));
                 		if ($(this).position().left + $(this).width() + infoBox.width() 
                 			>= $(infoBox[0].offsetParent).outerWidth()) {
                 			infoBox.addClass('pos2');
@@ -101,12 +102,12 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 	var setup = function(config) {
 		var localSettings = getLocalEventSettings(),
 		defaultConfig = {
-			url: localSettings.href,
+			url: localSettings.href || defaultCal,
 			container: container
 		},
 		localConfig = $.extend({}, config, defaultConfig);
 		
-		if ($(localConfig.container).length) {
+		if (localConfig.url && $(localConfig.container).length) {
 			WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/monthwidget.css'));
 			$.get(localConfig.url + '?monthwidget&format=hcalendar', function(data) {
 					display(data, localConfig);
