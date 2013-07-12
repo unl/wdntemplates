@@ -19,6 +19,7 @@
     	'modernizr-wdn',
     	'main',
     	'analytics',
+    	'analytics_scroll_depth',
     	'navigation',
     	'search',
     	'unlalert',
