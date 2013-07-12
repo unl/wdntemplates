@@ -11,20 +11,21 @@ form {
 	}
 
 	fieldset {
-		border:0;
-		margin:0;
-		padding:0;
+		border: 0;
+		margin: 0;
+		padding: 0;
 	}
 
 	legend {
 		.impact-font;
 		position: relative;
-		font-size: 1.25rem;
+		.rem(20);
 		font-weight: bold;
 		white-space: normal;
 		padding: 0;
 		border-bottom: 1px solid @base-text;
 		margin-bottom: 1rem;
+		width: 100%;
 	}
 
 	fieldset fieldset {
@@ -32,7 +33,7 @@ form {
 
 		legend {
 			.base-font;
-			font-size: 1.1rem;
+			.rem(18);
 			border: 0;
 			font-weight: normal;
 			margin: 0;
@@ -41,7 +42,7 @@ form {
 
 	label {
 		position: relative;
-		font-size: 1.1rem;
+		.rem(18);
 	}
 
 	input[type=text], input[type=file], input[type=password], input[type=email], input[type=url], input[type=number], textarea, select {
@@ -49,7 +50,7 @@ form {
 		width: 100%;
 		background-color: #ffffff;
 		.sans-serif-font;
-		font-size: 1.1rem;
+		.rem(18);
 		outline: none;
 		border: 1px solid #dbdac8;
 		color: fadeout(@base-text, 40%);
@@ -71,12 +72,13 @@ form {
 
 	input[type="radio"] {
 		width: auto;
-		margin:0.25rem;
+		margin: 0.25rem;
 		margin-bottom: 0;
 
 		&+ label {
 			font-size: 0.875rem;
-			vertical-align: middle;		
+			vertical-align: middle;
+			.wdn-sans-serif;	
 		}
 	}
 
@@ -93,8 +95,7 @@ form {
 	}
 
 	span.helper {
-		font-size: 0.625rem;
-		margin-left: 1rem;
+		.rem(10);
 	}
 
 // KEEP STYLING FOR LISTS
@@ -104,7 +105,7 @@ form {
 
 	input[type="submit"] {
 		.wdn-button;
-		
+		width: auto;
 	}
 
 	input[type="reset"] {
