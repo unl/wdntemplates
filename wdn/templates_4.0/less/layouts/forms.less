@@ -85,19 +85,13 @@ form {
     }
 
     span.required {
-        position: absolute;
-        left: 100%;
-        top: 50%;
         text-indent: -999999px;
-        margin-top: -8px;
-        background: url('../images/requiredIndicator.png') no-repeat 0px 0px;
+        margin-right: 8px;
+        background: data-uri('../images/requiredIndicator.png') no-repeat 0px 0px;
         width: 12px;
-        height: 15px;
-        display: block;
-
-        @media @bp3 {
-            left: -18px;
-        }
+        display: inline-block;
+        line-height: 1;
+		vertical-align: middle;
     }
 
     span.helper {
