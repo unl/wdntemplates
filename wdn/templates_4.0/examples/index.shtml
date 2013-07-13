@@ -175,7 +175,7 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
                 </div>
             </section>
                 
-                <div class="grid12 first" style="margin-top:8px;">
+                <div style="margin-top:8px;">
                     <div id="example"></div>
                 </div>
                 <!-- InstanceEndEditable -->
