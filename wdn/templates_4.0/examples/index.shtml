@@ -28,11 +28,12 @@
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <script type="text/javascript"><!--
-require(['jquery', 'wdn', 'require'], function($, WDN, require) {
+require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy) {
     $(function() {
         var cache = { '' : ' ' },
         loadExample = function(data, url) {
             $('#example').attr('class', url.substring(0, url.indexOf('.'))).html(data);
+            legacy();
             $('#example_code').val(data);
         };
         
