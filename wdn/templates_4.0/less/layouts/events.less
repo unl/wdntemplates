@@ -1,0 +1,118 @@
+@import "../_mixins/all.less";
+
+.wdn-calendar {
+	.upcoming-header {
+		font-size: 1.2em;
+		margin-bottom:1em;
+		
+		&:before {
+			.fontello();
+			content: '\e810';
+		}
+	}
+	
+	.subhead {
+		display:block;
+		font-size:0.75em;
+		margin: -1em 0 1em;
+	}
+	
+	thead {
+		display: none;
+	}
+	
+	.vevent .description {
+		display:none;
+	}
+	
+	.feeds {
+		a {
+			display:inline-block;
+			border: none;
+			font-size: 1.5em;
+			overflow: hidden;
+			position: relative;
+			text-indent: -9999em;
+			width: 1em;
+			margin-right: 0.2em;
+			
+			&:before {
+				.fontello();
+				position: absolute;
+				left: 0;
+				top: 0;
+				text-indent: 0;
+			}
+			
+			&.icsformat:before {
+				content: '\e812';
+			}
+			
+			&.rssformat:before {
+				content: '\e811';
+			}
+		}
+	}
+	
+	.upcoming tr {
+		background: none;
+	}
+	
+	.upcoming tr td {
+		text-align: left;
+		border: none;
+		
+		&.date {
+			text-align:center;
+			color:#444;
+			text-transform:uppercase;
+			vertical-align:top;
+			line-height: 1;
+			width: 4em;
+		}
+		
+		.month {
+			text-transform:uppercase;
+			display:block;
+			padding-right:5px;
+		}
+		
+		.day {
+			font-size:1.7em;
+			display:block;
+			padding-right:5px;
+		}
+		
+		.time, .year {
+			display:block;
+			font-size:0.8em;
+			padding-right:5px;
+		}
+		
+		.location, .summary {
+			border-left:#777 solid 2px;
+			border-bottom: none;
+			padding-left:5px;
+			display:block;
+			font-size:0.9em;
+			line-height:130%;
+		}
+		
+		.location {
+			font-size:75%;
+			display:block;
+			color:@dark-complement;
+			text-transform:uppercase;
+		}
+		
+		.mapurl {
+			display:block;
+			color:@dark-complement;
+			border-bottom: none;
+		}
+	}
+	
+	.vcalendar tr td {
+		padding: 7px 0;
+	}
+}

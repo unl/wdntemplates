@@ -165,7 +165,6 @@ require(['jquery', 'wdn', 'require'], function($, WDN, require) {
                         <li><a href="twitter_widget.html">Twitter Widget</a></li>
                         <li><a href="videoplayer.html">Video player</a> (mediahub.unl.edu)</li>
                         <li><a href="zenboxes.html">Zenboxes</a> (<a href="http://www1.unl.edu/wdn/wiki/Zenbox" class="external">wiki documentation</a>)</li>
-                        <li><a href="zenforms.html">Zenforms</a> (<a href="http://www1.unl.edu/wdn/wiki/Zenform" class="external">wiki documentation</a>)</li>
                         <li><a href="zentables.html">Zentables</a></li>
                        </ul>
                 </div>

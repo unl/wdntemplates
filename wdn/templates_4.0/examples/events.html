@@ -1,17 +1,16 @@
 <script type="text/javascript">
-WDN.setPluginParam('events', 'href', 'http://events.unl.edu/wdn/');
-WDN.setPluginParam('events', 'title', 'WDN');
+WDN.setPluginParam('events', 'href', 'http://events.unl.edu/');
+WDN.setPluginParam('events', 'title', 'UNL');
 </script>
 
-<h2 class="sec_main">Web Developer Network Calendar</h2>
+<h2 class="sec_main"><abbr title="University of Nebraska-Lincoln">UNL</abbr> Calendar</h2>
 <div id="monthwidget">
     <script type="text/javascript">
         WDN.initializePlugin('monthwidget');
     </script>
 </div>
 
+<hr />
 
-<div class="one_col left">
-    <div id="wdn_calendarDisplay"></div>
-</div>
-<script type="text/javascript">WDN.initializePlugin('events', function(){WDN.events.limit=5;}, 'before');</script>
+<div id="wdn_calendarDisplay"></div>
+<script type="text/javascript">WDN.initializePlugin('events', {limit:5});</script>
