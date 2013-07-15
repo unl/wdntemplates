@@ -151,8 +151,7 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
                         <li><a href="events.html">Events</a> (<a href="http://www1.unl.edu/wdn/wiki/Extracting_Data_From_The_Calendar" class="external">wiki documentation</a>)</li>
                         <li><a href="formvalidator.html">Form Validator</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Validation" class="external">wiki documentation</a>)</li>
                         <li><a href="forms.html">Forms</a> (<a href="http://www1.unl.edu/wdn/wiki/Template_Form_Styling" class="external">wiki documentation</a>)</li>
-                        <li><a href="headers.html">Header Styles</a></li>
-                        <li><a href="idm.html">Identity Management/Single Sign On</a></li>
+                        <li><a href="idm.html"><abbr title="Identity Management">IdM</abbr>/<abbr title="Single Sign On">SSO</abbr></a></li>
                         <li><a href="image.html">Image Style and Caption</a></li>
                         <li><a href="jqueryui.html">jQuery UI elements/effects</a></li>
                         <li><a href="notice.html">Notice</a></li>
