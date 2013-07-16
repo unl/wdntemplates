@@ -5,6 +5,7 @@
 	sInput = ':input',
 	sVisible = ':visible',
 //	sClickInput = '[type="radio"], [type="checkbox"]',
+	sReset = '[type="reset"]',
 	sAdvice = 'advice',
 	sAdviceCnt = sAdvice + '-container',
 	sCntCls = 'input-box',
@@ -152,11 +153,13 @@
 		if (this.options.onSubmit) {
 			this.form.submit($.proxy(this.onSubmit, this));
 		}
+		
 		if (this.options.immediate) {
-			var self = this;
-			this.form.on('change blur', sInput, function(ev) {
-				self.onChange(ev);
-			});
+			this.form.on('change blur', sInput, $.proxy(this.onChange, this));
+		}
+		
+		if (this.options.onReset) {
+			this.form.on('click', sReset, $.proxy(this.reset, this));
 		}
 	};
 	Validation.prototype = {
@@ -445,6 +448,7 @@
 	
 	$.fn.validation.defaults = {
 		onSubmit : true,
+		onReset : true,
 		stopOnFirst : false,
 		immediate : false,
 		focusOnError : true,
