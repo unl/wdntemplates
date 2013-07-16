@@ -1,4 +1,25 @@
 (function($) {
+	var sValidation = 'validation',
+	sDataValidation = sValidation,
+	sValidate = 'validate',
+	sInput = ':input',
+	sVisible = ':visible',
+//	sClickInput = '[type="radio"], [type="checkbox"]',
+	sAdvice = 'advice',
+	sAdviceCnt = sAdvice + '-container',
+	sCntCls = 'input-box',
+	sPass = 'passed',
+	sFail = 'failed',
+	sError = 'error',
+	sVPassCls = sValidation + '-' + sPass,
+	sVFailCls = sValidation + '-' + sFail,
+	sVErrorCls = sValidation + '-' + sError,
+	sVAdviceCls = sValidation + '-' + sAdvice,
+	sAdvicesSel = '.' + sVAdviceCls + ' li',
+	sEvtForm = sValidate + '-form',
+	sEvtElm = sValidate + '-element',
+	sEvtUpdate = sValidate + '-update';
+	
 	var K = function(x) { return x; };
 	var parseNumber = function(v) {
 	    if (typeof v != 'string') {
@@ -133,12 +154,8 @@
 		}
 		if (this.options.immediate) {
 			var self = this;
-			$(':input', this.form).each(function() {
-				if ($(this).is(':radio, :checkbox')) {
-					$(this).click($.proxy(self.onChange, self));
-				} else {
-					$(this).change($.proxy(self.onChange, self));
-				}
+			this.form.on('change blur', sInput, function(ev) {
+				self.onChange(ev);
 			});
 		}
 	};
@@ -150,19 +167,19 @@
 			this.validateField(elm);
 			Validation.isOnChange = false;
 		},
-		onSubmit : function(ev) {
+		onSubmit : function() {
 			if (!this.validate()) {
 				return false;
 			}
 		},
-		validate : function(ev) {
-			var result = false;
-			var useTitles = this.options.useTitles;
-			var results = [];
-			var self = this;
-			$('.validation-advice li', this.form).hide();
+		validate : function() {
+			var result = false,
+			results = [],
+			self = this;
+			
+			$(sAdvicesSel, this.form).hide();
 			try {
-				$(':input', this.form).each(function() {
+				$(sInput, this.form).each(function() {
 					var result = self.validateField(this);
 					results.push(result);
 					if (self.options.stopOnFirst && !result) {
@@ -171,32 +188,25 @@
 				});
 			} catch (e) {
 				results.push(false);
-				WDN.log(e);
 			}
 			
 			var result = $.all(results);
 			if (!result && this.options.focusOnError) {
-				$(':input:visible.validation-failed', this.form).first().focus();
+				$('.' + sVFailCls, this.form).filter(sInput + sVisible).first().focus();
 			}
-			this.form.triggerHandler('validate-form', [result]);
+			this.form.triggerHandler(sEvtForm, [result]);
 			
 			return result;
 		},
 		validateField : function(elm) {
-			elm = $(elm);
 			var self = this,
-			className = elm.attr('class'),
-			classlist = [];
-			
-			if (className) {
-				var classlist = className.split(' ');
-			}
+			classlist = elm.classList || elm.className.split(/\s+/);
+			elm = $(elm);
 			
 			var result = $.all(classlist, function (item) {
-				item = $.trim(item);
 				if (item && Validation.methods[item]) {
 					var test = self.validateTest(item, elm);
-					elm.triggerHandler('validate-element', [test]);
+					elm.triggerHandler(sEvtElm, [test]);
 					return test;
 				}
 				return true;
@@ -205,23 +215,23 @@
 		},
 		validateTest : function(name, elm) {
 			var v = Validation.methods[name];
-			if (elm.is(':visible') && !v.test(elm.val(), elm)) {
+			if (elm.is(sVisible) && !v.test(elm.val(), elm)) {
 				Validation.showAdvice(name, elm, this.options);
-				elm.triggerHandler('validate-update', ['failed']);
+				elm.triggerHandler(sEvtUpdate, [sFail]);
 				
 				return false;
 			} else {
-				elm.triggerHandler('validate-update', ['passed']);
-				elm.removeClass('validation-failed').addClass('validation-passed');
+				elm.triggerHandler(sEvtUpdate, [sPass]);
+				elm.removeClass(sVFailCls).addClass(sVPassCls);
 	            if (this.options.addClassNameToContainer) {
 	            	var container = Validation.getContainer(elm, this.options);
-	            	if (!$('.validation-failed', container).length) {
-	            		if ($.trim(elm.val()) || !elm.is(':visible')) {
-	            			container.addClass('validation-passed');
+	            	if (!$('.' + sVFailCls, container).length) {
+	            		if ($.trim(elm.val()) || !elm.is(sVisible)) {
+	            			container.addClass(sVPassCls);
 	            		} else {
-	            			container.removeClass('validation-passed');
+	            			container.removeClass(sVPassCls);
 	            		}
-	            		container.removeClass('validation-error');
+	            		container.removeClass(sVErrorCls);
 	            	}
 	            }
 	            
@@ -230,97 +240,138 @@
 		},
 		reset : function() {
 			var self = this;
-			$(':input', this.form).each(function() {
+			$(sInput, this.form).each(function() {
 				self.resetElement(this);
 			});
 		},
 		resetElement : function (elm) {
 			elm = $(elm);
 			var advices = Validation.getAdviceContainer(elm, this.options);
-			$('.validation-advice li', advices).hide();
-			elm.removeClass('validation-failed');
-            elm.removeClass('validation-passed');
+			$(sAdvicesSel, advices).hide();
+			elm.removeClass(sVFailCls);
+            elm.removeClass(sVPassCls);
             if (this.options.addClassNameToContainer) {
             	var container = Validation.getContainer(elm, this.options);
-            	containter.removeClass('validation-passed').removeClass('validation-error');
+            	container.removeClass(sVPassCls).removeClass(sVFailCls);
             }
 		}
 	};
 	
-	Validation.methods = {
-		'IsEmpty' : new Validator('IsEmpty', '', function(v) {
-			return $.trim(v) == '';
-		}),
-		'required-entry' : new Validator('required-entry', 'This is a required field.', function(v) { 
-			return !Validation.methods['IsEmpty'].test(v);
-		}),
-		'validate-number' : new Validator('validate-number', 'Please enter a valid number in this field.', function(v) {
-			return Validation.methods['IsEmpty'].test(v) || !isNaN(parseNumber(v));
-		}),
-		'validate-digits' : new Validator('validate-digits', 'Please use numbers only in this field. please avoid spaces or other characters such as dots or commas.', function(v) {
-			return Validation.methods['IsEmpty'].test(v) ||  !/[^\d]/.test(v);
-		}),
-		'validate-alpha' : new Validator('validate-alpha', 'Please use letters only (a-z or A-Z) in this field.', function(v) {
-			 return Validation.methods['IsEmpty'].test(v) ||  /^[a-zA-Z]+$/.test(v);
-		}),
-		'validate-code' : new Validator('validate-code', 'Please use only letters (a-z), numbers (0-9) or underscore(_) in this field, first character should be a letter.', function(v) {
-			return Validation.methods['IsEmpty'].test(v) ||  /^[a-z]+[a-z0-9_]+$/.test(v);
-		}),
-		'validate-alphanum' : new Validator('validate-alphanum', 'Please use only letters (a-z or A-Z) or numbers (0-9) only in this field. No spaces or other characters are allowed.', function(v) {
-			return Validation.methods['IsEmpty'].test(v) ||  /^[a-zA-Z0-9]+$/.test(v);
-		}),
-		'validate-phoneStrict' : new Validator('validate-phoneStrict', 'Please enter a valid phone number. For example (123) 456-7890 or 123-456-7890.', function(v) {
-			return Validation.methods['IsEmpty'].test(v) || /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/.test(v);
-		}),
-		'validate-phoneLax' : new Validator('validate-phoneLax', 'Please enter a valid phone number. For example (123) 456-7890 or 123-456-7890.', function(v) {
-			return Validation.methods['IsEmpty'].test(v) || /^((\d[-. ]?)?((\(\d{3}\))|\d{3}))?[-. ]?\d{3}[-. ]?\d{4}$/.test(v);
-		}),
-		'validate-date' : new Validator('validate-date', 'Please enter a valid date.', function(v) {
-			var test = new Date(v);
-            return Validation.methods['IsEmpty'].test(v) || !isNaN(test);
-		}),
-		'validate-email' : new Validator('validate-email', 'Please enter a valid email address. For example johndoe@domain.com', function(v) {
-			return Validation.methods['IsEmpty'].test(v) || /^[a-z0-9,!\#\$%&'\*\+\/=\?\^_`\{\|\}~-]+(\.[a-z0-9,!\#\$%&'\*\+\/=\?\^_`\{\|\}~-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,})/i.test(v);
-		}),
-		'validate-url' : new Validator('validate-url', 'Please enter a valid URL. http:// is required', function(v) {
-			return Validation.methods['IsEmpty'].test(v) || /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?\/?/i.test(v);
-		}),
-		'validate-zip' : new Validator('validate-zip', 'Please enter a valid zip code. For example 90602 or 90602-1234.', function(v) {
-			return Validation.methods['IsEmpty'].test(v) || /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(v);
-		}),
-		'validate-currency-dollar' : new Validator('validate-currency-dollar', 'Please enter a valid $ amount. For example $100.00.', function(v) {
-			return Validation.methods['IsEmpty'].test(v) ||  /^\$?\-?([1-9]{1}[0-9]{0,2}(\,[0-9]{3})*(\.[0-9]{0,2})?|[1-9]{1}\d*(\.[0-9]{0,2})?|0(\.[0-9]{0,2})?|(\.[0-9]{1,2})?)$/.test(v);
-		}),
-		'validate-one-required' : new Validator('validate-one-required', 'Please select one of the above options.', function(v, elm) {
-			var p = elm.parent();
-			var options = $(':input', p);
-			return $.any(options, function(elm) {
-				return $(elm).val();
-			});
-		}),
-		'validate-one-required-by-name' : new Validator('validate-one-required-by-name', 'Please select one of the options.', function(v, elm) {
-			var cleanName = elm.attr('name').replace(/([\\"])/g, '\\$1');
-			var inputs = $('input[name=' + cleanName + ']:checked');
-			return inputs.length > 0;
-		}),
-		'validate-unsigned-number' : new Validator('validate-unsigned-number', 'Please enter a valid number in this field.', function(v) {
-			v = parseNumber(v);
-            return (!isNaN(v) && v>=0);
-		}),
-		'validate-greater-than-zero' : new Validator('validate-greater-than-zero', 'Please enter a number greater than 0 in this field.', function(v) {
-			if (v.length) {
-				return parseFloat(v) > 0;
-			}
-			return true;
-		}),
-		'validate-zero-or-greater' : new Validator('validate-zero-or-greater', 'Please enter a number 0 or greater in this field.', function(v) {
-			if (v.length) {
-				return parseFloat(v) >= 0;
-			}
-			return true;
-		}),
-		'validate-percents' : new Validator('validate-percents', 'Please enter a number lower than 100', {min:0, max:100})
-	};
+	var tmpName = 'IsEmpty', emptyTest = tmpName, m = {};
+	
+	m[tmpName] = new Validator(tmpName, '', function(v) {
+		return $.trim(v) == '';
+	});
+	
+	tmpName = 'required-entry';
+	m[tmpName] = new Validator(tmpName, 'This is a required field.', function(v) { 
+		return !m[emptyTest].test(v);
+	});
+	
+	tmpName = 'validate-number';
+	m[tmpName] = new Validator(tmpName, 'Please enter a valid number in this field.', function(v) {
+		return m[emptyTest].test(v) || !isNaN(parseNumber(v));
+	});
+	
+	tmpName = 'validate-digits';
+	m[tmpName] = new Validator(tmpName, 'Please use numbers only in this field. please avoid spaces or other characters such as dots or commas.', function(v) {
+		return m[emptyTest].test(v) ||  !/[^\d]/.test(v);
+	});
+	
+	tmpName = 'validate-alpha';
+	m[tmpName] = new Validator(tmpName, 'Please use letters only (a-z or A-Z) in this field.', function(v) {
+		 return m[emptyTest].test(v) ||  /^[a-zA-Z]+$/.test(v);
+	});
+	
+	tmpName = 'validate-code';
+	m[tmpName] = new Validator(tmpName, 'Please use only letters (a-z), numbers (0-9) or underscore(_) in this field, first character should be a letter.', function(v) {
+		return m[emptyTest].test(v) ||  /^[a-z]+[a-z0-9_]+$/.test(v);
+	});
+	
+	tmpName = 'validate-alphanum';
+	m[tmpName] = new Validator(tmpName, 'Please use only letters (a-z or A-Z) or numbers (0-9) only in this field. No spaces or other characters are allowed.', function(v) {
+		return m[emptyTest].test(v) ||  /^[a-zA-Z0-9]+$/.test(v);
+	});
+	
+	tmpName = 'validate-phoneStrict';
+	m[tmpName] = new Validator(tmpName, 'Please enter a valid phone number. For example (123) 456-7890 or 123-456-7890.', function(v) {
+		return m[emptyTest].test(v) || /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/.test(v);
+	});
+	
+	tmpName = 'validate-phoneLax';
+	m[tmpName] = new Validator(tmpName, 'Please enter a valid phone number. For example (123) 456-7890 or 123-456-7890.', function(v) {
+		return m[emptyTest].test(v) || /^((\d[-. ]?)?((\(\d{3}\))|\d{3}))?[-. ]?\d{3}[-. ]?\d{4}$/.test(v);
+	});
+	
+	tmpName = 'validate-date';
+	m[tmpName] = new Validator(tmpName, 'Please enter a valid date.', function(v) {
+		var test = new Date(v);
+        return m[emptyTest].test(v) || !isNaN(test);
+	});
+	
+	tmpName = 'validate-email';
+	m[tmpName] = new Validator(tmpName, 'Please enter a valid email address. For example johndoe@domain.com', function(v) {
+		return m[emptyTest].test(v) || /^[a-z0-9,!\#\$%&'\*\+\/=\?\^_`\{\|\}~-]+(\.[a-z0-9,!\#\$%&'\*\+\/=\?\^_`\{\|\}~-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,})/i.test(v);
+	});
+
+	tmpName = 'validate-url';
+	m[tmpName] = new Validator(tmpName, 'Please enter a valid URL. http:// is required', function(v) {
+		return m[emptyTest].test(v) || /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?\/?/i.test(v);
+	});
+	
+	tmpName = 'validate-zip';
+	m[tmpName] = new Validator(tmpName, 'Please enter a valid zip code. For example 90602 or 90602-1234.', function(v) {
+		return m[emptyTest].test(v) || /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(v);
+	});
+	
+	tmpName = 'validate-currency-dollar';
+	m[tmpName] = new Validator(tmpName, 'Please enter a valid $ amount. For example $100.00.', function(v) {
+		return m[emptyTest].test(v) ||  /^\$?\-?([1-9]{1}[0-9]{0,2}(\,[0-9]{3})*(\.[0-9]{0,2})?|[1-9]{1}\d*(\.[0-9]{0,2})?|0(\.[0-9]{0,2})?|(\.[0-9]{1,2})?)$/.test(v);
+	});
+	
+	tmpName = 'validate-one-required';
+	m[tmpName] = new Validator(tmpName, 'Please select one of the above options.', function(v, elm) {
+		var p = elm.parent();
+		var options = $(':input', p);
+		return $.any(options, function(elm) {
+			return $(elm).val();
+		});
+	});
+	
+	tmpName = 'validate-one-required-by-name';
+	m[tmpName] = new Validator(tmpName, 'Please select one of the options.', function(v, elm) {
+		var cleanName = elm.attr('name').replace(/([\\"])/g, '\\$1');
+		var inputs = $('input[name=' + cleanName + ']:checked');
+		return inputs.length > 0;
+	});
+	
+	tmpName = 'validate-unsigned-number';
+	m[tmpName] = new Validator(tmpName, 'Please enter a valid number in this field.', function(v) {
+		v = parseNumber(v);
+        return (!isNaN(v) && v>=0);
+	});
+	
+	tmpName = 'validate-greater-than-zero';
+	m[tmpName] = new Validator(tmpName, 'Please enter a number greater than 0 in this field.', function(v) {
+		if (v.length) {
+			return parseFloat(v) > 0;
+		}
+		return true;
+	});
+	
+	tmpName = 'validate-zero-or-greater';
+	m[tmpName] = new Validator(tmpName, 'Please enter a number 0 or greater in this field.', function(v) {
+		if (v.length) {
+			return parseFloat(v) >= 0;
+		}
+		return true;
+	});
+	
+	tmpName = 'validate-percents';
+	m[tmpName] = new Validator(tmpName, 'Please enter a number lower than 100', {min:0, max:100});
+	
+	Validation.methods = m;
+	
 	Validation.getContainer = function(elm, options) {
 		var container;
 		if (options.containerClassName) {
@@ -336,7 +387,7 @@
 		return container;
 	};
 	Validation.getAdviceContainer = function(elm, options) {
-		var adviceContainer = elm.closest('.advice-container');
+		var adviceContainer = elm.closest('.' + sAdviceCnt);
 		if (!adviceContainer.length) {
 			adviceContainer = Validation.getContainer(elm, options);
 		}
@@ -346,26 +397,26 @@
 	Validation.showAdvice = function(name, elm, options) {
 		var container = Validation.getContainer(elm, options);
 		if (options.addClassNameToContainer) {
-			container.removeClass('validation-passed').addClass('validation-error');
+			container.removeClass(sVPassCls).addClass(sVErrorCls);
 		}
 		
-		var adviceContainer = elm.closest('.advice-container');
+		var adviceContainer = elm.closest('.' + sAdviceCnt);
 		if (!adviceContainer.length) {
-			elm.removeClass('validation-passed').addClass('validation-failed');
+			elm.removeClass(sVPassCls).addClass(sVFailCls);
 		} else {
-			adviceContainer.removeClass('validation-passed').addClass('validation-failed');
+			adviceContainer.removeClass(sVPassCls).addClass(sVFailCls);
 			container = adviceContainer;
 		}
 		
-		var advices = container.children('.validation-advice');
+		var advices = container.children('.' + sVAdviceCls);
 		if (!advices.length) {
-			advices = $('<ul class="validation-advice" />');
+			advices = $('<ul/>', { "class": sVAdviceCls});
 			container.append(advices);
 		}
 		
-		var advice = $('li.advice-' + name, advices);
+		var cls = sAdvice + '-' + name, advice = $('li.' + cls, advices);
 		if (!advice.length) {
-			advice = $('<li class="advice-' + name + '" />').hide();
+			advice = $('<li/>', {"class": cls}).hide();
 			var v = Validation.methods[name];
 			var errorMsg;
 			if (options.useTitles && elm.attr('title')) {
@@ -375,8 +426,8 @@
 				errorMsg = v.error;
 			}
 			advice.text(errorMsg).appendTo(advices);
-			
 		}
+		
 		advice.show();
 	};
 	
@@ -384,8 +435,8 @@
 		var opts = $.extend({}, $.fn.validation.defaults, options);
 		
 		this.each(function() {
-			if (!$(this).data('validation')) {
-				$(this).data('validation', new Validation($(this), opts));
+			if (!$(this).data(sDataValidation)) {
+				$(this).data(sDataValidation, new Validation($(this), opts));
 			}
 		});
 		
@@ -399,7 +450,7 @@
 		focusOnError : true,
 		useTitles : false,
 		addClassNameToContainer: false,
-		containerClassName: 'input-box'
+		containerClassName: sCntCls
 	};
 	
 	$.validation = {
