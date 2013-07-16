@@ -52,9 +52,22 @@
     float: left;
     width: 65%;
     margin-left: 5%;
-    background: url(http://radar.weather.gov/lite/N0R/OAX_loop.gif) -90px -215px no-repeat;
     height: 200px;
-    .background-clip(content-box);
+    
+    a {
+    	display: block;
+    }
+    
+    // because the radar image is not https, 
+    // wdn-frame will only be added in the markup by js served over normal http 
+    &.wdn-frame a {
+    	text-align: left;
+    	text-indent: -9999em;
+    	border: none;
+    	height: 100%;
+	    background: url(http://radar.weather.gov/lite/N0R/OAX_loop.gif) -90px -215px no-repeat;
+	    .background-clip(content-box);
+    }
 }
 
 .wdn-sub-resource-title {
