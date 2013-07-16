@@ -1,14 +1,17 @@
 (function($) {
-	var sValidation = 'validation',
+	var version = '2.0', 
+	sValidation = 'validation',
 	sDataValidation = sValidation,
 	sValidate = 'validate',
 	sInput = ':input',
 	sVisible = ':visible',
-//	sClickInput = '[type="radio"], [type="checkbox"]',
+	sChecked = ':checked',
+	sClickInput = '[type="radio"], [type="checkbox"]',
 	sReset = '[type="reset"]',
 	sAdvice = 'advice',
 	sAdviceCnt = sAdvice + '-container',
 	sCntCls = 'input-box',
+	sReqCls = 'required-entry',
 	sPass = 'passed',
 	sFail = 'failed',
 	sError = 'error',
@@ -81,12 +84,12 @@
 		this.error = error || 'Validation failed.';
 	};
 	Validator.prototype = {
-		test : function(v, elm) {
-			var result = this._test(v, elm);
+		test : function(v, elm, suite) {
+			var result = this._test(v, elm, suite);
 			if (result) {
 				result = $.all(this.options, function(value, key) {
 					if (Validator.methods[key]) {
-						return Validator.methods[key](v, elm, value);
+						return Validator.methods[key](v, elm, value, suite);
 					}
 					return true;
 				});
@@ -133,10 +136,10 @@
 		notEqualToField : function(v,elm,opt) { 
 			return v != $(opt).val(); 
 		},
-		include : function(v,elm,opt) { 
+		include : function(v,elm,opt,suite) { 
 			return $.all(opt, function(value) {
 				if (Validation.methods[value]) {
-					return Validation.methods[value].test(v,elm);
+					return Validation.methods[value].test(v,elm,suite);
 				}
 				return true;
 			}); 
@@ -218,7 +221,7 @@
 		},
 		validateTest : function(name, elm) {
 			var v = Validation.methods[name];
-			if (elm.is(sVisible) && !v.test(elm.val(), elm)) {
+			if (elm.is(sVisible) && !v.test(elm.val(), elm, this)) {
 				Validation.showAdvice(name, elm, this.options);
 				elm.triggerHandler(sEvtUpdate, [sFail]);
 				
@@ -263,98 +266,101 @@
 	var tmpName = 'IsEmpty', emptyTest = tmpName, m = {};
 	
 	m[tmpName] = new Validator(tmpName, '', function(v) {
-		return $.trim(v) == '';
+		return $.trim(v) === '';
 	});
 	
-	tmpName = 'required-entry';
+	tmpName = sReqCls;
 	m[tmpName] = new Validator(tmpName, 'This is a required field.', function(v) { 
 		return !m[emptyTest].test(v);
 	});
 	
-	tmpName = 'validate-number';
+	tmpName = sValidate + '-number';
 	m[tmpName] = new Validator(tmpName, 'Please enter a valid number in this field.', function(v) {
 		return m[emptyTest].test(v) || !isNaN(parseNumber(v));
 	});
 	
-	tmpName = 'validate-digits';
+	tmpName = sValidate + '-digits';
 	m[tmpName] = new Validator(tmpName, 'Please use numbers only in this field. please avoid spaces or other characters such as dots or commas.', function(v) {
 		return m[emptyTest].test(v) ||  !/[^\d]/.test(v);
 	});
 	
-	tmpName = 'validate-alpha';
+	tmpName = sValidate + '-alpha';
 	m[tmpName] = new Validator(tmpName, 'Please use letters only (a-z or A-Z) in this field.', function(v) {
 		 return m[emptyTest].test(v) ||  /^[a-zA-Z]+$/.test(v);
 	});
 	
-	tmpName = 'validate-code';
+	tmpName = sValidate + '-code';
 	m[tmpName] = new Validator(tmpName, 'Please use only letters (a-z), numbers (0-9) or underscore(_) in this field, first character should be a letter.', function(v) {
 		return m[emptyTest].test(v) ||  /^[a-z]+[a-z0-9_]+$/.test(v);
 	});
 	
-	tmpName = 'validate-alphanum';
+	tmpName = sValidate + '-alphanum';
 	m[tmpName] = new Validator(tmpName, 'Please use only letters (a-z or A-Z) or numbers (0-9) only in this field. No spaces or other characters are allowed.', function(v) {
 		return m[emptyTest].test(v) ||  /^[a-zA-Z0-9]+$/.test(v);
 	});
 	
-	tmpName = 'validate-phoneStrict';
+	tmpName = sValidate + '-phoneStrict';
 	m[tmpName] = new Validator(tmpName, 'Please enter a valid phone number. For example (123) 456-7890 or 123-456-7890.', function(v) {
 		return m[emptyTest].test(v) || /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/.test(v);
 	});
 	
-	tmpName = 'validate-phoneLax';
+	tmpName = sValidate + '-phoneLax';
 	m[tmpName] = new Validator(tmpName, 'Please enter a valid phone number. For example (123) 456-7890 or 123-456-7890.', function(v) {
 		return m[emptyTest].test(v) || /^((\d[-. ]?)?((\(\d{3}\))|\d{3}))?[-. ]?\d{3}[-. ]?\d{4}$/.test(v);
 	});
 	
-	tmpName = 'validate-date';
+	tmpName = sValidate + '-date';
 	m[tmpName] = new Validator(tmpName, 'Please enter a valid date.', function(v) {
 		var test = new Date(v);
         return m[emptyTest].test(v) || !isNaN(test);
 	});
 	
-	tmpName = 'validate-email';
+	tmpName = sValidate + '-email';
 	m[tmpName] = new Validator(tmpName, 'Please enter a valid email address. For example johndoe@domain.com', function(v) {
 		return m[emptyTest].test(v) || /^[a-z0-9,!\#\$%&'\*\+\/=\?\^_`\{\|\}~-]+(\.[a-z0-9,!\#\$%&'\*\+\/=\?\^_`\{\|\}~-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,})/i.test(v);
 	});
 
-	tmpName = 'validate-url';
+	tmpName = sValidate + '-url';
 	m[tmpName] = new Validator(tmpName, 'Please enter a valid URL. http:// is required', function(v) {
 		return m[emptyTest].test(v) || /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?\/?/i.test(v);
 	});
 	
-	tmpName = 'validate-zip';
+	tmpName = sValidate + '-zip';
 	m[tmpName] = new Validator(tmpName, 'Please enter a valid zip code. For example 90602 or 90602-1234.', function(v) {
-		return m[emptyTest].test(v) || /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(v);
+		return m[emptyTest].test(v) || /^\d{5}(-\d{4})?$/.test(v);
 	});
 	
-	tmpName = 'validate-currency-dollar';
+	tmpName = sValidate + '-currency-dollar';
 	m[tmpName] = new Validator(tmpName, 'Please enter a valid $ amount. For example $100.00.', function(v) {
 		return m[emptyTest].test(v) ||  /^\$?\-?([1-9]{1}[0-9]{0,2}(\,[0-9]{3})*(\.[0-9]{0,2})?|[1-9]{1}\d*(\.[0-9]{0,2})?|0(\.[0-9]{0,2})?|(\.[0-9]{1,2})?)$/.test(v);
 	});
 	
-	tmpName = 'validate-one-required';
-	m[tmpName] = new Validator(tmpName, 'Please select one of the above options.', function(v, elm) {
-		var p = elm.parent();
-		var options = $(':input', p);
+	tmpName = sValidate + '-one-required';
+	m[tmpName] = new Validator(tmpName, 'Please select one of the above options.', function(v, elm, suite) {
+		var options = $(sInput, Validation.getContainer(elm, suite.options));
 		return $.any(options, function(elm) {
-			return $(elm).val();
+			var r = $(elm).val();
+			if ($(elm).is(sClickInput)) {
+				r = r && $(elm).is(sChecked);
+			}
+			return r;
 		});
 	});
 	
-	tmpName = 'validate-one-required-by-name';
+	tmpName = sValidate + '-one-required-by-name';
 	m[tmpName] = new Validator(tmpName, 'Please select one of the options.', function(v, elm) {
-		var cleanName = elm.attr('name').replace(/([\\"])/g, '\\$1');
-		var inputs = $('input[name=' + cleanName + ']:checked');
+		var cleanName = elm.attr('name').replace(/([\\"])/g, '\\$1'),
+		inputs = $('input[name=' + cleanName + ']' + sChecked, elm[0].form);
 		return inputs.length > 0;
 	});
 	
-	tmpName = 'validate-unsigned-number';
+	tmpName = sValidate + '-unsigned-number';
 	m[tmpName] = new Validator(tmpName, 'Please enter a valid number in this field.', function(v) {
 		v = parseNumber(v);
         return (!isNaN(v) && v>=0);
 	});
 	
-	tmpName = 'validate-greater-than-zero';
+	tmpName = sValidate + '-greater-than-zero';
 	m[tmpName] = new Validator(tmpName, 'Please enter a number greater than 0 in this field.', function(v) {
 		if (v.length) {
 			return parseFloat(v) > 0;
@@ -362,7 +368,7 @@
 		return true;
 	});
 	
-	tmpName = 'validate-zero-or-greater';
+	tmpName = sValidate + '-zero-or-greater';
 	m[tmpName] = new Validator(tmpName, 'Please enter a number 0 or greater in this field.', function(v) {
 		if (v.length) {
 			return parseFloat(v) >= 0;
@@ -370,7 +376,7 @@
 		return true;
 	});
 	
-	tmpName = 'validate-percents';
+	tmpName = sValidate + '-percents';
 	m[tmpName] = new Validator(tmpName, 'Please enter a number lower than 100', {min:0, max:100});
 	
 	Validation.methods = m;
@@ -460,6 +466,7 @@
 	$.validation = {
 		addMethod : function(className, error, test, options) {
 			Validation.methods[className] = new Validator(className, error, test, options);
-		}
+		},
+		version : version
 	};
 })(WDN.jQuery);
