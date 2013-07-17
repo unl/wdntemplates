@@ -26,6 +26,7 @@ define(['wdn', 'require'], function(WDN, require) {
 	WDN.initializePlugin('navigation');
 	WDN.initializePlugin('search');
 	WDN.initializePlugin('unlalert');
+	WDN.initializePlugin('apps');
 	require(['legacy'], function(){});
     
     var unlchat_url = '//ucommchat.unl.edu/assets/js';

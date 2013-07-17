@@ -23,6 +23,7 @@
     	'navigation',
     	'search',
     	'unlalert',
+		'apps',
     	'legacy'
     ],
     insertRequire: ['main'],
