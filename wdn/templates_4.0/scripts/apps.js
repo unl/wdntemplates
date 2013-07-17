@@ -137,7 +137,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 				$(window).on('unload', unTog);
 				unTog();
 				
-				$($pq[0].form).submit(function() {
+				$($pq.parents('form')).submit(function() {
 					queuePFRequest($pq.val(), directoryDiv);
 					return false;
 				});
