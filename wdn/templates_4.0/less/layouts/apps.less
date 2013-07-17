@@ -18,7 +18,7 @@
     }
 
     .wdn-app-col {
-        max-height: 300px;
+        max-height: 294px;
         overflow-y: auto;
     }
 }
@@ -140,5 +140,211 @@
            opacity: 0.8; 
            color: darken(#d1ceb3, 25%);
         }
+    }
+}
+
+#pfShowRecord {
+	font-size: 0.8em;
+	
+	.vcard {
+		background:#fff;
+	    border:1px solid darken(@resource-color, 7%);
+	    .border-radius(5px);
+	    padding:1em;
+	    position:relative;
+	    overflow:auto;
+	    min-height: 148px;
+	    
+	    a.planetred_profile {
+	    	border: 3px solid darken(@resource-color, 7%);
+	    	width: 75px;
+	    	
+	    	img {
+	    		display: block;
+	    		width: 100%;
+	    		height: auto;
+	    	}
+	    }
+	    
+	    .vcardInfo {
+	    	margin: 0 0 0 90px;
+	    }
+	    
+	    .permalink {
+	    	margin-left: 1em;
+	    }
+	    
+	    .street-address {
+	    	display:block;
+	    	
+	    	&:after {
+	    		content: ' ';
+	    	}
+	    }
+	    
+	    .locality:after {
+	    	content: ', ';
+	    }
+	    
+	    .region:after {
+	    	content: ' ';
+	    }
+	    
+	    .country-name {
+	    	display: none;
+	    }
+	    
+	    &.office {
+	    	.fn {
+	    		margin-left: 90px;
+	    		margin-top: 0;
+	    	}
+	    	
+	    	img {
+	    		display: block;
+	    		float: left;
+	    		width: 75px;
+	    		border: 3px solid darken(@resource-color, 7%);
+	    	}
+	    }
+	}
+	
+	.wdn_vcardTools {
+		display: none;
+	}
+	
+	.vcard .adr, .departmentInfo .adr {
+	    border-left:2px solid #CCD2D5;
+	    padding-left:5px;
+	    margin:5px 0;
+	    display:inline-block;
+	    max-width:80%;
+	    
+	    .type {
+	    	background:#e8f2f7;
+			padding:1px 8px 3px 8px;
+			margin:0 0 5px -5px;
+			display:block;
+	    }
+	}
+}
+
+#pfresults {
+    ul.pfResult {
+        padding: 0;
+        list-style: none;
+        border-bottom: 1px solid #e6e6e6;
+        border-top: 1px solid #d0cece;
+        margin-top: 20px;
+        
+        li {
+            border-bottom: 1px solid #d0cece;
+            border-top: 1px solid #e6e6e6;
+            width:100%;
+            padding: 5px 0;
+            display:inline-block;
+            position:relative;
+            cursor: pointer;
+        
+            div.overflow {
+                min-height:47px;
+                padding: 7px 5px;
+                display:inline-block;
+            }
+            
+            &:hover {
+                background:#ecf4f9;
+            }
+        }
+    }
+    
+    .on-campus-dailing {
+        font-size: 80%;
+        text-transform: uppercase;
+        color: #897b42;
+    }
+    
+    .planetred_profile {
+        float: left;
+    }
+    
+    .loading {
+        display: none;
+    }
+    
+    .recordDetails {
+        .planetred_profile;
+        margin-left: 20px;
+        max-width: 285px;
+        
+        .eppa {
+            display: none;
+        }
+    }
+    
+    .fn, .fn a {
+        font-size: 18px;
+        font-weight: bold;
+        color: #464545 !important;
+        max-width: 230px;
+        max-height: 35px;
+        min-height: 20px;
+        overflow: hidden;
+    }
+    
+    .departments {
+        .fn, .fn a {
+            max-height:42px;
+            line-height:20px;
+        }
+    }
+    
+    .departmentInfo {
+        .photo {
+            float: left;
+            margin-right: 20px;
+        }
+    }
+    
+    .cInfo {
+        position: absolute;
+        right: 5px;
+        font-size: 0.7em;
+    }
+    
+    .results {
+        margin-top: 15px;
+        
+        h3 {
+            border-bottom:2px dotted #E6E6E6;
+            padding-bottom:0;
+            font-variant:small-caps;
+            font-weight:bold;
+            font-size: 1.6em;
+            .box-shadow(none);
+            text-transform: none;
+        }
+    }
+    
+    .likeResults {
+        ul.pfResult {
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-variant:small-caps;
+            font-weight:bold;
+            .box-shadow(none);
+            text-transform: none;
+            font-size: 1em;
+            margin: 0;
+            padding: 0.2em 0 0.3em;
+            color: #444;
+        }
+    }
+    
+    .result_head {
+        color: #989898;
+        font-size: 10px;
     }
 }
