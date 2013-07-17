@@ -18,6 +18,9 @@ define(['wdn', 'require'], function(WDN, require) {
 			}
 			
 			var done = function() {
+				WDN.jQuery(defaultSel).addClass('flexslider').flexslider();
+				initd = true;
+				
 				if (callback) {
 					callback();
 				}
@@ -27,11 +30,7 @@ define(['wdn', 'require'], function(WDN, require) {
 				WDN.loadCSS(require.toUrl(pluginPath + 'css/flexslider.css'));
 				
 				WDN.loadJQuery(function(){
-					require([pluginPath + 'jquery.flexslider' + min], function() {
-						WDN.jQuery(defaultSel).addClass('flexslider').flexslider();
-						initd = true;
-						done();
-					});
+					require([pluginPath + 'jquery.flexslider' + min], done);
 				});
 			} else {
 				done();
