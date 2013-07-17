@@ -529,7 +529,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 	                    		Plugin.collapse();
 	                    	}
 	                    	
-	                    	if (isFullNav()) {
+	                    	if (isFullNav() && breadcrumbs.is(':visible')) {
 	                    		trig = breadcrumbs;
 	                    	} else {
 	                    		trig = $('#header');
