@@ -29,6 +29,8 @@ CSS_OBJS := \
 	$(TEMPLATE_CSS)/layouts/monthwidget.css \
 	$(TEMPLATE_CSS)/layouts/unlalert.css \
 	$(TEMPLATE_CSS)/modules/notices.css \
+	$(TEMPLATE_CSS)/modules/pagination.css \
+	$(TEMPLATE_CSS)/modules/randomizer.css \
 	$(TEMPLATE_CSS)/modules/vcard.css
 
 MQ_STRIP := build/mq-strip.pl
