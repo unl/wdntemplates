@@ -1,0 +1,8 @@
+<FilesMatch "browserupgrade.html$">
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Headers "X-Requested-With"
+</FilesMatch>
+<FilesMatch "weather.html$">
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Headers "X-Requested-With"
+</FilesMatch>
