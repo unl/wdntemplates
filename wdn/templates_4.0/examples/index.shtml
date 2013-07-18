@@ -71,6 +71,22 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
     })
 });
 --></script>
+<style type="text/css">
+#example.jqueryui #sortable li,
+#example.jqueryui #selectable li {
+    margin: 0 3px 3px 3px; 
+    padding: 0.4em; 
+    padding-left: 1.5em;
+    list-style: none;
+}
+#example.jqueryui #sortable li span { position: absolute; margin-left: -1.3em; }
+#example.jqueryui #selectable li { padding-left:0.4em }
+
+#example.jqueryui .ui-selecting { background: #fd1717; }
+#example.jqueryui .ui-selected { background: #ac0302; }
+
+.ui-effects-transfer { border: 2px dotted gray; } 
+</style>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
