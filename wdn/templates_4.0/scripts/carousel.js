@@ -9,8 +9,6 @@ define(['wdn', 'require'], function(WDN, require) {
 	initd = false;
 	
 	return {
-		
-
 		initialize : function(callback) {
 			var min = '', body = document.getElementsByTagName('body');
 			if (!body.length || !body[0].className.match(/(^|\s)debug(\s|$)/)) {
@@ -18,7 +16,7 @@ define(['wdn', 'require'], function(WDN, require) {
 			}
 			
 			var done = function() {
-				WDN.jQuery(defaultSel).addClass('flexslider').flexslider();
+				WDN.jQuery(defaultSel).addClass('flexslider').flexslider(WDN.getPluginParams('carousel', 'defaults'));
 				initd = true;
 				
 				if (callback) {
