@@ -20,14 +20,22 @@ require.config({
 //Modernizr, WDN are loaded prior to requireJS
 define('modernizr', [], function () { return window.Modernizr; });
 
-define(['wdn', 'require'], function(WDN, require) {
+define(['wdn', 'require', 'legacy',
+        // these are the WDN plugins that are required
+        'analytics',
+        'analytics_scroll_depth',
+        'navigation',
+        'search',
+        'unlalert',
+        'apps',
+        'images'], function(WDN, require) {
 	WDN.initializePlugin('analytics');
 	WDN.initializePlugin('analytics_scroll_depth');
 	WDN.initializePlugin('navigation');
 	WDN.initializePlugin('search');
 	WDN.initializePlugin('unlalert');
 	WDN.initializePlugin('apps');
-	require(['legacy'], function(){});
+	WDN.initializePlugin('images');
     
     var unlchat_url = '//ucommchat.unl.edu/assets/js';
 

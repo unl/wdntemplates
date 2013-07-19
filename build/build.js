@@ -17,14 +17,7 @@
         'wdn_ajax',
     	'requireLib',
     	'modernizr-wdn',
-    	'main',
-    	'analytics',
-    	'analytics_scroll_depth',
-    	'navigation',
-    	'search',
-    	'unlalert',
-		'apps',
-    	'legacy'
+    	'main'
     ],
     insertRequire: ['main'],
     wdnTemplatePath: '/',
