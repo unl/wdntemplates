@@ -11,6 +11,8 @@
     },
     optimize: 'uglify2',
     logLevel: 2,
+    preserveLicenseComments: false,
+    generateSourceMaps: true,
     
     name: 'wdn',
     include: [
