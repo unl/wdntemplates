@@ -254,6 +254,30 @@
 	border-radius: 4px 4px 0 0;
 }
 
+/* UNL WDN tooltip style */
+.qtip-wdn{
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	
+	color: white;
+	border-width: 0;
+	border-color: #cc1124;
+
+	background: #cc1124;
+	
+	font-size: 1em;
+}
+
+	.qtip-wdn .qtip-titlebar{
+		background-color: #cc1124;
+	}
+	
+	.qtip-wdn .qtip-content{
+		font-family: Helvetica, "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+		padding: .6em;
+	}
+
 /* Youtube tooltip style */
 .qtip-youtube{
 	-moz-border-radius: 2px;
@@ -395,6 +419,7 @@
 
 	.qtip-tipsy .qtip-content{
 		padding: 6px 10px;
+		background-color: rgba(0, 0, 0, .87);
 	}
 	
 	.qtip-tipsy .qtip-icon{
