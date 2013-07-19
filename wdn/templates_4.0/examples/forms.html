@@ -1,17 +1,60 @@
-<script type="text/javascript">
-WDN.loadCSS(WDN.getTemplateFilePath('css/content/forms.css'));
-</script>
-<h3>Be sure to check out the new forms, zenforms.</h3>
-<form class="cool" action="?" method="post">
+<h3>Important Survey</h3>
+<form action="?" method="post">
     <fieldset>
         <legend>Sample Form Content</legend>
         <ol>
-            <li><label for="name" class="element"><span class="required">*</span>Name</label><div class="element"><input id="name" name="name" type="text" /></div></li>
-            <li><label for="email" class="element"><span class="required">*</span>Email</label><div class="element"><input id="email" name="email" type="text" /></div></li>
-            <li><label class="element">I Can Has Cheezburger?</label><div class="element"><input name="helpful" value="1" type="radio" id="cheezyes" /><label for="cheezyes">Yes</label><input name="helpful" value="0" type="radio" id="cheezno" /><label for="cheezno">No</label></div></li>
-            <li><label for="helpful_comments" class="element">In what way?</label><div class="element"><textarea id="helpful_comments" name="helpful_comments" cols="60" rows="5"></textarea></div></li>
-            <li class="reqnote"><label class="element">&nbsp;</label><span class="required">*</span> denotes required field</li>
+            <li>
+                <label for="name">
+                    <span class="required">*</span>
+                    Name
+                    <span class="helper">Enter Your Full Name</span>
+                </label>
+                <input type="text" id="name" name="name" />
+            </li>
+            <li>
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" />
+            </li>
+            <li>
+                <label for="campus">Campus</label>
+                <select name="campus" id="campus">
+                    <option value="none"></option>
+                    <option value="unl">UNL</option>
+                    <option value="unk">UNK</option>
+                    <option value="uno">UNO</option>
+                    <option value="unmc">UNMC</option>
+                </select>
+            </li>
+            <li>
+                <fieldset> 
+                    <legend>
+                        <span class="required">*</span>
+                        The Most Important Question: I Can Has Cheezburger?
+                    </legend>
+                    <ol>
+                         <li>
+                             <input type="radio" value="1" name="helpful" id="helpful_yes" />
+                             <label for="helpful_yes">Yes</label>
+                         </li>
+                         <li>
+                           <input type="radio" value="0" name="helpful" id="helpful_no" />
+                           <label for="helpful_no">No</label>
+                         </li>
+                         <li>
+                             <input type="radio" value="2" name="helpful" id="helpful_maybe" />
+                             <label for="helpful_maybe">Maybe</label>
+                         </li>
+                    </ol>
+                </fieldset>
+            </li>
+            <li>
+                <label for="helpful_comments">In what way?</label>
+                <textarea id="helpful_comments" name="comments" rows="4" cols="auto"></textarea>
+            </li>
+            <li class="reqnote">
+                <span class="required">*</span> denotes required field
+            </li>
         </ol>
-    </fieldset>
-    <p class="submit"><input type="submit" id="submit" name="submit" value="Submit" /></p>
+    </fieldset> 
+    <input type="submit" name="submit" value="Submit" />
 </form>

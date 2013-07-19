@@ -22,11 +22,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
     	hltCls = 'highlight';
     
     var isFullNav = function() {
-    	if (Modernizr.mediaqueries) {
-    		return Modernizr.mq(fullNavBp);
-    	} else {
-    		return window.document.documentElement.clientWidth >= 700;
-    	}
+		return Modernizr.mq(fullNavBp);
     };
     
     var determineSelectedBreadcrumb = function () {
@@ -526,14 +522,23 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 //	                    don't clear the timeout (wait for last event) as it causes poor UX
 //	                    clearTimeout(scrollTimeout);
 	                    scrollTimeout = setTimeout(function() {
-	                    	var breadcrumbs = $(breadSel), cls = 'nav-scrolling';
+	                    	var breadcrumbs = $(breadSel), wrp = $('#wdn_wrapper'),
+	                    	cls = 'nav-scrolling', trig;
+	                    	
 	                    	if (isFullNav() && currentState !== 0) {
 	                    		Plugin.collapse();
 	                    	}
-	                        if ($(window).scrollTop() >= breadcrumbs.offset().top + breadcrumbs.height()) {
-	                            nav.addClass(cls);
+	                    	
+	                    	if (isFullNav() && breadcrumbs.is(':visible')) {
+	                    		trig = breadcrumbs;
+	                    	} else {
+	                    		trig = $('#header');
+	                    	}
+	                    	
+	                        if ($(window).scrollTop() >= trig.offset().top + trig.height()) {
+	                            wrp.addClass(cls);
 	                        } else {
-	                            nav.removeClass(cls); 
+	                            wrp.removeClass(cls);
 	                        }
 	                    }, 50);
 		            };

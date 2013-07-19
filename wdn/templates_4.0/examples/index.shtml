@@ -28,11 +28,12 @@
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <script type="text/javascript"><!--
-require(['jquery', 'wdn', 'require'], function($, WDN, require) {
+require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy) {
     $(function() {
         var cache = { '' : ' ' },
         loadExample = function(data, url) {
             $('#example').attr('class', url.substring(0, url.indexOf('.'))).html(data);
+            legacy();
             $('#example_code').val(data);
         };
         
@@ -70,6 +71,22 @@ require(['jquery', 'wdn', 'require'], function($, WDN, require) {
     })
 });
 --></script>
+<style type="text/css">
+#example.jqueryui #sortable li,
+#example.jqueryui #selectable li {
+    margin: 0 3px 3px 3px; 
+    padding: 0.4em; 
+    padding-left: 1.5em;
+    list-style: none;
+}
+#example.jqueryui #sortable li span { position: absolute; margin-left: -1.3em; }
+#example.jqueryui #selectable li { padding-left:0.4em }
+
+#example.jqueryui .ui-selecting { background: #fd1717; }
+#example.jqueryui .ui-selected { background: #ac0302; }
+
+.ui-effects-transfer { border: 2px dotted gray; } 
+</style>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
@@ -150,8 +167,7 @@ require(['jquery', 'wdn', 'require'], function($, WDN, require) {
                         <li><a href="events.html">Events</a> (<a href="http://www1.unl.edu/wdn/wiki/Extracting_Data_From_The_Calendar" class="external">wiki documentation</a>)</li>
                         <li><a href="formvalidator.html">Form Validator</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Validation" class="external">wiki documentation</a>)</li>
                         <li><a href="forms.html">Forms</a> (<a href="http://www1.unl.edu/wdn/wiki/Template_Form_Styling" class="external">wiki documentation</a>)</li>
-                        <li><a href="headers.html">Header Styles</a></li>
-                        <li><a href="idm.html">Identity Management/Single Sign On</a></li>
+                        <li><a href="idm.html"><abbr title="Identity Management">IdM</abbr>/<abbr title="Single Sign On">SSO</abbr></a></li>
                         <li><a href="image.html">Image Style and Caption</a></li>
                         <li><a href="jqueryui.html">jQuery UI elements/effects</a></li>
                         <li><a href="notice.html">Notice</a></li>
@@ -165,7 +181,6 @@ require(['jquery', 'wdn', 'require'], function($, WDN, require) {
                         <li><a href="twitter_widget.html">Twitter Widget</a></li>
                         <li><a href="videoplayer.html">Video player</a> (mediahub.unl.edu)</li>
                         <li><a href="zenboxes.html">Zenboxes</a> (<a href="http://www1.unl.edu/wdn/wiki/Zenbox" class="external">wiki documentation</a>)</li>
-                        <li><a href="zenforms.html">Zenforms</a> (<a href="http://www1.unl.edu/wdn/wiki/Zenform" class="external">wiki documentation</a>)</li>
                         <li><a href="zentables.html">Zentables</a></li>
                        </ul>
                 </div>
@@ -175,7 +190,7 @@ require(['jquery', 'wdn', 'require'], function($, WDN, require) {
                 </div>
             </section>
                 
-                <div class="grid12 first" style="margin-top:8px;">
+                <div style="margin-top:8px;">
                     <div id="example"></div>
                 </div>
                 <!-- InstanceEndEditable -->

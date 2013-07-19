@@ -69,8 +69,6 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 	
 	var Plugin = {
 		initialize : function() {
-			WDN.log("tabs JS loaded");
-			
 			$(function() {
 				if (WDN.getPluginParam('tabs', 'useHashChange') === false) {
 					useHashChange = false;
@@ -91,7 +89,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 					updateInterface(trig);
 					
 					if (!useHashChange) {
-						WDN.tabs.displayFromHash(hash);
+						Plugin.displayFromHash(hash);
 					} else {
 						hashFromTabClick = true;
 						if (getCleanHash() != hash) {

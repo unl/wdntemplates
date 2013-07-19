@@ -1,7 +1,3 @@
-/**
- * This plugin is intended to format calendar for pages. It takes the upcoming events feed found in the link rel=events
- * 
- */
 define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 	var getLocalEventSettings = function() {
 		var $eventLink = $('link[rel=events]'),

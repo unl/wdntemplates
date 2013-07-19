@@ -1,0 +1,40 @@
+@import "../_mixins/all.less";
+
+ul.validation-advice {
+	margin: 0 0 1em;
+	list-style: none;
+	color: @brand;
+	font-weight: bold;
+	font-size: 0.8em;
+	
+	li:before {
+		font-family: "fontello";
+	    font-style: normal;
+	    font-weight: normal;
+	    speak: none;
+	
+	    display: inline-block;
+	    text-decoration: inherit;
+	    width: 1em;
+	    margin-right: .2em;
+	    text-align: center;
+	
+	    /* For safety - reset parent styles, that can break glyph codes*/
+	    font-variant: normal;
+	    text-transform: none;
+	    
+	    content: '\e80f';
+	}
+}
+
+form {
+	input[type=text], input[type=file], input[type=password], input[type=email], input[type=url], input[type=number], textarea, select {
+		&.validation-failed {
+			// copied from forms.less: wadn-error
+			border: 1px solid @brand;
+			-webkit-animation:wdn-error 1.2s infinite alternate; // Safari and Chrome
+			-moz-animation:wdn-error 1.2s infinite alternate; // Firfox 
+            animation: wdn-error 1.2s infinite alternate;
+		}
+	}
+}

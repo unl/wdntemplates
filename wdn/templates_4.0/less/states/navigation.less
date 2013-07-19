@@ -17,6 +17,15 @@
 }
 
 @media @bp-nav-hidden {
+	.nav-scrolling .wdn-menu-trigger {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+		border: none;
+		.box-shadow(0 2px 5px fadeout(@dark-neutral, 25%))
+	}
+	
     #wdn_menu_toggle:checked { // Change states when toggle is checked
 
         ~ .wdn-content-slide, ~ noscript .wdn-content-slide {
@@ -68,14 +77,14 @@
         #navigation {
             position: absolute;
             
-            &.nav-scrolling {
-                position: fixed;
-                top: 0;
-            }
-            
             li ul {
                 height: auto;
             }
+        }
+        
+        .nav-scrolling #navigation {
+            position: fixed;
+            top: 0;
         }
     }
     

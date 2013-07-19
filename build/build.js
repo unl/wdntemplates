@@ -11,18 +11,15 @@
     },
     optimize: 'uglify2',
     logLevel: 2,
+    preserveLicenseComments: false,
+    generateSourceMaps: true,
     
     name: 'wdn',
     include: [
         'wdn_ajax',
     	'requireLib',
     	'modernizr-wdn',
-    	'main',
-    	'analytics',
-    	'navigation',
-    	'search',
-    	'unlalert',
-    	'legacy'
+    	'main'
     ],
     insertRequire: ['main'],
     wdnTemplatePath: '/',
