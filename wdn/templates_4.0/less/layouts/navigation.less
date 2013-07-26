@@ -1,8 +1,8 @@
 .nav-bar() {
-    .brand-gradient();
-    border-top: 1px solid lighten(@brand, 10%);
+    .brand-gradient;
+    border-top: 1px solid lighten(@brand, 8%);
     .box-shadow(0px -2px 0px 0px #5f5f4e);
-    .clear-fix();
+    .clear-fix;
 }
 
 .skipnav {
@@ -56,7 +56,7 @@
         }
 
         &:after {
-            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAPCAMAAACyXj0lAAAA+VBMVEUAAAAAAAAAAAB8BgYAAAAAAACoCAcAAAAAAABiBQQAAAAAAAAAAACbCAeQBwYAAAAAAAAAAAAAAAAPAQGqCQgIAACqCAc2AwKqCAeoCAceAgFpBQUSAQEAAAAAAACVCAcAAAAAAABDAwOXCAcAAACmCAcAAABrBQWlCAcAAACpCAdFAwOtCAcAAAAAAACHBwY0AwKqCAcAAACrCQgAAAB+BgatCQihCAexCQhSBASTBwerCAcAAAAAAAAAAAAAAACrCQgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACnCAcAAAAAAAAAAACuCAeqCAewCAesCAeyCQg5ODdEAAAATnRSTlNQFzdnTB/cSjZdFj0+fHMbQEIdSJdCwE/J4EhcPDkUczQtUHEr+BBakRHLPrEPB0cf0xNkBSJKMpQNHcgmDg0emSEJJy4LGgMEBvECAQAwXKaHAAAAuElEQVR42n3NVQ7CUABE0Ye7u7u7OwVK/Q22/8UQSEMoFOb3nmTI5fZ3Mpme//XVkogz+XefLwRCpcngR76OOBEElOu39e97wzFAANph6zq92eK7eALQxrF0+uy7NCNBBaDVY62ivc9leBEvALotFxPv96l8VsEbAD2sk9FXj8cKG0ADAGkf2ak9HGIP+AIQgn7P5XHvDewl6AAovMsk36wOt0+ALoBiMJqJze5U8A1UsbGsma2m4w6dgYf9RMxJ9QAAAABJRU5ErkJggg==) no-repeat 5px 0;
+            background: data-uri('../images/menu_shadow.png') no-repeat 5px 0;
             display: block;
             height: 19px;
             width: 40px;
@@ -79,8 +79,6 @@
     .light-brand-font();
     color: #fff;
     text-shadow: 1px 1px 0px darken(@brand, 19%);
-    //overflow-y: scroll;
-    // We need to set height for mobile with JS?
 
     a {
         text-decoration: none;

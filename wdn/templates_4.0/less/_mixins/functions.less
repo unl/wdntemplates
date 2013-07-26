@@ -51,6 +51,7 @@
 
     background-color: @color;
 
+/* Removing, as we're now looking at only subtle color band options to ship with the templates.
     // Based on color passed, we need to make light/dark presentation decisions
     .color-selector(@color) when (lightness(@color) >= 50%) { // We have a light color
         color: darken(@color, 65%);
@@ -69,4 +70,5 @@
     }
 
     .color-selector(@color);
+*/
 }

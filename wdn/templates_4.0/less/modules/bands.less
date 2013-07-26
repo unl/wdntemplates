@@ -1,23 +1,11 @@
-.wdn-dark-triad-band {
-    .wdn-band(@dark-triad);
-}
-
 .wdn-light-triad-band {
-    .wdn-band(@light-triad);
-}
-
-.wdn-dark-complement-band {
-    .wdn-band(@dark-complement);
+    .wdn-band(fadeout(@dark-triad, 90%));
 }
 
 .wdn-light-complement-band {
-    .wdn-band(@light-complement);
-}
-
-.wdn-dark-neutral-band {
-    .wdn-band(@dark-neutral);
+    .wdn-band(fadeout(@dark-complement, 95%));
 }
 
 .wdn-light-neutral-band {
-    .wdn-band(@light-neutral);
+    .wdn-band(@faded-neutral);
 }
