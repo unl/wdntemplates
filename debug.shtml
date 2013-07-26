@@ -27,17 +27,6 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<style type="text/css">
- #maincontent .grid1, #maincontent .grid2, #maincontent .grid3, #maincontent .grid4, #maincontent .grid5, #maincontent .grid6, #maincontent .grid7, #maincontent .grid8, .grid9, #maincontent .grid10, #maincontent .grid11, #maincontent .col div, #maincontent .two_col div, #maincontent .three_col div, #maincontent .col_half div, #maincontent .four_col div {
-        margin-bottom: 15px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        background: rgba(111,191,77,.4);
-        border: solid 1px #6FBF4D;
-        border-width: 1px 0;
-        text-align:center;
-    }
-</style>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
