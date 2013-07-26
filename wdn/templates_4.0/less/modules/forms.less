@@ -13,21 +13,18 @@
     text-transform: uppercase;
     .brand-font;
     text-align: center;
+    border-radius: 2px;
     text-decoration: none;
     opacity: 0.95;
-    .background-image(~"linear-gradient(bottom, rgba(0, 0, 0, 0.12) 0%, rgba(255, 255, 255, 0.0) 100%)"); // gradient overlay
+    .background-image(~"linear-gradient(bottom, rgba(0, 0, 0, 0.20) 0%, rgba(255, 255, 255, 0.0) 100%)"); // gradient overlay
     .rem(14);
     color: #ffffff;
     line-height: 1;
     padding: 0.75em 1.5em;
     margin: 1em 0;
     display: inline-block;
-    .colorize-button(@dark-neutral);
     .transition(background-color 0.3s);
-
-    &:hover {
-        background-image: none;
-    }
+    .colorize-button(@dark-neutral);
     
     a& {
     	// needed to make the selector more specific
