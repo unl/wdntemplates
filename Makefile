@@ -28,7 +28,11 @@ CSS_OBJS := \
 	$(TEMPLATE_CSS)/layouts/formvalidator.css \
 	$(TEMPLATE_CSS)/layouts/monthwidget.css \
 	$(TEMPLATE_CSS)/layouts/unlalert.css \
-	$(TEMPLATE_CSS)/modules/notices.css
+	$(TEMPLATE_CSS)/modules/notices.css \
+	$(TEMPLATE_CSS)/modules/pagination.css \
+	$(TEMPLATE_CSS)/modules/randomizer.css \
+	$(TEMPLATE_CSS)/modules/rsswidget.css \
+	$(TEMPLATE_CSS)/modules/vcard.css
 
 MQ_STRIP := build/mq-strip.pl
 
@@ -47,7 +51,7 @@ less: $(CSS_OBJS)
 $(shell $(LESSC_SHELL) -M $(TEMPLATE_LESS)/$(LESS_ALL) $(TEMPLATE_CSS)/$(LESS_ALL_OUT))
 
 $(shell $(LESSC_SHELL) -M $(TEMPLATE_LESS)/$(LESS_ALL) $(TEMPLATE_CSS)/$(LESS_ALL_OUT_IE))
-	 $(ENV) $(LESSC) $(TEMPLATE_LESS)/$(LESS_ALL) | $(MQ_STRIP) | $(ENV) $(LESSC) $(LESSC_FLAGS) - > $@
+	$(ENV) $(LESSC) $(TEMPLATE_LESS)/$(LESS_ALL) | $(MQ_STRIP) | $(ENV) $(LESSC) $(LESSC_FLAGS) - > $@
 
 $(TEMPLATE_CSS)/%.css: $(TEMPLATE_LESS)/%.less $(LESS_MIXINS_DEPS)
 	@mkdir -p $(@D)

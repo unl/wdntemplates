@@ -3,46 +3,8 @@
         <div class="wdn-grid-set">
             <div class="wdn-col-three-fifths wdn-app-col">
                 <span class="wdn-resource-title">Current Weather</span>
-                <div id="currentcond">
-                    <div id="wdn_current_weather">
-                        <div id="wdn_temp_wrapper">
-                            <span id="wdn_temp_f" class="wdn-temp">86.0°<span class="wdn-weather-label wdn-weather-context">F</span>
-                            </span>
-                            <span id="wdn_temp_c" class="wdn-weather-secondary wdn-temp">30.0°<span class="wdn-weather-label wdn-weather-context">C</span>
-                            </span>
-                        </div>
-                        <div id="wdn_current_condition_wrapper">
-                            <span class="wdn-weather-label wdn-sub-resource-title">
-                                Conditions: 
-                            </span>
-                            <span id="wdn_current_condition" class="wdn-weather-conditions">Fair</span>
-                        </div>
-                        <a class="external wdn-action-link" href="http://forecast.weather.gov/MapClick.php?lat=40.8068620&amp;lon=-96.6816790">View the local forecast
-                        </a>
-                    </div>
-                    <!--
-                    <div id="weatherforecast">
-
-                    </div>
-                    <div id="unladjtemp" class="weatherconditions">
-                        Heat Index: 
-                        <span id="unladjtempf">87°</span> F 
-                        (<span id="unladjtempc">31°</span> C)
-                    </div>
-                    <div id="unlhumidity" class="weatherconditions">
-                        Relative Humidity: 45%
-                    </div>
-                    <div id="unlwind" class="weatherconditions">
-                        Winds Northeast at 6.9 MPH (6 KT)
-                    </div>
-                    <div id="unlweatherasof" class="weatherasof" title="Last Updated on Jul 10 2013, 2:54 pm CDT">
-                        Last Update: 2:54 pm
-                    </div>
-                    -->
-                    <div id="wdn_radar_wrapper" class="wdn-frame">
-                        <a title="Review the local radar at the National Weather Service" href="http://radar.weather.gov/radar_lite.php?rid=oax&amp;product=N0R&amp;overlay=11101111&amp;loop=yes">
-                        </a>
-                    </div>
+                <div id="currentcond" aria-live="polite">
+                    <p>Loading...</p>
                 </div>
             </div>
             <div class="wdn-col-two-fifths wdn-app-col">
@@ -50,27 +12,12 @@
                 <form method="get" action="http://directory.unl.edu/">
                     <fieldset class="wdn-fieldset-collapse">
                         <label for="pq" class="wdn-text-hidden">Search</label>
-                        <input type="text" name="pq" id="pq" placeholder="Search for people or departments" />
+                        <input type="text" name="q" id="pq" placeholder="Search for people or departments" />
                     </fieldset>
                 </form>
-                <div id="pfresults">
-
-                </div>
-                <div id="pfShowRecord">
-
-                </div>
+                <div id="pfShowRecord" aria-live="polite"></div>
+                <div id="pfresults" aria-live="polite"></div>
             </div>
         </div>
-<!--
-        <div class="">
-            <span class="wdn-resource-title">UNL Events</span>
-            <div id="allunlevents">
-
-            </div>
-            <div id="localsiteevents">
-
-            </div>
-        </div>
--->
     </div>
 </div>
