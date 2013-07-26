@@ -10,15 +10,15 @@
 
 // Color triads, in the blue family
 @light-triad: #BDDEFF;
-@dark-triad: #2A79C8;
+@dark-triad: #3b6282;
 
 // Color complementary, in the green family
 @light-complement: #D7E7D9;
-@dark-complement: #008A15;
+@dark-complement: spin(@dark-triad, -75);
 
 // Color complementary, in the orange family
 @light-energetic: #F8e3d2;
-@dark-energetic: #F4740C;
+@dark-energetic: #c15e22;
 
 // 
 // Assign base colors
@@ -29,4 +29,3 @@
 
     // Warnings. Since Red is our brand color, we're using a brighter orange
     @warning: #FFA500;
-    
