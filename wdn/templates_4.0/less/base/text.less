@@ -5,33 +5,66 @@ p {
 }
 
 .heading-size(@size) {
-    font-size: @size * 1rem;
-    line-height: @size/(@size/(2/@base-line-height)) * 1em;
-    margin: @base-line-height/@size * 1em 0;
+    font-size: (@size * 1rem);
+    line-height: (@size/(@size/(1.5/@base-line-height)) * 1em);
+    margin: (@base-line-height/@size * 1em) 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
+    .heading-font;
+    color: darken(@base-text, 15%); // Black
 }
 
 h1 {
-    .heading-size(3.157);
+    @size: 3.157;
+    .heading-size(@size);
+
+    + .wdn-subhead {
+        margin-top: (@base-line-height/@size * -1.2em);
+    }
 }
 
 h2 {
-    .heading-size(2.369);
+    @size: 2.369;
+    .heading-size(@size);
+
+    + .wdn-subhead {
+        margin-top: (@base-line-height/@size * -1.2em);
+    }
 }
 
 h3 {
-    .heading-size(1.777);
+    @size: 1.777;
+    .heading-size(@size);
+
+    + .wdn-subhead {
+        margin-top: (@base-line-height/@size * -1.2em);
+    }
 }
 
 h4 {
-    .heading-size(1.333)
+    @size: 1.333;
+    .heading-size(@size);
+
+    + .wdn-subhead {
+        margin-top: (@base-line-height/@size * -1.2em);
+    }
 }
 
 h5 {
-    .heading-size(1);
+    @size: 1;
+    .heading-size(@size);
+
+    + .wdn-subhead {
+        margin-top: (@base-line-height/@size * -1.2em);
+    }
+}
+
+.wdn-subhead {
+    line-height: 1;
+    color: fadeout(@base-text, 20%);
+    .heading-font;
 }
 
 .wdn-text-hidden {
