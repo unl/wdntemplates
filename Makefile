@@ -1,7 +1,8 @@
 export PATH := $(PATH):build/bin
 ENV := /usr/bin/env
 
-TEMPLATE_DIR := wdn/templates_4.0
+MAIN_DIR := wdn
+TEMPLATE_DIR := $(MAIN_DIR)/templates_4.0
 TEMPLATE_LESS := $(TEMPLATE_DIR)/less
 TEMPLATE_CSS := $(TEMPLATE_DIR)/css
 TEMPLATE_JS := $(TEMPLATE_DIR)/scripts
@@ -70,7 +71,8 @@ dist: all
 	@if test -z "$(SMUDGE_STATUS)"; then \
 		./scripts/smudge.sh; \
 	fi
-	zip -qr downloads/wdn.zip wdn
+	zip -qr downloads/wdn.zip $(MAIN_DIR)
+	zip -qr downloads/wdn_includes.zip $(TEMPLATE_DIR)/includes
 	zip -qr downloads/UNLTemplates.zip Templates sharedcode
 	@if test -z "$(SMUDGE_STATUS)"; then \
 		./scripts/clean.sh; \
