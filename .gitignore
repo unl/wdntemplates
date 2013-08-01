@@ -6,8 +6,7 @@
 .project
 .buildpath
 /wdn/templates_3.*
-
-sharedcode/affiliate/less/buros.less
 /UNL_WDNTemplates.sublime-*
-/wdn/templates_4.0/css
-/wdn/templates_4.0/scripts/compressed
+/wdn/templates_*/css
+/wdn/templates_*/scripts/compressed
+.DS_Store
