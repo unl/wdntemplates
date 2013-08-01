@@ -6,7 +6,7 @@
 <!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
 <!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!--<![endif]-->
 <head>
-<?php virtual("/wdn/templates_3.1/includes/metanfavico.html"); ?>
+<?php virtual("/wdn/templates_4.0/includes/metanfavico.html"); ?>
 <!--
     Membership and regular participation in the UNL Web Developer Network
     is required to use the UNL templates. Visit the WDN site at 
