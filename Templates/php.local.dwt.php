@@ -29,7 +29,7 @@
 <!-- Place optional header elements here -->
 
 <!-- TemplateEndEditable -->
-<!-- TemplateParam name="class" type="text" value="fixed" -->
+<!-- TemplateParam name="class" type="text" value="" -->
 </head>
 <body class="@@(_document['class'])@@" data-version="$HTML_VERSION$">
     <?php virtual("/wdn/templates_4.0/includes/skipnav.html"); ?>
@@ -60,7 +60,7 @@
                 <!-- TemplateBeginEditable name="breadcrumbs" -->
                 <ul>
                     <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln" class="wdn-icon-home">UNL</a></li>
-                    <li class="selected"><a href="http://architecture.unl.edu/" title="College of Architecture">College of Architecture</a></li>
+                    <li><a href="#" title="Site Title">Site Title</a></li>
                     <li>Home</li>
                 </ul>
                 <!-- TemplateEndEditable -->
@@ -69,7 +69,7 @@
                 <nav id="navigation" role="navigation" class="wdn-band">
                     <h3 class="wdn_list_descriptor wdn-text-hidden">Navigation</h3>
                     <!-- TemplateBeginEditable name="navlinks" -->
-                    <?php virtual("../sharedcode/navigation.html"); ?>
+                    <?php include "../sharedcode/navigation.html"; ?>
                     <!-- TemplateEndEditable -->
                     <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
                 </nav>
@@ -85,6 +85,7 @@
                 <div class="wdn-inner-wrapper">
                     <div id="pagetitle">
                         <!-- TemplateBeginEditable name="pagetitle" -->
+                        <h1>Please Title Your Page Here</h1>
                         <!-- TemplateEndEditable -->
                     </div>
                 </div>
@@ -92,7 +93,11 @@
             <div id="maincontent" class="wdn-main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- TemplateBeginEditable name="maincontentarea" -->
-                
+                <div class="wdn-band">
+                    <div class="wdn-inner-wrapper">
+                        <p>Impress your audience with awesome content!</p>
+                    </div>
+                </div>
                 <!-- TemplateEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
@@ -107,7 +112,7 @@
             <div class="wdn-band" id="wdn_footer_related">
                 <div class="wdn-inner-wrapper">
                     <!-- TemplateBeginEditable name="leftcollinks" -->
-                    <?php virtual("../sharedcode/relatedLinks.html"); ?>
+                    <?php include "../sharedcode/relatedLinks.html"; ?>
                     <!-- TemplateEndEditable -->
                 </div>
             </div>
@@ -117,14 +122,14 @@
                         <h3>Contact Us</h3>
                         <div class="wdn-contact-wrapper">
                             <!-- TemplateBeginEditable name="contactinfo" -->
-                            <?php virtual("../sharedcode/footerContactInfo.html"); ?>
+                            <?php include "../sharedcode/footerContactInfo.html"; ?>
                             <!-- TemplateEndEditable -->
                         </div>
                     </div>
                     <div id="wdn_copyright">
                         <div class="wdn-footer-text">
                             <!-- TemplateBeginEditable name="footercontent" -->
-                            <?php virtual("../sharedcode/footer.html"); ?>
+                            <?php include "../sharedcode/footer.html"; ?>
                             <!-- TemplateEndEditable -->
                             <?php virtual("/wdn/templates_4.0/includes/wdn.html"); ?>
                         </div>

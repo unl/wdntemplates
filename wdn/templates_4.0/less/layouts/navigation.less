@@ -78,7 +78,7 @@
 #wdn_navigation_bar {
     .light-brand-font();
     color: #fff;
-    text-shadow: 1px 1px 0px darken(@brand, 19%);
+    text-shadow: 1px 1px 0px #000000;
 
     a {
         text-decoration: none;
@@ -102,6 +102,10 @@
         background-color: #3b3b3b;
         border-right: 3px solid #000;
         height: 100%;
+    }
+
+    @media @bp-nav-full {
+        text-shadow: 1px 1px 0px darken(@brand, 19%);
     }
 
     .wdn_list_descriptor { //quickly thrown in to diagnose a height issue. Not the way to go down the road.
@@ -157,7 +161,7 @@
             li {
                 width: 100%;
                 padding: 0;
-                border-bottom: 1px solid fadeout(#fff, 90%);
+                border-bottom: 1px solid fadeout(#fff, 80%);
                 
                 &:last-child {
                     border-bottom: none;
@@ -208,8 +212,8 @@
                 }
                 
                 > a {
-                    padding-top: 0.5rem;
-                    padding-bottom: 0.5rem;
+                    padding-top: 0.5em;
+                    padding-bottom: 0.5em;
                 }
             }
         }
