@@ -65,9 +65,12 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
                 });
                 
                 $(window).trigger('hashchange');
-            })
+            });
         });
         
+        $("#example_code").bind('input propertychange', function() {
+            loadExample($("#example_code").val(), 'custom.');
+        });
     })
 });
 --></script>
@@ -186,7 +189,7 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
                 </div>
                 <div class="wdn-col-two-thirds">
                     <p>Source code:</p>
-                    <textarea id="example_code" rows="10" cols="78" onclick="this.select(); return false;"></textarea>
+                    <textarea id="example_code" rows="25" cols="78"></textarea>
                 </div>
             </section>
                 
