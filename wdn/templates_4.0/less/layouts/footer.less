@@ -1,0 +1,210 @@
+@footer-text-color: #CFCFCF;
+#wdn_optional_footer {
+    background-color: fadeout(#cbc8b2, 85%);
+}
+
+#footer {
+    background-color: #525151;
+    text-shadow: 1px 1px 0px fadeout(#000, 20%);
+    // There is no file for this image.
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAN0lEQVQYV2P08fb+v2XrVkYGHAAkD5bEpRAmDjcBXSEyH8UamAS6Bgy3YLOaNJMIuomg74gJJwBEZT/MvrJ6dQAAAABJRU5ErkJggg==);
+    background-repeat: repeat;
+    border-top: 15px solid #5e5e5e;
+    border-bottom: 5px solid #5e5e5e;
+    .box-shadow(0 -5px 0 #e6e4d0, 0 10px 0 @brand);
+    color: @footer-text-color;
+    .sans-serif-font();
+    .rem(11);
+
+    a {
+        color: #c3c3c3;
+        text-decoration: underline;
+    }
+
+    [class^="wdn-icon-"] {
+        position: relative;
+        margin-left: 1.5em;
+        padding-left: 1em;
+
+        &:before {
+            position: absolute;
+            left: -1em;
+            top: -0.25em;
+            font-size: 1.5em;
+            color: fadeout(lighten(@footer-text-color, 35%), 65%);
+            text-shadow: none;
+        }
+    }
+
+    h3 {
+        .light-brand-font();
+        line-height: 1;
+        text-transform: uppercase;
+        .rem(20);
+        margin-top: 0em;
+        color: @footer-text-color;
+    }
+
+    .wdn-inner-wrapper{
+        padding: 1em 5px;
+    }
+
+    @media @bp3 {
+        .wdn-inner-wrapper{
+            width: 60rem;
+        }
+    }
+}
+
+#wdn_footer_related {
+    max-width: 50rem;
+    background-color: #5e5e5e;
+    margin-top: -5px;
+    border-bottom: 5px solid (fadeout(black, 82,5%));
+
+    h3 {
+
+        @media @bp1 {
+            margin-top: 0.5em;
+            float: left;
+            width: 15%;
+        }
+    }
+    
+    ul {
+        .list-reset();
+        .columns(2);
+        margin: 5px 0;
+
+        @media @bp1 {
+            float: left;
+            width: 85%;
+        }
+
+        @media @bp-nav-full {
+            .columns(4);
+        }
+    }
+
+    li {
+        width: 100%;
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+
+    a {
+        display: block;
+        text-decoration: none;
+        text-shadow: none;
+        background-color: fadeout(#000, 85%);
+        border-radius: 3px;
+        padding: 5px;
+    }
+
+    .wdn-inner-wrapper {
+        padding: 0 5px;
+    }
+}
+
+#wdn_footer_contact {
+
+    @media @bp1 {
+        width: percentage(1/4);
+        float: left;
+    }
+
+    @media @bp2 {
+        margin: 0 5px auto 5px;
+    }
+}
+
+.wdn-contact-wrapper {
+    .columns(2);
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    -o-column-break-inside: avoid;
+    -ms-column-break-inside: avoid;
+    column-break-inside: avoid;
+
+    @media @bp1 {
+        .columns(1);
+    }
+}
+
+#wdn_copyright {
+    float: left;
+    border-top: 3px solid fadeout(#000, 85%);;
+    padding-top: 5px;
+
+    @media @bp1 {
+        width: percentage(3/4);
+        border-top: 0px;
+        padding: 0 0 0 10px;
+        margin-top: 41px;
+        padding: 0 5px;
+    }
+}
+
+.wdn-footer-text {
+    width: ~'-webkit-calc(100% - 121px)'; // minus .wdn-float-center:width - paddings
+    width: ~'-moz-calc(100% - 121px)';
+    width: ~'calc(100% - 121px)';
+    float: left;
+}
+
+/*
+*
+* Footer logos
+*
+*/
+
+#wdn_logos {
+    overflow: auto;
+    float: right;
+}
+
+.wdn-float-center {
+    width: 111px;
+    margin: 0 auto;
+
+    a {
+        .text-hidden();
+        background-repeat: no-repeat;
+        .background-size(contain);
+    }
+}
+
+#unl_wordmark {
+    background-image: data-uri('../images/wordmark.svg');
+    width: 111px;
+    height: 43px;
+    margin-bottom: 8px;
+}
+
+#cic_wordmark {
+    background-image: data-uri('../images/cic.svg');
+    height: 25px;
+    width: 47px;
+    float: right;
+}
+
+#b1g_wordmark {
+    background-image: data-uri('../images/b1g.svg');
+    height: 21px;
+    width: 42px;
+    margin-top: 2px;
+    float: right;
+    margin-right: 5px;
+}
+
+@media @bp-nav-full {
+    #wdn_footer_contact {
+        position: relative;
+        margin-top: 0 !important;
+        margin: 0;
+    }
+
+    #wdn_logos {
+        float: right;
+    }
+}

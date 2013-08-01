@@ -1,0 +1,23 @@
+<div id="wdn_app_wrapper" class="wdn-band">
+    <div class="wdn-inner-wrapper">
+        <div class="wdn-grid-set">
+            <div class="wdn-col-three-fifths wdn-app-col">
+                <span class="wdn-resource-title">Current Weather</span>
+                <div id="currentcond" aria-live="polite">
+                    <p>Loading...</p>
+                </div>
+            </div>
+            <div class="wdn-col-two-fifths wdn-app-col">
+                <span class="wdn-resource-title">Directory</span>
+                <form method="get" action="http://directory.unl.edu/">
+                    <fieldset class="wdn-fieldset-collapse">
+                        <label for="pq" class="wdn-text-hidden">Search</label>
+                        <input type="text" name="q" id="pq" placeholder="Search for people or departments" />
+                    </fieldset>
+                </form>
+                <div id="pfShowRecord" aria-live="polite"></div>
+                <div id="pfresults" aria-live="polite"></div>
+            </div>
+        </div>
+    </div>
+</div>

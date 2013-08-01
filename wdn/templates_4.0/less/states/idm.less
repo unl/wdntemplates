@@ -1,0 +1,73 @@
+@media @bp-nav-hidden {
+    #wdn_identity_management {
+		.nav-scrolling & {
+			position: fixed;
+			right: 4px;
+			top: 16px;
+			z-index: 2;
+			.transition(right 0.3s ease);
+		}
+		
+		.nav-scrolling #wdn_menu_toggle:checked ~ .wdn-content-slide & {
+			right: -200px
+		}
+    }
+}
+
+.loggedin {
+
+    .wdn-profile-options {
+
+        &:hover {
+
+            #wdn_idm_user_options {
+                display: block;
+
+                @media @bp-nav-full {
+
+                    a {
+                        color: fadeout(darken(@resource-color, 70%), 10%);
+                    }
+                }
+            }
+
+            @media @bp-nav-hidden {
+                a {
+                    color: #fff;
+                }
+            }
+        }
+
+    }
+
+    #wdn_idm_username {
+
+        &:before { //maintain vertical space
+            content: '.';
+            opacity: 0;
+        }
+    }
+}
+
+#wdn_idm_user_options {
+
+    &:hover {
+
+        @media @bp-nav-full {
+
+            a {
+                color: fadeout(darken(@resource-color, 70%), 10%);
+            }
+        }
+    }
+
+    a:hover {
+        @media @bp-nav-hidden {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        @media @bp-nav-full {
+            background-color: darken(@resource-color, 2%);
+        }
+    }
+}

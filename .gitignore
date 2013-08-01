@@ -1,10 +1,13 @@
 *.espressostorage
-/sandbox/*
+/sandbox
 *_old.css
 .externalToolBuilders
 .settings
 .project
 .buildpath
-/wdn/templates_3.0*
-
 sharedcode/affiliate/less/buros.less
+/wdn/templates_3.*
+/UNL_WDNTemplates.sublime-*
+/wdn/templates_*/css
+/wdn/templates_*/scripts/compressed
+.DS_Store

@@ -1,0 +1,350 @@
+#wdn_app_wrapper {
+    display: none;
+    .brand-font;
+}
+
+@media @bp-nav-full {
+    
+    #wdn_app_wrapper {
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+        clear: both;
+        display: block;
+        text-align: left;
+        height: 0;
+        overflow: hidden;
+        .transition(all 0.3s linear);
+        margin-top: 12px;
+    }
+
+    .wdn-app-col {
+        max-height: 294px;
+        overflow-y: auto;
+    }
+}
+
+.wdn-resource-title {
+    .impact-font;
+    text-transform: uppercase;
+    .rem(16);
+    display: block;
+    margin: 0.5em 0;
+    color: fadeout(@base-text, 35%);
+}
+
+#wdn_current_weather {
+    width: 30%;
+    float: left;
+}
+
+#wdn_temp_wrapper {
+    .rem(42);
+    .impact-font;
+    margin-bottom: 0.25em;
+}
+
+.wdn-temp {
+    display: block;
+    line-height: 1;
+}
+
+#wdn_radar_wrapper {
+    float: left;
+    width: 65%;
+    margin-left: 5%;
+    height: 200px;
+    
+    a {
+    	display: block;
+    }
+    
+    // because the radar image is not https, 
+    // wdn-frame will only be added in the markup by js served over normal http 
+    &.wdn-frame a {
+    	text-align: left;
+    	text-indent: -9999em;
+    	border: none;
+    	height: 100%;
+	    background: url(http://radar.weather.gov/lite/N0R/OAX_loop.gif) -90px -215px no-repeat;
+	    .background-clip(content-box);
+    }
+}
+
+.wdn-sub-resource-title {
+    .rem(11);
+    font-weight: 400;
+    color: fadeout(@base-text, 35%);
+}
+
+.wdn-weather-conditions {
+    .rem(13);
+    display: block;
+    margin-bottom: 0.25em;
+}
+
+.wdn-weather-secondary {
+    .rem(14);
+    font-weight: 400;
+    vertical-align: top;
+    display: block;
+}
+
+.wdn-weather-context {
+    font-size: 50%;
+}
+
+.wdn-weather-label {
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.wdn-action-link {
+    .light-brand-font;
+    .rem(11);
+    display: block;
+    text-align: right;
+    border-top: 1px solid @light-neutral;
+}
+
+/* Directory */
+.wdn-fieldset-collapse {
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    input {
+        margin-top: 0;
+        border: 1px solid #d1ceb3;
+        padding: 5px;
+        color: darken(#d1ceb3, 45%);
+        .sans-serif-font();
+        width: 100%;
+
+        &::-webkit-input-placeholder {
+           opacity: 0.8;
+           color: darken(#d1ceb3, 25%);
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+           opacity: 0.8;
+           color: darken(#d1ceb3, 25%);
+        }
+
+        &::-moz-placeholder {  /* Firefox 19+ */
+           opacity: 0.8; 
+           color: darken(#d1ceb3, 25%);
+        }
+
+        &:-ms-input-placeholder {  
+           opacity: 0.8; 
+           color: darken(#d1ceb3, 25%);
+        }
+    }
+}
+
+#pfShowRecord {
+	font-size: 0.8em;
+	
+	.vcard {
+		background:#fff;
+	    border:1px solid darken(@resource-color, 7%);
+	    .border-radius(5px);
+	    padding:1em;
+	    position:relative;
+	    overflow:auto;
+	    min-height: 148px;
+	    
+	    a.planetred_profile {
+	    	border: 3px solid darken(@resource-color, 7%);
+	    	width: 75px;
+	    	
+	    	img {
+	    		display: block;
+	    		width: 100%;
+	    		height: auto;
+	    	}
+	    }
+	    
+	    .vcardInfo {
+	    	margin: 0 0 0 90px;
+	    }
+	    
+	    .permalink {
+	    	margin-left: 1em;
+	    }
+	    
+	    .street-address {
+	    	display:block;
+	    	
+	    	&:after {
+	    		content: ' ';
+	    	}
+	    }
+	    
+	    .locality:after {
+	    	content: ', ';
+	    }
+	    
+	    .region:after {
+	    	content: ' ';
+	    }
+	    
+	    .country-name {
+	    	display: none;
+	    }
+	    
+	    &.office {
+	    	.fn {
+	    		margin-left: 90px;
+	    		margin-top: 0;
+	    	}
+	    	
+	    	img {
+	    		display: block;
+	    		float: left;
+	    		width: 75px;
+	    		border: 3px solid darken(@resource-color, 7%);
+	    	}
+	    }
+	}
+	
+	.wdn_vcardTools {
+		display: none;
+	}
+	
+	.vcard .adr, .departmentInfo .adr {
+	    border-left:2px solid #CCD2D5;
+	    padding-left:5px;
+	    margin:5px 0;
+	    display:inline-block;
+	    max-width:80%;
+	    
+	    .type {
+	    	background:#e8f2f7;
+			padding:1px 8px 3px 8px;
+			margin:0 0 5px -5px;
+			display:block;
+	    }
+	}
+}
+
+#pfresults {
+    ul.pfResult {
+        padding: 0;
+        list-style: none;
+        border-bottom: 1px solid #e6e6e6;
+        border-top: 1px solid #d0cece;
+        margin-top: 20px;
+        
+        li {
+            border-bottom: 1px solid #d0cece;
+            border-top: 1px solid #e6e6e6;
+            width:100%;
+            padding: 5px 0;
+            display:inline-block;
+            position:relative;
+            cursor: pointer;
+        
+            div.overflow {
+                min-height:47px;
+                padding: 7px 5px;
+                display:inline-block;
+            }
+            
+            &:hover {
+                background:#ecf4f9;
+            }
+        }
+    }
+    
+    .on-campus-dailing {
+        font-size: 80%;
+        text-transform: uppercase;
+        color: #897b42;
+    }
+    
+    .planetred_profile {
+        float: left;
+    }
+    
+    .loading {
+        display: none;
+    }
+    
+    .recordDetails {
+        .planetred_profile;
+        margin-left: 20px;
+        max-width: 285px;
+        
+        .eppa {
+            display: none;
+        }
+    }
+    
+    .fn, .fn a {
+        font-size: 18px;
+        font-weight: bold;
+        color: #464545 !important;
+        max-width: 230px;
+        max-height: 35px;
+        min-height: 20px;
+        overflow: hidden;
+    }
+    
+    .departments {
+        .fn, .fn a {
+            max-height:42px;
+            line-height:20px;
+        }
+    }
+    
+    .departmentInfo {
+        .photo {
+            float: left;
+            margin-right: 20px;
+        }
+    }
+    
+    .cInfo {
+        position: absolute;
+        right: 5px;
+        font-size: 0.7em;
+    }
+    
+    .results {
+        margin-top: 15px;
+        
+        h3 {
+            border-bottom:2px dotted #E6E6E6;
+            padding-bottom:0;
+            font-variant:small-caps;
+            font-weight:bold;
+            font-size: 1.6em;
+            .box-shadow(none);
+            text-transform: none;
+        }
+    }
+    
+    .likeResults {
+        ul.pfResult {
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-variant:small-caps;
+            font-weight:bold;
+            .box-shadow(none);
+            text-transform: none;
+            font-size: 1em;
+            margin: 0;
+            padding: 0.2em 0 0.3em;
+            color: #444;
+        }
+    }
+    
+    .result_head {
+        color: #989898;
+        font-size: 10px;
+    }
+}

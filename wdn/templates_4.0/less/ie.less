@@ -1,0 +1,88 @@
+/*
+* FUNCTIONS
+*/
+.ie8-width () {
+    min-width: 980px;
+}
+
+/*
+* BASE
+*/
+
+.ie8 {
+    position: relative;
+    .ie8-width;
+}
+
+/*
+* HEADER
+*/
+.ie8 {
+
+    #logo {
+        background: data-uri('../images/n_flag.png') no-repeat;
+    }
+
+    #header {
+        background: data-uri('../images/stripes.png') repeat-x 0 -5px;
+    }
+
+    .wdn-resource-label [class^=wdn-icon] {
+        color: #70623B;
+    }
+}
+
+/*
+* NAVIGATION
+*/
+.ie8 {
+    .wdn-icon-menu {
+        display: none;
+    }
+
+    #navigation {
+
+        > ul {
+
+            li {
+                border-bottom: 1px solid lighten(#DE5959, 25%); // We have to redeclare all values as IE8 chokes on the original because of the rgba
+            }
+
+            > li {
+                border-right: 1px solid #DE5959;
+            }
+        }
+    }
+}
+
+/*
+* FOOTER
+*/
+.ie8 {
+
+    #footer .wdn-inner-wrapper {
+        .ie8-width;
+    }
+
+    #wdn_footer_related ul {
+
+        li {
+            width: 22%;
+            margin-left: 3%;
+            float: left;
+            background-color: #4F4F4F;
+        }
+    }
+
+    #unl_wordmark {
+        background-image: data-uri('../images/wordmark.png');
+    }
+
+    #cic_wordmark {
+        background-image: data-uri('../images/cic.png');
+    }
+
+    #b1g_wordmark {
+        background-image: data-uri('../images/b1g.png');
+    }
+}
