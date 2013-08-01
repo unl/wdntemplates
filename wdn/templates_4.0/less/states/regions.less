@@ -1,0 +1,132 @@
+@terminal: terminal; // This is the body class name for the "terminal" pages. Change this value if you don't like the term.
+
+.hide() {
+    display: none;
+}
+
+.hide-wdn_institution_title {
+
+    #wdn_institution_title {
+        .hide();
+    }
+}
+
+.hide-wdn_identity_management {
+    
+    #wdn_identity_management {
+        .hide;
+    }
+}
+
+.hide-wdn_search {
+
+    #wdn_search {
+        .hide;
+    }
+}
+
+.hide-wdn_navigation_wrapper { // Hide certain parts in order to retain presentational UI
+
+    .wdn-menu-trigger { // Holds the label for the toggle of the navigation
+
+        // Styles specifc to only the mobile view
+        @media @bp-nav-hidden {
+            height: 35px
+        }
+    }
+        
+    #navigation {
+        height: 35px;
+        display: block;
+    
+        &:before {
+            display: none;
+        }
+    
+        > * {
+            .hide;
+        }
+    }
+
+    .wdn-icon-menu {
+        .hide;
+    }
+}
+
+.hide-breadcrumbs {
+
+    #breadcrumbs {
+        .hide();
+    }
+}
+
+.hide-pagetitle {
+    
+    #pagetitle {
+        .text-hidden;  // Since this has the H1, keep the text readable by screen readers
+        height: 0;
+        margin: 0;
+    }
+}
+
+.hide-footer {
+    
+    #wdn_footer_contact, #wdn_copyright {
+        .hide;
+    }
+}
+
+.hide-wdn_footer_related {
+
+    #wdn_footer_related {
+        .hide();
+    }
+}
+    
+.hide-wdn_copyright { // Keep the UI presentation, but hide the content.
+
+    .wdn-footer-text {
+        .hide;
+    }
+}
+
+.hide-wdn_footer_contact {
+
+    #wdn_footer_contact {
+        display: none;
+    }
+
+    #wdn_copyright {
+        width: 100%;
+    }
+}
+
+.hide-wdn_attribution {
+    
+    #wdn_attribution {
+        .hide();
+    }
+}
+
+.hide-wdn_logos {
+
+    #wdn_logos {
+        .hide();
+    }
+}
+
+.@{terminal} {
+    .hide-breadcrumbs;
+    .hide-wdn_navigation_wrapper;
+    .hide-wdn_footer_related;
+    .hide-wdn_footer_contact;
+}
+
+@media @bp-nav-full {
+    .hide-wdn_tool_links {
+    
+        #wdn_tool_links {
+            .hide();
+        }
+    }
+}

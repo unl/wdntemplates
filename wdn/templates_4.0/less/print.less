@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+@import "_mixins/all.less";
+
+.hide() {
+    display: none !important; 
+}
+
+.reset() {
+	padding: 0;
+	margin: 0;
+}
+
+html, body {
+	background: none;
+}
+
+a:after {
+    content: " (" attr(href) ")" !important;
+    display: inline !important;
+    height: auto !important;
+    width: auto !important;
+    background: none !important;
+}
+
+.skipnav,
+#wdn_social,
+#wdn_app_wrapper,
+#wdn_site_title span span,
+#wdn_resources, 
+#wdn_navigation_bar, 
+#footer { 
+    .hide()
+}
+
+#header {
+	background: none;
+	padding-bottom: 1em;
+	border-bottom: 2px solid;
+}
+
+#logo {
+	position: static;
+	width: auto;
+	height: auto;
+	margin: 0;
+	background: none;
+	
+	a {
+		.hide();
+	}
+	
+	&:before {
+        content: url('../images/logo-print.png');
+        margin-right: 10px;
+        height: 55px;
+        width: 70px;
+        float: left;
+    }
+}
+
+#wdn_institution_title {
+	.reset();
+    display: block;
+    color: @base-text;
+    .rem(18); 
+    .sans-serif-font();
+}
+
+#wdn_site_title {
+	padding: 0;
+	margin: -1em 0 0 0;
+	text-align: left;
+	.rem(30);
+	
+	abbr[title]:before {
+		.rem(24);
+	}
+}

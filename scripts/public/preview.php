@@ -1,5 +1,7 @@
 <?php
 
+ini_set('display_errors', true);
+
 if (empty($_GET['u'])
     || !filter_var($_GET['u'], FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)) {
     throwError();
@@ -22,10 +24,12 @@ function throwError($message = 'Error')
     exit();
 }
 
-set_include_path('phar://' . __DIR__ . '/UNL_Templates-1.2.0.phar/UNL_Templates-1.2.0/src'.PATH_SEPARATOR.'phar://' . __DIR__ . '/UNL_Templates-1.2.0.phar/UNL_Templates-1.2.0/php');
+set_include_path('phar://' . __DIR__ . '/UNL_Templates-1.4.0RC1.phar/UNL_Templates-1.4.0RC1/src'.PATH_SEPARATOR.'phar://' . __DIR__ . '/UNL_Templates-1.4.0RC1.phar/UNL_Templates-1.4.0RC1/php');
 
 require_once 'UNL/Templates.php';
+require_once 'UNL/Templates/Version4.php';
 require_once 'UNL/Templates/Scanner.php';
+require_once 'UNL/DWT/Scanner.php';
 
 $scanned_page = new UNL_Templates_Scanner(file_get_contents($_GET['u']));
 
@@ -46,6 +50,7 @@ function removeRelativePaths($html, $base_url)
             $pos += strlen($needle);
             if (substr($html, $pos, 7) != 'http://'
                 && substr($html, $pos, 8) != 'https://'
+                && substr($html, $pos, 2) != '//'
                 && substr($html, $pos, 6) != 'ftp://'
                 && substr($html, $pos, 7) != 'mailto:'
                 && substr($html, $pos, 1) != '#') {
@@ -64,121 +69,30 @@ function removeRelativePaths($html, $base_url)
     return $html;
 }
 
-foreach (array('maincontentarea','head', 'doctitle') as $key) {
-    $scanned_page->$key = removeRelativePaths($scanned_page->$key, $_GET['u']);
+// Grab the version four template from the local debug file
+$four_template = new UNL_Templates_Scanner(file_get_contents(__DIR__ . '/../../debug.shtml'));
+
+foreach ($scanned_page->getRegions() as $region) {
+    if ($region instanceof UNL_DWT_Region && $region->type == 'string') {
+        if (in_array($region->name, array('maincontentarea','head', 'doctitle'))) {
+            $region->value = removeRelativePaths($region->value, $_GET['u']);
+        }
+        
+        if ($region->name === 'titlegraphic') {
+            $region->value = str_replace(array('<h1>', '</h1>'), array('', ''), $region->value);
+        }
+        
+        $four_template->{$region->name} = $region->value;
+    }
 }
 
-$scanned_page->titlegraphic = str_replace(array('<h1>', '</h1>'), array('', ''), $scanned_page->titlegraphic);
+$four_template->maincontentarea = $four_template->maincontentarea;
 
-?>
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="ie iem7"><![endif]-->
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
-<!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
-<!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/php.fixed.dwt.php" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
-<head>
-<?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/metanfavico.html'; ?>
-<!--
-    Membership and regular participation in the UNL Web Developer Network
-    is required to use the UNL templates. Visit the WDN site at
-    http://wdn.unl.edu/. Click the WDN Registry link to log in and
-    register your unl.edu site.
-    All UNL template code is the property of the UNL Web Developer Network.
-    The code seen in a source code view is not, and may not be used as, a
-    template. You may not use this code, a reverse-engineered version of
-    this code, or its associated visual presentation in whole or in part to
-    create a derivative work.
-    This message may not be removed from any pages based on the UNL site template.
+// Create a helper object for making the include replacements
+$version_four_helper = new UNL_Templates_Version4();
 
-    $Id: php.fixed.dwt.php | ea2608181e2b6604db76106fd982b39218ddcb8b | Fri Mar 9 12:20:43 2012 -0600 | Kevin Abel  $
--->
-<?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/scriptsandstyles.html'; ?>
-<!-- InstanceBeginEditable name="doctitle" -->
-<?php echo $scanned_page->doctitle; ?>
-<!-- InstanceEndEditable -->
-<!-- InstanceBeginEditable name="head" -->
-<!-- Place optional header elements here -->
-<?php echo $scanned_page->head; ?>
-<!-- InstanceEndEditable -->
-<!-- InstanceParam name="class" type="text" value="fixed" -->
-</head>
-<body class="fixed" data-version="3.1">
-    <nav class="skipnav" role="navigation">
-        <a class="skipnav" href="#maincontent">Skip Navigation</a>
-    </nav>
-    <div id="wdn_wrapper">
-        <header id="header" role="banner">
-            <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
-            <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
-            <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" -->
-            <?php echo $scanned_page->titlegraphic; ?>
-            <!-- InstanceEndEditable --></span>
-            <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/idm.html'; ?>
-            <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/wdnTools.html'; ?>
-        </header>
-        <div id="wdn_navigation_bar" role="navigation">
-            <nav id="breadcrumbs">
-                <!-- WDN: see glossary item 'breadcrumbs' -->
-                <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
-                <!-- InstanceBeginEditable name="breadcrumbs" -->
-                <?php echo (isset($scanned_page->breadcrumbs))?$scanned_page->breadcrumbs:''; ?>
-                <!-- InstanceEndEditable -->
-            </nav>
-            <div id="wdn_navigation_wrapper">
-                <nav id="navigation" role="navigation">
-                    <h3 class="wdn_list_descriptor hidden">Navigation</h3>
-                    <!-- InstanceBeginEditable name="navlinks" -->
-                    <?php echo (isset($scanned_page->navlinks))?$scanned_page->navlinks:''; ?>
-                    <!-- InstanceEndEditable -->
-                </nav>
-            </div>
-        </div>
-        <div id="wdn_content_wrapper" role="main">
-            <div id="pagetitle">
-                <!-- InstanceBeginEditable name="pagetitle" -->
-                <?php echo $scanned_page->pagetitle; ?>
-                <!-- InstanceEndEditable -->
-            </div>
-            <div id="maincontent">
-                <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-                <!-- InstanceBeginEditable name="maincontentarea" -->
-                  <?php echo $scanned_page->maincontentarea; ?>
-                  <!-- InstanceEndEditable -->
-                <div class="clear"></div>
-                <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/noscript.html'; ?>
-                <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
-            </div>
-        </div>
-        <footer id="footer">
-            <div id="footer_floater"></div>
-            <div class="footer_col" id="wdn_footer_feedback">
-                <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/feedback.html'; ?>
-            </div>
-            <div class="footer_col" id="wdn_footer_related">
-                <!-- InstanceBeginEditable name="leftcollinks" -->
-                <?php echo (isset($scanned_page->leftcollinks))?$scanned_page->leftcollinks:''; ?>
-                <!-- InstanceEndEditable --></div>
-            <div class="footer_col" id="wdn_footer_contact">
-                <!-- InstanceBeginEditable name="contactinfo" -->
-                <?php echo (isset($scanned_page->contactinfo))?$scanned_page->contactinfo:''; ?>
-                <!-- InstanceEndEditable --></div>
-            <div class="footer_col" id="wdn_footer_share">
-                <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/socialmediashare.html'; ?>
-            </div>
-            <!-- InstanceBeginEditable name="optionalfooter" -->
-            <!-- InstanceEndEditable -->
-            <div id="wdn_copyright">
-                <div>
-                    <!-- InstanceBeginEditable name="footercontent" -->
-                    <?php echo (isset($scanned_page->footercontent))?$scanned_page->footercontent:''; ?>
-                    <!-- InstanceEndEditable -->
-                    <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/wdn.html'; ?>
-                </div>
-                <?php include dirname(__DIR__) . '/../wdn/templates_3.1/includes/logos.html'; ?>
-            </div>
-        </footer>
-    </div>
-</body>
-<!-- InstanceEnd --></html>
+// Replace the #include statements
+$html = $version_four_helper->makeIncludeReplacements((string)$four_template);
+
+// echo the final HTML
+echo $html;

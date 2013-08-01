@@ -1,0 +1,147 @@
+#wdn_search {
+
+    fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        display: inline;
+    }
+
+    .wdn-nav-full {
+        display: none;
+
+        @media @bp-nav-full {
+            display: block;
+            text-align: left;
+            display: inline;
+            top: 4px;
+        }
+    }
+
+    .wdn-nav-hidden {
+        text-indent: -999em;
+        position: absolute;
+        color: fadeout(#d1ceb3, 25%);
+        .rem(12);
+        left: 5px;
+        top: 6px;
+        text-align: left;
+        &:before {
+            font-size: 1em;
+            text-indent: 999em;
+        }
+
+        @media @bp-nav-full {
+            display: none;
+        }
+    }
+
+    input[type="submit"] {
+        display: none;
+    }
+}
+
+#wdn_search_form {
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 8px;
+
+    @media @bp-nav-full {
+        display: inline;
+        position: relative;
+        float: none;
+        top: -2px;
+    }
+}
+
+#q {
+    border: 1px solid #d1ceb3;
+    padding: 5px 5px 5px 22px;
+    .rem(10);
+    line-height: 1;
+    color: darken(#d1ceb3, 45%);
+    .transition(width 0.3s ease);
+    width: 5px;
+    .sans-serif-font();
+
+    &::-webkit-input-placeholder {
+       opacity: 0;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+       opacity: 0;
+    }
+
+    &::-moz-placeholder {  /* Firefox 19+ */
+       opacity: 0; 
+    }
+
+    &:-ms-input-placeholder {  
+       opacity: 0; 
+    }
+
+    &:focus {
+        width: 200px;
+        border-color: darken(#d1ceb3, 10%);
+        outline: none;
+
+        @media @bp-nav-hidden {
+            .box-shadow(1px 1px 3px #d1ceb3);
+        }
+    }
+
+    @media @bp-nav-hidden {
+        .rem(16);
+        border-radius: 3px;
+    }
+
+    @media @bp-nav-full {
+        width: 0;
+        padding: 0;
+        border-color: fadeout(#d1ceb3, 100%);
+        background-color: fadeout(#ffffff, 100%);
+
+        &::-webkit-input-placeholder {
+           opacity: 0.8;
+           color: darken(#d1ceb3, 25%);
+           font-size: 10px;
+           padding-top: 2px;
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+           opacity: 0.8;
+           color: darken(#d1ceb3, 25%);
+           font-size: 10px;
+           padding-top: 2px;
+        }
+
+        &::-moz-placeholder {  /* Firefox 19+ */
+           opacity: 0.8; 
+           color: darken(#d1ceb3, 25%);
+           font-size: 10px;
+           padding-top: 2px;
+        }
+
+        &:-ms-input-placeholder {  
+           opacity: 0.8; 
+           color: darken(#d1ceb3, 25%);
+           font-size: 10px;
+           padding-top: 2px;
+        }
+
+        &:focus {
+            width: 150px;
+            padding: 2px 5px;
+            background-color: fadeout(#ffffff, 5%);
+        }
+    }
+
+    @media @bp-nav-max {
+
+        &:focus {
+            width: 200px;
+        }
+    }
+}

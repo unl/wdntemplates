@@ -1,0 +1,74 @@
+//micro-clearfix
+.clear-fix () {
+    
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+//http://css-tricks.com/remux-an-experimental-approach-to-responsive-web-design/
+@rem-fallback: true; // switch to include px fallback
+
+.rem (@px-value) {
+    @rem-value: ((round((@px-value / unit(@base-font-size)) * 10000000)) / 10000000);
+    
+    .result (@px-value, @rem-fallback) when (@rem-fallback = true) {
+        font-size: ~"@{px-value}px";
+        font-size: ~"@{rem-value}rem";
+    }
+    .result (@px-value, @rem-fallback) when (@rem-fallback = false) {
+        font-size: ~"@{rem-value}rem";
+    }
+    
+    .result (unit(@px-value), @rem-fallback);
+}
+
+.list-reset () {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.text-hidden () {
+    text-indent: -9999em;
+    line-height: 0;
+    float: left;
+    clip: rect(0,0,0,0);
+}
+
+.brand-gradient () {
+    background-color: @brand;
+    .background-image(~"linear-gradient(bottom, rgba(0,0,0,.15) 0%, rgba(255,255,255,0) 20%)");
+}
+
+/* 
+* Function for creating color bands 
+*/
+
+.wdn-band(@color) { // Class name to put on the band
+
+    background-color: @color;
+
+/* Removing, as we're now looking at only subtle color band options to ship with the templates.
+    // Based on color passed, we need to make light/dark presentation decisions
+    .color-selector(@color) when (lightness(@color) >= 50%) { // We have a light color
+        color: darken(@color, 65%);
+
+        a {
+            color: darken(@color, 85%);
+        }
+    }
+
+    .color-selector(@color) when (lightness(@color) < 50%) { // We have a dark color
+        color: #ffffff;
+
+        a {
+            color: lighten(@color, 85%);
+        }
+    }
+
+    .color-selector(@color);
+*/
+}

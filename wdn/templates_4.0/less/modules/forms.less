@@ -1,0 +1,50 @@
+// Default presentation of a button
+.colorize-button(@color) {
+    background-color: @color;
+    text-shadow: 0 -1px darken(@color, 15%);
+    border-bottom: 1px solid lighten(@color, 5%);
+
+    &:hover {
+        background-color: darken(@color, 10%);
+    }
+}
+
+.wdn-button {
+    text-transform: uppercase;
+    .brand-font;
+    text-align: center;
+    border-radius: 2px;
+    text-decoration: none;
+    opacity: 0.95;
+    .background-image(~"linear-gradient(bottom, rgba(0, 0, 0, .15) 0%, rgba(255, 255, 255, 0) 20%)"); // gradient overlay
+    .rem(14);
+    color: #ffffff;
+    line-height: 1;
+    padding: 0.75em 1.5em;
+    margin: 1em 0;
+    display: inline-block;
+    .transition(background-color 0.3s);
+    .colorize-button(@dark-neutral);
+    
+    a& {
+    	// needed to make the selector more specific
+    	color: #ffffff;
+    	border: none;
+    }
+}
+
+.wdn-button-triad {
+    .colorize-button(@dark-triad);
+}
+
+.wdn-button-complement {
+    .colorize-button(@dark-complement);
+}
+
+.wdn-button-brand {
+    .colorize-button(@brand);
+}
+
+.wdn-button-energetic {
+    .colorize-button(@dark-energetic);
+}
