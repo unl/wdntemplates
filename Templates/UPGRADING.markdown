@@ -10,35 +10,24 @@ Dreamweaver Upgrade Notes
 Updates to Content Regions
 --------------------------
 
-**Converting the page titles to `<h1>` elements:**
+**Contact Us Heading Changes**
 
-*Removing the old `<h1>` surrounding the titlegraphic*
+The 4.0 template includes the h3 heading for the `Contact Us` region. Any custom headings within your 
+`sharedcode/footerContactInfo.html` should be removed.
 
-- Select all files and folders EXCEPT the `Templates` folder
-- Open the Find & Replace dialog box
- - Choose to search `Source Code`
- - Search for `<h1>(.*)</h1>`
- - Replace with `$1`
- - Check the `Use regular expression` option
- - Verify replacements were made correctly!
+Upgrading From 2009 Templates
+-----------------------------
 
-*Converting the old `<h2>` to `<h1>`*
+If you haven't performed the upgrades from 3.0 to 3.1, make sure you read the
+'Updates to Content Regions' documentation here:
 
-- Select all files and folders EXCEPT the `Templates` folder
-- Open the Find & Replace dialog box
- - Choose to search `Source Code`
- - Search for `<h2>(.*)</h2>`
- - Replace with `<h1>$1</h1>`
- - Check the `Use regular expression` option
- - Verify replacements were made correctly!
+https://github.com/unl/wdntemplates/blob/3.1.16/Templates/UPGRADING.markdown
 
 Upgrading From 2006 Templates
 -----------------------------
 
-Any pages converted from 2006 templates may not have a `pagetitle` region. These pages will contain the default page title which MUST be changed. The page title is now required on every page.
+If you haven't performed the upgrades from 2.0 to 3.0, make sure you read the
+'Upgrading From 2006 Templates' documentation here:
 
-It may be best to find all these pages and move the page title (if any) from the `maincontent` region to the `pagetitle` region.
-
-The 2006 templates allowed an `<h2>` subhead/tagline to be placed within the `titlegraphic` region. This MUST be removed.
-
+https://github.com/unl/wdntemplates/blob/3.1.16/Templates/UPGRADING.markdown
 
