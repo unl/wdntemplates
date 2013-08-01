@@ -29,7 +29,7 @@
 <!-- Place optional header elements here -->
 
 <!-- TemplateEndEditable -->
-<!-- TemplateParam name="class" type="text" value="fixed debug" -->
+<!-- TemplateParam name="class" type="text" value="debug" -->
 </head>
 <body class="@@(_document['class'])@@" data-version="$HTML_VERSION$">
     <!--#include virtual="/wdn/templates_4.0/includes/skipnav.html" -->
