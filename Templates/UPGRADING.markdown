@@ -18,7 +18,7 @@ The 4.0 template includes the h3 heading for the `Contact Us` region. Any custom
 Upgrading From Older Templates
 -----------------------------
 
-If you haven't performed the upgrades from 3.0 to 3.1, or 2.0 to 3.0 make sure
+If you haven't performed the upgrades from the 2.0 (2006) or 3.0 (2009) template releases make sure
 you read the 'Updates to Content Regions' documentation here:
 
 https://github.com/unl/wdntemplates/blob/3.1.16/Templates/UPGRADING.markdown
