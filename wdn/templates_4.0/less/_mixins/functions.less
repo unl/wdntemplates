@@ -9,7 +9,7 @@
 }
 
 //http://css-tricks.com/remux-an-experimental-approach-to-responsive-web-design/
-@rem-fallback: false; // switch to include px fallback
+@rem-fallback: true; // switch to include px fallback
 
 .rem (@px-value) {
     @rem-value: ((round((@px-value / unit(@base-font-size)) * 10000000)) / 10000000);
