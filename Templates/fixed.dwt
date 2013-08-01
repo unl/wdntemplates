@@ -60,7 +60,7 @@
                 <!-- TemplateBeginEditable name="breadcrumbs" -->
                 <ul>
                     <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln" class="wdn-icon-home">UNL</a></li>
-                    <li class="selected"><a href="http://architecture.unl.edu/" title="College of Architecture">College of Architecture</a></li>
+                    <li><a href="#" title="Site Title">Site Title</a></li>
                     <li>Home</li>
                 </ul>
                 <!-- TemplateEndEditable -->
@@ -85,6 +85,7 @@
                 <div class="wdn-inner-wrapper">
                     <div id="pagetitle">
                         <!-- TemplateBeginEditable name="pagetitle" -->
+                        <h1>Please Title Your Page Here</h1>
                         <!-- TemplateEndEditable -->
                     </div>
                 </div>
@@ -92,7 +93,11 @@
             <div id="maincontent" class="wdn-main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- TemplateBeginEditable name="maincontentarea" -->
-                
+                <div class="wdn-band">
+                    <div class="wdn-inner-wrapper">
+                        <p>Impress your audience with awesome content!</p>
+                    </div>
+                </div>
                 <!-- TemplateEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>

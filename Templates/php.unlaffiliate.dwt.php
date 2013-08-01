@@ -95,7 +95,11 @@
             <div id="maincontent" class="wdn-main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- TemplateBeginEditable name="maincontentarea" -->
-                
+                <div class="wdn-band">
+                    <div class="wdn-inner-wrapper">
+                        <p>Impress your audience with awesome content!</p>
+                    </div>
+                </div>
                 <!-- TemplateEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
