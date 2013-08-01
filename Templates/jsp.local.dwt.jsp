@@ -6,7 +6,7 @@
 <!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
 <!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!--<![endif]-->
 <head>
-<jsp:include page="/wdn/templates_3.1/includes/metanfavico.html" />
+<jsp:include page="/wdn/templates_4.0/includes/metanfavico.html" />
 <!--
     Membership and regular participation in the UNL Web Developer Network
     is required to use the UNL templates. Visit the WDN site at 
@@ -21,7 +21,7 @@
     
     $Id$
 -->
-<jsp:include page="/wdn/templates_3.1/includes/scriptsandstyles_local.html" />
+<jsp:include page="/wdn/templates_4.0/includes/scriptsandstyles_local.html" />
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>Use a descriptive page title | Optional Site Title (use for context) | University of Nebraska&ndash;Lincoln</title>
 <!-- TemplateEndEditable -->
@@ -32,83 +32,109 @@
 <!-- TemplateParam name="class" type="text" value="fixed" -->
 </head>
 <body class="@@(_document['class'])@@" data-version="$HTML_VERSION$">
-    <nav class="skipnav" role="navigation">
-        <a class="skipnav" href="#maincontent">Skip Navigation</a>
-    </nav>
+    <jsp:include page="/wdn/templates_4.0/includes/skipnav.html" />
     <div id="wdn_wrapper">
-        <header id="header" role="banner">
-            <a id="logo" href="http://www.unl.edu/" title="UNL website">UNL</a>
-            <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
-            <span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" -->The Title of My Site<!-- TemplateEndEditable --></span>
-            <jsp:include page="/wdn/templates_3.1/includes/idm.html" />
-            <jsp:include page="/wdn/templates_3.1/includes/wdnTools.html" />
+        <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" />
+        <jsp:include page="/wdn/templates_4.0/includes/noscript-padding.html" />
+        <header id="header" role="banner" class="wdn-content-slide wdn-band">
+            <jsp:include page="/wdn/templates_4.0/includes/wdnResources.html" />
+            <div class="wdn-inner-wrapper">
+                <jsp:include page="/wdn/templates_4.0/includes/logo.html" />
+                <div id="wdn_resources">
+                    <jsp:include page="/wdn/templates_4.0/includes/idm.html" />
+                    <jsp:include page="/wdn/templates_4.0/includes/wdnTools.html" />
+                </div>
+                <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
+            </div>
+            <jsp:include page="/wdn/templates_4.0/includes/apps.html" />
+            <div class="wdn-inner-wrapper">
+                <div id="wdn_site_title">
+                    <span><!-- TemplateBeginEditable name="titlegraphic" -->The Title of My Site<!-- TemplateEndEditable --></span>
+                </div>
+            </div>
         </header>
-        <div id="wdn_navigation_bar" role="navigation">
-            <nav id="breadcrumbs">
+        <div id="wdn_navigation_bar" role="navigation" class="wdn-band">
+            <nav id="breadcrumbs" class="wdn-inner-wrapper">
                 <!-- WDN: see glossary item 'breadcrumbs' -->
-                <h3 class="wdn_list_descriptor hidden">Breadcrumbs</h3>
+                <h3 class="wdn_list_descriptor wdn-text-hidden">Breadcrumbs</h3>
                 <!-- TemplateBeginEditable name="breadcrumbs" -->
                 <ul>
-                    <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
-                    <li class="selected"><a href="#" title="Site Title">Site Title</a></li>
-                    <li>Page Title</li>
+                    <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln" class="wdn-icon-home">UNL</a></li>
+                    <li class="selected"><a href="http://architecture.unl.edu/" title="College of Architecture">College of Architecture</a></li>
+                    <li>Home</li>
                 </ul>
                 <!-- TemplateEndEditable -->
             </nav>
             <div id="wdn_navigation_wrapper">
-                <nav id="navigation" role="navigation">
-                    <h3 class="wdn_list_descriptor hidden">Navigation</h3>
+                <nav id="navigation" role="navigation" class="wdn-band">
+                    <h3 class="wdn_list_descriptor wdn-text-hidden">Navigation</h3>
                     <!-- TemplateBeginEditable name="navlinks" -->
-                    <%@ include file="../sharedcode/navigation.html" %>
+                    <jsp:include page="../sharedcode/navigation.html" />
                     <!-- TemplateEndEditable -->
+                    <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
                 </nav>
             </div>
         </div>
-        <div id="wdn_content_wrapper" role="main">
-            <div id="pagetitle">
-                <!-- TemplateBeginEditable name="pagetitle" -->
-                <h1>Please Title Your Page Here</h1>
-                <!-- TemplateEndEditable -->
+        <!-- Navigation Trigger -->
+        <div class="wdn-menu-trigger wdn-content-slide">
+            <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
+        </div>
+        <!-- End navigation trigger -->
+        <div id="wdn_content_wrapper" role="main" class="wdn-content-slide">
+            <div class="wdn-band">
+                <div class="wdn-inner-wrapper">
+                    <div id="pagetitle">
+                        <!-- TemplateBeginEditable name="pagetitle" -->
+                        <!-- TemplateEndEditable -->
+                    </div>
+                </div>
             </div>
-            <div id="maincontent">
+            <div id="maincontent" class="wdn-main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- TemplateBeginEditable name="maincontentarea" -->
-                <h2>This is a blank page</h2>
-                <p>Impress your audience with awesome content!</p> 
+                
                 <!-- TemplateEndEditable -->
-                <div class="clear"></div>
-                <jsp:include page="/wdn/templates_3.1/includes/noscript.html" />
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
         </div>
-        <footer id="footer">
-            <div id="footer_floater"></div>
-            <div class="footer_col" id="wdn_footer_feedback">
-                <jsp:include page="/wdn/templates_3.1/includes/feedback.html" />
+        <div class="wdn-band wdn-content-slide" id="wdn_optional_footer">
+            <div class="wdn-inner-wrapper">
+                <!-- TemplateBeginEditable name="optionalfooter" -->
+                <!-- TemplateEndEditable -->
             </div>
-            <div class="footer_col" id="wdn_footer_related">
-                <!-- TemplateBeginEditable name="leftcollinks" -->
-                <%@ include file="../sharedcode/relatedLinks.html" %>
-                <!-- TemplateEndEditable --></div>
-            <div class="footer_col" id="wdn_footer_contact">
-                <!-- TemplateBeginEditable name="contactinfo" -->
-                <%@ include file="../sharedcode/footerContactInfo.html" %>
-                <!-- TemplateEndEditable --></div>
-            <div class="footer_col" id="wdn_footer_share">
-                <jsp:include page="/wdn/templates_3.1/includes/socialmediashare.html" />
-            </div>
-            <!-- TemplateBeginEditable name="optionalfooter" -->
-            <!-- TemplateEndEditable -->
-            <div id="wdn_copyright">
-                <div>
-                    <!-- TemplateBeginEditable name="footercontent" -->
-                    <%@ include file="../sharedcode/footer.html" %>
+        </div>
+        <footer id="footer" role="contentinfo" class="wdn-content-slide">
+            <div class="wdn-band" id="wdn_footer_related">
+                <div class="wdn-inner-wrapper">
+                    <!-- TemplateBeginEditable name="leftcollinks" -->
+                    <jsp:include page="../sharedcode/relatedLinks.html" />
                     <!-- TemplateEndEditable -->
-                    <jsp:include page="/wdn/templates_3.1/includes/wdn.html" />
                 </div>
-                <jsp:include page="/wdn/templates_3.1/includes/logos.html" />
             </div>
+            <div class="wdn-band">
+                <div class="wdn-inner-wrapper">
+                    <div class="footer_col" id="wdn_footer_contact">
+                        <h3>Contact Us</h3>
+                        <div class="wdn-contact-wrapper">
+                            <!-- TemplateBeginEditable name="contactinfo" -->
+                            <jsp:include page="../sharedcode/footerContactInfo.html" />
+                            <!-- TemplateEndEditable -->
+                        </div>
+                    </div>
+                    <div id="wdn_copyright">
+                        <div class="wdn-footer-text">
+                            <!-- TemplateBeginEditable name="footercontent" -->
+                            <jsp:include page="../sharedcode/footer.html" />
+                            <!-- TemplateEndEditable -->
+                            <jsp:include page="/wdn/templates_4.0/includes/wdn.html" />
+                        </div>
+                    <jsp:include page="/wdn/templates_4.0/includes/logos.html" />
+                    </div>
+                </div>
+            </div>
+            <jsp:include page="/wdn/templates_4.0/includes/footer_floater.html" />
         </footer>
+        <jsp:include page="/wdn/templates_4.0/includes/noscript.html" />
     </div>
 </body>
 </html>
