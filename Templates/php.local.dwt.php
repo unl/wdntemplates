@@ -69,7 +69,7 @@
                 <nav id="navigation" role="navigation" class="wdn-band">
                     <h3 class="wdn_list_descriptor wdn-text-hidden">Navigation</h3>
                     <!-- TemplateBeginEditable name="navlinks" -->
-                    <?php virtual("sharedcode/navigation.html"); ?>
+                    <?php virtual("../sharedcode/navigation.html"); ?>
                     <!-- TemplateEndEditable -->
                     <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
                 </nav>
@@ -107,7 +107,7 @@
             <div class="wdn-band" id="wdn_footer_related">
                 <div class="wdn-inner-wrapper">
                     <!-- TemplateBeginEditable name="leftcollinks" -->
-                    <?php virtual("sharedcode/relatedLinks.html"); ?>
+                    <?php virtual("../sharedcode/relatedLinks.html"); ?>
                     <!-- TemplateEndEditable -->
                 </div>
             </div>
@@ -117,14 +117,14 @@
                         <h3>Contact Us</h3>
                         <div class="wdn-contact-wrapper">
                             <!-- TemplateBeginEditable name="contactinfo" -->
-                            <?php virtual("sharedcode/footerContactInfo.html"); ?>
+                            <?php virtual("../sharedcode/footerContactInfo.html"); ?>
                             <!-- TemplateEndEditable -->
                         </div>
                     </div>
                     <div id="wdn_copyright">
                         <div class="wdn-footer-text">
                             <!-- TemplateBeginEditable name="footercontent" -->
-                            <?php virtual("sharedcode/footer.html"); ?>
+                            <?php virtual("../sharedcode/footer.html"); ?>
                             <!-- TemplateEndEditable -->
                             <?php virtual("/wdn/templates_4.0/includes/wdn.html"); ?>
                         </div>
