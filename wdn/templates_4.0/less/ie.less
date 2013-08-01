@@ -1,6 +1,17 @@
+/*
+* FUNCTIONS
+*/
+.ie8-width () {
+    min-width: 980px;
+}
+
+/*
+* BASE
+*/
+
 .ie8 {
-	position: relative;
-	min-width: 980px;
+    position: relative;
+    .ie8-width;
 }
 
 /*
@@ -15,4 +26,11 @@
     #header {
         background: data-uri('../images/stripes.png') repeat-x 0 -5px;
     }
+}
+
+/*
+* FOOTER
+*/
+#footer .wdn-inner-wrapper {
+    .ie8-width;
 }
