@@ -30,7 +30,7 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
 </head>
-<body class="fixed debug" data-version="4.0">
+<body class="fixed debug terminal" data-version="4.0">
     <!--#include virtual="/wdn/templates_4.0/includes/skipnav.html" -->
     <div id="wdn_wrapper">
         <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" />
@@ -96,86 +96,7 @@
             <div id="maincontent" class="wdn-main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                <h1>We're Debugging Out</h1>
-                <div class="wdn-band">
-                    <div class="wdn-inner-wrapper">
-                        <h2>This is a heading</h2>
-                        <a href="">This is a regular link</a>
-                    </div>
-                </div>
-                <div class="wdn-band">
-                    <div class="wdn-inner-wrapper">
-                        <h2>This is a heading</h2>
-                        <p>This is a paragraph test.</p>
-                        <a href="">This is a link</a>
-                        <a href="asdf" class="wdn-button">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-energetic">Explore your options</a>
-                    </div>
-                </div>
-                <div class="wdn-band wdn-light-neutral-band">
-                    <div class="wdn-inner-wrapper">
-                        <h2>This is a heading</h2>
-                        <p>This is a paragraph test.</p>
-                        <a href="">This is a link</a>
-                        <a href="asdf" class="wdn-button">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-energetic">Explore your options</a>
-                    </div>
-                </div>
-                <div class="wdn-band wdn-light-triad-band">
-                    <div class="wdn-inner-wrapper">
-                        <h2>This is a heading</h2>
-                        <p>This is a paragraph test.</p>
-                        <a href="">This is a link</a>
-                        <a href="asdf" class="wdn-button">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-energetic">Explore your options</a>
-                    </div>
-                </div>
-                <div class="wdn-band">
-                    <div class="wdn-inner-wrapper">
-                        <h2>This is a heading</h2>
-                        <p>This is a paragraph test.</p>
-                        <a href="">This is a link</a>
-                        <a href="asdf" class="wdn-button">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-energetic">Explore your options</a>
-                    </div>
-                </div>
-                <div class="wdn-band wdn-light-complement-band">
-                    <div class="wdn-inner-wrapper">
-                        <h2>This is a heading</h2>
-                        <p>This is a paragraph test.</p>
-                        <a href="">This is a link</a>
-                        <a href="asdf" class="wdn-button">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-energetic">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-energetic">Explore your options</a>
-                    </div>
-                </div>
-                <div class="wdn-band">
-                    <div class="wdn-inner-wrapper">
-                        <h2>This is a heading</h2>
-                        <p>This is a paragraph test.</p>
-                        <a href="">This is a link</a>
-                        <a href="asdf" class="wdn-button">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-triad">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-complement">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-brand">Explore your options</a>
-                        <a href="asdf" class="wdn-button wdn-button-energetic">Explore your options</a>
-                    </div>
-                </div>
+                Content goes here
                 <!-- InstanceEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
