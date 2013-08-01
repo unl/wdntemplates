@@ -63,8 +63,8 @@
 		border: none;
 		
 		&.date {
+			.brand-font();
 			text-align:center;
-			color:#444;
 			text-transform:uppercase;
 			vertical-align:top;
 			line-height: 1;
@@ -78,11 +78,15 @@
 		}
 		
 		.day {
-			font-size:1.7em;
+			font-size:1.4em;
+			line-height: 1.1;
 			display:block;
 			padding-right:5px;
+			color:#444;
 		}
-		
+		.month, .time, .year {
+			color:fadeout(@dark-neutral, 35%);
+		}
 		.time, .year {
 			display:block;
 			font-size:0.8em;
