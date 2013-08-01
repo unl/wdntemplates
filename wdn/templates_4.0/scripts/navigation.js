@@ -88,21 +88,26 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
     };
     
     var linkSiteTitle = function() {
-    	var $siteTitle = $('#wdn_site_title > span');
+    	var $siteTitle = $('#wdn_site_title > span'), $link;
     	
     	// check if the link already exists
         if (!siteHomepage || $siteTitle.children('a').length) {
             return;
         }
         
-        // remove excess space text nodes see #371
-        $siteTitle.contents().filter(function() {
-        	return this.nodeType == 3 && /^\s*$/.test(this.nodeValue);
-        }).remove();
+        $link = $siteTitle.children().not('span');
+        if (!$link.length) {
+        	// remove excess space text nodes see #371
+            $siteTitle.contents().filter(function() {
+            	return this.nodeType == 3 && /^\s*$/.test(this.nodeValue);
+            }).remove();
+            $link = $siteTitle.contents().filter(function() {
+            	return this.nodeType == 3;
+            });
+        }
+        
         // create the link using whatever the Homepage is set to
-        $siteTitle.contents().filter(function() {
-        	return this.nodeType == 3;
-        }).first().wrap($('<a/>', {href : siteHomepage}));
+        $link.wrap($('<a/>', {href : siteHomepage}));
     };
     
     var fixPresentation = function() {
