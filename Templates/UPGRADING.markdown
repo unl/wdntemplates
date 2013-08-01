@@ -1,5 +1,5 @@
-Dreamweaver Upgrade Notes
--------------------------
+Dreamweaver Upgrade Notes for 3.1 to 4.0
+----------------------------------------
 
 - Make a backup of your entire site before making any modifications!
 - Download the latest dwts from [http://wdn.unl.edu/download/] and place them within your local `Templates` directory.
@@ -15,19 +15,10 @@ Updates to Content Regions
 The 4.0 template includes the h3 heading for the `Contact Us` region. Any custom headings within your 
 `sharedcode/footerContactInfo.html` should be removed.
 
-Upgrading From 2009 Templates
+Upgrading From Older Templates
 -----------------------------
 
-If you haven't performed the upgrades from 3.0 to 3.1, make sure you read the
-'Updates to Content Regions' documentation here:
+If you haven't performed the upgrades from 3.0 to 3.1, or 2.0 to 3.0 make sure
+you read the 'Updates to Content Regions' documentation here:
 
 https://github.com/unl/wdntemplates/blob/3.1.16/Templates/UPGRADING.markdown
-
-Upgrading From 2006 Templates
------------------------------
-
-If you haven't performed the upgrades from 2.0 to 3.0, make sure you read the
-'Upgrading From 2006 Templates' documentation here:
-
-https://github.com/unl/wdntemplates/blob/3.1.16/Templates/UPGRADING.markdown
-
