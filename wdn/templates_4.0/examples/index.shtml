@@ -72,6 +72,7 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
 });
 --></script>
 <style type="text/css">
+#maincontent {padding-bottom:1rem;}
 #example.jqueryui #sortable li,
 #example.jqueryui #selectable li {
     margin: 0 3px 3px 3px; 
@@ -86,6 +87,18 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
 #example.jqueryui .ui-selected { background: #ac0302; }
 
 .ui-effects-transfer { border: 2px dotted gray; } 
+
+
+#example [class^="wdn-col"] {
+    margin:4px 0;
+}
+#example [class^="wdn-col"] {
+    text-align:center;
+    background-clip:content-box;
+    background-color:rgba(167, 206, 229, 0.5);
+    margin-bottom:1rem !important;
+}
+
 </style>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="fixed debug" -->
