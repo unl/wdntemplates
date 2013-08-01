@@ -16,7 +16,7 @@ define(['wdn', 'require'], function(WDN, require) {
 			}
 			
 			var done = function() {
-				WDN.jQuery(defaultSel).addClass('flexslider').flexslider(WDN.getPluginParams('carousel', 'defaults'));
+				WDN.jQuery(defaultSel).addClass('flexslider').flexslider(WDN.getPluginParam('carousel', 'defaults'));
 				initd = true;
 				
 				if (callback) {
