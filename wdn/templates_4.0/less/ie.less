@@ -35,6 +35,20 @@
     .wdn-icon-menu {
         display: none;
     }
+
+    #navigation {
+
+        > ul {
+
+            > li {
+                border-right: 1px solid #DE5959; // We have to redeclare all values as IE8 chokes on the original because of the rgba
+            }
+
+            li {
+                border-bottom: 1px solid #D84646;
+            }
+        }
+    }
 }
 
 /*
