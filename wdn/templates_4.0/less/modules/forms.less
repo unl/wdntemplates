@@ -2,28 +2,29 @@
 .colorize-button(@color) {
     background-color: @color;
     border-bottom: 1px solid lighten(@color, 5%);
+    .box-shadow(0 2px 0px fadeout(#000000, 70%), 0 2px 0px @color);
+    text-shadow: 1px 1px 1px darken(@color, 25%);
 
     &:hover {
         background-color: darken(@color, 10%);
+        .box-shadow(0 2px 0px fadeout(#000000, 50%), 0 2px 0px darken(@color, 10%));
     }
 }
 
 .wdn-button {
-    text-transform: uppercase;
-    .brand-font;
+    .heading-font;
     text-align: center;
-    border-radius: 2px;
+    border-radius: 3px;
     text-decoration: none;
     opacity: 0.95;
-    .background-image(~"linear-gradient(bottom, rgba(0, 0, 0, .15) 0%, rgba(255, 255, 255, 0) 20%)"); // gradient overlay
     .rem(14);
     color: #ffffff;
     line-height: 1;
-    padding: 0.75em 1.5em;
+    padding: 0.5em 1.5em;
     margin: 1em 0;
     display: inline-block;
     .transition(background-color 0.3s);
-    .colorize-button(@dark-neutral);
+    .colorize-button(@neutral);
     
     a& {
     	// needed to make the selector more specific
@@ -33,11 +34,11 @@
 }
 
 .wdn-button-triad {
-    .colorize-button(@dark-triad);
+    .colorize-button(@triad);
 }
 
 .wdn-button-complement {
-    .colorize-button(@dark-complement);
+    .colorize-button(@complement);
 }
 
 .wdn-button-brand {
@@ -45,5 +46,5 @@
 }
 
 .wdn-button-energetic {
-    .colorize-button(@dark-energetic);
+    //.colorize-button(@energetic);
 }
