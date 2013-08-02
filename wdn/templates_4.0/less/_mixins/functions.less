@@ -43,6 +43,65 @@
     .background-image(~"linear-gradient(bottom, rgba(0,0,0,.15) 0%, rgba(255,255,255,0) 20%)");
 }
 
+/*
+* Experimental flexbox support
+* http://elikirk.com/2013/06/05/flexbox-css-cross-browser-issues/
+*/
+.flexbox() {
+    /* Legacy */
+    display: -moz-box;
+    display: -webkit-box;
+ 
+    /* Hybrid */
+    display: -ms-flexbox;
+ 
+    /* Modern */
+    display: -webkit-flex;
+    display: flex;
+}
+
+// Flex direction gated mixins
+
+    .flex-direction(@value) when (@value = row) {
+        -webkit-box-orient: horizontal;
+        -moz-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -moz-box-direction: normal;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+    }
+
+    .flex-direction(@value) when (@value = row-reverse) {
+        -webkit-box-orient: horizontal;
+        -moz-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -moz-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+        -webkit-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+    }
+
+    .flex-direction(@value) when (@value = column) {
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -moz-box-direction: normal;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .flex-direction(@value) when (@value = column-reverse) {
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -moz-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+        -webkit-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+    }
+
 /* 
 * Function for creating color bands 
 */
