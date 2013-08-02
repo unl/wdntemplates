@@ -94,7 +94,42 @@
             <div id="maincontent" class="wdn-main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                Content goes here
+                <div class="wdn-band">
+                    <div class="wdn-inner-wrapper">
+                        <a href="#" class="wdn-button">This is my button</a>
+                        <a href="#" class="wdn-button wdn-button-triad">This is my button</a> 
+                        <a href="#" class="wdn-button wdn-button-complement">This is my button</a>
+                        <a href="#" class="wdn-button wdn-button-brand">This is my button</a> 
+                        <a href="#" class="wdn-button wdn-button-energetic">This is my button</a>
+                    </div>
+                </div>
+                <div class="wdn-band wdn-light-triad-band">
+                    <div class="wdn-inner-wrapper">
+                        <a href="#" class="wdn-button">This is my button</a> 
+                        <a href="#" class="wdn-button wdn-button-triad">This is my button</a> 
+                        <a href="#" class="wdn-button wdn-button-complement">This is my button</a> 
+                        <a href="#" class="wdn-button wdn-button-brand">This is my button</a> 
+                        <a href="#" class="wdn-button wdn-button-energetic">This is my button</a>  
+                    </div>
+                </div>
+                <div class="wdn-band wdn-light-complement-band ">
+                    <div class="wdn-inner-wrapper">
+                        <a href="#" class="wdn-button">This is my button</a> 
+                        <a href="#" class="wdn-button wdn-button-triad">This is my button</a> 
+                        <a href="#" class="wdn-button wdn-button-complement">This is my button</a> 
+                        <a href="#" class="wdn-button wdn-button-brand">This is my button</a> 
+                        <a href="#" class="wdn-button wdn-button-energetic">This is my button</a>  
+                    </div>
+                </div>
+                <div class="wdn-band wdn-light-neutral-band ">
+                    <div class="wdn-inner-wrapper">
+                        <a href="#" class="wdn-button">This is my button</a> 
+                        <a href="#" class="wdn-button wdn-button-triad">This is my button</a> 
+                        <a href="#" class="wdn-button wdn-button-complement">This is my button</a> 
+                        <a href="#" class="wdn-button wdn-button-brand">This is my button</a> 
+                        <a href="#" class="wdn-button wdn-button-energetic">This is my button</a>  
+                    </div>
+                </div>
                 <!-- InstanceEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
