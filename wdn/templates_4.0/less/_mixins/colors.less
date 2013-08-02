@@ -4,7 +4,7 @@
 @base-spinner: #2687a0;
 
 // A few neutral shades, light tan and dark brown
-@neutral: #e16e28;
+@neutral: #4a3b13;
 @light-neutral: lighten(@neutral, 10%);
 @dark-neutral: darken(@neutral, 10%);
 
@@ -22,15 +22,16 @@
 @dark-complement: darken(@complement, 10%);
 
 // Color complementary, in the orange family
-@light-energetic: #F8e3d2;
-@dark-energetic: #c15e22;
+@energetic: #e16e28;
+@light-energetic: lighten(@neutral, 10%);
+@dark-energetic: darken(@neutral, 10%);
 
 // 
 // Assign base colors
 //
 
     // Base text color
-    @base-text: #352e01;
+    @base-text: @neutral;
 
     // Warnings. Since Red is our brand color, we're using a brighter orange
     @warning: #FFA500;
