@@ -1,19 +1,45 @@
 @import "../_mixins/all.less";
 
+.notice-color(@color, @border) when (lightness(@color) >= 50%) {
+    background: @color;
+    border-color: @border;
+    .close {
+        color: @dark-neutral;
+    }
+    .message {
+        h4, p {
+            color: @dark-neutral;
+        }
+    } 
+}
+
+.notice-color(@color, @border) when (lightness(@color) < 50%) {
+    background: @color;
+    border-color: @border;
+    .close {
+        color: #fff;
+    }
+    .message {
+        h4, p {
+            color: #fff;
+        }
+    } 
+}
+
 .wdn_notice {
     background: @light-triad;
     border: 1px solid @dark-triad;
-    padding: 10px; 
+    padding: 16px; 
     margin-bottom: 10px;
     border-radius: 5px;
 
     .message {
         position: relative;
         padding: 0 0 0 60px;
-        min-height: 60px;
-        color: darken(@light-triad, 65%);
+        
+        h4, p {color: @dark-neutral;}
 
-        h4, .heading {
+        h4 {
         	font-size: 1.3333em;
             font-weight: bold;
             padding: 0;
@@ -31,7 +57,8 @@
             height:50px;
             .rem(42);
             line-height: normal;
-            text-shadow:0px 1px 0px lighten(darken(@light-triad, 65%), 15%), 0px -1px 0px darken(darken(@light-triad, 65%), 10%);
+            color: darken(@light-triad, 15%);
+            text-shadow:0px 1px 0px lighten(@light-triad, 20%), 0px -1px 0px darken(@dark-triad, 10%);
             text-align: center;
             font-family: fontello;
             content: "\e807";
@@ -39,50 +66,33 @@
     }
 
     &.affirm {
-        background: lighten(@dark-complement, 8%);
-        border-color: @dark-complement;
-        color: #fff;
-
-        .message {
-            color: #FFF;
-
-            &:before {
-                color:@dark-complement;
-                text-shadow:0px 1px 0px lighten(@dark-complement, 15%), 0px -1px 0px darken(@dark-complement, 10%);
-                content: "\e80b";
-            }
+        .notice-color(@dark-complement, darken(@dark-complement, 10%));
+        
+        .message:before {
+            color: darken(@dark-complement,4%);
+            text-shadow:0px 1px 0px lighten(@dark-complement, 15%), 0px -1px 0px darken(@dark-complement, 10%);
+            content: "\e80b";
         }
     }
 
     &.negate {
-        background: @brand;
-        border-color: darken(@brand, 30%);
-        color: #fff;
-
-        .message {
-            color: #FFF;
-
-            &:before {
-                color:darken(@brand, 10%);
-                text-shadow:0px 1px 0px lighten(@brand, 15%), 0px -1px 0px darken(@brand, 20%);
-                content: "\e805";
-            }
+        .notice-color (@brand, darken(@brand, 10%));
+        
+        .message:before {
+            color:darken(@brand, 10%);
+            text-shadow:0px 1px 0px lighten(@brand, 15%), 0px -1px 0px darken(@brand, 20%);
+            content: "\e805";
         }
     }
 
     &.alert {
-        background: #fff600;
-        border-color: lighten(@warning, 20%);
+        .notice-color (#fff600, lighten(@warning, 20%));
         
-        .message {
-            color: @dark-neutral;
-        
-            &:before {
-                color:@warning;
-                text-shadow:0px 1px 0px lighten(@warning, 40%), 0px -1px 0px darken(@warning, 30%);
-                content: "\e806";
-            }   
-        }
+        .message:before {
+            color:@warning;
+            text-shadow:0px 1px 0px lighten(@warning, 40%), 0px -1px 0px darken(@warning, 30%);
+            content: "\e806";
+        }   
     }
 
     .close, .minimize, .maximize {
