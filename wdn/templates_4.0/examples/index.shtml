@@ -187,6 +187,7 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
                         <li><a href="notice.html">Notice</a></li>
                         <li><a href="layouts.html">Page Layouts</a></li>
                         <li><a href="pagination.html">Pagination</a> (<a href="http://www1.unl.edu/wdn/wiki/Pagination" class="external">wiki documentation</a>)</li>
+                        <li><a href="quote.html">Quotes (individual band)</a></li>
                         <li><a href="randomizer.html">Randomizer</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Random_Div_Display" class="external">wiki documentation</a>)</li>
                         <li><a href="rss_widget.html">RSS Feed Widget</a></li>
                         <li><a href="table.html">Responsive Data Table</a></li>
