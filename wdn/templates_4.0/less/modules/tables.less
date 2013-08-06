@@ -24,8 +24,8 @@ table.primary {
 table.cool {
     /* Cool Table */
     tr th {
-        color: darken(@light-triad, 70%);
-        background: fadeout(@light-triad, 20%);
+        color: #fff;
+        background: fadeout(@triad, 20%);
 
         a {
             color: #fff;
@@ -44,36 +44,11 @@ table.cool {
     }
 }
 
-table.dark-cool {
-    /* Dark Cool Table */
-    tr th {
-        color: #fff;
-        background:fadeout(@dark-triad, 20%);
-        
-        a {
-            color: #fff;
-        }
-    }
-
-    tbody {
-        td {
-            border-color:@dark-triad;
-        }
-    }
-    
-    @media @under-bp2 {
-		&.wdn_responsive_table tbody td:first-child {
-            color: #fff;
-            background:fadeout(@dark-triad, 20%);
-        }
-    }
-}
-
 table.soothing {
     /* Soothing Table */
     tr th {
         color:#fff;
-        background: fadeout(@dark-complement, 20%);
+        background: fadeout(@complement, 20%);
         
         a {
             color: #fff;
@@ -95,7 +70,7 @@ table.soothing {
 table.neutral {
     /* Neutral Table */
     tr th {
-        color: @dark-neutral;
+        color: #fff;
         background: fadeout(darken(@light-neutral,14%),20%);
 
         a {
@@ -104,7 +79,7 @@ table.neutral {
     }
 
     tbody td {
-        border-color: darken(@light-neutral, 20%);
+        border-color: darken(@light-neutral, 10%);
     }
     
     @media @under-bp2 {
@@ -115,34 +90,11 @@ table.neutral {
     }
 }
 
-table.dark-neutral {
-    /* Dark Neutral Table */
-    tr th {
-        color: #fff;
-        background: fadeout(@dark-neutral, 10%);
-
-        a {
-            color: #fff;
-        }
-    }
-
-    tbody td {
-        border-color:@dark-neutral;
-    }
-    
-    @media @under-bp2 {
-		&.wdn_responsive_table tbody td:first-child {
-            color: #fff;
-            background: fadeout(@dark-neutral, 10%);
-        }
-    }
-}
-
 table.energetic {
     /* Energetic Table */
     tr th {
-        color: #000;
-        background: fadeout(@dark-energetic, 20%);
+        color: #fff;
+        background: fadeout(@energetic, 20%);
 
         a {
             color: #fff;
@@ -150,7 +102,7 @@ table.energetic {
     }
 
     tbody td {
-        border-color:@dark-energetic;
+        border-color: darken(@energetic, 10%);
     }
     
     @media @under-bp2 {
