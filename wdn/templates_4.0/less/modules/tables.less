@@ -71,7 +71,7 @@ table.neutral {
     /* Neutral Table */
     tr th {
         color: #fff;
-        background: fadeout(darken(@light-neutral,14%),20%);
+        background: fadeout(darken(@page-background,14%),20%);
 
         a {
             color: #fff;
@@ -79,13 +79,13 @@ table.neutral {
     }
 
     tbody td {
-        border-color: darken(@light-neutral, 10%);
+        border-color: darken(@page-background, 10%);
     }
     
     @media @under-bp2 {
 		&.wdn_responsive_table tbody td:first-child {
             color: @dark-neutral;
-            background: fadeout(darken(@light-neutral,14%),20%);
+            background: fadeout(darken(@page-background,14%),20%);
         }
     }
 }
