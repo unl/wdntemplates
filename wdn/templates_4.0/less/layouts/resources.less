@@ -1,7 +1,6 @@
 /*
 * WDN Resources Wrapper
 */
-@resource-color: #f8f5ec;
 
 .wdn-resource-app-trigger {
     display: none;
@@ -39,21 +38,21 @@
 
     .wdn-resource-label {
         float: left;
-        background-color: @resource-color;
+        background-color: @page-background;
         padding: 0.5em;
         .rem(10);
 
         &:nth-of-type(2n) {
-            background-color: darken(@resource-color, 3%);
+            background-color: darken(@page-background, 3%);
         }
 
         &:nth-of-type(3n) {
-            background-color: darken(@resource-color, 7%);
+            background-color: darken(@page-background, 7%);
         }
 
         [class^=wdn-icon] {
             text-decoration: none;
-            color: fadeout(darken(@resource-color, 70%), 10%);
+            color: fadeout(darken(@page-background, 70%), 10%);
             cursor: pointer;
 
             &:before {
@@ -61,7 +60,7 @@
             }
 
             &:hover {
-                color: fadeout(darken(@resource-color, 70%), 10%);
+                color: fadeout(darken(@page-background, 70%), 10%);
             }
         }
     }
