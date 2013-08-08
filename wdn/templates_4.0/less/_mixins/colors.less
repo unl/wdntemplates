@@ -8,8 +8,8 @@
 
 // A few neutral shades, light tan and dark brown
 @neutral: #4a3b13;
-@light-neutral: lighten(@neutral, 10%);
-@dark-neutral: darken(@neutral, 10%);
+@light-neutral: lighten(desaturate(@neutral, 15%), 5%);
+@dark-neutral: darken(mix(@neutral, #666666, 60%), 5%);
 
     // To be used for subtle color variations. Works OK on most banded colors
     @faded-neutral: fadeout(#3b3816, 95%);
@@ -17,17 +17,17 @@
 // Color triads, in the blue family
 @triad: @base-spinner;
 @light-triad: lighten(@triad, 10%);
-@dark-triad: darken(@triad, 10%);
+@dark-triad: mix(@triad, #666666, 45%);
 
 // Color complementary, in the green family
 @complement: spin(@base-spinner, -50%);
 @light-complement: lighten(@complement, 10%);
-@dark-complement: darken(@complement, 10%);
+@dark-complement: mix(@complement, #666666, 45%);
 
 // Color complementary, in the orange family
 @energetic: #e37533;
-@light-energetic: lighten(@neutral, 10%);
-@dark-energetic: darken(@neutral, 10%);
+@light-energetic: lighten(@energetic, 10%);
+@dark-energetic: mix(@energetic, #666666, 55%);
 
 // 
 // Assign base colors
