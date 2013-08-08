@@ -21,7 +21,7 @@
     
     $Id: fixed.dwt | 252c2891a48c70db689be6d897d4f34768b8258a | Thu Aug 1 15:08:19 2013 -0500 | Kevin Abel  $
 -->
-<!--#include virtual="/wdn/templates_4.0/includes/scriptsandstyles.html" -->
+<!--#include virtual="/wdn/templates_4.0/includes/scriptsandstyles_local.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>WDN Template Examples | University of Nebraska&ndash;Lincoln</title>
 <!-- InstanceEndEditable -->
@@ -176,6 +176,7 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
                     <p>Choose an example to view:</p>
                     <ul id="examples">
                         <li><a href="audioplayer.html">Audio player</a> (mediahub.unl.edu)</li>
+                        <li><a href="buttons.html">Buttons</a></li>
                         <li><a href="carousel.html">Carousel</a> (<a href="http://www1.unl.edu/wdn/wiki/Carousel" class="external">wiki documentation</a>)</li>
                         <li><a href="colorbox.html">Colorbox (Modal Box)</a></li>
                         <li><a href="events.html">Events</a> (<a href="http://www1.unl.edu/wdn/wiki/Extracting_Data_From_The_Calendar" class="external">wiki documentation</a>)</li>
