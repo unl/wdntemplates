@@ -19,7 +19,7 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: fixed.dwt | ea2608181e2b6604db76106fd982b39218ddcb8b | Fri Mar 9 12:20:43 2012 -0600 | Kevin Abel  $
+    $Id: fixed.dwt | 252c2891a48c70db689be6d897d4f34768b8258a | Thu Aug 1 15:08:19 2013 -0500 | Kevin Abel  $
 -->
 <!--#include virtual="/wdn/templates_4.0/includes/scriptsandstyles.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
@@ -28,9 +28,9 @@
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <!-- InstanceEndEditable -->
-<!-- InstanceParam name="class" type="text" value="fixed" -->
+<!-- InstanceParam name="class" type="text" value="" -->
 </head>
-<body class="fixed" data-version="4.0">
+<body class="" data-version="4.0">
     <!--#include virtual="/wdn/templates_4.0/includes/skipnav.html" -->
     <div id="wdn_wrapper">
         <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" />
@@ -48,12 +48,10 @@
             <!--#include virtual="/wdn/templates_4.0/includes/apps.html" -->
             <div class="wdn-inner-wrapper">
                 <div id="wdn_site_title">
-                    <span>
-                        <!-- InstanceBeginEditable name="titlegraphic" -->
+                    <span><!-- InstanceBeginEditable name="titlegraphic" -->
                         <abbr title="Hixson-Lied College of Fine and Performing Arts">HLCFPA</abbr>
                         <!--<span>A division of the College of Arts &amp; Sciences</span>-->
-                        <!-- InstanceEndEditable -->
-                    </span>
+                        <!-- InstanceEndEditable --></span>
                 </div>
             </div>
         </header>
@@ -136,7 +134,6 @@
                             <!-- InstanceEndEditable -->
                             <!--#include virtual="/wdn/templates_4.0/includes/wdn.html" -->
                         </div>
-
                     <!--#include virtual="/wdn/templates_4.0/includes/logos.html" -->
                     </div>
                 </div>

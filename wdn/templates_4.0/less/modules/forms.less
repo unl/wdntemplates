@@ -1,29 +1,37 @@
 // Default presentation of a button
 .colorize-button(@color) {
     background-color: @color;
-    text-shadow: 0 -1px darken(@color, 15%);
-    border-bottom: 1px solid lighten(@color, 5%);
+    .box-shadow(0 2px 0px @color);
+    text-shadow: 1px 1px 1px darken(@color, 25%);
+
+    &:hover {
+        background-color: lighten(@color, 5%);
+        text-shadow: 1px 1px 1px darken(@color, 35%);
+        .box-shadow(0 2px 0px darken(@color, 10%));
+    }
+
+    &[disabled] {
+        background-color: mix(@color, #666666, 45%);
+        color: darken(#FFFFFF, 10%);
+        .box-shadow(0 2px 0px mix(@color, #666666, 30%));
+    }
 }
 
 .wdn-button {
-    text-transform: uppercase;
-    .brand-font;
+    .heading-font;
+    border: none;
     text-align: center;
+    border-radius: 3px;
     text-decoration: none;
     opacity: 0.95;
-    border-radius: 3px;
-    .background-image(~"linear-gradient(bottom, rgba(0, 0, 0, 0.12) 0%, rgba(255, 255, 255, 0.0) 100%)"); // gradient overlay
     .rem(14);
     color: #ffffff;
     line-height: 1;
-    padding: 0.75em 1.5em;
+    padding: 0.65em 1.25em;
     margin: 1em 0;
     display: inline-block;
-    .colorize-button(@dark-neutral);
-
-    &:hover {
-        background-image: none;
-    }
+    .transition(background-color 0.2s);
+    .colorize-button(@neutral);
     
     a& {
     	// needed to make the selector more specific
@@ -33,13 +41,17 @@
 }
 
 .wdn-button-triad {
-    .colorize-button(@dark-triad);
+    .colorize-button(@triad);
 }
 
 .wdn-button-complement {
-    .colorize-button(@dark-complement);
+    .colorize-button(@complement);
 }
 
 .wdn-button-brand {
     .colorize-button(@brand);
+}
+
+.wdn-button-energetic {
+    .colorize-button(@energetic);
 }

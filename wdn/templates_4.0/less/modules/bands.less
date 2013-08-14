@@ -1,23 +1,23 @@
-.wdn-dark-triad-band {
-    .wdn-band(@dark-triad);
-}
-
 .wdn-light-triad-band {
-    .wdn-band(@light-triad);
-}
-
-.wdn-dark-complement-band {
-    .wdn-band(@dark-complement);
+    .wdn-band(fadeout(@dark-triad, 80%));
 }
 
 .wdn-light-complement-band {
-    .wdn-band(@light-complement);
-}
-
-.wdn-dark-neutral-band {
-    .wdn-band(@dark-neutral);
+    .wdn-band(fadeout(@dark-complement, 85%));
 }
 
 .wdn-light-neutral-band {
-    .wdn-band(@light-neutral);
+    .wdn-band(fadeout(@neutral, 85%));
+}
+
+.wdn-band-triad-seperator {
+    .wdn-band-seperator(fadeout(@triad, 90%));
+}
+
+.wdn-band-complement-seperator {
+    .wdn-band-seperator(fadeout(@complement, 90%));
+}
+
+.wdn-band-neutral-seperator {
+    .wdn-band-seperator(fadeout(@neutral, 90%));
 }

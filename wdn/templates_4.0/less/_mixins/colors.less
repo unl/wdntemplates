@@ -1,32 +1,41 @@
-
 // Go Big Red
-@brand: #ac0302;
+@brand: #cc0000;
+
+@base-spinner: #46a0b8;
+
+// A color to represent the page background
+@page-background: #F8F5EC;
+@cream: @page-background; //used for wdn colors
 
 // A few neutral shades, light tan and dark brown
-@light-neutral: #f6f5ea;
-@dark-neutral: #352e01;
+@neutral: #4a3b13;
+@light-neutral: lighten(desaturate(@neutral, 15%), 5%);
+@dark-neutral: darken(mix(@neutral, #666666, 60%), 5%);
 
     // To be used for subtle color variations. Works OK on most banded colors
     @faded-neutral: fadeout(#3b3816, 95%);
 
 // Color triads, in the blue family
-@light-triad: #BDDEFF;
-@dark-triad: #2A79C8;
+@triad: @base-spinner;
+@light-triad: lighten(@triad, 10%);
+@dark-triad: mix(@triad, #666666, 45%);
 
 // Color complementary, in the green family
-@light-complement: #D7E7D9;
-@dark-complement: #008A15;
+@complement: spin(@base-spinner, -50%);
+@light-complement: lighten(@complement, 10%);
+@dark-complement: mix(@complement, #666666, 45%);
 
 // Color complementary, in the orange family
-@light-energetic: #F8e3d2;
-@dark-energetic: #F4740C;
+@energetic: #e37533;
+@light-energetic: lighten(@energetic, 10%);
+@dark-energetic: mix(@energetic, #666666, 55%);
 
 // 
 // Assign base colors
 //
 
     // Base text color
-    @base-text: @dark-neutral;
+    @base-text: @neutral;
 
     // Warnings. Since Red is our brand color, we're using a brighter orange
     @warning: #FFA500;
