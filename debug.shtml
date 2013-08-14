@@ -96,6 +96,18 @@
                 <!-- InstanceBeginEditable name="maincontentarea" -->
                 <div class="wdn-band">
                     <div class="wdn-inner-wrapper">
+                        <form>
+                        <label>lkajsd</label>
+                        <input type="text">
+
+                        <input type="submit"> 
+                        <input type="reset">
+                        <button>Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="wdn-band">
+                    <div class="wdn-inner-wrapper">
                         <a href="#" class="wdn-button">This is my button</a>
                         <a href="#" class="wdn-button wdn-button-triad">This is my button</a> 
                         <a href="#" class="wdn-button wdn-button-complement">This is my button</a>
