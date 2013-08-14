@@ -29,7 +29,7 @@
 .wdn_notice {
     background: @light-triad;
     border: 1px solid @dark-triad;
-    padding: 16px;
+    padding: 8px !important; // Make sure "#maincontent > *" padding is overridden
     margin-bottom: 10px;
     border-radius: 5px;
 
@@ -53,6 +53,7 @@
         &:before {
             position: absolute;
             left: 0;
+            bottom: -2px;
             width: 50px;
             height: 50px;
             .rem(42);
