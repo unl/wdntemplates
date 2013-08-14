@@ -1,6 +1,6 @@
 /**
  * This plugin is intended for use on pages containing wdn_notice
- * 
+ *
  * Auto-closing notices are supported. Add a class of duration to the div,
  * with an optional time (in seconds) before closing will occur.
  * Examples
@@ -17,7 +17,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 				$(this).parent('.close').parent('.wdn_notice').fadeOut("slow");
 				return false;
 			});
-			$('.wdn_notice[class*=duration]').each(function(){
+			$('.wdn_notice[class*=duration]').each(function() {
 				var el = this;
 				var duration = 1000;
 				var dur_class = $(this).attr('class').split('duration_');
@@ -25,6 +25,9 @@ define(['jquery', 'wdn'], function($, WDN) {
 					duration = dur_class[1]*1000;
 				}
 				setTimeout(function(){$(el).fadeOut("slow");}, duration);
+			});
+			$('.wdn_notice[class*=float]').each(function() {
+				$('#header').append(this);
 			});
 		}
 	};
