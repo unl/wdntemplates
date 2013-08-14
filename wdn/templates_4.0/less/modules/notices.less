@@ -10,7 +10,7 @@
         h4, p {
             color: @dark-neutral;
         }
-    } 
+    }
 }
 
 .notice-color(@color, @border) when (lightness(@color) < 50%) {
@@ -23,20 +23,20 @@
         h4, p {
             color: #fff;
         }
-    } 
+    }
 }
 
 .wdn_notice {
     background: @light-triad;
     border: 1px solid @dark-triad;
-    padding: 16px; 
+    padding: 16px;
     margin-bottom: 10px;
     border-radius: 5px;
 
     .message {
         position: relative;
         padding: 0 0 0 60px;
-        
+
         h4, p {color: @dark-neutral;}
 
         h4 {
@@ -67,7 +67,7 @@
 
     &.affirm {
         .notice-color(@dark-complement, darken(@dark-complement, 10%));
-        
+
         .message:before {
             color: darken(@dark-complement,4%);
             text-shadow:0px 1px 0px lighten(@dark-complement, 15%), 0px -1px 0px darken(@dark-complement, 10%);
@@ -77,7 +77,7 @@
 
     &.negate {
         .notice-color (@brand, darken(@brand, 10%));
-        
+
         .message:before {
             color:darken(@brand, 10%);
             text-shadow:0px 1px 0px lighten(@brand, 15%), 0px -1px 0px darken(@brand, 20%);
@@ -87,17 +87,17 @@
 
     &.alert {
         .notice-color (#fff600, lighten(@warning, 20%));
-        
+
         .message:before {
             color:@warning;
             text-shadow:0px 1px 0px lighten(@warning, 40%), 0px -1px 0px darken(@warning, 30%);
             content: "\e806";
-        }   
+        }
     }
 
     .close, .minimize, .maximize {
         float:right;
-        
+
         &:before {
             position: absolute;
             line-height: normal;
@@ -120,21 +120,21 @@
         &:before {
             content: "\e805";
         }
-        
+
         a, a:hover {
             border:none;
         }
     }
-    
+
     .minimize {
-    	
+
     	&:before {
     		content: "\e80d";
     	}
     }
-    
+
     .maximize {
-    	
+
     	&:before {
     		content: "\e80c";
     	}
@@ -142,6 +142,6 @@
 
     &[class^="duration"] {
         position: absolute;
-    } 
+    }
 }
 
