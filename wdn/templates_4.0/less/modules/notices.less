@@ -29,9 +29,12 @@
 .wdn_notice {
     background: @light-triad;
     border: 1px solid @dark-triad;
-    padding: 8px !important; // Make sure "#maincontent > *" padding is overridden
     margin-bottom: 10px;
     border-radius: 3px;
+
+    #maincontent > & {
+        padding: 8px;
+    }
 
     .message {
         position: relative;
