@@ -1,11 +1,14 @@
-define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
+define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, require) {
 	
 	
     var lockHover = false,
         initd = false,
+        min = '',
     	snifferServer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/',
     	fullNavBp = '(min-width: 700px)',
     	hoverPlugin = 'plugins/hoverIntent/jquery.hoverIntent',
+    	swipePlugin = 'plugins/mobile/jquery.mobile.custom',
+    	expandSemaphore = false,
     	expandDelay = 400,
     	collapseDelay = 120,
     	resizeThrottle = 500,
@@ -451,10 +454,6 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
     
     var initializePreferredState = function() {
         WDN.log('initializepreferredstate, current state is '+ currentState);
-        var min = '', body = document.getElementsByTagName('body');
-		if (!body.length || !body[0].className.match(/(^|\s)debug(\s|$)/)) {
-			min = '.min';
-		}
         var mouseout = function() {
             if (!lockHover) {
                 startCollapseDelay();
@@ -503,6 +502,11 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 	            	// The rest deals with navigation elements not in document
 	            	return;
 	            }
+	            
+	            var body = $('body');
+	    		if (!body.length || !body.is('.debug')) {
+	    			min = '.min';
+	    		}
 	
 	            WDN.log('let us fix the presentation');
 	            fixPresentation();
@@ -519,6 +523,19 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 		                } else {
 		                    Plugin.collapse();
 		                }
+		            });
+		            
+		            require([swipePlugin + min], function() {
+		            	$('body').on('swiperight', function() {
+		            		if (!isFullNav() && currentState === 0) {
+		            			Plugin.expand();
+		            		}
+		            	});
+		            	$('body').on('swipeleft', function() {
+		            		if (!isFullNav() && currentState === 1) {
+		            			Plugin.collapse();
+		            		}
+		            	});
 		            });
 		            
 		            var nav = $(navSel);
@@ -584,11 +601,19 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
          */
         expand : function() {
             WDN.log('expand called');
-            if (currentState === 1) {
+            if (expandSemaphore || currentState === 1) {
                 return;
             }
+            expandSemaphore = true;
 
             var expandEnd = function() {
+            	if (!isFullNav()) {
+            		$('html').css({
+            			'height': '100%',
+            			'overflow': 'hidden' 
+            		});
+            	}
+            	
             	setWrapperClass('expanded');
             	$(navSel).trigger('expand').unbind('expand');
             };
@@ -603,6 +628,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 
             currentState = 1;
             $(menuTogSel)[0].checked = true;
+            expandSemaphore = false;
         },
 
         /**
@@ -610,10 +636,18 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
          */
         collapse : function(switchNav) {
             WDN.log('collapse called');
-            if (currentState === 0) {
+            if (expandSemaphore || currentState === 0) {
                 return;
             }
+            expandSemaphore = true;
 
+            if (!isFullNav()) {
+        		$('html').css({
+        			'height': '',
+        			'overflow': '' 
+        		});
+        	}
+            
             setWrapperClass('collapsed');
             currentState = 0;
             $(menuTogSel)[0].checked = false;
@@ -629,6 +663,8 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
             		go();
             	}
             }
+            
+            expandSemaphore = false;
         },
         
         getSiteHomepage : function() {
