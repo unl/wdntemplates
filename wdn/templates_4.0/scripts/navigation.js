@@ -14,6 +14,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
     	resizeThrottle = 500,
     	homepageLI, siteHomepage, timeout, scrollTimeout, resizeTimeout,
     	currentState = -1,
+    	cWrapSel = '#wdn_content_wrapper',
     	breadSel = '#breadcrumbs',
     	navSel = '#navigation',
     	prmySel = '> ul > li',
@@ -222,7 +223,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
     };
     
     var applyStateFixes = function() {
-    	var $cWrapper = $('#wdn_content_wrapper');
+    	var $cWrapper = $(cWrapSel);
         $cWrapper.css('padding-top', '');
         
         if (!isFullNav()) {
@@ -608,9 +609,13 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 
             var expandEnd = function() {
             	if (!isFullNav()) {
+            		// prevent content scrolling
             		$('html').css({
             			'height': '100%',
             			'overflow': 'hidden' 
+            		});
+            		$(cWrapSel).on('touchmove', function(e) {
+            			e.preventDefault();
             		});
             	}
             	
@@ -642,10 +647,12 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
             expandSemaphore = true;
 
             if (!isFullNav()) {
+            	// allow content scrolling
         		$('html').css({
         			'height': '',
         			'overflow': '' 
         		});
+        		$(cWrapSel).off('touchmove');
         	}
             
             setWrapperClass('collapsed');
