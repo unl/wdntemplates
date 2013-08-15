@@ -1,0 +1,151 @@
+@import "../_mixins/all.less";
+
+.notice-color(@color, @border) when (lightness(@color) >= 50%) {
+    background: @color;
+    border-color: @border;
+    .close {
+        color: @dark-neutral;
+    }
+    .message {
+        h4, p {
+            color: @dark-neutral;
+        }
+    }
+}
+
+.notice-color(@color, @border) when (lightness(@color) < 50%) {
+    background: @color;
+    border-color: @border;
+    .close {
+        color: #fff;
+    }
+    .message {
+        h4, p {
+            color: #fff;
+        }
+    }
+}
+
+.wdn_notice {
+    background: @light-triad;
+    border: 1px solid @dark-triad;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    padding: 8px;
+
+    #maincontent > & {
+        padding: 8px;
+    }
+
+    .message {
+        position: relative;
+        padding: 0 0 0 60px;
+
+        h4, p {color: @dark-neutral;}
+
+        h4 {
+            font-size: 1.3333em;
+            font-weight: bold;
+            padding: 0;
+            margin: 0;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+
+        &:before {
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 50px;
+            height: 50px;
+            .rem(42);
+            line-height: normal;
+            color: darken(@light-triad, 15%);
+            text-shadow: 0px 1px 0px lighten(@light-triad, 20%), 0px -1px 0px darken(@dark-triad, 10%);
+            text-align: center;
+            font-family: fontello;
+            content: "\e807";
+        }
+    }
+
+    &.affirm {
+        .notice-color(@dark-complement, darken(@dark-complement, 10%));
+
+        .message:before {
+            color: darken(@dark-complement,4%);
+            text-shadow: 0px 1px 0px lighten(@dark-complement, 15%), 0px -1px 0px darken(@dark-complement, 10%);
+            content: "\e80b";
+        }
+    }
+
+    &.negate {
+        .notice-color (@brand, darken(@brand, 10%));
+
+        .message:before {
+            color: darken(@brand, 10%);
+            text-shadow: 0 1px 0 lighten(@brand, 15%), 0 -1px 0 darken(@brand, 20%);
+            content: "\e805";
+        }
+    }
+
+    &.alert {
+        .notice-color (#fff600, lighten(@warning, 20%));
+
+        .message:before {
+            color: @warning;
+            text-shadow: 0 1px 0 lighten(@warning, 40%), 0 -1px 0 darken(@warning, 30%);
+            content: "\e806";
+        }
+    }
+
+    .close, .minimize, .maximize {
+        float: right;
+
+        &:before {
+            position: absolute;
+            line-height: normal;
+            font-family: fontello;
+        }
+
+        a, a:hover {
+            width: 16px;
+            height: 16px;
+            text-indent: -2000em;
+            display: block;
+            text-decoration: none;
+            position: relative;
+            z-index: 100;
+        }
+    }
+
+    .close {
+
+        &:before {
+            content: "\e805";
+        }
+
+        a, a:hover {
+            border: none;
+        }
+    }
+
+    .minimize {
+
+        &:before {
+            content: "\e80d";
+        }
+    }
+
+    .maximize {
+
+        &:before {
+            content: "\e80c";
+        }
+    }
+
+    &[class^="duration"] {
+        position: absolute;
+    }
+}

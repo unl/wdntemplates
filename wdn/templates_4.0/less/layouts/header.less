@@ -1,0 +1,216 @@
+#header {
+    min-height: 53px;
+
+    .wdn-inner-wrapper {
+        position: relative;
+
+        @media @bp-nav-hidden {
+            &:after {
+                clear: none;
+            }
+        }
+
+        @media @bp3 {
+            width: 60rem;
+        }
+    }
+
+    @media @bp-nav-hidden {
+        padding: 5px;
+    }
+    @media @bp-nav-full {
+        text-align: center;
+        background: data-uri('../images/stripes.svg') repeat-x 0 -5px;
+    }
+}
+/*
+* Logo
+*/
+
+#logo {
+    background-image: data-uri('../images/n.svg');
+    background-size: 45px 43px;
+    width: 45px;
+    height: 43px;
+    margin-right: 5px;
+
+        a {
+            .text-hidden();
+        }
+
+    @media @bp-nav-hidden {
+        float: left;
+    }
+
+    @media @bp-nav-full {
+        position: absolute;
+        background: data-uri('../images/n_flag.svg') no-repeat;
+        background-size: 122px 125px;
+        width: 122px;
+        height: 125px;
+        top: -58px;
+        left: 50%;
+        margin-left: -61px;
+        margin-right: 0;
+        z-index: 1;
+        .transition(top 0.3s ease-out);
+
+        &:hover {
+            top: -20px;
+            .transition-delay(300ms);
+        }
+
+        &:hover {
+            #wdn_social {
+                margin-top: 10px;
+            }
+
+            a {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+#wdn_logo_link { // Make the acnchor tag clickable
+    width: 45px;
+    height: 43px;
+
+    @media @bp-nav-full {
+        width: 122px;
+        height: 70px;
+    }
+}
+
+#wdn_social {
+    display: none;
+
+    @media @bp-nav-full {
+        margin: 0;
+        list-style: none;
+        padding: 0;
+        display: inline-block;
+        .transition(all linear 0.3s);
+        width: 122px;
+        height: 42px;
+        background-color: fadeout(#000, 90%);
+        margin-top: 0;
+        z-index: 2;
+
+        li {
+            display: inline-block;
+        }
+
+        a {
+            text-align: left;
+            width: 1em;
+            .rem(28);
+            line-height: 1.5;
+            text-decoration: none;
+            color: lighten(@brand, 55%);
+            text-shadow: none;
+            .transition(all linear 0.3s);
+
+            &:before {
+                text-indent: 9999em;
+            }
+
+            &:first-child {
+                margin-right: 5px;
+            }
+
+            &:last-child {
+                margin-left: 6px;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+/*
+* Institution and site title layouts
+*/
+
+#wdn_institution_title {
+    float: left;
+    padding-top: 3px;
+    text-transform: uppercase;
+    .light-brand-font();
+    text-shadow: 0 1px 0 #fff;
+    color: lighten(@base-text, 5%);
+    .rem(12);
+    line-height: 1;
+    white-space: nowrap;
+
+    @media @bp-nav-full {
+        .rem(18);
+        padding-top: 12px;
+    }
+}
+#wdn_site_title {
+    color: @base-text;
+    text-shadow: 0 1px 0 #fff;
+    letter-spacing: -1px;
+    .rem(24);
+    line-height: 1.2;
+    float: left;
+
+    a {
+        color: @base-text;
+        text-decoration: none;
+    }
+
+    abbr[title] {
+        border-bottom: none;
+    }
+
+    @media @bp-nav-hidden {
+        width: ~'-webkit-calc(90% - 55px)';
+        width: ~'-moz-calc(90% - 55px)';
+        width: ~'calc(90% - 55px)';
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        span span {
+            .text-hidden();
+        }
+    }
+
+    @media @bp-nav-full {
+        width: 100%;
+        padding-top: 27px;
+        .rem(30);
+
+        span {
+            display: inline-block;
+
+            span {
+                display: block;
+                text-indent: 0;
+                .rem(10);
+                text-transform: uppercase;
+                letter-spacing: 0;
+                white-space: nowrap;
+            }
+        }
+
+        // Hide the abbreviation, and show the site title (if available)
+        abbr[title] {
+            font-size: 0;
+            display: block;
+            color: fadeout(#ffffff, 100%);
+
+            &:before {
+                content: attr(title);
+                .rem(30);
+                display: block;
+                color: @base-text;
+                text-shadow: 0 1px 0 #fff;
+            }
+        }
+    }
+}

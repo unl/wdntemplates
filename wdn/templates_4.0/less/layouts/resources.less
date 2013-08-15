@@ -1,0 +1,67 @@
+/*
+* WDN Resources Wrapper
+*/
+
+.wdn-resource-app-trigger {
+    display: none;
+}
+
+.wdn-resource-label {
+    .brand-font();
+    text-transform: uppercase;
+    
+    @media @bp-nav-full {
+        cursor: pointer;
+    }
+
+    [class^=wdn-icon] {
+        text-decoration: none;
+        cursor: pointer;
+
+        &:before {
+            font-size: 1.5em;
+        }
+    }
+}
+
+@media @bp-nav-full {
+    #wdn_resources {
+        float: right;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .js .wdn-resource-app-trigger {
+        display: block;
+    }
+
+    .wdn-resource-label {
+        float: left;
+        background-color: @page-background;
+        padding: 0.5em;
+        .rem(10);
+
+        &:nth-of-type(2n) {
+            background-color: darken(@page-background, 3%);
+        }
+
+        &:nth-of-type(3n) {
+            background-color: darken(@page-background, 7%);
+        }
+
+        [class^=wdn-icon] {
+            text-decoration: none;
+            color: fadeout(darken(@page-background, 70%), 10%);
+            cursor: pointer;
+
+            &:before {
+                font-size: 1.5em;
+            }
+
+            &:hover {
+                color: fadeout(darken(@page-background, 70%), 10%);
+            }
+        }
+    }
+}
