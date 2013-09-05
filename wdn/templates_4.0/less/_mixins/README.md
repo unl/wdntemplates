@@ -1,5 +1,5 @@
 # Breakpoints
-Standard breakpoints available throughout all LESS files as variables. Example usage:
+The standard breakpoints are available throughout all LESS files as variables. Example usage:
  
 ```LESS   
     @media @bp2 {
