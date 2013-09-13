@@ -7,7 +7,8 @@
         color: @dark-neutral;
     }
     .message {
-        h4, p {
+        color: @dark-neutral;
+        h4 {
             color: @dark-neutral;
         }
     }
@@ -20,7 +21,8 @@
         color: #fff;
     }
     .message {
-        h4, p {
+        color: #fff;
+        h4 {
             color: #fff;
         }
     }
@@ -40,10 +42,10 @@
     .message {
         position: relative;
         padding: 0 0 0 60px;
-
-        h4, p {color: @dark-neutral;}
+        color: @dark-neutral;
 
         h4 {
+            color: @dark-neutral;
             font-size: 1.3333em;
             font-weight: bold;
             padding: 0;
@@ -148,4 +150,32 @@
     &[class^="duration"] {
         position: absolute;
     }
+
+    &.overlay-header,
+    #maincontent > &.overlay-maincontent {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 52px;
+        margin: 0 auto;
+        padding: 2px;
+        max-width: 52rem;
+        z-index: 9999;
+        text-align: left;
+
+        h4, p {
+            float: left;
+            padding: 0 0 0 10px;
+        }
+
+        .message {
+            padding: 0 0 0 40px;
+        }
+
+        .message:before {
+            font-size: 2rem;
+            height: 9px;
+        }
+    }
 }
+
