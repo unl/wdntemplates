@@ -646,29 +646,30 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
             }
             expandSemaphore = true;
 
-            if (!isFullNav()) {
-            	// allow content scrolling
-        		$('html').css({
-        			'height': '',
-        			'overflow': '' 
-        		});
-        		$(cWrapSel).off('touchmove');
-        	}
             
             setWrapperClass('collapsed');
             currentState = 0;
             $(menuTogSel)[0].checked = false;
             
-            if (switchNav !== false) {
-            	var go = function() {
+            var go = function() {
+            	if (!isFullNav()) {
+            		// allow content scrolling
+        			$('html').css({
+        				'height': '',
+        				'overflow': '' 
+        			});
+        			$(cWrapSel).off('touchmove');
+        		}
+				
+            	if (switchNav !== false) {
             		switchSiteNavigation($(homepageLI).children('a').get(0), false);
             	};
+			};
             	
-            	if (Modernizr.csstransitions) {
-            		setTimeout(go, 400);
-            	} else {
-            		go();
-            	}
+            if (Modernizr.csstransitions) {
+            	setTimeout(go, 400);
+            } else {
+            	go();
             }
             
             expandSemaphore = false;
