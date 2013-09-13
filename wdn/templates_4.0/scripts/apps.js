@@ -1,5 +1,5 @@
 define(['jquery', 'wdn'], function($, WDN) {
-	var weatherServer = '//ucommabel.unl.edu/',
+	var weatherServer = '//www.unl.edu/',
 	directoryServer = '//directory.unl.edu/',
 	partialFmt = 'format=partial',
 	
