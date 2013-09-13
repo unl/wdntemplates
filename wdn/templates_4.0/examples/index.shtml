@@ -32,6 +32,7 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
     $(function() {
         var cache = { '' : ' ' },
         loadExample = function(data, url) {
+            data = $(data).closest('#example-code').html()
             $('#example').attr('class', url.substring(0, url.indexOf('.'))).html(data);
             legacy();
             $('#example_code').val(data);
