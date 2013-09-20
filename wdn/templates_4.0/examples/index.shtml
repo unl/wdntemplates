@@ -27,9 +27,19 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
+<link rel="home" href="http://wdn.unl.edu" />
 <script type="text/javascript"><!--
-require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy) {
-    $(function() {
+require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, require, legacy, navigation) {
+    navigation.fetchSiteNavigation('http://wdn.unl.edu/', function(data, textStatus) {
+    	if (textStatus == 'success') {
+    		$(function() {
+    			$('#navigation').prepend(data);
+    			navigation.initialize();
+    		});
+    	}
+    });
+	
+	$(function() {
         var cache = { '' : ' ' },
         loadExample = function(data, url) {
             data = $(data).closest('#example-code').html()
@@ -148,7 +158,6 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
                 <nav id="navigation" role="navigation" class="wdn-band">
                     <h3 class="wdn_list_descriptor wdn-text-hidden">Navigation</h3>
                     <!-- InstanceBeginEditable name="navlinks" -->
-                    <!--#include virtual="../../../sharedcode/navigation.html" -->
                     <!-- InstanceEndEditable -->
                     <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
                 </nav>
