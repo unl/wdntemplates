@@ -1,8 +1,18 @@
-#wdn_identity_management {
+.wdn-resource-login-trigger  {
     position: relative;
-
+    
     @media @bp-nav-hidden {
+    	.rem(12);
         line-height: 0;
+        position: absolute;
+        bottom: -65px; // position over the nav bar
+        right: 0;
+        z-index: (@nav-z-index + 1); // overlay the nav bar
+        text-align: right;
+
+        a {
+            color: #e7b5b5;
+        }
     }
 }
 
@@ -52,21 +62,4 @@
 #wdn_idm_username {
     background-repeat: no-repeat;
     white-space: nowrap;
-}
-
-@media @bp-nav-hidden {
-
-    .wdn-resource-login-trigger {
-        .rem(12);
-        line-height: 1;
-        position: relative;
-        bottom: -65px; // position over the nav bar
-        right: 0;
-        z-index: 1; // overlay the nav bar
-        text-align: right;
-
-        a {
-            color: #e7b5b5;
-        }
-    }
 }

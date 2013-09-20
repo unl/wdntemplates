@@ -8,7 +8,7 @@
 .skipnav {
     a {
 	    position: absolute;
-	    z-index: 10;
+	    z-index: 5;
 	    left: -999em;
         display: block;
         color: #fff;
@@ -51,10 +51,6 @@
 
     @media @bp-nav-full {
 
-        &:before {
-            z-index: 2;
-        }
-
         &:after {
             background: data-uri('../images/menu_shadow.png') no-repeat 5px 0;
             display: block;
@@ -92,7 +88,7 @@
     // Styles specifc to only the mobile view
     @media @bp-nav-hidden {
         position: fixed;
-        z-index: 2;
+        z-index: @nav-z-index;
         top: 0;
         left: (@nav-width * -1); // Hide off-screen
         width: @nav-width;
@@ -187,7 +183,7 @@
     @media @bp-nav-full {
         .nav-bar();
         position: relative;
-        z-index: 1;
+        z-index: @nav-z-index;
         width: 100%;
 
         > ul {
