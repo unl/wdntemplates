@@ -374,10 +374,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
         $(breadPrmySel).removeClass(pendCls);
         $(breadcrumb).parent().addClass(pendCls);
 
-        var nav_sniffer = snifferServer + 'navigationSniffer.php';
-        nav_sniffer += '?u=' + escape(breadcrumb.href);
-        WDN.log('Attempting to retrieve navigation from '+nav_sniffer);
-        $.get(nav_sniffer, '', function(data, textStatus) {
+        Plugin.fetchSiteNavigation(breadcrumb.href, function(data, textStatus) {
             try {
                 if (textStatus == 'success') {
                 	var $temp = $('<div/>').append(data).children('ul');
@@ -677,6 +674,13 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
         
         getSiteHomepage : function() {
         	return siteHomepage;
+        },
+        
+        fetchSiteNavigation : function(url, complete) {
+        	var nav_sniffer = snifferServer + 'navigationSniffer.php';
+            nav_sniffer += '?u=' + encodeURIComponent(url);
+            WDN.log('Attempting to retrieve navigation from '+nav_sniffer);
+            $.get(nav_sniffer, '', complete);
         }
     };
     
