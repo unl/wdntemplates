@@ -4,7 +4,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
     var lockHover = false,
         initd = false,
         min = '',
-    	snifferServer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/',
+    	snifferServer = '//www1.unl.edu/wdn/templates_3.0/scripts/',
     	fullNavBp = '(min-width: 700px)',
     	hoverPlugin = 'plugins/hoverIntent/jquery.hoverIntent',
     	swipePlugin = 'plugins/mobile/jquery.mobile.custom',
