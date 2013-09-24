@@ -28,7 +28,8 @@ define(['jquery', 'wdn'], function($, WDN) {
 						jQthis            = $(this),
 						lerpstart_el      = jQthis.attr('data-lerp-start'),
 						lerpend_el        = jQthis.attr('data-lerp-end'),
-						frames            = jQthis.children('figure').length,
+						$figures          = jQthis.children('figure'),
+						frames            = $figures.length,
 						lerp_start_offset = $(lerpstart_el).offset(),
 						lerp_end_offset   = $(lerpend_el).offset();
 
@@ -42,8 +43,9 @@ define(['jquery', 'wdn'], function($, WDN) {
 						shownfigure = ':last-of-type';
 					}
 
-					jQthis.children('figure'+shownfigure).show();
-					jQthis.children('figure:not('+shownfigure+')').hide();
+					var $shownFigure = $figures.filter(shownfigure);
+					$shownFigure.show().end()
+						.not($shownFigure).hide();
 
 					if (jQthis.hasClass('wdn-locked')) {
 						var parent = jQthis.parent();
@@ -65,7 +67,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 						} else {
 							// Below locked region
 							jQthis.css('position', 'absolute');
-							if ($(window).height() < jQthis.children('figure'+shownfigure).height()) {
+							if ($(window).height() < $shownFigure.height()) {
 								jQthis.css({
 									top    : 'auto',
 									bottom : '0'
