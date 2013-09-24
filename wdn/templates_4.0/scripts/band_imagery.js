@@ -49,7 +49,10 @@ define(['jquery', 'wdn'], function($, WDN) {
 
 					if ($this.hasClass('wdn-locked')) {
 						var parent        = $this.parent(),
-							parent_offset = parent.offset().top;
+							parent_offset = parent.offset().top,
+							parent_height = parent.height(),
+							window_height = $(window).height();
+
 						if (depth < parent_offset) {
 							// Above locked region
 							$this.css({
@@ -58,7 +61,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 								bottom   : 'auto'
 							});
 						} else if ((depth >= parent_offset)
-							&& ((depth+$(window).height()) < (parent.height()+parent_offset)) ) {
+							&& ((depth + window_height) < (parent_height + parent_offset)) ) {
 							// Currently viewing locked region
 							$this.css({
 								position : 'fixed',
@@ -67,13 +70,13 @@ define(['jquery', 'wdn'], function($, WDN) {
 						} else {
 							// Below locked region
 							$this.css('position', 'absolute');
-							if ($(window).height() < $shownFigure.height()) {
+							if (window_height < $shownFigure.height()) {
 								$this.css({
 									top    : 'auto',
 									bottom : '0'
 								});
 							} else {
-								var pinned_top = parent.height()-$(window).height();
+								var pinned_top = parent_height - window_height;
 								$this.css('top', pinned_top.toString()+'px');
 							}
 						}
