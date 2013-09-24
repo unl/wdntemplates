@@ -48,8 +48,8 @@ define(['jquery', 'wdn'], function($, WDN) {
 						.not($shownFigure).hide();
 
 					if ($this.hasClass('wdn-locked')) {
-						var parent = $this.parent();
-						var parent_offset = parent.offset().top;
+						var parent        = $this.parent(),
+							parent_offset = parent.offset().top;
 						if (depth < parent_offset) {
 							// Above locked region
 							$this.css({
