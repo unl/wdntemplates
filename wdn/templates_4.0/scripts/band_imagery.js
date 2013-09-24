@@ -25,9 +25,10 @@ define(['jquery', 'wdn'], function($, WDN) {
 				$('.wdn-flipbook').each(function(index, value) {
 
 					var shownfigure       = ':first-of-type',
-						lerpstart_el      = $(this).attr('data-lerp-start'),
-						lerpend_el        = $(this).attr('data-lerp-end'),
-						frames            = $(this).children('figure').length,
+						jQthis            = $(this),
+						lerpstart_el      = jQthis.attr('data-lerp-start'),
+						lerpend_el        = jQthis.attr('data-lerp-end'),
+						frames            = jQthis.children('figure').length,
 						lerp_start_offset = $(lerpstart_el).offset(),
 						lerp_end_offset   = $(lerpend_el).offset();
 
@@ -41,31 +42,31 @@ define(['jquery', 'wdn'], function($, WDN) {
 						shownfigure = ':last-of-type';
 					}
 
-					$(this).children('figure'+shownfigure).show();
-					$(this).children('figure:not('+shownfigure+')').hide();
+					jQthis.children('figure'+shownfigure).show();
+					jQthis.children('figure:not('+shownfigure+')').hide();
 
-					if ($(this).hasClass('wdn-locked')) {
-						var parent = $(this).parent();
+					if (jQthis.hasClass('wdn-locked')) {
+						var parent = jQthis.parent();
 						var parent_offset = parent.offset().top;
 						if (depth < parent_offset) {
 							// Above locked region
-							$(this).css('position', 'absolute');
-							$(this).css('top', '0');
-							$(this).css('bottom', 'auto');
+							jQthis.css('position', 'absolute');
+							jQthis.css('top', '0');
+							jQthis.css('bottom', 'auto');
 						} else if ((depth >= parent_offset)
 							&& ((depth+$(window).height()) < (parent.height()+parent_offset)) ) {
 							// Currently viewing locked region
-							$(this).css('position', 'fixed');
-							$(this).css('top', '0');
+							jQthis.css('position', 'fixed');
+							jQthis.css('top', '0');
 						} else {
 							// Below locked region
-							$(this).css('position', 'absolute');
-							if ($(window).height() < $(this).children('figure'+shownfigure).height()) {
-								$(this).css('top', 'auto');
-								$(this).css('bottom', '0');
+							jQthis.css('position', 'absolute');
+							if ($(window).height() < jQthis.children('figure'+shownfigure).height()) {
+								jQthis.css('top', 'auto');
+								jQthis.css('bottom', '0');
 							} else {
 								var pinned_top = parent.height()-$(window).height();
-								$(this).css('top', pinned_top.toString()+'px');
+								jQthis.css('top', pinned_top.toString()+'px');
 							}
 						}
 					}
