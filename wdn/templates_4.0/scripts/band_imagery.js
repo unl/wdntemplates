@@ -25,7 +25,6 @@ define(['jquery', 'wdn'], function($, WDN) {
 				lerpstart_el      = $this.attr('data-lerp-start'),
 				lerpend_el        = $this.attr('data-lerp-end'),
 				$figures          = $this.children('figure'),
-				frames            = $figures.length,
 				lerp_start_offset = $(lerpstart_el).offset(),
 				lerp_end_offset   = $(lerpend_el).offset();
 
@@ -33,7 +32,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 
 			if ((depth > lerp_start_offset.top)
 				&& (depth < lerp_end_offset.top)) {
-				var frame = Math.ceil((depth - lerp_start_offset.top)/(lerp_height/frames));
+				var frame = Math.ceil((depth - lerp_start_offset.top)/(lerp_height/$figures.length));
 				shownfigure = ':nth-of-type('+frame+')';
 			} else if (depth > lerp_end_offset.top) {
 				shownfigure = ':last-of-type';
