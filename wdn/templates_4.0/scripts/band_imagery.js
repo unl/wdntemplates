@@ -38,7 +38,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 					if ((depth > lerp_start_offset.top)
 						&& (depth < lerp_end_offset.top)) {
 						var frame = Math.ceil((depth - lerp_start_offset.top)/(lerp_height/frames));
-						shownfigure = ':nth-of-type('+frame.toString()+')';
+						shownfigure = ':nth-of-type('+frame+')';
 					} else if (depth > lerp_end_offset.top) {
 						shownfigure = ':last-of-type';
 					}
@@ -77,7 +77,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 								});
 							} else {
 								var pinned_top = parent_height - window_height;
-								$this.css('top', pinned_top.toString()+'px');
+								$this.css('top', pinned_top+'px');
 							}
 						}
 					}
