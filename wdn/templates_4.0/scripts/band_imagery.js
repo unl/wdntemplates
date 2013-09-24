@@ -50,20 +50,26 @@ define(['jquery', 'wdn'], function($, WDN) {
 						var parent_offset = parent.offset().top;
 						if (depth < parent_offset) {
 							// Above locked region
-							jQthis.css('position', 'absolute');
-							jQthis.css('top', '0');
-							jQthis.css('bottom', 'auto');
+							jQthis.css({
+								position : 'absolute',
+								top      : '0',
+								bottom   : 'auto'
+							});
 						} else if ((depth >= parent_offset)
 							&& ((depth+$(window).height()) < (parent.height()+parent_offset)) ) {
 							// Currently viewing locked region
-							jQthis.css('position', 'fixed');
-							jQthis.css('top', '0');
+							jQthis.css({
+								position : 'fixed',
+								top      : '0'
+							});
 						} else {
 							// Below locked region
 							jQthis.css('position', 'absolute');
 							if ($(window).height() < jQthis.children('figure'+shownfigure).height()) {
-								jQthis.css('top', 'auto');
-								jQthis.css('bottom', '0');
+								jQthis.css({
+									top    : 'auto',
+									bottom : '0'
+								});
 							} else {
 								var pinned_top = parent.height()-$(window).height();
 								jQthis.css('top', pinned_top.toString()+'px');
