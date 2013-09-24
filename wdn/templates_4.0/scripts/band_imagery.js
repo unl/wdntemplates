@@ -25,10 +25,10 @@ define(['jquery', 'wdn'], function($, WDN) {
 				$('.wdn-flipbook').each(function(index, value) {
 
 					var shownfigure       = ':first-of-type',
-						jQthis            = $(this),
-						lerpstart_el      = jQthis.attr('data-lerp-start'),
-						lerpend_el        = jQthis.attr('data-lerp-end'),
-						$figures          = jQthis.children('figure'),
+						$this             = $(this),
+						lerpstart_el      = $this.attr('data-lerp-start'),
+						lerpend_el        = $this.attr('data-lerp-end'),
+						$figures          = $this.children('figure'),
 						frames            = $figures.length,
 						lerp_start_offset = $(lerpstart_el).offset(),
 						lerp_end_offset   = $(lerpend_el).offset();
@@ -47,12 +47,12 @@ define(['jquery', 'wdn'], function($, WDN) {
 					$shownFigure.show().end()
 						.not($shownFigure).hide();
 
-					if (jQthis.hasClass('wdn-locked')) {
-						var parent = jQthis.parent();
+					if ($this.hasClass('wdn-locked')) {
+						var parent = $this.parent();
 						var parent_offset = parent.offset().top;
 						if (depth < parent_offset) {
 							// Above locked region
-							jQthis.css({
+							$this.css({
 								position : 'absolute',
 								top      : '0',
 								bottom   : 'auto'
@@ -60,21 +60,21 @@ define(['jquery', 'wdn'], function($, WDN) {
 						} else if ((depth >= parent_offset)
 							&& ((depth+$(window).height()) < (parent.height()+parent_offset)) ) {
 							// Currently viewing locked region
-							jQthis.css({
+							$this.css({
 								position : 'fixed',
 								top      : '0'
 							});
 						} else {
 							// Below locked region
-							jQthis.css('position', 'absolute');
+							$this.css('position', 'absolute');
 							if ($(window).height() < $shownFigure.height()) {
-								jQthis.css({
+								$this.css({
 									top    : 'auto',
 									bottom : '0'
 								});
 							} else {
 								var pinned_top = parent.height()-$(window).height();
-								jQthis.css('top', pinned_top.toString()+'px');
+								$this.css('top', pinned_top.toString()+'px');
 							}
 						}
 					}
