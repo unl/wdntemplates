@@ -16,75 +16,78 @@
  */
 
 define(['jquery', 'wdn'], function($, WDN) {
+	var imageryUpdate = function() {
+		var depth = Math.floor($(window).scrollTop());
+		$('.wdn-flipbook').each(function(index, value) {
+
+			var shownfigure       = ':first-of-type',
+				$this             = $(this),
+				lerpstart_el      = $this.attr('data-lerp-start'),
+				lerpend_el        = $this.attr('data-lerp-end'),
+				$figures          = $this.children('figure'),
+				frames            = $figures.length,
+				lerp_start_offset = $(lerpstart_el).offset(),
+				lerp_end_offset   = $(lerpend_el).offset();
+
+			var lerp_height = lerp_end_offset.top - lerp_start_offset.top;
+
+			if ((depth > lerp_start_offset.top)
+				&& (depth < lerp_end_offset.top)) {
+				var frame = Math.ceil((depth - lerp_start_offset.top)/(lerp_height/frames));
+				shownfigure = ':nth-of-type('+frame+')';
+			} else if (depth > lerp_end_offset.top) {
+				shownfigure = ':last-of-type';
+			}
+
+			var $shownFigure = $figures.filter(shownfigure);
+			$shownFigure.show().end()
+				.not($shownFigure).hide();
+
+			if ($this.hasClass('wdn-locked')) {
+				var parent        = $this.parent(),
+					parent_offset = parent.offset().top,
+					parent_height = parent.height(),
+					window_height = $(window).height();
+
+				if (depth < parent_offset) {
+					// Above locked region
+					$this.css({
+						position : 'absolute',
+						top      : '0',
+						bottom   : 'auto'
+					});
+				} else if ((depth >= parent_offset)
+					&& ((depth + window_height) < (parent_height + parent_offset)) ) {
+					// Currently viewing locked region
+					$this.css({
+						position : 'fixed',
+						top      : '0'
+					});
+				} else {
+					// Below locked region
+					$this.css('position', 'absolute');
+					if (window_height < $shownFigure.height()) {
+						$this.css({
+							top    : 'auto',
+							bottom : '0'
+						});
+					} else {
+						var pinned_top = parent_height - window_height;
+						$this.css('top', pinned_top+'px');
+					}
+				}
+			}
+
+		});
+	};
+
 	var Plugin = {
 		initialize : function() {
 			WDN.loadCSS(WDN.getTemplateFilePath('css/modules/band_imagery.css'));
 			$('.wdn-flipbook').parent().css('position', 'relative');
-			$(window).scroll(function() {
-				var depth = Math.floor($(window).scrollTop());
-				$('.wdn-flipbook').each(function(index, value) {
-
-					var shownfigure       = ':first-of-type',
-						$this             = $(this),
-						lerpstart_el      = $this.attr('data-lerp-start'),
-						lerpend_el        = $this.attr('data-lerp-end'),
-						$figures          = $this.children('figure'),
-						frames            = $figures.length,
-						lerp_start_offset = $(lerpstart_el).offset(),
-						lerp_end_offset   = $(lerpend_el).offset();
-
-					var lerp_height = lerp_end_offset.top - lerp_start_offset.top;
-
-					if ((depth > lerp_start_offset.top)
-						&& (depth < lerp_end_offset.top)) {
-						var frame = Math.ceil((depth - lerp_start_offset.top)/(lerp_height/frames));
-						shownfigure = ':nth-of-type('+frame+')';
-					} else if (depth > lerp_end_offset.top) {
-						shownfigure = ':last-of-type';
-					}
-
-					var $shownFigure = $figures.filter(shownfigure);
-					$shownFigure.show().end()
-						.not($shownFigure).hide();
-
-					if ($this.hasClass('wdn-locked')) {
-						var parent        = $this.parent(),
-							parent_offset = parent.offset().top,
-							parent_height = parent.height(),
-							window_height = $(window).height();
-
-						if (depth < parent_offset) {
-							// Above locked region
-							$this.css({
-								position : 'absolute',
-								top      : '0',
-								bottom   : 'auto'
-							});
-						} else if ((depth >= parent_offset)
-							&& ((depth + window_height) < (parent_height + parent_offset)) ) {
-							// Currently viewing locked region
-							$this.css({
-								position : 'fixed',
-								top      : '0'
-							});
-						} else {
-							// Below locked region
-							$this.css('position', 'absolute');
-							if (window_height < $shownFigure.height()) {
-								$this.css({
-									top    : 'auto',
-									bottom : '0'
-								});
-							} else {
-								var pinned_top = parent_height - window_height;
-								$this.css('top', pinned_top+'px');
-							}
-						}
-					}
-
-				});
-			});
+			$(window).scroll(imageryUpdate);
 		}
+
 	};
 
 	return Plugin;
