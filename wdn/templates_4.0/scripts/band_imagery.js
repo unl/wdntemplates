@@ -24,13 +24,15 @@ define(['jquery', 'wdn'], function($, WDN) {
 				var depth = Math.floor($(window).scrollTop());
 				$('.wdn-flipbook').each(function(index, value) {
 
-					var shownfigure = ':first-of-type',
-						lerpstart_el = $(this).attr('data-lerp-start'),
-						lerpend_el = $(this).attr('data-lerp-end'),
-						frames = $(this).children('figure').length,
+					var shownfigure       = ':first-of-type',
+						lerpstart_el      = $(this).attr('data-lerp-start'),
+						lerpend_el        = $(this).attr('data-lerp-end'),
+						frames            = $(this).children('figure').length,
 						lerp_start_offset = $(lerpstart_el).offset(),
-						lerp_end_offset = $(lerpend_el).offset();
+						lerp_end_offset   = $(lerpend_el).offset();
+
 					var lerp_height = lerp_end_offset.top - lerp_start_offset.top;
+
 					if ((depth > lerp_start_offset.top)
 						&& (depth < lerp_end_offset.top)) {
 						var frame = Math.ceil((depth - lerp_start_offset.top)/(lerp_height/frames));
@@ -38,6 +40,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 					} else if (depth > lerp_end_offset.top) {
 						shownfigure = ':last-of-type';
 					}
+
 					$(this).children('figure'+shownfigure).show();
 					$(this).children('figure:not('+shownfigure+')').hide();
 
