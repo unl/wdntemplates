@@ -85,7 +85,10 @@ define(['jquery', 'wdn'], function($, WDN) {
 		initialize : function() {
 			WDN.loadCSS(WDN.getTemplateFilePath('css/modules/band_imagery.css'));
 			$('.wdn-flipbook').parent().css('position', 'relative');
-			$(window).scroll(imageryUpdate);
+			$(window).scroll(function() {
+					scrollTimeout = setTimeout(imageryUpdate, 50);
+				}
+			);
 		}
 
 	};
