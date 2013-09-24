@@ -74,4 +74,3 @@ define(['jquery', 'wdn'], function($, WDN) {
 
 	return Plugin;
 });
-
