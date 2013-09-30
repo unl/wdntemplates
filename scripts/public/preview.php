@@ -82,7 +82,11 @@ foreach ($scanned_page->getRegions() as $region) {
         if ($region->name === 'titlegraphic') {
             $region->value = str_replace(array('<h1>', '</h1>'), array('', ''), $region->value);
         }
-        
+
+        if ($region->name === 'contactinfo') {
+            $region->value = preg_replace('/<h3>.*<\/h3>/', '', $region->value);
+        }
+
         $four_template->{$region->name} = $region->value;
     }
 }
