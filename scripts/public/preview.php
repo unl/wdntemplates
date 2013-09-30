@@ -69,8 +69,9 @@ function removeRelativePaths($html, $base_url)
     return $html;
 }
 
-// Grab the version four template from the local debug file
-$four_template = new UNL_Templates_Scanner(file_get_contents(__DIR__ . '/../../debug.shtml'));
+UNL_Templates::$options['version'] = 4.0;
+
+$four_template = UNL_Templates::factory('Fixed');
 
 foreach ($scanned_page->getRegions() as $region) {
     if ($region instanceof UNL_DWT_Region && $region->type == 'string') {
@@ -86,13 +87,5 @@ foreach ($scanned_page->getRegions() as $region) {
     }
 }
 
-$four_template->maincontentarea = $four_template->maincontentarea;
-
-// Create a helper object for making the include replacements
-$version_four_helper = new UNL_Templates_Version4();
-
-// Replace the #include statements
-$html = $version_four_helper->makeIncludeReplacements((string)$four_template);
-
 // echo the final HTML
-echo $html;
+echo $four_template;
