@@ -29,6 +29,7 @@ CSS_OBJS := \
 	$(TEMPLATE_CSS)/layouts/formvalidator.css \
 	$(TEMPLATE_CSS)/layouts/monthwidget.css \
 	$(TEMPLATE_CSS)/layouts/unlalert.css \
+	$(TEMPLATE_CSS)/modules/band_imagery.css \
 	$(TEMPLATE_CSS)/modules/notices.css \
 	$(TEMPLATE_CSS)/modules/pagination.css \
 	$(TEMPLATE_CSS)/modules/randomizer.css \
