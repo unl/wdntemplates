@@ -59,7 +59,6 @@ define(['jquery', 'wdn'], function($, WDN) {
 					$this.addClass("fixed").removeClass("bottom");
 				} else {
 					// Below locked region
-					//$this.css('position', 'absolute');
 					$this.removeClass("fixed");
 					if (window_height < $shownFigure.height()) {
 						$this.addClass("bottom");
