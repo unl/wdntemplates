@@ -50,26 +50,35 @@ define(['jquery', 'wdn'], function($, WDN) {
 
 				if (depth < parent_offset) {
 					// Above locked region
-					$this.css({
+					/*$this.css({
 						position : 'absolute',
 						top      : '0',
 						bottom   : 'auto'
-					});
+					}); */
+
+					$this.removeClass("fixed bottom")
+					
+					
 				} else if ((depth >= parent_offset)
 					&& ((depth + window_height) < (parent_height + parent_offset)) ) {
 					// Currently viewing locked region
-					$this.css({
+					/*$this.css({
 						position : 'fixed',
 						top      : '0'
-					});
+					});*/
+					
+					$this.addClass("fixed");
+					$this.removeClass("bottom");
 				} else {
 					// Below locked region
-					$this.css('position', 'absolute');
+					//$this.css('position', 'absolute');
+					$this.removeClass("fixed");
 					if (window_height < $shownFigure.height()) {
-						$this.css({
+						/*$this.css({
 							top    : 'auto',
 							bottom : '0'
-						});
+						});*/
+						$this.addClass("bottom");
 					} else {
 						var pinned_top = parent_height - window_height;
 						$this.css('top', pinned_top+'px');
