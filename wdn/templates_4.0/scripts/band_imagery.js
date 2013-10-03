@@ -20,7 +20,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 		var depth = Math.floor($(window).scrollTop());
 		$('.wdn-flipbook').each(function(index, value) {
 
-			var shownfigure       = ':first-of-type',
+			var shownfigure       = 0,
 				$this             = $(this),
 				lerpstart_el      = $this.attr('data-lerp-start'),
 				lerpend_el        = $this.attr('data-lerp-end'),
@@ -33,12 +33,12 @@ define(['jquery', 'wdn'], function($, WDN) {
 			if ((depth > lerp_start_offset.top)
 				&& (depth < lerp_end_offset.top)) {
 				var frame = Math.ceil((depth - lerp_start_offset.top)/(lerp_height/$figures.length));
-				shownfigure = ':nth-of-type('+frame+')';
+				shownfigure = frame - 1;
 			} else if (depth > lerp_end_offset.top) {
-				shownfigure = ':last-of-type';
+				shownfigure = -1;
 			}
 
-			var $shownFigure = $figures.filter(shownfigure);
+			var $shownFigure = $figures.eq(shownfigure);
 			$shownFigure.show().end()
 				.not($shownFigure).hide();
 
@@ -77,7 +77,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 			WDN.loadCSS(WDN.getTemplateFilePath('css/modules/band_imagery.css'));
 			$('.wdn-flipbook').parent().css('position', 'relative');
 			$(window).scroll(function() {
-					scrollTimeout = setTimeout(imageryUpdate, 50);
+					setTimeout(imageryUpdate, 50);
 				}
 			);
 		}
