@@ -86,7 +86,10 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
 });
 --></script>
 <style type="text/css">
-#maincontent {padding-bottom:1rem;}
+#example {
+    margin-top: 1em;
+}
+
 #example.jqueryui #sortable li,
 #example.jqueryui #selectable li {
     margin: 0 3px 3px 3px; 
@@ -111,6 +114,10 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
     background-clip:content-box;
     background-color:rgba(167, 206, 229, 0.5);
     margin-bottom:1rem !important;
+}
+
+#example.band_imagery {
+    max-width: none;
 }
 
 </style>
@@ -215,11 +222,8 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
                     <p>Source code:</p>
                     <textarea id="example_code" rows="25" cols="78"></textarea>
                 </div>
-            </section>
-                
-                <div style="margin-top:8px;">
-                    <div id="example"></div>
-                </div>
+                </section>
+                <div id="example"></div>
                 <!-- InstanceEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
