@@ -1,4 +1,4 @@
-//micro-clearfix
+/*micro-clearfix*/
 .clear-fix () {
     
     &:after {
@@ -8,12 +8,16 @@
     }
 }
 
-//http://css-tricks.com/remux-an-experimental-approach-to-responsive-web-design/
-@rem-fallback: true; // switch to include px fallback
+/*http://css-tricks.com/remux-an-experimental-approach-to-responsive-web-design*/
+@rem-fallback: true; /* switch to include px fallback */
 
 .rem (@px-value) {
-    @rem-value: ((round((@px-value / unit(@base-font-size)) * 10000000)) / 10000000);
+    @rem-value: ((round((@px-value / unit(@base-font-size-sm)) * 10000000)) / 10000000);
     
+    @media @bp2 {
+        @rem-value: ((round((@px-value / unit(@base-font-size-lg)) * 10000000)) / 10000000);
+    }
+
     .result (@px-value, @rem-fallback) when (@rem-fallback = true) {
         font-size: ~"@{px-value}px";
         font-size: ~"@{rem-value}rem";
@@ -60,7 +64,7 @@
     display: flex;
 }
 
-// Flex direction gated mixins
+/* Flex direction gated mixins */
 
     .flex-direction(@value) when (@value = row) {
         -webkit-box-orient: horizontal;
@@ -106,7 +110,7 @@
 * Function for creating color bands 
 */
 
-.wdn-band(@color) { // Class name to put on the band
+.wdn-band(@color) { /* Class name to put on the band */
 
     background-color: @color;
 

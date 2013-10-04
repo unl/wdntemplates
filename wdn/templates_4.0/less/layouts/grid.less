@@ -6,7 +6,7 @@
     clear:left;
     .clear-fix();
     
-    // When the `grid-set` is a direct child of another `grid-set`, avoid the double negative `margin-left`.
+    /* When the `grid-set` is a direct child of another `grid-set`, avoid the double negative `margin-left`. */
     > [class*="wdn-grid-set"] {
         margin-left: 0;
     }
@@ -18,19 +18,19 @@
     padding: 0 (@gutter-size/2);
     .box-sizing(border-box);
     
-    // Use this when only a background is needed (no border). This option isn't recommended, instead one should use a nested element with a class of .col-island (see below). 
+    /* Use this when only a background is needed (no border). This option isn't recommended, instead one should use a nested element with a class of .col-island (see below). */
     &.col-padding {
         padding: (@gutter-size / 2) 0 (@gutter-size / 2) @gutter-size;
         background-clip: content-box;
     }
 }
 
-// When a border is needed, nest inside a column.
+/* When a border is needed, nest inside a column. */
 .visual-island {
     padding: @gutter-size / 2;
 }
 
-// reset for list grids
+/* reset for list grids */
 #maincontent {
     ul, ol {
         &[class*="wdn-grid-set"] {
@@ -45,24 +45,24 @@ li.@{grid-col-class} {
     margin-bottom: 0;
 }
 
-// ability to center columns
+/* ability to center columns */
 .centered {
     float: none !important;
     margin: 0 auto !important;
 }
 
-// Function to setup the widths for each grid at various breakpoints
+/* Function to setup the widths for each grid at various breakpoints */
 .grid-setup(@namespace, @namespace-set) {
     .@{namespace}-full, .@{namespace}-set-full .@{grid-col-class} {
         .grid-col-width-cal(100%);
     }
     
-    // Halves
+    /* Halves */
     .@{namespace}-one-half, .@{namespace}-two-fourths, .@{namespace}-three-sixths, .@{namespace-set}-halves .@{grid-col-class} {
         .grid-col-width-cal(percentage(1/2));
     }
     
-    // Thirds
+    /* Thirds */
     .@{namespace}-one-third, .@{namespace}-two-sixths, .@{namespace-set}-thirds .@{grid-col-class} {
         .grid-col-width-cal(percentage(1/3));
     }
@@ -71,7 +71,7 @@ li.@{grid-col-class} {
         .grid-col-width-cal(percentage(2/3));
     }
     
-    // Fourths
+    /* Fourths */
     .@{namespace}-one-fourth, .@{namespace-set}-fourths .@{grid-col-class} {
         .grid-col-width-cal(percentage(1/4));
     }
@@ -80,7 +80,7 @@ li.@{grid-col-class} {
         .grid-col-width-cal(percentage(3/4));
     }
     
-    // Fifths
+    /* Fifths */
     .@{namespace}-one-fifth, .@{namespace-set}-fifths .@{grid-col-class} {
         .grid-col-width-cal(percentage(1/5));
     }
@@ -97,7 +97,7 @@ li.@{grid-col-class} {
         .grid-col-width-cal(percentage(4/5));
     }
     
-    // Sixths
+    /* Sixths */
     .@{namespace}-one-sixth, .@{namespace-set}-sixths .@{grid-col-class} {
         .grid-col-width-cal(percentage(1/6));
     }
@@ -106,7 +106,7 @@ li.@{grid-col-class} {
         .grid-col-width-cal(percentage(5/6));
     }
     
-    // Sevenths
+    /* Sevenths */
     .@{namespace}-one-seventh, .@{namespace-set}-sevenths .@{grid-col-class} {
         .grid-col-width-cal(percentage(1/7));
     }

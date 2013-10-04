@@ -1,72 +1,191 @@
-// Modular Scale for vertical rythm: http://modularscale.com/scale/?px1=16&px2=&ra1=1.333&ra2=0
+/* Modular Scale for vertical rythm: http://http://modularscale.com/scale/?px1=16&px2=54&ra1=1.333&ra2=0*/
 
-p {
-    margin: 0 0 @base-line-height * 1em 0;
-}
+/* HEADERS */
 
 .heading-size(@size) {
     font-size: (@size * 1rem);
-    line-height: (@size/(@size/(1.5/@base-line-height)) * 1em);
-    margin: (@base-line-height/@size * 1em) 0;
+    line-height: (@size * 1rem);   
+    margin: 0 0 @base-font-size-sm 0;
+
+    @media @bp2 {
+        margin: 0 0 @base-font-size-lg 0;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
     .heading-font;
-    color: darken(@base-text, 15%); // Black
+    // color: darken(@base-text, 15%); // Black
 }
 
 h1 {
-    @size: 3.157;
+    @size: 3.116; /* 41px */
     .heading-size(@size);
 
-    + .wdn-subhead {
-        margin-top: (@base-line-height/@size * -1.2em);
+    @media @bp2 {
+        @size: 3.157; /* 51px */
+        .heading-size(@size);
     }
 }
 
 h2 {
-    @size: 2.369;
+    @size: 2.915; /* 38px */
     .heading-size(@size);
 
-    + .wdn-subhead {
-        margin-top: (@base-line-height/@size * -1.2em);
+    @media @bp2 {
+        @size: 2.532; /* 41px */
+        .heading-size(@size);
     }
 }
 
 h3 {
-    @size: 1.777;
+    @size: 2.337; /* 30px */
     .heading-size(@size);
 
-    + .wdn-subhead {
-        margin-top: (@base-line-height/@size * -1.2em);
+    @media @bp2 {
+        @size: 2.369; /* 38px */
+        .heading-size(@size);
     }
 }
 
 h4 {
-    @size: 1.333;
+    @size: 2.187; /* 28px */
     .heading-size(@size);
 
-    + .wdn-subhead {
-        margin-top: (@base-line-height/@size * -1.2em);
+    @media @bp2 {
+        @size: 1.899; /* 30px */
+        .heading-size(@size);
     }
 }
 
 h5 {
-    @size: 1.111;
+    @size: 1.754; /* 23px */
     .heading-size(@size);
 
-    + .wdn-subhead {
-        margin-top: (@base-line-height/@size * -1.2em);
+    @media @bp2 {
+        @size: 1.777; /* 28px */
+        .heading-size(@size);
     }
 }
 
 h6 {
-    @size: 1;
+    @size: 1.641; /* 21px */
     .heading-size(@size);
 
+    @media @bp2 {
+        @size: 1.425; /* 23px */
+        .heading-size(@size);
+    }
+}
+
+/* Calculate margins above headers based on header size */
+p, span, div, ul, li, section, img {
+    + h1, + h2, + h3, + h4, + h5, + h6 {
+        margin-top: @base-line-height-sm * 1em;        
+
+        @media @bp2 {
+            margin-top: @base-line-height-lg * 1em;        
+        }
+    }
+}
+
+/* SUBHEADS */
+
+.wdn-subhead {
+    display: block;
+    color: fadeout(@base-text, 20%);
+    .sans-serif-font;
+    text-transform: uppercase;
+}
+
+    /* Font sizes in relation to headers */
+
+    h1, h2, h3 {
+        > .wdn-subhead, + .wdn-subhead {
+            font-size: @base-font-size-sm;
+
+            @media @bp2 {
+                font-size: @base-font-size-lg;
+            }
+        }
+    }
+
+    h4, h5, h6 {
+        > .wdn-subhead, + .wdn-subhead {
+            font-size: 9.625px;
+            font-size: 0.740rem;
+
+            @media @bp2 {
+                font-size: 12px;
+                font-size: 0.75rem;
+            }
+        }
+    }
+
+/*    .wdn-subhead {
+        + h1, + h2, + h3 {
+            font-size: @base-font-size-sm;
+
+            @media @bp2 {
+                font-size: @base-font-size-lg;
+            }
+        }
+    
+        + h4, + h5, + h6 {
+            font-size: 9.625px;
+            font-size: 0.740rem;
+
+            @media @bp2 {
+                font-size: 12px;
+                font-size: 0.75rem;
+            }            
+        }
+    }*/
+
+
+
+/* Margin-bottom for subheads that follow headers */
+/*h1, h2, h3, h4, h5, h6 {
+    > .wdn-subhead, + .wdn-subhead {
+        margin-bottom: @base-font-size-sm;
+
+        @media @bp2 {
+           margin-bottom: @base-font-size-lg;       
+        }
+    }
+}*/
+
+.wdn-subhead {
+   + h1, + h2, + h3, + h4, + h5, + h6  {
+        margin-top: 0;
+    }
+}
+
+/*h1, h2, h3, h4, h5, h6 {
+   + .wdn-subhead  {
+        margin-top: @base-font-size-sm * -1;
+
+        @media @bp2 {
+            margin-top: @base-font-size-lg * -1;
+        }
+    }
+}*/
+
+p, span, div, ul, li, section, img {
     + .wdn-subhead {
-        margin-top: (@base-line-height/@size * -1.2em);
+        margin-bottom: 0;        
+    }
+}
+
+/* PARAGRAPHS */
+
+p {
+    //margin: 0 0 @base-line-height * 1em 0;*/
+    margin: 0 0 @base-font-size-sm 0;
+    color: fadeout(@base-text, 10%);
+
+    @media @bp2 {
+        margin: 0 0 @base-font-size-lg 0;
     }
 }
 
@@ -74,26 +193,12 @@ h6 {
     .heading-font;
 }
 
-.wdn-subhead {
-    line-height: 1;
-    color: fadeout(@base-text, 20%);
-    .heading-font;
-}
-
-.wdn-text-hidden {
-    .text-hidden;
-}
-
 .wdn-impact {
-    .impact-font;
+    .heading-font;
 }
 
 .wdn-brand {
     .brand-font;
-}
-
-.wdn-light-brand {
-    .light-brand-font;
 }
 
 .wdn-sans-serif {
@@ -104,10 +209,12 @@ h6 {
     .list-reset;
 }
 
+.wdn-text-hidden {
+    .text-hidden;
+}
+
 /* 
-*
-* Icon Font - see /wdn/templates_4.0/fonts/fontello/readme.md
-*
+Icon Font - see /wdn/templates_4.0/fonts/fontello/readme.md
 */
 
 @font-face {

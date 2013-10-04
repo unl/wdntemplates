@@ -1,8 +1,9 @@
 #header {
-    min-height: 53px;
+    min-height: 54px;
 
     .wdn-inner-wrapper {
         position: relative;
+        padding: 0 3.44%;
 
         @media @bp-nav-hidden {
             &:after {
@@ -12,26 +13,32 @@
 
         @media @bp3 {
             width: 60rem;
+            padding: 0;
         }
     }
 
     @media @bp-nav-hidden {
-        padding: 5px;
+        padding-top: 0.602em;
+        /*padding-bottom: 0.254em;*/
     }
+
     @media @bp-nav-full {
         text-align: center;
+        border-bottom: 1px solid #e6dec5;
+        padding-bottom: 0.451em;
         background: data-uri('../images/stripes.svg') repeat-x 0 -5px;
     }
 }
+
 /*
-* Logo
+Logo
 */
 
 #logo {
     background-image: data-uri('../images/n.svg');
-    background-size: 45px 43px;
-    width: 45px;
-    height: 43px;
+    background-size: 40px 38px;
+    width: 40px;
+    height: 38px;
     margin-right: 5px;
 
         a {
@@ -73,8 +80,8 @@
 }
 
 #wdn_logo_link { // Make the acnchor tag clickable
-    width: 45px;
-    height: 43px;
+    width: 40px;
+    height: 38px;
 
     @media @bp-nav-full {
         width: 122px;
@@ -131,32 +138,40 @@
 }
 
 /*
-* Institution and site title layouts
+Institution and site title layouts
 */
 
 #wdn_institution_title {
     float: left;
-    padding-top: 3px;
-    text-transform: uppercase;
-    .light-brand-font();
-    text-shadow: 0 1px 0 #fff;
-    color: lighten(@base-text, 5%);
-    .rem(12);
-    line-height: 1;
     white-space: nowrap;
+    padding-bottom: 0.1em;
+    color: lighten(@base-text, 5%);
+    text-transform: uppercase;
+    .brand-font();
+    /*text-shadow: 0 1px 0 #fff;*/
+    font-size: 17px;
+    font-size: 1.069rem;
+    line-height: 17px;
+    line-height: 1.069rem;
 
     @media @bp-nav-full {
-        .rem(18);
-        padding-top: 12px;
+        padding-top: 0.602em;
+        font-size: 22.798px;
+        font-size: 1.425rem;
     }
 }
+
 #wdn_site_title {
-    color: @base-text;
-    text-shadow: 0 1px 0 #fff;
-    letter-spacing: -1px;
-    .rem(24);
-    line-height: 1.2;
     float: left;
+    padding-bottom: 0.1em;
+    .display-font();
+    color: @base-text;
+    /*text-shadow: 0 1px 0 #fff;
+    letter-spacing: -1px;*/
+    font-size: 28.430px;
+    font-size: 1.777rem;
+    line-height: 28.430px;
+    line-height: 1.777rem;
 
     a {
         color: @base-text;
@@ -182,8 +197,9 @@
 
     @media @bp-nav-full {
         width: 100%;
-        padding-top: 27px;
-        .rem(30);
+        padding: 0.75em 0 0.143em;
+        font-size: 30.390px;
+        font-size: 1.899rem;
 
         span {
             display: inline-block;

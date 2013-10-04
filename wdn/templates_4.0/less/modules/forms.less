@@ -1,13 +1,13 @@
-// Default presentation of a button
+/* Default presentation of a button */
 .colorize-button(@color) {
     background-color: @color;
-    .box-shadow(0 2px 0px @color);
-    text-shadow: 1px 1px 1px darken(@color, 25%);
+    /*.box-shadow(0 2px 0px @color);
+    text-shadow: 1px 1px 1px darken(@color, 25%);*/
 
     &:hover {
-        background-color: lighten(@color, 5%);
-        text-shadow: 1px 1px 1px darken(@color, 35%);
-        .box-shadow(0 2px 0px darken(@color, 10%));
+        background-color: darken(@color, 7%);
+        /*text-shadow: 1px 1px 1px darken(@color, 35%);
+        .box-shadow(0 2px 0px darken(@color, 10%));*/
     }
 
     &[disabled] {
@@ -18,23 +18,25 @@
 }
 
 .wdn-button {
-    .heading-font;
     border: none;
-    text-align: center;
     border-radius: 3px;
-    text-decoration: none;
     opacity: 0.95;
-    .rem(14);
     color: #ffffff;
-    line-height: 1;
-    padding: 0.65em 1.25em;
     margin: 1em 0;
+    padding: 1.069em 1.333em 1em;
     display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    .sans-serif-font;
+    line-height: 1;
+    font-size: 12px;
+    font-size: 0.75rem;
     .transition(background-color 0.2s);
     .colorize-button(@neutral);
     
     a& {
-    	// needed to make the selector more specific
+    	/* needed to make the selector more specific */
     	color: #ffffff;
     	border: none;
     }

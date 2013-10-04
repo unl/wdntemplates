@@ -1,11 +1,16 @@
 .nav-bar() {
-    .brand-gradient;
-    border-top: 1px solid lighten(@brand, 8%);
-    .box-shadow(0px -2px 0px 0px #5f5f4e);
+ /*   .brand-gradient;*/
+    /*border-top: 1px solid lighten(@brand, 8%);*/
+    /*.box-shadow(0px -2px 0px 0px #5f5f4e);*/
+    /*.box-shadow(0 1px 5px @neutral);*/
+    /*box-shadow: 0 1px 3px 0 rgba(0,0,0,0.75);*/
     .clear-fix;
+    border-top: 2px solid #5f5f4e;
+    background-color: @brand;
 }
 
 .skipnav {
+
     a {
 	    position: absolute;
 	    z-index: 10;
@@ -20,6 +25,7 @@
     // Styles specifc to only the mobile view
     @media @bp-nav-hidden {
         .nav-bar();
+        padding-left: 3.44%;
     }
 
     @media @bp-nav-full {
@@ -45,7 +51,7 @@
 
     &:before { // Show the navigation icon
         text-indent: 99em;
-        padding: 0.25em 5px;
+        padding: 0.254em 0;
         position: relative;
     }
 
@@ -63,7 +69,7 @@
             text-indent: 99em;
             content: '';
             position: absolute;
-            top: 25px;
+            top: 30px;
             left: 0;
             z-index: 1;
             speak: none;
@@ -73,12 +79,13 @@
 }
 
 // Set a width for slide-in navigation
-@nav-width: 200px;
+/*@nav-width: 200px;*/
+@nav-width: 13.288em;
 
 #wdn_navigation_bar {
-    .light-brand-font();
+    .brand-font();
     color: #fff;
-    text-shadow: 1px 1px 0px #000000;
+/*    text-shadow: 1px 1px 0px #000000;*/
 
     a {
         text-decoration: none;
@@ -100,12 +107,12 @@
         overflow-y: scroll;
         .transition(left 0.3s ease);
         background-color: #3b3b3b;
-        border-right: 3px solid #000;
+        /*border-right: 3px solid #000;*/
         height: 100%;
     }
 
     @media @bp-nav-full {
-        text-shadow: 1px 1px 0px darken(@brand, 19%);
+      /*  text-shadow: 1px 1px 0px darken(@brand, 19%);*/
     }
 
     .wdn_list_descriptor { //quickly thrown in to diagnose a height issue. Not the way to go down the road.
@@ -116,7 +123,7 @@
 #navigation {
 
     a {
-        padding: 5px ;
+        padding: 5px;
         .transition(height 0.3s ease);
         display: block;
 
@@ -127,27 +134,32 @@
 
     li {
         text-transform: uppercase;
-        .rem(16);
+        font-size: 16px;
+        font-size: 1rem;
         
         &.empty {
             display: none;
         }
 
         li {
-            .rem(11);
-            .sans-serif-font();
-            text-transform: none;
             padding-left: 10px;
             float: none;
+            .sans-serif-font();
+            text-transform: none;
+            font-size: 9.625px;
+            font-size: 0.602rem;
+            line-height: 12.830px;
+            line-height: 0.802rem;
         }
 
         // Styles specific to the full view
         @media @bp-nav-full {
-            .rem(14);
             float: left;
             width: 16.6666%;
             text-align: center;
-            
+            font-size: 21.328px;
+            font-size: 1.333rem;
+                       
             &.empty {
                 display: list-item;
                 visibility: hidden;
@@ -212,8 +224,8 @@
                 }
                 
                 > a {
-                    padding-top: 0.5em;
-                    padding-bottom: 0.5em;
+                    padding-top: 0.422em;
+                    padding-bottom: 0.451em;
                 }
             }
         }

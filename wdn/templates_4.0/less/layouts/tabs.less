@@ -1,19 +1,19 @@
-// Set the primary background color, which will be drastically alphaed. 
-// Depending on parent background color, this could look murky. We may need a lighter/darker option.
+/* Set the primary background color, which will be drastically alphaed. 
+// Depending on parent background color, this could look murky. We may need a lighter/darker option. */
 
-@tab-background-color: #3b3816; // Based on page background
+@tab-background-color: #3b3816; /* Based on page background */
 
 .wdn_tabs {
     .list-reset;
     .clear-fix;
-    .rem(0); // Hack to avoid white-space issue between inline-block children (`li`s)
+    .rem(0); /* Hack to avoid white-space issue between inline-block children (`li`s) */
 
     li {
         display: inline-block;
         background-color: fadeout(@tab-background-color, 95%);
         border-radius: 2px;
         margin: 0 0.4em 5px 0;
-        .rem(@base-font-size);
+        .rem(@base-font-size-sm);
 
         &.selected {
             background-color: fadeout(@tab-background-color, 90%);
@@ -31,7 +31,7 @@
             border: none;
         }
         
-        // old sub-tabs may still exist in markup
+        /* old sub-tabs may still exist in markup */
         ul {
             .list-reset;
             .clear-fix;
