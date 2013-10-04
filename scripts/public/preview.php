@@ -24,7 +24,7 @@ function throwError($message = 'Error')
     exit();
 }
 
-set_include_path('phar://' . __DIR__ . '/UNL_Templates-1.4.0RC1.phar/UNL_Templates-1.4.0RC1/src'.PATH_SEPARATOR.'phar://' . __DIR__ . '/UNL_Templates-1.4.0RC1.phar/UNL_Templates-1.4.0RC1/php');
+set_include_path('phar://' . __DIR__ . '/UNL_Templates-1.4.0RC3.phar/UNL_Templates-1.4.0RC3/src'.PATH_SEPARATOR.'phar://' . __DIR__ . '/UNL_Templates-1.4.0RC3.phar/UNL_Templates-1.4.0RC3/php');
 
 require_once 'UNL/Templates.php';
 require_once 'UNL/Templates/Version4.php';
@@ -69,8 +69,9 @@ function removeRelativePaths($html, $base_url)
     return $html;
 }
 
-// Grab the version four template from the local debug file
-$four_template = new UNL_Templates_Scanner(file_get_contents(__DIR__ . '/../../debug.shtml'));
+UNL_Templates::$options['version'] = 4.0;
+
+$four_template = UNL_Templates::factory('Fixed');
 
 foreach ($scanned_page->getRegions() as $region) {
     if ($region instanceof UNL_DWT_Region && $region->type == 'string') {
@@ -81,18 +82,14 @@ foreach ($scanned_page->getRegions() as $region) {
         if ($region->name === 'titlegraphic') {
             $region->value = str_replace(array('<h1>', '</h1>'), array('', ''), $region->value);
         }
-        
+
+        if ($region->name === 'contactinfo') {
+            $region->value = preg_replace('/<h3>.*<\/h3>/', '', $region->value);
+        }
+
         $four_template->{$region->name} = $region->value;
     }
 }
 
-$four_template->maincontentarea = $four_template->maincontentarea;
-
-// Create a helper object for making the include replacements
-$version_four_helper = new UNL_Templates_Version4();
-
-// Replace the #include statements
-$html = $version_four_helper->makeIncludeReplacements((string)$four_template);
-
 // echo the final HTML
-echo $html;
+echo $four_template;

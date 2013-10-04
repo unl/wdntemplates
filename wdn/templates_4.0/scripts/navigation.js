@@ -4,7 +4,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
     var lockHover = false,
         initd = false,
         min = '',
-    	snifferServer = 'http://www1.unl.edu/wdn/templates_3.0/scripts/',
+    	snifferServer = '//www1.unl.edu/wdn/templates_3.0/scripts/',
     	fullNavBp = '(min-width: 700px)',
     	hoverPlugin = 'plugins/hoverIntent/jquery.hoverIntent',
     	swipePlugin = 'plugins/mobile/jquery.mobile.custom',
@@ -15,13 +15,18 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
     	homepageLI, siteHomepage, timeout, scrollTimeout, resizeTimeout,
     	currentState = -1,
     	cWrapSel = '#wdn_content_wrapper',
+    	wdnWrapSel = '#wdn_wrapper',
     	breadSel = '#breadcrumbs',
     	navSel = '#navigation',
     	prmySel = '> ul > li',
+    	barStartSel = ':nth-child(6n+1)',
     	navPrmySel = navSel + ' ' + prmySel,
     	breadPrmySel = breadSel + ' ' + prmySel,
     	menuTogSel = '#wdn_menu_toggle',
-    	storeSel = 'div.storednav',
+    	padCss = 'padding-top',
+    	storeCls = 'storednav',
+    	empty2ndCls = 'empty-secondary',
+    	emptyRowCls = 'row-empty',
     	sldCls = 'selected',
     	hltCls = 'highlight';
     
@@ -115,38 +120,47 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
     };
     
     var fixPresentation = function() {
+    	var primaries = $(navPrmySel),
+    		secondaryLists = $('> ul', primaries),
+    		primaryLinks = $('> a', primaries),
+    		$nav = $(navSel);
+    	
+    	$nav.off('expand');
+    	primaryLinks.css({
+        	'padding-top' : '',
+            'padding-bottom' : ''
+        });
+    	
     	if (!isFullNav()) {
-    		$(navPrmySel + ' > ul').css('height', '');
-    		$(navPrmySel + ' > a').css({
-            	'padding-top' : '',
-                'padding-bottom' : ''
-            });
+    		secondaryLists.css('height', '');
         	return;
         }
     	
     	var navWrap = $('#wdn_navigation_wrapper');
-    	navWrap.removeClass('empty-secondary');
+    	navWrap.removeClass(empty2ndCls);
     	
-        var primaries = $(navPrmySel);
         var primaryCount = primaries.length, fakePrimaries = [];
         while (primaryCount % 6 > 0) {
             fakePrimaries.push($('<li class="empty"><a /><ul class="empty"><li/></ul></li>')[0]);
             primaryCount++;
         }
         if (fakePrimaries.length) {
-        	$(navSel + ' > ul').append(fakePrimaries);
+        	$('> ul', $nav).append(fakePrimaries);
         	primaries = $(navPrmySel);
+        	primaryLinks = $('> a', primaries);
         }
+        primaries.removeClass(emptyRowCls);
 
         var secondaries = primaries.has('ul');
         if (secondaries.length) {
-            primaries.not(':has(ul)').each(function(){
+            primaries.not(secondaries).each(function(){
                 $(this).append('<ul class="empty"><li/></ul>');
             });
+            secondaryLists = $('> ul', primaries);
         }
         
         // css3 selector fixes
-        var $bar_starts = $(navPrmySel + ':nth-child(6n+1)');
+        var $bar_starts = $(navPrmySel + barStartSel);
         if (!Modernizr['css-nthchild']) {
             $bar_starts.addClass('start');
             $(navPrmySel + ':nth-child(6n+6)').addClass('end');
@@ -158,10 +172,6 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
         }
 
         var ah = [];
-        var primaryLinks = $('> a', primaries).css({
-        	'padding-top' : '',
-            'padding-bottom' : ''
-        });
         primaryLinks.each(function(i){
             var row = Math.floor(i/6);
             var height = $(this).outerHeight();
@@ -171,9 +181,10 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
         });
 
         primaryLinks.each(function(i){
-            var row = Math.floor(i/6);
-            var height = $(this).outerHeight();
-            var pad = parseFloat($(this).css('padding-top'));
+            var row = Math.floor(i/6),
+            	height = $(this).outerHeight(),
+            	pad = parseFloat($(this).css(padCss));
+
             if (height < ah[row]) {
                 var ah_temp = (ah[row] - height) / 2,
                 	new_ah = [Math.floor(ah_temp), Math.ceil(ah_temp)];
@@ -185,8 +196,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
             }
         });
 
-        var secondaryLists = $('> ul', primaries),
-    		recalcSecondaryHeight = function() {
+        var recalcSecondaryHeight = function() {
         		WDN.log('fixing secondaries');
 	            var ul_h = [];
 	            secondaryLists.css('height', '').each(function(i){
@@ -203,18 +213,19 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
             };
         
         if (currentState == 0) {
-        	$(navSel).bind('expand', recalcSecondaryHeight);
+        	$nav.on('expand', recalcSecondaryHeight);
         } else {
         	recalcSecondaryHeight();
         }
 
         // look for no secondary links
         if (!$('li > a', secondaryLists).length) {
+        	navWrap.addClass(empty2ndCls);
         } else { // look for entire empty rows
             $bar_starts.each(function() {
-            	var $primary_bar = $(this).nextUntil(':nth-child(6n+1)').andSelf();
+            	var $primary_bar = $(this).nextUntil(barStartSel).addBack();
             	if (!$('> ul li > a', $primary_bar).length) {
-            		$primary_bar.addClass('row-empty');
+            		$primary_bar.addClass(emptyRowCls);
             	}
             });
         }
@@ -224,7 +235,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
     
     var applyStateFixes = function() {
     	var $cWrapper = $(cWrapSel);
-        $cWrapper.css('padding-top', '');
+        $cWrapper.css(padCss, '');
         
         if (!isFullNav()) {
         	return;
@@ -232,7 +243,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
         
         if (currentState === 0) {
             var nav_height = $(navSel).outerHeight();
-            $cWrapper.css('padding-top', nav_height);
+            $cWrapper.css(padCss, nav_height);
         }
     };
     
@@ -295,13 +306,13 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
         	
             $previousCrumbs.each(function() {
             	
-            	var $storedNav = $(this).children(storeSel);
+            	var $storedNav = $(this).children('.' + storeCls);
             	
             	if ($storedNav.length) {
             		$('a', $storedNav.children()).each(function() {
             			if (this.href == breadcrumb.href) {
             				foundInCurrent = true;
-            				var tempPrimary = $(this).parents(storeSel + ' ' + prmySel);
+            				var tempPrimary = $(this).parents('.' + storeCls + ' ' + prmySel);
             				tempPrimary.addClass(hltCls);
             				
             				setNavigationContents($storedNav.children().clone(), expand);
@@ -337,7 +348,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 	    		.html();
         };
 
-        var $storedNav = $(breadcrumb).siblings(storeSel),
+        var $storedNav = $(breadcrumb).siblings('.' + storeCls),
             oldNavCompare = sanitizeNav($navList.clone());
         
         if ($storedNav.length) {
@@ -359,7 +370,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
             	}
         	}
         	
-    		if (!$(storeSel, oldSelected).length) {
+    		if (!$('.' + storeCls, oldSelected).length) {
                 storeNav(oldSelected, $navList);
         	}
     		
@@ -374,16 +385,13 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
         $(breadPrmySel).removeClass(pendCls);
         $(breadcrumb).parent().addClass(pendCls);
 
-        var nav_sniffer = snifferServer + 'navigationSniffer.php';
-        nav_sniffer += '?u=' + escape(breadcrumb.href);
-        WDN.log('Attempting to retrieve navigation from '+nav_sniffer);
-        $.get(nav_sniffer, '', function(data, textStatus) {
+        Plugin.fetchSiteNavigation(breadcrumb.href, function(data, textStatus) {
             try {
                 if (textStatus == 'success') {
                 	var $temp = $('<div/>').append(data).children('ul');
                     
                     if (!isAfterHome || $temp.html() != oldNavCompare) {
-                    	if (!$(storeSel, oldSelected).length) {
+                    	if (!$('.' + storeCls, oldSelected).length) {
                             storeNav(oldSelected, $navList);
                     	}
                     	
@@ -414,11 +422,11 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
     };
     
     var storeNav = function(li, data) {
-    	var storednavDiv = $(li).children(storeSel);
+    	var storednavDiv = $(li).children('.' + storeCls);
     	if (storednavDiv.length) {
     		storednavDiv.empty();
     	} else {
-    		storednavDiv = $('<div/>', {'class' : 'storednav'});
+    		storednavDiv = $('<div/>', {'class' : storeCls});
     		$(li).append(storednavDiv);
     	}
     	storednavDiv.append(data);
@@ -438,14 +446,14 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
     };
     
     var setWrapperClass = function(css_class) {
-        var $wrapper = $('#wdn_wrapper'), offClass, prefix = 'nav_';
+        var $wrapper = $(wdnWrapSel), offClass, prefix = 'nav_';
         $wrapper.removeClass(prefix + 'changing');
         offClass = css_class == 'collapsed' ? 'expanded' : 'collapsed';
         $wrapper.removeClass(prefix + offClass).addClass(prefix + css_class);
     };
     
     var navReady = function(ready) {
-    	var $wrapper = $('#wdn_wrapper'), cls = 'nav_ready';
+    	var $wrapper = $(wdnWrapSel), cls = 'nav_ready';
     	if (ready) {
     		$wrapper.addClass(cls);
     	} else {
@@ -545,7 +553,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 //	                    don't clear the timeout (wait for last event) as it causes poor UX
 //	                    clearTimeout(scrollTimeout);
 	                    scrollTimeout = setTimeout(function() {
-	                    	var breadcrumbs = $(breadSel), wrp = $('#wdn_wrapper'),
+	                    	var breadcrumbs = $(breadSel), wrp = $(wdnWrapSel),
 	                    	cls = 'nav-scrolling', trig;
 	                    	
 	                    	if (isFullNav() && currentState !== 0) {
@@ -620,7 +628,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
             	}
             	
             	setWrapperClass('expanded');
-            	$(navSel).trigger('expand').unbind('expand');
+            	$(navSel).trigger('expand').off('expand');
             };
             if (Plugin.currentState !== -1 && Modernizr.csstransitions) {
                 setWrapperClass('changing');
@@ -646,29 +654,30 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
             }
             expandSemaphore = true;
 
-            if (!isFullNav()) {
-            	// allow content scrolling
-        		$('html').css({
-        			'height': '',
-        			'overflow': '' 
-        		});
-        		$(cWrapSel).off('touchmove');
-        	}
             
             setWrapperClass('collapsed');
             currentState = 0;
             $(menuTogSel)[0].checked = false;
             
-            if (switchNav !== false) {
-            	var go = function() {
+            var go = function() {
+            	if (!isFullNav()) {
+            		// allow content scrolling
+        			$('html').css({
+        				'height': '',
+        				'overflow': '' 
+        			});
+        			$(cWrapSel).off('touchmove');
+        		}
+				
+            	if (switchNav !== false) {
             		switchSiteNavigation($(homepageLI).children('a').get(0), false);
             	};
+			};
             	
-            	if (Modernizr.csstransitions) {
-            		setTimeout(go, 400);
-            	} else {
-            		go();
-            	}
+            if (Modernizr.csstransitions) {
+            	setTimeout(go, 400);
+            } else {
+            	go();
             }
             
             expandSemaphore = false;
@@ -676,6 +685,13 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
         
         getSiteHomepage : function() {
         	return siteHomepage;
+        },
+        
+        fetchSiteNavigation : function(url, complete) {
+        	var nav_sniffer = snifferServer + 'navigationSniffer.php';
+            nav_sniffer += '?u=' + encodeURIComponent(url);
+            WDN.log('Attempting to retrieve navigation from '+nav_sniffer);
+            $.get(nav_sniffer, '', complete);
         }
     };
     

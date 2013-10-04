@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Form Validator Example</title>
+</head>
+<body data-version="4.0">
+    <div id="example-code">
 <script type="text/javascript">
 WDN.initializePlugin('form_validation', [function() {
     WDN.jQuery.validation.addMethod('validate-confirm-email', 'This field must match the value of the email field.', {equalToField:'#email'});
@@ -28,7 +36,7 @@ WDN.initializePlugin('form_validation', [function() {
             <li>
                 <label for="campus">Campus</label>
                 <select name="campus" id="campus">
-                    <option value="none"></option>
+                    <option value=""> </option>
                     <option value="unl">UNL</option>
                     <option value="unk">UNK</option>
                     <option value="uno">UNO</option>
@@ -59,7 +67,7 @@ WDN.initializePlugin('form_validation', [function() {
             </li>
             <li>
                 <label for="helpful_comments">In what way?</label>
-                <textarea id="helpful_comments" name="comments" rows="4" cols="auto"></textarea>
+                <textarea id="helpful_comments" name="comments" rows="4" cols="20"></textarea>
             </li>
             <li class="reqnote">
                 <span class="required">*</span> denotes required field
@@ -69,3 +77,6 @@ WDN.initializePlugin('form_validation', [function() {
     <input type="submit" name="submit" value="Submit" />
     <input type="reset" name="reset" value="Reset" />
 </form>
+    </div>
+</body>
+</html>

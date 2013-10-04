@@ -3,21 +3,23 @@
  * Function to create a carousel. See http://www1.unl.edu/wdn/wiki/Carousel for more details
  *
  */
-define(['wdn', 'require'], function(WDN, require) {
+define(['wdn', 'require', 'jquery'], function(WDN, require, $) {
 	var defaultSel = '#wdn_Carousel',
+	flexCls = 'flexslider',
 	pluginPath = './plugins/flexslider/',
 	initd = false;
 	
 	return {
 		initialize : function(callback) {
-			var min = '', body = document.getElementsByTagName('body');
-			if (!body.length || !body[0].className.match(/(^|\s)debug(\s|$)/)) {
+			var min = '', body = $('body');
+			if (!body.length || !body.hasClass('debug')) {
 				min = '-min';
 			}
 			
 			var done = function() {
 				var defaults = WDN.getPluginParam('carousel', 'defaults') || {};
-				WDN.jQuery(defaultSel).addClass('flexslider').flexslider(defaults);
+				$(defaultSel).addClass(flexCls).flexslider(defaults);
+				$('.' + flexCls).flexslider(defaults);
 				initd = true;
 				
 				if (callback) {

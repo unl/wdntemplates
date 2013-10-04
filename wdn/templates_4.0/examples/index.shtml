@@ -27,11 +27,22 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
+<link rel="home" href="http://wdn.unl.edu" />
 <script type="text/javascript"><!--
-require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy) {
-    $(function() {
+require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, require, legacy, navigation) {
+    navigation.fetchSiteNavigation('http://wdn.unl.edu/', function(data, textStatus) {
+    	if (textStatus == 'success') {
+    		$(function() {
+    			$('#navigation').prepend(data);
+    			navigation.initialize();
+    		});
+    	}
+    });
+	
+	$(function() {
         var cache = { '' : ' ' },
         loadExample = function(data, url) {
+            data = $(data).closest('#example-code').html()
             $('#example').attr('class', url.substring(0, url.indexOf('.'))).html(data);
             legacy();
             $('#example_code').val(data);
@@ -75,7 +86,10 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
 });
 --></script>
 <style type="text/css">
-#maincontent {padding-bottom:1rem;}
+#example {
+    margin-top: 1em;
+}
+
 #example.jqueryui #sortable li,
 #example.jqueryui #selectable li {
     margin: 0 3px 3px 3px; 
@@ -100,6 +114,10 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
     background-clip:content-box;
     background-color:rgba(167, 206, 229, 0.5);
     margin-bottom:1rem !important;
+}
+
+#example.band_imagery {
+    max-width: none;
 }
 
 </style>
@@ -147,7 +165,6 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
                 <nav id="navigation" role="navigation" class="wdn-band">
                     <h3 class="wdn_list_descriptor wdn-text-hidden">Navigation</h3>
                     <!-- InstanceBeginEditable name="navlinks" -->
-                    <!--#include virtual="../../../sharedcode/navigation.html" -->
                     <!-- InstanceEndEditable -->
                     <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
                 </nav>
@@ -176,6 +193,7 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
                     <p>Choose an example to view:</p>
                     <ul id="examples">
                         <li><a href="audioplayer.html">Audio player</a> (mediahub.unl.edu)</li>
+                        <li><a href="band_imagery.html">Band Imagery</a></li>
                         <li><a href="buttons.html">Buttons</a></li>
                         <li><a href="carousel.html">Carousel</a> (<a href="http://www1.unl.edu/wdn/wiki/Carousel" class="external">wiki documentation</a>)</li>
                         <li><a href="colorbox.html">Colorbox (Modal Box)</a></li>
@@ -194,7 +212,6 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
                         <li><a href="table.html">Responsive Data Table</a></li>
                         <li><a href="tabs.html">Tabs</a> (<a href="http://www1.unl.edu/wdn/wiki/Tabbed_Content_Areas" class="external">wiki documentation</a>)</li>
                         <li><a href="tooltips.html">Tooltips</a></li>
-                        <li><a href="twitter_widget.html">Twitter Widget</a></li>
                         <li><a href="videoplayer.html">Video player</a> (mediahub.unl.edu)</li>
                         <li><a href="zenboxes.html">Zenboxes</a> (<a href="http://www1.unl.edu/wdn/wiki/Zenbox" class="external">wiki documentation</a>)</li>
                         <li><a href="zentables.html">Zentables</a></li>
@@ -204,11 +221,8 @@ require(['jquery', 'wdn', 'require', 'legacy'], function($, WDN, require, legacy
                     <p>Source code:</p>
                     <textarea id="example_code" rows="25" cols="78"></textarea>
                 </div>
-            </section>
-                
-                <div style="margin-top:8px;">
-                    <div id="example"></div>
-                </div>
+                </section>
+                <div id="example"></div>
                 <!-- InstanceEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>

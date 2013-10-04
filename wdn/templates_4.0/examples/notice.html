@@ -1,14 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Notice Example</title>
+</head>
+<body data-version="4.0">
+    <div id="example-code">
 <script type="text/javascript">
 WDN.initializePlugin('notice');
 </script>
 <div class="wdn_notice">
-	<div class="close">
-		<a href="#" title="Close this notice">Close this notice</a>
-	</div>
-	<div class="message">
-		<h4>This is my Title!</h4>
-		<p>This is my content. Check out the wiki for more documentation.</p>
-	</div>
+    <div class="close">
+        <a href="#" title="Close this notice">Close this notice</a>
+    </div>
+    <div class="message">
+        <h4>This is my Title!</h4>
+        <p>This is my content. Check out the wiki for more documentation.</p>
+    </div>
 </div>
 <div class="wdn_notice affirm">
     <div class="close">
@@ -37,3 +45,25 @@ WDN.initializePlugin('notice');
         <p>This is my content. Check out the wiki for more documentation.</p>
     </div>
 </div>
+<div class="wdn_notice overlay-header duration-10">
+    <div class="close">
+        <a href="#" title="Close this notice">Close this notice</a>
+    </div>
+    <div class="message">
+        <h4>I'm Floating!</h4>
+        <p>This notice has classes <em>overlay-header</em> and <em>duration-10</em> and will vanish on its own.</p>
+    </div>
+</div>
+<div class="wdn_notice affirm overlay-maincontent duration-15">
+    <div class="close">
+        <a href="#" title="Close this notice">Close this notice</a>
+    </div>
+    <div class="message">
+        <h4>Success!</h4>
+        <p>This notice has classes <em>affirm</em>, </em><em>overlay-maincontent</em>, and <em>duration-15</em></p>
+    </div>
+</div>
+</div>
+    </div>
+</body>
+</html>
