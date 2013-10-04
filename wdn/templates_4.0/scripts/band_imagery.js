@@ -39,6 +39,10 @@ define(['jquery', 'wdn'], function($, WDN) {
 					scale($this, percent);
 				}
 
+				if ($this.hasClass('opacity')) {
+					opacity($this, percent);
+				}
+
 				if ($this.hasClass('flipbook')) {
 					flipbook($this, percent);
 				}
@@ -86,12 +90,44 @@ define(['jquery', 'wdn'], function($, WDN) {
 		}
 	};
 
+	/**
+	 * Transforms the scale of an element
+	 * 
+	 * Elements must have two data attributes:
+	 * data-scale-start
+	 * data-scale-end
+	 * 
+	 * The start and end scales determine what CSS transform to apply.
+	 * 
+	 * @var $this   jQuery'd element that holds the element to transform
+	 * @var percent A float percentage from 0-1 which will adjust the scale
+	 */
 	var scale = function($this, percent) {
 		var lerpstart_scale      = $this.attr('data-scale-start'),
 			lerpend_scale        = $this.attr('data-scale-end'),
 			scale_diff           = lerpend_scale - lerpstart_scale,
 			shown_scale          = parseFloat(lerpstart_scale) + percent * scale_diff;
 		$this.css('transform', 'scale('+shown_scale+')');
+	};
+
+	/**
+	 * Transforms the scale of an element
+	 * 
+	 * Elements must have two data attributes:
+	 * data-scale-start
+	 * data-scale-end
+	 * 
+	 * The start and end scales determine what CSS transform to apply.
+	 * 
+	 * @var $this   jQuery'd element that holds the element to transform
+	 * @var percent A float percentage from 0-1 which will adjust the scale
+	 */
+	var opacity = function($this, percent) {
+		var lerpstart_opaci      = $this.attr('data-opacity-start'),
+			lerpend_opaci        = $this.attr('data-opacity-end'),
+			scale_diff           = lerpend_opaci - lerpstart_opaci,
+			shown_opaci          = parseFloat(lerpstart_opaci) + percent * scale_diff;
+		$this.css('opacity', shown_opaci);
 	};
 
 	/**
