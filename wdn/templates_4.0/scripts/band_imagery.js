@@ -35,6 +35,10 @@ define(['jquery', 'wdn'], function($, WDN) {
 					lerp_end_offset   = $(lerpend_el).offset(),
 					percent 		  = lerp(lerp_start_offset, lerp_end_offset, depth);
 
+				if ($this.hasClass('scale')) {
+					scale($this, percent);
+				}
+
 				if ($this.hasClass('flipbook')) {
 					flipbook($this, percent);
 				}
@@ -80,6 +84,14 @@ define(['jquery', 'wdn'], function($, WDN) {
 				$this.css('top', pinned_top+'px');
 			}
 		}
+	};
+
+	var scale = function($this, percent) {
+		var lerpstart_scale      = $this.attr('data-scale-start'),
+			lerpend_scale        = $this.attr('data-scale-end'),
+			scale_diff           = lerpend_scale - lerpstart_scale,
+			shown_scale          = parseFloat(lerpstart_scale) + percent * scale_diff;
+		$this.css('transform', 'scale('+shown_scale+')');
 	};
 
 	/**
