@@ -2,24 +2,27 @@
     .wdn-flipbook {
        
     }
-    .wdn-locked {
-       position:absolute;
-       z-index:0;
-       left:0;
-       top:0;
-       bottom:auto;
+    .wdn-scroll-watch {
+	    &.locked {
+	       position:absolute;
+	       z-index:0;
+	       left:0;
+	       top:0;
+	       bottom:auto;
+	
+	       &.fixed { 
+	          position: fixed;
+	       }
 
-       &.fixed { 
-          position: fixed;
-       }
-
-       &.bottom {
-        top: auto;
-        bottom: 0;
-       }
+	       &.bottom {
+	        top: auto;
+	        bottom: 0;
+	       }
+	    }
     }
     .wdn-scroll  {
-        z-index:0;
-        position:relative;
-    }
+         z-index:0;
+         position:relative;
+     }
+
 }
