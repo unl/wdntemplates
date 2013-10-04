@@ -9,15 +9,25 @@
                 <h1>Band Imagery, Scroll-Watch Plugin Samples</h1>
                 <h2>Scale Sample</h2>
                 <div class="wdn-band">
-                    <div class="wdn-stretch wdn-scroll-watch lerp scale" data-lerp-start="#header" data-lerp-end="#maincontent" data-scale-start="1" data-scale-end="1.2">
+                    <div class="wdn-stretch wdn-scroll-watch lerp scale" data-lerp-start="#header" data-lerp-end="#maincontent" data-scale-start="1" data-scale-end="1.1">
                         <figure>
                             <img src="http://ucommbieber.unl.edu/IMG_2348.jpg" alt="Michael and Jackson" />
                         </figure>
                     </div>
                 </div>
+                <h2>Opacity Sample</h2>
+                <div class="wdn-band" style="background-color:black;">
+                    <div class="wdn-stretch wdn-scroll-watch lerp opacity" data-lerp-start="#opacity-start" data-lerp-end="#flipbook-end" data-opacity-start="1" data-opacity-end="0.0">
+                        <figure>
+                            <img src="http://ucommbieber.unl.edu/IMG_2348.jpg" alt="Michael and Jackson" />
+                        </figure>
+                    </div>
+                    <div id="opacity-start" style="position:absolute; bottom:55%;"></div>
+                    <div id="opacity-end" style="position:absolute; bottom:30%;"></div>
+                </div>
                 <h2 id="flipbook-end">Flipbook Sample</h2>
                 <div class="wdn-band">
-                    <div class="wdn-stretch wdn-scroll-watch lerp flipbook" data-lerp-start="#header" data-lerp-end="#flipbook-end">
+                    <div class="wdn-stretch wdn-scroll-watch lerp flipbook" data-lerp-start="#opacity-end" data-lerp-end="#flipbook-end">
                         <figure>
                             <img src="http://ucommbieber.unl.edu/IMG_2341.jpg" alt="Michael and Jackson" />
                         </figure>
