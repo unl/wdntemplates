@@ -1,9 +1,10 @@
 #breadcrumbs {
-    padding: 5px 5px 5px 38px;
+    /*padding: 0.602em 0.317em 0.602em 3.157em;*/
     .sans-serif-font();
-    .rem(10);
-    background-color: fadeout(#fff, 90%);
-    opacity: 0.8;
+    font-size: 9.625px;
+    font-size: 0.602rem;
+    //background-color: fadeout(#fff, 90%);
+    opacity: 0.7;
 
     @media @bp3 {
         width: 60rem;
@@ -19,7 +20,7 @@
         }
 
         &:first-child { // First element to be replaced with 'home' icon.
-            margin-left: -33px;
+            margin-left: -2.369em;
             
             a {
                 text-indent: -99em;
@@ -36,7 +37,7 @@
                     display: inline-block;
                     text-decoration: inherit;
                     width: 1em;
-                    margin-right: 0.2em;
+                    margin-right: 0.254em;
                     text-align: center;
                     font-variant: normal;
                     text-transform: none;
@@ -52,8 +53,8 @@
             font-weight: normal;
             speak: none;
             content: '\F0C8';
-            .rem(18);
-            margin: 0 2px 0 6px;
+            .rem(13);
+            margin: 0 0.134em 0 0.339em;
             line-height: 0;
             color: fadeout(#fff, 25%);
             vertical-align: middle;
@@ -80,21 +81,20 @@
             height: 0;
             border-left: 12px solid transparent;
             border-right: 12px solid transparent;
-            border-bottom: 12px solid #ffffff;
+            border-bottom: 12px solid transparent;
             position: absolute;
             left: ~"-webkit-calc(50% - 12px)";
             left: ~"-moz-calc(50% - 12px)";
             left: ~"calc(50% - 12px)";
-            bottom: -8px;
+            top: 1.2em;
         }
     }
 
     // Styles specific to the full view
     @media @bp-nav-full {
         color: @base-text;
-        text-shadow: -1px 0 0 #fff;
-        padding: 0 0 0 33px;
-        margin-bottom: 2px;
+        /*text-shadow: -1px 0 0 #fff;*/
+        padding: 0.191em 0 0.191em 33px;
         
         .selected a:after {
             border-bottom-color: #5f5f4e;
