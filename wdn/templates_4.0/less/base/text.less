@@ -1,8 +1,8 @@
-/* Modular Scale for vertical rythm: http://http://modularscale.com/scale/?px1=16&px2=54&ra1=1.333&ra2=0*/
+// Modular Scale for vertical rythm: http://http://modularscale.com/scale/?px1=16&px2=54&ra1=1.333&ra2=0
 
-/* HEADERS */
+// HEADERS
 
-.heading-size(@size) {
+/*.heading-size(@size) {
     font-size: (@size * 1rem);
     line-height: (@size * 1rem);   
     margin: 0 0 @base-font-size-sm 0;
@@ -10,73 +10,27 @@
     @media @bp2 {
         margin: 0 0 @base-font-size-lg 0;
     }
-}
+}*/
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
     .heading-font;
     // color: darken(@base-text, 15%); // Black
-}
-
-h1 {
-    @size: 3.116; /* 41px */
-    .heading-size(@size);
+    //line-height: (@size * 1rem);   
+    line-height: 1em;
+    margin: 0 0 @base-font-size-sm 0;
 
     @media @bp2 {
-        @size: 3.157; /* 51px */
-        .heading-size(@size);
+        margin: 0 0 @base-font-size-lg 0;
     }
 }
 
-h2 {
-    @size: 2.915; /* 38px */
-    .heading-size(@size);
-
-    @media @bp2 {
-        @size: 2.532; /* 41px */
-        .heading-size(@size);
-    }
-}
-
-h3 {
-    @size: 2.337; /* 30px */
-    .heading-size(@size);
-
-    @media @bp2 {
-        @size: 2.369; /* 38px */
-        .heading-size(@size);
-    }
-}
-
-h4 {
-    @size: 2.187; /* 28px */
-    .heading-size(@size);
-
-    @media @bp2 {
-        @size: 1.899; /* 30px */
-        .heading-size(@size);
-    }
-}
-
-h5 {
-    @size: 1.754; /* 23px */
-    .heading-size(@size);
-
-    @media @bp2 {
-        @size: 1.777; /* 28px */
-        .heading-size(@size);
-    }
-}
-
-h6 {
-    @size: 1.641; /* 21px */
-    .heading-size(@size);
-
-    @media @bp2 {
-        @size: 1.425; /* 23px */
-        .heading-size(@size);
-    }
-}
+h1 { .rem(41,51); }
+h2 { .rem(38,41); }
+h3 { .rem(30,38); }
+h4 { .rem(28,30); }
+h5 { .rem(23,28); }
+h6 { .rem(21,23); }
 
 /* Calculate margins above headers based on header size */
 p, span, div, ul, li, section, img {
@@ -89,7 +43,7 @@ p, span, div, ul, li, section, img {
     }
 }
 
-/* SUBHEADS */
+// SUBHEADS
 
 .wdn-subhead {
     display: block;
@@ -102,58 +56,15 @@ p, span, div, ul, li, section, img {
 
     h1, h2, h3 {
         > .wdn-subhead, + .wdn-subhead {
-            font-size: @base-font-size-sm;
-
-            @media @bp2 {
-                font-size: @base-font-size-lg;
-            }
+            .rem(13,16);
         }
     }
 
     h4, h5, h6 {
         > .wdn-subhead, + .wdn-subhead {
-            font-size: 9.625px;
-            font-size: 0.740rem;
-
-            @media @bp2 {
-                font-size: 12px;
-                font-size: 0.75rem;
-            }
+            .rem(10,12);
         }
     }
-
-/*    .wdn-subhead {
-        + h1, + h2, + h3 {
-            font-size: @base-font-size-sm;
-
-            @media @bp2 {
-                font-size: @base-font-size-lg;
-            }
-        }
-    
-        + h4, + h5, + h6 {
-            font-size: 9.625px;
-            font-size: 0.740rem;
-
-            @media @bp2 {
-                font-size: 12px;
-                font-size: 0.75rem;
-            }            
-        }
-    }*/
-
-
-
-/* Margin-bottom for subheads that follow headers */
-/*h1, h2, h3, h4, h5, h6 {
-    > .wdn-subhead, + .wdn-subhead {
-        margin-bottom: @base-font-size-sm;
-
-        @media @bp2 {
-           margin-bottom: @base-font-size-lg;       
-        }
-    }
-}*/
 
 .wdn-subhead {
    + h1, + h2, + h3, + h4, + h5, + h6  {
@@ -161,23 +72,13 @@ p, span, div, ul, li, section, img {
     }
 }
 
-/*h1, h2, h3, h4, h5, h6 {
-   + .wdn-subhead  {
-        margin-top: @base-font-size-sm * -1;
-
-        @media @bp2 {
-            margin-top: @base-font-size-lg * -1;
-        }
-    }
-}*/
-
 p, span, div, ul, li, section, img {
     + .wdn-subhead {
         margin-bottom: 0;        
     }
 }
 
-/* PARAGRAPHS */
+// PARAGRAPHS
 
 p {
     //margin: 0 0 @base-line-height * 1em 0;*/

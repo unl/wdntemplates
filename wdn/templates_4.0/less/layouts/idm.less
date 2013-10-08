@@ -2,13 +2,12 @@
     position: relative;
     
     @media @bp-nav-hidden {
-        font-size: 16px;
-        font-size: 1.23em;
-        line-height: 1;
-        position: relative;
+        .rem(13);
+        line-height: 0;
+        position: absolute;
         bottom: -65px; // position over the nav bar
         right: 0;
-        z-index: 1; /* overlay the nav bar */
+        z-index: (@nav-z-index + 1); // overlay the nav bar
         text-align: right;
 
         a {

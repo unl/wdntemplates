@@ -1,13 +1,9 @@
-/* Default presentation of a button */
+// Default presentation of a button
 .colorize-button(@color) {
     background-color: @color;
-    /*.box-shadow(0 2px 0px @color);
-    text-shadow: 1px 1px 1px darken(@color, 25%);*/
 
     &:hover {
         background-color: darken(@color, 7%);
-        /*text-shadow: 1px 1px 1px darken(@color, 35%);
-        .box-shadow(0 2px 0px darken(@color, 10%));*/
     }
 
     &[disabled] {
@@ -30,13 +26,12 @@
     text-transform: uppercase;
     .sans-serif-font;
     line-height: 1;
-    font-size: 12px;
-    font-size: 0.75rem;
+    .rem(10,12);
     .transition(background-color 0.2s);
     .colorize-button(@neutral);
     
     a& {
-    	/* needed to make the selector more specific */
+    	// needed to make the selector more specific
     	color: #ffffff;
     	border: none;
     }

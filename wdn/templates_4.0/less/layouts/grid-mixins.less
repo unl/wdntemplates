@@ -1,4 +1,4 @@
-/* Start of grid-specific rules */
+// Start of grid-specific rules
 @gutter-size-ie: 23px;
 @gutter-size: 1.4rem;
 @grid-set: wdn-grid-set;
@@ -16,18 +16,18 @@
     width: @width;
 }
 
-/* Function to setup the widths for each grid at various breakpoints */
+// Function to setup the widths for each grid at various breakpoints
 .grid-setup(@namespace, @namespace-set) {
     .@{namespace}-full, .@{namespace}-set-full .@{grid-col-class} {
         .grid-col-width-cal(100%);
     }
     
-    /* Halves */
+    // Halves
     .@{namespace}-one-half, .@{namespace}-two-fourths, .@{namespace}-three-sixths, .@{namespace-set}-halves .@{grid-col-class} {
         .grid-col-width-cal(percentage(1/2));
     }
     
-    /* Thirds */
+    // Thirds
     .@{namespace}-one-third, .@{namespace}-two-sixths, .@{namespace-set}-thirds .@{grid-col-class} {
         .grid-col-width-cal(percentage(1/3));
     }
@@ -36,7 +36,7 @@
         .grid-col-width-cal(percentage(2/3));
     }
     
-    /* Fourths */
+    // Fourths
     .@{namespace}-one-fourth, .@{namespace-set}-fourths .@{grid-col-class} {
         .grid-col-width-cal(percentage(1/4));
     }
@@ -45,7 +45,7 @@
         .grid-col-width-cal(percentage(3/4));
     }
     
-    /* Fifths */
+    // Fifths
     .@{namespace}-one-fifth, .@{namespace-set}-fifths .@{grid-col-class} {
         .grid-col-width-cal(percentage(1/5));
     }
@@ -62,7 +62,7 @@
         .grid-col-width-cal(percentage(4/5));
     }
     
-    /* Sixths */
+    // Sixths
     .@{namespace}-one-sixth, .@{namespace-set}-sixths .@{grid-col-class} {
         .grid-col-width-cal(percentage(1/6));
     }
@@ -71,7 +71,7 @@
         .grid-col-width-cal(percentage(5/6));
     }
     
-    /* Sevenths */
+    // Sevenths
     .@{namespace}-one-seventh, .@{namespace-set}-sevenths .@{grid-col-class} {
         .grid-col-width-cal(percentage(1/7));
     }

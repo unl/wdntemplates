@@ -3,7 +3,7 @@
 
     .wdn-inner-wrapper {
         position: relative;
-        padding: 0 3.44%;
+        padding: 0 5%;
 
         @media @bp-nav-hidden {
             &:after {
@@ -19,7 +19,7 @@
 
     @media @bp-nav-hidden {
         padding-top: 0.602em;
-        /*padding-bottom: 0.254em;*/
+        //padding-top: 5px;
     }
 
     @media @bp-nav-full {
@@ -30,9 +30,7 @@
     }
 }
 
-/*
-Logo
-*/
+// Logo
 
 #logo {
     background-image: data-uri('../images/n.svg');
@@ -136,27 +134,20 @@ Logo
     }
 }
 
-/*
-Institution and site title layouts
-*/
+// Institution and site title layouts
 
 #wdn_institution_title {
     float: left;
     white-space: nowrap;
-    padding-bottom: 0.1em;
     color: lighten(@base-text, 5%);
     text-transform: uppercase;
     .brand-font();
-    /*text-shadow: 0 1px 0 #fff;*/
-    font-size: 17px;
-    font-size: 1.069rem;
-    line-height: 17px;
-    line-height: 1.069rem;
+    .rem(16);
+    line-height: 1;
 
     @media @bp-nav-full {
-        padding-top: 0.602em;
-        font-size: 22.798px;
-        font-size: 1.425rem;
+        padding-top: 0.451em;
+        .rem(23);
     }
 }
 
@@ -165,12 +156,8 @@ Institution and site title layouts
     padding-bottom: 0.1em;
     .display-font();
     color: @base-text;
-    /*text-shadow: 0 1px 0 #fff;
-    letter-spacing: -1px;*/
-    font-size: 28.430px;
-    font-size: 1.777rem;
-    line-height: 28.430px;
-    line-height: 1.777rem;
+    .rem(23);
+    line-height: 1;
 
     a {
         color: @base-text;
@@ -196,9 +183,8 @@ Institution and site title layouts
 
     @media @bp-nav-full {
         width: 100%;
-        padding: 0.75em 0 0.143em;
-        font-size: 30.390px;
-        font-size: 1.899rem;
+        padding: 0.75em 0 0.1em;
+        .rem(30);
 
         span {
             display: inline-block;

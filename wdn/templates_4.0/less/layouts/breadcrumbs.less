@@ -1,14 +1,10 @@
 #breadcrumbs {
-    /*padding: 0.602em 0.317em 0.602em 3.157em;*/
     .sans-serif-font();
-    font-size: 9.625px;
-    font-size: 0.602rem;
-    //background-color: fadeout(#fff, 90%);
+    .rem(10);
     opacity: 0.7;
 
     @media @bp3 {
         width: 60rem;
-        margin-top: -1px;
     }
     
     li {
@@ -25,7 +21,7 @@
             a {
                 text-indent: -99em;
                 .rem(12);
-                width: 1em;
+                width: 1.069em;
 
                 &:before {
                     font-family: "fontello";
@@ -36,7 +32,7 @@
                     speak: none;
                     display: inline-block;
                     text-decoration: inherit;
-                    width: 1em;
+                    width: 1.069em;
                     margin-right: 0.254em;
                     text-align: center;
                     font-variant: normal;
@@ -86,15 +82,14 @@
             left: ~"-webkit-calc(50% - 12px)";
             left: ~"-moz-calc(50% - 12px)";
             left: ~"calc(50% - 12px)";
-            top: 1.2em;
+            top: 1.425em;
         }
     }
 
     // Styles specific to the full view
     @media @bp-nav-full {
         color: @base-text;
-        /*text-shadow: -1px 0 0 #fff;*/
-        padding: 0.191em 0 0.191em 33px;
+        padding: 0 0 0 28px;
         
         .selected a:after {
             border-bottom-color: #5f5f4e;
