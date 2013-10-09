@@ -175,7 +175,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 			WDN.loadCSS(WDN.getTemplateFilePath('css/modules/band_imagery.css'));
 			$('.wdn-scroll-watch').parent().css('position', 'relative');
 			$(window).scroll(function() {
-					scrollTimeout = setTimeout(imageryUpdate, 50);
+					setTimeout(imageryUpdate, 50);
 				}
 			);
 		}
