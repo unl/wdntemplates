@@ -1,22 +1,10 @@
-// Modular Scale for vertical rythm: http://http://modularscale.com/scale/?px1=16&px2=54&ra1=1.333&ra2=0
+// Modular Scale for vertical rythm: http://modularscale.com/scale/?px1=16&px2=54&ra1=1.333&ra2=0
 
 // HEADERS
-
-/*.heading-size(@size) {
-    font-size: (@size * 1rem);
-    line-height: (@size * 1rem);   
-    margin: 0 0 @base-font-size-sm 0;
-
-    @media @bp2 {
-        margin: 0 0 @base-font-size-lg 0;
-    }
-}*/
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
     .heading-font;
-    // color: darken(@base-text, 15%); // Black
-    //line-height: (@size * 1rem);   
     line-height: 1em;
     margin: 0 0 @base-font-size-sm 0;
 
@@ -32,7 +20,7 @@ h4 { .rem(28,30); }
 h5 { .rem(23,28); }
 h6 { .rem(21,23); }
 
-/* Calculate margins above headers based on header size */
+// Calculate margins above headers based on header size
 p, span, div, ul, li, section, img {
     + h1, + h2, + h3, + h4, + h5, + h6 {
         margin-top: @base-line-height-sm * 1em;        
@@ -52,7 +40,7 @@ p, span, div, ul, li, section, img {
     text-transform: uppercase;
 }
 
-    /* Font sizes in relation to headers */
+    // Font sizes in relation to headers
 
     h1, h2, h3 {
         > .wdn-subhead, + .wdn-subhead {
@@ -81,7 +69,6 @@ p, span, div, ul, li, section, img {
 // PARAGRAPHS
 
 p {
-    //margin: 0 0 @base-line-height * 1em 0;*/
     margin: 0 0 @base-font-size-sm 0;
     color: fadeout(@base-text, 10%);
 
@@ -110,13 +97,8 @@ p {
     .list-reset;
 }
 
-.wdn-text-hidden {
-    .text-hidden;
-}
 
-/* 
-Icon Font - see /wdn/templates_4.0/fonts/fontello/readme.md
-*/
+// Icon Font - see /wdn/templates_4.0/fonts/fontello/readme.md
 
 @font-face {
     font-family: 'fontello';

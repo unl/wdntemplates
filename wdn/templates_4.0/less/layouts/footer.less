@@ -1,11 +1,11 @@
 @footer-text-color: #cbc8c1;
 
 #footer p{ 
-    color: #cbc8c1;
+    color: @footer-text-color;
 }
 
 #wdn_optional_footer {
-    background-color: fadeout(#cbc8c1, 85%);
+    background-color: fadeout(@footer-text-color, 85%);
 }
 
 #footer {
@@ -27,7 +27,7 @@
     }
 
     a {
-        color: #cbc8c1;
+        color: @footer-text-color;
         text-decoration: none;
     }
 
@@ -59,8 +59,7 @@
         .brand-font();
         text-transform: uppercase;
         .rem(23);
-        line-height: 28.430px;
-        line-height: 1.777rem;
+        line-height: 1.069;
 
         @media @bp2 {
             .rem(28);
@@ -105,7 +104,6 @@
 
         @media @bp-nav-full {
             .columns(4);
-            margin-top: 5.417px;
             margin-top: 0.339em;
         }
     }
@@ -157,7 +155,7 @@
     column-break-inside: avoid;
 
     a {
-        border-bottom: 1px dotted #cbc8c1;
+        border-bottom: 1px dotted @footer-text-color;
     }
 
     @media @bp1 {
@@ -185,7 +183,7 @@
     float: left;
 
     a {
-        border-bottom: 1px dotted #cbc8c1;
+        border-bottom: 1px dotted @footer-text-color;
     }
 
 }

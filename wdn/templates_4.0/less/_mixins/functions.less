@@ -12,7 +12,7 @@
 @rem-fallback: true; // switch to include px fallback
 
 .rem (@px-value) {
-    .rem(@px-value, (unit(@px-value)));
+    .rem(@px-value, @px-value);
 }
 
 .rem (@px-value-sm, @px-value-lg) {

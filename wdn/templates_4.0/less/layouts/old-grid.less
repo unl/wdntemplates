@@ -8,7 +8,7 @@
 * ---------------------------
 */
 
-// LESS function to combine column and gutter widths for determining individual column widths */
+// LESS function to combine column and gutter widths for determining individual column widths
 .theWidth (@theColumn: 1, @columnWidth: 8%, @gutterWidth: 2.22222222%) {
     width: (@columnWidth * @theColumn) + (@gutterWidth * (@theColumn - 1));
 }
