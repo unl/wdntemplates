@@ -5,7 +5,7 @@
  * user the wdn-scroll-watch class
  *
  * Flipbook over a set of figure elements when the user scrolls between two points
- * class="wdn-scroll-watch lerp flipbook" data-lerp-start=".start-el" data-lerp-end=".end-el"
+ * class="wdn-scroll-watch" data-lerp="flipbook" data-lerp-flipbook-start=".start-el" data-lerp-flipbook-end=".end-el"
  * class="wdn-scroll-watch locked"   Use on a group of figures to lock within the viewport while scrolling a band
  * class="wdn-scroll"   Use on the scrollable content adjecent to the locked imagery
  *
@@ -13,11 +13,11 @@
  * and create the flipbook effect.
  * 
  * Required Attributes:
- * data-lerp-start Define a secector to begin interpolation at
- * data-lerp-end   Define a selector to end interpolation at
- * e.g. data-lerp-start="#lerp-start" data-lerp-end="#lerp-end" will flip
- * through all figures within the flipbook as the user's viewport scrolls
- *  between id="lerp-start" and id="lerp-end"
+ * data-lerp-{feature}-start Define a secector to start interpolation at
+ * data-lerp-{feature}-end   Define a selector to end interpolation at
+ * e.g. data-lerp-flipbook-start="#lerp-start" data-lerp-flipbook-end="#lerp-end"
+ * will flip through all figures within the flipbook as the user's viewport
+ * scrolls between id="lerp-start" and id="lerp-end"
  *
  */
 
@@ -28,23 +28,27 @@ define(['jquery', 'wdn'], function($, WDN) {
 
 			var $this = $(this);
 
-			if ($this.hasClass('lerp')) {
-				var lerpstart_el      = $this.attr('data-lerp-start'),
-					lerpend_el        = $this.attr('data-lerp-end'),
-					lerp_start_offset = $(lerpstart_el).offset(),
-					lerp_end_offset   = $(lerpend_el).offset(),
-					percent 		  = lerp(lerp_start_offset, lerp_end_offset, depth);
-
-				if ($this.hasClass('scale')) {
-					scale($this, percent);
-				}
-
-				if ($this.hasClass('opacity')) {
-					opacity($this, percent);
-				}
-
-				if ($this.hasClass('flipbook')) {
-					flipbook($this, percent);
+			if ($this.attr('data-lerp')) {
+				var features = $this.attr('data-lerp').split(' ');
+				for (var i=0; i < features.length; i++) {
+					var feature           = features[i],
+						lerpstart_el      = $this.attr('data-lerp-' + feature + '-start'),
+						lerpend_el        = $this.attr('data-lerp-' + feature + '-end'),
+						lerp_start_offset = $(lerpstart_el).offset(),
+						lerp_end_offset   = $(lerpend_el).offset(),
+						percent 		  = lerp(lerp_start_offset, lerp_end_offset, depth);
+					
+					if (feature == 'scale') {
+						scale($this, percent);
+					}
+	
+					if (feature == 'opacity') {
+						opacity($this, percent);
+					}
+	
+					if (feature == 'flipbook') {
+						flipbook($this, percent);
+					}
 				}
 			}
 			
