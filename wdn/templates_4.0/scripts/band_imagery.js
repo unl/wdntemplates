@@ -115,16 +115,16 @@ define(['jquery', 'wdn'], function($, WDN) {
 	};
 
 	/**
-	 * Transforms the scale of an element
+	 * Transforms the opacity of an element
 	 * 
 	 * Elements must have two data attributes:
-	 * data-scale-start
-	 * data-scale-end
+	 * data-opacity-start
+	 * data-opacity-end
 	 * 
-	 * The start and end scales determine what CSS transform to apply.
+	 * The start and end values determine what CSS opacity to apply.
 	 * 
 	 * @var $this   jQuery'd element that holds the element to transform
-	 * @var percent A float percentage from 0-1 which will adjust the scale
+	 * @var percent A float percentage from 0-1 which will adjust the opacity
 	 */
 	var opacity = function($this, percent) {
 		var lerpstart_opaci      = $this.attr('data-opacity-start'),
