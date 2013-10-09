@@ -137,17 +137,17 @@ define(['jquery', 'wdn'], function($, WDN) {
 	 * @var percent A float percentage from 0-1 which will adjust which figure to show
 	 */
 	var flipbook = function($this, percent) {
-		var shownfigure = ':first-of-type',
+		var shownfigure = 0,
 			$figures    = $this.children('figure');
 
 		if (percent > 0
 			&& percent < 1) {
-			shownfigure = ':nth-of-type(' + Math.ceil($figures.length * percent) + ')';
+			shownfigure = Math.ceil($figures.length * percent) - 1;
 		} else {
-			shownfigure = ':last-of-type';
+			shownfigure = -1;
 		}
 
-		var $shownFigure = $figures.filter(shownfigure);
+		var $shownFigure = $figures.eq(shownfigure);
 		$shownFigure.show().end()
 		.not($shownFigure).hide();
 
