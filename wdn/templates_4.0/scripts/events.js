@@ -13,7 +13,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 		return eventParams || {};
 	},
 	container = '#wdn_calendarDisplay',
-	defaultCal = 'http://events.unl.edu/';
+	defaultCal = '//events.unl.edu/';
 	
 	var display = function(data, config) {
 		var $container = $(config.container).addClass('wdn-calendar');

@@ -72,9 +72,9 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 
 	var Plugin = {
 		initialize : function(callback) {
-			var localSettings = getLocalIdmSettings(),
-				loginCheckFailure = function() {
+			var loginCheckFailure = function() {
 					$(function() {
+						var localSettings = getLocalIdmSettings();
 						if (localSettings.login) {
 							Plugin.setLoginURL(localSettings.login);
 						} else {

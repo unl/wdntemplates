@@ -1,0 +1,17 @@
+#
+# Let's make sure Apache has the right mime's for template resources
+#
+
+# Images
+AddType image/x-icon .ico
+AddType image/svg+xml .svg
+
+# Web Fonts
+AddType application/font-woff .woff
+AddType application/vnd.ms-fontobject .eot 
+AddType application/x-font-ttf .ttf
+AddType application/x-font-opentype .otf
+
+# JS/JSON
+AddType application/javascript .js
+AddType application/json .json
