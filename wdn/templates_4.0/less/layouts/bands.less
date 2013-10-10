@@ -1,7 +1,7 @@
 // implement the same content padding
 #maincontent > * {
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: @mobile-pad;
+    padding-right: @mobile-pad;
 }
 
 .wdn-band {
@@ -9,20 +9,15 @@
     clear: both;
 
     #maincontent > *& {
-        padding: 1.777em 0 1.899em;
+        padding: 0;
     }
 
     .wdn-inner-wrapper {
         .clear-fix();
-
-        #maincontent & {
-            padding: 0 5%;
-       }
+        padding: 0 @mobile-pad;
 
         @media @bp3 {
-            #maincontent & {
-                padding: 0;
-            }
+            padding: 0;
         }
     }
 
