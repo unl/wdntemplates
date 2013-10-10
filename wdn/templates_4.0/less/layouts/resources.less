@@ -9,7 +9,9 @@
 .wdn-resource-label {
     .brand-font();
     text-transform: uppercase;
-    
+    padding: 0.1em 0.451em;
+    .rem(16);
+
     @media @bp-nav-full {
         cursor: pointer;
     }
@@ -19,7 +21,7 @@
         cursor: pointer;
 
         &:before {
-            font-size: 1.5em;
+            font-size: 1em;
         }
     }
 }
@@ -29,7 +31,7 @@
         float: right;
         position: absolute;
         top: 0;
-        right: 0;
+        right: @mobile-pad;
     }
 
     .js .wdn-resource-app-trigger {
@@ -39,8 +41,6 @@
     .wdn-resource-label {
         float: left;
         background-color: @page-background;
-        padding: 0.5em;
-        .rem(10);
 
         &:nth-of-type(2n) {
             background-color: darken(@page-background, 3%);
@@ -56,7 +56,7 @@
             cursor: pointer;
 
             &:before {
-                font-size: 1.5em;
+                font-size: 1em;
             }
 
             &:hover {

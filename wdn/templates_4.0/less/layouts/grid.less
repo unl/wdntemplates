@@ -18,11 +18,16 @@
     padding: 0 (@gutter-size/2);
     .box-sizing(border-box);
     
-    // Use this when only a background is needed (no border). This option isn't recommended, instead one should use a nested element with a class of .col-island (see below). 
+    // Use this when only a background is needed (no border). This option isn't recommended, instead one should use a nested element with a class of .col-island (see below).
     &.col-padding {
         padding: (@gutter-size / 2) 0 (@gutter-size / 2) @gutter-size;
         background-clip: content-box;
     }
+}
+
+// Reset margin-top on elements in grid
+.clear-top {
+    margin-top: 0;
 }
 
 // When a border is needed, nest inside a column.

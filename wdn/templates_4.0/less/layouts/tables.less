@@ -1,16 +1,16 @@
 table {
     width: 100%;
     max-width: 100%;
-    line-height: @base-line-height;
+    line-height: @base-line-height-sm;
     .base-font();
 
     @media @bp2 {
-        font-size: 90%;
+        line-height: @base-line-height-lg;
     }
 
     caption {
         .rem(30);
-        .impact-font();
+        .heading-font();
     }
 
     th {
