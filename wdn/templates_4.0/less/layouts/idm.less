@@ -1,14 +1,14 @@
 .wdn-resource-login-trigger  {
     position: relative;
+    .rem(16);
     
     @media @bp-nav-hidden {
-        .rem(16);
-        line-height: 0;
         position: absolute;
-        bottom: -62px; // position over the nav bar
+        top: 49px; // position over the nav bar
         right: 5%;
         z-index: (@nav-z-index + 1); // overlay the nav bar
         text-align: right;
+        padding: 0;
 
         a {
             color: #e7b5b5;
@@ -22,40 +22,38 @@
     }
 }
 
-.wdn-profile-options {
-    display: inline;
-}
-
 #wdn_idm_user_options {
     display: none;
     position: absolute;
-    top: 0.5em;
-    right: -5px;
+    right: 0;
+    z-index: 1;
     .list-reset();
-
-    @media @bp-nav-hidden {
-        right: -5px;
-        .brand-gradient();
-        border-bottom-left-radius: 3px;
-    }
+    background-color: @brand;
 
     @media @bp-nav-full {
-        margin-top: 1.75em;
         left: 0;
+        right: auto;
         background-color: #f8f5ec;
         border-bottom: 2px solid darken(#f8f5ec, 15%);
-
-    }
-
-    li {
-        margin-top: 0.5em;
-        line-height: 1.5;
     }
 
     a {
         text-decoration: none;
         display: block;
         padding: 0.5em 1em;
+		color: #fff;
+		
+		@media @bp-nav-full {
+			color: fadeout(darken(@page-background, 70%), 10%);
+		}
+		
+		&:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+	
+	        @media @bp-nav-full {
+	            background-color: darken(@page-background, 2%);
+	        }
+        }
     }
 }
 
