@@ -535,6 +535,8 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		            });
 		            
 		            require([swipePlugin + min], function() {
+		            	$.event.special.swipe.horizontalDistanceThreshold = 75;
+		            	$.event.special.swipe.verticalDistanceThreshold = 30;
 		            	$('body').on('swiperight', function() {
 		            		if (!isFullNav() && currentState === 0) {
 		            			Plugin.expand();
