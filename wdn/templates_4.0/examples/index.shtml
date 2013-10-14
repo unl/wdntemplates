@@ -23,7 +23,7 @@
 -->
 <!--#include virtual="/wdn/templates_4.0/includes/scriptsandstyles_local.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>WDN Template Examples | University of Nebraska&ndash;Lincoln</title>
+<title>WDN Content Resource Examples | University of Nebraska&ndash;Lincoln</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
@@ -42,15 +42,32 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
 	$(function() {
         var cache = { '' : ' ' },
         loadExample = function(data, url) {
+        	$('#examples').slideUp(300);
             data = $(data).closest('#example-code').html()
             $('#example').attr('class', url.substring(0, url.indexOf('.'))).html(data);
             legacy();
-            $('#example_code').val(data);
+            $('#pagetitle .wdn-subhead').slideDown(300);
+            $('#source').show();
+            $('#example_code').attr('wrap', 'off').val(data);
+        },
+        returnHome = function(full) {
+        	$('#pagetitle .wdn-subhead').slideUp(300);
+        	$('#examples').slideDown(300);
+        	
+        	if (full !== false) {
+            	$('#example').empty();
+            	$('#source').hide();
+        	}
         };
         
         $("#examples a").not(".external").click(function(e){
             e.preventDefault();
-            window.location.hash = WDN.jQuery(this).attr('href'); //this.href returns the whole URL
+            window.location.hash = $(this).attr('href'); //this.href returns the whole URL
+        });
+        
+        $('#pagetitle .wdn-subhead').click(function(e) {
+        	e.preventDefault();
+        	returnHome(false);
         });
         
         WDN.loadJQuery(function() {
@@ -58,6 +75,10 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
                 var lastHash;
                 $(window).bind('hashchange' ,function(e) {
                     var url = location.hash.replace('#', '');
+                    if (!url) {
+                    	returnHome();
+                    }
+                    
                     if (!url.match(/\.html$/i) || url == lastHash) {
                         return true;
                     }
@@ -86,8 +107,44 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
 });
 --></script>
 <style type="text/css">
+#examples {
+    text-align: center;
+    color: #fff;
+    font-size: 0.6em;
+}
+
+#examples a {
+    color: #fff;
+}
+
+#examples a:first-child {
+    display: block;
+    border: 0;
+    font-size: 1rem;
+    font-size: 16px;
+}
+
+#examples .visual-island {
+    background-color: rgb(19, 154, 189);
+    border-radius: 3px;
+    height: 5rem;
+    overflow: hidden;
+    margin: 0.5em 0;
+}
+
 #example {
     margin-top: 1em;
+}
+
+#source {
+    display: none;
+}
+
+#example_code {
+    width: 100%;
+    font-family: monospace;
+    white-space: pre-line;
+    overflow: auto;
 }
 
 #example.jqueryui #sortable li,
@@ -116,8 +173,22 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
     margin-bottom:1rem !important;
 }
 
-#example.band_imagery {
+#example.band_imagery > * {
+    padding: 0 5%;
+}
+
+@media (min-width: 768px) {
+    #example.band_imagery > * {
+        padding: 0;
+        max-width: 60rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+#example.band_imagery, #example.band_imagery > .wdn-band {
     max-width: none;
+    padding: 0;
 }
 
 </style>
@@ -157,7 +228,8 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
                 <ul>
                     <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
                     <li id="wdnlink"><a href="http://wdn.unl.edu/">Web Developer Network</a></li>
-                    <li>Template Examples</li>
+                    <li><a href="http://wdn.unl.edu/resources/">Resources</a></li>
+                    <li>Content Resource Examples</li>
                 </ul>
                 <!-- InstanceEndEditable -->
             </nav>
@@ -180,6 +252,9 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
                 <div class="wdn-inner-wrapper">
                     <div id="pagetitle">
                         <!-- InstanceBeginEditable name="pagetitle" -->
+                        <h1>Content Resource Examples
+                        <span style="display:none" class="wdn-subhead"><a href="javascript:void(0);">« Show All »</a></span>
+                        </h1>
                         <!-- InstanceEndEditable -->
                     </div>
                 </div>
@@ -187,42 +262,41 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
             <div id="maincontent" class="wdn-main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                <h1>Template Examples</h1>
-                <section class="wdn-grid-set">
-                <div class="wdn-col-one-third">
-                    <p>Choose an example to view:</p>
-                    <ul id="examples">
-                        <li><a href="audioplayer.html">Audio player</a> (mediahub.unl.edu)</li>
-                        <li><a href="band_imagery.html">Band Imagery</a></li>
-                        <li><a href="buttons.html">Buttons</a></li>
-                        <li><a href="carousel.html">Carousel</a> (<a href="http://www1.unl.edu/wdn/wiki/Carousel" class="external">wiki documentation</a>)</li>
-                        <li><a href="colorbox.html">Colorbox (Modal Box)</a></li>
-                        <li><a href="events.html">Events</a> (<a href="http://www1.unl.edu/wdn/wiki/Extracting_Data_From_The_Calendar" class="external">wiki documentation</a>)</li>
-                        <li><a href="formvalidator.html">Form Validator</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Validation" class="external">wiki documentation</a>)</li>
-                        <li><a href="forms.html">Forms</a> (<a href="http://www1.unl.edu/wdn/wiki/Template_Form_Styling" class="external">wiki documentation</a>)</li>
-                        <li><a href="idm.html"><abbr title="Identity Management">IdM</abbr>/<abbr title="Single Sign On">SSO</abbr></a></li>
-                        <li><a href="image.html">Image Style and Caption</a></li>
-                        <li><a href="jqueryui.html">jQuery UI elements/effects</a></li>
-                        <li><a href="notice.html">Notice</a></li>
-                        <li><a href="layouts.html">Page Layouts</a></li>
-                        <li><a href="pagination.html">Pagination</a> (<a href="http://www1.unl.edu/wdn/wiki/Pagination" class="external">wiki documentation</a>)</li>
-                        <li><a href="quote.html">Quotes (individual band)</a></li>
-                        <li><a href="randomizer.html">Randomizer</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Random_Div_Display" class="external">wiki documentation</a>)</li>
-                        <li><a href="rss_widget.html">RSS Feed Widget</a></li>
-                        <li><a href="table.html">Responsive Data Table</a></li>
-                        <li><a href="tabs.html">Tabs</a> (<a href="http://www1.unl.edu/wdn/wiki/Tabbed_Content_Areas" class="external">wiki documentation</a>)</li>
-                        <li><a href="tooltips.html">Tooltips</a></li>
-                        <li><a href="videoplayer.html">Video player</a> (mediahub.unl.edu)</li>
-                        <li><a href="zenboxes.html">Zenboxes</a> (<a href="http://www1.unl.edu/wdn/wiki/Zenbox" class="external">wiki documentation</a>)</li>
-                        <li><a href="zentables.html">Zentables</a></li>
-                       </ul>
+                <div class="wdn-band">
+                    <ul class="bp2-wdn-grid-set-fifths bp1-wdn-grid-set-thirds" id="examples">
+                        <li class="wdn-col"><div class="visual-island"><a href="audioplayer.html">Audio player</a> (mediahub.unl.edu)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="band_imagery.html">Band Imagery</a></div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="buttons.html">Buttons</a></div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="carousel.html">Carousel</a> (<a href="http://www1.unl.edu/wdn/wiki/Carousel" class="external">wiki</a>)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="colorbox.html" title="Colorbox: Modal Box">Colorbox</a></div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="events.html">Events</a> (<a href="http://www1.unl.edu/wdn/wiki/Extracting_Data_From_The_Calendar" class="external">wiki</a>)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="formvalidator.html">Form Validator</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Validation" class="external">wiki</a>)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="forms.html">Forms</a> (<a href="http://www1.unl.edu/wdn/wiki/Template_Form_Styling" class="external">wiki</a>)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="idm.html"><abbr title="Identity Management">IdM</abbr>/<abbr title="Single Sign On">SSO</abbr></a></div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="image.html" title="Images: Styling and Captioning">Images</a></div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="jqueryui.html" title="jQuery UI Widgets and Effects">jQuery UI</a></div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="notice.html">Notice</a></div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="layouts.html">Page Layouts</a></div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="pagination.html">Pagination</a> (<a href="http://www1.unl.edu/wdn/wiki/Pagination" class="external">wiki</a>)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="quote.html" title="Quotes: Individual Bands">Quotes</a></div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="randomizer.html">Randomizer</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Random_Div_Display" class="external">wiki </a>)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="rss_widget.html">RSS Feed Widget</a></div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="table.html">Responsive Table</a></div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="tabs.html">Tabs</a> (<a href="http://www1.unl.edu/wdn/wiki/Tabbed_Content_Areas" class="external">wiki</a>)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="tooltips.html">Tooltips</a></div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="videoplayer.html">Video player</a> (mediahub.unl.edu)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="zenboxes.html" title="Boxed content: Formally &quot;zenbox&quot;">Box</a> (<a href="http://www1.unl.edu/wdn/wiki/Zenbox" class="external">wiki</a>)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="zentables.html">Tables</a></div></li>
+                   </ul>
                 </div>
-                <div class="wdn-col-two-thirds">
-                    <p>Source code:</p>
-                    <textarea id="example_code" rows="25" cols="78"></textarea>
-                </div>
-                </section>
                 <div id="example"></div>
+                <div id="source" class="wdn-band">
+                    <div class="wdn-inner-wrapper">
+                        <h2>Here's how you do it
+                        <span class="wdn-subhead">Source code</span></h2>
+                        <textarea id="example_code" rows="25" cols="78"></textarea>
+                    </div>
+                </div>
                 <!-- InstanceEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
