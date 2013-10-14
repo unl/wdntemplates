@@ -38,6 +38,11 @@ p, span, div, ul, li, section, img {
     color: fadeout(@base-text, 20%);
     .sans-serif-font;
     text-transform: uppercase;
+
+    @media @bp2 {
+        line-height: 1.333;
+        margin: 1em 0;       
+    }
 }
 
     // Font sizes in relation to headers
