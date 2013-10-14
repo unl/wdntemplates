@@ -228,7 +228,7 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
                 <ul>
                     <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
                     <li id="wdnlink"><a href="http://wdn.unl.edu/">Web Developer Network</a></li>
-                    <li id="wdnlink"><a href="http://wdn.unl.edu/resources/">Resources</a></li>
+                    <li><a href="http://wdn.unl.edu/resources/">Resources</a></li>
                     <li>Content Resource Examples</li>
                 </ul>
                 <!-- InstanceEndEditable -->
