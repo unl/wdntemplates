@@ -1,46 +1,19 @@
 @import "../_mixins/all.less";
 @import "grid-mixins.less";
 
-[class*="wdn-grid-set"] {
+[class*="@{grid-set}"] {
     margin: 0 (@gutter-size/2) * -1;
     .box-sizing(border-box);
     clear:left;
     .clear-fix();
     
     // When the `grid-set` is a direct child of another `grid-set`, avoid the double negative `margin-left`.
-    > [class*="wdn-grid-set"] {
+    & > & {
         margin-left: 0;
-    }
-
-    &.wdn-grid-clear {
-
-        &.@{grid-set}-halves .@{grid-col-class}:nth-child(2n+1) {
-            clear:left;
-        }
-
-        &.@{grid-set}-thirds .@{grid-col-class}:nth-child(3n+1) {
-            clear:left;
-        }
-
-        &.@{grid-set}-fourths .@{grid-col-class}:nth-child(4n+1) {
-            clear:left;
-        }
-
-        &.@{grid-set}-fifths .@{grid-col-class}:nth-child(5n+1) {
-            clear:left;
-        }
-
-        &.@{grid-set}-sixths .@{grid-col-class}:nth-child(6n+1) {
-            clear:left;
-        }
-
-        &.@{grid-set}-sevenths .@{grid-col-class}:nth-child(7n+1) {
-            clear:left;
-        }
     }
 }
 
-[class*="wdn-col"] {
+[class*="@{grid-col-class}"] {
     float: left;
     .grid-col-width-cal(100%);
     padding: 0 (@gutter-size/2);
@@ -50,6 +23,32 @@
     &.col-padding {
         padding: (@gutter-size / 2) 0 (@gutter-size / 2) @gutter-size;
         background-clip: content-box;
+    }
+}
+
+.wdn-grid-clear {
+    &.@{grid-set}-halves .@{grid-col-class}:nth-child(2n+1) {
+        clear:left;
+    }
+
+    &.@{grid-set}-thirds .@{grid-col-class}:nth-child(3n+1) {
+        clear:left;
+    }
+
+    &.@{grid-set}-fourths .@{grid-col-class}:nth-child(4n+1) {
+        clear:left;
+    }
+
+    &.@{grid-set}-fifths .@{grid-col-class}:nth-child(5n+1) {
+        clear:left;
+    }
+
+    &.@{grid-set}-sixths .@{grid-col-class}:nth-child(6n+1) {
+        clear:left;
+    }
+
+    &.@{grid-set}-sevenths .@{grid-col-class}:nth-child(7n+1) {
+        clear:left;
     }
 }
 
@@ -66,7 +65,7 @@
 // reset for list grids
 #maincontent {
     ul, ol {
-        &[class*="wdn-grid-set"] {
+        &[class*="@{grid-set}"] {
             padding: 0;
             list-style: none;
         }
