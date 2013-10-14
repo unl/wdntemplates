@@ -10,6 +10,33 @@
     > [class*="wdn-grid-set"] {
         margin-left: 0;
     }
+
+    &.wdn-grid-clear {
+
+        &.@{grid-set}-halves .@{grid-col-class}:nth-child(2n+1) {
+            clear:left;
+        }
+
+        &.@{grid-set}-thirds .@{grid-col-class}:nth-child(3n+1) {
+            clear:left;
+        }
+
+        &.@{grid-set}-fourths .@{grid-col-class}:nth-child(4n+1) {
+            clear:left;
+        }
+
+        &.@{grid-set}-fifths .@{grid-col-class}:nth-child(5n+1) {
+            clear:left;
+        }
+
+        &.@{grid-set}-sixths .@{grid-col-class}:nth-child(6n+1) {
+            clear:left;
+        }
+
+        &.@{grid-set}-sevenths .@{grid-col-class}:nth-child(7n+1) {
+            clear:left;
+        }
+    }
 }
 
 [class*="wdn-col"] {
