@@ -12,27 +12,28 @@
     }
 
     &.wdn-grid-clear {
-        &[class*="-halves"] [class*="wdn-col"]:nth-of-type(2n+1) {
+
+        &.@{grid-set}-halves .@{grid-col-class}:nth-child(2n+1) {
             clear:left;
         }
 
-        &[class*="-thirds"] [class*="wdn-col"]:nth-of-type(3n+1) {
+        &.@{grid-set}-thirds .@{grid-col-class}:nth-child(3n+1) {
             clear:left;
         }
 
-        &[class*="-fourths"] [class*="wdn-col"]:nth-of-type(4n+1) {
+        &.@{grid-set}-fourths .@{grid-col-class}:nth-child(4n+1) {
             clear:left;
         }
 
-        &[class*="-fifths"] [class*="wdn-col"]:nth-of-type(5n+1) {
+        &.@{grid-set}-fifths .@{grid-col-class}:nth-child(5n+1) {
             clear:left;
         }
 
-        &[class*="-sixths"] [class*="wdn-col"]:nth-of-type(6n+1) {
+        &.@{grid-set}-sixths .@{grid-col-class}:nth-child(6n+1) {
             clear:left;
         }
 
-        &[class*="-sevenths"] [class*="wdn-col"]:nth-of-type(7n+1) {
+        &.@{grid-set}-sevenths .@{grid-col-class}:nth-child(7n+1) {
             clear:left;
         }
     }
