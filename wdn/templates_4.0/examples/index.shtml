@@ -58,6 +58,10 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
             	$('#example').empty();
             	$('#source').hide();
         	}
+
+        	if (!!(window.history && history.pushState)) {
+        		history.pushState("", document.title, window.location.pathname);
+        	}
         };
         
         $("#examples a").not(".external").click(function(e){
