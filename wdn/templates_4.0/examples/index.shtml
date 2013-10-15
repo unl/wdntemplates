@@ -107,6 +107,10 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
 });
 --></script>
 <style type="text/css">
+#examples_band.wdn-band {
+    padding: 0 1.2rem;
+}
+
 #examples {
     text-align: center;
     color: #fff;
@@ -262,7 +266,7 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
             <div id="maincontent" class="wdn-main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                <div class="wdn-band">
+                <div class="wdn-band" id="examples_band">
                     <ul class="bp2-wdn-grid-set-fifths bp1-wdn-grid-set-thirds" id="examples">
                         <li class="wdn-col"><div class="visual-island"><a href="audioplayer.html">Audio player</a> (mediahub.unl.edu)</div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="band_imagery.html">Band Imagery</a></div></li>
