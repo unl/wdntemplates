@@ -52,6 +52,12 @@
     }
 }
 
+// When a border is needed, nest inside a column.
+
+[class*="wdn-col"] .visual-island {
+    padding: @gutter-size / 2;
+}
+
 // reset for list grids
 #maincontent {
     ul, ol {
