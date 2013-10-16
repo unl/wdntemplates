@@ -7,10 +7,6 @@ h1, h2, h3, h4, h5, h6 {
     .heading-font;
     line-height: 1em;
     margin: 1em 0 1rem 0;
-
-    @media @bp2 {
-        margin: 1em 0 1rem 0;
-    }
 }
 
 h1 { .rem(41,51); }
@@ -35,14 +31,11 @@ p, span, div, ul, li, section, img {
 
 .wdn-subhead {
     display: block;
-    color: fadeout(@base-text, 20%);
+    margin: 1em 0;       
     .sans-serif-font;
     text-transform: uppercase;
-
-    @media @bp2 {
-        line-height: 1.333;
-        margin: 1em 0;       
-    }
+    line-height: 1.333;
+    color: fadeout(@base-text, 20%);
 }
 
     // Font sizes in relation to headers
@@ -100,15 +93,15 @@ p {
 
 // Icon Font - see /wdn/templates_4.0/fonts/fontello/readme.md
 
-@font-face {
-    font-family: 'fontello';
-    src: url('../fonts/fontello/fontello.eot?90111534');
-    src: url('../fonts/fontello/fontello.eot?90111534#iefix') format('embedded-opentype'),
-       url('../fonts/fontello/fontello.woff?90111534') format('woff'),
-       url('../fonts/fontello/fontello.ttf?90111534') format('truetype'),
-       url('../fonts/fontello/fontello.svg?90111534#fontello') format('svg');
-    font-weight: normal;
-    font-style: normal;
+ @font-face {
+  font-family: 'wdn-icon';
+  src: url('../fonts/fontello/wdn-icon.eot?61662510');
+  src: url('../fonts/fontello/wdn-icon.eot?61662510#iefix') format('embedded-opentype'),
+       url('../fonts/fontello/wdn-icon.woff?61662510') format('woff'),
+       url('../fonts/fontello/wdn-icon.ttf?61662510') format('truetype'),
+       url('../fonts/fontello/wdn-icon.svg?61662510#wdn-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 [class^="wdn-icon-"]:before, [class*=" wdn-icon-"]:before {
