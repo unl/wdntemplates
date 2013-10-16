@@ -1,16 +1,21 @@
 // Default presentation of a button
 .colorize-button(@color) {
     background-color: @color;
-    .box-shadow(0 2px 0px @color);
-    text-shadow: 1px 1px 1px darken(@color, 25%);
 
     &:hover {
-        background-color: lighten(@color, 5%);
-        text-shadow: 1px 1px 1px darken(@color, 35%);
-        .box-shadow(0 2px 0px darken(@color, 10%));
+        background-color: darken(@color, 7%);
+    }
+    
+    &:focus {
+    	outline: thin dotted @color;
+    }
+    
+    &:active {
+    	background-color: @color;
     }
 
     &[disabled] {
+    	cursor: not-allowed;
         background-color: mix(@color, #666666, 45%);
         color: darken(#FFFFFF, 10%);
         .box-shadow(0 2px 0px mix(@color, #666666, 30%));
@@ -18,18 +23,19 @@
 }
 
 .wdn-button {
-    .heading-font;
     border: none;
-    text-align: center;
     border-radius: 3px;
-    text-decoration: none;
     opacity: 0.95;
-    .rem(14);
     color: #ffffff;
-    line-height: 1;
-    padding: 0.65em 1.25em;
     margin: 1em 0;
+    padding: 1.069em 1.333em 1em;
     display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    .sans-serif-font;
+    line-height: 1;
+    .rem(10,12);
     .transition(background-color 0.2s);
     .colorize-button(@neutral);
     

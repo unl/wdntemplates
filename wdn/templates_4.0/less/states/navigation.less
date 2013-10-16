@@ -1,8 +1,8 @@
 .skipnav {
 
     a:focus, a:active {
-    	left: 0;
-    	padding: 0.5em;
+        left: 0;
+        padding: 0.5em;
         line-height: 1;
         .nav-bar;
     }
@@ -11,21 +11,21 @@
 #navigation {
     a {
         &:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 0, 0, 0.1);
         }
     }
 }
 
 @media @bp-nav-hidden {
-	.nav-scrolling .wdn-menu-trigger {
-		position: fixed;
-		top: 0;
-		width: 100%;
-		z-index: @nav-z-index;
-		border: none;
-		.box-shadow(0 2px 5px fadeout(@dark-neutral, 25%))
-	}
-	
+    .nav-scrolling .wdn-menu-trigger {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: @nav-z-index;
+        border: none;
+        .box-shadow(0 2px 5px fadeout(@dark-neutral, 25%))
+    }
+    
     #wdn_menu_toggle:checked { // Change states when toggle is checked
 
         ~ .wdn-content-slide, ~ noscript .wdn-content-slide {

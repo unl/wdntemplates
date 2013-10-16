@@ -3,16 +3,16 @@
 }
 
 html {
-    font-size: @base-font-size;
-    line-height: @base-line-height;
+    font-size: @base-font-size-sm;
+    line-height: @base-line-height-sm;
     color: @base-text;
     .base-font();
     background-color: @page-background;
     text-rendering: optimizeLegibility;
-    font-size: @base-font-size;
 
     @media @bp2 {
-        font-size: @base-font-size + 2px;
+        font-size: @base-font-size-lg;
+        line-height: @base-line-height-lg;
     }
 }
 

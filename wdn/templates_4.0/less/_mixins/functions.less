@@ -12,17 +12,25 @@
 @rem-fallback: true; // switch to include px fallback
 
 .rem (@px-value) {
-    @rem-value: ((round((@px-value / unit(@base-font-size)) * 10000000)) / 10000000);
-    
-    .result (@px-value, @rem-fallback) when (@rem-fallback = true) {
+    .rem(@px-value, @px-value);
+}
+
+.rem (@px-value-sm, @px-value-lg) {
+    @rem-value-sm: ((round((@px-value-sm / unit(@base-font-size-sm)) * 10000000)) / 10000000);
+    @rem-value-lg: ((round((@px-value-lg / unit(@base-font-size-lg)) * 10000000)) / 10000000);
+
+    .result (@rem-value, @px-value, @rem-fallback) when (@rem-fallback = true) {
         font-size: ~"@{px-value}px";
         font-size: ~"@{rem-value}rem";
     }
-    .result (@px-value, @rem-fallback) when (@rem-fallback = false) {
+    .result (@rem-value, @px-value, @rem-fallback) when (@rem-fallback = false) {
         font-size: ~"@{rem-value}rem";
     }
-    
-    .result (unit(@px-value), @rem-fallback);
+
+    .result(@rem-value-sm, unit(@px-value-sm), @rem-fallback);
+    @media @bp2 {
+        .result(@rem-value-lg, unit(@px-value-lg), @rem-fallback);
+    }
 }
 
 .list-reset () {
@@ -43,10 +51,8 @@
     .background-image(~"linear-gradient(bottom, rgba(0,0,0,.15) 0%, rgba(255,255,255,0) 20%)");
 }
 
-/*
-* Experimental flexbox support
-* http://elikirk.com/2013/06/05/flexbox-css-cross-browser-issues/
-*/
+// Experimental flexbox support
+// http://elikirk.com/2013/06/05/flexbox-css-cross-browser-issues/
 .flexbox() {
     /* Legacy */
     display: -moz-box;
@@ -102,34 +108,9 @@
         flex-direction: column-reverse;
     }
 
-/* 
-* Function for creating color bands 
-*/
-
-.wdn-band(@color) { // Class name to put on the band
-
+// Function for creating color bands 
+.wdn-band(@color) {
     background-color: @color;
-
-/* Removing, as we're now looking at only subtle color band options to ship with the templates.
-    // Based on color passed, we need to make light/dark presentation decisions
-    .color-selector(@color) when (lightness(@color) >= 50%) { // We have a light color
-        color: darken(@color, 65%);
-
-        a {
-            color: darken(@color, 85%);
-        }
-    }
-
-    .color-selector(@color) when (lightness(@color) < 50%) { // We have a dark color
-        color: #ffffff;
-
-        a {
-            color: lighten(@color, 85%);
-        }
-    }
-
-    .color-selector(@color);
-*/
 }
 
 .wdn-band-seperator(@color) {

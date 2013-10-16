@@ -1,99 +1,92 @@
-// Modular Scale for vertical rythm: http://modularscale.com/scale/?px1=16&px2=&ra1=1.333&ra2=0
+// Modular Scale for vertical rythm: http://modularscale.com/scale/?px1=16&px2=54&ra1=1.333&ra2=0
 
-p {
-    margin: 0 0 @base-line-height * 1em 0;
-}
-
-.heading-size(@size) {
-    font-size: (@size * 1rem);
-    line-height: (@size/(@size/(1.5/@base-line-height)) * 1em);
-    margin: (@base-line-height/@size * 1em) 0;
-}
+// HEADERS
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
     .heading-font;
-    color: darken(@base-text, 15%); // Black
-}
+    line-height: 1em;
+    margin: 1em 0 1rem 0;
 
-h1 {
-    @size: 3.157;
-    .heading-size(@size);
-
-    + .wdn-subhead {
-        margin-top: (@base-line-height/@size * -1.2em);
+    @media @bp2 {
+        margin: 1em 0 1rem 0;
     }
 }
 
-h2 {
-    @size: 2.369;
-    .heading-size(@size);
+h1 { .rem(41,51); }
+h2 { .rem(38,41); }
+h3 { .rem(30,38); }
+h4 { .rem(28,30); }
+h5 { .rem(23,28); }
+h6 { .rem(21,23); }
 
-    + .wdn-subhead {
-        margin-top: (@base-line-height/@size * -1.2em);
+// Calculate margins above headers based on header size
+p, span, div, ul, li, section, img {
+    + h1, + h2, + h3, + h4, + h5, + h6 {
+        margin-top: @base-line-height-sm * 1em;        
+
+        @media @bp2 {
+            margin-top: @base-line-height-lg * 1em;        
+        }
     }
 }
 
-h3 {
-    @size: 1.777;
-    .heading-size(@size);
+// SUBHEADS
 
-    + .wdn-subhead {
-        margin-top: (@base-line-height/@size * -1.2em);
+.wdn-subhead {
+    display: block;
+    color: fadeout(@base-text, 20%);
+    .sans-serif-font;
+    text-transform: uppercase;
+
+    @media @bp2 {
+        line-height: 1.333;
+        margin: 1em 0;       
     }
 }
 
-h4 {
-    @size: 1.333;
-    .heading-size(@size);
+    // Font sizes in relation to headers
 
-    + .wdn-subhead {
-        margin-top: (@base-line-height/@size * -1.2em);
+    h1, h2, h3 {
+        > .wdn-subhead, + .wdn-subhead {
+            .rem(13,16);
+        }
+    }
+
+    h4, h5, h6 {
+        > .wdn-subhead, + .wdn-subhead {
+            .rem(10,12);
+        }
+    }
+
+.wdn-subhead {
+   + h1, + h2, + h3, + h4, + h5, + h6  {
+        margin-top: 0;
     }
 }
 
-h5 {
-    @size: 1.111;
-    .heading-size(@size);
-
+p, span, div, ul, li, section, img {
     + .wdn-subhead {
-        margin-top: (@base-line-height/@size * -1.2em);
+        margin-bottom: 0;
     }
 }
 
-h6 {
-    @size: 1;
-    .heading-size(@size);
+// PARAGRAPHS
 
-    + .wdn-subhead {
-        margin-top: (@base-line-height/@size * -1.2em);
-    }
+p {
+    margin: 1rem 0;
 }
 
 .wdn-heading {
     .heading-font;
 }
 
-.wdn-subhead {
-    line-height: 1;
-    color: fadeout(@base-text, 20%);
-    .heading-font;
-}
-
-.wdn-text-hidden {
-    .text-hidden;
-}
-
 .wdn-impact {
-    .impact-font;
+    .heading-font;
 }
 
 .wdn-brand {
     .brand-font;
-}
-
-.wdn-light-brand {
-    .light-brand-font;
 }
 
 .wdn-sans-serif {
@@ -104,11 +97,8 @@ h6 {
     .list-reset;
 }
 
-/* 
-*
-* Icon Font - see /wdn/templates_4.0/fonts/fontello/readme.md
-*
-*/
+
+// Icon Font - see /wdn/templates_4.0/fonts/fontello/readme.md
 
 @font-face {
     font-family: 'fontello';
@@ -127,6 +117,7 @@ h6 {
 
 .wdn-icon-plus:before { content: '\e80c'; } /* '' */
 .wdn-icon-minus:before { content: '\e80d'; } /* '' */
+.wdn-icon-foursquare:before { content: '\e81a'; } /* '' */
 .wdn-icon-info:before { content: '\e807'; } /* '' */
 .wdn-icon-attention:before { content: '\e806'; } /* '' */
 .wdn-icon-mail:before { content: '\2709'; } /* '✉' */
@@ -144,10 +135,18 @@ h6 {
 .wdn-icon-facebook-circled:before { content: '\f051'; } /* '' */
 .wdn-icon-twitter-circled:before { content: '\f057'; } /* '' */
 .wdn-icon-menu:before { content: '\f0c9'; } /* '' */
+.wdn-icon-gplus:before { content: '\e81b'; } /* '' */
 .wdn-icon-angle-double-left:before { content: '\e80a'; } /* '' */
 .wdn-icon-angle-double-right:before { content: '\e808'; } /* '' */
 .wdn-icon-calendar-empty:before { content: '\e810'; } /* '' */
 .wdn-icon-rss-squared:before { content: '\e811'; } /* '' */
+.wdn-icon-youtube-play:before { content: '\e813'; } /* '' */
+.wdn-icon-flickr:before { content: '\e816'; } /* '' */
+.wdn-icon-vimeo:before { content: '\e817'; } /* '' */
+.wdn-icon-linkedin-squared:before { content: '\e814'; } /* '' */
+.wdn-icon-pinterest:before { content: '\e818'; } /* '' */
+.wdn-icon-tumblr:before { content: '\e819'; } /* '' */
+.wdn-icon-instagram:before { content: '\e815'; } /* '' */
 .wdn-icon-calendar:before { content: '\e812'; } /* '' */
 .wdn-icon-phone:before { content: '📱'; } /* '\1f4f1' */
 .wdn-icon-search:before { content: '🔍'; } /* '\1f50d' */
