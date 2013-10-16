@@ -24,6 +24,9 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		breadPrmySel = breadSel + ' ' + prmySel,
 		menuTogSel = '#wdn_menu_toggle',
 		padCss = 'padding-top',
+		padCss2 = 'padding-bottom',
+		hCss = 'height',
+		oCss = 'overflow',
 		storeCls = 'storednav',
 		empty2ndCls = 'empty-secondary',
 		emptyRowCls = 'row-empty',
@@ -119,22 +122,21 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		$link.wrap($('<a/>', {href : siteHomepage}));
 	};
 
-	var fixPresentation = function() {
-		applyStateFixes();
-
+	var fixPresentation = function(shiftContent) {
 		var primaries = $(navPrmySel),
 			secondaryLists = $('> ul', primaries),
 			primaryLinks = $('> a', primaries),
-			$nav = $(navSel);
+			$nav = $(navSel),
+			$cWrapper = $(cWrapSel),
+			cssTemp = {};
 
 		$nav.off('expand');
-		primaryLinks.css({
-			'padding-top' : '',
-			'padding-bottom' : ''
-		});
+		cssTemp[padCss] = cssTemp[padCss2] = '';
+		primaryLinks.css(cssTemp);
 
 		if (!isFullNav()) {
-			secondaryLists.css('height', '');
+			$cWrapper.css(padCss, '');
+			secondaryLists.css(hCss, '');
 			return;
 		}
 
@@ -181,6 +183,10 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 				ah[row] = height;
 			}
 		});
+		var i = 0, ahAll = 0;
+		for (var i = 0; i < ah.length; i++) {
+			ahAll += ah[i];
+		}
 
 		primaryLinks.each(function(i){
 			var row = Math.floor(i/6),
@@ -188,20 +194,18 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 				pad = parseFloat($(this).css(padCss));
 
 			if (height < ah[row]) {
-				var ah_temp = (ah[row] - height) / 2,
-					new_ah = [Math.floor(ah_temp), Math.ceil(ah_temp)];
+				var ah_temp = (ah[row] - height) / 2;
+				cssTemp[padCss] = Math.floor(ah_temp + pad) + 'px';
+				cssTemp[padCss2] = Math.ceil(ah_temp + pad) + 'px';
 
-				$(this).css({
-					'padding-top' : new_ah[0] + pad + 'px',
-					'padding-bottom' : new_ah[1] + pad + 'px'
-				});
+				$(this).css(cssTemp);
 			}
 		});
 
 		var recalcSecondaryHeight = function() {
 				WDN.log('fixing secondaries');
 				var ul_h = [];
-				secondaryLists.css('height', '').each(function(i){
+				secondaryLists.css(hCss, '').each(function(i){
 					var row = Math.floor(i/6), height = $(this).height();
 					if (!ul_h[row] || height > ul_h[row]) {
 						ul_h[row] = height;
@@ -210,14 +214,19 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 				//loop through again and apply new height
 				secondaryLists.each(function(i){
 					var row = Math.floor(i/6);
-					$(this).css({'height':ul_h[row]+'px'});
+					$(this).css(hCss, ul_h[row] + 'px');
 				});
 			};
 
-		if (currentState == 0) {
+		var navHeight = $nav.outerHeight();
+		if (currentState === 0) {
 			$nav.on('expand', recalcSecondaryHeight);
 		} else {
 			recalcSecondaryHeight();
+			navHeight += ahAll - $nav.height();
+		}
+		if (shiftContent) {
+			$cWrapper.css(padCss, navHeight);
 		}
 
 		// look for no secondary links
@@ -233,20 +242,6 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		}
 
 		WDN.log('we have fixed the presentation.');
-	};
-
-	var applyStateFixes = function() {
-		var $cWrapper = $(cWrapSel);
-		$cWrapper.css(padCss, '');
-
-		if (!isFullNav()) {
-			return;
-		}
-
-		if (currentState === 0) {
-			var nav_height = $(navSel).outerHeight();
-			$cWrapper.css(padCss, nav_height);
-		}
 	};
 
 	var startCollapseDelay = function() {
@@ -482,9 +477,11 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 				}
 
 				WDN.log('let us fix the presentation');
-				fixPresentation();
+				fixPresentation(true);
 				// the built JS will probably run before the web-font loads, so re-render on load
-				$(window).load(fixPresentation);
+				$(window).load(function() {
+					fixPresentation(true);
+				});
 
 				if (!initd) {
 					// add an expand toggler UI element
@@ -515,7 +512,6 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 
 					var nav = $(navSel), onscroll = function() {
 //						don't clear the timeout (wait for last event) as it causes poor UX
-//						clearTimeout(scrollTimeout);
 						scrollTimeout = setTimeout(function() {
 							var breadcrumbs = $(breadSel), wrp = $(wdnWrapSel),
 							cls = 'nav-scrolling', trig;
@@ -550,7 +546,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 							}
 							navWidth = nav.width();
 
-							fixPresentation();
+							fixPresentation(true);
 						}, resizeThrottle);
 					});
 
@@ -593,7 +589,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 						});
 					});
 
-					navReady(true);
+					setTimeout(function(){navReady(true);}, 0); // workaround to wait for redraw frame
 				}
 
 				initd = true;
@@ -610,13 +606,11 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			}
 			expandSemaphore = true;
 
-			var expandEnd = function() {
+			var cssTemp = {},
+			expandEnd = function() {
 				if (!isFullNav()) {
 					// prevent content scrolling
-					$('html').css({
-						'height': '100%',
-						'overflow': 'hidden'
-					});
+					$('html').css(cssTemp);
 					$(cWrapSel).on('touchmove', function(e) {
 						e.preventDefault();
 					});
@@ -625,6 +619,9 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 				setWrapperClass('expanded');
 				$(navSel).trigger('expand').off('expand');
 			};
+			cssTemp[hCss] = '100%';
+			cssTemp[oCss] = 'hidden';
+
 			if (Plugin.currentState !== -1 && Modernizr.csstransitions) {
 				setWrapperClass('changing');
 				setTimeout(function() {
@@ -654,13 +651,11 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			currentState = 0;
 			$(menuTogSel)[0].checked = false;
 
-			var go = function() {
+			var cssTemp = {},
+			go = function() {
 				if (!isFullNav()) {
 					// allow content scrolling
-					$('html').css({
-						'height': '',
-						'overflow': ''
-					});
+					$('html').css(cssTemp);
 					$(cWrapSel).off('touchmove');
 				}
 
@@ -668,6 +663,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 					switchSiteNavigation($(homepageLI).children('a').get(0), false);
 				};
 			};
+			cssTemp[hCss] = cssTemp[oCss] = '';
 
 			if (Modernizr.csstransitions) {
 				setTimeout(go, 400);
