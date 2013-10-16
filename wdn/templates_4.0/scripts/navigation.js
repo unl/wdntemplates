@@ -12,6 +12,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		expandDelay = 400,
 		collapseDelay = 120,
 		resizeThrottle = 500,
+		transitionDelay = 400,
 		homepageLI, siteHomepage, timeout, scrollTimeout, resizeTimeout,
 		currentState = -1,
 		cWrapSel = '#wdn_content_wrapper',
@@ -606,8 +607,14 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			}
 			expandSemaphore = true;
 
+			setWrapperClass('changing');
+
 			var cssTemp = {},
-			expandEnd = function() {
+			go = function() {
+				currentState = 1;
+				$(menuTogSel)[0].checked = true;
+				expandSemaphore = false;
+
 				if (!isFullNav()) {
 					// prevent content scrolling
 					$('html').css(cssTemp);
@@ -623,17 +630,10 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			cssTemp[oCss] = 'hidden';
 
 			if (Plugin.currentState !== -1 && Modernizr.csstransitions) {
-				setWrapperClass('changing');
-				setTimeout(function() {
-					expandEnd();
-				}, 400);
+				setTimeout(go, transitionDelay);
 			} else {
-				expandEnd();
+				go();
 			}
-
-			currentState = 1;
-			$(menuTogSel)[0].checked = true;
-			expandSemaphore = false;
 		},
 
 		/**
@@ -646,13 +646,14 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			}
 			expandSemaphore = true;
 
-
 			setWrapperClass('collapsed');
-			currentState = 0;
-			$(menuTogSel)[0].checked = false;
 
 			var cssTemp = {},
 			go = function() {
+				currentState = 0;
+				$(menuTogSel)[0].checked = false;
+				expandSemaphore = false;
+
 				if (!isFullNav()) {
 					// allow content scrolling
 					$('html').css(cssTemp);
@@ -666,12 +667,10 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			cssTemp[hCss] = cssTemp[oCss] = '';
 
 			if (Modernizr.csstransitions) {
-				setTimeout(go, 400);
+				setTimeout(go, transitionDelay);
 			} else {
 				go();
 			}
-
-			expandSemaphore = false;
 		},
 
 		getSiteHomepage : function() {
