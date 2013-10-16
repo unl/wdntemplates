@@ -567,6 +567,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 						}
 					};
 					Plugin.collapse(false);
+					applyStateFixes();
 
 					WDN.loadJQuery(function() {
 						require([hoverPlugin + min], function() {
