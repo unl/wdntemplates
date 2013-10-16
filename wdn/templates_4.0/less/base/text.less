@@ -7,10 +7,6 @@ h1, h2, h3, h4, h5, h6 {
     .heading-font;
     line-height: 1em;
     margin: 1em 0 1rem 0;
-
-    @media @bp2 {
-        margin: 1em 0 1rem 0;
-    }
 }
 
 h1 { .rem(41,51); }
@@ -35,14 +31,11 @@ p, span, div, ul, li, section, img {
 
 .wdn-subhead {
     display: block;
-    color: fadeout(@base-text, 20%);
+    margin: 1em 0;       
     .sans-serif-font;
     text-transform: uppercase;
-
-    @media @bp2 {
-        line-height: 1.333;
-        margin: 1em 0;       
-    }
+    line-height: 1.333;
+    color: fadeout(@base-text, 20%);
 }
 
     // Font sizes in relation to headers
