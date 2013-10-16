@@ -1,0 +1,57 @@
+.fill-color (@color) {
+	.wdn-infographic-path {
+		fill: @color;
+	}
+}
+
+.wdn-infographic {
+	text-align: center;
+
+	img {
+		//fill: @neutral;
+	}
+
+	h3 {
+		.rem(28);
+		margin:.5em 0;
+	}
+
+	span {
+		display: block;
+		.display-font;
+		.rem(16);
+	}
+
+	&.wdn-infographic-triad {
+		.fill-color(@triad);
+	}
+
+	&.wdn-infographic-complement {
+		.fill-color(@complement);
+	}
+
+	&.wdn-infographic-energetic {
+		.fill-color(@energetic);
+	}
+
+	&.wdn-infographic-brand {
+		.fill-color(@brand);
+	}
+
+	&.wdn-infographic-dark-triad {
+		.fill-color(@dark-triad);
+	}
+
+	&.wdn-infographic-dark-complement {
+		.fill-color(@dark-complement);
+	}
+
+	&.wdn-infographic-dark-energetic {
+		.fill-color(@dark-energetic);
+	}
+
+	&.wdn-infographic-dark-neutral {
+		.fill-color(@dark-neutral);
+	}
+}
+
