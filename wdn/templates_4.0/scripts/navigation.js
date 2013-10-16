@@ -666,7 +666,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			};
 			cssTemp[hCss] = cssTemp[oCss] = '';
 
-			if (Modernizr.csstransitions) {
+			if (switchNav !== false && Modernizr.csstransitions) {
 				setTimeout(go, transitionDelay);
 			} else {
 				go();
