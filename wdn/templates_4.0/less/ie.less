@@ -2,7 +2,8 @@
 * FUNCTIONS
 */
 .ie8-width () {
-    min-width: 980px;
+    // Equal to modern 60rem when base font-size is 16px
+    width: 960px;
 }
 
 /*
@@ -11,7 +12,11 @@
 
 .ie8 {
     position: relative;
-    .ie8-width;
+
+    .wdn-band .wdn-inner-wrapper {
+        .ie8-width;
+    }
+
 }
 
 /*
@@ -43,6 +48,7 @@
     #navigation {
 
         > ul {
+            .ie8-width;
 
             li {
                 border-bottom: 1px solid lighten(#DE5959, 25%); // We have to redeclare all values as IE8 chokes on the original because of the rgba
