@@ -120,6 +120,8 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 	};
 
 	var fixPresentation = function() {
+		applyStateFixes();
+
 		var primaries = $(navPrmySel),
 			secondaryLists = $('> ul', primaries),
 			primaryLinks = $('> a', primaries),
@@ -469,7 +471,6 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			}
 		};
 		Plugin.collapse(false);
-		applyStateFixes();
 
 		WDN.loadJQuery(function() {
 			require([hoverPlugin + min], function() {
@@ -589,7 +590,6 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 							navWidth = nav.width();
 
 							fixPresentation();
-							applyStateFixes();
 						}, resizeThrottle);
 					});
 
