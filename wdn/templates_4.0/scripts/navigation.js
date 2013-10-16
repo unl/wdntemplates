@@ -463,43 +463,6 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		}
 	};
 
-	var initializePreferredState = function() {
-		WDN.log('initializepreferredstate, current state is '+ currentState);
-		var mouseout = function() {
-			if (!lockHover) {
-				startCollapseDelay();
-			}
-		};
-		Plugin.collapse(false);
-
-		WDN.loadJQuery(function() {
-			require([hoverPlugin + min], function() {
-				$('#wdn_navigation_bar').hoverIntent({
-					over: function() {
-						if (!lockHover) {
-							Plugin.expand();
-						}
-					},
-					out:		 mouseout,
-					timeout:	 expandDelay,
-					sensitivity: 1, // Mouse must not move
-					interval:	120
-				});
-
-				$(breadPrmySel + ' a').hoverIntent({
-					over: switchSiteNavigation,
-					out: function() {
-						$(navPrmySel).removeClass(hltCls);
-					},
-					sensitivity: 1, // Mouse must not move
-					interval:	120
-				});
-			});
-		});
-
-		navReady(true);
-	};
-
 	var Plugin = {
 		initialize : function() {
 			$(function () {
@@ -550,9 +513,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 						});
 					});
 
-					var nav = $(navSel);
-					nav.on('reshift', applyStateFixes);
-					var onscroll = function() {
+					var nav = $(navSel), onscroll = function() {
 //						don't clear the timeout (wait for last event) as it causes poor UX
 //						clearTimeout(scrollTimeout);
 						scrollTimeout = setTimeout(function() {
@@ -600,7 +561,39 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 						switchSiteNavigation($(homepageLI).children('a').get(0), false);
 					});
 
-					initializePreferredState();
+					var mouseout = function() {
+						if (!lockHover) {
+							startCollapseDelay();
+						}
+					};
+					Plugin.collapse(false);
+
+					WDN.loadJQuery(function() {
+						require([hoverPlugin + min], function() {
+							$('#wdn_navigation_bar').hoverIntent({
+								over: function() {
+									if (!lockHover) {
+										Plugin.expand();
+									}
+								},
+								out:		 mouseout,
+								timeout:	 expandDelay,
+								sensitivity: 1, // Mouse must not move
+								interval:	120
+							});
+
+							$(breadPrmySel + ' a').hoverIntent({
+								over: switchSiteNavigation,
+								out: function() {
+									$(navPrmySel).removeClass(hltCls);
+								},
+								sensitivity: 1, // Mouse must not move
+								interval:	120
+							});
+						});
+					});
+
+					navReady(true);
 				}
 
 				initd = true;
