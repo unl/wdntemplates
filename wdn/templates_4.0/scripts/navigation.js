@@ -35,7 +35,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		hltCls = 'highlight';
 
 	var isFullNav = function() {
-		return Modernizr.mq(fullNavBp);
+		return Modernizr.mq(fullNavBp) || !Modernizr.mq('only all');
 	};
 
 	var determineSelectedBreadcrumb = function () {
