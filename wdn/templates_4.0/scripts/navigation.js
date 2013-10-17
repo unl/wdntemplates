@@ -15,6 +15,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		transitionDelay = 400,
 		homepageLI, siteHomepage, timeout, scrollTimeout, resizeTimeout,
 		currentState = -1,
+		expEvt = 'expand',
 		cWrapSel = '#wdn_content_wrapper',
 		wdnWrapSel = '#wdn_wrapper',
 		breadSel = '#breadcrumbs',
@@ -36,6 +37,11 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 
 	var isFullNav = function() {
 		return Modernizr.mq(fullNavBp);
+	};
+
+	// a workaround for fast renderers like chrome: #612
+	var redrawWait = function(callback) {
+		return setTimeout(callback, 0);
 	};
 
 	var determineSelectedBreadcrumb = function () {
@@ -131,7 +137,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			$cWrapper = $(cWrapSel),
 			cssTemp = {};
 
-		$nav.off('expand');
+		$nav.off(expEvt);
 		cssTemp[padCss] = cssTemp[padCss2] = '';
 		primaryLinks.css(cssTemp);
 
@@ -205,12 +211,16 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 
 		var recalcSecondaryHeight = function() {
 				WDN.log('fixing secondaries');
-				var ul_h = [];
+				var ul_h = [], pause = 'pause';
+				$nav.addClass(pause);
 				secondaryLists.css(hCss, '').each(function(i){
 					var row = Math.floor(i/6), height = $(this).height();
 					if (!ul_h[row] || height > ul_h[row]) {
 						ul_h[row] = height;
 					}
+				});
+				redrawWait(function(){
+					$nav.removeClass(pause);
 				});
 				//loop through again and apply new height
 				secondaryLists.each(function(i){
@@ -221,7 +231,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 
 		var navHeight = $nav.outerHeight();
 		if (currentState === 0) {
-			$nav.on('expand', recalcSecondaryHeight);
+			$nav.on(expEvt, recalcSecondaryHeight);
 		} else {
 			recalcSecondaryHeight();
 			navHeight += ahAll - $nav.height();
@@ -590,7 +600,9 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 						});
 					});
 
-					setTimeout(function(){navReady(true);}, 0); // workaround to wait for redraw frame
+					redrawWait(function(){
+						navReady(true);
+					});
 				}
 
 				initd = true;
@@ -624,7 +636,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 				}
 
 				setWrapperClass('expanded');
-				$(navSel).trigger('expand').off('expand');
+				$(navSel).trigger(expEvt).off(expEvt);
 			};
 			cssTemp[hCss] = '100%';
 			cssTemp[oCss] = 'hidden';
