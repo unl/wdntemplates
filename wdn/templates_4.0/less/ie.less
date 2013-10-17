@@ -35,6 +35,22 @@
 /*
 * NAVIGATION
 */
+
+/* Only IE9 has a horizontal scroll bar caused by the text-indent on .wdn-icon-menu
+ * but we don't have an .ie9 class so an IE9 only hack is used here:
+ */
+.ie {
+    .wdn-icon-menu {
+        text-indent: 0\9\0;
+        color: #cc0000\9\0;
+
+        &:before {
+            text-indent: 0\9\0;
+            color: #e7b5b5\9\0;
+        }
+    }
+}
+
 .ie8 {
     .wdn-icon-menu {
         display: none;
