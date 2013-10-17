@@ -607,12 +607,12 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			}
 			expandSemaphore = true;
 
+			$(menuTogSel)[0].checked = true;
 			setWrapperClass('changing');
 
 			var cssTemp = {},
 			go = function() {
 				currentState = 1;
-				$(menuTogSel)[0].checked = true;
 				expandSemaphore = false;
 
 				if (!isFullNav()) {
@@ -646,12 +646,12 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			}
 			expandSemaphore = true;
 
+			$(menuTogSel)[0].checked = false;
 			setWrapperClass('collapsed');
 
 			var cssTemp = {},
 			go = function() {
 				currentState = 0;
-				$(menuTogSel)[0].checked = false;
 				expandSemaphore = false;
 
 				if (!isFullNav()) {
