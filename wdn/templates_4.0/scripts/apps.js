@@ -128,15 +128,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 			}
 
 			$(function() {
-				var $tog = $('#wdn_resource_apps'),
-				$pq = $('#pq');
-
-				var unTog = function() {
-					$tog.prop('checked', false);
-				};
-				$(window).on('unload', unTog);
-				unTog();
-
+				var $pq = $('#pq');
 				$($pq.parents('form')).submit(function() {
 					queuePFRequest($pq.val(), directoryDiv);
 					return false;
@@ -145,8 +137,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 					queuePFRequest($pq.val(), directoryDiv);
 				});
 
-				// load/prep the weather content when checked
-				$tog.one('change', function() {
+				var prepAppResources = function() {
 					WDN.loadCSS(WDN.getTemplateFilePath('css/modules/vcard.css'));
 
 					$.ajax({
@@ -162,7 +153,34 @@ define(['jquery', 'wdn'], function($, WDN) {
 							displayWeather(loadError1);
 						}
 					});
-				});
+				};
+
+				// IE8
+				if (!Modernizr.checked) {
+					$('.wdn-resource-app-trigger').click(function() {
+						var aw = $('#wdn_app_wrapper');
+						if (aw.hasClass('aw-vis')) {
+							aw.animate({height:0}, 400).removeClass('aw-vis');
+						} else {
+							aw.animate({height:300}, 400).addClass('aw-vis');
+						}
+					}).one('click', function() {
+						// load/prep the weather content when checked
+						prepAppResources();
+					});
+				} else {
+					var $tog = $('#wdn_resource_apps'),
+					unTog = function() {
+						$tog.prop('checked', false);
+					};
+					$(window).on('unload', unTog);
+					unTog();
+
+					// load/prep the weather content when checked
+					$tog.one('change', function() {
+						prepAppResources();
+					});
+				}
 			});
 
 			initd = true;
