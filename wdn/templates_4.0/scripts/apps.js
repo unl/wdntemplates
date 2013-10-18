@@ -156,19 +156,21 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN) {
 					});
 				};
 
+				var $tog = $('#wdn_resource_apps');
+
 				// IE8
 				if (!Modernizr['css-checked']) {
-					$('.wdn-resource-app-trigger').click(function() {
+					$('.wdn-resource-app-trigger').click(function() {alert($tog.prop('checked'));
 						var aw = $('#wdn_app_wrapper');
-						if (aw.hasClass('aw-vis')) {
-							aw.animate({height:0}, 400).removeClass('aw-vis');
+						if ($tog.prop('checked')) {
+							aw.animate({height:0}, 400);
 						} else {
-							aw.animate({height:300}, 400).addClass('aw-vis');
+							$tog.prop('checked', true);
+							aw.animate({height:300}, 400);
 						}
 					}).one('click', prepAppResources);
 				} else {
-					var $tog = $('#wdn_resource_apps'),
-					unTog = function() {
+					var unTog = function() {
 						$tog.prop('checked', false);
 					};
 					$(window).on('unload', unTog);
