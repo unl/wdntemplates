@@ -160,7 +160,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN) {
 
 				// IE8
 				if (!Modernizr['css-checked']) {
-					$('.wdn-resource-app-trigger').click(function() {alert($tog.prop('checked'));
+					$('.wdn-resource-app-trigger').click(function() {
 						var aw = $('#wdn_app_wrapper');
 						if ($tog.prop('checked')) {
 							aw.animate({height:0}, 400);
