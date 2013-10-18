@@ -1,6 +1,5 @@
 #wdn_app_wrapper {
     display: none;
-    //.brand-font;
 
     .wdn-text-hidden {
         display: none;
@@ -30,7 +29,7 @@
 .wdn-resource-title {
     .heading-font;
     text-transform: uppercase;
-    .rem(32);
+    .rem(24);
     display: block;
     color: fadeout(@base-text, 35%);
 }
@@ -142,6 +141,12 @@
     }
 }
 
+.on-campus-dialing {
+    font-size: 80%;
+    text-transform: uppercase;
+    color: #897b42;
+}
+
 #pfShowRecord {
     font-size: 0.8em;
 
@@ -150,6 +155,7 @@
         border:1px solid darken(@page-background, 7%);
         .border-radius(5px);
         padding:1em;
+        margin-bottom: 1em;
         position:relative;
         overflow:auto;
         min-height: 148px;
@@ -169,12 +175,20 @@
             margin: 0 0 0 90px;
         }
 
+        .fn,
+        .title {
+            .sans-serif-font;
+            .rem(15)
+        }
+
         .permalink {
             margin-left: 1em;
+            font-size: 80%;
         }
 
         .street-address {
             display:block;
+            line-height: 1;
 
             &:after {
                 content: ' ';
@@ -197,6 +211,8 @@
             .fn {
                 margin-left: 90px;
                 margin-top: 0;
+                margin-bottom: 0;
+               .rem(16);
             }
 
             img {
@@ -220,6 +236,7 @@
         max-width:80%;
 
         .type {
+            .sans-serif-font;
             background:#e8f2f7;
             padding:1px 8px 3px 8px;
             margin:0 0 5px -5px;
@@ -230,11 +247,13 @@
 
 #pfresults {
     ul.pfResult {
+        .rem(12);
+        line-height: 1rem;
         padding: 0;
         list-style: none;
         border-bottom: 1px solid #e6e6e6;
         border-top: 1px solid #d0cece;
-        margin-top: 20px;
+        margin-top: 5px;
 
         li {
             border-bottom: 1px solid #d0cece;
@@ -247,7 +266,6 @@
 
             div.overflow {
                 min-height:47px;
-                padding: 7px 5px;
                 display:inline-block;
             }
 
@@ -257,11 +275,7 @@
         }
     }
 
-    .on-campus-dailing {
-        font-size: 80%;
-        text-transform: uppercase;
-        color: #897b42;
-    }
+
 
     .planetred_profile {
         float: left;
@@ -274,7 +288,6 @@
     .recordDetails {
         .planetred_profile;
         margin-left: 20px;
-        max-width: 285px;
 
         .eppa {
             display: none;
@@ -282,20 +295,12 @@
     }
 
     .fn, .fn a {
-        font-size: 18px;
-        font-weight: bold;
+        .sans-serif-font;
+        .rem(16);
+        line-height: 1.125rem;
         color: #464545 !important;
-        max-width: 230px;
-        max-height: 35px;
-        min-height: 20px;
         overflow: hidden;
-    }
-
-    .departments {
-        .fn, .fn a {
-            max-height:42px;
-            line-height:20px;
-        }
+        max-width: 270px;
     }
 
     .departmentInfo {
@@ -309,37 +314,21 @@
         position: absolute;
         right: 5px;
         font-size: 0.7em;
-    }
+        visibility: hidden;
 
-    .results {
-        margin-top: 15px;
-
-        h3 {
-            border-bottom:2px dotted #E6E6E6;
-            padding-bottom:0;
-            font-variant:small-caps;
-            font-weight:bold;
-            font-size: 1.6em;
-            .box-shadow(none);
-            text-transform: none;
+        &:after {
+            content: '+';
+            visibility: visible;
+            font-size: 1.5rem;
         }
     }
 
-    .likeResults {
-        ul.pfResult {
-            margin-top: 0;
-        }
-
-        h3 {
-            font-variant:small-caps;
-            font-weight:bold;
-            .box-shadow(none);
-            text-transform: none;
-            font-size: 1em;
-            margin: 0;
-            padding: 0.2em 0 0.3em;
-            color: #444;
-        }
+    h3 {
+        border-bottom:2px dotted #E6E6E6;
+        padding-bottom:0;
+        margin: 0;
+        .rem(22);
+        .box-shadow(none);
     }
 
     .result_head {
