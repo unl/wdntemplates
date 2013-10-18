@@ -1,10 +1,14 @@
 #wdn_app_wrapper {
     display: none;
-    .brand-font;
+    //.brand-font;
+
+    .wdn-text-hidden {
+        display: none;
+    }
 }
 
 @media @bp-nav-full {
-    
+
     #wdn_app_wrapper {
         border-top: 3px solid transparent;
         border-bottom: 3px solid transparent;
@@ -26,9 +30,8 @@
 .wdn-resource-title {
     .heading-font;
     text-transform: uppercase;
-    .rem(16);
+    .rem(32);
     display: block;
-    margin: 0.5em 0;
     color: fadeout(@base-text, 35%);
 }
 
@@ -53,11 +56,11 @@
     width: 65%;
     margin-left: 5%;
     height: 200px;
-    
+
     a {
     	display: block;
     }
-    
+
     // because the radar image is not https, wdn-frame will only be added in the markup by js served over normal http
     &.wdn-frame a {
     	text-align: left;
@@ -70,9 +73,7 @@
 }
 
 .wdn-sub-resource-title {
-    .rem(11);
-    font-weight: 400;
-    color: fadeout(@base-text, 35%);
+    .sans-serif-font;
 }
 
 .wdn-weather-conditions {
@@ -82,7 +83,7 @@
 }
 
 .wdn-weather-secondary {
-    .rem(14);
+    .rem(28);
     font-weight: 400;
     vertical-align: top;
     display: block;
@@ -99,7 +100,6 @@
 }
 
 .wdn-action-link {
-    .brand-font;
     .rem(11);
     display: block;
     text-align: right;
@@ -131,12 +131,12 @@
         }
 
         &::-moz-placeholder {  /* Firefox 19+ */
-           opacity: 0.8; 
+           opacity: 0.8;
            color: darken(#d1ceb3, 25%);
         }
 
-        &:-ms-input-placeholder {  
-           opacity: 0.8; 
+        &:-ms-input-placeholder {
+           opacity: 0.8;
            color: darken(#d1ceb3, 25%);
         }
     }
@@ -144,7 +144,7 @@
 
 #pfShowRecord {
 	font-size: 0.8em;
-	
+
 	.vcard {
 		background:#fff;
 	    border:1px solid darken(@page-background, 7%);
@@ -153,52 +153,52 @@
 	    position:relative;
 	    overflow:auto;
 	    min-height: 148px;
-	    
+
 	    a.planetred_profile {
 	    	border: 3px solid darken(@page-background, 7%);
 	    	width: 75px;
-	    	
+
 	    	img {
 	    		display: block;
 	    		width: 100%;
 	    		height: auto;
 	    	}
 	    }
-	    
+
 	    .vcardInfo {
 	    	margin: 0 0 0 90px;
 	    }
-	    
+
 	    .permalink {
 	    	margin-left: 1em;
 	    }
-	    
+
 	    .street-address {
 	    	display:block;
-	    	
+
 	    	&:after {
 	    		content: ' ';
 	    	}
 	    }
-	    
+
 	    .locality:after {
 	    	content: ', ';
 	    }
-	    
+
 	    .region:after {
 	    	content: ' ';
 	    }
-	    
+
 	    .country-name {
 	    	display: none;
 	    }
-	    
+
 	    &.office {
 	    	.fn {
 	    		margin-left: 90px;
 	    		margin-top: 0;
 	    	}
-	    	
+
 	    	img {
 	    		display: block;
 	    		float: left;
@@ -207,18 +207,18 @@
 	    	}
 	    }
 	}
-	
+
 	.wdn_vcardTools {
 		display: none;
 	}
-	
+
 	.vcard .adr, .departmentInfo .adr {
 	    border-left:2px solid #CCD2D5;
 	    padding-left:5px;
 	    margin:5px 0;
 	    display:inline-block;
 	    max-width:80%;
-	    
+
 	    .type {
 	    	background:#e8f2f7;
 			padding:1px 8px 3px 8px;
@@ -235,7 +235,7 @@
         border-bottom: 1px solid #e6e6e6;
         border-top: 1px solid #d0cece;
         margin-top: 20px;
-        
+
         li {
             border-bottom: 1px solid #d0cece;
             border-top: 1px solid #e6e6e6;
@@ -244,43 +244,43 @@
             display:inline-block;
             position:relative;
             cursor: pointer;
-        
+
             div.overflow {
                 min-height:47px;
                 padding: 7px 5px;
                 display:inline-block;
             }
-            
+
             &:hover {
                 background:#ecf4f9;
             }
         }
     }
-    
+
     .on-campus-dailing {
         font-size: 80%;
         text-transform: uppercase;
         color: #897b42;
     }
-    
+
     .planetred_profile {
         float: left;
     }
-    
+
     .loading {
         display: none;
     }
-    
+
     .recordDetails {
         .planetred_profile;
         margin-left: 20px;
         max-width: 285px;
-        
+
         .eppa {
             display: none;
         }
     }
-    
+
     .fn, .fn a {
         font-size: 18px;
         font-weight: bold;
@@ -290,30 +290,30 @@
         min-height: 20px;
         overflow: hidden;
     }
-    
+
     .departments {
         .fn, .fn a {
             max-height:42px;
             line-height:20px;
         }
     }
-    
+
     .departmentInfo {
         .photo {
             float: left;
             margin-right: 20px;
         }
     }
-    
+
     .cInfo {
         position: absolute;
         right: 5px;
         font-size: 0.7em;
     }
-    
+
     .results {
         margin-top: 15px;
-        
+
         h3 {
             border-bottom:2px dotted #E6E6E6;
             padding-bottom:0;
@@ -324,12 +324,12 @@
             text-transform: none;
         }
     }
-    
+
     .likeResults {
         ul.pfResult {
             margin-top: 0;
         }
-        
+
         h3 {
             font-variant:small-caps;
             font-weight:bold;
@@ -341,7 +341,7 @@
             color: #444;
         }
     }
-    
+
     .result_head {
         color: #989898;
         font-size: 10px;
