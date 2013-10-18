@@ -658,8 +658,8 @@ window.Modernizr = (function( window, document, undefined ) {
 
         return bool;
     };
-    
-    
+
+
     // These tests evaluate support of the video/audio elements, as well as
     // testing what types of content they support.
     //
@@ -716,7 +716,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
         return bool;
     };
-    
+
     // Thanks to Erik Dahlstrom
     tests['svg'] = function() {
         return !!document.createElementNS && !!document.createElementNS(ns.svg, 'svg').createSVGRect;
@@ -922,15 +922,15 @@ Modernizr.selectorSupported = function(selector) {
 
         link = doc.createElement("style");
         link.type = 'text/css';
-    
+
         (head || root).insertBefore(link, (head || root).firstChild);
-    
+
         sheet = link.sheet || link.styleSheet;
-    
+
         if (!(sheet && selector)) return false;
-    
+
         support = impl.hasFeature('CSS2', '') ?
-      
+
             function(selector) {
               try {
                   sheet.insertRule(selector + '{ }', 0);
@@ -939,13 +939,13 @@ Modernizr.selectorSupported = function(selector) {
                   return false;
               }
               return true;
-              
+
           } : function(selector) {
-            
+
               sheet.cssText = selector + ' { }';
               return sheet.cssText.length !== 0 && !(/unknown/i).test(sheet.cssText) && sheet.cssText.indexOf(selector) === 0;
           };
-      
+
       result = support(selector);
       link.parentNode.removeChild(link);
       link = sheet = undefined;
