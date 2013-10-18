@@ -1,6 +1,3 @@
-/*
-* FUNCTIONS
-*/
 .ie8-width () {
     // Equal to modern 60rem when base font-size is 16px
     width: 960px;
@@ -12,6 +9,7 @@
 
 .ie8 {
     position: relative;
+    min-width: 960px;
 
     .wdn-band .wdn-inner-wrapper {
         .ie8-width;
@@ -41,9 +39,9 @@
 * NAVIGATION
 */
 
-/* Only IE9 has a horizontal scroll bar caused by the text-indent on .wdn-icon-menu
- * but we don't have an .ie9 class so an IE9 only hack is used here:
- */
+// Only IE9 has a horizontal scroll bar caused by the text-indent on .wdn-icon-menu
+// but we don't have an .ie9 class so an IE9 only hack is used here:
+
 .ie {
     .wdn-icon-menu {
         text-indent: 0\9\0;

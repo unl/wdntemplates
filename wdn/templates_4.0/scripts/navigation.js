@@ -525,13 +525,17 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 //						don't clear the timeout (wait for last event) as it causes poor UX
 						scrollTimeout = setTimeout(function() {
 							var breadcrumbs = $(breadSel), wrp = $(wdnWrapSel),
-							cls = 'nav-scrolling', trig;
+							cls = 'nav-scrolling', trig, isFull = isFullNav();
 
-							if (isFullNav() && currentState !== 0) {
+							if (!Modernizr.mediaqueries) {
+								return;
+							}
+
+							if (isFull && currentState !== 0) {
 								Plugin.collapse();
 							}
 
-							if (isFullNav() && breadcrumbs.is(':visible')) {
+							if (isFull && breadcrumbs.is(':visible')) {
 								trig = breadcrumbs;
 							} else {
 								trig = $('#header');
