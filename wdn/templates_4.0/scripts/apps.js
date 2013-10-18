@@ -164,10 +164,10 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 						var aw = $('#wdn_app_wrapper');
 						if ($tog.prop('checked')) {
 							$tog.prop('checked', false);
-							aw.animate({height:0}, 400);
+							aw.height(0);
 						} else {
 							$tog.prop('checked', true);
-							aw.animate({height:300}, 400);
+							aw.height(300);
 						}
 					}).one('click', prepAppResources);
 				} else {
