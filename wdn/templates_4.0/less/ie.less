@@ -2,7 +2,8 @@
 * FUNCTIONS
 */
 .ie8-width () {
-    min-width: 980px;
+    // Equal to modern 60rem when base font-size is 16px
+    width: 960px;
 }
 
 /*
@@ -11,7 +12,11 @@
 
 .ie8 {
     position: relative;
-    .ie8-width;
+
+    .wdn-band .wdn-inner-wrapper {
+        .ie8-width;
+    }
+
 }
 
 /*
@@ -35,6 +40,22 @@
 /*
 * NAVIGATION
 */
+
+/* Only IE9 has a horizontal scroll bar caused by the text-indent on .wdn-icon-menu
+ * but we don't have an .ie9 class so an IE9 only hack is used here:
+ */
+.ie {
+    .wdn-icon-menu {
+        text-indent: 0\9\0;
+        color: #cc0000\9\0;
+
+        &:before {
+            text-indent: 0\9\0;
+            color: #e7b5b5\9\0;
+        }
+    }
+}
+
 .ie8 {
     .wdn-icon-menu {
         display: none;
@@ -43,14 +64,20 @@
     #navigation {
 
         > ul {
-
-            li {
-                border-bottom: 1px solid lighten(#DE5959, 25%); // We have to redeclare all values as IE8 chokes on the original because of the rgba
-            }
+            .ie8-width;
 
             > li {
+                // Redeclare all color values as IE8 chokes on the original because of the rgba
                 border-right: 1px solid #DE5959;
+
+                > a {
+                    border-bottom: 1px solid #DE5959;
+                }
             }
+        }
+
+        li li {
+            border-bottom: 1px solid #DE5959;
         }
     }
 }
