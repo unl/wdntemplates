@@ -137,6 +137,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 					queuePFRequest($pq.val(), directoryDiv);
 				});
 
+				// load/prep the weather content when checked
 				var prepAppResources = function() {
 					WDN.loadCSS(WDN.getTemplateFilePath('css/modules/vcard.css'));
 
@@ -164,10 +165,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 						} else {
 							aw.animate({height:300}, 400).addClass('aw-vis');
 						}
-					}).one('click', function() {
-						// load/prep the weather content when checked
-						prepAppResources();
-					});
+					}).one('click', prepAppResources);
 				} else {
 					var $tog = $('#wdn_resource_apps'),
 					unTog = function() {
@@ -177,9 +175,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 					unTog();
 
 					// load/prep the weather content when checked
-					$tog.one('change', function() {
-						prepAppResources();
-					});
+					$tog.one('change', prepAppResources);
 				}
 			});
 
