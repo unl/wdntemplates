@@ -58,17 +58,17 @@
     height: 200px;
 
     a {
-    	display: block;
+        display: block;
     }
 
     // because the radar image is not https, wdn-frame will only be added in the markup by js served over normal http
     &.wdn-frame a {
-    	text-align: left;
-    	text-indent: -9999em;
-    	border: none;
-    	height: 100%;
-	    background: url(http://radar.weather.gov/lite/N0R/OAX_loop.gif) -90px -215px no-repeat;
-	    .background-clip(content-box);
+        text-align: left;
+        text-indent: -9999em;
+        border: none;
+        height: 100%;
+        background: url(http://radar.weather.gov/lite/N0R/OAX_loop.gif) -90px -215px no-repeat;
+        .background-clip(content-box);
     }
 }
 
@@ -143,89 +143,89 @@
 }
 
 #pfShowRecord {
-	font-size: 0.8em;
+    font-size: 0.8em;
 
-	.vcard {
-		background:#fff;
-	    border:1px solid darken(@page-background, 7%);
-	    .border-radius(5px);
-	    padding:1em;
-	    position:relative;
-	    overflow:auto;
-	    min-height: 148px;
+    .vcard {
+        background:#fff;
+        border:1px solid darken(@page-background, 7%);
+        .border-radius(5px);
+        padding:1em;
+        position:relative;
+        overflow:auto;
+        min-height: 148px;
 
-	    a.planetred_profile {
-	    	border: 3px solid darken(@page-background, 7%);
-	    	width: 75px;
+        a.planetred_profile {
+            border: 3px solid darken(@page-background, 7%);
+            width: 75px;
 
-	    	img {
-	    		display: block;
-	    		width: 100%;
-	    		height: auto;
-	    	}
-	    }
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+        }
 
-	    .vcardInfo {
-	    	margin: 0 0 0 90px;
-	    }
+        .vcardInfo {
+            margin: 0 0 0 90px;
+        }
 
-	    .permalink {
-	    	margin-left: 1em;
-	    }
+        .permalink {
+            margin-left: 1em;
+        }
 
-	    .street-address {
-	    	display:block;
+        .street-address {
+            display:block;
 
-	    	&:after {
-	    		content: ' ';
-	    	}
-	    }
+            &:after {
+                content: ' ';
+            }
+        }
 
-	    .locality:after {
-	    	content: ', ';
-	    }
+        .locality:after {
+            content: ', ';
+        }
 
-	    .region:after {
-	    	content: ' ';
-	    }
+        .region:after {
+            content: ' ';
+        }
 
-	    .country-name {
-	    	display: none;
-	    }
+        .country-name {
+            display: none;
+        }
 
-	    &.office {
-	    	.fn {
-	    		margin-left: 90px;
-	    		margin-top: 0;
-	    	}
+        &.office {
+            .fn {
+                margin-left: 90px;
+                margin-top: 0;
+            }
 
-	    	img {
-	    		display: block;
-	    		float: left;
-	    		width: 75px;
-	    		border: 3px solid darken(@page-background, 7%);
-	    	}
-	    }
-	}
+            img {
+                display: block;
+                float: left;
+                width: 75px;
+                border: 3px solid darken(@page-background, 7%);
+            }
+        }
+    }
 
-	.wdn_vcardTools {
-		display: none;
-	}
+    .wdn_vcardTools {
+        display: none;
+    }
 
-	.vcard .adr, .departmentInfo .adr {
-	    border-left:2px solid #CCD2D5;
-	    padding-left:5px;
-	    margin:5px 0;
-	    display:inline-block;
-	    max-width:80%;
+    .vcard .adr, .departmentInfo .adr {
+        border-left:2px solid #CCD2D5;
+        padding-left:5px;
+        margin:5px 0;
+        display:inline-block;
+        max-width:80%;
 
-	    .type {
-	    	background:#e8f2f7;
-			padding:1px 8px 3px 8px;
-			margin:0 0 5px -5px;
-			display:block;
-	    }
-	}
+        .type {
+            background:#e8f2f7;
+            padding:1px 8px 3px 8px;
+            margin:0 0 5px -5px;
+            display:block;
+        }
+    }
 }
 
 #pfresults {
