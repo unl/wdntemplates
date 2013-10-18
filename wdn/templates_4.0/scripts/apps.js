@@ -163,6 +163,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN) {
 					$('.wdn-resource-app-trigger').click(function() {
 						var aw = $('#wdn_app_wrapper');
 						if ($tog.prop('checked')) {
+							$tog.prop('checked', false);
 							aw.animate({height:0}, 400);
 						} else {
 							$tog.prop('checked', true);
