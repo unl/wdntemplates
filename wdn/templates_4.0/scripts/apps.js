@@ -1,4 +1,4 @@
-define(['jquery', 'wdn'], function($, WDN) {
+define(['jquery', 'wdn', 'modernizr'], function($, WDN) {
 	var weatherServer = '//www.unl.edu/',
 	directoryServer = '//directory.unl.edu/',
 	partialFmt = 'format=partial',
