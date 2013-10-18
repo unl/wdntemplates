@@ -953,7 +953,7 @@ Modernizr.selectorSupported = function(selector) {
 };
 
 (function() {
-    var i, selector, selectors = ':first-child :last-child :nth-child(n) *:nth-of-type(n) :nth-last-child(n)'.split(' ');
+    var i, selector, selectors = ':first-child :last-child :nth-child(n) *:nth-of-type(n) :nth-last-child(n) :checked'.split(' ');
     for (i = 0; i < selectors.length; i++) {
         selector = selectors[i];
         Modernizr.addTest('css-' + selectors[i].replace(/[*:-]|\([^)]\)/g, ''), function() {
@@ -966,18 +966,6 @@ Modernizr.selectorSupported = function(selector) {
 // https://github.com/Modernizr/Modernizr/issues/248
 Modernizr.addTest("boxsizing",function(){
     return Modernizr.testAllProps("boxSizing") && (document.documentMode === undefined || document.documentMode > 7);
-});
-
-// Add test for CSS :checked pseudo-selector
-// https://github.com/Modernizr/Modernizr/blob/master/feature-detects/css/checked.js
-Modernizr.addTest('checked', function(){
-    return Modernizr.testStyles('#modernizr {position:absolute} #modernizr input {margin-left:10px} #modernizr :checked {margin-left:20px;display:block}', function(elem, rule){
-       var cb = document.createElement('input');
-       cb.setAttribute("type", "checkbox");
-       cb.setAttribute("checked", "checked");
-       elem.appendChild(cb);
-       return cb.offsetLeft === 20;
-    });
 });
 
 // testing for placeholder attribute in inputs and textareas

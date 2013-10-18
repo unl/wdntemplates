@@ -156,7 +156,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 				};
 
 				// IE8
-				if (!Modernizr.checked) {
+				if (!Modernizr['css-checked']) {
 					$('.wdn-resource-app-trigger').click(function() {
 						var aw = $('#wdn_app_wrapper');
 						if (aw.hasClass('aw-vis')) {
