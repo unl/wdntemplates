@@ -1,15 +1,16 @@
 define(['jquery', 'require'], function($, require) {
 	var pluginPath = 'plugins/qtip/',
 	qtipPlugin = 'jquery.qtip',
+	wdnStyle = 'wdn.qtip',
 	initd = false,
-	
+
 	attr = 'title',
 	attrBak = 'data-title',
 	mainSel = '#maincontent .tooltip[' + attr + ']',
 	tipStyleCls = 'qtip-wdn',
-	
+
 	_wdnQTip,
-	
+
 	_sanitizeTooltipElems = function(elems) {
 		elems.each(function() {
 			var $this = $(this);
@@ -17,18 +18,18 @@ define(['jquery', 'require'], function($, require) {
 		})
 		.removeAttr(attr);
 	};
-	
+
 	function tooltipSetup() {
 		// Tooltips can only be used in the appropriate sections, and must have the correct class name and a title attribute
 		var elems = $(mainSel);
-		
+
 		if (_wdnQTip) {
 			Plugin.addTooltip(elems);
 			return;
 		}
-		
+
 		_sanitizeTooltipElems(elems);
-		
+
 		_wdnQTip = $('<div/>').qtip({
 			content: ' ',
 			style: {
@@ -57,7 +58,7 @@ define(['jquery', 'require'], function($, require) {
 			events: {
 				show: function(event, api) {
 					var target = $(event.originalEvent.target);
-					
+
 					if (target.length) {
 						api.set('content.text', target.attr(attrBak));
 					}
@@ -65,18 +66,17 @@ define(['jquery', 'require'], function($, require) {
 			}
 		});
 	};
-	
+
 	var Plugin = {
 		initialize : function() {
-			var min = '', body = document.getElementsByTagName('body'), prefix;
+			var min = '', body = document.getElementsByTagName('body');
 			if (!body.length || !body[0].className.match(/(^|\s)debug(\s|$)/)) {
 				min = '.min';
 			}
-			
+
 			if (!initd) {
-				prefix = pluginPath + qtipPlugin + min;
-				WDN.loadCSS(require.toUrl(prefix + '.css'));
-				require([prefix], function() {
+				WDN.loadCSS(require.toUrl(pluginPath + wdnStyle + min + '.css'));
+				require([pluginPath + qtipPlugin + min], function() {
 					initd = true;
 					tooltipSetup();
 				});
@@ -90,10 +90,10 @@ define(['jquery', 'require'], function($, require) {
 		addTooltip: function(el) {
 			var elems = $(el);
 			_sanitizeTooltipElems(elems);
-			
+
 			var oldElems = _wdnQTip.qtip('option', 'show.target'),
 				newTargets = oldElems.add(elems);
-			
+
 			if (oldElems.length < newTargets.length) {
 				_wdnQTip.qtip('option', {
 					'show.target': newTargets,
@@ -102,6 +102,6 @@ define(['jquery', 'require'], function($, require) {
 			}
 		}
 	};
-	
+
 	return Plugin;
 });

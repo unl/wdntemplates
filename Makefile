@@ -34,7 +34,9 @@ CSS_OBJS := \
 	$(TEMPLATE_CSS)/modules/pagination.css \
 	$(TEMPLATE_CSS)/modules/randomizer.css \
 	$(TEMPLATE_CSS)/modules/rsswidget.css \
-	$(TEMPLATE_CSS)/modules/vcard.css
+	$(TEMPLATE_CSS)/modules/vcard.css \
+	$(TEMPLATE_JS)/plugins/qtip/wdn.qtip.css \
+	$(TEMPLATE_JS)/plugins/qtip/wdn.qtip.min.css
 
 MQ_STRIP := build/mq-strip.pl
 
@@ -57,6 +59,12 @@ $(shell $(LESSC_SHELL) -M $(TEMPLATE_LESS)/$(LESS_ALL) $(TEMPLATE_CSS)/$(LESS_AL
 
 $(TEMPLATE_CSS)/%.css: $(TEMPLATE_LESS)/%.less $(LESS_MIXINS_DEPS)
 	@mkdir -p $(@D)
+	$(ENV) $(LESSC) $(LESSC_FLAGS) $< $@
+
+$(TEMPLATE_JS)/plugins/qtip/wdn.qtip.css: $(TEMPLATE_JS)/plugins/qtip/wdn.qtip.less $(TEMPLATE_JS)/plugins/qtip/jquery.qtip.css $(LESS_MIXINS_DEPS)
+	$(ENV) $(LESSC) $< $@
+
+$(TEMPLATE_JS)/plugins/qtip/wdn.qtip.min.css: $(TEMPLATE_JS)/plugins/qtip/wdn.qtip.less $(TEMPLATE_JS)/plugins/qtip/jquery.qtip.css $(LESS_MIXINS_DEPS)
 	$(ENV) $(LESSC) $(LESSC_FLAGS) $< $@
 
 js: $(JS_ALL_OUT)
