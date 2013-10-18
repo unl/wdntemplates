@@ -161,14 +161,13 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 				// IE8
 				if (!Modernizr['css-checked']) {
 					$('.wdn-resource-app-trigger').click(function() {
-						var aw = $('#wdn_app_wrapper');
-						if ($tog.prop('checked')) {
-							$tog.prop('checked', false);
-							aw.height(0);
+						if ($tog.hasClass('checked')) {
+							$tog.removeClass('checked');
 						} else {
-							$tog.prop('checked', true);
-							aw.height(300);
+							$tog.addClass('checked');
 						}
+						// Force repaint http://stackoverflow.com/questions/13783840/how-to-force-ie8-to-repaint-after-adding-a-class-to-a-dom-element
+						$tog.parent().addClass('null').removeClass('null');
 					}).one('click', prepAppResources);
 				} else {
 					var unTog = function() {
