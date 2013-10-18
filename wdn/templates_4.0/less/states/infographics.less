@@ -1,19 +1,67 @@
-.fill-color (@color) {
-	.wdn-infographic-path {
-		fill: @color;
+
+@infogrfx: wdn-infographic;
+@grfx: wdn-info-icon;
+@imgDir: "../images/infographics/";
+
+//create svg and set link to png
+.create-svg(@svg) {
+	.@{grfx} {
+		background-image: data-uri('@{imgDir}@{svg}.svg');
+		
+		.no-svg & {
+			background-image: url('@{imgDir}@{svg}.png');
+		}
+	}
+
+	&[class$="-triad"] {
+		.@{grfx} {
+			background-image: data-uri('@{imgDir}@{svg}-triad.svg');
+		
+			.no-svg & {
+				background-image: url('@{imgDir}@{svg}-triad.png');
+			}
+		}
+	}
+
+	&[class$="-complement"] {
+		.@{grfx} {
+			background-image: data-uri('@{imgDir}@{svg}-complement.svg');
+		
+			.no-svg & {
+				background-image: url('@{imgDir}@{svg}-complement.png');
+			}
+		}
+	}
+
+	&[class$="-energetic"] {
+		.@{grfx} {
+			background-image: data-uri('@{imgDir}@{svg}-energetic.svg');
+		
+			.no-svg & {
+				background-image: url('@{imgDir}@{svg}-energetic.png');
+			}
+		}
+	}
+
+	&[class$="-brand"] {
+		.@{grfx} {
+			background-image: data-uri('@{imgDir}@{svg}-brand.svg');
+		
+			.no-svg & {
+				background-image: url('@{imgDir}@{svg}-brand.png');
+			}
+		}
 	}
 }
 
-.wdn-infographic {
+.@{infogrfx} {
 	text-align: center;
 
-	img {
-		//fill: @neutral;
-	}
-
 	h3 {
-		.rem(28);
-		margin:.5em 0;
+		.brand-font;
+		.rem(40);
+		margin:.25em 0;
+		font-weight: 600;
 	}
 
 	span {
@@ -22,36 +70,37 @@
 		.rem(16);
 	}
 
-	&.wdn-infographic-triad {
-		.fill-color(@triad);
+	.@{grfx} {
+		min-width: 142px;
+		min-height: 142px;
+		margin: 0 auto;
+		background-repeat: no-repeat;
+		background-position: center bottom;
 	}
 
-	&.wdn-infographic-complement {
-		.fill-color(@complement);
+	&[class*="@{infogrfx}-rate"] {
+		.create-svg(rate);
 	}
 
-	&.wdn-infographic-energetic {
-		.fill-color(@energetic);
+	&[class*="@{infogrfx}-globe"] {
+		.create-svg(globe);
 	}
 
-	&.wdn-infographic-brand {
-		.fill-color(@brand);
+	&[class*="@{infogrfx}-world"] {
+		.create-svg(world);
 	}
 
-	&.wdn-infographic-dark-triad {
-		.fill-color(@dark-triad);
+	&[class*="@{infogrfx}-people"] {
+		.create-svg(people);
 	}
 
-	&.wdn-infographic-dark-complement {
-		.fill-color(@dark-complement);
+	&[class*="@{infogrfx}-star"] {
+		.create-svg(star);
 	}
 
-	&.wdn-infographic-dark-energetic {
-		.fill-color(@dark-energetic);
-	}
-
-	&.wdn-infographic-dark-neutral {
-		.fill-color(@dark-neutral);
+	&[class*="@{infogrfx}-internships"] {
+		.create-svg(internships);
 	}
 }
+
 
