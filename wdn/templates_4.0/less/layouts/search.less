@@ -1,4 +1,5 @@
 #wdn_search {
+	overflow: hidden;
 
     fieldset {
         border: none;
@@ -82,7 +83,7 @@
     }
 
     &:focus {
-        width: 210px;
+        width: 220px;
         border-color: darken(#d1ceb3, 10%);
         outline: none;
 
@@ -97,7 +98,7 @@
          }
          
          @media @bp-nav-max {
-         	width: 210px;
+         	width: 220px;
          }
     }
 
@@ -111,6 +112,15 @@
         padding: 0;
         border-color: fadeout(#d1ceb3, 100%);
         background-color: fadeout(#ffffff, 100%);
+        
+        .no-csstransitions & {
+	        position: absolute;
+	        left: 50px;
+        	
+        	&:focus {
+        		position: static;
+        	}
+        }
 
         &::-webkit-input-placeholder {
            opacity: 0.8;
