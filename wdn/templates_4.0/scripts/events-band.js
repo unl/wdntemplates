@@ -103,7 +103,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                             + event.EventTitle + '</p><span class="location">' + location + ' </span>' + '</div></div></a></div>');
 
                     });
-                    $('#events-band').append('<p class="more-events"><a href="' + localConfig.url + '" target="_blank">More Events</a></p>');
+                    $('#events-band').append('<div class="wdn-col-full"><p class="more-events"><a href="' + localConfig.url + '" target="_blank">More Events</a></p></div>');
                 });
     }
 
