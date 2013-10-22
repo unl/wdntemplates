@@ -199,6 +199,22 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
     padding: 0;
 }
 
+@media (min-width: 480px) {
+    .grid-clear .wdn-col:nth-child(2n+1) {
+        clear: left;
+    }
+}
+
+@media (min-width: 768px) {
+    .grid-clear .wdn-col:nth-child(2n+1) {
+        clear: none;
+    }
+
+    .grid-clear .wdn-col:nth-child(4n+1) {
+        clear: left;
+    }
+}
+
 </style>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="" -->
