@@ -35,6 +35,7 @@ CSS_OBJS := \
 	$(TEMPLATE_CSS)/modules/randomizer.css \
 	$(TEMPLATE_CSS)/modules/rsswidget.css \
 	$(TEMPLATE_CSS)/modules/vcard.css \
+	$(TEMPLATE_CSS)/modules/infographics.css \
 	$(TEMPLATE_JS)/plugins/qtip/wdn.qtip.css \
 	$(TEMPLATE_JS)/plugins/qtip/wdn.qtip.min.css
 
