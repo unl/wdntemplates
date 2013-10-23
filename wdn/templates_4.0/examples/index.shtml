@@ -43,7 +43,6 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
         var cache = { '' : ' ' },
         loadExample = function(data, url) {
         	$('#examples').slideUp(300);
-            data = $(data).closest('#example-code').html();
             $('#example').attr('class', url.substring(0, url.indexOf('.'))).html(data);
             legacy();
             $('#pagetitle .wdn-subhead').slideDown(300);
