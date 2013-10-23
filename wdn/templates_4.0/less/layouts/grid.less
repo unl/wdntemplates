@@ -2,7 +2,7 @@
 @import "grid-mixins.less";
 
 [class*="@{grid-set}"] {
-    margin: 0 (@gutter-size/2) * -1;
+    margin: 0 (@gutter-size-ie/2) * -1;
     .box-sizing(border-box);
     clear:left;
     .clear-fix();
@@ -16,12 +16,12 @@
 [class*="@{grid-col-class}"] {
     float: left;
     .grid-col-width-cal(100%);
-    padding: 0 (@gutter-size/2);
+    padding: 0 (@gutter-size-ie/2);
     .box-sizing(border-box);
     
     // Use this when only a background is needed (no border). This option isn't recommended, instead one should use a nested element with a class of .col-island (see below).
     &.col-padding {
-        padding: (@gutter-size / 2) 0 (@gutter-size / 2) @gutter-size;
+        padding: (@gutter-size-ie / 2) 0 (@gutter-size-ie / 2) @gutter-size-ie;
         background-clip: content-box;
     }
 }
@@ -56,7 +56,7 @@
 // When a border is needed, nest inside a column.
 
 [class*="wdn-col"] .visual-island {
-    padding: @gutter-size / 2;
+    padding: @gutter-size-ie / 2;
 }
 
 // reset for list grids
