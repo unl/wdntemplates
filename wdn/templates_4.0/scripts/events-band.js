@@ -1,7 +1,7 @@
 define(['jquery', 'wdn', 'require'], function($, WDN, require) {
     var getLocalEventSettings = function() {
         var $eventLink = $('link[rel=events]'),
-            eventParams = WDN.getPluginParam('events-band');
+            eventParams = WDN.getPluginParam('events');
         
         if ($eventLink.length) {
             return {
