@@ -103,7 +103,7 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
             });
         });
         
-        $("#example_code").bind('input propertychange', function() {
+        $("#example_code").bind('keyup', function() {
             loadExample($("#example_code").val(), 'custom.');
         });
     });
