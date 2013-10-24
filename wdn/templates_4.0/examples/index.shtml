@@ -43,7 +43,6 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
         var cache = { '' : ' ' },
         loadExample = function(data, url) {
         	$('#examples').slideUp(300);
-            data = $(data).closest('#example-code').html()
             $('#example').attr('class', url.substring(0, url.indexOf('.'))).html(data);
             legacy();
             $('#pagetitle .wdn-subhead').slideDown(300);
@@ -104,10 +103,10 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
             });
         });
         
-        $("#example_code").bind('input propertychange', function() {
+        $("#example_code").bind('keyup', function() {
             loadExample($("#example_code").val(), 'custom.');
         });
-    })
+    });
 });
 --></script>
 <style type="text/css">
@@ -135,7 +134,7 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
 #examples .visual-island {
     background-color: rgb(19, 154, 189);
     border-radius: 3px;
-    height: 5rem;
+    height: 80px;
     overflow: hidden;
     margin: 0.5em 0;
 }
