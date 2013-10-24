@@ -12,7 +12,7 @@ GIT := git
 PERL := perl
 
 LESSC := lessc
-LESSC_FLAGS := --yui-compress --line-numbers=comments
+LESSC_FLAGS := --clean-css
 LESSC_SHELL := $(ENV) PATH=$(PATH) $(LESSC)
 
 LESS_MIXINS := $(TEMPLATE_LESS)/_mixins/all.less
@@ -48,7 +48,7 @@ JS_DEPS := $(TEMPLATE_JS)/*.js
 
 SMUDGE_STATUS := $(shell $(GIT) config filter.rcs-keywords.smudge)
 
-all: less js
+all: envtest less js
 
 less: $(CSS_OBJS)
 
@@ -72,6 +72,9 @@ js: $(JS_ALL_OUT)
 $(JS_ALL_OUT): $(RJS_BUILD_CONF) $(JS_DEPS)
 	$(ENV) $(RJS) -o $< $(RJS_FLAGS)
 
+envtest:
+	@LESSC=$(LESSC) ./scripts/envtest.sh
+
 clean:
 	rm -rf $(TEMPLATE_CSS)
 	rm -rf $(TEMPLATE_RJS)
@@ -87,5 +90,5 @@ dist: all
 		./scripts/clean.sh; \
 	fi
 	
-.PHONY: all clean less js dist
+.PHONY: all clean less js dist envtest
 .SUFFIXES:
