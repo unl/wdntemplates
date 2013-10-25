@@ -29,6 +29,7 @@ define(['jquery', 'require'], function($, require) {
 		}
 
 		_sanitizeTooltipElems(elems);
+		$.fn.qtip.zindex = 10;
 
 		_wdnQTip = $('<div/>').qtip({
 			content: ' ',
