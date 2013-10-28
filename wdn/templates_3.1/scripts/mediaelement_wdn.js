@@ -9,15 +9,15 @@ WDN.mediaelement_wdn = function() {
 			if (!body.length || !body[0].className.match(/(^|\s)debug(\s|$)/)) {
 				min = '.min';
 			}
-
-            //Prevent captions from being auto-displayed
-            var v = document.querySelectorAll('.wdn_player');
-            for (var i = 0, length = v.length; i < length; i++) {
-                if (v[i].textTracks) {
-                    v[i].textTracks[0].mode = "hidden";
-                }
-            }
-            
+			
+			//Prevent captions from being auto-displayed
+			var v = document.querySelectorAll('.wdn_player');
+			for (var i = 0, length = v.length; i < length; i++) {
+				if (v[i].textTracks) {
+					v[i].textTracks[0].mode = "hidden";
+				}
+			}
+			
 			WDN.loadCSS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/css/mediaelementplayer' + min + '.css'));
 			WDN.loadJQuery(function() {
 				WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/mediaelement-and-player' + min + '.js'), function() {
