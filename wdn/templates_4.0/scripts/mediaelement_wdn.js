@@ -18,6 +18,14 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				initd = true;
 			}
 			
+			//Prevent auto-loading captions
+			var v = document.querySelectorAll('.wdn_player');
+			for (var i = 0, length = v.length; i < length; i++) {
+				if (v[i].textTracks) {
+					v[i].textTracks[0].mode = "hidden";
+				}
+			}
+			
 			var ready = function() {
 				$('video.wdn_player, audio.wdn_player').each(function() {
 					$(this).mediaelementplayer({
