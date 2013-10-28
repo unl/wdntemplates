@@ -1,5 +1,4 @@
 AddType text/vtt .vtt
-AddType 'text/html; charset=utf-8' shtml, html
 
 <IfModule mod_deflate.c>
 
