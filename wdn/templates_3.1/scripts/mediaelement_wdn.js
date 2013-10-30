@@ -10,16 +10,17 @@ WDN.mediaelement_wdn = function() {
 				min = '.min';
 			}
 			
-			//Prevent captions from being auto-displayed
-			var v = document.querySelectorAll('.wdn_player');
-			for (var i = 0, length = v.length; i < length; i++) {
-				if (v[i].textTracks) {
-					v[i].textTracks[0].mode = "hidden";
-				}
-			}
-			
 			WDN.loadCSS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/css/mediaelementplayer' + min + '.css'));
 			WDN.loadJQuery(function() {
+				//Prevent captions from being auto-displayed
+				WDN.jQuery('.wdn_player').each(function() {
+					if (this.textTracks) {
+						for (i=0; i<=this.textTracks.length; i++) {
+							this.textTracks[i].mode = "hidden";
+						}
+					}
+				});
+				
 				WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/mediaelement-and-player' + min + '.js'), function() {
                     WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/mep-feature-googleanalytics.js'), function() {
     					WDN.jQuery('video.wdn_player, audio.wdn_player').each(function() {
