@@ -15,7 +15,7 @@ WDN.mediaelement_wdn = function() {
 				//Prevent captions from being auto-displayed
 				WDN.jQuery('.wdn_player').each(function() {
 					if (this.textTracks) {
-						for (i=0; i<=this.textTracks.length; i++) {
+						for (i=0; i<this.textTracks.length; i++) {
 							this.textTracks[i].mode = "hidden";
 						}
 					}
