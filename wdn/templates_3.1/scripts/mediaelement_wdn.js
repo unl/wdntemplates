@@ -12,6 +12,15 @@ WDN.mediaelement_wdn = function() {
 			
 			WDN.loadCSS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/css/mediaelementplayer' + min + '.css'));
 			WDN.loadJQuery(function() {
+				//Prevent captions from being auto-displayed
+				WDN.jQuery('.wdn_player').each(function() {
+					if (this.textTracks) {
+						for (i=0; i<this.textTracks.length; i++) {
+							this.textTracks[i].mode = "hidden";
+						}
+					}
+				});
+				
 				WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/mediaelement-and-player' + min + '.js'), function() {
                     WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/mep-feature-googleanalytics.js'), function() {
     					WDN.jQuery('video.wdn_player, audio.wdn_player').each(function() {
