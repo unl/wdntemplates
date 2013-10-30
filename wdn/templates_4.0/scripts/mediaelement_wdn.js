@@ -17,6 +17,15 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				WDN.loadCSS(require.toUrl(pluginPath + 'css/mediaelementplayer' + min + '.css'));
 				initd = true;
 			}
+
+			//Prevent captions from being auto-displayed
+			$('.wdn_player').each(function() {
+				if (this.textTracks) {
+					for (i=0; i<this.textTracks.length; i++) {
+						this.textTracks[i].mode = "hidden";
+					}
+				}
+			});
 			
 			var ready = function() {
 				$('video.wdn_player, audio.wdn_player').each(function() {
