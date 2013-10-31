@@ -10,8 +10,17 @@ WDN.mediaelement_wdn = function() {
 				min = '.min';
 			}
 			
+			var options = {
+				videoWidth: '100%',
+				videoHeight: '100%',
+				audioWidth: '100%',
+				features : ['playpause','current','progress','duration','tracks','volume','fullscreen','googleanalytics']
+			};
+
 			WDN.loadCSS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/css/mediaelementplayer' + min + '.css'));
 			WDN.loadJQuery(function() {
+				WDN.jQuery.extend(options, WDN.getPluginParam('mediaelement_wdn', 'options') || {});
+
 				//Prevent captions from being auto-displayed
 				WDN.jQuery('.wdn_player').each(function() {
 					if (this.textTracks) {
@@ -22,20 +31,15 @@ WDN.mediaelement_wdn = function() {
 				});
 				
 				WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/mediaelement-and-player' + min + '.js'), function() {
-                    WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/mep-feature-googleanalytics.js'), function() {
-    					WDN.jQuery('video.wdn_player, audio.wdn_player').each(function() {
-    						WDN.jQuery(this).mediaelementplayer({
-    							videoWidth: '100%',
-    							videoHeight: '100%',
-    							audioWidth: '100%',
-    							features : ['playpause','current','progress','duration','tracks','volume','fullscreen','googleanalytics']
-    						});
-    					});
-                    });
-					
-					if (callback) {
-						callback();
-					}
+					WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/mediaelement/mep-feature-googleanalytics.js'), function() {
+						WDN.jQuery('video.wdn_player, audio.wdn_player').each(function() {
+							WDN.jQuery(this).mediaelementplayer(options);
+						});
+
+						if (callback) {
+							callback();
+						}
+					});
 				});
 			});
 		}
