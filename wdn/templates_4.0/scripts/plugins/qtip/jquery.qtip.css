@@ -1,12 +1,12 @@
 /*
- * qTip2 - Pretty powerful tooltips - v2.0.1-159
+ * qTip2 - Pretty powerful tooltips - v2.0.1-240
  * http://qtip2.com
  *
  * Copyright (c) 2013 Craig Michael Thompson
  * Released under the MIT, GPL licenses
  * http://jquery.org/license
  *
- * Date: Fri Jul 19 2013 06:28 UTC+0000
+ * Date: Fri Oct 18 2013 06:35 UTC+0000
  * Plugins: tips viewport svg
  * Styles: basic css3
  */
@@ -254,30 +254,6 @@
 	border-radius: 4px 4px 0 0;
 }
 
-/* UNL WDN tooltip style */
-.qtip-wdn{
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
-	
-	color: white;
-	border-width: 0;
-	border-color: #cc1124;
-
-	background: #cc1124;
-	
-	font-size: 1em;
-}
-
-	.qtip-wdn .qtip-titlebar{
-		background-color: #cc1124;
-	}
-	
-	.qtip-wdn .qtip-content{
-		font-family: Helvetica, "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
-		padding: .6em;
-	}
-
 /* Youtube tooltip style */
 .qtip-youtube{
 	-moz-border-radius: 2px;
@@ -419,7 +395,6 @@
 
 	.qtip-tipsy .qtip-content{
 		padding: 6px 10px;
-		background-color: rgba(0, 0, 0, .87);
 	}
 	
 	.qtip-tipsy .qtip-icon{
