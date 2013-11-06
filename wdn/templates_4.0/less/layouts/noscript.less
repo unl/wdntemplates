@@ -1,8 +1,21 @@
+.noscript-height() {
+	height: @base-line-height-sm * 2em;
+    
+    @media @bp1 {
+    	height: @base-line-height-sm * 1em;
+    }
+    
+    @media @bp2 {
+    	height: @base-line-height-lg * 1em;
+    }
+}
+
 #wdn_noscript {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    .noscript-height;
     overflow: hidden;
     z-index: 1;
 }
@@ -10,15 +23,17 @@
 #wdn_noscript p {
     background-color: @warning;
     color: #000000;
-    text-shadow: 0 -1px lighten(@warning, 20%);
     .sans-serif-font();
-    text-align: center;
-    .rem(12);
-    line-height: 1;
-    padding: 0.25em;
     font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 0 @mobile-pad;
+    
+    @media @bp3 {
+    	padding: 0;
+    }
 }
 
 #wdn_noscript_padding {
-    min-height: 0.8rem + 0.5rem;
+    .noscript-height;
 }

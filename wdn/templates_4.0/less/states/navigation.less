@@ -39,34 +39,24 @@
 }
 
 @media @bp-nav-full {
-    #wdn_menu_toggle:checked { // Change states when toggle is checked
-
-        ~ #wdn_navigation_bar {
-
-            #navigation > ul {
-
-                > li {
-
-                    > a {
-                        .background-image(~"linear-gradient(bottom, rgba(0,0,0,.10) 0%, rgba(255,255,255,0) 40%)");
-                    }
-                }
-            }
+    #wdn_menu_toggle:checked ~ #wdn_navigation_bar { // Change states when toggle is checked
+        #navigation > ul > li > a {
+			.background-image(~"linear-gradient(bottom, rgba(0,0,0,.10) 0%, rgba(255,255,255,0) 40%)");
+        }
 
 
-            #navigation li ul {
-                height: auto;
-                margin-bottom: 5px;
-            }
+        #navigation li ul {
+            height: auto;
+            margin-bottom: 5px;
+        }
 
-            .wdn-icon-menu:after {
-                .rotate(180deg);
-                top: -14px;
-            }
+        .wdn-icon-menu:after {
+            .rotate(180deg);
+            top: -14px;
         }
     }
     
-    .js {
+    .js { // fouc-fixes
         #wdn_navigation_bar {
             visibility: hidden;
         }
@@ -74,47 +64,52 @@
         .nav_ready #wdn_navigation_bar {
             visibility: visible;
         }
-        
-        #navigation {
-            position: absolute;
+    }
+    
+    #navigation {
+    	.js & {
+    		position: absolute;
             
             li ul {
                 height: auto;
             }
-        }
-        
-        .nav-scrolling #navigation {
-            position: fixed;
+    	}
+    	
+    	.nav-scrolling & {
+    		position: fixed;
             top: 0;
-        }
-    }
-    
-    #navigation li ul {
-        .nav_ready & {
-            .transition(height linear 0.3s, margin linear 0.3s);
-        }
+    	}
+    	
+    	li ul {
+    		.nav_ready & {
+	            .transition(height linear 0.3s, margin 0.3s linear);
+	        }
         
-        .nav_collapsed & {
-            height: 0 !important;
-        }
-        
-        .nav_expanded & {
-            
-        }
-    }
-
-    #navigation > ul {
-
-        > li:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        li {
-            display: block;
-
-            a {
-                background-image: none;
-            }
-        }
+	        .nav_collapsed & {
+	            height: 0 !important;
+	        }
+	        
+	        .nav_expanded & {
+	        	margin-bottom: 5px; // duplicated from checked for transition and IE 8
+	        }
+    	}
+    	
+    	&.pause li ul {
+	    	.transition(none);
+    	}
+    	
+    	> ul {
+    		> li:hover {
+	            background-color: rgba(255, 255, 255, 0.1);
+	        }
+	
+	        li {
+	            display: block;
+	
+	            a {
+	                background-image: none;
+	            }
+	        }
+    	}
     }
 }

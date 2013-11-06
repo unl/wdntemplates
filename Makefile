@@ -12,7 +12,7 @@ GIT := git
 PERL := perl
 
 LESSC := lessc
-LESSC_FLAGS := --yui-compress --line-numbers=comments
+LESSC_FLAGS := --clean-css
 LESSC_SHELL := $(ENV) PATH=$(PATH) $(LESSC)
 
 LESS_MIXINS := $(TEMPLATE_LESS)/_mixins/all.less
@@ -34,7 +34,9 @@ CSS_OBJS := \
 	$(TEMPLATE_CSS)/modules/pagination.css \
 	$(TEMPLATE_CSS)/modules/randomizer.css \
 	$(TEMPLATE_CSS)/modules/rsswidget.css \
-	$(TEMPLATE_CSS)/modules/vcard.css
+	$(TEMPLATE_CSS)/modules/vcard.css \
+	$(TEMPLATE_JS)/plugins/qtip/wdn.qtip.css \
+	$(TEMPLATE_JS)/plugins/qtip/wdn.qtip.min.css
 
 MQ_STRIP := build/mq-strip.pl
 
@@ -46,7 +48,7 @@ JS_DEPS := $(TEMPLATE_JS)/*.js
 
 SMUDGE_STATUS := $(shell $(GIT) config filter.rcs-keywords.smudge)
 
-all: less js
+all: envtest less js
 
 less: $(CSS_OBJS)
 
@@ -59,10 +61,19 @@ $(TEMPLATE_CSS)/%.css: $(TEMPLATE_LESS)/%.less $(LESS_MIXINS_DEPS)
 	@mkdir -p $(@D)
 	$(ENV) $(LESSC) $(LESSC_FLAGS) $< $@
 
+$(TEMPLATE_JS)/plugins/qtip/wdn.qtip.css: $(TEMPLATE_JS)/plugins/qtip/wdn.qtip.less $(TEMPLATE_JS)/plugins/qtip/jquery.qtip.css $(LESS_MIXINS_DEPS)
+	$(ENV) $(LESSC) $< $@
+
+$(TEMPLATE_JS)/plugins/qtip/wdn.qtip.min.css: $(TEMPLATE_JS)/plugins/qtip/wdn.qtip.less $(TEMPLATE_JS)/plugins/qtip/jquery.qtip.css $(LESS_MIXINS_DEPS)
+	$(ENV) $(LESSC) $(LESSC_FLAGS) $< $@
+
 js: $(JS_ALL_OUT)
 
 $(JS_ALL_OUT): $(RJS_BUILD_CONF) $(JS_DEPS)
 	$(ENV) $(RJS) -o $< $(RJS_FLAGS)
+
+envtest:
+	@LESSC=$(LESSC) ./scripts/envtest.sh
 
 clean:
 	rm -rf $(TEMPLATE_CSS)
@@ -79,5 +90,5 @@ dist: all
 		./scripts/clean.sh; \
 	fi
 	
-.PHONY: all clean less js dist
+.PHONY: all clean less js dist envtest
 .SUFFIXES:

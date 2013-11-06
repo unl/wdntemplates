@@ -4,7 +4,7 @@ ini_set('display_errors', true);
 
 if (empty($_GET['u'])
     || !filter_var($_GET['u'], FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)) {
-    throwError();
+    throwError('Error: The web address you entered is not valid. Please enter a URL that begins with http:// and has a path.');
 }
 
 if (!preg_match('/\.unl\.edu/', $_GET['u'])

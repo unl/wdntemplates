@@ -51,10 +51,8 @@
     .background-image(~"linear-gradient(bottom, rgba(0,0,0,.15) 0%, rgba(255,255,255,0) 20%)");
 }
 
-/*
-* Experimental flexbox support
-* http://elikirk.com/2013/06/05/flexbox-css-cross-browser-issues/
-*/
+// Experimental flexbox support
+// http://elikirk.com/2013/06/05/flexbox-css-cross-browser-issues/
 .flexbox() {
     /* Legacy */
     display: -moz-box;
@@ -110,34 +108,9 @@
         flex-direction: column-reverse;
     }
 
-/* 
-* Function for creating color bands 
-*/
-
-.wdn-band(@color) { // Class name to put on the band
-
+// Function for creating color bands 
+.wdn-band(@color) {
     background-color: @color;
-
-/* Removing, as we're now looking at only subtle color band options to ship with the templates.
-    // Based on color passed, we need to make light/dark presentation decisions
-    .color-selector(@color) when (lightness(@color) >= 50%) { // We have a light color
-        color: darken(@color, 65%);
-
-        a {
-            color: darken(@color, 85%);
-        }
-    }
-
-    .color-selector(@color) when (lightness(@color) < 50%) { // We have a dark color
-        color: #ffffff;
-
-        a {
-            color: lighten(@color, 85%);
-        }
-    }
-
-    .color-selector(@color);
-*/
 }
 
 .wdn-band-seperator(@color) {

@@ -6,8 +6,28 @@
 </head>
 <body data-version="4.0">
     <div id="example-code">
+                <h1>Band Imagery, Scroll-Watch Plugin Samples</h1>
+                <h2>Scale Sample</h2>
                 <div class="wdn-band">
-                    <div class="wdn-flipbook wdn-stretch" data-lerp-start="#header" data-lerp-end="#maincontent">
+                    <div class="wdn-stretch wdn-scroll-watch" data-lerp="scale" data-lerp-scale-start="#header" data-lerp-scale-end="#maincontent" data-scale-start="1" data-scale-end="1.1">
+                        <figure>
+                            <img src="http://ucommbieber.unl.edu/IMG_2348.jpg" alt="Michael and Jackson" />
+                        </figure>
+                    </div>
+                </div>
+                <h2>Opacity Sample</h2>
+                <div class="wdn-band" style="background-color:black;">
+                    <div class="wdn-stretch wdn-scroll-watch" data-lerp="opacity" data-lerp-opacity-start="#opacity-start" data-lerp-opacity-end="#flipbook-end" data-opacity-start="1" data-opacity-end="0.0">
+                        <figure>
+                            <img src="http://ucommbieber.unl.edu/IMG_2348.jpg" alt="Michael and Jackson" />
+                        </figure>
+                    </div>
+                    <div id="opacity-start" style="position:absolute; bottom:55%;"></div>
+                    <div id="opacity-end" style="position:absolute; bottom:30%;"></div>
+                </div>
+                <h2 id="flipbook-end">Flipbook Sample</h2>
+                <div class="wdn-band">
+                    <div class="wdn-stretch wdn-scroll-watch" data-lerp="flipbook" data-lerp-flipbook-start="#opacity-end" data-lerp-flipbook-end="#flipbook-end">
                         <figure>
                             <img src="http://ucommbieber.unl.edu/IMG_2341.jpg" alt="Michael and Jackson" />
                         </figure>
@@ -19,8 +39,36 @@
                         </figure>
                     </div>
                 </div>
+                <h2>Locked Aside</h2>
                 <div class="wdn-band">
-                    <div class="wdn-flipbook wdn-stretch wdn-locked" data-lerp-start=".locked-lerp-start" data-lerp-end=".locked-lerp-end">
+                    <div class="wdn-stretch wdn-scroll-watch locked">
+                        <figure>
+                            <img src="http://ucommbieber.unl.edu/IMG_2345.jpg" alt="Michael and Jackson" />
+                        </figure>
+                    </div>
+                    <div class="wdn-grid-set wdn-scroll">
+                        <div class="wdn-col-one-half" style="float:right;background-color:rgba(255,255,255,0.8);padding:5em;">
+                            <h2>Locked figure aside scrolling content</h2>
+                            <h2>Start your story</h2>
+                            <p>Lucas ipsum dolor sit amet fisto antilles leia calamari hoth darth ackbar naboo darth tatooine. Secura owen kenobi watto. Ackbar biggs mace kessel. Ewok fett darth moff baba. Padmé yoda moff luke. Skywalker qui-gon dooku jinn mothma biggs chewbacca wampa wookiee. Dantooine ponda sidious aayla utapau hutt yavin darth anakin. Calamari solo moff kit lars kashyyyk ackbar r2-d2 skywalker. Lando skywalker wampa kit. Darth antilles calrissian organa dagobah moff ahsoka. Tatooine boba wookiee grievous solo mon.</p>
+                            <p>Calamari jinn jabba jar amidala calamari c-3p0 jade twi'lek. Utapau mon dantooine zabrak amidala vader. Organa wicket yavin biggs grievous tatooine owen hoth. Darth mace jinn coruscant antilles r2-d2. Jinn mon coruscant thrawn. Kessel kenobi ahsoka organa chewbacca tusken raider luke obi-wan. Ponda darth moff skywalker antilles. Sidious hutt skywalker skywalker amidala calamari ben. Moff hutt windu cade hutt dantooine han hutt fett. Lobot darth organa biggs padmé. Obi-wan mon darth organa sith antilles.</p>
+                            <p>Lars organa mandalorians darth ackbar moff palpatine dooku. Darth fett windu binks lobot hutt binks obi-wan. Skywalker obi-wan biggs mon. Moff lando watto antilles hoth ahsoka. Skywalker darth antilles kenobi ewok skywalker. Greedo binks ackbar k-3po qui-gon. Kessel moff sidious skywalker hutt hutt. Hoth gonk jango amidala. Antilles antilles anakin jango biggs. Utapau chewbacca skywalker leia. Antilles antilles hutt utapau mara moff windu. Kessel luuke maul fett mara c-3po skywalker ben darth. Darth mara hutt mara.</p>
+                            <h3>Give it meaning</h3>
+                            <p>Grievous coruscant thrawn solo dooku. Wicket bothan moff ewok twi'lek dantooine. Ackbar jawa jango coruscant gamorrean thrawn skywalker han. Ben moff solo naboo. Moff ben fisto windu. Moff mandalorians jabba ponda hutt. Coruscant skywalker chewbacca jabba ponda moff hutt darth k-3po. Skywalker wedge solo skywalker moff binks. Mustafar darth calamari vader calamari. Fett solo jade organa mandalorians obi-wan darth skywalker. Yoda greedo darth wedge. Antilles owen c-3po sidious calamari. Ewok droid vader antilles ben padmé wicket darth ahsoka.</p>
+                            <p>Ewok anakin jawa binks hutt ackbar. Solo hoth antilles mon binks chewbacca. Luuke ben ben sebulba hutt antilles. Dantooine darth leia moff solo sidious skywalker hoth. Tatooine jinn yoda solo boba yoda jade boba antilles. Binks dantooine solo jango. Skywalker maul vader binks lando. Kamino mandalore bespin darth jabba moff luke wampa. Binks jade antilles dagobah mothma. Solo owen owen tusken raider droid. Obi-wan fett c-3p0 lando jade sidious. Jinn boba solo darth lars jade. Jade fett ventress mustafar.</p>
+                            <p>Lucas ipsum dolor sit amet fisto antilles leia calamari hoth darth ackbar naboo darth tatooine. Secura owen kenobi watto. Ackbar biggs mace kessel. Ewok fett darth moff baba. Padmé yoda moff luke. Skywalker qui-gon dooku jinn mothma biggs chewbacca wampa wookiee. Dantooine ponda sidious aayla utapau hutt yavin darth anakin. Calamari solo moff kit lars kashyyyk ackbar r2-d2 skywalker. Lando skywalker wampa kit. Darth antilles calrissian organa dagobah moff ahsoka. Tatooine boba wookiee grievous solo mon.</p>
+                            <p>Calamari jinn jabba jar amidala calamari c-3p0 jade twi'lek. Utapau mon dantooine zabrak amidala vader. Organa wicket yavin biggs grievous tatooine owen hoth. Darth mace jinn coruscant antilles r2-d2. Jinn mon coruscant thrawn. Kessel kenobi ahsoka organa chewbacca tusken raider luke obi-wan. Ponda darth moff skywalker antilles. Sidious hutt skywalker skywalker amidala calamari ben. Moff hutt windu cade hutt dantooine han hutt fett. Lobot darth organa biggs padmé. Obi-wan mon darth organa sith antilles.</p>
+                            <p>Lars organa mandalorians darth ackbar moff palpatine dooku. Darth fett windu binks lobot hutt binks obi-wan. Skywalker obi-wan biggs mon. Moff lando watto antilles hoth ahsoka. Skywalker darth antilles kenobi ewok skywalker. Greedo binks ackbar k-3po qui-gon. Kessel moff sidious skywalker hutt hutt. Hoth gonk jango amidala. Antilles antilles anakin jango biggs. Utapau chewbacca skywalker leia. Antilles antilles hutt utapau mara moff windu. Kessel luuke maul fett mara c-3po skywalker ben darth. Darth mara hutt mara.</p>
+                            <p>Grievous coruscant thrawn solo dooku. Wicket bothan moff ewok twi'lek dantooine. Ackbar jawa jango coruscant gamorrean thrawn skywalker han. Ben moff solo naboo. Moff ben fisto windu. Moff mandalorians jabba ponda hutt. Coruscant skywalker chewbacca jabba ponda moff hutt darth k-3po. Skywalker wedge solo skywalker moff binks. Mustafar darth calamari vader calamari. Fett solo jade organa mandalorians obi-wan darth skywalker. Yoda greedo darth wedge. Antilles owen c-3po sidious calamari. Ewok droid vader antilles ben padmé wicket darth ahsoka.</p>
+                            <p>Ewok anakin jawa binks hutt ackbar. Solo hoth antilles mon binks chewbacca. Luuke ben ben sebulba hutt antilles. Dantooine darth leia moff solo sidious skywalker hoth. Tatooine jinn yoda solo boba yoda jade boba antilles. Binks dantooine solo jango. Skywalker maul vader binks lando. Kamino mandalore bespin darth jabba moff luke wampa. Binks jade antilles dagobah mothma. Solo owen owen tusken raider droid. Obi-wan fett c-3p0 lando jade sidious. Jinn boba solo darth lars jade. Jade fett ventress mustafar.</p>
+                            <p>Lucas ipsum dolor sit amet fisto antilles leia calamari hoth darth ackbar naboo darth tatooine. Secura owen kenobi watto. Ackbar biggs mace kessel. Ewok fett darth moff baba. Padmé yoda moff luke. Skywalker qui-gon dooku jinn mothma biggs chewbacca wampa wookiee. Dantooine ponda sidious aayla utapau hutt yavin darth anakin. Calamari solo moff kit lars kashyyyk ackbar r2-d2 skywalker. Lando skywalker wampa kit. Darth antilles calrissian organa dagobah moff ahsoka. Tatooine boba wookiee grievous solo mon.</p>
+                            <p>Calamari jinn jabba jar amidala calamari c-3p0 jade twi'lek. Utapau mon dantooine zabrak amidala vader. Organa wicket yavin biggs grievous tatooine owen hoth. Darth mace jinn coruscant antilles r2-d2. Jinn mon coruscant thrawn. Kessel kenobi ahsoka organa chewbacca tusken raider luke obi-wan. Ponda darth moff skywalker antilles. Sidious hutt skywalker skywalker amidala calamari ben. Moff hutt windu cade hutt dantooine han hutt fett. Lobot darth organa biggs padmé. Obi-wan mon darth organa sith antilles.</p>
+                        </div> 
+                    </div>
+                </div>
+                <h2>Locked Flipbook Aside</h2>
+                <div class="wdn-band">
+                    <div class="wdn-stretch wdn-scroll-watch locked" data-lerp="flipbook" data-lerp-flipbook-start=".locked-lerp-start" data-lerp-flipbook-end=".locked-lerp-end">
                         <figure>
                             <img src="http://ucommbieber.unl.edu/IMG_2341.jpg" alt="Michael and Jackson" />
                         </figure>
@@ -34,7 +82,7 @@
                     <div class="wdn-grid-set wdn-scroll">
                         <div class="wdn-col-one-half" style="float:right;background-color:rgba(255,255,255,0.8);padding:5em;">
                             <div class="locked-lerp-start"></div>
-                            <h2>Start your story</h2>
+                            <h2>Locked flipbook aside scrolling content</h2>
                             <p>Lucas ipsum dolor sit amet fisto antilles leia calamari hoth darth ackbar naboo darth tatooine. Secura owen kenobi watto. Ackbar biggs mace kessel. Ewok fett darth moff baba. Padmé yoda moff luke. Skywalker qui-gon dooku jinn mothma biggs chewbacca wampa wookiee. Dantooine ponda sidious aayla utapau hutt yavin darth anakin. Calamari solo moff kit lars kashyyyk ackbar r2-d2 skywalker. Lando skywalker wampa kit. Darth antilles calrissian organa dagobah moff ahsoka. Tatooine boba wookiee grievous solo mon.</p>
                             <p>Calamari jinn jabba jar amidala calamari c-3p0 jade twi'lek. Utapau mon dantooine zabrak amidala vader. Organa wicket yavin biggs grievous tatooine owen hoth. Darth mace jinn coruscant antilles r2-d2. Jinn mon coruscant thrawn. Kessel kenobi ahsoka organa chewbacca tusken raider luke obi-wan. Ponda darth moff skywalker antilles. Sidious hutt skywalker skywalker amidala calamari ben. Moff hutt windu cade hutt dantooine han hutt fett. Lobot darth organa biggs padmé. Obi-wan mon darth organa sith antilles.</p>
                             <p>Lars organa mandalorians darth ackbar moff palpatine dooku. Darth fett windu binks lobot hutt binks obi-wan. Skywalker obi-wan biggs mon. Moff lando watto antilles hoth ahsoka. Skywalker darth antilles kenobi ewok skywalker. Greedo binks ackbar k-3po qui-gon. Kessel moff sidious skywalker hutt hutt. Hoth gonk jango amidala. Antilles antilles anakin jango biggs. Utapau chewbacca skywalker leia. Antilles antilles hutt utapau mara moff windu. Kessel luuke maul fett mara c-3po skywalker ben darth. Darth mara hutt mara.</p>
