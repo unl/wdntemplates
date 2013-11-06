@@ -19,8 +19,43 @@
         @media @bp3 {
             padding: 0;
         }
-    }
+        
+        #maincontent & {
+            padding-top: 2.369em;
+            padding-bottom: 2.532em;
 
+            @media @bp2 {
+                padding-top: 3.157em;
+                padding-bottom: 3.375em;
+            }
+
+            &.wdn-inner-padding-sm {
+                padding-top: 1.333em;
+                padding-bottom: 1.425em;
+
+                @media @bp2 {
+                    padding-top: 1.777em;
+                    padding-bottom: 1.899em;
+                }
+            }
+
+            &.wdn-inner-padding-lg {
+                padding-top: 4.209em;
+                padding-bottom: 4.449em;
+
+                @media @bp2 {
+                    padding-top: 5.61em;
+                    padding-bottom: 5.997em;
+                }
+            }
+
+            &.wdn-inner-padding-none {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
+    }
+    
     .wdn-stretch { // Use this class for presentational elements that stretch the full-width of the band
         max-width: 100%;
         width: 100%;
