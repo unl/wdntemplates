@@ -48,23 +48,9 @@
         text-indent: 99em;
         padding: 0.25em 5px;
         position: relative;
-    }
 
-    @media @bp-nav-full {
-
-        &:after {
-            background: data-uri('../images/menu_shadow.png') no-repeat 5px 0;
-            display: block;
-            height: 19px;
-            width: 40px;
-            text-indent: 99em;
-            content: '';
-            position: absolute;
-            top: 30px;
-            left: 0;
-            z-index: 1;
-            speak: none;
-            //.transition(all 0.2s linear); // this causes Firefox to stutter a bit
+        @media @bp-nav-hidden {
+            padding: 0.25em 5px 0.25em 0;
         }
     }
 }
@@ -218,7 +204,7 @@
             }
 
             &:before {
-                margin: 10px 0 0 5px;
+                margin: 11px 0 0 5px;
             }
         }
     }
