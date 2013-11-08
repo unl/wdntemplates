@@ -8,21 +8,26 @@
     }
     
     li {
-        display: inline;
+        display: inline-block;
         text-transform: none;
 
         @media @bp-nav-full {
             color: @base-text;
+            vertical-align: bottom;
         }
 
         &:first-child { // First element to be replaced with 'home' icon.
-            //margin-left: -33px;
             
             a {
                 text-indent: -99em;
-                .rem(12);
-                width: 1.069em;
+                .rem(12,14);
+                width: 1.07em;
                 white-space: nowrap;
+                padding: 0 0 2px 0 !important;
+
+                 @media @bp-nav-full {
+                    padding: 0 !important;
+                 } 
 
                 &:before {
                     font-family: "wdn-icon";
@@ -49,18 +54,20 @@
             font-weight: normal;
             speak: none;
             content: '\F0C8';
-            .rem(13);
-            margin: 0 0.134em 0 0.339em;
-            line-height: 0;
+            .rem(14,20);
+            margin: 0 0.254em 0 0.422em;
+            line-height: inherit;
             color: fadeout(#fff, 25%);
             vertical-align: middle;
 
             @media @bp-nav-full {
                 color: fadeout(@base-text, 45%);
+                line-height: normal;
             }
         }
 
         &:last-child {
+            padding: 3px 0;
 
             &:after {
                 display: none;
@@ -99,11 +106,12 @@
         display: inline-block;
         overflow: hidden;
         vertical-align: bottom;
+        padding: 4px 0;
 
         // Styles specific to the full view
         @media @bp-nav-full {
             color: @base-text;
-            padding: 0;
+            padding: 6px 0 3px 0;
         }
     }
     
