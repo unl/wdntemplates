@@ -17,4 +17,5 @@ AddType application/javascript .js
 AddType application/json .json
 
 # UTF-8 encoding
+AddDefaultCharset UTF-8
 AddCharset UTF-8 .shtml .html
