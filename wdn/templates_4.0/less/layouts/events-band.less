@@ -38,9 +38,7 @@
         background-color: fadeout(@events-blue, 10%);
         padding: 0;
         margin: 1rem 0;
-        -moz-transition: background-color .3s ease;
-        -webkit-transition: background-color .3s ease;
-        transition: background-color .3s ease;
+        .transition(background-color .3s ease);
         overflow: hidden;
 
         .dateTime, .eventInfo {
@@ -103,7 +101,6 @@
             .location {
                 display: inline-block;
                 .rem(9);
-                /*line-height: 4;*/
                 text-transform: uppercase;
                 letter-spacing: 0.08em;
                 color:lighten(@events-blue, 66%);
@@ -138,5 +135,3 @@
         margin: 0;
     }
 }
-
-    
