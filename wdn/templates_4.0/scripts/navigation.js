@@ -498,7 +498,6 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 					// add an expand toggler UI element
 					var $toggler = $(menuTogSel);
 					$toggler.change(function() {
-						lockHover = this.checked;
 						if (currentState === 0) {
 							Plugin.expand();
 						} else {
@@ -517,6 +516,29 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 						$('body').on('swipeleft', function() {
 							if (!isFullNav() && currentState === 1) {
 								Plugin.collapse();
+							}
+						});
+
+						var $navBar = $('#wdn_navigation_bar'),
+						lastScrollTop = $navBar.scrollTop();
+
+						$(document).bind('touchmove', function(e) {
+							if (!isFullNav() && currentState === 1) {
+								e.preventDefault();
+							}
+						});
+						$navBar.on('touchstart', function(e) {
+							if (!isFullNav()) {
+								if (e.currentTarget.scrollTop === 0) {
+									e.currentTarget.scrollTop = 1;
+								} else if (e.currentTarget.scrollHeight === e.currentTarget.scrollTop + e.currentTarget.offsetHeight) {
+									e.currentTarget.scrollTop -= 1;
+								}
+							}
+						});
+						$navBar.on('touchmove', function(e) {
+							if (!isFullNav() && currentState === 1) {
+								e.stopPropagation();
 							}
 						});
 					});
@@ -623,7 +645,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			}
 			expandSemaphore = true;
 
-			$(menuTogSel)[0].checked = true;
+			$(menuTogSel)[0].checked = lockHover = true;
 			setWrapperClass('changing');
 
 			var cssTemp = {},
@@ -662,7 +684,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			}
 			expandSemaphore = true;
 
-			$(menuTogSel)[0].checked = false;
+			$(menuTogSel)[0].checked = lockHover = false;
 			setWrapperClass('collapsed');
 
 			var cssTemp = {},
