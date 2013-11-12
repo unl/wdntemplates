@@ -1,5 +1,4 @@
 #wdn_search {
-	overflow: hidden;
 
     fieldset {
         border: none;
@@ -22,13 +21,10 @@
     .wdn-nav-hidden {
         text-indent: -999em;
         position: absolute;
-        color: fadeout(#d1ceb3, 25%);
-        .rem(12);
-        left: 5px;
-        top: 6px;
+        color: #e7b5b5;
         text-align: left;
+        
         &:before {
-            font-size: 1em;
             text-indent: 999em;
         }
 
@@ -45,101 +41,114 @@
 #wdn_search_form {
     position: absolute;
     z-index: 1; // Ensure we're above the site title
-    right: @mobile-pad;
-    top: 8px;
+
+    @media @bp-nav-hidden {
+        left: 50%;
+        top: 50px;
+        margin-left: -95px;
+
+        .wdn-icon-search{
+            margin-top: -2px;
+        }
+    }
 
     @media @bp-nav-full {
         display: inline;
         position: relative;
-        top: -2px;
-        right: auto;
+        float: none;
+        right: 0;
+        top: -1px;
     }
 }
 
 #q {
+    width: 5px;
     border: 1px solid #d1ceb3;
     padding: 5px 5px 5px 22px;
-    .rem(10);
+    .brand-font();
+    .rem(16);
+    text-transform: uppercase;
     line-height: 1;
     color: darken(#d1ceb3, 45%);
     .transition(width 0.3s ease);
-    width: 5px;
-    .sans-serif-font();
-
-    &::-webkit-input-placeholder {
-       opacity: 0;
-    }
-
-    &:-moz-placeholder { /* Firefox 18- */
-       opacity: 0;
-    }
-
-    &::-moz-placeholder {  /* Firefox 19+ */
-       opacity: 0; 
-    }
-
-    &:-ms-input-placeholder {  
-       opacity: 0; 
-    }
 
     &:focus {
-        width: 220px;
-        border-color: darken(#d1ceb3, 10%);
         outline: none;
-
-        @media @bp-nav-hidden {
-            .box-shadow(1px 1px 3px #d1ceb3);
-        }
-        
-         @media @bp-nav-full {
-         	width: 150px;
-            padding: 2px 5px;
-            background-color: fadeout(#ffffff, 5%);
-         }
-         
-         @media @bp-nav-max {
-         	width: 220px;
-         }
     }
 
     @media @bp-nav-hidden {
-        .rem(16);
-        border-radius: 3px;
+        width: 160px;
+        border: 0;
+        padding: 3px 10px 0 22px;
+        line-height: normal;
+        color: #e7b5b5;
+        background-color: transparent;
+
+        &::-webkit-input-placeholder {
+            color: #e7b5b5;
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+            color: #e7b5b5;
+        }
+
+        &::-moz-placeholder { /* Firefox 19+ */
+            color: #e7b5b5;
+        }
+
+        &:-ms-input-placeholder {  
+            color: #e7b5b5;
+        }
+
+        &:focus {
+            outline: none;
+            color: #fff;
+        }
     }
 
     @media @bp-nav-full {
         width: 0;
         padding: 0;
         border-color: fadeout(#d1ceb3, 100%);
-        background-color: fadeout(#ffffff, 100%);
-        
-        .no-csstransitions & {
-	        position: absolute;
-	        left: 50px;
-        	
-        	&:focus {
-        		position: static;
-        	}
-        }
+        //line-height: normal;
+        background-color: fadeout(#fff, 100%);
 
         &::-webkit-input-placeholder {
            opacity: 0.8;
            color: darken(#d1ceb3, 25%);
+           padding-top: 2px;
         }
 
         &:-moz-placeholder { /* Firefox 18- */
            opacity: 0.8;
            color: darken(#d1ceb3, 25%);
+           padding-top: 2px;
         }
 
-        &::-moz-placeholder {  /* Firefox 19+ */
+        &::-moz-placeholder { /* Firefox 19+ */
            opacity: 0.8; 
            color: darken(#d1ceb3, 25%);
+           padding-top: 2px;
         }
 
         &:-ms-input-placeholder {  
            opacity: 0.8; 
            color: darken(#d1ceb3, 25%);
+           padding-top: 2px;
+        }
+
+        &:focus {
+            width: 150px;
+            padding: 2px 5px;
+            border-color: darken(#d1ceb3, 10%);
+            background-color: fadeout(#fff, 5%);
+        }
+    }
+
+    @media @bp-nav-max {
+
+        &:focus {
+            width: 200px;
         }
     }
 }

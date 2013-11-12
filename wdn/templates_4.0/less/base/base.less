@@ -8,7 +8,8 @@ html {
     color: @base-text;
     .base-font();
     background-color: @page-background;
-    text-rendering: optimizeLegibility;
+    // See #651
+    //text-rendering: optimizeLegibility;
 
     @media @bp2 {
         font-size: @base-font-size-lg;
