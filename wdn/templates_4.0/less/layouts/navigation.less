@@ -1,7 +1,7 @@
 .nav-bar() {
     .clear-fix;
     border-top: 2px solid #5f5f4e;
-    background-color: @brand;
+    background-color: rgba(204,0,0,0.97);
 }
 
 .skipnav {
@@ -50,7 +50,7 @@
         position: relative;
 
         @media @bp-nav-hidden {
-            padding: 0.25em 5px 0.25em 0;
+            padding: 0.238em 5px 0.317em 0;
         }
     }
 }
@@ -133,12 +133,13 @@
             ul {
                 height: 0;
                 overflow: hidden;
+                border-top: 1px solid rgba(0,0,0,0.06);
             }
 
             li {
                 width: 100%;
                 padding: 0;
-                border-bottom: 1px solid fadeout(#fff, 80%);
+                border-bottom: 1px solid rgba(0,0,0,0.06);
                 
                 &:last-child {
                     border-bottom: none;
@@ -173,24 +174,20 @@
             padding-right: 42px;
 
             > li {
-                box-shadow: 1px 0 0 0 rgba(0,0,0, 0.15);
-                border-right: 1px solid fadeout(#fff, 65%);
+                border-right: 1px solid fadeout(#000,90%);
                 line-height: 1;
 
                 &:first-child {
-                    box-shadow: inset 1px 0 0 0 rgba(0,0,0, 0.15), 1px 0 0 0 rgba(0,0,0,0.15);
-                    border-left: 1px solid fadeout(#fff, 65%);
+                    border-left: 1px solid fadeout(#000,90%);
                 }
 
                 &:nth-of-type(7n) {
                     clear: left;
-                    box-shadow: inset 1px 0 0 0 rgba(0,0,0, 0.15), 1px 0 0 0 rgba(0,0,0,0.15);
-                    border-left: 1px solid fadeout(#fff, 65%);
                 }
                 
                 > a {
-                    padding-top: 0.317em;
-                    padding-bottom: 0.339em;
+                    padding-top: 0.422em;
+                    padding-bottom: 0.451em;
                 }
             }
         }
@@ -204,7 +201,7 @@
             }
 
             &:before {
-                margin: 11px 0 0 5px;
+                margin: 13px 0 0 5px;
             }
         }
     }
