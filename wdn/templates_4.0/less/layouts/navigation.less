@@ -1,7 +1,7 @@
 .nav-bar() {
     .clear-fix;
     border-top: 2px solid #5f5f4e;
-    background-color: rgba(204,0,0,0.97);
+    background-color: fadeout(@brand,4%);
 }
 
 .skipnav {
@@ -98,7 +98,7 @@
         display: block;
 
         @media @bp-nav-hidden {
-            border-bottom: 1px solid fadeout(#fff, 90%);
+            border-bottom: 1px solid fadeout(#fff,90%);
         }
     }
 
@@ -133,13 +133,13 @@
             ul {
                 height: 0;
                 overflow: hidden;
-                border-top: 1px solid rgba(0,0,0,0.06);
+                border-top: 1px solid fadeout(#000,94%);
             }
 
             li {
                 width: 100%;
                 padding: 0;
-                border-bottom: 1px solid rgba(0,0,0,0.06);
+                border-bottom: 1px solid fadeout(#000,94%);
                 
                 &:last-child {
                     border-bottom: none;
