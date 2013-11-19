@@ -6,5 +6,9 @@
 			z-index: (@nav-z-index + 1);
 			.transition(right 0.3s ease);
 		}
+
+		.nav-scrolling #wdn_menu_toggle:checked ~ .wdn-content-slide & {
+			right: -200px
+		}
     }
 }
