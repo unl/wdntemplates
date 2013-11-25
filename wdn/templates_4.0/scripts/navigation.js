@@ -499,8 +499,10 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 					var $toggler = $(menuTogSel);
 					$toggler.change(function() {
 						if (currentState === 0) {
+							lockHover = true;
 							Plugin.expand();
 						} else {
+							lockHover = false;
 							Plugin.collapse();
 						}
 					});
@@ -645,7 +647,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			}
 			expandSemaphore = true;
 
-			$(menuTogSel)[0].checked = lockHover = true;
+			$(menuTogSel)[0].checked = true;
 			setWrapperClass('changing');
 
 			var cssTemp = {},
@@ -684,7 +686,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			}
 			expandSemaphore = true;
 
-			$(menuTogSel)[0].checked = lockHover = false;
+			$(menuTogSel)[0].checked = false;
 			setWrapperClass('collapsed');
 
 			var cssTemp = {},
