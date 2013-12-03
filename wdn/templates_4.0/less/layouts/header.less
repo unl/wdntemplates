@@ -19,7 +19,8 @@
         text-align: center;
         border-bottom: 1px solid #e6dec5;
         padding-bottom: 0.451em;
-        background: data-uri('../images/stripes.svg') repeat-x 0 -5px;
+        //background: data-uri('../images/stripes.svg') repeat-x 0 -5px;
+        box-shadow: inset 0 41px 0 fadeout(darken(@page-background, 70%), 96%);
     }
 }
 
@@ -43,12 +44,12 @@
     @media @bp-nav-full {
         position: absolute;
         background: data-uri('../images/n_flag.svg') no-repeat;
-        background-size: 122px 125px;
-        width: 122px;
-        height: 125px;
-        top: -58px;
+        background-size: 119px 128px;
+        width: 119px;
+        height: 128px;
+        top: -61px;
         left: 50%;
-        margin-left: -61px;
+        margin-left: -59px;
         margin-right: 0;
         z-index: 1;
         .transition(top 0.3s ease-out);
@@ -60,7 +61,7 @@
 
         &:hover {
             #wdn_social {
-                margin-top: 10px;
+                margin-top: 20px;
             }
 
             a {
@@ -85,14 +86,13 @@
 
     @media @bp-nav-full {
         margin: 0;
-        list-style: none;
         padding: 0;
         display: inline-block;
+        list-style: none;
         .transition(all linear 0.3s);
-        width: 122px;
-        height: 42px;
+        width: 119px;
+        height: 41px;
         background-color: fadeout(#000, 90%);
-        margin-top: 0;
 
         li {
             display: inline-block;
@@ -133,7 +133,7 @@
     float: left;
     margin-top: -0.191em;
     white-space: nowrap;
-    color: lighten(@base-text, 5%);
+    color: fadeout(darken(@page-background, 70%), 20%);
     text-transform: uppercase;
     .brand-font();
     .rem(16);
