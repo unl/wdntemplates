@@ -80,7 +80,7 @@
         width: @nav-width;
         overflow-x: hidden;
         overflow-y: scroll;
-        .transition(left 0.3s ease);
+        .transition(left @nav-transition-duration ease);
         background-color: #3b3b3b;
         height: 100%;
     }
@@ -94,7 +94,7 @@
 
     a {
         padding: 5px;
-        .transition(height 0.3s ease);
+        .transition(height @nav-transition-duration ease);
         display: block;
 
         @media @bp-nav-hidden {
@@ -223,5 +223,5 @@
 .wdn-content-slide {
     position: relative;
     left: 0;
-    .transition(left 0.3s ease);
+    .transition(left @nav-transition-duration ease);
 }

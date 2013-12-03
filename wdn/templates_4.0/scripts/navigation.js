@@ -12,7 +12,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		expandDelay = 400,
 		collapseDelay = 120,
 		resizeThrottle = 500,
-		transitionDelay = 400,
+		transitionDelay = 200, // this is 100ms + @nav-transition-duration from ../less/_mixins/vars.less
 		homepageLI, siteHomepage, timeout, scrollTimeout, resizeTimeout,
 		currentState = -1,
 		expEvt = 'expand',
