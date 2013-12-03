@@ -1,4 +1,12 @@
-#!/bin/sh +v
+#!/bin/bash +v
+
+DEV_BRANCH=${DEV_BRANCH:=develop}
+MASTER_BRANCH=${MASTER_BRANCH:=master}
+UPSTREAM_REMOTE=${UPSTREAM_REMOTE:=upstream}
+DEPLOY_REMOTE=${DEPLOY_REMOTE:=live}
+
+# ensure the development branch is up-to-date
+git pull $UPSTREAM_REMOTE $DEV_BRANCH
 
 if [ \! -f VERSION_DEP ]; then
     echo "Can't find version file"
@@ -16,7 +24,7 @@ VN=`cat VERSION_DEP | sed 's/[^0-9.]//g'`
 VN=${VN%.*}.$((${VN##*.}+1))
 
 # Create the release-x.y.z branch
-git checkout -b release-$VN develop
+git checkout -b release-$VN $DEV_BRANCH
 
 # Update the VERSION_DEP file
 echo $VN$MARKER > VERSION_DEP
@@ -31,15 +39,17 @@ sleep 5
 # Commit the version number change
 git commit -a -m "Bumped dependency version number to $VN"
 
-# Make sure master is up to date if another developer performed a release
-echo "Updating master to upstream state"
-git checkout master
-git fetch upstream
-git merge --ff upstream/master
+git checkout $MASTER_BRANCH
+
+if [ $DEV_BRANCH != $MASTER_BRANCH ]; then
+	# Make sure master is up to date if another developer performed a release
+	echo "Updating master to upstream state"
+	git pull $UPSTREAM_REMOTE $MASTER_BRANCH
+fi
 
 # Merge back to master
 echo "Merging release branch into master"
-git merge --no-ff release-$VN
+git merge release-$VN
 
 # Tag the release
 echo "Tagging the release"
@@ -50,18 +60,20 @@ sleep 5
 
 # Push to live server!
 echo "Pushing to origin and master server"
-git push origin master
-git push upstream master --tags
-git push live master
+git push origin $MASTER_BRANCH
+git push $UPSTREAM_REMOTE $MASTER_BRANCH --tags
+git push $DEPLOY_REMOTE $MASTER_BRANCH
 
-# Now go back to develop and merge back in
-echo "Merging back to develop"
-git checkout develop
-git merge --no-ff release-$VN
-
-# Now push to develop
-git push origin develop
-git push upstream develop
+if [ $DEV_BRANCH != $MASTER_BRANCH ]; then
+	# Now go back to develop and merge back in
+	echo "Merging back to develop"
+	git checkout $DEV_BRANCH
+	git merge release-$VN
+	
+	# Now push to develop
+	git push origin $DEV_BRANCH
+	git push $UPSTREAM_REMOTE $DEV_BRANCH
+fi
 
 # Remove old branch
 git branch -d release-$VN
