@@ -36,28 +36,21 @@
 
     .wdn-resource-label {
         float: left;
-        background-color: @page-background;
+        margin-top: 0.254em;
         padding: 0.1em 0.451em;
-
-        &:nth-of-type(2n) {
-            background-color: darken(@page-background, 3%);
-        }
-
-        &:nth-of-type(3n) {
-            background-color: darken(@page-background, 7%);
-        }
 
         [class^=wdn-icon] {
             text-decoration: none;
-            color: fadeout(darken(@page-background, 70%), 10%);
+            color: @brand;
             cursor: pointer;
 
             &:before {
                 font-size: 1em;
+                color: fadeout(darken(@page-background, 70%), 50%);
             }
 
             &:hover {
-                color: fadeout(darken(@page-background, 70%), 10%);
+                color: darken(@brand, 10%);
             }
         }
     }
