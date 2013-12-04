@@ -1,5 +1,4 @@
 .skipnav {
-
     a:focus, a:active {
         left: 0;
         padding: 0.5em;
@@ -40,10 +39,11 @@
 
 @media @bp-nav-full {
     #wdn_menu_toggle:checked ~ #wdn_navigation_bar { // Change states when toggle is checked
-
         #navigation li ul {
             height: auto;
+            margin-bottom: 5px;
         }
+    }
     
     .js { // fouc-fixes
         #wdn_navigation_bar {
