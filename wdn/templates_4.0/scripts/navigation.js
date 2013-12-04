@@ -12,7 +12,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		expandDelay = 400,
 		collapseDelay = 120,
 		resizeThrottle = 500,
-		transitionDelay = 400,
+		transitionDelay = 200, // this is 100ms + @nav-transition-duration from ../less/_mixins/vars.less
 		homepageLI, siteHomepage, timeout, scrollTimeout, resizeTimeout,
 		currentState = -1,
 		expEvt = 'expand',
@@ -498,10 +498,11 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 					// add an expand toggler UI element
 					var $toggler = $(menuTogSel);
 					$toggler.change(function() {
-						lockHover = this.checked;
 						if (currentState === 0) {
+							lockHover = true;
 							Plugin.expand();
 						} else {
+							lockHover = false;
 							Plugin.collapse();
 						}
 					});
@@ -517,6 +518,29 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 						$('body').on('swipeleft', function() {
 							if (!isFullNav() && currentState === 1) {
 								Plugin.collapse();
+							}
+						});
+
+						var $navBar = $('#wdn_navigation_bar'),
+						lastScrollTop = $navBar.scrollTop();
+
+						$(document).bind('touchmove', function(e) {
+							if (!isFullNav() && currentState === 1) {
+								e.preventDefault();
+							}
+						});
+						$navBar.on('touchstart', function(e) {
+							if (!isFullNav()) {
+								if (e.currentTarget.scrollTop === 0) {
+									e.currentTarget.scrollTop = 1;
+								} else if (e.currentTarget.scrollHeight === e.currentTarget.scrollTop + e.currentTarget.offsetHeight) {
+									e.currentTarget.scrollTop -= 1;
+								}
+							}
+						});
+						$navBar.on('touchmove', function(e) {
+							if (!isFullNav() && currentState === 1) {
+								e.stopPropagation();
 							}
 						});
 					});

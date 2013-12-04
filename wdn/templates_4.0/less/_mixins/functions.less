@@ -16,8 +16,8 @@
 }
 
 .rem (@px-value-sm, @px-value-lg) {
-    @rem-value-sm: ((round((@px-value-sm / unit(@base-font-size-sm)) * 10000000)) / 10000000);
-    @rem-value-lg: ((round((@px-value-lg / unit(@base-font-size-lg)) * 10000000)) / 10000000);
+    @rem-value-sm: ((round((unit(@px-value-sm) / unit(@base-font-size-sm)) * 10000000)) / 10000000);
+    @rem-value-lg: ((round((unit(@px-value-lg) / unit(@base-font-size-lg)) * 10000000)) / 10000000);
 
     .result (@rem-value, @px-value, @rem-fallback) when (@rem-fallback = true) {
         font-size: ~"@{px-value}px";

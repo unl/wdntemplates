@@ -26,6 +26,7 @@ CSS_OBJS := \
 	$(TEMPLATE_CSS)/ie.css \
 	$(TEMPLATE_CSS)/print.css \
 	$(TEMPLATE_CSS)/layouts/events.css \
+	$(TEMPLATE_CSS)/layouts/events-band.css \
 	$(TEMPLATE_CSS)/layouts/formvalidator.css \
 	$(TEMPLATE_CSS)/layouts/monthwidget.css \
 	$(TEMPLATE_CSS)/layouts/unlalert.css \

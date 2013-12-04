@@ -23,12 +23,13 @@
         width: 100%;
         z-index: @nav-z-index;
         border: none;
+        .box-shadow(0 2px 5px fadeout(@dark-neutral, 25%))
     }
     
     #wdn_menu_toggle:checked { // Change states when toggle is checked
 
         ~ .wdn-content-slide, ~ noscript .wdn-content-slide {
-            left: 200px;
+            left: @nav-width;
         }
 
         ~ #wdn_navigation_bar {
@@ -38,18 +39,17 @@
 }
 
 @media @bp-nav-full {
-    #wdn_menu_toggle:checked { // Change states when toggle is checked
+    //#wdn_menu_toggle:checked ~ #wdn_navigation_bar { // Change states when toggle is checked
+        //#navigation > ul > li > a {
+        //    .background-image(~"linear-gradient(to bottom, rgba(0,0,0,.10) 0%, rgba(255,255,255,0) 40%)");
+        //}
 
-        ~ #wdn_navigation_bar {
-
-            #navigation li ul {
-                height: auto;
-                margin-bottom: 5px;
-            }
+        #navigation li ul {
+            height: auto;
+        //    margin-bottom: 5px;
         }
-    }
     
-    .js {
+    .js { // fouc-fixes
         #wdn_navigation_bar {
             visibility: hidden;
         }
@@ -57,8 +57,10 @@
         .nav_ready #wdn_navigation_bar {
             visibility: visible;
         }
-        
-        #navigation {
+    }
+    
+    #navigation {
+        .js & {
             position: absolute;
             
             li ul {
@@ -66,37 +68,40 @@
             }
         }
         
-        .nav-scrolling #navigation {
+        .nav-scrolling & {
             position: fixed;
             top: 0;
         }
-    }
-    
-    #navigation li ul {
-        .nav_ready & {
-            .transition(height linear 0.3s, margin linear 0.3s);
-        }
         
-        .nav_collapsed & {
-            height: 0 !important;
-        }
+        li ul {
+            .nav_ready & {
+                .transition(height linear @nav-transition-duration, margin @nav-transition-duration linear);
+            }
         
-        .nav_expanded & {
+            .nav_collapsed & {
+                height: 0 !important;
+            }
             
+            .nav_expanded & {
+                margin-bottom: 5px; // duplicated from checked for transition and IE 8
+            }
         }
-    }
-
-    #navigation > ul {
-
-        > li:hover {
-            background-color: darken(@brand,4%);
+        
+        &.pause li ul {
+            .transition(none);
         }
-
-        li {
-            display: block;
-
-            a {
-                background-image: none;
+        
+        > ul {
+            > li:hover {
+                background-color: darken(@brand,4%);
+            }
+    
+            li {
+                display: block;
+    
+                a {
+                    background-image: none;
+                }
             }
         }
     }

@@ -1,10 +1,24 @@
-define(['jquery', 'wdn', 'require'], function($, WDN, require) {
+define(['jquery', 'wdn', 'require', 'modernizr'], function($, WDN, require, Modernizr) {
 	var setup = function() {
 		if ($('ul.wdn_tabs').length) {
 			WDN.initializePlugin('tabs');
 		}
 	};
 	$(setup);
+
+	// shim CSS that needs calc function
+	if (!Modernizr.csscalc) {
+		var update = function() {
+			if (Modernizr.mediaqueries && Modernizr.mq('(max-width: 699px)')) {
+				var element = $('#wdn_site_title'),
+				newValue = element.parent().width() * 1 - 45;
+				element.css('width', newValue + 'px');
+			}
+		};
+
+		$(window).resize(update);
+		update();
+	}
 
 	var showBar = false,
 	msg = 'This page may not be displayed correctly in this browser. ',
@@ -16,13 +30,6 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 		showBar = true;
 		msg += 'You are strongly encouraged to update. <a href="http://its.unl.edu/standards">Read More</a>';
 		url = 'http://windows.microsoft.com/en-us/internet-explorer/download-ie';
-	}
-
-	// old stock android browser
-	if (window.navigator.userAgent.match('Version/[1-4]\.') && window.navigator.userAgent.match('Mobile Safari')) {
-		showBar = true;
-		msg += 'You are strongly encouraged to use the Chrome Browser.';
-		url = 'https://play.google.com/store/apps/details?id=com.android.chrome';
 	}
 
 	if (showBar) {
