@@ -1,35 +1,26 @@
 #wdn_search {
 
-    fieldset {
-        border: none;
-        margin: 0;
-        padding: 0;
-        position: relative;
-        display: inline;
-    }
-
-    .wdn-nav-full {
-        display: none;
-
-        @media @bp-nav-full {
-            text-align: left;
-            display: inline;
-            top: 4px;
-        }
-    }
-
-    .wdn-nav-hidden {
+    .wdn-icon-search {
         text-indent: -999em;
         position: absolute;
-        color: #e7b5b5;
         text-align: left;
         
         &:before {
             text-indent: 999em;
         }
+        
+        @media @bp-nav-hidden {
+            color: #e7b5b5;
+            margin-top: -2px;
+        }
 
         @media @bp-nav-full {
-            display: none;
+            text-indent: 0;
+            position: static;
+            
+            &:before {
+                text-indent: 0;
+            }
         }
     }
 
@@ -46,10 +37,6 @@
         left: 50%;
         top: 50px;
         margin-left: -95px;
-
-        .wdn-icon-search{
-            margin-top: -2px;
-        }
     }
 
     @media @bp-nav-full {
