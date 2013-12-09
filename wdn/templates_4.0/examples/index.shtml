@@ -199,6 +199,22 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
     padding: 0;
 }
 
+@media (min-width: 480px) {
+    .grid-clear .wdn-col:nth-child(2n+1) {
+        clear: left;
+    }
+}
+
+@media (min-width: 768px) {
+    .grid-clear .wdn-col:nth-child(2n+1) {
+        clear: none;
+    }
+
+    .grid-clear .wdn-col:nth-child(4n+1) {
+        clear: left;
+    }
+}
+
 </style>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="" -->
@@ -281,6 +297,7 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
                         <li class="wdn-col"><div class="visual-island"><a href="formvalidator.html">Form Validator</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Validation" class="external">wiki</a>)</div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="forms.html">Forms</a> (<a href="http://www1.unl.edu/wdn/wiki/Template_Form_Styling" class="external">wiki</a>)</div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="idm.html"><abbr title="Identity Management">IdM</abbr>/<abbr title="Single Sign On">SSO</abbr></a></div></li>
+                         <li class="wdn-col"><div class="visual-island"><a href="infographics.html" title="Infographics">Infographics</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="image.html" title="Images: Styling and Captioning">Images</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="jqueryui.html" title="jQuery UI Widgets and Effects">jQuery UI</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="notice.html">Notice</a></div></li>
