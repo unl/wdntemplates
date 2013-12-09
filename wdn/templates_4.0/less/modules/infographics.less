@@ -58,15 +58,19 @@
 .@{infogrfx} {
 	text-align: center;
 
-	h3 {
+	.stat, .stat-helper {
+		display: block;
+		line-height: 1;
+	}
+
+	.stat {
 		.brand-font;
 		.rem(40);
 		margin:.25em 0;
 		font-weight: 600;
 	}
 
-	span {
-		display: block;
+	.stat-helper {
 		.display-font;
 		.rem(16);
 		line-height: 1.2;
@@ -108,9 +112,10 @@
 		.create-svg(ratio);
 	}
 
-	&[class*="@{infogrfx}-countries"] {
-		.create-svg(countries);
-	}
+	// This SVG exceeds IE8-Safe 32KB
+	//&[class*="@{infogrfx}-countries"] {
+	//	.create-svg(countries);
+	//}
 
 	&[class*="@{infogrfx}-international"] {
 		.create-svg(international);
