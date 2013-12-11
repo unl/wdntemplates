@@ -1,6 +1,7 @@
 .nav-bar() {
     .clear-fix;
     border-top: 2px solid #5f5f4e;
+    background-color: #cd0909;
     background-color: fadeout(@brand,4%);
 }
 
@@ -98,6 +99,7 @@
         display: block;
 
         @media @bp-nav-hidden {
+            border-bottom: 1px solid #4e4e4e;
             border-bottom: 1px solid fadeout(#fff,90%);
         }
     }
@@ -133,12 +135,14 @@
             ul {
                 height: 0;
                 overflow: hidden;
+                border-top: 1px solid #c00808;
                 border-top: 1px solid fadeout(#000,94%);
             }
 
             li {
                 width: 100%;
                 padding: 0;
+                border-bottom: 1px solid #c00808;
                 border-bottom: 1px solid fadeout(#000,94%);
                 
                 &:last-child {
@@ -174,10 +178,12 @@
             padding-right: 42px;
 
             > li {
+                border-right: 1px solid #b80808;
                 border-right: 1px solid fadeout(#000,90%);
                 line-height: 1;
 
                 &:first-child {
+                    border-left: 1px solid #b80808;
                     border-left: 1px solid fadeout(#000,90%);
                 }
 
