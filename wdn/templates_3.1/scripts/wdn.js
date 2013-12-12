@@ -481,15 +481,56 @@ var WDN = (function() {
 		},
 
 		browserAdjustments: function () {
-			var body = document.getElementsByTagName('body')[0];
+			var body = document.getElementsByTagName('body')[0],
+			msgs = [],
+			reXPAgent = /Windows (?:NT 5.1|XP)/,
+			killCss = false,
+			setCookie = false,
+			xpCookie = 'unlXPAck',
+			xpCookieLifetime = 30 * 24 * 60 * 60; // 30 days in seconds
+			
+			if (window.navigator.userAgent.match(reXPAgent) && !WDN.getCookie(xpCookie)) {
+				setCookie = true;
+				msgs.push(WDN.getTemplateFilePath('includes/osupgrade.html', true));
+			}
 			
 			if (WDN.hasDocumentClass('ie6')) {
+				killCss = true;
+				msgs.push(WDN.getTemplateFilePath('includes/browserupgrade.html', true));
+			}
+			
+			if (msgs.length) {
 				WDN.loadJQuery(function() {
-					WDN.jQuery(body).prepend('<div id="wdn_upgrade_notice"></div>').removeAttr('class').addClass('document');
-					WDN.jQuery('#wdn_upgrade_notice').load(WDN.getTemplateFilePath('includes/browserupgrade.html', true));
-					WDN.jQuery('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
+					var notice = WDN.jQuery('<div/>', {id:"wdn_upgrade_notice"}), msg;
+					notice.css({
+						'position': 'absolute',
+						'width': '100%',
+						'z-index': '999',
+						'top': 0,
+						'left': 0
+					});
+					WDN.jQuery.each(msgs, function(i, url) {
+						var msg = WDN.jQuery('<div/>').load(url, function() {
+							if (setCookie) {
+								msg.find('.close').click(function() {
+									WDN.jQuery(this).parent().hide();
+									WDN.setCookie(xpCookie, 1, xpCookieLifetime);
+									return false;
+								});
+							}
+						}).appendTo(notice);
+					});
+					
+					WDN.jQuery(body).prepend(notice);
+					if (killCss) {
+						WDN.jQuery(body).removeAttr('class').addClass('document');
+						WDN.jQuery('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
+					}
 				});
-				return;
+				
+				if (killCss) {
+					return;
+				}
 			}
 			
 			var css3Tests = 'firstchild lastchild nthchild nthoftype nthlastchild'.split(' ');
