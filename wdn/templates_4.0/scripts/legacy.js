@@ -31,7 +31,7 @@ define(['jquery', 'wdn', 'require', 'modernizr'], function($, WDN, require, Mode
 	if (window.navigator.userAgent.match(reXPAgent) && !WDN.getCookie(xpCookie)) {
 		showBar = true;
 		setCookie = true;
-		msg += 'According to Microsoft, your operating system (Windows XP) is reaching its "end of life". You are strongly encouraged to upgrade.';
+		msg += 'Windows XP will no longer be maintained by Microsoft or supported at UNL after April 8, 2014. You are strongly encouraged to upgrade.';
 		url = 'http://www.unl.edu/helpcenter/xp';
 	}
 
