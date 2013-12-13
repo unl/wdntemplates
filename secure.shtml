@@ -21,7 +21,7 @@
     
     $Id: fixed.dwt | ea2608181e2b6604db76106fd982b39218ddcb8b | Fri Mar 9 12:20:43 2012 -0600 | Kevin Abel  $
 -->
-<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles.html" -->
+<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles_local.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>A sort of fixed template | WDN Testing Page | University of Nebraska&ndash;Lincoln</title>
 <!-- InstanceEndEditable -->
