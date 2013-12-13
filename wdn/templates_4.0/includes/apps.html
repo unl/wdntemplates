@@ -10,10 +10,9 @@
             <div class="wdn-col-two-fifths wdn-app-col">
                 <span class="wdn-resource-title">Directory</span>
                 <form method="get" action="http://directory.unl.edu/">
-                    <fieldset class="wdn-fieldset-collapse">
-                        <label for="pq" class="wdn-text-hidden">Search</label>
-                        <input type="text" name="q" id="pq" placeholder="Search for people or departments" />
-                    </fieldset>
+                    <label for="pq" class="">Search for people or departments</label>
+                    <input type="text" name="q" id="pq" autocomplete="off" />
+                    <input type="submit" class="hidden" value="Go" />
                 </form>
                 <div id="pfShowRecord" aria-live="polite"></div>
                 <div id="pfresults" aria-live="polite"></div>
