@@ -481,14 +481,85 @@ var WDN = (function() {
 		},
 
 		browserAdjustments: function () {
-			var body = document.getElementsByTagName('body')[0];
+			var body = document.getElementsByTagName('body')[0],
+			campusSvc = 'http://www.unl.edu/ucomm/oncampus.shtml',
+			campusSvcCallback = 'wdnCampusCallback',
+			reXPAgent = /Windows (?:NT 5.1|XP)/,
+			xpCookie = 'unlXPAck',
+			xpCookieLifetime = 14 * 24 * 60 * 60, // 14 days in seconds
+			msgs = {
+				'windowsxp': window.navigator.userAgent.match(reXPAgent) && !WDN.getCookie(xpCookie),
+				'oldie': WDN.hasDocumentClass('ie6')
+			},
+			showBar = function() {
+				for (var i in msgs) {
+					if (msgs[i]) {
+						return true;
+					}
+				}
+
+				return false;
+			}();
 			
-			if (WDN.hasDocumentClass('ie6')) {
+			if (showBar) {
 				WDN.loadJQuery(function() {
-					WDN.jQuery(body).prepend('<div id="wdn_upgrade_notice"></div>').removeAttr('class').addClass('document');
-					WDN.jQuery('#wdn_upgrade_notice').load(WDN.getTemplateFilePath('includes/browserupgrade.html', true));
-					WDN.jQuery('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
+					var $ = WDN.jQuery;
+					WDN.loadJS(WDN.getTemplateFilePath('scripts/plugins/activebar/activebar2.js'), function() {
+						var cnt = $('<div/>'), content = [],
+						url, tempCnt, xpGo, afterActivebar = function() {};
+
+						if (msgs.windowsxp) {
+							tempCnt = $('<div/>');
+							content.push(tempCnt[0]);
+							xpGo = function() {
+								tempCnt.html('Windows XP will no longer be maintained by Microsoft or supported at UNL after April 8, 2014. You are strongly encouraged to upgrade.');
+								$.fn.activebar.container.off('click').on('click', function() {
+									window.location.href = 'http://www.unl.edu/helpcenter/xp';
+								});
+								$.fn.activebar.container.find('.close').click(function() {
+									WDN.setCookie(xpCookie, 1, xpCookieLifetime);
+								});
+							};
+
+							// service currently only supports insecure protocol
+							if (window.location.protocol == 'https:') {
+								afterActivebar = xpGo;
+							} else {
+								window[campusSvcCallback] = function(data) {
+									if (data == 'YES') {
+										xpGo();
+									}
+									window[campusSvcCallback] = null;
+								};
+								$.ajax({
+									url: campusSvc,
+									dataType: 'jsonp',
+									jsonpCallback: campusSvcCallback
+								});
+							}
+						}
+
+						if (msgs.oldie) {
+							content.push($('<div/>').html('This page may not be displayed correctly in this browser. You are strongly encouraged to update. <a href="http://its.unl.edu/standards">Read More</a>')[0]);
+							url = 'http://windows.microsoft.com/en-us/internet-explorer/download-ie';
+							
+							// kill the CSS
+							$(body).removeAttr('class').addClass('document');
+							$('head link[rel=stylesheet]').each(function(i) { this.disabled = true; });
+						}
+
+						cnt.append(content);
+						cnt.activebar({
+							icon: WDN.getTemplateFilePath('images/activebar-information.png', true),
+							button: WDN.getTemplateFilePath('images/activebar-closebtn.png', true),
+							url: url
+						});
+						afterActivebar();
+					});
 				});
+			}
+			
+			if (msgs.oldie) {
 				return;
 			}
 			
