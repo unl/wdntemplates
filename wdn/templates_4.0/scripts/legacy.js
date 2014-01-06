@@ -44,16 +44,31 @@ define(['jquery', 'wdn', 'require', 'modernizr'], function($, WDN, require, Mode
 		WDN.loadJQuery(function() {
 			require(['plugins/activebar/activebar2'], function() {
 				var cnt = $('<div/>'), content = [],
-				url, tempCnt, xpGo, afterActivebar = function() {};
+				url, tempCnt, xpGo, afterActivebar = function() {},
+				go = function() {
+					cnt.append(content);
+					cnt.activebar({
+						icon: WDN.getTemplateFilePath('images/activebar-information.png', true),
+						button: WDN.getTemplateFilePath('images/activebar-closebtn.png', true),
+						url: url
+					});
+				};
 
 				if (msgs.windowsxp) {
 					tempCnt = $('<div/>');
 					content.push(tempCnt[0]);
 					xpGo = function() {
 						tempCnt.html('Windows XP will no longer be maintained by Microsoft or supported at UNL after April 8, 2014. You are strongly encouraged to upgrade.');
-						$.fn.activebar.container.off('click').on('click', function() {
-							window.location.href = 'http://www.unl.edu/helpcenter/xp';
-						});
+						url = 'http://www.unl.edu/helpcenter/xp';
+
+						if ($.fn.activebar.container) {
+							$.fn.activebar.container.off('click').on('click', function() {
+								window.location.href = url;
+							});
+						} else {
+							go();
+						}
+
 						$.fn.activebar.container.find('.close').click(function() {
 							WDN.setCookie(xpCookie, 1, xpCookieLifetime);
 						});
@@ -80,14 +95,9 @@ define(['jquery', 'wdn', 'require', 'modernizr'], function($, WDN, require, Mode
 				if (msgs.oldie) {
 					content.push($('<div/>').html('This page may not be displayed correctly in this browser. You are strongly encouraged to update. <a href="http://its.unl.edu/standards">Read More</a>')[0]);
 					url = 'http://windows.microsoft.com/en-us/internet-explorer/download-ie';
+					go();
 				}
 
-				cnt.append(content);
-				cnt.activebar({
-					icon: WDN.getTemplateFilePath('images/activebar-information.png', true),
-					button: WDN.getTemplateFilePath('images/activebar-closebtn.png', true),
-					url: url
-				});
 				afterActivebar();
 			});
 		});
