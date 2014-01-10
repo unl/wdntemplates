@@ -1,35 +1,28 @@
 #wdn_search {
 
-    fieldset {
-        border: none;
-        margin: 0;
-        padding: 0;
-        position: relative;
-        display: inline;
-    }
-
-    .wdn-nav-full {
-        display: none;
-
-        @media @bp-nav-full {
-            text-align: left;
-            display: inline;
-            top: 4px;
-        }
-    }
-
-    .wdn-nav-hidden {
+    .wdn-icon-search {
         text-indent: -999em;
         position: absolute;
-        color: #e7b5b5;
         text-align: left;
+        font-size: 1em;
+        display: inline;
         
         &:before {
             text-indent: 999em;
         }
+        
+        @media @bp-nav-hidden {
+            color: #e7b5b5;
+            margin-top: -2px;
+        }
 
         @media @bp-nav-full {
-            display: none;
+            text-indent: 0;
+            position: static;
+            
+            &:before {
+                text-indent: 0;
+            }
         }
     }
 
@@ -43,13 +36,9 @@
     z-index: 1; // Ensure we're above the site title
 
     @media @bp-nav-hidden {
-        left: 50%;
+        right: 50%;
         top: 50px;
-        margin-left: -95px;
-
-        .wdn-icon-search{
-            margin-top: -2px;
-        }
+        margin-right: -95px;
     }
 
     @media @bp-nav-full {
@@ -88,11 +77,11 @@
             color: #e7b5b5;
         }
 
-        &:-moz-placeholder { /* Firefox 18- */
+        &:-moz-placeholder {
             color: #e7b5b5;
         }
 
-        &::-moz-placeholder { /* Firefox 19+ */
+        &::-moz-placeholder {
             color: #e7b5b5;
         }
 
@@ -114,25 +103,25 @@
         background-color: fadeout(#fff, 100%);
 
         &::-webkit-input-placeholder {
-           opacity: 0.8;
+           opacity: 0;
            color: darken(#d1ceb3, 25%);
            padding-top: 2px;
         }
 
-        &:-moz-placeholder { /* Firefox 18- */
-           opacity: 0.8;
+        &:-moz-placeholder {
+           opacity: 0;
            color: darken(#d1ceb3, 25%);
            padding-top: 2px;
         }
 
-        &::-moz-placeholder { /* Firefox 19+ */
-           opacity: 0.8; 
+        &::-moz-placeholder {
+           opacity: 0; 
            color: darken(#d1ceb3, 25%);
            padding-top: 2px;
         }
 
         &:-ms-input-placeholder {  
-           opacity: 0.8; 
+           opacity: 0; 
            color: darken(#d1ceb3, 25%);
            padding-top: 2px;
         }
@@ -142,6 +131,22 @@
             padding: 2px 5px;
             border-color: darken(#d1ceb3, 10%);
             background-color: fadeout(#fff, 5%);
+            
+            &::-webkit-input-placeholder {
+	           opacity: 0.8;
+	        }
+	
+	        &:-moz-placeholder {
+	           opacity: 0.8;
+	        }
+	
+	        &::-moz-placeholder {
+	           opacity: 0.8; 
+	        }
+	
+	        &:-ms-input-placeholder {  
+	           opacity: 0.8; 
+	        }
         }
     }
 

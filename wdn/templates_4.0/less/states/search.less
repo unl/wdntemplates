@@ -4,7 +4,7 @@
 			position: fixed;
 			top: 2px;
 			z-index: (@nav-z-index + 1);
-			.transition(right 0.3s ease);
+			.transition(right @nav-transition-duration ease);
 		}
 
 		.nav-scrolling #wdn_menu_toggle:checked ~ .wdn-content-slide & {

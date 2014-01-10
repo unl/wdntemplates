@@ -2,13 +2,9 @@
     <label for="wdn_resource_apps" class="wdn-icon-rocket">Apps</label>
 </div>
 <div id="wdn_search" class="wdn-resource-label">
-    <label id="wdn_label_search_full" class="wdn-icon-search wdn-nav-full">Search</label>
     <form id="wdn_search_form" action="http://www1.unl.edu/search/" method="get" role="search">
-        <fieldset>
-            <legend class="hidden">Search</legend>
-            <label id="wdn_label_search_mobile" class="wdn-icon-search wdn-nav-hidden">Search</label>
-            <input aria-labelledby="wdn_label_search_mobile wdn_label_search_full" accesskey="f" id="q" name="q" type="search" placeholder="Find people, pages and things" />
-            <input class="search wdn-icon-search" type="submit" value="Go" name="submit" />
-        </fieldset>
+        <label class="wdn-icon-search" for="q">Search</label>
+        <input accesskey="f" id="q" name="q" type="search" placeholder="Find people, pages and things" />
+        <input class="search wdn-icon-search" type="submit" value="Go" />
     </form>
 </div>

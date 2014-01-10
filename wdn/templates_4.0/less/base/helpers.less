@@ -1,3 +1,17 @@
+// Accessible text hide
+.wdn-text-hidden {
+    font-size: 0;
+    width: 1px;
+    height: 1px; // allow VoiceOver to see the text
+    display: inline-block;
+    overflow: hidden;
+    position: absolute !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px); 
+}
+
 // Ability to center columns
 .centered {
     float: none !important;
@@ -24,7 +38,7 @@
 
 //Display visibility
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .wdn-fouc-fix {
