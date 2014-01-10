@@ -15,7 +15,7 @@ html, body {
 	background: none;
 }
 
-a:after {
+#maincontent a:after {
     content: " (" attr(href) ")" !important;
     display: inline !important;
     height: auto !important;
@@ -24,27 +24,33 @@ a:after {
 }
 
 .skipnav,
+.wdn-icon-menu,
 #wdn_social,
 #wdn_app_wrapper,
 #wdn_site_title span span,
 #wdn_resources, 
-#wdn_navigation_bar, 
+#wdn_navigation_bar,
 #footer { 
     .hide()
 }
 
 #header {
+	.reset();
+	padding-bottom: 60px;
+	position: relative;
 	background: none;
-	padding-bottom: 1em;
-	border-bottom: 2px solid;
+	border-bottom: #000 2px solid;
+}
+
+#logo, #wdn_institution_title, #wdn_site_title {
+	.reset();
+	position: absolute;
+	background: none;
 }
 
 #logo {
-	position: static;
-	width: auto;
-	height: auto;
-	margin: 0;
-	background: none;
+	top: 0;
+	left: 0;
 	
 	a {
 		.hide();
@@ -52,28 +58,30 @@ a:after {
 	
 	&:before {
         content: url('../images/logo-print.png');
-        margin-right: 10px;
         height: 55px;
-        width: 70px;
-        float: left;
+        width: 63px;
     }
 }
 
 #wdn_institution_title {
-	.reset();
-    display: block;
-    color: @base-text;
-    .rem(18); 
-    .sans-serif-font();
+	top: 0;
+	left: 72px;
 }
 
 #wdn_site_title {
-	padding: 0;
-	margin: -1em 0 0 0;
-	text-align: left;
-	.rem(30);
+	top: 21px;
+	left: 72px;
+}
+
+#wdn_institution_title {
+    .brand-font();
+    .rem(17); 
+}
+
+#wdn_site_title {
+	.rem(23);
 	
 	abbr[title]:before {
-		.rem(24);
+		.rem(17);
 	}
 }
