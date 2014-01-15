@@ -31,11 +31,12 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		planetRed = '//planetred.unl.edu/pg/',
 		loggedInTitle = 'Review and update your profile',
 		loggedOutTitle = 'Log in to UNL',
+		defaultLinkText,
 		user = false;
 
 	var displayName = function(uid) {
 			var disp_name = uid;
-			
+
 			if (uid){
 				if (user.uid && user.uid === uid) {
 					return userDisplayName();
@@ -43,10 +44,10 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			} else {
 				return userDisplayName();
 			}
-	
+
 			return disp_name;
 		},
-		
+
 		userDisplayName = function() {
 			var disp_name = '', i;
 			if (user.cn) {
@@ -58,15 +59,15 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			} else if (user.displayName) {
 				disp_name = user.displayName[0];
 			}
-			
+
 			return disp_name;
 		},
-		
+
 		getUserField = function(field) {
 			if (!user || !user[field]) {
 				return false;
 			}
-			
+
 			return user[field][0];
 		};
 
@@ -75,6 +76,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			var loginCheckFailure = function() {
 					$(function() {
 						var localSettings = getLocalIdmSettings();
+						defaultLinkText = $(userSel).text();
 						if (localSettings.login) {
 							Plugin.setLoginURL(localSettings.login);
 						} else {
@@ -139,7 +141,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 
 		/**
 		 * Get the logged in user's display name (full name)
-		 * 
+		 *
 		 * @returns {string}
 		 */
 		getDisplayName : function() {
@@ -229,7 +231,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			} else {
 				planetred_uid += uid;
 			}
-			
+
 			idm.addClass('loggedin');
 			username.css('backgroundImage', "url(" + planetRed + "icon/" + planetred_uid + "/topbar/)")
 				.attr('href', 'http:' + planetRed + 'profile/' + planetred_uid)
@@ -250,7 +252,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			loginLink.css('backgroundImage', null)
 				.attr('href', loginURL)
 				.attr('title', loggedOutTitle)
-				.text('Login');
+				.text(defaultLinkText);
 		},
 
 		/**
