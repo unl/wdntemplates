@@ -9,7 +9,7 @@
     {
       "uid": "9dd9e835aebe1060ba7190ad2b2ed951",
       "css": "search",
-      "code": 128269,
+      "code": 59394,
       "src": "fontawesome"
     },
     {
@@ -99,7 +99,7 @@
     {
       "uid": "28f124a10127a47b9d9472699193d75a",
       "css": "print",
-      "code": 59394,
+      "code": 59649,
       "src": "entypo"
     },
     {
@@ -111,7 +111,7 @@
     {
       "uid": "767fede84586366cd7d6c835be745454",
       "css": "phone",
-      "code": 128241,
+      "code": 59650,
       "src": "entypo"
     },
     {
@@ -159,7 +159,7 @@
     {
       "uid": "w3nzesrlbezu6f30q7ytyq919p6gdlb6",
       "css": "home",
-      "code": 128296,
+      "code": 59651,
       "src": "typicons"
     },
     {
