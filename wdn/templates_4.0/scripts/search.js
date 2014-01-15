@@ -11,7 +11,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 	return {
 		initialize : function() {
 			$(function() {
-				var domQ = $('#q'),
+				var domQ = $('#wdn_search_query'),
 					domSearchForm = $('#wdn_search_form'),
 					siteHomepage = nav.getSiteHomepage();
 				
