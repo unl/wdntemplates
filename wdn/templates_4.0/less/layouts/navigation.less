@@ -31,14 +31,15 @@
     }
 }
 
-.wdn-icon-menu { // Hide the label text off screen
-    text-indent: -99em;
-    float: left;
+.wdn-nav-icon() {
+    white-space: nowrap;
+    overflow: hidden;
     line-height: 0;
     cursor: pointer;
     position: relative;
+    font-size: 21px;
+    font-size: 1.333rem;
     color: #e7b5b5;
-    font-size: 1.5rem;
 
     // Styles specifc to only the mobile view
     @media @bp-nav-hidden {
@@ -46,14 +47,18 @@
     }
 
     &:before { // Show the navigation icon
-        text-indent: 99em;
-        padding: 0.25em 5px;
-        position: relative;
+        padding-right: 1em;
 
         @media @bp-nav-hidden {
-            padding: 0.238em 5px 0.317em 0;
+            padding: 0.451em 1em 0.451em 0;
         }
     }
+}
+
+.wdn-icon-menu { // Hide the label text off screen
+    .wdn-nav-icon();
+    float: left;
+    width: 1.333em;
 }
 
 // Set a width for slide-in navigation
@@ -169,8 +174,8 @@
         width: 100%;
 
         > ul {
-            width: 100%;
-            margin: 0;
+            width: 80%;
+            margin: 0 auto;
             padding-right: 42px;
 
             > li {
@@ -203,7 +208,7 @@
             }
 
             &:before {
-                margin: 13px 0 0 5px;
+                //margin: 13px 0 0 5px;
             }
         }
     }

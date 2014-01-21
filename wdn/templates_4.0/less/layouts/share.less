@@ -1,0 +1,52 @@
+.wdn-icon-share { // Hide the label text off screen
+    .wdn-nav-icon();
+    position: absolute;
+    width: 1.333em;
+    top: 56px;
+    left: 15%;
+    z-index: 201;
+    transition: left 0.3s ease;
+
+    @media @bp1 {
+        left: 12%;
+    }
+}
+
+.wdn-share-options {
+	//display: none;
+	position: absolute;
+	top: 82px;
+	left: 15%;
+	margin-left: -2.369em;
+	z-index: 1;
+	background-color: #444340;
+	background-color: fadeout(#444340, 3%);
+	border-radius: 3px;
+	padding: 1.777em 2.369em;
+	text-align: left;
+	.wdn-sans-serif();
+	.rem(12);
+    transition: left 0.3s ease;
+ 
+    @media @bp1 {
+        left: 12%;
+    }
+}
+
+.wdn-share-options li {
+	list-style: none;
+	padding: 0.602em 0;
+
+	[class^="wdn-icon-"] {
+
+		&:before {
+			margin-right: 0.602em;
+		}
+
+	}
+}
+
+.wdn-share-options li a {
+	padding: 0.602em 0;
+	color: #b7b4ad;
+}
