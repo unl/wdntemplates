@@ -34,8 +34,9 @@
 // Assign base colors
 //
 
-    // Base text color
-    @base-text: @neutral;
+    // Base text color    
+    @heading-text: mix(#000, @cream, 72.5%); //#444341
+    @base-text: mix(@heading-text, @cream, 91%); //#545350
 
     // Warnings. Since Red is our brand color, we're using a brighter orange
     @warning: #FFA500;
