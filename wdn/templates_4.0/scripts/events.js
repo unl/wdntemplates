@@ -56,7 +56,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 			container: container,
 			limit: localSettings.limit || 10
 		},
-		localConfig = $.extend({}, config, defaultConfig);
+		localConfig = $.extend({}, defaultConfig, config);
 		
 		if (localConfig.url && $(localConfig.container).length) {
 			$(this.container).addClass('wdn-calendar');
