@@ -1,36 +1,83 @@
 .wdn-icon-share { // Hide the label text off screen
-    .wdn-nav-icon();
+    .wdn-nav-icon(); // located at layouts/navigation.less
+    .wdn-share-horiz();
     position: absolute;
     width: 1.333em;
     top: 56px;
     left: 15%;
-    z-index: 201;
-    transition: left 0.3s ease;
+    z-index: (@nav-z-index + 1);
+
+    @media @bp-nav-hidden {
+    	padding-right: 1.3em;
+    }
+
+    @media @bp-nav-full {
+    	top: 145px;
+    }
+
+    @media @bp-nav-max {
+    	left: 50%;
+    	padding-left: 6px;
+    	margin-left: 480px;
+
+    	&:before {
+    		margin-left: 0;
+    	}
+    }
+}
+
+// Horizontal location of Share icon & options
+.wdn-share-horiz() {
+    left: 15%;
 
     @media @bp1 {
         left: 12%;
+    }
+
+    @media @bp-nav-full {
+    	left: auto;
+	    right: 4px;
+    }
+
+    @media @bp3 {
+	    right: 1%;
+    }
+
+    @media @bp4 {
+	    right: 5%;
     }
 }
 
 .wdn-share-options {
-	//display: none;
+	.wdn-share-horiz();
 	position: absolute;
-	top: 82px;
-	left: 15%;
-	margin-left: -2.369em;
-	z-index: 1;
+	top: 80px;
+	margin-left: -28px;
+	z-index: (@nav-z-index + 1);
 	background-color: #444340;
 	background-color: fadeout(#444340, 3%);
 	border-radius: 3px;
-	padding: 1.777em 2.369em;
 	text-align: left;
 	.wdn-sans-serif();
 	.rem(12);
-    transition: left 0.3s ease;
- 
-    @media @bp1 {
-        left: 12%;
+
+    @media @bp-nav-full {
+    	top: 177px;
     }
+
+    @media @bp-nav-max {
+    	right: auto;
+    	left: 50%;
+    	left: ~'-webkit-calc(50% + 480px)';
+	    left: ~'-moz-calc(50% + 480px)';
+	    left: ~'calc(50% + 480px)';
+    	margin-left: -170px;
+    }
+
+	// Hide until toggled
+	display: none;
+	height: 0;
+	transition: height 1s ease;
 }
 
 .wdn-share-options li {
@@ -40,9 +87,9 @@
 	[class^="wdn-icon-"] {
 
 		&:before {
+			.rem(16);
 			margin-right: 0.602em;
 		}
-
 	}
 }
 

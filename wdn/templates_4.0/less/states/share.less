@@ -1,4 +1,43 @@
-.wdn-share-options {
+.wdn-share-options li a:hover {
+	color: @cream;
+}
+
+// Layout of share icon & options
+.nav-scrolling .wdn-icon-share, .nav-scrolling .wdn-share-options {
+    position: fixed;
+    z-index: (@nav-z-index + 1);
+}
+
+.nav-scrolling .wdn-icon-share {
+    width: 1.333em;
+
+    @media @bp-nav-hidden {
+        top: 0;
+    }
+
+    @media @bp-nav-full {
+        top: 0.451em;
+    }
+}
+
+.nav-scrolling .wdn-share-options {
+
+    @media @bp-nav-hidden {
+        top: 28px;
+    }
+
+    @media @bp-nav-full {
+        top: 38px;
+    }
+}
+
+// Change states when toggle is checked or hovered
+#wdn_share_toggle:checked ~ .wdn-share-options,
+.wdn-icon-share:hover ~ .wdn-share-options,
+.wdn-share-options:hover { 
+    display: block;
+    height: auto;
+    padding: 1.069em 2.369em;
 
     &:before {
         content: '';
@@ -11,15 +50,14 @@
         border-right: 12px solid transparent;
         border-bottom: 12px solid #444340;
         border-bottom: 12px solid fadeout(#444340, 3%);
+
+        @media @bp-nav-full {
+            left: auto;
+            right: 4px;
+        }
     }
-
-	li {
-		a {
-		    &:hover {
-		        color: @cream;
-		    }
-		}
-	}
-
 }
 
+#wdn_share_toggle {
+    display: none;
+}
