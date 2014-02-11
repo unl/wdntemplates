@@ -1,23 +1,12 @@
-.wdn-share-options li a:hover {
-	color: @cream;
-}
-
 // Layout of share icon & options
-.nav-scrolling .wdn-icon-share, .nav-scrolling .wdn-share-options {
+.nav-scrolling .wdn-share-this-page {
     position: fixed;
     z-index: (@nav-z-index + 1);
 }
 
 .nav-scrolling .wdn-icon-share {
-    width: 1.333em;
-
-    @media @bp-nav-hidden {
-        top: 0;
-    }
-
-    @media @bp-nav-full {
-        top: 0.451em;
-    }
+    top: 0;
+    width: 1.425em;
 }
 
 .nav-scrolling .wdn-share-options {
@@ -28,6 +17,27 @@
 
     @media @bp-nav-full {
         top: 38px;
+    }
+}
+
+@media @bp-nav-hidden {
+    .wdn-share-this-page {
+        .nav-scrolling & {
+            top: 0;
+            .transition(left @nav-transition-duration ease);
+        }
+        
+        .nav-scrolling #wdn_menu_toggle:checked ~ .wdn-content-slide & {
+            left: (15% + @nav-width);
+        }
+    }
+}
+
+@media @bp1 {
+    .wdn-share-this-page {
+        .nav-scrolling #wdn_menu_toggle:checked ~ .wdn-content-slide & {
+            left: (12% + @nav-width);
+        }
     }
 }
 

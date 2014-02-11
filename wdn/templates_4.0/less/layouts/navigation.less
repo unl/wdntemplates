@@ -8,9 +8,9 @@
 .skipnav {
 
     a {
-	    position: absolute;
-	    z-index: 5;
-	    left: -999em;
+        position: absolute;
+        z-index: 5;
+        left: -999em;
         display: block;
         color: #fff;
     }
@@ -36,7 +36,6 @@
     overflow: hidden;
     line-height: 1;
     cursor: pointer;
-    position: relative;
     font-size: 21px;
     font-size: 1.333rem;
     color: #e7b5b5;
@@ -44,15 +43,12 @@
 
     &:before { // Show the navigation icon
        padding-right: 1em;
-
-        //@media @bp-nav-hidden {
-        //    padding: 0.451em 1em 0.451em 0;
-        //}
     }
 }
 
 .wdn-icon-menu { // Hide the label text off screen
     .wdn-nav-icon();
+    position: relative;
     float: left;
     width: 1.333em;
     transition: left 0.3s ease;
@@ -79,39 +75,60 @@
         position: fixed;
         z-index: @nav-z-index;
         top: 0;
+        padding-top: 54px;
         left: (@nav-width * -1); // Hide off-screen
         width: @nav-width;
+        height: 100%;
         overflow-x: hidden;
         overflow-y: scroll;
         .transition(left @nav-transition-duration ease);
-        background-color: #3b3b3b;
-        height: 100%;
+        color: @cream;
+        background-color: #444340;
+
+        a {
+            color: #e1dfd7;
+        }
+
+        a:hover {
+            color: #fff;
+        }
     }
 }
 
 #navigation {
 
     a {
-        padding: 5px;
+        padding: 5px 5%;
         .transition(height @nav-transition-duration ease);
         display: block;
 
+        // Styles specific to the mobile view
         @media @bp-nav-hidden {
-            border-bottom: 1px solid #4e4e4e;
-            border-bottom: 1px solid fadeout(#fff,90%);
+            border-bottom: 1px solid darken(#444340,3%);
         }
+    }
+
+    // Styles specific to the mobile view
+    @media @bp-nav-hidden {
+ 
+        > ul {
+            padding-bottom: 4.209em;
+        }
+    }
+
+    > ul > li > a {
+        padding-top: 1em;
     }
 
     li {
         text-transform: uppercase;
-        .rem(16);
+        .rem(21);
         
         &.empty {
             display: none;
         }
 
         li {
-            padding-left: 10px;
             float: none;
             .sans-serif-font();
             text-transform: none;
@@ -123,7 +140,6 @@
             float: left;
             width: 16.6666%;
             text-align: center;
-            .rem(21);
                        
             &.empty {
                 display: list-item;
@@ -156,7 +172,6 @@
 
     // Styles specific to the full view
     @media @bp-nav-hidden {
-        padding: 5px;
 
         .wdn-icon-menu {
             display: none;
@@ -221,7 +236,6 @@
     @media @bp-nav-max {
 
         > ul {
-	        //padding-right: 0;
             width: 60rem;
             margin: 0 auto;
             display: block;

@@ -1,23 +1,26 @@
-.wdn-icon-share { // Hide the label text off screen
-    .wdn-nav-icon(); // located at layouts/navigation.less
-    .wdn-share-horiz();
-    position: absolute;
-    width: 1.333em;
-    top: 56px;
+.wdn-share-this-page {
+	position: absolute;
     left: 15%;
-    z-index: (@nav-z-index + 1);
+    transition: left 0.3s ease;
 
-    @media @bp-nav-hidden {
-    	padding-right: 1.3em;
+    @media @bp1 {
+        left: 12%;
     }
 
     @media @bp-nav-full {
-    	top: 145px;
+    	left: auto;
+    	top: 0;
+	    right: 38px;
+	    transition: right 0.3s ease;
+    }
+
+    @media @bp4 {
+	    right: 8%;
     }
 
     @media @bp-nav-max {
     	left: 50%;
-    	padding-left: 6px;
+    	right: auto;
     	margin-left: 480px;
 
     	&:before {
@@ -26,32 +29,27 @@
     }
 }
 
-// Horizontal location of Share icon & options
-.wdn-share-horiz() {
-    left: 15%;
+.wdn-icon-share { // Hide the label text off screen
+    .wdn-nav-icon(); // located at layouts/navigation.less
+    position: absolute;
+    width: 1.777em;
+    top: 48px;
+    z-index: (@nav-z-index + 1);
 
-    @media @bp1 {
-        left: 12%;
+    @media @bp-nav-hidden {
+    	padding-right: 1.333em;
     }
 
     @media @bp-nav-full {
-    	left: auto;
-	    right: 4px;
-    }
-
-    @media @bp3 {
-	    right: 1%;
-    }
-
-    @media @bp4 {
-	    right: 5%;
+    	top: 145px;
+    	padding-left: 10px;
     }
 }
 
 .wdn-share-options {
-	.wdn-share-horiz();
 	position: absolute;
-	top: 80px;
+	top: 70px;
+	width: 212px;
 	margin-left: -28px;
 	z-index: (@nav-z-index + 1);
 	background-color: #444340;
@@ -62,16 +60,12 @@
 	.rem(12);
 
     @media @bp-nav-full {
-    	top: 177px;
+    	top: 174px;
+		margin-left: -176px;
     }
 
     @media @bp-nav-max {
-    	right: auto;
-    	left: 50%;
-    	left: ~'-webkit-calc(50% + 480px)';
-	    left: ~'-moz-calc(50% + 480px)';
-	    left: ~'calc(50% + 480px)';
-    	margin-left: -170px;
+    	top: 176px;
     }
 
 	// Hide until toggled
@@ -91,9 +85,13 @@
 			margin-right: 0.602em;
 		}
 	}
-}
 
-.wdn-share-options li a {
-	padding: 0.602em 0;
-	color: #b7b4ad;
+	a {
+		padding: 0.602em 0;
+		color: #b7b4ad;
+
+		&:hover {
+			color: @cream;
+		}		
+	}
 }
