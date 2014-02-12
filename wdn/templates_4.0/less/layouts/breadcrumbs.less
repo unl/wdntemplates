@@ -96,6 +96,16 @@
         }
     }
 
+    // Styles specific to the mobile view
+    @media @bp-nav-hidden {
+        min-height: 35px;
+        padding: 0.75em @mobile-pad 0;
+
+        .selected a:after {
+            border-bottom-color: #e1dfd7;
+        }
+    }
+
     // Styles specific to the full view
     @media @bp-nav-full {
         color: @base-text;
@@ -104,6 +114,7 @@
             border-bottom-color: #5f5f4e;
         }
     }
+
 
     a {
         display: inline-block;

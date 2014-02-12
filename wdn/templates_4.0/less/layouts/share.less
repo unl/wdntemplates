@@ -1,0 +1,97 @@
+.wdn-share-this-page {
+	position: absolute;
+    left: 15%;
+    transition: left 0.3s ease;
+
+    @media @bp1 {
+        left: 12%;
+    }
+
+    @media @bp-nav-full {
+    	left: auto;
+    	top: 0;
+	    right: 38px;
+	    transition: right 0.3s ease;
+    }
+
+    @media @bp4 {
+	    right: 8%;
+    }
+
+    @media @bp-nav-max {
+    	left: 50%;
+    	right: auto;
+    	margin-left: 480px;
+
+    	&:before {
+    		margin-left: 0;
+    	}
+    }
+}
+
+.wdn-icon-share { // Hide the label text off screen
+    .wdn-nav-icon(); // located at layouts/navigation.less
+    position: absolute;
+    width: 1.777em;
+    top: 48px;
+    z-index: (@nav-z-index + 1);
+
+    @media @bp-nav-hidden {
+    	padding-right: 1.333em;
+    }
+
+    @media @bp-nav-full {
+    	top: 145px;
+    	padding-left: 10px;
+    }
+}
+
+.wdn-share-options {
+	position: absolute;
+	top: 70px;
+	width: 212px;
+	margin-left: -28px;
+	z-index: (@nav-z-index + 1);
+	background-color: #444340;
+	background-color: fadeout(#444340, 3%);
+	border-radius: 3px;
+	text-align: left;
+	.wdn-sans-serif();
+	.rem(12);
+
+    @media @bp-nav-full {
+    	top: 174px;
+		margin-left: -176px;
+    }
+
+    @media @bp-nav-max {
+    	top: 176px;
+    }
+
+	// Hide until toggled
+	display: none;
+	height: 0;
+	transition: height 1s ease;
+}
+
+.wdn-share-options li {
+	list-style: none;
+	padding: 0.602em 0;
+
+	[class^="wdn-icon-"] {
+
+		&:before {
+			.rem(16);
+			margin-right: 0.602em;
+		}
+	}
+
+	a {
+		padding: 0.602em 0;
+		color: #b7b4ad;
+
+		&:hover {
+			color: @cream;
+		}		
+	}
+}
