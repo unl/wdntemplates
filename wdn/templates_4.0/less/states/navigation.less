@@ -10,8 +10,16 @@
 #navigation {
     a {
         &:hover {
-            background-color: #b80808;
-            background-color: fadeout(#000,90%);
+            color: #fff;
+
+            @media @bp-nav-hidden {
+                background-color: darken(#444340,1%);
+            }
+            
+            @media @bp-nav-full {
+                background-color: #b80808;
+                background-color: fadeout(#000,90%);
+            }
         }
     }
 }
