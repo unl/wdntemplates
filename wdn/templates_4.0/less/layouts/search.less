@@ -8,8 +8,8 @@
         height: 56px;
         width: @nav-width;
         padding: 0 @mobile-pad;
-        background-color: #444340; 
-        border-bottom: 2px solid darken(#444340, 5%);
+        background-color: @heading-text; 
+        border-bottom: 2px solid darken(@heading-text, 5%);
         .transition(left @nav-transition-duration ease);
     }
 
@@ -25,7 +25,7 @@
         }
         
         @media @bp-nav-hidden {
-            color: #444340;
+            color: @heading-text;
             margin-left: 7px;
         }
 
@@ -45,11 +45,9 @@
 }
 
 #wdn_search_form {
-    //position: absolute;
     z-index: 1; // Ensure we're above the site title
 
     @media @bp-nav-hidden {
-        //width: inherit;
         top: 0.75em;
     }
 
