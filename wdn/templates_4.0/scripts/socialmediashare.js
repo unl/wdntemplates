@@ -51,7 +51,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 
         				$this.text('Fetching...');
         				Plugin.createURL(page, function(goURL) {
-        					var $result = $('<input>', {type:'text', id:'goURLResponse', value:goURL});
+        					var $result = $('<input>', {type:'text', id:'goURLResponse', value:goURL, readonly:'readonly'});
         					$this.parent().empty().append($result);
         					$result.focus().select();
         				}, function() {
