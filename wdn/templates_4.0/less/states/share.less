@@ -1,0 +1,37 @@
+// Layout of share icon & options
+.nav-scrolling .wdn-share-this-page {
+    position: fixed;
+    z-index: (@nav-z-index + 1);
+    top: 2px;
+}
+
+@media @bp-nav-hidden {
+    .wdn-share-this-page {
+        .nav-scrolling & {
+            top: 0;
+            .transition(left @nav-transition-duration ease);
+        }
+        
+        .nav-scrolling #wdn_menu_toggle:checked ~ .wdn-content-slide & {
+            left: (@mobile-pad + @nav-width);
+        }
+    }
+}
+
+@media @bp-nav-full {
+	.js { // fouc-fixes
+        .wdn-share-this-page {
+            visibility: hidden;
+        }
+        
+        .nav_ready .wdn-share-this-page {
+            visibility: visible;
+        }
+    }
+}
+
+// Change states when toggle is checked or hovered
+#wdn_share_toggle:checked ~ .wdn-share-options,
+.wdn-share-this-page:hover .wdn-share-options { 
+    display: block;
+}

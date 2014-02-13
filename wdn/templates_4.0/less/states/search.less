@@ -1,14 +1,9 @@
 @media @bp-nav-hidden {
-    #wdn_search_form {
-		.nav-scrolling & {
-			position: fixed;
-			top: 2px;
-			z-index: (@nav-z-index + 1);
-			.transition(right @nav-transition-duration ease);
-		}
 
-		.nav-scrolling #wdn_menu_toggle:checked ~ .wdn-content-slide & {
-			right: (@nav-width * -1);
-		}
-    }
+    #wdn_menu_toggle:checked { // Change states when toggle is checked
+
+        ~ #header #wdn_search {
+            left: 0;
+        }
+	}
 }

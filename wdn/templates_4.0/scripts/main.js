@@ -33,10 +33,11 @@ define(['wdn', 'require', 'legacy',
 	WDN.initializePlugin('analytics_scroll_depth');
 	WDN.initializePlugin('navigation');
 	WDN.initializePlugin('search');
+	WDN.initializePlugin('socialmediashare');
 	WDN.initializePlugin('unlalert');
 	WDN.initializePlugin('apps');
 	WDN.initializePlugin('images');
-    
+
     var unlchat_url = '//ucommchat.unl.edu/assets/js';
 
     //#UNLCHAT_URL
