@@ -6,9 +6,15 @@
     z-index: (@nav-z-index + 1);
 
     @media @bp-nav-full {
+    	margin: 0;
     	left: auto;
-    	top: 145px;
-	    right: 38px;
+    	top: auto;
+	    right: 8px;
+	    bottom: -62px;
+    }
+    
+    @media @bp2 {
+    	bottom: -71px;
     }
 
     @media @bp4 {
@@ -37,9 +43,8 @@
 }
 
 .wdn-share-options {
-	position: relative;
-	margin: 0 0 0 -2.083em; // center arrow under icon
-	top: 1px;
+	position: absolute;
+	margin: 1px 0 0 -2.083em; // center arrow under icon
 	z-index: (@nav-z-index + 1);
 	width: 212px;
 	padding: 1.069em 2.369em;
@@ -50,17 +55,13 @@
 	.wdn-sans-serif();
 	.rem(12);
 
-    @media @bp-nav-full {
-    	top: 174px;
-		margin-left: -176px;
-    }
-
-    @media @bp-nav-max {
-    	top: 176px;
-    }
-
 	// Hide until toggled
 	display: none;
+	
+	@media @bp-nav-full {
+		margin: 0;
+		right: 0;
+	}
 	
 	&:before {
         content: '';
@@ -75,7 +76,7 @@
 
         @media @bp-nav-full {
             left: auto;
-            right: 4px;
+            right: 11px;
         }
     }
 }

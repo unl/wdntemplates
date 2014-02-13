@@ -51,11 +51,7 @@
     position: relative;
     float: left;
     width: 1.333em;
-    transition: left 0.3s ease;
 }
-
-// Set a width for slide-in navigation
-@nav-width: 85%;
 
 #wdn_navigation_bar {
     .brand-font();
@@ -170,9 +166,8 @@
         }
     }
 
-    // Styles specific to the full view
+    // Styles specific to the mobile view
     @media @bp-nav-hidden {
-
         .wdn-icon-menu {
             display: none;
         }
@@ -187,7 +182,6 @@
 
         > ul {
             padding: 0 5%;
-            max-width: 960px;
             margin: 0 auto;
 
             > li {
@@ -213,23 +207,12 @@
 
         .wdn-icon-menu {
             position: absolute;
-            left: 8px;
+            left: @mobile-pad;
+            margin-left: -28px;
             
             .empty-secondary & {
                 display: none;
             }
-        }
-    }
-
-    @media @bp3 {
-        .wdn-icon-menu {
-            left: 1%;
-        }
-    }
-
-    @media @bp4 {
-        .wdn-icon-menu {
-            left: 5%;
         }
     }
 

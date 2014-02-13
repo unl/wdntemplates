@@ -2,17 +2,7 @@
 .nav-scrolling .wdn-share-this-page {
     position: fixed;
     z-index: (@nav-z-index + 1);
-}
-
-.nav-scrolling .wdn-icon-share {
-    top: 0;
-    width: 1.425em;
-}
-
-.nav-scrolling .wdn-share-options {
-    @media @bp-nav-full {
-        top: 38px;
-    }
+    top: 2px;
 }
 
 @media @bp-nav-hidden {
@@ -24,6 +14,18 @@
         
         .nav-scrolling #wdn_menu_toggle:checked ~ .wdn-content-slide & {
             left: (@mobile-pad + @nav-width);
+        }
+    }
+}
+
+@media @bp-nav-full {
+	.js { // fouc-fixes
+        .wdn-share-this-page {
+            visibility: hidden;
+        }
+        
+        .nav_ready .wdn-share-this-page {
+            visibility: visible;
         }
     }
 }
