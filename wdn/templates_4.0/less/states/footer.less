@@ -3,17 +3,29 @@
     a {
 
         &:hover {
-            color: white;
+            color: @cream;
             .transition(all linear 0.15s);
         }
     }
 }
+
 #wdn_footer_related {
 
     a {
 
         &:hover {
-            background-color: fadeout(#000, 65%);
+            background-color: @ui10;
+        }
+    }
+}
+
+.wdn-float-center {
+
+    a {
+
+        &:hover {
+            opacity: 1;
+            .transition(all linear 0.15s);
         }
     }
 }
