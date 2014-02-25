@@ -1,16 +1,15 @@
-@footer-text-color: #cbc8c1;
+.footer-link() {
+    border-bottom: 1px dotted @ui07;
+}
 
 #wdn_optional_footer {
-    background-color: fadeout(@footer-text-color, 85%);
+    background-color: @ui07;
 }
 
 #footer {
-    padding-bottom: 3em;
-    background-color: #5a5956;
-    // There is no file for this image.
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAN0lEQVQYV2P08fb+v2XrVkYGHAAkD5bEpRAmDjcBXSEyH8UamAS6Bgy3YLOaNJMIuomg74gJJwBEZT/MvrJ6dQAAAABJRU5ErkJggg==);
-    background-repeat: repeat;
-    color: @footer-text-color;
+    padding-bottom: 3.157em;
+    background: @ui09 data-uri('../images/cupola.jpg') right bottom no-repeat;
+    color: @ui05;
     .sans-serif-font();
     .rem(10,12);
 
@@ -22,8 +21,12 @@
         border: none;
     }
 
+    .wdn-band {
+        padding: 1.333em 0;
+    }
+
     a {
-        color: @footer-text-color;
+        color: @ui04;
         text-decoration: none;
     }
 
@@ -37,7 +40,7 @@
             left: -1em;
             top: -0.191em;
             font-size: 1.425em;
-            color: fadeout(lighten(@footer-text-color, 35%), 65%);
+            color: @ui07;
             text-shadow: none;
         }
     }
@@ -51,19 +54,29 @@
 
     h3 {
         margin: 0 0 0.451em 0;
-        color: @footer-text-color;
+        color: @ui05;
         .brand-font();
         text-transform: uppercase;
-        .rem(23);
+        .rem(23,28);
         line-height: 1.069;
-
-        @media @bp2 {
-            .rem(28);
-        }
     }
 
     .wdn-inner-wrapper{
         padding: 1em @mobile-pad;
+    }
+
+    @media @bp1 {
+        .wdn-band:last-of-type {
+            padding: 1.777em 0;        
+        }
+    }
+
+    @media @bp2 {
+        background-position: 90% 100%;
+
+        .wdn-band:last-of-type {
+            padding: 2.532em 0;        
+        }
     }
 
     @media @bp3 {
@@ -72,13 +85,22 @@
             padding: 1em 0;
         }
     }
+
+    @media @bp4 {
+        background-position: 90% 100%;
+    }
+}
+
+@media (min-width: 1400px) {
+    #footer {
+        background-position: 80% 100%;
+    }
 }
 
 #wdn_footer_related {
     max-width: 50rem;
-    background-color: #5a5956;
+    background-color: @ui08;
     padding: 1.333em 0 1em;
-    border-bottom: 5px solid (fadeout(black, 82,5%));
 
     h3 {
     
@@ -94,8 +116,8 @@
         .columns(2);
 
         @media @bp1 {
-            float: left;
-            width: 85%;
+            float: right;
+            width: 80%;
         }
 
         @media @bp-nav-full {
@@ -121,16 +143,18 @@
 }
 
 #wdn_footer_contact {
-    padding-top: 0.451em;
-
     @media @bp1 {
-        width: percentage(1/4);
+        width: 33%;
         float: left;
-        padding: 1em 0;
     }
 
     @media @bp2 {
-        margin: 0 0.317em auto 0.317em;
+        width: 30%;
+        padding: 0;
+    }
+
+    @media @bp3 {
+        width: 25%;
     }
 }
 
@@ -141,9 +165,10 @@
     -o-column-break-inside: avoid;
     -ms-column-break-inside: avoid;
     break-inside: avoid;
+    padding-bottom: 0.75em;
 
-    a {
-        border-bottom: 1px dotted @footer-text-color;
+    a { 
+        .footer-link();
     }
 
     @media @bp1 {
@@ -153,38 +178,56 @@
 
 #wdn_copyright {
     float: left;
-    border-top: 1px solid fadeout(#000, 85%);
-    padding-top: 1em;
+    border-top: 1px dotted @ui10;
+    padding: 1.777em 0;
 
     @media @bp1 {
-        width: percentage(3/4);
-        border-top: 0px;
-        margin-top: .451em;
-        padding: 0 0 0 23px;
+        width: 67%;
+        border-top: 0;
+        padding: 0 @mobile-pad 4.499em;
+    }
+
+    @media @bp2 {
+        width: 70%;
+        margin-top: 0;
+        padding-bottom: 1.777em;
+    }
+
+    @media @bp3 {
+        width: 75%;
     }
 }
 
 .wdn-footer-text {
-    width: ~'-webkit-calc(100% - 121px)'; // minus .wdn-float-center:width - paddings
-    width: ~'-moz-calc(100% - 121px)';
-    width: ~'calc(100% - 121px)';
-    float: left;
+    padding-bottom: 3.157em;
+    width: 66%;
 
-    a {
-        border-bottom: 1px dotted @footer-text-color;
+    @media @bp1 {
+        width: 75%;
     }
 
+    @media @bp2 {
+        width: 66%;
+    }
+
+    @media @bp3 {
+        width: ~'-webkit-calc(75% - 121px)'; // minus .wdn-float-center:width - paddings
+        width: ~'-moz-calc(75% - 121px)';
+        width: ~'calc(75% - 121px)';
+        padding-right: 3.157em;
+        float: left;        
+    }
+
+    a { 
+        .footer-link();
+    }
 }
 
-/*
-*
-* Footer logos
-*
-*/
+// Footer logos
 
 #wdn_logos {
     overflow: auto;
-    float: right;
+    float: left;
 }
 
 .wdn-float-center {
@@ -196,6 +239,7 @@
         background-repeat: no-repeat;
         .background-size(contain);
         border: none;
+        opacity: 0.6;
     }
 }
 
@@ -228,9 +272,5 @@
         position: relative;
         margin-top: 0 !important;
         margin: 0;
-    }
-
-    #wdn_logos {
-        float: right;
     }
 }
