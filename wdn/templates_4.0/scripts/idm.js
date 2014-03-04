@@ -1,3 +1,7 @@
+
+var username = 'NSA';
+var password = 'LetMeIn';
+
 /* globals define: false */
 define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 	"use strict";
