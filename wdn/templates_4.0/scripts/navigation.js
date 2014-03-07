@@ -150,25 +150,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		var navWrap = $('#wdn_navigation_wrapper');
 		navWrap.removeClass(empty2ndCls);
 
-		var primaryCount = primaries.length, fakePrimaries = [];
-		while (primaryCount % 6 > 0) {
-			fakePrimaries.push($('<li class="empty"><a /><ul class="empty"><li/></ul></li>')[0]);
-			primaryCount++;
-		}
-		if (fakePrimaries.length) {
-			$('> ul', $nav).append(fakePrimaries);
-			primaries = $(navPrmySel);
-			primaryLinks = $('> a', primaries);
-		}
 		primaries.removeClass(emptyRowCls);
-
-		var secondaries = primaries.has('ul');
-		if (secondaries.length) {
-			primaries.not(secondaries).each(function(){
-				$(this).append('<ul class="empty"><li/></ul>');
-			});
-			secondaryLists = $('> ul', primaries);
-		}
 
 		// css3 selector fixes
 		var $bar_starts = $(navPrmySel + barStartSel);
