@@ -39,13 +39,20 @@ a {
     text-decoration: none;
     .transition(color 0.3s);
 
-    .wdn-main & {
+    .wdn-main p &, .wdn-main li & {
         border-bottom-style: dotted;
         border-bottom-width: 1px;
+
+        &.imagelink {
+            border-bottom: none;
+        }
     }
 
     &:hover {
         color: darken(@brand, 10%);
     }
-}
 
+    &:visited {
+        color: darken(@brand, 15%);
+    }
+}
