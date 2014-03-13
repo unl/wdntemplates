@@ -29,10 +29,15 @@ p, span, div, ul, li, section, img {
 }
 
 // All caps, Gotham header
-.wdn-alt-header {
+
+.wdn-alt-header, .wdn-subhead {
     .sans-serif-font;
-    .rem(13,16);
+    line-height: 1.333;
     text-transform: uppercase;
+}
+
+.wdn-alt-header {
+    .rem(13,16);
 }
 
 // SUBHEADS
@@ -40,9 +45,6 @@ p, span, div, ul, li, section, img {
 .wdn-subhead {
     display: block;
     margin: 0.75em 0;       
-    .sans-serif-font;
-    text-transform: uppercase;
-    line-height: 1.333;
     color: fadeout(@base-text, 20%);
 }
 
