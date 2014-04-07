@@ -8,9 +8,10 @@
     clear:left;
     .clear-fix();
     
-    // When the `grid-set` is a direct child of another `grid-set`, avoid the double negative `margin-left`.
+    // When the `grid-set` is a direct child of another `grid-set`, avoid the double negative side margins.
     & > & {
         margin-left: 0;
+        margin-right: 0;
     }
 }
 
