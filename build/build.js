@@ -19,6 +19,7 @@
         'wdn_ajax',
     	'requireLib',
     	'modernizr-wdn',
+    	'ga',
     	'main'
     ],
     insertRequire: ['main'],
