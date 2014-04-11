@@ -3,18 +3,17 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 	"use strict";
 	var _gaq = window._gaq,
 		_gat = window._gat,
+		ga = window.ga,
+
 		wdnProp = 'UA-3203435-1',
 		unlDomain = '.unl.edu',
+
 		Plugin,
 		thisURL = String(window.location),
 		initd = false,
-		gaWdn = 'wdn.',
-		gaSetVar = '_setCustomVar',
-		gaPageview = '_trackPageview',
-		gaEvent = '_trackEvent',
-		wdnSetVar = gaWdn + gaSetVar,
-		wdnEvent = gaWdn + gaEvent,
-		wdnPageview = gaWdn + gaPageview;
+
+		gaWdnName = 'wdn',
+		gaWdn = gaWdnName + '.';
 
 	var bindLinks = function() {
 		WDN.log('Begin binding links for analytics');
@@ -62,23 +61,38 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 		});
 	};
 
+	// ga.js method for getting default tracker (with set account)
+	var getDefaultGATracker = function() {
+		var tracker = _gat._getTrackerByName();
+		if (tracker._getAccount() !== 'UA-XXXXX-X') {
+			return tracker;
+		}
+
+		return undefined;
+	};
+
+	// analytics.js method for getting default tracker
+	var getDefaultAnalyticsTracker = function() {
+		return ga.getByName('t0');
+	};
+
 	Plugin = {
 		initialize : function() {
 			WDN.log("WDN site analytics loaded for "+ thisURL) ;
 
-			var version_dep  = WDN.getDepVersion(),
-				gaUrl = '//www.google-analytics.com/',
-				ga_linkattribution_pluginURL = gaUrl + 'plugins/ga/inpage_linkid.js',
+			var version_dep = WDN.getDepVersion(),
+				gaDim = 'dimension',
 				domReady = function() {
 					var version_html = WDN.getHTMLVersion(),
 						affiliation = idm.getPrimaryAffiliation();
 
-
 					if (affiliation) {
-						_gaq.push([wdnSetVar, 1, 'Primary Affiliation', affiliation, 1]);
 						WDN.log("Tracking primary affiliation: " + affiliation);
+						ga(gaWdn+'set', gaDim + 1, affiliation);
 					}
-					_gaq.push([wdnSetVar, 2, 'Template HTML Version', version_html, 3]);
+
+					ga(gaWdn+'set', gaDim + 2, version_html);
+
 					Plugin.callTrackPageview();
 
 					(function(){
@@ -95,13 +109,13 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 					$(bindApps);
 				};
 
-			_gaq.push(
-				[gaWdn+'_setAccount', wdnProp],
-				[gaWdn+'_setDomainName', unlDomain],
-				[wdnSetVar, 3, 'Template Dependents Version', version_dep, 3],
-				[gaWdn+'_setAllowLinker', true],
-				[gaWdn+'_require', 'inpage_linkid', ga_linkattribution_pluginURL]
-			);
+			ga('create', wdnProp, {
+				name: gaWdnName,
+				cookieDomain: unlDomain,
+				allowLinker: true
+			});
+			ga(gaWdn+'set', gaDim + 3, version_dep);
+			ga(gaWdn+'require', 'linkid', 'linkid.js');
 
 			if (!initd) {
 				idm.initialize(function() {
@@ -113,58 +127,80 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 		},
 
 		callTrackPageview: function(thePage, trackInWDNAccount){
+			var action = 'pageview', method = 'send', legacyMethod = '_trackPageview';
+
 			if (!thePage) {
-				_gaq.push([wdnPageview]);
+				ga(gaWdn+method, action);
 				return;
 			}
 
-			if (typeof trackInWDNAccount === "undefined") {
+			if (trackInWDNAccount !== false) {
 				trackInWDNAccount = true;
 			}
 
+			// First, track in the wdn analytics
 			if (trackInWDNAccount) {
-				_gaq.push([wdnPageview, thePage]); //First, track in the wdn analytics
-				WDN.log("Pageview tracking for wdn worked!");
+				ga(gaWdn+method, action, thePage);
 			}
+
+			// Second, track in local site analytics
 			try {
-				if (Plugin.isDefaultTrackerReady()) {
-					_gaq.push([gaPageview, thePage]); // Second, track in local site analytics
-					WDN.log("Pageview tracking for local site worked!");
-				} else {
-					throw "Default Tracker Account Not Set";
-				}
+				_gaq.push(function() {
+					var tracker = getDefaultGATracker();
+					if (tracker) {
+						tracker[legacyMethod](thePage);
+					}
+				});
+
+				ga(function() {
+					var tracker = getDefaultAnalyticsTracker();
+					if (tracker) {
+						tracker[method](action, thePage);
+					}
+				});
 			} catch(e) {
 				WDN.log("Pageview tracking for local site didn't work.");
 			}
 		},
 
 		callTrackEvent: function(category, action, label, value, noninteraction) {
-			if (value === undefined) {
-				value = 0;
-			}
-			if (noninteraction === undefined) {
+			var action = 'event', method = 'send', legacyMethod = '_trackEvent', evtOpt;
+
+			if (noninteraction !== true) {
 				noninteraction = false;
 			}
-			value = Math.floor(value);
-			_gaq.push([wdnEvent, category, action, label, value, noninteraction]);
+
+			evtOpt = {
+				eventCategory: category,
+				eventAction: action,
+				eventLabel: label,
+				eventValue: value,
+				nonInteraction: noninteraction
+			};
+
+			ga(gaWdn+method, action, evtOpt);
+
 			try {
-				if (Plugin.isDefaultTrackerReady()) {
-					var pageSuccess = _gaq.push([gaEvent, category, action, label, value, noninteraction]);
-					WDN.log("Page Event tracking success? "+pageSuccess);
-				} else {
-					throw "Default Tracker Account Not Set";
-				}
+				_gaq.push(function() {
+					var tracker = getDefaultGATracker(), legacyValue = value;
+					if (tracker) {
+						if (typeof value !== "undefined") {
+							legacyValue = Math.floor(value);
+						}
+
+						tracker[legacyMethod](category, action, label, legacyValue, noninteraction);
+					}
+				});
+
+				ga(function() {
+					var tracker = getDefaultAnalyticsTracker();
+					if (tracker) {
+						tracker[method](action, evtOpt);
+					}
+				});
 			} catch(e) {
 				WDN.log("Event tracking for local site didn't work.");
 			}
-		},
-
-		isDefaultTrackerReady: function() {
-			if (typeof _gat !== "undefined") {
-				return _gat._getTrackerByName()._getAccount() !== 'UA-XXXXX-X';
-			}
-			//assume the account is set async (we could check the _gaq queue, but that seems like overkill)
-			return true;
 		}
 	};
 
