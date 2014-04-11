@@ -20,18 +20,7 @@ define(['wdn', 'analytics'], function(WDN, analytics) {
             // Make sure we haven't tracked this mark and that we've scrolled far enough
             if (cache.indexOf(key) === -1 && scrollDistance >= marks[key]) {
             	analytics.callTrackEvent(evt, key, here, parseInt(key), true);
-                _gaq.push(['wdn.' + gaTiming, evt, key, timing, here, 100]);
-
-                // attempt to track in local site analytics
-                try {
-                	if (analytics.isDefaultTrackerReady()) {
-                		var pageSuccess = _gaq.push([gaTiming, evt, key, timing, here, 100]);
-                	} else {
-                		throw "Default Tracker Account Not Set";
-                	}
-                } catch(e) {
-                	WDN.log("Event timing for local site didn't work.");
-                }
+            	analytics.callTrackTiming(evt, key, timing, here, 100);
 
                 // Keep track of what we tracked so we don't retrack
                 cache.push(key);

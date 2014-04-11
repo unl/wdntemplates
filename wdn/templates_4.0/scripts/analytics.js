@@ -203,6 +203,31 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 			} catch(e) {
 				WDN.log("Event tracking for local site didn't work.");
 			}
+		},
+
+		callTrackTiming: function(category, variable, value, label, sampleRate) {
+			var action = 'timing', method = 'send', legacyMethod = '_trackTiming';
+
+			ga(gaWdn+method, action, category, variable, value, label);
+
+			try {
+				_gaq.push(function() {
+					var tracker = getDefaultGATracker();
+					if (tracker) {
+						tracker[legacyMethod](category, variable, value, label, sampleRate);
+					}
+				});
+
+				ga(function() {
+					var tracker = getDefaultAnalyticsTracker();
+					if (tracker) {
+						tracker[method](action, category, variable, value, label);
+					}
+				});
+
+			} catch (e) {
+				WDN.log("Timing tracking for local site didn't work.");
+			}
 		}
 	};
 
