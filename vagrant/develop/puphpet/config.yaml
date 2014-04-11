@@ -1,0 +1,192 @@
+---
+vagrantfile-local:
+    vm:
+        box: centos64-x64-vbox43-1383512148
+        box_url: 'http://box.puphpet.com/centos64-x64-vbox43.box'
+        hostname: wdntemplates
+        network:
+            private_network: 192.168.56.204
+            forwarded_port:
+                zQVQJIf2cf9n:
+                    host: '8004'
+                    guest: '80'
+        provider:
+            virtualbox:
+                modifyvm:
+                    natdnshostresolver1: on
+                    memory: '512'
+                setextradata:
+                    VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root: 1
+        provision:
+            puppet:
+                manifests_path: puphpet/puppet
+                manifest_file: manifest.pp
+                options:
+                    - '--verbose'
+                    - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
+                    - '--parser future'
+        synced_folder:
+            mImGhDPHa1pg:
+                source: ./../../
+                target: /var/www/html
+                nfs: 'false'
+        usable_port_range: 2200..2250
+    ssh:
+        host: null
+        port: null
+        private_key_path: null
+        username: vagrant
+        guest_port: null
+        keep_alive: true
+        forward_agent: false
+        forward_x11: false
+        shell: 'bash -l'
+    vagrant:
+        host: detect
+server:
+    packages:
+        - npm
+    dot_files:
+        -
+            bash_aliases: null
+    _prevent_empty: ''
+mailcatcher:
+    install: 0
+    settings:
+        smtp_ip: 0.0.0.0
+        smtp_port: 1025
+        http_ip: 0.0.0.0
+        http_port: '1080'
+        mailcatcher_path: /usr/local/bin
+        log_path: /var/log/mailcatcher/mailcatcher.log
+apache:
+    install: '1'
+    settings:
+        user: www-data
+        group: www-data
+        default_vhost: true
+        manage_user: false
+        manage_group: false
+        sendfile: 0
+    modules:
+        - php
+        - rewrite
+        - headers
+    vhosts:
+        Cd9EQyZeFZAK:
+            servername: localhost
+            serveraliases:
+                - localhost
+                - '*'
+            docroot: /var/www/html
+            port: '80'
+            setenv:
+                - 'APP_ENV dev'
+            override:
+                - All
+            custom_fragment: "EnableSendFile Off\r\nAddType text/html .shtml\r\nAddOutputFilter INCLUDES .shtml"
+            options:
+                - Indexes
+                - FollowSymLinks
+                - MultiViews
+                - Includes
+            ssl_cert: ''
+            ssl_key: ''
+            ssl_chain: ''
+            ssl_certs_dir: ''
+    mod_pagespeed: 0
+    mod_spdy: 0
+nginx:
+    install: 0
+    vhosts:
+        HMlyDmufDXuP:
+            server_name: awesome.dev
+            server_aliases:
+                - www.awesome.dev
+            www_root: /var/www/awesome.dev
+            listen_port: '80'
+            index_files:
+                - index.html
+                - index.htm
+                - index.php
+            envvars:
+                - 'APP_ENV dev'
+php:
+    install: '1'
+    version: '55'
+    composer: '1'
+    modules:
+        php:
+            - cli
+            - intl
+            - mcrypt
+            - tidy
+        pear: {  }
+        pecl:
+            - pecl_http
+    ini:
+        display_errors: On
+        error_reporting: '-1'
+        session.save_path: /var/lib/php/session
+    timezone: America/Chicago
+xdebug:
+    install: '1'
+    settings:
+        xdebug.default_enable: '1'
+        xdebug.remote_autostart: '0'
+        xdebug.remote_connect_back: '1'
+        xdebug.remote_enable: '1'
+        xdebug.remote_handler: dbgp
+        xdebug.remote_port: '9000'
+drush:
+    install: 0
+    settings:
+        drush.tag_branch: 6.x
+mysql:
+    install: 0
+    root_password: '123'
+    phpmyadmin: '1'
+    adminer: 0
+postgresql:
+    install: 0
+    settings:
+        root_password: '123'
+        user_group: postgres
+        encoding: UTF8
+        version: '9.3'
+    databases: {  }
+    adminer: 0
+mariadb:
+    install: 0
+    root_password: '123'
+    phpmyadmin: 0
+    adminer: 0
+    databases: {  }
+    version: '10.0'
+mongodb:
+    install: 0
+    settings:
+        auth: 1
+        port: '27017'
+    databases: {  }
+redis:
+    install: 0
+    settings:
+        conf_port: '6379'
+beanstalkd:
+    install: 0
+    settings:
+        listenaddress: 0.0.0.0
+        listenport: '11300'
+        maxjobsize: '65535'
+        maxconnections: '1024'
+        binlogdir: /var/lib/beanstalkd/binlog
+        binlogfsync: null
+        binlogsize: '10485760'
+    beanstalk_console: 0
+    binlogdir: /var/lib/beanstalkd/binlog
+rabbitmq:
+    install: 0
+    settings:
+        port: '5672'
+
