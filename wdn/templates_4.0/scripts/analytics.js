@@ -3,7 +3,9 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 	"use strict";
 	var _gaq = window._gaq,
 		_gat = window._gat,
-		ga = window.ga,
+		ga = function() {
+			window.ga.apply(this, arguments)
+		},
 
 		wdnProp = 'UA-3203435-1',
 		unlDomain = '.unl.edu',
@@ -114,8 +116,8 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 				cookieDomain: unlDomain,
 				allowLinker: true
 			});
-			ga(gaWdn+'set', gaDim + 3, version_dep);
 			ga(gaWdn+'require', 'linkid', 'linkid.js');
+			ga(gaWdn+'set', gaDim + 3, version_dep);
 
 			if (!initd) {
 				idm.initialize(function() {
