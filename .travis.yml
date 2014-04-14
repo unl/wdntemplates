@@ -9,6 +9,7 @@ before_script:
    - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
    - sudo service apache2 restart
    # install dependancies for `make`
+   - sudo apt-get install nodejs
    - sudo npm install -g requirejs
    - sudo npm install -g less
    - sudo npm install -g uglify-js
