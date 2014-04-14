@@ -18,6 +18,8 @@ before_script:
    - sudo npm install -g pa11y
    # build the templates
    - make
+   # import test dependencies
+   - composer install
 script: pyrus run-phpt -r tests || (find . -name *.out | xargs -t cat && exit 1)
 branches:
   only:
