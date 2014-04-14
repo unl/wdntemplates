@@ -11,12 +11,12 @@ before_script:
    - sudo service apache2 restart
    # install dependancies for `make`
    - sudo apt-get install nodejs
-   - sudo npm install -g requirejs
-   - sudo npm install -g less
-   - sudo npm install -g uglify-js
+   - npm install -g requirejs
+   - npm install -g less
+   - npm install -g uglify-js
    # install `pa11y`
-   - sudo npm install -g phantomjs
-   - sudo npm install -g pa11y
+   - npm install -g phantomjs
+   - npm install -g pa11y
    # build the templates
    - make
    # import test dependencies
