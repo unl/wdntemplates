@@ -1,7 +1,22 @@
 language: php
 php:
   - 5.4
-before_script: pyrus install -p pyrus.net/Pyrus_Developer-alpha && make
+before_script: 
+   - pyrus install -p pyrus.net/Pyrus_Developer-alpha && make
+   - sudo apt-get install apache2
+   # configure apache virtual hosts
+   - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
+   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
+   - sudo service apache2 restart
+   # install dependancies for `make`
+   - sudo npm install -g requirejs
+   - sudo npm install -g less
+   - sudo npm install -g uglify-js
+   # install `pa11y`
+   - sudo npm install -g phantomjs
+   - sudo npm install -g pa11y
+   # build the templates
+   - make
 script: pyrus run-phpt -r tests || (find . -name *.out | xargs -t cat && exit 1)
 branches:
   only:
