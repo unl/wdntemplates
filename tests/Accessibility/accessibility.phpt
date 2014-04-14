@@ -35,7 +35,7 @@ class AccessibilityTester {
      */
     protected function checkExample($file) {
         $url     = 'http://localhost/tests/Accessibility/tmp/' . $file . '.shtml';
-        $command = 'pa11y -r json -s WCAG2AA --config ' . dirname(__FILE__) . '/pa11y.json ' . escapeshellarg($url);
+        $command = '$(npm bin -g)/pa11y -r json -s WCAG2AA --config ' . dirname(__FILE__) . '/pa11y.json ' . escapeshellarg($url);
         $errors  = array();
 
         //Prepare the DOM
@@ -64,7 +64,7 @@ class AccessibilityTester {
         file_put_contents(__DIR__ . '/tmp/' . $file . '.shtml', \HTML5::saveHTML($new_dom));
         
         //Run pa11y on the test page
-        $json = exec(escapeshellcmd($command));
+        $json = exec($command);
     
         if (!$data = json_decode($json, true)) {
             return false;
