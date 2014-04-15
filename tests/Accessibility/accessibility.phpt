@@ -62,7 +62,7 @@ class AccessibilityTester {
     
         //Save to an example file.
         file_put_contents(__DIR__ . '/tmp/' . $file . '.shtml', \HTML5::saveHTML($new_dom));
-        
+        print_r($_ENV);
         if (getenv('TRAVIS')) {
             //Set the $path for cli, so that tools can be found. (travis doesn't do this for you)
             putenv("PATH=/usr/local/bin:/usr/bin:/bin");
