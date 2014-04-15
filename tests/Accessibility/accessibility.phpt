@@ -35,7 +35,7 @@ class AccessibilityTester {
      */
     protected function checkExample($file) {
         $url     = 'http://localhost/tests/Accessibility/tmp/' . $file . '.shtml';
-        $command = '$(npm bin -g)/pa11y -r json -s WCAG2AA --config ' . dirname(__FILE__) . '/pa11y.json ' . escapeshellarg($url);
+        $command = dirname(__FILE__) . '/../../node_modules/.bin/pa11y -r json -s WCAG2AA --config ' . dirname(__FILE__) . '/pa11y.json ' . escapeshellarg($url);
         $errors  = array();
 
         //Prepare the DOM

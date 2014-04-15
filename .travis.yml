@@ -16,7 +16,7 @@ before_script:
    - npm install -g uglify-js
    # install `pa11y`
    - npm install -g phantomjs
-   - npm install -g pa11y
+   - npm install pa11y
    # build the templates
    - make
    # import test dependencies
