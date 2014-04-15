@@ -24,7 +24,7 @@ before_script:
    - sudo ln -s `which node` /usr/local/bin/node
    - /usr/bin/env
    - /usr/local/bin/node --version
-   - export PATH="NVM_PATH:$PATH"
+   - export PATH="$NVM_PATH:$PATH"
    - which node
    - nvm ls
    - pa11y http://www.google.com
