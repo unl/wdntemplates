@@ -9,7 +9,7 @@ before_install:
    - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
    - sudo a2enmod include
    - sudo a2enmod headers
-   - sudo service apache2 configtest
+   - sudo apachectl configtest
    - sudo service apache2 restart
 before_script: 
    - pyrus install -p pyrus.net/Pyrus_Developer-alpha && make
