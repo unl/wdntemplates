@@ -21,9 +21,9 @@ before_script:
    # import test dependencies
    - composer install --prefer-source
    # make `#!/usr/bin/env node` work -- used in pa11y
-   - sudo ln -s `which node` /home/travis/node
+   - sudo ln -s `which node` /usr/local/bin/node
    - /usr/bin/env
-   - /home/travis/node --version
+   - /usr/local/bin/node --version
    - which node
    - nvm ls
    - echo $PATH
