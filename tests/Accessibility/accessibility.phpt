@@ -65,7 +65,6 @@ class AccessibilityTester {
         
         //Run pa11y on the test page
         putenv("PATH=/usr/local/bin:/usr/bin:/bin");
-        echo shell_exec('/usr/bin/env');
         $json = exec($command);
     
         if (!$data = json_decode($json, true)) {
