@@ -22,7 +22,6 @@ before_script:
    - composer install --prefer-source
    # make `#!/usr/bin/env node` work -- used in pa11y
    - sudo ln -s `which nodejs` /usr/local/bin/node
-   - which nodejs
    - which node
    - echo $PATH
 script: pyrus run-phpt -r tests || (find . -name *.out | xargs -t cat && exit 1)
