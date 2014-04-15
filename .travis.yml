@@ -1,14 +1,15 @@
 language: php
 php:
   - 5.4
-before_script: 
-   - pyrus install -p pyrus.net/Pyrus_Developer-alpha && make
+before_install:
+   # configure apache virtual hosts
    - sudo apt-get update
    - sudo apt-get install apache2
-   # configure apache virtual hosts
    - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
    - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
    - sudo service apache2 restart
+before_script: 
+   - pyrus install -p pyrus.net/Pyrus_Developer-alpha && make
    # install dependancies for `make`
    - sudo apt-get install nodejs
    - npm install -g requirejs
