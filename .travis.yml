@@ -19,7 +19,7 @@ before_script:
    # build the templates
    - make
    # import test dependencies
-   - composer install
+   - composer install --prefer-source
    # make `#!/usr/bin/env node` work -- used in pa11y
    - sudo ln -s `which nodejs` /usr/local/bin/node
 script: pyrus run-phpt -r tests || (find . -name *.out | xargs -t cat && exit 1)
