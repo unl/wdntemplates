@@ -15,15 +15,15 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 		wdnSetVar = gaWdn + gaSetVar,
 		wdnEvent = gaWdn + gaEvent,
 		wdnPageview = gaWdn + gaPageview;
-	
+
 	var bindLinks = function() {
 		WDN.log('Begin binding links for analytics');
 		//get the links in the navigation and maincontent
-		var navLinks = $('a', '#navigation'), 
-			mainLinks = $('a', '#maincontent'), 
-			evaluateLinks, 
+		var navLinks = $('a', '#navigation'),
+			mainLinks = $('a', '#maincontent'),
+			evaluateLinks,
 			filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i;
-		
+
 		evaluateLinks = function() {
 			var link = $(this);
 			var gahref = link.attr("href");
@@ -37,7 +37,7 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 					Plugin.callTrackPageview(gahref, false);
 				});
 			} else if (gahref.match(/^mailto\:/i)){
-				var mailLink = gahref.replace(/^mailto\:/i, '');  
+				var mailLink = gahref.replace(/^mailto\:/i, '');
 				link.click(function() {
 					Plugin.callTrackEvent('Email', mailLink, thisURL);
 				});
@@ -54,14 +54,14 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 		navLinks.each(evaluateLinks);
 		mainLinks.each(evaluateLinks);
 	};
-	
+
 	var bindApps = function() {
 		var $appToggle = $('#wdn_resource_apps');
 		$appToggle.one('click', function() {
 			Plugin.callTrackEvent('WDN Apps', 'Opened', thisURL);
 		});
 	};
-	
+
 	Plugin = {
 		initialize : function() {
 			WDN.log("WDN site analytics loaded for "+ thisURL) ;
@@ -72,15 +72,15 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 				domReady = function() {
 					var version_html = WDN.getHTMLVersion(),
 						affiliation = idm.getPrimaryAffiliation();
-					
-					
+
+
 					if (affiliation) {
 						_gaq.push([wdnSetVar, 1, 'Primary Affiliation', affiliation, 1]);
 						WDN.log("Tracking primary affiliation: " + affiliation);
 					}
 					_gaq.push([wdnSetVar, 2, 'Template HTML Version', version_html, 3]);
 					Plugin.callTrackPageview();
-					
+
 					(function(){
 						var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 						if ($('body').hasClass('debug')) {
@@ -90,7 +90,7 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 						}
 						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 					})();
-					
+
 					$(bindLinks);
 					$(bindApps);
 				};
@@ -108,36 +108,36 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 					$(domReady);
 				});
 			}
-			
+
 			initd = true;
 		},
-		
+
 		callTrackPageview: function(thePage, trackInWDNAccount){
 			if (!thePage) {
 				_gaq.push([wdnPageview]);
 				return;
 			}
-			
+
 			if (typeof trackInWDNAccount === "undefined") {
 				trackInWDNAccount = true;
 			}
-			
+
 			if (trackInWDNAccount) {
 				_gaq.push([wdnPageview, thePage]); //First, track in the wdn analytics
 				WDN.log("Pageview tracking for wdn worked!");
 			}
 			try {
 				if (Plugin.isDefaultTrackerReady()) {
-					_gaq.push([gaPageview, thePage]); // Second, track in local site analytics 
+					_gaq.push([gaPageview, thePage]); // Second, track in local site analytics
 					WDN.log("Pageview tracking for local site worked!");
 				} else {
 					throw "Default Tracker Account Not Set";
 				}
 			} catch(e) {
-				WDN.log("Pageview tracking for local site didn't work."); 
+				WDN.log("Pageview tracking for local site didn't work.");
 			}
 		},
-		
+
 		callTrackEvent: function(category, action, label, value, noninteraction) {
 			if (value === undefined) {
 				value = 0;
@@ -158,7 +158,7 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 				WDN.log("Event tracking for local site didn't work.");
 			}
 		},
-		
+
 		isDefaultTrackerReady: function() {
 			if (typeof _gat !== "undefined") {
 				return _gat._getTrackerByName()._getAccount() !== 'UA-XXXXX-X';
@@ -167,6 +167,6 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 			return true;
 		}
 	};
-	
+
 	return Plugin;
 });
