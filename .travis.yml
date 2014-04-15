@@ -11,12 +11,10 @@ before_install:
 before_script: 
    - pyrus install -p pyrus.net/Pyrus_Developer-alpha && make
    # install dependancies for `make`
-   - sudo apt-get install nodejs
    - npm install -g requirejs
    - npm install -g less
    - npm install -g uglify-js
    # install `pa11y`
-   - npm install -g phantomjs
    - npm install pa11y
    # build the templates
    - make
