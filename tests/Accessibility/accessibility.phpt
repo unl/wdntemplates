@@ -63,6 +63,8 @@ class AccessibilityTester {
         //Save to an example file.
         file_put_contents(__DIR__ . '/tmp/' . $file . '.shtml', \HTML5::saveHTML($new_dom));
         
+        echo shell_exec("curl -i $url");
+        
         //Run pa11y on the test page
         putenv("PATH=/usr/local/bin:/usr/bin:/bin");
         $json = exec($command);
