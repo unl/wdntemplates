@@ -12,7 +12,7 @@ before_install:
    - sudo apachectl configtest
    - sudo service apache2 restart
 before_script: 
-   - pyrus install -p pyrus.net/Pyrus_Developer-alpha && make
+   - pyrus install -p pyrus.net/Pyrus_Developer-alpha
    # install dependancies for `make`
    - npm install -g requirejs
    - npm install -g less
