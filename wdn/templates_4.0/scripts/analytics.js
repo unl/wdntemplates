@@ -97,16 +97,6 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 
 					Plugin.callTrackPageview();
 
-					(function(){
-						var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-						if ($('body').hasClass('debug')) {
-							ga.src = gaUrl + 'u/ga_debug.js';
-						} else {
-							ga.src = gaUrl + 'ga.js';
-						}
-						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-					})();
-
 					$(bindLinks);
 					$(bindApps);
 				};
