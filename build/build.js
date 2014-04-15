@@ -13,12 +13,13 @@
     logLevel: 2,
     preserveLicenseComments: false,
     generateSourceMaps: true,
-    
+
     name: 'wdn',
     include: [
         'wdn_ajax',
     	'requireLib',
     	'modernizr-wdn',
+    	'ga',
     	'main'
     ],
     insertRequire: ['main'],
@@ -30,7 +31,7 @@
 			if (this.wdnTemplatePath) {
 				contents = contents.replace(/\/\/#TEMPLATE_PATH/, 'template_path="' + this.wdnTemplatePath + '";');
 			}
-			
+
 			contents += 'window.WDN.jQuery = window.jQuery.noConflict(true);\n';
 		}
 
@@ -39,7 +40,7 @@
                 contents = contents.replace(/\/\/#UNLCHAT_URL/, 'unlchat_url="' + this.unlChatURL + '";');
             }
         }
-		
+
 		return contents.replace(/WDN\.log\([^)]*\);?/g, '');
     }
 })

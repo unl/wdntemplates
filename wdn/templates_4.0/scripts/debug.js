@@ -16,6 +16,7 @@ for (i = 0; i < l; i++) {
 }
 
 load.push('modernizr-wdn.js');
+load.push('ga.js');
 load.push('require.js" data-main="' + _wdn_scripts_url + 'main.js');
 load.push('wdn.js" data-wdn_root="' + _wdn_scripts_url);
 
