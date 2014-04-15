@@ -27,6 +27,7 @@ before_script:
    - export PATH="$NVM_PATH:$PATH"
    - which node
    - nvm ls
+   - nvm use default
    - pa11y http://www.google.com
    - echo $PATH
 script: pyrus run-phpt -r tests || (find . -name *.out | xargs -t cat && exit 1)
