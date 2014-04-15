@@ -20,6 +20,8 @@ before_script:
    - make
    # import test dependencies
    - composer install
+   # make `#!/usr/bin/env node` work -- used in pa11y
+   - sudo ln -s `which nodejs` /usr/local/bin/node
 script: pyrus run-phpt -r tests || (find . -name *.out | xargs -t cat && exit 1)
 branches:
   only:
