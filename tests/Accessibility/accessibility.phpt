@@ -64,6 +64,7 @@ class AccessibilityTester {
         file_put_contents(__DIR__ . '/tmp/' . $file . '.shtml', \HTML5::saveHTML($new_dom));
         
         //Run pa11y on the test page
+        putenv("PATH=/usr/local/bin:/usr/bin:/bin");
         echo shell_exec('/usr/bin/env');
         $json = exec($command);
     
