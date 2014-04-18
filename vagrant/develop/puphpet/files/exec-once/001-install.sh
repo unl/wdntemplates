@@ -13,13 +13,9 @@ yum install npm --enablerepo=epel
 #prevent Error: SELF_SIGNED_CERT_IN_CHAIN
 npm config set ca null
 
-npm install -g requirejs
-npm install -g less
-npm install -g uglify-js
-
 echo "Installing pa11y for accessibility testing"
 npm install -g phantomjs
-npm install pa11y
+npm install -g pa11y
 npm install -g less
 
 echo "FINISHED installing wdntemplates"
