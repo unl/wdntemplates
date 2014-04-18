@@ -76,9 +76,9 @@ all: less js
 
 less: $(CSS_OBJS)
 
-$(shell $(LESSC) -M $(TEMPLATE_LESS)/$(LESS_ALL) $(TEMPLATE_CSS)/$(LESS_ALL_OUT))
+$(shell $(LESSC) -M $(TEMPLATE_LESS)/$(LESS_ALL) $(TEMPLATE_CSS)/$(LESS_ALL_OUT)) $(LESSC)
 
-$(shell $(LESSC) -M $(TEMPLATE_LESS)/$(LESS_ALL) $(TEMPLATE_CSS)/$(LESS_ALL_OUT_IE))
+$(shell $(LESSC) -M $(TEMPLATE_LESS)/$(LESS_ALL) $(TEMPLATE_CSS)/$(LESS_ALL_OUT_IE)) $(LESSC)
 	$(LESSC) $(TEMPLATE_LESS)/$(LESS_ALL) | $(MQ_STRIP) | $(LESSC) $(LESSC_FLAGS) - > $@
 
 $(TEMPLATE_CSS)/%.css: $(TEMPLATE_LESS)/%.less $(LESS_MIXINS_DEPS) $(LESSC)
@@ -92,7 +92,7 @@ $(TEMPLATE_JS)/plugins/qtip/wdn.qtip.min.css: $(TEMPLATE_JS)/plugins/qtip/wdn.qt
 	$(LESSC) $(LESSC_FLAGS) $< $@
 	
 $(LESSC):
-	npm --prefix $(BUILD_DIR) install lessc
+	npm --prefix $(BUILD_DIR) install less
 	
 js: $(JS_ALL_OUT)
 
