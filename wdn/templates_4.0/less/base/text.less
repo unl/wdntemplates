@@ -17,6 +17,20 @@
             font-feature-settings: "liga"; /* No variation */
 }
 
+// GENERAL
+
+.wdn-brand {
+    .brand-font;
+}
+
+.wdn-sans-serif {
+    .sans-serif-font;
+}
+
+.wdn-list-reset {
+    .list-reset;
+}
+
 // HEADERS
 
 h1, h2, h3, h4, h5, h6 {
@@ -45,6 +59,10 @@ p, span, div, ul, li, section, img {
             margin-top: @base-line-height-lg * 1em;        
         }
     }
+}
+
+.wdn-heading, .wdn-impact {
+    .heading-font;
 }
 
 // All caps, Gotham header
@@ -99,29 +117,13 @@ p {
     margin: 1rem 0;
 }
 
-.wdn-heading {
-    .heading-font;
-}
-
-.wdn-impact {
-    .heading-font;
-}
-
-.wdn-brand {
-    .brand-font;
-}
-
-.wdn-sans-serif {
-    .sans-serif-font;
-}
-
-.wdn-list-reset {
-    .list-reset;
-}
-
 // Magazine-style, larger introduction paragraph
 .wdn-intro-p {
-    .rem(17,21);
+  .rem(17,21);
+}
+
+p.small {
+  .rem(12,13);
 }
 
 // ICON FONT - see /wdn/templates_4.0/fonts/fontello/readme.md

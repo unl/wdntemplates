@@ -1,5 +1,3 @@
-var _gaq = _gaq || [];
-
 require.config({
     'baseUrl': window.WDN.getTemplateFilePath('scripts', true),
     'shim': {
