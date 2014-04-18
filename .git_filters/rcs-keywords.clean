@@ -22,4 +22,4 @@ s/\$(
 # custom keywords for version tracking
 
 s/(data-version=)"[^"]*"/$1"\$HTML_VERSION\$"/;
-s/(\?dep=)[^"]*"/$1\$DEP_VERSION\$"$2/;
+s/(\?dep=)[^"]*"/$1\$DEP_VERSION\$"/;
