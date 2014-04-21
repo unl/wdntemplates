@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "edfb92b9f899cca62c2440c91dbb5be6",
+    "hash": "13461b9efab230ddac2e641d08cebdc6",
     "packages": [
         {
             "name": "masterminds/html5",

@@ -13,5 +13,4 @@ sharedcode/affiliate/less/buros.less
 /wdn/templates_*/scripts/compressed
 .DS_Store
 /vagrant/develop/.vagrant
-/vendor
-/node_modules
+/build/vendor

@@ -3,7 +3,7 @@ Validate all example pages for accessibility
 --FILE--
 <?php
 //Load composer
-require_once dirname(__FILE__) . '/../../vendor/autoload.php';
+require_once dirname(__FILE__) . '/../../build/vendor/autoload.php';
 
 class AccessibilityTester {
     protected $examples_directory = '';
