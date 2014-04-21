@@ -4,7 +4,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 		if (link.length && link[link.length - 1].type != 'application/opensearchdescription+xml') {
 			return link[link.length - 1].href;
 		}
-		
+
 		return false;
 	}
 	
@@ -14,7 +14,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 				var domQ = $('#wdn_search_query'),
 					domSearchForm = $('#wdn_search_form'),
 					siteHomepage = nav.getSiteHomepage();
-				
+
 				/**
 			     * Add the experimental text-to-speech
 			     */
@@ -36,7 +36,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 						}
 						domSearchForm.append(htmlUpdate);
 					}
-					
+
 					domSearchForm.attr('action', localSearch);
 				} else {
 					if (siteHomepage && siteHomepage !== 'http://www.unl.edu/') {
@@ -47,7 +47,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 						}));
 					}
 				}
-				
+
 				var localPlaceholder = WDN.getPluginParam('search', 'placeholder');
 				if (localPlaceholder) {
 					domQ.attr('placeholder', localPlaceholder);
