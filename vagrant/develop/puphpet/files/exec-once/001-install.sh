@@ -16,6 +16,5 @@ npm config set ca null
 echo "Installing pa11y for accessibility testing"
 npm install -g phantomjs
 npm install -g pa11y
-npm install -g less
 
 echo "FINISHED installing wdntemplates"
