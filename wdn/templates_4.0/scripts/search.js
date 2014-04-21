@@ -18,8 +18,8 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 				/**
 			     * Add the experimental text-to-speech
 			     */
-	            domQ[0].setAttribute('x-webkit-speech', 'x-webkit-speech');
-	
+	            domQ.attr('x-webkit-speech', 'x-webkit-speech');
+
 				var localSearch = getLocalSearch();
 				if (localSearch) {
 					// Change form action to the local search
