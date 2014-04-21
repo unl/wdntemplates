@@ -64,12 +64,6 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 					});
 					domSearchForm.append(domEmbed);
 
-					$unlSearch = $('<iframe>', {
-						name: 'unlsearch',
-						id: 'wdn_search_frame',
-					});
-					domSearchForm.parent().append($unlSearch);
-
 					domQ.on('keyup', function(e0) {
 						if (!isFullNav()) {
 							return;
@@ -83,14 +77,6 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 						}
 					});
 
-					$unlSearch.on('load', function() {
-						if (!submitted) {
-							return;
-						}
-
-						postReady = true;
-					});
-
 					domSearchForm.on('submit', function(e) {
 						if (!isFullNav()) {
 							this.target = '';
@@ -98,6 +84,22 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 							return;
 						}
 
+						if (!$unlSearch) {
+							$unlSearch = $('<iframe>', {
+								name: 'unlsearch',
+								id: 'wdn_search_frame',
+								title: 'Search results'
+							});
+							domSearchForm.parent().append($unlSearch);
+
+							$unlSearch.on('load', function() {
+								if (!submitted) {
+									return;
+								}
+
+								postReady = true;
+							});
+						}
 						domEmbed.prop('disabled', false);
 						this.target = 'unlsearch';
 						$(this).parent().addClass('active');
