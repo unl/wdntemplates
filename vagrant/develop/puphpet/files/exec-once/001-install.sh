@@ -8,6 +8,11 @@ cd $BASEDIR
 git submodule init
 git submodule update
 
+#Install composer dependencies
+cd build
+composer install
+cd ../
+
 yum install npm --enablerepo=epel
 
 #prevent Error: SELF_SIGNED_CERT_IN_CHAIN
