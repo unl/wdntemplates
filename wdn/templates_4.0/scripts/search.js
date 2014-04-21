@@ -52,14 +52,6 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 				if (localPlaceholder) {
 					domQ.attr('placeholder', localPlaceholder);
 				}
-					
-				if (!Modernizr.placeholder) {
-					WDN.loadJQuery(function() {
-						require(['plugins/placeholder/jquery.placeholder.min'], function() {
-							domQ.placeholder();
-						});
-					});
-				}
 			});
 		}
 	};
