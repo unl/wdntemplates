@@ -13,7 +13,7 @@ before_install:
    - sudo service apache2 restart
 before_script: 
    # install `pa11y`
-   - npm install pa11y
+   - npm --prefix ./build/node_modules install pa11y
    # build the templates
    - make
    # import test dependencies
