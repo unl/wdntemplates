@@ -1,8 +1,30 @@
 language: php
 php:
   - 5.4
-before_script: pyrus install -p pyrus.net/Pyrus_Developer-alpha && make
-script: pyrus run-phpt -r tests || (find . -name *.out | xargs -t cat && exit 1)
+before_install:
+   # configure apache virtual hosts
+   - sudo apt-get update
+   - sudo apt-get install apache2
+   - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
+   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
+   - sudo a2enmod include
+   - sudo a2enmod headers
+   - sudo apachectl configtest
+   - sudo service apache2 restart
+before_script: 
+   # install `pa11y`
+   - npm --prefix ./build install pa11y
+   # build the templates
+   - make
+   # import test dependencies
+   - cd build
+   - composer install --prefer-source
+   - cd ../
+   # make `#!/usr/bin/env node` work -- used in pa11y
+   - sudo ln -s `which node` /usr/local/bin/node
+   - sudo ln -s `pwd`/build/node_modules/.bin/pa11y /usr/local/bin/pa11y
+script: ./tests/run-tests.sh
 branches:
   only:
     - develop
+    - accessibility-tests
