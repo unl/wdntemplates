@@ -1,6 +1,6 @@
 // Modular Scale for vertical rythm: http://modularscale.com/scale/?px1=16&px2=54&ra1=1.333&ra2=0
 
-// Enable OpenType features
+// OPEN TYPE FEATURES
 .kern {
    -webkit-font-feature-settings: "kern"; /* No variation */
        -moz-font-feature-settings: "kern=1"; /* Firefox 4.0 to 14.0 */
@@ -75,6 +75,25 @@ p, span, div, ul, li, section, img {
 
 .wdn-alt-header {
     .rem(13,16);
+}
+
+// Featured Promo header
+.wdn-featured-promo-header {
+    .rem(41);
+    color: fadeout(#fff, 10%);
+    margin-bottom: 0;
+
+    @media @bp1 {
+        .rem(54);
+    }
+
+    @media @bp2 {
+        .rem(72);
+    }
+
+    @media @bp3 {
+        .rem(89);
+    }
 }
 
 // SUBHEADS
