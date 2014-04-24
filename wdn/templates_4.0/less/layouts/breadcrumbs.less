@@ -20,35 +20,9 @@
             vertical-align: bottom;
         }
 
-        &:first-child { // First element to be replaced with 'home' icon.
-            
-            a {
-                text-indent: -99em;
-                .rem(12,14);
-                width: 1.07em;
-                white-space: nowrap;
-                padding: 0 0 2px 0 !important;
-
-                 @media @bp-nav-full {
-                    padding: 0 !important;
-                 } 
-
-                &:before {
-                    font-family: "wdn-icon";
-                    font-style: normal;
-                    font-weight: normal;
-                    text-indent: 99em;
-                    content: '\e903';
-                    speak: none;
-                    display: inline-block;
-                    text-decoration: inherit;
-                    margin-right: 0.254em;
-                    text-align: center;
-                    font-variant: normal;
-                    text-transform: none;
-                }
-
-            }
+        a.wdn-icon-home:before { // Removes home icon
+            content:'';
+            width: auto;
         }
 
         &:after {
