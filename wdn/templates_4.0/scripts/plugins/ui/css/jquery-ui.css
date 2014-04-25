@@ -627,6 +627,7 @@ button.ui-button::-moz-focus-inner {
 	width: 1.2em;
 	height: 1.2em;
 	cursor: default;
+    text-indent: -10000px;
 }
 .ui-slider .ui-slider-range {
 	position: absolute;
