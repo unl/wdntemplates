@@ -12,7 +12,7 @@ class AccessibilityTester {
     public function __construct()
     {
         $this->examples_directory = dirname(__FILE__) . '/../../wdn/templates_4.0/examples/';
-        $this->wrapper_html = file_get_contents(dirname(__FILE__) . '/../../fixed.shtml');
+        $this->wrapper_html = file_get_contents($this->examples_directory . 'index.shtml');
     }
 
     protected function getFilesToCheck() {
