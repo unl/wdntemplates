@@ -121,6 +121,9 @@
 <a id="button_anchor" href="#">An anchor</a>
 
 <h3>Datepicker</h3>
+<label for="datepicker">
+    Pick a date
+</label>
 <p>Date: <input id="datepicker" type="text"></p>
 
 <h3>Dialog</h3>
@@ -158,7 +161,7 @@
 <p>Animated transitions and easing for rich interactions.</p>
 
 <h3>Color Animation</h3>
-<div id="effect_color" style="color:#fff;background-color:#68bfef;height:70px;padding:4px;"> Click me</div>
+<div id="effect_color" style="color:#fff;background-color:#267dad;height:70px;padding:4px;"> Click me</div>
 
 <h3>Toggle/Add/Remove/Switch Class</h3>
 <div id="effect_toggle">
@@ -269,7 +272,7 @@ WDN.initializePlugin('jqueryui', [function () {
     	if (colorState) {
     		$(this).animate({ backgroundColor: "black" }, 1000);
     	} else {
-    		$(this).animate({ backgroundColor: "#68BFEF" }, 500);
+    		$(this).animate({ backgroundColor: "#267dad" }, 500);
     	}
         colorState = !colorState;
     });
