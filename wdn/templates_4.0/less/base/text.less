@@ -17,6 +17,20 @@
             font-feature-settings: "liga"; /* No variation */
 }
 
+// GENERAL
+
+.wdn-brand {
+    .brand-font;
+}
+
+.wdn-sans-serif {
+    .sans-serif-font;
+}
+
+.wdn-list-reset {
+    .list-reset;
+}
+
 // HEADERS
 
 h1, h2, h3, h4, h5, h6 {
@@ -47,21 +61,37 @@ p, span, div, ul, li, section, img {
     }
 }
 
-// All caps, Gotham header
+.wdn-heading, .wdn-impact {
+    .heading-font;
+}
 
-.wdn-alt-header, .wdn-subhead {
+// All caps, Gotham header
+.wdn-sans-caps {
     .sans-serif-font;
     line-height: 1.333;
     text-transform: uppercase;
+    letter-spacing: 0.02em;  
 }
 
 .wdn-alt-header {
+    .wdn-sans-caps;
     .rem(13,16);
+}
+
+.wdn-list-header {
+    .wdn-alt-header;
+    padding: 1em 0 0.254em;
+    border-bottom: 1px solid #d0cec6;
+
+    @media @bp2 {
+        padding: 1.333em 0 0.254em;
+    }
 }
 
 // SUBHEADS
 
 .wdn-subhead {
+    .wdn-sans-caps;
     display: block;
     margin: 0.75em 0;       
     color: fadeout(@base-text, 20%);
@@ -99,29 +129,13 @@ p {
     margin: 1rem 0;
 }
 
-.wdn-heading {
-    .heading-font;
-}
-
-.wdn-impact {
-    .heading-font;
-}
-
-.wdn-brand {
-    .brand-font;
-}
-
-.wdn-sans-serif {
-    .sans-serif-font;
-}
-
-.wdn-list-reset {
-    .list-reset;
-}
-
 // Magazine-style, larger introduction paragraph
 .wdn-intro-p {
-    .rem(17,21);
+  .rem(17,21);
+}
+
+p.small {
+  .rem(12,13);
 }
 
 // ICON FONT - see /wdn/templates_4.0/fonts/fontello/readme.md
