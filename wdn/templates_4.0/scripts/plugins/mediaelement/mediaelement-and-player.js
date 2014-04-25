@@ -12,6 +12,11 @@
 *
 */
 
+/*
+ WDN CHANGES NOTE:
+ - add a default alt attribute to poster images for WCAG2.0
+ */
+
 define(['jquery'], function(jQuery) {
 
 // Namespace
@@ -2860,7 +2865,7 @@ if (typeof jQuery != 'undefined') {
 				posterImg = posterDiv.find('img');
 
 			if (posterImg.length == 0) {
-				posterImg = $('<img width="100%" height="100%" />').appendTo(posterDiv);
+				posterImg = $('<img width="100%" height="100%" alt="poster image" />').appendTo(posterDiv);
 			}
 
 			posterImg.attr('src', url);
