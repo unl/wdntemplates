@@ -1193,7 +1193,7 @@ mejs.HtmlMediaElementShim = {
       errorContainer.innerHTML = options.customError;
     } else {
       errorContainer.innerHTML = (poster !== '') ?
-        '<a href="' + playback.url + '"><img src="' + poster + '" width="100%" height="100%" /></a>' :
+        '<a href="' + playback.url + '"><img src="' + poster + '" width="100%" height="100%" alt="view video" /></a>' :
         '<a href="' + playback.url + '"><span>' + mejs.i18n.t('Download File') + '</span></a>';
     }
 
