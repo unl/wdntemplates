@@ -15,9 +15,9 @@ class AccessibilityTester {
         $this->wrapper_html = file_get_contents($this->examples_directory . 'index.shtml');
     }
 
-    protected function getFilesToCheck() {
+    public function getFilesToCheck() {
         $files_to_check = array();
-        
+
         foreach (new DirectoryIterator($this->examples_directory) as $file_info) {    
             if ($file_info->getExtension() !== 'html') {
                 continue;
@@ -34,6 +34,7 @@ class AccessibilityTester {
      * @return array|bool false on error, array of errors on success
      */
     protected function checkExample($file) {
+        echo "checking: " . $file . PHP_EOL;
         $url     = 'http://localhost/tests/Accessibility/tmp/' . $file . '.shtml';
         $command = 'pa11y -r json -s WCAG2AA --config ' . dirname(__FILE__) . '/pa11y.json ' . escapeshellarg($url);
         $errors  = array();
@@ -102,7 +103,13 @@ class AccessibilityTester {
 $tester = new AccessibilityTester();
 $tester->check();
 
+//Save what we expect to see if all tests pass to a file.
+$expect = '';
+foreach($tester->getFilesToCheck() as $file) {
+    $expect .= 'checking: ' . $file . PHP_EOL;
+}
+file_put_contents(__DIR__ . '/tmp/expect.txt', $expect);
+
 ?>
-===DONE===
---EXPECT--
-===DONE===
+--EXPECTFILE--
+tmp/expect.txt
