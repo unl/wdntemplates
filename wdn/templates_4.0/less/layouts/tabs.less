@@ -1,7 +1,7 @@
 // Set the primary background color, which will be drastically alphaed. 
 // Depending on parent background color, this could look murky. We may need a lighter/darker option.
 
-@tab-background-color: #3b3816; // Based on page background
+@tab-background-color: #E3E1D5;; // Based on page background
 
 .wdn_tabs {
     .list-reset;
@@ -10,13 +10,13 @@
 
     li {
         display: inline-block;
-        background-color: #EDEaE0;
+        background-color: fadeout(@tab-background-color, 50%);
         border-radius: 2px;
         margin: 0 0.4em 5px 0;
         .rem(@base-font-size-sm);
 
         &.selected {
-            background-color: #E3E1D5;
+            background-color: @tab-background-color;
             border-radius: 2px 2px 0 0;
             margin-bottom: 0;
 
@@ -46,7 +46,7 @@
 }
 
 .wdn_tabs_content {
-    background-color: #E3E1D5;
+    background-color: @tab-background-color;
     padding: 1rem;
     
     #maincontent > & {
