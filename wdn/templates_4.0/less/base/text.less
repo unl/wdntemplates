@@ -2,19 +2,15 @@
 
 // Enable OpenType features
 .kern {
-   -webkit-font-feature-settings: "kern"; /* No variation */
-       -moz-font-feature-settings: "kern=1"; /* Firefox 4.0 to 14.0 */
-       -moz-font-feature-settings: "kern"; /* Firefox 15.0 onwards */
-       -moz-font-feature-settings: "kern" 1; /* Firefox 15.0 onwards explicitly set feature values */
-            font-feature-settings: "kern"; /* No variation */
+    -webkit-font-feature-settings+: "kern"; /* No variation */
+       -moz-font-feature-settings+: "kern" 1; /* Firefox 15.0 onwards explicitly set feature values */
+            font-feature-settings+: "kern"; /* No variation */
 }
 
 .ligatures {
-    -webkit-font-feature-settings: "liga"; /* No variation */
-       -moz-font-feature-settings: "liga=1"; /* Firefox 4.0 to 14.0 */
-       -moz-font-feature-settings: "liga"; /* Firefox 15.0 onwards */
-       -moz-font-feature-settings: "liga" 1; /* Firefox 15.0 onwards explicitly set feature values */
-            font-feature-settings: "liga"; /* No variation */
+    -webkit-font-feature-settings+: "liga"; /* No variation */
+       -moz-font-feature-settings+: "liga" 1; /* Firefox 15.0 onwards explicitly set feature values */
+            font-feature-settings+: "liga"; /* No variation */
 }
 
 // GENERAL
