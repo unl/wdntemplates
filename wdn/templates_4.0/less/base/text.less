@@ -66,20 +66,32 @@ p, span, div, ul, li, section, img {
 }
 
 // All caps, Gotham header
-
-.wdn-alt-header, .wdn-subhead {
+.wdn-sans-caps {
     .sans-serif-font;
     line-height: 1.333;
     text-transform: uppercase;
+    letter-spacing: 0.02em;  
 }
 
 .wdn-alt-header {
+    .wdn-sans-caps;
     .rem(13,16);
+}
+
+.wdn-list-header {
+    .wdn-alt-header;
+    padding: 1em 0 0.254em;
+    border-bottom: 1px solid #d0cec6;
+
+    @media @bp2 {
+        padding: 1.333em 0 0.254em;
+    }
 }
 
 // SUBHEADS
 
 .wdn-subhead {
+    .wdn-sans-caps;
     display: block;
     margin: 0.75em 0;       
     color: fadeout(@base-text, 20%);
