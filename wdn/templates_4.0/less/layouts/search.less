@@ -73,6 +73,23 @@
 	}
 }
 
+#wdn_search_progress {
+	display: none;
+	
+	@media @bp-nav-full {
+		display: inline-block;
+		position: absolute;
+		bottom: -40px;
+		right: 320px;
+		width: 4em;
+		z-index: (@nav-z-index + 2);
+	}
+	
+	@media @bp3 {
+		right: 270px;
+	}
+}
+
 #wdn_search_form {
     z-index: 1; // Ensure we're above the site title
     top: 0.75em;

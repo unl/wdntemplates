@@ -19,6 +19,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 					domSearchForm = $('#wdn_search_form'),
 					domEmbed,
 					$unlSearch,
+					$progress,
 					submitted = false,
 					postReady = false,
 					autoSubmitTimeout,
@@ -77,6 +78,8 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 						}
 					});
 
+					$progress = $('<progress>', {id: 'wdn_search_progress'}).text('Loading...');
+
 					domSearchForm.on('submit', function(e) {
 						if (!isFullNav()) {
 							this.target = '';
@@ -90,19 +93,22 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 								id: 'wdn_search_frame',
 								title: 'Search results'
 							});
-							domSearchForm.parent().append($unlSearch);
+
+							domSearchForm.parent().append($unlSearch).append($progress);
 
 							$unlSearch.on('load', function() {
 								if (!submitted) {
 									return;
 								}
 
+								$progress.hide();
 								postReady = true;
 							});
 						}
 						domEmbed.prop('disabled', false);
 						this.target = 'unlsearch';
 						$(this).parent().addClass('active');
+						$progress.show();
 
 						if (!submitted) {
 							submitted = true;
@@ -112,6 +118,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 						if (postReady && $unlSearch[0].contentWindow.postMessage) {
 							e.preventDefault();
 							$unlSearch[0].contentWindow.postMessage(domQ.val(), window.location.protocol + searchOrigin);
+							$progress.hide();
 						}
 					});
 
