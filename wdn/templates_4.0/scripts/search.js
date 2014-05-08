@@ -15,10 +15,12 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 					domSearchForm = $('#wdn_search_form'),
 					siteHomepage = nav.getSiteHomepage();
 				
-				/**
-			     * Add the experimental text-to-speech
-			     */
-	            domQ[0].setAttribute('x-webkit-speech', 'x-webkit-speech');
+				// element is not always in the dom even though it ships 
+				// in the template may have been removed for CMS edit mode
+				if(!domQ.length) { return; }
+
+				// * Add the experimental text-to-speech
+			        domQ[0].setAttribute('x-webkit-speech', 'x-webkit-speech');
 	
 				var localSearch = getLocalSearch();
 				if (localSearch) {
