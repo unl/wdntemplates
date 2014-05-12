@@ -32,16 +32,14 @@
     width: 40px;
     height: 38px;
     margin-right: 5px;
+    float: left;
 
-        a {
-            .text-hidden();
-        }
-
-    @media @bp-nav-hidden {
-        float: left;
+    a {
+        .text-hidden();
     }
 
     @media @bp-nav-full {
+    	float: none;
         position: absolute;
         background: data-uri('../images/n_flag.svg') no-repeat;
         background-size: 119px 128px;
@@ -152,7 +150,17 @@
     .rem(23);
     line-height: 1;
     .ligatures();
+    width: ~'-webkit-calc(100% - 45px)';
+    width: ~'-moz-calc(100% - 45px)';
+    width: ~'calc(100% - 45px)';
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
+    span span {
+        .text-hidden();
+    }
+    
     a {
         color: @heading-text;
         text-decoration: none;
@@ -162,22 +170,11 @@
         border-bottom: none;
     }
 
-    @media @bp-nav-hidden {
-        width: ~'-webkit-calc(100% - 45px)';
-        width: ~'-moz-calc(100% - 45px)';
-        width: ~'calc(100% - 45px)';
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-
-        span span {
-            .text-hidden();
-        }
-    }
-
     @media @bp-nav-full {
         width: 100%;
-        padding: 0.75em 0 0.1em;
+        overflow: visible;
+        white-space: normal;
+        margin: 1.3333em 0 0;
         .rem(30);
 
         span {

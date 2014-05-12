@@ -25,7 +25,6 @@ define(['wdn', 'require', 'legacy',
         'navigation',
         'search',
         'unlalert',
-        'apps',
         'images'], function(WDN, require) {
 	WDN.initializePlugin('analytics');
 	WDN.initializePlugin('analytics_scroll_depth');
@@ -33,7 +32,6 @@ define(['wdn', 'require', 'legacy',
 	WDN.initializePlugin('search');
 	WDN.initializePlugin('socialmediashare');
 	WDN.initializePlugin('unlalert');
-	WDN.initializePlugin('apps');
 	WDN.initializePlugin('images');
 
     var unlchat_url = '//ucommchat.unl.edu/assets/js';

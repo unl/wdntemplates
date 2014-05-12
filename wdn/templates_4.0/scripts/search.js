@@ -4,22 +4,33 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 		if (link.length && link[link.length - 1].type != 'application/opensearchdescription+xml') {
 			return link[link.length - 1].href;
 		}
-		
+
 		return false;
 	}
-	
+
+	var isFullNav = function() {
+		return Modernizr.mq('(min-width: 700px)') || !Modernizr.mq('only all');
+	};
+
 	return {
 		initialize : function() {
 			$(function() {
 				var domQ = $('#wdn_search_query'),
 					domSearchForm = $('#wdn_search_form'),
+					domEmbed,
+					$unlSearch,
+					$progress,
+					submitted = false,
+					postReady = false,
+					autoSubmitTimeout,
+					searchOrigin = '//www1.unl.edu',
 					siteHomepage = nav.getSiteHomepage();
-				
+
 				/**
 			     * Add the experimental text-to-speech
 			     */
-	            domQ[0].setAttribute('x-webkit-speech', 'x-webkit-speech');
-	
+	            domQ.attr('x-webkit-speech', 'x-webkit-speech');
+
 				var localSearch = getLocalSearch();
 				if (localSearch) {
 					// Change form action to the local search
@@ -36,7 +47,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 						}
 						domSearchForm.append(htmlUpdate);
 					}
-					
+
 					domSearchForm.attr('action', localSearch);
 				} else {
 					if (siteHomepage && siteHomepage !== 'http://www.unl.edu/') {
@@ -46,19 +57,82 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 							value: siteHomepage
 						}));
 					}
+
+					domEmbed = $('<input>', {
+						type: "hidden",
+						name: "embed",
+						value: 1
+					});
+					domSearchForm.append(domEmbed);
+
+					domQ.on('keyup', function(e0) {
+						if (!isFullNav()) {
+							return;
+						}
+
+						clearTimeout(autoSubmitTimeout);
+						if ($(this).val()) {
+							autoSubmitTimeout = setTimeout(function() {
+								domSearchForm.submit();
+							}, 300);
+						}
+					});
+
+					$progress = $('<progress>', {id: 'wdn_search_progress'}).text('Loading...');
+
+					domSearchForm.on('submit', function(e) {
+						if (!isFullNav()) {
+							this.target = '';
+							domEmbed.prop('disabled', true);
+							return;
+						}
+
+						if (!$unlSearch) {
+							$unlSearch = $('<iframe>', {
+								name: 'unlsearch',
+								id: 'wdn_search_frame',
+								title: 'Search results'
+							});
+
+							domSearchForm.parent().append($unlSearch).append($progress);
+
+							$unlSearch.on('load', function() {
+								if (!submitted) {
+									return;
+								}
+
+								$progress.hide();
+								postReady = true;
+							});
+						}
+						domEmbed.prop('disabled', false);
+						this.target = 'unlsearch';
+						$(this).parent().addClass('active');
+						$progress.show();
+
+						if (!submitted) {
+							submitted = true;
+							return;
+						}
+
+						if (postReady && $unlSearch[0].contentWindow.postMessage) {
+							e.preventDefault();
+							$unlSearch[0].contentWindow.postMessage(domQ.val(), window.location.protocol + searchOrigin);
+							$progress.hide();
+						}
+					});
+
+					$(document).on('click', function(e) {
+						var $wdnSearch = domSearchForm.parent();
+						if (!$wdnSearch.find(e.target).length) {
+							$wdnSearch.removeClass('active');
+						}
+					});
 				}
-				
+
 				var localPlaceholder = WDN.getPluginParam('search', 'placeholder');
 				if (localPlaceholder) {
 					domQ.attr('placeholder', localPlaceholder);
-				}
-					
-				if (!Modernizr.placeholder) {
-					WDN.loadJQuery(function() {
-						require(['plugins/placeholder/jquery.placeholder.min'], function() {
-							domQ.placeholder();
-						});
-					});
 				}
 			});
 		}

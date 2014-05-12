@@ -50,12 +50,14 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 
 		userDisplayName = function() {
 			var disp_name = '', i;
-			if (user.cn) {
-				for (i in user.cn) {
-					if (!disp_name || user.cn[i].length < disp_name.length) {
-						disp_name = user.cn[i];
-					}
+			if ((user.eduPersonNickname || user.givenName) && user.sn) {
+				if (user.eduPersonNickname) {
+					disp_name = user.eduPersonNickname[0]
+				} else {
+					disp_name = user.givenName[0];
 				}
+
+				disp_name += ' ' + user.sn[0][0] + '.';
 			} else if (user.displayName) {
 				disp_name = user.displayName[0];
 			}
