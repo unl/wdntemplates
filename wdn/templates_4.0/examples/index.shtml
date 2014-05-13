@@ -337,7 +337,6 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
             <div class="wdn-band" id="wdn_footer_related">
                 <div class="wdn-inner-wrapper">
                     <!-- InstanceBeginEditable name="leftcollinks" -->
-                    <!--#include virtual="../../../sharedcode/relatedLinks.html" -->
                     <!-- InstanceEndEditable -->
                 </div>
             </div>
@@ -347,14 +346,12 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
                         <h3>Contact Us</h3>
                         <div class="wdn-contact-wrapper">
                             <!-- InstanceBeginEditable name="contactinfo" -->
-                            <!--#include virtual="../../../sharedcode/footerContactInfo.html" -->
                             <!-- InstanceEndEditable -->
                         </div>
                     </div>
                     <div id="wdn_copyright">
                         <div class="wdn-footer-text">
                             <!-- InstanceBeginEditable name="footercontent" -->
-                            <!--#include virtual="../../../sharedcode/footer.html" -->
                             <!-- InstanceEndEditable -->
                             <!--#include virtual="/wdn/templates_4.0/includes/wdn.html" -->
                         </div>
