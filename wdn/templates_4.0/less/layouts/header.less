@@ -157,8 +157,11 @@
     text-overflow: ellipsis;
     overflow: hidden;
 
-    span span {
-        .text-hidden();
+	@media @bp-nav-hidden {
+		// site title affiliation
+	    span span {
+	        .text-hidden();
+	    }
     }
     
     a {
@@ -182,7 +185,6 @@
 
             span {
                 display: block;
-                text-indent: 0;
                 .rem(10);
                 text-transform: uppercase;
                 letter-spacing: 0;
