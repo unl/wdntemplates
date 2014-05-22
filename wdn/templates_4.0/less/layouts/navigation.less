@@ -37,8 +37,8 @@
     cursor: pointer;
     font-size: 21px;
     font-size: 1.333rem;
-    color: #fae8e8;
-    padding: 0.451em 0;
+    color: #fff;
+    padding: 7px 0;
 
     &:before { // Show the navigation icon
        padding-right: 1em;
@@ -50,6 +50,10 @@
     position: relative;
     float: left;
     width: 1.333em;
+
+    @media @bp-nav-full {
+        margin-top: 2px;
+    }
 }
 
 #wdn_navigation_bar {
