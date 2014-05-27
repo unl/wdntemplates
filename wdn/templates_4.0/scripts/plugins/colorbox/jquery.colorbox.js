@@ -4,6 +4,10 @@
 	(c) 2013 Jack Moore - http://www.jacklmoore.com/colorbox
 	license: http://www.opensource.org/licenses/mit-license.php
 */
+/*
+	WDN CHANGES NOTE:
+	- added a title to the previous, next and slideshow buttons to pass WCAG2.0
+ */
 (function ($, document, window) {
 	var
 	// Default settings object.
@@ -419,9 +423,9 @@
 			$content = $tag(div, "Content").append(
 				$title = $tag(div, "Title"),
 				$current = $tag(div, "Current"),
-				$prev = $('<button type="button"/>').attr({id:prefix+'Previous'}),
-				$next = $('<button type="button"/>').attr({id:prefix+'Next'}),
-				$slideshow = $tag('button', "Slideshow"),
+				$prev = $('<button type="button"/>').attr({id:prefix+'Previous',title:'Previous'}),
+				$next = $('<button type="button"/>').attr({id:prefix+'Next',title:'Next'}),
+				$slideshow = $tag('button', "Slideshow").attr({title:"Slideshow"}),
 				$loadingOverlay
 			);
 
