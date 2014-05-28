@@ -12,66 +12,64 @@ form {
 
     fieldset {
         border: 0;
-        margin: 0;
+        margin: 1.777em 0 1em;
         padding: 0;
     }
 
     legend {
-        .heading-font;
         position: relative;
-        .rem(20);
-        font-weight: bold;
-        white-space: normal;
-        padding: 0;
-        border-bottom: 1px solid @base-text;
-        margin-bottom: 1em;
         width: 100%;
+        .wdn-sans-caps;
+        .kern;
+        white-space: normal;
+        margin-bottom: 1em;
+        padding-bottom: 0.339em;
+        border-bottom: 1px solid @ui04;
     }
 
     fieldset fieldset {
-        margin-bottom: 1em;
+        margin: 1em 0;
 
         legend {
-            .base-font;
-            .rem(18);
-            border: 0;
-            font-weight: normal;
             margin: 0;
-            width: auto;
+            border: 0;
+            .wdn-sans-serif;
+            text-transform: none;
+            .rem(12,13);
         }
     }
 
     label {
         position: relative;
-        .rem(18);
+        .wdn-sans-serif;
+        .rem(12,13);
     }
 
     input, textarea, select {
         display: inline-block;
         width: 100%;
-        background-color: #ffffff;
-        .sans-serif-font;
-        .rem(18);
+        padding: 0.75em;
+        .wdn-sans-serif;
+        color: lighten(@base-text, 40%);
         outline: none;
         border: 1px solid #dbdac8;
-        color: fadeout(@base-text, 40%);
-        padding: 0.75em;
-        margin-bottom: 1em;
         .border-radius(2px);
+        background-color: #fff;
 
         &:focus {
             outline: none;
-            color: @base-text;
+            border: 1px solid @triad;
+            color: @triad;
         }
 
         &.wdn-error {
             border: 1px solid @brand;
-			-webkit-animation:wdn-error 1.2s infinite alternate; // Safari and Chrome
-			-moz-animation:wdn-error 1.2s infinite alternate; // Firfox 
-            animation: wdn-error 1.2s infinite alternate;
+            -webkit-animation: wdn-error 1.2s infinite alternate; // Safari and Chrome
+               -moz-animation: wdn-error 1.2s infinite alternate; // Firfox 
+                    animation: wdn-error 1.2s infinite alternate;
         }
     }
-    
+
     input[type="search"] {
         .box-sizing(border-box); // override normalize.less
     }
@@ -79,73 +77,87 @@ form {
     input[type="radio"],
     input[type="checkbox"] {
         width: auto;
-        margin: 0.25em;
-        margin-bottom: 0;
+        margin: 0 0.254em 0 0;
 
         &+ label {
-            .rem(14);
             vertical-align: middle;
             .wdn-sans-serif;    
         }
     }
-    
+
     .wdn-input-group {
-    	display: table;
-    	font-size: 0;
-    	
-    	* {
-    		.border-radius(0);
-    		margin: 0;
-    	}
-    	
-		> * {
-			display: table-cell;
-		}
-		
-		.wdn-input-group-btn {
-			width: 1%;
-			vertical-align: middle;
-			
-			* {
-				font-size: 18px;
-				line-height: normal;
-				padding: 0.8em 1.333em;
-				margin: 0;
-			}
-		}
-		
-		> :first-child {
-			.border-radius(4px 0 0 4px);
-			
-			* {
-				.border-radius(4px 0 0 4px);
-			}
-		}
-		
-		> :last-child {
-			.border-bottom-right-radius(4px);
-			.border-top-right-radius(4px);
-			
-			* {
-				.border-bottom-right-radius(4px);
-				.border-top-right-radius(4px);
-			}
-		}
+        display: table;
+        font-size: 0;
+        -
+        * {
+            .border-radius(0);
+            margin: 0;
+        }
+        
+        > * {
+            display: table-cell;
+        }
+        
+        .wdn-input-group-btn {
+            width: 1%;
+            vertical-align: middle;
+            
+            * {
+                font-size: 18px;
+                line-height: normal;
+                padding: 0.8em 1.333em;
+                margin: 0;
+            }
+        }
+        
+        > :first-child {
+            .border-radius(4px 0 0 4px);
+            
+            * {
+                .border-radius(4px 0 0 4px);
+            }
+        }
+        
+        > :last-child {
+            .border-bottom-right-radius(4px);
+            .border-top-right-radius(4px);
+            
+            * {
+                .border-bottom-right-radius(4px);
+                .border-top-right-radius(4px);
+            }
+        }
     }
 
     span.required {
         text-indent: -999999px;
-        margin-right: 8px;
-        background: data-uri('../images/requiredIndicator.png') no-repeat 0px 0px;
+        margin-right: 0.254;
+        background: data-uri('../images/requiredIndicator.png') no-repeat 0 0;
         width: 12px;
         display: inline-block;
         line-height: 1;
-		vertical-align: middle;
+        vertical-align: middle;
+    }
+
+    .webform-component-textfield {
+        margin-bottom: 1em;
+    }
+
+    .form-required {
+        margin-left: 0.178em;
+        color: @brand;
     }
 
     span.helper {
         .rem(10);
     }
+
+    .description {
+        margin: 0.254em 0 1em;
+        .rem(12,13);
+        font-style: italic;
+    }
+
 
 // KEEP STYLING FOR LISTS
     &> fieldset > ol > li > label {
@@ -153,7 +165,7 @@ form {
     }
 
     input[type="submit"], input[type="button"], button {
-		border:0;
+        border:0;
         .wdn-button;
         .wdn-button-triad;
         width: auto;
@@ -173,14 +185,14 @@ form {
 }
 
 @-webkit-keyframes wdn-error {
-	from {
-		.box-shadow(0 0 6px fadeout(@brand, 20%));
-		border:1px solid @brand;
-	}
-	to {
-		.box-shadow(0 0 6px fadeout(@brand, 90%));
-		border:1px solid fadeout(@brand, 80%);
-	}
+    from {
+        .box-shadow(0 0 6px fadeout(@brand, 20%));
+        border:1px solid @brand;
+    }
+    to {
+        .box-shadow(0 0 6px fadeout(@brand, 90%));
+        border:1px solid fadeout(@brand, 80%);
+    }
 }
 
 @-moz-keyframes wdn-error {

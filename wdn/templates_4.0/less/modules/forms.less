@@ -16,9 +16,9 @@
 
     &[disabled] {
     	cursor: not-allowed;
-        background-color: mix(@color, #666666, 45%);
-        color: darken(#FFFFFF, 5%);
-        .box-shadow(0 2px 0px mix(@color, #666666, 30%));
+        background-color: mix(@color, #666, 45%);
+        color: darken(#fff, 5%);
+        .box-shadow(0 2px 0px mix(@color, #666, 30%));
     }
 }
 
@@ -26,14 +26,14 @@
     border: none;
     border-radius: 3px;
     opacity: 0.95;
-    color: #ffffff;
+    color: #fff;
     margin: 1em 0;
     padding: 1.069em 1.333em 1em;
     display: inline-block;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    .sans-serif-font;
+    .wdn-sans-serif;
     line-height: 1;
     .rem(10,12);
     .transition(background-color 0.2s);
@@ -41,7 +41,7 @@
     
     .wdn-main a& {
         // needed to make the selector more specific
-        color: #ffffff;
+        color: #fff;
         border: none;
     }
 }
