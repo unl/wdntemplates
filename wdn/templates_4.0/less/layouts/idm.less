@@ -4,13 +4,14 @@
     
     @media @bp-nav-hidden {
         position: absolute;
-        top: 52px; // position over the nav bar
+        top: 51px; // position over the nav bar
         right: 5%;
         z-index: (@nav-z-index + 1); // overlay the nav bar
         text-align: right;
 
         a {
             color: #fae8e8;
+            background-color: @brand; // make the background match the navigation's background so it passes automated accessibility tests
         }
     }
 }
