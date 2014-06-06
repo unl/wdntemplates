@@ -49,8 +49,8 @@
 	z-index: (@nav-z-index + 1);
 	width: 212px;
 	padding: 1.069em 2.369em;
-	background-color: @heading-text;
-	background-color: fadeout(@heading-text, 3%);
+	background-color: @ui10;
+	background-color: fadeout(@ui10, 3%);
 	border-radius: 3px;
 	text-align: left;
 	.wdn-sans-serif();
@@ -72,8 +72,8 @@
         height: 0;
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
-        border-bottom: 6px solid #444340;
-        border-bottom: 6px solid fadeout(#444340, 3%);
+        border-bottom: 6px solid @ui10;
+        border-bottom: 6px solid fadeout(@ui10, 3%);
 
         @media @bp-nav-full {
             left: auto;
@@ -96,7 +96,7 @@
 
 	a {
 		padding: 0.602em 0;
-		color: #b7b4ad;
+		color: @ui05;
 
 		&:hover {
 			color: @cream;
