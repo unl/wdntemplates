@@ -3,12 +3,12 @@
  */
 define(['jquery', 'wdn'], function($, WDN) {
 	var activeIds = [], calltimeout,
-	
+
 	ckPrfx = 'unlAlerts',
 	idPrfx = 'unlalert',
 	cntSuf = '_content',
 	togSuf = '_toggle',
-	
+
 	_browserCompat = function() {
 		if (!Array.prototype.indexOf) {
 			Array.prototype.indexOf = function (searchElement) {
@@ -29,7 +29,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 			};
 		}
 	},
-	
+
 	_getClosedAlerts = function() {
 		var c = WDN.getCookie(ckPrfx + 'C');
 		if (c) {
@@ -37,7 +37,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 		}
 		return [];
 	},
-	
+
 	_pushClosedAlert = function(id) {
 		var closed = _getClosedAlerts();
 		if (closed.indexOf(id) != -1) {
@@ -46,7 +46,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 		closed.push(id);
 		WDN.setCookie(ckPrfx + 'C', closed.join(','), 3600);
 	},
-	
+
 	_checkCookie = function(name) {
 		var c = WDN.getCookie(name);
 		if (c) {
@@ -54,15 +54,15 @@ define(['jquery', 'wdn'], function($, WDN) {
 		}
 		return false;
 	},
-	
+
 	_dataHasExpired = function() {
 		return !_checkCookie(ckPrfx + 'Data');
 	},
-	
+
 	_hasPreviousAlert = function() {
 		return _checkCookie(ckPrfx + 'A');
 	},
-	
+
 	_flagPreviousAlert = function(flag) {
 		var value = 1, time = 60;
 		if (flag === false) {
@@ -81,11 +81,11 @@ define(['jquery', 'wdn'], function($, WDN) {
 		old  = document.getElementById('lastLoadedCmds'),
 		cacheBust = (new Date()).getTime(),
 		script = document.createElement('script');
-		
+
 		if (old) {
 			head.removeChild(old);
 		}
-		
+
 		script.type = 'text/javascript';
 		script.defer = true;
 		script.async = true;
@@ -93,13 +93,13 @@ define(['jquery', 'wdn'], function($, WDN) {
 		script.src = dataUrl + '?' + cacheBust;
 		head.appendChild(script);
 	},
-	
+
 	_checkIfCallNeeded = function() {
 		if (_dataHasExpired() || _hasPreviousAlert()) {
 			_callServer();
 		}
 	},
-	
+
 	dataReceived = function() {
 		WDN.log('UNL Alert data received');
 		clearTimeout(calltimeout);
@@ -107,16 +107,16 @@ define(['jquery', 'wdn'], function($, WDN) {
 		WDN.setCookie(ckPrfx + 'Data', 1, 60);
 		calltimeout = setTimeout(_checkIfCallNeeded, 60000);
 	},
-	
+
 	alertWasAcknowledged = function(id) {
 		var closed = _getClosedAlerts();
 		return (closed.indexOf(id) != -1 ? true : false);
 	},
-	
+
 	_acknowledgeAlert = function(id) {
 		_pushClosedAlert(id);
 	},
-	
+
 	toggleAlert = function() {
 		WDN.log('Toggle UNL Alert Visibility');
 		var $alert = $('#' + idPrfx),
@@ -134,7 +134,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 			$alertToggle.find('i').attr('class', 'wdn-icon-cancel');
 		}
 	},
-	
+
 	alertUser = function(root) {
 		WDN.log('Alerting the user');
 
@@ -176,7 +176,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 			// Add a div to store the html content
 			if (!$alertWrapper.length) {
 				WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/unlalert.css'));
-				
+
 				$alertWrapper = $('<div>', {
 					'id': idPrfx,
 					'class': 'wdn-band wdn-content-slide'
@@ -184,9 +184,9 @@ define(['jquery', 'wdn'], function($, WDN) {
 					'position': 'absolute',
 					'top': '-1000px'
 				}).insertBefore('#header');
-				
+
 				$alertContent = $('<div>', {'id': idPrfx + cntSuf});
-				
+
 				$('<div>', {'class': 'wdn-inner-wrapper'})
 					.append($alertContent)
 					.appendTo($alertWrapper);
@@ -203,7 +203,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 				alertContentHTML += info[i].instruction + '<br/>';
 			}
 			alertContentHTML += 'Additional info (if available) at <a href="' + web + '">' + web + '</a></p>';
-			
+
 			$alertContent.append(alertContentHTML);
 		}
 
@@ -229,11 +229,11 @@ define(['jquery', 'wdn'], function($, WDN) {
 			}
 		}
 	},
-	
+
 	noAlert = function() {
 		_flagPreviousAlert(false);
 	};
-	
+
 	window.unlAlerts = {
 		data: {},
 		server: {
@@ -252,7 +252,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 	};
 
 	return {
-		
+
 		initialize: function() {
 			_browserCompat();
 			_checkIfCallNeeded();
