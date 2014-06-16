@@ -1,6 +1,6 @@
 .nav-bar() {
     .clear-fix;
-    border-top: 2px solid #5f5f4e;
+    border-top: 2px solid @ui08;
     background-color: @brand;
 }
 
@@ -82,10 +82,10 @@
         overflow-y: scroll;
         .transition(left @nav-transition-duration ease);
         color: @cream;
-        background-color: #444340;
+        background-color: @ui10;
 
         a {
-            color: #e1dfd7;
+            color: @ui05;
         }
 
         a:hover {
@@ -107,7 +107,7 @@
 
         // Styles specific to the mobile view
         @media @bp-nav-hidden {
-            border-bottom: 1px solid darken(@heading-text,3%);
+            border-bottom: 1px solid @ui11;
         }
     }
 

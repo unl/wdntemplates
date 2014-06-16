@@ -58,15 +58,12 @@
 
         [class^=wdn-icon] {
 
-            &:before {
+            @media @bp-nav-hidden {
+                color: @ui10;
+            }
 
-                @media @bp-nav-hidden {
-                    color: @ui10;
-                }
-
-                @media @bp-nav-full {
-                    color: #fff;
-                }
+            @media @bp-nav-full {
+                color: #fff;
             }
         }
     }

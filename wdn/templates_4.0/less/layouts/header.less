@@ -18,9 +18,9 @@
 
     @media @bp-nav-full {
         text-align: center;
-        border-bottom: 1px solid #e6dec5;
+        border-bottom: 1px solid @ui03;
         padding-bottom: 0.451em;
-        box-shadow: inset 0 41px 0 fadeout(darken(@page-background, 70%), 96%);
+        box-shadow: inset 0 41px @ui02;
     }
 }
 
@@ -39,7 +39,7 @@
     }
 
     @media @bp-nav-full {
-    	float: none;
+        float: none;
         position: absolute;
         background: data-uri('../images/n_flag.svg') no-repeat;
         background-size: 119px 128px;
@@ -130,7 +130,7 @@
 #wdn_institution_title {
     float: left;
     white-space: nowrap;
-    color: fadeout(darken(@page-background, 70%), 20%);
+    color: lighten(@ui08, 7%);
     text-transform: uppercase;
     .brand-font();
     .rem(16);
@@ -157,11 +157,11 @@
     text-overflow: ellipsis;
     overflow: hidden;
 
-	@media @bp-nav-hidden {
-		// site title affiliation
-	    span span {
-	        .text-hidden();
-	    }
+    @media @bp-nav-hidden {
+        // site title affiliation
+        span span {
+            .text-hidden();
+        }
     }
     
     a {
