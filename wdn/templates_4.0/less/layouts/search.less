@@ -13,16 +13,9 @@
         background-color: @ui10; 
         border-bottom: 2px solid @ui11;
         .transition(left @nav-transition-duration ease);
-
-        .wdn-input-group {
-            width: 100%;
-        } 
     }
     
     @media @bp-nav-full {
-	    .wdn-input-group > * {
-	    	float: left;
-        } 
     	
 	    &.active:after {
 	    	content: '';
@@ -57,7 +50,7 @@
     &.wdn-resource-label {
 
         [class^=wdn-icon] {
-
+            
             @media @bp-nav-hidden {
                 color: @ui10;
             }
