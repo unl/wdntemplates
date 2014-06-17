@@ -51,12 +51,25 @@
 
         [class^=wdn-icon] {
             
+            // Text is hidden, but these colors are required to pass accessibility tests        
             @media @bp-nav-hidden {
-                color: @ui10;
+                color: #fff;
             }
 
             @media @bp-nav-full {
-                color: #fff;
+                color: #000;
+            }
+            
+            // Actual icon colors
+            &:before { 
+
+                @media @bp-nav-hidden {
+                    color: @ui10;
+                }
+                
+                @media @bp-nav-full {
+                    color: #fff;
+                }
             }
         }
     }
