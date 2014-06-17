@@ -10,56 +10,62 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 		wdnProp = 'UA-3203435-1',
 		unlDomain = '.unl.edu',
 
+		defaultExt = '7z|aac|arc|arj|asf|asx|avi|bin|csv|docx?|exe|flv|gif|gz(?:ip)?|hqx|jar|jpe?g|js|m4v|mp(?:2|3|4|e?g)|mov(?:ie)?|msi|msp|pdf|phps|png|pptx?|qtm?|ra[mr]?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xlsx?|xml|z|zip',
+		reOrigin = new RegExp('^https?://' + window.location.host + '(?=/)', 'i'),
+
 		Plugin,
-		thisURL = String(window.location),
 		initd = false,
 
 		gaWdnName = 'wdn',
 		gaWdn = gaWdnName + '.';
 
-	var bindLinks = function() {
-		WDN.log('Begin binding links for analytics');
-		//get the links in the navigation and maincontent
-		var navLinks = $('a', '#navigation'),
-			mainLinks = $('a', '#maincontent'),
-			evaluateLinks,
-			filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i;
-
-		evaluateLinks = function() {
-			var link = $(this);
-			var gahref = link.attr("href");
-			if (!gahref) {
-				return;
-			}
-
-			if ((gahref.match(/^https?\:/i)) && (!gahref.match(document.domain))){
-				link.click(function() {
-					Plugin.callTrackEvent('Outgoing Link', gahref, thisURL);
-					Plugin.callTrackPageview(gahref, false);
-				});
-			} else if (gahref.match(/^mailto\:/i)){
-				var mailLink = gahref.replace(/^mailto\:/i, '');
-				link.click(function() {
-					Plugin.callTrackEvent('Email', mailLink, thisURL);
-				});
-			} else if (gahref.match(filetypes)){
-				var extension = (/[.]/.exec(gahref)) ? /[^.]+$/.exec(gahref) : undefined;
-				link.click(function() {
-					Plugin.callTrackEvent('File Download', gahref, thisURL, extension);
-					Plugin.callTrackPageview(gahref);
-				});
-			}
-		};
-
-		//loop through all the links and pass them to type evaluation
-		navLinks.each(evaluateLinks);
-		mainLinks.each(evaluateLinks);
+	var getParam = function(name) {
+		return WDN.getPluginParam('analytics', name);
 	};
 
-	var bindApps = function() {
-		var $appToggle = $('#wdn_resource_apps');
-		$appToggle.one('click', function() {
-			Plugin.callTrackEvent('WDN Apps', 'Opened', thisURL);
+	var bindLinks = function() {
+		WDN.log('Begin binding links for analytics');
+
+		var filetypes = getParam('extensions') || defaultExt,
+			trackDownload = getParam('trackDownload'),
+			reDownload = new RegExp('\\.(' + filetypes + ')(?:[\?#].*)?$', 'i'),
+			trackMailto = getParam('trackMailto'),
+			trackOutbound = getParam('trackOutbound');
+
+		if (trackDownload !== false) {
+			trackDownload = true;
+		}
+
+		if (trackMailto !== false) {
+			trackMailto = true;
+		}
+
+		if (trackOutbound !== false) {
+			trackOutbound = true;
+		}
+
+		$(document).on('click', 'a,area', function() {
+			var ext;
+
+			if (reOrigin.test(this.href)) {
+				// this is an internal URL
+				ext = reDownload.exec(this.href);
+				if (ext) {
+					if (trackDownload) {
+						Plugin.calltrackEvent('Downloads', ext[1].toUpperCase(), this.href.replace(reOrigin, ''));
+					}
+				}
+			} else {
+				if (this.href.match(/^mailto:/i)) {
+					if (trackMailto) {
+						Plugin.callTrackEvent('Mails', 'Click', this.href.substring(7));
+					}
+				} else if (this.href.match(/^\w+:\/\//i)) {
+					if (trackOutbound) {
+						Plugin.callTrackEvent('Outbound links', 'Click', this.href);
+					}
+				}
+			}
 		});
 	};
 
@@ -80,7 +86,7 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 
 	Plugin = {
 		initialize : function() {
-			WDN.log("WDN site analytics loaded for "+ thisURL) ;
+			WDN.log("WDN site analytics loaded") ;
 
 			var version_dep = WDN.getDepVersion(),
 				gaDim = 'dimension',
@@ -97,8 +103,7 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 
 					Plugin.callTrackPageview();
 
-					$(bindLinks);
-					$(bindApps);
+					bindLinks();
 				};
 
 			ga('create', wdnProp, {
