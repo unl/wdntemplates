@@ -9,11 +9,31 @@ form {
     ol, ul {
         .list-reset;
     }
+    
+    li {
+    	margin: 1em 0;
+    	
+    	li {
+    		margin: 0;
+    	}
+    }
 
     fieldset {
         border: 0;
         margin: 1.777em 0 1em;
         padding: 0;
+        
+        fieldset {
+        	margin: 1em 0;
+	
+	        legend {
+	            margin: 0;
+	            border: 0;
+	            .wdn-sans-serif;
+	            text-transform: none;
+	            .rem(12,13);
+	        }
+	    }
     }
 
     legend {
@@ -25,18 +45,6 @@ form {
         margin-bottom: 1em;
         padding-bottom: 0.339em;
         border-bottom: 1px solid @ui04;
-    }
-
-    fieldset fieldset {
-        margin: 1em 0;
-
-        legend {
-            margin: 0;
-            border: 0;
-            .wdn-sans-serif;
-            text-transform: none;
-            .rem(12,13);
-        }
     }
 
     label {
