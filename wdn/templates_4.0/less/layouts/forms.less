@@ -29,7 +29,7 @@ form {
 	        legend {
 	            margin: 0;
 	            border: 0;
-	            .wdn-sans-serif;
+	            .sans-serif-font();
 	            text-transform: none;
 	            .rem(12,13);
 	        }
@@ -39,7 +39,8 @@ form {
     legend {
         position: relative;
         width: 100%;
-        .wdn-sans-caps;
+        .heading-font();
+        text-transform: uppercase;
         .kern;
         white-space: normal;
         margin-bottom: 1em;
@@ -49,7 +50,7 @@ form {
 
     label {
         position: relative;
-        .wdn-sans-serif;
+        .sans-serif-font();
         .rem(12,13);
     }
 
@@ -57,7 +58,7 @@ form {
         display: inline-block;
         width: 100%;
         padding: 0.75em;
-        .wdn-sans-serif;
+        .sans-serif-font();
         outline: none;
         border: 1px solid @ui04;
         .border-radius(2px);
@@ -88,14 +89,14 @@ form {
 
         &+ label {
             vertical-align: middle;
-            .wdn-sans-serif;    
+            .sans-serif-font();   
         }
     }
 
     .wdn-input-group {
         display: table;
         font-size: 0;
-        -
+
         * {
             .border-radius(0);
             margin: 0;
@@ -114,6 +115,7 @@ form {
                 line-height: normal;
                 padding: 0.8em 1.333em;
                 margin: 0;
+                .border-radius(0);
             }
         }
         
