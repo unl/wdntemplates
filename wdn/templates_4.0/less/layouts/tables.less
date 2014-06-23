@@ -3,56 +3,54 @@ table {
     max-width: 100%;
     line-height: @base-line-height-sm;
     .base-font();
+    border: 1px solid @ui04;
 
     @media @bp2 {
         line-height: @base-line-height-lg;
     }
 
     caption {
-        .rem(30);
-        .heading-font();
+        .brand-font();
+        .rem(38,41);
+        line-height: 1;
+        margin-bottom: 0.75em;
     }
 
     th {
-        .brand-font();
-        color: @dark-neutral;
-        background: darken(@page-background, 10%);
-
-      @media @bp2 {
-            font-size: 110%;
-        }
+        .wdn-sans-caps();
+        .rem(12,13);
+        line-height: 1.333;
+        border-top: 1px solid @ui04;
+        background-color: darken(@ui01, 2%);
     }
 
     th, td {
-        padding: 4px;
+        padding: 10px;
         text-align: left;
     }
 
     td {
+        padding: 0.422em 1em;
         font-weight: normal;
+
+        @media @bp2 {
+            padding: 0.422em 0.75em;
+        }
     }
 
     tbody {
         tr {
-            &:first-child td {
-                border-top-width: 3px;
-            }
-
             &:nth-of-type(even) {
-                background-color:transparent;
+                background-color: @ui01;
             }
 
             &:nth-of-type(odd) {
-                background-color: fadeout(#ffffff, 60%);
+                background-color: transparent;
             }
         }
 
         td {
-            border-top-width: 1px;
-            border-top-style: solid;
-            border-bottom-style: solid;
-            border-bottom-width: 1px;
-            border-color: darken(@page-background, 20%);
+            border-top: 1px solid @ui04;
         }
 
         th {
@@ -72,7 +70,7 @@ table.wdn_responsive_table {
 
     th, td {
         text-align: center;
-        display:block;
+        display: block;
 
         @media @bp2 {
             display: table-cell;
@@ -81,11 +79,17 @@ table.wdn_responsive_table {
 
     tbody {
         tr {
-            &:first-child td {
-                border-top-width: 1px;
+            @media @under-bp2 {
+                &:nth-of-type(even) {
+                    background-color: transparent;
+                }
+            }
+
+            &:first-child th {
+                border-top-width: 0;
 
                 @media @bp2 {
-                    border-top-width: 3px;
+                    border-top-width: 1px;
                 }
             }
         }
