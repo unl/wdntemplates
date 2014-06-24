@@ -16,17 +16,6 @@
     }
 }
 
-.wdn-icon-user:before {
-    @media @bp-nav-hidden {
-        vertical-align: top;
-        margin-top: -1px;
-    }
-
-    @media @bp-nav-full {
-        color: @ui06;
-    }
-}
-
 #wdn_idm_user_options {
     display: none;
     position: absolute;
@@ -65,4 +54,15 @@
 #wdn_idm_username {
     background-repeat: no-repeat;
     white-space: nowrap;
+    
+    &:before {
+    	@media @bp-nav-hidden {
+	        vertical-align: top;
+	        margin-top: -1px;
+	    }
+	
+	    @media @bp-nav-full {
+	        color: @ui06;
+	    }
+    }
 }
