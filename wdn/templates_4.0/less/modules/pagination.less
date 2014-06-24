@@ -20,34 +20,42 @@ Markup for these:
 </div>
 */
 
+.pagination-padding {
+    padding: 0.422em 0.602em 0.317em;
+}
+
 .wdn_pagination {
     .clear-fix;
     
     li {
-        display:block;
+        display: block;
         float: left;
-        font-size:12px;
-        margin:2px 4px;
-        vertical-align:middle;
+        .sans-serif-font();
+        .rem(12,13);
+        margin: 0.254em;
+        vertical-align: middle;
+        
         a {
-            display:block;
-            padding:2px 4px;
-            border:1px solid #dadada;
+            display: block;
+            .pagination-padding();
+            border: 1px solid @ui04;
+            .transition(border ease-out 0.2s);
+            
             &:hover, &:active {
-                color: #fff;
-                background: #6e6e6e;
-                border: 1px solid #5e5e5e;
+                color: @brand;
+                border: 1px solid @brand;
             }
         }
-        &.ellipsis {
         
+        &.ellipsis {
+            .pagination-padding();
         }
+        
         &.selected {
-            color:#3e3e3e;
-            font-weight:bold;
-            font-size: 22px;
-            padding:2px;
-            line-height: 1;
+            .pagination-padding();
+            color: #fff;
+            background-color: @ui08;
+            border: 1px solid @ui08;
         }
     }
 }
