@@ -19,6 +19,10 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
     var fetchEvents = function(localConfig) {
             var url = localConfig.url + '?format=json&limit=' + localConfig.limit;
                 $.getJSON(url, function(data) {
+                    if (!data.Events.Event) {
+                        return;
+                    }
+
                     $.each(data.Events.Event, function(index, event) {
                         var eventURL = event.WebPages.WebPage;
                         if($.isArray(eventURL)) {
