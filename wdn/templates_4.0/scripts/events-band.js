@@ -2,7 +2,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
     var getLocalEventSettings = function() {
         var $eventLink = $('link[rel=events]'),
             eventParams = WDN.getPluginParam('events');
-        
+
         if ($eventLink.length) {
             return {
                 href: $eventLink[0].href,
@@ -120,7 +120,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
             limit: localSettings.limit || 10
         },
         localConfig = $.extend({}, defaultConfig, config);
-        
+
         if (localConfig.url && $(localConfig.container).length) {
             WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/events-band.css'));
             fetchEvents(localConfig);
