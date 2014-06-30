@@ -19,22 +19,26 @@ table {
     th {
         .wdn-sans-caps();
         .rem(12,13);
+        padding: 1.2307em 1.0833em 1.0833em;
         line-height: 1.333;
         border-top: 1px solid @ui04;
         background-color: darken(@ui01, 2%);
+
+        @media @bp2 {
+            padding: 1.2307em 1.2307em 1em;
+        }
     }
 
     th, td {
-        padding: 10px;
         text-align: left;
     }
 
     td {
-        padding: 0.422em 1em;
         font-weight: normal;
+        padding: 0.92307em 1em 0.7692em;
 
         @media @bp2 {
-            padding: 0.422em 0.75em;
+            padding: 0.75em 1em 0.602em;
         }
     }
 
