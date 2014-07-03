@@ -3,7 +3,7 @@
 
 .notice-color(@color, @border) when (lightness(@color) >= 50%) {
     background: @color;
-    border-color: @border;
+    //border-color: @border;
     .close {
         color: @dark-neutral;
         a, a:hover {
@@ -23,7 +23,7 @@
 
 .notice-color(@color, @border) when (lightness(@color) < 50%) {
     background: @color;
-    border-color: @border;
+    //border-color: @border;
     .close {
         color: #fff;
         a, a:hover {
@@ -43,10 +43,11 @@
 
 .wdn_notice {
     background: @triad;
-    border: 1px solid @dark-triad;
+    //border: 1px solid @dark-triad;
     margin-bottom: 10px;
     border-radius: 3px;
     padding: 1em 1em 0.75em;
+    box-shadow: 0 1px 1px 0 @ui06;
 
     #maincontent > & {
         padding: 1em 1em 0.75em;
@@ -56,6 +57,10 @@
         position: relative;
         padding: 0 0 0 4.209em;
         color: #fff;
+
+        @media @bp2 {
+            padding: 0 0 0 4.209em;
+        }
 
         h4 {
             .wdn-alt-header;
@@ -82,6 +87,11 @@
             text-align: center;
             font-family: wdn-icon;
             content: "\e807";
+
+            @media @bp2 {
+                width: 54px;                
+            }
+
         }
 
         a, a:hover {
