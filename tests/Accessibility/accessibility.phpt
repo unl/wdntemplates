@@ -36,7 +36,12 @@ class AccessibilityTester {
     protected function checkExample($file) {
         echo "checking: " . $file . PHP_EOL;
         $url     = 'http://localhost/tests/Accessibility/tmp/' . $file . '.shtml';
-        $command = 'pa11y -r json -s WCAG2AA --config ' . dirname(__FILE__) . '/pa11y.json ' . escapeshellarg($url);
+        $command = 'pa11y ' .
+            '-r json ' .
+            '-s WCAG2AA ' .
+            '--config ' . dirname(__FILE__) . '/pa11y.json ' . 
+            '-c "http://webaudit.unl.edu/plugins/metric_pa11y/html_codesniffer/build/HTMLCS.js" ' .
+            escapeshellarg($url);
         $errors  = array();
 
         //Prepare the DOM
