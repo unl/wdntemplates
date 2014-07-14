@@ -1,5 +1,4 @@
 @import "../_mixins/all.less";
-@import "../base/text.less";
 
 .colorize-notice(@color) {
     background-color: @color;
@@ -53,7 +52,11 @@
 
         h4 {
             padding: 0;
-            .wdn-alt-header;
+            .sans-serif-font;
+		    line-height: 1.333;
+		    text-transform: uppercase;
+		    letter-spacing: 0.02em;  
+    		.rem(13,16);
         }
 
         &:before {
