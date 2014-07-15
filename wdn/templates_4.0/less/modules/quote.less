@@ -1,52 +1,50 @@
 .wdn-quote {
     quotes: "\201C" "\201D";
-    width: auto;
-    display: table;
-    max-width: 840px;
-    margin: 2em auto;
-    text-align: center;
-    .rem(22);
-    font-style: italic;
     position: relative;
-    padding: 0 2em; 
+    display: table;
+    width: auto;
+    max-width: 894px;
+    margin: 1.899em auto;
+    padding: 0 2.369em;     
+    text-align: center;
+    .display-font;
+    .rem(28,30);
+    line-height: 1.333;
+    font-style: italic;
 
     &:before, &:after {
         content: open-quote;
-        font-size:400%;
-        font-family: serif;
         position: absolute;
+        .rem(160,170);
+        font-style: normal;
         line-height: 1;
         opacity: 0.1;
-        font-style: normal;
     }
 
     &:before {
         left: 0;
-        top: 0;
+        top: -0.1em;
     }
 
     &:after {
         content: close-quote;
         right: 0;
-        top: 0;
+        bottom: -0.254rem;
     }
 }
 
 .wdn-quoter { // The name of the quoter
     display: block;
-    text-align: left;
-    .heading-font;
+    text-align: center;
+    .brand-font;
+    .rem(28,30);
     font-style: normal;
-    text-transform: uppercase;
-    .rem(16);
-    background: transparent data-uri('../images/quote-bar.png') no-repeat top left;
-    padding: 1em 0 0 0.25em;
+    padding-top: 0.75em;
 
     .quoter-context { // To be used as context for the quoter. ie: Senior, Art major
-        font-size: 60%;
-        .base-font;
-        font-style: italic;
-        text-transform: none;
-        opacity: 0.7;
+        display: block;
+        .wdn-sans-caps;
+        .rem(10,12);
+        color: fadeout(@base-text, 10%);
     }
 }
