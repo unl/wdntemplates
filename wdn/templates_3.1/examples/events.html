@@ -1,12 +1,16 @@
 <h2 class="sec_main">Web Developer Network Calendar</h2>
 <div id="monthwidget">
     <script type="text/javascript">
+        WDN.setPluginParam('monthwidget', 'href', '//events.unl.edu/');
         WDN.initializePlugin('monthwidget');
     </script>
 </div>
 
 
 <div class="one_col left">
-    <div id="wdn_calendarDisplay"></div>
+    <div id="wdn_calendarDisplay"></div>    
 </div>
-<script type="text/javascript">WDN.initializePlugin('events', function(){WDN.events.limit=5;}, 'before');</script>
+<script type="text/javascript">
+    WDN.setPluginParam('events', 'href', '//events.unl.edu/');
+    WDN.initializePlugin('events', function(){WDN.events.limit=5;}, 'before');
+</script>
