@@ -18,7 +18,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 
     var fetchEvents = function(localConfig) {
             var url = localConfig.url + '?format=json&limit=' + localConfig.limit;
-                $.getJSON(url, function(data) {console.log(data);
+                $.getJSON(url, function(data) {
                     if (!data.Events) {
                         return;
                     }
