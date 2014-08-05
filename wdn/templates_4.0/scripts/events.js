@@ -31,8 +31,16 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 			var title    = '<a class="title" href="'+ event.WebPages[0].URL +'">' + event.EventTitle + '</a>';
 			var location = '';
 
-			if (event.Locations !== undefined) {
-				location = '<span class="location" href="'+ event.Locations[0].URL +'">' + event.Locations[0].Address.BuildingName + '</span>';
+			if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {
+				location =  '<span class="location">';
+				if (event.Locations[0].MapLinks[0]) {
+					location += '<a href="'+ event.Locations[0].MapLinks[0] +'">';
+				}
+				location += event.Locations[0].Address.BuildingName
+				if (event.Locations[0].MapLinks[0]) {
+					location += '</a>';
+				}
+				location += '</span>';
 			}
 			
 			var info = '<div class="info">' + title + location  + '</div>';
