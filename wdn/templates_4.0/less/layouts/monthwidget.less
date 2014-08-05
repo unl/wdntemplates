@@ -137,18 +137,24 @@
 
     /*caption nav*/
     caption {
-        color: #fff;
-        background: fadeout(@dark-triad, 5%);
+        margin: 0;
+        padding: 1.069em 1em 1em;
+        .sans-serif-font();
+        .rem(12,13);
+        text-transform: uppercase;
         text-align: center;
+        color: #fff;
+        background-color: @ui09;
 
-        span {
-            &.monthvalue, &.yearvalue {
-                padding: 0 3px;
-            }
+        > :first-child {
+            float: left;
+        }
+
+        > :last-child {
+            float: right;
         }
 
         a {
-            margin-bottom: 5px;
             color: #fff;
 
             &.prev, &.next {
@@ -157,17 +163,13 @@
                 text-decoration: none;
             }
 
-            &.prev:after {
-                .rem(30);
+            &.prev:after, &.next:before {
+                .rem(16);
                 .fontello();
-                content: '\e80a';
             }
 
-            &.next:before {
-                .rem(30);
-                .fontello();
-                content: '\e808';
-            }
+            &.prev:after    { content: '\e80a'; }
+            &.next:before   { content: '\e808'; }
         }
     }
 }
