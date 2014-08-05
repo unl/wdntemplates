@@ -50,14 +50,16 @@ WDN.events = function() {
 			if (WDN.jQuery(this.container).length != 0) {
 				WDN.jQuery(this.container).addClass('wdn_calendarDisplay');
 				WDN.loadCSS(WDN.getTemplateFilePath('css/content/events.css'));
-				WDN.events.getEvents();
+				WDN.loadJS(WDN.getTemplateFilePath('scripts/moment.min.js'), function() {
+					WDN.events.getEvents();
+				});
 			}
 		},
 		getEvents : function() {
 			var container = this.container;
 			var calURL    = this.calURL;
 			var calTitle  = this.calTitle;
-			WDN.get(this.calURL+'upcoming/?format=hcalendar&limit='+this.limit, null, function(data, textStatus) {
+			WDN.get(this.calURL+'upcoming/?format=json&limit='+this.limit, null, function(data, textStatus) {
 					WDN.events.container = container;
 					WDN.events.calURL    = calURL;
 					WDN.events.calTitle  = calTitle;
@@ -66,34 +68,43 @@ WDN.events = function() {
 			);			
 		},
 		display : function(data, textStatus) {
-			WDN.jQuery(this.container).hide().html(data);
-			WDN.jQuery(this.container+' h4,'+this.container+' h3').after('<span class="subhead"><a href="'+this.calURL+'upcoming/">See all '+this.calTitle+' events</a></span>');
-			WDN.jQuery(this.container+' abbr').each(
-					function() {
-						// Convert the date and time into something we want.
-						var eventdate = WDN.jQuery(this).html();
-						var month,day,time = '';
-						var xp = new RegExp(/[A-Za-z]{3,3}/);
-						if (xp.test(eventdate)) {
-							month = '<span class="month">'+xp.exec(eventdate)+'</span>';
-						}
-						eventdate.replace(xp.exec(eventdate),'');
-						xp = new RegExp(/[\d]+:[\d]+\s?[a,p]m/);
-						if (xp.test(eventdate)) {
-							time = '<span class="time">'+xp.exec(eventdate)+'</span>';
-						}
-						time = time.replace('0 ','0');
-						xp = new RegExp(/([\d]{1,2})[a-z]{2}/);
-						if (xp.test(eventdate)) {
-							day = '<span class="day">'+xp.exec(eventdate)[1]+'</span>';
-						}
-						WDN.jQuery(this).replaceWith('<div>'+month+' '+day+' '+time+'</div>');
+			var $container = WDN.jQuery(this.container).addClass('wdn-calendar');
+			$container.hide();
+
+			$container.append(WDN.jQuery('<div/>', {'class': 'upcoming-header'}).html('Upcoming Events:'));
+			$container.append('<span class="subhead"><a href="'+this.calURL+'upcoming/">See all '+this.calTitle+' events</a></span>');
+
+			$container.append('<div class="events">');
+			WDN.jQuery.each(data.Events, function(index, event) {
+				var startDate = moment(event.DateTime.StartDate);
+				var month    = '<span class="month">' + startDate.format('MMM') + '</span> ';
+				var day      = '<span class="day">' + startDate.format('d') + '</span> ';
+				var time     = '<span class="time">' + startDate.format('h:mm a') + '</span> ';
+				var title    = '<a class="title" href="'+ event.WebPages[0].URL +'">' + event.EventTitle + '</a>';
+				var location = '';
+
+				if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {
+					location =  '<span class="location">';
+					if (event.Locations[0].MapLinks[0]) {
+						location += '<a href="'+ event.Locations[0].MapLinks[0] +'">';
 					}
-			);
-			WDN.jQuery(this.container).show();
-			if (WDN.jQuery(this.container).hasClass('zenbox')) { //if we're using a zenbox, change to H3
-				WDN.jQuery(this.container+' h4').before('<h3>'+(WDN.jQuery(this.container+' h4').html()).replace(":", "")+'</h3>').remove();
-			}
+					location += event.Locations[0].Address.BuildingName
+					if (event.Locations[0].MapLinks[0]) {
+						location += '</a>';
+					}
+					location += '</span>';
+				}
+
+				var info = '<div class="info">' + title + location  + '</div>';
+				var date = '<div class="date">' + month + day + time +'</div>';
+				$container.append('<div class="event">' + date + info  + '</div>');
+			});
+			$container.append('</div>');
+			var ics = '<a class="ics" href="' + this.calURL + 'upcoming/?format=ics">ICS</a>';
+			var rss = '<a class="rss" href="' + this.calURL + 'upcoming/?format=ics">RSS</a>';
+			var feeds = '<div class="feeds">' + ics + rss + '</div>';
+			$container.append(feeds);
+			$container.show();
 		}
 	};
 }();
