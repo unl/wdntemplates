@@ -1,7 +1,7 @@
 @import "../_mixins/all.less";
 
 .fontello() {
-	font-family: "wdn-icon";
+    font-family: "wdn-icon";
     font-style: normal;
     font-weight: normal;
     speak: none;
@@ -11,163 +11,163 @@
     width: 1em;
     text-align: center;
     font-variant: normal;
-	text-transform: none;
+    text-transform: none;
 
-	line-height: 1em;
+    line-height: 1em;
 }
 
 /* Calendar Widget */
 .wp-calendar {
-	border-collapse:collapse;
-	border-width: 0 1px;
-	border-style: solid;
-	border-color: darken(@page-background, 20%);
+    border-collapse:collapse;
+    border-width: 0 1px;
+    border-style: solid;
+    border-color: darken(@page-background, 20%);
 
-	a {
-		border: none;
+    a {
+        border: none;
 
-		&:hover {
-			text-decoration:underline;
-		}
-	}
+        &:hover {
+            text-decoration:underline;
+        }
+    }
 
-	td, th {
-		text-align: center;
-	}
+    td, th {
+        text-align: center;
+    }
 
-	td {
-		border-style: solid;
-		border-width: 1px;
-		background: fadeout(#fff, 30%);
+    td {
+        border-style: solid;
+        border-width: 1px;
+        background: fadeout(#fff, 30%);
 
-		&.selected {
-			background: #fff;
-		}
+        &.selected {
+            background: #fff;
+        }
 
-		&.prev, &.next {
-			.opacity(0.3);
+        &.prev, &.next {
+            .opacity(0.3);
 
-			&:hover {
-				background-color: transparent;
-			}
-		}
+            &:hover {
+                background-color: transparent;
+            }
+        }
 
-		&:hover {
-			background:#ffffcc;
-		}
+        &:hover {
+            background:#ffffcc;
+        }
 
-		> div {
-			position: relative;
-		}
+        > div {
+            position: relative;
+        }
 
-		.eventContainer {
-		    width:225px;
-		    position:absolute;
-		    z-index:1;
-		    word-break: normal;
-		    top: 0;
-		    right: -225px;
+        .eventContainer {
+            width:225px;
+            position:absolute;
+            z-index:1;
+            word-break: normal;
+            top: 0;
+            right: -225px;
 
-		    &:before {
-		    	border-color: transparent @dark-neutral;
-		    	border-width: 6px 6px 6px 0;
-		    	border-style: solid;
-		    	content: " ";
-		    	height: 0;
-		    	display: block;
-		    	position: absolute;
-		    	left: -6px;
-		    	top: 6px;
-		    }
+            &:before {
+                border-color: transparent @dark-neutral;
+                border-width: 6px 6px 6px 0;
+                border-style: solid;
+                content: " ";
+                height: 0;
+                display: block;
+                position: absolute;
+                left: -6px;
+                top: 6px;
+            }
 
-		    .eventBox{
-			    background:#fff;
-			    border:2px solid @dark-neutral;
-			    text-align:left;
-			    font-size: 0.8em;
+            .eventBox{
+                background:#fff;
+                border:2px solid @dark-neutral;
+                text-align:left;
+                font-size: 0.8em;
 
-			    h1 {
-			    	font-size:1.2em;
-				    font-weight:bold;
-				    padding:4px;
-				    margin: 0;
-				    color:#fff;
-				    background:@brand;
-			    }
+                h1 {
+                    font-size:1.2em;
+                    font-weight:bold;
+                    padding:4px;
+                    margin: 0;
+                    color:#fff;
+                    background:@brand;
+                }
 
-			    a {
-			    	display:block;
-				    border-bottom:1px dashed #d3d3d3;
-				    padding:2px 4px;
+                a {
+                    display:block;
+                    border-bottom:1px dashed #d3d3d3;
+                    padding:2px 4px;
 
-				    &:hover {
-				    	background:#f9f9f9;
-				    }
+                    &:hover {
+                        background:#f9f9f9;
+                    }
 
-				    &:last-child {
-				    	border: none;
-				    }
-			    }
-			}
+                    &:last-child {
+                        border: none;
+                    }
+                }
+            }
 
-			&.pos2 {
-				right: auto;
-				left: -225px;
+            &.pos2 {
+                right: auto;
+                left: -225px;
 
-				&:before {
-					border-color: transparent transparent transparent @dark-neutral;
-					border-width: 6px 0 6px 6px;
-					left: auto;
-					right: -6px;
-				}
-			}
-		}
-	}
+                &:before {
+                    border-color: transparent transparent transparent @dark-neutral;
+                    border-width: 6px 0 6px 6px;
+                    left: auto;
+                    right: -6px;
+                }
+            }
+        }
+    }
 
-	.today_image {
-		position: absolute;
-		top: -0.5em;
-		margin-left: 3px;
+    .today_image {
+        position: absolute;
+        top: -0.5em;
+        margin-left: 3px;
 
-		&:before {
-			.fontello();
-	  		content: '\e809';
-  		}
-	}
+        &:before {
+            .fontello();
+            content: '\e809';
+        }
+    }
 
-	/*caption nav*/
-	caption {
-		color: #fff;
-		background: fadeout(@dark-triad, 5%);
-		text-align: center;
+    /*caption nav*/
+    caption {
+        color: #fff;
+        background: fadeout(@dark-triad, 5%);
+        text-align: center;
 
-		span {
-			&.monthvalue, &.yearvalue {
-				padding:0 3px;
-			}
-		}
+        span {
+            &.monthvalue, &.yearvalue {
+                padding:0 3px;
+            }
+        }
 
-		a {
-			margin-bottom:5px;
-			color:#fff;
+        a {
+            margin-bottom:5px;
+            color:#fff;
 
-			&.prev, &.next {
-				font-size: 0;
-				display:inline-block;
-				text-decoration: none;
-			}
+            &.prev, &.next {
+                font-size: 0;
+                display:inline-block;
+                text-decoration: none;
+            }
 
-			&.prev:after {
-				.rem(30);
-				.fontello();
-				content: '\e80a';
-			}
+            &.prev:after {
+                .rem(30);
+                .fontello();
+                content: '\e80a';
+            }
 
-			&.next:before {
-				.rem(30);
-				.fontello();
-				content: '\e808';
-			}
-		}
-	}
+            &.next:before {
+                .rem(30);
+                .fontello();
+                content: '\e808';
+            }
+        }
+    }
 }
