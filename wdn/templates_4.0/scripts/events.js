@@ -27,7 +27,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 			var startDate = moment(event.DateTime.StartDate);
 			var month    = '<span class="month">' + startDate.format('MMM') + '</span>';
 			var day      = '<span class="day">' + startDate.format('d') + '</span>';
-			var time     = '<span class="time">' + startDate.format('h:mm:a') + '</span>';
+			var time     = '<span class="time">' + startDate.format('h:mm a') + '</span>';
 			var title    = '<a class="title" href="'+ event.WebPages[0].URL +'">' + event.EventTitle + '</a>';
 			var location = '';
 
