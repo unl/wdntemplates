@@ -77,6 +77,32 @@
         margin: 1em 0;
     }
 
+    .feeds {
+        a {
+            position: relative;
+            display: inline-block;
+            margin-right: 0.75em;
+            padding-left: 1em;
+            border: none;
+            .brand-font();
+            text-transform: uppercase;
+            .rem(16,17);
+            letter-spacing: 0.02em;
+
+            &:before {
+                position: absolute;
+                top: 3px;
+                left: -0.1em;
+                .fontello();
+                .rem(12,13);
+                color: @ui05;
+            }
+
+            &.ics:before { content: '\e812'; }
+            &.rss:before { content: '\e811'; }
+        }
+    }
+
 
 
 
@@ -88,34 +114,7 @@
         display: none;
     }
 
-    .feeds {
-        a {
-            display: inline-block;
-            border: none;
-            font-size: 1.5em;
-            overflow: hidden;
-            position: relative;
-            text-indent: -9999em;
-            width: 1em;
-            margin-right: 0.2em;
 
-            &:before {
-                .fontello();
-                position: absolute;
-                left: 0;
-                top: 0;
-                text-indent: 0;
-            }
-
-            &.icsformat:before {
-                content: '\e812';
-            }
-
-            &.rssformat:before {
-                content: '\e811';
-            }
-        }
-    }
 
     .upcoming tr {
         background: none;
