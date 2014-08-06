@@ -56,6 +56,8 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
                 			infoBox.addClass('pos2');
                 		}
                 		var eventBox = $('.eventBox', this);
+                        var regex = /\d{4}\/\d{2}\/\d{2}/;
+                        date = moment(regex.exec(WDN.jQuery('a', this)[0].href)[0]);
                 		$.ajax({
                 			url: $('a', this)[0].href + '?format=xml',
                 			dataType: 'xml',
@@ -63,10 +65,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
                     			var eventTitle = $('EventTitle', data);
                     			var eventWebPageTitle = $('Title', data);
                     			var eventURL = [];
-                    			var startDate = $('StartDate', data).eq(0).text();
-
-                    			startDate = moment(startDate);
-                                eventBox.empty().append('<h1>' + startDate.format('MMMM D, YYYY') + '</h1>');
+                                eventBox.empty().append('<h1>' + date.format('MMMM D, YYYY') + '</h1>');
 
                     			eventWebPageTitle.each(function() {
                     				var $this = $(this);
