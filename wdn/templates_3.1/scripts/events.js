@@ -76,7 +76,7 @@ WDN.events = function() {
 
 			$container.append('<div class="events">');
 			WDN.jQuery.each(data.Events, function(index, event) {
-				var startDate = moment(event.DateTime.StartDate);
+				var startDate = moment(event.DateTime.Start);
 				var month    = '<span class="month">' + startDate.format('MMM') + '</span> ';
 				var day      = '<span class="day">' + startDate.format('D') + '</span> ';
 				var time     = '<span class="time">' + startDate.format('h:mm a') + '</span> ';
