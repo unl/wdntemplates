@@ -72,7 +72,6 @@ WDN.events = function() {
 			$container.hide();
 
 			$container.append(WDN.jQuery('<div/>', {'class': 'upcoming-header'}).html('Upcoming Events:'));
-			$container.append('<span class="subhead"><a href="'+this.calURL+'upcoming/">See all '+this.calTitle+' events</a></span>');
 
 			$container.append('<div class="events">');
 			WDN.jQuery.each(data.Events, function(index, event) {
@@ -100,6 +99,7 @@ WDN.events = function() {
 				$container.append('<div class="event">' + date + info  + '</div>');
 			});
 			$container.append('</div>');
+            $container.append('<span class="see-all-events"><a href="'+this.calURL+'upcoming/">See all '+this.calTitle+' events</a></span>');
 			var ics = '<a class="ics" href="' + this.calURL + 'upcoming/?format=ics">ICS</a>';
 			var rss = '<a class="rss" href="' + this.calURL + 'upcoming/?format=ics">RSS</a>';
 			var feeds = '<div class="feeds">' + ics + rss + '</div>';
