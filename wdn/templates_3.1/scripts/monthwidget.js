@@ -38,7 +38,9 @@ WDN.monthwidget = function() {
 			
 			if (WDN.jQuery(this.container).length) {
 				WDN.loadCSS(WDN.getTemplateFilePath('css/content/monthwidget.css'));
-				this.getEvents();
+                WDN.loadJS(WDN.getTemplateFilePath('scripts/moment.min.js'), function() {
+                    WDN.monthwidget.getEvents();
+                });
 			}
 		},
 		getEvents : function() {
@@ -73,7 +75,7 @@ WDN.monthwidget = function() {
 							return false;
 						}
 					});
-				}
+                }
 				
 				$days.has('a').hoverIntent({
                     over: function() {
@@ -88,6 +90,8 @@ WDN.monthwidget = function() {
                     			infoBox.addClass('pos2');
                     		}
                     		var eventBox = WDN.jQuery('.eventBox', this);
+                            var regex = /\d{4}\/\d{2}\/\d{2}/;
+                            date = moment(regex.exec(WDN.jQuery('a', this)[0].href)[0]);
                     		WDN.jQuery.ajax({
                     			url: WDN.jQuery('a', this)[0].href + '?format=xml',
                     			dataType: 'xml',
@@ -95,9 +99,8 @@ WDN.monthwidget = function() {
 	                    			var eventTitle = WDN.jQuery('EventTitle', data);
 	                    			var eventWebPageTitle = WDN.jQuery('Title', data);
 	                    			var eventURL = [];
-	                    			var startDate = WDN.jQuery('StartDate', data).eq(0).text();
-	                    			
-	                    			eventBox.empty().append('<h1>' + startDate + '</h1>');
+
+	                    			eventBox.empty().append('<h1>' + date.format('YYYY MM DD') + '</h1>');
 	                    			eventWebPageTitle.each(function() {
 	                    				var $this = WDN.jQuery(this);
 	                    				if ($this.text() == 'Event Instance URL') {
