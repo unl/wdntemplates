@@ -59,7 +59,7 @@ WDN.events = function() {
 			var container = this.container;
 			var calURL    = this.calURL;
 			var calTitle  = this.calTitle;
-			WDN.get(this.calURL+'upcoming/?format=json&limit='+this.limit, null, function(data, textStatus) {
+			WDN.jQuery.getJSON(this.calURL+'upcoming/?format=json&limit='+this.limit, null, function(data, textStatus) {
 					WDN.events.container = container;
 					WDN.events.calURL    = calURL;
 					WDN.events.calTitle  = calTitle;
