@@ -17,7 +17,12 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
     defaultCal = '//events.unl.edu/';
 
     var fetchEvents = function(localConfig) {
-            var url = localConfig.url + '?format=json&limit=' + localConfig.limit;
+            var upcoming = 'upcoming/';
+            if (localConfig.url.match(/upcoming\/$/)) {
+                //Don't add the upcoming endpoint if it already exists.
+                upcoming = '';
+            }
+            var url = localConfig.url + upcoming + '?format=json&limit=' + localConfig.limit;
                 $.getJSON(url, function(data) {
                     if (!data.Events) {
                         return;
