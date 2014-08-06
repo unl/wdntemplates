@@ -17,20 +17,37 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
     defaultCal = '//events.unl.edu/';
 
     var fetchEvents = function(localConfig) {
-            var url = localConfig.url + '?format=json&limit=' + localConfig.limit;
+            var upcoming = 'upcoming/';
+            if (localConfig.url.match(/upcoming\/$/)) {
+                //Don't add the upcoming endpoint if it already exists.
+                upcoming = '';
+            }
+            var url = localConfig.url + upcoming + '?format=json&limit=' + localConfig.limit;
                 $.getJSON(url, function(data) {
                     if (!data.Events) {
                         return;
                     }
 
-                    $.each(data.Events, function(index, event) {
-                        var eventURL = event.WebPages[0].URL;
-                        var date     = moment(event.DateTime.StartDate);
+                    $.each(data.Events.Event || data.Events, function(index, event) {
+                        var date     = moment(event.DateTime.Start);
                         var month    = date.format('MMM');
                         var day      = date.format('D');
-                        var time     = date.format('h:m');
+                        var time     = date.format('h:mm');
                         var ampm     = date.format('a');
-                        var location = event.Locations[0].Address.BuildingName;
+                        var location = '';
+
+                        if (event.Locations[0]) {
+                            location = event.Locations[0].Address.BuildingName;
+                        }
+
+                        var eventURL = '';
+                        if ($.isArray(event.WebPages)) {
+                            eventURL = event.WebPages[0].URL
+                        } else if ($.isArray(event.WebPages.WebPage)) {
+                            eventURL = event.WebPages.WebPage[0].URL
+                        } else {
+                            eventURL = event.WebPages.WebPage.URL;
+                        }
 
                         $('#events-band').append('<div class="wdn-col"> <a href="' + eventURL + '" target="_blank"><div class="event"> <div class="dateTime">' + '<span class="month">'+month+'</span><span class="day">'+day+'</span><span class="time">'+time+' '+ampm+'<\/span>' + '<\/div> <div class="eventInfo"><p class="eventTitle">'
                             + event.EventTitle + '</p><span class="location">' + location + ' </span>' + '</div></div></a></div>');
