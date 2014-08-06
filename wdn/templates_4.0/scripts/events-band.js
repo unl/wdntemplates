@@ -28,7 +28,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
                         var date     = moment(event.DateTime.Start);
                         var month    = date.format('MMM');
                         var day      = date.format('D');
-                        var time     = date.format('h:m');
+                        var time     = date.format('h:mm');
                         var ampm     = date.format('a');
                         var location = event.Locations[0].Address.BuildingName;
 
