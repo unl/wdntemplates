@@ -28,7 +28,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
                         return;
                     }
 
-                    $.each(data.Events, function(index, event) {
+                    $.each(data.Events.Event || data.Events, function(index, event) {
                         var eventURL = event.WebPages[0].URL;
                         var date     = moment(event.DateTime.Start);
                         var month    = date.format('MMM');

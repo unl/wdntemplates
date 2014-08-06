@@ -22,7 +22,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 		$container.append($('<div/>', {'class': 'upcoming-header'}).html('Upcoming Events'));
 
 		$container.append('<div class="events">');
-		$.each(data.Events, function(index, event) {
+		$.each(data.Events.Event || data.Events, function(index, event) {
 			var startDate = moment(event.DateTime.Start);
 			var month    = '<span class="month">' + startDate.format('MMM') + '</span>';
 			var day      = '<span class="day">' + startDate.format('D') + '</span>';
