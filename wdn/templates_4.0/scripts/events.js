@@ -77,7 +77,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 		if (localConfig.url && $(localConfig.container).length) {
 			$(this.container).addClass('wdn-calendar');
 			WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/events.css'));
-			$.get(localConfig.url + 'upcoming/?format=json&limit=' + encodeURIComponent(localConfig.limit), function(data) {
+			$.getJSON(localConfig.url + 'upcoming/?format=json&limit=' + encodeURIComponent(localConfig.limit), function(data) {
 					display(data, localConfig);
 				}
 			);
