@@ -34,7 +34,11 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
                         var day      = date.format('D');
                         var time     = date.format('h:mm');
                         var ampm     = date.format('a');
-                        var location = event.Locations[0].Address.BuildingName;
+                        var location = '';
+
+                        if (event.Locations[0]) {
+                            location = event.Locations[0].Address.BuildingName;
+                        }
 
                         var eventURL = '';
                         if ($.isArray(event.WebPages)) {
