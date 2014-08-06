@@ -24,10 +24,18 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 		$container.append('<div class="events">');
 		$.each(data.Events.Event || data.Events, function(index, event) {
 			var startDate = moment(event.DateTime.Start);
+			var eventURL = '';
+			if ($.isArray(event.WebPages)) {
+				eventURL = event.WebPages[0].URL
+			} else if ($.isArray(event.WebPages.WebPage)) {
+				eventURL = event.WebPages.WebPage[0].URL
+			} else {
+				eventURL = event.WebPages.WebPage.URL;
+			}
 			var month    = '<span class="month">' + startDate.format('MMM') + '</span>';
 			var day      = '<span class="day">' + startDate.format('D') + '</span>';
 			var time     = '<span class="time">' + startDate.format('h:mm a') + '</span>';
-			var title    = '<a class="title" href="'+ event.WebPages[0].URL +'">' + event.EventTitle + '</a>';
+			var title    = '<a class="title" href="'+ eventURL +'">' + event.EventTitle + '</a>';
 			var location = '';
 
 			if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {
