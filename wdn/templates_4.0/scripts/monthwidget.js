@@ -56,8 +56,8 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
                 			infoBox.addClass('pos2');
                 		}
                 		var eventBox = $('.eventBox', this);
-                        var regex = /\d{4}\/\d{2}\/\d{2}/;
-                        date = moment(regex.exec(WDN.jQuery('a', this)[0].href)[0]);
+                        var regex = /\d{4}\/\d{1,2}\/\d{1,2}/;
+                        var date = moment(regex.exec(WDN.jQuery('a', this)[0].href)[0]);
                 		$.ajax({
                 			url: $('a', this)[0].href + '?format=xml',
                 			dataType: 'xml',
