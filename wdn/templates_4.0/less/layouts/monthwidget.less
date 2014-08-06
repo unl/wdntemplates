@@ -21,7 +21,7 @@
     border-collapse: collapse;
     border-width: 0 1px;
     border-style: solid;
-    border-color: darken(@page-background, 20%);
+    border-color: @ui04;
 
     a {
         border: none;
@@ -33,32 +33,51 @@
 
     th {
         padding: 1.069em 1em 1em;
-        line-height: 1;
+        background-color: #eee;
     }
 
     td, th {
+        .sans-serif-font();
+        .rem(12,13);
+        line-height: 1;
         text-align: center;
+        border: 1px solid @ui04;
     }
 
     td {
-        border-style: solid;
-        border-width: 1px;
-        background: fadeout(#fff, 30%);
+        padding: 0;
+
+        span,
+        a {
+            display: block;
+            padding: 1.069em 1px 1em;
+        }
 
         &.selected {
             background: #fff;
         }
 
         &.prev, &.next {
-            .opacity(0.3);
+            background-color: @ui01;
 
-            &:hover {
-                background-color: transparent;
+            a {
+                .rem(9,10);
+                padding: 14px 1px;
             }
         }
 
-        &:hover {
-            background: #ffffcc;
+        a:hover {
+            text-decoration: none;
+            outline: 2px solid @brand;
+        }
+
+        &.today {
+            background: @brand;
+            color: #fff;
+
+            a {
+                color: inherit;
+            }
         }
 
         > div {
@@ -66,15 +85,15 @@
         }
 
         .eventContainer {
-            width: 225px;
             position: absolute;
+            top: 0;
+            right: -227px;
+            width: 227px;
             z-index: 1;
             word-break: normal;
-            top: 0;
-            right: -225px;
 
             &:before {
-                border-color: transparent @dark-neutral;
+                border-color: transparent @ui09;
                 border-width: 6px 6px 6px 0;
                 border-style: solid;
                 content: " ";
@@ -86,27 +105,28 @@
             }
 
             .eventBox{
-                background: #fff;
-                border: 2px solid @dark-neutral;
                 text-align: left;
-                font-size: 0.8em;
+                background: #fff;
+                padding-bottom: 1em;
+                box-shadow: 0 0 3px 0 @ui07;
 
                 h1 {
-                    font-size: 1.2em;
-                    font-weight: bold;
-                    padding: 4px;
+                    .sans-serif-font;
+                    .rem(9,10);
+                    padding: 0.75em 1em;
                     margin: 0;
                     color: #fff;
-                    background: @brand;
+                    background: @ui09;
                 }
 
                 a {
                     display: block;
-                    border-bottom: 1px dashed #d3d3d3;
-                    padding: 2px 4px;
+                    padding: 0.75em 1em 0 1em;
+                    .rem(9,10);
+                    line-height: 1.333;
 
                     &:hover {
-                        background: #f9f9f9;
+                        outline: 0;
                     }
 
                     &:last-child {
@@ -120,23 +140,12 @@
                 left: -225px;
 
                 &:before {
-                    border-color: transparent transparent transparent @dark-neutral;
+                    border-color: transparent transparent transparent @ui09;
                     border-width: 6px 0 6px 6px;
                     left: auto;
                     right: -6px;
                 }
             }
-        }
-    }
-
-    .today_image {
-        position: absolute;
-        top: -0.5em;
-        margin-left: 3px;
-
-        &:before {
-            .fontello();
-            content: '\e809';
         }
     }
 
