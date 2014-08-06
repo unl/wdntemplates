@@ -2,7 +2,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 	var getLocalEventSettings = function() {
 		var $eventLink = $('link[rel=events]'),
 			eventParams = WDN.getPluginParam('events');
-		
+
 		if ($eventLink.length) {
 			return {
 				href: $eventLink[0].href,
@@ -14,12 +14,12 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 	},
 	container = '#wdn_calendarDisplay',
 	defaultCal = '//events.unl.edu/';
-	
+
 	var display = function(data, config) {
 		var $container = $(config.container).addClass('wdn-calendar');
 		$container.hide();
-		
-		$container.append($('<div/>', {'class': 'upcoming-header'}).html('Upcoming Events:'));
+
+		$container.append($('<div/>', {'class': 'upcoming-header'}).html('Upcoming Events'));
 		$container.append('<span class="subhead"><a href="'+config.url+'upcoming/">See all '+config.title+' events</a></span>');
 
 		$container.append('<div class="events">');
@@ -42,7 +42,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 				}
 				location += '</span>';
 			}
-			
+
 			var info = '<div class="info">' + title + location  + '</div>';
 			var date = '<div class="date">' + month + day + time +'</div>';
 			$container.append('<div class="event">' + date + info  + '</div>');
@@ -54,7 +54,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 		$container.append(feeds);
 		$container.show();
 	};
-	
+
 	var setup = function(config) {
 		var localSettings = getLocalEventSettings(),
 		defaultConfig = {
@@ -64,7 +64,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 			limit: localSettings.limit || 10
 		},
 		localConfig = $.extend({}, defaultConfig, config);
-		
+
 		if (localConfig.url && $(localConfig.container).length) {
 			$(this.container).addClass('wdn-calendar');
 			WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/events.css'));
@@ -74,7 +74,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 			);
 		}
 	};
-	
+
 	return {
 		initialize : function(config) {
 			$(function() {
