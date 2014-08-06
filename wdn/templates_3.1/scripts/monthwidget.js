@@ -100,7 +100,7 @@ WDN.monthwidget = function() {
 	                    			var eventWebPageTitle = WDN.jQuery('Title', data);
 	                    			var eventURL = [];
 
-	                    			eventBox.empty().append('<h1>' + date.format('YYYY MM DD') + '</h1>');
+	                    			eventBox.empty().append('<h1>' + date.format('MMMM D, YYYY') + '</h1>');
 	                    			eventWebPageTitle.each(function() {
 	                    				var $this = WDN.jQuery(this);
 	                    				if ($this.text() == 'Event Instance URL') {
