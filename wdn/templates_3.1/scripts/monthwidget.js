@@ -90,7 +90,7 @@ WDN.monthwidget = function() {
                     			infoBox.addClass('pos2');
                     		}
                     		var eventBox = WDN.jQuery('.eventBox', this);
-                            var regex = /\d{4}\/\d{2}\/\d{2}/;
+                            var regex = /\d{4}\/\d{1,2}\/\d{1,2}/;
                             date = moment(regex.exec(WDN.jQuery('a', this)[0].href)[0]);
                     		WDN.jQuery.ajax({
                     			url: WDN.jQuery('a', this)[0].href + '?format=xml',
