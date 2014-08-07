@@ -80,7 +80,7 @@ WDN.events = function() {
 				var day      = '<span class="day">' + startDate.format('D') + '</span> ';
 				var time     = '<span class="time">' + startDate.format('h:mm a') + '</span> ';
 				var eventURL = '';
-				if ($.isArray(event.WebPages)) {
+				if (WDN.jQuery.isArray(event.WebPages)) {
 					eventURL = event.WebPages[0].URL
 				} else if ($.isArray(event.WebPages.WebPage)) {
 					eventURL = event.WebPages.WebPage[0].URL
