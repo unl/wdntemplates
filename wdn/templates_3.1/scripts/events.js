@@ -82,7 +82,7 @@ WDN.events = function() {
 				var eventURL = '';
 				if (WDN.jQuery.isArray(event.WebPages)) {
 					eventURL = event.WebPages[0].URL
-				} else if ($.isArray(event.WebPages.WebPage)) {
+				} else if (WDN.jQuery.isArray(event.WebPages.WebPage)) {
 					eventURL = event.WebPages.WebPage[0].URL
 				} else {
 					eventURL = event.WebPages.WebPage.URL;
