@@ -1,8 +1,8 @@
-define(['jquery', 'wdn', 'require'], function($, WDN, require) {
+define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment) {
 	var getLocalEventSettings = function() {
 		var $eventLink = $('link[rel=events]'),
 			eventParams = WDN.getPluginParam('events');
-		
+
 		if ($eventLink.length) {
 			return {
 				href: $eventLink[0].href,
@@ -14,13 +14,13 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 	},
 	container = '#monthwidget',
 	defaultCal = '//events.unl.edu/';
-	
+
 	var display = function(data, config) {
 		var $container = $(config.container);
 		$container.hide().html(data);
 		$('#prev_month', $container).removeAttr('id').addClass('prev');
 		$('#next_month', $container).removeAttr('id').addClass('next');
-		
+
 		require(['./plugins/hoverIntent/jquery.hoverIntent.min'], function() {
 			var now = new Date(), today = now.getDate();
 			var month = $('span.monthvalue a', $container).attr('href');
@@ -28,9 +28,9 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 			if (month.charAt(0) == '/') {
 				month = month.substr(1);
 			}
-			
+
 			var $days = $('tbody td', $container).not('.prev, .next');
-			
+
 			if (month - 1 == now.getMonth()) {
 				$days.each(function() {
 					var $this = $(this);
@@ -40,9 +40,9 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 					}
 				});
 			}
-			
+
 			$days.wrapInner('<div/>');
-			
+
 			$days.has('a').hoverIntent({
                 over: function() {
                 	var infoBox = $('.eventContainer', this);
@@ -51,11 +51,13 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                 	} else {
                 		infoBox = $('<div class="eventContainer"><div class="eventBox">Loading...</div></div>');
                 		infoBox.appendTo($('div:first', this));
-                		if ($(this).position().left + $(this).width() + infoBox.width() 
+                		if ($(this).position().left + $(this).width() + infoBox.width()
                 			>= $($container[0].offsetParent).outerWidth()) {
                 			infoBox.addClass('pos2');
                 		}
                 		var eventBox = $('.eventBox', this);
+                        var regex = /\d{4}\/\d{1,2}\/\d{1,2}/;
+                        var date = moment(regex.exec(WDN.jQuery('a', this)[0].href)[0]);
                 		$.ajax({
                 			url: $('a', this)[0].href + '?format=xml',
                 			dataType: 'xml',
@@ -63,9 +65,8 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                     			var eventTitle = $('EventTitle', data);
                     			var eventWebPageTitle = $('Title', data);
                     			var eventURL = [];
-                    			var startDate = $('StartDate', data).eq(0).text();
-                    			
-                    			eventBox.empty().append('<h1>' + startDate + '</h1>');
+                                eventBox.empty().append('<h1>' + date.format('MMMM D, YYYY') + '</h1>');
+
                     			eventWebPageTitle.each(function() {
                     				var $this = $(this);
                     				if ($this.text() == 'Event Instance URL') {
@@ -90,11 +91,11 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                 },
                 timeout: 100
             });
-			
+
 			$container.show();
         });
 	};
-	
+
 	var setup = function(config) {
 		var localSettings = getLocalEventSettings(),
 		defaultConfig = {
@@ -102,7 +103,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 			container: container
 		},
 		localConfig = $.extend({}, config, defaultConfig);
-		
+
 		if (localConfig.url && $(localConfig.container).length) {
 			WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/monthwidget.css'));
 			$.get(localConfig.url + '?monthwidget&format=hcalendar', function(data) {
@@ -111,7 +112,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 			);
 		}
 	};
-	
+
 	return {
 		initialize : function(config) {
 			$(function() {

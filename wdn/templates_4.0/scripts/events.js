@@ -1,8 +1,8 @@
-define(['jquery', 'wdn', 'require'], function($, WDN, require) {
+define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment) {
 	var getLocalEventSettings = function() {
 		var $eventLink = $('link[rel=events]'),
 			eventParams = WDN.getPluginParam('events');
-		
+
 		if ($eventLink.length) {
 			return {
 				href: $eventLink[0].href,
@@ -14,40 +14,56 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 	},
 	container = '#wdn_calendarDisplay',
 	defaultCal = '//events.unl.edu/';
-	
+
 	var display = function(data, config) {
 		var $container = $(config.container).addClass('wdn-calendar');
-		$container.hide().html(data);
-		$('h4', $container).replaceWith(function() {
-			var heading = $('<div/>', {'class': 'upcoming-header'}).append($(this).contents());
-			return heading.add('<span class="subhead"><a href="'+config.url+'upcoming/">See all '+config.title+' events</a></span>');
-		});
-		$('#feeds, #icsformat, #rssformat', $container).each(function() {
-			$(this).addClass($(this).attr('id')).removeAttr('id');
-		});
-		$('abbr', $container).each(function() {
-			// Convert the date and time into something we want.
-			var eventdate = $(this).html();
-			var month,day,time = '';
-			var xp = new RegExp(/[A-Za-z]{3,3}/);
-			if (xp.test(eventdate)) {
-				month = '<span class="month">'+xp.exec(eventdate)+'</span>';
+		$container.hide();
+
+		$container.append($('<div/>', {'class': 'upcoming-header'}).html('Upcoming Events'));
+
+		$container.append('<div class="events">');
+		$.each(data.Events.Event || data.Events, function(index, event) {
+			var startDate = moment(event.DateTime.Start);
+			var eventURL = '';
+			if ($.isArray(event.WebPages)) {
+				eventURL = event.WebPages[0].URL
+			} else if ($.isArray(event.WebPages.WebPage)) {
+				eventURL = event.WebPages.WebPage[0].URL
+			} else {
+				eventURL = event.WebPages.WebPage.URL;
 			}
-			eventdate.replace(xp.exec(eventdate),'');
-			xp = new RegExp(/[\d]+:[\d]+\s?[a,p]m/);
-			if (xp.test(eventdate)) {
-				time = '<span class="time">'+xp.exec(eventdate)+'</span>';
+			var month    = '<span class="month">' + startDate.format('MMM') + '</span>';
+			var day      = '<span class="day">' + startDate.format('D') + '</span>';
+			var time     = '<span class="time">' + startDate.format('h:mm a') + '</span>';
+			var title    = '<a class="title" href="'+ eventURL +'">' + event.EventTitle + '</a>';
+			var location = '';
+
+			if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {
+				location =  '<span class="location">';
+				if (event.Locations[0].MapLinks[0]) {
+					location += '<a href="'+ event.Locations[0].MapLinks[0] +'">';
+				}
+				location += event.Locations[0].Address.BuildingName
+				if (event.Locations[0].MapLinks[0]) {
+					location += '</a>';
+				}
+				location += '</span>';
 			}
-			time = time.replace('0 ','0');
-			xp = new RegExp(/([\d]{1,2})[a-z]{2}/);
-			if (xp.test(eventdate)) {
-				day = '<span class="day">'+xp.exec(eventdate)[1]+'</span>';
-			}
-			$(this).replaceWith('<div>'+month+' '+day+' '+time+'</div>');
+
+			var info = '<div class="info">' + title + location  + '</div>';
+			var date = '<div class="date">' + month + day + time +'</div>';
+			$container.append('<div class="event">' + date + info  + '</div>');
 		});
+		$container.append('</div>');
+		$container.append('<span class="see-all"><a href="'+config.url+'upcoming/">See all '+config.title+' events</a></span>');
+
+		var ics = '<a class="ics" href="' + config.url + 'upcoming/?format=ics">ICS</a>';
+		var rss = '<a class="rss" href="' + config.url + 'upcoming/?format=ics">RSS</a>';
+		var feeds = '<div class="feeds">' + ics + rss + '</div>';
+		$container.append(feeds);
 		$container.show();
 	};
-	
+
 	var setup = function(config) {
 		var localSettings = getLocalEventSettings(),
 		defaultConfig = {
@@ -57,17 +73,17 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 			limit: localSettings.limit || 10
 		},
 		localConfig = $.extend({}, defaultConfig, config);
-		
+
 		if (localConfig.url && $(localConfig.container).length) {
 			$(this.container).addClass('wdn-calendar');
 			WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/events.css'));
-			$.get(localConfig.url + 'upcoming/?format=hcalendar&limit=' + encodeURIComponent(localConfig.limit), function(data) {
+			$.getJSON(localConfig.url + 'upcoming/?format=json&limit=' + encodeURIComponent(localConfig.limit), function(data) {
 					display(data, localConfig);
 				}
 			);
 		}
 	};
-	
+
 	return {
 		initialize : function(config) {
 			$(function() {
