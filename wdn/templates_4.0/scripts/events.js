@@ -21,7 +21,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 
 		$container.append($('<div/>', {'class': 'upcoming-header'}).html('Upcoming Events'));
 
-		$container.append('<div class="events">');
+		var events_html = '';
 		$.each(data.Events.Event || data.Events, function(index, event) {
 			var startDate = moment(event.DateTime.Start);
 			var eventURL = '';
@@ -52,9 +52,9 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 
 			var info = '<div class="info">' + title + location  + '</div>';
 			var date = '<div class="date">' + month + day + time +'</div>';
-			$container.append('<div class="event">' + date + info  + '</div>');
+			events_html += ('<div class="event">' + date + info  + '</div>');
 		});
-		$container.append('</div>');
+		$container.append('<div class="events">' + events_html + '</div>');
 		$container.append('<span class="see-all"><a href="'+config.url+'upcoming/">See all '+config.title+' events</a></span>');
 
 		var ics = '<a class="ics" href="' + config.url + 'upcoming/?format=ics">ICS</a>';
