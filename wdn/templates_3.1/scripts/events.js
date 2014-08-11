@@ -73,7 +73,7 @@ WDN.events = function() {
 
 			$container.append(WDN.jQuery('<div/>', {'class': 'upcoming-header'}).html('Upcoming Events:'));
 
-			$container.append('<div class="events">');
+			var events_html = '';
 			WDN.jQuery.each(data.Events.Event || data.Events, function(index, event) {
 				var startDate = moment(event.DateTime.Start);
 				var month    = '<span class="month">' + startDate.format('MMM') + '</span> ';
@@ -104,9 +104,9 @@ WDN.events = function() {
 
 				var info = '<div class="info">' + title + location  + '</div>';
 				var date = '<div class="date">' + month + day + time +'</div>';
-				$container.append('<div class="event">' + date + info  + '</div>');
+				events_html += '<div class="event">' + date + info  + '</div>';
 			});
-			$container.append('</div>');
+			$container.append('<div class="events">' + events_html + '</div>');
             $container.append('<span class="see-all-events"><a href="'+this.calURL+'upcoming/">See all '+this.calTitle+' events</a></span>');
 			var ics = '<a class="ics" href="' + this.calURL + 'upcoming/?format=ics">ICS</a>';
 			var rss = '<a class="rss" href="' + this.calURL + 'upcoming/?format=ics">RSS</a>';
