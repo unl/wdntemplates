@@ -42,7 +42,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
                         var ampm     = date.format('a');
                         var location = '';
 
-                        if (event.Locations[0]) {
+                        if (event.Locations[0] && event.Locations[0].Address.BuildingName) {
                             location = event.Locations[0].Address.BuildingName;
                         }
 
