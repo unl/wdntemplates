@@ -80,7 +80,7 @@ WDN.events = function() {
 					startDate = moment(event.DateTime.Start);
 				} else {
 					//legacy
-					startDate = moment(event.DateTime.StartDate +  'T' + event.DateTime.StartTime);
+					startDate = moment(event.DateTime.StartDate +  'T' + event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1));
 				}
 				var month    = '<span class="month">' + startDate.format('MMM') + '</span> ';
 				var day      = '<span class="day">' + startDate.format('D') + '</span> ';
