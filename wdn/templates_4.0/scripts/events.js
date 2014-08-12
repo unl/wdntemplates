@@ -23,7 +23,13 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 
 		var events_html = '';
 		$.each(data.Events.Event || data.Events, function(index, event) {
-			var startDate = moment(event.DateTime.Start);
+			var startDate;
+			if (event.DateTime.Start) {
+				startDate = moment(event.DateTime.Start);
+			} else {
+				//legacy
+				startDate = moment(event.DateTime.StartDate +  'T' + event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1));
+			}
 			var eventURL = '';
 			if ($.isArray(event.WebPages)) {
 				eventURL = event.WebPages[0].URL
