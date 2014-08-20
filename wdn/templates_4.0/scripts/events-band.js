@@ -17,7 +17,9 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
     defaultCal = '//events.unl.edu/';
 
     var fetchEvents = function(localConfig) {
-            var upcoming = 'upcoming/';
+            var upcoming = 'upcoming/',
+            	$container = $(localConfig.container).addClass('wdn-events-band');
+
             if (localConfig.url.match(/upcoming\/$/)) {
                 //Don't add the upcoming endpoint if it already exists.
                 upcoming = '';
@@ -55,11 +57,11 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
                             eventURL = event.WebPages.WebPage.URL;
                         }
 
-                        $('#events-band').append('<div class="wdn-col"> <a href="' + eventURL + '" target="_blank"><div class="event"> <div class="dateTime">' + '<span class="month">'+month+'</span><span class="day">'+day+'</span><span class="time">'+time+' '+ampm+'<\/span>' + '<\/div> <div class="eventInfo"><p class="eventTitle">'
+                        $container.append('<div class="wdn-col"> <a href="' + eventURL + '" target="_blank"><div class="event"> <div class="dateTime">' + '<span class="month">'+month+'</span><span class="day">'+day+'</span><span class="time">'+time+' '+ampm+'<\/span>' + '<\/div> <div class="eventInfo"><p class="eventTitle">'
                             + event.EventTitle + '</p><span class="location">' + location + ' </span>' + '</div></div></a></div>');
 
                     });
-                    $('#events-band').append('<div class="wdn-col-full"><p class="more-events"><a href="' + localConfig.url + '" target="_blank">More Events</a></p></div>');
+                    $container.append('<div class="wdn-col-full"><p class="more-events"><a href="' + localConfig.url + '" target="_blank">More Events</a></p></div>');
                 });
     }
 
