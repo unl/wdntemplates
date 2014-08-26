@@ -208,13 +208,10 @@
         width: 75%;
     }
 
-    @media @bp2 {
-        width: 66%;
-    }
-
     @media @bp3 {
         padding-right: 3.157em;
         float: left;        
+        width: 80%;
     }
 
     a { 
@@ -240,6 +237,10 @@
         border: none;
         opacity: 0.6;
     }
+
+    @media @bp3 {
+        width: 100%;
+    }
 }
 
 #unl_wordmark {
@@ -247,23 +248,66 @@
     width: 111px;
     height: 43px;
     margin-bottom: 1.333em;
-}
 
-#cic_wordmark {
-    background-image: data-uri('../images/cic.svg');
-    width: 47px;
-    height: 25px;
-    float: right;
-    margin-right: 4px;
+    .no-svg & {
+        background-image: data-uri('../images/wordmark.png');
+    }
+    
+    @media @bp3 {
+        margin-right: 1.899em;
+    }
 }
 
 #b1g_wordmark {
     background-image: data-uri('../images/b1g.svg');
     width: 42px;
     height: 21px;
-    float: right;
-    margin-top: 3px;
-    margin-right: 13px;
+    float: left;
+    margin-top: 0.191em;
+    margin-right: 0.802em;
+
+    .no-svg & {
+        background-image: data-uri('../images/b1g.png');
+    }
+
+    @media @bp3 {
+        margin-top: 1em;
+        margin-right: 1.899em;
+    }
+}
+
+#cic_wordmark {
+    background-image: data-uri('../images/cic.svg');
+    width: 47px;
+    height: 25px;
+    float: left;
+    margin-right: 0.254em;
+
+    .no-svg & {
+        background-image: data-uri('../images/cic.png');
+    }
+
+    @media @bp3 {
+        margin-top: 0.75em;
+        margin-right: 1.899em;
+    }    
+}
+
+#tips_wordmark {
+    background-image: data-uri('../images/tips.svg');
+    width: 111px;
+    height: 48px;
+    float: left;
+    margin-top: 1.333em;
+
+    .no-svg & {
+        background-image: data-uri('../images/tips.png');
+    }
+
+    @media @bp3 {
+        width: 96px;
+        margin-top: 0;
+    }
 }
 
 @media @bp-nav-full {
