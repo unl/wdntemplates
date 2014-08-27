@@ -25,10 +25,10 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 		$.each(data.Events.Event || data.Events, function(index, event) {
 			var startDate;
 			if (event.DateTime.Start) {
-				startDate = moment(event.DateTime.Start);
+				startDate = moment.parseZone(event.DateTime.Start);
 			} else {
 				//legacy
-				startDate = moment(event.DateTime.StartDate +  'T' + event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1));
+				startDate = moment.parseZone(event.DateTime.StartDate +  'T' + event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1));
 			}
 			var eventURL = '';
 			if ($.isArray(event.WebPages)) {
