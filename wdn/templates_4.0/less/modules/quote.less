@@ -3,33 +3,52 @@
     position: relative;
     display: table;
     width: auto;
-    max-width: 894px;
-    margin: 1.899em auto;
-    padding: 0 2.369em;     
+    max-width: 895px;
+    margin: 0 auto 3.157em;
+    padding: 3.157em 5% 0;     
     text-align: center;
     .display-font;
-    .rem(28,30);
+    .rem(23,30);
     line-height: 1.333;
     font-style: italic;
 
     &:before, &:after {
-        content: open-quote;
         position: absolute;
-        .rem(160,170);
+        .rem(120,160);
         font-style: normal;
         line-height: 1;
         opacity: 0.1;
     }
 
     &:before {
-        left: 0;
-        top: -0.1em;
+        content: open-quote;
+        left: 50%;
+        margin-left: -0.178em;
+        top: 0;
     }
 
     &:after {
         content: close-quote;
-        right: 0;
-        bottom: -0.254rem;
+        right: 50%;
+        margin-right: -0.178em;
+    }
+
+    @media @bp2 {
+        margin: 0 auto;
+        padding: 2.369em; 
+
+        &:before, &:after {
+            top: 0.317em;
+            margin: 0;        
+        }
+        
+        &:before {
+            left: 0;
+        }
+    
+        &:after {
+            right: 0;
+        }
     }
 }
 
@@ -37,7 +56,7 @@
     display: block;
     text-align: center;
     .brand-font;
-    .rem(28,30);
+    .rem(23,30);
     font-style: normal;
     padding-top: 0.75em;
 
