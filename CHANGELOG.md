@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - This change log to make it easier to see what was added, removed, fixed and deprecated for each future release.
+- Added TIPS Incident Reporting logo to the footer
 
 ### Deprecated
 - Nothing.
