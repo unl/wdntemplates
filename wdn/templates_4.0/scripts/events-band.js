@@ -31,10 +31,10 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
                     $.each(data.Events.Event || data.Events, function(index, event) {
                         var date;
                         if (event.DateTime.Start) {
-                            date = moment(event.DateTime.Start);
+                            date = moment.parseZone(event.DateTime.Start);
                         } else {
                             //legacy
-                            date = moment(event.DateTime.StartDate +  'T' + event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1));
+                            date = moment.parseZone(event.DateTime.StartDate +  'T' + event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1));
                         }
                         var month    = date.format('MMM');
                         var day      = date.format('D');
