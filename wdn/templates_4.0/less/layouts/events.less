@@ -1,124 +1,186 @@
 @import "../_mixins/all.less";
 
 .wdn-calendar {
-	.upcoming-header {
-		font-size: 1.2em;
-		margin-bottom:1em;
-		
-		&:before {
-			.fontello();
-			content: '\e810';
-		}
-	}
-	
-	.subhead {
-		display:block;
-		font-size:0.75em;
-		margin: -1em 0 1em;
-	}
-	
-	thead {
-		display: none;
-	}
-	
-	.vevent .description {
-		display:none;
-	}
-	
-	.feeds {
-		a {
-			display:inline-block;
-			border: none;
-			font-size: 1.5em;
-			overflow: hidden;
-			position: relative;
-			text-indent: -9999em;
-			width: 1em;
-			margin-right: 0.2em;
-			
-			&:before {
-				.fontello();
-				position: absolute;
-				left: 0;
-				top: 0;
-				text-indent: 0;
-			}
-			
-			&.icsformat:before {
-				content: '\e812';
-			}
-			
-			&.rssformat:before {
-				content: '\e811';
-			}
-		}
-	}
-	
-	.upcoming tr {
-		background: none;
-	}
-	
-	.upcoming tr td {
-		text-align: left;
-		border: none;
-		
-		&.date {
-			.brand-font();
-			text-align:center;
-			text-transform:uppercase;
-			vertical-align:top;
-			line-height: 1;
-			width: 4em;
-		}
-		
-		.month {
-			text-transform:uppercase;
-			display:block;
-			padding-right:5px;
-		}
-		
-		.day {
-			font-size:1.4em;
-			line-height: 1.1;
-			display:block;
-			padding-right:5px;
-			color:#444;
-		}
+    .upcoming-header {
+        .sans-serif-font();
+        .rem(12,13);
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        margin-bottom: 1em;
+        padding-bottom: 0.339em;
+        border-bottom: 1px solid @ui04;
 
-		.month, .time, .year {
-			color:fadeout(@dark-neutral, 35%);
-		}
-		
-		.time, .year {
-			display:block;
-			font-size:0.8em;
-			padding-right:5px;
-		}
-		
-		.location, .summary {
-			border-left:#777 solid 2px;
-			border-bottom: none;
-			padding-left:5px;
-			display:block;
-			font-size:0.9em;
-			line-height:130%;
-		}
-		
-		.location {
-			font-size:75%;
-			display:block;
-			color:@dark-complement;
-			text-transform:uppercase;
-		}
-		
-		.mapurl {
-			display:block;
-			color:@dark-complement;
-			border-bottom: none;
-		}
-	}
-	
-	.vcalendar tr td {
-		padding: 7px 0;
-	}
+        &:before {
+            .fontello();
+            content: '\e810';
+            color: @ui05;
+            padding-right: 0.254em;
+        }
+    }
+
+    .event {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 0.75em;
+
+        .date {
+            float: left;
+            width: 4.209em;
+            text-align: center;
+            margin-right: 0.75em;
+            border-right: 1px solid @ui04;
+
+            .month, .day, .time {
+                display: block;
+                line-height: 1;
+            }
+
+            .month, .time {
+                .sans-serif-font();
+                .rem(9,10);
+                text-transform: uppercase;
+            }
+
+            .month {
+                padding-bottom: 0.178em;
+            }
+
+            .day {
+                .heading-font();
+                .rem(23,28);
+                padding-bottom: 0.134em;
+            }
+        }
+
+        .info {
+
+            .title, .location {
+                display: block;
+            }
+
+            .title {
+                line-height: 1.333;
+                padding-bottom: 0.254em;
+            }
+
+            .location {
+                .sans-serif-font();
+                .rem(9,10);
+            }
+        }
+    }
+
+    .see-all {
+        display: block;
+        .sans-serif-font();
+        .rem(10,12);
+        margin: 1em 0;
+    }
+
+    .feeds {
+        a {
+            position: relative;
+            display: inline-block;
+            margin-right: 0.75em;
+            padding-left: 1em;
+            border: none;
+            .brand-font();
+            text-transform: uppercase;
+            .rem(16,17);
+            letter-spacing: 0.02em;
+
+            &:before {
+                position: absolute;
+                top: 3px;
+                left: -0.1em;
+                .fontello();
+                .rem(12,13);
+                color: @ui05;
+            }
+
+            &.ics:before { content: '\e812'; }
+            &.rss:before { content: '\e811'; }
+        }
+    }
+
+
+
+
+    thead {
+        display: none;
+    }
+
+    .vevent .description {
+        display: none;
+    }
+
+
+
+    .upcoming tr {
+        background: none;
+    }
+
+    .upcoming tr td {
+        text-align: left;
+        border: none;
+
+        &.date {
+            .brand-font();
+            text-align: center;
+            text-transform: uppercase;
+            vertical-align: top;
+            line-height: 1;
+            width: 4em;
+        }
+
+        .month {
+            text-transform: uppercase;
+            display: block;
+            padding-right: 5px;
+        }
+
+        .day {
+            font-size: 1.4em;
+            line-height: 1.1;
+            display: block;
+            padding-right: 5px;
+            color: #444;
+        }
+
+        .month, .time, .year {
+            color: fadeout(@dark-neutral, 25%);
+        }
+
+        .time, .year {
+            display: block;
+            font-size: 0.8em;
+            padding-right: 5px;
+        }
+
+        .location, .summary {
+            border-left: #777 solid 2px;
+            border-bottom: none;
+            padding-left: 5px;
+            display: block;
+            font-size: 0.9em;
+            line-height: 130%;
+        }
+
+        .location {
+            font-size: 75%;
+            display: block;
+            color: @dark-complement;
+            text-transform: uppercase;
+        }
+
+        .mapurl {
+            display: block;
+            color: @dark-complement;
+            border-bottom: none;
+        }
+    }
+
+    .vcalendar tr td {
+        padding: 7px 0;
+    }
 }

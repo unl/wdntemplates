@@ -10,31 +10,12 @@
         height: 56px;
         width: @nav-width;
         padding: 0 @mobile-pad;
-        background-color: @heading-text; 
-        border-bottom: 2px solid darken(@heading-text, 5%);
+        background-color: @ui10; 
+        border-bottom: 2px solid @ui11;
         .transition(left @nav-transition-duration ease);
     }
     
-    button {
-    	padding: 7px 10px;
-    	.rem(13);
-    }
-    
     @media @bp-nav-full {
-	    .wdn-input-group > * {
-	    	float: left;
-	    } 
-		
-    	button {
-    		color: #fff;
-    		.rem(12);
-    		padding: 6px 8px;
-    		
-    		&:before {
-    			color: inherit;
-    			margin: 0;
-    		}
-    	}
     	
 	    &.active:after {
 	    	content: '';
@@ -47,6 +28,55 @@
 	    	z-index: (@nav-z-index + 2);
 	    }
     }
+
+    label {
+        position: absolute;
+        white-space: nowrap;
+        overflow: hidden;
+        line-height: 1;
+        width: 1em;
+
+        @media @bp-nav-hidden {
+            top: 8px;
+            left: 8px;
+        }
+
+        @media @bp-nav-full {
+            top: 7px;
+            left: 7px;
+        }
+    }
+
+    &.wdn-resource-label {
+
+        [class^=wdn-icon] {
+            
+            // Text is hidden, but these colors are required to pass accessibility tests        
+            @media @bp-nav-hidden {
+                color: #fff;
+            }
+
+            @media @bp-nav-full {
+                color: #000;
+            }
+            
+            // Actual icon colors
+            &:before { 
+
+                @media @bp-nav-hidden {
+                    color: @ui10;
+                }
+                
+                @media @bp-nav-full {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    button {
+        display: none;
+    }    
 }
 
 #wdn_search_frame {
@@ -104,37 +134,34 @@
 #wdn_search_query {
 	-webkit-appearance: none;
     border: 1px solid @ui05;
-    padding: 6px 10px;
+    border-left-width: 28px;
+    padding: 6px 12px;
     .sans-serif-font();
     .rem(13);
     color: @ui05;
     background: transparent;
-    .transition(width 0.3s ease);
     line-height: normal;
 
     &:focus {
         border-color: @ui03;
         color: @ui03;
     }
+
+    @media @bp-nav-hidden {
+        width: 100%;
+    }
     
     @media @bp-nav-full {
     	.rem(12);
-        width: 5em;
-        padding: 5px;
-	    border-color: @ui05;
+        width: 128px;
+        padding: 5px 8px;
+	    border-color: @ui06;
 	    color: darken(#d1ceb3, 45%);
 	    background: #fff;
 
         &:focus, .active & {
-        	border-color: @ui05;
+        	border-color: @triad;
         	color: inherit;
-            width: 150px;
-        }
-    }
-
-    @media @bp-nav-max {
-        &:focus, .active & {
-            width: 200px;
         }
     }
 }

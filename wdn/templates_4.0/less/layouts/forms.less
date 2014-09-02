@@ -9,17 +9,38 @@ form {
     ol, ul {
         .list-reset;
     }
+    
+    li {
+    	margin: 1em 0;
+    	
+    	li {
+    		margin: 0;
+    	}
+    }
 
     fieldset {
         border: 0;
         margin: 1.777em 0 1em;
         padding: 0;
+        
+        fieldset {
+        	margin: 1em 0;
+	
+	        legend {
+	            margin: 0;
+	            border: 0;
+	            .sans-serif-font();
+	            text-transform: none;
+	            .rem(12,13);
+	        }
+	    }
     }
 
     legend {
         position: relative;
         width: 100%;
-        .wdn-sans-caps;
+        .heading-font();
+        text-transform: uppercase;
         .kern;
         white-space: normal;
         margin-bottom: 1em;
@@ -27,21 +48,9 @@ form {
         border-bottom: 1px solid @ui04;
     }
 
-    fieldset fieldset {
-        margin: 1em 0;
-
-        legend {
-            margin: 0;
-            border: 0;
-            .wdn-sans-serif;
-            text-transform: none;
-            .rem(12,13);
-        }
-    }
-
     label {
         position: relative;
-        .wdn-sans-serif;
+        .sans-serif-font();
         .rem(12,13);
     }
 
@@ -49,9 +58,9 @@ form {
         display: inline-block;
         width: 100%;
         padding: 0.75em;
-        .wdn-sans-serif;
+        .sans-serif-font();
         outline: none;
-        border: 1px solid #dbdac8;
+        border: 1px solid @ui04;
         .border-radius(2px);
         background-color: #fff;
 
@@ -80,14 +89,13 @@ form {
 
         &+ label {
             vertical-align: middle;
-            .wdn-sans-serif;    
+            .sans-serif-font();   
         }
     }
 
     .wdn-input-group {
         display: table;
-        font-size: 0;
-        -
+
         * {
             .border-radius(0);
             margin: 0;
@@ -102,10 +110,10 @@ form {
             vertical-align: middle;
             
             * {
-                font-size: 18px;
                 line-height: normal;
-                padding: 0.8em 1.333em;
+                padding: 1.3em 1.333em;
                 margin: 0;
+                .border-radius(0);
             }
         }
         

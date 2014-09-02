@@ -1,117 +1,106 @@
 @import "../_mixins/all.less";
 
-.notice-color(@color, @border) when (lightness(@color) >= 50%) {
-    background: @color;
-    border-color: @border;
-    .close {
-        color: @dark-neutral;
-        a, a:hover {
-            color: @dark-neutral;
-        }
-    }
-    .message {
-        color: @dark-neutral;
-        h4 {
-            color: @dark-neutral;
-        }
-        a, a:hover {
-            color: @dark-neutral;
-        }
-    }
-}
+.colorize-notice(@color) {
+    background-color: @color;
+    .transition(all ease-out 0.2s);
 
-.notice-color(@color, @border) when (lightness(@color) < 50%) {
-    background: @color;
-    border-color: @border;
-    .close {
-        color: #fff;
-        a, a:hover {
-            color: #fff;
+    &:hover {
+        background-color: darken(@color, 2%);
+
+        .message:before {
+            color: darken(@color, 15%);
         }
     }
-    .message {
-        color: #fff;
-        h4 {
-            color: #fff;
-        }
-        a, a:hover {
-           color: #fff;
-        }
+
+    .message:before {
+        color: darken(@color, 10%);
     }
 }
 
 .wdn_notice {
-    background: @triad;
-    border: 1px solid @dark-triad;
-    margin-bottom: 10px;
+    margin-bottom: 1em;
     border-radius: 3px;
-    padding: 8px;
+    padding: 1em 1em 0.75em;
+    box-shadow: 0 1px 1px 0 fadeout(#000, 50%);
+    .colorize-notice(@triad);
 
     #maincontent > & {
-        padding: 8px;
+        padding: 1em 1em 0.75em;
+    }
+
+    .close {
+        color: #fff;
+        
+        a, a:hover {
+            color: #fff;
+        }
     }
 
     .message {
         position: relative;
-        padding: 0 0 0 60px;
+        padding: 0 0 0 4.1538em;
         color: #fff;
 
-        h4 {
-            color: #fff;
-            font-size: 1.3333em;
-            font-weight: bold;
-            padding: 0;
-            margin: 0;
+        @media @bp2 {
+            padding: 0 0 0 4.209em;
         }
 
-        p {
-            margin-bottom: 0;
+        h4, p {
+            margin: 0;            
+            color: #fff;
+        }
+
+        h4 {
+            padding: 0;
+            .sans-serif-font;
+		    line-height: 1.333;
+		    text-transform: uppercase;
+		    letter-spacing: 0.02em;  
+    		.rem(13,16);
         }
 
         &:before {
             position: absolute;
+            top: 0.1em;
             left: 0;
-            width: 50px;
-            height: 50px;
-            .rem(42);
+            width: 41px;
+            height: 41px;
+            .rem(30,38);
             line-height: normal;
-            color: darken(@triad, 10%);
-            text-shadow: 0px 1px 0px lighten(@triad, 20%), 0px -1px 0px darken(@dark-triad, 10%);
             text-align: center;
             font-family: wdn-icon;
             content: "\e807";
+
+            @media @bp2 {
+                width: 54px;                
+            }
         }
+
         a, a:hover {
             color: #fff;
         }
     }
 
     &.affirm {
-        .notice-color(@dark-complement, darken(@dark-complement, 10%));
+        .colorize-notice(@complement);
 
         .message:before {
-            color: darken(@dark-complement,4%);
-            text-shadow: 0px 1px 0px lighten(@dark-complement, 15%), 0px -1px 0px darken(@dark-complement, 10%);
             content: "\e80b";
         }
     }
 
     &.negate {
-        .notice-color (@brand, darken(@brand, 10%));
+        .colorize-notice(@brand);
 
         .message:before {
-            color: darken(@brand, 10%);
-            text-shadow: 0 1px 0 lighten(@brand, 15%), 0 -1px 0 darken(@brand, 20%);
             content: "\e805";
         }
     }
 
     &.alert {
-        .notice-color (#fff600, lighten(@warning, 20%));
+        .colorize-notice(@energetic);
 
         .message:before {
-            color: @warning;
-            text-shadow: 0 1px 0 lighten(@warning, 40%), 0 -1px 0 darken(@warning, 30%);
             content: "\e806";
         }
     }
@@ -133,7 +122,6 @@
             text-decoration: none;
             position: relative;
             z-index: 1;
-            color: #000;
         }
     }
 
@@ -169,27 +157,12 @@
     &.overlay-header,
     #maincontent > &.overlay-maincontent {
         position: absolute;
-        left: 5px;
-        right: 5px;
-        top: 52px;
+        left: @mobile-pad;
+        right: @mobile-pad;
+        top: 51px;
         margin: 0 auto;
-        padding: 2px;
         max-width: 52rem;
         z-index: (@nav-z-index + 2); // above nav
         text-align: left;
-
-        h4, p {
-            float: left;
-            padding: 0 0 0 10px;
-        }
-
-        .message {
-            padding: 0 0 0 40px;
-        }
-
-        .message:before {
-            .rem(20);
-            height: 9px;
-        }
     }
 }

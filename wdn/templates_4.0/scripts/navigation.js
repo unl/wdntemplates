@@ -144,6 +144,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		if (!isFullNav()) {
 			$cWrapper.css(padCss, '');
 			secondaryLists.css(hCss, '');
+			$nav.trigger('fixed', [$('.wdn-menu-trigger').outerHeight()]);
 			return;
 		}
 
@@ -234,6 +235,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			});
 		}
 
+		$nav.trigger('fixed', [navHeight]);
 		WDN.log('we have fixed the presentation.');
 	};
 
