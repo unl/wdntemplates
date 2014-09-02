@@ -122,30 +122,39 @@ WDN.unlalert = (function() {
 			_pushClosedAlert(id);
 		},
 
-		// Build/Activate alert message, root is unlAlerts.data.alert.info object from server
+		// Build/Activate alert message
 		alertUser: function(root) {
 			WDN.log('Alerting the user');
 
-			if (!(root instanceof Array)) {
-				root = [root];
-			}
 			_flagPreviousAlert();
 			activeIds = [];
 			var $alertWrapper = document.getElementById('unlalert'), $alertContent;
 			var allAck = true;
+			var info = root.info;
+			var containsExtreme = false;
 
-			for (var i = 0; i < root.length; i++) {
-				if (root[i].severity !== 'Extreme') {
+			if (!(info instanceof Array)) {
+				info = [info];
+			}
+			
+			for (var i = 0; i < info.length; i++) {
+				if (info[i].severity !== 'Extreme') {
 					continue;
 				}
+				containsExtreme = true;
+			}
 
-				var uniqueID = root[i].parameter.value;
-				activeIds.push(uniqueID);
+			if (!containsExtreme) {
+				return;
+			}
+			
+			var uniqueID = root.identifier || +(new Date);
+			activeIds.push(uniqueID);
+			allAck = WDN.unlalert.alertWasAcknowledged(uniqueID);
 
-				if (!allAck || !WDN.unlalert.alertWasAcknowledged(uniqueID)) {
-					allAck = false;
-				}
-
+			var effectiveDate = new Date(root.sent).toLocaleString();
+			
+			for (i = 0; i < info.length; i++) {
 				// Add a div to store the html content
 				if ($alertWrapper == null) {
 					WDN.loadCSS(WDN.getTemplateFilePath('css/header/unlalert.css'));
@@ -167,18 +176,14 @@ WDN.unlalert = (function() {
 					$alertContent.innerHTML = '';
 				}
 				
-				var effectiveDate = root[i].effective || '';
-				if (effectiveDate.length) {
-					// transform the ISO effective date into a JS date by inserting a missing colon
-					effectiveDate = new Date(effectiveDate.slice(0, -2) + ":" + effectiveDate.slice(-2)).toLocaleString();
-				}
-				var web = root[i].web || 'http://www.unl.edu/';
+				var web = info[i].web || 'http://www.unl.edu/';
 
-				var alertContentHTML = '<h1><span>Emergency UNL Alert:</span> ' + root[i].headline + '</h1>';
-				if (effectiveDate) {
-					alertContentHTML += '<h4>Issued at ' + effectiveDate + '</h4>';
+				var alertContentHTML = '<h1><span>Emergency UNL Alert:</span> ' + info[i].headline + '</h1>';
+				alertContentHTML += '<h2>Issued at ' + effectiveDate + '</h2>';
+				alertContentHTML += '<p>' + info[i].description + '<br/>';
+				if (info[i].instruction) {
+					alertContentHTML += info[i].instruction + '<br/>';
 				}
-				alertContentHTML += '<p>' + root[i].description + ' ' + root[i].instruction + ' <!-- ID '+uniqueID+' -->';
 				alertContentHTML += 'Additional info (if available) at <a href="' + web + '">' + web + '</a></p>';
 				
 				$alertContent.innerHTML += alertContentHTML;
@@ -252,7 +257,7 @@ var unlAlerts = {
 			// There is an alert if unlAlerts.data.alert.info exists
 			if (unlAlerts.data.alert && unlAlerts.data.alert.info) {
 				WDN.log("Found an alert, calling WDN.unlalert.alertUser()");
-				WDN.unlalert.alertUser(unlAlerts.data.alert.info);
+				WDN.unlalert.alertUser(unlAlerts.data.alert);
 			} else {
 				WDN.unlalert.noAlert();
 			}
