@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.0.20 (September 2, 2014)
+
+### Fixed
+- UNL Alerts are loaded with slightly different data
+
 ## 4.0.19 (August 27, 2014)
 
 ### Added
