@@ -71,10 +71,10 @@ define(['jquery', 'wdn'], function($, WDN) {
 		}
 		WDN.setCookie(ckPrfx + 'A', value, time);
 	},
-	
+
 	dataUrl = document.location.protocol+'//alert.unl.edu/json/unlcap.js',
 //	dataUrl = '//ucommabel.unl.edu/workspace/wdntemplates/scripts/public/alertSimulator.php',
-	
+
 	_callServer = function() {
 		WDN.log('Checking the alert server for data '+ dataUrl);
 		var head = document.getElementsByTagName('head')[0],
@@ -124,13 +124,13 @@ define(['jquery', 'wdn'], function($, WDN) {
 			i;
 
 		if ($alert.hasClass('show')) {
-			$alert.removeClass('show');
+			$alert.removeClass('show').closest('body').removeClass(idPrfx + '-shown');
 			$alertToggle.find('i').attr('class', 'wdn-icon-attention');
 			for (i = 0; i < activeIds.length; i++) {
 				_acknowledgeAlert(activeIds[i]);
 			}
 		} else {
-			$alert.addClass('show');
+			$alert.addClass('show').closest('body').addClass(idPrfx + '-shown');
 			$alertToggle.find('i').attr('class', 'wdn-icon-cancel');
 		}
 	},
