@@ -1,6 +1,3 @@
-/**
- * This file does not use jQuery so it can be used in all cases.
- */
 define(['jquery', 'wdn'], function($, WDN) {
 	var activeIds = [], calltimeout,
 
@@ -9,26 +6,9 @@ define(['jquery', 'wdn'], function($, WDN) {
 	cntSuf = '_content',
 	togSuf = '_toggle',
 
-	_browserCompat = function() {
-		if (!Array.prototype.indexOf) {
-			Array.prototype.indexOf = function (searchElement) {
-				"use strict";
-				if (this == null) {throw new TypeError();}
-				var t = Object(this);
-				var len = t.length >>> 0;
-				if (len === 0) {return -1;}
-				var n = 0;
-				if (arguments.length > 0) {
-					n = Number(arguments[1]);
-					if (n != n) {n = 0;} else if (n != 0 && n != Infinity && n != -Infinity) {n = (n > 0 || -1) * Math.floor(Math.abs(n));}
-				}
-				if (n >= len) {return -1;}
-				var k = n >= 0 ? n : Math.max(len - Math.abs(n), 0);
-				for (; k < len; k++) {if (k in t && t[k] === searchElement) {return k;}}
-				return -1;
-			};
-		}
-	},
+	timeoutPeriod = 30, // how ofter to check for expired data
+	dataLifetime = 30, // seconds until the data cookie expires
+	ackLifetime = 3600, // seconds until an acknowledgment expires
 
 	_getClosedAlerts = function() {
 		var c = WDN.getCookie(ckPrfx + 'C');
@@ -40,11 +20,11 @@ define(['jquery', 'wdn'], function($, WDN) {
 
 	_pushClosedAlert = function(id) {
 		var closed = _getClosedAlerts();
-		if (closed.indexOf(id) != -1) {
+		if ($.inArray(id, closed) != -1) {
 			return;
 		}
 		closed.push(id);
-		WDN.setCookie(ckPrfx + 'C', closed.join(','), 3600);
+		WDN.setCookie(ckPrfx + 'C', closed.join(','), ackLifetime);
 	},
 
 	_checkCookie = function(name) {
@@ -72,40 +52,43 @@ define(['jquery', 'wdn'], function($, WDN) {
 		WDN.setCookie(ckPrfx + 'A', value, time);
 	},
 
-	dataUrl = document.location.protocol+'//alert.unl.edu/json/unlcap.js',
-//	dataUrl = '//ucommabel.unl.edu/workspace/wdntemplates/scripts/public/alertSimulator.php',
+//	dataUrl = document.location.protocol+'//alert.unl.edu/json/unlcap.js',
+	dataUrl = '//ucommabel.unl.edu/workspace/wdntemplates/scripts/public/alertSimulator.php',
 
 	_callServer = function() {
 		WDN.log('Checking the alert server for data '+ dataUrl);
-		var head = document.getElementsByTagName('head')[0],
-		old  = document.getElementById('lastLoadedCmds'),
-		cacheBust = (new Date()).getTime(),
-		script = document.createElement('script');
+		var loadedId = 'lastLoadedCmds'
+		$old = $('#' + loadedId),
+		cacheBust = (new Date()).getTime();
 
-		if (old) {
-			head.removeChild(old);
+		if ($old.length) {
+			$old.remove();
 		}
 
-		script.type = 'text/javascript';
-		script.defer = true;
-		script.async = true;
-		script.id = 'lastLoadedCmds';
-		script.src = dataUrl + '?' + cacheBust;
-		head.appendChild(script);
+		$('<script>', {
+			"async": "async",
+			"defer": "defer",
+			"type": "text/javascript",
+			"id": loadedId,
+			"src": dataUrl + '?' + cacheBust
+		}).appendTo($('head'));
 	},
 
 	_checkIfCallNeeded = function() {
 		if (_dataHasExpired() || _hasPreviousAlert()) {
 			_callServer();
 		}
+
+		clearTimeout(calltimeout);
+		calltimeout = setTimeout(_checkIfCallNeeded, timeoutPeriod * 1000);
 	},
 
 	dataReceived = function() {
 		WDN.log('UNL Alert data received');
 		clearTimeout(calltimeout);
 		// Set cookie to indicate time the data was aquired
-		WDN.setCookie(ckPrfx + 'Data', 1, 60);
-		calltimeout = setTimeout(_checkIfCallNeeded, 60000);
+		WDN.setCookie(ckPrfx + 'Data', 1, dataLifetime);
+		calltimeout = setTimeout(_checkIfCallNeeded, (dataLifetime + 1) * 1000);
 	},
 
 	alertWasAcknowledged = function(id) {
@@ -254,7 +237,6 @@ define(['jquery', 'wdn'], function($, WDN) {
 	return {
 
 		initialize: function() {
-			_browserCompat();
 			_checkIfCallNeeded();
 		},
 
