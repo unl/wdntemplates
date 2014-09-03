@@ -52,8 +52,8 @@ define(['jquery', 'wdn'], function($, WDN) {
 		WDN.setCookie(ckPrfx + 'A', value, time);
 	},
 
-//	dataUrl = document.location.protocol+'//alert.unl.edu/json/unlcap.js',
-	dataUrl = '//ucommabel.unl.edu/workspace/wdntemplates/scripts/public/alertSimulator.php',
+	dataUrl = document.location.protocol+'//alert.unl.edu/json/unlcap.js',
+//	dataUrl = '//ucommabel.unl.edu/workspace/wdntemplates/scripts/public/alertSimulator.php',
 
 	_callServer = function() {
 		WDN.log('Checking the alert server for data '+ dataUrl);
