@@ -71,6 +71,9 @@ WDN.unlalert = (function() {
 			if (WDN.unlalert._dataHasExpired() || WDN.unlalert._hasPreviousAlert()) {
 				WDN.unlalert._callServer();
 			}
+			
+			clearTimeout(calltimeout);
+			calltimeout = setTimeout(WDN.unlalert.checkIfCallNeeded, 30000);
 		},
 
 		// Data has expired if unlAlertsData cookie is non existent
@@ -107,8 +110,8 @@ WDN.unlalert = (function() {
 			WDN.log('UNL Alert data received');
 			clearTimeout(calltimeout);
 			// Set cookie to indicate time the data was aquired
-			WDN.setCookie('unlAlertsData', 1, 60);
-			calltimeout = setTimeout(WDN.unlalert.checkIfCallNeeded, 60000);
+			WDN.setCookie('unlAlertsData', 1, 30);
+			calltimeout = setTimeout(WDN.unlalert.checkIfCallNeeded, 31000);
 		},
 
 		/*------ check if alert was acknowledged ------*/
