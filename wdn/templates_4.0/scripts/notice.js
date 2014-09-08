@@ -13,8 +13,8 @@ define(['jquery', 'wdn'], function($, WDN) {
 	var Plugin = {
 		initialize : function() {
 			WDN.loadCSS(WDN.getTemplateFilePath('css/modules/notices.css'));
-			$('div.close a').click(function() {
-				$(this).parent('.close').parent('.wdn_notice').fadeOut("slow");
+			$('.wdn_notice .close').click(function() {
+				$(this).closest('.wdn_notice').fadeOut("slow");
 				return false;
 			});
 			$('.wdn_notice[class*=duration]').each(function() {
