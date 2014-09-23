@@ -155,7 +155,7 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 			}
 		},
 
-		callTrackEvent: function(category, action, label, value, noninteraction) {
+		callTrackEvent: function(category, evtaction, label, value, noninteraction) {
 			var action = 'event', method = 'send', legacyMethod = '_trackEvent', evtOpt;
 
 			if (noninteraction !== true) {
@@ -164,7 +164,7 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 
 			evtOpt = {
 				eventCategory: category,
-				eventAction: action,
+				eventAction: evtaction,
 				eventLabel: label,
 				eventValue: value,
 				nonInteraction: noninteraction
@@ -180,7 +180,7 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 							legacyValue = Math.floor(value);
 						}
 
-						tracker[legacyMethod](category, action, label, legacyValue, noninteraction);
+						tracker[legacyMethod](category, evtaction, label, legacyValue, noninteraction);
 					}
 				});
 
