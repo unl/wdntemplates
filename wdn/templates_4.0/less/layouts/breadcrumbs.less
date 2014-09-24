@@ -92,11 +92,14 @@
     @media @bp-nav-full {
         color: @base-text;
 
-        .selected a:after {
-            border-bottom-color: #5f5f4e;
+        .selected a{
+            color: @brand;
+
+            &:after {
+                border-bottom-color: @ui08;
+            }
         }
     }
-
 
     a {
         display: inline-block;
