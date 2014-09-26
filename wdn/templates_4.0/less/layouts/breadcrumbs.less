@@ -58,8 +58,8 @@
         &.last-link:last-child {
             padding: 0;
         }
-    }  
-    
+    }
+
     .selected a {
         position: relative;
 
@@ -84,19 +84,22 @@
         color: #fff;
 
         .selected a:after {
-            border-bottom-color: #e1dfd7;
+            border-bottom-color: @ui03;
         }
     }
 
     // Styles specific to the full view
     @media @bp-nav-full {
         color: @base-text;
-        
-        .selected a:after {
-            border-bottom-color: #5f5f4e;
+
+        .selected a{
+            color: @brand;
+
+            &:after {
+                border-bottom-color: @ui08;
+            }
         }
     }
-
 
     a {
         display: inline-block;
@@ -110,7 +113,7 @@
             padding: 6px 0 3px 0;
         }
     }
-    
+
     .storednav {
         display: none;
     }
