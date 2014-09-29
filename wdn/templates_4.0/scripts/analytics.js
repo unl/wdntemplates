@@ -1,13 +1,7 @@
 /* global define: false */
 define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 	"use strict";
-	var _gaq = window._gaq,
-		_gat = window._gat,
-		ga = function() {
-			window.ga.apply(this, arguments)
-		},
-
-		wdnProp = 'UA-3203435-1',
+	var wdnProp = 'UA-3203435-1',
 		unlDomain = '.unl.edu',
 
 		Plugin,
@@ -43,9 +37,8 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 					Plugin.callTrackEvent('Email', mailLink, thisURL);
 				});
 			} else if (gahref.match(filetypes)){
-				var extension = (/[.]/.exec(gahref)) ? /[^.]+$/.exec(gahref) : undefined;
 				link.click(function() {
-					Plugin.callTrackEvent('File Download', gahref, thisURL, extension);
+					Plugin.callTrackEvent('File Download', gahref, thisURL);
 					Plugin.callTrackPageview(gahref);
 				});
 			}
