@@ -1,13 +1,7 @@
 /* global define: false */
 define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 	"use strict";
-	var _gaq = window._gaq,
-		_gat = window._gat,
-		ga = function() {
-			window.ga.apply(this, arguments)
-		},
-
-		wdnProp = 'UA-3203435-1',
+	var wdnProp = 'UA-3203435-1',
 		unlDomain = '.unl.edu',
 
 		defaultExt = '7z|aac|arc|arj|asf|asx|avi|bin|csv|docx?|exe|flv|gif|gz(?:ip)?|hqx|jar|jpe?g|js|m4v|mp(?:2|3|4|e?g)|mov(?:ie)?|msi|msp|pdf|phps|png|pptx?|qtm?|ra[mr]?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xlsx?|xml|z|zip',
@@ -160,7 +154,7 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 			}
 		},
 
-		callTrackEvent: function(category, action, label, value, noninteraction) {
+		callTrackEvent: function(category, evtaction, label, value, noninteraction) {
 			var action = 'event', method = 'send', legacyMethod = '_trackEvent', evtOpt;
 
 			if (noninteraction !== true) {
@@ -169,7 +163,7 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 
 			evtOpt = {
 				eventCategory: category,
-				eventAction: action,
+				eventAction: evtaction,
 				eventLabel: label,
 				eventValue: value,
 				nonInteraction: noninteraction
@@ -185,7 +179,7 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 							legacyValue = Math.floor(value);
 						}
 
-						tracker[legacyMethod](category, action, label, legacyValue, noninteraction);
+						tracker[legacyMethod](category, evtaction, label, legacyValue, noninteraction);
 					}
 				});
 
