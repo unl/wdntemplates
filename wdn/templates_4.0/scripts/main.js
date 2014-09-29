@@ -21,13 +21,11 @@ define('modernizr', [], function () { return window.Modernizr; });
 define(['wdn', 'require', 'legacy',
         // these are the WDN plugins that are required
         'analytics',
-        'analytics_scroll_depth',
         'navigation',
         'search',
         'unlalert',
         'images'], function(WDN, require) {
 	WDN.initializePlugin('analytics');
-	WDN.initializePlugin('analytics_scroll_depth');
 	WDN.initializePlugin('navigation');
 	WDN.initializePlugin('search');
 	WDN.initializePlugin('socialmediashare');
