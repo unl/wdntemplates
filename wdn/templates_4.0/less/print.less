@@ -2,44 +2,131 @@
 
 @import "_mixins/all.less";
 
+@page {
+    margin: 7.5%;
+}
+
 .hide() {
-    display: none !important; 
+    display: none !important;
 }
 
 .reset() {
-	padding: 0;
+    position: static;
+    display: block;
+    float: none;
+    width: 100%;
 	margin: 0;
+    padding: 0;
+    text-align: left;
+	background: transparent;
+    border: none;
 }
 
 html, body {
-	background: none;
+	.reset();
+	font-size: 12px;
 }
 
-a:after {
-    content: " (" attr(href) ")" !important;
-    display: inline !important;
-    height: auto !important;
-    width: auto !important;
-    background: none !important;
+.wdn-band {
+    .reset();
+
+    .wdn-inner-wrapper {
+        .reset();
+    }
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, span, div, .wdn-subhead {
+    color: #444;
+}
+
+a {
+    color: black;
+
+    &:after {
+        content: " (" attr(href) ")" !important;
+        display: inline !important;
+        height: auto !important;
+        width: auto !important;
+        background: none !important;
+    }
+
+    #maincontent & {
+        border-bottom: 1px dotted black;
+
+        &.wdn-button {
+            border-bottom: 0;
+            color: white !important;
+            background: black !important;
+        }
+    }
 }
 
 .skipnav,
+.wdn-menu-trigger,
 .wdn-icon-menu,
+.wdn-share-this-page,
 #wdn_social,
 #wdn_app_wrapper,
 #wdn_site_title span span,
 #wdn_resources,
 #wdn_navigation_bar,
-#footer { 
+#footer {
     .hide()
 }
 
+
 #header {
-	padding-bottom: 1em;
-	background: none;
-	border-bottom: 2px solid;
+    .reset();
+    box-shadow: none;
+    padding-bottom: 12px;
+    border-bottom: 1px solid black;
 }
 
+#logo {
+    .reset();
+	width: auto;
+	height: auto;
+    top: 0;
+    left: 0;
+
+	a {
+		.hide();
+	}
+
+	&:before {
+        content: url('../images/logo-print.jpg');
+	    position: static;
+	    height: 54px;
+	    width: 54px;
+    }
+}
+
+#wdn_institution_title {
+    .reset();
+    width: auto;
+    color: black;
+}
+
+#wdn_site_title {
+    .reset();
+    width: auto;
+
+    a {
+        color: black;
+
+        &:after {
+            display: inline !important;
+            font-size: 10px;
+        }
+    }
+}
+
+
+
+
+
+
+/*
 #logo {
 	position: static;
 	width: auto;
@@ -47,17 +134,17 @@ a:after {
 	margin: 0;
 	top: 0;
 	left: 0;
-	
+
 	a {
 		.hide();
 	}
-	
+
 	&:before {
         content: url('../images/logo-print.png');
         margin-right: 10px;
-        height: 55px;
+        height: 100px;
         width: 70px;
-        float: left;
+        //float: left;
     }
 }
 
@@ -66,16 +153,16 @@ a:after {
 	display: block;
 	color: @base-text;
 	.rem(18);
-	.sans-serif-font();
+    .brand-font();
 }
 
 #wdn_site_title {
 	padding: 0;
-	margin: -1em 0 0 0;
+	margin: -2em 0 0 0;
 	text-align: left;
-	.rem(30);
+	.rem(23);
 }
-	
+
 abbr[title]:before {
-	.rem(24);
-}
+	.rem(18);
+}*/
