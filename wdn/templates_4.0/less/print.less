@@ -13,8 +13,6 @@
 .reset() {
     position: static;
     display: block;
-    float: none;
-    width: 100%;
 	margin: 0;
     padding: 0;
     text-align: left;
@@ -24,14 +22,20 @@
 
 html, body {
 	.reset();
-	font-size: 12px;
+    float: none;
+    width: 100%;
+    font-size: 12px;
 }
 
 .wdn-band {
     .reset();
-
+    float: none;
+    width: 100%;
+    
     .wdn-inner-wrapper {
         .reset();
+        float: none;
+        width: 100%;
     }
 }
 
@@ -74,20 +78,27 @@ a {
     .hide()
 }
 
-
 #header {
     .reset();
+    float: none;
+    width: 100%;
     box-shadow: none;
-    padding-bottom: 12px;
     border-bottom: 1px solid black;
+
+    .wdn-inner-wrapper:first-of-type:after {
+        content: "\A";
+        display: inline;
+        clear: both;
+        white-space: pre;
+    }
 }
 
 #logo {
     .reset();
+    float: left;
 	width: auto;
 	height: auto;
-    top: 0;
-    left: 0;
+    margin-right: 6px;
 
 	a {
 		.hide();
@@ -103,13 +114,17 @@ a {
 
 #wdn_institution_title {
     .reset();
+    float: left;    
     width: auto;
     color: black;
+    padding-top: 3px;
 }
 
 #wdn_site_title {
     .reset();
+    float: none;
     width: auto;
+    padding-bottom: 3px;
 
     a {
         color: black;
@@ -120,49 +135,3 @@ a {
         }
     }
 }
-
-
-
-
-
-
-/*
-#logo {
-	position: static;
-	width: auto;
-	height: auto;
-	margin: 0;
-	top: 0;
-	left: 0;
-
-	a {
-		.hide();
-	}
-
-	&:before {
-        content: url('../images/logo-print.png');
-        margin-right: 10px;
-        height: 100px;
-        width: 70px;
-        //float: left;
-    }
-}
-
-#wdn_institution_title {
-	.reset();
-	display: block;
-	color: @base-text;
-	.rem(18);
-    .brand-font();
-}
-
-#wdn_site_title {
-	padding: 0;
-	margin: -2em 0 0 0;
-	text-align: left;
-	.rem(23);
-}
-
-abbr[title]:before {
-	.rem(18);
-}*/
