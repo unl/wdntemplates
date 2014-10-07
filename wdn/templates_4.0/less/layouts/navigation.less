@@ -35,8 +35,6 @@
     overflow: hidden;
     line-height: 1;
     cursor: pointer;
-    font-size: 21px;
-    font-size: 1.333rem;
     color: #fff;
     padding: 7px 0;
 
@@ -50,6 +48,8 @@
     position: relative;
     float: left;
     width: 1.333em;
+    font-size: 21px;
+    font-size: 1.333rem;
 
     @media @bp-nav-full {
         margin-top: 2px;
@@ -113,7 +113,7 @@
 
     // Styles specific to the mobile view
     @media @bp-nav-hidden {
- 
+
         > ul {
             padding-bottom: 4.209em;
         }
@@ -128,7 +128,7 @@
     li {
         text-transform: uppercase;
         .rem(21);
-        
+
         &.empty {
             display: none;
         }
@@ -145,7 +145,7 @@
             float: left;
             width: 16.6666%;
             text-align: center;
-                       
+
             &.empty {
                 display: list-item;
                 visibility: hidden;
@@ -163,7 +163,7 @@
                 padding: 0;
                 border-bottom: 1px solid #c00808;
                 border-bottom: 1px solid fadeout(#000,94%);
-                
+
                 &:last-child {
                     border-bottom: none;
                 }
@@ -206,7 +206,7 @@
                 &:nth-of-type(7n) {
                     clear: left;
                 }
-                
+
                 > a {
                     padding-top: 0.422em;
                     padding-bottom: 0.451em;
@@ -218,7 +218,7 @@
             position: absolute;
             left: @mobile-pad;
             margin-left: -28px;
-            
+
             .empty-secondary & {
                 display: none;
             }

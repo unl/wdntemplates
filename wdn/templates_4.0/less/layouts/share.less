@@ -1,7 +1,7 @@
 .wdn-share-this-page {
 	position: absolute;
 	margin-left: 2.308em;  // offset menu icon by width
-	top: 56px;  // #header height + 2px nav bar border-top
+	top: 59px;  // #header height + 2px nav bar border-top
     left: @mobile-pad;  // align left to menu icon
     z-index: (@nav-z-index + 1);
 
@@ -12,9 +12,9 @@
 	    right: 8px;
 	    bottom: -62px;
     }
-    
+
     @media @bp2 {
-    	bottom: -67px;
+    	bottom: -70px;
     }
 
     @media @bp4 {
@@ -33,13 +33,15 @@
     .wdn-nav-icon(); // located at layouts/navigation.less
     width: 1.777em;
 	background-color: @brand;
+    font-size: 17px;
+    font-size: 1.069rem;
 
     @media @bp-nav-hidden {
     	padding-right: 1.333em;
     }
 
     @media @bp-nav-full {
-    	padding-left: 10px;
+    	padding: 8px 0 11px 10px;
     }
 }
 
@@ -58,12 +60,12 @@
 
 	// Hide until toggled
 	display: none;
-	
+
 	@media @bp-nav-full {
 		margin: 0;
 		right: 0;
 	}
-	
+
 	&:before {
         content: '';
         position: absolute;
@@ -100,6 +102,6 @@
 
 		&:hover {
 			color: @cream;
-		}		
+		}
 	}
 }
