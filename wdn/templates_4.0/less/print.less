@@ -39,6 +39,11 @@ html, body {
     }
 }
 
+#maincontent > * {
+    .reset();
+    max-width: none;
+}
+
 h1, h2, h3, h4, h5, h6, p, ul, ol, li, span, div, .wdn-subhead {
     color: #444;
 }
@@ -86,10 +91,7 @@ a {
     border-bottom: 1px solid black;
 
     .wdn-inner-wrapper:first-of-type:after {
-        content: "\A";
-        display: inline;
-        clear: both;
-        white-space: pre;
+        display: none;
     }
 }
 
@@ -114,7 +116,7 @@ a {
 
 #wdn_institution_title {
     .reset();
-    float: left;    
+    float: none;    
     width: auto;
     color: black;
     padding-top: 3px;
