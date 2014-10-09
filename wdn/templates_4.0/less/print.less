@@ -2,80 +2,138 @@
 
 @import "_mixins/all.less";
 
+@page {
+    margin: 7.5%;
+}
+
 .hide() {
-    display: none !important; 
+    display: none !important;
 }
 
 .reset() {
-	padding: 0;
+    position: static;
+    display: block;
 	margin: 0;
+    padding: 0;
+    text-align: left;
+	background: transparent;
+    border: none;
 }
 
 html, body {
-	background: none;
+	.reset();
+    float: none;
+    width: 100%;
+    font-size: 12px;
 }
 
-a:after {
-    content: " (" attr(href) ")" !important;
-    display: inline !important;
-    height: auto !important;
-    width: auto !important;
-    background: none !important;
+.wdn-band {
+    .reset();
+    float: none;
+    width: 100%;
+    
+    .wdn-inner-wrapper {
+        .reset();
+        float: none;
+        width: 100%;
+    }
+}
+
+#maincontent > * {
+    .reset();
+    max-width: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, span, div, .wdn-subhead {
+    color: #444;
+}
+
+a {
+    color: black;
+
+    &:after {
+        content: " (" attr(href) ")" !important;
+        display: inline !important;
+        height: auto !important;
+        width: auto !important;
+        background: none !important;
+    }
+
+    #maincontent & {
+        border-bottom: 1px dotted black;
+
+        &.wdn-button {
+            border-bottom: 0;
+            color: white !important;
+            background: black !important;
+        }
+    }
 }
 
 .skipnav,
+.wdn-menu-trigger,
 .wdn-icon-menu,
+.wdn-share-this-page,
 #wdn_social,
 #wdn_app_wrapper,
 #wdn_site_title span span,
 #wdn_resources,
 #wdn_navigation_bar,
-#footer { 
+#footer {
     .hide()
 }
 
 #header {
-	padding-bottom: 1em;
-	background: none;
-	border-bottom: 2px solid;
+    .reset();
+    float: none;
+    width: 100%;
+    box-shadow: none;
+    border-bottom: 1px solid black;
+
+    .wdn-inner-wrapper:first-of-type:after {
+        display: none;
+    }
 }
 
 #logo {
-	position: static;
+    .reset();
+    float: left;
 	width: auto;
 	height: auto;
-	margin: 0;
-	top: 0;
-	left: 0;
-	
+    margin-right: 6px;
+
 	a {
 		.hide();
 	}
-	
+
 	&:before {
-        content: url('../images/logo-print.png');
-        margin-right: 10px;
-        height: 55px;
-        width: 70px;
-        float: left;
+        content: url('../images/logo-print.jpg');
+	    position: static;
+	    height: 54px;
+	    width: 54px;
     }
 }
 
 #wdn_institution_title {
-	.reset();
-	display: block;
-	color: @base-text;
-	.rem(18);
-	.sans-serif-font();
+    .reset();
+    float: none;    
+    width: auto;
+    color: black;
+    padding-top: 3px;
 }
 
 #wdn_site_title {
-	padding: 0;
-	margin: -1em 0 0 0;
-	text-align: left;
-	.rem(30);
-}
-	
-abbr[title]:before {
-	.rem(24);
+    .reset();
+    float: none;
+    width: auto;
+    padding-bottom: 3px;
+
+    a {
+        color: black;
+
+        &:after {
+            display: inline !important;
+            font-size: 10px;
+        }
+    }
 }
