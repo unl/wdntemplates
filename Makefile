@@ -60,7 +60,6 @@ CSS_OBJS := \
 	$(TEMPLATE_CSS)/modules/band_imagery.css \
 	$(TEMPLATE_CSS)/modules/notices.css \
 	$(TEMPLATE_CSS)/modules/pagination.css \
-	$(TEMPLATE_CSS)/modules/randomizer.css \
 	$(TEMPLATE_CSS)/modules/rsswidget.css \
 	$(TEMPLATE_CSS)/modules/vcard.css \
 	$(TEMPLATE_CSS)/modules/infographics.css \
