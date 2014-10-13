@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - Fixed possible race condition with loading randomizer plugin CSS ([#812](https://github.com/unl/wdntemplates/pull/812))
-- Improved print CSS to properly render header ([#811](https://github.com/unl/wdntemplates/pull/811))
+- Improved print CSS to properly render header ([#810](https://github.com/unl/wdntemplates/pull/810))
 - Corrected color contrast issue for month widget event listings for "today" ([#808](https://github.com/unl/wdntemplates/pull/808))
 - Local analytic plugin was not properly tracking events ([#803](https://github.com/unl/wdntemplates/pull/803), [#807](https://github.com/unl/wdntemplates/pull/803))
 - Changed the selected (home) breadcrumb to be red to improve visibility ([#805](https://github.com/unl/wdntemplates/pull/805))
