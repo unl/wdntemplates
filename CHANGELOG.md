@@ -1,7 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 4.0.20 (September 2, 2014)
+## 4.0.23 (October 13, 2014)
+
+### Fixed
+- Fixed possible race condition with loading randomizer plugin CSS
+- Improved print CSS to properly render header
+- Corrected color contrast issue for month widget event listings for "today"
+- Local analytic plugin was not properly tracking events
+- Changed the selected (home) breadcrumb to be red to improve visibility
+- Fixed issue with IE 10 not being able to close notice boxes
+- Removed all CSS relating to the "apps" header segment
+
+### Added
+- Icons that match the streamline set
+
+## 4.0.20 - 4.0.22 (September 2, 2014)
 
 ### Fixed
 - UNL Alerts are loaded with slightly different data
