@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 - Improved print CSS to properly render header ([#810](https://github.com/unl/wdntemplates/pull/810))
 - Corrected color contrast issue for month widget event listings for "today" ([#808](https://github.com/unl/wdntemplates/pull/808))
 - Local analytic plugin was not properly tracking events ([#803](https://github.com/unl/wdntemplates/pull/803), [#807](https://github.com/unl/wdntemplates/pull/807))
-- Changed the selected (home) breadcrumb to be red to improve visibility ([#805](https://github.com/unl/wdntemplates/pull/805))
+- Changed the selected (home) breadcrumb to be red to improve visibility ([#805](https://github.com/unl/wdntemplates/pull/805), [#814](https://github.com/unl/wdntemplates/pull/814))
 - Fixed issue with IE 10 not being able to close notice boxes ([#638](https://github.com/unl/wdntemplates/issues/638))
 - Removed all CSS relating to the "apps" header segment ([#801](https://github.com/unl/wdntemplates/pull/801))
 
