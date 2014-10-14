@@ -1,7 +1,6 @@
 #breadcrumbs {
     .sans-serif-font();
     .rem(10);
-    opacity: 0.7;
 
     @media @bp3 {
         width: 60rem;
@@ -35,15 +34,14 @@
             font-weight: normal;
             speak: none;
             content: '\F0C8';
-            .rem(14,20);
+            .rem(13,16);
             margin: 0 0.254em 0 0.422em;
-            line-height: inherit;
-            color: fadeout(#fff, 25%);
+            line-height: 1.7;
+            color: @ui05;
             vertical-align: middle;
 
             @media @bp-nav-full {
-                color: fadeout(@base-text, 45%);
-                line-height: normal;
+                line-height: 1.5;
             }
         }
 
