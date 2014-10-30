@@ -350,7 +350,7 @@
 	tmpName = sValidate + '-one-required-by-name';
 	m[tmpName] = new Validator(tmpName, 'Please select one of the options.', function(v, elm) {
 		var cleanName = elm.attr('name').replace(/([\\"])/g, '\\$1'),
-		inputs = $('input[name=' + cleanName + ']' + sChecked, elm[0].form);
+		inputs = $('input[name="' + cleanName + '"]' + sChecked, elm[0].form);
 		return inputs.length > 0;
 	});
 	
