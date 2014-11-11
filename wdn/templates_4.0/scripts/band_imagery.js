@@ -11,7 +11,7 @@
  *
  * For the flipbook you must define two points to interpolate between
  * and create the flipbook effect.
- * 
+ *
  * Required Attributes:
  * data-lerp-{feature}-start Define a secector to start interpolation at
  * data-lerp-{feature}-end   Define a selector to end interpolation at
@@ -37,21 +37,21 @@ define(['jquery', 'wdn'], function($, WDN) {
 						lerp_start_offset = $(lerpstart_el).offset(),
 						lerp_end_offset   = $(lerpend_el).offset(),
 						percent 		  = lerp(lerp_start_offset, lerp_end_offset, depth);
-					
+
 					if (feature == 'scale') {
 						scale($this, percent);
 					}
-	
+
 					if (feature == 'opacity') {
 						opacity($this, percent);
 					}
-	
+
 					if (feature == 'flipbook') {
 						flipbook($this, percent);
 					}
 				}
 			}
-			
+
 			if ($this.hasClass('locked')) {
 				lockedAside($this, depth);
 			}
@@ -62,7 +62,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 	/**
 	 * A locked aside allows content to be locked aside scrolling content
 	 * Typically a figure is used as a backround which is displayed along side scrolling content.
-	 * 
+	 *
 	 * @var $this jQuery'd region to lock position of
 	 * @var depth What depth we're currently at
 	 */
@@ -71,11 +71,11 @@ define(['jquery', 'wdn'], function($, WDN) {
 			parent_offset = parent.offset().top,
 			parent_height = parent.height(),
 			window_height = $(window).height();
-	
+
 		if (depth < parent_offset) {
 			// Above locked region
 			$this.removeClass('fixed bottom');
-	
+
 		} else if ((depth >= parent_offset)
 			&& ((depth + window_height) < (parent_height + parent_offset)) ) {
 			// Currently viewing locked region
@@ -96,13 +96,13 @@ define(['jquery', 'wdn'], function($, WDN) {
 
 	/**
 	 * Transforms the scale of an element
-	 * 
+	 *
 	 * Elements must have two data attributes:
 	 * data-scale-start
 	 * data-scale-end
-	 * 
+	 *
 	 * The start and end scales determine what CSS transform to apply.
-	 * 
+	 *
 	 * @var $this   jQuery'd element that holds the element to transform
 	 * @var percent A float percentage from 0-1 which will adjust the scale
 	 */
@@ -116,13 +116,13 @@ define(['jquery', 'wdn'], function($, WDN) {
 
 	/**
 	 * Transforms the opacity of an element
-	 * 
+	 *
 	 * Elements must have two data attributes:
 	 * data-opacity-start
 	 * data-opacity-end
-	 * 
+	 *
 	 * The start and end values determine what CSS opacity to apply.
-	 * 
+	 *
 	 * @var $this   jQuery'd element that holds the element to transform
 	 * @var percent A float percentage from 0-1 which will adjust the opacity
 	 */
@@ -136,7 +136,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 
 	/**
 	 * A flipbook swaps between a series of figures
-	 * 
+	 *
 	 * @var $this   jQuery'd element that holds a series of figures
 	 * @var percent A float percentage from 0-1 which will adjust which figure to show
 	 */
@@ -144,10 +144,9 @@ define(['jquery', 'wdn'], function($, WDN) {
 		var shownfigure = 0,
 			$figures    = $this.children('figure');
 
-		if (percent > 0
-			&& percent < 1) {
+		if (percent > 0 && percent < 1) {
 			shownfigure = Math.ceil($figures.length * percent) - 1;
-		} else {
+		} else if (percent) {
 			shownfigure = -1;
 		}
 
@@ -156,12 +155,12 @@ define(['jquery', 'wdn'], function($, WDN) {
 		.not($shownFigure).hide();
 
 		return $shownFigure;
-		
+
 	};
 
 	/**
-	 * Get the percentage of position between two points v0, v1, 
-	 * 
+	 * Get the percentage of position between two points v0, v1,
+	 *
 	 * @return float between 0 and 1
 	 */
 	var lerp = function(lerp_start_offset, lerp_end_offset, depth) {
