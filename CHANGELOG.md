@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.0.24 (November 11, 2014)
+
+### Fixed
+- Positioning of the share icon was off a few pixels ([#815](https://github.com/unl/wdntemplates/pull/815))
+- Bad CSS selector in validation plugin for one-by-name - Positioning of the share icon was off a few pixels ([#817](https://github.com/unl/wdntemplates/pull/817))
+- Flipbook in band_imagery plugin was showing the last image instead of first
+
 ## 4.0.23 (October 13, 2014)
 
 ### Fixed
