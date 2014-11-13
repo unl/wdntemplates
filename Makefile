@@ -21,7 +21,7 @@ MQ_STRIP := $(BUILD_DIR)/mq-strip.pl
 # lessc is required for Makefile generation
 LESSC_EXISTS := $(shell [ -x $(LESSC) ] && echo ok)
 ifndef LESSC_EXISTS
-	override LESSC_EXISTS := $(shell npm --prefix $(BUILD_DIR) install less-plugin-clean-css less)
+	override LESSC_EXISTS := $(shell npm --prefix $(BUILD_DIR) install less@1.7.5)
 	override LESSC := $(NODE_DIR)/less/bin/lessc
 endif
 
@@ -91,7 +91,7 @@ $(TEMPLATE_JS)/plugins/qtip/wdn.qtip.min.css: $(TEMPLATE_JS)/plugins/qtip/wdn.qt
 	$(LESSC) $(LESSC_FLAGS) $< $@
 	
 $(LESSC):
-	npm --prefix $(BUILD_DIR) install less-plugin-clean-css less
+	npm --prefix $(BUILD_DIR) install less@1.7.5
 	
 js: $(JS_ALL_OUT)
 
