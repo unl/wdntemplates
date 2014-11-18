@@ -15,7 +15,7 @@
             @media @bp-nav-hidden {
                 background-color: @ui11;
             }
-            
+
             @media @bp-nav-full {
                 background-color: darken(@brand,8%);
             }
@@ -30,8 +30,9 @@
         width: 100%;
         z-index: @nav-z-index;
         border: none;
+        -webkit-font-smoothing: subpixel-antialiased;
     }
-    
+
     #wdn_menu_toggle:checked { // Change states when toggle is checked
 
         ~ .wdn-content-slide, ~ noscript .wdn-content-slide {
@@ -40,6 +41,7 @@
 
         ~ #wdn_navigation_bar {
             left: 0;
+            -webkit-font-smoothing: subpixel-antialiased;
         }
     }
 }
@@ -50,62 +52,63 @@
             height: auto;
             margin-bottom: 5px;
         }
-        
+
         .empty-secondary #navigation li ul {
         	margin-bottom: 0;
         }
     }
-    
+
     .js { // fouc-fixes
         #wdn_navigation_bar {
             visibility: hidden;
         }
-        
+
         .nav_ready #wdn_navigation_bar {
             visibility: visible;
         }
     }
-    
+
     #navigation {
         .js & {
             position: absolute;
-            
+
             li ul {
                 height: auto;
             }
         }
-        
+
         .nav-scrolling & {
             position: fixed;
             top: 0;
+            -webkit-font-smoothing: subpixel-antialiased;
         }
-        
+
         li ul {
             .nav_ready & {
                 .transition(height linear @nav-transition-duration, margin @nav-transition-duration linear);
             }
-        
+
             .nav_collapsed & {
                 height: 0 !important;
             }
-            
+
             .nav_expanded & {
                 margin-bottom: 5px; // duplicated from checked for transition and IE 8
             }
         }
-        
+
         &.pause li ul {
             .transition(none);
         }
-        
+
         > ul {
             > li:hover {
                 background-color: darken(@brand,4%);
             }
-    
+
             li {
                 display: block;
-    
+
                 a {
                     background-image: none;
                 }

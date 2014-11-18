@@ -4,9 +4,10 @@
 			position: fixed;
 			top: 4px;
 			z-index: (@nav-z-index + 1);
+            -webkit-font-smoothing: subpixel-antialiased;
 			.transition(right @nav-transition-duration ease);
 		}
-		
+
 		.nav-scrolling #wdn_menu_toggle:checked ~ .wdn-content-slide & {
 			right: -@nav-width;
 		}
@@ -19,10 +20,10 @@
 	        display: block;
 	    }
     }
-    
+
     #wdn_idm_username {
     	background-position: 0 center;
-    	
+
 	    &:before {
 	    	content: "";
 		}
