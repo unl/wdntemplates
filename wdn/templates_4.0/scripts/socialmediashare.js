@@ -16,6 +16,8 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 		templateFacebook = 'https://www.facebook.com/sharer/sharer.php?u=',
 		// https://dev.twitter.com/docs/tweet-button
 		templateTwitter = 'https://twitter.com/share?text=' + templateBody + '&via=' + templateVia,
+        //https://developer.linkedin.com/documents/share-linkedin
+		templateLinkedin = 'http://www.linkedin.com/shareArticle?mini=true&summary= '+ templateBody + '&source=' + templateVia,
 
 		assembleLink = function(shareId, subject, url, isShort) {
 			var encodedUrl = encodeURIComponent(url),
@@ -31,6 +33,10 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				case 'wdn_twitter':
 					return templateTwitter + '&url=' + encodedUrl + (isShort ? ('&counturl=' + encodedPage) : '');
 					break;
+				case 'wdn_linkedin':
+					return templateLinkedin + '&url=' + encodedUrl + '&title=' + encodedSubject
+					break;
+
 			}
 
 			return '';
