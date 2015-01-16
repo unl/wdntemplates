@@ -26,23 +26,37 @@
     	right: auto;
     	margin-left: 480px;
     }
+    .wdn-share-button {
+    	display: block;
+	    .wdn-icon-share { 
+	    	display: block;
+	    	color: #fff;
+		    padding: 8px 0 10px 10px;
+			font-size: 17px;
+		    font-size: 1.069rem;
+			border-radius: 3px;
+
+			@media @bp-nav-hidden {
+	    		padding: 7px 1.333em 7px 0;
+	    	}
+		}
+	}
 }
 
-.wdn-icon-share { // Hide the label text off screen
-	display: block;
-    .wdn-nav-icon(); // located at layouts/navigation.less
-    width: 1.777em;
-	background-color: @brand;
-    font-size: 17px;
-    font-size: 1.069rem;
+.wdn-share-button {
+	position: relative;
+	display: inline-block;
 
-    @media @bp-nav-hidden {
-    	padding-right: 1.333em;
-    }
+	.wdn-icon-share {
+		display: inline;
+	    .wdn-nav-icon(); // located at layouts/navigation.less
+	    padding: 1px;
+	    width: 1.777em;
+	        &:before { // Show the navigation icon
+		       padding: 0;
+		    }
+	}
 
-    @media @bp-nav-full {
-    	padding: 8px 0 10px 10px;
-    }
 }
 
 .wdn-share-options {
@@ -87,6 +101,9 @@
 .wdn-share-options li {
 	list-style: none;
 	padding: 0.602em 0;
+	font-size: 1em;
+	text-transform: none;
+	line-height: 1.777;
 
 	[class^="wdn-icon-"] {
 
@@ -99,6 +116,7 @@
 	a {
 		padding: 0.602em 0;
 		color: @ui05;
+		border: none;
 
 		&:hover {
 			color: @cream;
