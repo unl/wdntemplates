@@ -17,9 +17,6 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
         	if (!initd) {
         		$(function() {
         			var subject = $('h1').first().text();
-
-                    console.log("initaljsdhf")
-
                     Plugin.createShareButton("wdn-main-share-button", page, subject); // use function within plugin to create share button for all main pages.
         		});
 
