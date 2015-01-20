@@ -28,6 +28,25 @@
     }
     .wdn-share-button {
     	display: block;
+
+		.wdn-share-options {
+			margin: 0;
+			&.wdn-hang-left {
+				right: 0;
+				left: auto;
+				@media @bp-nav-hidden {
+				    left: 0;
+				    right: auto;
+			    }
+			    &:before {
+					@media @bp-nav-hidden {
+			            right: auto;
+						left: 29px;
+			        }
+			    }
+			}
+		}
+
 	    .wdn-icon-share { 
 	    	display: block;
 	    	color: #fff;
@@ -46,11 +65,14 @@
 .wdn-share-button {
 	position: relative;
 	display: inline-block;
+	line-height: 1.8em;
 
 	.wdn-icon-share {
 		display: inline;
+
 	    .wdn-nav-icon(); // located at layouts/navigation.less
-	    padding: 1px;
+	    color: inherit;
+	    padding: 0.85em 0;
 	    width: 1.777em;
 	        &:before { // Show the navigation icon
 		       padding: 0;
@@ -71,6 +93,26 @@
 	text-align: left;
 	.wdn-sans-serif();
 	.rem(12);
+
+	&.wdn-hang-left {
+		right: 0;
+		left: auto;
+		margin: .75em -1.25em 0 0;
+		&:before {
+            left: auto;
+            right: 11px;		
+			}
+	}
+
+	&.wdn-hang-right {
+		margin: .75em 0 0 -1.25em;
+		left: 0;
+		right: auto;
+		&:before {
+            right: auto;
+            left: 11px;		
+		}
+	}
 
 	// Hide until toggled
 	display: none;
@@ -96,6 +138,11 @@
             right: 11px;
         }
     }
+
+    input {
+    	color: @ui08;
+    }
+
 }
 
 .wdn-share-options li {
