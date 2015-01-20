@@ -39,10 +39,6 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
         createShareButton: function(container, url, hang, title, body){
 
             var buttonTemp = Plugin.shareButtonTemplate;
-
-            var count = $(".wdn_share_toggle").length;
-
-            console.log(count);
     
             if(container && url){
 
