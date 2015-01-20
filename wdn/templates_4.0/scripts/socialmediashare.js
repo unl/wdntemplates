@@ -42,14 +42,22 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
     
             if(container && url){
 
+                if((hang != "left") && (hang != "right")) {
+                    body = title;
+                    title = hang;
+                    hang = undefined;   
+                }
+
                 title = typeof title !== 'undefined' ? title : "Default title";
                 body = typeof body !== 'undefined' ? body : "Check out this page from #UNL";
+                hang = typeof hang !== 'undefined' ? hang : "left";
 
                 buttonTemp = buttonTemp.replace(/{{url}}/g, url);
                 buttonTemp = buttonTemp.replace(/{{encodedUrl}}/g, encodeURIComponent(url));
                 buttonTemp = buttonTemp.replace(/{{title}}/g, encodeURIComponent(title));
                 buttonTemp = buttonTemp.replace(/{{body}}/g, encodeURIComponent(body));
                 buttonTemp = buttonTemp.replace(/{{id}}/g, container+"-wdn-share-toggle");
+                buttonTemp = buttonTemp.replace(/{{hang}}/g, encodeURIComponent(hang));
 
                 $("#"+container).html(buttonTemp);
 
