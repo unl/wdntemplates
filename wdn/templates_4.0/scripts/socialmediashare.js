@@ -36,7 +36,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                                 '</ul>'+
                             '</div>',
 
-        createShareButton: function(container, url, title, body){
+        createShareButton: function(container, url, hang, title, body){
 
             var buttonTemp = Plugin.shareButtonTemplate;
 
