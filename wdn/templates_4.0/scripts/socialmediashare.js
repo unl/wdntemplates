@@ -30,7 +30,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
         shareButtonTemplate:'<div class="wdn-share-button">'+ // add string to use as template for all share buttons
                                 '<input type="checkbox" id="{{id}}" class="wdn_share_toggle wdn-input-driver" value="Show share options" />'+
                                 '<label for="{{id}}" class="wdn-icon-share"><span class="wdn-text-hidden">Share This Page</span></label>'+
-                                '<ul class="wdn-share-options">'+
+                                '<ul class="wdn-share-options wdn-hang-{{hang}}">'+
                                     '<li><a href="{{url}}" class="wdn-icon-link wdn_createGoURL" rel="nofollow">Get a Go URL</a></li>'+
                                     '<li class="outpost wdn_emailthis"><a href="mailto:?body={{body}}&amp;subject={{title}}" class="wdn-icon-mail" rel="nofollow">Email this page</a></li>'+
                                     '<li class="outpost wdn_facebook"><a href="https://www.facebook.com/sharer/sharer.php?u={{encodedUrl}}" class="wdn-icon-facebook" rel="nofollow">Share on Facebook</a></li>'+ // https://developers.facebook.com/docs/plugins/share-button
