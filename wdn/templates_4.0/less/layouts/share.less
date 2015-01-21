@@ -31,6 +31,14 @@
 
 		.wdn-share-options {
 			margin: 0;
+			@media @bp-nav-hidden {
+				margin: 1px 0 0 -2.083em; // center arrow under icon
+			}
+
+			li {
+				line-height: 1.777;
+			}
+
 			&.wdn-hang-left {
 				right: 0;
 				left: auto;
@@ -39,6 +47,8 @@
 				    right: auto;
 			    }
 			    &:before {
+			    	left: auto;
+					right: 11px;
 					@media @bp-nav-hidden {
 			            right: auto;
 						left: 29px;
@@ -65,7 +75,6 @@
 .wdn-share-button {
 	position: relative;
 	display: inline-block;
-	line-height: 1.8em;
 
 	.wdn-icon-share {
 		display: inline;
@@ -83,7 +92,6 @@
 
 .wdn-share-options {
 	position: absolute;
-	margin: 1px 0 0 -2.083em; // center arrow under icon
 	z-index: (@nav-z-index + 1);
 	width: 212px;
 	padding: 1.069em 2.369em;
@@ -100,7 +108,7 @@
 		margin: .75em -1.25em 0 0;
 		&:before {
             left: auto;
-            right: 11px;		
+            right: 1.25em;		
 			}
 	}
 
@@ -110,7 +118,7 @@
 		right: auto;
 		&:before {
             right: auto;
-            left: 11px;		
+            left: 1.25em;		
 		}
 	}
 
@@ -135,7 +143,7 @@
 
         @media @bp-nav-full {
             left: auto;
-            right: 11px;
+            right: 1.25em;
         }
     }
 
@@ -150,7 +158,7 @@
 	padding: 0.602em 0;
 	font-size: 1em;
 	text-transform: none;
-	line-height: 1.777;
+	line-height: 1.662;
 
 	[class^="wdn-icon-"] {
 
