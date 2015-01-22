@@ -1,14 +1,14 @@
 define(['jquery', 'wdn', 'require'], function($, WDN, require) {
-	var initd = false,
+	var initd = false;
 
-		page = window.location.href,
+    var page = window.location.href;
 
-		goURLService = 'http://go.unl.edu/api_create.php',
+    var goURLService = 'http://go.unl.edu/api_create.php';
 
-		templateBody = encodeURIComponent('Check out this page from #UNL '),
-		templateVia = 'UNLincoln',
-		templateCampaign = 'wdn_social',
-		templateMedium = 'share_this';
+		// templateBody = encodeURIComponent('Check out this page from #UNL '),
+		// templateVia = 'UNLincoln',
+		// templateCampaign = 'wdn_social',
+		// templateMedium = 'share_this';
 
   
 
