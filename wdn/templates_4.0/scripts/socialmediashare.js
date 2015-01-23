@@ -5,13 +5,6 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 
     var goURLService = 'http://go.unl.edu/api_create.php';
 
-		// templateBody = encodeURIComponent('Check out this page from #UNL '),
-		// templateVia = 'UNLincoln',
-		// templateCampaign = 'wdn_social',
-		// templateMedium = 'share_this';
-
-  
-
 	var Plugin = {
         initialize : function() {
         	if (!initd) {
