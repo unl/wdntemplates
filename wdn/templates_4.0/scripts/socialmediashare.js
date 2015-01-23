@@ -31,30 +31,30 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 
         createShareButton: function(container, url, hang, title, body){
 
-            var buttonTemp = Plugin.shareButtonTemplate;
+            var buttonTemp = Plugin.shareButtonTemplate; // hold template in local variable
     
-            if(container && url){
+            if(container && url){ // if both container and url have been specified, make the widget. if not do nothing
 
-                if((hang != "left") && (hang != "right")) {
+                if((hang != "left") && (hang != "right")) { // check to see if the "hang" parameter is not "left" or "right". if it isn't we can assume it isn't being used and rearrange the other parameters accordingly
                     body = title;
                     title = hang;
                     hang = undefined;   
                 }
 
-                title = typeof title !== 'undefined' ? title : "Default title";
+                title = typeof title !== 'undefined' ? title : "Default title"; // set defaults for optional parameters 
                 body = typeof body !== 'undefined' ? body : "Check out this page from #UNL";
                 hang = typeof hang !== 'undefined' ? hang : "left";
 
-                buttonTemp = buttonTemp.replace(/{{url}}/g, url);
+                buttonTemp = buttonTemp.replace(/{{url}}/g, url); // find all places within the widget template with {{double bracketted placeholders}} and replace them with the appropreiate content 
                 buttonTemp = buttonTemp.replace(/{{encodedUrl}}/g, encodeURIComponent(url));
                 buttonTemp = buttonTemp.replace(/{{title}}/g, encodeURIComponent(title));
                 buttonTemp = buttonTemp.replace(/{{body}}/g, encodeURIComponent(body));
                 buttonTemp = buttonTemp.replace(/{{id}}/g, container+"-wdn-share-toggle");
                 buttonTemp = buttonTemp.replace(/{{hang}}/g, encodeURIComponent(hang));
 
-                $("#"+container).html(buttonTemp);
+                $("#"+container).html(buttonTemp); // set the html of the container to our newly created widget. 
 
-                $("#"+container+' .wdn_createGoURL').click(function(e) {
+                $("#"+container+' .wdn_createGoURL').click(function(e) { // add event listner to get a goURL to each widget 
                     var $this = $(this);
 
                     $this.text('Fetching...');
