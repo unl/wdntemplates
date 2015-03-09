@@ -23,117 +23,145 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 					submitted = false,
 					postReady = false,
 					autoSubmitTimeout,
-					searchOrigin = '//www1.unl.edu',
-					siteHomepage = nav.getSiteHomepage();
+					searchHost = 'www1.unl.edu', // domain of UNL Search app
+					searchPath = '/search/', // path to UNL Search app
+					searchOrigin = window.location.protocol + '//' + searchHost,
+					searchAction = searchOrigin + searchPath,
+					allowSearchParams = ['u', 'cx'],  // QS Params allowed by UNL Search app
+					siteHomepage = nav.getSiteHomepage(),
+					localSearch = getLocalSearch();
 
-				/**
-			     * Add the experimental text-to-speech
-			     */
-	            domQ.attr('x-webkit-speech', 'x-webkit-speech');
+				// give up if the search form has been unexpectedly removed
+				if (!domSearchForm.length) {
+					return;
+				}
 
-				var localSearch = getLocalSearch();
-				if (localSearch) {
-					// Change form action to the local search
-					var qsPos = localSearch.indexOf('?'), hashes, hash, htmlUpdate = $();
-					if (qsPos > -1) {
-						hashes = localSearch.slice(qsPos + 1).split('&');
-						for (var i = 0; i < hashes.length; i++) {
-							hash = hashes[i].split('=');
-							htmlUpdate = htmlUpdate.add($('<input>', {
-								type: "hidden",
-								name: hash[0],
-								value: decodeURIComponent(hash[1])
-							}));
-						}
-						domSearchForm.append(htmlUpdate);
-					}
+				// ensure the default action is the UNL Search app
+				if (domSearchForm[0].action !== searchAction) {
+					domSearchForm.attr('action', searchAction)
+				}
 
-					domSearchForm.attr('action', localSearch);
-				} else {
-					if (siteHomepage && siteHomepage !== 'http://www.unl.edu/') {
-						domSearchForm.append($('<input>', {
-							type: "hidden",
-							name: "u",
-							value: siteHomepage
-						}));
-					}
+				if (localSearch && localSearch.indexOf(searchAction + '?') === 0) {
+					// attempt to parse the allowed UNL Search parameter overrides allowed
+					var localSearchParams;
+					try {
+						if (window.URLSearchParams) {
+							localSearchParams = new URLSearchParams(localSearch.slice(localSearch.indexOf('?') + 1));
 
-					domEmbed = $('<input>', {
-						type: "hidden",
-						name: "embed",
-						value: 1
-					});
-					domSearchForm.append(domEmbed);
-
-					domQ.on('keyup', function(e0) {
-						if (!isFullNav()) {
-							return;
-						}
-
-						clearTimeout(autoSubmitTimeout);
-						if ($(this).val()) {
-							autoSubmitTimeout = setTimeout(function() {
-								domSearchForm.submit();
-							}, 300);
-						}
-					});
-
-					$progress = $('<progress>', {id: 'wdn_search_progress'}).text('Loading...');
-
-					domSearchForm.on('submit', function(e) {
-						if (!isFullNav()) {
-							this.target = '';
-							domEmbed.prop('disabled', true);
-							return;
-						}
-
-						if (!$unlSearch) {
-							$unlSearch = $('<iframe>', {
-								name: 'unlsearch',
-								id: 'wdn_search_frame',
-								title: 'Search results'
-							});
-
-							domSearchForm.parent().append($unlSearch).append($progress);
-
-							$unlSearch.on('load', function() {
-								if (!submitted) {
-									return;
+							for (var i = 0; i < allowSearchParams.length; i++) {
+								if (localSearchParams.has(allowSearchParams[i])) {
+									domSearchForm.append($('<input>', {
+										type: "hidden",
+										name: allowSearchParams[i],
+										value: localSearchParams.get(allowSearchParams[i])
+									}));
 								}
-
-								$progress.hide();
-								postReady = true;
-							});
+							}
+						} else {
+							var paramPair;
+							localSearchParams = localSearch.slice(localSearch.indexOf('?') + 1).split('&');
+							for (var i = 0; i < localSearchParams.length; i++) {
+								paramPair = localSearchParams[i].split('=');
+								if (allowSearchParams.indexOf(paramPair[0]) >= 0) {
+									domSearchForm.append($('<input>', {
+										type: "hidden",
+										name: paramPair[0],
+										value: decodeURIComponent(paramPair[1])
+									}));
+								}
+							}
 						}
-						domEmbed.prop('disabled', false);
-						this.target = 'unlsearch';
-						$(this).parent().addClass('active');
-						$progress.show();
+					} catch (ex){
+						WDN.log(ex);
+					}
+				} else if (siteHomepage && !(/^https?:\/\/www\.unl\.edu\/$/.test(siteHomepage))) {
+					// otherwise default to adding a local param for this site's homepage (but not UNL top)
+					domSearchForm.append($('<input>', {
+						type: "hidden",
+						name: "u",
+						value: siteHomepage
+					}));
+				}
 
-						if (!submitted) {
-							submitted = true;
-							return;
-						}
+				// add a parameter for triggering the iframe compatible rendering
+				domEmbed = $('<input>', {
+					type: "hidden",
+					name: "embed",
+					value: 1
+				});
+				domSearchForm.append(domEmbed);
 
-						if (postReady && $unlSearch[0].contentWindow.postMessage) {
-							e.preventDefault();
-							$unlSearch[0].contentWindow.postMessage(domQ.val(), window.location.protocol + searchOrigin);
+				// add an event listener to support the iframe rendering
+				domQ.on('keyup', function(e0) {
+					// ONLY for "desktop" presentation
+					if (!isFullNav()) {
+						return;
+					}
+
+					clearTimeout(autoSubmitTimeout);
+					if ($(this).val()) {
+						autoSubmitTimeout = setTimeout(function() {
+							domSearchForm.submit();
+						}, 300);
+					}
+				});
+
+				$progress = $('<progress>', {id: 'wdn_search_progress'}).text('Loading...');
+
+				domSearchForm.on('submit', function(e) {
+					// disable iframe and return if not in "desktop" presentation
+					if (!isFullNav()) {
+						this.target = '';
+						domEmbed.prop('disabled', true);
+						return;
+					}
+
+					// lazy create the search iframe
+					if (!$unlSearch) {
+						$unlSearch = $('<iframe>', {
+							name: 'unlsearch',
+							id: 'wdn_search_frame',
+							title: 'Search results'
+						});
+
+						domSearchForm.parent().append($unlSearch).append($progress);
+
+						$unlSearch.on('load', function() {
+							if (!submitted) {
+								return;
+							}
+
 							$progress.hide();
-						}
-					});
+							postReady = true; // iframe should be ready to post messages to
+						});
+					}
 
-					$(document).on('click', function(e) {
-						var $wdnSearch = domSearchForm.parent();
-						if (!$wdnSearch.find(e.target).length) {
-							$wdnSearch.removeClass('active');
-						}
-					});
-				}
+					// enable the iframe search params
+					domEmbed.prop('disabled', false);
+					this.target = 'unlsearch';
+					$(this).parent().addClass('active');
+					$progress.show();
 
-				var localPlaceholder = WDN.getPluginParam('search', 'placeholder');
-				if (localPlaceholder) {
-					domQ.attr('placeholder', localPlaceholder);
-				}
+					if (!submitted) {
+						submitted = true;
+						return;
+					}
+
+					// support sending messages to iframe without reload
+					if (postReady && $unlSearch[0].contentWindow.postMessage) {
+						e.preventDefault();
+						$unlSearch[0].contentWindow.postMessage(domQ.val(), searchOrigin);
+						$progress.hide();
+					}
+				});
+
+				// listen for clicks on the document and hide the iframe if they didn't come from search interface
+				$(document).on('click', function(e) {
+					var $wdnSearch = domSearchForm.parent();
+					if (!$wdnSearch.find(e.target).length) {
+						$wdnSearch.removeClass('active');
+					}
+				});
 			});
 		}
 	};
