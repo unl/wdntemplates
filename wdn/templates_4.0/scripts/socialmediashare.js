@@ -5,6 +5,23 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 
     var goURLService = 'http://go.unl.edu/api_create.php';
 
+    var templateCampaign = 'wdn_social';
+
+    var templateMedium = 'share_this';
+
+    var templateBody = encodeURIComponent('Check out this page from #UNL ');
+    var templateVia = 'UNLincoln';
+
+    var templateMail = 'mailto:?body=' + templateBody;
+        // https://developers.facebook.com/docs/plugins/share-button
+    var templateFacebook = 'https://www.facebook.com/sharer/sharer.php?u=';
+        // https://dev.twitter.com/docs/tweet-button
+    var templateTwitter = 'https://twitter.com/share?text=' + templateBody + '&via=' + templateVia;
+
+    var templateLinkedin = 'http://www.linkedin.com/shareArticle?mini=true&amp;summary='+templateBody+'&amp;source=University%20of%20Nebraska%20-%20Lincoln';
+
+
+
 	var Plugin = {
         initialize : function() {
         	if (!initd) {
