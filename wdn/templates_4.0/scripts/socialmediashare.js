@@ -28,10 +28,45 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
         		$(function() {
         			var subject = $('h1').first().text();
                     Plugin.createShareButton("wdn-main-share-button", page, subject); // use function within plugin to create share button for all main pages.
+
+                    $('#wdn-main-share-button .outpost a').each(function() {
+
+                            var $this = $(this),
+                                shareId = $(this).parent().attr('class').replace("outpost ",""),
+                                gaTagging = [
+                                     'utm_campaign=',
+                                     templateCampaign,
+                                     '&utm_medium=',
+                                     templateMedium,
+                                     '&utm_source=',
+                                     shareId
+                                 ].join(''),
+                                 url = page + (page.indexOf('?') >= 0 ? '&' : '?') + gaTagging,
+                                 href = assembleLink(shareId, subject, url);
+
+                            $this.attr('href', href);
+
+                            $this.one('click', function(e) {
+                                Plugin.createURL(url, function(goURL) {
+                                    href = assembleLink(shareId, subject, goURL);
+                                    $this.attr('href');
+                                    setLocation(href);
+
+                                }, function() {
+                                    setLocation(href);
+                                });
+         
+                                e.preventDefault();
+                            });
+                        });
+
         		});
 
         		initd = true;
         	}
+
+
+
         },
 
         shareButtonTemplate:'<div class="wdn-share-button">'+ // add string to use as template for all share buttons
@@ -82,7 +117,6 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                         $result.focus().select();
                     }, function(data) {
                         $this.text('Request failed. Try again later.');
-                        console.log(data)
                     });
 
                     e.preventDefault();
