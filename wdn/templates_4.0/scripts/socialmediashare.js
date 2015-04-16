@@ -22,7 +22,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                                 '<label for="{{id}}" class="wdn-icon-share"><span class="wdn-text-hidden">Share This Page</span></label>'+
                                 '<ul class="wdn-share-options wdn-hang-{{hang}}">'+
                                     '<li><a href="{{url}}" class="wdn-icon-link wdn_createGoURL" rel="nofollow">Get a Go URL</a></li>'+
-                                    '<li class="outpost wdn_emailthis"><a href="mailto:?body={{body}}&amp;subject={{title}}" class="wdn-icon-mail" rel="nofollow">Email this page</a></li>'+
+                                    '<li class="outpost wdn_emailthis"><a href="mailto:?body={{body}}{{encodedUrl}}&amp;subject={{title}}" class="wdn-icon-mail" rel="nofollow">Email this page</a></li>'+
                                     '<li class="outpost wdn_facebook"><a href="https://www.facebook.com/sharer/sharer.php?u={{encodedUrl}}" class="wdn-icon-facebook" rel="nofollow">Share on Facebook</a></li>'+ // https://developers.facebook.com/docs/plugins/share-button
                                     '<li class="outpost wdn_twitter"><a href="https://twitter.com/share?text={{body}}&amp;via=UNLincoln&amp;url={{encodedUrl}}" class="wdn-icon-twitter" rel="nofollow">Share on Twitter</a></li>'+ // https://dev.twitter.com/docs/tweet-button
                                     '<li class="outpost"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{encodedUrl}}&amp;title={{title}}&amp;summary={{body}}&amp;source=University%20of%20Nebraska%20-%20Lincoln" rel="nofollow" target="_blank" class="wdn-icon-linkedin-squared" title="Share on LinkedIn">Share on LinkedIn</a></li>'+ //https://developer.linkedin.com/documents/share-linkedin
@@ -42,7 +42,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                 }
 
                 title = typeof title !== 'undefined' ? title : "Default title"; // set defaults for optional parameters 
-                body = typeof body !== 'undefined' ? body : "Check out this page from #UNL";
+                body = typeof body !== 'undefined' ? body : "Check out this page from #UNL ";
                 hang = typeof hang !== 'undefined' ? hang : "left";
 
                 buttonTemp = buttonTemp.replace(/{{url}}/g, url); // find all places within the widget template with {{double bracketted placeholders}} and replace them with the appropreiate content 
