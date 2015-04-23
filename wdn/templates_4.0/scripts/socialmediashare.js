@@ -1,9 +1,51 @@
 define(['jquery', 'wdn', 'require'], function($, WDN, require) {
+    
 	var initd = false;
 
     var page = window.location.href;
 
     var goURLService = 'http://go.unl.edu/api_create.php';
+
+    var templateCampaign = 'wdn_social';
+
+    var templateMedium = 'share_this';
+
+    var templateBody = encodeURIComponent('Check out this page from #UNL ');
+    var templateVia = 'UNLincoln';
+
+    var templateMail = 'mailto:?body=' + templateBody;
+        // https://developers.facebook.com/docs/plugins/share-button
+    var templateFacebook = 'https://www.facebook.com/sharer/sharer.php?u=';
+        // https://dev.twitter.com/docs/tweet-button
+    var templateTwitter = 'https://twitter.com/share?text=' + templateBody + '&via=' + templateVia;
+
+    var templateLinkedin = 'http://www.linkedin.com/shareArticle?mini=true&amp;summary='+templateBody+'&amp;source=University%20of%20Nebraska%20-%20Lincoln';
+
+    var assembleLink = function(shareId, subject, url, isShort) {
+        var encodedUrl = encodeURIComponent(url),
+            encodedSubject = encodeURIComponent(subject);
+
+        switch (shareId) {
+            case 'wdn_emailthis':
+                return templateMail + encodedUrl + '&subject=' + encodedSubject;
+                break;
+            case 'wdn_facebook':
+                return templateFacebook + encodedUrl;
+                break;
+            case 'wdn_twitter':
+                return templateTwitter + '&url=' + encodedUrl + (isShort ? ('&counturl=' + encodedPage) : '');
+                break;
+            case 'wdn_linkedin':
+                return templateLinkedin + '&url=' + encodedUrl + '&subject=' + encodedSubject;
+                break;
+        }
+
+        return '';
+    };
+
+    var setLocation = function(url) {
+        window.location.href = url;
+    };
 
 	var Plugin = {
         initialize : function() {
@@ -11,10 +53,45 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
         		$(function() {
         			var subject = $('h1').first().text();
                     Plugin.createShareButton("wdn-main-share-button", page, subject); // use function within plugin to create share button for all main pages.
+
+                    $('#wdn-main-share-button .outpost a').each(function() {
+
+                            var $this = $(this),
+                                shareId = $(this).parent().attr('class').replace("outpost ",""),
+                                gaTagging = [
+                                     'utm_campaign=',
+                                     templateCampaign,
+                                     '&utm_medium=',
+                                     templateMedium,
+                                     '&utm_source=',
+                                     shareId
+                                 ].join(''),
+                                 url = page + (page.indexOf('?') >= 0 ? '&' : '?') + gaTagging,
+                                 href = assembleLink(shareId, subject, url);
+
+                            $this.attr('href', href);
+
+                            $this.one('click', function(e) {
+                                Plugin.createURL(url, function(goURL) {
+                                    href = assembleLink(shareId, subject, goURL);
+                                    $this.attr('href');
+                                    setLocation(href);
+
+                                }, function() {
+                                    setLocation(href);
+                                });
+         
+                                e.preventDefault();
+                            });
+                        });
+
         		});
 
         		initd = true;
         	}
+
+
+
         },
 
         shareButtonTemplate:'<div class="wdn-share-button">'+ // add string to use as template for all share buttons
@@ -22,10 +99,10 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                                 '<label for="{{id}}" class="wdn-icon-share"><span class="wdn-text-hidden">Share This Page</span></label>'+
                                 '<ul class="wdn-share-options wdn-hang-{{hang}}">'+
                                     '<li><a href="{{url}}" class="wdn-icon-link wdn_createGoURL" rel="nofollow">Get a Go URL</a></li>'+
-                                    '<li class="outpost wdn_emailthis"><a href="mailto:?body={{body}}&amp;subject={{title}}" class="wdn-icon-mail" rel="nofollow">Email this page</a></li>'+
+                                    '<li class="outpost wdn_emailthis"><a href="mailto:?body={{body}}%20{{encodedUrl}}&amp;subject={{title}}" class="wdn-icon-mail" rel="nofollow">Email this page</a></li>'+
                                     '<li class="outpost wdn_facebook"><a href="https://www.facebook.com/sharer/sharer.php?u={{encodedUrl}}" class="wdn-icon-facebook" rel="nofollow">Share on Facebook</a></li>'+ // https://developers.facebook.com/docs/plugins/share-button
                                     '<li class="outpost wdn_twitter"><a href="https://twitter.com/share?text={{body}}&amp;via=UNLincoln&amp;url={{encodedUrl}}" class="wdn-icon-twitter" rel="nofollow">Share on Twitter</a></li>'+ // https://dev.twitter.com/docs/tweet-button
-                                    '<li class="outpost"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{encodedUrl}}&amp;title={{title}}&amp;summary={{body}}&amp;source=University%20of%20Nebraska%20-%20Lincoln" rel="nofollow" target="_blank" class="wdn-icon-linkedin-squared" title="Share on LinkedIn">Share on LinkedIn</a></li>'+ //https://developer.linkedin.com/documents/share-linkedin
+                                    '<li class="outpost wdn_linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{encodedUrl}}&amp;title={{title}}&amp;summary={{body}}&amp;source=University%20of%20Nebraska%20-%20Lincoln" rel="nofollow" target="_blank" class="wdn-icon-linkedin-squared" title="Share on LinkedIn">Share on LinkedIn</a></li>'+ //https://developer.linkedin.com/documents/share-linkedin
                                 '</ul>'+
                             '</div>',
 
@@ -65,7 +142,6 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                         $result.focus().select();
                     }, function(data) {
                         $this.text('Request failed. Try again later.');
-                        console.log(data)
                     });
 
                     e.preventDefault();
