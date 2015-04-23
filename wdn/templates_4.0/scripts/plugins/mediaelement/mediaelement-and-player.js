@@ -3032,7 +3032,7 @@ if (typeof jQuery != 'undefined') {
 				loading.show();
 				controls.find('.mejs-time-buffering').show();
                 // Firing the 'canplay' event after a timeout which isn't getting fired on some Android 4.1 devices (https://github.com/johndyer/mediaelement/issues/1305)
-                if (mejs.MediaFeatures.isAndroid) {
+                if (mejs.MediaFeatures.isAndroid | mejs.MediaFeatures.isFirefox) {
                     media.canplayTimeout = window.setTimeout(
                         function() {
                             if (document.createEvent) {
