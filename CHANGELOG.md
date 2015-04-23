@@ -1,6 +1,24 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.0.26 (April 23, 2015)
+
+### Fixed
+- Fix share widget regressions introduced in 4.0.25 release ([#832](https://github.com/unl/wdntemplates/pull/832))
+
+## 4.0.25 (April 14, 2015)
+
+### Fixed
+- Fix build issues with LESS compiler ([#818](https://github.com/unl/wdntemplates/pull/818), [#819](https://github.com/unl/wdntemplates/pull/819))
+- Fix font smoothing issues in Safari ([#820](https://github.com/unl/wdntemplates/pull/820))
+- Add LinkedIn to the share widget ([#821](https://github.com/unl/wdntemplates/pull/821))
+- Removed opacity from wdn-button ([#824](https://github.com/unl/wdntemplates/pull/824))
+- The UNL Search tool will no longer support overrides outside of the UNL Search application. The popover interface will be used for all searches. ([#830](https://github.com/unl/wdntemplates/pull/830))
+
+### Added
+- Affiliate styles (less file) have been updated to match current styles ([#831](https://github.com/unl/wdntemplates/pull/831))
+- Social Share widget plugin now supports adding multiple widgets on the page ([#825](https://github.com/unl/wdntemplates/pull/825))
+
 ## 4.0.24 (November 11, 2014)
 
 ### Fixed
