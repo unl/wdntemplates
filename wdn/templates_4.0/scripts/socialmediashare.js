@@ -1,4 +1,5 @@
 define(['jquery', 'wdn', 'require'], function($, WDN, require) {
+    
 	var initd = false;
 
     var page = window.location.href;
@@ -20,7 +21,31 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 
     var templateLinkedin = 'http://www.linkedin.com/shareArticle?mini=true&amp;summary='+templateBody+'&amp;source=University%20of%20Nebraska%20-%20Lincoln';
 
+    var assembleLink = function(shareId, subject, url, isShort) {
+        var encodedUrl = encodeURIComponent(url),
+            encodedSubject = encodeURIComponent(subject);
 
+        switch (shareId) {
+            case 'wdn_emailthis':
+                return templateMail + encodedUrl + '&subject=' + encodedSubject;
+                break;
+            case 'wdn_facebook':
+                return templateFacebook + encodedUrl;
+                break;
+            case 'wdn_twitter':
+                return templateTwitter + '&url=' + encodedUrl + (isShort ? ('&counturl=' + encodedPage) : '');
+                break;
+            case 'wdn_linkedin':
+                return templateLinkedin + '&url=' + encodedUrl + '&subject=' + encodedSubject;
+                break;
+        }
+
+        return '';
+    };
+
+    var setLocation = function(url) {
+        window.location.href = url;
+    };
 
 	var Plugin = {
         initialize : function() {
@@ -145,32 +170,6 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
         	});
         }
     };
-
-    assembleLink = function(shareId, subject, url, isShort) {
-            var encodedUrl = encodeURIComponent(url),
-                encodedSubject = encodeURIComponent(subject);
-
-            switch (shareId) {
-                case 'wdn_emailthis':
-                    return templateMail + encodedUrl + '&subject=' + encodedSubject;
-                    break;
-                case 'wdn_facebook':
-                    return templateFacebook + encodedUrl;
-                    break;
-                case 'wdn_twitter':
-                    return templateTwitter + '&url=' + encodedUrl + (isShort ? ('&counturl=' + encodedPage) : '');
-                    break;
-                case 'wdn_linkedin':
-                    return templateLinkedin + '&url=' + encodedUrl + '&subject=' + encodedSubject;
-                    break;
-            }
-
-            return '';
-        };
-
-    setLocation = function(url) {
-            window.location.href = url;
-        };
 
 	return Plugin;
 });
