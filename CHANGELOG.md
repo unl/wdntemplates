@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.0.26 (April 23, 2015)
+
+### Fixed
+- Fix share widget regressions introduced in 4.0.25 release ([#832](https://github.com/unl/wdntemplates/pull/832))
+
 ## 4.0.25 (April 14, 2015)
 
 ### Fixed
