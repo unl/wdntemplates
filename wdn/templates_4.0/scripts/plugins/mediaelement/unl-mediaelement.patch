@@ -11,15 +11,54 @@
  var mejs = mejs || {};
  
 @@ -1193,7 +1196,7 @@
-       errorContainer.innerHTML = options.customError;
-     } else {
-       errorContainer.innerHTML = (poster !== '') ?
--        '<a href="' + playback.url + '"><img src="' + poster + '" width="100%" height="100%" /></a>' :
-+        '<a href="' + playback.url + '"><img src="' + poster + '" width="100%" height="100%" alt="" /></a>' :
-         '<a href="' + playback.url + '"><span>' + mejs.i18n.t('Download File') + '</span></a>';
-     }
+       --- mediaelement-and-player.orig.js	2015-04-29 16:51:42.000000000 -0500
++++ mediaelement-and-player.js	2015-04-29 16:59:32.000000000 -0500
+@@ -12,6 +12,9 @@
+  * License: MIT
+  *
+  */
++
++define(['jquery'], function(jQuery) {
++
+ // Namespace
+ var mejs = mejs || {};
  
-@@ -2931,7 +2934,7 @@
+@@ -1180,7 +1183,8 @@
+ 	createErrorMessage: function(playback, options, poster) {
+ 		var 
+ 			htmlMediaElement = playback.htmlMediaElement,
+-			errorContainer = document.createElement('div');
++			errorContainer = document.createElement('div'),
++			errorContent = options.customError;
+ 			
+ 		errorContainer.className = 'me-cannotplay';
+ 
+@@ -1189,13 +1193,17 @@
+ 			errorContainer.style.height = htmlMediaElement.height + 'px';
+ 		} catch (e) {}
+ 
+-    if (options.customError) {
+-      errorContainer.innerHTML = options.customError;
+-    } else {
+-      errorContainer.innerHTML = (poster !== '') ?
+-        '<a href="' + playback.url + '"><img src="' + poster + '" width="100%" height="100%" /></a>' :
+-        '<a href="' + playback.url + '"><span>' + mejs.i18n.t('Download File') + '</span></a>';
+-    }
++		if (!errorContent) {
++			errorContent = '<a href="' + playback.url + '">';
++      
++			if (poster !== '') {
++				errorContent += '<img src="' + poster + '" width="100%" height="100%" alt="" />';
++			}
++			
++			errorContent += '<span>' + mejs.i18n.t('Download File') + '</span></a>';
++		}
++		
++		errorContainer.innerHTML = errorContent;
+ 
+ 		htmlMediaElement.parentNode.insertBefore(errorContainer, htmlMediaElement);
+ 		htmlMediaElement.style.display = 'none';
+@@ -2931,7 +2939,7 @@
  				posterImg = posterDiv.find('img');
  
  			if (posterImg.length === 0) {
@@ -28,7 +67,7 @@
  			}
  
  			posterImg.attr('src', url);
-@@ -3016,38 +3019,26 @@
+@@ -3016,38 +3024,26 @@
  
  
  			// show/hide loading
@@ -76,7 +115,7 @@
  			}, false);
  
  			media.addEventListener('keydown', function(e) {
-@@ -5486,4 +5477,6 @@
+@@ -5486,4 +5482,6 @@
  		}
  	});
  
