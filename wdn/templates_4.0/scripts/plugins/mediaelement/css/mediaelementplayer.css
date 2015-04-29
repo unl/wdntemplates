@@ -732,6 +732,12 @@
 	padding: 15px;
 	display: block;
 }
+
+.mejs-overlay-error {
+	color: #fff;
+	text-align: center;
+	background: rgba(50, 50, 50, 0.7);
+}
 /* End: Error */
 
 

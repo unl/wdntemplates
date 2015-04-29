@@ -13,13 +13,8 @@
  *
  */
 
-/*
- WDN CHANGES NOTE:
- - add a default alt attribute to poster images for WCAG2.0
- */
-
 define(['jquery'], function(jQuery) {
-	
+
 // Namespace
 var mejs = mejs || {};
 
@@ -1201,7 +1196,7 @@ mejs.HtmlMediaElementShim = {
       errorContainer.innerHTML = options.customError;
     } else {
       errorContainer.innerHTML = (poster !== '') ?
-        '<a href="' + playback.url + '"><img src="' + poster + '" width="100%" height="100%" alt="view video" /></a>' :
+        '<a href="' + playback.url + '"><img src="' + poster + '" width="100%" height="100%" alt="" /></a>' :
         '<a href="' + playback.url + '"><span>' + mejs.i18n.t('Download File') + '</span></a>';
     }
 
@@ -2939,7 +2934,7 @@ if (typeof jQuery != 'undefined') {
 				posterImg = posterDiv.find('img');
 
 			if (posterImg.length === 0) {
-				posterImg = $('<img width="100%" height="100%" alt="poster image" />').appendTo(posterDiv);
+				posterImg = $('<img width="100%" height="100%" alt="" />').appendTo(posterDiv);
 			}
 
 			posterImg.attr('src', url);
@@ -3024,38 +3019,26 @@ if (typeof jQuery != 'undefined') {
 
 
 			// show/hide loading
-			media.addEventListener('loadeddata',function() {
-				// for some reason Chrome is firing this event
-				//if (mejs.MediaFeatures.isChrome && media.getAttribute && media.getAttribute('preload') === 'none')
-				//	return;
-
+			media.addEventListener('loadstart',function() {
 				loading.show();
 				controls.find('.mejs-time-buffering').show();
-                // Firing the 'canplay' event after a timeout which isn't getting fired on some Android 4.1 devices (https://github.com/johndyer/mediaelement/issues/1305)
-                if (mejs.MediaFeatures.isAndroid || mejs.MediaFeatures.isFirefox) {
-                    media.canplayTimeout = window.setTimeout(
-                        function() {
-                            if (document.createEvent) {
-                                var evt = document.createEvent('HTMLEvents');
-                                evt.initEvent('canplay', true, true);
-                                return media.dispatchEvent(evt);
-                            }
-                        }, 300
-                    );
-                }
+			}, false);
+			media.addEventListener('loadeddata',function() {
+				loading.hide();
+				controls.find('.mejs-time-buffering').hide();
 			}, false);
 			media.addEventListener('canplay',function() {
 				loading.hide();
 				controls.find('.mejs-time-buffering').hide();
-                clearTimeout(media.canplayTimeout); // Clear timeout inside 'loadeddata' to prevent 'canplay' to fire twice
 			}, false);
 
 			// error handling
-			media.addEventListener('error',function() {
+			media.addEventListener('error',function(e) {
+				t.handleError(e);
+				bigPlay.hide();
 				loading.hide();
-				controls.find('.mejs-time-buffering').hide();
 				error.show();
-				error.find('mejs-overlay-error').html("Error loading this resource");
+				error.find('.mejs-overlay-error').html("Error loading this resource");
 			}, false);
 
 			media.addEventListener('keydown', function(e) {
