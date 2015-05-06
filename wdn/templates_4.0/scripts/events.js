@@ -64,7 +64,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 		$container.append('<span class="see-all"><a href="'+config.url+'upcoming/">See all '+config.title+' events</a></span>');
 
 		var ics = '<a class="ics" href="' + config.url + 'upcoming/?format=ics">ICS</a>';
-		var rss = '<a class="rss" href="' + config.url + 'upcoming/?format=ics">RSS</a>';
+		var rss = '<a class="rss" href="' + config.url + 'upcoming/?format=rss">RSS</a>';
 		var feeds = '<div class="feeds">' + ics + rss + '</div>';
 		$container.append(feeds);
 		$container.show();
