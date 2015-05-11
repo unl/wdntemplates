@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.0.27 (MAy 11, 2015)
+
+### Fixed
+- MediaElementJS (audio/video player) updated and patched for continuous loading bug ([#834](https://github.com/unl/wdntemplates/pull/834))
+- Change swipe to open navigation sensitivity settings ([#835](https://github.com/unl/wdntemplates/pull/835))
+- Fix RSS link in events widget ([#837](https://github.com/unl/wdntemplates/pull/837))
+- Update jQuery to version 1.11.3
+- Make form legend styles more readable ([#838](https://github.com/unl/wdntemplates/pull/838))
+
 ## 4.0.26 (April 23, 2015)
 
 ### Fixed
