@@ -7,9 +7,10 @@
 * The UNL Affiliate template is for sites that have approved exemptions by the Chancellor.
 * ---------------------------
 */
-@media (min-width: 700px) {
+@media (max-width: 699px) {
   #wdn_idm_user_options,
   .wdn-resource-login-trigger a {
+    color: #ffffff;
     background-color: #000000;
   }
 }
