@@ -226,7 +226,9 @@ define(['jquery', 'wdn'], function($, WDN) {
 				// There is an alert if unlAlerts.data.alert.info exists
 				if (unlAlerts.data.alert && unlAlerts.data.alert.info) {
 					WDN.log("Found an alert");
-					alertUser(unlAlerts.data.alert);
+					$(function() {
+						alertUser(unlAlerts.data.alert);
+					});
 				} else {
 					noAlert();
 				}
