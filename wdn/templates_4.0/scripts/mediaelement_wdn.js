@@ -12,6 +12,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				videoWidth: '100%',
 				videoHeight: '100%',
 				audioWidth: '100%',
+				toggleCaptionsButtonWhenOnlyOne: true,
 				features : ['playpause','current','progress','duration','tracks','volume','fullscreen','googleanalytics']
 			};
 
@@ -33,7 +34,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				});
 
 				if (callback) {
-					callback();
+					callback(options);
 				}
 			};
 
