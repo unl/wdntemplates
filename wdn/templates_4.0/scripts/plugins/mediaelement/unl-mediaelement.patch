@@ -1,29 +1,24 @@
---- mediaelement-and-player.orig.js	2015-04-28 19:38:26.000000000 -0500
-+++ mediaelement-and-player.js	2015-04-28 19:30:22.000000000 -0500
-@@ -12,6 +12,9 @@
+--- mediaelement-and-player.js	2015-07-09 19:37:33.000000000 -0500
++++ mediaelement-and-player.mine.js	2015-07-09 19:37:24.000000000 -0500
+@@ -12,6 +12,8 @@
   * License: MIT
   *
   */
-+
 +define(['jquery'], function(jQuery) {
 +
  // Namespace
  var mejs = mejs || {};
  
-@@ -1193,7 +1196,7 @@
-       --- mediaelement-and-player.orig.js	2015-04-29 16:51:42.000000000 -0500
-+++ mediaelement-and-player.js	2015-04-29 16:59:32.000000000 -0500
-@@ -12,6 +12,9 @@
-  * License: MIT
-  *
-  */
-+
-+define(['jquery'], function(jQuery) {
-+
- // Namespace
- var mejs = mejs || {};
+@@ -1133,8 +1135,6 @@
+ 	},
  
-@@ -1180,7 +1183,8 @@
+ 	formatType: function(url, type) {
+-		var ext;
+-
+ 		// if no type is supplied, fake it with the extension
+ 		if (url && !type) {		
+ 			return this.getTypeFromFile(url);
+@@ -1180,7 +1180,8 @@
  	createErrorMessage: function(playback, options, poster) {
  		var 
  			htmlMediaElement = playback.htmlMediaElement,
@@ -33,7 +28,7 @@
  			
  		errorContainer.className = 'me-cannotplay';
  
-@@ -1189,13 +1193,17 @@
+@@ -1189,13 +1190,17 @@
  			errorContainer.style.height = htmlMediaElement.height + 'px';
  		} catch (e) {}
  
@@ -46,19 +41,65 @@
 -    }
 +		if (!errorContent) {
 +			errorContent = '<a href="' + playback.url + '">';
-+      
++
 +			if (poster !== '') {
 +				errorContent += '<img src="' + poster + '" width="100%" height="100%" alt="" />';
 +			}
-+			
++
 +			errorContent += '<span>' + mejs.i18n.t('Download File') + '</span></a>';
 +		}
-+		
++
 +		errorContainer.innerHTML = errorContent;
  
  		htmlMediaElement.parentNode.insertBefore(errorContainer, htmlMediaElement);
  		htmlMediaElement.style.display = 'none';
-@@ -2931,7 +2939,7 @@
+@@ -1221,7 +1226,7 @@
+ 		// copy attributes from html media element to plugin media element
+ 		for (var i = 0; i < htmlMediaElement.attributes.length; i++) {
+ 			var attribute = htmlMediaElement.attributes[i];
+-			if (attribute.specified == true) {
++			if (attribute.specified) {
+ 				pluginMediaElement.setAttribute(attribute.name, attribute.value);
+ 			}
+ 		}
+@@ -1742,11 +1747,11 @@
+ 	}
+ }
+ // IFRAME
+-function onYouTubePlayerAPIReady() {
++window.onYouTubePlayerAPIReady = function() {
+ 	mejs.YouTubeApi.iFrameReady();
+ }
+ // FLASH
+-function onYouTubePlayerReady(id) {
++window.onYouTubePlayerReady = function(id) {
+ 	mejs.YouTubeApi.flashReady(id);
+ }
+ 
+@@ -2844,8 +2849,6 @@
+ 				railWidth = 0,
+ 				rail = t.controls.find('.mejs-time-rail'),
+ 				total = t.controls.find('.mejs-time-total'),
+-				current = t.controls.find('.mejs-time-current'),
+-				loaded = t.controls.find('.mejs-time-loaded'),
+ 				others = rail.siblings(),
+ 				lastControl = others.last(),
+ 				lastControlPosition = null;
+@@ -2892,11 +2895,8 @@
+ 					railWidth--;
+ 				}
+ 			} while (lastControlPosition !== null && lastControlPosition.top > 0 && railWidth > 0);
+-
+-			if (t.setProgressRail)
+-				t.setProgressRail();
+-			if (t.setCurrentRail)
+-				t.setCurrentRail();
++			
++			t.container.trigger('controlsresize');
+ 		},
+ 
+ 
+@@ -2937,7 +2937,7 @@
  				posterImg = posterDiv.find('img');
  
  			if (posterImg.length === 0) {
@@ -67,7 +108,7 @@
  			}
  
  			posterImg.attr('src', url);
-@@ -3016,38 +3024,26 @@
+@@ -3022,36 +3022,24 @@
  
  
  			// show/hide loading
@@ -91,11 +132,11 @@
 -                        }, 300
 -                    );
 -                }
-+			}, false);
+ 			}, false);
 +			media.addEventListener('loadeddata',function() {
 +				loading.hide();
 +				controls.find('.mejs-time-buffering').hide();
- 			}, false);
++ 			}, false);
  			media.addEventListener('canplay',function() {
  				loading.hide();
  				controls.find('.mejs-time-buffering').hide();
@@ -106,16 +147,232 @@
 -			media.addEventListener('error',function() {
 +			media.addEventListener('error',function(e) {
 +				t.handleError(e);
-+				bigPlay.hide();
  				loading.hide();
 -				controls.find('.mejs-time-buffering').hide();
++				bigPlay.hide();
  				error.show();
--				error.find('mejs-overlay-error').html("Error loading this resource");
-+				error.find('.mejs-overlay-error').html("Error loading this resource");
+ 				error.find('.mejs-overlay-error').html("Error loading this resource");
  			}, false);
+@@ -3364,9 +3352,9 @@
+ 	// STOP BUTTON
+ 	$.extend(MediaElementPlayer.prototype, {
+ 		buildstop: function(player, controls, layers, media) {
+-			var t = this,
+-				stop = 
+-				$('<div class="mejs-button mejs-stop-button mejs-stop">' +
++			var t = this;
++				
++			$('<div class="mejs-button mejs-stop-button mejs-stop">' +
+ 					'<button type="button" aria-controls="' + t.id + '" title="' + t.options.stopText + '" aria-label="' + t.options.stopText + '"></button>' +
+ 				'</div>')
+ 				.appendTo(controls)
+@@ -3610,6 +3598,10 @@
+ 				updateSlider(e);
+ 			}, false);
+ 			
++			t.container.on('controlsresize', function() {
++				player.setProgressRail();
++				player.setCurrentRail();
++			});
+ 			
+ 			// store for later use
+ 			t.loaded = loaded;
+@@ -3879,7 +3871,6 @@
+ 				
+ 					var
+ 						railHeight = volumeTotal.height(),
+-						totalTop = parseInt(volumeTotal.css('top').replace(/px/,''),10),
+ 						newY = e.pageY - totalOffset.top;
+ 						
+ 					volume = (railHeight - newY) / railHeight;
+@@ -4012,21 +4003,20 @@
+ 				}
+ 				updateVolumeSlider(e);
+ 			}, false);
+-
+-			if (t.container.is(':visible')) {
+-				// set initial volume
+-				positionVolumeHandle(player.options.startVolume);
+-
+-				// mutes the media and sets the volume icon muted if the initial volume is set to 0
+-				if (player.options.startVolume === 0) {
+-					media.setMuted(true);
+-				}
+-
+-				// shim gets the startvolume as a parameter, but we have to set it on the native <video> and <audio> elements
+-				if (media.pluginType === 'native') {
+-					media.setVolume(player.options.startVolume);
+-				}
++			
++			// mutes the media and sets the volume icon muted if the initial volume is set to 0
++			if (player.options.startVolume === 0) {
++				media.setMuted(true);
++			}
++			
++			// shim gets the startvolume as a parameter, but we have to set it on the native <video> and <audio> elements
++			if (media.pluginType === 'native') {
++				media.setVolume(player.options.startVolume);
+ 			}
++
++			t.container.on('controlsresize', function() {
++				positionVolumeHandle(media.volume);
++			});
+ 		}
+ 	});
+ 	
+@@ -4077,9 +4067,6 @@
+ 			}
  
- 			media.addEventListener('keydown', function(e) {
-@@ -5486,4 +5482,6 @@
+ 			var t = this,
+-				normalHeight = 0,
+-				normalWidth = 0,
+-				container = player.container,
+ 				fullscreenBtn =
+ 					$('<div class="mejs-button mejs-fullscreen-button">' +
+ 						'<button type="button" aria-controls="' + t.id + '" title="' + t.options.fullscreenText + '" aria-label="' + t.options.fullscreenText + '"></button>' +
+@@ -4309,6 +4296,9 @@
+ 					player.exitFullScreen();
+ 				}
+ 			});
++			
++			t.normalHeight = 0;
++			t.normalWidth = 0;
+ 
+ 		},
+ 
+@@ -4333,8 +4323,8 @@
+             $(document.documentElement).addClass('mejs-fullscreen');
+ 
+ 			// store sizing
+-			normalHeight = t.container.height();
+-			normalWidth = t.container.width();
++			t.normalHeight = t.container.height();
++			t.normalWidth = t.container.width();
+ 
+ 			// attempt to do true fullscreen (Safari 5.1 and Firefox Nightly only for now)
+ 			if (t.media.pluginType === 'native') {
+@@ -4476,25 +4466,24 @@
+ 
+ 			t.container
+ 				.removeClass('mejs-container-fullscreen')
+-				.width(normalWidth)
+-				.height(normalHeight);
+-				//.css({position: '', left: '', top: '', right: '', bottom: '', overflow: 'inherit', width: normalWidth + 'px', height: normalHeight + 'px', 'z-index': 1});
++				.width(t.normalWidth)
++				.height(t.normalHeight);
+ 
+ 			if (t.media.pluginType === 'native') {
+ 				t.$media
+-					.width(normalWidth)
+-					.height(normalHeight);
++					.width(t.normalWidth)
++					.height(t.normalHeight);
+ 			} else {
+ 				t.container.find('.mejs-shim')
+-					.width(normalWidth)
+-					.height(normalHeight);
++					.width(t.normalWidth)
++					.height(t.normalHeight);
+ 
+-				t.media.setVideoSize(normalWidth, normalHeight);
++				t.media.setVideoSize(t.normalWidth, t.normalHeight);
+ 			}
+ 
+ 			t.layers.children('div')
+-				.width(normalWidth)
+-				.height(normalHeight);
++				.width(t.normalWidth)
++				.height(t.normalHeight);
+ 
+ 			t.fullscreenBtn
+ 				.removeClass('mejs-unfullscreen')
+@@ -4565,12 +4554,12 @@
+ 				speedButton = $(html).appendTo(controls);
+ 				speedSelector = speedButton.find('.mejs-speed-selector');				
+ 
+-				playbackspeed = t.options.defaultSpeed;
++				playbackSpeed = t.options.defaultSpeed;
+ 
+ 				speedSelector
+ 					.on('click', 'input[type="radio"]', function() {
+ 						var newSpeed = $(this).attr('value');
+-						playbackspeed = newSpeed;
++						playbackSpeed = newSpeed;
+ 						media.playbackRate = parseFloat(newSpeed);
+ 						speedButton.find('button').html(newSpeed + t.options.speedChar);
+ 						speedButton.find('.mejs-speed-selected').removeClass('mejs-speed-selected');
+@@ -4630,8 +4619,7 @@
+ 			var t = this,
+ 				attr = t.options.tracksAriaLive ?
+ 					'role="log" aria-live="assertive" aria-atomic="false"' : '',
+-				i,
+-				options = '';
++				i;
+ 
+ 			if (t.domNode.textTracks) { // if browser will do native captions, prefer mejs captions, loop through tracks and hide
+ 				for (i = t.domNode.textTracks.length - 1; i >= 0; i--) {
+@@ -4764,6 +4752,10 @@
+ 					}
+ 				});
+ 
++			t.container.on('controlsresize', function() {
++				t.adjustLanguageBox();
++			});
++			
+ 			// check for autoplay
+ 			if (player.node.getAttribute('autoplay') !== null) {
+ 				player.chapters.css('visibility','hidden');
+@@ -4815,8 +4807,6 @@
+ 
+ 					track.isLoaded = true;
+ 
+-					// create button
+-					//t.addTrackButton(track.srclang);
+ 					t.enableTrackButton(track.srclang, track.label);
+ 
+ 					t.loadNextTrack();
+@@ -4851,6 +4841,7 @@
+ 					}
+ 				},
+ 				error: function() {
++					t.removeTrackButton(track.srclang);
+ 					t.loadNextTrack();
+ 				}
+ 			});
+@@ -4876,6 +4867,14 @@
+ 
+ 			t.adjustLanguageBox();
+ 		},
++		
++		removeTrackButton: function(lang) {
++			var t = this;
++			
++			t.captionsButton.find('input[value=' + lang + ']').closest('li').remove();
++			
++			t.adjustLanguageBox();
++		},
+ 
+ 		addTrackButton: function(lang, label) {
+ 			var t = this;
+@@ -4913,7 +4912,7 @@
+ 			// check if any subtitles
+ 			if (t.options.hideCaptionsButtonWhenEmpty) {
+ 				for (i=0; i<t.tracks.length; i++) {
+-					if (t.tracks[i].kind == 'subtitles') {
++					if (t.tracks[i].kind == 'subtitles' && t.tracks[i].isLoaded) {
+ 						hasSubtitles = true;
+ 						break;
+ 					}
+@@ -5209,8 +5208,6 @@
+ 					lines = container.find("p"),
+ 					styleNode = trackText.find("#" + container.attr("style")),
+ 					styles,
+-					begin,
+-					end,
+ 					text,
+ 					entries = {text:[], times:[]};
+ 
+@@ -5513,4 +5510,6 @@
  		}
  	});
  
@@ -124,8 +381,8 @@
 +})(mejs.$);
 +
 +});
---- css/mediaelementplayer.orig.css	2015-04-28 19:54:46.000000000 -0500
-+++ css/mediaelementplayer.css	2015-04-28 19:53:39.000000000 -0500
+--- css/mediaelementplayer.css	2015-07-09 19:38:12.000000000 -0500
++++ css/mediaelementplayer.mine.css	2015-07-09 19:37:52.000000000 -0500
 @@ -732,6 +732,12 @@
  	padding: 15px;
  	display: block;

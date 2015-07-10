@@ -12,14 +12,13 @@
  * License: MIT
  *
  */
-
 define(['jquery'], function(jQuery) {
 
 // Namespace
 var mejs = mejs || {};
 
 // version number
-mejs.version = '2.16.4'; 
+mejs.version = '2.17.0'; 
 
 
 // player number (for missing, same id attr)
@@ -31,7 +30,7 @@ mejs.plugins = {
 		{version: [3,0], types: ['video/mp4','video/m4v','video/mov','video/wmv','audio/wma','audio/m4a','audio/mp3','audio/wav','audio/mpeg']}
 	],
 	flash: [
-		{version: [9,0,124], types: ['video/mp4','video/m4v','video/mov','video/flv','video/rtmp','video/x-flv','audio/flv','audio/x-flv','audio/mp3','audio/m4a','audio/mpeg', 'video/youtube', 'video/x-youtube', 'application/x-mpegURL']}
+		{version: [9,0,124], types: ['video/mp4','video/m4v','video/mov','video/flv','video/rtmp','video/x-flv','audio/flv','audio/x-flv','audio/mp3','audio/m4a','audio/mpeg', 'video/youtube', 'video/x-youtube', 'video/dailymotion', 'video/x-dailymotion', 'application/x-mpegURL']}
 		//,{version: [12,0], types: ['video/webm']} // for future reference (hopefully!)
 	],
 	youtube: [
@@ -1136,8 +1135,6 @@ mejs.HtmlMediaElementShim = {
 	},
 
 	formatType: function(url, type) {
-		var ext;
-
 		// if no type is supplied, fake it with the extension
 		if (url && !type) {		
 			return this.getTypeFromFile(url);
@@ -1195,14 +1192,14 @@ mejs.HtmlMediaElementShim = {
 
 		if (!errorContent) {
 			errorContent = '<a href="' + playback.url + '">';
-      
+
 			if (poster !== '') {
 				errorContent += '<img src="' + poster + '" width="100%" height="100%" alt="" />';
 			}
-			
+
 			errorContent += '<span>' + mejs.i18n.t('Download File') + '</span></a>';
 		}
-		
+
 		errorContainer.innerHTML = errorContent;
 
 		htmlMediaElement.parentNode.insertBefore(errorContainer, htmlMediaElement);
@@ -1229,14 +1226,16 @@ mejs.HtmlMediaElementShim = {
 		// copy attributes from html media element to plugin media element
 		for (var i = 0; i < htmlMediaElement.attributes.length; i++) {
 			var attribute = htmlMediaElement.attributes[i];
-			if (attribute.specified == true) {
+			if (attribute.specified) {
 				pluginMediaElement.setAttribute(attribute.name, attribute.value);
 			}
 		}
 
 		// check for placement inside a <p> tag (sometimes WYSIWYG editors do this)
 		node = htmlMediaElement.parentNode;
-		while (node !== null && node.tagName.toLowerCase() !== 'body' && node.parentNode != null) {
+
+		while (node !== null && node.tagName != null && node.tagName.toLowerCase() !== 'body' && 
+				node.parentNode != null && node.parentNode.tagName != null && node.parentNode.constructor != null && node.parentNode.constructor.name === "ShadowRoot") {
 			if (node.parentNode.tagName.toLowerCase() === 'p') {
 				node.parentNode.parentNode.insertBefore(node, node.parentNode);
 				break;
@@ -1748,11 +1747,11 @@ mejs.YouTubeApi = {
 	}
 }
 // IFRAME
-function onYouTubePlayerAPIReady() {
+window.onYouTubePlayerAPIReady = function() {
 	mejs.YouTubeApi.iFrameReady();
 }
 // FLASH
-function onYouTubePlayerReady(id) {
+window.onYouTubePlayerReady = function(id) {
 	mejs.YouTubeApi.flashReady(id);
 }
 
@@ -2140,6 +2139,10 @@ if (typeof jQuery != 'undefined') {
 		// these will be reset after the MediaElement.success fires
 		t.$media = t.$node = $(node);
 		t.node = t.media = t.$media[0];
+
+		if(!t.node) {
+			return
+		}
 
 		// check for existing player
 		if (typeof t.node.player != 'undefined') {
@@ -2788,7 +2791,7 @@ if (typeof jQuery != 'undefined') {
 					newHeight = parentHeight;
 				}
 
-				if (t.container.parent()[0].tagName.toLowerCase() === 'body') { // && t.container.siblings().count == 0) {
+				if (t.container.parent().length > 0 && t.container.parent()[0].tagName.toLowerCase() === 'body') { // && t.container.siblings().count == 0) {
 					parentWidth = $(window).width();
 					newHeight = $(window).height();
 				}
@@ -2846,8 +2849,6 @@ if (typeof jQuery != 'undefined') {
 				railWidth = 0,
 				rail = t.controls.find('.mejs-time-rail'),
 				total = t.controls.find('.mejs-time-total'),
-				current = t.controls.find('.mejs-time-current'),
-				loaded = t.controls.find('.mejs-time-loaded'),
 				others = rail.siblings(),
 				lastControl = others.last(),
 				lastControlPosition = null;
@@ -2890,15 +2891,12 @@ if (typeof jQuery != 'undefined') {
 				total.width(railWidth - (total.outerWidth(true) - total.width()));
 
 				if (lastControl.css('position') != 'absolute') {
-					lastControlPosition = lastControl.position();
+					lastControlPosition = lastControl.length ? lastControl.position() : null;
 					railWidth--;
 				}
 			} while (lastControlPosition !== null && lastControlPosition.top > 0 && railWidth > 0);
-
-			if (t.setProgressRail)
-				t.setProgressRail();
-			if (t.setCurrentRail)
-				t.setCurrentRail();
+			
+			t.container.trigger('controlsresize');
 		},
 
 
@@ -3031,7 +3029,7 @@ if (typeof jQuery != 'undefined') {
 			media.addEventListener('loadeddata',function() {
 				loading.hide();
 				controls.find('.mejs-time-buffering').hide();
-			}, false);
+ 			}, false);
 			media.addEventListener('canplay',function() {
 				loading.hide();
 				controls.find('.mejs-time-buffering').hide();
@@ -3040,8 +3038,8 @@ if (typeof jQuery != 'undefined') {
 			// error handling
 			media.addEventListener('error',function(e) {
 				t.handleError(e);
-				bigPlay.hide();
 				loading.hide();
+				bigPlay.hide();
 				error.show();
 				error.find('.mejs-overlay-error').html("Error loading this resource");
 			}, false);
@@ -3196,6 +3194,15 @@ if (typeof jQuery != 'undefined') {
 			var t = this;
 			t.findTracks();
 			t.buildtracks(t, t.controls, t.layers, t.media);
+		},
+		resetSize: function(){
+			var t = this;
+			// webkit has trouble doing this without a delay
+			setTimeout(function () {
+				//
+				t.setPlayerSize(t.width, t.height);
+				t.setControlsSize();
+			}, 50);            
 		}
 	};
 
@@ -3345,9 +3352,9 @@ if (typeof jQuery != 'undefined') {
 	// STOP BUTTON
 	$.extend(MediaElementPlayer.prototype, {
 		buildstop: function(player, controls, layers, media) {
-			var t = this,
-				stop = 
-				$('<div class="mejs-button mejs-stop-button mejs-stop">' +
+			var t = this;
+				
+			$('<div class="mejs-button mejs-stop-button mejs-stop">' +
 					'<button type="button" aria-controls="' + t.id + '" title="' + t.options.stopText + '" aria-label="' + t.options.stopText + '"></button>' +
 				'</div>')
 				.appendTo(controls)
@@ -3384,15 +3391,16 @@ if (typeof jQuery != 'undefined') {
 			$('<div class="mejs-time-rail">' +
 				'<span  class="mejs-time-total mejs-time-slider">' +
 				//'<span class="mejs-offscreen">' + this.options.progessHelpText + '</span>' +
-				'<span class="mejs-time-buffering"></span>' +
-				'<span class="mejs-time-loaded"></span>' +
-				'<span class="mejs-time-current"></span>' +
-				'<span class="mejs-time-handle"></span>' +
-				'<span class="mejs-time-float">' +
-				'<span class="mejs-time-float-current">00:00</span>' +
-				'<span class="mejs-time-float-corner"></span>' +
+					'<span class="mejs-time-buffering"></span>' +
+					'<span class="mejs-time-loaded"></span>' +
+					'<span class="mejs-time-current"></span>' +
+					'<span class="mejs-time-handle"></span>' +
+					'<span class="mejs-time-float">' +
+						'<span class="mejs-time-float-current">00:00</span>' +
+						'<span class="mejs-time-float-corner"></span>' +
+					'</span>' +
 				'</span>' +
-				'</div>')
+			'</div>')
 				.appendTo(controls);
 			controls.find('.mejs-time-buffering').hide();
 
@@ -3590,6 +3598,10 @@ if (typeof jQuery != 'undefined') {
 				updateSlider(e);
 			}, false);
 			
+			t.container.on('controlsresize', function() {
+				player.setProgressRail();
+				player.setCurrentRail();
+			});
 			
 			// store for later use
 			t.loaded = loaded;
@@ -3810,8 +3822,10 @@ if (typeof jQuery != 'undefined') {
 				// ajust mute button style
 				if (volume === 0) {
 					mute.removeClass('mejs-mute').addClass('mejs-unmute');
+					mute.children('button').attr('title', mejs.i18n.t('Unmute')).attr('aria-label', mejs.i18n.t('Unmute'));
 				} else {
 					mute.removeClass('mejs-unmute').addClass('mejs-mute');
+					mute.children('button').attr('title', mejs.i18n.t('Mute')).attr('aria-label', mejs.i18n.t('Mute'));
 				}
 
                 // top/left of full size volume slider background
@@ -3857,7 +3871,6 @@ if (typeof jQuery != 'undefined') {
 				
 					var
 						railHeight = volumeTotal.height(),
-						totalTop = parseInt(volumeTotal.css('top').replace(/px/,''),10),
 						newY = e.pageY - totalOffset.top;
 						
 					volume = (railHeight - newY) / railHeight;
@@ -3990,21 +4003,20 @@ if (typeof jQuery != 'undefined') {
 				}
 				updateVolumeSlider(e);
 			}, false);
-
-			if (t.container.is(':visible')) {
-				// set initial volume
-				positionVolumeHandle(player.options.startVolume);
-
-				// mutes the media and sets the volume icon muted if the initial volume is set to 0
-				if (player.options.startVolume === 0) {
-					media.setMuted(true);
-				}
-
-				// shim gets the startvolume as a parameter, but we have to set it on the native <video> and <audio> elements
-				if (media.pluginType === 'native') {
-					media.setVolume(player.options.startVolume);
-				}
+			
+			// mutes the media and sets the volume icon muted if the initial volume is set to 0
+			if (player.options.startVolume === 0) {
+				media.setMuted(true);
 			}
+			
+			// shim gets the startvolume as a parameter, but we have to set it on the native <video> and <audio> elements
+			if (media.pluginType === 'native') {
+				media.setVolume(player.options.startVolume);
+			}
+
+			t.container.on('controlsresize', function() {
+				positionVolumeHandle(media.volume);
+			});
 		}
 	});
 	
@@ -4055,9 +4067,6 @@ if (typeof jQuery != 'undefined') {
 			}
 
 			var t = this,
-				normalHeight = 0,
-				normalWidth = 0,
-				container = player.container,
 				fullscreenBtn =
 					$('<div class="mejs-button mejs-fullscreen-button">' +
 						'<button type="button" aria-controls="' + t.id + '" title="' + t.options.fullscreenText + '" aria-label="' + t.options.fullscreenText + '"></button>' +
@@ -4287,6 +4296,9 @@ if (typeof jQuery != 'undefined') {
 					player.exitFullScreen();
 				}
 			});
+			
+			t.normalHeight = 0;
+			t.normalWidth = 0;
 
 		},
 
@@ -4311,8 +4323,8 @@ if (typeof jQuery != 'undefined') {
             $(document.documentElement).addClass('mejs-fullscreen');
 
 			// store sizing
-			normalHeight = t.container.height();
-			normalWidth = t.container.width();
+			t.normalHeight = t.container.height();
+			t.normalWidth = t.container.width();
 
 			// attempt to do true fullscreen (Safari 5.1 and Firefox Nightly only for now)
 			if (t.media.pluginType === 'native') {
@@ -4454,25 +4466,24 @@ if (typeof jQuery != 'undefined') {
 
 			t.container
 				.removeClass('mejs-container-fullscreen')
-				.width(normalWidth)
-				.height(normalHeight);
-				//.css({position: '', left: '', top: '', right: '', bottom: '', overflow: 'inherit', width: normalWidth + 'px', height: normalHeight + 'px', 'z-index': 1});
+				.width(t.normalWidth)
+				.height(t.normalHeight);
 
 			if (t.media.pluginType === 'native') {
 				t.$media
-					.width(normalWidth)
-					.height(normalHeight);
+					.width(t.normalWidth)
+					.height(t.normalHeight);
 			} else {
 				t.container.find('.mejs-shim')
-					.width(normalWidth)
-					.height(normalHeight);
+					.width(t.normalWidth)
+					.height(t.normalHeight);
 
-				t.media.setVideoSize(normalWidth, normalHeight);
+				t.media.setVideoSize(t.normalWidth, t.normalHeight);
 			}
 
 			t.layers.children('div')
-				.width(normalWidth)
-				.height(normalHeight);
+				.width(t.normalWidth)
+				.height(t.normalHeight);
 
 			t.fullscreenBtn
 				.removeClass('mejs-unfullscreen')
@@ -4511,6 +4522,7 @@ if (typeof jQuery != 'undefined') {
 					speedButton = null,
 					speedSelector = null,
 					playbackSpeed = null,
+					inputId = null,
 					html = '<div class="mejs-button mejs-speed-button">' + 
 								'<button type="button">' + t.options.defaultSpeed + t.options.speedChar + '</button>' + 
 								'<div class="mejs-speed-selector">' + 
@@ -4525,13 +4537,14 @@ if (typeof jQuery != 'undefined') {
 				});
 
 				for (var i = 0, il = t.options.speeds.length; i<il; i++) {
+					inputId = t.id + '-speed-' + t.options.speeds[i];
 					html += '<li>' + 
 								'<input type="radio" name="speed" ' + 
 											'value="' + t.options.speeds[i] + '" ' + 
-											'id="' + t.options.speeds[i] + '" ' +
+											'id="' + inputId + '" ' +
 											(t.options.speeds[i] == t.options.defaultSpeed ? ' checked' : '') + 
 											' />' +
-								'<label for="' + t.options.speeds[i] + '" ' + 
+								'<label for="' + inputId + '" ' +
 											(t.options.speeds[i] == t.options.defaultSpeed ? ' class="mejs-speed-selected"' : '') +
 											'>' + t.options.speeds[i] + t.options.speedChar + '</label>' + 
 							'</li>';
@@ -4541,12 +4554,12 @@ if (typeof jQuery != 'undefined') {
 				speedButton = $(html).appendTo(controls);
 				speedSelector = speedButton.find('.mejs-speed-selector');				
 
-				playbackspeed = t.options.defaultSpeed;
+				playbackSpeed = t.options.defaultSpeed;
 
 				speedSelector
 					.on('click', 'input[type="radio"]', function() {
 						var newSpeed = $(this).attr('value');
-						playbackspeed = newSpeed;
+						playbackSpeed = newSpeed;
 						media.playbackRate = parseFloat(newSpeed);
 						speedButton.find('button').html(newSpeed + t.options.speedChar);
 						speedButton.find('.mejs-speed-selected').removeClass('mejs-speed-selected');
@@ -4572,6 +4585,10 @@ if (typeof jQuery != 'undefined') {
 		startLanguage: '',
 
 		tracksText: mejs.i18n.t('Captions/Subtitles'),
+
+		// By default, no WAI-ARIA live region - don't make a
+		// screen reader speak captions over an audio track.
+		tracksAriaLive: false,
 
 		// option to remove the [cc] button when no <track kind="subtitles"> are present
 		hideCaptionsButtonWhenEmpty: true,
@@ -4600,8 +4617,9 @@ if (typeof jQuery != 'undefined') {
 				return;
 
 			var t = this,
-				i,
-				options = '';
+				attr = t.options.tracksAriaLive ?
+					'role="log" aria-live="assertive" aria-atomic="false"' : '',
+				i;
 
 			if (t.domNode.textTracks) { // if browser will do native captions, prefer mejs captions, loop through tracks and hide
 				for (i = t.domNode.textTracks.length - 1; i >= 0; i--) {
@@ -4613,7 +4631,8 @@ if (typeof jQuery != 'undefined') {
 					$('<div class="mejs-chapters mejs-layer"></div>')
 						.prependTo(layers).hide();
 			player.captions =
-					$('<div class="mejs-captions-layer mejs-layer"><div class="mejs-captions-position mejs-captions-position-hover" role="log" aria-live="assertive" aria-atomic="false"><span class="mejs-captions-text"></span></div></div>')
+					$('<div class="mejs-captions-layer mejs-layer"><div class="mejs-captions-position mejs-captions-position-hover" ' +
+					attr + '><span class="mejs-captions-text"></span></div></div>')
 						.prependTo(layers).hide();
 			player.captionsText = player.captions.find('.mejs-captions-text');
 			player.captionsButton =
@@ -4733,6 +4752,10 @@ if (typeof jQuery != 'undefined') {
 					}
 				});
 
+			t.container.on('controlsresize', function() {
+				t.adjustLanguageBox();
+			});
+			
 			// check for autoplay
 			if (player.node.getAttribute('autoplay') !== null) {
 				player.chapters.css('visibility','hidden');
@@ -4784,8 +4807,6 @@ if (typeof jQuery != 'undefined') {
 
 					track.isLoaded = true;
 
-					// create button
-					//t.addTrackButton(track.srclang);
 					t.enableTrackButton(track.srclang, track.label);
 
 					t.loadNextTrack();
@@ -4820,6 +4841,7 @@ if (typeof jQuery != 'undefined') {
 					}
 				},
 				error: function() {
+					t.removeTrackButton(track.srclang);
 					t.loadNextTrack();
 				}
 			});
@@ -4843,6 +4865,14 @@ if (typeof jQuery != 'undefined') {
 				$('#' + t.id + '_captions_' + lang).prop('checked', true).trigger('click');
 			}
 
+			t.adjustLanguageBox();
+		},
+		
+		removeTrackButton: function(lang) {
+			var t = this;
+			
+			t.captionsButton.find('input[value=' + lang + ']').closest('li').remove();
+			
 			t.adjustLanguageBox();
 		},
 
@@ -4882,7 +4912,7 @@ if (typeof jQuery != 'undefined') {
 			// check if any subtitles
 			if (t.options.hideCaptionsButtonWhenEmpty) {
 				for (i=0; i<t.tracks.length; i++) {
-					if (t.tracks[i].kind == 'subtitles') {
+					if (t.tracks[i].kind == 'subtitles' && t.tracks[i].isLoaded) {
 						hasSubtitles = true;
 						break;
 					}
@@ -5178,8 +5208,6 @@ if (typeof jQuery != 'undefined') {
 					lines = container.find("p"),
 					styleNode = trackText.find("#" + container.attr("style")),
 					styles,
-					begin,
-					end,
 					text,
 					entries = {text:[], times:[]};
 
