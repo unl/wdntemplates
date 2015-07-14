@@ -17,14 +17,14 @@ $alertInfo = array(
     'urgency' => 'Immediate',
     'severity' => 'Extreme',
     'certainty' => 'Likely',
-    'headline' => '(Simulation) Winter Weather Advisory',
+    'headline' => '(Simulation) Gas Leak',
     'effective' => date('Y-m-d\TH:i:sO'),
-    'description' => 'The university has been closed Feb 3 due to inclement weather - THIS IS JUST A TEST',
-    'instruction' => 'Only necessary personnel should come to work',
+    'description' => 'THIS IS JUST A TEST - ',
+    'instruction' => 'Evacuations of the Buildings are not necessary at this time',
     'web' => 'http://www.unl.edu/',
     'parameter' => array(
         'valueName' => 'id',
-        'value' => md5(time())
+        'value' => md5('2015-07-10T10:26:00-05:00')
     ),
     'area' => array(
         'areaDesc' => 'Lincoln (Nebraska)',
@@ -32,9 +32,13 @@ $alertInfo = array(
     )
 );
 
-$data = array('alert' => $alertSpec);
-if (empty($_GET['c'])) {
-    $data['alert']['info'] = $alertInfo;
+if (time() <= strtotime('2015-07-10T11:26:00-05:00')) {
+    $data = array('alert' => $alertSpec);
+    if (empty($_GET['c'])) {
+        $data['alert']['info'] = $alertInfo;
+    }
+} else {
+    $data = array();
 }
 
 header('Content-type: text/javascript');

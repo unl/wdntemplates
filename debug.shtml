@@ -96,11 +96,26 @@
                 <!-- InstanceBeginEditable name="maincontentarea" -->
                 <div class="wdn-band">
                     <div class="wdn-inner-wrapper">
-                        <a href="#" class="wdn-button">This is my button</a>
-                        <a href="#" class="wdn-button wdn-button-triad">This is my button</a> 
-                        <a href="#" class="wdn-button wdn-button-complement">This is my button</a>
-                        <a href="#" class="wdn-button wdn-button-brand">This is my button</a> 
-                        <a href="#" class="wdn-button wdn-button-energetic">This is my button</a>
+                    	<a class="wdn-button" id="playme">Play Video</a>
+                    	<div style="display:none">
+                        <video class="wdn_player" src="http://mediahub.unl.edu/uploads/9c6b955c1f7a4ad858720ab64e72594c.mp4">
+      <track srclang="en" kind="subtitles" src="http://mediahub.unl.edu/media/3814/srt" />
+    </video>
+    <script>
+    require(['wdn', 'jquery'], function(WDN, $) {
+    	var player;
+    	
+    	$('#playme').click(function() {
+    		$(this).next().toggle();
+    		player.play();
+    	});
+    	
+    	WDN.initializePlugin('mediaelement_wdn', [function() {
+    		player = $('video.wdn_player').data('mediaelementplayer');
+    	}]);
+    });
+    </script>
+    	</div>
                     </div>
                 </div>
                 <div class="wdn-band wdn-light-triad-band">
