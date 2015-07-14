@@ -1,7 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 4.0.27 (MAy 11, 2015)
+## 4.0.28 (July 14, 2015)
+
+### Fixed
+- Affiliate CSS media query adjustments ([#839](https://github.com/unl/wdntemplates/pull/839), [#840](https://github.com/unl/wdntemplates/pull/840))
+- Favicon optimizations and making the iOS icons match ([#842](https://github.com/unl/wdntemplates/pull/842))
+- MedisElementJS updated and patched for various issues ([a61c72](https://github.com/unl/wdntemplates/commit/a61c72987d27a6314be5da248df7c1342ae71ed9))
+- Fixed alert message not loaded immediately due to race condition ([9bb042](https://github.com/unl/wdntemplates/commit/9bb042f0869eb91f07bea81e0b33ed226f71c809))
+- Fix main share widget flashing/changing colors during load ([7bc12b](https://github.com/unl/wdntemplates/commit/7bc12b8e68d40560ed027e49706ddd0a23ee32f8))
+- Reduce scope of `wdn-input-group-btn` styles ([abc242](https://github.com/unl/wdntemplates/commit/abc242eff84a85ab3525c053471d1ed05313f30f))
+
+### Added
+- Notice of Nondiscrimination now included in non-editable footer ([#846](https://github.com/unl/wdntemplates/pull/846))
+
+## 4.0.27 (May 11, 2015)
 
 ### Fixed
 - MediaElementJS (audio/video player) updated and patched for continuous loading bug ([#834](https://github.com/unl/wdntemplates/pull/834))
