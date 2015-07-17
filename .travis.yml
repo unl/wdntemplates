@@ -5,6 +5,7 @@ before_install:
    # configure apache virtual hosts
    - sudo apt-get update
    - sudo apt-get install apache2
+   - sudo apt-get install php5-curl
    - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
    - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
    - sudo a2enmod include

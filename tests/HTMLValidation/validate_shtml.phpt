@@ -10,7 +10,13 @@ require_once 'Services/W3C/HTMLValidator.php';
 
 $files = new GlobIterator(dirname(dirname(__DIR__)) . '/Templates/*.dwt', FilesystemIterator::CURRENT_AS_PATHNAME);
 
-$validator = new Services_W3C_HTMLValidator();
+$validator = new Services_W3C_HTMLValidator(array(
+    'validator_uri' => 'https://validator.unl.edu/check',
+));
+
+$request = new \HTTP_Request2();
+$request->setConfig('adapter', 'HTTP_Request2_Adapter_Curl');
+$validator->setRequest($request);
 
 foreach ($files as $filename) {
     $shtml = mod_include_file($filename, dirname(dirname(__DIR__)));
