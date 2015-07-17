@@ -1,5 +1,6 @@
 {
 	"require" : {
+	    "pear/PEAR" : "dev-master",
 		"masterminds/html5": "1.*"
 	}
 }
