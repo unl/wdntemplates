@@ -291,27 +291,27 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
                         <li class="wdn-col"><div class="visual-island"><a href="audioplayer.html">Audio player</a> (mediahub.unl.edu)</div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="band_imagery.html">Band Imagery</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="buttons.html">Buttons</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="carousel.html">Carousel</a> (<a href="http://www1.unl.edu/wdn/wiki/Carousel" class="external">wiki</a>)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="carousel.html">Carousel</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="colorbox.html" title="Colorbox: Modal Box">Colorbox</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="events.html">Events</a> (<a href="http://www1.unl.edu/wdn/wiki/Extracting_Data_From_The_Calendar" class="external">wiki</a>)</div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="formvalidator.html">Form Validator</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Validation" class="external">wiki</a>)</div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="forms.html">Forms</a> (<a href="http://www1.unl.edu/wdn/wiki/Template_Form_Styling" class="external">wiki</a>)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="events.html">Events</a></div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="formvalidator.html">Form Validator</a></div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="forms.html">Forms</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="idm.html"><abbr title="Identity Management">IdM</abbr>/<abbr title="Single Sign On">SSO</abbr></a></div></li>
                          <li class="wdn-col"><div class="visual-island"><a href="infographics.html" title="Infographics">Infographics</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="image.html" title="Images: Styling and Captioning">Images</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="jqueryui.html" title="jQuery UI Widgets and Effects">jQuery UI</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="notice.html">Notice</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="layouts.html">Page Layouts</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="pagination.html">Pagination</a> (<a href="http://www1.unl.edu/wdn/wiki/Pagination" class="external">wiki</a>)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="pagination.html">Pagination</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="promo_image.html">Promo Image</a> (text over image)</div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="quote.html" title="Quotes: Individual Bands">Quotes</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="randomizer.html">Randomizer</a> (<a href="http://www1.unl.edu/wdn/wiki/JQuery_Random_Div_Display" class="external">wiki </a>)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="randomizer.html">Randomizer</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="rss_widget.html">RSS Feed Widget</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="table.html">Responsive Table</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="tabs.html">Tabs</a> (<a href="http://www1.unl.edu/wdn/wiki/Tabbed_Content_Areas" class="external">wiki</a>)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="tabs.html">Tabs</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="tooltips.html">Tooltips</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="videoplayer.html">Video player</a> (mediahub.unl.edu)</div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="zenboxes.html" title="Boxed content: Formally &quot;zenbox&quot;">Box</a> (<a href="http://www1.unl.edu/wdn/wiki/Zenbox" class="external">wiki</a>)</div></li>
+                        <li class="wdn-col"><div class="visual-island"><a href="zenboxes.html" title="Boxed content: Formally &quot;zenbox&quot;">Box</a></div></li>
                         <li class="wdn-col"><div class="visual-island"><a href="zentables.html">Tables</a></div></li>
                     </ul>
                 </div>
