@@ -491,43 +491,19 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 						}
 					});
 
-					require([swipePlugin + min], function() {
-						$.event.special.swipe.horizontalDistanceThreshold = 150;
-						$.event.special.swipe.verticalDistanceThreshold = 30;
-						$('body').on('swiperight', function() {
-							if (!isFullNav() && currentState === 0) {
-								Plugin.expand();
-							}
-						});
-						$('body').on('swipeleft', function() {
-							if (!isFullNav() && currentState === 1) {
-								Plugin.collapse();
-							}
-						});
+						if (!Modernizr.mediaqueries) {
+							return;
+						}
 
-						var $navBar = $('#wdn_navigation_bar'),
-						lastScrollTop = $navBar.scrollTop();
+						if (isFull && currentState !== 0) {
+							Plugin.collapse();
+						}
 
-						$(document).bind('touchmove', function(e) {
-							if (!isFullNav() && currentState === 1) {
-								e.preventDefault();
-							}
-						});
-						$navBar.on('touchstart', function(e) {
-							if (!isFullNav()) {
-								if (e.currentTarget.scrollTop === 0) {
-									e.currentTarget.scrollTop = 1;
-								} else if (e.currentTarget.scrollHeight === e.currentTarget.scrollTop + e.currentTarget.offsetHeight) {
-									e.currentTarget.scrollTop -= 1;
-								}
-							}
-						});
-						$navBar.on('touchmove', function(e) {
-							if (!isFullNav() && currentState === 1) {
-								e.stopPropagation();
-							}
-						});
-					});
+						if (isFull && breadcrumbs.is(':visible')) {
+							trig = breadcrumbs;
+						} else {
+							trig = $('#header');
+						}
 
 					var nav = $(navSel), onscroll = function() {
 //						don't clear the timeout (wait for last event) as it causes poor UX
