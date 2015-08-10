@@ -45,6 +45,8 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		return setTimeout(callback, 0);
 	};
 
+	// the following 3 functions are pulled from the Underscore.js library.
+	// License: MIT - Copyright (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	var _now = Date.now || function() {
 		return new Date().getTime();
 	};
