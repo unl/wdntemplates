@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.0.29 (August 11, 2015)
+
+### Fixed
+- The QA link in the footer has been updated to go to a special page on WebAudit ([#867](https://github.com/unl/wdntemplates/pull/867))
+- Scroll depth analytics have been disabled ([#868](https://github.com/unl/wdntemplates/pull/868))
+- Disabled buttons should not have box-shadows ([#869](https://github.com/unl/wdntemplates/pull/869))
+- Fixed various display issues with the nav bar and removed swipe events ([#870](https://github.com/unl/wdntemplates/pull/870))
+
+### Added
+- New loadable font variations have been added to support small caps and extended latin ([#871](https://github.com/unl/wdntemplates/pull/871))
+
+### Removed
+- All references to the old wiki have been removed ([f8d2ab](https://github.com/unl/wdntemplates/commit/f8d2ab4ba23af3e668608fe8c04a90a3da4f2d06))
+
 ## 4.0.28 (July 14, 2015)
 
 ### Fixed
