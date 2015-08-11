@@ -11,7 +11,8 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		expandSemaphore = false,
 		expandDelay = 400,
 		collapseDelay = 120,
-		resizeThrottle = 500,
+		scrollThrottle = 50,
+		resizeThrottle = 100,
 		transitionDelay = 200, // this is 100ms + @nav-transition-duration from ../less/_mixins/vars.less
 		homepageLI, siteHomepage, timeout, scrollTimeout, resizeTimeout,
 		currentState = -1,
@@ -42,6 +43,74 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 	// a workaround for fast renderers like chrome: #612
 	var redrawWait = function(callback) {
 		return setTimeout(callback, 0);
+	};
+
+	// the following 3 functions are pulled from the Underscore.js library.
+	// License: MIT - Copyright (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	var _now = Date.now || function() {
+		return new Date().getTime();
+	};
+
+	var throttle = function(func, wait, options) {
+		var context, args, result;
+		var timeout = null;
+		var previous = 0;
+		if (!options) options = {};
+		var later = function() {
+			previous = options.leading === false ? 0 : _now();
+			timeout = null;
+			result = func.apply(context, args);
+			if (!timeout) context = args = null;
+		};
+		return function() {
+			var now = _now();
+			if (!previous && options.leading === false) previous = now;
+			var remaining = wait - (now - previous);
+			context = this;
+			args = arguments;
+			if (remaining <= 0 || remaining > wait) {
+				if (timeout) {
+					clearTimeout(timeout);
+					timeout = null;
+				}
+				previous = now;
+				result = func.apply(context, args);
+				if (!timeout) context = args = null;
+			} else if (!timeout && options.trailing !== false) {
+				timeout = setTimeout(later, remaining);
+			}
+			return result;
+		};
+	};
+
+	var debounce = function(func, wait, immediate) {
+		var timeout, args, context, timestamp, result;
+		var later = function() {
+			var last = _now() - timestamp;
+			if (last < wait && last >= 0) {
+				timeout = setTimeout(later, wait - last);
+			} else {
+				timeout = null;
+				if (!immediate) {
+					result = func.apply(context, args);
+					if (!timeout) context = args = null;
+				}
+			}
+		};
+
+		return function() {
+			context = this;
+			args = arguments;
+			timestamp = _now();
+			var callNow = immediate && !timeout;
+			if (!timeout) timeout = setTimeout(later, wait);
+			if (callNow) {
+				result = func.apply(context, args);
+				context = args = null;
+			}
+
+	        return result;
+		};
 	};
 
 	var determineSelectedBreadcrumb = function () {
@@ -491,87 +560,43 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 						}
 					});
 
-					require([swipePlugin + min], function() {
-						$.event.special.swipe.horizontalDistanceThreshold = 150;
-						$.event.special.swipe.verticalDistanceThreshold = 30;
-						$('body').on('swiperight', function() {
-							if (!isFullNav() && currentState === 0) {
-								Plugin.expand();
-							}
-						});
-						$('body').on('swipeleft', function() {
-							if (!isFullNav() && currentState === 1) {
-								Plugin.collapse();
-							}
-						});
-
-						var $navBar = $('#wdn_navigation_bar'),
-						lastScrollTop = $navBar.scrollTop();
-
-						$(document).bind('touchmove', function(e) {
-							if (!isFullNav() && currentState === 1) {
-								e.preventDefault();
-							}
-						});
-						$navBar.on('touchstart', function(e) {
-							if (!isFullNav()) {
-								if (e.currentTarget.scrollTop === 0) {
-									e.currentTarget.scrollTop = 1;
-								} else if (e.currentTarget.scrollHeight === e.currentTarget.scrollTop + e.currentTarget.offsetHeight) {
-									e.currentTarget.scrollTop -= 1;
-								}
-							}
-						});
-						$navBar.on('touchmove', function(e) {
-							if (!isFullNav() && currentState === 1) {
-								e.stopPropagation();
-							}
-						});
-					});
-
 					var nav = $(navSel), onscroll = function() {
-//						don't clear the timeout (wait for last event) as it causes poor UX
-						scrollTimeout = setTimeout(function() {
-							var breadcrumbs = $(breadSel), wrp = $(wdnWrapSel),
-							cls = 'nav-scrolling', trig, isFull = isFullNav();
+						var breadcrumbs = $(breadSel), wrp = $(wdnWrapSel),
+						cls = 'nav-scrolling', trig, isFull = isFullNav();
 
-							if (!Modernizr.mediaqueries) {
-								return;
-							}
+						if (!Modernizr.mediaqueries) {
+							return;
+						}
 
-							if (isFull && currentState !== 0) {
-								Plugin.collapse();
-							}
+						if (isFull && currentState !== 0) {
+							Plugin.collapse();
+						}
 
-							if (isFull && breadcrumbs.is(':visible')) {
-								trig = breadcrumbs;
-							} else {
-								trig = $('#header');
-							}
+						if (isFull && breadcrumbs.is(':visible')) {
+							trig = breadcrumbs;
+						} else {
+							trig = $('#header');
+						}
 
-							if ($(window).scrollTop() >= trig.offset().top + trig.height()) {
-								wrp.addClass(cls);
-							} else {
-								wrp.removeClass(cls);
-							}
-						}, 50);
+						if ($(window).scrollTop() >= trig.offset().top + trig.outerHeight()) {
+							wrp.addClass(cls);
+						} else {
+							wrp.removeClass(cls);
+						}
 					};
 					// pin the navigation
 					onscroll();
-					$(window).on('scroll', onscroll);
+					$(window).on('scroll', throttle(onscroll, scrollThrottle));
 
 					var navWidth = nav.width();
-					$(window).on('resize', function() {
-						clearTimeout(resizeTimeout);
-						resizeTimeout = setTimeout(function() {
-							if (nav.width() === navWidth) {
-								return;
-							}
-							navWidth = nav.width();
+					$(window).on('resize', debounce(function() {
+						if (nav.width() === navWidth) {
+							return;
+						}
+						navWidth = nav.width();
 
-							fixPresentation(true);
-						}, resizeThrottle);
-					});
+						fixPresentation(true);
+					}, resizeThrottle));
 
 					$(navPrmySel + ' > a').focusin(function(){
 						Plugin.expand();
