@@ -54,8 +54,10 @@ CSS_OBJS := \
 	$(TEMPLATE_CSS)/print.css \
 	$(TEMPLATE_CSS)/layouts/events.css \
 	$(TEMPLATE_CSS)/layouts/events-band.css \
+	$(TEMPLATE_CSS)/layouts/extlatin.css \
 	$(TEMPLATE_CSS)/layouts/formvalidator.css \
 	$(TEMPLATE_CSS)/layouts/monthwidget.css \
+	$(TEMPLATE_CSS)/layouts/smallcaps.css \
 	$(TEMPLATE_CSS)/layouts/unlalert.css \
 	$(TEMPLATE_CSS)/modules/band_imagery.css \
 	$(TEMPLATE_CSS)/modules/notices.css \
