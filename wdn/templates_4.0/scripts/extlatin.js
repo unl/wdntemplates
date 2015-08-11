@@ -1,15 +1,15 @@
-var initd = false;
+define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 
-return {
-    initializePlugin: function() {
-        // protect against multiple initializations
-        if (initd) {
-            return;
-        }
-        initd = true;
+    var initd = false;
 
-        define(['jquery', 'wdn', 'require'], function($, WDN, require) {
-
+    return {
+        initializePlugin: function() {
+            // protect against multiple initializations
+            if (initd) {
+                return;
+            }
+            initd = true;
+    
             // Load Mercury ScreenSmart Extended Latin fonts from Cloud.typography
             var $extlatin = $("<link>", {
                 "rel" : "stylesheet",
@@ -21,6 +21,6 @@ return {
         
             // Load WDN small caps styles
             WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/extlatin.css'));
-        });        
-    }
-};
+        }
+    };
+});
