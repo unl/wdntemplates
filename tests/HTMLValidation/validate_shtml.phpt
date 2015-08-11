@@ -1,7 +1,7 @@
 --TEST--
 Validate all SHTML .dwt files to ensure they're valid
 --SKIPIF--
-die("Skipped: the validator service is no longer working");
+<?php die("Skipped: the validator service is no longer working"); ?>
 --FILE--
 <?php
 require_once __DIR__ . '/../mod_include.php';
