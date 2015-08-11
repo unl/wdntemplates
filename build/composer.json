@@ -1,6 +1,6 @@
 {
 	"require" : {
-	    "pear/PEAR" : "dev-master",
-		"masterminds/html5": "1.*"
+		"masterminds/html5": "1.*",
+        "rexxars/html-validator": "~1.0"
 	}
 }
