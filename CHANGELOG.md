@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.0.30 (August 12, 2015)
+
+### Fixed
+- Fixed an issue that could result in the navigation staying hidden ([#27bfc7](https://github.com/unl/wdntemplates/commit/27bfc763aeab6ad57c15f90e4a9798f646e74442))
+- Fixed extended fonts not loading for https ([#875](https://github.com/unl/wdntemplates/pull/875))
+- Fixed initialization of extended fonts ([0346b8](https://github.com/unl/wdntemplates/commit/0346b86278a147a3de9135c4d3fbd77110beace6))
+
 ## 4.0.29 (August 11, 2015)
 
 ### Fixed
