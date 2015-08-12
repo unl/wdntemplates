@@ -568,7 +568,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 							return;
 						}
 
-						if (isFull && currentState !== 0) {
+						if (isFull && currentState === 1) {
 							Plugin.collapse();
 						}
 
