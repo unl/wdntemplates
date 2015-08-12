@@ -3,7 +3,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
     var initd = false;
 
     return {
-        initializePlugin: function() {
+        initialize: function() {
             // protect against multiple initializations
             if (initd) {
                 return;
