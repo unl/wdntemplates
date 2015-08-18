@@ -4,7 +4,7 @@ The template files are developed and maintained by the [Web Developer Network](h
 
 ## Template Usage
 
-Template usage is subject to the [WDN Terms of Use](http://www1.unl.edu/wdn/wiki/Terms_of_Use).
+Template usage is subject to the [WDN Terms of Use](http://wdn.unl.edu/unledu-web-framework-terms-use).
 
 ### Templates Available
 
