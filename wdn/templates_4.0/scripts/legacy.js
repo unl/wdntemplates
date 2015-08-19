@@ -21,9 +21,9 @@ define(['jquery', 'wdn', 'require', 'modernizr'], function($, WDN, require, Mode
 	}
 
 	var $html = $('html'),
-	campusSvc = 'http://www.unl.edu/ucomm/oncampus.shtml',
+	campusSvc = '//www.unl.edu/static/oncampus.js',
 	campusSvcCallback = 'wdnCampusCallback',
-	reXPAgent = /Windows (?:NT 5.1|XP)/,
+	reXPAgent = /Windows (?:NT 5\.[12]|XP)/,
 	xpCookie = 'unlXPAck',
 	xpCookieLifetime = 14 * 24 * 60 * 60, // 14 days in seconds
 	msgs = {
@@ -74,22 +74,17 @@ define(['jquery', 'wdn', 'require', 'modernizr'], function($, WDN, require, Mode
 						});
 					};
 
-					// service currently only supports insecure protocol
-					if (window.location.protocol == 'https:') {
-						afterActivebar = xpGo;
-					} else {
-						window[campusSvcCallback] = function(data) {
-							if (data == 'YES') {
-								xpGo();
-							}
-							window[campusSvcCallback] = null;
-						};
-						$.ajax({
-							url: campusSvc,
-							dataType: 'jsonp',
-							jsonpCallback: campusSvcCallback
-						});
-					}
+					window[campusSvcCallback] = function(data) {
+						if (data == 'YES') {
+							xpGo();
+						}
+						window[campusSvcCallback] = null;
+					};
+					$.ajax({
+						url: campusSvc,
+						dataType: 'jsonp',
+						jsonpCallback: campusSvcCallback
+					});
 				}
 
 				if (msgs.oldie) {
