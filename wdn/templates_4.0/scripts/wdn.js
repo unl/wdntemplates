@@ -69,12 +69,12 @@
 		loadCSS: function (url, callback, checkLoaded, callbackIfLoaded) {
 			url = _sanitizeTemplateUrl(url);
 			
-			var e = (function() {
-					var e = document.createElement("link");
-					e.href = url;
-					e.rel = "stylesheet";
-					e.type = "text/css";
-					return e;
+			var link = (function() {
+					var link = document.createElement("link");
+					link.href = url;
+					link.rel = "stylesheet";
+					link.type = "text/css";
+					return link;
 				})(),
 				executeCallback = function() {
 					loadedCSS[url] = true;
@@ -105,7 +105,7 @@
 					dummyObj.onerror = executeCallback;
 					dummyObj.src = url;
 				} else {
-					e.onload = executeCallback;
+					link.onload = executeCallback;
 				}
 				
 				_head.appendChild(e);
