@@ -158,7 +158,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 		for (i = 0; i < info.length; i++) {
 			// Add a div to store the html content
 			if (!$alertWrapper.length) {
-				WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/unlalert.css'));
+				WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/unlalert.css', true, true));
 
 				$alertWrapper = $('<div>', {
 					'id': idPrfx,

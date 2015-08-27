@@ -105,7 +105,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 		localConfig = $.extend({}, config, defaultConfig);
 
 		if (localConfig.url && $(localConfig.container).length) {
-			WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/monthwidget.css'));
+			WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/monthwidget.css', true, true));
 			$.get(localConfig.url + '?monthwidget&format=hcalendar', function(data) {
 					display(data, localConfig);
 				}

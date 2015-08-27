@@ -16,7 +16,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 		initialize : function() {
 			// prevent double initialiation
 			if (!initd) {
-				WDN.loadCSS(WDN.getTemplateFilePath(templateCssFile));
+				WDN.loadCSS(WDN.getTemplateFilePath(templateCssFile, true, true));
 				
 				// globally listen for notice close button clicks
 				$(document).on('click', selectorNamespace + ' .close', function() {

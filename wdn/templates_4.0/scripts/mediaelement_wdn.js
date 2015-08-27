@@ -3,7 +3,7 @@
  *
  */
 define(['jquery', 'wdn', 'require'], function($, WDN, require) {
-	var pluginPath = './plugins/mediaelement/',
+	var pluginPath = 'plugins/mediaelement/',
 	initd = false;
 
 	return {
@@ -24,7 +24,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 			}
 
 			if (!initd) {
-				WDN.loadCSS(require.toUrl(pluginPath + 'css/mediaelementplayer' + min + '.css'));
+				WDN.loadCSS(WDN.getTemplateFilePath('scripts/' + pluginPath + 'css/mediaelementplayer' + min + '.css', true, true));
 				initd = true;
 			}
 
@@ -38,8 +38,8 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				}
 			};
 
-			require([pluginPath + 'mediaelement-and-player' + min], function() {
-				require([pluginPath + 'mep-feature-googleanalytics'], ready);
+			require(['./' + pluginPath + 'mediaelement-and-player' + min], function() {
+				require(['./' + pluginPath + 'mep-feature-googleanalytics'], ready);
 			});
 		}
 	};
