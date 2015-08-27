@@ -1,40 +1,87 @@
-/**
- * This plugin is intended for use on pages containing wdn_notice
- *
- * Auto-closing notices are supported. Add a class of duration to the div,
- * with an optional time (in seconds) before closing will occur.
- * Examples
- *  class="wdn_notice duration"   // closes after 1 second
- *  class="wdn_notice duration_1" // closes after 1 second
- *  class="wdn_notice duration_5" // closes after 5 seconds
- */
-
 define(['jquery', 'wdn'], function($, WDN) {
+	var templateCssFile = 'css/modules/notices.css';
+	var selectorNamespace = '.wdn_notice';
+	var animationSpeed = 'slow';
+	var defaultDuration = 1000;
+	var durationMultiplier = 1000; // seconds to milliseconds
+	var initd = false;
+	
+	var closeNotice = function($el) {
+		$el.fadeOut(animationSpeed, function() {
+			$el.remove();
+		});
+	};
+
 	var Plugin = {
 		initialize : function() {
-			WDN.loadCSS(WDN.getTemplateFilePath('css/modules/notices.css'));
-			$('.wdn_notice .close').click(function() {
-				$(this).closest('.wdn_notice').fadeOut("slow");
-				return false;
-			});
-			$('.wdn_notice[class*=duration]').each(function() {
-				var el = this;
-				var duration = 1000;
-				var dur_class = $(this).attr('class').split('duration-');
-				if (dur_class.length > 1) {
-					duration = dur_class[1]*1000;
+			// prevent double initialiation
+			if (!initd) {
+				WDN.loadCSS(WDN.getTemplateFilePath(templateCssFile));
+				
+				// globally listen for notice close button clicks
+				$(document).on('click', selectorNamespace + ' .close', function() {
+					closeNotice($(this).closest(selectorNamespace));
+					return false;
+				});
+				
+				initd = true;
+			}
+			
+			Plugin.launch();
+		},
+
+		launch : function() {
+			// check each existing notice for special interactive features
+			$(selectorNamespace).each(function() {
+				var $el = $(this);
+				var durationMatch = 'duration';
+				var isOverlay = false;
+				var overlayMatch = 'overlay';
+				var overlayHeader = 'header';
+				var overlayMaincontent = 'maincontent';
+				var overlayClass;
+				var duration;
+
+				// check for overlay changers
+				overlayClass = overlayMatch + '-' + overlayHeader;
+				if ($el.data(overlayMatch) === overlayHeader || $el.is('.' + overlayClass)) {
+					isOverlay = true;
+					$el.addClass(overlayMatch).removeClass(overlayClass);
+					$('#' + overlayHeader).append($el);
 				}
-				setTimeout(function(){$(el).fadeOut("slow");}, duration);
-			});
-			$('.wdn_notice[class*=overlay-header]').each(function() {
-				$('#header').append(this);
-			});
-			$('.wdn_notice[class*=overlay-maincontent]').each(function() {
-				$('#maincontent').prepend(this);
+				
+				overlayClass = overlayMatch + '-' + overlayMaincontent;
+				if (!isOverlay && ($el.data(overlayMatch) === overlayMaincontent || $el.is('.' + overlayClass))) {
+					isOverlay = true;
+					$el.addClass(overlayMatch).removeClass(overlayClass);
+					$('#' + overlayMaincontent).prepend($el);
+				}
+
+				// check for auto-closing duration
+				if ($el.data(durationMatch) || $el.is('[class*=' + durationMatch + '-]')) {
+					duration = $el.data(durationMatch) * durationMultiplier;
+
+					if (isNaN(duration) || duration < 1) {
+						$.each($el[0].classList || $el[0].className.split(/\s+/), function(i, className) {
+							var classMatch = className.match(new RegExp('^' + durationMatch + '-(.+)$'))
+							if (classMatch) {
+								duration = classMatch[1] * durationMultiplier;
+								return false;
+							}
+						});
+					}
+
+					if (isNaN(duration) || duration < 1) {
+						duration = defaultDuration;
+					}
+
+					setTimeout(function() {
+						closeNotice($el);
+					}, duration);
+				}
 			});
 		}
 	};
 
 	return Plugin;
 });
-

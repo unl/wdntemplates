@@ -2,7 +2,7 @@
 
 .colorize-notice(@color) {
     background-color: @color;
-    .transition(all ease-out 0.2s);
+    .transition(background ease-out 0.2s);
 
     &:hover {
         background-color: darken(@color, 2%);
@@ -24,10 +24,6 @@
     box-shadow: 0 1px 1px 0 fadeout(#000, 50%);
     .colorize-notice(@triad);
 
-    #maincontent > & {
-        padding: 1em 1em 0.75em;
-    }
-
     .close {
         color: #fff;
         
@@ -45,18 +41,18 @@
             padding: 0 0 0 4.209em;
         }
 
-        h4, p {
+        * {
             margin: 0;            
-            color: #fff;
+            color: inherit;
         }
 
-        h4 {
-            padding: 0;
+        h4, .title {
+        	// match .wdn-sans-caps
             .sans-serif-font;
 		    line-height: 1.333;
 		    text-transform: uppercase;
 		    letter-spacing: 0.02em;  
-    		.rem(13,16);
+    		font-size: inherit;
         }
 
         &:before {
@@ -74,10 +70,6 @@
             @media @bp2 {
                 width: 54px;                
             }
-        }
-
-        a, a:hover {
-            color: #fff;
         }
     }
 
@@ -150,19 +142,27 @@
         }
     }
 
-    &[class^="duration"] {
-        position: absolute;
-    }
-
-    &.overlay-header,
-    #maincontent > &.overlay-maincontent {
+    &.overlay {
         position: absolute;
         left: @mobile-pad;
         right: @mobile-pad;
         top: 51px;
-        margin: 0 auto;
-        max-width: 52rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 50rem;
         z-index: (@nav-z-index + 2); // above nav
         text-align: left;
+        
+        @media @bp3 {
+        	left: 0;
+        	right: 0;
+        }
+        
+        // override the core max-width to be slimmer
+        #maincontent > & {
+	        margin-left: auto;
+	        margin-right: auto;
+        	max-width: 50rem;
+        }
     }
 }
