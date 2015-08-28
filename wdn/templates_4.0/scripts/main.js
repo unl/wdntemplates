@@ -18,13 +18,14 @@ require.config({
 //Modernizr, WDN are loaded prior to requireJS
 define('modernizr', [], function () { return window.Modernizr; });
 
-define(['wdn', 'skipnav', 'require', 'legacy',
+define(['wdn', 'require', 'legacy',
         // these are the WDN plugins that are required
         'analytics',
         'navigation',
         'search',
         'unlalert',
-        'images'], function(WDN, require) {
+        'images', 
+        'skipnav'], function(WDN, require) {
 	WDN.initializePlugin('analytics');
 	WDN.initializePlugin('navigation');
 	WDN.initializePlugin('search');
