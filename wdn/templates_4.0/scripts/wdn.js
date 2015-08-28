@@ -108,7 +108,7 @@
 					link.onload = executeCallback;
 				}
 				
-				_head.appendChild(e);
+				_head.appendChild(link);
 			} else if (callbackIfLoaded !== false) {
 				callback();
 			}
