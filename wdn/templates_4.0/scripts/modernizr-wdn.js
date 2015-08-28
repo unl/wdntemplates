@@ -918,33 +918,33 @@ Modernizr.selectorSupported = function(selector) {
             hasFeature: function() {
                 return false;
             }
-        },
+        };
 
-        link = doc.createElement("style");
-        link.type = 'text/css';
+    link = doc.createElement("style");
+    link.type = 'text/css';
 
-        (head || root).insertBefore(link, (head || root).firstChild);
+    (head || root).insertBefore(link, (head || root).firstChild);
 
-        sheet = link.sheet || link.styleSheet;
+    sheet = link.sheet || link.styleSheet;
 
-        if (!(sheet && selector)) return false;
+    if (!(sheet && selector)) return false;
 
-        support = impl.hasFeature('CSS2', '') ?
+    support = impl.hasFeature('CSS2', '') ?
 
-            function(selector) {
-              try {
-                  sheet.insertRule(selector + '{ }', 0);
-                  sheet.deleteRule(sheet.cssRules.length - 1);
-              } catch (e) {
-                  return false;
-              }
-              return true;
+        function(selector) {
+          try {
+              sheet.insertRule(selector + '{ }', 0);
+              sheet.deleteRule(sheet.cssRules.length - 1);
+          } catch (e) {
+              return false;
+          }
+          return true;
 
-          } : function(selector) {
+      } : function(selector) {
 
-              sheet.cssText = selector + ' { }';
-              return sheet.cssText.length !== 0 && !(/unknown/i).test(sheet.cssText) && sheet.cssText.indexOf(selector) === 0;
-          };
+          sheet.cssText = selector + ' { }';
+          return sheet.cssText.length !== 0 && !(/unknown/i).test(sheet.cssText) && sheet.cssText.indexOf(selector) === 0;
+      };
 
       result = support(selector);
       link.parentNode.removeChild(link);
@@ -960,6 +960,49 @@ Modernizr.selectorSupported = function(selector) {
             return Modernizr.selectorSupported(selector);
         });
     }
+})();
+
+// custom feature detect for link element onload events
+(function() {
+	var doc = document,
+	    root = doc.documentElement,
+	    head = root.getElementsByTagName('head')[0],
+	    testName = 'linkloadevents',
+	    failTimeout,
+	    onDone,
+	    link = doc.createElement('link');
+
+	link.rel = 'stylesheet';
+    link.href = 'data:text/css;base64,I21vZGVybml6ci1jc3Nsb2Fke2Rpc3BsYXk6bm9uZX0=';
+    
+    onDone = function(result) {
+    	Modernizr.addTest(testName, result);
+    	if (link.parentNode) {
+    		link.parentNode.removeChild(link);
+    	}
+    	link = null;
+    }
+
+	if (!Modernizr.hasEvent('load', link)) {
+		onDone(false);
+		return;
+	}
+	
+	link.onload = function() {
+		clearTimeout(failTimeout);
+		onDone(!!(link.sheet || link.styleSheet));
+	};
+	
+	link.onerror = function() {
+		clearTimeout(failTimeout);
+		onDone(true);
+	};
+	
+    (head || root).insertBefore(link, (head || root).firstChild);
+    
+    failTimeout = setTimeout(function() {
+    	onDone(false);
+    }, 100);
 })();
 
 //Method of allowing calculated values for length units, i.e. width: calc(100%-3em) http://caniuse.com/#search=calc

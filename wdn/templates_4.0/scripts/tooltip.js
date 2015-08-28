@@ -76,7 +76,7 @@ define(['jquery', 'require'], function($, require) {
 			}
 
 			if (!initd) {
-				WDN.loadCSS(require.toUrl(pluginPath + wdnStyle + min + '.css'));
+				WDN.loadCSS(WDN.getTemplateFilePath('scripts/' + pluginPath + wdnStyle + min + '.css', true, true));
 				require([pluginPath + qtipPlugin + min], function() {
 					initd = true;
 					tooltipSetup();

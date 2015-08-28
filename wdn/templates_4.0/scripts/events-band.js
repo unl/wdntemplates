@@ -76,7 +76,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
         localConfig = $.extend({}, defaultConfig, config);
 
         if (localConfig.url && $(localConfig.container).length) {
-            WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/events-band.css'));
+            WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/events-band.css', true, true));
             fetchEvents(localConfig);
         }
     };

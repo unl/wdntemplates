@@ -1,5 +1,5 @@
 define(['wdn', 'require'], function(WDN, require) {
-	var pluginPath = './plugins/ui/';
+	var pluginPath = 'plugins/ui/';
 	
 	return {
 		initialize: function(callback) {
@@ -8,9 +8,9 @@ define(['wdn', 'require'], function(WDN, require) {
 				min = '.min';
 			}
 			
-			WDN.loadCSS(require.toUrl(pluginPath + 'css/jquery-ui' + min + '.css'));
+			WDN.loadCSS(WDN.getTemplateFilePath('scripts/' + pluginPath + 'css/jquery-ui' + min + '.css', true, true));
 			WDN.loadJQuery(function() {
-				require([pluginPath + 'jquery-ui' + min], callback);
+				require(['./' + pluginPath + 'jquery-ui' + min], callback);
 			});
 		}
 	};

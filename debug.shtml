@@ -94,30 +94,6 @@
             <div id="maincontent" class="wdn-main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                <div class="wdn-band">
-                    <div class="wdn-inner-wrapper">
-                    	<a class="wdn-button" id="playme">Play Video</a>
-                    	<div style="display:none">
-                        <video class="wdn_player" src="http://mediahub.unl.edu/uploads/9c6b955c1f7a4ad858720ab64e72594c.mp4">
-      <track srclang="en" kind="subtitles" src="http://mediahub.unl.edu/media/3814/srt" />
-    </video>
-    <script>
-    require(['wdn', 'jquery'], function(WDN, $) {
-    	var player;
-    	
-    	$('#playme').click(function() {
-    		$(this).next().toggle();
-    		player.play();
-    	});
-    	
-    	WDN.initializePlugin('mediaelement_wdn', [function() {
-    		player = $('video.wdn_player').data('mediaelementplayer');
-    	}]);
-    });
-    </script>
-    	</div>
-                    </div>
-                </div>
                 <div class="wdn-band wdn-light-triad-band">
                     <div class="wdn-inner-wrapper">
                         <a href="#" class="wdn-button">This is my button</a> 
@@ -159,7 +135,7 @@
                 <div class="wdn-band wdn-band-neutral-seperator">
                     <div class="wdn-inner-wrapper">
 
-                        <h1><span class="wdn-subhead">Roof party freegan lomo</span> Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&B salvia Echo Park.</h1>
+                        <h1><span class="wdn-subhead">Roof party freegan lomo</span> Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park.</h1>
 
                         <p><a href="#">Before</a> they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. Cosby sweater selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
 
@@ -205,7 +181,7 @@
 
 
 
-                        <h1>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&B salvia Echo Park. <span class="wdn-subhead">Roof party freegan lomo</span></h1>
+                        <h1>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park. <span class="wdn-subhead">Roof party freegan lomo</span></h1>
 
                         <p>Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. Cosby sweater selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
 

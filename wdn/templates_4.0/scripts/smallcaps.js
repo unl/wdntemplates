@@ -20,7 +20,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
             $('head').append($smcaps);
         
             // Load WDN small caps styles
-            WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/smallcaps.css'));
+            WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/smallcaps.css', true, true));
         }
     };
 });

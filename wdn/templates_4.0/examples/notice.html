@@ -6,15 +6,12 @@
 </head>
 <body data-version="4.0">
     <div id="example-code">
-<script type="text/javascript">
-WDN.initializePlugin('notice');
-</script>
 <div class="wdn_notice">
     <div class="close">
         <a href="#" title="Close this notice">Close this notice</a>
     </div>
     <div class="message">
-        <h4>This is my Title!</h4>
+        <p class="title">This is my Title!</p>
         <p>This is my content. <a href="#">This is some link text</a>.</p>
     </div>
 </div>
@@ -23,7 +20,7 @@ WDN.initializePlugin('notice');
         <a href="#" title="Close this notice">Close this notice</a>
     </div>
     <div class="message">
-        <h4>Great Success!</h4>
+        <p class="title">Great Success!</p>
         <p>This is my content. <a href="#">This is some link text</a></p>
     </div>
 </div>
@@ -32,7 +29,7 @@ WDN.initializePlugin('notice');
         <a href="#" title="Close this notice">Close this notice</a>
     </div>
     <div class="message">
-        <h4>Denial Notice!</h4>
+        <p class="title">Denial Notice!</p>
         <p>This is my content. <a href="#">This is some link text</a></p>
     </div>
 </div>
@@ -41,28 +38,31 @@ WDN.initializePlugin('notice');
         <a href="#" title="Close this notice">Close this notice</a>
     </div>
     <div class="message">
-        <h4>Important Alert!</h4>
+        <p class="title">Important Alert!</p>
         <p>This is my content. <a href="#">This is some link text</a></p>
     </div>
 </div>
-<div class="wdn_notice overlay-header duration-10">
+<div class="wdn_notice" data-overlay="header" data-duration="10">
     <div class="close">
         <a href="#" title="Close this notice">Close this notice</a>
     </div>
     <div class="message">
-        <h4>I'm Floating!</h4>
-        <p>This notice has classes <em>overlay-header</em> and <em>duration-10</em> and will vanish on its own.</p>
+        <p class="title">I'm Floating!</p>
+        <p>This notice overlays the header and will vanish on its own in 10 seconds.</p>
     </div>
 </div>
-<div class="wdn_notice affirm overlay-maincontent duration-15">
+<div class="wdn_notice affirm" data-overlay="maincontent" data-duration="15">
     <div class="close">
         <a href="#" title="Close this notice">Close this notice</a>
     </div>
     <div class="message">
-        <h4>Success!</h4>
-        <p>This notice has classes <em>affirm</em>, <em>overlay-maincontent</em>, and <em>duration-15</em></p>
+        <p class="title">Success!</p>
+        <p>This notice overlays the maincontent and will vanish on its own in 15 seconds.</p>
     </div>
 </div>
+<script type="text/javascript">
+WDN.initializePlugin('notice');
+</script>
 </div>
 </body>
 </html>

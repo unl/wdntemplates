@@ -6,7 +6,7 @@
 define(['wdn', 'require', 'jquery'], function(WDN, require, $) {
 	var defaultSel = '#wdn_Carousel',
 	flexCls = 'flexslider',
-	pluginPath = './plugins/flexslider/',
+	pluginPath = 'plugins/flexslider/',
 	initd = false;
 	
 	return {
@@ -28,10 +28,10 @@ define(['wdn', 'require', 'jquery'], function(WDN, require, $) {
 			};
 			
 			if (!initd) {
-				WDN.loadCSS(require.toUrl(pluginPath + 'css/flexslider.css'));
+				WDN.loadCSS(WDN.getTemplateFilePath('scripts/' + pluginPath + 'css/flexslider.css', true, true));
 				
 				WDN.loadJQuery(function(){
-					require([pluginPath + 'jquery.flexslider' + min], done);
+					require(['./' + pluginPath + 'jquery.flexslider' + min], done);
 				});
 			} else {
 				done();

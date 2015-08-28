@@ -1,7 +1,13 @@
 // implement the same content padding
 #maincontent > * {
-    padding-left: @mobile-pad;
-    padding-right: @mobile-pad;
+    margin-left: @mobile-pad;
+    margin-right: @mobile-pad;
+
+    @media @bp3 {
+    	max-width: 60rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .wdn-band {
@@ -9,17 +15,25 @@
     clear: both;
 
     #maincontent > *& {
-        padding: 0;
+        margin: 0;
     }
 
     .wdn-inner-wrapper {
         .clear-fix();
-        padding: 0 @mobile-pad;
+        padding-left: @mobile-pad;
+        padding-right: @mobile-pad;
 
         @media @bp3 {
-            padding: 0;
+            padding-left: 0;
+            padding-right: 0;
+            width: 60rem;
+        	margin: 0 auto;
         }
-        
+
+        .wdn-text-band& {
+        	max-width: 50rem;
+        }
+
         #maincontent & {
             padding-top: 2.369em;
             padding-bottom: 2.532em;
@@ -63,7 +77,7 @@
             }
         }
     }
-    
+
     .wdn-stretch { // Use this class for presentational elements that stretch the full-width of the band
         max-width: 100%;
         width: 100%;
@@ -71,33 +85,5 @@
 
     .wdn-center {
         text-align: center;
-    }
-}
-
-@media @bp3 {
-    #maincontent {
-
-        > * {
-            max-width: 60rem;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
-
-    .wdn-band {
-
-        .wdn-inner-wrapper {
-            width: 60rem;
-            margin: 0 auto;
-        }
-    }
-
-    .wdn-text-band {
-
-        .wdn-inner-wrapper {
-            max-width: 50rem;
-        }
     }
 }

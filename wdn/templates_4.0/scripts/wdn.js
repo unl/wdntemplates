@@ -1,7 +1,3 @@
-/**
- * This file contains the WDN template javascript code.
- */
-
 (function(window, undefined) {
 	var 
 		pluginParams = {},
@@ -32,23 +28,28 @@
 			return url;
 		};
 		
-	
-	var req = function() {
-		//TODO: Make this work if require is gone
-		(window.require).apply(this, arguments);
-	};
-	
 	//#TEMPLATE_PATH
 	//#DEPENDENT_PATH
 	
 	var WDN = {
 		
-		getTemplateFilePath: function(file, withTemplatePath) {
+		getTemplateFilePath: function(file, withTemplatePath, withVersion) {
 			file = '' + file;
 			var filePath = dependent_path + file;
 			
 			if (withTemplatePath) {
 				filePath = template_path + filePath;
+			}
+			
+			if (withVersion) {
+				var qsPosition = filePath.indexOf('?');
+				if (qsPosition < 0) {
+					filePath += '?';
+				} else if (qsPosition !== filePath.length - 1) {
+					filePath += '&';
+				}
+				
+				filePath += 'dep=' + WDN.getDepVersion();
 			}
 			
 			return filePath;
@@ -59,7 +60,7 @@
 		 */
 		loadJS: function (url,callback) {
 			url = _sanitizeTemplateUrl(url);
-			req([url], callback);
+			window.require([url], callback);
 		},
 
 		/**
@@ -68,55 +69,48 @@
 		loadCSS: function (url, callback, checkLoaded, callbackIfLoaded) {
 			url = _sanitizeTemplateUrl(url);
 			
-			var _getLink = function() {
-					var e = document.createElement("link");
-					e.href = url;
-					e.rel = "stylesheet";
-					e.type = "text/css";
-					return e;
-				},
-				e = _getLink(),
-				dummyObj,
+			var link = (function() {
+					var link = document.createElement("link");
+					link.href = url;
+					link.rel = "stylesheet";
+					link.type = "text/css";
+					return link;
+				})(),
 				executeCallback = function() {
-					dummyObj = undefined;
-					
 					loadedCSS[url] = true;
 					if (loadingCSS[url]) {
-						for (var i = 0; i < loadingCSS[url].length; i++) {
+						for (var i = loadingCSS[url].length - 1; i >= 0; i--) {
 							loadingCSS[url][i]();
 						}
 						delete loadingCSS[url];
 					}
 				};
 			
-			if (!callback) {
-				e.onload = function() {
-					loadedCSS[url] = true;
-				};
-				_head.appendChild(e);
-				
-				return;
-			}
-			
-			// Workaround for webkit and old gecko not firing onload events for <link>
-			// http://www.backalleycoder.com/2011/03/20/link-tag-css-stylesheet-load-event/
-			
 			if (checkLoaded === false || !(url in loadedCSS)) {
-				if (url in loadingCSS) {
-					loadingCSS[url].push(callback);
-					return;
+				if (callback) { 
+					if (url in loadingCSS) {
+						loadingCSS[url].push(callback);
+						return;
+					}
+					
+					loadingCSS[url] = [callback];
+				} else if (!(url in loadingCSS)) {
+					loadingCSS[url] = [];
+				}
+			
+				if (callback && !window.Modernizr.linkloadevents) {
+					// Workaround for webkit and old gecko not firing onload events for <link>
+					// http://www.backalleycoder.com/2011/03/20/link-tag-css-stylesheet-load-event/
+					var dummyObj = document.createElement('img');
+					dummyObj.onerror = executeCallback;
+					dummyObj.src = url;
+				} else {
+					link.onload = executeCallback;
 				}
 				
-				loadingCSS[url] = [callback];
-				
-				dummyObj = document.createElement('img');
-				dummyObj.onerror = executeCallback;
-				dummyObj.src = url;
-				_head.appendChild(e);
-			} else {
-				if (callbackIfLoaded !== false) {
-					callback();
-				}
+				_head.appendChild(link);
+			} else if (callbackIfLoaded !== false) {
+				callback();
 			}
 		},
 
@@ -124,9 +118,8 @@
 		 * Load jQuery included with the templates as WDN.jQuery
 		 *
 		 * @param callback Called when the document is ready
-		 * @param forceDebug Should the debug jQuery be loaded
 		 */
-		loadJQuery: function (callback, forceDebug) {
+		loadJQuery: function (callback) {
 			require(['jquery'], function($) {
 				if (typeof WDN.jQuery === "undefined") {
 					WDN.jQuery = $.noConflict(true);
@@ -202,7 +195,7 @@
 				args = [];
 			}
 			
-			req([plugin], function(pluginObj) {
+			window.require([plugin], function(pluginObj) {
 				var defaultOnLoad = onLoad = function () {
 					if (pluginObj && "initialize" in pluginObj) {
 						WDN.log("initializing plugin '" + plugin + "'");

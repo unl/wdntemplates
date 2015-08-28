@@ -175,7 +175,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 
 	var Plugin = {
 		initialize : function() {
-			WDN.loadCSS(WDN.getTemplateFilePath('css/modules/band_imagery.css'));
+			WDN.loadCSS(WDN.getTemplateFilePath('css/modules/band_imagery.css', true, true));
 			$('.wdn-scroll-watch').parent().css('position', 'relative');
 			imageryUpdate();
 			$(window).load(imageryUpdate).scroll(function() {

@@ -20,7 +20,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
             $('head').append($extlatin);
         
             // Load WDN small caps styles
-            WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/extlatin.css'));
+            WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/extlatin.css', true, true));
         }
     };
 });
