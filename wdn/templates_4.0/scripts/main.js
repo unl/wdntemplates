@@ -24,7 +24,8 @@ define(['wdn', 'require', 'legacy',
         'navigation',
         'search',
         'unlalert',
-        'images'], function(WDN, require) {
+        'images', 
+        'skipnav'], function(WDN, require) {
 	WDN.initializePlugin('analytics');
 	WDN.initializePlugin('navigation');
 	WDN.initializePlugin('search');
