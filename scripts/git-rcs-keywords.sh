@@ -3,8 +3,8 @@
 # Use this tool to install rcs-keywords filters
 
 section="filter.rcs-keywords"
-clean=".git_filters/rcs-keywords.clean"
-smudge=".git_filters/rcs-keywords.smudge %f"
+clean=".git_filters/bin/git-filters clean"
+smudge=".git_filters/bin/git-filters smudge %f"
 
 if [ "$1" = "remove" ]; then
     echo "Removing rcs-keywords filter from git-config"
