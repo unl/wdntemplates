@@ -101,14 +101,14 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 					clearTimeout(autoSubmitTimeout);
 					if ($(this).val()) {
 						autoSubmitTimeout = setTimeout(function() {
-							domSearchForm.submit();
+							domSearchForm.trigger('submit', 'auto');
 						}, 300);
 					}
 				});
 
 				$progress = $('<progress>', {id: 'wdn_search_progress'}).text('Loading...');
 
-				domSearchForm.on('submit', function(e) {
+				domSearchForm.on('submit', function(e, source) {
 					// disable iframe and return if not in "desktop" presentation
 					if (!isFullNav()) {
 						this.target = '';
@@ -131,6 +131,11 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 								return;
 							}
 
+							if ('auto' != source) {
+								//a11y: send focus to the results if manually submitted
+								$unlSearch.focus();
+							}
+
 							$progress.hide();
 							postReady = true; // iframe should be ready to post messages to
 						});
@@ -151,6 +156,10 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 					if (postReady && $unlSearch[0].contentWindow.postMessage) {
 						e.preventDefault();
 						$unlSearch[0].contentWindow.postMessage(domQ.val(), searchOrigin);
+						if ('auto' != source) {
+							//a11y: send focus to the results if manually submitted
+							$unlSearch.focus();
+						}
 						$progress.hide();
 					}
 				});
