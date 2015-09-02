@@ -131,7 +131,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 								return;
 							}
 
-							if ('auto' != source) {
+							if ('auto' !== source) {
 								//a11y: send focus to the results if manually submitted
 								$unlSearch.focus();
 							}
