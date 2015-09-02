@@ -155,11 +155,41 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 					}
 				});
 
+				var closeSearch = function() {
+					var $wdnSearch = domSearchForm.parent();
+					$wdnSearch.removeClass('active');
+				};
+
+				//Close search on escape while the iframe has focus
+				$(window).on('message', function(e) {
+					var originalEvent = e.originalEvent;
+					
+					if ('wdn.search.close' != originalEvent.data) {
+						//Make sure this is our event
+						return;
+					}
+					
+					if (searchOrigin != originalEvent.origin) {
+						//Verify the origin
+						return;
+					}
+					
+					closeSearch();
+				});
+
+				//Close search on escape
+				$(document).on('keydown', function(e) {
+					if (!e.keyCode || e.keyCode === 27) {
+						//Close on escape
+						closeSearch();
+					}
+				});
+
 				// listen for clicks on the document and hide the iframe if they didn't come from search interface
 				$(document).on('click', function(e) {
 					var $wdnSearch = domSearchForm.parent();
 					if (!$wdnSearch.find(e.target).length) {
-						$wdnSearch.removeClass('active');
+						closeSearch();
 					}
 				});
 			});
