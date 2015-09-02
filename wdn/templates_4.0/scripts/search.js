@@ -188,7 +188,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 
 				//Close search on escape
 				$(document).on('keydown', function(e) {
-					if (!e.keyCode || e.keyCode === 27) {
+					if (e.keyCode === 27) {
 						//Close on escape
 						closeSearch();
 					}
