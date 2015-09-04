@@ -28,7 +28,7 @@
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <link rel="home" href="http://wdn.unl.edu" />
-<script type="text/javascript"><!--
+<script type="text/javascript">
 require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, require, legacy, navigation) {
     navigation.fetchSiteNavigation('http://wdn.unl.edu/', function(data, textStatus) {
     	if (textStatus == 'success') {
@@ -73,35 +73,33 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
         	returnHome(false);
         });
         
-        WDN.loadJQuery(function() {
-            require(['plugins/hashchange/jquery.hashchange.min'], function() {
-                var lastHash;
-                $(window).bind('hashchange' ,function(e) {
-                    var url = location.hash.replace('#', '');
-                    if (!url) {
-                    	returnHome();
-                    }
-                    
-                    if (!url.match(/\.html$/i) || url == lastHash) {
-                        return true;
-                    }
-                    lastHash = url;
-
-                    if (url && !cache[url]) {
-                        WDN.get('./'+url, null, function(data, textStatus) {
-                            data = $(data).filter('#example-code').html();
-                            if (textStatus == 'success') {
-                                cache[url] = data;
-                                loadExample(data, url);
-                            }
-                        });
-                    } else if (url) {
-                        loadExample(cache[url], url);
-                    }
-                });
+        require(['plugins/hashchange/jquery.hashchange'], function() {
+            var lastHash;
+            $(window).bind('hashchange' ,function(e) {
+                var url = location.hash.replace('#', '');
+                if (!url) {
+                	returnHome();
+                }
                 
-                $(window).trigger('hashchange');
+                if (!url.match(/\.html$/i) || url == lastHash) {
+                    return true;
+                }
+                lastHash = url;
+
+                if (url && !cache[url]) {
+                    WDN.get('./'+url, null, function(data, textStatus) {
+                        data = $(data).filter('#example-code').html();
+                        if (textStatus == 'success') {
+                            cache[url] = data;
+                            loadExample(data, url);
+                        }
+                    });
+                } else if (url) {
+                    loadExample(cache[url], url);
+                }
             });
+            
+            $(window).trigger('hashchange');
         });
         
         $("#example_code").bind('keyup', function() {
@@ -109,7 +107,7 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
         });
     });
 });
---></script>
+</script>
 <style type="text/css">
 #examples_band.wdn-band {
     padding: 0 1.2rem;
@@ -162,11 +160,6 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
     padding-left: 1.5em;
     list-style: none;
 }
-#example.jqueryui #sortable li span { position: absolute; margin-left: -1.3em; }
-#example.jqueryui #selectable li { padding-left:0.4em }
-
-#example.jqueryui .ui-selecting { background: #fd1717; }
-#example.jqueryui .ui-selected { background: #ac0302; }
 
 .ui-effects-transfer { border: 2px dotted gray; } 
 
