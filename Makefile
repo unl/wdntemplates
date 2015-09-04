@@ -7,7 +7,7 @@ less:
 	grunt less
 
 js:
-	grunt --rjs-flags="$(RJS_FLAGS)" requirejs
+	grunt --rjs-flags="$(RJS_FLAGS)" js
 
 clean:
 	grunt clean

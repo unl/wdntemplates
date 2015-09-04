@@ -25,7 +25,9 @@ module.exports = function (grunt) {
 	    templateLess = templateDir + '/less',
 	    templateCss = templateDir + '/css',
 	    templateJs = templateDir + '/scripts',
-	    templateCompileJs = templateJs + '/compressed',
+	    builtJsDir = 'compressed',
+	    buildJsDir = 'build/' + builtJsDir,
+	    templateCompileJs = templateJs + '/' + builtJsDir,
 	    templateIncludeDir = templateDir + '/includes',
 	    templateHtmlDir = 'Templates',
 	    templateSharedDir = 'sharedcode',
@@ -37,54 +39,59 @@ module.exports = function (grunt) {
         templateHtmlDir + '/*.dwt*',
         templateIncludeDir + '/scriptsandstyles*.html'
     ];
+    
+    // polyfill modules that need sync loading (should match scripts loaded in debug.js)
+    var polyfillMods = [
+    	'modernizr-wdn',
+    	'ga',
+		'requireLib',
+		'wdn'
+    ];
 
     // requirejs configuration and customization options
     var rjsCliFlags = (grunt.option('rjs-flags') || '').split(' ');
     var rjsConfig = {
-		baseUrl: templateJs + '/',
-	    paths: {
-	    	'requireLib': 'require'
-	    },
-	    shim: {
-	        'wdn_ajax': {
-	        	deps: ['jquery'],
-	        	exports: 'WDN.jQuery.ajaxSettings.proxyKey'
-	        }
-	    },
-	    optimize: 'uglify2',
-	    logLevel: 2,
-	    preserveLicenseComments: false,
-	    generateSourceMaps: true,
-	    name: 'wdn',
-	    include: [
-	        'wdn_ajax',
-	    	'requireLib',
-	    	'modernizr-wdn',
-	    	'ga',
-	    	'main'
-	    ],
-	    insertRequire: ['main'],
-	    wdnTemplatePath: '/',
-	    unlChatURL: false,
-	    out: templateCompileJs + '/all.js',
-	    onBuildRead: function (moduleName, path, contents) {
-			if (moduleName === 'wdn') {
-				if (this.wdnTemplatePath) {
-					contents = contents.replace(/\/\/#TEMPLATE_PATH/, 'template_path="' + this.wdnTemplatePath + '";');
-				}
+    	moduleConfig : {
+    		wdnTemplatePath: '/',
+    	    unlChatURL: false
+    	},
+    	appDir: templateJs + "/",
+    	baseUrl: "./",
+    	dir: buildJsDir,
+        optimize: 'uglify2',
+        logLevel: 2,
+        preserveLicenseComments: false,
+        generateSourceMaps: true,
+        paths: {
+        	'requireLib': 'require'
+        },
+        modules: [
+            {
+            	name: "all",
+            	create: true,
+        		include: polyfillMods.concat('main')
+            },
+            {
+            	name: "plugins/rsswidget/jq-bundle",
+            	exclude: [
+            		"jquery"
+        		]
+            }
+        ],
+        onBuildRead: function (moduleName, path, contents) {
+    		if (moduleName === 'wdn') {
+    			if (this.moduleConfig.wdnTemplatePath) {
+    				contents = contents.replace(/\/\/#TEMPLATE_PATH/, 'template_path="' + this.moduleConfig.wdnTemplatePath + '";');
+    			}
+    		} else if (moduleName === 'main') {
+                if (this.moduleConfig.unlChatURL) {
+                    contents = contents.replace(/\/\/#UNLCHAT_URL/, 'unlchat_url="' + this.moduleConfig.unlChatURL + '";');
+                }
+            }
 
-				contents += 'window.WDN.jQuery = window.jQuery.noConflict(true);\n';
-			}
-
-	        if (moduleName === 'main') {
-	            if (this.unlChatURL) {
-	                contents = contents.replace(/\/\/#UNLCHAT_URL/, 'unlchat_url="' + this.unlChatURL + '";');
-	            }
-	        }
-
-			return contents.replace(/WDN\.log\([^)]*\);?/g, '');
-	    }
-	};
+    		return contents.replace(/WDN\.log\([^)]*\);?/g, '');
+        }
+    };
     
     // override requirejs config with CLI flags
     rjsCliFlags.forEach(function(flagPair) {
@@ -95,7 +102,7 @@ module.exports = function (grunt) {
     	
     	flagPair = flagPair.split('=', 2);
     	
-    	rjsConfig[flagPair[0]] = flagPair[1] || true;
+    	rjsConfig.moduleConfig[flagPair[0]] = flagPair[1] || true;
     });
     
     // common variables for task configuration
@@ -109,13 +116,16 @@ module.exports = function (grunt) {
         lessAllFiles[templateCss + '/' + file + '.css'] = templateLess + '/' + file + '.less';
     });
     
-    var wdnQtipDir = templateJs + '/plugins/qtip'; 
-    lessAllFiles[wdnQtipDir + '/wdn.qtip.css'] = wdnQtipDir + '/wdn.qtip.less';
+    var lessJsFiles = {};
+    var wdnQtipCssDir = templateJs + '/plugins/qtip';
+    var wdnJQueryUICssDir = templateJs + '/plugins/ui/css';
+    lessJsFiles[wdnQtipCssDir + '/wdn.qtip.css'] = wdnQtipCssDir + '/wdn.qtip.less';
+    lessJsFiles[wdnJQueryUICssDir + '/jquery-ui-wdn.css'] = wdnJQueryUICssDir + '/jquery-ui-wdn.less';
     
     var lessAllIEFiles = {};
     lessAllIEFiles[templateCss + '/all_oldie.css'] = templateLess + '/all.less';
     
-    // load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns 
+    // load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
     require('load-grunt-tasks')(grunt);
     
     grunt.initConfig({
@@ -134,12 +144,31 @@ module.exports = function (grunt) {
     				paths: ['./wdn/templates_4.0/less'],
     			},
     			files: lessAllIEFiles
+    		},
+    		js: {
+    			options: {
+    				paths: ['./wdn/templates_4.0/less'],
+    				plugins: [
+						lessPluginCleanCss
+					]
+    			},
+    			files: lessJsFiles
     		}
     	},
     	
     	requirejs: {
     		all: {
     			options: rjsConfig
+    		}
+    	},
+    	
+    	sync: {
+    		js: {
+    			files: [{
+    				cwd: buildJsDir,
+    				src: ['**', '!**/*.patch', '!**/*.md'],
+    				dest: templateCompileJs
+    			}]
     		}
     	},
     	
@@ -155,8 +184,9 @@ module.exports = function (grunt) {
     	},
     	
     	clean: {
-			css: [templateCss],
+			css: [templateCss].concat(Object.keys(lessJsFiles)),
 			js: [templateCompileJs],
+			"js-build": [buildJsDir],
 			zip: [zipDir + '/*.zip']
     	},
 
@@ -173,7 +203,7 @@ module.exports = function (grunt) {
         },
     	
     	concurrent: {
-    		main: ['less:all', 'requirejs', 'ie-css']
+    		main: ['less:all', 'js', 'ie-css']
     	},
     	
     	zip: {
@@ -200,7 +230,7 @@ module.exports = function (grunt) {
     		},
     		js: {
     			files: [templateJs + '/**/*.js', '!' + templateCompileJs + '/**/*.js'],
-    			tasks: ['requirejs']
+    			tasks: ['js']
     		}
     	}
     });
@@ -256,5 +286,5 @@ module.exports = function (grunt) {
     // legacy targets from Makefile
     grunt.registerTask('dist', ['default', 'filter-smudge', 'zip']);
     grunt.registerTask('all', ['default']);
-    grunt.registerTask('js', ['requirejs']);
+    grunt.registerTask('js', ['clean:js', 'less:js', 'requirejs', 'sync:js', 'clean:js-build']);
 };
