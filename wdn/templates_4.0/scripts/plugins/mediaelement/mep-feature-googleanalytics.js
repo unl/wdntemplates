@@ -4,7 +4,7 @@
 *
 */
 
-define(['plugins/mediaelement/mediaelement-and-player.js', 'jquery', 'analytics'], function(mejs, $, wdn_ga) {
+define(['plugins/mediaelement/mediaelement-and-player', 'jquery', 'analytics'], function(mejs, $, wdn_ga) {
 	$.extend(mejs.MepDefaults, {
 		googleAnalyticsTitle: '',
 		googleAnalyticsCategory: 'Media',
