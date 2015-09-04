@@ -4,14 +4,24 @@
  * https://github.com/coolaj86/ajax-extended/
  */
 
-(function( jQuery ) {
+(function(factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['jquery'], factory);
+    } else if (typeof module === 'object' && module.exports) {
+        factory(require('jquery'));
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function( jQuery ) {
 	
 // Default proxy settings
 jQuery.ajaxSetup({
 	proxyUrl: "//ucommsrv.unl.edu/jsonp_proxy/",
 	maxProxyLength: 2000,
 	proxyKey: "c3dfb553c7a870a52fc4e3ba7c223a4f"
-}); 
+});
 
 var getProxyClass = function( s, jqXHR ) {
 	return function() {
@@ -222,20 +232,6 @@ var getProxyClass = function( s, jqXHR ) {
 	};
 };
 
-// Do we really need to expose the proxy object?
-/*
-window[ 'XMLHTTP' ] = WDN.proxy_xmlhttp = function() {
-	var proxy = getProxyClass(jQuery.ajaxSettings);
-	
-	// Give a deprecation notice
-	if ("console" in window && "warn" in console) {
-		console.warn("DEPRECATION WARNING - Direct use of the proxy object is deprecated. Please use the jQuery AJAX methods.");
-	}
-	
-	return proxy.call(this);
-};
-*/
-
 if ( jQuery.support.ajax ) {
 	
 	jQuery.ajaxTransport(function( s, originalOptions, jqXHR ) {
@@ -345,6 +341,5 @@ if ( jQuery.support.ajax ) {
 			
 		}
 	});
-}
-	
-})( WDN.jQuery );
+}	
+}));
