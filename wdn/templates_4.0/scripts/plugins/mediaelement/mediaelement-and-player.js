@@ -22,7 +22,7 @@
         // Browser globals
         factory(jQuery);
     }
-}(function($) {
+}(function(jQuery) {
 // Namespace
 var mejs = mejs || {};
 
