@@ -11,28 +11,23 @@ define(['wdn', 'require', 'jquery'], function(WDN, require, $) {
 	
 	return {
 		initialize : function(callback) {
-			var min = '', body = $('body');
-			if (!body.length || !body.hasClass('debug')) {
-				min = '-min';
-			}
-			
 			var done = function() {
-				var defaults = WDN.getPluginParam('carousel', 'defaults') || {};
-				$(defaultSel).addClass(flexCls);
-				$('.' + flexCls).flexslider(defaults);
-				initd = true;
-				
-				if (callback) {
-					callback();
-				}
+				$(function() {
+					var defaults = WDN.getPluginParam('carousel', 'defaults') || {};
+					$(defaultSel).addClass(flexCls);
+					$('.' + flexCls).flexslider(defaults);
+					initd = true;
+					
+					if (callback) {
+						callback();
+					}
+				});
 			};
 			
 			if (!initd) {
 				WDN.loadCSS(WDN.getTemplateFilePath('scripts/' + pluginPath + 'css/flexslider.css', true, true));
 				
-				WDN.loadJQuery(function(){
-					require(['./' + pluginPath + 'jquery.flexslider' + min], done);
-				});
+				require(['./' + pluginPath + 'jquery.flexslider'], done);
 			} else {
 				done();
 			}

@@ -2,7 +2,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 	var 
 		useHashChange = true,
 		
-		hashPlugin = 'plugins/hashchange/jquery.hashchange.min',
+		hashPlugin = 'plugins/hashchange/jquery.hashchange',
 		
 		tabSelector = 'ul.wdn_tabs',
 		
@@ -171,9 +171,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 						};
 						
 						if (!$.fn.hashchange) {
-							WDN.loadJQuery(function() {
-								require([hashPlugin], setupHashChange);
-							});
+							require([hashPlugin], setupHashChange);
 						} else {
 							setupHashChange();
 						}

@@ -34,8 +34,8 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 		    
 		    if (!initd) {
 		    	WDN.loadCSS(WDN.getTemplateFilePath('css/modules/rsswidget.css', true, true));
-		    	WDN.loadJQuery(function() {
-		    		require(['plugins/rsswidget/jquery.zrssfeed.min'], function() {
+		    	$(function() {
+		    		require(['plugins/rsswidget/jq-bundle'], function() {
 		    			initd = true;
 		    			Plugin.setup(configs);
 		    		});

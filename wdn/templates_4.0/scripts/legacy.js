@@ -41,8 +41,8 @@ define(['jquery', 'wdn', 'require', 'modernizr'], function($, WDN, require, Mode
 	}();
 
 	if (showBar) {
-		WDN.loadJQuery(function() {
-			require(['plugins/activebar/activebar2'], function() {
+		require(['plugins/activebar/activebar2'], function() {
+			$(function() {
 				var cnt = $('<div/>'), content = [],
 				url, tempCnt, xpGo, afterActivebar = function() {},
 				go = function() {

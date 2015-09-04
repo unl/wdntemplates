@@ -1,4 +1,4 @@
-define(['wdn', 'require'], function(WDN, require) {
+define(['wdn', 'require', 'jquery'], function(WDN, require, $) {
 	var pluginPath = 'plugins/colorbox/', initd = false;
 	
     return {
@@ -7,16 +7,10 @@ define(['wdn', 'require'], function(WDN, require) {
         	var ready = function() {
         		initd = true;
         		
-            	WDN.loadJQuery(function() {
-            		var min = '', body = document.getElementsByTagName('body');
-        			if (!body.length || !body[0].className.match(/(^|\s)debug(\s|$)/)) {
-        				min = '-min';
-        			}
-            		require(['./' + pluginPath + 'jquery.colorbox' + min], function() {
-            			WDN.jQuery.colorbox.settings.className = 'wdn-main';
-            			callback();
-            		});
-            	});
+        		require([pluginPath + 'jquery.colorbox'], function() {
+        			$.colorbox.settings.className = 'wdn-main';
+        			$(callback);
+        		});
             };
             
             if (!initd) {

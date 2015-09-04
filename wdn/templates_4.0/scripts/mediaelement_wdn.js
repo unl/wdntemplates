@@ -18,13 +18,8 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 
 			$.extend(options, WDN.getPluginParam('mediaelement_wdn', 'options') || {});
 
-			var min = '', body = document.getElementsByTagName('body');
-			if (!body.length || !body[0].className.match(/(^|\s)debug(\s|$)/)) {
-				min = '.min';
-			}
-
 			if (!initd) {
-				WDN.loadCSS(WDN.getTemplateFilePath('scripts/' + pluginPath + 'css/mediaelementplayer' + min + '.css', true, true));
+				WDN.loadCSS(WDN.getTemplateFilePath('scripts/' + pluginPath + 'css/mediaelementplayer.min.css', true, true));
 				initd = true;
 			}
 
@@ -38,9 +33,10 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				}
 			};
 
-			require(['./' + pluginPath + 'mediaelement-and-player' + min], function() {
-				require(['./' + pluginPath + 'mep-feature-googleanalytics'], ready);
-			});
+			require([
+				pluginPath + 'mediaelement-and-player',
+				pluginPath + 'mep-feature-googleanalytics'
+			], ready);
 		}
 	};
 });

@@ -21,7 +21,7 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 		$('#prev_month', $container).removeAttr('id').addClass('prev');
 		$('#next_month', $container).removeAttr('id').addClass('next');
 
-		require(['./plugins/hoverIntent/jquery.hoverIntent.min'], function() {
+		require(['plugins/hoverIntent/jquery.hoverIntent'], function() {
 			var now = new Date(), today = now.getDate();
 			var month = $('span.monthvalue a', $container).attr('href');
 			month = month.substr(month.length - 3, 2);

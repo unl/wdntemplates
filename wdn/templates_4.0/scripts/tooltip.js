@@ -70,14 +70,9 @@ define(['jquery', 'require'], function($, require) {
 
 	var Plugin = {
 		initialize : function() {
-			var min = '', body = document.getElementsByTagName('body');
-			if (!body.length || !body[0].className.match(/(^|\s)debug(\s|$)/)) {
-				min = '.min';
-			}
-
 			if (!initd) {
 				WDN.loadCSS(WDN.getTemplateFilePath('scripts/' + pluginPath + wdnStyle + '.css', true, true));
-				require([pluginPath + qtipPlugin + min], function() {
+				require([pluginPath + qtipPlugin], function() {
 					initd = true;
 					tooltipSetup();
 				});
