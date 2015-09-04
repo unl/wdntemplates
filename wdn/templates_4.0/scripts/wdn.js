@@ -1,11 +1,25 @@
-(function(window, undefined) {
+(function( global, factory ) {
+	if (typeof module === "object" && typeof module.exports === "object") {
+		module.exports = global.document
+			? factory(global, true)
+			: function( w ) {
+				if ( !w.document ) {
+					throw new Error("WDN requires a window with a document");
+				}
+				return factory( w );
+			};
+	} else {
+		factory( global );
+	}
+}(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 	var 
 		pluginParams = {},
 		loadingCSS = {},
 		loadedCSS = {},
 		document = window.document,
-		_head = document.head || document.getElementsByTagName('head')[0],
-		_docEl = document.documentElement,
+		isDebug = false,
+		_head,
+		_docEl,
 		/**
 		 * This variable stores the path to the template files.
 		 * It can be set to /, http://www.unl.edu/, or nothing.
@@ -13,6 +27,8 @@
 		template_path = '',
 		
 		dependent_path = 'wdn/templates_4.0/',
+		
+		build_path = '/compressed',
 		
 		_sanitizeTemplateUrl = function(url) {
 			var reTemplateUrl = new RegExp('^/?' + dependent_path.replace('.', '\\.'));
@@ -35,6 +51,12 @@
 		
 		getTemplateFilePath: function(file, withTemplatePath, withVersion) {
 			file = '' + file;
+			
+			// add built script directory for production
+			if (!isDebug) {
+				file = file.replace(/^scripts(\/|$)/, 'scripts' + build_path + '$1');
+			}
+			
 			var filePath = dependent_path + file;
 			
 			if (withTemplatePath) {
@@ -60,7 +82,7 @@
 		 */
 		loadJS: function (url,callback) {
 			url = _sanitizeTemplateUrl(url);
-			window.require([url], callback);
+			require([url], callback);
 		},
 
 		/**
@@ -109,9 +131,13 @@
 				}
 				
 				_head.appendChild(link);
-			} else if (callbackIfLoaded !== false) {
+			} else if (callback && callbackIfLoaded !== false) {
 				callback();
 			}
+		},
+		
+		isDebug: function() {
+			return isDebug;
 		},
 
 		/**
@@ -120,14 +146,8 @@
 		 * @param callback Called when the document is ready
 		 */
 		loadJQuery: function (callback) {
-			require(['jquery'], function($) {
-				if (typeof WDN.jQuery === "undefined") {
-					WDN.jQuery = $.noConflict(true);
-				}
-				
-				require(['wdn_ajax'], function() {
-					WDN.jQuery(callback);
-				});
+			require(['wdn_jquery'], function($) {
+				$(callback);
 			});
 		},
 
@@ -195,7 +215,7 @@
 				args = [];
 			}
 			
-			window.require([plugin], function(pluginObj) {
+			require([plugin], function(pluginObj) {
 				var defaultOnLoad = onLoad = function () {
 					if (pluginObj && "initialize" in pluginObj) {
 						WDN.log("initializing plugin '" + plugin + "'");
@@ -352,11 +372,13 @@
 		},
 		
 		stringToXML: function (string) {
-			return WDN.jQuery.parseXML(string);
+			var $ = require('jquery');
+			return $.parseXML(string);
 		},
 
 		request: function (url, data, callback, type, method) {
-			var $ = WDN.jQuery;
+			var $ = require('wdn_jquery');
+
 			if ($.isFunction(data)) {
 				method = method || type;
 				type = callback;
@@ -374,29 +396,48 @@
 		},
 
 		get: function (url, data, callback, type) {
-			return WDN.jQuery.get(url, data, callback, type);
+			var $ = require('wdn_jquery');
+			return $.get(url, data, callback, type);
 		},
 
 		post: function (url, data, callback, type) {
-			return WDN.jQuery.post(url, data, callback, type);
+			var $ = require('wdn_jquery');
+			return $.post(url, data, callback, type);
 		}
 	};
 	
-	if ( typeof define === "function" && define.amd ) {
-		define( "wdn", [], function () { return WDN; } );
-	}
-	
-	if ( typeof window === "object" && typeof window.document === "object" ) {
-		window.WDN = WDN;
-	}
-	
+	// invoke function for handling debug loader and document initialization
 	(function() {
+		if (!document) {
+			return;
+		}
+		
+		_head = document.head || document.getElementsByTagName('head')[0];
+		_docEl = document.documentElement;
+		
 		var i = 0, scripts = document.getElementsByTagName('script'), root;
 		for (; i < scripts.length; i++) {
 			root = scripts[i].getAttribute('data-wdn_root');
 			if (root) {
+				isDebug = true;
 				template_path = WDN.toAbs('../../../', root);
+				break;
 			}
 		}
 	})();
-})(window);
+	
+	// provide a named module to the AMD loader
+	if (typeof define === "function" && define.amd) {
+		define('wdn', [], function () {
+			return WDN; 
+		});
+	}
+	
+	// export to the window
+	if (typeof noGlobal === "undefined") {
+		window.WDN = WDN;
+	}
+	
+	// export for other module environments
+	return WDN;
+}));
