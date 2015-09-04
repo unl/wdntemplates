@@ -4,17 +4,15 @@
 *
 */
 
-define(['analytics'], function(wdn_ga) {
-	(function($) {
-	
+define(['plugins/mediaelement/mediaelement-and-player.js', 'jquery', 'analytics'], function(mejs, $, wdn_ga) {
 	$.extend(mejs.MepDefaults, {
+		googleAnalyticsTitle: '',
 		googleAnalyticsCategory: 'Media',
 		googleAnalyticsEventPlay: 'Play',
 		googleAnalyticsEventPause: 'Pause',
 		googleAnalyticsEventEnded: 'Ended',
 		googleAnalyticsEventTime: 'Time'
 	});
-	
 	
 	$.extend(MediaElementPlayer.prototype, {
 		buildgoogleanalytics: function(player, controls, layers, media) {
@@ -23,7 +21,7 @@ define(['analytics'], function(wdn_ga) {
 				wdn_ga.callTrackEvent( 
 					player.options.googleAnalyticsCategory, 
 					player.options.googleAnalyticsEventPlay, 
-					(media.title === '') ? media.src : media.title
+					player.options.googleAnalyticsTitle || media.title || player.currentSrc
 	            );
 			}, false);
 			
@@ -31,7 +29,7 @@ define(['analytics'], function(wdn_ga) {
 				wdn_ga.callTrackEvent( 
 						player.options.googleAnalyticsCategory, 
 						player.options.googleAnalyticsEventPause, 
-						(media.title === '') ? media.src : media.title
+						player.options.googleAnalyticsTitle || media.title || player.currentSrc
 				    );
 				}, false);	
 			
@@ -39,25 +37,9 @@ define(['analytics'], function(wdn_ga) {
 				wdn_ga.callTrackEvent( 
 						player.options.googleAnalyticsCategory, 
 						player.options.googleAnalyticsEventEnded, 
-						(media.title === '') ? media.src : media.title
+						player.options.googleAnalyticsTitle || media.title || player.currentSrc
 				    );
 				}, false);
-			
-			/*
-			media.addEventListener('timeupdate', function() {
-				if (typeof _gaq != 'undefined') {
-					_gaq.push(['_trackEvent', 
-						player.options.googleAnalyticsCategory, 
-						player.options.googleAnalyticsEventEnded, 
-						player.options.googleAnalyticsTime,
-						(player.options.googleAnalyticsTitle === '') ? player.currentSrc : player.options.googleAnalyticsTitle,
-						player.currentTime
-					]);
-				}
-			}, true);
-			*/
 		}
 	});
-		
-	})(mejs.$);
 });
