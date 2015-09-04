@@ -1,12 +1,12 @@
-define(['wdn', 'require', 'jquery'], function(WDN, require, $) {
-	var pluginPath = 'plugins/ui/';
-	
+define(['wdn', 'require', 'jquery', 'plugins/ui/jquery-ui'], function(WDN, require, $) {
+	var initd = false;
 	return {
 		initialize: function(callback) {
-			WDN.loadCSS(WDN.getTemplateFilePath('scripts/' + pluginPath + 'css/jquery-ui-wdn.css', true, true));
-			require(['./' + pluginPath + 'jquery-ui'], function() {
-				$(callback);
-			});
+			if (!initd) {
+				WDN.loadCSS(WDN.getTemplateFilePath('scripts/plugins/ui/css/jquery-ui-wdn.css', true, true));
+				initd = true;
+			}
+			$(callback);
 		}
 	};
 });

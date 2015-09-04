@@ -1,10 +1,12 @@
-define(['wdn', 'require', 'jquery'], function(WDN, require, $) {
+define(['wdn', 'require', 'jquery', 'plugins/validator/jquery.validator'], function(WDN, require, $) {
+	var initd = false;
 	return {
 		initialize: function(callback) {
-			WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/formvalidator.css', true, true));
-			require(['plugins/validator/jquery.validator'], function() {
-				$(callback);
-			});
+			if (!initd) {
+				WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/formvalidator.css', true, true));
+				initd = true;
+			}
+			$(callback);
 		}
 	};
 });

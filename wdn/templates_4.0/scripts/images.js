@@ -6,6 +6,8 @@
 define(['jquery', 'modernizr'], function($, Modernizr) {
     "use strict";
     
+    var initd = false;
+    
     var imageCls = 'wdn_image_swap',
     currentPoint,
     checkPoints = [320,480,600,768,960,1040],
@@ -60,6 +62,11 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 		    		swapSource(currentPoint);
 		    	});
 		    }
+
+		    if (initd) {
+		    	return;
+		    }
+		    initd = true;
 		    
 		    $(window).resize(function() {
 		    	if (resizeTimer) {

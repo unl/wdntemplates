@@ -1,4 +1,4 @@
-define(['jquery', 'require'], function($, require) {
+define(['jquery', 'require', 'plugins/qtip/jquery.qtip'], function($, require) {
 	var pluginPath = 'plugins/qtip/',
 	qtipPlugin = 'jquery.qtip',
 	wdnStyle = 'wdn.qtip',
@@ -72,13 +72,10 @@ define(['jquery', 'require'], function($, require) {
 		initialize : function() {
 			if (!initd) {
 				WDN.loadCSS(WDN.getTemplateFilePath('scripts/' + pluginPath + wdnStyle + '.css', true, true));
-				require([pluginPath + qtipPlugin], function() {
-					initd = true;
-					tooltipSetup();
-				});
-			} else {
-				tooltipSetup();
+				initd = true;
 			}
+
+			tooltipSetup();
 		},
 		addTooltips : function($elements) {
 			this.addTooltip($elements);

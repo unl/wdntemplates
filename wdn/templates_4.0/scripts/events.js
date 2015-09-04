@@ -1,4 +1,6 @@
 define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment) {
+	var initd = false;
+
 	var getLocalEventSettings = function() {
 		var $eventLink = $('link[rel=events]'),
 			eventParams = WDN.getPluginParam('events');
@@ -82,7 +84,6 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 
 		if (localConfig.url && $(localConfig.container).length) {
 			$(this.container).addClass('wdn-calendar');
-			WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/events.css', true, true));
 			$.getJSON(localConfig.url + 'upcoming/?format=json&limit=' + encodeURIComponent(localConfig.limit), function(data) {
 					display(data, localConfig);
 				}
@@ -92,6 +93,11 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 
 	return {
 		initialize : function(config) {
+			if (!initd) {
+				WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/events.css', true, true));
+				initd = true;
+			}
+
 			$(function() {
 				setup(config);
 			});

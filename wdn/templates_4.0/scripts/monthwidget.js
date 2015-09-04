@@ -1,4 +1,6 @@
 define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment) {
+	var initd = true;
+
 	var getLocalEventSettings = function() {
 		var $eventLink = $('link[rel=events]'),
 			eventParams = WDN.getPluginParam('events');
@@ -105,7 +107,6 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 		localConfig = $.extend({}, config, defaultConfig);
 
 		if (localConfig.url && $(localConfig.container).length) {
-			WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/monthwidget.css', true, true));
 			$.get(localConfig.url + '?monthwidget&format=hcalendar', function(data) {
 					display(data, localConfig);
 				}
@@ -115,6 +116,11 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 
 	return {
 		initialize : function(config) {
+			if (!initd) {
+				WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/monthwidget.css', true, true));
+				initd = true;
+			}
+
 			$(function() {
 				setup(config);
 			});
