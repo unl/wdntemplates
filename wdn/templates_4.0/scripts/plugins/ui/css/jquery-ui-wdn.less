@@ -1,0 +1,153 @@
+@import (inline) "jquery-ui.css";
+
+@import "../../../../less/_mixins/all.less";
+
+/* UNL WDN jQuery UI overrides */
+.ui-widget-header {
+	.sans-serif-font();
+	text-transform: uppercase;
+	font-size: 0.802em;
+	margin: 0;
+}
+
+.ui-datepicker {
+	padding: 0;
+	border: 0;
+	
+	.ui-datepicker-header {
+		padding: 1.069em 1em 1em;
+		
+		.ui-state-hover {
+			border: none;
+			background: none;
+			
+			.ui-icon {
+				background-image: url("images/ui-icons_ffffff_256x240.png");
+			}
+		}
+		
+	}
+	
+	.ui-state-default {
+		border: 0;
+	}
+	
+	.ui-state-active {
+		background: #474746;
+		border: 0;
+	}
+	
+	.ui-state-disabled {
+		background: #F7F7F7;
+		opacity:1;
+	}
+	
+	.ui-state-highlight {
+		background: @brand;
+		color: #fff;
+	}
+	
+	.ui-corner-all {
+		border-radius: 0;
+	}
+	
+	.ui-datepicker-title {
+		margin: 0;
+		line-height: 1;
+	}
+	
+	.ui-datepicker-next {
+		float: right;
+	}
+	
+	.ui-datepicker-prev {
+		float: left;
+	}
+	
+	.ui-datepicker-next,
+	.ui-datepicker-prev {
+		height: auto;
+		position: static;
+		margin: -0.16em 0;
+		cursor: pointer;
+		
+		span {
+			position: static;
+			margin: auto;
+		}
+	}
+	
+	table {
+		margin: 0;
+		
+		th {
+			text-transform: uppercase;
+			background-color: #eee;
+			border: 1px solid #ccc;
+			padding: 12px 1px;
+			font-weight: 400;
+			width: 14%;
+		}
+	}
+	
+	tbody tr {
+		background: transparent;
+	}
+	
+	td {
+		padding: 0;
+		border: 1px solid #d5d5d2;
+		.sans-serif-font();
+		font-size: 0.75em;
+		
+		.ui-state-hover {
+			outline: 2px solid @brand;
+		}
+		
+		a, span {
+			text-align: center;
+			padding: 0.66em 1px;
+		}
+	}
+}
+
+.ui-dialog {
+	padding: 0;
+}
+
+.ui-progressbar .ui-progressbar-value { 
+	margin: 0;
+}
+
+.ui-tabs { 
+	padding: 0;
+	
+	.ui-tabs-nav {
+		border-radius: 0;
+		
+		.ui-tabs-anchor {
+			border: 0
+		}
+	}
+}
+
+.ui-icon {
+	display: inline-block;
+}
+
+.ui-sortable {
+	padding: 0;
+}
+
+.ui-selectable {
+	padding: 0;
+}
+
+.ui-selecting {
+	background: #FFE5E5;
+}
+
+.ui-selected {
+	background: @brand;
+	color: #fff;
+}
