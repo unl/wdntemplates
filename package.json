@@ -23,12 +23,13 @@
     "grunt-contrib-less": "^1.0.1",
     "grunt-contrib-requirejs": "^0.4.4",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-sync": "^0.4.1",
     "grunt-then": "^1.0.0",
     "grunt-zip": "^0.17.0",
     "less-plugin-clean-css": "^1.5.1",
     "load-grunt-tasks": "^3.2.0"
   },
   "engines": {
-  	"node" : "node >= 0.12.0"
+    "node": "node >= 0.12.0"
   }
 }
