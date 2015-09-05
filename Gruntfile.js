@@ -4,19 +4,24 @@ module.exports = function (grunt) {
 		'all',
 		'ie',
 		'print',
-		'layouts/events',
-		'layouts/events-band',
-		'layouts/extlatin',
-		'layouts/formvalidator',
-		'layouts/monthwidget',
-		'layouts/smallcaps',
-		'layouts/unlalert',
-		'modules/band_imagery',
-		'modules/notices',
 		'modules/pagination',
-		'modules/rsswidget',
 		'modules/vcard',
 		'modules/infographics'
+    ];
+    
+    var jsCssObjs = [
+        'js-css/band_imagery',
+        'js-css/events',    	
+    	'js-css/events-band',
+    	'js-css/extlatin',
+    	'js-css/formvalidator',
+    	'js-css/monthwidget',
+    	'js-css/notices',
+    	'js-css/rsswidget',
+    	'js-css/smallcaps',
+    	'js-css/unlalert',
+    	'plugins/qtip/wdn.qtip',
+    	'plugins/ui/css/jquery-ui-wdn'
     ];
     
     // project layout variables (directories)
@@ -47,6 +52,55 @@ module.exports = function (grunt) {
 		'requireLib',
 		'wdn'
     ];
+    
+    var wdnBuildPlugins = [
+    	'band_imagery',
+    	'carousel',
+    	'events-band',
+    	'events',
+    	'extlatin',
+    	'jqueryui',
+    	'mediaelement_wdn',
+    	'modal',
+    	'monthwidget',
+    	'notice',
+    	'rss_widget',
+    	'smallcaps',
+    	'tooltip'
+    ];
+    
+    // module exclustions for plugins not built into all
+    var wdnPluginExclusions = [
+    	'require-css/css', 
+    	'require-css/normalize', 
+    	'jquery', 
+    	'wdn',
+    	'plugins/hoverIntent/jquery.hoverIntent'
+    ];
+    
+    // exclude build/bundled files from sync back to wdn folder
+    var syncJsIgnore = [
+    	'!build.txt',
+    	'!js-css/**',
+    	'!analytics.*',
+    	'!debug.*',
+    	'!form_validation.*',
+    	'!ga.*',
+    	'!jquery.*',
+    	'!legacy.*',
+    	'!main-execute-mods.*',
+    	'!main-wdn-plugins.*',
+    	'!main.*',
+    	'!modernizr*',
+    	'!navigation.*',
+    	'!require.*',
+    	'!require-css/**',
+    	'!search.*',
+    	'!skipnav.*',
+    	'!socialmediashare.*',
+    	'!unlalert.*',
+    	'!wdn*'
+    ];
 
     // requirejs configuration and customization options
     var rjsCliFlags = (grunt.option('rjs-flags') || '').split(' ');
@@ -55,8 +109,8 @@ module.exports = function (grunt) {
     		wdnTemplatePath: '/',
     	    unlChatURL: false
     	},
-    	appDir: templateJs + "/",
-    	baseUrl: "./",
+    	appDir: templateJs + '/',
+    	baseUrl: './',
     	dir: buildJsDir,
         optimize: 'uglify2',
         logLevel: 2,
@@ -65,17 +119,17 @@ module.exports = function (grunt) {
         paths: {
         	'requireLib': 'require'
         },
+        map: {
+        	"*": {
+        		css: 'require-css/css'
+        	}
+    	},
         modules: [
             {
-            	name: "all",
+            	name: 'all',
             	create: true,
-        		include: polyfillMods.concat('main')
-            },
-            {
-            	name: "plugins/rsswidget/jq-bundle",
-            	exclude: [
-            		"jquery"
-        		]
+        		include: polyfillMods.concat('main'),
+        		exclude: ['require-css/normalize']
             }
         ],
         onBuildRead: function (moduleName, path, contents) {
@@ -105,6 +159,15 @@ module.exports = function (grunt) {
     	rjsConfig.moduleConfig[flagPair[0]] = flagPair[1] || true;
     });
     
+    rjsConfig.deployRoot = rjsConfig.moduleConfig.wdnTemplatePath + templateCompileJs + '/';
+    
+    wdnBuildPlugins.forEach(function(plugin) {
+    	rjsConfig.modules.push({
+        	name: plugin,
+        	exclude: wdnPluginExclusions
+        });
+    });
+    
     // common variables for task configuration
     var lessPluginCleanCss = new (require('less-plugin-clean-css'))();
     var gitFilters = require('./.git_filters/lib/git-filters.js');
@@ -117,10 +180,9 @@ module.exports = function (grunt) {
     });
     
     var lessJsFiles = {};
-    var wdnQtipCssDir = templateJs + '/plugins/qtip';
-    var wdnJQueryUICssDir = templateJs + '/plugins/ui/css';
-    lessJsFiles[wdnQtipCssDir + '/wdn.qtip.css'] = wdnQtipCssDir + '/wdn.qtip.less';
-    lessJsFiles[wdnJQueryUICssDir + '/jquery-ui-wdn.css'] = wdnJQueryUICssDir + '/jquery-ui-wdn.less';
+    jsCssObjs.forEach(function(file) {
+    	lessJsFiles[templateJs + '/' + file + '.css'] = templateJs + '/' + file + '.less';
+    });
     
     var lessAllIEFiles = {};
     lessAllIEFiles[templateCss + '/all_oldie.css'] = templateLess + '/all.less';
@@ -166,7 +228,12 @@ module.exports = function (grunt) {
     		js: {
     			files: [{
     				cwd: buildJsDir,
-    				src: ['**', '!**/*.patch', '!**/*.md'],
+    				src: [
+    					'**', 
+    					'!**/*.patch', 
+    					'!**/*.md',
+    					'!**/*.less'
+					].concat(syncJsIgnore),
     				dest: templateCompileJs
     			}]
     		}
