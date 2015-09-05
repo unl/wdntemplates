@@ -1,4 +1,4 @@
-@import "../_mixins/all.less";
+@import "../../less/_mixins/all.less";
 
 ul.validation-advice {
 	margin: 0 0 1em;
@@ -30,7 +30,7 @@ ul.validation-advice {
 form {
 	input[type=text], input[type=file], input[type=password], input[type=email], input[type=url], input[type=number], textarea, select {
 		&.validation-failed {
-			// copied from forms.less: wadn-error
+			// copied from forms.less: wdn-error
 			border: 1px solid @brand;
 			-webkit-animation:wdn-error 1.2s infinite alternate; // Safari and Chrome
 			-moz-animation:wdn-error 1.2s infinite alternate; // Firefox
