@@ -4,7 +4,8 @@ define([
 	'search',
 	'socialmediashare',
 	'unlalert',
-	'images'
+	'images',
+	'form_validation'
 ], function() {
 	for (var i = 0, pluginCount = arguments.length; i < pluginCount; i++) {
 		var pluginObj = arguments[i];
