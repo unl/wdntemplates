@@ -1,6 +1,9 @@
-define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment) {
-	var initd = false;
-
+define([
+	'wdn',
+	'jquery',
+	'moment',
+	'css!js-css/events'
+], function(WDN, $, moment) {
 	var getLocalEventSettings = function() {
 		var $eventLink = $('link[rel=events]'),
 			eventParams = WDN.getPluginParam('events');
@@ -93,11 +96,6 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 
 	return {
 		initialize : function(config) {
-			if (!initd) {
-				WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/events.css', true, true));
-				initd = true;
-			}
-
 			$(function() {
 				setup(config);
 			});

@@ -1,5 +1,7 @@
-define(['jquery', 'wdn'], function($, WDN) {
-	var templateCssFile = 'css/modules/notices.css';
+define([
+	'jquery',
+	'css!js-css/notices.css'
+], function($) {
 	var selectorNamespace = '.wdn_notice';
 	var animationSpeed = 'slow';
 	var defaultDuration = 1000;
@@ -16,8 +18,6 @@ define(['jquery', 'wdn'], function($, WDN) {
 		initialize : function() {
 			// prevent double initialiation
 			if (!initd) {
-				WDN.loadCSS(WDN.getTemplateFilePath(templateCssFile, true, true));
-				
 				// globally listen for notice close button clicks
 				$(document).on('click', selectorNamespace + ' .close', function() {
 					closeNotice($(this).closest(selectorNamespace));
@@ -27,7 +27,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 				initd = true;
 			}
 			
-			Plugin.launch();
+			$(Plugin.launch);
 		},
 
 		launch : function() {
