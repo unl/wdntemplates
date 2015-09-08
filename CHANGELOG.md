@@ -1,10 +1,28 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.0.31 (September 8, 2015)
+
+### Fixed
+- Use non-breaking spaces in global footer to ensure unit name and QA link do not wrap ([#876](https://github.com/unl/wdntemplates/pull/876))
+- The Windows XP warning should be shown in browserstack tests too ([#877](https://github.com/unl/wdntemplates/pull/877))
+- Removed Firefox browser supplied underline on abbreviated site titles ([0b28aa](https://github.com/unl/wdntemplates/commit/0b28aa0178596a9398d2ffa8fef291235b274034))
+
+### Changed
+- Change recommended mark-up for Notice widget. Remains backwards compatible ([#880](https://github.com/unl/wdntemplates/pull/880))
+- Change the maincontent legacy white-space wrapper to use margin instead of padding ([#880](https://github.com/unl/wdntemplates/pull/880))
+- Only use the user's first name when rendering their identity information ([#883](https://github.com/unl/wdntemplates/pull/883))
+
+### Added
+- Allow getting a versioned URL for loading framework files ([#880](https://github.com/unl/wdntemplates/pull/880))
+- New class to display normal lists inside of a form layout list ([#882](https://github.com/unl/wdntemplates/pull/882))
+- Accessibility improvement: allow maincontent to be focused from skip link activation ([#884](https://github.com/unl/wdntemplates/pull/884))
+- Accessibliity improvement: allow the search frame to be closed by pressing ESC ([#886](https://github.com/unl/wdntemplates/pull/886))
+
 ## 4.0.30 (August 12, 2015)
 
 ### Fixed
-- Fixed an issue that could result in the navigation staying hidden ([#27bfc7](https://github.com/unl/wdntemplates/commit/27bfc763aeab6ad57c15f90e4a9798f646e74442))
+- Fixed an issue that could result in the navigation staying hidden ([27bfc7](https://github.com/unl/wdntemplates/commit/27bfc763aeab6ad57c15f90e4a9798f646e74442))
 - Fixed extended fonts not loading for https ([#875](https://github.com/unl/wdntemplates/pull/875))
 - Fixed initialization of extended fonts ([0346b8](https://github.com/unl/wdntemplates/commit/0346b86278a147a3de9135c4d3fbd77110beace6))
 
