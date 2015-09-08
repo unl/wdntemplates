@@ -1,6 +1,6 @@
 'use strict';
 
-var exec = require('child_process').execSync;
+var exec = require('sync-exec');
 var path = require('path');
 var fs = require('fs');
 
@@ -40,8 +40,8 @@ module.exports = {
 	_startSmudge : function(filepath) {
 		var defaultMatchFail = ['', ''];
 		var filename = path.basename(filepath);
-		var tag = exec('git describe --always --tag').toString().trim();
-		var rev = exec('git log -n 1 -- $path | head -n 4').toString();
+		var tag = exec('git describe --always --tag').stdout.toString().trim();
+		var rev = exec('git log -n 1 -- $path | head -n 4').stdout.toString();
 		var commit = (/^commit (.*)$/m.exec(rev) || defaultMatchFail)[1];
 		var date = (/^Date:\s*(.*)\s*$/m.exec(rev) || defaultMatchFail)[1];
 		var author = (/^Author:\s*(.*)\s*$/m.exec(rev) || defaultMatchFail)[1];
