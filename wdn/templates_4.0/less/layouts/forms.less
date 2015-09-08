@@ -1,3 +1,12 @@
+.list-std() {
+	padding-left: 40px;
+	margin: 1em 0;
+
+	 li {
+	 	margin: 0;
+	 }
+}
+
 form {
     position: relative;
     margin: 0;
@@ -6,8 +15,25 @@ form {
     background: none;
     color: @base-text;
 
-    ol, ul {
+    ol {
         .list-reset;
+        
+        // restore browser defaults, assumes ltr
+        &.wdn-std {
+        	list-style-type: decimal;
+        	.list-std();
+    	}
+        	 
+    }
+    
+    ul {
+    	.list-reset;
+    	
+    	// restore browser defaults, assumes ltr
+    	&.wdn-std {
+    		list-style-type: disc;
+    		.list-std();
+    	}
     }
     
     li {
