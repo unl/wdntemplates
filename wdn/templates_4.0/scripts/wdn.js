@@ -109,7 +109,7 @@
 				}
 				
 				_head.appendChild(link);
-			} else if (callbackIfLoaded !== false) {
+			} else if (callback && callbackIfLoaded !== false) {
 				callback();
 			}
 		},

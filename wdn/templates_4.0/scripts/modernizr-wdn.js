@@ -974,32 +974,33 @@ Modernizr.selectorSupported = function(selector) {
 
 	link.rel = 'stylesheet';
     link.href = 'data:text/css;base64,I21vZGVybml6ci1jc3Nsb2Fke2Rpc3BsYXk6bm9uZX0=';
-    
+
     onDone = function(result) {
     	Modernizr.addTest(testName, result);
     	if (link.parentNode) {
     		link.parentNode.removeChild(link);
     	}
     	link = null;
-    }
+      onDone = function() {};
+    };
 
 	if (!Modernizr.hasEvent('load', link)) {
 		onDone(false);
 		return;
 	}
-	
+
 	link.onload = function() {
 		clearTimeout(failTimeout);
-		onDone(!!(link.sheet || link.styleSheet));
+		onDone(!!(link && (link.sheet || link.styleSheet)));
 	};
-	
+
 	link.onerror = function() {
 		clearTimeout(failTimeout);
 		onDone(true);
 	};
-	
+
     (head || root).insertBefore(link, (head || root).firstChild);
-    
+
     failTimeout = setTimeout(function() {
     	onDone(false);
     }, 100);
