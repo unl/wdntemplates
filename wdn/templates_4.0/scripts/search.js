@@ -173,7 +173,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 				var closeSearch = function() {
 					var $wdnSearch = domSearchForm.parent();
 					$wdnSearch.removeClass('active');
-					domQ.val('');
+					domSearchForm[0].reset();
 				};
 
 				//Close search on escape while the iframe has focus
