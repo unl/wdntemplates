@@ -104,6 +104,12 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 					if (!isFullNav()) {
 						return;
 					}
+					
+					if (e0.keyCode === 27) {
+						//Close on escape
+						closeSearch();
+						return;
+					}
 
 					clearTimeout(autoSubmitTimeout);
 					if ($(this).val()) {
@@ -174,6 +180,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 				var closeSearch = function() {
 					var $wdnSearch = domSearchForm.parent();
 					$wdnSearch.removeClass('active');
+					domQ.val('');
 				};
 
 				//Close search on escape while the iframe has focus
