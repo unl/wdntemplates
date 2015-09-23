@@ -1,12 +1,19 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.0.32 (September 23, 2015)
+
+### Fixed
+- CSS Loader throws an error if called for an already loaded sheet without a callback ([f18ea83](https://github.com/unl/wdntemplates/commit/f18ea837cfdb28cbde3ed0035dc8cbdaa4bd75c0))
+- Remove the focus outline from maincontent div. ([f00e2a4](https://github.com/unl/wdntemplates/commit/f00e2a491f8e9dbe7c5cf44b91a1aa7527b05a18))
+- Search not being closed when escape is hit ([#890](https://github.com/unl/wdntemplates/pull/890))
+
 ## 4.0.31 (September 8, 2015)
 
 ### Fixed
 - Use non-breaking spaces in global footer to ensure unit name and QA link do not wrap ([#876](https://github.com/unl/wdntemplates/pull/876))
 - The Windows XP warning should be shown in browserstack tests too ([#877](https://github.com/unl/wdntemplates/pull/877))
-- Removed Firefox browser supplied underline on abbreviated site titles ([0b28aa](https://github.com/unl/wdntemplates/commit/0b28aa0178596a9398d2ffa8fef291235b274034))
+- Removed Firefox browser supplied underline on abbreviated site titles ([0b28aa0](https://github.com/unl/wdntemplates/commit/0b28aa0178596a9398d2ffa8fef291235b274034))
 
 ### Changed
 - Change recommended mark-up for Notice widget. Remains backwards compatible ([#880](https://github.com/unl/wdntemplates/pull/880))
@@ -22,9 +29,9 @@ All notable changes to this project will be documented in this file.
 ## 4.0.30 (August 12, 2015)
 
 ### Fixed
-- Fixed an issue that could result in the navigation staying hidden ([27bfc7](https://github.com/unl/wdntemplates/commit/27bfc763aeab6ad57c15f90e4a9798f646e74442))
+- Fixed an issue that could result in the navigation staying hidden ([27bfc76](https://github.com/unl/wdntemplates/commit/27bfc763aeab6ad57c15f90e4a9798f646e74442))
 - Fixed extended fonts not loading for https ([#875](https://github.com/unl/wdntemplates/pull/875))
-- Fixed initialization of extended fonts ([0346b8](https://github.com/unl/wdntemplates/commit/0346b86278a147a3de9135c4d3fbd77110beace6))
+- Fixed initialization of extended fonts ([0346b86](https://github.com/unl/wdntemplates/commit/0346b86278a147a3de9135c4d3fbd77110beace6))
 
 ## 4.0.29 (August 11, 2015)
 
@@ -38,17 +45,17 @@ All notable changes to this project will be documented in this file.
 - New loadable font variations have been added to support small caps and extended latin ([#871](https://github.com/unl/wdntemplates/pull/871))
 
 ### Removed
-- All references to the old wiki have been removed ([f8d2ab](https://github.com/unl/wdntemplates/commit/f8d2ab4ba23af3e668608fe8c04a90a3da4f2d06))
+- All references to the old wiki have been removed ([f8d2ab4](https://github.com/unl/wdntemplates/commit/f8d2ab4ba23af3e668608fe8c04a90a3da4f2d06))
 
 ## 4.0.28 (July 14, 2015)
 
 ### Fixed
 - Affiliate CSS media query adjustments ([#839](https://github.com/unl/wdntemplates/pull/839), [#840](https://github.com/unl/wdntemplates/pull/840))
 - Favicon optimizations and making the iOS icons match ([#842](https://github.com/unl/wdntemplates/pull/842))
-- MedisElementJS updated and patched for various issues ([a61c72](https://github.com/unl/wdntemplates/commit/a61c72987d27a6314be5da248df7c1342ae71ed9))
-- Fixed alert message not loaded immediately due to race condition ([9bb042](https://github.com/unl/wdntemplates/commit/9bb042f0869eb91f07bea81e0b33ed226f71c809))
-- Fix main share widget flashing/changing colors during load ([7bc12b](https://github.com/unl/wdntemplates/commit/7bc12b8e68d40560ed027e49706ddd0a23ee32f8))
-- Reduce scope of `wdn-input-group-btn` styles ([abc242](https://github.com/unl/wdntemplates/commit/abc242eff84a85ab3525c053471d1ed05313f30f))
+- MedisElementJS updated and patched for various issues ([a61c729](https://github.com/unl/wdntemplates/commit/a61c72987d27a6314be5da248df7c1342ae71ed9))
+- Fixed alert message not loaded immediately due to race condition ([9bb042f](https://github.com/unl/wdntemplates/commit/9bb042f0869eb91f07bea81e0b33ed226f71c809))
+- Fix main share widget flashing/changing colors during load ([7bc12b8](https://github.com/unl/wdntemplates/commit/7bc12b8e68d40560ed027e49706ddd0a23ee32f8))
+- Reduce scope of `wdn-input-group-btn` styles ([abc242e](https://github.com/unl/wdntemplates/commit/abc242eff84a85ab3525c053471d1ed05313f30f))
 
 ### Added
 - Notice of Nondiscrimination now included in non-editable footer ([#846](https://github.com/unl/wdntemplates/pull/846))
