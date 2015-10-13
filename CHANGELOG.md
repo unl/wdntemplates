@@ -1,6 +1,19 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.0.33 (October 13, 2015)
+
+### Fixed
+- Firefox shows invalid input styles when search is closed ([#891](https://github.com/unl/wdntemplates/pull/891))
+- Firefox shows two underlines for abbr elements ([8b6a9a7](https://github.com/unl/wdntemplates/commit/8b6a9a7891479211aa21db142cd87de0b90c4953))
+- Certain WDN JavaScript plugins have double-initialization problems ([3d84935](https://github.com/unl/wdntemplates/commit/3d8493523a198d3fa78f04947fd86e124322644e))
+- Cloud Typography fonts are not loaded from printing ([77b316d](https://github.com/unl/wdntemplates/commit/77b316dfa60bf7e51616f80197640a8d6e8e7a8e))
+
+### Changed
+- New build system implemented ([#892](https://github.com/unl/wdntemplates/pull/892))
+- New theme/styles for the included jQuery UI ([50e6e0f](https://github.com/unl/wdntemplates/commit/50e6e0f96d643e64b47584b99644687c2a2c3e46))
+- IE 8 will now trigger the upgrade notice ([#887](https://github.com/unl/wdntemplates/issues/887))
+
 ## 4.0.32 (September 23, 2015)
 
 ### Fixed
