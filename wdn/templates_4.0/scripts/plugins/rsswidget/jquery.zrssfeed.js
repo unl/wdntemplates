@@ -24,8 +24,17 @@
  * 1.0.1 - Corrected issue with multiple instances
  *
  **/
-
-(function($){
+(function(factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['jquery'], factory);
+    } else if (typeof module === 'object' && module.exports) {
+        factory(require('jquery'));
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function($){
 
 	$.fn.rssfeed = function(url, options, fn) {	
 	
@@ -346,4 +355,4 @@
 		return t + ' ' + u;
 	}
 
-})(WDN.jQuery);
+}));

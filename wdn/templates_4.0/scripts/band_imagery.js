@@ -21,7 +21,13 @@
  *
  */
 
-define(['jquery', 'wdn'], function($, WDN) {
+define([
+	'wdn',
+	'jquery',
+	'css!js-css/band_imagery'
+], function(WDN, $) {
+	var initd = false;
+	
 	var imageryUpdate = function() {
 		var depth = Math.floor($(window).scrollTop());
 		$('.wdn-scroll-watch').each(function(index, value) {
@@ -175,15 +181,16 @@ define(['jquery', 'wdn'], function($, WDN) {
 
 	var Plugin = {
 		initialize : function() {
-			WDN.loadCSS(WDN.getTemplateFilePath('css/modules/band_imagery.css', true, true));
 			$('.wdn-scroll-watch').parent().css('position', 'relative');
 			imageryUpdate();
-			$(window).load(imageryUpdate).scroll(function() {
+			
+			if (!initd) {
+				$(window).load(imageryUpdate).scroll(function() {
 					setTimeout(imageryUpdate, 50);
-				}
-			);
+				});
+				initd = true;
+			}
 		}
-
 	};
 
 	return Plugin;

@@ -1,4 +1,9 @@
-define(['jquery', 'wdn'], function($, WDN) {
+define([
+	'wdn',
+	'jquery',
+	'css!js-css/unlalert'
+], function(WDN, $) {
+	var dataUrl = 'https://alert.unl.edu/json/unlcap.js';
 	var activeIds = [], calltimeout,
 
 	ckPrfx = 'unlAlerts',
@@ -52,14 +57,10 @@ define(['jquery', 'wdn'], function($, WDN) {
 		WDN.setCookie(ckPrfx + 'A', value, time);
 	},
 
-	dataUrl = document.location.protocol+'//alert.unl.edu/json/unlcap.js',
-//	dataUrl = '//ucommabel.unl.edu/workspace/wdntemplates/scripts/public/alertSimulator.php',
-
 	_callServer = function() {
 		WDN.log('Checking the alert server for data '+ dataUrl);
 		var loadedId = 'lastLoadedCmds'
-		$old = $('#' + loadedId),
-		cacheBust = (new Date()).getTime();
+		$old = $('#' + loadedId);
 
 		if ($old.length) {
 			$old.remove();
@@ -70,7 +71,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 			"defer": "defer",
 			"type": "text/javascript",
 			"id": loadedId,
-			"src": dataUrl + '?' + cacheBust
+			"src": dataUrl
 		}).appendTo($('head'));
 	},
 
@@ -158,8 +159,6 @@ define(['jquery', 'wdn'], function($, WDN) {
 		for (i = 0; i < info.length; i++) {
 			// Add a div to store the html content
 			if (!$alertWrapper.length) {
-				WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/unlalert.css', true, true));
-
 				$alertWrapper = $('<div>', {
 					'id': idPrfx,
 					'class': 'wdn-band wdn-content-slide'
@@ -217,6 +216,7 @@ define(['jquery', 'wdn'], function($, WDN) {
 		_flagPreviousAlert(false);
 	};
 
+	// push namespace to window to support alert service
 	window.unlAlerts = {
 		data: {},
 		server: {

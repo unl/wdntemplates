@@ -1,0 +1,36 @@
+{
+  "name": "wdntemplates",
+  "version": "4.0.30",
+  "description": "Web Framework for the UNLedu website.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/unl/wdntemplates.git"
+  },
+  "author": {
+    "name": "University of Nebraska-Lincoln",
+    "url": "http://wdn.unl.edu/"
+  },
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/unl/wdntemplates/issues"
+  },
+  "homepage": "https://github.com/unl/wdntemplates#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bump": "^0.5.0",
+    "grunt-concurrent": "^2.0.3",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-requirejs": "^0.4.4",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-sync": "^0.4.1",
+    "grunt-then": "^1.0.0",
+    "grunt-zip": "^0.17.0",
+    "less-plugin-clean-css": "^1.5.1",
+    "load-grunt-tasks": "^3.2.0",
+    "sync-exec": "^0.6.2"
+  },
+  "engines": {
+    "node": "node >= 0.10.0"
+  }
+}

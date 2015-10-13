@@ -3,11 +3,9 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 
 	var lockHover = false,
 		initd = false,
-		min = '',
 		snifferServer = '//www1.unl.edu/wdn/templates_3.0/scripts/',
 		fullNavBp = '(min-width: 700px)',
 		hoverPlugin = 'plugins/hoverIntent/jquery.hoverIntent',
-		swipePlugin = 'plugins/mobile/jquery.mobile.custom',
 		expandSemaphore = false,
 		expandDelay = 400,
 		collapseDelay = 120,
@@ -535,11 +533,6 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 					return;
 				}
 
-				var body = $('body');
-				if (!body.length || !body.is('.debug')) {
-					min = '.min';
-				}
-
 				WDN.log('let us fix the presentation');
 				fixPresentation(true);
 				// the built JS will probably run before the web-font loads, so re-render on load
@@ -612,28 +605,26 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 					};
 					Plugin.collapse(false);
 
-					WDN.loadJQuery(function() {
-						require([hoverPlugin + min], function() {
-							$('#wdn_navigation_bar').hoverIntent({
-								over: function() {
-									if (!lockHover) {
-										Plugin.expand();
-									}
-								},
-								out:		 mouseout,
-								timeout:	 expandDelay,
-								sensitivity: 1, // Mouse must not move
-								interval:	120
-							});
+					require([hoverPlugin], function() {
+						$('#wdn_navigation_bar').hoverIntent({
+							over: function() {
+								if (!lockHover) {
+									Plugin.expand();
+								}
+							},
+							out:		 mouseout,
+							timeout:	 expandDelay,
+							sensitivity: 1, // Mouse must not move
+							interval:	120
+						});
 
-							$(breadPrmySel + ' a').hoverIntent({
-								over: switchSiteNavigation,
-								out: function() {
-									$(navPrmySel).removeClass(hltCls);
-								},
-								sensitivity: 1, // Mouse must not move
-								interval:	120
-							});
+						$(breadPrmySel + ' a').hoverIntent({
+							over: switchSiteNavigation,
+							out: function() {
+								$(navPrmySel).removeClass(hltCls);
+							},
+							sensitivity: 1, // Mouse must not move
+							interval:	120
 						});
 					});
 

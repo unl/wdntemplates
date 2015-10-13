@@ -1,10 +1,9 @@
-define(['jquery', 'require'], function($, require) {
-	var pluginPath = 'plugins/qtip/',
-	qtipPlugin = 'jquery.qtip',
-	wdnStyle = 'wdn.qtip',
-	initd = false,
-
-	attr = 'title',
+define([
+	'jquery', 
+	'plugins/qtip/jquery.qtip',
+	'css!plugins/qtip/wdn.qtip'
+], function($) {
+	var attr = 'title',
 	attrBak = 'data-title',
 	mainSel = '#maincontent .tooltip[' + attr + ']',
 	tipStyleCls = 'qtip-wdn',
@@ -70,20 +69,7 @@ define(['jquery', 'require'], function($, require) {
 
 	var Plugin = {
 		initialize : function() {
-			var min = '', body = document.getElementsByTagName('body');
-			if (!body.length || !body[0].className.match(/(^|\s)debug(\s|$)/)) {
-				min = '.min';
-			}
-
-			if (!initd) {
-				WDN.loadCSS(WDN.getTemplateFilePath('scripts/' + pluginPath + wdnStyle + min + '.css', true, true));
-				require([pluginPath + qtipPlugin + min], function() {
-					initd = true;
-					tooltipSetup();
-				});
-			} else {
-				tooltipSetup();
-			}
+			$(tooltipSetup);
 		},
 		addTooltips : function($elements) {
 			this.addTooltip($elements);

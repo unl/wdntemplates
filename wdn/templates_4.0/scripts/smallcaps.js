@@ -1,5 +1,7 @@
-define(['jquery', 'wdn', 'require'], function($, WDN, require) {
-
+define([
+	'jquery',
+	'css!js-css/smallcaps'
+], function($, WDN, require) {
     var initd = false;
 
     return {
@@ -18,9 +20,6 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
             });
         
             $('head').append($smcaps);
-        
-            // Load WDN small caps styles
-            WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/smallcaps.css', true, true));
         }
     };
 });

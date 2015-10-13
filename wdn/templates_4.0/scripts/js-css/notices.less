@@ -1,0 +1,168 @@
+@import "../../less/_mixins/all.less";
+
+.colorize-notice(@color) {
+    background-color: @color;
+    .transition(background ease-out 0.2s);
+
+    &:hover {
+        background-color: darken(@color, 2%);
+
+        .message:before {
+            color: darken(@color, 15%);
+        }
+    }
+
+    .message:before {
+        color: darken(@color, 10%);
+    }
+}
+
+.wdn_notice {
+    margin-bottom: 1em;
+    border-radius: 3px;
+    padding: 1em 1em 0.75em;
+    box-shadow: 0 1px 1px 0 fadeout(#000, 50%);
+    .colorize-notice(@triad);
+
+    .close {
+        color: #fff;
+        
+        a, a:hover {
+            color: #fff;
+        }
+    }
+
+    .message {
+        position: relative;
+        padding: 0 0 0 4.1538em;
+        color: #fff;
+
+        @media @bp2 {
+            padding: 0 0 0 4.209em;
+        }
+
+        * {
+            margin: 0;            
+            color: inherit;
+        }
+
+        h4, .title {
+        	// match .wdn-sans-caps
+            .sans-serif-font;
+		    line-height: 1.333;
+		    text-transform: uppercase;
+		    letter-spacing: 0.02em;  
+    		font-size: inherit;
+        }
+
+        &:before {
+            position: absolute;
+            top: 0.1em;
+            left: 0;
+            width: 41px;
+            height: 41px;
+            .rem(30,38);
+            line-height: normal;
+            text-align: center;
+            font-family: wdn-icon;
+            content: "\e807";
+
+            @media @bp2 {
+                width: 54px;                
+            }
+        }
+    }
+
+    &.affirm {
+        .colorize-notice(@complement);
+
+        .message:before {
+            content: "\e80b";
+        }
+    }
+
+    &.negate {
+        .colorize-notice(@brand);
+
+        .message:before {
+            content: "\e805";
+        }
+    }
+
+    &.alert {
+        .colorize-notice(@energetic);
+
+        .message:before {
+            content: "\e806";
+        }
+    }
+
+    .close, .minimize, .maximize {
+        float: right;
+
+        &:before {
+            position: absolute;
+            line-height: normal;
+            font-family: wdn-icon;
+        }
+
+        a, a:hover {
+            width: 16px;
+            height: 16px;
+            text-indent: -2000em;
+            display: block;
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .close {
+
+        &:before {
+            content: "\e805";
+        }
+
+        a, a:hover {
+            border: none;
+        }
+    }
+
+    .minimize {
+
+        &:before {
+            content: "\e80d";
+        }
+    }
+
+    .maximize {
+
+        &:before {
+            content: "\e80c";
+        }
+    }
+
+    &.overlay {
+        position: absolute;
+        left: @mobile-pad;
+        right: @mobile-pad;
+        top: 51px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 50rem;
+        z-index: (@nav-z-index + 2); // above nav
+        text-align: left;
+        
+        @media @bp3 {
+        	left: 0;
+        	right: 0;
+        }
+        
+        // override the core max-width to be slimmer
+        #maincontent > & {
+	        margin-left: auto;
+	        margin-right: auto;
+        	max-width: 50rem;
+        }
+    }
+}

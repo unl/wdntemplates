@@ -1,4 +1,9 @@
-define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment) {
+define([
+	'wdn',
+	'jquery',
+	'moment',
+	'css!js-css/events-band'
+], function(WDN, $, moment) {
     var getLocalEventSettings = function() {
         var $eventLink = $('link[rel=events]'),
             eventParams = WDN.getPluginParam('events');
@@ -76,7 +81,6 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
         localConfig = $.extend({}, defaultConfig, config);
 
         if (localConfig.url && $(localConfig.container).length) {
-            WDN.loadCSS(WDN.getTemplateFilePath('css/layouts/events-band.css', true, true));
             fetchEvents(localConfig);
         }
     };
@@ -90,7 +94,4 @@ define(['jquery', 'wdn', 'require', 'moment'], function($, WDN, require, moment)
 
         setup : setup
     };
-
 });
-
-

@@ -1,4 +1,9 @@
-define(['jquery', 'wdn', 'require'], function($, WDN, require) {
+define([
+	'jquery',
+	'plugins/rsswidget/jquery.vticker',
+	'plugins/rsswidget/jquery.zrssfeed',
+	'css!js-css/rsswidget'
+], function($) {
 	var initd = false;
 	
     var Plugin = {
@@ -32,17 +37,9 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				}
 		    }
 		    
-		    if (!initd) {
-		    	WDN.loadCSS(WDN.getTemplateFilePath('css/modules/rsswidget.css', true, true));
-		    	WDN.loadJQuery(function() {
-		    		require(['plugins/rsswidget/jquery.zrssfeed.min'], function() {
-		    			initd = true;
-		    			Plugin.setup(configs);
-		    		});
-		    	});
-		    } else {
+		    $(function() {
 		    	Plugin.setup(configs);
-		    }
+		    });
 		},
 		
 		setup : function(configs) {

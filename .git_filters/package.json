@@ -1,0 +1,7 @@
+{
+  "name": "git-filters",
+  "description": "Smudge/Clean filters for git",
+  "main": "lib/git-filters.js",
+  "version": "0.1.0",
+  "license": "BSD-3-Clause"
+}

@@ -15,7 +15,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * You may contact the author by mail: jakob@php.net
- *
+ * 
  * Or write to:
  * Jakob Westhoff
  * Kleiner Floraweg 35
@@ -29,8 +29,18 @@
  * @version $Revision$
  * @license http://www.gnu.org/licenses/gpl-3.0.txt GPL
  */
-(function($) {
-
+(function(factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['jquery'], factory);
+    } else if (typeof module === 'object' && module.exports) {
+        factory(require('jquery'));
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function($) {
+    
     $.fn.activebar = function( options ) {
         // Merge the specified options with the default ones
         var options = $.fn.extend( {}, $.fn.activebar.defaults, options );
@@ -45,7 +55,7 @@
 
         // If the activebar is currently visible hide it
         $.fn.activebar.hide();
-
+        
         // Remove all elements from the activebar content, which might be there
         $( '.content', $.fn.activebar.container ).empty();
 
@@ -59,7 +69,7 @@
 
         // Add a new "gotoURL" function if one has been supplied
         if( options.url != null ) {
-            $.fn.activebar.container.click(
+            $.fn.activebar.container.click( 
                 function() {
                     window.location.href = options.url;
                 }
@@ -78,7 +88,7 @@
      */
     $.fn.activebar.defaults = {
         'background': 'InfoBackground',
-        'border': '#c8c8c8',
+        'border': '#c8c8c8', 
         'highlight': 'Highlight',
         'font': 'Bitstream Vera Sans,verdana,sans-serif',
         'fontColor': 'InfoText',
@@ -110,13 +120,13 @@
             // Already moving out or visible. Do Nothing.
             return;
         }
-
+        
         $.fn.activebar.state = 2;
         $.fn.activebar.container.css( 'display', 'block' );
-
+        
         var height = $.fn.activebar.container.height();
         $.fn.activebar.container.animate({
-            'top': '+=' + height + 'px'
+            'top': '+=' + height + 'px' 
         }, height * 20, 'linear', function() {
             $.fn.activebar.state = 3;
         });
@@ -135,7 +145,7 @@
 
         var height   = $.fn.activebar.container.height();
         $.fn.activebar.container.animate({
-            'top': '-=' + height + 'px'
+            'top': '-=' + height + 'px' 
         }, height * 20, 'linear', function() {
             $.fn.activebar.container.css( 'display', 'none' );
             $.fn.activebar.visible = false;
@@ -152,14 +162,14 @@
      function initializeActivebar( options ) {
         // Create the container object
         var container = $( '<div></div>' ).attr( 'id', 'activebar-container' );
-
+        
         // Set the needed css styles
         container.css({
             'display': 'none',
             'position': 'fixed',
             'zIndex': '9999',
             'top': '0px',
-            'left': '0px',
+            'left': '0px',            
             'cursor': 'pointer'
         });
 
@@ -170,7 +180,7 @@
 
         // Set the initial bar width
         $(window).trigger( 'resize' );
-
+        
         // The IE prior to version 7.0 does not support position fixed. However
         // the correct behaviour can be emulated using a hook to the scroll
         // event. This is a little choppy, but it works.
@@ -190,11 +200,11 @@
                         container.css( 'top', ( $( window ).scrollTop() - container.height() ) + 'px' );
                     }
                 }
-            );
+            ); 
         }
 
         // Add the icon container
-        container.append(
+        container.append( 
             $( '<div></div>' ).attr( 'class', 'icon' )
                               .css({
                                 'float': 'left',
@@ -205,7 +215,7 @@
         );
 
         // Add the close button
-        container.append(
+        container.append( 
             $( '<div></div>' ).attr( 'class', 'close' )
                               .css({
                                 'float': 'right',
@@ -213,16 +223,16 @@
                                 'width': '16px',
                                 'height': '16px'
                               })
-                              .click(
+                              .click( 
                                 function(event) {
                                     $.fn.activebar.hide();
                                     event.stopPropagation();
                                 }
                               )
         );
-
+       
         // Create the initial content container
-        container.append(
+        container.append( 
             $( '<div></div>' ).attr( 'class', 'content' )
                               .css({
                                 'margin': '8px 28px 4px 28px'
@@ -242,11 +252,11 @@
             'background': options.background,
             'borderBottom': '1px solid ' + options.border
          });
-
+        
         // Register functions to change between normal and highlight background
         // color on mouseover
         container.unbind( 'mouseenter mouseleave' );
-        container.hover(
+        container.hover( 
             function() {
                 $(this).css( 'backgroundColor', options.highlight );
             },
@@ -260,14 +270,14 @@
 
         // Set the close button image
         $( '.close', container ).css( 'background', 'transparent url( \'' + options.button + '\' ) top left no-repeat' );
-
+        
         // Set the content font styles
         $( '.content', container ).css({
             'color': options.fontColor,
             'fontFamily': options.font,
             'fontSize': options.fontSize,
             'lineHeight': 'normal'
-        });
+        });                              
      };
 
-})(WDN.jQuery);
+}));

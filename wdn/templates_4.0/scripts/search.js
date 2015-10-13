@@ -7,6 +7,8 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 
 		return false;
 	}
+	
+	var initd = false;
 
 	var isFullNav = function() {
 		return Modernizr.mq('(min-width: 700px)') || !Modernizr.mq('only all');
@@ -14,6 +16,11 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 
 	return {
 		initialize : function() {
+			if (initd) {
+				return;
+			}
+			initd = true;
+
 			$(function() {
 				var domQ = $('#wdn_search_query'),
 					domSearchForm = $('#wdn_search_form'),

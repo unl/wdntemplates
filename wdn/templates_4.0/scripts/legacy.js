@@ -28,7 +28,7 @@ define(['jquery', 'wdn', 'require', 'modernizr'], function($, WDN, require, Mode
 	xpCookieLifetime = 14 * 24 * 60 * 60, // 14 days in seconds
 	msgs = {
 		'windowsxp': window.navigator.userAgent.match(reXPAgent) && !WDN.getCookie(xpCookie),
-		'oldie': $html.hasClass('ie6') || $html.hasClass('ie7')
+		'oldie': $html.hasClass('ie6') || $html.hasClass('ie7') || $html.hasClass('ie8')
 	},
 	showBar = function() {
 		for (var i in msgs) {
@@ -41,8 +41,8 @@ define(['jquery', 'wdn', 'require', 'modernizr'], function($, WDN, require, Mode
 	}();
 
 	if (showBar) {
-		WDN.loadJQuery(function() {
-			require(['plugins/activebar/activebar2'], function() {
+		require(['plugins/activebar/activebar2'], function() {
+			$(function() {
 				var cnt = $('<div/>'), content = [],
 				url, tempCnt, xpGo, afterActivebar = function() {},
 				go = function() {

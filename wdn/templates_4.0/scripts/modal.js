@@ -1,29 +1,12 @@
-define(['wdn', 'require'], function(WDN, require) {
-	var pluginPath = 'plugins/colorbox/', initd = false;
-	
+define([
+	'jquery',
+	'plugins/colorbox/jquery.colorbox',
+	'css!plugins/colorbox/css/colorbox'
+], function($) {
     return {
         initialize : function(callback) {
-            // Colorbox CSS MUST load before the plugin script
-        	var ready = function() {
-        		initd = true;
-        		
-            	WDN.loadJQuery(function() {
-            		var min = '', body = document.getElementsByTagName('body');
-        			if (!body.length || !body[0].className.match(/(^|\s)debug(\s|$)/)) {
-        				min = '-min';
-        			}
-            		require(['./' + pluginPath + 'jquery.colorbox' + min], function() {
-            			WDN.jQuery.colorbox.settings.className = 'wdn-main';
-            			callback();
-            		});
-            	});
-            };
-            
-            if (!initd) {
-            	WDN.loadCSS(WDN.getTemplateFilePath('scripts/' + pluginPath + 'css/colorbox.css', true, true), ready);
-            } else {
-            	ready();
-            }
+			$.colorbox.settings.className = 'wdn-main';
+			$(callback);
         }
     };
 });
