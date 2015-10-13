@@ -246,7 +246,7 @@ module.exports = function (grunt) {
     			commitFiles: ['package.json', 'VERSION_DEP'],
     			tagName: '%VERSION%',
     			tagMessage: 'Release %VERSION%',
-    			regExp: new RegExp('([\'|\"]?version[\'|\"]?[ ]*:[ ]*[\'|\"]?)?(\\d+\\.\\d+\\.\\d+(-\\.\\d+)?(-\\d+)?)[\\d||A-a|.|-]*([\'|\"]?)', 'i')
+				regExp: /((?:['"]?version['"]?\s*:\s*['"]?)?)(\d+\.\d+\.\d+(-dev\.\d+)?(-\d+)?)[\dA-a.-]*(['"]?)/i
     		}
     	},
     	
