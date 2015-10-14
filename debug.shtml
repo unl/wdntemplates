@@ -6,22 +6,22 @@
 <!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
 <!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
 <head>
-<!--#include virtual="/wdn/templates_4.0/includes/metanfavico.html" -->
+<!--#include virtual="/wdn/templates_4.1/includes/metanfavico.html" -->
 <!--
     Membership and regular participation in the UNL Web Developer Network
-    is required to use the UNL templates. Visit the WDN site at 
+    is required to use the UNL templates. Visit the WDN site at
     http://wdn.unl.edu/. Click the WDN Registry link to log in and
     register your unl.edu site.
     All UNL template code is the property of the UNL Web Developer Network.
-    The code seen in a source code view is not, and may not be used as, a 
-    template. You may not use this code, a reverse-engineered version of 
+    The code seen in a source code view is not, and may not be used as, a
+    template. You may not use this code, a reverse-engineered version of
     this code, or its associated visual presentation in whole or in part to
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
-    
+
     $Id: debug.dwt | 252c2891a48c70db689be6d897d4f34768b8258a | Thu Aug 1 15:08:19 2013 -0500 | Kevin Abel  $
 -->
-<!--#include virtual="/wdn/templates_4.0/includes/scriptsandstyles_debug.html" -->
+<!--#include virtual="/wdn/templates_4.1/includes/scriptsandstyles_debug.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>Debugging Out | WDN Testing Page | University of Nebraska&ndash;Lincoln</title>
 <!-- InstanceEndEditable -->
@@ -30,22 +30,22 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="debug" -->
 </head>
-<body class="debug" data-version="4.0">
-    <!--#include virtual="/wdn/templates_4.0/includes/skipnav.html" -->
+<body class="debug" data-version="4.1">
+    <!--#include virtual="/wdn/templates_4.1/includes/skipnav.html" -->
     <div id="wdn_wrapper">
         <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" />
-        <!--#include virtual="/wdn/templates_4.0/includes/noscript-padding.html" -->
+        <!--#include virtual="/wdn/templates_4.1/includes/noscript-padding.html" -->
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
-            <!--#include virtual="/wdn/templates_4.0/includes/wdnResources.html" -->
+            <!--#include virtual="/wdn/templates_4.1/includes/wdnResources.html" -->
             <div class="wdn-inner-wrapper">
-                <!--#include virtual="/wdn/templates_4.0/includes/logo.html" -->
+                <!--#include virtual="/wdn/templates_4.1/includes/logo.html" -->
                 <div id="wdn_resources">
-                    <!--#include virtual="/wdn/templates_4.0/includes/idm.html" -->
-                    <!--#include virtual="/wdn/templates_4.0/includes/wdnTools.html" -->
+                    <!--#include virtual="/wdn/templates_4.1/includes/idm.html" -->
+                    <!--#include virtual="/wdn/templates_4.1/includes/wdnTools.html" -->
                 </div>
                 <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
             </div>
-            <!--#include virtual="/wdn/templates_4.0/includes/apps.html" -->
+            <!--#include virtual="/wdn/templates_4.1/includes/apps.html" -->
             <div class="wdn-inner-wrapper">
                 <div id="wdn_site_title">
                     <span><!-- InstanceBeginEditable name="titlegraphic" -->
@@ -96,35 +96,35 @@
                 <!-- InstanceBeginEditable name="maincontentarea" -->
                 <div class="wdn-band wdn-light-triad-band">
                     <div class="wdn-inner-wrapper">
-                        <a href="#" class="wdn-button">This is my button</a> 
-                        <a href="#" class="wdn-button wdn-button-triad">This is my button</a> 
-                        <a href="#" class="wdn-button wdn-button-complement">This is my button</a> 
-                        <a href="#" class="wdn-button wdn-button-brand">This is my button</a> 
-                        <a href="#" class="wdn-button wdn-button-energetic">This is my button</a>  
+                        <a href="#" class="wdn-button">This is my button</a>
+                        <a href="#" class="wdn-button wdn-button-triad">This is my button</a>
+                        <a href="#" class="wdn-button wdn-button-complement">This is my button</a>
+                        <a href="#" class="wdn-button wdn-button-brand">This is my button</a>
+                        <a href="#" class="wdn-button wdn-button-energetic">This is my button</a>
                     </div>
                 </div>
                 <div class="wdn-band wdn-light-complement-band ">
                     <div class="wdn-inner-wrapper">
-                        <a href="#" class="wdn-button">This is my button</a> 
-                        <a href="#" class="wdn-button wdn-button-triad">This is my button</a> 
-                        <a href="#" class="wdn-button wdn-button-complement">This is my button</a> 
-                        <a href="#" class="wdn-button wdn-button-brand">This is my button</a> 
-                        <a href="#" class="wdn-button wdn-button-energetic">This is my button</a>  
+                        <a href="#" class="wdn-button">This is my button</a>
+                        <a href="#" class="wdn-button wdn-button-triad">This is my button</a>
+                        <a href="#" class="wdn-button wdn-button-complement">This is my button</a>
+                        <a href="#" class="wdn-button wdn-button-brand">This is my button</a>
+                        <a href="#" class="wdn-button wdn-button-energetic">This is my button</a>
                     </div>
                 </div>
                 <div class="wdn-band wdn-light-neutral-band ">
                     <div class="wdn-inner-wrapper">
-                        <a href="#" class="wdn-button">This is my button</a> 
-                        <a href="#" class="wdn-button wdn-button-triad">This is my button</a> 
-                        <a href="#" class="wdn-button wdn-button-complement">This is my button</a> 
-                        <a href="#" class="wdn-button wdn-button-brand">This is my button</a> 
-                        <a href="#" class="wdn-button wdn-button-energetic">This is my button</a>  
+                        <a href="#" class="wdn-button">This is my button</a>
+                        <a href="#" class="wdn-button wdn-button-triad">This is my button</a>
+                        <a href="#" class="wdn-button wdn-button-complement">This is my button</a>
+                        <a href="#" class="wdn-button wdn-button-brand">This is my button</a>
+                        <a href="#" class="wdn-button wdn-button-energetic">This is my button</a>
                     </div>
                 </div>
                 <div class="wdn-band wdn-band-neutral-seperator wdn-light-neutral-band">
                     <div class="wdn-inner-wrapper">
                         <blockquote class="wdn-quote">
-                            Color does not add a pleasant quality to design - it reinforces it. 
+                            Color does not add a pleasant quality to design - it reinforces it.
                             <cite class="wdn-quoter">
                                 Pierre Bonnard <span class="quoter-context">Awesome painter and printmaker</span>
                             </cite>
@@ -187,7 +187,7 @@
 
                         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
 
-                        <h2>Vinyl bitters banjo, meggings forage Terry Richardson kogi pug beard aesthetic kitsch whatever selvage. <span class="wdn-subhead">Roof party freegan lomo</span></h2>                        
+                        <h2>Vinyl bitters banjo, meggings forage Terry Richardson kogi pug beard aesthetic kitsch whatever selvage. <span class="wdn-subhead">Roof party freegan lomo</span></h2>
 
                         <p>Distillery XOXO Pinterest before they sold out single-origin coffee ugh, ethical small batch organic gentrify VHS. Kale chips mixtape master cleanse jean shorts Echo Park. Meggings Banksy umami, +1 you probably haven't heard of them cliche gastropub keytar Neutra.</p>
 
@@ -253,15 +253,15 @@
                             <!-- InstanceBeginEditable name="footercontent" -->
                             <!--#include virtual="sharedcode/footer.html" -->
                             <!-- InstanceEndEditable -->
-                            <!--#include virtual="/wdn/templates_4.0/includes/wdn.html" -->
+                            <!--#include virtual="/wdn/templates_4.1/includes/wdn.html" -->
                         </div>
-                    <!--#include virtual="/wdn/templates_4.0/includes/logos.html" -->
+                    <!--#include virtual="/wdn/templates_4.1/includes/logos.html" -->
                     </div>
                 </div>
             </div>
-            <!--#include virtual="/wdn/templates_4.0/includes/footer_floater.html" -->
+            <!--#include virtual="/wdn/templates_4.1/includes/footer_floater.html" -->
         </footer>
-        <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
+        <!--#include virtual="/wdn/templates_4.1/includes/noscript.html" -->
     </div>
 </body>
 <!-- InstanceEnd --></html>
