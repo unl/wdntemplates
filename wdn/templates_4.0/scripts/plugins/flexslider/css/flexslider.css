@@ -34,32 +34,6 @@
   text-transform: capitalize;
 }
 /* ====================================================================================================================
- * BASE STYLES
- * ====================================================================================================================*/
-.flexslider {
-  margin: 0;
-  padding: 0;
-}
-.flexslider .slides > li {
-  display: none;
-  -webkit-backface-visibility: hidden;
-}
-.flexslider .slides img {
-  width: 100%;
-  display: block;
-}
-.flexslider .slides:after {
-  content: "\0020";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0;
-}
-.no-js .flexslider .slides > li:first-child {
-  display: block;
-}
-/* ====================================================================================================================
  * DEFAULT THEME
  * ====================================================================================================================*/
 .flexslider {
@@ -97,7 +71,8 @@
   color: rgba(0, 0, 0, 0.8);
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease-in-out;
-  border: 0;
+  line-height: 1
+  border: 0 !important;
 }
 .flex-direction-nav a:before {
   font-family: "flexslider-icon";
@@ -177,20 +152,18 @@
   height: 11px;
   display: block;
   background: #666;
-  background: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   text-indent: -9999px;
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   border: 0;
+  color: #fff;
 }
 .flex-control-paging li a:hover {
   background: #333;
-  background: rgba(0, 0, 0, 0.7);
 }
 .flex-control-paging li a.flex-active {
   background: #000;
-  background: rgba(0, 0, 0, 0.9);
   cursor: default;
 }
 .flex-control-thumbs {
