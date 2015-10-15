@@ -7,11 +7,7 @@
  * http://www.gnu.org/licenses/gpl-2.0.html
  *
  * Contributing author: Tyler Smith (@mbmufffin)
- * 
- */
- /*
-	WDN CHANGES NOTE:
-	- added line-height and border overrides on direction-nav
+ *
  */
 /* ====================================================================================================================
  * FONT-FACE
@@ -60,12 +56,6 @@
   line-height: 0;
   height: 0;
 }
-html[xmlns] .flexslider .slides {
-  display: block;
-}
-* html .flexslider .slides {
-  height: 1%;
-}
 .no-js .flexslider .slides > li:first-child {
   display: block;
 }
@@ -75,20 +65,12 @@ html[xmlns] .flexslider .slides {
 .flexslider {
   margin: 0 0 60px;
   position: relative;
-  zoom: 1;
-}
-.flexslider .slides {
-  zoom: 1;
 }
 .flexslider .slides img {
   height: auto;
 }
 .flex-viewport {
   max-height: 2000px;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
   transition: all 1s ease;
 }
 .loading .flex-viewport {
@@ -98,9 +80,9 @@ html[xmlns] .flexslider .slides {
   margin-right: 5px;
 }
 .flex-direction-nav {
-  *height: 0;
+
 }
-.flex-direction-nav li a {
+.flex-direction-nav a {
   text-decoration: none;
   display: block;
   width: 40px;
@@ -114,12 +96,7 @@ html[xmlns] .flexslider .slides {
   cursor: pointer;
   color: rgba(0, 0, 0, 0.8);
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  line-height: 1;
   border: 0;
 }
 .flex-direction-nav a:before {
@@ -156,7 +133,6 @@ html[xmlns] .flexslider .slides {
 }
 .flex-direction-nav .flex-disabled {
   opacity: 0!important;
-  filter: alpha(opacity=0);
   cursor: default;
 }
 .flex-pauseplay a {
@@ -204,12 +180,7 @@ html[xmlns] .flexslider .slides {
   background: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   text-indent: -9999px;
-  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
-  -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
   border-radius: 20px;
   border: 0;
 }
@@ -238,10 +209,6 @@ html[xmlns] .flexslider .slides {
   display: block;
   opacity: .7;
   cursor: pointer;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
   transition: all 1s ease;
 }
 .flex-control-thumbs img:hover {
