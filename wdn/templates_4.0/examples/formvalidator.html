@@ -7,9 +7,9 @@
 <body data-version="4.0">
     <div id="example-code">
 <script type="text/javascript">
-WDN.initializePlugin('form_validation', [function() {
-    WDN.jQuery.validation.addMethod('validate-confirm-email', 'This field must match the value of the email field.', {equalToField:'#email'});
-	WDN.jQuery('#myform').validation({immediate: true});
+WDN.initializePlugin('form_validation', [function($) {
+    $.validation.addMethod('validate-confirm-email', 'This field must match the value of the email field.', {equalToField:'#email'});
+	$('#myform').validation({immediate: true});
 }]);
 </script>
 <h3>Important Survey</h3>
