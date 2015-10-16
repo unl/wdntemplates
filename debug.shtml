@@ -55,10 +55,9 @@
                 </div>
             </div>
         </header>
-        <div id="wdn_navigation_bar" role="navigation" class="wdn-band">
-            <nav id="breadcrumbs" class="wdn-inner-wrapper">
+        <div id="wdn_navigation_bar" class="wdn-band">
+            <nav id="breadcrumbs" role="navigation" aria-label="breadcrumbs" class="wdn-inner-wrapper">
                 <!-- WDN: see glossary item 'breadcrumbs' -->
-                <h3 class="wdn_list_descriptor wdn-text-hidden">Breadcrumbs</h3>
                 <!-- InstanceBeginEditable name="breadcrumbs" -->
                 <ul>
                     <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln" class="wdn-icon-home">UNL</a></li>
@@ -68,8 +67,7 @@
                 <!-- InstanceEndEditable -->
             </nav>
             <div id="wdn_navigation_wrapper">
-                <nav id="navigation" role="navigation" class="wdn-band">
-                    <h3 class="wdn_list_descriptor wdn-text-hidden">Navigation</h3>
+                <nav id="navigation" role="navigation" aria-label="main navigation" class="wdn-band">
                     <!-- InstanceBeginEditable name="navlinks" -->
                     <!--#include virtual="sharedcode/navigation.html" -->
                     <!-- InstanceEndEditable -->
