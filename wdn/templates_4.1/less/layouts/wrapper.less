@@ -4,3 +4,56 @@
 .wdn-input-driver {
     display: none;
 }
+
+// variables for margin/padding values
+@x-default: 5%;
+@x-480: 6%;
+@x-640: 8%;
+@x-768: 9%;
+@x-960: 10%;
+@x-1280: 12.5%;
+@x-1600: 16%;
+
+// adds margin/padding based on values defined above
+.inner-wrapper-setup(@property) {
+	@{property}-left: @x-default;
+	@{property}-right: @x-default;
+
+	@media @bp480 {
+		@{property}-left: @x-480;
+		@{property}-right: @x-480;
+	}
+
+	@media @bp640 {
+		@{property}-left: @x-640;
+		@{property}-right: @x-640;
+	}
+
+	@media @bp768 {
+		@{property}-left: @x-768;
+		@{property}-right: @x-768;
+	}
+
+	@media @bp960 {
+		@{property}-left: @x-960;
+		@{property}-right: @x-960;
+	}
+
+	@media @bp1280 {
+		@{property}-left: @x-1280;
+		@{property}-right: @x-1280;
+	}
+
+	@media @bp1600 {
+		@{property}-left: @x-1600;
+		@{property}-right: @x-1600;
+	}
+}
+
+.inner-wrapper-margin() {
+	.inner-wrapper-setup(e(%("margin")));
+}
+
+.inner-wrapper-padding() {
+	.inner-wrapper-setup(e(%("padding")));
+}
