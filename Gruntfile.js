@@ -169,6 +169,7 @@ module.exports = function (grunt) {
     });
 
     // common variables for task configuration
+	var autoprefixPlugin = new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]});
     var lessPluginCleanCss = new (require('less-plugin-clean-css'))();
     var gitFilters = require('./.git_filters/lib/git-filters.js');
 
@@ -196,6 +197,7 @@ module.exports = function (grunt) {
     			options: {
     				paths: ['./wdn/templates_4.1/less'],
     				plugins: [
+						autoprefixPlugin,
 						lessPluginCleanCss
 					]
     			},
