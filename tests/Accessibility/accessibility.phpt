@@ -40,7 +40,7 @@ class AccessibilityTester {
             '-r json ' .
             '-s WCAG2AA ' .
             '--config ' . dirname(__FILE__) . '/pa11y.json ' . 
-            '-c "http://webaudit.unl.edu/plugins/metric_pa11y/html_codesniffer/build/HTMLCS.js" ' .
+            '--htmlcs "http://webaudit.unl.edu/plugins/metric_pa11y/html_codesniffer/build/HTMLCS.js" ' .
             escapeshellarg($url);
         $errors  = array();
 
@@ -76,12 +76,12 @@ class AccessibilityTester {
             return false;
         }
     
-        foreach ($data['results'] as $result) {
+        foreach ($data as $result) {
             if ($result['type'] != 'error') {
                 continue;
             }
     
-            $errors[] = $result['code'];
+            $errors[] = $result['code'] . ' -- ' . $result['context'];
         }
     
         return $errors;

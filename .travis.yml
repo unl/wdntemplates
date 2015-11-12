@@ -5,6 +5,7 @@ before_install:
    # configure apache virtual hosts
    - sudo apt-get update
    - sudo apt-get install apache2
+   - sudo apt-get install php5-curl
    - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
    - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
    - sudo a2enmod include
@@ -13,16 +14,15 @@ before_install:
    - sudo service apache2 restart
 before_script: 
    # install `pa11y`
-   - npm --prefix ./build install pa11y
+   - npm install
+   - npm install pa11y
+   - npm install grunt-cli
    # build the templates
-   - make
+   - ./node_modules/grunt-cli/bin/grunt
    # import test dependencies
    - cd build
    - composer install --prefer-source
    - cd ../
-   # make `#!/usr/bin/env node` work -- used in pa11y
-   - sudo ln -s `which node` /usr/local/bin/node
-   - sudo ln -s `pwd`/build/node_modules/.bin/pa11y /usr/local/bin/pa11y
 script: ./tests/run-tests.sh
 branches:
   only:

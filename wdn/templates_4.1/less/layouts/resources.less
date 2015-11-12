@@ -1,0 +1,61 @@
+/*
+* WDN Resources Wrapper
+*/
+
+.wdn-resource-app-trigger {
+    display: none;
+}
+
+.wdn-resource-label {
+//     .brand-font();
+//     text-transform: uppercase;
+	.wdn-sans-serif();
+    .rem(10,12);
+
+    @media @bp-nav-full {
+        cursor: pointer;
+    }
+
+    [class^=wdn-icon] {
+        text-decoration: none;
+        cursor: pointer;
+
+        &:before {
+            font-size: 1em;
+        }
+    }
+}
+
+#wdn_resources {
+
+	@media @bp-nav-full {
+		flex: 1; // WDN Resources occupy all space not used by institution title
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: flex-end;
+		align-items: center;
+	}
+}
+
+@media @bp-nav-full {
+
+
+    .wdn-resource-label {
+//         float: left;
+//         margin-top: 0.254em;
+//         padding: 0.1em 0.451em;
+// 		padding: 0 1em;
+
+        [class^=wdn-icon] {
+            color: @brand;
+
+            &:before {
+                font-size: 1em;
+            }
+
+            &:hover {
+                color: darken(@brand, 10%);
+            }
+        }
+    }
+}

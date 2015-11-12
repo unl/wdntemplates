@@ -1,0 +1,61 @@
+@media @bp-nav-hidden {
+    .wdn-resource-login-trigger {
+		.nav-scrolling & {
+			position: fixed;
+			top: 0;
+			z-index: (@nav-z-index + 1);
+            -webkit-font-smoothing: subpixel-antialiased;
+			transition:right @nav-transition-duration ease; // lesshat
+		}
+
+		.nav-scrolling #wdn_menu_toggle:checked ~ .wdn-content-slide & {
+			right: -@nav-width;
+		}
+    }
+}
+
+.loggedin {
+
+    &.wdn-resource-login-trigger {
+		margin-right: 0;
+	}
+
+	#wdn_idm_username {
+
+		@media @bp-nav-hidden {
+			padding-right: 4.499em;
+
+			&:hover {
+
+				~ #wdn_idm_logout {
+					display: block;
+				}
+			}
+		}
+	}
+
+	#wdn_idm_logout {
+
+		@media @bp-nav-hidden {
+
+		    &:hover {
+		    	display: block;
+		    }
+		}
+
+		@media @bp-nav-full {
+	    	display: inline;
+			position: static;
+			background-color: transparent;
+		}
+	}
+
+    #wdn_idm_username {
+    	background-position: right center;
+    	background-size: contain;
+
+	    &:before {
+	    	content: "";
+		}
+	}
+}

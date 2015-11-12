@@ -188,6 +188,7 @@ php:
             - intl
             - mcrypt
             - tidy
+            - curl
         pear: {  }
         pecl:
             - pecl_http

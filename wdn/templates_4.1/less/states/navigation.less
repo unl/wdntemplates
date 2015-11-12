@@ -1,0 +1,122 @@
+.skipnav {
+    a:focus, a:active {
+        left: 0;
+        padding: 0.5em;
+        line-height: 1;
+        .nav-bar;
+    }
+}
+
+#navigation {
+    a {
+        &:hover {
+            color: #fff;
+
+            @media @bp-nav-hidden {
+                background-color: @ui11;
+            }
+
+            @media @bp-nav-full {
+                background-color: darken(@brand,8%);
+            }
+        }
+    }
+}
+
+@media @bp-nav-hidden {
+    .nav-scrolling #header {
+       margin-bottom: 31px // maintain whitespace reserved by fixed trigger
+    }
+
+    .nav-scrolling .wdn-menu-trigger {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: @nav-z-index;
+        border: none;
+        -webkit-font-smoothing: subpixel-antialiased;
+    }
+
+    #wdn_menu_toggle:checked { // Change states when toggle is checked
+
+        ~ .wdn-content-slide, ~ noscript .wdn-content-slide {
+            left: @nav-width;
+        }
+
+        ~ #wdn_navigation_bar {
+            left: 0;
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
+    }
+}
+
+@media @bp-nav-full {
+    #wdn_menu_toggle:checked ~ #wdn_navigation_bar { // Change states when toggle is checked
+        #navigation li ul {
+            height: auto;
+            margin-bottom: 5px;
+        }
+
+        .empty-secondary #navigation li ul {
+        	margin-bottom: 0;
+        }
+    }
+
+    .js { // fouc-fixes
+        #wdn_navigation_bar {
+            visibility: hidden;
+        }
+
+        .nav_ready #wdn_navigation_bar {
+            visibility: visible;
+        }
+    }
+
+    #navigation {
+        .js & {
+            position: absolute;
+
+            li ul {
+                height: auto;
+            }
+        }
+
+        .nav-scrolling & {
+            position: fixed;
+            top: 0;
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
+
+        li ul {
+            .nav_ready & {
+                transition: height linear @nav-transition-duration, margin @nav-transition-duration linear; // lesshat
+            }
+
+            .nav_collapsed & {
+                height: 0 !important;
+            }
+
+            .nav_expanded & {
+                margin-bottom: 5px; // duplicated from checked for transition and IE 8
+            }
+        }
+
+        &.pause li ul {
+            transition: none; // lesshat
+        }
+
+        > ul {
+            > li:hover {
+                background-color: darken(@brand,4%);
+            }
+
+            li {
+                display: block;
+
+                a {
+                    background-image: none;
+                }
+            }
+        }
+    }
+}

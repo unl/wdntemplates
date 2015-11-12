@@ -1,0 +1,106 @@
+.wdn-resource-login-trigger  {
+	display: inline-block;
+    position: relative;
+    .rem(12);
+
+    @media @bp-nav-hidden {
+        position: absolute;
+        top: 103px; // position over the nav bar
+        right: 0;
+		.inner-wrapper-margin-right();
+        z-index: (@nav-z-index + 1); // overlay the nav bar
+        text-align: right;
+
+        a {
+            color: #fae8e8;
+            background-color: @brand; // make the background match the navigation's background so it passes automated accessibility tests
+        }
+    }
+
+    a {
+	    display: block;
+	    height: 40px;
+	    padding-top: 1em;
+
+	    @media @bp-nav-full {
+		    display: inline-block;
+	    }
+    }
+}
+
+#wdn_idm_logout {
+    display: none;
+    position: absolute;
+    right: 1em;
+	padding: 0.802em 1.069em 1.069em;
+	text-align: left;
+	.wdn-sans-serif();
+	.rem(12);
+	color: @ui05;
+	background-color: @ui10;
+	background-color: fadeout(@ui10, 3%);
+	border-radius: 3px;
+    z-index: 1;
+
+    @media @bp-nav-full {
+		color: @brand;
+//         left: 0;
+//         right: auto;
+//         background-color: #f8f5ec;
+//         border-bottom: 2px solid darken(#f8f5ec, 15%);
+    }
+
+	&:before {
+        content: '';
+        position: absolute;
+        top: -6px;
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid @ui10;
+        border-bottom: 6px solid fadeout(@ui10, 3%);
+
+        @media @bp-nav-full {
+
+        }
+    }
+
+	&:hover {
+		color: @cream;
+	}
+
+    a {
+        text-decoration: none;
+        display: block;
+        padding: 0.5em 1em;
+		color: #fff;
+
+		@media @bp-nav-full {
+
+		}
+
+// 		&:hover {
+//             background-color: rgba(255, 255, 255, 0.2);
+//
+// 	        @media @bp-nav-full {
+// 	            background-color: darken(@page-background, 2%);
+// 	        }
+//         }
+    }
+}
+
+#wdn_idm_username {
+    background-repeat: no-repeat;
+    white-space: nowrap;
+
+    &:before {
+    	@media @bp-nav-hidden {
+	        vertical-align: middle;
+	    }
+
+	    @media @bp-nav-full {
+	        color: @ui06;
+	    }
+    }
+}

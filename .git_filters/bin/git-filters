@@ -1,0 +1,52 @@
+#!/usr/bin/env node
+
+var path = require('path'),
+    fs = require('fs'),
+    readline = require('readline');
+
+var gitFilters = require('../lib/git-filters');
+
+var args = process.argv.slice(1);
+
+// self executing function so we can return
+(function() {
+    var command = args[1];
+    if (!command) {
+    	process.stderr.write("git-filters: missing command\n\n");
+        process.exit(1);
+        return;
+    }
+    
+    if (command.charAt(0) === '_' || !(command in gitFilters)) {
+    	process.stderr.write("git-filters: invalid command: " + command + "\n\n");
+    	process.exit(1);
+        return;
+    }
+    
+    var input = args[2] || '-';
+    if (command === 'smudge') {
+		gitFilters._startSmudge(input);
+	}
+    
+    var processInputStream = function(err, inputStream) {
+    	if (err) {
+    		process.stderr.write("git-filters: " + err.message + "\n");
+    		process.exit(1);
+            return;
+    	}
+    	
+    	var rl = readline.createInterface({
+  		  input: inputStream
+  		});
+    	
+    	rl.on('line', function(line) {
+    		gitFilters[command].call(this, line);
+    	}).on('close', function() {
+    		process.exit(0);
+    	});
+    	
+    	rl.resume();
+    };
+    
+    processInputStream(false, process.stdin);
+})();
