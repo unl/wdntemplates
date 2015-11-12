@@ -84,6 +84,44 @@ li.@{grid-col-class} {
 
 .grid-setup(@grid-col-class, e(%("%s", @grid-set)));
 
+/* -- Breakpoint ~480px .bp480
+------------------------------------------------------------- */
+@media @bp480 {
+    .grid-setup(e(%("bp480-%s", @grid-col-class)), e(%("bp480-%s", @grid-set)));
+}
+
+/* -- Breakpoint ~640px .bp640
+------------------------------------------------------------- */
+@media @bp640 {
+    .grid-setup(e(%("bp640-%s", @grid-col-class)), e(%("bp640-%s", @grid-set)));
+}
+
+/* -- Breakpoint ~768px .bp768
+------------------------------------------------------------- */
+@media @bp768 {
+    .grid-setup(e(%("bp768-%s", @grid-col-class)), e(%("bp768-%s", @grid-set)));
+}
+
+/* -- Breakpoint ~960px .bp960
+------------------------------------------------------------- */
+@media @bp960 {
+    .grid-setup(e(%("bp960-%s", @grid-col-class)), e(%("bp960-%s", @grid-set)));
+}
+
+/* -- Breakpoint ~1280px .bp1280
+------------------------------------------------------------- */
+@media @bp1280 {
+    .grid-setup(e(%("bp1280-%s", @grid-col-class)), e(%("bp1280-%s", @grid-set)));
+}
+
+/* -- Breakpoint ~1600px .bp1600
+------------------------------------------------------------- */
+@media @bp1600 {
+    .grid-setup(e(%("bp1600-%s", @grid-col-class)), e(%("bp1600-%s", @grid-set)));
+}
+
+
+// Deprecated names
 /* -- Breakpoint 1 .bp1
 ------------------------------------------------------------- */
 @media @bp1 {
