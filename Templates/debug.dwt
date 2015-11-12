@@ -1,12 +1,7 @@
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="ie iem7"><![endif]-->
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
-<!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><![endif]-->
-<!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!--<![endif]-->
+<html class="no-js" lang="en"><!-- TemplateBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<!--#include virtual="/wdn/templates_4.0/includes/metanfavico.html" -->
+<!--#include virtual="/wdn/templates_4.1/includes/metanfavico.html" -->
 <!--
     Membership and regular participation in the UNL Web Developer Network
     is required to use the UNL templates. Visit the WDN site at
@@ -19,77 +14,70 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
 
-    $Id$
+    $Id: debug.dwt | 252c2891a48c70db689be6d897d4f34768b8258a | Thu Aug 1 15:08:19 2013 -0500 | Kevin Abel  $
 -->
-<!--#include virtual="/wdn/templates_4.0/includes/scriptsandstyles_debug.html" -->
+<!--#include virtual="/wdn/templates_4.1/includes/scriptsandstyles_debug.html" -->
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>Use a descriptive page title | Optional Site Title (use for context) | University of Nebraska&ndash;Lincoln</title>
 <!-- TemplateEndEditable -->
 <!-- TemplateBeginEditable name="head" -->
-<!-- Place optional header elements here -->
-
 <!-- TemplateEndEditable -->
 <!-- TemplateParam name="class" type="text" value="debug" -->
 </head>
-<body class="@@(_document['class'])@@" data-version="$HTML_VERSION$">
-    <!--#include virtual="/wdn/templates_4.0/includes/skipnav.html" -->
+<body class="debug" data-version="4.1">
+    <!--#include virtual="/wdn/templates_4.1/includes/skipnav.html" -->
     <div id="wdn_wrapper">
         <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" />
-        <!--#include virtual="/wdn/templates_4.0/includes/noscript-padding.html" -->
+        <!--#include virtual="/wdn/templates_4.1/includes/noscript-padding.html" -->
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
-            <!--#include virtual="/wdn/templates_4.0/includes/wdnResources.html" -->
-            <div class="wdn-inner-wrapper">
-                <!--#include virtual="/wdn/templates_4.0/includes/logo.html" -->
-                <div id="wdn_resources">
-                    <!--#include virtual="/wdn/templates_4.0/includes/idm.html" -->
-                    <!--#include virtual="/wdn/templates_4.0/includes/search.html" -->
-                </div>
-                <span id="wdn_institution_title">University of Nebraska&ndash;Lincoln</span>
-            </div>
-            <!--#include virtual="/wdn/templates_4.0/includes/share.html" -->
-            <div class="wdn-inner-wrapper">
-                <div id="wdn_site_title">
-                    <span><!-- TemplateBeginEditable name="titlegraphic" -->The Title of My Site<!-- TemplateEndEditable --></span>
-                </div>
-            </div>
+            <div id="wdn_header_top">
+                <span id="wdn_institution_title"><a href="http://www.unl.edu/">University of Nebraska&ndash;Lincoln</a></span>
+				<div id="wdn_resources">
+					<!--#include virtual="/wdn/templates_4.1/includes/wdnResources.html" -->
+                    <!--#include virtual="/wdn/templates_4.1/includes/idm.html" -->
+                    <!--#include virtual="/wdn/templates_4.1/includes/search.html" -->
+				</div>
+			</div>
+            <div id="wdn_logo_lockup">
+	            <div class="wdn-inner-wrapper">
+	                <!--#include virtual="/wdn/templates_4.1/includes/logo.html" -->
+                    <!-- TemplateBeginEditable name="titlegraphic" -->
+                    	<span id="wdn_site_affiliation">Optional (but encouraged) site affiliation</span>
+						<span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" -->The Title of My Site<!-- TemplateEndEditable --></span>
+                        <!-- TemplateEndEditable -->
+	            </div>
+			</div>
         </header>
         <div id="wdn_navigation_bar" class="wdn-band">
-            <nav id="breadcrumbs" role="navigation" aria-label="breadcrumbs" class="wdn-inner-wrapper">
-                <!-- WDN: see glossary item 'breadcrumbs' -->
+            <nav id="breadcrumbs" class="wdn-inner-wrapper" role="navigation" aria-label="breadcrumbs">
                 <!-- TemplateBeginEditable name="breadcrumbs" -->
                 <ul>
-                    <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln" class="wdn-icon-home">UNL</a></li>
-                    <li><a href="#" title="Site Title">Site Title</a></li>
+                    <li><a href="http://www.unl.edu/">UNL</a></li>
+                    <li><a href="#">Site Title</a></li>
                     <li>Home</li>
                 </ul>
                 <!-- TemplateEndEditable -->
             </nav>
             <div id="wdn_navigation_wrapper">
-                <nav id="navigation" role="navigation" aria-label="main navigation" class="wdn-band">
+                <nav id="navigation" role="navigation" aria-label="main navigation">
                     <!-- TemplateBeginEditable name="navlinks" -->
-                    <!--#include virtual="../sharedcode/navigation.html" -->
+                    <!--#include virtual="sharedcode/navigation.html" -->
                     <!-- TemplateEndEditable -->
                     <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
                 </nav>
             </div>
         </div>
-        <!-- Navigation Trigger -->
         <div class="wdn-menu-trigger wdn-content-slide">
             <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
+			<!--#include virtual="/wdn/templates_4.1/includes/share.html" -->
         </div>
-        <!-- End navigation trigger -->
-        <div id="wdn_content_wrapper" role="main" class="wdn-content-slide">
-            <div class="wdn-band">
-                <div class="wdn-inner-wrapper">
-                    <div id="pagetitle">
-                        <!-- TemplateBeginEditable name="pagetitle" -->
-                        <h1>Please Title Your Page Here</h1>
-                        <!-- TemplateEndEditable -->
-                    </div>
-                </div>
-            </div>
+        <main id="wdn_content_wrapper" role="main" class="wdn-content-slide" tabindex="-1">
             <div id="maincontent" class="wdn-main">
-                <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
+	            <div id="pagetitle">
+	                <!-- TemplateBeginEditable name="pagetitle" -->
+					<h1>Please Title Your Page Here</h1>
+	                <!-- TemplateEndEditable -->
+	            </div>
                 <!-- TemplateBeginEditable name="maincontentarea" -->
                 <div class="wdn-band">
                     <div class="wdn-inner-wrapper">
@@ -97,47 +85,32 @@
                     </div>
                 </div>
                 <!-- TemplateEndEditable -->
-                <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
-        </div>
-        <div class="wdn-band wdn-content-slide" id="wdn_optional_footer">
-            <div class="wdn-inner-wrapper">
-                <!-- TemplateBeginEditable name="optionalfooter" -->
-                <!-- TemplateEndEditable -->
-            </div>
-        </div>
+        </main>
         <footer id="footer" role="contentinfo" class="wdn-content-slide">
-            <div class="wdn-band" id="wdn_footer_related">
+	        <div id="wdn_optional_footer" class="wdn-band wdn-footer-optional">
+	            <div class="wdn-inner-wrapper">
+	                <!-- TemplateBeginEditable name="optionalfooter" -->
+	                <!-- TemplateEndEditable -->
+	            </div>
+	        </div>
+            <div id="wdn_local_footer" class="wdn-band wdn-footer-local">
                 <div class="wdn-inner-wrapper">
+					<!-- TemplateBeginEditable name="contactinfo" -->
+                    <!--#include virtual="sharedcode/localFooter.html" -->
+                    <!-- TemplateEndEditable -->
                     <!-- TemplateBeginEditable name="leftcollinks" -->
-                    <!--#include virtual="../sharedcode/relatedLinks.html" -->
                     <!-- TemplateEndEditable -->
                 </div>
             </div>
-            <div class="wdn-band">
+            <div id="wdn_global_footer" class="wdn-band wdn-footer-global">
                 <div class="wdn-inner-wrapper">
-                    <div class="footer_col" id="wdn_footer_contact">
-                        <h3>Contact Us</h3>
-                        <div class="wdn-contact-wrapper">
-                            <!-- TemplateBeginEditable name="contactinfo" -->
-                            <!--#include virtual="../sharedcode/footerContactInfo.html" -->
-                            <!-- TemplateEndEditable -->
-                        </div>
-                    </div>
-                    <div id="wdn_copyright">
-                        <div class="wdn-footer-text">
-                            <!-- TemplateBeginEditable name="footercontent" -->
-                            <!--#include virtual="../sharedcode/footer.html" -->
-                            <!-- TemplateEndEditable -->
-                            <!--#include virtual="/wdn/templates_4.0/includes/wdn.html" -->
-                        </div>
-                    <!--#include virtual="/wdn/templates_4.0/includes/logos.html" -->
-                    </div>
-                </div>
+	               <!--#include virtual="/wdn/templates_4.1/includes/globalfooter.html" -->
+				</div>
             </div>
-            <!--#include virtual="/wdn/templates_4.0/includes/footer_floater.html" -->
         </footer>
-        <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
+        <!--#include virtual="/wdn/templates_4.1/includes/noscript.html" -->
     </div>
+	<!--#include virtual="/wdn/templates_4.1/includes/body_scripts.html" -->
 </body>
-</html>
+<!-- TemplateEnd --></html>
