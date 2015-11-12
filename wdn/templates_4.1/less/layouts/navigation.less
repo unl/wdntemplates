@@ -1,6 +1,6 @@
 .nav-bar() {
     .clear-fix;
-    border-top: 2px solid @ui08;
+//     border-top: 2px solid @ui08;
     background-color: @brand;
 }
 
@@ -18,8 +18,11 @@
 .wdn-menu-trigger { // Holds the label for the toggle of the navigation
 
     @media @bp-nav-hidden { // Styles specifc to only the mobile view
+		display: flex;
+		flex-flow: nowrap;
+		align-items: center;
         .nav-bar();
-        padding-left: @mobile-pad;
+        height: 40px;
     }
 
     @media @bp-nav-full {
@@ -47,6 +50,7 @@
     position: relative;
     float: left;
     width: 1.333em;
+	.inner-wrapper-margin-left();
     font-size: 21px;
     font-size: 1.333rem;
 
@@ -56,6 +60,7 @@
 }
 
 #wdn_navigation_bar {
+	position: relative;
     .brand-font();
     color: #fff;
 
@@ -90,6 +95,10 @@
         a:hover {
             color: #fff;
         }
+    }
+
+    @media @bp-nav-full {
+	    background: @ui08;
     }
 }
 
@@ -189,8 +198,8 @@
         width: 100%;
 
         > ul {
-            padding: 0 5%;
-            margin: 0 auto;
+			.inner-wrapper-margin();
+			padding: 0 1.777em;
 
             > li {
                 border-right: 1px solid #b80808;
@@ -215,8 +224,8 @@
 
         .wdn-icon-menu {
             position: absolute;
-            left: @mobile-pad;
-            margin-left: -28px;
+            left: 0;
+//             margin-left: -28px;
 
             .empty-secondary & {
                 display: none;
@@ -227,15 +236,15 @@
     @media @bp-nav-max {
 
         > ul {
-            width: 60rem;
-            margin: 0 auto;
+//             width: 60rem;
+//             margin: 0 auto;
             display: block;
-            padding: 0;
+//             padding: 0;
         }
 
         .wdn-icon-menu {
-            left: 50%;
-            margin-left: -516px;
+//             left: 50%;
+//             margin-left: -516px;
         }
     }
 }
