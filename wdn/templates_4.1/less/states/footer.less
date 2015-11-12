@@ -1,31 +1,14 @@
-#footer {
+@import (reference) "../_mixins/vars";
+
+.wdn-footer-local,
+.wdn-footer-global {
 
     a {
+		transition: all @hover-off;
 
         &:hover {
             color: @cream;
-            transition: all linear 0.15s; // lesshat
-        }
-    }
-}
-
-#wdn_footer_related {
-
-    a {
-
-        &:hover {
-            background-color: @ui10;
-        }
-    }
-}
-
-.wdn-float-center {
-
-    a {
-
-        &:hover {
-            opacity: 1;
-            transition: all linear 0.15s; // lesshat
+	        transition: all @hover-on;
         }
     }
 }
