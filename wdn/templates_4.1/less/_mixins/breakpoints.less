@@ -1,3 +1,4 @@
+// Standard, width-based media queries
 @bp480: ~" (min-width: 480px)";
 @bp640: ~" (min-width: 640px)";
 @bp768: ~" (min-width: 768px)";
@@ -5,11 +6,17 @@
 @bp1280: ~" (min-width: 1280px)";
 @bp1600: ~" (min-width: 1600px)";
 
-// For styles which shouldn't cascade to other breakpoints
+// Width-based media queries which shouldn't cascade to other breakpoints
 @bp480-767: ~" (min-width: 480px) and (max-width: 767px)";
+@bp640-959: ~" (min-width: 640px) and (max-width: 959px)";
 @bp768-959: ~" (min-width: 768px) and (max-width: 959px)";
 @bp960-1279: ~" (min-width: 960px) and (max-width: 1279px)";
-@under-768: ~" (max-width: 768px)";
+@bp-under480w: ~" (max-width: 479px)";
+@bp-under640w: ~" (max-width: 639px)";
+@bp-under768w: ~" (max-width: 767px)";
+
+// Height-based media-queries
+@bp-under640h: ~" (max-height: 639px)";
 
 // The navigation breaks from the traditional media queries
 @bp-nav-hidden: ~" (max-width: 699px)";
@@ -24,4 +31,4 @@
 @only-bp1: @bp480-767;
 @only-bp2: @bp768-959;
 @only-bp3: @bp960-1279;
-@under-bp2: @under-768;
+@under-bp2: @bp-under768w;
