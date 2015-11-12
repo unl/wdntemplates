@@ -1,31 +1,53 @@
 .wdn-share-this-page {
-	position: absolute;
-	margin-left: 2.308em;  // offset menu icon by width
-	top: 59px;  // #header height + 2px nav bar border-top
-    left: @mobile-pad;  // align left to menu icon
+
+	//margin-left: 2.308em;  // offset menu icon by width
+	//top: 59px;  // #header height + 2px nav bar border-top
+    //left: @mobile-pad;  // align left to menu icon
     z-index: (@nav-z-index + 1);
 
+
+
+    @media @bp-nav-hidden {
+// 		.inner-wrapper-margin-left();
+// 		margin-right: 0;
+//     	margin: 0;
+//     	left: auto;
+//     	top: auto;
+// 	    right: 8px;
+// 	    bottom: -62px;
+// 		top: 0.75em;
+// 		left: 2.369em;
+
+    }
+
     @media @bp-nav-full {
-    	margin: 0;
-    	left: auto;
-    	top: auto;
-	    right: 8px;
-	    bottom: -62px;
+		position: absolute;
+		.inner-wrapper-margin-right();
+		margin-left: 0;
+//     	margin: 0;
+//     	left: auto;
+//     	top: auto;
+// 	    right: 8px;
+// 	    bottom: -62px;
+		top: 0.254em;
+		right: 0;
+
     }
 
-    @media @bp2 {
-    	bottom: -69px;
-    }
+//     @media @bp2 {
+//     	bottom: -69px;
+//     }
+//
+//     @media @bp4 {
+// 	    right: @mobile-pad;
+//     }
+//
+//     @media @bp-nav-max {
+//     	left: 50%;
+//     	right: auto;
+//     	margin-left: 480px;
+//     }
 
-    @media @bp4 {
-	    right: @mobile-pad;
-    }
-
-    @media @bp-nav-max {
-    	left: 50%;
-    	right: auto;
-    	margin-left: 480px;
-    }
     .wdn-share-button {
     	display: block;
 
@@ -57,7 +79,7 @@
 			}
 		}
 
-	    .wdn-icon-share { 
+	    .wdn-icon-share {
 	    	display: block;
 	    	color: #fff;
 		    padding: 8px 0 10px 10px;
@@ -106,9 +128,10 @@
 		right: 0;
 		left: auto;
 		margin: .75em -1.25em 0 0;
+
 		&:before {
             left: auto;
-            right: 1.25em;		
+            right: 1.25em;
 			}
 	}
 
@@ -116,9 +139,10 @@
 		margin: .75em 0 0 -1.25em;
 		left: 0;
 		right: auto;
+
 		&:before {
             right: auto;
-            left: 1.25em;		
+            left: 1.25em;
 		}
 	}
 
