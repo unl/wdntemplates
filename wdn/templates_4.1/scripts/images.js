@@ -1,23 +1,18 @@
-/* jslint evil: true, plusplus: true, indent: 4
-* 
-*  Adapt image src based on media query width
-*/
-
 define(['jquery', 'modernizr'], function($, Modernizr) {
     "use strict";
-    
+
     var initd = false;
-    
+
     var imageCls = 'wdn_image_swap',
     currentPoint,
     checkPoints = [320,480,600,768,960,1040],
     failPoint = 4,
     reImgFile = /(.*)\.(jpe?g|png|gif)$/i,
     rePointSuffix = new RegExp('_(' + checkPoints.join('|') + ')$'),
-    
+
     resizeTimeout = 500,
     resizeTimer;
-    
+
     function checkFileExistence(fileUrl, image) {
     	$.ajax(fileUrl, {
     		type: 'HEAD',
@@ -25,8 +20,8 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
     			image.setAttribute('src', fileUrl);
     		}
     	});
-    };
-    
+    }
+
     function swapSource(newWidthBreakpoint) {
     	$('.' + imageCls).each(function() {
     		var deconstructedPath, imagePath;
@@ -36,24 +31,20 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
     			checkFileExistence(imagePath, this);
     		}
     	});
-    };
-    
+    }
+
     function getMqPoint() {
     	var j;
-    	
-    	if (Modernizr.mediaqueries) {
+
     		for (j = checkPoints.length - 1; j >= 0; j--) {
     			if (Modernizr.mq('(min-width: ' + checkPoints[j] + 'px)')) {
     				return checkPoints[j];
     			}
     		}
-    	} else {
-    		return checkPoints[failPoint];
-    	}
-    	
+
     	return checkPoints[0];
-    };
-    
+    }
+
 	return {
 		initialize : function () {
 		    currentPoint = getMqPoint();
@@ -67,7 +58,7 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 		    	return;
 		    }
 		    initd = true;
-		    
+
 		    $(window).resize(function() {
 		    	if (resizeTimer) {
 		    		clearTimeout(resizeTimer);
