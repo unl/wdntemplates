@@ -1,52 +1,14 @@
 .wdn-share-this-page {
-
-	//margin-left: 2.308em;  // offset menu icon by width
-	//top: 59px;  // #header height + 2px nav bar border-top
-    //left: @mobile-pad;  // align left to menu icon
     z-index: (@nav-z-index + 1);
-
-
-
-    @media @bp-nav-hidden {
-// 		.inner-wrapper-margin-left();
-// 		margin-right: 0;
-//     	margin: 0;
-//     	left: auto;
-//     	top: auto;
-// 	    right: 8px;
-// 	    bottom: -62px;
-// 		top: 0.75em;
-// 		left: 2.369em;
-
-    }
 
     @media @bp-nav-full {
 		position: absolute;
 		.inner-wrapper-margin-right();
 		margin-left: 0;
-//     	margin: 0;
-//     	left: auto;
-//     	top: auto;
-// 	    right: 8px;
-// 	    bottom: -62px;
 		top: 0.254em;
 		right: 0;
 
     }
-
-//     @media @bp2 {
-//     	bottom: -69px;
-//     }
-//
-//     @media @bp4 {
-// 	    right: @mobile-pad;
-//     }
-//
-//     @media @bp-nav-max {
-//     	left: 50%;
-//     	right: auto;
-//     	margin-left: 480px;
-//     }
 
     .wdn-share-button {
     	display: block;
@@ -200,5 +162,23 @@
 		&:hover {
 			color: @cream;
 		}
+	}
+}
+
+#navigation .wdn-icon-share {
+	position: relative;
+	left: 7px;
+	top: 6px;
+	display: none;
+	cursor: pointer;
+}
+
+@media @bp-nav-full {
+	.wdn-menu-trigger .wdn-share-button .wdn-icon-share {
+		display: none;
+	}
+
+	#navigation .wdn-icon-share {
+		display: inline;
 	}
 }
