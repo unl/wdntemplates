@@ -2,7 +2,6 @@ module.exports = function (grunt) {
     // CSS files to be built (relative to less directory, no extension)
     var cssObjs = [
 		'all',
-		'ie',
 		'print',
 		'modules/pagination',
 		'modules/vcard',
@@ -185,9 +184,6 @@ module.exports = function (grunt) {
     	lessJsFiles[templateJs + '/' + file + '.css'] = templateJs + '/' + file + '.less';
     });
 
-    var lessAllIEFiles = {};
-    lessAllIEFiles[templateCss + '/all_oldie.css'] = templateLess + '/all.less';
-
     // load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
     require('load-grunt-tasks')(grunt);
 
@@ -202,12 +198,6 @@ module.exports = function (grunt) {
 					]
     			},
     			files: lessAllFiles
-    		},
-    		"all-ie": {
-    			options: {
-    				paths: ['./wdn/templates_4.1/less'],
-    			},
-    			files: lessAllIEFiles
     		},
     		js: {
     			options: {
@@ -272,7 +262,7 @@ module.exports = function (grunt) {
         },
 
     	concurrent: {
-    		main: ['less:all', 'js', 'ie-css']
+            main: ['less:all', 'js']
     	},
 
     	zip: {
@@ -295,39 +285,13 @@ module.exports = function (grunt) {
     	watch: {
     		less: {
     			files: templateLess + '/**/*.less',
-    			tasks: ['less:all', 'ie-css']
+                tasks: ['less:all']
     		},
     		js: {
     			files: [templateJs + '/**/*.js', '!' + templateCompileJs + '/**/*.js'],
     			tasks: ['js']
     		}
     	}
-    });
-
-    // task for stripping media queries from css
-    grunt.registerTask('ie-css', 'Build and filter CSS for old IE browsers', function() {
-    	var precondition = 'less:all-ie';
-    	var description = 'Strip media queries from compiled less';
-    	var anonTask = function() {
-    		grunt.task.requires(precondition);
-
-        	var contentFile = templateCss + '/all_oldie.css';
-        	var CleanCSS = require('clean-css');
-        	var content = grunt.file.read(contentFile);
-
-        	content = content.replace(/@media [^{]*\{\s+\}/, '');
-        	content = content.replace(/@media ([^{]*)\{((?:(?!\}\s*\})[^])*\})\s*\}/i, function(match, mq, mqContent) {
-        		if (mq.indexOf('(max-width:') >= 0) {
-                    return '';
-        		}
-        		return mqContent;
-        	});
-        	content = new CleanCSS().minify(content).styles;
-
-        	grunt.file.write(contentFile, content);
-    	};
-
-		grunt.task.run(precondition).then(description, anonTask);
     });
 
     // keyword replacement task: restore keywords
