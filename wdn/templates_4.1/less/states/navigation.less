@@ -25,7 +25,7 @@
 
 @media @bp-nav-hidden {
     .nav-scrolling #header {
-       margin-bottom: 31px // maintain whitespace reserved by fixed trigger
+       margin-bottom: 31px; // maintain whitespace reserved by fixed trigger
     }
 
     .nav-scrolling .wdn-menu-trigger {
@@ -72,6 +72,14 @@
         }
     }
 
+    .nav-scrolling #wdn_navigation_bar {
+        position: fixed;
+        top: 0;
+        -webkit-font-smoothing: subpixel-antialiased;
+        width: 100%;
+        z-index: @nav-z-index;
+    }
+
     #navigation {
         .js & {
             position: absolute;
@@ -79,12 +87,6 @@
             li ul {
                 height: auto;
             }
-        }
-
-        .nav-scrolling & {
-            position: fixed;
-            top: 0;
-            -webkit-font-smoothing: subpixel-antialiased;
         }
 
         li ul {
