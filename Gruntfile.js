@@ -312,7 +312,7 @@ module.exports = function (grunt) {
     		grunt.task.requires(precondition);
 
         	var contentFile = templateCss + '/all_oldie.css';
-        	var CleanCSS = require('./node_modules/less-plugin-clean-css/node_modules/clean-css');
+        	var CleanCSS = require('clean-css');
         	var content = grunt.file.read(contentFile);
 
         	content = content.replace(/@media [^{]*\{\s+\}/, '');

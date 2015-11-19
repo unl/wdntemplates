@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.0.35 (November 10, 2015)
+
+### Fixed
+- Regression: Flexslider styles still not right ([#893](https://github.com/unl/wdntemplates/issues/893))
+
+## 4.0.34 (October 14, 2015)
+
+### Fixed
+- Regression: Flexslider styles accidentally changed via upgrade ([#893](https://github.com/unl/wdntemplates/issues/893))
+- Regression: WDN.jQuery missing in Chrome ([#894](https://github.com/unl/wdntemplates/issues/894))
+
 ## 4.0.33 (October 13, 2015)
 
 ### Fixed

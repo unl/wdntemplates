@@ -1,12 +1,12 @@
-// This will load wdn.js synchronously, eval it right away and initialize the template js.
+/*jslint evil: true */
 (function(){
-	
+
 var syncLoad = {
 	"modernizr-wdn.js" : "",
 	"ga.js" : "",
 	"require.js" : "",
 	"wdn.js" : "",
-}
+};
 
 var _wdn_scripts_url = '',
 	scripts = document.getElementsByTagName('script'),
@@ -30,12 +30,13 @@ for (i in syncLoad) {
 	var script = document.createElement('script');
 	script.type = 'text/javascript';
 	script.src = _wdn_scripts_url + i;
-	
+
 	for (var j in syncLoad[i]) {
 		script.setAttribute(j, syncLoad[i][j]);
 	}
-	
-	debugScript.parentNode.insertBefore(script, debugScript.nextSibling);
+
+	// document.write to ensure execution order of syncronous scripts (EVIL!)
+	document.write(script.outerHTML);
 }
 
 })();
