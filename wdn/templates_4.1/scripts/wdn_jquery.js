@@ -1,4 +1,4 @@
-define(['jquery', 'wdn', 'wdn_ajax'], function($, WDN) {
+define(['jquery', 'wdn'], function($, WDN) {
 	$.noConflict(true);
 
 	var jQueryWarning = false;
