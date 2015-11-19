@@ -8,10 +8,10 @@ module.exports = function (grunt) {
 		'modules/vcard',
 		'modules/infographics'
     ];
-    
+
     var jsCssObjs = [
         'js-css/band_imagery',
-        'js-css/events',    	
+        'js-css/events',
     	'js-css/events-band',
     	'js-css/extlatin',
     	'js-css/formvalidator',
@@ -23,10 +23,10 @@ module.exports = function (grunt) {
     	'plugins/qtip/wdn.qtip',
     	'plugins/ui/css/jquery-ui-wdn'
     ];
-    
+
     // project layout variables (directories)
     var mainDir = 'wdn',
-	    templateDir = mainDir + '/templates_4.0',
+	    templateDir = mainDir + '/templates_4.1',
 	    templateLess = templateDir + '/less',
 	    templateCss = templateDir + '/css',
 	    templateJs = templateDir + '/scripts',
@@ -44,7 +44,7 @@ module.exports = function (grunt) {
         templateHtmlDir + '/*.dwt*',
         templateIncludeDir + '/scriptsandstyles*.html'
     ];
-    
+
     // polyfill modules that need sync loading (should match scripts loaded in debug.js)
     var polyfillMods = [
     	'modernizr-wdn',
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
 		'requireLib',
 		'wdn'
     ];
-    
+
     var wdnBuildPlugins = [
     	'band_imagery',
     	'carousel',
@@ -68,16 +68,16 @@ module.exports = function (grunt) {
     	'smallcaps',
     	'tooltip'
     ];
-    
+
     // module exclustions for plugins not built into all
     var wdnPluginExclusions = [
-    	'require-css/css', 
-    	'require-css/normalize', 
-    	'jquery', 
+    	'require-css/css',
+    	'require-css/normalize',
+    	'jquery',
     	'wdn',
     	'plugins/hoverIntent/jquery.hoverIntent'
     ];
-    
+
     // exclude build/bundled files from sync back to wdn folder
     var syncJsIgnore = [
     	'!build.txt',
@@ -146,29 +146,30 @@ module.exports = function (grunt) {
     		return contents.replace(/WDN\.log\([^)]*\);?/g, '');
         }
     };
-    
+
     // override requirejs config with CLI flags
     rjsCliFlags.forEach(function(flagPair) {
     	flagPair = flagPair.trim();
     	if (!flagPair) {
     		return;
     	}
-    	
+
     	flagPair = flagPair.split('=', 2);
-    	
+
     	rjsConfig.moduleConfig[flagPair[0]] = flagPair[1] || true;
     });
-    
+
     rjsConfig.deployRoot = rjsConfig.moduleConfig.wdnTemplatePath + templateCompileJs + '/';
-    
+
     wdnBuildPlugins.forEach(function(plugin) {
     	rjsConfig.modules.push({
         	name: plugin,
         	exclude: wdnPluginExclusions
         });
     });
-    
+
     // common variables for task configuration
+	var autoprefixPlugin = new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]});
     var lessPluginCleanCss = new (require('less-plugin-clean-css'))();
     var gitFilters = require('./.git_filters/lib/git-filters.js');
 
@@ -178,24 +179,25 @@ module.exports = function (grunt) {
     cssObjs.forEach(function(file) {
         lessAllFiles[templateCss + '/' + file + '.css'] = templateLess + '/' + file + '.less';
     });
-    
+
     var lessJsFiles = {};
     jsCssObjs.forEach(function(file) {
     	lessJsFiles[templateJs + '/' + file + '.css'] = templateJs + '/' + file + '.less';
     });
-    
+
     var lessAllIEFiles = {};
     lessAllIEFiles[templateCss + '/all_oldie.css'] = templateLess + '/all.less';
-    
+
     // load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
     require('load-grunt-tasks')(grunt);
-    
+
     grunt.initConfig({
     	less: {
     		all: {
     			options: {
-    				paths: ['./wdn/templates_4.0/less'],
+    				paths: ['./wdn/templates_4.1/less'],
     				plugins: [
+						autoprefixPlugin,
 						lessPluginCleanCss
 					]
     			},
@@ -203,13 +205,13 @@ module.exports = function (grunt) {
     		},
     		"all-ie": {
     			options: {
-    				paths: ['./wdn/templates_4.0/less'],
+    				paths: ['./wdn/templates_4.1/less'],
     			},
     			files: lessAllIEFiles
     		},
     		js: {
     			options: {
-    				paths: ['./wdn/templates_4.0/less'],
+    				paths: ['./wdn/templates_4.1/less'],
     				plugins: [
 						lessPluginCleanCss
 					]
@@ -217,20 +219,20 @@ module.exports = function (grunt) {
     			files: lessJsFiles
     		}
     	},
-    	
+
     	requirejs: {
     		all: {
     			options: rjsConfig
     		}
     	},
-    	
+
     	sync: {
     		js: {
     			files: [{
     				cwd: buildJsDir,
     				src: [
-    					'**', 
-    					'!**/*.patch', 
+    					'**',
+    					'!**/*.patch',
     					'!**/*.md',
     					'!**/*.less'
 					].concat(syncJsIgnore),
@@ -238,7 +240,7 @@ module.exports = function (grunt) {
     			}]
     		}
     	},
-    	
+
     	bump: {
     		options: {
     			files: ['package.json', 'VERSION_DEP'],
@@ -249,7 +251,7 @@ module.exports = function (grunt) {
 				regExp: /((?:['"]?version['"]?\s*:\s*['"]?)?)(\d+\.\d+\.\d+(-dev\.\d+)?(-\d+)?)[\dA-a.-]*(['"]?)/i
     		}
     	},
-    	
+
     	clean: {
 			css: [templateCss].concat(Object.keys(lessJsFiles)),
 			js: [templateCompileJs],
@@ -268,11 +270,11 @@ module.exports = function (grunt) {
                 files: filterFiles
             }
         },
-    	
+
     	concurrent: {
     		main: ['less:all', 'js', 'ie-css']
     	},
-    	
+
     	zip: {
     		wdn: {
     			src: [mainDir + allSubFilesGlob],
@@ -289,7 +291,7 @@ module.exports = function (grunt) {
     			dest: zipDir + '/UNLTemplates.zip'
     		}
     	},
-    	
+
     	watch: {
     		less: {
     			files: templateLess + '/**/*.less',
@@ -301,7 +303,7 @@ module.exports = function (grunt) {
     		}
     	}
     });
-    
+
     // task for stripping media queries from css
     grunt.registerTask('ie-css', 'Build and filter CSS for old IE browsers', function() {
     	var precondition = 'less:all-ie';
@@ -327,7 +329,7 @@ module.exports = function (grunt) {
 
 		grunt.task.run(precondition).then(description, anonTask);
     });
-    
+
     // keyword replacement task: restore keywords
     grunt.registerTask('filter-clean', 'Clean files that are tagged for git filters', function() {
     	var opts = this.options({files:[]});
@@ -336,7 +338,7 @@ module.exports = function (grunt) {
             grunt.file.write(input, gitFilters.clean(grunt.file.read(input), true));
         });
     });
-    
+
     // keyword replacement task: replace keywords
     grunt.registerTask('filter-smudge', 'Smudge files that are tagged for git filters', function() {
         var opts = this.options({files:[]});
@@ -346,10 +348,10 @@ module.exports = function (grunt) {
 			grunt.file.write(input, gitFilters.smudge(grunt.file.read(input), true));
 		});
     });
-    
+
     // establish grunt default
     grunt.registerTask('default', ['concurrent']);
-    
+
     // legacy targets from Makefile
     grunt.registerTask('dist', ['default', 'filter-smudge', 'zip']);
     grunt.registerTask('all', ['default']);

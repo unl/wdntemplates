@@ -1,0 +1,61 @@
+@import "../_mixins/all.less";
+
+/*
+Markup for these:
+<div class="wdn_pagination">
+<ul>
+    <li class="arrow"><a href="#" title="Go to the previous page">&larr; prev</a></li>
+    <li><a href="#" title="Go to page 1">1</a></li>
+    <li class="selected">2</li>
+    <li><a href="#" title="Go to page 3">3</a></li>
+    <li><a href="#" title="Go to page 4">4</a></li>
+    <li><a href="#" title="Go to page 5">5</a></li>
+    <li><a href="#" title="Go to page 6">6</a></li>
+    <li class="ellipsis">...</li>
+    <li><a href="#" title="Go to page 17">17</a></li>
+    <li><a href="#" title="Go to page 18">18</a></li>
+    <li><a href="#" title="Go to page 19">19</a></li>
+    <li class="arrow"><a href="#" title="Go to the next page">next &rarr;</a></li>
+</ul>
+</div>
+*/
+
+.pagination-padding() {
+    padding: 0.422em 0.602em 0.317em;
+}
+
+.wdn_pagination {
+    .clear-fix;
+
+    li {
+        display: block;
+        float: left;
+        .sans-serif-font();
+        .rem(12,13);
+        margin: 0.254em;
+        vertical-align: middle;
+
+        a {
+            display: block;
+            .pagination-padding();
+            border: 1px solid @ui04;
+            transition: border ease-out 0.2s; // lesshat
+
+            &:hover, &:active {
+                color: darken(@brand, 20%);
+                border: 1px solid darken(@brand, 20%);
+            }
+        }
+
+        &.ellipsis {
+            .pagination-padding();
+        }
+
+        &.selected {
+            .pagination-padding();
+            color: #fff;
+            background-color: @ui08;
+            border: 1px solid @ui08;
+        }
+    }
+}

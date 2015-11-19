@@ -1,0 +1,147 @@
+@import "../_mixins/all.less";
+@import "grid-mixins.less";
+
+[class*="@{grid-set}"] {
+    margin: 0 (@gutter-size-ie/2) * -1;
+    margin: 0 (@gutter-size/2) * -1;
+    box-sizing: border-box; // lesshat
+    clear:left;
+    .clear-fix();
+
+    // When the `grid-set` is a direct child of another `grid-set`, avoid the double negative side margins.
+    & > & {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+[class*="@{grid-col-class}"] {
+    float: left;
+    .grid-col-width-cal(100%);
+    padding: 0 (@gutter-size-ie/2);
+    padding: 0 (@gutter-size/2);
+    box-sizing: border-box; // lesshat
+
+    // Use this when only a background is needed (no border). This option isn't recommended, instead one should use a nested element with a class of .col-island (see below).
+    &.col-padding {
+        padding: (@gutter-size-ie / 2) 0 (@gutter-size-ie / 2) @gutter-size-ie;
+        padding: (@gutter-size / 2) 0 (@gutter-size / 2) @gutter-size;
+        background-clip: content-box;
+    }
+}
+
+.wdn-grid-clear {
+
+    &[class*="@{grid-set}-halves"] .@{grid-col-class}:nth-child(2n+1) {
+        clear:left;
+    }
+
+    &[class*="@{grid-set}-thirds"] .@{grid-col-class}:nth-child(3n+1) {
+        clear:left;
+    }
+
+    &[class*="@{grid-set}-fourths"] .@{grid-col-class}:nth-child(4n+1) {
+        clear:left;
+    }
+
+    &[class*="@{grid-set}-fifths"] .@{grid-col-class}:nth-child(5n+1) {
+        clear:left;
+    }
+
+    &[class*="@{grid-set}-sixths"] .@{grid-col-class}:nth-child(6n+1) {
+        clear:left;
+    }
+
+    &[class*="@{grid-set}-sevenths"] .@{grid-col-class}:nth-child(7n+1) {
+        clear:left;
+    }
+}
+
+// When a border is needed, nest inside a column.
+
+[class*="wdn-col"] .visual-island {
+    padding: @gutter-size-ie / 2;
+    padding: @gutter-size / 2;
+}
+
+// reset for list grids
+#maincontent {
+    ul, ol {
+        &[class*="@{grid-set}"] {
+            padding: 0;
+            list-style: none;
+        }
+    }
+}
+
+li.@{grid-col-class} {
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+/* -- Non-breakpoint states for columns - MOBILE FIRST
+------------------------------------------------------------- */
+
+.grid-setup(@grid-col-class, e(%("%s", @grid-set)));
+
+/* -- Breakpoint ~480px .bp480
+------------------------------------------------------------- */
+@media @bp480 {
+    .grid-setup(e(%("bp480-%s", @grid-col-class)), e(%("bp480-%s", @grid-set)));
+}
+
+/* -- Breakpoint ~640px .bp640
+------------------------------------------------------------- */
+@media @bp640 {
+    .grid-setup(e(%("bp640-%s", @grid-col-class)), e(%("bp640-%s", @grid-set)));
+}
+
+/* -- Breakpoint ~768px .bp768
+------------------------------------------------------------- */
+@media @bp768 {
+    .grid-setup(e(%("bp768-%s", @grid-col-class)), e(%("bp768-%s", @grid-set)));
+}
+
+/* -- Breakpoint ~960px .bp960
+------------------------------------------------------------- */
+@media @bp960 {
+    .grid-setup(e(%("bp960-%s", @grid-col-class)), e(%("bp960-%s", @grid-set)));
+}
+
+/* -- Breakpoint ~1280px .bp1280
+------------------------------------------------------------- */
+@media @bp1280 {
+    .grid-setup(e(%("bp1280-%s", @grid-col-class)), e(%("bp1280-%s", @grid-set)));
+}
+
+/* -- Breakpoint ~1600px .bp1600
+------------------------------------------------------------- */
+@media @bp1600 {
+    .grid-setup(e(%("bp1600-%s", @grid-col-class)), e(%("bp1600-%s", @grid-set)));
+}
+
+
+// Deprecated names
+/* -- Breakpoint 1 .bp1
+------------------------------------------------------------- */
+@media @bp1 {
+    .grid-setup(e(%("bp1-%s", @grid-col-class)), e(%("bp1-%s", @grid-set)));
+}
+
+/* -- Breakpoint 2 .bp2
+------------------------------------------------------------- */
+@media @bp2 {
+    .grid-setup(e(%("bp2-%s", @grid-col-class)), e(%("bp2-%s", @grid-set)));
+}
+
+/* -- Breakpoint 3 .bp3
+------------------------------------------------------------- */
+@media @bp3 {
+    .grid-setup(e(%("bp3-%s", @grid-col-class)), e(%("bp3-%s", @grid-set)));
+}
+
+/* -- Breakpoint 4 .bp4
+------------------------------------------------------------- */
+@media @bp4 {
+    .grid-setup(e(%("bp4-%s", @grid-col-class)), e(%("bp4-%s", @grid-set)));
+}
