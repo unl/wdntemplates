@@ -1,0 +1,144 @@
+// !Header, top line
+#wdn_header_top {
+	height: 30px; // temp
+	.inner-wrapper-margin-left();
+
+	.flexbox & {
+    	display: flex;
+    	flex-flow: row nowrap;
+    	align-items: center;
+	}
+
+	@media @bp-nav-hidden {
+		margin-right: 0;
+	}
+
+	@media @bp-nav-full {
+		.inner-wrapper-margin-right();
+		padding: 0;
+	}
+
+    @media @bp768 {
+        height: 40px;
+    }
+}
+
+
+
+// !Institution Title
+#wdn_institution_title {
+    float: left;
+    white-space: nowrap;
+    display: block;
+    padding-top: 1em;
+    .wdn-sans-caps();
+    .rem(10,12);
+    line-height: 1;
+
+    @media @bp-nav-full {
+        padding-top: 1.069em;
+    }
+
+    @media @bp768 {
+        padding-top: 1.333em;
+    }
+
+    .flexbox & {
+        padding-top: 0.254em;
+    }
+}
+
+
+
+// !Logo Lockup
+#wdn_logo_lockup {
+	padding: 1em 0;
+	border-top: 1px solid @ui03;
+}
+
+
+
+// !Nebraska 'N' Logo
+#logo {
+	display: block;
+    float: left;
+	width: 44px;
+	height: 44px;
+	margin-right: 0.75em;
+    background: transparent data-uri('../images/n.svg') center center no-repeat;
+	background-size: contain;
+
+    @media @bp768 {
+    	width: 54px;
+    	height: 54px;
+    }
+
+	span {
+		.text-hidden();
+	}
+}
+
+
+
+// !Site Affiliation
+#wdn_site_affiliation {
+	display: block;
+	padding-bottom: 0.191em;
+	.rem(12,13);
+	font-style: italic;
+	line-height: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+	@media @bp768 {
+		padding: 0.1em 0 0.254em;
+	}
+}
+
+
+
+// !Site Title
+#wdn_site_title {
+    .brand-font();
+    .rem(30,38);
+	text-transform: uppercase;
+	line-height: 1.425; // vertically centers site title in between slab serifs of Nebraska 'N'
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    @media @bp-nav-full {
+        overflow: visible;
+        white-space: normal;
+    }
+
+    @media @bp768 {
+        width: 100%;
+
+        // Hide the abbreviation, and show the site title (if available)
+        abbr[title] {
+            font-size: 0;
+            display: block;
+
+            &:before {
+                content: attr(title);
+                .rem(41);
+                display: block;
+            }
+        }
+    }
+
+	#wdn_site_affiliation + & {
+		line-height: 1;
+	}
+
+    a {
+        color: @heading-text;
+        text-decoration: none;
+    }
+
+    abbr[title] {
+        border-bottom: none;
+    }
+}

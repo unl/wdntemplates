@@ -1,0 +1,14 @@
+@import (reference) "../_mixins/vars";
+
+.wdn-footer-local,
+.wdn-footer-global {
+
+    a {
+		transition: all @hover-off;
+
+        &:hover {
+            color: @cream;
+	        transition: all @hover-on;
+        }
+    }
+}
