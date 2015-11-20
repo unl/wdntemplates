@@ -41,11 +41,8 @@
             <div id="wdn_logo_lockup">
 	            <div class="wdn-inner-wrapper">
 	                <!--#include virtual="/wdn/templates_4.1/includes/logo.html" -->
-                    <!-- InstanceBeginEditable name="titlegraphic" -->
-                    	<span id="wdn_site_affiliation">Hixson-Lied College of Fine &amp; Performing Arts</span>
-						<span id="wdn_site_title">Glenn Korff School of Music
-<!-- 	                        <abbr title="Hixson-Lied College of Fine &amp; Performing Arts">HLCFPA</abbr> --></span>
-                        <!-- InstanceEndEditable -->
+                        <span id="wdn_site_affiliation"><!-- InstanceBeginEditable name="affiliation" -->Hixson-Lied College of Fine &amp; Performing Arts<!-- InstanceEndEditable --></span>
+                        <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" -->Glenn Korff School of Music<!--<abbr title="Hixson-Lied College of Fine &amp; Performing Arts">HLCFPA</abbr>--><!-- InstanceEndEditable --></span>
 	            </div>
 			</div>
         </header>
