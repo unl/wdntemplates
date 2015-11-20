@@ -4,8 +4,8 @@
 var syncLoad = {
 	"modernizr-wdn.js" : "",
 	"ga.js" : "",
-	"require.js" : "",
 	"wdn.js" : "",
+	"require.js" : ""
 };
 
 var _wdn_scripts_url = '',
@@ -28,7 +28,6 @@ syncLoad['wdn.js'] = { "data-wdn_root" : _wdn_scripts_url };
 
 for (i in syncLoad) {
 	var script = document.createElement('script');
-	script.type = 'text/javascript';
 	script.src = _wdn_scripts_url + i;
 
 	for (var j in syncLoad[i]) {
