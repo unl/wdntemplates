@@ -53,6 +53,15 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
         		$(function() {
         			var subject = $('h1').first().text();
                     Plugin.createShareButton("wdn-main-share-button", page, subject); // use function within plugin to create share button for all main pages.
+                    $('#header').on('fixedoffset.wdn_social', function(e, barOffset) {
+                        var trig = $('#wdn-main-share-button');
+
+                        if (barOffset) {
+                            trig.css('top', barOffset + 'px');
+                        } else {
+                            trig.css('top', '');
+                        }
+                    });
 
                     $('#wdn-main-share-button .outpost a').each(function() {
 
