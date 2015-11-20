@@ -15,6 +15,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 	var contentWrapperSelector = '#wdn_content_wrapper';
 	var navBarSelector = '#wdn_navigation_bar';
 	var wdnWrapSel = '#wdn_wrapper';
+	var headerSelector = '#header';
 	var breadSel = '#breadcrumbs';
 	var navSel = '#navigation';
 	var prmySel = '> ul > li';
@@ -22,6 +23,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 	var navPrmySel = navSel + ' ' + prmySel;
 	var breadPrmySel = breadSel + ' ' + prmySel;
 	var menuTogSel = '#wdn_menu_toggle';
+	var stopSelector = '.document, .terminal';
 
 	// state related variables
 	var lockHover = false;
@@ -43,6 +45,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 	var collapsedClass ='collapsed';
 	var expandedClass = 'expanded';
 	var changingClass ='changing';
+	var scrollingClass ='nav-scrolling';
 	var pixelUnit = 'px';
 
 	// state caching variables
@@ -193,7 +196,8 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 	};
 
 	var linkSiteTitle = function() {
-		var $siteTitle = $('#wdn_site_title > span'), $link;
+		var $siteTitle = $('#wdn_site_title');
+		var $link;
 
 		if (!siteHomepage) {
 			return;
@@ -229,7 +233,6 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 
 		var navWrap = $('#wdn_navigation_wrapper');
 		navWrap.removeClass(empty2ndCls);
-
 		primaries.removeClass(emptyRowCls);
 
 		var $bar_starts = $(navPrmySel + barStartSel);
@@ -542,6 +545,27 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		$(rootSelector).css(cssTemp);
 	};
 
+	var calculateHeaderOffset = function() {
+		var $wrapper = $(wdnWrapSel);
+		var $header = $(headerSelector);
+		var barOffset = 0;
+		var isFull = isFullNav();
+		var cssMarginBottom = 'margin-bottom';
+
+		// account for the fixed breadcrumb space
+		if (isFull && $wrapper.hasClass(scrollingClass)) {
+			barOffset = $(navBarSelector).outerHeight();
+		}
+
+		if (barOffset) {
+			$header.css(cssMarginBottom, barOffset + pixelUnit);
+		} else {
+			$header.css(cssMarginBottom, '');
+		}
+
+		$header.trigger('fixedoffset', [barOffset]);
+	};
+
 	var Plugin = {
 		initialize : function() {
 			$(function () {
@@ -550,7 +574,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 					linkSiteTitle();
 				}
 
-				if ($('body').is('.document, .terminal') || !$(navPrmySel).length) {
+				if ($('body').is(stopSelector) || !$(navPrmySel).length) {
 					// The rest deals with navigation elements not in document
 					return;
 				}
@@ -579,33 +603,20 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 					var onscroll = function() {
 						var breadcrumbs = $(breadSel);
 						var wrp = $(wdnWrapSel);
-						var cls = 'nav-scrolling';
 						var isFull = isFullNav();
-						var trig = $('#header');
-						var barOffset = 0;
+						var trig = $(headerSelector);
 
 						if (isFull && currentState === 1) {
 							Plugin.collapse();
 						}
 
 						if ($(window).scrollTop() >= trig.offset().top + trig.outerHeight()) {
-							wrp.addClass(cls);
-
-							// account for the fixed breadcrumb space
-							if (isFull) {
-								barOffset = $(navBarSelector).outerHeight();
-							}
+							wrp.addClass(scrollingClass);
 						} else {
-							wrp.removeClass(cls);
+							wrp.removeClass(scrollingClass);
 						}
 
-						if (barOffset) {
-							trig.css('margin-bottom', barOffset + pixelUnit);
-						} else {
-							trig.css('margin-bottom', '');
-						}
-
-						trig.trigger('fixedoffset', [barOffset]);
+						calculateHeaderOffset();
 					};
 
 					// pin the navigation
@@ -622,6 +633,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 						navWidth = nav.width();
 
 						fixPresentation(true);
+						calculateHeaderOffset();
 					}, resizeThrottle));
 
 					$(navPrmySel + ' > a').focusin(function(){
