@@ -4,7 +4,6 @@ module.exports = function (grunt) {
 		'all',
 		'print',
 		'modules/pagination',
-		'modules/vcard',
 		'modules/infographics'
 	];
 
