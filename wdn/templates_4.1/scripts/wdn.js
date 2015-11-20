@@ -1,13 +1,11 @@
 (function( global, factory ) {
 	if (typeof module === "object" && typeof module.exports === "object") {
-		module.exports = global.document
-			? factory(global, true)
-			: function( w ) {
-				if ( !w.document ) {
-					throw new Error("WDN requires a window with a document");
-				}
-				return factory( w );
-			};
+		module.exports = global.document ? factory(global, true) : function( w ) {
+			if ( !w.document ) {
+				throw new Error("WDN requires a window with a document");
+			}
+			return factory( w );
+		};
 	} else {
 		factory( global );
 	}
@@ -141,7 +139,7 @@
 		},
 
 		/**
-		 * Load jQuery included with the templates as WDN.jQuery
+		 * Load jQuery included with the templates
 		 *
 		 * @param callback Called when the document is ready
 		 */
@@ -216,7 +214,8 @@
 			}
 
 			require([plugin], function(pluginObj) {
-				var defaultOnLoad = onLoad = function () {
+				var defaultOnLoad, onLoad;
+				defaultOnLoad = onLoad = function () {
 					if (pluginObj && "initialize" in pluginObj) {
 						WDN.log("initializing plugin '" + plugin + "'");
 						pluginObj.initialize.apply(this, args);
@@ -287,12 +286,12 @@
 				date.setTime(date.getTime()+(seconds*1000));
 				expires = ";expires="+date.toUTCString();
 			}
-			if (path == null) {
+			if (!path) {
 				path = '/';
 			} else if (path.charAt(0) !== '/') {
 				path = WDN.toAbs(path, window.location.pathname);
 			}
-			if (domain == null) {
+			if (!domain) {
 				domain = '.unl.edu';
 			}
 			document.cookie = name+"="+value+expires+";path="+path+";domain="+domain;
@@ -314,11 +313,9 @@
 		},
 
 		hasDocumentClass: function(className) {
-			if (WDN.jQuery) {
-				return WDN.jQuery(_docEl).hasClass(className);
-			} else {
-				return (new RegExp('(^|\\s)' + className + '(\\s|$)')).test(_docEl.className);
-			}
+			var documentClass = ' ' + (_docEl.getAttribute && _docEl.getAttribute('class') || '') + ' ';
+			documentClass = documentClass.replace(/[\t\r\n\f]/g, ' ');
+			return documentClass.indexOf(' ' + className + ' ') > -1;
 		},
 
 		/**
@@ -405,6 +402,22 @@
 			return $.post(url, data, callback, type);
 		}
 	};
+
+	var jQueryWarning = false;
+	Object.defineProperty(WDN, 'jQuery', {
+		configurable: true,
+		get: function() {
+			if (!jQueryWarning) {
+				jQueryWarning = true;
+
+				if (console && console.warn) {
+					console.warn('Using jQuery via the WDN.jQuery property is deprecated. You should use require to access jQuery.');
+				}
+			}
+
+			return window.jQuery;
+		}
+	});
 
 	// invoke function for handling debug loader and document initialization
 	(function() {

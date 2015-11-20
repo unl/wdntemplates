@@ -1,6 +1,21 @@
-define(['jquery', 'wdn', 'wdn_ajax'], function($, WDN) {
-	if (typeof WDN.jQuery === "undefined") {
-		WDN.jQuery = $.noConflict(true);
-	}
-	return WDN.jQuery;
+define(['jquery', 'wdn'], function($, WDN) {
+	$.noConflict(true);
+
+	var jQueryWarning = false;
+	Object.defineProperty(WDN, 'jQuery', {
+		configurable: false,
+		get: function() {
+			if (!jQueryWarning) {
+				jQueryWarning = true;
+
+				if (console && console.warn) {
+					console.warn('Using jQuery via the WDN.jQuery property is deprecated. You should use require to access jQuery.');
+				}
+			}
+
+			return $;
+		}
+	});
+
+	return $;
 });

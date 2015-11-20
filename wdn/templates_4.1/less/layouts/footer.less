@@ -1,15 +1,12 @@
 // !General Footer Styles
 
-[class*="wdn-footer-"] {
+#footer {
+    .sans-serif-font();
+    .rem(10,12);
 
     abbr[title] {
         border: none;
     }
-
-	p, li, span {
-	    .sans-serif-font();
-	    .rem(10,12);
-	}
 
     a {
         color: @ui04;
@@ -86,14 +83,7 @@
 	background-color: @ui09;
 
 	background: lighten(@ui09,2%) data-uri('../images/line-squares-tile.svg') center center repeat;
-
-	.no-svg & {
-		background: lighten(@ui09,2%) data-uri('../images/line-squares-tile.png') center center repeat;
-	}
-
-	.backgroundsize & {
-		background-size: 2.532em;
-	}
+	background-size: 2.532em;
 
 	.wdn-footer-module {
 
@@ -287,11 +277,8 @@ a.wdn-footer-logo {
     opacity: 0.6;
 	background-repeat: no-repeat;
 	background-position: left top;
+	background-size: contain;
 	transition: opacity @hover-on;
-
-	.backgroundsize & {
-		background-size: contain;
-	}
 
 	&:hover {
 		opacity: 1;
@@ -324,10 +311,6 @@ a.wdn-footer-logo {
     background-image: data-uri('../images/tips.svg');
 	background-position: left top;
 
-    .no-svg & {
-        background-image: data-uri('../images/tips.png');
-    }
-
     @media @bp640 {
 	    margin-top: 1vh;
     }
@@ -339,10 +322,6 @@ a.wdn-footer-logo {
     padding-bottom: 42.5%;
     background-image: data-uri('../images/wordmark.svg');
 
-    .no-svg & {
-        background-image: data-uri('../images/wordmark.png');
-    }
-
     @media @bp480 {
     	margin-bottom: 0;
     }
@@ -353,10 +332,6 @@ a.wdn-footer-logo {
     padding-bottom: 50%;
     background-image: data-uri('../images/b1g.svg');
 
-    .no-svg & {
-        background-image: data-uri('../images/b1g.png');
-    }
-
     @media @bp480 {
     	margin-bottom: 0.254em;
 		padding-bottom: 38%;
@@ -366,10 +341,6 @@ a.wdn-footer-logo {
 #cic_wordmark {
     padding-bottom: 50%;
     background-image: data-uri('../images/cic.svg');
-
-    .no-svg & {
-        background-image: data-uri('../images/cic.png');
-    }
 
     @media @bp480 {
 		padding-bottom: 40%;
