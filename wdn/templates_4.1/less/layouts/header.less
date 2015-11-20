@@ -1,268 +1,51 @@
-#header {
-    min-height: 54px;
-    .kern();
-
-    .wdn-inner-wrapper {
-        position: relative;
-
-        @media @bp-nav-hidden {
-            &:after {
-                clear: none;
-            }
-        }
-    }
-
-    @media @bp-nav-hidden {
-//         padding-top: 0.602em;
-    }
-
-    @media @bp-nav-full {
-//         text-align: center;
-//         border-bottom: 1px solid @ui03;
-//         padding-bottom: 0.451em;
-//         box-shadow: inset 0 41px @ui02;
-    }
-}
-
-// Logo
-
-#logo {
-    background: transparent data-uri('../images/n.svg') center center no-repeat;
-    background-size: 40px 38px;
-    width: 40px;
-    height: 38px;
-    margin-right: 5px;
-    float: left;
-
-    a {
-        .text-hidden();
-    }
-
-    @media @bp-nav-full {
-//         float: none;
-//         position: absolute;
-//         background: data-uri('../images/n_flag.svg') no-repeat;
-//         background-size: 119px 128px;
-//         width: 119px;
-//         height: 128px;
-//         top: -61px;
-//         left: 50%;
-//         margin-left: -59px;
-//         margin-right: 0;
-        z-index: 1;
-        transition: top 0.1s ease-out; // lesshat
-
-//         &:hover {
-//             top: -20px;
-//             transition-delay: 300ms; // lesshat
-//         }
-//
-//         &:hover {
-//             #wdn_social {
-//                 margin-top: 20px;
-//             }
-//
-//             a {
-//                 opacity: 0.7;
-//             }
-//         }
-    }
-}
-
-#wdn_logo_link { // Make the acnchor tag clickable
-    width: 40px;
-    height: 38px;
-
-    @media @bp-nav-full {
-        width: 122px;
-        height: 70px;
-    }
-}
-
-// #wdn_social {
-//     display: none;
-//
-//     @media @bp-nav-full {
-//         margin: 0;
-//         padding: 0;
-//         display: inline-block;
-//         list-style: none;
-//         transition: all linear 0.1s; // lesshat
-//         width: 90px;
-//         height: 41px;
-//         border-bottom: 1px solid fadeout(lighten(@brand, 55%),70%);
-//
-//         li {
-//             display: inline-block;
-//         }
-//
-//         a {
-//             text-align: left;
-//             width: 1em;
-//             .rem(28);
-//             line-height: 1.5;
-//             text-decoration: none;
-//             color: lighten(@brand, 55%);
-//             text-shadow: none;
-//             transition: all linear 0.1s; // lesshat
-//
-//             &:before {
-//                 text-indent: 9999em;
-//             }
-//
-//             &:first-child {
-//                 margin-right: 5px;
-//             }
-//
-//             &:last-child {
-//                 margin-left: 6px;
-//             }
-//
-//             &:hover {
-//                 opacity: 1;
-//             }
-//         }
-//     }
-// }
-
-// Institution and site title layouts
-
-
-
-#wdn_site_title {
-    .brand-font();
-	text-transform: uppercase;
-
-
-//     float: left;
-    padding-bottom: 0.1em;
-
-    color: @base-text;
-    .rem(41);
-    line-height: 1;
-//     .ligatures();
-    width: ~'-webkit-calc(100% - 45px)';
-    width: ~'-moz-calc(100% - 45px)';
-    width: ~'calc(100% - 45px)';
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-
-    @media @bp-nav-hidden {
-        // site title affiliation
-        span span {
-            .text-hidden();
-        }
-    }
-
-    a {
-        color: @heading-text;
-        text-decoration: none;
-    }
-
-    abbr[title] {
-        border-bottom: none;
-    }
-
-    @media @bp-nav-full {
-        .rem(41);
-
-
-        width: 100%;
-        overflow: visible;
-        white-space: normal;
-        margin: 1.3333em 0 0;
-
-
-        span {
-            display: inline-block;
-
-            span {
-                .base-font();
-                .rem(12);
-                font-style: italic;
-
-
-                display: block;
-                letter-spacing: 0;
-                white-space: nowrap;
-            }
-        }
-
-        // Hide the abbreviation, and show the site title (if available)
-        abbr[title] {
-            font-size: 0;
-            display: block;
-
-            &:before {
-                content: attr(title);
-                .rem(41);
-                display: block;
-            }
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-// !
+// !Header, top line
 #wdn_header_top {
-	display: flex;
-	flex-flow: row nowrap;
-	align-items: center;
 	height: 30px; // temp
 	.inner-wrapper-margin-left();
+
+	.flexbox & {
+    	display: flex;
+    	flex-flow: row nowrap;
+    	align-items: center;
+	}
 
 	@media @bp-nav-hidden {
 		margin-right: 0;
 	}
 
 	@media @bp-nav-full {
-		height: 40px; // temp
 		.inner-wrapper-margin-right();
 		padding: 0;
 	}
 
-// 	.wdn-inner-wrapper {
-// 		display: flex;
-// 		flex-flow: row nowrap;
-// 		align-items: center;
-// 		height: 30px; // temp
-//
-// 		@media @bp-nav-hidden {
-// 			margin-right: 0;
-// 		}
-//
-// 		@media @bp-nav-full {
-// 			height: 40px; // temp
-// 		}
-// 	}
+    @media @bp768 {
+        height: 40px;
+    }
 }
 
 
 
+// !Institution Title
 #wdn_institution_title {
-//     float: left;
-//     white-space: nowrap;
- 	display: block;
- 	margin-top: 0.254em;
+    float: left;
+    white-space: nowrap;
+    display: block;
+    padding-top: 1em;
     .wdn-sans-caps();
-    .rem(12);
+    .rem(10,12);
     line-height: 1;
 
-//     @media @bp-nav-full {
-//         margin-top: 0.451em;
-//         .rem(23);
-//     }
+    @media @bp-nav-full {
+        padding-top: 1.069em;
+    }
+
+    @media @bp768 {
+        padding-top: 1.333em;
+    }
+
+    .flexbox & {
+        padding-top: 0.254em;
+    }
 }
 
 
@@ -274,15 +57,21 @@
 }
 
 
+
 // !Nebraska 'N' Logo
 #logo {
 	display: block;
     float: left;
-	width: 3.375em;
-	height: 3.375em;
+	width: 44px;
+	height: 44px;
 	margin-right: 0.75em;
     background: transparent data-uri('../images/n.svg') center center no-repeat;
 	background-size: contain;
+
+    @media @bp768 {
+    	width: 54px;
+    	height: 54px;
+    }
 
 	span {
 		.text-hidden();
@@ -319,11 +108,13 @@
     text-overflow: ellipsis;
     overflow: hidden;
 
-    @media @bp768 {
-        .rem(38);
-        width: 100%;
+    @media @bp-nav-full {
         overflow: visible;
         white-space: normal;
+    }
+
+    @media @bp768 {
+        width: 100%;
 
         // Hide the abbreviation, and show the site title (if available)
         abbr[title] {
