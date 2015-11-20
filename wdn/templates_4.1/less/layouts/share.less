@@ -16,8 +16,8 @@
 // 	    right: 8px;
 // 	    bottom: -62px;
 // 		top: 0.75em;
-// 		left: 2.369em;
-
+		position: relative;
+		left: 3.375em;
     }
 
     @media @bp-nav-full {
@@ -100,7 +100,6 @@
 
 	.wdn-icon-share {
 		display: inline;
-
 	    .wdn-nav-icon(); // located at layouts/navigation.less
 	    color: inherit;
 	    padding: 0.85em 0;
@@ -113,6 +112,7 @@
 }
 
 .wdn-share-options {
+	display: none; // Hide until toggled
 	position: absolute;
 	z-index: (@nav-z-index + 1);
 	width: 212px;
@@ -123,31 +123,6 @@
 	text-align: left;
 	.wdn-sans-serif();
 	.rem(12);
-
-	&.wdn-hang-left {
-		right: 0;
-		left: auto;
-		margin: .75em -1.25em 0 0;
-
-		&:before {
-            left: auto;
-            right: 1.25em;
-			}
-	}
-
-	&.wdn-hang-right {
-		margin: .75em 0 0 -1.25em;
-		left: 0;
-		right: auto;
-
-		&:before {
-            right: auto;
-            left: 1.25em;
-		}
-	}
-
-	// Hide until toggled
-	display: none;
 
 	@media @bp-nav-full {
 		margin: 0;
@@ -171,34 +146,55 @@
         }
     }
 
+	&.wdn-hang-left {
+		right: 0;
+		left: auto;
+		margin: .75em -1.25em 0 0;
+
+		&:before {
+            left: auto;
+            right: 1.25em;
+			}
+	}
+
+	&.wdn-hang-right {
+		margin: .75em 0 0 -1.25em;
+		left: 0;
+		right: auto;
+
+		&:before {
+            right: auto;
+            left: 1.25em;
+		}
+	}
+
     input {
     	color: @ui08;
     }
 
-}
+    li {
+    	list-style: none;
+    	padding: 0.602em 0;
+    	font-size: 1em;
+    	text-transform: none;
+    	line-height: 1.662;
 
-.wdn-share-options li {
-	list-style: none;
-	padding: 0.602em 0;
-	font-size: 1em;
-	text-transform: none;
-	line-height: 1.662;
+    	[class^="wdn-icon-"] {
 
-	[class^="wdn-icon-"] {
+    		&:before {
+    			.rem(16);
+    			margin-right: 0.602em;
+    		}
+    	}
 
-		&:before {
-			.rem(16);
-			margin-right: 0.602em;
-		}
-	}
+    	a {
+    		padding: 0.602em 0;
+    		color: @ui05;
+    		border: none;
 
-	a {
-		padding: 0.602em 0;
-		color: @ui05;
-		border: none;
-
-		&:hover {
-			color: @cream;
-		}
-	}
+    		&:hover {
+    			color: @cream;
+    		}
+    	}
+    }
 }
