@@ -8,14 +8,7 @@
         left: 2.532em;
         .inner-wrapper-margin-left();
         z-index: (@nav-z-index + 1);
-
-//         left: (@nav-width * -1); // Hide off-screen
-//         height: 56px;
-//         width: @nav-width;
-//         padding: 0 @mobile-pad;
-//         background-color: @ui10;
-//         border-bottom: 2px solid @ui11;
-        transition: left @nav-transition-duration ease; // lesshat
+        transition: left @nav-transition-duration ease;
     }
 
     @media @bp-nav-full {
@@ -269,8 +262,8 @@
 	@media @bp-nav-full {
 		background-color: mix(#fff, @page-background, 95%);
 		border: 0;
-		border-radius: 4px; // lesshat
-		box-shadow: 0 0 1px @ui06; // lesshat
+		border-radius: 4px;
+		box-shadow: 0 0 1px @ui06;
 		height: 570px;
 		position: absolute;
 		right: @mobile-pad;

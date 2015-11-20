@@ -87,7 +87,7 @@ form {
         .sans-serif-font();
         outline: none;
         border: 1px solid @ui04;
-        border-radius: 2px; // lesshat
+        border-radius: 2px;
         background-color: #fff;
 
         &:focus {
@@ -98,14 +98,12 @@ form {
 
         &.wdn-error {
             border: 1px solid @brand;
-            -webkit-animation: wdn-error 1.2s infinite alternate; // Safari and Chrome
-               -moz-animation: wdn-error 1.2s infinite alternate; // Firfox
-                    animation: wdn-error 1.2s infinite alternate;
+            animation: wdn-error 1.2s infinite alternate;
         }
     }
 
     input[type="search"] {
-        box-sizing: border-box; // override normalize.less // lesshat
+        box-sizing: border-box; // override normalize.less
     }
 
     input[type="radio"],
@@ -123,7 +121,7 @@ form {
         display: table;
 
         * {
-            border-radius: 0; // lesshat
+            border-radius: 0;
             margin: 0;
         }
 
@@ -139,18 +137,18 @@ form {
                 line-height: normal;
                 padding: 1.3em 1.333em;
                 margin: 0;
-                border-radius: 0; // lesshat
+                border-radius: 0;
             }
         }
 
         > :first-child {
-            border-radius: 4px 0 0 4px; // lesshat
+            border-radius: 4px 0 0 4px;
             overflow: hidden;
         }
 
         > :last-child {
-            border-bottom-right-radius: 4px; // lesshat
-            border-top-right-radius: 4px; // lesshat
+            border-bottom-right-radius: 4px;
+            border-top-right-radius: 4px;
             overflow: hidden;
         }
     }
@@ -189,35 +187,13 @@ form {
     }
 }
 
-@-webkit-keyframes wdn-error {
-    from {
-        box-shadow: 0 0 6px fadeout(@brand, 20%); // lesshat
-        border:1px solid @brand;
-    }
-    to {
-        box-shadow: 0 0 6px fadeout(@brand, 90%); // lesshat
-        border:1px solid fadeout(@brand, 80%);
-    }
-}
-
-@-moz-keyframes wdn-error {
-    from {
-        box-shadow: 0 0 6px fadeout(@brand, 20%); // lesshat
-        border: 1px solid @brand;
-    }
-    to {
-        box-shadow: 0 0 6px fadeout(@brand, 90%); // lesshat
-        border: 1px solid fadeout(@brand, 80%);
-    }
-}
-
 @keyframes wdn-error {
     from {
-        box-shadow: 0 0 6px fadeout(@brand, 20%); // lesshat
+        box-shadow: 0 0 6px fadeout(@brand, 20%);
         border: 1px solid @brand;
     }
     to {
-        box-shadow: 0 0 6px fadeout(@brand, 90%); // lesshat
+        box-shadow: 0 0 6px fadeout(@brand, 90%);
         border: 1px solid fadeout(@brand, 80%);
     }
 }

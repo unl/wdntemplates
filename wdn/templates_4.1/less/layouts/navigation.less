@@ -1,6 +1,5 @@
 .nav-bar() {
     .clear-fix;
-//     border-top: 2px solid @ui08;
     background-color: @brand;
 }
 
@@ -84,7 +83,7 @@
         height: 100%;
         overflow-x: hidden;
         overflow-y: scroll;
-        transition: left @nav-transition-duration ease; // lesshat
+        transition: left @nav-transition-duration ease;
         color: @cream;
         background-color: @ui10;
 
@@ -110,7 +109,7 @@
 
     a {
         padding: 5px 5%;
-        transition: height @nav-transition-duration ease; // lesshat
+        transition: height @nav-transition-duration ease;
         display: block;
 
         // Styles specific to the mobile view
@@ -225,26 +224,10 @@
         .wdn-icon-menu {
             position: absolute;
             left: 0;
-//             margin-left: -28px;
 
             .empty-secondary & {
                 display: none;
             }
-        }
-    }
-
-    @media @bp-nav-max {
-
-        > ul {
-//             width: 60rem;
-//             margin: 0 auto;
-            display: block;
-//             padding: 0;
-        }
-
-        .wdn-icon-menu {
-//             left: 50%;
-//             margin-left: -516px;
         }
     }
 }
@@ -252,5 +235,5 @@
 .wdn-content-slide {
     position: relative;
     left: 0;
-    transition: left @nav-transition-duration ease; // lesshat
+    transition: left @nav-transition-duration ease;
 }
