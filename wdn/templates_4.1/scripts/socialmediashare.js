@@ -1,5 +1,4 @@
 define(['jquery', 'wdn', 'require'], function($, WDN, require) {
-    
 	var initd = false;
 
     var page = window.location.href;
@@ -28,16 +27,12 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
         switch (shareId) {
             case 'wdn_emailthis':
                 return templateMail + encodedUrl + '&subject=' + encodedSubject;
-                break;
             case 'wdn_facebook':
                 return templateFacebook + encodedUrl;
-                break;
             case 'wdn_twitter':
                 return templateTwitter + '&url=' + encodedUrl + (isShort ? ('&counturl=' + encodedPage) : '');
-                break;
             case 'wdn_linkedin':
                 return templateLinkedin + '&url=' + encodedUrl + '&subject=' + encodedSubject;
-                break;
         }
 
         return '';
@@ -85,11 +80,10 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                                     href = assembleLink(shareId, subject, goURL);
                                     $this.attr('href');
                                     setLocation(href);
-
                                 }, function() {
                                     setLocation(href);
                                 });
-         
+
                                 e.preventDefault();
                             });
                         });
@@ -98,9 +92,6 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 
         		initd = true;
         	}
-
-
-
         },
 
         shareButtonTemplate:'<div class="wdn-share-button">'+ // add string to use as template for all share buttons
@@ -116,15 +107,14 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                             '</div>',
 
         createShareButton: function(container, url, hang, title, body){
-
             var buttonTemp = Plugin.shareButtonTemplate; // hold template in local variable
-    
-            if(container && url){ // if both container and url have been specified, make the widget. if not do nothing
+
+            if(container && url) { // if both container and url have been specified, make the widget. if not do nothing
 
                 if((hang != "left") && (hang != "right")) { // check to see if the "hang" parameter is not "left" or "right". if it isn't we can assume it isn't being used and rearrange the other parameters accordingly
                     body = title;
                     title = hang;
-                    hang = undefined;   
+                    hang = undefined;
                 }
 
                 title = typeof title !== 'undefined' ? title : "Default title"; // set defaults for optional parameters 
@@ -155,9 +145,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 
                     e.preventDefault();
                 });
-
-            };
-
+            }
         },
 
         createURL : function(createThisURL, callback, failure) { //function to create a GoURL
