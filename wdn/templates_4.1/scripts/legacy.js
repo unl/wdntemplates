@@ -27,7 +27,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 	var msgs = {
 		"windowsxp":  {
 			"enabled": window.navigator.userAgent.match(reXPAgent) && !WDN.getCookie(xpCookie),
-			"html": "Windows XP is no longer be maintained by Microsoft or supported at UNL since April 8, 2014. You are strongly encouraged to upgrade.",
+			"html": "Windows XP is no longer maintained by Microsoft or supported at UNL since April 8, 2014. You are strongly encouraged to upgrade.",
 			"url": "http://its.unl.edu/helpcenter/upgrade-windows-xp"
 		},
 		"oldie": {
