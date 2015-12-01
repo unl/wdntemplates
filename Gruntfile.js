@@ -69,7 +69,7 @@ module.exports = function (grunt) {
     	'tooltip'
     ];
     
-    // module exclustions for plugins not built into all
+    // module exclusions for plugins not built into all
     var wdnPluginExclusions = [
     	'require-css/css', 
     	'require-css/normalize', 
