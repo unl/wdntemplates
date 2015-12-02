@@ -1,0 +1,78 @@
+#wdn_wrapper {
+    overflow: hidden;
+}
+
+.wdn-input-driver {
+    display: none;
+}
+
+// variables for margin values
+@x-default: 5%;
+@x-480: 6%;
+@x-640: 8%;
+@x-768: 9%;
+@x-960: 10%;
+@x-1280: 12.5%;
+@x-1600: 16%;
+
+// adds margin based on values defined above
+.inner-wrapper-margin-left() {
+	margin-left: @x-default;
+
+	@media @bp480 {
+		margin-left: @x-480;
+	}
+
+	@media @bp640 {
+		margin-left: @x-640;
+	}
+
+	@media @bp768 {
+		margin-left: @x-768;
+	}
+
+	@media @bp960 {
+		margin-left: @x-960;
+	}
+
+	@media @bp1280 {
+		margin-left: @x-1280;
+	}
+
+	@media @bp1600 {
+		margin-left: @x-1600;
+	}
+}
+
+.inner-wrapper-margin-right() {
+	margin-right: @x-default;
+
+	@media @bp480 {
+		margin-right: @x-480;
+	}
+
+	@media @bp640 {
+		margin-right: @x-640;
+	}
+
+	@media @bp768 {
+		margin-right: @x-768;
+	}
+
+	@media @bp960 {
+		margin-right: @x-960;
+	}
+
+	@media @bp1280 {
+		margin-right: @x-1280;
+	}
+
+	@media @bp1600 {
+		margin-right: @x-1600;
+	}
+}
+
+.inner-wrapper-margin() {
+	.inner-wrapper-margin-left();
+	.inner-wrapper-margin-right();
+}
