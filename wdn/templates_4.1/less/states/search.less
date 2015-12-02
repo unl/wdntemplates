@@ -1,24 +1,22 @@
-@media @bp-nav-hidden {
+#wdn_search {
 
-    .nav-scrolling #wdn_search {
-        position: fixed;
-        z-index: (@nav-z-index + 1);
-        top: 9px;
-        bottom: auto;
-    }
+    @media @bp-nav-hidden {
 
-    #wdn_menu_toggle:checked { // Change states when toggle is checked
-
-        ~ #header #wdn_search {
-//             left: 0;
+        .nav-scrolling & {
+            position: fixed;
+            z-index: (@nav-z-index + 1);
+            top: 10px;
+            bottom: auto;
         }
-	}
 
-    .wdn_search_toggle:checked ~ #wdn_search_form {
-        display: block;
-    }
+        .nav-scrolling #wdn_menu_toggle:checked ~ #header & {
+            left: 100%;
+        }
 
-    #wdn_search:hover #wdn_search_form {
-        display: block;
+        .wdn_search_toggle:checked ~ #wdn_search_form {
+            .is-visible();
+            transform: scale(1);
+            transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+        }
     }
 }
