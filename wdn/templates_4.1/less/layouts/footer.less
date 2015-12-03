@@ -163,12 +163,13 @@
 // !Global Footer
 
 .wdn-footer-global {
-	padding: 3.157em 0 5.997em;
+	padding: 3.157em 0 9.969em;
     color: @ui06;
 	background: @ui10 data-uri('../images/seal.svg') center bottom -14.204em no-repeat;
 	background-size: 25.24em;
 
 	@media @bp480 {
+    	padding-bottom: 5.997em;
 		background-size: 33.645em;
 		background-position: left -7.994em bottom -14.204em;
 	}
@@ -179,19 +180,16 @@
 
 	@media @bp-under640h {
 		padding: 3.157em 0 13.288em;
-// 		padding: 6vh 0 25vh;
 	}
 
 	@media @bp960 {
-		padding: 3.157em 0;
-// 		padding: 6vh 0 6vh;
+		padding: 3.157em 0 3.375em;
 		background-position: right -7.994em bottom -7.994em;
-		background-size: 31.474em;
+		background-size: 41.955em;
 	}
 
 	@media @bp1280 {
 		background-position: right -5% bottom -7.994em;
-		background-size: 33.645em;
 	}
 
 	.wdn-footer-module {
@@ -281,11 +279,19 @@ a.wdn-footer-logo {
 }
 
 .wdn-footer-logos {
+    max-width: 9.969em;
 	margin-top: 0.254em;
-	margin-bottom: 2vh;
 
 	@media @bp480 {
-		margin-bottom: 0;
+    	max-width: 100%;
+	}
+
+	@media @bp768 {
+    	max-width: 17.713em;
+	}
+
+	@media @bp1280 {
+    	max-width: 100%;
 	}
 
 	a.wdn-footer-logo {
@@ -297,12 +303,12 @@ a.wdn-footer-logo {
 #tips_wordmark {
 	width: 5.997em;
 	height: 2.532em;
-    margin-top: 2vh;
+    margin-top: 1.777em;
     background-image: data-uri('../images/tips.svg');
 	background-position: left top;
 
     @media @bp640 {
-	    margin-top: 1vh;
+	    margin-top: 1em;
     }
 }
 
@@ -324,7 +330,10 @@ a.wdn-footer-logo {
 
     @media @bp480 {
     	margin-bottom: 0.254em;
-		padding-bottom: 38%;
+    }
+
+	@media @bp1280 {
+        margin-top: 0.75em;
     }
 }
 
@@ -332,7 +341,7 @@ a.wdn-footer-logo {
     padding-bottom: 50%;
     background-image: data-uri('../images/cic.svg');
 
-    @media @bp480 {
-		padding-bottom: 40%;
+	@media @bp1280 {
+        margin-top: 0.75em;
     }
 }
