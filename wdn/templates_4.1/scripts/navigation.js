@@ -219,10 +219,12 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		var $nav = $(navSel);
 		var $cWrapper = $(contentWrapperSelector);
 		var cssTemp = {};
+		var $navBarLabels = $(navSel + ' > label');
 
 		$nav.off(expandEvent);
 		cssTemp[cssPaddingTop] = cssTemp[cssPaddingBottom] = '';
 		primaryLinks.css(cssTemp);
+		$navBarLabels.css(cssTemp);
 
 		if (!isFullNav()) {
 			$cWrapper.css(cssPaddingTop, '');
@@ -259,6 +261,20 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 				cssTemp[cssPaddingTop] = Math.floor(ah_temp + pad) + pixelUnit;
 				cssTemp[cssPaddingBottom] = Math.ceil(ah_temp + pad) + pixelUnit;
 
+				$(this).css(cssTemp);
+			}
+		});
+
+		cssTemp = {};
+		$navBarLabels.each(function() {
+			var row = 0;
+			var height = $(this).outerHeight();
+			var pad = parseFloat($(this).css(cssPaddingTop));
+
+			// allow for 5 pixels of height variation
+			if (height + 5 < ah[row]) {
+				var barHalfPad = (ah[row] - height) / 2;
+				cssTemp[cssPaddingTop] = Math.floor(barHalfPad + pad) + pixelUnit;
 				$(this).css(cssTemp);
 			}
 		});
