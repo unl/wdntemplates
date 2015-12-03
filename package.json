@@ -16,10 +16,11 @@
   },
   "homepage": "https://github.com/unl/wdntemplates#readme",
   "devDependencies": {
+    "csso": "^1.4.2",
     "grunt": "^0.4.5",
-    "grunt-bump": "^0.5.0",
+    "grunt-bump": "^0.6.0",
     "grunt-concurrent": "^2.0.3",
-    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-clean": "^0.7.0",
     "grunt-contrib-less": "^1.0.1",
     "grunt-contrib-requirejs": "^0.4.4",
     "grunt-contrib-watch": "^0.6.1",
