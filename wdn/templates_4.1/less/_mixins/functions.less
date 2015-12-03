@@ -51,6 +51,42 @@
     background-image: linear-gradient(bottom, rgba(0,0,0,.15) 0%, rgba(255,255,255,0) 20%);
 }
 
+.is-hidden() {
+    visibility: hidden;
+    pointer-events: none;
+	opacity: 0;
+}
+
+.is-visible() {
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+}
+
+// Improve performance on mobile/tablet devices
+.hardware-accel() {
+	-webkit-transform: translateZ(0);
+}
+
+// Improve aliasing on mobile/tablet devices
+.improve-antialias() {
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+// Transforms need to be block-level to work
+.force-block-level() {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+// Combines the above CSS3 transform functions into a single function for easy use
+.css3-transform() {
+    .hardware-accel();
+    .improve-antialias();
+    .force-block-level();
+}
+
+
 // Experimental flexbox support
 // http://elikirk.com/2013/06/05/flexbox-css-cross-browser-issues/
 .flexbox() {

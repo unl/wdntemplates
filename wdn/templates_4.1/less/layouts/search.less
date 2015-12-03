@@ -90,7 +90,7 @@
         background-color: transparent;
 
         @media @bp-nav-hidden {
-            top: 3.175em;
+            bottom: 2.1em; // number outside of modular scale to vertically center button in form
             right: 2.369em;
             color: @ui10;
         }
@@ -221,25 +221,9 @@
     	    }
 
     	    @media @bp-nav-full {
-        	    margin: 0 0.602em 0;
+        	    margin: 0 0.602em 0 0;
     	    }
 	    }
-
-//         position: absolute;
-//         white-space: nowrap;
-//         overflow: hidden;
-//         line-height: 1;
-//         width: 1em;
-//
-//         @media @bp-nav-hidden {
-//             top: 8px;
-//             left: 8px;
-//         }
-//
-//         @media @bp-nav-full {
-//             top: 7px;
-//             left: 7px;
-//         }
     }
 }
 
