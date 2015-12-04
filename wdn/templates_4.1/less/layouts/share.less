@@ -1,13 +1,16 @@
 .wdn-share-this-page {
     z-index: (@nav-z-index + 1);
 
+    @media @bp-nav-hidden {
+		margin-left: 1em;
+    }
+
     @media @bp-nav-full {
 		position: absolute;
 		.inner-wrapper-margin-right();
 		margin-left: 0;
 		top: 0.254em;
 		right: 0;
-
     }
 
     .wdn-share-button {
@@ -28,13 +31,16 @@
 			&.wdn-hang-left {
 				right: 0;
 				left: auto;
+
 				@media @bp-nav-hidden {
 				    left: 0;
 				    right: auto;
 			    }
+
 			    &:before {
 			    	left: auto;
 					right: 11px;
+
 					@media @bp-nav-hidden {
 			            right: auto;
 						left: 29px;
@@ -64,16 +70,15 @@
 
 	.wdn-icon-share {
 		display: inline;
-
 	    .wdn-nav-icon(); // located at layouts/navigation.less
 	    color: inherit;
 	    padding: 0.85em 0;
 	    width: 1.777em;
-	        &:before { // Show the navigation icon
-		       padding: 0;
-		    }
-	}
 
+        &:before { // Show the navigation icon
+	       padding: 0;
+	    }
+	}
 }
 
 .wdn-share-options {
@@ -81,37 +86,17 @@
 	z-index: (@nav-z-index + 1);
 	width: 212px;
 	padding: 1.069em 2.369em;
-	background-color: @ui10;
-	background-color: fadeout(@ui10, 3%);
+	background-color: @ui12;
+	background-color: fadeout(@ui12, 3%);
 	border-radius: 3px;
 	text-align: left;
 	.wdn-sans-serif();
 	.rem(12);
 
-	&.wdn-hang-left {
-		right: 0;
-		left: auto;
-		margin: .75em -1.25em 0 0;
-
-		&:before {
-            left: auto;
-            right: 1.25em;
-			}
-	}
-
-	&.wdn-hang-right {
-		margin: .75em 0 0 -1.25em;
-		left: 0;
-		right: auto;
-
-		&:before {
-            right: auto;
-            left: 1.25em;
-		}
-	}
-
 	// Hide until toggled
-	display: none;
+    .is-hidden();
+    transform: scale(0.9);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.1s linear 0.6s;
 
 	@media @bp-nav-full {
 		margin: 0;
@@ -134,6 +119,28 @@
             right: 1.25em;
         }
     }
+
+	&.wdn-hang-left {
+		right: 0;
+		left: auto;
+		margin: .75em -1.25em 0 0;
+
+		&:before {
+            left: auto;
+            right: 1.25em;
+        }
+	}
+
+	&.wdn-hang-right {
+		margin: .75em 0 0 -1.25em;
+		left: 0;
+		right: auto;
+
+		&:before {
+            right: auto;
+            left: 1.25em;
+		}
+	}
 
     input {
     	color: @ui08;
