@@ -231,7 +231,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			}
 
 			idm.addClass('loggedin');
-			username.css('backgroundImage', "url(" + planetRed + "icon/" + planetred_uid + "/small/)")
+			username.css('backgroundImage', "url(" + planetRed + "icon/" + planetred_uid + "/medium/)")
 				.attr('href', 'http:' + planetRed + 'profile/' + planetred_uid)
 				.attr('title', loggedInTitle)
 				.text(displayName(uid));
