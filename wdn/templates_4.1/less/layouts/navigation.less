@@ -1,3 +1,5 @@
+@import (reference) "wrapper.less";
+
 .nav-bar() {
     .clear-fix;
     background-color: @brand;
@@ -39,6 +41,7 @@
     cursor: pointer;
     padding: 7px 0;
     color: #fff;
+
     &:before { // Show the navigation icon
        padding-right: 1em;
     }
@@ -58,26 +61,24 @@
     }
 }
 
+#wdn_navigation_wrapper {
+
+    @media @bp-nav-hidden {
+        margin-top: 1em;
+    }
+}
+
 #wdn_navigation_bar {
 	position: relative;
     .brand-font();
     color: #fff;
-
-    a {
-        text-decoration: none;
-        color: #fff;
-    }
-
-    ul {
-        .list-reset();
-    }
 
     // Styles specifc to only the mobile view
     @media @bp-nav-hidden {
         position: fixed;
         z-index: @nav-z-index;
         top: 0;
-        padding-top: 54px;
+        padding-top: 1em;
         left: (@nav-width * -1); // Hide off-screen
         width: @nav-width;
         height: 100%;
@@ -85,19 +86,31 @@
         overflow-y: scroll;
         transition: left @nav-transition-duration ease;
         color: @cream;
-        background-color: @ui10;
-
-        a {
-            color: @ui05;
-        }
-
-        a:hover {
-            color: #fff;
-        }
+        box-shadow: inset -16px 0 16px -16px @ui14;
+        background-color: @ui12;
     }
 
     @media @bp-nav-full {
 	    background: @ui08;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+
+        @media @bp-nav-hidden {
+            color: @ui05;
+        }
+
+        &:hover {
+            @media @bp-nav-hidden {
+                color: #fff;
+            }
+        }
+    }
+
+    ul {
+        .list-reset();
     }
 }
 
@@ -112,9 +125,23 @@
         transition: height @nav-transition-duration ease;
         display: block;
 
+        @media @bp480 {
+            padding-left: @x-480;
+            padding-right: @x-480;
+        }
+
+        @media @bp640 {
+            padding-left: @x-640;
+            padding-right: @x-640;
+        }
+
         // Styles specific to the mobile view
         @media @bp-nav-hidden {
             border-bottom: 1px solid @ui11;
+        }
+
+        @media @bp-nav-full {
+            padding: 5px 5%;
         }
     }
 
