@@ -29,8 +29,6 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		loginURL = loginSrv + 'cas/login?service=' + encLoc,
 		serviceURL = loginSrv + 'services/whoami/?id=',
 		planetRed = '//planetred.unl.edu/pg/',
-		loggedInTitle = 'Review and update your profile',
-		loggedOutTitle = 'Log in to UNL',
 		defaultLinkText,
 		user = false;
 
@@ -215,11 +213,10 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		 * @param {string} uid
 		 */
 		displayNotice : function(uid) {
+
 			var localSettings = getLocalIdmSettings(),
 				idm = $(mainSel),
 				username = $(userSel);
-
-			idm.removeClass('hidden');
 
 			// in planet red's use of CAS, staff usernames are converted like jdoe2 -> unl_jdoe2
 			//  and student usernames are converted like s-jdoe3 -> unl_s_jdoe3
@@ -231,10 +228,17 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			}
 
 			idm.addClass('loggedin');
-			username.css('backgroundImage', "url(" + planetRed + "icon/" + planetred_uid + "/medium/)")
-				.attr('href', 'http:' + planetRed + 'profile/' + planetred_uid)
-				.attr('title', loggedInTitle)
-				.text(displayName(uid));
+
+			$('#wdn_idm_toggle_label').css('backgroundImage', "url(" + planetRed + "icon/" + planetred_uid + "/medium/)")
+                .text(displayName(uid));
+
+
+
+// 				.attr('href', 'http:' + planetRed + 'profile/' + planetred_uid)
+
+
+            // Hide login anchor
+            $(userSel).hide();
 
 			// Any time logout link is clicked, unset the user data
 			var logoutLink = $('a', logoutSel);
@@ -246,11 +250,13 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			var idm = $(mainSel),
 				loginLink = $(userSel);
 
-			idm.removeClass('hidden loggedin');
+			idm.removeClass('loggedin');
 			loginLink.css('backgroundImage', null)
 				.attr('href', loginURL)
-				.attr('title', loggedOutTitle)
 				.text(defaultLinkText);
+
+            // Show login anchor
+            $(userSel).show();
 		},
 
 		/**
