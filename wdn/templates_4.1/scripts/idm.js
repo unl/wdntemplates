@@ -21,7 +21,9 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		mainSel = wdnSel + 'identity_management',
 		idmSel = wdnSel + 'idm_',
 		userSel = idmSel + 'username',
+		profileSel = idmSel + 'profile',
 		logoutSel = idmSel + 'logout',
+		toggleSel = idmSel + 'toggle_label',
 		loginSrv = 'https://login.unl.edu/',
 		ssoCook = 'unl_sso',
 		encLoc = encodeURIComponent(window.location),
@@ -229,13 +231,9 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 
 			idm.addClass('loggedin');
 
-			$('#wdn_idm_toggle_label').css('backgroundImage', "url(" + planetRed + "icon/" + planetred_uid + "/medium/)")
+			$(toggleSel).css('backgroundImage', "url(" + planetRed + "icon/" + planetred_uid + "/medium/)")
                 .text(displayName(uid));
-
-
-
-// 				.attr('href', 'http:' + planetRed + 'profile/' + planetred_uid)
-
+            $(profileSel).attr('href', 'http:' + planetRed + 'profile/' + planetred_uid)
 
             // Hide login anchor
             $(userSel).hide();
