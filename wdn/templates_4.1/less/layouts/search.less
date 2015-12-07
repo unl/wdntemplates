@@ -15,12 +15,15 @@
     @media @bp-nav-full {
         position: relative;
 	    display: inline-block;
-	    margin-left: 1.777em;
+	    float: right;
+	    margin: 0.339em 0 0 1em;
 
 	    .flexbox & {
+    	    clear: right;
     	    display: flex;
     	    flex: row nowrap;
     	    align-items: center;
+    	    margin: 0;
 	    }
 
 	    &.active:after {
