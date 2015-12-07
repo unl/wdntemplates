@@ -1,4 +1,4 @@
-define(['jquery', 'wdn', 'require'], function($, WDN, require) {
+define(['jquery', 'wdn', 'require', 'wdn-ui'], function($, WDN, require, wdnUI) {
 	var initd = false;
 
     var page = window.location.href;
@@ -95,9 +95,9 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
         },
 
         shareButtonTemplate:'<div class="wdn-share-button">'+ // add string to use as template for all share buttons
-                                '<input type="checkbox" id="{{id}}" class="wdn_share_toggle wdn-input-driver" value="Show share options" />'+
+                                '<input type="checkbox" id="{{id}}" class="wdn_share_toggle wdn-input-driver wdn-dropdown-widget-toggle" aria-controls="wdn_share_{{id}}" value="Show share options" />'+
                                 '<label for="{{id}}" class="wdn-icon-share"><span class="wdn-text-hidden">Share This Page</span></label>'+
-                                '<ul class="wdn-share-options wdn-hang-{{hang}}">'+
+                                '<ul id="wdn_share_{{id}}" class="wdn-share-options wdn-hang-{{hang}}">'+
                                     '<li><a href="{{url}}" class="wdn-icon-link wdn_createGoURL" rel="nofollow">Get a Go URL</a></li>'+
                                     '<li class="outpost wdn_emailthis"><a href="mailto:?body={{body}}%20{{encodedUrl}}&amp;subject={{title}}" class="wdn-icon-mail" rel="nofollow">Email this page</a></li>'+
                                     '<li class="outpost wdn_facebook"><a href="https://www.facebook.com/sharer/sharer.php?u={{encodedUrl}}" class="wdn-icon-facebook" rel="nofollow">Share on Facebook</a></li>'+ // https://developers.facebook.com/docs/plugins/share-button
@@ -108,6 +108,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 
         createShareButton: function(container, url, hang, title, body){
             var buttonTemp = Plugin.shareButtonTemplate; // hold template in local variable
+            var controlID = container+"-wdn-share-toggle";
 
             if(container && url) { // if both container and url have been specified, make the widget. if not do nothing
 
@@ -125,7 +126,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
                 buttonTemp = buttonTemp.replace(/{{encodedUrl}}/g, encodeURIComponent(url));
                 buttonTemp = buttonTemp.replace(/{{title}}/g, encodeURIComponent(title));
                 buttonTemp = buttonTemp.replace(/{{body}}/g, encodeURIComponent(body));
-                buttonTemp = buttonTemp.replace(/{{id}}/g, container+"-wdn-share-toggle");
+                buttonTemp = buttonTemp.replace(/{{id}}/g, controlID);
                 buttonTemp = buttonTemp.replace(/{{hang}}/g, encodeURIComponent(hang));
 
                 $("#"+container).html(buttonTemp); // set the html of the container to our newly created widget. 
@@ -145,6 +146,8 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 
                     e.preventDefault();
                 });
+                
+                wdnUI.setUpDropDownWidget('#'+controlID);
             }
         },
 

@@ -5,7 +5,8 @@ define([
 	'socialmediashare',
 	'unlalert',
 	'images',
-	'form_validation'
+	'form_validation',
+	'wdn-ui'
 ], function() {
 	for (var i = 0, pluginCount = arguments.length; i < pluginCount; i++) {
 		var pluginObj = arguments[i];
