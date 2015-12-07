@@ -3,11 +3,6 @@
 #wdn_search {
 
     @media @bp-nav-hidden {
-
-        #wdn_search_form {
-            display: none;
-        }
-        
         .nav-scrolling & {
             position: fixed;
             z-index: (@nav-z-index + 1);
@@ -21,7 +16,6 @@
 
         .wdn_search_toggle:checked ~ #wdn_search_form {
             .is-visible();
-            display: block;
             transform: scale(1);
             transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
         }
