@@ -20,7 +20,7 @@ WDN.initializePlugin('rss_widget');
 <p>To get the default stylization of the plugin, you also need to give it the
   style class <code>wdn-rss-widget</code>.</p>
 
-<script type="text/javascript">
+<script>
 WDN.initializePlugin('rss_widget');
 </script>
 
@@ -28,38 +28,35 @@ WDN.initializePlugin('rss_widget');
   providing a URL as the second parameter:</p>
 
 <p><code>
-WDN.initializePlugin('rss_widget', 'http://newsroom.unl.edu/announce/cse?format=xml');
+WDN.initializePlugin('rss_widget', 'http://newsroom.unl.edu/announce/cse?format=rss');
 </code></p>
 
 <p>You can also customize a few things by providing a JavaScript object like
   this:</p>
-<code>
-WDN.initializePlugin('rss_widget', { url:'http://newsroom.unl.edu/announce/cse?format=xml',
-                                     elementId: 'wdn_rss_widget',
-                                     pause: 8000,
-                                     limit: 10,
-                                     num_show: 3});
-</code>
+<pre><code>
+WDN.initializePlugin('rss_widget', {
+  url:'http://newsroom.unl.edu/announce/cse?format=rss',
+  elementId: 'wdn_rss_widget',
+  pause: 8000,
+  limit: 10,
+  num_show: 3
+});
+</code></pre>
 
 <p>Where each attribute is as follows:</p>
 <ul>
-  <li>url - the URL of the RSS feed (defaults to "UNL In The News")</li>
-  <li>elementId - the id of the DOM element div that the widget should be
-    loaded in (defaults to <code>wdn_rss_widget</code>)
-  <li>pause - the amount of time between news item cycles (in milliseconds,
-    defaults to 5000 = 5 seconds)</li>
-  <li>limit - the maximum number of items to pull from the RSS feed (defaults
-    to 10)</li>
-  <li>The number of items to display at one time (defaults to 3)</li>
+  <li><code>url</code> - the URL of the RSS feed (defaults to "UNL In The News")</li>
+  <li><code>elementId</code> - the id of the DOM element div that the widget should be loaded in (defaults to <code>wdn_rss_widget</code>)
+  <li><code>pause</code> - the amount of time between news item cycles (in milliseconds, defaults to 5000 = 5 seconds)</li>
+  <li><code>limit</code> - the maximum number of items to pull from the RSS feed (defaults to 10)</li>
+  <li><code>num_show</code> - The number of items to display at one time (defaults to 3)</li>
 </ul>
 
-<p>The widget has been updated to allow multiple RSS widget feeds in the same
-  page.  You can achieve this by providing an <i>array</i> of JavaScript
-  configuration objects:
-<code>
+<p>The widget has been updated to allow multiple RSS widget feeds in the same page.  You can achieve this by providing an <i>array</i> of JavaScript configuration objects:</p>
+<pre><code>
 WDN.initializePlugin('rss_widget', [
   {
-    url: 'http://ucommxsrv1.unl.edu/rssfeeds/unlinthenewsrss.xml',
+    url: 'http://newsroom.unl.edu/inthenews/?format=xml',
     elementId : 'wdn_rss_widget',
     pause: 5000,
     limit: 8,
@@ -71,12 +68,13 @@ WDN.initializePlugin('rss_widget', [
     pause: 10000,
     limit: 10,
     num_show: 2
-  }]);
-</code>
+  }
+]);
+</code></pre>
 
 <p>Note that if you use multiple RSS feed widgets, you should provide distinct
 <code>elementId</code>s for each one.  Moreover, each div should have the style
-class, <code>wdn-rss-widget</code> added to it to receive the same styling.
+class, <code>wdn-rss-widget</code> added to it to receive the same styling.</p>
 
 <p>You can stylize your rss widget(s) further by adding zenbox style
   classes:</p>

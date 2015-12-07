@@ -1,7 +1,7 @@
 define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, require) {
 	"use strict";
 
-	var snifferServer = 'https://www1.unl.edu/wdn/templates_3.0/scripts/';
+	var snifferServer = 'https://www1.unl.edu/nav-proxy/';
 	var fullNavBp = '(min-width: 700px)';
 	var hoverPlugin = 'plugins/hoverIntent/jquery.hoverIntent';
 	var expandDelay = 400;
@@ -755,7 +755,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		},
 
 		fetchSiteNavigation : function(url, complete) {
-			var nav_sniffer = snifferServer + 'navigationSniffer.php';
+			var nav_sniffer = snifferServer;
 			nav_sniffer += '?u=' + encodeURIComponent(url);
 			WDN.log('Attempting to retrieve navigation from '+nav_sniffer);
 			$.get(nav_sniffer, '', complete);
