@@ -13,7 +13,7 @@
 }
 
 .selected-arrow() {
-    left: 50%;
+    left: ~'calc(50% - 6px)';
     bottom: -2px;
     width: 0;
     height: 0;
@@ -22,21 +22,46 @@
     border-bottom: 6px solid #fff;
 }
 
+.breadcrumb-loop(@i) when (@i > 0) {
+  .breadcrumb-loop((@i - 1)); // next iteration
+  li:nth-child(@{i}) {
+    margin-left: (12px * @i);
+  }
+}
+
 
 
 #breadcrumbs {
     .sans-serif-font();
 	font-size: 0;
 
+	@media @bp-nav-hidden {
+        .breadcrumb-loop(9); // add margin
+	}
+
+    ul {
+    	@media @bp-nav-hidden {
+            margin-left: -12px;
+    	}
+    }
+
 	li {
         display: inline-block;
 		position: relative;
 		.rem(10);
-        text-transform: none;
-        line-height: 1;
 		vertical-align: middle;
 
+		@media @bp-nav-hidden {
+            display: block;
+            margin-bottom: 1em;
+            padding-left: 1.333em;
+            line-height: 1.069;
+		}
+
 		@media @bp-nav-full {
+    		max-width: 20%;
+    		padding: 0 6px 0 23px;
+            line-height: 1;
 			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5b5b5a+0,474746+100 */
 			background: #5b5b5a; /* Old browsers */
 			background: -moz-linear-gradient(left,  #5b5b5a 0%, #474746 100%); /* FF3.6+ */
@@ -46,7 +71,21 @@
 			background: -ms-linear-gradient(left,  #5b5b5a 0%,#474746 100%); /* IE10+ */
 			background: linear-gradient(to right,  #5b5b5a 0%,#474746 100%); /* W3C */
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b5b5a', endColorstr='#474746',GradientType=1 ); /* IE6-9 */
+            transition: max-width 0.5s ease-in-out 0.2s;
 		}
+
+        &:before {
+
+    		@media @bp-nav-hidden {
+                .breadcrumb-pseudo();
+                top: -0.254em;
+                left: 0.254em;
+                width: 0.75em;
+                height: 0.75em;
+                border-bottom: 1px solid @ui08;
+                border-left: 1px solid @ui08;
+    		}
+        }
 
 		&:after {
 			.breadcrumb-pseudo();
@@ -59,9 +98,29 @@
 			}
 		}
 
+		&:first-child {
+
+			@media @bp-nav-full {
+                margin-left: -23px;
+			}
+
+            &:before {
+
+        		@media @bp-nav-hidden {
+                    content: none;
+        		}
+            }
+		}
+
 		&:last-child {
-			padding-left: 23px;
-			background: transparent;
+
+			@media @bp-nav-full {
+			    padding-left: 23px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                background: transparent;
+			}
 
 			&:after {
 				display: none;
@@ -76,6 +135,8 @@
 
 			@media @bp-nav-full {
 				background: @cream;
+                max-width: 100%;
+                transition: max-width 0.5s ease-in-out 0.5s;
 			}
 
 			&:first-child {
@@ -120,11 +181,12 @@
     a {
         display: block;
         overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 
 		@media @bp-nav-full {
-	        padding: 9px 6px 7px 23px;
+	        padding: 9px 0 7px;
             color: @ui03;
-
 		}
 	}
 
