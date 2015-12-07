@@ -1,7 +1,7 @@
 define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, require) {
 	"use strict";
 
-	var snifferServer = 'https://www1.unl.edu/wdn/templates_3.0/scripts/';
+	var snifferServer = 'https://www1.unl.edu/nav-proxy/';
 	var fullNavBp = '(min-width: 700px)';
 	var hoverPlugin = 'plugins/hoverIntent/jquery.hoverIntent';
 	var expandDelay = 400;
@@ -219,10 +219,12 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		var $nav = $(navSel);
 		var $cWrapper = $(contentWrapperSelector);
 		var cssTemp = {};
+		var $navBarLabels = $(navSel + ' > label');
 
 		$nav.off(expandEvent);
 		cssTemp[cssPaddingTop] = cssTemp[cssPaddingBottom] = '';
 		primaryLinks.css(cssTemp);
+		$navBarLabels.css(cssTemp);
 
 		if (!isFullNav()) {
 			$cWrapper.css(cssPaddingTop, '');
@@ -259,6 +261,20 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 				cssTemp[cssPaddingTop] = Math.floor(ah_temp + pad) + pixelUnit;
 				cssTemp[cssPaddingBottom] = Math.ceil(ah_temp + pad) + pixelUnit;
 
+				$(this).css(cssTemp);
+			}
+		});
+
+		cssTemp = {};
+		$navBarLabels.each(function() {
+			var row = 0;
+			var height = $(this).outerHeight();
+			var pad = parseFloat($(this).css(cssPaddingTop));
+
+			// allow for 5 pixels of height variation
+			if (height + 5 < ah[row]) {
+				var barHalfPad = (ah[row] - height) / 2;
+				cssTemp[cssPaddingTop] = Math.floor(barHalfPad + pad) + pixelUnit;
 				$(this).css(cssTemp);
 			}
 		});
@@ -739,7 +755,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		},
 
 		fetchSiteNavigation : function(url, complete) {
-			var nav_sniffer = snifferServer + 'navigationSniffer.php';
+			var nav_sniffer = snifferServer;
 			nav_sniffer += '?u=' + encodeURIComponent(url);
 			WDN.log('Attempting to retrieve navigation from '+nav_sniffer);
 			$.get(nav_sniffer, '', complete);

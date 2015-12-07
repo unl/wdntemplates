@@ -7,10 +7,11 @@ define(['require', './normalize'], function(req, normalize) {
     if (config.optimizeCss == 'none') {
       return css;
     }
-    
+
     if (typeof process !== "undefined" && process.versions && !!process.versions.node && require.nodeRequire) {
+      var csso;
       try {
-        var csso = require.nodeRequire('csso');
+        csso = require.nodeRequire('csso');
       }
       catch(e) {
         console.log('Compression module not installed. Use "npm install csso -g" to enable.');
@@ -18,7 +19,7 @@ define(['require', './normalize'], function(req, normalize) {
       }
       var csslen = css.length;
       try {
-        css =  csso.justDoIt(css);
+        css =  (csso.minify || csso.justDoIt)(css);
       }
       catch(e) {
         console.log('Compression failed due to a CSS syntax error.');
@@ -33,16 +34,17 @@ define(['require', './normalize'], function(req, normalize) {
 
   //load file code - stolen from text plugin
   function loadFile(path) {
+    var file;
     if (typeof process !== "undefined" && process.versions && !!process.versions.node && require.nodeRequire) {
       var fs = require.nodeRequire('fs');
-      var file = fs.readFileSync(path, 'utf8');
+      file = fs.readFileSync(path, 'utf8');
       if (file.indexOf('\uFEFF') === 0)
         return file.substring(1);
       return file;
     }
     else {
-      var file = new java.io.File(path),
-        lineSeparator = java.lang.System.getProperty("line.separator"),
+      file = new java.io.File(path);
+      var lineSeparator = java.lang.System.getProperty("line.separator"),
         input = new java.io.BufferedReader(new java.io.InputStreamReader(new java.io.FileInputStream(file), 'utf-8')),
         stringBuffer, line;
       try {
@@ -96,7 +98,7 @@ define(['require', './normalize'], function(req, normalize) {
   // NB add @media query support for media imports
   var importRegEx = /@import\s*(url)?\s*(('([^']*)'|"([^"]*)")|\(('([^']*)'|"([^"]*)"|([^\)]*))\))\s*;?/g;
   var absUrlRegEx = /^([^\:\/]+:\/)?\//;
-  
+
   // Write Css module definition
   var writeCSSDefinition = "define('@writecss', function() {return function writeCss(c) {var d=document,a='appendChild',i='styleSheet',s=d.createElement('style');s.type='text/css';d.getElementsByTagName('head')[0][a](s);s[i]?s[i].cssText=c:s[a](d.createTextNode(c));};});";
 
@@ -139,46 +141,46 @@ define(['require', './normalize'], function(req, normalize) {
       var appRoot = req.toUrl(config.appDir);
       if (isWindows)
         appRoot = appRoot.replace(/\\/g, '/');
-      if (fileSiteUrl.indexOf(appRoot) == 0)
+      if (fileSiteUrl.indexOf(appRoot) === 0)
         fileSiteUrl = siteRoot + fileSiteUrl.substring(appRoot.length);
     } else if (config.deployRoot) {
       siteRoot = '/';
       fileSiteUrl = config.deployRoot + fileSiteUrl.substring(baseUrl.length);
     } else {
-      fileSiteUrl = fileSiteUrl.substr(1)
+      fileSiteUrl = fileSiteUrl.substr(1);
     }
 
     //add to the buffer
     cssBuffer[name] = normalize(loadFile(fileUrl), fileSiteUrl, siteRoot);
 
     load();
-  }
+  };
 
   cssAPI.normalize = function(name, normalize) {
     if (name.substr(name.length - 4, 4) == '.css')
       name = name.substr(0, name.length - 4);
     return normalize(name);
-  }
+  };
 
   cssAPI.write = function(pluginName, moduleName, write, parse) {
     var cssModule;
-    
+
     //external URLS don't get added (just like JS requires)
     if (moduleName.match(absUrlRegEx))
       return;
 
     layerBuffer.push(cssBuffer[moduleName]);
-    
+
     if (!global._requirejsCssData) {
       global._requirejsCssData = {
         usedBy: {css: true},
         css: ''
-      }
+      };
     } else {
       global._requirejsCssData.usedBy.css = true;
     }
 
-    if (config.buildCSS != false) {
+    if (config.buildCSS !== false) {
       var style = cssBuffer[moduleName];
 
       if (config.writeCSSModule && style) {
@@ -195,7 +197,7 @@ define(['require', './normalize'], function(req, normalize) {
 
       write.asModule(pluginName + '!' + moduleName, cssModule);
     }
-  }
+  };
 
   cssAPI.onLayerEnd = function(write, data) {
     if (config.separateCSS && config.IESelectorLimit)
@@ -215,26 +217,26 @@ define(['require', './normalize'], function(req, normalize) {
             delete global._requirejsCssData;
           }
         }
-        
+
         saveFile(outPath, compress(css));
       });
 
     }
-    else if (config.buildCSS != false && config.writeCSSModule != true) {
+    else if (config.buildCSS !== false && config.writeCSSModule !== true) {
       var styles = config.IESelectorLimit ? layerBuffer : [layerBuffer.join('')];
       for (var i = 0; i < styles.length; i++) {
-        if (styles[i] == '')
+        if (styles[i] === '')
           return;
         write(
-          "(function(c){var d=document,a='appendChild',i='styleSheet',s=d.createElement('style');s.type='text/css';d.getElementsByTagName('head')[0][a](s);s[i]?s[i].cssText=c:s[a](d.createTextNode(c));})\n"
-          + "('" + escape(compress(styles[i])) + "');\n"
+          "(function(c){var d=document,a='appendChild',i='styleSheet',s=d.createElement('style');s.type='text/css';d.getElementsByTagName('head')[0][a](s);s[i]?s[i].cssText=c:s[a](d.createTextNode(c));})\n" +
+          "('" + escape(compress(styles[i])) + "');\n"
         );
       }
     }
     //clear layer buffer for next layer
     layerBuffer = [];
     writeCSSForLayer = true;
-  }
+  };
 
   return cssAPI;
 });

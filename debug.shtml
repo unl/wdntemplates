@@ -7,7 +7,7 @@
     All framework code is the property of the UNL Web Developer Network. The code seen in a source code view is not, and may not be used as, a template. You may not use this code, a reverse-engineered version of this code, or its associated visual presentation in whole or in part to create a derivative work.
     This message may not be removed from any pages based on the UNLedu Web Framework.
 
-    $Id: debug.dwt | 252c2891a48c70db689be6d897d4f34768b8258a | Thu Aug 1 15:08:19 2013 -0500 | Kevin Abel  $
+    $Id: debug.dwt | 6edb0e1ee94038935f3821c6ce15dfd5c217b2e2 | Tue Dec 1 17:08:56 2015 -0600 | Kevin Abel  $
 -->
 <!--#include virtual="/wdn/templates_4.1/includes/scriptsandstyles_debug.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
@@ -25,19 +25,19 @@
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
             <div id="wdn_header_top">
                 <span id="wdn_institution_title"><a href="http://www.unl.edu/">University of Nebraska&ndash;Lincoln</a></span>
-				<div id="wdn_resources">
-					<!--#include virtual="/wdn/templates_4.1/includes/wdnResources.html" -->
+                <div id="wdn_resources">
+                    <!--#include virtual="/wdn/templates_4.1/includes/wdnResources.html" -->
                     <!--#include virtual="/wdn/templates_4.1/includes/idm.html" -->
                     <!--#include virtual="/wdn/templates_4.1/includes/search.html" -->
-				</div>
-			</div>
+                </div>
+            </div>
             <div id="wdn_logo_lockup">
-	            <div class="wdn-inner-wrapper">
-	                <!--#include virtual="/wdn/templates_4.1/includes/logo.html" -->
-                        <span id="wdn_site_affiliation"><!-- InstanceBeginEditable name="affiliation" -->Hixson-Lied College of Fine &amp; Performing Arts<!-- InstanceEndEditable --></span>
-                        <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" -->Glenn Korff School of Music<!--<abbr title="Hixson-Lied College of Fine &amp; Performing Arts">HLCFPA</abbr>--><!-- InstanceEndEditable --></span>
-	            </div>
-			</div>
+                <div class="wdn-inner-wrapper">
+                    <!--#include virtual="/wdn/templates_4.1/includes/logo.html" -->
+                    <span id="wdn_site_affiliation"><!-- InstanceBeginEditable name="affiliation" -->Hixson-Lied College of Fine &amp; Performing Arts<!-- InstanceEndEditable --></span>
+                    <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" -->Glenn Korff School of Music<!--<abbr title="Hixson-Lied College of Fine &amp; Performing Arts">HLCFPA</abbr>--><!-- InstanceEndEditable --></span>
+                </div>
+            </div>
         </header>
         <div id="wdn_navigation_bar" class="wdn-band">
             <nav id="breadcrumbs" class="wdn-inner-wrapper" role="navigation" aria-label="breadcrumbs">
@@ -61,14 +61,14 @@
         </div>
         <div class="wdn-menu-trigger wdn-content-slide">
             <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
-			<!--#include virtual="/wdn/templates_4.1/includes/share.html" -->
+            <!--#include virtual="/wdn/templates_4.1/includes/share.html" -->
         </div>
         <main id="wdn_content_wrapper" role="main" class="wdn-content-slide" tabindex="-1">
             <div id="maincontent" class="wdn-main">
-	            <div id="pagetitle">
-	                <!-- InstanceBeginEditable name="pagetitle" -->
+                <div id="pagetitle">
+                    <!-- InstanceBeginEditable name="pagetitle" -->
 	                <!-- InstanceEndEditable -->
-	            </div>
+                </div>
                 <!-- InstanceBeginEditable name="maincontentarea" -->
                 <div class="wdn-band wdn-light-triad-band">
                     <div class="wdn-inner-wrapper">
@@ -200,15 +200,15 @@
             </div>
         </main>
         <footer id="footer" role="contentinfo" class="wdn-content-slide">
-	        <div id="wdn_optional_footer" class="wdn-band wdn-footer-optional">
-	            <div class="wdn-inner-wrapper">
-	                <!-- InstanceBeginEditable name="optionalfooter" -->
+            <div id="wdn_optional_footer" class="wdn-band wdn-footer-optional">
+                <div class="wdn-inner-wrapper">
+                    <!-- InstanceBeginEditable name="optionalfooter" -->
 	                <!-- InstanceEndEditable -->
-	            </div>
-	        </div>
+                </div>
+            </div>
             <div id="wdn_local_footer" class="wdn-band wdn-footer-local">
                 <div class="wdn-inner-wrapper">
-					<!-- InstanceBeginEditable name="contactinfo" -->
+                    <!-- InstanceBeginEditable name="contactinfo" -->
                     <!--#include virtual="sharedcode/localFooter.html" -->
                     <!-- InstanceEndEditable -->
                     <!-- InstanceBeginEditable name="leftcollinks" -->
@@ -217,12 +217,12 @@
             </div>
             <div id="wdn_global_footer" class="wdn-band wdn-footer-global">
                 <div class="wdn-inner-wrapper">
-	               <!--#include virtual="/wdn/templates_4.1/includes/globalfooter.html" -->
-				</div>
+                   <!--#include virtual="/wdn/templates_4.1/includes/globalfooter.html" -->
+                </div>
             </div>
         </footer>
         <!--#include virtual="/wdn/templates_4.1/includes/noscript.html" -->
     </div>
-	<!--#include virtual="/wdn/templates_4.1/includes/body_scripts.html" -->
+    <!--#include virtual="/wdn/templates_4.1/includes/body_scripts.html" -->
 </body>
 <!-- InstanceEnd --></html>

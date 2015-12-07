@@ -1,47 +1,30 @@
 /**
- * Plugin: jquery.zRSSFeed
- * 
- * Version: 1.2.0
  * (c) Copyright 2010-2013, Zazar Ltd
- * 
- * Description: jQuery plugin for display of RSS feeds via Google Feed API
- *              (Based on original plugin jGFeed by jQuery HowTo. Filesize function by Cary Dunn.)
- * 
- * History:
- * 1.2.0 - Added month names to date formats
- * 1.1.9 - New dateformat option to allow feed date formatting
- * 1.1.8 - Added historical option to enable scoring in the Google Feed API
- * 1.1.7 - Added feed offset, link redirect & link content options
- * 1.1.6 - Added sort options
- * 1.1.5 - Target option now applies to all feed links
- * 1.1.4 - Added option to hide media and now compressed with Google Closure
- * 1.1.3 - Check for valid published date
- * 1.1.2 - Added user callback function due to issue with ajaxStop after jQuery 1.4.2
- * 1.1.1 - Correction to null xml entries and support for media with jQuery < 1.5
- * 1.1.0 - Added support for media in enclosure tags
- * 1.0.3 - Added feed link target
- * 1.0.2 - Fixed issue with GET parameters (Seb Dangerfield) and SSL option
- * 1.0.1 - Corrected issue with multiple instances
+ * Copyright (C) 2007 Jean-François Hovinne - http://www.hovinne.com/
  *
+ * jQuery plugin for display of RSS/Atom feeds
+ * Based on original plugin jGFeed by jQuery HowTo.
+ * Filesize function by Cary Dunn.
+ * jFeed by Jean-François Hovinne
+ *
+ * Licensed under the MIT
  **/
 (function(factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD
-        define(['jquery'], factory);
-    } else if (typeof module === 'object' && module.exports) {
-        factory(require('jquery'));
-    } else {
-        // Browser globals
-        factory(jQuery);
-    }
+	if (typeof define === 'function' && define.amd) {
+		// AMD
+		define(['jquery'], factory);
+	} else if (typeof module === 'object' && module.exports) {
+		factory(require('jquery'));
+	} else {
+		// Browser globals
+		factory(jQuery);
+	}
 }(function($){
 
-	$.fn.rssfeed = function(url, options, fn) {	
-	
+	$.fn.rssfeed = function(url, options, fn) {
 		// Set plugin defaults
 		var defaults = {
 			limit: 10,
-			offset: 1,
 			header: true,
 			titletag: 'h4',
 			date: true,
@@ -51,103 +34,334 @@
 			media: true,
 			showerror: true,
 			errormsg: '',
-			key: null,
-			ssl: false,
 			linktarget: '_self',
 			linkredirect: '',
 			linkcontent: false,
 			sort: '',
 			sortasc: true,
-			historical: false
-		};  
-		var options = $.extend(defaults, options); 
-		
+		};
+		options = $.extend(defaults, options);
+
 		// Functions
 		return this.each(function(i, e) {
 			var $e = $(e);
-			var s = '';
 
-			// Check for SSL protocol
-			if (options.ssl) s = 's';
-			
 			// Add feed class to user div
 			if (!$e.hasClass('rssFeed')) $e.addClass('rssFeed');
-			
-			// Check for valid url
-			if(url == null) return false;
 
-			// Add start offset to feed length
-			if (options.offset > 0) options.offset -= 1;
-			options.limit += options.offset;
-			
-			// Create Google Feed API address
-			var api = "http"+ s +"://ajax.googleapis.com/ajax/services/feed/load?v=1.0&callback=?&q=" + encodeURIComponent(url);
-			api += "&num=" + options.limit;
-			if (options.historical) api += "&scoring=h";
-			if (options.key != null) api += "&key=" + options.key;
-			api += "&output=json_xml"
+			// Check for valid url
+			if(!url) return false;
 
 			// Send request
-			$.getJSON(api, function(data){
-				
-				// Check for error
-				if (data.responseStatus == 200) {
-	
-					// Process the feeds
-					_process(e, data.responseData, options);
+			$.ajax(url, {
+				error: function() {
+					// Handle error if required
+					if (options.showerror) {
+						var msg;
+						if (options.errormsg !== '') {
+							msg = options.errormsg;
+						} else {
+							msg = 'Could not load feed.';
+						}
+						$(e).html('<div class="rssError"><p>'+ msg +'</p></div>');
+					}
+				},
+				success: function(data){
+					_process(e, data, options);
 
 					// Optional user callback function
-					if ($.isFunction(fn)) fn.call(this,$e);
-					
-				} else {
-
-					// Handle error if required
-					if (options.showerror)
-						if (options.errormsg != '') {
-							var msg = options.errormsg;
-						} else {
-							var msg = data.responseDetails;
-						};
-						$(e).html('<div class="rssError"><p>'+ msg +'</p></div>');
-				};
-			});				
+					if ($.isFunction(fn)) fn($e);
+				}
+			});
 		});
 	};
-	
+
+	function extend(target, source) {
+		Object.getOwnPropertyNames(source).forEach(function(propName) {
+			Object.defineProperty(target, propName, Object.getOwnPropertyDescriptor(source, propName));
+		});
+		return target;
+	}
+
+	function JFeed(xml) {
+		this.parse(xml);
+	}
+
+	JFeed.prototype = {
+		element: null,
+		type: '',
+		version: '',
+		title: '',
+		link: '',
+		description: '',
+		author:  '',
+		language: '',
+		updated: '',
+		entries: [],
+		parse: function(xml) {
+			this.element = xml;
+			this.entries = [];
+		}
+	};
+
+	JFeed.factory = function(xml) {
+
+		if ($('channel', xml).length) {
+			return new JRss(xml);
+		} else if ($('feed', xml).length) {
+			return new JAtom(xml);
+		}
+
+		return null;
+	};
+
+	function JFeedItem(feed, element) {
+		this.feed = feed;
+		this.parse(element);
+	}
+
+	JFeedItem.prototype = {
+		element: null,
+		feed: null,
+		title: '',
+		link: '',
+		content: '',
+		get description() {
+			return this.content;
+		},
+		get contentSnippet() {
+			return _generateContentSnippet(this.content);
+		},
+		publishedDate: '',
+		get updated() {
+			return this.publishedDate;
+		},
+		id: '',
+		media: [],
+		parse: function(element) {
+			this.element = element;
+			this.media = [];
+		}
+	};
+
+	function JAtomFeedItem(feed, element) {
+		JFeedItem.call(this, feed, element);
+	}
+	JAtomFeedItem.prototype = {
+		get title() {
+			return $('title', this.element).eq(0).text();
+		},
+		get link() {
+			return $('link', this.element).eq(0).attr('href');
+		},
+		get content() {
+			return $('summary', this.element).eq(0).text() || $('content', this.element).eq(0).text();
+		},
+		get publishedDate() {
+			return $('published', this.element).eq(0).text();
+		},
+		get updated() {
+			return $('updated', this.element).eq(0).text() || this.published;
+		},
+		get id() {
+			return $('id', this.element).eq(0).text();
+		},
+		parse: function(element) {
+			var self = this;
+			JFeedItem.prototype.parse.call(this, element);
+			$('link[rel=enclosure]', element).each(function() {
+				self.media.push(new JAtomMediaItem(this));
+			});
+		}
+	};
+	JAtomFeedItem.prototype = extend(Object.create(JFeedItem.prototype), JAtomFeedItem.prototype);
+
+	function JRssFeedItem(feed, element) {
+		JFeedItem.call(this, feed, element);
+	}
+	JRssFeedItem.prototype = {
+		get title() {
+			return $('title', this.element).eq(0).text();
+		},
+		get link() {
+			return $('link', this.element).eq(0).text();
+		},
+		get content() {
+			return $('description', this.element).eq(0).text();
+		},
+		get publishedDate() {
+			return $('pubDate', this.element).eq(0).text();
+		},
+		get id() {
+			return $('guid', this.element).eq(0).text();
+		},
+		parse: function(element) {
+			var self = this;
+			JFeedItem.prototype.parse.call(this, element);
+			$('enclosure', element).each(function() {
+				self.media.push(new JRssMediaItem(this));
+			});
+		}
+	};
+	JRssFeedItem.prototype = extend(Object.create(JFeedItem.prototype), JRssFeedItem.prototype);
+
+	function JMediaItem(xml) {
+		this.element = xml;
+	}
+	JMediaItem.prototype = {
+		element: null,
+		get href() {
+			return $(this.element).attr('url');
+		},
+		get type() {
+			return $(this.element).attr('type');
+		},
+		get length() {
+			return $(this.element).attr('length');
+		}
+	};
+
+	function JAtomMediaItem(xml) {
+		JMediaItem.call(this, xml);
+	}
+	JAtomMediaItem.prototype = {
+		get href() {
+			return $(this.element).attr('href');
+		}
+	};
+	JAtomMediaItem.prototype = extend(Object.create(JMediaItem.prototype), JAtomMediaItem.prototype);
+
+	function JRssMediaItem(xml) {
+		JMediaItem.call(this, xml);
+	}
+	JRssMediaItem.prototype = {};
+	JRssMediaItem.prototype = extend(Object.create(JMediaItem.prototype), JRssMediaItem.prototype);
+
+
+	function JAtom(xml) {
+		this.type = 'atom';
+		JFeed.call(this, xml);
+	}
+
+	JAtom.prototype = {
+		get channel() {
+			return $('feed', this.element).eq(0);
+		},
+		get title() {
+			return $('title', this.channel).eq(0).text();
+		},
+		get link() {
+			return $('link', this.channel).eq(0).attr('href');
+		},
+		get description() {
+			return $('subtitle', this.channel).eq(0).text();
+		},
+		get language() {
+			return this.channel.attr('xml:lang');
+		},
+		get updated() {
+			return $('updated', this.channel).eq(0).text();
+		},
+		get author() {
+			return $('name', this.channel).eq(0).text();
+		},
+		parse: function(xml) {
+			var self = this;
+			JFeed.prototype.parse.call(this, xml);
+			this.version = '1.0';
+			$('entry', xml).each(function() {
+				self.entries.push(new JAtomFeedItem(self, this));
+			});
+		}
+	};
+	JAtom.prototype = extend(Object.create(JFeed.prototype), JAtom.prototype);
+
+	function JRss(xml) {
+		this.type = 'rss';
+		JFeed.call(this, xml);
+	}
+
+	JRss.prototype = {
+		get channel() {
+			return $('channel', this.element).eq(0);
+		},
+		get version() {
+			var $rss = $('rss', this.element);
+
+			if (!$rss.length) {
+				return '1.0';
+			}
+
+			return $rss.eq(0).attr('version');
+		},
+		get title() {
+			return $('title', this.channel).eq(0).text();
+		},
+		get link() {
+			return $('link', this.channel).eq(0).text();
+		},
+		get description() {
+			return $('description', this.channel).eq(0).text();
+		},
+		get language() {
+			return $('language', this.channel).eq(0).text();
+		},
+		get updated() {
+			return $('lastBuildDate', this.channel).eq(0).text();
+		},
+		parse: function(xml) {
+			var self = this;
+			JFeed.prototype.parse.call(this, xml);
+			$('item', xml).each(function() {
+				self.entries.push(new JRssFeedItem(self, this));
+			});
+		}
+	};
+	JRss.prototype = extend(Object.create(JFeed.prototype), JRss.prototype);
+
+	var _generateContentSnippet = function(content) {
+		var $elem = $('<div>').html(content);
+		var text = $elem[0].textContent;
+		var nextSpacePos;
+
+		if (text.length > 120) {
+			nextSpacePos = text.indexOf(' ', 120);
+
+			if (nextSpacePos !== -1) {
+				text = text.substring(0, nextSpacePos) + ' ...';
+			}
+		}
+
+		return text;
+	};
+
 	// Function to create HTML result
 	var _process = function(e, data, options) {
-
-		// Get JSON feed data
-		var feeds = data.feed;
-		if (!feeds) {
+		var feeds = JFeed.factory(data);
+		if (!feeds.type) {
 			return false;
 		}
 		var rowArray = [];
 		var rowIndex = 0;
-		var html = '';	
+		var html = '';
 		var row = 'odd';
-		
-		// Get XML data for media (parseXML not used as requires 1.5+)
-		if (options.media) {
-			var xml = _getXMLDocument(data.xmlString);
-			var xmlEntries = xml.getElementsByTagName('item');
-		}
-		
+		var i, j;
+		var content;
+
 		// Add header if required
 		if (options.header)
 			html +=	'<div class="rssHeader">' +
 				'<a href="'+feeds.link+'" title="'+ feeds.description +'">'+ feeds.title +'</a>' +
 				'</div>';
-			
+
 		// Add body
 		html += '<div class="rssBody">' +
 			'<ul>';
 
 
 		// Add feeds
-		for (var i=options.offset; i<feeds.entries.length; i++) {
-			
-			rowIndex = i - options.offset;
+		for (i = 0, j = feeds.entries.length; i < options.limit && i < j; i++) {
+			rowIndex = i;
 			rowArray[rowIndex] = [];
 
 			// Get individual feed
@@ -165,13 +379,12 @@
 					sort = entry.publishedDate;
 					break;
 			}
-			rowArray[rowIndex]['sort'] = sort;
+			rowArray[rowIndex].sort = sort;
 
 			// Format published date
 			if (entry.publishedDate) {
-
 				var entryDate = new Date(entry.publishedDate);
-				var pubDate = entryDate.toLocaleDateString() + ' ' + entryDate.toLocaleTimeString();
+				pubDate = entryDate.toLocaleDateString() + ' ' + entryDate.toLocaleTimeString();
 
 				switch (options.dateformat) {
 					case 'datetime':
@@ -190,58 +403,54 @@
 						break;
 				}
 			}
-			
+
 			// Add feed row
 			if (options.linkredirect) feedLink = encodeURIComponent(feedLink);
-			rowArray[rowIndex]['html'] = '<'+ options.titletag +'><a href="'+ options.linkredirect + feedLink +'" title="View this feed at '+ feeds.title +'">'+ entry.title +'</a></'+ options.titletag +'>'
+			rowArray[rowIndex].html = '<'+ options.titletag +'><a href="'+ options.linkredirect + feedLink +'" title="View this feed at '+ feeds.title +'">'+ entry.title +'</a></'+ options.titletag +'>';
 
-			if (options.date && pubDate) rowArray[rowIndex]['html'] += '<div>'+ pubDate +'</div>'
+			if (options.date && pubDate) rowArray[rowIndex].html += '<div>'+ pubDate +'</div>';
 			if (options.content) {
-			
 				// Use feed snippet if available and optioned
-				if (options.snippet && entry.contentSnippet != '') {
-					var content = entry.contentSnippet;
+				if (options.snippet && entry.contentSnippet) {
+					content = entry.contentSnippet;
 				} else {
-					var content = entry.content;
+					content = entry.content;
 				}
 
 				if (options.linkcontent) {
-					content = '<a href="'+ options.linkredirect + feedLink +'" title="View this feed at '+ feeds.title +'">'+ content +'</a>'
+					content = '<a href="'+ options.linkredirect + feedLink +'" title="View this feed at '+ feeds.title +'">'+ content +'</a>';
 				}
-				
-				rowArray[rowIndex]['html'] += '<p>'+ content +'</p>'
+
+				rowArray[rowIndex].html += '<p>'+ content +'</p>';
 			}
-			
+
 			// Add any media
-			if (options.media && xmlEntries.length > 0) {
-				var xmlMedia = xmlEntries[i].getElementsByTagName('enclosure');
-				if (xmlMedia.length > 0) {
-					
-					rowArray[rowIndex]['html'] += '<div class="rssMedia"><div>Media files</div><ul>'
-					
-					for (var m=0; m<xmlMedia.length; m++) {
-						var xmlUrl = xmlMedia[m].getAttribute("url");
-						var xmlType = xmlMedia[m].getAttribute("type");
-						var xmlSize = xmlMedia[m].getAttribute("length");
-						rowArray[rowIndex]['html'] += '<li><a href="'+ xmlUrl +'" title="Download this media">'+ xmlUrl.split('/').pop() +'</a> ('+ xmlType +', '+ _formatFilesize(xmlSize) +')</li>';
-					}
-					rowArray[rowIndex]['html'] += '</ul></div>'
+			if (options.media && entry.media.length) {
+				rowArray[rowIndex].html += '<div class="rssMedia"><div>Media files</div><ul>';
+
+				for (var m = 0, k = entry.media.length; m < k; m++) {
+					var xmlUrl = entry.media[m].href;
+					var xmlType = entry.media[m].type;
+					var xmlSize = entry.media[m].length;
+					rowArray[rowIndex].html += '<li><a href="'+ xmlUrl +'" title="Download this media">'+ xmlUrl.split('/').pop() +'</a> ('+ xmlType +', '+ _formatFilesize(xmlSize) +')</li>';
 				}
+				rowArray[rowIndex].html += '</ul></div>';
 			}
-					
 		}
-		
+
 		// Sort if required
 		if (options.sort) {
 			rowArray.sort(function(a,b) {
+				var c;
+				var d;
 
 				// Apply sort direction
 				if (options.sortasc) {
-					var c = a['sort'];
-					var d = b['sort'];
+					c = a.sort;
+					d = b.sort;
 				} else {
-					var c = b['sort'];
-					var d = a['sort'];
+					c = b.sort;
+					d = a.sort;
 				}
 
 				if (options.sort == 'date') {
@@ -257,30 +466,34 @@
 		// Add rows to output
 		$.each(rowArray, function(e) {
 
-			html += '<li class="rssRow '+row+'">' + rowArray[e]['html'] + '</li>';
+			html += '<li class="rssRow '+row+'">' + rowArray[e].html + '</li>';
 
 			// Alternate row classes
 			if (row == 'odd') {
 				row = 'even';
 			} else {
 				row = 'odd';
-			}			
+			}
 		});
 
 		html += '</ul>' +
-			'</div>'
-		
+			'</div>';
+
 		$(e).html(html);
 
 		// Apply target to links
 		$('a',e).attr('target',options.linktarget);
 	};
-	
+
 	var _formatFilesize = function(bytes) {
+		bytes = parseFloat(bytes);
+		if (!bytes) {
+			return '';
+		}
 		var s = ['bytes', 'kb', 'MB', 'GB', 'TB', 'PB'];
 		var e = Math.floor(Math.log(bytes)/Math.log(1024));
 		return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
-	}
+	};
 
 	var _formatDate = function(date,mask) {
 
@@ -298,61 +511,49 @@
 		date = date.replace('ss', _formatDigit(fmtDate.getSeconds()));
 
 		return date;
-	}
+	};
 
 	var _formatDigit = function(digit) {
 		digit += '';
 		if (digit.length < 2) digit = '0' + digit;
 		return digit;
-	}
+	};
 
 	var _getMonthName = function(month) {
 		var name = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 		return name[month];
-	}
-
-	var _getXMLDocument = function(string) {
-		var browser = navigator.appName;
-		var xml;
-		if (browser == 'Microsoft Internet Explorer') {
-			xml = new ActiveXObject('Microsoft.XMLDOM');
-			xml.async = 'false';
-			xml.loadXML(string);
-		} else {
-			xml = (new DOMParser()).parseFromString(string, 'text/xml');
-		}
-		return xml;
-	}
+	};
 
 	var _getLapsedTime = function(date) {
-		
+
 		// Get current date and format date parameter
-		var todayDate = new Date();	
+		var todayDate = new Date();
 		var pastDate = new Date(date);
 
 		// Get lasped time in seconds
-		var lapsedTime = Math.round((todayDate.getTime() - pastDate.getTime())/1000)
+		var lapsedTime = Math.round((todayDate.getTime() - pastDate.getTime())/1000);
+		var t, u;
 
 		// Return lasped time in seconds, minutes, hours, days and weeks
 		if (lapsedTime < 60) {
 			return '< 1 min';
 		} else if (lapsedTime < (60*60)) {
-			var t = Math.round(lapsedTime / 60) - 1;
-			var u = 'min';
+			t = Math.round(lapsedTime / 60) - 1;
+			u = 'min';
 		} else if (lapsedTime < (24*60*60)) {
-			var t = Math.round(lapsedTime / 3600) - 1;
-			var u = 'hour';
+			t = Math.round(lapsedTime / 3600) - 1;
+			u = 'hour';
 		} else if (lapsedTime < (7*24*60*60)) {
-			var t = Math.round(lapsedTime / 86400) - 1;
-			var u = 'day';
+			t = Math.round(lapsedTime / 86400) - 1;
+			u = 'day';
 		} else {
-			var t = Math.round(lapsedTime / 604800) - 1;
-			var u = 'week';
+			t = Math.round(lapsedTime / 604800) - 1;
+			u = 'week';
 		}
-		
+
 		// Check for plural units
 		if (t > 1) u += 's';
 		return t + ' ' + u;
-	}
+	};
 
 }));

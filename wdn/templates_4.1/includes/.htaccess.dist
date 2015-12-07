@@ -1,0 +1,1 @@
+RedirectMatch 302 /wdn/templates_4.1/includes/(.*) https://unlcms.unl.edu/wdn/templates_4.1/includes/$1
