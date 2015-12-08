@@ -9,14 +9,80 @@
 
     $Id: unlaffiliate.dwt | 6edb0e1ee94038935f3821c6ce15dfd5c217b2e2 | Tue Dec 1 17:08:56 2015 -0600 | Kevin Abel  $
 -->
-<!--#include virtual="/wdn/templates_4.1/includes/scriptsandstyles.html" -->
+<!--#include virtual="/wdn/templates_4.1/includes/scriptsandstyles_local.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>UNL Affiliate | New Page</title>
+<title>Please Title Your Page Here | Buros Center for Testing</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<link rel="stylesheet" type="text/css" media="screen" href="sharedcode/affiliate/css/affiliate.css" />
-<link href="sharedcode/affiliate/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" media="screen" href="sharedcode/affiliate/css/affiliate.css" />
+<link href="sharedcode/affiliate/images/favicon.ico" rel="shortcut icon" />
+<link rel="home" href="http://buros.org/" />
+<style>
+.buros-slider figure {
+    position: relative;
+}
+.buros-slider figure figcaption {
+    background-color: #333;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 45%;
+    padding: 0.8em;
+    overflow: auto;
+}
+.buros-slider figure figcaption h3 {
+    font-size: 1.2em;
+    color: #fff;
+    text-align: center;
+}
+#maincontent .buros-slider figure figcaption a {
+    color: #fff;
+}
+.buros-slider .slides figure div.placeholder {
+    width: 56%;
+    padding-bottom: 26%;
+    background-color: #fff;
+}
+
+#maincontent {
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+}
+
+#maincontent h1,
+#maincontent h2,
+#maincontent h3,
+#maincontent h4,
+#maincontent h5,
+#maincontent h6 {
+    font-family: Futura, Arial, sans-serif;
+    font-weight: normal;
+}
+#burosBanner {
+    color: #fff;
+    background: #333;
+    position: relative;
+    padding: 1em;
+    margin-top: 2.4em;
+    margin-bottom: 2.4em;
+}
+#burosBanner blockquote {
+    width: 75%;
+}
+#burosBanner > div {
+    position: absolute;
+    bottom: -1.9em;
+    right: 1em;
+}
+#burosBanner .wdn-frame {
+    background-color: #fff;
+    width: 105px;
+    height: 142px;
+}
+</style>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="" -->
 </head>
@@ -37,12 +103,10 @@
             <div id="wdn_logo_lockup">
                 <div class="wdn-inner-wrapper">
                     <!-- InstanceBeginEditable name="sitebranding_logo" -->
-                <div id="logo">
-            		<a href="http://www.throughtheeyes.org/" title="Through the Eyes of the Child Initiative">Through the Eyes of the Child Initiative</a>
-                </div>
-            	<!-- InstanceEndEditable -->
-                    <span id="wdn_site_affiliation"><!-- InstanceBeginEditable name="affiliation" -->My site affiliation<!-- InstanceEndEditable --></span>
-                    <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" -->Throught the Eyes of a Child Initiative<span>A Nebraska Supreme Court Initiative</span><!-- InstanceEndEditable --></span>
+                    <a id="logo" href="http://buros.org/"><span>Buros Center for Testing</span></a>
+                    <!-- InstanceEndEditable -->
+                    <span id="wdn_site_affiliation"><!-- InstanceBeginEditable name="affiliation" --><!-- InstanceEndEditable --></span>
+                    <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" --><span class="wdn-text-hidden">Buros Center for Testing</span><!-- InstanceEndEditable --></span>
                 </div>
             </div>
         </header>
@@ -50,14 +114,14 @@
             <nav id="breadcrumbs" class="wdn-inner-wrapper" role="navigation" aria-label="breadcrumbs">
                 <!-- InstanceBeginEditable name="breadcrumbs" -->
                 <ul>
-                    <li><a href="http://www.throughtheeyes.org/" title="Through the Eyes of the Child Initiative">Home</a></li>
+                    <li><a href="http://buros.org/" title="Buros Center for Testing">Buros</a></li>
                 </ul>
                 <!-- InstanceEndEditable -->
             </nav>
             <div id="wdn_navigation_wrapper">
                 <nav id="navigation" role="navigation" aria-label="main navigation">
                     <!-- InstanceBeginEditable name="navlinks" -->
-                    <!--#include virtual="sharedcode/navigation.html" -->
+                    <!--#include virtual="sharedcode/affiliate/navigation.html" -->
                     <!-- InstanceEndEditable -->
                     <!--#include virtual="/wdn/templates_4.1/includes/navigation-addons.html" -->
                 </nav>
@@ -71,12 +135,107 @@
             <div id="maincontent" class="wdn-main">
                 <div id="pagetitle">
                     <!-- InstanceBeginEditable name="pagetitle" -->
-                <h1>Please Title Your Page Here</h1>
-                <!-- InstanceEndEditable -->
+                    <h1>Buros Center for Testing</h1>
+                    <!-- InstanceEndEditable -->
                 </div>
                 <!-- InstanceBeginEditable name="maincontentarea" -->
-                <h2>This is a blank page</h2>
-                <p>Impress your audience with awesome content!</p>
+<div id="wdn_Carousel" class="buros-slider">
+<ul class="slides">
+
+<li>
+<figure><div class="placeholder"></div><figcaption>
+<h3>Pruebas Publicadas en Español</h3>
+<p>This comprehensive resource helps both Spanish and English speakers access essential information about tests published in the Spanish language.</p>
+<p><a href="pruebas-publicadas-en-espanol#esp"><i>Click here for details</i></a></p>
+</figcaption></figure>
+</li>
+
+<li>
+<figure><a href="http://ulearn.unl.edu/buros" title="Go to the Buros Video Library!" target="_blank"><div class="placeholder"></div></a><figcaption>
+<h3>Clinical Assessment Webinar Series</h3>
+<p>The Clinical Assessment webinar series focused on ways in which clinical assessment contributes to evidence-based mental health interventions.</p>
+<p><a href="http://buros.org/clinical-assessment-webinar-series"><i>Click here for more</i></a></p>
+</figcaption></figure>
+</li>
+
+<li>
+<figure><a href="http://ulearn.unl.edu/buros" title="Go to the Buros Video Library!" target="_blank"><div class="placeholder"></div></a><figcaption>
+<h3>Decoding the <i>Standards</i> Webinar Series</h3>
+<p>The Decoding the <i>Standards for Educational and Psychological Testing</i> webinar series illustrated how the <i>Standards</i> can be applied in specific areas of testing practice through the use of examples to amplify the intent of the <i>Standards</i>, to promote sound testing practices, and to provide a basis for evaluating the quality of those practices.</p>
+<p><a href="http://buros.org/decoding-standards-webinar-series"><i>Click here for more</i></a></p>
+</figcaption></figure>
+</li>
+
+<li>
+<figure><div class="placeholder"></div><figcaption>
+<h3>Buros Product News</h3>
+<p>Buros announces a new electronic database product that integrates reviews and test information from its three reference volumes – <i>Mental Measurements Yearbook, Tests in Print, and Pruebas Publicadas en Español.</i></p>
+<p><a href="https://www.ebscohost.com/academic/mental-measurements-yearbook-with-tests-in-print-internacional"><i>Click here to read more</i></a></p>
+</figcaption></figure>
+</li>
+
+<li>
+<figure><div class="placeholder"></div><figcaption>
+<h3>Available Now:</h3>
+<p>The Nineteenth Mental Measurements Yearbook</p>
+<p><a href="http://www.nebraskapress.unl.edu/product/Nineteenth-Mental-Measurements-Yearbook,675884.aspx"><i>Click here to order</i></a></p>
+</figcaption></figure>
+</li>
+
+<li>
+<figure><div class="placeholder"></div><figcaption>
+<h3>Sign Up For The Quarterly Buros E-Newsletter To Receive News On...</h3>
+<p>* New publication and volume releases</br>
+* Assessment literacy resources and events</br>
+* Psychometric consulting services</br>
+* Conferences where you can meet Buros staff...and more</p>
+<p><a href="http://visitor.r20.constantcontact.com/manage/optin/ea?v=001a93jXVOCx_KpR-Th0GlcsA%3D%3D"><i>Click here to sign up</i></a></p>
+</figcaption></figure>
+</li>
+
+</ul>
+</div>
+<script>
+WDN.initializePlugin('carousel');
+</script>
+<div class="bp2-wdn-grid-set-thirds">
+<div class="wdn-col">
+<h2>Test Reviews &amp; Information</h2>
+<p>Buros publishes authoritative reference materials that contain descriptions and candidly critical evaluations of commercially available tests, essential to professionals involved in the evaluation, selection, and use of tests. Recognized for their quality worldwide, our publications comprise expert and independent sources of information about tests.</p>
+<ul>
+<li><a href="https://marketplace.unl.edu/buros/" title="Test Reviews Online">Test Reviews Online</a></li>
+<li><a href="tests-print" title="Tests In Print">Tests In Print</a></li>
+<li><a href="mental-measurements-yearbook" title="Mental Measurements Yearbook">Mental Measurements Yearbook</a></li>
+<li><a href="pruebas-publicadas-en-espanol#esp" title="Pruebas Publicadas en Español">Pruebas Publicadas en Español</a></li>
+</ul>
+</div>
+<div class="wdn-col">
+<h2>Psychometric Consulting</h2>
+<p>Buros offers expert psychometric services to assist proprietary testing programs and improve the quality of their programs and validity of results. Our independent verification adds credibility and defensibility to testing organizations and their assessments.</p>
+<ul>
+<li><a href="psychometric-research" title="Psychometric Research">Psychometric Research</a></li>
+<li><a href="consultation-and-training" title="Consultation and Training">Consultation and Training</a></li>
+<li><a href="evaluation-and-oversight" title="Evaluation and Oversight">Evaluation and Oversight</a></li>
+<li><a href="audits-and-accreditation" title="Audits and Accreditation">Audits and Accreditation</a></li>
+</ul>
+</div>
+<div class="wdn-col">
+<h2>Assessment Literacy</h2>
+<p>Buros provides instructional and educational resources that improve the ability of individuals to select, develop, and use tests and assessments in accordance with relevant standards as well as accepted guidelines for responsible test use.</p>
+<ul>
+<li><a href="educational-resources" title="Educational Resources">Educational Resources</a></li>
+<li><a href="clearinghouse" title="Clearinghouse">Clearinghouse</a></li>
+<li><a href="conferences-webinars" title="Conferences and Webinars">Conferences and Webinars</a></li>
+<li><a href="standards-codes-guidelines" title="Standards, Codes, and Guidelines">Standards, Codes, and Guidelines</a></li>
+<li><a href="glossary" title="Glossaries">Glossaries</a></li>
+<li><a href="http://ulearn.unl.edu/buros" title="Video Library">Video Library</a></li>
+</ul>
+</div>
+</div>
+<div id="burosBanner">
+<blockquote><q>Test users have every right to demand that test authors and publishers present full particulars concerning the methods used in constructing and validating the tests which they place on the market.</q> (Oscar Buros, 1938).</blockquote>
+<div><div class="wdn-frame"></div></div>
+</div>
                 <!-- InstanceEndEditable -->
             </div>
         </main>
@@ -89,7 +248,7 @@
             <div id="wdn_local_footer" class="wdn-band wdn-footer-local">
                 <div class="wdn-inner-wrapper">
                     <!-- InstanceBeginEditable name="contactinfo" -->
-                    <!--#include virtual="sharedcode/localFooter.html" -->
+                    <!--#include virtual="sharedcode/affiliate/localFooter.html" -->
                     <!-- InstanceEndEditable -->
                     <!-- InstanceBeginEditable name="leftcollinks" -->
                     <!-- InstanceEndEditable -->

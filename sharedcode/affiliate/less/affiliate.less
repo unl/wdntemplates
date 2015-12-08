@@ -1,80 +1,76 @@
-/*
-*
-* !DO NOT EDIT THE CSS FILES, THEY ARE BUILT WITH THE LESS!
-*
-* ---------------------------
-* This file is for setting up a UNL affiliate template.
-* The UNL Affiliate template is for sites that have approved exemptions by the Chancellor.
-* ---------------------------
-*/
-
 // Import needed files. This shouldn't be changed.
-@import "../../../wdn/templates_4.0/less/_mixins/all.less";
+@import "../../../wdn/templates_4.1/less/_mixins/all.less";
 
 
 // This is your primary color. In many cases, this may be the only color you need to specify
-@colorPrimary: #000000; // <- Set this to contol all brand colors on the page.
+@colorPrimary: #005288; // <- Set this to contol all brand colors on the page.
 
 // Compiled colors based on the primary color. You may update if needed.
 @linkColor: @colorPrimary; // For text links throughout the page
 @linkHover: lighten(@linkColor, 2.5%); // The hover state of text links
 
+@localColor: rgb(19, 22, 30);
 
 // !IDM
 @media @bp-nav-hidden {
     #wdn_idm_user_options,
-    .wdn-resource-login-trigger a {
+    .wdn-resource-login-trigger a,
+    .wdn-menu-trigger {
         background-color: @colorPrimary;
     }
 }
 
 // !Navigation
-#navigation,
-.wdn-menu-trigger,
-.wdn-icon-share {
-    color: #ffffff;
-    background-color: @colorPrimary;
-}
+@media @bp-nav-full {
+    #wdn_navigation_bar {
+        background-color: @localColor;
+    }
 
-#navigation > ul > li:hover {
-    background-color: @colorPrimary;
-}
+    #breadcrumbs li.selected a {
+        color: @linkColor;
+    }
 
-#navigation a:hover {
-    background-color: @linkHover;
+    #breadcrumbs li.selected a::before {
+        border-bottom-color: @colorPrimary
+    }
+
+    #breadcrumbs li {
+        background: transparent linear-gradient(to right, @localColor 0px, darken(@localColor, 5%) 100%) repeat scroll 0% 0%;
+    }
+
+    #breadcrumbs li::after {
+        border-left-color: darken(@localColor, 5%);
+    }
+
+    #breadcrumbs li.selected:first-child::before {
+        border-left-color: @localColor;
+    }
+
+    #navigation {
+        color: #ffffff;
+        background-color: @colorPrimary;
+    }
+
+    #navigation > ul > li:hover {
+        background-color: @colorPrimary;
+    }
+
+    #navigation a:hover {
+        background-color: @linkHover;
+    }
 }
 
 // !Logo
 // We will work with you to format your logo as needed.
 #logo {
-    display: none;
-}
-
-// !Institution Title
-// Is your organization partnering with another institution? You can add your partner(s) here. Keep in mind space is limited. If no partner is needed, delete the following style
-
-#wdn_institution_title:after {
-    content: '\00a0\00a0&\00a0\00a0 Partner Institution Name';
-}
-
-// !Site Title
-#wdn_site_title {
-    margin-bottom: 0.333em;
-}
-
-#breadcrumbs,
-#b1g_wordmark {
-    display: none;
-}
-
-@media @bp2 {
-    .wdn-share-this-page {
-        bottom: -43px;
-    }
+    width: 159px;
+    background-image: data-uri('../images/affiliate_logo.svg');
 }
 
 // !Main Content
 #maincontent {
+    background: data-uri('../images/watermark.svg') no-repeat bottom center;
+
     a {
         color: @linkColor;
 
@@ -88,23 +84,8 @@
     }
 }
 
-// !Footer
-#b1g_wordmark {
-    display: none;
-}
-
-#cic_wordmark {
-    height: 43px;
-    width: 111px;
-    float: left;
-    margin-right: 0;
-}
-
-#footer {
-    background-image: none;
-}
-
-.wdn-footer-text {
-    width: 100%;
-    padding-right: 0;
+#wdn_local_footer {
+    background-image: data-uri('../images/background.svg');
+    background-size: 265px auto;
+    background-color: @localColor;
 }
