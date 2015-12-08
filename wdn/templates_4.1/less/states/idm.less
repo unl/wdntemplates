@@ -1,11 +1,12 @@
-@media @bp-nav-hidden {
-    .wdn-resource-login-trigger {
+.wdn-resource-login-trigger {
+
+    @media @bp-nav-hidden {
+
 		.nav-scrolling & {
 			position: fixed;
 			top: 0;
 			z-index: (@nav-z-index + 1);
-//             -webkit-font-smoothing: subpixel-antialiased;
-			transition:right @nav-transition-duration ease;
+			transition: right @nav-transition-duration ease;
 		}
 
 		.nav-scrolling #wdn_menu_toggle:checked ~ .wdn-content-slide & {
@@ -19,15 +20,16 @@
     &.wdn-resource-login-trigger {
 
 		@media @bp-nav-hidden {
- 		   margin-right: 0;
+            width: 60%;
+            right: 0;
         }
 	}
 
-	#wdn_idm_username {
+	#wdn_idm_toggle_label {
         white-space: nowrap;
         background-repeat: no-repeat;
         background-size: contain;
-        background-image: url('http://planetred.unl.edu/pg/icon/unl_rdee2/small/'); // TEST
+    	background-position: right center;
 
         &:before {
             content: '';
@@ -35,13 +37,6 @@
 
 		@media @bp-nav-hidden {
             padding-right: 50px;
-
-			&:hover {
-
-				~ #wdn_idm_logout {
-					display: block;
-				}
-			}
 		}
 
 		@media @bp-nav-full {
@@ -53,31 +48,9 @@
 		}
 	}
 
-	#wdn_idm_logout {
-
-		@media @bp-nav-hidden {
-
-		    &:hover {
-		    	display: block;
-		    }
-		}
-
-		@media @bp960 {
-	    	display: inline-block;
-            margin-left: 10px;
-
-            .flexbox & {
-                display: flex;
-            }
-		}
-	}
-
-    #wdn_idm_username {
-    	background-position: right center;
-    	background-size: contain;
-
-	    &:before {
-	    	content: "";
-		}
-	}
+    #wdn_idm_toggle:checked ~ .wdn-idm-options {
+        .is-visible();
+        transform: scale(1);
+        transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+    }
 }
