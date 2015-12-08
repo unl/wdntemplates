@@ -29,8 +29,6 @@
   }
 }
 
-
-
 #breadcrumbs {
     .sans-serif-font();
 	font-size: 0;
@@ -59,9 +57,8 @@
 		}
 
 		@media @bp-nav-full {
-    		max-width: 20%;
     		padding: 0 6px 0 23px;
-            line-height: 1;
+            line-height: 1.333;
 			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5b5b5a+0,474746+100 */
 			background: #5b5b5a; /* Old browsers */
 			background: -moz-linear-gradient(left,  #5b5b5a 0%, #474746 100%); /* FF3.6+ */
@@ -127,15 +124,10 @@
 			}
 		}
 
-        &.last-link:last-child {
-            padding: 0;
-        }
-
 		&.selected {
 
 			@media @bp-nav-full {
 				background: @cream;
-                max-width: 100%;
                 transition: max-width 0.5s ease-in-out 0.5s;
 			}
 
@@ -185,7 +177,7 @@
         white-space: nowrap;
 
 		@media @bp-nav-full {
-	        padding: 9px 0 7px;
+	        padding: 7px 0 5px;
             color: @ui03;
 		}
 	}
