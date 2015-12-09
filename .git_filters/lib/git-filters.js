@@ -1,4 +1,5 @@
-'use strict';
+/* jshint undef: true, unused: true, node: true */
+"use strict";
 
 var exec = require('sync-exec');
 var path = require('path');
@@ -26,29 +27,29 @@ var smudgeValues = {};
 module.exports = {
 	clean : function(content, asReturn) {
 		content = content.replace(new RegExp('\\$(' + rcsKeywords.join('|') + ')[^$]*\\$', 'g'), '$$$1$$');
-		
+
 		for (var i in staticTokens) {
 			content = content.replace(staticTokens[i], '$1$$' + i + '$$$2');
 		}
-		
+
 		if (asReturn) {
 			return content;
 		}
-		
+
 		console.log(content);
 	},
 	_startSmudge : function(filepath) {
 		var defaultMatchFail = ['', ''];
 		var filename = path.basename(filepath);
 		var tag = exec('git describe --always --tag').stdout.toString().trim();
-		var rev = exec('git log -n 1 -- $path | head -n 4').stdout.toString();
+		var rev = exec('git log -n 1 -- ' + filepath + ' | head -n 4').stdout.toString();
 		var commit = (/^commit (.*)$/m.exec(rev) || defaultMatchFail)[1];
 		var date = (/^Date:\s*(.*)\s*$/m.exec(rev) || defaultMatchFail)[1];
 		var author = (/^Author:\s*(.*)\s*$/m.exec(rev) || defaultMatchFail)[1];
 		var name = (/\s*(.*)\s*<.*/.exec(author) || defaultMatchFail)[1];
 		var htmlVers = fs.readFileSync('VERSION_HTML').toString().trim();
 		var depVers = fs.readFileSync('VERSION_DEP').toString().trim();
-		
+
 		smudgeValues = {
 			"filepath" : filepath,
 			"filename" : filename,
@@ -60,13 +61,13 @@ module.exports = {
 			"htmlVers" : htmlVers,
 			"depVers" : depVers
 		};
-		
+
 		return smudgeValues;
 	},
 	smudge : function(content, asReturn) {
 		var currentKeyword = '';
 		var replacement = '';
-		
+
 		for (var i = rcsKeywords.length; i >= 0; i--) {
 			currentKeyword = rcsKeywords[i];
 			replacement = '$$$1: ';
@@ -98,12 +99,12 @@ module.exports = {
 					break;
 			}
 			replacement += ' $$';
-			
+
 			content = content.replace(new RegExp('\\$(' + currentKeyword + ')[^$]*\\$', 'g'), replacement);
 		}
-		
+
 		for (i in staticTokens) {
-			currentKeyword = i
+			currentKeyword = i;
 			replacement = '';
 			switch (currentKeyword) {
 				case 'HTML_VERSION':
@@ -113,16 +114,16 @@ module.exports = {
 					replacement += smudgeValues.depVers;
 					break;
 			}
-			
+
 			content = content.replace(new RegExp('\\$' + currentKeyword + '\\$', 'g'), replacement);
 			replacement = '$1' + replacement + '$2';
 			content = content.replace(staticTokens[i], replacement);
 		}
-		
+
 		if (asReturn) {
 			return content;
 		}
-		
+
 		console.log(content);
 	}
 };
