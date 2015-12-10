@@ -175,20 +175,26 @@
 }
 
 #navigation .wdn-icon-share {
-	position: relative;
-	left: 9px;
-	padding: 9px 0;
 	display: none;
 	cursor: pointer;
+	position: absolute;
+	padding: 9px 0;
 	line-height: normal;
+
+	@media @bp640 { right: @page-offset-640; }
+	@media @bp768 { right: @page-offset-768; }
+	@media @bp960 { right: @page-offset-960; }
+	@media @bp1280 { right: @page-offset-1280; }
+	@media @bp1600 { right: @page-offset-1600; }
+
+    @media @bp-nav-full {
+        display: inline-block;
+    }
 }
 
-@media @bp-nav-full {
-	.wdn-menu-trigger .wdn-share-button .wdn-icon-share {
-		display: none;
-	}
+.wdn-menu-trigger .wdn-share-button .wdn-icon-share {
 
-	#navigation .wdn-icon-share {
-		display: inline-block;
-	}
+    @media @bp-nav-full {
+	    display: none;
+    }
 }
