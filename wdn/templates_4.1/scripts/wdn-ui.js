@@ -70,7 +70,7 @@ define(['jquery'], function($) {
 				$container.attr('aria-hidden', true);
 				
 				//Add a helper class to labels
-				var $label = $('label[for="'+$element.attr('id')+'"');
+				var $label = $('label[for="'+$element.attr('id')+'"]');
 				$label.addClass('wdn-dropdown-widget-label');
 			});
 			
