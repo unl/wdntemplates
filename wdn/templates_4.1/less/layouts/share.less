@@ -2,7 +2,7 @@
     z-index: (@nav-z-index + 1);
 
     @media @bp-nav-hidden {
-		margin-left: 1em;
+		margin-left: 4.209em;
     }
 
     @media @bp-nav-full {
@@ -52,13 +52,12 @@
 	    .wdn-icon-share {
 	    	display: block;
 	    	color: #fff;
-		    padding: 8px 0 10px 10px;
+		    padding: 11px 0;
 			font-size: 17px;
 		    font-size: 1.069rem;
-			border-radius: 3px;
 
 			@media @bp-nav-hidden {
-	    		padding: 7px 1.333em 7px 0;
+	    		padding: 7px 0;
 	    	}
 		}
 	}
@@ -175,20 +174,26 @@
 }
 
 #navigation .wdn-icon-share {
-	position: relative;
-	left: 9px;
-	padding: 9px 0;
 	display: none;
 	cursor: pointer;
+	position: absolute;
+	padding: 9px 0;
 	line-height: normal;
+
+	@media @bp640 { right: @page-offset-640; }
+	@media @bp768 { right: @page-offset-768; }
+	@media @bp960 { right: @page-offset-960; }
+	@media @bp1280 { right: @page-offset-1280; }
+	@media @bp1600 { right: @page-offset-1600; }
+
+    @media @bp-nav-full {
+        display: inline-block;
+    }
 }
 
-@media @bp-nav-full {
-	.wdn-menu-trigger .wdn-share-button .wdn-icon-share {
-		display: none;
-	}
+.wdn-menu-trigger .wdn-share-button .wdn-icon-share {
 
-	#navigation .wdn-icon-share {
-		display: inline-block;
-	}
+    @media @bp-nav-full {
+	    display: none;
+    }
 }
