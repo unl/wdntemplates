@@ -111,17 +111,20 @@
 
 		&:last-child {
 
-			@media @bp-nav-full {
-			    padding-left: 23px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                background: transparent;
-			}
+            &:not(.last-link) {
 
-			&:after {
-				display: none;
-			}
+    			@media @bp-nav-full {
+    			    padding-left: 23px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    background: transparent;
+    			}
+
+    			&:after {
+    				display: none;
+    			}
+            }
 		}
 
 		&.selected {
