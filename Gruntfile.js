@@ -37,6 +37,8 @@ module.exports = function (grunt) {
 		zipDir = 'downloads',
 		allSubFilesGlob = '/**';
 
+	var hereDir = './';
+
 	// files for keyword replacement (should match .gitattributes)
 	var filterFiles = [
 		templateHtmlDir + '/*.dwt*',
@@ -190,7 +192,7 @@ module.exports = function (grunt) {
 		less: {
 			all: {
 				options: {
-					paths: ['./wdn/templates_4.1/less'],
+					paths: [hereDir + templateLess],
 					plugins: [
 						autoprefixPlugin,
 						lessPluginCleanCss
@@ -200,7 +202,7 @@ module.exports = function (grunt) {
 			},
 			js: {
 				options: {
-					paths: ['./wdn/templates_4.1/less'],
+					paths: [hereDir + templateLess],
 					plugins: [
 						lessPluginCleanCss
 					]
@@ -245,7 +247,7 @@ module.exports = function (grunt) {
 			css: [templateCss].concat(Object.keys(lessJsFiles)),
 			js: [templateCompileJs],
 			"js-build": [buildJsDir],
-			zip: [zipDir + '/*.zip']
+			dist: [zipDir + '/*.zip', zipDir + '/*.xz']
 		},
 
 		"filter-clean": {
@@ -261,7 +263,8 @@ module.exports = function (grunt) {
 		},
 
 		concurrent: {
-			main: ['less:all', 'js']
+			main: ['less:all', 'js'],
+			dist: ['zip', 'archive']
 		},
 
 		zip: {
@@ -278,6 +281,21 @@ module.exports = function (grunt) {
 			templates: {
 				src: [templateHtmlDir  + allSubFilesGlob, templateSharedDir + allSubFilesGlob],
 				dest: zipDir + '/UNLTemplates.zip'
+			}
+		},
+
+		archive: {
+			wdn: {
+				src: [mainDir],
+				dest: zipDir + '/wdn.tar.xz',
+			},
+			includes: {
+				src: [templateIncludeDir],
+				dest: zipDir + '/wdn_includes.tar.xz',
+			},
+			templates: {
+				src: [templateHtmlDir, templateSharedDir],
+				dest: zipDir + '/UNLTemplates.tar.xz'
 			}
 		},
 
@@ -312,11 +330,55 @@ module.exports = function (grunt) {
 		});
 	});
 
+	grunt.registerMultiTask('archive', 'Archive files together', function() {
+		var fs = require('fs');
+		var path = require('path');
+		var tar = require('tar-fs');
+		var zlib = require('zlib');
+		var xz = require('xz');
+
+		var done = this.async();
+
+		// Fallback options (e.g. base64, compression)
+		var options = this.options({
+			compression: 'xz'
+		});
+
+		this.files.forEach(function(file) {
+			var destDir = path.dirname(file.dest);
+			// Create the destination directory
+			grunt.file.mkdir(destDir);
+			var destStream = fs.createWriteStream(file.dest);
+			var compressionStream;
+
+			if (options.compression === 'gzip') {
+				compressionStream = zlib.createGzip();
+			} else {
+				compressionStream = new xz.Compressor();
+			}
+
+			var pack = tar.pack('./', {
+				entries: file.src
+			});
+
+			pack.on('error', function(err) {
+				grunt.fail.write('Something went wrong: ' + err);
+				done();
+			});
+			destStream.on('finish', function() {
+				grunt.log.ok('File "' + file.dest + '" created.');
+				done();
+			});
+
+			pack.pipe(compressionStream).pipe(destStream);
+		});
+	});
+
 	// establish grunt default
-	grunt.registerTask('default', ['concurrent']);
+	grunt.registerTask('default', ['concurrent:main']);
 
 	// legacy targets from Makefile
-	grunt.registerTask('dist', ['default', 'filter-smudge', 'zip']);
+	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
 	grunt.registerTask('js', ['clean:js', 'less:js', 'requirejs', 'sync:js', 'clean:js-build']);
 };

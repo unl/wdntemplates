@@ -30,7 +30,9 @@
     "less-plugin-autoprefix": "^1.5.1",
     "less-plugin-clean-css": "^1.5.1",
     "load-grunt-tasks": "^3.2.0",
-    "sync-exec": "^0.6.2"
+    "sync-exec": "^0.6.2",
+    "tar-fs": "^1.8.1",
+    "xz": "^1.2.0"
   },
   "engines": {
     "node": "node >= 0.10.0"
