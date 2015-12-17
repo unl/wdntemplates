@@ -83,6 +83,7 @@
 // !Site Affiliation
 #wdn_site_affiliation {
 	display: block;
+	min-height: 0.451em;
 	padding-bottom: 0.191em;
 	.rem(12,13);
 	font-style: italic;
@@ -92,6 +93,7 @@
     overflow: hidden;
 
 	@media @bp768 {
+	    min-height: 0.563em;
 		padding: 0.1em 0 0.254em;
 	}
 
@@ -108,7 +110,7 @@
     .brand-font();
     .rem(30,38);
 	text-transform: uppercase;
-	line-height: 1.425; // vertically centers site title in between slab serifs of Nebraska 'N'
+	line-height: 1;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -133,10 +135,6 @@
             }
         }
     }
-
-	#wdn_site_affiliation + & {
-		line-height: 1;
-	}
 
     a {
         color: @heading-text;
