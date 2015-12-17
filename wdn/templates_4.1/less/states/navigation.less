@@ -21,6 +21,17 @@
             }
         }
     }
+    
+    .nav_expanded & {
+        
+        > ul > li > a {
+
+            @media @bp-nav-full {
+                border-bottom: 1px solid #c00808;
+                border-bottom: 1px solid fadeout(#000,94%);
+            }            
+        }
+    }
 }
 
 @media @bp-nav-hidden {
