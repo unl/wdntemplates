@@ -44,6 +44,7 @@ class AccessibilityTester {
         $command = 'pa11y ' .
             '-r json ' .
             '-s WCAG2AA ' .
+            '-w 500 ' . 
             '--config ' . dirname(__FILE__) . '/pa11y.json ' . 
             '--htmlcs "http://webaudit.unl.edu/plugins/metric_pa11y/html_codesniffer/build/HTMLCS.js" ' .
             escapeshellarg($url);
