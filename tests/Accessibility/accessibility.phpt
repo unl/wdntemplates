@@ -5,13 +5,18 @@ Validate all example pages for accessibility
 //Load composer
 require_once dirname(__FILE__) . '/../../build/vendor/autoload.php';
 
+if (file_exists(__DIR__ . '/../config.inc.php')) {
+    require_once __DIR__ . '/../config.inc.php';
+}
+
 class AccessibilityTester {
     protected $examples_directory = '';
     protected $wrapper_html;
+    public static $base_url = 'http://localhost/';
     
     public function __construct()
     {
-        $this->examples_directory = dirname(__FILE__) . '/../../wdn/templates_4.0/examples/';
+        $this->examples_directory = dirname(__FILE__) . '/../../wdn/templates_4.1/examples/';
         $this->wrapper_html = file_get_contents($this->examples_directory . 'index.shtml');
     }
 
@@ -35,10 +40,11 @@ class AccessibilityTester {
      */
     protected function checkExample($file) {
         echo "checking: " . $file . PHP_EOL;
-        $url     = 'http://localhost/tests/Accessibility/tmp/' . $file . '.shtml';
+        $url = self::$base_url . 'tests/Accessibility/tmp/' . $file . '.shtml';
         $command = 'pa11y ' .
             '-r json ' .
             '-s WCAG2AA ' .
+            '-w 500 ' . 
             '--config ' . dirname(__FILE__) . '/pa11y.json ' . 
             '--htmlcs "http://webaudit.unl.edu/plugins/metric_pa11y/html_codesniffer/build/HTMLCS.js" ' .
             escapeshellarg($url);
@@ -68,10 +74,12 @@ class AccessibilityTester {
     
         //Save to an example file.
         file_put_contents(__DIR__ . '/tmp/' . $file . '.shtml', \HTML5::saveHTML($new_dom));
-        
+
         //Run pa11y on the test page
-        $json = exec($command);
-    
+        $output_file =  __DIR__ . '/output.json';
+        $result = exec($command . ' > ' . $output_file);
+        $json = file_get_contents($output_file);
+
         if (!$data = json_decode($json, true)) {
             return false;
         }
@@ -80,8 +88,13 @@ class AccessibilityTester {
             if ($result['type'] != 'error') {
                 continue;
             }
-    
-            $errors[] = $result['code'] . ' -- ' . $result['context'];
+
+            $errors[] = $url
+                . "\r\n\t code: " . $result['code']
+                . "\r\n\t message: " . $result['message']
+                . "\r\n\t selector: " . $result['selector']
+                . "\r\n\t context: " . $result['context']
+                . "\r\n------------\r\n";
         }
     
         return $errors;

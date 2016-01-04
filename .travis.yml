@@ -15,7 +15,7 @@ before_install:
 before_script: 
    # install `pa11y`
    - npm install
-   - npm install pa11y
+   - npm install pa11y@2.4.4
    - npm install grunt-cli
    # build the templates
    - ./node_modules/grunt-cli/bin/grunt
