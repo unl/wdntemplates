@@ -30,7 +30,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		logoutURL = loginSrv + 'cas/logout?url=' + encLoc,
 		loginURL = loginSrv + 'cas/login?service=' + encLoc,
 		serviceURL = loginSrv + 'services/whoami/?id=',
-		planetRed = '//planetred.unl.edu/pg/',
+		planetRed = 'https://planetred.unl.edu/pg/',
 		defaultLinkText,
 		user = false;
 
@@ -51,7 +51,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		userDisplayName = function() {
 			var disp_name = '';
 			if (user.eduPersonNickname) {
-				disp_name = user.eduPersonNickname[0]
+				disp_name = user.eduPersonNickname[0];
 			} else if (user.givenName) {
 				disp_name = user.givenName[0];
 			} else if (user.displayName) {
@@ -233,13 +233,13 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 
 			$(toggleSel).css('backgroundImage', "url(" + planetRed + "icon/" + planetred_uid + "/medium/)")
                 .text(displayName(uid));
-            $(profileSel).attr('href', 'http:' + planetRed + 'profile/' + planetred_uid)
+            $(profileSel).attr('href', planetRed + 'profile/' + planetred_uid);
 
             // Hide login anchor
             $(userSel).hide();
 
 			// Any time logout link is clicked, unset the user data
-			var logoutLink = $('a', logoutSel);
+			var logoutLink = $(logoutSel);
 			logoutLink.off('click').click(Plugin.logout);
 			Plugin.setLogoutURL(localSettings.logout);
 		},
@@ -261,7 +261,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		 * Set the URL to send the user to when the logout link is clicked
 		 */
 		setLogoutURL : function(url) {
-			var logoutLink = $('a', logoutSel);
+			var logoutLink = $(logoutSel);
 			if (url) {
 				logoutURL = url;
 			}
