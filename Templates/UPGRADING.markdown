@@ -1,7 +1,7 @@
 # Dreamweaver Upgrade Notes for 4.0 to 4.1
 
 1. Make a backup of your entire site before making any modifications!
-2. Download the latest dwts from http://wdn.unl.edu/download/ and place them within your local `Templates` directory.
+2. Download the latest dwts from http://wdn.unl.edu/downloads/ and place them within your local `Templates` directory.
 3. Remember to make a backup of your entire site!
 4. Within Dreamweaver, from the menu bar select `Modify > Templates > Update Pages...`
 5. When prompted about what to do with the missing `footercontent` region, select `Nowhere` as the destination. This editable region has been replaced by a globally maintained footer.
