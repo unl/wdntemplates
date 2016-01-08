@@ -21,6 +21,27 @@
 
 **Changes to sharedcode files**: New examples for building a local footer are provided in `sharedcode/localFooter.html`. One of the examples _should_ replace your existing content for the two regions `contactinfo` and `leftcollinks`, previously filled with the files `sharedcode/footerContactInfo.html`, `sharedcode/relatedLinks.html` respectively. The examples no longer recommend adding any heading elements (`h1` - `h6`) in the local footer, instead a tag with `role=heading` will provide good accessiblity while not hurting the HTML parsed document outline. Please consider removing outdated, no longer used files from your `sharedcode` directory.
 
+**New affiliation region**: A new region called `affiliation` has been added above the `titlegraphic` region. Previously adding an affiliation to your Site Title required adding `<span>` elements to the `titlegraphic` region. Those `<span>` elements should be removed and the afffiliation text should be put into the `affiliation` region.
+
+**Review other regions for outdated code**: Over the years the templates have evolved and developers have often placed design (css) and experience (javascript) file references in various editable regions. You should take the time to review _all_ editable regions for things that are no longer necessary or would otherwise be considered an _override_ of the framework. Specifically, the following issues have come up during transitions:
+
+* Old CSS in the `head` region. The following HTML was only needed in 3.1 to support the new grid markup. It now conflicts with style revisions that have been made in the latest framework css. It would be a good idea to run a site-wide find/replace for references to `templates_3.1` or `templates_4.0`.
+
+```
+<link rel="stylesheet" href="/wdn/templates_3.1/css/content/grid-v3.css" />
+<!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" media="all" href="/wdn/templates_3.1/css/variations/grid-v3-ie.css" />
+<![endif]-->
+```
+
+* Old analytics scripts. Often appended to the removed `footercontent` region, it should be (re)moved or updated to work with the latest analytics recommendations (Universal Analytics). If you still see code like `_gaq.push`, you should look into upgrading.
+* Unnecessary HTML Comments. HTML comments are found in code that looks like `<!-- [...] -->`. These can be very helpful during site development, however they provide little-to-no value to you website end-users that still have to download them when visiting your site. Help your end-users save money on their mobile phone bills by removing comments from your production-ready site.
+* Using `WDN.jQuery` or other javascript global variable/functions: Please read about our recommended javascript loader at http://wdn.unl.edu/using-requirejs
+* Anything that uses IE conditional comments. _All_ legacy versions of Internet Explorer are no longer supported, and thus the use of conditional comments (for loading additional css or javascript) are highly discouraged. It would be a good idea to do a site-wide find/replace for references to `<!--[if `.
+* Redundent `<link>` or `<script>` element attributes. The HTML5 specification states that `type="text/css"` is not necessary on css stylesheet `<link>`s. Likewise, `type="text/javascipt"` is not needed for javascript scripts elements.
+* CSS/JavaScript cruft. We strive to include a board amount of interface and interaction elements in the framework. While we understand that sites may have additional needs that need to be address using other 3rd-Parry/vendor plugins of csss and javascript, developers should use careful discression when adding/keeping them. Additional scripts and stylessheets add to the overall _weight_ of a page and can cause serious, noticible decreases in site performance (include page load). Design elements like web fonts are known to add considerable size to your pages, so care should be taken when determining how/if they are used in your content design. Because javascript is out-of-sight out-of-mind for must users, developers often forget why certain scripts are included and if they are actually doing anything. Check sites for scripts that reference elements/widgets/content that may no longer exist. Just like HTML comments, css and javascript comments should be removed/minimize to reduce the amount of data that needs to be downloaded by your end-users. This includes those awkward `//<![CDATA[` and `//]]>` comments that were needed when servers deliver HTML as XML (see http://stackoverflow.com/a/66865).
+* JavaScript doing the job of CSS. CSS has advanced significantly over the past few years. Things that used to require javascript intervention can often be accomplished in css, using significantly less code. Check sites for places that have javascript that changes css related properties or classes and considering learning more about how to do complex CSS3 rules.
+
 ## Upgrading From Older Templates
 
 Please read the upgrading documenation from previous releases, if necessary.
