@@ -191,7 +191,8 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		}
 
 		if (!$homepageCrumbLink.length) {
-			$li.wrapInner($('<a>', {href : siteHomepage}));
+			$homepageCrumbLink = $('<a>', {href : siteHomepage});
+			$li.wrapInner($homepageCrumbLink);
 		}
 	};
 
