@@ -107,26 +107,6 @@
                 color: lighten(@events-blue, 66%);
             }
         }
-
-        &:after {
-            content: '';
-            position: absolute;
-            top: -30px;
-            right: -30px;
-            border-width: 0 25px 25px 0;
-            border-style: solid;
-            border-color: darken(@events-blue, 15%) @cream;
-            transition: top .15s ease, right .2s ease; // lesshat
-            z-index:899;
-        }
-
-        &:hover {
-
-            &:after {
-                top:0;
-                right:0;
-            }
-        }
     }
 
     p.more-events {
