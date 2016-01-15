@@ -6,50 +6,82 @@
 .wdn-events-band {
     position: relative;
 
-    a {
-        border:0;
-        outline: none;
+    .flexbox & {
+        display: flex;
+        flex-wrap: wrap;
     }
 
     .wdn-col {
-        @media @bp1 {
+        margin-top: 1em;
+
+        @media @bp480 {
             &:nth-of-type(2n+1) {
-                clear:both;
+                clear: both;
             }
 
             &:nth-of-type(3n+1) {
-                clear:none;
+                clear: none;
             }
         }
 
-        @media @bp2 {
+        @media @bp768 {
             &:nth-of-type(2n+1) {
-                clear:none;
+                clear: none;
             }
 
             &:nth-of-type(3n+1) {
-                clear:both;
+                clear: both;
+            }
+        }
+
+        .flexbox & {
+            display: flex;
+        }
+    }
+
+    a {
+        border: 0;
+        outline: none;
+
+        .flexbox & {
+            display: flex;
+            flex: 1;
+        }
+
+        &:hover {
+
+            .event {
+                background-color: @events-blue;
             }
         }
     }
 
     .event {
         position: relative;
-        background-color: #256ea6;
-        background-color: fadeout(@events-blue, 10%);
         padding: 0;
-        margin: 1rem 0;
         transition: background-color .3s ease; // lesshat
         overflow: hidden;
+        background-color: lighten(@events-blue, 5%);
+
+        .flexbox & {
+            display: flex;
+            flex: 1;
+        }
 
         .dateTime, .eventInfo {
             color: #fff;
             padding: 1em 0.75em;
+
+            .flexbox & {
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+            }
         }
 
         .dateTime {
             background-color: #0c3e65;
-            background-color: fadeout(darken(@events-blue, 15%), 15%);
+            background-color: fadeout(#000, 60%);
             float: left;
             text-align: center;
             width: 30%;
@@ -79,24 +111,28 @@
                     .rem(13,16);
                     line-height: 1.333;
                     letter-spacing: 0.08em;
-                    color:lighten(@events-blue, 50%);
+                    color: lighten(@events-blue, 50%);
                 }
             }
         }
 
         .eventInfo {
             float: left;
-            padding: 1.333em 1em 0 1em;
+            padding: 1.333em 1em;
             width: 70%;
-            overflow: hidden;
             .sans-serif-font();
 
             .eventTitle {
                 margin: 0;
-                padding: 0;
+                padding-bottom: 0.422em;
                 max-height: 2.8em;
                 line-height: 1.333;
                 overflow: hidden;
+
+                .flexbox & {
+                    overflow: auto;
+                    max-height: none;
+                }
             }
 
             .location {
@@ -104,28 +140,15 @@
                 .rem(9);
                 text-transform: uppercase;
                 letter-spacing: 0.08em;
-                color:lighten(@events-blue, 66%);
-            }
-        }
+                line-height: 1.425;
+                color: lighten(@events-blue, 66%);
+                max-height: 2.3em;
+                overflow: hidden;
 
-        &:after {
-            content: '';
-            position: absolute;
-            top: -30px;
-            right: -30px;
-            border-width: 0 25px 25px 0;
-            border-style: solid;
-            border-color: darken(@events-blue, 15%) @cream;
-            transition: top .15s ease, right .2s ease; // lesshat
-            z-index:899;
-        }
-
-        &:hover {
-
-            &:after {
-                top:0;
-                right:0;
-
+                .flexbox & {
+                    overflow: auto;
+                    max-height: none;
+                }
             }
         }
     }
@@ -133,6 +156,12 @@
     p.more-events {
         text-align: right;
         clear: left;
-        margin: 0;
+        margin: 0.75em 0;
+
+        a {
+            .flexbox & {
+                justify-content: flex-end;
+            }
+        }
     }
 }

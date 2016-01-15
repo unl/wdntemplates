@@ -301,8 +301,8 @@ module.exports = function (grunt) {
 
 		watch: {
 			less: {
-				files: templateLess + '/**/*.less',
-				tasks: ['less:all']
+				files: [templateLess + '/**/*.less', templateJs + '/js-css/*.less'],
+				tasks: ['less']
 			},
 			js: {
 				files: [templateJs + '/**/*.js', '!' + templateCompileJs + '/**/*.js'],
