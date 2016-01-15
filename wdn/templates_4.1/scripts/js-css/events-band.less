@@ -47,6 +47,13 @@
             display: flex;
             flex: 1;
         }
+
+        &:hover {
+
+            .event {
+                background-color: @events-blue;
+            }
+        }
     }
 
     .event {
@@ -54,7 +61,7 @@
         padding: 0;
         transition: background-color .3s ease; // lesshat
         overflow: hidden;
-        background-color: lighten(@events-blue, 2%);
+        background-color: lighten(@events-blue, 5%);
 
         .flexbox & {
             display: flex;
@@ -74,7 +81,7 @@
 
         .dateTime {
             background-color: #0c3e65;
-            background-color: darken(@events-blue, 10%);
+            background-color: fadeout(#000, 60%);
             float: left;
             text-align: center;
             width: 30%;
