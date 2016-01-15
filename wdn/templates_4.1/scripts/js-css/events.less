@@ -1,6 +1,7 @@
 @import "../../less/_mixins/all.less";
 
 .wdn-calendar {
+
     .upcoming-header {
         .sans-serif-font();
         .rem(12,13);
@@ -23,12 +24,24 @@
         width: 100%;
         margin-bottom: 0.75em;
 
+        .flexbox & {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
         .date {
             float: left;
-            width: 4.209em;
+            width: 4.499em;
             text-align: center;
             margin-right: 0.75em;
             border-right: 1px solid @ui04;
+
+            .flexbox & {
+                flex: 0 1 auto;
+                display: flex;
+                flex-flow: column wrap;
+                justify-content: center;
+            }
 
             .month, .day, .time {
                 display: block;
@@ -53,6 +66,13 @@
         }
 
         .info {
+
+            .flexbox & {
+                flex: 1 0 80%;
+                display: flex;
+                flex-flow: column wrap;
+                justify-content: center;
+            }
 
             .title, .location {
                 display: block;
