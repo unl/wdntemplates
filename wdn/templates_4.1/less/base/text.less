@@ -16,15 +16,15 @@
 // GENERAL
 
 .wdn-brand {
-    .brand-font;
+    .brand-font();
 }
 
 .wdn-sans-serif {
-    .sans-serif-font;
+    .sans-serif-font();
 }
 
 .wdn-list-reset {
-    .list-reset;
+    .list-reset();
 }
 
 // HEADERS
@@ -32,7 +32,7 @@
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
     color: @heading-text;
-    .heading-font;
+    .heading-font();
     line-height: 1em;
     margin: 1em 0 1rem 0;
     .kern();
@@ -57,29 +57,29 @@ p, span, div, ul, li, section, img {
 }
 
 .wdn-heading, .wdn-impact {
-    .heading-font;
+    .heading-font();
 }
 
 .wdn-brand-caps {
-    .heading-font;
+    .heading-font();
     text-transform: uppercase;
 }
 
 // All caps, Gotham header
 .wdn-sans-caps {
-    .sans-serif-font;
+    .sans-serif-font();
     line-height: 1.333;
     text-transform: uppercase;
     letter-spacing: 0.02em;
 }
 
 .wdn-alt-header {
-    .wdn-sans-caps;
+    .wdn-sans-caps();
     .rem(13,16);
 }
 
 .wdn-list-header {
-    .wdn-alt-header;
+    .wdn-alt-header();
     padding: 1em 0 0.254em;
     border-bottom: 1px solid #d0cec6;
 
@@ -91,7 +91,7 @@ p, span, div, ul, li, section, img {
 // SUBHEADS
 
 .wdn-subhead {
-    .wdn-sans-caps;
+    .wdn-sans-caps();
     display: block;
     margin: 0.75em 0;
     color: fadeout(@base-text, 10%);
