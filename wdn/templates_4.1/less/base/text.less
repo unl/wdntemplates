@@ -4,16 +4,13 @@
 
 // !OPENTYPE
 
-.kern {
-    -webkit-font-feature-settings+: "kern"; /* No variation */
-       -moz-font-feature-settings+: "kern" 1; /* Firefox 15.0 onwards explicitly set feature values */
-            font-feature-settings+: "kern"; /* No variation */
+.kern() {
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
 }
 
-.ligatures {
-    -webkit-font-feature-settings+: "liga"; /* No variation */
-       -moz-font-feature-settings+: "liga" 1; /* Firefox 15.0 onwards explicitly set feature values */
-            font-feature-settings+: "liga"; /* No variation */
+.ligatures() {
+    font-feature-settings: "liga" 1;
 }
 
 
