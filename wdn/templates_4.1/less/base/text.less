@@ -53,7 +53,7 @@ p, span, div, ul, li, section, img {
     + h1, + h2, + h3, + h4, + h5, + h6 {
         margin-top: @base-line-height-sm * 1em;
 
-        @media @bp2 {
+        @media @bp768 {
             margin-top: @base-line-height-lg * 1em;
         }
     }
@@ -63,6 +63,7 @@ p, span, div, ul, li, section, img {
     .heading-font();
 }
 
+// All caps, Tungsten heading
 .wdn-brand-caps {
     .heading-font();
     text-transform: uppercase;

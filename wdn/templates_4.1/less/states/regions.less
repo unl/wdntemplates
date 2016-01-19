@@ -12,7 +12,7 @@
 }
 
 .hide-wdn_identity_management {
-    
+
     #wdn_identity_management {
         .hide;
     }
@@ -34,15 +34,15 @@
             height: 35px
         }
     }
-        
+
     #navigation {
         height: 35px;
         display: block;
-    
+
         &:before {
             display: none;
         }
-    
+
         > * {
             .hide;
         }
@@ -65,14 +65,14 @@
 
     .wdn-share-this-page {
 
-        @media @bp2 {
+        @media @bp768 {
             bottom: -44px;
-        } 
+        }
     }
 }
 
 .hide-pagetitle {
-    
+
     #pagetitle {
         .text-hidden;  // Since this has the H1, keep the text readable by screen readers
         height: 0;
@@ -81,7 +81,7 @@
 }
 
 .hide-footer {
-    
+
     #wdn_footer_contact, #wdn_copyright {
         .hide;
     }
@@ -93,7 +93,7 @@
         .hide();
     }
 }
-    
+
 .hide-wdn_copyright { // Keep the UI presentation, but hide the content.
 
     .wdn-footer-text {
@@ -113,7 +113,7 @@
 }
 
 .hide-wdn_attribution {
-    
+
     #wdn_attribution {
         .hide();
     }
@@ -135,7 +135,7 @@
 
 @media @bp-nav-full {
     .hide-wdn_tool_links {
-    
+
         #wdn_tool_links {
             .hide();
         }
