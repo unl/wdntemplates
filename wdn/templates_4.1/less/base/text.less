@@ -1,6 +1,9 @@
 // Modular Scale for vertical rythm: http://modularscale.com/scale/?px1=16&px2=54&ra1=1.333&ra2=0
 
-// Enable OpenType features
+
+
+// !OPENTYPE
+
 .kern {
     -webkit-font-feature-settings+: "kern"; /* No variation */
        -moz-font-feature-settings+: "kern" 1; /* Firefox 15.0 onwards explicitly set feature values */
@@ -13,7 +16,9 @@
             font-feature-settings+: "liga"; /* No variation */
 }
 
-// GENERAL
+
+
+// !GENERAL
 
 .wdn-brand {
     .brand-font();
@@ -27,7 +32,9 @@
     .list-reset();
 }
 
-// HEADERS
+
+
+// !HEADINGS
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
@@ -65,7 +72,7 @@ p, span, div, ul, li, section, img {
     text-transform: uppercase;
 }
 
-// All caps, Gotham header
+// All caps, Gotham heading
 .wdn-sans-caps {
     .sans-serif-font();
     line-height: 1.333;
@@ -88,7 +95,9 @@ p, span, div, ul, li, section, img {
     }
 }
 
-// SUBHEADS
+
+
+// !SUBHEADS
 
 .wdn-subhead {
     .wdn-sans-caps();
@@ -123,7 +132,9 @@ p, span, div, ul, li, section, img {
     }
 }
 
-// PARAGRAPHS
+
+
+// !PARAGRAPHS
 
 p {
     margin: 1rem 0;
@@ -138,7 +149,9 @@ p.small {
   .rem(12,13);
 }
 
-// ICON FONT - see /wdn/templates_4.0/fonts/fontello/readme.md
+
+
+// !ICON FONT - see /wdn/templates_4.0/fonts/fontello/readme.md
 
 @font-face {
     font-family: 'wdn-icon';
