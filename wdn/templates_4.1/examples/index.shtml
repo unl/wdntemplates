@@ -16,7 +16,7 @@
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <link rel="home" href="http://wdn.unl.edu" />
-<script type="text/javascript">
+<script>
 require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, require, legacy, navigation) {
     navigation.fetchSiteNavigation('http://wdn.unl.edu/', function(data, textStatus) {
     	if (textStatus == 'success') {
@@ -96,7 +96,7 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
     });
 });
 </script>
-<style type="text/css">
+<style>
 #examples_band.wdn-band {
     padding: 0 1.2rem;
 }
@@ -217,11 +217,8 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
             <div id="wdn_logo_lockup">
                 <div class="wdn-inner-wrapper">
                     <!--#include virtual="/wdn/templates_4.1/includes/logo.html" -->
-                    <span id="wdn_site_affiliation"><!-- InstanceBeginEditable name="affiliation" -->My site affiliation<!-- InstanceEndEditable --></span>
-                    <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" -->
-                        Web Developer Network
-                        <!--<span>A division of the College of Arts &amp; Sciences</span>-->
-                        <!-- InstanceEndEditable --></span>
+                    <span id="wdn_site_affiliation"><!-- InstanceBeginEditable name="affiliation" --><!-- InstanceEndEditable --></span>
+                    <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" -->Web Developer Network<!-- InstanceEndEditable --></span>
                 </div>
             </div>
         </header>
@@ -308,7 +305,7 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
             <div id="wdn_local_footer" class="wdn-band wdn-footer-local">
                 <div class="wdn-inner-wrapper">
                     <!-- InstanceBeginEditable name="contactinfo" -->
-                            <!-- InstanceEndEditable -->
+                    <!-- InstanceEndEditable -->
                     <!-- InstanceBeginEditable name="leftcollinks" -->
                     <!-- InstanceEndEditable -->
                 </div>
