@@ -32,7 +32,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 		},
 		"oldie": {
 			"enabled": ie && ie < minIEVersion,
-			"html": "This page may not be displayed correctly in this browser. You are strongly encouraged to update. <a href=\"hhttp://its.unl.edu/supported-technology-standards-end-life-software\">Read More</a>",
+			"html": "This page may not be displayed correctly in this browser. You are strongly encouraged to update. <a href=\"http://its.unl.edu/supported-technology-standards-end-life-software\">Read More</a>",
 			"url": "http://windows.microsoft.com/en-us/internet-explorer/download-ie"
 		}
 	};
