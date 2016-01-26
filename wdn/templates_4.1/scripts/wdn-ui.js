@@ -105,6 +105,18 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 				//Close other widgets
 				closeDropDown($('.wdn-dropdown-widget-toggle').not(this));
 			});
+
+			//Add an outline to the label for the currently focused input
+			$(selector).focusin(function() {
+				var $input = $(this);
+				$('label[for="'+$input.attr('id')+'"]').addClass('focused');
+			});
+
+			//Remove the outline
+			$(selector).focusout(function() {
+				var $input = $(this);
+				$('label[for="'+$input.attr('id')+'"]').removeClass('focused');
+			});
 		}
 	};
 });
