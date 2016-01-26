@@ -74,7 +74,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			var loginCheckFailure = function() {
 					$(function() {
 						var localSettings = getLocalIdmSettings();
-						defaultLinkText = $(userSel).text();
+						defaultLinkText = $(userSel).html();
 						if (localSettings.login) {
 							Plugin.setLoginURL(localSettings.login);
 						} else {
@@ -253,7 +253,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			idm.removeClass('loggedin');
 			loginLink.css('backgroundImage', null)
 				.attr('href', loginURL)
-				.text(defaultLinkText);
+				.html(defaultLinkText);
 
             // Show login anchor
             $(userSel).show();
