@@ -230,9 +230,9 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			}
 
 			idm.addClass('loggedin');
-
+			
 			$(toggleSel).css('backgroundImage', "url(" + planetRed + "icon/" + planetred_uid + "/medium/)")
-                .text(displayName(uid));
+                .html('<span class="wdn-text-hidden">Account actions for </span>'+displayName(uid));
             $(profileSel).attr('href', planetRed + 'profile/' + planetred_uid);
 			
 			$(toggleSel).removeClass('hidden');
