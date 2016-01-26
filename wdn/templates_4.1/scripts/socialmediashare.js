@@ -96,7 +96,7 @@ define(['jquery', 'wdn', 'require', 'wdn-ui'], function($, WDN, require, wdnUI) 
 
         shareButtonTemplate:'<div class="wdn-share-button">'+ // add string to use as template for all share buttons
                                 '<input type="checkbox" id="{{id}}" class="wdn_share_toggle wdn-input-driver wdn-dropdown-widget-toggle" aria-controls="wdn_share_{{id}}" value="Show share options" />'+
-                                '<label for="{{id}}" class="wdn-icon-share"><span class="wdn-text-hidden">Share This Page</span></label>'+
+                                '<label for="{{id}}"><span class="wdn-icon-share" aria-hidden="true"></span><span class="wdn-text-hidden">Share This Page</span></label>'+
                                 '<ul id="wdn_share_{{id}}" class="wdn-share-options wdn-hang-{{hang}} wdn-dropdown-widget-content">'+
                                     '<li><a href="{{url}}" class="wdn-icon-link wdn_createGoURL" rel="nofollow">Get a Go URL</a></li>'+
                                     '<li class="outpost wdn_emailthis"><a href="mailto:?body={{body}}%20{{encodedUrl}}&amp;subject={{title}}" class="wdn-icon-mail" rel="nofollow">Email this page</a></li>'+
