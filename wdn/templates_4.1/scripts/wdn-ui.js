@@ -1,4 +1,4 @@
-define(['jquery'], function($) {
+define(['jquery', 'modernizr'], function($, Modernizr) {
 	"use strict";
 
 	var initd = false;
@@ -11,6 +11,10 @@ define(['jquery'], function($) {
 			$container.attr('aria-hidden', true);
 			$(element).attr('checked', false);
 		});
+	};
+
+	var isFullNav = function() {
+		return Modernizr.mq('(min-width: 700px)') || !Modernizr.mq('only all');
 	};
 
 	return {
@@ -46,6 +50,19 @@ define(['jquery'], function($) {
 				}
 			});
 
+			$(window).resize(function() {
+				$('.visible-at-full-nav').each(function(index, element) {
+					var container_id = $(element).attr('aria-controls');
+					var $container = $('#'+container_id);
+
+					if (isFullNav()) {
+						$container.attr('aria-hidden', false);
+					} else {
+						$container.attr('aria-hidden', true);
+					}
+				});
+			});
+
 			initd = true;
 		},
 
@@ -68,6 +85,9 @@ define(['jquery'], function($) {
 
 				//Mark it as hidden
 				$container.attr('aria-hidden', true);
+				if ($element.hasClass('visible-at-full-nav') && isFullNav()) {
+					$container.attr('aria-hidden', false);
+				}
 
 				//Add a helper class to labels
 				var $label = $('label[for="'+$element.attr('id')+'"]');
