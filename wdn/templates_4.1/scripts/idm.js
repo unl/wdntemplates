@@ -20,6 +20,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		wdnSel = '#wdn_',
 		mainSel = wdnSel + 'identity_management',
 		idmSel = wdnSel + 'idm_',
+		idmContainerSel = idmSel + 'notice_container',
 		userSel = idmSel + 'username',
 		profileSel = idmSel + 'profile',
 		logoutSel = idmSel + 'logout',
@@ -235,7 +236,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
                 .html('<span class="wdn-text-hidden">Account actions for </span>'+displayName(uid));
             $(profileSel).attr('href', planetRed + 'profile/' + planetred_uid);
 			
-			$(toggleSel).removeClass('hidden');
+			$(idmContainerSel).removeClass('hidden');
 
             // Hide login anchor
             $(userSel).hide();
