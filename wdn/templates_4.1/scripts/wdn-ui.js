@@ -82,6 +82,9 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 			$(selector).each(function(index, element) {
 				//Mark this control as having a popup
 				var $element = $(element);
+				
+				$element.attr('role', 'button');
+				$element.attr('aria-pressed', false);
 
 				$element.attr('aria-haspopup', true);
 
@@ -106,6 +109,9 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 					var container_id = $control.attr('aria-controls');
 					var $container = $('#'+container_id);
 					$container.attr('aria-hidden', false);
+					$control.attr('aria-pressed', true);
+				} else {
+					$control.attr('aria-pressed', false);
 				}
 
 				//Close other widgets
