@@ -5,10 +5,16 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 
 	var closeDropDown = function(selector) {
 		$.each($(selector), function(index, element) {
-			var container_id = $(element).attr('aria-controls');
+			var $element = $(element);
+			var container_id = $element.attr('aria-controls');
 			var $container = $('#'+container_id);
 
-			$container.attr('aria-hidden', true);
+			if ($element.hasClass('visible-at-full-nav') && isFullNav()) {
+				$container.attr('aria-hidden', false);
+			} else {
+				$container.attr('aria-hidden', true);
+			}
+
 			$(element).attr('checked', false);
 		});
 	};
