@@ -234,6 +234,8 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			$(toggleSel).css('backgroundImage', "url(" + planetRed + "icon/" + planetred_uid + "/medium/)")
                 .text(displayName(uid));
             $(profileSel).attr('href', planetRed + 'profile/' + planetred_uid);
+			
+			$(toggleSel).removeClass('hidden');
 
             // Hide login anchor
             $(userSel).hide();
