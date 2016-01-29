@@ -5,7 +5,7 @@ table {
     .base-font();
     border: 1px solid @ui04;
 
-    @media @bp2 {
+    @media @bp768 {
         line-height: @base-line-height-lg;
     }
 
@@ -24,7 +24,7 @@ table {
         border-top: 1px solid @ui04;
         background-color: darken(@ui01, 2%);
 
-        @media @bp2 {
+        @media @bp768 {
             padding: 1.2307em 1.2307em 1em;
         }
     }
@@ -37,7 +37,7 @@ table {
         font-weight: normal;
         padding: 0.92307em 1em 0.7692em;
 
-        @media @bp2 {
+        @media @bp768 {
             padding: 0.75em 1em 0.602em;
         }
     }
@@ -67,7 +67,7 @@ table.wdn_responsive_table {
     thead tr {
         display: none;
 
-        @media @bp2 {
+        @media @bp768 {
             display: table-row;
         }
     }
@@ -76,14 +76,14 @@ table.wdn_responsive_table {
         text-align: center;
         display: block;
 
-        @media @bp2 {
+        @media @bp768 {
             display: table-cell;
         }
     }
 
     tbody {
         tr {
-            @media @under-bp2 {
+            @media @bp-under768w {
                 &:nth-of-type(even) {
                     background-color: transparent;
                 }
@@ -92,7 +92,7 @@ table.wdn_responsive_table {
             &:first-child th {
                 border-top-width: 0;
 
-                @media @bp2 {
+                @media @bp768 {
                     border-top-width: 1px;
                 }
             }
@@ -105,7 +105,7 @@ table.wdn_responsive_table {
         td {
             text-align: left;
 
-            @media @bp2 {
+            @media @bp768 {
                 text-align: center;
             }
 
@@ -114,7 +114,7 @@ table.wdn_responsive_table {
                 font-weight: bold;
                 content: attr(data-header);
 
-                @media @bp2 {
+                @media @bp768 {
                     display: none !important;
                 }
             }
@@ -122,7 +122,7 @@ table.wdn_responsive_table {
             &:empty {
                 display: none;
 
-                @media @bp2 {
+                @media @bp768 {
                     display: table-cell;
                 }
             }

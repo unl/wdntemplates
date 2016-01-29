@@ -30,8 +30,8 @@ table.primary {
             border-color: lighten(@brand,50%);
         }
     }
-    
-    @media @under-bp2 {
+
+    @media @bp-under768w {
 	    &.wdn_responsive_table tbody td:first-child {
             color: #fff;
             background: fadeout(@brand,20%);
@@ -72,7 +72,7 @@ table.cool {
         }
     }
 
-    @media @under-bp2 {
+    @media @bp-under768w {
         &.wdn_responsive_table tbody td:first-child {
             color: darken(@light-triad,70%);
             background: fadeout(@light-triad,20%);
@@ -93,7 +93,7 @@ table.soothing {
         background: @complement;
         border-top: none;
         border-bottom: 3px solid darken(@complement,5%);
-        
+
         a {
             color: #fff;
         }
@@ -112,8 +112,8 @@ table.soothing {
             border-color: lighten(@dark-complement,50%);
         }
     }
-    
-    @media @under-bp2 {
+
+    @media @bp-under768w {
 		&.wdn_responsive_table tbody td:first-child {
             color: #fff;
             background: fadeout(@dark-complement,20%);
@@ -134,7 +134,7 @@ table.neutral {
         background: fadeout(@neutral,20%);
         border-top: none;
         border-bottom: 3px solid @dark-neutral;
-        
+
         a {
             color: #fff;
         }
@@ -154,7 +154,7 @@ table.neutral {
         }
     }
 
-    @media @under-bp2 {
+    @media @bp-under768w {
 		&.wdn_responsive_table tbody td:first-child {
             color: @dark-neutral;
             background: fadeout(@neutral,20%);
@@ -175,7 +175,7 @@ table.energetic {
         background: @energetic;
         border-top: none;
         border-bottom: 3px solid darken(@energetic,5%);
-        
+
         a {
             color: #fff;
         }
@@ -194,8 +194,8 @@ table.energetic {
             border-color: lighten(@dark-energetic,44%);
         }
     }
-    
-    @media @under-bp2 {
+
+    @media @bp-under768w {
 		&.wdn_responsive_table tbody td:first-child {
             color: #000;
             background: fadeout(@dark-energetic,20%);

@@ -16,12 +16,12 @@
 .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11 {
     width: auto;
 
-    @media @only-bp1 {
+    @media @bp480-767 {
         width: 49%;
         margin: 0 0.5%;
     }
 
-    @media @bp1 {
+    @media @bp480 {
         float: left;
 
         &.first {
@@ -29,22 +29,18 @@
         }
     }
 
-    @media @bp2 {
+    @media @bp768 {
 
         &.first {
             margin-left: 0;
         }
     }
 
-    @media @only-bp2 {
+    @media @bp768-959 {
         > .grid1, > .grid2, > .grid3, > .grid4, > .grid5, > .grid6, > .grid7, > .grid8, > .grid9, > .grid10, > .grid11 {
             width: 49%;
             margin: 0 0.5%;
         }
-    }
-
-    @media @bp3 {
-
     }
 }
 
@@ -73,7 +69,7 @@
     .grid9 { .thisWidth(9); }
     .grid10 { .thisWidth(10); }
     .grid11 { .thisWidth(11); }
-    
+
     .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11, .grid12 {
         &.first {
             margin-left: 0;
@@ -102,26 +98,26 @@
     .grid9 { .thisWidth(9); }
     .grid10 { .thisWidth(10); }
     .grid11 { .thisWidth(11); }
-    .grid12 { 
+    .grid12 {
         width:960px;
         margin: 0 auto;
     }
 
     .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11 {
         margin-left: @gutterWidth;
-        
+
         #maincontent > *& {
             margin-left: @gutterWidth;
             max-width: none;
             margin-right: 0;
         }
     }
-    
+
     .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9, .grid10, .grid11, .grid12 {
         > .grid1 {
             .thisWidth(1);
         }
-        
+
         > .grid2 {
             .thisWidth(2);
         }
@@ -129,45 +125,45 @@
         > .grid3 {
             .thisWidth(3);
         }
-        
+
         > .grid4 {
             .thisWidth(4);
         }
-        
+
         > .grid5 {
             .thisWidth(5);
         }
-        
+
         > .grid6 {
             .thisWidth(6);
         }
-        
+
         > .grid7 {
             .thisWidth(7);
         }
-        
+
         > .grid8 {
             .thisWidth(8);
         }
-        
+
         > .grid9 {
             .thisWidth(9);
         }
-        
+
         > .grid10 {
             .thisWidth(10);
         }
-        
+
         > .grid11 {
             .thisWidth(11);
         }
-        
+
         &.first {
             margin-left: ~'-webkit-calc(50% - 480px)' !important;
             margin-left: ~'-moz-calc(50% - 480px)' !important;
             margin-left: ~'calc(50% - 480px)' !important;
         }
-        
+
         & &.first {
             margin-left: 0 !important;
         }
