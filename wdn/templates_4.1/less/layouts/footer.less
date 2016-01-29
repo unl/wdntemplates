@@ -41,6 +41,10 @@
             color: @ui07;
         }
     }
+	
+	span[class*="wdn-icon-"][aria-hidden="true"]:before {
+		top: -0.254em;
+	}
 
 	span[role="heading"] {
 		display: block;
@@ -104,6 +108,24 @@
 
 	span[role="heading"] {
 		color: @ui04;
+	}
+	
+	dl.wdn-contact-info {
+		margin: 0;
+
+		dt, dd {
+			margin: 0;
+			padding: 0;
+		}
+
+		dt {
+			float: left;
+			width: 2.369em;
+		}
+		
+		dd {
+			margin: 0 0 1em 2.369em;
+		}
 	}
 }
 

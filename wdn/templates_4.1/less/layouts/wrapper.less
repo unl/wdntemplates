@@ -5,7 +5,23 @@
 }
 
 .wdn-input-driver {
-    display: none;
+		font-size: 0;
+		width: 1px;
+		height: 1px; // allow VoiceOver to see the text
+		display: inline-block;
+		overflow: hidden;
+		position: absolute !important;
+		border: 0 !important;
+		padding: 0 !important;
+		margin: 0 !important;
+		clip: rect(1px, 1px, 1px, 1px);
+}
+
+.wdn-dropdown-widget-label.focused {
+	/* firefox */
+	outline: 1px dotted #212121;
+	/* -webkit-focus-ring-color = '#5B9DD9' */
+	outline: -webkit-focus-ring-color auto 5px;
 }
 
 .inner-wrapper-margin-left() {

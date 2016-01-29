@@ -20,6 +20,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		wdnSel = '#wdn_',
 		mainSel = wdnSel + 'identity_management',
 		idmSel = wdnSel + 'idm_',
+		idmContainerSel = idmSel + 'notice_container',
 		userSel = idmSel + 'username',
 		profileSel = idmSel + 'profile',
 		logoutSel = idmSel + 'logout',
@@ -74,7 +75,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			var loginCheckFailure = function() {
 					$(function() {
 						var localSettings = getLocalIdmSettings();
-						defaultLinkText = $(userSel).text();
+						defaultLinkText = $(userSel).html();
 						if (localSettings.login) {
 							Plugin.setLoginURL(localSettings.login);
 						} else {
@@ -230,12 +231,12 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			}
 
 			idm.addClass('loggedin');
-
+			
 			$(toggleSel).css('backgroundImage', "url(" + planetRed + "icon/" + planetred_uid + "/medium/)")
-                .text(displayName(uid));
+                .html('<span class="wdn-text-hidden">Account actions for </span>'+displayName(uid));
             $(profileSel).attr('href', planetRed + 'profile/' + planetred_uid);
 			
-			$(toggleSel).removeClass('hidden');
+			$(idmContainerSel).removeClass('hidden');
 
             // Hide login anchor
             $(userSel).hide();
@@ -253,7 +254,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			idm.removeClass('loggedin');
 			loginLink.css('backgroundImage', null)
 				.attr('href', loginURL)
-				.text(defaultLinkText);
+				.html(defaultLinkText);
 
             // Show login anchor
             $(userSel).show();
