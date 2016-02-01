@@ -1,6 +1,48 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.2 (February 8, 2016)
+
+### Fixed
+- IE needs a z-index for search input icon ([4759e38](https://github.com/unl/wdntemplates/commit/4759e380df3e5531a1137dc150874d8299e3fee6))
+- JavaScript error when home breadcrumb not found ([#942](https://github.com/unl/wdntemplates/pull/942))
+- Bad URL in legacy browser warning ([#948](https://github.com/unl/wdntemplates/pull/948))
+- Improve accessilbity of search interface ([#950](https://github.com/unl/wdntemplates/pull/950))
+- Improve accessiblity of other header/footer elements ([#951](https://github.com/unl/wdntemplates/pull/951))
+
+### Changed
+- Style updates to the events band ([#945](https://github.com/unl/wdntemplates/pull/945))
+- Added missing Modernizr tests for touch/pointer events and upgraded to v3.3.1 ([3375097](https://github.com/unl/wdntemplates/commit/3375097d4f6e54c08a3a917e2c63d71b66b9cc8c))
+- Search now using new URL ([6658ed5](https://github.com/unl/wdntemplates/commit/6658ed56329673b67472db8d6663fb632bd248d2))
+
+### Added
+- New icons in icon font ([#942](https://github.com/unl/wdntemplates/pull/942))
+- Phone link in global footer ([#952](https://github.com/unl/wdntemplates/pull/952))
+
+## 4.1.1 (January 5, 2016)
+
+### Fixed
+- Updated the global footer copyright year ([577c250](https://github.com/unl/wdntemplates/commit/577c2503dbd1eed1c051adc7bfe53b5aa6ca8588))
+- Ensure cursor over IdM region is a pointer for logged in users ([#938](https://github.com/unl/wdntemplates/pull/938))
+
+### Changed
+- Print styles have been updated for minimal layout changes ([534d5fb](https://github.com/unl/wdntemplates/commit/534d5fbb708e6b677afdbd6508eb8bc51ab6a20f))
+
+## 4.1.0 (January 4, 2016)
+
+Many code changes took place over this period. [See full list of changes](https://github.com/unl/wdntemplates/compare/4.0.35...4.1.0)
+
+### Changed
+- New header/footer design
+	- Breadcrumbs now float with nav and collapse to support longer trails
+	- Two footer areas have been created local/global
+	- Seach interface has moved out of the navigation drawer on mobile
+- Removed max-width from content bands
+- General improvements to framework html for accessilbity
+- Dropped support for IE < 10
+- Upgraded jQuery to v2.1.4
+- Upgraded Modernizr to v3.2.0 (a number of tests have been removed that are already a part of our support base)
+
 ## 4.0.35 (November 10, 2015)
 
 ### Fixed
