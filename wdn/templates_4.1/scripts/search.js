@@ -7,7 +7,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 
 		return false;
 	}
-	
+
 	var initd = false;
 
 	var isFullNav = function() {
@@ -30,9 +30,9 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 					submitted = false,
 					postReady = false,
 					autoSubmitTimeout,
-					searchHost = 'www1.unl.edu', // domain of UNL Search app
-					searchPath = '/search/', // path to UNL Search app
-					searchOrigin = window.location.protocol + '//' + searchHost,
+					searchHost = 'search.unl.edu', // domain of UNL Search app
+					searchPath = '/', // path to UNL Search app
+					searchOrigin = 'https://' + searchHost,
 					searchAction = searchOrigin + searchPath,
 					allowSearchParams = ['u', 'cx'],  // QS Params allowed by UNL Search app
 					siteHomepage = nav.getSiteHomepage(),
@@ -45,17 +45,18 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 
 				// ensure the default action is the UNL Search app
 				if (domSearchForm[0].action !== searchAction) {
-					domSearchForm.attr('action', searchAction)
+					domSearchForm.attr('action', searchAction);
 				}
 
 				if (localSearch && localSearch.indexOf(searchAction + '?') === 0) {
 					// attempt to parse the allowed UNL Search parameter overrides allowed
 					var localSearchParams;
+					var i;
 					try {
 						if (window.URLSearchParams) {
 							localSearchParams = new URLSearchParams(localSearch.slice(localSearch.indexOf('?') + 1));
 
-							for (var i = 0; i < allowSearchParams.length; i++) {
+							for (i = 0; i < allowSearchParams.length; i++) {
 								if (localSearchParams.has(allowSearchParams[i])) {
 									domSearchForm.append($('<input>', {
 										type: "hidden",
@@ -67,7 +68,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 						} else {
 							var paramPair;
 							localSearchParams = localSearch.slice(localSearch.indexOf('?') + 1).split('&');
-							for (var i = 0; i < localSearchParams.length; i++) {
+							for (i = 0; i < localSearchParams.length; i++) {
 								paramPair = localSearchParams[i].split('=');
 								if (allowSearchParams.indexOf(paramPair[0]) >= 0) {
 									domSearchForm.append($('<input>', {
@@ -104,7 +105,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 					if (!isFullNav()) {
 						return;
 					}
-					
+
 					if (e0.keyCode === 27) {
 						//Close on escape
 						closeSearch();
@@ -186,17 +187,17 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 				//Close search on escape while the iframe has focus
 				$(window).on('message', function(e) {
 					var originalEvent = e.originalEvent;
-					
+
 					if ('wdn.search.close' != originalEvent.data) {
 						//Make sure this is our event
 						return;
 					}
-					
+
 					if (searchOrigin != originalEvent.origin) {
 						//Verify the origin
 						return;
 					}
-					
+
 					closeSearch();
 				});
 
