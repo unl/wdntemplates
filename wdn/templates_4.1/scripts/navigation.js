@@ -300,15 +300,14 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			});
 		};
 
-		var navHeight = $nav.outerHeight();
 		if (currentState === 0) {
 			$nav.on(expandEvent, recalcSecondaryHeight);
 		} else {
 			recalcSecondaryHeight();
-			navHeight += ahAll - $nav.height();
 		}
+
 		if (shiftContent) {
-			$cWrapper.css(cssPaddingTop, navHeight);
+			$cWrapper.css(cssPaddingTop, ahAll);
 		}
 
 		// look for no secondary links
