@@ -239,17 +239,21 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		primaries.removeClass(emptyRowCls);
 
 		var $bar_starts = $(navPrmySel + barStartSel);
-		var ah = [];
+		var navigationRowHeights = [];
+
 		primaryLinks.each(function(i){
 			var row = Math.floor(i/6);
 			var height = $(this).outerHeight();
-			if (!ah[row] || height > ah[row]) {
-				ah[row] = height;
+			if (!navigationRowHeights[row] || height > navigationRowHeights[row]) {
+				navigationRowHeights[row] = height;
 			}
 		});
-		var i = 0, ahAll = 0;
-		for (i = 0; i < ah.length; i++) {
-			ahAll += ah[i];
+
+		var i = 0;
+		var navigationRowHeight = 0;
+
+		for (i = 0; i < navigationRowHeights.length; i++) {
+			navigationRowHeight += navigationRowHeights[i];
 		}
 
 		primaryLinks.each(function(i){
@@ -257,10 +261,10 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 				height = $(this).outerHeight(),
 				pad = parseFloat($(this).css(cssPaddingTop));
 
-			if (height < ah[row]) {
-				var ah_temp = (ah[row] - height) / 2;
-				cssTemp[cssPaddingTop] = Math.floor(ah_temp + pad) + pixelUnit;
-				cssTemp[cssPaddingBottom] = Math.ceil(ah_temp + pad) + pixelUnit;
+			if (height < navigationRowHeights[row]) {
+				var navRowCellPadding = (navigationRowHeights[row] - height) / 2;
+				cssTemp[cssPaddingTop] = Math.floor(navRowCellPadding + pad) + pixelUnit;
+				cssTemp[cssPaddingBottom] = Math.ceil(navRowCellPadding + pad) + pixelUnit;
 
 				$(this).css(cssTemp);
 			}
@@ -273,8 +277,8 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			var pad = parseFloat($(this).css(cssPaddingTop));
 
 			// allow for 5 pixels of height variation
-			if (height + 5 < ah[row]) {
-				var barHalfPad = (ah[row] - height) / 2;
+			if (height + 5 < navigationRowHeights[row]) {
+				var barHalfPad = (navigationRowHeights[row] - height) / 2;
 				cssTemp[cssPaddingTop] = Math.floor(barHalfPad + pad) + pixelUnit;
 				$(this).css(cssTemp);
 			}
@@ -282,12 +286,14 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 
 		var recalcSecondaryHeight = function() {
 			WDN.log('fixing secondaries');
-			var ul_h = [], pause = 'pause';
+			var secondaryRowHeights = [];
+			var pause = 'pause';
+
 			$nav.addClass(pause);
 			secondaryLists.css(cssHeight, '').each(function(i){
 				var row = Math.floor(i/6), height = $(this).height();
-				if (!ul_h[row] || height > ul_h[row]) {
-					ul_h[row] = height;
+				if (!secondaryRowHeights[row] || height > secondaryRowHeights[row]) {
+					secondaryRowHeights[row] = height;
 				}
 			});
 			redrawWait(function(){
@@ -296,7 +302,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			//loop through again and apply new height
 			secondaryLists.each(function(i){
 				var row = Math.floor(i/6);
-				$(this).css(cssHeight, ul_h[row] + pixelUnit);
+				$(this).css(cssHeight, secondaryRowHeights[row] + pixelUnit);
 			});
 		};
 
@@ -307,7 +313,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		}
 
 		if (shiftContent) {
-			$cWrapper.css(cssPaddingTop, ahAll);
+			$cWrapper.css(cssPaddingTop, navigationRowHeight);
 		}
 
 		// look for no secondary links
