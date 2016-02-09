@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - Bad URL in legacy browser warning ([#948](https://github.com/unl/wdntemplates/pull/948))
 - Improve accessilbity of search interface ([#950](https://github.com/unl/wdntemplates/pull/950))
 - Improve accessiblity of other header/footer elements ([#951](https://github.com/unl/wdntemplates/pull/951))
+- Try to address whitespace under the navigation ([#939](https://github.com/unl/wdntemplates/issues/939), [a1b58b5](https://github.com/unl/wdntemplates/commit/a1b58b5335caea237299e29e4f68d70718385aa9))
 
 ### Changed
 - Style updates to the events band ([#945](https://github.com/unl/wdntemplates/pull/945))
