@@ -30,9 +30,9 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 					submitted = false,
 					postReady = false,
 					autoSubmitTimeout,
-					searchHost = 'www1.unl.edu', // domain of UNL Search app
-					searchPath = '/search/', // path to UNL Search app
-					searchOrigin = window.location.protocol + '//' + searchHost,
+					searchHost = 'search.unl.edu', // domain of UNL Search app
+					searchPath = '/', // path to UNL Search app
+					searchOrigin = 'https://' + searchHost,
 					searchAction = searchOrigin + searchPath,
 					allowSearchParams = ['u', 'cx'],  // QS Params allowed by UNL Search app
 					siteHomepage = nav.getSiteHomepage(),
