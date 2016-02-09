@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.4 (February 9, 2016)
+
+- Fixed navigation icons getting pushed to the wrong location on UNLcms sites with WebForms ([#956](https://github.com/unl/wdntemplates/pull/956))
+
+## 4.1.3  (February 9, 2016)
+
+- Fixed bad variable reference from previous navigation whitespace fix ([d92c226](https://github.com/unl/wdntemplates/commit/d92c226a6047b82801bad62fb094750e6e987386))
+
 ## 4.1.2 (February 8, 2016)
 
 ### Fixed
@@ -37,7 +45,7 @@ Many code changes took place over this period. [See full list of changes](https:
 - New header/footer design
 	- Breadcrumbs now float with nav and collapse to support longer trails
 	- Two footer areas have been created local/global
-	- Seach interface has moved out of the navigation drawer on mobile
+	- Search interface has moved out of the navigation drawer on mobile
 - Removed max-width from content bands
 - General improvements to framework html for accessilbity
 - Dropped support for IE < 10
