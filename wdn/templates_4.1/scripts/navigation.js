@@ -220,7 +220,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		var $nav = $(navSel);
 		var $cWrapper = $(contentWrapperSelector);
 		var cssTemp = {};
-		var $navBarLabels = $(navSel + ' > label > span[class^="wdn-icon"');
+		var $navBarLabels = $(navSel + ' > label > span[class^="wdn-icon"]');
 
 		$nav.off(expandEvent);
 		cssTemp[cssPaddingTop] = cssTemp[cssPaddingBottom] = '';
