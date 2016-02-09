@@ -328,7 +328,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			});
 		}
 
-		$nav.trigger('fixed', [navHeight]);
+		$nav.trigger('fixed', [navigationRowHeight]);
 		WDN.log('we have fixed the presentation.');
 	};
 
