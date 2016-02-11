@@ -53,6 +53,19 @@ define([
                     location = event.Locations[0].Address.BuildingName;
                 }
 
+                if (localConfig.rooms) {
+                    if (event.Room) {
+                        var room = event.Room;
+                        if (room.match(/^room /i)) {
+                            room = room.substring(5);
+                        }
+                        if (location != '') {
+                            location = location + '<br>';
+                        }
+                        location = location + 'Room: ' + room;
+                    }
+                }
+
                 var eventURL = '';
                 if ($.isArray(event.WebPages)) {
                     eventURL = event.WebPages[0].URL
@@ -76,7 +89,8 @@ define([
             title: localSettings.title || '',
             url: localSettings.href || defaultCal,
             container: container,
-            limit: localSettings.limit || 10
+            limit: localSettings.limit || 10,
+            rooms: false
         },
         localConfig = $.extend({}, defaultConfig, config);
 
