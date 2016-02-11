@@ -191,8 +191,8 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		}
 
 		if (!$homepageCrumbLink.length) {
-			$homepageCrumbLink = $('<a>', {href : siteHomepage});
-			$li.wrapInner($homepageCrumbLink);
+			$li.wrapInner($('<a>', {href : siteHomepage}));
+			$homepageCrumbLink = $li.children('a').eq(0);
 		}
 	};
 
@@ -358,7 +358,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 
 		$navList.children('li').removeClass(highlightClass);
 
-		if (breadcrumbParent.hasClass(selectedClass)) {
+		if (!breadcrumbParent.length || breadcrumbParent.hasClass(selectedClass)) {
 			WDN.log('already showing this nav');
 			return true;
 		}
