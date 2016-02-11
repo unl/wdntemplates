@@ -58,6 +58,17 @@ define([
 				if (event.Locations[0].MapLinks[0]) {
 					location += '</a>';
 				}
+
+				if (config.rooms) {
+					if (event.Room) {
+	                    var room = event.Room;
+	                    if (room.match(/^room /i)) {
+	                        room = room.substring(5);
+	                    }
+	                    location = location + '<br>Room: ' + room;
+	                }
+	            }
+
 				location += '</span>';
 			}
 
@@ -81,7 +92,8 @@ define([
 			title: localSettings.title || '',
 			url: localSettings.href || defaultCal,
 			container: container,
-			limit: localSettings.limit || 10
+			limit: localSettings.limit || 10,
+			rooms: false
 		},
 		localConfig = $.extend({}, defaultConfig, config);
 
