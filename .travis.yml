@@ -16,7 +16,7 @@ addons:
       - g++-4.8
 install:
   - nvm install stable
-  - npm install
+  - CXX=g++-4.8 npm install
   # install `pa11y`
   - npm install phantomjs-prebuilt pa11y http-server grunt-cli
   # build the templates
