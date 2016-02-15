@@ -64,7 +64,7 @@ class AccessibilityTester {
 
         if (!$example_node = $example_dom->getElementById('example-code')) {
             //The example code needs to be wrapped in a #example-code div
-            return false;
+            return ['Missing #example-code wrapper.'];
         }
 
         //Import the example element into the new node
@@ -86,7 +86,10 @@ class AccessibilityTester {
         unlink($tmpHTMLFile);
 
         if (!$data = json_decode($json, true)) {
-            return false;
+            return [
+                'Bad pa11y output:',
+                $json
+            ];
         }
 
         foreach ($data as $result) {
