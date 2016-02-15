@@ -80,15 +80,19 @@ class AccessibilityTester {
 
         //Run pa11y on the test page
         $output_file =  __DIR__ . '/output.json';
-        $result = exec($command . ' > ' . $output_file);
+        $errorFile = __DIR__ . '/error_output.txt';
+        $result = exec($command . ' > ' . $output_file . ' 2>' . $errorFile);
+        $errorOutput = file_get_contents($errorFile);
         $json = file_get_contents($output_file);
         unlink($output_file);
         unlink($tmpHTMLFile);
+        unlink($errorFile);
 
         if (!$data = json_decode($json, true)) {
             return [
                 'Bad pa11y output:',
-                $json
+                $json,
+                $errorOutput,
             ];
         }
 
