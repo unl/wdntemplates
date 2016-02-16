@@ -248,6 +248,11 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		},
 
 		displayLogin : function() {
+			if (Plugin.getUserId()) {
+				//if the user is already logged in, we should not reset the login
+				return;
+			}
+
 			var idm = $(mainSel),
 				loginLink = $(userSel);
 
