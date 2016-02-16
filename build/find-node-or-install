@@ -47,9 +47,9 @@ else
   # Load nvm into current shell
   . nvm/nvm.sh >/dev/null
 
-  # Install and use latest 0.x node
-  nvm install 0 >/dev/null
-  nvm alias default 0 >/dev/null
+  # Install and use latest stable node
+  nvm install stable >/dev/null
+  nvm alias default stable >/dev/null
   nvm use default >/dev/null
 
   # Find and output node's bin directory
