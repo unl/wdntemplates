@@ -16,8 +16,11 @@
 		.inner-wrapper-margin();
 
         .wdn-text-band& {
-        	max-width: 50rem;
-            margin: 0 auto;
+
+            @media @bp960 {
+        	    max-width: 50rem;
+                margin: 0 auto;
+            }
         }
 
         #maincontent & {
