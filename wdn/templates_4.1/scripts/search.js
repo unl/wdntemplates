@@ -136,6 +136,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 
 				var closeSearch = function() {
 					domSearchForm.parent().removeClass('active');
+					$progress.hide();
 					domSearchForm[0].reset();
 				};
 
