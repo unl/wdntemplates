@@ -1,4 +1,6 @@
 define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN, require, Modernizr, nav) {
+	var autoSearchDebounceDelay = 1000;
+
 	function getLocalSearch() {
 		var link = $('link[rel=search]');
 		if (link.length && link[link.length - 1].type != 'application/opensearchdescription+xml') {
@@ -34,6 +36,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 					searchPath = '/', // path to UNL Search app
 					searchOrigin = 'https://' + searchHost,
 					searchAction = searchOrigin + searchPath,
+					searchFrameAction = searchAction + '?embed=1',
 					allowSearchParams = ['u', 'cx'],  // QS Params allowed by UNL Search app
 					siteHomepage = nav.getSiteHomepage(),
 					localSearch = getLocalSearch();
@@ -89,7 +92,11 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 						name: "u",
 						value: siteHomepage
 					}));
+					searchFrameAction += '&u=' + encodeURIComponent(siteHomepage);
 				}
+
+				// create a loading indicator
+				$progress = $('<progress>', {id: 'wdn_search_progress'}).text('Loading...');
 
 				// add a parameter for triggering the iframe compatible rendering
 				domEmbed = $('<input>', {
@@ -99,28 +106,79 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 				});
 				domSearchForm.append(domEmbed);
 
+				var createSearchFrame = function() {
+					// lazy create the search iframe
+					if (!$unlSearch) {
+						$unlSearch = $('<iframe>', {
+							name: 'unlsearch',
+							id: 'wdn_search_frame',
+							title: 'Search results',
+							src: searchFrameAction
+						});
+
+						domSearchForm.parent().append($unlSearch).append($progress);
+
+						$unlSearch.on('load', function() {
+							postReady = true; // iframe should be ready to post messages to
+						});
+					}
+				};
+
+				var activateSearch = function() {
+					domSearchForm.parent().addClass('active');
+					$progress.show();
+				};
+
+				var postSearchMessage = function(query) {
+					$unlSearch[0].contentWindow.postMessage(query, searchOrigin);
+					$progress.hide();
+				};
+
+				var closeSearch = function() {
+					clearTimeout(autoSubmitTimeout);
+					domSearchForm.parent().removeClass('active');
+					$progress.hide();
+					domSearchForm[0].reset();
+				};
+
 				// add an event listener to support the iframe rendering
-				domQ.on('keyup', function(e0) {
+				domQ.on('keyup', function(e) {
 					// ONLY for "desktop" presentation
 					if (!isFullNav()) {
 						return;
 					}
 
-					if (e0.keyCode === 27) {
+					var keyCode = e.keyCode;
+
+					if (keyCode === 27) {
 						//Close on escape
 						closeSearch();
 						return;
 					}
 
+					// ignore non-printable keys (blacklist)
+					if ((keyCode !== 32 && keyCode < 48) ||
+						(keyCode > 90 && keyCode < 96) ||
+						(keyCode > 111 && keyCode < 186 && keyCode !== 173) ||
+						(keyCode > 192 && keyCode < 219) ||
+						(keyCode > 222)
+					) {
+						return;
+					}
+
 					clearTimeout(autoSubmitTimeout);
+
 					if ($(this).val()) {
+						// activate search UI
+						createSearchFrame();
+						activateSearch();
+
+						// debounce auto-submit
 						autoSubmitTimeout = setTimeout(function() {
 							domSearchForm.trigger('submit', 'auto');
-						}, 300);
+						}, autoSearchDebounceDelay);
 					}
 				});
-
-				$progress = $('<progress>', {id: 'wdn_search_progress'}).text('Loading...');
 
 				domSearchForm.on('submit', function(e, source) {
 					// disable iframe and return if not in "desktop" presentation
@@ -130,59 +188,23 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 						return;
 					}
 
-					// lazy create the search iframe
-					if (!$unlSearch) {
-						$unlSearch = $('<iframe>', {
-							name: 'unlsearch',
-							id: 'wdn_search_frame',
-							title: 'Search results'
-						});
-
-						domSearchForm.parent().append($unlSearch).append($progress);
-
-						$unlSearch.on('load', function() {
-							if (!submitted) {
-								return;
-							}
-
-							if ('auto' !== source) {
-								//a11y: send focus to the results if manually submitted
-								$unlSearch.focus();
-							}
-
-							$progress.hide();
-							postReady = true; // iframe should be ready to post messages to
-						});
-					}
-
 					// enable the iframe search params
+					createSearchFrame();
+					activateSearch();
 					domEmbed.prop('disabled', false);
 					this.target = 'unlsearch';
-					$(this).parent().addClass('active');
-					$progress.show();
 
-					if (!submitted) {
-						submitted = true;
-						return;
+					if ('auto' !== source) {
+						//a11y: send focus to the results if manually submitted
+						$unlSearch.focus();
 					}
 
 					// support sending messages to iframe without reload
-					if (postReady && $unlSearch[0].contentWindow.postMessage) {
+					if (postReady) {
 						e.preventDefault();
-						$unlSearch[0].contentWindow.postMessage(domQ.val(), searchOrigin);
-						if ('auto' != source) {
-							//a11y: send focus to the results if manually submitted
-							$unlSearch.focus();
-						}
-						$progress.hide();
+						postSearchMessage(domQ.val());
 					}
 				});
-
-				var closeSearch = function() {
-					var $wdnSearch = domSearchForm.parent();
-					$wdnSearch.removeClass('active');
-					domSearchForm[0].reset();
-				};
 
 				//Close search on escape while the iframe has focus
 				$(window).on('message', function(e) {
