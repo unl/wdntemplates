@@ -31,6 +31,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		logoutURL = loginSrv + 'cas/logout?url=' + encLoc,
 		loginURL = loginSrv + 'cas/login?service=' + encLoc,
 		serviceURL = loginSrv + 'services/whoami/?id=',
+		avatarService = 'https://directory.unl.edu/avatar/',
 		planetRed = 'https://planetred.unl.edu/pg/',
 		defaultLinkText,
 		user = false;
@@ -231,11 +232,11 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			}
 
 			idm.addClass('loggedin');
-			
-			$(toggleSel).css('backgroundImage', "url(" + planetRed + "icon/" + planetred_uid + "/medium/)")
+
+			$(toggleSel).css('backgroundImage', 'url(' + avatarService + uid + ')')
                 .html('<span class="wdn-text-hidden">Account actions for </span>'+displayName(uid));
             $(profileSel).attr('href', planetRed + 'profile/' + planetred_uid);
-			
+
 			$(idmContainerSel).removeClass('hidden');
 
             // Hide login anchor
