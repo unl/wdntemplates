@@ -1,12 +1,22 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 4.1.4 (February 9, 2016)
+## 4.1.6
 
+- Add an option for rendering rooms on the events band widget ([#958](https://github.com/unl/wdntemplates/pull/958))
+- Fix navigation disappearing if home crumb is not a link at load ([#959](https://github.com/unl/wdntemplates/pull/959))
+- Fix both login and logout interface appear in certain cases ([#960](https://github.com/unl/wdntemplates/pull/960))
+- General build and size optimiations ([#961](https://github.com/unl/wdntemplates/pull/961), [538f5e7](https://github.com/unl/wdntemplates/commit/538f5e765c6fa398915f1120cf82c45740a55b4e))
+- Upgrade MediaElementJS plugin to v2.19.0 ([#692](https://github.com/unl/wdntemplates/pull/962))
+- Adjust text-band margins ([#963](https://github.com/unl/wdntemplates/pull/963))
+- Improve the algorithm for auto-submitting searches ([#964](https://github.com/unl/wdntemplates/pull/964))
+- Use the Directory avatar service for profile images ([#965](https://github.com/unl/wdntemplates/pull/965))
+- Fix 301 redirect in global footer ([#966](https://github.com/unl/wdntemplates/pull/966))
+
+## 4.1.3 - 4.1.5 (February 9, 2016)
+
+- Fix bad selectors for navigation bar labels ([9e22020](https://github.com/unl/wdntemplates/commit/9e22020bfe1172eeedbb6130e39944f7e930521a))
 - Fixed navigation icons getting pushed to the wrong location on UNLcms sites with WebForms ([#956](https://github.com/unl/wdntemplates/pull/956))
-
-## 4.1.3  (February 9, 2016)
-
 - Fixed bad variable reference from previous navigation whitespace fix ([d92c226](https://github.com/unl/wdntemplates/commit/d92c226a6047b82801bad62fb094750e6e987386))
 
 ## 4.1.2 (February 8, 2016)
