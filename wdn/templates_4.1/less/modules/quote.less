@@ -3,14 +3,14 @@
     position: relative;
     display: table;
     width: auto;
-    max-width: 895px;
+    max-width: 55.927em;
     margin: 0 auto 3.157em;
     padding: 3.157em 5% 0;
     text-align: center;
-    .display-font;
-    .rem(23,30);
+    .rem(21,28);
     line-height: 1.333;
     font-style: italic;
+    letter-spacing: -0.0254em;
 
     &:before, &:after {
         position: absolute;
@@ -22,15 +22,15 @@
 
     &:before {
         content: open-quote;
-        left: 50%;
-        margin-left: -0.178em;
         top: 0;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     &:after {
         content: close-quote;
         right: 50%;
-        margin-right: -0.178em;
+        transform: translateX(50%);
     }
 
     @media @bp768 {
@@ -39,7 +39,7 @@
 
         &:before, &:after {
             top: 0.317em;
-            margin: 0;
+            transform: none;
         }
 
         &:before {
@@ -55,14 +55,15 @@
 .wdn-quoter { // The name of the quoter
     display: block;
     text-align: center;
-    .brand-font;
+    .brand-font();
     .rem(23,30);
     font-style: normal;
     padding-top: 0.75em;
+    letter-spacing: initial;
 
     .quoter-context { // To be used as context for the quoter. ie: Senior, Art major
         display: block;
-        .wdn-sans-caps;
+        .wdn-sans-caps();
         .rem(10,12);
         color: fadeout(@base-text, 10%);
     }
