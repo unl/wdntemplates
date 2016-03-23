@@ -16,23 +16,23 @@
   },
   "homepage": "https://github.com/unl/wdntemplates#readme",
   "devDependencies": {
-    "csso": "^1.4.2",
+    "csso": "^1.7.1",
     "grunt": "^0.4.5",
     "grunt-bump": "^0.7.0",
-    "grunt-concurrent": "^2.0.3",
+    "grunt-concurrent": "^2.2.1",
     "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-less": "^1.0.1",
-    "grunt-contrib-requirejs": "^0.4.4",
-    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-requirejs": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
     "grunt-sync": "^0.5.2",
     "grunt-then": "^1.0.0",
-    "grunt-zip": "^0.17.0",
+    "grunt-zip": "^0.17.1",
     "less-plugin-autoprefix": "^1.5.1",
     "less-plugin-clean-css": "^1.5.1",
-    "load-grunt-tasks": "^3.2.0",
+    "load-grunt-tasks": "^3.4.1",
     "sync-exec": "^0.6.2",
-    "tar-fs": "^1.8.1",
-    "xz": "^1.2.0"
+    "tar-fs": "^1.11.1",
+    "xz": "^1.2.1"
   },
   "engines": {
     "node": "node >= 0.10.0"
