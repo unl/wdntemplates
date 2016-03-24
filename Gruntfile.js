@@ -2,7 +2,6 @@ module.exports = function (grunt) {
 	// CSS files to be built (relative to less directory, no extension)
 	var cssObjs = [
 		'all',
-		'print',
 		'modules/pagination',
 		'modules/infographics'
 	];
