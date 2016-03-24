@@ -192,6 +192,7 @@ module.exports = function (grunt) {
 		less: {
 			all: {
 				options: {
+					ieCompat: false,
 					paths: [hereDir + templateLess],
 					plugins: [
 						autoprefixPlugin,
