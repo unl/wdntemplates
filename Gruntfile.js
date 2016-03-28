@@ -17,6 +17,7 @@ module.exports = function (grunt) {
 		'js-css/monthwidget',
 		'js-css/notices',
 		'js-css/rsswidget',
+		'js-css/script-font',
 		'js-css/smallcaps',
 		'js-css/unlalert',
 		'plugins/qtip/wdn.qtip',
@@ -67,6 +68,7 @@ module.exports = function (grunt) {
 		'monthwidget',
 		'notice',
 		'rss_widget',
+		'script-font',
 		'smallcaps',
 		'tooltip'
 	];
