@@ -197,7 +197,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 			sel.find('ul.slides').css({'height':'auto'});
 
 			if (forceUpdate) {
-				var trig = $(tabSelector + ' li a[href$='+jq(hash)+']');
+				var trig = $(tabSelector + ' li a[href$="'+jq(hash)+'"]');
 				if (trig.length) {
 					updateInterface(trig.first());
 					trig.get(0).scrollIntoView();
