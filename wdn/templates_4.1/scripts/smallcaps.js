@@ -15,7 +15,6 @@ define([
             // Load Mercury ScreenSmart Small Caps fonts from Cloud.typography
             var $smcaps = $("<link>", {
                 "rel" : "stylesheet",
-                "type" : "text/css",
                 "href" : "//cloud.typography.com/7717652/679648/css/fonts.css"
             });
         

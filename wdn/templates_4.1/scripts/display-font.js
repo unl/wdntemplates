@@ -15,7 +15,6 @@ define([
             // Load Mercury Display fonts from Cloud.typography
             var $displayFont = $("<link>", {
                 "rel" : "stylesheet",
-                "type" : "text/css",
                 "href" : "//cloud.typography.com/7717652/7503352/css/fonts.css"
             });
 
