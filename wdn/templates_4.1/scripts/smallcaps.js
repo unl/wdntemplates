@@ -13,12 +13,12 @@ define([
             initd = true;
     
             // Load Mercury ScreenSmart Small Caps fonts from Cloud.typography
-            var $smcaps = $('<link>', {
+            var $smallCaps = $('<link>', {
                 'rel' : 'stylesheet',
                 'href' : '//cloud.typography.com/7717652/679648/css/fonts.css'
             });
         
-            $('head').append($smcaps);
+            $('head').append($smallCaps);
         }
     };
 });
