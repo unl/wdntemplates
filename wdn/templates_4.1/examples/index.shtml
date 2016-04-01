@@ -97,10 +97,6 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
 });
 </script>
 <style>
-#examples_band.wdn-band {
-    padding: 0 1.2rem;
-}
-
 #examples {
     text-align: center;
     color: #fff;
