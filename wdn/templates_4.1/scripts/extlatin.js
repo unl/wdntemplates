@@ -11,15 +11,14 @@ define([
                 return;
             }
             initd = true;
-    
+
             // Load Mercury ScreenSmart Extended Latin fonts from Cloud.typography
-            var $extlatin = $("<link>", {
-                "rel" : "stylesheet",
-                "type" : "text/css",
-                "href" : "//cloud.typography.com/7717652/719648/css/fonts.css"
+            var $extLatin = $('<link>', {
+                'rel' : 'stylesheet',
+                'href' : 'https://cloud.typography.com/7717652/719648/css/fonts.css'
             });
-        
-            $('head').append($extlatin);
+
+            $('head').append($extLatin);
         }
     };
 });

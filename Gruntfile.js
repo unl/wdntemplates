@@ -8,6 +8,7 @@ module.exports = function (grunt) {
 
 	var jsCssObjs = [
 		'js-css/band_imagery',
+		'js-css/display-font',
 		'js-css/events',
 		'js-css/events-band',
 		'js-css/extlatin',
@@ -15,6 +16,7 @@ module.exports = function (grunt) {
 		'js-css/monthwidget',
 		'js-css/notices',
 		'js-css/rsswidget',
+		'js-css/script-font',
 		'js-css/smallcaps',
 		'js-css/unlalert',
 		'plugins/qtip/wdn.qtip',
@@ -55,6 +57,7 @@ module.exports = function (grunt) {
 	var wdnBuildPlugins = [
 		'band_imagery',
 		'carousel',
+		'display-font',
 		'events-band',
 		'events',
 		'extlatin',
@@ -64,6 +67,7 @@ module.exports = function (grunt) {
 		'monthwidget',
 		'notice',
 		'rss_widget',
+		'script-font',
 		'smallcaps',
 		'tooltip'
 	];
