@@ -30,10 +30,10 @@
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    .wdn-sans-serif;
+    .wdn-sans-serif();
     line-height: 1;
     .rem(10,12);
-    transition: background-color 0.2s;
+    transition: background-color 0.3s ease-out;
     .colorize-button(@neutral);
 
     .wdn-main a& {
@@ -57,4 +57,25 @@
 
 .wdn-button-energetic {
     .colorize-button(@energetic);
+}
+
+.wdn-button-outline {
+    transition: all 0.3s ease-out;
+
+    .wdn-main a& {
+        // needed to make the selector more specific
+        color: fadeout(#fff,20%);
+        border: 1px solid fadeout(#fff,20%);
+        background-color: fadeout(#000,80%);
+
+	    &:hover, &:active {
+	        color: #fff;
+        	background-color: fadeout(#000,60%);
+	    }
+
+	    &:focus {
+	    	outline: none;
+	    	box-shadow: 0 0 5px 0 #fff;
+	    }
+    }
 }

@@ -2,6 +2,14 @@
     display: flex;
     flex-flow: column wrap;
     background-color: @ui12;
+
+    .wdn-button {
+        margin-top: 1.777em;
+
+        + .wdn-button {
+            margin-left: .75em;
+        }
+    }
 }
 
 .wdn-hero-text-container {
@@ -47,15 +55,11 @@
     border-bottom: 1px solid fadeout(#fff,80%);
 }
 
-.wdn-button-group {
-    z-index: 1;
-    margin-top: 1em;
-}
-
 .wdn-hero-video,
 .wdn-hero-picture,
 .wdn-hero-poster {
     order: 1;
+    flex-shrink: 0;
     width: 100%;
 }
 
@@ -131,10 +135,6 @@ video ~ .wdn-hero-poster {
     .wdn-hero-video,
     .wdn-hero-poster {
         opacity: .5;
-    }
-
-    .wdn-hero-video {
-        flex-shrink: 0;
     }
 }
 
