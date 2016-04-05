@@ -172,3 +172,4 @@ checking: typography.html
 checking: videoplayer.html
 checking: zenboxes.html
 checking: zentables.html
+checking: extended_fonts.html

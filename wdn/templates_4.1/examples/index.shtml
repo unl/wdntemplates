@@ -30,8 +30,13 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
 	$(function() {
         var cache = { '' : ' ' },
         loadExample = function(data, url) {
-        	$('#examples').slideUp(300);
-            $('#example').attr('class', url.substring(0, url.indexOf('.'))).html(data);
+            $('#examples_band').slideUp(300);
+            var $example = $('#example');
+            var exampleClass = url.substring(0, url.indexOf('.'));
+            $example.removeClass().addClass(exampleClass).html(data);
+            if ($('.wdn-band', $example).lengtj) {
+                $example.addClass('wdn-band');
+            }
             legacy();
             $('#pagetitle .wdn-subhead').slideDown(300);
             $('#source').show();
@@ -39,7 +44,7 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
         },
         returnHome = function(full) {
         	$('#pagetitle .wdn-subhead').slideUp(300);
-        	$('#examples').slideDown(300);
+        	$('#examples_band').slideDown(300);
 
         	if (full !== false) {
             	$('#example').empty();
@@ -97,10 +102,6 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
 });
 </script>
 <style>
-#examples_band.wdn-band {
-    padding: 0 1.2rem;
-}
-
 #examples {
     text-align: center;
     color: #fff;
@@ -160,24 +161,6 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
     background-clip:content-box;
     background-color:rgba(167, 206, 229, 0.5);
     margin-bottom:1rem !important;
-}
-
-#example.band_imagery > * {
-    padding: 0 5%;
-}
-
-@media (min-width: 768px) {
-    #example.band_imagery > * {
-        padding: 0;
-        max-width: 60rem;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-#example.band_imagery, #example.band_imagery > .wdn-band {
-    max-width: none;
-    padding: 0;
 }
 
 @media (min-width: 480px) {
@@ -256,33 +239,37 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
                 </div>
                 <!-- InstanceBeginEditable name="maincontentarea" -->
                 <div class="wdn-band" id="examples_band">
-                    <ul class="bp2-wdn-grid-set-fifths bp1-wdn-grid-set-thirds" id="examples">
-                        <li class="wdn-col"><div class="visual-island"><a href="audioplayer.html">Audio player</a> (mediahub.unl.edu)</div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="band_imagery.html">Band Imagery</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="buttons.html">Buttons</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="carousel.html">Carousel</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="colorbox.html" title="Colorbox: Modal Box">Colorbox</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="events.html">Events</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="formvalidator.html">Form Validator</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="forms.html">Forms</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="idm.html"><abbr title="Identity Management">IdM</abbr>/<abbr title="Single Sign On">SSO</abbr></a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="infographics.html" title="Infographics">Infographics</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="image.html" title="Images: Styling and Captioning">Images</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="jqueryui.html" title="jQuery UI Widgets and Effects">jQuery UI</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="notice.html">Notice</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="layouts.html">Page Layouts</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="pagination.html">Pagination</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="promo_image.html">Promo Image</a> (text over image)</div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="quote.html" title="Quotes: Individual Bands">Quotes</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="randomizer.html">Randomizer</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="rss_widget.html">RSS Feed Widget</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="table.html">Responsive Table</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="tabs.html">Tabs</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="tooltips.html">Tooltips</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="videoplayer.html">Video player</a> (mediahub.unl.edu)</div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="zenboxes.html" title="Boxed content: Formally &quot;zenbox&quot;">Box</a></div></li>
-                        <li class="wdn-col"><div class="visual-island"><a href="zentables.html">Tables</a></div></li>
-                    </ul>
+                    <div class="wdn-inner-wrapper">
+                        <ul class="bp2-wdn-grid-set-fifths bp1-wdn-grid-set-thirds" id="examples">
+                            <li class="wdn-col"><div class="visual-island"><a href="audioplayer.html">Audio player</a> (mediahub.unl.edu)</div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="band_imagery.html">Band Imagery</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="buttons.html">Buttons</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="carousel.html">Carousel</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="colorbox.html" title="Colorbox: Modal Box">Colorbox</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="events.html">Events</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="extended_fonts.html">Extended Fonts</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="formvalidator.html">Form Validator</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="forms.html">Forms</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="hero.html">Hero Content</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="idm.html"><abbr title="Identity Management">IdM</abbr>/<abbr title="Single Sign On">SSO</abbr></a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="image.html" title="Images: Styling and Captioning">Images</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="infographics.html" title="Infographics">Infographics</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="jqueryui.html" title="jQuery UI Widgets and Effects">jQuery UI</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="notice.html">Notice</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="layouts.html">Page Layouts</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="pagination.html">Pagination</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="promo_image.html">Promo Image</a> (text over image)</div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="quote.html" title="Quotes: Individual Bands">Quotes</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="randomizer.html">Randomizer</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="rss_widget.html">RSS Feed Widget</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="table.html">Responsive Table</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="tabs.html">Tabs</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="tooltips.html">Tooltips</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="videoplayer.html">Video player</a> (mediahub.unl.edu)</div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="zenboxes.html" title="Boxed content: Formally &quot;zenbox&quot;">Box</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="zentables.html">Tables</a></div></li>
+                        </ul>
+                    </div>
                 </div>
                 <div id="example"></div>
                 <div id="source" class="wdn-band">
