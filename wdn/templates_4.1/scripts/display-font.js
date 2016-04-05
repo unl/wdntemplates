@@ -1,6 +1,6 @@
 define([
 	'jquery',
-	'css!js-css/smallcaps'
+	'css!js-css/display-font'
 ], function($, WDN, require) {
     var initd = false;
 
@@ -12,13 +12,13 @@ define([
             }
             initd = true;
 
-            // Load Mercury ScreenSmart Small Caps fonts from Cloud.typography
-            var $smallCaps = $('<link>', {
+            // Load Mercury Display fonts from Cloud.typography
+            var $displayFont = $('<link>', {
                 'rel' : 'stylesheet',
-                'href' : 'https://cloud.typography.com/7717652/679648/css/fonts.css'
+                'href' : 'https://cloud.typography.com/7717652/7503352/css/fonts.css'
             });
 
-            $('head').append($smallCaps);
+            $('head').append($displayFont);
         }
     };
 });

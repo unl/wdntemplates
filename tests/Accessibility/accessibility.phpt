@@ -32,6 +32,9 @@ class AccessibilityTester {
             $files_to_check[] = $file_info->getFilename();
         }
 
+        //Make sure that files are ordered by file name
+        sort($files_to_check);
+        
         return $files_to_check;
     }
 
