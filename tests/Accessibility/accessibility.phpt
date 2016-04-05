@@ -152,8 +152,10 @@ checking: buttons.html
 checking: carousel.html
 checking: colorbox.html
 checking: events.html
+checking: extended_fonts.html
 checking: forms.html
 checking: formvalidator.html
+checking: hero.html
 checking: idm.html
 checking: image.html
 checking: infographics.html
@@ -172,4 +174,3 @@ checking: typography.html
 checking: videoplayer.html
 checking: zenboxes.html
 checking: zentables.html
-checking: extended_fonts.html
