@@ -2,6 +2,14 @@
     display: flex;
     flex-flow: column wrap;
     background-color: @ui12;
+
+    .wdn-button {
+        margin-top: 1.777em;
+
+        & + & {
+            margin-left: .75em;
+        }
+    }
 }
 
 .wdn-hero-text-container {
@@ -45,14 +53,6 @@
     line-height: .88;
     border-top: 1px solid fadeout(#fff,80%);
     border-bottom: 1px solid fadeout(#fff,80%);
-}
-
-.wdn-button {
-    margin-top: 1.777em;
-
-    & + & {
-        margin-left: .75em;
-    }
 }
 
 .wdn-hero-video,
