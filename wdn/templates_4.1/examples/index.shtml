@@ -263,9 +263,10 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
                             <li class="wdn-col"><div class="visual-island"><a href="extended_fonts.html">Extended Fonts</a></div></li>
                             <li class="wdn-col"><div class="visual-island"><a href="formvalidator.html">Form Validator</a></div></li>
                             <li class="wdn-col"><div class="visual-island"><a href="forms.html">Forms</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="hero.html">Hero Content</a></div></li>
                             <li class="wdn-col"><div class="visual-island"><a href="idm.html"><abbr title="Identity Management">IdM</abbr>/<abbr title="Single Sign On">SSO</abbr></a></div></li>
-                            <li class="wdn-col"><div class="visual-island"><a href="infographics.html" title="Infographics">Infographics</a></div></li>
                             <li class="wdn-col"><div class="visual-island"><a href="image.html" title="Images: Styling and Captioning">Images</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="infographics.html" title="Infographics">Infographics</a></div></li>
                             <li class="wdn-col"><div class="visual-island"><a href="jqueryui.html" title="jQuery UI Widgets and Effects">jQuery UI</a></div></li>
                             <li class="wdn-col"><div class="visual-island"><a href="notice.html">Notice</a></div></li>
                             <li class="wdn-col"><div class="visual-island"><a href="layouts.html">Page Layouts</a></div></li>
