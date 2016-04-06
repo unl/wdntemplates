@@ -34,7 +34,7 @@ require(['jquery', 'wdn', 'require', 'legacy', 'navigation'], function($, WDN, r
             var $example = $('#example');
             var exampleClass = url.substring(0, url.indexOf('.'));
             $example.removeClass().addClass(exampleClass).html(data);
-            if ($('.wdn-band', $example).lengtj) {
+            if ($('.wdn-band', $example).length) {
                 $example.addClass('wdn-band');
             }
             legacy();
