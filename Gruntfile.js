@@ -206,6 +206,7 @@ module.exports = function (grunt) {
 			},
 			js: {
 				options: {
+					ieCompat: false,
 					paths: [hereDir + templateLess],
 					plugins: [
 						lessPluginCleanCss
