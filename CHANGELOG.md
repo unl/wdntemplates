@@ -1,7 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 4.1.6
+## 4.1.7 (April 11, 2016)
+
+- Upgrade jQuery to v2.2.2 ([b288b45](https://github.com/unl/wdntemplates/commit/b288b4589a310f30a0a363e230b15cee863aa847))
+- Upgrade RequireJS to v2.2.0 ([868375e](https://github.com/unl/wdntemplates/commit/868375ef3283e533f4e3cb7cdd95373e2dc04206))
+- Reduce network requests for CSS resources ([#977](https://github.com/unl/wdntemplates/pull/977))
+- Fixed share menu not scrolling with navigation ([#976](https://github.com/unl/wdntemplates/pull/976))
+- Fixed tab selection from back/forward navigation ([#978](https://github.com/unl/wdntemplates/pull/978))
+- Added new styles for hero bands ([#980](https://github.com/unl/wdntemplates/pull/980))
+- General improvements to examples documentation
+
+## 4.1.6 (March 7, 2016)
 
 - Add an option for rendering rooms on the events band widget ([#958](https://github.com/unl/wdntemplates/pull/958))
 - Fix navigation disappearing if home crumb is not a link at load ([#959](https://github.com/unl/wdntemplates/pull/959))
