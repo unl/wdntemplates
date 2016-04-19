@@ -665,6 +665,10 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 						switchSiteNavigation($homepageCrumbLink[0], false);
 					});
 
+					$(navSel + ' a').last().focusout(function(){
+						Plugin.collapse();
+					});
+
 					var mouseout = function() {
 						if (!lockHover) {
 							startCollapseDelay();
