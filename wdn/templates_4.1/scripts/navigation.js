@@ -665,8 +665,13 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 						switchSiteNavigation($homepageCrumbLink[0], false);
 					});
 
-					$(navSel + ' a').last().focusout(function(){
-						Plugin.collapse();
+					$(navSel).focusout(function(event) {
+						var $target = $(event.target);
+						var $last = $(navSel + ' a').last();
+						
+						if ($target.is($last)) {
+							Plugin.collapse();
+						}
 					});
 
 					var mouseout = function() {
