@@ -3,7 +3,7 @@ define(['jquery', 'wdn', 'require', 'wdn-ui'], function($, WDN, require, wdnUI) 
 
     var page = window.location.href;
 
-    var goURLService = 'http://go.unl.edu/api_create.php';
+    var goURLService = 'https://go.unl.edu/api/';
 
     var templateCampaign = 'wdn_social';
 
@@ -18,7 +18,7 @@ define(['jquery', 'wdn', 'require', 'wdn-ui'], function($, WDN, require, wdnUI) 
         // https://dev.twitter.com/docs/tweet-button
     var templateTwitter = 'https://twitter.com/share?text=' + templateBody + '&via=' + templateVia;
 
-    var templateLinkedin = 'http://www.linkedin.com/shareArticle?mini=true&amp;summary='+templateBody+'&amp;source=University%20of%20Nebraska%20-%20Lincoln';
+    var templateLinkedin = 'https://www.linkedin.com/shareArticle?mini=true&amp;summary='+templateBody+'&amp;source=University%20of%20Nebraska%20-%20Lincoln';
 
     var assembleLink = function(shareId, subject, url, isShort) {
         var encodedUrl = encodeURIComponent(url),
@@ -118,20 +118,20 @@ define(['jquery', 'wdn', 'require', 'wdn-ui'], function($, WDN, require, wdnUI) 
                     hang = undefined;
                 }
 
-                title = typeof title !== 'undefined' ? title : "Default title"; // set defaults for optional parameters 
+                title = typeof title !== 'undefined' ? title : "Default title"; // set defaults for optional parameters
                 body = typeof body !== 'undefined' ? body : "Check out this page from #UNL";
                 hang = typeof hang !== 'undefined' ? hang : "left";
 
-                buttonTemp = buttonTemp.replace(/{{url}}/g, url); // find all places within the widget template with {{double bracketted placeholders}} and replace them with the appropreiate content 
+                buttonTemp = buttonTemp.replace(/{{url}}/g, url); // find all places within the widget template with {{double bracketted placeholders}} and replace them with the appropreiate content
                 buttonTemp = buttonTemp.replace(/{{encodedUrl}}/g, encodeURIComponent(url));
                 buttonTemp = buttonTemp.replace(/{{title}}/g, encodeURIComponent(title));
                 buttonTemp = buttonTemp.replace(/{{body}}/g, encodeURIComponent(body));
                 buttonTemp = buttonTemp.replace(/{{id}}/g, controlID);
                 buttonTemp = buttonTemp.replace(/{{hang}}/g, encodeURIComponent(hang));
 
-                $("#"+container).html(buttonTemp); // set the html of the container to our newly created widget. 
+                $("#"+container).html(buttonTemp); // set the html of the container to our newly created widget.
 
-                $("#"+container+' .wdn_createGoURL').click(function(e) { // add event listner to get a goURL to each widget 
+                $("#"+container+' .wdn_createGoURL').click(function(e) { // add event listner to get a goURL to each widget
                     var $this = $(this);
 
                     $this.text('Fetching...');
@@ -146,7 +146,7 @@ define(['jquery', 'wdn', 'require', 'wdn-ui'], function($, WDN, require, wdnUI) 
 
                     e.preventDefault();
                 });
-                
+
                 wdnUI.setUpDropDownWidget('#'+controlID);
             }
         },
