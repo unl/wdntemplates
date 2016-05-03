@@ -67,21 +67,28 @@
     left: 0;
     display: none;
 
+    @media @bp768 {
+        display: block;
+    }
+
     .videoautoplay & {
         display: block;
     }
+
+    video {
+        width: 100%;
+    }
 }
 
-video ~ .wdn-hero-picture,
-video ~ .wdn-hero-poster {
+.wdn-hero-video ~ .wdn-hero-picture {
+
+    @media @bp768 {
+        display: none;
+    }
 
     .videoautoplay & {
         display: none;
     }
-}
-
-.wdn-hero-poster {
-    display: block;
 }
 
 // Media Queries
