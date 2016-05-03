@@ -183,6 +183,18 @@
     }
 }
 
+/* the share widget dropdown needs some focus love because it's icon is absolutely positioned */
+.wdn-dropdown-widget-label.focused .wdn-icon-share {
+	/* Default styles including firefox */
+	outline: 1px dotted #212121;
+	/* For webkit */
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+.wdn-dropdown-widget-label[for=wdn-main-share-button-wdn-share-toggle].focused {
+	outline: none;
+}
+
 .wdn-menu-trigger .wdn-share-button .wdn-icon-share {
 
     @media @bp-nav-full {
