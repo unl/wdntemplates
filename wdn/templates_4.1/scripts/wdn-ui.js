@@ -31,6 +31,10 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 				return;
 			}
 
+			// Safari uses an invalid attribute for setting pinned tab color, set here to avoid HTML validation errors
+			// https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
+			$('link[rel="mask-icon"]').attr('color', '#d00000');
+
 			this.setUpDropDownWidget('.wdn-dropdown-widget-toggle');
 
 			//Close search on escape
@@ -82,7 +86,7 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 			$(selector).each(function(index, element) {
 				//Mark this control as having a popup
 				var $element = $(element);
-				
+
 				$element.attr('role', 'button');
 				$element.attr('aria-pressed', false);
 
