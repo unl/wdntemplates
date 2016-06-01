@@ -45,6 +45,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				nsel;
 
 			// Remove any selected tab class
+			$('li.' + selected, tabs).find('a').attr('tabindex', '-1').attr('aria-selected', 'false');
 			$('li.' + selected, tabs).removeClass(selected);
 
 			// Hide any subtabs
@@ -52,6 +53,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 
 			// Add the selected class to the tab (and sub-tab)
 			parentTabs.addClass(selected);
+			parentTabs.find('a').attr('tabindex', '0').attr('aria-selected', 'true');
 
 			// Show any relevant sub-tabs
 			if (sibs.length || parentTabs.length > 1) {
@@ -63,6 +65,70 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 
 			nsel = trig.closest('li').siblings('.' + selected);
 			trig.trigger('tabchanged', [curr, nsel, tabs]);
+		},
+		
+		setupA11y = function ($tabsWithSwitch) {
+			$tabsWithSwitch.attr('role', 'tablist');
+
+			var $tabs = $($tabsWithSwitch.find('a'));
+
+			$tabs.each(function(index, element) {
+				console.log(element);
+				var $tab = $(element);
+
+				//Get the panel for this tab
+				var $panel = $('#'+getHashFromLink(element));
+
+				//If this tab doesn't have an id, give it one because we will need it later
+				if ('undefined' === typeof $tab.attr('id')) {
+					$tab.attr('id', 'wdn-tab-for-'+$panel.attr('id'));
+				}
+
+				//The parent <li> should not be read as a list item
+				$tab.parent('li').attr('role', 'presentation');
+
+				//Make sure that this <a> is read as a tab
+				$tab.attr('role', 'tab');
+
+				//Default to not selected
+				$tab.attr('aria-selected', 'false');
+
+				//Tell the tab that it controls this panel
+				$tab.attr('aria-controls', $panel.attr('id'));
+				
+				//Only make tabs pragmatically focusable by default
+				$tab.attr('tabindex', '-1');
+				
+				//Use arrow keys to focus tabs (standard tab interaction)
+				$tab.bind({
+					keydown: function(ev){
+						var k = ev.which || ev.keyCode;
+						var $tab = $(ev.target);
+						var $tabContainer = $($tab.parent());
+						var target = false;
+						
+						//Check if arrows were pressed
+						if (k >= 37 && k <= 40) {
+							if (k == 37 || k == 38) {
+								//Left or up arrow
+								target = $tabContainer.prev('li');
+							} else {
+								//right or down arrow
+								target = $tabContainer.next('li');
+							}
+
+							$(target).find('a').click();
+							ev.preventDefault();
+						}
+					}
+				});
+
+				//Tell the panel that it is a panel
+				$panel.attr('role', 'tabpanel');
+
+				//Tell the panel that is is labeled by the tab
+				$panel.attr('aria-labelledby', $tab.attr('id'));
+			});
 		},
 
 		firstTrig;
@@ -77,8 +143,10 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				// Set up the event for when a tab is clicked
 				var hashFromTabClick = false,
 					$tabsWithSwitch = $(tabSelector).not('.disableSwitching');
+				
+				setupA11y($tabsWithSwitch);
 
-				$tabsWithSwitch.on('click', 'a', function() { //do something when a tab is clicked
+				$tabsWithSwitch.on('click', 'a', function(ev) { //do something when a tab is clicked
 					var trig = $(this),
 						hash = getHashFromLink(this);
 
@@ -97,6 +165,10 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 						}
 					}
 
+					//(a11y) Prevent focus from leaving the tab so that arrow nav still works
+					ev.target.focus();
+					ev.preventDefault();
+					
 					return false;
 				});
 
