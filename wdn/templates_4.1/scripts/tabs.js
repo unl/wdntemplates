@@ -70,6 +70,28 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 		setupA11y = function ($tabsWithSwitch) {
 			$tabsWithSwitch.attr('role', 'tablist');
 
+			//Use arrow keys to focus tabs (standard tab interaction)
+			$tabsWithSwitch.on('keydown', function(event){
+				var key = event.keyCode;
+				var $tab = $(event.target);
+				var $tabContainer = $($tab.parent());
+				var target = false;
+
+				//Check if arrows were pressed
+				if (key >= 37 && key <= 40) {
+					if (key == 37 || key == 38) {
+						//Left or up arrow
+						target = $tabContainer.prev('li');
+					} else {
+						//right or down arrow
+						target = $tabContainer.next('li');
+					}
+
+					$(target).find('a').click();
+					event.preventDefault();
+				}
+			});
+
 			var $tabs = $($tabsWithSwitch.find('a'));
 
 			$tabs.each(function(index, element) {
@@ -98,30 +120,6 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				
 				//Only make tabs pragmatically focusable by default
 				$tab.attr('tabindex', '-1');
-				
-				//Use arrow keys to focus tabs (standard tab interaction)
-				$tab.bind({
-					keydown: function(ev){
-						var k = ev.which || ev.keyCode;
-						var $tab = $(ev.target);
-						var $tabContainer = $($tab.parent());
-						var target = false;
-						
-						//Check if arrows were pressed
-						if (k >= 37 && k <= 40) {
-							if (k == 37 || k == 38) {
-								//Left or up arrow
-								target = $tabContainer.prev('li');
-							} else {
-								//right or down arrow
-								target = $tabContainer.next('li');
-							}
-
-							$(target).find('a').click();
-							ev.preventDefault();
-						}
-					}
-				});
 
 				//Tell the panel that it is a panel
 				$panel.attr('role', 'tabpanel');
