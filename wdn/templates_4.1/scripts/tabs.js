@@ -101,7 +101,7 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 				var $panel = $('#'+getHashFromLink(this));
 
 				//If this tab doesn't have an id, give it one because we will need it later
-				if ('undefined' === typeof $tab.attr('id')) {
+				if (!this.id) {
 					$tab.attr('id', 'wdn-tab-for-'+$panel.attr('id'));
 				}
 
