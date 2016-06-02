@@ -94,12 +94,11 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 
 			var $tabs = $($tabsWithSwitch.find('a'));
 
-			$tabs.each(function(index, element) {
-				console.log(element);
-				var $tab = $(element);
+			$tabs.each(function() {
+				var $tab = $(this);
 
 				//Get the panel for this tab
-				var $panel = $('#'+getHashFromLink(element));
+				var $panel = $('#'+getHashFromLink(this));
 
 				//If this tab doesn't have an id, give it one because we will need it later
 				if ('undefined' === typeof $tab.attr('id')) {
