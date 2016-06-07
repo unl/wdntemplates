@@ -126,11 +126,12 @@
         justify-content: center;
         position: relative;
         overflow: hidden;
-        height: 56vh;
-        min-height: 25.24em;
-        max-height: 33.645em;
+        height: 25.24em;
 
         .object-fit & {
+            height: 56vh;
+            min-height: 25.24em;
+            max-height: 33.645em;
 
             video,
             img {
@@ -189,11 +190,15 @@
     }
 }
 
-@media @bp1280 and (min-height: 895px) {
+@media @bp1280 and (min-height: 718px) {
 
     .wdn-hero {
-        height: 62vh;
-        max-height: 41.955em;
+        height: 33.645em;
+
+        .object-fit & {
+            height: 60vh;
+            max-height: 41.955em;
+        }
     }
 }
 
