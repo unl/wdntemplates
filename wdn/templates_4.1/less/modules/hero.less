@@ -129,6 +129,15 @@
         height: 56vh;
         min-height: 25.24em;
         max-height: 33.645em;
+
+        .object-fit & {
+
+            video,
+            img {
+                object-fit: cover;
+                height: 100%;
+            }
+        }
     }
 
     .wdn-hero-text-container {
@@ -153,6 +162,10 @@
     .wdn-hero-picture {
         opacity: .5;
         overflow: hidden;
+
+        .object-fit & {
+            height: inherit;
+        }
     }
 }
 
