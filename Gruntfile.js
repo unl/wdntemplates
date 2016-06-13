@@ -252,7 +252,7 @@ module.exports = function (grunt) {
 			css: [templateCss].concat(Object.keys(lessJsFiles)),
 			js: [templateCompileJs],
 			"js-build": [buildJsDir],
-			dist: [zipDir + '/*.zip', zipDir + '/*.xz']
+			dist: [zipDir + '/*.zip', zipDir + '/*.gz']
 		},
 
 		"filter-clean": {
@@ -292,15 +292,15 @@ module.exports = function (grunt) {
 		archive: {
 			wdn: {
 				src: [mainDir],
-				dest: zipDir + '/wdn.tar.xz',
+				dest: zipDir + '/wdn.tar.gz',
 			},
 			includes: {
 				src: [templateIncludeDir],
-				dest: zipDir + '/wdn_includes.tar.xz',
+				dest: zipDir + '/wdn_includes.tar.gz',
 			},
 			templates: {
 				src: [templateHtmlDir, templateSharedDir],
-				dest: zipDir + '/UNLTemplates.tar.xz'
+				dest: zipDir + '/UNLTemplates.tar.gz'
 			}
 		},
 
@@ -340,13 +340,15 @@ module.exports = function (grunt) {
 		var path = require('path');
 		var tar = require('tar-fs');
 		var zlib = require('zlib');
-		var xz = require('xz');
+
+		// XZ modules has some compiler problems ATM
+		// var xz = require('xz');
 
 		var done = this.async();
 
 		// Fallback options (e.g. base64, compression)
 		var options = this.options({
-			compression: 'xz'
+			compression: 'gzip'
 		});
 
 		this.files.forEach(function(file) {
@@ -356,11 +358,11 @@ module.exports = function (grunt) {
 			var destStream = fs.createWriteStream(file.dest);
 			var compressionStream;
 
-			if (options.compression === 'gzip') {
+			// if (options.compression === 'gzip') {
 				compressionStream = zlib.createGzip();
-			} else {
-				compressionStream = new xz.Compressor();
-			}
+			// } else {
+			// 	compressionStream = new xz.Compressor();
+			// }
 
 			var pack = tar.pack('./', {
 				entries: file.src

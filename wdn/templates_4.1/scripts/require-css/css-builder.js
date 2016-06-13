@@ -25,6 +25,11 @@ define(['require', './normalize'], function(req, normalize) {
         console.log('Compression failed due to a CSS syntax error.');
         return css;
       }
+
+      if (css && css.css) {
+        css = css.css;
+      }
+
       console.log('Compressed CSS output to ' + Math.round(css.length / csslen * 100) + '%.');
       return css;
     }
