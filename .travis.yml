@@ -7,16 +7,9 @@ cache:
     - node_modules
 php:
   - 5.6
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - gcc-4.8
-      - g++-4.8
 install:
-  - nvm install stable
-  - CXX=g++-4.8 npm install
+  - nvm install node
+  - npm install
   # install `pa11y`
   - npm install phantomjs-prebuilt pa11y http-server grunt-cli
   # build the templates

@@ -31,8 +31,7 @@
     "less-plugin-clean-css": "^1.5.1",
     "load-grunt-tasks": "^3.4.1",
     "sync-exec": "^0.6.2",
-    "tar-fs": "^1.11.1",
-    "xz": "^1.2.1"
+    "tar-fs": "^1.11.1"
   },
   "engines": {
     "node": "node >= 0.10.0"
