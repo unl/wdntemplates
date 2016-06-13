@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.10 (June 13, 2016)
+
+- Remove font files now served from other places
+- Only use/embed woff fonts (covers our support base)
+- Slight header adjustments to support Nebraska N ([#992](https://github.com/unl/wdntemplates/pull/992), [#1000](https://github.com/unl/wdntemplates/pull/1000))
+- Add responsive embed CSS classes ([#996](https://github.com/unl/wdntemplates/pull/996))
+- Simplify fallback fonts ([#1001](https://github.com/unl/wdntemplates/pull/1001))
+- Hero block style improvements ([#1003](https://github.com/unl/wdntemplates/pull/1003))
+
+## 4.1.8 - 4.1.9 (May 8, 2016)
+
+- Use the Nebraska N (favicon and logo area)
+- Accessibility bug fixes/improvments ([#988](https://github.com/unl/wdntemplates/pull/988))
+
 ## 4.1.7 (April 11, 2016)
 
 - Upgrade jQuery to v2.2.2 ([b288b45](https://github.com/unl/wdntemplates/commit/b288b4589a310f30a0a363e230b15cee863aa847))
