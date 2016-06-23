@@ -109,12 +109,14 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 
 			$(selector).change(function() {
 				var $control = $(this);
+				var container_id = $control.attr('aria-controls');
+				var $container = $('#'+container_id);
+				
 				if ($control.is(':checked')) {
-					var container_id = $control.attr('aria-controls');
-					var $container = $('#'+container_id);
 					$container.attr('aria-hidden', false);
 					$control.attr('aria-pressed', true);
 				} else {
+					$container.attr('aria-hidden', true);
 					$control.attr('aria-pressed', false);
 				}
 
