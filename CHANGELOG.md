@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.11 (July 12, 2016)
+
+- Accessibility improvements ([#1005](https://github.com/unl/wdntemplates/pull/1005), [#1007](https://github.com/unl/wdntemplates/pull/1007))
+- Footer updates for Big Ten Academic Alliance ([#1008](https://github.com/unl/wdntemplates/pull/1008))
+
 ## 4.1.10 (June 13, 2016)
 
 - Remove font files now served from other places
