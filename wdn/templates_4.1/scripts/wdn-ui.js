@@ -64,6 +64,7 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 					} else {
 						$container.attr('aria-hidden', 'false');
 						$control.attr('aria-pressed', 'true');
+						$container.focus();
 					}
 
 					//Close other widgets
