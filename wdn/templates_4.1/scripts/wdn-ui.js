@@ -37,7 +37,7 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 			// https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
 			$('link[rel="mask-icon"]').attr('color', '#d00000');
 
-			this.setUpDropDownWidget('.wdn-dropdown-widget-toggle, .wdn-dropdown-widget-button');
+			this.setUpDropDownWidget('.wdn-dropdown-widget-button');
 
 			//Close search on escape
 			$(document).on('keydown', function(e) {
