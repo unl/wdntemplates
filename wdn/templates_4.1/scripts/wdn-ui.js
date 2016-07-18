@@ -37,13 +37,13 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 			// https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
 			$('link[rel="mask-icon"]').attr('color', '#d00000');
 
-			this.setUpDropDownWidget('.wdn-dropdown-widget-toggle');
+			this.setUpDropDownWidget('.wdn-dropdown-widget-toggle, .wdn-dropdown-widget-button');
 
 			//Close search on escape
 			$(document).on('keydown', function(e) {
 				if (e.keyCode === 27) {
 					//Close on escape
-					closeDropDown('.wdn-dropdown-widget-toggle');
+					closeDropDown('.wdn-dropdown-widget-button');
 				}
 			});
 
@@ -51,15 +51,30 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 			$(document).on('click', function(e) {
 				var $target = $(e.target);
 
-				//dont close this way if the control was clicked
-				if ($target.filter('.wdn-dropdown-widget-toggle, .wdn-dropdown-widget-label').length) {
-					return;
+				var $control = $target.parent('.wdn-dropdown-widget-button');
+				
+				if ($control.length) {
+					var container_id = $control.attr('aria-controls');
+					var $container = $('#' + container_id);
+					
+					var isPressed = $control.attr('aria-pressed');
+					if ('true' == isPressed) {
+						$container.attr('aria-hidden', 'true');
+						$control.attr('aria-pressed', 'false');
+					} else {
+						$container.attr('aria-hidden', 'false');
+						$control.attr('aria-pressed', 'true');
+					}
+
+					//Close other widgets
+					closeDropDown($('.wdn-dropdown-widget-button').not($control));
 				}
 
 				//close all dropdown widgets
 				if (!$('.wdn-dropdown-widget-content').find(e.target).length) {
-					closeDropDown('.wdn-dropdown-widget-toggle');
+					closeDropDown('.wdn-dropdown-widget-button');
 				}
+				
 			});
 
 			$(window).resize(function() {
@@ -85,57 +100,22 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 		 */
 		setUpDropDownWidget : function(selector) {
 			//Set up the initial state for the widget
-			$(selector).each(function(index, element) {
+			$(selector).each(function(index, button) {
 				//Mark this control as having a popup
-				var $element = $(element);
+				var $button = $(button);
 
-				$element.attr('role', 'button');
-				$element.attr('aria-pressed', false);
-
-				$element.attr('aria-haspopup', true);
+				$button.attr('aria-pressed', false);
+				$button.attr('aria-haspopup', true);
 
 				//Get the dropdown-container for this control.
-				var container_id = $element.attr('aria-controls');
+				var container_id = $button.attr('aria-controls');
 				var $container = $('#'+container_id);
 
 				//Mark it as hidden
 				$container.attr('aria-hidden', true);
-				if ($element.hasClass('visible-at-full-nav') && isFullNav()) {
+				if ($button.hasClass('visible-at-full-nav') && isFullNav()) {
 					$container.attr('aria-hidden', false);
 				}
-
-				//Add a helper class to labels
-				var $label = $('label[for="'+$element.attr('id')+'"]');
-				$label.addClass('wdn-dropdown-widget-label');
-			});
-
-			$(selector).change(function() {
-				var $control = $(this);
-				var container_id = $control.attr('aria-controls');
-				var $container = $('#'+container_id);
-				
-				if ($control.is(':checked')) {
-					$container.attr('aria-hidden', false);
-					$control.attr('aria-pressed', true);
-				} else {
-					$container.attr('aria-hidden', true);
-					$control.attr('aria-pressed', false);
-				}
-
-				//Close other widgets
-				closeDropDown($('.wdn-dropdown-widget-toggle').not(this));
-			});
-
-			//Add an outline to the label for the currently focused input
-			$(selector).focusin(function() {
-				var $input = $(this);
-				$('label[for="'+$input.attr('id')+'"]').addClass('focused');
-			});
-
-			//Remove the outline
-			$(selector).focusout(function() {
-				var $input = $(this);
-				$('label[for="'+$input.attr('id')+'"]').removeClass('focused');
 			});
 		}
 	};
