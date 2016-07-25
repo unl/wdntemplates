@@ -24,6 +24,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 	var breadPrmySel = breadSel + ' ' + prmySel;
 	var menuTogSel = '#wdn_menu_toggle';
 	var stopSelector = '.document, .terminal';
+	var navButtons = '.wdn-nav-toggle';
 
 	// state related variables
 	var lockHover = false;
@@ -588,10 +589,63 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		$header.trigger('fixedoffset', [barOffset]);
 	};
 
+	var fixNavButtons = function() {
+		var $desktopLabel = $('nav label[for="wdn_menu_toggle"]');
+		var $mobileLabel = $('.wdn-content-slide label[for="wdn_menu_toggle"]');
+
+		//Remove the nav input
+		//$(menuTogSel).hide();
+
+		//Handle the desktop label (this should have aria-hidden, because button use does not affect SR interaction at all)
+		var $desktopButton = $('<button>');
+		$desktopButton.html($desktopLabel.html()); //Make sure they have the same HTML contents
+		$desktopButton.addClass('wdn-nav-toggle');
+		$desktopButton.attr('aria-hidden', 'true');
+
+		//handle the mobile label (this should be a button when sends focus)
+		var $mobileButton = $('<button>');
+		$mobileButton.html($mobileLabel.html()); //Make sure they have the same HTML contents
+		$mobileButton.addClass('wdn-nav-toggle');
+
+		//Handle click events
+		$([$desktopButton, $mobileButton]).each(function(index, $button) {
+			$button.on('click', function() {
+				toggleNav();
+			});
+		});
+
+		$desktopLabel.replaceWith($desktopButton);
+		$mobileLabel.replaceWith($mobileButton);
+
+		//Make the navigation pragmatically focusable
+		$(navSel).attr('tabindex', '-1');
+	};
+	
+	var toggleNav = function() {
+		var $navInput = $(menuTogSel);
+		
+		//toggle nav
+		if ($navInput.is(':checked')) {
+			Plugin.collapse();
+			
+			//Unlock hover
+			lockHover = false;
+		} else {
+			Plugin.expand();
+			
+			//Lock hover
+			lockHover = true;
+			
+			//Send focus
+			$(navSel).focus();
+		}
+	};
+
 	var Plugin = {
 		initialize : function() {
 			$(function () {
 				if (!initd) {
+					fixNavButtons();
 					determineSelectedBreadcrumb();
 					linkSiteTitle();
 				}
@@ -721,6 +775,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			expandSemaphore = true;
 
 			$(menuTogSel)[0].checked = true;
+			$(navButtons).attr('aria-pressed', 'true');
 			setWrapperClass(changingClass);
 
 			var go = function() {
@@ -745,6 +800,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			expandSemaphore = true;
 
 			$(menuTogSel)[0].checked = false;
+			$(navButtons).removeAttr('aria-pressed');
 			setWrapperClass(collapsedClass);
 
 			var go = function() {
