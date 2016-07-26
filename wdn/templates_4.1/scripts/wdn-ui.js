@@ -49,11 +49,15 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 
 			//listen for clicks on the document and close dropdowns if they don't come from a dropdown
 			$(document).on('click', function(e) {
-				var $target = $(e.target);
-
-				var $control = $target.parent('.wdn-dropdown-widget-button');
+				//Determine if we need to do anything with our dropdown
+				var $control = $(e.target);
 				
-				if ($control.length) {
+				//Try to get the control element
+				if ($control.parent('.wdn-dropdown-widget-button').length) {
+					$control = $control.parent('.wdn-dropdown-widget-button')[0];
+				}
+				
+				if ($control.hasClass('wdn-dropdown-widget-button')) {
 					var container_id = $control.attr('aria-controls');
 					var $container = $('#' + container_id);
 					
@@ -75,7 +79,6 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 				if (!$('.wdn-dropdown-widget-content').find(e.target).length) {
 					closeDropDown('.wdn-dropdown-widget-button');
 				}
-				
 			});
 
 			$(window).resize(function() {
