@@ -604,7 +604,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 
 		//handle the mobile label (this should be a button when sends focus)
 		var $mobileButton = $('<button>');
-		$mobileButton.html($mobileLabel.html()); //Make sure they have the same HTML contents
+		$mobileButton.html($desktopLabel.html()); //Make sure they have the same HTML contents
 		$mobileButton.addClass('wdn-nav-toggle');
 
 		//Handle click events
@@ -616,6 +616,8 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 
 		$desktopLabel.replaceWith($desktopButton);
 		$mobileLabel.replaceWith($mobileButton);
+
+		$('#wdn_navigation_bar').before($('.wdn-menu-trigger'));
 
 		//Make the navigation pragmatically focusable
 		$(navSel).attr('tabindex', '-1');
