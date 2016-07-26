@@ -2,6 +2,8 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 	"use strict";
 
 	var initd = false;
+	var dropdownButtonClass = 'wdn-dropdown-widget-button';
+	var dropdownContentClass = 'wdn-dropdown-widget-content';
 
 	var closeDropDown = function(selector) {
 		$.each($(selector), function(index, element) {
@@ -37,13 +39,13 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 			// https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
 			$('link[rel="mask-icon"]').attr('color', '#d00000');
 
-			this.setUpDropDownWidget('.wdn-dropdown-widget-button');
+			this.setUpDropDownWidget('.'+dropdownButtonClass);
 
 			//Close search on escape
 			$(document).on('keydown', function(e) {
 				if (e.keyCode === 27) {
 					//Close on escape
-					closeDropDown('.wdn-dropdown-widget-button');
+					closeDropDown('.'+dropdownButtonClass);
 				}
 			});
 
@@ -53,11 +55,11 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 				var $control = $(e.target);
 				
 				//Try to get the control element
-				if ($control.parent('.wdn-dropdown-widget-button').length) {
-					$control = $control.parent('.wdn-dropdown-widget-button')[0];
+				if ($control.parent('.'+dropdownButtonClass).length) {
+					$control = $control.parent('.'+dropdownButtonClass)[0];
 				}
 				
-				if ($control.hasClass('wdn-dropdown-widget-button')) {
+				if ($control.hasClass(dropdownButtonClass)) {
 					var container_id = $control.attr('aria-controls');
 					var $container = $('#' + container_id);
 					
@@ -72,12 +74,12 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 					}
 
 					//Close other widgets
-					closeDropDown($('.wdn-dropdown-widget-button').not($control));
+					closeDropDown($('.'+dropdownButtonClass).not($control));
 				}
 
 				//close all dropdown widgets
-				if (!$('.wdn-dropdown-widget-content').find(e.target).length) {
-					closeDropDown('.wdn-dropdown-widget-button');
+				if (!$('.'+dropdownContentClass).find(e.target).length) {
+					closeDropDown('.'+dropdownButtonClass);
 				}
 			});
 
