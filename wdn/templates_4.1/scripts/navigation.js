@@ -24,7 +24,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 	var breadPrmySel = breadSel + ' ' + prmySel;
 	var menuTogSel = '#wdn_menu_toggle';
 	var stopSelector = '.document, .terminal';
-	var navButtons = '.wdn-nav-toggle';
+	var navButton = '.wdn-nav-toggle';
 
 	// state related variables
 	var lockHover = false;
@@ -589,7 +589,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		$header.trigger('fixedoffset', [barOffset]);
 	};
 
-	var fixNavButtons = function() {
+	var fixNavButton = function() {
 
 		var $navToggleLabel = $('.wdn-content-slide label[for="wdn_menu_toggle"]');
 
@@ -640,7 +640,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		initialize : function() {
 			$(function () {
 				if (!initd) {
-					fixNavButtons();
+					fixNavButton();
 					determineSelectedBreadcrumb();
 					linkSiteTitle();
 				}
@@ -770,7 +770,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			expandSemaphore = true;
 
 			$(menuTogSel)[0].checked = true;
-			$(navButtons).attr('aria-pressed', 'true');
+			$(navButton).attr('aria-pressed', 'true');
 			setWrapperClass(changingClass);
 
 			var go = function() {
@@ -795,7 +795,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			expandSemaphore = true;
 
 			$(menuTogSel)[0].checked = false;
-			$(navButtons).removeAttr('aria-pressed');
+			$(navButton).removeAttr('aria-pressed');
 			setWrapperClass(collapsedClass);
 
 			var go = function() {
