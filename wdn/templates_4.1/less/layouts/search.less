@@ -107,12 +107,23 @@
 
 #wdn_search_toggle_label {
 
+
     @media @bp-nav-hidden {
         position: absolute;
 	    left: 2.369em;
-        line-height: 1;
+        height: 40px;
+        padding: 0;
         .rem(16);
         color: #fff;
+
+        .wdn-icon-search {
+            display: block;
+            transform: translateY(-1px);
+
+            &:before {
+                margin-right: 0;
+            }
+        }
     }
 
     @media @bp-nav-full {
