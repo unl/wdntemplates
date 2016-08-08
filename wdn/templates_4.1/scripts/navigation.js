@@ -282,6 +282,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			if (height + 5 < navigationRowHeights[row]) {
 				var barHalfPad = (navigationRowHeights[row] - height) / 2;
 				cssTemp[cssPaddingTop] = Math.floor(barHalfPad + pad) + pixelUnit;
+				cssTemp[cssPaddingBottom] = Math.floor(barHalfPad + pad) + pixelUnit;
 				$(this).css(cssTemp);
 			}
 		});
