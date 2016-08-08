@@ -222,12 +222,12 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		var $nav = $(navSel);
 		var $cWrapper = $(contentWrapperSelector);
 		var cssTemp = {};
-		var $navBarLabels = $(menuTrigger + ' > label > span[class^="wdn-icon"]');
+		var $navBarButtons = $(menuTrigger + ' button');
 
 		$nav.off(expandEvent);
 		cssTemp[cssPaddingTop] = cssTemp[cssPaddingBottom] = '';
 		primaryLinks.css(cssTemp);
-		$navBarLabels.css(cssTemp);
+		$navBarButtons.css(cssTemp);
 
 		if (!isFullNav()) {
 			$cWrapper.css(cssPaddingTop, '');
@@ -273,7 +273,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		});
 
 		cssTemp = {};
-		$navBarLabels.each(function() {
+		$navBarButtons.each(function() {
 			var row = 0;
 			var height = $(this).outerHeight();
 			var pad = parseFloat($(this).css(cssPaddingTop));
