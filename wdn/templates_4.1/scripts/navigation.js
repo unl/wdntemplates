@@ -612,7 +612,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 
 		$navToggleLabel.replaceWith($navToggleButton);
 
-		$('#wdn_navigation_bar').before($('.wdn-menu-trigger'));
+		$('#wdn_navigation_bar').before($(menuTrigger));
 
 		//Make the navigation pragmatically focusable
 		$(navSel).attr('tabindex', '-1');
