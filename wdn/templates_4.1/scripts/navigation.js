@@ -25,6 +25,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 	var menuTogSel = '#wdn_menu_toggle';
 	var stopSelector = '.document, .terminal';
 	var navButton = '.wdn-nav-toggle';
+    var menuTrigger = '.wdn-menu-trigger';
 
 	// state related variables
 	var lockHover = false;
@@ -221,7 +222,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		var $nav = $(navSel);
 		var $cWrapper = $(contentWrapperSelector);
 		var cssTemp = {};
-		var $navBarLabels = $(navSel + ' > label > span[class^="wdn-icon"]');
+		var $navBarLabels = $(menuTrigger + ' > label > span[class^="wdn-icon"]');
 
 		$nav.off(expandEvent);
 		cssTemp[cssPaddingTop] = cssTemp[cssPaddingBottom] = '';
@@ -231,7 +232,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		if (!isFullNav()) {
 			$cWrapper.css(cssPaddingTop, '');
 			secondaryLists.css(cssHeight, '');
-			$nav.trigger('fixed', [$('.wdn-menu-trigger').outerHeight()]);
+			$nav.trigger('fixed', [$(menuTrigger).outerHeight()]);
 			return;
 		}
 
