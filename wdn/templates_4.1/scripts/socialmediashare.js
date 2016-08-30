@@ -95,7 +95,7 @@ define(['jquery', 'wdn', 'require', 'wdn-ui'], function($, WDN, require, wdnUI) 
         },
 
         shareButtonTemplate: '<button class="wdn-dropdown-widget-button" aria-pressed="false" aria-haspopup="true" aria-controls="wdn_share_{{id}}"><span class="wdn-icon-share" aria-hidden="true"></span><span class="wdn-text-hidden">Share This Page</span></button>'+ // add string to use as template for all share buttons
-                                '<ul id="wdn_share_{{id}}" class="wdn-share-options wdn-hang-{{hang}} wdn-dropdown-widget-content">'+
+                                '<ul id="wdn_share_{{id}}" class="wdn-share-options wdn-hang-{{hang}} wdn-dropdown-widget-content wdn-dropdown-widget-no-outline">'+
                                     '<li><a href="{{url}}" class="wdn_createGoURL" rel="nofollow"><span class="wdn-icon-link" aria-hidden="true"></span> Get a Go URL</a></li>'+
                                     '<li class="outpost wdn_emailthis"><a href="mailto:?body={{body}}%20{{encodedUrl}}&amp;subject={{title}}" rel="nofollow"><span class="wdn-icon-mail" aria-hidden="true"></span>Email this page</a></li>'+
                                     '<li class="outpost wdn_facebook"><a href="https://www.facebook.com/sharer/sharer.php?u={{encodedUrl}}" rel="nofollow"><span class="wdn-icon-facebook" aria-hidden="true"></span>Share on Facebook</a></li>'+ // https://developers.facebook.com/docs/plugins/share-button

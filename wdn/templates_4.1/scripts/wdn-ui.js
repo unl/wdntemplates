@@ -70,7 +70,7 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 					} else {
 						$container.attr('aria-hidden', 'false');
 						$control.attr('aria-pressed', 'true');
-						$container.focus();
+						$container.attr('tabindex', '-1').focus();
 					}
 
 					//Close other widgets
