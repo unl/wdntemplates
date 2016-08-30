@@ -615,7 +615,8 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		$('#wdn_navigation_bar').before($(menuTrigger));
 
 		//Make the navigation pragmatically focusable
-		$(navSel).attr('tabindex', '-1');
+		$(navSel).attr('tabindex', '-1').addClass('wdn-dropdown-widget-no-outline');
+		
 	};
 
 	var toggleNav = function() {
