@@ -1,4 +1,4 @@
-define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, require) {
+define(['jquery', 'wdn', 'modernizr', 'require', 'socialmediashare'], function($, WDN, Modernizr, require, social) {
 	"use strict";
 
 	var snifferServer = 'https://www1.unl.edu/nav-proxy/';
@@ -641,6 +641,9 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 
 	var Plugin = {
 		initialize : function() {
+
+			social.initialize(); //make sure the social widget is initialized
+			
 			$(function () {
 				if (!initd) {
 					fixNavButton();

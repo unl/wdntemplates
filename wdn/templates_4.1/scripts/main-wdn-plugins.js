@@ -1,8 +1,8 @@
 define([
 	'analytics',
-	'socialmediashare',
 	'navigation',
 	'search',
+	'socialmediashare',
 	'unlalert',
 	'images',
 	'form_validation',
