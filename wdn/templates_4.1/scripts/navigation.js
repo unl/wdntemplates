@@ -24,7 +24,8 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 	var breadPrmySel = breadSel + ' ' + prmySel;
 	var menuTogSel = '#wdn_menu_toggle';
 	var stopSelector = '.document, .terminal';
-	var navButtons = '.wdn-nav-toggle';
+	var navButton = '.wdn-nav-toggle';
+    var menuTrigger = '.wdn-menu-trigger';
 
 	// state related variables
 	var lockHover = false;
@@ -221,17 +222,17 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		var $nav = $(navSel);
 		var $cWrapper = $(contentWrapperSelector);
 		var cssTemp = {};
-		var $navBarLabels = $(navSel + ' > label > span[class^="wdn-icon"]');
+		var $navBarButtons = $(menuTrigger + ' button');
 
 		$nav.off(expandEvent);
 		cssTemp[cssPaddingTop] = cssTemp[cssPaddingBottom] = '';
 		primaryLinks.css(cssTemp);
-		$navBarLabels.css(cssTemp);
+		$navBarButtons.css(cssTemp);
 
 		if (!isFullNav()) {
 			$cWrapper.css(cssPaddingTop, '');
 			secondaryLists.css(cssHeight, '');
-			$nav.trigger('fixed', [$('.wdn-menu-trigger').outerHeight()]);
+			$nav.trigger('fixed', [$(menuTrigger).outerHeight()]);
 			return;
 		}
 
@@ -272,7 +273,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		});
 
 		cssTemp = {};
-		$navBarLabels.each(function() {
+		$navBarButtons.each(function() {
 			var row = 0;
 			var height = $(this).outerHeight();
 			var pad = parseFloat($(this).css(cssPaddingTop));
@@ -281,6 +282,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			if (height + 5 < navigationRowHeights[row]) {
 				var barHalfPad = (navigationRowHeights[row] - height) / 2;
 				cssTemp[cssPaddingTop] = Math.floor(barHalfPad + pad) + pixelUnit;
+				cssTemp[cssPaddingBottom] = Math.floor(barHalfPad + pad) + pixelUnit;
 				$(this).css(cssTemp);
 			}
 		});
@@ -589,55 +591,48 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		$header.trigger('fixedoffset', [barOffset]);
 	};
 
-	var fixNavButtons = function() {
-		var $desktopLabel = $('nav label[for="wdn_menu_toggle"]');
-		var $mobileLabel = $('.wdn-content-slide label[for="wdn_menu_toggle"]');
+	var fixNavButton = function() {
+
+		var $navToggleLabel = $('.wdn-content-slide label[for="wdn_menu_toggle"]');
 
 		//Remove the nav input
 		//$(menuTogSel).hide();
 
-		//Handle the desktop label (this should have aria-hidden, because button use does not affect SR interaction at all)
-		var $desktopButton = $('<button>');
-		$desktopButton.html($desktopLabel.html()); //Make sure they have the same HTML contents
-		$desktopButton.addClass('wdn-nav-toggle');
-		$desktopButton.attr('aria-hidden', 'true');
-
-		//handle the mobile label (this should be a button when sends focus)
-		var $mobileButton = $('<button>');
-		$mobileButton.html($desktopLabel.html()); //Make sure they have the same HTML contents
-		$mobileButton.addClass('wdn-nav-toggle');
+		//handle the label (this should be a button when sends focus)
+		var $navToggleButton = $('<button>');
+		$navToggleButton.html('<span class="wdn-icon-menu" aria-hidden="true"></span><span class="wdn-text-hidden">Menu</span>'); //Make sure they have the same HTML contents
+		$navToggleButton.addClass('wdn-nav-toggle');
 
 		//Handle click events
-		$([$desktopButton, $mobileButton]).each(function(index, $button) {
+		$([$navToggleButton]).each(function(index, $button) {
 			$button.on('click', function() {
 				toggleNav();
 			});
 		});
 
-		$desktopLabel.replaceWith($desktopButton);
-		$mobileLabel.replaceWith($mobileButton);
+		$navToggleLabel.replaceWith($navToggleButton);
 
-		$('#wdn_navigation_bar').before($('.wdn-menu-trigger'));
+		$('#wdn_navigation_bar').before($(menuTrigger));
 
 		//Make the navigation pragmatically focusable
 		$(navSel).attr('tabindex', '-1');
 	};
-	
+
 	var toggleNav = function() {
 		var $navInput = $(menuTogSel);
-		
+
 		//toggle nav
 		if ($navInput.is(':checked')) {
 			Plugin.collapse();
-			
+
 			//Unlock hover
 			lockHover = false;
 		} else {
 			Plugin.expand();
-			
+
 			//Lock hover
 			lockHover = true;
-			
+
 			//Send focus
 			$(navSel).focus();
 		}
@@ -647,7 +642,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 		initialize : function() {
 			$(function () {
 				if (!initd) {
-					fixNavButtons();
+					fixNavButton();
 					determineSelectedBreadcrumb();
 					linkSiteTitle();
 				}
@@ -724,7 +719,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 					$(navSel).focusout(function(event) {
 						var $target = $(event.target);
 						var $last = $(navSel + ' a').last();
-						
+
 						if ($target.is($last)) {
 							Plugin.collapse();
 						}
@@ -777,7 +772,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			expandSemaphore = true;
 
 			$(menuTogSel)[0].checked = true;
-			$(navButtons).attr('aria-pressed', 'true');
+			$(navButton).attr('aria-pressed', 'true');
 			setWrapperClass(changingClass);
 
 			var go = function() {
@@ -802,7 +797,7 @@ define(['jquery', 'wdn', 'modernizr', 'require'], function($, WDN, Modernizr, re
 			expandSemaphore = true;
 
 			$(menuTogSel)[0].checked = false;
-			$(navButtons).removeAttr('aria-pressed');
+			$(navButton).removeAttr('aria-pressed');
 			setWrapperClass(collapsedClass);
 
 			var go = function() {

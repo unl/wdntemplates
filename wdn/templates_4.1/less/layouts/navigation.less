@@ -24,10 +24,8 @@
         height: 40px;
     }
 
-    @media @bp-nav-full {
-        .wdn-icon-menu {
-            display: none;
-        }
+    label {
+        .wdn-text-hidden; // Hides label until replaced by JS. In v4.2, put element in an include file and wrap with <span class="wdn-text-hidden">
     }
 }
 
@@ -35,30 +33,37 @@
 .wdn-nav-icon() {
     white-space: nowrap;
     overflow: hidden;
-    line-height: 1;
-    cursor: pointer;
-    padding: 9px 0;
     color: #fff;
 
     &:before { // Show the navigation icon
-       padding-right: 1em;
+        margin: 0;
+        padding: 0;
     }
 }
 
 .wdn-icon-menu { // Hide the label text off screen
     .wdn-nav-icon();
     position: relative;
-    float: left;
-    width: 1.333em;
-	.inner-wrapper-margin-left();
     font-size: 21px;
     font-size: 1.333rem;
 }
 
-#wdn_navigation_wrapper {
+.wdn-nav-toggle {
+	.inner-wrapper-margin-left();
+    padding: 0;
+    z-index: @nav-z-index + 1;
+    overflow: hidden;
+    line-height: 1;
+	border: none;
+	background-color: transparent;
 
     @media @bp-nav-hidden {
-        margin-top: 1em;
+    	height: 40px;
+    }
+
+    @media @bp-nav-full {
+        position: absolute;
+        top: 24px;
     }
 }
 
@@ -190,7 +195,6 @@
             li {
                 width: 100%;
                 padding: 0;
-                border-bottom: 1px solid #c00808;
                 border-bottom: 1px solid fadeout(#000,94%);
 
                 &:last-child {
@@ -223,12 +227,10 @@
 			padding: 0 1.777em;
 
             > li {
-                border-right: 1px solid #b80808;
                 border-right: 1px solid fadeout(#000,90%);
                 line-height: 1;
 
                 &:first-child {
-                    border-left: 1px solid #b80808;
                     border-left: 1px solid fadeout(#000,90%);
                 }
 

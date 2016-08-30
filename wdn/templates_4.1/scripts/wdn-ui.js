@@ -53,16 +53,16 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 			$(document).on('click', function(e) {
 				//Determine if we need to do anything with our dropdown
 				var $control = $(e.target);
-				
+
 				//Try to get the control element
 				if ($control.parent('.'+dropdownButtonClass).length) {
 					$control = $control.parent('.'+dropdownButtonClass).first();
 				}
-				
+
 				if ($control.hasClass(dropdownButtonClass)) {
 					var container_id = $control.attr('aria-controls');
 					var $container = $('#' + container_id);
-					
+
 					var isPressed = $control.attr('aria-pressed');
 					if ('true' == isPressed) {
 						$container.attr('aria-hidden', 'true');

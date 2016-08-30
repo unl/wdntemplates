@@ -6,7 +6,7 @@
         .nav-scrolling & {
             position: fixed;
             z-index: (@nav-z-index + 1);
-            top: 10px;
+            top: 0;
             bottom: auto;
         }
 
@@ -14,7 +14,7 @@
             left: 100%;
         }
 
-        .wdn_search_toggle:checked ~ #wdn_search_form {
+        .wdn-dropdown-widget-button[aria-pressed='true'] ~ #wdn_search_form {
             .is-visible();
             transform: scale(1);
             transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
