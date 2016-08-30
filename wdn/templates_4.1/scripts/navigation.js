@@ -604,10 +604,8 @@ define(['jquery', 'wdn', 'modernizr', 'require', 'socialmediashare'], function($
 		$navToggleButton.addClass('wdn-nav-toggle');
 
 		//Handle click events
-		$([$navToggleButton]).each(function(index, $button) {
-			$button.on('click', function() {
-				toggleNav();
-			});
+		$navToggleButton.on('click', function() {
+			toggleNav();
 		});
 
 		$navToggleLabel.replaceWith($navToggleButton);
