@@ -2,7 +2,6 @@ define([
 	'analytics',
 	'navigation',
 	'search',
-	'socialmediashare',
 	'unlalert',
 	'images',
 	'form_validation',
