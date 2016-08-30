@@ -17,8 +17,8 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 				$container.attr('aria-hidden', true);
 			}
 
-			if (true == $element.prop('checked')) {
-				$element.prop('checked', false);
+			if ('true' == $element.attr('aria-pressed')) {
+				$element.attr('aria-pressed', false);
 			}
 		});
 	};
