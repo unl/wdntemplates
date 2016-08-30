@@ -56,7 +56,7 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 
 				//Try to get the control element
 				if ($control.parent('.'+dropdownButtonClass).length) {
-					$control = $control.parent('.'+dropdownButtonClass).first();
+					$control = $control.parent('.'+dropdownButtonClass);
 				}
 
 				if ($control.hasClass(dropdownButtonClass)) {
