@@ -40,6 +40,8 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 			$('link[rel="mask-icon"]').attr('color', '#d00000');
 
 			this.setUpDropDownWidget('.'+dropdownButtonClass);
+			
+			var $dropdownContent = $('.'+dropdownContentClass);
 
 			//Close search on escape
 			$(document).on('keydown', function(e) {
@@ -78,7 +80,7 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 				}
 
 				//close all dropdown widgets
-				if (!$('.'+dropdownContentClass).find(e.target).length) {
+				if (!$dropdownContent.find(e.target).length) {
 					closeDropDown('.'+dropdownButtonClass);
 				}
 			});
