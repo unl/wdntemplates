@@ -50,6 +50,29 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 			//Add the new class
 			$('#wdn_idm_options').addClass('wdn-dropdown-widget-no-outline');
 		}
+		
+		var $searchLabel = $('label#wdn_search_toggle_label');
+		
+		if ($searchLabel.length) {
+			//Replace the label with the button
+			var $button = $('<button>');
+			$button.html($searchLabel.html());
+			$button.attr({
+				'id': $searchLabel.attr('id'),
+				'class': dropdownButtonClass + ' visible-at-full-nav',
+				'aria-controls': 'wdn_search_form',
+				'aria-pressed': 'false',
+				'aria-haspopup': 'true'
+			});
+			$searchLabel.replaceWith($button);
+
+			//remove the associated input
+			$('#wdn_search_toggle').remove();
+			
+			//Add missing classes
+			$('#wdn_search_form').addClass('wdn-dropdown-widget-no-outline');
+			$('#wdn_search').addClass('wdn-dropdown-widget-content');
+		}
 	};
 
 	return {
