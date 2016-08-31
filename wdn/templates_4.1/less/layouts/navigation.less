@@ -22,11 +22,23 @@
 		align-items: center;
         .nav-bar();
         height: 40px;
-    }
 
-    label {
-        .wdn-text-hidden; // Hides label until replaced by JS. In v4.2, put element in an include file and wrap with <span class="wdn-text-hidden">
+        //Prevent jumping buttons on mobile page load (this will display the old label as it is being replaced by a button)
+        label.wdn-icon-menu {
+            width: 1.333em;
+            font-size: 1.333rem;
+            margin-left: 5%;
+
+            &:before {
+                padding-right: 1em;
+            }
+        }
+
+        button.wdn-nav-toggle .wdn-icon-menu {
+            margin-right: .33em;
+        }
     }
+    
 }
 
 // Shared styles for Menu & Share icons
