@@ -26,6 +26,31 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 	var isFullNav = function() {
 		return Modernizr.mq('(min-width: 700px)') || !Modernizr.mq('only all');
 	};
+	
+	var fixLabels = function() {
+		//Fix labels for backwards compatibility (if includes have not been updated)
+		var $idmLabel = $('label#wdn_idm_toggle_label');
+
+		if ($idmLabel.length) {
+			//Replace the label with the button
+			var $button = $('<button>');
+			$button.html($idmLabel.html());
+			$button.attr({
+				'id': $idmLabel.attr('id'),
+				'class': dropdownButtonClass,
+				'aria-controls': 'wdn_idm_options',
+				'aria-pressed': 'false',
+				'aria-haspopup': 'true'
+			});
+			$idmLabel.replaceWith($button);
+			
+			//remove the associated input
+			$('#wdn_idm_toggle').remove();
+			
+			//Add the new class
+			$('#wdn_idm_options').addClass('wdn-dropdown-widget-no-outline');
+		}
+	};
 
 	return {
 		initialize : function () {
@@ -35,6 +60,8 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 				return;
 			}
 
+			fixLabels();
+			
 			// Safari uses an invalid attribute for setting pinned tab color, set here to avoid HTML validation errors
 			// https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
 			$('link[rel="mask-icon"]').attr('color', '#d00000');
