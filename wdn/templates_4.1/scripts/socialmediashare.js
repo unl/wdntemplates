@@ -94,17 +94,14 @@ define(['jquery', 'wdn', 'require', 'wdn-ui'], function($, WDN, require, wdnUI) 
         	}
         },
 
-        shareButtonTemplate:'<div class="wdn-share-button">'+ // add string to use as template for all share buttons
-                                '<input type="checkbox" id="{{id}}" class="wdn_share_toggle wdn-input-driver wdn-dropdown-widget-toggle" aria-controls="wdn_share_{{id}}" value="Show share options" />'+
-                                '<label for="{{id}}"><span class="wdn-icon-share" aria-hidden="true"></span><span class="wdn-text-hidden">Share This Page</span></label>'+
-                                '<ul id="wdn_share_{{id}}" class="wdn-share-options wdn-hang-{{hang}} wdn-dropdown-widget-content">'+
+        shareButtonTemplate: '<button class="wdn-dropdown-widget-button" aria-pressed="false" aria-haspopup="true" aria-controls="wdn_share_{{id}}"><span class="wdn-icon-share" aria-hidden="true"></span><span class="wdn-text-hidden">Share This Page</span></button>'+ // add string to use as template for all share buttons
+                                '<ul id="wdn_share_{{id}}" class="wdn-share-options wdn-hang-{{hang}} wdn-dropdown-widget-content wdn-dropdown-widget-no-outline">'+
                                     '<li><a href="{{url}}" class="wdn_createGoURL" rel="nofollow"><span class="wdn-icon-link" aria-hidden="true"></span> Get a Go URL</a></li>'+
                                     '<li class="outpost wdn_emailthis"><a href="mailto:?body={{body}}%20{{encodedUrl}}&amp;subject={{title}}" rel="nofollow"><span class="wdn-icon-mail" aria-hidden="true"></span>Email this page</a></li>'+
                                     '<li class="outpost wdn_facebook"><a href="https://www.facebook.com/sharer/sharer.php?u={{encodedUrl}}" rel="nofollow"><span class="wdn-icon-facebook" aria-hidden="true"></span>Share on Facebook</a></li>'+ // https://developers.facebook.com/docs/plugins/share-button
                                     '<li class="outpost wdn_twitter"><a href="https://twitter.com/share?text={{body}}&amp;via=UNLincoln&amp;url={{encodedUrl}}" rel="nofollow"><span class="wdn-icon-twitter" aria-hidden="true"></span>Share on Twitter</a></li>'+ // https://dev.twitter.com/docs/tweet-button
                                     '<li class="outpost wdn_linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{encodedUrl}}&amp;title={{title}}&amp;summary={{body}}&amp;source=University%20of%20Nebraska%20-%20Lincoln" rel="nofollow" target="_blank" title="Share on LinkedIn"><span class="wdn-icon-linkedin-squared" aria-hidden="true"></span>Share on LinkedIn</a></li>'+ //https://developer.linkedin.com/documents/share-linkedin
-                                '</ul>'+
-                            '</div>',
+                                '</ul>',
 
         createShareButton: function(container, url, hang, title, body){
             var buttonTemp = Plugin.shareButtonTemplate; // hold template in local variable

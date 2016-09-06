@@ -47,11 +47,11 @@
 		@media @bp768 {
             padding-right: 50px;
 		}
-	}
 
-    #wdn_idm_toggle:checked ~ .wdn-idm-options {
-        .is-visible();
-        transform: scale(1);
-        transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
-    }
+        &[aria-pressed="true"] ~ .wdn-idm-options {
+            .is-visible();
+            transform: scale(1);
+            transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+        }
+	}
 }

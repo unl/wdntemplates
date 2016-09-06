@@ -1,9 +1,8 @@
 <div class="wdn-resource-label wdn-resource-login-trigger" id="wdn_identity_management" role="navigation" aria-labelledby="wdn_idm_username">
     <a class="wdn-idm-login" href="https://login.unl.edu/cas/login" id="wdn_idm_username" accesskey="l"><span class="wdn-icon-user" aria-hidden="true"></span>Login</a>
     <div id="wdn_idm_notice_container" class="wdn-dropdown-widget-content hidden">
-        <input type="checkbox" id="wdn_idm_toggle" class="wdn_idm_toggle wdn-input-driver wdn-dropdown-widget-toggle" aria-haspopup="true" aria-controls="wdn_idm_options" value="Show user profile options" />
-        <label for="wdn_idm_toggle" id="wdn_idm_toggle_label"></label>
-        <nav id="wdn_idm_options" class="wdn-idm-options" aria-hidden="true">
+        <button id="wdn_idm_toggle_label" class="wdn-dropdown-widget-button" aria-haspopup="true" aria-pressed="false" aria-controls="wdn_idm_options">Show user profile options</button>
+        <nav id="wdn_idm_options" class="wdn-idm-options wdn-dropdown-widget-no-outline" aria-hidden="true">
             <ul>
                 <li><a href="https://planetred.unl.edu/" id="wdn_idm_profile">View Profile</a></li>
                 <li><a href="https://login.unl.edu/cas/logout?url=http%3A//www.unl.edu/" id="wdn_idm_logout">Logout</a></li>

@@ -21,17 +21,20 @@
             }
         }
     }
-    
+
     .nav_expanded & {
-        
+
         > ul > li > a {
 
             @media @bp-nav-full {
-                border-bottom: 1px solid #c00808;
                 border-bottom: 1px solid fadeout(#000,94%);
-            }            
+            }
         }
     }
+}
+
+#wdn_menu_toggle {
+    display: none;
 }
 
 @media @bp-nav-hidden {
@@ -86,6 +89,10 @@
         top: 0;
         width: 100%;
         z-index: @nav-z-index;
+    }
+
+    .nav-scrolling .wdn-nav-toggle {
+        position: fixed;
     }
 
     #navigation {

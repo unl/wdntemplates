@@ -2,6 +2,8 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 	"use strict";
 
 	var initd = false;
+	var dropdownButtonClass = 'wdn-dropdown-widget-button';
+	var dropdownContentClass = 'wdn-dropdown-widget-content';
 
 	var closeDropDown = function(selector) {
 		$.each($(selector), function(index, element) {
@@ -15,12 +17,62 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 				$container.attr('aria-hidden', true);
 			}
 
-			$(element).attr('checked', false);
+			if ('true' == $element.attr('aria-pressed')) {
+				$element.attr('aria-pressed', false);
+			}
 		});
 	};
 
 	var isFullNav = function() {
 		return Modernizr.mq('(min-width: 700px)') || !Modernizr.mq('only all');
+	};
+	
+	var fixLabels = function() {
+		//Fix labels for backwards compatibility (if includes have not been updated)
+		var $idmLabel = $('label#wdn_idm_toggle_label');
+
+		if ($idmLabel.length) {
+			//Replace the label with the button
+			var $button = $('<button>');
+			$button.html($idmLabel.html());
+			$button.attr({
+				'id': $idmLabel.attr('id'),
+				'class': dropdownButtonClass,
+				'aria-controls': 'wdn_idm_options',
+				'aria-pressed': 'false',
+				'aria-haspopup': 'true'
+			});
+			$idmLabel.replaceWith($button);
+			
+			//remove the associated input
+			$('#wdn_idm_toggle').remove();
+			
+			//Add the new class
+			$('#wdn_idm_options').addClass('wdn-dropdown-widget-no-outline');
+		}
+		
+		var $searchLabel = $('label#wdn_search_toggle_label');
+		
+		if ($searchLabel.length) {
+			//Replace the label with the button
+			var $button = $('<button>');
+			$button.html($searchLabel.html());
+			$button.attr({
+				'id': $searchLabel.attr('id'),
+				'class': dropdownButtonClass + ' visible-at-full-nav',
+				'aria-controls': 'wdn_search_form',
+				'aria-pressed': 'false',
+				'aria-haspopup': 'true'
+			});
+			$searchLabel.replaceWith($button);
+
+			//remove the associated input
+			$('#wdn_search_toggle').remove();
+			
+			//Add missing classes
+			$('#wdn_search_form').addClass('wdn-dropdown-widget-no-outline');
+			$('#wdn_search').addClass('wdn-dropdown-widget-content');
+		}
 	};
 
 	return {
@@ -31,32 +83,55 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 				return;
 			}
 
+			fixLabels();
+			
 			// Safari uses an invalid attribute for setting pinned tab color, set here to avoid HTML validation errors
 			// https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
 			$('link[rel="mask-icon"]').attr('color', '#d00000');
 
-			this.setUpDropDownWidget('.wdn-dropdown-widget-toggle');
+			this.setUpDropDownWidget('.'+dropdownButtonClass);
+			
+			var $dropdownContent = $('.'+dropdownContentClass);
 
 			//Close search on escape
 			$(document).on('keydown', function(e) {
 				if (e.keyCode === 27) {
 					//Close on escape
-					closeDropDown('.wdn-dropdown-widget-toggle');
+					closeDropDown('.'+dropdownButtonClass);
 				}
 			});
 
 			//listen for clicks on the document and close dropdowns if they don't come from a dropdown
 			$(document).on('click', function(e) {
-				var $target = $(e.target);
+				//Determine if we need to do anything with our dropdown
+				var $control = $(e.target);
 
-				//dont close this way if the control was clicked
-				if ($target.filter('.wdn-dropdown-widget-toggle, .wdn-dropdown-widget-label').length) {
-					return;
+				//Try to get the control element
+				if ($control.parent('.'+dropdownButtonClass).length) {
+					$control = $control.parent('.'+dropdownButtonClass);
+				}
+
+				if ($control.hasClass(dropdownButtonClass)) {
+					var container_id = $control.attr('aria-controls');
+					var $container = $('#' + container_id);
+
+					var isPressed = $control.attr('aria-pressed');
+					if ('true' == isPressed) {
+						$container.attr('aria-hidden', 'true');
+						$control.attr('aria-pressed', 'false');
+					} else {
+						$container.attr('aria-hidden', 'false');
+						$control.attr('aria-pressed', 'true');
+						$container.attr('tabindex', '-1').focus();
+					}
+
+					//Close other widgets
+					closeDropDown($('.'+dropdownButtonClass).not($control));
 				}
 
 				//close all dropdown widgets
-				if (!$('.wdn-dropdown-widget-content').find(e.target).length) {
-					closeDropDown('.wdn-dropdown-widget-toggle');
+				if (!$dropdownContent.find(e.target).length) {
+					closeDropDown('.'+dropdownButtonClass);
 				}
 			});
 
@@ -83,57 +158,22 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 		 */
 		setUpDropDownWidget : function(selector) {
 			//Set up the initial state for the widget
-			$(selector).each(function(index, element) {
+			$(selector).each(function(index, button) {
 				//Mark this control as having a popup
-				var $element = $(element);
+				var $button = $(button);
 
-				$element.attr('role', 'button');
-				$element.attr('aria-pressed', false);
-
-				$element.attr('aria-haspopup', true);
+				$button.attr('aria-pressed', false);
+				$button.attr('aria-haspopup', true);
 
 				//Get the dropdown-container for this control.
-				var container_id = $element.attr('aria-controls');
+				var container_id = $button.attr('aria-controls');
 				var $container = $('#'+container_id);
 
 				//Mark it as hidden
 				$container.attr('aria-hidden', true);
-				if ($element.hasClass('visible-at-full-nav') && isFullNav()) {
+				if ($button.hasClass('visible-at-full-nav') && isFullNav()) {
 					$container.attr('aria-hidden', false);
 				}
-
-				//Add a helper class to labels
-				var $label = $('label[for="'+$element.attr('id')+'"]');
-				$label.addClass('wdn-dropdown-widget-label');
-			});
-
-			$(selector).change(function() {
-				var $control = $(this);
-				var container_id = $control.attr('aria-controls');
-				var $container = $('#'+container_id);
-				
-				if ($control.is(':checked')) {
-					$container.attr('aria-hidden', false);
-					$control.attr('aria-pressed', true);
-				} else {
-					$container.attr('aria-hidden', true);
-					$control.attr('aria-pressed', false);
-				}
-
-				//Close other widgets
-				closeDropDown($('.wdn-dropdown-widget-toggle').not(this));
-			});
-
-			//Add an outline to the label for the currently focused input
-			$(selector).focusin(function() {
-				var $input = $(this);
-				$('label[for="'+$input.attr('id')+'"]').addClass('focused');
-			});
-
-			//Remove the outline
-			$(selector).focusout(function() {
-				var $input = $(this);
-				$('label[for="'+$input.attr('id')+'"]').removeClass('focused');
 			});
 		}
 	};
