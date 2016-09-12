@@ -26,7 +26,7 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 	var isFullNav = function() {
 		return Modernizr.mq('(min-width: 700px)') || !Modernizr.mq('only all');
 	};
-	
+
 	var fixLabels = function() {
 		//Fix labels for backwards compatibility (if includes have not been updated)
 		var $idmLabel = $('label#wdn_idm_toggle_label');
@@ -43,16 +43,16 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 				'aria-haspopup': 'true'
 			});
 			$idmLabel.replaceWith($button);
-			
+
 			//remove the associated input
 			$('#wdn_idm_toggle').remove();
-			
+
 			//Add the new class
 			$('#wdn_idm_options').addClass('wdn-dropdown-widget-no-outline');
 		}
-		
+
 		var $searchLabel = $('label#wdn_search_toggle_label');
-		
+
 		if ($searchLabel.length) {
 			//Replace the label with the button
 			var $button = $('<button>');
@@ -68,7 +68,7 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 
 			//remove the associated input
 			$('#wdn_search_toggle').remove();
-			
+
 			//Add missing classes
 			$('#wdn_search_form').addClass('wdn-dropdown-widget-no-outline');
 			$('#wdn_search').addClass('wdn-dropdown-widget-content');
@@ -84,13 +84,13 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 			}
 
 			fixLabels();
-			
+
 			// Safari uses an invalid attribute for setting pinned tab color, set here to avoid HTML validation errors
 			// https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
 			$('link[rel="mask-icon"]').attr('color', '#d00000');
 
 			this.setUpDropDownWidget('.'+dropdownButtonClass);
-			
+
 			var $dropdownContent = $('.'+dropdownContentClass);
 
 			//Close search on escape
