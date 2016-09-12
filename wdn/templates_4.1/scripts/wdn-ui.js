@@ -5,20 +5,41 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 	var dropdownButtonClass = 'wdn-dropdown-widget-button';
 	var dropdownContentClass = 'wdn-dropdown-widget-content';
 
+	var setUpDropDownWidget = function(selector) {
+		//Set up the initial state for the widget
+		$(selector).each(function() {
+			//Mark this control as having a popup
+			var $button = $(this);
+
+			$button.attr('aria-pressed', 'false');
+			$button.attr('aria-haspopup', 'true');
+
+			//Get the dropdown-container for this control.
+			var container_id = $button.attr('aria-controls');
+			var $container = $('#'+container_id);
+
+			//Mark it as hidden
+			$container.attr('aria-hidden', 'true');
+			if ($button.hasClass('visible-at-full-nav') && isFullNav()) {
+				$container.attr('aria-hidden', 'false');
+			}
+		});
+	};
+
 	var closeDropDown = function(selector) {
-		$.each($(selector), function(index, element) {
-			var $element = $(element);
+		$.each($(selector), function() {
+			var $element = $(this);
 			var container_id = $element.attr('aria-controls');
 			var $container = $('#'+container_id);
 
 			if ($element.hasClass('visible-at-full-nav') && isFullNav()) {
-				$container.attr('aria-hidden', false);
+				$container.attr('aria-hidden', 'false');
 			} else {
-				$container.attr('aria-hidden', true);
+				$container.attr('aria-hidden', 'true');
 			}
 
 			if ('true' == $element.attr('aria-pressed')) {
-				$element.attr('aria-pressed', false);
+				$element.attr('aria-pressed', 'false');
 			}
 		});
 	};
@@ -83,15 +104,17 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 				return;
 			}
 
-			fixLabels();
+			// wait for DOM ready
+			$(function() {
+				fixLabels();
 
-			// Safari uses an invalid attribute for setting pinned tab color, set here to avoid HTML validation errors
-			// https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
-			$('link[rel="mask-icon"]').attr('color', '#d00000');
+				// Safari uses an invalid attribute for setting pinned tab color, set here to avoid HTML validation errors
+				// https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
+				$('link[rel="mask-icon"]').attr('color', '#d00000');
 
-			this.setUpDropDownWidget('.'+dropdownButtonClass);
+				setUpDropDownWidget('.'+dropdownButtonClass);
+			});
 
-			var $dropdownContent = $('.'+dropdownContentClass);
 
 			//Close search on escape
 			$(document).on('keydown', function(e) {
@@ -105,6 +128,7 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 			$(document).on('click', function(e) {
 				//Determine if we need to do anything with our dropdown
 				var $control = $(e.target);
+				var $dropdownContent = $('.'+dropdownContentClass);
 
 				//Try to get the control element
 				if ($control.parent('.'+dropdownButtonClass).length) {
@@ -141,9 +165,9 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 					var $container = $('#'+container_id);
 
 					if (isFullNav()) {
-						$container.attr('aria-hidden', false);
+						$container.attr('aria-hidden', 'false');
 					} else {
-						$container.attr('aria-hidden', true);
+						$container.attr('aria-hidden', 'true');
 					}
 				});
 			});
@@ -156,25 +180,6 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
 		 *
 		 * @param selector
 		 */
-		setUpDropDownWidget : function(selector) {
-			//Set up the initial state for the widget
-			$(selector).each(function(index, button) {
-				//Mark this control as having a popup
-				var $button = $(button);
-
-				$button.attr('aria-pressed', false);
-				$button.attr('aria-haspopup', true);
-
-				//Get the dropdown-container for this control.
-				var container_id = $button.attr('aria-controls');
-				var $container = $('#'+container_id);
-
-				//Mark it as hidden
-				$container.attr('aria-hidden', true);
-				if ($button.hasClass('visible-at-full-nav') && isFullNav()) {
-					$container.attr('aria-hidden', false);
-				}
-			});
-		}
+		setUpDropDownWidget : setUpDropDownWidget
 	};
 });
