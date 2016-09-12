@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 4.1.12
+## 4.1.12 (September 13, 2016)
 - Margin adjustments on Hero layout ([#1011](https://github.com/unl/wdntemplates/pull/1011))
 - Update global footer links that have redirected ([20e96da](https://github.com/unl/wdntemplates/commit/20e96da08cffdb571859a0b9ab152e01befcd53e))
 - Institution title link will alway be brand red ([d5f8160](https://github.com/unl/wdntemplates/commit/d5f81603fefcd9cbd355d8728f7813ec0f6fb296))
