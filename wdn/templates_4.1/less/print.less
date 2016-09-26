@@ -96,7 +96,22 @@
         .clear-fix();
     }
 
+    #logo {
+        .reset();
+        float: left;
+        height: 44px;
+        width: 44px;
+        margin-right: 12px;
+
+        &:before {
+            content: url('../images/n-print.svg');
+            position: static;
+            height: 44px;
+            width: 44px;
+        }
+    }
+
     #wdn_site_affiliation {
-        padding-top: 0.9em;
+        padding-top: 2px;
     }
 }
