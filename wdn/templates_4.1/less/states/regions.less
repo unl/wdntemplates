@@ -14,29 +14,21 @@
 .hide-wdn_identity_management {
 
     #wdn_identity_management {
-        .hide;
+        .hide();
     }
 }
 
 .hide-wdn_search {
 
     #wdn_search {
-        .hide;
+        .hide();
     }
 }
 
 .hide-wdn_navigation_wrapper { // Hide certain parts in order to retain presentational UI
 
-    .wdn-menu-trigger { // Holds the label for the toggle of the navigation
-
-        // Styles specifc to only the mobile view
-        @media @bp-nav-hidden {
-            height: 35px
-        }
-    }
-
     #navigation {
-        height: 35px;
+        height: 40px;
         display: block;
 
         &:before {
@@ -44,12 +36,26 @@
         }
 
         > * {
-            .hide;
+            .hide();
         }
     }
 
     .wdn-icon-menu {
-        .hide;
+        .hide();
+    }
+
+    #wdn-main-share-button {
+
+        @media @bp-nav-hidden {
+            margin-left: 6em;
+        }
+
+        @media @bp-nav-full {
+
+            .wdn-dropdown-widget-button {
+                height: 40px;
+            }
+        }
     }
 }
 
@@ -59,14 +65,11 @@
         .hide();
     }
 
-    #wdn_site_title {
-        padding-bottom: 8px;
-    }
-
+    .wdn-nav-toggle,
     .wdn-share-this-page {
 
         @media @bp768 {
-            bottom: -44px;
+            top: 0;
         }
     }
 }
@@ -83,7 +86,7 @@
 .hide-footer {
 
     #wdn_footer_contact, #wdn_copyright {
-        .hide;
+        .hide();
     }
 }
 
@@ -96,8 +99,8 @@
 
 .hide-wdn_copyright { // Keep the UI presentation, but hide the content.
 
-    .wdn-footer-text {
-        .hide;
+    .wdn-copyright-phone {
+        .hide();
     }
 }
 
@@ -106,22 +109,18 @@
     #wdn_footer_contact {
         display: none;
     }
-
-    #wdn_copyright {
-        width: 100%;
-    }
 }
 
 .hide-wdn_attribution {
 
-    #wdn_attribution {
+    .wdn-wdn-qa {
         .hide();
     }
 }
 
 .hide-wdn_logos {
 
-    #wdn_logos {
+    .wdn-footer-logos {
         .hide();
     }
 }
