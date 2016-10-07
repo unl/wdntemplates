@@ -274,6 +274,13 @@
 	}
 }
 
+.wdn-footer-text {
+
+    @media @bp480 {
+        display: flex;
+    }
+}
+
 .wdn-wdn-qa {
 	display: block;
 	margin-bottom: 0.451em;
@@ -287,71 +294,62 @@
 
 // Footer logos
 
+.wdn-footer-logo {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
 a.wdn-footer-logo {
     display: inline-block;
     border: none;
     opacity: 0.6;
-	background-repeat: no-repeat;
-	background-position: left top;
-	background-size: contain;
 	transition: opacity @hover-on;
 
 	&:hover {
 		opacity: 1;
 		transition: opacity @hover-off;
 	}
-
-	@media @bp1600 {
-		background-position: left top;
-	}
-}
-
-.wdn-footer-logos {
-    max-width: 18.935em;
-	margin-top: 0.254em;
-
-    @media @bp-under640w {
-        margin-bottom: 1.777em;
-    }
-
-	.flexbox & {
-	    display: flex;
-	    align-items: center;
-        justify-content: space-between;
-	}
-
-	.wdn-footer-logo {
-		height: 0;
-		width: 100%;
-	}
 }
 
 #tips_wordmark {
-	width: 5.997em;
-	height: 2.532em;
-    margin-top: 1.777em;
+    width: 67px;
+    height: 30px;
+    margin-top: .254rem;
     background-image: data-uri('../images/tips.svg');
-	background-position: left top;
+}
+
+#nebraska-b1g-lockup {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
 
     @media @bp640 {
-	    margin-top: 1em;
+        margin: .254rem 0 0;
     }
 }
 
-#unl_wordmark {
-    width: 60%;
-
-    .wdn-footer-logo {
-        padding-bottom: 40%;
-        background-image: data-uri('../images/wordmark.svg');
-    }
+#footer_n_logo {
+    height: 44px;
+    width: 44px;
+    margin-right: 1.333rem;
+    background-image: data-uri('../images/n-white.svg');
 }
 
 #b1g_wordmark {
-    width: 34%;
+    height: 30px;
+    width: 72px;
+    background-image: data-uri('../images/b1g.svg');
+}
 
-    .wdn-footer-logo {
-        padding-bottom: 50%;
-        background-image: data-uri('../images/b1g.svg');
+#unl_wordmark {
+    height: 26px;
+    width: 96px;
+    margin-top: 1.333rem;
+    background-image: data-uri('../images/wordmark.svg');
+
+    @media @bp480 {
+        flex: 1 0 96px;
+        margin: .254rem 0 0 5%;
     }
 }
