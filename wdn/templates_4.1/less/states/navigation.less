@@ -75,12 +75,16 @@
     }
 
     .js { // fouc-fixes
-        #wdn_navigation_bar {
+        #wdn_navigation_bar,
+        .wdn-nav-toggle {
             visibility: hidden;
         }
 
-        .nav_ready #wdn_navigation_bar {
-            visibility: visible;
+        .nav_ready {
+            #wdn_navigation_bar,
+            .wdn-nav-toggle {
+                visibility: visible;
+            }
         }
     }
 
