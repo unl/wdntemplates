@@ -16,3 +16,4 @@
 /wdn/templates_*/scripts/plugins/qtip/wdn.qtip.css
 /wdn/templates_*/scripts/plugins/ui/css/jquery-ui-wdn.css
 /tests/config.inc.php
+/tmp-*
