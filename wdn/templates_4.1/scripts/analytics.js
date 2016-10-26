@@ -9,7 +9,9 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 		initd = false,
 
 		gaWdnName = 'wdn',
-		gaWdn = gaWdnName + '.';
+		gaWdn = gaWdnName + '.',
+		
+		mediaHubOrigin = 'https://mediahub.unl.edu';
 
 	var bindLinks = function() {
 		WDN.log('Begin binding links for analytics');
@@ -211,6 +213,28 @@ define(['wdn', 'idm', 'jquery'], function(WDN, idm, $) {
 			} catch (e) {
 				WDN.log("Timing tracking for local site didn't work.");
 			}
+		},
+		
+		recordMediaHubEvents: function() {
+			$(window).on('message', function(e) {
+				var originalEvent = e.originalEvent;
+				
+				if (mediaHubOrigin != originalEvent.origin) {
+					//Verify the origin
+					return;
+				}
+
+				if ('ga_event' != originalEvent.data.message_type) {
+					//not a ga event (maybe different event types in future?)
+					return;
+				}
+
+				Plugin.callTrackEvent(
+					'media',
+					originalEvent.data.event,
+					originalEvent.data.media_title
+				);
+			});
 		}
 	};
 
