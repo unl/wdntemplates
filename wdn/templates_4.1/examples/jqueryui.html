@@ -143,14 +143,17 @@
         <h3>Progressbar</h3>
         <div id="progressbar"></div>
 
+        <!--
+        Do not recommend using until bug is fixed: https://bugs.jqueryui.com/ticket/15091#ticket
+        
         <h3>SelectMenu</h3>
         <label for="speed">Select a speed</label>
-        <select name="speed" id="speed" title="Select a speed">
-            <option>Slower</option>
-            <option>Slow</option>
-            <option selected="selected">Medium</option>
-            <option>Fast</option>
-            <option>Faster</option>
+        <select name="speed" id="speed" aria-role="combobox">
+            <option aria-role="textbox">Slower</option>
+            <option aria-role="textbox">Slow</option>
+            <option selected="selected" aria-role="textbox">Medium</option>
+            <option aria-role="textbox">Fast</option>
+            <option aria-role="textbox">Faster</option>
         </select>
 
         <label for="files">Select a file</label>
@@ -187,14 +190,15 @@
             <option>18</option>
             <option>19</option>
         </select>
+        -->
 
         <h3>Slider</h3>
         <div id="slider"></div>
-
+        
         <h3>Spinner</h3>
         <p>
             <label for="spinner">Select a value:</label>
-            <input id="spinner" name="value">
+            <input id="spinner" name="value" value="0">
         </p>
 
         <p>
@@ -347,7 +351,7 @@
 
             $('#slider').slider();
 
-            var spinner = $('#spinner').spinner();
+            var spinner = $('#spinner').spinner({ min: -10, max: 10 });
 
             $('#disable').click(function() {
               if ( spinner.spinner('option','disabled') ) {
