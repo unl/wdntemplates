@@ -1,43 +1,18 @@
 --TEST--
-Validate all example pages for accessibility
+Validate all example pages for accessibility via aXe
 --FILE--
 <?php
 //Load composer
 require_once __DIR__ . '/../../build/vendor/autoload.php';
 require_once __DIR__ . '/../mod_include.php';
+require_once __DIR__ . '/AccessibilityTester.php';
 
 if (file_exists(__DIR__ . '/../config.inc.php')) {
     require_once __DIR__ . '/../config.inc.php';
 }
 
-class AccessibilityTester {
-    protected $examples_directory = '';
-    protected $wrapper_html;
-    public static $base_url = 'http://localhost:8080/';
-
-    public function __construct()
-    {
-        $this->examples_directory = __DIR__ . '/../../wdn/templates_4.1/examples/';
-        $this->wrapper_html = file_get_contents($this->examples_directory . 'index.shtml');
-    }
-
-    public function getFilesToCheck() {
-        $files_to_check = array();
-
-        foreach (new DirectoryIterator($this->examples_directory) as $file_info) {
-            if ($file_info->getExtension() !== 'html') {
-                continue;
-            }
-
-            $files_to_check[] = $file_info->getFilename();
-        }
-
-        //Make sure that files are ordered by file name
-        sort($files_to_check);
-
-        return $files_to_check;
-    }
-
+class AccessibilityAxeTester extends AccessibilityTester {
+    
     /**
      * @param string $file the filename of the example page to check
      * @return array|bool false on error, array of errors on success
@@ -45,12 +20,8 @@ class AccessibilityTester {
     protected function checkExample($file) {
         echo "checking: " . $file . PHP_EOL;
         $url = self::$base_url . 'tests/Accessibility/tmp/' . $file;
-        $command = 'pa11y ' .
-            '-r json ' .
-            '-s WCAG2AA ' .
-            '-w 500 ' .
-            '--config ' . __DIR__ . '/pa11y.json ' .
-            '--htmlcs "http://webaudit.unl.edu/plugins/metric_pa11y/html_codesniffer/build/HTMLCS.js" ' .
+        $command = 'phantomjs ' .
+            __DIR__ . '/phantomjs-axe.js ' .
             escapeshellarg($url);
         $errors  = array();
 
@@ -98,43 +69,27 @@ class AccessibilityTester {
                 $errorOutput,
             ];
         }
-
-        foreach ($data as $result) {
-            if ($result['type'] != 'error') {
-                continue;
-            }
-
-            $errors[] = $url
-                . "\r\n\t code: " . $result['code']
-                . "\r\n\t message: " . $result['message']
-                . "\r\n\t selector: " . $result['selector']
-                . "\r\n\t context: " . $result['context']
-                . "\r\n------------\r\n";
-        }
-
-        return $errors;
-    }
-
-    public function check()
-    {
-        foreach ($this->getFilesToCheck() as $file) {
-            $errors = $this->checkExample($file);
-            if ($errors === false) {
-                echo 'Unable to check ' . $file . PHP_EOL;
-            }
-
-            if (!empty($errors)) {
-                echo $file . ' FAILED!' . PHP_EOL;
-                foreach ($errors as $error) {
-                    echo "\t " . $error . PHP_EOL;
+        
+        if (isset($data['violations'])) {
+            foreach ($data['violations'] as $violation) {
+                foreach ($violation['nodes'] as $node) {
+                    $errors[] = $url
+                        . "\r\n\t axe-test-id: " . $violation['id']
+                        . "\r\n\t help: " . $violation['help']
+                        . "\r\n\t description: " . $violation['description']
+                        . "\r\n\t target: " . print_r($node['target'], true)
+                        . "\r\n\t context: " . $node['html']
+                        . "\r\n------------\r\n";
                 }
             }
         }
+        
+        return $errors;
     }
 }
 
 putenv('PATH=' . realpath(__DIR__ . '/../../node_modules/.bin') . ':' . getenv('PATH'));
-$tester = new AccessibilityTester();
+$tester = new AccessibilityAxeTester();
 $tester->check();
 
 // //Save what we expect to see if all tests pass to a file.
