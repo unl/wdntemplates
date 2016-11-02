@@ -580,9 +580,11 @@
 	border-radius: 0;
 }
 
+/*
 .mejs-controls .mejs-captions-button:hover  .mejs-captions-selector {
 	visibility: visible;
 }
+*/
 
 .mejs-controls .mejs-captions-button .mejs-captions-selector ul {
 	margin: 0;
