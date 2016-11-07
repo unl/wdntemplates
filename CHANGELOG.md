@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.14 (November 8, 2016)
+- Update CSS class for hiding footer logos ([#1029](https://github.com/unl/wdntemplates/pull/1029))
+- Add analytics function for tracking mediahub iframe events ([#1031](https://github.com/unl/wdntemplates/pull/1031))
+- Adjust Hero CSS for min-height ([#1032](https://github.com/unl/wdntemplates/pull/1032))
+- Upgrade MediaElementJS plugin ([#1034](https://github.com/unl/wdntemplates/pull/1034))
+
 ## 4.1.13 (October 11, 2016)
 - Promo image layout improvements ([#1017](https://github.com/unl/wdntemplates/pull/1017))
 - Print CSS adjustments for header N ([#1018](https://github.com/unl/wdntemplates/pull/1018))
