@@ -35,7 +35,7 @@
 #wdn_idm_toggle_label {
     display: block;
     height: 40px;
-    .rem(12);
+    font-size: .9353rem; // 12px
     line-height: 1;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -50,14 +50,13 @@
 	    display: inline-block;
 	    height: 30px;
         padding-top: 1.069em;
-	    .rem(10);
+        font-size: .75rem; // 9.625px, 12px
 	    color: @scarlet;
     }
 
     @media @bp768 {
         height: 40px;
         padding-top: 1.333em;
-        .rem(12);
     }
 
     .flexbox & {
@@ -94,7 +93,7 @@
 	border-radius: 3px;
 	background-color: fadeout(@ui12, 3%);
     text-align: left;
-    .rem(11,12);
+    font-size: .8574rem; // 11px
 	z-index: (@nav-z-index + 1);
 	transform: scale(0.9);
 	transform-origin: top;
@@ -114,6 +113,7 @@
 
     @media @bp768 {
 	    top: 47px;
+	    font-size: .75rem; // 12px
     }
 
 	&:before {
