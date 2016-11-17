@@ -38,7 +38,7 @@
             margin-right: .33em;
         }
     }
-    
+
 }
 
 // Shared styles for Menu & Share icons
@@ -56,8 +56,7 @@
 .wdn-icon-menu { // Hide the label text off screen
     .wdn-nav-icon();
     position: relative;
-    font-size: 21px;
-    font-size: 1.333rem;
+    font-size: 1.333rem; // 17.103px, 21.328px
 }
 
 .wdn-nav-toggle {
@@ -175,7 +174,7 @@
 
     li {
         text-transform: uppercase;
-        .rem(21);
+        font-size: 1.662rem; // 21.328px
 
         &.empty {
             display: none;
@@ -185,7 +184,7 @@
             float: none;
             .sans-serif-font();
             text-transform: none;
-            .rem(11);
+            font-size: .8574rem; // 11px
         }
 
         // Styles specific to the full view
@@ -216,6 +215,14 @@
                 a {
                     text-align: left;
                 }
+            }
+        }
+
+        @media @bp768 {
+            font-size: 1.333rem; // 21.328px
+
+            li {
+            	font-size: .6875rem; // 11px
             }
         }
     }
@@ -266,7 +273,7 @@
             }
         }
     }
-    
+
     label {
         display: none; //BC fix, prevent duplicate nav buttons after change to buttons if includes are not yet updated
     }
