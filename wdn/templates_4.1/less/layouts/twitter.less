@@ -10,11 +10,15 @@
 
     .wdn-icon {
         font-family: 'fontello';
-        .rem(65);
+        font-size: 5.0663rem; // 65px
         font-style: normal;
         font-weight: normal;
         color: @twitter-brand;
         line-height: 1;
+
+        @media @bp768 {
+            font-size: 4.0625rem; // 65px
+        }
     }
 
     .tweet {
