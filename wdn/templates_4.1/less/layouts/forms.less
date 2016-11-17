@@ -57,7 +57,7 @@ form {
 	            border: 0;
 	            .sans-serif-font();
 	            text-transform: none;
-	            .rem(12,13);
+                font-size: .9353rem; // 12px
 	        }
 	    }
     }
@@ -76,7 +76,7 @@ form {
     label {
         position: relative;
         .sans-serif-font();
-        .rem(12,13);
+        font-size: .9353rem; // 12px
     }
 
     input, textarea, select {
@@ -153,12 +153,12 @@ form {
     }
 
     span.required {
-        .rem(16);
+        font-size: 1.247rem; // 16px
         color: @brand;
     }
 
     span.helper {
-        .rem(10);
+        font-size: .75rem; // 9.625px
     }
 
 // KEEP STYLING FOR LISTS
@@ -218,6 +218,34 @@ form {
 
         li {
             margin: 0;
+        }
+    }
+}
+
+@media @bp768 {
+
+    form {
+
+        fieldset {
+
+            fieldset {
+
+    	        legend {
+        	        font-size: .802rem; // 12.83px
+                }
+            }
+        }
+
+        label {
+            font-size: .802rem; // 12.83px
+        }
+
+        span.required {
+            font-size: 1rem; // 16px
+        }
+
+        span.helper {
+            font-size: .602rem; // 9.625px
         }
     }
 }
