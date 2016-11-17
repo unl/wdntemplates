@@ -37,7 +37,7 @@
 	border-radius: 3px;
 	text-align: left;
 	.wdn-sans-serif();
-	.rem(11,12);
+    font-size: .8574rem; // 11px
 	background-color: fadeout(@ui12, 3%);
 
 	// Hide until toggled
@@ -52,6 +52,10 @@
 	@media @bp-nav-full {
 		right: -2.369em;
 	}
+
+    @media @bp768 {
+        font-size: .75rem; // 12px
+    }
 
 	&:before {
         content: '';
@@ -83,8 +87,12 @@
     	[class^="wdn-icon-"] {
 
     		&:before {
-    			.rem(16);
     			margin-right: .602em;
+                font-size: 1.247rem; // 16px
+
+    			@media @bp768 {
+        			font-size: 1rem; // 16px
+    			}
     		}
     	}
 
