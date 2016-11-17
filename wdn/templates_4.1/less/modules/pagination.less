@@ -31,9 +31,13 @@ Markup for these:
         display: block;
         float: left;
         .sans-serif-font();
-        .rem(12,13);
+        font-size: .9353rem; // 12px
         margin: 0.254em;
         vertical-align: middle;
+
+        @media @bp768 {
+            font-size: .802rem; // 12.83px
+        }
 
         a {
             display: block;
