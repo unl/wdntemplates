@@ -39,7 +39,7 @@
     display: block;
     padding-top: 1em;
     .wdn-sans-caps();
-    .rem(10,12);
+    font-size: .75rem; // 9.625px, 12px
     line-height: 1;
 
     a {
@@ -96,7 +96,7 @@
 	display: block;
 	min-height: 0.451em;
 	padding-bottom: 0.191em;
-	.rem(12,13);
+    font-size: .9353rem; // 12px
 	font-style: italic;
 	line-height: 1;
     white-space: nowrap;
@@ -106,6 +106,7 @@
 	@media @bp768 {
 	    min-height: 0.602em;
 		padding: 0.1em 0 0.254em;
+        font-size: .802rem; // 12.83px
 	}
 
 	a {
@@ -119,7 +120,7 @@
 #wdn_site_title {
     display: block;
     .brand-font();
-    .rem(30,38);
+    font-size: 2.369rem; // 30.39px, 37.897px
 	text-transform: uppercase;
 	line-height: 1;
     white-space: nowrap;
@@ -141,7 +142,7 @@
 
             &:before {
                 content: attr(title);
-                .rem(41);
+                font-size: 2.532rem; // 40.51px
                 display: block;
             }
         }
