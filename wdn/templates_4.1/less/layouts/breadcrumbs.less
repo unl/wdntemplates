@@ -56,7 +56,7 @@
 	li {
         display: inline-block;
 		position: relative;
-		.rem(10);
+        font-size: .75rem; // 9.625px
 		vertical-align: middle;
 
 		@media @bp-nav-hidden {
@@ -76,6 +76,10 @@
                 flex: 0 1 auto;
                 min-width: 1em;
             }
+		}
+
+		@media @bp768 {
+    		font-size: .602rem; // 9.625px
 		}
 
         &:before {
