@@ -2,7 +2,11 @@
 
 #footer {
     .sans-serif-font();
-    .rem(11);
+    font-size: .8574rem; // 11px
+
+    @media @bp768 {
+    	font-size: .6875rem; // 11px
+    }
 
     abbr[title] {
         border: none;
@@ -50,9 +54,13 @@
 		display: block;
 		margin: 0 0 0.75em 0;
 		.brand-font();
-		.rem(21,23);
+		font-size: 1.662rem; // 21.328px
 		text-transform: uppercase;
 		line-height: 1.069;
+
+        @media @bp768 {
+            font-size: 1.425rem; // 22.798px
+        }
 	}
 }
 
