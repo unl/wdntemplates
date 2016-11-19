@@ -7,9 +7,9 @@
 
 .breadcrumb-arrow() {
     top: 0;
-    border-top: 14px solid transparent;
-    border-bottom: 14px solid transparent;
-    border-left: 14px solid #fff;
+    border-top: 1.333em solid transparent;
+    border-bottom: 1.333em solid transparent;
+    border-left: 1.333em solid #fff;
 }
 
 .selected-arrow() {
@@ -51,7 +51,6 @@
     }
 
 	li {
-        display: inline-block;
 		position: relative;
         font-size: .75rem; // 9.625px
 		vertical-align: middle;
@@ -62,8 +61,10 @@
 		}
 
 		@media @bp-nav-full {
-    		padding: 1px 6px 0 23px;
-            line-height: 1.333;
+            display: inline-block;
+            padding-right: .317em;
+            padding-left: 2.369em;
+            line-height: 1;
 			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5b5b5a+0,474746+100 */
 			background: linear-gradient(to right,  #5b5b5a 0%,#474746 100%);
 
@@ -91,11 +92,11 @@
         }
 
 		&:after {
-			.breadcrumb-pseudo();
 
 			@media @bp-nav-full {
+			    .breadcrumb-pseudo();
 				.breadcrumb-arrow();
-				right: -13px;
+				right: -1.25em; // a little smaller than arrow (1.333em) to avoid gap that reveals background color
 	            border-left-color: @ui09;
 	            z-index: 1;
 			}
@@ -104,7 +105,7 @@
 		&:first-child {
 
 			@media @bp-nav-full {
-                margin-left: -23px;
+                margin-left: -2.369em;
 
                 .flexbox & {
                     flex: none;
@@ -124,7 +125,6 @@
             &:not(.last-link) {
 
     			@media @bp-nav-full {
-    			    padding-left: 23px;
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
@@ -151,16 +151,16 @@
 		&.selected {
 
 			@media @bp-nav-full {
-				background: @cream;
+                background: @cream;
                 transition: max-width 0.5s ease-in-out 0.5s;
 			}
 
 			&:first-child {
 
 				&:before {
-					.breadcrumb-pseudo();
 
 					@media @bp-nav-full {
+					    .breadcrumb-pseudo();
 						.breadcrumb-arrow();
 					    left: 0;
 						border-left-color: @ui08;
@@ -183,9 +183,9 @@
 				}
 
 				&:before {
-					.breadcrumb-pseudo();
 
 					@media @bp-nav-full {
+					    .breadcrumb-pseudo();
 						.selected-arrow();
 						border-bottom-color: @scarlet;
 					}
@@ -196,12 +196,12 @@
 
     a {
         display: block;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
 
 		@media @bp-nav-full {
-	        padding: 5px 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+	        padding: .75em 0;
             color: @ui03;
 		}
 	}
