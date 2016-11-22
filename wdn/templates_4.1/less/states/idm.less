@@ -27,6 +27,7 @@
 
 	#wdn_idm_toggle_label {
         white-space: nowrap;
+        padding-right: 4.209em;
         background-repeat: no-repeat;
         background-size: contain;
     	background-position: right center;
@@ -35,17 +36,8 @@
             content: '';
         }
 
-		@media @bp-nav-hidden {
-            padding-right: 50px;
-		}
-
 		@media @bp-nav-full {
-            padding-right: 40px;
             cursor: pointer;
-		}
-
-		@media @bp768 {
-            padding-right: 50px;
 		}
 
         &[aria-pressed="true"] ~ .wdn-idm-options {
