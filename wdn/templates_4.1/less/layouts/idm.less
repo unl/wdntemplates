@@ -5,8 +5,9 @@
 
     @media @bp-nav-hidden {
         position: absolute;
-        top: 101px; // position over the nav bar
+        bottom: -3.157rem; // position over the nav bar
         right: @page-offset-default;
+        height: 3.157rem; // 40.51px
         text-align: right;
         z-index: (@nav-z-index + 1); // overlay the nav bar
     }
@@ -34,7 +35,7 @@
 #wdn_idm_username,
 #wdn_idm_toggle_label {
     display: block;
-    height: 40px;
+    height: 3.157rem; // 40.51px
     font-size: .9353rem; // 12px
     line-height: 1;
     overflow: hidden;
@@ -48,14 +49,14 @@
 
     @media @bp-nav-full {
 	    display: inline-block;
-	    height: 30px;
+	    height: 2.369rem; // 30.39px
         padding-top: 1.069em;
         font-size: .75rem; // 9.625px, 12px
 	    color: @scarlet;
     }
 
     @media @bp768 {
-        height: 40px;
+        height: 2.532rem; // 40.51px
         padding-top: 1.333em;
     }
 
@@ -86,7 +87,7 @@
     display: block;
     .is-hidden();
 	position: absolute;
-	top: 46px;
+	top: calc(~'3.157rem + 6px');
 	right: @page-offset-default;
 	padding: 1.069em 2.369em;
 	white-space: nowrap;
@@ -108,11 +109,11 @@
     }
 
     @media @bp-nav-full {
-	    top: 37px;
+	    top: calc(~'2.369em + 6px');
     }
 
     @media @bp768 {
-	    top: 47px;
+	    top: calc(~'2.532rem + 6px');
 	    font-size: .75rem; // 12px
     }
 
