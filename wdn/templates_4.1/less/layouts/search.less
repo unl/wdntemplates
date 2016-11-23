@@ -81,27 +81,31 @@
         display: block;
         position: absolute;
         z-index: 1;
-        padding: 0.422em;
-        font-size: 1rem; // 12.83px
+        padding: 0;
         background-color: transparent;
 
         @media @bp-nav-hidden {
-            bottom: 2.1em; // number outside of modular scale to vertically center button in form
-            right: 2.369em;
+            bottom: 1.899rem;
+            right: 2.369rem;
+            height: 1.777em;
+            width: 1.899em;
+            font-size: 1.247rem; // 16px
             color: @ui10;
         }
 
         @media @bp-nav-full {
             top: 0;
             right: 0;
-            padding: 0.422em;
+            height: 100%;
+            width: 2.369em;
             color: @cream;
         }
+    }
 
-        @media @bp768 {
-            top: 0.1em;
-            padding: 0.451em;
-            font-size: .802rem; // 12.83px
+    .wdn-icon-search {
+
+        &:before {
+            margin-right: 0;
         }
     }
 }
@@ -111,7 +115,6 @@
     @media @bp-nav-hidden {
         position: absolute;
 	    left: 2.369em;
-        height: 40px;
         padding: 0;
         font-size: 1.247rem; // 16px
         color: #fff;
@@ -119,10 +122,6 @@
         .wdn-icon-search {
             display: block;
             transform: translateY(-1px);
-
-            &:before {
-                margin-right: 0;
-            }
         }
     }
 
@@ -139,7 +138,7 @@
         display: block;
         .is-hidden();
     	position: absolute;
-    	top: 46px;
+    	top: calc(~'3.157rem + 6px');
     	left: 0;
     	width: 90%; // 100% - 5% inner wrapper margin on each side
     	padding: 1.069em 2.369em 1.777em;
@@ -230,9 +229,8 @@
 
 #wdn_search_query {
 	-webkit-appearance: none;
+    padding: .422em .75em;
     border: 1px solid @ui05;
-    border-right-width: 28px;
-    padding: 6px 12px;
     .sans-serif-font();
     font-size: 1rem; // 12.83px
     color: @ui05;
@@ -246,14 +244,15 @@
 
     @media @bp-nav-hidden {
         width: 100%;
+        border-right-width: 2.369em;
         background-color: @ui12;
     }
 
     @media @bp-nav-full {
-	    font-size: .9353rem; // 12px
+	    font-size: .75rem; // 9.625px, 12px
         width: 128px;
-        padding: 3px 6px;
 	    border-color: @ui08;
+        border-right-width: 1.777rem;
 	    color: darken(#d1ceb3, 45%);
 	    background-color: #fff;
 
@@ -261,11 +260,6 @@
         	border-color: @triad;
         	color: inherit;
         }
-    }
-
-    @media @bp768 {
-        padding: 5px 8px;
-        font-size: .75rem; // 12px
     }
 }
 
