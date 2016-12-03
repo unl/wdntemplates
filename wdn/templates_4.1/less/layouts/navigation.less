@@ -33,36 +33,32 @@
                 padding-right: 1em;
             }
         }
-
-        button.wdn-nav-toggle .wdn-icon-menu {
-            margin-right: .33em;
-        }
     }
 
 }
 
 .wdn-icon-menu { // Hide the label text off screen
     .wdn-nav-icon();
-    position: relative;
     font-size: 1.333rem; // 17.103px, 21.328px
 }
 
 .wdn-nav-toggle {
+    .wdn-nav-button();
 	.inner-wrapper-margin-left();
-    padding: 0;
     z-index: @nav-z-index + 1;
-    overflow: hidden;
-    line-height: 1;
-	border: none;
-	background-color: transparent;
 
     @media @bp-nav-hidden {
-        height: 3.157rem; // 40.51px
+        height: 3.157rem;
+        width: 1.333rem;
     }
 
     @media @bp-nav-full {
         position: absolute;
-        top: 24px;
+        top: 1.777em;
+    }
+
+    @media @bp768 {
+        top: 1.425em;
     }
 }
 
