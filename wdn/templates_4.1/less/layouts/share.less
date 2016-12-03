@@ -3,11 +3,7 @@
 
     @media @bp-nav-hidden {
         position: relative;
-		margin-left: 4.209em;
-
-        .wdn-dropdown-widget-button {
-            height: 40px;
-        }
+		margin-left: 4.499em;
     }
 
     @media @bp-nav-full {
@@ -15,17 +11,22 @@
 		.inner-wrapper-margin-right();
 		margin-left: 0;
         padding: 0 1px;
-		top: 24px;
+		top: 1.777em;
 		right: 0;
     }
 
+    @media @bp768 {
+		top: 1.425em;
+    }
+
     .wdn-dropdown-widget-button {
-        padding: 0;
+        width: 1.333rem;
     }
 }
 
 .wdn-icon-share {
     .wdn-nav-icon(); // located at layouts/wdn-ui.less
+    vertical-align: middle;
 }
 
 .wdn-share-options {
