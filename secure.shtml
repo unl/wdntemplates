@@ -47,8 +47,8 @@
             <nav id="breadcrumbs" class="wdn-inner-wrapper" role="navigation" aria-label="breadcrumbs">
                 <!-- InstanceBeginEditable name="breadcrumbs" -->
                 <ul>
-                    <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">Nebraska</a></li>
-                    <li class="selected"><a href="http://architecture.unl.edu/" title="College of Architecture">College of Architecture</a></li>
+                    <li><a href="http://www.unl.edu/">Nebraska</a></li>
+                    <li class="selected"><a href="http://architecture.unl.edu/">College of Architecture</a></li>
                     <li>Home</li>
                 </ul>
                 <!-- InstanceEndEditable -->
