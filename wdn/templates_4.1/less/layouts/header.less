@@ -75,15 +75,17 @@
 #logo {
 	display: block;
     float: left;
-	width: 3.43em; // 44px
-	height: 3.43em; // 44px
+    // IE & Edge truncate values to two decimal places, rounding up to ~44px (12.8px * 3.44)
+	width: 3.44em; // 44px
+	height: 3.44em; // 44px
 	margin-right: 0.75em;
     background: transparent data-uri('../images/n.svg') center center no-repeat;
 	background-size: contain;
 
     @media @bp768 {
-		width: 3.375em; // 54px
-		height: 3.375em; // 54px
+        // IE & Edge truncate values to two decimal places, rounding up to ~56px (16px * 3.5)
+		width: 3.5em; // 56px
+		height: 3.5em; // 56px
     }
 
 	span {
@@ -96,8 +98,8 @@
 // !Site Affiliation
 #wdn_site_affiliation {
 	display: block;
-	min-height: 0.451em;
-	padding-bottom: 0.191em;
+	min-height: .802em;
+	padding: .1em 0 .422em;
     font-size: .9353rem; // 12px
 	font-style: italic;
 	line-height: 1;
@@ -106,8 +108,8 @@
     overflow: hidden;
 
 	@media @bp768 {
-	    min-height: 0.602em;
-		padding: 0.1em 0 0.254em;
+	    min-height: 1.069em;
+		padding: .178em 0 .602em;
         font-size: .802rem; // 12.83px
 	}
 
@@ -124,7 +126,7 @@
     .brand-font();
     font-size: 2.369rem; // 30.39px, 37.897px
 	text-transform: uppercase;
-	line-height: 1;
+	line-height: .8;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
