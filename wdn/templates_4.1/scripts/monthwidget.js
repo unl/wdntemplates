@@ -107,7 +107,7 @@ define([
 			url: localSettings.href || defaultCal,
 			container: container
 		},
-		localConfig = $.extend({}, config, defaultConfig);
+		localConfig = $.extend({}, defaultConfig, config);
 
 		if (localConfig.url && $(localConfig.container).length) {
 			$.get(localConfig.url + '?monthwidget&format=hcalendar', function(data) {
