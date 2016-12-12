@@ -6,8 +6,8 @@ define(['jquery', 'wdn', 'modernizr', 'require', 'socialmediashare'], function($
 	var hoverPlugin = 'plugins/hoverIntent/jquery.hoverIntent';
 	var expandDelay = 400;
 	var collapseDelay = 120;
-	var scrollThrottle = 50;
-	var resizeThrottle = 100;
+	var scrollThrottle = 16;
+	var resizeThrottle = 16;
 	var transitionDelay = 200; // this is 100ms + @nav-transition-duration from ../less/_mixins/vars.less
 
 	// framework selectors
