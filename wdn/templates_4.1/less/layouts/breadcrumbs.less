@@ -9,7 +9,7 @@
     top: 0;
     border-top: 1.333em solid transparent;
     border-bottom: 1.333em solid transparent;
-    border-left: 1.333em solid #fff;
+    border-left: 1em solid #fff;
 }
 
 .selected-arrow() {
@@ -62,8 +62,9 @@
 
 		@media @bp-nav-full {
             display: inline-block;
-            padding: .1em .75em 0 2.369em;
-            line-height: 1.777;
+            margin-bottom: -1px;
+            padding: 1px .422em 0 1.777em;
+            line-height: 2.37;
 			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5b5b5a+0,474746+100 */
 			background: linear-gradient(to right,  #5b5b5a 0%,#474746 100%);
 
@@ -105,7 +106,7 @@
 		&:first-child {
 
 			@media @bp-nav-full {
-                margin-left: -2.369em;
+                margin-left: -1.777em;
 
                 .flexbox & {
                     flex: none;
@@ -187,7 +188,7 @@
 					@media @bp-nav-full {
 					    .breadcrumb-pseudo();
 						.selected-arrow();
-						border-bottom-color: @scarlet;
+						border-bottom: .422em solid @scarlet;
 					}
 				}
 			}
@@ -201,7 +202,6 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            padding: .238em 0;
             color: @ui03;
 		}
 	}
