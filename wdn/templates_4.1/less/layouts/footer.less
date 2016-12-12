@@ -2,11 +2,6 @@
 
 #footer {
     .sans-serif-font();
-    font-size: .8574rem; // 11px
-
-    @media @bp768 {
-    	font-size: .6875rem; // 11px
-    }
 
     abbr[title] {
         border: none;
@@ -59,13 +54,18 @@
 		line-height: 1.069;
 
         @media @bp768 {
-            font-size: 1.425rem; // 22.798px
+            font-size: 1.333rem; // 21.328px
         }
 	}
 }
 
 .wdn-footer-module {
 	padding-bottom: 2.369em;
+    font-size: .86rem; // 11px
+
+    @media @bp768 {
+        font-size: .69rem; // 11px
+    }
 
 	[class*="wdn-col-"]:last-of-type & {
 		padding-bottom: 0;
@@ -85,11 +85,11 @@
 // !Local Footer
 
 .wdn-footer-local {
-	padding: 3.157em 0;
+	padding: 2.369em 0;
     color: @ui05;
 	background-color: @ui09;
 	background: lighten(@ui09,2%) data-uri('../images/line-squares-tile.svg') center center repeat;
-	background-size: 2.532em 2.532em;
+	background-size: 1.777em 1.777em;
 
 	a {
         color: @ui04;
@@ -175,26 +175,23 @@
 // !Global Footer
 
 .wdn-footer-global {
-	padding: 3.157em 0 9.969em;
+	padding-top: 2.369em;
+	padding-bottom: 9.969em;
     color: @ui06;
 	background-color: @ui10;
 	background: @ui10 data-uri('../images/seal.svg') center bottom -14.204em no-repeat;
 	background-size: 25.24em 25.24em;
 
 	@media @bp480 {
-    	padding-bottom: 5.997em;
-		background-size: 33.645em 33.645em;
-		background-position: left -7.994em bottom -14.204em;
-	}
-
-	@media @bp-under640h {
-		padding: 3.157em 0 13.288em;
+        padding-bottom: 3.375em;
+        background-position: left -5.61em bottom -9.969em;
+        background-size: 25.24em 25.24em;
 	}
 
 	@media @bp960 {
-		padding: 3.157em 0 3.375em;
-		background-position: right -7.994em bottom -7.994em;
-		background-size: 41.955em 41.955em;
+		padding-bottom: 2.532em;
+		background-position: right -7.478em bottom -7.478em;
+		background-size: 31.474em 31.474em;
 	}
 
 	@media @bp1280 {
@@ -253,18 +250,24 @@
     }
 }
 
-.wdn-wdn-qa {
-	display: block;
-	margin-bottom: 0.451em;
-}
-
+.wdn-wdn-qa,
 .wdn-copyright-phone {
 	display: block;
+    font-size: .86rem; // 11px
+
+    @media @bp768 {
+        font-size: .69rem; // 11px
+    }
+}
+
+.wdn-wdn-qa {
+	margin-bottom: 0.451em;
 }
 
 
 
 // Footer logos
+// IE & Edge truncate values to two decimal places, logo values rounded to nearest pixels
 
 .wdn-footer-logo {
 	background-repeat: no-repeat;
@@ -294,34 +297,50 @@ a.wdn-footer-logo {
 #nebraska-b1g-lockup {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 
     @media @bp640 {
-        margin: .254rem 0 0;
+        margin: .254em 0 0;
     }
 }
 
 #footer_n_logo {
-    height: 4em; // 44px
-    width: 4em; // 44px
-    margin-right: 1.333rem;
+	width: 3.44em; // 44px
+	height: 3.44em; // 44px
+	margin-right: 1.333em;
     background-image: data-uri('../images/n-white.svg');
+
+    @media @bp768 {
+        height: 2.75em; // 44px
+        width: 2.75em; // 44px
+    }
 }
 
 #b1g_wordmark {
-    height: 2.727em; // 30px
-    width: 6.545em; // 72px
+    height: 2.37em; // 30px
+    width: 5.63em; // 72px
     background-image: data-uri('../images/b1g.svg');
+
+    @media @bp768 {
+        height: 1.889em; // 30px
+        width: 4.5em; // 72px
+    }
 }
 
 #unl_wordmark {
-    height: 2.364em; // 26px
-    width: 8.727em; // 96px
-    margin-top: 1.333rem;
+    height: 2.37em; // 30px
+    width: 7.5em; // 96px
+    margin-top: 1.333em;
     background-image: data-uri('../images/wordmark.svg');
 
     @media @bp480 {
-        flex: 1 0 8.727em;
-        margin: .254rem 0 0 5%;
+        flex: 1 0 7.5em;
+        margin: 0 0 0 5%;
+    }
+
+    @media @bp768 {
+        flex-basis: 6em;
+        height: 1.777em; // 28px
+        width: 6em; // 96px
     }
 }
