@@ -95,20 +95,20 @@
                 text-transform: uppercase;
 
                 &.month {
-                    .rem(13);
+                    font-size: 1rem; // 12.83px
                     line-height: 1;
                     letter-spacing: 0.08em;
                 }
 
                 &.day {
                     .heading-font();
-                    .rem(41,51);
+                    font-size: 3.157rem; // 40.51px, 50.517px
                     line-height: 1;
                 }
 
                 &.time {
                     .brand-font();
-                    .rem(13,16);
+                    font-size: 1rem; // 12.83px, 16px
                     line-height: 1.333;
                     letter-spacing: 0.08em;
                     color: lighten(@events-blue, 50%);
@@ -137,7 +137,7 @@
 
             .location {
                 display: inline-block;
-                .rem(9);
+                font-size: .7015rem; // 9px
                 text-transform: uppercase;
                 letter-spacing: 0.08em;
                 line-height: 1.425;
@@ -161,6 +161,33 @@
         a {
             .flexbox & {
                 justify-content: flex-end;
+            }
+        }
+    }
+}
+
+@media @bp768 {
+
+    #events-band,
+    .wdn-events-band {
+
+        .event {
+
+            .dateTime {
+
+                span {
+
+                    &.month {
+                        font-size: .802rem; // 12.83px
+                    }
+                }
+            }
+
+            .eventInfo {
+
+                .location {
+                    font-size: .563rem; // 9px
+                }
             }
         }
     }

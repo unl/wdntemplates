@@ -11,14 +11,18 @@ table {
 
     caption {
         .brand-font();
-        .rem(38,41);
+        font-size: 2.954rem; // 37.897px
         line-height: 1;
         margin-bottom: 0.75em;
+
+        @media @bp768 {
+            font-size: 2.532rem; // 40.51px
+        }
     }
 
     th {
         .wdn-sans-caps();
-        .rem(12,13);
+        font-size: .9353rem; // 12px
         padding: 1.2307em 1.0833em 1.0833em;
         line-height: 1.333;
         border-top: 1px solid @ui04;
@@ -26,6 +30,7 @@ table {
 
         @media @bp768 {
             padding: 1.2307em 1.2307em 1em;
+            font-size: .802rem; // 12.83px
         }
     }
 

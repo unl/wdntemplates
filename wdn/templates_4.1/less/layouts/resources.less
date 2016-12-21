@@ -8,7 +8,7 @@
 
 .wdn-resource-label {
 	.wdn-sans-serif();
-    .rem(10,12);
+    font-size: .75rem; // 9.625px, 12px
 
     @media @bp-nav-full {
         cursor: pointer;
@@ -31,11 +31,11 @@
 
 		.flexbox & {
     		clear: right;
-    		flex: 1; // WDN Resources occupy all space not used by institution title
+    		flex: 1 1 auto; // WDN Resources occupy all space not used by institution title
     		display: flex;
     		flex-flow: row nowrap;
-    		justify-content: flex-end;
     		align-items: center;
+    		min-width: 0;
 		}
 	}
 }

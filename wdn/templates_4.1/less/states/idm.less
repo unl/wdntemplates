@@ -26,6 +26,9 @@
 	}
 
 	#wdn_idm_toggle_label {
+        flex: 1;
+        padding-right: 4.209em;
+        text-overflow: ellipsis;
         white-space: nowrap;
         background-repeat: no-repeat;
         background-size: contain;
@@ -35,17 +38,8 @@
             content: '';
         }
 
-		@media @bp-nav-hidden {
-            padding-right: 50px;
-		}
-
 		@media @bp-nav-full {
-            padding-right: 40px;
             cursor: pointer;
-		}
-
-		@media @bp768 {
-            padding-right: 50px;
 		}
 
         &[aria-pressed="true"] ~ .wdn-idm-options {

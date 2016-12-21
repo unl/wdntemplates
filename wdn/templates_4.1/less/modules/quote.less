@@ -7,14 +7,14 @@
     margin: 0 auto 3.157em;
     padding: 3.157em 5% 0;
     text-align: center;
-    .rem(21,28);
+    font-size: 1.662rem; // 21.328px
     line-height: 1.333;
     font-style: italic;
     letter-spacing: -0.0254em;
 
     &:before, &:after {
         position: absolute;
-        .rem(120,128);
+        font-size: 9.326rem; // 119.654px
         font-style: normal;
         line-height: 1;
         opacity: 0.1;
@@ -32,14 +32,36 @@
         right: 50%;
         transform: translateX(50%);
     }
+}
 
-    @media @bp768 {
+.wdn-quoter { // The name of the quoter
+    display: block;
+    text-align: center;
+    .brand-font();
+    font-size: 1.777rem; // 22.798px
+    font-style: normal;
+    padding-top: 0.75em;
+    letter-spacing: initial;
+
+    .quoter-context { // To be used as context for the quoter. ie: Senior, Art major
+        display: block;
+        .wdn-sans-caps();
+        font-size: .75rem; // 9.625px, 12px
+        color: fadeout(@base-text, 10%);
+    }
+}
+
+@media @bp768 {
+
+    .wdn-quote {
         margin: 0 auto;
         padding: 2.369em;
+        font-size: 1.777rem; // 28.43px
 
         &:before, &:after {
             top: 0.339em;
             transform: none;
+            font-size: 7.994rem; // 127.904px
         }
 
         &:before {
@@ -50,21 +72,8 @@
             right: 0;
         }
     }
-}
 
-.wdn-quoter { // The name of the quoter
-    display: block;
-    text-align: center;
-    .brand-font();
-    .rem(23,30);
-    font-style: normal;
-    padding-top: 0.75em;
-    letter-spacing: initial;
-
-    .quoter-context { // To be used as context for the quoter. ie: Senior, Art major
-        display: block;
-        .wdn-sans-caps();
-        .rem(10,12);
-        color: fadeout(@base-text, 10%);
+    .wdn-quoter { // The name of the quoter
+        font-size: 1.899rem; // 30.39px
     }
 }

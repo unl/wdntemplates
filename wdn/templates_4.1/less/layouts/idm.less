@@ -5,8 +5,9 @@
 
     @media @bp-nav-hidden {
         position: absolute;
-        top: 101px; // position over the nav bar
+        bottom: -3.157rem; // position over the nav bar
         right: @page-offset-default;
+        height: 3.157rem; // 40.51px
         text-align: right;
         z-index: (@nav-z-index + 1); // overlay the nav bar
     }
@@ -20,56 +21,42 @@
     }
 
     @media @bp-nav-full {
+        right: 0;
         font-size: 0; // removes unwanted inline spacing around elements, https://css-tricks.com/fighting-the-space-between-inline-block-elements/
     }
 
     .flexbox & {
         display: flex;
         flex-flow: row nowrap;
-        align-items: center;
         justify-content: flex-end;
+        flex: 2 1 auto;
+        min-width: 0;
     }
+}
+
+#wdn_idm_notice_container {
+    display: flex;
+    min-width: 0;
 }
 
 #wdn_idm_username,
 #wdn_idm_toggle_label {
-    display: block;
-    height: 40px;
-    .rem(12);
-    line-height: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    font-size: .9353rem; // 12px
 
 	@media @bp-nav-hidden {
-        padding-top: 1.333em;
         color: #fae8e8;
     }
 
     @media @bp-nav-full {
 	    display: inline-block;
-	    height: 30px;
-        padding-top: 1.069em;
-	    .rem(10);
+	    height: 2.369rem; // 30.39px
+        padding-top: .254em;
+        font-size: .75rem; // 9.625px, 12px
 	    color: @scarlet;
     }
 
     @media @bp768 {
-        height: 40px;
-        padding-top: 1.333em;
-        .rem(12);
-    }
-
-    .flexbox & {
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
-        order: 2;
-        padding-top: 0.238em;
-
-        @media @bp-nav-hidden {
-            padding-top: 0.143em;
-        }
+        height: 2.532rem; // 40.51px
     }
 
     .wdn-icon-user:before {
@@ -83,18 +70,33 @@
     }
 }
 
+#wdn_idm_username {
+    display: block;
+    line-height: 1;
+
+    .flexbox & {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+
+    @media @bp-nav-hidden {
+        height: 3.157rem; // 40.51px
+    }
+}
+
 .wdn-idm-options {
     display: block;
     .is-hidden();
 	position: absolute;
-	top: 46px;
+	top: calc(~'3.157rem + 6px');
 	right: @page-offset-default;
 	padding: 1.069em 2.369em;
 	white-space: nowrap;
 	border-radius: 3px;
 	background-color: fadeout(@ui12, 3%);
     text-align: left;
-    .rem(11,12);
+    font-size: .8574rem; // 11px
 	z-index: (@nav-z-index + 1);
 	transform: scale(0.9);
 	transform-origin: top;
@@ -109,11 +111,12 @@
     }
 
     @media @bp-nav-full {
-	    top: 37px;
+	    top: calc(~'2.369em + 6px');
     }
 
     @media @bp768 {
-	    top: 47px;
+	    top: calc(~'2.532rem + 6px');
+	    font-size: .75rem; // 12px
     }
 
 	&:before {

@@ -21,7 +21,7 @@
 		flex-flow: nowrap;
 		align-items: center;
         .nav-bar();
-        height: 40px;
+        height: 3.157em; // 40.51px
 
         //Prevent jumping buttons on mobile page load (this will display the old label as it is being replaced by a button)
         label.wdn-icon-menu {
@@ -33,49 +33,32 @@
                 padding-right: 1em;
             }
         }
-
-        button.wdn-nav-toggle .wdn-icon-menu {
-            margin-right: .33em;
-        }
     }
-    
-}
 
-// Shared styles for Menu & Share icons
-.wdn-nav-icon() {
-    white-space: nowrap;
-    overflow: hidden;
-    color: #fff;
-
-    &:before { // Show the navigation icon
-        margin: 0;
-        padding: 0;
-    }
 }
 
 .wdn-icon-menu { // Hide the label text off screen
     .wdn-nav-icon();
-    position: relative;
-    font-size: 21px;
-    font-size: 1.333rem;
+    font-size: 1.333rem; // 17.103px, 21.328px
 }
 
 .wdn-nav-toggle {
+    .wdn-nav-button();
 	.inner-wrapper-margin-left();
-    padding: 0;
     z-index: @nav-z-index + 1;
-    overflow: hidden;
-    line-height: 1;
-	border: none;
-	background-color: transparent;
 
     @media @bp-nav-hidden {
-    	height: 40px;
+        height: 3.157rem;
+        width: 1.333rem;
     }
 
     @media @bp-nav-full {
         position: absolute;
-        top: 24px;
+        top: 1.777em;
+    }
+
+    @media @bp768 {
+        top: 1.425em;
     }
 }
 
@@ -175,7 +158,7 @@
 
     li {
         text-transform: uppercase;
-        .rem(21);
+        font-size: 1.662rem; // 21.328px
 
         &.empty {
             display: none;
@@ -185,7 +168,7 @@
             float: none;
             .sans-serif-font();
             text-transform: none;
-            .rem(11);
+            font-size: .86rem; // 11px
         }
 
         // Styles specific to the full view
@@ -216,6 +199,14 @@
                 a {
                     text-align: left;
                 }
+            }
+        }
+
+        @media @bp768 {
+            font-size: 1.333rem; // 21.328px
+
+            li {
+            	font-size: .69rem; // 11px
             }
         }
     }
@@ -266,7 +257,7 @@
             }
         }
     }
-    
+
     label {
         display: none; //BC fix, prevent duplicate nav buttons after change to buttons if includes are not yet updated
     }

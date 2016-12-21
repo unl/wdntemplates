@@ -8,31 +8,6 @@
     }
 }
 
-//http://css-tricks.com/remux-an-experimental-approach-to-responsive-web-design/
-@rem-fallback: true; // switch to include px fallback
-
-.rem (@px-value) {
-    .rem(@px-value, @px-value);
-}
-
-.rem (@px-value-sm, @px-value-lg) {
-    @rem-value-sm: ((round((unit(@px-value-sm) / unit(@base-font-size-sm)) * 10000000)) / 10000000);
-    @rem-value-lg: ((round((unit(@px-value-lg) / unit(@base-font-size-lg)) * 10000000)) / 10000000);
-
-    .result (@rem-value, @px-value, @rem-fallback) when (@rem-fallback = true) {
-        font-size: ~"@{px-value}px";
-        font-size: ~"@{rem-value}rem";
-    }
-    .result (@rem-value, @px-value, @rem-fallback) when (@rem-fallback = false) {
-        font-size: ~"@{rem-value}rem";
-    }
-
-    .result(@rem-value-sm, unit(@px-value-sm), @rem-fallback);
-    @media @bp2 {
-        .result(@rem-value-lg, unit(@px-value-lg), @rem-fallback);
-    }
-}
-
 .list-reset () {
     margin: 0;
     padding: 0;

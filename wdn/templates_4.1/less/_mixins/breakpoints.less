@@ -1,27 +1,27 @@
 // Standard, width-based media queries
-@bp480: ~" (min-width: 480px)";
-@bp640: ~" (min-width: 640px)";
-@bp768: ~" (min-width: 768px)";
-@bp960: ~" (min-width: 960px)";
-@bp1280: ~" (min-width: 1280px)";
-@bp1600: ~" (min-width: 1600px)";
+@bp480: ~" (min-width: 30em)";
+@bp640: ~" (min-width: 40em)";
+@bp768: ~" (min-width: 48em)";
+@bp960: ~" (min-width: 60em)";
+@bp1280: ~" (min-width: 80em)";
+@bp1600: ~" (min-width: 100em)";
 
 // Width-based media queries which shouldn't cascade to other breakpoints
-@bp480-767: ~" (min-width: 480px) and (max-width: 767px)";
-@bp640-959: ~" (min-width: 640px) and (max-width: 959px)";
-@bp768-959: ~" (min-width: 768px) and (max-width: 959px)";
-@bp960-1279: ~" (min-width: 960px) and (max-width: 1279px)";
-@bp-under480w: ~" (max-width: 479px)";
-@bp-under640w: ~" (max-width: 639px)";
-@bp-under768w: ~" (max-width: 767px)";
+@bp480-767: ~" (min-width: 30em) and (max-width: 47.99em)";
+@bp640-959: ~" (min-width: 40em) and (max-width: 59.99em)";
+@bp768-959: ~" (min-width: 48em) and (max-width: 59.99em)";
+@bp960-1279: ~" (min-width: 60em) and (max-width: 79.99em)";
+@bp-under480w: ~" (max-width: 29.99em)";
+@bp-under640w: ~" (max-width: 39.99em)";
+@bp-under768w: ~" (max-width: 47.99em)";
 
 // Height-based media-queries
-@bp-under640h: ~" (max-height: 639px)";
+@bp-under640h: ~" (max-height: 39.99em)";
 
 // The navigation breaks from the traditional media queries
-@bp-nav-hidden: ~" (max-width: 699px)";
-@bp-nav-full: ~" (min-width: 700px)";
-@bp-nav-max: ~" (min-width: 1016px)"; // nav toggle width + bp3
+@bp-nav-hidden: ~" (max-width: 43.69em)";
+@bp-nav-full: ~" (min-width: 43.75em)";
+@bp-nav-max: ~" (min-width: 63.5em)"; // nav toggle width + bp3
 
 // Deprecated names
 @bp1: @bp480;

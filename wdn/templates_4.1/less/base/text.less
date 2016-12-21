@@ -36,12 +36,29 @@ h1, h2, h3, h4, h5, h6 {
     margin: 1em 0 1rem 0;
 }
 
-h1 { .rem(41,51); }
-h2 { .rem(38,41); }
-h3 { .rem(30,38); }
-h4 { .rem(28,30); }
-h5 { .rem(23,28); }
-h6 { .rem(21,23); }
+h1 {
+    font-size: 3.157rem; // 40.51px, 50.517px
+}
+
+h2 {
+    font-size: 2.9538rem; // 37.897px
+}
+
+h3 {
+    font-size: 2.369rem; // 30.39px, 37.897px
+}
+
+h4 {
+    font-size: 2.2159rem; // 28.43px
+}
+
+h5 {
+    font-size: 1.777rem; // 22.798px
+}
+
+h6 {
+    font-size: 1.662rem; // 21.328px
+}
 
 // Calculate margins above heading based on heading size
 p, span, div, ul, li, section, img {
@@ -74,7 +91,7 @@ p, span, div, ul, li, section, img {
 
 .wdn-alt-header {
     .wdn-sans-caps();
-    .rem(13,16);
+    font-size: 1rem; // 12.83px, 16px
 }
 
 .wdn-list-header {
@@ -102,13 +119,13 @@ p, span, div, ul, li, section, img {
 
     h1, h2, h3 {
         > .wdn-subhead, + .wdn-subhead {
-            .rem(13,16);
+            font-size: 1rem; // 12.83px, 16px
         }
     }
 
     h4, h5, h6 {
         > .wdn-subhead, + .wdn-subhead {
-            .rem(10,12);
+            font-size: .75rem; // 9.625px, 12px
         }
     }
 
@@ -133,12 +150,38 @@ p {
 }
 
 // Magazine-style, larger introduction paragraph
+
 .wdn-intro-p {
-  .rem(17,21);
+    font-size: 1.333rem; // 17.103px, 21.328px
 }
 
 p.small {
-  .rem(12,13);
+    font-size: .9353rem; // 12px
+}
+
+
+
+@media @bp768 {
+
+    h2 {
+        font-size: 2.532rem; // 40.51px
+    }
+
+    h4 {
+        font-size: 1.899rem; // 30.39px
+    }
+
+    h5 {
+        font-size: 1.777rem; // 28.43px
+    }
+
+    h6 {
+        font-size: 1.425rem; // 22.798px
+    }
+
+    p.small {
+        font-size: .802rem; // 12.83px
+    }
 }
 
 
