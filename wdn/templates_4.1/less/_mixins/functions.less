@@ -61,22 +61,6 @@
     .force-block-level();
 }
 
-
-// Experimental flexbox support
-// http://elikirk.com/2013/06/05/flexbox-css-cross-browser-issues/
-.flexbox() {
-    /* Legacy */
-    display: -moz-box;
-    display: -webkit-box;
-
-    /* Hybrid */
-    display: -ms-flexbox;
-
-    /* Modern */
-    display: -webkit-flex;
-    display: flex;
-}
-
 // Flex direction gated mixins
 
     .flex-direction(@value) when (@value = row) {
