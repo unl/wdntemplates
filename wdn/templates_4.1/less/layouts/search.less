@@ -118,18 +118,18 @@
 
     @media @bp-nav-hidden {
         .is-hidden();
-    	position: absolute;
-    	top: calc(~'3.157rem + 6px');
-    	left: 0;
-    	width: 90%; // 100% - 5% inner wrapper margin on each side
+        position: absolute;
+        top: calc(~'3.157rem + 6px');
+        left: 0;
+        width: 90%; // 100% - 5% inner wrapper margin on each side
         padding: 1.899em 2.369em;
-    	border-radius: 3px;
-    	background-color: @ui12;
-    	background-color: fadeout(@ui12, 3%);
-    	z-index: (@nav-z-index + 1);
-    	transform: scale(.9);
-    	transform-origin: top;
-    	transition: opacity .5s ease-in-out, transform .5s ease-in-out, visibility .1s linear .6s;
+        border-radius: 3px;
+        background-color: @ui12;
+        background-color: fadeout(@ui12, 3%);
+        z-index: (@nav-z-index + 1);
+        transform: scale(.9);
+        transform-origin: top;
+        transition: opacity .5s ease-in-out, transform .5s ease-in-out, visibility .1s linear .6s;
     }
 
     @media @bp480 {
