@@ -43,12 +43,15 @@
                 justify-content: center;
             }
 
-            .month, .day, .time {
+            .month,
+            .day,
+            .time {
                 display: block;
                 line-height: 1;
             }
 
-            .month, .time {
+            .month,
+            .time {
                 .sans-serif-font();
                 font-size: .7015rem; // 9px
                 text-transform: uppercase;
@@ -74,7 +77,8 @@
                 justify-content: center;
             }
 
-            .title, .location {
+            .title,
+            .location {
                 display: block;
             }
 
@@ -98,6 +102,7 @@
     }
 
     .feeds {
+
         a {
             position: relative;
             display: inline-block;
@@ -118,8 +123,13 @@
                 color: @ui05;
             }
 
-            &.ics:before { content: '\e812'; }
-            &.rss:before { content: '\e811'; }
+            &.ics:before {
+                content: '\e812';
+            }
+
+            &.rss:before {
+                content: '\e811';
+            }
         }
     }
 
@@ -162,17 +172,21 @@
             color: #444;
         }
 
-        .month, .time, .year {
+        .month,
+        .time,
+        .year {
             color: fadeout(@dark-neutral, 25%);
         }
 
-        .time, .year {
+        .time,
+        .year {
             display: block;
             font-size: .8em;
             padding-right: 5px;
         }
 
-        .location, .summary {
+        .location,
+        .summary {
             border-left: #777 solid 2px;
             border-bottom: none;
             padding-left: 5px;
@@ -212,7 +226,8 @@
 
             .date {
 
-                .month, .time {
+                .month,
+                .time {
                     font-size: .602rem; // 9.625px
                 }
             }
