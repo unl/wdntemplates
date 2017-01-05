@@ -13,19 +13,12 @@
     }
 
     @media @bp-nav-full {
+	    display: flex;
+	    flex-flow: row nowrap;
+	    align-items: center;
+	    flex: 1 0 9.969em;
         position: relative;
-	    display: inline-block;
-	    float: right;
-	    margin: .339em 0 0 1em;
-
-	    .flexbox & {
-    	    clear: right;
-    	    display: flex;
-    	    flex-flow: row nowrap;
-    	    align-items: center;
-    	    flex: 1 0 9.969em;
-    	    margin: 0 0 0 5%;
-	    }
+	    margin: 0 0 0 5%;
 
 	    &.active:after {
 	    	content: '';
@@ -37,18 +30,6 @@
 	    	right: 60px;
 	    	z-index: (@nav-z-index + 2);
 	    }
-    }
-
-    @media @bp768 {
-	    margin-left: 1em;
-    }
-
-    @media @bp960 {
-	    margin-left: 1.777em;
-    }
-
-    @media @bp1280 {
-	    margin-left: 3.375em;
     }
 
     &.wdn-resource-label {
@@ -130,17 +111,18 @@
 }
 
 #wdn_search_form {
+    display: flex;
+    flex-flow: column;
     z-index: 1; // Ensure we're above the site title
     top: .75em;
 
     @media @bp-nav-hidden {
-        display: block;
         .is-hidden();
     	position: absolute;
     	top: calc(~'3.157rem + 6px');
     	left: 0;
     	width: 90%; // 100% - 5% inner wrapper margin on each side
-    	padding: 1.069em 2.369em 1.777em;
+        padding: 1.899em 2.369em;
     	border-radius: 3px;
     	background-color: @ui12;
     	background-color: fadeout(@ui12, 3%);
@@ -151,6 +133,8 @@
     }
 
     @media @bp480 {
+        flex-flow: row nowrap;
+        align-items: center;
         width: 88%; // 100% - 6% inner wrapper margin on each side
     }
 
@@ -162,20 +146,6 @@
         position: static;
         top: auto;
         width: 100%;
-    }
-
-    .flexbox & {
-        display: flex;
-        flex-flow: column;
-
-        @media @bp480 {
-            flex-flow: row nowrap;
-            align-items: center;
-        }
-
-        @media @bp-nav-hidden {
-            padding: 1.899em 2.369em;
-        }
     }
 
 	&:before {
@@ -199,8 +169,13 @@
     }
 
     label {
+        margin-bottom: .254em;
 	    font-size: .9353rem; // 12px
 	    line-height: 1;
+
+	    @media @bp480 {
+            margin: .254em .602em 0 0;
+	    }
 
 	    @media @bp-nav-hidden {
             color: @ui03;
@@ -209,14 +184,6 @@
 	    @media @bp-nav-full {
 	        margin-right: .602em;
     	    font-size: .75rem; // 9.625px, 12px
-	    }
-
-	    .flexbox & {
-    	    margin-bottom: .254em;
-
-    	    @media @bp480 {
-        	    margin: .254em .602em 0 0;
-    	    }
 	    }
     }
 }
