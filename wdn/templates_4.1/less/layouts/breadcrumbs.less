@@ -23,10 +23,11 @@
 }
 
 .breadcrumb-loop(@i) when (@i > 1) {
-  .breadcrumb-loop((@i - 1)); // next iteration
-  li:nth-child(@{i}) {
-    margin-left: (1.333em * (@i - 2));
-  }
+    .breadcrumb-loop((@i - 1)); // next iteration
+
+    li:nth-child(@{i}) {
+        margin-left: (1.333em * (@i - 2));
+    }
 }
 
 #breadcrumbs {
