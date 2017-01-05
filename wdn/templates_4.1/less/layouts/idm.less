@@ -1,5 +1,9 @@
 .wdn-resource-login-trigger {
-	display: inline-block;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    flex: 2 1 auto;
+    min-width: 0;
     position: relative;
     overflow: visible;
 
@@ -23,14 +27,6 @@
     @media @bp-nav-full {
         right: 0;
         font-size: 0; // removes unwanted inline spacing around elements, https://css-tricks.com/fighting-the-space-between-inline-block-elements/
-    }
-
-    .flexbox & {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-end;
-        flex: 2 1 auto;
-        min-width: 0;
     }
 }
 
@@ -71,14 +67,10 @@
 }
 
 #wdn_idm_username {
-    display: block;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
     line-height: 1;
-
-    .flexbox & {
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
-    }
 
     @media @bp-nav-hidden {
         height: 3.157rem; // 40.51px
