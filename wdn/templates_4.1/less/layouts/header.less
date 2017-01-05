@@ -7,14 +7,11 @@
 
 // !Header, top line
 #wdn_header_top {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
 	height: 2.369em;
 	.inner-wrapper-margin-left();
-
-	.flexbox & {
-    	display: flex;
-    	flex-flow: row nowrap;
-    	align-items: center;
-	}
 
 	@media @bp-nav-hidden {
 		margin-right: 0;
@@ -34,7 +31,8 @@
 
 // !Institution Title
 #wdn_institution_title {
-    float: left;
+    display: flex;
+    padding-top: .254em;
     white-space: nowrap;
     display: block;
     padding-top: 1em;
@@ -53,11 +51,6 @@
 
     @media @bp768 {
         padding-top: 1.333em;
-    }
-
-    .flexbox & {
-        display: flex;
-        padding-top: .254em;
     }
 }
 
