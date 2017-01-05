@@ -20,28 +20,20 @@
     }
 
     .event {
-        display: inline-block;
+        display: flex;
+        flex-flow: row nowrap;
         width: 100%;
         margin-bottom: .75em;
 
-        .flexbox & {
-            display: flex;
-            flex-flow: row nowrap;
-        }
-
         .date {
-            float: left;
+            flex: 0 1 auto;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
             width: 4.499em;
             text-align: center;
             margin-right: .75em;
             border-right: 1px solid @ui04;
-
-            .flexbox & {
-                flex: 0 1 auto;
-                display: flex;
-                flex-flow: column wrap;
-                justify-content: center;
-            }
 
             .month,
             .day,
@@ -69,13 +61,10 @@
         }
 
         .info {
-
-            .flexbox & {
-                flex: 1 0 80%;
-                display: flex;
-                flex-flow: column wrap;
-                justify-content: center;
-            }
+            flex: 1 0 80%;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
 
             .title,
             .location {
