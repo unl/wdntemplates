@@ -28,7 +28,12 @@
 
 // !HEADINGS
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: normal;
     color: @heading-text;
     .heading-font();
@@ -61,8 +66,19 @@ h6 {
 }
 
 // Calculate margins above heading based on heading size
-p, span, div, ul, li, section, img {
-    + h1, + h2, + h3, + h4, + h5, + h6 {
+p,
+span,
+div,
+ul,
+li,
+section,
+img {
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
         margin-top: @base-line-height-sm * 1em;
 
         @media @bp768 {
@@ -71,7 +87,8 @@ p, span, div, ul, li, section, img {
     }
 }
 
-.wdn-heading, .wdn-impact {
+.wdn-heading,
+.wdn-impact {
     .heading-font();
 }
 
@@ -117,25 +134,42 @@ p, span, div, ul, li, section, img {
 
     // Font sizes in relation to headers
 
-    h1, h2, h3 {
-        > .wdn-subhead, + .wdn-subhead {
+    h1,
+    h2,
+    h3 {
+        > .wdn-subhead,
+        + .wdn-subhead {
             font-size: 1rem; // 12.83px, 16px
         }
     }
 
-    h4, h5, h6 {
-        > .wdn-subhead, + .wdn-subhead {
+    h4,
+    h5,
+    h6 {
+        > .wdn-subhead,
+        + .wdn-subhead {
             font-size: .75rem; // 9.625px, 12px
         }
     }
 
 .wdn-subhead {
-   + h1, + h2, + h3, + h4, + h5, + h6  {
+   + h1,
+   + h2,
+   + h3,
+   + h4,
+   + h5,
+   + h6  {
         margin-top: 0;
     }
 }
 
-p, span, div, ul, li, section, img {
+p,
+span,
+div,
+ul,
+li,
+section,
+img {
     + .wdn-subhead {
         margin-bottom: 0;
     }
