@@ -4,14 +4,12 @@
 
 #events-band,
 .wdn-events-band {
+    display: flex;
+    flex-wrap: wrap;
     position: relative;
 
-    .flexbox & {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
     .wdn-col {
+        display: flex;
         margin-top: 1em;
 
         @media @bp480 {
@@ -35,20 +33,13 @@
                 clear: both;
             }
         }
-
-        .flexbox & {
-            display: flex;
-        }
     }
 
     a {
+        display: flex;
+        flex: 1;
         border: 0;
         outline: none;
-
-        .flexbox & {
-            display: flex;
-            flex: 1;
-        }
 
         &:hover {
 
@@ -59,27 +50,21 @@
     }
 
     .event {
+        display: flex;
+        flex: 1;
         position: relative;
         padding: 0;
         transition: background-color .3s ease; // lesshat
         overflow: hidden;
         background-color: lighten(@events-blue, 5%);
 
-        .flexbox & {
-            display: flex;
-            flex: 1;
-        }
-
         .dateTime,
         .eventInfo {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
             color: #fff;
             padding: 1em .75em;
-
-            .flexbox & {
-                display: flex;
-                flex-flow: column;
-                justify-content: center;
-            }
         }
 
         .dateTime {
@@ -128,14 +113,7 @@
             .eventTitle {
                 margin: 0;
                 padding-bottom: .422em;
-                max-height: 2.8em;
                 line-height: 1.333;
-                overflow: hidden;
-
-                .flexbox & {
-                    overflow: auto;
-                    max-height: none;
-                }
             }
 
             .location {
@@ -145,13 +123,6 @@
                 letter-spacing: .08em;
                 line-height: 1.425;
                 color: lighten(@events-blue, 66%);
-                max-height: 2.3em;
-                overflow: hidden;
-
-                .flexbox & {
-                    overflow: auto;
-                    max-height: none;
-                }
             }
         }
     }
@@ -162,9 +133,7 @@
         margin: .75em 0;
 
         a {
-            .flexbox & {
-                justify-content: flex-end;
-            }
+            justify-content: flex-end;
         }
     }
 }
