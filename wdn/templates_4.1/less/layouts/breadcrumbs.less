@@ -41,13 +41,10 @@
     ul {
 
     	@media @bp-nav-full {
-
-        	.flexbox & {
-                display: flex;
-                flex-flow: row nowrap;
-                align-items: center;
-                white-space: nowrap;
-        	}
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            white-space: nowrap;
     	}
     }
 
@@ -62,17 +59,14 @@
 		}
 
 		@media @bp-nav-full {
+            flex: 0 1 auto;
             display: inline-block;
+            min-width: 1em;
             margin-bottom: -1px;
             padding: 1px .422em 0 1.777em;
             line-height: 2.37;
 			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5b5b5a+0,474746+100 */
 			background: linear-gradient(to right,  #5b5b5a 0%,#474746 100%);
-
-            .flexbox & {
-                flex: 0 1 auto;
-                min-width: 1em;
-            }
 		}
 
 		@media @bp768 {
@@ -107,11 +101,8 @@
 		&:first-child {
 
 			@media @bp-nav-full {
+                flex: none;
                 margin-left: -1.777em;
-
-                .flexbox & {
-                    flex: none;
-                }
 			}
 
             &:before {
@@ -123,6 +114,7 @@
 		}
 
 		&:last-child {
+            flex: 0 0 auto;
 
             &:not(.last-link) {
 
@@ -136,10 +128,6 @@
     			&:after {
     				display: none;
     			}
-            }
-
-            .flexbox & {
-                flex: 0 0 auto;
             }
 		}
 
