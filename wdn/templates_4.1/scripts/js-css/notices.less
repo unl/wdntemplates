@@ -2,7 +2,7 @@
 
 .colorize-notice(@color) {
     background-color: @color;
-    transition: background ease-out 0.2s; // lesshat
+    transition: background ease-out .2s; // lesshat
 
     &:hover {
         background-color: darken(@color, 2%);
@@ -20,7 +20,7 @@
 .wdn_notice {
     margin-bottom: 1em;
     border-radius: 3px;
-    padding: 1em 1em 0.75em;
+    padding: 1em 1em .75em;
     box-shadow: 0 1px 1px 0 fadeout(#000, 50%);
     .colorize-notice(@triad);
 
@@ -51,13 +51,13 @@
             .sans-serif-font;
 		    line-height: 1.333;
 		    text-transform: uppercase;
-		    letter-spacing: 0.02em;
+		    letter-spacing: .02em;
     		font-size: inherit;
         }
 
         &:before {
             position: absolute;
-            top: 0.1em;
+            top: .1em;
             left: 0;
             width: 41px;
             height: 41px;
