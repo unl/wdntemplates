@@ -36,7 +36,8 @@
         background-color: #eee;
     }
 
-    td, th {
+    td,
+    th {
         .sans-serif-font();
         font-size: .9353rem; // 12px
         line-height: 1;
@@ -57,7 +58,8 @@
             background: #fff;
         }
 
-        &.prev, &.next {
+        &.prev,
+        &.next {
             background-color: #f7f7f7;
 
             a {
@@ -176,19 +178,26 @@
         a {
             color: #fff;
 
-            &.prev, &.next {
+            &.prev,
+            &.next {
                 font-size: 0;
                 display: inline-block;
                 text-decoration: none;
             }
 
-            &.prev:after, &.next:before {
+            &.prev:after,
+            &.next:before {
                 font-size: 1.247rem; // 16px
                 .fontello();
             }
 
-            &.prev:after    { content: '\e80a'; }
-            &.next:before   { content: '\e808'; }
+            &.prev:after {
+                content: '\e80a';
+            }
+
+            &.next:before {
+                content: '\e808';
+            }
         }
     }
 }
@@ -197,13 +206,15 @@
 
     .wp-calendar {
 
-        td, th {
+        td,
+        th {
             font-size: .802rem; // 12.83px
         }
 
         td {
 
-            &.prev, &.next {
+            &.prev,
+            &.next {
 
                 a {
                     font-size: .602rem; // 9.625px
