@@ -2,7 +2,8 @@
 	position: relative;
 	background: @ui10;
 
-	img, video {
+	img,
+	video {
 		display: block;
 	}
 }
@@ -12,7 +13,7 @@
 	top: 0;
 	bottom: 0;
 	width: 100%;
-	background-image: linear-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,0.5) 75%,rgba(0,0,0,0.3) 100%);
+	background-image: linear-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,.5) 75%,rgba(0,0,0,.3) 100%);
 
 	.wdn-promo-content {
 		position: absolute;
@@ -21,7 +22,7 @@
 		text-transform: uppercase;
     	color: #fff;
     	text-align: center;
-    	text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    	text-shadow: 0 0 10px rgba(0, 0, 0, .5);
 
     	.wdn-promo-text {
     		.heading-font;
@@ -52,20 +53,20 @@
 	    }
 
 		@media @bp480 {
-       		bottom: 7%;
+            bottom: 7%;
 	    }
 
 	    @media @bp768 {
-	       bottom: 10%;
+            bottom: 10%;
 	    }
 	}
 
 	&.wdn-inverse {
-		background-image: linear-gradient(top, rgba(255,255,255,0) 40%,rgba(255,255,255,0.5) 75%,rgba(255,255,255,0.3) 100%);
+		background-image: linear-gradient(top, rgba(255,255,255,0) 40%,rgba(255,255,255,.5) 75%,rgba(255,255,255,.3) 100%);
 
 		.wdn-text-over-image {
 			color: @base-text;
-			text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+			text-shadow: 0 0 10px rgba(255, 255, 255, .5);
 		}
 	}
 }

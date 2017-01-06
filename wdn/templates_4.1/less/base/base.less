@@ -32,9 +32,10 @@ q {
 a {
     color: @brand;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color .3s;
 
-    .wdn-main p &, .wdn-main li > & {
+    .wdn-main p &,
+    .wdn-main li > & {
         border-bottom-style: dotted;
         border-bottom-width: 1px;
 
@@ -43,15 +44,16 @@ a {
         }
     }
 
-    &:hover, &:visited {
+    &:hover,
+    &:visited {
         color: darken(@brand, 20%);
     }
 }
 
 abbr[title] {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 figure {
-	margin: 1em 0;
+    margin: 1em 0;
 }

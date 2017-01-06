@@ -1,14 +1,18 @@
 .skipnav {
-    a:focus, a:active {
+
+    a:focus,
+    a:active {
         left: 0;
-        padding: 0.5em;
+        padding: .5em;
         line-height: 1;
         .nav-bar;
     }
 }
 
 #navigation {
+
     a {
+
         &:hover {
             color: #fff;
 
@@ -38,6 +42,7 @@
 }
 
 @media @bp-nav-hidden {
+
     .nav-scrolling #header {
        margin-bottom: 31px; // maintain whitespace reserved by fixed trigger
     }
@@ -63,7 +68,9 @@
 }
 
 @media @bp-nav-full {
+
     #wdn_menu_toggle:checked ~ #wdn_navigation_bar { // Change states when toggle is checked
+
         #navigation li ul {
             height: auto;
             margin-bottom: 5px;
@@ -75,12 +82,14 @@
     }
 
     .js { // fouc-fixes
+
         #wdn_navigation_bar,
         .wdn-nav-toggle {
             visibility: hidden;
         }
 
         .nav_ready {
+
             #wdn_navigation_bar,
             .wdn-nav-toggle {
                 visibility: visible;
@@ -100,6 +109,7 @@
     }
 
     #navigation {
+
         .js & {
             position: absolute;
 
@@ -109,6 +119,7 @@
         }
 
         li ul {
+
             .nav_ready & {
                 transition: height linear @nav-transition-duration, margin @nav-transition-duration linear;
             }
@@ -127,6 +138,7 @@
         }
 
         > ul {
+
             > li:hover {
                 background-color: darken(@brand,4%);
             }

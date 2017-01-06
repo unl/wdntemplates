@@ -7,14 +7,11 @@
 
 // !Header, top line
 #wdn_header_top {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
 	height: 2.369em;
 	.inner-wrapper-margin-left();
-
-	.flexbox & {
-    	display: flex;
-    	flex-flow: row nowrap;
-    	align-items: center;
-	}
 
 	@media @bp-nav-hidden {
 		margin-right: 0;
@@ -34,10 +31,9 @@
 
 // !Institution Title
 #wdn_institution_title {
-    float: left;
+    display: flex;
+    padding-top: .254em;
     white-space: nowrap;
-    display: block;
-    padding-top: 1em;
     .wdn-sans-caps();
     font-size: .75rem; // 9.625px, 12px
     line-height: 1;
@@ -48,16 +44,6 @@
 
     @media @bp-nav-full {
         margin-right: 5%;
-        padding-top: 1.069em;
-    }
-
-    @media @bp768 {
-        padding-top: 1.333em;
-    }
-
-    .flexbox & {
-        display: flex;
-        padding-top: 0.254em;
     }
 }
 
@@ -78,7 +64,7 @@
     // IE & Edge truncate values to two decimal places, rounding up to ~44px (12.8px * 3.44)
 	width: 3.44em; // 44px
 	height: 3.44em; // 44px
-	margin-right: 0.75em;
+	margin-right: .75em;
     background: transparent data-uri('../images/n.svg') center center no-repeat;
 	background-size: contain;
 

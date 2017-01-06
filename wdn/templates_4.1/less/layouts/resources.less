@@ -14,7 +14,7 @@
         cursor: pointer;
     }
 
-    [class^=wdn-icon] {
+    [class^='wdn-icon'] {
         text-decoration: none;
         cursor: pointer;
 
@@ -27,16 +27,11 @@
 #wdn_resources {
 
 	@media @bp-nav-full {
-        float: right;
-
-		.flexbox & {
-    		clear: right;
-    		flex: 1 1 auto; // WDN Resources occupy all space not used by institution title
-    		display: flex;
-    		flex-flow: row nowrap;
-    		align-items: center;
-    		min-width: 0;
-		}
+		flex: 1 1 auto; // WDN Resources occupy all space not used by institution title
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		min-width: 0;
 	}
 }
 
@@ -44,7 +39,7 @@
 
     .wdn-resource-label {
 
-        [class^=wdn-icon] {
+        [class^='wdn-icon'] {
             color: @brand;
 
             &:before {

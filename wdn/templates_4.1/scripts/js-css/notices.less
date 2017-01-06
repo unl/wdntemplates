@@ -1,8 +1,8 @@
-@import "../../less/_mixins/all.less";
+@import '../../less/_mixins/all.less';
 
 .colorize-notice(@color) {
     background-color: @color;
-    transition: background ease-out 0.2s; // lesshat
+    transition: background ease-out .2s; // lesshat
 
     &:hover {
         background-color: darken(@color, 2%);
@@ -20,14 +20,15 @@
 .wdn_notice {
     margin-bottom: 1em;
     border-radius: 3px;
-    padding: 1em 1em 0.75em;
+    padding: 1em 1em .75em;
     box-shadow: 0 1px 1px 0 fadeout(#000, 50%);
     .colorize-notice(@triad);
 
     .close {
         color: #fff;
 
-        a, a:hover {
+        a,
+        a:hover {
             color: #fff;
         }
     }
@@ -46,18 +47,19 @@
             color: inherit;
         }
 
-        h4, .title {
+        h4,
+        .title {
         	// match .wdn-sans-caps
             .sans-serif-font;
 		    line-height: 1.333;
 		    text-transform: uppercase;
-		    letter-spacing: 0.02em;
+		    letter-spacing: .02em;
     		font-size: inherit;
         }
 
         &:before {
             position: absolute;
-            top: 0.1em;
+            top: .1em;
             left: 0;
             width: 41px;
             height: 41px;
@@ -65,7 +67,7 @@
             line-height: normal;
             text-align: center;
             font-family: wdn-icon;
-            content: "\e807";
+            content: '\e807';
 
             @media @bp2 {
                 width: 54px;
@@ -77,7 +79,7 @@
         .colorize-notice(@complement);
 
         .message:before {
-            content: "\e80b";
+            content: '\e80b';
         }
     }
 
@@ -85,7 +87,7 @@
         .colorize-notice(@brand);
 
         .message:before {
-            content: "\e805";
+            content: '\e805';
         }
     }
 
@@ -93,11 +95,13 @@
         .colorize-notice(@energetic);
 
         .message:before {
-            content: "\e806";
+            content: '\e806';
         }
     }
 
-    .close, .minimize, .maximize {
+    .close,
+    .minimize,
+    .maximize {
         float: right;
 
         &:before {
@@ -106,7 +110,8 @@
             font-family: wdn-icon;
         }
 
-        a, a:hover {
+        a,
+        a:hover {
             width: 16px;
             height: 16px;
             text-indent: -2000em;
@@ -120,10 +125,11 @@
     .close {
 
         &:before {
-            content: "\e805";
+            content: '\e805';
         }
 
-        a, a:hover {
+        a,
+        a:hover {
             border: none;
         }
     }
@@ -131,14 +137,14 @@
     .minimize {
 
         &:before {
-            content: "\e80d";
+            content: '\e80d';
         }
     }
 
     .maximize {
 
         &:before {
-            content: "\e80c";
+            content: '\e80c';
         }
     }
 

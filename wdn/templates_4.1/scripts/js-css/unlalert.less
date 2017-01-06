@@ -1,4 +1,4 @@
-@import "../../less/_mixins/all.less";
+@import '../../less/_mixins/all.less';
 
 @warning-contrast: spin(@dark-neutral, 135);
 
@@ -10,43 +10,44 @@
     background: @warning;
     padding: 5px;
     .clear-fix;
-    
+
     a {
         color: @warning-contrast;
     }
-    
+
     #unlalert_content {
 	    display: none;
-	    font-size: 0.8em;
+	    font-size: .8em;
 	    margin-left: 2em;
 	    color: #000;
-	    
+
 	    h1 {
 	    	font-size: 1.5em;
-	    	 
+
 	    	span {
 	        	color: darken(@brand, 10%)
 	        }
 	    }
-	    
+
 	    h2 {
 	    	font-size: 1.3em;
 	    }
 	}
-	
+
 	#unlalert_toggle {
 		float: left;
 		white-space: nowrap;
 	}
-    
+
     &.show {
-    	#unlalert_toggle span {
-    		display: inline-block;
-			text-indent: -99em;
-		}
-		
-    	#unlalert_content {
-    		display: block;
-    	}
+
+        #unlalert_toggle span {
+            display: inline-block;
+            text-indent: -99em;
+        }
+
+        #unlalert_content {
+            display: block;
+        }
     }
 }

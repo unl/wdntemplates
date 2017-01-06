@@ -1,5 +1,5 @@
 .wdn-quote {
-    quotes: "\201C" "\201D";
+    quotes: '\201C' '\201D';
     position: relative;
     display: table;
     width: auto;
@@ -10,14 +10,15 @@
     font-size: 1.662rem; // 21.328px
     line-height: 1.333;
     font-style: italic;
-    letter-spacing: -0.0254em;
+    letter-spacing: -.0254em;
 
-    &:before, &:after {
+    &:before,
+    &:after {
         position: absolute;
         font-size: 9.326rem; // 119.654px
         font-style: normal;
         line-height: 1;
-        opacity: 0.1;
+        opacity: .1;
     }
 
     &:before {
@@ -40,7 +41,7 @@
     .brand-font();
     font-size: 1.777rem; // 22.798px
     font-style: normal;
-    padding-top: 0.75em;
+    padding-top: .75em;
     letter-spacing: initial;
 
     .quoter-context { // To be used as context for the quoter. ie: Senior, Art major
@@ -58,8 +59,9 @@
         padding: 2.369em;
         font-size: 1.777rem; // 28.43px
 
-        &:before, &:after {
-            top: 0.339em;
+        &:before,
+        &:after {
+            top: .339em;
             transform: none;
             font-size: 7.994rem; // 127.904px
         }

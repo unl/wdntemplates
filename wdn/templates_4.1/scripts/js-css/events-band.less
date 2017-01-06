@@ -1,20 +1,19 @@
-@import "../../less/_mixins/all.less";
+@import '../../less/_mixins/all.less';
 
 @events-blue: #0e60a0;
 
 #events-band,
 .wdn-events-band {
+    display: flex;
+    flex-wrap: wrap;
     position: relative;
 
-    .flexbox & {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
     .wdn-col {
+        display: flex;
         margin-top: 1em;
 
         @media @bp480 {
+
             &:nth-of-type(2n+1) {
                 clear: both;
             }
@@ -25,6 +24,7 @@
         }
 
         @media @bp768 {
+
             &:nth-of-type(2n+1) {
                 clear: none;
             }
@@ -33,20 +33,13 @@
                 clear: both;
             }
         }
-
-        .flexbox & {
-            display: flex;
-        }
     }
 
     a {
+        display: flex;
+        flex: 1;
         border: 0;
         outline: none;
-
-        .flexbox & {
-            display: flex;
-            flex: 1;
-        }
 
         &:hover {
 
@@ -57,26 +50,21 @@
     }
 
     .event {
+        display: flex;
+        flex: 1;
         position: relative;
         padding: 0;
         transition: background-color .3s ease; // lesshat
         overflow: hidden;
         background-color: lighten(@events-blue, 5%);
 
-        .flexbox & {
+        .dateTime,
+        .eventInfo {
             display: flex;
-            flex: 1;
-        }
-
-        .dateTime, .eventInfo {
+            flex-flow: column;
+            justify-content: center;
             color: #fff;
-            padding: 1em 0.75em;
-
-            .flexbox & {
-                display: flex;
-                flex-flow: column;
-                justify-content: center;
-            }
+            padding: 1em .75em;
         }
 
         .dateTime {
@@ -97,7 +85,7 @@
                 &.month {
                     font-size: 1rem; // 12.83px
                     line-height: 1;
-                    letter-spacing: 0.08em;
+                    letter-spacing: .08em;
                 }
 
                 &.day {
@@ -110,7 +98,7 @@
                     .brand-font();
                     font-size: 1rem; // 12.83px, 16px
                     line-height: 1.333;
-                    letter-spacing: 0.08em;
+                    letter-spacing: .08em;
                     color: lighten(@events-blue, 50%);
                 }
             }
@@ -124,31 +112,17 @@
 
             .eventTitle {
                 margin: 0;
-                padding-bottom: 0.422em;
-                max-height: 2.8em;
+                padding-bottom: .422em;
                 line-height: 1.333;
-                overflow: hidden;
-
-                .flexbox & {
-                    overflow: auto;
-                    max-height: none;
-                }
             }
 
             .location {
                 display: inline-block;
                 font-size: .7015rem; // 9px
                 text-transform: uppercase;
-                letter-spacing: 0.08em;
+                letter-spacing: .08em;
                 line-height: 1.425;
                 color: lighten(@events-blue, 66%);
-                max-height: 2.3em;
-                overflow: hidden;
-
-                .flexbox & {
-                    overflow: auto;
-                    max-height: none;
-                }
             }
         }
     }
@@ -156,12 +130,10 @@
     p.more-events {
         text-align: right;
         clear: left;
-        margin: 0.75em 0;
+        margin: .75em 0;
 
         a {
-            .flexbox & {
-                justify-content: flex-end;
-            }
+            justify-content: flex-end;
         }
     }
 }

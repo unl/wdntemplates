@@ -1,4 +1,4 @@
-@import "../../less/_mixins/all.less";
+@import '../../less/_mixins/all.less';
 
 .wdn-calendar {
 
@@ -6,81 +6,74 @@
         .sans-serif-font();
         font-size: .9353rem; // 12px
         text-transform: uppercase;
-        letter-spacing: 0.02em;
+        letter-spacing: .02em;
         margin-bottom: 1em;
-        padding-bottom: 0.339em;
+        padding-bottom: .339em;
         border-bottom: 1px solid @ui04;
 
         &:before {
             .fontello();
             content: '\e810';
             color: @ui05;
-            padding-right: 0.254em;
+            padding-right: .254em;
         }
     }
 
     .event {
-        display: inline-block;
+        display: flex;
+        flex-flow: row nowrap;
         width: 100%;
-        margin-bottom: 0.75em;
-
-        .flexbox & {
-            display: flex;
-            flex-flow: row nowrap;
-        }
+        margin-bottom: .75em;
 
         .date {
-            float: left;
+            flex: 0 1 auto;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
             width: 4.499em;
             text-align: center;
-            margin-right: 0.75em;
+            margin-right: .75em;
             border-right: 1px solid @ui04;
 
-            .flexbox & {
-                flex: 0 1 auto;
-                display: flex;
-                flex-flow: column wrap;
-                justify-content: center;
-            }
-
-            .month, .day, .time {
+            .month,
+            .day,
+            .time {
                 display: block;
                 line-height: 1;
             }
 
-            .month, .time {
+            .month,
+            .time {
                 .sans-serif-font();
                 font-size: .7015rem; // 9px
                 text-transform: uppercase;
             }
 
             .month {
-                padding-bottom: 0.178em;
+                padding-bottom: .178em;
             }
 
             .day {
                 .heading-font();
                 font-size: 1.777rem; // 22.798px, 28.43px
-                padding-bottom: 0.134em;
+                padding-bottom: .134em;
             }
         }
 
         .info {
+            flex: 1 0 80%;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
 
-            .flexbox & {
-                flex: 1 0 80%;
-                display: flex;
-                flex-flow: column wrap;
-                justify-content: center;
-            }
-
-            .title, .location {
+            .title,
+            .location {
                 display: block;
             }
 
             .title {
                 line-height: 1.333;
-                padding-bottom: 0.254em;
+                padding-bottom: .254em;
             }
 
             .location {
@@ -98,33 +91,36 @@
     }
 
     .feeds {
+
         a {
             position: relative;
             display: inline-block;
-            margin-right: 0.75em;
+            margin-right: .75em;
             padding-left: 1em;
             border: none;
             .brand-font();
             text-transform: uppercase;
             font-size: 1.247rem; // 16px
-            letter-spacing: 0.02em;
+            letter-spacing: .02em;
 
             &:before {
                 position: absolute;
                 top: 3px;
-                left: -0.1em;
+                left: -.1em;
                 .fontello();
                 font-size: .9353rem; // 12px
                 color: @ui05;
             }
 
-            &.ics:before { content: '\e812'; }
-            &.rss:before { content: '\e811'; }
+            &.ics:before {
+                content: '\e812';
+            }
+
+            &.rss:before {
+                content: '\e811';
+            }
         }
     }
-
-
-
 
     thead {
         display: none;
@@ -133,8 +129,6 @@
     .vevent .description {
         display: none;
     }
-
-
 
     .upcoming tr {
         background: none;
@@ -167,22 +161,26 @@
             color: #444;
         }
 
-        .month, .time, .year {
+        .month,
+        .time,
+        .year {
             color: fadeout(@dark-neutral, 25%);
         }
 
-        .time, .year {
+        .time,
+        .year {
             display: block;
-            font-size: 0.8em;
+            font-size: .8em;
             padding-right: 5px;
         }
 
-        .location, .summary {
+        .location,
+        .summary {
             border-left: #777 solid 2px;
             border-bottom: none;
             padding-left: 5px;
             display: block;
-            font-size: 0.9em;
+            font-size: .9em;
             line-height: 130%;
         }
 
@@ -217,7 +215,8 @@
 
             .date {
 
-                .month, .time {
+                .month,
+                .time {
                     font-size: .602rem; // 9.625px
                 }
             }
