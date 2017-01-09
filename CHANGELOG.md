@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.16 (January 10, 2016)
+- CSS cleanup to meet coding standards and remove shims for old platforms ([#1040](https://github.com/unl/wdntemplates/pull/1040), [#1041](https://github.com/unl/wdntemplates/pull/1041), [#1042](https://github.com/unl/wdntemplates/pull/1042))
+
+## 4.1.15 (December 13, 2016)
+- Update global footer link on Big Ten logo ([#1037](https://github.com/unl/wdntemplates/pull/1037))
+- Change the example first breadcrumb to say "Nebraska" ([#1038](https://github.com/unl/wdntemplates/pull/1038)
+- Fix bug in month widget configuration ([#1039](https://github.com/unl/wdntemplates/pull/1039))
+- Reduce the timeout between scrolling and the fixed header moving ([3549db0](https://github.com/unl/wdntemplates/commit/3549db014b58b14198079de312327b51d21e7b06))
+
 ## 4.1.14 (November 8, 2016)
 - Update CSS class for hiding footer logos ([#1029](https://github.com/unl/wdntemplates/pull/1029))
 - Add analytics function for tracking mediahub iframe events ([#1031](https://github.com/unl/wdntemplates/pull/1031))
