@@ -25,16 +25,6 @@
             }
         }
     }
-
-    .nav_expanded & {
-
-        > ul > li > a {
-
-            @media @bp-nav-full {
-                border-bottom: 1px solid fadeout(#000,94%);
-            }
-        }
-    }
 }
 
 #wdn_menu_toggle {
@@ -141,6 +131,13 @@
 
             > li:hover {
                 background-color: darken(@brand,4%);
+            }
+
+            > li > a {
+                .nav_changing &,
+                .nav_expanded & {
+                    border-bottom: 1px solid fadeout(#000,94%);
+                }
             }
 
             li {

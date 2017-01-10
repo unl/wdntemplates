@@ -245,7 +245,13 @@ define(['jquery', 'wdn', 'modernizr', 'require', 'socialmediashare'], function($
 
 		primaryLinks.each(function(i){
 			var row = Math.floor(i/6);
-			var height = $(this).outerHeight();
+			var height = this.getBoundingClientRect().height || $(this).outerHeight();
+
+			// account for 1px border on expanded navigation
+			if (expandSemaphore || currentState === 1) {
+				height -= 1;
+			}
+
 			if (!navigationRowHeights[row] || height > navigationRowHeights[row]) {
 				navigationRowHeights[row] = height;
 			}
@@ -260,8 +266,9 @@ define(['jquery', 'wdn', 'modernizr', 'require', 'socialmediashare'], function($
 
 		primaryLinks.each(function(i){
 			var row = Math.floor(i/6),
-				height = $(this).outerHeight(),
+				height = this.getBoundingClientRect().height || $(this).outerHeight(),
 				pad = parseFloat($(this).css(cssPaddingTop));
+
 
 			if (height < navigationRowHeights[row]) {
 				var navRowCellPadding = (navigationRowHeights[row] - height) / 2;
