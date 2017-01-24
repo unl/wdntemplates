@@ -1,7 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 4.1.16 (January 10, 2016)
+## 4.1.17 (January 24, 2017)
+- Happy new copyright year ([d274265](https://github.com/unl/wdntemplates/commit/d2742655fe9d0a902a52ff1dde0d28ce5f5d1aef))
+- Fix subpixel border appearing below navigation bar ([#1043](ttps://github.com/unl/wdntemplates/pull/1043))
+- Remove animated image caption styles ([#1044](ttps://github.com/unl/wdntemplates/pull/1044))
+- Descrease hero text-shadow styles ([#1045](ttps://github.com/unl/wdntemplates/pull/1045))
+
+## 4.1.16 (January 10, 2017)
 - CSS cleanup to meet coding standards and remove shims for old platforms ([#1040](https://github.com/unl/wdntemplates/pull/1040), [#1041](https://github.com/unl/wdntemplates/pull/1041), [#1042](https://github.com/unl/wdntemplates/pull/1042))
 
 ## 4.1.15 (December 13, 2016)
