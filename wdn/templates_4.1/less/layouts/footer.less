@@ -2,6 +2,11 @@
 
 #footer {
     .sans-serif-font();
+    font-size: .86rem; // 11px
+
+    @media @bp768 {
+        font-size: .69rem; // 11px
+    }
 
     abbr[title] {
         border: none;
@@ -61,11 +66,6 @@
 
 .wdn-footer-module {
 	padding-bottom: 2.369em;
-    font-size: .86rem; // 11px
-
-    @media @bp768 {
-        font-size: .69rem; // 11px
-    }
 
 	[class*='wdn-col-']:last-of-type & {
 		padding-bottom: 0;
