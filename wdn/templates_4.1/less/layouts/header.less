@@ -60,24 +60,18 @@
 // !Nebraska 'N' Logo
 #logo {
 	display: block;
-    float: left;
+	float: left;
+    // IE & Edge truncate values to two decimal places, rounding up to ~44px (12.8px * 3.44)
+	width: 3.44em; // 44px
+	height: 3.44em; // 44px
 	margin-right: .75em;
-    background-position: center;
-    background-repeat: no-repeat;
+	background: transparent data-uri('../images/n.svg') center center no-repeat;
 	background-size: contain;
-
-    @media @bp-under768w {
-        // IE & Edge truncate values to two decimal places, rounding up to ~44px (12.8px * 3.44)
-    	width: 3.44em; // 44px
-    	height: 3.44em; // 44px
-        background-image: data-uri('../images/n-44.svg');
-    }
 
     @media @bp768 {
         // IE & Edge truncate values to two decimal places, rounding up to ~56px (16px * 3.5)
 		width: 3.5em; // 56px
 		height: 3.5em; // 56px
-        background-image: data-uri('../images/n-56.svg');
     }
 
 	span {
