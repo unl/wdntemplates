@@ -2,6 +2,11 @@
 
 #footer {
     .sans-serif-font();
+    font-size: .86rem; // 11px
+
+    @media @bp768 {
+        font-size: .69rem; // 11px
+    }
 
     abbr[title] {
         border: none;
@@ -23,19 +28,28 @@
 
         a {
         	display: inline-block;
-        	margin-bottom: .75em;
+        }
+
+        &:not(:last-child) {
+
+            a {
+                margin-bottom: .563rem;
+
+                @media @bp768 {
+                    margin-bottom: .422rem;
+                }
+            }
         }
     }
 
     [class*='wdn-icon-'] {
 	    position: relative;
-		padding-left: 2.369em;
+		padding-left: 1.777rem;
 
         &:before {
 	        position: absolute;
             top: -.191em;
             left: 0;
-			margin-right: .75em;
             font-size: 1.425em;
             color: @ui07;
         }
@@ -59,19 +73,6 @@
 	}
 }
 
-.wdn-footer-module {
-	padding-bottom: 2.369em;
-    font-size: .86rem; // 11px
-
-    @media @bp768 {
-        font-size: .69rem; // 11px
-    }
-
-	[class*='wdn-col-']:last-of-type & {
-		padding-bottom: 0;
-	}
-}
-
 
 
 // !Optional Footer
@@ -85,11 +86,11 @@
 // !Local Footer
 
 .wdn-footer-local {
-	padding: 2.369em 0;
+	padding: 2.369rem 0;
     color: @ui05;
 	background-color: @ui09;
 	background: lighten(@ui09,2%) data-uri('../images/line-squares-tile.svg') center center repeat;
-	background-size: 1.777em 1.777em;
+	background-size: 1.777rem 1.777rem;
 
 	a {
         color: @ui04;
@@ -100,19 +101,21 @@
         }
     }
 
-	.wdn-footer-module {
+    [class*='wdn-col-'] + [class*='wdn-col-'] .wdn-footer-module {
+        padding-top: 1.777rem;
+    }
 
-		@media @bp640 {
-			padding-bottom: 0;
-		}
-	}
+    @media @bp640 {
+        .bp640-wdn-col-two-thirds + .bp640-wdn-col-one-third .wdn-footer-module {
+            padding-top: 0;
+        }
+    }
 
-	[class*='wdn-col']:last-child .wdn-footer-module {
-
-		@media @bp-under640w {
-			padding-bottom: 0;
-		}
-	}
+    @media @bp960 {
+        [class*='wdn-col-'] + [class*='wdn-col-'] .wdn-footer-module {
+            padding-top: 0;
+        }
+    }
 
 	span[role='heading'] {
 		color: @ui04;
@@ -123,17 +126,25 @@
 
 		dt,
 		dd {
-			margin: 0;
 			padding: 0;
 		}
 
 		dt {
 			float: left;
-			width: 2.369em;
+			width: 1.777rem;
+			margin: 0;
 		}
 
 		dd {
-			margin: 0 0 1em 2.369em;
+			margin: 0 0 .563rem 1.777rem;
+
+            @media @bp768 {
+                margin-bottom: .422rem;
+            }
+
+            &:last-of-type {
+			    margin-bottom: 0;
+            }
 		}
 	}
 }
@@ -144,11 +155,20 @@
 	&-v2,
 	&-v3,
 	&-v4 {
-        break-inside: avoid;
 
 		@media @bp-under640w {
     		columns: 2;
 		}
+	}
+
+	&-v2 {
+
+    	@media (max-width: 59.99em) {
+
+            [class*='wdn-col'] + [class*='wdn-col'] .wdn-footer-module {
+                padding-top: 1.777rem;
+            }
+        }
 	}
 
 	&-v2,
@@ -169,6 +189,10 @@
 			columns: 3;
 		}
 	}
+
+    li {
+        break-inside: avoid;
+    }
 }
 
 
@@ -176,27 +200,34 @@
 // !Global Footer
 
 .wdn-footer-global {
-	padding-top: 2.369em;
-	padding-bottom: 9.969em;
+	padding-top: 2.369rem;
+	padding-bottom: 9.969rem;
     color: @ui06;
 	background-color: @ui10;
 	background: @ui10 data-uri('../images/seal.svg') center bottom -14.204em no-repeat;
-	background-size: 25.24em 25.24em;
+	background-size: 25.24rem 25.24rem;
+
+    @media @bp-under480w {
+
+        [class*='wdn-col'] + [class*='wdn-col'] .wdn-footer-module {
+            padding-top: 2.369rem;
+        }
+    }
 
 	@media @bp480 {
-        padding-bottom: 3.375em;
-        background-position: left -5.61em bottom -9.969em;
-        background-size: 25.24em 25.24em;
+        padding-bottom: 3.375rem;
+        background-position: left -5.61rem bottom -9.969rem;
+        background-size: 25.24rem 25.24rem;
 	}
 
 	@media @bp960 {
-		padding-bottom: 2.532em;
-		background-position: right -7.478em bottom -7.478em;
-		background-size: 31.474em 31.474em;
+		padding-bottom: 2.532rem;
+		background-position: right -7.478rem bottom -7.478rem;
+		background-size: 31.474rem 31.474rem;
 	}
 
 	@media @bp1280 {
-		background-position: right -5% bottom -7.994em;
+		background-position: right -5% bottom -7.994rem;
 	}
 
 	a {
@@ -208,13 +239,6 @@
         }
     }
 
-	.wdn-footer-module {
-
-		@media @bp480 {
-			padding-bottom: 1em;
-		}
-	}
-
 	span[role='heading'] {
 		color: @ui05;
 	}
@@ -223,20 +247,17 @@
 
 		@media @bp-under480w {
 			columns: 2;
-			break-inside: avoid;
-		}
-	}
 
-	.wdn-col:last-of-type {
-
-		.wdn-footer-list {
-			padding-bottom: 0;
+			li {
+			    break-inside: avoid;
+			}
 		}
 	}
 }
 
 .wdn-footer-end {
-	padding-top: 3vh;
+	margin-top: 1.333rem;
+	padding-top: 1.333rem;
 	border-top: 1px solid @ui09;
 
 	a {
@@ -254,15 +275,14 @@
 .wdn-wdn-qa,
 .wdn-copyright-phone {
 	display: block;
-    font-size: .86rem; // 11px
 
-    @media @bp768 {
-        font-size: .69rem; // 11px
-    }
+	a {
+        white-space: nowrap;
+	}
 }
 
 .wdn-wdn-qa {
-	margin-bottom: .451em;
+	margin-bottom: .254rem;
 }
 
 
@@ -291,57 +311,57 @@ a.wdn-footer-logo {
 #tips_wordmark {
     width: 6.901em; // 67px
     height: 2.727em; // 30px
-    margin-top: .254rem;
+    margin-top: .75rem;
     background-image: data-uri('../images/tips.svg');
 }
 
 #nebraska-b1g-lockup {
     display: flex;
     align-items: center;
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
 
     @media @bp640 {
-        margin: .254em 0 0;
+        margin: .254rem 0 0;
     }
 }
 
 #footer_n_logo {
-	width: 3.44em; // 44px
-	height: 3.44em; // 44px
-	margin-right: 1.333em;
+	width: 3.44rem; // 44px
+	height: 3.44rem; // 44px
+	margin-right: 1.333rem;
     background-image: data-uri('../images/n-white.svg');
 
     @media @bp768 {
-        height: 2.75em; // 44px
-        width: 2.75em; // 44px
+        height: 2.75rem; // 44px
+        width: 2.75rem; // 44px
     }
 }
 
 #b1g_wordmark {
-    height: 2.37em; // 30px
-    width: 5.63em; // 72px
+    height: 2.37rem; // 30px
+    width: 5.63rem; // 72px
     background-image: data-uri('../images/b1g.svg');
 
     @media @bp768 {
-        height: 1.889em; // 30px
-        width: 4.5em; // 72px
+        height: 1.889rem; // 30px
+        width: 4.5rem; // 72px
     }
 }
 
 #unl_wordmark {
-    height: 2.37em; // 30px
-    width: 7.5em; // 96px
-    margin-top: 1.333em;
+    height: 2.37rem; // 30px
+    width: 7.5rem; // 96px
+    margin-top: 1.333rem;
     background-image: data-uri('../images/wordmark.svg');
 
     @media @bp480 {
-        flex: 1 0 7.5em;
+        flex: 1 0 7.5rem;
         margin: 0 0 0 5%;
     }
 
     @media @bp768 {
-        flex-basis: 6em;
-        height: 1.777em; // 28px
-        width: 6em; // 96px
+        flex-basis: 6rem;
+        height: 1.777rem; // 28px
+        width: 6rem; // 96px
     }
 }
