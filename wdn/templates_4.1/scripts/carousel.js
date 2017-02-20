@@ -18,9 +18,15 @@ define([
 	return {
 		initialize : function(callback) {
 			$(function() {
-				var defaults = WDN.getPluginParam('carousel', 'defaults') || {};
+				var userConfig = WDN.getPluginParam('carousel', 'defaults') || {};
+				var defaultConfig = {
+                    directionNav: false
+				};
+
+				var localConfig = $.extend({}, defaultConfig, userConfig);
+				
 				$(defaultSel).addClass(flexCls);
-				$('.' + flexCls).flexslider(defaults);
+				$('.' + flexCls).flexslider(localConfig);
 				initd = true;
 				
 				if (callback) {
