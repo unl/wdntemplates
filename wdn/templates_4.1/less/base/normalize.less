@@ -12,7 +12,8 @@
 
 html {
   font-family: sans-serif; /* 1 */
-  line-height: 1.15; /* 2 */
+// Avoid override, line-height is defined in base.less
+//   line-height: 1.15; /* 2 */
   -ms-text-size-adjust: 100%; /* 3 */
   -webkit-text-size-adjust: 100%; /* 3 */
 }
@@ -46,10 +47,11 @@ section {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
+// h1 styles are defined in text.less
+// h1 {
+//   font-size: 2em;
+//   margin: 0.67em 0;
+// }
 
 /* Grouping content
    ========================================================================== */
@@ -69,9 +71,10 @@ main { /* 1 */
  * Add the correct margin in IE 8.
  */
 
-figure {
-  margin: 1em 40px;
-}
+// IE 8 is not supported by the WDN framework
+// figure {
+//   margin: 1em 40px;
+// }
 
 /**
  * 1. Add the correct box sizing in Firefox.
@@ -103,7 +106,8 @@ pre {
  */
 
 a {
-  background-color: transparent; /* 1 */
+// IE 10 is not supported by the WDN framework
+//   background-color: transparent; /* 1 */
   -webkit-text-decoration-skip: objects; /* 2 */
 }
 
@@ -237,9 +241,10 @@ img {
  * Hide the overflow in IE.
  */
 
-svg:not(:root) {
-  overflow: hidden;
-}
+// IE 9 is not supported by the WDN framework
+// svg:not(:root) {
+//   overflow: hidden;
+// }
 
 /* Forms
    ========================================================================== */
@@ -254,9 +259,11 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: sans-serif; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
+// Avoid override, font styles are defined in critical.less
+//   font-family: sans-serif; /* 1 */
+//   font-size: 100%; /* 1 */
+// Avoid override, line-height is defined in base.less
+//   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
 }
 
@@ -320,11 +327,12 @@ button:-moz-focusring,
  * Change the border, margin, and padding in all browsers (opinionated).
  */
 
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
-}
+// Avoid override, fieldset styles are defined in forms.less
+// fieldset {
+//   border: 1px solid #c0c0c0;
+//   margin: 0 2px;
+//   padding: 0.35em 0.625em 0.75em;
+// }
 
 /**
  * 1. Correct the text wrapping in Edge and IE.
