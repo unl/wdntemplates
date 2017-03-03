@@ -6,7 +6,7 @@ cache:
     - build/vendor
     - node_modules
 php:
-  - 5.6
+  - 7
 install:
   - nvm install node
   - npm install
