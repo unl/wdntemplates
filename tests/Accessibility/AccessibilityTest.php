@@ -7,44 +7,46 @@ require_once __DIR__ . '/../mod_include.php';
 
 putenv('PATH=' . realpath(__DIR__ . '/../../node_modules/.bin') . ':' . getenv('PATH'));
 
-class AccessibilityTest extends TestCase {
-    public static $base_url = 'http://localhost:8080/';
-    protected $viewports = [
-        [
-            'width' => 400,
-            'height' => 800,
-        ],
-        [
-            'width' => 800,
-            'height' => 800,
-        ],
-    ];
-  
-    public function a11yDataProvider() {
-        $data = [];
-        
-        $examples_directory = __DIR__ . '/../../wdn/templates_4.1/examples/';
-        
-        $directory_iterator = new DirectoryIterator($examples_directory);
+class AccessibilityTest extends TestCase
+{
+  public static $base_url = 'http://localhost:8080/';
+  protected $viewports = [
+    [
+      'width'  => 400,
+      'height' => 800,
+    ],
+    [
+      'width'  => 800,
+      'height' => 800,
+    ],
+  ];
 
-        foreach ($this->viewports as $viewport) {
-          foreach ($directory_iterator as $file_info) {
-            if ($file_info->getExtension() !== 'html') {
-              continue;
-            }
+  public function a11yDataProvider()
+  {
+    $data = [];
 
-            $data[] = [
-              $file_info->getFilename(),
-              $viewport['width'],
-              $viewport['height'],
-              $examples_directory,
-            ];
-          }
-          break;
+    $examples_directory = __DIR__ . '/../../wdn/templates_4.1/examples/';
+
+    $directory_iterator = new DirectoryIterator($examples_directory);
+
+    foreach ($this->viewports as $viewport) {
+      foreach ($directory_iterator as $file_info) {
+        if ($file_info->getExtension() !== 'html') {
+          continue;
         }
 
-        return $data;
+        $data[] = [
+          $file_info->getFilename(),
+          $viewport['width'],
+          $viewport['height'],
+          $examples_directory,
+        ];
+      }
+      break;
     }
+
+    return $data;
+  }
 
   /**
    * @param string $file the filename of the example page to check
@@ -56,10 +58,11 @@ class AccessibilityTest extends TestCase {
    * @dataProvider a11yDataProvider
    *
    */
-  public function testA11y($file, $width, $height, $examples_directory) {
+  public function testA11y($file, $width, $height, $examples_directory)
+  {
     $test_name = $file . ' at ' . $width . ' x ' . $height;
-    $url = self::$base_url . 'tests/Accessibility/tmp/' . $file;
-    $command = 'phantomjs '
+    $url       = self::$base_url . 'tests/Accessibility/tmp/' . $file;
+    $command   = 'phantomjs '
       . __DIR__ . '/phantomjs-axe.js '
       . escapeshellarg($url) . ' '
       . escapeshellarg($width) . ' '
@@ -67,9 +70,9 @@ class AccessibilityTest extends TestCase {
 
     //Prepare the DOM
     $example_html = file_get_contents($examples_directory . $file);
-    
-    $new_dom      = \HTML5::loadHTML(file_get_contents($examples_directory . 'index.shtml'));
-    $example_dom  = \HTML5::loadHTML($example_html);
+
+    $new_dom     = \HTML5::loadHTML(file_get_contents($examples_directory . 'index.shtml'));
+    $example_dom = \HTML5::loadHTML($example_html);
 
     $main_content = $new_dom->getElementById('maincontent');
     while ($main_content->hasChildNodes()) {
@@ -90,21 +93,22 @@ class AccessibilityTest extends TestCase {
 
     //Save to an example file.
     $exampleSHTML = mod_include_string(\HTML5::saveHTML($new_dom), dirname(dirname(__DIR__)));
-    $tmpHTMLFile = __DIR__ . '/tmp/' . $file;
+    $tmpHTMLFile  = __DIR__ . '/tmp/' . $file;
     file_put_contents($tmpHTMLFile, $exampleSHTML);
 
     //Run pa11y on the test page
-    $output_file =  __DIR__ . '/output.json';
-    $errorFile = __DIR__ . '/error_output.txt';
-    $result = exec($command . ' > ' . $output_file . ' 2>' . $errorFile);
+    $output_file = __DIR__ . '/output.json';
+    $errorFile   = __DIR__ . '/error_output.txt';
+    $result      = exec($command . ' > ' . $output_file . ' 2>' . $errorFile);
     $errorOutput = file_get_contents($errorFile);
-    $json = file_get_contents($output_file);
+    $json        = file_get_contents($output_file);
     unlink($output_file);
     unlink($tmpHTMLFile);
     unlink($errorFile);
 
     if (!$data = json_decode($json, true)) {
       $this->markTestIncomplete('bad axe output for ' . $file);
+
       return;
     }
 
@@ -113,18 +117,18 @@ class AccessibilityTest extends TestCase {
 
     if (isset($data['violations']) && !empty($data['violations'])) {
       echo $test_name . ' should have no a11y problems' . PHP_EOL;
-            foreach ($data['violations'] as $violation) {
-              foreach ($violation['nodes'] as $node) {
-                echo $url
-                  . "\r\n\t axe-test-id: " . $violation['id']
-                  . "\r\n\t help: " . $violation['help']
-                  . "\r\n\t description: " . $violation['description']
-                  . "\r\n\t target: " . print_r($node['target'], true)
-                  . "\r\n\t context: " . $node['html']
-                  . "\r\n------------\r\n";
-              }
-            }
+      foreach ($data['violations'] as $violation) {
+        foreach ($violation['nodes'] as $node) {
+          echo $url
+            . "\r\n\t axe-test-id: " . $violation['id']
+            . "\r\n\t help: " . $violation['help']
+            . "\r\n\t description: " . $violation['description']
+            . "\r\n\t target: " . print_r($node['target'], true)
+            . "\r\n\t context: " . $node['html']
+            . "\r\n------------\r\n";
         }
+      }
+    }
   }
 }
 
