@@ -4,6 +4,16 @@ abstract class AccessibilityTester {
     protected $examples_directory = '';
     protected $wrapper_html;
     public static $base_url = 'http://localhost:8080/';
+    protected $viewports = [
+        [
+            'width' => 400,
+            'height' => 800,
+        ],
+        [
+            'width' => 800,
+            'height' => 800,
+        ],
+    ];
 
     public function __construct()
     {
@@ -32,20 +42,24 @@ abstract class AccessibilityTester {
      * @param string $file the filename of the example page to check
      * @return array|bool false on error, array of errors on success
      */
-    abstract protected function checkExample($file);
+    abstract protected function checkExample($file, $width, $height);
 
     public function check()
     {
+        //Loop though the files
         foreach ($this->getFilesToCheck() as $file) {
-            $errors = $this->checkExample($file);
-            if ($errors === false) {
-                echo 'Unable to check ' . $file . PHP_EOL;
-            }
-
-            if (!empty($errors)) {
-                echo $file . ' FAILED!' . PHP_EOL;
-                foreach ($errors as $error) {
-                    echo "\t " . $error . PHP_EOL;
+            //Test each one at each viewport
+            foreach ($this->viewports as $viewport) {
+                $errors = $this->checkExample($file, $viewport['width'], $viewport['height']);
+                if ($errors === false) {
+                    echo 'Unable to check ' . $file . PHP_EOL;
+                }
+    
+                if (!empty($errors)) {
+                    echo $file . ' FAILED!' . PHP_EOL;
+                    foreach ($errors as $error) {
+                        echo "\t " . $error . PHP_EOL;
+                    }
                 }
             }
         }

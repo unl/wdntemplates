@@ -17,12 +17,14 @@ class AccessibilityAxeTester extends AccessibilityTester {
      * @param string $file the filename of the example page to check
      * @return array|bool false on error, array of errors on success
      */
-    protected function checkExample($file) {
-        echo "checking: " . $file . PHP_EOL;
+  protected function checkExample($file, $width, $height) {
+        echo "checking: $file at $width x $height" . PHP_EOL;
         $url = self::$base_url . 'tests/Accessibility/tmp/' . $file;
-        $command = 'phantomjs ' .
-            __DIR__ . '/phantomjs-axe.js ' .
-            escapeshellarg($url);
+        $command = 'phantomjs '
+            . __DIR__ . '/phantomjs-axe.js '
+            . escapeshellarg($url) . ' '
+            . escapeshellarg($width) . ' '
+            . escapeshellarg($height);
         $errors  = array();
 
         //Prepare the DOM

@@ -5,10 +5,13 @@ var args = require('system').args;
 var fs = require('fs');
 var page = require('webpage').create();
 
-if (args.length < 2) {
-	console.log('axe-phantomjs.js accepts 1 argument, the URL to test');
+if (args.length < 4) {
+	console.log('phantomjs-axe accepts 1 argument, the URL to test');
+    console.log('phantomjs-axe.js URL sizeX sizeY');
 	phantom.exit(1);
 }
+
+page.viewportSize = { width: args[2], height: args[3] };
 
 page.open(args[1], function (status) {
 	// Check for page load success
