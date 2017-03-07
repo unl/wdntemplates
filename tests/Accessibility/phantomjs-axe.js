@@ -1,9 +1,9 @@
 /*global phantom */
-var PATH_TO_AXE = '../../node_modules/axe-core/axe.min.js';
-
 var args = require('system').args;
 var fs = require('fs');
 var page = require('webpage').create();
+
+var PATH_TO_AXE = './axe.min.js';
 
 if (args.length < 4) {
 	console.log('phantomjs-axe accepts 1 argument, the URL to test');
@@ -45,7 +45,7 @@ page.open(args[1], function (status) {
 			};
 
 			axe.a11yCheck(window.document, options, function (results) {
-				window.callPhantom(results);
+				window.callPhantom(results.violations);
 			});
 		});
 

@@ -10,6 +10,7 @@ putenv('PATH=' . realpath(__DIR__ . '/../../node_modules/.bin') . ':' . getenv('
 class AccessibilityTest extends TestCase
 {
   public static $base_url = 'http://localhost:8080/';
+  
   protected $viewports = [
     [
       'width'  => 400,
@@ -20,6 +21,14 @@ class AccessibilityTest extends TestCase
       'height' => 800,
     ],
   ];
+  
+  public static function setUpBeforeClass() {
+    $file = __DIR__ . '/axe.min.js';
+    if (!file_exists($file)) {
+      $axe = file_get_contents('https://webaudit.unl.edu/plugins/metric_axe/node_modules/axe-core/axe.min.js');
+      file_put_contents($file, $axe);
+    }
+  }
 
   public function a11yDataProvider()
   {
