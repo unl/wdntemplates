@@ -6,7 +6,7 @@ cache:
     - build/vendor
     - node_modules
 php:
-  - 5.6
+  - 7
 install:
   - nvm install node
   - npm install
@@ -21,7 +21,7 @@ install:
 script:
   # start a localhost server on 8080 for the root
   - nohup node_modules/.bin/http-server -d false -r >/dev/null &
-  - phpunit tests
+  - ./build/vendor/bin/phpunit tests
 branches:
   only:
     - develop
