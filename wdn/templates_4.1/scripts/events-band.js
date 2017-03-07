@@ -19,7 +19,7 @@ define([
     },
 
     container = '#events-band',
-    defaultCal = '//events.unl.edu/';
+    defaultCal = 'https://events.unl.edu/';
 
     var fetchEvents = function(localConfig) {
         var upcoming = 'upcoming/',
@@ -93,6 +93,13 @@ define([
             rooms: false
         },
         localConfig = $.extend({}, defaultConfig, config);
+
+        // ensure that the URL we are about to use is forced into an https:// protocol. (add https if it starts with //)
+        if (localConfig.url && localConfig.url.match(/^\/\//)) {
+            localConfig.url = 'https:' + localConfig.url;
+        } else if (localConfig.url && localConfig.url.match(/^http:\/\//)) {
+            localConfig.url = localConfig.url.replace('http://', 'https://');
+        }
 
         if (localConfig.url && $(localConfig.container).length) {
             fetchEvents(localConfig);
