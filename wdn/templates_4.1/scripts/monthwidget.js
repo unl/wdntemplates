@@ -21,7 +21,7 @@ define([
 		return eventParams || {};
 	},
 	container = '#monthwidget',
-	defaultCal = '//events.unl.edu/';
+	defaultCal = 'https://events.unl.edu/';
 
 	var display = function(data, config) {
 		var $container = $(config.container);
@@ -108,6 +108,13 @@ define([
 			container: container
 		},
 		localConfig = $.extend({}, defaultConfig, config);
+
+		// ensure that the URL we are about to use is forced into an https:// protocol. (add https if it starts with //)
+        if (localConfig.url && localConfig.url.match(/^\/\//)) {
+            localConfig.url = 'https:' + localConfig.url;
+        } else if (localConfig.url && localConfig.url.match(/^http:\/\//)) {
+            localConfig.url = localConfig.url.replace('http://', 'https://');
+        }
 
 		if (localConfig.url && $(localConfig.container).length) {
 			$.get(localConfig.url + '?monthwidget&format=hcalendar', function(data) {
