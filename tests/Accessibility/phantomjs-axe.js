@@ -13,7 +13,9 @@ if (args.length < 4) {
 
 page.viewportSize = { width: args[2], height: args[3] };
 
-page.open(args[1], function (status) {
+var url = args[1];
+
+page.open(url, function (status) {
 	// Check for page load success
 	if (status !== 'success') {
 		console.log('Unable to access network');
@@ -50,7 +52,13 @@ page.open(args[1], function (status) {
 		});
 
 		page.onCallback = function (msg) {
+            if (msg.length > 0) {
+                var filename = url.substring(url.lastIndexOf('/')+1);
+                page.render(filename+'.png');
+            }
+			
 			console.log(JSON.stringify(msg));
+			
 			phantom.exit();
 		};
 	}, 500);
