@@ -110,23 +110,25 @@ class AccessibilityTest extends TestCase
     $errorFile   = __DIR__ . '/error_output.txt';
     $result      = exec($command . ' > ' . $output_file . ' 2>' . $errorFile);
     $errorOutput = file_get_contents($errorFile);
-    $json        = file_get_contents($output_file);
+    $json        = trim(file_get_contents($output_file));
     unlink($output_file);
     unlink($tmpHTMLFile);
     unlink($errorFile);
 
-    if (!$data = json_decode($json, true)) {
+    $violations = json_decode($json, true);
+
+    if ($violations === false) {
       $this->markTestIncomplete('bad axe output for ' . $file);
 
       return;
     }
-
+    
     //This is how we tell phpUnit that we don't expect any errors (if there are errors, echo details about em later)
     $this->expectOutputString('');
 
-    if (isset($data['violations']) && !empty($data['violations'])) {
+    if (!empty($violations) && is_array($violations)) {
       echo $test_name . ' should have no a11y problems' . PHP_EOL;
-      foreach ($data['violations'] as $violation) {
+      foreach ($violations as $violation) {
         foreach ($violation['nodes'] as $node) {
           echo $url
             . "\r\n\t axe-test-id: " . $violation['id']
