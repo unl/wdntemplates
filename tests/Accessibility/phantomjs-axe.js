@@ -1,16 +1,21 @@
 /*global phantom */
-var PATH_TO_AXE = '../../node_modules/axe-core/axe.min.js';
-
 var args = require('system').args;
 var fs = require('fs');
 var page = require('webpage').create();
 
-if (args.length < 2) {
-	console.log('axe-phantomjs.js accepts 1 argument, the URL to test');
+var PATH_TO_AXE = './axe.min.js';
+
+if (args.length < 4) {
+	console.log('phantomjs-axe accepts 1 argument, the URL to test');
+    console.log('phantomjs-axe.js URL sizeX sizeY');
 	phantom.exit(1);
 }
 
-page.open(args[1], function (status) {
+page.viewportSize = { width: args[2], height: args[3] };
+
+var url = args[1];
+
+page.open(url, function (status) {
 	// Check for page load success
 	if (status !== 'success') {
 		console.log('Unable to access network');
@@ -42,12 +47,18 @@ page.open(args[1], function (status) {
 			};
 
 			axe.a11yCheck(window.document, options, function (results) {
-				window.callPhantom(results);
+				window.callPhantom(results.violations);
 			});
 		});
 
 		page.onCallback = function (msg) {
+            if (msg.length > 0) {
+                var filename = url.substring(url.lastIndexOf('/')+1);
+                page.render(filename+'.png');
+            }
+			
 			console.log(JSON.stringify(msg));
+			
 			phantom.exit();
 		};
 	}, 500);
