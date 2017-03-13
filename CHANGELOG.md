@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.18 (February 13, 2017)
+- Changed Nebraska N logo to improve pixel-fitting
+- Updates to font size calculation in footer
+- Add margin to last element (if not a .wdn-band) to add vertical space between main content and footer
+
 ## 4.1.17 (January 24, 2017)
 - Happy new copyright year ([d274265](https://github.com/unl/wdntemplates/commit/d2742655fe9d0a902a52ff1dde0d28ce5f5d1aef))
 - Fix subpixel border appearing below navigation bar ([#1043](ttps://github.com/unl/wdntemplates/pull/1043))
