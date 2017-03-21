@@ -1,0 +1,42 @@
+<noscript>
+    <link rel="stylesheet" href="https://cloud.typography.com/7717652/616662/css/fonts.css" />
+    <link rel="stylesheet" href="https://unlcms.unl.edu/wdn/templates_4.1/css/all.css?dep=$DEP_VERSION$" />
+</noscript>
+<style id="wdn-critical-styles">
+    <!--#include virtual="/wdn/templates_4.1/css/critical.css" -->
+</style>
+<script>
+    var WDNRemoveCriticalStyles = function() {
+        document.querySelector('#wdn-critical-styles').remove();
+    };
+    var WDNLoadDeferredStyles = function() {
+        //Define sheets to load
+        function addSheet(url, onload) {
+            var sheet = document.createElement("link");
+            sheet.type = "text/css";
+            sheet.rel = "stylesheet";
+            sheet.href = url;
+            sheet.onload = onload;
+            document.getElementsByTagName("head")[0].appendChild(sheet);
+        }
+        
+        //Load the fonts
+        addSheet('https://cloud.typography.com/7717652/616662/css/fonts.css');
+        //Load the all the css and then remove the inline critical css
+        addSheet('https://unlcms.unl.edu/wdn/templates_4.1/css/all.css?dep=$DEP_VERSION$', WDNRemoveCriticalStyles);
+       
+        //Set a flag that will persist across page loads (until the browser is closed)
+        sessionStorage.setItem('wdn-speedy-assets-are-cached', true);
+    };
+    //Load the CSS
+    if (sessionStorage.getItem('wdn-speedy-assets-are-cached')) {
+        //Assets are cached, so we should load right now (before JS is loaded)
+        WDNLoadDeferredStyles();
+    } else {
+        //Otherwise, load deferred
+        var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+            webkitRequestAnimationFrame || msRequestAnimationFrame;
+        if (raf) raf(function() { window.setTimeout(WDNLoadDeferredStyles, 0); });
+        else window.addEventListener('load', WDNLoadDeferredStyles);
+    }
+</script>

@@ -3,7 +3,8 @@ module.exports = function (grunt) {
 	var cssObjs = [
 		'all',
 		'modules/pagination',
-		'modules/infographics'
+		'modules/infographics',
+		'critical'
 	];
 
 	var jsCssObjs = [
