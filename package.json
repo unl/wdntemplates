@@ -1,6 +1,6 @@
 {
   "name": "wdntemplates",
-  "version": "4.1.18",
+  "version": "4.1.19",
   "description": "Web Framework for the UNLedu website.",
   "repository": {
     "type": "git",
@@ -16,7 +16,6 @@
   },
   "homepage": "https://github.com/unl/wdntemplates#readme",
   "devDependencies": {
-    "axe-core": "^2.0.7",
     "csso": "^2.1.1",
     "grunt": "^1.0.1",
     "grunt-bump": "^0.8.0",

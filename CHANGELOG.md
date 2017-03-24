@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.19 (March 13, 2017)
+- Updated events widget to force use of https, even if option not selected ([#1055](https://github.com/unl/wdntemplates/commit/9dae8df39db9839268e3a6537ebb1afd789e2b76))
+- Disabled the direction navigation on carousels by default ([#1052](https://github.com/unl/wdntemplates/commit/2bde94c5cd76ed656645941813a8dea8ae9f0a31))
+
+## 4.1.18 (February 13, 2017)
+- Changed Nebraska N logo to improve pixel-fitting
+- Updates to font size calculation in footer
+- Add margin to last element (if not a .wdn-band) to add vertical space between main content and footer
+
 ## 4.1.17 (January 24, 2017)
 - Happy new copyright year ([d274265](https://github.com/unl/wdntemplates/commit/d2742655fe9d0a902a52ff1dde0d28ce5f5d1aef))
 - Fix subpixel border appearing below navigation bar ([#1043](ttps://github.com/unl/wdntemplates/pull/1043))
