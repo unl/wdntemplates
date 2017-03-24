@@ -1,0 +1,72 @@
+// !Header, top line
+#wdn_header_top {
+	display: flex;
+	align-items: center;
+	height: 2.369em;
+	.inner-wrapper-margin-left();
+	.sans-serif-font();
+}
+
+// !Institution Title
+#wdn_institution_title {
+    font-size: .75rem; // 9.625px, 12px
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+
+    a {
+        color: @brand;
+    }
+}
+
+// !Logo Lockup
+#wdn_logo_lockup {
+	padding: 1em 0;
+	border-top: 1px solid @ui03;
+}
+
+// !Nebraska 'N' Logo
+#logo {
+	display: block;
+	float: left;
+    // IE & Edge truncate values to two decimal places, rounding up to ~44px (12.8px * 3.44)
+	width: 3.44em; // 44px
+	height: 3.44em; // 44px
+	margin-right: .75em;
+	background: transparent url('../images/n.svg') center center no-repeat;
+}
+
+// !Site Affiliation
+#wdn_site_affiliation {
+	display: block;
+	min-height: .802em;
+	padding: .1em 0 .422em;
+    font-size: .9353rem; // 12px
+	font-style: italic;
+	line-height: 1;
+    white-space: nowrap;
+
+	a {
+        color: @base-text;
+	}
+}
+
+// !Site Title
+#wdn_site_title {
+    display: block;
+    .brand-font();
+    font-size: 2.369rem; // 30.39px, 37.897px
+	text-transform: uppercase;
+	line-height: .8;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    a {
+        color: @heading-text;
+    }
+
+    abbr[title] {
+        border-bottom: 0;
+    }
+}

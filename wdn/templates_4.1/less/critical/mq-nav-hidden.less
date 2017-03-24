@@ -1,0 +1,33 @@
+@media @bp-nav-hidden {
+
+    // !IdM
+    .wdn-resource-login-trigger {
+        position: absolute;
+        bottom: -3.157rem; // position over the nav bar
+        right: @page-offset-default;
+        height: 3.157rem; // 40.51px
+        z-index: (@nav-z-index + 1); // overlay the nav bar
+    }
+
+    #wdn_idm_username {
+        height: 3.157rem; // 40.51px
+        color: #fae8e8;
+    }
+
+    #wdn_search_form {
+        .is-hidden();
+    }
+
+    // !Navigation
+    .wdn-menu-trigger { // Holds the label for the toggle of the navigation
+        .nav-bar();
+        height: 3.157em; // 40.51px
+    }
+
+    #wdn_navigation_bar {
+        position: fixed;
+        left: (@nav-width * -1); // Hide off-screen
+        width: @nav-width;
+        height: 100%;
+    }
+}
