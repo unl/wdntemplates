@@ -1,13 +1,10 @@
 // Modular Scale for vertical rythm: http://modularscale.com/scale/?px1=16&px2=54&ra1=1.333&ra2=0
 
-
-
 // !OPENTYPE
 
 .kern() {
     font-feature-settings: 'kern' 1;
 }
-
 
 
 // !GENERAL
@@ -25,21 +22,7 @@
 }
 
 
-
 // !HEADINGS
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: normal;
-    color: @heading-text;
-    .heading-font();
-    line-height: 1;
-    margin: 1em 0 1rem 0;
-}
 
 h1 {
     font-size: 3.157rem; // 40.51px, 50.517px
@@ -63,29 +46,6 @@ h5 {
 
 h6 {
     font-size: 1.662rem; // 21.328px
-}
-
-// Calculate margins above heading based on heading size
-p,
-span,
-div,
-ul,
-li,
-section,
-img {
-
-    + h1,
-    + h2,
-    + h3,
-    + h4,
-    + h5,
-    + h6 {
-        margin-top: @base-line-height-sm * 1em;
-
-        @media @bp768 {
-            margin-top: @base-line-height-lg * 1em;
-        }
-    }
 }
 
 .wdn-heading,
@@ -116,13 +76,7 @@ img {
     .wdn-alt-header();
     padding: 1em 0 .254em;
     border-bottom: 1px solid #d0cec6;
-
-    @media @bp768 {
-        padding: 1.333em 0 .254em;
-    }
 }
-
-
 
 // !SUBHEADS
 
@@ -133,27 +87,45 @@ img {
     color: fadeout(@base-text, 10%);
 }
 
-    // Font sizes in relation to headers
+// Calculate margins above heading based on heading size
+p,
+span,
+div,
+ul,
+li,
+section,
+img {
 
-    h1,
-    h2,
-    h3 {
-
-        > .wdn-subhead,
-        + .wdn-subhead {
-            font-size: 1rem; // 12.83px, 16px
-        }
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
+        margin-top: @base-line-height-sm * 1em;
     }
+}
 
-    h4,
-    h5,
-    h6 {
+// Font sizes in relation to headings
+h1,
+h2,
+h3 {
 
-        > .wdn-subhead,
-        + .wdn-subhead {
-            font-size: .75rem; // 9.625px, 12px
-        }
+    > .wdn-subhead,
+    + .wdn-subhead {
+        font-size: 1rem; // 12.83px, 16px
     }
+}
+
+h4,
+h5,
+h6 {
+
+    > .wdn-subhead,
+    + .wdn-subhead {
+        font-size: .75rem; // 9.625px, 12px
+    }
+}
 
 .wdn-subhead {
 
@@ -181,15 +153,9 @@ img {
 }
 
 
-
 // !PARAGRAPHS
 
-p {
-    margin: 1rem 0;
-}
-
 // Magazine-style, larger introduction paragraph
-
 .wdn-intro-p {
     font-size: 1.333rem; // 17.103px, 21.328px
 }
@@ -197,32 +163,6 @@ p {
 p.small {
     font-size: .9353rem; // 12px
 }
-
-
-
-@media @bp768 {
-
-    h2 {
-        font-size: 2.532rem; // 40.51px
-    }
-
-    h4 {
-        font-size: 1.899rem; // 30.39px
-    }
-
-    h5 {
-        font-size: 1.777rem; // 28.43px
-    }
-
-    h6 {
-        font-size: 1.425rem; // 22.798px
-    }
-
-    p.small {
-        font-size: .802rem; // 12.83px
-    }
-}
-
 
 
 // !ICON FONT - see /wdn/templates_4.1/fonts/fontello/readme.md
@@ -234,7 +174,8 @@ p.small {
     font-style: normal;
 }
 
-[class^='wdn-icon-']:before, [class*=' wdn-icon-']:before {
+[class^='wdn-icon-']:before,
+[class*=' wdn-icon-']:before {
     .fontello();
 }
 
@@ -286,3 +227,49 @@ p.small {
 .wdn-icon-right-open-mini:before { content: '\f0c8'; } /* '' */
 .wdn-icon-menu:before { content: '\f0c9'; } /* '' */
 .wdn-icon-wrench:before { content: '🔧'; } /* '\1f527' */
+
+
+@media @bp768 {
+
+    h2 {
+        font-size: 2.532rem; // 40.51px
+    }
+
+    h4 {
+        font-size: 1.899rem; // 30.39px
+    }
+
+    h5 {
+        font-size: 1.777rem; // 28.43px
+    }
+
+    h6 {
+        font-size: 1.425rem; // 22.798px
+    }
+
+    p.small {
+        font-size: .802rem; // 12.83px
+    }
+
+    .wdn-list-header {
+        padding: 1.333em 0 .254em;
+    }
+
+    p,
+    span,
+    div,
+    ul,
+    li,
+    section,
+    img {
+
+        + h1,
+        + h2,
+        + h3,
+        + h4,
+        + h5,
+        + h6 {
+            margin-top: @base-line-height-lg * 1em;
+        }
+    }
+}
