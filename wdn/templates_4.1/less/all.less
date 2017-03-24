@@ -1,16 +1,17 @@
 @charset "UTF-8";
 
-// Bring in each of the _mixins
+// Mixins
 @import "_mixins/all.less";
 
+// Critical
+@import "critical.less";
 
-// Set the base
-@import "base/normalize.less";
+// Base
 @import "base/base.less";
 @import "base/text.less";
 @import "base/helpers.less";
 
-// Set the layouts
+// Layouts
 @import "layouts/wrapper.less";
 @import "layouts/wdn-ui.less";
 @import "layouts/share.less";
@@ -27,16 +28,14 @@
 @import "layouts/tables.less";
 @import "layouts/forms.less";
 @import "layouts/columns.less";
-
-// maincontent area
+// Layouts in maincontent area
 @import "layouts/old-grid.less";
 @import "layouts/grid.less";
 @import "layouts/tabs.less";
 @import "layouts/twitter.less";
 @import "layouts/infographic.less";
 
-
-// Modularize
+// Modules
 @import "modules/bands.less";
 @import "modules/carousel.less";
 @import "modules/tables.less";
@@ -47,8 +46,7 @@
 @import "modules/promo-image.less";
 @import "modules/hero.less";
 
-
-// State Rules
+// States
 @import "states/base.less";
 @import "states/navigation.less";
 @import "states/footer.less";
@@ -56,9 +54,8 @@
 @import "states/regions.less";
 @import "states/search.less";
 @import "states/share.less";
-
-// maincontent area
+// States in maincontent area
 @import "states/images.less";
 
-// print styles
+// Print
 @import "print.less";
