@@ -1,5 +1,3 @@
-@import '../_mixins/all.less';
-
 #wdn_wrapper {
     overflow: hidden;
 }
@@ -15,65 +13,4 @@
     padding: 0 !important;
     margin: 0 !important;
     clip: rect(1px, 1px, 1px, 1px);
-}
-
-.inner-wrapper-margin-left() {
-	margin-left: @page-offset-default;
-
-	@media @bp480 {
-		margin-left: @page-offset-480;
-	}
-
-	@media @bp640 {
-		margin-left: @page-offset-640;
-	}
-
-	@media @bp768 {
-		margin-left: @page-offset-768;
-	}
-
-	@media @bp960 {
-		margin-left: @page-offset-960;
-	}
-
-	@media @bp1280 {
-		margin-left: @page-offset-1280;
-	}
-
-	@media @bp1600 {
-		margin-left: @page-offset-1600;
-	}
-}
-
-.inner-wrapper-margin-right() {
-	margin-right: @page-offset-default;
-
-	@media @bp480 {
-		margin-right: @page-offset-480;
-	}
-
-	@media @bp640 {
-		margin-right: @page-offset-640;
-	}
-
-	@media @bp768 {
-		margin-right: @page-offset-768;
-	}
-
-	@media @bp960 {
-		margin-right: @page-offset-960;
-	}
-
-	@media @bp1280 {
-		margin-right: @page-offset-1280;
-	}
-
-	@media @bp1600 {
-		margin-right: @page-offset-1600;
-	}
-}
-
-.inner-wrapper-margin() {
-	.inner-wrapper-margin-left();
-	.inner-wrapper-margin-right();
 }
