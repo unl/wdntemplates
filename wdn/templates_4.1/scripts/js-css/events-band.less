@@ -1,6 +1,8 @@
 @import '../../less/_mixins/all.less';
 
 @events-blue: #0e60a0;
+@events-darkblue: #0c3e65;
+@events-darkbluegray: #3f5565;
 
 #events-band,
 .wdn-events-band {
@@ -42,9 +44,28 @@
         outline: none;
 
         &:hover {
-
             .event {
                 background-color: @events-blue;
+            }
+        }
+
+        &:focus {
+            .event {
+                background-color: @events-darkbluegray;
+
+                .dateTime {
+                    background-color: darken(@events-darkbluegray,9%);
+
+                    .time {
+                        color: lighten(@events-blue, 40%);
+                    }
+                }
+
+                .eventInfo {
+                    .location {
+                        color: lighten(@events-blue, 40%);
+                    }
+                }
             }
         }
     }
@@ -68,7 +89,7 @@
         }
 
         .dateTime {
-            background-color: #0c3e65;
+            background-color: @events-darkblue;
             background-color: fadeout(#000, 60%);
             float: left;
             text-align: center;
@@ -134,6 +155,12 @@
 
         a {
             justify-content: flex-end;
+
+            &:focus {
+                display: inline-block;
+                padding: 0 2px;
+                outline: 1px dotted;
+            }
         }
     }
 }
