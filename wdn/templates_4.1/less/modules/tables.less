@@ -1,214 +1,310 @@
-table.primary {
-    /* Primary Table */
-    border: none;
+table.primary,
+table.cool,
+table.soothing,
+table.neutral,
+table.energetic {
 
-    thead {
-        border: 1px solid fadeout(@brand,20%);
-    }
-
-    tr th {
+    th {
         color: #fff;
-        background: fadeout(@brand,20%);
-        border-top: none;
-        border-bottom: 3px solid darken(@brand,10%);
 
         a {
             color: #fff;
         }
     }
+}
+
+table.primary {
+    /* Primary Table */
+    border-color: lighten(@brand,50%);
+
+    th {
+        background-color: fadeout(@brand,20%);
+    }
 
     tbody {
-        border: 1px solid lighten(@brand,50%);
-
-        tr {
-
-            &:nth-of-type(even) {
-                background-color: lighten(@brand,58%);
-            }
-        }
 
         td {
             border-color: lighten(@brand,50%);
+
+            &:first-child {
+                color: darken(@brand,10%);
+            }
         }
-    }
-
-    @media @bp-under768w {
-
-	    &.wdn_responsive_table tbody td:first-child {
-            color: #fff;
-            background: fadeout(@brand,20%);
-    	}
     }
 }
 
 table.cool {
     /* Cool Table */
-    border: none;
+    border-color: lighten(@dark-triad,45%);
 
-    thead {
-        border: 1px solid @triad;
-    }
-
-    tr th {
-        color: #fff;
-        background: @triad;
-        border-top: none;
-        border-bottom: 3px solid darken(@triad,5%);
-
-        a {
-            color: #fff;
-        }
+    th {
+        background-color: @triad;
     }
 
     tbody {
-        border: 1px solid lighten(@dark-triad,45%);
-
-        tr {
-
-            &:nth-of-type(even) {
-                background-color: lighten(@dark-triad,58%);
-            }
-        }
 
         td {
             border-color: lighten(@dark-triad,45%);
-        }
-    }
 
-    @media @bp-under768w {
-
-        &.wdn_responsive_table tbody td:first-child {
-            color: darken(@light-triad,70%);
-            background: fadeout(@light-triad,20%);
+            &:first-child {
+                color: darken(@triad,10%);
+            }
         }
     }
 }
 
 table.soothing {
     /* Soothing Table */
-    border: none;
+    border-color: lighten(@dark-complement,50%);
 
-    thead {
-        border: 1px solid @complement;
-    }
-
-    tr th {
-        color: #fff;
-        background: @complement;
-        border-top: none;
-        border-bottom: 3px solid darken(@complement,5%);
-
-        a {
-            color: #fff;
-        }
+    th {
+        background-color: @complement;
     }
 
     tbody {
-        border: 1px solid lighten(@dark-complement,50%);
-
-        tr {
-
-            &:nth-of-type(even) {
-                background-color: lighten(@dark-complement,64%);
-            }
-        }
 
         td {
             border-color: lighten(@dark-complement,50%);
-        }
-    }
 
-    @media @bp-under768w {
-
-		&.wdn_responsive_table tbody td:first-child {
-            color: #fff;
-            background: fadeout(@dark-complement,20%);
+            &:first-child {
+                color: darken(@complement,10%);
+            }
         }
     }
 }
 
 table.neutral {
     /* Neutral Table */
-    border: none;
+    border-color: lighten(@dark-neutral,60%);
 
-    thead {
-        border: 1px solid fadeout(@neutral,20%);
-    }
-
-    tr th {
-        color: #fff;
-        background: fadeout(@neutral,20%);
-        border-top: none;
-        border-bottom: 3px solid @dark-neutral;
-
-        a {
-            color: #fff;
-        }
+    th {
+        background-color: fadeout(@neutral,15%);
     }
 
     tbody {
-        border: 1px solid lighten(@dark-neutral,60%);
-
-        tr {
-
-            &:nth-of-type(even) {
-                background-color: lighten(@dark-neutral,75%);
-            }
-        }
 
         td {
             border-color: lighten(@dark-neutral,60%);
-        }
-    }
 
-    @media @bp-under768w {
-
-		&.wdn_responsive_table tbody td:first-child {
-            color: @dark-neutral;
-            background: fadeout(@neutral,20%);
+            &:first-child {
+                color: @neutral;
+            }
         }
     }
 }
 
 table.energetic {
     /* Energetic Table */
-    border: none;
+    border-color: lighten(@dark-energetic,44%);
 
-    thead {
-        border: 1px solid @energetic;
-    }
-
-    tr th {
-        color: #fff;
-        background: @energetic;
-        border-top: none;
-        border-bottom: 3px solid darken(@energetic,5%);
-
-        a {
-            color: #fff;
-        }
+    th {
+        background-color: @energetic;
     }
 
     tbody {
-        border: 1px solid lighten(@dark-energetic,44%);
-
-        tr {
-
-            &:nth-of-type(even) {
-                background-color: lighten(@dark-energetic,55%);
-            }
-        }
 
         td {
             border-color: lighten(@dark-energetic,44%);
+
+            &:first-child {
+                color: darken(@energetic,10%);
+            }
+        }
+    }
+}
+
+@media @bp-under768w {
+
+    table.wdn_responsive_table.primary,
+    table.wdn_responsive_table.cool,
+    table.wdn_responsive_table.soothing,
+    table.wdn_responsive_table.neutral,
+    table.wdn_responsive_table.energetic {
+
+        tbody {
+
+            th {
+                border-color: transparent;
+            }
         }
     }
 
-    @media @bp-under768w {
+    table.wdn_responsive_table {
 
-		&.wdn_responsive_table tbody td:first-child {
-            color: #000;
-            background: fadeout(@dark-energetic,20%);
+        &.primary {
+
+            tbody {
+
+                td:nth-of-type(even) {
+                    background-color: lighten(@brand,58%);
+                }
+            }
+        }
+
+        &.cool {
+
+            tbody {
+
+                td:nth-of-type(even) {
+                    background-color: lighten(@dark-triad,58%);
+                }
+            }
+        }
+
+        &.soothing {
+
+            tbody {
+
+                td:nth-of-type(even) {
+                    background-color: lighten(@dark-complement,64%);
+                }
+            }
+        }
+
+        &.neutral {
+
+            tbody {
+
+                td:nth-of-type(even) {
+                    background-color: lighten(@dark-neutral,75%);
+                }
+            }
+        }
+
+        &.energetic {
+
+            tbody td {
+
+                td:nth-of-type(even) {
+                    background-color: lighten(@dark-energetic,55%);
+                }
+            }
+        }
+    }
+}
+
+@media @bp768 {
+
+    table.wdn_responsive_table.primary,
+    table.wdn_responsive_table.cool,
+    table.wdn_responsive_table.soothing,
+    table.wdn_responsive_table.neutral,
+    table.wdn_responsive_table.energetic {
+
+        tbody {
+
+            tr {
+
+                &:first-of-type {
+
+                    th {
+                        border-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+
+    table.wdn_responsive_table {
+
+        &.primary {
+
+            tbody {
+
+                tr {
+
+                    &:nth-of-type(even) {
+                        background-color: lighten(@brand,58%);
+                    }
+
+                    &:not(:first-of-type) {
+
+                        th {
+                            border-color: darken(@brand,5%);
+                        }
+                    }
+                }
+            }
+        }
+
+        &.cool {
+
+            tbody {
+
+                tr {
+
+                    &:nth-of-type(even) {
+                        background-color: lighten(@dark-triad,58%);
+                    }
+
+                    &:not(:first-of-type) {
+
+                        th {
+                            border-color: darken(@triad,7%);
+                        }
+                    }
+                }
+            }
+        }
+
+        &.soothing {
+
+            tbody {
+
+                tr {
+
+                    &:nth-of-type(even) {
+                        background-color: lighten(@dark-complement,64%);
+                    }
+
+                    &:not(:first-of-type) {
+
+                        th {
+                            border-color: darken(@complement,5%);
+                        }
+                    }
+                }
+            }
+        }
+
+        &.neutral {
+
+            tbody {
+
+                tr {
+
+                    &:nth-of-type(even) {
+                    	background-color: lighten(@dark-neutral,75%);
+                    }
+
+                    &:not(:first-of-type) {
+
+                        th {
+                            border-color: lighten(@neutral,2%);
+                        }
+                    }
+                }
+            }
+        }
+
+        &.energetic {
+
+            tbody {
+
+                tr {
+
+                    &:nth-of-type(even) {
+                    	background-color: lighten(@dark-energetic,55%);
+                    }
+
+                    &:not(:first-of-type) {
+
+                        th {
+                            border-color: darken(@energetic,6%);
+                        }
+                    }
+                }
+            }
         }
     }
 }
