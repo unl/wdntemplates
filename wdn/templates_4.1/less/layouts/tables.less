@@ -17,7 +17,6 @@ table {
         font-size: .9353rem; // 12px
         padding: 1.2307em 1.0833em 1.0833em;
         line-height: 1.333;
-        border-top: 1px solid @ui04;
         background-color: darken(@ui01, 2%);
     }
 
@@ -55,6 +54,7 @@ table {
 }
 
 table.wdn_responsive_table {
+    border-collapse: separate;
 
     thead tr {
         display: none;
@@ -68,15 +68,9 @@ table.wdn_responsive_table {
 
     tbody {
 
-        tr {
-
-            &:first-child th {
-                border-top-width: 0;
-            }
-        }
-
         th {
             text-align: left;
+            border-top: 1px solid @ui04;
         }
 
         td {
@@ -111,6 +105,10 @@ table.wdn_responsive_table {
         tbody {
 
             tr {
+
+                &:first-child th {
+                    border-top-width: 0;
+                }
 
                 &:nth-of-type(even) {
                     background-color: transparent;
@@ -151,13 +149,6 @@ table.wdn_responsive_table {
         }
 
         tbody {
-
-            tr {
-
-                &:first-child th {
-                    border-top-width: 1px;
-                }
-            }
 
             td {
                 text-align: center;
