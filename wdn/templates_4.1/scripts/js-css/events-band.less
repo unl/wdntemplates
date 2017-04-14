@@ -1,8 +1,7 @@
 @import '../../less/_mixins/all.less';
 
-@events-blue: #0e60a0;
-@events-darkblue: #0c3e65;
-@events-darkbluegray: #3f5565;
+@events-color--default: #0e60a0;
+@events-color--focus: #3f5565;
 
 #events-band,
 .wdn-events-band {
@@ -45,25 +44,23 @@
 
         &:hover {
             .event {
-                background-color: @events-blue;
+                background-color: @events-color--default;
             }
         }
 
         &:focus {
             .event {
-                background-color: @events-darkbluegray;
+                background-color: darken(@events-color--focus,3.5%);
 
                 .dateTime {
-                    background-color: darken(@events-darkbluegray,9%);
-
                     .time {
-                        color: lighten(@events-blue, 40%);
+                        color: lighten(@events-color--default, 40%);
                     }
                 }
 
                 .eventInfo {
                     .location {
-                        color: lighten(@events-blue, 40%);
+                        color: lighten(@events-color--default, 40%);
                     }
                 }
             }
@@ -77,7 +74,7 @@
         padding: 0;
         transition: background-color .3s ease; // lesshat
         overflow: hidden;
-        background-color: lighten(@events-blue, 5%);
+        background-color: lighten(@events-color--default, 5%);
 
         .dateTime,
         .eventInfo {
@@ -119,7 +116,7 @@
                     font-size: 1rem; // 12.83px, 16px
                     line-height: 1.333;
                     letter-spacing: .08em;
-                    color: lighten(@events-blue, 50%);
+                    color: lighten(@events-color--default, 50%);
                 }
             }
         }
@@ -142,7 +139,7 @@
                 text-transform: uppercase;
                 letter-spacing: .08em;
                 line-height: 1.425;
-                color: lighten(@events-blue, 66%);
+                color: lighten(@events-color--default, 66%);
             }
         }
     }
