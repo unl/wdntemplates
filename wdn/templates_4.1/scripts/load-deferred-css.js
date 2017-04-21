@@ -3,7 +3,7 @@
     var WDNLoadDeferredStyles = function() {
         var sheet = document.createElement('link');
         sheet.rel = 'stylesheet';
-        sheet.href = '/wdn/templates_4.1/css/all.css?dep=$DEP_VERSION$';
+        sheet.href = 'https://unlcms.unl.edu/wdn/templates_4.1/css/all.css?dep=$DEP_VERSION$';
         document.getElementsByTagName('head')[0].appendChild(sheet);
     };
 
@@ -15,7 +15,7 @@
         WDNLoadDeferredStyles();
         WDNRemoveCriticalStyles();
     } else {
-        var deferredStyles = loadCSS( '/wdn/templates_4.1/css/all.css?dep=$DEP_VERSION$');
+        var deferredStyles = loadCSS( 'https://unlcms.unl.edu/wdn/templates_4.1/css/all.css?dep=$DEP_VERSION$');
         onloadCSS( deferredStyles, function() {
             sessionStorage.setItem('wdn-css-is-cached', true);
             WDNRemoveCriticalStyles();
