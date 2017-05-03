@@ -1,8 +1,8 @@
-define(['jquery', 'wdn', 'modernizr', 'require', 'socialmediashare'], function($, WDN, Modernizr, require, social) {
+define(['jquery', 'wdn', 'require', 'socialmediashare'], function($, WDN, require, social) {
 	"use strict";
 
 	var snifferServer = 'https://www1.unl.edu/nav-proxy/';
-	var fullNavBp = '(min-width: 700px)';
+	var fullNavBp = '(min-width: 43.75em)';
 	var hoverPlugin = 'plugins/hoverIntent/jquery.hoverIntent';
 	var expandDelay = 400;
 	var collapseDelay = 120;
@@ -59,7 +59,7 @@ define(['jquery', 'wdn', 'modernizr', 'require', 'socialmediashare'], function($
 	var resizeTimeout;
 
 	var isFullNav = function() {
-		return Modernizr.mq(fullNavBp);
+		return matchMedia(fullNavBp).matches;
 	};
 
 	// a workaround for fast renderers like chrome: #612
@@ -621,7 +621,7 @@ define(['jquery', 'wdn', 'modernizr', 'require', 'socialmediashare'], function($
 
 		//Make the navigation pragmatically focusable
 		$(navSel).attr('tabindex', '-1').addClass('wdn-dropdown-widget-no-outline');
-		
+
 	};
 
 	var toggleNav = function() {
@@ -648,7 +648,7 @@ define(['jquery', 'wdn', 'modernizr', 'require', 'socialmediashare'], function($
 		initialize : function() {
 
 			social.initialize(); //make sure the social widget is initialized
-			
+
 			$(function () {
 				if (!initd) {
 					fixNavButton();
