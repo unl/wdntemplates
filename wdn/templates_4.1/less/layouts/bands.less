@@ -1,10 +1,5 @@
 #maincontent {
 
-    // implement the same content padding
-    > * {
-	    .inner-wrapper-margin();
-    }
-
     // Add margin to last element (if not a .wdn-band) to add vertical space between main content and footer
     > *:last-child:not(.wdn-band) {
         margin-bottom: 2.369rem;
@@ -12,16 +7,9 @@
 }
 
 .wdn-band {
-    max-width: 100% !important; //important is required to overpower the wildcard selector above
-    clear: both;
-
-    #maincontent > *& {
-        margin: 0;
-    }
 
     .wdn-inner-wrapper {
         .clear-fix();
-		.inner-wrapper-margin();
 
         .wdn-text-band& {
 

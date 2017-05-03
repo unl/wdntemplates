@@ -1,0 +1,21 @@
+@import '../_mixins/all.less';
+
+#wdn_search_form {
+    display: flex;
+    flex-direction: column;
+    z-index: 1; // Ensure we're above the site title
+
+    label {
+        margin-bottom: .254em;
+	    font-size: .9353rem; // 12px
+	    line-height: 1;
+    }
+}
+
+#wdn_search_query {
+	-webkit-appearance: none;
+    width: 100%;
+    padding: .422em .75em;
+    border: 1px solid @ui05;
+    font-size: 1rem; // 12.83px
+}
