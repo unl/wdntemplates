@@ -159,6 +159,15 @@ define(['jquery'], function($) {
 						$container.attr('tabindex', '-1').focus();
 					}
 
+					//If the container has an input, send focus to that (mobile search)
+					var $inputs = $('input', $container);
+					if ($inputs.length) {
+						$inputs[0].focus();
+					} else {
+						//Otherwise, send focus to the container
+						$container.attr('tabindex', '-1').focus();
+					}
+
 					//Close other widgets
 					//Don't return focus because the new widget should manage focus
 					closeDropDown($('.'+dropdownButtonClass).not($control), false);
