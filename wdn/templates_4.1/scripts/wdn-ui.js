@@ -26,7 +26,9 @@ define(['jquery'], function($) {
 		});
 	};
 
-	var closeDropDown = function(selector) {
+	var closeDropDown = function(selector, returnFocus) {
+		var $firstClosed = false;
+		
 		$.each($(selector), function() {
 			var $element = $(this);
 			var container_id = $element.attr('aria-controls');
@@ -38,10 +40,18 @@ define(['jquery'], function($) {
 				$container.attr('aria-hidden', 'true');
 			}
 
-			if ('true' == $element.attr('aria-pressed')) {
+			if ('true' === $element.attr('aria-pressed')) {
 				$element.attr('aria-pressed', 'false');
+				if (!$firstClosed) {
+                    $firstClosed = $element;
+				}
 			}
 		});
+		
+		if (returnFocus && $firstClosed) {
+			//Send focus back to the button instead of to the top of the document
+			$firstClosed.focus();
+		}
 	};
 
 	var isFullNav = function() {
@@ -119,8 +129,8 @@ define(['jquery'], function($) {
 			//Close search on escape
 			$(document).on('keydown', function(e) {
 				if (e.keyCode === 27) {
-					//Close on escape
-					closeDropDown('.'+dropdownButtonClass);
+					//Close on escape and do return focus
+					closeDropDown('.'+dropdownButtonClass, true);
 				}
 			});
 
@@ -140,7 +150,7 @@ define(['jquery'], function($) {
 					var $container = $('#' + container_id);
 
 					var isPressed = $control.attr('aria-pressed');
-					if ('true' == isPressed) {
+					if ('true' === isPressed) {
 						$container.attr('aria-hidden', 'true');
 						$control.attr('aria-pressed', 'false');
 					} else {
@@ -149,13 +159,24 @@ define(['jquery'], function($) {
 						$container.attr('tabindex', '-1').focus();
 					}
 
+					//If the container has an input, send focus to that (mobile search)
+					var $inputs = $('input', $container);
+					if ($inputs.length) {
+						$inputs[0].focus();
+					} else {
+						//Otherwise, send focus to the container
+						$container.attr('tabindex', '-1').focus();
+					}
+
 					//Close other widgets
-					closeDropDown($('.'+dropdownButtonClass).not($control));
+					//Don't return focus because the new widget should manage focus
+					closeDropDown($('.'+dropdownButtonClass).not($control), false);
 				}
 
 				//close all dropdown widgets
 				if (!$dropdownContent.find(e.target).length) {
-					closeDropDown('.'+dropdownButtonClass);
+					//Don't return focus because the new target probably as focus
+					closeDropDown('.'+dropdownButtonClass, false);
 				}
 			});
 
