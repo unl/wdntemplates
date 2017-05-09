@@ -3,147 +3,19 @@
     background-color: @cream;
 }
 
-
-
-// !Header, top line
-#wdn_header_top {
-	display: flex;
-	flex-flow: row nowrap;
-	align-items: center;
-	height: 2.369em;
-	.inner-wrapper-margin-left();
-
-	@media @bp-nav-hidden {
-		margin-right: 0;
-	}
-
-	@media @bp-nav-full {
-		.inner-wrapper-margin-right();
-		padding: 0;
-	}
-
-    @media @bp768 {
-        height: 2.532em;
-    }
-}
-
-
-
 // !Institution Title
 #wdn_institution_title {
     display: flex;
     padding-top: .254em;
-    white-space: nowrap;
-    .wdn-sans-caps();
-    font-size: .75rem; // 9.625px, 12px
-    line-height: 1;
-
-    a {
-        color: @brand;
-    }
-
-    @media @bp-nav-full {
-        margin-right: 5%;
-    }
 }
-
-
-
-// !Logo Lockup
-#wdn_logo_lockup {
-	padding: 1em 0;
-	border-top: 1px solid @ui03;
-}
-
-
 
 // !Nebraska 'N' Logo
 #logo {
-	display: block;
-	float: left;
-    // IE & Edge truncate values to two decimal places, rounding up to ~44px (12.8px * 3.44)
-	width: 3.44em; // 44px
-	height: 3.44em; // 44px
-	margin-right: .75em;
-	background: transparent data-uri('../images/n.svg') center center no-repeat;
 	background-size: contain;
-
-    @media @bp768 {
-        // IE & Edge truncate values to two decimal places, rounding up to ~56px (16px * 3.5)
-		width: 3.5em; // 56px
-		height: 3.5em; // 56px
-    }
-
-	span {
-		.text-hidden();
-	}
 }
-
-
 
 // !Site Affiliation
 #wdn_site_affiliation {
-	display: block;
-	min-height: .802em;
-	padding: .1em 0 .422em;
-    font-size: .9353rem; // 12px
-	font-style: italic;
-	line-height: 1;
-    white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-
-	@media @bp768 {
-	    min-height: 1.069em;
-		padding: .178em 0 .602em;
-        font-size: .802rem; // 12.83px
-	}
-
-	a {
-        color: @base-text;
-	}
-}
-
-
-
-// !Site Title
-#wdn_site_title {
-    display: block;
-    .brand-font();
-    font-size: 2.369rem; // 30.39px, 37.897px
-	text-transform: uppercase;
-	line-height: .8;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-
-    @media @bp-nav-full {
-        overflow: visible;
-        white-space: normal;
-    }
-
-    @media @bp768 {
-        width: 100%;
-
-        // Hide the abbreviation, and show the site title (if available)
-        abbr[title] {
-            font-size: 0;
-            display: block;
-
-            &:before {
-                content: attr(title);
-                font-size: 2.532rem; // 40.51px
-                display: block;
-            }
-        }
-    }
-
-    a {
-        color: @heading-text;
-        text-decoration: none;
-    }
-
-    abbr[title] {
-        border-bottom: none;
-    }
 }

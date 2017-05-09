@@ -1,4 +1,4 @@
-define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
+define(['jquery', 'wdn'], function($, WDN) {
 	var initd = false,
 		createSheet = function(media) {
 			var style = document.createElement('style');
@@ -38,7 +38,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 
 		anchorSel = '.wdn-offset-anchor',
 		defaultRule = 'border:0; position:relative;',
-		fullNavMq = 'only screen and (min-width: 700px)';
+		fullNavMq = 'only screen and (min-width: 43.75em)';
 
 	return {
 		initialize: function() {
@@ -49,7 +49,7 @@ define(['jquery', 'wdn', 'modernizr'], function($, WDN, Modernizr) {
 			$(function() {
 				$('#navigation').on(eventScope, function(e, offset) {
 					var sheet, rule = defaultRule;
-					if (!Modernizr.mq(fullNavMq)) {
+					if (!matchMedia(fullNavMq).matches) {
 						if (mobileSheet) {
 							return;
 						}
