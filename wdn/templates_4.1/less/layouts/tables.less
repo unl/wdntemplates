@@ -1,8 +1,8 @@
 table {
     width: 100%;
     max-width: 100%;
-    line-height: @base-line-height-sm;
     border: 1px solid @ui04;
+    border-collapse: collapse;
 
     caption {
         .brand-font();
@@ -16,7 +16,7 @@ table {
         font-size: .9353rem; // 12px
         padding: 1.2307em 1.0833em 1.0833em;
         line-height: 1.333;
-        background-color: darken(@ui01, 2%);
+        background-color: @ui03;
     }
 
     th,
@@ -35,62 +35,20 @@ table {
             &:nth-of-type(even) {
                 background-color: @ui01;
             }
-
-            &:nth-of-type(odd) {
-                background-color: transparent;
-            }
         }
 
         td {
             border-top: 1px solid @ui04;
-        }
-
-        th {
-            text-align: left;
         }
     }
 }
 
 table.wdn_responsive_table {
-    border-collapse: separate;
-
-    thead tr {
-        display: none;
-    }
-
-    th,
-    td {
-        text-align: center;
-        display: block;
-    }
 
     tbody {
 
         th {
-            text-align: left;
             border-top: 1px solid @ui04;
-        }
-
-        td {
-            text-align: left;
-
-            &:before {
-                display: block;
-                font-weight: bold;
-                content: attr(data-header);
-            }
-
-            &:empty {
-                display: none;
-            }
-        }
-    }
-
-    &.flush-left {
-
-        th,
-        td {
-            text-align: left;
         }
     }
 }
@@ -100,16 +58,49 @@ table.wdn_responsive_table {
 
     table.wdn_responsive_table {
 
+        th,
+        td {
+            display: block;
+        }
+
+        thead {
+
+            tr {
+                display: none;
+            }
+        }
+
         tbody {
 
             tr {
 
-                &:first-child th {
-                    border-top-width: 0;
+                &:first-child {
+
+                    th {
+                        border-top-width: 0;
+                    }
                 }
 
                 &:nth-of-type(even) {
                     background-color: transparent;
+                }
+            }
+
+            td {
+                text-align: left;
+
+                &:before {
+                    display: block;
+                    font-weight: bold;
+                    content: attr(data-header);
+                }
+
+                &:empty {
+                    display: none;
+                }
+
+                &:nth-of-type(even) {
+                    background-color: @ui01;
                 }
             }
         }
@@ -119,7 +110,6 @@ table.wdn_responsive_table {
 @media @bp768 {
 
     table {
-        line-height: @base-line-height-lg;
 
         caption {
             font-size: 2.532rem; // 40.51px
@@ -137,27 +127,25 @@ table.wdn_responsive_table {
 
     table.wdn_responsive_table {
 
-        thead tr {
-            display: table-row;
-        }
+        thead {
 
-        th,
-        td {
-            display: table-cell;
+            th:not(:first-child) {
+                text-align: center;
+            }
         }
 
         tbody {
 
             td {
                 text-align: center;
+            }
+        }
 
-                &:before {
-                    display: none !important;
-                }
+        &.flush-left {
 
-                &:empty {
-                    display: table-cell;
-                }
+            th,
+            td {
+                text-align: left;
             }
         }
     }

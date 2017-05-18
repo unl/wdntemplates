@@ -4,11 +4,14 @@ table.soothing,
 table.neutral,
 table.energetic {
 
-    th {
-        color: #fff;
+    thead {
 
-        a {
+        th {
             color: #fff;
+
+            a {
+                color: #fff;
+            }
         }
     }
 }
@@ -23,12 +26,15 @@ table.primary {
 
     tbody {
 
-        td {
-            border-color: lighten(@brand,50%);
+        tr {
 
-            &:first-child {
-                color: darken(@brand,10%);
+            &:nth-of-type(even) {
+                background-color: lighten(@brand,58%);
             }
+        }
+
+        th, td {
+            border-color: lighten(@brand,50%);
         }
     }
 }
@@ -43,12 +49,15 @@ table.cool {
 
     tbody {
 
-        td {
-            border-color: lighten(@dark-triad,45%);
+        tr {
 
-            &:first-child {
-                color: darken(@triad,10%);
+            &:nth-of-type(even) {
+                background-color: lighten(@dark-triad,58%);
             }
+        }
+
+        th, td {
+            border-color: lighten(@dark-triad,45%);
         }
     }
 }
@@ -63,12 +72,15 @@ table.soothing {
 
     tbody {
 
-        td {
-            border-color: lighten(@dark-complement,50%);
+        tr {
 
-            &:first-child {
-                color: darken(@complement,10%);
+            &:nth-of-type(even) {
+                background-color: lighten(@dark-complement,64%);
             }
+        }
+
+        th, td {
+            border-color: lighten(@dark-complement,50%);
         }
     }
 }
@@ -82,13 +94,10 @@ table.neutral {
     }
 
     tbody {
+        // no background-color needed for tbody tr:nth-of-type(even), same as inherited color
 
-        td {
+        th, td {
             border-color: lighten(@dark-neutral,60%);
-
-            &:first-child {
-                color: @neutral;
-            }
         }
     }
 }
@@ -103,12 +112,15 @@ table.energetic {
 
     tbody {
 
-        td {
-            border-color: lighten(@dark-energetic,44%);
+        tr {
 
-            &:first-child {
-                color: darken(@energetic,10%);
+            &:nth-of-type(even) {
+                background-color: lighten(@dark-energetic,55%);
             }
+        }
+
+        th, td {
+            border-color: lighten(@dark-energetic,44%);
         }
     }
 }
@@ -124,7 +136,18 @@ table.energetic {
         tbody {
 
             th {
-                border-color: transparent;
+                color: #fff;
+
+                a {
+                    color: #fff;
+                }
+            }
+
+            tr {
+
+                &:nth-of-type(even) {
+                    background-color: transparent;
+                }
             }
         }
     }
@@ -135,8 +158,11 @@ table.energetic {
 
             tbody {
 
-                td:nth-of-type(even) {
-                    background-color: lighten(@brand,58%);
+                td {
+
+                    &:nth-of-type(even) {
+                        background-color: lighten(@brand,58%);
+                    }
                 }
             }
         }
@@ -145,8 +171,11 @@ table.energetic {
 
             tbody {
 
-                td:nth-of-type(even) {
-                    background-color: lighten(@dark-triad,58%);
+                td {
+
+                    &:nth-of-type(even) {
+                        background-color: lighten(@dark-triad,58%);
+                    }
                 }
             }
         }
@@ -155,8 +184,11 @@ table.energetic {
 
             tbody {
 
-                td:nth-of-type(even) {
-                    background-color: lighten(@dark-complement,64%);
+                td {
+
+                    &:nth-of-type(even) {
+                        background-color: lighten(@dark-complement,64%);
+                    }
                 }
             }
         }
@@ -165,18 +197,24 @@ table.energetic {
 
             tbody {
 
-                td:nth-of-type(even) {
-                    background-color: lighten(@dark-neutral,75%);
+                td {
+
+                    &:nth-of-type(even) {
+                        background-color: lighten(@dark-neutral,75%);
+                    }
                 }
             }
         }
 
         &.energetic {
 
-            tbody td {
+            tbody {
 
-                td:nth-of-type(even) {
-                    background-color: lighten(@dark-energetic,55%);
+                td {
+
+                    &:nth-of-type(even) {
+                        background-color: lighten(@dark-energetic,55%);
+                    }
                 }
             }
         }
@@ -185,44 +223,15 @@ table.energetic {
 
 @media @bp768 {
 
-    table.wdn_responsive_table.primary,
-    table.wdn_responsive_table.cool,
-    table.wdn_responsive_table.soothing,
-    table.wdn_responsive_table.neutral,
-    table.wdn_responsive_table.energetic {
-
-        tbody {
-
-            tr {
-
-                &:first-of-type {
-
-                    th {
-                        border-color: transparent;
-                    }
-                }
-            }
-        }
-    }
-
     table.wdn_responsive_table {
 
         &.primary {
 
             tbody {
 
-                tr {
-
-                    &:nth-of-type(even) {
-                        background-color: lighten(@brand,58%);
-                    }
-
-                    &:not(:first-of-type) {
-
-                        th {
-                            border-color: darken(@brand,5%);
-                        }
-                    }
+                th {
+                    color: darken(@brand,10%);
+                    background-color: lighten(@brand,55%);
                 }
             }
         }
@@ -231,18 +240,9 @@ table.energetic {
 
             tbody {
 
-                tr {
-
-                    &:nth-of-type(even) {
-                        background-color: lighten(@dark-triad,58%);
-                    }
-
-                    &:not(:first-of-type) {
-
-                        th {
-                            border-color: darken(@triad,7%);
-                        }
-                    }
+                th {
+                    color: darken(@triad,10%);
+                    background-color: lighten(@dark-triad,52%);
                 }
             }
         }
@@ -251,18 +251,9 @@ table.energetic {
 
             tbody {
 
-                tr {
-
-                    &:nth-of-type(even) {
-                        background-color: lighten(@dark-complement,64%);
-                    }
-
-                    &:not(:first-of-type) {
-
-                        th {
-                            border-color: darken(@complement,5%);
-                        }
-                    }
+                th {
+                    color: darken(@complement,10%);
+                    background-color: lighten(@dark-complement,59%);
                 }
             }
         }
@@ -271,18 +262,9 @@ table.energetic {
 
             tbody {
 
-                tr {
-
-                    &:nth-of-type(even) {
-                    	background-color: lighten(@dark-neutral,75%);
-                    }
-
-                    &:not(:first-of-type) {
-
-                        th {
-                            border-color: lighten(@neutral,2%);
-                        }
-                    }
+                th {
+                    color: @neutral;
+                    background-color: lighten(@dark-neutral,70%);
                 }
             }
         }
@@ -291,18 +273,9 @@ table.energetic {
 
             tbody {
 
-                tr {
-
-                    &:nth-of-type(even) {
-                    	background-color: lighten(@dark-energetic,55%);
-                    }
-
-                    &:not(:first-of-type) {
-
-                        th {
-                            border-color: darken(@energetic,6%);
-                        }
-                    }
+                th {
+                    color: darken(@energetic,10%);
+                    background-color: lighten(@dark-energetic,50%);
                 }
             }
         }
