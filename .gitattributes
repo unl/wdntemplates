@@ -1,2 +1,3 @@
 Templates/*.dwt* filter=rcs-keywords
 wdn/templates_*/includes/scriptsandstyles*.html filter=rcs-keywords
+wdn/templates_*/includes/speedy_body_scripts.html filter=rcs-keywords
