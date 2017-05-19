@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.21 (May 9, 2017)
+- Removed Font Face Observer to ensure fonts were loaded
+
 ## 4.1.20 (May 9, 2017)
 - Added a new speedy template to improve page speed
 - Improved CSS distribution, only putting critical CSS in the head and loading other CSS later
