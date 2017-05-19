@@ -45,7 +45,8 @@ module.exports = function (grunt) {
 	// files for keyword replacement (should match .gitattributes)
 	var filterFiles = [
 		templateHtmlDir + '/*.dwt*',
-		templateIncludeDir + '/scriptsandstyles*.html'
+		templateIncludeDir + '/scriptsandstyles*.html',
+		templateIncludeDir + '/speedy_body_scripts.html'
 	];
 
 	// polyfill modules that need sync loading (should match scripts loaded in debug.js)
