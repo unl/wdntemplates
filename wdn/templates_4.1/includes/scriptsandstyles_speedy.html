@@ -13,6 +13,6 @@
 //# sourceMappingURL=cssrelpreload.js.map
 function onloadCSS(n,a){function t(){!d&&a&&(d=!0,a.call(n))}var d;n.addEventListener&&n.addEventListener("load",t),n.attachEvent&&n.attachEvent("onload",t),"isApplicationInstalled"in navigator&&"onloadcssdefined"in n&&n.onloadcssdefined(t)}
 //# sourceMappingURL=onloadCSS.js.map
-!function(){var e=function(){var e=document.createElement("link");e.rel="stylesheet",e.href="https://unlcms.unl.edu/wdn/templates_4.1/css/all.css?dep=$DEP_VERSION$",document.getElementsByTagName("head")[0].appendChild(e)},s=function(){document.getElementById("wdn-critical-styles").remove()};if(sessionStorage.getItem("wdn-css-is-cached"))e(),setTimeout(function(){s()},1e3);else{var t=loadCSS("https://unlcms.unl.edu/wdn/templates_4.1/css/all.css?dep=$DEP_VERSION$");onloadCSS(t,function(){sessionStorage.setItem("wdn-css-is-cached",!0),s()})}}();
+!function(){var n=function(){document.getElementById("wdn-critical-styles").remove()},t=loadCSS("https://unlcms.unl.edu/wdn/templates_4.1/css/all.css?dep=$DEP_VERSION$");onloadCSS(t,function(){n()})}();
 //# sourceMappingURL=load-deferred-css.js.map
 </script>
