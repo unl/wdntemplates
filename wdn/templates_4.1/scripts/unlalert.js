@@ -10,6 +10,9 @@ define([
 	idPrfx = 'unlalert',
 	cntSuf = '_content',
 	togSuf = '_toggle',
+	icnSuf = '_icon',
+	hdnSuf = '_hiddentext',
+	axnSuf = '_action',
 
 	timeoutPeriod = 30, // how ofter to check for expired data
 	dataLifetime = 30, // seconds until the data cookie expires
@@ -105,17 +108,27 @@ define([
 		WDN.log('Toggle UNL Alert Visibility');
 		var $alert = $('#' + idPrfx),
 			$alertToggle = $('#' + idPrfx + togSuf),
+			$alertContent = $('#' + idPrfx + cntSuf),
+			$alertIcon = $('#' + idPrfx + icnSuf),
+			$alertHidden = $('#' + idPrfx + hdnSuf),
+			$alertAction = $('#' + idPrfx + axnSuf),
 			i;
 
 		if ($alert.hasClass('show')) {
 			$alert.removeClass('show').closest('body').removeClass(idPrfx + '-shown');
-			$alertToggle.find('i').attr('class', 'wdn-icon-attention');
+			$alertToggle.attr('aria-pressed','true');
+			$alertIcon.attr('class','wdn-icon-attention');
+			$alertHidden.text('warning icon');
+			$alertAction.removeClass('wdn-text-hidden').text('Show emergency alert');
 			for (i = 0; i < activeIds.length; i++) {
 				_acknowledgeAlert(activeIds[i]);
 			}
 		} else {
 			$alert.addClass('show').closest('body').addClass(idPrfx + '-shown');
-			$alertToggle.find('i').attr('class', 'wdn-icon-cancel');
+			$alertToggle.attr('aria-pressed','false');
+			$alertIcon.attr('class','wdn-icon-cancel');
+			$alertHidden.text('close icon');
+			$alertAction.addClass('wdn-text-hidden').text('Hide emergency alert');
 		}
 	},
 
@@ -161,7 +174,8 @@ define([
 			if (!$alertWrapper.length) {
 				$alertWrapper = $('<div>', {
 					'id': idPrfx,
-					'class': 'wdn-band wdn-content-slide'
+					'class': 'wdn-band wdn-content-slide',
+					'role': 'alert'
 				}).css({
 					'position': 'absolute',
 					'top': '-1000px'
@@ -178,26 +192,35 @@ define([
 
 			web = info[i].web || 'http://www.unl.edu/';
 
-			alertContentHTML = '<h1><span>Emergency UNL Alert:</span> ' + info[i].headline + '</h1>';
-			alertContentHTML += '<h2>Issued at ' + effectiveDate + '</h2>';
-			alertContentHTML += '<p>' + info[i].description + '<br/>';
+			alertContentHTML = '<div class="unlalert-info"><div class="wdn-sans-caps unlalert-heading">Emergency alert</div><div class="wdn-impact unlalert-headline">' + info[i].headline + '</div><p class="unlalert-desc">' + info[i].description + '</p>';
 			if (info[i].instruction) {
-				alertContentHTML += info[i].instruction + '<br/>';
+				alertContentHTML += '<p class="unlalert-desc">' + info[i].instruction + '</p>';
 			}
-			alertContentHTML += 'Additional info (if available) at <a href="' + web + '">' + web + '</a></p>';
+			alertContentHTML += '</div><div class="unlalert-meta"><div class="unlalert-datetime"><div class="wdn-sans-caps unlalert-heading">Issued</div><div>' + effectiveDate + '</div></div><div class="unlalert-link"><div class="wdn-sans-caps unlalert-heading">Additional info (if available)</div><div><a href="' + web + '">' + web + '</a></div></div></div>';
 
 			$alertContent.append(alertContentHTML);
 		}
 
-		// Add an visibility toggle tab
+		// Add a visibility toggle tab
 		var $alertToggle = $('#' + idPrfx + togSuf);
 		if (!$alertToggle.length) {
-			$alertToggle = $('<a>', {
+			$alertToggle = $('<button>', {
 				'id': idPrfx + togSuf,
-				'href': 'javascript:void(0)'
+				'aria-pressed': 'false'
 			})
-			.append($('<i>', {'class': 'wdn-icon-attention'}))
-			.append($('<span>').text('Toggle Alert Visibility'))
+			.append($('<span>', {
+				'id': idPrfx + icnSuf,
+    			'class': 'wdn-icon-attention',
+                'aria-hidden': 'true'
+            }))
+			.append($('<span>', {
+				'id': idPrfx + hdnSuf,
+			    'class': 'wdn-text-hidden'
+            }).text('warning icon'))
+			.append($('<span>', {
+				'id': idPrfx + axnSuf,
+    			'class': 'wdn-sans-caps'
+            }).text('Show emergency alert'))
 			.click(toggleAlert)
 			.prependTo($alertContent.parent());
 		}
