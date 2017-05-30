@@ -1,7 +1,7 @@
 @import '../_mixins/all.less';
 @import 'grid-mixins.less';
 
-[class*='@{grid-set}'] {
+[class*="@{grid-set}"] {
     margin: 0 (@gutter-size-ie/2) * -1;
     margin: 0 (@gutter-size/2) * -1;
     box-sizing: border-box;
@@ -15,7 +15,7 @@
     }
 }
 
-[class*='@{grid-col-class}'] {
+[class*="@{grid-col-class}"] {
     float: left;
     .grid-col-width-cal(100%);
     padding: 0 (@gutter-size-ie/2);
@@ -32,39 +32,39 @@
 
 .wdn-grid-clear {
 
-    &[class*='@{grid-set}-halves'] .@{grid-col-class}:nth-child(2n+1) {
+    &[class*="@{grid-set}-halves"] .@{grid-col-class}:nth-child(2n+1) {
         clear:left;
     }
 
-    &[class*='@{grid-set}-thirds'] .@{grid-col-class}:nth-child(3n+1) {
+    &[class*="@{grid-set}-thirds"] .@{grid-col-class}:nth-child(3n+1) {
         clear:left;
     }
 
-    &[class*='@{grid-set}-fourths'] .@{grid-col-class}:nth-child(4n+1) {
+    &[class*="@{grid-set}-fourths"] .@{grid-col-class}:nth-child(4n+1) {
         clear:left;
     }
 
-    &[class*='@{grid-set}-fifths'] .@{grid-col-class}:nth-child(5n+1) {
+    &[class*="@{grid-set}-fifths"] .@{grid-col-class}:nth-child(5n+1) {
         clear:left;
     }
 
-    &[class*='@{grid-set}-sixths'] .@{grid-col-class}:nth-child(6n+1) {
+    &[class*="@{grid-set}-sixths"] .@{grid-col-class}:nth-child(6n+1) {
         clear:left;
     }
 
-    &[class*='@{grid-set}-sevenths'] .@{grid-col-class}:nth-child(7n+1) {
+    &[class*="@{grid-set}-sevenths"] .@{grid-col-class}:nth-child(7n+1) {
         clear:left;
     }
 
-    &[class*='@{grid-set}-eighths'] .@{grid-col-class}:nth-child(8n+1) {
+    &[class*="@{grid-set}-eighths"] .@{grid-col-class}:nth-child(8n+1) {
         clear:left;
     }
 
-    &[class*='@{grid-set}-ninths'] .@{grid-col-class}:nth-child(9n+1) {
+    &[class*="@{grid-set}-ninths"] .@{grid-col-class}:nth-child(9n+1) {
         clear:left;
     }
 
-    &[class*='@{grid-set}-tenths'] .@{grid-col-class}:nth-child(10n+1) {
+    &[class*="@{grid-set}-tenths"] .@{grid-col-class}:nth-child(10n+1) {
         clear:left;
     }
 }
@@ -81,7 +81,7 @@
 
     ul,
     ol {
-        &[class*='@{grid-set}'] {
+        &[class*="@{grid-set}"] {
             padding: 0;
             list-style: none;
         }
