@@ -11,7 +11,6 @@ define([
 	cntSuf = '_content',
 	togSuf = '_toggle',
 	icnSuf = '_icon',
-	hdnSuf = '_hiddentext',
 	axnSuf = '_action',
 
 	timeoutPeriod = 30, // how ofter to check for expired data
@@ -110,14 +109,12 @@ define([
 			$alertToggle = $('#' + idPrfx + togSuf),
 			$alertContent = $('#' + idPrfx + cntSuf),
 			$alertIcon = $('#' + idPrfx + icnSuf),
-			$alertHidden = $('#' + idPrfx + hdnSuf),
 			$alertAction = $('#' + idPrfx + axnSuf),
 			i;
 
 		if ($alert.hasClass('show')) {
 			$alert.removeClass('show').closest('body').removeClass(idPrfx + '-shown');
 			$alertIcon.attr('class','wdn-icon-attention');
-			$alertHidden.text('warning icon');
 			$alertAction.removeClass('wdn-text-hidden').text('Show emergency alert');
 			for (i = 0; i < activeIds.length; i++) {
 				_acknowledgeAlert(activeIds[i]);
@@ -125,7 +122,6 @@ define([
 		} else {
 			$alert.addClass('show').closest('body').addClass(idPrfx + '-shown');
 			$alertIcon.attr('class','wdn-icon-cancel');
-			$alertHidden.text('close icon');
 			$alertAction.addClass('wdn-text-hidden').text('Hide emergency alert');
 		}
 	},
@@ -210,10 +206,6 @@ define([
     			'class': 'wdn-icon-attention',
                 'aria-hidden': 'true'
             }))
-			.append($('<span>', {
-				'id': idPrfx + hdnSuf,
-			    'class': 'wdn-text-hidden'
-            }).text('warning icon'))
 			.append($('<span>', {
 				'id': idPrfx + axnSuf,
     			'class': 'wdn-sans-caps'
