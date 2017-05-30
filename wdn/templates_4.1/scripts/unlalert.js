@@ -116,7 +116,6 @@ define([
 
 		if ($alert.hasClass('show')) {
 			$alert.removeClass('show').closest('body').removeClass(idPrfx + '-shown');
-			$alertToggle.attr('aria-pressed','true');
 			$alertIcon.attr('class','wdn-icon-attention');
 			$alertHidden.text('warning icon');
 			$alertAction.removeClass('wdn-text-hidden').text('Show emergency alert');
@@ -125,7 +124,6 @@ define([
 			}
 		} else {
 			$alert.addClass('show').closest('body').addClass(idPrfx + '-shown');
-			$alertToggle.attr('aria-pressed','false');
 			$alertIcon.attr('class','wdn-icon-cancel');
 			$alertHidden.text('close icon');
 			$alertAction.addClass('wdn-text-hidden').text('Hide emergency alert');
@@ -206,7 +204,6 @@ define([
 		if (!$alertToggle.length) {
 			$alertToggle = $('<button>', {
 				'id': idPrfx + togSuf,
-				'aria-pressed': 'false'
 			})
 			.append($('<span>', {
 				'id': idPrfx + icnSuf,
