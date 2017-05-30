@@ -222,7 +222,7 @@ define([
     			'class': 'wdn-sans-caps'
             }).text('Show emergency alert'))
 			.click(toggleAlert)
-			.prependTo($alertContent.parent());
+			.appendTo($alertContent.parent());
 		}
 
 		if (allAck) {
