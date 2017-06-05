@@ -45,6 +45,7 @@
     "last 1 Safari version",
     "Android >= 4.0",
     "BlackBerry >= 4.0",
-    "iOS >= 10"
+    "iOS >= 10",
+    "> 1% in my stats"
   ]
 }
