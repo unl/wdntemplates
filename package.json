@@ -36,5 +36,15 @@
   },
   "engines": {
     "node": "node >= 0.10.0"
-  }
+  },
+  "browserlist": [
+    "last 1 Chrome version",
+    "last 1 Explorer version",
+    "last 1 Firefox version",
+    "Firefox ESR",
+    "last 1 Safari version",
+    "Android >= 4.0",
+    "BlackBerry >= 4.0",
+    "iOS >= 10"
+  ]
 }
