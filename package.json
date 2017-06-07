@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/unl/wdntemplates#readme",
   "devDependencies": {
+    "autoprefixer": "^7.1.1",
     "csso": "^2.1.1",
     "grunt": "^1.0.1",
     "grunt-bump": "^0.8.0",
@@ -31,6 +32,7 @@
     "less-plugin-autoprefix": "^1.5.1",
     "less-plugin-clean-css": "^1.5.1",
     "load-grunt-tasks": "^3.4.1",
+    "stylelint": "^7.10.1",
     "sync-exec": "^0.6.2",
     "tar-fs": "^1.11.1"
   },
