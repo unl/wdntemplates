@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.22 (June 6, 2017)
+- [Fixed the location](https://github.com/unl/wdntemplates/commit/1282778babe24510805af4e4ae36a15832bcdbbe) of the search button
+- Fixed a Flash of No CSS on hard refresh([#1073](https://github.com/unl/wdntemplates/pull/1073))
+- Restored button cursor lost in normalize update ([#1075](https://github.com/unl/wdntemplates/pull/1075))
+
 ## 4.1.21 (May 9, 2017)
 - Removed Font Face Observer to ensure fonts were loaded
 
