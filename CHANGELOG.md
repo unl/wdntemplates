@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.23 (July 4, 2017)
+- No commits made, version bumped
+
 ## 4.1.22 (June 6, 2017)
 - [Fixed the location](https://github.com/unl/wdntemplates/commit/1282778babe24510805af4e4ae36a15832bcdbbe) of the search button
 - Fixed a Flash of No CSS on hard refresh([#1073](https://github.com/unl/wdntemplates/pull/1073))
