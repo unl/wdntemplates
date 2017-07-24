@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<!--#include virtual="/wdn/templates_4.1/includes/metanfavico_local.html" -->
-<!--
+    <!--#include virtual="/wdn/templates_4.1/includes/metanfavico_local.html" -->
+    <!--
     Membership and regular participation in the UNL Web Developer Network is required to use the UNLedu Web Framework. Visit the WDN site at http://wdn.unl.edu/. Register for our mailing list and add your site or server to UNLwebaudit.
     All framework code is the property of the UNL Web Developer Network. The code seen in a source code view is not, and may not be used as, a template. You may not use this code, a reverse-engineered version of this code, or its associated visual presentation in whole or in part to create a derivative work.
     This message may not be removed from any pages based on the UNLedu Web Framework.
-
     $Id: debug.dwt | 6edb0e1ee94038935f3821c6ce15dfd5c217b2e2 | Tue Dec 1 17:08:56 2015 -0600 | Kevin Abel  $
--->
-<!--#include virtual="/wdn/templates_4.1/includes/scriptsandstyles_debug.html" -->
-<!-- InstanceBeginEditable name="doctitle" -->
-<title>Debugging Out | WDN Testing Page | University of Nebraska&ndash;Lincoln</title>
-<!-- InstanceEndEditable -->
-<!-- InstanceBeginEditable name="head" -->
-<!-- InstanceEndEditable -->
-<!-- InstanceParam name="class" type="text" value="debug" -->
+    -->
+    <!--#include virtual="/wdn/templates_4.1/includes/scriptsandstyles_debug.html" -->
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Debugging Out | WDN Testing Page | University of Nebraska&ndash;Lincoln</title>
+    <!-- InstanceEndEditable -->
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+    <!-- InstanceParam name="class" type="text" value="debug" -->
 </head>
 <body class="debug" data-version="4.1">
     <!--#include virtual="/wdn/templates_4.1/includes/skipnav.html" -->
@@ -68,9 +67,167 @@
                 <div id="pagetitle">
                     <!-- InstanceBeginEditable name="pagetitle" -->
                     <h1>Debug Page</h1>
-	                <!-- InstanceEndEditable -->
+                    <!-- InstanceEndEditable -->
                 </div>
                 <!-- InstanceBeginEditable name="maincontentarea" -->
+                <div class="wdn-band wdn-light-complement-band">
+                    <div class="wdn-inner-wrapper">
+                        <div class="wdn-grid-set">
+                            <div class="wdn-col-full">
+                                <table class="cool">
+                                    <thead>
+                                        <tr>
+                                            <th>col1 heading</th>
+                                            <th>col2 heading</th>
+                                            <th>col3 heading</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>row1 col1</th>
+                                            <td>row1 col2</td>
+                                            <td>row1 col3</td>
+                                        </tr>
+                                        <tr>
+                                            <th>row2 col1</th>
+                                            <td>row2 col2</td>
+                                            <td>row2 col3</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="energetic">
+                                    <thead>
+                                        <tr>
+                                            <th>col1 heading</th>
+                                            <th>col2 heading</th>
+                                            <th>col3 heading</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>row1 col1</th>
+                                            <td>row1 col2</td>
+                                            <td>row1 col3</td>
+                                        </tr>
+                                        <tr>
+                                            <th>row2 col1</th>
+                                            <td>row2 col2</td>
+                                            <td>row2 col3</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="soothing">
+                                    <thead>
+                                        <tr>
+                                            <th>col1 heading</th>
+                                            <th>col2 heading</th>
+                                            <th>col3 heading</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>row1 col1</th>
+                                            <td>row1 col2</td>
+                                            <td>row1 col3</td>
+                                        </tr>
+                                        <tr>
+                                            <th>row2 col1</th>
+                                            <td>row2 col2</td>
+                                            <td>row2 col3</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="primary">
+                                    <thead>
+                                        <tr>
+                                            <th>col1 heading</th>
+                                            <th>col2 heading</th>
+                                            <th>col3 heading</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>row1 col1</th>
+                                            <td>row1 col2</td>
+                                            <td>row1 col3</td>
+                                        </tr>
+                                        <tr>
+                                            <th>row2 col1</th>
+                                            <td>row2 col2</td>
+                                            <td>row2 col3</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="neutral">
+                                    <thead>
+                                        <tr>
+                                            <th>col1 heading</th>
+                                            <th>col2 heading</th>
+                                            <th>col3 heading</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>row1 col1</th>
+                                            <td>row1 col2</td>
+                                            <td>row1 col3</td>
+                                        </tr>
+                                        <tr>
+                                            <th>row2 col1</th>
+                                            <td>row2 col2</td>
+                                            <td>row2 col3</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="wdn-col-full">
+                                <h2>Responsive Table</h2>
+                                <table class="wdn_responsive_table flush-left">
+                                    <thead>
+                                        <tr>
+                                            <td class="vehicletype-offset">Vehicle Type</td>
+                                            <th id="SC_Sedan" scope="col">
+                                                <abbr title="Sub-Compact Sedan">Sub-Compact Sedan</abbr>
+                                            </th>
+                                            <th id="C_Sedan" scope="col">
+                                                <abbr title="Compact Sedan">Compact Sedan</abbr>
+                                            </th>
+                                            <th id="I_Sedan" scope="col">
+                                                <abbr title="Intermediate Sedan">Intermediate Sedan</abbr>
+                                            </th>
+                                            <th id="FS_Sedan" scope="col">
+                                                <abbr title=" Full Size Sedan">Full Size Sedan</abbr>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Mile Rate in Excess of Free Miles</th>
+                                            <td data-header="Sub-compact Sedan">$0.19</td>
+                                            <td data-header="Compact Sedan">$0.19</td>
+                                            <td data-header="Intermediate Sedan">$0.23</td>
+                                            <td data-header="Full Size Sedan">$0.27</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Daily (300 free miles per rental day)</th>
+                                            <td data-header="Sub-compact Sedan">$21</td>
+                                            <td data-header="Compact Sedan">$21</td>
+                                            <td data-header="Intermediate Sedan">$23</td>
+                                            <td data-header="Full Size Sedan">$29</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Monthly 1-6 (1,100 free miles per rental month)</th>
+                                            <td data-header="Sub-compact Sedan">$315</td>
+                                            <td data-header="Compact Sedan">$315</td>
+                                            <td data-header="Intermediate Sedan">$355</td>
+                                            <td data-header="Full Size Sedan">$425</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="wdn-band wdn-light-triad-band">
                     <div class="wdn-inner-wrapper">
                         <a href="#" class="wdn-button">This is my button</a>
@@ -103,100 +260,57 @@
                         <blockquote class="wdn-quote">
                             Color does not add a pleasant quality to design - it reinforces it.
                             <cite class="wdn-quoter">
-                                Pierre Bonnard <span class="quoter-context">Awesome painter and printmaker</span>
+                            Pierre Bonnard <span class="quoter-context">Awesome painter and printmaker</span>
                             </cite>
                         </blockquote>
                     </div>
                 </div>
-
                 <div class="wdn-band wdn-band-neutral-seperator">
                     <div class="wdn-inner-wrapper">
-
                         <h1><span class="wdn-subhead">Roof party freegan lomo</span> Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park.</h1>
-
                         <p><a href="#">Before</a> they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. Cosby sweater selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
-
                         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. <a href="http://vox.com/">Cliche dreamcatcher</a> four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
-
                         <h2><span class="wdn-subhead">Roof party freegan lomo</span> Vinyl bitters banjo, meggings forage Terry Richardson kogi pug beard aesthetic kitsch whatever selvage.</h2>
-
                         <p>Distillery XOXO Pinterest before they sold out single-origin coffee ugh, ethical small batch organic gentrify VHS. Kale chips mixtape master cleanse jean shorts Echo Park. Meggings Banksy umami, +1 you probably haven't heard of them cliche gastropub keytar Neutra.</p>
-
                         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
-
                         <h3><span class="wdn-subhead">Roof party freegan lomo</span> Letterpress photo booth direct trade meggings</h3>
-
                         <p>Church-key ennui gastropub. Sriracha Etsy XOXO street art, chillwave 8-bit hoodie VHS blog Pitchfork authentic paleo ethical messenger bag. Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh.</p>
-
                         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
-
                         <h4><span class="wdn-subhead">Roof party freegan lomo</span> Post-ironic Shoreditch slow-carb</h4>
-
                         <p>Tote bag beard chillwave seitan PBR single-origin coffee kogi hella Bushwick disrupt four loko. Aesthetic artisan post-ironic gluten-free, selfies keffiyeh plaid single-origin coffee.</p>
-
                         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
-
                         <h5><span class="wdn-subhead">Roof party freegan lomo</span> Portland ugh Neutra, Schlitz pop-up cornhole biodiesel Etsy raw denim</h5>
-
                         <p>Mlkshk fashion axe Pitchfork deep v dreamcatcher, Blue Bottle church-key photo booth literally asymmetrical four loko. <a href="#" class="imagelink">Hoodie flexitarian</a> +1, farm-to-table locavore selvage Marfa synth ennui polaroid occupy kitsch.</p>
-
                         <a href="#">Hoodie flexitarian</a>
-
                         <p>Artisan mumblecore Pinterest Shoreditch meggings viral. Austin VHS street art cornhole Etsy tattooed. Tattooed iPhone 90's keytar, XOXO Intelligentsia gastropub letterpress drinking vinegar cliche viral tote bag. Mumblecore seitan 8-bit dreamcatcher, fanny pack pickled scenester quinoa vinyl put a bird on it artisan literally.</p>
-
                         <ul>
                             <li>Church-key ennui gastropub.</li>
                             <li>Sriracha Etsy XOXO street art, <em><a href="#">chillwave 8-bit hoodie</a></em> <a href="#">VHS blog</a> Pitchfork authentic paleo ethical messenger bag.</li>
                             <li>Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh.</li>
                         </ul>
-
                         <h6><span class="wdn-subhead">Roof party freegan lomo</span> Carles tofu meh vegan pickled Marfa.</h6>
-
                         <p>Quinoa twee cardigan, lo-fi biodiesel try-hard Neutra pickled church-key pug scenester. Etsy direct trade fanny pack, fashion axe chia bespoke bitters Helvetica.</p>
-
                         <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven't heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
-
-
-
                         <h1>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park. <span class="wdn-subhead">Roof party freegan lomo</span></h1>
-
                         <p>Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. Cosby sweater selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
-
                         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
-
                         <h2>Vinyl bitters banjo, meggings forage Terry Richardson kogi pug beard aesthetic kitsch whatever selvage. <span class="wdn-subhead">Roof party freegan lomo</span></h2>
-
                         <p>Distillery XOXO Pinterest before they sold out single-origin coffee ugh, ethical small batch organic gentrify VHS. Kale chips mixtape master cleanse jean shorts Echo Park. Meggings Banksy umami, +1 you probably haven't heard of them cliche gastropub keytar Neutra.</p>
-
                         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
-
                         <h3>Letterpress photo booth direct trade meggings <span class="wdn-subhead">Roof party freegan lomo</span></h3>
-
                         <p>Church-key ennui gastropub. Sriracha Etsy XOXO street art, chillwave 8-bit hoodie VHS blog Pitchfork authentic paleo ethical messenger bag. Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh.</p>
-
                         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
-
                         <h4>Post-ironic Shoreditch slow-carb <span class="wdn-subhead">Roof party freegan lomo</span></h4>
-
                         <p>Tote bag beard chillwave seitan PBR single-origin coffee kogi hella Bushwick disrupt four loko. Aesthetic artisan post-ironic gluten-free, selfies keffiyeh plaid single-origin coffee.</p>
-
                         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
-
                         <h5>Portland ugh Neutra, Schlitz pop-up cornhole biodiesel Etsy raw denim <span class="wdn-subhead">Roof party freegan lomo</span></h5>
-
                         <p>Mlkshk fashion axe Pitchfork deep v dreamcatcher, Blue Bottle church-key photo booth literally asymmetrical four loko. Hoodie flexitarian +1, farm-to-table locavore selvage Marfa synth ennui polaroid occupy kitsch.</p>
-
                         <p>Artisan mumblecore Pinterest Shoreditch meggings viral. Austin VHS street art cornhole Etsy tattooed. Tattooed iPhone 90's keytar, XOXO Intelligentsia gastropub letterpress drinking vinegar cliche viral tote bag. Mumblecore seitan 8-bit dreamcatcher, fanny pack pickled scenester quinoa vinyl put a bird on it artisan literally.</p>
-
                         <h6>Carles tofu meh vegan pickled Marfa. <span class="wdn-subhead">Roof party freegan lomo</span></h6>
-
                         <p>Quinoa twee cardigan, lo-fi biodiesel try-hard Neutra pickled church-key pug scenester. Etsy direct trade fanny pack, fashion axe chia bespoke bitters Helvetica.</p>
-
                         <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven't heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
-
                     </div>
                 </div>
-
                 <!-- InstanceEndEditable -->
             </div>
         </main>
@@ -204,7 +318,7 @@
             <div id="wdn_optional_footer" class="wdn-band wdn-footer-optional">
                 <div class="wdn-inner-wrapper">
                     <!-- InstanceBeginEditable name="optionalfooter" -->
-	                <!-- InstanceEndEditable -->
+                    <!-- InstanceEndEditable -->
                 </div>
             </div>
             <div id="wdn_local_footer" class="wdn-band wdn-footer-local">
@@ -218,7 +332,7 @@
             </div>
             <div id="wdn_global_footer" class="wdn-band wdn-footer-global">
                 <div class="wdn-inner-wrapper">
-                   <!--#include virtual="/wdn/templates_4.1/includes/globalfooter.html" -->
+                    <!--#include virtual="/wdn/templates_4.1/includes/globalfooter.html" -->
                 </div>
             </div>
         </footer>

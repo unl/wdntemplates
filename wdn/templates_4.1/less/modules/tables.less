@@ -3,15 +3,15 @@ table.cool,
 table.soothing,
 table.neutral,
 table.energetic {
-
     thead {
-
         th {
             color: #fff;
+        }
+    }
 
-            a {
-                color: #fff;
-            }
+    th {
+        a {
+            color: #fff;
         }
     }
 }
@@ -25,6 +25,11 @@ table.primary {
     }
 
     tbody {
+
+        th {
+            background-color: lighten(@brand,53.5%);
+            color: darken(@brand, 14%)
+        }
 
         tr {
 
@@ -49,6 +54,11 @@ table.cool {
 
     tbody {
 
+        th {
+            background-color: lighten(@dark-triad,52%);
+            color: darken(@triad, 15%);
+        }
+
         tr {
 
             &:nth-of-type(even) {
@@ -71,6 +81,11 @@ table.soothing {
     }
 
     tbody {
+
+        th {
+            background-color: lighten(@dark-complement,57%);
+            color: darken(@complement, 8%);
+        }
 
         tr {
 
@@ -96,6 +111,11 @@ table.neutral {
     tbody {
         // no background-color needed for tbody tr:nth-of-type(even), same as inherited color
 
+        th {
+            background-color: lighten(@neutral,68%);
+            color: lighten(@neutral, 7%);
+        }
+
         th, td {
             border-color: lighten(@dark-neutral,60%);
         }
@@ -111,6 +131,11 @@ table.energetic {
     }
 
     tbody {
+
+        th {
+            background-color: lighten(@dark-energetic,47%);
+            color: darken(@energetic, 14%)
+        }
 
         tr {
 
