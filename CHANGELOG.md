@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.24 (August 1, 2017)
+- Changed Tungsten to load in the head on Speedy template, this will make the FOUT much less violent in the header
+
 ## 4.1.23 (July 4, 2017)
 - No commits made, version bumped
 
