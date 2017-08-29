@@ -89,7 +89,7 @@
                                             <td>row1 col3</td>
                                         </tr>
                                         <tr>
-                                            <th>row2 col1</th>
+                                            <th><a href="#">row2 col1</a></th>
                                             <td>row2 col2</td>
                                             <td>row2 col3</td>
                                         </tr>
@@ -110,7 +110,7 @@
                                             <td>row1 col3</td>
                                         </tr>
                                         <tr>
-                                            <th>row2 col1</th>
+                                            <th><a href="">row2 col1</a></th>
                                             <td>row2 col2</td>
                                             <td>row2 col3</td>
                                         </tr>
@@ -131,7 +131,7 @@
                                             <td>row1 col3</td>
                                         </tr>
                                         <tr>
-                                            <th>row2 col1</th>
+                                            <th><a href="">row2 col1</a></th>
                                             <td>row2 col2</td>
                                             <td>row2 col3</td>
                                         </tr>
@@ -152,7 +152,7 @@
                                             <td>row1 col3</td>
                                         </tr>
                                         <tr>
-                                            <th>row2 col1</th>
+                                            <th><a href="">row2 col1</a></th>
                                             <td>row2 col2</td>
                                             <td>row2 col3</td>
                                         </tr>
@@ -173,7 +173,7 @@
                                             <td>row1 col3</td>
                                         </tr>
                                         <tr>
-                                            <th>row2 col1</th>
+                                            <th><a href="">row2 col1</a></th>
                                             <td>row2 col2</td>
                                             <td>row2 col3</td>
                                         </tr>
