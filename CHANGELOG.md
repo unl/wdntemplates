@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.25 (September 5, 2017)
+- Fixed contrast issues in table elements
+- Fixed the visual height of the button within .wdn-input-group-btn
+- Fixed some specificity rules in tables
+
 ## 4.1.24 (August 1, 2017)
 - Changed Tungsten to load in the head on Speedy template, this will make the FOUT much less violent in the header
 
