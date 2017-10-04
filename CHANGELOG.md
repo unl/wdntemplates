@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.26 (Octoboer 3, 2017)
+- No commits made, version bumped
+
 ## 4.1.25 (September 5, 2017)
 - Fixed contrast issues in table elements
 - Fixed the visual height of the button within .wdn-input-group-btn
