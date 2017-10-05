@@ -28,11 +28,11 @@ define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 		"windowsxp":  {
 			"enabled": window.navigator.userAgent.match(reXPAgent) && !WDN.getCookie(xpCookie),
 			"html": "Windows XP is no longer maintained by Microsoft or supported at UNL since April 8, 2014. You are strongly encouraged to upgrade.",
-			"url": "http://its.unl.edu/helpcenter/upgrade-windows-xp"
+			"url": "https://its.unl.edu/helpcenter/upgrade-windows-xp"
 		},
 		"oldie": {
 			"enabled": ie && ie < minIEVersion,
-			"html": "This page may not be displayed correctly in this browser. You are strongly encouraged to update. <a href=\"http://its.unl.edu/supported-technology-standards-end-life-software\">Read More</a>",
+			"html": "This page may not be displayed correctly in this browser. You are strongly encouraged to update. <a href=\"https://its.unl.edu/supported-technology-standards-end-life-software\">Read More</a>",
 			"url": "http://windows.microsoft.com/en-us/internet-explorer/download-ie"
 		}
 	};
