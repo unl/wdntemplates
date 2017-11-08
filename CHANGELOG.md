@@ -1,7 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 4.1.26 (Octoboer 3, 2017)
+## 4.1.27 (November 7, 2017)
+- Updated framework absolute links to use https([#1083](https://github.com/unl/wdntemplates/pull/1083))
+
+## 4.1.26 (October 3, 2017)
 - No commits made, version bumped
 
 ## 4.1.25 (September 5, 2017)
