@@ -3,7 +3,8 @@ define([
 	'jquery',
 	'plugins/mediaelement/mediaelement-and-player',
 	'plugins/mediaelement/mep-feature-googleanalytics',
-	'css!plugins/mediaelement/css/mediaelementplayer.min'
+	'css!plugins/mediaelement/css/mediaelementplayer.min',
+    'css!plugins/mediaelement/css/wdn-overrides.min'
 ], function(WDN, $, mejs) {
 	// fix plugin path detection in built env
 	mejs.MediaElementDefaults.pluginPath = WDN.getTemplateFilePath('scripts/plugins/mediaelement/', true);

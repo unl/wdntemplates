@@ -30,6 +30,7 @@
 }
 
 .wdn-share-options {
+    display: block;
 	position: absolute;
 	z-index: (@nav-z-index + 1);
     margin: 6px 0 0;
@@ -66,7 +67,6 @@
         height: 0;
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
-        border-bottom: 6px solid @ui10;
         border-bottom: 6px solid fadeout(@ui10, 3%);
 
         @media @bp-nav-full {
@@ -85,7 +85,7 @@
     	text-transform: none;
     	line-height: 1.777;
 
-    	[class^='wdn-icon-'] {
+    	[class^="wdn-icon-"] {
 
     		&:before {
     			margin-right: .602em;

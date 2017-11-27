@@ -1,6 +1,45 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.27 (November 7, 2017)
+- Updated framework absolute links to use https([#1083](https://github.com/unl/wdntemplates/pull/1083))
+
+## 4.1.26 (October 3, 2017)
+- No commits made, version bumped
+
+## 4.1.25 (September 5, 2017)
+- Fixed contrast issues in table elements
+- Fixed the visual height of the button within .wdn-input-group-btn
+- Fixed some specificity rules in tables
+
+## 4.1.24 (August 1, 2017)
+- Changed Tungsten to load in the head on Speedy template, this will make the FOUT much less violent in the header
+
+## 4.1.23 (July 4, 2017)
+- No commits made, version bumped
+
+## 4.1.22 (June 6, 2017)
+- [Fixed the location](https://github.com/unl/wdntemplates/commit/1282778babe24510805af4e4ae36a15832bcdbbe) of the search button
+- Fixed a Flash of No CSS on hard refresh([#1073](https://github.com/unl/wdntemplates/pull/1073))
+- Restored button cursor lost in normalize update ([#1075](https://github.com/unl/wdntemplates/pull/1075))
+
+## 4.1.21 (May 9, 2017)
+- Removed Font Face Observer to ensure fonts were loaded
+
+## 4.1.20 (May 9, 2017)
+- Added a new speedy template to improve page speed
+- Improved CSS distribution, only putting critical CSS in the head and loading other CSS later
+- Fixed a change in Chrome that caused a random [border to appear](https://github.com/unl/wdntemplates/pull/1065).
+
+## 4.1.19 (March 13, 2017)
+- Updated events widget to force use of https, even if option not selected ([#1055](https://github.com/unl/wdntemplates/commit/9dae8df39db9839268e3a6537ebb1afd789e2b76))
+- Disabled the direction navigation on carousels by default ([#1052](https://github.com/unl/wdntemplates/commit/2bde94c5cd76ed656645941813a8dea8ae9f0a31))
+
+## 4.1.18 (February 13, 2017)
+- Changed Nebraska N logo to improve pixel-fitting
+- Updates to font size calculation in footer
+- Add margin to last element (if not a .wdn-band) to add vertical space between main content and footer
+
 ## 4.1.17 (January 24, 2017)
 - Happy new copyright year ([d274265](https://github.com/unl/wdntemplates/commit/d2742655fe9d0a902a52ff1dde0d28ce5f5d1aef))
 - Fix subpixel border appearing below navigation bar ([#1043](ttps://github.com/unl/wdntemplates/pull/1043))

@@ -1,6 +1,7 @@
 {
 	"require" : {
 		"masterminds/html5": "1.*",
-        "rexxars/html-validator": "~1.0"
+        "rexxars/html-validator": "~1.0",
+		"phpunit/phpunit": "^6.0"
 	}
 }

@@ -1,4 +1,4 @@
-define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN, require, Modernizr, nav) {
+define(['jquery', 'wdn', 'require', 'navigation'], function($, WDN, require, nav) {
 	var autoSearchDebounceDelay = 1000;
 
 	function getLocalSearch() {
@@ -13,7 +13,7 @@ define(['jquery', 'wdn', 'require', 'modernizr', 'navigation'], function($, WDN,
 	var initd = false;
 
 	var isFullNav = function() {
-		return Modernizr.mq('(min-width: 700px)') || !Modernizr.mq('only all');
+		return matchMedia('(min-width: 43.75em)').matches || !matchMedia('only all').matches;
 	};
 
 	return {

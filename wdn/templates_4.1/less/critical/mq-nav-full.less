@@ -1,0 +1,128 @@
+@media @bp-nav-full {
+
+    // !Header
+    #wdn_header_top {
+    	.inner-wrapper-margin-right();
+    	padding: 0;
+    }
+
+    #wdn_institution_title {
+        margin-right: 5%;
+    }
+
+    #wdn_site_title {
+        overflow: visible;
+        white-space: normal;
+    }
+
+    // !Resources
+    #wdn_resources {
+		flex: 1 1 auto; // WDN Resources occupy all space not used by institution title
+		display: flex;
+		align-items: center;
+		min-width: 0;
+    }
+
+    // !IdM
+    .wdn-resource-login-trigger {
+        right: 0;
+    }
+
+    #wdn_idm_username {
+	    height: 2.369rem; // 30.39px
+        padding-top: .254em;
+        font-size: .75rem; // 9.625px, 12px
+	    color: @scarlet;
+    }
+
+    // !Search
+    #wdn_search {
+	    display: flex;
+	    align-items: center;
+	    flex: 1 0 9.969em;
+        position: relative;
+	    margin: 0 0 0 5%;
+    }
+
+    #wdn_search_form {
+        position: static;
+        top: auto;
+        width: 100%;
+
+	    label {
+    	    font-size: .75rem; // 9.625px, 12px
+	    }
+    }
+
+    #wdn_search_query {
+        max-width: 23.612em;
+	    font-size: .75rem; // 9.625px, 12px
+	    border-color: @ui08;
+        border-right-width: 1.777rem;
+	    background-color: #fff;
+    }
+
+    // !Breadcrumbs
+    #breadcrumbs {
+
+        ul {
+            display: flex;
+    	}
+
+    	li {
+            padding: 1px .422em 0 1.777em;
+            line-height: 2.37;
+            font-size: .75019rem; // 9.625px
+    	}
+    }
+
+    // !Navigation
+    #wdn_navigation_bar {
+	    background: @ui08;
+    }
+
+    #navigation {
+        .nav-bar();
+        position: relative;
+        z-index: @nav-z-index;
+        width: 100%;
+
+        a {
+            padding: 5px 5%;
+        }
+
+        li {
+            float: left;
+            width: 16.6666%;
+            text-align: center;
+
+            &.empty {
+                display: list-item;
+                visibility: hidden;
+            }
+
+            ul {
+                height: 0;
+                overflow: hidden;
+            }
+        }
+
+        > ul {
+			.inner-wrapper-margin();
+			padding: 0 1.777em;
+
+            > li {
+                line-height: 1;
+
+                &:nth-of-type(7n) {
+                    clear: left;
+                }
+
+                > a {
+                    padding-top: .422em;
+                    padding-bottom: .451em;
+                }
+            }
+        }
+    }
+}

@@ -1,22 +1,12 @@
-/*
-* WDN Resources Wrapper
-*/
+// WDN Resources Wrapper
 
 .wdn-resource-app-trigger {
     display: none;
 }
 
 .wdn-resource-label {
-	.wdn-sans-serif();
-    font-size: .75rem; // 9.625px, 12px
 
-    @media @bp-nav-full {
-        cursor: pointer;
-    }
-
-    [class^='wdn-icon'] {
-        text-decoration: none;
-        cursor: pointer;
+    [class^="wdn-icon"] {
 
         &:before {
             font-size: 1em;
@@ -29,7 +19,6 @@
 	@media @bp-nav-full {
 		flex: 1 1 auto; // WDN Resources occupy all space not used by institution title
 		display: flex;
-		flex-flow: row nowrap;
 		align-items: center;
 		min-width: 0;
 	}
@@ -39,12 +28,8 @@
 
     .wdn-resource-label {
 
-        [class^='wdn-icon'] {
+        [class^="wdn-icon"] {
             color: @brand;
-
-            &:before {
-                font-size: 1em;
-            }
 
             &:hover {
                 color: darken(@brand, 10%);

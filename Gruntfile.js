@@ -3,7 +3,8 @@ module.exports = function (grunt) {
 	var cssObjs = [
 		'all',
 		'modules/pagination',
-		'modules/infographics'
+		'modules/infographics',
+		'critical'
 	];
 
 	var jsCssObjs = [
@@ -25,12 +26,13 @@ module.exports = function (grunt) {
 
 	// project layout variables (directories)
 	var mainDir = 'wdn',
+		buildDir = 'build',
 		templateDir = mainDir + '/templates_4.1',
 		templateLess = templateDir + '/less',
 		templateCss = templateDir + '/css',
 		templateJs = templateDir + '/scripts',
 		builtJsDir = 'compressed',
-		buildJsDir = 'build/' + builtJsDir,
+		buildJsDir = buildDir + '/' + builtJsDir,
 		templateCompileJs = templateJs + '/' + builtJsDir,
 		templateIncludeDir = templateDir + '/includes',
 		templateHtmlDir = 'Templates',
@@ -43,7 +45,8 @@ module.exports = function (grunt) {
 	// files for keyword replacement (should match .gitattributes)
 	var filterFiles = [
 		templateHtmlDir + '/*.dwt*',
-		templateIncludeDir + '/scriptsandstyles*.html'
+		templateIncludeDir + '/scriptsandstyles*.html',
+		templateIncludeDir + '/speedy_body_scripts.html'
 	];
 
 	// polyfill modules that need sync loading (should match scripts loaded in debug.js)
@@ -87,6 +90,8 @@ module.exports = function (grunt) {
 		'!js-css/**',
 		'!analytics.*',
 		'!debug.*',
+		'!fontfaceobserver.*',
+		'!fontsloaded.*',
 		'!form_validation.*',
 		'!ga.*',
 		'!jquery.*',
@@ -255,6 +260,18 @@ module.exports = function (grunt) {
 			dist: [zipDir + '/*.zip', zipDir + '/*.gz']
 		},
 
+    	includes: {
+        	build: {
+            	cwd: buildDir,
+            	src: '*.html',
+            	dest: templateIncludeDir,
+            	options: {
+                	flatten: true,
+                	includePath: [templateCss, templateCompileJs]
+            	}
+        	}
+    	},
+
 		"filter-clean": {
 			options: {
 				files: filterFiles
@@ -312,6 +329,10 @@ module.exports = function (grunt) {
 			js: {
 				files: [templateJs + '/**/*.js', '!' + templateCompileJs + '/**/*.js'],
 				tasks: ['js']
+			},
+			includes: {
+				files: [buildDir + '/**/*.html', templateLess + '/**/*.less', templateJs + '/js-css/*.less'],
+				tasks: ['includes']
 			}
 		}
 	});

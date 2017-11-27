@@ -1,24 +1,40 @@
-table.primary {
-    /* Primary Table */
-    border: none;
-
+table.primary,
+table.cool,
+table.soothing,
+table.neutral,
+table.energetic {
     thead {
-        border: 1px solid fadeout(@brand,20%);
-    }
-
-    tr th {
-        color: #fff;
-        background: fadeout(@brand,20%);
-        border-top: none;
-        border-bottom: 3px solid darken(@brand,10%);
-
-        a {
+        th {
             color: #fff;
         }
     }
 
+    th {
+        a {
+            color: #fff;
+        }
+    }
+}
+
+table.primary {
+    /* Primary Table */
+    border-color: lighten(@brand,50%);
+
+    th {
+        background-color: fadeout(@brand,20%);
+    }
+
     tbody {
-        border: 1px solid lighten(@brand,50%);
+
+        th {
+            background-color: lighten(@brand,53.5%);
+            color: darken(@brand, 14%);
+
+            a {
+                color: inherit;
+                border-bottom: 1px dotted darken(@brand, 14%);;
+            }
+        }
 
         tr {
 
@@ -27,41 +43,31 @@ table.primary {
             }
         }
 
-        td {
+        th, td {
             border-color: lighten(@brand,50%);
         }
-    }
-
-    @media @bp-under768w {
-
-	    &.wdn_responsive_table tbody td:first-child {
-            color: #fff;
-            background: fadeout(@brand,20%);
-    	}
     }
 }
 
 table.cool {
     /* Cool Table */
-    border: none;
+    border-color: lighten(@dark-triad,45%);
 
-    thead {
-        border: 1px solid @triad;
-    }
-
-    tr th {
-        color: #fff;
-        background: @triad;
-        border-top: none;
-        border-bottom: 3px solid darken(@triad,5%);
-
-        a {
-            color: #fff;
-        }
+    th {
+        background-color: @triad;
     }
 
     tbody {
-        border: 1px solid lighten(@dark-triad,45%);
+
+        th {
+            background-color: lighten(@dark-triad,52%);
+            color: darken(@triad, 15%);
+
+            a {
+                color: inherit;
+                border-bottom: 1px dotted darken(@triad, 15%);
+            }
+        }
 
         tr {
 
@@ -70,41 +76,31 @@ table.cool {
             }
         }
 
-        td {
+        th, td {
             border-color: lighten(@dark-triad,45%);
-        }
-    }
-
-    @media @bp-under768w {
-
-        &.wdn_responsive_table tbody td:first-child {
-            color: darken(@light-triad,70%);
-            background: fadeout(@light-triad,20%);
         }
     }
 }
 
 table.soothing {
     /* Soothing Table */
-    border: none;
+    border-color: lighten(@dark-complement,50%);
 
-    thead {
-        border: 1px solid @complement;
-    }
-
-    tr th {
-        color: #fff;
-        background: @complement;
-        border-top: none;
-        border-bottom: 3px solid darken(@complement,5%);
-
-        a {
-            color: #fff;
-        }
+    th {
+        background-color: @complement;
     }
 
     tbody {
-        border: 1px solid lighten(@dark-complement,50%);
+
+        th {
+            background-color: lighten(@dark-complement,57%);
+            color: darken(@complement, 8%);
+
+            a {
+                color: inherit;
+                border-bottom: 1px dotted darken(@complement, 8%);
+            }
+        }
 
         tr {
 
@@ -113,84 +109,58 @@ table.soothing {
             }
         }
 
-        td {
+        th, td {
             border-color: lighten(@dark-complement,50%);
-        }
-    }
-
-    @media @bp-under768w {
-
-		&.wdn_responsive_table tbody td:first-child {
-            color: #fff;
-            background: fadeout(@dark-complement,20%);
         }
     }
 }
 
 table.neutral {
     /* Neutral Table */
-    border: none;
+    border-color: lighten(@dark-neutral,60%);
 
-    thead {
-        border: 1px solid fadeout(@neutral,20%);
-    }
-
-    tr th {
-        color: #fff;
-        background: fadeout(@neutral,20%);
-        border-top: none;
-        border-bottom: 3px solid @dark-neutral;
-
-        a {
-            color: #fff;
-        }
+    th {
+        background-color: fadeout(@neutral,15%);
     }
 
     tbody {
-        border: 1px solid lighten(@dark-neutral,60%);
+        // no background-color needed for tbody tr:nth-of-type(even), same as inherited color
 
-        tr {
+        th {
+            background-color: lighten(@neutral,68%);
+            color: lighten(@neutral, 7%);
 
-            &:nth-of-type(even) {
-                background-color: lighten(@dark-neutral,75%);
+            a {
+                color: inherit;
+                border-bottom: 1px dotted lighten(@neutral, 7%);
             }
         }
 
-        td {
+        th, td {
             border-color: lighten(@dark-neutral,60%);
-        }
-    }
-
-    @media @bp-under768w {
-
-		&.wdn_responsive_table tbody td:first-child {
-            color: @dark-neutral;
-            background: fadeout(@neutral,20%);
         }
     }
 }
 
 table.energetic {
     /* Energetic Table */
-    border: none;
+    border-color: lighten(@dark-energetic,44%);
 
-    thead {
-        border: 1px solid @energetic;
-    }
-
-    tr th {
-        color: #fff;
-        background: @energetic;
-        border-top: none;
-        border-bottom: 3px solid darken(@energetic,5%);
-
-        a {
-            color: #fff;
-        }
+    th {
+        background-color: @energetic;
     }
 
     tbody {
-        border: 1px solid lighten(@dark-energetic,44%);
+
+        th {
+            background-color: lighten(@dark-energetic,47%);
+            color: darken(@energetic, 14%);
+
+            a {
+                color: inherit;
+                border-bottom: 1px dotted darken(@energetic, 14%);
+            }
+        }
 
         tr {
 
@@ -199,16 +169,165 @@ table.energetic {
             }
         }
 
-        td {
+        th, td {
             border-color: lighten(@dark-energetic,44%);
         }
     }
+}
 
-    @media @bp-under768w {
+@media @bp-under768w {
 
-		&.wdn_responsive_table tbody td:first-child {
-            color: #000;
-            background: fadeout(@dark-energetic,20%);
+    table.wdn_responsive_table.primary,
+    table.wdn_responsive_table.cool,
+    table.wdn_responsive_table.soothing,
+    table.wdn_responsive_table.neutral,
+    table.wdn_responsive_table.energetic {
+
+        tbody {
+
+            th {
+                color: #fff;
+
+                a {
+                    color: #fff;
+                }
+            }
+
+            tr {
+
+                &:nth-of-type(even) {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    table.wdn_responsive_table {
+
+        &.primary {
+
+            tbody {
+
+                td {
+
+                    &:nth-of-type(even) {
+                        background-color: lighten(@brand,58%);
+                    }
+                }
+            }
+        }
+
+        &.cool {
+
+            tbody {
+
+                td {
+
+                    &:nth-of-type(even) {
+                        background-color: lighten(@dark-triad,58%);
+                    }
+                }
+            }
+        }
+
+        &.soothing {
+
+            tbody {
+
+                td {
+
+                    &:nth-of-type(even) {
+                        background-color: lighten(@dark-complement,64%);
+                    }
+                }
+            }
+        }
+
+        &.neutral {
+
+            tbody {
+
+                td {
+
+                    &:nth-of-type(even) {
+                        background-color: lighten(@dark-neutral,75%);
+                    }
+                }
+            }
+        }
+
+        &.energetic {
+
+            tbody {
+
+                td {
+
+                    &:nth-of-type(even) {
+                        background-color: lighten(@dark-energetic,55%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media @bp768 {
+
+    table.wdn_responsive_table {
+
+        &.primary {
+
+            tbody {
+
+                th {
+                    color: darken(@brand,10%);
+                    background-color: lighten(@brand,55%);
+                }
+            }
+        }
+
+        &.cool {
+
+            tbody {
+
+                th {
+                    color: darken(@triad,10%);
+                    background-color: lighten(@dark-triad,52%);
+                }
+            }
+        }
+
+        &.soothing {
+
+            tbody {
+
+                th {
+                    color: darken(@complement,10%);
+                    background-color: lighten(@dark-complement,59%);
+                }
+            }
+        }
+
+        &.neutral {
+
+            tbody {
+
+                th {
+                    color: @neutral;
+                    background-color: lighten(@dark-neutral,70%);
+                }
+            }
+        }
+
+        &.energetic {
+
+            tbody {
+
+                th {
+                    color: darken(@energetic,10%);
+                    background-color: lighten(@dark-energetic,50%);
+                }
+            }
         }
     }
 }
