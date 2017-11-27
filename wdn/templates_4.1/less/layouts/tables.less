@@ -37,6 +37,10 @@ table {
             }
         }
 
+        th {
+            border-top: 1px solid @ui04;
+        }
+
         td {
             border-top: 1px solid @ui04;
         }
@@ -45,10 +49,13 @@ table {
 
 table.wdn_responsive_table {
 
-    tbody {
+    thead {
 
         th {
-            border-top: 1px solid @ui04;
+
+            abbr {
+                border-bottom: none;
+            }
         }
     }
 }

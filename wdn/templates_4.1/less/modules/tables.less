@@ -3,13 +3,16 @@ table.cool,
 table.soothing,
 table.neutral,
 table.energetic {
+
     thead {
+
         th {
             color: #fff;
         }
     }
 
     th {
+
         a {
             color: #fff;
         }
@@ -27,8 +30,8 @@ table.primary {
     tbody {
 
         th {
-            background-color: lighten(@brand,53.5%);
-            color: darken(@brand, 14%);
+            color: darken(@brand,10%);
+            background-color: lighten(@brand,55%);
 
             a {
                 color: inherit;
@@ -43,7 +46,8 @@ table.primary {
             }
         }
 
-        th, td {
+        th,
+        td {
             border-color: lighten(@brand,50%);
         }
     }
@@ -60,8 +64,8 @@ table.cool {
     tbody {
 
         th {
+            color: darken(@triad,10%);
             background-color: lighten(@dark-triad,52%);
-            color: darken(@triad, 15%);
 
             a {
                 color: inherit;
@@ -76,7 +80,8 @@ table.cool {
             }
         }
 
-        th, td {
+        th,
+        td {
             border-color: lighten(@dark-triad,45%);
         }
     }
@@ -93,8 +98,8 @@ table.soothing {
     tbody {
 
         th {
-            background-color: lighten(@dark-complement,57%);
-            color: darken(@complement, 8%);
+            color: darken(@complement,10%);
+            background-color: lighten(@dark-complement,59%);
 
             a {
                 color: inherit;
@@ -109,7 +114,8 @@ table.soothing {
             }
         }
 
-        th, td {
+        th,
+        td {
             border-color: lighten(@dark-complement,50%);
         }
     }
@@ -127,8 +133,8 @@ table.neutral {
         // no background-color needed for tbody tr:nth-of-type(even), same as inherited color
 
         th {
-            background-color: lighten(@neutral,68%);
-            color: lighten(@neutral, 7%);
+            color: @neutral;
+            background-color: lighten(@dark-neutral,70%);
 
             a {
                 color: inherit;
@@ -136,7 +142,8 @@ table.neutral {
             }
         }
 
-        th, td {
+        th,
+        td {
             border-color: lighten(@dark-neutral,60%);
         }
     }
@@ -153,8 +160,8 @@ table.energetic {
     tbody {
 
         th {
-            background-color: lighten(@dark-energetic,47%);
-            color: darken(@energetic, 14%);
+            color: darken(@energetic,10%);
+            background-color: lighten(@dark-energetic,50%);
 
             a {
                 color: inherit;
@@ -169,7 +176,8 @@ table.energetic {
             }
         }
 
-        th, td {
+        th,
+        td {
             border-color: lighten(@dark-energetic,44%);
         }
     }
@@ -184,14 +192,6 @@ table.energetic {
     table.wdn_responsive_table.energetic {
 
         tbody {
-
-            th {
-                color: #fff;
-
-                a {
-                    color: #fff;
-                }
-            }
 
             tr {
 
@@ -265,67 +265,6 @@ table.energetic {
                     &:nth-of-type(even) {
                         background-color: lighten(@dark-energetic,55%);
                     }
-                }
-            }
-        }
-    }
-}
-
-@media @bp768 {
-
-    table.wdn_responsive_table {
-
-        &.primary {
-
-            tbody {
-
-                th {
-                    color: darken(@brand,10%);
-                    background-color: lighten(@brand,55%);
-                }
-            }
-        }
-
-        &.cool {
-
-            tbody {
-
-                th {
-                    color: darken(@triad,10%);
-                    background-color: lighten(@dark-triad,52%);
-                }
-            }
-        }
-
-        &.soothing {
-
-            tbody {
-
-                th {
-                    color: darken(@complement,10%);
-                    background-color: lighten(@dark-complement,59%);
-                }
-            }
-        }
-
-        &.neutral {
-
-            tbody {
-
-                th {
-                    color: @neutral;
-                    background-color: lighten(@dark-neutral,70%);
-                }
-            }
-        }
-
-        &.energetic {
-
-            tbody {
-
-                th {
-                    color: darken(@energetic,10%);
-                    background-color: lighten(@dark-energetic,50%);
                 }
             }
         }
