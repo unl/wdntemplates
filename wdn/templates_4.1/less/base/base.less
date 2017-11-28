@@ -1,19 +1,5 @@
-* {
-    box-sizing: border-box;
-}
-
 html {
-    font-size: @base-font-size-sm;
-    line-height: @base-line-height-sm;
-    color: @base-text;
-    .base-font();
-    background-color: @page-background;
     .kern();
-
-    @media @bp768 {
-        font-size: @base-font-size-lg;
-        line-height: @base-line-height-lg;
-    }
 }
 
 q {
@@ -30,8 +16,6 @@ q {
 }
 
 a {
-    color: @brand;
-    text-decoration: none;
     transition: color .3s;
 
     .wdn-main p &,
@@ -51,7 +35,7 @@ a {
 }
 
 abbr[title] {
-    text-decoration: none;
+    border-bottom: 1px dotted;
 }
 
 figure {

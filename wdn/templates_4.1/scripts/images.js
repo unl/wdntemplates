@@ -1,4 +1,4 @@
-define(['jquery', 'modernizr'], function($, Modernizr) {
+define(['jquery'], function($) {
     "use strict";
 
     var initd = false;
@@ -37,7 +37,7 @@ define(['jquery', 'modernizr'], function($, Modernizr) {
     	var j;
 
     		for (j = checkPoints.length - 1; j >= 0; j--) {
-    			if (Modernizr.mq('(min-width: ' + checkPoints[j] + 'px)')) {
+    			if (matchMedia('(min-width: ' + checkPoints[j] + 'px)').matches) {
     				return checkPoints[j];
     			}
     		}

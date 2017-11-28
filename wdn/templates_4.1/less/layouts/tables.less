@@ -1,23 +1,14 @@
 table {
     width: 100%;
     max-width: 100%;
-    line-height: @base-line-height-sm;
-    .base-font();
     border: 1px solid @ui04;
-
-    @media @bp768 {
-        line-height: @base-line-height-lg;
-    }
+    border-collapse: collapse;
 
     caption {
         .brand-font();
         font-size: 2.954rem; // 37.897px
         line-height: 1;
         margin-bottom: .75em;
-
-        @media @bp768 {
-            font-size: 2.532rem; // 40.51px
-        }
     }
 
     th {
@@ -25,118 +16,137 @@ table {
         font-size: .9353rem; // 12px
         padding: 1.2307em 1.0833em 1.0833em;
         line-height: 1.333;
-        border-top: 1px solid @ui04;
-        background-color: darken(@ui01, 2%);
-
-        @media @bp768 {
-            padding: 1.2307em 1.2307em 1em;
-            font-size: .802rem; // 12.83px
-        }
+        background-color: @ui03;
     }
 
-    th, td {
+    th,
+    td {
         text-align: left;
     }
 
     td {
-        font-weight: normal;
         padding: .92307em 1em .7692em;
-
-        @media @bp768 {
-            padding: .75em 1em .602em;
-        }
     }
 
     tbody {
+
         tr {
+
             &:nth-of-type(even) {
                 background-color: @ui01;
-            }
-
-            &:nth-of-type(odd) {
-                background-color: transparent;
             }
         }
 
         td {
             border-top: 1px solid @ui04;
         }
-
-        th {
-            text-align: left;
-        }
     }
 }
 
 table.wdn_responsive_table {
-    thead tr {
-        display: none;
-
-        @media @bp768 {
-            display: table-row;
-        }
-    }
-
-    th, td {
-        text-align: center;
-        display: block;
-
-        @media @bp768 {
-            display: table-cell;
-        }
-    }
 
     tbody {
-        tr {
-            @media @bp-under768w {
+
+        th {
+            border-top: 1px solid @ui04;
+        }
+    }
+}
+
+
+@media @bp-under768w {
+
+    table.wdn_responsive_table {
+
+        th,
+        td {
+            display: block;
+        }
+
+        thead {
+
+            tr {
+                display: none;
+            }
+        }
+
+        tbody {
+
+            tr {
+
+                &:first-child {
+
+                    th {
+                        border-top-width: 0;
+                    }
+                }
+
                 &:nth-of-type(even) {
                     background-color: transparent;
                 }
             }
 
-            &:first-child th {
-                border-top-width: 0;
+            td {
+                text-align: left;
 
-                @media @bp768 {
-                    border-top-width: 1px;
+                &:before {
+                    display: block;
+                    font-weight: bold;
+                    content: attr(data-header);
                 }
-            }
-        }
 
-        th {
-            text-align: left;
-        }
-
-        td {
-            text-align: left;
-
-            @media @bp768 {
-                text-align: center;
-            }
-
-            &:before {
-                display: block;
-                font-weight: bold;
-                content: attr(data-header);
-
-                @media @bp768 {
-                    display: none !important;
+                &:empty {
+                    display: none;
                 }
-            }
 
-            &:empty {
-                display: none;
-
-                @media @bp768 {
-                    display: table-cell;
+                &:nth-of-type(even) {
+                    background-color: @ui01;
                 }
             }
         }
     }
+}
 
-    &.flush-left {
-        th, td {
-            text-align: left;
+@media @bp768 {
+
+    table {
+
+        caption {
+            font-size: 2.532rem; // 40.51px
+        }
+
+        th {
+            padding: 1.2307em 1.2307em 1em;
+            font-size: .802rem; // 12.83px
+        }
+
+        td {
+            padding: .75em 1em .602em;
+        }
+    }
+
+    table.wdn_responsive_table {
+
+        thead {
+
+            th:not(:first-child) {
+                text-align: center;
+            }
+        }
+
+        tbody {
+
+            td {
+                text-align: center;
+            }
+        }
+
+        &.flush-left {
+
+            thead th,
+            td {
+                text-align: left;
+            }
         }
     }
 }

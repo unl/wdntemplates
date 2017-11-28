@@ -1,33 +1,6 @@
 .wdn-resource-login-trigger {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-    flex: 2 1 auto;
     min-width: 0;
-    position: relative;
     overflow: visible;
-
-    @media @bp-nav-hidden {
-        position: absolute;
-        bottom: -3.157rem; // position over the nav bar
-        right: @page-offset-default;
-        height: 3.157rem; // 40.51px
-        text-align: right;
-        z-index: (@nav-z-index + 1); // overlay the nav bar
-    }
-
-    @media @bp480 {
-        right: @page-offset-480;
-    }
-
-    @media @bp640 {
-        right: @page-offset-640;
-    }
-
-    @media @bp-nav-full {
-        right: 0;
-        font-size: 0; // removes unwanted inline spacing around elements, https://css-tricks.com/fighting-the-space-between-inline-block-elements/
-    }
 }
 
 #wdn_idm_notice_container {
@@ -35,46 +8,12 @@
     min-width: 0;
 }
 
-#wdn_idm_username,
 #wdn_idm_toggle_label {
     font-size: .9353rem; // 12px
-
-	@media @bp-nav-hidden {
-        color: #fae8e8;
-    }
-
-    @media @bp-nav-full {
-	    display: inline-block;
-	    height: 2.369rem; // 30.39px
-        padding-top: .254em;
-        font-size: .75rem; // 9.625px, 12px
-	    color: @scarlet;
-    }
-
-    @media @bp768 {
-        height: 2.532rem; // 40.51px
-    }
-
-    .wdn-icon-user:before {
-    	@media @bp-nav-hidden {
-	        vertical-align: middle;
-	    }
-
-	    @media @bp-nav-full {
-	        color: @ui06;
-	    }
-    }
 }
 
 #wdn_idm_username {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
     line-height: 1;
-
-    @media @bp-nav-hidden {
-        height: 3.157rem; // 40.51px
-    }
 }
 
 .wdn-idm-options {
@@ -93,23 +32,6 @@
 	transform: scale(.9);
 	transform-origin: top;
 	transition: opacity .5s ease-in-out, transform .5s ease-in-out, visibility .1s linear .6s;
-
-    @media @bp480 {
-        right: @page-offset-480;
-    }
-
-    @media @bp640 {
-        right: @page-offset-640;
-    }
-
-    @media @bp-nav-full {
-	    top: calc(~'2.369em + 6px');
-    }
-
-    @media @bp768 {
-	    top: calc(~'2.532rem + 6px');
-	    font-size: .75rem; // 12px
-    }
 
 	&:before {
         content: '';
@@ -136,5 +58,65 @@
 		&:hover {
 			color: @cream;
 		}
+    }
+}
+
+@media @bp-nav-hidden {
+
+    #wdn_idm_toggle_label {
+        color: #fae8e8;
+
+        .wdn-icon-user:before {
+	        vertical-align: middle;
+	    }
+    }
+}
+
+@media @bp480 {
+
+    .wdn-idm-options {
+        right: @page-offset-480;
+    }
+}
+
+@media @bp640 {
+
+    .wdn-idm-options {
+        right: @page-offset-640;
+    }
+}
+
+@media @bp-nav-full {
+
+    .wdn-resource-login-trigger {
+        position: relative;
+        font-size: 0; // removes unwanted inline spacing around elements, https://css-tricks.com/fighting-the-space-between-inline-block-elements/
+    }
+
+    #wdn_idm_toggle_label {
+	    height: 2.369rem; // 30.39px
+        padding-top: .254em;
+        font-size: .75rem; // 9.625px, 12px
+	    color: @scarlet;
+
+        .wdn-icon-user:before {
+	        color: @ui06;
+	    }
+    }
+
+    .wdn-idm-options {
+	    top: calc(~'2.369em + 6px');
+    }
+}
+
+@media @bp768 {
+
+    #wdn_idm_toggle_label {
+        height: 2.532rem; // 40.51px
+    }
+
+    .wdn-idm-options {
+	    top: calc(~'2.532rem + 6px');
+	    font-size: .75rem; // 12px
     }
 }

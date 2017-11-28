@@ -2,6 +2,8 @@
 (function(){
 
 var syncLoad = {
+	"fontfaceobserver.js" : "",
+	"fontsloaded.js" : "",
 	"modernizr-wdn.js" : "",
 	"ga.js" : "",
 	"wdn.js" : "",

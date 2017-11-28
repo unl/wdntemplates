@@ -34,48 +34,49 @@
     .sans-serif-font();
 	font-size: 0;
 
-	@media @bp-nav-hidden {
-        .breadcrumb-loop(9); // add margin
-	}
-
-    ul {
-
-    	@media @bp-nav-full {
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            white-space: nowrap;
-    	}
-    }
-
 	li {
 		position: relative;
         font-size: .75019rem; // 9.625px
 		vertical-align: middle;
 
-		@media @bp-nav-hidden {
+		&:last-child {
+            flex: 0 0 auto;
+
+            &:not(.last-link) {
+
+    			&:after {
+    				display: none;
+    			}
+            }
+		}
+
+		&.selected {
+
+			a {
+				position: relative;
+			}
+		}
+	}
+
+    a {
+        display: block;
+	}
+
+    .storednav {
+        display: none;
+    }
+}
+
+@media @bp-nav-hidden {
+
+    #breadcrumbs {
+        .breadcrumb-loop(9); // add margin
+
+		li {
             display: block;
             margin-bottom: .75em;
-		}
 
-		@media @bp-nav-full {
-            flex: 0 1 auto;
-            display: inline-block;
-            min-width: 1em;
-            margin-bottom: -1px;
-            padding: 1px .422em 0 1.777em;
-            line-height: 2.37;
-			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5b5b5a+0,474746+100 */
-			background: linear-gradient(to right,  #5b5b5a 0%,#474746 100%);
-		}
-
-		@media @bp768 {
-			font-size: .60156rem; // 9.625px
-		}
-
-        &:before {
-
-    		@media @bp-nav-hidden {
+        	&:before {
                 .breadcrumb-pseudo();
                 top: .1em;
                 left: .254em;
@@ -84,118 +85,106 @@
                 border-bottom: 1px solid @ui08;
                 border-left: 1px solid @ui08;
     		}
-        }
 
-		&:after {
+            &:first-child {
 
-			@media @bp-nav-full {
+                &:before {
+                    content: none;
+        		}
+            }
+
+    		&:not(:first-child) {
+                padding-left: 1.333em;
+    		}
+		}
+    }
+}
+
+@media @bp-nav-full {
+
+    #breadcrumbs {
+
+    	ul {
+            align-items: center;
+            white-space: nowrap;
+    	}
+
+		li {
+            flex: 0 1 auto;
+            display: inline-block;
+            min-width: 1em;
+            margin-bottom: -1px;
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5b5b5a+0,474746+100 */
+			background: linear-gradient(to right,  #5b5b5a 0%,#474746 100%);
+
+            &:after {
 			    .breadcrumb-pseudo();
 			    .breadcrumb-arrow();
-			    right: 0;
+			    left: 100%;
 			    z-index: 1;
-			    transform: translateX(100%);
 			    border-left-color: @ui09;
 			}
-		}
 
-		&:first-child {
-
-			@media @bp-nav-full {
+            &:first-child {
                 flex: none;
                 margin-left: -1.777em;
 			}
 
-            &:before {
+            &:last-child {
 
-        		@media @bp-nav-hidden {
-                    content: none;
-        		}
-            }
-		}
-
-		&:last-child {
-            flex: 0 0 auto;
-
-            &:not(.last-link) {
-
-    			@media @bp-nav-full {
+                &:not(.last-link) {
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
                     background: transparent;
-    			}
+                }
+    		}
 
-    			&:after {
-    				display: none;
-    			}
-            }
-		}
-
-		&:not(:first-child) {
-
-    		@media @bp-nav-hidden {
-        		padding-left: 1.333em;
-            }
-		}
-
-		&.selected {
-
-			@media @bp-nav-full {
+            &.selected {
                 background: @cream;
                 transition: max-width .5s ease-in-out .5s;
-			}
 
-			&:first-child {
+    			&:first-child {
 
-				&:before {
-
-					@media @bp-nav-full {
+    				&:before {
 					    .breadcrumb-pseudo();
 						.breadcrumb-arrow();
 					    left: 0;
 						border-left-color: @ui08;
 					}
 				}
-			}
 
-			&:after {
-
-				@media @bp-nav-full {
+    			&:after {
 					border-left-color: @cream;
-				}
-			}
+    			}
 
-			a {
-				position: relative;
+    			a {
+    				color: @scarlet;
 
-				@media @bp-nav-full {
-					color: @scarlet;
-				}
-
-				&:before {
-
-					@media @bp-nav-full {
+    				&:before {
 					    .breadcrumb-pseudo();
 						.selected-arrow();
 						border-bottom: .563em solid @scarlet;
-					}
-				}
+    				}
+    			}
 			}
 		}
-	}
 
-    a {
-        display: block;
-
-		@media @bp-nav-full {
+        a {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
             color: @ui03;
 		}
-	}
+    }
+}
 
-    .storednav {
-        display: none;
+@media @bp768 {
+
+    #breadcrumbs {
+
+		li {
+			font-size: .60156rem; // 9.625px
+		}
     }
 }
