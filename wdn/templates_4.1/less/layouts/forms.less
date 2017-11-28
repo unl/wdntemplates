@@ -93,7 +93,7 @@ form {
         .sans-serif-font();
         font-size: .9353rem; // 12px
     }
-
+    
     input,
     textarea,
     select {
@@ -101,20 +101,28 @@ form {
         width: 100%;
         padding: .75em;
         .sans-serif-font();
-        outline: none;
         border: 1px solid @ui04;
         border-radius: 2px;
         background-color: #fff;
 
+        &.wdn-error {
+            border: 1px solid @brand;
+            animation: wdn-error 1.2s infinite alternate;
+        }
+    }
+
+    //use a border as a focus outline
+    //radio buttons and checkboxes don't support borders in all browsers, such as Chrome
+    //submit is excluded because its background-color matches the outline color by default, and changing the font-color makes the text unreadable
+    input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
+    textarea,
+    select {
+        outline: none;
+        
         &:focus {
             outline: none;
             border-color: @triad;
             color: @triad;
-        }
-
-        &.wdn-error {
-            border: 1px solid @brand;
-            animation: wdn-error 1.2s infinite alternate;
         }
     }
 
