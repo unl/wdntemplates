@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.28 (December 5, 2017)
+- Fontello/Spotify icon in footer
+- Various footer updates
+- Always show a focus outline for inputs
+
 ## 4.1.27 (November 7, 2017)
 - Updated framework absolute links to use https([#1083](https://github.com/unl/wdntemplates/pull/1083))
 
