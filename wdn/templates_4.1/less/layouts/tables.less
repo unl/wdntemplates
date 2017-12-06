@@ -37,6 +37,10 @@ table {
             }
         }
 
+        th {
+            border-top: 1px solid @ui04;
+        }
+
         td {
             border-top: 1px solid @ui04;
         }
@@ -45,16 +49,18 @@ table {
 
 table.wdn_responsive_table {
 
-    tbody {
+    thead {
 
         th {
-            border-top: 1px solid @ui04;
+
+            abbr {
+                border-bottom: none;
+            }
         }
     }
 }
 
-
-@media @bp-under768w {
+@media screen and (max-width: 47.99em) {
 
     table.wdn_responsive_table {
 
@@ -124,6 +130,9 @@ table.wdn_responsive_table {
             padding: .75em 1em .602em;
         }
     }
+}
+
+@media screen and (min-width: 48em) {
 
     table.wdn_responsive_table {
 

@@ -471,6 +471,12 @@
       ]
     },
     {
+      "uid": "fb4794d89b77ab712ad56c0dc4c76c6b",
+      "css": "spotify",
+      "code": 61884,
+      "src": "fontawesome"
+    },
+    {
       "uid": "5a7dc2acdc261cf8b6fb91279b4de6d7",
       "css": "glyph",
       "code": 57344,
