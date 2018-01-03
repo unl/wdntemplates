@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.29 (January 2, 2018)
+- No commits made, version bumped
+
 ## 4.1.28 (December 5, 2017)
 - Fontello/Spotify icon in footer
 - Various footer updates
