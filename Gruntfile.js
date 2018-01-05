@@ -8,20 +8,20 @@ module.exports = function (grunt) {
 	];
 
 	var jsCssObjs = [
-		'js-css/band_imagery',
-		'js-css/display-font',
-		'js-css/events',
-		'js-css/events-band',
-		'js-css/extlatin',
-		'js-css/formvalidator',
-		'js-css/monthwidget',
-		'js-css/notices',
-		'js-css/rsswidget',
-		'js-css/script-font',
-		'js-css/smallcaps',
-		'js-css/unlalert',
-		'plugins/qtip/wdn.qtip',
-		'plugins/ui/css/jquery-ui-wdn'
+		//'js-css/band_imagery',
+		//'js-css/display-font',
+		//'js-css/events',
+		//'js-css/events-band',
+		//'js-css/extlatin',
+		//'js-css/formvalidator',
+		//'js-css/monthwidget',
+		//'js-css/notices',
+		//'js-css/rsswidget',
+		//'js-css/script-font',
+		//'js-css/smallcaps',
+		//'js-css/unlalert',
+		//'plugins/qtip/wdn.qtip',
+		//'plugins/ui/css/jquery-ui-wdn'
 	];
 
 	// project layout variables (directories)
@@ -30,7 +30,7 @@ module.exports = function (grunt) {
 		templateDir = mainDir + '/templates_5.0',
 		templateScss = templateDir + '/scss',
 		templateCss = templateDir + '/css',
-		templateJs = templateDir + '/scripts',
+		templateJs = templateDir + '/js',
 		builtJsDir = 'compressed',
 		buildJsDir = buildDir + '/' + builtJsDir,
 		templateCompileJs = templateJs + '/' + builtJsDir,
@@ -51,28 +51,28 @@ module.exports = function (grunt) {
 
 	// polyfill modules that need sync loading (should match scripts loaded in debug.js)
 	var polyfillMods = [
-		'modernizr-wdn',
-		'ga',
+		//'modernizr-wdn',
+		//'ga',
 		'requireLib',
 		'wdn'
 	];
 
 	var wdnBuildPlugins = [
-		'band_imagery',
-		'carousel',
-		'display-font',
-		'events-band',
-		'events',
-		'extlatin',
-		'jqueryui',
-		'mediaelement_wdn',
-		'modal',
-		'monthwidget',
-		'notice',
-		'rss_widget',
-		'script-font',
-		'smallcaps',
-		'tooltip'
+		//'band_imagery',
+		//'carousel',
+		//'display-font',
+		//'events-band',
+		//'events',
+		//'extlatin',
+		//'jqueryui',
+		//'mediaelement_wdn',
+		//'modal',
+		//'monthwidget',
+		//'notice',
+		//'rss_widget',
+		//'script-font',
+		//'smallcaps',
+		//'tooltip'
 	];
 
 	// module exclustions for plugins not built into all
