@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!--#include virtual="/dcf/theme/unl_5.0/includes/meta.html" -->
+<title>Debugging Out | Framework Testing Page</title>
+<!--#include virtual="/dcf/theme/unl_5.0/includes/css.html" -->
+<!--#include virtual="/dcf/theme/unl_5.0/includes/js-head.html" -->
+<!--#include virtual="/dcf/theme/unl_5.0/includes/favicon.html" -->
+</head>
+<body class="debug unl" data-version="5.0">
+  <!--#include virtual="/dcf/theme/unl_5.0/includes/skip-nav.html" -->
+
+<!--
+  <div class="dcf-c-alert dcf-o-wrapper dcf-u-pt4 dcf-u-pb4 dcf-u-sm2">
+    <header class="dcf-c-alert__header">
+    	<div class="" role="heading">Emergency Alert</div>
+    </header>
+    <p class="dcf-c-alert__msg">This alert is a test of the alert system. If this was an actual alert there would also be an actual emergency.</p>
+    <footer class="dcf-c-alert__footer">
+    	<div class="" role="heading">Issued</div>
+      <time class="dcf-c-pubdate" datetime="2018-12-02 11:11:03-0400">December 2, 2018</time>
+      <div class="" role="heading">Additional Info <small class="dcf-u-sm2">if available</small></div>
+      <a href="http://www.unl.edu/">http://www.unl.edu/</a>
+    </footer>
+  </div>
+-->
+
+  <div class="dcf-o-wrapper dcf-u-pt2 dcf-u-pb4 dcf-c-header unl-t-header">
+
+<!--     <header class="" id="header" role="banner"> -->
+
+
+      <!--#include virtual="/dcf/theme/unl_5.0/includes/institution.html" -->
+
+      <div class="dcf-u-flex dcf-u-ai-center dcf-u-pt4 dcf-c-logo" style="overflow: hidden;">
+        <!--#include virtual="/dcf/theme/unl_5.0/includes/logo.html" -->
+
+        <div class="dcf-u-flex dcf-u-flex-col dcf-u-jc-center">
+          <div class="dcf-u-uppercase dcf-u-h3 dcf-u-lh1 dcf-u-ls2 dcf-u-regular" id="wdn_site_affiliation"><!-- InstanceBeginEditable name="affiliation" --><a href="https://arts.unl.edu/" style="color: #383837;">Hixson-Lied College of Fine &amp; Performing&nbsp;Arts</a><!-- InstanceEndEditable --></div>
+          <div class="dcf-u-sm2 dcf-u-italic" id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" --><a href="https://arts.unl.edu/music" style="color: #383837;"><!-- Glenn Korff School of Music --></a><!--<abbr title="Hixson-Lied College of Fine &amp; Performing Arts">HLCFPA</abbr>--><!-- InstanceEndEditable --></div>
+        </div>
+      </div>
+
+<!--     </header> -->
+
+    <nav class="dcf-c-breadcrumbs" id="breadcrumbs" role="navigation" aria-label="breadcrumbs">
+        <!-- InstanceBeginEditable name="breadcrumbs" -->
+<!--
+        <ul>
+          <li><a href="http://www.unl.edu/">University</a></li>
+          <li><a href="http://arts.unl.edu/">College</a></li>
+          <li><a href="http://arts.unl.edu/music">Department</a></li>
+          <li>Current Page</li>
+        </ul>
+-->
+        <!-- InstanceEndEditable -->
+    </nav>
+
+
+  <button class="dcf-u-p0 dcf-u-b0 dcf-u-bg-transparent dcf-c-mobile-nav-toggle dcf-c-nav-toggle" id="dcf-menu-toggle" aria-pressed="false" aria-controls="navigation" aria-haspopup="true">
+    <span class="dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-jc-center dcf-u-h100">
+      <span class="dcf-u-flex dcf-u-ai-center dcf-u-jc-center dcf-u-circle" style="height: 2em; width: 2em; background-color: #d00000;">
+        <svg class="dcf-c-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48"><g class="dcf-c-icon--menu-top"><path fill="#fff" d="M46,9H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/></g><g class="dcf-c-icon--menu-bottom"><path fill="#fff" d="M46,35H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/></g><g class="dcf-c-icon--menu-middle"><path fill="#fff" d="M46,22H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/></g></svg>
+      </span>
+    	<span class="dcf-u-sr-only">Show </span><span class="dcf-u-sm2">Menu</span>
+    </span>
+  </button>
+
+<!--     <div class="" id="navigation"> -->
+      <nav class="dcf-u-pt5 dcf-c-nav__primary unl-t-nav__primary" role="navigation" aria-label="primary navigation">
+        <!-- InstanceBeginEditable name="navlinks" -->
+        <!--#include virtual="/dcf/theme/unl_5.0/sharedcode/nav-primary.html" -->
+        <!-- InstanceEndEditable -->
+      </nav>
+      <nav class="dcf-u-flex dcf-u-ai-center dcf-u-mt1 dcf-u-sm2 dcf-c-nav__secondary unl-t-nav__secondary" role="navigation" aria-label="secondary navigation">
+      	<!--#include virtual="/dcf/theme/unl_5.0/includes/nav-secondary.html" -->
+      </nav>
+<!--     </div> -->
+
+    <!--#include virtual="/dcf/theme/unl_5.0/includes/idm.html" -->
+    <!--#include virtual="/dcf/theme/unl_5.0/includes/search.html" -->
+  </div>
+
+  <main class="dcf-o-main" id="main" role="main" tabindex="-1">
+
+    <div class="dcf-o-wrapper dcf-u-pt5" id="pagetitle">
+      <!-- InstanceBeginEditable name="pagetitle" -->
+      <!-- InstanceEndEditable -->
+    </div>
+
+    <!-- InstanceBeginEditable name="maincontentarea" -->
+    <div class="dcf-c-band dcf-u-pb5">
+      <div class="dcf-o-wrapper">
+
+        <section class="knowledge-grid">
+
+          <div class="directory-knowledge-summary">
+            <div class="unl-u-font-sans vcard faculty" data-uid="iborden2" data-preferred-name="Ian Borden" itemscope="" itemtype="http://schema.org/Person">
+              <div class="dcf-u-mb4 vcardInfo">
+                <div class="dcf-u-flex dcf-u-flex-col">
+                  <h1 class="dcf-u-2nd dcf-u-mb0">
+                    <a class="dcf-u-txt-decor-none permalink" href="https://directory.unl.edu/people/iborden2" itemprop="url">
+                      <span class="fn" itemprop="name">Ian Borden</span>
+              	    </a>
+                  </h1>
+                  <div class="dcf-u-1st dcf-u-sm4 dcf-u-uppercase dcf-u-bold dcf-u-ls2 eppa">Faculty</div>
+                  <ul class="dcf-u-3rd dcf-u-mt1 dcf-u-sm2 dcf-c-list-unstyled roles">
+                    <li class="org parent-unl">
+                      <span class="dcf-u-block title" itemprop="jobTitle">Associate Professor</span>
+                      <span itemprop="worksFor" itemscope="" itemtype="http://schema.org/Organization">
+                        <span class="dcf-u-block organization-unit">
+                          <a href="https://directory.unl.edu/departments/74" itemprop="url">
+                            <span itemprop="name">Johnny Carson School of Theatre &amp; Film</span>
+              	          </a>
+                        </span>
+                        <span class="dcf-u-none organization-name" itemprop="parentOrganization" itemscope="" itemtype="http://schema.org/Organization">
+                          <span itemprop="name">University of Nebraska–Lincoln</span>
+                        </span>
+                      </span>
+              	    </li>
+                  </ul>
+                </div>
+                <a class="dcf-u-inlineblock dcf-u-mb4" href="https://planetred.unl.edu/pg/profile/unl_iborden2" aria-label="Planet Red profile for Ian Borden" itemprop="url">
+                  <img class="dcf-u-block dcf-u-circle" itemprop="image" src="http://via.placeholder.com/200x200" alt="Avatar for Ian Borden">
+                </a>
+                <div class="dcf-u-relative dcf-u-mb3 dcf-u-pl6 dcf-u-sm2 adr work attribute" itemprop="workLocation" itemscope="" itemtype="http://schema.org/Place">
+                  <svg class="dcf-c-icon dcf-c-icon--inline dcf-c-icon--hang" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48"><path d="M24 0A16 16 0 0 0 8 16c0 8.49 14.55 30.61 15.17 31.55a1 1 0 0 0 1.67 0C25.45 46.61 40 24.49 40 16A16 16 0 0 0 24 0zm0 23a7 7 0 1 1 7-7 7 7 0 0 1-7 7z"/></svg>
+                  <span class="dcf-u-none type">Work</span>
+                  <address itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress" translate="no">
+                    <span class="street-address" itemprop="streetAddress"><a href="https://maps.unl.edu/TEMP" itemprop="hasMap">TEMP</a> 209</span><br>
+                    <span class="locality" itemprop="addressLocality">Lincoln</span>, <abbr class="region" title="Nebraska" itemprop="addressRegion">NE</abbr> <span class="postal-code" itemprop="postalCode">68588-0201</span> <abbr class="dcf-u-none country-name" itemprop="addressCountry">US</abbr>
+                  </address>
+                </div>
+                <div class="dcf-u-relative dcf-u-mb3 dcf-u-pl6 dcf-u-sm2 tel work attribute">
+                  <svg class="dcf-c-icon dcf-c-icon--inline dcf-c-icon--hang" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48"><path d="M10 10h28v28H10zM10 40v3a5 5 0 0 0 5 5h18a5 5 0 0 0 5-5v-3zm14 5a2 2 0 1 1 2-2 2 2 0 0 1-2 2zM38 8V5a5 5 0 0 0-5-5H15a5 5 0 0 0-5 5v3zM19 4h10a1 1 0 1 1 0 2H19a1 1 0 0 1 0-2z"/></svg>
+                  <span class="dcf-u-none type">Work</span>
+                  <span class="value">
+                  <a class="dcf-u-inlineblock" href="tel:+14024722072"><!-- add '1' prefix in directory -->
+                    <span itemprop="telephone">402-472-2072</span>
+                  </a>
+                  </span>
+                  <small class="dcf-u-sm2 dcf-u-txt-nowrap on-campus-dialing">On-campus 2-2072</small>
+                </div>
+                <address class="dcf-u-relative dcf-u-mb3 dcf-u-pl6 dcf-u-sm2 attribute">
+                  <svg class="dcf-c-icon dcf-c-icon--inline dcf-c-icon--hang" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48"><path d="M24 0a24 24 0 1 0 13.57 43.82 2 2 0 0 0-2.26-3.3A20 20 0 1 1 44 24v1.91a4.7 4.7 0 0 1-9.39 0V24a10.63 10.63 0 1 0-2.48 6.81A8.69 8.69 0 0 0 48 25.91V24A24 24 0 0 0 24 0zm0 30.61A6.61 6.61 0 1 1 30.61 24 6.62 6.62 0 0 1 24 30.61z"/></svg>
+                  <a class="email" href="mailto:iborden2@unl.edu" itemprop="email">iborden2@unl.edu</a>
+                </address>
+              </div>
+              <div class="dcf-u-grid dcf-u-mb4 dcf-u-pt4 dcf-u-bt vcard-tools">
+                <a style="" class="dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-txt-center" href="https://directory.unl.edu/vcards/iborden2">
+                  <svg style="height:1.33em;width:1.33em;" class="dcf-u-mb1" focusable="false" height="16" width="16" viewBox="0 0 24 24"><path d="M23.5 3H.5a.5.5 0 0 0-.5.5v17a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5V19a1.25 1.25 0 0 1 2.5 0v1.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V19a1.25 1.25 0 0 1 2.5 0v1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-17a.5.5 0 0 0-.5-.5zM23 20h-3v-1a2.25 2.25 0 0 0-4.5 0v1h-7v-1A2.25 2.25 0 0 0 4 19v1H1V4h22z"/><path d="M13 13h8v1h-8zM13 11h8v1h-8zM13 9h8v1h-8zM13 7h4v1h-4zM2.5 15h9a.5.5 0 0 0 .5-.5v-2a.47.47 0 0 0-.15-.35 6.09 6.09 0 0 0-3.35-1.62v-.27A2.73 2.73 0 0 0 9.5 8c0-1 0-2.5-2.5-2.5S4.5 7 4.5 8a2.73 2.73 0 0 0 1 2.26v.27a6.09 6.09 0 0 0-3.35 1.62.47.47 0 0 0-.15.35v2a.5.5 0 0 0 .5.5zm.5-2.28a4.9 4.9 0 0 1 3-1.22.5.5 0 0 0 .5-.5v-1a.51.51 0 0 0-.27-.44A1.71 1.71 0 0 1 5.5 8c0-1 0-1.5 1.5-1.5S8.5 7 8.5 8a1.7 1.7 0 0 1-.72 1.55.51.51 0 0 0-.28.45v1a.5.5 0 0 0 .5.5 4.93 4.93 0 0 1 3 1.22V14H3z"/></svg><span class="dcf-u-sr-only">Download </span><span class="dcf-u-sm3">vCard</span><span class="dcf-u-sr-only"> for Ian Borden</span>
+                </a>
+                <a style="" class="dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-txt-center" href="https://chart.googleapis.com/chart?cht=qr&amp;chs=400x400&amp;chl=BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ABorden%3BIan%3B%3B%3B%0AFN%3AIan+Borden%0AORG%3AUniversity+of+Nebraska-Lincoln%3BJohnny+Carson+School+of+Theatre+%26+Film%0AEMAIL%3Btype%3DINTERNET%3Btype%3DWORK%3Btype%3Dpref%3Aiborden2%40unl.edu%0ATEL%3Btype%3DWORK%3Btype%3Dpref%3A4024722072%0Aitem3.X-ABRELATEDNAMES%3Btype%3Dpref%3AAssociate+Professor%0Aitem3.X-ABLabel%3Atitle%0AEND%3AVCARD%0A&amp;chld=L%7C1">
+                  <svg style="height:1.33em;width:1.33em;" class="dcf-u-mb1" focusable="false" height="16" width="16" viewBox="0 0 24 24"><path d="M3.47 21H1v-2.47A.5.5 0 0 0 .5 18a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5.5.5 0 0 0-.53-.5zM3.47 2H.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 1 0V3h2.47A.5.5 0 0 0 4 2.5a.5.5 0 0 0-.53-.5zM23.5 2h-3a.5.5 0 0 0 0 1H23v2.47a.5.5 0 0 0 1 0v-3a.5.5 0 0 0-.5-.47zM23.5 18a.5.5 0 0 0-.5.5V21h-2.47a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.53-.5zM5.5 9h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5zM6 7h1v1H6zM7.5 15h-2a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5zM7 17H6v-1h1zM16.5 9h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5zm.5-2h1v1h-1zM5.5 11H8v.5a.5.5 0 0 0 1 0v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1zM5.5 14h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0 0 1zM18.5 12h-4a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2a.5.5 0 1 0 0 1H18v1h-3v-4h3v.5a.5.5 0 0 0 1 0v-1a.5.5 0 0 0-.5-.5zM11.52 14a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5zM14.52 8a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5zM12.5 15h-1a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zM12.5 17H10v-1.47a.5.5 0 0 0-1 0v2a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1zM9.5 9h1a.5.5 0 0 0 0-1H10V6.52a.5.5 0 0 0-1 0v2a.5.5 0 0 0 .5.48z"/><path d="M12.5 6a.5.5 0 0 0-.5.5V10h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5zM18.52 10h-4a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1z"/></svg><span class="dcf-u-sm3">QR Code</span><span class="dcf-u-sr-only"> vCard for Ian Borden</span>
+                </a>
+                <button style="" class="dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-txt-center dcf-u-p0 dcf-u-b0 unl-u-font-sans">
+                  <svg style="height:1.33em;width:1.33em;" class="dcf-u-mb1" focusable="false" height="16" width="16" viewBox="0 0 24 24"><path d="M21.5 7h-19A2.5 2.5 0 0 0 0 9.5v6A2.5 2.5 0 0 0 2.5 18H5v4.5a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5V18h2.5a2.5 2.5 0 0 0 2.5-2.5v-6A2.5 2.5 0 0 0 21.5 7zM18 22H6v-7h12zm5-6.5a1.5 1.5 0 0 1-1.5 1.5H19v-2.5a.5.5 0 0 0-.5-.5h-13a.5.5 0 0 0-.5.5V17H2.5A1.5 1.5 0 0 1 1 15.5v-6A1.5 1.5 0 0 1 2.5 8h19A1.5 1.5 0 0 1 23 9.5zM5.5 6a.5.5 0 0 0 .5-.5V2h9v2.5a.5.5 0 0 0 .5.5H18v.5a.5.5 0 0 0 1 0v-1a.41.41 0 0 0 0-.19.36.36 0 0 0-.11-.16l-3-3a.36.36 0 0 0-.2-.15.41.41 0 0 0-.19 0h-10a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5zM16 2.71L17.29 4H16z"/><path d="M3.5 9A1.5 1.5 0 1 0 5 10.5 1.5 1.5 0 0 0 3.5 9zm0 2a.5.5 0 1 1 .5-.5.5.5 0 0 1-.5.5zM16.5 16h-9a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zM16.5 18h-9a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zM16.5 20h-9a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z"/></svg><span class="dcf-u-sm3">Print</span><span class="dcf-u-sr-only"> listing for Ian Borden</span></button>
+                <a style="" class="dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-txt-center" href="https://annotate.unl.edu/?view=annotation&amp;sitekey=directory&amp;fieldname=iborden2">
+                  <svg style="height:1.33em;width:1.33em;" class="dcf-u-mb1" focusable="false" height="16" width="16" viewBox="0 0 24 24"><path d="M19.5 11a.5.5 0 0 0-.5.5V23H1V3h13.5a.5.5 0 0 0 .5-.5.5.5 0 0 0-.5-.5H.5a.5.5 0 0 0-.5.5v21a.5.5 0 0 0 .5.5h19a.51.51 0 0 0 .5-.5v-12a.5.5 0 0 0-.5-.5z"/><path d="M23.85 3L21 .17a.5.5 0 0 0-.71 0L9.64 10.85a.57.57 0 0 0-.11.16L7.42 16a.5.5 0 0 0 .65.66L13 14.49a.57.57 0 0 0 .16-.11L23.85 3.7a.48.48 0 0 0 0-.7zm-11 10.32L10.7 11.2l8.14-8.14L21 5.19zm-2.66-1.24L12 13.86 8.83 15.2zm11.51-7.6l-2.15-2.12 1.12-1.13 2.13 2.12z"/></svg><span class="dcf-u-sm3">Your Notes</span>
+                </a>
+                <button style="" class="dcf-c-btn--link dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-txt-center dcf-u-p0 dcf-u-b0 unl-u-font-sans">
+                  <svg style="height:1.33em;width:1.33em;" class="dcf-u-mb1" focusable="false" height="16" width="16" viewBox="0 0 24 24"><path d="M21.5 7h-19A2.5 2.5 0 0 0 0 9.5v6A2.5 2.5 0 0 0 2.5 18H5v4.5a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5V18h2.5a2.5 2.5 0 0 0 2.5-2.5v-6A2.5 2.5 0 0 0 21.5 7zM18 22H6v-7h12zm5-6.5a1.5 1.5 0 0 1-1.5 1.5H19v-2.5a.5.5 0 0 0-.5-.5h-13a.5.5 0 0 0-.5.5V17H2.5A1.5 1.5 0 0 1 1 15.5v-6A1.5 1.5 0 0 1 2.5 8h19A1.5 1.5 0 0 1 23 9.5zM5.5 6a.5.5 0 0 0 .5-.5V2h9v2.5a.5.5 0 0 0 .5.5H18v.5a.5.5 0 0 0 1 0v-1a.41.41 0 0 0 0-.19.36.36 0 0 0-.11-.16l-3-3a.36.36 0 0 0-.2-.15.41.41 0 0 0-.19 0h-10a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5zM16 2.71L17.29 4H16z"/><path d="M3.5 9A1.5 1.5 0 1 0 5 10.5 1.5 1.5 0 0 0 3.5 9zm0 2a.5.5 0 1 1 .5-.5.5.5 0 0 1-.5.5zM16.5 16h-9a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zM16.5 18h-9a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zM16.5 20h-9a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z"/></svg><span class="dcf-u-sm3">Suggest a correction</span><span class="dcf-u-sr-only"> for Ian Borden</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <div class="dcf-u-mb6">
+              <p>Ian is an Assistant Professor with the Johnny Carson School of Theatre and Film. Last year he directed The Tempest for Capitol Shakespeare in Bismarck North Dakota, and adapted Ana Caro’s Siglo de Oro play, Valor, agravio y mujer, as Agravio for the Carson School. Recent acting credits include The Three Musketeers for the Black Hills Playhouse, As You Like It for the South Dakota Shakespeare Festival, and Vino Veritas and Act a Lady for Nebraska Repertory Theatre.</p>
+              <p>Fight Direction credits include Macbeth (an inspiration!) and Richard III for Pigeon Creek Shakespeare in Michigan, The Three Musketeers for the Carson School and the Black Hills Playhouse, Lord of the Flies for the Coterie Theatre in Kansas City, and In My Daughter’s Name for the Angels Theatre Company in Lincoln, Nebraska. Ian also founded the Lincoln Assassination Stage Combat Workshop, held annually at the Carson School from 2010-2015.</p>
+            </div>
+            <div class="dcf-u-mb6">
+              <h2 class="dcf-u-h4 dcf-u-regular">
+                <svg class="dcf-c-icon dcf-c-icon--inline dcf-c-icon--x dcf-u-mr2" focusable="false" height="16" width="16" viewBox="0 0 24 24"><g><path d="M21.038,16.772l-3.581-0.988c-0.017-0.008-0.036-0.009-0.053-0.015l-1.771-0.488c0.95-0.854,1.714-1.995,1.847-3.359
+            				c0.686-0.234,1.146-0.971,1.146-1.922c0-0.941-0.451-1.673-1.125-1.915V6V4.051l6.085-1.059C23.826,2.951,24,2.743,24,2.5
+            				s-0.175-0.451-0.415-0.492l-11.5-2c-0.057-0.01-0.114-0.01-0.171,0l-11.5,2C0.175,2.049,0,2.257,0,2.5s0.175,0.451,0.415,0.492
+            				L2.5,3.355v3.093l-1.489,6.947c-0.032,0.147,0.005,0.302,0.1,0.419C1.207,13.932,1.35,14,1.5,14h3
+            				c0.151,0,0.294-0.068,0.389-0.186c0.095-0.117,0.132-0.271,0.1-0.419L3.5,6.448V3.529l3,0.521V6v2.085
+            				C5.827,8.327,5.375,9.059,5.375,10c0,0.951,0.46,1.688,1.146,1.922c0.132,1.363,0.896,2.504,1.844,3.356l-5.444,1.509
+            				C1.174,17.441,0,19.134,0,21v2.5C0,23.776,0.224,24,0.5,24h23c0.276,0,0.5-0.224,0.5-0.5V21
+            				C24,19.134,22.827,17.441,21.038,16.772z M2.119,13L3,8.887L3.882,13H2.119z M12,1.008L20.583,2.5L12,3.992L3.418,2.5L12,1.008z
+            				 M11.915,4.992C11.943,4.997,11.972,5,12,5s0.057-0.003,0.085-0.008L16.5,4.225v1.542C16.061,6.101,14.633,7,12,7
+            				C9.365,7,7.937,6.099,7.5,5.768V4.225L11.915,4.992z M7.5,11.5C7.5,11.224,7.277,11,7,11c-0.494,0-0.625-0.654-0.625-1
+            				c0-0.291,0.072-0.565,0.197-0.754C6.72,9.025,6.887,9,7,9c0.276,0,0.5-0.224,0.5-0.5V6.955C8.331,7.426,9.787,8,12,8
+            				s3.669-0.574,4.5-1.045V8.5C16.5,8.776,16.724,9,17,9c0.494,0,0.625,0.654,0.625,1c0,0.291-0.072,0.565-0.197,0.754
+            				C17.281,10.975,17.114,11,17,11c-0.276,0-0.5,0.224-0.5,0.5c0,1.499-1.05,2.763-2.197,3.566
+            				c-0.002,0.002-0.004,0.003-0.007,0.004C13.457,15.658,12.567,16,12,16C10.658,16,7.5,14.1,7.5,11.5z M12,17
+            				c0.649,0,1.651-0.342,2.624-0.96l1.669,0.46L12,20.793l-4.295-4.295l1.666-0.462C10.345,16.656,11.35,17,12,17z M23,23H1v-2
+            				c0-1.451,0.913-2.768,2.229-3.264l3.368-0.932l5.05,5.049C11.745,21.951,11.873,22,12,22s0.256-0.049,0.354-0.146l5.048-5.048
+            				l3.328,0.917C22.088,18.232,23,19.549,23,21V23z"/><path d="M9.501,9.511c0.095-0.013,0.251-0.01,0.362-0.01L10,9.502l0.137-0.001c0.114,0.001,0.269-0.002,0.363,0.01
+            				c0.004,0.271,0.227,0.491,0.5,0.491c0.276,0,0.5-0.224,0.5-0.5c0-0.298-0.089-0.538-0.266-0.713
+            				c-0.296-0.294-0.703-0.287-1.105-0.288L10,8.502L9.872,8.501C9.477,8.503,9.062,8.495,8.766,8.789
+            				C8.59,8.964,8.5,9.204,8.5,9.502c0,0.276,0.226,0.473,0.502,0.473C9.257,9.975,9.47,9.761,9.501,9.511z"/><path d="M13.003,9.975c0.254,0,0.467-0.214,0.498-0.464c0.095-0.013,0.25-0.01,0.362-0.01L14,9.502l0.137-0.001
+            				c0.113,0.001,0.269-0.002,0.363,0.01c0.004,0.271,0.227,0.491,0.5,0.491c0.276,0,0.5-0.224,0.5-0.5
+            				c0-0.298-0.089-0.538-0.266-0.713c-0.296-0.294-0.705-0.287-1.105-0.288L14,8.502l-0.129-0.001
+            				c-0.396,0.002-0.809-0.006-1.105,0.288C12.59,8.964,12.5,9.204,12.5,9.502C12.5,9.778,12.727,9.975,13.003,9.975z"/>
+                  </g></svg>Education</h2>
+              <ul class="dcf-u-ml4">
+                <li>Ph D, Florida State University, 2009</li>
+                <li>MFA, University of Missouri-Kansas City, 1999</li>
+              </ul>
+            </div>
+            <div class="dcf-u-mb6">
+              <h2 class="dcf-u-h4 dcf-u-regular"><svg class="dcf-c-icon dcf-c-icon--inline dcf-c-icon--x dcf-u-mr2" focusable="false" height="16" width="16" viewBox="0 0 24 24"><path d="M13.86 19.33l-3.61-1.27v-1.71a5.48 5.48 0 0 0 1.85-4.19c0-2.85-2-5.16-4.45-5.16S3.2 9.31 3.2 12.16a5.44 5.44 0 0 0 2.05 4.36v1.54l-3.61 1.27A2.85 2.85 0 0 0-.25 22v1.47a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5V22a2.85 2.85 0 0 0-1.89-2.67zM7.65 8A3.69 3.69 0 0 1 11 11.3 2 2 0 0 1 8.69 10a.5.5 0 0 0-.43-.25.51.51 0 0 0-.44.27 3.2 3.2 0 0 1-2.53 1.24 2.68 2.68 0 0 1-1-.18A3.64 3.64 0 0 1 7.65 8zM4.2 12.16a3.74 3.74 0 0 0 1.07.16 4.55 4.55 0 0 0 2.94-1.16 2.77 2.77 0 0 0 2.32 1.22 3.62 3.62 0 0 0 .55-.05c-.06 2.25-1.57 4.06-3.44 4.06S4.2 14.47 4.2 12.16zM14.75 23h-14v-1A1.82 1.82 0 0 1 2 20.28l3.94-1.4a.5.5 0 0 0 .33-.47v-1.35a3.89 3.89 0 0 0 1.4.29A3.94 3.94 0 0 0 9.25 17v1.42a.5.5 0 0 0 .33.47l3.94 1.4A1.83 1.83 0 0 1 14.75 22z"/><path d="M18.64 0a4.89 4.89 0 0 0-3.5 1.4 5 5 0 0 0-4 .1 5.06 5.06 0 0 0-2.76 3.33l1 .23a4.08 4.08 0 0 1 2.24-2.68 3.9 3.9 0 0 1 3.38.05.49.49 0 0 0 .58-.1 4 4 0 0 1 3-1.35 4.51 4.51 0 0 1 4.6 4.7 4.4 4.4 0 0 1-1.09 3A4.52 4.52 0 0 1 18.74 10a.5.5 0 0 0-.41.22 2.71 2.71 0 0 1-2.09 1.28 2.28 2.28 0 0 1-2-1.22l-.89.44a3.23 3.23 0 0 0 2.94 1.78A3.58 3.58 0 0 0 19 11a5.36 5.36 0 0 0 3.89-1.65 5.32 5.32 0 0 0 1.36-3.65A5.55 5.55 0 0 0 18.64 0zM17.25 13.48a1.5 1.5 0 1 0 1.5 1.5 1.5 1.5 0 0 0-1.5-1.5zm0 2a.5.5 0 0 1-.5-.5.5.5 0 0 1 1 0 .5.5 0 0 1-.5.5z"/><path d="M13.75 7a1 1 0 1 0-1-1 1 1 0 0 0 1 1zm.5-1zM13.75 17.48a1 1 0 1 0-1-1 1 1 0 0 0 1 1zm.5-1zM17.75 6a1 1 0 1 0-1 1 1 1 0 0 0 1-1zm-.5 0zM20.75 6a1 1 0 1 0-1 1 1 1 0 0 0 1-1zm-.5 0z"/></svg>Courses</h2>
+              <ul class="dcf-u-ml4">
+                <li>THEA 112G, Introduction to Theatre, Fall 2013</li>
+                <li>THEA 234, Scripts in Performance, Fall 2013</li>
+                <li>THEA 402, Advanced Stage Movement, Fall 2015</li>
+              </ul>
+            </div>
+            <div class="dcf-u-mb6">
+              <h2 class="dcf-u-h4 dcf-u-regular"><svg class="dcf-c-icon dcf-c-icon--inline dcf-c-icon--x dcf-u-mr2" focusable="false" height="16" width="16" viewBox="0 0 24 24"><path d="M20.5 0h-17A1.5 1.5 0 0 0 2 1.5v21A1.5 1.5 0 0 0 3.5 24h17a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5zM3 22.5v-21a.5.5 0 0 1 .5-.5H5v22H3.5a.5.5 0 0 1-.5-.5zm17 .5H6V1h14z"/><path d="M10.5 9h6a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5zm.5-3h5v2h-5z"/></svg>Publications and Other Intellectual Contributions</h2>
+              <ul class="dcf-u-ml4">
+                <li>Stage Picture Versus Text: Translating and Adapting Ana Caro for a 21st Century Audience, Comedia Performance, February 2014</li>
+              </ul>
+            </div>
+            <div class="dcf-u-mb6">
+              <h2 class="dcf-u-h4 dcf-u-regular"><svg class="dcf-c-icon dcf-c-icon--inline dcf-c-icon--x dcf-u-mr2" focusable="false" height="16" width="16" viewBox="0 0 24 24"><path d="M19.5 0h-15a4.5 4.5 0 0 0 0 9 3.46 3.46 0 0 0 2.44-1H7v15.5a.5.5 0 0 0 1 0V8h2v15.5a.5.5 0 0 0 1 0V8h2v15.5a.5.5 0 0 0 1 0V8h2v15.5a.5.5 0 0 0 1 0V8h.06a3.46 3.46 0 0 0 2.44 1 4.5 4.5 0 0 0 0-9zm-3.45 6a3.41 3.41 0 0 0 .3 1h-8.7A3.41 3.41 0 0 0 8 6zm3.45 2A2.5 2.5 0 0 1 17 5.5 1.5 1.5 0 0 1 18.5 4a.5.5 0 0 1 .5.5.5.5 0 0 0 1 0A1.5 1.5 0 0 0 18.5 3a2.5 2.5 0 0 0-2.45 2H8a2.5 2.5 0 0 0-2.5-2A1.5 1.5 0 0 0 4 4.5a.5.5 0 0 0 1 0 .5.5 0 0 1 .5-.5A1.5 1.5 0 0 1 7 5.5 2.5 2.5 0 0 1 4.5 8a3.5 3.5 0 0 1 0-7h15a3.5 3.5 0 0 1 0 7z"/></svg>Artistic &amp; Professional Performances &amp; Exhibitions</h2>
+              <ul class="dcf-u-ml4">
+                <li>“Practicum in Dream Translation: Re-Investigating La vida es sueño.” , El Paso, TX, February 2014</li>
+                <li>Necessary Roughness, Dublin, Ireland, May 2014</li>
+              </ul>
+            </div>
+            <div class="dcf-u-mb6">
+              <h2 class="dcf-u-h4 dcf-u-regular"><svg class="dcf-c-icon dcf-c-icon--inline dcf-c-icon--x dcf-u-mr2" focusable="false" height="16" width="16" viewBox="0 0 24 24"><path d="M24 14.5a.48.48 0 0 0-.14-.35l-4.92-8.89A.51.51 0 0 0 18.5 5H7V1.5a.5.5 0 0 1 .5-.5 2.21 2.21 0 0 1 1.29.5l.36.36a1.52 1.52 0 1 0 .71-.71L9.5.79a3.14 3.14 0 0 0-2-.79A1.5 1.5 0 0 0 6 1.5V5h-.5a.51.51 0 0 0-.44.26l-5 9a.43.43 0 0 0-.06.24v2a.5.5 0 0 0 .5.5H12v6h-1.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H13v-6h10.5a.5.5 0 0 0 .5-.5v-1.9a.44.44 0 0 0 0-.1zm-13-12a.5.5 0 0 1-1 0 .55.55 0 0 1 .14-.35.53.53 0 0 1 .36-.15.5.5 0 0 1 .5.5zM5.79 6H6v1.5a.5.5 0 0 0 1 0V6h11.21l4.44 8H1.35zM23 16H1v-1h22z"/><path d="M19.92 12.2L18 7.31a.49.49 0 0 0-.5-.31h-8a.5.5 0 0 0-.5.4l-1 5a.53.53 0 0 0 .1.42.53.53 0 0 0 .4.18h11a.5.5 0 0 0 .5-.5.51.51 0 0 0-.08-.3zM9.11 12l.8-4h7.25l1.6 4z"/></svg>Presentations</h2>
+              <ul class="dcf-u-ml4">
+                <li>“Practicum in Dream Translation: Re-Investigating La vida es sueño.” , AHCT, El Paso, TX</li>
+                <li>Rebooting the Stuart Stage: An Examination of Early Modern Thrust Staging in the Restoration Theatre, American Shakespeare Center, Staunton, VA</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+
+<!-- old -->
+<!--
+        <section class="wdn-grid-set knowledge-grid">
+          <div class="bp2-wdn-col-two-sevenths directory-knowledge-summary">
+            <div class="vcard faculty" data-uid="iborden2" data-preferred-name="Ian Borden" itemscope="" itemtype="http://schema.org/Person">
+              <a class="card-profile planetred_profile" href="https://planetred.unl.edu/pg/profile/unl_iborden2" title="Planet Red profile for Ian Borden" itemprop="url">
+                <img class="photo profile_pic" itemprop="image" src="https://directory.unl.edu/avatar/iborden2?s=large" alt="Avatar for Ian Borden">
+              </a>
+              <div class="vcardInfo">
+                <h1 class="headline">
+                  <a class="permalink" href="https://directory.unl.edu/people/iborden2" itemprop="url">
+                    <span class="fn" itemprop="name">Ian Borden</span>
+            	    </a>
+                </h1>
+                <div class="eppa">(faculty)</div>
+                <ul class="roles">
+                  <li class="org parent-unl">
+                    <span class="title" itemprop="jobTitle">Associate Professor</span>
+                    <span itemprop="worksFor" itemscope="" itemtype="http://schema.org/Organization">
+                      <span class="organization-unit">
+                        <a href="https://directory.unl.edu/departments/74" itemprop="url">
+                          <span itemprop="name">Johnny Carson School of Theatre &amp; Film</span>
+            	          </a>
+                        </span>
+                        <span class="organization-name" itemprop="parentOrganization" itemscope="" itemtype="http://schema.org/Organization">
+                        <span itemprop="name">University of Nebraska–Lincoln</span>
+                      </span>
+                    </span>
+            	    </li>
+                </ul>
+                <div class="adr work attribute icon-map-pin" itemprop="workLocation" itemscope="" itemtype="http://schema.org/Place">
+                  <span class="type">Work</span>
+                  <span class="street-address"><a href="https://maps.unl.edu/TEMP" itemprop="hasMap">TEMP</a> 209 </span>
+                  <div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span class="locality" itemprop="addressLocality">Lincoln</span>
+                    <abbr class="region" title="Nebraska" itemprop="addressRegion">NE</abbr>
+                    <span class="postal-code" itemprop="postalCode">68588-0201</span>
+                    <div class="country-name" itemprop="addressCountry">US</div>
+                  </div>
+                </div>
+                <div class="tel work icon-phone attribute">
+                  <span class="type">Work</span>
+                  <span class="value">
+                  <a href="tel:4024722072">
+                    <span itemprop="telephone">402-472-2072</span>
+                  </a>
+                  </span>
+                  <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial 4024722072">On-campus 2-2072</abbr>
+              </div>
+              <div class="icon-email attribute">
+                <a class="email" href="mailto:iborden2@unl.edu" itemprop="email"> iborden2@unl.edu</a>
+              </div>
+            </div>
+            <div class="vcard-tools wdn_vcardTools primary">
+                <a href="https://directory.unl.edu/vcards/iborden2">
+                  <span class="icon-vcard" aria-hidden="true"></span>
+                  <span class="wdn-text-hidden">v-card icon </span><span class="wdn-text-hidden">Download </span>vCard<span class="wdn-text-hidden"> for Ian Borden</span>
+                </a>
+                <a href="https://chart.googleapis.com/chart?cht=qr&amp;chs=400x400&amp;chl=BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ABorden%3BIan%3B%3B%3B%0AFN%3AIan+Borden%0AORG%3AUniversity+of+Nebraska-Lincoln%3BJohnny+Carson+School+of+Theatre+%26+Film%0AEMAIL%3Btype%3DINTERNET%3Btype%3DWORK%3Btype%3Dpref%3Aiborden2%40unl.edu%0ATEL%3Btype%3DWORK%3Btype%3Dpref%3A4024722072%0Aitem3.X-ABRELATEDNAMES%3Btype%3Dpref%3AAssociate+Professor%0Aitem3.X-ABLabel%3Atitle%0AEND%3AVCARD%0A&amp;chld=L%7C1">
+                  <span class="icon-qr-code" aria-hidden="true"></span>
+                  <span class="wdn-text-hidden">Q R code icon </span>QR Code<span class="wdn-text-hidden"> vCard for Ian Borden</span>
+                </a>
+                <button>
+                  <span class="icon-print" aria-hidden="true"></span>
+                  <span class="wdn-text-hidden">printer icon </span>Print<span class="wdn-text-hidden"> listing for Ian Borden</span>
+                </button>
+                <a href="https://annotate.unl.edu/?view=annotation&amp;sitekey=directory&amp;fieldname=iborden2" title="Leave notes on the listing for Ian Borden" class="wdn_annotate"><span class="icon-sticky-note" aria-hidden="true"></span><span class="wdn-text-hidden">sticky note icon </span>Your Notes</a>
+              </div>
+              <div class="vcard-tools wdn_vcardTools">
+                <button class="wdn-button wdn-button-triad correction">
+                  <span class="icon-pencil" aria-hidden="true"></span>
+                  Suggest a correction <span class="wdn-text-hidden">for Ian Borden</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="bp2-wdn-col-five-sevenths wdn-pull-right">
+            <div class="card">
+              <div class="card-content">
+                <div class="directory-knowledge-section directory-knowledge-section-bio">
+                  Ian is an Assistant Professor with the Johnny Carson School of Theatre and Film. Last year he directed The Tempest for Capitol Shakespeare in Bismarck North Dakota, and adapted Ana Caro’s Siglo de Oro play, Valor, agravio y mujer, as Agravio for the Carson School. Recent acting credits include The Three Musketeers for the Black Hills Playhouse, As You Like It for the South Dakota Shakespeare Festival, and Vino Veritas and Act a Lady for Nebraska Repertory Theatre.
+                  Fight Direction credits include Macbeth (an inspiration!) and Richard III for Pigeon Creek Shakespeare in Michigan, The Three Musketeers for the Carson School and the Black Hills Playhouse, Lord of the Flies for the Coterie Theatre in Kansas City, and In My Daughter’s Name for the Angels Theatre Company in Lincoln, Nebraska. Ian also founded the Lincoln Assassination Stage Combat Workshop, held annually at the Carson School from 2010-2015.
+                </div>
+                <div class="directory-knowledge-section directory-knowledge-section-education">
+                  <h2 class="wdn-brand"><span class="icon-academic-cap" aria-hidden="true"></span><span class="wdn-text-hidden">icon-academic-cap</span>Education</h2>
+                  <ul class="directory-knowledge-section-inner">
+                    <li class="directory-knowledge-item">Ph D, Florida State University, 2009</li>
+                    <li class="directory-knowledge-item">MFA, University of Missouri-Kansas City, 1999</li>
+                  </ul>
+                </div>
+                <div class="directory-knowledge-section directory-knowledge-section-courses">
+                  <h2 class="wdn-brand"><span class="icon-chat-user" aria-hidden="true"></span><span class="wdn-text-hidden">icon-chat-user</span>Courses</h2>
+                  <ul class="directory-knowledge-section-inner">
+                    <li class="directory-knowledge-item">THEA 112G, Introduction to Theatre, Fall 2013</li>
+                    <li class="directory-knowledge-item">THEA 234, Scripts in Performance, Fall 2013</li>
+                    <li class="directory-knowledge-item">THEA 402, Advanced Stage Movement, Fall 2015</li>
+                  </ul>
+                </div>
+                <div class="directory-knowledge-section directory-knowledge-section-papers">
+                  <h2 class="wdn-brand"><span class="icon-document" aria-hidden="true"></span><span class="wdn-text-hidden">icon-document</span>Publications and Other Intellectual Contributions</h2>
+                  <ul class="directory-knowledge-section-inner">
+                    <li class="directory-knowledge-item">Stage Picture Versus Text: Translating and Adapting Ana Caro for a 21st Century Audience, Comedia Performance, February 2014</li>
+                  </ul>
+                </div>
+                <div class="directory-knowledge-section directory-knowledge-section-performances">
+                  <h2 class="wdn-brand"><span class="icon-column" aria-hidden="true"></span><span class="wdn-text-hidden">icon-column</span>Artistic &amp; Professional Performances &amp; Exhibitions</h2>
+                  <ul class="directory-knowledge-section-inner">
+                    <li class="directory-knowledge-item">“Practicum in Dream Translation: Re-Investigating La vida es sueño.” , El Paso, TX, February 2014</li>
+                    <li class="directory-knowledge-item">Necessary Roughness, Dublin, Ireland, May 2014</li>
+                  </ul>
+                </div>
+                <div class="directory-knowledge-section directory-knowledge-section-presentations">
+                  <h2 class="wdn-brand"><span class="icon-keynote" aria-hidden="true"></span><span class="wdn-text-hidden">icon-keynote</span>Presentations</h2>
+                  <ul class="directory-knowledge-section-inner">
+                    <li class="directory-knowledge-item">“Practicum in Dream Translation: Re-Investigating La vida es sueño.” , AHCT, El Paso, TX</li>
+                    <li class="directory-knowledge-item">Rebooting the Stuart Stage: An Examination of Early Modern Thrust Staging in the Restoration Theatre, American Shakespeare Center, Staunton, VA</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+-->
+
+      </div>
+    </div>
+  <!-- InstanceEndEditable -->
+  </main>
+  <footer class="dcf-c-footer" id="footer" role="contentinfo">
+    <div class="dcf-o-wrapper dcf-c-footer__local dcf-u-sm2" id="footer-local">
+      <!-- InstanceBeginEditable name="contactinfo" -->
+      <!--#include virtual="/dcf/theme/unl_5.0/sharedcode/footer-local.html" -->
+      <!-- InstanceEndEditable -->
+
+      <!-- InstanceBeginEditable name="leftcollinks" --><!-- leftcollinks necessary? -->
+      <!-- InstanceEndEditable -->
+    </div>
+    <div class="dcf-o-wrapper dcf-c-footer__global" id="global-footer">
+      <!--#include virtual="/dcf/theme/unl_5.0/includes/footer-global.html" -->
+    </div>
+  </footer>
+  <!--#include virtual="/dcf/theme/unl_5.0/includes/noscript.html" -->
+  <!--#include virtual="/dcf/theme/unl_5.0/includes/js-body.html" -->
+</body>
+<!-- InstanceEnd --></html>

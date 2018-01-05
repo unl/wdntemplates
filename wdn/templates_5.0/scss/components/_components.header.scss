@@ -1,0 +1,24 @@
+///////////////////////////////
+// !THEME / COMPONENTS / HEADER
+///////////////////////////////
+
+
+// .dcf-c-header {
+//   @include font-sans;
+// }
+
+.unl-t-header {
+  border-top: 3px solid $scarlet;
+}
+
+.unl-t-ls-ital {
+  padding-right: #{ms(-24)}em;
+}
+
+.unl-t-header a:visited {
+  color: $color-link;
+}
+
+.unl-t-header a:hover {
+  color: $color-link-hover;
+}
