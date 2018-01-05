@@ -318,14 +318,14 @@ module.exports = function (grunt) {
 				files: [templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
 				tasks: ['sass']
 			},
-			js: {
-				files: [templateJs + '/**/*.js', '!' + templateCompileJs + '/**/*.js'],
-				tasks: ['js']
-			},
-			includes: {
-				files: [buildDir + '/**/*.html', templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
-				tasks: ['includes']
-			}
+//			js: {
+//				files: [templateJs + '/**/*.js', '!' + templateCompileJs + '/**/*.js'],
+//				tasks: ['js']
+//			},
+//			includes: {
+//				files: [buildDir + '/**/*.html', templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
+//				tasks: ['includes']
+//			}
 		}
 	});
 
