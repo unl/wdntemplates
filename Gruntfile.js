@@ -27,7 +27,7 @@ module.exports = function (grunt) {
 	// project layout variables (directories)
 	var mainDir = 'wdn',
 		buildDir = 'build',
-		templateDir = mainDir + '/templates_4.1',
+		templateDir = mainDir + '/templates_5.0',
 		templateScss = templateDir + '/scss',
 		templateCss = templateDir + '/css',
 		templateJs = templateDir + '/scripts',
@@ -197,13 +197,11 @@ module.exports = function (grunt) {
     grunt.initConfig({
         sass: {
             all: {
-                //compile: {
                 files: scssAllFiles,
-                //},
                 options: {
                     sourceMap: true,
                     includePaths: [
-                        '/Users/mfairchild/Sites/wdn_new/node_modules/modularscale-sass/stylesheets'
+                        __dirname+'/node_modules/modularscale-sass/stylesheets'
                     ]
                 }
             },
@@ -279,7 +277,7 @@ module.exports = function (grunt) {
 		},
 
 		concurrent: {
-			main: ['scss:all', 'js'],
+			main: ['sass:all', 'js'],
 			dist: ['zip', 'archive']
 		},
 
@@ -403,5 +401,5 @@ module.exports = function (grunt) {
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
 	grunt.registerTask('js', ['clean:js', 'sass:js', 'requirejs', 'sync:js', 'clean:js-build']);
-    grunt.registerTask('sass', ['sass:all']);
+    grunt.registerTask('css', ['sass:all']);
 };
