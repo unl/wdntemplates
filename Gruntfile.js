@@ -2,9 +2,9 @@ module.exports = function (grunt) {
 	// CSS files to be built (relative to less directory, no extension)
 	var cssObjs = [
 		'all',
-		'modules/pagination',
-		'modules/infographics',
-		'critical'
+		//'modules/pagination',
+		//'modules/infographics',
+		//'critical'
 	];
 
 	var jsCssObjs = [
@@ -28,7 +28,7 @@ module.exports = function (grunt) {
 	var mainDir = 'wdn',
 		buildDir = 'build',
 		templateDir = mainDir + '/templates_4.1',
-		templateLess = templateDir + '/less',
+		templateScss = templateDir + '/scss',
 		templateCss = templateDir + '/css',
 		templateJs = templateDir + '/scripts',
 		builtJsDir = 'compressed',
@@ -177,49 +177,43 @@ module.exports = function (grunt) {
 	});
 
 	// common variables for task configuration
-	var autoprefixPlugin = new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]});
-	var lessPluginCleanCss = new (require('less-plugin-clean-css'))();
 	var gitFilters = require('./.git_filters/lib/git-filters.js');
 
 	// dynamic target files built from variables above
-	var lessAllFiles = {};
+	var scssAllFiles = {};
 
 	cssObjs.forEach(function(file) {
-		lessAllFiles[templateCss + '/' + file + '.css'] = templateLess + '/' + file + '.less';
+		scssAllFiles[templateCss + '/' + file + '.css'] = templateScss + '/' + file + '.scss';
 	});
 
-	var lessJsFiles = {};
+	var scssJsFiles = {};
 	jsCssObjs.forEach(function(file) {
-		lessJsFiles[templateJs + '/' + file + '.css'] = templateJs + '/' + file + '.less';
+		scssJsFiles[templateJs + '/' + file + '.css'] = templateJs + '/' + file + '.scss';
 	});
 
 	// load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
 	require('load-grunt-tasks')(grunt);
 
-	grunt.initConfig({
-		less: {
-			all: {
-				options: {
-					ieCompat: false,
-					paths: [hereDir + templateLess],
-					plugins: [
-						autoprefixPlugin,
-						lessPluginCleanCss
-					]
-				},
-				files: lessAllFiles
-			},
-			js: {
-				options: {
-					ieCompat: false,
-					paths: [hereDir + templateLess],
-					plugins: [
-						lessPluginCleanCss
-					]
-				},
-				files: lessJsFiles
-			}
-		},
+    grunt.initConfig({
+        sass: {
+            all: {
+                //compile: {
+                files: scssAllFiles,
+                //},
+                options: {
+                    sourceMap: true,
+                    includePaths: [
+                        '/Users/mfairchild/Sites/wdn_new/node_modules/modularscale-sass/stylesheets'
+                    ]
+                }
+            },
+            js: {
+                options: {
+                    sourceMap: true
+                },
+                files: scssJsFiles
+            }
+        },
 
 		requirejs: {
 			all: {
@@ -235,7 +229,7 @@ module.exports = function (grunt) {
 						'**',
 						'!**/*.patch',
 						'!**/*.md',
-						'!**/*.less'
+						'!**/*.scss'
 					].concat(syncJsIgnore),
 					dest: templateCompileJs
 				}]
@@ -254,7 +248,7 @@ module.exports = function (grunt) {
 		},
 
 		clean: {
-			css: [templateCss].concat(Object.keys(lessJsFiles)),
+			css: [templateCss].concat(Object.keys(scssJsFiles)),
 			js: [templateCompileJs],
 			"js-build": [buildJsDir],
 			dist: [zipDir + '/*.zip', zipDir + '/*.gz']
@@ -285,7 +279,7 @@ module.exports = function (grunt) {
 		},
 
 		concurrent: {
-			main: ['less:all', 'js'],
+			main: ['scss:all', 'js'],
 			dist: ['zip', 'archive']
 		},
 
@@ -322,16 +316,16 @@ module.exports = function (grunt) {
 		},
 
 		watch: {
-			less: {
-				files: [templateLess + '/**/*.less', templateJs + '/js-css/*.less'],
-				tasks: ['less']
+			sass: {
+				files: [templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
+				tasks: ['sass']
 			},
 			js: {
 				files: [templateJs + '/**/*.js', '!' + templateCompileJs + '/**/*.js'],
 				tasks: ['js']
 			},
 			includes: {
-				files: [buildDir + '/**/*.html', templateLess + '/**/*.less', templateJs + '/js-css/*.less'],
+				files: [buildDir + '/**/*.html', templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
 				tasks: ['includes']
 			}
 		}
@@ -408,5 +402,6 @@ module.exports = function (grunt) {
 	// legacy targets from Makefile
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
-	grunt.registerTask('js', ['clean:js', 'less:js', 'requirejs', 'sync:js', 'clean:js-build']);
+	grunt.registerTask('js', ['clean:js', 'sass:js', 'requirejs', 'sync:js', 'clean:js-build']);
+    grunt.registerTask('sass', ['sass:all']);
 };
