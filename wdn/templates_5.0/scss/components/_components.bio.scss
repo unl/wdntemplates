@@ -1,0 +1,59 @@
+////////////////////////////
+// !THEME / COMPONENTS / BIO
+////////////////////////////
+
+
+.unl-c-bio {
+
+}
+
+.unl-c-bio__directory {
+
+}
+
+.unl-c-bio__info {
+
+}
+
+.unl-c-vcard-tools {
+
+}
+
+@supports (display: grid) {
+
+  .unl-c-bio {
+    @include grid;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "directory"
+      "info";
+  }
+
+  .unl-c-bio__directory {
+    grid-area: directory;
+  }
+
+  .unl-c-bio__info {
+    grid-area: info;
+  }
+
+  .unl-c-vcard-tools {
+    @include grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .unl-c-vcard-tools__correction {
+    grid-column: auto / span 2;
+  }
+
+  @include mq(md, min, width) {
+
+    .unl-c-bio {
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas:
+        "directory info";
+    }
+
+  }
+
+}

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<!--#include virtual="/wdn/templates_5.0/includes/meta.html" -->
+<!--#include virtual="/wdn/templates_5.0/includes/global/meta.html" -->
 <title>Debugging Out | Framework Testing Page</title>
-<!--#include virtual="/wdn/templates_5.0/includes/css.html" -->
-<!--#include virtual="/wdn/templates_5.0/includes/js-head.html" -->
-<!--#include virtual="/wdn/templates_5.0/includes/favicon.html" -->
+<!--#include virtual="/wdn/templates_5.0/includes/global/css.html" -->
+<!--#include virtual="/wdn/templates_5.0/includes/global/js-head.html" -->
+<!--#include virtual="/wdn/templates_5.0/includes/global/favicon.html" -->
 </head>
 <body class="debug unl" data-version="5.0">
-  <!--#include virtual="/wdn/templates_5.0/includes/skip-nav.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/skip-nav.html" -->
 
 <!--
   <div class="dcf-c-alert dcf-o-wrapper dcf-u-pt4 dcf-u-pb4 dcf-u-sm2">
@@ -30,10 +30,10 @@
 <!--     <header class="" id="header" role="banner"> -->
 
 
-      <!--#include virtual="/wdn/templates_5.0/includes/institution.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/institution.html" -->
 
       <div class="dcf-u-flex dcf-u-ai-center dcf-u-pt4 dcf-c-logo" style="overflow: hidden;">
-        <!--#include virtual="/wdn/templates_5.0/includes/logo.html" -->
+        <!--#include virtual="/wdn/templates_5.0/includes/global/logo.html" -->
 
         <div class="dcf-u-flex dcf-u-flex-col dcf-u-jc-center">
           <div class="dcf-u-uppercase dcf-u-h3 dcf-u-lh1 dcf-u-ls2 dcf-u-regular" id="wdn_site_affiliation"><!-- InstanceBeginEditable name="affiliation" --><a href="https://arts.unl.edu/" style="color: #383837;">Hixson-Lied College of Fine &amp; Performing&nbsp;Arts</a><!-- InstanceEndEditable --></div>
@@ -69,16 +69,16 @@
 <!--     <div class="" id="navigation"> -->
       <nav class="dcf-u-pt5 dcf-c-nav__primary unl-t-nav__primary" role="navigation" aria-label="primary navigation">
         <!-- InstanceBeginEditable name="navlinks" -->
-        <!--#include virtual="/wdn/templates_5.0/sharedcode/nav-primary.html" -->
+        <!--#include virtual="/wdn/templates_5.0/includes/local/nav-primary.html" -->
         <!-- InstanceEndEditable -->
       </nav>
       <nav class="dcf-u-flex dcf-u-ai-center dcf-u-mt1 dcf-u-sm2 dcf-c-nav__secondary unl-t-nav__secondary" role="navigation" aria-label="secondary navigation">
-      	<!--#include virtual="/wdn/templates_5.0/includes/nav-secondary.html" -->
+      	<!--#include virtual="/wdn/templates_5.0/includes/global/nav-secondary.html" -->
       </nav>
 <!--     </div> -->
 
-    <!--#include virtual="/wdn/templates_5.0/includes/idm.html" -->
-    <!--#include virtual="/wdn/templates_5.0/includes/search.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
   </div>
 
   <main class="dcf-o-main" id="main" role="main" tabindex="-1">
@@ -235,10 +235,9 @@
 
 
         <!-- Events Listing -->
-        <div style="padding-top: 5.61em; padding-bottom: 5.61em;" class="dcf-c-events">
+        <div style="padding-top: 5.61em; padding-bottom: 5.61em;" class="dcf-c-events dcf-o-colgap-vw dcf-o-rowgap-lg">
           <h2 class="dcf-c-events__heading">Upcoming Events</h2>
-          <ul class="dcf-c-list-unstyled dcf-c-events__listing">
-
+          <ul class="dcf-c-list-unstyled dcf-c-events__listing dcf-o-colgap-vw dcf-o-rowgap-md">
 
             <li class="dcf-c-event dcf-u-flex dcf-u-flex-row dcf-u-ai-center" itemtype="http://schema.org/Event">
               <div class="dcf-u-2nd dcf-c-event__info unl-u-font-sans">
@@ -256,7 +255,6 @@
               </time>
             </li>
 
-
             <li class="dcf-c-event dcf-u-flex dcf-u-flex-row dcf-u-ai-center" itemtype="http://schema.org/Event">
               <div class="dcf-u-2nd dcf-c-event__info unl-u-font-sans">
                 <a class="dcf-u-inlineblock dcf-u-lh2 dcf-u-lg1 dcf-u-txt-decor-none" href="//events.unl.edu/2017/09/25/123410/" itemprop="url">
@@ -272,7 +270,6 @@
                 <span class="dcf-u-sm3 dcf-u-uppercase dcf-u-bold dcf-u-ls2 unl-u-font-sans">Sep</span> <span class="dcf-u-lg4 dcf-u-bold">25</span> <span class="dcf-u-sm3 dcf-u-pt2 unl-u-font-sans">8:30 am</span>
               </time>
             </li>
-
 
             <li class="dcf-c-event dcf-u-flex dcf-u-flex-row dcf-u-ai-center" itemtype="http://schema.org/Event">
               <div class="dcf-u-2nd dcf-c-event__info unl-u-font-sans">
@@ -290,7 +287,6 @@
               </time>
             </li>
 
-
             <li class="dcf-c-event dcf-u-flex dcf-u-flex-row dcf-u-ai-center" itemtype="http://schema.org/Event">
               <div class="dcf-u-2nd dcf-c-event__info unl-u-font-sans">
                 <a class="dcf-u-inlineblock dcf-u-lh2 dcf-u-lg1 dcf-u-txt-decor-none" href="//events.unl.edu/2017/09/25/123212/" itemprop="url">
@@ -304,7 +300,6 @@
                 <span class="dcf-u-sm3 dcf-u-uppercase dcf-u-bold dcf-u-ls2 unl-u-font-sans">Sep</span> <span class="dcf-u-lg4 dcf-u-bold">25</span> <span class="dcf-u-sm3 dcf-u-pt2 unl-u-font-sans">12:00 pm</span>
               </time>
             </li>
-
 
             <li class="dcf-c-event dcf-u-flex dcf-u-flex-row dcf-u-ai-center" itemtype="http://schema.org/Event">
               <div class="dcf-u-2nd dcf-c-event__info unl-u-font-sans">
@@ -320,7 +315,6 @@
               </time>
             </li>
 
-
             <li class="dcf-c-event dcf-u-flex dcf-u-flex-row dcf-u-ai-center" itemtype="http://schema.org/Event">
               <div class="dcf-u-2nd dcf-c-event__info unl-u-font-sans">
                 <a class="dcf-u-inlineblock dcf-u-lh2 dcf-u-lg1 dcf-u-txt-decor-none" href="//events.unl.edu/2017/09/25/123710/" itemprop="url">
@@ -335,18 +329,16 @@
               </time>
             </li>
 
-
           </ul>
 
-          <div class="dcf-u-flex dcf-u-ai-center dcf-c-events__more">
-            <a class="dcf-c-btn dcf-c-btn--secondary" href="https://events.unl.edu/upcoming/">Find more events</a>
-          </div>
-
-          <div class="dcf-u-flex dcf-u-ai-center dcf-c-events__subscribe">
-            <div class="dcf-u-mr6 dcf-u-sm3 dcf-u-uppercase dcf-u-ls2 unl-u-font-sans"><span class="dcf-u-bold">Subscribe</span> to <span class="dcf-u-block">this calendar</span></div>
-            <div class="dcf-c-btn-group">
-              <a class="dcf-c-btn dcf-c-btn--secondary" href="https://events.unl.edu/upcoming/?format=ics"><!-- <svg class="dcf-c-icon dcf-c-icon--inline dcf-c-icon--x dcf-u-mr2" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M23.5 2H20V.5c0-.3-.2-.5-.5-.5h-3c-.3 0-.5.2-.5.5V2H8V.5c0-.3-.2-.5-.5-.5h-3c-.3 0-.5.2-.5.5V2H.5c-.3 0-.5.2-.5.5V7h24V2.5c0-.3-.2-.5-.5-.5zM7 4H5V1h2v3zm12 0h-2V1h2v3zM0 23.5c0 .3.2.5.5.5h23c.3 0 .5-.2.5-.5V8H0v15.5zM7 15h4v-4c0-.6.4-1 1-1s1 .4 1 1v4h4c.6 0 1 .4 1 1s-.4 1-1 1h-4v4c0 .6-.4 1-1 1s-1-.4-1-1v-4H7c-.6 0-1-.4-1-1s.4-1 1-1z"/></svg>--><abbr class="dcf-u-sm1" title="iCalendar">ICS<span class="dcf-u-sr-only"> format</span></abbr></a></a>
-              <a class="dcf-c-btn dcf-c-btn--secondary" href="https://events.unl.edu/upcoming/?format=rss"><!-- <svg class="dcf-c-icon dcf-c-icon--inline dcf-c-icon--x dcf-u-mr2" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M20.5 0h-17C1.6 0 0 1.6 0 3.5v17C0 22.4 1.6 24 3.5 24h17c1.9 0 3.5-1.6 3.5-3.5v-17C24 1.6 22.4 0 20.5 0zM7 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6 0c0-4.4-3.6-8-8-8v-1c5 0 9 4 9 9h-1zm5 0c0-7.2-5.8-13-13-13V5c7.7 0 14 6.3 14 14h-1z"/></svg> --><abbr class="dcf-u-sm1" title="Rich Site Summary">RSS<span class="dcf-u-sr-only"> format</span></abbr></a>
+          <div class="dcf-u-flex dcf-u-ai-center dcf-u-jc-between dcf-c-events__more">
+            <a class="dcf-c-btn dcf-c-btn--secondary dcf-u-2nd" href="https://events.unl.edu/upcoming/">Find more events</a>
+            <div class="dcf-u-flex dcf-u-ai-center dcf-u-1st dcf-u-mr6">
+              <div class="dcf-u-mr6 dcf-u-sm3 dcf-u-uppercase dcf-u-ls2 unl-u-font-sans"><span class="dcf-u-bold">Subscribe</span> to <span class="dcf-u-block">this calendar</span></div>
+              <div class="dcf-c-btn-group">
+                <a class="dcf-c-btn dcf-c-btn--secondary" href="https://events.unl.edu/upcoming/?format=ics"><!-- <svg class="dcf-c-icon dcf-c-icon--inline dcf-c-icon--x dcf-u-mr2" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M23.5 2H20V.5c0-.3-.2-.5-.5-.5h-3c-.3 0-.5.2-.5.5V2H8V.5c0-.3-.2-.5-.5-.5h-3c-.3 0-.5.2-.5.5V2H.5c-.3 0-.5.2-.5.5V7h24V2.5c0-.3-.2-.5-.5-.5zM7 4H5V1h2v3zm12 0h-2V1h2v3zM0 23.5c0 .3.2.5.5.5h23c.3 0 .5-.2.5-.5V8H0v15.5zM7 15h4v-4c0-.6.4-1 1-1s1 .4 1 1v4h4c.6 0 1 .4 1 1s-.4 1-1 1h-4v4c0 .6-.4 1-1 1s-1-.4-1-1v-4H7c-.6 0-1-.4-1-1s.4-1 1-1z"/></svg>--><abbr class="dcf-u-sm1" title="iCalendar">ICS<span class="dcf-u-sr-only"> format</span></abbr></a></a>
+                <a class="dcf-c-btn dcf-c-btn--secondary" href="https://events.unl.edu/upcoming/?format=rss"><!-- <svg class="dcf-c-icon dcf-c-icon--inline dcf-c-icon--x dcf-u-mr2" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M20.5 0h-17C1.6 0 0 1.6 0 3.5v17C0 22.4 1.6 24 3.5 24h17c1.9 0 3.5-1.6 3.5-3.5v-17C24 1.6 22.4 0 20.5 0zM7 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6 0c0-4.4-3.6-8-8-8v-1c5 0 9 4 9 9h-1zm5 0c0-7.2-5.8-13-13-13V5c7.7 0 14 6.3 14 14h-1z"/></svg> --><abbr class="dcf-u-sm1" title="Rich Site Summary">RSS<span class="dcf-u-sr-only"> format</span></abbr></a>
+              </div>
             </div>
           </div>
 
@@ -1415,17 +1407,17 @@
   <footer class="dcf-c-footer" id="footer" role="contentinfo">
     <div class="dcf-o-wrapper dcf-c-footer__local dcf-u-sm2" id="footer-local">
       <!-- InstanceBeginEditable name="contactinfo" -->
-      <!--#include virtual="/wdn/templates_5.0/sharedcode/footer-local.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
       <!-- InstanceEndEditable -->
 
       <!-- InstanceBeginEditable name="leftcollinks" --><!-- leftcollinks necessary? -->
       <!-- InstanceEndEditable -->
     </div>
     <div class="dcf-o-wrapper dcf-c-footer__global" id="global-footer">
-      <!--#include virtual="/wdn/templates_5.0/includes/footer-global.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global.html" -->
     </div>
   </footer>
-  <!--#include virtual="/wdn/templates_5.0/includes/noscript.html" -->
-  <!--#include virtual="/wdn/templates_5.0/includes/js-body.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
 </body>
 <!-- InstanceEnd --></html>

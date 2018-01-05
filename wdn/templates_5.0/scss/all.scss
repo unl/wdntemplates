@@ -30,6 +30,7 @@
 @import '../../../node_modules/dcf/core/scss/mixins/mixins.grid';
 @import '../../../node_modules/dcf/core/scss/mixins/mixins.height-width';
 @import '../../../node_modules/dcf/core/scss/mixins/mixins.margins';
+@import '../../../node_modules/dcf/core/scss/mixins/mixins.object-fit';
 @import '../../../node_modules/dcf/core/scss/mixins/mixins.order';
 @import '../../../node_modules/dcf/core/scss/mixins/mixins.overflow';
 @import '../../../node_modules/dcf/core/scss/mixins/mixins.overlays';
@@ -114,6 +115,8 @@
 @import '../../../node_modules/dcf/core/scss/components/components.tables';
 
 // !Theme Components
+@import 'components/components.bio';
+@import 'components/components.button-groups';
 @import 'components/components.buttons';
 @import 'components/components.figures';
 @import 'components/components.footer';
@@ -123,6 +126,7 @@
 @import 'components/components.input-groups';
 @import 'components/components.layout';
 @import 'components/components.navigation';
+@import 'components/components.pagination';
 @import 'components/components.paragraphs';
 @import 'components/components.search';
 @import 'components/components.tables';
