@@ -1,6 +1,33 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.28 (December 5, 2017)
+- Fontello/Spotify icon in footer
+- Various footer updates
+- Always show a focus outline for inputs
+
+## 4.1.27 (November 7, 2017)
+- Updated framework absolute links to use https([#1083](https://github.com/unl/wdntemplates/pull/1083))
+
+## 4.1.26 (October 3, 2017)
+- No commits made, version bumped
+
+## 4.1.25 (September 5, 2017)
+- Fixed contrast issues in table elements
+- Fixed the visual height of the button within .wdn-input-group-btn
+- Fixed some specificity rules in tables
+
+## 4.1.24 (August 1, 2017)
+- Changed Tungsten to load in the head on Speedy template, this will make the FOUT much less violent in the header
+
+## 4.1.23 (July 4, 2017)
+- No commits made, version bumped
+
+## 4.1.22 (June 6, 2017)
+- [Fixed the location](https://github.com/unl/wdntemplates/commit/1282778babe24510805af4e4ae36a15832bcdbbe) of the search button
+- Fixed a Flash of No CSS on hard refresh([#1073](https://github.com/unl/wdntemplates/pull/1073))
+- Restored button cursor lost in normalize update ([#1075](https://github.com/unl/wdntemplates/pull/1075))
+
 ## 4.1.21 (May 9, 2017)
 - Removed Font Face Observer to ensure fonts were loaded
 

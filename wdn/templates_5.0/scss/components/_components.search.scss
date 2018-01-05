@@ -1,0 +1,152 @@
+///////////////////////////////
+// !THEME / COMPONENTS / SEARCH
+///////////////////////////////
+
+
+// !UNL Google Search Results Overrides
+.unl .cse .gsc-control-cse,
+.unl .gsc-control-cse {
+  @include p0;
+  @include b0;
+  @include bg-transparent;
+}
+
+.unl .gsc-control-cse,
+.unl .gsc-control-cse .gsc-table-result {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.unl .gsc-thumbnail-inside {
+//     padding-left: 0;
+//     padding-right: 0;
+  @include pr0;
+  @include pl0;
+}
+
+.unl .gsc-control-cse .gs-snippet {
+  color: inherit;
+}
+
+.unl .gsc-thumbnail .gs-image-box {
+//     padding-right: 0.5em;
+  @include pr4;
+}
+
+.unl .gsc-url-top {
+  font-size: 80%;
+//     padding-left: 0;
+//     padding-right: 0;
+  @include pr0;
+  @include pl0;
+}
+
+.unl .gsc-control-cse {
+//     padding: 0;
+  @include p0;
+}
+
+.unl .gsc-webResult .gsc-result {
+  padding: 0.75em 0;
+//     border: 0;
+  @include b0;
+}
+
+.unl .gsc-result .gs-title {
+  height: 1.662em;
+}
+
+.unl .gsc-result.gsc-webResult:hover {
+//     border: none;
+  @include b0;
+}
+
+.unl .gs-result .gs-title,
+.unl .gs-result .gs-title * {
+//     color: #d00000;
+//     text-decoration: none;
+  color: $scarlet;
+  @include txt-decor-none;
+}
+
+.unl .gs-result .gs-visibleUrl,
+.unl .gs-result .gsc-url-top,
+.unl .gs-result a.gs-visibleUrl {
+    color: #554721;
+}
+
+.unl .gsc-result-info {
+//     font-style: italic;
+  @include italic;
+  margin: 0 0 10px;
+//     color: #5b5b5a;
+  color: $color-body;
+}
+
+.unl .gsc-results .gsc-cursor-box {
+  border-top: 1px solid #eae9e6;
+//     padding: 1em 0 0;
+  @include pt4;
+  @include pr0;
+  @include pb0;
+  @include pl0;
+//     margin-top: 1em;
+    @include mt4;
+//     font-family: "Gotham SSm A","Gotham SSm B",Verdana,"Verdana Ref",Geneva,Tahoma,"Lucida Grande","Lucida Sans Unicode","Lucida Sans","DejaVu Sans","Bitstream Vera Sans","Liberation Sans",sans-serif;
+//     font-weight: 400;
+//     font-style: normal;
+}
+
+.unl .gsc-results .gsc-cursor-box .gsc-cursor-page {
+  border: 1px solid #eae9e6;
+  padding: 2px 8px;
+//     margin-bottom: 1em;
+  @include mb4;
+    min-width: 2.2em;
+//     display: inline-block;
+  @include inlineblock;
+//     text-align: center;
+  @include txt-center;
+//     text-decoration: none;
+  @include txt-decor-none;
+//     color: #d00000;
+  color: $scarlet;
+}
+
+.unl .gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+  font-weight: 400;
+//     color: #5b5b5a;
+  color: $color-body;
+//     border: 0;
+  @include b0;
+}
+
+.unl .gcsc-branding {
+  margin-bottom: 1.3333em;
+//     display: none;
+  @include none;
+}
+
+.unl td.gcsc-branding-text {
+//     font-style: italic;
+  width: auto;
+  @include italic;
+}
+
+.unl td.gcsc-branding-text div.gcsc-branding-text {
+//     text-align: left;
+  @include txt-left;
+//     color: #5b5b5a;
+  color: $color-body;
+}
+
+.unl td.gcsc-branding-text-name {
+//     width: 100%;
+  @include w100;
+}
+
+.unl .gs-promotion-image-box img.gs-promotion-image,
+.unl .gs-web-image-box img.gs-image {
+  max-width: 100%;
+  max-height: none;
+}

@@ -8,10 +8,13 @@ table.energetic {
 
         th {
             color: #fff;
+        }
+    }
 
-            a {
-                color: #fff;
-            }
+    th {
+
+        a {
+            color: #fff;
         }
     }
 }
@@ -26,6 +29,16 @@ table.primary {
 
     tbody {
 
+        th {
+            color: darken(@brand,10%);
+            background-color: lighten(@brand,55%);
+
+            a {
+                color: inherit;
+                border-bottom: 1px dotted darken(@brand, 14%);;
+            }
+        }
+
         tr {
 
             &:nth-of-type(even) {
@@ -33,7 +46,8 @@ table.primary {
             }
         }
 
-        th, td {
+        th,
+        td {
             border-color: lighten(@brand,50%);
         }
     }
@@ -49,6 +63,16 @@ table.cool {
 
     tbody {
 
+        th {
+            color: darken(@triad,10%);
+            background-color: lighten(@dark-triad,52%);
+
+            a {
+                color: inherit;
+                border-bottom: 1px dotted darken(@triad, 15%);
+            }
+        }
+
         tr {
 
             &:nth-of-type(even) {
@@ -56,7 +80,8 @@ table.cool {
             }
         }
 
-        th, td {
+        th,
+        td {
             border-color: lighten(@dark-triad,45%);
         }
     }
@@ -72,6 +97,16 @@ table.soothing {
 
     tbody {
 
+        th {
+            color: darken(@complement,10%);
+            background-color: lighten(@dark-complement,59%);
+
+            a {
+                color: inherit;
+                border-bottom: 1px dotted darken(@complement, 8%);
+            }
+        }
+
         tr {
 
             &:nth-of-type(even) {
@@ -79,7 +114,8 @@ table.soothing {
             }
         }
 
-        th, td {
+        th,
+        td {
             border-color: lighten(@dark-complement,50%);
         }
     }
@@ -96,7 +132,18 @@ table.neutral {
     tbody {
         // no background-color needed for tbody tr:nth-of-type(even), same as inherited color
 
-        th, td {
+        th {
+            color: @neutral;
+            background-color: lighten(@dark-neutral,70%);
+
+            a {
+                color: inherit;
+                border-bottom: 1px dotted lighten(@neutral, 7%);
+            }
+        }
+
+        th,
+        td {
             border-color: lighten(@dark-neutral,60%);
         }
     }
@@ -112,6 +159,16 @@ table.energetic {
 
     tbody {
 
+        th {
+            color: darken(@energetic,10%);
+            background-color: lighten(@dark-energetic,50%);
+
+            a {
+                color: inherit;
+                border-bottom: 1px dotted darken(@energetic, 14%);
+            }
+        }
+
         tr {
 
             &:nth-of-type(even) {
@@ -119,13 +176,14 @@ table.energetic {
             }
         }
 
-        th, td {
+        th,
+        td {
             border-color: lighten(@dark-energetic,44%);
         }
     }
 }
 
-@media @bp-under768w {
+@media screen and (max-width: 47.99em) {
 
     table.wdn_responsive_table.primary,
     table.wdn_responsive_table.cool,
@@ -134,14 +192,6 @@ table.energetic {
     table.wdn_responsive_table.energetic {
 
         tbody {
-
-            th {
-                color: #fff;
-
-                a {
-                    color: #fff;
-                }
-            }
 
             tr {
 
@@ -215,67 +265,6 @@ table.energetic {
                     &:nth-of-type(even) {
                         background-color: lighten(@dark-energetic,55%);
                     }
-                }
-            }
-        }
-    }
-}
-
-@media @bp768 {
-
-    table.wdn_responsive_table {
-
-        &.primary {
-
-            tbody {
-
-                th {
-                    color: darken(@brand,10%);
-                    background-color: lighten(@brand,55%);
-                }
-            }
-        }
-
-        &.cool {
-
-            tbody {
-
-                th {
-                    color: darken(@triad,10%);
-                    background-color: lighten(@dark-triad,52%);
-                }
-            }
-        }
-
-        &.soothing {
-
-            tbody {
-
-                th {
-                    color: darken(@complement,10%);
-                    background-color: lighten(@dark-complement,59%);
-                }
-            }
-        }
-
-        &.neutral {
-
-            tbody {
-
-                th {
-                    color: @neutral;
-                    background-color: lighten(@dark-neutral,70%);
-                }
-            }
-        }
-
-        &.energetic {
-
-            tbody {
-
-                th {
-                    color: darken(@energetic,10%);
-                    background-color: lighten(@dark-energetic,50%);
                 }
             }
         }

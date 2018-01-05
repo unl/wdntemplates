@@ -1,0 +1,43 @@
+////////////////////////////////
+// !THEME / MIXINS / BACKGROUNDS
+////////////////////////////////
+
+
+// !Scarlet
+@mixin bg-scarlet($imp:null) {
+  background: linear-gradient($diagonal, darken($scarlet,2%) 0%, lighten($scarlet,2%) 100%) $imp;
+}
+
+
+// !Cream
+@mixin bg-cream($imp:null) {
+  background: linear-gradient($diagonal, $cream 0%, $lighter-cream 100%) $imp;
+}
+
+
+// !Diagonal
+@mixin bg-diagonal($imp:null) {
+
+//   &:before {
+//     content: '';
+//     @include absolute;
+//     @include h100;
+//     @include w100;
+//     top: 0;
+//     left: 0;
+//     z-index: -1;
+//     pointer-events: none;
+//     background-color: transparent $imp;
+//     background-image: url('~../images/bg.svg') $imp;
+//     background-position: 50% 50% $imp;
+//     background-repeat: repeat $imp;
+//     background-size: 4.96px 8px $imp;
+//   }
+
+  background-color: transparent $imp;
+//     background-image: url('~../images/bg.svg') $imp;
+  background-position: 50% 50% $imp;
+  background-repeat: repeat $imp;
+  background-size: 5px 8px $imp;
+
+}

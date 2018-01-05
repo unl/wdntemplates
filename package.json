@@ -1,6 +1,6 @@
 {
   "name": "wdntemplates",
-  "version": "4.1.21",
+  "version": "4.1.28",
   "description": "Web Framework for the UNLedu website.",
   "repository": {
     "type": "git",
@@ -18,6 +18,7 @@
   "devDependencies": {
     "autoprefixer": "^7.1.1",
     "csso": "^2.1.1",
+    "dcf": "git+https://github.com/d-c-n/dcf.git",
     "grunt": "^1.0.1",
     "grunt-bump": "^0.8.0",
     "grunt-concurrent": "^2.2.1",
@@ -26,28 +27,19 @@
     "grunt-contrib-requirejs": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-includes": "^1.0.0",
+    "grunt-sass": "^2.0.0",
     "grunt-sync": "^0.5.2",
     "grunt-then": "^1.0.0",
     "grunt-zip": "^0.17.1",
     "less-plugin-autoprefix": "^1.5.1",
     "less-plugin-clean-css": "^1.5.1",
     "load-grunt-tasks": "^3.4.1",
-    "stylelint": "^7.10.1",
+    "modularscale-sass": "^3.0.4",
     "sync-exec": "^0.6.2",
     "tar-fs": "^1.11.1"
   },
   "engines": {
     "node": "node >= 0.10.0"
   },
-  "browserlist": [
-    "last 1 Chrome version",
-    "last 1 Explorer version",
-    "last 1 Firefox version",
-    "Firefox ESR",
-    "last 1 Safari version",
-    "Android >= 4.0",
-    "BlackBerry >= 4.0",
-    "iOS >= 10",
-    "> 1% in my stats"
-  ]
+  "dependencies": {}
 }

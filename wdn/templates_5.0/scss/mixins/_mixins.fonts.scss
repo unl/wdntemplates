@@ -1,0 +1,23 @@
+//////////////////////////
+// !THEME / MIXINS / FONTS
+//////////////////////////
+
+
+// !Serif
+@mixin font-serif($imp:null) {
+  font-family: 'Mercury SSm A', 'Mercury SSm B', Georgia, serif $imp;
+}
+
+
+// !Sans Serif
+@mixin font-sans($imp:null) {
+  font-family: 'Gotham SSm A', 'Gotham SSm B', Verdana, sans-serif $imp;
+}
+
+
+// !Display
+@mixin font-display($imp:null) {
+  font-family: 'Tungsten A', 'Tungsten B', 'Arial Narrow', Arial, sans-serif $imp;
+  font-weight: 600 $imp;
+  font-style: normal $imp;
+}
