@@ -25,16 +25,26 @@
     @include grid;
     grid-template-columns: auto;
     grid-template-areas:
-      "directory"
-      "info";
+      "avatar"
+      "header"
+      "contact"
+      "cv";
   }
 
-  .unl-c-bio__directory {
-    grid-area: directory;
+  .unl-c-bio__header {
+    grid-area: header;
   }
 
-  .unl-c-bio__info {
-    grid-area: info;
+  .unl-c-bio__avatar {
+    grid-area: avatar;
+  }
+
+  .unl-c-bio__contact {
+    grid-area: contact;
+  }
+
+  .unl-c-bio__cv {
+    grid-area: cv;
   }
 
   .unl-c-vcard-tools {
@@ -49,9 +59,10 @@
   @include mq(md, min, width) {
 
     .unl-c-bio {
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: #{ms(18)}em 2fr;
       grid-template-areas:
-        "directory info";
+        "avatar header"
+        "contact cv";
     }
 
   }

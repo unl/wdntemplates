@@ -3,6 +3,80 @@
 ///////////////////////////////
 
 
+// !Common Footer Styles
+
+.unl .dcf-c-footer dd:last-child,
+.unl .dcf-c-footer li:last-child {
+  @include mb0;
+}
+
+.unl .dcf-c-footer a {
+  color: $color-footer-link;
+}
+
+.unl .dcf-c-footer a:link {
+  color: $color-footer-link;
+}
+
+.unl .dcf-c-footer a:visited {
+  color: $color-footer-link-visited;
+}
+
+.unl .dcf-c-footer a:hover {
+  color: $color-footer-link-hover;
+}
+
+.unl .dcf-c-footer a:active {
+  color: $color-footer-link-active;
+}
+
+
+// !Local Footer
 .unl .dcf-c-footer__local {
   @include font-sans;
+  color: $color-footer-local;
+  background-color: $color-footer-local-bg;
+}
+
+
+// !Global Footer
+.unl .dcf-c-footer__global {
+  color: $color-footer-global;
+  background-color: $color-footer-global-bg;
+}
+
+
+@include mq(md, max, width) {
+
+  .unl .dcf-c-footer__global {
+    padding-bottom: #{ms(12)}em;
+  }
+
+}
+
+
+@include mq(md, min, width) {
+
+  .unl .dcf-c-footer__global {
+    @include pb8;
+  }
+
+}
+
+@supports (display: grid) {
+
+  .unl .dcf-c-footer__local {
+
+    @include grid;
+    grid-template-columns: repeat(auto-fit, minmax(#{ms(18)}em, 1fr));
+
+  }
+
+  .unl .dcf-c-footer__global {
+
+    @include grid;
+    grid-template-columns: repeat(auto-fit, minmax(#{ms(18)}em, 1fr));
+
+  }
+
 }

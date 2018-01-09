@@ -27,23 +27,23 @@
 
   <div class="dcf-o-wrapper dcf-u-pt2 dcf-u-pb4 dcf-c-header unl-t-header">
 
-<!--     <header class="" id="header" role="banner"> -->
+<!--     <header class="" id="dcf-header" role="banner"> -->
 
 
       <!--#include virtual="/wdn/templates_5.0/includes/global/institution.html" -->
 
-      <div class="dcf-u-flex dcf-u-ai-center dcf-u-pt4 dcf-c-logo" style="overflow: hidden;">
+      <div class="dcf-c-logo dcf-u-flex dcf-u-ai-center dcf-u-pt4 dcf-u-overflow-hidden">
         <!--#include virtual="/wdn/templates_5.0/includes/global/logo.html" -->
 
         <div class="dcf-u-flex dcf-u-flex-col dcf-u-jc-center">
-          <div class="dcf-u-uppercase dcf-u-h3 dcf-u-lh1 dcf-u-ls2 dcf-u-regular" id="wdn_site_affiliation"><!-- InstanceBeginEditable name="affiliation" --><a href="https://arts.unl.edu/" style="color: #383837;">Hixson-Lied College of Fine &amp; Performing&nbsp;Arts</a><!-- InstanceEndEditable --></div>
-          <div class="dcf-u-sm2 dcf-u-italic" id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" --><a href="https://arts.unl.edu/music" style="color: #383837;"><!-- Glenn Korff School of Music --></a><!--<abbr title="Hixson-Lied College of Fine &amp; Performing Arts">HLCFPA</abbr>--><!-- InstanceEndEditable --></div>
+          <div class="dcf-u-uppercase dcf-u-h3 dcf-u-lh1 dcf-u-ls2 dcf-u-regular" id="dcf-site-affiliation"><!-- InstanceBeginEditable name="affiliation" --><a href="https://arts.unl.edu/" style="color: #383837;">Hixson-Lied College of Fine &amp; Performing&nbsp;Arts</a><!-- InstanceEndEditable --></div>
+          <div class="dcf-u-sm2 dcf-u-italic" id="dcf-site-title"><!-- InstanceBeginEditable name="titlegraphic" --><a href="https://arts.unl.edu/music" style="color: #383837;"><!-- Glenn Korff School of Music --></a><!--<abbr title="Hixson-Lied College of Fine &amp; Performing Arts">HLCFPA</abbr>--><!-- InstanceEndEditable --></div>
         </div>
       </div>
 
 <!--     </header> -->
 
-    <nav class="dcf-c-breadcrumbs" id="breadcrumbs" role="navigation" aria-label="breadcrumbs">
+    <nav class="dcf-c-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
         <!-- InstanceBeginEditable name="breadcrumbs" -->
 <!--
         <ul>
@@ -66,13 +66,13 @@
     </span>
   </button>
 
-<!--     <div class="" id="navigation"> -->
-      <nav class="dcf-u-pt5 dcf-c-nav__primary unl-t-nav__primary" role="navigation" aria-label="primary navigation">
+<!--     <div class="" id="dcf-navigation"> -->
+      <nav class="dcf-u-pt5 dcf-c-nav__primary" role="navigation" aria-label="primary navigation">
         <!-- InstanceBeginEditable name="navlinks" -->
         <!--#include virtual="/wdn/templates_5.0/includes/local/nav-primary.html" -->
         <!-- InstanceEndEditable -->
       </nav>
-      <nav class="dcf-u-flex dcf-u-ai-center dcf-u-mt1 dcf-u-sm2 dcf-c-nav__secondary unl-t-nav__secondary" role="navigation" aria-label="secondary navigation">
+      <nav class="dcf-u-flex dcf-u-ai-center dcf-u-mt1 dcf-u-sm2 dcf-c-nav__secondary" role="navigation" aria-label="secondary navigation">
       	<!--#include virtual="/wdn/templates_5.0/includes/global/nav-secondary.html" -->
       </nav>
 <!--     </div> -->
@@ -81,53 +81,51 @@
     <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
   </div>
 
-  <main class="dcf-o-main" id="main" role="main" tabindex="-1">
+  <main class="dcf-o-main" id="dcf-main" role="main" tabindex="-1">
 
-    <div class="dcf-o-wrapper dcf-u-pt5" id="pagetitle">
+    <div class="dcf-o-wrapper dcf-u-pt5" id="dcf-page-title">
       <!-- InstanceBeginEditable name="pagetitle" -->
       <h1>Debug Page</h1>
       <!-- InstanceEndEditable -->
     </div>
 
     <!-- InstanceBeginEditable name="maincontentarea" -->
-    <div class="dcf-c-band dcf-u-pb5">
-      <div class="dcf-o-wrapper">
 
-        <h2 class="dcf-u-mt6 dcf-u-sr-only">Hero Content</h2>
-
-        <div class="dcf-c-hero dcf-o-full-width">
-          <div class="dcf-o-wrapper dcf-c-hero__layer dcf-c-hero__fg">
-            <header class="dcf-c-hgroup">
-              <h1 class="unl-t-hero-h">All-time Enrollment Record</h1>
-              <h2 class="dcf-c-subhead">Third straight year</h2>
-            </header>
-            <div class="">
-              <a class="dcf-c-btn dcf-c-btn--primary" href="#" role="button">Read the Report</a>
-              <a class="dcf-c-btn dcf-c-btn--primary" href="#" role="button">Explore Admissions</a>
-            </div>
+    <div class="dcf-o-wrapper dcf-u-pb5">
+      <h2 class="dcf-u-mt6 dcf-u-sr-only">Hero Content</h2>
+      <div class="dcf-c-hero dcf-o-full-width">
+        <div class="dcf-o-wrapper dcf-c-hero__layer dcf-c-hero__fg">
+          <header class="dcf-c-hgroup">
+            <h1 class="unl-t-hero-h">All-time Enrollment Record</h1>
+            <h2 class="dcf-c-subhead">Third straight year</h2>
+          </header>
+          <div class="">
+            <a class="dcf-c-btn dcf-c-btn--primary" href="#" role="button">Read the Report</a>
+            <a class="dcf-c-btn dcf-c-btn--primary" href="#" role="button">Explore Admissions</a>
           </div>
-          <div class="dcf-c-hero__layer dcf-c-hero__bg">
+        </div>
+        <div class="dcf-c-hero__layer dcf-c-hero__bg">
 <!--
-            <div class="dcf-c-hero__layer dcf-c-hero__video">
-              <video poster="http://via.placeholder.com/1600x900" autoplay loop>
-                <source src="wdn/templates_5.0/1920x1080.mp4">
-              </video>
-            </div>
+          <div class="dcf-c-hero__layer dcf-c-hero__video">
+            <video poster="http://via.placeholder.com/1600x900" autoplay loop>
+              <source src="wdn/templates_5.0/1920x1080.mp4">
+            </video>
+          </div>
 -->
-            <div class="dcf-c-hero__layer dcf-c-hero__img">
-              <picture>
-                <source srcset="/wdn/templates_5.0/images/170905-campus-194-xl-min.jpg, /wdn/templates_5.0/images/170905-campus-194-xl-2x-min.jpg 2x" media="(min-width: 80em)">
-                <source srcset="/wdn/templates_5.0/images/170905-campus-194-lg-min.jpg, /wdn/templates_5.0/images/170905-campus-194-lg-2x-min.jpg 2x" media="(min-width: 60em)">
-                <source srcset="/wdn/templates_5.0/images/170905-campus-194-md-min.jpg, /wdn/templates_5.0/images/170905-campus-194-md-2x-min.jpg 2x" media="(min-width: 48em)">
-                <source srcset="/wdn/templates_5.0/images/170905-campus-194-sm-min.jpg, /wdn/templates_5.0/images/170905-campus-194-sm-2x-min.jpg 2x" media="(min-width: 30em)">
-                <source srcset="/wdn/templates_5.0/images/170905-campus-194-xs-min.jpg, /wdn/templates_5.0/images/170905-campus-194-xs-2x-min.jpg 2x">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAADs=" alt="">
-              </picture>
-            </div>
+          <div class="dcf-c-hero__layer dcf-c-hero__img">
+            <picture>
+              <source srcset="/wdn/templates_5.0/images/170905-campus-194-xl-min.jpg, /wdn/templates_5.0/images/170905-campus-194-xl-2x-min.jpg 2x" media="(min-width: 80em)">
+              <source srcset="/wdn/templates_5.0/images/170905-campus-194-lg-min.jpg, /wdn/templates_5.0/images/170905-campus-194-lg-2x-min.jpg 2x" media="(min-width: 60em)">
+              <source srcset="/wdn/templates_5.0/images/170905-campus-194-md-min.jpg, /wdn/templates_5.0/images/170905-campus-194-md-2x-min.jpg 2x" media="(min-width: 48em)">
+              <source srcset="/wdn/templates_5.0/images/170905-campus-194-sm-min.jpg, /wdn/templates_5.0/images/170905-campus-194-sm-2x-min.jpg 2x" media="(min-width: 30em)">
+              <source srcset="/wdn/templates_5.0/images/170905-campus-194-xs-min.jpg, /wdn/templates_5.0/images/170905-campus-194-xs-2x-min.jpg 2x">
+              <img src="data:image/gif;base64,R0lGODlhAQABAAAAADs=" alt="">
+            </picture>
           </div>
         </div>
       </div>
     </div>
+
 
     <div class="dcf-c-band dcf-u-pb5">
       <div class="dcf-o-wrapper">
@@ -351,16 +349,16 @@
         </div>
 
         <!-- Events Calendar -->
-        <table class="dcf-u-mt6 dcf-u-mb6 dcf-u-sm2 dcf-u-txt-center dcf-c-calendar unl-u-font-sans" data-datetime="2017-09-01T00:00:00-05:00">
+        <table class="dcf-u-mt6 dcf-u-mb6 dcf-u-sm3 dcf-u-txt-center dcf-c-calendar unl-u-font-sans" data-datetime="2017-09-01T00:00:00-05:00">
           <caption class="dcf-c-calendar__caption dcf-u-pt0 dcf-u-pb0">
             <div class="dcf-u-flex dcf-u-flex-row dcf-u-jc-around">
               <div class="dcf-u-2nd dcf-u-lg1 dcf-u-txt-center dcf-u-bold dcf-u-uppercase dcf-u-ls2" style="flex: 1 0 auto;">
                 <a class="dcf-u-inlineblock dcf-u-pt3 dcf-u-pb3 dcf-u-pl4 dcf-u-txt-decor-none" href="//events.unl.edu/2017/09/">September</a>
                 <a class="dcf-u-inlineblock dcf-u-pt3 dcf-u-pr4 dcf-u-pb3 dcf-u-txt-decor-none" href="//events.unl.edu/2017/">2017</a>
               </div>
-              <a class="dcf-u-flex dcf-u-ai-center dcf-u-1st dcf-u-p4 dcf-u-sm2 dcf-u-txt-decor-none" href="//events.unl.edu/2017/08/" aria-label="Go to previous month">
+              <a class="dcf-u-flex dcf-u-ai-center dcf-u-1st dcf-u-p4 dcf-u-txt-decor-none" href="//events.unl.edu/2017/08/" aria-label="Go to previous month">
                 <svg class="dcf-u-mr4 dcf-c-icon dcf-c-icon--inline" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M23.5 8.997L11.387 9l3.864-4.152a.5.5 0 0 0-.013-.695L11.788.704a.5.5 0 0 0-.707 0L.156 11.628a.5.5 0 0 0 0 .707L11.081 23.26a.5.5 0 0 0 .707 0l3.45-3.449a.502.502 0 0 0 .013-.695l-3.815-4.119H23.5c.274 0 .499-.19.5-.465V9.5a.5.5 0 0 0-.5-.503z"/></svg></a>
-              <a class="dcf-u-flex dcf-u-ai-center dcf-u-3rd dcf-u-p4 dcf-u-sm2 dcf-u-txt-decor-none" href="//events.unl.edu/2017/10/" aria-label="Go to next month">
+              <a class="dcf-u-flex dcf-u-ai-center dcf-u-3rd dcf-u-p4 dcf-u-txt-decor-none" href="//events.unl.edu/2017/10/" aria-label="Go to next month">
                 <svg class="dcf-u-ml4 dcf-c-icon dcf-c-icon--inline" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M23.879 11.628L12.954.703a.5.5 0 0 0-.707 0l-3.45 3.449a.502.502 0 0 0-.013.696l3.863 4.163L.522 8.996H.521a.499.499 0 0 0-.499.5v5a.5.5 0 0 0 .5.5h12.079l-3.816 4.119a.5.5 0 0 0 .013.695l3.45 3.449a.498.498 0 0 0 .707 0L23.88 12.334a.5.5 0 0 0-.001-.706z"/></svg>
               </a>
             </div>
@@ -566,7 +564,7 @@
         </div>
 
         <h2 class="dcf-u-mt6">Article</h2>
-        <article class="dcf-c-article dcf-u-mt5">
+        <article class="dcf-c-article dcf-o-colgap-vw dcf-u-mt5">
           <header class="dcf-c-article__header dcf-u-mb5">
             <div class="dcf-u-flex dcf-u-flex-col dcf-u-mb4">
               <h1 class="dcf-u-2nd">Pellentesque ornare sem lacinia quam venenatis vestibulum</h1>
@@ -1014,6 +1012,7 @@
         <button class="dcf-c-btn dcf-c-btn--primary" type="button">Primary Button</button>
         <button class="dcf-c-btn dcf-c-btn--secondary" type="button">Secondary Button</button>
 
+<!--
         <h3 class="dcf-u-mt5 dcf-u-regular">Button Sizes</h3>
         <button class="dcf-c-btn dcf-c-btn--primary dcf-u-mb4" type="button">Default Button</button>
         <button class="dcf-c-btn dcf-c-btn--primary dcf-u-sm1 dcf-u-mb4" type="button">Small Button</button>
@@ -1026,6 +1025,7 @@
         <button class="dcf-c-btn dcf-c-btn--primary dcf-u-h4 dcf-u-mb4" type="button">Even Larger Button</button>
 
         <button class="dcf-c-btn dcf-c-btn--primary dcf-u-block dcf-u-w100" type="button">Block Level Button</button>
+-->
 
         <h3 class="dcf-u-mt5 dcf-u-regular">Button Active State</h3>
         <button class="dcf-c-btn dcf-c-btn--primary dcf-c-active" aria-pressed="true">Primary Button</button>
@@ -1404,18 +1404,11 @@
     </div>
   <!-- InstanceEndEditable -->
   </main>
-  <footer class="dcf-c-footer" id="footer" role="contentinfo">
-    <div class="dcf-o-wrapper dcf-c-footer__local dcf-u-sm2" id="footer-local">
-      <!-- InstanceBeginEditable name="contactinfo" -->
-      <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
-      <!-- InstanceEndEditable -->
-
-      <!-- InstanceBeginEditable name="leftcollinks" --><!-- leftcollinks necessary? -->
-      <!-- InstanceEndEditable -->
-    </div>
-    <div class="dcf-o-wrapper dcf-c-footer__global" id="global-footer">
-      <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global.html" -->
-    </div>
+  <footer class="dcf-c-footer" id="dcf-footer" role="contentinfo">
+    <!-- InstanceBeginEditable name="contactinfo" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global.html" -->
   </footer>
   <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
