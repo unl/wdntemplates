@@ -7,3 +7,12 @@ requirejs.config({
 		}
 	}
 });
+
+requirejs([
+	// these map to used callback parameters
+	'wdn',
+	'plugins/skipto/skipto.min.js',
+	'require'
+], function(WDN, require) {
+
+});
