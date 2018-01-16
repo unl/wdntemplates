@@ -25,21 +25,51 @@
   @include pl4;
 }
 
+.unl-t-nav__primary .unl-c-btn-close-primary-nav {
+  color: #fff;
+}
+
+.unl-t-nav__primary .unl-c-btn-close-primary-nav:hover {
+  color: #fff;
+}
+
 @include mq(md, min, width) {
   .unl-t-nav__primary > ul > li:hover > a {
-  	@include bg-white;
+    @include bg-white;
     box-shadow: inset 1px 0 #ccc, inset -1px 0 #ccc, inset 0 2px #F00000;
+    transition: box-shadow .15s ease;
     z-index: 20;
   }
 
   .unl-t-nav__primary li:hover ul {
-  	@include bg-white;
+    @include bg-white;
     height: auto;
     width: auto;
     clip: auto;
     z-index: 10;
     box-shadow: inset 0 0 0 1px #ccc;
+    transition: box-shadow .15s ease;
     top: 100%;
     margin-top: -0.25em;
+  }
+
+  .unl-t-nav__primary .unl-c-btn-close-primary-nav {
+    @include none;
+  }
+}
+
+@include mq(md, max, width) {
+  .unl-t-nav__primary {
+    @include pb4;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 10000;
+    box-shadow: inset 0 1px 0 0 #ccc;
+    background: #fff;
+    max-height: 60%;
+    overflow-y: scroll;
+    display: none;
   }
 }
