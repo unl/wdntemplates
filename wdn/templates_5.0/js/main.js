@@ -7,3 +7,14 @@ requirejs.config({
 		}
 	}
 });
+
+requirejs([
+	// these map to used callback parameters
+	'wdn',
+	'require',
+	// these are bundles for framework loading and plugin initialization
+	'main-wdn-plugins'
+], function(WDN, require) {
+	//TODO: add UNLchat
+});
+
