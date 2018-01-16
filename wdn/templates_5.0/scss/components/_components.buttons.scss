@@ -6,8 +6,8 @@
 .unl .dcf-c-btn {
   @include pt4;
   @include pr5;
-//   padding-bottom: #{ms(-1)}em;
-  @include pb4;
+  padding-bottom: #{ms(-1)}em;
+//   @include pb4;
   @include pl5;
   font-size: #{ms(-2)}em;
 //   @include lh1;
@@ -15,4 +15,5 @@
   @include uppercase;
   @include ls2;
   @include bold;
+  border-width: 2px;
 }

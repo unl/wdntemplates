@@ -21,10 +21,10 @@ $lighter-cream: $color-brand-delta;
 
 // !UI COLORS
 // Assign colors to elements
-
+$white: #fff;
 
 // Body background color (usually white, off-white, or very light gray)
-$color-body-bg: #fff;
+$color-body-bg: $white;
 
 
 // Strive for WCAG AAA (minimum contrast ratio of 7.0) for body text
@@ -75,14 +75,14 @@ $color-badge: $gray;
 
 
 // !Footer
-// $color-footer-local: #fff;
-// $color-footer-local-bg: $color-light-text;
-// $color-footer-global: #fff;
-// $color-footer-global-bg: $color-body;
-$color-footer-local: $color-body;
-$color-footer-local-bg: #eee;
-$color-footer-global: $color-body;
-$color-footer-global-bg: #ddd;
+$color-footer-local: fade-out($white, .3);
+$color-footer-local-bg: $color-body;
+$color-footer-global: fade-out($white, .3);
+$color-footer-global-bg: $color-heading;
+$color-footer-link: fade-out($white, .2);
+$color-footer-link-visited: fade-out($white, 0);
+$color-footer-link-hover: fade-out($white, .1);
+$color-footer-link-active: fade-out($white, 0);
 
 
 

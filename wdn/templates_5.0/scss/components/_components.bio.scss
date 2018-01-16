@@ -1,0 +1,70 @@
+////////////////////////////
+// !THEME / COMPONENTS / BIO
+////////////////////////////
+
+
+.unl-c-bio {
+
+}
+
+.unl-c-bio__directory {
+
+}
+
+.unl-c-bio__info {
+
+}
+
+.unl-c-vcard-tools {
+
+}
+
+@supports (display: grid) {
+
+  .unl-c-bio {
+    @include grid;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "avatar"
+      "header"
+      "contact"
+      "cv";
+  }
+
+  .unl-c-bio__header {
+    grid-area: header;
+  }
+
+  .unl-c-bio__avatar {
+    grid-area: avatar;
+  }
+
+  .unl-c-bio__contact {
+    grid-area: contact;
+  }
+
+  .unl-c-bio__cv {
+    grid-area: cv;
+  }
+
+  .unl-c-vcard-tools {
+    @include grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .unl-c-vcard-tools__correction {
+    grid-column: auto / span 2;
+  }
+
+  @include mq(md, min, width) {
+
+    .unl-c-bio {
+      grid-template-columns: #{ms(18)}em 2fr;
+      grid-template-areas:
+        "avatar header"
+        "contact cv";
+    }
+
+  }
+
+}

@@ -3,12 +3,12 @@
 ///////////////////////////////////
 
 
-.unl-t-nav__primary ul {
+.unl .dcf-c-nav__primary ul {
   @include font-sans;
 }
 
 
-.unl-t-nav__primary > ul > li > a {
+.unl .dcf-c-nav__primary > ul > li > a {
   @include bold;
   @include uppercase;
   @include ls2;
