@@ -68,20 +68,21 @@
     <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
   </div>
 
-  <main class="dcf-o-main dcf-o-wrapper" id="dcf-main" role="main" tabindex="-1">
+  <main class="dcf-o-wrapper" id="dcf-main" role="main" tabindex="-1">
 
-    <nav class="dcf-c-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
-      <ul class="dcf-c-list-unstyled dcf-u-flex dcf-u-sm3 unl-u-font-sans">
+    <nav class="dcf-c-breadcrumbs dcf-u-mt8" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+      <ol class="dcf-c-list-unstyled dcf-u-flex dcf-u-flex-wrap dcf-u-sm3 dcf-u-mb8 unl-u-font-sans">
       <!-- InstanceBeginEditable name="breadcrumbs" -->
-        <li><a href="http://www.unl.edu/">University</a></li>
-        <li><a href="http://arts.unl.edu/">College</a></li>
-        <li><a href="http://arts.unl.edu/music">Department</a></li>
-        <li>Current Page</li>
+        <li><a href="https://www.unl.edu/">Nebraska</a></li>
+        <li><a href="https://arts.unl.edu/"><abbr title="Hixson-Lied College of Fine and Performing Arts">HLCFPA</abbr></a></li>
+        <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
+        <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
+        <li>Ensembles</li>
       <!-- InstanceEndEditable -->
-      </ul>
+      </ol>
     </nav>
 
-    <div class="dcf-u-pt5" id="dcf-page-title">
+    <div id="dcf-page-title">
       <!-- InstanceBeginEditable name="pagetitle" -->
       <h1>Debug Page</h1>
       <!-- InstanceEndEditable -->

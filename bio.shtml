@@ -81,9 +81,9 @@
     <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
   </div>
 
-  <main class="dcf-o-main dcf-o-wrapper" id="dcf-main" role="main" tabindex="-1">
+  <main class="dcf-o-wrapper" id="dcf-main" role="main" tabindex="-1">
 
-    <div class="dcf-u-pt5" id="dcf-page-title">
+    <div id="dcf-page-title">
       <!-- InstanceBeginEditable name="pagetitle" -->
       <!-- InstanceEndEditable -->
     </div>
