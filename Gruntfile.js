@@ -322,10 +322,10 @@ module.exports = function (grunt) {
 				files: [templateJs + '/**/*.js', '!' + templateCompileJs + '/**/*.js'],
 				tasks: ['js']
 			},
-			includes: {
-				files: [buildDir + '/**/*.html', templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
-				tasks: ['includes']
-			}
+//			includes: {
+//				files: [buildDir + '/**/*.html', templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
+//				tasks: ['includes']
+//			}
 		}
 	});
 
