@@ -34,6 +34,14 @@ require(['jquery'], function($) {
 			menu_shown_at_small = false;
 		});
 
+		$('#unl-primary-nav li ul li a').focus(function (event) {
+			$(this).closest('#unl-primary-nav > ul > li').addClass('focus_in');
+		});
+
+		$('#unl-primary-nav li ul li a').blur(function (event) {
+			$(this).closest('#unl-primary-nav > ul > li').removeClass('focus_in');
+		});
+
 		$(window).resize(function (resize) {
 			if ($(window).width() / parseFloat($("body").css("font-size")) < 55.925) {
 				if (menu_shown_at_small) {
