@@ -1,5 +1,5 @@
 /* globals define: false */
-define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
+define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDownWidget, require) {
 	"use strict";
 	var getLinkByRel = function(name) {
 			return $('link[rel=' + name + ']');
@@ -17,14 +17,14 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 
 			return WDN.getPluginParam('idm') || {};
 		},
-		wdnSel = '#wdn_',
-		mainSel = wdnSel + 'identity_management',
-		idmSel = wdnSel + 'idm_',
-		idmContainerSel = idmSel + 'notice_container',
-		userSel = idmSel + 'username',
-		profileSel = idmSel + 'profile',
-		logoutSel = idmSel + 'logout',
-		toggleSel = idmSel + 'toggle_label',
+		dcfSel = '#dcf',
+		mainSel = dcfSel + '-idm',
+		idmContainerSel = mainSel + '-notice-container',
+		loginLinkSel = mainSel + '-login',
+		userSel = mainSel + '-username',
+		profileSel = mainSel + 'profile',
+		logoutSel = mainSel + '-logout',
+		toggleSel = mainSel + 'toggle_label',
 		loginSrv = 'https://login.unl.edu/',
 		ssoCook = 'unl_sso',
 		encLoc = encodeURIComponent(window.location),
@@ -219,8 +219,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		displayNotice : function(uid) {
 
 			var localSettings = getLocalIdmSettings(),
-				idm = $(mainSel),
-				username = $(userSel);
+				$idmContainer = $(mainSel);
 
 			// in planet red's use of CAS, staff usernames are converted like jdoe2 -> unl_jdoe2
 			//  and student usernames are converted like s-jdoe3 -> unl_s_jdoe3
@@ -230,21 +229,66 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			} else {
 				planetred_uid += uid;
 			}
+			
+			//Set up the idm button
+			var $button = $('<button>', {
+				'class': 'dcf-u-p0 dcf-u-b0 dcf-u-bg-transparent dcf-c-mobile-nav-toggle dcf-c-idm__toggle unl-u-font-sans" id="dcf-idm-toggle',
+				'aria-expanded': 'false',
+				'aria-controls': 'dcf-idm-options',
+				'aria-label': 'Account actions for ' + displayName(uid)
+			});
+			var $buttonContents = $('<span>', {
+				'class': 'dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-jc-center dcf-u-h100'
+			});
+			$buttonContents.append($('<img>', {
+				'class': 'dcf-u-block dcf-u-circle',
+				'src': avatarService + uid,
+				'alt': '',
+				'style': 'height: 2em; width: 2em; background-color: #d00000;'
+			}));
+			$buttonContents.append($('<span>', {
+				'class': 'dcf-u-sm2'
+			}).text(displayName(uid)));
+			$button.append($buttonContents);
+			
+			//Set up the IDM options
+			var $optionsContainer = $('<div>', {
+				'id': 'dcf-idm-options',
+				'class': 'dcf-u-overlay-dark dcf-c-idm__options',
+				'hidden': true
+			});
+			
+			var $navUL = $('<ul>', {
+				'class': 'dcf-c-list-unstyled'
+			});
+			
+			//Add the profile link
+			$navUL.append($('<li>').append($('<a>', {
+				'href': planetRed + 'profile/' + planetred_uid
+			}).text('View Profile')));
+			
+			//Add the logout link (set it as a variable so that we can reference it later)
+			var $logoutLink = $('<a>', {
+				'href': logoutURL,
+				'id': 'dcf-idm-logout'
+			}).text('Logout');
+			$navUL.append($('<li>').append($logoutLink));
 
-			idm.addClass('loggedin');
+			//Attach the UL to the options container
+			$optionsContainer.append($navUL);
+			
+			$idmContainer.html(''); //Clear any existing contents
+			$idmContainer.append($button); //add new stuff
+			$idmContainer.append($optionsContainer);
 
-			$(toggleSel).css('backgroundImage', 'url(' + avatarService + uid + ')')
-                .html('<span class="wdn-text-hidden">Account actions for </span>'+displayName(uid));
-            $(profileSel).attr('href', planetRed + 'profile/' + planetred_uid);
+			//Add JS functionality to make this work
+			var $dropdownNav = new DropDownWidget($idmContainer[0]);
 
-			$(idmContainerSel).removeClass('hidden');
-
-            // Hide login anchor
-            $(userSel).hide();
+			//Show the contents
+			$idmContainer.removeAttr('hidden');
 
 			// Any time logout link is clicked, unset the user data
-			var logoutLink = $(logoutSel);
-			logoutLink.off('click').click(Plugin.logout);
+			$logoutLink.off('click').click(Plugin.logout);
 			Plugin.setLogoutURL(localSettings.logout);
 		},
 
@@ -254,10 +298,10 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 				return;
 			}
 
-			var idm = $(mainSel),
+			var idmContainer = $(mainSel),
 				loginLink = $(userSel);
 
-			idm.removeClass('loggedin');
+			idmContainer.removeClass('loggedin');
 			loginLink.css('backgroundImage', null)
 				.attr('href', loginURL)
 				.html(defaultLinkText);
