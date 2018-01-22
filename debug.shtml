@@ -1418,7 +1418,6 @@
 
       </div>
     </div>
-    <script type="text/javascript" src="script.js"></script>
   <!-- InstanceEndEditable -->
   </main>
   <footer class="dcf-c-footer" id="dcf-footer" role="contentinfo">
@@ -1429,5 +1428,6 @@
   </footer>
   <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
+  <script type="text/javascript" src="script.js"></script>
 </body>
 <!-- InstanceEnd --></html>

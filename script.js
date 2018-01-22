@@ -1,5 +1,5 @@
 
-// require(['dialog'],function(dialogPolyfill){
+require(['dialog'],function(dialogPolyfill){
 
 
 
@@ -7,9 +7,9 @@
 const modalContainers = Array.from(document.querySelectorAll('.dcf-js-dialog'));
 
 modalContainers.forEach((modalContainer) => {
-  // if(!window.HTMLDialogElement) {
-  //   dialogPolyfill.registerDialog(modalContainer);
-  // }
+  if(!window.HTMLDialogElement) {
+    dialogPolyfill.registerDialog(modalContainer);
+  }
 
   const trigger = modalContainer.querySelector('.dcf-js-dialog-trigger');
   const modalDialog = modalContainer.querySelector('dialog');
@@ -29,4 +29,4 @@ modalContainers.forEach((modalContainer) => {
 
 
 
-// });
+});
