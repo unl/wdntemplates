@@ -138,7 +138,7 @@ module.exports = function (grunt) {
 			{
 				name: 'all',
 				create: true,
-				include: polyfillMods.concat('main'),
+				include: polyfillMods.concat(['main', 'require-css/css']),
 				exclude: ['require-css/normalize']
 			}
 		],
