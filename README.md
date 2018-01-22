@@ -31,7 +31,7 @@ Once all of the above dependencies are met, simply running Grunt `grunt` at the 
 * `default` or `all` - builds all needed CSS and JavaScript
 * `clean` - removes all built files
 * `requirejs` or `js` - builds and minifies combined JS
-* `less` - builds all CSS files from their LESS counterparts
+* `sass` - builds all CSS files from their SCSS partials
 * `dist` - builds the ZIP's used for template distribution
 
 The JavaScript build process can be further customized by passing parameters. The following are the flags that are supported.

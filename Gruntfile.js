@@ -8,6 +8,7 @@ module.exports = function (grunt) {
 	];
 
 	var jsCssObjs = [
+		'plugins/dialog-polyfill/dialog-polyfill'
 		//'js-css/band_imagery',
 		//'js-css/display-font',
 		//'js-css/events',
@@ -58,6 +59,7 @@ module.exports = function (grunt) {
 	];
 
 	var wdnBuildPlugins = [
+		'dialog'
 		//'band_imagery',
 		//'carousel',
 		//'display-font',
@@ -81,7 +83,7 @@ module.exports = function (grunt) {
 		'require-css/normalize',
 		'jquery',
 		'wdn',
-		'plugins/hoverIntent/jquery.hoverIntent'
+		// 'plugins/hoverIntent/jquery.hoverIntent'
 	];
 
 	// exclude build/bundled files from sync back to wdn folder
@@ -181,7 +183,6 @@ module.exports = function (grunt) {
 
 	// dynamic target files built from variables above
 	var scssAllFiles = {};
-
 	cssObjs.forEach(function(file) {
 		scssAllFiles[templateCss + '/' + file + '.css'] = templateScss + '/' + file + '.scss';
 	});
@@ -194,24 +195,24 @@ module.exports = function (grunt) {
 	// load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
 	require('load-grunt-tasks')(grunt);
 
-    grunt.initConfig({
-        sass: {
-            all: {
-                files: scssAllFiles,
-                options: {
-                    sourceMap: true,
-                    includePaths: [
-                        __dirname+'/node_modules/modularscale-sass/stylesheets'
-                    ]
-                }
-            },
-            js: {
-                options: {
-                    sourceMap: true
-                },
-                files: scssJsFiles
+  grunt.initConfig({
+    sass: {
+        all: {
+            files: scssAllFiles,
+            options: {
+                sourceMap: true,
+                includePaths: [
+                    __dirname+'/node_modules/modularscale-sass/stylesheets'
+                ]
             }
         },
+        js: {
+            options: {
+                sourceMap: true
+            },
+            files: scssJsFiles
+        }
+    },
 
 		requirejs: {
 			all: {
@@ -252,16 +253,16 @@ module.exports = function (grunt) {
 			dist: [zipDir + '/*.zip', zipDir + '/*.gz']
 		},
 
-    	includes: {
-        	build: {
-            	cwd: buildDir,
-            	src: '*.html',
-            	dest: templateIncludeDir,
-            	options: {
-                	flatten: true,
-                	includePath: [templateCss, templateCompileJs]
-            	}
-        	}
+  	includes: {
+      	build: {
+          	cwd: buildDir,
+          	src: '*.html',
+          	dest: templateIncludeDir,
+          	options: {
+              	flatten: true,
+              	includePath: [templateCss, templateCompileJs]
+          	}
+      	}
     	},
 
 		"filter-clean": {
@@ -401,5 +402,5 @@ module.exports = function (grunt) {
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
 	grunt.registerTask('js', ['clean:js', 'sass:js', 'requirejs', 'sync:js', 'clean:js-build']);
-    grunt.registerTask('css', ['sass:all']);
+  grunt.registerTask('css', ['sass:all']);
 };

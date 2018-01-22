@@ -41,5 +41,7 @@
   "engines": {
     "node": "node >= 0.10.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "dialog-polyfill": "^0.4.9"
+  }
 }

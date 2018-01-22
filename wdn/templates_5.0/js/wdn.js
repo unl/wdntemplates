@@ -52,7 +52,7 @@
 
 			// add built script directory for production
 			if (!isDebug) {
-				file = file.replace(/^scripts(\/|$)/, 'scripts' + build_path + '$1');
+				file = file.replace(/^js(\/|$)/, 'js' + build_path + '$1');
 			}
 
 			var filePath = dependent_path + file;

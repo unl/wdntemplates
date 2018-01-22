@@ -1,0 +1,66 @@
+.unl .dcf-c-dialog-close {
+  color: $scarlet;
+}
+
+.dcf-e-dialog {
+  border: none;
+  transform-origin: center;
+  padding: 0; //force padding 0 otherwise click close will not work accurately
+  background-color: transparent;
+
+  &::backdrop {
+    background-color: rgba(0,0,0,.7);
+
+    @supports (backdrop-filter: blur(6px)) {
+      background-color: rgba(0,0,0,.7);
+      backdrop-filter: blur(6px) grayscale(10%);
+    }
+  }
+
+  &[open] { // should there be a default animation?
+    animation: appear 300ms forwards ease-out;
+  }
+}
+
+.dcf-o-dialog {
+  background-color: #fff;
+  border: 1px solid transparent; //prevent margin collapse
+  @include ml2;
+  @include mr2;
+
+  .dcf-o-dialog__header {
+    @include font-sans;
+  }
+
+  .dcf-o-dialog__body {
+  }
+
+  .dcf-o-dialog__footer {
+  }
+
+  .dcf-o-dialog__close {
+    border: 0;
+    position: absolute;
+    top: 0;
+    right: $length2;
+    padding: 0 0.7em;
+
+    &:before {
+      content: '\00D7';
+      @include lg4;
+    }
+  }
+}
+
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
