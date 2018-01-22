@@ -1,7 +1,6 @@
 define([
   'plugins/dialog-polyfill/dialog-polyfill',
-  'wdn'
-], function(dialogPolyfill, wdn) {
-  wdn.loadCSS('css!plugins/dialog-polyfill/dialog-polyfill');
+  'css!plugins/dialog-polyfill/dialog-polyfill.css'
+], function(dialogPolyfill) {
   return dialogPolyfill;
 });
