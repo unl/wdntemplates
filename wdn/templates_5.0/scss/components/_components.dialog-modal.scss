@@ -1,15 +1,19 @@
-.unl .dcf-c-dialog-close {
+.unl .dcf-o-dialog__close {
   color: $scarlet;
 }
 
-.dcf-e-dialog {
-  border: none;
+// dialog element resets
+dialog {
+  border: none !important;
   transform-origin: center;
-  padding: 0; //force padding 0 otherwise click close will not work accurately
+  //force padding 0 otherwise click close will not work accurately
+  padding: 0;
   background-color: transparent;
+  // restrict width when browser doesn't support fit-content
+  width: 80vw;
 
   &::backdrop {
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0,0,0,.8);
 
     @supports (backdrop-filter: blur(6px)) {
       background-color: rgba(0,0,0,.7);
@@ -17,14 +21,16 @@
     }
   }
 
-  &[open] { // should there be a default animation?
+  // should there be a default animation?
+  &[open] {
     animation: appear 300ms forwards ease-out;
   }
 }
 
 .dcf-o-dialog {
   background-color: #fff;
-  border: 1px solid transparent; //prevent margin collapse
+  //prevent margin collapse
+  border: 1px solid transparent;
   @include ml2;
   @include mr2;
 
@@ -49,6 +55,16 @@
       content: '\00D7';
       @include lg4;
     }
+  }
+}
+
+// Dialog polyfill styles
+.dcf-js-dialog .backdrop {
+  background-color: rgba(0,0,0,.8);
+
+  @supports (backdrop-filter: blur(6px)) {
+    background-color: rgba(0,0,0,.7);
+    backdrop-filter: blur(6px) grayscale(10%);
   }
 }
 

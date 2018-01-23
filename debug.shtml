@@ -560,7 +560,7 @@
                 </div>
               </div> -->
               <button class="dcf-c-btn dcf-c-btn--primary dcf-c-activate-modal dcf-js-dialog-trigger">Play Video<svg class="dcf-u-sm2 dcf-u-ml3 dcf-c-icon dcf-c-icon--inline" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M21.76 11.58L2.79.08a.49.49 0 0 0-.51 0A.48.48 0 0 0 2 .5v23a.49.49 0 0 0 .25.44.54.54 0 0 0 .25.06.48.48 0 0 0 .26-.07l19-11.5a.5.5 0 0 0 0-.85z"/></svg></button>
-              <dialog role="alertdialog" aria-describedby="dialog-message" class="dcf-e-dialog">
+              <dialog role="alertdialog" aria-describedby="dialog-message" class="fixed">
                 <div class="dcf-o-dialog">
                   <p id="dialog-header" role="heading" class="dcf-o-dialog__header dcf-u-lg2 dcf-u-pr3 dcf-u-pl1 dcf-u-pt3">
                     A native modal dialog box
