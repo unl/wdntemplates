@@ -5,13 +5,13 @@
 
 // !Scarlet
 @mixin bg-scarlet($imp:null) {
-  background-color: $scarlet;
+  background-color: $scarlet $imp;
 }
 
 
 // !Cream
 @mixin bg-cream($imp:null) {
-  background-color: $cream;
+  background-color: $cream $imp;
 }
 
 
