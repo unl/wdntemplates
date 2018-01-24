@@ -8,3 +8,39 @@
   @include pt0;
   @include pb0;
 }
+
+
+// !Input Group Button
+.unl .dcf-c-input-group .dcf-c-btn {
+  margin-left: -1px;
+}
+
+
+// !Input Group Add-on
+.unl .dcf-c-input-group-addon {
+  @include pt2;
+  @include pr3;
+  @include pb2;
+  @include pl3;
+  @include font-sans;
+  color: $color-light-text;
+  border-style: solid;
+  border-color: $color-border;
+  background-color: lighten($color-border,15%); // convert to variable
+}
+
+
+.unl .dcf-c-input-group-addon:not(:last-child) {
+  border-top-width: 1px;
+  border-right-width: 0;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+
+
+.unl .dcf-c-input-group-addon:last-child {
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 0;
+}
