@@ -19,8 +19,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 		},
 		dcfSel = '#dcf',
 		mainSel = dcfSel + '-idm',
-		userSel = mainSel + '-username',
-		logoutSel = mainSel + '-logout',
+		loginSel = mainSel + '-login',
 		loginSrv = 'https://login.unl.edu/',
 		ssoCook = 'unl_sso',
 		encLoc = encodeURIComponent(window.location),
@@ -29,7 +28,6 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 		serviceURL = loginSrv + 'services/whoami/?id=',
 		avatarService = 'https://directory.unl.edu/avatar/',
 		planetRed = 'https://planetred.unl.edu/pg/',
-		defaultLinkText,
 		user = false,
 		loggedOutSel = '#dcf-idm-status-logged-out',
 		loggedInSel = '#dcf-idm-status-logged-out';
@@ -47,12 +45,11 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 			var loginCheckFailure = function() {
 					$(function() {
 						var localSettings = getLocalIdmSettings();
-						defaultLinkText = $(userSel).html();
 						if (localSettings.login) {
 							Plugin.setLoginURL(localSettings.login);
-						} else {
-							Plugin.renderAsLoggedOut();
 						}
+						
+						Plugin.renderAsLoggedOut();
 					});
 
 					if (callback) {
@@ -303,7 +300,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 
 			var $loggedOutContainer = $(loggedOutSel),
 				$loggedInContainer = $(loggedInSel),
-				loginLink = $(userSel);
+				loginLink = $(loginSel);
 
 			loginLink.attr('href', loginURL);
 
