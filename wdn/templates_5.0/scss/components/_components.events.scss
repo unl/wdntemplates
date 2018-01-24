@@ -1,0 +1,25 @@
+///////////////////////////////
+// !THEME / COMPONENTS / EVENTS
+///////////////////////////////
+
+
+.unl .dcf-c-event__endrange::before {
+  content: '\2013';
+  padding-right: #{ms(-12)}em;
+  padding-left: #{ms(-12)}em;
+}
+
+
+.unl .dcf-c-event__img {
+  width: 24%;
+  margin-right: 4px;
+}
+
+
+@supports (display: grid) {
+
+  .unl .dcf-c-events__listing {
+    grid-template-columns: repeat(auto-fit, minmax(#{ms(19)}em, 1fr)); // 17.71em
+  }
+
+}

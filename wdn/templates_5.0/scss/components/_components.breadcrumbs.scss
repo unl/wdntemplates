@@ -1,0 +1,19 @@
+////////////////////////////////////
+// !THEME / COMPONENTS / BREADCRUMBS
+////////////////////////////////////
+
+
+.unl .dcf-c-breadcrumbs li:not(:last-child) {
+  @include mr3;
+}
+
+
+.unl .dcf-c-breadcrumbs li:not(:last-child)::after {
+  content: '';
+  width: 0;
+  height: 0;
+  @include ml3;
+  border-top: #{ms(-8)}em solid transparent; // .32em
+  border-bottom: #{ms(-8)}em solid transparent; // .32em
+  border-left: #{ms(-8)}em solid $color-breadcrumb; // .32em
+}
