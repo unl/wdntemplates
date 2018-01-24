@@ -57,6 +57,7 @@ module.exports = function (grunt) {
 		'wdn'
 	];
 
+  // entry point plugin file names for require js
 	var wdnBuildPlugins = [
 		'dialog'
 		//'band_imagery',
@@ -121,6 +122,9 @@ module.exports = function (grunt) {
 		appDir: templateJs + '/',
 		baseUrl: './',
 		dir: buildJsDir,
+		// exclude js/jsx files in babelTranspile folder and
+		// exclude js files that will be copied to root of templateJs
+		fileExclusionRegExp: /^(babelTranspile|babelNoTranspile)$/,
 		optimize: 'uglify2',
 		logLevel: 2,
 		preserveLicenseComments: false,
@@ -213,6 +217,23 @@ module.exports = function (grunt) {
         }
     },
 
+    //set babel preset in .babelrc file
+    "babel": {
+	    options: {
+	    	//let rjs generate the sourcemap
+	      sourceMap: false
+	    },
+	    dist: {
+	      files: [{
+	        'expand': true,
+          'cwd': templateJs + '/babelTranspile/',
+          'src': ['**/*.jsx', '**/*.js'],
+          'dest': templateJs,
+          'ext': '.js'
+	      }]
+	    }
+	  },
+
 		requirejs: {
 			all: {
 				options: rjsConfig
@@ -247,9 +268,23 @@ module.exports = function (grunt) {
 
 		clean: {
 			css: [templateCss].concat(Object.keys(scssJsFiles)),
-			js: [templateCompileJs],
+			js: [templateCompileJs, templateJs + '/*.js'],
 			"js-build": [buildJsDir],
 			dist: [zipDir + '/*.zip', zipDir + '/*.gz']
+		},
+
+		copy: {
+		  babelNoTranspile: {
+		  	files: [
+		  		{	expand: true,
+		      	flatten: true,
+		      	cwd: templateJs,
+		      	src: ['babelNoTranspile/**'],
+		      	dest: templateJs,
+		      	filter: 'isFile'
+		      }
+		  	]
+		  }
 		},
 
   	includes: {
@@ -400,6 +435,6 @@ module.exports = function (grunt) {
 	// legacy targets from Makefile
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
-	grunt.registerTask('js', ['clean:js', 'sass:js', 'requirejs', 'sync:js', 'clean:js-build']);
+	grunt.registerTask('js', ['clean:js', 'sass:js', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
   grunt.registerTask('css', ['sass:all']);
 };
