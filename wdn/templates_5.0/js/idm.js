@@ -315,11 +315,9 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 		 * Set the URL to send the user to when the logout link is clicked
 		 */
 		setLogoutURL : function(url) {
-			var logoutLink = $(logoutSel);
 			if (url) {
 				logoutURL = url;
 			}
-			logoutLink.attr('href', logoutURL);
 		},
 
 		/**
@@ -329,7 +327,6 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 			if (url) {
 				loginURL = url;
 			}
-			Plugin.rederAsLoggedOut();
 		}
 	};
 
