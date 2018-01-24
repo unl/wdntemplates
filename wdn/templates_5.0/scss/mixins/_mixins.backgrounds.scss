@@ -5,13 +5,13 @@
 
 // !Scarlet
 @mixin bg-scarlet($imp:null) {
-  background: linear-gradient($diagonal, darken($scarlet,2%) 0%, lighten($scarlet,2%) 100%) $imp;
+  background-color: $scarlet $imp;
 }
 
 
 // !Cream
 @mixin bg-cream($imp:null) {
-  background: linear-gradient($diagonal, $cream 0%, $lighter-cream 100%) $imp;
+  background-color: $cream $imp;
 }
 
 

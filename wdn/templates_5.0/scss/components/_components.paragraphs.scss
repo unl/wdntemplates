@@ -3,9 +3,9 @@
 ///////////////////////////////////
 
 
-.unl .dcf-c-dropcap:first-letter {
-  margin-top: #{ms(-4)}rem; // first, adjust margin-top for Firefox
-  padding-right: #{ms(-4)}rem;
-  font-size: #{ms(11)}em;
+.unl .dcf-c-dropcap::first-letter {
+  margin-top: #{ms(-4)}rem; // .56rem -- first, adjust margin-top for Firefox
+  padding-right: #{ms(-4)}rem; // .56rem
+  font-size: #{ms(11)}em; // 5.26em
   line-height: .68; // then, adjust line-height for Chrome and Safari
 }

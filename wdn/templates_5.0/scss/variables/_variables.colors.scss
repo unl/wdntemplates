@@ -58,7 +58,7 @@ $color-button-active: $color-link-active;
 
 
 // !Borders
-$color-border: mix($color-body-bg, $color-body, 75%);
+$color-border: $gray;
 $color-border-hover: darken($color-border,10%);
 
 
@@ -70,7 +70,11 @@ $color-border-hover: darken($color-border,10%);
 $color-mark: #ff0;
 
 
-// Badges
+// !Breadcrumbs
+$color-breadcrumb: $gray;
+
+
+// !Badges
 $color-badge: $gray;
 
 

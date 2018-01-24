@@ -25,14 +25,14 @@
   </div>
 -->
 
-  <div class="dcf-o-wrapper dcf-u-pt2 dcf-u-pb4 dcf-c-header unl-t-header">
+  <div class="dcf-o-wrapper dcf-u-pt2 dcf-u-pb4 dcf-c-header">
 
 <!--     <header class="" id="dcf-header" role="banner"> -->
 
 
       <!--#include virtual="/wdn/templates_5.0/includes/global/institution.html" -->
 
-      <div class="dcf-u-flex dcf-u-ai-center dcf-u-pt4 dcf-c-logo" style="overflow: hidden;">
+      <div class="dcf-c-logo dcf-u-flex dcf-u-ai-center dcf-u-pt4 dcf-u-overflow-hidden">
         <!--#include virtual="/wdn/templates_5.0/includes/global/logo.html" -->
 
         <div class="dcf-u-flex dcf-u-flex-col dcf-u-jc-center">
@@ -81,15 +81,15 @@
     <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
   </div>
 
-  <main class="dcf-o-main" id="dcf-main" role="main" tabindex="-1">
+  <main class="dcf-o-wrapper" id="dcf-main" role="main" tabindex="-1">
 
-    <div class="dcf-o-wrapper dcf-u-pt5" id="dcf-page-title">
+    <div id="dcf-page-title">
       <!-- InstanceBeginEditable name="pagetitle" -->
       <!-- InstanceEndEditable -->
     </div>
 
     <!-- InstanceBeginEditable name="maincontentarea" -->
-    <div class="dcf-o-wrapper dcf-o-colgap-vw dcf-o-rowgap-sm unl-c-bio dcf-u-pb5" data-uid="iborden2" data-preferred-name="Ian Borden" itemscope="" itemtype="http://schema.org/Person">
+    <div class="unl-c-bio dcf-u-colgap-vw dcf-u-rowgap-sm dcf-u-pb5" data-uid="iborden2" data-preferred-name="Ian Borden" itemscope="" itemtype="http://schema.org/Person">
 
       <div class="unl-c-bio__header unl-u-font-sans vcard faculty directory-knowledge-summary">
         <div class="dcf-u-flex dcf-u-flex-row dcf-u-ai-center dcf-u-h100 vcardInfo">
@@ -150,7 +150,7 @@
           <a class="email" href="mailto:iborden2@unl.edu" itemprop="email">iborden2@unl.edu</a>
         </address>
 
-        <div class="dcf-u-mb4 dcf-u-pt4 dcf-o-colgap-sm dcf-o-rowgap-sm unl-c-vcard-tools vcard-tools">
+        <div class="dcf-u-mb4 dcf-u-pt4 dcf-u-colgap-sm dcf-u-rowgap-sm unl-c-vcard-tools vcard-tools">
           <a class="dcf-c-btn dcf-c-btn--secondary dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-txt-center" href="https://directory.unl.edu/vcards/iborden2">
             <svg style="height:1.77em;width:1.77em;" class="dcf-c-icon dcf-u-mb1" focusable="false" height="16" width="16" viewBox="0 0 24 24"><path d="M23.5 3H.5a.5.5 0 0 0-.5.5v17a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5V19a1.25 1.25 0 0 1 2.5 0v1.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V19a1.25 1.25 0 0 1 2.5 0v1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-17a.5.5 0 0 0-.5-.5zM23 20h-3v-1a2.25 2.25 0 0 0-4.5 0v1h-7v-1A2.25 2.25 0 0 0 4 19v1H1V4h22z"/><path d="M13 13h8v1h-8zM13 11h8v1h-8zM13 9h8v1h-8zM13 7h4v1h-4zM2.5 15h9a.5.5 0 0 0 .5-.5v-2a.47.47 0 0 0-.15-.35 6.09 6.09 0 0 0-3.35-1.62v-.27A2.73 2.73 0 0 0 9.5 8c0-1 0-2.5-2.5-2.5S4.5 7 4.5 8a2.73 2.73 0 0 0 1 2.26v.27a6.09 6.09 0 0 0-3.35 1.62.47.47 0 0 0-.15.35v2a.5.5 0 0 0 .5.5zm.5-2.28a4.9 4.9 0 0 1 3-1.22.5.5 0 0 0 .5-.5v-1a.51.51 0 0 0-.27-.44A1.71 1.71 0 0 1 5.5 8c0-1 0-1.5 1.5-1.5S8.5 7 8.5 8a1.7 1.7 0 0 1-.72 1.55.51.51 0 0 0-.28.45v1a.5.5 0 0 0 .5.5 4.93 4.93 0 0 1 3 1.22V14H3z"/></svg><span class="dcf-u-sr-only">Download </span><span class="dcf-u-sm2">vCard</span><span class="dcf-u-sr-only"> for Ian Borden</span>
           </a>

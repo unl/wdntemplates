@@ -3,6 +3,16 @@
 ///////////////////////////////
 
 
+
+@include mq(md, min, width) {
+
+  .unl .dcf-c-search-form {
+    @include sm2;
+  }
+
+}
+
+
 // !UNL Google Search Results Overrides
 .unl .cse .gsc-control-cse,
 .unl .gsc-control-cse {
