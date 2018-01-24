@@ -36,34 +36,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 		defaultLinkText,
 		user = false;
 
-	var displayName = function(uid) {
-			var disp_name = uid;
-
-			if (uid){
-				if (user.uid && user.uid === uid) {
-					return userDisplayName();
-				}
-			} else {
-				return userDisplayName();
-			}
-
-			return disp_name;
-		},
-
-		userDisplayName = function() {
-			var disp_name = '';
-			if (user.eduPersonNickname) {
-				disp_name = user.eduPersonNickname[0];
-			} else if (user.givenName) {
-				disp_name = user.givenName[0];
-			} else if (user.displayName) {
-				disp_name = user.displayName[0];
-			}
-
-			return disp_name;
-		},
-
-		getUserField = function(field) {
+	var getUserField = function(field) {
 			if (!user || !user[field]) {
 				return false;
 			}
@@ -145,7 +118,16 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 		 * @returns {string}
 		 */
 		getDisplayName : function() {
-			return userDisplayName();
+			var disp_name = '';
+			if (user.eduPersonNickname) {
+				disp_name = user.eduPersonNickname[0];
+			} else if (user.givenName) {
+				disp_name = user.givenName[0];
+			} else if (user.displayName) {
+				disp_name = user.displayName[0];
+			}
+
+			return disp_name;
 		},
 
 		/**
@@ -235,7 +217,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 				'class': 'dcf-u-p0 dcf-u-b0 dcf-u-bg-transparent dcf-c-mobile-nav-toggle dcf-c-idm__toggle unl-u-font-sans" id="dcf-idm-toggle',
 				'aria-expanded': 'false',
 				'aria-controls': 'dcf-idm-options',
-				'aria-label': 'Account actions for ' + displayName(uid)
+				'aria-label': 'Account actions for ' + this.getDisplayName()
 			});
 			var $buttonContents = $('<span>', {
 				'class': 'dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-jc-center dcf-u-h100'
@@ -248,7 +230,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 			}));
 			$buttonContents.append($('<span>', {
 				'class': 'dcf-u-sm2'
-			}).text(displayName(uid)));
+			}).text(this.getDisplayName()));
 			$button.append($buttonContents);
 			
 			//Set up the IDM options
