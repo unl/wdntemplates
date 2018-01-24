@@ -67,7 +67,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 				require([serviceURL + cookie], function() {
 					// the whoami service injects into WDN.idm namespace
 					if (WDN.idm.user) {
-						user = WDN.idm.user;
+						Plugin.setUser(WDN.idm.user);
 						delete WDN.idm.user;
 					}
 
@@ -76,7 +76,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 							callback();
 						}
 						$(function() {
-							Plugin.displayNotice(Plugin.getUserId());
+							Plugin.displayNotice();
 						});
 					} else {
 						// User's CAS session is no longer active, kill cookie
@@ -87,6 +87,15 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 			} else {
 				loginCheckFailure();
 			}
+		},
+
+		/**
+		 * Set the current user. The object should have fields as described by CAS
+		 * 
+		 * @param newUser object|false
+		 */
+		setUser : function(newUser) {
+			user = newUser
 		},
 
 		logout : function() {
@@ -194,15 +203,17 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 		},
 
 		/**
-		 * Update the SSO tab and display user info
-		 *
-		 * @param {string} uid
+		 * Get the profile (planet red) URL
+		 * 
+		 * @returns {string}
 		 */
-		displayNotice : function(uid) {
-
-			var localSettings = getLocalIdmSettings(),
-				$idmContainer = $(mainSel);
-
+		getProfileURL : function() {
+			if (!this.isLoggedIn()) {
+				return false;
+			}
+			
+			var uid = this.getUserId();
+			
 			// in planet red's use of CAS, staff usernames are converted like jdoe2 -> unl_jdoe2
 			//  and student usernames are converted like s-jdoe3 -> unl_s_jdoe3
 			var planetred_uid = 'unl_';
@@ -211,6 +222,16 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 			} else {
 				planetred_uid += uid;
 			}
+
+			return planetRed + 'profile/' + planetred_uid;
+		},
+
+		/**
+		 * Update the SSO tab and display user info
+		 */
+		displayNotice : function() {
+			var localSettings = getLocalIdmSettings(),
+				$idmContainer = $(mainSel);
 			
 			//Set up the idm button
 			var $button = $('<button>', {
@@ -224,7 +245,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 			});
 			$buttonContents.append($('<img>', {
 				'class': 'dcf-u-block dcf-u-circle',
-				'src': avatarService + uid,
+				'src': avatarService + this.getUserId(),
 				'alt': '',
 				'style': 'height: 2em; width: 2em; background-color: #d00000;'
 			}));
@@ -246,7 +267,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 			
 			//Add the profile link
 			$navUL.append($('<li>').append($('<a>', {
-				'href': planetRed + 'profile/' + planetred_uid
+				'href': this.getProfileURL()
 			}).text('View Profile')));
 			
 			//Add the logout link (set it as a variable so that we can reference it later)
