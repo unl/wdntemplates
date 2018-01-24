@@ -1,35 +1,18 @@
 <nav class="dcf-u-g-as-center dcf-u-g-js-end dcf-u-pt4 dcf-c-idm" id="dcf-idm" role="navigation" aria-label="User Navigation">
 
   <!-- Login -->
-  <a class="dcf-c-idm__login dcf-c-mobile-nav-toggle dcf-c-idm__toggle unl-u-font-sans" id="dcf-idm-login" href="https://login.unl.edu/cas/login">
-    <span class="dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-jc-center dcf-u-h100">
-      <span class="dcf-u-flex dcf-u-ai-center dcf-u-jc-center dcf-u-circle" style="height: 2em; width: 2em; background-color: #d00000;">
-        <svg class="dcf-c-icon" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48"><path fill="#fff" d="M24 48A24 24 0 1 0 0 24a24 24 0 0 0 24 24zm0-38a8 8 0 0 1 4.14 14.84l1.85 12A1 1 0 0 1 29 38H19a1 1 0 0 1-1-1.15l1.85-12A8 8 0 0 1 24 10z"/></svg>
-      </span>
-    	<span class="dcf-u-sm2">Login</span>
-    </span>
-  </a>
-
-  <!-- Notification Center toggle (logged in) -->
-  <div class="dcf-u-none" id="dcf-idm-notice-container">
-    <button class="dcf-u-p0 dcf-u-b0 dcf-u-bg-transparent dcf-c-mobile-nav-toggle dcf-c-idm__toggle unl-u-font-sans" id="dcf-idm-toggle" aria-haspopup="true" aria-pressed="false" aria-controls="idm-options">
+  <div id="dcf-idm-status-logged-out">
+    <a class="dcf-c-idm__login dcf-c-mobile-nav-toggle dcf-c-idm__toggle unl-u-font-sans" id="dcf-idm-login" href="https://login.unl.edu/cas/login">
       <span class="dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-jc-center dcf-u-h100">
-        <img class="dcf-u-block dcf-u-circle" src="https://planetred.unl.edu/mod/profile/icondirect.php?lastcache=&amp;guid=9533&amp;size=large" alt="" style="height: 2em; width: 2em; background-color: #d00000;">
-        <span class="dcf-u-sr-only">View your account, </span><span class="dcf-u-sm2">Ryan</span>
-<!--
-        <span class="dcf-c-badge dcf-c-badge--default dcf-c-badge--pill" style="background-color: #137CBD">
-          <span class="dcf-u-sr-only">. You have </span>23<span class="dcf-u-sr-only"> notifications</span>
+        <span class="dcf-u-flex dcf-u-ai-center dcf-u-jc-center dcf-u-circle" style="height: 2em; width: 2em; background-color: #d00000;">
+          <svg class="dcf-c-icon" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48"><path fill="#fff" d="M24 48A24 24 0 1 0 0 24a24 24 0 0 0 24 24zm0-38a8 8 0 0 1 4.14 14.84l1.85 12A1 1 0 0 1 29 38H19a1 1 0 0 1-1-1.15l1.85-12A8 8 0 0 1 24 10z"/></svg>
         </span>
--->
+        <span class="dcf-u-sm2">Login</span>
       </span>
-    </button>
-    <nav class="dcf-u-none dcf-u-overlay-dark dcf-c-idm__options" id="dcf-idm-options" aria-hidden="true">
-      <ul class="dcf-c-list-unstyled">
-        <li><a id="dcf-idm-profile" href="https://planetred.unl.edu/">View Profile</a></li>
-        <li><a id="dcf-idm-logout" href="https://login.unl.edu/cas/logout?url=http%3A//www.unl.edu/">Logout</a></li>
-      </ul>
-    </nav>
+    </a>
   </div>
+
+  <div id="dcf-idm-status-logged-in" hidden></div>
 
   <!-- Modal, Notification Center -->
   <div class="dcf-c-modal__overlay dcf-u-overlay-light" role="dialog" aria-hidden="true" aria-label="modal">

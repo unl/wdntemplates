@@ -19,12 +19,8 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 		},
 		dcfSel = '#dcf',
 		mainSel = dcfSel + '-idm',
-		idmContainerSel = mainSel + '-notice-container',
-		loginLinkSel = mainSel + '-login',
 		userSel = mainSel + '-username',
-		profileSel = mainSel + 'profile',
 		logoutSel = mainSel + '-logout',
-		toggleSel = mainSel + 'toggle_label',
 		loginSrv = 'https://login.unl.edu/',
 		ssoCook = 'unl_sso',
 		encLoc = encodeURIComponent(window.location),
@@ -34,7 +30,9 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 		avatarService = 'https://directory.unl.edu/avatar/',
 		planetRed = 'https://planetred.unl.edu/pg/',
 		defaultLinkText,
-		user = false;
+		user = false,
+		loggedOutSel = '#dcf-idm-status-logged-out',
+		loggedInSel = '#dcf-idm-status-logged-out';
 
 	var getUserField = function(field) {
 			if (!user || !user[field]) {
@@ -231,7 +229,8 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 		 */
 		renderAsLoggedIn : function() {
 			var localSettings = getLocalIdmSettings(),
-				$idmContainer = $(mainSel);
+				$loggedOutContainer = $(loggedOutSel),
+				$loggedInContainer = $(loggedInSel);
 			
 			//Set up the idm button
 			var $button = $('<button>', {
@@ -279,16 +278,17 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 
 			//Attach the UL to the options container
 			$optionsContainer.append($navUL);
-			
-			$idmContainer.html(''); //Clear any existing contents
-			$idmContainer.append($button); //add new stuff
-			$idmContainer.append($optionsContainer);
+
+			$loggedInContainer.html(''); //Clear any existing contents
+			$loggedInContainer.append($button); //add new stuff
+			$loggedInContainer.append($optionsContainer);
 
 			//Add JS functionality to make this work
-			var $dropdownNav = new DropDownWidget($idmContainer[0]);
+			var $dropdownNav = new DropDownWidget($loggedInContainer[0]);
 
 			//Show the contents
-			$idmContainer.removeAttr('hidden');
+			$loggedInContainer.attr('hidden', true);
+			$loggedOutContainer.removeAttr('hidden');
 
 			// Any time logout link is clicked, unset the user data
 			$logoutLink.off('click').click(Plugin.logout);
@@ -301,16 +301,14 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 				return;
 			}
 
-			var idmContainer = $(mainSel),
+			var $loggedOutContainer = $(loggedOutSel),
+				$loggedInContainer = $(loggedInSel),
 				loginLink = $(userSel);
 
-			idmContainer.removeClass('loggedin');
-			loginLink.css('backgroundImage', null)
-				.attr('href', loginURL)
-				.html(defaultLinkText);
+			loginLink.attr('href', loginURL);
 
-            // Show login anchor
-            $(userSel).show();
+			$loggedInContainer.attr('hidden', true);
+			$loggedOutContainer.removeAttr('hidden');
 		},
 
 		/**
