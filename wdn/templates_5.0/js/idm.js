@@ -53,7 +53,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 						if (localSettings.login) {
 							Plugin.setLoginURL(localSettings.login);
 						} else {
-							Plugin.displayLogin();
+							Plugin.renderAsLoggedOut();
 						}
 					});
 
@@ -76,7 +76,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 							callback();
 						}
 						$(function() {
-							Plugin.displayNotice();
+							Plugin.renderAsLoggedIn();
 						});
 					} else {
 						// User's CAS session is no longer active, kill cookie
@@ -229,7 +229,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 		/**
 		 * Update the SSO tab and display user info
 		 */
-		displayNotice : function() {
+		renderAsLoggedIn : function() {
 			var localSettings = getLocalIdmSettings(),
 				$idmContainer = $(mainSel);
 			
@@ -295,7 +295,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 			Plugin.setLogoutURL(localSettings.logout);
 		},
 
-		displayLogin : function() {
+		renderAsLoggedOut : function() {
 			if (Plugin.getUserId()) {
 				//if the user is already logged in, we should not reset the login
 				return;
@@ -331,7 +331,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDow
 			if (url) {
 				loginURL = url;
 			}
-			Plugin.displayLogin();
+			Plugin.rederAsLoggedOut();
 		}
 	};
 
