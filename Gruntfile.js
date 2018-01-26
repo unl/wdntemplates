@@ -199,40 +199,40 @@ module.exports = function (grunt) {
 	// load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
 	require('load-grunt-tasks')(grunt);
 
-  grunt.initConfig({
-    sass: {
-        all: {
-            files: scssAllFiles,
-            options: {
-                sourceMap: true,
-                includePaths: [
-                    __dirname+'/node_modules/modularscale-sass/stylesheets'
-                ]
-            }
-        },
-        js: {
-            options: {
-                sourceMap: true
-            },
-            files: scssJsFiles
-        }
-    },
+	grunt.initConfig({
+	sass: {
+		all: {
+			files: scssAllFiles,
+			options: {
+				sourceMap: true,
+				includePaths: [
+					__dirname+'/node_modules/modularscale-sass/stylesheets'
+				]
+			}
+		},
+		js: {
+			options: {
+				sourceMap: true
+			},
+			files: scssJsFiles
+		}
+	},
 
-    //set babel preset in .babelrc file
-    "babel": {
-	    options: {
-	    	//let rjs generate the sourcemap
-	      sourceMap: false
-	    },
-	    dist: {
-	      files: [{
-	        'expand': true,
-          'cwd': templateJsSrc + '/transpile/',
-          'src': ['**/*.jsx', '**/*.js'],
-          'dest': templateJs,
-          'ext': '.js'
-	      }]
-	    }
+	//set babel preset in .babelrc file
+	"babel": {
+		options: {
+			//let rjs generate the sourcemap
+			sourceMap: false
+		},
+		dist: {
+			files: [{
+				'expand': true,
+				'cwd': templateJsSrc,
+				'src': ['**/*.babel.js'],
+				'dest': templateJs,
+				'ext': '.js'
+			}]
+		}
 	  },
 
 		requirejs: {
@@ -275,30 +275,29 @@ module.exports = function (grunt) {
 		},
 
 		copy: {
-		  babelNoTranspile: {
-		  	files: [
-		  		{	expand: true,
-		      	flatten: true,
-		      	cwd: templateJsSrc,
-		      	src: ['noTranspile/**'],
-		      	dest: templateJs,
-		      	filter: 'isFile'
-		      }
-		  	]
-		  }
+			babelNoTranspile: {
+				files: [{
+					expand: true,
+					flatten: true,
+					cwd: templateJsSrc,
+					src: ['**', '!**.babel.js'],
+					dest: templateJs,
+					filter: 'isFile'
+				}]
+			}
 		},
 
-  	includes: {
-      	build: {
-          	cwd: buildDir,
-          	src: '*.html',
-          	dest: templateIncludeDir,
-          	options: {
-              	flatten: true,
-              	includePath: [templateCss, templateCompileJs]
-          	}
-      	}
-    	},
+		includes: {
+			build: {
+				cwd: buildDir,
+				src: '*.html',
+				dest: templateIncludeDir,
+				options: {
+					flatten: true,
+					includePath: [templateCss, templateCompileJs]
+				}
+			}
+		},
 
 		"filter-clean": {
 			options: {
