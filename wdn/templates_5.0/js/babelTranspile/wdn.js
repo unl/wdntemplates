@@ -1,58 +1,57 @@
-"use strict";
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-(function (global, factory) {
-	if ((typeof module === "undefined" ? "undefined" : _typeof(module)) === "object" && _typeof(module.exports) === "object") {
-		module.exports = global.document ? factory(global, true) : function (w) {
-			if (!w.document) {
+(function( global, factory ) {
+	if (typeof module === "object" && typeof module.exports === "object") {
+		module.exports = global.document ? factory(global, true) : function( w ) {
+			if ( !w.document ) {
 				throw new Error("WDN requires a window with a document");
 			}
-			return factory(w);
+			return factory( w );
 		};
 	} else {
-		factory(global);
+		factory( global );
 	}
-})(typeof window !== "undefined" ? window : undefined, function (window, noGlobal) {
-	var pluginParams = {},
-	    loadingCSS = {},
-	    loadedCSS = {},
-	    document = window.document,
-	    _isDebug = false,
-	    _head,
-	    _docEl,
+}(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
+	var
+		pluginParams = {},
+		loadingCSS = {},
+		loadedCSS = {},
+		document = window.document,
+		isDebug = false,
+		_head,
+		_docEl,
+		/**
+		 * This variable stores the path to the template files.
+		 * It can be set to /, http://www.unl.edu/, or nothing.
+		 */
+		template_path = '',
 
-	/**
-  * This variable stores the path to the template files.
-  * It can be set to /, http://www.unl.edu/, or nothing.
-  */
-	template_path = '',
-	    dependent_path = 'wdn/templates_5.0/',
-	    build_path = '/compressed',
-	    _sanitizeTemplateUrl = function _sanitizeTemplateUrl(url) {
-		var reTemplateUrl = new RegExp('^/?' + dependent_path.replace('.', '\\.'));
-		if (url.match(reTemplateUrl)) {
-			if (url.charAt(0) === '/') {
-				// trim off the leading slash
-				url = url.substring(1);
+		dependent_path = 'wdn/templates_5.0/',
+
+		build_path = '/compressed',
+
+		_sanitizeTemplateUrl = function(url) {
+			var reTemplateUrl = new RegExp('^/?' + dependent_path.replace('.', '\\.'));
+			if (url.match(reTemplateUrl)) {
+				if (url.charAt(0) === '/') {
+					// trim off the leading slash
+					url = url.substring(1);
+				}
+
+				url = template_path + url;
 			}
 
-			url = template_path + url;
-		}
-
-		return url;
-	};
+			return url;
+		};
 
 	//#TEMPLATE_PATH
 	//#DEPENDENT_PATH
 
 	var WDN = {
 
-		getTemplateFilePath: function getTemplateFilePath(file, withTemplatePath, withVersion) {
+		getTemplateFilePath: function(file, withTemplatePath, withVersion) {
 			file = '' + file;
 
 			// add built script directory for production
-			if (!_isDebug) {
+			if (!isDebug) {
 				file = file.replace(/^js(\/|$)/, 'js' + build_path + '$1');
 			}
 
@@ -77,35 +76,35 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		},
 
 		/**
-   * Loads an external JavaScript file.
-   */
-		loadJS: function loadJS(url, callback) {
+		 * Loads an external JavaScript file.
+		 */
+		loadJS: function (url,callback) {
 			url = _sanitizeTemplateUrl(url);
 			require([url], callback);
 		},
 
 		/**
-   * Load an external css file.
-   */
-		loadCSS: function loadCSS(url, callback, checkLoaded, callbackIfLoaded) {
+		 * Load an external css file.
+		 */
+		loadCSS: function (url, callback, checkLoaded, callbackIfLoaded) {
 			url = _sanitizeTemplateUrl(url);
 
-			var link = function () {
-				var link = document.createElement("link");
-				link.href = url;
-				link.rel = "stylesheet";
-				link.type = "text/css";
-				return link;
-			}(),
-			    executeCallback = function executeCallback() {
-				loadedCSS[url] = true;
-				if (loadingCSS[url]) {
-					for (var i = loadingCSS[url].length - 1; i >= 0; i--) {
-						loadingCSS[url][i]();
+			var link = (function() {
+					var link = document.createElement("link");
+					link.href = url;
+					link.rel = "stylesheet";
+					link.type = "text/css";
+					return link;
+				})(),
+				executeCallback = function() {
+					loadedCSS[url] = true;
+					if (loadingCSS[url]) {
+						for (var i = loadingCSS[url].length - 1; i >= 0; i--) {
+							loadingCSS[url][i]();
+						}
+						delete loadingCSS[url];
 					}
-					delete loadingCSS[url];
-				}
-			};
+				};
 
 			if (checkLoaded === false || !(url in loadedCSS)) {
 				if (callback) {
@@ -135,33 +134,33 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			}
 		},
 
-		isDebug: function isDebug() {
-			return _isDebug;
+		isDebug: function() {
+			return isDebug;
 		},
 
 		/**
-   * Load jQuery included with the templates
-   *
-   * @param callback Called when the document is ready
-   */
-		loadJQuery: function loadJQuery(callback) {
-			require(['wdn_jquery'], function ($) {
+		 * Load jQuery included with the templates
+		 *
+		 * @param callback Called when the document is ready
+		 */
+		loadJQuery: function (callback) {
+			require(['wdn_jquery'], function($) {
 				$(callback);
 			});
 		},
 
 		/**
-   * This function logs data for debugging purposes.
-   *
-   * To see, open firebug's console.
-   */
-		log: function log(data) {
+		 * This function logs data for debugging purposes.
+		 *
+		 * To see, open firebug's console.
+		 */
+		log: function (data) {
 			if ("console" in window && "log" in console) {
 				console.log(data);
 			}
 		},
 
-		getHTMLVersion: function getHTMLVersion() {
+		getHTMLVersion:function () {
 			var version_html = document.body.getAttribute("data-version");
 
 			// Set the defaults
@@ -175,7 +174,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			return version_html;
 		},
 
-		getDepVersion: function getDepVersion() {
+		getDepVersion:function () {
 			var version_dep = document.getElementById("wdn_dependents").getAttribute("src");
 
 			if (/\?dep=\$DEP_VERSION\$/.test(version_dep)) {
@@ -193,13 +192,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		},
 
 		/**
-   *
-   * @param {string} plugin - The plugin name (must get registerd in WDN namespace)
-   * @param {array=} args (optional) - The arguments to pass to plugin initialize funciton
-   * @param {function()=} callback (optional) - A provided callback on plugin load
-   * @param {string=} insert (optional) - Where the provided callback should be called relative to plugin initialize (before|after|replace)
-   */
-		initializePlugin: function initializePlugin(plugin, args, callback, insert) {
+		 *
+		 * @param {string} plugin - The plugin name (must get registerd in WDN namespace)
+		 * @param {array=} args (optional) - The arguments to pass to plugin initialize funciton
+		 * @param {function()=} callback (optional) - A provided callback on plugin load
+		 * @param {string=} insert (optional) - Where the provided callback should be called relative to plugin initialize (before|after|replace)
+		 */
+		initializePlugin: function (plugin, args, callback, insert) {
 			// if args is a function, it is the callback
 			if (Object.prototype.toString.call(args) === '[object Function]') {
 				insert = callback;
@@ -214,9 +213,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				args = [];
 			}
 
-			require([plugin], function (pluginObj) {
+			require([plugin], function(pluginObj) {
 				var defaultOnLoad, onLoad;
-				defaultOnLoad = onLoad = function onLoad() {
+				defaultOnLoad = onLoad = function () {
 					if (pluginObj && "initialize" in pluginObj) {
 						WDN.log("initializing plugin '" + plugin + "'");
 						pluginObj.initialize.apply(this, args);
@@ -228,8 +227,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				if (callback) {
 					// validate the insert param
 					var _insertVals = 'before after replace'.split(' '),
-					    _goodInsert = false,
-					    i;
+						_goodInsert = false, i;
 					for (i = 0; i < _insertVals.length; i++) {
 						if (insert === _insertVals[i]) {
 							_goodInsert = true;
@@ -241,7 +239,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					}
 
 					// construct the load callback based on insert
-					onLoad = function onLoad() {
+					onLoad = function() {
 						if (insert === 'replace') {
 							callback();
 						} else {
@@ -262,31 +260,31 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			});
 		},
 
-		setPluginParam: function setPluginParam(plugin, name, value) {
-			if (!pluginParams[plugin]) {
-				pluginParams[plugin] = {};
+		setPluginParam: function (plugin, name, value) {
+			if ( !pluginParams[ plugin ]) {
+				pluginParams[ plugin ] = {};
 			}
-			pluginParams[plugin][name] = value;
+			pluginParams[ plugin ][ name ] = value;
 		},
 
-		getPluginParam: function getPluginParam(plugin, name) {
-			if (!pluginParams[plugin]) {
+		getPluginParam: function (plugin, name) {
+			if ( !pluginParams[ plugin ] ) {
 				return null;
 			}
 
 			if (!name) {
-				return pluginParams[plugin];
+				return pluginParams[ plugin ];
 			}
 
-			return pluginParams[plugin][name];
+			return pluginParams[ plugin ][ name ];
 		},
 
-		setCookie: function setCookie(name, value, seconds, path, domain) {
+		setCookie: function (name, value, seconds, path, domain) {
 			var expires = "";
 			if (seconds) {
 				var date = new Date();
-				date.setTime(date.getTime() + seconds * 1000);
-				expires = ";expires=" + date.toUTCString();
+				date.setTime(date.getTime()+(seconds*1000));
+				expires = ";expires="+date.toUTCString();
 			}
 			if (!path) {
 				path = '/';
@@ -296,44 +294,43 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			if (!domain) {
 				domain = '.unl.edu';
 			}
-			document.cookie = name + "=" + value + expires + ";path=" + path + ";domain=" + domain;
+			document.cookie = name+"="+value+expires+";path="+path+";domain="+domain;
 		},
 
-		getCookie: function getCookie(name) {
+		getCookie: function (name) {
 			var nameEQ = name + "=";
 			var ca = document.cookie.split(';');
-			for (var i = 0; i < ca.length; i++) {
+			for(var i=0;i < ca.length;i++) {
 				var c = ca[i];
 				while (c.charAt(0) === ' ') {
-					c = c.substring(1, c.length);
+					c = c.substring(1,c.length);
 				}
 				if (c.indexOf(nameEQ) === 0) {
-					return c.substring(nameEQ.length, c.length);
+					return c.substring(nameEQ.length,c.length);
 				}
 			}
 			return null;
 		},
 
-		hasDocumentClass: function hasDocumentClass(className) {
+		hasDocumentClass: function(className) {
 			var documentClass = ' ' + (_docEl.getAttribute && _docEl.getAttribute('class') || '') + ' ';
 			documentClass = documentClass.replace(/[\t\r\n\f]/g, ' ');
 			return documentClass.indexOf(' ' + className + ' ') > -1;
 		},
 
 		/**
-   * Converts a relative link to an absolute link.
-   *
-   * @param {string} link The relative link
-   * @param {string} base_url The base to use
-   */
-		toAbs: function toAbs(link, base_url) {
+		 * Converts a relative link to an absolute link.
+		 *
+		 * @param {string} link The relative link
+		 * @param {string} base_url The base to use
+		 */
+		toAbs: function (link, base_url) {
 			if (typeof link == 'undefined') {
 				return;
 			}
 
 			base_url = '' + base_url;
-			var lparts = link.split('/'),
-			    rScheme = /^[a-z][a-z0-9+.-]*:/i;
+			var lparts = link.split('/'), rScheme = /^[a-z][a-z0-9+.-]*:/i;
 
 			if (rScheme.test(lparts[0])) {
 				// already abs, return
@@ -341,9 +338,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			}
 
 			var schemeAndAuthority = '',
-			    schemeMatch = base_url.match(rScheme),
-			    hparts = base_url.split('/'),
-			    part;
+				schemeMatch = base_url.match(rScheme),
+				hparts = base_url.split('/'),
+				part;
 
 			if (schemeMatch) {
 				schemeAndAuthority = [hparts.shift(), hparts.shift(), hparts.shift()].join('/') + '/';
@@ -354,8 +351,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			}
 			hparts.pop(); // strip trailing thingie, either scriptname or blank
 
-			if (lparts[0] === '') {
-				// like "/here/dude.png"
+			if (lparts[0] === '') { // like "/here/dude.png"
 				hparts = []; // re-split host parts from scheme and domain only
 				lparts.shift();
 			}
@@ -372,12 +368,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			return schemeAndAuthority + hparts.join('/');
 		},
 
-		stringToXML: function stringToXML(string) {
+		stringToXML: function (string) {
 			var $ = require('jquery');
 			return $.parseXML(string);
 		},
 
-		request: function request(url, data, callback, type, method) {
+		request: function (url, data, callback, type, method) {
 			var $ = require('wdn_jquery');
 
 			if ($.isFunction(data)) {
@@ -396,12 +392,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			});
 		},
 
-		get: function get(url, data, callback, type) {
+		get: function (url, data, callback, type) {
 			var $ = require('wdn_jquery');
 			return $.get(url, data, callback, type);
 		},
 
-		post: function post(url, data, callback, type) {
+		post: function (url, data, callback, type) {
 			var $ = require('wdn_jquery');
 			return $.post(url, data, callback, type);
 		}
@@ -410,7 +406,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	var jQueryWarning = false;
 	Object.defineProperty(WDN, 'jQuery', {
 		configurable: true,
-		get: function get() {
+		get: function() {
 			if (!jQueryWarning) {
 				jQueryWarning = true;
 
@@ -424,7 +420,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	});
 
 	// invoke function for handling debug loader and document initialization
-	(function () {
+	(function() {
 		if (!document) {
 			return;
 		}
@@ -432,13 +428,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		_head = document.head || document.getElementsByTagName('head')[0];
 		_docEl = document.documentElement;
 
-		var i = 0,
-		    scripts = document.getElementsByTagName('script'),
-		    root;
+		var i = 0, scripts = document.getElementsByTagName('script'), root;
 		for (; i < scripts.length; i++) {
 			root = scripts[i].getAttribute('data-wdn_root');
 			if (root) {
-				_isDebug = true;
+				isDebug = true;
 				template_path = WDN.toAbs('../../../', root);
 				break;
 			}
@@ -459,4 +453,4 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	// export for other module environments
 	return WDN;
-});
+}));

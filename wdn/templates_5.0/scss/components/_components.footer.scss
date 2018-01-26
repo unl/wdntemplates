@@ -49,7 +49,7 @@
 @include mq(md, max, width) {
 
   .unl .dcf-c-footer__global {
-    padding-bottom: #{ms(12)}em;
+    padding-bottom: #{ms(14)}em; // 7.48em
   }
 
 }
@@ -66,16 +66,64 @@
 @supports (display: grid) {
 
   .unl .dcf-c-footer__local {
-
-    @include grid;
     grid-template-columns: repeat(auto-fit, minmax(#{ms(18)}em, 1fr));
-
   }
 
   .unl .dcf-c-footer__global {
-
-    @include grid;
     grid-template-columns: repeat(auto-fit, minmax(#{ms(18)}em, 1fr));
+  }
+
+  @include mq(sm, min, width) {
+
+    .unl .dcf-c-footer__global {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "social campus"
+        "policies logos"
+        "copyright copyright";
+    }
+
+    .unl-c-footer-social {
+      grid-area: social;
+    }
+
+    .unl-c-footer-campus {
+      grid-area: campus;
+    }
+
+    .unl-c-footer-policies {
+      grid-area: policies;
+    }
+
+    .unl-c-footer-logos {
+      grid-area: logos;
+    }
+
+    .unl-c-footer-copyright {
+      grid-area: copyright;
+    }
+
+  }
+
+  @include mq(sm, min, width) {
+
+    .unl .dcf-c-footer__global {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+        "social campus policies"
+        "logos copyright copyright";
+    }
+
+  }
+
+  @include mq(md, min, width) {
+
+    .unl .dcf-c-footer__global {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-areas:
+        "social campus policies logos"
+        "copyright copyright copyright copyright";
+    }
 
   }
 

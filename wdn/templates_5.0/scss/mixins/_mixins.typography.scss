@@ -6,11 +6,10 @@
 // !Outline Text
 @mixin txt-outline($imp:null) {
 
-
   @supports (text-stroke: 1.33px #fff) or (-webkit-text-stroke: 1.3px #fff) {
-    -webkit-text-stroke: 1.33px #fff;
-    text-stroke: 1.33px #fff;
-    color: transparent;
+    -webkit-text-stroke: 1.33px #fff $imp;
+    text-stroke: 1.33px #fff $imp;
+    color: transparent $imp;
   }
 
 }

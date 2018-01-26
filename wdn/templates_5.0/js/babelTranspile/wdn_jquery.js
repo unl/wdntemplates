@@ -1,12 +1,10 @@
-'use strict';
-
-define(['jquery', 'wdn'], function ($, WDN) {
+define(['jquery', 'wdn'], function($, WDN) {
 	$.noConflict(true);
 
 	var jQueryWarning = false;
 	Object.defineProperty(WDN, 'jQuery', {
 		configurable: false,
-		get: function get() {
+		get: function() {
 			if (!jQueryWarning) {
 				jQueryWarning = true;
 
