@@ -1,0 +1,4 @@
+
+require(['dialog'],function(dialogPolyfill){
+
+});

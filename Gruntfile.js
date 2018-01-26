@@ -57,7 +57,9 @@ module.exports = function (grunt) {
 		'wdn'
 	];
 
+  // entry point plugin file names for require js
 	var wdnBuildPlugins = [
+		'dialog'
 		//'band_imagery',
 		//'carousel',
 		//'display-font',
@@ -81,7 +83,7 @@ module.exports = function (grunt) {
 		'require-css/normalize',
 		'jquery',
 		'wdn',
-		'plugins/hoverIntent/jquery.hoverIntent'
+		// 'plugins/hoverIntent/jquery.hoverIntent'
 	];
 
 	// exclude build/bundled files from sync back to wdn folder
@@ -120,6 +122,9 @@ module.exports = function (grunt) {
 		appDir: templateJs + '/',
 		baseUrl: './',
 		dir: buildJsDir,
+		// exclude js/jsx files in babelTranspile folder and
+		// exclude js files that will be copied to root of templateJs
+		fileExclusionRegExp: /^(babelTranspile|babelNoTranspile)$/,
 		optimize: 'uglify2',
 		logLevel: 2,
 		preserveLicenseComments: false,
@@ -136,7 +141,7 @@ module.exports = function (grunt) {
 			{
 				name: 'all',
 				create: true,
-				include: polyfillMods.concat('main'),
+				include: polyfillMods.concat(['main', 'require-css/css']),
 				exclude: ['require-css/normalize']
 			}
 		],
@@ -181,7 +186,6 @@ module.exports = function (grunt) {
 
 	// dynamic target files built from variables above
 	var scssAllFiles = {};
-
 	cssObjs.forEach(function(file) {
 		scssAllFiles[templateCss + '/' + file + '.css'] = templateScss + '/' + file + '.scss';
 	});
@@ -194,24 +198,41 @@ module.exports = function (grunt) {
 	// load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
 	require('load-grunt-tasks')(grunt);
 
-    grunt.initConfig({
-        sass: {
-            all: {
-                files: scssAllFiles,
-                options: {
-                    sourceMap: true,
-                    includePaths: [
-                        __dirname+'/node_modules/modularscale-sass/stylesheets'
-                    ]
-                }
-            },
-            js: {
-                options: {
-                    sourceMap: true
-                },
-                files: scssJsFiles
+  grunt.initConfig({
+    sass: {
+        all: {
+            files: scssAllFiles,
+            options: {
+                sourceMap: true,
+                includePaths: [
+                    __dirname+'/node_modules/modularscale-sass/stylesheets'
+                ]
             }
         },
+        js: {
+            options: {
+                sourceMap: true
+            },
+            files: scssJsFiles
+        }
+    },
+
+    //set babel preset in .babelrc file
+    "babel": {
+	    options: {
+	    	//let rjs generate the sourcemap
+	      sourceMap: false
+	    },
+	    dist: {
+	      files: [{
+	        'expand': true,
+          'cwd': templateJs + '/babelTranspile/',
+          'src': ['**/*.jsx', '**/*.js'],
+          'dest': templateJs,
+          'ext': '.js'
+	      }]
+	    }
+	  },
 
 		requirejs: {
 			all: {
@@ -247,21 +268,35 @@ module.exports = function (grunt) {
 
 		clean: {
 			css: [templateCss].concat(Object.keys(scssJsFiles)),
-			js: [templateCompileJs],
+			js: [templateCompileJs, templateJs + '/*.js'],
 			"js-build": [buildJsDir],
 			dist: [zipDir + '/*.zip', zipDir + '/*.gz']
 		},
 
-    	includes: {
-        	build: {
-            	cwd: buildDir,
-            	src: '*.html',
-            	dest: templateIncludeDir,
-            	options: {
-                	flatten: true,
-                	includePath: [templateCss, templateCompileJs]
-            	}
-        	}
+		copy: {
+		  babelNoTranspile: {
+		  	files: [
+		  		{	expand: true,
+		      	flatten: true,
+		      	cwd: templateJs,
+		      	src: ['babelNoTranspile/**'],
+		      	dest: templateJs,
+		      	filter: 'isFile'
+		      }
+		  	]
+		  }
+		},
+
+  	includes: {
+      	build: {
+          	cwd: buildDir,
+          	src: '*.html',
+          	dest: templateIncludeDir,
+          	options: {
+              	flatten: true,
+              	includePath: [templateCss, templateCompileJs]
+          	}
+      	}
     	},
 
 		"filter-clean": {
@@ -400,6 +435,6 @@ module.exports = function (grunt) {
 	// legacy targets from Makefile
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
-	grunt.registerTask('js', ['clean:js', 'sass:js', 'requirejs', 'sync:js', 'clean:js-build']);
-    grunt.registerTask('css', ['sass:all']);
+	grunt.registerTask('js', ['clean:js', 'sass:js', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
+  grunt.registerTask('css', ['sass:all']);
 };

@@ -690,30 +690,45 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
         <a href="https://www.instagram.com/p/BZeseesnQrp/?taken-by=unlincoln"><svg class="dcf-c-icon dcf-c-icon--inline dcf-c-icon--x dcf-u-mr2" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48"><path d="M24 4.33c6.41 0 7.17 0 9.7.14a13.28 13.28 0 0 1 4.46.83 7.44 7.44 0 0 1 2.76 1.79 7.44 7.44 0 0 1 1.79 2.76 13.28 13.28 0 0 1 .83 4.46c.12 2.53.14 3.29.14 9.7s0 7.17-.14 9.7a13.28 13.28 0 0 1-.83 4.46 8 8 0 0 1-4.55 4.55 13.28 13.28 0 0 1-4.46.83c-2.53.12-3.29.14-9.7.14s-7.17 0-9.7-.14a13.28 13.28 0 0 1-4.46-.83 7.44 7.44 0 0 1-2.76-1.79 7.44 7.44 0 0 1-1.79-2.76 13.28 13.28 0 0 1-.83-4.46c-.12-2.53-.14-3.29-.14-9.7s0-7.17.14-9.7a13.28 13.28 0 0 1 .83-4.46 7.44 7.44 0 0 1 1.8-2.77 7.44 7.44 0 0 1 2.76-1.79 13.28 13.28 0 0 1 4.46-.83c2.53-.12 3.29-.14 9.7-.14M24 0c-6.52 0-7.34 0-9.9.14a17.61 17.61 0 0 0-5.82 1.12A11.76 11.76 0 0 0 4 4a11.76 11.76 0 0 0-2.74 4.28 17.6 17.6 0 0 0-1.12 5.83C0 16.66 0 17.48 0 24s0 7.34.14 9.9a17.6 17.6 0 0 0 1.11 5.82A11.76 11.76 0 0 0 4 44a11.76 11.76 0 0 0 4.25 2.77 17.59 17.59 0 0 0 5.83 1.12c2.55.12 3.38.14 9.9.14s7.34 0 9.9-.14a17.56 17.56 0 0 0 5.82-1.12 12.27 12.27 0 0 0 7-7 17.59 17.59 0 0 0 1.12-5.83c.18-2.6.18-3.42.18-9.94s0-7.34-.14-9.9a17.56 17.56 0 0 0-1.12-5.82A11.76 11.76 0 0 0 44 4a11.76 11.76 0 0 0-4.25-2.77A17.6 17.6 0 0 0 33.9.15C31.34 0 30.52 0 24 0zm0 11.68A12.32 12.32 0 1 0 36.32 24 12.32 12.32 0 0 0 24 11.67zM24 32a8 8 0 1 1 8-8 8 8 0 0 1-8 8zM36.81 8.31a2.88 2.88 0 1 0 2.88 2.88 2.88 2.88 0 0 0-2.88-2.88z"/></svg>@unlincoln<span class="dcf-u-sr-only"> on Instagram</span></a>
       </figcaption>
     </figure>
+        <h2 class="dcf-u-mt6">Pagination</h2>
+        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        <nav aria-label="Pagination example">
+          <ul class="dcf-c-pagination">
+            <li class="dcf-c-pagination__item"><a class="dcf-c-btn dcf-c-btn--secondary" href="#previous"><svg class="dcf-u-sm2 dcf-u-mr3 dcf-c-icon dcf-c-icon--inline" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M23.5 8.997L11.387 9l3.864-4.152a.5.5 0 0 0-.013-.695L11.788.704a.5.5 0 0 0-.707 0L.156 11.628a.5.5 0 0 0 0 .707L11.081 23.26a.5.5 0 0 0 .707 0l3.45-3.449a.502.502 0 0 0 .013-.695l-3.815-4.119H23.5c.274 0 .499-.19.5-.465V9.5a.5.5 0 0 0-.5-.503z"/></svg>Previous</a></li>
+            <li class="dcf-c-pagination__item"><a class="dcf-c-btn dcf-c-btn--secondary" href="#page1">1</a></li>
+            <li class="dcf-c-pagination__item"><a class="dcf-c-btn dcf-c-btn--secondary" href="#page2">2</a></li>
+            <li class="dcf-c-pagination__item"><a class="dcf-c-btn dcf-c-btn--secondary" href="#page3">3</a></li>
+            <li class="dcf-c-pagination__item"><a class="dcf-c-btn dcf-c-btn--secondary" href="#next">Next<svg class="dcf-u-sm2 dcf-u-ml3 dcf-c-icon dcf-c-icon--inline" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M23.879 11.628L12.954.703a.5.5 0 0 0-.707 0l-3.45 3.449a.502.502 0 0 0-.013.696l3.863 4.163L.522 8.996H.521a.499.499 0 0 0-.499.5v5a.5.5 0 0 0 .5.5h12.079l-3.816 4.119a.5.5 0 0 0 .013.695l3.45 3.449a.498.498 0 0 0 .707 0L23.88 12.334a.5.5 0 0 0-.001-.706z"/></svg></a></li>
+          </ul>
+        </nav>
 
-
-
-    <h2 class="dcf-u-mt6">Pagination</h2>
-    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-    <nav class="dcf-u-mt6" aria-label="pagination">
-      <ul class="dcf-c-list-unstyled dcf-u-bold unl-u-font-sans">
-        <li class="dcf-c-list-inline-item"><a href="#previous"><svg class="dcf-u-sm2 dcf-u-mr3 dcf-c-icon dcf-c-icon--inline" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M23.5 8.997L11.387 9l3.864-4.152a.5.5 0 0 0-.013-.695L11.788.704a.5.5 0 0 0-.707 0L.156 11.628a.5.5 0 0 0 0 .707L11.081 23.26a.5.5 0 0 0 .707 0l3.45-3.449a.502.502 0 0 0 .013-.695l-3.815-4.119H23.5c.274 0 .499-.19.5-.465V9.5a.5.5 0 0 0-.5-.503z"/></svg>Previous</a></li>
-        <li class="dcf-c-list-inline-item"><a href="#page1">1</a></li>
-        <li class="dcf-c-list-inline-item"><a href="#page2">2</a></li>
-        <li class="dcf-c-list-inline-item"><a href="#page3">3</a></li>
-        <li class="dcf-c-list-inline-item"><a href="#next">Next<svg class="dcf-u-sm2 dcf-u-ml3 dcf-c-icon dcf-c-icon--inline" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M23.879 11.628L12.954.703a.5.5 0 0 0-.707 0l-3.45 3.449a.502.502 0 0 0-.013.696l3.863 4.163L.522 8.996H.521a.499.499 0 0 0-.499.5v5a.5.5 0 0 0 .5.5h12.079l-3.816 4.119a.5.5 0 0 0 .013.695l3.45 3.449a.498.498 0 0 0 .707 0L23.88 12.334a.5.5 0 0 0-.001-.706z"/></svg></a></li>
-      </ul>
-    </nav>
-
-    <div class="dcf-o-full-width">
-      <div class="dcf-o-wrapper dcf-u-pt4 dcf-u-pb4">
-        <h2 class="dcf-u-mt6">Modal Content</h2>
-        <div class="dcf-u-mb6 dcf-c-modal">
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <a class="dcf-c-btn dcf-c-btn--primary dcf-c-activate-modal" href="#">Play Video<svg class="dcf-u-sm2 dcf-u-ml3 dcf-c-icon dcf-c-icon--inline" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M21.76 11.58L2.79.08a.49.49 0 0 0-.51 0A.48.48 0 0 0 2 .5v23a.49.49 0 0 0 .25.44.54.54 0 0 0 .25.06.48.48 0 0 0 .26-.07l19-11.5a.5.5 0 0 0 0-.85z"/></svg></a>
-          <div class="dcf-c-modal__overlay dcf-u-overlay-dark dcf-u-invisible" role="dialog" aria-hidden="true" aria-label="modal">
-            <div class="dcf-c-modal__content" role="document" aria-expanded="false" tabindex="-1">
-              <button class="dcf-c-close-modal" type="button">Close</button>
+        <div class="dcf-o-full-width">
+          <div class="dcf-o-wrapper dcf-u-pt4 dcf-u-pb4">
+            <h2 class="dcf-u-mt6">Modal Content</h2>
+            <div class="dcf-u-mb6 dcf-c-modal dcf-js-dialog">
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <a class="dcf-c-btn dcf-c-btn--primary dcf-c-activate-modal" href="#">Play Video<svg class="dcf-u-sm2 dcf-u-ml3 dcf-c-icon dcf-c-icon--inline" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M21.76 11.58L2.79.08a.49.49 0 0 0-.51 0A.48.48 0 0 0 2 .5v23a.49.49 0 0 0 .25.44.54.54 0 0 0 .25.06.48.48 0 0 0 .26-.07l19-11.5a.5.5 0 0 0 0-.85z"/></svg></a>
+              <div class="dcf-c-modal__overlay dcf-u-overlay-dark" role="dialog" aria-hidden="true" aria-label="modal">
+                <div class="dcf-c-modal__content" role="document" tabindex="-1">
+                  <button class="dcf-c-close-modal" type="button">Close</button>
+                </div>
+              </div>
+              <button class="dcf-c-btn dcf-c-btn--primary dcf-c-activate-modal dcf-js-dialog-trigger">Play Video Dialog<svg class="dcf-u-sm2 dcf-u-ml3 dcf-c-icon dcf-c-icon--inline" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M21.76 11.58L2.79.08a.49.49 0 0 0-.51 0A.48.48 0 0 0 2 .5v23a.49.49 0 0 0 .25.44.54.54 0 0 0 .25.06.48.48 0 0 0 .26-.07l19-11.5a.5.5 0 0 0 0-.85z"/></svg></button>
+              <dialog role="alertdialog" aria-describedby="dialog-message" class="fixed">
+                <div class="dcf-o-dialog">
+                  <p id="dialog-header" role="heading" class="dcf-o-dialog__header dcf-u-lg2 dcf-u-pr3 dcf-u-pl1 dcf-u-pt3">
+                    A native modal dialog box
+                  </p>
+                  <button class="dcf-o-dialog__close" id="close" type="button"><span class="dcf-u-sr-only">Close Dialog</span></button>
+                  <div id="dialog-message" aria-labelledby="dialog-header" class="dcf-o-dialog__body dcf-u-pr2 dcf-u-pl2 dcf-u-pb4">
+                    <p>Finally, HTML has a native dialog box element! This is fantastic.</p>
+                    <p>And a polyfill makes this usable today.</p>
+                  </div>
+                  <footer class="dcf-o-dialog__footer dcf-u-pr2 dcf-u-pl2">
+                    <p>Footer Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  </footer>
+                </div>
+              </dialog>
             </div>
           </div>
         </div>
@@ -1568,5 +1583,6 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
   </footer>
   <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
+  <script type="text/javascript" src="script.js"></script>
 </body>
 <!-- InstanceEnd --></html>
