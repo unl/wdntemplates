@@ -278,7 +278,6 @@ module.exports = function (grunt) {
 			babelNoTranspile: {
 				files: [{
 					expand: true,
-					flatten: true,
 					cwd: templateJsSrc,
 					src: ['**', '!**.babel.js'],
 					dest: templateJs,
