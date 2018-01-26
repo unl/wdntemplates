@@ -1,7 +1,6 @@
 'use strict';
 
 /* global define: false */
-
 define(['wdn', 'idm', 'jquery'], function (WDN, idm, $) {
 	"use strict";
 

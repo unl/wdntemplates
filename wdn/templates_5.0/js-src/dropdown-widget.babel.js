@@ -16,7 +16,6 @@
  * </div>
  * 
  */
-
 define([], function () {
 	"use strict";
 

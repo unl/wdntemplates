@@ -1,7 +1,6 @@
 'use strict';
 
 /* globals define: false */
-
 define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDownWidget, require) {
 	"use strict";
 
