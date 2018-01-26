@@ -31,6 +31,7 @@ module.exports = function (grunt) {
 		templateScss = templateDir + '/scss',
 		templateCss = templateDir + '/css',
 		templateJs = templateDir + '/js',
+		templateJsSrc = templateDir + '/js-src',
 		builtJsDir = 'compressed',
 		buildJsDir = buildDir + '/' + builtJsDir,
 		templateCompileJs = templateJs + '/' + builtJsDir,
@@ -122,9 +123,6 @@ module.exports = function (grunt) {
 		appDir: templateJs + '/',
 		baseUrl: './',
 		dir: buildJsDir,
-		// exclude js/jsx files in babelTranspile folder and
-		// exclude js files that will be copied to root of templateJs
-		fileExclusionRegExp: /^(babelTranspile|babelNoTranspile)$/,
 		optimize: 'uglify2',
 		logLevel: 2,
 		preserveLicenseComments: false,
@@ -198,41 +196,41 @@ module.exports = function (grunt) {
 	// load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
 	require('load-grunt-tasks')(grunt);
 
-  grunt.initConfig({
-    sass: {
-        all: {
-            files: scssAllFiles,
-            options: {
-                sourceMap: true,
-                includePaths: [
-                    __dirname+'/node_modules/modularscale-sass/stylesheets'
-                ]
-            }
-        },
-        js: {
-            options: {
-                sourceMap: true
-            },
-            files: scssJsFiles
-        }
-    },
+	grunt.initConfig({
+		sass: {
+			all: {
+				files: scssAllFiles,
+				options: {
+					sourceMap: true,
+					includePaths: [
+						__dirname+'/node_modules/modularscale-sass/stylesheets'
+					]
+				}
+			},
+			js: {
+				options: {
+					sourceMap: true
+				},
+				files: scssJsFiles
+			}
+		},
 
-    //set babel preset in .babelrc file
-    "babel": {
-	    options: {
-	    	//let rjs generate the sourcemap
-	      sourceMap: false
-	    },
-	    dist: {
-	      files: [{
-	        'expand': true,
-          'cwd': templateJs + '/babelTranspile/',
-          'src': ['**/*.jsx', '**/*.js'],
-          'dest': templateJs,
-          'ext': '.js'
-	      }]
-	    }
-	  },
+		//set babel preset in .babelrc file
+		"babel": {
+			options: {
+				//let rjs generate the sourcemap
+				sourceMap: false
+			},
+			dist: {
+				files: [{
+					'expand': true,
+					'cwd': templateJsSrc,
+					'src': ['**/*.babel.js'],
+					'dest': templateJs,
+					'ext': '.js'
+				}]
+			}
+		},
 
 		requirejs: {
 			all: {
@@ -274,30 +272,28 @@ module.exports = function (grunt) {
 		},
 
 		copy: {
-		  babelNoTranspile: {
-		  	files: [
-		  		{	expand: true,
-		      	flatten: true,
-		      	cwd: templateJs,
-		      	src: ['babelNoTranspile/**'],
-		      	dest: templateJs,
-		      	filter: 'isFile'
-		      }
-		  	]
-		  }
+			babelNoTranspile: {
+				files: [{
+					expand: true,
+					cwd: templateJsSrc,
+					src: ['**', '!**.babel.js'],
+					dest: templateJs,
+					filter: 'isFile'
+				}]
+			}
 		},
 
-  	includes: {
-      	build: {
-          	cwd: buildDir,
-          	src: '*.html',
-          	dest: templateIncludeDir,
-          	options: {
-              	flatten: true,
-              	includePath: [templateCss, templateCompileJs]
-          	}
-      	}
-    	},
+		includes: {
+			build: {
+				cwd: buildDir,
+				src: '*.html',
+				dest: templateIncludeDir,
+				options: {
+					flatten: true,
+					includePath: [templateCss, templateCompileJs]
+				}
+			}
+		},
 
 		"filter-clean": {
 			options: {
@@ -436,5 +432,5 @@ module.exports = function (grunt) {
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
 	grunt.registerTask('js', ['clean:js', 'sass:js', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
-  grunt.registerTask('css', ['sass:all']);
+	grunt.registerTask('css', ['sass:all']);
 };
