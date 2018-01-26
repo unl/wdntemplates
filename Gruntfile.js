@@ -31,6 +31,7 @@ module.exports = function (grunt) {
 		templateScss = templateDir + '/scss',
 		templateCss = templateDir + '/css',
 		templateJs = templateDir + '/js',
+		templateJsSrc = templateDir + '/js-src',
 		builtJsDir = 'compressed',
 		buildJsDir = buildDir + '/' + builtJsDir,
 		templateCompileJs = templateJs + '/' + builtJsDir,
@@ -124,7 +125,7 @@ module.exports = function (grunt) {
 		dir: buildJsDir,
 		// exclude js/jsx files in babelTranspile folder and
 		// exclude js files that will be copied to root of templateJs
-		fileExclusionRegExp: /^(babelTranspile|babelNoTranspile)$/,
+		fileExclusionRegExp: /^(transpile|noTranspile)$/,
 		optimize: 'uglify2',
 		logLevel: 2,
 		preserveLicenseComments: false,
@@ -226,7 +227,7 @@ module.exports = function (grunt) {
 	    dist: {
 	      files: [{
 	        'expand': true,
-          'cwd': templateJs + '/babelTranspile/',
+          'cwd': templateJsSrc + '/transpile/',
           'src': ['**/*.jsx', '**/*.js'],
           'dest': templateJs,
           'ext': '.js'
@@ -278,8 +279,8 @@ module.exports = function (grunt) {
 		  	files: [
 		  		{	expand: true,
 		      	flatten: true,
-		      	cwd: templateJs,
-		      	src: ['babelNoTranspile/**'],
+		      	cwd: templateJsSrc,
+		      	src: ['noTranspile/**'],
 		      	dest: templateJs,
 		      	filter: 'isFile'
 		      }
