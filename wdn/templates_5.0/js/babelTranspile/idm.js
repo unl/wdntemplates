@@ -1,68 +1,65 @@
-'use strict';
-
 /* globals define: false */
-define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDownWidget, require) {
+define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDownWidget, require) {
 	"use strict";
+	var getLinkByRel = function(name) {
+			return $('link[rel=' + name + ']');
+		},
+		getLocalIdmSettings = function() {
+			var loginLink = getLinkByRel('login'),
+				logoutLink = getLinkByRel('logout');
 
-	var getLinkByRel = function getLinkByRel(name) {
-		return $('link[rel=' + name + ']');
-	},
-	    getLocalIdmSettings = function getLocalIdmSettings() {
-		var loginLink = getLinkByRel('login'),
-		    logoutLink = getLinkByRel('logout');
+			if (loginLink.length) {
+				WDN.setPluginParam('idm', 'login', loginLink.attr('href'));
+			}
+			if (logoutLink.length) {
+				WDN.setPluginParam('idm', 'logout', logoutLink.attr('href'));
+			}
 
-		if (loginLink.length) {
-			WDN.setPluginParam('idm', 'login', loginLink.attr('href'));
-		}
-		if (logoutLink.length) {
-			WDN.setPluginParam('idm', 'logout', logoutLink.attr('href'));
-		}
+			return WDN.getPluginParam('idm') || {};
+		},
+		dcfSel = '#dcf',
+		mainSel = dcfSel + '-idm',
+		loginSel = mainSel + '-login',
+		loginSrv = 'https://login.unl.edu/',
+		ssoCook = 'unl_sso',
+		encLoc = encodeURIComponent(window.location),
+		logoutURL = loginSrv + 'cas/logout?url=' + encLoc,
+		loginURL = loginSrv + 'cas/login?service=' + encLoc,
+		serviceURL = loginSrv + 'services/whoami/?id=',
+		avatarService = 'https://directory.unl.edu/avatar/',
+		planetRed = 'https://planetred.unl.edu/pg/',
+		user = false,
+		loggedOutSel = '#dcf-idm-status-logged-out',
+		loggedInSel = '#dcf-idm-status-logged-out';
 
-		return WDN.getPluginParam('idm') || {};
-	},
-	    dcfSel = '#dcf',
-	    mainSel = dcfSel + '-idm',
-	    loginSel = mainSel + '-login',
-	    loginSrv = 'https://login.unl.edu/',
-	    ssoCook = 'unl_sso',
-	    encLoc = encodeURIComponent(window.location),
-	    logoutURL = loginSrv + 'cas/logout?url=' + encLoc,
-	    loginURL = loginSrv + 'cas/login?service=' + encLoc,
-	    serviceURL = loginSrv + 'services/whoami/?id=',
-	    avatarService = 'https://directory.unl.edu/avatar/',
-	    planetRed = 'https://planetred.unl.edu/pg/',
-	    user = false,
-	    loggedOutSel = '#dcf-idm-status-logged-out',
-	    loggedInSel = '#dcf-idm-status-logged-out';
+	var getUserField = function(field) {
+			if (!user || !user[field]) {
+				return false;
+			}
 
-	var getUserField = function getUserField(field) {
-		if (!user || !user[field]) {
-			return false;
-		}
-
-		return user[field][0];
-	};
+			return user[field][0];
+		};
 
 	var Plugin = {
-		initialize: function initialize(callback) {
-			var loginCheckFailure = function loginCheckFailure() {
-				$(function () {
-					var localSettings = getLocalIdmSettings();
-					if (localSettings.login) {
-						Plugin.setLoginURL(localSettings.login);
+		initialize : function(callback) {
+			var loginCheckFailure = function() {
+					$(function() {
+						var localSettings = getLocalIdmSettings();
+						if (localSettings.login) {
+							Plugin.setLoginURL(localSettings.login);
+						}
+						
+						Plugin.renderAsLoggedOut();
+					});
+
+					if (callback) {
+						callback();
 					}
-
-					Plugin.renderAsLoggedOut();
-				});
-
-				if (callback) {
-					callback();
-				}
-			},
-			    cookie = WDN.getCookie(ssoCook);
+				},
+				cookie = WDN.getCookie(ssoCook);
 
 			if (cookie) {
-				require([serviceURL + cookie], function () {
+				require([serviceURL + cookie], function() {
 					// the whoami service injects into WDN.idm namespace
 					if (WDN.idm.user) {
 						Plugin.setUser(WDN.idm.user);
@@ -73,7 +70,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 						if (callback) {
 							callback();
 						}
-						$(function () {
+						$(function() {
 							Plugin.renderAsLoggedIn();
 						});
 					} else {
@@ -88,43 +85,43 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 		},
 
 		/**
-   * Set the current user. The object should have fields as described by CAS
-   * 
-   * @param newUser object|false
-   */
-		setUser: function setUser(newUser) {
-			user = newUser;
+		 * Set the current user. The object should have fields as described by CAS
+		 * 
+		 * @param newUser object|false
+		 */
+		setUser : function(newUser) {
+			user = newUser
 		},
 
-		logout: function logout() {
+		logout : function() {
 			WDN.setCookie(ssoCook, '0', -1);
 			user = false;
 		},
 
 		/**
-   * Checks if the user is logged in
-   *
-   * @return bool
-   */
-		isLoggedIn: function isLoggedIn() {
+		 * Checks if the user is logged in
+		 *
+		 * @return bool
+		 */
+		isLoggedIn : function() {
 			return !!Plugin.getUserId();
 		},
 
 		/**
-   * Returns the uid of the logged in user.
-   *
-   * @return string
-   */
-		getUserId: function getUserId() {
+		 * Returns the uid of the logged in user.
+		 *
+		 * @return string
+		 */
+		getUserId : function() {
 			return user && user.uid;
 		},
 
 		/**
-   * Get the logged in user's display name (full name)
-   *
-   * @returns {string}
-   */
-		getDisplayName: function getDisplayName() {
+		 * Get the logged in user's display name (full name)
+		 *
+		 * @returns {string}
+		 */
+		getDisplayName : function() {
 			var disp_name = '';
 			if (user.eduPersonNickname) {
 				disp_name = user.eduPersonNickname[0];
@@ -138,85 +135,85 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 		},
 
 		/**
-   * Get the logged in user's last name only
-   *
-   * @returns {false|string}
-   */
-		getFirstName: function getFirstName() {
+		 * Get the logged in user's last name only
+		 *
+		 * @returns {false|string}
+		 */
+		getFirstName : function() {
 			return getUserField('givenName');
 		},
 
 		/**
-   * Get the logged in user's first name only
-   *
-   * @returns {false|string}
-   */
-		getLastName: function getLastName() {
+		 * Get the logged in user's first name only
+		 *
+		 * @returns {false|string}
+		 */
+		getLastName : function() {
 			return getUserField('sn');
 		},
 
 		/**
-   * Get the logged in user's primary affiliation.  IE: staff or faculty
-   *
-   * @returns {false|string}
-   */
-		getPrimaryAffiliation: function getPrimaryAffiliation() {
+		 * Get the logged in user's primary affiliation.  IE: staff or faculty
+		 *
+		 * @returns {false|string}
+		 */
+		getPrimaryAffiliation : function() {
 			return getUserField('eduPersonPrimaryAffiliation');
 		},
 
 		/**
-   * Get the logged in user's email address
-   *
-   * @returns {false|string}
-   */
-		getEmailAddress: function getEmailAddress() {
+		 * Get the logged in user's email address
+		 *
+		 * @returns {false|string}
+		 */
+		getEmailAddress : function() {
 			return getUserField('mail');
 		},
 
 		/**
-   * Get the logged in user's postal address
-   *
-   * @returns {false|string}
-   */
-		getPostalAddress: function getPostalAddress() {
+		 * Get the logged in user's postal address
+		 *
+		 * @returns {false|string}
+		 */
+		getPostalAddress : function() {
 			return getUserField('postalAddress');
 		},
 
 		/**
-   * Get the logged in user's telephone number
-   *
-   * @returns {false|string}
-   */
-		getTelephoneNumber: function getTelephoneNumber() {
+		 * Get the logged in user's telephone number
+		 *
+		 * @returns {false|string}
+		 */
+		getTelephoneNumber : function() {
 			return getUserField('telephoneNumber');
 		},
 
 		/**
-   * Get the logged in user's title
-   *
-   * @returns {false|string}
-   */
-		getTitle: function getTitle() {
+		 * Get the logged in user's title
+		 *
+		 * @returns {false|string}
+		 */
+		getTitle : function() {
 			return getUserField('title');
 		},
 
 		/**
-   * Get the profile (planet red) URL
-   * 
-   * @returns {string}
-   */
-		getProfileURL: function getProfileURL() {
+		 * Get the profile (planet red) URL
+		 * 
+		 * @returns {string}
+		 */
+		getProfileURL : function() {
 			if (!this.isLoggedIn()) {
 				return false;
 			}
-
+			
 			var uid = this.getUserId();
-
+			
 			// in planet red's use of CAS, staff usernames are converted like jdoe2 -> unl_jdoe2
 			//  and student usernames are converted like s-jdoe3 -> unl_s_jdoe3
 			var planetred_uid = 'unl_';
-			if (uid.substring(2, 0) === 's-') {
-				planetred_uid += uid.replace('-', '_');
+			if (uid.substring(2,0) === 's-') {
+				planetred_uid += uid.replace('-','_');
 			} else {
 				planetred_uid += uid;
 			}
@@ -225,13 +222,13 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 		},
 
 		/**
-   * Update the SSO tab and display user info
-   */
-		renderAsLoggedIn: function renderAsLoggedIn() {
+		 * Update the SSO tab and display user info
+		 */
+		renderAsLoggedIn : function() {
 			var localSettings = getLocalIdmSettings(),
-			    $loggedOutContainer = $(loggedOutSel),
-			    $loggedInContainer = $(loggedInSel);
-
+				$loggedOutContainer = $(loggedOutSel),
+				$loggedInContainer = $(loggedInSel);
+			
 			//Set up the idm button
 			var $button = $('<button>', {
 				'class': 'dcf-u-p0 dcf-u-b0 dcf-u-bg-transparent dcf-c-mobile-nav-toggle dcf-c-idm__toggle unl-u-font-sans" id="dcf-idm-toggle',
@@ -252,23 +249,23 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 				'class': 'dcf-u-sm2'
 			}).text(this.getDisplayName()));
 			$button.append($buttonContents);
-
+			
 			//Set up the IDM options
 			var $optionsContainer = $('<div>', {
 				'id': 'dcf-idm-options',
 				'class': 'dcf-u-overlay-dark dcf-c-idm__options',
 				'hidden': true
 			});
-
+			
 			var $navUL = $('<ul>', {
 				'class': 'dcf-c-list-unstyled'
 			});
-
+			
 			//Add the profile link
 			$navUL.append($('<li>').append($('<a>', {
 				'href': this.getProfileURL()
 			}).text('View Profile')));
-
+			
 			//Add the logout link (set it as a variable so that we can reference it later)
 			var $logoutLink = $('<a>', {
 				'href': logoutURL,
@@ -295,15 +292,15 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 			Plugin.setLogoutURL(localSettings.logout);
 		},
 
-		renderAsLoggedOut: function renderAsLoggedOut() {
+		renderAsLoggedOut : function() {
 			if (Plugin.getUserId()) {
 				//if the user is already logged in, we should not reset the login
 				return;
 			}
 
 			var $loggedOutContainer = $(loggedOutSel),
-			    $loggedInContainer = $(loggedInSel),
-			    loginLink = $(loginSel);
+				$loggedInContainer = $(loggedInSel),
+				loginLink = $(loginSel);
 
 			loginLink.attr('href', loginURL);
 
@@ -312,18 +309,18 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 		},
 
 		/**
-   * Set the URL to send the user to when the logout link is clicked
-   */
-		setLogoutURL: function setLogoutURL(url) {
+		 * Set the URL to send the user to when the logout link is clicked
+		 */
+		setLogoutURL : function(url) {
 			if (url) {
 				logoutURL = url;
 			}
 		},
 
 		/**
-   * Set the URL to send the user to when the login link is clicked
-   */
-		setLoginURL: function setLoginURL(url) {
+		 * Set the URL to send the user to when the login link is clicked
+		 */
+		setLoginURL : function(url) {
 			if (url) {
 				loginURL = url;
 			}

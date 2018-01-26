@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * This creates a dropdown widget and enforces accessibility best practices including:
  * 1) use aria-expanded to describe when the drop-down is open or closed
@@ -16,14 +14,13 @@
  * </div>
  * 
  */
-define([], function () {
+define([], function() {
 	"use strict";
 
 	/**
-  * @param container DOM object (NOT a jquery object)
-  * @constructor
-  */
-
+	 * @param container DOM object (NOT a jquery object)
+	 * @constructor
+	 */
 	function DropDownWidget(container) {
 		this.container = container;
 		this.button = this.container.querySelector('button[aria-expanded="false"]');
@@ -35,7 +32,7 @@ define([], function () {
 			//Assume that it is controlling the next sibling element
 			this.controls = this.button.nextElementSibling;
 		}
-
+		
 		//Determine which element should receive focus
 		this.focusTarget = this.controls.querySelector('h2, a, button');
 		this.focusTarget.setAttribute('tabindex', '0'); //Ensure that the element is focusable.
@@ -56,21 +53,21 @@ define([], function () {
 		}.bind(this));
 	}
 
-	DropDownWidget.prototype.open = function () {
+	DropDownWidget.prototype.open = function() {
 		this.button.setAttribute('aria-expanded', 'true');
 		this.controls.hidden = false;
 		//Send focus to the first item
 		this.focusTarget.focus();
 	};
 
-	DropDownWidget.prototype.close = function () {
+	DropDownWidget.prototype.close = function() {
 		this.button.setAttribute('aria-expanded', 'false');
 		this.controls.hidden = true;
 		//Send focus back to the button
 		this.button.focus();
 	};
 
-	DropDownWidget.prototype.toggle = function () {
+	DropDownWidget.prototype.toggle = function() {
 		if (this.isExpanded()) {
 			this.close();
 		} else {
@@ -78,9 +75,9 @@ define([], function () {
 		}
 	};
 
-	DropDownWidget.prototype.isExpanded = function () {
+	DropDownWidget.prototype.isExpanded = function() {
 		return this.button.getAttribute('aria-expanded') === 'true';
 	};
-
+	
 	return DropDownWidget;
 });
