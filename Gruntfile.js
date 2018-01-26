@@ -123,9 +123,6 @@ module.exports = function (grunt) {
 		appDir: templateJs + '/',
 		baseUrl: './',
 		dir: buildJsDir,
-		// exclude js/jsx files in babelTranspile folder and
-		// exclude js files that will be copied to root of templateJs
-		fileExclusionRegExp: /^(transpile|noTranspile)$/,
 		optimize: 'uglify2',
 		logLevel: 2,
 		preserveLicenseComments: false,
