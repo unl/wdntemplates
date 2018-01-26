@@ -692,13 +692,13 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
     </figure>
         <h2 class="dcf-u-mt6">Pagination</h2>
         <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-        <nav aria-label="Pagination example">
-          <ul class="dcf-c-pagination">
-            <li class="dcf-c-pagination__item"><a class="dcf-c-btn dcf-c-btn--secondary" href="#previous"><svg class="dcf-u-sm2 dcf-u-mr3 dcf-c-icon dcf-c-icon--inline" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M23.5 8.997L11.387 9l3.864-4.152a.5.5 0 0 0-.013-.695L11.788.704a.5.5 0 0 0-.707 0L.156 11.628a.5.5 0 0 0 0 .707L11.081 23.26a.5.5 0 0 0 .707 0l3.45-3.449a.502.502 0 0 0 .013-.695l-3.815-4.119H23.5c.274 0 .499-.19.5-.465V9.5a.5.5 0 0 0-.5-.503z"/></svg>Previous</a></li>
-            <li class="dcf-c-pagination__item"><a class="dcf-c-btn dcf-c-btn--secondary" href="#page1">1</a></li>
-            <li class="dcf-c-pagination__item"><a class="dcf-c-btn dcf-c-btn--secondary" href="#page2">2</a></li>
-            <li class="dcf-c-pagination__item"><a class="dcf-c-btn dcf-c-btn--secondary" href="#page3">3</a></li>
-            <li class="dcf-c-pagination__item"><a class="dcf-c-btn dcf-c-btn--secondary" href="#next">Next<svg class="dcf-u-sm2 dcf-u-ml3 dcf-c-icon dcf-c-icon--inline" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M23.879 11.628L12.954.703a.5.5 0 0 0-.707 0l-3.45 3.449a.502.502 0 0 0-.013.696l3.863 4.163L.522 8.996H.521a.499.499 0 0 0-.499.5v5a.5.5 0 0 0 .5.5h12.079l-3.816 4.119a.5.5 0 0 0 .013.695l3.45 3.449a.498.498 0 0 0 .707 0L23.88 12.334a.5.5 0 0 0-.001-.706z"/></svg></a></li>
+        <nav class="dcf-u-mt6" aria-label="pagination">
+          <ul class="dcf-c-list-unstyled dcf-u-bold unl-u-font-sans">
+            <li class="dcf-c-list-inline-item"><a href="#previous"><svg class="dcf-u-sm2 dcf-u-mr3 dcf-c-icon dcf-c-icon--inline" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M23.5 8.997L11.387 9l3.864-4.152a.5.5 0 0 0-.013-.695L11.788.704a.5.5 0 0 0-.707 0L.156 11.628a.5.5 0 0 0 0 .707L11.081 23.26a.5.5 0 0 0 .707 0l3.45-3.449a.502.502 0 0 0 .013-.695l-3.815-4.119H23.5c.274 0 .499-.19.5-.465V9.5a.5.5 0 0 0-.5-.503z"/></svg>Previous</a></li>
+            <li class="dcf-c-list-inline-item"><a href="#page1">1</a></li>
+            <li class="dcf-c-list-inline-item"><a href="#page2">2</a></li>
+            <li class="dcf-c-list-inline-item"><a href="#page3">3</a></li>
+            <li class="dcf-c-list-inline-item"><a href="#next">Next<svg class="dcf-u-sm2 dcf-u-ml3 dcf-c-icon dcf-c-icon--inline" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M23.879 11.628L12.954.703a.5.5 0 0 0-.707 0l-3.45 3.449a.502.502 0 0 0-.013.696l3.863 4.163L.522 8.996H.521a.499.499 0 0 0-.499.5v5a.5.5 0 0 0 .5.5h12.079l-3.816 4.119a.5.5 0 0 0 .013.695l3.45 3.449a.498.498 0 0 0 .707 0L23.88 12.334a.5.5 0 0 0-.001-.706z"/></svg></a></li>
           </ul>
         </nav>
 
