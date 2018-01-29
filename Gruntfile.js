@@ -53,7 +53,7 @@ module.exports = function (grunt) {
 	// polyfill modules that need sync loading (should match scripts loaded in debug.js)
 	var polyfillMods = [
 		//'modernizr-wdn',
-		//'ga',
+		'ga',
 		'requireLib',
 		'wdn'
 	];

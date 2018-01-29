@@ -1,5 +1,5 @@
 /* globals define: false */
-define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
+define(['wdn', 'jquery', 'dropdown-widget', 'require'], function(WDN, $, DropDownWidget, require) {
 	"use strict";
 	var getLinkByRel = function(name) {
 			return $('link[rel=' + name + ']');
@@ -17,14 +17,9 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 
 			return WDN.getPluginParam('idm') || {};
 		},
-		wdnSel = '#wdn_',
-		mainSel = wdnSel + 'identity_management',
-		idmSel = wdnSel + 'idm_',
-		idmContainerSel = idmSel + 'notice_container',
-		userSel = idmSel + 'username',
-		profileSel = idmSel + 'profile',
-		logoutSel = idmSel + 'logout',
-		toggleSel = idmSel + 'toggle_label',
+		dcfSel = '#dcf',
+		mainSel = dcfSel + '-idm',
+		loginSel = mainSel + '-login',
 		loginSrv = 'https://login.unl.edu/',
 		ssoCook = 'unl_sso',
 		encLoc = encodeURIComponent(window.location),
@@ -33,37 +28,11 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		serviceURL = loginSrv + 'services/whoami/?id=',
 		avatarService = 'https://directory.unl.edu/avatar/',
 		planetRed = 'https://planetred.unl.edu/pg/',
-		defaultLinkText,
-		user = false;
+		user = false,
+		loggedOutSel = '#dcf-idm-status-logged-out',
+		loggedInSel = '#dcf-idm-status-logged-out';
 
-	var displayName = function(uid) {
-			var disp_name = uid;
-
-			if (uid){
-				if (user.uid && user.uid === uid) {
-					return userDisplayName();
-				}
-			} else {
-				return userDisplayName();
-			}
-
-			return disp_name;
-		},
-
-		userDisplayName = function() {
-			var disp_name = '';
-			if (user.eduPersonNickname) {
-				disp_name = user.eduPersonNickname[0];
-			} else if (user.givenName) {
-				disp_name = user.givenName[0];
-			} else if (user.displayName) {
-				disp_name = user.displayName[0];
-			}
-
-			return disp_name;
-		},
-
-		getUserField = function(field) {
+	var getUserField = function(field) {
 			if (!user || !user[field]) {
 				return false;
 			}
@@ -76,12 +45,11 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			var loginCheckFailure = function() {
 					$(function() {
 						var localSettings = getLocalIdmSettings();
-						defaultLinkText = $(userSel).html();
 						if (localSettings.login) {
 							Plugin.setLoginURL(localSettings.login);
-						} else {
-							Plugin.displayLogin();
 						}
+						
+						Plugin.renderAsLoggedOut();
 					});
 
 					if (callback) {
@@ -94,7 +62,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 				require([serviceURL + cookie], function() {
 					// the whoami service injects into WDN.idm namespace
 					if (WDN.idm.user) {
-						user = WDN.idm.user;
+						Plugin.setUser(WDN.idm.user);
 						delete WDN.idm.user;
 					}
 
@@ -103,7 +71,7 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 							callback();
 						}
 						$(function() {
-							Plugin.displayNotice(Plugin.getUserId());
+							Plugin.renderAsLoggedIn();
 						});
 					} else {
 						// User's CAS session is no longer active, kill cookie
@@ -114,6 +82,15 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			} else {
 				loginCheckFailure();
 			}
+		},
+
+		/**
+		 * Set the current user. The object should have fields as described by CAS
+		 * 
+		 * @param newUser object|false
+		 */
+		setUser : function(newUser) {
+			user = newUser
 		},
 
 		logout : function() {
@@ -145,7 +122,16 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		 * @returns {string}
 		 */
 		getDisplayName : function() {
-			return userDisplayName();
+			var disp_name = '';
+			if (user.eduPersonNickname) {
+				disp_name = user.eduPersonNickname[0];
+			} else if (user.givenName) {
+				disp_name = user.givenName[0];
+			} else if (user.displayName) {
+				disp_name = user.displayName[0];
+			}
+
+			return disp_name;
 		},
 
 		/**
@@ -212,16 +198,17 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 		},
 
 		/**
-		 * Update the SSO tab and display user info
-		 *
-		 * @param {string} uid
+		 * Get the profile (planet red) URL
+		 * 
+		 * @returns {string}
 		 */
-		displayNotice : function(uid) {
-
-			var localSettings = getLocalIdmSettings(),
-				idm = $(mainSel),
-				username = $(userSel);
-
+		getProfileURL : function() {
+			if (!this.isLoggedIn()) {
+				return false;
+			}
+			
+			var uid = this.getUserId();
+			
 			// in planet red's use of CAS, staff usernames are converted like jdoe2 -> unl_jdoe2
 			//  and student usernames are converted like s-jdoe3 -> unl_s_jdoe3
 			var planetred_uid = 'unl_';
@@ -231,50 +218,103 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 				planetred_uid += uid;
 			}
 
-			idm.addClass('loggedin');
+			return planetRed + 'profile/' + planetred_uid;
+		},
 
-			$(toggleSel).css('backgroundImage', 'url(' + avatarService + uid + ')')
-                .html('<span class="wdn-text-hidden">Account actions for </span>'+displayName(uid));
-            $(profileSel).attr('href', planetRed + 'profile/' + planetred_uid);
+		/**
+		 * Update the SSO tab and display user info
+		 */
+		renderAsLoggedIn : function() {
+			var localSettings = getLocalIdmSettings(),
+				$loggedOutContainer = $(loggedOutSel),
+				$loggedInContainer = $(loggedInSel);
+			
+			//Set up the idm button
+			var $button = $('<button>', {
+				'class': 'dcf-u-p0 dcf-u-b0 dcf-u-bg-transparent dcf-c-mobile-nav-toggle dcf-c-idm__toggle unl-u-font-sans" id="dcf-idm-toggle',
+				'aria-expanded': 'false',
+				'aria-controls': 'dcf-idm-options',
+				'aria-label': 'Account actions for ' + this.getDisplayName()
+			});
+			var $buttonContents = $('<span>', {
+				'class': 'dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-jc-center dcf-u-h100'
+			});
+			$buttonContents.append($('<img>', {
+				'class': 'dcf-u-block dcf-u-circle',
+				'src': avatarService + this.getUserId(),
+				'alt': '',
+				'style': 'height: 2em; width: 2em; background-color: #d00000;'
+			}));
+			$buttonContents.append($('<span>', {
+				'class': 'dcf-u-sm2'
+			}).text(this.getDisplayName()));
+			$button.append($buttonContents);
+			
+			//Set up the IDM options
+			var $optionsContainer = $('<div>', {
+				'id': 'dcf-idm-options',
+				'class': 'dcf-u-overlay-dark dcf-c-idm__options',
+				'hidden': true
+			});
+			
+			var $navUL = $('<ul>', {
+				'class': 'dcf-c-list-unstyled'
+			});
+			
+			//Add the profile link
+			$navUL.append($('<li>').append($('<a>', {
+				'href': this.getProfileURL()
+			}).text('View Profile')));
+			
+			//Add the logout link (set it as a variable so that we can reference it later)
+			var $logoutLink = $('<a>', {
+				'href': logoutURL,
+				'id': 'dcf-idm-logout'
+			}).text('Logout');
+			$navUL.append($('<li>').append($logoutLink));
 
-			$(idmContainerSel).removeClass('hidden');
+			//Attach the UL to the options container
+			$optionsContainer.append($navUL);
 
-            // Hide login anchor
-            $(userSel).hide();
+			$loggedInContainer.html(''); //Clear any existing contents
+			$loggedInContainer.append($button); //add new stuff
+			$loggedInContainer.append($optionsContainer);
+
+			//Add JS functionality to make this work
+			var $dropdownNav = new DropDownWidget($loggedInContainer[0]);
+
+			//Show the contents
+			$loggedInContainer.attr('hidden', true);
+			$loggedOutContainer.removeAttr('hidden');
 
 			// Any time logout link is clicked, unset the user data
-			var logoutLink = $(logoutSel);
-			logoutLink.off('click').click(Plugin.logout);
+			$logoutLink.off('click').click(Plugin.logout);
 			Plugin.setLogoutURL(localSettings.logout);
 		},
 
-		displayLogin : function() {
+		renderAsLoggedOut : function() {
 			if (Plugin.getUserId()) {
 				//if the user is already logged in, we should not reset the login
 				return;
 			}
 
-			var idm = $(mainSel),
-				loginLink = $(userSel);
+			var $loggedOutContainer = $(loggedOutSel),
+				$loggedInContainer = $(loggedInSel),
+				loginLink = $(loginSel);
 
-			idm.removeClass('loggedin');
-			loginLink.css('backgroundImage', null)
-				.attr('href', loginURL)
-				.html(defaultLinkText);
+			loginLink.attr('href', loginURL);
 
-            // Show login anchor
-            $(userSel).show();
+			$loggedInContainer.attr('hidden', true);
+			$loggedOutContainer.removeAttr('hidden');
 		},
 
 		/**
 		 * Set the URL to send the user to when the logout link is clicked
 		 */
 		setLogoutURL : function(url) {
-			var logoutLink = $(logoutSel);
 			if (url) {
 				logoutURL = url;
 			}
-			logoutLink.attr('href', logoutURL);
 		},
 
 		/**
@@ -284,7 +324,6 @@ define(['wdn', 'jquery', 'require'], function(WDN, $, require) {
 			if (url) {
 				loginURL = url;
 			}
-			Plugin.displayLogin();
 		}
 	};
 
