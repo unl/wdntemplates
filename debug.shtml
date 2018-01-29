@@ -25,7 +25,7 @@
   </div>
 -->
 
-  <div class="dcf-o-wrapper dcf-u-pt2 dcf-u-pb4 dcf-c-header">
+  <div class="dcf-o-wrapper dcf-c-header dcf-u-pt2 dcf-u-pb4 dcf-u-colgap-vw">
 
 <!--     <header class="" id="dcf-header" role="banner"> -->
 
@@ -134,7 +134,7 @@
     <div class="dcf-o-full-width unl-u-bg-cream dcf-u-pt10 dcf-u-pb10">
       <div class="dcf-o-wrapper">
         <h2>Cards</h2>
-        <ul class="dcf-o-grid dcf-u-colgap-sm dcf-u-rowgap-sm dcf-c-list-unstyled dcf-u-mt6 dcf-u-mb0">
+        <ul class="dcf-o-grid-halves@sm dcf-o-grid-fourths@lg dcf-u-colgap-sm dcf-u-rowgap-sm dcf-c-list-unstyled dcf-u-mt6 dcf-u-mb0">
           <li class="dcf-c-card">
             <img src="/wdn/templates_5.0/images/171018-campus-011.jpg" alt="A placeholder image with a 4:3 aspect ratio">
             <div class="dcf-c-card__block">
@@ -167,30 +167,10 @@
       </div>
     </div>
 
-    <!-- 2 items -->
-    <div class="dcf-o-full-width unl-u-bg-cream">
-      <div class="dcf-o-wrapper dcf-u-pt10 dcf-u-pb10">
-        <div class="dcf-o-grid-even dcf-u-colgap-vw dcf-u-rowgap-lg">
-          <div class="dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-txt-center">
-            <svg style="width:2.37em; height:2.37em;" class="dcf-u-mb1" role="img" aria-labelledby="title-icon-badge-star desc-icon-badge-star" focusable="false" height="16" width="16" viewBox="0 0 24 24"><title id="title-icon-badge-star">badge star icon</title><desc id="desc-icon-badge-star">illustration of a flag with a star</desc><path d="M22 4c-.651 0-1.201.419-1.408 1h-1.936L12.284.589a.5.5 0 0 0-.568 0L5.344 5H3.408C3.201 4.419 2.651 4 2 4 1.173 4 .5 4.673.5 5.5S1.173 7 2 7c.651 0 1.201-.418 1.408-1H5v11.5a.5.5 0 0 0 .177.382l6.5 5.5a.505.505 0 0 0 .646 0l6.5-5.5A.503.503 0 0 0 19 17.5V6h1.592a1.496 1.496 0 0 0 2.908-.5c0-.827-.673-1.5-1.5-1.5zM12 1.608L16.899 5H7.101L12 1.608zm4.861 10.294l-2.531 1.866.966 2.989a.5.5 0 0 1-.769.559L12 15.485l-2.527 1.831a.5.5 0 0 1-.769-.559l.966-2.989-2.531-1.866A.5.5 0 0 1 7.436 11h3.124l.966-2.972c.135-.411.816-.411.951 0L13.44 11h3.124a.5.5 0 0 1 .297.902z"/></svg>
-            <h3 class="dcf-u-h4 dcf-u-regular">Porta Condimentum</h3>
-            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum.</p>
-            <a class="" href="#">Call to Action</a>
-          </div>
-          <div class="dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-txt-center">
-            <svg style="width:2.37em; height:2.37em;" class="dcf-u-mb1" role="img" aria-labelledby="title-icon-graduate desc-icon-graduate" focusable="false" height="16" width="16" viewBox="0 0 24 24"><title id="title-icon-graduate">graduate icon</title><desc id="desc-icon-graduate">illustration of person wearing a graduation cap and gown</desc><path d="M.419 2.994l2.081.361v3.092l-1.489 6.948A.5.5 0 0 0 1.5 14h3a.5.5 0 0 0 .489-.604L3.5 6.447V3.529c4.096.711.06.011 8.454 1.471h.093l11.5-2.003a.501.501 0 0 0 .45-.491v-.012a.5.5 0 0 0-.415-.487L12.09.009a.507.507 0 0 0-.178 0L.454 2.004a.5.5 0 0 0-.45.491v.011c.002.24.178.446.415.488z"/><path d="M10 8.501c-.851-.009-1.5.121-1.5 1.002a.5.5 0 0 0 1 .009c.095-.012.906-.012 1 0a.5.5 0 0 0 1-.009c0-.886-.651-1.006-1.5-1.002zM14 8.501c-.851-.009-1.5.121-1.5 1.002a.5.5 0 0 0 1 .009c.095-.012.906-.012 1 0a.5.5 0 0 0 1-.009c0-.886-.651-1.006-1.5-1.002zM12 6c-.086 0-5.501-.935-5.501-.935 0 .304-.049.593.147.788C6.713 5.921 8.335 7.5 12 7.5s5.286-1.579 5.354-1.647c.194-.195.146-.484.146-.788 0 0-5.414.935-5.5.935z"/><path d="M21.037 16.773c-6.449-1.78 1.022.279-5.405-1.492.95-.854 1.714-1.995 1.847-3.359.685-.234 1.146-.971 1.146-1.922 0-.941-.451-1.673-1.125-1.914V7.004c-.249.171-.579.37-1 .568V8.5a.5.5 0 0 0 .5.5c.495 0 .625.654.625 1s-.13 1-.625 1a.5.5 0 0 0-.5.5c0 2.6-3.158 4.5-4.5 4.5s-4.5-1.9-4.5-4.5A.5.5 0 0 0 7 11c-.495 0-.625-.654-.625-1S6.505 9 7 9a.5.5 0 0 0 .5-.5v-.928a7.145 7.145 0 0 1-1-.568v1.08c-.674.241-1.125.975-1.125 1.916 0 .951.46 1.688 1.146 1.922.133 1.363.896 2.504 1.844 3.356L2.92 16.787A4.52 4.52 0 0 0 0 21v2.5a.5.5 0 0 0 .5.5h23a.5.5 0 0 0 .5-.5V21c0-1.865-1.173-3.559-2.963-4.227zM12 20.793l-4.288-4.287c.46-.11 1.1-.241 1.863-.342.908.54 1.82.836 2.425.836.606 0 1.518-.297 2.427-.838.763.101 1.404.229 1.866.338L12 20.793z"/></svg>
-            <h3 class="dcf-u-h4 dcf-u-regular">Ligula Sem</h3>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-            <a class="" href="#">Call to Action</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- 4 items -->
     <div class="dcf-o-full-width unl-u-bg-diagonal">
       <div class="dcf-o-wrapper dcf-u-pt10 dcf-u-pb10">
-        <div class="dcf-o-grid-even dcf-o-grid-even@md dcf-u-colgap-vw dcf-u-rowgap-lg">
+        <div class="dcf-o-grid-halves@sm dcf-o-grid-fourths@lg dcf-u-colgap-vw dcf-u-rowgap-lg">
           <div class="">
             <svg style="width:2.37em; height:2.37em;" class="dcf-u-mb1" role="img" aria-labelledby="title-icon-globe-2 desc-icon-globe-2" focusable="false" height="16" width="16" viewBox="0 0 24 24"><title id="title-icon-globe-2">globe icon</title><desc id="desc-icon-globe-2">illustration of a globe</desc><path d="M21.14 4.236c-.47 1.332-1.426 3.465-2.916 4.211a.503.503 0 0 1-.345.037c-1.057-.263-2.127.127-2.674.439.23.309.487.846.733 1.774.213.075.628-.038.837-.144a.499.499 0 0 1 .578.094c1.213 1.213-.359 2.847-1.299 3.825-.166.172-.378.392-.496.536.04.037.087.079.124.11.228.199.541.471.557.902.01.287-.12.567-.386.834a5.155 5.155 0 0 1-1.367.981C14.343 19.535 13.09 20.5 11 20.5c-.976 0-2-2.493-2-3 0-.368.16-.69.303-.974.096-.193.197-.394.197-.526-.023-.171-.43-.721-.854-1.146A.502.502 0 0 1 8.5 14.5c0-.429-.077-.72-.229-.863-.252-.237-.849-.203-1.478-.167-.259.014-.526.03-.793.03-1.582 0-2-1.635-2-2.5 0-.16.033-3.917 2.901-4.49 1.308-.262 2.19-.185 2.703.236.181.148.29.322.346.484.526.389 1.47.168 2.309-.026.277-.065.546-.127.795-.165.093-.845.096-1.663.009-2.018-.613.257-1.222.255-1.698-.009-.493-.274-.8-.795-.862-1.467C10.369 2.107 13.144.989 15.05.393A12 12 0 0 0 12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c6.616 0 12-5.383 12-12 0-2.958-1.079-5.668-2.86-7.764z"/></svg>
             <h3 class="dcf-u-h4 dcf-u-regular">Malesuada Pellentesque</h3>
@@ -790,7 +770,7 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
         	</ul>
         </div>
       </aside>
-      <footer class="dcf-o-grid dcf-c-article__footer dcf-u-colgap-md dcf-u-rowgap-md unl-u-font-sans">
+      <footer class="dcf-o-grid-halves@sm dcf-o-grid-fourths@lg dcf-c-article__footer dcf-u-colgap-vw dcf-u-rowgap-md unl-u-font-sans">
         <div class="dcf-u-sm2 dcf-u-bt dcf-u-pt4">
           <div class="dcf-u-mb4 dcf-u-bold dcf-u-uppercase dcf-u-ls2" role="heading">
             News Release Contacts
