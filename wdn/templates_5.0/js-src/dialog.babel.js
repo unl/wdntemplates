@@ -43,7 +43,7 @@ define([
 				buttons = document.querySelectorAll('button[data-show-dialog="'+dialog.getAttribute('id')+'"]');
 			}
 
-			if (!buttons.length) {
+			if ('undefined' === typeof buttons.length) {
 				//Convert to an array if we need to
 				buttons = [buttons];
 			}
@@ -66,7 +66,7 @@ define([
 				buttons = document.querySelectorAll('button[data-close-dialog="'+dialog.getAttribute('id')+'"]');
 			}
 			
-			if (!buttons.length) {
+			if ('undefined' === typeof buttons.length) {
 				//Convert to an array if we need to
 				buttons = [buttons];
 			}
