@@ -50,7 +50,6 @@ define([], function () {
 		this.container = addEventListener('keydown', function (e) {
 			// If escape, refocus menu button
 			if (e.keyCode === 27) {
-				e.preventDefault();
 				this.close();
 			}
 		}.bind(this));
@@ -66,8 +65,11 @@ define([], function () {
 	DropDownWidget.prototype.close = function () {
 		this.button.setAttribute('aria-expanded', 'false');
 		this.controls.hidden = true;
-		//Send focus back to the button
-		this.button.focus();
+		
+		//Send focus back to the button if a child of the menu is currently selected
+		if (document.activeElement && this.controls.contains(document.activeElement)) {
+			this.button.focus();
+		}
 	};
 
 	DropDownWidget.prototype.toggle = function () {
