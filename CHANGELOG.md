@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.30 (February 6, 2018)
+- Updated year in global footer
+
 ## 4.1.29 (January 2, 2018)
 - No commits made, version bumped
 
