@@ -5,13 +5,15 @@
  * 1. Starts an http server on port 8080, with the repo root as the document root
  * 2. convert the debug.shtml file into debug.compiled.html (replace apache style includes) because the http server can't do this.
  * 3. use headless chrome to inject axe-core and run accessibility tests
+ * 4. send the compiled html to the w3c validator
  * 4. if there are no errors, exit with a status of 0
  * 5. if there are errors, exit with tha status of 1 and show the errors
  */
 
 const fs = require('fs');
 const puppeteer = require('puppeteer');
-const { spawn } = require('child_process');
+const { spawn, execSync } = require('child_process');
+const http = require('http');
 
 //start http server
 console.log('Starting HTTP server');
@@ -42,9 +44,15 @@ let runTests = function() {
 	});
 
 	fs.writeFileSync('debug.compiled.html', newContents, { encoding : 'utf8'});
+	
+	let all_results = {
+		'axe': [],
+		'w3c': []
+	};
 
-	//Run headless chrome tests
+	//Run tests
 	(async () => {
+		//start with browser tests (axe)
 		const browser = await puppeteer.launch();
 		const page = await browser.newPage();
 		await page.goto('http://localhost:8080/debug.compiled.html');
@@ -56,12 +64,22 @@ let runTests = function() {
 		//Close open programs
 		await browser.close();
 		await httpServer.kill();
+
+		all_results.axe = results.violations;
+
+		//now do w3c tests (html validation)
+		let result = execSync('curl -H "Content-Type: text/html; charset=utf-8" ' +
+			'    --data-binary @debug.compiled.html ' +
+			'    https://validator.w3.org/nu/?out=json');
 		
-		//Handle the result
-		if (results.violations.length > 0) {
-			console.log('axe found errors!');
+		result = JSON.parse(result);
+		all_results.w3c = result.messages.filter(message => message.type === 'error');
+		
+		//Handle the results
+		if (all_results.axe.length > 0 || all_results.w3c.length > 0) {
+			console.log('found errors!');
 			//pretty print the violations
-			console.log(JSON.stringify(results.violations, null, 2));
+			console.log(JSON.stringify(all_results, null, 2));
 			process.exit(1);
 		} else {
 			//success
