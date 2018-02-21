@@ -68,7 +68,7 @@ let runTests = function() {
 		all_results.axe = results.violations;
 
 		//now do w3c tests (html validation)
-		let result = execSync('curl -H "Content-Type: text/html; charset=utf-8" ' +
+		let result = execSync('curl -s -H "Content-Type: text/html; charset=utf-8" ' +
 			'    --data-binary @debug.compiled.html ' +
 			'    https://validator.w3.org/nu/?out=json');
 		
