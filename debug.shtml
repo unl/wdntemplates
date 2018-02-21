@@ -52,7 +52,7 @@
 <!--     </header> -->
 
 
-  <button class="dcf-u-p0 dcf-u-b0 dcf-u-bg-transparent dcf-c-mobile-nav-toggle dcf-c-nav-toggle" id="dcf-menu-toggle" aria-pressed="false" aria-controls="dcf-navigation" aria-haspopup="true">
+  <button class="dcf-u-p0 dcf-u-b0 dcf-u-bg-transparent dcf-c-mobile-nav-toggle dcf-c-nav-toggle" id="dcf-menu-toggle" aria-pressed="false" aria-controls="dcf-primary-navigation dcf-secondary-navigation" aria-haspopup="true">
     <span class="dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-jc-center dcf-u-h100">
       <span class="dcf-u-flex dcf-u-ai-center dcf-u-jc-center dcf-u-circle" style="height: 2em; width: 2em; background-color: #d00000;">
         <svg class="dcf-c-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48"><g class="dcf-c-icon--menu-top"><path fill="#fff" d="M46,9H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/></g><g class="dcf-c-icon--menu-bottom"><path fill="#fff" d="M46,35H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/></g><g class="dcf-c-icon--menu-middle"><path fill="#fff" d="M46,22H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/></g></svg>
@@ -60,17 +60,15 @@
     	<span class="dcf-u-sr-only">Show </span><span class="dcf-u-sm2">Menu</span>
     </span>
   </button>
-
-<!--     <div class="" id="dcf-navigation"> -->
-      <nav class="dcf-u-pt5 dcf-c-nav__primary" role="navigation" aria-label="primary navigation">
+    
+      <nav class="dcf-u-pt5 dcf-c-nav__primary" id="dcf-primary-navigation" role="navigation" aria-label="primary navigation">
         <!-- InstanceBeginEditable name="navlinks" -->
         <!--#include virtual="/wdn/templates_5.0/includes/local/nav-primary.html" -->
         <!-- InstanceEndEditable -->
       </nav>
-      <nav class="dcf-u-flex dcf-u-ai-center dcf-u-mt1 dcf-u-sm2 dcf-c-nav__secondary" role="navigation" aria-label="secondary navigation">
+      <nav class="dcf-u-flex dcf-u-ai-center dcf-u-mt1 dcf-u-sm2 dcf-c-nav__secondary" id="dcf-secondary-navigation" role="navigation" aria-label="secondary navigation">
       	<!--#include virtual="/wdn/templates_5.0/includes/global/nav-secondary.html" -->
       </nav>
-<!--     </div> -->
 
     <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
