@@ -1306,71 +1306,86 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
 
     <h2 class="dcf-u-mt6">Tables</h2>
 
-    <h3 class="dcf-u-mt5 dcf-u-regular">Standard Table</h3>
-    <table class="dcf-c-table dcf-u-mt5 dcf-u-mb5">
-      <caption>This is a standard table. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</caption>
-      <thead>
-        <tr>
-          <th>Table heading</th>
-          <th class="dcf-u-txt-right">Table heading</th>
-          <th>Table heading</th>
-          <th>Table heading</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Table cell</td>
-          <td class="dcf-u-txt-right">16</td>
-          <td>Nullam quis risus eget urna mollis ornare vel eu leo</td>
-          <td>Ornare Porta Vulputate</td>
-        </tr>
-        <tr>
-          <td>Table cell</td>
-          <td class="dcf-u-txt-right">387</td>
-          <td>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</td>
-          <td>Inceptos Ullamcorper Etiam</td>
-        </tr>
-        <tr>
-          <td>Table cell</td>
-          <td class="dcf-u-txt-right">9</td>
-          <td>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit</td>
-          <td>Bibendum Sit Lorem</td>
-        </tr>
-      </tbody>
-    </table>
+    <figure class="dcf-u-mt6 dcf-u-mb6 dcf-u-overflow-x-scroll">
+      <table class="dcf-c-table">
+        <caption>This is the caption for a table. Utility classes are used to right-align numbers in this table.</caption>
+        <thead>
+          <tr>
+            <th>Table heading</th>
+            <th class="dcf-u-txt-right">Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Table cell</td>
+            <td class="dcf-u-txt-right">49</td>
+            <td>Cras mattis consectetur purus sit amet fermentum</td>
+            <td>Nullam Sollicitudin Mattis</td>
+          </tr>
+          <tr>
+            <td>Table cell</td>
+            <td class="dcf-u-txt-right">16</td>
+            <td>Nullam quis risus eget urna mollis ornare vel eu leo</td>
+            <td>Ornare Porta Vulputate</td>
+          </tr>
+          <tr>
+            <td>Table cell</td>
+            <td class="dcf-u-txt-right">387</td>
+            <td>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</td>
+            <td>Inceptos Ullamcorper Etiam</td>
+          </tr>
+          <tr>
+            <td>Table cell</td>
+            <td class="dcf-u-txt-right">9</td>
+            <td>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit</td>
+            <td>Bibendum Sit Lorem</td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
 
-    <h3 class="dcf-u-mt5 dcf-u-regular">Compact Table</h3>
-    <table class="dcf-c-table dcf-c-table--compact dcf-u-mt5 dcf-u-mb10">
-      <caption>This is a compact table. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</caption>
-      <thead>
-        <tr>
-          <th>Table heading</th>
-          <th>Table heading</th>
-          <th>Table heading</th>
-          <th>Table heading</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Table cell</td>
-          <td>Vulputate</td>
-          <td>Egestas</td>
-          <td>Aenean</td>
-        </tr>
-        <tr>
-          <td>Table cell</td>
-          <td>Mollis</td>
-          <td>Bibendum</td>
-          <td>Justo</td>
-        </tr>
-        <tr>
-          <td>Table cell</td>
-          <td>Adipiscing</td>
-          <td>Tristique</td>
-          <td>Lorem</td>
-        </tr>
-      </tbody>
-    </table>
+    <p>Horizontal borders can be added as needed with utility classes:</p>
+    <figure class="dcf-u-mt6 dcf-u-mb9 dcf-u-overflow-x-scroll">
+      <table class="dcf-c-table">
+        <caption>This is the caption for a table with border utilities added as needed.</caption>
+        <thead>
+          <tr>
+            <th>Table heading</th>
+            <th class="dcf-u-txt-right">Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Table heading</th>
+            <td class="dcf-u-txt-right">49</td>
+            <td>Cras mattis consectetur purus sit amet fermentum</td>
+            <td>Nullam Sollicitudin Mattis</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="dcf-u-txt-right dcf-u-bt">16</td>
+            <td class="dcf-u-bt">Nullam quis risus eget urna mollis ornare vel eu leo</td>
+            <td class="dcf-u-bt">Ornare Porta Vulputate</td>
+          </tr>
+          <tr>
+            <th class="dcf-u-bt">Table heading</th>
+            <td class="dcf-u-txt-right dcf-u-bt">387</td>
+            <td class="dcf-u-bt">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</td>
+            <td class="dcf-u-bt">Inceptos Ullamcorper Etiam</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="dcf-u-txt-right dcf-u-bt">9</td>
+            <td class="dcf-u-bt">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit</td>
+            <td class="dcf-u-bt">Bibendum Sit Lorem</td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
 
 <!--
     <h3 class="dcf-u-mt5 dcf-u-regular">Bordered Table</h3>
