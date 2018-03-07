@@ -100,7 +100,7 @@
         	    </a>
             </h1>
             <div class="dcf-u-1st dcf-u-sm4 dcf-u-uppercase dcf-u-bold dcf-u-ls2 eppa">Faculty</div>
-            <ul class="dcf-u-3rd dcf-u-mt1 dcf-u-sm2 dcf-c-list-unstyled roles">
+            <ul class="dcf-u-3rd dcf-u-mt1 dcf-u-sm2 dcf-o-list-bare roles">
               <li class="org parent-unl">
                 <span class="dcf-u-block title" itemprop="jobTitle">Associate Professor</span>
                 <span itemprop="worksFor" itemscope="" itemtype="http://schema.org/Organization">
