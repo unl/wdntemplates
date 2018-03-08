@@ -1075,17 +1075,17 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
         <legend>Sample Form Content</legend>
 
         <div class="dcf-c-form-group">
-          <label class="dcf-c-label" for="name">Name <small class="dcf-c-input-required unl--input-required">Required</small></label>
-          <input class="dcf-c-input-textual" id="name" type="text" required>
+          <label class="dcf-c-label" for="name">Name <small class="dcf-c-required">Required</small></label>
+          <input class="dcf-c-input-text" id="name" type="text" required>
         </div>
         <div class="dcf-c-form-group">
-          <label class="dcf-c-label" for="email">Email <small class="dcf-c-input-required unl--input-required">Required</small></label>
-          <input class="dcf-c-input-textual" id="email" type="email" required>
+          <label class="dcf-c-label" for="email">Email <small class="dcf-c-required">Required</small></label>
+          <input class="dcf-c-input-text" id="email" type="email" required>
         </div>
 
         <div class="dcf-c-form-group">
           <label class="dcf-c-label" for="password">Password</label>
-          <input class="dcf-c-input-textual" id="password" type="password" aria-describedby="pwd-help">
+          <input class="dcf-c-input-text" id="password" type="password" aria-describedby="pwd-help">
           <p class="dcf-c-form-help" id="pwd-help">Make sure it’s a good one!</p>
         </div>
 
@@ -1149,12 +1149,12 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
 
         <div class="dcf-c-form-group">
           <label class="dcf-c-label" for="helpful_comments">Comments</label>
-          <textarea class="dcf-c-input-textual" id="helpful_comments" cols="60" rows="5"></textarea>
+          <textarea class="dcf-c-input-text" id="helpful_comments" cols="60" rows="5"></textarea>
         </div>
 
         <div class="dcf-c-form-group">
           <label class="dcf-c-label" for="time">Date/time</label>
-          <input class="dcf-c-input-textual" id="time" type="datetime-local">
+          <input class="dcf-c-input-text" id="time" type="datetime-local">
         </div>
 
 <!--
@@ -1224,7 +1224,7 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
       <label class="dcf-c-label dcf-u-mr4" for="input-group-example-input-1">Username</label>
       <div class="dcf-c-input-group">
         <span class="dcf-c-input-group-addon">@</span>
-        <input class="dcf-c-input-textual" id="input-group-example-input-1" name="q" type="search" accesskey="f" required>
+        <input class="dcf-c-input-text" id="input-group-example-input-1" name="q" type="search" accesskey="f" required>
       </div>
     </form>
 
@@ -1232,7 +1232,7 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
     <form class="dcf-u-flex dcf-u-ai-center" id="input-group-addon-example-2" action="" method="get">
       <label class="dcf-c-label dcf-u-mr4" for="input-group-example-input-2">Email</label>
       <div class="dcf-c-input-group">
-        <input class="dcf-c-input-textual" id="input-group-example-input-2" name="q" type="search" accesskey="f" required>
+        <input class="dcf-c-input-text" id="input-group-example-input-2" name="q" type="search" accesskey="f" required>
         <span class="dcf-c-input-group-addon">@example.com</span>
       </div>
     </form>
@@ -1241,7 +1241,7 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
     <form class="dcf-u-flex dcf-u-ai-center" id="input-group-button-example-3" action="" method="get">
       <label class="dcf-c-label dcf-u-mr4" for="input-group-example-input-3">Label</label>
       <div class="dcf-c-input-group">
-        <input class="dcf-c-input-textual" id="input-group-example-input-3" name="q" type="search" accesskey="f" required>
+        <input class="dcf-c-input-text" id="input-group-example-input-3" name="q" type="search" accesskey="f" required>
         <button class="dcf-c-btn dcf-c-btn--primary" type="submit">Submit</button>
       </div>
     </form>
