@@ -963,23 +963,23 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
 
     <h2 class="dcf-u-mt6">Badges</h2>
 
-    <h1>h1. Heading with badge <small class="dcf-c-badge dcf-c-badge--default">New</small></h1>
-    <h2>h2. Heading with badge <small class="dcf-c-badge dcf-c-badge--default">New</small></h2>
-    <h3>h3. Heading with badge <small class="dcf-c-badge dcf-c-badge--default">New</small></h3>
-    <h4>h4. Heading with badge <small class="dcf-c-badge dcf-c-badge--default">New</small></h4>
-    <h5>h5. Heading with badge <small class="dcf-c-badge dcf-c-badge--default">New</small></h5>
-    <h6>h6. Heading with badge <small class="dcf-c-badge dcf-c-badge--default">New</small></h6>
-
-    <p>Paragraph with badge <span class="dcf-c-badge dcf-c-badge--default">New</span></p>
+    <h1>h1. Heading with roundrect badge <small class="dcf-c-badge dcf-c-badge--roundrect">New</small></h1>
+    <h2>h2. Heading with roundrect badge <small class="dcf-c-badge dcf-c-badge--roundrect">New</small></h2>
+    <h3>h3. Heading with roundrect badge <small class="dcf-c-badge dcf-c-badge--roundrect">New</small></h3>
+    <h4>h4. Heading with roundrect badge <small class="dcf-c-badge dcf-c-badge--roundrect">New</small></h4>
+    <h5>h5. Heading with roundrect badge <small class="dcf-c-badge dcf-c-badge--roundrect">New</small></h5>
+    <h6>h6. Heading with roundrect badge <small class="dcf-c-badge dcf-c-badge--roundrect">New</small></h6>
+    <p>Paragraph with roundrect badge <span class="dcf-c-badge dcf-c-badge--roundrect">New</span></p>
 
     <h3 class="dcf-u-regular">Pill Badges</h3>
 
-    <span class="dcf-c-badge dcf-c-badge--default dcf-c-badge--pill">New</span>
-    <span class="dcf-c-badge dcf-c-badge--default dcf-c-badge--pill">New</span>
-    <span class="dcf-c-badge dcf-c-badge--default dcf-c-badge--pill">New</span>
-    <span class="dcf-c-badge dcf-c-badge--default dcf-c-badge--pill">New</span>
-    <span class="dcf-c-badge dcf-c-badge--default dcf-c-badge--pill">New</span>
-    <span class="dcf-c-badge dcf-c-badge--default dcf-c-badge--pill">New</span>
+    <h1>h1. Heading with pill badge <small class="dcf-c-badge dcf-c-badge--pill">New</small></h1>
+    <h2>h2. Heading with pill badge <small class="dcf-c-badge dcf-c-badge--pill">New</small></h2>
+    <h3>h3. Heading with pill badge <small class="dcf-c-badge dcf-c-badge--pill">New</small></h3>
+    <h4>h4. Heading with pill badge <small class="dcf-c-badge dcf-c-badge--pill">New</small></h4>
+    <h5>h5. Heading with pill badge <small class="dcf-c-badge dcf-c-badge--pill">New</small></h5>
+    <h6>h6. Heading with pill badge <small class="dcf-c-badge dcf-c-badge--pill">New</small></h6>
+    <p>Paragraph with pill badge <span class="dcf-c-badge dcf-c-badge--pill">New</span></p>
 
     <h2 class="dcf-u-mt6">Paragraphs</h2>
     <p class="dcf-c-lead">Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
