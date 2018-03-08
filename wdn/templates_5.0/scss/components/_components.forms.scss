@@ -15,17 +15,26 @@
 }
 
 
+// !Required
+.unl .dcf-c-required {
+  @include pl2;
+  @include sm2;
+  @include italic;
+  color: $scarlet;
+}
+
+
 // !Inputs
-.unl .dcf-c-input-textual,
-.unl .dcf-c-input-textual,
+.unl .dcf-c-input-text,
+.unl .dcf-c-input-text,
 .unl .dcf-c-input-select select,
 .unl .dcf-c-input-file {
   @include font-sans;
 }
 
 
-// !Input: Textual
-.unl .dcf-c-input-textual {
+// !Input: Text
+.unl .dcf-c-input-text {
   @include pt2;
   @include pr3;
   @include pb2;
@@ -37,20 +46,20 @@
 }
 
 
-.unl .dcf-c-input-textual:hover {
+.unl .dcf-c-input-text:hover {
   border-color: $color-border-hover;
   box-shadow: inset 0 1px 2px fade-out($color-border,.5);
   transition: border-color $hover-on, box-shadow $hover-on;
 }
 
 
-.unl .dcf-c-input-textual:focus {
+.unl .dcf-c-input-text:focus {
   outline: none;
   border-color: $color-button;
 }
 
 
-.unl .dcf-c-label + .dcf-c-input-textual {
+.unl .dcf-c-label + .dcf-c-input-text {
   @include mt1;
 }
 
@@ -65,15 +74,6 @@
 .unl .dcf-c-input-file {
   @include mt2;
   @include mb2;
-}
-
-
-// !Input: Required
-.unl .dcf-c-input-required {
-  @include pl2;
-  @include sm2;
-  @include italic;
-  color: $scarlet;
 }
 
 
