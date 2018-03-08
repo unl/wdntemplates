@@ -89,7 +89,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 
 		/**
    * Set the current user. The object should have fields as described by CAS
-   * 
+   *
    * @param newUser object|false
    */
 		setUser: function setUser(newUser) {
@@ -202,7 +202,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 
 		/**
    * Get the profile (planet red) URL
-   * 
+   *
    * @returns {string}
    */
 		getProfileURL: function getProfileURL() {
@@ -234,7 +234,8 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 
 			//Set up the idm button
 			var $button = $('<button>', {
-				'class': 'dcf-u-p0 dcf-u-b0 dcf-u-bg-transparent dcf-c-mobile-nav-toggle dcf-c-idm__toggle unl-u-font-sans" id="dcf-idm-toggle',
+				'class': 'dcf-u-p0 dcf-u-b0 dcf-u-bg-transparent dcf-c-mobile-nav-toggle dcf-c-idm__toggle unl-u-font-sans',
+				'id': 'dcf-idm-toggle',
 				'aria-expanded': 'false',
 				'aria-controls': 'dcf-idm-options',
 				'aria-label': 'Account actions for ' + this.getDisplayName()
@@ -255,24 +256,26 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 
 			//Set up the IDM options
 			var $optionsContainer = $('<div>', {
+				'class': 'dcf-c-idm__options dcf-u-absolute dcf-u-pin-r dcf-u-p4 dcf-u-bg-overlay-dark',
 				'id': 'dcf-idm-options',
-				'class': 'dcf-u-overlay-dark dcf-c-idm__options',
 				'hidden': true
 			});
 
 			var $navUL = $('<ul>', {
-				'class': 'dcf-c-list-unstyled'
+				'class': 'dcf-o-list-bare dcf-u-mb0 dcf-u-sm2 unl-u-font-sans'
 			});
 
 			//Add the profile link
 			$navUL.append($('<li>').append($('<a>', {
+  			'class': 'dcf-u-inverse',
 				'href': this.getProfileURL()
 			}).text('View Profile')));
 
 			//Add the logout link (set it as a variable so that we can reference it later)
 			var $logoutLink = $('<a>', {
+				'class': 'dcf-u-inverse',
+				'id': 'dcf-idm-logout',
 				'href': logoutURL,
-				'id': 'dcf-idm-logout'
 			}).text('Logout');
 			$navUL.append($('<li>').append($logoutLink));
 
