@@ -134,7 +134,7 @@
     <div class="dcf-o-full-width unl-u-bg-cream dcf-u-pt10 dcf-u-pb10">
       <div class="dcf-o-wrapper">
         <h2>Cards</h2>
-        <ul class="dcf-o-grid dcf-u-colgap-sm dcf-u-rowgap-sm dcf-o-list-bare dcf-u-mt6 dcf-u-mb0">
+        <ul class="dcf-o-grid-halves@sm dcf-o-grid-fourths@lg dcf-u-colgap-sm dcf-u-rowgap-sm dcf-o-list-bare dcf-u-mt6 dcf-u-mb0">
           <li class="dcf-c-card">
             <img src="/wdn/templates_5.0/images/171018-campus-011.jpg" alt="A placeholder image with a 4:3 aspect ratio">
             <div class="dcf-c-card__block">
@@ -170,7 +170,7 @@
     <!-- 2 items -->
     <div class="dcf-o-full-width unl-u-bg-cream">
       <div class="dcf-o-wrapper dcf-u-pt10 dcf-u-pb10">
-        <div class="dcf-o-grid-even dcf-u-colgap-vw dcf-u-rowgap-lg">
+        <div class="dcf-o-grid-halves@sm dcf-u-colgap-vw dcf-u-rowgap-lg">
           <div class="dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-txt-center">
             <svg style="width:2.37em; height:2.37em;" class="dcf-u-mb1" role="img" aria-labelledby="title-icon-badge-star desc-icon-badge-star" focusable="false" height="16" width="16" viewBox="0 0 24 24"><title id="title-icon-badge-star">badge star icon</title><desc id="desc-icon-badge-star">illustration of a flag with a star</desc><path d="M22 4c-.651 0-1.201.419-1.408 1h-1.936L12.284.589a.5.5 0 0 0-.568 0L5.344 5H3.408C3.201 4.419 2.651 4 2 4 1.173 4 .5 4.673.5 5.5S1.173 7 2 7c.651 0 1.201-.418 1.408-1H5v11.5a.5.5 0 0 0 .177.382l6.5 5.5a.505.505 0 0 0 .646 0l6.5-5.5A.503.503 0 0 0 19 17.5V6h1.592a1.496 1.496 0 0 0 2.908-.5c0-.827-.673-1.5-1.5-1.5zM12 1.608L16.899 5H7.101L12 1.608zm4.861 10.294l-2.531 1.866.966 2.989a.5.5 0 0 1-.769.559L12 15.485l-2.527 1.831a.5.5 0 0 1-.769-.559l.966-2.989-2.531-1.866A.5.5 0 0 1 7.436 11h3.124l.966-2.972c.135-.411.816-.411.951 0L13.44 11h3.124a.5.5 0 0 1 .297.902z"/></svg>
             <h3 class="dcf-u-h4 dcf-u-regular">Porta Condimentum</h3>
@@ -190,7 +190,7 @@
     <!-- 4 items -->
     <div class="dcf-o-full-width unl-u-bg-diagonal">
       <div class="dcf-o-wrapper dcf-u-pt10 dcf-u-pb10">
-        <div class="dcf-o-grid-even dcf-o-grid-even@md dcf-u-colgap-vw dcf-u-rowgap-lg">
+        <div class="dcf-o-grid-halves@sm dcf-o-grid-even@md dcf-u-colgap-vw dcf-u-rowgap-lg">
           <div class="">
             <svg style="width:2.37em; height:2.37em;" class="dcf-u-mb1" role="img" aria-labelledby="title-icon-globe-2 desc-icon-globe-2" focusable="false" height="16" width="16" viewBox="0 0 24 24"><title id="title-icon-globe-2">globe icon</title><desc id="desc-icon-globe-2">illustration of a globe</desc><path d="M21.14 4.236c-.47 1.332-1.426 3.465-2.916 4.211a.503.503 0 0 1-.345.037c-1.057-.263-2.127.127-2.674.439.23.309.487.846.733 1.774.213.075.628-.038.837-.144a.499.499 0 0 1 .578.094c1.213 1.213-.359 2.847-1.299 3.825-.166.172-.378.392-.496.536.04.037.087.079.124.11.228.199.541.471.557.902.01.287-.12.567-.386.834a5.155 5.155 0 0 1-1.367.981C14.343 19.535 13.09 20.5 11 20.5c-.976 0-2-2.493-2-3 0-.368.16-.69.303-.974.096-.193.197-.394.197-.526-.023-.171-.43-.721-.854-1.146A.502.502 0 0 1 8.5 14.5c0-.429-.077-.72-.229-.863-.252-.237-.849-.203-1.478-.167-.259.014-.526.03-.793.03-1.582 0-2-1.635-2-2.5 0-.16.033-3.917 2.901-4.49 1.308-.262 2.19-.185 2.703.236.181.148.29.322.346.484.526.389 1.47.168 2.309-.026.277-.065.546-.127.795-.165.093-.845.096-1.663.009-2.018-.613.257-1.222.255-1.698-.009-.493-.274-.8-.795-.862-1.467C10.369 2.107 13.144.989 15.05.393A12 12 0 0 0 12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c6.616 0 12-5.383 12-12 0-2.958-1.079-5.668-2.86-7.764z"/></svg>
             <h3 class="dcf-u-h4 dcf-u-regular">Malesuada Pellentesque</h3>
@@ -790,7 +790,7 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
         	</ul>
         </div>
       </aside>
-      <footer class="dcf-o-grid dcf-c-article__footer dcf-u-colgap-md dcf-u-rowgap-md unl-u-font-sans">
+      <footer class="dcf-o-grid-halves@sm dcf-o-grid-fourths@md dcf-c-article__footer dcf-u-colgap-md dcf-u-rowgap-md unl-u-font-sans">
         <div class="dcf-u-sm2 dcf-u-bt dcf-u-pt4">
           <div class="dcf-u-mb4 dcf-u-bold dcf-u-uppercase dcf-u-ls2" role="heading">
             News Release Contacts
