@@ -948,17 +948,17 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
     <h2 class="dcf-u-mt6">Headings</h2>
 
     <h1>h1. Heading <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">2.37em</small></h1>
-    <h2>h2. Heading <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">2.22em</small></h2>
+    <h2>h2. Heading <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">2em</small></h2>
     <h3>h3. Heading <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">1.77em</small></h3>
-    <h4>h4. Heading <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">1.66em</small></h4>
+    <h4>h4. Heading <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">1.5em</small></h4>
     <h5>h5. Heading <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">1.33em</small></h5>
-    <h6>h6. Heading <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">1.25em</small></h6>
+    <h6>h6. Heading <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">1.125em</small></h6>
 
     <h3 class="dcf-u-mt5 dcf-u-regular">Display Headings</h3>
 
-    <h1 class="dcf-u-display1">Display 1 <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">2.96em</small></h1>
+    <h1 class="dcf-u-display1">Display 1 <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">2.67em</small></h1>
     <h2 class="dcf-u-display2">Display 2 <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">3.16em</small></h2>
-    <h3 class="dcf-u-display3">Display 3 <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">3.95em</small></h3>
+    <h3 class="dcf-u-display3">Display 3 <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">3.56em</small></h3>
     <h4 class="dcf-u-display4">Display 4 <small class="dcf-u-regular dcf-u-sm2 dcf-u-pl1">4.21em</small></h4>
 
     <h2 class="dcf-u-mt6">Badges</h2>
