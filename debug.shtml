@@ -1204,7 +1204,7 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
       <label class="dcf-c-label dcf-u-mr4" for="input-group-example-input-1">Username</label>
       <div class="dcf-c-input-group">
         <span class="dcf-c-input-group-addon">@</span>
-        <input class="dcf-c-input-text" id="input-group-example-input-1" name="q" type="search" accesskey="f" required>
+        <input class="dcf-c-input-text" id="input-group-example-input-1" name="q" type="search" required>
       </div>
     </form>
 
@@ -1212,7 +1212,7 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
     <form class="dcf-u-flex dcf-u-ai-center" id="input-group-addon-example-2" action="" method="get">
       <label class="dcf-c-label dcf-u-mr4" for="input-group-example-input-2">Email</label>
       <div class="dcf-c-input-group">
-        <input class="dcf-c-input-text" id="input-group-example-input-2" name="q" type="search" accesskey="f" required>
+        <input class="dcf-c-input-text" id="input-group-example-input-2" name="q" type="search" required>
         <span class="dcf-c-input-group-addon">@example.com</span>
       </div>
     </form>
@@ -1221,7 +1221,7 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
     <form class="dcf-u-flex dcf-u-ai-center" id="input-group-button-example-3" action="" method="get">
       <label class="dcf-c-label dcf-u-mr4" for="input-group-example-input-3">Label</label>
       <div class="dcf-c-input-group">
-        <input class="dcf-c-input-text" id="input-group-example-input-3" name="q" type="search" accesskey="f" required>
+        <input class="dcf-c-input-text" id="input-group-example-input-3" name="q" type="search" required>
         <button class="dcf-c-btn dcf-c-btn--primary" type="submit">Submit</button>
       </div>
     </form>
