@@ -47,6 +47,12 @@
     "node": "node >= 0.10.0"
   },
   "dependencies": {
-    "dialog-polyfill": "^0.4.9"
+    "axe-core": "^2.6.1",
+    "dialog-polyfill": "^0.4.9",
+    "http-server": "^0.11.1",
+    "puppeteer": "^1.1.0"
+  },
+  "scripts": {
+    "test": "node tests/run-tests.js"
   }
 }

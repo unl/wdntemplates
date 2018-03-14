@@ -1,27 +1,7 @@
-sudo: false
-language: php
-cache:
-  directories:
-    - $HOME/.composer/cache
-    - build/vendor
-    - node_modules
-php:
-  - 7
-install:
-  - nvm install node
-  - npm install
-  # install `pa11y`
-  - npm install phantomjs-prebuilt http-server grunt-cli
-  # build the templates
-  - ./node_modules/.bin/grunt
-  # import test dependencies
-  - cd build
-  - composer install --prefer-source
-  - cd ../
-script:
-  # start a localhost server on 8080 for the root
-  - nohup node_modules/.bin/http-server -d false -r >/dev/null &
-  - ./build/vendor/bin/phpunit tests
-branches:
-  only:
-    - develop
+sudo: required
+language: node_js
+node_js:
+  - 8
+addons:
+  chrome: stable
+
