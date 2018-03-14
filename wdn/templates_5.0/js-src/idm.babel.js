@@ -267,7 +267,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 
 			//Add the profile link
 			$navUL.append($('<li>').append($('<a>', {
-  			'class': 'dcf-u-inverse',
+				'class': 'dcf-u-inverse',
 				'href': this.getProfileURL()
 			}).text('View Profile')));
 
