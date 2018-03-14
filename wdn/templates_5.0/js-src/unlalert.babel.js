@@ -1,24 +1,23 @@
 define([
 	'wdn',
 	'jquery',
-	'css!js-css/unlalert'
-], function(WDN, $) {
-	var dataUrl = 'https://alert.unl.edu/json/unlcap.js';
-	var activeIds = [], calltimeout,
+	'dialog'
+], function(WDN, $, dialogHelper) {
+	let dataUrl = 'https://alert.unl.edu/json/unlcap.js';
+	let activeIds = [], calltimeout,
 
 	ckPrfx = 'unlAlerts',
 	idPrfx = 'unlalert',
 	cntSuf = '_content',
-	togSuf = '_toggle',
-	icnSuf = '_icon',
-	axnSuf = '_action',
+	dialogId = 'wdn-emergency-alert-dialog',
+	bannerId = 'wdn-emergency-alert-banner',
 
-	timeoutPeriod = 30, // how ofter to check for expired data
+	timeoutPeriod = 30, // how ofter to check for expired data in seconds
 	dataLifetime = 30, // seconds until the data cookie expires
 	ackLifetime = 3600, // seconds until an acknowledgment expires
 
 	_getClosedAlerts = function() {
-		var c = WDN.getCookie(ckPrfx + 'C');
+		let c = WDN.getCookie(ckPrfx + 'C');
 		if (c) {
 			return c.split(',');
 		}
@@ -26,7 +25,7 @@ define([
 	},
 
 	_pushClosedAlert = function(id) {
-		var closed = _getClosedAlerts();
+		let closed = _getClosedAlerts();
 		if ($.inArray(id, closed) != -1) {
 			return;
 		}
@@ -35,7 +34,7 @@ define([
 	},
 
 	_checkCookie = function(name) {
-		var c = WDN.getCookie(name);
+		let c = WDN.getCookie(name);
 		if (c) {
 			return true;
 		}
@@ -51,6 +50,7 @@ define([
 	},
 
 	_flagPreviousAlert = function(flag) {
+		//Sets a cookie to indicate that there is an active alert
 		var value = 1, time = 60;
 		if (flag === false) {
 			value = '';
@@ -61,7 +61,7 @@ define([
 
 	_callServer = function() {
 		WDN.log('Checking the alert server for data '+ dataUrl);
-		var loadedId = 'lastLoadedCmds'
+		var loadedId = 'lastLoadedCmds';
 		$old = $('#' + loadedId);
 
 		if ($old.length) {
@@ -79,6 +79,8 @@ define([
 
 	_checkIfCallNeeded = function() {
 		if (_dataHasExpired() || _hasPreviousAlert()) {
+			//call the server if our data has expired or if there is a current alert
+			//This should reduce the number of times we call the server
 			_callServer();
 		}
 
@@ -89,7 +91,7 @@ define([
 	dataReceived = function() {
 		WDN.log('UNL Alert data received');
 		clearTimeout(calltimeout);
-		// Set cookie to indicate time the data was aquired
+		// Set cookie to indicate time the data was acquired
 		WDN.setCookie(ckPrfx + 'Data', 1, dataLifetime);
 		calltimeout = setTimeout(_checkIfCallNeeded, (dataLifetime + 1) * 1000);
 	},
@@ -102,28 +104,73 @@ define([
 	_acknowledgeAlert = function(id) {
 		_pushClosedAlert(id);
 	},
+	
+	getDialog = function() {
+		let dialog = document.getElementById(dialogId);
+		
+		if (dialog) {
+			//Dialog has already been set up, so return it.
+			return dialog;
+		}
 
-	toggleAlert = function() {
-		WDN.log('Toggle UNL Alert Visibility');
-		var $alert = $('#' + idPrfx),
-			$alertToggle = $('#' + idPrfx + togSuf),
-			$alertContent = $('#' + idPrfx + cntSuf),
-			$alertIcon = $('#' + idPrfx + icnSuf),
-			$alertAction = $('#' + idPrfx + axnSuf),
-			i;
+		let $dialog = $('<dialog>', {
+			'id': dialogId
+		});
 
-		if ($alert.hasClass('show')) {
-			$alert.removeClass('show').closest('body').removeClass(idPrfx + '-shown');
-			$alertIcon.attr('class','wdn-icon-attention');
-			$alertAction.removeClass('wdn-text-hidden').text('Show emergency alert');
-			for (i = 0; i < activeIds.length; i++) {
+		$dialog.append('<h2 tabindex="-1">Emergency Alert</h2>');
+		$dialog.append($('<button>', {
+			'data-close-dialog': dialogId
+		}).text('Close'));
+		$dialog.append($('<div>', {
+			'class': 'emergency-contents'
+		}));
+
+		$('body').append($dialog);
+
+		dialogHelper.initialize($dialog.get(0));
+		
+		$dialog.on('close cancel', function() {
+			for (let i = 0; i < activeIds.length; i++) {
 				_acknowledgeAlert(activeIds[i]);
 			}
-		} else {
-			$alert.addClass('show').closest('body').addClass(idPrfx + '-shown');
-			$alertIcon.attr('class','wdn-icon-cancel');
-			$alertAction.addClass('wdn-text-hidden').text('Hide emergency alert');
+		});
+		
+		return $dialog.get(0);
+	},
+	
+	getBanner = function() {
+		let banner = document.getElementById(bannerId);
+		if (banner) {
+			return banner;
 		}
+		
+		let $banner = $('<div>', {
+			'class': 'dcf-c-alert dcf-o-wrapper dcf-u-pt4 dcf-u-pb4 dcf-u-sm2',
+			'id': bannerId
+		});
+		
+		$banner.append($('<h2></h2>', {
+			'class': 'dcf-c-alert__header'
+		}).text('Emergency Alert'));
+		
+		$banner.append($('<div>', {
+			'class': 'alert-preview dcf-c-alert__msg'
+		}));
+		
+		let $button = $('<button>', {
+			'class': 'dcf-c-btn dcf-c-btn--primary'
+		});
+		$button.text('Show Alert');
+		$button.on('click', function() {
+			let dialog = getDialog();
+			dialog.showModal();
+		});
+		
+		$banner.append($button);
+
+		$('.dcf-c-header').first().before($banner);
+		
+		return $banner.get(0);
 	},
 
 	alertUser = function(root) {
@@ -131,8 +178,7 @@ define([
 
 		_flagPreviousAlert();
 		activeIds = [];
-		var $alertWrapper = $('#' + idPrfx),
-			$alertContent,
+		let $alertContent,
 			containsExtreme = false,
 			allAck = true,
 			i,
@@ -156,71 +202,39 @@ define([
 		if (!containsExtreme) {
 			return;
 		}
+		
+		let dialog = getDialog();
+		let messageContainer = dialog.querySelector('.emergency-contents');
+		messageContainer.innerHTML = '';
 
 		uniqueID = root.identifier || +(new Date);
 		activeIds.push(uniqueID);
 		allAck = alertWasAcknowledged(uniqueID);
 
 		effectiveDate = new Date(root.sent).toLocaleString();
-
+		
 		for (i = 0; i < info.length; i++) {
-			// Add a div to store the html content
-			if (!$alertWrapper.length) {
-				$alertWrapper = $('<div>', {
-					'id': idPrfx,
-					'class': 'wdn-band wdn-content-slide',
-					'role': 'alert'
-				}).css({
-					'position': 'absolute',
-					'top': '-1000px'
-				}).insertBefore('#header');
-
-				$alertContent = $('<div>', {'id': idPrfx + cntSuf});
-
-				$('<div>', {'class': 'wdn-inner-wrapper'})
-					.append($alertContent)
-					.appendTo($alertWrapper);
-			} else if (i === 0) {
-				$alertContent = $('#' + idPrfx + cntSuf).empty();
-			}
+			$alertContent = $('<div>', {'id': idPrfx + cntSuf});
 
 			web = info[i].web || 'http://www.unl.edu/';
 
-			alertContentHTML = '<div class="unlalert-info"><div class="wdn-sans-caps unlalert-heading">Emergency alert</div><div class="wdn-impact unlalert-headline">' + info[i].headline + '</div><p class="unlalert-desc">' + info[i].description + '</p>';
+			alertContentHTML = '<h3>' + info[i].headline + '</h3><p>' + info[i].description + '</p>';
 			if (info[i].instruction) {
 				alertContentHTML += '<p class="unlalert-desc">' + info[i].instruction + '</p>';
 			}
-			alertContentHTML += '</div><div class="unlalert-meta"><div class="unlalert-datetime"><div class="wdn-sans-caps unlalert-heading">Issued</div><div>' + effectiveDate + '</div></div><div class="unlalert-link"><div class="wdn-sans-caps unlalert-heading">Additional info (if available)</div><div><a href="' + web + '">' + web + '</a></div></div></div>';
+			alertContentHTML += '<div class="unlalert-meta"><div class="unlalert-datetime"><div class="wdn-sans-caps unlalert-heading">Issued</div><div>' + effectiveDate + '</div></div><div class="unlalert-link"><div class="wdn-sans-caps unlalert-heading">Additional info (if available)</div><div><a href="' + web + '">' + web + '</a></div></div></div>';
 
 			$alertContent.append(alertContentHTML);
+			messageContainer.innerHTML += $alertContent.html();
 		}
-
-		// Add a visibility toggle tab
-		var $alertToggle = $('#' + idPrfx + togSuf);
-		if (!$alertToggle.length) {
-			$alertToggle = $('<button>', {
-				'id': idPrfx + togSuf,
-			})
-			.append($('<span>', {
-				'id': idPrfx + icnSuf,
-    			'class': 'wdn-icon-attention',
-                'aria-hidden': 'true'
-            }))
-			.append($('<span>', {
-				'id': idPrfx + axnSuf,
-    			'class': 'wdn-sans-caps'
-            }).text('Show emergency alert'))
-			.click(toggleAlert)
-			.appendTo($alertContent.parent());
-		}
-
+		
+		let banner = getBanner();
+		banner.querySelector('.alert-preview').innerHTML = info[0].headline;
+		
 		if (allAck) {
 			WDN.log('No unlalert display: all were previously acknowledged');
-		} else {
-			// Only trigger when $alertContent is hidden, otherwise an active, unacknowledged alert will be hidden
-			if (!$alertWrapper.hasClass('show')) {
-				$alertToggle.click();
-			}
+		} else if (!dialog.hasAttribute('open')) {
+			dialog.showModal();
 		}
 	},
 
@@ -249,14 +263,8 @@ define([
 	};
 
 	return {
-
 		initialize: function() {
 			_checkIfCallNeeded();
 		},
-
-		// Toggle visible alert message open/closed
-		toggleAlert: function() {
-			toggleAlert();
-		}
 	};
 });

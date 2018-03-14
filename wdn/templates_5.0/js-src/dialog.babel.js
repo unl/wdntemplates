@@ -1,42 +1,108 @@
 define([
-  'plugins/dialog-polyfill/dialog-polyfill',
-  'css!plugins/dialog-polyfill/dialog-polyfill.css'
-], function(dialogPolyfill) {
+	'plugins/dialog-polyfill/dialog-polyfill',
+	'css!plugins/dialog-polyfill/dialog-polyfill.css'
+], function (dialogPolyfill) {
 
-  //select all modal and convert node list to array
-  const modalContainers = [].slice.call(document.querySelectorAll('.dcf-js-dialog'));
+	/**
+	 * 
+	 * @type {{initialize: function(), registerDialog: function(*=), setupDialog: function(*=, *=, *=), setupShowDialogButton: function(*=, *), setupCloseDialogButton: function(*=, *), setupBackdropClose: function(*=)}}
+	 */
+	const dialogHelper = {
+		/**
+		 * 
+		 * @param dialog node - the dialog node (not jquery object)
+		 * @param showButton null|node - null will prompt the function to find all buttons with the data-show-dialog attribute
+		 * @param closeButton null|node - null will prompt the function to find all buttons with the data-close-dialog attribute
+		 */
+		initialize: (dialog, showButton, closeButton) => {
+			//attach the polyfill
+			dialogHelper.registerDialogPolyfill(dialog);
 
-  modalContainers.forEach((modalContainer) => {
-    const trigger = modalContainer.querySelector('.dcf-js-dialog-trigger');
-    const modalDialog = modalContainer.querySelector('dialog');
-    const closeButton = modalContainer.querySelector('.dcf-o-dialog__close');
+			//add event listeners and other WDN magic
+			dialogHelper.setupShowDialogButton(dialog, showButton);
+			dialogHelper.setupCloseDialogButton(dialog, closeButton);
+			dialogHelper.setupBackdropClose(dialog);
+		},
 
-    // if global dialog property not present, register all dialog modal with polyfill
-    if(!window.HTMLDialogElement) {
-      dialogPolyfill.registerDialog(modalDialog);
-    }
+		/**
+		 * Register the dialog with the polyfill
+		 * 
+		 * @param dialog the dialog node
+		 */
+		registerDialogPolyfill: (dialog) => {
+			dialogPolyfill.registerDialog(dialog);
+		},
 
-    // show dialog on trigger button click
-    trigger.addEventListener('click',() => {
-      modalDialog.showModal();
-      // translate doesn't seem to work on dialog
-      modalDialog.style.top = `calc(50% - ${modalDialog.scrollHeight/2}px)`;
-    });
+		/**
+		 * 
+		 * @param buttons - null|node - will attach an event listener to the button node, if null will attach an event listener to all buttons with the data-show-dialog attribute that references the dialog's id
+		 * @param dialog node - the dialog node to reference
+		 */
+		setupShowDialogButton: (dialog, buttons) => {
+			if (!buttons) {
+				buttons = document.querySelectorAll('button[data-show-dialog="'+dialog.getAttribute('id')+'"]');
+			}
 
-    // close dialog on close button click
-    closeButton.addEventListener('click', () => {modalDialog.close('closed')});
+			if ('undefined' === typeof buttons.length) {
+				//Convert to an array if we need to
+				buttons = [buttons];
+			}
 
-    // close dialog on Esc button press
-    modalDialog.addEventListener('cancel', () => {modalDialog.close('cancelled')});
+			buttons.forEach(function(button) {
+				// show dialog on trigger button click
+				button.addEventListener('click', () => {
+					dialog.showModal();
+				});
+			});
+		},
 
-    // close dialog when clicking on dialog backdrop
-    // for this to work properly, child elements of dialog must span the entire region
-    // within the dialog box so that when clicking within the dialog, child elements
-    // are clicked on instead of the dialog box itself
-    modalContainer.addEventListener('click', (e) => {
-      if (e.target == modalDialog) modalDialog.close('cancelled');
-    });
-  });
+		/**
+		 *
+		 * @param buttons - null|node - will attach an event listener to the button node, if null will attach an event listener to all buttons with the data-close-dialog attribute that references the dialog's id
+		 * @param dialog node - the dialog node to reference
+		 */
+		setupCloseDialogButton: (dialog, buttons) => {
+			if (!buttons) {
+				buttons = document.querySelectorAll('button[data-close-dialog="'+dialog.getAttribute('id')+'"]');
+			}
+			
+			if ('undefined' === typeof buttons.length) {
+				//Convert to an array if we need to
+				buttons = [buttons];
+			}
+			
+			buttons.forEach(function(button) {
+				// close dialog on close button click
+				button.addEventListener('click', () => {
+					dialog.close();
+				});
+			});
+			
+		},
 
-  return dialogPolyfill;
+		/**
+		 * Close the dialog when the backdrop is clicked
+		 * 
+		 * @param dialog node
+		 */
+		setupBackdropClose: (dialog) => {
+			//Set up a wrapper element
+			let wrapper = document.createElement('div');
+
+			// insert wrapper before el in the DOM tree
+			dialog.parentNode.insertBefore(wrapper, dialog);
+
+			// move el into wrapper
+			wrapper.appendChild(dialog);
+			
+			//Watch for click events on the wrapper
+			wrapper.addEventListener('click', (e) => {
+				if (e.target === dialog) {
+					dialog.close();
+				}
+			});
+		}
+	};
+	
+	return dialogHelper;
 });

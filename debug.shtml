@@ -691,13 +691,13 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
                   <button class="dcf-c-close-modal" type="button">Close</button>
                 </div>
               </div>
-              <button class="dcf-c-btn dcf-c-btn--primary dcf-c-activate-modal dcf-js-dialog-trigger">Play Video Dialog<svg class="dcf-u-sm2 dcf-u-ml3 dcf-c-icon dcf-c-icon--inline" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M21.76 11.58L2.79.08a.49.49 0 0 0-.51 0A.48.48 0 0 0 2 .5v23a.49.49 0 0 0 .25.44.54.54 0 0 0 .25.06.48.48 0 0 0 .26-.07l19-11.5a.5.5 0 0 0 0-.85z"/></svg></button>
-              <dialog role="alertdialog" aria-describedby="dialog-message" class="fixed">
+              <button class="dcf-c-btn dcf-c-btn--primary dcf-c-activate-modal dcf-js-dialog-trigger" data-show-dialog="my-dialog">Play Video Dialog<svg class="dcf-u-sm2 dcf-u-ml3 dcf-c-icon dcf-c-icon--inline" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M21.76 11.58L2.79.08a.49.49 0 0 0-.51 0A.48.48 0 0 0 2 .5v23a.49.49 0 0 0 .25.44.54.54 0 0 0 .25.06.48.48 0 0 0 .26-.07l19-11.5a.5.5 0 0 0 0-.85z"/></svg></button>
+              <dialog id="my-dialog" role="alertdialog" aria-describedby="dialog-message" class="fixed">
                 <div class="dcf-o-dialog">
                   <p id="dialog-header" role="heading" class="dcf-o-dialog__header dcf-u-lg2 dcf-u-pr3 dcf-u-pl1 dcf-u-pt3">
                     A native modal dialog box
                   </p>
-                  <button class="dcf-o-dialog__close" id="close" type="button"><span class="dcf-u-sr-only">Close Dialog</span></button>
+                  <button class="dcf-o-dialog__close" data-close-dialog="my-dialog" aria-label="Close" >x</button>
                   <div id="dialog-message" aria-labelledby="dialog-header" class="dcf-o-dialog__body dcf-u-pr2 dcf-u-pl2 dcf-u-pb4">
                     <p>Finally, HTML has a native dialog box element! This is fantastic.</p>
                     <p>And a polyfill makes this usable today.</p>
@@ -1574,6 +1574,12 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
   </footer>
   <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
-  <script type="text/javascript" src="script.js"></script>
+  <script>
+    require(['dialog'],function(dialogHelper){
+      var dialog = document.querySelector('#my-dialog');
+      dialogHelper.initialize(dialog);
+      dialogHelper.setupShowDialogButton(dialog, document.querySelector('#test-button'));
+    });
+  </script>
 </body>
 <!-- InstanceEnd --></html>
