@@ -204,7 +204,7 @@
       <h2 class="dcf-c-events__heading">Upcoming Events</h2>
       <ul class="dcf-o-list-bare dcf-c-events__listing dcf-u-colgap-vw dcf-u-rowgap-md dcf-u-mb0">
 
-        <li class="dcf-o-media dcf-c-event dcf-u-pt3 dcf-u-bt" itemtype="http://schema.org/Event">
+        <li class="dcf-o-media dcf-c-event dcf-u-pt3 dcf-u-bt" itemscope itemtype="http://schema.org/Event">
           <div class="dcf-o-media__body dcf-u-1st dcf-u-flex dcf-u-flex-col">
             <div class="dcf-u-2nd dcf-u-lh2 unl-u-font-sans">
               <a class="dcf-u-block dcf-u-txt-decor-none" href="//events.unl.edu/2017/09/25/120871/" itemprop="url">
@@ -228,7 +228,7 @@
           </figure>
         </li>
 
-        <li class="dcf-o-media dcf-c-event dcf-u-pt3 dcf-u-bt" itemtype="http://schema.org/Event">
+        <li class="dcf-o-media dcf-c-event dcf-u-pt3 dcf-u-bt" itemscope itemtype="http://schema.org/Event">
           <div class="dcf-o-media__body dcf-u-1st dcf-u-flex dcf-u-flex-col">
             <div class="dcf-u-2nd dcf-u-lh2 unl-u-font-sans">
               <a class="dcf-u-block dcf-u-txt-decor-none" href="//events.unl.edu/2017/09/25/123410/" itemprop="url">
@@ -257,7 +257,7 @@
           </figure>
         </li>
 
-        <li class="dcf-o-media dcf-c-event dcf-u-pt3 dcf-u-bt" itemtype="http://schema.org/Event">
+        <li class="dcf-o-media dcf-c-event dcf-u-pt3 dcf-u-bt" itemscope itemtype="http://schema.org/Event">
           <div class="dcf-o-media__body dcf-u-1st dcf-u-flex dcf-u-flex-col">
             <div class="dcf-u-2nd dcf-u-lh2 unl-u-font-sans">
               <a class="dcf-u-block dcf-u-txt-decor-none" href="//events.unl.edu/2017/09/25/122710/" itemprop="url">
@@ -287,7 +287,7 @@
           </figure>
         </li>
 
-        <li class="dcf-o-media dcf-c-event dcf-u-pt3 dcf-u-bt" itemtype="http://schema.org/Event">
+        <li class="dcf-o-media dcf-c-event dcf-u-pt3 dcf-u-bt" itemscope itemtype="http://schema.org/Event">
           <div class="dcf-o-media__body dcf-u-1st dcf-u-flex dcf-u-flex-col">
             <div class="dcf-u-2nd dcf-u-lh2 unl-u-font-sans">
               <a class="dcf-u-block dcf-u-txt-decor-none" href="//events.unl.edu/2017/09/25/123212/" itemprop="url">
@@ -315,7 +315,7 @@
           </figure>
         </li>
 
-        <li class="dcf-o-media dcf-c-event dcf-u-pt3 dcf-u-bt" itemtype="http://schema.org/Event">
+        <li class="dcf-o-media dcf-c-event dcf-u-pt3 dcf-u-bt" itemscope itemtype="http://schema.org/Event">
           <div class="dcf-o-media__body dcf-u-1st dcf-u-flex dcf-u-flex-col">
             <div class="dcf-u-2nd dcf-u-lh2 unl-u-font-sans">
               <a class="dcf-u-block dcf-u-txt-decor-none" href="//events.unl.edu/2017/09/25/111666/" itemprop="url">
@@ -342,7 +342,7 @@
           </figure>
         </li>
 
-        <li class="dcf-o-media dcf-c-event dcf-u-pt3 dcf-u-bt" itemtype="http://schema.org/Event">
+        <li class="dcf-o-media dcf-c-event dcf-u-pt3 dcf-u-bt" itemscope itemtype="http://schema.org/Event">
           <div class="dcf-o-media__body dcf-u-1st dcf-u-flex dcf-u-flex-col">
             <div class="dcf-u-2nd dcf-u-lh2 unl-u-font-sans">
               <a class="dcf-u-block dcf-u-txt-decor-none" href="//events.unl.edu/2017/09/25/123710/" itemprop="url">
