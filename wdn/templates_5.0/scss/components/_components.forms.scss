@@ -17,10 +17,10 @@
 
 // !Required
 .unl .dcf-c-required {
-  @include pl2;
-  @include sm2;
-  @include italic;
   color: $scarlet;
+  @include txt-sm;
+  font-style: italic;
+  @include pl2;
 }
 
 
@@ -35,13 +35,13 @@
 
 // !Input: Text
 .unl .dcf-c-input-text {
-  @include pt2;
-  @include pr3;
-  @include pb2;
-  @include pl3;
   border: 1px solid $color-border;
 //   border-radius: $roundrect;
   box-shadow: inset 0 1px 2px fade-out($color-border,1);
+  @include pb2;
+  @include pl3;
+  @include pr3;
+  @include pt2;
   transition: border-color $hover-off, box-shadow $hover-off;
 }
 
@@ -54,8 +54,8 @@
 
 
 .unl .dcf-c-input-text:focus {
-  outline: none;
   border-color: $color-button;
+  outline: none;
 }
 
 
@@ -72,16 +72,16 @@
 
 // !Input: File
 .unl .dcf-c-input-file {
-  @include mt2;
   @include mb2;
+  @include mt2;
 }
 
 
 // !Form Help
 .unl .dcf-c-form-help {
-  @include mt1;
-  @include sm2;
   color: $color-light-text;
+  @include txt-sm;
+  @include mt1;
 }
 
 
@@ -92,43 +92,42 @@
 /* Container used for styling the custom select, the buttom class below adds the
  * bg gradient, corners, etc. */
 .unl .dcf-c-input-select {
-  @include table;
-  @include relative;
+  display: table;
   @include mt1;
+  position: relative;
 }
 
 /* This is the native select, we're making everything but the text invisible so
  * we can see the button styles in the wrapper */
 .unl .dcf-c-input-select select {
-	@include w100;
-	@include m0;
+	margin: 0;
 	outline: none;
-  @include pt2;
-  @include pr4;
   @include pb2;
   @include pl3;
+  @include pr4;
+  @include pt2;
+  width: 100%;
 
-	/* Prefixed box-sizing rules necessary for older browsers */
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+  /* Prefixed box-sizing rules necessary for older browsers */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 
-	/* Font size must be 16px to prevent iOS page zoom on focus */
-	font-size: 1rem;
+  /* Font size must be 16px to prevent iOS page zoom on focus */
+  font-size: 1rem;
 }
 
 
 /* Custom arrow sits on top of the select - could be an image, SVG, icon font,
  * etc. or the arrow could just baked into the bg image on the select. */
 .unl .dcf-c-input-select::after {
-	content: " ";
-	@include absolute;
-	top: 50%;
-	right: 1em;
-	z-index: 2;
-	/* These hacks make the select behind the arrow clickable in some browsers */
-	pointer-events: none;
-	@include none;
+  content: " ";
+  display: none; // Make the select behind the arrow clickable in some browsers
+  pointer-events: none; // Make the select behind the arrow clickable in some browsers
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  z-index: 2;
 }
 
 /* Firefox <= 34 has a false positive on @supports( -moz-appearance: none )
@@ -136,32 +135,32 @@
  */
 @supports (-webkit-appearance: none) or (appearance: none) or ((-moz-appearance: none) and (mask-type: alpha)) {
 
-	/* Show custom arrow */
-	.unl .dcf-c-input-select::after {
-		@include block;
+  /* Show custom arrow */
+  .unl .dcf-c-input-select::after {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 8px solid $color-body;
+    display: block;
     height: 0;
+    margin-top: -4px;
     width: 0;
-  	border-left: 4px solid transparent;
-  	border-right: 4px solid transparent;
-  	border-top: 8px solid $color-body;
-  	margin-top: -4px;
-	}
+  }
 
-	/* Remove select styling */
-	.unl .dcf-c-input-select select {
-		padding-right: 3em; /* Match-01 */
-		/* inside @supports so that iOS <= 8 display the native arrow */
-		@include bg-none; /* Match-04 */
-		/* inside @supports so that Android <= 4.3 display the native arrow */
-		border: 1px solid transparent; /* Match-05 */
+  /* Remove select styling */
+  .unl .dcf-c-input-select select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* inside @supports so that iOS <= 8 display the native arrow */
+    background: none; /* Match-04 */
+    /* inside @supports so that Android <= 4.3 display the native arrow */
+    border: 1px solid transparent; /* Match-05 */
+    padding-right: 3em; /* Match-01 */
+  }
 
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
-	}
-	.unl .dcf-c-input-select select:focus {
-		border-color: #aaa; /* Match-03 */
-	}
+  .unl .dcf-c-input-select select:focus {
+    border-color: #aaa; /* Match-03 */
+  }
 }
 
 
@@ -172,46 +171,46 @@
 /* These are the "theme" styles for our button applied via separate button class, style as you like */
 /* Set the background fallback to solid #fff so Firefox renders the <option> list readably. */
 .unl .dcf-c-input-select {
-	border: 1px solid $color-border;
-// 	@include rounded;
-// 	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-// 	box-shadow: 2px 2px 0 0 rgba(0,0,0,.1);
+  border: 1px solid $color-border;
+  // 	@include rounded;
+  // 	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+  // 	box-shadow: 2px 2px 0 0 rgba(0,0,0,.1);
   transition: border-color $hover-off;
 }
 
 .unl .dcf-c-input-select select {
-	/* General select styles: change as needed */
-// 	font-family: sans-serif;
-// 	font-weight: 700;
-	color: $color-body;
-// 	line-height: 1.5;
-	@include lh3;
-// 	@include rounded;
+  /* General select styles: change as needed */
+  // 	@include rounded;
+  color: $color-body;
+  // 	font-family: sans-serif;
+  // 	font-weight: 700;
+  // 	line-height: 1.5;
+  @include lh3;
 }
 
 /* Hover style */
 .unl .dcf-c-input-select:hover {
-	border-color: $color-border-hover;
+  border-color: $color-border-hover;
   transition: border-color $hover-on;
 }
 
 /* Focus style */
 .unl .dcf-c-input-select select:focus {
-	/* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
-	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
-	box-shadow: 0 0 0 3px -moz-mac-focusring;
-	color: #222; /* Match-02 */
+  /* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222; /* Match-02 */
 }
 
 @supports ( box-shadow: none ) {
-	.unl .dcf-c-input-select select:focus {
-		outline: none;
-	}
+  .unl .dcf-c-input-select select:focus {
+    outline: none;
+  }
 }
 
 /* Set options to normal weight */
 .unl .dcf-c-input-select option {
-	@include regular;
+  font-weight: normal;
 }
 
 
@@ -221,26 +220,26 @@
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 
-	.unl .dcf-c-input-select select::-ms-expand {
-		@include none;
-	}
+  .unl .dcf-c-input-select select::-ms-expand {
+    display: none;
+  }
 
-	.unl .dcf-c-input-select select:focus {
-		border-color: #aaa; /* Match-03 */
-	}
+  .unl .dcf-c-input-select select:focus {
+  	border-color: #aaa; /* Match-03 */
+  }
 
-	.unl .dcf-c-input-select select:focus::-ms-value {
-		@include bg-transparent;
-		color: #222; /* Match-02*/
-	}
+  .unl .dcf-c-input-select select:focus::-ms-value {
+    background-color: transparent;
+    color: #222; /* Match-02*/
+  }
 
-	.unl .dcf-c-input-select select {
-		padding-right: 3em; /* Match-01 */
-    @include bg-none; /* Match-04 */
-		border: 1px solid transparent; /* Match-05 */
-	}
+  .unl .dcf-c-input-select select {
+    background: none; /* Match-04 */
+    border: 1px solid transparent; /* Match-05 */
+    padding-right: 3em; /* Match-01 */
+  }
 
-	.unl .dcf-c-input-select::after {
-		@include block;
-	}
+  .unl .dcf-c-input-select::after {
+  	display: block;
+  }
 }

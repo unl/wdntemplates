@@ -22,13 +22,13 @@
 @supports (display: grid) {
 
   .unl-c-bio {
-    @include grid;
-    grid-template-columns: auto;
+    display: grid;
     grid-template-areas:
       "avatar"
       "header"
       "contact"
       "cv";
+    grid-template-columns: auto;
   }
 
   .unl-c-bio__header {
@@ -48,7 +48,7 @@
   }
 
   .unl-c-vcard-tools {
-    @include grid;
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -59,10 +59,10 @@
   @include mq(md, min, width) {
 
     .unl-c-bio {
-      grid-template-columns: #{ms(18)}em 2fr;
       grid-template-areas:
         "avatar header"
         "contact cv";
+      grid-template-columns: #{ms(18)}em 2fr;
     }
 
   }

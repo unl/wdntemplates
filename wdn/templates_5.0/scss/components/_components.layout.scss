@@ -4,8 +4,8 @@
 
 
 .unl-t-hero-h {
-  @include inline;
   color: #fff;
+  display: inline;
 //   box-decoration-break: clone;
 //   box-shadow: .316em 0 0 rgba(208,0,0,.9), -.316em 0 0 rgba(208,0,0,.9);
 //   background-color: rgba(208,0,0,.9);

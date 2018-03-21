@@ -12,13 +12,13 @@
 }
 
 .unl-c-directory-result:last-child {
-  @include mb0;
+  margin-bottom: 0;
 }
 
 @include mq(md, min, width) {
 
   .unl .dcf-c-search-form {
-    @include sm2;
+    @include txt-sm;
   }
 
 }
@@ -27,8 +27,8 @@
 // !UNL Google Search Results Overrides
 .unl .cse .gsc-control-cse,
 .unl .gsc-control-cse {
-  @include p0;
-  @include b0;
+  border: 0;
+  padding: 0;
   @include bg-transparent;
 }
 
@@ -39,30 +39,30 @@
 }
 
 .unl .gsc-above-wrapper-area {
+  border: 0;
+  padding: 0;
   @include mb7;
-  @include p0;
-  @include b0;
 }
 
 .unl .gsc-result-info {
-  @include m0;
-  @include p0;
-  font-size: inherit;
   color: $color-body;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 .unl .gcsc-branding {
-  @include none;
+  display: none;
 }
 
 .unl .gsc-webResult .gsc-result {
-  @include pt0;
+  border: 0;
   @include pb6;
-  @include b0;
+  padding-top: 0;
 }
 
 .unl .gsc-thumbnail-inside {
-  @include none;
+  display: none;
 }
 
 .unl .gsc-thumbnail-left {
@@ -70,20 +70,20 @@
 }
 
 .unl .gs-snippet {
-  @include mt1;
   @include mb1;
+  @include mt1;
 }
 
 .gsc-control-cse .gs-result .gsc-table-cell-snippet-close > .gs-title {
-  @include h5;
+  @include txt-h5;
 }
 
 .gsc-control-cse .gs-result .gsc-table-cell-snippet-close > .gs-title * {
-  font-size: 1em;
+  @include txt-base;
 }
 
 .unl .gsc-url-top {
-  @include none;
+  display: none;
 }
 
 .unl .gsc-control-cse .gs-snippet {
@@ -91,19 +91,19 @@
 }
 
 .unl .gsc-thumbnail {
-  @include pt1;
   @include pr5;
+  @include pt1;
 }
 
 .unl .gs-web-image-box,
 .unl .gs-promotion-image-box {
-  @include p0;
+  padding: 0;
 }
 
 .unl .gs-promotion-image-box img.gs-promotion-image,
 .unl .gs-web-image-box img.gs-image {
-  max-width: 100%;
   max-height: none;
+  max-width: 100%;
 }
 
 .unl .gs-image-box.gs-web-image-box.gs-web-image-box-landscape,
@@ -121,7 +121,7 @@
 }
 
 .unl .gsc-thumbnail-left {
-  @include block;
+  display: block;
 }
 
 .unl .gsc-result .gs-title {
@@ -135,18 +135,18 @@
 }
 
 .unl .gsc-result.gsc-webResult:hover {
-  @include b0;
+  border: 0;
 }
 
 .unl .gs-result .gs-title,
 .unl .gs-result .gs-title * {
   color: $scarlet;
-  @include txt-decor-none;
+  text-decoration: none;
 }
 
 .unl .gsc-url-bottom {
-  @include block;
-  @include sm2;
+  display: block;
+  @include txt-sm;
 }
 
 .unl .gsc-snippet-metadata,
@@ -162,20 +162,20 @@
 }
 
 .unl .gsc-results .gsc-cursor-box {
-  @include m0;
-  @include pt4;
-  @include pr0;
-  @include pb0;
-  @include pl0;
-  @include bt;
   border-color: $color-border;
+  @include bt;
+  margin: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  @include pt4;
 }
 
 .unl .gsc-results .gsc-cursor-box .gsc-cursor-page {
-  @include inlineblock;
-  @include p1;
-  @include txt-center;
   color: $scarlet;
+  display: inline-block;
+  @include p1;
+  text-align: center;
 }
 
 .unl .gsc-results .gsc-cursor-box .gsc-cursor-page:not(:last-child) {
@@ -183,7 +183,7 @@
 }
 
 .unl .gsc-results .gsc-cursor-box .gsc-cursor-current-page {
-  font-weight: 400;
-  @include txt-decor-none;
   color: $color-body;
+  font-weight: 400;
+  text-decoration: none;
 }

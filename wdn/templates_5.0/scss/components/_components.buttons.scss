@@ -4,19 +4,18 @@
 
 
 .unl .dcf-c-btn {
-  @include pt4;
-  @include pr5;
-  padding-bottom: #{ms(-1)}em;
-//   @include pb4;
-  @include pl5;
-  font-size: #{ms(-2)}em;
-//   @include lh1;
-  @include font-sans;
-  @include uppercase;
-  @include ls2;
-  @include bold;
   border-width: 2px;
   border-style: solid;
+  @include font-sans;
+  font-size: #{ms(-2)}em;
+  font-weight: bold;
+  @include ls2;
+//   @include lh1;
+  padding-bottom: #{ms(-1)}em;
+  @include pl5;
+  @include pr5;
+  @include pt4;
+  text-transform: uppercase;
 }
 
 
@@ -25,66 +24,92 @@
 // !Primary Button
 .unl .dcf-c-btn--primary,
 .unl .dcf-c-btn--primary:link {
-  color: #fff;
-  border-color: $color-button;
   background-color: $color-button;
+  border-color: $color-button;
+  color: #fff;
   transition: border $hover-off, background-color $hover-off;
 }
 
 .unl .dcf-c-btn--primary:visited {
-  color: #fff;
-  border-color: $color-button-visited;
   background-color: $color-button-visited;
+  border-color: $color-button-visited;
+  color: #fff;
 }
 
 .unl .dcf-c-btn--primary:hover {
-  color: #fff;
-  border-color: $color-button-hover;
   background-color: $color-button-hover;
+  border-color: $color-button-hover;
+  color: #fff;
   transition: border $hover-on, background-color $hover-on;
 }
 
 .unl .dcf-c-btn--primary:active,
 .unl .dcf-c-btn--primary.dcf-c-active {
-  color: #fff;
-  border-color: $color-button-active;
   background-color: $color-button-active;
+  border-color: $color-button-active;
+  color: #fff;
 }
 
 
 // !Secondary Button
 .unl .dcf-c-btn--secondary,
 .unl .dcf-c-btn--secondary:link {
-  color: $color-button;
-  border-color: currentcolor;
   background-color: #fff;
-  transition: border $hover-off, background-color $hover-off;
+  border-color: currentcolor;
+  color: $color-button;
+  transition: all $hover-off;
 }
 
 .unl .dcf-c-btn--secondary:visited {
-  color: $color-button-visited;
   border-color: currentcolor;
+  color: $color-button-visited;
 }
 
 .unl .dcf-c-btn--secondary:hover {
-  color: $color-button-hover;
-  border-color: currentcolor;
   background-color: lighten($color-button,55%);
-  transition: border $hover-on, background-color $hover-on;
+  border-color: currentcolor;
+  color: $color-button-hover;
+  transition: all $hover-on;
 }
 
 .unl .dcf-c-btn--secondary:active,
 .unl .dcf-c-btn--secondary.dcf-c-active {
-  color: $color-button-active;
   border-color: currentcolor;
+  color: $color-button-active;
+}
+
+
+// !Tertiary Button
+.unl .dcf-c-btn--tertiary,
+.unl .dcf-c-btn--tertiary:link {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: $color-button;
+  text-decoration: underline;
+  text-decoration-skip: ink;
+  transition: color $hover-off;
+}
+
+.unl .dcf-c-btn--tertiary:visited {
+  color: $color-button-visited;
+}
+
+.unl .dcf-c-btn--tertiary:hover {
+  color: $color-button-hover;
+  transition: color $hover-on;
+}
+
+.unl .dcf-c-btn--tertiary:active,
+.unl .dcf-c-btn--tertiary.dcf-c-active {
+  color: $color-button-active;
 }
 
 
 // !Inverse Button
 .unl .dcf-c-btn--inverse {
-  color: #fff;
-  border-color: currentcolor;
   background-color: rgba(0,0,0,.1);
+  border-color: currentcolor;
+  color: #fff;
   transition: border $hover-off, background-color $hover-off;
 }
 

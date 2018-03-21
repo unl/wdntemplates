@@ -5,6 +5,6 @@
 
 html {
   @include font-serif;
-  @include roman;
+  font-style: normal;
   font-weight: 400;
 }
