@@ -25,14 +25,20 @@
 
 
 // !UNL Google Search Results Overrides
-.unl .cse .gsc-control-cse,
 .unl .gsc-control-cse {
+  border: 0;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  @include bg-transparent;
+}
+
+.unl .cse .gsc-control-cse {
   border: 0;
   padding: 0;
   @include bg-transparent;
 }
 
-.unl .gsc-control-cse,
 .unl .gsc-control-cse .gsc-table-result {
   font-family: inherit;
   font-size: inherit;
@@ -66,6 +72,7 @@
 }
 
 .unl .gsc-thumbnail-left {
+  display: block;
   @include mb1;
 }
 
@@ -74,11 +81,27 @@
   @include mt1;
 }
 
-.gsc-control-cse .gs-result .gsc-table-cell-snippet-close > .gs-title {
+.unl .gsc-result .gs-title {
+  height: initial;
+}
+
+.unl .gs-result .gs-title,
+.unl .gs-result .gs-title * {
+  color: $scarlet;
+  text-decoration: none;
+}
+
+.unl .gsc-control-cse .gs-spelling,
+.unl .gsc-control-cse .gs-result .gs-title,
+.unl .gsc-control-cse .gs-result .gs-title * {
+  @include lh2;
+}
+
+.unl .gsc-control-cse .gs-result .gsc-table-cell-snippet-close > .gs-title {
   @include txt-h5;
 }
 
-.gsc-control-cse .gs-result .gsc-table-cell-snippet-close > .gs-title * {
+.unl .gsc-control-cse .gs-result .gsc-table-cell-snippet-close > .gs-title * {
   @include txt-base;
 }
 
@@ -120,28 +143,8 @@
   border-color: $color-border;
 }
 
-.unl .gsc-thumbnail-left {
-  display: block;
-}
-
-.unl .gsc-result .gs-title {
-  height: initial;
-}
-
-.unl .gsc-control-cse .gs-spelling,
-.unl .gsc-control-cse .gs-result .gs-title,
-.unl .gsc-control-cse .gs-result .gs-title * {
-  @include lh2;
-}
-
 .unl .gsc-result.gsc-webResult:hover {
   border: 0;
-}
-
-.unl .gs-result .gs-title,
-.unl .gs-result .gs-title * {
-  color: $scarlet;
-  text-decoration: none;
 }
 
 .unl .gsc-url-bottom {

@@ -77,10 +77,7 @@
 
     .unl .dcf-c-footer__global {
       grid-template-columns: 1fr 1fr;
-      grid-template-areas:
-        "social campus"
-        "policies logos"
-        "copyright copyright";
+      grid-template-areas: "social campus" "policies logos" "copyright copyright";
     }
 
     .unl-c-footer-social {
@@ -109,9 +106,7 @@
 
     .unl .dcf-c-footer__global {
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-areas:
-        "social campus policies"
-        "logos copyright copyright";
+      grid-template-areas: "social campus policies" "logos copyright copyright";
     }
 
   }
@@ -120,9 +115,7 @@
 
     .unl .dcf-c-footer__global {
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-areas:
-        "social campus policies logos"
-        "copyright copyright copyright copyright";
+      grid-template-areas: "social campus policies logos" "copyright copyright copyright copyright";
     }
 
   }

@@ -26,8 +26,6 @@
 
 // !Inputs
 .unl .dcf-c-input-text,
-.unl .dcf-c-input-text,
-.unl .dcf-c-input-select select,
 .unl .dcf-c-input-file {
   @include font-sans;
 }
@@ -95,11 +93,20 @@
   display: table;
   @include mt1;
   position: relative;
+
+  /* These are the "theme" styles for our button applied via separate button class, style as you like */
+  /* Set the background fallback to solid #fff so Firefox renders the <option> list readably. */
+  border: 1px solid $color-border;
+  // 	@include rounded;
+  // 	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+  // 	box-shadow: 2px 2px 0 0 rgba(0,0,0,.1);
+  transition: border-color $hover-off;
 }
 
 /* This is the native select, we're making everything but the text invisible so
  * we can see the button styles in the wrapper */
 .unl .dcf-c-input-select select {
+  @include font-sans;
 	margin: 0;
 	outline: none;
   @include pb2;
@@ -109,12 +116,22 @@
   width: 100%;
 
   /* Prefixed box-sizing rules necessary for older browsers */
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+//   -webkit-box-sizing: border-box;
+//   -moz-box-sizing: border-box;
   box-sizing: border-box;
 
   /* Font size must be 16px to prevent iOS page zoom on focus */
   font-size: 1rem;
+
+  /* These are the "theme" styles for our button applied via separate button class, style as you like */
+  /* Set the background fallback to solid #fff so Firefox renders the <option> list readably. */
+  /* General select styles: change as needed */
+  // 	@include rounded;
+  color: $color-body;
+  // 	font-family: sans-serif;
+  // 	font-weight: 700;
+  // 	line-height: 1.5;
+  @include lh3;
 }
 
 
@@ -148,8 +165,8 @@
 
   /* Remove select styling */
   .unl .dcf-c-input-select select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
     appearance: none;
     /* inside @supports so that iOS <= 8 display the native arrow */
     background: none; /* Match-04 */
@@ -170,24 +187,6 @@
 
 /* These are the "theme" styles for our button applied via separate button class, style as you like */
 /* Set the background fallback to solid #fff so Firefox renders the <option> list readably. */
-.unl .dcf-c-input-select {
-  border: 1px solid $color-border;
-  // 	@include rounded;
-  // 	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-  // 	box-shadow: 2px 2px 0 0 rgba(0,0,0,.1);
-  transition: border-color $hover-off;
-}
-
-.unl .dcf-c-input-select select {
-  /* General select styles: change as needed */
-  // 	@include rounded;
-  color: $color-body;
-  // 	font-family: sans-serif;
-  // 	font-weight: 700;
-  // 	line-height: 1.5;
-  @include lh3;
-}
-
 /* Hover style */
 .unl .dcf-c-input-select:hover {
   border-color: $color-border-hover;
@@ -220,6 +219,12 @@
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 
+  .unl .dcf-c-input-select select {
+    background: none; /* Match-04 */
+    border: 1px solid transparent; /* Match-05 */
+    padding-right: 3em; /* Match-01 */
+  }
+
   .unl .dcf-c-input-select select::-ms-expand {
     display: none;
   }
@@ -230,13 +235,7 @@
 
   .unl .dcf-c-input-select select:focus::-ms-value {
     background-color: transparent;
-    color: #222; /* Match-02*/
-  }
-
-  .unl .dcf-c-input-select select {
-    background: none; /* Match-04 */
-    border: 1px solid transparent; /* Match-05 */
-    padding-right: 3em; /* Match-01 */
+    color: #222; /* Match-02 */
   }
 
   .unl .dcf-c-input-select::after {

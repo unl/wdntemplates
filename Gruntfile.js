@@ -197,6 +197,17 @@ module.exports = function (grunt) {
 	require('load-grunt-tasks')(grunt);
 
 	grunt.initConfig({
+
+		stylelint: {
+			options: {
+				configFile: '.stylelintrc',
+				syntax: 'scss'
+			},
+			src: [
+				templateScss + '/**/*.scss'
+			]
+		},
+
 		sass: {
 			all: {
 				files: scssAllFiles,
@@ -212,6 +223,18 @@ module.exports = function (grunt) {
 					sourceMap: true
 				},
 				files: scssJsFiles
+			}
+		},
+
+		postcss: {
+			options: {
+				processors: [
+					require('postcss-normalize'),
+					require('autoprefixer')
+				]
+			},
+			dist: {
+				src: templateCss + '/*.css'
 			}
 		},
 
@@ -308,7 +331,7 @@ module.exports = function (grunt) {
 		},
 
 		concurrent: {
-			main: ['sass:all', 'js'],
+			main: ['stylelint', 'sass:all', 'postcss', 'js'],
 			dist: ['zip', 'archive']
 		},
 
@@ -432,5 +455,5 @@ module.exports = function (grunt) {
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
 	grunt.registerTask('js', ['clean:js', 'sass:js', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
-	grunt.registerTask('css', ['sass:all']);
+	grunt.registerTask('css', ['stylelint', 'sass:all', 'postcss']);
 };

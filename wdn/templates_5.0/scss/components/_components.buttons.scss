@@ -55,26 +55,26 @@
 .unl .dcf-c-btn--secondary,
 .unl .dcf-c-btn--secondary:link {
   background-color: #fff;
-  border-color: currentcolor;
+  border-color: currentColor;
   color: $color-button;
   transition: all $hover-off;
 }
 
 .unl .dcf-c-btn--secondary:visited {
-  border-color: currentcolor;
+  border-color: currentColor;
   color: $color-button-visited;
 }
 
 .unl .dcf-c-btn--secondary:hover {
   background-color: lighten($color-button,55%);
-  border-color: currentcolor;
+  border-color: currentColor;
   color: $color-button-hover;
   transition: all $hover-on;
 }
 
 .unl .dcf-c-btn--secondary:active,
 .unl .dcf-c-btn--secondary.dcf-c-active {
-  border-color: currentcolor;
+  border-color: currentColor;
   color: $color-button-active;
 }
 
@@ -108,7 +108,7 @@
 // !Inverse Button
 .unl .dcf-c-btn--inverse {
   background-color: rgba(0,0,0,.1);
-  border-color: currentcolor;
+  border-color: currentColor;
   color: #fff;
   transition: border $hover-off, background-color $hover-off;
 }

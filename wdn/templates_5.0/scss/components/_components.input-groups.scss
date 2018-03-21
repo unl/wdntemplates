@@ -5,14 +5,9 @@
 
 // !Input Group Button
 .unl .dcf-c-input-group .dcf-c-btn {
+  margin-left: -1px;
   padding-bottom: 0;
   padding-top: 0;
-}
-
-
-// !Input Group Button
-.unl .dcf-c-input-group .dcf-c-btn {
-  margin-left: -1px;
 }
 
 
@@ -31,16 +26,10 @@
 
 
 .unl .dcf-c-input-group-addon:not(:last-child) {
-  border-bottom-width: 1px;
-  border-left-width: 1px;
-  border-right-width: 0;
-  border-top-width: 1px;
+  border-width: 1px 0 1px 1px;
 }
 
 
 .unl .dcf-c-input-group-addon:last-child {
-  border-bottom-width: 1px;
-  border-left-width: 0;
-  border-right-width: 1px;
-  border-top-width: 1px;
+  border-width: 1px 1px 1px 0;
 }
