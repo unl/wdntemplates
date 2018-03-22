@@ -1159,6 +1159,7 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
     <h3 class="dcf-u-mt5 dcf-u-regular">Button Hierarchy</h3>
     <button class="dcf-c-btn dcf-c-btn--primary" type="button">Primary Button</button>
     <button class="dcf-c-btn dcf-c-btn--secondary" type="button">Secondary Button</button>
+    <button class="dcf-c-btn dcf-c-btn--tertiary" type="button">Tertiary Button</button>
 
 <!--
     <h3 class="dcf-u-mt5 dcf-u-regular">Button Sizes</h3>
@@ -1178,13 +1179,18 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
     <h3 class="dcf-u-mt5 dcf-u-regular">Button Active State</h3>
     <button class="dcf-c-btn dcf-c-btn--primary dcf-c-active" aria-pressed="true">Primary Button</button>
     <button class="dcf-c-btn dcf-c-btn--secondary dcf-c-active" aria-pressed="true">Secondary Button</button>
+    <button class="dcf-c-btn dcf-c-btn--tertiary dcf-c-active" aria-pressed="true">Tertiary Button</button>
 
     <h3 class="dcf-u-mt5 dcf-u-regular">Button Disabled State</h3>
-    <button class="dcf-c-btn dcf-c-btn--primary" disabled>Primary Button</button>
-    <button class="dcf-c-btn dcf-c-btn--secondary" disabled>Secondary Button</button>
+    <div class="dcf-u-block dcf-u-mb4">
+      <button class="dcf-c-btn dcf-c-btn--primary" disabled>Primary Button</button>
+      <button class="dcf-c-btn dcf-c-btn--secondary" disabled>Secondary Button</button>
+      <button class="dcf-c-btn dcf-c-btn--tertiary" disabled>Tertiary Button</button>
+    </div>
 
     <a class="dcf-c-btn dcf-c-btn--primary dcf-u-disabled" href="#" role="button" aria-disabled="true">Primary Link</a>
     <a class="dcf-c-btn dcf-c-btn--secondary dcf-u-disabled" href="#" role="button" aria-disabled="true">Secondary Link</a>
+    <a class="dcf-c-btn dcf-c-btn--tertiary dcf-u-disabled" href="#" role="button" aria-disabled="true">Tertiary Link</a>
 
     <h2 class="dcf-u-mt6">Button Group</h2>
     <div class="dcf-c-btn-group" role="group" aria-label="button group example">
