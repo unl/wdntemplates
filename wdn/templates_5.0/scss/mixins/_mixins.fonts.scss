@@ -18,6 +18,6 @@
 // !Display
 @mixin font-display($imp:null) {
   font-family: 'Tungsten A', 'Tungsten B', 'Arial Narrow', Arial, sans-serif $imp;
-  font-weight: 600 $imp;
   font-style: normal $imp;
+  font-weight: 600 $imp;
 }

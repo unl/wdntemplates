@@ -5,42 +5,31 @@
 
 // !Input Group Button
 .unl .dcf-c-input-group .dcf-c-btn {
-  @include pt0;
-  @include pb0;
-}
-
-
-// !Input Group Button
-.unl .dcf-c-input-group .dcf-c-btn {
   margin-left: -1px;
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
 
 // !Input Group Add-on
 .unl .dcf-c-input-group-addon {
-  @include pt2;
-  @include pr3;
+  background-color: lighten($color-border,15%); // convert to variable
+  border-color: $color-border;
+  border-style: solid;
+  color: $color-light-text;
+  @include font-sans;
   @include pb2;
   @include pl3;
-  @include font-sans;
-  color: $color-light-text;
-  border-style: solid;
-  border-color: $color-border;
-  background-color: lighten($color-border,15%); // convert to variable
+  @include pr3;
+  @include pt2;
 }
 
 
 .unl .dcf-c-input-group-addon:not(:last-child) {
-  border-top-width: 1px;
-  border-right-width: 0;
-  border-bottom-width: 1px;
-  border-left-width: 1px;
+  border-width: 1px 0 1px 1px;
 }
 
 
 .unl .dcf-c-input-group-addon:last-child {
-  border-top-width: 1px;
-  border-right-width: 1px;
-  border-bottom-width: 1px;
-  border-left-width: 0;
+  border-width: 1px 1px 1px 0;
 }

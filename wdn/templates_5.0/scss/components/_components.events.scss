@@ -5,14 +5,14 @@
 
 .unl .dcf-c-event__endrange::before {
   content: '\2013';
-  padding-right: #{ms(-12)}em;
   padding-left: #{ms(-12)}em;
+  padding-right: #{ms(-12)}em;
 }
 
 
 .unl .dcf-c-event__img {
-  width: 24%;
   margin-right: 4px;
+  width: 24%;
 }
 
 

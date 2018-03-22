@@ -3,32 +3,24 @@
 ////////////////////////////
 
 
-.unl-c-bio {
-
-}
-
-.unl-c-bio__directory {
-
-}
-
-.unl-c-bio__info {
-
-}
-
-.unl-c-vcard-tools {
-
-}
+// .unl-c-bio {
+// }
+//
+// .unl-c-bio__directory {
+// }
+//
+// .unl-c-bio__info {
+// }
+//
+// .unl-c-vcard-tools {
+// }
 
 @supports (display: grid) {
 
   .unl-c-bio {
-    @include grid;
+    display: grid;
+    grid-template-areas: "avatar" "header" "contact" "cv";
     grid-template-columns: auto;
-    grid-template-areas:
-      "avatar"
-      "header"
-      "contact"
-      "cv";
   }
 
   .unl-c-bio__header {
@@ -48,7 +40,7 @@
   }
 
   .unl-c-vcard-tools {
-    @include grid;
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -59,10 +51,8 @@
   @include mq(md, min, width) {
 
     .unl-c-bio {
+      grid-template-areas: "avatar header" "contact cv";
       grid-template-columns: #{ms(18)}em 2fr;
-      grid-template-areas:
-        "avatar header"
-        "contact cv";
     }
 
   }

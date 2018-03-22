@@ -9,7 +9,7 @@
 
 
 .unl .dcf-c-nav__primary > ul > li > a {
-  @include bold;
-  @include uppercase;
+  font-weight: 700;
   @include ls2;
+  text-transform: uppercase;
 }
