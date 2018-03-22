@@ -930,13 +930,6 @@ Dress to impress+bring copies of your resume = learn about a future job or inter
     <h5>h5. Heading <small class="dcf-u-regular dcf-u-txt-sm dcf-u-pl1">1.33em</small></h5>
     <h6>h6. Heading <small class="dcf-u-regular dcf-u-txt-sm dcf-u-pl1">1.125em</small></h6>
 
-    <h3 class="dcf-u-mt5 dcf-u-regular">Display Headings</h3>
-
-    <h1 class="dcf-u-display1">Display 1 <small class="dcf-u-regular dcf-u-txt-sm dcf-u-pl1">2.67em</small></h1>
-    <h2 class="dcf-u-display2">Display 2 <small class="dcf-u-regular dcf-u-txt-sm dcf-u-pl1">3.16em</small></h2>
-    <h3 class="dcf-u-display3">Display 3 <small class="dcf-u-regular dcf-u-txt-sm dcf-u-pl1">3.56em</small></h3>
-    <h4 class="dcf-u-display4">Display 4 <small class="dcf-u-regular dcf-u-txt-sm dcf-u-pl1">4.21em</small></h4>
-
     <h2 class="dcf-u-mt6">Badges</h2>
 
     <h1>h1. Heading with roundrect badge <small class="dcf-c-badge dcf-c-badge--roundrect">New</small></h1>
