@@ -3,6 +3,11 @@
 //////////////////////////////////////
 
 
-.unl .dcf-c-btn-group .dcf-c-btn + .dcf-c-btn {
+.unl .dcf-c-btn-group .dcf-c-btn--primary + .dcf-c-btn--primary {
+  margin-left: 2px;
+}
+
+
+.unl .dcf-c-btn-group .dcf-c-btn--secondary + .dcf-c-btn--secondary {
   margin-left: -2px;
 }
