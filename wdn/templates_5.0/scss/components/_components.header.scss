@@ -16,3 +16,42 @@
 .unl-c-ls-ital {
   padding-right: #{ms(-12)}em; // .18em
 }
+
+
+@include mq(md, max, width) {
+
+  .unl .dcf-c-header::after {
+    @include bg-white;
+    bottom: 0;
+    box-shadow: 0 0 4px 0 fade-out($color-body, .75);
+    content: '';
+    @include height9;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
+
+}
+
+
+@include mq(md, min, width) {
+
+  @supports (display: grid) {
+
+    .unl .dcf-c-header {
+      grid-template-areas: "first nav2 nav2" "logo search idm" "nav1 nav1 nav1";
+      grid-template-columns: 1fr auto auto;
+    }
+
+    .unl .dcf-c-institution-title {
+      grid-area: first;
+    }
+
+    .unl .dcf-c-logo {
+      grid-area: logo;
+    }
+
+  }
+
+}
