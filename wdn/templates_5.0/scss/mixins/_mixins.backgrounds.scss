@@ -17,27 +17,5 @@
 
 // !Diagonal
 @mixin bg-diagonal($imp:null) {
-
-//   &:before {
-//     content: '';
-//     @include absolute;
-//     @include h100;
-//     @include w100;
-//     top: 0;
-//     left: 0;
-//     z-index: -1;
-//     pointer-events: none;
-//     background-color: transparent $imp;
-//     background-image: url('~../images/bg.svg') $imp;
-//     background-position: 50% 50% $imp;
-//     background-repeat: repeat $imp;
-//     background-size: 4.96px 8px $imp;
-//   }
-
-  background-color: transparent $imp;
-  background-image: url('../images/bg.svg') $imp;
-  background-position: 50% 50% $imp;
-  background-repeat: repeat $imp;
-  background-size: 5px 8px $imp;
-
+  background: repeating-linear-gradient($diagonal1, $scarlet, $scarlet 2px, transparent 2px, transparent 4px);
 }
