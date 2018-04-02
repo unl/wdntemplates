@@ -10,3 +10,147 @@
 //   box-shadow: .316em 0 0 rgba(208,0,0,.9), -.316em 0 0 rgba(208,0,0,.9);
 //   background-color: rgba(208,0,0,.9);
 }
+
+.dcf-u-measure {
+  max-width: 35.5rem;
+}
+
+
+// .unl .dcf-c-breadcrumbs a {
+//   color: #fff;
+// }
+
+
+
+.unl-clip-l {
+  clip-path: polygon(0 0, 57.7% 0, 100% 100%, 0 100%);
+}
+
+
+.unl-clip-r {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 42.3% 100%);
+}
+
+
+
+[class*='unl-stripe-'] {
+  position: relative;
+
+  &::after {
+    content: '';
+    height: 5px;
+    position: absolute;
+    width: 100%;
+  }
+
+}
+
+[class*='unl-stripe-b-'] {
+
+  &::after {
+    bottom: 0;
+  }
+
+}
+
+[class*='unl-stripe-t-'] {
+
+  &::after {
+    top: 0;
+  }
+
+}
+
+
+.unl-stripe-b-white {
+
+  &::after {
+    background-image: linear-gradient(to top, transparent 2px, $white 2px, $white 4px, transparent 4px);
+  }
+
+}
+
+.unl-stripe-b-scarlet {
+
+  &::after {
+    background-image: linear-gradient(to top, transparent 2px, $scarlet 2px, $scarlet 4px, transparent 4px);
+  }
+
+}
+
+.unl-stripe-t-white {
+
+  &::after {
+    background-image: linear-gradient(to bottom, transparent 2px, $white 2px, $white 4px, transparent 4px);
+  }
+
+}
+
+.unl-stripe-t-scarlet {
+
+  &::after {
+    background-image: linear-gradient(to bottom, transparent 2px, $scarlet 2px, $scarlet 4px, transparent 4px);
+  }
+
+}
+
+
+.unl-frame {
+  position: relative;
+
+  &::after {
+    border: 2px solid #fff;
+    content: '';
+    height: calc(100% - 4px);
+    left: 2px;
+    position: absolute;
+    top: 2px;
+    width: calc(100% - 4px);
+  }
+
+}
+
+.unl-frame > img {
+  display: block;
+}
+
+
+// .unl ol,
+// .unl ul {
+//   list-style: none;
+//   padding-left: 0;
+// }
+//
+// .unl ol {
+//   counter-reset: li;
+// }
+//
+// .unl li {
+//   @include pl6;
+// }
+//
+// .unl li:before {
+//   @include txt-sm;
+//   @include bold;
+//   color: $color-lightest-text;
+//   display: inline-block;
+//   width: 1em;
+//   margin-left: -2em;
+//   margin-right: 1em;
+//   text-align: right;
+// }
+//
+// .unl ol > li {
+//   counter-increment: li;
+// }
+//
+// .unl ol > li:before {
+//   content: counter(li);
+//   @include font-sans;
+//   direction: rtl;
+// }
+//
+// .unl ul > li:before {
+//   content: "\2022";
+// }
+
