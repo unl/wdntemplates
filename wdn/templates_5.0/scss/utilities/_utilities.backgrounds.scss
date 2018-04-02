@@ -11,5 +11,13 @@
 .unl-u-bg-cream { @include bg-cream(!important); }
 
 
-// !Diagonal Pattern
-.unl-u-bg-diagonal { @include bg-diagonal(!important); }
+// !Diagonal Stripes: Scarlet
+.unl-u-bg-stripes-scarlet { @include bg-stripes-scarlet(!important); }
+
+
+// !Diagonal Stripes: Dark
+.unl-u-bg-stripes-dark { @include bg-stripes-dark(!important); }
+
+
+// !Diagonal Stripes: Light
+.unl-u-bg-stripes-light { @include bg-stripes-light(!important); }
