@@ -17,17 +17,17 @@
 
 // !Diagonal Stripes: Scarlet
 @mixin bg-stripes-scarlet($imp:null) {
-  background: repeating-linear-gradient($diagonal1, $scarlet, $scarlet 2px, transparent 2px, transparent 4px);
+  background-image: repeating-linear-gradient($diagonal1, $scarlet, $scarlet 2px, transparent 2px, transparent 4px);
 }
 
 
 // !Diagonal Stripes: Dark
 @mixin bg-stripes-dark($imp:null) {
-  background: repeating-linear-gradient($diagonal1, rgba($color-body, .1), rgba($color-body, .1) 2px, transparent 2px, transparent 4px);
+  background-image: repeating-linear-gradient($diagonal1, rgba($color-body, .1), rgba($color-body, .1) 2px, transparent 2px, transparent 4px);
 }
 
 
 // !Diagonal Stripes: Light
 @mixin bg-stripes-light($imp:null) {
-  background: repeating-linear-gradient($diagonal1, rgba($white, .1), rgba($white, .1) 2px, transparent 2px, transparent 4px);
+  background-image: repeating-linear-gradient($diagonal1, rgba($white, .1), rgba($white, .1) 2px, transparent 2px, transparent 4px);
 }
