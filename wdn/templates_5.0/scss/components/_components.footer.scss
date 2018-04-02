@@ -50,7 +50,7 @@
 // !Global Footer
 .unl .dcf-c-footer__global {
   color: $color-footer-global;
-  background-color: $color-footer-global-bg;
+  background: $color-footer-global-bg url('../images/seal.svg') 50% 50% no-repeat;
 }
 
 
@@ -88,20 +88,25 @@
     }
 
     .unl-c-footer-local1 {
-      grid-area: local1;
+      grid-area: lf1;
     }
 
     .unl-c-footer-local2 {
-      grid-area: local2;
+      grid-area: lf2;
     }
 
     .unl-c-footer-local3 {
-      grid-area: local3;
+      grid-area: lf3;
     }
+
+    .unl-c-footer-local4 {
+      grid-area: lf4;
+    }
+
 
     .unl .dcf-c-footer__global {
       grid-template-columns: 1fr 1fr;
-      grid-template-areas: "social campus" "policies logos" "copyright copyright";
+      grid-template-areas: "social campus" "policies logos" "address address" "wdn wdn" "copyright copyright";
     }
 
     .unl-c-footer-social {
@@ -120,6 +125,14 @@
       grid-area: logos;
     }
 
+    .unl-c-footer-wdn {
+      grid-area: wdn;
+    }
+
+    .unl-c-footer-address {
+      grid-area: address;
+    }
+
     .unl-c-footer-institution {
       grid-area: institution;
     }
@@ -134,12 +147,12 @@
 
     .unl .dcf-c-footer__local {
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-areas: "heading heading heading" "local1 local2 local3";
+      grid-template-areas: "heading heading heading" "lf1 lf2 lf3";
     }
 
     .unl .dcf-c-footer__global {
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-areas: "campus policies social" "logos logos logos" "institution institution institution";
+      grid-template-areas: "campus policies social" "logos logos logos" "wdn wdn copyright";
     }
 
   }
@@ -148,12 +161,12 @@
 
     .unl .dcf-c-footer__local {
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-areas: "heading local1 local2 local3";
+      grid-template-areas: "heading heading heading heading" "lf1 lf2 lf3 lf4";
     }
 
     .unl .dcf-c-footer__global {
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-areas: "logos campus policies social" "institution institution institution copyright";
+      grid-template-areas: "logos campus policies social" "wdn wdn wdn copyright";
     }
 
   }
