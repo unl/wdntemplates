@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.32 (April 3, 2018)
+- Added a gold and silver star for pages with high Web Audit scores
+- Updated global footer icon markup
+- Renamed 'wdn-icon-container-class'
+- Increased z-index for UNL Alert
+
 ## 4.1.31 (March 6, 2018)
 - Updated some links in the footer
 
