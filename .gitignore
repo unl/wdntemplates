@@ -5,6 +5,7 @@
 .settings
 .project
 .buildpath
+.idea
 /sandbox
 /build/compressed
 /build/vendor
