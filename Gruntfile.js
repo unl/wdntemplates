@@ -1,5 +1,5 @@
 module.exports = function (grunt) {
-	// CSS files to be built (relative to less directory, no extension)
+	// CSS files to be built (relative to scss directory, no extension)
 	var cssObjs = [
 		'all',
 		//'modules/pagination',
@@ -32,6 +32,7 @@ module.exports = function (grunt) {
 		templateCss = templateDir + '/css',
 		templateJs = templateDir + '/js',
 		templateJsSrc = templateDir + '/js-src',
+		templateLess = templateDir + '/less',
 		builtJsDir = 'compressed',
 		buildJsDir = buildDir + '/' + builtJsDir,
 		templateCompileJs = templateJs + '/' + builtJsDir,
@@ -180,6 +181,8 @@ module.exports = function (grunt) {
 	});
 
 	// common variables for task configuration
+    var autoprefixPlugin = new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]});
+    var lessPluginCleanCss = new (require('less-plugin-clean-css'))();
 	var gitFilters = require('./.git_filters/lib/git-filters.js');
 
 	// dynamic target files built from variables above
@@ -192,6 +195,9 @@ module.exports = function (grunt) {
 	jsCssObjs.forEach(function(file) {
 		scssJsFiles[templateJs + '/' + file + '.css'] = templateJs + '/' + file + '.scss';
 	});
+
+	var deprecatedLessAllFiles = {};
+	deprecatedLessAllFiles[templateCss + '/deprecated/deprecated.css'] = templateLess + '/deprecated/deprecated.less';
 
 	// load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
 	require('load-grunt-tasks')(grunt);
@@ -252,6 +258,20 @@ module.exports = function (grunt) {
 					'dest': templateJs,
 					'ext': '.js'
 				}]
+			}
+		},
+
+		less: {
+			deprecated: {
+				options: {
+					ieCompat: false,
+					paths: [hereDir + templateLess + '/deprecated'],
+					plugins: [
+						autoprefixPlugin,
+						lessPluginCleanCss
+					]
+				},
+				files: deprecatedLessAllFiles
 			}
 		},
 
@@ -331,7 +351,7 @@ module.exports = function (grunt) {
 		},
 
 		concurrent: {
-			main: ['stylelint', 'sass:all', 'postcss', 'js'],
+			main: ['stylelint', 'sass:all', 'postcss', 'less:deprecated', 'js'],
 			dist: ['zip', 'archive']
 		},
 
@@ -372,12 +392,16 @@ module.exports = function (grunt) {
 				files: [templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
 				tasks: ['sass']
 			},
+			less: {
+				files: [templateLess + '/deprecated/**/*.less'],
+				tasks: ['less']
+			},
 			js: {
 				files: [templateJs + '/**/*.js', '!' + templateCompileJs + '/**/*.js'],
 				tasks: ['js']
 			},
 			includes: {
-				files: [buildDir + '/**/*.html', templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
+				files: [buildDir + '/**/*.html', templateScss + '/**/*.scss', templateLess + '/deprecated/**/*.less' + '/**/*.less', templateJs + '/js-css/*.scss'],
 				tasks: ['includes']
 			}
 		}
@@ -455,5 +479,5 @@ module.exports = function (grunt) {
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
 	grunt.registerTask('js', ['clean:js', 'sass:js', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
-	grunt.registerTask('css', ['stylelint', 'sass:all', 'postcss']);
+	grunt.registerTask('css', ['stylelint', 'sass:all', 'postcss', 'less:deprecated']);
 };

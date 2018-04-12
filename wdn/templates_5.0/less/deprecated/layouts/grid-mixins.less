@@ -1,0 +1,149 @@
+// Start of grid-specific rules
+@gutter-size-ie: 23px;
+@gutter-size: 1.4rem;
+@grid-set: wdn-grid-set;
+@grid-col-class: wdn-col;
+
+.grid-col-width-cal(@width) {
+    width: @width;
+}
+
+// Function to setup the widths for each grid at various breakpoints
+.grid-setup(@namespace, @namespace-set) {
+    .@{namespace}-full, .@{namespace-set}-full .@{grid-col-class} {
+        .grid-col-width-cal(100%);
+    }
+
+    // Halves
+    .@{namespace}-one-half, .@{namespace}-two-fourths, .@{namespace}-three-sixths, .@{namespace}-four-eighths, .@{namespace}-five-tenths, .@{namespace-set}-halves .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/2));
+    }
+
+    // Thirds
+    .@{namespace}-one-third, .@{namespace}-two-sixths, .@{namespace}-three-ninths, .@{namespace-set}-thirds .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/3));
+    }
+
+    .@{namespace}-two-thirds, .@{namespace}-four-sixths, .@{namespace}-six-ninths {
+        .grid-col-width-cal(percentage(2/3));
+    }
+
+    // Fourths
+    .@{namespace}-one-fourth, .@{namespace}-two-eighths, .@{namespace-set}-fourths .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/4));
+    }
+
+    .@{namespace}-three-fourths, .@{namespace}-six-eighths {
+        .grid-col-width-cal(percentage(3/4));
+    }
+
+    // Fifths
+    .@{namespace}-one-fifth, .@{namespace}-two-tenths, .@{namespace-set}-fifths .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/5));
+    }
+
+    .@{namespace}-two-fifths, .@{namespace}-four-tenths {
+        .grid-col-width-cal(percentage(2/5));
+    }
+
+    .@{namespace}-three-fifths, .@{namespace}-six-tenths {
+        .grid-col-width-cal(percentage(3/5));
+    }
+
+    .@{namespace}-four-fifths, .@{namespace}-eight-tenths {
+        .grid-col-width-cal(percentage(4/5));
+    }
+
+    // Sixths
+    .@{namespace}-one-sixth, .@{namespace-set}-sixths .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/6));
+    }
+
+    .@{namespace}-five-sixths {
+        .grid-col-width-cal(percentage(5/6));
+    }
+
+    // Sevenths
+    .@{namespace}-one-seventh, .@{namespace-set}-sevenths .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/7));
+    }
+
+    .@{namespace}-two-sevenths {
+        .grid-col-width-cal(percentage(2/7));
+    }
+
+    .@{namespace}-three-sevenths {
+        .grid-col-width-cal(percentage(3/7));
+    }
+
+    .@{namespace}-four-sevenths {
+        .grid-col-width-cal(percentage(4/7));
+    }
+
+    .@{namespace}-five-sevenths {
+        .grid-col-width-cal(percentage(5/7));
+    }
+
+    .@{namespace}-six-sevenths {
+        .grid-col-width-cal(percentage(6/7));
+    }
+
+    // Eighths
+    .@{namespace}-one-eighth, .@{namespace-set}-eighths .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/8));
+    }
+
+    .@{namespace}-three-eighths {
+        .grid-col-width-cal(percentage(3/8));
+    }
+
+    .@{namespace}-five-eighths {
+        .grid-col-width-cal(percentage(5/8));
+    }
+
+    .@{namespace}-seven-eighths {
+        .grid-col-width-cal(percentage(7/8));
+    }
+
+    // Ninths
+    .@{namespace}-one-ninth, .@{namespace-set}-ninths .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/9));
+    }
+
+    .@{namespace}-two-ninths {
+        .grid-col-width-cal(percentage(2/9));
+    }
+
+    .@{namespace}-four-ninths {
+        .grid-col-width-cal(percentage(4/9));
+    }
+
+    .@{namespace}-five-ninths {
+        .grid-col-width-cal(percentage(5/9));
+    }
+
+    .@{namespace}-seven-ninths {
+        .grid-col-width-cal(percentage(7/9));
+    }
+
+    .@{namespace}-eight-ninths {
+        .grid-col-width-cal(percentage(8/9));
+    }
+
+    // Tenths
+    .@{namespace}-one-tenth, .@{namespace-set}-tenths .@{grid-col-class} {
+        .grid-col-width-cal(percentage(1/10));
+    }
+
+    .@{namespace}-three-tenths {
+        .grid-col-width-cal(percentage(3/10));
+    }
+
+    .@{namespace}-seven-tenths {
+        .grid-col-width-cal(percentage(7/10));
+    }
+
+    .@{namespace}-nine-tenths {
+        .grid-col-width-cal(percentage(9/10));
+    }
+}
