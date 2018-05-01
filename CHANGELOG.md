@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.33 (May 1, 2018)
+- No commits made, version bumped
+
 ## 4.1.32 (April 3, 2018)
 - Added a gold and silver star for pages with high Web Audit scores
 - Updated global footer icon markup
