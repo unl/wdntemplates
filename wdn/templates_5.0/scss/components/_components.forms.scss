@@ -4,82 +4,82 @@
 
 
 // !Form Group
-.unl .dcf-c-form-group {
-  @include mb4;
+.unl .dcf-form-group {
+  @include mb-4;
 }
 
 
 // !Label
-.unl .dcf-c-label {
+.unl .dcf-label {
   @include font-sans;
 }
 
 
 // !Required
-.unl .dcf-c-required {
+.unl .dcf-required {
   color: $scarlet;
   @include txt-sm;
   font-style: italic;
-  @include pl2;
+  @include pl-2;
 }
 
 
 // !Inputs
-.unl .dcf-c-input-text,
-.unl .dcf-c-input-file {
+.unl .dcf-input-text,
+.unl .dcf-input-file {
   @include font-sans;
 }
 
 
 // !Input: Text
-.unl .dcf-c-input-text {
+.unl .dcf-input-text {
   border: 1px solid $color-border;
 //   border-radius: $roundrect;
   box-shadow: inset 0 1px 2px fade-out($color-border,1);
-  @include pb2;
-  @include pl3;
-  @include pr3;
-  @include pt2;
+  @include pb-2;
+  @include pl-3;
+  @include pr-3;
+  @include pt-2;
   transition: border-color $hover-off, box-shadow $hover-off;
 }
 
 
-.unl .dcf-c-input-text:hover {
+.unl .dcf-input-text:hover {
   border-color: $color-border-hover;
   box-shadow: inset 0 1px 2px fade-out($color-border,.5);
   transition: border-color $hover-on, box-shadow $hover-on;
 }
 
 
-.unl .dcf-c-input-text:focus {
+.unl .dcf-input-text:focus {
   border-color: $color-button;
   outline: none;
 }
 
 
-.unl .dcf-c-label + .dcf-c-input-text {
-  @include mt1;
+.unl .dcf-label + .dcf-input-text {
+  @include mt-1;
 }
 
 
 // !Input: Control
-.unl .dcf-c-input-control {
-  @include mr1;
+.unl .dcf-input-control {
+  @include mr-1;
 }
 
 
 // !Input: File
-.unl .dcf-c-input-file {
-  @include mb2;
-  @include mt2;
+.unl .dcf-input-file {
+  @include mb-2;
+  @include mt-2;
 }
 
 
 // !Form Help
-.unl .dcf-c-form-help {
+.unl .dcf-form-help {
   color: $color-light-text;
   @include txt-sm;
-  @include mt1;
+  @include mt-1;
 }
 
 
@@ -89,9 +89,9 @@
 
 /* Container used for styling the custom select, the buttom class below adds the
  * bg gradient, corners, etc. */
-.unl .dcf-c-input-select {
+.unl .dcf-input-select {
   display: table;
-  @include mt1;
+  @include mt-1;
   position: relative;
 
   /* These are the "theme" styles for our button applied via separate button class, style as you like */
@@ -105,14 +105,14 @@
 
 /* This is the native select, we're making everything but the text invisible so
  * we can see the button styles in the wrapper */
-.unl .dcf-c-input-select select {
+.unl .dcf-input-select select {
   @include font-sans;
 	margin: 0;
 	outline: none;
-  @include pb2;
-  @include pl3;
-  @include pr4;
-  @include pt2;
+  @include pb-2;
+  @include pl-3;
+  @include pr-4;
+  @include pt-2;
   width: 100%;
 
   /* Prefixed box-sizing rules necessary for older browsers */
@@ -131,13 +131,13 @@
   // 	font-family: sans-serif;
   // 	font-weight: 700;
   // 	line-height: 1.5;
-  @include lh3;
+  @include lh-4;
 }
 
 
 /* Custom arrow sits on top of the select - could be an image, SVG, icon font,
  * etc. or the arrow could just baked into the bg image on the select. */
-.unl .dcf-c-input-select::after {
+.unl .dcf-input-select::after {
   content: " ";
   display: none; // Make the select behind the arrow clickable in some browsers
   pointer-events: none; // Make the select behind the arrow clickable in some browsers
@@ -153,7 +153,7 @@
 @supports (-webkit-appearance: none) or (appearance: none) or ((-moz-appearance: none) and (mask-type: alpha)) {
 
   /* Show custom arrow */
-  .unl .dcf-c-input-select::after {
+  .unl .dcf-input-select::after {
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
     border-top: 8px solid $color-body;
@@ -164,7 +164,7 @@
   }
 
   /* Remove select styling */
-  .unl .dcf-c-input-select select {
+  .unl .dcf-input-select select {
 //     -webkit-appearance: none;
 //     -moz-appearance: none;
     appearance: none;
@@ -175,7 +175,7 @@
     padding-right: 3em; /* Match-01 */
   }
 
-  .unl .dcf-c-input-select select:focus {
+  .unl .dcf-input-select select:focus {
     border-color: #aaa; /* Match-03 */
   }
 }
@@ -188,13 +188,13 @@
 /* These are the "theme" styles for our button applied via separate button class, style as you like */
 /* Set the background fallback to solid #fff so Firefox renders the <option> list readably. */
 /* Hover style */
-.unl .dcf-c-input-select:hover {
+.unl .dcf-input-select:hover {
   border-color: $color-border-hover;
   transition: border-color $hover-on;
 }
 
 /* Focus style */
-.unl .dcf-c-input-select select:focus {
+.unl .dcf-input-select select:focus {
   /* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
   box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
   box-shadow: 0 0 0 3px -moz-mac-focusring;
@@ -202,13 +202,13 @@
 }
 
 @supports ( box-shadow: none ) {
-  .unl .dcf-c-input-select select:focus {
+  .unl .dcf-input-select select:focus {
     outline: none;
   }
 }
 
 /* Set options to normal weight */
-.unl .dcf-c-input-select option {
+.unl .dcf-input-select option {
   font-weight: normal;
 }
 
@@ -219,26 +219,26 @@
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 
-  .unl .dcf-c-input-select select {
+  .unl .dcf-input-select select {
     background: none; /* Match-04 */
     border: 1px solid transparent; /* Match-05 */
     padding-right: 3em; /* Match-01 */
   }
 
-  .unl .dcf-c-input-select select::-ms-expand {
+  .unl .dcf-input-select select::-ms-expand {
     display: none;
   }
 
-  .unl .dcf-c-input-select select:focus {
+  .unl .dcf-input-select select:focus {
   	border-color: #aaa; /* Match-03 */
   }
 
-  .unl .dcf-c-input-select select:focus::-ms-value {
+  .unl .dcf-input-select select:focus::-ms-value {
     background-color: transparent;
     color: #222; /* Match-02 */
   }
 
-  .unl .dcf-c-input-select::after {
+  .unl .dcf-input-select::after {
   	display: block;
   }
 }

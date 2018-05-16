@@ -5,6 +5,23 @@
 
 // !Notification Center / Dashboard
 
+@include mq(md, max, width) {
+
+  .dcf-idm-results {
+    @include pb-8; // update in core
+  }
+
+}
+
+@include mq(md, min, width) {
+
+  .dcf-idm-results {
+    @include pb-10; // update in core
+  }
+
+}
+
+
 @supports (display: grid) {
 
   .dcf-dashboard-person-details {

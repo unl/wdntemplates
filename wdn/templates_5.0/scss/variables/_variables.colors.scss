@@ -25,7 +25,7 @@ $white: #fff;
 
 
 // Body background color (usually white, off-white, or very light gray)
-$color-body-bg: $white;
+$color-body-bg: $lighter-cream;
 
 
 // Must meet WCAG AA (minimum contrast ratio of 4.5)
@@ -35,7 +35,7 @@ $color-body: mix($cream, #000, 24%);
 
 // Must meet WCAG AA (minimum contrast ratio of 4.5)
 // Strive for WCAG AAA (minimum contrast ratio of 7.0) for heading text
-$color-heading: mix($cream, #000, 18%);
+$color-heading: mix($cream, #000, 10%);
 
 
 // Must meet WCAG AA (minimum contrast ratio of 4.5)
@@ -85,10 +85,10 @@ $color-badge: $gray;
 $color-footer-local: fade-out($white, 0);
 $color-footer-local-bg: $color-body;
 $color-footer-global: fade-out($white, 0);
-$color-footer-global-bg: $color-heading;
+$color-footer-global-bg: $scarlet;
 $color-footer-link: fade-out($white, 0);
 $color-footer-link-visited: fade-out($white, 0);
-$color-footer-link-hover: fade-out($white, .1);
+$color-footer-link-hover: fade-out($white, 0);
 $color-footer-link-active: fade-out($white, 0);
 
 

@@ -3,54 +3,54 @@
 ////////////////////////////
 
 
-// .unl-c-bio {
+// .unl-bio {
 // }
 //
-// .unl-c-bio__directory {
+// .unl-bio-directory {
 // }
 //
-// .unl-c-bio__info {
+// .unl-bio-info {
 // }
 //
-// .unl-c-vcard-tools {
+// .unl-vcard-tools {
 // }
 
 @supports (display: grid) {
 
-  .unl-c-bio {
+  .unl-bio {
     display: grid;
     grid-template-areas: "avatar" "header" "contact" "cv";
     grid-template-columns: auto;
   }
 
-  .unl-c-bio__header {
+  .unl-bio-header {
     grid-area: header;
   }
 
-  .unl-c-bio__avatar {
+  .unl-bio-avatar {
     grid-area: avatar;
   }
 
-  .unl-c-bio__contact {
+  .unl-bio-contact {
     grid-area: contact;
   }
 
-  .unl-c-bio__cv {
+  .unl-bio-cv {
     grid-area: cv;
   }
 
-  .unl-c-vcard-tools {
+  .unl-vcard-tools {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .unl-c-vcard-tools__correction {
+  .unl-vcard-tools-correction {
     grid-column: auto / span 2;
   }
 
   @include mq(md, min, width) {
 
-    .unl-c-bio {
+    .unl-bio {
       grid-template-areas: "avatar header" "contact cv";
       grid-template-columns: #{ms(18)}em 2fr;
     }

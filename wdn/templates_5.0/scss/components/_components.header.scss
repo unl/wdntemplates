@@ -3,55 +3,127 @@
 ///////////////////////////////
 
 
-.unl .dcf-c-header {
+.unl .dcf-header {
   border-top: 3px solid $scarlet;
 }
 
 
-.unl .dcf-c-header a:visited {
+.unl .dcf-header a:visited {
   color: $color-link;
 }
 
 
-.unl-c-ls-ital {
+@media print, screen and (min-width: 22.5em) {
+
+  .unl .dcf-institution-title::before {
+    content: 'The ';
+    text-transform: uppercase;
+  }
+
+}
+
+
+.unl-ls-ital {
   padding-right: #{ms(-12)}em; // .18em
 }
 
 
+// @include mq(md, max, width) {
+//
+//   .unl .dcf-header::after {
+//     @include bg-white;
+//     bottom: 0;
+//     box-shadow: 0 0 4px 0 fade-out($color-body, .75);
+//     content: '';
+//     @include h-9;
+//     left: 0;
+// //     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+//     position: fixed;
+//     width: 100%;
+//     z-index: 1;
+//   }
+//
+// }
+
+
 @include mq(md, max, width) {
 
-  .unl .dcf-c-header::after {
-    @include bg-white;
+  .dcf-mobile-toolbar {
+    @include bg-lighter-cream;
+    border: 3px solid $scarlet;
+    border-width: 3px 0 0 0;
     bottom: 0;
-    box-shadow: 0 0 4px 0 fade-out($color-body, .75);
+    position: fixed;
+    width: 33.4%;
+    z-index: 9999;
+  }
+
+  .dcf-mobile-toggle {
+    flex-direction: column;
+    height: #{ms(10)}em;
+    margin-bottom: env(safe-area-inset-bottom);
+  }
+
+  .dcf-mobile-toolbar-search {
+    left: 33.33%;
+  }
+
+  .dcf-mobile-toolbar-idm {
+    left: 66.66%;
+  }
+
+  .dcf-mobile-toolbar-modal {
+    bottom: #{ms(10)}em;
+    height: calc(100% - #{ms(10)}em);
+    position: fixed;
+    width: 100%;
+    z-index: 998;
+  }
+
+  .dcf-mobile-toolbar-modal::after {
+    background-image: linear-gradient(to bottom, fade-out($lighter-cream, 1), $lighter-cream);
+    bottom: 0;
     content: '';
-    @include height9;
+    height: #{ms(8)}em;
     left: 0;
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 999;
   }
 
 }
-
 
 @include mq(md, min, width) {
 
-  @supports (display: grid) {
-
-    .unl .dcf-c-header {
-      grid-template-areas: "first nav2 nav2" "logo search idm" "nav1 nav1 nav1";
-      grid-template-columns: 1fr auto auto;
-    }
-
-    .unl .dcf-c-institution-title {
-      grid-area: first;
-    }
-
-    .unl .dcf-c-logo {
-      grid-area: logo;
-    }
-
+  .unl .dcf-header-global-item {
+    margin-left: 5.6vw;
   }
 
 }
+
+
+// @include mq(md, min, width) {
+//
+//   @supports (display: grid) {
+//
+//     .unl .dcf-header {
+//       grid-template-areas: "first nav2 nav2" "logo idm search" "nav1 nav1 nav1";
+//       grid-template-columns: 1fr auto auto;
+//     }
+//
+//     .unl .dcf-institution-title {
+//       grid-area: first;
+//     }
+//
+//     .unl .dcf-logo {
+//       grid-area: logo;
+//     }
+//
+//     .unl .dcf-search {
+//       grid-area: logo;
+//     }
+//
+//
+//   }
+//
+// }
