@@ -332,7 +332,7 @@
 <!-- Staff Listing -->
 <!--
     <div class="dcf-relative dcf-pt-9 dcf-pb-9 dcf-bb">
-      <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-sm dcf-uppercase dcf-ls-2 unl-vertical test">Dean’s Office Staff</h2>
+      <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-sm dcf-uppercase dcf-ls-2 unl-vertical test">Dean’s Office Staff</h2>
       <div class="dcf-grid dcf-col-gap-vw">
         <ul class="dcf-list-bare dcf-relative dcf-grid-halves@md dcf-grid-thirds@xl dcf-col-gap-vw dcf-row-gap-md unl-grid-1">
           <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
@@ -458,7 +458,7 @@
 
 <!-- Staff Listing -->
     <div class="dcf-pb-9 dcf-bb">
-      <h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-sm dcf-uppercase dcf-ls-2 unl-stripes test">Dean’s Office Staff</h2>
+      <h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-sm dcf-uppercase dcf-ls-2 unl-stripes test">Dean’s Office Staff</h2>
       <ul class="dcf-list-bare dcf-grid-halves dcf-grid-thirds@sm dcf-grid-fourths@md dcf-col-gap-vw dcf-row-gap-md">
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
           <div class="dcf-2nd">
