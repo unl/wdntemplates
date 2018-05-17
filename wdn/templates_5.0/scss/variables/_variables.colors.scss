@@ -23,20 +23,27 @@ $lighter-cream: $color-brand-delta;
 // Assign colors to elements
 $white: #fff;
 
+
 // Body background color (usually white, off-white, or very light gray)
-$color-body-bg: $white;
-
-
-// Strive for WCAG AAA (minimum contrast ratio of 7.0) for body text
-$color-body: mix($cream, #000, 22%);
-
-
-// Strive for WCAG AAA (minimum contrast ratio of 7.0) for heading text
-$color-heading: mix($cream, #000, 11%);
+$color-body-bg: $lighter-cream;
 
 
 // Must meet WCAG AA (minimum contrast ratio of 4.5)
-$color-light-text: mix($cream, #000, 33%);
+// Strive for WCAG AAA (minimum contrast ratio of 7.0) for body text
+$color-body: mix($cream, #000, 24%);
+
+
+// Must meet WCAG AA (minimum contrast ratio of 4.5)
+// Strive for WCAG AAA (minimum contrast ratio of 7.0) for heading text
+$color-heading: mix($cream, #000, 10%);
+
+
+// Must meet WCAG AA (minimum contrast ratio of 4.5)
+$color-light-text: mix($cream, #000, 32%);
+
+
+// Must meet WCAG AA (minimum contrast ratio of 4.5)
+$color-lightest-text: mix($cream, #000, 42%);
 
 
 // !Links
@@ -44,7 +51,6 @@ $color-link: $scarlet;
 $color-link-visited: darken($color-link, 10%);
 $color-link-hover: darken($color-link, 10%);
 $color-link-active: darken($color-link, 10%);
-
 // $color-link-visited: scale-color($color-link, $lightness: -10%, $saturation: -100%);
 // $color-link-hover: scale-color($color-link, $lightness: -20%, $saturation: 100%);
 // $color-link-active: scale-color($color-link, $lightness: -30%, $saturation: 100%);
@@ -60,10 +66,7 @@ $color-button-active: $color-link-active;
 // !Borders
 $color-border: $gray;
 $color-border-hover: darken($color-border,10%);
-
-
 // $border-color: scale-color($scarlet, $saturation: -100%);
-
 
 
 // !Marks (Highlights) Background Color
@@ -79,16 +82,14 @@ $color-badge: $gray;
 
 
 // !Footer
-$color-footer-local: fade-out($white, .3);
+$color-footer-local: fade-out($white, 0);
 $color-footer-local-bg: $color-body;
-$color-footer-global: fade-out($white, .3);
-$color-footer-global-bg: $color-heading;
-$color-footer-link: fade-out($white, .2);
+$color-footer-global: fade-out($white, 0);
+$color-footer-global-bg: $scarlet;
+$color-footer-link: fade-out($white, 0);
 $color-footer-link-visited: fade-out($white, 0);
-$color-footer-link-hover: fade-out($white, .1);
+$color-footer-link-hover: fade-out($white, 0);
 $color-footer-link-active: fade-out($white, 0);
-
-
 
 
 // !Define contextual colors

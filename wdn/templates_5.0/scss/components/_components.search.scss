@@ -3,25 +3,64 @@
 ///////////////////////////////
 
 
+// .unl .dcf-search-results-wrapper {
+//   height: 100% !important;
+// }
+
+// @include mq(md, max, width) {
+//
+//   .unl .dcf-search-results-wrapper::before {
+//     content: '';
+//     height: #{ms(6)}em;
+//     left: 0;
+//     position: absolute;
+//     width: 100%;
+//     z-index: 999;
+//   }
+//
+//   .unl .dcf-search-results-wrapper::before {
+//     background-image: linear-gradient(to top, fade-out($lighter-cream, 1), $lighter-cream);
+//     top: 0;
+//   }
+//
+//   .unl .dcf-search-results {
+//     @include pb-6; // !core update
+//   }
+//
+// }
+
+// @include mq(md, min, width) {
+//
+//   .unl .dcf-search-results {
+//     @include pb-10; // !core update
+//   }
+//
+// }
+
+
 .unl-google-results {
-  @include mb8;
+  @include mb-8;
 }
 
-.unl-c-directory-result:not(:last-child) {
-  @include mb6;
+.unl-directory-result:not(:last-child) {
+  @include mb-6;
 }
 
-.unl-c-directory-result:last-child {
+.unl-directory-result:last-child {
   margin-bottom: 0;
 }
 
-@include mq(md, min, width) {
-
-  .unl .dcf-c-search-form {
-    @include txt-sm;
-  }
-
-}
+// @include mq(md, min, width) {
+//
+//   .unl .dcf-search-toggle {
+//     margin-left: 2.4vw;
+//   }
+//
+// //   .unl .dcf-search-form {
+// //     @include txt-sm;
+// //   }
+//
+// }
 
 
 // !UNL Google Search Results Overrides
@@ -47,7 +86,7 @@
 .unl .gsc-above-wrapper-area {
   border: 0;
   padding: 0;
-  @include mb7;
+  @include mb-7;
 }
 
 .unl .gsc-result-info {
@@ -63,7 +102,7 @@
 
 .unl .gsc-webResult .gsc-result {
   border: 0;
-  @include pb6;
+  @include pb-6;
   padding-top: 0;
 }
 
@@ -73,12 +112,12 @@
 
 .unl .gsc-thumbnail-left {
   display: block;
-  @include mb1;
+  @include mb-1;
 }
 
 .unl .gs-snippet {
-  @include mb1;
-  @include mt1;
+  @include mb-1;
+  @include mt-1;
 }
 
 .unl .gsc-result .gs-title {
@@ -94,7 +133,7 @@
 .unl .gsc-control-cse .gs-spelling,
 .unl .gsc-control-cse .gs-result .gs-title,
 .unl .gsc-control-cse .gs-result .gs-title * {
-  @include lh2;
+  @include lh-3;
 }
 
 .unl .gsc-control-cse .gs-result .gsc-table-cell-snippet-close > .gs-title {
@@ -114,8 +153,8 @@
 }
 
 .unl .gsc-thumbnail {
-  @include pr5;
-  @include pt1;
+  @include pr-5;
+  @include pt-1;
 }
 
 .unl .gs-web-image-box,
@@ -171,18 +210,18 @@
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
-  @include pt4;
+  @include pt-4;
 }
 
 .unl .gsc-results .gsc-cursor-box .gsc-cursor-page {
   color: $scarlet;
   display: inline-block;
-  @include p1;
+  @include p-1;
   text-align: center;
 }
 
 .unl .gsc-results .gsc-cursor-box .gsc-cursor-page:not(:last-child) {
-  @include mr4;
+  @include mr-4;
 }
 
 .unl .gsc-results .gsc-cursor-box .gsc-cursor-current-page {

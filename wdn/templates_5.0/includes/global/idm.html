@@ -1,72 +1,176 @@
-<nav class="dcf-u-g-as-center dcf-u-g-js-end dcf-u-pt4 dcf-c-idm" id="dcf-idm" role="navigation" aria-label="User Navigation">
+<nav class="dcf-idm dcf-flex-grow-1 dcf-d-flex dcf-jc-flex-end dcf-w-min-0" id="dcf-idm" role="navigation" aria-label="User Navigation">
 
   <!-- Login -->
-  <div class="dcf-u-relative" id="dcf-idm-status-logged-out">
-    <a class="dcf-c-idm__login dcf-c-mobile-nav-toggle dcf-c-idm__toggle unl-u-font-sans" id="dcf-idm-login" href="https://login.unl.edu/cas/login">
-      <span class="dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-jc-center dcf-u-height100%">
-        <span class="dcf-u-flex dcf-u-ai-center dcf-u-jc-center dcf-u-circle dcf-u-height6 dcf-u-width6 unl-u-bg-scarlet">
-          <svg class="dcf-c-icon" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48"><path fill="#fff" d="M24 48A24 24 0 1 0 0 24a24 24 0 0 0 24 24zm0-38a8 8 0 0 1 4.14 14.84l1.85 12A1 1 0 0 1 29 38H19a1 1 0 0 1-1-1.15l1.85-12A8 8 0 0 1 24 10z"/></svg>
+<!--
+  <div class="dcf-relative" id="dcf-idm-status-logged-out">
+    <a class="dcf-lh-1 dcf-idm-login dcf-mobile-nav-toggle dcf-idm-toggle unl-font-sans" id="dcf-idm-login" href="https://login.unl.edu/cas/login">
+      <span class="dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-h-100%">
+        <span class="dcf-d-flex dcf-ai-center dcf-jc-center dcf-circle dcf-h-6 dcf-w-6 dcf-mb-1 unl-bg-scarlet">
+          <svg class="dcf-icon" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
+            <path fill="#fff" d="M24 48A24 24 0 1 0 0 24a24 24 0 0 0 24 24zm0-38a8 8 0 0 1 4.14 14.84l1.85 12A1 1 0 0 1 29 38H19a1 1 0 0 1-1-1.15l1.85-12A8 8 0 0 1 24 10z"/>
+          </svg>
         </span>
-        <span class="dcf-u-txt-sm">Login</span>
+        <span class="dcf-txt-sm">Log In</span>
       </span>
     </a>
   </div>
+-->
 
-  <div id="dcf-idm-status-logged-in" hidden></div>
+<!--
+  <div class="dcf-header-global-item dcf-relative dcf-w-min-0" id="dcf-idm-status-logged-out" hidden>
+    <a class="dcf-idm-login dcf-idm-toggle dcf-mobile-nav-toggle dcf-d-flex dcf-ai-center dcf-w-min-0 dcf-pt-4 dcf-pb-3 dcf-txt-sm" id="dcf-idm-login" href="https://login.unl.edu/cas/login">
+-->
+
+  <div class="dcf-mobile-toolbar dcf-mobile-toolbar-idm dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-header-global-item dcf-w-min-0 hrjs" id="dcf-idm-status-logged-out">
+    <a class="dcf-mobile-toggle dcf-idm-toggle dcf-idm-login dcf-d-flex dcf-ai-center dcf-jc-center dcf-w-100% unl-font-sans" id="dcf-idm-login" href="https://login.unl.edu/cas/login">
+      <span class="dcf-d-flex dcf-ai-center dcf-jc-center dcf-h-5 dcf-w-5 dcf-mb-1">
+<!--
+        <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
+          <path d="M24 48A24 24 0 1 0 0 24a24 24 0 0 0 24 24zm0-38a8 8 0 0 1 4.14 14.84l1.85 12A1 1 0 0 1 29 38H19a1 1 0 0 1-1-1.15l1.85-12A8 8 0 0 1 24 10z"/>
+        </svg>
+-->
+        <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48"><path d="M47.9 24C47.9 10.8 37.2.1 24 .1S.1 10.8.1 24c0 6.3 2.5 12.3 6.9 16.8 4.5 4.6 10.6 7.1 17 7.1s12.5-2.5 17-7.1c4.5-4.5 6.9-10.5 6.9-16.8zm-45 0C2.9 12.4 12.4 2.9 24 2.9c11.6 0 21.1 9.5 21.1 21.1 0 5.2-1.9 10.1-5.3 14-2.1-1.2-5-2.2-8.2-3.4-.7-.3-1.5-.5-2.2-.8v-3.1c1.1-.7 2.6-2.4 2.9-5.7.8-.6 1.2-1.6 1.2-2.9 0-1.1-.4-2.1-1-2.7.5-1.6 1.3-4.2.7-6.5-.7-3-4.6-4-7.7-4-2.7 0-5.9.8-7.2 2.8-1.2 0-2 .5-2.4 1-1.6 1.7-.8 4.8-.3 6.6-.6.6-1 1.6-1 2.7 0 1.3.5 2.3 1.2 2.9.3 3.4 1.8 5 2.9 5.7v3.1c-.7.2-1.4.5-2 .7-3.1 1.1-6.2 2.2-8.4 3.5-3.5-3.7-5.4-8.7-5.4-13.9zm7.5 16.1c2-1 4.6-2 7.2-2.9 1-.4 2-.7 3-1.1.5-.2.9-.7.9-1.3v-4.9c0-.6-.4-1.1-.9-1.3-.1 0-2-.8-2-4.5 0-.7-.5-1.2-1.1-1.4-.1-.3-.1-.9 0-1.2.6-.1 1.1-.7 1.1-1.4 0-.3-.1-.6-.2-1.2-.9-3.2-.7-4-.4-4.3.1-.1.4-.1 1 0 .7.1 1.5-.3 1.6-1 .3-1 2.5-1.9 5-1.9s4.7.8 5 1.9c.4 1.7-.4 4.1-.7 5.2-.2.6-.3.9-.3 1.3 0 .7.5 1.2 1.1 1.4.1.3.1.9 0 1.2-.6.1-1.1.7-1.1 1.4 0 3.7-1.9 4.5-2 4.5-.6.2-1 .7-1 1.3v4.9c0 .6.4 1.1.9 1.3 1.1.4 2.1.8 3.2 1.2 2.7 1 5.2 1.9 7.1 2.8-3.8 3.3-8.6 5-13.7 5-5.2 0-9.9-1.8-13.7-5z"/></svg>
+
+
+      </span>
+<!--       <span class="dcf-pl-3">Log In</span> -->
+      <span style="font-size:.5625em;">Log In</span>
+    </a>
+  </div>
+
+<!--
+  <div class="dcf-header-global-item dcf-relative dcf-w-min-0" id="dcf-idm-status-logged-in">
+    <a class="dcf-idm-login dcf-idm-toggle dcf-mobile-nav-toggle dcf-d-flex dcf-ai-center dcf-w-min-0 dcf-txt-sm dcf-bg-right dcf-bg-no-repeat dcf-bg-contain" id="dcf-idm-login" href="https://login.unl.edu/cas/login" style="background-image: url(images/ryandee.jpg);">
+      <span class="dcf-truncate dcf-pt-4 dcf-pb-3 dcf-pr-9">Ryan</span>
+    </a>
+  </div>
+-->
 
   <!-- Modal, Notification Center -->
-  <div class="dcf-c-modal__overlay dcf-u-bg-overlay-light" role="dialog" aria-hidden="true" aria-label="modal">
-    <div class="dcf-c-modal__content dcf-u-flex dcf-u-height100%" role="document" tabindex="-1">
-      <div class="dcf-u-overflow-y-scroll">
-        <div class="dcf-c-idm-results dcf-u-pb6 dcf-u-txt-sm">
+  <div class="dcf-modal-overlay dcf-mobile-toolbar-modal dcf-bg-overlay-light dcf-disappear" id="dcf-idm-dashboard" role="dialog" aria-hidden="true" aria-label="modal" hidden>
+    <div class="dcf-modal-content dcf-d-flex dcf-h-100%" role="document" tabindex="-1">
+      <div class="dcf-idm-results-wrapper dcf-overflow-y-scroll dcf-w-100%">
+        <div class="dcf-idm-results dcf-pt-6 dcf-pr-6 unl-font-sans">
 
-          <!--  -->
-          <div class="dcf-c-idm-results">
+          <div class="dcf-grid dcf-col-gap-vw dcf-row-gap-md dcf-pb-7" tabindex="0" data-href="https://directory.unl.edu/people/asmith4" data-uid="asmith4" itemscope="" itemtype="http://schema.org/Person">
 
-            <div class="dcf-u-2nd dcf-u-mb4 " tabindex="0" data-href="https://directory.unl.edu/people/asmith4" data-uid="asmith4" itemscope="" itemtype="http://schema.org/Person">
-              <div class="dcf-u-flex overflow">
-                <div class="dcf-u-mb1 dcf-u-h5 dcf-u-bold fn" itemprop="name">
-                  <a itemprop="url" href="https://planetred.unl.edu/profile/unl_dmunyaneza2">David Munyaneza</a>
-                </div>
-                <dl class="">
-                  <dt>Grade</dt>
-                  <dd>Freshman</dd>
-                </dl>
-                <dl class="">
-                  <dt>Major</dt>
+            <div class="dcf-2nd dcf-grid-col-75%-r@sm">
+              <h2 class="dcf-mb-1 dcf-txt-h1 dcf-bold" itemprop="name">
+                <a itemprop="url" href="https://planetred.unl.edu/profile/unl_dmunyaneza2">David Munyaneza</a>
+              </h2>
+              <div>
+                <dl class="dcf-txt-sm">
+                  <dt class="dcf-uppercase dcf-ls-2">Grade</dt>
+                  <dd>Sophomore</dd>
+                  <dt class="dcf-uppercase dcf-ls-2">Major</dt>
                   <dd>Integrated Science</dd>
-                  <dt>Minor</dt>
+                  <dt class="dcf-uppercase dcf-ls-2">Minors</dt>
                   <dd>Journalism</dd>
+                  <dd>History</dd>
                 </dl>
               </div>
-<!--
-                <ul class="dcf-u-mt0 dcf-u-mb0 dcf-o-list-bare roles">
-                  <li class="org parent-unl">
-                    <span class="dcf-u-block title" itemprop="jobTitle">Research Asst Professor</span>
-                    <span itemprop="worksFor" itemscope="" itemtype="http://schema.org/Organization">
-                      <span class="dcf-u-block organization-unit">
-                        <span itemprop="name">University Museum</span>
-                      </span>
-                      <span class="dcf-u-block organization-name" itemprop="parentOrganization" itemscope="" itemtype="http://schema.org/Organization">
-                        <span itemprop="name">University of Nebraska–Lincoln</span>
-                      </span>
-                    </span>
-                  </li>
-                </ul>
--->
-              <div class="dcf-u-1st dcf-u-mt1 dcf-u-mr4 dcf-u-ratio dcf-u-ratio--1x1">
-                <img class="dcf-u-ratio__child dcf-u-circle" itemprop="image" src="https://planetred.unl.edu/mod/profile/icondirect.php?lastcache=1497381333&amp;guid=27581&amp;size=large" alt="Avatar for David Munyaneza">
-              </div>
+            </div>
 
+            <div class="dcf-1st dcf-grid-col-25%-l@sm">
+              <div class="dcf-mt-1">
+                <div class="dcf-ratio dcf-ratio-1x1 dcf-h-max-100% dcf-w-100%">
+                  <img class="dcf-obj-fit-cover dcf-ratio-child dcf-w-100% dcf-circle [photo]" itemprop="image" src="https://planetred.unl.edu/mod/profile/icondirect.php?lastcache=1497381333&amp;guid=27581&amp;size=large" alt="Avatar for David Munyaneza">
+                </div>
+              </div>
             </div>
 
           </div>
 
-          <button class="dcf-c-close-modal" type="button" aria-label="close">Close</button>
+          <div class="dcf-grid-halves@sm dcf-grid-thirds@md dcf-grid-fourths@lg dcf-grid-fifths@xl dcf-col-gap-vw dcf-row-gap-md dcf-pt-7 dcf-bt">
 
-        </div>
-      </div>
-    </div>
-  </div>
+            <div>
+              <h3 class="dcf-txt-sm dcf-uppercase dcf-lh-3 dcf-ls-2">Notifications</h3>
+              <ol class="dcf-list-bare dcf-txt-sm">
+                <li><a href="#">Ligula Euismod Inceptos</a></li>
+                <li><a href="#">Venenatis Quam</a></li>
+                <li><a href="#">Mattis Aenean Dolor Condimentum</a></li>
+                <li><a href="#">Sit Ligula</a></li>
+                <li><a href="#">Pellentesque Quam Tristique</a></li>
+              </ol>
+            </div>
+
+            <div>
+              <h3 class="dcf-txt-sm dcf-uppercase dcf-lh-3 dcf-ls-2">Upcoming Assignments</h3>
+              <ol class="dcf-list-bare dcf-txt-sm">
+                <li><a href="#">Ligula Euismod Inceptos</a></li>
+                <li><a href="#">Venenatis Quam</a></li>
+                <li><a href="#">Mattis Aenean Dolor Condimentum</a></li>
+                <li><a href="#">Sit Ligula</a></li>
+                <li><a href="#">Pellentesque Quam Tristique</a></li>
+              </ol>
+            </div>
+
+            <div>
+              <h3 class="dcf-mb-3 dcf-txt-sm dcf-uppercase dcf-lh-3 dcf-ls-2">Balance Due</h3>
+              <a class="dcf-txt-h3" href="#">$18.69</a>
+            </div>
+
+            <div>
+              <h3 class="dcf-txt-sm dcf-uppercase dcf-lh-3 dcf-ls-2">Course List</h3>
+              <ul class="dcf-list-bare dcf-txt-sm">
+                <li><a href="#">Ligula Euismod Inceptos</a></li>
+                <li><a href="#">Venenatis Quam</a></li>
+                <li><a href="#">Mattis Aenean Dolor Condimentum</a></li>
+                <li><a href="#">Sit Ligula</a></li>
+                <li><a href="#">Pellentesque Quam Tristique</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="dcf-txt-sm dcf-uppercase dcf-lh-3 dcf-ls-2"><abbr title="Digital Learning Commons">DLC</abbr> Exams Commons (Registrations)</h3>
+              <ol class="dcf-list-bare dcf-txt-sm">
+                <li><a href="#">Ligula Euismod Inceptos</a></li>
+                <li><a href="#">Venenatis Quam</a></li>
+                <li><a href="#">Mattis Aenean Dolor Condimentum</a></li>
+                <li><a href="#">Sit Ligula</a></li>
+                <li><a href="#">Pellentesque Quam Tristique</a></li>
+              </ol>
+            </div>
+
+            <div>
+              <h3 class="dcf-txt-sm dcf-uppercase dcf-lh-3 dcf-ls-2">Upcoming (<abbr title="Registered Student Organization">RSO</abbr>) Events</h3>
+              <ol class="dcf-list-bare dcf-txt-sm">
+                <li><a href="#">Ligula Euismod Inceptos</a></li>
+                <li><a href="#">Venenatis Quam</a></li>
+                <li><a href="#">Mattis Aenean Dolor Condimentum</a></li>
+                <li><a href="#">Sit Ligula</a></li>
+                <li><a href="#">Pellentesque Quam Tristique</a></li>
+              </ol>
+            </div>
+
+            <div>
+              <h3 class="dcf-txt-sm dcf-uppercase dcf-lh-3 dcf-ls-2">Upcoming (Nvolve-U (Orgsync)) Events</h3>
+              <ol class="dcf-list-bare dcf-txt-sm">
+                <li><a href="#">Ligula Euismod Inceptos</a></li>
+                <li><a href="#">Venenatis Quam</a></li>
+                <li><a href="#">Mattis Aenean Dolor Condimentum</a></li>
+                <li><a href="#">Sit Ligula</a></li>
+                <li><a href="#">Pellentesque Quam Tristique</a></li>
+              </ol>
+            </div>
+
+            <div>
+              <h3 class="dcf-txt-sm dcf-uppercase dcf-lh-3 dcf-ls-2">Upcoming <abbr title="University of Nebraska–Lincoln">UNL</abbr> Events</h3>
+              <ol class="dcf-list-bare dcf-txt-sm">
+                <li><a href="#">Ligula Euismod Inceptos</a></li>
+                <li><a href="#">Venenatis Quam</a></li>
+                <li><a href="#">Mattis Aenean Dolor Condimentum</a></li>
+                <li><a href="#">Sit Ligula</a></li>
+                <li><a href="#">Pellentesque Quam Tristique</a></li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div><!-- end IdM Results -->
+      </div><!-- end IdM Results Wrapper -->
+      <button class="dcf-absolute dcf-pin-top dcf-pin-right dcf-mt-3 dcf-mr-3 dcf-btn dcf-btn-tertiary" type="button" aria-label="close">Close</button>
+    </div><!-- end Modal Content -->
+  </div><!-- end Modal Overlay -->
 
 </nav>

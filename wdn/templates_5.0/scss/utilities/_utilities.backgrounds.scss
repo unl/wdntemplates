@@ -4,12 +4,24 @@
 
 
 // !Scarlet
-.unl-u-bg-scarlet { @include bg-scarlet(!important); }
+.unl-bg-scarlet { @include bg-scarlet(!important); }
 
 
 // !Cream
-.unl-u-bg-cream { @include bg-cream(!important); }
+.unl-bg-cream { @include bg-cream(!important); }
 
 
-// !Diagonal Pattern
-.unl-u-bg-diagonal { @include bg-diagonal(!important); }
+// !Cream
+.unl-bg-lighter-cream { @include bg-lighter-cream(!important); }
+
+
+// !Diagonal Stripes: Scarlet
+.unl-bg-stripes-scarlet { @include bg-stripes-scarlet(!important); }
+
+
+// !Diagonal Stripes: Dark
+.unl-bg-stripes-dark { @include bg-stripes-dark(!important); }
+
+
+// !Diagonal Stripes: Light
+.unl-bg-stripes-light { @include bg-stripes-light(!important); }

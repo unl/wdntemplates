@@ -3,8 +3,6 @@
 ///////
 
 
-@import-normalize;
-
 // !Variables
 @import '../../../node_modules/dcf/core/scss/variables/variables';
 @import 'variables/variables.borders';
@@ -49,6 +47,7 @@
 @import 'components/components.header';
 @import 'components/components.headings';
 @import 'components/components.icons';
+@import 'components/components.idm';
 @import 'components/components.input-groups';
 @import 'components/components.layout';
 @import 'components/components.navigation';

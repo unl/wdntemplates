@@ -3,17 +3,17 @@
 ////////////////////////////////////
 
 
-.unl .dcf-c-breadcrumbs li:not(:last-child) {
-  @include mr3;
+.unl .dcf-breadcrumbs li:not(:last-child) {
+  @include mr-3;
 }
 
 
-.unl .dcf-c-breadcrumbs li:not(:last-child)::after {
+.unl .dcf-breadcrumbs li:not(:last-child)::after {
   border-bottom: #{ms(-8)}em solid transparent; // .32em
   border-left: #{ms(-8)}em solid $color-breadcrumb; // .32em
   border-top: #{ms(-8)}em solid transparent; // .32em
   content: '';
   height: 0;
-  @include ml3;
+  @include ml-3;
   width: 0;
 }

@@ -4,18 +4,18 @@
 
 
 // !Serif
-.unl-u-font-serif {
+.unl-font-serif {
   @include font-serif(!important);
 }
 
 
 // !Sans Serif
-.unl-u-font-sans {
+.unl-font-sans {
   @include font-sans(!important);
 }
 
 
 // !Display
-.unl-u-font-display {
+.unl-font-display {
   @include font-display(!important);
 }

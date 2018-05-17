@@ -3,5 +3,26 @@
 //////////////////////////////////
 
 
-// !Outline Text
-.unl-u-txt-outline { @include txt-outline (!important); }
+// !Outline Text: White
+.unl-txt-outline-white { @include txt-outline-white(!important); }
+
+
+// !Outline Text: Dark
+.unl-txt-outline-dark { @include txt-outline-dark(!important); }
+
+
+// !Text Stripes: Light
+.unl-txt-stripes-light { @include txt-stripes-light(!important); }
+
+
+// !Text Stripes: Dark
+.unl-txt-stripes-dark { @include txt-stripes-dark(!important); }
+
+
+
+// .unl h1 { font-size: #{ms(7)}em;}
+// .unl h2 { font-size: #{ms(6)}em;}
+// .unl h3 { font-size: #{ms(5)}em;}
+// .unl h4 { font-size: #{ms(4)}em;}
+// .unl h5 { font-size: #{ms(3)}em;}
+// .unl h6 { font-size: #{ms(2)}em;}

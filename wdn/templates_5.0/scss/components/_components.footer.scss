@@ -3,36 +3,46 @@
 ///////////////////////////////
 
 
+// .unl .dcf-footer-local h3,
+// .unl .dcf-footer-global h2 {
+//   border-bottom: 1px solid rgba(255,255,255,.5);
+//   border-top: 2px solid currentColor;
+//   @include pb2;
+//   @include pt2;
+// }
+
+
 // !Common Footer Styles
 
-.unl .dcf-c-footer dd:last-child,
-.unl .dcf-c-footer li:last-child {
-  @include mb0;
+.unl .dcf-footer dd:last-child,
+.unl .dcf-footer li:last-child {
+  @include mb-0;
 }
 
-.unl .dcf-c-footer a {
+.unl .dcf-footer a {
+  color: $color-footer-link;
+  text-decoration: none;
+}
+
+.unl .dcf-footer a:link {
   color: $color-footer-link;
 }
 
-.unl .dcf-c-footer a:link {
-  color: $color-footer-link;
-}
-
-.unl .dcf-c-footer a:visited {
+.unl .dcf-footer a:visited {
   color: $color-footer-link-visited;
 }
 
-.unl .dcf-c-footer a:hover {
+.unl .dcf-footer a:hover {
   color: $color-footer-link-hover;
 }
 
-.unl .dcf-c-footer a:active {
+.unl .dcf-footer a:active {
   color: $color-footer-link-active;
 }
 
 
 // !Local Footer
-.unl .dcf-c-footer__local {
+.unl .dcf-footer-local {
   @include font-sans;
   color: $color-footer-local;
   background-color: $color-footer-local-bg;
@@ -40,16 +50,28 @@
 
 
 // !Global Footer
-.unl .dcf-c-footer__global {
+.unl .dcf-footer-global {
   color: $color-footer-global;
-  background-color: $color-footer-global-bg;
+  background: url('../images/seal.svg') calc(0% - 1em) calc(100% + 1em) no-repeat, linear-gradient(to bottom, $color-footer-global-bg 2px, $color-footer-local-bg 2px, $color-footer-local-bg 5px, $color-footer-global-bg 5px) 0 0 no-repeat;
+  background-size: 24em, 100%;
+//   background: linear-gradient(to bottom, $color-footer-global-bg 2px, $color-footer-local-bg 2px, $color-footer-local-bg 4px, $color-footer-global-bg 4px) 0 0 / 100% 100% no-repeat;
+}
+
+.unl-footer-global-social-hed::after {
+  content: '\01F534 \00200A \026AA \00200A \01F33D';
+  display: block;
+  @include pt-1;
 }
 
 
 @include mq(md, max, width) {
 
-  .unl .dcf-c-footer__global {
+  .unl .dcf-footer-global {
     padding-bottom: #{ms(14)}em; // 7.48em
+  }
+
+  .unl-footer-unl {
+    display: flex;
   }
 
 }
@@ -57,65 +79,103 @@
 
 @include mq(md, min, width) {
 
-  .unl .dcf-c-footer__global {
-    @include pb8;
+  .unl .dcf-footer-global {
+    @include pb-8;
+    background-size: #{ms(22)}em, 100%;
+  }
+
+  .unl-footer-global-n {
+    margin-bottom: #{ms(0)}rem;
   }
 
 }
 
+
 @supports (display: grid) {
 
-  .unl .dcf-c-footer__local {
-    grid-template-columns: repeat(auto-fit, minmax(#{ms(18)}em, 1fr));
-  }
-
-  .unl .dcf-c-footer__global {
-    grid-template-columns: repeat(auto-fit, minmax(#{ms(18)}em, 1fr));
-  }
 
   @include mq(sm, min, width) {
 
-    .unl .dcf-c-footer__global {
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas: "social campus" "policies logos" "copyright copyright";
+    .unl-footer-local-heading {
+      grid-area: heading;
     }
 
-    .unl-c-footer-social {
+    .unl-footer-local1 {
+      grid-area: lf1;
+    }
+
+    .unl-footer-local2 {
+      grid-area: lf2;
+    }
+
+    .unl-footer-local3 {
+      grid-area: lf3;
+    }
+
+    .unl-footer-local4 {
+      grid-area: lf4;
+    }
+
+    .unl-footer-unl {
+      grid-area: N;
+    }
+
+    .unl-footer-social {
       grid-area: social;
     }
 
-    .unl-c-footer-campus {
+    .unl-footer-campus {
       grid-area: campus;
     }
 
-    .unl-c-footer-policies {
+    .unl-footer-policies {
       grid-area: policies;
     }
 
-    .unl-c-footer-logos {
+    .unl-footer-logos {
       grid-area: logos;
     }
 
-    .unl-c-footer-copyright {
-      grid-area: copyright;
+    .unl-footer-about {
+      grid-area: about;
+    }
+
+    .unl-footer-test {
+      grid-area: test;
+    }
+
+    .unl-footer-copyright {
+      grid-area: ©;
     }
 
   }
+
 
   @include mq(sm, min, width) {
 
-    .unl .dcf-c-footer__global {
+    .unl .dcf-footer-local {
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-areas: "social campus policies" "logos copyright copyright";
+      grid-template-areas: "heading heading heading" "lf1 lf2 lf3";
+    }
+
+    .unl .dcf-footer-global {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-areas: "N N N N N N" "social social campus campus policies policies" "logos logos about about test test" "© © © © © ©";
     }
 
   }
 
+
   @include mq(md, min, width) {
 
-    .unl .dcf-c-footer__global {
+    .unl .dcf-footer-local {
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-areas: "social campus policies logos" "copyright copyright copyright copyright";
+      grid-template-areas: "heading heading heading heading" "lf1 lf2 lf3 lf4";
+    }
+
+    .unl .dcf-footer-global {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-areas: "N N N social social social campus campus campus policies policies policies" "logos logos logos logos about about test test © © © ©";
     }
 
   }

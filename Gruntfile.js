@@ -455,5 +455,5 @@ module.exports = function (grunt) {
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
 	grunt.registerTask('js', ['clean:js', 'sass:js', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
-	grunt.registerTask('css', ['stylelint', 'sass:all', 'postcss']);
+	grunt.registerTask('css', ['sass:all', 'postcss']);
 };
