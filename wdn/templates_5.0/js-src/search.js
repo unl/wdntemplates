@@ -1,4 +1,4 @@
-define(['jquery', 'wdn', 'require', 'navigation'], function($, WDN, require, nav) {
+define(['../../templates_4.1/scripts/jquery', 'wdn', 'require', 'navigation'], function($, WDN, require, nav) {
 	var autoSearchDebounceDelay = 1000;
 
 	function getLocalSearch() {
