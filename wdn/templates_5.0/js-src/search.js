@@ -1,234 +1,244 @@
-define(['jquery', 'wdn', 'require'], function($, WDN, require) {
-    var autoSearchDebounceDelay = 1000;
+define(['../../templates_4.1/scripts/jquery', 'wdn', 'require', 'navigation'], function($, WDN, require, nav) {
+	var autoSearchDebounceDelay = 1000;
 
-    function getLocalSearch() {
-        var link = $('link[rel=search]');
-        if (link.length && link[link.length - 1].type != 'application/opensearchdescription+xml') {
-            return link[link.length - 1].href;
-        }
+	function getLocalSearch() {
+		var link = $('link[rel=search]');
+		if (link.length && link[link.length - 1].type != 'application/opensearchdescription+xml') {
+			return link[link.length - 1].href;
+		}
 
-        return false;
-    }
+		return false;
+	}
 
-    var initd = false;
+	var initd = false;
 
-    return {
-        initialize : function() {
-            if (initd) {
-                return;
-            }
-            initd = true;
+	var isFullNav = function() {
+		return matchMedia('(min-width: 43.75em)').matches || !matchMedia('only all').matches;
+	};
 
-            $(function() {
-                var domQ = $('#dcf-search_query'),
-                    domSearchForm = $('#dcf-search-form'),
-                    domSearchResultWrapper = $('#dcf-search-results-wrapper'),
-                    domEmbed,
-                    $unlSearch,
-                    $progress,
-                    submitted = false,
-                    postReady = false,
-                    autoSubmitTimeout,
-                    searchHost = 'search.unl.edu', // domain of UNL Search app
-                    searchPath = '/', // path to UNL Search app
-                    searchOrigin = 'https://' + searchHost,
-                    searchAction = searchOrigin + searchPath,
-                    searchFrameAction = searchAction + '?embed=1',
-                    allowSearchParams = ['u', 'cx'],  // QS Params allowed by UNL Search app
-                    //siteHomepage = nav.getSiteHomepage(),
-                    //TODO: figure out how to determine the home page in 5.0
-                    siteHomepage = 'https://wdn.unl.edu/',
-                    localSearch = getLocalSearch();
+	return {
+		initialize : function() {
+			if (initd) {
+				return;
+			}
+			initd = true;
 
-                // give up if the search form has been unexpectedly removed
-                if (!domSearchForm.length) {
-                    return;
-                }
+			$(function() {
+				var domQ = $('#wdn_search_query'),
+					domSearchForm = $('#wdn_search_form'),
+					domEmbed,
+					$unlSearch,
+					$progress,
+					submitted = false,
+					postReady = false,
+					autoSubmitTimeout,
+					searchHost = 'search.unl.edu', // domain of UNL Search app
+					searchPath = '/', // path to UNL Search app
+					searchOrigin = 'https://' + searchHost,
+					searchAction = searchOrigin + searchPath,
+					searchFrameAction = searchAction + '?embed=1',
+					allowSearchParams = ['u', 'cx'],  // QS Params allowed by UNL Search app
+					siteHomepage = nav.getSiteHomepage(),
+					localSearch = getLocalSearch();
 
-                // ensure the default action is the UNL Search app
-                if (domSearchForm[0].action !== searchAction) {
-                    domSearchForm.attr('action', searchAction);
-                }
+				// give up if the search form has been unexpectedly removed
+				if (!domSearchForm.length) {
+					return;
+				}
 
-                if (localSearch && localSearch.indexOf(searchAction + '?') === 0) {
-                    // attempt to parse the allowed UNL Search parameter overrides allowed
-                    var localSearchParams;
-                    var i;
-                    try {
-                        if (window.URLSearchParams) {
-                            localSearchParams = new URLSearchParams(localSearch.slice(localSearch.indexOf('?') + 1));
+				// ensure the default action is the UNL Search app
+				if (domSearchForm[0].action !== searchAction) {
+					domSearchForm.attr('action', searchAction);
+				}
 
-                            for (i = 0; i < allowSearchParams.length; i++) {
-                                if (localSearchParams.has(allowSearchParams[i])) {
-                                    domSearchForm.append($('<input>', {
-                                        type: "hidden",
-                                        name: allowSearchParams[i],
-                                        value: localSearchParams.get(allowSearchParams[i])
-                                    }));
-                                }
-                            }
-                        } else {
-                            var paramPair;
-                            localSearchParams = localSearch.slice(localSearch.indexOf('?') + 1).split('&');
-                            for (i = 0; i < localSearchParams.length; i++) {
-                                paramPair = localSearchParams[i].split('=');
-                                if (allowSearchParams.indexOf(paramPair[0]) >= 0) {
-                                    domSearchForm.append($('<input>', {
-                                        type: "hidden",
-                                        name: paramPair[0],
-                                        value: decodeURIComponent(paramPair[1])
-                                    }));
-                                }
-                            }
-                        }
-                    } catch (ex){
-                        WDN.log(ex);
-                    }
-                } else if (siteHomepage && !(/^https?:\/\/www\.unl\.edu\/$/.test(siteHomepage))) {
-                    // otherwise default to adding a local param for this site's homepage (but not UNL top)
-                    domSearchForm.append($('<input>', {
-                        type: "hidden",
-                        name: "u",
-                        value: siteHomepage
-                    }));
-                    searchFrameAction += '&u=' + encodeURIComponent(siteHomepage);
-                }
+				if (localSearch && localSearch.indexOf(searchAction + '?') === 0) {
+					// attempt to parse the allowed UNL Search parameter overrides allowed
+					var localSearchParams;
+					var i;
+					try {
+						if (window.URLSearchParams) {
+							localSearchParams = new URLSearchParams(localSearch.slice(localSearch.indexOf('?') + 1));
 
-                // create a loading indicator
-                $progress = $('<progress>', {id: 'wdn_search_progress'}).text('Loading...');
+							for (i = 0; i < allowSearchParams.length; i++) {
+								if (localSearchParams.has(allowSearchParams[i])) {
+									domSearchForm.append($('<input>', {
+										type: "hidden",
+										name: allowSearchParams[i],
+										value: localSearchParams.get(allowSearchParams[i])
+									}));
+								}
+							}
+						} else {
+							var paramPair;
+							localSearchParams = localSearch.slice(localSearch.indexOf('?') + 1).split('&');
+							for (i = 0; i < localSearchParams.length; i++) {
+								paramPair = localSearchParams[i].split('=');
+								if (allowSearchParams.indexOf(paramPair[0]) >= 0) {
+									domSearchForm.append($('<input>', {
+										type: "hidden",
+										name: paramPair[0],
+										value: decodeURIComponent(paramPair[1])
+									}));
+								}
+							}
+						}
+					} catch (ex){
+						WDN.log(ex);
+					}
+				} else if (siteHomepage && !(/^https?:\/\/www\.unl\.edu\/$/.test(siteHomepage))) {
+					// otherwise default to adding a local param for this site's homepage (but not UNL top)
+					domSearchForm.append($('<input>', {
+						type: "hidden",
+						name: "u",
+						value: siteHomepage
+					}));
+					searchFrameAction += '&u=' + encodeURIComponent(siteHomepage);
+				}
 
-                // add a parameter for triggering the iframe compatible rendering
-                domEmbed = $('<input>', {
-                    type: "hidden",
-                    name: "embed",
-                    value: 1
-                });
-                domSearchForm.append(domEmbed);
+				// create a loading indicator
+				$progress = $('<progress>', {id: 'wdn_search_progress'}).text('Loading...');
 
-                var createSearchFrame = function() {
-                    // lazy create the search iframe
-                    if (!$unlSearch) {
-                        $unlSearch = $('<iframe>', {
-                            name: 'unlsearch',
-                            id: 'wdn_search_frame',
-                            title: 'Search results',
-                            src: searchFrameAction
-                        });
+				// add a parameter for triggering the iframe compatible rendering
+				domEmbed = $('<input>', {
+					type: "hidden",
+					name: "embed",
+					value: 1
+				});
+				domSearchForm.append(domEmbed);
 
-                        domSearchForm.parent().append($progress);
-                        domSearchResultWrapper.append($unlSearch);
+				var createSearchFrame = function() {
+					// lazy create the search iframe
+					if (!$unlSearch) {
+						$unlSearch = $('<iframe>', {
+							name: 'unlsearch',
+							id: 'wdn_search_frame',
+							title: 'Search results',
+							src: searchFrameAction
+						});
 
-                        $unlSearch.on('load', function() {
-                            postReady = true; // iframe should be ready to post messages to
-                        });
-                    }
-                };
+						domSearchForm.parent().append($unlSearch).append($progress);
 
-                var activateSearch = function() {
-                    domSearchForm.parent().addClass('active');
-                    $progress.show();
-                };
+						$unlSearch.on('load', function() {
+							postReady = true; // iframe should be ready to post messages to
+						});
+					}
+				};
 
-                var postSearchMessage = function(query) {
-                    $unlSearch[0].contentWindow.postMessage(query, searchOrigin);
-                    $progress.hide();
-                };
+				var activateSearch = function() {
+					domSearchForm.parent().addClass('active');
+					$progress.show();
+				};
 
-                var closeSearch = function() {
-                    clearTimeout(autoSubmitTimeout);
-                    domSearchForm.parent().removeClass('active');
-                    $progress.hide();
-                    domSearchForm[0].reset();
-                };
+				var postSearchMessage = function(query) {
+					$unlSearch[0].contentWindow.postMessage(query, searchOrigin);
+					$progress.hide();
+				};
 
-                // add an event listener to support the iframe rendering
-                domQ.on('keyup', function(e) {
+				var closeSearch = function() {
+					clearTimeout(autoSubmitTimeout);
+					domSearchForm.parent().removeClass('active');
+					$progress.hide();
+					domSearchForm[0].reset();
+				};
 
-                    var keyCode = e.keyCode;
+				// add an event listener to support the iframe rendering
+				domQ.on('keyup', function(e) {
+					// ONLY for "desktop" presentation
+					if (!isFullNav()) {
+						return;
+					}
 
-                    if (keyCode === 27) {
-                        //Close on escape
-                        closeSearch();
-                        return;
-                    }
+					var keyCode = e.keyCode;
 
-                    // ignore non-printable keys (blacklist)
-                    if ((keyCode !== 32 && keyCode < 48) ||
-                        (keyCode > 90 && keyCode < 96) ||
-                        (keyCode > 111 && keyCode < 186 && keyCode !== 173) ||
-                        (keyCode > 192 && keyCode < 219) ||
-                        (keyCode > 222)
-                    ) {
-                        return;
-                    }
+					if (keyCode === 27) {
+						//Close on escape
+						closeSearch();
+						return;
+					}
 
-                    clearTimeout(autoSubmitTimeout);
+					// ignore non-printable keys (blacklist)
+					if ((keyCode !== 32 && keyCode < 48) ||
+						(keyCode > 90 && keyCode < 96) ||
+						(keyCode > 111 && keyCode < 186 && keyCode !== 173) ||
+						(keyCode > 192 && keyCode < 219) ||
+						(keyCode > 222)
+					) {
+						return;
+					}
 
-                    if ($(this).val()) {
-                        // activate search UI
-                        createSearchFrame();
-                        activateSearch();
+					clearTimeout(autoSubmitTimeout);
 
-                        // debounce auto-submit
-                        autoSubmitTimeout = setTimeout(function() {
-                            domSearchForm.trigger('submit', 'auto');
-                        }, autoSearchDebounceDelay);
-                    }
-                });
+					if ($(this).val()) {
+						// activate search UI
+						createSearchFrame();
+						activateSearch();
 
-                domSearchForm.on('submit', function(e, source) {
+						// debounce auto-submit
+						autoSubmitTimeout = setTimeout(function() {
+							domSearchForm.trigger('submit', 'auto');
+						}, autoSearchDebounceDelay);
+					}
+				});
 
-                    // enable the iframe search params
-                    createSearchFrame();
-                    activateSearch();
-                    domEmbed.prop('disabled', false);
-                    this.target = 'unlsearch';
+				domSearchForm.on('submit', function(e, source) {
+					// disable iframe and return if not in "desktop" presentation
+					if (!isFullNav()) {
+						this.target = '';
+						domEmbed.prop('disabled', true);
+						return;
+					}
 
-                    if ('auto' !== source) {
-                        //a11y: send focus to the results if manually submitted
-                        $unlSearch.focus();
-                    }
+					// enable the iframe search params
+					createSearchFrame();
+					activateSearch();
+					domEmbed.prop('disabled', false);
+					this.target = 'unlsearch';
 
-                    // support sending messages to iframe without reload
-                    if (postReady) {
-                        e.preventDefault();
-                        postSearchMessage(domQ.val());
-                    }
-                });
+					if ('auto' !== source) {
+						//a11y: send focus to the results if manually submitted
+						$unlSearch.focus();
+					}
 
-                //Close search on escape while the iframe has focus
-                $(window).on('message', function(e) {
-                    var originalEvent = e.originalEvent;
+					// support sending messages to iframe without reload
+					if (postReady) {
+						e.preventDefault();
+						postSearchMessage(domQ.val());
+					}
+				});
 
-                    if ('wdn.search.close' != originalEvent.data) {
-                        //Make sure this is our event
-                        return;
-                    }
+				//Close search on escape while the iframe has focus
+				$(window).on('message', function(e) {
+					var originalEvent = e.originalEvent;
 
-                    if (searchOrigin != originalEvent.origin) {
-                        //Verify the origin
-                        return;
-                    }
+					if ('wdn.search.close' != originalEvent.data) {
+						//Make sure this is our event
+						return;
+					}
 
-                    closeSearch();
-                });
+					if (searchOrigin != originalEvent.origin) {
+						//Verify the origin
+						return;
+					}
 
-                //Close search on escape
-                $(document).on('keydown', function(e) {
-                    if (e.keyCode === 27) {
-                        //Close on escape
-                        closeSearch();
-                    }
-                });
+					closeSearch();
+				});
 
-                // listen for clicks on the document and hide the iframe if they didn't come from search interface
-                $(document).on('click', function(e) {
-                    var $wdnSearch = domSearchForm.parent();
-                    if (!$wdnSearch.find(e.target).length) {
-                        closeSearch();
-                    }
-                });
-            });
-        }
-    };
+				//Close search on escape
+				$(document).on('keydown', function(e) {
+					if (e.keyCode === 27) {
+						//Close on escape
+						closeSearch();
+					}
+				});
+
+				// listen for clicks on the document and hide the iframe if they didn't come from search interface
+				$(document).on('click', function(e) {
+					var $wdnSearch = domSearchForm.parent();
+					if (!$wdnSearch.find(e.target).length) {
+						closeSearch();
+					}
+				});
+			});
+		}
+	};
 });
