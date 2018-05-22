@@ -49,6 +49,15 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.unl-txt-sm-md {
+  @include txt-md;
+
+  @include mq(sm, min, width) {
+    @include txt-sm;
+  }
+
+}
+
 
 
 .unl .dcf-bg-overlay-light,
