@@ -10,7 +10,13 @@
 
 
 .unl .dcf-nav-local ul {
-  @include font-sans;
+//   @include font-sans;
+
+  @include txt-md;
+
+  @include mq(sm, min, width) {
+    @include txt-sm;
+  }
 }
 
 
@@ -41,6 +47,7 @@
 //   display: block;
   display: flex;
   flex-grow: 1;
+  @include font-sans;
   font-weight: 700;
   @include ls-2;
   @include pt-3;
