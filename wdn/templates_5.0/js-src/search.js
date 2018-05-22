@@ -1,4 +1,4 @@
-define(['jquery', 'wdn', 'require', 'navigation'], function($, WDN, require, nav) {
+define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 	var autoSearchDebounceDelay = 1000;
 
 	function getLocalSearch() {
@@ -12,10 +12,6 @@ define(['jquery', 'wdn', 'require', 'navigation'], function($, WDN, require, nav
 
 	var initd = false;
 
-	var isFullNav = function() {
-		return matchMedia('(min-width: 43.75em)').matches || !matchMedia('only all').matches;
-	};
-
 	return {
 		initialize : function() {
 			if (initd) {
@@ -24,8 +20,9 @@ define(['jquery', 'wdn', 'require', 'navigation'], function($, WDN, require, nav
 			initd = true;
 
 			$(function() {
-				var domQ = $('#wdn_search_query'),
-					domSearchForm = $('#wdn_search_form'),
+				var domQ = $('#dcf-search_query'),
+					domSearchForm = $('#dcf-search-form'),
+					domSearchResultWrapper = $('#dcf-search-results-wrapper'),
 					domEmbed,
 					$unlSearch,
 					$progress,
@@ -38,7 +35,9 @@ define(['jquery', 'wdn', 'require', 'navigation'], function($, WDN, require, nav
 					searchAction = searchOrigin + searchPath,
 					searchFrameAction = searchAction + '?embed=1',
 					allowSearchParams = ['u', 'cx'],  // QS Params allowed by UNL Search app
-					siteHomepage = nav.getSiteHomepage(),
+					//siteHomepage = nav.getSiteHomepage(),
+					//TODO: figure out how to determine the home page in 5.0
+					siteHomepage = 'https://wdn.unl.edu/',
 					localSearch = getLocalSearch();
 
 				// give up if the search form has been unexpectedly removed
@@ -116,7 +115,8 @@ define(['jquery', 'wdn', 'require', 'navigation'], function($, WDN, require, nav
 							src: searchFrameAction
 						});
 
-						domSearchForm.parent().append($unlSearch).append($progress);
+						domSearchForm.parent().append($progress);
+						domSearchResultWrapper.append($unlSearch);
 
 						$unlSearch.on('load', function() {
 							postReady = true; // iframe should be ready to post messages to
@@ -143,10 +143,6 @@ define(['jquery', 'wdn', 'require', 'navigation'], function($, WDN, require, nav
 
 				// add an event listener to support the iframe rendering
 				domQ.on('keyup', function(e) {
-					// ONLY for "desktop" presentation
-					if (!isFullNav()) {
-						return;
-					}
 
 					var keyCode = e.keyCode;
 
@@ -181,12 +177,6 @@ define(['jquery', 'wdn', 'require', 'navigation'], function($, WDN, require, nav
 				});
 
 				domSearchForm.on('submit', function(e, source) {
-					// disable iframe and return if not in "desktop" presentation
-					if (!isFullNav()) {
-						this.target = '';
-						domEmbed.prop('disabled', true);
-						return;
-					}
 
 					// enable the iframe search params
 					createSearchFrame();
