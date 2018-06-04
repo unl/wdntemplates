@@ -7,8 +7,8 @@
 //   height: 100% !important;
 // }
 
-// @include mq(md, max, width) {
-//
+@include mq(md, max, width) {
+
 //   .unl .dcf-search-results-wrapper::before {
 //     content: '';
 //     height: #{ms(6)}em;
@@ -26,16 +26,60 @@
 //   .unl .dcf-search-results {
 //     @include pb-6; // !core update
 //   }
-//
-// }
 
-// @include mq(md, min, width) {
-//
+  .unl .dcf-mobile-toolbar-toggle-search {
+    @include b-0;
+    justify-content: center;
+  }
+
+//   .unl .dcf-search-toggle-icon {
+//     @include h-5;
+//     @include mb-1;
+//     @include w-5;
+//   }
+
+}
+
+@include mq(md, min, width) {
+
+  .unl .dcf-mobile-toolbar-search {
+    width: 100%;
+  }
+
+  .unl .dcf-mobile-toolbar-toggle-search {
+    background-image: linear-gradient(to left, $cream #{ms(5)}em, transparent #{ms(5)}em);
+    @include b-1;
+    border-color: $cream;
+    justify-content: space-between;
+  }
+
+  .unl .dcf-mobile-toolbar-label-search {
+    @include inverse;
+    @include font-serif;
+    font-size: #{ms(-2)}em;
+    padding-bottom: #{ms(-6)}em;
+    @include pl-3;
+    @include pr-8;
+    padding-top: #{ms(-6)}em;
+  }
+
+  .unl .dcf-mobile-toolbar-icon-search {
+    @include h-3;
+    margin-right: #{ms(-4)}em;
+    @include w-3;
+  }
+
 //   .unl .dcf-search-results {
 //     @include pb-10; // !core update
 //   }
-//
-// }
+
+}
+
+
+
+.unl-search-bg {
+  background: $color-body url('../images/unl-search-bg.jpg') 50% 50% / cover no-repeat;
+}
 
 
 .unl-google-results {
@@ -61,6 +105,20 @@
 // //   }
 //
 // }
+
+
+
+
+// !Temp fixes for old search
+#wdn_search_frame {
+  border: 0;
+  height: 100%;
+  @include mt-7;
+  width: 100%;
+}
+
+
+
 
 
 // !UNL Google Search Results Overrides
