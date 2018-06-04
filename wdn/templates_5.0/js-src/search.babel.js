@@ -48,9 +48,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 			}
 			
 			dialogHelper.initialize(domDialog);
-			console.log(domToggle);
 			domToggle.addEventListener('click', function(e) {
-				console.log(domDialog.getAttribute('open'));
 				if (!domDialog.getAttribute('open')) {
 					//Search is currently closed, so open it.
 					domToggle.setAttribute('aria-pressed', 'true');
@@ -66,7 +64,6 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 			});
 			
 			domClose.addEventListener('click', function() {
-				console.log('close button');
 				closeSearch();
 			});
 
@@ -162,7 +159,6 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 			};
 
 			let closeSearch = function() {
-				console.log('close search');
 				clearTimeout(autoSubmitTimeout);
 				domQ.value = '';
 				domSearchForm.parentElement.classList.remove('active');
@@ -257,7 +253,6 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 					return;
 				}
 				
-				console.log(e.target);
 				if (domToggle.contains(e.target)) {
 					return;
 				}
