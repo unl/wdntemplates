@@ -24,7 +24,7 @@
 
 
   <div class="dcf-mobile-toolbar dcf-mobile-toolbar-search dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center hrjs">
-    <button class="dcf-mobile-toolbar-toggle dcf-mobile-toolbar-toggle-search dcf-d-flex dcf-ai-center dcf-w-100% dcf-p-0 dcf-bg-transparent" id="dcf-search-toggle" aria-pressed="false" aria-haspopup="true">
+    <button class="dcf-mobile-toolbar-toggle dcf-mobile-toolbar-toggle-search dcf-d-flex dcf-ai-center dcf-w-100% dcf-p-0 dcf-bg-transparent" id="dcf-search-toggle" aria-pressed="false" aria-haspopup="dialog">
       <svg class="dcf-mobile-toolbar-icon dcf-mobile-toolbar-icon-search dcf-2nd@md dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
         <path d="M18 36a17.9 17.9 0 0 0 11.27-4l15.31 15.41a2 2 0 0 0 2.84-2.82L32.08 29.18A18 18 0 1 0 18 36zm0-32A14 14 0 1 1 4 18 14 14 0 0 1 18 4z"/>
       </svg>
@@ -33,7 +33,7 @@
   </div>
 
 
-  <div class="dcf-modal-overlay dcf-mobile-toolbar-modal dcf-bg-overlay-light dcf-d-none" id="dcf-search-results" role="dialog" aria-hidden="true" aria-label="modal">
+  <dialog class="dcf-modal-overlay dcf-mobile-toolbar-modal dcf-bg-overlay-light dcf-d-none" id="dcf-search-results">
     <div class="dcf-modal-content dcf-d-flex dcf-flex-col dcf-flex-nowrap dcf-h-100%" role="document" tabindex="-1">
 
       <div class="dcf-stretch unl-search-bg">
@@ -1201,5 +1201,5 @@
 
       <button class="dcf-absolute dcf-pin-top dcf-pin-right dcf-mt-3 dcf-mr-3 dcf-btn dcf-btn-tertiary dcf-inverse" id="dcf-close-search" type="button" aria-label="close">Close</button>
     </div><!-- end Modal Content -->
-  </div><!-- end Modal Overlay -->
+  </dialog><!-- end Modal Overlay -->
 </div><!-- end Search -->

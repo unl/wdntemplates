@@ -53,6 +53,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				console.log(domDialog.getAttribute('open'));
 				if (!domDialog.getAttribute('open')) {
 					//Search is currently closed, so open it.
+					domToggle.setAttribute('aria-pressed', 'true');
 					domDialog.classList.remove('dcf-d-none');
 					domDialog.showModal();
 					setTimeout(function(){
@@ -167,6 +168,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				domSearchForm.parentElement.classList.remove('active');
 				domDialog.classList.remove('dcf-d-none');
 				domDialog.close();
+				domToggle.setAttribute('aria-pressed', 'false');
 				domSearchForm.reset();
 			};
 
