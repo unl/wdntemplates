@@ -1,82 +1,201 @@
 <!-- TODO: make this a CDN reference for prod? -->
 <script src="/wdn/templates_5.0/js/compressed/all.js?dep=$DEP_VERSION$" id="wdn_dependents"></script>
+<!-- temp -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script>
-// grab an element
-var mobileActions = document.querySelectorAll('.hrjs');
-// construct an instance of Headroom, passing the element
-mobileActions.forEach((elem)=>{
-  let headroom = new Headroom(elem, {
-	"tolerance" : {
-    up : 5,
-    down : 5
-	}
+
+
+  // grab an element
+  var mobileActions = document.querySelectorAll('.hrjs');
+  // construct an instance of Headroom, passing the element
+  mobileActions.forEach((elem)=>{
+    let headroom = new Headroom(elem, {
+  	"tolerance" : {
+      up : 5,
+      down : 5
+  	}
+    });
+    headroom.init();
   });
-  headroom.init();
-});
+
+  //
+  // !temporary
+  document.getElementById('dcf-idm-login').addEventListener('click', function(event){
+      event.preventDefault()
+  });
+  //
+  //
 
 
+  // modal vars
+  var $modalParent = $('.dcf-modal-parent');
+  var $modalOverlay = $('.dcf-modal-overlay');
+  var $modalContent = $('.dcf-modal-content');
+
+
+  // open modal
+  function openModal() {
+    $('html,body').css('overflow','hidden');
+
+
+//       $modalOverlay.attr('aria-hidden','false');
+//       $modalContent.attr('aria-expanded','true');
+//       $modalParent.addClass('dcf-modal-open');
+//       $(document).on('focusin.modal', function(event) {
+//         var modalContent = $modalContent.get(0);
+//         if (!$.contains(modalContent, event.target) && modalContent != event.target) {
+//           event.stopPropagation();
+//           $modalContent.focus();
+//         }
+//       });
+  }
+
+  // close modal
+  function closeModal() {
+    $('html,body').css('overflow','auto');
+
+
+//       $modalOverlay.attr('aria-hidden','true');
+//       $modalContent.attr('aria-expanded','false');
+//       $modalParent.removeClass('dcf-modal-open');
+//       $(document).off('focusin.modal');
+  }
+
+
+  // close modal content on click outside of modal
+//     $modalOverlay.click(function(click) {
+//       if (this == click.target) {
+//         closeModal();
+//       }
+//     });
+
+  // close modal content by pressing 'esc' key
+//     $(document).keydown(function(e) {
+//       if (e.keyCode == 27 && $modalParent.hasClass('dcf-modal-open')) {
+//         closeModal();
+//       }
+//     });
+
+  // MENU
+  var $toggleMenu = $('#dcf-menu-toggle');
+  var $mobileNav = $('#dcf-navigation');
+  var navBp = window.matchMedia("(max-width: 895px)");
+
+  $toggleMenu.on('click', function(e) {
+    if ($modalParent.hasClass('dcf-modal-open') && navBp.matches) {
+      closeModal();
+      $mobileNav.css('display','none');
+      $modalParent.removeClass('dcf-modal-open');
+    } else if ($modalParent.hasClass('dcf-modal-open')) {
+      closeModal();
+      $modalParent.removeClass('dcf-modal-open');
+    } else if (navBp.matches) {
+      openModal();
+      $mobileNav.css('display','block');
+      $modalParent.addClass('dcf-modal-open');
+    } else {
+      openModal();
+      $modalParent.addClass('dcf-modal-open');
+    }
+  });
+
+  // Add a listen event
+  navBp.addListener(watchNav);
+
+  // Function to do something with the media query
+  function watchNav(navBp) {
+    if (!navBp.matches) {
+      $mobileNav.css('display','block');
+    } else {
+      $mobileNav.css('display','none');
+    }
+  }
+
+  // On load
+  watchNav(navBp);
+
+
+
+
+  // !Open Modal
+//     function openModal() {
+//       html.style.overflow = 'hidden';
+//       body.style.overflow = 'hidden';
+//     //   this.setAttribute('aria-pressed', 'true');
+//     }
+
+
+  // !Close Modal
+//     function closeModal() {
+//       html.style.overflow = 'auto';
+//       body.style.overflow = 'auto';
+//     //   this.setAttribute('aria-pressed', 'false');
+//     }
+
+
+  // !Menu Toggle
+//     var mT = document.querySelector('#dcf-menu-toggle');
+//     var nav = document.querySelector('#dcf-navigation');
 //
-// !temporary
-document.getElementById('dcf-idm-login').addEventListener('click', function(event){
-    event.preventDefault()
-});
+//     mT.onclick = function() {
+//       nav.classList.toggle('dcf-appear');
+//       nav.classList.toggle('dcf-disappear');
+//     }
+
+
+
+
+
+  // !SEARCH
+  var $openSearchModal = $('#dcf-search-toggle');
+  var $closeSearchModal = $('#dcf-close-search');
+  var $searchResults = $('#dcf-search-results');
+  var $searchInput = $('#dcf-search_query');
+
+  function startSearch() {
+    openModal();
+    $searchResults.toggleClass('dcf-d-none');
+    setTimeout(function(){
+      $searchInput.focus();
+    }, 200);
+  }
+
+  function endSearch() {
+    closeModal();
+    $searchResults.toggleClass('dcf-d-none');
+    $searchInput.val('');
+  }
+
+  $openSearchModal.on('click', function(e) {
+    if ($modalParent.hasClass('dcf-modal-open')) {
+      closeModal();
+    } else {
+      startSearch();
+    }
+  });
+
+  $closeSearchModal.on('click', function(e) {
+    endSearch();
+  });
+
+
+//     var sT = document.querySelector('#dcf-search-toggle');
+//     var sR = document.querySelector('#dcf-search-results');
 //
+//     sT.onclick = function() {
+//       sR.classList.toggle('dcf-d-none');
+//     //   document.getElementById("dcf-search_query").focus();
+//     //   openModal();
+//     }
+
+
+  // !IDM
+//     var idmT = document.querySelector('.dcf-idm-toggle');
+//     var idmDb = document.querySelector('#dcf-idm-dashboard');
 //
-
-
-var html = document.querySelector('html');
-var body = document.querySelector('body');
-
-
-// !Open Modal
-function openModal() {
-  html.style.overflow = 'hidden';
-  body.style.overflow = 'hidden';
-//   this.setAttribute('aria-pressed', 'true');
-}
-
-
-// !Close Modal
-function closeModal() {
-  html.style.overflow = 'auto';
-  body.style.overflow = 'auto';
-//   this.setAttribute('aria-pressed', 'false');
-}
-
-
-// !Menu Toggle
-var mT = document.querySelector('#dcf-menu-toggle');
-var nav = document.querySelector('#dcf-navigation');
-
-mT.onclick = function() {
-  nav.classList.toggle('dcf-appear');
-  nav.classList.toggle('dcf-disappear');
-}
-
-
-// !Search Toggle
-var sT = document.querySelector('#dcf-search-toggle');
-var sR = document.querySelector('#dcf-search-results');
-
-sT.onclick = function() {
-  sR.classList.toggle('dcf-appear');
-  sR.classList.toggle('dcf-disappear');
-//   document.getElementById("dcf-search_query").focus();
-//   openModal();
-}
-
-
-// !IdM Toggle
-var idmT = document.querySelector('.dcf-idm-toggle');
-var idmDb = document.querySelector('#dcf-idm-dashboard');
-
-idmT.onclick = function() {
-  idmDb.classList.toggle('dcf-appear');
-  idmDb.classList.toggle('dcf-disappear');
-}
-
-
-
+//     idmT.onclick = function() {
+//       idmDb.classList.toggle('dcf-d-none');
+//     }
 
 
 
@@ -104,5 +223,6 @@ idmT.onclick = function() {
 //     menuToggle.className = classes.join(' ');
 //   }
 // }
+
 
 </script>
