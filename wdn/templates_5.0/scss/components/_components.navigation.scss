@@ -9,7 +9,7 @@
 
 
 
-.unl .dcf-nav-local ul {
+.unl .dcf-nav-local > ul {
 //   @include font-sans;
 
   @include txt-md;
@@ -17,17 +17,11 @@
   @include mq(sm, min, width) {
     @include txt-sm;
   }
-}
-
-
-.unl .dcf-nav-local > ul {
-
-  @supports (display: grid) {
-    grid-gap: #{ms(4)}em 5.6vw; // core
-    grid-template-columns: repeat(auto-fit, minmax(#{ms(16)}em, 1fr)); // core
-  }
 
 }
+
+
+
 
 .unl .dcf-nav-global li:not(:last-child),
 .unl .dcf-nav-local li:not(:last-child) {
@@ -45,12 +39,12 @@
 
 .unl .dcf-nav-local > ul > li > a {
 //   display: block;
-  display: flex;
-  flex-grow: 1;
+//   display: flex;
+//   flex-grow: 1;
   @include font-sans;
   font-weight: 700;
   @include ls-2;
-  @include pt-3;
+  @include pt-4;
   @include pb-3;
   text-transform: uppercase;
 }
@@ -71,6 +65,11 @@
 
 
 @include mq(md, max, width) {
+
+  #dcf-navigation {
+    display: none;
+  }
+
 
   .headroom {
   	will-change: transform;
@@ -106,18 +105,35 @@
     left: 0;
   }
 
+  .unl .dcf-nav-global {
+    display: none; // temp
+  }
+
   .unl .dcf-nav-local-wrapper {
-    @include bg-overlay-dark;
+
 //     bottom: #{ms(10)}em;
 //     height: 100%;
 //     opacity: 0;
 //     position: fixed;
 //     width: 100%;
 //     z-index: 998;
+
+    @include bg-cream;
+    bottom: 0;
+//     box-shadow: 0 -1px 4px 0 rgba(0,0,0,.1);
+    height: 56vh;
+    @include overflow-y-scroll;
+    -webkit-overflow-scrolling: touch; // remove after added to DCF core
+    padding-left: 5.6%;
+    padding-right: 5.6%;
+//     pointer-events: none;
+    position: fixed;
+    z-index: 998;
+
   }
 
   .unl .dcf-nav-local-wrapper::before {
-    background-image: linear-gradient(to top, fade-out($lighter-cream, 1), $lighter-cream);
+    background-image: linear-gradient(to top, fade-out($cream, 1), $cream);
     bottom: -#{ms(6)}em;
     content: '';
     height: #{ms(6)}em;
@@ -129,18 +145,20 @@
   }
 
   .unl .dcf-nav-local {
-//     animation-name: none;
-//     animation: dcf-disappear 500ms ease-out forwards;
-    @include bg-lighter-cream;
-    bottom: 0;
-    box-shadow: 0 -1px 4px 0 rgba(0,0,0,.1);
-    height: 56vh;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch; // remove after added to DCF core
-//     pointer-events: none;
-    position: fixed;
-    z-index: 998;
+// //     animation-name: none;
+// //     animation: dcf-disappear 500ms ease-out forwards;
+//     @include bg-cream;
+//     bottom: 0;
+// //     box-shadow: 0 -1px 4px 0 rgba(0,0,0,.1);
+//     height: 56vh;
+//     overflow-y: scroll;
+//     -webkit-overflow-scrolling: touch; // remove after added to DCF core
+// //     pointer-events: none;
+//     position: fixed;
+//     z-index: 998;
   }
+
+
 
 
 
@@ -152,8 +170,17 @@
 //   }
 
   .unl .dcf-nav-local > ul {
-    @include pb-8;
+    padding-bottom: #{ms(14)}em;
     @include pt-8;
+  }
+
+  .unl .dcf-nav-local > ul {
+
+    @supports (display: grid) {
+      grid-gap: #{ms(6)}em 5.6vw; // core
+      grid-template-columns: repeat(auto-fit, minmax(#{ms(16)}em, 1fr)); // core
+    }
+
   }
 
 }
@@ -174,41 +201,143 @@
 
 @include mq(md, min, width) {
 
-  .dcf-mobile-toolbar-menu {
+
+  .unl .dcf-nav-global {
+    display: flex;
+  }
+
+  .unl .dcf-nav-global a {
+    @include inverse-link;
+//     justify-content: flex-end; // core
+  }
+
+
+
+  .unl .dcf-nav-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-left: 5.6%;
+    padding-right: 5.6%;
+  }
+
+
+  .unl .dcf-nav-local {
+    @include bt;
+    border-color: #eee;
+  }
+
+  .unl .dcf-nav-local a {
+    display: block;
+    @include pl-5;
+  }
+
+  .unl .dcf-nav-local > ul {
+    display: grid; // core
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 0;
+//     border-top: 1px solid #eee;
+//     flex-flow: row nowrap;
+  }
+
+  .unl .dcf-nav-local > ul > li {
+    position: relative;
+//     display: flex;
+//     flex-direction: column;
+//     flex-grow: 1;
+//     align-items: center;
+  }
+
+  .unl .dcf-nav-local > ul > li:not(:last-child) a {
+    @include pr-5;
+  }
+
+  .unl .dcf-nav-local > ul > li > a {
+    border-left: 1px solid #eee;
+    height: 100%;
+//     justify-content: center;
+    @include lh-3;
+//     padding: #{ms(0)}em 2.4vw;
+    @include pb-4;
+    @include pt-4;
+//     text-align: center;
+    width: 100%;
+  }
+
+  .unl .dcf-nav-local ul ul {
+    background: linear-gradient(to bottom, #eee, transparent) 0 0 / 1px 100% no-repeat;
+    @include pb-8;
+    margin-top: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 999;
+
+
+// position: absolute;
+border: 0;
+// clip: rect(1px, 1px, 1px, 1px);
+clip: auto;
+// height: 1px;
+height: auto;
+// overflow: hidden;
+overflow: auto;
+// position: absolute;
+// width: 1px;
+// word-wrap: normal;
+word-wrap: normal;
+
+  }
+
+  .unl .dcf-nav-bar .dcf-nav-local ul ul  {
     display: none;
   }
 
-//   .unl .dcf-nav-global {
-//     justify-content: flex-end; // core
-//   }
-
-  .unl .dcf-nav-local {
-    @include bg-scarlet;
+  .unl .dcf-mobile-toolbar-menu {
+    border-top: 1px solid #eee;
+    @include font-sans;
+    @include pr-4;
+    @include pt-4;
   }
 
-//   .unl .dcf-nav-local > ul {
-//     border-top: 1px solid #eee;
-//     flex-flow: row nowrap;
+  .unl .dcf-mobile-toolbar-label-menu {
+    @include font-sans;
+    font-size: #{ms(-6)}em;
+    font-weight: bold;
+    @include ls-2;
+    text-transform: uppercase;
+  }
+
+  .unl .dcf-mobile-toolbar-icon-menu {
+    @include h-3;
+    margin-bottom: #{ms(-8)}em;
+    @include w-3;
+  }
+
+//   .unl .dcf-mobile-toolbar-modal {
+//     position: relative;
 //   }
 
-//   .unl .dcf-nav-local > ul > li {
-//     display: flex;
-//     flex-grow: 1;
-// //     align-items: center;
-//   }
+  .unl .dcf-nav-bar::after {
+    content: '';
+    position: absolute;
+    background-image: linear-gradient(to bottom, $cream, fade-out($cream,.05));
+    height: 100vh;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    top: 100%;
+    transition: opacity 400ms ease-out;
+    width: 100%;
+    z-index: 998;
+  }
 
-//   .unl .dcf-nav-local li:not(:last-child) {
-//     border-right: 1px solid #eee;
-//   }
+  .unl .dcf-nav-bar.dcf-modal-open::after {
+    opacity: 1;
+    transition: opacity 200ms ease-out;
+  }
 
-  .unl .dcf-nav-local > ul > li > a {
-//     justify-content: center;
-    @include inverse;
-    @include lh-3;
-//     padding: #{ms(-2)}em 2.4vw;
-    @include pb-3;
-    @include pt-3;
-//     text-align: center;
+  .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local ul ul  {
+    display: block;
   }
 
 }
