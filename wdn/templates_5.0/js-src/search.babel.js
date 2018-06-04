@@ -1,4 +1,4 @@
-define(['wdn', 'require'], function(WDN, require) {
+define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 	let autoSearchDebounceDelay = 1000;
 
 	function getLocalSearch() {
@@ -22,6 +22,9 @@ define(['wdn', 'require'], function(WDN, require) {
 			let domQ = document.getElementById('dcf-search_query'),
 				domSearchForm = document.getElementById('dcf-search-form'),
 				domSearchResultWrapper = document.getElementById('dcf-search-results-wrapper'),
+				domDialog = document.getElementById('dcf-search-results'),
+				domToggle = document.getElementById('dcf-search-toggle'),
+				domClose = document.getElementById('dcf-close-search'),
 				domEmbed,
 				$unlSearch,
 				$progress,
@@ -43,6 +46,28 @@ define(['wdn', 'require'], function(WDN, require) {
 			if (!domSearchForm) {
 				return;
 			}
+			
+			dialogHelper.initialize(domDialog);
+			console.log(domToggle);
+			domToggle.addEventListener('click', function(e) {
+				console.log(domDialog.getAttribute('open'));
+				if (!domDialog.getAttribute('open')) {
+					//Search is currently closed, so open it.
+					domDialog.classList.remove('dcf-d-none');
+					domDialog.showModal();
+					setTimeout(function(){
+						domQ.focus();
+					}, 200);
+				} else {
+					//Search is currently open, so close it.
+					closeSearch();
+				}
+			});
+			
+			domClose.addEventListener('click', function() {
+				console.log('close button');
+				closeSearch();
+			});
 
 			// ensure the default action is the UNL Search app
 			if (domSearchForm.action !== searchAction) {
@@ -136,9 +161,12 @@ define(['wdn', 'require'], function(WDN, require) {
 			};
 
 			let closeSearch = function() {
+				console.log('close search');
 				clearTimeout(autoSubmitTimeout);
+				domQ.value = '';
 				domSearchForm.parentElement.classList.remove('active');
-				$progress.hidden = true;
+				domDialog.classList.remove('dcf-d-none');
+				domDialog.close();
 				domSearchForm.reset();
 			};
 
@@ -223,11 +251,16 @@ define(['wdn', 'require'], function(WDN, require) {
 
 			// listen for clicks on the document and hide the iframe if they didn't come from search interface
 			document.addEventListener('click', function(e) {
-				let wdnSearch = domSearchForm.parentElement;
-				//TODO: Test this
-				if (!wdnSearch.contains(e.target)) {
-					closeSearch();
+				if (domDialog.contains(e.target)) {
+					return;
 				}
+				
+				console.log(e.target);
+				if (domToggle.contains(e.target)) {
+					return;
+				}
+
+				closeSearch();
 			});
 		}
 	};
