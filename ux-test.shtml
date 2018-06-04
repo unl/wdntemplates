@@ -11,18 +11,21 @@
 
   <header class="dcf-header" id="dcf-header" role="banner">
 
-    <div class="dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-jc-between" style="border-bottom: 1px solid rgba(104,0,0,.1);">
-<!--     <div class="dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-jc-between dcf-pt-4 dcf-pb-3 dcf-lh-1" style="background-color: rgba(104,0,0,.01); border-bottom: 1px solid rgba(104,0,0,.1);"> -->
-<!--     <div class="dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-jc-between dcf-pt-3 dcf-pb-5"> -->
+    <div class="dcf-header-global dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-jc-between unl-bg-scarlet">
       <!--#include virtual="/wdn/templates_5.0/includes/global/institution.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/nav-global.html" -->
       <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
       <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
     </div>
 
-<!--     <div class="dcf-wrapper dcf-logo dcf-d-flex dcf-ai-center dcf-pt-5 dcf-pb-4 dcf-lh-1 dcf-overflow-hidden"> -->
-    <div class="dcf-wrapper dcf-logo dcf-d-flex dcf-ai-center dcf-pt-5 dcf-pb-5 dcf-overflow-hidden">
+    <!--     <div class="dcf-wrapper dcf-logo dcf-d-flex dcf-ai-center dcf-pt-5 dcf-pb-4 dcf-lh-1 dcf-overflow-hidden"> -->
+    <div class="dcf-wrapper dcf-logo-lockup dcf-d-flex dcf-ai-center dcf-overflow-hidden">
       <!--#include virtual="/wdn/templates_5.0/includes/global/logo.html" -->
       <div class="dcf-d-flex dcf-flex-col dcf-jc-center dcf-flex-grow-1 dcf-h-100%">
+        <div class="dcf-site-afiliation dcf-txt-sm dcf-lh-3 dcf-italic" id="dcf-site-affiliation">
+          <!-- InstanceBeginEditable name="affiliation" -->
+          <!-- InstanceEndEditable -->
+        </div>
         <div class="dcf-site-title dcf-bold dcf-uppercase dcf-lh-2 unl-font-sans" id="dcf-site-title" style="letter-spacing: .032em;">
           <!-- InstanceBeginEditable name="titlegraphic" -->
           <a href="https://casnr.unl.edu/" style="color: #383837;">
@@ -35,40 +38,49 @@
       </div>
     </div>
 
-  <div class="dcf-mobile-toolbar dcf-mobile-toolbar-menu dcf-flex-col dcf-ai-center dcf-jc-center hrjs">
-    <button class="dcf-mobile-toggle dcf-menu-toggle dcf-d-flex dcf-ai-center dcf-jc-center dcf-w-100% dcf-b-0 dcf-p-0 dcf-bg-transparent dcf-lh-1 unl-font-sans" id="dcf-menu-toggle" aria-pressed="false" aria-haspopup="true">
-<!--       <span class="dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-h-100%"> -->
-        <span class="dcf-d-flex dcf-ai-center dcf-jc-center dcf-h-5 dcf-w-5 dcf-mb-1">
-          <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48">
-            <g class="dcf-icon-menu-top">
-              <path d="M46,9H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/>
-            </g>
-            <g class="dcf-icon-menu-bottom">
-              <path d="M46,35H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/>
-            </g>
-            <g class="dcf-icon-menu-middle">
-              <path d="M46,22H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/>
-            </g>
-          </svg>
-        </span>
-        <span class="dcf-sr-only">Show </span><span style="font-size:.5625em;">Menu</span>
-<!--       </span> -->
-    </button>
-  </div>
+    <div class="dcf-nav-bar dcf-relative dcf-modal-parent">
 
-  <div class="dcf-nav-local-wrapper dcf-mobile-toolbar-modal dcf-w-100% dcf-disappear" id="dcf-navigation">
-    <nav class="dcf-nav-local dcf-wrapper dcf-w-100%" role="navigation" aria-label="local navigation">
-      <!-- InstanceBeginEditable name="navlinks" -->
-      <!--#include virtual="/wdn/templates_5.0/includes/local/nav-local.html" -->
-      <!-- InstanceEndEditable -->
-    </nav>
-  </div>
+      <div class="dcf-mobile-toolbar dcf-mobile-toolbar-menu dcf-flex-col dcf-ai-center dcf-jc-center hrjs">
+        <button class="dcf-mobile-toolbar-toggle dcf-mobile-toolbar-toggle-menu dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-w-100% dcf-b-0 dcf-p-0 dcf-bg-transparent unl-font-sans" id="dcf-menu-toggle" aria-pressed="false" aria-haspopup="true">
+    <!--       <span class="dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-h-100%"> -->
+<!--             <span class="dcf-d-flex dcf-ai-center dcf-jc-center dcf-h-5 dcf-w-5 dcf-mb-1"> -->
+              <svg class="dcf-mobile-toolbar-icon dcf-mobile-toolbar-icon-menu dcf-fill-current" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48">
+                <g class="dcf-icon-menu-top">
+                  <path d="M46,0H2C0.9,0,0,0.9,0,2s0.9,2,2,2h44c1.1,0,2-0.9,2-2S47.1,0,46,0z"/>
+<!--                   <path d="M46,9H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/> -->
+                </g>
+                <g class="dcf-icon-menu-bottom">
+                  <path d="M46,44H2c-1.1,0-2,0.9-2,2s0.9,2,2,2h44c1.1,0,2-0.9,2-2S47.1,44,46,44z"/>
+<!--                   <path d="M46,35H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/> -->
+                </g>
+                <g class="dcf-icon-menu-middle">
+                  <path d="M46,22H2c-1.1,0-2,0.9-2,2s0.9,2,2,2h44c1.1,0,2-0.9,2-2S47.1,22,46,22z"/>
+<!--                   <path d="M46,22H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/> -->
+                </g>
+              </svg>
+<!--             </span> -->
+            <span class="dcf-sr-only">Show </span><span class="dcf-mobile-toolbar-label dcf-mobile-toolbar-label-menu">Menu</span>
+    <!--       </span> -->
+        </button>
+      </div>
+
+      <div class="dcf-mobile-toolbar-modal dcf-w-100%" id="dcf-navigation">
+        <div class="dcf-nav-local-wrapper dcf-w-100%" role="navigation" aria-label="local navigation">
+          <nav class="dcf-nav-local dcf-w-100%" role="navigation" aria-label="local navigation">
+            <!-- InstanceBeginEditable name="navlinks" -->
+            <!--#include virtual="/wdn/templates_5.0/includes/local/nav-local.html" -->
+            <!-- InstanceEndEditable -->
+          </nav>
+        </div>
+      </div>
+
+    </div>
 
   </header>
 
   <main class="dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
 
-    <div class="dcf-stretch" style="background: linear-gradient(to bottom, #d6d5d2, #f7f6f2);">
+    <div class="dcf-stretch" style="background-color: #eee">
 <!--     <div class="dcf-stretch unl-stripe-b-white"> -->
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-7">
         <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
@@ -107,10 +119,26 @@
 
     </div>
 
+<!-- App Controls -->
+<!--
+    <div class="dcf-stretch" style="background-color: #383837">
+      <div class="dcf-wrapper" >
+        <nav class="dcf-txt-sm" role="navigation" aria-label="global navigation">
+          <ul class="dcf-list-bare dcf-d-flex dcf-mb-0 dcf-uppercase dcf-bold unl-ls-2 unl-font-sans">
+            <li class="dcf-list-inline-item dcf-mb-0"><a class="dcf-d-inline-block dcf-pt-4 dcf-pb-4 dcf-inverse dcf-txt-decor-none" href="https://admissions.unl.edu/visit/">Visit</a></li>
+            <li class="dcf-list-inline-item dcf-mb-0"><a class="dcf-d-inline-block dcf-pt-4 dcf-pb-4 dcf-inverse dcf-txt-decor-none" href="https://admissions.unl.edu/apply/">Apply</a></li>
+            <li class="dcf-list-inline-item dcf-mb-0"><a class="dcf-d-inline-block dcf-pt-4 dcf-pb-4 dcf-inverse dcf-txt-decor-none" href="https://nufoundation.org/unl">Give</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+-->
+
+
     <!-- InstanceBeginEditable name="maincontentarea" -->
     <div class="dcf-pt-7 dcf-pb-8 dcf-measure">
 <!--     <h2>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park.</h2> -->
-    <p class="dcf-lead">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
+    <p class="dcf-lead">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#123">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
     <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
 
     <h2>Vinyl bitters banjo, meggings forage Terry Richardson kogi pug beard aesthetic kitsch whatever selvage.</h2>
