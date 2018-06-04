@@ -331,7 +331,7 @@ module.exports = function (grunt) {
 		},
 
 		concurrent: {
-			main: ['stylelint', 'sass:all', 'postcss', 'js'],
+			main: ['sass:all', 'postcss', 'js'],
 			dist: ['zip', 'archive']
 		},
 
