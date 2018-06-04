@@ -44,16 +44,20 @@
 @import 'components/components.figures';
 @import 'components/components.footer';
 @import 'components/components.forms';
+@import 'components/components.global';
 @import 'components/components.header';
 @import 'components/components.headings';
 @import 'components/components.icons';
 @import 'components/components.idm';
 @import 'components/components.input-groups';
-@import 'components/components.layout';
 @import 'components/components.navigation';
 @import 'components/components.paragraphs';
 @import 'components/components.search';
 @import 'components/components.tables';
+
+
+// !Dev
+@import 'components/components.dev';
 
 
 // !JavaScript
