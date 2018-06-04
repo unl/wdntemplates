@@ -1,0 +1,43 @@
+///////////////////////////////
+// !THEME / COMPONENTS / GLOBAL
+///////////////////////////////
+
+
+
+.unl-ls-ital {
+  padding-right: #{ms(-12)}em; // .18em
+}
+
+
+.unl .dcf-site-afiliation a {
+  display: inline-block;
+  padding-bottom: #{ms(-10)}em;
+}
+
+
+@media print, screen and (min-width: 22.5em) {
+
+  .unl .dcf-institution-title::before {
+    content: 'The ';
+    text-transform: uppercase;
+  }
+
+}
+
+
+@include mq(md, max, width) {
+
+  .unl .dcf-site-title {
+    @include txt-h4;
+  }
+
+}
+
+
+@include mq(md, min, width) {
+
+  .unl .dcf-site-title {
+    @include txt-h3;
+  }
+
+}
