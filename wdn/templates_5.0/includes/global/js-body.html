@@ -146,38 +146,6 @@
 
 
 
-  // !SEARCH
-  var $openSearchModal = $('#dcf-search-toggle');
-  var $closeSearchModal = $('#dcf-close-search');
-  var $searchResults = $('#dcf-search-results');
-  var $searchInput = $('#dcf-search_query');
-
-  function startSearch() {
-    openModal();
-    $searchResults.toggleClass('dcf-d-none');
-    setTimeout(function(){
-      $searchInput.focus();
-    }, 200);
-  }
-
-  function endSearch() {
-    closeModal();
-    $searchResults.toggleClass('dcf-d-none');
-    $searchInput.val('');
-  }
-
-  $openSearchModal.on('click', function(e) {
-    if ($modalParent.hasClass('dcf-modal-open')) {
-      closeModal();
-    } else {
-      startSearch();
-    }
-  });
-
-  $closeSearchModal.on('click', function(e) {
-    endSearch();
-  });
-
 
 //     var sT = document.querySelector('#dcf-search-toggle');
 //     var sR = document.querySelector('#dcf-search-results');
