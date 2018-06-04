@@ -7,16 +7,14 @@
 
 // Define brand colors
 $color-brand-alpha: #d00000;
-$color-brand-beta: #f5f1e7;
+$color-brand-beta: #fefdfa;
 $color-brand-gamma: #c7c8ca;
-$color-brand-delta: #fefdfa;
 
 
 // Assign names to brand colors
 $scarlet: $color-brand-alpha;
 $cream: $color-brand-beta;
 $gray: $color-brand-gamma;
-$lighter-cream: $color-brand-delta;
 
 
 // !UI COLORS
@@ -25,7 +23,7 @@ $white: #fff;
 
 
 // Body background color (usually white, off-white, or very light gray)
-$color-body-bg: $lighter-cream;
+$color-body-bg: $cream;
 
 
 // Must meet WCAG AA (minimum contrast ratio of 4.5)
@@ -51,6 +49,7 @@ $color-link: $scarlet;
 $color-link-visited: darken($color-link, 10%);
 $color-link-hover: darken($color-link, 10%);
 $color-link-active: darken($color-link, 10%);
+$color-link-underline: scale-color($color-link, $lightness: 50%, $saturation: -50%);
 // $color-link-visited: scale-color($color-link, $lightness: -10%, $saturation: -100%);
 // $color-link-hover: scale-color($color-link, $lightness: -20%, $saturation: 100%);
 // $color-link-active: scale-color($color-link, $lightness: -30%, $saturation: 100%);
