@@ -65,7 +65,7 @@
       </div>
 
       <div class="dcf-mobile-toolbar-modal dcf-w-100%" id="dcf-navigation">
-        <div class="dcf-nav-local-wrapper dcf-w-100%" role="navigation" aria-label="local navigation">
+        <div class="dcf-nav-local-wrapper dcf-w-100%">
           <nav class="dcf-nav-local dcf-w-100%" role="navigation" aria-label="local navigation">
             <!-- InstanceBeginEditable name="navlinks" -->
             <!--#include virtual="/wdn/templates_5.0/includes/local/nav-local.html" -->
