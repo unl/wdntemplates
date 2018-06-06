@@ -10,49 +10,42 @@ define([], function() {
             }
             
             let toggleMenu = document.getElementById('dcf-menu-toggle');
-            let mobileNav = document.getElementById('#dcf-navigation');
-            let navBp = window.matchMedia("(max-width: 895px)");
+            let mobileNav = document.getElementById('dcf-navigation');
             let modalParent = toggleMenu.closest('.dcf-modal-parent');
             let body = document.querySelector('body');
+            let firstLink = mobileNav.querySelector('a');
+            
+            function onKeyUp(e) {
+                if (e.keyCode === 27) {
+                    closeModal();
+                }
+            }
 
             function openModal() {
                 body.classList.remove('dcf-overflow-auto');
+                body.classList.add('dcf-overflow-hidden');
                 modalParent.classList.add('dcf-modal-open');
+                toggleMenu.setAttribute('aria-expanded', 'true');
+                firstLink.focus();
+                modalParent.addEventListener('keyup', onKeyUp);
             }
             
             function closeModal() {
+                body.classList.remove('dcf-overflow-hidden');
                 body.classList.add('dcf-overflow-auto');
                 modalParent.classList.remove('dcf-modal-open');
+                toggleMenu.setAttribute('aria-expanded', 'false');
+                toggleMenu.focus();
+                modalParent.removeEventListener('keyup', onKeyUp);
             }
 
             toggleMenu.addEventListener('click', function() {
-                if (modalParent.classList.contains('dcf-modal-open') && navBp.matches) {
+                if (modalParent.classList.contains('dcf-modal-open')) {
                     closeModal();
-                    mobileNav.setAttribute('hidden', '');
-                } else if (modalParent.classList.contains('dcf-modal-open')) {
-                    closeModal();
-                } else if (navBp.matches) {
-                    openModal();
-                    mobileNav.removeAttribute('hidden');
                 } else {
                     openModal();
                 }
             });
-
-            // Add a listen event
-            navBp.addListener(watchNav);
-
-            // Function to do something with the media query
-            function watchNav(navBp) {
-                if (!navBp.matches) {
-                    mobileNav.removeAttribute('hidden');
-                } else {
-                    mobileNav.setAttribute('hidden', '');
-                }
-            }
-
-            // On load
-            watchNav(navBp);
         }
     };
 

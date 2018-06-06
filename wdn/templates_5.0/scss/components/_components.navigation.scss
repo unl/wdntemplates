@@ -66,10 +66,15 @@
 
 @include mq(md, max, width) {
 
+  //Default to closed on mobile
   #dcf-navigation {
     display: none;
   }
 
+  //Open when parent model is open
+  .dcf-modal-open #dcf-navigation {
+    display: block;
+  }
 
   .headroom {
   	will-change: transform;
