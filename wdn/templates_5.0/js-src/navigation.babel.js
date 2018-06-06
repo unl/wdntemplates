@@ -8,6 +8,20 @@ define([], function() {
             if (initialized) {
                 return;
             }
+
+            // grab an element
+            let mobileActions = document.querySelectorAll('.hrjs');
+            
+            // construct an instance of Headroom, passing the element
+            mobileActions.forEach((elem)=>{
+                let headroom = new Headroom(elem, {
+                    "tolerance" : {
+                        up : 5,
+                        down : 5
+                    }
+                });
+                headroom.init();
+            });
             
             let toggleMenu = document.getElementById('dcf-menu-toggle');
             let mobileNav = document.getElementById('dcf-navigation');
