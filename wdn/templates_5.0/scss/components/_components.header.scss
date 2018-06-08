@@ -119,6 +119,25 @@
 
 @include mq(md, min, width) {
 
+  .unl .dcf-header-global a,
+  .unl .dcf-header-global a:link {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color $hover-off;
+  }
+
+  .unl .dcf-header-global a:visited {
+    color: #fff;
+  }
+
+  .unl .dcf-header-global a:hover,
+  .unl .dcf-header-global a:active {
+    color: #fff;
+    text-decoration-color: currentColor;
+    transition: text-decoration-color $hover-on;
+  }
+
   .unl .dcf-nav-global {
     flex-grow: 3;
   }
