@@ -439,7 +439,7 @@
 
     <div class="dcf-pt-9 dcf-pb-10">
       <div class="dcf-grid dcf-col-gap-vw dcf-row-gap-md">
-        <div class="dcf-2nd dcf-grid-col-67%-r@sm dcf-as-center">
+        <div class="dcf-2nd dcf-col-67%-end@sm dcf-as-center">
           <h2 class="dcf-mb-0 dcf-txt-h4"><a class="dcf-txt-decor-hover" href="#">Charles O’Connor</a></h2>
           <div class="dcf-mt-1 dcf-mb-5 dcf-lh-3 dcf-italic test">
             Dean
@@ -447,7 +447,7 @@
           <p>Charles O’Connor is the Hixson-Lied Endowed Dean of the Hixson-Lied College of Fine and Performing Arts at the University of Nebraska–Lincoln. He returns to Lincoln after nine years, having started in 1993 as a faculty member in the Department of Theatre Arts, now the Johnny Carson School of Theatre and Film.</p>
           <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Full Bio</a>
     	  </div>
-        <div class="dcf-1st dcf-grid-col-50%-l dcf-grid-col-33%-l@sm">
+        <div class="dcf-1st dcf-col-50%-start dcf-col-33%-start@sm">
           <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
             <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/charles-oconnor.jpg" alt="Portrait photo of Charles O’Connor">
           </div>
