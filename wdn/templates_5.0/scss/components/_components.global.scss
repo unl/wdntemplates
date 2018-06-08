@@ -3,11 +3,9 @@
 ///////////////////////////////
 
 
-
-.unl-ls-ital {
-  padding-right: #{ms(-12)}em; // .18em
+.unl .dcf-institution-title-ls {
+  letter-spacing: #{ms(-8)}em; // custom letter-spacing for space after italicized 'of' in institution title
 }
-
 
 .unl .dcf-site-afiliation a {
   display: inline-block;
