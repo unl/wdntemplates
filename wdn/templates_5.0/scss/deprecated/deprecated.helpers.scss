@@ -1,0 +1,57 @@
+////////////////////////////////
+// !THEME / DEPRECATED / HELPERS
+////////////////////////////////
+
+
+.centered {
+	float: none !important;
+	margin: 0 auto !important;
+}
+
+.clear {
+	clear: both;
+}
+
+.clear-top {
+  margin-top: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.wdn-fouc-fix {
+	visibility: hidden;
+}
+
+.wdn-pull-left {
+  float: left;
+}
+
+.wdn-pull-right {
+  float: right;
+}
+
+.wdn-text-hidden {
+  @include sr-only;
+}
+
+.wdn-reponsive-embed {
+  @include ratio;
+}
+
+.wdn-aspect16x9 {
+  @include ratio-16x9
+}
+
+.wdn-aspect3x4 {
+  @include ratio-4x3
+}
+
+.wdn-reponsive-embed embed,
+.wdn-reponsive-embed iframe,
+.wdn-reponsive-embed object,
+.wdn-reponsive-embed video,
+.wdn-reponsive-embed .wdn-responsive-item {
+  @include ratio-child;
+}
