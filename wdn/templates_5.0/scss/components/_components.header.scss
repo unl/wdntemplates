@@ -13,11 +13,17 @@
 }
 
 
-.unl .dcf-header-global {
+.unl .dcf-site-afiliation a,
+.unl .dcf-site-title a {
+  color: $color-heading;
+}
+
+
+// .unl .dcf-header-global {
 //   padding-top: #{ms(-12)}em;
 //   background-image: linear-gradient(to top, $scarlet 2px, transparent 2px, transparent 4px, $scarlet 4px);
 //   border-bottom: 1px solid #ddd;
-}
+// }
 
 
 

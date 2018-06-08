@@ -26,9 +26,9 @@
           <!-- InstanceBeginEditable name="affiliation" -->
           <!-- InstanceEndEditable -->
         </div>
-        <div class="dcf-site-title dcf-bold dcf-uppercase dcf-lh-2 unl-font-sans" id="dcf-site-title" style="letter-spacing: .032em;">
+        <div class="dcf-site-title dcf-bold dcf-uppercase dcf-lh-2 unl-font-sans" id="dcf-site-title">
           <!-- InstanceBeginEditable name="titlegraphic" -->
-          <a href="https://casnr.unl.edu/" style="color: #383837;">
+          <a href="https://casnr.unl.edu/">
 <!--             College of Agricultural Sciences and Natural Resources -->
 <!--             Hixson-Lied College of Fine &amp; Performing&nbsp;Arts -->
             Nebraska</a>

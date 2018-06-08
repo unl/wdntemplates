@@ -3,13 +3,19 @@
 ///////////////////////////////
 
 
-.unl .dcf-institution-title-ls {
+.unl-institution-title-ls {
   letter-spacing: #{ms(-8)}em; // custom letter-spacing for space after italicized 'of' in institution title
 }
+
 
 .unl .dcf-site-afiliation a {
   display: inline-block;
   padding-bottom: #{ms(-10)}em;
+}
+
+
+.unl .dcf-site-title {
+  letter-spacing: .032em;
 }
 
 
@@ -26,7 +32,7 @@
 @include mq(md, max, width) {
 
   .unl .dcf-site-title {
-    @include txt-h4;
+    @include txt-h5;
   }
 
 }
@@ -35,7 +41,7 @@
 @include mq(md, min, width) {
 
   .unl .dcf-site-title {
-    @include txt-h3;
+    @include txt-h4;
   }
 
 }
