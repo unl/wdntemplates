@@ -1,0 +1,61 @@
+//////////////////////////////
+// !THEME / DEPRECATED / BANDS
+//////////////////////////////
+
+
+.wdn-band {
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+  right: 50%;
+  width: 100vw;
+}
+
+.wdn-inner-wrapper {
+  @include pb-9;
+  padding-left: 5.6%;
+  padding-right: 5.6%;
+  @include pt-9;
+}
+
+.wdn-inner-padding-sm {
+  @include pb-8;
+  @include pt-8;
+}
+
+.wdn-inner-padding-lg {
+  @include pb-10;
+  @include pt-10;
+}
+
+.wdn-inner-padding-no-top {
+  padding-top: 0;
+}
+
+.wdn-inner-padding-no-bottom {
+  padding-bottom: 0;
+}
+
+.wdn-inner-padding-none {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.wdn-stretch {
+  max-width: 100%;
+  width: 100%;
+}
+
+.wdn-center {
+  text-align: center;
+}
+
+@include mq(md) {
+
+  .wdn-text-band {
+    max-width: 37.5rem;
+    margin: 0 auto;
+  }
+
+}

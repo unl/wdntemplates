@@ -69,3 +69,20 @@
 @import 'utilities/utilities.backgrounds';
 @import 'utilities/utilities.fonts';
 @import 'utilities/utilities.typography';
+
+
+// !Deprecated
+// TODO: create separate build task and CSS file for deprecated styles
+@import 'deprecated/deprecated.bands';
+@import 'deprecated/deprecated.columns';
+@import 'deprecated/deprecated.forms';
+@import 'deprecated/deprecated.grid';
+@import 'deprecated/deprecated.helpers';
+@import 'deprecated/deprecated.hero';
+@import 'deprecated/deprecated.images';
+@import 'deprecated/deprecated.pagination';
+@import 'deprecated/deprecated.promo-image';
+@import 'deprecated/deprecated.quote';
+@import 'deprecated/deprecated.tables';
+@import 'deprecated/deprecated.tabs';
+@import 'deprecated/deprecated.text';
