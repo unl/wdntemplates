@@ -22,6 +22,8 @@
 
 
 // !Generic
+// TODO: install postcss-normalize, then remove normalize file
+@import 'generic/generic.normalize';
 @import '../../../node_modules/dcf/core/scss/generic/generic';
 @import 'generic/generic.base';
 
