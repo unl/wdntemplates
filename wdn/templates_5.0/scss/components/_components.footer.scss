@@ -51,8 +51,9 @@
 // !Global Footer
 .unl .dcf-footer-global {
   color: $color-footer-global;
-  background: url('../images/seal.svg') calc(0% - 1em) calc(100% + 1em) no-repeat, linear-gradient(to bottom, $color-footer-global-bg 2px, $color-footer-local-bg 2px, $color-footer-local-bg 5px, $color-footer-global-bg 5px) 0 0 no-repeat;
-  background-size: 24em, 100%;
+  background-color: $color-footer-global-bg;
+//   background: url('../images/seal.svg') calc(0% - 1em) calc(100% + 1em) no-repeat, linear-gradient(to bottom, $color-footer-global-bg 2px, $color-footer-local-bg 2px, $color-footer-local-bg 5px, $color-footer-global-bg 5px) 0 0 no-repeat;
+//   background-size: 24em, 100%;
 //   background: linear-gradient(to bottom, $color-footer-global-bg 2px, $color-footer-local-bg 2px, $color-footer-local-bg 4px, $color-footer-global-bg 4px) 0 0 / 100% 100% no-repeat;
 }
 
