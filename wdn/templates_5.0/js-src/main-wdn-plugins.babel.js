@@ -1,7 +1,7 @@
 "use strict";
 
 define(['analytics', //this also loads the IDM plugin
-//'navigation', //TODO: do we need navigation js?
+'navigation', //TODO: do we need navigation js?
 'search', //TODO: add search
 'unlalert'
 //'images', //TODO: do we need 'images'?
