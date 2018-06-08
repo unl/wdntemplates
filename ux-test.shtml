@@ -22,7 +22,7 @@
     <div class="dcf-wrapper dcf-logo-lockup dcf-d-flex dcf-ai-center dcf-overflow-hidden">
       <!--#include virtual="/wdn/templates_5.0/includes/global/logo.html" -->
       <div class="dcf-d-flex dcf-flex-col dcf-jc-center dcf-flex-grow-1 dcf-h-100%">
-        <div class="dcf-site-afiliation dcf-txt-sm dcf-lh-3 dcf-italic" id="dcf-site-affiliation">
+        <div class="dcf-site-afiliation dcf-txt-xs dcf-lh-3 dcf-italic" id="dcf-site-affiliation">
           <!-- InstanceBeginEditable name="affiliation" -->
           <!-- InstanceEndEditable -->
         </div>
@@ -123,7 +123,7 @@
 <!--
     <div class="dcf-stretch" style="background-color: #383837">
       <div class="dcf-wrapper" >
-        <nav class="dcf-txt-sm" role="navigation" aria-label="global navigation">
+        <nav class="dcf-txt-xs" role="navigation" aria-label="global navigation">
           <ul class="dcf-list-bare dcf-d-flex dcf-mb-0 dcf-uppercase dcf-bold unl-ls-2 unl-font-sans">
             <li class="dcf-list-inline-item dcf-mb-0"><a class="dcf-d-inline-block dcf-pt-4 dcf-pb-4 dcf-inverse dcf-txt-decor-none" href="https://admissions.unl.edu/visit/">Visit</a></li>
             <li class="dcf-list-inline-item dcf-mb-0"><a class="dcf-d-inline-block dcf-pt-4 dcf-pb-4 dcf-inverse dcf-txt-decor-none" href="https://admissions.unl.edu/apply/">Apply</a></li>
@@ -142,20 +142,20 @@
     <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
 
     <h2>Vinyl bitters banjo, meggings forage Terry Richardson kogi pug beard aesthetic kitsch whatever selvage.</h2>
-    <p>Distillery XOXO Pinterest before they sold out single-origin coffee ugh, ethical small batch organic gentrify <abbr class="dcf-txt-md" title="Video Home System">VHS</abbr>. Kale chips <a href="#">mixtape master</a> cleanse jean shorts Echo Park. Meggings Banksy umami, +1 you probably haven’t heard of them cliche gastropub keytar Neutra.</p>
+    <p>Distillery XOXO Pinterest before they sold out single-origin coffee ugh, ethical small batch organic gentrify <abbr class="dcf-txt-sm" title="Video Home System">VHS</abbr>. Kale chips <a href="#">mixtape master</a> cleanse jean shorts Echo Park. Meggings Banksy umami, +1 you probably haven’t heard of them cliche gastropub keytar Neutra.</p>
     <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
     <h3>Letterpress photo booth direct trade meggings</h3>
-    <p>Church-key ennui gastropub. Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <abbr class="dcf-txt-md" title="Video Home System">VHS</abbr> blog Pitchfork authentic paleo ethical messenger bag. Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh.</p>
+    <p>Church-key ennui gastropub. Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <abbr class="dcf-txt-sm" title="Video Home System">VHS</abbr> blog Pitchfork authentic paleo ethical messenger bag. Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh.</p>
     <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
     <h4><!-- <small>Roof party freegan lomo</small>  -->Post-ironic Shoreditch slow-carb</h4>
     <p>Tote bag beard chillwave seitan PBR single-origin coffee kogi hella Bushwick disrupt four loko. Aesthetic artisan post-ironic gluten-free, selfies keffiyeh plaid single-origin coffee.</p>
     <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
     <h5><!-- <small>Roof party freegan lomo</small>  -->Portland ugh Neutra, Schlitz pop-up cornhole biodiesel Etsy raw denim</h5>
     <p>Mlkshk fashion axe Pitchfork deep v dreamcatcher, Blue Bottle church-key photo booth literally asymmetrical four loko. Hoodie flexitarian +1, farm-to-table locavore selvage Marfa synth ennui polaroid occupy kitsch.</p>
-    <p>Artisan mumblecore Pinterest Shoreditch meggings viral. Austin <abbr class="dcf-txt-md" title="Video Home System">VHS</abbr> street art cornhole Etsy tattooed. Tattooed iPhone 90’s keytar, XOXO Intelligentsia gastropub letterpress drinking vinegar cliche viral tote bag. Mumblecore seitan 8-bit dreamcatcher, fanny pack pickled scenester quinoa vinyl put a bird on it artisan literally.</p>
+    <p>Artisan mumblecore Pinterest Shoreditch meggings viral. Austin <abbr class="dcf-txt-sm" title="Video Home System">VHS</abbr> street art cornhole Etsy tattooed. Tattooed iPhone 90’s keytar, XOXO Intelligentsia gastropub letterpress drinking vinegar cliche viral tote bag. Mumblecore seitan 8-bit dreamcatcher, fanny pack pickled scenester quinoa vinyl put a bird on it artisan literally.</p>
     <ul>
       <li>Church-key ennui gastropub.</li>
-      <li>Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <a href="#"><abbr class="dcf-txt-md" title="Video Home System">VHS</abbr> blog</a> Pitchfork authentic paleo ethical messenger bag.
+      <li>Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <a href="#"><abbr class="dcf-txt-sm" title="Video Home System">VHS</abbr> blog</a> Pitchfork authentic paleo ethical messenger bag.
         <ol>
           <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</li>
           <li>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod.</li>
@@ -176,7 +176,7 @@
       </li>
       <li>Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh.</li>
     </ul>
-    <p>Distillery XOXO Pinterest before they sold out single-origin coffee ugh, ethical small batch organic gentrify <abbr class="dcf-txt-md" title="Video Home System">VHS</abbr>. Kale chips mixtape master cleanse jean shorts Echo Park. Meggings Banksy umami, +1 you probably haven’t heard of them cliche gastropub keytar Neutra.</p>
+    <p>Distillery XOXO Pinterest before they sold out single-origin coffee ugh, ethical small batch organic gentrify <abbr class="dcf-txt-sm" title="Video Home System">VHS</abbr>. Kale chips mixtape master cleanse jean shorts Echo Park. Meggings Banksy umami, +1 you probably haven’t heard of them cliche gastropub keytar Neutra.</p>
     <h6><!-- <small>Roof party freegan lomo</small>  -->Carles tofu meh vegan pickled Marfa.</h6>
     <p>Quinoa twee cardigan, lo-fi biodiesel try-hard Neutra pickled church-key pug scenester. Etsy direct trade fanny pack, fashion axe chia bespoke bitters Helvetica.</p>
     </div>

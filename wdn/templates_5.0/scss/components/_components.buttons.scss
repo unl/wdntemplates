@@ -17,7 +17,7 @@ button::-moz-focus-inner,
   border-width: 2px;
   border-style: solid;
   @include font-sans;
-  font-size: #{ms(-2)}em;
+  @include txt-xs;
   font-weight: bold;
   @include ls-2;
 //   @include lh1;

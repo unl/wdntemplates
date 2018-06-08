@@ -56,7 +56,7 @@
   .unl .dcf-mobile-toolbar-label-search {
     @include inverse;
     @include font-serif;
-    font-size: #{ms(-2)}em;
+    @include txt-xs;
     padding-bottom: #{ms(-6)}em;
     @include pl-3;
     @include pr-8;
@@ -246,7 +246,7 @@
 
 .unl .gsc-url-bottom {
   display: block;
-  @include txt-sm;
+  @include txt-xs;
 }
 
 .unl .gsc-snippet-metadata,

@@ -12,10 +12,10 @@
 .unl .dcf-nav-local > ul {
 //   @include font-sans;
 
-  @include txt-md;
+  @include txt-sm;
 
   @include mq(sm, min, width) {
-    @include txt-sm;
+    @include txt-xs;
   }
 
 }

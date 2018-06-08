@@ -27,7 +27,7 @@
 
   .unl .dcf-mobile-toolbar-label-idm {
     @include font-serif;
-    font-size: #{ms(-2)}em;
+    @include txt-xs;
     @include pr-10;
   }
 
