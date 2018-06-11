@@ -13,8 +13,10 @@
 }
 
 
-.unl .dcf-site-afiliation a,
-.unl .dcf-site-title a {
+.unl .dcf-site-affiliation a,
+.unl .dcf-site-affiliation a:visited,
+.unl .dcf-site-title a,
+.unl .dcf-site-title a:visited {
   color: $color-heading;
 }
 
