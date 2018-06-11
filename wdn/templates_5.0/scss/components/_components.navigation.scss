@@ -105,9 +105,13 @@
   	transform: translateY(100%);
   }
 
-  .dcf-mobile-toolbar-menu {
+  .unl .dcf-mobile-toolbar-menu {
     display: flex;
     left: 0;
+  }
+
+  .unl .dcf-mobile-toolbar-toggle-menu {
+    padding: 0;
   }
 
   .unl .dcf-nav-global {
@@ -206,7 +210,6 @@
 
 @include mq(md, min, width) {
 
-
   .unl .dcf-nav-global {
     display: flex;
   }
@@ -216,8 +219,6 @@
 //     justify-content: flex-end; // core
   }
 
-
-
   .unl .dcf-nav-bar {
     display: flex;
     flex-wrap: nowrap;
@@ -225,10 +226,64 @@
     padding-right: 5.6%;
   }
 
+  .unl .dcf-nav-bar::after {
+    content: '';
+    position: absolute;
+    background-image: linear-gradient(to bottom, $cream, fade-out($cream,.05));
+    height: 100vh;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    top: 100%;
+    transition: opacity 400ms ease-out;
+    width: 100%;
+    z-index: 998;
+  }
+
+//   .unl .dcf-mobile-toolbar-modal {
+  #dcf-navigation {
+    display: flex;
+  }
+
+  .unl .dcf-nav-local-wrapper {
+    display: flex;
+  }
+
+  .unl .dcf-mobile-toolbar-menu {
+    border-top: 1px solid #eee;
+    display: flex;
+    @include font-sans;
+  }
+
+  .unl .dcf-mobile-toolbar-toggle-menu {
+    @include pb-3;
+    @include pl-0;
+    @include pt-4;
+  }
+
+  .unl .dcf-mobile-toolbar-label-menu {
+    @include font-sans;
+    font-size: #{ms(-6)}em;
+    font-weight: bold;
+    @include ls-2;
+    text-transform: uppercase;
+  }
+
+  .unl .dcf-mobile-toolbar-icon-menu {
+    @include h-3;
+    margin-bottom: #{ms(-8)}em;
+    @include w-3;
+  }
+
+//   .unl .dcf-mobile-toolbar-modal {
+//     position: relative;
+//   }
+
 
   .unl .dcf-nav-local {
     @include bt;
     border-color: #eee;
+    display: flex;
   }
 
   .unl .dcf-nav-local a {
@@ -242,6 +297,7 @@
     grid-column-gap: 0;
 //     border-top: 1px solid #eee;
 //     flex-flow: row nowrap;
+    width: 100%;
   }
 
   .unl .dcf-nav-local > ul > li {
@@ -269,7 +325,7 @@
   }
 
   .unl .dcf-nav-local ul ul {
-    background: linear-gradient(to bottom, #eee, transparent) 0 0 / 1px 100% no-repeat;
+    background: linear-gradient(to bottom, #eee, fade-out(#eee,1)) 0 0 / 1px 100% no-repeat;
     @include pb-8;
     margin-top: 0;
     position: absolute;
@@ -297,44 +353,7 @@ word-wrap: normal;
     display: none;
   }
 
-  .unl .dcf-mobile-toolbar-menu {
-    border-top: 1px solid #eee;
-    @include font-sans;
-    @include pr-4;
-    @include pt-4;
-  }
 
-  .unl .dcf-mobile-toolbar-label-menu {
-    @include font-sans;
-    font-size: #{ms(-6)}em;
-    font-weight: bold;
-    @include ls-2;
-    text-transform: uppercase;
-  }
-
-  .unl .dcf-mobile-toolbar-icon-menu {
-    @include h-3;
-    margin-bottom: #{ms(-8)}em;
-    @include w-3;
-  }
-
-//   .unl .dcf-mobile-toolbar-modal {
-//     position: relative;
-//   }
-
-  .unl .dcf-nav-bar::after {
-    content: '';
-    position: absolute;
-    background-image: linear-gradient(to bottom, $cream, fade-out($cream,.05));
-    height: 100vh;
-    left: 0;
-    opacity: 0;
-    pointer-events: none;
-    top: 100%;
-    transition: opacity 400ms ease-out;
-    width: 100%;
-    z-index: 998;
-  }
 
   .unl .dcf-nav-bar.dcf-modal-open::after {
     opacity: 1;
