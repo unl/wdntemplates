@@ -131,7 +131,8 @@ button::-moz-focus-inner,
 .unl .dcf-btn-primary-inverse {
   background-color: $cream;
   border-color: $cream;
-  color: $color-body;
+// TODO: build more color flexibility into inverse styles
+//   color: currentColor;
   transition: background-color $hover-off, border $hover-off;
 }
 
