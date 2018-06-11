@@ -33,7 +33,7 @@
 
 .wdn-hero-heading {
   color: $cream;
-  font-size: #{ms(6)}em;
+  @include txt-h2;
   margin: 0;
   text-transform: uppercase;
 }
@@ -117,7 +117,7 @@
   }
 
   .wdn-hero-heading {
-    font-size: #{ms(8)}em;
+    @include txt-xl;
   }
 
   .wdn-hero-initial-line {

@@ -15,12 +15,6 @@
 }
 
 
-// !Cream
-@mixin bg-lighter-cream($imp:null) {
-  background-color: $lighter-cream $imp;
-}
-
-
 // !Diagonal Stripes: Scarlet
 @mixin bg-stripes-scarlet($imp:null) {
   background-image: repeating-linear-gradient($diagonal1, $scarlet, $scarlet 2px, transparent 2px, transparent 4px);

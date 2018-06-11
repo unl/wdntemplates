@@ -13,19 +13,22 @@
 }
 
 
-@media print, screen and (min-width: 22.5em) {
-
-  .unl .dcf-institution-title::before {
-    content: 'The ';
-    text-transform: uppercase;
-  }
-
+.unl .dcf-site-affiliation a,
+.unl .dcf-site-affiliation a:visited,
+.unl .dcf-site-title a,
+.unl .dcf-site-title a:visited {
+  color: $color-heading;
 }
 
 
-.unl-ls-ital {
-  padding-right: #{ms(-12)}em; // .18em
-}
+// .unl .dcf-header-global {
+//   padding-top: #{ms(-12)}em;
+//   background-image: linear-gradient(to top, $scarlet 2px, transparent 2px, transparent 4px, $scarlet 4px);
+//   border-bottom: 1px solid #ddd;
+// }
+
+
+
 
 
 // @include mq(md, max, width) {
@@ -46,10 +49,15 @@
 // }
 
 
+
 @include mq(md, max, width) {
 
-  .dcf-mobile-toolbar {
-    @include bg-lighter-cream;
+  .unl .dcf-header .dcf-institution-title {
+    display: none;
+  }
+
+  .unl .dcf-mobile-toolbar {
+    @include bg-cream;
     border: 3px solid $scarlet;
     border-width: 3px 0 0 0;
     bottom: 0;
@@ -58,21 +66,39 @@
     z-index: 9999;
   }
 
-  .dcf-mobile-toggle {
+  .unl .dcf-mobile-toolbar-toggle {
     flex-direction: column;
     height: #{ms(10)}em;
     margin-bottom: env(safe-area-inset-bottom);
   }
 
-  .dcf-mobile-toolbar-search {
+  .unl .dcf-mobile-toolbar-search {
     left: 33.33%;
   }
 
-  .dcf-mobile-toolbar-idm {
+  .unl .dcf-mobile-toolbar-idm {
     left: 66.66%;
   }
 
-  .dcf-mobile-toolbar-modal {
+  .unl .dcf-mobile-toolbar-label {
+    @include font-sans;
+    font-size: #{ms(-6)}em;
+//     font-size: 7px;
+    font-weight: bold;
+    @include ls-2;
+    text-transform: uppercase;
+  }
+
+  .unl .dcf-mobile-toolbar-icon {
+    fill: currentColor;
+    @include h-4;
+    @include mb-2;
+    margin-top: #{ms(-12)}em;
+    @include w-4;
+  }
+
+  .unl .dcf-mobile-toolbar-modal {
+    @include bg-overlay-dark;
     bottom: #{ms(10)}em;
     height: calc(100% - #{ms(10)}em);
     position: fixed;
@@ -80,8 +106,8 @@
     z-index: 998;
   }
 
-  .dcf-mobile-toolbar-modal::after {
-    background-image: linear-gradient(to bottom, fade-out($lighter-cream, 1), $lighter-cream);
+  .unl .dcf-mobile-toolbar-modal::after {
+    background-image: linear-gradient(to bottom, fade-out($cream, 1), $cream);
     bottom: 0;
     content: '';
     height: #{ms(8)}em;
@@ -91,12 +117,47 @@
     z-index: 999;
   }
 
+  .unl .dcf-logo-lockup {
+    @include pb-4;
+    @include pt-5;
+  }
+
 }
+
 
 @include mq(md, min, width) {
 
+// TODO: differentiate styles for psuedo-classes
+//   .unl .dcf-header-global a,
+//   .unl .dcf-header-global a:link {
+//     color: $cream;
+//     text-decoration: underline;
+//     text-decoration-color: fade-out($cream,1);
+//     transition: text-decoration-color $hover-off;
+//   }
+
+//   .unl .dcf-header-global a:visited {
+//     color: $cream;
+//   }
+
+//   .unl .dcf-header-global a:hover,
+//   .unl .dcf-header-global a:active {
+//     color: $cream;
+//     text-decoration-color: $cream;
+//     transition: text-decoration-color $hover-on;
+//   }
+
+  .unl .dcf-nav-global {
+    flex-grow: 3;
+  }
+
   .unl .dcf-header-global-item {
-    margin-left: 5.6vw;
+    margin-left: 3.2vw;
+  }
+
+  .unl .dcf-logo-lockup {
+    @include pb-5;
+    padding-top: #{ms(7)}em;
   }
 
 }

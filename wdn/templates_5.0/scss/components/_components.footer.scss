@@ -43,7 +43,6 @@
 
 // !Local Footer
 .unl .dcf-footer-local {
-  @include font-sans;
   color: $color-footer-local;
   background-color: $color-footer-local-bg;
 }
@@ -52,16 +51,17 @@
 // !Global Footer
 .unl .dcf-footer-global {
   color: $color-footer-global;
-  background: url('../images/seal.svg') calc(0% - 1em) calc(100% + 1em) no-repeat, linear-gradient(to bottom, $color-footer-global-bg 2px, $color-footer-local-bg 2px, $color-footer-local-bg 5px, $color-footer-global-bg 5px) 0 0 no-repeat;
-  background-size: 24em, 100%;
+  background-color: $color-footer-global-bg;
+//   background: url('../images/seal.svg') calc(0% - 1em) calc(100% + 1em) no-repeat, linear-gradient(to bottom, $color-footer-global-bg 2px, $color-footer-local-bg 2px, $color-footer-local-bg 5px, $color-footer-global-bg 5px) 0 0 no-repeat;
+//   background-size: 24em, 100%;
 //   background: linear-gradient(to bottom, $color-footer-global-bg 2px, $color-footer-local-bg 2px, $color-footer-local-bg 4px, $color-footer-global-bg 4px) 0 0 / 100% 100% no-repeat;
 }
 
-.unl-footer-global-social-hed::after {
-  content: '\01F534 \00200A \026AA \00200A \01F33D';
-  display: block;
-  @include pt-1;
-}
+// .unl-footer-global-social-hed::after {
+//   content: '\01F534 \00200A \026AA \00200A \01F33D';
+//   display: block;
+//   @include pt-1;
+// }
 
 
 @include mq(md, max, width) {
@@ -116,7 +116,7 @@
       grid-area: lf4;
     }
 
-    .unl-footer-unl {
+    .unl-footer-n-address {
       grid-area: N;
     }
 
@@ -144,6 +144,14 @@
       grid-area: test;
     }
 
+    .unl-footer-unl {
+      grid-area: unl;
+    }
+
+    .unl-footer-est {
+      grid-area: est;
+    }
+
     .unl-footer-copyright {
       grid-area: ©;
     }
@@ -160,7 +168,7 @@
 
     .unl .dcf-footer-global {
       grid-template-columns: repeat(6, 1fr);
-      grid-template-areas: "N N N N N N" "social social campus campus policies policies" "logos logos about about test test" "© © © © © ©";
+      grid-template-areas: "N N N N N N" "social social campus campus policies policies" "logos logos about about test test" "unl unl unl unl unl unl" "est est est © © ©";
     }
 
   }
@@ -175,7 +183,7 @@
 
     .unl .dcf-footer-global {
       grid-template-columns: repeat(12, 1fr);
-      grid-template-areas: "N N N social social social campus campus campus policies policies policies" "logos logos logos logos about about test test © © © ©";
+      grid-template-areas: "N N N social social social campus campus campus policies policies policies" "logos logos logos logos about about test test test test test test" "unl unl unl unl unl unl unl unl est est © ©";
     }
 
   }

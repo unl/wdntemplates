@@ -1,6 +1,6 @@
-///////////////////////////////
-// !THEME / COMPONENTS / LAYOUT
-///////////////////////////////
+////////////////////////////
+// !THEME / COMPONENTS / DEV
+////////////////////////////
 
 
 
@@ -43,17 +43,19 @@
 }
 
 
+.unl-txt-sm-xs {
+  @include txt-sm;
 
+  @include mq(sm, min, width) {
+    @include txt-xs;
+  }
 
-.dcf-overflow-y-scroll {
-  -webkit-overflow-scrolling: touch;
 }
-
 
 
 .unl .dcf-bg-overlay-light,
 .unl .dcf-bg-overlay-light::backdrop {
-  background-color: fade-out($lighter-cream,.02) !important;
+  background-color: fade-out($cream,.02) !important;
   visibility: visible;
 }
 
@@ -82,9 +84,9 @@
 // }
 
 
-*:focus {
-  outline: none;
-}
+// *:focus {
+//   outline: none; // temp
+// }
 
 
 .unl .dcf-modal-content {
@@ -92,19 +94,26 @@
 }
 
 
-.unl-n {
-  height: 57px;
-  width: 57px;
+// .unl-n {
+//   height: 57px;
+//   width: 57px;
+// }
+
+
+
+
+// core
+.dcf-modal-overlay {
+    opacity: 1;
+    pointer-events: auto;
+//     transition: opacity .5s ease-out, visibility 0s linear .6s;
+    visibility: visible;
 }
+// core
 
-.unl .dcf-site-title {
-  @include txt-h4;
 
-  @include mq(md) {
-    @include txt-h4;
-  }
 
-}
+
 
 
 
@@ -252,7 +261,7 @@
 }
 
 .unl-bg-cream-stripe {
-  background-image: linear-gradient($diagonal1, $lighter-cream 56.25%, darken($lighter-cream,3%) 56.25%);
+  background-image: linear-gradient($diagonal1, $cream 56.25%, darken($cream,3%) 56.25%);
 }
 
 

@@ -17,7 +17,7 @@ button::-moz-focus-inner,
   border-width: 2px;
   border-style: solid;
   @include font-sans;
-  font-size: #{ms(-2)}em;
+  @include txt-xs;
   font-weight: bold;
   @include ls-2;
 //   @include lh1;
@@ -127,15 +127,32 @@ button::-moz-focus-inner,
 }
 
 
-// !Inverse Button
-.unl .dcf-btn-inverse {
+// !Inverse Primary Button
+.unl .dcf-btn-primary-inverse {
+  background-color: $cream;
+  border-color: $cream;
+// TODO: build more color flexibility into inverse styles
+//   color: currentColor;
+  transition: background-color $hover-off, border $hover-off;
+}
+
+.unl .dcf-btn-primary-inverse:hover {
+  background-color: $white;
+  border-color: $white;
+  transition: background-color $hover-on, border $hover-on;
+}
+
+
+// !Inverse Secondary Button
+.unl .dcf-btn-secondary-inverse {
   background-color: rgba(0,0,0,.1);
   border-color: currentColor;
   color: $white;
   transition: background-color $hover-off, border $hover-off;
 }
 
-.unl .dcf-btn-inverse:hover {
+.unl .dcf-btn-secondary-inverse:hover {
   background-color: rgba(0,0,0,.2);
   transition: background-color $hover-on, border $hover-on;
 }
+

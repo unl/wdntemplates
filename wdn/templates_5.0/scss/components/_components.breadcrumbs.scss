@@ -4,16 +4,17 @@
 
 
 .unl .dcf-breadcrumbs li:not(:last-child) {
-  @include mr-3;
+  @include mr-2;
 }
 
 
 .unl .dcf-breadcrumbs li:not(:last-child)::after {
-  border-bottom: #{ms(-8)}em solid transparent; // .32em
-  border-left: #{ms(-8)}em solid $color-breadcrumb; // .32em
-  border-top: #{ms(-8)}em solid transparent; // .32em
-  content: '';
-  height: 0;
-  @include ml-3;
-  width: 0;
+//   border-bottom: #{ms(-8)}em solid transparent; // .32em
+//   border-left: #{ms(-8)}em solid $color-breadcrumb; // .32em
+//   border-top: #{ms(-8)}em solid transparent; // .32em
+  color: $color-lightest-text;
+  content: '\2192';
+//   height: 0;
+  @include ml-2;
+//   width: 0;
 }

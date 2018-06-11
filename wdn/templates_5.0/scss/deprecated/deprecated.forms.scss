@@ -107,13 +107,13 @@ form select.wdn-error {
 
 form span.required {
   color: $scarlet;
-  font-size: #{ms(-2)}em;
+  @include txt-xs;
   font-style: italic;
 }
 
 form span.helper {
   color: $color-lightest-text;
-  font-size: #{ms(-2)}em;
+  @include txt-xs;
 }
 
 
@@ -150,7 +150,7 @@ input[type='submit'],
   border-style: solid;
   cursor: pointer;
   @include font-sans;
-  font-size: #{ms(-2)}em;
+  @include txt-xs;
   font-weight: bold;
   @include ls-2;
   padding-bottom: #{ms(-3)}em;

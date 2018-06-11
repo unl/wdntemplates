@@ -22,6 +22,8 @@
 
 
 // !Generic
+// TODO: install postcss-normalize, then remove normalize file
+@import 'generic/generic.normalize';
 @import '../../../node_modules/dcf/core/scss/generic/generic';
 @import 'generic/generic.base';
 
@@ -44,16 +46,20 @@
 @import 'components/components.figures';
 @import 'components/components.footer';
 @import 'components/components.forms';
+@import 'components/components.global';
 @import 'components/components.header';
 @import 'components/components.headings';
 @import 'components/components.icons';
 @import 'components/components.idm';
 @import 'components/components.input-groups';
-@import 'components/components.layout';
 @import 'components/components.navigation';
 @import 'components/components.paragraphs';
 @import 'components/components.search';
 @import 'components/components.tables';
+
+
+// !Dev
+@import 'components/components.dev';
 
 
 // !JavaScript

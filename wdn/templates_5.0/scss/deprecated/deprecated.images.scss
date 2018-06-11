@@ -23,7 +23,7 @@
   background-color: $color-body-bg;
   color: $color-light-text;
   @include font-sans;
-  font-size: #{ms(-2)}em;
+  @include txt-xs;
   height: auto;
   @include p-3;
 }

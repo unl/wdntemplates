@@ -12,7 +12,7 @@ table {
 
 caption {
   caption-side: bottom;
-  font-size: #{ms(-2)}em;
+  @include txt-xs;
 }
 
 thead,

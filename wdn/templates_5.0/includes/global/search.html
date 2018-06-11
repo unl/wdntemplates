@@ -1,4 +1,4 @@
-<div class="dcf-search dcf-flex-grow-1 dcf-d-flex dcf-jc-flex-end" id="dcf-search" role="search">
+<div class="dcf-search dcf-header-global-item dcf-flex-grow-1 dcf-d-flex dcf-jc-flex-end dcf-modal-parent" id="dcf-search" role="search">
 
 <!--
   <button class="dcf-p-0 dcf-b-0 dcf-lh-1 dcf-bg-transparent dcf-mobile-nav-toggle dcf-search-toggle unl-font-sans" id="dcf-search-toggle" aria-pressed="false" aria-controls="dcf-search-form" aria-haspopup="true">
@@ -8,13 +8,13 @@
           <path fill="#fff" d="M18 36a17.9 17.9 0 0 0 11.27-4l15.31 15.41a2 2 0 0 0 2.84-2.82L32.08 29.18A18 18 0 1 0 18 36zm0-32A14 14 0 1 1 4 18 14 14 0 0 1 18 4z"/>
         </svg>
       </span>
-      <span class="dcf-sr-only">Show </span><span class="dcf-txt-sm">Search</span><span class="dcf-sr-only"> Form</span>
+      <span class="dcf-sr-only">Show </span><span class="dcf-txt-xs">Search</span><span class="dcf-sr-only"> Form</span>
     </span>
   </button>
 -->
 
 <!--
-  <button class="dcf-search-toggle dcf-mobile-nav-toggle dcf-header-global-item dcf-d-flex dcf-ai-center dcf-pt-4 dcf-pr-0 dcf-pb-3 dcf-pl-0 dcf-b-0 dcf-txt-sm dcf-bg-transparent unl-font-serif" id="dcf-search-toggle" aria-pressed="false" aria-controls="dcf-search-form" aria-haspopup="true">
+  <button class="dcf-search-toggle dcf-mobile-nav-toggle dcf-header-global-item dcf-d-flex dcf-ai-center dcf-pt-4 dcf-pr-0 dcf-pb-3 dcf-pl-0 dcf-b-0 dcf-txt-xs dcf-bg-transparent unl-font-serif" id="dcf-search-toggle" aria-pressed="false" aria-controls="dcf-search-form" aria-haspopup="true">
     <svg class="dcf-icon dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
       <path d="M18 36a17.9 17.9 0 0 0 11.27-4l15.31 15.41a2 2 0 0 0 2.84-2.82L32.08 29.18A18 18 0 1 0 18 36zm0-32A14 14 0 1 1 4 18 14 14 0 0 1 18 4z"/>
     </svg>
@@ -24,43 +24,41 @@
 
 
   <div class="dcf-mobile-toolbar dcf-mobile-toolbar-search dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center hrjs">
-    <button class="dcf-mobile-toggle dcf-search-toggle dcf-d-flex dcf-ai-center dcf-jc-center dcf-w-100% dcf-b-0 dcf-p-0 dcf-bg-transparent dcf-lh-1 unl-font-sans" id="dcf-search-toggle" aria-pressed="false" aria-haspopup="true">
-      <span class="dcf-d-flex dcf-ai-center dcf-jc-center dcf-h-5 dcf-w-5 dcf-mb-1">
-        <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
-          <path d="M18 36a17.9 17.9 0 0 0 11.27-4l15.31 15.41a2 2 0 0 0 2.84-2.82L32.08 29.18A18 18 0 1 0 18 36zm0-32A14 14 0 1 1 4 18 14 14 0 0 1 18 4z"/>
-        </svg>
-      </span>
-      <span class="dcf-sr-only">Show </span><span style="font-size:.5625em;">Search</span><span class="dcf-sr-only"> Form</span>
+    <button class="dcf-mobile-toolbar-toggle dcf-mobile-toolbar-toggle-search dcf-d-flex dcf-ai-center dcf-w-100% dcf-p-0 dcf-bg-transparent" id="dcf-search-toggle" aria-pressed="false" aria-haspopup="dialog">
+      <svg class="dcf-mobile-toolbar-icon dcf-mobile-toolbar-icon-search dcf-2nd@md dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
+        <path d="M18 36a17.9 17.9 0 0 0 11.27-4l15.31 15.41a2 2 0 0 0 2.84-2.82L32.08 29.18A18 18 0 1 0 18 36zm0-32A14 14 0 1 1 4 18 14 14 0 0 1 18 4z"/>
+      </svg>
+      <span class="dcf-sr-only">Show </span><span class="dcf-mobile-toolbar-label dcf-mobile-toolbar-label-search">Search</span><span class="dcf-sr-only"> Form</span>
     </button>
   </div>
 
 
-  <div class="dcf-modal-overlay dcf-mobile-toolbar-modal dcf-bg-overlay-light dcf-disappear" id="dcf-search-results" role="dialog" aria-hidden="true" aria-label="modal">
+  <dialog class="dcf-modal-overlay dcf-mobile-toolbar-modal dcf-bg-overlay-light dcf-d-none dcf-p-0" id="dcf-search-results">
     <div class="dcf-modal-content dcf-d-flex dcf-flex-col dcf-flex-nowrap dcf-h-100%" role="document" tabindex="-1">
 
-      <div class="dcf-stretch" style="background-color: #ccc;">
+      <div class="dcf-stretch unl-search-bg">
         <form class="dcf-search-form dcf-wrapper dcf-d-flex dcf-ai-center dcf-mt-9 dcf-mb-7" id="dcf-search-form" action="https://search.unl.edu/" method="get">
           <label class="dcf-label dcf-mr-4 dcf-inverse" for="dcf-search_query">Search</label>
           <div class="dcf-input-group">
-            <input class="dcf-input-text dcf-search-input" id="dcf-search_query" name="q" type="search" required>
-            <button class="dcf-btn dcf-btn-primary" type="submit">
-              <span class="dcf-d-flex dcf-ai-center dcf-jc-center">
-                <svg class="dcf-icon" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
-                  <path fill="#fff" d="M18 36a17.9 17.9 0 0 0 11.27-4l15.31 15.41a2 2 0 0 0 2.84-2.82L32.08 29.18A18 18 0 1 0 18 36zm0-32A14 14 0 1 1 4 18 14 14 0 0 1 18 4z"/>
+            <input class="dcf-input-text dcf-search-input dcf-bg-transparent dcf-inverse" id="dcf-search_query" name="q" type="search" required>
+            <button class="dcf-btn dcf-btn-primary-inverse" type="submit">
+<!--               <span class="dcf-d-flex dcf-ai-center dcf-jc-center"> -->
+                <svg class="dcf-h-5 dcf-w-5 dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
+                  <path d="M18 36a17.9 17.9 0 0 0 11.27-4l15.31 15.41a2 2 0 0 0 2.84-2.82L32.08 29.18A18 18 0 1 0 18 36zm0-32A14 14 0 1 1 4 18 14 14 0 0 1 18 4z"/>
                 </svg>
-              </span>
+<!--               </span> -->
               <span class="dcf-sr-only">Submit</span>
             </button>
           </div>
         </form>
         </div>
 
-      <div class="dcf-search-results-wrapper dcf-h-100% dcf-overflow-y-scroll">
-        <div class="dcf-search-results dcf-grid-halves@md dcf-col-gap-vw dcf-row-gap-lg dcf-pt-6 dcf-pr-6 dcf-pb-10 dcf-txt-sm unl-font-sans">
+      <div id="dcf-search-results-wrapper" class="dcf-search-results-wrapper dcf-h-100% dcf-overflow-y-scroll">
+        <div style="display:none" class="dcf-search-results dcf-grid-halves@md dcf-col-gap-vw dcf-row-gap-lg dcf-pt-6 dcf-pr-6 dcf-pb-10 dcf-txt-xs unl-font-sans">
 
           <!-- Web -->
           <div class="dcf-search-results-web">
-            <h2 class="dcf-mb-1 dcf-txt-h6 dcf-uppercase dcf-ls-2">Pages</h2>
+            <h2 class="dcf-mb-1 dcf-txt-h6 dcf-uppercase unl-ls-2">Pages</h2>
 
 <!--
             <div class="unl-google-results" id="unl_results" style="display: block;">
@@ -85,7 +83,7 @@
 
             <!-- Affiliates -->
             <div class="dcf-search-results-affiliates">
-              <h2 class="dcf-mb-1 dcf-txt-h6 dcf-uppercase dcf-ls-2">Affiliates</h2>
+              <h2 class="dcf-mb-1 dcf-txt-h6 dcf-uppercase unl-ls-2">Affiliates</h2>
               <div class="dcf-mb-7">
                 7 results found
               </div>
@@ -110,7 +108,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722664" itemprop="telephone">402-472-2664</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2664</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2664</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -139,7 +137,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722126" itemprop="telephone">402-472-2126</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2126</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2126</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -168,7 +166,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024729333" itemprop="telephone">402-472-9333</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-9333</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-9333</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -197,7 +195,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-2014</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2014</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2014</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -226,7 +224,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-0316</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-0316</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-0316</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -255,7 +253,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-3131</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-3131</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-3131</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -284,7 +282,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-2123</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2123</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2123</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -298,7 +296,7 @@
 
             <!-- Faculty -->
             <div class="dcf-search-results-faculty">
-              <h2 class="dcf-mb-1 dcf-txt-h6 dcf-uppercase dcf-ls-2">Faculty</h2>
+              <h2 class="dcf-mb-1 dcf-txt-h6 dcf-uppercase unl-ls-2">Faculty</h2>
               <div class="dcf-mb-7">
                 29 results found
               </div>
@@ -323,7 +321,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722664" itemprop="telephone">402-472-2664</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2664</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2664</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -352,7 +350,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722126" itemprop="telephone">402-472-2126</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2126</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2126</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -381,7 +379,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024729333" itemprop="telephone">402-472-9333</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-9333</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-9333</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -410,7 +408,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-2014</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2014</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2014</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -439,7 +437,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-0316</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-0316</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-0316</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -468,7 +466,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-3131</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-3131</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-3131</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -497,7 +495,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-2123</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2123</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2123</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -511,7 +509,7 @@
 
             <!-- Staff -->
             <div class="dcf-search-results-staff">
-              <h2 class="dcf-mb-1 dcf-txt-h6 dcf-uppercase dcf-ls-2">Staff</h2>
+              <h2 class="dcf-mb-1 dcf-txt-h6 dcf-uppercase unl-ls-2">Staff</h2>
               <div class="dcf-mb-7">
                 29 results found
               </div>
@@ -536,7 +534,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722664" itemprop="telephone">402-472-2664</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2664</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2664</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -565,7 +563,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722126" itemprop="telephone">402-472-2126</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2126</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2126</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -594,7 +592,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024729333" itemprop="telephone">402-472-9333</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-9333</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-9333</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -623,7 +621,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-2014</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2014</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2014</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -652,7 +650,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-0316</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-0316</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-0316</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -681,7 +679,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-3131</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-3131</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-3131</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -710,7 +708,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-2123</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2123</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2123</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -724,7 +722,7 @@
 
             <!-- Students -->
             <div class="dcf-search-results-students">
-              <h2 class="dcf-mb-1 dcf-txt-h6 dcf-uppercase dcf-ls-2">Students</h2>
+              <h2 class="dcf-mb-1 dcf-txt-h6 dcf-uppercase unl-ls-2">Students</h2>
               <div class="dcf-mb-7">178 results found</div>
               <ul class="dcf-list-bare dcf-mb-0 pfResult">
                 <li class="dcf-media unl-directory-result [ppl_Sresult student]" tabindex="0" data-href="https://directory.unl.edu/people/asmith4" data-uid="asmith4" itemscope itemtype="http://schema.org/Person">
@@ -747,7 +745,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722664" itemprop="telephone">402-472-2664</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2664</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2664</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -776,7 +774,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722126" itemprop="telephone">402-472-2126</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2126</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2126</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -805,7 +803,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024729333" itemprop="telephone">402-472-9333</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-9333</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-9333</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -834,7 +832,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-2014</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2014</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2014</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -863,7 +861,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-0316</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-0316</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-0316</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -892,7 +890,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-3131</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-3131</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-3131</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -921,7 +919,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-2123</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2123</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2123</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -935,7 +933,7 @@
 
             <!-- Volunteers -->
             <div class="dcf-search-results-volunteers">
-              <h2 class="dcf-mb-1 dcf-txt-h6 dcf-uppercase dcf-ls-2">Volunteers</h2>
+              <h2 class="dcf-mb-1 dcf-txt-h6 dcf-uppercase unl-ls-2">Volunteers</h2>
               <div class="dcf-mb-7">
                 6 results found
               </div>
@@ -960,7 +958,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722664" itemprop="telephone">402-472-2664</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2664</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2664</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -989,7 +987,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722126" itemprop="telephone">402-472-2126</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2126</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2126</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -1018,7 +1016,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024729333" itemprop="telephone">402-472-9333</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-9333</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-9333</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -1047,7 +1045,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-2014</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2014</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2014</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -1076,7 +1074,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-0316</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-0316</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-0316</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -1105,7 +1103,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-3131</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-3131</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-3131</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -1134,7 +1132,7 @@
                     </ul>
                     <div class="dcf-lh-3 [tel]">
                       <a class="dcf-mr-2" href="tel:+14024722014" itemprop="telephone">402-472-2123</a>
-                      <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-2123</small>
+                      <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-2123</small>
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -1148,7 +1146,7 @@
 
             <!-- Departments -->
             <div class="dcf-search-results-departments [results departments]">
-              <h2 class="dcf-mb-1 dcf-txt-h6 dcf-uppercase dcf-ls-2">Departments</h2>
+              <h2 class="dcf-mb-1 dcf-txt-h6 dcf-uppercase unl-ls-2">Departments</h2>
               <div class="dcf-mb-7">
                 3 results found
               </div>
@@ -1184,7 +1182,7 @@
                       <a class="dcf-txt-h5 dcf-lh-3 dcf-bold" href="https://directory.unl.edu/departments/5697">University Housing</a>
                     </div>
                     <div class="dcf-lh-3 [tel]">
-                      <a href="tel:+14024723561" itemprop="telephone">402-472-3561</a> <small class="dcf-txt-sm dcf-txt-nowrap [on-campus-dialing]">On campus 2-3561</small><!-- +1 needed for telephone numbers -->
+                      <a href="tel:+14024723561" itemprop="telephone">402-472-3561</a> <small class="dcf-txt-xs dcf-txt-nowrap [on-campus-dialing]">On campus 2-3561</small><!-- +1 needed for telephone numbers -->
                     </div>
                   </div>
                   <div class="dcf-media-object dcf-1st dcf-mt-1 dcf-mr-5 [profile_pic]">
@@ -1201,7 +1199,7 @@
         </div><!-- end Search Results -->
       </div><!-- end Search Results Wrapper -->
 
-      <button class="dcf-absolute dcf-pin-top dcf-pin-right dcf-mt-3 dcf-mr-3 dcf-btn dcf-btn-tertiary" type="button" aria-label="close">Close</button>
+      <button class="dcf-absolute dcf-pin-top dcf-pin-right dcf-mt-3 dcf-mr-3 dcf-btn dcf-btn-tertiary dcf-inverse" id="dcf-close-search" type="button" aria-label="close">Close</button>
     </div><!-- end Modal Content -->
-  </div><!-- end Modal Overlay -->
+  </dialog><!-- end Modal Overlay -->
 </div><!-- end Search -->
