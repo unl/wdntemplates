@@ -55,7 +55,7 @@
   }
 
   .unl .dcf-mobile-toolbar-toggle-search {
-    background-image: linear-gradient(to left, $cream #{ms(5)}em, transparent #{ms(5)}em);
+    background-image: linear-gradient(to left, $cream #{ms(5)}em, fade-out($cream,1) #{ms(5)}em);
     @include b-1;
     border-color: $cream;
     justify-content: space-between;
@@ -63,17 +63,17 @@
 
   .unl .dcf-mobile-toolbar-label-search {
     @include inverse;
+    flex-grow: 1;
     @include font-serif;
     @include txt-xs;
-    padding-bottom: #{ms(-6)}em;
-    @include pl-3;
-    @include pr-8;
-    padding-top: #{ms(-6)}em;
+    padding: #{ms(-6)}em #{ms(8)}em #{ms(-6)}em #{ms(-2)}em;
+    text-align: left;
   }
 
   .unl .dcf-mobile-toolbar-icon-search {
     @include h-3;
-    margin-right: #{ms(-4)}em;
+    @include ml-2;
+    @include mr-2;
     @include w-3;
   }
 
