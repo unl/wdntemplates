@@ -3,6 +3,14 @@
 ///////////////////////////////
 
 
+.unl .dcf-search-input,
+.unl .dcf-search-input:hover,
+.unl .dcf-search-input:focus {
+  // TODO: differentiate :focus and :hover styles
+  border: 1px solid $cream;
+}
+
+
 // .unl .dcf-search-results-wrapper {
 //   height: 100% !important;
 // }
@@ -78,7 +86,8 @@
 
 
 .unl-search-bg {
-  background: $color-body url('../images/unl-search-bg.jpg') 50% 50% / cover no-repeat;
+  // TODO: create background images sized to each breakpoint for improved performance
+  background: $scarlet url('../images/unl-search-bg.jpg') 50% 50% / cover no-repeat;
 }
 
 
