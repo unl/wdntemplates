@@ -256,6 +256,7 @@
     border-top: 1px solid #eee;
     display: flex;
     @include font-sans;
+    @include w-8;
   }
 
 
