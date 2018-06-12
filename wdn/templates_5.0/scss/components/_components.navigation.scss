@@ -252,12 +252,12 @@
     border-top: 1px solid #eee;
     display: flex;
     @include font-sans;
+    @include w-8;
   }
 
   .unl .dcf-mobile-toolbar-toggle-menu {
-    @include pb-3;
-    @include pl-0;
-    @include pt-4;
+    height: 100%;
+    padding: #{ms(0)}em #{ms(-8)}em #{ms(-2)}em 0;
   }
 
   .unl .dcf-mobile-toolbar-label-menu {
