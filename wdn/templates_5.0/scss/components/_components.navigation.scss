@@ -3,12 +3,6 @@
 ///////////////////////////////////
 
 
-
-
-
-
-
-
 .unl .dcf-nav-local > ul {
 //   @include font-sans;
 
@@ -21,16 +15,16 @@
 }
 
 
-
-
 .unl .dcf-nav-global li:not(:last-child),
 .unl .dcf-nav-local li:not(:last-child) {
   margin-right: 0; // core
 }
 
+
 .unl .dcf-nav-global li:not(:last-child) {
   padding-right: 2.4vw; // core
 }
+
 
 .unl .dcf-nav-local > ul > li {
   margin-bottom: 0;
@@ -55,32 +49,32 @@
   padding-top: 0; // core
 }
 
+
 .unl .dcf-nav-local ul ul li:last-child {
   margin-bottom: 0; // core
 }
 
 
-
-
-
-
 @include mq(md, max, width) {
 
-  //Default to closed on mobile
+  // Default to closed on mobile
   #dcf-navigation {
     display: none;
   }
 
-  //Open when parent model is open
+
+  // Open when parent model is open
   .dcf-modal-open #dcf-navigation {
     display: block;
   }
+
 
   .headroom {
   	will-change: transform;
   	-webkit-transition: -webkit-transform 250ms ease-out, opacity 250ms ease-out !important;
   	transition: transform 250ms ease-out, opacity 250ms ease-out !important;
   }
+
 
 //   .headroom--fixed {
 //   	position: -webkit-fixed;
@@ -91,12 +85,14 @@
 //   	bottom: 0vh;
 //   }
 
+
   .headroom--pinned {
     opacity: 1;
   	-webkit-transform: translateY(0%);
   	-ms-transform: translateY(0%);
   	transform: translateY(0%);
   }
+
 
   .headroom--unpinned {
     opacity: 0;
@@ -105,21 +101,24 @@
   	transform: translateY(100%);
   }
 
+
   .unl .dcf-mobile-toolbar-menu {
     display: flex;
     left: 0;
   }
 
+
   .unl .dcf-mobile-toolbar-toggle-menu {
     padding: 0;
   }
+
 
   .unl .dcf-nav-global {
     display: none; // temp
   }
 
-  .unl .dcf-nav-local-wrapper {
 
+  .unl .dcf-nav-local-wrapper {
 //     bottom: #{ms(10)}em;
 //     height: 100%;
 //     opacity: 0;
@@ -137,8 +136,8 @@
 //     pointer-events: none;
     position: fixed;
     z-index: 998;
-
   }
+
 
   .unl .dcf-nav-local-wrapper::before {
     background-image: linear-gradient(to top, fade-out($cream, 1), $cream);
@@ -152,7 +151,8 @@
     z-index: 999;
   }
 
-  .unl .dcf-nav-local {
+
+//   .unl .dcf-nav-local {
 // //     animation-name: none;
 // //     animation: dcf-disappear 500ms ease-out forwards;
 //     @include bg-cream;
@@ -164,10 +164,7 @@
 // //     pointer-events: none;
 //     position: fixed;
 //     z-index: 998;
-  }
-
-
-
+//   }
 
 
 //   .unl .dcf-nav-local.dcf-is-open {
@@ -177,10 +174,12 @@
 //     opacity: 0;
 //   }
 
+
   .unl .dcf-nav-local > ul {
     padding-bottom: #{ms(14)}em;
     @include pt-8;
   }
+
 
   .unl .dcf-nav-local > ul {
 
@@ -191,10 +190,12 @@
 
   }
 
+
 }
 
 
 @include mq(sm, min, width) {
+
 
   @supports (display: grid) {
 
@@ -204,19 +205,23 @@
 
   }
 
+
 }
 
 
 @include mq(md, min, width) {
 
+
   .unl .dcf-nav-global {
     display: flex;
   }
+
 
   .unl .dcf-nav-global a {
     @include inverse-link;
 //     justify-content: flex-end; // core
   }
+
 
   .unl .dcf-nav-bar {
     display: flex;
@@ -224,6 +229,7 @@
     padding-left: 5.6%;
     padding-right: 5.6%;
   }
+
 
   .unl .dcf-nav-bar::after {
     content: '';
@@ -239,14 +245,17 @@
     z-index: 998;
   }
 
+
 //   .unl .dcf-mobile-toolbar-modal {
   #dcf-navigation {
     display: flex;
   }
 
+
   .unl .dcf-nav-local-wrapper {
     display: flex;
   }
+
 
   .unl .dcf-mobile-toolbar-menu {
     border-top: 1px solid #eee;
@@ -255,10 +264,12 @@
     @include w-8;
   }
 
+
   .unl .dcf-mobile-toolbar-toggle-menu {
     height: 100%;
     padding: #{ms(0)}em #{ms(-8)}em #{ms(-2)}em 0;
   }
+
 
   .unl .dcf-mobile-toolbar-label-menu {
     @include font-sans;
@@ -268,11 +279,13 @@
     text-transform: uppercase;
   }
 
+
   .unl .dcf-mobile-toolbar-icon-menu {
     @include h-3;
     margin-bottom: #{ms(-8)}em;
     @include w-3;
   }
+
 
 //   .unl .dcf-mobile-toolbar-modal {
 //     position: relative;
@@ -285,10 +298,12 @@
     display: flex;
   }
 
+
   .unl .dcf-nav-local a {
     display: block;
     @include pl-5;
   }
+
 
   .unl .dcf-nav-local > ul {
     display: grid; // core
@@ -299,6 +314,7 @@
     width: 100%;
   }
 
+
   .unl .dcf-nav-local > ul > li {
     position: relative;
 //     display: flex;
@@ -307,9 +323,11 @@
 //     align-items: center;
   }
 
+
   .unl .dcf-nav-local > ul > li:not(:last-child) a {
     @include pr-5;
   }
+
 
   .unl .dcf-nav-local > ul > li > a {
     border-left: 1px solid #eee;
@@ -323,6 +341,7 @@
     width: 100%;
   }
 
+
   .unl .dcf-nav-local ul ul {
     background: linear-gradient(to bottom, #eee, fade-out(#eee,1)) 0 0 / 1px 100% no-repeat;
     @include pb-8;
@@ -332,26 +351,24 @@
     width: 100%;
     z-index: 999;
 
-
-// position: absolute;
-border: 0;
-// clip: rect(1px, 1px, 1px, 1px);
-clip: auto;
-// height: 1px;
-height: auto;
-// overflow: hidden;
-overflow: auto;
-// position: absolute;
-// width: 1px;
-// word-wrap: normal;
-word-wrap: normal;
-
+    // position: absolute;
+    border: 0;
+    // clip: rect(1px, 1px, 1px, 1px);
+    clip: auto;
+    // height: 1px;
+    height: auto;
+    // overflow: hidden;
+    overflow: auto;
+    // position: absolute;
+    // width: 1px;
+    // word-wrap: normal;
+    word-wrap: normal;
   }
+
 
   .unl .dcf-nav-bar .dcf-nav-local ul ul  {
     display: none;
   }
-
 
 
   .unl .dcf-nav-bar.dcf-modal-open::after {
@@ -359,8 +376,10 @@ word-wrap: normal;
     transition: opacity 200ms ease-out;
   }
 
+
   .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local ul ul  {
     display: block;
   }
+
 
 }
