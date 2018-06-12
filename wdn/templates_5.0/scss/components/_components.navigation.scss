@@ -127,7 +127,6 @@
 //     box-shadow: 0 -1px 4px 0 rgba(0,0,0,.1);
     height: 56vh;
     @include overflow-y-scroll;
-    -webkit-overflow-scrolling: touch; // remove after added to DCF core
     padding-left: 5.6%;
     padding-right: 5.6%;
 //     pointer-events: none;
