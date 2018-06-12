@@ -36,8 +36,8 @@
   @include font-sans;
   font-weight: 700;
   @include ls-2;
+  @include pb-4;
   @include pt-4;
-  @include pb-3;
   text-transform: uppercase;
 }
 
@@ -331,8 +331,6 @@
 //     justify-content: center;
     @include lh-3;
 //     padding: #{ms(0)}em 2.4vw;
-    @include pb-4;
-    @include pt-4;
 //     text-align: center;
     width: 100%;
   }
