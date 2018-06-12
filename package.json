@@ -17,29 +17,58 @@
   "homepage": "https://github.com/unl/wdntemplates#readme",
   "devDependencies": {
     "autoprefixer": "^7.1.1",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "csso": "^2.1.1",
     "dcf": "git+https://github.com/d-c-n/dcf.git",
     "grunt": "^1.0.1",
+    "grunt-babel": "^7.0.0",
     "grunt-bump": "^0.8.0",
     "grunt-concurrent": "^2.2.1",
     "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-less": "^1.2.0",
     "grunt-contrib-requirejs": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-includes": "^1.0.0",
+    "grunt-postcss": "^0.9.0",
     "grunt-sass": "^2.0.0",
+    "grunt-stylelint": "^0.9.0",
     "grunt-sync": "^0.5.2",
     "grunt-then": "^1.0.0",
     "grunt-zip": "^0.17.1",
+    "i": "^0.3.6",
     "less-plugin-autoprefix": "^1.5.1",
     "less-plugin-clean-css": "^1.5.1",
     "load-grunt-tasks": "^3.4.1",
     "modularscale-sass": "^3.0.4",
+    "postcss-normalize": "^4.0.0",
+    "stylelint": "^9.1.3",
+    "stylelint-no-unsupported-browser-features": "^2.0.0",
     "sync-exec": "^0.6.2",
     "tar-fs": "^1.11.1"
   },
   "engines": {
     "node": "node >= 0.10.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "axe-core": "^2.6.1",
+    "dialog-polyfill": "^0.4.9",
+    "http-server": "^0.11.1",
+    "puppeteer": "^1.1.0"
+  },
+  "scripts": {
+    "test": "node tests/run-tests.js"
+  },
+  "browserslist": [
+    "last 1 Chrome version",
+    "last 1 Explorer version",
+    "last 1 Firefox version",
+    "Firefox ESR",
+    "last 1 Safari version",
+    "Android >= 4.0",
+    "BlackBerry >= 4.0",
+    "iOS >= 10",
+    "> 1% in my stats"
+  ]
 }

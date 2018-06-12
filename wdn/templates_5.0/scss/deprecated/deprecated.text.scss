@@ -1,0 +1,57 @@
+/////////////////////////////
+// !THEME / DEPRECATED / TEXT
+/////////////////////////////
+
+
+// Old "brand" font = Tungsten
+// .wdn-brand {}
+// .wdn-heading {}
+// .wdn-impact {}
+// .wdn-brand-caps {}
+
+.wdn-sans-serif {
+  @include font-sans;
+}
+
+.wdn-list-reset {
+  list-style: none;
+  padding-left: 0;
+}
+
+.wdn-sans-caps {
+  @include font-sans;
+  letter-spacing: .02em;
+  line-height: 1.333;
+  text-transform: uppercase;
+}
+
+.wdn-alt-header {
+  @include font-sans;
+  @include txt-base;
+  letter-spacing: .02em;
+  line-height: 1.333;
+  text-transform: uppercase;
+}
+
+.wdn-list-header {
+  @include bb;
+  border-color: $color-border;
+  @include font-sans;
+  @include txt-base;
+  letter-spacing: .02em;
+  line-height: 1.333;
+  @include pb-1;
+  @include pt-4;
+  text-transform: uppercase;
+}
+
+.wdn-subhead {
+  display: block;
+  font-size: #{ms(-2)}rem; // .75rem
+  @include mb-4;
+  text-transform: uppercase;
+}
+
+.wdn-intro-p {
+  @include txt-lg;
+}

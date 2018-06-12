@@ -3,17 +3,156 @@
 ////////////////////////////////
 
 
-.unl .dcf-c-btn {
-  @include pt4;
-  @include pr5;
-  padding-bottom: #{ms(-1)}em;
-//   @include pb4;
-  @include pl5;
-  font-size: #{ms(-2)}em;
-//   @include lh1;
-  @include font-sans;
-  @include uppercase;
-  @include ls2;
-  @include bold;
-  border-width: 2px;
+// temp styles until normalize is restored
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
 }
+
+
+.unl .dcf-btn {
+  border-width: 2px;
+  border-style: solid;
+  @include font-sans;
+  @include txt-xs;
+  font-weight: bold;
+  @include ls-2;
+//   @include lh1;
+  padding-bottom: #{ms(-3)}em;
+  @include pl-5;
+  @include pr-5;
+  @include pt-3;
+  text-transform: uppercase;
+}
+
+
+// !Button Hierarchy
+
+// !Primary Button
+.unl .dcf-btn-primary,
+.unl .dcf-btn-primary:link {
+  background-color: $color-button;
+  border-color: $color-button;
+  color: $white;
+  transition: border $hover-off, background-color $hover-off;
+}
+
+.unl .dcf-btn-primary:focus {
+  box-shadow: inset 0 0 0 3px currentColor;
+}
+
+.unl .dcf-btn-primary:visited {
+  background-color: $color-button-visited;
+  border-color: $color-button-visited;
+  color: $white;
+}
+
+.unl .dcf-btn-primary:hover {
+  background-color: $color-button-hover;
+  border-color: $color-button-hover;
+  color: $white;
+  transition: border $hover-on, background-color $hover-on;
+}
+
+.unl .dcf-btn-primary:active,
+.unl .dcf-btn-primary.dcf-active {
+  background-color: $color-button-active;
+  border-color: $color-button-active;
+  color: $white;
+}
+
+
+// !Secondary Button
+.unl .dcf-btn-secondary,
+.unl .dcf-btn-secondary:link {
+  background-color: transparent;
+  border-color: currentColor;
+  color: $color-button;
+  transition: background-color $hover-off, border-color $hover-off, color $hover-off;
+}
+
+.unl .dcf-btn-secondary:focus {
+  box-shadow: inset 0 0 0 3px $white, inset 0 0 0 4px currentColor;
+}
+
+.unl .dcf-btn-secondary:visited {
+  border-color: currentColor;
+  color: $color-button-visited;
+}
+
+.unl .dcf-btn-secondary:hover {
+  background-color: fade-out($color-button-hover,.9);
+  border-color: currentColor;
+  color: $color-button-hover;
+  transition: background-color $hover-on, border-color $hover-on, color $hover-on;
+}
+
+.unl .dcf-btn-secondary:active,
+.unl .dcf-btn-secondary.dcf-active {
+  border-color: currentColor;
+  color: $color-button-active;
+}
+
+
+// !Tertiary Button
+.unl .dcf-btn-tertiary,
+.unl .dcf-btn-tertiary:link {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: $color-button;
+  text-decoration: underline;
+  text-decoration-skip: ink;
+  transition: color $hover-off;
+}
+
+.unl .dcf-btn-tertiary:focus {
+  box-shadow: inset 0 0 0 3px $white, inset 0 0 0 4px currentColor;
+}
+
+.unl .dcf-btn-tertiary:visited {
+  color: $color-button-visited;
+}
+
+.unl .dcf-btn-tertiary:hover {
+  color: $color-button-hover;
+  transition: color $hover-on;
+}
+
+.unl .dcf-btn-tertiary:active,
+.unl .dcf-btn-tertiary.dcf-active {
+  color: $color-button-active;
+}
+
+
+// !Inverse Primary Button
+.unl .dcf-btn-primary-inverse {
+  background-color: $cream;
+  border-color: $cream;
+// TODO: build more color flexibility into inverse styles
+//   color: currentColor;
+  transition: background-color $hover-off, border $hover-off;
+}
+
+.unl .dcf-btn-primary-inverse:hover {
+  background-color: $white;
+  border-color: $white;
+  transition: background-color $hover-on, border $hover-on;
+}
+
+
+// !Inverse Secondary Button
+.unl .dcf-btn-secondary-inverse {
+  background-color: rgba(0,0,0,.1);
+  border-color: currentColor;
+  color: $white;
+  transition: background-color $hover-off, border $hover-off;
+}
+
+.unl .dcf-btn-secondary-inverse:hover {
+  background-color: rgba(0,0,0,.2);
+  transition: background-color $hover-on, border $hover-on;
+}
+

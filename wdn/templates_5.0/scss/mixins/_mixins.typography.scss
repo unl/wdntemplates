@@ -3,14 +3,49 @@
 ///////////////////////////////
 
 
-// !Outline Text
-@mixin txt-outline($imp:null) {
+// !Letter Spacing
+@mixin ls-0($imp:null) { letter-spacing: 0 $imp; }
+@mixin ls-1($imp:null) { letter-spacing: .01em $imp; }
+@mixin ls-2($imp:null) { letter-spacing: .1em $imp; }
 
 
-  @supports (text-stroke: 1.33px #fff) or (-webkit-text-stroke: 1.3px #fff) {
-    -webkit-text-stroke: 1.33px #fff;
-    text-stroke: 1.33px #fff;
-    color: transparent;
+// !Outline Text: White
+@mixin txt-outline-white($imp:null) {
+
+  @supports (text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff) {
+    color: transparent $imp;
+    -webkit-text-stroke: .024em #fff $imp;
+    text-stroke: .024em #fff $imp;
   }
 
+}
+
+
+// !Outline Text: Dark
+@mixin txt-outline-dark($imp:null) {
+
+  @supports (text-stroke: 1px #000) or (-webkit-text-stroke: 1px #000) {
+    color: transparent $imp;
+    -webkit-text-stroke: .024em $color-heading $imp;
+    text-stroke: .024em $color-heading $imp;
+  }
+
+}
+
+
+// !Text Stripes: Light
+@mixin txt-stripes-light($imp:null) {
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: repeating-linear-gradient($diagonal1, fade-out($white,.5), fade-out($white,.5) 1px, transparent 1px, transparent 2px); // add mixin
+  color: transparent $imp;
+}
+
+
+// !Text Stripes: Dark
+@mixin txt-stripes-dark($imp:null) {
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px); // add mixin
+  color: transparent $imp;
 }

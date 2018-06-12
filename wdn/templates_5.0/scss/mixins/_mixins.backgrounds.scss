@@ -5,39 +5,32 @@
 
 // !Scarlet
 @mixin bg-scarlet($imp:null) {
-  background: linear-gradient($diagonal, darken($scarlet,2%) 0%, lighten($scarlet,2%) 100%) $imp;
+  background-color: $scarlet $imp;
 }
 
 
 // !Cream
 @mixin bg-cream($imp:null) {
-  background: linear-gradient($diagonal, $cream 0%, $lighter-cream 100%) $imp;
+  background-color: $cream $imp;
 }
 
 
-// !Diagonal
-@mixin bg-diagonal($imp:null) {
+// !Diagonal Stripes: Scarlet
+@mixin bg-stripes-scarlet($imp:null) {
+  background-image: repeating-linear-gradient($diagonal1, $scarlet, $scarlet 2px, transparent 2px, transparent 4px);
+}
 
-//   &:before {
-//     content: '';
-//     @include absolute;
-//     @include h100;
-//     @include w100;
-//     top: 0;
-//     left: 0;
-//     z-index: -1;
-//     pointer-events: none;
-//     background-color: transparent $imp;
-//     background-image: url('~../images/bg.svg') $imp;
-//     background-position: 50% 50% $imp;
-//     background-repeat: repeat $imp;
-//     background-size: 4.96px 8px $imp;
-//   }
 
-  background-color: transparent $imp;
-  background-image: url('../images/bg.svg') $imp;
-  background-position: 50% 50% $imp;
-  background-repeat: repeat $imp;
-  background-size: 5px 8px $imp;
+// !Diagonal Stripes: Dark
+@mixin bg-stripes-dark($imp:null) {
+//   background-image: url('../images/diagonal-stripe-bg.svg');
+//   background-repeat: repeat;
+//   background-image: repeating-linear-gradient($diagonal1, rgba($color-body,.1), rgba($color-body,.1) 2px, transparent 2px, transparent 4px);
+  background-image: repeating-linear-gradient($diagonal1, rgba($color-body,.1), rgba($color-body,.1) 2px, transparent 2px, transparent 5px);
+}
 
+
+// !Diagonal Stripes: Light
+@mixin bg-stripes-light($imp:null) {
+  background-image: repeating-linear-gradient($diagonal1, rgba($white,.1), rgba($white, .1) 4px, transparent 2px, transparent 5px);
 }

@@ -3,5 +3,27 @@
 //////////////////////////////////
 
 
-// !Outline Text
-.unl-u-txt-outline { @include txt-outline (!important); }
+// !Letter Spacing
+.unl-ls-0 { @include ls-0(!important); }
+.unl-ls-1 { @include ls-1(!important); }
+.unl-ls-2 { @include ls-2(!important); }
+
+
+// !Outline Text: White
+.unl-txt-outline-white { @include txt-outline-white(!important); }
+
+
+// !Outline Text: Dark
+.unl-txt-outline-dark { @include txt-outline-dark(!important); }
+
+
+// !Text Stripes: Light
+.unl-txt-stripes-light { @include txt-stripes-light(!important); }
+
+
+// !Text Stripes: Dark
+.unl-txt-stripes-dark { @include txt-stripes-dark(!important); }
+
+
+
+
