@@ -108,7 +108,7 @@
 
   .unl .dcf-mobile-toolbar-modal::after {
     background-image: linear-gradient(to bottom, fade-out($cream, 1), $cream);
-    bottom: 0;
+    bottom: #{ms(10)}em;
     content: '';
     height: #{ms(8)}em;
     left: 0;
