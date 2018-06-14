@@ -253,7 +253,7 @@
 
 
   .unl .dcf-mobile-toolbar-menu {
-    border-top: 1px solid #eee;
+    border-top: 1px solid $ui-100;
     display: flex;
     @include font-sans;
     @include w-8;
@@ -289,8 +289,7 @@
 
 
   .unl .dcf-nav-local {
-    @include bt;
-    border-color: #eee;
+    border-top: 1px solid $ui-100;
     display: flex;
   }
 
@@ -326,7 +325,7 @@
 
 
   .unl .dcf-nav-local > ul > li > a {
-    border-left: 1px solid #eee;
+    border-left: 1px solid $ui-100;
     height: 100%;
 //     justify-content: center;
     @include lh-3;
@@ -337,7 +336,7 @@
 
 
   .unl .dcf-nav-local ul ul {
-    background: linear-gradient(to bottom, #eee, fade-out(#eee,1)) 0 0 / 1px 100% no-repeat;
+    background: linear-gradient(to bottom, $ui-100, fade-out($ui-100,1)) 0 0 / 1px 100% no-repeat;
     @include pb-8;
     margin-top: 0;
     position: absolute;
