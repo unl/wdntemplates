@@ -3,6 +3,12 @@
 ///////////////////////////////////
 
 
+
+.unl .dcf-nav-local a {
+  display: block;
+}
+
+
 .unl .dcf-nav-local > ul {
   @include txt-sm;
 
@@ -24,7 +30,7 @@
 }
 
 
-.unl .dcf-nav-local > ul > li {
+.unl .dcf-nav-local ul li {
   margin-bottom: 0;
 }
 
@@ -33,7 +39,6 @@
 //   display: block;
 //   display: flex;
 //   flex-grow: 1;
-  @include font-sans;
   font-weight: 700;
   @include ls-2;
   @include pb-4;
@@ -43,8 +48,14 @@
 
 
 .unl .dcf-nav-local ul ul {
-  font-size: 1em; // core
-  padding-top: 0; // core
+  font-size: #{ms(-2)}rem; // core
+  @include pt-0; // core
+}
+
+
+.unl .dcf-nav-local ul ul > li > a {
+  @include pb-1;
+  @include pt-1;
 }
 
 
@@ -59,6 +70,7 @@
   #dcf-navigation {
     display: none;
   }
+
 
   // Open when parent model is open
   .dcf-modal-open #dcf-navigation {
@@ -123,10 +135,12 @@
 //     width: 100%;
 //     z-index: 998;
     @include bg-cream;
-    bottom: 0;
+    bottom: #{ms(10)}em;
 //     box-shadow: 0 -1px 4px 0 rgba(0,0,0,.1);
-    height: 56vh;
-    @include overflow-y-scroll;
+    height: 43vh;
+//     @include overflow-y-scroll;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     padding-left: 5.6%;
     padding-right: 5.6%;
 //     pointer-events: none;
@@ -137,12 +151,12 @@
 
   .unl .dcf-nav-local-wrapper::before {
     background-image: linear-gradient(to top, fade-out($cream, 1), $cream);
-    bottom: -#{ms(6)}em;
+    bottom: calc(#{ms(10)}em + 43vh);
     content: '';
     height: #{ms(6)}em;
     left: 0;
     position: fixed;
-    transform: translateY(-56vh);
+    transform: translateY(100%);
     width: 100%;
     z-index: 999;
   }
@@ -172,7 +186,8 @@
 
 
   .unl .dcf-nav-local > ul {
-    padding-bottom: #{ms(16)}em;
+//     padding-bottom: #{ms(16)}em;
+    @include pb-9;
     @include pt-8;
   }
 
@@ -219,7 +234,9 @@
 
 
   .unl .dcf-nav-bar {
+//     background: linear-gradient(to right, fade-out($ui-100,1) 5.625%, fade-out($ui-100,0) calc(5.625% + 3.16em), fade-out($ui-100,0) 94.375%, fade-out($ui-100,1)) 0 0 / 100% 1px no-repeat;
     display: flex;
+    flex: 1 0 auto;
     flex-wrap: nowrap;
     padding-left: 5.6%;
     padding-right: 5.6%;
@@ -229,26 +246,26 @@
   .unl .dcf-nav-bar::after {
     content: '';
     position: absolute;
-    background-image: linear-gradient(to bottom, $cream, fade-out($cream,.05));
-    height: 100vh;
+    background-image: linear-gradient(to bottom, $cream, fade-out($cream,.02));
+    height: calc(100vh - #{ms(7)}em - #{ms(14)}em - 3px);
     left: 0;
     opacity: 0;
     pointer-events: none;
     top: 100%;
-    transition: opacity 400ms ease-out;
+    transition: opacity 500ms ease-out;
     width: 100%;
     z-index: 998;
+
+//     @supports (filter: blur(5px)) {
+//   	  background-image: linear-gradient(to bottom, $cream, fade-out($cream,.05));
+//   	}
+
   }
 
 
-//   .unl .dcf-mobile-toolbar-modal {
-  #dcf-navigation {
-    display: flex;
-  }
-
-
-  .unl .dcf-nav-local-wrapper {
-    display: flex;
+  .unl .dcf-nav-bar.dcf-modal-open::after {
+    opacity: 1;
+    transition: opacity 250ms ease-out;
   }
 
 
@@ -257,6 +274,7 @@
     display: flex;
     @include font-sans;
     @include w-8;
+    z-index: 999;
   }
 
 
@@ -287,15 +305,41 @@
 //     position: relative;
 //   }
 
+//   .unl .dcf-mobile-toolbar-modal {
+  #dcf-navigation {
+    display: flex;
+    height: 100%;
+    position: relative;
+    z-index: 999;
+  }
+
+
+  .unl .dcf-nav-local-wrapper {
+    display: flex;
+    flex-direction: column;
+//     height: 100%;
+    height: calc(100vh - #{ms(7)}em - #{ms(14)}em - 3px);
+//     max-height: 80vh;
+//     overflow-y: auto;
+//     padding-right: 5.62vw;
+    position: absolute;
+  }
+
 
   .unl .dcf-nav-local {
     border-top: 1px solid $ui-100;
-    display: flex;
+    @include pr-4;
+  }
+
+
+  .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
 
   .unl .dcf-nav-local a {
-    display: block;
     @include pl-5;
   }
 
@@ -325,21 +369,42 @@
 
 
   .unl .dcf-nav-local > ul > li > a {
+    background-color: $cream;
     border-left: 1px solid $ui-100;
+
     height: 100%;
+//     height: auto;
+
 //     justify-content: center;
     @include lh-3;
 //     padding: #{ms(0)}em 2.4vw;
 //     text-align: center;
+    position: sticky;
+    top: 1px;
     width: 100%;
   }
 
 
+//   .unl .dcf-nav-local > ul > li > a::after {
+//     background-image: linear-gradient(to bottom, fade-out($cream,0), fade-out($cream,1));
+//     content: '';
+//     height: 1em;
+//     left: 0;
+//     position: absolute;
+//     top: 100%;
+//     width: 100%;
+//     z-index: 999;
+//   }
+
+
   .unl .dcf-nav-local ul ul {
-    background: linear-gradient(to bottom, $ui-100, fade-out($ui-100,1)) 0 0 / 1px 100% no-repeat;
-    @include pb-8;
+//     background: linear-gradient(to bottom, $ui-100, fade-out($ui-100,1)) 0 0 / 1px 100% no-repeat;
+//     font-size: #{ms(-3)}rem;
+    @include pb-10;
     margin-top: 0;
+
     position: absolute;
+
     top: 100%;
     width: 100%;
     z-index: 999;
@@ -359,19 +424,36 @@
   }
 
 
+
   .unl .dcf-nav-bar .dcf-nav-local ul ul  {
     display: none;
   }
 
 
-  .unl .dcf-nav-bar.dcf-modal-open::after {
-    opacity: 1;
-    transition: opacity 200ms ease-out;
+  .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local ul ul  {
+    display: block;
   }
 
 
-  .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local ul ul  {
-    display: block;
+
+  // navigation transition to be added later
+  .unl .dcf-nav-bar .dcf-nav-local ul ul:after {
+    background-image: linear-gradient(to bottom, $ui-100, fade-out($ui-100,1));
+    content: '';
+    left: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transform: scaleY(0);
+    transform-origin: 0 0;
+    width: 1px;
+    transition: transform 300ms ease-out;
+  }
+
+
+  .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local ul ul:after {
+    transform: scaleY(1);
+    transition: transform 300ms ease-out;
   }
 
 
