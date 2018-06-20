@@ -91,14 +91,12 @@ $color-badge: $gray;
 
 
 // !Footer
-$color-footer-local: fade-out($white, 0);
-$color-footer-local-bg: $color-body;
-$color-footer-global: fade-out($white, 0);
-$color-footer-global-bg: $scarlet;
-$color-footer-link: fade-out($white, 0);
-$color-footer-link-visited: fade-out($white, 0);
-$color-footer-link-hover: fade-out($white, 0);
-$color-footer-link-active: fade-out($white, 0);
+$color-footer: $cream;
+$color-footer-bg: $scarlet;
+$color-footer-link: $cream;
+$color-footer-link-visited: $cream; // TODO: determine visited state styles
+$color-footer-link-hover: $cream; // TODO: determine hover state styles
+$color-footer-link-active: $cream; // TODO: determine active state styles
 
 
 // !Define contextual colors
