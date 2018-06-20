@@ -1,0 +1,39 @@
+///////////////////////////
+// !THEME / MIXINS / COLORS
+///////////////////////////
+
+
+// !Scarlet
+@mixin scarlet($imp:null) {
+  color: $scarlet $imp;
+}
+
+@mixin scarlet-visited($imp:null) {
+  color: $scarlet $imp; // TODO: determine visited state styles
+}
+
+@mixin scarlet-hover($imp:null) {
+  color: $scarlet $imp; // TODO: determine hover state styles
+}
+
+@mixin scarlet-active($imp:null) {
+  color: $scarlet $imp; // TODO: determine active state styles
+}
+
+
+// !Cream
+@mixin cream($imp:null) {
+  color: $cream $imp;
+}
+
+@mixin cream-visited($imp:null) {
+  color: $cream $imp; // TODO: determine visited state styles
+}
+
+@mixin cream-hover($imp:null) {
+  color: $cream $imp; // TODO: determine hover state styles
+}
+
+@mixin cream-active($imp:null) {
+  color: $cream $imp; // TODO: determine active state styles
+}

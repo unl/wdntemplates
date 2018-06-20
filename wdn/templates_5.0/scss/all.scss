@@ -13,6 +13,7 @@
 // !Mixins
 @import '../../../node_modules/dcf/core/scss/mixins/mixins';
 @import 'mixins/mixins.backgrounds';
+@import 'mixins/mixins.colors';
 @import 'mixins/mixins.fonts';
 @import 'mixins/mixins.typography';
 
@@ -69,6 +70,7 @@
 // !Utilities
 @import '../../../node_modules/dcf/core/scss/utilities/utilities';
 @import 'utilities/utilities.backgrounds';
+@import 'utilities/utilities.colors';
 @import 'utilities/utilities.fonts';
 @import 'utilities/utilities.typography';
 
