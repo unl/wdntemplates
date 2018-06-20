@@ -46,10 +46,33 @@
 .unl-txt-sm-xs {
   @include txt-sm;
 
-  @include mq(sm, min, width) {
+  @include mq(md, min, width) {
     @include txt-xs;
   }
 
+}
+
+
+.unl-txt-ui-lg {
+  @include txt-md;
+
+  @include mq(md, min, width) {
+    @include txt-xs;
+  }
+}
+
+.unl-txt-ui-sm {
+  @include txt-xs;
+
+  @include mq(md, min, width) {
+    font-size: #{ms(-3)}em;
+  }
+}
+
+
+.unl-blurred {
+  filter: blur(5px);
+  transition: filter 200ms ease-out;
 }
 
 
