@@ -13,11 +13,20 @@
 // }
 
 
+.unl .dcf-site-affiliation a {
+  display: inline-block;
+  padding-bottom: #{ms(-6)}em;
+}
+
 .unl .dcf-site-affiliation a,
 .unl .dcf-site-affiliation a:visited,
 .unl .dcf-site-title a,
 .unl .dcf-site-title a:visited {
   color: $color-heading;
+}
+
+.unl .dcf-site-title {
+  letter-spacing: .032em;
 }
 
 
@@ -26,9 +35,6 @@
 //   background-image: linear-gradient(to top, $scarlet 2px, transparent 2px, transparent 4px, $scarlet 4px);
 //   border-bottom: 1px solid #ddd;
 // }
-
-
-
 
 
 // @include mq(md, max, width) {
@@ -122,6 +128,22 @@
     @include pt-5;
   }
 
+  .unl .dcf-site-affiliation {
+    font-size: #{ms(-3)}em;
+  }
+
+  .unl-site-title-short {
+    @include txt-lg;
+  }
+
+  .unl-site-title-medium {
+    @include txt-md;
+  }
+
+  .unl-site-title-long {
+    @include txt-sm;
+  }
+
 }
 
 
@@ -147,6 +169,15 @@
 //     transition: text-decoration-color $hover-on;
 //   }
 
+  .unl .dcf-header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .unl .dcf-header-global {
+    height: #{ms(7)}em;
+  }
+
   .unl .dcf-nav-global {
     flex-grow: 3;
   }
@@ -156,8 +187,25 @@
   }
 
   .unl .dcf-logo-lockup {
+    height: #{ms(14)}em;
     @include pb-5;
     padding-top: #{ms(7)}em;
+  }
+
+  .unl .dcf-site-affiliation {
+    font-size: #{ms(-2)}em;
+  }
+
+  .unl-site-title-short {
+    @include txt-h4;
+  }
+
+  .unl-site-title-medium {
+    @include txt-h5;
+  }
+
+  .unl-site-title-long {
+    @include txt-h6;
   }
 
 }

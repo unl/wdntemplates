@@ -8,14 +8,9 @@
 }
 
 
-.unl .dcf-site-afiliation a {
-  display: inline-block;
-  padding-bottom: #{ms(-10)}em;
-}
-
-
-.unl .dcf-site-title {
-  letter-spacing: .032em;
+.unl-n150 {
+  height: #{ms(9)}em;
+  width: #{ms(12)}em;
 }
 
 
@@ -24,24 +19,6 @@
   .unl .dcf-institution-title::before {
     content: 'The ';
     text-transform: uppercase;
-  }
-
-}
-
-
-@include mq(md, max, width) {
-
-  .unl .dcf-site-title {
-    @include txt-h5;
-  }
-
-}
-
-
-@include mq(md, min, width) {
-
-  .unl .dcf-site-title {
-    @include txt-h4;
   }
 
 }
