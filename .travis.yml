@@ -8,7 +8,7 @@ cache:
 php:
   - 7
 install:
-  - nvm install node
+  - nvm install 8
   - npm install
   # install `pa11y`
   - npm install phantomjs-prebuilt http-server grunt-cli
