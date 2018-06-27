@@ -764,9 +764,9 @@
                   </time>
                 </div>
               </div>
-              <figure class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
+              <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-              </figure>
+              </div>
             </li>
 
             <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
@@ -793,9 +793,9 @@
                   </time>
                 </div>
               </div>
-              <figure class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
+              <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-              </figure>
+              </div>
             </li>
 
             <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
@@ -823,9 +823,9 @@
                   </time>
                 </div>
               </div>
-              <figure class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
+              <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-              </figure>
+              </div>
             </li>
 
             <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
@@ -851,9 +851,9 @@
                   </time>
                 </div>
               </div>
-              <figure class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
+              <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-              </figure>
+              </div>
             </li>
 
             <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
@@ -878,9 +878,9 @@
                   </time>
                 </div>
               </div>
-              <figure class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
+              <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-              </figure>
+              </div>
             </li>
 
             <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
@@ -907,9 +907,9 @@
                   </time>
                 </div>
               </div>
-              <figure class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
+              <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-              </figure>
+              </div>
             </li>
 
           </ul>
