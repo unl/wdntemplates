@@ -41,16 +41,16 @@
     </div>
 
     <!--     <div class="dcf-wrapper dcf-logo dcf-d-flex dcf-ai-center dcf-pt-5 dcf-pb-4 dcf-lh-1 dcf-overflow-hidden"> -->
-    <div class="dcf-wrapper dcf-logo-lockup dcf-d-flex dcf-ai-center dcf-overflow-hidden">
+    <div class="dcf-wrapper dcf-logo-lockup dcf-d-flex dcf-ai-flex-end dcf-overflow-hidden">
       <!--#include virtual="/wdn/templates_5.0/includes/global/logo.html" -->
-      <div class="dcf-d-flex dcf-flex-col dcf-jc-center dcf-flex-grow-1 dcf-h-100%">
+      <div class="dcf-site-group dcf-d-flex dcf-flex-col dcf-jc-center">
         <div class="dcf-site-affiliation dcf-lh-3 dcf-italic" id="dcf-site-affiliation">
           <!-- InstanceBeginEditable name="affiliation" -->
 <!--           <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a> -->
           <a href="http://ianr.unl.edu/">Institute of Agriculture and Natural Resources</a>
           <!-- InstanceEndEditable -->
         </div>
-        <div class="dcf-site-title dcf-bold dcf-uppercase dcf-lh-2 unl-font-sans unl-site-title-long" id="dcf-site-title">
+        <div class="dcf-site-title dcf-bold dcf-lh-2 dcf-uppercase unl-font-sans unl-ls-1 unl-site-title-long" id="dcf-site-title">
           <!-- InstanceBeginEditable name="titlegraphic" -->
           <a href="https://www.unl.edu/">
             College of Agricultural Sciences and Natural&nbsp;Resources
@@ -120,7 +120,7 @@
 
   <main class="dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
 
-<!--     <div class="dcf-stretch unl-stripe-b-white" style="background-color: #eee;"> -->
+<!--     <div class="dcf-stretch" style="background-color:#e5e4e1;"> -->
     <div class="dcf-stretch">
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-7">
 

@@ -25,8 +25,9 @@
 }
 
 
-.unl .dcf-nav-global li:not(:last-child) {
-  padding-right: 2.4vw; // core
+.unl .dcf-nav-global a {
+  padding-left: #{ms(-2)}vw;
+  padding-right: #{ms(-2)}vw;
 }
 
 
@@ -317,8 +318,7 @@
   .unl .dcf-nav-local-wrapper {
     display: flex;
     flex-direction: column;
-//     height: 100%;
-    height: calc(100vh - #{ms(7)}em - #{ms(14)}em - 3px);
+    height: 100%;
 //     max-height: 80vh;
 //     overflow-y: auto;
 //     padding-right: 5.62vw;
@@ -328,7 +328,13 @@
 
   .unl .dcf-nav-local {
     border-top: 1px solid $ui-100;
+    height: 100%;
     @include pr-4;
+  }
+
+
+  .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local-wrapper {
+    height: calc(100vh - #{ms(7)}em - #{ms(14)}em - 3px);
   }
 
 
@@ -350,11 +356,18 @@
     grid-column-gap: 0;
 //     border-top: 1px solid #eee;
 //     flex-flow: row nowrap;
+    height: 100%;
     width: 100%;
   }
 
 
+  .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local > ul {
+    height: unset;
+  }
+
+
   .unl .dcf-nav-local > ul > li {
+    height: 100%;
     position: relative;
 //     display: flex;
 //     flex-direction: column;
@@ -369,7 +382,7 @@
 
 
   .unl .dcf-nav-local > ul > li > a {
-    background-color: $cream;
+//     background-color: $cream;
     border-left: 1px solid $ui-100;
 
     height: 100%;

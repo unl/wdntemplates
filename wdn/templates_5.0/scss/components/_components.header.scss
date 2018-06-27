@@ -13,6 +13,10 @@
 // }
 
 
+.unl .dcf-site-group {
+  min-height: #{ms(8)}em;
+}
+
 .unl .dcf-site-affiliation a {
   display: inline-block;
   padding-bottom: #{ms(-6)}em;
@@ -25,9 +29,9 @@
   color: $color-heading;
 }
 
-.unl .dcf-site-title {
-  letter-spacing: .032em;
-}
+// .unl .dcf-site-title {
+//   letter-spacing: .032em;
+// }
 
 
 // .unl .dcf-header-global {
@@ -176,20 +180,27 @@
 
   .unl .dcf-header-global {
     height: #{ms(7)}em;
+//     background-image: url('../images/nebraska.svg');
+//     background-position: left 50% bottom -1em;
+//     background-repeat: no-repeat;
+//     background-size: cover;
   }
+
+//   .unl .dcf-header-global .dcf-institution-title {
+//   	background-image: linear-gradient($diagonal1, $scarlet 90%, darken($scarlet,3%) 90%, $scarlet);
+//   }
 
   .unl .dcf-nav-global {
     flex-grow: 3;
   }
 
   .unl .dcf-header-global-item {
-    margin-left: 3.2vw;
+    margin-left: #{ms(8)}vw;
   }
 
   .unl .dcf-logo-lockup {
     height: #{ms(14)}em;
     @include pb-5;
-    padding-top: #{ms(7)}em;
   }
 
   .unl .dcf-site-affiliation {
