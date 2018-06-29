@@ -10,12 +10,7 @@
 
 
 .unl .dcf-nav-local > ul {
-  @include txt-sm;
-
-  @include mq(sm, min, width) {
-    @include txt-xs;
-  }
-
+  @include txt-md; // core
 }
 
 
@@ -136,7 +131,7 @@
 //     width: 100%;
 //     z-index: 998;
     @include bg-cream;
-    bottom: #{ms(10)}em;
+    bottom: $height-mobile-toolbar;
 //     box-shadow: 0 -1px 4px 0 rgba(0,0,0,.1);
     height: 43vh;
 //     @include overflow-y-scroll;
@@ -152,7 +147,7 @@
 
   .unl .dcf-nav-local-wrapper::before {
     background-image: linear-gradient(to top, fade-out($cream, 1), $cream);
-    bottom: calc(#{ms(10)}em + 43vh);
+    bottom: calc(#{$height-mobile-toolbar)} + 43vh);
     content: '';
     height: #{ms(6)}em;
     left: 0;
@@ -274,7 +269,7 @@
     border-top: 1px solid $ui-100;
     display: flex;
     @include font-sans;
-    @include w-8;
+    @include w-9;
     z-index: 999;
   }
 
@@ -288,7 +283,7 @@
 
   .unl .dcf-mobile-toolbar-label-menu {
     @include font-sans;
-    font-size: #{ms(-6)}em;
+    font-size: #{ms(-4)}em;
     font-weight: bold;
     @include ls-2;
     text-transform: uppercase;
@@ -296,9 +291,9 @@
 
 
   .unl .dcf-mobile-toolbar-icon-menu {
-    @include h-3;
-    margin-bottom: #{ms(-8)}em;
-    @include w-3;
+    @include h-4;
+    margin-bottom: #{ms(-4)}em;
+    @include w-4;
   }
 
 

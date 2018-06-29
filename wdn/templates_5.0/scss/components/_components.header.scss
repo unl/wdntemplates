@@ -3,7 +3,7 @@
 ///////////////////////////////
 
 
-.unl .dcf-header {
+.unl .dcf-header-global {
   border-top: 3px solid $scarlet;
 }
 
@@ -14,7 +14,7 @@
 
 
 .unl .dcf-site-group {
-  min-height: #{ms(8)}em;
+  min-height: #{ms(10)}em;
 }
 
 .unl .dcf-site-affiliation a {
@@ -78,7 +78,7 @@
 
   .unl .dcf-mobile-toolbar-toggle {
     flex-direction: column;
-    height: #{ms(10)}em;
+    height: #{$height-mobile-toolbar};
     margin-bottom: env(safe-area-inset-bottom);
   }
 
@@ -92,7 +92,7 @@
 
   .unl .dcf-mobile-toolbar-label {
     @include font-sans;
-    font-size: #{ms(-6)}em;
+    font-size: #{ms(-4)}em;
 //     font-size: 7px;
     font-weight: bold;
     @include ls-2;
@@ -101,16 +101,16 @@
 
   .unl .dcf-mobile-toolbar-icon {
     fill: currentColor;
-    @include h-4;
+    @include h-5;
     @include mb-2;
     margin-top: #{ms(-12)}em;
-    @include w-4;
+    @include w-5;
   }
 
   .unl .dcf-mobile-toolbar-modal {
     @include bg-overlay-dark;
-    bottom: #{ms(10)}em;
-    height: calc(100% - #{ms(10)}em);
+    bottom: #{$height-mobile-toolbar};
+    height: calc(100% - #{$height-mobile-toolbar});
     position: fixed;
     width: 100%;
     z-index: 998;
@@ -118,7 +118,7 @@
 
   .unl .dcf-mobile-toolbar-modal::after {
     background-image: linear-gradient(to bottom, fade-out($cream, 1), $cream);
-    bottom: #{ms(10)}em;
+    bottom: $height-mobile-toolbar;
     content: '';
     height: #{ms(8)}em;
     left: 0;
@@ -132,20 +132,16 @@
     @include pt-5;
   }
 
-  .unl .dcf-site-affiliation {
-    font-size: #{ms(-3)}em;
-  }
-
   .unl-site-title-short {
-    @include txt-lg;
+    @include txt-h5;
   }
 
   .unl-site-title-medium {
-    @include txt-md;
+    @include txt-h6;
   }
 
   .unl-site-title-long {
-    @include txt-sm;
+    @include txt-lg;
   }
 
 }
@@ -200,23 +196,19 @@
 
   .unl .dcf-logo-lockup {
     height: #{ms(14)}em;
-    @include pb-5;
-  }
-
-  .unl .dcf-site-affiliation {
-    font-size: #{ms(-2)}em;
+    @include pb-6;
   }
 
   .unl-site-title-short {
-    @include txt-h4;
+    @include txt-h3;
   }
 
   .unl-site-title-medium {
-    @include txt-h5;
+    @include txt-h4;
   }
 
   .unl-site-title-long {
-    @include txt-h6;
+    @include txt-h5;
   }
 
 }

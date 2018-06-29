@@ -7,15 +7,12 @@
 
 @include mq(md, max, width) {
 
-//   .unl .dcf-idm-toggle-icon {
-//
-//   }
-
   .dcf-idm-results {
     @include pb-8; // update in core
   }
 
 }
+
 
 @include mq(md, min, width) {
 
@@ -27,19 +24,18 @@
 
   .unl .dcf-mobile-toolbar-label-idm {
     @include font-serif;
-    @include txt-xs;
     @include pr-10;
   }
 
   .unl .dcf-mobile-toolbar-icon-idm {
     @include bg-cream;
     border: 3px solid $cream;
-    bottom: -#{ms(-2)}em;
+    bottom: -#{ms(0)}em;
     fill: mix($cream, #000, 90%);
-    @include h-8;
+    @include h-9;
     position: absolute;
     right: 0;
-    @include w-8;
+    @include w-9;
   }
 
   .dcf-idm-results {
