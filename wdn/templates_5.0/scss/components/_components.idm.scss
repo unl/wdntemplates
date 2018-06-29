@@ -11,20 +11,35 @@
     @include pb-8; // update in core
   }
 
+  .dcf-idm-options {
+    top: -3px;
+    transform: translateY(-100%);
+  }
+
 }
 
 
 @include mq(md, min, width) {
 
+  .unl .dcf-mobile-toolbar-idm {
+    position: relative;
+  }
+
   .unl .dcf-mobile-toolbar-toggle-idm {
     @include inverse;
     height: 100%;
     position: relative;
+    z-index: 1;
   }
 
   .unl .dcf-mobile-toolbar-label-idm {
     @include font-serif;
     @include pr-10;
+  }
+
+  // TODO: add hover and focus states
+  .unl .dcf-mobile-toolbar-toggle-idm .dcf-mobile-toolbar-label-idm {
+    @include cream;
   }
 
   .unl .dcf-mobile-toolbar-icon-idm {
@@ -41,6 +56,17 @@
   .dcf-idm-results {
     @include pb-10; // update in core
   }
+
+  .dcf-idm-options {
+    margin-top: 3px;
+    right: 0;
+    top: 100%;
+  }
+
+  .dcf-idm-options li:last-child {
+    margin-bottom: 0;
+  }
+
 
 }
 

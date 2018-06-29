@@ -175,11 +175,11 @@
   }
 
   .unl .dcf-header-global {
-    height: #{ms(7)}em;
 //     background-image: url('../images/nebraska.svg');
 //     background-position: left 50% bottom -1em;
 //     background-repeat: no-repeat;
 //     background-size: cover;
+    z-index: 999;
   }
 
 //   .unl .dcf-header-global .dcf-institution-title {
@@ -195,8 +195,9 @@
   }
 
   .unl .dcf-logo-lockup {
-    height: #{ms(14)}em;
     @include pb-6;
+    padding-top: #{ms(7)}em;
+    z-index: 998;
   }
 
   .unl-site-title-short {
