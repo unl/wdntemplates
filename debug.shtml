@@ -290,7 +290,7 @@
             <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Kylie</a>
           </div>
           <div class="dcf-1st unl-ftd-person-tsr-img">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/170609-tucker-green-roof-test.jpg" alt="#">
             </div>
           </div>
@@ -308,7 +308,7 @@
             <a class="dcf-btn dcf-btn-secondary" href="#" role="button">See How Valerie Got There</a>
           </div>
           <div class="dcf-1st unl-ftd-person-tsr-img">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/valerie-portrait.jpg" alt="#">
             </div>
           </div>
@@ -326,7 +326,7 @@
             <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Eartha</a>
           </div>
           <div class="dcf-1st unl-ftd-person-tsr-img">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/johnson-eartha_0.jpg" alt="#">
             </div>
           </div>
@@ -447,7 +447,7 @@
           <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Full Bio</a>
     	  </div>
         <div class="dcf-1st dcf-col-50%-start dcf-col-33%-start@sm">
-          <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+          <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
             <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/charles-oconnor.jpg" alt="Portrait photo of Charles O’Connor">
           </div>
         </div>
@@ -468,89 +468,89 @@
       <h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-stripes test">Dean’s Office Staff</h2>
       <ul class="dcf-list-bare dcf-grid-halves dcf-grid-thirds@sm dcf-grid-fourths@md dcf-col-gap-vw dcf-row-gap-md">
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Kathe Andersen</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Director of Communications and External Relations</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/kathe-andersen.jpg" alt="Portrait photo of Kathe Andersen">
             </div>
           </div>
         </li>
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">David Bagby</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Information Technology Services Manager</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/david-bagby.jpg" alt="Portrait photo of David Bagby">
             </div>
           </div>
         </li>
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Allison Casey</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Administrative Technician</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/allison-casey.jpg" alt="Portrait photo of Allison Casey">
             </div>
           </div>
         </li>
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Rachel Danay</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Assistant to the Dean</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/rachel-danay.jpg" alt="Portrait photo of Rachel Danay">
             </div>
           </div>
         </li>
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Sara Fedderson</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Assistant Director of Advising</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/sara-fedderson.jpg" alt="Portrait photo of Sara Fedderson">
             </div>
           </div>
         </li>
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Matthew Knight</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Assistant Director of Recruitment</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/matthew-knight.jpg" alt="Portrait photo of Matthew Knight">
             </div>
           </div>
         </li>
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Joseph Morris</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Systems Coordinator</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/joseph-morris.jpg" alt="Portrait photo of Joseph Morris">
             </div>
           </div>
         </li>
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Michael Reinmiller</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Digital Arts Support Technician</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/michael-reinmiller.jpg" alt="Portrait photo of Michael Reinmiller">
             </div>
           </div>

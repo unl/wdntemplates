@@ -386,17 +386,20 @@
 
 .unl-frame {
   position: relative;
+}
 
-  &::after {
-    border: 3px solid #fff;
-    content: '';
-    height: calc(100% - 4px);
-    left: 2px;
-    position: absolute;
-    top: 2px;
-    width: calc(100% - 4px);
-  }
+.unl-frame::after {
+  border: 3px solid #fff;
+  content: '';
+  height: calc(100% - 4px);
+  left: 2px;
+  position: absolute;
+  top: 2px;
+  width: calc(100% - 4px);
+}
 
+.dcf-circle.unl-frame::after {
+  border-radius: $circle;
 }
 
 .unl-frame > img {
