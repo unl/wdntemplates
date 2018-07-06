@@ -166,6 +166,8 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				domDialog.close();
 				domToggle.setAttribute('aria-pressed', 'false');
 				domSearchForm.reset();
+				//Send focus back to the toggle
+				domToggle.focus();
 			};
 
 			// add an event listener to support the iframe rendering
