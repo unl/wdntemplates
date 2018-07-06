@@ -224,6 +224,10 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 
 			//Close search on escape while the iframe has focus
 			window.addEventListener('message', function(e) {
+				if (!e.originalEvent) {
+					return;
+				}
+
 				let originalEvent = e.originalEvent;
 
 				if ('wdn.search.close' !== originalEvent.data) {
