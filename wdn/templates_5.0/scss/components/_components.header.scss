@@ -3,15 +3,24 @@
 ///////////////////////////////
 
 
-.unl .dcf-header {
+.unl .dcf-header-global {
   border-top: 3px solid $scarlet;
 }
 
 
-.unl .dcf-header a:visited {
-  color: $color-link;
+// .unl .dcf-header a:visited {
+//   color: $color-link;
+// }
+
+
+.unl .dcf-site-group {
+  min-height: #{ms(10)}em;
 }
 
+.unl .dcf-site-affiliation a {
+  display: inline-block;
+  padding-bottom: #{ms(-6)}em;
+}
 
 .unl .dcf-site-affiliation a,
 .unl .dcf-site-affiliation a:visited,
@@ -20,15 +29,16 @@
   color: $color-heading;
 }
 
+// .unl .dcf-site-title {
+//   letter-spacing: .032em;
+// }
+
 
 // .unl .dcf-header-global {
 //   padding-top: #{ms(-12)}em;
 //   background-image: linear-gradient(to top, $scarlet 2px, transparent 2px, transparent 4px, $scarlet 4px);
 //   border-bottom: 1px solid #ddd;
 // }
-
-
-
 
 
 // @include mq(md, max, width) {
@@ -68,7 +78,7 @@
 
   .unl .dcf-mobile-toolbar-toggle {
     flex-direction: column;
-    height: #{ms(10)}em;
+    height: #{$height-mobile-toolbar};
     margin-bottom: env(safe-area-inset-bottom);
   }
 
@@ -82,7 +92,7 @@
 
   .unl .dcf-mobile-toolbar-label {
     @include font-sans;
-    font-size: #{ms(-6)}em;
+    font-size: #{ms(-4)}em;
 //     font-size: 7px;
     font-weight: bold;
     @include ls-2;
@@ -91,16 +101,16 @@
 
   .unl .dcf-mobile-toolbar-icon {
     fill: currentColor;
-    @include h-4;
+    @include h-5;
     @include mb-2;
     margin-top: #{ms(-12)}em;
-    @include w-4;
+    @include w-5;
   }
 
   .unl .dcf-mobile-toolbar-modal {
     @include bg-overlay-dark;
-    bottom: #{ms(10)}em;
-    height: calc(100% - #{ms(10)}em);
+    bottom: #{$height-mobile-toolbar};
+    height: calc(100% - #{$height-mobile-toolbar});
     position: fixed;
     width: 100%;
     z-index: 998;
@@ -108,7 +118,7 @@
 
   .unl .dcf-mobile-toolbar-modal::after {
     background-image: linear-gradient(to bottom, fade-out($cream, 1), $cream);
-    bottom: 0;
+    bottom: $height-mobile-toolbar;
     content: '';
     height: #{ms(8)}em;
     left: 0;
@@ -120,6 +130,18 @@
   .unl .dcf-logo-lockup {
     @include pb-4;
     @include pt-5;
+  }
+
+  .unl-site-title-short {
+    @include txt-h5;
+  }
+
+  .unl-site-title-medium {
+    @include txt-h6;
+  }
+
+  .unl-site-title-long {
+    @include txt-lg;
   }
 
 }
@@ -147,17 +169,47 @@
 //     transition: text-decoration-color $hover-on;
 //   }
 
+  .unl .dcf-header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .unl .dcf-header-global {
+//     background-image: url('../images/nebraska.svg');
+//     background-position: left 50% bottom -1em;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+    z-index: 999;
+  }
+
+//   .unl .dcf-header-global .dcf-institution-title {
+//   	background-image: linear-gradient($diagonal1, $scarlet 90%, darken($scarlet,3%) 90%, $scarlet);
+//   }
+
   .unl .dcf-nav-global {
     flex-grow: 3;
   }
 
   .unl .dcf-header-global-item {
-    margin-left: 3.2vw;
+    margin-left: #{ms(8)}vw;
   }
 
   .unl .dcf-logo-lockup {
-    @include pb-5;
+    @include pb-6;
     padding-top: #{ms(7)}em;
+    z-index: 998;
+  }
+
+  .unl-site-title-short {
+    @include txt-h3;
+  }
+
+  .unl-site-title-medium {
+    @include txt-h4;
+  }
+
+  .unl-site-title-long {
+    @include txt-h5;
   }
 
 }

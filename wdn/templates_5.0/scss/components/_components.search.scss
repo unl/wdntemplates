@@ -55,7 +55,7 @@
   }
 
   .unl .dcf-mobile-toolbar-toggle-search {
-    background-image: linear-gradient(to left, $cream #{ms(5)}em, fade-out($cream,1) #{ms(5)}em);
+    background-image: linear-gradient(to left, $cream #{ms(6)}em, fade-out($cream,1) #{ms(6)}em);
     @include b-1;
     border-color: $cream;
     justify-content: space-between;
@@ -65,16 +65,14 @@
     @include inverse;
     flex-grow: 1;
     @include font-serif;
-    @include txt-xs;
     padding: #{ms(-6)}em #{ms(8)}em #{ms(-6)}em #{ms(-2)}em;
     text-align: left;
   }
 
   .unl .dcf-mobile-toolbar-icon-search {
-    @include h-3;
-    @include ml-2;
-    @include mr-2;
-    @include w-3;
+    @include h-4;
+    @include mr-3;
+    @include w-4;
   }
 
 //   .unl .dcf-search-results {

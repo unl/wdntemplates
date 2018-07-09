@@ -7,44 +7,66 @@
 
 @include mq(md, max, width) {
 
-//   .unl .dcf-idm-toggle-icon {
-//
-//   }
-
   .dcf-idm-results {
     @include pb-8; // update in core
   }
 
+  .dcf-idm-options {
+    top: -3px;
+    transform: translateY(-100%);
+  }
+
 }
 
+
 @include mq(md, min, width) {
+
+  .unl .dcf-mobile-toolbar-idm {
+    position: relative;
+  }
 
   .unl .dcf-mobile-toolbar-toggle-idm {
     @include inverse;
     height: 100%;
     position: relative;
+    z-index: 1;
   }
 
   .unl .dcf-mobile-toolbar-label-idm {
     @include font-serif;
-    @include txt-xs;
     @include pr-10;
+  }
+
+  // TODO: add hover and focus states
+  .unl .dcf-mobile-toolbar-toggle-idm .dcf-mobile-toolbar-label-idm {
+    @include cream;
   }
 
   .unl .dcf-mobile-toolbar-icon-idm {
     @include bg-cream;
     border: 3px solid $cream;
-    bottom: -#{ms(-2)}em;
+    bottom: -#{ms(0)}em;
     fill: mix($cream, #000, 90%);
-    @include h-8;
+    @include h-9;
     position: absolute;
     right: 0;
-    @include w-8;
+    @include w-9;
   }
 
   .dcf-idm-results {
     @include pb-10; // update in core
   }
+
+  .dcf-idm-options {
+    margin-top: 3px;
+    right: 0;
+    top: 100%;
+  }
+
+  .dcf-idm-options li:last-child {
+    margin-bottom: 0;
+  }
+
 
 }
 

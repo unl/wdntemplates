@@ -4,23 +4,14 @@
 
 
 
-
-
-
-
-
-.unl .dcf-nav-local > ul {
-//   @include font-sans;
-
-  @include txt-sm;
-
-  @include mq(sm, min, width) {
-    @include txt-xs;
-  }
-
+.unl .dcf-nav-local a {
+  display: block;
 }
 
 
+.unl .dcf-nav-local > ul {
+  @include txt-md; // core
+}
 
 
 .unl .dcf-nav-global li:not(:last-child),
@@ -28,11 +19,14 @@
   margin-right: 0; // core
 }
 
-.unl .dcf-nav-global li:not(:last-child) {
-  padding-right: 2.4vw; // core
+
+.unl .dcf-nav-global a {
+  padding-left: #{ms(-2)}vw;
+  padding-right: #{ms(-2)}vw;
 }
 
-.unl .dcf-nav-local > ul > li {
+
+.unl .dcf-nav-local ul li {
   margin-bottom: 0;
 }
 
@@ -41,46 +35,51 @@
 //   display: block;
 //   display: flex;
 //   flex-grow: 1;
-  @include font-sans;
   font-weight: 700;
   @include ls-2;
+  @include pb-4;
   @include pt-4;
-  @include pb-3;
   text-transform: uppercase;
 }
 
 
 .unl .dcf-nav-local ul ul {
-  font-size: 1em; // core
-  padding-top: 0; // core
+  font-size: #{ms(-2)}rem; // core
+  @include pt-0; // core
 }
+
+
+.unl .dcf-nav-local ul ul > li > a {
+  @include pb-1;
+  @include pt-1;
+}
+
 
 .unl .dcf-nav-local ul ul li:last-child {
   margin-bottom: 0; // core
 }
 
 
-
-
-
-
 @include mq(md, max, width) {
 
-  //Default to closed on mobile
+  // Default to closed on mobile
   #dcf-navigation {
     display: none;
   }
 
-  //Open when parent model is open
+
+  // Open when parent model is open
   .dcf-modal-open #dcf-navigation {
     display: block;
   }
+
 
   .headroom {
   	will-change: transform;
   	-webkit-transition: -webkit-transform 250ms ease-out, opacity 250ms ease-out !important;
   	transition: transform 250ms ease-out, opacity 250ms ease-out !important;
   }
+
 
 //   .headroom--fixed {
 //   	position: -webkit-fixed;
@@ -91,12 +90,14 @@
 //   	bottom: 0vh;
 //   }
 
+
   .headroom--pinned {
     opacity: 1;
   	-webkit-transform: translateY(0%);
   	-ms-transform: translateY(0%);
   	transform: translateY(0%);
   }
+
 
   .headroom--unpinned {
     opacity: 0;
@@ -105,55 +106,59 @@
   	transform: translateY(100%);
   }
 
+
   .unl .dcf-mobile-toolbar-menu {
     display: flex;
     left: 0;
   }
 
+
   .unl .dcf-mobile-toolbar-toggle-menu {
     padding: 0;
   }
+
 
   .unl .dcf-nav-global {
     display: none; // temp
   }
 
-  .unl .dcf-nav-local-wrapper {
 
+  .unl .dcf-nav-local-wrapper {
 //     bottom: #{ms(10)}em;
 //     height: 100%;
 //     opacity: 0;
 //     position: fixed;
 //     width: 100%;
 //     z-index: 998;
-
     @include bg-cream;
-    bottom: 0;
+    bottom: $height-mobile-toolbar;
 //     box-shadow: 0 -1px 4px 0 rgba(0,0,0,.1);
-    height: 56vh;
-    @include overflow-y-scroll;
-    -webkit-overflow-scrolling: touch; // remove after added to DCF core
+    height: 43vh;
+//     @include overflow-y-scroll;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     padding-left: 5.6%;
     padding-right: 5.6%;
 //     pointer-events: none;
     position: fixed;
     z-index: 998;
-
   }
+
 
   .unl .dcf-nav-local-wrapper::before {
     background-image: linear-gradient(to top, fade-out($cream, 1), $cream);
-    bottom: -#{ms(6)}em;
+    bottom: calc(#{$height-mobile-toolbar)} + 43vh);
     content: '';
     height: #{ms(6)}em;
     left: 0;
     position: fixed;
-    transform: translateY(-56vh);
+    transform: translateY(100%);
     width: 100%;
     z-index: 999;
   }
 
-  .unl .dcf-nav-local {
+
+//   .unl .dcf-nav-local {
 // //     animation-name: none;
 // //     animation: dcf-disappear 500ms ease-out forwards;
 //     @include bg-cream;
@@ -165,10 +170,7 @@
 // //     pointer-events: none;
 //     position: fixed;
 //     z-index: 998;
-  }
-
-
-
+//   }
 
 
 //   .unl .dcf-nav-local.dcf-is-open {
@@ -178,10 +180,13 @@
 //     opacity: 0;
 //   }
 
+
   .unl .dcf-nav-local > ul {
-    padding-bottom: #{ms(14)}em;
+//     padding-bottom: #{ms(16)}em;
+    @include pb-9;
     @include pt-8;
   }
+
 
   .unl .dcf-nav-local > ul {
 
@@ -197,6 +202,7 @@
 
 @include mq(sm, min, width) {
 
+
   @supports (display: grid) {
 
     .unl .dcf-nav-local > ul {
@@ -205,55 +211,68 @@
 
   }
 
+
 }
 
 
 @include mq(md, min, width) {
 
+
   .unl .dcf-nav-global {
     display: flex;
   }
+
 
   .unl .dcf-nav-global a {
     @include inverse-link;
 //     justify-content: flex-end; // core
   }
 
+
   .unl .dcf-nav-bar {
+//     background: linear-gradient(to right, fade-out($ui-100,1) 5.625%, fade-out($ui-100,0) calc(5.625% + 3.16em), fade-out($ui-100,0) 94.375%, fade-out($ui-100,1)) 0 0 / 100% 1px no-repeat;
     display: flex;
+    flex: 1 0 auto;
     flex-wrap: nowrap;
     padding-left: 5.6%;
     padding-right: 5.6%;
   }
 
+
   .unl .dcf-nav-bar::after {
     content: '';
-    position: absolute;
-    background-image: linear-gradient(to bottom, $cream, fade-out($cream,.05));
+    position: fixed;
+    background-image: linear-gradient(to bottom, $cream, fade-out($cream,.02));
     height: 100vh;
     left: 0;
     opacity: 0;
     pointer-events: none;
-    top: 100%;
-    transition: opacity 400ms ease-out;
+    top: 0;
+    transition: opacity 500ms ease-out;
     width: 100%;
+    z-index: 997;
+
+//     @supports (filter: blur(5px)) {
+//   	  background-image: linear-gradient(to bottom, $cream, fade-out($cream,.05));
+//   	}
+
+  }
+
+
+  .unl .dcf-nav-bar.dcf-modal-open::after {
+    opacity: 1;
+    transition: opacity 250ms ease-out;
+  }
+
+
+  .unl .dcf-mobile-toolbar-menu {
+    border-top: 1px solid $ui-100;
+    display: flex;
+    @include font-sans;
+    @include w-9;
     z-index: 998;
   }
 
-//   .unl .dcf-mobile-toolbar-modal {
-  #dcf-navigation {
-    display: flex;
-  }
-
-  .unl .dcf-nav-local-wrapper {
-    display: flex;
-  }
-
-  .unl .dcf-mobile-toolbar-menu {
-    border-top: 1px solid #eee;
-    display: flex;
-    @include font-sans;
-  }
 
   .unl .dcf-mobile-toolbar-toggle-menu {
     @include pb-3;
@@ -261,35 +280,70 @@
     @include pt-4;
   }
 
+
   .unl .dcf-mobile-toolbar-label-menu {
     @include font-sans;
-    font-size: #{ms(-6)}em;
+    font-size: #{ms(-4)}em;
     font-weight: bold;
     @include ls-2;
     text-transform: uppercase;
   }
 
+
   .unl .dcf-mobile-toolbar-icon-menu {
-    @include h-3;
-    margin-bottom: #{ms(-8)}em;
-    @include w-3;
+    @include h-4;
+    margin-bottom: #{ms(-4)}em;
+    @include w-4;
   }
+
 
 //   .unl .dcf-mobile-toolbar-modal {
 //     position: relative;
 //   }
 
+//   .unl .dcf-mobile-toolbar-modal {
+  #dcf-navigation {
+    display: flex;
+    height: 100%;
+    position: relative;
+    z-index: 998;
+  }
+
+
+  .unl .dcf-nav-local-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+//     max-height: 80vh;
+//     overflow-y: auto;
+//     padding-right: 5.62vw;
+    position: absolute;
+  }
+
 
   .unl .dcf-nav-local {
-    @include bt;
-    border-color: #eee;
-    display: flex;
+    border-top: 1px solid $ui-100;
+    height: 100%;
+    @include pr-4;
   }
 
+
+  .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local-wrapper {
+    height: calc(100vh - #{ms(7)}em - #{ms(14)}em - 3px);
+  }
+
+
+  .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+
   .unl .dcf-nav-local a {
-    display: block;
     @include pl-5;
   }
+
 
   .unl .dcf-nav-local > ul {
     display: grid; // core
@@ -297,10 +351,18 @@
     grid-column-gap: 0;
 //     border-top: 1px solid #eee;
 //     flex-flow: row nowrap;
+    height: 100%;
     width: 100%;
   }
 
+
+  .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local > ul {
+    height: unset;
+  }
+
+
   .unl .dcf-nav-local > ul > li {
+    height: 100%;
     position: relative;
 //     display: flex;
 //     flex-direction: column;
@@ -308,60 +370,99 @@
 //     align-items: center;
   }
 
+
   .unl .dcf-nav-local > ul > li:not(:last-child) a {
     @include pr-5;
   }
 
+
   .unl .dcf-nav-local > ul > li > a {
-    border-left: 1px solid #eee;
+//     background-color: $cream;
+    border-left: 1px solid $ui-100;
+
     height: 100%;
+//     height: auto;
+
 //     justify-content: center;
     @include lh-3;
 //     padding: #{ms(0)}em 2.4vw;
-    @include pb-4;
-    @include pt-4;
 //     text-align: center;
+    position: sticky;
+    top: 1px;
     width: 100%;
   }
 
+
+//   .unl .dcf-nav-local > ul > li > a::after {
+//     background-image: linear-gradient(to bottom, fade-out($cream,0), fade-out($cream,1));
+//     content: '';
+//     height: 1em;
+//     left: 0;
+//     position: absolute;
+//     top: 100%;
+//     width: 100%;
+//     z-index: 999;
+//   }
+
+
   .unl .dcf-nav-local ul ul {
-    background: linear-gradient(to bottom, #eee, fade-out(#eee,1)) 0 0 / 1px 100% no-repeat;
-    @include pb-8;
+//     background: linear-gradient(to bottom, $ui-100, fade-out($ui-100,1)) 0 0 / 1px 100% no-repeat;
+//     font-size: #{ms(-3)}rem;
+    @include pb-10;
     margin-top: 0;
+
     position: absolute;
+
     top: 100%;
     width: 100%;
     z-index: 999;
 
-
-// position: absolute;
-border: 0;
-// clip: rect(1px, 1px, 1px, 1px);
-clip: auto;
-// height: 1px;
-height: auto;
-// overflow: hidden;
-overflow: auto;
-// position: absolute;
-// width: 1px;
-// word-wrap: normal;
-word-wrap: normal;
-
+    // position: absolute;
+    border: 0;
+    // clip: rect(1px, 1px, 1px, 1px);
+    clip: auto;
+    // height: 1px;
+    height: auto;
+    // overflow: hidden;
+    overflow: auto;
+    // position: absolute;
+    // width: 1px;
+    // word-wrap: normal;
+    word-wrap: normal;
   }
+
+
 
   .unl .dcf-nav-bar .dcf-nav-local ul ul  {
     display: none;
   }
 
 
-
-  .unl .dcf-nav-bar.dcf-modal-open::after {
-    opacity: 1;
-    transition: opacity 200ms ease-out;
-  }
-
   .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local ul ul  {
     display: block;
   }
+
+
+
+  // navigation transition to be added later
+  .unl .dcf-nav-bar .dcf-nav-local ul ul:after {
+    background-image: linear-gradient(to bottom, $ui-100, fade-out($ui-100,1));
+    content: '';
+    left: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transform: scaleY(0);
+    transform-origin: 0 0;
+    width: 1px;
+    transition: transform 300ms ease-out;
+  }
+
+
+  .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local ul ul:after {
+    transform: scaleY(1);
+    transition: transform 300ms ease-out;
+  }
+
 
 }
