@@ -14,8 +14,9 @@ button::-moz-focus-inner,
 
 
 .unl .dcf-btn {
-  border-width: 2px;
+  border-radius: 0;
   border-style: solid;
+  border-width: 2px;
   @include font-sans;
   @include txt-xs;
   font-weight: bold;
