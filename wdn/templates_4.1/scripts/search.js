@@ -61,11 +61,15 @@ define(['jquery', 'wdn', 'require', 'navigation'], function($, WDN, require, nav
 
 							for (i = 0; i < allowSearchParams.length; i++) {
 								if (localSearchParams.has(allowSearchParams[i])) {
+									//Used on mobile
 									domSearchForm.append($('<input>', {
 										type: "hidden",
 										name: allowSearchParams[i],
 										value: localSearchParams.get(allowSearchParams[i])
 									}));
+									
+									//Used on desktop with cross frame communication
+									searchFrameAction += '&'+allowSearchParams[i]+'=' + encodeURIComponent(localSearchParams.get(allowSearchParams[i]));
 								}
 							}
 						} else {
@@ -74,11 +78,15 @@ define(['jquery', 'wdn', 'require', 'navigation'], function($, WDN, require, nav
 							for (i = 0; i < localSearchParams.length; i++) {
 								paramPair = localSearchParams[i].split('=');
 								if (allowSearchParams.indexOf(paramPair[0]) >= 0) {
+									//Used on mobile
 									domSearchForm.append($('<input>', {
 										type: "hidden",
 										name: paramPair[0],
 										value: decodeURIComponent(paramPair[1])
 									}));
+									
+									//Used on desktop with cross frame communication
+									searchFrameAction += '&'+paramPair[0]+'=' + encodeURIComponent(paramPair[1]);
 								}
 							}
 						}
