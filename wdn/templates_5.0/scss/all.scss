@@ -4,7 +4,7 @@
 
 
 // !Variables
-@import '../../../node_modules/dcf/core/scss/variables/variables';
+@import '../../../node_modules/dcf/assets/src/scss/variables/variables';
 @import 'variables/variables.borders';
 @import 'variables/variables.colors';
 @import 'variables/variables.angles';
@@ -12,7 +12,7 @@
 
 
 // !Mixins
-@import '../../../node_modules/dcf/core/scss/mixins/mixins';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/mixins';
 @import 'mixins/mixins.backgrounds';
 @import 'mixins/mixins.colors';
 @import 'mixins/mixins.fonts';
@@ -20,26 +20,26 @@
 
 
 // !Functions
-@import '../../../node_modules/dcf/core/scss/functions/functions';
+@import '../../../node_modules/dcf/assets/src/scss/functions/functions';
 
 
 // !Generic
 // TODO: install postcss-normalize, then remove normalize file
 @import 'generic/generic.normalize';
-@import '../../../node_modules/dcf/core/scss/generic/generic';
+@import '../../../node_modules/dcf/assets/src/scss/generic/generic';
 @import 'generic/generic.base';
 
 
 // !Elements
-@import '../../../node_modules/dcf/core/scss/elements/elements';
+@import '../../../node_modules/dcf/assets/src/scss/elements/elements';
 
 
 // !Objects
-@import '../../../node_modules/dcf/core/scss/objects/objects';
+@import '../../../node_modules/dcf/assets/src/scss/objects/objects';
 
 
 // !Components
-@import '../../../node_modules/dcf/core/scss/components/components';
+@import '../../../node_modules/dcf/assets/src/scss/components/components';
 @import 'components/components.bio';
 @import 'components/components.breadcrumbs';
 @import 'components/components.button-groups';
@@ -65,11 +65,11 @@
 
 
 // !JavaScript
-@import '../../../node_modules/dcf/core/scss/javascript/javascript';
+@import '../../../node_modules/dcf/assets/src/scss/javascript/javascript';
 
 
 // !Utilities
-@import '../../../node_modules/dcf/core/scss/utilities/utilities';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/utilities';
 @import 'utilities/utilities.backgrounds';
 @import 'utilities/utilities.colors';
 @import 'utilities/utilities.fonts';
