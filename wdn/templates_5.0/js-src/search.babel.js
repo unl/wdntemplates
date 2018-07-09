@@ -49,7 +49,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 			
 			dialogHelper.initialize(domDialog);
 			domToggle.addEventListener('click', function(e) {
-				if (!domDialog.getAttribute('open')) {
+				if (!domDialog.hasAttribute('open')) {
 					//Search is currently closed, so open it.
 					domToggle.setAttribute('aria-pressed', 'true');
 					domDialog.classList.remove('dcf-d-none');
@@ -158,7 +158,12 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				$progress.hidden = true;
 			};
 
-			let closeSearch = function() {
+			let closeSearch = function(returnFocus = false) {
+				if (!domDialog.hasAttribute('open')) {
+					//Search is already closed.
+					return;
+				}
+				
 				clearTimeout(autoSubmitTimeout);
 				domQ.value = '';
 				domSearchForm.parentElement.classList.remove('active');
@@ -166,6 +171,10 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				domDialog.close();
 				domToggle.setAttribute('aria-pressed', 'false');
 				domSearchForm.reset();
+				if (returnFocus) {
+					//Send focus back to the toggle
+					domToggle.focus();
+				}
 			};
 
 			// add an event listener to support the iframe rendering
@@ -174,7 +183,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 
 				if (keyCode === 27) {
 					//Close on escape
-					closeSearch();
+					closeSearch(true);
 					return;
 				}
 
@@ -224,26 +233,24 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 
 			//Close search on escape while the iframe has focus
 			window.addEventListener('message', function(e) {
-				let originalEvent = e.originalEvent;
-
-				if ('wdn.search.close' !== originalEvent.data) {
+				if ('wdn.search.close' !== e.data) {
 					//Make sure this is our event
 					return;
 				}
 
-				if (searchOrigin !== originalEvent.origin) {
+				if (searchOrigin !== e.origin) {
 					//Verify the origin
 					return;
 				}
 
-				closeSearch();
+				closeSearch(true);
 			});
 
 			//Close search on escape
 			document.addEventListener('keydown', function(e) {
 				if (e.keyCode === 27) {
 					//Close on escape
-					closeSearch();
+					closeSearch(true);
 				}
 			});
 

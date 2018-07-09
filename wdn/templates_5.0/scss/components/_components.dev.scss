@@ -135,7 +135,9 @@
 // core
 
 
-
+p {
+  max-width: none; // TODO: remove max-width from paragraphs in DCF core
+}
 
 
 
@@ -174,21 +176,21 @@
 //   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
 //   content: '';
 //   display: inline-block;
-//   height: $length10;
+//   height: $length-em-10;
 //   @include mt-4;
-//   width: $length3;
+//   width: $length-em-3;
 
 // transform version
   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
   bottom: 50%;
   content: '';
   display: inline-block;
-  height: $length10;
+  height: $length-em-10;
   position: absolute;
   right: -1em;
   transform: rotate(90deg) translateX(50%);
   transform-origin: 100% 100%;
-  width: $length3;
+  width: $length-em-3;
 }
 
 .unl-stripes::after {
