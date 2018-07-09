@@ -135,7 +135,9 @@
 // core
 
 
-
+p {
+  max-width: none; // TODO: remove max-width from paragraphs in DCF core
+}
 
 
 
