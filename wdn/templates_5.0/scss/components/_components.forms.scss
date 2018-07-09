@@ -72,6 +72,7 @@
 .unl .dcf-input-file {
   @include mb-2;
   @include mt-2;
+  width: 100%; // TODO: remove after updated in DCF core
 }
 
 
