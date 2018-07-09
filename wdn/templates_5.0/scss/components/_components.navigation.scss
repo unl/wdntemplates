@@ -241,13 +241,13 @@
 
   .unl .dcf-nav-bar::after {
     content: '';
-    position: absolute;
+    position: fixed;
     background-image: linear-gradient(to bottom, $cream, fade-out($cream,.02));
-    height: calc(100vh - #{ms(7)}em - #{ms(14)}em - 3px);
+    height: 100vh;
     left: 0;
     opacity: 0;
     pointer-events: none;
-    top: 100%;
+    top: 0;
     transition: opacity 500ms ease-out;
     width: 100%;
     z-index: 997;
@@ -270,7 +270,7 @@
     display: flex;
     @include font-sans;
     @include w-9;
-    z-index: 999;
+    z-index: 998;
   }
 
 
@@ -306,7 +306,7 @@
     display: flex;
     height: 100%;
     position: relative;
-    z-index: 999;
+    z-index: 998;
   }
 
 
