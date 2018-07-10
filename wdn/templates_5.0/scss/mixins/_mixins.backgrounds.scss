@@ -15,6 +15,13 @@
 }
 
 
+// !Dark -- TODO: finalize name
+@mixin bg-dark($imp:null) {
+  background-color: $ui-800 $imp;
+}
+
+
+
 // !Diagonal Stripes: Scarlet
 @mixin bg-stripes-scarlet($imp:null) {
   background-image: repeating-linear-gradient($diagonal1, $scarlet, $scarlet 2px, transparent 2px, transparent 4px);
