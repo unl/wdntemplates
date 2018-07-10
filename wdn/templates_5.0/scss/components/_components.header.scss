@@ -116,16 +116,17 @@
     z-index: 998;
   }
 
-  .unl .dcf-mobile-toolbar-modal::after {
-    background-image: linear-gradient(to bottom, fade-out($cream, 1), $cream);
-    bottom: $height-mobile-toolbar;
-    content: '';
-    height: #{ms(8)}em;
-    left: 0;
-    position: fixed;
-    width: 100%;
-    z-index: 999;
-  }
+// TODO: create separate class(es) to avoid visual conflict between the light gradient and dark color of the app region for controls and search
+//   .unl .dcf-mobile-toolbar-modal::after {
+//     background-image: linear-gradient(to bottom, fade-out($cream, 1), $cream);
+//     bottom: $height-mobile-toolbar;
+//     content: '';
+//     height: #{ms(8)}em;
+//     left: 0;
+//     position: fixed;
+//     width: 100%;
+//     z-index: 999;
+//   }
 
   .unl .dcf-logo-lockup {
     @include pb-4;
