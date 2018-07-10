@@ -1,3 +1,40 @@
+// var mainDir = 'wdn',
+// 		buildDir = 'build',
+// 		templateDir = mainDir + '/templates_5.0',
+// 		templateScss = templateDir + '/scss',
+// 		templateCss = templateDir + '/css',
+// 		templateJs = templateDir + '/js',
+// 		templateJsSrc = templateDir + '/js-src',
+// 		builtJsDir = 'compressed',
+// 		buildJsDir = buildDir + '/' + builtJsDir,
+// 		templateCompileJs = templateJs + '/' + builtJsDir,
+// 		templateIncludeDir = templateDir + '/includes',
+// 		templateHtmlDir = 'Templates',
+// 		templateSharedDir = 'sharedcode',
+// 		zipDir = 'downloads',
+// 		allSubFilesGlob = '/**';
+//
+// var cssObjs = [
+// 	'all',
+// 	//'modules/pagination',
+// 	//'modules/infographics',
+// 	//'critical'
+// ];
+//
+// // dynamic target files built from variables above
+// var scssGlobTmpFiles = {};
+// cssObjs.forEach(function(file) {
+// 	scssGlobTmpFiles[templateScss + '/' + file + '.tmp.scss'] = templateScss + '/' + file + '.scss';
+// });
+//
+// var scssAllFiles = {};
+// cssObjs.forEach(function(file) {
+// 	scssAllFiles[templateCss + '/' + file + '.css'] = templateScss + '/' + file + '.tmp.scss';
+// });
+//
+// console.log(scssAllFiles);
+// console.log(scssGlobTmpFiles);
+
 module.exports = function (grunt) {
 	// CSS files to be built (relative to less directory, no extension)
 	var cssObjs = [
@@ -183,9 +220,14 @@ module.exports = function (grunt) {
 	var gitFilters = require('./.git_filters/lib/git-filters.js');
 
 	// dynamic target files built from variables above
-	var scssAllFiles = {};
+	var scssGlobAllTmpFiles = {}; // contains file names of temp scss files built from scss globber
 	cssObjs.forEach(function(file) {
-		scssAllFiles[templateCss + '/' + file + '.css'] = templateScss + '/' + file + '.scss';
+		scssGlobAllTmpFiles[file + '.tmp.scss'] = file + '.scss';
+	});
+
+	var scssAllFiles = {}; // contains file patterns of temp scss files to compile scss from
+	cssObjs.forEach(function(file) {
+		scssAllFiles[templateCss + '/' + file + '.css'] = templateScss + '/' + file + '.tmp.scss';
 	});
 
 	var scssJsFiles = {};
@@ -206,6 +248,14 @@ module.exports = function (grunt) {
 			src: [
 				templateScss + '/**/*.scss'
 			]
+		},
+
+		sassGlobber: {
+			// TODO talk to Michael and Ryan regarding limitation of a single sassRoot folder and the js-css files
+			options: {sassRoot: templateScss},
+			all: {
+				files: [scssGlobAllTmpFiles]
+			}
 		},
 
 		sass: {
@@ -331,7 +381,7 @@ module.exports = function (grunt) {
 		},
 
 		concurrent: {
-			main: ['sass:all', 'postcss', 'js'],
+			main: ['sassGlobber', 'sass:all', 'postcss', 'js'],
 			dist: ['zip', 'archive']
 		},
 
@@ -370,7 +420,7 @@ module.exports = function (grunt) {
 		watch: {
 			sass: {
 				files: [templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
-				tasks: ['sass']
+				tasks: ['scssGlobber','sass']
 			},
 			js: {
 				files: [templateJs + '/**/*.js', '!' + templateCompileJs + '/**/*.js'],
@@ -455,5 +505,5 @@ module.exports = function (grunt) {
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
 	grunt.registerTask('js', ['clean:js', 'sass:js', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
-	grunt.registerTask('css', ['sass:all', 'postcss']);
+	grunt.registerTask('css', ['sassGlobber:all','sass:all', 'postcss']);
 };
