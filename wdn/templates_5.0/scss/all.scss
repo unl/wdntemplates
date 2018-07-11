@@ -4,7 +4,12 @@
 
 
 // !Variables
-@import '../../../node_modules/dcf/assets/src/scss/variables/variables';
+@import '../../../node_modules/dcf/assets/src/scss/variables/_variables.borders';
+@import '../../../node_modules/dcf/assets/src/scss/variables/_variables.breakpoints';
+@import '../../../node_modules/dcf/assets/src/scss/variables/_variables.colors';
+@import '../../../node_modules/dcf/assets/src/scss/variables/_variables.sizing';
+@import '../../../node_modules/dcf/assets/src/scss/variables/_variables.transitions';
+@import '../../../node_modules/dcf/assets/src/scss/variables/_variables.z-index';
 @import 'variables/variables.borders';
 @import 'variables/variables.colors';
 @import 'variables/variables.angles';
@@ -12,7 +17,29 @@
 
 
 // !Mixins
-@import '../../../node_modules/dcf/assets/src/scss/mixins/mixins';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.aspect-ratios';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.backgrounds';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.borders';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.box-alignment';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.colors';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.disabled';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.display';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.flexbox';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.floats';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.grid';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.height-width';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.margins';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.media-queries';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.object-fit';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.order';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.overflow';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.padding';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.position';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.svg';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.typography';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.visibility';
+@import '../../../node_modules/dcf/assets/src/scss/mixins/_mixins.z-index';
+
 @import 'mixins/mixins.backgrounds';
 @import 'mixins/mixins.colors';
 @import 'mixins/mixins.fonts';
@@ -20,26 +47,74 @@
 
 
 // !Functions
-@import '../../../node_modules/dcf/assets/src/scss/functions/functions';
+@import '../../../node_modules/dcf/assets/src/scss/functions/_functions.media-queries';
+@import '../../../node_modules/dcf/assets/src/scss/functions/_functions.z-index';
 
 
 // !Generic
 // TODO: install postcss-normalize, then remove normalize file
 @import 'generic/generic.normalize';
-@import '../../../node_modules/dcf/assets/src/scss/generic/generic';
+@import '../../../node_modules/dcf/assets/src/scss/generic/_generic.box-sizing';
+@import '../../../node_modules/dcf/assets/src/scss/generic/_generic.font-size';
+@import '../../../node_modules/dcf/assets/src/scss/generic/_generic.keyframes';
 @import 'generic/generic.base';
 
 
 // !Elements
-@import '../../../node_modules/dcf/assets/src/scss/elements/elements';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.abbreviations';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.addresses';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.anchors';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.blockquotes';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.body';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.buttons';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.code';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.dialog';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.figures';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.forms';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.headings';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.images';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.lists';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.main';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.marks';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.paragraphs';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.quotes';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.small';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.sup-sub';
+@import '../../../node_modules/dcf/assets/src/scss/elements/_elements.tables';
 
 
 // !Objects
-@import '../../../node_modules/dcf/assets/src/scss/objects/objects';
-
+@import '../../../node_modules/dcf/assets/src/scss/objects/_objects.grids';
+@import '../../../node_modules/dcf/assets/src/scss/objects/_objects.lists';
+@import '../../../node_modules/dcf/assets/src/scss/objects/_objects.media';
+@import '../../../node_modules/dcf/assets/src/scss/objects/_objects.stretch';
+@import '../../../node_modules/dcf/assets/src/scss/objects/_objects.wrapper';
 
 // !Components
-@import '../../../node_modules/dcf/assets/src/scss/components/components';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.alerts';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.articles';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.badges';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.blockquotes';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.breadcrumbs';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.button-groups';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.buttons';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.cards';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.code';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.events';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.figures';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.footer';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.forms';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.header';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.headings';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.heroes';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.icons';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.idm';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.input-groups';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.modals';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.navigation';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.paragraphs';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.search';
+@import '../../../node_modules/dcf/assets/src/scss/components/_components.tables';
 @import 'components/components.bio';
 @import 'components/components.breadcrumbs';
 @import 'components/components.button-groups';
@@ -65,11 +140,30 @@
 
 
 // !JavaScript
-@import '../../../node_modules/dcf/assets/src/scss/javascript/javascript';
-
+@import '../../../node_modules/dcf/assets/src/scss/javascript/_javascript.dialog';
+@import '../../../node_modules/dcf/assets/src/scss/javascript/_javascript.states';
 
 // !Utilities
-@import '../../../node_modules/dcf/assets/src/scss/utilities/utilities';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.aspect-ratios';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.backgrounds';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.borders';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.box-alignment';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.colors';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.disabled';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.display';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.flexbox';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.floats';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.grid';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.height-width';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.margins';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.object-fit';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.order';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.overflow';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.padding';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.position';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.svg';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.typography';
+@import '../../../node_modules/dcf/assets/src/scss/utilities/_utilities.visibility';
 @import 'utilities/utilities.backgrounds';
 @import 'utilities/utilities.colors';
 @import 'utilities/utilities.fonts';
