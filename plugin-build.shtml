@@ -164,10 +164,12 @@
     <p>Church-key ennui gastropub. Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <abbr class="dcf-txt-sm" title="Video Home System">VHS</abbr> blog Pitchfork authentic paleo ethical messenger bag. Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh.</p>
     <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
       <div class="dcf-flex dcf-m-2 dcf-pb-2 dcf-p-3"
+           id="newsletter-notify"
            role="alert"
            data-widget="notice"
            data-notice-type="alert"
            data-animation="true"
+           data-collapsible="true"
            data-location="fixedBottom"
            style="border:1px; background-color:#eceae3;">
         <h2>You should subscribe to our Newsletter</h2>

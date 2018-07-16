@@ -1,7 +1,7 @@
 let notices = document.querySelectorAll('[data-widget="notice"]');
 notices = [].slice.call(notices);
 
-// standard classes based on what kind of notice
+// standard classes based on what kind of notice, keep it to DCF classes for now
 const noticeClasses  = {
 	notify: ['unl-notice', 'unl-notice-notify'],
 	success: ['unl-notice', 'unl-notice-success'],
