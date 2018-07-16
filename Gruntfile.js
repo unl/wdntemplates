@@ -1,40 +1,3 @@
-// var mainDir = 'wdn',
-// 		buildDir = 'build',
-// 		templateDir = mainDir + '/templates_5.0',
-// 		templateScss = templateDir + '/scss',
-// 		templateCss = templateDir + '/css',
-// 		templateJs = templateDir + '/js',
-// 		templateJsSrc = templateDir + '/js-src',
-// 		builtJsDir = 'compressed',
-// 		buildJsDir = buildDir + '/' + builtJsDir,
-// 		templateCompileJs = templateJs + '/' + builtJsDir,
-// 		templateIncludeDir = templateDir + '/includes',
-// 		templateHtmlDir = 'Templates',
-// 		templateSharedDir = 'sharedcode',
-// 		zipDir = 'downloads',
-// 		allSubFilesGlob = '/**';
-//
-// var cssObjs = [
-// 	'all',
-// 	//'modules/pagination',
-// 	//'modules/infographics',
-// 	//'critical'
-// ];
-//
-// // dynamic target files built from variables above
-// var scssGlobTmpFiles = {};
-// cssObjs.forEach(function(file) {
-// 	scssGlobTmpFiles[templateScss + '/' + file + '.tmp.scss'] = templateScss + '/' + file + '.scss';
-// });
-//
-// var scssAllFiles = {};
-// cssObjs.forEach(function(file) {
-// 	scssAllFiles[templateCss + '/' + file + '.css'] = templateScss + '/' + file + '.tmp.scss';
-// });
-//
-// console.log(scssAllFiles);
-// console.log(scssGlobTmpFiles);
-
 module.exports = function (grunt) {
 	// CSS files to be built (relative to less directory, no extension)
 	var cssObjs = [
@@ -251,7 +214,6 @@ module.exports = function (grunt) {
 		},
 
 		sassGlobber: {
-			// TODO talk to Michael and Ryan regarding limitation of a single sassRoot folder and the js-css files
 			options: {sassRoot: templateScss},
 			all: {
 				files: [scssGlobAllTmpFiles]
