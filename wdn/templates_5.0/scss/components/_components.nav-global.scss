@@ -1,0 +1,38 @@
+////////////////////////////////////
+// !THEME / COMPONENTS / NAV: GLOBAL
+////////////////////////////////////
+
+
+.unl .dcf-nav-global li:not(:last-child) {
+  margin-right: 0; // remove after updated in DCF core
+}
+
+
+.unl .dcf-nav-global a {
+  padding-left: #{ms(-2)}vw;
+  padding-right: #{ms(-2)}vw;
+}
+
+
+@include mq(md, max, width) {
+
+  .unl .dcf-nav-global {
+    display: none; // temp
+  }
+
+}
+
+
+@include mq(md, min, width) {
+
+  .unl .dcf-nav-global {
+    display: flex;
+  }
+
+
+  .unl .dcf-nav-global a {
+    @include inverse-link;
+//     justify-content: flex-end; // remove after updated in DCF core
+  }
+
+}
