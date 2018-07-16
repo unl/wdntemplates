@@ -33,6 +33,7 @@
     "grunt-includes": "^1.0.0",
     "grunt-postcss": "^0.9.0",
     "grunt-sass": "^2.0.0",
+    "grunt-sass-globber": "^2.0.3",
     "grunt-stylelint": "^0.9.0",
     "grunt-sync": "^0.8.0",
     "grunt-then": "^1.0.0",
