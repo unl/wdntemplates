@@ -18,7 +18,8 @@
 
 
 // !Generic
-// TODO: install postcss-normalize, then remove normalize file
+// TODO: install 'postcss-normalize', output with critical CSS, then remove normalize file
+@import 'normalize.css';
 @import '../../../node_modules/dcf/assets/dist/scss/generic/**/*';
 @import 'generic/**/*';
 
