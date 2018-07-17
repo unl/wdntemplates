@@ -23,7 +23,7 @@ define([], function() {
                 headroom.init();
             });
             
-            let toggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn');
+            let toggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-menu');
             let mobileNav = document.getElementById('dcf-navigation');
             let modalParent = document.querySelector('.dcf-nav-bar.dcf-modal-parent');
             let body = document.querySelector('body');
