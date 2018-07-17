@@ -240,10 +240,12 @@ module.exports = function (grunt) {
 
 		postcss: {
 			options: {
+				// use: [postcssNormalize({forceImport:true})],
 				processors: [
-					require('postcss-normalize'),
+					require('postcss-normalize')({forceImport:true}),
 					require('autoprefixer')
-				]
+				],
+				map: true
 			},
 			dist: {
 				src: templateCss + '/*.css'
