@@ -48,7 +48,7 @@ define([], function() {
                     toggleButtons[i].setAttribute('aria-expanded', 'true');
                 }
                 firstLink.focus();
-                modalParent.addEventListener('keyup', onKeyUp);
+                document.addEventListener('keyup', onKeyUp);
             }
 
             function closeModal() {
@@ -62,7 +62,7 @@ define([], function() {
                     toggleButtons[i].setAttribute('aria-expanded', 'false');
                 }
                 activeToggleButton.focus();
-                modalParent.removeEventListener('keyup', onKeyUp);
+                document.removeEventListener('keyup', onKeyUp);
             }
 
             let toggleButtonOnClick = function() {
