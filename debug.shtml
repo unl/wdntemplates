@@ -31,9 +31,9 @@
   </div>
 -->
 
-  <header class="dcf-header" id="dcf-header" role="banner">
+  <header class="dcf-header dcf-txt-xs" id="dcf-header" role="banner">
 
-    <div class="dcf-header-global dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-jc-between unl-bg-scarlet">
+    <div class="dcf-header-global dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-jc-between dcf-relative unl-bg-scarlet">
       <!--#include virtual="/wdn/templates_5.0/includes/global/institution.html" -->
       <!--#include virtual="/wdn/templates_5.0/includes/global/nav-global.html" -->
       <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
@@ -41,57 +41,60 @@
     </div>
 
     <!--     <div class="dcf-wrapper dcf-logo dcf-d-flex dcf-ai-center dcf-pt-5 dcf-pb-4 dcf-lh-1 dcf-overflow-hidden"> -->
-    <div class="dcf-wrapper dcf-logo-lockup dcf-d-flex dcf-ai-center dcf-overflow-hidden">
+    <div class="dcf-logo-lockup dcf-wrapper dcf-d-flex dcf-ai-flex-end dcf-relative dcf-overflow-hidden">
       <!--#include virtual="/wdn/templates_5.0/includes/global/logo.html" -->
-      <div class="dcf-d-flex dcf-flex-col dcf-jc-center dcf-flex-grow-1 dcf-h-100%">
-        <div class="dcf-site-affiliation dcf-txt-xs dcf-lh-3 dcf-italic" id="dcf-site-affiliation">
+      <div class="dcf-site-group dcf-d-flex dcf-flex-col dcf-jc-center">
+        <div class="dcf-site-affiliation dcf-lh-3 dcf-italic dcf-txt-sm" id="dcf-site-affiliation">
           <!-- InstanceBeginEditable name="affiliation" -->
+          <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
+<!--           <a href="http://ianr.unl.edu/">Institute of Agriculture and Natural Resources</a> -->
           <!-- InstanceEndEditable -->
         </div>
-        <div class="dcf-site-title dcf-bold dcf-uppercase dcf-lh-2 unl-font-sans" id="dcf-site-title">
+        <div class="dcf-site-title dcf-bold dcf-lh-2 dcf-uppercase unl-font-sans unl-ls-1 unl-site-title-medium" id="dcf-site-title">
           <!-- InstanceBeginEditable name="titlegraphic" -->
-          <a href="https://casnr.unl.edu/">
+          <a href="https://www.unl.edu/">
 <!--             College of Agricultural Sciences and Natural Resources -->
-<!--             Hixson-Lied College of Fine &amp; Performing&nbsp;Arts -->
-            Nebraska</a>
+<!--             Hixson-Lied College of Fine &amp; Performing Arts -->
+            Glenn Korff School of Music
+<!--             Department of English -->
             <!--<abbr title="Hixson-Lied College of Fine &amp; Performing Arts">HLCFPA</abbr>-->
+<!--             Nebraska -->
+          </a>
           <!-- InstanceEndEditable -->
         </div>
       </div>
     </div>
 
-    <div class="dcf-nav-bar dcf-relative dcf-modal-parent">
+    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle.html" -->
 
-      <div class="dcf-mobile-toolbar dcf-mobile-toolbar-menu dcf-flex-col dcf-ai-center dcf-jc-center hrjs">
-        <button class="dcf-mobile-toolbar-toggle dcf-mobile-toolbar-toggle-menu dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-w-100% dcf-b-0 dcf-bg-transparent unl-font-sans" id="dcf-menu-toggle" aria-expanded="false">
-    <!--       <span class="dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-h-100%"> -->
-<!--             <span class="dcf-d-flex dcf-ai-center dcf-jc-center dcf-h-5 dcf-w-5 dcf-mb-1"> -->
-              <svg class="dcf-mobile-toolbar-icon dcf-mobile-toolbar-icon-menu dcf-fill-current" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48">
-                <g class="dcf-icon-menu-top">
-                  <path d="M46,0H2C0.9,0,0,0.9,0,2s0.9,2,2,2h44c1.1,0,2-0.9,2-2S47.1,0,46,0z"/>
-<!--                   <path d="M46,9H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/> -->
-                </g>
-                <g class="dcf-icon-menu-bottom">
-                  <path d="M46,44H2c-1.1,0-2,0.9-2,2s0.9,2,2,2h44c1.1,0,2-0.9,2-2S47.1,44,46,44z"/>
-<!--                   <path d="M46,35H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/> -->
-                </g>
-                <g class="dcf-icon-menu-middle">
-                  <path d="M46,22H2c-1.1,0-2,0.9-2,2s0.9,2,2,2h44c1.1,0,2-0.9,2-2S47.1,22,46,22z"/>
-<!--                   <path d="M46,22H2a2,2,0,0,0,0,4H46a2,2,0,0,0,0-4Z"/> -->
-                </g>
-              </svg>
-<!--             </span> -->
-            <span class="dcf-sr-only">Show </span><span class="dcf-mobile-toolbar-label dcf-mobile-toolbar-label-menu">Menu</span>
-    <!--       </span> -->
-        </button>
-      </div>
+    <div class="dcf-nav-bar dcf-modal-parent unl-font-sans">
 
-      <div class="dcf-mobile-toolbar-modal dcf-w-100%" id="dcf-navigation">
+      <button class="dcf-nav-toggle-btn dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-w-9 dcf-pt-4 dcf-pr-0 dcf-pb-3 dcf-pl-0 dcf-b-0 dcf-bg-transparent unl-font-sans" id="dcf-menu-toggle" aria-expanded="false">
+        <svg class="dcf-h-4 dcf-w-4 dcf-mb-2 dcf-fill-current" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48">
+          <g class="dcf-icon-menu-top"><path d="M46,0H2C0.9,0,0,0.9,0,2s0.9,2,2,2h44c1.1,0,2-0.9,2-2S47.1,0,46,0z"/></g>
+          <g class="dcf-icon-menu-bottom"><path d="M46,44H2c-1.1,0-2,0.9-2,2s0.9,2,2,2h44c1.1,0,2-0.9,2-2S47.1,44,46,44z"/></g>
+          <g class="dcf-icon-menu-middle"><path d="M46,22H2c-1.1,0-2,0.9-2,2s0.9,2,2,2h44c1.1,0,2-0.9,2-2S47.1,22,46,22z"/></g>
+        </svg>
+        <span class="dcf-sr-only">Show </span><span class="dcf-nav-toggle-label dcf-bold dcf-uppercase unl-ls-2">Menu</span>
+      </button>
+
+      <div class="dcf-nav-menu dcf-mobile-toolbar-modal dcf-w-100%" id="dcf-navigation">
         <div class="dcf-nav-local-wrapper dcf-w-100%">
-          <nav class="dcf-nav-local dcf-w-100%" role="navigation" aria-label="local navigation">
+          <nav class="dcf-nav-local dcf-w-100% dcf-lh-3" role="navigation" aria-label="local navigation">
             <!-- InstanceBeginEditable name="navlinks" -->
             <!--#include virtual="/wdn/templates_5.0/includes/local/nav-local.html" -->
             <!-- InstanceEndEditable -->
+          </nav>
+          <nav class="dcf-breadcrumbs dcf-txt-sm dcf-d-none" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+            <ol class="dcf-list-bare dcf-mb-0 unl-font-sans">
+              <!-- InstanceBeginEditable name="breadcrumbs" -->
+              <li><a href="https://www.unl.edu/">Nebraska</a></li>
+              <li><a href="https://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts<!-- <abbr title="Hixson-Lied College of Fine and Performing Arts">HLCFPA</abbr> --></a></li>
+              <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
+              <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
+              <li>Ensembles</li>
+              <!-- InstanceEndEditable -->
+            </ol>
           </nav>
         </div>
       </div>
@@ -102,20 +105,9 @@
 
   <main class="dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
 
-<!--     <div class="dcf-stretch unl-stripe-b-white" style="background-color: #eee;"> -->
-    <div class="dcf-stretch unl-stripe-b-white">
+<!--     <div class="dcf-stretch" style="background-color:#e5e4e1;"> -->
+    <div class="dcf-stretch">
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-7">
-        <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
-          <ol class="dcf-list-bare dcf-d-flex dcf-flex-wrap dcf-mb-0 dcf-lh-2 dcf-txt-xs">
-          <!-- InstanceBeginEditable name="breadcrumbs" -->
-            <li><a href="https://www.unl.edu/">Nebraska</a></li>
-            <li><a href="https://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing&nbsp;Arts<!-- <abbr title="Hixson-Lied College of Fine and Performing Arts">HLCFPA</abbr> --></a></li>
-            <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
-            <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
-            <li>Ensembles</li>
-          <!-- InstanceEndEditable -->
-          </ol>
-        </nav>
 
         <div id="dcf-page-title">
           <!-- InstanceBeginEditable name="pagetitle" -->
@@ -197,14 +189,6 @@
     <p>Quinoa twee cardigan, lo-fi biodiesel try-hard Neutra pickled church-key pug scenester. Etsy direct trade fanny pack, fashion axe chia bespoke bitters Helvetica.</p>
     </div>
 
-    <h1>Currently Colliding</h1>
-    <h2>Currently Colliding</h2>
-    <h3>Currently Colliding</h3>
-    <h4>Currently Colliding</h4>
-    <h5>Currently Colliding</h5>
-    <h6>Currently Colliding</h6>
-
-
 
     <div class="dcf-pt-6 dcf-pb-6">
       <h2 class="dcf-mt-6">Buttons</h2>
@@ -246,7 +230,7 @@
         <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-sm">
           <div class="dcf-as-center">
             <div class="dcf-d-flex dcf-flex-col">
-              <h2 class="dcf-2nd dcf-txt-xl unl-txt-outline-dark unl-heading-ornament" style="text-shadow: 2px 2px #fff">Cras Vestibulum Ligula&nbsp;Nullam</h2>
+              <h2 class="dcf-2nd dcf-txt-xl unl-txt-outline-dark unl-heading-ornament" style="text-shadow: 2px 2px #fff">Cras Vestibulum Ligula Nullam</h2>
               <h3 class="dcf-1st dcf-txt-xs dcf-uppercase unl-ls-2 test">Mattis Bibendum</h3>
             </div>
             <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
@@ -266,7 +250,7 @@
         <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-sm">
           <div class="dcf-as-center">
             <div class="dcf-d-flex dcf-flex-col">
-              <h2 class="dcf-2nd dcf-txt-h1 unl-heading-ornament">Cras Vestibulum <span class="unl-txt-outline-dark unl-txt-stripes-dark">Ligula</span>&nbsp;Nullam</h2>
+              <h2 class="dcf-2nd dcf-txt-h1 unl-heading-ornament">Cras Vestibulum <span class="unl-txt-outline-dark unl-txt-stripes-dark">Ligula</span> Nullam</h2>
               <h3 class="dcf-1st dcf-txt-xs dcf-uppercase unl-ls-2 test">Mattis Bibendum</h3>
             </div>
             <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
@@ -291,7 +275,7 @@
             <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Kylie</a>
           </div>
           <div class="dcf-1st unl-ftd-person-tsr-img">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/170609-tucker-green-roof-test.jpg" alt="#">
             </div>
           </div>
@@ -309,7 +293,7 @@
             <a class="dcf-btn dcf-btn-secondary" href="#" role="button">See How Valerie Got There</a>
           </div>
           <div class="dcf-1st unl-ftd-person-tsr-img">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/valerie-portrait.jpg" alt="#">
             </div>
           </div>
@@ -327,7 +311,7 @@
             <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Eartha</a>
           </div>
           <div class="dcf-1st unl-ftd-person-tsr-img">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/johnson-eartha_0.jpg" alt="#">
             </div>
           </div>
@@ -448,7 +432,7 @@
           <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Full Bio</a>
     	  </div>
         <div class="dcf-1st dcf-col-50%-start dcf-col-33%-start@sm">
-          <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+          <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
             <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/charles-oconnor.jpg" alt="Portrait photo of Charles O’Connor">
           </div>
         </div>
@@ -469,89 +453,89 @@
       <h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-stripes test">Dean’s Office Staff</h2>
       <ul class="dcf-list-bare dcf-grid-halves dcf-grid-thirds@sm dcf-grid-fourths@md dcf-col-gap-vw dcf-row-gap-md">
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Kathe Andersen</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Director of Communications and External Relations</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/kathe-andersen.jpg" alt="Portrait photo of Kathe Andersen">
             </div>
           </div>
         </li>
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">David Bagby</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Information Technology Services Manager</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/david-bagby.jpg" alt="Portrait photo of David Bagby">
             </div>
           </div>
         </li>
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Allison Casey</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Administrative Technician</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/allison-casey.jpg" alt="Portrait photo of Allison Casey">
             </div>
           </div>
         </li>
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Rachel Danay</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Assistant to the Dean</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/rachel-danay.jpg" alt="Portrait photo of Rachel Danay">
             </div>
           </div>
         </li>
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Sara Fedderson</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Assistant Director of Advising</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/sara-fedderson.jpg" alt="Portrait photo of Sara Fedderson">
             </div>
           </div>
         </li>
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Matthew Knight</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Assistant Director of Recruitment</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/matthew-knight.jpg" alt="Portrait photo of Matthew Knight">
             </div>
           </div>
         </li>
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Joseph Morris</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Systems Coordinator</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/joseph-morris.jpg" alt="Portrait photo of Joseph Morris">
             </div>
           </div>
         </li>
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-          <div class="dcf-2nd">
+          <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Michael Reinmiller</a></h3>
             <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic test">Digital Arts Support Technician</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/michael-reinmiller.jpg" alt="Portrait photo of Michael Reinmiller">
             </div>
           </div>
@@ -749,7 +733,7 @@
             <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
               <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
                 <div class="dcf-2nd dcf-pl-3 dcf-lh-3 unl-font-sans">
-                  <a class="dcf-d-block dcf-txt-h6 dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/120871/" itemprop="url">
+                  <a class="dcf-d-block dcf-txt-lg dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/120871/" itemprop="url">
                     <span itemprop="name">The Modern-Day Sales Manager Executive Program Certificate</span>
                   </a>
                   <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
@@ -765,15 +749,15 @@
                   </time>
                 </div>
               </div>
-              <figure class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
+              <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-              </figure>
+              </div>
             </li>
 
             <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
               <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
                 <div class="dcf-2nd dcf-pl-3 dcf-lh-3 unl-font-sans">
-                  <a class="dcf-d-block dcf-txt-h6 dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/123410/" itemprop="url">
+                  <a class="dcf-d-block dcf-txt-lg dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/123410/" itemprop="url">
                     <span itemprop="name">Celebration of Youth XXIV</span>
                   </a>
                   <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
@@ -794,15 +778,15 @@
                   </time>
                 </div>
               </div>
-              <figure class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
+              <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-              </figure>
+              </div>
             </li>
 
             <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
               <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
                 <div class="dcf-2nd dcf-pl-3 dcf-lh-3 unl-font-sans">
-                  <a class="dcf-d-block dcf-txt-h6 dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/122710/" itemprop="url">
+                  <a class="dcf-d-block dcf-txt-lg dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/122710/" itemprop="url">
                     <span itemprop="name">Ask Us about Canvas!</span>
                   </a>
                   <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
@@ -824,15 +808,15 @@
                   </time>
                 </div>
               </div>
-              <figure class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
+              <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-              </figure>
+              </div>
             </li>
 
             <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
               <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
                 <div class="dcf-2nd dcf-pl-3 dcf-lh-3 unl-font-sans">
-                  <a class="dcf-d-block dcf-txt-h6 dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/123212/" itemprop="url">
+                  <a class="dcf-d-block dcf-txt-lg dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/123212/" itemprop="url">
                     <span itemprop="name">FREE HIV Test Site</span>
                   </a>
                   <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
@@ -852,15 +836,15 @@
                   </time>
                 </div>
               </div>
-              <figure class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
+              <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-              </figure>
+              </div>
             </li>
 
             <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
               <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
                 <div class="dcf-2nd dcf-pl-3 dcf-lh-3 unl-font-sans">
-                  <a class="dcf-d-block dcf-txt-h6 dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/111666/" itemprop="url">
+                  <a class="dcf-d-block dcf-txt-lg dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/111666/" itemprop="url">
                     <span itemprop="name">Business &amp; Liberal Arts Career Fair</span>
                   </a>
                   <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
@@ -879,15 +863,15 @@
                   </time>
                 </div>
               </div>
-              <figure class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
+              <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-              </figure>
+              </div>
             </li>
 
             <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
               <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
                 <div class="dcf-2nd dcf-pl-3 dcf-lh-3 unl-font-sans">
-                  <a class="dcf-d-block dcf-txt-h6 dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/123710/" itemprop="url">
+                  <a class="dcf-d-block dcf-txt-lg dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/123710/" itemprop="url">
                     <span itemprop="name">#MakerMonday</span>
                   </a>
                   <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
@@ -908,9 +892,9 @@
                   </time>
                 </div>
               </div>
-              <figure class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
+              <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1 unl-frame">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-              </figure>
+              </div>
             </li>
 
           </ul>
@@ -1346,11 +1330,12 @@
 
   <!-- InstanceEndEditable -->
   </main>
-  <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+  <footer class="dcf-footer dcf-txt-xs" id="dcf-footer" role="contentinfo">
+    <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-1.html" -->
     <!-- InstanceBeginEditable name="contactinfo" -->
     <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-2.html" -->
   </footer>
   <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->

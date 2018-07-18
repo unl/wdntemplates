@@ -4,87 +4,48 @@
 
 
 // !Variables
-@import '../../../node_modules/dcf/core/scss/variables/variables';
-@import 'variables/variables.borders';
-@import 'variables/variables.colors';
-@import 'variables/variables.angles';
+@import '../../../node_modules/dcf/assets/dist/scss/variables/**/*';
+@import 'variables/**/*';
 
 
 // !Mixins
-@import '../../../node_modules/dcf/core/scss/mixins/mixins';
-@import 'mixins/mixins.backgrounds';
-@import 'mixins/mixins.fonts';
-@import 'mixins/mixins.typography';
+@import '../../../node_modules/dcf/assets/dist/scss/mixins/**/*';
+@import 'mixins/**/*';
 
 
 // !Functions
-@import '../../../node_modules/dcf/core/scss/functions/functions';
+@import '../../../node_modules/dcf/assets/dist/scss/functions/**/*';
 
 
 // !Generic
-// TODO: install postcss-normalize, then remove normalize file
-@import 'generic/generic.normalize';
-@import '../../../node_modules/dcf/core/scss/generic/generic';
-@import 'generic/generic.base';
+// TODO: install 'postcss-normalize', output with critical CSS, then remove normalize file
+@import 'normalize.css';
+@import '../../../node_modules/dcf/assets/dist/scss/generic/**/*';
+@import 'generic/**/*';
 
 
 // !Elements
-@import '../../../node_modules/dcf/core/scss/elements/elements';
+@import '../../../node_modules/dcf/assets/dist/scss/elements/**/*';
 
 
 // !Objects
-@import '../../../node_modules/dcf/core/scss/objects/objects';
+@import '../../../node_modules/dcf/assets/dist/scss/objects/**/*';
 
 
 // !Components
-@import '../../../node_modules/dcf/core/scss/components/components';
-@import 'components/components.bio';
-@import 'components/components.breadcrumbs';
-@import 'components/components.button-groups';
-@import 'components/components.buttons';
-@import 'components/components.events';
-@import 'components/components.figures';
-@import 'components/components.footer';
-@import 'components/components.forms';
-@import 'components/components.global';
-@import 'components/components.header';
-@import 'components/components.headings';
-@import 'components/components.icons';
-@import 'components/components.idm';
-@import 'components/components.input-groups';
-@import 'components/components.navigation';
-@import 'components/components.paragraphs';
-@import 'components/components.search';
-@import 'components/components.tables';
-
-
-// !Dev
-@import 'components/components.dev';
+@import '../../../node_modules/dcf/assets/dist/scss/components/**/*';
+@import 'components/**/*';
 
 
 // !JavaScript
-@import '../../../node_modules/dcf/core/scss/javascript/javascript';
+@import '../../../node_modules/dcf/assets/dist/scss/javascript/**/*';
 
 
 // !Utilities
-@import '../../../node_modules/dcf/core/scss/utilities/utilities';
-@import 'utilities/utilities.backgrounds';
-@import 'utilities/utilities.fonts';
-@import 'utilities/utilities.typography';
+@import '../../../node_modules/dcf/assets/dist/scss/utilities/**/*';
+@import 'utilities/**/*';
 
 
 // !Deprecated
 // TODO: create separate build task and CSS file for deprecated styles
-@import 'deprecated/deprecated.bands';
-@import 'deprecated/deprecated.columns';
-@import 'deprecated/deprecated.forms';
-@import 'deprecated/deprecated.grid';
-@import 'deprecated/deprecated.helpers';
-@import 'deprecated/deprecated.hero';
-@import 'deprecated/deprecated.images';
-@import 'deprecated/deprecated.pagination';
-@import 'deprecated/deprecated.promo-image';
-@import 'deprecated/deprecated.quote';
-@import 'deprecated/deprecated.tables';
-@import 'deprecated/deprecated.tabs';
-@import 'deprecated/deprecated.text';
+@import 'deprecated/**/*';

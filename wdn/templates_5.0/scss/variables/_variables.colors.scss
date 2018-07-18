@@ -20,6 +20,17 @@ $gray: $color-brand-gamma;
 // !UI COLORS
 // Assign colors to elements
 $white: #fff;
+$black: #000;
+
+$ui-100: mix($cream, $black, 90%); // lightest
+$ui-200: mix($cream, $black, 84%);
+$ui-300: mix($cream, $black, 75%);
+$ui-400: mix($cream, $black, 63%);
+$ui-500: mix($cream, $black, 56%);
+$ui-600: mix($cream, $black, 43%);
+$ui-700: mix($cream, $black, 32%);
+$ui-800: mix($cream, $black, 24%);
+$ui-900: mix($cream, $black, 18%); // darkest
 
 
 // Body background color (usually white, off-white, or very light gray)
@@ -28,20 +39,20 @@ $color-body-bg: $cream;
 
 // Must meet WCAG AA (minimum contrast ratio of 4.5)
 // Strive for WCAG AAA (minimum contrast ratio of 7.0) for body text
-$color-body: mix($cream, #000, 24%);
+$color-body: $ui-800;
 
 
 // Must meet WCAG AA (minimum contrast ratio of 4.5)
 // Strive for WCAG AAA (minimum contrast ratio of 7.0) for heading text
-$color-heading: mix($cream, #000, 18%);
+$color-heading: $ui-900;
 
 
 // Must meet WCAG AA (minimum contrast ratio of 4.5)
-$color-light-text: mix($cream, #000, 32%);
+$color-light-text: $ui-700;
 
 
 // Must meet WCAG AA (minimum contrast ratio of 4.5)
-$color-lightest-text: mix($cream, #000, 42%);
+$color-lightest-text: $ui-600;
 
 
 // !Links
@@ -81,14 +92,12 @@ $color-badge: $gray;
 
 
 // !Footer
-$color-footer-local: fade-out($white, 0);
-$color-footer-local-bg: $color-body;
-$color-footer-global: fade-out($white, 0);
-$color-footer-global-bg: $scarlet;
-$color-footer-link: fade-out($white, 0);
-$color-footer-link-visited: fade-out($white, 0);
-$color-footer-link-hover: fade-out($white, 0);
-$color-footer-link-active: fade-out($white, 0);
+$color-footer: $cream;
+$color-footer-bg: $scarlet;
+$color-footer-link: $cream;
+$color-footer-link-visited: $cream; // TODO: determine visited state styles
+$color-footer-link-hover: $cream; // TODO: determine hover state styles
+$color-footer-link-active: $cream; // TODO: determine active state styles
 
 
 // !Define contextual colors

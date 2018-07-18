@@ -43,13 +43,50 @@
 }
 
 
+
+
+.unl li:not(:last-child) {
+  @include mb-2; // TODO: remove after updated in DCF core
+}
+
+.unl li:last-child {
+  margin-bottom: 0;  // TODO: remove after updated in DCF core
+}
+
+
+
+
 .unl-txt-sm-xs {
   @include txt-sm;
 
-  @include mq(sm, min, width) {
+  @include mq(md, min, width) {
     @include txt-xs;
   }
 
+}
+
+
+.dcf-txt-sm\@md {
+
+  @include mq(md, min, width) {
+    @include txt-xs;
+  }
+
+}
+
+
+.unl-txt-ui-sm {
+  @include txt-xs;
+
+  @include mq(md, min, width) {
+    font-size: #{ms(-3)}em;
+  }
+}
+
+
+.unl-blurred {
+  filter: blur(5px);
+  transition: filter 200ms ease-out;
 }
 
 
@@ -72,11 +109,11 @@
 }
 
 
-.unl .dcf-footer li {
--webkit-column-break-inside: avoid;
-          page-break-inside: avoid;
-               break-inside: avoid;
-}
+// .unl .dcf-footer li {
+// -webkit-column-break-inside: avoid;
+//           page-break-inside: avoid;
+//                break-inside: avoid;
+// }
 
 // .unl li {
 //   margin-bottom: 0; // core
@@ -112,7 +149,9 @@
 // core
 
 
-
+p {
+  max-width: none; // TODO: remove max-width from paragraphs in DCF core
+}
 
 
 
@@ -151,21 +190,21 @@
 //   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
 //   content: '';
 //   display: inline-block;
-//   height: $length10;
+//   height: $length-em-10;
 //   @include mt-4;
-//   width: $length3;
+//   width: $length-em-3;
 
 // transform version
   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
   bottom: 50%;
   content: '';
   display: inline-block;
-  height: $length10;
+  height: $length-em-10;
   position: absolute;
   right: -1em;
   transform: rotate(90deg) translateX(50%);
   transform-origin: 100% 100%;
-  width: $length3;
+  width: $length-em-3;
 }
 
 .unl-stripes::after {
@@ -363,17 +402,20 @@
 
 .unl-frame {
   position: relative;
+}
 
-  &::after {
-    border: 3px solid #fff;
-    content: '';
-    height: calc(100% - 4px);
-    left: 2px;
-    position: absolute;
-    top: 2px;
-    width: calc(100% - 4px);
-  }
+.unl-frame::after {
+  border: 3px solid #fff;
+  content: '';
+  height: calc(100% - 4px);
+  left: 2px;
+  position: absolute;
+  top: 2px;
+  width: calc(100% - 4px);
+}
 
+.dcf-circle.unl-frame::after {
+  border-radius: $circle;
 }
 
 .unl-frame > img {

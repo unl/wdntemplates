@@ -47,7 +47,7 @@ define([], function () {
 		}.bind(this));
 
 		//Handle the escape action
-		this.container = addEventListener('keydown', function (e) {
+		this.container.addEventListener('keydown', function (e) {
 			// If escape, refocus menu button
 			if (e.keyCode === 27) {
 				this.close();

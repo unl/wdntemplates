@@ -3,18 +3,55 @@
 ////////////////////////////////////
 
 
+.unl .dcf-breadcrumbs {
+  border-top: 1px solid $ui-100;
+  flex: 0 1 auto;
+  @include pb-8;
+  @include pt-6;
+  position: relative;
+}
+
+@include mq(md, min, width) {
+
+  .unl .dcf-breadcrumbs {
+    bottom: 0;
+    @include pt-5;
+    position: fixed;
+  }
+
+}
+
+
+.unl .dcf-nav-bar .dcf-breadcrumbs {
+//   display: none;
+  opacity: 0;
+//   transform: translateY(25%);
+//   transition: opacity 200ms ease-out, transform 200ms ease-out;
+  transition: opacity 200ms ease-out;
+}
+
+
+.unl .dcf-nav-bar.dcf-modal-open .dcf-breadcrumbs {
+//   display: block;
+  opacity: 1;
+//   transform: translateY(0);
+  transition: opacity 200ms ease-out;
+}
+
+
+.unl .dcf-breadcrumbs li {
+//   margin-bottom: 0;
+  display: inline-block; //core
+}
+
+
 .unl .dcf-breadcrumbs li:not(:last-child) {
   @include mr-2;
 }
 
 
 .unl .dcf-breadcrumbs li:not(:last-child)::after {
-//   border-bottom: #{ms(-8)}em solid transparent; // .32em
-//   border-left: #{ms(-8)}em solid $color-breadcrumb; // .32em
-//   border-top: #{ms(-8)}em solid transparent; // .32em
   color: $color-lightest-text;
   content: '\2192';
-//   height: 0;
   @include ml-2;
-//   width: 0;
 }

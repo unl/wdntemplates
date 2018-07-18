@@ -234,46 +234,41 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 
 			//Set up the idm button
 			var $button = $('<button>', {
-				'class': 'dcf-u-p0 dcf-u-b0 dcf-u-bg-transparent dcf-c-mobile-nav-toggle dcf-c-idm__toggle unl-u-font-sans',
+				'class': 'dcf-mobile-toolbar-toggle dcf-mobile-toolbar-toggle-idm dcf-idm-login dcf-d-flex dcf-ai-center dcf-jc-center dcf-w-100% dcf-p-0 dcf-b-0 dcf-bg-transparent',
 				'id': 'dcf-idm-toggle',
 				'aria-expanded': 'false',
 				'aria-controls': 'dcf-idm-options',
 				'aria-label': 'Account actions for ' + this.getDisplayName()
 			});
-			var $buttonContents = $('<span>', {
-				'class': 'dcf-u-flex dcf-u-flex-col dcf-u-ai-center dcf-u-jc-center dcf-u-h100'
-			});
-			$buttonContents.append($('<img>', {
-				'class': 'dcf-u-block dcf-u-circle',
+			$button.append($('<img>', {
+				'class': 'dcf-block dcf-mobile-toolbar-icon dcf-mobile-toolbar-icon-idm dcf-2nd@md dcf-circle',
 				'src': avatarService + this.getUserId(),
-				'alt': '',
-				'style': 'height: 2em; width: 2em; background-color: #d00000;'
+				'alt': ''
 			}));
-			$buttonContents.append($('<span>', {
-				'class': 'dcf-u-sm2'
+			$button.append($('<span>', {
+				'class': 'dcf-mobile-toolbar-label dcf-mobile-toolbar-label-idm dcf-truncate'
 			}).text(this.getDisplayName()));
-			$button.append($buttonContents);
 
 			//Set up the IDM options
 			var $optionsContainer = $('<div>', {
-				'class': 'dcf-c-idm__options dcf-u-absolute dcf-u-pin-r dcf-u-p4 dcf-u-bg-overlay-dark',
+				'class': 'dcf-idm-options dcf-absolute dcf-pt-6 dcf-pr-5 dcf-pb-5 dcf-pl-5 dcf-bg-overlay-dark',
 				'id': 'dcf-idm-options',
 				'hidden': true
 			});
 
 			var $navUL = $('<ul>', {
-				'class': 'dcf-o-list-bare dcf-u-mb0 dcf-u-sm2 unl-u-font-sans'
+				'class': 'dcf-list-bare dcf-mb-0 unl-font-sans'
 			});
 
 			//Add the profile link
 			$navUL.append($('<li>').append($('<a>', {
-				'class': 'dcf-u-inverse',
+				'class': 'unl-cream',
 				'href': this.getProfileURL()
 			}).text('View Profile')));
 
 			//Add the logout link (set it as a variable so that we can reference it later)
 			var $logoutLink = $('<a>', {
-				'class': 'dcf-u-inverse',
+				'class': 'unl-cream',
 				'id': 'dcf-idm-logout',
 				'href': logoutURL,
 			}).text('Logout');

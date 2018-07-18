@@ -15,6 +15,13 @@
 }
 
 
+// !Dark -- TODO: finalize name
+@mixin bg-dark($imp:null) {
+  background-color: $ui-800 $imp;
+}
+
+
+
 // !Diagonal Stripes: Scarlet
 @mixin bg-stripes-scarlet($imp:null) {
   background-image: repeating-linear-gradient($diagonal1, $scarlet, $scarlet 2px, transparent 2px, transparent 4px);
@@ -26,11 +33,11 @@
 //   background-image: url('../images/diagonal-stripe-bg.svg');
 //   background-repeat: repeat;
 //   background-image: repeating-linear-gradient($diagonal1, rgba($color-body,.1), rgba($color-body,.1) 2px, transparent 2px, transparent 4px);
-  background-image: repeating-linear-gradient($diagonal1, rgba($color-body,.1), rgba($color-body,.1) 2px, transparent 2px, transparent 5px);
+  background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.9), fade-out($color-body,.9) 2px, fade-out($color-body,1) 2px, fade-out($color-body,1) 5px);
 }
 
 
 // !Diagonal Stripes: Light
 @mixin bg-stripes-light($imp:null) {
-  background-image: repeating-linear-gradient($diagonal1, rgba($white,.1), rgba($white, .1) 4px, transparent 2px, transparent 5px);
+  background-image: repeating-linear-gradient($diagonal1, fade-out($white,.95), fade-out($white,.95) 2px, fade-out($white,1) 2px, fade-out($white,1) 5px);
 }

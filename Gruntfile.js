@@ -183,9 +183,14 @@ module.exports = function (grunt) {
 	var gitFilters = require('./.git_filters/lib/git-filters.js');
 
 	// dynamic target files built from variables above
-	var scssAllFiles = {};
+	var scssGlobAllTmpFiles = {}; // contains file names of temp scss files built from scss globber
 	cssObjs.forEach(function(file) {
-		scssAllFiles[templateCss + '/' + file + '.css'] = templateScss + '/' + file + '.scss';
+		scssGlobAllTmpFiles[file + '.tmp.scss'] = file + '.scss';
+	});
+
+	var scssAllFiles = {}; // contains file patterns of temp scss files to compile scss from
+	cssObjs.forEach(function(file) {
+		scssAllFiles[templateCss + '/' + file + '.css'] = templateScss + '/' + file + '.tmp.scss';
 	});
 
 	var scssJsFiles = {};
@@ -206,6 +211,13 @@ module.exports = function (grunt) {
 			src: [
 				templateScss + '/**/*.scss'
 			]
+		},
+
+		sassGlobber: {
+			options: {sassRoot: templateScss},
+			all: {
+				files: [scssGlobAllTmpFiles]
+			}
 		},
 
 		sass: {
@@ -229,7 +241,6 @@ module.exports = function (grunt) {
 		postcss: {
 			options: {
 				processors: [
-					require('postcss-normalize'),
 					require('autoprefixer')
 				]
 			},
@@ -331,7 +342,7 @@ module.exports = function (grunt) {
 		},
 
 		concurrent: {
-			main: ['sass:all', 'postcss', 'js'],
+			main: ['sassGlobber', 'sass:all', 'postcss', 'js'],
 			dist: ['zip', 'archive']
 		},
 
@@ -370,7 +381,7 @@ module.exports = function (grunt) {
 		watch: {
 			sass: {
 				files: [templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
-				tasks: ['sass']
+				tasks: ['scssGlobber','sass']
 			},
 			js: {
 				files: [templateJs + '/**/*.js', '!' + templateCompileJs + '/**/*.js'],
@@ -455,5 +466,5 @@ module.exports = function (grunt) {
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
 	grunt.registerTask('js', ['clean:js', 'sass:js', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
-	grunt.registerTask('css', ['sass:all', 'postcss']);
+	grunt.registerTask('css', ['sassGlobber:all','sass:all', 'postcss']);
 };
