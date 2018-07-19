@@ -50,7 +50,6 @@
 
   .headroom {
   	will-change: transform;
-  	-webkit-transition: -webkit-transform 250ms ease-out, opacity 250ms ease-out !important;
   	transition: transform 250ms ease-out, opacity 250ms ease-out !important;
   }
 
@@ -67,16 +66,12 @@
 
   .headroom--pinned {
     opacity: 1;
-  	-webkit-transform: translateY(0%);
-  	-ms-transform: translateY(0%);
   	transform: translateY(0%);
   }
 
 
   .headroom--unpinned {
     opacity: 0;
-  	-webkit-transform: translateY(100%);
-  	-ms-transform: translateY(100%);
   	transform: translateY(100%);
   }
 
