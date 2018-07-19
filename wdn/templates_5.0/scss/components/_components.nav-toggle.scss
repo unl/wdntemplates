@@ -90,14 +90,8 @@
   }
 
 
-  .unl .dcf-menu-toggle {
-    border-top: 1px solid $ui-100;
-    z-index: 998;
-  }
-
-
-  .unl .dcf-menu-toggle-icon {
-    margin-bottom: #{ms(-4)}em;
+  .unl .dcf-nav-toggle-btn-menu-d {
+    z-index: 999;
   }
 
 }
