@@ -50,7 +50,7 @@
 
   .headroom {
   	will-change: transform;
-  	transition: transform 250ms ease-out, opacity 250ms ease-out !important;
+  	transition: transform 250ms ease-out !important;
   }
 
 
@@ -65,13 +65,11 @@
 
 
   .headroom--pinned {
-    opacity: 1;
   	transform: translateY(0%);
   }
 
 
   .headroom--unpinned {
-    opacity: 0;
   	transform: translateY(100%);
   }
 
