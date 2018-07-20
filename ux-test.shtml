@@ -62,7 +62,7 @@
             <!-- InstanceEndEditable -->
           </nav>
           <nav class="dcf-breadcrumbs dcf-txt-sm dcf-d-none" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
-            <ol class="dcf-list-bare dcf-mb-0">
+            <ol class="dcf-list-bare dcf-mb-0 dcf-pt-4 dcf-bt-solid dcf-bt-1">
               <!-- InstanceBeginEditable name="breadcrumbs" -->
               <li><a href="https://www.unl.edu/">Nebraska</a></li>
               <li><a href="https://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts<!-- <abbr title="Hixson-Lied College of Fine and Performing Arts">HLCFPA</abbr> --></a></li>
