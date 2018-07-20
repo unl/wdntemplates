@@ -19,7 +19,7 @@
     display: flex;
     border-top: 3px solid $scarlet;
     padding-bottom: env(safe-area-inset-bottom);
-    z-index: 9999;
+    z-index: 100150; // Ensure that the z-index is greater than the dialog element z-index
   }
 
 
@@ -28,23 +28,8 @@
   }
 
 
-  .unl .dcf-nav-toggle-btn-menu {
-    left: 0;
-  }
-
-
-  .unl .dcf-nav-toggle-btn-search {
-    left: 25%;
-  }
-
-
-  .unl .dcf-nav-toggle-btn-idm {
-    left: 50%;
-  }
-
-
-  .unl .dcf-nav-toggle-btn-chat {
-    left: 75%;
+  .unl .dcf-nav-bar .dcf-nav-toggle-btn-menu {
+    display: none;
   }
 
 
@@ -83,7 +68,12 @@
   }
 
 
-  .unl .dcf-nav-toggle-btn-menu-d {
+  .unl .dcf-nav-bar .dcf-nav-toggle-btn-menu {
+    display: flex;
+  }
+
+
+  .unl .dcf-nav-toggle-btn-menu {
     z-index: 998;
   }
 
