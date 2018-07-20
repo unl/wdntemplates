@@ -28,7 +28,7 @@ define([], function () {
 		this.container = container;
 		this.button = this.container.querySelector('button[aria-expanded="false"]');
 
-		var id = this.button.getAttribute('aria-controls');
+		let id = this.button.getAttribute('aria-controls');
 		if (id) {
 			this.controls = document.getElementById(id);
 		} else {
