@@ -11,7 +11,7 @@
 
   <header class="dcf-header" id="dcf-header" role="banner">
 
-    <div class="dcf-header-global dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-jc-between dcf-relative unl-bg-scarlet">
+    <div class="dcf-header-global dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-ai-center dcf-jc-between dcf-relative unl-bg-scarlet">
       <!--#include virtual="/wdn/templates_5.0/includes/global/institution.html" -->
       <!--#include virtual="/wdn/templates_5.0/includes/global/nav-global.html" -->
       <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
