@@ -60,12 +60,12 @@ function closeNotice(notice) {
 
 // collapse message when collapse button is selected
 function collapseExpandMessage(el, closeButton, title, message) {
-	const currentState = closeButton.getAttribute('aria-expanded') === "true" ? true : false;
-	const newState = !currentState;
+	const previousState = closeButton.getAttribute('aria-expanded') === "true" ? true : false;
+	const newState = !previousState;
 
 	closeButton.setAttribute('aria-expanded', newState);
 
-	if (currentState) {
+	if (previousState) {
 		// if expanded, collapse message
 		closeButton.innerText = "Expand";
 		message.classList.add('dcf-notice_message--collapse');
@@ -231,7 +231,9 @@ notices.forEach(notice => {
 						' localStorage');
 			}
 
-			// check to see if its data-collapsible is false and exists in storage as closed, close notice and exit right away
+			moveElement(notice); // move fixed-bottom notice to the top of source
+
+			// check to see if data-collapsible is false and exists in storage as closed, close notice and exit right away
 			if (!noticeCollapsible && localStorage.getItem(notice.id) === 'closed') {
 				closeNotice(notice);
 				return;
