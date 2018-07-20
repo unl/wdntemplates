@@ -3,18 +3,13 @@
 ///////////////////////////////
 
 
-.unl .dcf-header-global {
-  border-top: 3px solid $scarlet;
-}
-
-
 // .unl .dcf-header a:visited {
 //   color: $color-link;
 // }
 
 
 .unl .dcf-site-group {
-  min-height: #{ms(10)}em;
+  min-height: #{ms(8)}em;
 }
 
 .unl .dcf-site-affiliation a {
@@ -64,6 +59,10 @@
 
   .unl .dcf-header .dcf-institution-title {
     display: none;
+  }
+
+  .unl .dcf-header-global {
+    border-top: 3px solid $scarlet;
   }
 
 
@@ -132,6 +131,7 @@
 //     background-position: left 50% bottom -1em;
 //     background-repeat: no-repeat;
 //     background-size: cover;
+    height: $height-header-global-md; // Set global header height at medium breakpoint
     z-index: 999;
   }
 
@@ -148,8 +148,8 @@
   }
 
   .unl .dcf-logo-lockup {
-    @include pb-6;
-    padding-top: #{ms(7)}em;
+    height: $height-logo-lockup-md; // Set logo lockup height at medium breakpoint
+    @include pb-5;
     z-index: 998;
   }
 
