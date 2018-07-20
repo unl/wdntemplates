@@ -28,9 +28,9 @@
 <!--           <a href="http://ianr.unl.edu/">Institute of Agriculture and Natural Resources</a> -->
           <!-- InstanceEndEditable -->
         </div>
-        <div class="dcf-site-title dcf-bold dcf-lh-2 dcf-uppercase unl-font-sans unl-ls-1 unl-site-title-medium" id="dcf-site-title">
+        <div class="dcf-site-title dcf-bold dcf-lh-2 dcf-uppercase unl-font-sans unl-ls-1" id="dcf-site-title">
           <!-- InstanceBeginEditable name="titlegraphic" -->
-          <a href="https://www.unl.edu/">
+          <a class="unl-site-title-medium" href="https://www.unl.edu/">
 <!--             College of Agricultural Sciences and Natural Resources -->
 <!--             Hixson-Lied College of Fine &amp; Performing Arts -->
             Glenn Korff School of Music
