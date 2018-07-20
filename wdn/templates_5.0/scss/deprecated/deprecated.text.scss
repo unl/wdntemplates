@@ -34,7 +34,7 @@
 }
 
 .wdn-list-header {
-  @include bb;
+  //@include bb;
   border-color: $color-border;
   @include font-sans;
   @include txt-base;

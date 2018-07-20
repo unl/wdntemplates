@@ -17,7 +17,7 @@ caption {
 
 thead,
 tbody {
-  @include bb;
+  //@include bb;
   border-color: $color-border;
   @include txt-md;
 }
