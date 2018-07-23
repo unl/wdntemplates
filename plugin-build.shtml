@@ -169,7 +169,7 @@
            data-widget="notice"
            data-notice-type="alert"
            data-animation="true"
-           data-location="fixedBottom"
+           data-location="current"
            data-collapsible="true"
            style="border:1px; background-color:#eceae3;z-index:1">
         <h2 class="js-notice-title">You should subscribe to our Newsletter</h2>

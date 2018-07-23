@@ -17,7 +17,7 @@ const noticeLocationClasses = {
 	current: ['uno'],
 	nav: ['foo'],
 	fixedBottom:['bar', 'dcf-fixed', 'dcf-notice-fixedBottom', 'dcf-pin-bottom', 'dcf-pin-right', 'dcf-pin-left'],
-	fixedBottomLeft:['bar', 'dcf-fixed', 'dcf-pt-8', 'dcf-pin-bottom', 'dcf-pin-right']
+	fixedBottomLeft:['zoink'] // TODO add option that goes 50% width on desktop when fixedBottom
 };
 
 // default animations depending on associated locations
@@ -33,6 +33,7 @@ const closeButtonClasses = ['dcf-absolute', 'dcf-pin-top', 'dcf-pin-right', 'dcf
  *
  * Functions
  */
+// function to generate GUID or UIDs
 function uuidv4() {
 	return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
 		var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -40,13 +41,21 @@ function uuidv4() {
 	});
 }
 
-// move element to be first child of main
+/**
+ *
+ * @param el takes an element and move it to be first child of main
+ */
 function moveElement(el) {
 	const main = document.querySelector('main');
 	const firstChild = main.firstElementChild;
 	main.insertBefore(el, firstChild);
 }
 
+/**
+ * @purpose - permanently closes the notice element
+ * @param notice - notice to be closed
+ *
+ */
 function closeNotice(notice) {
 	notice.classList.add('dcf-notice-fixedBottom--close');
 	notice.addEventListener('transitionend', e => {
@@ -58,7 +67,14 @@ function closeNotice(notice) {
 	localStorage.setItem(notice.id,'closed');
 }
 
-// collapse message when collapse button is selected
+/**
+ * @purpose - collapse message when collapse button is selected
+ * @param el - notice to be closed
+ * @param closeButton - the close button associated with this notice
+ * @param title - title of notice
+ * @param message - message of notice
+ *
+ */
 function collapseExpandMessage(el, closeButton, title, message) {
 	const previousState = closeButton.getAttribute('aria-expanded') === "true" ? true : false;
 	const newState = !previousState;
@@ -68,8 +84,8 @@ function collapseExpandMessage(el, closeButton, title, message) {
 	if (previousState) {
 		// if expanded, collapse message
 		closeButton.innerText = "Expand";
-		message.classList.add('dcf-notice_message--collapse');
 		title.classList.add('dcf-notice_title--collapse');
+		message.classList.add('dcf-notice_message--collapse');
 
 		localStorage.setItem(el.id, 'collapsed');
 	} else {
@@ -82,7 +98,13 @@ function collapseExpandMessage(el, closeButton, title, message) {
 	}
 }
 
-// add a close button to the widget
+
+/**
+ * @purpose add a close button to the widget and the associated click events
+ * @param el
+ * @param isCollapsible
+ *
+ */
 function addCloseButton(el, isCollapsible) {
 	const closeButton = document.createElement('button');
 	closeButtonClasses.forEach(closeButtonclass => closeButton.classList.add(closeButtonclass));
@@ -98,12 +120,18 @@ function addCloseButton(el, isCollapsible) {
 
 		if (noticeTitle) {
 			noticeMessage.classList.add('dcf-notice__title');
+		} else {
+			console.error('Your notice is missing a title.');
+			return;
 		}
 
 		if (noticeMessage) {
 			closeButton.setAttribute('aria-controls', noticeMessageId);
 			noticeMessage.classList.add('dcf-notice__message');
 			noticeMessage.id = noticeMessageId;
+		} else {
+			console.error('Your notice is missing a message.');
+			return;
 		}
 
 		closeButton.addEventListener('click', () => {
@@ -218,6 +246,9 @@ notices.forEach(notice => {
 	// 1.check notice option type and add the needed classes
 	if (noticeClasses[noticeType]) {
 		noticeClasses[noticeType].forEach(noticeClass => notice.classList.add(noticeClass))
+	} else {
+		// default to info notify styling
+		noticeClasses.notify.forEach(noticeClass => notice.classList.add(noticeClass))
 	}
 
 	// 2.check widget location whether its current, nav, or fixed-bottom and assign class names
@@ -252,9 +283,15 @@ notices.forEach(notice => {
 		}
 
 	} else {
+			// location other than fixedBottom
+
 			if (noticeLocationClasses[noticeLocation]) {
 				noticeLocationClasses[noticeLocation].forEach(noticeLocationClass => notice.classList.add(noticeLocationClass));
+			} else {
+				// set current option as the default notice styling
+				noticeLocationClasses.current.forEach(noticeLocationClass => notice.classList.add(noticeLocationClass));
 			}
+
 			// 2.1 if its nav, move the element to after the nav and before the page title
 			if (noticeLocation === 'nav') {
 				moveElement(notice);
@@ -291,5 +328,4 @@ notices.forEach(notice => {
 		collapseExpandMessage(notice, toggleButton,noticeTitle, noticeMessage);
 	}
 
-	console.dir(notice);
 });
