@@ -1,7 +1,5 @@
-let notices = document.querySelectorAll('[data-widget="notice"]');1111
-let fixedBottomExists = false; // flag for checking if a fixed bottom has been initialized on the page
-fixedBottomExists = document.querySelector('[id*="unl-widget-fixedBottom-"]') ? true : false; // if a fixedBottom notice has been previously added to the page set flag to true
-
+let notices = document.querySelectorAll('[data-widget="notice"]');
+let fixedBottomExists = document.querySelector('[id*="unl-widget-fixedBottom-"]') ? true : false; // flag for checking if a fixedBottom notice has been previously added to the page set flag to true
 
 notices = [].slice.call(notices);
 
@@ -45,7 +43,7 @@ function uuidv4() {
  *
  * @param el takes an element and move it to be first child of main
  */
-function moveElement(el) {
+function prependMain(el) {
 	const main = document.querySelector('main');
 	const firstChild = main.firstElementChild;
 	main.insertBefore(el, firstChild);
@@ -57,14 +55,18 @@ function moveElement(el) {
  *
  */
 function closeNotice(notice) {
-	notice.classList.add('dcf-notice-fixedBottom--close');
-	notice.addEventListener('transitionend', e => {
+
+	function hideNotice(e) {
 		if (e.propertyName !== "max-height") return;
-		el.classList.add('dcf-d-none');
-		el.setAttribute('aria-hidden', 'true');
-		console.log(e);
-	});
-	localStorage.setItem(notice.id,'closed');
+		notice.classList.add('dcf-d-none');
+		notice.removeEventListener('transitionend', hideNotice);
+		document.querySelector('main').focus(); // sending focus back to main
+	}
+
+	notice.addEventListener('transitionend', hideNotice);
+	notice.classList.add('dcf-notice-fixedBottom--close');
+
+	localStorage.setItem(notice.id, 'closed');
 }
 
 /**
@@ -76,12 +78,17 @@ function closeNotice(notice) {
  *
  */
 function collapseExpandMessage(el, closeButton, title, message) {
-	const previousState = closeButton.getAttribute('aria-expanded') === "true" ? true : false;
-	const newState = !previousState;
+	// Find out if notice is expanded
+	let expanded = closeButton.getAttribute('aria-expanded') === "true" ? true : false;
+	expanded = new Boolean(expanded);
 
-	closeButton.setAttribute('aria-expanded', newState);
+	// Invert to get new state
+	expanded = !expanded;
 
-	if (previousState) {
+	//Apply new state to notice
+	closeButton.setAttribute('aria-expanded', expanded.toString());
+
+	if (expanded) {
 		// if expanded, collapse message
 		closeButton.innerText = "Expand";
 		title.classList.add('dcf-notice_title--collapse');
@@ -113,26 +120,27 @@ function addCloseButton(el, isCollapsible) {
 		// if notice can be collapsed
 		const noticeTitle = el.querySelector('.js-notice-title');
 		const noticeMessage = el.querySelector('.js-notice-message');
-		const noticeMessageId = uuidv4();
+		const noticeMessageId = noticeMessage.id || uuidv4();
 
 		closeButton.innerText = 'collapse';
 		closeButton.setAttribute('aria-expanded', 'true');
 
-		if (noticeTitle) {
-			noticeMessage.classList.add('dcf-notice__title');
-		} else {
+		if (!noticeTitle) {
 			console.error('Your notice is missing a title.');
 			return;
 		}
 
-		if (noticeMessage) {
-			closeButton.setAttribute('aria-controls', noticeMessageId);
-			noticeMessage.classList.add('dcf-notice__message');
-			noticeMessage.id = noticeMessageId;
-		} else {
+		if (!noticeMessage) {
 			console.error('Your notice is missing a message.');
 			return;
 		}
+
+		noticeTitle.classList.add('dcf-notice__title');
+
+		!noticeMessage.id && (noticeMessage.id = noticeMessageId); //if no id is provided use the generated id
+		closeButton.setAttribute('aria-controls', noticeMessageId);
+		noticeMessage.classList.add('dcf-notice__message');
+
 
 		closeButton.addEventListener('click', () => {
 			collapseExpandMessage(el, closeButton, noticeTitle, noticeMessage);
@@ -183,8 +191,7 @@ function observerCallback(entries, observer) {
 				console.log('START DRAWING!!!!!');
 				noticeAnimationClasses.slideInScroll.forEach(noticeAnimationClass => entry.target.classList.add(noticeAnimationClass));
 
-				// need to set isDrawn to true after drawn and disconnect observer
-				//observer.disconnect();
+				// set isDrawn flag to true after actions have been taken
 				isDrawn = true;
 				observer.disconnect();
 			}
@@ -258,15 +265,14 @@ notices.forEach(notice => {
 			if (notice.id) {
 				notice.id = `unl-widget-fixedBottom--${notice.id}`;
 			} else {
-				console.error('An id attribute needs to be provided for the fixed to bottom notice to function properly with' +
+				console.error(
+						'An id attribute needs to be provided for the fixed to bottom notice to function properly with' +
 						' localStorage');
 			}
 
-			moveElement(notice); // move fixed-bottom notice to the top of source
-
-			// check to see if data-collapsible is false and exists in storage as closed, close notice and exit right away
+			// check to see if data-collapsible is false and exists in storage as closed, hide notice rightaway
 			if (!noticeCollapsible && localStorage.getItem(notice.id) === 'closed') {
-				closeNotice(notice);
+				notice.classList.add('dcf-d-none');
 				return;
 			}
 
@@ -276,7 +282,7 @@ notices.forEach(notice => {
 			}
 
 			addCloseButton(notice, noticeCollapsible);
-
+			prependMain(notice); // move fixed-bottom notice to the top of source
 			fixedBottomExists = true;
 		} else {
 			console.error('Only one fixed to bottom notice may exist on a page');
@@ -294,7 +300,7 @@ notices.forEach(notice => {
 
 			// 2.1 if its nav, move the element to after the nav and before the page title
 			if (noticeLocation === 'nav') {
-				moveElement(notice);
+				prependMain(notice);
 			}
 	}
 

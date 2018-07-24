@@ -169,11 +169,13 @@
            data-widget="notice"
            data-notice-type="alert"
            data-animation="true"
-           data-location="current"
-           data-collapsible="true"
+           data-location="fixedBottom"
+           data-collapsible="false"
            style="border:1px; background-color:#eceae3;z-index:1">
         <h2 class="js-notice-title">You should subscribe to our Newsletter</h2>
-        <p class="js-notice-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio facere fuga
+        <p class="js-notice-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
+          facere
+          fuga
           inventore pariatur
             ut. Ea maiores numquam quod ullam. Aspernatur cumque dolores hic illo ipsa maiores molestias nisi
             perferendis rerum.<br>
