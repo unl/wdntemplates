@@ -170,7 +170,7 @@
            data-notice-type="alert"
            data-animation="true"
            data-location="fixedBottom"
-           data-collapsible="false"
+           data-collapsible="true"
            style="border:1px; background-color:#eceae3;z-index:1">
         <h2 class="js-notice-title">You should subscribe to our Newsletter</h2>
         <p class="js-notice-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
@@ -1380,6 +1380,11 @@
       dialogHelper.setupShowDialogButton(dialog, document.querySelector('#test-button'));
     });
   </script>
-  <script src="wdn/templates_5.0/js-src/notice.babel.js"></script>
+  <!--<script src="wdn/templates_5.0/js-src/notice.babel.js"></script>-->
+  <script>
+    require(['notice'], function(notice) {
+
+    });
+  </script>
 </body>
 <!-- InstanceEnd --></html>
