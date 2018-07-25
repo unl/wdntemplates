@@ -1384,6 +1384,16 @@
   <script>
     require(['notice'], function(notice) {
       notice.initialize();
+
+      var noticeOptions = {
+      	widget: 'notice',
+        'notice-type': 'alert',
+        animation: 'true',
+        location: 'fixedBottom',
+        collapsible: 'true'
+      };
+
+      notice.create('Spaghetti Monster Lives', 'You know no spaghetti', noticeOptions);
     });
   </script>
 </body>

@@ -350,17 +350,38 @@ define(['uuid-gen'], (uuidv4) => {
 	/**
 	 * widget.create takes in arguments to dynamically create notices on the fly
 	 */
-	// widget.create = (noticeTitle, noticeMessage, widgetOptions, insertReference, insertPosition) {
-	// 	const notice = document.createElement('div');
-	// 	const noticeHeader = document.createElement('h2');
-	// 	const noticeContent = document.createElement('p');
-	//
-	// 	if (typeof(noticeTitle) === 'string') noticeHeader.innerText(noticeTitle);
-	// 	if (typeof(noticeMessage) === 'string') noticeHeader.innerText(noticeMessage);
-	//
-	//
-	// 	}
-	}
+	widget.create = (noticeTitle, noticeMessage, widgetOptions, insertionReference = 'main', insertionPoint) => {
+		const notice = document.createElement('div');
+		const noticeHeader = document.createElement('h2');
+		const noticeContent = document.createElement('p');
+
+		// set up the notice element
+		keys = Object.keys(widgetOptions);
+		notice.setAttribute('role', 'alert');
+
+		keys.forEach(key => {
+			notice.setAttribute(`data-${key}`, widgetOptions[key]);
+		});
+
+		if (typeof(noticeTitle) === 'string') noticeHeader.innerText = noticeTitle;
+		if (typeof(noticeMessage) === 'string') noticeContent.innerText = noticeMessage;
+		notice.appendChild(noticeHeader);
+		notice.appendChild(noticeContent);
+
+		// insert the notice
+		if (insertionReference === 'main' && insertionPoint === undefined) {
+			// assuming no insertionReference or insertionPoint provided
+			prependMain(notice)
+		} else {
+			// if insertionReference provided without insertionPoint provided, default will be afterbegin
+			if (insertionPoint === undefined) insertionPoint = 'afterbegin';
+			const targetElement = document.querySelector(insertionReference);
+			targetElement.insertAdjacentElement(insertionPoint, notice);
+		}
+
+		// call createNotice
+		createNotice(notice);
+	};
 
 	return widget;
 });
