@@ -1,5 +1,5 @@
 define(['uuid-gen'], (uuidv4) => {
-
+	let widget = {};
 	let notices = document.querySelectorAll('[data-widget="notice"]');
 	let fixedBottomExists = document.querySelector('[id*="unl-widget-fixedBottom-"]') ? true : false; // flag for checking if a fixedBottom notice has been previously added to the page set flag to true
 
@@ -25,7 +25,7 @@ define(['uuid-gen'], (uuidv4) => {
 	const noticeAnimationClasses = {
 		slideInScroll: ['baz'],
 		slideUp: ['car'],
-	};
+	};0
 
 	const closeButtonClasses = ['dcf-absolute', 'dcf-pin-top', 'dcf-pin-right', 'dcf-mt-3', 'dcf-mr-3', 'dcf-btn', 'dcf-btn-tertiary', 'js-notice-toggle'];
 
@@ -230,10 +230,10 @@ define(['uuid-gen'], (uuidv4) => {
 
 
 	/**
-	 * Notice widget related code
+	 * @purpose reusable notice creation and styling code
+	 * @param notice - the notice element
 	 */
-
-	notices.forEach(notice => {
+	function createNotice(notice) {
 		if (notice.initialized) return; // exit if the notice has been initialized
 
 		const noticeType = notice.dataset.noticeType;
@@ -322,9 +322,45 @@ define(['uuid-gen'], (uuidv4) => {
 			const noticeTitle = notice.querySelector('.js-notice-title');
 			const noticeMessage = notice.querySelector('.js-notice-message');
 			const toggleButton = notice.querySelector('.js-notice-toggle');
+
+			if (!noticeTitle) {
+				console.error('Your notice is missing a title.');
+				return;
+			}
+
+			if (!noticeMessage) {
+				console.error('Your notice is missing a message.');
+				return;
+			}
+
 			collapseExpandMessage(notice, toggleButton, noticeTitle, noticeMessage);
 		}
+	}
 
-	});
+	/**
+	 *  widget.initialize is the default functionality that scans all the existing notice widgets in the dom
+	 *  and initialize them
+	 */
+	widget.initialize = () => {
+		notices.forEach(notice => {
+			createNotice(notice);
+		}
+	)};
 
+	/**
+	 * widget.create takes in arguments to dynamically create notices on the fly
+	 */
+	// widget.create = (noticeTitle, noticeMessage, widgetOptions, insertReference, insertPosition) {
+	// 	const notice = document.createElement('div');
+	// 	const noticeHeader = document.createElement('h2');
+	// 	const noticeContent = document.createElement('p');
+	//
+	// 	if (typeof(noticeTitle) === 'string') noticeHeader.innerText(noticeTitle);
+	// 	if (typeof(noticeMessage) === 'string') noticeHeader.innerText(noticeMessage);
+	//
+	//
+	// 	}
+	}
+
+	return widget;
 });
