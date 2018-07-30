@@ -343,7 +343,7 @@ module.exports = function (grunt) {
 		},
 
 		concurrent: {
-			main: ['sassGlobber', 'sass:all', 'postcss', 'js'],
+			main: [['sassGlobber:all', 'sass:all'], 'postcss', 'js'],
 			dist: ['zip', 'archive']
 		},
 
@@ -382,7 +382,7 @@ module.exports = function (grunt) {
 		watch: {
 			sass: {
 				files: [templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
-				tasks: ['scssGlobber','sass']
+				tasks: ['sassGlobber:all','sass']
 			},
 			js: {
 				files: [templateJs + '/**/*.js', '!' + templateCompileJs + '/**/*.js'],
