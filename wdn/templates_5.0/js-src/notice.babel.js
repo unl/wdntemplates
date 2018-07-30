@@ -81,14 +81,14 @@ define(['uuid-gen'], (uuidv4) => {
 		if (expanded) {
 			// if expanded, collapse message
 			closeButton.innerText = "Expand";
-			title.classList.add('dcf-notice_title--collapse');
-			message.classList.add('dcf-notice_message--collapse');
+			title.classList.add('dcf-notice-title-collapse');
+			message.classList.add('dcf-notice-message-collapse');
 			localStorage.setItem(el.id, 'collapsed');
 		} else {
 			// if collapse, expand message
 			closeButton.innerText = "Collapse";
-			message.classList.remove('dcf-notice_message--collapse');
-			title.classList.remove('dcf-notice_title--collapse');
+			message.classList.remove('dcf-notice-message-collapse');
+			title.classList.remove('dcf-notice-title-collapse');
 			localStorage.setItem(el.id, 'expanded');
 		}
 
@@ -129,11 +129,11 @@ define(['uuid-gen'], (uuidv4) => {
 				return;
 			}
 
-			noticeTitle.classList.add('dcf-notice__title');
+			noticeTitle.classList.add('dcf-notice-title');
 
 			!noticeMessage.id && (noticeMessage.id = noticeMessageId); //if no id is provided use the generated id
 			closeButton.setAttribute('aria-controls', noticeMessageId);
-			noticeMessage.classList.add('dcf-notice__message');
+			noticeMessage.classList.add('dcf-notice-message');
 
 
 			closeButton.addEventListener('click', () => {
@@ -370,7 +370,7 @@ define(['uuid-gen'], (uuidv4) => {
 		} else {
 			// if insertionReference provided without insertigonPoint provided, default will be afterbegin
 			if (insertionPoint === undefined) insertionPoint = 'afterbegin';
-			const targetElement = document.quer8ySelector(insertionReference);
+			const targetElement = document.querySelector(insertionReference);
 			targetElement.insertAdjacentElement(insertionPoint, notice);
 		}
 
