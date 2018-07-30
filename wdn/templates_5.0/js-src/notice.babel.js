@@ -25,7 +25,7 @@ define(['uuid-gen'], (uuidv4) => {
 	const noticeAnimationClasses = {
 		slideInScroll: ['baz'],
 		slideUp: ['car'],
-	};0
+	};
 
 	const closeButtonClasses = ['dcf-absolute', 'dcf-pin-top', 'dcf-pin-right', 'dcf-mt-3', 'dcf-mr-3', 'dcf-btn', 'dcf-btn-tertiary', 'js-notice-toggle'];
 
@@ -83,14 +83,12 @@ define(['uuid-gen'], (uuidv4) => {
 			closeButton.innerText = "Expand";
 			title.classList.add('dcf-notice_title--collapse');
 			message.classList.add('dcf-notice_message--collapse');
-			console.log(el.id, 'true');
 			localStorage.setItem(el.id, 'collapsed');
 		} else {
 			// if collapse, expand message
 			closeButton.innerText = "Collapse";
 			message.classList.remove('dcf-notice_message--collapse');
 			title.classList.remove('dcf-notice_title--collapse');
-			console.log(el.id, 'false');
 			localStorage.setItem(el.id, 'expanded');
 		}
 
@@ -178,11 +176,8 @@ define(['uuid-gen'], (uuidv4) => {
 
 	function observerCallback(entries, observer) {
 		entries.forEach(entry => {
-			console.log(entry.intersectionRatio, entry.isIntersecting, observer, entry.boundingClientRect);
-
 			if (entry.isIntersecting) {
 				if (entry.intersectionRatio > 0 && entry.intersectionRatio >= observer.thresholds[0]) {
-					console.log('START DRAWING!!!!!');
 					noticeAnimationClasses.slideInScroll.forEach(noticeAnimationClass => entry.target.classList.add(noticeAnimationClass));
 
 					// set isDrawn flag to true after actions have been taken
@@ -373,9 +368,9 @@ define(['uuid-gen'], (uuidv4) => {
 			// assuming no insertionReference or insertionPoint provided
 			prependMain(notice)
 		} else {
-			// if insertionReference provided without insertionPoint provided, default will be afterbegin
+			// if insertionReference provided without insertigonPoint provided, default will be afterbegin
 			if (insertionPoint === undefined) insertionPoint = 'afterbegin';
-			const targetElement = document.querySelector(insertionReference);
+			const targetElement = document.quer8ySelector(insertionReference);
 			targetElement.insertAdjacentElement(insertionPoint, notice);
 		}
 
