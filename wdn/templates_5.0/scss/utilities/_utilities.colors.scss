@@ -41,3 +41,9 @@ a.unl-cream:hover {
 a.unl-cream:active {
   @include cream-active(!important);
 }
+
+
+// !Dark -- TODO: finalize name
+.unl-dark {
+  @include dark(!important);
+}

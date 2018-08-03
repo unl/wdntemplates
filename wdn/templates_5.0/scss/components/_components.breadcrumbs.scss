@@ -9,9 +9,14 @@
   @include pb-8;
   @include pt-6;
   position: relative;
+}
 
-  @include mq(md) {
+@include mq(md, min, width) {
+
+  .unl .dcf-breadcrumbs {
+    bottom: 0;
     @include pt-5;
+    position: fixed;
   }
 
 }

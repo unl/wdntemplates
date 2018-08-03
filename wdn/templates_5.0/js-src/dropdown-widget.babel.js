@@ -28,7 +28,7 @@ define([], function () {
 		this.container = container;
 		this.button = this.container.querySelector('button[aria-expanded="false"]');
 
-		var id = this.button.getAttribute('aria-controls');
+		let id = this.button.getAttribute('aria-controls');
 		if (id) {
 			this.controls = document.getElementById(id);
 		} else {
@@ -47,7 +47,7 @@ define([], function () {
 		}.bind(this));
 
 		//Handle the escape action
-		this.container.addEventListener('keydown', function (e) {
+		document.addEventListener('keydown', function (e) {
 			// If escape, refocus menu button
 			if (e.keyCode === 27) {
 				this.close();

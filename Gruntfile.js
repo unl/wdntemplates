@@ -241,7 +241,6 @@ module.exports = function (grunt) {
 		postcss: {
 			options: {
 				processors: [
-					require('postcss-normalize'),
 					require('autoprefixer')
 				]
 			},
