@@ -34,7 +34,8 @@
 }
 
 .wdn-list-header {
-  border-bottom: 1px solid $color-border;
+  @include bb-1;
+  border-color: $color-border;
   @include font-sans;
   @include txt-base;
   letter-spacing: .02em;
