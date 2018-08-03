@@ -154,15 +154,15 @@
   }
 
   .unl-site-title-short {
-    @include txt-h3;
-  }
-
-  .unl-site-title-medium {
     @include txt-h4;
   }
 
-  .unl-site-title-long {
+  .unl-site-title-medium {
     @include txt-h5;
+  }
+
+  .unl-site-title-long {
+    @include txt-h6;
   }
 
 }
