@@ -7,13 +7,17 @@
 
 @include mq(md, max, width) {
 
-  .dcf-idm-results {
+  .unl .dcf-idm-results {
     @include pb-8; // update in core
   }
 
-  .dcf-idm-options {
+  .unl .dcf-idm-options {
     top: -3px;
     transform: translateY(-100%);
+  }
+
+  .unl .dcf-idm-toggle {
+    display: none;
   }
 
 }
@@ -21,20 +25,12 @@
 
 @include mq(md, min, width) {
 
-  .unl .dcf-mobile-toolbar-idm {
-    position: relative;
+  .unl .dcf-idm-toggle {
+    display: flex;
   }
 
   .unl .dcf-mobile-toolbar-toggle-idm {
-    @include inverse;
-    height: 100%;
-    position: relative;
     z-index: 1;
-  }
-
-  .unl .dcf-mobile-toolbar-label-idm {
-    @include font-serif;
-    @include pr-10;
   }
 
   // TODO: add hover and focus states
@@ -42,28 +38,22 @@
     @include cream;
   }
 
-  .unl .dcf-mobile-toolbar-icon-idm {
-    @include bg-cream;
-    border: 3px solid $cream;
+  .unl .dcf-idm-img {
     bottom: -#{ms(0)}em;
     fill: mix($cream, #000, 90%);
-    @include h-9;
-    position: absolute;
-    right: 0;
-    @include w-9;
   }
 
-  .dcf-idm-results {
+  .unl .dcf-idm-results {
     @include pb-10; // update in core
   }
 
-  .dcf-idm-options {
+  .unl .dcf-idm-options {
     margin-top: 3px;
     right: 0;
     top: 100%;
   }
 
-  .dcf-idm-options li:last-child {
+  .unl .dcf-idm-options li:last-child {
     margin-bottom: 0;
   }
 
@@ -73,15 +63,15 @@
 
 @supports (display: grid) {
 
-  .dcf-dashboard-person-details {
+  .unl .dcf-dashboard-person-details {
     grid-area: person-details;
   }
 
-  .dcf-dashboard-person-avatar {
+  .unl .dcf-dashboard-person-avatar {
     grid-area: person-avatar;
   }
 
-  .dcf-dashboard-person {
+  .unl .dcf-dashboard-person {
     grid-template-columns: 1fr 3fr;
     grid-template-areas: 'person-avatar person-details';
   }

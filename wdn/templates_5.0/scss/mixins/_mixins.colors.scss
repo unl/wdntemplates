@@ -37,3 +37,9 @@
 @mixin cream-active($imp:null) {
   color: $cream $imp; // TODO: determine active state styles
 }
+
+
+// !Dark -- TODO: finalize name
+@mixin dark($imp:null) {
+  color: $ui-800 $imp;
+}

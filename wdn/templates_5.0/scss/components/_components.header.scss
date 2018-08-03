@@ -66,66 +66,19 @@
     display: none;
   }
 
-  .unl .dcf-mobile-toolbar {
-    @include bg-cream;
-    border: 3px solid $scarlet;
-    border-width: 3px 0 0 0;
-    bottom: 0;
-    position: fixed;
-    width: 33.4%;
-    z-index: 9999;
-  }
 
-  .unl .dcf-mobile-toolbar-toggle {
-    flex-direction: column;
-    height: #{$height-mobile-toolbar};
-    margin-bottom: env(safe-area-inset-bottom);
-  }
 
-  .unl .dcf-mobile-toolbar-search {
-    left: 33.33%;
-  }
-
-  .unl .dcf-mobile-toolbar-idm {
-    left: 66.66%;
-  }
-
-  .unl .dcf-mobile-toolbar-label {
-    @include font-sans;
-    font-size: #{ms(-4)}em;
-//     font-size: 7px;
-    font-weight: bold;
-    @include ls-2;
-    text-transform: uppercase;
-  }
-
-  .unl .dcf-mobile-toolbar-icon {
-    fill: currentColor;
-    @include h-5;
-    @include mb-2;
-    margin-top: #{ms(-12)}em;
-    @include w-5;
-  }
-
-  .unl .dcf-mobile-toolbar-modal {
-    @include bg-overlay-dark;
-    bottom: #{$height-mobile-toolbar};
-    height: calc(100% - #{$height-mobile-toolbar});
-    position: fixed;
-    width: 100%;
-    z-index: 998;
-  }
-
-  .unl .dcf-mobile-toolbar-modal::after {
-    background-image: linear-gradient(to bottom, fade-out($cream, 1), $cream);
-    bottom: $height-mobile-toolbar;
-    content: '';
-    height: #{ms(8)}em;
-    left: 0;
-    position: fixed;
-    width: 100%;
-    z-index: 999;
-  }
+// TODO: create separate class(es) to avoid visual conflict between the light gradient and dark color of the app region for controls and search
+//   .unl .dcf-mobile-toolbar-modal::after {
+//     background-image: linear-gradient(to bottom, fade-out($cream, 1), $cream);
+//     bottom: $height-mobile-toolbar;
+//     content: '';
+//     height: #{ms(8)}em;
+//     left: 0;
+//     position: fixed;
+//     width: 100%;
+//     z-index: 999;
+//   }
 
   .unl .dcf-logo-lockup {
     @include pb-4;

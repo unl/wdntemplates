@@ -1,0 +1,15 @@
+/////////////////////////////////
+// !THEME / MIXINS / BORDER-COLOR
+/////////////////////////////////
+
+
+// !Scarlet
+@mixin b-scarlet($imp:null) {
+  border-color: $scarlet $imp;
+}
+
+
+// !Cream
+@mixin b-cream($imp:null) {
+  border-color: $cream $imp;
+}

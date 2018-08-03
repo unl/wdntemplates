@@ -20,16 +20,17 @@ $gray: $color-brand-gamma;
 // !UI COLORS
 // Assign colors to elements
 $white: #fff;
+$black: #000;
 
-$ui-100: mix($cream, #000, 90%); // lightest
-$ui-200: mix($cream, #000, 84%);
-$ui-300: mix($cream, #000, 75%);
-$ui-400: mix($cream, #000, 63%);
-$ui-500: mix($cream, #000, 56%);
-$ui-600: mix($cream, #000, 43%);
-$ui-700: mix($cream, #000, 32%);
-$ui-800: mix($cream, #000, 24%);
-$ui-900: mix($cream, #000, 18%); // darkest
+$ui-100: mix($cream, $black, 90%); // lightest
+$ui-200: mix($cream, $black, 84%);
+$ui-300: mix($cream, $black, 75%);
+$ui-400: mix($cream, $black, 63%);
+$ui-500: mix($cream, $black, 56%);
+$ui-600: mix($cream, $black, 43%);
+$ui-700: mix($cream, $black, 32%);
+$ui-800: mix($cream, $black, 24%);
+$ui-900: mix($cream, $black, 18%); // darkest
 
 
 // Body background color (usually white, off-white, or very light gray)
