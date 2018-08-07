@@ -50,6 +50,7 @@
   font-size: #{ms(-2)}rem; // .75rem
   @include mb-4;
   text-transform: uppercase;
+  font-weight: normal;
 }
 
 .wdn-intro-p {
