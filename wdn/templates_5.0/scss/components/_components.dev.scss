@@ -44,38 +44,8 @@
 
 
 
-.unl-txt-sm-xs {
-  @include txt-sm;
-
-  @include mq(md, min, width) {
-    @include txt-xs;
-  }
-
-}
 
 
-.dcf-txt-sm\@md {
-
-  @include mq(md, min, width) {
-    @include txt-xs;
-  }
-
-}
-
-
-.unl-txt-ui-sm {
-  @include txt-xs;
-
-  @include mq(md, min, width) {
-    font-size: #{ms(-3)}em;
-  }
-}
-
-
-.unl-blurred {
-  filter: blur(5px);
-  transition: filter 200ms ease-out;
-}
 
 
 .unl .dcf-bg-overlay-light,
@@ -132,13 +102,6 @@
     visibility: visible;
 }
 // core
-
-
-p {
-  max-width: none; // TODO: remove max-width from paragraphs in DCF core
-}
-
-
 
 
 .unl-t-hero-h {
