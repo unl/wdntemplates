@@ -3,45 +3,8 @@
 ////////////////////////////////////
 
 
-.unl .dcf-breadcrumbs {
-  border-top: 1px solid $ui-100;
-  flex: 0 1 auto;
-  @include pb-8;
-  @include pt-6;
-  position: relative;
-}
-
-@include mq(md, min, width) {
-
-  .unl .dcf-breadcrumbs {
-    bottom: 0;
-    @include pt-5;
-    position: fixed;
-  }
-
-}
-
-
-.unl .dcf-nav-bar .dcf-breadcrumbs {
-//   display: none;
-  opacity: 0;
-//   transform: translateY(25%);
-//   transition: opacity 200ms ease-out, transform 200ms ease-out;
-  transition: opacity 200ms ease-out;
-}
-
-
-.unl .dcf-nav-bar.dcf-modal-open .dcf-breadcrumbs {
-//   display: block;
-  opacity: 1;
-//   transform: translateY(0);
-  transition: opacity 200ms ease-out;
-}
-
-
-.unl .dcf-breadcrumbs li {
-//   margin-bottom: 0;
-  display: inline-block; //core
+.unl .dcf-breadcrumbs ol {
+  border-top-color: $ui-100; // TODO: remove after border-top-color utility classes are added and used in markup
 }
 
 
@@ -52,6 +15,74 @@
 
 .unl .dcf-breadcrumbs li:not(:last-child)::after {
   color: $color-lightest-text;
-  content: '\2192';
+  content: '\2192'; // Right arrow after each breadcrumb except the last
   @include ml-2;
+}
+
+
+@include mq(md, max, width) {
+
+  .unl .dcf-breadcrumbs {
+    @include pb-8;
+  }
+
+
+  .unl .dcf-breadcrumbs li {
+    display: inline-block; // Let breadcrumbs wrap to multiple lines as needed
+  }
+
+}
+
+
+@include mq(md, min, width) {
+
+  .unl .dcf-breadcrumbs {
+    height: $height-breadcrumbs-md; // Set breadcrumbs height at medium breakpoint
+    padding-right: $length-vw-2;
+  }
+
+
+  .unl .dcf-nav-bar .dcf-breadcrumbs {
+    opacity: 0;
+//     transform: translateY(25%);
+//     transition: opacity 200ms ease-out, transform 200ms ease-out;
+    transition: opacity 200ms ease-out;
+  }
+
+
+  .unl .dcf-nav-bar.dcf-modal-open .dcf-breadcrumbs {
+    opacity: 1;
+//     transform: translateY(0);
+    transition: opacity 200ms ease-out;
+  }
+
+
+  .unl .dcf-breadcrumbs ol {
+    display: flex;
+    flex-wrap: nowrap; // Keep breadcrumbs on one line
+    align-items: flex-start; // Ensure that the final breadcrumb is vertically aligned with the others
+  }
+
+
+  .unl .dcf-breadcrumbs li:first-child,
+  .unl .dcf-breadcrumbs li:last-child {
+    flex-shrink: 0; // Prevent first breadcrumb ('Nebraska') and last breadcrumb (current page) from being truncated
+  }
+
+
+  .unl .dcf-breadcrumbs li:not(:first-child),
+  .unl .dcf-breadcrumbs li:not(:last-child) {
+    min-width: 0; // Let any breadcrumbs that aren't first or last shrink as needed
+  }
+
+
+  .unl .dcf-breadcrumbs li:hover {
+    min-width: auto; // Show the full name of a truncated breadcrumb on hover
+  }
+
+
+  .unl .dcf-breadcrumbs li a {
+    @include truncate; // Truncate links if there isn't enough horizontal space to accomodate all breadcrumbs
+  }
+
 }

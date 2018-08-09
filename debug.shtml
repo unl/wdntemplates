@@ -29,9 +29,9 @@
   </div>
 -->
 
-  <header class="dcf-header dcf-txt-xs" id="dcf-header" role="banner">
+  <header class="dcf-header" id="dcf-header" role="banner">
 
-    <div class="dcf-header-global dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-jc-between dcf-relative unl-bg-scarlet">
+    <div class="dcf-header-global dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-ai-center dcf-jc-between dcf-relative unl-bg-scarlet">
       <!--#include virtual="/wdn/templates_5.0/includes/global/institution.html" -->
       <!--#include virtual="/wdn/templates_5.0/includes/global/nav-global.html" -->
       <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
@@ -41,16 +41,16 @@
     <!--     <div class="dcf-wrapper dcf-logo dcf-d-flex dcf-ai-center dcf-pt-5 dcf-pb-4 dcf-lh-1 dcf-overflow-hidden"> -->
     <div class="dcf-logo-lockup dcf-wrapper dcf-d-flex dcf-ai-flex-end dcf-relative dcf-overflow-hidden">
       <!--#include virtual="/wdn/templates_5.0/includes/global/logo.html" -->
-      <div class="dcf-site-group dcf-d-flex dcf-flex-col dcf-jc-center">
-        <div class="dcf-site-affiliation dcf-lh-3 dcf-italic dcf-txt-sm" id="dcf-site-affiliation">
+      <div class="dcf-site-group dcf-d-flex dcf-flex-col dcf-jc-center unl-font-sans">
+        <div class="dcf-site-affiliation dcf-lh-3 dcf-txt-2xs" id="dcf-site-affiliation">
           <!-- InstanceBeginEditable name="affiliation" -->
           <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
 <!--           <a href="http://ianr.unl.edu/">Institute of Agriculture and Natural Resources</a> -->
           <!-- InstanceEndEditable -->
         </div>
-        <div class="dcf-site-title dcf-bold dcf-lh-2 dcf-uppercase unl-font-sans unl-ls-1 unl-site-title-medium" id="dcf-site-title">
+        <div class="dcf-site-title dcf-bold dcf-lh-2 dcf-uppercase unl-ls-1" id="dcf-site-title">
           <!-- InstanceBeginEditable name="titlegraphic" -->
-          <a href="https://www.unl.edu/">
+          <a class="unl-site-title-medium" href="https://www.unl.edu/">
 <!--             College of Agricultural Sciences and Natural Resources -->
 <!--             Hixson-Lied College of Fine &amp; Performing Arts -->
             Glenn Korff School of Music
@@ -65,15 +65,16 @@
 
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle.html" -->
 
-    <div class="dcf-nav-bar dcf-modal-parent unl-font-sans">
+    <div class="dcf-nav-bar dcf-modal-parent dcf-txt-xs unl-font-sans">
 
-      <button class="dcf-nav-toggle-btn dcf-nav-toggle-btn-menu dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-w-9 dcf-pt-4 dcf-pr-0 dcf-pb-3 dcf-pl-0 dcf-b-0 dcf-bg-transparent unl-font-sans" id="dcf-menu-toggle" aria-expanded="false">
-        <svg class="dcf-h-4 dcf-w-4 dcf-mb-2 dcf-fill-current" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48">
-          <g class="dcf-icon-menu-top"><path d="M46,0H2C0.9,0,0,0.9,0,2s0.9,2,2,2h44c1.1,0,2-0.9,2-2S47.1,0,46,0z"/></g>
-          <g class="dcf-icon-menu-bottom"><path d="M46,44H2c-1.1,0-2,0.9-2,2s0.9,2,2,2h44c1.1,0,2-0.9,2-2S47.1,44,46,44z"/></g>
-          <g class="dcf-icon-menu-middle"><path d="M46,22H2c-1.1,0-2,0.9-2,2s0.9,2,2,2h44c1.1,0,2-0.9,2-2S47.1,22,46,22z"/></g>
+      <button class="dcf-nav-toggle-btn dcf-nav-toggle-btn-menu dcf-flex-col dcf-ai-center dcf-jc-center dcf-w-9 dcf-pt-4 dcf-pr-0 dcf-pb-3 dcf-pl-0 dcf-b-0 dcf-bg-transparent unl-font-sans" id="dcf-menu-toggle" aria-expanded="false">
+        <svg class="dcf-h-5 dcf-w-5 dcf-mb-2 dcf-fill-current" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48">
+          <path d="M45.5 22.5h-43c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h43c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5zM45.5 7.5h-43C1.7 7.5 1 8.2 1 9s.7 1.5 1.5 1.5h43c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5zM45.5 37.5h-43c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h43c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5z"/>
         </svg>
-        <span class="dcf-sr-only">Show </span><span class="dcf-nav-toggle-label dcf-bold dcf-uppercase unl-ls-2">Menu</span>
+        <svg class="dcf-mb-1 dcf-h-6 dcf-w-6 dcf-fill-current dcf-d-none" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48">
+          <path d="M38.1 7.7L7.7 38.1c-.6.6-.6 1.5 0 2.1.6.6 1.5.6 2.1 0L40.3 9.9c.6-.6.6-1.5 0-2.1-.6-.6-1.6-.6-2.2-.1z"/><path d="M7.7 7.7c-.6.6-.6 1.5 0 2.1l30.4 30.4c.6.6 1.5.6 2.1 0 .6-.6.6-1.5 0-2.1L9.9 7.7c-.6-.5-1.6-.5-2.2 0z"/>
+        </svg>
+        <span class="dcf-sr-only">Show </span><span class="dcf-nav-toggle-label dcf-txt-3xs dcf-bold dcf-uppercase unl-ls-2">Menu</span>
       </button>
 
       <div class="dcf-nav-menu dcf-mobile-toolbar-modal dcf-w-100%" id="dcf-navigation">
@@ -84,7 +85,7 @@
             <!-- InstanceEndEditable -->
           </nav>
           <nav class="dcf-breadcrumbs dcf-txt-sm dcf-d-none" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
-            <ol class="dcf-list-bare dcf-mb-0 unl-font-sans">
+            <ol class="dcf-list-bare dcf-mb-0 dcf-pt-4 dcf-bt-solid dcf-bt-1">
               <!-- InstanceBeginEditable name="breadcrumbs" -->
               <li><a href="https://www.unl.edu/">Nebraska</a></li>
               <li><a href="https://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts<!-- <abbr title="Hixson-Lied College of Fine and Performing Arts">HLCFPA</abbr> --></a></li>

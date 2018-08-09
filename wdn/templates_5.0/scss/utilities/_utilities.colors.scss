@@ -43,6 +43,26 @@ a.unl-cream:active {
 }
 
 
+// !Blue
+.unl-blue,
+a.unl-blue,
+a.unl-blue:link {
+  @include blue(!important);
+}
+
+a.unl-blue:visited {
+  @include blue-visited(!important);
+}
+
+a.unl-blue:hover {
+  @include blue-hover(!important);
+}
+
+a.unl-blue:active {
+  @include blue-active(!important);
+}
+
+
 // !Dark -- TODO: finalize name
 .unl-dark {
   @include dark(!important);

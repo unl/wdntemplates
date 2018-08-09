@@ -17,7 +17,7 @@
 @include mq(md, max, width) {
 
   .unl .dcf-nav-global {
-    display: none; // temp
+    display: none; // TODO: remove and determine placement for viewport widths under 'md' breakpoint
   }
 
 }
@@ -32,7 +32,6 @@
 
   .unl .dcf-nav-global a {
     @include inverse-link;
-//     justify-content: flex-end; // remove after updated in DCF core
   }
 
 }
