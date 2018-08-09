@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<!--#include virtual="/wdn/templates_5.0/includes/global/meta.html" -->
-<title>Debugging Out | Framework Testing Page</title>
-<!--#include virtual="/wdn/templates_5.0/includes/global/css.html" -->
-<!--#include virtual="/wdn/templates_5.0/includes/global/js-head.html" -->
-<!--#include virtual="/wdn/templates_5.0/includes/global/favicon.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/head-1.html" -->
+  <title>Debugging Out | Framework Testing Page</title>
+  <!--#include virtual="/wdn/templates_5.0/includes/global/head-2.html" -->
 </head>
 <body class="debug unl" data-version="5.0">
   <!--#include virtual="/wdn/templates_5.0/includes/global/skip-nav.html" -->
@@ -1380,7 +1378,7 @@
       dialogHelper.setupShowDialogButton(dialog, document.querySelector('#test-button'));
     });
   </script>
-  <!--<script src="wdn/templates_5.0/js-src/notice.babel.js"></script>-->
+
   <script>
     require(['notice'], function(notice) {
       notice.initialize();

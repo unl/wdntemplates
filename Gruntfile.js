@@ -71,7 +71,7 @@ module.exports = function (grunt) {
 		//'mediaelement_wdn',
 		//'modal',
 		//'monthwidget',
-		//'notice',
+		'notice',
 		//'rss_widget',
 		//'script-font',
 		//'smallcaps',
