@@ -1,0 +1,10 @@
+////////////////////////////////
+// !THEME / DEPRECATED / FIGURES
+////////////////////////////////
+
+
+figcaption {
+  color: $color-light-text;
+  @include font-sans;
+  @include txt-xs;
+}

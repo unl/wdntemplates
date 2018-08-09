@@ -34,7 +34,7 @@
 }
 
 .wdn-list-header {
-  @include bb;
+  @include bb-1;
   border-color: $color-border;
   @include font-sans;
   @include txt-base;
@@ -47,7 +47,9 @@
 
 .wdn-subhead {
   display: block;
+  @include font-sans;
   font-size: #{ms(-2)}rem; // .75rem
+  font-weight: normal;
   @include mb-4;
   text-transform: uppercase;
 }

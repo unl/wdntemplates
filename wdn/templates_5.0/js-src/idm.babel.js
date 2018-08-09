@@ -1,39 +1,35 @@
 'use strict';
 
 /* globals define: false */
-define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDownWidget, require) {
+define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, DropDownWidget, require) {
 	"use strict";
 
 	var getLinkByRel = function getLinkByRel(name) {
-		return $('link[rel=' + name + ']');
+		return document.querySelector('link[rel=' + name + ']');
 	},
-	    getLocalIdmSettings = function getLocalIdmSettings() {
+	getLocalIdmSettings = function getLocalIdmSettings() {
 		var loginLink = getLinkByRel('login'),
 		    logoutLink = getLinkByRel('logout');
 
-		if (loginLink.length) {
-			WDN.setPluginParam('idm', 'login', loginLink.attr('href'));
+		if (loginLink) {
+			WDN.setPluginParam('idm', 'login', loginLink.getAttribute('href'));
 		}
-		if (logoutLink.length) {
-			WDN.setPluginParam('idm', 'logout', logoutLink.attr('href'));
+		if (logoutLink) {
+			WDN.setPluginParam('idm', 'logout', logoutLink.getAttribute('href'));
 		}
 
 		return WDN.getPluginParam('idm') || {};
 	},
-	    dcfSel = '#dcf',
-	    mainSel = dcfSel + '-idm',
-	    loginSel = mainSel + '-login',
-	    loginSrv = 'https://login.unl.edu/',
-	    ssoCook = 'unl_sso',
-	    encLoc = encodeURIComponent(window.location),
-	    logoutURL = loginSrv + 'cas/logout?url=' + encLoc,
-	    loginURL = loginSrv + 'cas/login?service=' + encLoc,
-	    serviceURL = loginSrv + 'services/whoami/?id=',
-	    avatarService = 'https://directory.unl.edu/avatar/',
-	    planetRed = 'https://planetred.unl.edu/pg/',
-	    user = false,
-	    loggedOutSel = '#dcf-idm-status-logged-out',
-	    loggedInSel = '#dcf-idm-status-logged-out';
+	
+	loginSrv = 'https://login.unl.edu/',
+	ssoCook = 'unl_sso',
+	encLoc = encodeURIComponent(window.location),
+	logoutURL = loginSrv + 'cas/logout?url=' + encLoc,
+	loginURL = loginSrv + 'cas/login?service=' + encLoc,
+	serviceURL = loginSrv + 'services/whoami/?id=',
+	avatarService = 'https://directory.unl.edu/avatar/',
+	planetRed = 'https://planetred.unl.edu/pg/',
+	user = false;
 
 	var getUserField = function getUserField(field) {
 		if (!user || !user[field]) {
@@ -46,7 +42,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 	var Plugin = {
 		initialize: function initialize(callback) {
 			var loginCheckFailure = function loginCheckFailure() {
-				$(function () {
+				ready(function () {
 					var localSettings = getLocalIdmSettings();
 					if (localSettings.login) {
 						Plugin.setLoginURL(localSettings.login);
@@ -73,7 +69,7 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 						if (callback) {
 							callback();
 						}
-						$(function () {
+						ready(function () {
 							Plugin.renderAsLoggedIn();
 						});
 					} else {
@@ -228,69 +224,78 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
    * Update the SSO tab and display user info
    */
 		renderAsLoggedIn: function renderAsLoggedIn() {
-			var localSettings = getLocalIdmSettings(),
-			    $loggedOutContainer = $(loggedOutSel),
-			    $loggedInContainer = $(loggedInSel);
+			// We need to set up multiples of these so that focus order is correct.
+			let widgetContainers = document.querySelectorAll('.dcf-idm');
+			let localSettings = getLocalIdmSettings();
 
-			//Set up the idm button
-			var $button = $('<button>', {
-				'class': 'dcf-mobile-toolbar-toggle dcf-mobile-toolbar-toggle-idm dcf-idm-login dcf-d-flex dcf-ai-center dcf-jc-center dcf-w-100% dcf-p-0 dcf-b-0 dcf-bg-transparent',
-				'id': 'dcf-idm-toggle',
-				'aria-expanded': 'false',
-				'aria-controls': 'dcf-idm-options',
-				'aria-label': 'Account actions for ' + this.getDisplayName()
-			});
-			$button.append($('<img>', {
-				'class': 'dcf-block dcf-mobile-toolbar-icon dcf-mobile-toolbar-icon-idm dcf-2nd@md dcf-circle',
-				'src': avatarService + this.getUserId(),
-				'alt': ''
-			}));
-			$button.append($('<span>', {
-				'class': 'dcf-mobile-toolbar-label dcf-mobile-toolbar-label-idm dcf-truncate'
-			}).text(this.getDisplayName()));
+			// Loop over each widget and create the needed elements
+			for (let i=0; i<widgetContainers.length; i++) {
+				let button = document.createElement('BUTTON');
+				button.classList.add('dcf-mobile-toolbar-toggle', 'dcf-mobile-toolbar-toggle-idm', 'dcf-idm-login', 'dcf-d-flex', 'dcf-ai-center', 'dcf-jc-center', 'dcf-w-100%', 'dcf-p-0', 'dcf-b-0', 'dcf-bg-transparent');
+				button.setAttribute('id', 'dcf-idm-toggle');
+				button.setAttribute('aria-expanded', 'false');
+				button.setAttribute('aria-controls', 'dcf-idm-options-'+i);
+				button.setAttribute('aria-label', 'Account actions for ' + this.getDisplayName());
 
-			//Set up the IDM options
-			var $optionsContainer = $('<div>', {
-				'class': 'dcf-idm-options dcf-absolute dcf-pt-6 dcf-pr-5 dcf-pb-5 dcf-pl-5 dcf-bg-overlay-dark',
-				'id': 'dcf-idm-options',
-				'hidden': true
-			});
+				let img = document.createElement('IMG');
+				img.classList.add('dcf-mobile-toolbar-toggle', 'dcf-mobile-toolbar-toggle-idm', 'dcf-idm-login', 'dcf-d-flex', 'dcf-ai-center', 'dcf-jc-center', 'dcf-w-100%', 'dcf-p-0', 'dcf-b-0', 'dcf-bg-transparent');
+				img.setAttribute('src', avatarService + this.getUserId());
+				img.setAttribute('alt', '');
+				button.appendChild(img);
 
-			var $navUL = $('<ul>', {
-				'class': 'dcf-list-bare dcf-mb-0 unl-font-sans'
-			});
+				let displayName = document.createElement('SPAN');
+				displayName.classList.add('dcf-mobile-toolbar-label', 'dcf-mobile-toolbar-label-idm', 'dcf-truncate');
+				displayName.innerText = this.getDisplayName();
+				button.appendChild(displayName);
 
-			//Add the profile link
-			$navUL.append($('<li>').append($('<a>', {
-				'class': 'unl-cream',
-				'href': this.getProfileURL()
-			}).text('View Profile')));
+				//Set up the IDM options
+				let optionsContainer = document.createElement('DIV');
+				optionsContainer.classList.add('dcf-idm-options', 'dcf-absolute', 'dcf-pt-6', 'dcf-pr-5', 'dcf-pb-5', 'dcf-pl-5', 'dcf-bg-overlay-dark');
+				optionsContainer.setAttribute('id', 'dcf-idm-options-'+i);
+				optionsContainer.hidden = true;
 
-			//Add the logout link (set it as a variable so that we can reference it later)
-			var $logoutLink = $('<a>', {
-				'class': 'unl-cream',
-				'id': 'dcf-idm-logout',
-				'href': logoutURL,
-			}).text('Logout');
-			$navUL.append($('<li>').append($logoutLink));
+				let navUL = document.createElement('UL');
+				navUL.classList.add('dcf-list-bare', 'dcf-mb-0', 'unl-font-sans');
 
-			//Attach the UL to the options container
-			$optionsContainer.append($navUL);
+				let profileLI = document.createElement('LI');
+				let profileLink = document.createElement('A');
+				profileLink.classList.add('unl-cream');
+				profileLink.setAttribute('href', this.getProfileURL());
+				profileLink.innerText = 'View Profile';
+				profileLI.appendChild(profileLink);
+				navUL.appendChild(profileLI);
 
-			$loggedInContainer.html(''); //Clear any existing contents
-			$loggedInContainer.append($button); //add new stuff
-			$loggedInContainer.append($optionsContainer);
+				let logoutLI = document.createElement('LI');
+				let logoutLink = document.createElement('A');
+				logoutLink.classList.add('unl-cream');
+				logoutLink.setAttribute('href', logoutURL);
+				logoutLink.innerText = 'Logout';
+				logoutLI.appendChild(logoutLink);
+				navUL.appendChild(logoutLI);
+				
+				optionsContainer.appendChild(navUL);
 
-			//Add JS functionality to make this work
-			var $dropdownNav = new DropDownWidget($loggedInContainer[0]);
+				//clear any existing HTML
+				let loggedOutContainer = widgetContainers[i].querySelector('.dcf-idm-status-logged-out');
+				let loggedInContainer = widgetContainers[i].querySelector('.dcf-idm-status-logged-in');
+				loggedInContainer.innerHTML = '';
 
-			//Show the contents
-			$loggedInContainer.attr('hidden', true);
-			$loggedOutContainer.removeAttr('hidden');
+				loggedInContainer.appendChild(button);
+				loggedInContainer.appendChild(optionsContainer);
 
-			// Any time logout link is clicked, unset the user data
-			$logoutLink.off('click').click(Plugin.logout);
-			Plugin.setLogoutURL(localSettings.logout);
+				//Initialize the dropdown nav
+				let dropdownNav = new DropDownWidget(loggedInContainer);
+
+				//Show the contents
+				loggedOutContainer.hidden = true;
+				loggedInContainer.hidden = false;
+
+				// Any time logout link is clicked, unset the user data
+				logoutLink.removeEventListener('click', Plugin.logout);
+				logoutLink.addEventListener('click', Plugin.logout);
+				
+				Plugin.setLogoutURL(localSettings.logout);
+			}
 		},
 
 		renderAsLoggedOut: function renderAsLoggedOut() {
@@ -299,14 +304,17 @@ define(['wdn', 'jquery', 'dropdown-widget', 'require'], function (WDN, $, DropDo
 				return;
 			}
 
-			var $loggedOutContainer = $(loggedOutSel),
-			    $loggedInContainer = $(loggedInSel),
-			    loginLink = $(loginSel);
-
-			loginLink.attr('href', loginURL);
-
-			$loggedInContainer.attr('hidden', true);
-			$loggedOutContainer.removeAttr('hidden');
+			let widgetContainers = document.querySelectorAll('.dcf-idm');
+	
+			for (let i=0; i<widgetContainers.length; i++) {
+				let loggedOutContainer = widgetContainers[i].querySelector('.dcf-idm-status-logged-out');
+				let loggedInContainer = widgetContainers[i].querySelector('.dcf-idm-status-logged-in');
+				let loginLink = loggedOutContainer.querySelector('a');
+				
+				loginLink.setAttribute('href', loginURL);
+				loggedInContainer.hidden = true;
+				loggedOutContainer.hidden = false;
+			}
 		},
 
 		/**
