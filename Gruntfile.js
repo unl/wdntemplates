@@ -301,6 +301,7 @@ module.exports = function (grunt) {
 		},
 
 		clean: {
+			scss: Object.keys(scssGlobAllTmpFiles).map((fileName) => `${templateScss}/${fileName}`),
 			css: [templateCss].concat(Object.keys(scssJsFiles)),
 			js: [templateCompileJs, templateJs + '/*.js'],
 			"js-build": [buildJsDir],
@@ -344,7 +345,7 @@ module.exports = function (grunt) {
 		},
 
 		concurrent: {
-			main: ['sassGlobber', 'sass:all', 'postcss', 'js'],
+			main: [['sassGlobber:all', 'sass:all'], 'postcss', 'js'],
 			dist: ['zip', 'archive']
 		},
 
