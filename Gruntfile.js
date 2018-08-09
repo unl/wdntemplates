@@ -25,20 +25,20 @@ module.exports = function (grunt) {
 	];
 
 	// project layout variables (directories)
-	var mainDir = 'wdn',
-		buildDir = 'build',
-		templateDir = mainDir + '/templates_5.0',
-		templateScss = templateDir + '/scss',
-		templateCss = templateDir + '/css',
-		templateJs = templateDir + '/js',
-		templateJsSrc = templateDir + '/js-src',
-		builtJsDir = 'compressed',
-		buildJsDir = buildDir + '/' + builtJsDir,
-		templateCompileJs = templateJs + '/' + builtJsDir,
-		templateIncludeDir = templateDir + '/includes',
-		templateHtmlDir = 'Templates',
-		templateSharedDir = 'sharedcode',
-		zipDir = 'downloads',
+	var mainDir = 'wdn',                                    // wdn
+		buildDir = 'build',                                   // build
+		templateDir = mainDir + '/templates_5.0',             // wdn/templates_5.0
+		templateScss = templateDir + '/scss',                 // wdn/templates_5.0/scss
+		templateCss = templateDir + '/css',                   // wdn/templates_5.0/css
+		templateJs = templateDir + '/js',                     // wdn/templates_5.0/js
+		templateJsSrc = templateDir + '/js-src',              // wdn/templates_5.0/js-src
+		builtJsDir = 'compressed',                            // compressed
+		buildJsDir = buildDir + '/' + builtJsDir,             // build/compressed
+		templateCompileJs = templateJs + '/' + builtJsDir,    // wdn/templates_5.0/js/compressed
+		templateIncludeDir = templateDir + '/includes',       // wdn/templates_5.0/includes
+		templateHtmlDir = 'Templates',                        // Templates
+		templateSharedDir = 'sharedcode',                     // sharedcode
+		zipDir = 'downloads',                                 // downloads
 		allSubFilesGlob = '/**';
 
 	var hereDir = './';
