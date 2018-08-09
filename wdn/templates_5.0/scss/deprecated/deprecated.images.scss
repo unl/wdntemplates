@@ -5,8 +5,7 @@
 
 .frame,
 .wdn-frame {
-  @include b-1;
-  border-color: $color-border;
+  border: 1px solid $color-border;
   @include mb-4;
   padding: #{ms(-10)}em;
 }

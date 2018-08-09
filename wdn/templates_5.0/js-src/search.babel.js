@@ -23,8 +23,9 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				domSearchForm = document.getElementById('dcf-search-form'),
 				domSearchResultWrapper = document.getElementById('dcf-search-results-wrapper'),
 				domDialog = document.getElementById('dcf-search-results'),
-				domToggle = document.getElementById('dcf-search-toggle'),
+				domToggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-search'),
 				domClose = document.getElementById('dcf-close-search'),
+				domActiveToggleButton,
 				domEmbed,
 				$unlSearch,
 				$progress,
@@ -48,12 +49,17 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 			}
 			
 			dialogHelper.initialize(domDialog);
-			domToggle.addEventListener('click', function(e) {
+			
+			var domToggleButtonOnClick = function(e) {
 				if (!domDialog.hasAttribute('open')) {
 					//Search is currently closed, so open it.
-					domToggle.setAttribute('aria-pressed', 'true');
+					for (let i = 0; i < domToggleButtons.length; i++) {
+						domToggleButtons[i].setAttribute('aria-pressed', 'true');
+					}
+					
 					domDialog.classList.remove('dcf-d-none');
 					domDialog.showModal();
+					domActiveToggleButton = this;
 					setTimeout(function(){
 						domQ.focus();
 					}, 200);
@@ -61,7 +67,11 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 					//Search is currently open, so close it.
 					closeSearch();
 				}
-			});
+			};
+
+			for (let i = 0; i < domToggleButtons.length; i++) {
+				domToggleButtons[i].addEventListener('click', domToggleButtonOnClick);
+			}
 			
 			domClose.addEventListener('click', function() {
 				closeSearch();
@@ -169,11 +179,13 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				domSearchForm.parentElement.classList.remove('active');
 				domDialog.classList.remove('dcf-d-none');
 				domDialog.close();
-				domToggle.setAttribute('aria-pressed', 'false');
+				for (let i = 0; i < domToggleButtons.length; i++) {
+					domToggleButtons[i].setAttribute('aria-pressed', 'false');
+				}
 				domSearchForm.reset();
 				if (returnFocus) {
 					//Send focus back to the toggle
-					domToggle.focus();
+					domActiveToggleButton.focus();
 				}
 			};
 
@@ -260,7 +272,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 					return;
 				}
 				
-				if (domToggle.contains(e.target)) {
+				if (domActiveToggleButton && domActiveToggleButton.contains(e.target)) {
 					return;
 				}
 

@@ -21,9 +21,21 @@
 
 // Footer lists
 
-.unl .dcf-footer dd:last-child,
-.unl .dcf-footer li:last-child {
+
+// .unl .dcf-footer dd:not(:last-child),
+// .unl .dcf-footer li:not(:last-child) {
+//   @include mb-2;
+// }
+
+// .unl .dcf-footer li {
+.unl .dcf-footer li:not(:last-child) {
   @include mb-0;
+}
+
+.unl .dcf-footer li a {
+  display: inline-block;
+  @include pb-1;
+  @include pt-1;
 }
 
 
@@ -54,11 +66,11 @@
 // Footer grids
 
 .unl-footer-grid-1 {
-  grid-template-columns: repeat(auto-fit, minmax(#{ms(18)}em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(#{ms(20)}em, 1fr));
 }
 
 .unl-footer-grid-2 {
-  grid-template-columns: repeat(auto-fit, minmax(#{ms(18)}em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(#{ms(20)}em, 1fr));
 }
 
 .unl-footer-unl {
@@ -75,7 +87,7 @@
 
 .unl-footer-grid-3 {
   grid-template-columns: repeat(12, 1fr);
-  grid-template-areas: "u u u u u u u u u u u u" "e e e e © © © © . . . .";
+  grid-template-areas: "u u u u u u u u u u u u" "e e e e e e © © © © © ©";
 }
 
 // TODO: add 'about' and 'test' links to footer

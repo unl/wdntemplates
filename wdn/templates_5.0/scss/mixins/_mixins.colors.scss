@@ -37,3 +37,27 @@
 @mixin cream-active($imp:null) {
   color: $cream $imp; // TODO: determine active state styles
 }
+
+
+// !Blue
+@mixin blue($imp:null) {
+  color: $blue $imp;
+}
+
+@mixin blue-visited($imp:null) {
+  color: $blue $imp; // TODO: determine visited state styles
+}
+
+@mixin blue-hover($imp:null) {
+  color: $blue $imp; // TODO: determine hover state styles
+}
+
+@mixin blue-active($imp:null) {
+  color: $blue $imp; // TODO: determine active state styles
+}
+
+
+// !Dark -- TODO: finalize name
+@mixin dark($imp:null) {
+  color: $ui-800 $imp;
+}

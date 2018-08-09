@@ -43,37 +43,9 @@
 }
 
 
-.unl-txt-sm-xs {
-  @include txt-sm;
-
-  @include mq(md, min, width) {
-    @include txt-xs;
-  }
-
-}
 
 
-.unl-txt-ui-lg {
-  @include txt-md;
 
-  @include mq(md, min, width) {
-    @include txt-xs;
-  }
-}
-
-.unl-txt-ui-sm {
-  @include txt-xs;
-
-  @include mq(md, min, width) {
-    font-size: #{ms(-3)}em;
-  }
-}
-
-
-.unl-blurred {
-  filter: blur(5px);
-  transition: filter 200ms ease-out;
-}
 
 
 .unl .dcf-bg-overlay-light,
@@ -90,16 +62,13 @@
 
 
 // !TEMPORARY
-.unl .dcf-list-inline-item::before {
-  content: none;
-}
 
 
-.unl .dcf-footer li {
--webkit-column-break-inside: avoid;
-          page-break-inside: avoid;
-               break-inside: avoid;
-}
+// .unl .dcf-footer li {
+// -webkit-column-break-inside: avoid;
+//           page-break-inside: avoid;
+//                break-inside: avoid;
+// }
 
 // .unl li {
 //   margin-bottom: 0; // core
@@ -135,13 +104,6 @@
 // core
 
 
-p {
-  max-width: none; // TODO: remove max-width from paragraphs in DCF core
-}
-
-
-
-
 .unl-t-hero-h {
   color: #fff;
   display: inline;
@@ -149,11 +111,6 @@ p {
 //   box-shadow: .316em 0 0 rgba(208,0,0,.9), -.316em 0 0 rgba(208,0,0,.9);
 //   background-color: rgba(208,0,0,.9);
 }
-
-.dcf-measure {
-  max-width: 35.5rem;
-}
-
 
 // .unl .dcf-c-breadcrumbs a {
 //   color: #fff;

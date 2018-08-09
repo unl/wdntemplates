@@ -9,28 +9,34 @@
 $color-brand-alpha: #d00000;
 $color-brand-beta: #fefdfa;
 $color-brand-gamma: #c7c8ca;
+$color-brand-delta: #2277ab; // TODO: finalize value (must meet WCAG AA)
 
 
 // Assign names to brand colors
 $scarlet: $color-brand-alpha;
 $cream: $color-brand-beta;
 $gray: $color-brand-gamma;
+$blue: $color-brand-delta;
 
 
 // !UI COLORS
-// Assign colors to elements
+
+// Define user interface (neutral) colors
 $white: #fff;
+$black: #000;
 
-$ui-100: mix($cream, #000, 90%); // lightest
-$ui-200: mix($cream, #000, 84%);
-$ui-300: mix($cream, #000, 75%);
-$ui-400: mix($cream, #000, 63%);
-$ui-500: mix($cream, #000, 56%);
-$ui-600: mix($cream, #000, 43%);
-$ui-700: mix($cream, #000, 32%);
-$ui-800: mix($cream, #000, 24%);
-$ui-900: mix($cream, #000, 18%); // darkest
+$ui-100: mix($cream, $black, 90%); // lightest
+$ui-200: mix($cream, $black, 84%);
+$ui-300: mix($cream, $black, 75%);
+$ui-400: mix($cream, $black, 63%);
+$ui-500: mix($cream, $black, 56%);
+$ui-600: mix($cream, $black, 43%);
+$ui-700: mix($cream, $black, 32%);
+$ui-800: mix($cream, $black, 24%);
+$ui-900: mix($cream, $black, 18%); // darkest
 
+
+// Assign colors to elements
 
 // Body background color (usually white, off-white, or very light gray)
 $color-body-bg: $cream;
@@ -87,7 +93,7 @@ $color-breadcrumb: $gray;
 
 
 // !Badges
-$color-badge: $gray;
+$color-badge: $blue;
 
 
 // !Footer
