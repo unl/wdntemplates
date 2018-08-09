@@ -60,9 +60,9 @@ module.exports = function (grunt) {
 
   // entry point plugin file names for require js
 	var wdnBuildPlugins = [
-		'dialog'
+		'dialog',
 		//'band_imagery',
-		//'carousel',
+		'carousel',
 		//'display-font',
 		//'events-band',
 		//'events',
