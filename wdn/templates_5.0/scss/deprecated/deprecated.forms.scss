@@ -227,13 +227,6 @@ input[type='submit']:active,
   color: $white;
 }
 
-input[type='submit']:disabled,
-.wdn-button:disabled,
-.wdn-input-group-btn button:disabled,
-.wdn-input-group-btn input:disabled {
-  @include disabled;
-}
-
 
 // Secondary Button
 .wdn-button-complement,
