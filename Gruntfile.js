@@ -302,6 +302,7 @@ module.exports = function (grunt) {
 		},
 
 		clean: {
+			scss: Object.keys(scssGlobAllTmpFiles).map((fileName) => `${templateScss}/${fileName}`),
 			css: [templateCss].concat(Object.keys(scssJsFiles)),
 			js: [templateCompileJs, templateJs + '/*.js'],
 			"js-build": [buildJsDir],
