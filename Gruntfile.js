@@ -345,7 +345,7 @@ module.exports = function (grunt) {
 		},
 
 		concurrent: {
-			main: ['sassGlobber', 'sass:all', 'postcss', 'js'],
+			main: [['sassGlobber:all', 'sass:all'], 'postcss', 'js'],
 			dist: ['zip', 'archive']
 		},
 
