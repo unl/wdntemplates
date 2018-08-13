@@ -14,6 +14,7 @@ module.exports = function (grunt) {
 		//'js-css/events-band',
 		//'js-css/extlatin',
 		'js-css/formvalidator',
+		'js-css/notices',
 		//'js-css/monthwidget',
 		//'js-css/rsswidget',
 		//'js-css/script-font',
@@ -70,7 +71,7 @@ module.exports = function (grunt) {
 		//'mediaelement_wdn',
 		//'modal',
 		//'monthwidget',
-		// 'notice',
+		'notice',
 		//'rss_widget',
 		//'script-font',
 		//'smallcaps',
@@ -199,7 +200,7 @@ module.exports = function (grunt) {
 
 	var scssJsFiles = {};
 	jsCssObjs.forEach(function(file) {
-		scssJsFiles[templateJs + '/' + file + '.css'] = templateJs + '/' + file + '.scss';
+		scssJsFiles[templateJs + '/' + file + '.css'] = templateJsSrc + '/' + file + '.scss';
 	});
 
 	// load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
@@ -352,7 +353,7 @@ module.exports = function (grunt) {
 		},
 
 		concurrent: {
-			main: [['sassGlobber:all', 'sass:all'], 'postcss', 'js'],
+			main: [['sassGlobber:all', 'sass:all'], 'postcss', 'js', 'sass:js'],
 			dist: ['zip', 'archive']
 		},
 
