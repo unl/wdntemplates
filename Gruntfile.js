@@ -15,7 +15,6 @@ module.exports = function (grunt) {
 		//'js-css/extlatin',
 		'js-css/formvalidator',
 		//'js-css/monthwidget',
-		//'js-css/notices',
 		//'js-css/rsswidget',
 		//'js-css/script-font',
 		//'js-css/smallcaps',
@@ -90,7 +89,7 @@ module.exports = function (grunt) {
 	// exclude build/bundled files from sync back to wdn folder
 	var syncJsIgnore = [
 		'!build.txt',
-		'!js-css/**',
+		//'!js-css/**',
 		'!analytics.*',
 		'!debug.*',
 		'!fontfaceobserver.*',
@@ -311,7 +310,7 @@ module.exports = function (grunt) {
 		clean: {
 			scss: Object.keys(scssGlobAllTmpFiles).map((fileName) => `${templateScss}/${fileName}`),
 			css: [templateCss].concat(Object.keys(scssJsFiles)),
-			js: [templateCompileJs, templateJs + '/*.js'],
+			js: [templateJs],
 			"js-build": [buildJsDir],
 			dist: [zipDir + '/*.zip', zipDir + '/*.gz']
 		},
