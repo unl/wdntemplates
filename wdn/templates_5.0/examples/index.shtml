@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!--#include virtual="/wdn/templates_5.0/includes/global/head-1.html" -->
+    <!-- InstanceBeginEditable name="doctitle" -->
+<title>WDN Content Resource Examples | University of Nebraska&ndash;Lincoln</title>
+<!-- InstanceEndEditable -->
+<!--#include virtual="/wdn/templates_5.0/includes/global/head-2.html" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<link rel="home" href="http://wdn.unl.edu" />
+
+<style>
+#examples {
+    text-align: center;
+    color: #fff;
+    font-size: 0.6em;
+}
+
+#examples a {
+    color: #fff;
+}
+
+#examples a:first-child {
+    display: block;
+    border: 0;
+    font-size: 1rem;
+    font-size: 16px;
+}
+
+#examples .visual-island {
+    background-color: #137CBD;
+    border-radius: 3px;
+    height: 80px;
+    overflow: hidden;
+    margin: 0.5em 0;
+}
+
+#example {
+    margin-top: 1em;
+}
+
+#source {
+    display: none;
+}
+
+#example_code {
+    width: 100%;
+    font-family: monospace;
+    white-space: pre-line;
+    overflow: auto;
+}
+
+#example.jqueryui #sortable li,
+#example.jqueryui #selectable li {
+    margin: 0 3px 3px 3px;
+    padding: 0.4em;
+    padding-left: 1.5em;
+    list-style: none;
+}
+
+.ui-effects-transfer { border: 2px dotted gray; }
+
+
+#example.layouts [class^="wdn-col"] {
+    margin:4px 0;
+}
+#example.layouts [class^="wdn-col"] {
+    text-align:center;
+    background-clip:content-box;
+    background-color:rgba(167, 206, 229, 0.5);
+    margin-bottom:1rem !important;
+}
+
+@media (min-width: 480px) {
+    .grid-clear .wdn-col:nth-child(2n+1) {
+        clear: left;
+    }
+}
+
+@media (min-width: 768px) {
+    .grid-clear .wdn-col:nth-child(2n+1) {
+        clear: none;
+    }
+
+    .grid-clear .wdn-col:nth-child(4n+1) {
+        clear: left;
+    }
+}
+
+</style>
+    <!-- Place optional header elements here -->
+    <!-- InstanceEndEditable -->
+</head>
+<body class="debug unl" data-version="5.0">
+    <!--#include virtual="/wdn/templates_5.0/includes/global/skip-nav.html" -->
+    
+  <header class="dcf-header" id="dcf-header" role="banner">
+    <div class="dcf-header-global dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-ai-center dcf-jc-between dcf-relative unl-bg-scarlet">
+        <!--#include virtual="/wdn/templates_5.0/includes/global/institution.html" -->
+        <!--#include virtual="/wdn/templates_5.0/includes/global/nav-global.html" -->
+        <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
+        <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
+    </div>
+      
+    <div class="dcf-logo-lockup dcf-wrapper dcf-d-flex dcf-ai-flex-end dcf-relative dcf-overflow-hidden">
+      <!--#include virtual="/wdn/templates_5.0/includes/global/logo.html" -->
+      <div class="dcf-site-group dcf-d-flex dcf-flex-col dcf-jc-center unl-font-sans">
+        <div class="dcf-site-affiliation dcf-lh-3 dcf-txt-2xs" id="dcf-site-affiliation">
+          <!-- InstanceBeginEditable name="affiliation" -->
+          <!-- InstanceEndEditable -->
+        </div>
+        <div class="dcf-site-title dcf-bold dcf-lh-2 dcf-uppercase unl-ls-1" id="dcf-site-title">
+          <!-- InstanceBeginEditable name="titlegraphic" -->
+          <a class="unl-site-title-medium" href="https://www.unl.edu/">
+            Glenn Korff School of Music
+          </a>
+          <!-- InstanceEndEditable -->
+        </div>
+      </div>
+    </div>
+    
+    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle.html" -->
+    
+    <div class="dcf-nav-bar dcf-modal-parent dcf-txt-xs unl-font-sans">
+
+      <button class="dcf-nav-toggle-btn dcf-nav-toggle-btn-menu dcf-flex-col dcf-ai-center dcf-jc-center dcf-w-9 dcf-pt-4 dcf-pr-0 dcf-pb-3 dcf-pl-0 dcf-b-0 dcf-bg-transparent unl-font-sans" id="dcf-menu-toggle" aria-expanded="false">
+        <svg class="dcf-h-5 dcf-w-5 dcf-mb-2 dcf-fill-current" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48">
+          <path d="M45.5 22.5h-43c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h43c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5zM45.5 7.5h-43C1.7 7.5 1 8.2 1 9s.7 1.5 1.5 1.5h43c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5zM45.5 37.5h-43c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h43c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5z"/>
+        </svg>
+        <svg class="dcf-mb-1 dcf-h-6 dcf-w-6 dcf-fill-current dcf-d-none" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48">
+          <path d="M38.1 7.7L7.7 38.1c-.6.6-.6 1.5 0 2.1.6.6 1.5.6 2.1 0L40.3 9.9c.6-.6.6-1.5 0-2.1-.6-.6-1.6-.6-2.2-.1z"/><path d="M7.7 7.7c-.6.6-.6 1.5 0 2.1l30.4 30.4c.6.6 1.5.6 2.1 0 .6-.6.6-1.5 0-2.1L9.9 7.7c-.6-.5-1.6-.5-2.2 0z"/>
+        </svg>
+        <span class="dcf-sr-only">Show </span><span class="dcf-nav-toggle-label dcf-txt-3xs dcf-bold dcf-uppercase unl-ls-2">Menu</span>
+      </button>
+
+      <div class="dcf-nav-menu dcf-mobile-toolbar-modal dcf-w-100%" id="dcf-navigation">
+        <div class="dcf-nav-local-wrapper dcf-w-100%">
+          <nav class="dcf-nav-local dcf-w-100% dcf-lh-3" role="navigation" aria-label="local navigation">
+            <!-- InstanceBeginEditable name="navlinks" -->
+              <!--#include virtual="/wdn/templates_5.0/includes/local/nav-local.html" -->
+            <!-- InstanceEndEditable -->
+          </nav>
+          <nav class="dcf-breadcrumbs dcf-txt-sm dcf-d-none" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+            <ol class="dcf-list-bare dcf-mb-0 dcf-pt-4 dcf-bt-solid dcf-bt-1">
+              <!-- InstanceBeginEditable name="breadcrumbs" -->
+              <li><a href="https://www.unl.edu/">Nebraska</a></li>
+              <!-- InstanceEndEditable -->
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+
+  </header>
+    
+  <main class="dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
+    <div class="dcf-stretch">
+      <div class="dcf-wrapper dcf-pt-10 dcf-pb-7">
+        <div id="dcf-page-title">
+          <!-- InstanceBeginEditable name="pagetitle" -->
+          <h1>Content Resource Examples
+            <span style="display:none" class="wdn-subhead"><a href="javascript:void(0);">« Show All »</a></span>
+          </h1>
+          <!-- InstanceEndEditable -->
+        </div>
+      </div>
+    </div>
+    <!-- InstanceBeginEditable name="maincontentarea" -->
+      
+                <div class="wdn-band" id="examples_band">
+                    <div class="wdn-inner-wrapper">
+                        <ul class="bp2-wdn-grid-set-fifths bp1-wdn-grid-set-thirds" id="examples">
+                            <li class="wdn-col"><div class="visual-island"><a href="audioplayer.html">Audio player</a> (mediahub.unl.edu)</div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="band_imagery.html">Band Imagery</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="buttons.html">Buttons</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="carousel.html">Carousel</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="colorbox.html" title="Colorbox: Modal Box">Colorbox</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="events.html">Events</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="extended_fonts.html">Extended Fonts</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="formvalidator.html">Form Validator</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="forms.html">Forms</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="hero.html">Hero Content</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="idm.html"><abbr title="Identity Management">IdM</abbr>/<abbr title="Single Sign On">SSO</abbr></a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="image.html" title="Images: Styling and Captioning">Images</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="infographics.html" title="Infographics">Infographics</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="jqueryui.html" title="jQuery UI Widgets and Effects">jQuery UI</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="notice.html">Notice</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="layouts.html">Page Layouts</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="pagination.html">Pagination</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="promo_image.html">Promo Image</a> (text over image)</div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="quote.html" title="Quotes: Individual Bands">Quotes</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="randomizer.html">Randomizer</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="rss_widget.html">RSS Feed Widget</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="table.html">Responsive Table</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="tabs.html">Tabs</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="tooltips.html">Tooltips</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="videoplayer.html">Video player</a> (mediahub.unl.edu)</div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="zenboxes.html" title="Boxed content: Formally &quot;zenbox&quot;">Box</a></div></li>
+                            <li class="wdn-col"><div class="visual-island"><a href="zentables.html">Tables</a></div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="example"></div>
+                <div id="source" class="wdn-band">
+                    <div class="wdn-inner-wrapper">
+                        <h2>Here's how you do it
+                        <label for="example_code" class="wdn-subhead">Source code</label></h2>
+                        <textarea id="example_code" rows="25" cols="78"></textarea>
+                    </div>
+                </div>
+    <!-- InstanceEndEditable -->
+  </main>
+  <footer class="dcf-footer dcf-txt-xs" id="dcf-footer" role="contentinfo">
+    <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-1.html" -->
+      <!-- InstanceBeginEditable name="contactinfo" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
+      <!-- InstanceEndEditable -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-2.html" -->
+  </footer>
+    <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
+    <!-- InstanceBeginEditable name="jsbody" -->
+    <script>
+    require(['jquery', 'wdn', 'require', 'legacy', 'navigation', 'wdn_jquery'], function($, WDN, require, legacy, navigation) {
+        /*
+        navigation.fetchSiteNavigation('http://wdn.unl.edu/', function(data, textStatus) {
+          if (textStatus == 'success') {
+            $(function() {
+              $('#navigation').prepend(data);
+              navigation.initialize();
+            });
+          }
+        });
+        */
+    
+        $(function() {
+            var cache = { '' : ' ' },
+                loadExample = function(data, url) {
+                    $('#examples_band').slideUp(300);
+                    var $example = $('#example');
+                    var exampleClass = url.substring(0, url.indexOf('.'));
+                    $example.removeClass().addClass(exampleClass).html(data);
+                    if ($('.wdn-band', $example).length) {
+                        $example.addClass('wdn-band');
+                    }
+                    legacy();
+                    $('#pagetitle .wdn-subhead').slideDown(300);
+                    $('#source').show();
+                    $('#example_code').attr('wrap', 'off').val(data);
+                },
+                returnHome = function(full) {
+                    $('#pagetitle .wdn-subhead').slideUp(300);
+                    $('#examples_band').slideDown(300);
+    
+                    if (full !== false) {
+                        $('#example').empty();
+                        $('#source').hide();
+                    }
+    
+                    if (!!(window.history && history.pushState)) {
+                        history.pushState("", document.title, window.location.pathname);
+                    }
+                };
+    
+            $("#examples a").not(".external").click(function(e){
+                e.preventDefault();
+                window.location.hash = $(this).attr('href'); //this.href returns the whole URL
+            });
+    
+            $('#pagetitle .wdn-subhead').click(function(e) {
+                e.preventDefault();
+                returnHome(false);
+            });
+    
+            require(['plugins/hashchange/jquery.hashchange'], function() {
+                var lastHash;
+                $(window).bind('hashchange' ,function(e) {
+                    var url = location.hash.replace('#', '');
+                    if (!url) {
+                        returnHome();
+                    }
+    
+                    if (!url.match(/\.html$/i) || url == lastHash) {
+                        return true;
+                    }
+                    lastHash = url;
+    
+                    if (url && !cache[url]) {
+                        WDN.get('./'+url, null, function(data, textStatus) {
+                            data = $(data).filter('#example-code').html();
+                            if (textStatus == 'success') {
+                                cache[url] = data;
+                                loadExample(data, url);
+                            }
+                        });
+                    } else if (url) {
+                        loadExample(cache[url], url);
+                    }
+                });
+    
+                $(window).trigger('hashchange');
+            });
+    
+            $("#example_code").bind('keyup', function() {
+                loadExample($("#example_code").val(), 'custom.');
+            });
+        });
+    });
+    </script>
+    <!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>
