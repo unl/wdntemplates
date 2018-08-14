@@ -160,15 +160,13 @@
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-7">
         <div id="dcf-page-title">
           <!-- InstanceBeginEditable name="pagetitle" -->
-          <h1>Content Resource Examples
-            <span style="display:none" class="wdn-subhead"><a href="javascript:void(0);">« Show All »</a></span>
-          </h1>
+          <h1>Content Resource Examples</h1>
           <!-- InstanceEndEditable -->
         </div>
       </div>
     </div>
     <!-- InstanceBeginEditable name="maincontentarea" -->
-      
+      <span style="display:none" id="show-all"><button>« Show All »</button></span>
                 <div class="wdn-band" id="examples_band">
                     <div class="wdn-inner-wrapper">
                         <ul class="bp2-wdn-grid-set-fifths bp1-wdn-grid-set-thirds" id="examples">
@@ -246,13 +244,13 @@
                         $example.addClass('wdn-band');
                     }
                     legacy();
-                    $('#pagetitle .wdn-subhead').slideDown(300);
+                    $('#show-all').slideDown(300);
                     $('#source').show();
                     $('#example_code').attr('wrap', 'off').val(data);
                 },
                 returnHome = function(full) {
-                    $('#pagetitle .wdn-subhead').slideUp(300);
-                    $('#examples_band').slideDown(300);
+                    $('#show-all').slideUp(300);
+                    $('#examples_band').slideDown(300).attr('tabindex', '-1').focus();
     
                     if (full !== false) {
                         $('#example').empty();
@@ -269,8 +267,7 @@
                 window.location.hash = $(this).attr('href'); //this.href returns the whole URL
             });
     
-            $('#pagetitle .wdn-subhead').click(function(e) {
-                e.preventDefault();
+            $('#show-all').click(function(e) {
                 returnHome(false);
             });
     

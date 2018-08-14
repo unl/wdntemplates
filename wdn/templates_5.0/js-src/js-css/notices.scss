@@ -1,3 +1,4 @@
+/*
 @import '../../less/_mixins/all.less';
 
 .colorize-notice(@color) {
@@ -171,4 +172,11 @@
         	max-width: 50rem;
         }
     }
+}
+*/
+
+.wdn_notice {
+  margin-bottom: 1em;
+  border-radius: 3px;
+  padding: 1em 1em .75em;
 }
