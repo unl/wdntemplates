@@ -13,9 +13,9 @@ module.exports = function (grunt) {
 		//'js-css/events',
 		//'js-css/events-band',
 		//'js-css/extlatin',
-		//'js-css/formvalidator',
+		'js-css/formvalidator',
+		'js-css/notices',
 		//'js-css/monthwidget',
-		//'js-css/notices',
 		//'js-css/rsswidget',
 		//'js-css/script-font',
 		//'js-css/smallcaps',
@@ -26,20 +26,20 @@ module.exports = function (grunt) {
 
 	// project layout variables (directories)
 	var mainDir = 'wdn',                                    // wdn
-		buildDir = 'build',                                   // build
-		templateDir = mainDir + '/templates_5.0',             // wdn/templates_5.0
-		templateScss = templateDir + '/scss',                 // wdn/templates_5.0/scss
-		templateCss = templateDir + '/css',                   // wdn/templates_5.0/css
-		templateJs = templateDir + '/js',                     // wdn/templates_5.0/js
-		templateJsSrc = templateDir + '/js-src',              // wdn/templates_5.0/js-src
-		builtJsDir = 'compressed',                            // compressed
-		buildJsDir = buildDir + '/' + builtJsDir,             // build/compressed
-		templateCompileJs = templateJs + '/' + builtJsDir,    // wdn/templates_5.0/js/compressed
-		templateIncludeDir = templateDir + '/includes',       // wdn/templates_5.0/includes
-		templateHtmlDir = 'Templates',                        // Templates
-		templateSharedDir = 'sharedcode',                     // sharedcode
-		zipDir = 'downloads',                                 // downloads
-		allSubFilesGlob = '/**';
+			buildDir = 'build',                                   // build
+			templateDir = mainDir + '/templates_5.0',             // wdn/templates_5.0
+			templateScss = templateDir + '/scss',                 // wdn/templates_5.0/scss
+			templateCss = templateDir + '/css',                   // wdn/templates_5.0/css
+			templateJs = templateDir + '/js',                     // wdn/templates_5.0/js
+			templateJsSrc = templateDir + '/js-src',              // wdn/templates_5.0/js-src
+			builtJsDir = 'compressed',                            // compressed
+			buildJsDir = buildDir + '/' + builtJsDir,             // build/compressed - folder removed at end of grunt js task
+			templateCompileJs = templateJs + '/' + builtJsDir,    // wdn/templates_5.0/js/compressed
+			templateIncludeDir = templateDir + '/includes',       // wdn/templates_5.0/includes
+			templateHtmlDir = 'Templates',                        // Templates
+			templateSharedDir = 'sharedcode',                     // sharedcode
+			zipDir = 'downloads',                                 // downloads
+			allSubFilesGlob = '/**';
 
 	var hereDir = './';
 
@@ -58,7 +58,7 @@ module.exports = function (grunt) {
 		'wdn'
 	];
 
-  // entry point plugin file names for require js
+	// modules added here will be added to rjsConfig modules below
 	var wdnBuildPlugins = [
 		'dialog',
 		//'band_imagery',
@@ -71,14 +71,14 @@ module.exports = function (grunt) {
 		//'mediaelement_wdn',
 		//'modal',
 		//'monthwidget',
-		//'notice',
+		'notice',
 		//'rss_widget',
 		//'script-font',
 		//'smallcaps',
 		//'tooltip'
 	];
 
-	// module exclustions for plugins not built into all
+	// module exclusions for plugins not built into all
 	var wdnPluginExclusions = [
 		'require-css/css',
 		'require-css/normalize',
@@ -90,12 +90,11 @@ module.exports = function (grunt) {
 	// exclude build/bundled files from sync back to wdn folder
 	var syncJsIgnore = [
 		'!build.txt',
-		'!js-css/**',
+		//'!js-css/**',
 		'!analytics.*',
 		'!debug.*',
 		'!fontfaceobserver.*',
 		'!fontsloaded.*',
-		'!form_validation.*',
 		'!ga.*',
 		'!jquery.*',
 		'!legacy.*',
@@ -122,7 +121,8 @@ module.exports = function (grunt) {
 		},
 		appDir: templateJs + '/',
 		baseUrl: './',
-		dir: buildJsDir,
+		dir: buildJsDir, /** dir path to save build output, dir is removed at end of js task by clean:js, not using
+		 keepBuildDir option */
 		optimize: 'uglify2',
 		logLevel: 2,
 		preserveLicenseComments: false,
@@ -136,6 +136,7 @@ module.exports = function (grunt) {
 			}
 		},
 		modules: [
+			//specify modules to include their immediate and deep dependencies in the final module file
 			{
 				name: 'all',
 				create: true,
@@ -172,6 +173,10 @@ module.exports = function (grunt) {
 
 	rjsConfig.deployRoot = rjsConfig.moduleConfig.wdnTemplatePath + templateCompileJs + '/';
 
+	/**
+	 * Add modules specified in wdnBuildPlugins into rjsConfig.modules
+	 * to have their dependencies bundled into a single module file
+	 */
 	wdnBuildPlugins.forEach(function(plugin) {
 		rjsConfig.modules.push({
 			name: plugin,
@@ -195,12 +200,15 @@ module.exports = function (grunt) {
 
 	var scssJsFiles = {};
 	jsCssObjs.forEach(function(file) {
-		scssJsFiles[templateJs + '/' + file + '.css'] = templateJs + '/' + file + '.scss';
+		scssJsFiles[templateJs + '/' + file + '.css'] = templateJsSrc + '/' + file + '.scss';
 	});
 
 	// load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
 	require('load-grunt-tasks')(grunt);
 
+	/**
+	 * Setting up grunt tasks
+	 */
 	grunt.initConfig({
 
 		stylelint: {
@@ -302,8 +310,9 @@ module.exports = function (grunt) {
 		},
 
 		clean: {
+			scss: Object.keys(scssGlobAllTmpFiles).map((fileName) => `${templateScss}/${fileName}`),
 			css: [templateCss].concat(Object.keys(scssJsFiles)),
-			js: [templateCompileJs, templateJs + '/*.js'],
+			js: [templateJs],
 			"js-build": [buildJsDir],
 			dist: [zipDir + '/*.zip', zipDir + '/*.gz']
 		},
@@ -345,7 +354,7 @@ module.exports = function (grunt) {
 		},
 
 		concurrent: {
-			main: ['sassGlobber', 'sass:all', 'postcss', 'js'],
+			main: [['sassGlobber:all', 'sass:all'], 'postcss', 'js', 'sass:js'],
 			dist: ['zip', 'archive']
 		},
 
@@ -384,7 +393,7 @@ module.exports = function (grunt) {
 		watch: {
 			sass: {
 				files: [templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
-				tasks: ['scssGlobber','sass']
+				tasks: ['sassGlobber:all','sass']
 			},
 			js: {
 				files: [templateJs + '/**/*.js', '!' + templateCompileJs + '/**/*.js'],
@@ -440,7 +449,7 @@ module.exports = function (grunt) {
 			var compressionStream;
 
 			// if (options.compression === 'gzip') {
-				compressionStream = zlib.createGzip();
+			compressionStream = zlib.createGzip();
 			// } else {
 			// 	compressionStream = new xz.Compressor();
 			// }

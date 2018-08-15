@@ -1,11 +1,12 @@
 define([
-	'jquery', 
+	'jquery',
+	'plugins/jquery-migrate',
 	'plugins/qtip/jquery.qtip',
 	'css!plugins/qtip/wdn.qtip'
 ], function($) {
 	var attr = 'title',
 	attrBak = 'data-title',
-	mainSel = '#maincontent .tooltip[' + attr + ']',
+	mainSel = '#dcf-main .tooltip[' + attr + ']',
 	tipStyleCls = 'qtip-wdn',
 
 	_wdnQTip,
