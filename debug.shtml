@@ -2,8 +2,14 @@
 <html class="no-js" lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <!--#include virtual="/wdn/templates_5.0/includes/global/head-1.html" -->
-<title>Debugging Out | Framework Testing Page</title>
+<!-- InstanceBeginEditable name="doctitle" -->
+  <title>Debugging Out | Framework Testing Page</title>
+<!-- InstanceEndEditable -->
 <!--#include virtual="/wdn/templates_5.0/includes/global/head-2.html" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+  <!-- Place optional header elements here -->
+<!-- InstanceEndEditable -->
 </head>
 <body class="debug unl" data-version="5.0">
   <!--#include virtual="/wdn/templates_5.0/includes/global/skip-nav.html" -->
@@ -1338,6 +1344,7 @@
   </footer>
   <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
+  <!-- InstanceBeginEditable name="jsbody" -->
   <script>
     require(['dialog'],function(dialogHelper){
       var dialog = document.querySelector('#my-dialog');
@@ -1345,5 +1352,6 @@
       dialogHelper.setupShowDialogButton(dialog, document.querySelector('#test-button'));
     });
   </script>
+  <!-- InstanceEndEditable -->
 </body>
 <!-- InstanceEnd --></html>
