@@ -19,7 +19,7 @@
     "autoprefixer": "^7.1.1",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "csso": "^2.1.1",
+    "cssnano": "^4.0.5",
     "dcf": "git+https://github.com/d-c-n/dcf.git",
     "grunt": "^1.0.1",
     "grunt-babel": "^7.0.0",
