@@ -67,7 +67,7 @@
 
     <div class="dcf-nav-bar dcf-modal-parent dcf-txt-xs unl-font-sans">
 
-      <button class="dcf-nav-toggle-btn dcf-nav-toggle-btn-menu dcf-flex-col dcf-ai-center dcf-jc-center dcf-w-9 dcf-pt-4 dcf-pr-0 dcf-pb-3 dcf-pl-0 dcf-b-0 dcf-bg-transparent unl-font-sans" id="dcf-menu-toggle" aria-expanded="false">
+      <button class="dcf-nav-toggle-btn dcf-nav-toggle-btn-menu dcf-flex-shrink-0 dcf-flex-col dcf-ai-center dcf-jc-center dcf-w-9 dcf-pt-4 dcf-pr-0 dcf-pb-3 dcf-pl-0 dcf-b-0 dcf-bg-transparent unl-font-sans" id="dcf-menu-toggle" aria-expanded="false">
         <svg class="dcf-h-5 dcf-w-5 dcf-mb-2 dcf-fill-current" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48">
           <path d="M45.5 22.5h-43c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h43c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5zM45.5 7.5h-43C1.7 7.5 1 8.2 1 9s.7 1.5 1.5 1.5h43c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5zM45.5 37.5h-43c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h43c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5z"/>
         </svg>
@@ -1338,6 +1338,7 @@
   </footer>
   <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
+<!--
   <script>
     require(['dialog'],function(dialogHelper){
       var dialog = document.querySelector('#my-dialog');
@@ -1345,5 +1346,6 @@
       dialogHelper.setupShowDialogButton(dialog, document.querySelector('#test-button'));
     });
   </script>
+-->
 </body>
 <!-- InstanceEnd --></html>
