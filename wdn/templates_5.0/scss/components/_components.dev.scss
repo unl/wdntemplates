@@ -117,15 +117,26 @@
 // }
 
 
+
+// TODO: update direction of transform version
 .unl-vertical {
 
 // writing-mode version
 //   transform: translateY(-#{ms(4)}em) rotate(180deg);
 //   writing-mode: vertical-lr;
 
+  transform: translateY(-#{ms(0)}em);
+  writing-mode: vertical-lr;
+
+
 // transform version
-  transform: translate(-100%, #{ms(12)}em) rotate(-90deg);
-  transform-origin: 100% 0;
+//   transform: translate(-100%, #{ms(12)}em) rotate(-90deg);
+//   transform-origin: 100% 0;
+
+//   transform: translate(-100%, #{ms(12)}em) rotate(90deg);
+//   transform-origin: 100% 100%;
+
+
 }
 
 .unl-vertical::after {
@@ -138,17 +149,42 @@
 //   width: $length-em-3;
 
 // transform version
+//   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
+//   bottom: 50%;
+//   content: '';
+//   display: inline-block;
+//   height: $length-em-10;
+//   position: absolute;
+//   right: -1em;
+//   transform: rotate(90deg) translateX(50%);
+//   transform-origin: 100% 100%;
+//   width: $length-em-3;
+
+}
+
+.unl-vertical::before {
+
+// writing-mode version
   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
-  bottom: 50%;
   content: '';
   display: inline-block;
   height: $length-em-10;
-  position: absolute;
-  right: -1em;
-  transform: rotate(90deg) translateX(50%);
-  transform-origin: 100% 100%;
+  @include mb-4;
   width: $length-em-3;
+
+// transform version
+//   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
+//   bottom: 50%;
+//   content: '';
+//   display: inline-block;
+//   height: $length-em-3;
+//   right: -1em;
+//   transform: rotate(90deg) translateX(50%);
+//   transform-origin: 100% 100%;
+//   width: $length-em-10;
 }
+
+
 
 .unl-stripes::after {
   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
