@@ -1,0 +1,193 @@
+@import '../../scss/plugins.tmp.scss';
+
+
+$events-color--default: #0e60a0;
+$events-color--focus: #3f5565;
+
+#events-band,
+.wdn-events-band {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+#events-band .wdn-col,
+.wdn-events-band .wdn-col {
+  display: flex;
+  margin-top: 1em;
+}
+
+#events-band a,
+.wdn-events-band a {
+  border: 0;
+  display: flex;
+  flex: 1;
+  outline: none;
+}
+
+#events-band a:hover .event,
+.wdn-events-band a:hover .event {
+  background-color: $events-color--default;
+}
+
+#events-band a:focus .event,
+.wdn-events-band a:focus .event {
+  background-color: darken($events-color--focus,3.5%);
+}
+
+#events-band a:focus .event .dateTime .time,
+.wdn-events-band a:focus .event  .dateTime .time {
+  color: lighten($events-color--default, 40%);
+}
+
+#events-band a:focus .event .eventInfo .location,
+.wdn-events-band a:focus .event  .eventInfo .location {
+  color: lighten($events-color--default, 40%);
+}
+
+#events-band .event,
+.wdn-events-band .event {
+  background-color: lighten($events-color--default, 5%);
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  transition: background-color .3s ease;
+}
+
+#events-band .dateTime,
+.wdn-events-band .dateTime,
+#events-band .eventInfo,
+.wdn-events-band .eventInfo {
+  color: #fff;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  padding: 1em .75em;
+}
+
+#events-band .event .dateTime,
+.wdn-events-band .event .dateTime {
+  background-color: fade-out(#000, .6);
+  float: left;
+  text-align: center;
+  width: 30%;
+}
+
+#events-band .event .dateTime span,
+.wdn-events-band .event .dateTime span {
+  display: block;
+  @include font-sans;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#events-band .event .dateTime span.month,
+.wdn-events-band .event .dateTime span.month {
+  font-size: 1rem; // 12.83px
+  letter-spacing: .08em;
+  line-height: 1;
+}
+
+#events-band .event .dateTime span.day,
+.wdn-events-band .event .dateTime span.day {
+  // .heading-font();
+  font-size: 3.157rem; // 40.51px, 50.517px
+  line-height: 1;
+}
+
+#events-band .event .dateTime span.time,
+.wdn-events-band .event .dateTime span.time {
+  // .brand-font();
+  font-size: 1rem; // 12.83px, 16px
+  line-height: 1.333;
+  letter-spacing: .08em;
+  color: lighten($events-color--default, 50%);
+}
+
+#events-band .event .eventInfo,
+.wdn-events-band .event .eventInfo {
+  float: left;
+  @include font-sans;
+  padding: 1.333em 1em;
+  width: 70%;
+}
+
+#events-band .event .eventInfo .eventTitle,
+.wdn-events-band .event .eventInfo .eventTitle {
+  line-height: 1.333;
+  margin: 0;
+  padding-bottom: .422em;
+}
+
+#events-band .event .eventInfo .location,
+.wdn-events-band .event .eventInfo .location {
+  color: lighten($events-color--default, 66%);
+  display: inline-block;
+  font-size: .7015rem; // 9px
+  letter-spacing: .08em;
+  line-height: 1.425;
+  text-transform: uppercase;
+}
+
+#events-band p.more-events,
+.wdn-events-band p.more-events {
+  clear: left;
+  margin: .75em 0;
+  text-align: right;
+}
+
+#events-band p.more-events a,
+.wdn-events-band p.more-events a {
+  justify-content: flex-end;
+}
+
+#events-band p.more-events a:focus,
+.wdn-events-band p.more-events a:focus {
+  display: inline-block;
+  outline: 1px dotted;
+  padding: 0 2px;
+}
+
+
+@include mq(sm) {
+
+  #events-band .wdn-col:nth-of-type(2n+1),
+  .wdn-events-band .wdn-col:nth-of-type(2n+1) {
+    clear: both;
+  }
+
+  #events-band .wdn-col:nth-of-type(3n+1),
+  .wdn-events-band .wdn-col:nth-of-type(3n+1) {
+    clear: none;
+  }
+
+}
+
+
+@include mq(md) {
+
+  #events-band .wdn-col:nth-of-type(2n+1),
+  .wdn-events-band .wdn-col:nth-of-type(2n+1) {
+    clear: none;
+  }
+
+  #events-band .wdn-col:nth-of-type(3n+1),
+  .wdn-events-band .wdn-col:nth-of-type(3n+1) {
+    clear: both;
+  }
+
+  #events-band .event .dateTime span.month,
+  .wdn-events-band .event .dateTime span.month {
+  	font-size: .802rem; // 12.83px
+  }
+
+  #events-band .event .eventInfo .location,
+  .wdn-events-band .event .eventInfo .location {
+    font-size: .563rem; // 9px
+  }
+
+}

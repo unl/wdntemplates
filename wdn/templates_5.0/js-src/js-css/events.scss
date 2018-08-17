@@ -1,0 +1,225 @@
+@import '../../scss/plugins.tmp.scss';
+
+
+.wdn-calendar .upcoming-header {
+//   border-bottom: 1px solid @ui04;
+  @include font-sans;
+  font-size: .9353rem; // 12px
+  letter-spacing: .02em;
+  margin-bottom: 1em;
+  padding-bottom: .339em;
+  text-transform: uppercase;
+}
+
+.wdn-calendar .upcoming-header::before {
+//   .fontello();
+//   content: '\e810';
+//   color: @ui05;
+  padding-right: .254em;
+}
+
+.wdn-calendar .event {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: .75em;
+  width: 100%;
+}
+
+.wdn-calendar .event .date {
+//   border-right: 1px solid @ui04;
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin-right: .75em;
+  text-align: center;
+  width: 4.499em;
+}
+
+.wdn-calendar .event .date .month,
+.wdn-calendar .event .date .day,
+.wdn-calendar .event .date .time {
+  display: block;
+  line-height: 1;
+}
+
+.wdn-calendar .event .date .month,
+.wdn-calendar .event .date .time {
+  @include font-sans;
+  font-size: .7015rem; // 9px
+  text-transform: uppercase;
+}
+
+.wdn-calendar .event .date .month {
+  padding-bottom: .178em;
+}
+
+.wdn-calendar .event .date .day {
+  @include font-sans;
+  font-size: 1.777rem; // 22.798px, 28.43px
+  padding-bottom: .134em;
+}
+
+.wdn-calendar .event .info {
+  display: flex;
+  flex: 1 0 80%;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.wdn-calendar .event .info .title,
+.wdn-calendar .event .info .location {
+  display: block;
+}
+
+.wdn-calendar .event .info .title {
+  line-height: 1.333;
+  padding-bottom: .254em;
+}
+
+.wdn-calendar .event .info .location {
+  @include font-sans;
+  font-size: .7015rem; // 9px
+}
+
+.wdn-calendar .see-all {
+  display: block;
+  @include font-sans;
+  font-size: .75rem; // 9.625px, 12px
+  margin: 1em 0;
+}
+
+.wdn-calendar .feeds a {
+  border: none;
+  display: inline-block;
+  @include font-sans;
+  font-size: 1.247rem; // 16px
+  letter-spacing: .02em;
+  margin-right: .75em;
+  padding-left: 1em;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.wdn-calendar .feeds a::before {
+//   color: @ui05;
+//   .fontello();
+  font-size: .9353rem; // 12px
+  left: -.1em;
+  position: absolute;
+  top: 3px;
+}
+
+// .wdn-calendar .feeds a.ics::before {
+//   content: '\e812';
+// }
+
+// .wdn-calendar .feeds a.rss::before {
+//   content: '\e811';
+// }
+
+.wdn-calendar thead {
+  display: none;
+}
+
+.wdn-calendar .vevent .description {
+  display: none;
+}
+
+.wdn-calendar .upcoming tr {
+  background: none;
+}
+
+.wdn-calendar .upcoming tr td {
+  border: none;
+  text-align: left;
+}
+
+.wdn-calendar .upcoming tr td.date {
+  @include font-sans;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: top;
+  width: 4em;
+}
+
+.wdn-calendar .upcoming tr td.month {
+  display: block;
+  padding-right: 5px;
+  text-transform: uppercase;
+}
+
+.wdn-calendar .upcoming tr td.day {
+  color: #444;
+  display: block;
+  font-size: 1.4em;
+  line-height: 1.1;
+  padding-right: 5px;
+}
+
+// .wdn-calendar .upcoming tr td.month,
+// .wdn-calendar .upcoming tr td.time,
+// .wdn-calendar .upcoming tr td.year {
+//   color: fadeout(@dark-neutral, 25%);
+// }
+
+.wdn-calendar .upcoming tr td.time,
+.wdn-calendar .upcoming tr td.year {
+  display: block;
+  font-size: .8em;
+  padding-right: 5px;
+}
+
+.wdn-calendar .upcoming tr td.location,
+.wdn-calendar .upcoming tr td.summary {
+  border-left: #777 solid 2px;
+  border-bottom: none;
+  display: block;
+  font-size: .9em;
+  line-height: 130%;
+  padding-left: 5px;
+}
+
+.wdn-calendar .upcoming tr td.location {
+//   color: @dark-complement;
+  font-size: 75%;
+  display: block;
+  text-transform: uppercase;
+}
+
+.wdn-calendar .upcoming tr td.mapurl {
+  border-bottom: none;
+//   color: @dark-complement;
+  display: block;
+}
+
+.wdn-calendar .vcalendar tr td {
+  padding: 7px 0;
+}
+
+
+@include mq(md) {
+
+  .wdn-calendar .upcoming-header {
+    font-size: .802rem; // 12.83px
+  }
+
+  .wdn-calendar .event .date .month,
+  .wdn-calendar .event .date .time {
+    font-size: .602rem; // 9.625px
+  }
+
+  .wdn-calendar .event .info .location {
+    font-size: .602rem; // 9.625px
+  }
+
+  .wdn-calendar .feeds a {
+    font-size: 1.333rem; // 17.103px
+  }
+
+  .wdn-calendar .feeds a::before {
+    font-size: .802rem; // 12.83px
+  }
+
+}
