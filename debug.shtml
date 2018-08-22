@@ -1114,7 +1114,7 @@
     <h2 class="dcf-mt-6">Input Groups</h2>
 
     <h3 class="dcf-mt-5 dcf-regular">With Add-on Before Input</h3>
-    <form class="dcf-d-flex dcf-ai-center" id="input-group-addon-example-1" action="?" method="get">
+    <form class="dcf-input-group-form" id="input-group-addon-example-1" action="?" method="get">
       <label class="dcf-label dcf-mr-4" for="input-group-example-input-1">Username</label>
       <div class="dcf-input-group">
         <span class="dcf-input-group-addon">@</span>
@@ -1123,7 +1123,7 @@
     </form>
 
     <h3 class="dcf-mt-5 dcf-regular">With Add-on After Input</h3>
-    <form class="dcf-d-flex dcf-ai-center" id="input-group-addon-example-2" action="?" method="get">
+    <form class="dcf-input-group-form" id="input-group-addon-example-2" action="?" method="get">
       <label class="dcf-label dcf-mr-4" for="input-group-example-input-2">Email</label>
       <div class="dcf-input-group">
         <input class="dcf-input-text" id="input-group-example-input-2" name="q" type="search" required>
@@ -1132,7 +1132,7 @@
     </form>
 
     <h3 class="dcf-mt-5 dcf-regular">With Button</h3>
-    <form class="dcf-d-flex dcf-ai-center" id="input-group-button-example-3" action="?" method="get">
+    <form class="dcf-input-group-form" id="input-group-button-example-3" action="?" method="get">
       <label class="dcf-label dcf-mr-4" for="input-group-example-input-3">Search Events</label>
       <div class="dcf-input-group">
         <input class="dcf-input-text" id="input-group-example-input-3" name="q" type="search" required>
@@ -1146,7 +1146,7 @@
 
     <form action="?" method="post">
       <fieldset>
-        <legend>Sample Form Content</legend>
+        <legend class="dcf-legend">Sample Form Content</legend>
 
         <div class="dcf-form-group">
           <label class="dcf-label" for="name">Name <small class="dcf-required">Required</small></label>
@@ -1192,7 +1192,7 @@
 -->
 
         <fieldset>
-          <legend>Checkboxes</legend>
+          <legend class="dcf-legend">Checkboxes</legend>
           <div class="dcf-form-group">
             <input class="dcf-input-control" id="checkbox1" type="checkbox" value="">
             <label for="checkbox1">Checkbox 1</label>
@@ -1204,7 +1204,7 @@
         </fieldset>
 
         <fieldset>
-          <legend>Radio buttons</legend>
+          <legend class="dcf-legend">Radio buttons</legend>
           <div>
             <div class="dcf-form-group">
               <input class="dcf-input-control" id="radio_1" name="helpful" type="radio" value="0">

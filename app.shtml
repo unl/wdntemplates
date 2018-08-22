@@ -53,7 +53,7 @@
 
     <!-- App Search -->
     <div class="dcf-stretch unl-app-bg">
-      <form class="dcf-wrapper dcf-d-flex dcf-flex-wrap dcf-ai-center dcf-pt-7 dcf-pb-7" id="unl-webapp-search-form" action="https://search.unl.edu/" method="get">
+      <form class="dcf-wrapper dcf-input-group-form dcf-pt-7 dcf-pb-7" id="unl-webapp-search-form" action="https://search.unl.edu/" method="get">
         <label class="dcf-label dcf-mr-4 unl-cream" for="unl-webapp-search-query">Search Web Application</label>
         <div class="dcf-input-group">
           <input class="dcf-input-text dcf-search-input dcf-bg-transparent unl-cream" id="unl-webapp-search-query" name="q" type="search" required>
