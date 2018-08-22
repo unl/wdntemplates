@@ -1,4 +1,15 @@
-define(['uuid-gen'], (uuidv4) => {
+(function (root, factory) {
+	if (typeof define === 'function' && define.amd) {
+		// AMD
+		define(['uuid-gen'], factory);
+	} else if (typeof exports === 'object') {
+		// CommonJS
+		module.exports = factory(require('uuid-gen'));
+	} else {
+		// Browser globals (Note: root is window)
+		root.returnExports = factory(root.uuid-gen);
+	}
+}(this, function (uuidv4) {
 	let widget = {};
 	let notices = document.querySelectorAll('[data-widget="notice"]');
 	let fixedBottomExists = document.querySelector('[id*="unl-widget-fixedBottom-"]') ? true : false; // flag for checking if a fixedBottom notice has been previously added to the page set flag to true
@@ -351,7 +362,7 @@ define(['uuid-gen'], (uuidv4) => {
 		const noticeContent = document.createElement('p');
 
 		// set up the notice element
-		keys = Object.keys(widgetOptions);
+		const keys = Object.keys(widgetOptions);
 		notice.setAttribute('role', 'alert');
 
 		keys.forEach(key => {
@@ -379,4 +390,4 @@ define(['uuid-gen'], (uuidv4) => {
 	};
 
 	return widget;
-});
+}));
