@@ -1195,11 +1195,11 @@
           <legend class="dcf-legend">Checkboxes</legend>
           <div class="dcf-form-group">
             <input class="dcf-input-control" id="checkbox1" type="checkbox" value="">
-            <label for="checkbox1">Checkbox 1</label>
+            <label class="dcf-label" for="checkbox1">Checkbox 1</label>
           </div>
           <div class="dcf-form-group">
             <input class="dcf-input-control" id="checkbox2" type="checkbox" value="">
-            <label for="checkbox2">Checkbox 2</label>
+            <label class="dcf-label" for="checkbox2">Checkbox 2</label>
           </div>
         </fieldset>
 
@@ -1208,15 +1208,15 @@
           <div>
             <div class="dcf-form-group">
               <input class="dcf-input-control" id="radio_1" name="helpful" type="radio" value="0">
-              <label for="radio_1">Radio 1</label>
+              <label class="dcf-label" for="radio_1">Radio 1</label>
             </div>
             <div class="dcf-form-group">
               <input class="dcf-input-control" id="radio_2" name="helpful" type="radio" value="1">
-              <label for="radio_2">Radio 2</label>
+              <label class="dcf-label" for="radio_2">Radio 2</label>
             </div>
             <div class="dcf-form-group">
               <input class="dcf-input-control" id="radio_radio" name="helpful" type="radio" value="2">
-              <label for="radio_radio">Radio Radio</label>
+              <label class="dcf-label" for="radio_radio">Radio Radio</label>
             </div>
           </div>
         </fieldset>
