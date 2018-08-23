@@ -300,6 +300,20 @@ module.exports = function (grunt) {
 					].concat(syncJsIgnore),
 					dest: templateCompileJs
 				}]
+			},
+			dcfCommonModules: {
+				files: [{
+					cwd: 'node_modules/dcf/assets/build/js/app/postBabel/common',
+					src: ['**/*'],
+					dest: templateJs
+				}]
+			},
+			dcfOptionalModules: {
+				files: [{
+					cwd: 'node_modules/dcf/assets/build/js/app/postBabel/optional',
+					src: ['test.js'],
+					dest: templateJs
+				}]
 			}
 		},
 
@@ -482,6 +496,6 @@ module.exports = function (grunt) {
 	// legacy targets from Makefile
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
-	grunt.registerTask('js', ['clean:js', 'sass:js', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
+	grunt.registerTask('js', ['clean:js', 'sass:js', 'babel', 'copy:babelNoTranspile', 'sync:dcfCommonModules', 'sync:dcfOptionalModules', 'requirejs', 'sync:js', 'clean:js-build']);
 	grunt.registerTask('css', ['sassGlobber:all','sass:all', 'postcss']);
 };
