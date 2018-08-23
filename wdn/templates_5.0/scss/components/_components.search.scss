@@ -11,21 +11,6 @@
 }
 
 
-
-.unl .dcf-label {
-  // TODO: remove after added to DCF
-  flex-shrink: 0;
-}
-
-.unl .dcf-input-group {
-  // TODO: remove after added to DCF
-  flex-basis: 50%;
-  flex-grow: 1;
-}
-
-
-
-
 @include mq(md, max, width) {
 
   .unl .dcf-search-toggle-wrapper {
