@@ -1,182 +1,118 @@
-/*
-@import '../../less/_mixins/all.less';
+@import '../../scss/pre.tmp.scss';
 
-.colorize-notice(@color) {
-    background-color: @color;
-    transition: background ease-out .2s; // lesshat
-
-    &:hover {
-        background-color: darken(@color, 2%);
-
-        .message:before {
-            color: darken(@color, 15%);
-        }
-    }
-
-    .message:before {
-        color: darken(@color, 10%);
-    }
-}
 
 .wdn_notice {
-    margin-bottom: 1em;
-    border-radius: 3px;
-    padding: 1em 1em .75em;
-    box-shadow: 0 1px 1px 0 fadeout(#000, 50%);
-    .colorize-notice(@triad);
-
-    .close {
-        color: #fff;
-
-        a,
-        a:hover {
-            color: #fff;
-        }
-    }
-
-    .message {
-        position: relative;
-        padding: 0 0 0 4.1538em;
-        color: #fff;
-
-        @media @bp768 {
-            padding: 0 0 0 4.209em;
-        }
-
-        * {
-            margin: 0;
-            color: inherit;
-        }
-
-        h4,
-        .title {
-        	// match .wdn-sans-caps
-            .sans-serif-font;
-		    line-height: 1.333;
-		    text-transform: uppercase;
-		    letter-spacing: .02em;
-    		font-size: inherit;
-        }
-
-        &:before {
-            position: absolute;
-            top: .1em;
-            left: 0;
-            width: 41px;
-            height: 41px;
-            font-size: 2.369rem; // 30.39px, 37.897px
-            line-height: normal;
-            text-align: center;
-            font-family: wdn-icon;
-            content: '\e807';
-
-            @media @bp2 {
-                width: 54px;
-            }
-        }
-    }
-
-    &.affirm {
-        .colorize-notice(@complement);
-
-        .message:before {
-            content: '\e80b';
-        }
-    }
-
-    &.negate {
-        .colorize-notice(@brand);
-
-        .message:before {
-            content: '\e805';
-        }
-    }
-
-    &.alert {
-        .colorize-notice(@energetic);
-
-        .message:before {
-            content: '\e806';
-        }
-    }
-
-    .close,
-    .minimize,
-    .maximize {
-        float: right;
-
-        &:before {
-            position: absolute;
-            line-height: normal;
-            font-family: wdn-icon;
-        }
-
-        a,
-        a:hover {
-            width: 16px;
-            height: 16px;
-            text-indent: -2000em;
-            display: block;
-            text-decoration: none;
-            position: relative;
-            z-index: 1;
-        }
-    }
-
-    .close {
-
-        &:before {
-            content: '\e805';
-        }
-
-        a,
-        a:hover {
-            border: none;
-        }
-    }
-
-    .minimize {
-
-        &:before {
-            content: '\e80d';
-        }
-    }
-
-    .maximize {
-
-        &:before {
-            content: '\e80c';
-        }
-    }
-
-    &.overlay {
-        position: absolute;
-        left: @mobile-pad;
-        right: @mobile-pad;
-        top: 51px;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 50rem;
-        z-index: (@nav-z-index + 2); // above nav
-        text-align: left;
-
-        @media @bp960 {
-        	left: 0;
-        	right: 0;
-        }
-
-        // override the core max-width to be slimmer
-        #maincontent > & {
-	        margin-left: auto;
-	        margin-right: auto;
-        	max-width: 50rem;
-        }
-    }
+  background-color: $ui-800;
+  border-radius: $roundrect;
+  box-shadow: 0 1px 1px 0 fade-out(#000, .5);
+  @include cream;
+  @include mb-4;
+  @include p-4;
+  transition: background-color $hover-off;
 }
-*/
 
-.wdn_notice {
-  margin-bottom: 1em;
-  border-radius: 3px;
-  padding: 1em 1em .75em;
+.wdn_notice:hover {
+  background-color: darken($ui-800, 5%);
+  transition: background-color $hover-on;
+}
+
+.wdn_notice a,
+.wdn_notice a:hover {
+  @include cream;
+}
+
+.wdn_notice .message {
+  @include pl-8;
+  position: relative;
+}
+
+.wdn_notice .message * {
+  color: inherit;
+  margin: 0;
+}
+
+.wdn_notice .message h4,
+.wdn_notice .message .title {
+  @include font-sans;
+  @include ls-1;
+  @include lh-3;
+  text-transform: uppercase;
+}
+
+.wdn_notice .message::before {
+  background: transparent url('img/information.svg') 50% 50% / contain no-repeat;
+  content: '';
+  @include h-6;
+  left: 0;
+  position: absolute;
+  top: #{ms(-4)}em;
+  @include w-6;
+}
+
+.wdn_notice.affirm {
+  background-color: $ui-800; // TODO: update background-color
+}
+
+.wdn_notice.affirm:hover {
+  background-color: darken($ui-800, 5%); // TODO: update background-color
+}
+
+.wdn_notice.affirm .message::before {
+  background: transparent url('img/check-circle-2.svg') 50% 50% / contain no-repeat;
+}
+
+.wdn_notice.negate {
+  background-color: $ui-800; // TODO: update background-color
+}
+
+.wdn_notice.negate:hover {
+  background-color: darken($ui-800, 5%); // TODO: update background-color
+}
+
+.wdn_notice.negate .message::before {
+  background: transparent url('img/cross-bubble.svg') 50% 50% / contain no-repeat;
+}
+
+.wdn_notice.alert {
+  background-color: $ui-800; // TODO: update background-color
+}
+
+.wdn_notice.alert:hover {
+  background-color: darken($ui-800, 5%); // TODO: update background-color
+}
+
+.wdn_notice.alert .message::before {
+  background: transparent url('img/alert-2.svg') 50% 50% / contain no-repeat;
+}
+
+.wdn_notice .close {
+  float: right;
+}
+
+.wdn_notice .close::before {
+  position: absolute;
+}
+
+.wdn_notice .close a,
+.wdn_notice .close a:hover {
+  background: transparent url('img/delete-1.svg') 50% 50% / contain no-repeat;
+  display: block;
+  @include h-4;
+  position: relative;
+  text-decoration: none;
+  text-indent: -9999em;
+  @include w-4;
+  z-index: 1;
+}
+
+.wdn_notice.overlay {
+  left: $length-vw-2;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: #{ms(28)}em;
+  position: absolute;
+  right: $length-vw-2;
+  text-align: left;
+  top: #{ms(8)}em;
+  z-index: 999; // Ensure that the notice is above all other elements
 }
