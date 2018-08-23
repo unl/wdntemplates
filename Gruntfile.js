@@ -1,37 +1,36 @@
 module.exports = function (grunt) {
 	// CSS files to be built (relative to less directory, no extension)
 	var cssObjs = [
-		'all',
+		'pre',
+		'core',
+		'critical',
+		'deprecated',
 		//'modules/pagination',
 		//'modules/infographics',
-		//'critical'
 	];
 
 	var jsCssObjs = [
 		//'js-css/band_imagery',
-		//'js-css/display-font',
-		//'js-css/events',
-		//'js-css/events-band',
-		//'js-css/extlatin',
+		'js-css/events-band',
+		'js-css/events',
 		'js-css/formvalidator',
 		'js-css/notices',
-		//'js-css/monthwidget',
+		'js-css/monthwidget',
 		//'js-css/rsswidget',
-		//'js-css/script-font',
-		//'js-css/smallcaps',
 		//'js-css/unlalert',
 		//'plugins/qtip/wdn.qtip',
 		//'plugins/ui/css/jquery-ui-wdn'
 	];
 
 	// project layout variables (directories)
-	var mainDir = 'wdn',                                    // wdn
+	var mainDir = 'wdn',                                      // wdn
 			buildDir = 'build',                                   // build
 			templateDir = mainDir + '/templates_5.0',             // wdn/templates_5.0
 			templateScss = templateDir + '/scss',                 // wdn/templates_5.0/scss
 			templateCss = templateDir + '/css',                   // wdn/templates_5.0/css
 			templateJs = templateDir + '/js',                     // wdn/templates_5.0/js
 			templateJsSrc = templateDir + '/js-src',              // wdn/templates_5.0/js-src
+			templateJsCss = templateJs + '/js-css',               // wdn/templates_5.0/js/js-css
 			builtJsDir = 'compressed',                            // compressed
 			buildJsDir = buildDir + '/' + builtJsDir,             // build/compressed - folder removed at end of grunt js task
 			templateCompileJs = templateJs + '/' + builtJsDir,    // wdn/templates_5.0/js/compressed
@@ -60,21 +59,17 @@ module.exports = function (grunt) {
 
 	// modules added here will be added to rjsConfig modules below
 	var wdnBuildPlugins = [
-		'dialog',
 		//'band_imagery',
 		'carousel',
-		//'display-font',
-		//'events-band',
-		//'events',
-		//'extlatin',
+		'dialog',
+		'events-band',
+		'events',
 		//'jqueryui',
 		//'mediaelement_wdn',
 		//'modal',
-		//'monthwidget',
+		'monthwidget',
 		'notice',
 		//'rss_widget',
-		//'script-font',
-		//'smallcaps',
 		//'tooltip'
 	];
 
@@ -84,7 +79,7 @@ module.exports = function (grunt) {
 		'require-css/normalize',
 		'jquery',
 		'wdn',
-		// 'plugins/hoverIntent/jquery.hoverIntent'
+		'plugins/hoverIntent/jquery.hoverIntent'
 	];
 
 	// exclude build/bundled files from sync back to wdn folder
@@ -195,6 +190,7 @@ module.exports = function (grunt) {
 
 	var scssAllFiles = {}; // contains file patterns of temp scss files to compile scss from
 	cssObjs.forEach(function(file) {
+  	if (file.startsWith('pre')) return; // exclude this from Sass files compiled to CSS
 		scssAllFiles[templateCss + '/' + file + '.css'] = templateScss + '/' + file + '.tmp.scss';
 	});
 
@@ -229,35 +225,48 @@ module.exports = function (grunt) {
 		},
 
 		sass: {
-			all: {
-				files: scssAllFiles,
+			main: {
 				options: {
 					sourceMap: true,
 					includePaths: [
 						__dirname+'/node_modules/modularscale-sass/stylesheets'
 					]
-				}
+				},
+				files: scssAllFiles
 			},
-			js: {
+			plugins: {
 				options: {
-					sourceMap: true
+					sourceMap: true,
+					includePaths: [
+						__dirname+'/node_modules/modularscale-sass/stylesheets'
+					]
 				},
 				files: scssJsFiles
 			}
 		},
 
 		postcss: {
-			options: {
-				processors: [
-  				require('postcss-normalize')({forceImport:true}),
-					require('autoprefixer'),
-					require('cssnano')()
-				],
-				map: true
-			},
-			dist: {
-				src: templateCss + '/*.css'
-			}
+  		main: {
+  			options: {
+  				processors: [
+            require('postcss-normalize')({allowDuplicates: true}),
+            require('autoprefixer'),
+            require('cssnano')()
+  				],
+  				map: true
+  			},
+        src: templateCss + '/*.css'
+  		},
+  		plugins: {
+  			options: {
+  				processors: [
+  					require('autoprefixer'),
+  					require('cssnano')()
+  				],
+  				map: true
+  			},
+        src: templateJsCss + '/*.css'
+      }
 		},
 
 		//set babel preset in .babelrc file
@@ -354,7 +363,7 @@ module.exports = function (grunt) {
 		},
 
 		concurrent: {
-			main: [['sassGlobber:all', 'sass:all'], 'postcss', 'js', 'sass:js'],
+			main: ['css-main', 'js'],
 			dist: ['zip', 'archive']
 		},
 
@@ -392,8 +401,8 @@ module.exports = function (grunt) {
 
 		watch: {
 			sass: {
-				files: [templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
-				tasks: ['sassGlobber:all','sass']
+				files: [templateScss + '/**/*.scss', templateJsSrc + '/js-css/*.scss'],
+				tasks: ['sassGlobber', 'sass', 'postcss']
 			},
 			js: {
 				files: [templateJs + '/**/*.js', '!' + templateCompileJs + '/**/*.js'],
@@ -472,11 +481,14 @@ module.exports = function (grunt) {
 	});
 
 	// establish grunt default
-	grunt.registerTask('default', ['concurrent:main']);
+	grunt.registerTask('default', ['sassGlobber', 'clean:js', 'css-main', 'js-main']);
 
 	// legacy targets from Makefile
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
-	grunt.registerTask('js', ['clean:js', 'sass:js', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
-	grunt.registerTask('css', ['sassGlobber:all','sass:all', 'postcss']);
+	grunt.registerTask('css-main', ['sassGlobber', 'sass:main', 'postcss:main']);
+	grunt.registerTask('css-plugins', ['sassGlobber', 'sass:plugins', 'postcss:plugins']);
+	grunt.registerTask('js-main', ['css-plugins', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
+	grunt.registerTask('js', ['clean:js', 'css-plugins', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
+
 };
