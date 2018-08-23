@@ -7,7 +7,7 @@ define([
 	var defaultDuration = 1000;
 	var durationMultiplier = 1000; // seconds to milliseconds
 	var initd = false;
-	
+
 	var closeNotice = function($el) {
 		$el.fadeOut(animationSpeed, function() {
 			$el.remove();
@@ -23,10 +23,10 @@ define([
 					closeNotice($(this).closest(selectorNamespace));
 					return false;
 				});
-				
+
 				initd = true;
 			}
-			
+
 			$(Plugin.launch);
 		},
 
@@ -49,7 +49,7 @@ define([
 					$el.addClass(overlayMatch).removeClass(overlayClass);
 					$('#' + overlayHeader).append($el);
 				}
-				
+
 				overlayClass = overlayMatch + '-' + overlayMaincontent;
 				if (!isOverlay && ($el.data(overlayMatch) === overlayMaincontent || $el.is('.' + overlayClass))) {
 					isOverlay = true;
