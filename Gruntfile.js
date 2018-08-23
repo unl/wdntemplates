@@ -25,7 +25,7 @@ module.exports = function (grunt) {
 	];
 
 	// project layout variables (directories)
-	var mainDir = 'wdn',                                    // wdn
+	var mainDir = 'wdn',                                    	// wdn
 			buildDir = 'build',                                   // build
 			templateDir = mainDir + '/templates_5.0',             // wdn/templates_5.0
 			templateScss = templateDir + '/scss',                 // wdn/templates_5.0/scss
@@ -87,7 +87,10 @@ module.exports = function (grunt) {
 		// 'plugins/hoverIntent/jquery.hoverIntent'
 	];
 
-	// exclude build/bundled files from sync back to wdn folder
+	/**
+	/* Array containing bundled files created by rjs in build/compressed to be
+	/* excluded from being copy/synced back to template's js/compressed folder
+	 */
 	var syncJsIgnore = [
 		'!build.txt',
 		'!js-css/**',
@@ -110,7 +113,8 @@ module.exports = function (grunt) {
 		'!skipnav.*',
 		'!socialmediashare.*',
 		'!unlalert.*',
-		'!wdn*'
+		'!wdn*',
+		'!*.src.js',
 	];
 
 	// requirejs configuration and customization options
