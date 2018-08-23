@@ -71,7 +71,7 @@ module.exports = function (grunt) {
 		//'mediaelement_wdn',
 		//'modal',
 		//'monthwidget',
-		'notice',
+		// 'notice',
 		//'rss_widget',
 		//'script-font',
 		//'smallcaps',
@@ -87,7 +87,7 @@ module.exports = function (grunt) {
 		// 'plugins/hoverIntent/jquery.hoverIntent'
 	];
 
-	// exclude build/bundled files from sync back to wdn folder
+	// exclude rjs bundled files in build/compressed from being synced back to template's js/compressed folder
 	var syncJsIgnore = [
 		'!build.txt',
 		'!js-css/**',
@@ -110,7 +110,8 @@ module.exports = function (grunt) {
 		'!skipnav.*',
 		'!socialmediashare.*',
 		'!unlalert.*',
-		'!wdn*'
+		'!wdn*',
+		'!*.src.js',
 	];
 
 	// requirejs configuration and customization options

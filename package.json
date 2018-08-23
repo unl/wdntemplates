@@ -20,7 +20,7 @@
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "csso": "^2.1.1",
-    "dcf": "git+https://github.com/d-c-n/dcf.git",
+    "dcf": "github:Shaderpixel/dcf#project-UMD",
     "grunt": "^1.0.1",
     "grunt-babel": "^7.0.0",
     "grunt-bump": "^0.8.0",
@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "axe-core": "^2.6.1",
+    "d": "^1.0.0",
     "dialog-polyfill": "^0.4.9",
     "http-server": "^0.11.1",
     "puppeteer": "^1.1.0"
