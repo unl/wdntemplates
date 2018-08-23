@@ -113,8 +113,7 @@ module.exports = function (grunt) {
 		'!skipnav.*',
 		'!socialmediashare.*',
 		'!unlalert.*',
-		'!wdn*',
-		'!*.src.js',
+		'!wdn*'
 	];
 
 	// requirejs configuration and customization options
@@ -295,7 +294,8 @@ module.exports = function (grunt) {
 						'**',
 						'!**/*.patch',
 						'!**/*.md',
-						'!**/*.scss'
+						'!**/*.scss',
+						'!**/*.src.js',
 					].concat(syncJsIgnore),
 					dest: templateCompileJs
 				}]
