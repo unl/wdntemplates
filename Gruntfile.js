@@ -25,7 +25,7 @@ module.exports = function (grunt) {
 	];
 
 	// project layout variables (directories)
-	var mainDir = 'wdn',                                    // wdn
+	var mainDir = 'wdn',                                    	// wdn
 			buildDir = 'build',                                   // build
 			templateDir = mainDir + '/templates_5.0',             // wdn/templates_5.0
 			templateScss = templateDir + '/scss',                 // wdn/templates_5.0/scss
@@ -87,7 +87,10 @@ module.exports = function (grunt) {
 		// 'plugins/hoverIntent/jquery.hoverIntent'
 	];
 
-	// exclude rjs bundled files in build/compressed from being synced back to template's js/compressed folder
+	/**
+	 /* Array containing bundled files created by rjs in build/compressed to be
+	 /* excluded from being copy/synced back to template's js/compressed folder
+	 */
 	var syncJsIgnore = [
 		'!build.txt',
 		'!js-css/**',
@@ -110,8 +113,7 @@ module.exports = function (grunt) {
 		'!skipnav.*',
 		'!socialmediashare.*',
 		'!unlalert.*',
-		'!wdn*',
-		'!*.src.js',
+		'!wdn*'
 	];
 
 	// requirejs configuration and customization options
@@ -139,6 +141,7 @@ module.exports = function (grunt) {
 		},
 		modules: [
 			//specify modules to include their immediate and deep dependencies in the final module file
+			// pro: one less HTTP request, con: if other modules share the same dependency, then dependency is not reusable
 			{
 				name: 'all',
 				create: true,
@@ -292,7 +295,8 @@ module.exports = function (grunt) {
 						'**',
 						'!**/*.patch',
 						'!**/*.md',
-						'!**/*.scss'
+						'!**/*.scss',
+						'!**/*.src.js',
 					].concat(syncJsIgnore),
 					dest: templateCompileJs
 				}]
