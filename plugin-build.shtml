@@ -1380,7 +1380,7 @@
   </script>
 
   <script>
-    require(['notice'], function(notice) {
+    require(['dcf-notice'], function(notice) {
       notice.initialize();
 
       var noticeOptions = {
