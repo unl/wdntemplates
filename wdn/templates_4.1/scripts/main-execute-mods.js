@@ -3,5 +3,6 @@ define([
     'modernizr',
     'wdn_jquery',
     'legacy',
-    'skipnav'
+    'skipnav',
+    'qa'
 ], function() {});
