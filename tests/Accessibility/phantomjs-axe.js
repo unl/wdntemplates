@@ -46,7 +46,7 @@ page.open(url, function (status) {
 				}
 			};
 
-			axe.a11yCheck(window.document, options, function (results) {
+			axe.run(window.document, options, function (err, results) {
 				window.callPhantom(results.violations);
 			});
 		});
