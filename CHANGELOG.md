@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.34 (August 29, 2018)
+- In Our Grit, Our Glory logo added to footer
+- Minor accessibility fixes
+
 ## 4.1.33 (May 1, 2018)
 - No commits made, version bumped
 
