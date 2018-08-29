@@ -4,60 +4,34 @@
 
 
 // !Scarlet
-@mixin scarlet($imp:null) {
-  color: $scarlet $imp;
-}
+@mixin scarlet($imp:null) { color: $scarlet $imp; }
 
-@mixin scarlet-visited($imp:null) {
-  color: $scarlet $imp; // TODO: determine visited state styles
-}
-
-@mixin scarlet-hover($imp:null) {
-  color: $scarlet $imp; // TODO: determine hover state styles
-}
-
-@mixin scarlet-active($imp:null) {
-  color: $scarlet $imp; // TODO: determine active state styles
-}
+// TODO: determine visited state styles
+@mixin scarlet-visited($imp:null) { color: $scarlet $imp; }
+// TODO: determine hover state styles
+@mixin scarlet-hover($imp:null) { color: $scarlet $imp; }
+// TODO: determine active state styles
+@mixin scarlet-active($imp:null) { color: $scarlet $imp; }
 
 
 // !Cream
-@mixin cream($imp:null) {
-  color: $cream $imp;
-}
+@mixin cream($imp:null) { color: $cream $imp; }
 
-@mixin cream-visited($imp:null) {
-  color: $cream $imp; // TODO: determine visited state styles
-}
-
-@mixin cream-hover($imp:null) {
-  color: $cream $imp; // TODO: determine hover state styles
-}
-
-@mixin cream-active($imp:null) {
-  color: $cream $imp; // TODO: determine active state styles
-}
+// TODO: determine visited state styles
+@mixin cream-visited($imp:null) { color: $cream $imp; }
+// TODO: determine hover state styles
+@mixin cream-hover($imp:null) { color: $cream $imp; }
+// TODO: determine active state styles
+@mixin cream-active($imp:null) { color: $cream $imp; }
 
 
-// !Blue
-@mixin blue($imp:null) {
-  color: $blue $imp;
-}
-
-@mixin blue-visited($imp:null) {
-  color: $blue $imp; // TODO: determine visited state styles
-}
-
-@mixin blue-hover($imp:null) {
-  color: $blue $imp; // TODO: determine hover state styles
-}
-
-@mixin blue-active($imp:null) {
-  color: $blue $imp; // TODO: determine active state styles
-}
+// !Light
+@mixin light($imp:null) { color: $ui-light $imp; }
+@mixin lighter($imp:null) { color: $ui-lighter $imp; }
+@mixin lightest($imp:null) { color: $ui-lightest $imp; }
 
 
-// !Dark -- TODO: finalize name
-@mixin dark($imp:null) {
-  color: $ui-800 $imp;
-}
+// !Dark
+@mixin dark($imp:null) { color: $ui-dark $imp; }
+@mixin darker($imp:null) { color: $ui-darker $imp; }
+@mixin darkest($imp:null) { color: $ui-darkest $imp; }

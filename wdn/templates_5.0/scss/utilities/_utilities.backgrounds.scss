@@ -11,9 +11,16 @@
 .unl-bg-cream { @include bg-cream(!important); }
 
 
-// !Dark -- TODO: finalize name
-.unl-bg-dark { @include bg-dark(!important); }
+// !Light
+.unl-bg-light { @include bg-light(!important); }
+.unl-bg-lighter { @include bg-lighter(!important); }
+.unl-bg-lightest { @include bg-lightest(!important); }
 
+
+// !Dark
+.unl-bg-dark { @include bg-dark(!important); }
+.unl-bg-darker { @include bg-darker(!important); }
+.unl-bg-darkest { @include bg-darkest(!important); }
 
 
 // !Diagonal Stripes: Scarlet

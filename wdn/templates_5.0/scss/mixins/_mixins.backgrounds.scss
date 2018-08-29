@@ -4,22 +4,23 @@
 
 
 // !Scarlet
-@mixin bg-scarlet($imp:null) {
-  background-color: $scarlet $imp;
-}
+@mixin bg-scarlet($imp:null) { background-color: $scarlet $imp; }
 
 
 // !Cream
-@mixin bg-cream($imp:null) {
-  background-color: $cream $imp;
-}
+@mixin bg-cream($imp:null) { background-color: $cream $imp; }
 
 
-// !Dark -- TODO: finalize name
-@mixin bg-dark($imp:null) {
-  background-color: $ui-800 $imp;
-}
+// !Light
+@mixin bg-light($imp:null) { background-color: $ui-light $imp; }
+@mixin bg-lighter($imp:null) { background-color: $ui-lighter $imp; }
+@mixin bg-lightest($imp:null) { background-color: $ui-lightest $imp; }
 
+
+// !Dark
+@mixin bg-dark($imp:null) { background-color: $ui-dark $imp; }
+@mixin bg-darker($imp:null) { background-color: $ui-darker $imp; }
+@mixin bg-darkest($imp:null) { background-color: $ui-darkest $imp; }
 
 
 // !Diagonal Stripes: Scarlet
