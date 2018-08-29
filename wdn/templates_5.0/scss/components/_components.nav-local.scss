@@ -300,7 +300,7 @@
 
   .unl .dcf-nav-local > ul > li > a {
 //     background-color: $cream;
-    border-left: 1px solid $ui-100;
+    border-left: 1px solid $ui-light;
     height: $height-nav-menu-md;
 //     height: 100%;
 //     height: auto;
@@ -343,7 +343,7 @@
 
   // navigation transition to be added later
   .unl .dcf-nav-bar .dcf-nav-local ul ul:after {
-    background-image: linear-gradient(to bottom, $ui-100, fade-out($ui-100,1));
+    background-image: linear-gradient(to bottom, $ui-light, fade-out($ui-light,1));
     content: '';
     left: 0;
     height: 100%;

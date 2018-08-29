@@ -2,7 +2,7 @@
 
 
 .wdn_notice {
-  background-color: $ui-800;
+  background-color: $ui-darker;
   border-radius: $roundrect;
   box-shadow: 0 1px 1px 0 fade-out(#000, .5);
   @include cream;
@@ -12,7 +12,7 @@
 }
 
 .wdn_notice:hover {
-  background-color: darken($ui-800, 5%);
+  background-color: darken($ui-darker, 5%);
   transition: background-color $hover-on;
 }
 
@@ -50,11 +50,11 @@
 }
 
 .wdn_notice.affirm {
-  background-color: $ui-800; // TODO: update background-color
+  background-color: $ui-darker; // TODO: update background-color
 }
 
 .wdn_notice.affirm:hover {
-  background-color: darken($ui-800, 5%); // TODO: update background-color
+  background-color: darken($ui-darker, 5%); // TODO: update background-color
 }
 
 .wdn_notice.affirm .message::before {
@@ -62,11 +62,11 @@
 }
 
 .wdn_notice.negate {
-  background-color: $ui-800; // TODO: update background-color
+  background-color: $ui-darker; // TODO: update background-color
 }
 
 .wdn_notice.negate:hover {
-  background-color: darken($ui-800, 5%); // TODO: update background-color
+  background-color: darken($ui-darker, 5%); // TODO: update background-color
 }
 
 .wdn_notice.negate .message::before {
@@ -74,11 +74,11 @@
 }
 
 .wdn_notice.alert {
-  background-color: $ui-800; // TODO: update background-color
+  background-color: $ui-darker; // TODO: update background-color
 }
 
 .wdn_notice.alert:hover {
-  background-color: darken($ui-800, 5%); // TODO: update background-color
+  background-color: darken($ui-darker, 5%); // TODO: update background-color
 }
 
 .wdn_notice.alert .message::before {
