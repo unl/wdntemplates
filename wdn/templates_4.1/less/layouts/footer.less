@@ -327,19 +327,21 @@ a.wdn-footer-logo {
 
 #nebraska-b1g-lockup {
     display: flex;
+		justify-content: flex-start;
     align-items: center;
-    margin-bottom: 1rem;
+		margin-bottom: 1em;
 
     @media @bp640 {
-        margin: .254rem 0 0;
+        margin: .254rem 0 1em;
     }
 }
 
 #footer_n_logo {
 	width: 3.44rem; // 44px
 	height: 3.44rem; // 44px
-	margin-right: 1.333rem;
-    background-image: data-uri('../images/n-white.svg');
+	margin-right: 0.5rem;
+	min-width: 2.75rem;
+	background-image: data-uri('../images/n-white.svg');
 
     @media @bp768 {
         height: 2.75rem; // 44px
@@ -347,15 +349,35 @@ a.wdn-footer-logo {
     }
 }
 
+#gg-logo {
+	background-image: data-uri('../images/gg.svg');
+	width: 5.6rem;
+	height: 3em;
+
+	@media @bp768 {
+		width: 5.3rem;
+	}
+}
+
 #b1g_wordmark {
     height: 2.37rem; // 30px
     width: 5.63rem; // 72px
     background-image: data-uri('../images/b1g.svg');
+		margin: 0 5%;
 
     @media @bp768 {
         height: 1.889rem; // 30px
-        width: 4.5rem; // 72px
+        min-width: 4.5rem; // 72px
+				margin-left:7%;
+				margin-right: 3%;
     }
+
+		@media @bp960 {
+			margin-left: 8%;
+			margin-right: 5%;
+		}
+
+
 }
 
 #unl_wordmark {
