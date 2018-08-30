@@ -25,13 +25,13 @@
 @mixin cream-active($imp:null) { color: $cream $imp; }
 
 
-// !Light
-@mixin light($imp:null) { color: $ui-light $imp; }
-@mixin lighter($imp:null) { color: $ui-lighter $imp; }
-@mixin lightest($imp:null) { color: $ui-lightest $imp; }
+// !Light Gray
+@mixin light-gray($imp:null) { color: $light-gray $imp; }
+@mixin lighter-gray($imp:null) { color: $lighter-gray $imp; }
+@mixin lightest-gray($imp:null) { color: $lightest-gray $imp; }
 
 
-// !Dark
-@mixin dark($imp:null) { color: $ui-dark $imp; }
-@mixin darker($imp:null) { color: $ui-darker $imp; }
-@mixin darkest($imp:null) { color: $ui-darkest $imp; }
+// !Dark Gray
+@mixin dark-gray($imp:null) { color: $dark-gray $imp; }
+@mixin darker-gray($imp:null) { color: $darker-gray $imp; }
+@mixin darkest-gray($imp:null) { color: $darkest-gray $imp; }

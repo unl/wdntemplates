@@ -40,13 +40,13 @@ $black: #000;
 // Mix cream and gray brand colors for base color
 $mix-cream-gray: mix($cream, $gray); // #e3e3e2
 
-$ui-light: $mix-cream-gray; // #e3e3e2
-$ui-lighter: lighten($mix-cream-gray, 3.2%); // #ebebea
-$ui-lightest: lighten($mix-cream-gray, 7.5%); // #f6f6f5;
+$light-gray: $mix-cream-gray; // #e3e3e2
+$lighter-gray: lighten($mix-cream-gray, 3.2%); // #ebebea
+$lightest-gray: lighten($mix-cream-gray, 7.5%); // #f6f6f5;
 
-$ui-dark: darken($mix-cream-gray, 47.5%); // #6d6d69
-$ui-darker: darken($mix-cream-gray, 63.3%); // #434341
-$ui-darkest: darken($mix-cream-gray, 75%); // #242423
+$dark-gray: darken($mix-cream-gray, 47.5%); // #6d6d69
+$darker-gray: darken($mix-cream-gray, 63.3%); // #434341
+$darkest-gray: darken($mix-cream-gray, 75%); // #242423
 
 
 
@@ -58,20 +58,20 @@ $color-body-bg: $cream;
 
 // Must meet WCAG AA (minimum contrast ratio of 4.5)
 // Strive for WCAG AAA (minimum contrast ratio of 7.0) for body text
-$color-body: $ui-darker;
+$color-body: $darker-gray;
 
 
 // Must meet WCAG AA (minimum contrast ratio of 4.5)
 // Strive for WCAG AAA (minimum contrast ratio of 7.0) for heading text
-$color-heading: $ui-darkest;
+$color-heading: $darkest-gray;
 
 
 // Must meet WCAG AA (minimum contrast ratio of 4.5)
-$color-light-text: $ui-dark; // TODO:  merge "light" and "lightest" text
+$color-light-text: $dark-gray; // TODO:  merge "light" and "lightest" text
 
 
 // Must meet WCAG AA (minimum contrast ratio of 4.5)
-$color-lightest-text: $ui-dark; // TODO:  merge "light" and "lightest" text
+$color-lightest-text: $dark-gray; // TODO:  merge "light" and "lightest" text
 
 
 // !Links
@@ -104,7 +104,7 @@ $color-breadcrumb: $gray;
 
 
 // !Badges
-$color-badge: $ui-dark; // TODO: finalize badge background-color
+$color-badge: $dark-gray; // TODO: finalize badge background-color
 
 
 // !Captions

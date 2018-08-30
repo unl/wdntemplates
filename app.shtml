@@ -33,7 +33,7 @@
     </div>
 
     <!-- App Controls -->
-    <div class="dcf-stretch" style="background-color: #383837"><!-- TODO: Replace with bg-color utility class -->
+    <div class="dcf-stretch unl-bg-darkest-gray">
       <div class="dcf-wrapper" >
         <nav class="" role="navigation" aria-label="global navigation">
           <ul class="dcf-list-bare dcf-list-inline dcf-d-flex dcf-mb-0 dcf-uppercase dcf-bold unl-ls-2">

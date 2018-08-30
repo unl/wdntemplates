@@ -12,15 +12,15 @@
 
 
 // !Light
-@mixin bg-light($imp:null) { background-color: $ui-light $imp; }
-@mixin bg-lighter($imp:null) { background-color: $ui-lighter $imp; }
-@mixin bg-lightest($imp:null) { background-color: $ui-lightest $imp; }
+@mixin bg-light($imp:null) { background-color: $light-gray $imp; }
+@mixin bg-lighter($imp:null) { background-color: $lighter-gray $imp; }
+@mixin bg-lightest($imp:null) { background-color: $lightest-gray $imp; }
 
 
 // !Dark
-@mixin bg-dark($imp:null) { background-color: $ui-dark $imp; }
-@mixin bg-darker($imp:null) { background-color: $ui-darker $imp; }
-@mixin bg-darkest($imp:null) { background-color: $ui-darkest $imp; }
+@mixin bg-dark($imp:null) { background-color: $dark-gray $imp; }
+@mixin bg-darker($imp:null) { background-color: $darker-gray $imp; }
+@mixin bg-darkest($imp:null) { background-color: $darkest-gray $imp; }
 
 
 // !Diagonal Stripes: Scarlet

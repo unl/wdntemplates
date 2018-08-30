@@ -27,13 +27,13 @@ a.unl-cream:hover { @include cream-hover(!important); }
 a.unl-cream:active { @include cream-active(!important); }
 
 
-// !Light
-.unl-light { @include light(!important); }
-.unl-lighter { @include lighter(!important); }
-.unl-lightest { @include lightest(!important); }
+// !Light Grays
+.unl-light-gray { @include light-gray(!important); }
+.unl-lighter-gray { @include lighter-gray(!important); }
+.unl-lightest-gray { @include lightest-gray(!important); }
 
 
-// !Dark
-.unl-dark { @include dark(!important); }
-.unl-darker { @include darker(!important); }
-.unl-darkest { @include darkest(!important); }
+// !Dark Grays
+.unl-dark-gray { @include dark-gray(!important); }
+.unl-darker-gray { @include darker-gray(!important); }
+.unl-darkest-gray { @include darkest-gray(!important); }
