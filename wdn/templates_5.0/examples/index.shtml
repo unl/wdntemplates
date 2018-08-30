@@ -181,7 +181,7 @@
         <li><div class="visual-island"><a href="formvalidator.html">Form Validator</a></div></li>
         <li><div class="visual-island"><a href="forms.html">Forms</a></div></li>
         <li><div class="visual-island"><a href="hero.html">Hero Content</a></div></li>
-        <li><div class="visual-island"><a href="idm.html"><abbr title="Identity Management">IdM</abbr>/<abbr title="Single Sign On">SSO</abbr></a></div></li>
+        <li><div class="visual-island"><a href="idm.html"><abbr>IdM</abbr>/<abbr>SSO</abbr></a></div></li>
         <li><div class="visual-island"><a href="image.html">Images</a></div></li>
         <li><div class="visual-island"><a href="infographics.html">Infographics</a></div></li>
         <li><div class="visual-island"><a href="jqueryui.html">jQuery UI</a></div></li>
