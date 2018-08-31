@@ -82,7 +82,10 @@ module.exports = function (grunt) {
 		'plugins/hoverIntent/jquery.hoverIntent'
 	];
 
-	// exclude build/bundled files from sync back to wdn folder
+	/**
+	/* Array containing bundled files created by rjs in build/compressed to be
+	/* excluded from being copy/synced back to template's js/compressed folder
+	 */
 	var syncJsIgnore = [
 		'!build.txt',
 		//'!js-css/**',
@@ -300,7 +303,8 @@ module.exports = function (grunt) {
 						'**',
 						'!**/*.patch',
 						'!**/*.md',
-						'!**/*.scss'
+						'!**/*.scss',
+						'!**/*.src.js',
 					].concat(syncJsIgnore),
 					dest: templateCompileJs
 				}]
