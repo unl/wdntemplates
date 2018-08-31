@@ -88,8 +88,8 @@ module.exports = function (grunt) {
 	];
 
 	/**
-	 /* Array containing bundled files created by rjs in build/compressed to be
-	 /* excluded from being copy/synced back to template's js/compressed folder
+	/* Array containing bundled files created by rjs in build/compressed to be
+	/* excluded from being copy/synced back to template's js/compressed folder
 	 */
 	var syncJsIgnore = [
 		'!build.txt',
@@ -141,7 +141,6 @@ module.exports = function (grunt) {
 		},
 		modules: [
 			//specify modules to include their immediate and deep dependencies in the final module file
-			// pro: one less HTTP request, con: if other modules share the same dependency, then dependency is not reusable
 			{
 				name: 'all',
 				create: true,
@@ -299,20 +298,6 @@ module.exports = function (grunt) {
 						'!**/*.src.js',
 					].concat(syncJsIgnore),
 					dest: templateCompileJs
-				}]
-			},
-			dcfCommonModules: {
-				files: [{
-					cwd: 'node_modules/dcf/assets/dist/js/app/postBabel/common',
-					src: ['**/*.js', '!**/*.min.js', '!**/*.babel.js'],
-					dest: templateJs
-				}]
-			},
-			dcfOptionalModules: {
-				files: [{
-					cwd: 'node_modules/dcf/assets/dist/js/app/postBabel/optional',
-					src: ['**/*.js'],
-					dest: templateJs
 				}]
 			}
 		},
@@ -496,6 +481,6 @@ module.exports = function (grunt) {
 	// legacy targets from Makefile
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
-	grunt.registerTask('js', ['clean:js', 'sass:js', 'babel', 'copy:babelNoTranspile', 'sync:dcfCommonModules', 'sync:dcfOptionalModules', 'requirejs', 'sync:js', 'clean:js-build']);
+	grunt.registerTask('js', ['clean:js', 'sass:js', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
 	grunt.registerTask('css', ['sassGlobber:all','sass:all', 'postcss']);
 };
