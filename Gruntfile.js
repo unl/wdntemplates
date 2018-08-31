@@ -303,14 +303,14 @@ module.exports = function (grunt) {
 			},
 			dcfCommonModules: {
 				files: [{
-					cwd: 'node_modules/dcf/assets/dist/js/app/common',
+					cwd: 'node_modules/dcf/assets/dist/js/app/postBabel/common',
 					src: ['**/*.js', '!**/*.min.js', '!**/*.babel.js'],
 					dest: templateJs
 				}]
 			},
 			dcfOptionalModules: {
 				files: [{
-					cwd: 'node_modules/dcf/assets/dist/js/app/optional',
+					cwd: 'node_modules/dcf/assets/dist/js/app/postBabel/optional',
 					src: ['**/*.js'],
 					dest: templateJs
 				}]
