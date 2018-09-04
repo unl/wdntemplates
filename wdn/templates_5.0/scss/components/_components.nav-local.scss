@@ -11,22 +11,22 @@
 .unl .dcf-nav-local a:link,
 .unl .dcf-nav-local a:visited,
 .unl .dcf-nav-local a:active {
-  color: $scarlet;
+  color: $scarlet; // TODO: determine link state styles
 }
 
 
 .unl .dcf-nav-local > ul {
-  @include txt-md; // remove after updated in DCF core
+  @include txt-md; // TODO: remove after updated in DCF core
 }
 
 
 .unl .dcf-nav-local li:not(:last-child) {
-  margin-right: 0; // remove after updated in DCF core
+  margin-right: 0; // TODO: remove after updated in DCF core
 }
 
 
 .unl .dcf-nav-local ul li {
-  margin-bottom: 0;
+  margin-bottom: 0; // TODO: remove after updated in DCF core
 }
 
 
@@ -43,9 +43,8 @@
 
 
 .unl .dcf-nav-local ul ul {
-//   font-size: #{ms(-2)}rem; // remove after updated in DCF core
-  @include txt-md; // remove after updated in DCF core
-  @include pt-0; // remove after updated in DCF core
+  @include txt-md; // TODO: remove after updated in DCF core
+  @include pt-0; // TODO: remove after updated in DCF core
 }
 
 
@@ -60,7 +59,7 @@
   .unl .dcf-nav-bar.dcf-modal-open {
     @include bg-overlay-dark;
     bottom: #{$height-mobile-toolbar};
-    height: calc(100% - #{$height-mobile-toolbar});
+    height: 100vh;
     position: fixed;
     width: 100%;
     z-index: 998;
@@ -126,7 +125,7 @@
 
   .unl .dcf-nav-local-wrapper::before {
     background-image: linear-gradient(to top, fade-out($cream, 1), $cream);
-    bottom: calc(#{$height-mobile-toolbar)} + 43vh);
+    bottom: calc(#{$height-mobile-toolbar} + 43vh);
     content: '';
     height: #{ms(6)}em;
     left: 0;
@@ -145,7 +144,7 @@
 // //     box-shadow: 0 -1px 4px 0 rgba(0,0,0,.1);
 //     height: 56vh;
 //     overflow-y: scroll;
-//     -webkit-overflow-scrolling: touch; // remove after added to DCF core
+//     -webkit-overflow-scrolling: touch; // TODO: remove after added to DCF core
 // //     pointer-events: none;
 //     position: fixed;
 //     z-index: 998;
@@ -171,7 +170,7 @@
 
     @supports (display: grid) {
       grid-gap: #{ms(6)}em 5.6vw; // core
-      grid-template-columns: repeat(auto-fit, minmax(#{ms(16)}em, 1fr)); // remove after updated in DCF core
+      grid-template-columns: repeat(auto-fit, minmax(#{ms(16)}em, 1fr)); // TODO: remove after updated in DCF core
     }
 
   }
@@ -185,7 +184,7 @@
   @supports (display: grid) {
 
     .unl .dcf-nav-local > ul {
-      grid-template-columns: repeat(3, 1fr); // remove after updated in DCF core
+      grid-template-columns: repeat(3, 1fr); // TODO: remove after updated in DCF core
     }
 
   }
@@ -201,8 +200,8 @@
     display: flex;
     flex: 1 0 auto;
     flex-wrap: nowrap;
+    height: $height-nav-menu-md;
     padding-left: $length-vw-2;
-    padding-right: $length-vw-2;
   }
 
 
@@ -257,22 +256,24 @@
 
 
   .unl .dcf-nav-local {
-    border-top: 1px solid $ui-100;
+//     border-top: 1px solid $ui-100;
     height: 100%;
-    @include pr-4;
+//     @include pr-4;
+    padding-right: $length-vw-2;
   }
 
 
-//   .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local-wrapper {
+  .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local-wrapper {
 //     height: calc(100vh - #{ms(7)}em - #{ms(14)}em - 3px);
-//   }
+    height: calc(100vh - #{$height-header-global-md} - #{$height-logo-lockup-md});
+  }
 
 
-//   .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local {
-//     flex: 1 1 auto;
-//     overflow-y: auto;
-//     -webkit-overflow-scrolling: touch;
-//   }
+  .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 
 
   .unl .dcf-nav-local a {
@@ -291,9 +292,9 @@
   }
 
 
-  .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local > ul {
-    height: unset;
-  }
+//   .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local > ul {
+//     height: unset;
+//   }
 
 
   .unl .dcf-nav-local > ul > li {
@@ -315,14 +316,15 @@
 //     background-color: $cream;
     border-left: 1px solid $ui-100;
 
-    height: 100%;
+    height: $height-nav-menu-md;
+//     height: 100%;
 //     height: auto;
 
 //     justify-content: center;
 //     padding: #{ms(0)}em 2.4vw;
 //     text-align: center;
-    position: sticky;
-    top: 1px;
+//     position: sticky;
+//     top: 1px;
     width: 100%;
   }
 
@@ -342,27 +344,32 @@
   .unl .dcf-nav-local ul ul {
 //     background: linear-gradient(to bottom, $ui-100, fade-out($ui-100,1)) 0 0 / 1px 100% no-repeat;
 //     font-size: #{ms(-3)}rem;
-    @include pb-10;
+    @include pb-7;
     margin-top: 0;
 
-    position: absolute;
+//     position: absolute;
 
     top: 100%;
     width: 100%;
     z-index: 999;
 
     // position: absolute;
-    border: 0;
+//     border: 0;
     // clip: rect(1px, 1px, 1px, 1px);
     clip: auto;
     // height: 1px;
-    height: auto;
+//     height: auto;
     // overflow: hidden;
-    overflow: auto;
+//     overflow: auto;
     // position: absolute;
     // width: 1px;
     // word-wrap: normal;
     word-wrap: normal;
+
+    height: auto;
+//     height: calc(100vh - #{$height-header-global-md} - #{$height-logo-lockup-md} - #{$height-nav-menu-md} - #{$height-breadcrumbs-md});
+    position: static;
+//     top: $height-nav-menu-md;
   }
 
 

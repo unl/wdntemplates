@@ -4,9 +4,37 @@
 
 
 // !Scarlet
+
+// All Sides
 .unl-b-scarlet { @include b-scarlet(!important); }
+
+// Top
+.unl-bt-scarlet { @include bt-scarlet(!important); }
+
+// Right
+.unl-br-scarlet { @include br-scarlet(!important); }
+
+// Bottom
+.unl-bb-scarlet { @include bb-scarlet(!important); }
+
+// Left
+.unl-bl-scarlet { @include bl-scarlet(!important); }
+
 
 
 // !Cream
+
+// All Sides
 .unl-b-cream { @include b-cream(!important); }
 
+// Top
+.unl-bt-cream { @include bt-cream(!important); }
+
+// Right
+.unl-br-cream { @include br-cream(!important); }
+
+// Bottom
+.unl-bb-cream { @include bb-cream(!important); }
+
+// Left
+.unl-bl-cream { @include bl-cream(!important); }

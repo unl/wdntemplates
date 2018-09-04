@@ -3,11 +3,6 @@
 ////////////////////////////////////
 
 
-.unl .dcf-nav-toggle-label {
-  font-size: #{ms(-4)}em;
-}
-
-
 .unl .dcf-nav-toggle-btn {
   appearance: none;
 }
@@ -19,7 +14,7 @@
     display: flex;
     border-top: 3px solid $scarlet;
     padding-bottom: env(safe-area-inset-bottom);
-    z-index: 9999;
+    z-index: 100150; // Ensure that the z-index is greater than the dialog element z-index
   }
 
 
@@ -28,30 +23,14 @@
   }
 
 
-  .unl .dcf-nav-toggle-btn-menu {
-    left: 0;
-  }
-
-
-  .unl .dcf-nav-toggle-btn-search {
-    left: 25%;
-  }
-
-
-  .unl .dcf-nav-toggle-btn-idm {
-    left: 50%;
-  }
-
-
-  .unl .dcf-nav-toggle-btn-chat {
-    left: 75%;
+  .unl .dcf-nav-bar .dcf-nav-toggle-btn-menu {
+    display: none;
   }
 
 
   .headroom {
   	will-change: transform;
-  	-webkit-transition: -webkit-transform 250ms ease-out, opacity 250ms ease-out !important;
-  	transition: transform 250ms ease-out, opacity 250ms ease-out !important;
+  	transition: transform 250ms ease-out !important;
   }
 
 
@@ -66,17 +45,11 @@
 
 
   .headroom--pinned {
-    opacity: 1;
-  	-webkit-transform: translateY(0%);
-  	-ms-transform: translateY(0%);
   	transform: translateY(0%);
   }
 
 
   .headroom--unpinned {
-    opacity: 0;
-  	-webkit-transform: translateY(100%);
-  	-ms-transform: translateY(100%);
   	transform: translateY(100%);
   }
 
@@ -90,14 +63,13 @@
   }
 
 
-  .unl .dcf-menu-toggle {
-    border-top: 1px solid $ui-100;
-    z-index: 998;
+  .unl .dcf-nav-bar .dcf-nav-toggle-btn-menu {
+    display: flex;
   }
 
 
-  .unl .dcf-menu-toggle-icon {
-    margin-bottom: #{ms(-4)}em;
+  .unl .dcf-nav-toggle-btn-menu {
+    z-index: 998;
   }
 
 }

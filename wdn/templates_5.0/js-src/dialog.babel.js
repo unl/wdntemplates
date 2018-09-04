@@ -48,12 +48,12 @@ define([
 				buttons = [buttons];
 			}
 
-			buttons.forEach(function(button) {
+			for (let i=0; i<buttons.length; i++) {
 				// show dialog on trigger button click
-				button.addEventListener('click', () => {
+				buttons[i].addEventListener('click', () => {
 					dialog.showModal();
 				});
-			});
+			}
 		},
 
 		/**
@@ -71,13 +71,12 @@ define([
 				buttons = [buttons];
 			}
 			
-			buttons.forEach(function(button) {
+			for (let i=0; i<buttons.length; i++) {
 				// close dialog on close button click
-				button.addEventListener('click', () => {
+				buttons[i].addEventListener('click', () => {
 					dialog.close();
 				});
-			});
-			
+			}
 		},
 
 		/**

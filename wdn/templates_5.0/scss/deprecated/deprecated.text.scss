@@ -34,7 +34,8 @@
 }
 
 .wdn-list-header {
-  border-bottom: 1px solid $color-border;
+  @include bb-1;
+  border-color: $color-border;
   @include font-sans;
   @include txt-base;
   letter-spacing: .02em;
@@ -46,7 +47,9 @@
 
 .wdn-subhead {
   display: block;
+  @include font-sans;
   font-size: #{ms(-2)}rem; // .75rem
+  font-weight: normal;
   @include mb-4;
   text-transform: uppercase;
 }

@@ -4,12 +4,56 @@
 
 
 // !Scarlet
+
+// All Sides
 @mixin b-scarlet($imp:null) {
   border-color: $scarlet $imp;
 }
 
+// Top
+@mixin bt-scarlet($imp:null) {
+  border-top-color: $scarlet $imp;
+}
+
+// Right
+@mixin br-scarlet($imp:null) {
+  border-right-color: $scarlet $imp;
+}
+
+// Bottom
+@mixin bb-scarlet($imp:null) {
+  border-bottom-color: $scarlet $imp;
+}
+
+// Left
+@mixin bl-scarlet($imp:null) {
+  border-left-color: $scarlet $imp;
+}
+
 
 // !Cream
+
+// All Sides
 @mixin b-cream($imp:null) {
   border-color: $cream $imp;
+}
+
+// Top
+@mixin bt-cream($imp:null) {
+  border-top-color: $cream $imp;
+}
+
+// Right
+@mixin br-cream($imp:null) {
+  border-right-color: $cream $imp;
+}
+
+// Bottom
+@mixin bb-cream($imp:null) {
+  border-bottom-color: $cream $imp;
+}
+
+// Left
+@mixin bl-cream($imp:null) {
+  border-left-color: $cream $imp;
 }

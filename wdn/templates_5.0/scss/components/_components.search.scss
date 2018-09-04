@@ -55,7 +55,6 @@
 
   .unl .dcf-search-toggle {
     background-image: linear-gradient(to left, $cream #{ms(6)}em, fade-out($cream,1) #{ms(6)}em);
-    border: 1px solid $cream;
   }
 
   .unl .dcf-search-toggle-label {
@@ -256,7 +255,8 @@
 }
 
 .unl .gsc-results .gsc-cursor-box {
-  border-top: 1px solid $color-border;
+  border-color: $color-border;
+  @include bt-1;
   margin: 0;
   padding-bottom: 0;
   padding-left: 0;
