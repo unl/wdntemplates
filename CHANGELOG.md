@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.35 (September 5, 2018)
+- Add analytics event tracking on navigation system
+
 ## 4.1.34 (August 29, 2018)
 - In Our Grit, Our Glory logo added to footer
 - Minor accessibility fixes

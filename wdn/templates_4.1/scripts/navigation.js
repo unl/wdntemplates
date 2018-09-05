@@ -1,7 +1,8 @@
-define(['jquery', 'wdn', 'require', 'socialmediashare'], function($, WDN, require, social) {
+define(['jquery', 'wdn', 'require', 'socialmediashare', 'analytics'], function($, WDN, require, social, analytics) {
 	"use strict";
 
 	var snifferServer = 'https://www1.unl.edu/nav-proxy/';
+	var thisURL = String(window.location);
 	var fullNavBp = '(min-width: 43.75em)';
 	var hoverPlugin = 'plugins/hoverIntent/jquery.hoverIntent';
 	var expandDelay = 400;
@@ -57,6 +58,7 @@ define(['jquery', 'wdn', 'require', 'socialmediashare'], function($, WDN, requir
 	var timeout;
 	var scrollTimeout;
 	var resizeTimeout;
+	var oneTimeFlag;
 
 	var isFullNav = function() {
 		return matchMedia(fullNavBp).matches;
@@ -483,7 +485,7 @@ define(['jquery', 'wdn', 'require', 'socialmediashare'], function($, WDN, requir
 		Plugin.fetchSiteNavigation(breadcrumb.href, function(data, textStatus) {
 			try {
 				if (textStatus == 'success') {
-					var $temp = $('<div/>').append(data).children('ul');
+					var $temp = $('<div/>').append(data).children('ul').addClass('wdn-fetched-nav');
 
 					if (!isAfterHome || $temp.html() != oldNavCompare) {
 						if (!$('.' + storeCls, oldSelected).length) {
@@ -537,6 +539,23 @@ define(['jquery', 'wdn', 'require', 'socialmediashare'], function($, WDN, requir
 
 		if (expand) {
 			Plugin.expand();
+		}
+
+		// Since the DOM is being manipulated, unattach the nav click event...
+		$(navSel+' a').off();
+		// ...and reattach:
+		if (contents.hasClass('wdn-fetched-nav')) {
+			if (!oneTimeFlag) {
+				analytics.callTrackEvent('Navigation', 'Switch', thisURL);
+				oneTimeFlag = true;
+			}
+			$(navSel+' a').one('click', function() {
+				analytics.callTrackEvent('Navigation', 'Fetched Nav Click', thisURL);
+			});
+		} else {
+			$(navSel+' a').one('click', function() {
+				analytics.callTrackEvent('Navigation', 'Site Nav Click', thisURL);
+			});
 		}
 	};
 
@@ -646,6 +665,10 @@ define(['jquery', 'wdn', 'require', 'socialmediashare'], function($, WDN, requir
 
 	var Plugin = {
 		initialize : function() {
+
+			$(navSel+' a').one('click', function() {
+				analytics.callTrackEvent('Navigation', 'Site Nav Clicked', thisURL);
+			});
 
 			social.initialize(); //make sure the social widget is initialized
 
