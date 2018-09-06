@@ -23,7 +23,7 @@ module.exports = function (grunt) {
 	];
 
 	// project layout variables (directories)
-	var mainDir = 'wdn',                                      // wdn
+	var mainDir = 'wdn',                                    	// wdn
 			buildDir = 'build',                                   // build
 			templateDir = mainDir + '/templates_5.0',             // wdn/templates_5.0
 			templateScss = templateDir + '/scss',                 // wdn/templates_5.0/scss
@@ -135,6 +135,7 @@ module.exports = function (grunt) {
 		},
 		modules: [
 			//specify modules to include their immediate and deep dependencies in the final module file
+			// pro: one less HTTP request, con: if other modules share the same dependency, then dependency is not reusable
 			{
 				name: 'all',
 				create: true,
@@ -307,6 +308,20 @@ module.exports = function (grunt) {
 						'!**/*.src.js',
 					].concat(syncJsIgnore),
 					dest: templateCompileJs
+				}]
+			},
+			dcfCommonModules: {
+				files: [{
+					cwd: 'node_modules/dcf/assets/dist/js/app/postBabel/common',
+					src: ['**/*.js', '!**/*.min.js', '!**/*.babel.js'],
+					dest: templateJs
+				}]
+			},
+			dcfOptionalModules: {
+				files: [{
+					cwd: 'node_modules/dcf/assets/dist/js/app/postBabel/optional',
+					src: ['**/*.js'],
+					dest: templateJs
 				}]
 			}
 		},
@@ -492,7 +507,6 @@ module.exports = function (grunt) {
 	grunt.registerTask('all', ['default']);
 	grunt.registerTask('css-main', ['sassGlobber', 'sass:main', 'postcss:main']);
 	grunt.registerTask('css-plugins', ['sassGlobber', 'sass:plugins', 'postcss:plugins']);
-	grunt.registerTask('js-main', ['css-plugins', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
+	grunt.registerTask('js-main', ['css-plugins', 'babel', 'copy:babelNoTranspile', 'sync:dcfCommonModules', 'sync:dcfOptionalModules', 'requirejs', 'sync:js', 'clean:js-build']);
 	grunt.registerTask('js', ['clean:js', 'css-plugins', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
-
 };
