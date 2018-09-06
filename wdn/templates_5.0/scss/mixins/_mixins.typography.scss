@@ -9,6 +9,19 @@
 @mixin ls-2($imp:null) { letter-spacing: .1em $imp; }
 
 
+// !Line-Height Crop
+// Crop headings to vertically align with the top of adjacent objects
+// (e.g. photo in a media object layout)
+@mixin lh-crop($imp:null) {
+  content: '';
+  display: block;
+  height: 0;
+  margin-top: -#{ms(-12)}em; // TODO: use calc() and line-height to calculate value
+  // https://medium.com/codyhouse/line-height-crop-a-simple-css-formula-to-remove-top-space-from-your-text-9c3de06d7c6f
+  width: 0;
+}
+
+
 // !Outline Text: White
 @mixin txt-outline-white($imp:null) {
 

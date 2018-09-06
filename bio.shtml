@@ -37,7 +37,7 @@
 
         <div class="dcf-u-flex dcf-u-flex-col dcf-u-jc-center">
           <div class="dcf-u-uppercase dcf-u-h3 dcf-u-lh1 dcf-u-ls2 dcf-u-regular" id="dcf-site-affiliation"><!-- InstanceBeginEditable name="affiliation" --><a href="https://arts.unl.edu/" style="color: #383837;">Hixson-Lied College of Fine &amp; Performing&nbsp;Arts</a><!-- InstanceEndEditable --></div>
-          <div class="dcf-u-sm2 dcf-u-italic" id="dcf-site-title"><!-- InstanceBeginEditable name="titlegraphic" --><a href="https://arts.unl.edu/music" style="color: #383837;"><!-- Glenn Korff School of Music --></a><!--<abbr title="Hixson-Lied College of Fine &amp; Performing Arts">HLCFPA</abbr>--><!-- InstanceEndEditable --></div>
+          <div class="dcf-u-sm2 dcf-u-italic" id="dcf-site-title"><!-- InstanceBeginEditable name="titlegraphic" --><a href="https://arts.unl.edu/music" style="color: #383837;"><!-- Glenn Korff School of Music --></a><!--<abbr>HLCFPA</abbr>--><!-- InstanceEndEditable --></div>
         </div>
       </div>
 
@@ -132,7 +132,7 @@
           <span class="dcf-u-none type">Work</span>
           <address itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress" translate="no">
             <span class="street-address" itemprop="streetAddress"><a href="https://maps.unl.edu/TEMP" itemprop="hasMap">TEMP</a> 209</span><br>
-            <span class="locality" itemprop="addressLocality">Lincoln</span>, <abbr class="region" title="Nebraska" itemprop="addressRegion">NE</abbr> <span class="postal-code" itemprop="postalCode">68588-0201</span> <abbr class="dcf-u-none country-name" itemprop="addressCountry">US</abbr>
+            <span class="locality" itemprop="addressLocality">Lincoln</span>, <abbr class="region" itemprop="addressRegion">NE</abbr> <span class="postal-code" itemprop="postalCode">68588-0201</span> <abbr class="dcf-u-none country-name" itemprop="addressCountry">US</abbr>
           </address>
         </div>
         <div class="dcf-u-relative dcf-u-mb3 dcf-u-pl6 dcf-u-sm2 tel work attribute">
@@ -239,7 +239,7 @@
       <section class="wdn-grid-set knowledge-grid">
         <div class="bp2-wdn-col-two-sevenths directory-knowledge-summary">
           <div class="vcard faculty" data-uid="iborden2" data-preferred-name="Ian Borden" itemscope="" itemtype="http://schema.org/Person">
-            <a class="card-profile planetred_profile" href="https://planetred.unl.edu/pg/profile/unl_iborden2" title="Planet Red profile for Ian Borden" itemprop="url">
+            <a class="card-profile planetred_profile" href="https://planetred.unl.edu/pg/profile/unl_iborden2" itemprop="url">
               <img class="photo profile_pic" itemprop="image" src="https://directory.unl.edu/avatar/iborden2?s=large" alt="Avatar for Ian Borden">
             </a>
             <div class="vcardInfo">
@@ -269,7 +269,7 @@
                 <span class="street-address"><a href="https://maps.unl.edu/TEMP" itemprop="hasMap">TEMP</a> 209 </span>
                 <div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
                   <span class="locality" itemprop="addressLocality">Lincoln</span>
-                  <abbr class="region" title="Nebraska" itemprop="addressRegion">NE</abbr>
+                  <abbr class="region" itemprop="addressRegion">NE</abbr>
                   <span class="postal-code" itemprop="postalCode">68588-0201</span>
                   <div class="country-name" itemprop="addressCountry">US</div>
                 </div>
@@ -281,7 +281,7 @@
                   <span itemprop="telephone">402-472-2072</span>
                 </a>
                 </span>
-                <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial 4024722072">On-campus 2-2072</abbr>
+                <abbr class="on-campus-dialing">On-campus 2-2072</abbr>
             </div>
             <div class="icon-email attribute">
               <a class="email" href="mailto:iborden2@unl.edu" itemprop="email"> iborden2@unl.edu</a>
@@ -300,7 +300,7 @@
                 <span class="icon-print" aria-hidden="true"></span>
                 <span class="wdn-text-hidden">printer icon </span>Print<span class="wdn-text-hidden"> listing for Ian Borden</span>
               </button>
-              <a href="https://annotate.unl.edu/?view=annotation&amp;sitekey=directory&amp;fieldname=iborden2" title="Leave notes on the listing for Ian Borden" class="wdn_annotate"><span class="icon-sticky-note" aria-hidden="true"></span><span class="wdn-text-hidden">sticky note icon </span>Your Notes</a>
+              <a href="https://annotate.unl.edu/?view=annotation&amp;sitekey=directory&amp;fieldname=iborden2" class="wdn_annotate"><span class="icon-sticky-note" aria-hidden="true"></span><span class="wdn-text-hidden">sticky note icon </span>Your Notes</a>
             </div>
             <div class="vcard-tools wdn_vcardTools">
               <button class="wdn-button wdn-button-triad correction">

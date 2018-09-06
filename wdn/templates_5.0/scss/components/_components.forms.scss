@@ -3,15 +3,31 @@
 //////////////////////////////
 
 
+// !Legend
+.unl .dcf-legend {
+  @include font-sans;
+  @include mb-1;
+  @include mt-1;
+}
+
+
 // !Form Group
 .unl .dcf-form-group {
   @include mb-4;
 }
 
 
+// !Form group and form with input group
+.unl .dcf-form-group,
+.unl .dcf-input-group-form {
+  margin-top: -#{ms(-12)}em; // Apply negative margin-top to equalize label margin-top
+}
+
+
 // !Label
 .unl .dcf-label {
   @include font-sans;
+  margin-top: #{ms(-12)}em;
 }
 
 
@@ -52,13 +68,8 @@
 
 
 .unl .dcf-input-text:focus {
-  border-color: $color-button;
+  border-color: $scarlet;
   outline: none;
-}
-
-
-.unl .dcf-label + .dcf-input-text {
-  @include mt-1;
 }
 
 
@@ -97,11 +108,11 @@
 
   /* These are the "theme" styles for our button applied via separate button class, style as you like */
   /* Set the background fallback to solid #fff so Firefox renders the <option> list readably. */
-  border: 1px solid $color-border;
+//   border: 1px solid $color-border;
   // 	@include rounded;
   // 	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
   // 	box-shadow: 2px 2px 0 0 rgba(0,0,0,.1);
-  transition: border-color $hover-off;
+//   transition: border-color $hover-off;
 }
 
 /* This is the native select, we're making everything but the text invisible so
@@ -170,9 +181,9 @@
 //     -moz-appearance: none;
     appearance: none;
     /* inside @supports so that iOS <= 8 display the native arrow */
-    background: none; /* Match-04 */
+    background: #fff; /* Match-04 */
     /* inside @supports so that Android <= 4.3 display the native arrow */
-    border: 1px solid transparent; /* Match-05 */
+    border: 1px solid $color-border; /* Match-05 */
     padding-right: 3em; /* Match-01 */
   }
 
@@ -189,17 +200,18 @@
 /* These are the "theme" styles for our button applied via separate button class, style as you like */
 /* Set the background fallback to solid #fff so Firefox renders the <option> list readably. */
 /* Hover style */
-.unl .dcf-input-select:hover {
+.unl .dcf-input-select select:hover {
   border-color: $color-border-hover;
   transition: border-color $hover-on;
 }
 
 /* Focus style */
 .unl .dcf-input-select select:focus {
+  border-color: $scarlet;
   /* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
-  box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
-  box-shadow: 0 0 0 3px -moz-mac-focusring;
-  color: #222; /* Match-02 */
+//   box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+//   box-shadow: 0 0 0 3px -moz-mac-focusring;
+//   color: #222; /* Match-02 */
 }
 
 @supports ( box-shadow: none ) {
@@ -221,7 +233,7 @@
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 
   .unl .dcf-input-select select {
-    background: none; /* Match-04 */
+    background: #fff; /* Match-04 */
     border: 1px solid transparent; /* Match-05 */
     padding-right: 3em; /* Match-01 */
   }
@@ -242,4 +254,11 @@
   .unl .dcf-input-select::after {
   	display: block;
   }
+}
+
+// Inputs
+.unl .dcf-label + .dcf-input-text,
+.unl .dcf-label + .dcf-input-select,
+.unl .dcf-label + .dcf-input-group {
+  margin-top: #{ms(-12)}em;
 }
