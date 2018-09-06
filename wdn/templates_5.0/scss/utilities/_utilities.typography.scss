@@ -9,6 +9,11 @@
 .unl-ls-2 { @include ls-2(!important); }
 
 
+// !Line-Height Crop
+// Crop to vertically align headings adjacent to photos (e.g. media object layout)
+.unl-lh-crop { @include lh-crop(!important); }
+
+
 // !Outline Text: White
 .unl-txt-outline-white { @include txt-outline-white(!important); }
 

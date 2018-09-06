@@ -16,8 +16,4 @@
 
 
 // !Display
-@mixin font-display($imp:null) {
-  font-family: 'Tungsten A', 'Tungsten B', 'Arial Narrow', Arial, sans-serif $imp;
-  font-style: normal $imp;
-  font-weight: 600 $imp;
-}
+// Display font styles defined inline in '../includes/head-2.html'

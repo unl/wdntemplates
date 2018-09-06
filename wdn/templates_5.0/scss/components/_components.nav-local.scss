@@ -15,8 +15,15 @@
 }
 
 
+.unl .dcf-nav-local ul {
+  list-style: none; // TODO: remove after updated in DCF core
+  margin-bottom: 0; // TODO: remove after updated in DCF core
+  padding-left: 0; // TODO: remove after updated in DCF core
+}
+
+
 .unl .dcf-nav-local > ul {
-  @include txt-md; // TODO: remove after updated in DCF core
+  display: grid; // core
 }
 
 
@@ -67,13 +74,13 @@
 
 
   // Default to closed on mobile
-  .dcf-nav-menu {
+  .unl .dcf-nav-menu {
     display: none;
   }
 
 
   // Open when parent model is open
-  .dcf-modal-open .dcf-nav-menu {
+  .unl .dcf-modal-open .dcf-nav-menu {
     display: block;
   }
 
@@ -160,19 +167,14 @@
 
 
   .unl .dcf-nav-local > ul {
-//     padding-bottom: #{ms(16)}em;
     @include pb-9;
     @include pt-8;
   }
 
 
   .unl .dcf-nav-local > ul {
-
-    @supports (display: grid) {
-      grid-gap: #{ms(6)}em 5.6vw; // core
-      grid-template-columns: repeat(auto-fit, minmax(#{ms(16)}em, 1fr)); // TODO: remove after updated in DCF core
-    }
-
+    grid-gap: #{ms(6)}em $length-vw-2; // core
+    grid-template-columns: repeat(auto-fit, minmax(#{ms(16)}em, 1fr)); // TODO: remove after updated in DCF core
   }
 
 }
@@ -180,15 +182,9 @@
 
 @include mq(sm, min, width) {
 
-
-  @supports (display: grid) {
-
-    .unl .dcf-nav-local > ul {
-      grid-template-columns: repeat(3, 1fr); // TODO: remove after updated in DCF core
-    }
-
+  .unl .dcf-nav-local > ul {
+    grid-template-columns: repeat(3, 1fr); // TODO: remove after updated in DCF core
   }
-
 
 }
 
@@ -196,7 +192,7 @@
 @include mq(md, min, width) {
 
   .unl .dcf-nav-bar {
-//     background: linear-gradient(to right, fade-out($ui-100,1) 5.625%, fade-out($ui-100,0) calc(5.625% + 3.16em), fade-out($ui-100,0) 94.375%, fade-out($ui-100,1)) 0 0 / 100% 1px no-repeat;
+//     background: linear-gradient(to right, fade-out($light-gray,1) 5.625%, fade-out($light-gray,0) calc(5.625% + 3.16em), fade-out($light-gray,0) 94.375%, fade-out($light-gray,1)) 0 0 / 100% 1px no-repeat;
     display: flex;
     flex: 1 0 auto;
     flex-wrap: nowrap;
@@ -236,7 +232,7 @@
 //   }
 
 //   .unl .dcf-mobile-toolbar-modal {
-  .dcf-nav-menu {
+  .unl .dcf-nav-menu {
     display: flex;
     height: 100%;
     position: relative;
@@ -256,15 +252,13 @@
 
 
   .unl .dcf-nav-local {
-//     border-top: 1px solid $ui-100;
+//     border-top: 1px solid $light-gray;
     height: 100%;
-//     @include pr-4;
     padding-right: $length-vw-2;
   }
 
 
   .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local-wrapper {
-//     height: calc(100vh - #{ms(7)}em - #{ms(14)}em - 3px);
     height: calc(100vh - #{$height-header-global-md} - #{$height-logo-lockup-md});
   }
 
@@ -282,19 +276,11 @@
 
 
   .unl .dcf-nav-local > ul {
-    display: grid; // core
     grid-template-columns: repeat(6, 1fr);
-    grid-column-gap: 0;
 //     border-top: 1px solid #eee;
-//     flex-flow: row nowrap;
     height: 100%;
     width: 100%;
   }
-
-
-//   .unl .dcf-nav-bar.dcf-modal-open .dcf-nav-local > ul {
-//     height: unset;
-//   }
 
 
   .unl .dcf-nav-local > ul > li {
@@ -314,18 +300,16 @@
 
   .unl .dcf-nav-local > ul > li > a {
 //     background-color: $cream;
-    border-left: 1px solid $ui-100;
-
+    border-left: 1px solid $light-gray;
     height: $height-nav-menu-md;
 //     height: 100%;
 //     height: auto;
-
 //     justify-content: center;
 //     padding: #{ms(0)}em 2.4vw;
 //     text-align: center;
 //     position: sticky;
 //     top: 1px;
-    width: 100%;
+//     width: 100%;
   }
 
 
@@ -342,34 +326,8 @@
 
 
   .unl .dcf-nav-local ul ul {
-//     background: linear-gradient(to bottom, $ui-100, fade-out($ui-100,1)) 0 0 / 1px 100% no-repeat;
-//     font-size: #{ms(-3)}rem;
     @include pb-7;
     margin-top: 0;
-
-//     position: absolute;
-
-    top: 100%;
-    width: 100%;
-    z-index: 999;
-
-    // position: absolute;
-//     border: 0;
-    // clip: rect(1px, 1px, 1px, 1px);
-    clip: auto;
-    // height: 1px;
-//     height: auto;
-    // overflow: hidden;
-//     overflow: auto;
-    // position: absolute;
-    // width: 1px;
-    // word-wrap: normal;
-    word-wrap: normal;
-
-    height: auto;
-//     height: calc(100vh - #{$height-header-global-md} - #{$height-logo-lockup-md} - #{$height-nav-menu-md} - #{$height-breadcrumbs-md});
-    position: static;
-//     top: $height-nav-menu-md;
   }
 
 
@@ -385,7 +343,7 @@
 
   // navigation transition to be added later
   .unl .dcf-nav-bar .dcf-nav-local ul ul:after {
-    background-image: linear-gradient(to bottom, $ui-100, fade-out($ui-100,1));
+    background-image: linear-gradient(to bottom, $light-gray, fade-out($light-gray,1));
     content: '';
     left: 0;
     height: 100%;
