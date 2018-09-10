@@ -110,8 +110,8 @@
 
   <main class="dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
 
-<!--     <div class="dcf-stretch" style="background-color:#e5e4e1;"> -->
-    <div class="dcf-stretch">
+<!--     <div class="dcf-bleed" style="background-color:#e5e4e1;"> -->
+    <div class="dcf-bleed">
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-7">
 
         <div id="dcf-page-title">
@@ -163,6 +163,7 @@
     <h4><!-- <small>Roof party freegan lomo</small>  -->Post-ironic Shoreditch slow-carb</h4>
     <p>Tote bag beard chillwave seitan PBR single-origin coffee kogi hella Bushwick disrupt four loko. Aesthetic artisan post-ironic gluten-free, selfies keffiyeh plaid single-origin coffee.</p>
     <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
+    <h4><!-- <small>Roof party freegan lomo</small>  -->Portland ugh Neutra, Schlitz pop-up cornhole biodiesel Etsy raw denim</h4>
     <h5><!-- <small>Roof party freegan lomo</small>  -->Portland ugh Neutra, Schlitz pop-up cornhole biodiesel Etsy raw denim</h5>
     <p>Mlkshk fashion axe Pitchfork deep v dreamcatcher, Blue Bottle church-key photo booth literally asymmetrical four loko. Hoodie flexitarian +1, farm-to-table locavore selvage Marfa synth ennui polaroid occupy kitsch.</p>
     <p>Artisan mumblecore Pinterest Shoreditch meggings viral. Austin <abbr class="dcf-txt-sm">VHS</abbr> street art cornhole Etsy tattooed. Tattooed iPhone 90’s keytar, XOXO Intelligentsia gastropub letterpress drinking vinegar cliche viral tote bag. Mumblecore seitan 8-bit dreamcatcher, fanny pack pickled scenester quinoa vinyl put a bird on it artisan literally.</p>
@@ -211,7 +212,7 @@
 
 <!-- Grunge -->
 <!--
-    <div class="dcf-stretch unl-bg-lighter-cream" style="">
+    <div class="dcf-bleed unl-bg-lighter-cream" style="">
       <div class="dcf-wrapper dcf-pb-10" style="padding-top: 10em">
         <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-sm">
           <div class="dcf-relative dcf-as-center">
@@ -230,7 +231,7 @@
 -->
 
 
-    <div class="dcf-stretch unl-bg-cream" style="">
+    <div class="dcf-bleed unl-bg-cream" style="">
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
         <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-sm">
           <div class="dcf-as-center">
@@ -250,7 +251,7 @@
     	</div>
     </div>
 
-    <div class="dcf-stretch" style="">
+    <div class="dcf-bleed" style="">
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
         <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-sm">
           <div class="dcf-as-center">
@@ -270,7 +271,7 @@
     	</div>
     </div>
 
-    <div class="dcf-stretch dcf-bt dcf-bb" style="">
+    <div class="dcf-bleed dcf-bt dcf-bb" style="">
       <div class="dcf-wrapper">
         <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-sm dcf-pt-9 dcf-pb-9">
           <div class="dcf-2nd unl-ftd-person-tsr-body">
@@ -288,7 +289,7 @@
     	</div>
     </div>
 
-    <div class="dcf-stretch dcf-bb" style="">
+    <div class="dcf-bleed dcf-bb" style="">
       <div class="dcf-wrapper">
         <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-sm dcf-pt-9 dcf-pb-9">
           <div class="dcf-2nd unl-ftd-person-tsr-body">
@@ -306,7 +307,7 @@
     	</div>
     </div>
 
-    <div class="dcf-stretch dcf-bb" style="">
+    <div class="dcf-bleed dcf-bb" style="">
       <div class="dcf-wrapper">
         <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-sm dcf-pt-9 dcf-pb-9">
           <div class="dcf-2nd unl-ftd-person-tsr-body">
@@ -550,8 +551,8 @@
 
 
 
-<!--     <div class="dcf-stretch" style="background-image: linear-gradient(to bottom, #fff, #fff 34%, #eee 34%, #eee);"> -->
-    <div class="dcf-stretch">
+<!--     <div class="dcf-bleed" style="background-image: linear-gradient(to bottom, #fff, #fff 34%, #eee 34%, #eee);"> -->
+    <div class="dcf-bleed">
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
         <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-sm">
           <div class="dcf-as-center">
@@ -566,7 +567,7 @@
     </div>
 
 <!-- text wrap, clip circle -->
-    <div class="dcf-stretch unl-bg-stripes-dark">
+    <div class="dcf-bleed unl-bg-stripes-dark">
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
         <h2 class="dcf-txt-h4">Malesuada Pellentesque</h2>
         <div class="dcf-float-left dcf-h-10 dcf-w-10 dcf-mt-1 dcf-mr-4 dcf-mb-4 dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-clip-circle">
@@ -578,7 +579,7 @@
 
 <!-- large scarlet stripe -->
 <!--
-    <div class="dcf-stretch unl-bg-scarlet-stripe">
+    <div class="dcf-bleed unl-bg-scarlet-stripe">
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
         <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-lg">
           <div class="dcf-as-center">
@@ -595,7 +596,7 @@
 
 <!-- large cream stripe -->
 <!--
-    <div class="dcf-stretch unl-bg-cream-stripe">
+    <div class="dcf-bleed unl-bg-cream-stripe">
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
         <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-lg">
           <div class="dcf-as-center">
@@ -612,7 +613,7 @@
 
 
 <!--
-    <div class="dcf-stretch">
+    <div class="dcf-bleed">
       <div class="dcf-wrapper dcf-pt-8 dcf-pb-8">
         <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-lg" style="background-image: linear-gradient(57.7deg, #eee 50%, #ddd 50%);">
           <div class="dcf-pt-7 dcf-pr-9 dcf-pb-7 dcf-pl-7">
@@ -629,7 +630,7 @@
 -->
 
 <!--
-    <div class="dcf-stretch">
+    <div class="dcf-bleed">
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
         <div class="dcf-grid-halves@sm dcf-d-grid-fourths@lg dcf-col-gap-vw dcf-row-gap-lg">
 
@@ -675,7 +676,7 @@
 -->
 
 
-    <div class="dcf-stretch unl-bg-lightest-gray">
+    <div class="dcf-bleed unl-bg-lightest-gray">
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
         <div class="dcf-grid-halves@sm dcf-d-grid-fourths@lg dcf-col-gap-vw dcf-row-gap-lg">
           <div class="">
@@ -728,7 +729,7 @@
 
 
 
-    <div class="dcf-stretch">
+    <div class="dcf-bleed">
       <div class="dcf-wrapper">
         <div class="dcf-grid dcf-relative dcf-col-gap-vw dcf-row-gap-lg dcf-pt-9 dcf-pb-9">
 
