@@ -33,7 +33,7 @@
     </div>
 
     <!-- App Controls -->
-    <div class="dcf-stretch unl-bg-darkest-gray">
+    <div class="dcf-bleed unl-bg-darkest-gray">
       <div class="dcf-wrapper" >
         <nav class="" role="navigation" aria-label="global navigation">
           <ul class="dcf-list-bare dcf-list-inline dcf-d-flex dcf-mb-0 dcf-uppercase dcf-bold unl-ls-2">
@@ -52,7 +52,7 @@
     </div>
 
     <!-- App Search -->
-    <div class="dcf-stretch unl-app-bg">
+    <div class="dcf-bleed unl-app-bg">
       <form class="dcf-wrapper dcf-input-group-form dcf-pt-7 dcf-pb-7" id="unl-webapp-search-form" action="https://search.unl.edu/" method="get">
         <label class="dcf-label dcf-mr-4 unl-cream" for="unl-webapp-search-query">Search Web Application</label>
         <div class="dcf-input-group">

@@ -62,17 +62,6 @@
             <!--#include virtual="/wdn/templates_5.0/includes/local/nav-local.html" -->
             <!-- InstanceEndEditable -->
           </nav>
-          <nav class="dcf-breadcrumbs dcf-txt-sm dcf-d-none" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
-            <ol class="dcf-list-bare dcf-mb-0 dcf-pt-4 dcf-bt-solid dcf-bt-1">
-              <!-- InstanceBeginEditable name="breadcrumbs" -->
-              <li><a href="https://www.unl.edu/">Nebraska</a></li>
-              <li><a href="https://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts<!-- <abbr>HLCFPA</abbr> --></a></li>
-              <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
-              <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
-              <li>Ensembles</li>
-              <!-- InstanceEndEditable -->
-            </ol>
-          </nav>
         </div>
       </div>
 
@@ -83,11 +72,22 @@
 
   <main class="dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
 
-    <div class="dcf-stretch" style="background-color: #eee">
-<!--     <div class="dcf-stretch unl-stripe-b-white"> -->
+    <div class="dcf-bleed" style="background-color: #eee">
+<!--     <div class="dcf-bleed unl-stripe-b-white"> -->
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-7">
 
         <div id="dcf-page-title">
+          <nav class="dcf-breadcrumbs dcf-txt-sm dcf-overflow-x-scroll" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+            <ol class="dcf-list-bare dcf-mb-0 dcf-pt-4 dcf-bt-solid dcf-bt-1">
+              <!-- InstanceBeginEditable name="breadcrumbs" -->
+              <li><a href="https://www.unl.edu/">Nebraska</a></li>
+              <li><a href="https://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts<!-- <abbr>HLCFPA</abbr> --></a></li>
+              <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
+              <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
+              <li>Ensembles</li>
+              <!-- InstanceEndEditable -->
+            </ol>
+          </nav>
           <!-- InstanceBeginEditable name="pagetitle" -->
           <h1 class="dcf-mb-0">Undergraduate Dean's List</h1>
           <!-- InstanceEndEditable -->
@@ -109,7 +109,7 @@
 
 <!-- App Controls -->
 <!--
-    <div class="dcf-stretch" style="background-color: #383837">
+    <div class="dcf-bleed" style="background-color: #383837">
       <div class="dcf-wrapper" >
         <nav class="dcf-txt-xs" role="navigation" aria-label="global navigation">
           <ul class="dcf-list-bare dcf-d-flex dcf-mb-0 dcf-uppercase dcf-bold unl-ls-2 unl-font-sans">

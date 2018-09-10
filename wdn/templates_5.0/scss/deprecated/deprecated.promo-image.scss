@@ -14,7 +14,7 @@
 }
 
 .wdn-promo-container {
-	background-image: linear-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,.5) 75%,rgba(0,0,0,.3) 100%);
+	background-image: linear-gradient(rgba(0,0,0,0) 40%, rgba(0,0,0,.5) 75%, rgba(0,0,0,.3) 100%);
 	bottom: 0;
 	position: absolute;
 	top: 0;
@@ -26,7 +26,7 @@
   color: #fff;
   position: absolute;
   text-align: center;
-  text-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  text-shadow: 0 0 10px rgba(0,0,0,.5);
   text-transform: uppercase;
   width: 100%;
 }
@@ -50,12 +50,12 @@
 }
 
 .wdn-promo-container.wdn-inverse {
-	background-image: linear-gradient(top, rgba(255,255,255,0) 40%,rgba(255,255,255,.5) 75%,rgba(255,255,255,.3) 100%);
+	background-image: linear-gradient(rgba(255,255,255,0) 40%, rgba(255,255,255,.5) 75%, rgba(255,255,255,.3) 100%);
 }
 
 .wdn-promo-container.wdn-inverse .wdn-text-over-image {
 	color: $color-body;
-	text-shadow: 0 0 10px rgba(255, 255, 255, .5);
+	text-shadow: 0 0 10px rgba(255,255,255,.5);
 }
 
 
