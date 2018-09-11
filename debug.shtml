@@ -237,7 +237,7 @@
           <div class="dcf-as-center">
             <div class="dcf-d-flex dcf-flex-col">
               <h2 class="dcf-2nd dcf-txt-xl unl-txt-outline-dark unl-heading-ornament" style="text-shadow: 2px 2px #fff">Cras Vestibulum Ligula Nullam</h2>
-              <h3 class="dcf-1st dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark">Mattis Bibendum</h3>
+              <h3 class="dcf-1st dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray">Mattis Bibendum</h3>
             </div>
             <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
             <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Do This Thing</a>
@@ -257,7 +257,7 @@
           <div class="dcf-as-center">
             <div class="dcf-d-flex dcf-flex-col">
               <h2 class="dcf-2nd dcf-txt-h1 unl-heading-ornament">Cras Vestibulum <span class="unl-txt-outline-dark unl-txt-stripes-dark">Ligula</span> Nullam</h2>
-              <h3 class="dcf-1st dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark">Mattis Bibendum</h3>
+              <h3 class="dcf-1st dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray">Mattis Bibendum</h3>
             </div>
             <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
             <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Do This Thing</a>
@@ -275,8 +275,8 @@
       <div class="dcf-wrapper">
         <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-sm dcf-pt-9 dcf-pb-9">
           <div class="dcf-2nd unl-ftd-person-tsr-body">
-            <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark">Featured Student</h2>
-            <h3 class="unl-heading-ornament">Kylie Tucker <small class="dcf-regular unl-ls-0 unl-dark">Junior</small></h3>
+            <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Featured Student</h2>
+            <h3 class="unl-heading-ornament">Kylie Tucker <small class="dcf-regular unl-ls-0 unl-dark-gray">Junior</small></h3>
             <p>A student-powered fund created to expand sustainability programming at the University of Nebraska–Lincoln has set down its first roots. Through a project led by Tucker, a junior fisheries and wildlife major, a prototype green roof has been established on a balcony area at the Rec and Wellness Center on East Campus.</p>
             <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Kylie</a>
           </div>
@@ -293,7 +293,7 @@
       <div class="dcf-wrapper">
         <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-sm dcf-pt-9 dcf-pb-9">
           <div class="dcf-2nd unl-ftd-person-tsr-body">
-            <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark">Featured Faculty</h2>
+            <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Featured Faculty</h2>
             <h3 class="unl-heading-ornament">Valerie Jones</h3>
             <p>Learn about digital and social media from Valerie Jones, an innovator in the advertising and public relations field.</p>
             <a class="dcf-btn dcf-btn-secondary" href="#" role="button">See How Valerie Got There</a>
@@ -311,8 +311,8 @@
       <div class="dcf-wrapper">
         <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-sm dcf-pt-9 dcf-pb-9">
           <div class="dcf-2nd unl-ftd-person-tsr-body">
-            <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark">Featured Alumni</h2>
-            <h3 class="unl-heading-ornament">Eartha Jean Johnson <small class="dcf-regular unl-ls-0 unl-dark"><abbr>JD</abbr>, 1994</small></h3>
+            <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Featured Alumni</h2>
+            <h3 class="unl-heading-ornament">Eartha Jean Johnson <small class="dcf-regular unl-ls-0 unl-dark-gray"><abbr>JD</abbr>, 1994</small></h3>
             <p>Eartha Johnson applied her law degree in a creative and unconventional way by forming LegalWatch, Inc., a legal staffing and training company aimed at advising other companies and their employees about how to avoid litigation through risk mitigation, diversity, ethics and employment law training. LegalWatch’s clients include Shell, Wal-Mart, Halliburton and Exxon. Johnson began LegalWatch after a successful career practicing commercial and environmental law for Exxon and working for the United States Department of Justice. Using the knowledge and information she gained through her legal practice, Johnson created classes that focused on helping companies avoid behaviors that can often force them into unnecessary settlements or lead to costly litigation and damaging headlines.</p>
             <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Eartha</a>
           </div>
@@ -330,13 +330,13 @@
 <!-- Staff Listing -->
 <!--
     <div class="dcf-relative dcf-pt-9 dcf-pb-9 dcf-bb">
-      <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark">Dean’s Office Staff</h2>
+      <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Dean’s Office Staff</h2>
       <div class="dcf-grid dcf-col-gap-vw">
         <ul class="dcf-list-bare dcf-relative dcf-grid-halves@md dcf-grid-thirds@xl dcf-col-gap-vw dcf-row-gap-md unl-grid-1">
           <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
             <div class="dcf-2nd dcf-flex-1">
               <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Kathe Andersen</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark">Director of Communications and External Relations</div>
+              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Director of Communications and External Relations</div>
             </div>
             <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
               <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
@@ -347,7 +347,7 @@
           <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
             <div class="dcf-2nd dcf-flex-1">
               <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">David Bagby</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark">Information Technology Services Manager</div>
+              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Information Technology Services Manager</div>
             </div>
             <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
               <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
@@ -358,7 +358,7 @@
           <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
             <div class="dcf-2nd dcf-flex-1">
               <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Allison Casey</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark">Administrative Technician</div>
+              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Administrative Technician</div>
             </div>
             <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
               <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
@@ -369,7 +369,7 @@
           <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
             <div class="dcf-2nd dcf-flex-1">
               <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Rachel Danay</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark">Assistant to the Dean</div>
+              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Assistant to the Dean</div>
             </div>
             <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
               <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
@@ -380,7 +380,7 @@
           <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
             <div class="dcf-2nd dcf-flex-1">
               <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Sara Fedderson</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark">Assistant Director of Advising</div>
+              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Assistant Director of Advising</div>
             </div>
             <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
               <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
@@ -391,7 +391,7 @@
           <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
             <div class="dcf-2nd dcf-flex-1">
               <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Matthew Knight</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark">Assistant Director of Recruitment</div>
+              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Assistant Director of Recruitment</div>
             </div>
             <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
               <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
@@ -402,7 +402,7 @@
           <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
             <div class="dcf-2nd dcf-flex-1">
               <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Joseph Morris</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark">Systems Coordinator</div>
+              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Systems Coordinator</div>
             </div>
             <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
               <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
@@ -413,7 +413,7 @@
           <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
             <div class="dcf-2nd dcf-flex-1">
               <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Michael Reinmiller</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark">Digital Arts Support Technician</div>
+              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Digital Arts Support Technician</div>
             </div>
             <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
               <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame">
@@ -431,7 +431,7 @@
       <div class="dcf-grid dcf-col-gap-vw dcf-row-gap-md">
         <div class="dcf-2nd dcf-col-67%-end@sm dcf-as-center">
           <h2 class="dcf-mb-0 dcf-txt-h4"><a class="dcf-txt-decor-hover" href="#">Charles O’Connor</a></h2>
-          <div class="dcf-mt-1 dcf-mb-5 dcf-lh-3 dcf-italic unl-dark">
+          <div class="dcf-mt-1 dcf-mb-5 dcf-lh-3 dcf-italic unl-dark-gray">
             Dean
           </div>
           <p>Charles O’Connor is the Hixson-Lied Endowed Dean of the Hixson-Lied College of Fine and Performing Arts at the University of Nebraska–Lincoln. He returns to Lincoln after nine years, having started in 1993 as a faculty member in the Department of Theatre Arts, now the Johnny Carson School of Theatre and Film.</p>
@@ -446,7 +446,7 @@
     </div>
 
     <div class="dcf-pb-8">
-      <h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-stripes unl-dark">Department and School Faculty Listings</h2>
+      <h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-stripes unl-dark-gray">Department and School Faculty Listings</h2>
       <ul class="dcf-list-bare">
         <li><a href="#">School of Art, Art History & Design Faculty</a></li>
         <li><a href="#">Glenn Korff School of Music Faculty</a></li>
@@ -456,12 +456,12 @@
 
 <!-- Staff Listing -->
     <div class="dcf-pb-9 dcf-bb">
-      <h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-stripes unl-dark">Dean’s Office Staff</h2>
+      <h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-stripes unl-dark-gray">Dean’s Office Staff</h2>
       <ul class="dcf-list-bare dcf-grid-halves dcf-grid-thirds@sm dcf-grid-fourths@md dcf-col-gap-vw dcf-row-gap-md">
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
           <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Kathe Andersen</a></h3>
-            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark">Director of Communications and External Relations</div>
+            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Director of Communications and External Relations</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
             <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
@@ -472,7 +472,7 @@
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
           <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">David Bagby</a></h3>
-            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark">Information Technology Services Manager</div>
+            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Information Technology Services Manager</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
             <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
@@ -483,7 +483,7 @@
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
           <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Allison Casey</a></h3>
-            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark">Administrative Technician</div>
+            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Administrative Technician</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
             <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
@@ -494,7 +494,7 @@
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
           <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Rachel Danay</a></h3>
-            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark">Assistant to the Dean</div>
+            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Assistant to the Dean</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
             <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
@@ -505,7 +505,7 @@
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
           <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Sara Fedderson</a></h3>
-            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark">Assistant Director of Advising</div>
+            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Assistant Director of Advising</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
             <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
@@ -516,7 +516,7 @@
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
           <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Matthew Knight</a></h3>
-            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark">Assistant Director of Recruitment</div>
+            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Assistant Director of Recruitment</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
             <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
@@ -527,7 +527,7 @@
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
           <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Joseph Morris</a></h3>
-            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark">Systems Coordinator</div>
+            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Systems Coordinator</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
             <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
@@ -538,7 +538,7 @@
         <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
           <div class="dcf-2nd dcf-txt-center">
             <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Michael Reinmiller</a></h3>
-            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark">Digital Arts Support Technician</div>
+            <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Digital Arts Support Technician</div>
           </div>
           <div class="dcf-1st dcf-mb-3">
             <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame">
@@ -676,18 +676,20 @@
 -->
 
 
-    <div class="dcf-bleed unl-bg-lightest-gray">
+    <div class="dcf-bleed unl-bg-light-gray">
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
         <div class="dcf-grid-halves@sm dcf-d-grid-fourths@lg dcf-col-gap-vw dcf-row-gap-lg">
-          <div class="">
-            <svg class="dcf-mb-1 dcf-h-7 dcf-w-7" role="img" aria-labelledby="title-icon-globe-2 desc-icon-globe-2" focusable="false" height="16" width="16" viewBox="0 0 24 24">
-              <title id="title-icon-globe-2">globe icon</title>
-              <desc id="desc-icon-globe-2">illustration of a globe</desc>
-              <path d="M21.14 4.236c-.47 1.332-1.426 3.465-2.916 4.211a.503.503 0 0 1-.345.037c-1.057-.263-2.127.127-2.674.439.23.309.487.846.733 1.774.213.075.628-.038.837-.144a.499.499 0 0 1 .578.094c1.213 1.213-.359 2.847-1.299 3.825-.166.172-.378.392-.496.536.04.037.087.079.124.11.228.199.541.471.557.902.01.287-.12.567-.386.834a5.155 5.155 0 0 1-1.367.981C14.343 19.535 13.09 20.5 11 20.5c-.976 0-2-2.493-2-3 0-.368.16-.69.303-.974.096-.193.197-.394.197-.526-.023-.171-.43-.721-.854-1.146A.502.502 0 0 1 8.5 14.5c0-.429-.077-.72-.229-.863-.252-.237-.849-.203-1.478-.167-.259.014-.526.03-.793.03-1.582 0-2-1.635-2-2.5 0-.16.033-3.917 2.901-4.49 1.308-.262 2.19-.185 2.703.236.181.148.29.322.346.484.526.389 1.47.168 2.309-.026.277-.065.546-.127.795-.165.093-.845.096-1.663.009-2.018-.613.257-1.222.255-1.698-.009-.493-.274-.8-.795-.862-1.467C10.369 2.107 13.144.989 15.05.393A12 12 0 0 0 12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c6.616 0 12-5.383 12-12 0-2.958-1.079-5.668-2.86-7.764z"/>
-            </svg>
-            <h3 class="dcf-txt-h4 dcf-regular">Malesuada Pellentesque</h3>
-            <p>Nullam quis risus eget urna mollis ornare vel eu leo. Etiam porta sem malesuada magna mollis euismod.</p>
-            <a class="" href="#">Call to Action</a>
+          <div class="unl-bg-cream dcf-relative unl-frame-test">
+            <div class="dcf-card-block">
+              <svg class="dcf-mb-1 dcf-h-7 dcf-w-7" role="img" aria-labelledby="title-icon-globe-2 desc-icon-globe-2" focusable="false" height="16" width="16" viewBox="0 0 24 24">
+                <title id="title-icon-globe-2">globe icon</title>
+                <desc id="desc-icon-globe-2">illustration of a globe</desc>
+                <path d="M21.14 4.236c-.47 1.332-1.426 3.465-2.916 4.211a.503.503 0 0 1-.345.037c-1.057-.263-2.127.127-2.674.439.23.309.487.846.733 1.774.213.075.628-.038.837-.144a.499.499 0 0 1 .578.094c1.213 1.213-.359 2.847-1.299 3.825-.166.172-.378.392-.496.536.04.037.087.079.124.11.228.199.541.471.557.902.01.287-.12.567-.386.834a5.155 5.155 0 0 1-1.367.981C14.343 19.535 13.09 20.5 11 20.5c-.976 0-2-2.493-2-3 0-.368.16-.69.303-.974.096-.193.197-.394.197-.526-.023-.171-.43-.721-.854-1.146A.502.502 0 0 1 8.5 14.5c0-.429-.077-.72-.229-.863-.252-.237-.849-.203-1.478-.167-.259.014-.526.03-.793.03-1.582 0-2-1.635-2-2.5 0-.16.033-3.917 2.901-4.49 1.308-.262 2.19-.185 2.703.236.181.148.29.322.346.484.526.389 1.47.168 2.309-.026.277-.065.546-.127.795-.165.093-.845.096-1.663.009-2.018-.613.257-1.222.255-1.698-.009-.493-.274-.8-.795-.862-1.467C10.369 2.107 13.144.989 15.05.393A12 12 0 0 0 12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c6.616 0 12-5.383 12-12 0-2.958-1.079-5.668-2.86-7.764z"/>
+              </svg>
+              <h3 class="dcf-txt-h4 dcf-regular">Malesuada Pellentesque</h3>
+              <p>Nullam quis risus eget urna mollis ornare vel eu leo. Etiam porta sem malesuada magna mollis euismod.</p>
+              <a class="" href="#">Call to Action</a>
+            </div>
           </div>
           <div class="">
             <svg class="dcf-mb-1 dcf-h-7 dcf-w-7" role="img" aria-labelledby="title-icon-science-atom-1 desc-icon-science-atom-1" focusable="false" height="16" width="16" viewBox="0 0 24 24">
@@ -733,7 +735,7 @@
       <div class="dcf-wrapper">
         <div class="dcf-grid dcf-relative dcf-col-gap-vw dcf-row-gap-lg dcf-pt-9 dcf-pb-9">
 
-          <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark">Upcoming Events</h2>
+          <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Upcoming Events</h2>
           <ul class="dcf-d-grid dcf-list-bare dcf-col-gap-vw dcf-row-gap-md dcf-mb-0 unl-events-listing">
 
             <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
