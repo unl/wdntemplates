@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.36 (September 16, 2018)
+- Change default CAS URL from login.unl.edu to shib.unl.edu
+
 ## 4.1.35 (September 5, 2018)
 - Add analytics event tracking on navigation system
 
