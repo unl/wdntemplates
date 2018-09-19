@@ -3,29 +3,32 @@
 /////////////////////////////
 
 
-// Old "brand" font = Tungsten
-// .wdn-brand {}
-// .wdn-heading {}
-// .wdn-impact {}
-// .wdn-brand-caps {}
+// Prepend deprecated headings with '.unl ' to ensure styles override 5.0 theme heading styles.
+.unl .wdn-brand {
+  @include font-sans;
+  font-weight: 400;
+}
 
-.wdn-sans-serif {
+.unl .wdn-brand-caps {
+  @include font-sans;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.unl .wdn-heading,
+.unl .wdn-impact,
+.unl .wdn-sans-serif {
   @include font-sans;
 }
 
-.wdn-list-reset {
-  list-style: none;
-  padding-left: 0;
-}
-
-.wdn-sans-caps {
+.unl .wdn-sans-caps {
   @include font-sans;
   letter-spacing: .02em;
   line-height: 1.333;
   text-transform: uppercase;
 }
 
-.wdn-alt-header {
+.unl .wdn-alt-header {
   @include font-sans;
   @include txt-base;
   letter-spacing: .02em;
@@ -33,7 +36,7 @@
   text-transform: uppercase;
 }
 
-.wdn-list-header {
+.unl .wdn-list-header {
   @include bb-1;
   border-color: $color-border;
   @include font-sans;
@@ -45,7 +48,7 @@
   text-transform: uppercase;
 }
 
-.wdn-subhead {
+.unl .wdn-subhead {
   display: block;
   @include font-sans;
   font-size: #{ms(-2)}rem; // .75rem
@@ -53,6 +56,11 @@
   @include ls-2;
   @include mb-4;
   text-transform: uppercase;
+}
+
+.wdn-list-reset {
+  list-style: none;
+  padding-left: 0;
 }
 
 .wdn-intro-p {
