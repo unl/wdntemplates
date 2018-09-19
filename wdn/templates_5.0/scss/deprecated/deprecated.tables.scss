@@ -5,39 +5,44 @@
 
 table {
   @include bg-transparent;
+  border-bottom: 1px solid $color-border;
   @include font-sans;
   max-width: 100%;
   width: 100%;
 }
 
 caption {
-  caption-side: bottom;
   @include txt-xs;
 }
 
 thead,
 tbody {
-  @include bb-1;
-  border-color: $color-border;
-  @include txt-md;
+  @include txt-sm;
+}
+
+td,
+th {
+  border: 1px solid $color-border;
+  @include pl-4;
+  @include pr-4;
 }
 
 thead th,
 thead td {
-  padding-bottom: #{ms(-4)}rem;
+  @include pb-3;
+  @include pt-5;
   vertical-align: bottom;
 }
 
 tbody th,
 tbody td {
-  padding-bottom: #{ms(-4)}rem;
-  padding-top: #{ms(-4)}rem;
+  @include pb-3;
+  @include pt-3;
   vertical-align: top;
 }
 
-th:not(:last-child),
-td:not(:last-child) {
-  padding-right: #{ms(2)}rem;
+tbody tr:nth-of-type(even) {
+  background-color: $color-table-stripe;
 }
 
 .wdn_responsive_table thead th abbr {
