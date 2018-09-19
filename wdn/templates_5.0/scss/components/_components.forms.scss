@@ -49,7 +49,7 @@
 
 // !Input: Text
 .unl .dcf-input-text {
-  border: 1px solid $color-border;
+  border: 1px solid $color-border-input;
   border-radius: 0;
   box-shadow: inset 0 1px 2px fade-out($color-border,1);
   @include pb-2;
@@ -61,7 +61,7 @@
 
 
 .unl .dcf-input-text:hover {
-  border-color: $color-border-hover;
+  border-color: $color-border-input-hover;
   box-shadow: inset 0 1px 2px fade-out($color-border,.5);
   transition: border-color $hover-on, box-shadow $hover-on;
 }
@@ -183,7 +183,7 @@
     /* inside @supports so that iOS <= 8 display the native arrow */
     background: #fff; /* Match-04 */
     /* inside @supports so that Android <= 4.3 display the native arrow */
-    border: 1px solid $color-border; /* Match-05 */
+    border: 1px solid $color-border-input; /* Match-05 */
     padding-right: 3em; /* Match-01 */
   }
 
@@ -201,7 +201,7 @@
 /* Set the background fallback to solid #fff so Firefox renders the <option> list readably. */
 /* Hover style */
 .unl .dcf-input-select select:hover {
-  border-color: $color-border-hover;
+  border-color: $color-border-input-hover;
   transition: border-color $hover-on;
 }
 

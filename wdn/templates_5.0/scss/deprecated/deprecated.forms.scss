@@ -41,7 +41,7 @@ form input[type="search"],
 form input[type="text"],
 form input[type="url"],
 form textarea {
-  border: 1px solid $color-border;
+  border: 1px solid $color-border-input;
   box-shadow: inset 0 1px 2px fade-out($color-border,1);
   @include font-sans;
   @include pb-2;
@@ -58,7 +58,7 @@ form input[type="search"]:hover,
 form input[type="text"]:hover,
 form input[type="url"]:hover,
 form textarea:hover {
-  border-color: $color-border-hover;
+  border-color: $color-border-input-hover;
   box-shadow: inset 0 1px 2px fade-out($color-border,.5);
   transition: border-color $hover-on, box-shadow $hover-on;
 }

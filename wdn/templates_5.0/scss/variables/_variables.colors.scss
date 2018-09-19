@@ -90,9 +90,10 @@ $color-button-active: $color-link-active;
 
 
 // !Borders
-$color-border: $gray;
-$color-border-hover: darken($color-border,10%);
-// $border-color: scale-color($scarlet, $saturation: -100%);
+$color-border: $light-gray;
+
+$color-border-input: $gray;
+$color-border-input-hover: $dark-gray;
 
 
 // !Marks (Highlights) Background Color
