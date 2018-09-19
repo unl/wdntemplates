@@ -79,7 +79,7 @@ td:not(:last-child) {
   }
 
   .wdn_responsive_table tbody:nth-of-type(even) {
-  	background-color: #eee;
+  	background-color: $color-table-stripe;
   }
 
 }
