@@ -57,6 +57,7 @@
     "axe-core": "^2.6.1",
     "d": "^1.0.0",
     "dialog-polyfill": "^0.4.9",
+    "hoverintent": "^2.1.0",
     "http-server": "^0.11.1",
     "puppeteer": "^1.1.0"
   },
