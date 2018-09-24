@@ -82,6 +82,15 @@ $color-link-active: $scarlet-shade;
 // $color-link-underline: $scarlet-shade;
 
 
+// !Inverse
+// TODO: finalize state colors
+$color-inverse: $color-body-bg;
+$color-inverse-link: $color-body-bg;
+$color-inverse-link-visited: $color-body-bg;
+$color-inverse-link-hover: $color-body-bg;
+$color-inverse-link-active: $color-body-bg;
+
+
 // !Buttons
 $color-button: $color-link;
 $color-button-visited: $color-link-visited;
