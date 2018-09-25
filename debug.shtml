@@ -1325,7 +1325,7 @@
 
     <h2 class="dcf-mt-9">Tables</h2>
 
-    <figure class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-scroll">
+    <figure class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-auto">
       <table class="dcf-table">
         <caption>This is the caption for a table. Utility classes are used to right-align numbers in this table.</caption>
         <thead>
@@ -1365,10 +1365,9 @@
       </table>
     </figure>
 
-    <p>Horizontal borders can be added as needed with utility classes:</p>
-    <figure class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-scroll">
-      <table class="dcf-table">
-        <caption>This is the caption for a table with border utilities added as needed.</caption>
+    <figure class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-auto">
+      <table class="dcf-table dcf-table-striped">
+        <caption>This is the caption for a striped table.</caption>
         <thead>
           <tr>
             <th>Table heading</th>
@@ -1406,6 +1405,45 @@
       </table>
     </figure>
 
+    <figure class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-auto">
+      <table class="dcf-table dcf-table-bordered">
+        <caption>This is the caption for a bordered table.</caption>
+        <thead>
+          <tr>
+            <th>Table heading</th>
+            <th class="dcf-txt-right">Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Table heading</th>
+            <td class="dcf-txt-right">49</td>
+            <td>Cras mattis consectetur purus sit amet fermentum</td>
+            <td>Nullam Sollicitudin Mattis</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="dcf-txt-right dcf-bt">16</td>
+            <td class="dcf-bt">Nullam quis risus eget urna mollis ornare vel eu leo</td>
+            <td class="dcf-bt">Ornare Porta Vulputate</td>
+          </tr>
+          <tr>
+            <th class="dcf-bt">Table heading</th>
+            <td class="dcf-txt-right dcf-bt">387</td>
+            <td class="dcf-bt">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</td>
+            <td class="dcf-bt">Inceptos Ullamcorper Etiam</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="dcf-txt-right dcf-bt">9</td>
+            <td class="dcf-bt">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit</td>
+            <td class="dcf-bt">Bibendum Sit Lorem</td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
 
   <!-- InstanceEndEditable -->
   </main>
