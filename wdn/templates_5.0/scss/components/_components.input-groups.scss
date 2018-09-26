@@ -14,7 +14,7 @@
 // !Input Group Add-on
 .unl .dcf-input-group-addon {
   @include bg-lightest;
-  border-color: $color-border;
+  border-color: $color-border-input;
   border-style: solid;
   @include dark-gray;
   @include font-sans;

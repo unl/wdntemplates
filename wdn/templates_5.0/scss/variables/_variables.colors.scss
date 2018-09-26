@@ -82,6 +82,15 @@ $color-link-active: $scarlet-shade;
 // $color-link-underline: $scarlet-shade;
 
 
+// !Inverse
+// TODO: finalize state colors
+$color-inverse: $color-body-bg;
+$color-inverse-link: $color-body-bg;
+$color-inverse-link-visited: $color-body-bg;
+$color-inverse-link-hover: $color-body-bg;
+$color-inverse-link-active: $color-body-bg;
+
+
 // !Buttons
 $color-button: $color-link;
 $color-button-visited: $color-link-visited;
@@ -90,9 +99,10 @@ $color-button-active: $color-link-active;
 
 
 // !Borders
-$color-border: $gray;
-$color-border-hover: darken($color-border,10%);
-// $border-color: scale-color($scarlet, $saturation: -100%);
+$color-border: $light-gray;
+
+$color-border-input: $gray;
+$color-border-input-hover: $dark-gray;
 
 
 // !Marks (Highlights) Background Color
@@ -109,6 +119,10 @@ $color-badge: $dark-gray; // TODO: finalize badge background-color
 
 // !Captions
 $color-caption: $color-light-text;
+
+
+// !Tables
+$color-table-stripe: $lightest-gray;
 
 
 // !Footer

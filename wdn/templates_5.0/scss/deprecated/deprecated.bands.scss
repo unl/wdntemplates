@@ -12,6 +12,18 @@
   width: 100vw;
 }
 
+.wdn-light-neutral-band {
+  @include bg-lightest;
+}
+
+.wdn-light-triad-band {
+  @include bg-lighter;
+}
+
+.wdn-light-complement-band {
+  @include bg-light;
+}
+
 .wdn-inner-wrapper {
   @include pb-9;
   padding-left: 5.6%;

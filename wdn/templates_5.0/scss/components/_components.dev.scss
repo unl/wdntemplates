@@ -5,9 +5,7 @@
 
 // Add to DCF (start)
 
-*[hidden] {
-  display: none !important;
-}
+
 
 // Add to DCF (end)
 
@@ -86,12 +84,6 @@
 // *:focus {
 //   outline: none; // temp
 // }
-
-
-.unl .dcf-modal-content {
-  width: 88.8%; // core
-}
-
 
 // .unl-n {
 //   height: 57px;
@@ -382,12 +374,20 @@
 //   mask: url('../images/old-map.png');
 }
 
-.unl-frame {
+
+.unl-frame-polygon {
+  clip-path: polygon(0 0,0 100%,2px 100%,2px 2px,calc(100% - 2px) 2px,calc(100% - 2px) calc(100% - 2px),2px calc(100% - 2px),2px calc(100% - 5px),calc(100% - 5px) calc(100% - 5px),calc(100% - 5px) 5px,5px 5px,5px calc(100% - 5px),2px calc(100% - 5px),2px 100%,100% 100%,100% 0);
+}
+
+
+// TODO: replace with clip-path method?
+.unl-frame-circle {
   position: relative;
 }
 
-.unl-frame::after {
-  border: 3px solid #fff;
+.unl-frame-circle::after {
+  border: 3px solid $cream;
+  border-radius: $circle;
   content: '';
   height: calc(100% - 4px);
   left: 2px;
@@ -396,11 +396,7 @@
   width: calc(100% - 4px);
 }
 
-.dcf-circle.unl-frame::after {
-  border-radius: $circle;
-}
-
-.unl-frame > img {
+.unl-frame-circle > img {
   display: block;
 }
 

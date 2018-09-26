@@ -18,7 +18,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				return;
 			}
 			initd = true;
-		
+
 			let domQ = document.getElementById('dcf-search_query'),
 				domSearchForm = document.getElementById('dcf-search-form'),
 				domSearchResultWrapper = document.getElementById('dcf-search-results-wrapper'),
@@ -47,16 +47,16 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 			if (!domSearchForm) {
 				return;
 			}
-			
+
 			dialogHelper.initialize(domDialog);
-			
+
 			var domToggleButtonOnClick = function(e) {
 				if (!domDialog.hasAttribute('open')) {
 					//Search is currently closed, so open it.
 					for (let i = 0; i < domToggleButtons.length; i++) {
 						domToggleButtons[i].setAttribute('aria-pressed', 'true');
 					}
-					
+
 					domDialog.classList.remove('dcf-d-none');
 					domDialog.showModal();
 					domActiveToggleButton = this;
@@ -72,7 +72,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 			for (let i = 0; i < domToggleButtons.length; i++) {
 				domToggleButtons[i].addEventListener('click', domToggleButtonOnClick);
 			}
-			
+
 			domClose.addEventListener('click', function() {
 				closeSearch();
 			});
@@ -130,13 +130,13 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 			$progress = document.createElement('progress');
 			$progress.id = 'wdn_search_progress';
 			$progress.innerText = 'Loading...';
-			
+
 			// add an input to the form to let the search application know that we want the embedded format
 			domEmbed = document.createElement('input');
 			domEmbed.type = 'hidden';
 			domEmbed.name = 'embed';
 			domEmbed.value = '1';
-			
+
 			// add a parameter for triggering the iframe compatible rendering
 			domSearchForm.appendChild(domEmbed);
 
@@ -149,7 +149,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 					$unlSearch.title = 'Search';
 					$unlSearch.src = searchFrameAction;
 
-					domSearchForm.parentElement.appendChild($progress);
+					domSearchResultWrapper.appendChild($progress);
 					domSearchResultWrapper.appendChild($unlSearch);
 
 					$unlSearch.addEventListener('load', function() {
@@ -173,7 +173,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 					//Search is already closed.
 					return;
 				}
-				
+
 				clearTimeout(autoSubmitTimeout);
 				domQ.value = '';
 				domSearchForm.parentElement.classList.remove('active');
@@ -271,7 +271,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				if (domDialog.contains(e.target)) {
 					return;
 				}
-				
+
 				if (domActiveToggleButton && domActiveToggleButton.contains(e.target)) {
 					return;
 				}

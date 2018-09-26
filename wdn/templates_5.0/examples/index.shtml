@@ -156,7 +156,7 @@
   </header>
 
   <main class="dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
-    <div class="dcf-stretch">
+    <div class="dcf-bleed">
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-7">
         <div id="dcf-page-title">
           <!-- InstanceBeginEditable name="pagetitle" -->
