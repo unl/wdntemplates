@@ -1,0 +1,97 @@
+//////////////////////////////////
+// !THEME / COMPONENTS / NAV: MENU
+//////////////////////////////////
+
+
+.unl .dcf-nav-menu-child a,
+.unl .dcf-nav-menu-child button {
+  padding-left: #{ms(0)}rem;
+  padding-right: #{ms(0)}rem;
+}
+
+
+@include mq(md, max, width) {
+
+  .unl .dcf-nav-menu.dcf-modal-open {
+    @include bg-overlay-dark;
+    bottom: #{$height-mobile-toolbar};
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    z-index: 998;
+  }
+
+
+  // Default to closed on mobile
+  .unl .dcf-nav-menu {
+//     display: none;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+
+  // Open when parent model is open
+  .unl .dcf-nav-menu.dcf-modal-open {
+//     display: block;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+
+  .unl .dcf-nav-menu-child {
+    @include bg-scarlet;
+    bottom: $height-mobile-toolbar;
+    height: 43vh;
+    @include overflow-y-auto;
+    padding-left: $length-vw-2;
+    padding-right: $length-vw-2;
+    position: fixed;
+  }
+
+
+  .unl .dcf-nav-menu-child > ul {
+    @include pb-7;
+    @include pt-6;
+  }
+
+
+  .unl .dcf-nav-menu-child::before,
+  .unl .dcf-nav-menu-child::after {
+    content: '';
+    height: #{ms(6)}em;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+  }
+
+
+  .unl .dcf-nav-menu-child::before {
+    background-image: linear-gradient($scarlet, fade-out($scarlet, 1));
+    bottom: calc(#{$height-mobile-toolbar} + 43vh);
+    transform: translateY(99%);
+  }
+
+
+  .unl .dcf-nav-menu-child::after {
+    background-image: linear-gradient(fade-out($scarlet, 1), $scarlet);
+    bottom: $height-mobile-toolbar;
+  }
+
+}
+
+
+@include mq(md, min, width) {
+
+  .unl .dcf-nav-menu {
+    @include bg-scarlet;
+    display: flex;
+//     flex: 1 0 auto;
+    flex-wrap: nowrap;
+//     height: $height-nav-menu-md;
+    padding-left: $length-vw-2;
+    padding-right: $length-vw-2;
+//     position: relative;
+  }
+
+}
