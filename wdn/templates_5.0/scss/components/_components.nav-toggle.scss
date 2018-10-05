@@ -10,9 +10,8 @@
 
 @include mq(md, max, width) {
 
-  .unl .dcf-nav-toggle {
+  .unl .dcf-nav-toggle-group {
     display: flex;
-    border-top: 3px solid $scarlet;
     padding-bottom: env(safe-area-inset-bottom);
     z-index: 100150; // Ensure that the z-index is greater than the dialog element z-index
   }
@@ -23,7 +22,12 @@
   }
 
 
-  .unl .dcf-nav-bar .dcf-nav-toggle-btn-menu {
+  .unl .dcf-nav-toggle-label {
+    font-size: #{ms(-6)}em;
+  }
+
+
+  .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu {
     display: none;
   }
 
@@ -58,12 +62,12 @@
 
 @include mq(md, min, width) {
 
-  .unl .dcf-nav-toggle {
+  .unl .dcf-nav-toggle-group {
     display: none;
   }
 
 
-  .unl .dcf-nav-bar .dcf-nav-toggle-btn-menu {
+  .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu {
     display: flex;
   }
 

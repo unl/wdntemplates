@@ -3,6 +3,21 @@
 ///////////////////////////////
 
 
+// Start temp
+
+.dcf-search dialog[open] {
+  animation: none; // Undo dialog animation styles until removed from DCF core
+}
+
+// End temp
+
+
+.unl-search-bg {
+  // TODO: create background images sized to each breakpoint for improved performance
+  background: $scarlet url("../images/dev/unl-app-search-bg-search-3xl.png") 50% 50%/cover no-repeat;
+}
+
+
 .unl .dcf-search-input,
 .unl .dcf-search-input:hover,
 .unl .dcf-search-input:focus {
@@ -61,10 +76,4 @@
 //     @include pb-10; // !core update
 //   }
 
-}
-
-
-.unl-search-bg {
-  // TODO: create background images sized to each breakpoint for improved performance
-  background: $scarlet url('../images/unl-search-bg.jpg') 50% 50% / cover no-repeat;
 }

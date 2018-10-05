@@ -58,6 +58,69 @@
   text-transform: uppercase;
 }
 
+.unl p,
+.unl span,
+.unl div,
+.unl ul,
+.unl li,
+.unl section,
+.unl img {
+
+  + h1,
+  + h2,
+  + h3,
+  + h4,
+  + h5,
+  + h6 {
+    margin-top: 1em;
+  }
+}
+
+.unl h1,
+.unl h2,
+.unl h3 {
+
+  > .wdn-subhead,
+  + .wdn-subhead {
+    font-size: 1rem;
+  }
+}
+
+.unl h4,
+.unl h5,
+.unl h6 {
+
+  > .wdn-subhead,
+  + .wdn-subhead {
+    font-size: .75rem;
+  }
+}
+
+.wdn-subhead {
+
+  + h1,
+  + h2,
+  + h3,
+  + h4,
+  + h5,
+  + h6 {
+    margin-top: 0;
+  }
+}
+
+.unl p,
+.unl span,
+.unl div,
+.unl ul,
+.unl li,
+.unl section,
+.unl img {
+
+  + .wdn-subhead {
+    margin-bottom: 0;
+  }
+}
+
 .wdn-list-reset {
   list-style: none;
   padding-left: 0;
@@ -65,6 +128,10 @@
 
 .wdn-intro-p {
   @include txt-lg;
+}
+
+.unl p.small {
+  @include txt-xs;
 }
 
 // !ICON FONT - see /wdn/templates_4.1/fonts/fontello/readme.md

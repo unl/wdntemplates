@@ -25,10 +25,7 @@
 }
 
 .wdn-inner-wrapper {
-  @include pb-9;
-  padding-left: 5.6%;
-  padding-right: 5.6%;
-  @include pt-9;
+  padding: $length-em-9 $length-vw-2;
 }
 
 .wdn-inner-padding-sm {
@@ -50,8 +47,8 @@
 }
 
 .wdn-inner-padding-none {
-  padding-top: 0;
   padding-bottom: 0;
+  padding-top: 0;
 }
 
 .wdn-stretch {
@@ -65,9 +62,11 @@
 
 @include mq(md) {
 
-  .wdn-text-band {
-    max-width: 37.5rem;
+  .wdn-text-band .wdn-inner-wrapper {
     margin: 0 auto;
+    max-width: 37.5rem;
+    padding-left: 0;
+    padding-right: 0;
   }
 
 }

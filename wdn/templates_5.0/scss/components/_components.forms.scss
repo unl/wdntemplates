@@ -20,14 +20,15 @@
 // !Form group and form with input group
 .unl .dcf-form-group,
 .unl .dcf-input-group-form {
-  margin-top: -#{ms(-12)}em; // Apply negative margin-top to equalize label margin-top
+  margin-top: -#{ms(-12)}rem; // Apply negative margin-top to equalize label margin-top
 }
 
 
 // !Label
 .unl .dcf-label {
   @include font-sans;
-  margin-top: #{ms(-12)}em;
+  @include txt-sm;
+  margin-top: #{ms(-12)}rem;
 }
 
 
@@ -260,5 +261,5 @@
 .unl .dcf-label + .dcf-input-text,
 .unl .dcf-label + .dcf-input-select,
 .unl .dcf-label + .dcf-input-group {
-  margin-top: #{ms(-12)}em;
+  margin-top: #{ms(-12)}rem;
 }
