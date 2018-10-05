@@ -29,9 +29,8 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
 
             let toggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-menu');
             let mobileNav = document.getElementById('dcf-navigation');
-            let modalParent = document.querySelector('.dcf-nav-bar.dcf-modal-parent');
+            let modalParent = document.querySelector('.dcf-nav-menu.dcf-modal-parent');
             let body = document.querySelector('body');
-            let breadcrumbs = document.getElementById('dcf-breadcrumbs');
             let firstLink = mobileNav.querySelector('a');
 
             // We need to keep track of the toggle button that activated the menu so that we can return focus to it when the menu is closed
@@ -44,28 +43,26 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
             }
 
             function openModal() {
-                body.classList.remove('dcf-overflow-auto');
-                body.classList.add('dcf-overflow-hidden');
-                modalParent.classList.add('dcf-modal-open');
-                breadcrumbs.classList.remove('dcf-d-none');
+                if (window.matchMedia("(max-width: 56.12em)").matches) {
+                  body.classList.add('dcf-overflow-hidden');
+                  main.setAttribute('inert', '');
+                  footer.setAttribute('inert', '');
+                }
+                  modalParent.classList.add('dcf-modal-open');
                 for (var i = 0; i < toggleButtons.length; ++i) {
                     toggleButtons[i].setAttribute('aria-expanded', 'true');
                 }
-                main.setAttribute('inert', '');
-                footer.setAttribute('inert', '');
                 firstLink.focus();
                 document.addEventListener('keyup', onKeyUp);
             }
 
             function closeModal() {
-                main.removeAttribute('inert');
-                footer.removeAttribute('inert');
-                body.classList.remove('dcf-overflow-hidden');
-                body.classList.add('dcf-overflow-auto');
+                if (window.matchMedia("(max-width: 56.12em)").matches) {
+                  body.classList.remove('dcf-overflow-hidden');
+                  main.removeAttribute('inert');
+                  footer.removeAttribute('inert');
+                }
                 modalParent.classList.remove('dcf-modal-open');
-                setTimeout(function(){
-                  breadcrumbs.classList.add('dcf-d-none');
-                }, 400);
                 for (var i = 0; i < toggleButtons.length; ++i) {
                     toggleButtons[i].setAttribute('aria-expanded', 'false');
                 }
