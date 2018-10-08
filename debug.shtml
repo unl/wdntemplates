@@ -35,10 +35,10 @@
 -->
 
   <header class="dcf-header" id="dcf-header" role="banner">
-    <!--#include virtual="/wdn/templates_5.0/includes/global/header-global.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/header-global-1.html" -->
       <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
       <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
-    </div>
+    <!--#include virtual="/wdn/templates_5.0/includes/global/header-global-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup.html" -->
         <div class="dcf-site-affiliation dcf-lh-3 dcf-txt-2xs" id="dcf-site-affiliation">
           <!-- InstanceBeginEditable name="affiliation" -->
