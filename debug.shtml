@@ -39,36 +39,29 @@
       <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
       <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/header-global-2.html" -->
-    <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup.html" -->
-        <div class="dcf-site-affiliation dcf-lh-3 dcf-txt-2xs" id="dcf-site-affiliation">
+    <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup-1.html" -->
+        <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-1.html" -->
           <!-- InstanceBeginEditable name="affiliation" -->
           <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
-<!--           <a href="http://ianr.unl.edu/">Institute of Agriculture and Natural Resources</a> -->
           <!-- InstanceEndEditable -->
-        </div>
-        <div class="dcf-site-title dcf-bold dcf-lh-2 dcf-uppercase unl-ls-1" id="dcf-site-title">
+        <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-2.html" -->
+        <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-1.html" -->
           <!-- InstanceBeginEditable name="titlegraphic" -->
           <a class="unl-site-title-medium" href="https://www.unl.edu/">
-<!--             College of Agricultural Sciences and Natural Resources -->
-<!--             Hixson-Lied College of Fine &amp; Performing Arts -->
             Glenn Korff School of Music
-<!--             Department of English -->
-            <!--<abbr>HLCFPA</abbr>-->
-<!--             Nebraska -->
           </a>
           <!-- InstanceEndEditable -->
-        </div>
-      </div>
-    </div>
+        <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-2.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle-group.html" -->
-    <nav class="dcf-nav-menu dcf-modal-parent unl-font-sans" id="dcf-navigation" role="navigation" aria-label="local navigation">
+    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-1.html" -->
       <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle-btn.html" -->
-      <div class="dcf-nav-menu-child dcf-nav-local dcf-w-100%">
+      <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-1.html" -->
         <!-- InstanceBeginEditable name="navlinks" -->
         <!--#include virtual="/wdn/templates_5.0/includes/local/nav-local.html" -->
         <!-- InstanceEndEditable -->
-      </div>
-    </nav>
+      <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-2.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-2.html" -->
   </header>
 
   <main class="dcf-main dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
