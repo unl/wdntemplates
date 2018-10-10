@@ -119,13 +119,11 @@
     @include bg-scarlet;
     content: '';
     height: 100%;
-    left: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    left: 0;
     position: absolute;
-    right: 50%;
     top: 0;
-    width: 150vw;
+    width: 200vw;
+    transform: translateX(-50%);
     z-index: -1;
   }
 
