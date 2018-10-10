@@ -66,7 +66,9 @@
 
   <main class="dcf-main dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
 
+    <!-- InstanceBeginEditable name="hero" -->
     <div class="dcf-hero dcf-bleed unl-bg-lightest-gray">
+    <!-- InstanceEndEditable -->
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-7">
         <nav class="dcf-breadcrumbs dcf-bleed dcf-txt-2xs unl-font-sans" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
           <!-- InstanceBeginEditable name="breadcrumbs" -->
@@ -83,6 +85,8 @@
           <!-- InstanceEndEditable -->
         </div>
       </div>
+      <!-- InstanceBeginEditable name="heroimage" -->
+      <!-- InstanceEndEditable -->
     </div>
 
     <div class="dcf-main-content">
