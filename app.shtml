@@ -32,11 +32,11 @@
     <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle-group.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-1.html" -->
-      <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-1.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-app-1.html" -->
         <!-- InstanceBeginEditable name="appcontrols" -->
         <!--#include virtual="/wdn/templates_5.0/includes/local/app-controls.html" -->
         <!-- InstanceEndEditable -->
-      <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-2.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-app-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/app-search-1.html" -->
         <!-- InstanceBeginEditable name="appsearch" -->
