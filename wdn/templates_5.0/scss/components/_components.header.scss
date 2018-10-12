@@ -99,12 +99,12 @@
 
 
   .unl-site-title-medium {
-    @include txt-lg;
+    @include txt-h5;
   }
 
 
   .unl-site-title-long {
-    @include txt-md;
+    @include txt-h6;
   }
 
 }
