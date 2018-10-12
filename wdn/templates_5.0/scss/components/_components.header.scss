@@ -73,7 +73,7 @@
 
   .unl .dcf-header-global {
     border-bottom: 1px solid $light-gray;
-    padding-top: 2px;
+    padding-top: #{ms(-12)}em;
   }
 
 
