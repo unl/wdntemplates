@@ -65,12 +65,6 @@
 
 @include mq(md, min, width) {
 
-  .unl .dcf-header {
-    display: flex;
-    flex-direction: column;
-  }
-
-
   .unl .dcf-header-global {
     border-bottom: 1px solid $light-gray;
     padding-top: #{ms(-12)}em;
