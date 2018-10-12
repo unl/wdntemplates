@@ -3,13 +3,13 @@
 ///////////////////////////////
 
 
-// .unl .dcf-header a:visited {
-//   color: $color-link;
-// }
+.unl .dcf-header-global a:visited {
+  color: $color-link; // Force visited links in the global header to remain scarlet.
+}
 
 
 .unl .dcf-site-group {
-  min-height: #{ms(8)}em;
+  min-height: #{ms(8)}em; // Vertically center site group (affiliation and title) by providing a minimum height equal to the adjacent Nebraska N logo.
 }
 
 
