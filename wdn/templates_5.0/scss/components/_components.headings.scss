@@ -3,12 +3,12 @@
 /////////////////////////////////
 
 
-.unl h1:not(.unl-font-display),
-.unl h2:not(.unl-font-display),
-.unl h3:not(.unl-font-display),
-.unl h4:not(.unl-font-display),
-.unl h5:not(.unl-font-display),
-.unl h6:not(.unl-font-display) {
+.unl h1,
+.unl h2,
+.unl h3,
+.unl h4,
+.unl h5,
+.unl h6 {
   @include font-sans;
   font-weight: 700;
   letter-spacing: -.03em;
