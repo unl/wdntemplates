@@ -28,11 +28,6 @@
 }
 
 
-.unl .dcf-nav-local li {
-  margin-bottom: 0;
-}
-
-
 .unl .dcf-nav-local > ul > li > a {
   @include pb-4;
   @include pt-4;
@@ -114,6 +109,7 @@
     @include pb-7;
   }
 
+
   // Background for open mega menu
   .unl .dcf-nav-local ul ul::before {
     @include bg-scarlet;
@@ -126,6 +122,7 @@
     transform: translateX(-50%);
     z-index: -1;
   }
+
 
   .unl .dcf-nav-toggle-btn-menu ~ .dcf-nav-local ul ul  {
     pointer-events: none;
