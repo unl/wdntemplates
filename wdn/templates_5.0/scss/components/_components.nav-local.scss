@@ -76,7 +76,6 @@
 @include mq(md, min, width) {
 
   .unl .dcf-nav-local > ul {
-    @include txt-xs;
     grid-template-columns: repeat(6, 1fr);
     overflow: hidden;
     width: 100%;
@@ -107,6 +106,7 @@
   .unl .dcf-nav-local ul ul {
     @include txt-sm;
     @include pb-7;
+    width: 100%;
   }
 
 
