@@ -51,6 +51,11 @@
     margin-top: 3px;
     right: 0;
     top: 100%;
+
+    ul {
+      position: relative;
+      z-index: 1;
+    }
   }
 
   .unl .dcf-idm-options li:last-child {
