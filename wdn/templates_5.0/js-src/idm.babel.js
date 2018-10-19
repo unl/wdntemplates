@@ -84,10 +84,10 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Set the current user. The object should have fields as described by CAS
-   *
-   * @param newUser object|false
-   */
+		 * Set the current user. The object should have fields as described by CAS
+		 *
+		 * @param newUser object|false
+		 */
 		setUser: function setUser(newUser) {
 			user = newUser;
 		},
@@ -98,28 +98,28 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Checks if the user is logged in
-   *
-   * @return bool
-   */
+		 * Checks if the user is logged in
+		 *
+		 * @return bool
+		 */
 		isLoggedIn: function isLoggedIn() {
 			return !!Plugin.getUserId();
 		},
 
 		/**
-   * Returns the uid of the logged in user.
-   *
-   * @return string
-   */
+		 * Returns the uid of the logged in user.
+		 *
+		 * @return string
+		 */
 		getUserId: function getUserId() {
 			return user && user.uid;
 		},
 
 		/**
-   * Get the logged in user's display name (full name)
-   *
-   * @returns {string}
-   */
+		 * Get the logged in user's display name (full name)
+		 *
+		 * @returns {string}
+		 */
 		getDisplayName: function getDisplayName() {
 			var disp_name = '';
 			if (user.eduPersonNickname) {
@@ -134,46 +134,46 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Get the logged in user's last name only
-   *
-   * @returns {false|string}
-   */
+		 * Get the logged in user's last name only
+		 *
+		 * @returns {false|string}
+		 */
 		getFirstName: function getFirstName() {
 			return getUserField('givenName');
 		},
 
 		/**
-   * Get the logged in user's first name only
-   *
-   * @returns {false|string}
-   */
+		 * Get the logged in user's first name only
+		 *
+		 * @returns {false|string}
+		 */
 		getLastName: function getLastName() {
 			return getUserField('sn');
 		},
 
 		/**
-   * Get the logged in user's primary affiliation.  IE: staff or faculty
-   *
-   * @returns {false|string}
-   */
+		 * Get the logged in user's primary affiliation.  IE: staff or faculty
+		 *
+		 * @returns {false|string}
+		 */
 		getPrimaryAffiliation: function getPrimaryAffiliation() {
 			return getUserField('eduPersonPrimaryAffiliation');
 		},
 
 		/**
-   * Get the logged in user's email address
-   *
-   * @returns {false|string}
-   */
+		 * Get the logged in user's email address
+		 *
+		 * @returns {false|string}
+		 */
 		getEmailAddress: function getEmailAddress() {
 			return getUserField('mail');
 		},
 
 		/**
-   * Get the logged in user's postal address
-   *
-   * @returns {false|string}
-   */
+		 * Get the logged in user's postal address
+		 *
+		 * @returns {false|string}
+		 */
 		getPostalAddress: function getPostalAddress() {
 			return getUserField('postalAddress');
 		},
@@ -188,19 +188,19 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Get the logged in user's title
-   *
-   * @returns {false|string}
-   */
+		 * Get the logged in user's title
+		 *
+		 * @returns {false|string}
+		 */
 		getTitle: function getTitle() {
 			return getUserField('title');
 		},
 
 		/**
-   * Get the profile (planet red) URL
-   *
-   * @returns {string}
-   */
+		 * Get the profile (planet red) URL
+		 *
+		 * @returns {string}
+		 */
 		getProfileURL: function getProfileURL() {
 			if (!this.isLoggedIn()) {
 				return false;
@@ -221,8 +221,8 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Update the SSO tab and display user info
-   */
+		 * Update the SSO tab and display user info
+		 */
 		renderAsLoggedIn: function renderAsLoggedIn() {
 			// We need to set up multiples of these so that focus order is correct.
 			let widgetContainers = document.querySelectorAll('.dcf-idm');
@@ -320,8 +320,8 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Set the URL to send the user to when the logout link is clicked
-   */
+		 * Set the URL to send the user to when the logout link is clicked
+		 */
 		setLogoutURL: function setLogoutURL(url) {
 			if (url) {
 				logoutURL = url;
@@ -329,8 +329,8 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Set the URL to send the user to when the login link is clicked
-   */
+		 * Set the URL to send the user to when the login link is clicked
+		 */
 		setLoginURL: function setLoginURL(url) {
 			if (url) {
 				loginURL = url;
