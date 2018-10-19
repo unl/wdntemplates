@@ -296,6 +296,7 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				logoutLink.addEventListener('click', Plugin.logout);
 
 				Plugin.setLogoutURL(localSettings.logout);
+				logoutLink.setAttribute('href', logoutURL);
 			}
 		},
 
