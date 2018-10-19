@@ -82,8 +82,8 @@
 
 
   .unl .dcf-logo-lockup {
-    @include pb-5;
-    @include pt-6;
+    padding-bottom: #{ms(1)}em;
+    @include pt-5;
   }
 
 
