@@ -8,10 +8,33 @@
 }
 
 
+.unl.app .dcf-app-controls button {
+  background-color: transparent;
+  border: 0;
+  @include cream;
+  @include pb-4;
+  @include pt-4;
+}
+
+
 @include mq(md, max, width) {
 
   .unl.app .dcf-app-controls ul {
     flex-direction: column;
+  }
+
+}
+
+
+@include mq(md, min, width) {
+
+  .unl.app .dcf-app-controls {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .unl.app .dcf-app-controls ul {
+    display: flex;
   }
 
 }
