@@ -3,21 +3,29 @@
 //////////////////////////////////////////////////
 
 
-// !Notification Center / Dashboard
+.unl .dcf-idm-options {
+  width: #{ms(14)}em;
+}
+
 
 @include mq(md, max, width) {
 
-  .unl .dcf-idm-results {
-    @include pb-8; // update in core
+  .unl .dcf-idm-login {
+    flex-direction: column;
   }
 
   .unl .dcf-idm-options {
-    top: -3px;
-    transform: translateY(-100%);
+    left: 50%;
+    top: -2px;
+    transform: translate(-50%, -100%);
   }
 
   .unl .dcf-idm-toggle {
     display: none;
+  }
+
+  .unl .dcf-idm-label {
+    @include mt-1;
   }
 
 }
@@ -29,51 +37,26 @@
     display: flex;
   }
 
-  .unl .dcf-mobile-toolbar-toggle-idm {
-    z-index: 1;
-  }
-
-  // TODO: add hover and focus states
-  .unl .dcf-mobile-toolbar-toggle-idm .dcf-mobile-toolbar-label-idm {
-    @include cream;
+  .unl .dcf-idm-login {
+    flex-direction: row-reverse;
   }
 
   .unl .dcf-idm-img {
-    bottom: -#{ms(-2)}em;
     fill: mix($cream, #000, 90%);
   }
 
-  .unl .dcf-idm-results {
-    @include pb-10; // update in core
+  .unl .dcf-idm-label {
+    @include mr-3;
   }
 
   .unl .dcf-idm-options {
-    margin-top: 3px;
+    @include mt-1;
     right: 0;
     top: 100%;
   }
 
   .unl .dcf-idm-options li:last-child {
     margin-bottom: 0;
-  }
-
-
-}
-
-
-@supports (display: grid) {
-
-  .unl .dcf-dashboard-person-details {
-    grid-area: person-details;
-  }
-
-  .unl .dcf-dashboard-person-avatar {
-    grid-area: person-avatar;
-  }
-
-  .unl .dcf-dashboard-person {
-    grid-template-columns: 1fr 3fr;
-    grid-template-areas: 'person-avatar person-details';
   }
 
 }
