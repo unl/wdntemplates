@@ -39,9 +39,9 @@
       <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-app-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/app-search-1.html" -->
-        <!-- InstanceBeginEditable name="appsearch" -->
-        <!--#include virtual="/wdn/templates_5.0/includes/local/app-search.html" -->
-        <!-- InstanceEndEditable -->
+      <!-- InstanceBeginEditable name="appsearch" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/local/app-search.html" -->
+      <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/app-search-2.html" -->
   </header>
 
