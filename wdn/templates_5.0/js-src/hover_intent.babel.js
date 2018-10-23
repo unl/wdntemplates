@@ -1,12 +1,5 @@
 define ([], () => {
-	// const el = document.querySelector('.dcf-nav-local');
-	// hoverintent(el, function() {
-	// 		// Handler in
-	// 		el.toggleAttribute('aria-expanded');
-	// 	}, function() {
-	// 		// Handler out
-	// 	el.toggleAttribute('aria-expanded');
-	// 	});
+
 /**
  * Base class to set up any kind of Intent
  * */
@@ -44,39 +37,31 @@ define ([], () => {
 		addListener() {
 			this.hoverListener = hoverintent(this.el, this.handleIn, this.handleOut ).options(this.options);
 			console.log(this.hoverListener);
-		}
+		};
 
 		removeListener() {
 			if(this.hoverListener) this.hoverListener.remove();
-		}
+		};
 
 		handleMediaChanges = (mql) => {
 			// console.log(mql);
 			if (mql.matches) {
 				this.isMobile = false;
-				console.log('in add');
-				console.log(this);
 				this.addListener();
-				console.log('added');
 			} else {
 				this.isMobile = true;
-				console.log('in remove');
-				console.log(this);
 				this.removeListener();
-				console.log('removed');
 			}
-		}
+		};
 
 		onWidthChange() {
 			const mediaQueryList = window.matchMedia(this.mq);
-			console.log('onwidthchange', this);
 			mediaQueryList.addListener(this.handleMediaChanges);
 		}
 
 		initialize() {
 			const mediaQueryList = window.matchMedia(this.mq);
 			this.handleMediaChanges(mediaQueryList);
-			console.log('initialize', this);
 			this.onWidthChange();
 		}
 	}
@@ -97,6 +82,6 @@ define ([], () => {
 	const navMQ = 'screen and (min-width: 56.123125em)';
 	const navIntent = new HoverIntent(localNav, undefined, navMQ,navHandleIn,navHandleOut);
 
-	window.addEventListener("DOMContentLoaded", navIntent.initialize);
+	navIntent.initialize();
 });
 
