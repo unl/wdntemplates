@@ -1438,7 +1438,6 @@
     <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-2.html" -->
   </footer>
   <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
-  <script src="./wdn/templates_5.0/js/plugins/hoverIntent/hoverintent.min.js"></script>
   <!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
   <!-- InstanceBeginEditable name="jsbody" -->
 <!--

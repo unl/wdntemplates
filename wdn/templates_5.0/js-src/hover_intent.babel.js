@@ -1,4 +1,4 @@
-define ([], () => {
+require (['plugins/hoverIntent/hoverintent'], () => {
 
 /**
  * Base class to set up any kind of Intent
@@ -36,7 +36,6 @@ define ([], () => {
 
 		addListener() {
 			this.hoverListener = hoverintent(this.el, this.handleIn, this.handleOut ).options(this.options);
-			console.log(this.hoverListener);
 		};
 
 		removeListener() {
@@ -44,7 +43,6 @@ define ([], () => {
 		};
 
 		handleMediaChanges = (mql) => {
-			// console.log(mql);
 			if (mql.matches) {
 				this.isMobile = false;
 				this.addListener();
