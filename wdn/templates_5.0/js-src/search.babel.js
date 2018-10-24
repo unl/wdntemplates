@@ -1,4 +1,4 @@
-define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
+define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(WDN, dialogHelper, require) {
 	let autoSearchDebounceDelay = 1000;
 
 	function getLocalSearch() {
@@ -41,6 +41,8 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				//siteHomepage = nav.getSiteHomepage(),
 				//TODO: figure out how to determine the home page in 5.0
 				siteHomepage = 'https://wdn.unl.edu/',
+				closeNavEvent = new CustomEvent('closeNavigation'),
+				closeIDMOptionsEvent = new CustomEvent('closeDropDownWidget', {detail: {type: 'idm-logged-in'}}),
 				localSearch = getLocalSearch();
 
 			// give up if the search form has been unexpectedly removed
@@ -52,6 +54,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 
 			var domToggleButtonOnClick = function(e) {
 				if (!domDialog.hasAttribute('open')) {
+
 					//Search is currently closed, so open it.
 					for (let i = 0; i < domToggleButtons.length; i++) {
 						domToggleButtons[i].setAttribute('aria-pressed', 'true');
@@ -60,9 +63,15 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 					domDialog.classList.remove('dcf-d-none');
 					domDialog.showModal();
 					domActiveToggleButton = this;
+
+          // Hide other mobile toggles
+          document.dispatchEvent(closeNavEvent);
+          document.dispatchEvent(closeIDMOptionsEvent);
+
 					setTimeout(function(){
 						domQ.focus();
 					}, 200);
+
 				} else {
 					//Search is currently open, so close it.
 					closeSearch();
@@ -189,8 +198,13 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				}
 			};
 
+			// add an event listener for closeSearchEvent
+			document.addEventListener('closeSearch', function(e) {
+				closeSearch();
+			});
+
 			// add an event listener to support the iframe rendering
-			domQ.addEventListener('keyup', function(e) {
+			  domQ.addEventListener('keyup', function(e) {
 				let keyCode = e.keyCode;
 
 				if (keyCode === 27) {
