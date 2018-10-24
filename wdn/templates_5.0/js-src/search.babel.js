@@ -1,4 +1,4 @@
-define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
+define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(WDN, dialogHelper, require) {
 	let autoSearchDebounceDelay = 1000;
 
 	function getLocalSearch() {

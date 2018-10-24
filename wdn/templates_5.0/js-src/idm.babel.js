@@ -1,7 +1,7 @@
 'use strict';
 
 /* globals define: false */
-define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, DropDownWidget, require) {
+define(['wdn', 'ready', 'dropdown-widget', 'require', 'plugins/custom-event-polyfill'], function (WDN, ready, DropDownWidget, require) {
 	"use strict";
 
 	var getLinkByRel = function getLinkByRel(name) {

@@ -5,18 +5,18 @@
  * 1) use aria-expanded to describe when the drop-down is open or closed
  * 2) when opened, send focus to the first focusable element
  * 3) when closed, return focus back to the button (escape key will also close)
- * 
+ *
  * This is different from an aria dropdown MENU because the a 'menu' in aria describes a desktop application like menu structure. Not links or other content.
- * 
+ *
  * <div> //container (for a navigation dropdown, this should be <nav>
  *     <button aria-expanded="false">text</button>
  *     <div hidden> //this is what the button controls. It needs to be either the element following the button, or referenced by aria-controls.
  *         <a href="">example</a> //This element will be focused
  *     </div>
  * </div>
- * 
+ *
  */
-define([], function () {
+define(['plugins/custom-event-polyfill'], function () {
 	"use strict";
 
 	/**
@@ -75,7 +75,7 @@ define([], function () {
 	DropDownWidget.prototype.close = function () {
 		this.button.setAttribute('aria-expanded', 'false');
 		this.controls.hidden = true;
-		
+
 		//Send focus back to the button if a child of the menu is currently selected
 		if (document.activeElement && this.controls.contains(document.activeElement)) {
 			this.button.focus();
