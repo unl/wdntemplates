@@ -1,7 +1,7 @@
 'use strict';
 
 /* globals define: false */
-define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, DropDownWidget, require) {
+define(['wdn', 'ready', 'dropdown-widget', 'require', 'plugins/custom-event-polyfill'], function (WDN, ready, DropDownWidget, require) {
 	"use strict";
 
 	var getLinkByRel = function getLinkByRel(name) {
@@ -285,7 +285,15 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				loggedInContainer.appendChild(optionsContainer);
 
 				//Initialize the dropdown nav
-				let dropdownNav = new DropDownWidget(loggedInContainer);
+				let dropdownNav = new DropDownWidget(loggedInContainer, 'idm-logged-in');
+				let closeNavEvent = new CustomEvent('closeNavigation');
+				let closeSearchEvent = new CustomEvent('closeSearch');
+				document.addEventListener('openDropDownWidget', function(e) {
+					if (e.detail.type == 'idm-logged-in') {
+						document.dispatchEvent(closeNavEvent);
+						document.dispatchEvent(closeSearchEvent);
+					}
+				});
 
 				//Show the contents
 				loggedOutContainer.hidden = true;
