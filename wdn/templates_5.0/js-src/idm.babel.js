@@ -307,10 +307,6 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 			}
 		},
 
-		closeAsLoggedInOptions: function closeAsLoggedInOptions() {
-
-		},
-
 		renderAsLoggedOut: function renderAsLoggedOut() {
 			if (Plugin.getUserId()) {
 				//if the user is already logged in, we should not reset the login
