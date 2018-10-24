@@ -285,7 +285,15 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				loggedInContainer.appendChild(optionsContainer);
 
 				//Initialize the dropdown nav
-				let dropdownNav = new DropDownWidget(loggedInContainer);
+				let dropdownNav = new DropDownWidget(loggedInContainer, 'idm-logged-in');
+				let closeNavEvent = new CustomEvent('closeNavigation');
+				let closeSearchEvent = new CustomEvent('closeSearch');
+				document.addEventListener('openDropDownWidget', function(e) {
+					if (e.detail.type == 'idm-logged-in') {
+						document.dispatchEvent(closeNavEvent);
+						document.dispatchEvent(closeSearchEvent);
+					}
+				});
 
 				//Show the contents
 				loggedOutContainer.hidden = true;
@@ -297,6 +305,10 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 
 				Plugin.setLogoutURL(localSettings.logout);
 			}
+		},
+
+		closeAsLoggedInOptions: function closeAsLoggedInOptions() {
+
 		},
 
 		renderAsLoggedOut: function renderAsLoggedOut() {

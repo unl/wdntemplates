@@ -24,8 +24,9 @@ define([], function () {
   * @constructor
   */
 
-	function DropDownWidget(container) {
+	function DropDownWidget(container, type) {
 		this.container = container;
+		this.type = type || null;
 		this.button = this.container.querySelector('button[aria-expanded="false"]');
 
 		let id = this.button.getAttribute('aria-controls');
@@ -39,6 +40,13 @@ define([], function () {
 		//Determine which element should receive focus
 		this.focusTarget = this.controls.querySelector('h2, a, button');
 		this.focusTarget.setAttribute('tabindex', '0'); //Ensure that the element is focusable.
+
+    //Close
+    document.addEventListener('closeDropDownWidget', function (e) {
+      if (this.type == e.detail.type && this.isExpanded()) {
+        this.close();
+      }
+    }.bind(this));
 
 		//Toggle
 		this.button.addEventListener('click', function (e) {
@@ -60,6 +68,8 @@ define([], function () {
 		this.controls.hidden = false;
 		//Send focus to the first item
 		this.focusTarget.focus();
+		let openEvent = new CustomEvent('openDropDownWidget', {detail: {type: this.type}});
+		document.dispatchEvent(openEvent);
 	};
 
 	DropDownWidget.prototype.close = function () {

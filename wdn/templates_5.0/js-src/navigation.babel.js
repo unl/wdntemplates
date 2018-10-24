@@ -29,9 +29,12 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
 
             let toggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-menu');
             let mobileNav = document.getElementById('dcf-navigation');
+            let searchDialog  = document.getElementById('dcf-search');
             let modalParent = document.querySelector('.dcf-nav-menu.dcf-modal-parent');
             let body = document.querySelector('body');
             let firstLink = mobileNav.querySelector('a');
+            let closeSearchEvent = new CustomEvent('closeSearch');
+            let closeIDMOptionsEvent = new CustomEvent('closeDropDownWidget', {detail: {type: 'idm-logged-in'}});
 
             // We need to keep track of the toggle button that activated the menu so that we can return focus to it when the menu is closed
             let activeToggleButton = null;
@@ -48,10 +51,15 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
                   main.setAttribute('inert', '');
                   footer.setAttribute('inert', '');
                 }
-                  modalParent.classList.add('dcf-modal-open');
+                modalParent.classList.add('dcf-modal-open');
                 for (var i = 0; i < toggleButtons.length; ++i) {
                     toggleButtons[i].setAttribute('aria-expanded', 'true');
                 }
+
+                // Hide other mobile toggles
+                document.dispatchEvent(closeSearchEvent);
+                document.dispatchEvent(closeIDMOptionsEvent);
+
                 firstLink.focus();
                 document.addEventListener('keyup', onKeyUp);
             }
@@ -69,6 +77,13 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
                 activeToggleButton.focus();
                 document.removeEventListener('keyup', onKeyUp);
             }
+
+            // add an event listener for closeSearchEvent
+            document.addEventListener('closeNavigation', function(e) {
+              if (modalParent.classList.contains('dcf-modal-open')) {
+                closeModal();
+              }
+            });
 
             let toggleButtonOnClick = function() {
                 activeToggleButton = this;
