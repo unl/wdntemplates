@@ -29,7 +29,6 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
 
             let toggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-menu');
             let mobileNav = document.getElementById('dcf-navigation');
-            let searchDialog  = document.getElementById('dcf-search');
             let modalParent = document.querySelector('.dcf-nav-menu.dcf-modal-parent');
             let body = document.querySelector('body');
             let firstLink = mobileNav.querySelector('a');
