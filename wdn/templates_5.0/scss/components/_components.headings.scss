@@ -17,7 +17,8 @@
 
 
 .unl .dcf-subhead {
-//   color: $light-text;
   font-weight: 400;
   @include ls-2;
+  @include lh-3;
+  @include mb-3; // TODO: remove after updated in DCF core
 }
