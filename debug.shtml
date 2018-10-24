@@ -64,32 +64,90 @@
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-2.html" -->
   </header>
 
-  <main class="dcf-main dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
+  <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
 
     <!-- InstanceBeginEditable name="hero" -->
-    <div class="dcf-hero dcf-bleed unl-bg-lightest-gray">
-    <!-- InstanceEndEditable -->
-      <div class="dcf-wrapper dcf-pt-10 dcf-pb-7">
-        <nav class="dcf-breadcrumbs dcf-bleed dcf-txt-2xs unl-font-sans" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+    <div class="dcf-hero dev-hero-text dev-hero-text-cream unl-bg-grit">
+      <!-- InstanceEndEditable -->
+
+      <div class="dev-hero-box dcf-relative dcf-z-1">
+        <nav class="dcf-breadcrumbs dcf-txt-2xs unl-font-sans" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
           <!-- InstanceBeginEditable name="breadcrumbs" -->
           <ol>
             <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
             <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
-            <li>Ensembles</li>
+            <li><span aria-current="page">Ensembles</span></li>
           </ol>
           <!-- InstanceEndEditable -->
         </nav>
-        <div id="dcf-page-title">
+        <div class="dcf-page-title dcf-z-1" id="dcf-page-title">
           <!-- InstanceBeginEditable name="pagetitle" -->
-          <h1 class="dcf-mb-0">Ensembles</h1>
+  <!--
+          <h1 class="dcf-sr-only">Glenn Korff School of Music Home Page</h1>
+          <h2 class="dcf-mb-0">Start Your Story</h2>
+  -->
+          <div class="dev-subhead-home dcf-subhead dcf-txt-2xs unl-dark-gray unl-font-sans">Nebraska helps students turn good ideas into great businesses</div>
+          <h1 class="dev-page-title-home">Entrepreneurship tools work</h1>
+          <div class="dev-subhead-splash dcf-subhead unl-font-sans">Nebraska helps students turn good ideas into great businesses</div>
+          <h1 class="dev-page-title-splash">Entrepreneurship tools work</h1>
+          <span></span>
+          <h1 class="dev-page-title-text">Painting &amp; Drawing</h1>
+          <span></span>
+          <h1 class="dev-page-title-news">Nebraska climbs to No. 25 in Best for Vets ranking</h1>
+          <div class="dev-subhead-news dcf-txt-2xs unl-dark-gray unl-font-sans">16 hours ago in On Campus</div>
           <!-- InstanceEndEditable -->
         </div>
-      </div>
-      <!-- InstanceBeginEditable name="heroimage" -->
+        <!-- InstanceBeginEditable name="herocontent" -->
+        <div class="dev-hero-buttons">
+          <a class="dcf-btn dcf-btn-primary" href="#">Do This Thing</a>
+          <a class="dcf-btn dcf-btn-secondary" href="https://go.unl.edu/vpga">Explore Admissions</a>
+        </div>
+
+  <!--
+        <div class="dcf-hero-img">
+          <img class="dcf-d-block dcf-h-100% dcf-obj-fit-cover" src="wdn/templates_5.0/images/dev/170905-campus-194-xl-2x-min.jpg" alt="">
+        </div>
+  -->
+
+  <!--
+        <div class="dcf-d-flex dcf-ai-center dcf-h-100% dcf-w-100% dcf-overflow-hidden">
+          <img class="dcf-d-block dcf-h-100% dcf-obj-fit-cover" src="wdn/templates_5.0/images/dev/170905-campus-194-xl-2x-min.jpg" alt="">
+        </div>
+  -->
+  <!--
+        <img src="" alt="">
+        <div class="dcf-btn-group">
+          <a class="dcf-btn dcf-btn-primary" href="">Button 1</a>
+          <a class="dcf-btn dcf-btn-secondary" href="">Button 2</a>
+        </div>
+  -->
       <!-- InstanceEndEditable -->
+      </div>
+
+      <div class="dev-hero-img dcf-hero-img dcf-absolute dcf-pin-top dcf-ai-center dcf-h-100% dcf-w-100% dcf-overflow-hidden">
+        <img class="dcf-d-block dcf-h-100% dcf-obj-fit-cover" src="wdn/templates_5.0/images/dev/170905-campus-194-xl-2x-min.jpg" alt="">
+<!--
+        <img
+          class="dcf-d-block dcf-h-100% dcf-obj-fit-cover"
+          sizes="100vw"
+          srcset="wdn/templates_5.0/images/dev/unl-app-search-bg-mediahub-sm.png 673w,
+                  wdn/templates_5.0/images/dev/unl-app-search-bg-mediahub-md.png 898w,
+                  wdn/templates_5.0/images/dev/unl-app-search-bg-mediahub-lg.png 1197w,
+                  wdn/templates_5.0/images/dev/unl-app-search-bg-mediahub-xl.png 1596w,
+                  wdn/templates_5.0/images/dev/unl-app-search-bg-mediahub-2xl.png 2128w,
+                  wdn/templates_5.0/images/dev/unl-app-search-bg-mediahub-3xl.png 2838w"
+          src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+          alt="A student reaches to pull a book off a shelf in the library.">
+-->
+<!--         <span class="dev-photo-credit dcf-absolute dcf-pin-top dcf-pin-right dcf-txt-2xs dcf-pt-4 dcf-pr-2 dcf-pb-4 dcf-pl-2 unl-bg-cream unl-dark-gray">Photo by Jane Doe</span> -->
+        <span class="dev-photo-credit dcf-absolute dcf-pin-top dcf-pin-right dcf-txt-2xs unl-dark-gray">Photo by Jane Doe</span>
+      </div>
+
     </div>
 
-    <div class="dcf-main-content">
+
+
+    <div class="dcf-main-content dcf-wrapper dcf-pt-10">
     <!-- InstanceBeginEditable name="maincontentarea" -->
 
 <!-- <svg viewBox="0 0 174 152" height="142" width="142"><style>.st0{fill:#d00000}</style><path style="stroke: blue; stroke-width: 4px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47zM26 112H16h10zM114 87L62 5l52 82zM70 112H60h10zM158 112h-10 10z"/><path style="stroke: yellow; stroke-width: 2px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47z"/></svg> -->
