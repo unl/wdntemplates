@@ -1,4 +1,4 @@
-define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'], function(Headroom) {
+define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill', 'plugins/custom-event-polyfill'], function(Headroom) {
     "use strict";
 
     // TODO: Remove the matches-polyfill requirement. A better approach will be to load it just for IE.
