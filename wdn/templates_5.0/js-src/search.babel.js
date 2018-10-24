@@ -25,8 +25,6 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				domDialog = document.getElementById('dcf-search-results'),
 				domToggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-search'),
 				domClose = document.getElementById('dcf-close-search'),
-				mobileNav = document.getElementById('dcf-navigation'),
-				searchDialog = document.getElementById('dcf-search'),
 				domActiveToggleButton,
 				domEmbed,
 				$unlSearch,
