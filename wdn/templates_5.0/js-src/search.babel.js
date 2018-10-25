@@ -156,6 +156,7 @@ define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(W
 					$unlSearch.name = 'unlsearch';
 					$unlSearch.id = 'wdn_search_frame';
 					$unlSearch.title = 'Search';
+					$unlSearch.className = 'dcf-b-0 dcf-w-100% dcf-h-100%';
 					$unlSearch.src = searchFrameAction;
 
 					domSearchResultWrapper.appendChild($progress);
@@ -192,6 +193,13 @@ define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(W
 					domToggleButtons[i].setAttribute('aria-pressed', 'false');
 				}
 				domSearchForm.reset();
+
+				// clear results
+				if ($unlSearch) {
+					$unlSearch = null;
+					domSearchResultWrapper.innerHTML = '';
+				}
+
 				if (returnFocus) {
 					//Send focus back to the toggle
 					domActiveToggleButton.focus();
