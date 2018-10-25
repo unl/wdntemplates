@@ -40,7 +40,8 @@ define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(W
 				allowSearchParams = ['u', 'cx'],  // QS Params allowed by UNL Search app
 				//siteHomepage = nav.getSiteHomepage(),
 				//TODO: figure out how to determine the home page in 5.0
-				siteHomepage = 'https://wdn.unl.edu/',
+				//siteHomepage = 'https://wdn.unl.edu/',
+				siteHomepage = location.protocol + '//' + location.host,
 				closeNavEvent = new CustomEvent('closeNavigation'),
 				closeIDMOptionsEvent = new CustomEvent('closeDropDownWidget', {detail: {type: 'idm-logged-in'}}),
 				localSearch = getLocalSearch();
