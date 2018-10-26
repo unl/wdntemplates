@@ -142,7 +142,7 @@ define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(W
 			domEmbed = document.createElement('input');
 			domEmbed.type = 'hidden';
 			domEmbed.name = 'embed';
-			domEmbed.value = '1';
+			domEmbed.value = '5.0'; // Specify which theme version for search
 
 			// add a parameter for triggering the iframe compatible rendering
 			domSearchForm.appendChild(domEmbed);
