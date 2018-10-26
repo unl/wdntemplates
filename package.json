@@ -1,6 +1,6 @@
 {
   "name": "wdntemplates",
-  "version": "4.1.33",
+  "version": "5.0.0-rc1",
   "description": "Web Framework for the UNLedu website.",
   "repository": {
     "type": "git",
