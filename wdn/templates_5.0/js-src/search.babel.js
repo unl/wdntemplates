@@ -38,9 +38,7 @@ define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(W
 				searchAction = searchOrigin + searchPath,
 				searchFrameAction = searchAction + '?embed=1',
 				allowSearchParams = ['u', 'cx'],  // QS Params allowed by UNL Search app
-				//siteHomepage = nav.getSiteHomepage(),
-				//TODO: figure out how to determine the home page in 5.0
-				siteHomepage = 'https://wdn.unl.edu/',
+				siteHomepage = location.protocol + '//' + location.host,
 				closeNavEvent = new CustomEvent('closeNavigation'),
 				closeIDMOptionsEvent = new CustomEvent('closeDropDownWidget', {detail: {type: 'idm-logged-in'}}),
 				localSearch = getLocalSearch();
@@ -156,6 +154,7 @@ define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(W
 					$unlSearch.name = 'unlsearch';
 					$unlSearch.id = 'wdn_search_frame';
 					$unlSearch.title = 'Search';
+					$unlSearch.className = 'dcf-b-0 dcf-w-100% dcf-h-100%';
 					$unlSearch.src = searchFrameAction;
 
 					domSearchResultWrapper.appendChild($progress);
@@ -192,6 +191,13 @@ define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(W
 					domToggleButtons[i].setAttribute('aria-pressed', 'false');
 				}
 				domSearchForm.reset();
+
+				// clear results
+				if ($unlSearch) {
+					$unlSearch = null;
+					domSearchResultWrapper.innerHTML = '';
+				}
+
 				if (returnFocus) {
 					//Send focus back to the toggle
 					domActiveToggleButton.focus();
