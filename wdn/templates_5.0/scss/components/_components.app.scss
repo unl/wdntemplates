@@ -12,6 +12,7 @@
   background-color: transparent;
   border: 0;
   @include cream;
+  font-weight: bold;
   @include pb-4;
   @include pt-4;
 }
