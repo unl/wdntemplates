@@ -75,11 +75,11 @@ define([
                     eventURL = event.WebPages.WebPage.URL;
                 }
 
-                $container.append('<div class="wdn-col"> <a href="' + eventURL + '" target="_blank"><div class="event"> <div class="dateTime">' + '<span class="month">'+month+'</span><span class="day">'+day+'</span><span class="time">'+time+' '+ampm+'<\/span>' + '<\/div> <div class="eventInfo"><p class="eventTitle">'
+                $container.append('<div class="wdn-col"> <a href="' + eventURL + '"><div class="event"> <div class="dateTime">' + '<span class="month">'+month+'</span><span class="day">'+day+'</span><span class="time">'+time+' '+ampm+'<\/span>' + '<\/div> <div class="eventInfo"><p class="eventTitle">'
                     + event.EventTitle + '</p><span class="location">' + location + ' </span>' + '</div></div></a></div>');
 
             });
-            $container.append('<div class="wdn-col-full"><p class="more-events"><a href="' + localConfig.url + '" target="_blank">More Events</a></p></div>');
+            $container.append('<div class="wdn-col-full"><p class="more-events"><a href="' + localConfig.url + '">More Events</a></p></div>');
         });
     };
 
