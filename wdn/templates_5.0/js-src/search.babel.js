@@ -50,6 +50,11 @@ define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(W
 
 			dialogHelper.initialize(domDialog);
 
+      let preventScroll = function(e) {
+        e.preventDefault();
+        return false;
+      };
+
 			var domToggleButtonOnClick = function(e) {
 				if (!domDialog.hasAttribute('open')) {
 
@@ -61,6 +66,9 @@ define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(W
 					domDialog.classList.remove('dcf-d-none');
 					domDialog.showModal();
 					domActiveToggleButton = this;
+
+          // Prevent scroll when search is open
+          domDialog.addEventListener('touchmove', preventScroll);
 
           // Hide other mobile toggles
           document.dispatchEvent(closeNavEvent);
@@ -191,6 +199,9 @@ define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(W
 					domToggleButtons[i].setAttribute('aria-pressed', 'false');
 				}
 				domSearchForm.reset();
+
+				// Allow scroll when search is closed
+				domDialog.removeEventListener('touchmove', preventScroll);
 
 				// clear results
 				if ($unlSearch) {

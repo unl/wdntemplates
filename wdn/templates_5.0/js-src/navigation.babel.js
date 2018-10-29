@@ -44,6 +44,11 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
                 }
             }
 
+            let preventScroll = function(e) {
+              e.preventDefault();
+              return false;
+            };
+
             function openModal() {
                 if (window.matchMedia("(max-width: 56.12em)").matches) {
                   body.classList.add('dcf-overflow-hidden');
@@ -54,6 +59,9 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
                 for (var i = 0; i < toggleButtons.length; ++i) {
                     toggleButtons[i].setAttribute('aria-expanded', 'true');
                 }
+
+                // Prevent scroll when navigation is open
+                mobileNav.addEventListener('touchmove', preventScroll);
 
                 // Hide other mobile toggles
                 document.dispatchEvent(closeSearchEvent);
@@ -75,6 +83,9 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
                 }
                 activeToggleButton.focus();
                 document.removeEventListener('keyup', onKeyUp);
+
+                // Allow scroll when navigation is closed
+                mobileNav.removeEventListener('touchmove', preventScroll);
             }
 
             // add an event listener for closeSearchEvent
