@@ -1,4 +1,6 @@
-define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(WDN, dialogHelper, require) {
+define(['wdn', 'dialog', 'require', 'body-scroll-lock', 'plugins/custom-event-polyfill'], function(WDN, dialogHelper, require, bodyScrollLock) {
+  const disableBodyScroll = bodyScrollLock.disableBodyScroll;
+  const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 	let autoSearchDebounceDelay = 1000;
 
 	function getLocalSearch() {
@@ -50,11 +52,6 @@ define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(W
 
 			dialogHelper.initialize(domDialog);
 
-      let preventScroll = function(e) {
-        e.preventDefault();
-        return false;
-      };
-
 			var domToggleButtonOnClick = function(e) {
 				if (!domDialog.hasAttribute('open')) {
 
@@ -67,8 +64,8 @@ define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(W
 					domDialog.showModal();
 					domActiveToggleButton = this;
 
-          // Prevent scroll when search is open
-          domDialog.addEventListener('touchmove', preventScroll);
+          // Prevent body scroll when search is open
+          disableBodyScroll(domDialog);
 
           // Hide other mobile toggles
           document.dispatchEvent(closeNavEvent);
@@ -200,8 +197,8 @@ define(['wdn', 'dialog', 'require', 'plugins/custom-event-polyfill'], function(W
 				}
 				domSearchForm.reset();
 
-				// Allow scroll when search is closed
-				domDialog.removeEventListener('touchmove', preventScroll);
+        // Allow body scroll when search is closed
+        enableBodyScroll(domDialog);
 
 				// clear results
 				if ($unlSearch) {

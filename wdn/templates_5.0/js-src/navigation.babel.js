@@ -1,7 +1,9 @@
-define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill', 'plugins/custom-event-polyfill'], function(Headroom) {
-    "use strict";
+define(['plugins/headroom', 'body-scroll-lock', 'plugins/matches-polyfill', 'plugins/inert-polyfill', 'plugins/custom-event-polyfill'], function(Headroom, bodyScrollLock) {
+    "use strict"
 
     // TODO: Remove the matches-polyfill requirement. A better approach will be to load it just for IE.
+    const disableBodyScroll = bodyScrollLock.disableBodyScroll;
+    const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 
     let initialized = false;
 
@@ -44,11 +46,6 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
                 }
             }
 
-            let preventScroll = function(e) {
-              e.preventDefault();
-              return false;
-            };
-
             function openModal() {
                 if (window.matchMedia("(max-width: 56.12em)").matches) {
                   body.classList.add('dcf-overflow-hidden');
@@ -60,8 +57,8 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
                     toggleButtons[i].setAttribute('aria-expanded', 'true');
                 }
 
-                // Prevent scroll when navigation is open
-                mobileNav.addEventListener('touchmove', preventScroll);
+                // Prevent body scroll when navigation is open
+                disableBodyScroll(mobileNav);
 
                 // Hide other mobile toggles
                 document.dispatchEvent(closeSearchEvent);
@@ -84,8 +81,8 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
                 activeToggleButton.focus();
                 document.removeEventListener('keyup', onKeyUp);
 
-                // Allow scroll when navigation is closed
-                mobileNav.removeEventListener('touchmove', preventScroll);
+                // Allow body scroll when navigation is closed
+                enableBodyScroll(mobileNav);
             }
 
             // add an event listener for closeSearchEvent
