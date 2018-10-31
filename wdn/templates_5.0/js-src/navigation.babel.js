@@ -1,7 +1,9 @@
-define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill', 'plugins/custom-event-polyfill'], function(Headroom) {
-    "use strict";
+define(['plugins/headroom', 'plugins/body-scroll-lock', 'plugins/matches-polyfill', 'plugins/inert-polyfill', 'plugins/custom-event-polyfill'], function(Headroom, bodyScrollLock) {
+    "use strict"
 
     // TODO: Remove the matches-polyfill requirement. A better approach will be to load it just for IE.
+    const disableBodyScroll = bodyScrollLock.disableBodyScroll;
+    const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 
     let initialized = false;
 
@@ -30,6 +32,7 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
             let toggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-menu');
             let mobileNav = document.getElementById('dcf-navigation');
             let modalParent = document.querySelector('.dcf-nav-menu.dcf-modal-parent');
+            let mobileNavMenu = document.getElementById('dcf-nav-menu-child');
             let body = document.querySelector('body');
             let firstLink = mobileNav.querySelector('a');
             let closeSearchEvent = new CustomEvent('closeSearch');
@@ -55,6 +58,9 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
                     toggleButtons[i].setAttribute('aria-expanded', 'true');
                 }
 
+                // Prevent body scroll when navigation is open
+                disableBodyScroll(mobileNavMenu);
+
                 // Hide other mobile toggles
                 document.dispatchEvent(closeSearchEvent);
                 document.dispatchEvent(closeIDMOptionsEvent);
@@ -75,6 +81,9 @@ define(['plugins/headroom', 'plugins/matches-polyfill', 'plugins/inert-polyfill'
                 }
                 activeToggleButton.focus();
                 document.removeEventListener('keyup', onKeyUp);
+
+                // Allow body scroll when navigation is closed
+                enableBodyScroll(mobileNavMenu);
             }
 
             // add an event listener for closeSearchEvent
