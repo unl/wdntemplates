@@ -32,6 +32,7 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'plugins/matches-polyfil
             let toggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-menu');
             let mobileNav = document.getElementById('dcf-navigation');
             let modalParent = document.querySelector('.dcf-nav-menu.dcf-modal-parent');
+            let mobileNavMenu = document.getElementById('dcf-nav-menu-child');
             let body = document.querySelector('body');
             let firstLink = mobileNav.querySelector('a');
             let closeSearchEvent = new CustomEvent('closeSearch');
@@ -58,7 +59,7 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'plugins/matches-polyfil
                 }
 
                 // Prevent body scroll when navigation is open
-                disableBodyScroll(mobileNav);
+                disableBodyScroll(mobileNavMenu);
 
                 // Hide other mobile toggles
                 document.dispatchEvent(closeSearchEvent);
@@ -82,7 +83,7 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'plugins/matches-polyfil
                 document.removeEventListener('keyup', onKeyUp);
 
                 // Allow body scroll when navigation is closed
-                enableBodyScroll(mobileNav);
+                enableBodyScroll(mobileNavMenu);
             }
 
             // add an event listener for closeSearchEvent

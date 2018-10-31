@@ -65,7 +65,7 @@ define(['wdn', 'dialog', 'require', 'plugins/body-scroll-lock', 'plugins/custom-
 					domActiveToggleButton = this;
 
           // Prevent body scroll when search is open
-          disableBodyScroll(domDialog);
+          disableBodyScroll(domSearchResultWrapper);
 
           // Hide other mobile toggles
           document.dispatchEvent(closeNavEvent);
@@ -198,7 +198,7 @@ define(['wdn', 'dialog', 'require', 'plugins/body-scroll-lock', 'plugins/custom-
 				domSearchForm.reset();
 
         // Allow body scroll when search is closed
-        enableBodyScroll(domDialog);
+        enableBodyScroll(domSearchResultWrapper);
 
 				// clear results
 				if ($unlSearch) {
