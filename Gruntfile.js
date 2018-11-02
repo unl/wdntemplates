@@ -433,7 +433,38 @@ module.exports = function (grunt) {
 				files: [buildDir + '/**/*.html', templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
 				tasks: ['includes']
 			}
-		}
+		},
+
+		// https://github.com/filamentgroup/grunt-criticalcss
+		// possible tool to get critical css
+    // criticalcss: {
+    //   desktop: {
+    //     options: {
+    //       url: "http://localhost/wdntemplates/debug.shtml",
+    //       width: 1200,
+    //       height: 900,
+    //       outputfile: "./desktop-critical.scss",
+    //       filename: "/Library/WebServer/Documents/wdntemplates/wdn/templates_5.0/css/core.css",
+    //       buffer: 800*1024,
+    //       ignoreConsole: false,
+		// 			forceInclude: [],
+    //       restoreFontFaces: false
+    //     }
+    //   },
+    //   mobile: {
+    //     options: {
+    //       url: "http://localhost/wdntemplates/debug.shtml",
+    //       width: 400,
+    //       height: 900,
+    //       outputfile: "./mobile-critical.scss",
+    //       filename: "/Library/WebServer/Documents/wdntemplates/wdn/templates_5.0/css/core.css",
+    //       buffer: 800*1024,
+    //       ignoreConsole: false,
+    //       forceInclude: [],
+    //       restoreFontFaces: false
+    //     }
+    //   }
+    // }
 	});
 
 	// keyword replacement task: restore keywords
@@ -501,8 +532,15 @@ module.exports = function (grunt) {
 		});
 	});
 
+  // https://github.com/filamentgroup/grunt-criticalcss
+	// use if want to run  criticalcss
+	// npm install grunt-criticalcss --save-dev
+  //grunt.loadNpmTasks('grunt-criticalcss');
+
 	// establish grunt default
 	grunt.registerTask('default', ['sassGlobber', 'clean:js', 'css-main', 'js-main']);
+	// use if want to run  criticalcss
+  //grunt.registerTask('default', ['sassGlobber', 'clean:js', 'css-main', 'js-main', 'criticalcss'])
 
 	// legacy targets from Makefile
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
