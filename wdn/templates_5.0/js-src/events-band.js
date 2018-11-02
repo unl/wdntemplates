@@ -27,7 +27,7 @@ define([
             grid = document.createElement('div');
             grid.classList.add('dcf-wrapper', 'dcf-grid', 'dcf-col-gap-vw');
             eventList = document.createElement('ul');
-            eventList.classList.add('unl-event-teaser-list', 'dcf-list-bare', 'dcf-grid-halves@sm', 'dcf-grid-thirds@lg', 'dcf-col-gap-vw', 'dcf-row-gap-md', 'dcf-mb-0');
+            eventList.classList.add('unl-event-teaser-list', 'dcf-list-bare', 'dcf-grid-halves@sm', 'dcf-grid-thirds@lg', 'dcf-col-gap-vw', 'dcf-row-gap-6', 'dcf-mb-0');
 
         if (localConfig.url.match(/upcoming\/$/)) {
             //Don't add the upcoming endpoint if it already exists.
@@ -79,7 +79,7 @@ define([
                     eventURL = event.WebPages.WebPage.URL;
                 }
 
-               eventList.innerHTML += '<li class="unl-event-teaser dcf-d-grid dcf-col-gap-sm"><h3 class="unl-event-title dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6"><a class="dcf-txt-decor-hover unl-darker-gray" href="' + eventURL + '">' + event.EventTitle + '</a></h3><div class="unl-event-datetime dcf-flex-shrink-0 dcf-w-8 dcf-mr-5 dcf-txt-center">' +  '<span class="unl-event-month dcf-d-block dcf-txt-3xs dcf-pt-2 dcf-pb-1 dcf-uppercase dcf-bold unl-ls-2 unl-font-sans unl-cream unl-bg-scarlet">'+month+'</span><span class="unl-event-day dcf-d-block dcf-txt-h4 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray unl-bg-cream">'+day+'</span><span class="unl-event-time dcf-d-block dcf-pt-2 dcf-txt-2xs dcf-uppercase dcf-bold unl-font-sans unl-scarlet">'+time+' '+ampm+'</span>' + '</div><div class="unl-event-location dcf-txt-xs dcf-pt-1 unl-font-sans unl-dark-gray">' + location + '</div></li>';
+               eventList.innerHTML += '<li class="unl-event-teaser dcf-d-grid dcf-col-gap-4"><h3 class="unl-event-title dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6"><a class="dcf-txt-decor-hover unl-darker-gray" href="' + eventURL + '">' + event.EventTitle + '</a></h3><div class="unl-event-datetime dcf-flex-shrink-0 dcf-w-8 dcf-mr-5 dcf-txt-center">' +  '<span class="unl-event-month dcf-d-block dcf-txt-3xs dcf-pt-2 dcf-pb-1 dcf-uppercase dcf-bold unl-ls-2 unl-font-sans unl-cream unl-bg-scarlet">'+month+'</span><span class="unl-event-day dcf-d-block dcf-txt-h4 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray unl-bg-cream">'+day+'</span><span class="unl-event-time dcf-d-block dcf-pt-2 dcf-txt-2xs dcf-uppercase dcf-bold unl-font-sans unl-scarlet">'+time+' '+ampm+'</span>' + '</div><div class="unl-event-location dcf-txt-xs dcf-pt-1 unl-font-sans unl-dark-gray">' + location + '</div></li>';
 
             });
             $container.append('<h2 class="dcf-wrapper dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Upcoming Events</h2>');
