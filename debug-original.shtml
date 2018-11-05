@@ -5,7 +5,7 @@
 <!-- InstanceBeginEditable name="doctitle" -->
   <title>Debugging Out | Framework Testing Page</title>
 <!-- InstanceEndEditable -->
-<!--#include virtual="/wdn/templates_5.0/includes/global/head-2-local.html" -->
+<!--#include virtual="/wdn/templates_5.0/includes/global/head-2.html" -->
 <!-- InstanceBeginEditable name="head" -->
   <!-- Place optional header elements here -->
 <!-- InstanceEndEditable -->
