@@ -16,7 +16,7 @@
  * </div>
  *
  */
-define(['plugins/custom-event-polyfill'], function () {
+define([], function () {
 	"use strict";
 
 	/**
