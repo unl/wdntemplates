@@ -50,12 +50,16 @@
 
 
 .unl .dcf-btn-primary:focus,
-.unl .dcf-btn-primary:hover,
+.unl .dcf-btn-primary:hover {
+  box-shadow: 0 1px $length-em-3 fade-out($color-button-hover,.4);
+}
+
+
 .unl .dcf-btn-secondary:focus,
 .unl .dcf-btn-secondary:hover,
 .unl .dcf-btn-tertiary:focus,
 .unl .dcf-btn-tertiary:hover {
-  box-shadow: 0 1px $length-em-3 fade-out($color-button-hover,.25);
+  box-shadow: 0 1px $length-em-3 fade-out($color-button-hover,.6);
 }
 
 
