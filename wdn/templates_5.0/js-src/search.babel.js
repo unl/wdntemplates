@@ -1,4 +1,4 @@
-define(['wdn', 'dialog', 'require', 'plugins/body-scroll-lock', 'plugins/custom-event-polyfill'], function(WDN, dialogHelper, require, bodyScrollLock) {
+define(['wdn', 'dialogPolyfillHelper', 'require', 'plugins/body-scroll-lock', 'plugins/custom-event-polyfill'], function(WDN, dialogHelper, require, bodyScrollLock) {
   const disableBodyScroll = bodyScrollLock.disableBodyScroll;
   const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 	let autoSearchDebounceDelay = 1000;
