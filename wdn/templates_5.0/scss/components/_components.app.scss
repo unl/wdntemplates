@@ -35,7 +35,14 @@
   }
 
   .unl.app .dcf-app-controls ul {
+    border-left: 1px solid $scarlet-shade;
     display: flex;
   }
 
+  .unl.app .dcf-app-controls li {
+    border-right: 1px solid $scarlet-shade;
+  }
+
 }
+
+// TODO: add button focus/hover states
