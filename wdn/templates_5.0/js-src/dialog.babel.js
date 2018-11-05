@@ -28,8 +28,8 @@ define([], function () {
 		 */
 		registerDialogPolyfill: (dialog) => {
 			if(!window.HTMLDialogElement) {
-				require([	'plugins/dialog-polyfill/dialog-polyfill',
-					'css!plugins/dialog-polyfill/dialog-polyfill.css'],(dialogPolyfill) => {
+				require([	'mustard/dialog-polyfill/dialog-polyfill',
+					'css!mustard/dialog-polyfill/dialog-polyfill.css'],(dialogPolyfill) => {
 					dialogPolyfill.registerDialog(dialog);
 				})
 			}

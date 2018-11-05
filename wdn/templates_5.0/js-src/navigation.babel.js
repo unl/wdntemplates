@@ -1,4 +1,4 @@
-define(['plugins/headroom', 'plugins/body-scroll-lock', 'plugins/inert-polyfill'], function(Headroom, bodyScrollLock) {
+define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'], function(Headroom, bodyScrollLock) {
 
     const disableBodyScroll = bodyScrollLock.disableBodyScroll;
     const enableBodyScroll = bodyScrollLock.enableBodyScroll;
