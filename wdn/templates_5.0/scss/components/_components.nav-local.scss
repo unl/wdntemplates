@@ -15,10 +15,17 @@
 }
 
 
+// TODO: determine focus state styles
 .unl .dcf-nav-local a:link,
 .unl .dcf-nav-local a:visited,
+.unl .dcf-nav-local a:hover,
 .unl .dcf-nav-local a:active {
-  color: $cream; // TODO: determine link state styles
+  color: $cream;
+}
+
+
+.unl .dcf-nav-local a:hover {
+  text-decoration: underline;
 }
 
 
