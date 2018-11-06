@@ -1,7 +1,7 @@
 define([
 	'wdn',
 	'jquery',
-	'dialog_helper'
+	'dialog-helper'
 ], function(WDN, $, dialogHelper) {
 	let dataUrl = 'https://alert.unl.edu/json/unlcap.js';
 	let activeIds = [], calltimeout,
