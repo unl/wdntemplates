@@ -61,7 +61,7 @@ module.exports = function (grunt) {
 	var wdnBuildPlugins = [
 		//'band_imagery',
 		'carousel',
-		// 'dialog',
+		// 'dialog_helper',
 		'events-band',
 		'events',
 		//'jqueryui',
