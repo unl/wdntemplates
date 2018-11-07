@@ -22,7 +22,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "cssnano": "^4.0.5",
-    "dcf": "github:Shaderpixel/dcf#cut-the-mustard",
+    "dcf": "git+https://github.com/d-c-n/dcf.git",
     "grunt": "^1.0.1",
     "grunt-babel": "^7.0.0",
     "grunt-bump": "^0.8.0",
