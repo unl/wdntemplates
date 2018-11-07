@@ -3,6 +3,12 @@
 ////////////////////////////////////
 
 
+.unl .dcf-breadcrumbs {
+  @include txt-2xs;
+  @include font-sans;
+}
+
+
 .unl .dcf-breadcrumbs ol {
   display: flex;
   flex-wrap: nowrap; // Keep breadcrumbs on one line
