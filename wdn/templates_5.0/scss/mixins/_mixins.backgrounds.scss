@@ -23,6 +23,26 @@
 @mixin bg-darkest($imp:null) { background-color: $darkest-gray $imp; }
 
 
+// !Grit
+@mixin bg-grit($imp:null) {
+  background-image: url('../images/bg-grit.png') $imp;
+  background-position: 50% 50% $imp;
+  background-repeat: repeat $imp;
+  background-size: 80px $imp;
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2)     ,
+  only screen and (   min--moz-device-pixel-ratio: 2)     ,
+  only screen and (     -o-min-device-pixel-ratio: 2/1)   ,
+  only screen and (        min-device-pixel-ratio: 2)     ,
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx)  {
+  	background-image: url('../images/bg-grit_2x.png') $imp;
+  }
+
+}
+
+
 // !Diagonal Stripes: Scarlet
 @mixin bg-stripes-scarlet($imp:null) {
   background-image: repeating-linear-gradient($diagonal1, $scarlet, $scarlet 2px, transparent 2px, transparent 4px);
