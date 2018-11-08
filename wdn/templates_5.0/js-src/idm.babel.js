@@ -232,26 +232,26 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 			// TODO: resolve differences between 'mobile' and 'desktop' layouts
 			for (let i=0; i<widgetContainers.length; i++) {
 				let button = document.createElement('BUTTON');
-				button.classList.add('dcf-mobile-toolbar-toggle', 'dcf-mobile-toolbar-toggle-idm', 'dcf-idm-login', 'dcf-d-flex', 'dcf-ai-center', 'dcf-jc-center', 'dcf-relative', 'dcf-h-100%', 'dcf-w-100%', 'dcf-pr-9', 'dcf-b-0', 'dcf-bg-transparent', 'unl-font-sans');
+				button.classList.add('dcf-idm-login', 'dcf-d-flex', 'dcf-ai-center', 'dcf-jc-center', 'dcf-relative', 'dcf-h-100%', 'dcf-w-100%', 'dcf-p-0', 'dcf-b-0', 'dcf-bg-transparent', 'unl-font-sans');
 				button.setAttribute('id', 'dcf-idm-toggle');
 				button.setAttribute('aria-expanded', 'false');
 				button.setAttribute('aria-controls', 'dcf-idm-options-'+i);
 				button.setAttribute('aria-label', 'Account actions for ' + this.getDisplayName());
 
-				let displayName = document.createElement('SPAN');
-				displayName.classList.add('dcf-mobile-toolbar-label', 'dcf-mobile-toolbar-label-idm', 'dcf-txt-2xs', 'dcf-truncate');
-				displayName.innerText = this.getDisplayName();
-				button.appendChild(displayName);
-
 				let img = document.createElement('IMG');
-				img.classList.add('dcf-idm-img', 'dcf-absolute', 'dcf-pin-right', 'dcf-h-8', 'dcf-w-8', 'dcf-circle', 'dcf-b-solid', 'dcf-b-3', 'unl-b-cream', 'unl-bg-cream');
+				img.classList.add('dcf-idm-img', 'dcf-txt-sm', 'dcf-h-6', 'dcf-w-6', 'dcf-circle', 'unl-bg-cream');
 				img.setAttribute('src', avatarService + this.getUserId());
 				img.setAttribute('alt', '');
 				button.appendChild(img);
 
+				let displayName = document.createElement('SPAN');
+				displayName.classList.add('dcf-idm-label', 'dcf-txt-2xs', 'dcf-truncate');
+				displayName.innerText = this.getDisplayName();
+				button.appendChild(displayName);
+
 				//Set up the IDM options
 				let optionsContainer = document.createElement('DIV');
-				optionsContainer.classList.add('dcf-idm-options', 'dcf-absolute', 'dcf-pt-6', 'dcf-pr-5', 'dcf-pb-5', 'dcf-pl-5', 'dcf-bg-overlay-dark');
+				optionsContainer.classList.add('dcf-idm-options', 'dcf-absolute', 'dcf-pt-6', 'dcf-pr-5', 'dcf-pb-5', 'dcf-pl-5', 'dcf-z-1', 'dcf-bg-overlay-dark');
 				optionsContainer.setAttribute('id', 'dcf-idm-options-'+i);
 				optionsContainer.hidden = true;
 

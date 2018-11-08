@@ -11,7 +11,7 @@
 
 // !Line-Height Crop
 // Crop to vertically align headings adjacent to photos (e.g. media object layout)
-.unl-lh-crop { @include lh-crop(!important); }
+.unl-lh-crop::before { @include lh-crop(!important); }
 
 
 // !Outline Text: White
@@ -28,7 +28,3 @@
 
 // !Text Stripes: Dark
 .unl-txt-stripes-dark { @include txt-stripes-dark(!important); }
-
-
-
-
