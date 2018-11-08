@@ -67,11 +67,10 @@
   <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
 
     <!-- InstanceBeginEditable name="hero" -->
-    <div class="dcf-hero dev-hero-text dev-hero-text-cream unl-bg-grit">
-      <!-- InstanceEndEditable -->
-
-      <div class="dev-hero-box dcf-relative dcf-z-1">
-        <nav class="dcf-breadcrumbs dcf-txt-2xs unl-font-sans" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+    <div class="dcf-hero">
+    <!-- InstanceEndEditable -->
+      <div class="dcf-hero-group-1">
+        <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
           <!-- InstanceBeginEditable name="breadcrumbs" -->
           <ol>
             <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
@@ -80,74 +79,20 @@
           </ol>
           <!-- InstanceEndEditable -->
         </nav>
-        <div class="dcf-page-title dcf-z-1" id="dcf-page-title">
+        <header class="dcf-page-title" id="dcf-page-title">
           <!-- InstanceBeginEditable name="pagetitle" -->
-  <!--
-          <h1 class="dcf-sr-only">Glenn Korff School of Music Home Page</h1>
-          <h2 class="dcf-mb-0">Start Your Story</h2>
-  -->
-          <div class="dev-subhead-home dcf-subhead dcf-txt-2xs unl-dark-gray unl-font-sans">Nebraska helps students turn good ideas into great businesses</div>
-          <h1 class="dev-page-title-home">Entrepreneurship tools work</h1>
-          <div class="dev-subhead-splash dcf-subhead unl-font-sans">Nebraska helps students turn good ideas into great businesses</div>
-          <h1 class="dev-page-title-splash">Entrepreneurship tools work</h1>
-          <span></span>
-          <h1 class="dev-page-title-text">Painting &amp; Drawing</h1>
-          <span></span>
-          <h1 class="dev-page-title-news">Nebraska climbs to No. 25 in Best for Vets ranking</h1>
-          <div class="dev-subhead-news dcf-txt-2xs unl-dark-gray unl-font-sans">16 hours ago in On Campus</div>
+          <h1>Page title</h1>
           <!-- InstanceEndEditable -->
-        </div>
-        <!-- InstanceBeginEditable name="herocontent" -->
-        <div class="dev-hero-buttons">
-          <a class="dcf-btn dcf-btn-primary" href="#">Do This Thing</a>
-          <a class="dcf-btn dcf-btn-secondary" href="https://go.unl.edu/vpga">Explore Admissions</a>
-        </div>
-
-  <!--
-        <div class="dcf-hero-img">
-          <img class="dcf-d-block dcf-h-100% dcf-obj-fit-cover" src="wdn/templates_5.0/images/dev/170905-campus-194-xl-2x-min.jpg" alt="">
-        </div>
-  -->
-
-  <!--
-        <div class="dcf-d-flex dcf-ai-center dcf-h-100% dcf-w-100% dcf-overflow-hidden">
-          <img class="dcf-d-block dcf-h-100% dcf-obj-fit-cover" src="wdn/templates_5.0/images/dev/170905-campus-194-xl-2x-min.jpg" alt="">
-        </div>
-  -->
-  <!--
-        <img src="" alt="">
-        <div class="dcf-btn-group">
-          <a class="dcf-btn dcf-btn-primary" href="">Button 1</a>
-          <a class="dcf-btn dcf-btn-secondary" href="">Button 2</a>
-        </div>
-  -->
+        </header>
+        <!-- InstanceBeginEditable name="herogroup1" -->
+        <!-- InstanceEndEditable -->
+      </div>
+      <!-- InstanceBeginEditable name="herogroup2" -->
+      <div class="dcf-hero-group-2">
+      </div>
       <!-- InstanceEndEditable -->
-      </div>
-
-      <div class="dev-hero-img dcf-hero-img dcf-absolute dcf-pin-top dcf-ai-center dcf-h-100% dcf-w-100% dcf-overflow-hidden">
-        <img class="dcf-d-block dcf-h-100% dcf-obj-fit-cover" src="wdn/templates_5.0/images/dev/170905-campus-194-xl-2x-min.jpg" alt="">
-<!--
-        <img
-          class="dcf-d-block dcf-h-100% dcf-obj-fit-cover"
-          sizes="100vw"
-          srcset="wdn/templates_5.0/images/dev/unl-app-search-bg-mediahub-sm.png 673w,
-                  wdn/templates_5.0/images/dev/unl-app-search-bg-mediahub-md.png 898w,
-                  wdn/templates_5.0/images/dev/unl-app-search-bg-mediahub-lg.png 1197w,
-                  wdn/templates_5.0/images/dev/unl-app-search-bg-mediahub-xl.png 1596w,
-                  wdn/templates_5.0/images/dev/unl-app-search-bg-mediahub-2xl.png 2128w,
-                  wdn/templates_5.0/images/dev/unl-app-search-bg-mediahub-3xl.png 2838w"
-          src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-          alt="A student reaches to pull a book off a shelf in the library.">
--->
-<!--         <span class="dev-photo-credit dcf-absolute dcf-pin-top dcf-pin-right dcf-txt-2xs dcf-pt-4 dcf-pr-2 dcf-pb-4 dcf-pl-2 unl-bg-cream unl-dark-gray">Photo by Jane Doe</span> -->
-        <span class="dev-photo-credit dcf-absolute dcf-pin-top dcf-pin-right dcf-txt-2xs unl-dark-gray">Photo by Jane Doe</span>
-      </div>
-
     </div>
-
-
-
-    <div class="dcf-main-content dcf-wrapper dcf-pt-10">
+    <div class="dcf-main-content dcf-wrapper">
     <!-- InstanceBeginEditable name="maincontentarea" -->
 
 <!-- <svg viewBox="0 0 174 152" height="142" width="142"><style>.st0{fill:#d00000}</style><path style="stroke: blue; stroke-width: 4px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47zM26 112H16h10zM114 87L62 5l52 82zM70 112H60h10zM158 112h-10 10z"/><path style="stroke: yellow; stroke-width: 2px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47z"/></svg> -->
@@ -269,35 +214,7 @@
 -->
 
 
-      <div class="dcf-bleed unl-bg-cream" style="">
-        <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
-          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-4">
-            <div class="dcf-as-center">
-              <div class="dcf-d-flex dcf-flex-col">
-                <h2 class="dcf-2nd dcf-txt-xl unl-txt-outline-dark unl-heading-ornament" style="text-shadow: 2px 2px #fff">Cras Vestibulum Ligula Nullam</h2>
-                <h3 class="dcf-1st dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray">Mattis Bibendum</h3>
-              </div>
-              <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
-              <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Do This Thing</a>
-            </div>
-            <div class="dcf-as-center">
-              <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
-                <img
-                  class="dcf-ratio-child dcf-obj-fit-cover"
-                  sizes="(min-width: 41.956em) 43vw, 88vw"
-                  srcset="wdn/templates_5.0/images/dev/170905-campus-152-sm-min.jpg 284w,
-                          wdn/templates_5.0/images/dev/170905-campus-152-md-min.jpg 505w,
-                          wdn/templates_5.0/images/dev/170905-campus-152-lg-min.jpg 898w,
-                          wdn/templates_5.0/images/dev/170905-campus-152-xl-min.jpg 1596w"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Students walk on city campus in between classes.">
-              </div>
-            </div>
-          </div>
-      	</div>
-      </div>
-
-      <div class="dcf-bleed" style="">
+      <div class="dcf-bleed">
         <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
           <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-4">
             <div class="dcf-as-center">
@@ -329,7 +246,7 @@
         <div class="dcf-wrapper">
           <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-4 dcf-pt-9 dcf-pb-9">
             <div class="dcf-2nd unl-ftd-person-tsr-body">
-              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Featured Student</h2>
+              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Featured Student</h2>
               <h3 class="unl-heading-ornament">Kylie Tucker <small class="dcf-regular unl-ls-0 unl-dark-gray">Junior</small></h3>
               <p>A student-powered fund created to expand sustainability programming at the University of Nebraska–Lincoln has set down its first roots. Through a project led by Tucker, a junior fisheries and wildlife major, a prototype green roof has been established on a balcony area at the Rec and Wellness Center on East Campus.</p>
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Kylie</a>
@@ -347,7 +264,7 @@
         <div class="dcf-wrapper">
           <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-4 dcf-pt-9 dcf-pb-9">
             <div class="dcf-2nd unl-ftd-person-tsr-body">
-              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Featured Faculty</h2>
+              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Featured Faculty</h2>
               <h3 class="unl-heading-ornament">Valerie Jones</h3>
               <p>Learn about digital and social media from Valerie Jones, an innovator in the advertising and public relations field.</p>
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">See How Valerie Got There</a>
@@ -365,7 +282,7 @@
         <div class="dcf-wrapper">
           <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-4 dcf-pt-9 dcf-pb-9">
             <div class="dcf-2nd unl-ftd-person-tsr-body">
-              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Featured Alumni</h2>
+              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Featured Alumni</h2>
               <h3 class="unl-heading-ornament">Eartha Jean Johnson <small class="dcf-regular unl-ls-0 unl-dark-gray"><abbr>JD</abbr>, 1994</small></h3>
               <p>Eartha Johnson applied her law degree in a creative and unconventional way by forming LegalWatch, Inc., a legal staffing and training company aimed at advising other companies and their employees about how to avoid litigation through risk mitigation, diversity, ethics and employment law training. LegalWatch’s clients include Shell, Wal-Mart, Halliburton and Exxon. Johnson began LegalWatch after a successful career practicing commercial and environmental law for Exxon and working for the United States Department of Justice. Using the knowledge and information she gained through her legal practice, Johnson created classes that focused on helping companies avoid behaviors that can often force them into unnecessary settlements or lead to costly litigation and damaging headlines.</p>
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Eartha</a>
@@ -384,7 +301,7 @@
 <!-- Staff Listing -->
 <!--
       <div class="dcf-relative dcf-pt-9 dcf-pb-9 dcf-bb">
-        <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Dean’s Office Staff</h2>
+        <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Dean’s Office Staff</h2>
         <div class="dcf-grid dcf-col-gap-vw">
           <ul class="dcf-list-bare dcf-relative dcf-grid-halves@md dcf-grid-thirds@xl dcf-col-gap-vw dcf-row-gap-6 unl-grid-1">
             <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
@@ -813,7 +730,7 @@
         <div class="dcf-wrapper">
           <div class="dcf-grid dcf-relative dcf-col-gap-vw dcf-row-gap-8 dcf-pt-9 dcf-pb-9">
 
-            <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Upcoming Events</h2>
+            <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Upcoming Events</h2>
             <ul class="dcf-d-grid dcf-list-bare dcf-col-gap-vw dcf-row-gap-6 dcf-mb-0 unl-events-listing">
 
               <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
@@ -1487,7 +1404,6 @@
           </tbody>
         </table>
       </figure>
-
 
     <!-- InstanceEndEditable -->
     </div>
