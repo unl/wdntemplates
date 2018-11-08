@@ -12,6 +12,17 @@
   width: 100vw;
 }
 
+// Fix for nested bands
+.wdn-band .wdn-band,
+.wdn-band .dcf-bleed,
+.dcf-bleed .wdn-band {
+  left: 0;
+  margin-left: 0;
+  margin-right: 0;
+  right: 0;
+  width: auto;
+}
+
 .wdn-light-neutral-band {
   @include bg-lightest;
 }
@@ -59,6 +70,13 @@
 .wdn-center {
   text-align: center;
 }
+
+.unl .dcf-main-content > :last-child:not(.wdn-band) {
+  // Provide adequate default vertical spacing between main content and footer.
+  // If the last child uses .wdn-band, no margin will be added.
+  @include mb-8;
+}
+
 
 @include mq(md) {
 

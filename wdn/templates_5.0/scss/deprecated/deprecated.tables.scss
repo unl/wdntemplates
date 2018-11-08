@@ -11,10 +11,6 @@ table {
   width: 100%;
 }
 
-caption {
-  @include txt-xs;
-}
-
 thead,
 tbody {
   @include txt-sm;
