@@ -359,7 +359,7 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					cwd: templateJsSrc,
-					src: ['**', '!**.babel.js'],
+					src: ['**', '!**/*.babel.js'],
 					dest: templateJs,
 					filter: 'isFile'
 				}]

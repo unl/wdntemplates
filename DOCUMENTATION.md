@@ -12,6 +12,10 @@ Place vendor libraries here
 `js-src/mustard`
 Place polyfill files here that are not supported in both polyfill.io and DCF
 
+`js-src/utility-scripts`
+Place script files here that are not require.js modules or widgets but are standalone files for transpile and 
+minification purposes
+
 `js/`
 Contain files and folders to be worked on be bundled by require.js. Files from DCF are also pulled into this folder 
 when the grunt task is ran.
@@ -42,27 +46,3 @@ two ways:
      add to the `js-src/mustard-initializer.babel.js` to feature-test and conditionally require the polyfill. This 
      works best when your polyfill automatically polyfills the window global scope.
      
-```javascript
-// callback function for polyfill.io in ES6+ syntax
-function polyfillsAreLoaded() {
-        function loadJs(url = '', async = true, id = '') {
-            return new Promise((resolve, reject) => {
-                const el = document.createElement('script');
-                el.onload = function() {resolve(url)};
-                el.onerror = function() {reject(url)};
-                el.async = async;
-                el.src = url;
-                el.id = id;
-                document.body.appendChild(el);
-            })
-        }
-
-        loadJs('/wdn/templates_5.0/js/compressed/all.js?dep=$DEP_VERSION$', true, 'wdn_dependents')
-            .catch(
-            		function(err) {
-            			// throw new Error('Something broke' +  err.message);
-                      console.error('Failed at ' + err);
-                    }
-            );
-	}
-```
