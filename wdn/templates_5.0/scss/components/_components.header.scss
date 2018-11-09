@@ -3,13 +3,13 @@
 ///////////////////////////////
 
 
-// .unl .dcf-header a:visited {
-//   color: $color-link;
-// }
+.unl .dcf-header-global a:visited {
+  color: $color-link; // Force visited links in the global header to remain scarlet.
+}
 
 
 .unl .dcf-site-group {
-  min-height: #{ms(8)}em;
+  min-height: #{ms(8)}em; // Vertically center site group (affiliation and title) by providing a minimum height equal to the adjacent Nebraska N logo.
 }
 
 
@@ -65,15 +65,9 @@
 
 @include mq(md, min, width) {
 
-  .unl .dcf-header {
-    display: flex;
-    flex-direction: column;
-  }
-
-
   .unl .dcf-header-global {
     border-bottom: 1px solid $light-gray;
-    padding-top: 2px;
+    padding-top: #{ms(-12)}em;
   }
 
 
@@ -88,23 +82,23 @@
 
 
   .unl .dcf-logo-lockup {
-    @include pb-5;
-    @include pt-6;
+    padding-bottom: #{ms(1)}em;
+    @include pt-5;
   }
 
 
   .unl-site-title-short {
-    @include txt-h4;
+    @include txt-h5;
   }
 
 
   .unl-site-title-medium {
-    @include txt-lg;
+    @include txt-h6;
   }
 
 
   .unl-site-title-long {
-    @include txt-md;
+    @include txt-h6;
   }
 
 }

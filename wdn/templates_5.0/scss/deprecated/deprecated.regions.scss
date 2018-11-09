@@ -1,0 +1,85 @@
+////////////////////////////////
+// !THEME / DEPRECATED / REGIONS
+////////////////////////////////
+
+
+.hide-wdn_institution_title #dcf-institution-title,
+.hide-wdn_identity_management #dcf-idm,
+.hide-wdn_search #dcf-search,
+.hide-breadcrumbs #dcf-breadcrumbs,
+.hide-wdn_footer_contact #dcf-footer-group-1,
+.hide-wdn_footer_contact #dcf-footer-group-2,
+.hide-wdn_logos .unl-footer-logo {
+  display: none;
+}
+
+
+.hide-pagetitle {
+
+  #dcf-page-title {
+    @include sr-only; // Keep the text readable by screen readers and search engines since it contains the h1
+  }
+
+}
+
+
+// TODO: finalize navigation regions
+
+// .hide-wdn_navigation_wrapper { // Hide certain parts in order to retain presentational UI
+//
+//   #navigation {
+//     height: 40px;
+//     display: block;
+//
+//     &:before {
+//       display: none;
+//     }
+//
+//     > * {
+//       display: none;
+//     }
+//
+//   }
+//
+//   .wdn-icon-menu {
+//   	display: none;
+//   }
+//
+// }
+
+
+// TODO: finalize footer regions
+// .hide-footer {
+//
+//   #wdn_footer_contact,
+//   #wdn_copyright {
+//     display: none;
+//   }
+//
+// }
+//
+//
+// .hide-wdn_copyright { // Keep the UI presentation, but hide the content.
+//
+//   .wdn-copyright-phone {
+//     display: none;
+//   }
+//
+// }
+//
+//
+// .hide-wdn_attribution {
+//
+//   .wdn-wdn-qa {
+//   	display: none;
+//   }
+//
+// }
+
+
+.terminal #dcf-breadcrumbs,
+.terminal #dcf-footer-group-1,
+.terminal #dcf-footer-group-2 {
+  display: none;
+//   .hide-wdn_navigation_wrapper;
+}

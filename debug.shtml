@@ -64,28 +64,35 @@
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-2.html" -->
   </header>
 
-  <main class="dcf-main dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
+  <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
 
-    <div class="dcf-hero dcf-bleed unl-bg-lightest-gray">
-      <div class="dcf-wrapper dcf-pt-10 dcf-pb-7">
-        <nav class="dcf-breadcrumbs dcf-bleed dcf-txt-2xs unl-font-sans" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+    <!-- InstanceBeginEditable name="hero" -->
+    <div class="dcf-hero">
+    <!-- InstanceEndEditable -->
+      <div class="dcf-hero-group-1">
+        <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
           <!-- InstanceBeginEditable name="breadcrumbs" -->
           <ol>
             <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
             <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
-            <li>Ensembles</li>
+            <li><span aria-current="page">Ensembles</span></li>
           </ol>
           <!-- InstanceEndEditable -->
         </nav>
-        <div id="dcf-page-title">
+        <header class="dcf-page-title" id="dcf-page-title">
           <!-- InstanceBeginEditable name="pagetitle" -->
-          <h1 class="dcf-mb-0">Ensembles</h1>
+          <h1>Page title</h1>
           <!-- InstanceEndEditable -->
-        </div>
+        </header>
+        <!-- InstanceBeginEditable name="herogroup1" -->
+        <!-- InstanceEndEditable -->
       </div>
+      <!-- InstanceBeginEditable name="herogroup2" -->
+      <div class="dcf-hero-group-2">
+      </div>
+      <!-- InstanceEndEditable -->
     </div>
-
-    <div class="dcf-main-content">
+    <div class="dcf-main-content dcf-wrapper">
     <!-- InstanceBeginEditable name="maincontentarea" -->
 
 <!-- <svg viewBox="0 0 174 152" height="142" width="142"><style>.st0{fill:#d00000}</style><path style="stroke: blue; stroke-width: 4px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47zM26 112H16h10zM114 87L62 5l52 82zM70 112H60h10zM158 112h-10 10z"/><path style="stroke: yellow; stroke-width: 2px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47z"/></svg> -->
@@ -107,7 +114,7 @@
         <p class="dcf-lead">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
 
-        <div class="dcf-mb-6 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-polygon">
+        <div class="dcf-mb-6 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
           <img
             class="dcf-ratio-child dcf-obj-fit-cover"
             sizes="(min-width: 41.956em) 43vw, 88vw"
@@ -190,14 +197,14 @@
 <!--
       <div class="dcf-bleed unl-bg-lighter-cream" style="">
         <div class="dcf-wrapper dcf-pb-10" style="padding-top: 10em">
-          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-sm">
+          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-4">
             <div class="dcf-relative dcf-as-center">
               <h2 class="dcf-absolute dcf-uppercase mask multiply" style="color: #d00000; font-size: 10em; right: -2em; top: -.75em; z-index: 999; filter: blur(0.25px); transform: rotate(-.5deg);">Events</h2>
               <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Do This Thing</a>
             </div>
             <div class="dcf-as-center">
-              <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-polygon">
+              <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.0/images/170902-ne-asu-0878-xl-min.jpg" alt="#" style="filter: grayscale(1);">
               </div>
             </div>
@@ -207,37 +214,9 @@
 -->
 
 
-      <div class="dcf-bleed unl-bg-cream" style="">
+      <div class="dcf-bleed">
         <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
-          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-sm">
-            <div class="dcf-as-center">
-              <div class="dcf-d-flex dcf-flex-col">
-                <h2 class="dcf-2nd dcf-txt-xl unl-txt-outline-dark unl-heading-ornament" style="text-shadow: 2px 2px #fff">Cras Vestibulum Ligula Nullam</h2>
-                <h3 class="dcf-1st dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray">Mattis Bibendum</h3>
-              </div>
-              <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
-              <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Do This Thing</a>
-            </div>
-            <div class="dcf-as-center">
-              <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-polygon">
-                <img
-                  class="dcf-ratio-child dcf-obj-fit-cover"
-                  sizes="(min-width: 41.956em) 43vw, 88vw"
-                  srcset="wdn/templates_5.0/images/dev/170905-campus-152-sm-min.jpg 284w,
-                          wdn/templates_5.0/images/dev/170905-campus-152-md-min.jpg 505w,
-                          wdn/templates_5.0/images/dev/170905-campus-152-lg-min.jpg 898w,
-                          wdn/templates_5.0/images/dev/170905-campus-152-xl-min.jpg 1596w"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Students walk on city campus in between classes.">
-              </div>
-            </div>
-          </div>
-      	</div>
-      </div>
-
-      <div class="dcf-bleed" style="">
-        <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
-          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-sm">
+          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-4">
             <div class="dcf-as-center">
               <div class="dcf-d-flex dcf-flex-col">
                 <h2 class="dcf-2nd dcf-txt-h1 unl-heading-ornament">Cras Vestibulum <span class="unl-txt-outline-dark unl-txt-stripes-dark">Ligula</span> Nullam</h2>
@@ -247,7 +226,7 @@
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Do This Thing</a>
             </div>
             <div class="dcf-as-center">
-              <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-polygon">
+              <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
                 <img
                   class="dcf-ratio-child dcf-obj-fit-cover"
                   sizes="(min-width: 41.956em) 43vw, 88vw"
@@ -265,9 +244,9 @@
 
       <div class="dcf-bleed dcf-bt dcf-bb" style="">
         <div class="dcf-wrapper">
-          <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-sm dcf-pt-9 dcf-pb-9">
+          <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-4 dcf-pt-9 dcf-pb-9">
             <div class="dcf-2nd unl-ftd-person-tsr-body">
-              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Featured Student</h2>
+              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Featured Student</h2>
               <h3 class="unl-heading-ornament">Kylie Tucker <small class="dcf-regular unl-ls-0 unl-dark-gray">Junior</small></h3>
               <p>A student-powered fund created to expand sustainability programming at the University of Nebraska–Lincoln has set down its first roots. Through a project led by Tucker, a junior fisheries and wildlife major, a prototype green roof has been established on a balcony area at the Rec and Wellness Center on East Campus.</p>
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Kylie</a>
@@ -283,9 +262,9 @@
 
       <div class="dcf-bleed dcf-bb" style="">
         <div class="dcf-wrapper">
-          <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-sm dcf-pt-9 dcf-pb-9">
+          <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-4 dcf-pt-9 dcf-pb-9">
             <div class="dcf-2nd unl-ftd-person-tsr-body">
-              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Featured Faculty</h2>
+              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Featured Faculty</h2>
               <h3 class="unl-heading-ornament">Valerie Jones</h3>
               <p>Learn about digital and social media from Valerie Jones, an innovator in the advertising and public relations field.</p>
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">See How Valerie Got There</a>
@@ -301,9 +280,9 @@
 
       <div class="dcf-bleed dcf-bb" style="">
         <div class="dcf-wrapper">
-          <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-sm dcf-pt-9 dcf-pb-9">
+          <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-4 dcf-pt-9 dcf-pb-9">
             <div class="dcf-2nd unl-ftd-person-tsr-body">
-              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Featured Alumni</h2>
+              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Featured Alumni</h2>
               <h3 class="unl-heading-ornament">Eartha Jean Johnson <small class="dcf-regular unl-ls-0 unl-dark-gray"><abbr>JD</abbr>, 1994</small></h3>
               <p>Eartha Johnson applied her law degree in a creative and unconventional way by forming LegalWatch, Inc., a legal staffing and training company aimed at advising other companies and their employees about how to avoid litigation through risk mitigation, diversity, ethics and employment law training. LegalWatch’s clients include Shell, Wal-Mart, Halliburton and Exxon. Johnson began LegalWatch after a successful career practicing commercial and environmental law for Exxon and working for the United States Department of Justice. Using the knowledge and information she gained through her legal practice, Johnson created classes that focused on helping companies avoid behaviors that can often force them into unnecessary settlements or lead to costly litigation and damaging headlines.</p>
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Eartha</a>
@@ -322,9 +301,9 @@
 <!-- Staff Listing -->
 <!--
       <div class="dcf-relative dcf-pt-9 dcf-pb-9 dcf-bb">
-        <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Dean’s Office Staff</h2>
+        <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Dean’s Office Staff</h2>
         <div class="dcf-grid dcf-col-gap-vw">
-          <ul class="dcf-list-bare dcf-relative dcf-grid-halves@md dcf-grid-thirds@xl dcf-col-gap-vw dcf-row-gap-md unl-grid-1">
+          <ul class="dcf-list-bare dcf-relative dcf-grid-halves@md dcf-grid-thirds@xl dcf-col-gap-vw dcf-row-gap-6 unl-grid-1">
             <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
               <div class="dcf-2nd dcf-flex-1">
                 <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Kathe Andersen</a></h3>
@@ -420,7 +399,7 @@
 
 
       <div class="dcf-pt-9 dcf-pb-10">
-        <div class="dcf-grid dcf-col-gap-vw dcf-row-gap-md">
+        <div class="dcf-grid dcf-col-gap-vw dcf-row-gap-6">
           <div class="dcf-2nd dcf-col-67%-end@sm dcf-as-center">
             <h2 class="dcf-mb-0 dcf-txt-h4"><a class="dcf-txt-decor-hover" href="#">Charles O’Connor</a></h2>
             <div class="dcf-mt-1 dcf-mb-5 dcf-lh-3 dcf-italic unl-dark-gray">
@@ -449,7 +428,7 @@
 <!-- Staff Listing -->
       <div class="dcf-pb-9 dcf-bb">
         <h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-stripes unl-dark-gray">Dean’s Office Staff</h2>
-        <ul class="dcf-list-bare dcf-grid-halves dcf-grid-thirds@sm dcf-grid-fourths@md dcf-col-gap-vw dcf-row-gap-md">
+        <ul class="dcf-list-bare dcf-grid-halves dcf-grid-thirds@sm dcf-grid-fourths@md dcf-col-gap-vw dcf-row-gap-6">
           <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
             <div class="dcf-2nd dcf-txt-center">
               <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Kathe Andersen</a></h3>
@@ -546,13 +525,13 @@
 <!--     <div class="dcf-bleed" style="background-image: linear-gradient(to bottom, #fff, #fff 34%, #eee 34%, #eee);"> -->
       <div class="dcf-bleed">
         <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
-          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-sm">
+          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-4">
             <div class="dcf-as-center">
               <h2>Cras Vestibulum <span class="unl-txt-outline-dark">Ligula</span>&nbsp;Nullam</h2>
               <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
             </div>
             <div class="dcf-as-center">
-              <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-polygon">
+              <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
                 <img
                   class="dcf-ratio-child dcf-obj-fit-cover"
                   sizes="(min-width: 41.956em) 43vw, 88vw"
@@ -591,12 +570,12 @@
 <!--
       <div class="dcf-bleed unl-bg-scarlet-stripe">
         <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
-          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-lg">
+          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-8">
             <div class="dcf-as-center">
               <h2 class="dcf-txt-h4">Malesuada Pellentesque</h2>
               <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
             </div>
-            <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-polygon">
+            <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="#">
             </div>
           </div>
@@ -608,12 +587,12 @@
 <!--
       <div class="dcf-bleed unl-bg-cream-stripe">
         <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
-          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-lg">
+          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-8">
             <div class="dcf-as-center">
               <h2 class="dcf-txt-h4">Malesuada Pellentesque</h2>
               <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
             </div>
-            <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-polygon">
+            <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="#">
             </div>
           </div>
@@ -625,7 +604,7 @@
 <!--
       <div class="dcf-bleed">
         <div class="dcf-wrapper dcf-pt-8 dcf-pb-8">
-          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-lg" style="background-image: linear-gradient(57.7deg, #eee 50%, #ddd 50%);">
+          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-8" style="background-image: linear-gradient(57.7deg, #eee 50%, #ddd 50%);">
             <div class="dcf-pt-7 dcf-pr-9 dcf-pb-7 dcf-pl-7">
               <h2 class="dcf-txt-h4">Malesuada Pellentesque</h2>
               <p class="dcf-mb-0">Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out.</p>
@@ -642,13 +621,13 @@
 <!--
       <div class="dcf-bleed">
         <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
-          <div class="dcf-grid-halves@sm dcf-d-grid-fourths@lg dcf-col-gap-vw dcf-row-gap-lg">
+          <div class="dcf-grid-halves@sm dcf-d-grid-fourths@lg dcf-col-gap-vw dcf-row-gap-8">
 
             <a class="dcf-d-flex dcf-flex-wrap" href="#">
               <div class="dcf-2nd">
                 <h3 class="dcf-txt-h5">Nulla vitae elit libero a pharetra augue</h3>
               </div>
-              <div class="dcf-1st dcf-w-100% dcf-mb-2 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-polygon">
+              <div class="dcf-1st dcf-w-100% dcf-mb-2 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="#">
               </div>
             </a>
@@ -657,7 +636,7 @@
               <div class="dcf-2nd">
                 <h3 class="dcf-txt-h5">Cras justo odio dapibus ac facilisis in egestas eget quam</h3>
               </div>
-              <div class="dcf-1st dcf-w-100% dcf-mb-2 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-polygon">
+              <div class="dcf-1st dcf-w-100% dcf-mb-2 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="#">
               </div>
             </a>
@@ -666,7 +645,7 @@
               <div class="dcf-2nd">
                 <h3 class="dcf-txt-h5">Nullam id dolor id nibh ultricies vehicula ut id elit</h3>
               </div>
-              <div class="dcf-1st dcf-w-100% dcf-mb-2 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-polygon">
+              <div class="dcf-1st dcf-w-100% dcf-mb-2 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="#">
               </div>
             </a>
@@ -675,7 +654,7 @@
               <div class="dcf-2nd">
                 <h3 class="dcf-txt-h5">Aenean lacinia bibendum nulla sed consectetur</h3>
               </div>
-              <div class="dcf-1st dcf-w-100% dcf-mb-2 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-polygon">
+              <div class="dcf-1st dcf-w-100% dcf-mb-2 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
                 <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="#">
               </div>
             </a>
@@ -688,8 +667,8 @@
 
       <div class="dcf-bleed unl-bg-light-gray">
         <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
-          <div class="dcf-grid-halves@sm dcf-d-grid-fourths@lg dcf-col-gap-sm dcf-row-gap-sm">
-            <div class="unl-bg-cream dcf-relative unl-frame-polygon">
+          <div class="dcf-grid-halves@sm dcf-d-grid-fourths@lg dcf-col-gap-4 dcf-row-gap-4">
+            <div class="unl-bg-cream dcf-relative unl-frame-quad">
               <div class="dcf-card-block">
                 <svg class="dcf-mb-1 dcf-h-7 dcf-w-7" role="img" aria-labelledby="title-icon-globe-2 desc-icon-globe-2" focusable="false" height="16" width="16" viewBox="0 0 24 24">
                   <title id="title-icon-globe-2">globe icon</title>
@@ -701,7 +680,7 @@
                 <a class="" href="#">Call to Action</a>
               </div>
             </div>
-            <div class="unl-bg-cream dcf-relative unl-frame-polygon">
+            <div class="unl-bg-cream dcf-relative unl-frame-quad">
               <div class="dcf-card-block">
                 <svg class="dcf-mb-1 dcf-h-7 dcf-w-7" role="img" aria-labelledby="title-icon-science-atom-1 desc-icon-science-atom-1" focusable="false" height="16" width="16" viewBox="0 0 24 24">
                   <title id="title-icon-science-atom-1">science atom icon</title>
@@ -715,7 +694,7 @@
                 <a class="" href="#">Call to Action</a>
               </div>
             </div>
-            <div class="unl-bg-cream dcf-relative unl-frame-polygon">
+            <div class="unl-bg-cream dcf-relative unl-frame-quad">
               <div class="dcf-card-block">
                 <svg class="dcf-mb-1 dcf-h-7 dcf-w-7" role="img" aria-labelledby="title-icon-badge-star desc-icon-badge-star" focusable="false" height="16" width="16" viewBox="0 0 24 24">
                   <title id="title-icon-badge-star">badge star icon</title>
@@ -727,7 +706,7 @@
                 <a class="" href="#">Call to Action</a>
               </div>
             </div>
-            <div class="unl-bg-cream dcf-relative unl-frame-polygon">
+            <div class="unl-bg-cream dcf-relative unl-frame-quad">
               <div class="dcf-card-block">
                 <svg class="dcf-mb-1 dcf-h-7 dcf-w-7" role="img" aria-labelledby="title-icon-graduate desc-icon-graduate" focusable="false" height="16" width="16" viewBox="0 0 24 24">
                   <title id="title-icon-graduate">graduate icon</title>
@@ -749,10 +728,10 @@
 
       <div class="dcf-bleed">
         <div class="dcf-wrapper">
-          <div class="dcf-grid dcf-relative dcf-col-gap-vw dcf-row-gap-lg dcf-pt-9 dcf-pb-9">
+          <div class="dcf-grid dcf-relative dcf-col-gap-vw dcf-row-gap-8 dcf-pt-9 dcf-pb-9">
 
-            <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 unl-vertical unl-dark-gray">Upcoming Events</h2>
-            <ul class="dcf-d-grid dcf-list-bare dcf-col-gap-vw dcf-row-gap-md dcf-mb-0 unl-events-listing">
+            <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Upcoming Events</h2>
+            <ul class="dcf-d-grid dcf-list-bare dcf-col-gap-vw dcf-row-gap-6 dcf-mb-0 unl-events-listing">
 
               <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
                 <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
@@ -978,9 +957,9 @@
 
       <!-- Events Listing (Old) -->
   <!--
-      <div class="dcf-events dcf-col-gap-vw dcf-row-gap-lg dcf-pt-10 dcf-pb-10">
+      <div class="dcf-events dcf-col-gap-vw dcf-row-gap-8 dcf-pt-10 dcf-pb-10">
         <h2 class="dcf-events-heading">Upcoming Events</h2>
-        <ul class="dcf-list-bare dcf-events-listing dcf-col-gap-vw dcf-row-gap-md dcf-mb-0">
+        <ul class="dcf-list-bare dcf-events-listing dcf-col-gap-vw dcf-row-gap-6 dcf-mb-0">
 
           <li class="dcf-media dcf-event dcf-pt-3 dcf-bt" itemscope itemtype="http://schema.org/Event">
             <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
@@ -1001,7 +980,7 @@
                 </time>
               </div>
             </div>
-            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-polygon">
+            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-quad">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
             </figure>
           </li>
@@ -1030,7 +1009,7 @@
                 </time>
               </div>
             </div>
-            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-polygon">
+            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-quad">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
             </figure>
           </li>
@@ -1060,7 +1039,7 @@
                 </time>
               </div>
             </div>
-            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-polygon">
+            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-quad">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
             </figure>
           </li>
@@ -1088,7 +1067,7 @@
                 </time>
               </div>
             </div>
-            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-polygon">
+            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-quad">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
             </figure>
           </li>
@@ -1115,7 +1094,7 @@
                 </time>
               </div>
             </div>
-            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-polygon">
+            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-quad">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
             </figure>
           </li>
@@ -1144,7 +1123,7 @@
                 </time>
               </div>
             </div>
-            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-polygon">
+            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-quad">
               <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
             </figure>
           </li>
@@ -1426,11 +1405,10 @@
         </table>
       </figure>
 
-
     <!-- InstanceEndEditable -->
     </div>
   </main>
-  <footer class="dcf-footer dcf-txt-xs" id="dcf-footer" role="contentinfo">
+  <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
     <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-1.html" -->
     <!-- InstanceBeginEditable name="contactinfo" -->
     <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
