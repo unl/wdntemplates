@@ -1,7 +1,5 @@
-define(['plugins/headroom', 'plugins/body-scroll-lock', 'plugins/matches-polyfill', 'plugins/inert-polyfill', 'plugins/custom-event-polyfill'], function(Headroom, bodyScrollLock) {
-    "use strict"
+define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'], function(Headroom, bodyScrollLock) {
 
-    // TODO: Remove the matches-polyfill requirement. A better approach will be to load it just for IE.
     const disableBodyScroll = bodyScrollLock.disableBodyScroll;
     const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 
