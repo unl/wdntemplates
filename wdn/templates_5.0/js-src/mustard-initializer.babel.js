@@ -6,8 +6,10 @@
   document.body.appendChild(el);
 })();
 
-if (!("objectFit" in document.body.style)) {
-  require(["mustard/ofi"], () => {
-    objectFitImages();
-  });
-}
+require(['require',], () => {
+	if(!('objectFit' in document.body.style)) {
+		require(['mustard/ofi'], () => {
+			objectFitImages();
+		})
+	}
+});
