@@ -33,7 +33,7 @@ function wdnInclude($path)
   <!-- InstanceEndEditable -->
   <!-- TemplateParam name="class" type="text" value="" -->
 </head>
-<body class="@@(_document['class'])@@ affiliate" data-version="$HTML_VERSION$">
+<body class="@@(_document['class'])@@ afilliate" data-version="$HTML_VERSION$">
 <?php wdnInclude("/wdn/templates_5.0/includes/global/skip-nav.html"); ?>
 <header class="dcf-header" id="dcf-header" role="banner">
     <?php wdnInclude("/wdn/templates_5.0/includes/global/header-global-1.html"); ?>
@@ -63,11 +63,13 @@ function wdnInclude($path)
     <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-menu-2.html"); ?>
 </header>
 
-<main class="dcf-main dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
+<main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
 
-  <div class="dcf-hero dcf-bleed unl-bg-lightest-gray">
-    <div class="dcf-wrapper dcf-pt-10 dcf-pb-7">
-      <nav class="dcf-breadcrumbs dcf-bleed dcf-txt-2xs unl-font-sans" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+  <!-- InstanceBeginEditable name="hero" -->
+  <div class="dcf-hero">
+    <!-- InstanceEndEditable -->
+    <div class="dcf-hero-group-1">
+      <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
         <!-- InstanceBeginEditable name="breadcrumbs" -->
         <ol>
           <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln" class="wdn-icon-home">UNL</a></li>
@@ -76,21 +78,26 @@ function wdnInclude($path)
         </ol>
         <!-- InstanceEndEditable -->
       </nav>
-      <div id="dcf-page-title">
+      <header class="dcf-page-title" id="dcf-page-title">
         <!-- InstanceBeginEditable name="pagetitle" -->
-        <h1 class="dcf-mb-0">Please Title Your Page Here</h1>
+        <h1>Please Title Your Page Here</h1>
         <!-- InstanceEndEditable -->
-      </div>
+      </header>
+      <!-- InstanceBeginEditable name="herogroup1" -->
+      <!-- InstanceEndEditable -->
     </div>
+    <!-- InstanceBeginEditable name="herogroup2" -->
+    <div class="dcf-hero-group-2">
+    </div>
+    <!-- InstanceEndEditable -->
   </div>
-
-  <div class="dcf-main-content">
+  <div class="dcf-main-content dcf-wrapper">
     <!-- InstanceBeginEditable name="maincontentarea" -->
     <p>Impress your audience with awesome content!</p>
     <!-- InstanceEndEditable -->
   </div>
 </main>
-<footer class="dcf-footer dcf-txt-xs" id="dcf-footer" role="contentinfo">
+<footer class="dcf-footer" id="dcf-footer" role="contentinfo">
     <?php wdnInclude("/wdn/templates_5.0/includes/global/footer-global-1.html"); ?>
   <!-- InstanceBeginEditable name="contactinfo" -->
     <?php wdnInclude("/wdn/templates_5.0/includes/local/footer-local.html"); ?>
@@ -98,10 +105,9 @@ function wdnInclude($path)
     <?php wdnInclude("/wdn/templates_5.0/includes/global/footer-global-2.html"); ?>
 </footer>
 <?php wdnInclude("/wdn/templates_5.0/includes/global/noscript.html"); ?>
-<?php wdnInclude("/wdn/templates_5.0/includes/global/js-body-local.html"); ?>
+<?php wdnInclude("/wdn/templates_5.0/includes/global/js-body.html"); ?>
 <!-- InstanceBeginEditable name="jsbody" -->
 <!-- put your custom javascript here -->
 <!-- InstanceEndEditable -->
 </body>
 </html>
-
