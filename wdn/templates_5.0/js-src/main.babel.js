@@ -13,7 +13,7 @@ requirejs([
 	'wdn',
 	'require',
 	// these are bundles for framework loading and plugin initialization
-	'main-wdn-plugins',
+	'main-wdn-plugins', 'mustard-initializer',
 	//The following plugins initialize on their own and do not need to be passed to the callback
 	'plugins/skipto/skipto.min.js'
 ], function(WDN, require) {
