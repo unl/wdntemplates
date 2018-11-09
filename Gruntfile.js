@@ -61,6 +61,7 @@ module.exports = function (grunt) {
 	var wdnBuildPlugins = [
 		//'band_imagery',
 		'carousel',
+		'dialog',
 		'events-band',
 		'events',
 		//'jqueryui',
@@ -324,13 +325,6 @@ module.exports = function (grunt) {
 					src: ['**/*.js'],
 					dest: templateJs
 				}]
-			},
-			dcfUnminifiedMustards: {
-				files: [{
-					cwd: 'node_modules/dcf/assets/dist/js/mustard',
-					src: ['**/*.js', '!**/*.min.js'],
-					dest: `${templateJs}/mustard`
-				}]
 			}
 		},
 
@@ -358,7 +352,7 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					cwd: templateJsSrc,
-					src: ['**', '!**/*.babel.js'],
+					src: ['**', '!**.babel.js'],
 					dest: templateJs,
 					filter: 'isFile'
 				}]
@@ -515,6 +509,6 @@ module.exports = function (grunt) {
 	grunt.registerTask('all', ['default']);
 	grunt.registerTask('css-main', ['sassGlobber', 'sass:main', 'postcss:main']);
 	grunt.registerTask('css-plugins', ['sassGlobber', 'sass:plugins', 'postcss:plugins']);
-	grunt.registerTask('js-main', ['css-plugins', 'babel', 'copy:babelNoTranspile', 'sync:dcfCommonModules', 'sync:dcfOptionalModules', 'sync:dcfUnminifiedMustards', 'requirejs', 'sync:js', 'clean:js-build']);
+	grunt.registerTask('js-main', ['css-plugins', 'babel', 'copy:babelNoTranspile', 'sync:dcfCommonModules', 'sync:dcfOptionalModules', 'requirejs', 'sync:js', 'clean:js-build']);
 	grunt.registerTask('js', ['clean:js', 'css-plugins', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
 };
