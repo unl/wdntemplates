@@ -5,7 +5,7 @@
 <!-- InstanceBeginEditable name="doctitle" -->
   <title>Debugging Out | Framework Testing Page</title>
 <!-- InstanceEndEditable -->
-<!--#include virtual="/wdn/templates_5.0/includes/global/head-2.html" -->
+<!--#include virtual="/wdn/templates_5.0/includes/global/head-2-local.html" -->
 <!-- InstanceBeginEditable name="head" -->
   <!-- Place optional header elements here -->
 <!-- InstanceEndEditable -->
@@ -67,7 +67,7 @@
   <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
 
     <!-- InstanceBeginEditable name="hero" -->
-    <div class="dcf-hero">
+    <div class="dcf-hero dcf-hero-default">
     <!-- InstanceEndEditable -->
       <div class="dcf-hero-group-1">
         <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">

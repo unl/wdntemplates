@@ -1,8 +1,7 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-  <c:import url="/wdn/templates_5.0/includes/global/head-1.html"/>
+  <!--#include virtual="/wdn/templates_5.0/includes/global/head-1.html" -->
   <!--
     Membership and regular participation in the UNL Web Developer Network is required to use the UNLedu Web Framework. Visit the WDN site at http://wdn.unl.edu/. Register for our mailing list and add your site or server to UNLwebaudit.
     All framework code is the property of the UNL Web Developer Network. The code seen in a source code view is not, and may not be used as, a template. You may not use this code, a reverse-engineered version of this code, or its associated visual presentation in whole or in part to create a derivative work.
@@ -13,40 +12,40 @@
   <!-- InstanceBeginEditable name="doctitle" -->
   <title>Use a descriptive page title | Optional Site Title (use for context) | University of Nebraska&ndash;Lincoln</title>
   <!-- InstanceEndEditable -->
-  <c:import url="/wdn/templates_5.0/includes/global/head-2-local.html"/>
+  <!--#include virtual="/wdn/templates_5.0/includes/global/head-2-local.html" -->
   <!-- InstanceBeginEditable name="head" -->
   <!-- Place optional header elements here -->
   <!-- InstanceEndEditable -->
   <!-- TemplateParam name="class" type="text" value="debug" -->
 </head>
-<body class="@@(_document['class'])@@ affiliate" data-version="$HTML_VERSION$">
-<c:import url="/wdn/templates_5.0/includes/global/skip-nav.html"/>
+<body class="@@(_document['class'])@@ unl" data-version="$HTML_VERSION$">
+<!--#include virtual="/wdn/templates_5.0/includes/global/skip-nav.html" -->
 <header class="dcf-header" id="dcf-header" role="banner">
-  <c:import url="/wdn/templates_5.0/includes/global/header-global-1.html"/>
-  <c:import url="/wdn/templates_5.0/includes/global/idm.html"/>
-  <c:import url="/wdn/templates_5.0/includes/global/search.html"/>
-  <c:import url="/wdn/templates_5.0/includes/global/header-global-2.html"/>
-  <c:import url="/wdn/templates_5.0/includes/global/logo-lockup-1.html"/>
-  <c:import url="/wdn/templates_5.0/includes/global/site-affiliation-1.html"/>
+  <!--#include virtual="/wdn/templates_5.0/includes/global/header-global-1.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/header-global-2.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup-1.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-1.html" -->
   <!-- InstanceBeginEditable name="affiliation" -->
   <a href="#">My site affiliation</a>
   <!-- InstanceEndEditable -->
-  <c:import url="/wdn/templates_5.0/includes/global/site-affiliation-2.html"/>
-  <c:import url="/wdn/templates_5.0/includes/global/site-title-1.html"/>
+  <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-2.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-1.html" -->
   <!-- InstanceBeginEditable name="titlegraphic" -->
   <a class="unl-site-title-medium" href="#">Title of my site</a>
   <!-- InstanceEndEditable -->
-  <c:import url="/wdn/templates_5.0/includes/global/site-title-2.html"/>
-  <c:import url="/wdn/templates_5.0/includes/global/logo-lockup-2.html"/>
-  <c:import url="/wdn/templates_5.0/includes/global/nav-toggle-group.html"/>
-  <c:import url="/wdn/templates_5.0/includes/global/nav-menu-1.html"/>
-  <c:import url="/wdn/templates_5.0/includes/global/nav-toggle-btn.html"/>
-  <c:import url="/wdn/templates_5.0/includes/global/nav-menu-child-1.html"/>
+  <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-2.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup-2.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle-group.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-1.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle-btn.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-1.html" -->
   <!-- InstanceBeginEditable name="navlinks" -->
-  <c:import url="/wdn/templates_5.0/includes/local/nav-local.html"/>
+  <!--#include virtual="/wdn/templates_5.0/includes/local/nav-local.html" -->
   <!-- InstanceEndEditable -->
-  <c:import url="/wdn/templates_5.0/includes/global/nav-menu-child-2.html"/>
-  <c:import url="/wdn/templates_5.0/includes/global/nav-menu-2.html"/>
+  <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-2.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-2.html" -->
 </header>
 
 <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
@@ -84,14 +83,14 @@
   </div>
 </main>
 <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
-  <c:import url="/wdn/templates_5.0/includes/global/footer-global-1.html"/>
+  <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-1.html" -->
   <!-- InstanceBeginEditable name="contactinfo" -->
-  <c:import url="/wdn/templates_5.0/includes/local/footer-local.html"/>
+  <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
   <!-- InstanceEndEditable -->
-  <c:import url="/wdn/templates_5.0/includes/global/footer-global-2.html"/>
+  <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-2.html" -->
 </footer>
-<c:import url="/wdn/templates_5.0/includes/global/noscript.html"/>
-<c:import url="/wdn/templates_5.0/includes/global/js-body-local.html"/>
+<!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
+<!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
 <!-- InstanceBeginEditable name="jsbody" -->
 <!-- put your custom javascript here -->
 <!-- InstanceEndEditable -->
