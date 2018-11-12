@@ -97,29 +97,15 @@
 // core
 
 
-.unl-t-hero-h {
-  color: #fff;
-  display: inline;
-//   box-decoration-break: clone;
-//   box-shadow: .316em 0 0 rgba(208,0,0,.9), -.316em 0 0 rgba(208,0,0,.9);
-//   background-color: rgba(208,0,0,.9);
-}
-
-// .unl .dcf-c-breadcrumbs a {
-//   color: #fff;
-// }
-
-
-
 // TODO: update direction of transform version
-.unl-vertical {
+// .unl-vertical {
 
 // writing-mode version
 //   transform: translateY(-#{ms(4)}em) rotate(180deg);
 //   writing-mode: vertical-lr;
 
-  transform: translateY(-#{ms(0)}em);
-  writing-mode: vertical-lr;
+//   transform: translateY(-#{ms(0)}em);
+//   writing-mode: vertical-lr;
 
 
 // transform version
@@ -132,7 +118,7 @@
 
 }
 
-.unl-vertical::after {
+// .unl-vertical::after {
 // writing-mode version
 //   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
 //   content: '';
@@ -153,29 +139,29 @@
 //   transform-origin: 100% 100%;
 //   width: $length-em-3;
 
-}
+// }
 
-.unl-vertical::before {
-
-// writing-mode version
-  background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
-  content: '';
-  display: inline-block;
-  height: $length-em-10;
-  @include mb-4;
-  width: $length-em-3;
-
-// transform version
+// .unl-vertical::before {
+//
+// // writing-mode version
 //   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
-//   bottom: 50%;
 //   content: '';
 //   display: inline-block;
-//   height: $length-em-3;
-//   right: -1em;
-//   transform: rotate(90deg) translateX(50%);
-//   transform-origin: 100% 100%;
-//   width: $length-em-10;
-}
+//   height: $length-em-10;
+//   @include mb-4;
+//   width: $length-em-3;
+//
+// // transform version
+// //   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
+// //   bottom: 50%;
+// //   content: '';
+// //   display: inline-block;
+// //   height: $length-em-3;
+// //   right: -1em;
+// //   transform: rotate(90deg) translateX(50%);
+// //   transform-origin: 100% 100%;
+// //   width: $length-em-10;
+// }
 
 
 
