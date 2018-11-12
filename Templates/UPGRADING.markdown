@@ -1,4 +1,4 @@
-# Dreamweaver Upgrade Notes for 4.0 to 4.1
+# Dreamweaver Upgrade Notes for 4.1 to 5.0
 
 1. Make a backup of your entire site before making any modifications!
 2. Download the latest dwts from http://wdn.unl.edu/downloads/ and place them within your local `Templates` directory.
@@ -48,6 +48,7 @@ Please read the upgrading documentation from previous releases, if necessary.
 
 * 3.1 - https://github.com/unl/wdntemplates/blob/3.1.23/Templates/UPGRADING.markdown
 * 4.0 - https://github.com/unl/wdntemplates/blob/4.0.35/Templates/UPGRADING.markdown
+* 4.1 - https://github.com/unl/wdntemplates/blob/4.1.36/Templates/UPGRADING.markdown
 
 ## A Note Regarding Server Syncing
 

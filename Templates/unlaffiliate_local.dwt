@@ -90,7 +90,7 @@
   <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-2.html" -->
 </footer>
 <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
-<!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
+<!--#include virtual="/wdn/templates_5.0/includes/global/js-body-local.html" -->
 <!-- InstanceBeginEditable name="jsbody" -->
 <!-- put your custom javascript here -->
 <!-- InstanceEndEditable -->

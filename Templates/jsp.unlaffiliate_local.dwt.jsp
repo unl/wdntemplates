@@ -91,7 +91,7 @@
   <c:import url="/wdn/templates_5.0/includes/global/footer-global-2.html"/>
 </footer>
 <c:import url="/wdn/templates_5.0/includes/global/noscript.html"/>
-<c:import url="/wdn/templates_5.0/includes/global/js-body.html"/>
+<c:import url="/wdn/templates_5.0/includes/global/js-body-local.html"/>
 <!-- InstanceBeginEditable name="jsbody" -->
 <!-- put your custom javascript here -->
 <!-- InstanceEndEditable -->
