@@ -117,9 +117,9 @@ form span.helper {
 
 
 // Button
-button,
-input[type='button'],
-input[type='submit'],
+main button,
+main input[type='button'],
+main input[type='submit'],
 .wdn-button,
 .wdn-input-group-btn button,
 .wdn-input-group-btn input {
@@ -137,19 +137,18 @@ input[type='submit'],
   text-align: center;
   text-transform: uppercase;
   vertical-align: middle;
-  white-space: nowrap;
 }
 
-button:focus,
-input[type='button']:focus,
-input[type='submit']:focus,
+main button:focus,
+main input[type='button']:focus,
+main input[type='submit']:focus,
 .wdn-button:focus,
 .wdn-input-group-btn button:focus,
 .wdn-input-group-btn input:focus {
   outline: none;
 }
 
-input[type='submit'],
+main input[type='submit'],
 .wdn-button {
   display: inline-block;
   text-decoration: none;
@@ -163,9 +162,9 @@ input[type='submit'],
 
 
 // Primary Button
-button,
-input[type='button'],
-input[type='submit'],
+main button,
+main input[type='button'],
+main input[type='submit'],
 .wdn-button,
 .wdn-button-brand,
 .wdn-input-group-btn button,
@@ -213,15 +212,15 @@ a.wdn-button-brand:active {
 .wdn-button-complement,
 .wdn-button-energetic,
 .wdn-button-triad,
-button.wdn-button-complement,
-button.wdn-button-energetic,
-button.wdn-button-triad,
-input[type='button'].wdn-button-complement,
-input[type='button'].wdn-button-energetic,
-input[type='button'].wdn-button-triad,
-input[type='submit'].wdn-button-complement,
-input[type='submit'].wdn-button-energetic,
-input[type='submit'].wdn-button-triad,
+main button.wdn-button-complement,
+main button.wdn-button-energetic,
+main button.wdn-button-triad,
+main input[type='button'].wdn-button-complement,
+main input[type='button'].wdn-button-energetic,
+main input[type='button'].wdn-button-triad,
+main input[type='submit'].wdn-button-complement,
+main input[type='submit'].wdn-button-energetic,
+main input[type='submit'].wdn-button-triad,
 a.wdn-button-complement:link,
 a.wdn-button-energetic:link,
 a.wdn-button-triad:link,
@@ -245,12 +244,12 @@ a.wdn-button-triad:visited {
 .wdn-button-complement:active,
 .wdn-button-energetic:active,
 .wdn-button-triad:active,
-input[type='button'].wdn-button-complement:active,
-input[type='button'].wdn-button-energetic:active,
-input[type='button'].wdn-button-triad:active,
-input[type='submit'].wdn-button-complement:active,
-input[type='submit'].wdn-button-energetic:active,
-input[type='submit'].wdn-button-triad:active,
+main input[type='button'].wdn-button-complement:active,
+main input[type='button'].wdn-button-energetic:active,
+main input[type='button'].wdn-button-triad:active,
+main input[type='submit'].wdn-button-complement:active,
+main input[type='submit'].wdn-button-energetic:active,
+main input[type='submit'].wdn-button-triad:active,
 a.wdn-button-complement:active,
 a.wdn-button-energetic:active,
 a.wdn-button-triad:active {
@@ -263,8 +262,8 @@ a.wdn-button-triad:active {
 // Outline Button
 .wdn-button-outline,
 .wdn-button-outline:active,
-input[type='button'].wdn-button-outline,
-input[type='submit'].wdn-button-outline,
+main input[type='button'].wdn-button-outline,
+main input[type='submit'].wdn-button-outline,
 a.wdn-button-outline:link,
 a.wdn-button-outline:visited,
 a.wdn-button-outline:active {
