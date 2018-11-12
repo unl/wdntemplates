@@ -34,9 +34,11 @@ The script to remove inline critical styles once the core stylesheets have been 
 transpiled version from `js/compressed/utility-scripts` and replace the one inside  of `head-2.html` include file.
 
 ## Polyfilling Browser Features
-Polyfilling for 5.0 for the most part is done through [polyfill.io](http://polyfill.io). The script tag that loads 
-polyfill.io is contained in the `includes/global/js-body.html` include file. After the polyfills are returned from 
-polyfill.io's servers on the second round trip, the callback `polyfillsAreLoaded` is ran to load the all.js entry file 
+Polyfilling in 5.0 is done, for the most part, through [polyfill.io](http://polyfill.io). The script that 
+dynamically load
+polyfill.io synchronously is contained within `js-src/mustard-initializer.babel.js`. The mustard-initalizer.js file is 
+loaded after all.js entry file has been loaded and before any of the other require modules. This sequence of loading 
+is defined within the Gruntfile.js under the `polyfillMods` array.
 
 Steps to polyfill features 
 lacking in browsers are as follow: 
@@ -46,12 +48,10 @@ brought in through the DCF package. If the polyfill use case is very niche to wh
 the `js-src/mustard` folder. Use unminified files only.
 3. Once the polyfill file has been included in one of the above locations, implementing the polyfill can be done in 
 two ways:
-    1. Determine if the polyfill can be included only when there are scripts that make use of the polyfill and then 
+    1. Determine if the polyfill can be included only when there are modules that make use of the polyfill and then 
     conditionally require the polyfill through feature testing (e.g.cutting-the-mustard). 
-        * For example the dialog-polyfill.js is used inside of the `js-src/dialog-helper.babel.js` instead of being 
-        brought in on every single page. Inside `js-src/dialog-helper.babel.js`, further feature testing is done to 
+        * For example the dialog-polyfill.js is only used inside of the `js-src/dialog-helper.babel.js` instead of being brought in on every single page. Inside the same file, further feature testing is done to 
         conditionally require the polyfill for browsers that don't currently support the dialog element (e.g. Firefox)
     2. If the polyfill's use case is broad (e.g. object-fit polyfill) or the above step is not possible, then you can
-     add to the `js-src/mustard-initializer.babel.js` to feature-test and conditionally require the polyfill. This 
-     works best when your polyfill automatically polyfills the window global scope.
+     add the polyfill to `js-src/mustard-initializer.babel.js` by feature-testing and conditionally requiring the polyfill. This works best when your polyfill automatically polyfills the window global scope.
      

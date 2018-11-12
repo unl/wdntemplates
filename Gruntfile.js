@@ -203,9 +203,9 @@ module.exports = function (grunt) {
 		scssJsFiles[templateJs + '/' + file + '.css'] = templateJsSrc + '/' + file + '.scss';
 	});
 
-	// load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
+	// load all grunt plugins matching the ['grunt-*', '@*/grunt-*'] patterns
 	require('load-grunt-tasks')(grunt);
-
+	var nodeSass = require('node-sass');
 	/**
 	 * Setting up grunt tasks
 	 */
@@ -231,6 +231,7 @@ module.exports = function (grunt) {
 		sass: {
 			main: {
 				options: {
+					implementation: nodeSass,
 					sourceMap: true,
 					includePaths: [
 						__dirname+'/node_modules/modularscale-sass/stylesheets'
@@ -240,6 +241,7 @@ module.exports = function (grunt) {
 			},
 			plugins: {
 				options: {
+					implementation: nodeSass,
 					sourceMap: true,
 					includePaths: [
 						__dirname+'/node_modules/modularscale-sass/stylesheets'
