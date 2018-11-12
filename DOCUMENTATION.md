@@ -3,26 +3,35 @@
 ## Folder Structure 
 ### Directories and Files
 `js-src/`
-* All files in this folder will be first copied to the `/js` folder before require.js works on them
-* `*.babel.js` files in the root of `js-src` will be Babel transpiled and moved to `/js/*.js` 
+* All files in this folder will be first copied to the `/js` folder (through the Grunt sync:js task) before require.js 
+works on them
+* `*.babel.js` files in the root of `js-src/` will be Babel transpiled and moved to `/js/*.js` 
 
 `js-src/plugins`
-Place vendor libraries here
+* Place vendor libraries here
 
 `js-src/mustard`
-Place polyfill files here that are not supported in both polyfill.io and DCF
+* Place polyfill files here that are not supported in both polyfill.io and DCF
 
 `js-src/utility-scripts`
-Place script files here that are not require.js modules or widgets but are standalone files for transpile and 
+* Place script files here that are not require.js modules or widgets but are standalone files for transpile and 
 minification purposes
 
 `js/`
-Contain files and folders to be worked on be bundled by require.js. Files from DCF are also pulled into this folder 
+* Contain files and folders to be worked on be bundled by require.js. Files from DCF are also pulled into this folder 
 when the grunt task is ran.
 
 `js/compressed`
-Production ready JS files, containing the require.js entry file all.js
+* Production ready JS files, containing the require.js entry file all.js
 
+`scss/*`
+* place theme SASS partials in this folder. 
+* main SASS files include glob patterns that pull in DCF SASS partials for compilation
+
+## Critical CSS
+The script to remove inline critical styles once the core stylesheets have been loaded can be found in 
+`js-src/utility-scripts/clearCriticalCSS.js`. If changes needs to be made to the script, grab the minified and 
+transpiled version from `js/compressed/utility-scripts` and replace the one inside  of `head-2.html` include file.
 
 ## Polyfilling Browser Features
 Polyfilling for 5.0 for the most part is done through [polyfill.io](http://polyfill.io). The script tag that loads 
