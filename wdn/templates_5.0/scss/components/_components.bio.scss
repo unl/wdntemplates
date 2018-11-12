@@ -1,0 +1,60 @@
+////////////////////////////
+// !THEME / COMPONENTS / BIO
+////////////////////////////
+
+
+// .unl-bio {
+// }
+//
+// .unl-bio-directory {
+// }
+//
+// .unl-bio-info {
+// }
+//
+// .unl-vcard-tools {
+// }
+
+@supports (display: grid) {
+
+  .unl-bio {
+    display: grid;
+    grid-template-areas: "avatar" "header" "contact" "cv";
+    grid-template-columns: auto;
+  }
+
+  .unl-bio-header {
+    grid-area: header;
+  }
+
+  .unl-bio-avatar {
+    grid-area: avatar;
+  }
+
+  .unl-bio-contact {
+    grid-area: contact;
+  }
+
+  .unl-bio-cv {
+    grid-area: cv;
+  }
+
+  .unl-vcard-tools {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .unl-vcard-tools-correction {
+    grid-column: auto / span 2;
+  }
+
+  @include mq(md, min, width) {
+
+    .unl-bio {
+      grid-template-areas: "avatar header" "contact cv";
+      grid-template-columns: #{ms(18)}em 2fr;
+    }
+
+  }
+
+}
