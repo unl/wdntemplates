@@ -1,7 +1,4 @@
-define([
-	'plugins/dialog-polyfill/dialog-polyfill',
-	'css!plugins/dialog-polyfill/dialog-polyfill.css'
-], function (dialogPolyfill) {
+define([], function () {
 
 	/**
 	 * 
@@ -15,8 +12,8 @@ define([
 		 * @param closeButton null|node - null will prompt the function to find all buttons with the data-close-dialog attribute
 		 */
 		initialize: (dialog, showButton, closeButton) => {
-			//attach the polyfill
-			dialogHelper.registerDialogPolyfill(dialog);
+			//attach the polyfill if Dialog element not present in window
+			if (!window.HTMLDialogElement) dialogHelper.registerDialogPolyfill(dialog);
 
 			//add event listeners and other WDN magic
 			dialogHelper.setupShowDialogButton(dialog, showButton);
@@ -30,7 +27,12 @@ define([
 		 * @param dialog the dialog node
 		 */
 		registerDialogPolyfill: (dialog) => {
-			dialogPolyfill.registerDialog(dialog);
+			if(!window.HTMLDialogElement) {
+				require([	'mustard/dialog-polyfill',
+					'css!mustard/dialog-polyfill.css'],(dialogPolyfill) => {
+					dialogPolyfill.registerDialog(dialog);
+				})
+			}
 		},
 
 		/**
