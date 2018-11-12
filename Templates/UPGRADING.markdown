@@ -19,9 +19,14 @@
 <!--[if !(IEMobile) | !(IE)]><!-->
 ```
 
-**Changes to sharedcode files**: New examples for building a local footer are provided in `sharedcode/localFooter.html`. One of the examples _should_ replace your existing content for the two regions `contactinfo` and `leftcollinks`, previously filled with the files `sharedcode/footerContactInfo.html`, `sharedcode/relatedLinks.html` respectively. The examples no longer recommend adding any heading elements (`h1` - `h6`) in the local footer, instead a tag with `role=heading` will provide good accessibility while not hurting the HTML parsed document outline. Please consider removing outdated, no longer used files from your `sharedcode` directory.
+**Changes to local example files**: Local example files have been moved from `sharedCode` to `wdn/templates_5.*/includes/local`.
+The example files are now:
+* app-controls.html (for app theme)
+* app-search.html (for app theme)
+* footer-local.html
+* nav-local.html
 
-**New affiliation region**: A new region called `affiliation` has been added above the `titlegraphic` region. Previously adding an affiliation to your Site Title required adding `<span>` elements to the `titlegraphic` region. Those `<span>` elements should be removed and the affiliation text should be put into the `affiliation` region.
+**New hero regions** A new region called `hero` has been added as the first child of the `main` element. This is editable to allow classes to be added to change the styling of the hero. Additionally, there are two optional regions, `herogroup1` and `herogroup2`, that can be used for adding images and call to action buttons to a hero.
 
 **Review other regions for outdated code**: Over the years the templates have evolved and developers have often placed design (css) and experience (javascript) file references in various editable regions. You should take the time to review _all_ editable regions for things that are no longer necessary or would otherwise be considered an _override_ of the framework. Specifically, the following issues have come up during transitions:
 
