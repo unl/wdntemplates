@@ -1,4 +1,4 @@
-define(['wdn', 'dialog', 'require', 'plugins/body-scroll-lock', 'plugins/custom-event-polyfill'], function(WDN, dialogHelper, require, bodyScrollLock) {
+define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function(WDN, dialogHelper, require, bodyScrollLock) {
   const disableBodyScroll = bodyScrollLock.disableBodyScroll;
   const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 	let autoSearchDebounceDelay = 1000;
@@ -147,7 +147,7 @@ define(['wdn', 'dialog', 'require', 'plugins/body-scroll-lock', 'plugins/custom-
 			domEmbed = document.createElement('input');
 			domEmbed.type = 'hidden';
 			domEmbed.name = 'embed';
-			domEmbed.value = '1';
+			domEmbed.value = '5.0'; // Specify which theme version for search
 
 			// add a parameter for triggering the iframe compatible rendering
 			domSearchForm.appendChild(domEmbed);

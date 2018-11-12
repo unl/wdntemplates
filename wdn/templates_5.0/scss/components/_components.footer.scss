@@ -40,26 +40,18 @@
 
 
 // Footer links
-
-.unl .dcf-footer a {
+// TODO: determine focus state styles
+.unl .dcf-footer a,
+.unl .dcf-footer a:link,
+.unl .dcf-footer a:visited,
+.unl .dcf-footer a:active {
   color: $color-footer-link;
   text-decoration: none;
 }
 
-.unl .dcf-footer a:link {
-  color: $color-footer-link;
-}
-
-.unl .dcf-footer a:visited {
-  color: $color-footer-link-visited;
-}
-
 .unl .dcf-footer a:hover {
-  color: $color-footer-link-hover;
-}
-
-.unl .dcf-footer a:active {
-  color: $color-footer-link-active;
+  color: $color-footer-link;
+  text-decoration: underline;
 }
 
 

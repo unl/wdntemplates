@@ -15,10 +15,17 @@
 }
 
 
+// TODO: determine focus state styles
 .unl .dcf-nav-local a:link,
 .unl .dcf-nav-local a:visited,
+.unl .dcf-nav-local a:hover,
 .unl .dcf-nav-local a:active {
-  color: $cream; // TODO: determine link state styles
+  color: $cream;
+}
+
+
+.unl .dcf-nav-local a:hover {
+  text-decoration: underline;
 }
 
 
@@ -28,12 +35,8 @@
 }
 
 
-.unl .dcf-nav-local li {
-  margin-bottom: 0;
-}
-
-
 .unl .dcf-nav-local > ul > li > a {
+  font-weight: bold;
   @include pb-4;
   @include pt-4;
 }
@@ -81,7 +84,6 @@
 @include mq(md, min, width) {
 
   .unl .dcf-nav-local > ul {
-    @include txt-xs;
     grid-template-columns: repeat(6, 1fr);
     overflow: hidden;
     width: 100%;
@@ -112,22 +114,23 @@
   .unl .dcf-nav-local ul ul {
     @include txt-sm;
     @include pb-7;
+    width: 100%;
   }
+
 
   // Background for open mega menu
   .unl .dcf-nav-local ul ul::before {
     @include bg-scarlet;
     content: '';
     height: 100%;
-    left: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    left: 0;
     position: absolute;
-    right: 50%;
     top: 0;
-    width: 150vw;
+    width: 200vw;
+    transform: translateX(-50%);
     z-index: -1;
   }
+
 
   .unl .dcf-nav-toggle-btn-menu ~ .dcf-nav-local ul ul  {
     pointer-events: none;

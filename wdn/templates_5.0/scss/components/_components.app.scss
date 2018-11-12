@@ -8,6 +8,16 @@
 }
 
 
+.unl.app .dcf-app-controls button {
+  background-color: transparent;
+  border: 0;
+  @include cream;
+  font-weight: bold;
+  @include pb-4;
+  @include pt-4;
+}
+
+
 @include mq(md, max, width) {
 
   .unl.app .dcf-app-controls ul {
@@ -15,3 +25,24 @@
   }
 
 }
+
+
+@include mq(md, min, width) {
+
+  .unl.app .dcf-app-controls {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .unl.app .dcf-app-controls ul {
+    border-left: 1px solid $scarlet-shade;
+    display: flex;
+  }
+
+  .unl.app .dcf-app-controls li {
+    border-right: 1px solid $scarlet-shade;
+  }
+
+}
+
+// TODO: add button focus/hover states

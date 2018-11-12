@@ -10,6 +10,18 @@
 }
 
 
+.unl .dcf-nav-menu ul { // TODO: remove after updated in DCF core
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+
+.unl .dcf-nav-menu li { // TODO: remove after updated in DCF core
+  margin-bottom: 0;
+}
+
+
 @include mq(md, max, width) {
 
   .unl .dcf-nav-menu.dcf-modal-open {
@@ -49,9 +61,13 @@
   }
 
 
-  .unl .dcf-nav-menu-child > ul {
-    @include pb-7;
-    @include pt-6;
+  .unl .dcf-nav-menu-child > *:first-child {
+    @include mt-6;
+  }
+
+
+  .unl .dcf-nav-menu-child > *:last-child {
+    @include mb-7;
   }
 
 
@@ -92,6 +108,11 @@
     padding-left: $length-vw-2;
     padding-right: $length-vw-2;
 //     position: relative;
+  }
+
+  .unl .dcf-nav-menu a,
+  .unl .dcf-nav-menu button, {
+    @include txt-xs;
   }
 
 }

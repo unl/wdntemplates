@@ -23,6 +23,10 @@
 .unl-bg-darkest-gray { @include bg-darkest(!important); }
 
 
+// !Grit
+.unl-bg-grit { @include bg-grit(!important); }
+
+
 // !Diagonal Stripes: Scarlet
 .unl-bg-stripes-scarlet { @include bg-stripes-scarlet(!important); }
 

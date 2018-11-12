@@ -52,6 +52,7 @@ module.exports = function (grunt) {
 	// polyfill modules that need sync loading (should match scripts loaded in debug.js)
 	var polyfillMods = [
 		//'modernizr-wdn',
+		'mustard-initializer', // make sure that polyfill.io and other mustard are loaded first before other scripts
 		'ga',
 		'requireLib',
 		'wdn'
@@ -61,7 +62,6 @@ module.exports = function (grunt) {
 	var wdnBuildPlugins = [
 		//'band_imagery',
 		'carousel',
-		'dialog',
 		'events-band',
 		'events',
 		//'jqueryui',
@@ -325,6 +325,13 @@ module.exports = function (grunt) {
 					src: ['**/*.js'],
 					dest: templateJs
 				}]
+			},
+			dcfUnminifiedMustards: {
+				files: [{
+					cwd: 'node_modules/dcf/assets/dist/js/mustard',
+					src: ['**/*.js', '!**/*.min.js'],
+					dest: `${templateJs}/mustard`
+				}]
 			}
 		},
 
@@ -352,7 +359,7 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					cwd: templateJsSrc,
-					src: ['**', '!**.babel.js'],
+					src: ['**', '!**/*.babel.js'],
 					dest: templateJs,
 					filter: 'isFile'
 				}]
@@ -433,7 +440,38 @@ module.exports = function (grunt) {
 				files: [buildDir + '/**/*.html', templateScss + '/**/*.scss', templateJs + '/js-css/*.scss'],
 				tasks: ['includes']
 			}
-		}
+		},
+
+		// https://github.com/filamentgroup/grunt-criticalcss
+		// possible tool to get critical css
+    // criticalcss: {
+    //   desktop: {
+    //     options: {
+    //       url: "http://localhost/wdntemplates/debug.shtml",
+    //       width: 1200,
+    //       height: 900,
+    //       outputfile: "./desktop-critical.scss",
+    //       filename: "/Library/WebServer/Documents/wdntemplates/wdn/templates_5.0/css/core.css",
+    //       buffer: 800*1024,
+    //       ignoreConsole: false,
+		// 			forceInclude: [],
+    //       restoreFontFaces: false
+    //     }
+    //   },
+    //   mobile: {
+    //     options: {
+    //       url: "http://localhost/wdntemplates/debug.shtml",
+    //       width: 400,
+    //       height: 900,
+    //       outputfile: "./mobile-critical.scss",
+    //       filename: "/Library/WebServer/Documents/wdntemplates/wdn/templates_5.0/css/core.css",
+    //       buffer: 800*1024,
+    //       ignoreConsole: false,
+    //       forceInclude: [],
+    //       restoreFontFaces: false
+    //     }
+    //   }
+    // }
 	});
 
 	// keyword replacement task: restore keywords
@@ -501,14 +539,21 @@ module.exports = function (grunt) {
 		});
 	});
 
+  // https://github.com/filamentgroup/grunt-criticalcss
+	// use if want to run  criticalcss
+	// npm install grunt-criticalcss --save-dev
+  //grunt.loadNpmTasks('grunt-criticalcss');
+
 	// establish grunt default
 	grunt.registerTask('default', ['sassGlobber', 'clean:js', 'css-main', 'js-main']);
+	// use if want to run  criticalcss
+  //grunt.registerTask('default', ['sassGlobber', 'clean:js', 'css-main', 'js-main', 'criticalcss'])
 
 	// legacy targets from Makefile
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);
 	grunt.registerTask('css-main', ['sassGlobber', 'sass:main', 'postcss:main']);
 	grunt.registerTask('css-plugins', ['sassGlobber', 'sass:plugins', 'postcss:plugins']);
-	grunt.registerTask('js-main', ['css-plugins', 'babel', 'copy:babelNoTranspile', 'sync:dcfCommonModules', 'sync:dcfOptionalModules', 'requirejs', 'sync:js', 'clean:js-build']);
+	grunt.registerTask('js-main', ['css-plugins', 'babel', 'copy:babelNoTranspile', 'sync:dcfCommonModules', 'sync:dcfOptionalModules', 'sync:dcfUnminifiedMustards', 'requirejs', 'sync:js', 'clean:js-build']);
 	grunt.registerTask('js', ['clean:js', 'css-plugins', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
 };
