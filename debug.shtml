@@ -67,7 +67,7 @@
   <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
 
     <!-- InstanceBeginEditable name="hero" -->
-    <div class="dcf-hero">
+    <div class="dcf-hero dcf-hero-default">
     <!-- InstanceEndEditable -->
       <div class="dcf-hero-group-1">
         <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
@@ -109,7 +109,7 @@
 
 
 
-      <div class="dcf-pt-7 dcf-pb-8 dcf-measure">
+      <div class="dcf-pb-8 dcf-measure">
   <!--     <h2>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park.</h2> -->
         <p class="dcf-lead">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
