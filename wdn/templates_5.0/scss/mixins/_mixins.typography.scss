@@ -1,0 +1,183 @@
+///////////////////////////////
+// !THEME / MIXINS / TYPOGRAPHY
+///////////////////////////////
+
+
+// !Font-Size
+@mixin txt-base($imp:null) { font-size: #{ms(0)}rem $imp; }
+@mixin txt-3xs($imp:null) { font-size: #{ms(-4)}em $imp; }
+@mixin txt-2xs($imp:null) { font-size: #{ms(-3)}em $imp; }
+@mixin txt-xs($imp:null) { font-size: #{ms(-2)}em $imp; }
+@mixin txt-sm($imp:null) { font-size: #{ms(-1)}em $imp; }
+@mixin txt-md($imp:null) { font-size: #{ms(0)}em $imp; }
+@mixin txt-lg($imp:null) { font-size: #{ms(1)}em $imp; }
+
+@mixin txt-h6($imp:null) {
+  font-size: #{ms(0)}em $imp;
+
+  @include mq(md, min, width) {
+    font-size: #{ms(1)}em $imp;
+  }
+
+}
+
+@mixin txt-h5($imp:null) {
+  font-size: #{ms(1)}em $imp;
+
+  @include mq(md, min, width) {
+    font-size: #{ms(2)}em $imp;
+  }
+
+}
+
+@mixin txt-h4($imp:null) {
+  font-size: #{ms(2)}em $imp;
+
+  @include mq(md, min, width) {
+    font-size: #{ms(3)}em $imp;
+  }
+
+}
+
+@mixin txt-h3($imp:null) {
+  font-size: #{ms(3)}em $imp;
+
+  @include mq(md, min, width) {
+    font-size: #{ms(4)}em $imp;
+  }
+
+}
+
+@mixin txt-h2($imp:null) {
+  font-size: #{ms(4)}em $imp;
+
+  @include mq(md, min, width) {
+    font-size: #{ms(5)}em $imp;
+  }
+
+}
+
+@mixin txt-h1($imp:null) {
+  font-size: #{ms(5)}em $imp;
+
+  @include mq(md, min, width) {
+    font-size: #{ms(6)}em $imp;
+  }
+
+}
+
+@mixin txt-xl($imp:null) {
+  font-size: #{ms(6)}em $imp;
+
+  @include mq(md, min, width) {
+    font-size: #{ms(7)}em $imp;
+  }
+
+}
+
+@mixin txt-2xl($imp:null) {
+  font-size: #{ms(7)}em $imp;
+
+  @include mq(md, min, width) {
+    font-size: #{ms(8)}em $imp;
+  }
+
+}
+
+
+@mixin txt-3xl($imp:null) {
+  font-size: #{ms(8)}em $imp;
+
+  @include mq(md, min, width) {
+    font-size: #{ms(9)}em $imp;
+  }
+
+}
+
+@mixin txt-4xl($imp:null) {
+  font-size: #{ms(9)}em $imp;
+
+  @include mq(md, min, width) {
+    font-size: #{ms(10)}em $imp;
+  }
+
+}
+
+@mixin txt-5xl($imp:null) {
+  font-size: #{ms(10)}em $imp;
+
+  @include mq(md, min, width) {
+    font-size: #{ms(11)}em $imp;
+  }
+
+}
+
+@mixin txt-6xl($imp:null) {
+  font-size: #{ms(11)}em $imp;
+
+  @include mq(md, min, width) {
+    font-size: #{ms(12)}em $imp;
+  }
+
+}
+
+
+// !Letter Spacing
+@mixin ls-0($imp:null) { letter-spacing: 0 $imp; }
+@mixin ls-1($imp:null) { letter-spacing: .01em $imp; }
+@mixin ls-2($imp:null) { letter-spacing: .1em $imp; }
+
+
+// !Line-Height Crop
+// Crop headings to vertically align with the top of adjacent objects
+// (e.g. photo in a media object layout)
+@mixin lh-crop($imp:null) {
+  content: '';
+  display: block;
+  height: 0;
+  margin-top: -#{ms(-12)}em; // TODO: use calc() and line-height to calculate value
+  // https://medium.com/codyhouse/line-height-crop-a-simple-css-formula-to-remove-top-space-from-your-text-9c3de06d7c6f
+  width: 0;
+}
+
+
+// !Outline Text: White
+@mixin txt-outline-white($imp:null) {
+
+  @supports (text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff) {
+    color: transparent $imp;
+    -webkit-text-stroke: .024em #fff $imp;
+    text-stroke: .024em #fff $imp;
+  }
+
+}
+
+
+// !Outline Text: Dark
+@mixin txt-outline-dark($imp:null) {
+
+  @supports (text-stroke: 1px #000) or (-webkit-text-stroke: 1px #000) {
+    color: transparent $imp;
+    -webkit-text-stroke: .024em $color-heading $imp;
+    text-stroke: .024em $color-heading $imp;
+  }
+
+}
+
+
+// !Text Stripes: Light
+@mixin txt-stripes-light($imp:null) {
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: repeating-linear-gradient($diagonal1, fade-out($white,.5), fade-out($white,.5) 1px, transparent 1px, transparent 2px); // add mixin
+  color: transparent $imp;
+}
+
+
+// !Text Stripes: Dark
+@mixin txt-stripes-dark($imp:null) {
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px); // add mixin
+  color: transparent $imp;
+}

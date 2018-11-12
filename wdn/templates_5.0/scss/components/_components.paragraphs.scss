@@ -1,0 +1,11 @@
+///////////////////////////////////
+// !THEME / COMPONENTS / PARAGRAPHS
+///////////////////////////////////
+
+
+.unl .dcf-dropcap::first-letter {
+  font-size: #{ms(11)}em; // 5.26em
+  line-height: .68; // then, adjust line-height for Chrome and Safari
+  margin-top: #{ms(-4)}rem; // .56rem -- first, adjust margin-top for Firefox
+  padding-right: #{ms(-4)}rem; // .56rem
+}

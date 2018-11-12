@@ -1,0 +1,27 @@
+////////////////////////////////////
+// !THEME / COMPONENTS / NAV: GLOBAL
+////////////////////////////////////
+
+
+.unl .dcf-nav-global a {
+  padding-left: #{ms(-2)}vw;
+  padding-right: #{ms(-2)}vw;
+}
+
+
+@include mq(md, max, width) {
+
+  .unl .dcf-nav-global {
+    display: none; // TODO: remove and determine placement for viewport widths under 'md' breakpoint
+  }
+
+}
+
+
+@include mq(md, min, width) {
+
+  .unl .dcf-nav-global {
+    display: flex;
+  }
+
+}

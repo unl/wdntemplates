@@ -1,0 +1,74 @@
+////////////////////////////////////
+// !THEME / COMPONENTS / NAV: TOGGLE
+////////////////////////////////////
+
+
+.unl .dcf-nav-toggle-btn {
+  appearance: none;
+}
+
+
+@include mq(md, max, width) {
+
+  .unl .dcf-nav-toggle-group {
+    display: flex;
+    padding-bottom: env(safe-area-inset-bottom);
+    z-index: 100150; // Ensure that the z-index is greater than the dialog element z-index
+  }
+
+
+  .unl .dcf-nav-toggle-btn {
+    width: 25%;
+  }
+
+
+  .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu {
+    display: none;
+  }
+
+
+  .headroom {
+  	will-change: transform;
+  	transition: transform 250ms ease-out !important;
+  }
+
+
+//   .headroom--fixed {
+//   	position: -webkit-fixed;
+//   	position: fixed;
+//   	z-index: 10;
+//   	right: 0;
+//   	left: 0;
+//   	bottom: 0vh;
+//   }
+
+
+  .headroom--pinned {
+  	transform: translateY(0%);
+  }
+
+
+  .headroom--unpinned {
+  	transform: translateY(100%);
+  }
+
+}
+
+
+@include mq(md, min, width) {
+
+  .unl .dcf-nav-toggle-group {
+    display: none;
+  }
+
+
+  .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu {
+    display: flex;
+  }
+
+
+  .unl .dcf-nav-toggle-btn-menu {
+    z-index: 998;
+  }
+
+}

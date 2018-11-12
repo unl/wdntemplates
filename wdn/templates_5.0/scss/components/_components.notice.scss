@@ -1,0 +1,30 @@
+.dcf-notice {
+	@include d-flex;
+	@include m-2;
+	@include pt-8;
+	@include pb-2;
+	@include pl-3;
+	@include pr-3;
+}
+
+.dcf-notice-fixedBottom {
+	// maybe do it as a translateY
+	max-height: 100em;
+	transition: max-height 350ms ease-out, padding 50ms ease-out 300ms, margin 50ms ease-out 300ms;
+}
+
+.dcf-notice-fixedBottom-close {
+	max-height: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.dcf-notice-message {
+	transform: scaleX(1);
+	transform-origin: left;
+	transition: transform 350ms ease-out;
+}
+
+.dcf-notice-message-collapse {
+	transform: scaleX(0);
+}

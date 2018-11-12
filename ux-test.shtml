@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!--#include virtual="/wdn/templates_5.0/includes/global/head-1.html" -->
+<title>Debugging Out | Framework Testing Page</title>
+<!--#include virtual="/wdn/templates_5.0/includes/global/head-2.html" -->
+</head>
+<body class="debug unl" data-version="5.0">
+
+  <header class="dcf-header" id="dcf-header" role="banner">
+
+    <div class="dcf-header-global dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-ai-center dcf-jc-between dcf-relative unl-bg-scarlet">
+      <!--#include virtual="/wdn/templates_5.0/includes/global/institution.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/nav-global.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
+    </div>
+
+    <!--     <div class="dcf-wrapper dcf-logo dcf-d-flex dcf-ai-center dcf-pt-5 dcf-pb-4 dcf-lh-1 dcf-overflow-hidden"> -->
+    <div class="dcf-logo-lockup dcf-wrapper dcf-d-flex dcf-ai-flex-end dcf-relative dcf-overflow-hidden">
+      <!--#include virtual="/wdn/templates_5.0/includes/global/logo.html" -->
+      <div class="dcf-site-group dcf-d-flex dcf-flex-col dcf-jc-center unl-font-sans">
+        <div class="dcf-site-affiliation dcf-lh-3 dcf-txt-2xs" id="dcf-site-affiliation">
+          <!-- InstanceBeginEditable name="affiliation" -->
+          <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
+<!--           <a href="http://ianr.unl.edu/">Institute of Agriculture and Natural Resources</a> -->
+          <!-- InstanceEndEditable -->
+        </div>
+        <div class="dcf-site-title dcf-bold dcf-lh-2 dcf-uppercase unl-ls-1" id="dcf-site-title">
+          <!-- InstanceBeginEditable name="titlegraphic" -->
+          <a class="unl-site-title-medium" href="https://www.unl.edu/">
+<!--             College of Agricultural Sciences and Natural Resources -->
+<!--             Hixson-Lied College of Fine &amp; Performing Arts -->
+            Glenn Korff School of Music
+<!--             Department of English -->
+            <!--<abbr>HLCFPA</abbr>-->
+<!--             Nebraska -->
+          </a>
+          <!-- InstanceEndEditable -->
+        </div>
+      </div>
+    </div>
+
+    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle.html" -->
+
+    <div class="dcf-nav-bar dcf-modal-parent dcf-txt-xs unl-font-sans">
+
+      <button class="dcf-nav-toggle-btn dcf-nav-toggle-btn-menu dcf-flex-col dcf-ai-center dcf-jc-center dcf-w-9 dcf-pt-4 dcf-pr-0 dcf-pb-3 dcf-pl-0 dcf-b-0 dcf-bg-transparent unl-font-sans" id="dcf-menu-toggle" aria-expanded="false">
+        <svg class="dcf-h-5 dcf-w-5 dcf-mb-2 dcf-fill-current" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48">
+          <path d="M45.5 22.5h-43c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h43c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5zM45.5 7.5h-43C1.7 7.5 1 8.2 1 9s.7 1.5 1.5 1.5h43c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5zM45.5 37.5h-43c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h43c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5z"/>
+        </svg>
+        <svg class="dcf-mb-1 dcf-h-6 dcf-w-6 dcf-fill-current dcf-d-none" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 48 48">
+          <path d="M38.1 7.7L7.7 38.1c-.6.6-.6 1.5 0 2.1.6.6 1.5.6 2.1 0L40.3 9.9c.6-.6.6-1.5 0-2.1-.6-.6-1.6-.6-2.2-.1z"/><path d="M7.7 7.7c-.6.6-.6 1.5 0 2.1l30.4 30.4c.6.6 1.5.6 2.1 0 .6-.6.6-1.5 0-2.1L9.9 7.7c-.6-.5-1.6-.5-2.2 0z"/>
+        </svg>
+        <span class="dcf-sr-only">Show </span><span class="dcf-nav-toggle-label dcf-txt-3xs dcf-bold dcf-uppercase unl-ls-2">Menu</span>
+      </button>
+
+      <div class="dcf-nav-menu dcf-mobile-toolbar-modal dcf-w-100%" id="dcf-navigation">
+        <div class="dcf-nav-local-wrapper dcf-w-100%">
+          <nav class="dcf-nav-local dcf-w-100% dcf-lh-3" role="navigation" aria-label="local navigation">
+            <!-- InstanceBeginEditable name="navlinks" -->
+            <!--#include virtual="/wdn/templates_5.0/includes/local/nav-local.html" -->
+            <!-- InstanceEndEditable -->
+          </nav>
+        </div>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
+
+    <div class="dcf-bleed" style="background-color: #eee">
+<!--     <div class="dcf-bleed unl-stripe-b-white"> -->
+      <div class="dcf-wrapper dcf-pt-10 dcf-pb-7">
+
+        <div id="dcf-page-title">
+          <nav class="dcf-breadcrumbs dcf-txt-sm dcf-overflow-x-scroll" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+            <ol class="dcf-list-bare dcf-mb-0 dcf-pt-4 dcf-bt-solid dcf-bt-1">
+              <!-- InstanceBeginEditable name="breadcrumbs" -->
+              <li><a href="https://www.unl.edu/">Nebraska</a></li>
+              <li><a href="https://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts<!-- <abbr>HLCFPA</abbr> --></a></li>
+              <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
+              <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
+              <li>Ensembles</li>
+              <!-- InstanceEndEditable -->
+            </ol>
+          </nav>
+          <!-- InstanceBeginEditable name="pagetitle" -->
+          <h1 class="dcf-mb-0">Undergraduate Dean's List</h1>
+          <!-- InstanceEndEditable -->
+        </div>
+<!-- <svg viewBox="0 0 174 152" height="142" width="142"><style>.st0{fill:#d00000}</style><path style="stroke: blue; stroke-width: 4px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47zM26 112H16h10zM114 87L62 5l52 82zM70 112H60h10zM158 112h-10 10z"/><path style="stroke: yellow; stroke-width: 2px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47z"/></svg> -->
+<!--
+<svg height="142" width="142" style="width: 4em;"  viewBox="0 0 142 142"><style>.st0{fill:#d00000}</style><path style="stroke: #d00000; stroke-width: 6px;" class="st0" d="M98 82L46 0H0v35h10v72H0v35h54v-35H44V60l52 82h46v-35h-10V35h10V0H88v35h10v47zM10 107H0h10zM98 82L46 0l52 82zM54 107H44h10zM142 107h-10 10z"/><path style="stroke: #fff; stroke-width: 3px;" class="st0" d="M98 82L46 0H0v35h10v72H0v35h54v-35H44V60l52 82h46v-35h-10V35h10V0H88v35h10v47z"/></svg>
+<br>
+<svg style="width: 4em;" id="Nebraska_N" data-name="Nebraska N" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 152" height="142" width="142"><defs><style>.cls-1{fill:#d00000;}.cls-2{fill:#231f20;}.cls-3{fill:#fff;}</style></defs><title>Nebraska_N_Stroke3x2</title><polygon class="cls-1" points="100.45 148 50 68.448 50 111.002 60 111.002 60 148 4 148 4 111.002 14 111.002 14 41 4 41 4 4 51.548 4 102 83.562 102 41 92 41 92 4 148 4 148 41 138 41 138 111.002 148 111.002 148 148 100.45 148"/><path class="cls-2" d="M158.011,5V40h-10v72h10v35h-46l-52-82v47h10v35h-54V112h10V40h-10V5h46l52,82.006h0V40h-10V5h54m2-2h-58V42h10V80.117L63.7,3.929,63.11,3h-49.1V42h10v68h-10v39h58V110h-10V71.892l48.311,76.179.589.929h49.1V110h-10V42h10V3Z" transform="translate(-11.011)"/><rect class="cls-1" x="5" y="111.002" width="10" height="2"/><path class="cls-2" d="M26.011,112h0m0-2h-12v2c0,.334.113,2,2.339,2h9.661v-4Z" transform="translate(-11.011)"/><rect class="cls-1" x="87.011" y="-2.549" width="2" height="97.104" transform="translate(-21.963 54.283) rotate(-32.379)"/><path class="cls-2" d="M62.01,5l52,82.005h0L62.01,5M63.7,3.929,60.321,6.071l52,82.006,3.378-2.142L63.7,3.929Z" transform="translate(-11.011)"/><rect class="cls-1" x="49" y="111.002" width="10" height="2"/><path class="cls-2" d="M70.011,112h0m0-2h-10v4h10v-4Z" transform="translate(-11.011)"/><rect class="cls-1" x="137" y="111.002" width="10" height="2"/><path class="cls-2" d="M158.011,112h0m0-2h-10v4h10v-4Z" transform="translate(-11.011)"/><polygon class="cls-1" points="99.626 149.5 51.5 73.613 51.5 109.502 61.5 109.502 61.5 149.5 2.5 149.5 2.5 109.502 12.5 109.502 12.5 42.5 2.5 42.5 2.5 2.5 52.374 2.5 100.5 78.396 100.5 42.5 90.5 42.5 90.5 2.5 149.5 2.5 149.5 42.5 139.5 42.5 139.5 109.502 149.5 109.502 149.5 149.5 99.626 149.5"/><path class="cls-1" d="M158.011,5V40h-10v72h10v35h-46l-52-82v47h10v35h-54V112h10V40h-10V5h46l52,82.006V40h-10V5h54m5-5h-64V45h10V69.784L66.232,2.322,64.76,0H11.011V45h10v62h-10v45h64V107h-10V82.224l42.778,67.454L109.262,152h53.749V107h-10V45h10V0Z" transform="translate(-11.011)"/><path class="cls-3" d="M158.011,5V40h-10v72h10v35h-46l-52-82v47h10v35h-54V112h10V40h-10V5h46l52,82.006V40h-10V5h54m3-3h-60V43h10V76.673L64.543,3.393,63.66,2H13.011V43h10v66h-10v41h60V109h-10V75.336l46.467,73.271.884,1.393h50.649V109h-10V43h10V2Z" transform="translate(-11.011)"/></svg>
+-->
+
+      </div>
+<!--
+      <img class="dcf-d-block dcf-absolute dcf-w-100%" style="top: 50%; transform: translateY(-50%); filter: blur(50px);" src="wdn/templates_5.0/images/170902-ne-asu-0878-lg-min.jpg" alt="#">
+      <img class="dcf-d-block dcf-absolute" style="right: 0; top: 0; height: 100%; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 42.3% 100%) !important;" src="wdn/templates_5.0/images/170902-ne-asu-0878-lg-min.jpg" alt="#">
+-->
+
+    </div>
+
+<!-- App Controls -->
+<!--
+    <div class="dcf-bleed" style="background-color: #383837">
+      <div class="dcf-wrapper" >
+        <nav class="dcf-txt-xs" role="navigation" aria-label="global navigation">
+          <ul class="dcf-list-bare dcf-d-flex dcf-mb-0 dcf-uppercase dcf-bold unl-ls-2 unl-font-sans">
+            <li class="dcf-list-inline-item dcf-mb-0"><a class="dcf-d-inline-block dcf-pt-4 dcf-pb-4 dcf-inverse dcf-txt-decor-none" href="https://admissions.unl.edu/visit/">Visit</a></li>
+            <li class="dcf-list-inline-item dcf-mb-0"><a class="dcf-d-inline-block dcf-pt-4 dcf-pb-4 dcf-inverse dcf-txt-decor-none" href="https://admissions.unl.edu/apply/">Apply</a></li>
+            <li class="dcf-list-inline-item dcf-mb-0"><a class="dcf-d-inline-block dcf-pt-4 dcf-pb-4 dcf-inverse dcf-txt-decor-none" href="https://nufoundation.org/unl">Give</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+-->
+
+
+    <!-- InstanceBeginEditable name="maincontentarea" -->
+    <div class="dcf-pt-7 dcf-pb-8 dcf-measure">
+<!--     <h2>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park.</h2> -->
+    <p class="dcf-lead">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#123">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
+    <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
+
+    <h2>Vinyl bitters banjo, meggings forage Terry Richardson kogi pug beard aesthetic kitsch whatever selvage.</h2>
+    <p>Distillery XOXO Pinterest before they sold out single-origin coffee ugh, ethical small batch organic gentrify <abbr class="dcf-txt-sm">VHS</abbr>. Kale chips <a href="#">mixtape master</a> cleanse jean shorts Echo Park. Meggings Banksy umami, +1 you probably haven’t heard of them cliche gastropub keytar Neutra.</p>
+    <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
+    <h3>Letterpress photo booth direct trade meggings</h3>
+    <p>Church-key ennui gastropub. Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <abbr class="dcf-txt-sm">VHS</abbr> blog Pitchfork authentic paleo ethical messenger bag. Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh.</p>
+    <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
+    <h4><!-- <small>Roof party freegan lomo</small>  -->Post-ironic Shoreditch slow-carb</h4>
+    <p>Tote bag beard chillwave seitan PBR single-origin coffee kogi hella Bushwick disrupt four loko. Aesthetic artisan post-ironic gluten-free, selfies keffiyeh plaid single-origin coffee.</p>
+    <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
+    <h5><!-- <small>Roof party freegan lomo</small>  -->Portland ugh Neutra, Schlitz pop-up cornhole biodiesel Etsy raw denim</h5>
+    <p>Mlkshk fashion axe Pitchfork deep v dreamcatcher, Blue Bottle church-key photo booth literally asymmetrical four loko. Hoodie flexitarian +1, farm-to-table locavore selvage Marfa synth ennui polaroid occupy kitsch.</p>
+    <p>Artisan mumblecore Pinterest Shoreditch meggings viral. Austin <abbr class="dcf-txt-sm">VHS</abbr> street art cornhole Etsy tattooed. Tattooed iPhone 90’s keytar, XOXO Intelligentsia gastropub letterpress drinking vinegar cliche viral tote bag. Mumblecore seitan 8-bit dreamcatcher, fanny pack pickled scenester quinoa vinyl put a bird on it artisan literally.</p>
+    <ul>
+      <li>Church-key ennui gastropub.</li>
+      <li>Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <a href="#"><abbr class="dcf-txt-sm">VHS</abbr> blog</a> Pitchfork authentic paleo ethical messenger bag.
+        <ol>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</li>
+          <li>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod.</li>
+          <li>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</li>
+          <li>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</li>
+          <li>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod.</li>
+          <li>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</li>
+          <li>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod.</li>
+          <li>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</li>
+          <li>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod.</li>
+          <li>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</li>
+          <li>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod.</li>
+          <li>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</li>
+        </ol>
+      </li>
+      <li>Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh.</li>
+    </ul>
+    <p>Distillery XOXO Pinterest before they sold out single-origin coffee ugh, ethical small batch organic gentrify <abbr class="dcf-txt-sm">VHS</abbr>. Kale chips mixtape master cleanse jean shorts Echo Park. Meggings Banksy umami, +1 you probably haven’t heard of them cliche gastropub keytar Neutra.</p>
+    <h6><!-- <small>Roof party freegan lomo</small>  -->Carles tofu meh vegan pickled Marfa.</h6>
+    <p>Quinoa twee cardigan, lo-fi biodiesel try-hard Neutra pickled church-key pug scenester. Etsy direct trade fanny pack, fashion axe chia bespoke bitters Helvetica.</p>
+    </div>
+
+  <!-- InstanceEndEditable -->
+  </main>
+  <footer class="dcf-footer dcf-txt-xs" id="dcf-footer" role="contentinfo">
+    <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-1.html" -->
+    <!-- InstanceBeginEditable name="contactinfo" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-2.html" -->
+  </footer>
+  <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
+</body>
+<!-- InstanceEnd --></html>
