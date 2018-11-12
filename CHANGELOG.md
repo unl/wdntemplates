@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.36 (September 16, 2018)
+- Change default CAS URL from login.unl.edu to shib.unl.edu
+
+## 4.1.35 (September 5, 2018)
+- Add analytics event tracking on navigation system
+
+## 4.1.34 (August 29, 2018)
+- In Our Grit, Our Glory logo added to footer
+- Minor accessibility fixes
+
 ## 4.1.33 (May 1, 2018)
 - No commits made, version bumped
 
