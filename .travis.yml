@@ -7,4 +7,3 @@ before_script:
   - grunt
 addons:
   chrome: stable
-
