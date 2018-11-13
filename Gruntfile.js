@@ -42,7 +42,7 @@ module.exports = function (grunt) {
 
 	var hereDir = './';
 
-	// files for keyword replacement (should match .gitattributes file)
+	// files for keyword replacement (e.g. DEP_VERSION)(should match .gitattributes file)
 	var filterFiles = [
 		templateHtmlDir + '/*.dwt*',
 		templateIncludeDir + '/global/*.html',
