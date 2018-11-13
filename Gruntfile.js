@@ -557,6 +557,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('js', ['clean:js', 'css-plugins', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
 
 	// establish grunt composed tasks
+	// TODO check with Ryan if sassGlobber needs to be at the start of Grunt task
 	grunt.registerTask('default', ['sassGlobber', 'clean:js', 'css-main', 'js-main']);
 	// legacy targets from Makefile
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
