@@ -490,7 +490,6 @@ module.exports = function (grunt) {
 		var opts = this.options({files:[]});
 		var files = grunt.file.expand(opts.files);
 		files.forEach(function(input) {
-			console.log(input);
 			gitFilters._startSmudge(input);
 			grunt.file.write(input, gitFilters.smudge(grunt.file.read(input), true));
 		});
