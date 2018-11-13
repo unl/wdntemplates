@@ -42,11 +42,11 @@ module.exports = function (grunt) {
 
 	var hereDir = './';
 
-	// files for keyword replacement (should match .gitattributes)
+	// files for keyword replacement (should match .gitattributes file)
 	var filterFiles = [
 		templateHtmlDir + '/*.dwt*',
-		templateIncludeDir + '/scriptsandstyles*.html',
-		templateIncludeDir + '/speedy_body_scripts.html'
+		templateIncludeDir + '/global/*.html',
+		templateIncludeDir + '/local/*.html',
 	];
 
 	// polyfill modules that need sync loading (should match scripts loaded in debug.js)
@@ -490,6 +490,7 @@ module.exports = function (grunt) {
 		var opts = this.options({files:[]});
 		var files = grunt.file.expand(opts.files);
 		files.forEach(function(input) {
+			console.log(input);
 			gitFilters._startSmudge(input);
 			grunt.file.write(input, gitFilters.smudge(grunt.file.read(input), true));
 		});
