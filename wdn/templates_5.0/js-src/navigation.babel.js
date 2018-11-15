@@ -47,17 +47,14 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
 
             function openModal() {
                 if (window.matchMedia("(max-width: 56.12em)").matches) {
-                  body.classList.add('dcf-overflow-hidden');
                   main.setAttribute('inert', '');
                   footer.setAttribute('inert', '');
+                  disableBodyScroll(mobileNavMenu);
                 }
                 modalParent.classList.add('dcf-modal-open');
                 for (var i = 0; i < toggleButtons.length; ++i) {
                     toggleButtons[i].setAttribute('aria-expanded', 'true');
                 }
-
-                // Prevent body scroll when navigation is open
-                disableBodyScroll(mobileNavMenu);
 
                 // Hide other mobile toggles
                 document.dispatchEvent(closeSearchEvent);
@@ -69,7 +66,6 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
 
             function closeModal() {
                 if (window.matchMedia("(max-width: 56.12em)").matches) {
-                  body.classList.remove('dcf-overflow-hidden');
                   main.removeAttribute('inert');
                   footer.removeAttribute('inert');
                 }
@@ -88,6 +84,19 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
             document.addEventListener('closeNavigation', function(e) {
               if (modalParent.classList.contains('dcf-modal-open')) {
                 closeModal();
+              }
+            });
+
+            // add an event listener for resize
+            window.addEventListener('resize', function(e) {
+              if (window.matchMedia("(max-width: 56.12em)").matches && modalParent.classList.contains('dcf-modal-open')) {
+                main.setAttribute('inert', '');
+                footer.setAttribute('inert', '');
+                disableBodyScroll(mobileNavMenu);
+              } else {
+                main.removeAttribute('inert');
+                footer.removeAttribute('inert');
+                enableBodyScroll(mobileNavMenu);
               }
             });
 
