@@ -82,5 +82,8 @@ function wdnInclude($path)
 </footer>
 <?php wdnInclude("/wdn/templates_5.0/includes/global/noscript.html"); ?>
 <?php wdnInclude("/wdn/templates_5.0/includes/global/js-body.html"); ?>
+<!-- InstanceBeginEditable name="jsbody" -->
+<!-- put your custom javascript here -->
+<!-- InstanceEndEditable -->
 </body>
 </html>
