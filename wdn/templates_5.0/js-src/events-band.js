@@ -23,7 +23,7 @@ define([
 
     var fetchEvents = function(localConfig) {
         var upcoming = 'upcoming/',
-            $container = $(localConfig.container).addClass('dcf-bleed dcf-pt-9 dcf-pb-9 unl-bg-lightest-gray'),
+            $container = $(localConfig.container).addClass('dcf-bleed dcf-pt-9 dcf-pb-9 unl-bg-lightest-gray unl-bg-grit'),
             grid = document.createElement('div');
             grid.classList.add('dcf-wrapper', 'dcf-grid', 'dcf-col-gap-vw');
             eventList = document.createElement('ul');
