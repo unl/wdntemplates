@@ -58,6 +58,12 @@ define(['wdn', 'idm', 'jquery'], function (WDN, idm, $) {
 		});
 	};
 
+	var bindBreadcrumbs = function() {
+		$('#breadcrumbs a').one('click', function() {
+			Plugin.callTrackEvent('Breadcrumbs', 'Click', thisURL);
+		});
+	};
+
 	// ga.js method for getting default tracker (with set account)
 	var getDefaultGATracker = function getDefaultGATracker() {
 		var tracker = _gat._getTrackerByName();
