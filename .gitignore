@@ -1,5 +1,6 @@
 *.espressostorage
 *.sublime*
+.idea
 .DS_Store
 .externalToolBuilders
 .settings
