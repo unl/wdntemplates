@@ -5,6 +5,7 @@ module.exports = function (grunt) {
 		'core',
 		'critical',
 		'deprecated',
+		'print',
 		//'modules/pagination',
 		//'modules/infographics',
 	];
