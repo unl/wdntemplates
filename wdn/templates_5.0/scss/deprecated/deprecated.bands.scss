@@ -71,12 +71,6 @@
   text-align: center;
 }
 
-.unl .dcf-main-content > :last-child:not(.wdn-band) {
-  // Provide adequate default vertical spacing between main content and footer.
-  // If the last child uses .wdn-band, no margin will be added.
-  @include mb-8;
-}
-
 
 @media only screen and (min-width:60em) {
 
