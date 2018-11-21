@@ -4,7 +4,7 @@
 
 
 // Toggles for navigation, search, login and chat
-$height-mobile-toolbar: #{ms(11)}em;
+$height-mobile-toolbar: #{ms(10)}em;
 
 // Institution title, global nav links, identity management and search
 $height-header-global-md: #{ms(7)}rem;
@@ -14,6 +14,3 @@ $height-logo-lockup-md: #{ms(13)}rem;
 
 // Menu toggle and menu primary labels
 $height-nav-menu-md: #{ms(9)}rem;
-
-// Breadcrumbs
-$height-breadcrumbs-md: #{ms(8)}rem;

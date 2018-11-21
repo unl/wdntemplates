@@ -10,17 +10,9 @@ a.unl-scarlet:link {
   @include scarlet(!important);
 }
 
-a.unl-scarlet:visited {
-  @include scarlet-visited(!important);
-}
-
-a.unl-scarlet:hover {
-  @include scarlet-hover(!important);
-}
-
-a.unl-scarlet:active {
-  @include scarlet-active(!important);
-}
+a.unl-scarlet:visited { @include scarlet-visited(!important); }
+a.unl-scarlet:hover { @include scarlet-hover(!important); }
+a.unl-scarlet:active { @include scarlet-active(!important); }
 
 
 // !Cream
@@ -30,40 +22,18 @@ a.unl-cream:link {
   @include cream(!important);
 }
 
-a.unl-cream:visited {
-  @include cream-visited(!important);
-}
-
-a.unl-cream:hover {
-  @include cream-hover(!important);
-}
-
-a.unl-cream:active {
-  @include cream-active(!important);
-}
+a.unl-cream:visited { @include cream-visited(!important); }
+a.unl-cream:hover { @include cream-hover(!important); }
+a.unl-cream:active { @include cream-active(!important); }
 
 
-// !Blue
-.unl-blue,
-a.unl-blue,
-a.unl-blue:link {
-  @include blue(!important);
-}
-
-a.unl-blue:visited {
-  @include blue-visited(!important);
-}
-
-a.unl-blue:hover {
-  @include blue-hover(!important);
-}
-
-a.unl-blue:active {
-  @include blue-active(!important);
-}
+// !Light Grays
+.unl-light-gray { @include light-gray(!important); }
+.unl-lighter-gray { @include lighter-gray(!important); }
+.unl-lightest-gray { @include lightest-gray(!important); }
 
 
-// !Dark -- TODO: finalize name
-.unl-dark {
-  @include dark(!important);
-}
+// !Dark Grays
+.unl-dark-gray { @include dark-gray(!important); }
+.unl-darker-gray { @include darker-gray(!important); }
+.unl-darkest-gray { @include darkest-gray(!important); }

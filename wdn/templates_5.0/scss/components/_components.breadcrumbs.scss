@@ -3,66 +3,62 @@
 ////////////////////////////////////
 
 
+.unl .dcf-breadcrumbs {
+  @include txt-2xs;
+  @include font-sans;
+}
+
+
 .unl .dcf-breadcrumbs ol {
-  border-top-color: $ui-100; // TODO: remove after border-top-color utility classes are added and used in markup
+  display: flex;
+  flex-wrap: nowrap; // Keep breadcrumbs on one line
+  list-style: none;
+  padding-left: $length-vw-2; // Add padding to equal the wrapper object's left padding
+}
+
+
+.unl .dcf-breadcrumbs li:last-child {
+  padding-right: $length-vw-2; // Add padding to equal the wrapper object's right padding
 }
 
 
 .unl .dcf-breadcrumbs li:not(:last-child) {
-  @include mr-2;
+  @include mr-2; // Add spacing after each breadcrumb list item — except the last
 }
 
 
 .unl .dcf-breadcrumbs li:not(:last-child)::after {
-  color: $color-lightest-text;
-  content: '\2192'; // Right arrow after each breadcrumb except the last
-  @include ml-2;
+  // Use borders to create arrows between breadcrumb list items
+  border-bottom: #{ms(-8)}em solid transparent;
+  border-left: #{ms(-8)}em solid $gray;
+  border-top: #{ms(-8)}em solid transparent;
+  content: '';
+  @include ml-2; // Add spacing before each breadcrumb arrow
 }
 
 
 @include mq(md, max, width) {
 
   .unl .dcf-breadcrumbs {
-    @include pb-8;
+    @include h-6; // Set height of breadcrumbs in order to hide horizontal scroll bar
+    overflow: hidden; // Hide horizontal scroll bar
+  }
+
+
+  .unl .dcf-breadcrumbs ol {
+    @include pb-6; // Set padding-bottom to push the horizontal scroll bar out of the breadcrumbs' height
+    @include overflow-x-auto; // Let breadcrumbs scroll horizontally if wider than the viewport
   }
 
 
   .unl .dcf-breadcrumbs li {
-    display: inline-block; // Let breadcrumbs wrap to multiple lines as needed
+    flex-shrink: 0; // Prevent breadcrumbs from wrapping to multiple lines
   }
 
 }
 
 
 @include mq(md, min, width) {
-
-  .unl .dcf-breadcrumbs {
-    height: $height-breadcrumbs-md; // Set breadcrumbs height at medium breakpoint
-    padding-right: $length-vw-2;
-  }
-
-
-  .unl .dcf-nav-bar .dcf-breadcrumbs {
-    opacity: 0;
-//     transform: translateY(25%);
-//     transition: opacity 200ms ease-out, transform 200ms ease-out;
-    transition: opacity 200ms ease-out;
-  }
-
-
-  .unl .dcf-nav-bar.dcf-modal-open .dcf-breadcrumbs {
-    opacity: 1;
-//     transform: translateY(0);
-    transition: opacity 200ms ease-out;
-  }
-
-
-  .unl .dcf-breadcrumbs ol {
-    display: flex;
-    flex-wrap: nowrap; // Keep breadcrumbs on one line
-    align-items: flex-start; // Ensure that the final breadcrumb is vertically aligned with the others
-  }
-
 
   .unl .dcf-breadcrumbs li:first-child,
   .unl .dcf-breadcrumbs li:last-child {

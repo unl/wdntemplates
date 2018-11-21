@@ -33,7 +33,7 @@
 <!--             Hixson-Lied College of Fine &amp; Performing Arts -->
             Glenn Korff School of Music
 <!--             Department of English -->
-            <!--<abbr title="Hixson-Lied College of Fine &amp; Performing Arts">HLCFPA</abbr>-->
+            <!--<abbr>HLCFPA</abbr>-->
 <!--             Nebraska -->
           </a>
           <!-- InstanceEndEditable -->
@@ -62,17 +62,6 @@
             <!--#include virtual="/wdn/templates_5.0/includes/local/nav-local.html" -->
             <!-- InstanceEndEditable -->
           </nav>
-          <nav class="dcf-breadcrumbs dcf-txt-sm dcf-d-none" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
-            <ol class="dcf-list-bare dcf-mb-0 dcf-pt-4 dcf-bt-solid dcf-bt-1">
-              <!-- InstanceBeginEditable name="breadcrumbs" -->
-              <li><a href="https://www.unl.edu/">Nebraska</a></li>
-              <li><a href="https://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts<!-- <abbr title="Hixson-Lied College of Fine and Performing Arts">HLCFPA</abbr> --></a></li>
-              <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
-              <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
-              <li>Ensembles</li>
-              <!-- InstanceEndEditable -->
-            </ol>
-          </nav>
         </div>
       </div>
 
@@ -83,13 +72,24 @@
 
   <main class="dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
 
-    <div class="dcf-stretch" style="background-color: #eee">
-<!--     <div class="dcf-stretch unl-stripe-b-white"> -->
+    <div class="dcf-bleed" style="background-color: #eee">
+<!--     <div class="dcf-bleed unl-stripe-b-white"> -->
       <div class="dcf-wrapper dcf-pt-10 dcf-pb-7">
 
         <div id="dcf-page-title">
+          <nav class="dcf-breadcrumbs dcf-txt-sm dcf-overflow-x-scroll" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+            <ol class="dcf-list-bare dcf-mb-0 dcf-pt-4 dcf-bt-solid dcf-bt-1">
+              <!-- InstanceBeginEditable name="breadcrumbs" -->
+              <li><a href="https://www.unl.edu/">Nebraska</a></li>
+              <li><a href="https://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts<!-- <abbr>HLCFPA</abbr> --></a></li>
+              <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
+              <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
+              <li>Ensembles</li>
+              <!-- InstanceEndEditable -->
+            </ol>
+          </nav>
           <!-- InstanceBeginEditable name="pagetitle" -->
-          <h1 class="dcf-mb-0">Consectetur Aenean</h1>
+          <h1 class="dcf-mb-0">Undergraduate Dean's List</h1>
           <!-- InstanceEndEditable -->
         </div>
 <!-- <svg viewBox="0 0 174 152" height="142" width="142"><style>.st0{fill:#d00000}</style><path style="stroke: blue; stroke-width: 4px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47zM26 112H16h10zM114 87L62 5l52 82zM70 112H60h10zM158 112h-10 10z"/><path style="stroke: yellow; stroke-width: 2px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47z"/></svg> -->
@@ -109,7 +109,7 @@
 
 <!-- App Controls -->
 <!--
-    <div class="dcf-stretch" style="background-color: #383837">
+    <div class="dcf-bleed" style="background-color: #383837">
       <div class="dcf-wrapper" >
         <nav class="dcf-txt-xs" role="navigation" aria-label="global navigation">
           <ul class="dcf-list-bare dcf-d-flex dcf-mb-0 dcf-uppercase dcf-bold unl-ls-2 unl-font-sans">
@@ -130,20 +130,20 @@
     <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
 
     <h2>Vinyl bitters banjo, meggings forage Terry Richardson kogi pug beard aesthetic kitsch whatever selvage.</h2>
-    <p>Distillery XOXO Pinterest before they sold out single-origin coffee ugh, ethical small batch organic gentrify <abbr class="dcf-txt-sm" title="Video Home System">VHS</abbr>. Kale chips <a href="#">mixtape master</a> cleanse jean shorts Echo Park. Meggings Banksy umami, +1 you probably haven’t heard of them cliche gastropub keytar Neutra.</p>
+    <p>Distillery XOXO Pinterest before they sold out single-origin coffee ugh, ethical small batch organic gentrify <abbr class="dcf-txt-sm">VHS</abbr>. Kale chips <a href="#">mixtape master</a> cleanse jean shorts Echo Park. Meggings Banksy umami, +1 you probably haven’t heard of them cliche gastropub keytar Neutra.</p>
     <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
     <h3>Letterpress photo booth direct trade meggings</h3>
-    <p>Church-key ennui gastropub. Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <abbr class="dcf-txt-sm" title="Video Home System">VHS</abbr> blog Pitchfork authentic paleo ethical messenger bag. Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh.</p>
+    <p>Church-key ennui gastropub. Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <abbr class="dcf-txt-sm">VHS</abbr> blog Pitchfork authentic paleo ethical messenger bag. Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh.</p>
     <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
     <h4><!-- <small>Roof party freegan lomo</small>  -->Post-ironic Shoreditch slow-carb</h4>
     <p>Tote bag beard chillwave seitan PBR single-origin coffee kogi hella Bushwick disrupt four loko. Aesthetic artisan post-ironic gluten-free, selfies keffiyeh plaid single-origin coffee.</p>
     <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
     <h5><!-- <small>Roof party freegan lomo</small>  -->Portland ugh Neutra, Schlitz pop-up cornhole biodiesel Etsy raw denim</h5>
     <p>Mlkshk fashion axe Pitchfork deep v dreamcatcher, Blue Bottle church-key photo booth literally asymmetrical four loko. Hoodie flexitarian +1, farm-to-table locavore selvage Marfa synth ennui polaroid occupy kitsch.</p>
-    <p>Artisan mumblecore Pinterest Shoreditch meggings viral. Austin <abbr class="dcf-txt-sm" title="Video Home System">VHS</abbr> street art cornhole Etsy tattooed. Tattooed iPhone 90’s keytar, XOXO Intelligentsia gastropub letterpress drinking vinegar cliche viral tote bag. Mumblecore seitan 8-bit dreamcatcher, fanny pack pickled scenester quinoa vinyl put a bird on it artisan literally.</p>
+    <p>Artisan mumblecore Pinterest Shoreditch meggings viral. Austin <abbr class="dcf-txt-sm">VHS</abbr> street art cornhole Etsy tattooed. Tattooed iPhone 90’s keytar, XOXO Intelligentsia gastropub letterpress drinking vinegar cliche viral tote bag. Mumblecore seitan 8-bit dreamcatcher, fanny pack pickled scenester quinoa vinyl put a bird on it artisan literally.</p>
     <ul>
       <li>Church-key ennui gastropub.</li>
-      <li>Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <a href="#"><abbr class="dcf-txt-sm" title="Video Home System">VHS</abbr> blog</a> Pitchfork authentic paleo ethical messenger bag.
+      <li>Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <a href="#"><abbr class="dcf-txt-sm">VHS</abbr> blog</a> Pitchfork authentic paleo ethical messenger bag.
         <ol>
           <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</li>
           <li>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod.</li>
@@ -164,7 +164,7 @@
       </li>
       <li>Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh.</li>
     </ul>
-    <p>Distillery XOXO Pinterest before they sold out single-origin coffee ugh, ethical small batch organic gentrify <abbr class="dcf-txt-sm" title="Video Home System">VHS</abbr>. Kale chips mixtape master cleanse jean shorts Echo Park. Meggings Banksy umami, +1 you probably haven’t heard of them cliche gastropub keytar Neutra.</p>
+    <p>Distillery XOXO Pinterest before they sold out single-origin coffee ugh, ethical small batch organic gentrify <abbr class="dcf-txt-sm">VHS</abbr>. Kale chips mixtape master cleanse jean shorts Echo Park. Meggings Banksy umami, +1 you probably haven’t heard of them cliche gastropub keytar Neutra.</p>
     <h6><!-- <small>Roof party freegan lomo</small>  -->Carles tofu meh vegan pickled Marfa.</h6>
     <p>Quinoa twee cardigan, lo-fi biodiesel try-hard Neutra pickled church-key pug scenester. Etsy direct trade fanny pack, fashion axe chia bespoke bitters Helvetica.</p>
     </div>

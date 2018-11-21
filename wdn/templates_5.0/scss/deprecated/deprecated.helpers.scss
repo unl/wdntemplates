@@ -36,22 +36,25 @@
   @include sr-only;
 }
 
-.wdn-reponsive-embed {
+.wdn-responsive-embed {
   @include ratio;
 }
 
 .wdn-aspect16x9 {
-  @include ratio-16x9
+  @include ratio-16x9;
 }
 
 .wdn-aspect3x4 {
-  @include ratio-4x3
+  @include ratio-4x3;
 }
 
-.wdn-reponsive-embed embed,
-.wdn-reponsive-embed iframe,
-.wdn-reponsive-embed object,
-.wdn-reponsive-embed video,
-.wdn-reponsive-embed .wdn-responsive-item {
+.wdn-responsive-embed embed,
+.wdn-responsive-embed iframe,
+.wdn-responsive-embed object,
+.wdn-responsive-embed video,
+.wdn-responsive-embed .wdn-responsive-item {
   @include ratio-child;
+  border: 0;
+  height: 100%;
+  width: 100%;
 }

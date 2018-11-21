@@ -5,16 +5,16 @@
  * 1) use aria-expanded to describe when the drop-down is open or closed
  * 2) when opened, send focus to the first focusable element
  * 3) when closed, return focus back to the button (escape key will also close)
- * 
+ *
  * This is different from an aria dropdown MENU because the a 'menu' in aria describes a desktop application like menu structure. Not links or other content.
- * 
+ *
  * <div> //container (for a navigation dropdown, this should be <nav>
  *     <button aria-expanded="false">text</button>
  *     <div hidden> //this is what the button controls. It needs to be either the element following the button, or referenced by aria-controls.
  *         <a href="">example</a> //This element will be focused
  *     </div>
  * </div>
- * 
+ *
  */
 define([], function () {
 	"use strict";
@@ -24,8 +24,9 @@ define([], function () {
   * @constructor
   */
 
-	function DropDownWidget(container) {
+	function DropDownWidget(container, type) {
 		this.container = container;
+		this.type = type || null;
 		this.button = this.container.querySelector('button[aria-expanded="false"]');
 
 		let id = this.button.getAttribute('aria-controls');
@@ -39,6 +40,13 @@ define([], function () {
 		//Determine which element should receive focus
 		this.focusTarget = this.controls.querySelector('h2, a, button');
 		this.focusTarget.setAttribute('tabindex', '0'); //Ensure that the element is focusable.
+
+    //Close
+    document.addEventListener('closeDropDownWidget', function (e) {
+      if (this.type == e.detail.type && this.isExpanded()) {
+        this.close();
+      }
+    }.bind(this));
 
 		//Toggle
 		this.button.addEventListener('click', function (e) {
@@ -60,12 +68,14 @@ define([], function () {
 		this.controls.hidden = false;
 		//Send focus to the first item
 		this.focusTarget.focus();
+		let openEvent = new CustomEvent('openDropDownWidget', {detail: {type: this.type}});
+		document.dispatchEvent(openEvent);
 	};
 
 	DropDownWidget.prototype.close = function () {
 		this.button.setAttribute('aria-expanded', 'false');
 		this.controls.hidden = true;
-		
+
 		//Send focus back to the button if a child of the menu is currently selected
 		if (document.activeElement && this.controls.contains(document.activeElement)) {
 			this.button.focus();

@@ -13,10 +13,10 @@
 
 // !Input Group Add-on
 .unl .dcf-input-group-addon {
-  background-color: lighten($color-border,15%); // convert to variable
-  border-color: $color-border;
+  @include bg-lightest;
+  border-color: $color-border-input;
   border-style: solid;
-  color: $color-light-text;
+  @include dark-gray;
   @include font-sans;
   @include pb-2;
   @include pl-3;

@@ -41,46 +41,21 @@ form input[type="search"],
 form input[type="text"],
 form input[type="url"],
 form textarea {
-  border: 1px solid $color-border;
-  box-shadow: inset 0 1px 2px fade-out($color-border,1);
+  border: 1px solid $color-border-input;
+  border-radius: 0;
   @include font-sans;
-  @include mb-4;
-  @include pb-2;
-  @include pl-3;
-  @include pr-3;
-  @include pt-2;
-  transition: border-color $hover-off, box-shadow $hover-off;
+  padding: $length-em-2 $length-em-3;
   width: 100%;
-}
 
-form input[type="email"]:hover,
-form input[type="password"]:hover,
-form input[type="search"]:hover,
-form input[type="text"]:hover,
-form input[type="url"]:hover,
-form textarea:hover {
-  border-color: $color-border-hover;
-  box-shadow: inset 0 1px 2px fade-out($color-border,.5);
-  transition: border-color $hover-on, box-shadow $hover-on;
-}
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 $length-em-3 fade-out($color-border-input-hover,.25);
+  }
 
-form input[type="email"]:focus,
-form input[type="password"]:focus,
-form input[type="search"]:focus,
-form input[type="text"]:focus,
-form input[type="url"]:focus,
-form textarea:focus {
-  border-color: $color-button;
-  outline: none;
-}
+  &:focus {
+    outline: none;
+  }
 
-form label + input[type="email"],
-form label + input[type="password"],
-form label + input[type="search"],
-form label + input[type="text"],
-form label + input[type="url"],
-form label + textarea {
-  @include mt-1;
 }
 
 
@@ -142,7 +117,9 @@ form span.helper {
 
 
 // Button
-input[type='submit'],
+main button,
+main input[type='button'],
+main input[type='submit'],
 .wdn-button,
 .wdn-input-group-btn button,
 .wdn-input-group-btn input {
@@ -160,11 +137,18 @@ input[type='submit'],
   text-align: center;
   text-transform: uppercase;
   vertical-align: middle;
-//   -webkit-appearance: none;
-  white-space: nowrap;
 }
 
-input[type='submit'],
+main button:focus,
+main input[type='button']:focus,
+main input[type='submit']:focus,
+.wdn-button:focus,
+.wdn-input-group-btn button:focus,
+.wdn-input-group-btn input:focus {
+  outline: none;
+}
+
+main input[type='submit'],
 .wdn-button {
   display: inline-block;
   text-decoration: none;
@@ -178,94 +162,98 @@ input[type='submit'],
 
 
 // Primary Button
-input[type='submit'],
+main button,
+main input[type='button'],
+main input[type='submit'],
 .wdn-button,
-.wdn-button:link,
 .wdn-button-brand,
-.wdn-button-brand:link,
 .wdn-input-group-btn button,
-.wdn-input-group-btn input {
+.wdn-input-group-btn input,
+a.wdn-button:link,
+a.wdn-button-brand:link,
+a.wdn-button:visited,
+a.wdn-button-brand:visited {
   background-color: $color-button;
   border-color: $color-button;
   color: $white;
-  transition: border $hover-off, background-color $hover-off;
 }
 
-input[type='submit']:focus,
+// button:focus,
+// input[type='button']:focus,
+// input[type='submit']:focus,
 .wdn-button:focus,
 .wdn-button-brand:focus,
 .wdn-input-group-btn button:focus,
-.wdn-input-group-btn input:focus {
-  box-shadow: inset 0 0 0 3px currentColor;
-}
-
-.wdn-button:visited,
-.wdn-button-brand:visited {
-  background-color: $color-button-visited;
-  border-color: $color-button-visited;
-  color: $white;
-}
-
-input[type='submit']:hover,
+.wdn-input-group-btn input:focus,
+// input[type='button']:hover,
+// input[type='submit']:hover,
 .wdn-button:hover,
 .wdn-button-brand:hover,
 .wdn-input-group-btn button:hover,
 .wdn-input-group-btn input:hover {
-  background-color: $color-button-hover;
-  border-color: $color-button-hover;
-  color: $white;
-  transition: border $hover-on, background-color $hover-on;
+  box-shadow: 0 1px $length-em-2 fade-out($color-button-hover,.4);
 }
 
-input[type='submit']:active,
+// button:active,
+// input[type='button']:active,
+// input[type='submit']:active,
 .wdn-button:active,
 .wdn-button-brand:active,
 .wdn-input-group-btn button:active,
-.wdn-input-group-btn input:active {
+.wdn-input-group-btn input:active,
+a.wdn-button:active,
+a.wdn-button-brand:active {
   background-color: $color-button-active;
   border-color: $color-button-active;
-  color: $white;
 }
 
 
 // Secondary Button
 .wdn-button-complement,
-.wdn-button-complement:link,
 .wdn-button-energetic,
-.wdn-button-energetic:link,
 .wdn-button-triad,
-.wdn-button-triad:link {
+main button.wdn-button-complement,
+main button.wdn-button-energetic,
+main button.wdn-button-triad,
+main input[type='button'].wdn-button-complement,
+main input[type='button'].wdn-button-energetic,
+main input[type='button'].wdn-button-triad,
+main input[type='submit'].wdn-button-complement,
+main input[type='submit'].wdn-button-energetic,
+main input[type='submit'].wdn-button-triad,
+a.wdn-button-complement:link,
+a.wdn-button-energetic:link,
+a.wdn-button-triad:link,
+a.wdn-button-complement:visited,
+a.wdn-button-energetic:visited,
+a.wdn-button-triad:visited {
   background-color: transparent;
   border-color: currentColor;
   color: $color-button;
-  transition: background-color $hover-off, border-color $hover-off, color $hover-off;
 }
 
 .wdn-button-complement:focus,
 .wdn-button-energetic:focus,
-.wdn-button-triad:focus {
-  box-shadow: inset 0 0 0 3px $white, inset 0 0 0 4px currentColor;
-}
-
-.wdn-button-complement:visited,
-.wdn-button-energetic:visited,
-.wdn-button-triad:visited {
-  border-color: currentColor;
-  color: $color-button-visited;
-}
-
+.wdn-button-triad:focus,
 .wdn-button-complement:hover,
 .wdn-button-energetic:hover,
 .wdn-button-triad:hover {
-  background-color: fade-out($color-button-hover,.9);
-  border-color: currentColor;
-  color: $color-button-hover;
-  transition: background-color $hover-on, border-color $hover-on, color $hover-on;
+  box-shadow: 0 1px $length-em-1 fade-out($color-button-hover,.6);
 }
 
 .wdn-button-complement:active,
 .wdn-button-energetic:active,
-.wdn-button-triad:active {
+.wdn-button-triad:active,
+main input[type='button'].wdn-button-complement:active,
+main input[type='button'].wdn-button-energetic:active,
+main input[type='button'].wdn-button-triad:active,
+main input[type='submit'].wdn-button-complement:active,
+main input[type='submit'].wdn-button-energetic:active,
+main input[type='submit'].wdn-button-triad:active,
+a.wdn-button-complement:active,
+a.wdn-button-energetic:active,
+a.wdn-button-triad:active {
+  background-color: transparent;
   border-color: currentColor;
   color: $color-button-active;
 }
@@ -273,16 +261,25 @@ input[type='submit']:active,
 
 // Outline Button
 .wdn-button-outline,
-.wdn-button-outline:link {
-  background-color: rgba(0,0,0,.1);
+.wdn-button-outline:active,
+main input[type='button'].wdn-button-outline,
+main input[type='submit'].wdn-button-outline,
+a.wdn-button-outline:link,
+a.wdn-button-outline:visited,
+a.wdn-button-outline:active {
+  background-color: transparent;
   border-color: currentColor;
   color: $white;
-  transition: background-color $hover-off;
 }
 
+.wdn-button-outline:focus,
 .wdn-button-outline:hover {
-  background-color: rgba(0,0,0,.2);
-  transition: background-color $hover-on;
+  box-shadow: 0 1px $length-em-2 fade-out($color-border-input-hover,.2);
+}
+
+// not ideal, but override deprecated style conflicts
+.unl .dcf-btn-inverse-primary {
+  color: inherit;
 }
 
 

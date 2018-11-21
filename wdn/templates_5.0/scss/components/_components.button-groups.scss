@@ -3,6 +3,11 @@
 //////////////////////////////////////
 
 
+.unl .dcf-btn-group .dcf-btn:hover {
+  z-index: 1; // TODO: remove after added to DCF core
+}
+
+
 .unl .dcf-btn-group .dcf-btn-primary + .dcf-btn-primary {
   margin-left: 2px;
 }

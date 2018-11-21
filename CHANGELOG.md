@@ -1,6 +1,37 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.0 (November 12, 2018)
+- 5.0 Initial Release
+
+## 4.1.36 (September 16, 2018)
+- Change default CAS URL from login.unl.edu to shib.unl.edu
+
+## 4.1.35 (September 5, 2018)
+- Add analytics event tracking on navigation system
+
+## 4.1.34 (August 29, 2018)
+- In Our Grit, Our Glory logo added to footer
+- Minor accessibility fixes
+
+## 4.1.33 (May 1, 2018)
+- No commits made, version bumped
+
+## 4.1.32 (April 3, 2018)
+- Added a gold and silver star for pages with high Web Audit scores
+- Updated global footer icon markup
+- Renamed 'wdn-icon-container-class'
+- Increased z-index for UNL Alert
+
+## 4.1.31 (March 6, 2018)
+- Updated some links in the footer
+
+## 4.1.30 (February 6, 2018)
+- Updated year in global footer
+
+## 4.1.29 (January 2, 2018)
+- No commits made, version bumped
+
 ## 4.1.28 (December 5, 2017)
 - Fontello/Spotify icon in footer
 - Various footer updates

@@ -1,8 +1,8 @@
-define(['plugins/matches-polyfill', 'plugins/inert-polyfill'], function() {
-    "use strict";
+define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'], function(Headroom, bodyScrollLock) {
 
-    // TODO: Remove the matches-polyfill requirement. A better approach will be to load it just for IE.
-    
+    const disableBodyScroll = bodyScrollLock.disableBodyScroll;
+    const enableBodyScroll = bodyScrollLock.enableBodyScroll;
+
     let initialized = false;
 
     let Plugin = {
@@ -26,14 +26,16 @@ define(['plugins/matches-polyfill', 'plugins/inert-polyfill'], function() {
                 });
                 headroom.init();
             }
-            
+
             let toggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-menu');
             let mobileNav = document.getElementById('dcf-navigation');
-            let modalParent = document.querySelector('.dcf-nav-bar.dcf-modal-parent');
+            let modalParent = document.querySelector('.dcf-nav-menu.dcf-modal-parent');
+            let mobileNavMenu = document.getElementById('dcf-nav-menu-child');
             let body = document.querySelector('body');
-            let breadcrumbs = document.getElementById('dcf-breadcrumbs');
             let firstLink = mobileNav.querySelector('a');
-            
+            let closeSearchEvent = new CustomEvent('closeSearch');
+            let closeIDMOptionsEvent = new CustomEvent('closeDropDownWidget', {detail: {type: 'idm-logged-in'}});
+
             // We need to keep track of the toggle button that activated the menu so that we can return focus to it when the menu is closed
             let activeToggleButton = null;
 
@@ -44,34 +46,50 @@ define(['plugins/matches-polyfill', 'plugins/inert-polyfill'], function() {
             }
 
             function openModal() {
-                body.classList.remove('dcf-overflow-auto');
-                body.classList.add('dcf-overflow-hidden');
+                if (window.matchMedia("(max-width: 56.12em)").matches) {
+                  body.classList.add('dcf-overflow-hidden');
+                  main.setAttribute('inert', '');
+                  footer.setAttribute('inert', '');
+                }
                 modalParent.classList.add('dcf-modal-open');
-                breadcrumbs.classList.remove('dcf-d-none');
                 for (var i = 0; i < toggleButtons.length; ++i) {
                     toggleButtons[i].setAttribute('aria-expanded', 'true');
                 }
-                main.setAttribute('inert', '');
-                footer.setAttribute('inert', '');
+
+                // Prevent body scroll when navigation is open
+                disableBodyScroll(mobileNavMenu);
+
+                // Hide other mobile toggles
+                document.dispatchEvent(closeSearchEvent);
+                document.dispatchEvent(closeIDMOptionsEvent);
+
                 firstLink.focus();
                 document.addEventListener('keyup', onKeyUp);
             }
 
             function closeModal() {
-                main.removeAttribute('inert');
-                footer.removeAttribute('inert');
-                body.classList.remove('dcf-overflow-hidden');
-                body.classList.add('dcf-overflow-auto');
+                if (window.matchMedia("(max-width: 56.12em)").matches) {
+                  body.classList.remove('dcf-overflow-hidden');
+                  main.removeAttribute('inert');
+                  footer.removeAttribute('inert');
+                }
                 modalParent.classList.remove('dcf-modal-open');
-                setTimeout(function(){
-                  breadcrumbs.classList.add('dcf-d-none');
-                }, 400);
                 for (var i = 0; i < toggleButtons.length; ++i) {
                     toggleButtons[i].setAttribute('aria-expanded', 'false');
                 }
                 activeToggleButton.focus();
                 document.removeEventListener('keyup', onKeyUp);
+
+                // Allow body scroll when navigation is closed
+                enableBodyScroll(mobileNavMenu);
             }
+
+            // add an event listener for closeSearchEvent
+            document.addEventListener('closeNavigation', function(e) {
+              if (modalParent.classList.contains('dcf-modal-open')) {
+                closeModal();
+              }
+            });
 
             let toggleButtonOnClick = function() {
                 activeToggleButton = this;
@@ -81,7 +99,7 @@ define(['plugins/matches-polyfill', 'plugins/inert-polyfill'], function() {
                     openModal();
                 }
             };
-            
+
             for (let i = 0; i < toggleButtons.length; i++) {
                 toggleButtons[i].addEventListener('click', toggleButtonOnClick);
             }

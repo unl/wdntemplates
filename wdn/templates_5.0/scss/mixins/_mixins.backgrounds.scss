@@ -4,22 +4,43 @@
 
 
 // !Scarlet
-@mixin bg-scarlet($imp:null) {
-  background-color: $scarlet $imp;
-}
+@mixin bg-scarlet($imp:null) { background-color: $scarlet $imp; }
 
 
 // !Cream
-@mixin bg-cream($imp:null) {
-  background-color: $cream $imp;
+@mixin bg-cream($imp:null) { background-color: $cream $imp; }
+
+
+// !Light
+@mixin bg-light($imp:null) { background-color: $light-gray $imp; }
+@mixin bg-lighter($imp:null) { background-color: $lighter-gray $imp; }
+@mixin bg-lightest($imp:null) { background-color: $lightest-gray $imp; }
+
+
+// !Dark
+@mixin bg-dark($imp:null) { background-color: $dark-gray $imp; }
+@mixin bg-darker($imp:null) { background-color: $darker-gray $imp; }
+@mixin bg-darkest($imp:null) { background-color: $darkest-gray $imp; }
+
+
+// !Grit
+@mixin bg-grit($imp:null) {
+  background-image: url('../images/bg-grit.png') $imp;
+  background-position: 50% 50% $imp;
+  background-repeat: repeat $imp;
+  background-size: 80px $imp;
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2)     ,
+  only screen and (   min--moz-device-pixel-ratio: 2)     ,
+  only screen and (     -o-min-device-pixel-ratio: 2/1)   ,
+  only screen and (        min-device-pixel-ratio: 2)     ,
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx)  {
+  	background-image: url('../images/bg-grit_2x.png') $imp;
+  }
+
 }
-
-
-// !Dark -- TODO: finalize name
-@mixin bg-dark($imp:null) {
-  background-color: $ui-800 $imp;
-}
-
 
 
 // !Diagonal Stripes: Scarlet

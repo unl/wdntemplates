@@ -3,28 +3,25 @@
 ////////////////////////////
 
 
+.unl .dcf-app-form {
+  max-width: #{ms(26)}em; // Restrict width of search form in wide viewports
+}
 
-.unl-app-bg {
-  background: $ui-800 url("../images/unl-app-bg.jpg") 50% 50%/cover no-repeat;
+
+.unl.app .dcf-app-controls button {
+  background-color: transparent;
+  border: 0;
+  @include cream;
+  font-weight: bold;
+  @include pb-4;
+  @include pt-4;
 }
 
 
 @include mq(md, max, width) {
 
-  .unl.app .dcf-app-local-wrapper {
-    bottom: $height-mobile-toolbar;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-left: $length-vw-2;
-    padding-right: $length-vw-2;
-//     pointer-events: none;
-    position: fixed;
-    z-index: 998;
-  }
-
-  .unl.app .dcf-app-controls {
-    @include pb-4;
-    @include pt-4;
+  .unl.app .dcf-app-controls ul {
+    flex-direction: column;
   }
 
 }
@@ -32,16 +29,20 @@
 
 @include mq(md, min, width) {
 
-  .unl.app .dcf-mobile-toolbar-menu {
-    display: none;
+  .unl.app .dcf-app-controls {
+    display: flex;
+    justify-content: space-between;
   }
 
-  .unl.app .dcf-app-controls {
+  .unl.app .dcf-app-controls ul {
+    border-left: 1px solid $scarlet-shade;
     display: flex;
   }
 
-  .unl.app .dcf-app-controls li:not(:last-child) {
-    margin-right: $length-vw-1;
+  .unl.app .dcf-app-controls li {
+    border-right: 1px solid $scarlet-shade;
   }
 
 }
+
+// TODO: add button focus/hover states

@@ -20,13 +20,13 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 
 		return WDN.getPluginParam('idm') || {};
 	},
-	
-	loginSrv = 'https://login.unl.edu/',
+
+	loginSrv = 'https://shib.unl.edu/',
 	ssoCook = 'unl_sso',
 	encLoc = encodeURIComponent(window.location),
-	logoutURL = loginSrv + 'cas/logout?url=' + encLoc,
-	loginURL = loginSrv + 'cas/login?service=' + encLoc,
-	serviceURL = loginSrv + 'services/whoami/?id=',
+	logoutURL = loginSrv + 'idp/profile/cas/logout?url=' + encLoc,
+	loginURL = loginSrv + 'idp/profile/cas/login?service=' + encLoc,
+	serviceURL = 'https://whoami.unl.edu/?id=',
 	avatarService = 'https://directory.unl.edu/avatar/',
 	planetRed = 'https://planetred.unl.edu/pg/',
 	user = false;
@@ -84,10 +84,10 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Set the current user. The object should have fields as described by CAS
-   *
-   * @param newUser object|false
-   */
+		 * Set the current user. The object should have fields as described by CAS
+		 *
+		 * @param newUser object|false
+		 */
 		setUser: function setUser(newUser) {
 			user = newUser;
 		},
@@ -98,28 +98,28 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Checks if the user is logged in
-   *
-   * @return bool
-   */
+		 * Checks if the user is logged in
+		 *
+		 * @return bool
+		 */
 		isLoggedIn: function isLoggedIn() {
 			return !!Plugin.getUserId();
 		},
 
 		/**
-   * Returns the uid of the logged in user.
-   *
-   * @return string
-   */
+		 * Returns the uid of the logged in user.
+		 *
+		 * @return string
+		 */
 		getUserId: function getUserId() {
 			return user && user.uid;
 		},
 
 		/**
-   * Get the logged in user's display name (full name)
-   *
-   * @returns {string}
-   */
+		 * Get the logged in user's display name (full name)
+		 *
+		 * @returns {string}
+		 */
 		getDisplayName: function getDisplayName() {
 			var disp_name = '';
 			if (user.eduPersonNickname) {
@@ -134,46 +134,46 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Get the logged in user's last name only
-   *
-   * @returns {false|string}
-   */
+		 * Get the logged in user's last name only
+		 *
+		 * @returns {false|string}
+		 */
 		getFirstName: function getFirstName() {
 			return getUserField('givenName');
 		},
 
 		/**
-   * Get the logged in user's first name only
-   *
-   * @returns {false|string}
-   */
+		 * Get the logged in user's first name only
+		 *
+		 * @returns {false|string}
+		 */
 		getLastName: function getLastName() {
 			return getUserField('sn');
 		},
 
 		/**
-   * Get the logged in user's primary affiliation.  IE: staff or faculty
-   *
-   * @returns {false|string}
-   */
+		 * Get the logged in user's primary affiliation.  IE: staff or faculty
+		 *
+		 * @returns {false|string}
+		 */
 		getPrimaryAffiliation: function getPrimaryAffiliation() {
 			return getUserField('eduPersonPrimaryAffiliation');
 		},
 
 		/**
-   * Get the logged in user's email address
-   *
-   * @returns {false|string}
-   */
+		 * Get the logged in user's email address
+		 *
+		 * @returns {false|string}
+		 */
 		getEmailAddress: function getEmailAddress() {
 			return getUserField('mail');
 		},
 
 		/**
-   * Get the logged in user's postal address
-   *
-   * @returns {false|string}
-   */
+		 * Get the logged in user's postal address
+		 *
+		 * @returns {false|string}
+		 */
 		getPostalAddress: function getPostalAddress() {
 			return getUserField('postalAddress');
 		},
@@ -188,19 +188,19 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Get the logged in user's title
-   *
-   * @returns {false|string}
-   */
+		 * Get the logged in user's title
+		 *
+		 * @returns {false|string}
+		 */
 		getTitle: function getTitle() {
 			return getUserField('title');
 		},
 
 		/**
-   * Get the profile (planet red) URL
-   *
-   * @returns {string}
-   */
+		 * Get the profile (planet red) URL
+		 *
+		 * @returns {string}
+		 */
 		getProfileURL: function getProfileURL() {
 			if (!this.isLoggedIn()) {
 				return false;
@@ -221,41 +221,42 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Update the SSO tab and display user info
-   */
+		 * Update the SSO tab and display user info
+		 */
 		renderAsLoggedIn: function renderAsLoggedIn() {
 			// We need to set up multiples of these so that focus order is correct.
 			let widgetContainers = document.querySelectorAll('.dcf-idm');
 			let localSettings = getLocalIdmSettings();
 
 			// Loop over each widget and create the needed elements
+			// TODO: resolve differences between 'mobile' and 'desktop' layouts
 			for (let i=0; i<widgetContainers.length; i++) {
 				let button = document.createElement('BUTTON');
-				button.classList.add('dcf-mobile-toolbar-toggle', 'dcf-mobile-toolbar-toggle-idm', 'dcf-idm-login', 'dcf-d-flex', 'dcf-ai-center', 'dcf-jc-center', 'dcf-w-100%', 'dcf-p-0', 'dcf-b-0', 'dcf-bg-transparent');
+				button.classList.add('dcf-idm-login', 'dcf-d-flex', 'dcf-ai-center', 'dcf-jc-center', 'dcf-relative', 'dcf-h-100%', 'dcf-w-100%', 'dcf-p-0', 'dcf-b-0', 'dcf-bg-transparent', 'unl-font-sans');
 				button.setAttribute('id', 'dcf-idm-toggle');
 				button.setAttribute('aria-expanded', 'false');
 				button.setAttribute('aria-controls', 'dcf-idm-options-'+i);
 				button.setAttribute('aria-label', 'Account actions for ' + this.getDisplayName());
 
 				let img = document.createElement('IMG');
-				img.classList.add('dcf-mobile-toolbar-toggle', 'dcf-mobile-toolbar-toggle-idm', 'dcf-idm-login', 'dcf-d-flex', 'dcf-ai-center', 'dcf-jc-center', 'dcf-w-100%', 'dcf-p-0', 'dcf-b-0', 'dcf-bg-transparent');
+				img.classList.add('dcf-idm-img', 'dcf-txt-sm', 'dcf-h-6', 'dcf-w-6', 'dcf-circle', 'unl-bg-cream');
 				img.setAttribute('src', avatarService + this.getUserId());
 				img.setAttribute('alt', '');
 				button.appendChild(img);
 
 				let displayName = document.createElement('SPAN');
-				displayName.classList.add('dcf-mobile-toolbar-label', 'dcf-mobile-toolbar-label-idm', 'dcf-truncate');
+				displayName.classList.add('dcf-idm-label', 'dcf-txt-2xs', 'dcf-truncate');
 				displayName.innerText = this.getDisplayName();
 				button.appendChild(displayName);
 
 				//Set up the IDM options
 				let optionsContainer = document.createElement('DIV');
-				optionsContainer.classList.add('dcf-idm-options', 'dcf-absolute', 'dcf-pt-6', 'dcf-pr-5', 'dcf-pb-5', 'dcf-pl-5', 'dcf-bg-overlay-dark');
+				optionsContainer.classList.add('dcf-idm-options', 'dcf-absolute', 'dcf-pt-6', 'dcf-pr-5', 'dcf-pb-5', 'dcf-pl-5', 'dcf-z-1', 'dcf-bg-overlay-dark');
 				optionsContainer.setAttribute('id', 'dcf-idm-options-'+i);
 				optionsContainer.hidden = true;
 
 				let navUL = document.createElement('UL');
-				navUL.classList.add('dcf-list-bare', 'dcf-mb-0', 'unl-font-sans');
+				navUL.classList.add('dcf-list-bare', 'dcf-mb-0', 'dcf-txt-2xs', 'unl-font-sans');
 
 				let profileLI = document.createElement('LI');
 				let profileLink = document.createElement('A');
@@ -272,7 +273,7 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				logoutLink.innerText = 'Logout';
 				logoutLI.appendChild(logoutLink);
 				navUL.appendChild(logoutLI);
-				
+
 				optionsContainer.appendChild(navUL);
 
 				//clear any existing HTML
@@ -284,7 +285,15 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				loggedInContainer.appendChild(optionsContainer);
 
 				//Initialize the dropdown nav
-				let dropdownNav = new DropDownWidget(loggedInContainer);
+				let dropdownNav = new DropDownWidget(loggedInContainer, 'idm-logged-in');
+				let closeNavEvent = new CustomEvent('closeNavigation');
+				let closeSearchEvent = new CustomEvent('closeSearch');
+				document.addEventListener('openDropDownWidget', function(e) {
+					if (e.detail.type == 'idm-logged-in') {
+						document.dispatchEvent(closeNavEvent);
+						document.dispatchEvent(closeSearchEvent);
+					}
+				});
 
 				//Show the contents
 				loggedOutContainer.hidden = true;
@@ -293,8 +302,9 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				// Any time logout link is clicked, unset the user data
 				logoutLink.removeEventListener('click', Plugin.logout);
 				logoutLink.addEventListener('click', Plugin.logout);
-				
+
 				Plugin.setLogoutURL(localSettings.logout);
+				logoutLink.setAttribute('href', logoutURL);
 			}
 		},
 
@@ -305,12 +315,12 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 			}
 
 			let widgetContainers = document.querySelectorAll('.dcf-idm');
-	
+
 			for (let i=0; i<widgetContainers.length; i++) {
 				let loggedOutContainer = widgetContainers[i].querySelector('.dcf-idm-status-logged-out');
 				let loggedInContainer = widgetContainers[i].querySelector('.dcf-idm-status-logged-in');
 				let loginLink = loggedOutContainer.querySelector('a');
-				
+
 				loginLink.setAttribute('href', loginURL);
 				loggedInContainer.hidden = true;
 				loggedOutContainer.hidden = false;
@@ -318,8 +328,8 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Set the URL to send the user to when the logout link is clicked
-   */
+		 * Set the URL to send the user to when the logout link is clicked
+		 */
 		setLogoutURL: function setLogoutURL(url) {
 			if (url) {
 				logoutURL = url;
@@ -327,8 +337,8 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Set the URL to send the user to when the login link is clicked
-   */
+		 * Set the URL to send the user to when the login link is clicked
+		 */
 		setLoginURL: function setLoginURL(url) {
 			if (url) {
 				loginURL = url;

@@ -13,9 +13,3 @@
 .unl-font-sans {
   @include font-sans(!important);
 }
-
-
-// !Display
-.unl-font-display {
-  @include font-display(!important);
-}

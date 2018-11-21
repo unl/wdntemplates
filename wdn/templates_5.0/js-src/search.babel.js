@@ -1,4 +1,6 @@
-define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
+define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function(WDN, dialogHelper, require, bodyScrollLock) {
+  const disableBodyScroll = bodyScrollLock.disableBodyScroll;
+  const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 	let autoSearchDebounceDelay = 1000;
 
 	function getLocalSearch() {
@@ -18,7 +20,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				return;
 			}
 			initd = true;
-		
+
 			let domQ = document.getElementById('dcf-search_query'),
 				domSearchForm = document.getElementById('dcf-search-form'),
 				domSearchResultWrapper = document.getElementById('dcf-search-results-wrapper'),
@@ -38,31 +40,41 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				searchAction = searchOrigin + searchPath,
 				searchFrameAction = searchAction + '?embed=1',
 				allowSearchParams = ['u', 'cx'],  // QS Params allowed by UNL Search app
-				//siteHomepage = nav.getSiteHomepage(),
-				//TODO: figure out how to determine the home page in 5.0
-				siteHomepage = 'https://wdn.unl.edu/',
+				siteHomepage = location.protocol + '//' + location.host,
+				closeNavEvent = new CustomEvent('closeNavigation'),
+				closeIDMOptionsEvent = new CustomEvent('closeDropDownWidget', {detail: {type: 'idm-logged-in'}}),
 				localSearch = getLocalSearch();
 
 			// give up if the search form has been unexpectedly removed
 			if (!domSearchForm) {
 				return;
 			}
-			
+
 			dialogHelper.initialize(domDialog);
-			
+
 			var domToggleButtonOnClick = function(e) {
 				if (!domDialog.hasAttribute('open')) {
+
 					//Search is currently closed, so open it.
 					for (let i = 0; i < domToggleButtons.length; i++) {
 						domToggleButtons[i].setAttribute('aria-pressed', 'true');
 					}
-					
+
 					domDialog.classList.remove('dcf-d-none');
 					domDialog.showModal();
 					domActiveToggleButton = this;
+
+          // Prevent body scroll when search is open
+          disableBodyScroll(domSearchResultWrapper);
+
+          // Hide other mobile toggles
+          document.dispatchEvent(closeNavEvent);
+          document.dispatchEvent(closeIDMOptionsEvent);
+
 					setTimeout(function(){
 						domQ.focus();
 					}, 200);
+
 				} else {
 					//Search is currently open, so close it.
 					closeSearch();
@@ -72,7 +84,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 			for (let i = 0; i < domToggleButtons.length; i++) {
 				domToggleButtons[i].addEventListener('click', domToggleButtonOnClick);
 			}
-			
+
 			domClose.addEventListener('click', function() {
 				closeSearch();
 			});
@@ -130,13 +142,13 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 			$progress = document.createElement('progress');
 			$progress.id = 'wdn_search_progress';
 			$progress.innerText = 'Loading...';
-			
+
 			// add an input to the form to let the search application know that we want the embedded format
 			domEmbed = document.createElement('input');
 			domEmbed.type = 'hidden';
 			domEmbed.name = 'embed';
-			domEmbed.value = '1';
-			
+			domEmbed.value = '5.0'; // Specify which theme version for search
+
 			// add a parameter for triggering the iframe compatible rendering
 			domSearchForm.appendChild(domEmbed);
 
@@ -147,9 +159,10 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 					$unlSearch.name = 'unlsearch';
 					$unlSearch.id = 'wdn_search_frame';
 					$unlSearch.title = 'Search';
+					$unlSearch.className = 'dcf-b-0 dcf-w-100% dcf-h-100%';
 					$unlSearch.src = searchFrameAction;
 
-					domSearchForm.parentElement.appendChild($progress);
+					domSearchResultWrapper.appendChild($progress);
 					domSearchResultWrapper.appendChild($unlSearch);
 
 					$unlSearch.addEventListener('load', function() {
@@ -173,7 +186,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 					//Search is already closed.
 					return;
 				}
-				
+
 				clearTimeout(autoSubmitTimeout);
 				domQ.value = '';
 				domSearchForm.parentElement.classList.remove('active');
@@ -183,14 +196,29 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 					domToggleButtons[i].setAttribute('aria-pressed', 'false');
 				}
 				domSearchForm.reset();
+
+        // Allow body scroll when search is closed
+        enableBodyScroll(domSearchResultWrapper);
+
+				// clear results
+				if ($unlSearch) {
+					$unlSearch = null;
+					domSearchResultWrapper.innerHTML = '';
+				}
+
 				if (returnFocus) {
 					//Send focus back to the toggle
 					domActiveToggleButton.focus();
 				}
 			};
 
+			// add an event listener for closeSearchEvent
+			document.addEventListener('closeSearch', function(e) {
+				closeSearch();
+			});
+
 			// add an event listener to support the iframe rendering
-			domQ.addEventListener('keyup', function(e) {
+			  domQ.addEventListener('keyup', function(e) {
 				let keyCode = e.keyCode;
 
 				if (keyCode === 27) {
@@ -271,7 +299,7 @@ define(['wdn', 'dialog', 'require'], function(WDN, dialogHelper, require) {
 				if (domDialog.contains(e.target)) {
 					return;
 				}
-				
+
 				if (domActiveToggleButton && domActiveToggleButton.contains(e.target)) {
 					return;
 				}

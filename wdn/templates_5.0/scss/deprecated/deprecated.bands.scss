@@ -12,11 +12,31 @@
   width: 100vw;
 }
 
+// Fix for nested bands
+.wdn-band .wdn-band,
+.wdn-band .dcf-bleed,
+.dcf-bleed .wdn-band {
+  left: 0;
+  margin-left: 0;
+  margin-right: 0;
+  right: 0;
+  width: auto;
+}
+
+.wdn-light-neutral-band {
+  @include bg-lightest;
+}
+
+.wdn-light-triad-band {
+  @include bg-lighter;
+}
+
+.wdn-light-complement-band {
+  @include bg-light;
+}
+
 .wdn-inner-wrapper {
-  @include pb-9;
-  padding-left: 5.6%;
-  padding-right: 5.6%;
-  @include pt-9;
+  padding: $length-em-9 $length-vw-2;
 }
 
 .wdn-inner-padding-sm {
@@ -38,8 +58,8 @@
 }
 
 .wdn-inner-padding-none {
-  padding-top: 0;
   padding-bottom: 0;
+  padding-top: 0;
 }
 
 .wdn-stretch {
@@ -51,11 +71,20 @@
   text-align: center;
 }
 
+.unl .dcf-main-content > :last-child:not(.wdn-band) {
+  // Provide adequate default vertical spacing between main content and footer.
+  // If the last child uses .wdn-band, no margin will be added.
+  @include mb-8;
+}
+
+
 @include mq(md) {
 
-  .wdn-text-band {
-    max-width: 37.5rem;
+  .wdn-text-band .wdn-inner-wrapper {
     margin: 0 auto;
+    max-width: 37.5rem;
+    padding-left: 0;
+    padding-right: 0;
   }
 
 }

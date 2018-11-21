@@ -3,6 +3,11 @@
 ////////////////////////////
 
 
+// Add to DCF (start)
+
+
+
+// Add to DCF (end)
 
 
 @keyframes dcf-appear {
@@ -55,12 +60,6 @@
 }
 
 
-.dcf-idm-dashboard {
-  opacity: 0;
-  visibility: hidden;
-}
-
-
 // !TEMPORARY
 
 
@@ -80,12 +79,6 @@
 //   outline: none; // temp
 // }
 
-
-.unl .dcf-modal-content {
-  width: 88.8%; // core
-}
-
-
 // .unl-n {
 //   height: 57px;
 //   width: 57px;
@@ -104,31 +97,28 @@
 // core
 
 
-.unl-t-hero-h {
-  color: #fff;
-  display: inline;
-//   box-decoration-break: clone;
-//   box-shadow: .316em 0 0 rgba(208,0,0,.9), -.316em 0 0 rgba(208,0,0,.9);
-//   background-color: rgba(208,0,0,.9);
-}
-
-// .unl .dcf-c-breadcrumbs a {
-//   color: #fff;
-// }
-
-
-.unl-vertical {
+// TODO: update direction of transform version
+// .unl-vertical {
 
 // writing-mode version
 //   transform: translateY(-#{ms(4)}em) rotate(180deg);
 //   writing-mode: vertical-lr;
 
-// transform version
-  transform: translate(-100%, #{ms(12)}em) rotate(-90deg);
-  transform-origin: 100% 0;
-}
+//   transform: translateY(-#{ms(0)}em);
+//   writing-mode: vertical-lr;
 
-.unl-vertical::after {
+
+// transform version
+//   transform: translate(-100%, #{ms(12)}em) rotate(-90deg);
+//   transform-origin: 100% 0;
+
+//   transform: translate(-100%, #{ms(12)}em) rotate(90deg);
+//   transform-origin: 100% 100%;
+
+
+// }
+
+// .unl-vertical::after {
 // writing-mode version
 //   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
 //   content: '';
@@ -138,17 +128,42 @@
 //   width: $length-em-3;
 
 // transform version
-  background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
-  bottom: 50%;
-  content: '';
-  display: inline-block;
-  height: $length-em-10;
-  position: absolute;
-  right: -1em;
-  transform: rotate(90deg) translateX(50%);
-  transform-origin: 100% 100%;
-  width: $length-em-3;
-}
+//   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
+//   bottom: 50%;
+//   content: '';
+//   display: inline-block;
+//   height: $length-em-10;
+//   position: absolute;
+//   right: -1em;
+//   transform: rotate(90deg) translateX(50%);
+//   transform-origin: 100% 100%;
+//   width: $length-em-3;
+
+// }
+
+// .unl-vertical::before {
+//
+// // writing-mode version
+//   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
+//   content: '';
+//   display: inline-block;
+//   height: $length-em-10;
+//   @include mb-4;
+//   width: $length-em-3;
+//
+// // transform version
+// //   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
+// //   bottom: 50%;
+// //   content: '';
+// //   display: inline-block;
+// //   height: $length-em-3;
+// //   right: -1em;
+// //   transform: rotate(90deg) translateX(50%);
+// //   transform-origin: 100% 100%;
+// //   width: $length-em-10;
+// }
+
+
 
 .unl-stripes::after {
   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
@@ -233,10 +248,6 @@
   border: 1px solid blue;
 }
 
-
-.test {
-  color: $color-lightest-text;
-}
 
 .unl-bg-scarlet-stripe {
   background-image: linear-gradient($diagonal1, $white 56.25%, darken($scarlet,3%) 56.25%);
@@ -343,27 +354,7 @@
 //   mask: url('../images/old-map.png');
 }
 
-.unl-frame {
-  position: relative;
-}
 
-.unl-frame::after {
-  border: 3px solid #fff;
-  content: '';
-  height: calc(100% - 4px);
-  left: 2px;
-  position: absolute;
-  top: 2px;
-  width: calc(100% - 4px);
-}
-
-.dcf-circle.unl-frame::after {
-  border-radius: $circle;
-}
-
-.unl-frame > img {
-  display: block;
-}
 
 
 // .unl-heading-ornament::before,
@@ -384,43 +375,3 @@
   margin-left: .03em;
   margin-top: 1rem;
 }
-
-
-// .unl ol,
-// .unl ul {
-//   list-style: none;
-//   padding-left: 0;
-// }
-//
-// .unl ol:not('.dcf-o-list-bare') {
-//   counter-reset: li;
-// }
-//
-// .unl li {
-//   @include pl6;
-// }
-//
-// .unl li:before {
-//   @include txt-sm;
-//   @include bold;
-//   color: $color-lightest-text;
-//   display: inline-block;
-//   width: 1em;
-//   margin-left: -2em;
-//   margin-right: 1em;
-//   text-align: right;
-// }
-//
-// .unl ol > li {
-//   counter-increment: li;
-// }
-//
-// .unl ol > li:before {
-//   content: counter(li);
-//   @include font-sans;
-//   direction: rtl;
-// }
-//
-// .unl ul > li:before {
-//   content: "\2022";
-// }
