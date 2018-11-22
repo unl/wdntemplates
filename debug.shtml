@@ -1263,6 +1263,10 @@
           <div class="dcf-form-group">
             <label class="dcf-label" for="time">Date/time</label>
             <input class="dcf-input-text" id="time" type="datetime-local">
+            <input type="text"
+                   data-widget="flatpickr"
+                   placeholder="Select Date.."
+                   readonly="readonly">
           </div>
 
   <!--
@@ -1416,8 +1420,13 @@
     <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-2.html" -->
   </footer>
   <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
-  <!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/js-body-local.html" -->
   <!-- InstanceBeginEditable name="jsbody" -->
+  <script>
+    require(['flatpickr-helper'], function() {
+
+    })
+  </script>
 <!--
   <script>
     require(['dialog'],function(dialogHelper){
