@@ -42,11 +42,11 @@ module.exports = function (grunt) {
 
 	var hereDir = './';
 
-	// files for keyword replacement (should match .gitattributes)
+	// files for keyword replacement (e.g. DEP_VERSION)(should match .gitattributes file)
 	var filterFiles = [
 		templateHtmlDir + '/*.dwt*',
-		templateIncludeDir + '/scriptsandstyles*.html',
-		templateIncludeDir + '/speedy_body_scripts.html'
+		templateIncludeDir + '/global/*.html',
+		templateIncludeDir + '/local/*.html',
 	];
 
 	// polyfill modules that need sync loading (should match scripts loaded in debug.js)
@@ -203,9 +203,9 @@ module.exports = function (grunt) {
 		scssJsFiles[templateJs + '/' + file + '.css'] = templateJsSrc + '/' + file + '.scss';
 	});
 
-	// load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
+	// load all grunt plugins matching the ['grunt-*', '@*/grunt-*'] patterns
 	require('load-grunt-tasks')(grunt);
-
+	var nodeSass = require('node-sass');
 	/**
 	 * Setting up grunt tasks
 	 */
@@ -231,6 +231,7 @@ module.exports = function (grunt) {
 		sass: {
 			main: {
 				options: {
+					implementation: nodeSass,
 					sourceMap: true,
 					includePaths: [
 						__dirname+'/node_modules/modularscale-sass/stylesheets'
@@ -240,6 +241,7 @@ module.exports = function (grunt) {
 			},
 			plugins: {
 				options: {
+					implementation: nodeSass,
 					sourceMap: true,
 					includePaths: [
 						__dirname+'/node_modules/modularscale-sass/stylesheets'
@@ -544,16 +546,20 @@ module.exports = function (grunt) {
 	// npm install grunt-criticalcss --save-dev
   //grunt.loadNpmTasks('grunt-criticalcss');
 
-	// establish grunt default
-	grunt.registerTask('default', ['sassGlobber', 'clean:js', 'css-main', 'js-main']);
+
 	// use if want to run  criticalcss
   //grunt.registerTask('default', ['sassGlobber', 'clean:js', 'css-main', 'js-main', 'criticalcss'])
 
-	// legacy targets from Makefile
-	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
-	grunt.registerTask('all', ['default']);
+
 	grunt.registerTask('css-main', ['sassGlobber', 'sass:main', 'postcss:main']);
 	grunt.registerTask('css-plugins', ['sassGlobber', 'sass:plugins', 'postcss:plugins']);
 	grunt.registerTask('js-main', ['css-plugins', 'babel', 'copy:babelNoTranspile', 'sync:dcfCommonModules', 'sync:dcfOptionalModules', 'sync:dcfUnminifiedMustards', 'requirejs', 'sync:js', 'clean:js-build']);
 	grunt.registerTask('js', ['clean:js', 'css-plugins', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
+
+	// establish grunt composed tasks
+	// TODO check with Ryan if sassGlobber needs to be at the start of Grunt task
+	grunt.registerTask('default', ['sassGlobber', 'clean:js', 'css-main', 'js-main']);
+	// legacy targets from Makefile
+	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
+	grunt.registerTask('all', ['default']);  /** mark for deletion */
 };

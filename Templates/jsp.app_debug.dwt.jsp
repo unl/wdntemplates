@@ -68,5 +68,8 @@
   </footer>
   <c:import url="/wdn/templates_5.0/includes/global/noscript.html"/>
   <c:import url="/wdn/templates_5.0/includes/global/js-body-local.html"/>
+  <!-- InstanceBeginEditable name="jsbody" -->
+  <!-- put your custom javascript here -->
+  <!-- InstanceEndEditable -->
 </body>
 </html>
