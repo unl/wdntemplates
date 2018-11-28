@@ -1,233 +1,147 @@
 @import '../../scss/pre.tmp.scss';
 
 
-// .fontello() {
-//     font-family: 'wdn-icon';
-//     font-style: normal;
-//     font-weight: normal;
-//     speak: none;
-//
-//     display: inline-block;
-//     text-decoration: inherit;
-//     width: 1em;
-//     text-align: center;
-//     font-variant: normal;
-//     text-transform: none;
-//
-//     line-height: 1em;
-// }
-
-/* Calendar Widget */
-.wp-calendar {
-  border-collapse: collapse;
-  border-width: 0 1px;
-  border-style: solid;
-//   border-color: @ui04;
-}
-
 .wp-calendar a {
-  border: none;
-}
-
-.wp-calendar a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .wp-calendar th,
 .wp-calendar td {
-//   border: 1px solid @ui04;
   @include font-sans;
-  font-size: .9353rem; // 12px
-  line-height: 1;
+  @include lh-1;
   text-align: center;
+  vertical-align: middle;
+  width: calc(100% / 7);
 }
 
 .wp-calendar th {
-  background-color: #eee;
-  padding: 1.069em 1px 1em;
+  @include bg-lightest;
+  padding: $length-em-4 0;
 }
 
 .wp-calendar td {
+  @include bg-white;
   padding: 0;
-}
-
-.wp-calendar td span,
-.wp-calendar td a {
-  display: block;
-  padding: 1.069em 1px 1em;
-}
-
-.wp-calendar td.selected {
-  background: #fff;
-}
-
-.wp-calendar td.prev,
-.wp-calendar td.next {
-  background-color: #f7f7f7;
-}
-
-.wp-calendar td.prev a,
-.wp-calendar td.next a {
-  font-size: .7015rem; // 9px
-  padding: 14px 1px;
-}
-
-.wp-calendar td a:hover {
-//   outline: 2px solid @brand;
-  text-decoration: none;
-}
-
-.wp-calendar td.today {
-  background: $scarlet;
-  color: #fff;
-}
-
-.wp-calendar td.today a {
-  color: inherit;
-}
-
-.wp-calendar td.today .eventContainer .eventBox a {
-  color: $scarlet;
 }
 
 .wp-calendar td > div {
   position: relative;
 }
 
+.wp-calendar td > div > a:focus,
+.wp-calendar td > div > a:hover {
+  box-shadow: 0 0 $length-em-3 fade-out($color-border,.25);
+}
+
+.wp-calendar td span,
+.wp-calendar td a {
+  display: block;
+  padding: $length-em-4 0;
+}
+
+.wp-calendar td.prev a,
+.wp-calendar td.next a {
+  @include txt-xs;
+  padding: #{ms(3)}em 0;
+}
+
+.wp-calendar td.today > div > a {
+  outline: 2px solid $scarlet;
+}
+
 .wp-calendar td .eventContainer {
-  position: absolute;
-  right: -227px;
-  top: 0;
-  width: 227px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.25), 0 1px 10px rgba(0,0,0,.1);
+  left: 50%;
+  top: calc(100% - 3px);
+  transform: translateX(calc(-#{ms(4)}em - #{ms(-6)}em));
+  width: #{ms(19)}em;
   word-break: normal;
-  z-index: 1;
 }
 
 .wp-calendar td .eventContainer::before {
-//   border-color: transparent @ui09;
-  border-width: 6px 6px 6px 0;
+  border-color: $scarlet transparent;
+  border-width: 0 $length-em-1 $length-em-1 $length-em-1;
   border-style: solid;
-  content: ' ';
+  content: '';
   display: block;
   height: 0;
-  left: -6px;
+  left: $length-em-6;
   position: absolute;
-  top: 6px;
+  top: -3px;
+  transform: translateY(-100%);
 }
 
-.wp-calendar td .eventContainer .eventBox {
-  background: #fff;
-//   box-shadow: 0 0 3px 0 @ui07;
-  padding-bottom: 1em;
-  text-align: left;
-}
-
-.wp-calendar td .eventContainer .eventBox h1 {
-//   background: @ui09;
-  color: #fff;
-  @include font-sans;
-  font-size: .7015rem; // 9px
-  margin: 0;
-  padding: .75em 1em;
-  text-transform: uppercase;
-}
-
-.wp-calendar td .eventContainer .eventBox a {
-  display: block;
-  font-size: .7015rem; // 9px
-  line-height: 1.333;
-  padding: .75em 1em 0 1em;
-}
-
-.wp-calendar td .eventContainer .eventBox a:hover {
-  outline: 0;
-}
-
-.wp-calendar td .eventContainer .eventBox a:last-child {
-  border: none;
+.wp-calendar .monthvalue a:focus,
+.wp-calendar .monthvalue a:hover,
+.wp-calendar .yearvalue a:focus,
+.wp-calendar .yearvalue a:hover,
+.wp-calendar td .eventContainer a:focus,
+.wp-calendar td .eventContainer a:hover {
+  text-decoration: underline;
 }
 
 .wp-calendar td .eventContainer.pos2 {
-  left: -225px;
-  right: auto;
+  left: auto;
+  right: 50%;
+  transform: translateX(calc(#{ms(4)}em + #{ms(-6)}em));
 }
 
 .wp-calendar td .eventContainer.pos2::before {
-//   border-color: transparent transparent transparent @ui09;
-  border-width: 6px 0 6px 6px;
   left: auto;
-  right: -6px;
+  right: $length-em-6;
 }
 
 .wp-calendar caption {
-//   background-color: @ui09;
-  color: #fff;
+  @include bg-darker;
   @include font-sans;
-  font-size: .9353rem; // 12px
+  @include txt-xs;
+  @include ls-2;
   margin: 0;
-  padding: 1.069em 1em 1em;
+  padding: 0;
   text-align: center;
   text-transform: uppercase;
 }
 
-.wp-calendar caption > :first-child {
+.wp-calendar .monthvalue,
+.wp-calendar .yearvalue {
+  display: inline-block;
+  @include pb-4;
+  @include pt-4;
+}
+
+.wp-calendar caption .prev {
   float: left;
 }
 
-.wp-calendar caption > :last-child {
+.wp-calendar caption .next {
   float: right;
 }
 
 .wp-calendar caption a {
-  color: #fff;
+  color: $cream;
 }
 
-.wp-calendar caption a.prev,
-.wp-calendar caption a.next {
+.wp-calendar caption .prev a,
+.wp-calendar caption .next a {
   display: inline-block;
-  font-size: 0;
-  text-decoration: none;
+  padding: $length-em-4 $length-em-5;
 }
 
-.wp-calendar caption a.prev::after,
-.wp-calendar caption a.next::before {
-  font-size: 1.247rem; // 16px
-//   .fontello();
+.wp-calendar caption .prev a::after,
+.wp-calendar caption .next a::before {
+  display: inline-block;
+  font-family: 'wdn-icon';
+  @include txt-xs;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
 }
 
-// .wp-calendar caption a.prev::after {
-//   content: '\e80a';
-// }
+.wp-calendar caption .prev a::after {
+  content: '\e80a';
+}
 
-// .wp-calendar caption a.next::before {
-//   content: '\e808';
-// }
-
-
-@include mq(md) {
-
-  .wp-calendar td,
-  .wp-calendar th {
-  	font-size: .802rem; // 12.83px
-  }
-
-  .wp-calendar td.prev a,
-  .wp-calendar td.next a {
-    font-size: .602rem; // 9.625px
-  }
-
-  .wp-calendar td .eventContainer .eventBox h1,
-  .wp-calendar td .eventContainer .eventBox a {
-    font-size: .602rem; // 9.625px
-  }
-
-  .wp-calendar caption {
-    font-size: .802rem; // 12.83px
-  }
-
-  .wp-calendar caption a.prev::after,
-  .wp-calendar caption a.prev::before {
-    font-size: 1rem; // 16px
-  }
-
+.wp-calendar caption .next a::before {
+  content: '\e808';
 }
