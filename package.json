@@ -22,7 +22,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "cssnano": "^4.1.7",
-    "dcf": "Shaderpixel/dcf#flatpickr",
+    "dcf": "git+https://github.com/d-c-n/dcf.git",
     "grunt": "^1.0.3",
     "grunt-babel": "^7.0.0",
     "grunt-bump": "^0.8.0",
