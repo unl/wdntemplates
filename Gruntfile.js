@@ -107,7 +107,8 @@ module.exports = function (grunt) {
 		'!skipnav.*',
 		'!socialmediashare.*',
 		'!unlalert.*',
-		'!wdn*'
+		'!wdn*',
+		'!cta-nav.*'
 	];
 
 	// requirejs configuration and customization options
