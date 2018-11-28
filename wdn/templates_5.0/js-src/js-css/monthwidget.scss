@@ -16,6 +16,7 @@
 
 .wp-calendar th {
   @include bg-lightest;
+  @include txt-sm;
   padding: $length-em-4 0;
 }
 
@@ -67,7 +68,7 @@
   height: 0;
   left: $length-em-6;
   position: absolute;
-  top: -3px;
+  top: -2px;
   transform: translateY(-100%);
 }
 
