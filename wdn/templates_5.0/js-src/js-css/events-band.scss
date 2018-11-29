@@ -2,34 +2,15 @@
 
 
 .unl-event-teaser-list {
-  grid-column: 3/13;
-}
-
-
-.unl-event-teaser {
-  grid: "d t" auto "d l" 1fr / $length-em-8 1fr;
-}
-
-
-.unl-event-title {
-  grid-area: t;
-}
-
-
-.unl-event-datetime {
-  grid-area: d;
-}
-
-
-.unl-event-location {
-  grid-area: l;
+  grid-column: 2/3;
+  grid-template-columns: repeat(auto-fill, minmax(#{ms(18)}em, 1fr) ) ;
 }
 
 
 @include mq(lg, min, width) {
 
   .unl-event-teaser-list {
-    grid-column: 3/12;
+    grid-template-columns: repeat(3, 1fr);
   }
 
 }
