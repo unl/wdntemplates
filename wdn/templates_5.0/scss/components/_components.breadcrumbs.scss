@@ -40,30 +40,15 @@
 @include mq(md, max, width) {
 
   .unl .dcf-breadcrumbs {
-    @include h-6; // Set height of breadcrumbs in order to hide horizontal scroll bar
+//     @include h-6; // Set height of breadcrumbs in order to hide horizontal scroll bar
     overflow: hidden; // Hide horizontal scroll bar
-
-    position: relative;
   }
 
 
   .unl .dcf-breadcrumbs ol {
     @include pb-6; // Set padding-bottom to push the horizontal scroll bar out of the breadcrumbs' height
     @include overflow-x-auto; // Let breadcrumbs scroll horizontally if wider than the viewport
-
-
   }
-
-  .unl .dcf-breadcrumbs::after {
-    background-image: linear-gradient(to right, fade-out($lighter-gray,1), $lighter-gray);
-    content: '';
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: #{ms(14)}em;
-  }
-
 
 
   .unl .dcf-breadcrumbs li {
