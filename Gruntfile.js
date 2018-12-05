@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 		'js-css/notices',
 		'js-css/monthwidget',
 		//'js-css/rsswidget',
-		//'js-css/unlalert',
+		'js-css/unlalert',
 		//'plugins/qtip/wdn.qtip',
 		'plugins/ui/css/jquery-ui-wdn'
 	];
