@@ -51,7 +51,6 @@ module.exports = function (grunt) {
 
 	// polyfill modules that need sync loading (should match scripts loaded in debug.js)
 	var polyfillMods = [
-		//'modernizr-wdn',
 		'mustard-initializer', // make sure that polyfill.io and other mustard are loaded first before other scripts
 		'ga',
 		'requireLib',
@@ -99,7 +98,6 @@ module.exports = function (grunt) {
 		'!main-execute-mods.*',
 		'!main-wdn-plugins.*',
 		'!main.*',
-		'!modernizr*',
 		'!navigation.*',
 		'!require.*',
 		'!require-css/**',
