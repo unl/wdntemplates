@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 	];
 
 	var jsCssObjs = [
-		//'js-css/band_imagery',
+		'js-css/band_imagery',
 		'js-css/events-band',
 		'js-css/events',
 		'js-css/formvalidator',
@@ -60,7 +60,7 @@ module.exports = function (grunt) {
 
 	// modules added here will be added to rjsConfig modules below
 	var wdnBuildPlugins = [
-		//'band_imagery',
+		'band_imagery',
 		'carousel',
 		'events-band',
 		'events',
