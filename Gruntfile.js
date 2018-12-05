@@ -64,7 +64,7 @@ module.exports = function (grunt) {
 		'events-band',
 		'events',
 		'jqueryui',
-		//'mediaelement_wdn',
+		'mediaelement_wdn',
 		//'modal',
 		'monthwidget',
 		'notice',
