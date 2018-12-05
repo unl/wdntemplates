@@ -19,7 +19,7 @@ module.exports = function (grunt) {
 		//'js-css/rsswidget',
 		//'js-css/unlalert',
 		//'plugins/qtip/wdn.qtip',
-		//'plugins/ui/css/jquery-ui-wdn'
+		'plugins/ui/css/jquery-ui-wdn'
 	];
 
 	// project layout variables (directories)
@@ -64,7 +64,7 @@ module.exports = function (grunt) {
 		'carousel',
 		'events-band',
 		'events',
-		//'jqueryui',
+		'jqueryui',
 		//'mediaelement_wdn',
 		//'modal',
 		'monthwidget',
