@@ -78,11 +78,11 @@ module.exports = function (grunt) {
 
 	/**
 	/* Array containing bundled files created by rjs in build/compressed to be
-	/* excluded from being copy/synced back to template's js/compressed folder
+	/* excluded from being copied/synced back to template's js/compressed folder
 	 */
 	var syncJsIgnore = [
 		'!build.txt',
-		//'!js-css/**',
+		'!js-css/**',
 		'!analytics.*',
 		'!debug.*',
 		'!fontfaceobserver.*',
