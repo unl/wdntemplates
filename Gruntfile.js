@@ -97,7 +97,6 @@ module.exports = function (grunt) {
 		'!require-css/**',
 		'!search.*',
 		'!skipnav.*',
-		'!socialmediashare.*',
 		'!unlalert.*',
 		'!wdn*'
 	];
