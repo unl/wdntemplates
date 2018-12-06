@@ -6,9 +6,9 @@ define([
 'search', //TODO: add search
 'unlalert',
 'legacy',
-'hover_intent'
+'hover_intent',
 //'images', //TODO: do we need 'images'?
-//'form_validation', //TODO: do we need to init form_validation here?
+'form_validation' //TODO: do we need to init form_validation here?
 //'wdn-ui' //TODO: do we need js?
 ], function () {
 	for (var i = 0, pluginCount = arguments.length; i < pluginCount; i++) {
