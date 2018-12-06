@@ -16,7 +16,6 @@ module.exports = function (grunt) {
 		'js-css/formvalidator',
 		'js-css/notices',
 		'js-css/monthwidget',
-		//'js-css/rsswidget',
 		'js-css/unlalert',
 		//'plugins/qtip/wdn.qtip',
 		'plugins/ui/css/jquery-ui-wdn'
@@ -68,7 +67,6 @@ module.exports = function (grunt) {
 		'modal',
 		'monthwidget',
 		'notice',
-		//'rss_widget',
 		//'tooltip'
 	];
 
