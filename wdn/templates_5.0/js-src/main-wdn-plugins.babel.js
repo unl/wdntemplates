@@ -8,7 +8,6 @@ define([
 'legacy',
 'hover_intent',
 'form_validation' //TODO: do we need to init form_validation here?
-//'wdn-ui' //TODO: do we need js?
 ], function () {
 	for (var i = 0, pluginCount = arguments.length; i < pluginCount; i++) {
 		var pluginObj = arguments[i];
