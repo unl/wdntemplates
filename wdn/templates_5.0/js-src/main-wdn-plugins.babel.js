@@ -7,7 +7,6 @@ define([
 'unlalert',
 'legacy',
 'hover_intent',
-//'images', //TODO: do we need 'images'?
 'form_validation' //TODO: do we need to init form_validation here?
 //'wdn-ui' //TODO: do we need js?
 ], function () {
