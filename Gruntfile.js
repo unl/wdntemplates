@@ -6,7 +6,6 @@ module.exports = function (grunt) {
 		'critical',
 		'deprecated',
 		//'modules/pagination',
-		//'modules/infographics',
 	];
 
 	var jsCssObjs = [
