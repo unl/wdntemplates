@@ -17,7 +17,6 @@ module.exports = function (grunt) {
 		'js-css/notices',
 		'js-css/monthwidget',
 		'js-css/unlalert',
-		//'plugins/qtip/wdn.qtip',
 		'plugins/ui/css/jquery-ui-wdn'
 	];
 
@@ -67,7 +66,6 @@ module.exports = function (grunt) {
 		'modal',
 		'monthwidget',
 		'notice',
-		//'tooltip'
 	];
 
 	// module exclusions for plugins not built into all
