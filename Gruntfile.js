@@ -4,7 +4,7 @@ module.exports = function (grunt) {
 		'pre',
 		'core',
 		'critical',
-		'deprecated',
+		'deprecated'
 	];
 
 	var jsCssObjs = [
