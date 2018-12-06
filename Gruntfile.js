@@ -5,7 +5,6 @@ module.exports = function (grunt) {
 		'core',
 		'critical',
 		'deprecated',
-		//'modules/pagination',
 	];
 
 	var jsCssObjs = [
