@@ -1272,8 +1272,14 @@
           </div>
 
           <div class="dcf-form-group">
-            <label class="dcf-label" for="time">Date/time</label>
-            <input class="dcf-input-text" id="time" type="datetime-local">
+            <label class="dcf-label" for="time">Date/time (using Flatpickr)</label>
+            <!--<input class="dcf-input-text" id="time" type="datetime-local">-->
+            <input type="text"
+                   data-widget="flatpickr"
+                   placeholder="Select Date & Time.."
+                   id="time"
+                   class="dcf-w-auto"
+                   readonly>
           </div>
 
   <!--
@@ -1429,6 +1435,15 @@
   <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/js-body-local.html" -->
   <!-- InstanceBeginEditable name="jsbody" -->
+  <script>
+		require(["plugins/flatpickr/flatpickr", 'css!plugins/flatpickr/flatpickr', 'css!plugins/flatpickr/themes/airbnb'], function(flatpickr) {
+			var widget = document.querySelector('[data-widget="flatpickr"]');
+			flatpickr(widget, {
+							enableTime: true,
+							dateFormat: "Y-m-d h:iK",
+						});
+		})
+  </script>
 <!--
   <script>
     require(['dialog'],function(dialogHelper){
