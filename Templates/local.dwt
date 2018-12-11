@@ -22,8 +22,25 @@
 <!--#include virtual="/wdn/templates_5.0/includes/global/skip-nav.html" -->
 <header class="dcf-header" id="dcf-header" role="banner">
   <!--#include virtual="/wdn/templates_5.0/includes/global/header-global-1.html" -->
-  <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
-  <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-global-1.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/visit-global-1.html" -->
+      <!-- InstanceBeginEditable name="visitlocal" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/local/visit-local.html" -->
+      <!-- InstanceEndEditable -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/visit-global-2.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/apply-global-1.html" -->
+      <!-- InstanceBeginEditable name="applylocal" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/local/apply-local.html" -->
+      <!-- InstanceEndEditable -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/apply-global-2.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/give-global-1.html" -->
+      <!-- InstanceBeginEditable name="givelocal" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/local/give-local.html" -->
+      <!-- InstanceEndEditable -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/give-global-2.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-global-2.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/header-global-2.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup-1.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-1.html" -->
@@ -54,15 +71,17 @@
   <div class="dcf-hero dcf-hero-default">
     <!-- InstanceEndEditable -->
     <div class="dcf-hero-group-1">
-      <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
-        <!-- InstanceBeginEditable name="breadcrumbs" -->
-        <ol>
-          <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln" class="wdn-icon-home">UNL</a></li>
-          <li><a href="#" title="Site Title">Site Title</a></li>
-          <li>Home</li>
-        </ol>
-        <!-- InstanceEndEditable -->
-      </nav>
+      <div class="dcf-breadcrumbs-wrapper">
+        <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+          <!-- InstanceBeginEditable name="breadcrumbs" -->
+          <ol>
+            <li><a href="https://www.unl.edu/">Nebraska</a></li>
+            <li><a href="/">Site Title</a></li>
+            <li><span aria-current="page">Home</span></li>
+          </ol>
+          <!-- InstanceEndEditable -->
+        </nav>
+      </div>
       <header class="dcf-page-title" id="dcf-page-title">
         <!-- InstanceBeginEditable name="pagetitle" -->
         <h1>Please Title Your Page Here</h1>
@@ -83,6 +102,8 @@
   </div>
 </main>
 <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+  <!-- InstanceBeginEditable name="optionalfooter" -->
+  <!-- InstanceEndEditable -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-1.html" -->
   <!-- InstanceBeginEditable name="contactinfo" -->
   <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->

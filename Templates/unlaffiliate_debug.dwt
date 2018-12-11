@@ -22,8 +22,25 @@
 <!--#include virtual="/wdn/templates_5.0/includes/global/skip-nav.html" -->
 <header class="dcf-header" id="dcf-header" role="banner">
   <!--#include virtual="/wdn/templates_5.0/includes/global/header-global-1.html" -->
-  <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
-  <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-global-1.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/visit-global-1.html" -->
+      <!-- InstanceBeginEditable name="visitlocal" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/local/visit-local.html" -->
+      <!-- InstanceEndEditable -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/visit-global-2.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/apply-global-1.html" -->
+      <!-- InstanceBeginEditable name="applylocal" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/local/apply-local.html" -->
+      <!-- InstanceEndEditable -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/apply-global-2.html" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/give-global-1.html" -->
+      <!-- InstanceBeginEditable name="givelocal" -->
+      <!--#include virtual="/wdn/templates_5.0/includes/local/give-local.html" -->
+      <!-- InstanceEndEditable -->
+      <!--#include virtual="/wdn/templates_5.0/includes/global/give-global-2.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-global-2.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/header-global-2.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup-1.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-1.html" -->
@@ -83,6 +100,8 @@
   </div>
 </main>
 <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+  <!-- InstanceBeginEditable name="optionalfooter" -->
+  <!-- InstanceEndEditable -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-1.html" -->
   <!-- InstanceBeginEditable name="contactinfo" -->
   <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
