@@ -23,8 +23,25 @@
   <c:import url="/wdn/templates_5.0/includes/global/skip-nav.html"/>
   <header class="dcf-header" id="dcf-header" role="banner">
     <c:import url="/wdn/templates_5.0/includes/global/header-global-1.html"/>
-      <c:import url="/wdn/templates_5.0/includes/global/idm.html"/>
-      <c:import url="/wdn/templates_5.0/includes/global/search.html"/>
+      <c:import url="/wdn/templates_5.0/includes/global/nav-global-1.html"/>
+        <c:import url="/wdn/templates_5.0/includes/global/visit-global-1.html"/>
+        <!-- InstanceBeginEditable name="visitlocal" -->
+        <c:import url="/wdn/templates_5.0/includes/local/visit-local.html"/>
+        <!-- InstanceEndEditable -->
+        <c:import url="/wdn/templates_5.0/includes/global/visit-global-2.html"/>
+        <c:import url="/wdn/templates_5.0/includes/global/apply-global-1.html"/>
+        <!-- InstanceBeginEditable name="applylocal" -->
+        <c:import url="/wdn/templates_5.0/includes/local/apply-local.html"/>
+        <!-- InstanceEndEditable -->
+        <c:import url="/wdn/templates_5.0/includes/global/apply-global-2.html"/>
+        <c:import url="/wdn/templates_5.0/includes/global/give-global-1.html"/>
+        <!-- InstanceBeginEditable name="givelocal" -->
+        <c:import url="/wdn/templates_5.0/includes/local/give-local.html"/>
+        <!-- InstanceEndEditable -->
+        <c:import url="/wdn/templates_5.0/includes/global/give-global-2.html"/>
+      <c:import url="/wdn/templates_5.0/includes/global/nav-global-2.html"/>
+    <c:import url="/wdn/templates_5.0/includes/global/idm.html"/>
+    <c:import url="/wdn/templates_5.0/includes/global/search.html"/>
     <c:import url="/wdn/templates_5.0/includes/global/header-global-2.html"/>
     <c:import url="/wdn/templates_5.0/includes/global/logo-lockup-1.html"/>
         <c:import url="/wdn/templates_5.0/includes/global/site-affiliation-1.html"/>
@@ -60,6 +77,8 @@
     <!-- InstanceEndEditable -->
   </main>
   <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+    <!-- InstanceBeginEditable name="optionalfooter" -->
+    <!-- InstanceEndEditable -->
     <c:import url="/wdn/templates_5.0/includes/global/footer-global-1.html"/>
     <!-- InstanceBeginEditable name="contactinfo" -->
     <c:import url="/wdn/templates_5.0/includes/local/footer-local.html"/>
