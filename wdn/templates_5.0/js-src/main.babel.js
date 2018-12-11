@@ -15,7 +15,7 @@ requirejs([
 	// these are bundles for framework loading and plugin initialization
 	'main-wdn-plugins',
 	//The following plugins initialize on their own and do not need to be passed to the callback
-	'plugins/skipto/skipto.min.js'
+	'plugins/skipto/skipTo.js'
 ], function(WDN, require) {
     var unlchat_url = 'https://ucommchat.unl.edu/assets/js';
     //#UNLCHAT_URL

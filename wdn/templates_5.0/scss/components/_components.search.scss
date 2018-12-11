@@ -60,6 +60,10 @@
 
 @include mq(md, min, width) {
 
+  .unl .dcf-search {
+    max-width: #{ms(18)}em; // TODO: remove when global nav is added back to header
+  }
+
   .unl .dcf-search-toggle-wrapper {
     display: flex;
   }
