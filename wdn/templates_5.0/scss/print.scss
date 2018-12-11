@@ -1,0 +1,22 @@
+/////////
+// !PRINT
+/////////
+
+
+// !Variables
+@import '../../../node_modules/dcf/assets/dist/scss/variables/**/*';
+@import 'variables/**/*';
+
+
+// !Mixins
+@import '../../../node_modules/dcf/assets/dist/scss/mixins/**/*';
+@import 'mixins/**/*';
+
+
+// !Functions
+@import '../../../node_modules/dcf/assets/dist/scss/functions/**/*';
+
+
+// !Print
+@import '../../../node_modules/dcf/assets/dist/scss/print/**/*';
+@import 'print/**/*';

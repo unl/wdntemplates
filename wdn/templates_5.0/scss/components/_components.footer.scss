@@ -6,10 +6,10 @@
 .unl .dcf-footer {
   color: $color-footer;
   background-color: $color-footer-bg;
-  position: relative;
 }
 
-.unl .dcf-footer::before {
+
+.unl .dcf-footer-stripe::before {
   background-image: linear-gradient(to top, fade-out($scarlet,1) 2px, $scarlet 2px, $scarlet 5px, fade-out($scarlet,1) 5px);
   content: '';
   height: 5px;
@@ -19,18 +19,29 @@
 }
 
 
+.unl .dcf-footer h2 {
+  @include cream;
+  @include txt-md;
+  @include ls-2;
+  @include lh-3;
+  text-transform: uppercase;
+}
+
+
 // Footer lists
+.unl .dcf-footer dl,
+.unl .dcf-footer ol,
+.unl .dcf-footer ul {
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
 
 
-// .unl .dcf-footer dd:not(:last-child),
-// .unl .dcf-footer li:not(:last-child) {
-//   @include mb-2;
-// }
-
-// .unl .dcf-footer li {
-.unl .dcf-footer li:not(:last-child) {
+.unl .dcf-footer li {
   @include mb-0;
 }
+
 
 .unl .dcf-footer li a {
   display: inline-block;
@@ -49,50 +60,14 @@
   text-decoration: none;
 }
 
+
 .unl .dcf-footer a:hover {
   color: $color-footer-link;
   text-decoration: underline;
 }
 
 
-// Footer grids
-
-.unl-footer-grid-1 {
-  grid-template-columns: repeat(auto-fit, minmax(#{ms(20)}em, 1fr));
-}
-
-.unl-footer-grid-2 {
-  grid-template-columns: repeat(auto-fit, minmax(#{ms(20)}em, 1fr));
-}
-
-.unl-footer-unl {
-  grid-area: u;
-}
-
-.unl-footer-est {
-  grid-area: e;
-}
-
-.unl-footer-copyright {
-  grid-area: ©;
-}
-
-.unl-footer-grid-3 {
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-areas: "u u u u u u u u u u u u" "e e e e e e © © © © © ©";
-}
-
-// TODO: add 'about' and 'test' links to footer
-//     .unl-footer-about {
-//       grid-area: about;
-//     }
-//
-//     .unl-footer-test {
-//       grid-area: test;
-//     }
-
-
-@include mq(md, max, width) {
+@include mq(sm, max, width) {
 
   .unl-footer-unl {
     margin-bottom: #{ms(-8)}em;
@@ -105,27 +80,6 @@
 
   .unl-footer-logos {
     justify-content: flex-end;
-  }
-
-  .unl-footer-grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .unl-footer-grid-3 {
-    grid-template-areas: "u u u u u u u u u u u u" "e e e © © © . . . . . .";
-  }
-
-}
-
-
-@include mq(md, min, width) {
-
-  .unl-footer-grid-2 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .unl-footer-grid-3 {
-    grid-template-areas: "u u u u u u u u e e © ©";
   }
 
 }

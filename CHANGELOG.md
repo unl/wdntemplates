@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.1 (December 11, 2018)
+- Fix body scroll bug with desktop nav closing without clicking close
+- Add Editable JSbody to App templates
+- Implement CTA navigation
+- Remove contents of global nav include files
+
 ## 5.0.0 (November 12, 2018)
 - 5.0 Initial Release
 

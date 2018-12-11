@@ -42,7 +42,7 @@ define([
 			$days.each(function() {
 				var $this = $(this);
 				if ($this.text() == today) {
-					$this.addClass('today').append('<i class="today_image"/>');
+					$this.addClass('today');
 					return false;
 				}
 			});
@@ -56,7 +56,7 @@ define([
 				if (infoBox.length) {
 					infoBox.show();
 				} else {
-					infoBox = $('<div class="eventContainer"><div class="eventBox">Loading...</div></div>');
+					infoBox = $('<div class="eventContainer dcf-absolute dcf-z-1 dcf-pt-3 dcf-pb-3 dcf-txt-left dcf-bg-white dcf-bt-3 dcf-bt-solid unl-bt-scarlet"><div class="eventBox">Loading...</div></div>');
 					infoBox.appendTo($('div:first', this));
 					if ($(this).position().left + $(this).width() + infoBox.width() >= $($container[0].offsetParent).outerWidth()) {
 						infoBox.addClass('pos2');
@@ -71,7 +71,7 @@ define([
 							var eventTitle = $('EventTitle', data);
 							var eventWebPageTitle = $('Title', data);
 							var eventURL = [];
-							eventBox.empty().append('<h1>' + date.format('MMMM D, YYYY') + '</h1>');
+              eventBox.empty();
 
 							eventWebPageTitle.each(function() {
 								var $this = $(this);
@@ -80,7 +80,7 @@ define([
 								}
 							});
 							$.each(eventURL, function(i, url) {
-								eventBox.append('<a href="' + url + '">' + eventTitle.eq(i).text() + '</a>');
+								eventBox.append('<a class="dcf-d-block dcf-mr-6 dcf-ml-6 dcf-pt-1 dcf-pb-1 dcf-txt-xs dcf-lh-2" href="' + url + '">' + eventTitle.eq(i).text() + '</a>');
 							});
 						},
 						error: function() {

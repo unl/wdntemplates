@@ -3,8 +3,9 @@
 ///////////////////////////////
 
 
-.unl .dcf-header-global a:visited {
-  color: $color-link; // Force visited links in the global header to remain scarlet.
+.unl .dcf-header-global a:visited,
+.unl a.dcf-header-logo:visited {
+  color: $color-link; // Force visited links in the global header and logo to remain scarlet.
 }
 
 
