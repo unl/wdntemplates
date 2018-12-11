@@ -14,7 +14,7 @@
 }
 
 
-.unl .dcf-main-content > :last-child {
+.unl .dcf-main-content > :last-child:not(.dcf-bleed) {
   // Provide adequate default vertical spacing between main content and footer.
   // Use the .dcf-mb-0 utility class as needed to remove this margin and place
   // content adjacent to the footer.

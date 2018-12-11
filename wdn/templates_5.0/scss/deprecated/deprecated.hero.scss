@@ -83,7 +83,7 @@
 
 // Media Queries
 
-@include mq(md) {
+@media only screen and (min-width:48em) {
 
   .wdn-hero {
     height: #{ms(22)}em;
@@ -147,7 +147,7 @@
 }
 
 
-@media (min-width: #{ms(30)}em) and (min-height: #{ms(26)}em) {
+@media only screen and (min-width:80em) and (min-height: #{ms(26)}em) {
 
   .wdn-hero {
     height: #{ms(24)}em;
