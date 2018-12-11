@@ -17,6 +17,11 @@
 }
 
 
+.unl .dcf-breadcrumbs li {
+  margin-bottom: 0;
+}
+
+
 .unl .dcf-breadcrumbs li:last-child {
   padding-right: $length-vw-2; // Add padding to equal the wrapper object's right padding
 }
@@ -40,14 +45,15 @@
 @include mq(md, max, width) {
 
   .unl .dcf-breadcrumbs {
-    @include h-6; // Set height of breadcrumbs in order to hide horizontal scroll bar
-    overflow: hidden; // Hide horizontal scroll bar
+    @include h-9; // Set height of breadcrumbs in order to hide horizontal scroll bar
+    overflow: hidden; // Hide scroll bars
   }
 
 
   .unl .dcf-breadcrumbs ol {
-    @include pb-6; // Set padding-bottom to push the horizontal scroll bar out of the breadcrumbs' height
+    @include pb-9; // Set padding-bottom to push the horizontal scroll bar out of the breadcrumbs' height
     @include overflow-x-auto; // Let breadcrumbs scroll horizontally if wider than the viewport
+    @include overflow-y-hidden; // Hide vertical scroll bar in breadcrumbs region
   }
 
 

@@ -19,16 +19,29 @@
 }
 
 
-// Footer lists
-// .unl .dcf-footer dd:not(:last-child),
-// .unl .dcf-footer li:not(:last-child) {
-//   @include mb-2;
-// }
+.unl .dcf-footer h2 {
+  @include cream;
+  @include txt-md;
+  @include ls-2;
+  @include lh-3;
+  text-transform: uppercase;
+}
 
-// .unl .dcf-footer li {
-.unl .dcf-footer li:not(:last-child) {
+
+// Footer lists
+.unl .dcf-footer dl,
+.unl .dcf-footer ol,
+.unl .dcf-footer ul {
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+
+.unl .dcf-footer li {
   @include mb-0;
 }
+
 
 .unl .dcf-footer li a {
   display: inline-block;
@@ -46,6 +59,7 @@
   color: $color-footer-link;
   text-decoration: none;
 }
+
 
 .unl .dcf-footer a:hover {
   color: $color-footer-link;

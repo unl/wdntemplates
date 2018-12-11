@@ -30,8 +30,12 @@
 
 
 .unl .dcf-nav-local > ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(#{ms(15)}em, 1fr));
+  display: flex;
+}
+
+
+.unl .dcf-nav-local > ul > li {
+  flex-basis: 50%;
 }
 
 
@@ -61,7 +65,7 @@
 
 
   .unl .dcf-nav-local > ul {
-    grid-gap: $length-em-7 $length-vw-1;
+    flex-flow: row wrap;
   }
 
 
@@ -74,8 +78,8 @@
 
 @include mq(sm, min, width) {
 
-  .unl .dcf-nav-local > ul {
-    grid-template-columns: repeat(3, 1fr);
+  .unl .dcf-nav-local > ul > li {
+    flex-basis: calc(100% / 3);
   }
 
 }
@@ -84,9 +88,13 @@
 @include mq(md, min, width) {
 
   .unl .dcf-nav-local > ul {
-    grid-template-columns: repeat(6, 1fr);
     overflow: hidden;
     width: 100%;
+  }
+
+
+  .unl .dcf-nav-local > ul > li {
+    flex-basis: calc(100% / 6);
   }
 
 
@@ -163,6 +171,43 @@
 
   .unl .dcf-nav-toggle-btn-menu[aria-expanded="true"] ~ .dcf-nav-local ul ul:after {
     transform: scaleY(1);
+  }
+
+}
+
+
+@supports (display: grid) {
+
+  .unl .dcf-nav-local > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(#{ms(15)}em, 1fr));
+  }
+
+
+  @include mq(sm, min, width) {
+
+    .unl .dcf-nav-local > ul {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+  }
+
+
+  @include mq(md, max, width) {
+
+    .unl .dcf-nav-local > ul {
+      grid-gap: $length-em-7 $length-vw-1;
+    }
+
+  }
+
+
+  @include mq(md, min, width) {
+
+    .unl .dcf-nav-local > ul {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
   }
 
 }
