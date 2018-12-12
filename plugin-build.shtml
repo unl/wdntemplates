@@ -2,13 +2,13 @@
 <html class="no-js" lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
     <!--#include virtual="/wdn/templates_5.0/includes/global/head-1.html" -->
-    <!-- TemplateBeginEditable name="doctitle" -->
+    <!-- InstanceBeginEditable name="doctitle" -->
     <title>Debugging Out | Framework Testing Page</title>
-    <!-- TemplateEndEditable -->
+    <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/head-2-local.html" -->
-    <!-- TemplateBeginEditable name="head" -->
+    <!-- InstanceBeginEditable name="head" -->
     <!-- Place optional header elements here -->
-    <!-- TemplateEndEditable -->
+    <!-- InstanceEndEditable -->
 </head>
 <body class="debug unl" data-version="5.0">
 <!--#include virtual="/wdn/templates_5.0/includes/global/skip-nav.html" -->
@@ -41,59 +41,59 @@
     <!--#include virtual="/wdn/templates_5.0/includes/global/header-global-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup-1.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-1.html" -->
-    <!-- TemplateBeginEditable name="affiliation" -->
+    <!-- InstanceBeginEditable name="affiliation" -->
     <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
-    <!-- TemplateEndEditable -->
+    <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-1.html" -->
-    <!-- TemplateBeginEditable name="titlegraphic" -->
+    <!-- InstanceBeginEditable name="titlegraphic" -->
     <a class="unl-site-title-medium" href="https://www.unl.edu/">
         Glenn Korff School of Music
     </a>
-    <!-- TemplateEndEditable -->
+    <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle-group.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-1.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle-btn.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-1.html" -->
-    <!-- TemplateBeginEditable name="navlinks" -->
+    <!-- InstanceBeginEditable name="navlinks" -->
     <!--#include virtual="/wdn/templates_5.0/includes/local/nav-local.html" -->
-    <!-- TemplateEndEditable -->
+    <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-2.html" -->
 </header>
 
 <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
 
-    <!-- TemplateBeginEditable name="hero" -->
+    <!-- InstanceBeginEditable name="hero" -->
     <div class="dcf-hero dcf-hero-default">
-        <!-- TemplateEndEditable -->
+        <!-- InstanceEndEditable -->
         <div class="dcf-hero-group-1">
             <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
-                <!-- TemplateBeginEditable name="breadcrumbs" -->
+                <!-- InstanceBeginEditable name="breadcrumbs" -->
                 <ol>
                     <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
                     <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
                     <li><span aria-current="page">Ensembles</span></li>
                 </ol>
-                <!-- TemplateEndEditable -->
+                <!-- InstanceEndEditable -->
             </nav>
             <header class="dcf-page-title" id="dcf-page-title">
-                <!-- TemplateBeginEditable name="pagetitle" -->
+                <!-- InstanceBeginEditable name="pagetitle" -->
                 <h1>Page title</h1>
-                <!-- TemplateEndEditable -->
+                <!-- InstanceEndEditable -->
             </header>
-            <!-- TemplateBeginEditable name="herogroup1" -->
-            <!-- TemplateEndEditable -->
+            <!-- InstanceBeginEditable name="herogroup1" -->
+            <!-- InstanceEndEditable -->
         </div>
-        <!-- TemplateBeginEditable name="herogroup2" -->
+        <!-- InstanceBeginEditable name="herogroup2" -->
         <div class="dcf-hero-group-2">
         </div>
-        <!-- TemplateEndEditable -->
+        <!-- InstanceEndEditable -->
     </div>
     <div class="dcf-main-content dcf-wrapper">
-        <!-- TemplateBeginEditable name="maincontentarea" -->
+        <!-- InstanceBeginEditable name="maincontentarea" -->
 
         <!-- <svg viewBox="0 0 174 152" height="142" width="142"><style>.st0{fill:#d00000}</style><path style="stroke: blue; stroke-width: 4px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47zM26 112H16h10zM114 87L62 5l52 82zM70 112H60h10zM158 112h-10 10z"/><path style="stroke: yellow; stroke-width: 2px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47z"/></svg> -->
         <!--
@@ -1409,19 +1409,19 @@
             </table>
         </figure>
 
-        <!-- TemplateEndEditable -->
+        <!-- InstanceEndEditable -->
     </div>
 </main>
 <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
     <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-1.html" -->
-    <!-- TemplateBeginEditable name="contactinfo" -->
+    <!-- InstanceBeginEditable name="contactinfo" -->
     <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
-    <!-- TemplateEndEditable -->
+    <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-2.html" -->
 </footer>
 <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
 <!--#include virtual="/wdn/templates_5.0/includes/global/js-body-local.html" -->
-<!-- TemplateBeginEditable name="jsbody" -->
+<!-- InstanceBeginEditable name="jsbody" -->
 <script>
 	require(["plugins/flatpickr/flatpickr", 'css!plugins/flatpickr/flatpickr', 'css!plugins/flatpickr/themes/airbnb'], function(flatpickr) {
 		const widget = document.querySelector('[data-widget]');
@@ -1444,6 +1444,6 @@
 		notice.create('Spaghetti Monster Lives', 'You know no spaghetti', noticeOptions);
 	});
 </script>
-<!-- TemplateEndEditable -->
+<!-- InstanceEndEditable -->
 </body>
 <!-- InstanceEnd --></html>

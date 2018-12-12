@@ -12,7 +12,7 @@
   -->
   <!-- TemplateBeginEditable name="doctitle" -->
   <title>Use a descriptive page title | Optional Site Title (use for context) | University of Nebraska&ndash;Lincoln</title>
-  <!-- TemplateEndEditable -->
+  <!-- InstanceEndEditable -->
   <c:import url="/wdn/templates_5.0/includes/global/head-2-local.html"/>
   <!-- TemplateBeginEditable name="head" -->
   <!-- Place optional header elements here -->

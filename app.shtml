@@ -2,13 +2,13 @@
 <html class="no-js" lang="en"><!-- InstanceBegin template="/Templates/app.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <!--#include virtual="/wdn/templates_5.0/includes/global/head-1.html" -->
-<!-- TemplateBeginEditable name="doctitle" -->
+<!-- InstanceBeginEditable name="doctitle" -->
   <title>App Sub-Theme</title>
-<!-- TemplateEndEditable -->
+<!-- InstanceEndEditable -->
 <!--#include virtual="/wdn/templates_5.0/includes/global/head-2.html" -->
-<!-- TemplateBeginEditable name="head" -->
+<!-- InstanceBeginEditable name="head" -->
   <!-- Place optional header elements here -->
-<!-- TemplateEndEditable -->
+<!-- InstanceEndEditable -->
 </head>
 <body class="debug unl app" data-version="5.0">
   <!--#include virtual="/wdn/templates_5.0/includes/global/skip-nav.html" -->
@@ -30,35 +30,35 @@
     <!--#include virtual="/wdn/templates_5.0/includes/global/header-global-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup-1.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-1.html" -->
-    <!-- TemplateBeginEditable name="affiliation" -->
-    <!-- TemplateEndEditable -->
+    <!-- InstanceBeginEditable name="affiliation" -->
+    <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-1.html" -->
-    <!-- TemplateBeginEditable name="titlegraphic" -->
+    <!-- InstanceBeginEditable name="titlegraphic" -->
     <a class="unl-site-title-short" href="https://www.unl.edu/">
       Web Application
     </a>
-    <!-- TemplateEndEditable -->
+    <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle-group.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-1.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-app-1.html" -->
-    <!-- TemplateBeginEditable name="appcontrols" -->
+    <!-- InstanceBeginEditable name="appcontrols" -->
     <!--#include virtual="/wdn/templates_5.0/includes/local/app-controls.html" -->
-    <!-- TemplateEndEditable -->
+    <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-app-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/app-search-1.html" -->
-    <!-- TemplateBeginEditable name="appsearch" -->
+    <!-- InstanceBeginEditable name="appsearch" -->
     <!--#include virtual="/wdn/templates_5.0/includes/local/app-search.html" -->
-    <!-- TemplateEndEditable -->
+    <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/app-search-2.html" -->
   </header>
 
   <main class="dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
 
-    <!-- TemplateBeginEditable name="maincontentarea" -->
+    <!-- InstanceBeginEditable name="maincontentarea" -->
     <div class="dcf-pt-7 dcf-pb-8 dcf-measure">
 <!--     <h2>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park.</h2> -->
     <p class="dcf-lead">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#123">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
@@ -104,13 +104,13 @@
     <p>Quinoa twee cardigan, lo-fi biodiesel try-hard Neutra pickled church-key pug scenester. Etsy direct trade fanny pack, fashion axe chia bespoke bitters Helvetica.</p>
     </div>
 
-  <!-- TemplateEndEditable -->
+  <!-- InstanceEndEditable -->
   </main>
   <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
     <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-1.html" -->
-    <!-- TemplateBeginEditable name="contactinfo" -->
+    <!-- InstanceBeginEditable name="contactinfo" -->
     <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
-    <!-- TemplateEndEditable -->
+    <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-2.html" -->
   </footer>
   <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
