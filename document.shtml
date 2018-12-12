@@ -10,12 +10,12 @@
     $Id: fixed.dwt | 6edb0e1ee94038935f3821c6ce15dfd5c217b2e2 | Tue Dec 1 17:08:56 2015 -0600 | Kevin Abel  $
 -->
 <!--#include virtual="/wdn/templates_4.1/includes/scriptsandstyles.html" -->
-<!-- TemplateBeginEditable name="doctitle" -->
+<!-- InstanceBeginEditable name="doctitle" -->
 <title>WDN Document Template | WDN Testing Page | University of Nebraska&ndash;Lincoln</title>
-<!-- TemplateEndEditable -->
-<!-- TemplateBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
-<!-- TemplateEndEditable -->
+<!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="terminal" -->
 </head>
 <body class="terminal" data-version="4.1">
@@ -35,29 +35,29 @@
             <div id="wdn_logo_lockup">
                 <div class="wdn-inner-wrapper">
                     <!--#include virtual="/wdn/templates_4.1/includes/logo.html" -->
-                    <span id="wdn_site_affiliation"><!-- TemplateBeginEditable name="affiliation" -->My site affiliation<!-- TemplateEndEditable --></span>
-                    <span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" -->
+                    <span id="wdn_site_affiliation"><!-- InstanceBeginEditable name="affiliation" -->My site affiliation<!-- InstanceEndEditable --></span>
+                    <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" -->
                         <abbr title="Hixson-Lied College of Fine and Performing Arts">HLCFPA</abbr>
                         <!--<span>A division of the College of Arts &amp; Sciences</span>-->
-                        <!-- TemplateEndEditable --></span>
+                        <!-- InstanceEndEditable --></span>
                 </div>
             </div>
         </header>
         <div id="wdn_navigation_bar" class="wdn-band">
             <nav id="breadcrumbs" class="wdn-inner-wrapper" role="navigation" aria-label="breadcrumbs">
-                <!-- TemplateBeginEditable name="breadcrumbs" -->
+                <!-- InstanceBeginEditable name="breadcrumbs" -->
                 <ul>
                     <li><a href="http://www.unl.edu/">Nebraska</a></li>
                     <li class="selected"><a href="http://architecture.unl.edu/">College of Architecture</a></li>
                     <li>Home</li>
                 </ul>
-                <!-- TemplateEndEditable -->
+                <!-- InstanceEndEditable -->
             </nav>
             <div id="wdn_navigation_wrapper">
                 <nav id="navigation" role="navigation" aria-label="main navigation">
-                    <!-- TemplateBeginEditable name="navlinks" -->
+                    <!-- InstanceBeginEditable name="navlinks" -->
                     <!--#include virtual="sharedcode/navigation.html" -->
-                    <!-- TemplateEndEditable -->
+                    <!-- InstanceEndEditable -->
                     <!--#include virtual="/wdn/templates_4.1/includes/navigation-addons.html" -->
                 </nav>
             </div>
@@ -69,32 +69,32 @@
         <main id="wdn_content_wrapper" role="main" class="wdn-content-slide" tabindex="-1">
             <div id="maincontent" class="wdn-main">
                 <div id="pagetitle">
-                    <!-- TemplateBeginEditable name="pagetitle" -->
-                        <!-- TemplateEndEditable -->
+                    <!-- InstanceBeginEditable name="pagetitle" -->
+                        <!-- InstanceEndEditable -->
                 </div>
-                <!-- TemplateBeginEditable name="maincontentarea" -->
+                <!-- InstanceBeginEditable name="maincontentarea" -->
                 <div class="wdn-band">
                     <div class="wdn-inner-wrapper">
                         <p>I'll find something interesting to put here</p>
                     </div>
                 </div>
-                <!-- TemplateEndEditable -->
+                <!-- InstanceEndEditable -->
             </div>
         </main>
         <footer id="footer" role="contentinfo" class="wdn-content-slide">
             <div id="wdn_optional_footer" class="wdn-band wdn-footer-optional">
                 <div class="wdn-inner-wrapper">
-                    <!-- TemplateBeginEditable name="optionalfooter" -->
-                <!-- TemplateEndEditable -->
+                    <!-- InstanceBeginEditable name="optionalfooter" -->
+                <!-- InstanceEndEditable -->
                 </div>
             </div>
             <div id="wdn_local_footer" class="wdn-band wdn-footer-local">
                 <div class="wdn-inner-wrapper">
-                    <!-- TemplateBeginEditable name="contactinfo" -->
+                    <!-- InstanceBeginEditable name="contactinfo" -->
                     <!--#include virtual="sharedcode/localFooter.html" -->
-                    <!-- TemplateEndEditable -->
-                    <!-- TemplateBeginEditable name="leftcollinks" -->
-                    <!-- TemplateEndEditable -->
+                    <!-- InstanceEndEditable -->
+                    <!-- InstanceBeginEditable name="leftcollinks" -->
+                    <!-- InstanceEndEditable -->
                 </div>
             </div>
             <div id="wdn_global_footer" class="wdn-band wdn-footer-global">
