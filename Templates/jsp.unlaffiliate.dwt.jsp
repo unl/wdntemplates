@@ -10,13 +10,13 @@
 
     $Id$
   -->
-  <!-- InstanceBeginEditable name="doctitle" -->
+  <!-- TemplateBeginEditable name="doctitle" -->
   <title>Use a descriptive page title | Optional Site Title (use for context) | University of Nebraska&ndash;Lincoln</title>
-  <!-- InstanceEndEditable -->
+  <!-- TemplateEndEditable -->
   <c:import url="/wdn/templates_5.0/includes/global/head-2.html"/>
-  <!-- InstanceBeginEditable name="head" -->
+  <!-- TemplateBeginEditable name="head" -->
   <!-- Place optional header elements here -->
-  <!-- InstanceEndEditable -->
+  <!-- TemplateEndEditable -->
   <!-- TemplateParam name="class" type="text" value="" -->
 </head>
 <body class="@@(_document['class'])@@ affiliate" data-version="$HTML_VERSION$">
@@ -25,19 +25,19 @@
   <c:import url="/wdn/templates_5.0/includes/global/header-global-1.html"/>
     <c:import url="/wdn/templates_5.0/includes/global/nav-global-1.html"/>
       <c:import url="/wdn/templates_5.0/includes/global/visit-global-1.html"/>
-      <!-- InstanceBeginEditable name="visitlocal" -->
+      <!-- TemplateBeginEditable name="visitlocal" -->
       <c:import url="/wdn/templates_5.0/includes/local/visit-local.html"/>
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <c:import url="/wdn/templates_5.0/includes/global/visit-global-2.html"/>
       <c:import url="/wdn/templates_5.0/includes/global/apply-global-1.html"/>
-      <!-- InstanceBeginEditable name="applylocal" -->
+      <!-- TemplateBeginEditable name="applylocal" -->
       <c:import url="/wdn/templates_5.0/includes/local/apply-local.html"/>
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <c:import url="/wdn/templates_5.0/includes/global/apply-global-2.html"/>
       <c:import url="/wdn/templates_5.0/includes/global/give-global-1.html"/>
-      <!-- InstanceBeginEditable name="givelocal" -->
+      <!-- TemplateBeginEditable name="givelocal" -->
       <c:import url="/wdn/templates_5.0/includes/local/give-local.html"/>
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <c:import url="/wdn/templates_5.0/includes/global/give-global-2.html"/>
     <c:import url="/wdn/templates_5.0/includes/global/nav-global-2.html"/>
   <c:import url="/wdn/templates_5.0/includes/global/idm.html"/>
@@ -45,76 +45,76 @@
   <c:import url="/wdn/templates_5.0/includes/global/header-global-2.html"/>
   <c:import url="/wdn/templates_5.0/includes/global/logo-lockup-1.html"/>
   <c:import url="/wdn/templates_5.0/includes/global/site-affiliation-1.html"/>
-  <!-- InstanceBeginEditable name="affiliation" -->
+  <!-- TemplateBeginEditable name="affiliation" -->
   <a href="#">My site affiliation</a>
-  <!-- InstanceEndEditable -->
+  <!-- TemplateEndEditable -->
   <c:import url="/wdn/templates_5.0/includes/global/site-affiliation-2.html"/>
   <c:import url="/wdn/templates_5.0/includes/global/site-title-1.html"/>
-  <!-- InstanceBeginEditable name="titlegraphic" -->
+  <!-- TemplateBeginEditable name="titlegraphic" -->
   <a class="unl-site-title-medium" href="#">Title of my site</a>
-  <!-- InstanceEndEditable -->
+  <!-- TemplateEndEditable -->
   <c:import url="/wdn/templates_5.0/includes/global/site-title-2.html"/>
   <c:import url="/wdn/templates_5.0/includes/global/logo-lockup-2.html"/>
   <c:import url="/wdn/templates_5.0/includes/global/nav-toggle-group.html"/>
   <c:import url="/wdn/templates_5.0/includes/global/nav-menu-1.html"/>
   <c:import url="/wdn/templates_5.0/includes/global/nav-toggle-btn.html"/>
   <c:import url="/wdn/templates_5.0/includes/global/nav-menu-child-1.html"/>
-  <!-- InstanceBeginEditable name="navlinks" -->
+  <!-- TemplateBeginEditable name="navlinks" -->
   <c:import url="/wdn/templates_5.0/includes/local/nav-local.html"/>
-  <!-- InstanceEndEditable -->
+  <!-- TemplateEndEditable -->
   <c:import url="/wdn/templates_5.0/includes/global/nav-menu-child-2.html"/>
   <c:import url="/wdn/templates_5.0/includes/global/nav-menu-2.html"/>
 </header>
 
 <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
 
-  <!-- InstanceBeginEditable name="hero" -->
+  <!-- TemplateBeginEditable name="hero" -->
   <div class="dcf-hero dcf-hero-default">
-    <!-- InstanceEndEditable -->
+    <!-- TemplateEndEditable -->
     <div class="dcf-hero-group-1">
       <div class="dcf-breadcrumbs-wrapper">
         <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
-          <!-- InstanceBeginEditable name="breadcrumbs" -->
+          <!-- TemplateBeginEditable name="breadcrumbs" -->
           <ol>
             <li><a href="https://www.unl.edu/">Nebraska</a></li>
             <li><a href="/">Site Title</a></li>
             <li><span aria-current="page">Home</span></li>
           </ol>
-          <!-- InstanceEndEditable -->
+          <!-- TemplateEndEditable -->
         </nav>
       </div>
       <header class="dcf-page-title" id="dcf-page-title">
-        <!-- InstanceBeginEditable name="pagetitle" -->
+        <!-- TemplateBeginEditable name="pagetitle" -->
         <h1>Please Title Your Page Here</h1>
-        <!-- InstanceEndEditable -->
+        <!-- TemplateEndEditable -->
       </header>
-      <!-- InstanceBeginEditable name="herogroup1" -->
-      <!-- InstanceEndEditable -->
+      <!-- TemplateBeginEditable name="herogroup1" -->
+      <!-- TemplateEndEditable -->
     </div>
-    <!-- InstanceBeginEditable name="herogroup2" -->
+    <!-- TemplateBeginEditable name="herogroup2" -->
     <div class="dcf-hero-group-2">
     </div>
-    <!-- InstanceEndEditable -->
+    <!-- TemplateEndEditable -->
   </div>
   <div class="dcf-main-content dcf-wrapper">
-    <!-- InstanceBeginEditable name="maincontentarea" -->
+    <!-- TemplateBeginEditable name="maincontentarea" -->
     <p>Impress your audience with awesome content!</p>
-    <!-- InstanceEndEditable -->
+    <!-- TemplateEndEditable -->
   </div>
 </main>
 <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
-  <!-- InstanceBeginEditable name="optionalfooter" -->
-  <!-- InstanceEndEditable -->
+  <!-- TemplateBeginEditable name="optionalfooter" -->
+  <!-- TemplateEndEditable -->
   <c:import url="/wdn/templates_5.0/includes/global/footer-global-1.html"/>
-  <!-- InstanceBeginEditable name="contactinfo" -->
+  <!-- TemplateBeginEditable name="contactinfo" -->
   <c:import url="/wdn/templates_5.0/includes/local/footer-local.html"/>
-  <!-- InstanceEndEditable -->
+  <!-- TemplateEndEditable -->
   <c:import url="/wdn/templates_5.0/includes/global/footer-global-2.html"/>
 </footer>
 <c:import url="/wdn/templates_5.0/includes/global/noscript.html"/>
 <c:import url="/wdn/templates_5.0/includes/global/js-body.html"/>
-<!-- InstanceBeginEditable name="jsbody" -->
+<!-- TemplateBeginEditable name="jsbody" -->
 <!-- put your custom javascript here -->
-<!-- InstanceEndEditable -->
+<!-- TemplateEndEditable -->
 </body>
 </html>

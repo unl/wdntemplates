@@ -10,10 +10,10 @@
     $Id: unlaffiliate.dwt | 6edb0e1ee94038935f3821c6ce15dfd5c217b2e2 | Tue Dec 1 17:08:56 2015 -0600 | Kevin Abel  $
 -->
 <!--#include virtual="/wdn/templates_4.1/includes/scriptsandstyles_local.html" -->
-<!-- InstanceBeginEditable name="doctitle" -->
+<!-- TemplateBeginEditable name="doctitle" -->
 <title>Please Title Your Page Here | Buros Center for Testing</title>
-<!-- InstanceEndEditable -->
-<!-- InstanceBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 <link rel="stylesheet" media="screen" href="sharedcode/affiliate/css/affiliate.css" />
 <link href="sharedcode/affiliate/images/favicon.ico" rel="shortcut icon" />
@@ -83,7 +83,7 @@
     height: 142px;
 }
 </style>
-<!-- InstanceEndEditable -->
+<!-- TemplateEndEditable -->
 <!-- InstanceParam name="class" type="text" value="" -->
 </head>
 <body class="" data-version="4.1">
@@ -93,7 +93,7 @@
         <!--#include virtual="/wdn/templates_4.1/includes/noscript-padding.html" -->
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
             <div id="wdn_header_top">
-                <span id="wdn_institution_title"><!-- InstanceBeginEditable name="sitebranding_affiliate" --><a href="http://www.unl.edu" title="University of Nebraska&ndash;Lincoln">An affiliate of the University of Nebraska&ndash;Lincoln</a><!-- InstanceEndEditable --></span>
+                <span id="wdn_institution_title"><!-- TemplateBeginEditable name="sitebranding_affiliate" --><a href="http://www.unl.edu" title="University of Nebraska&ndash;Lincoln">An affiliate of the University of Nebraska&ndash;Lincoln</a><!-- TemplateEndEditable --></span>
                 <div id="wdn_resources">
                     <!--#include virtual="/wdn/templates_4.1/includes/wdnResources.html" -->
                     <!--#include virtual="/wdn/templates_4.1/includes/idm.html" -->
@@ -102,27 +102,27 @@
             </div>
             <div id="wdn_logo_lockup">
                 <div class="wdn-inner-wrapper">
-                    <!-- InstanceBeginEditable name="sitebranding_logo" -->
+                    <!-- TemplateBeginEditable name="sitebranding_logo" -->
                     <a id="logo" href="http://buros.org/"><span>Buros Center for Testing</span></a>
-                    <!-- InstanceEndEditable -->
-                    <span id="wdn_site_affiliation"><!-- InstanceBeginEditable name="affiliation" --><!-- InstanceEndEditable --></span>
-                    <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" --><span class="wdn-text-hidden">Buros Center for Testing</span><!-- InstanceEndEditable --></span>
+                    <!-- TemplateEndEditable -->
+                    <span id="wdn_site_affiliation"><!-- TemplateBeginEditable name="affiliation" --><!-- TemplateEndEditable --></span>
+                    <span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" --><span class="wdn-text-hidden">Buros Center for Testing</span><!-- TemplateEndEditable --></span>
                 </div>
             </div>
         </header>
         <div id="wdn_navigation_bar" class="wdn-band">
             <nav id="breadcrumbs" class="wdn-inner-wrapper" role="navigation" aria-label="breadcrumbs">
-                <!-- InstanceBeginEditable name="breadcrumbs" -->
+                <!-- TemplateBeginEditable name="breadcrumbs" -->
                 <ul>
                     <li><a href="http://buros.org/" title="Buros Center for Testing">Buros</a></li>
                 </ul>
-                <!-- InstanceEndEditable -->
+                <!-- TemplateEndEditable -->
             </nav>
             <div id="wdn_navigation_wrapper">
                 <nav id="navigation" role="navigation" aria-label="main navigation">
-                    <!-- InstanceBeginEditable name="navlinks" -->
+                    <!-- TemplateBeginEditable name="navlinks" -->
                     <!--#include virtual="sharedcode/affiliate/navigation.html" -->
-                    <!-- InstanceEndEditable -->
+                    <!-- TemplateEndEditable -->
                     <!--#include virtual="/wdn/templates_4.1/includes/navigation-addons.html" -->
                 </nav>
             </div>
@@ -134,11 +134,11 @@
         <main id="wdn_content_wrapper" role="main" class="wdn-content-slide" tabindex="-1">
             <div id="maincontent" class="wdn-main">
                 <div id="pagetitle">
-                    <!-- InstanceBeginEditable name="pagetitle" -->
+                    <!-- TemplateBeginEditable name="pagetitle" -->
                     <h1>Buros Center for Testing</h1>
-                    <!-- InstanceEndEditable -->
+                    <!-- TemplateEndEditable -->
                 </div>
-                <!-- InstanceBeginEditable name="maincontentarea" -->
+                <!-- TemplateBeginEditable name="maincontentarea" -->
 <div id="wdn_Carousel" class="buros-slider">
 <ul class="slides">
 
@@ -236,22 +236,22 @@ WDN.initializePlugin('carousel');
 <blockquote><q>Test users have every right to demand that test authors and publishers present full particulars concerning the methods used in constructing and validating the tests which they place on the market.</q> (Oscar Buros, 1938).</blockquote>
 <div><div class="wdn-frame"></div></div>
 </div>
-                <!-- InstanceEndEditable -->
+                <!-- TemplateEndEditable -->
             </div>
         </main>
         <footer id="footer" role="contentinfo" class="wdn-content-slide">
             <div id="wdn_optional_footer" class="wdn-band wdn-footer-optional">
                 <div class="wdn-inner-wrapper">
-                    <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
+                    <!-- TemplateBeginEditable name="optionalfooter" --> <!-- TemplateEndEditable -->
                 </div>
             </div>
             <div id="wdn_local_footer" class="wdn-band wdn-footer-local">
                 <div class="wdn-inner-wrapper">
-                    <!-- InstanceBeginEditable name="contactinfo" -->
+                    <!-- TemplateBeginEditable name="contactinfo" -->
                     <!--#include virtual="sharedcode/affiliate/localFooter.html" -->
-                    <!-- InstanceEndEditable -->
-                    <!-- InstanceBeginEditable name="leftcollinks" -->
-                    <!-- InstanceEndEditable -->
+                    <!-- TemplateEndEditable -->
+                    <!-- TemplateBeginEditable name="leftcollinks" -->
+                    <!-- TemplateEndEditable -->
                 </div>
             </div>
             <div id="wdn_global_footer" class="wdn-band wdn-footer-global">
