@@ -46,7 +46,7 @@ tbody tr:nth-of-type(even) {
 }
 
 
-@include mq(md, max, width) {
+@media only screen and (max-width:47.99em) {
 
   .wdn_responsive_table th,
   .wdn_responsive_table td {
@@ -86,7 +86,7 @@ tbody tr:nth-of-type(even) {
 }
 
 
-@include mq(md, max, width) {
+@media only screen and (min-width:48em) {
 
   .wdn_responsive_table thead th:not(:first-child) {
   	text-align: center;

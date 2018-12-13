@@ -4,7 +4,10 @@ module.exports = function (grunt) {
 		'pre',
 		'core',
 		'critical',
-		'deprecated'
+		'deprecated',
+		'print',
+		//'modules/pagination',
+		//'modules/infographics',
 	];
 
 	var jsCssObjs = [
@@ -98,7 +101,8 @@ module.exports = function (grunt) {
 		'!search.*',
 		'!skipnav.*',
 		'!unlalert.*',
-		'!wdn*'
+		'!wdn*',
+		'!cta-nav.*'
 	];
 
 	// requirejs configuration and customization options
@@ -247,7 +251,7 @@ module.exports = function (grunt) {
   			options: {
   				processors: [
             require('postcss-normalize')({allowDuplicates: true}),
-            require('autoprefixer'),
+            require('autoprefixer')({grid: true}),
             require('postcss-object-fit-images'),
             require('cssnano')()
   				],
@@ -258,7 +262,7 @@ module.exports = function (grunt) {
   		plugins: {
   			options: {
   				processors: [
-  					require('autoprefixer'),
+  					require('autoprefixer')({grid: true}),
   					require('postcss-object-fit-images'),
   					require('cssnano')()
   				],
@@ -325,7 +329,14 @@ module.exports = function (grunt) {
 					src: ['**/*.js', '!**/*.min.js'],
 					dest: `${templateJs}/mustard`
 				}]
-			}
+			},
+			dcfVendorPlugins: {
+				files: [{
+					cwd: 'node_modules/dcf/assets/dist/js/vendor',
+					src: ['**/*', '!**/*.ts'],
+					dest: `${templateJs}/plugins`
+				}]
+			},
 		},
 
 		bump: {
@@ -544,7 +555,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('css-main', ['sassGlobber', 'sass:main', 'postcss:main']);
 	grunt.registerTask('css-plugins', ['sassGlobber', 'sass:plugins', 'postcss:plugins']);
-	grunt.registerTask('js-main', ['css-plugins', 'babel', 'copy:babelNoTranspile', 'sync:dcfCommonModules', 'sync:dcfOptionalModules', 'sync:dcfUnminifiedMustards', 'requirejs', 'sync:js', 'clean:js-build']);
+	grunt.registerTask('js-main', ['css-plugins', 'babel', 'copy:babelNoTranspile', 'sync:dcfCommonModules', 'sync:dcfOptionalModules', 'sync:dcfUnminifiedMustards', 'sync:dcfVendorPlugins', 'requirejs', 'sync:js', 'clean:js-build']);
 	grunt.registerTask('js', ['clean:js', 'css-plugins', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
 
 	// establish grunt composed tasks

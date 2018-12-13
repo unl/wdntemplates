@@ -24,7 +24,7 @@ define([
 		var $container = $(config.container).addClass('wdn-calendar');
 		$container.hide();
 
-		$container.append($('<div/>', {'class': 'upcoming-header'}).html('Upcoming Events'));
+		$container.append($('<h2/>', {'class': 'dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray unl-txt-stripes-after'}).html('Upcoming Events'));
 
 		var events_html = '';
 		$.each(data.Events.Event || data.Events, function(index, event) {
@@ -43,16 +43,16 @@ define([
 			} else {
 				eventURL = event.WebPages.WebPage.URL;
 			}
-			var month    = '<span class="month">' + startDate.format('MMM') + '</span>';
-			var day      = '<span class="day">' + startDate.format('D') + '</span>';
-			var time     = '<span class="time">' + startDate.format('h:mm a') + '</span>';
-			var title    = '<a class="title" href="'+ eventURL +'">' + event.EventTitle + '</a>';
+			var month    = '<span class="dcf-d-block dcf-txt-3xs dcf-pt-2 dcf-pb-1 dcf-uppercase dcf-bold unl-ls-2 unl-font-sans unl-cream unl-bg-scarlet">' + startDate.format('MMM') + '</span>';
+			var day      = '<span class="dcf-d-block dcf-txt-h5 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray dcf-bg-white">' + startDate.format('D') + '</span>';
+			var time     = '<span class="dcf-d-block dcf-pt-2 dcf-txt-2xs dcf-uppercase dcf-bold unl-font-sans unl-scarlet">' + startDate.format('h:mm a') + '</span>';
+			var title    = '<h3 class="unl-event-title dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover unl-darker-gray" href="'+ eventURL +'">' + event.EventTitle + '</a></h3>';
 			var location = '';
 
 			if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {
-				location =  '<span class="location">';
+				location =  '<div class="unl-event-location dcf-txt-xs dcf-pt-1 unl-font-sans unl-dark-gray">';
 				if (event.Locations[0].MapLinks[0]) {
-					location += '<a href="'+ event.Locations[0].MapLinks[0] +'">';
+					location += '<a class="dcf-txt-decor-hover unl-dark-gray" href="'+ event.Locations[0].MapLinks[0] +'">';
 				}
 				location += event.Locations[0].Address.BuildingName
 				if (event.Locations[0].MapLinks[0]) {
@@ -72,17 +72,16 @@ define([
 				location += '</span>';
 			}
 
-			var info = '<div class="info">' + title + location  + '</div>';
-			var date = '<div class="date">' + month + day + time +'</div>';
-			events_html += ('<div class="event">' + date + info  + '</div>');
+			var date = '<div class="unl-event-datetime dcf-flex-shrink-0 dcf-w-8 dcf-mr-5 dcf-txt-center">' + month + day + time +'</div>';
+			events_html += ('<li class="unl-event-teaser dcf-mb-4">' + title + date + location  + '</li>');
 		});
-		$container.append('<div class="events">' + events_html + '</div>');
-		$container.append('<span class="see-all"><a href="'+config.url+'upcoming/">See all '+config.title+' events</a></span>');
-
-		var ics = '<a class="ics" href="' + config.url + 'upcoming/?format=ics">ICS</a>';
-		var rss = '<a class="rss" href="' + config.url + 'upcoming/?format=rss">RSS</a>';
-		var feeds = '<div class="feeds">' + ics + rss + '</div>';
-		$container.append(feeds);
+		$container.append('<ul class="dcf-list-bare">' + events_html + '</ul>');
+    var seeAll = '<div class="dcf-mt-4"><a class="dcf-btn dcf-btn-secondary" href="' + config.url + 'upcoming/">See all '+config.title+' events</a></div>';
+		var ics = '<a class="dcf-btn dcf-btn-secondary" href="' + config.url + 'upcoming/?format=ics">ICS</a>';
+		var rss = '<a class="dcf-btn dcf-btn-secondary" href="' + config.url + 'upcoming/?format=rss">RSS</a>';
+		var feeds = '<div class="dcf-btn-group dcf-mt-4 dcf-mr-5">' + ics + rss + '</div>';
+		var more = '<div class="dcf-d-flex dcf-flex-row dcf-flex-wrap dcf-jc-between">' + feeds + seeAll + '</div>';
+		$container.append(more);
 		$container.show();
 	};
 
