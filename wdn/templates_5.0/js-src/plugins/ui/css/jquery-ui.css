@@ -1071,11 +1071,11 @@ a.ui-button:active,
 	background-image: url("images/ui-icons_5B5B5A_256x240.png");
 }
 .ui-state-hover .ui-icon,
-.ui-state-focus .ui-icon,
-.ui-button:hover .ui-icon,
-.ui-button:focus .ui-icon {
+.ui-state-focus .ui-icon {
 	background-image: url("images/ui-icons_5B5B5A_256x240.png");
 }
+.ui-button:hover .ui-icon,
+.ui-button:focus .ui-icon,
 .ui-state-active .ui-icon,
 .ui-button:active .ui-icon {
 	background-image: url("images/ui-icons_ffffff_256x240.png");
