@@ -35,7 +35,7 @@
     <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-1.html" -->
     <!-- InstanceBeginEditable name="titlegraphic" -->
-    <a class="unl-site-title-short" href="https://www.unl.edu/">
+    <a class="dcf-txt-h5" href="https://www.unl.edu/">
       Web Application
     </a>
     <!-- InstanceEndEditable -->
