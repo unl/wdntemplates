@@ -185,7 +185,7 @@ define([
 			imageryUpdate();
 			
 			if (!initd) {
-				$(window).load(imageryUpdate).scroll(function() {
+				$(window).on("load", imageryUpdate).scroll(function() {
 					setTimeout(imageryUpdate, 50);
 				});
 				initd = true;
