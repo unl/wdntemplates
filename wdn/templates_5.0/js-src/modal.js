@@ -1,12 +1,12 @@
 define([
-	'jquery',
-	'plugins/colorbox/jquery.colorbox',
-	'css!plugins/colorbox/css/colorbox'
+  'jquery',
+  'plugins/colorbox/jquery.colorbox',
+  'css!plugins/colorbox/css/colorbox'
 ], function($) {
     return {
-        initialize : function(callback) {
-			$.colorbox.settings.className = 'wdn-main';
-			$(callback);
-        }
+      initialize : function(callback) {
+        $.colorbox.settings.className = 'dcf-main';
+        $(callback);
+      }
     };
 });

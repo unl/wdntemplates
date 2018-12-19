@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.2 (December 11, 2018
+- HTML Changes: 1) Add editable regions for global nav 2) Add breadcrumb wrapper 3) Add optionalfooter region
+- Print styles
+- Include adjustments
+- Widget work including events styles
+
+## 5.0.1 (December 11, 2018)
+- Fix body scroll bug with desktop nav closing without clicking close
+- Add Editable JSbody to App templates
+- Implement CTA navigation
+- Remove contents of global nav include files
+
 ## 5.0.0 (November 12, 2018)
 - 5.0 Initial Release
 
