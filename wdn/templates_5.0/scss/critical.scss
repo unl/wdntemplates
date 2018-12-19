@@ -466,19 +466,6 @@ a.dcf-btn-secondary {
 .unl .dcf-nav-local > ul {
   display: flex;
 }
-.unl .dcf-nav-local > ul > li {
-  flex-basis: 50%;
-}
-@supports ((display:-ms-grid) or (display:grid)) {
-  @media only screen and (min-width:56.123125em) {
-    .unl .dcf-nav-local > ul {
-      display: -ms-grid;
-      display: grid;
-      -ms-grid-columns: (1fr)[6];
-      grid-template-columns: repeat(6,1fr);
-    }
-  }
-}
 .unl .dcf-nav-menu ul {
   list-style: none;
   margin-bottom: 0;
