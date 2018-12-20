@@ -1212,15 +1212,13 @@
 
           <div class="dcf-form-group">
             <label class="dcf-label" for="institution">Institution</label>
-            <div class="dcf-input-select">
-              <select id="institution" name="institution">
-                <option value="unca" selected>University of Nebraska</option>
-                <option value="unl">UNL</option>
-                <option value="unk">UNK</option>
-                <option value="uno">UNO</option>
-                <option value="unmc">UNMC</option>
-              </select>
-            </div>
+            <select class="dcf-input-select" id="institution" name="institution">
+              <option value="unca" selected>University of Nebraska</option>
+              <option value="unl">UNL</option>
+              <option value="unk">UNK</option>
+              <option value="uno">UNO</option>
+              <option value="unmc">UNMC</option>
+            </select>
           </div>
 
   <!--
