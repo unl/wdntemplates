@@ -232,7 +232,7 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 			// TODO: resolve differences between 'mobile' and 'desktop' layouts
 			for (let i=0; i<widgetContainers.length; i++) {
 				let button = document.createElement('BUTTON');
-				button.classList.add('dcf-idm-login', 'dcf-d-flex', 'dcf-ai-center', 'dcf-jc-center', 'dcf-relative', 'dcf-h-100%', 'dcf-w-100%', 'dcf-p-0', 'dcf-b-0', 'dcf-bg-transparent', 'unl-font-sans');
+				button.classList.add('dcf-idm-login', 'dcf-d-flex', 'dcf-ai-center', 'dcf-jc-center', 'dcf-relative', 'dcf-h-100%', 'dcf-w-100%', 'dcf-p-0', 'dcf-b-0', 'dcf-bg-transparent', 'unl-font-sans', 'unl-scarlet');
 				button.setAttribute('id', 'dcf-idm-toggle');
 				button.setAttribute('aria-expanded', 'false');
 				button.setAttribute('aria-controls', 'dcf-idm-options-'+i);

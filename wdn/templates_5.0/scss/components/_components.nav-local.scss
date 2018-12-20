@@ -156,9 +156,18 @@
 
 @supports (display: grid) {
 
-  .unl .dcf-nav-local > ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(#{ms(15)}em, 1fr));
+  @include mq(md, max, width) {
+
+    .unl .dcf-nav-local > ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(#{ms(15)}em, 1fr));
+    }
+
+
+    .unl .dcf-nav-local > ul {
+      grid-gap: $length-em-7 $length-vw-1;
+    }
+
   }
 
 
@@ -171,21 +180,12 @@
   }
 
 
-  @include mq(md, max, width) {
-
-    .unl .dcf-nav-local > ul {
-      grid-gap: $length-em-7 $length-vw-1;
-    }
-
-  }
-
-
-  @include mq(md, min, width) {
-
-    .unl .dcf-nav-local > ul {
-      grid-template-columns: repeat(6, 1fr);
-    }
-
-  }
+//   @include mq(md, min, width) {
+//
+//     .unl .dcf-nav-local > ul {
+//       grid-template-columns: repeat(6, 1fr);
+//     }
+//
+//   }
 
 }
