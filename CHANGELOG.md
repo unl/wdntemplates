@@ -1,7 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 5.0.2 (December 11, 2018
+## 5.0.3 (December 20, 2018)
+- Improve critical CSS
+- Remove underline from links in headings
+- Improve spacing above footer
+- Replace suggested (utility) class for site title
+- Update jQuery UI styles
+- Use flexbox for desktop local navigation (to support old Edge)
+
+## 5.0.2 (December 11, 2018)
 - HTML Changes: 1) Add editable regions for global nav 2) Add breadcrumb wrapper 3) Add optionalfooter region
 - Print styles
 - Include adjustments
