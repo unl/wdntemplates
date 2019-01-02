@@ -9,21 +9,6 @@
 }
 
 
-.unl .dcf-nav-local a {
-  display: block;
-  @include lh-3;
-}
-
-
-// TODO: determine focus state styles
-.unl .dcf-nav-local a:link,
-.unl .dcf-nav-local a:visited,
-.unl .dcf-nav-local a:hover,
-.unl .dcf-nav-local a:active {
-  color: $cream;
-}
-
-
 .unl .dcf-nav-local a:hover {
   text-decoration: underline;
 }
@@ -36,13 +21,6 @@
 
 .unl .dcf-nav-local > ul > li {
   flex-basis: 50%;
-}
-
-
-.unl .dcf-nav-local > ul > li > a {
-  font-weight: bold;
-  @include pb-4;
-  @include pt-4;
 }
 
 
@@ -178,9 +156,18 @@
 
 @supports (display: grid) {
 
-  .unl .dcf-nav-local > ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(#{ms(15)}em, 1fr));
+  @include mq(md, max, width) {
+
+    .unl .dcf-nav-local > ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(#{ms(15)}em, 1fr));
+    }
+
+
+    .unl .dcf-nav-local > ul {
+      grid-gap: $length-em-7 $length-vw-1;
+    }
+
   }
 
 
@@ -193,21 +180,12 @@
   }
 
 
-  @include mq(md, max, width) {
-
-    .unl .dcf-nav-local > ul {
-      grid-gap: $length-em-7 $length-vw-1;
-    }
-
-  }
-
-
-  @include mq(md, min, width) {
-
-    .unl .dcf-nav-local > ul {
-      grid-template-columns: repeat(6, 1fr);
-    }
-
-  }
+//   @include mq(md, min, width) {
+//
+//     .unl .dcf-nav-local > ul {
+//       grid-template-columns: repeat(6, 1fr);
+//     }
+//
+//   }
 
 }

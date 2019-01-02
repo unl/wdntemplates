@@ -24,66 +24,85 @@ function wdnInclude($path)
 
       $Id$
     -->
-    <!-- InstanceBeginEditable name="doctitle" -->
+    <!-- TemplateBeginEditable name="doctitle" -->
     <title>App Sub-Theme</title>
-    <!-- InstanceEndEditable -->
+    <!-- TemplateEndEditable -->
     <?php wdnInclude("/wdn/templates_5.0/includes/global/head-2-local.html"); ?>
-    <!-- InstanceBeginEditable name="head" -->
+    <!-- TemplateBeginEditable name="head" -->
     <!-- Place optional header elements here -->
-    <!-- InstanceEndEditable -->
+    <!-- TemplateEndEditable -->
     <!-- TemplateParam name="class" type="text" value="debug" -->
 </head>
 <body class="@@(_document['class'])@@ unl app" data-version="$HTML_VERSION$">
 <?php wdnInclude("/wdn/templates_5.0/includes/global/skip-nav.html"); ?>
 <header class="dcf-header" id="dcf-header" role="banner">
     <?php wdnInclude("/wdn/templates_5.0/includes/global/header-global-1.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-global-1.html"); ?>
+        <?php wdnInclude("/wdn/templates_5.0/includes/global/visit-global-1.html"); ?>
+        <!-- TemplateBeginEditable name="visitlocal" -->
+        <?php wdnInclude("/wdn/templates_5.0/includes/local/visit-local.html"); ?>
+        <!-- TemplateEndEditable -->
+        <?php wdnInclude("/wdn/templates_5.0/includes/global/visit-global-2.html"); ?>
+        <?php wdnInclude("/wdn/templates_5.0/includes/global/apply-global-1.html"); ?>
+        <!-- TemplateBeginEditable name="applylocal" -->
+        <?php wdnInclude("/wdn/templates_5.0/includes/local/apply-local.html"); ?>
+        <!-- TemplateEndEditable -->
+        <?php wdnInclude("/wdn/templates_5.0/includes/global/apply-global-2.html"); ?>
+        <?php wdnInclude("/wdn/templates_5.0/includes/global/give-global-1.html"); ?>
+        <!-- TemplateBeginEditable name="givelocal" -->
+        <?php wdnInclude("/wdn/templates_5.0/includes/local/give-local.html"); ?>
+        <!-- TemplateEndEditable -->
+        <?php wdnInclude("/wdn/templates_5.0/includes/global/give-global-2.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-global-2.html"); ?>
     <?php wdnInclude("/wdn/templates_5.0/includes/global/idm.html"); ?>
     <?php wdnInclude("/wdn/templates_5.0/includes/global/search.html"); ?>
     <?php wdnInclude("/wdn/templates_5.0/includes/global/header-global-2.html"); ?>
     <?php wdnInclude("/wdn/templates_5.0/includes/global/logo-lockup-1.html"); ?>
     <?php wdnInclude("/wdn/templates_5.0/includes/global/site-affiliation-1.html"); ?>
-    <!-- InstanceBeginEditable name="affiliation" -->
-    <!-- InstanceEndEditable -->
+    <!-- TemplateBeginEditable name="affiliation" -->
+    <!-- TemplateEndEditable -->
     <?php wdnInclude("/wdn/templates_5.0/includes/global/site-affiliation-2.html"); ?>
     <?php wdnInclude("/wdn/templates_5.0/includes/global/site-title-1.html"); ?>
-    <!-- InstanceBeginEditable name="titlegraphic" -->
+    <!-- TemplateBeginEditable name="titlegraphic" -->
     <a class="unl-site-title-short" href="https://www.unl.edu/">
         Web Application
     </a>
-    <!-- InstanceEndEditable -->
+    <!-- TemplateEndEditable -->
     <?php wdnInclude("/wdn/templates_5.0/includes/global/site-title-2.html"); ?>
     <?php wdnInclude("/wdn/templates_5.0/includes/global/logo-lockup-2.html"); ?>
     <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-toggle-group.html"); ?>
     <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-menu-1.html"); ?>
     <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-menu-child-app-1.html"); ?>
-    <!-- InstanceBeginEditable name="appcontrols" -->
+    <!-- TemplateBeginEditable name="appcontrols" -->
     <?php wdnInclude("/wdn/templates_5.0/includes/local/app-controls.html"); ?>
-    <!-- InstanceEndEditable -->
+    <!-- TemplateEndEditable -->
     <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-menu-child-app-2.html"); ?>
     <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-menu-2.html"); ?>
     <?php wdnInclude("/wdn/templates_5.0/includes/global/app-search-1.html"); ?>
-    <!-- InstanceBeginEditable name="appsearch" -->
+    <!-- TemplateBeginEditable name="appsearch" -->
     <?php wdnInclude("/wdn/templates_5.0/includes/local/app-search.html"); ?>
-    <!-- InstanceEndEditable -->
+    <!-- TemplateEndEditable -->
     <?php wdnInclude("/wdn/templates_5.0/includes/global/app-search-2.html"); ?>
 </header>
 
 <main class="dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
-    <!-- InstanceBeginEditable name="maincontentarea" -->
+    <!-- TemplateBeginEditable name="maincontentarea" -->
     <p>Impress your audience with awesome content!</p>
-    <!-- InstanceEndEditable -->
+    <!-- TemplateEndEditable -->
 </main>
 <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+    <!-- TemplateBeginEditable name="optionalfooter" -->
+    <!-- TemplateEndEditable -->
     <?php wdnInclude("/wdn/templates_5.0/includes/global/footer-global-1.html"); ?>
-    <!-- InstanceBeginEditable name="contactinfo" -->
+    <!-- TemplateBeginEditable name="contactinfo" -->
     <?php wdnInclude("/wdn/templates_5.0/includes/local/footer-local.html"); ?>
-    <!-- InstanceEndEditable -->
+    <!-- TemplateEndEditable -->
     <?php wdnInclude("/wdn/templates_5.0/includes/global/footer-global-2.html"); ?>
 </footer>
 <?php wdnInclude("/wdn/templates_5.0/includes/global/noscript.html"); ?>
 <?php wdnInclude("/wdn/templates_5.0/includes/global/js-body-local.html"); ?>
-<!-- InstanceBeginEditable name="jsbody" -->
+<!-- TemplateBeginEditable name="jsbody" -->
 <!-- put your custom javascript here -->
-<!-- InstanceEndEditable -->
+<!-- TemplateEndEditable -->
 </body>
 </html>
