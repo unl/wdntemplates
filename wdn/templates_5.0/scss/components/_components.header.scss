@@ -3,8 +3,9 @@
 ///////////////////////////////
 
 
-.unl .dcf-header-global a:visited {
-  color: $color-link; // Force visited links in the global header to remain scarlet.
+.unl .dcf-header-global a:visited,
+.unl a.dcf-header-logo:visited {
+  color: $color-link; // Force visited links in the global header and logo to remain scarlet.
 }
 
 
@@ -45,21 +46,6 @@
     @include pt-5;
   }
 
-
-  .unl-site-title-short {
-    @include txt-lg;
-  }
-
-
-  .unl-site-title-medium {
-    @include txt-md;
-  }
-
-
-  .unl-site-title-long {
-    @include txt-sm;
-  }
-
 }
 
 
@@ -84,21 +70,6 @@
   .unl .dcf-logo-lockup {
     padding-bottom: #{ms(1)}em;
     @include pt-5;
-  }
-
-
-  .unl-site-title-short {
-    @include txt-h5;
-  }
-
-
-  .unl-site-title-medium {
-    @include txt-h6;
-  }
-
-
-  .unl-site-title-long {
-    @include txt-h6;
   }
 
 }

@@ -36,31 +36,42 @@
 
   <header class="dcf-header" id="dcf-header" role="banner">
     <!--#include virtual="/wdn/templates_5.0/includes/global/header-global-1.html" -->
-      <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
-      <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-global-1.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/visit-global-1.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/local/visit-local.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/visit-global-2.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/apply-global-1.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/local/apply-local.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/apply-global-2.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/give-global-1.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/local/give-local.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/give-global-2.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-global-2.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/header-global-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup-1.html" -->
-        <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-1.html" -->
-          <!-- InstanceBeginEditable name="affiliation" -->
-          <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
-          <!-- InstanceEndEditable -->
-        <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-2.html" -->
-        <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-1.html" -->
-          <!-- InstanceBeginEditable name="titlegraphic" -->
-          <a class="unl-site-title-medium" href="https://www.unl.edu/">
-            Glenn Korff School of Music
-          </a>
-          <!-- InstanceEndEditable -->
-        <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-2.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-1.html" -->
+    <!-- InstanceBeginEditable name="affiliation" -->
+    <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-2.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-1.html" -->
+    <!-- InstanceBeginEditable name="titlegraphic" -->
+    <a class="dcf-txt-h6" href="https://arts.unl.edu/music">
+      Glenn Korff School of Music
+    </a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle-group.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-1.html" -->
-      <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle-btn.html" -->
-      <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-1.html" -->
-        <!-- InstanceBeginEditable name="navlinks" -->
-        <!--#include virtual="/wdn/templates_5.0/includes/local/nav-local.html" -->
-        <!-- InstanceEndEditable -->
-      <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-2.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle-btn.html" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-1.html" -->
+    <!-- InstanceBeginEditable name="navlinks" -->
+    <!--#include virtual="/wdn/templates_5.0/includes/local/nav-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-child-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/nav-menu-2.html" -->
   </header>
 
@@ -1201,15 +1212,13 @@
 
           <div class="dcf-form-group">
             <label class="dcf-label" for="institution">Institution</label>
-            <div class="dcf-input-select">
-              <select id="institution" name="institution">
-                <option value="unca" selected>University of Nebraska</option>
-                <option value="unl">UNL</option>
-                <option value="unk">UNK</option>
-                <option value="uno">UNO</option>
-                <option value="unmc">UNMC</option>
-              </select>
-            </div>
+            <select class="dcf-input-select" id="institution" name="institution">
+              <option value="unca" selected>University of Nebraska</option>
+              <option value="unl">UNL</option>
+              <option value="unk">UNK</option>
+              <option value="uno">UNO</option>
+              <option value="unmc">UNMC</option>
+            </select>
           </div>
 
   <!--
@@ -1263,8 +1272,14 @@
           </div>
 
           <div class="dcf-form-group">
-            <label class="dcf-label" for="time">Date/time</label>
-            <input class="dcf-input-text" id="time" type="datetime-local">
+            <label class="dcf-label" for="time">Date/time (using Flatpickr)</label>
+            <!--<input class="dcf-input-text" id="time" type="datetime-local">-->
+            <input type="text"
+                   data-widget="flatpickr"
+                   placeholder="Select Date & Time.."
+                   id="time"
+                   class="dcf-w-auto"
+                   readonly>
           </div>
 
   <!--
@@ -1411,6 +1426,8 @@
     </div>
   </main>
   <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+    <!-- InstanceBeginEditable name="optionalfooter" -->
+    <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-1.html" -->
     <!-- InstanceBeginEditable name="contactinfo" -->
     <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
@@ -1418,8 +1435,17 @@
     <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-2.html" -->
   </footer>
   <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
-  <!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
+  <!--#include virtual="/wdn/templates_5.0/includes/global/js-body-local.html" -->
   <!-- InstanceBeginEditable name="jsbody" -->
+  <script>
+		require(["plugins/flatpickr/flatpickr", 'css!plugins/flatpickr/flatpickr', 'css!plugins/flatpickr/themes/airbnb'], function(flatpickr) {
+			var widget = document.querySelector('[data-widget="flatpickr"]');
+			flatpickr(widget, {
+							enableTime: true,
+							dateFormat: "Y-m-d h:iK",
+						});
+		})
+  </script>
 <!--
   <script>
     require(['dialog'],function(dialogHelper){

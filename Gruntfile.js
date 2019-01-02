@@ -5,21 +5,20 @@ module.exports = function (grunt) {
 		'core',
 		'critical',
 		'deprecated',
+		'print',
 		//'modules/pagination',
 		//'modules/infographics',
 	];
 
 	var jsCssObjs = [
-		//'js-css/band_imagery',
+		'js-css/band_imagery',
 		'js-css/events-band',
 		'js-css/events',
 		'js-css/formvalidator',
 		'js-css/notices',
 		'js-css/monthwidget',
-		//'js-css/rsswidget',
-		//'js-css/unlalert',
-		//'plugins/qtip/wdn.qtip',
-		//'plugins/ui/css/jquery-ui-wdn'
+		'js-css/unlalert',
+		'plugins/ui/css/jquery-ui-wdn'
 	];
 
 	// project layout variables (directories)
@@ -51,7 +50,6 @@ module.exports = function (grunt) {
 
 	// polyfill modules that need sync loading (should match scripts loaded in debug.js)
 	var polyfillMods = [
-		//'modernizr-wdn',
 		'mustard-initializer', // make sure that polyfill.io and other mustard are loaded first before other scripts
 		'ga',
 		'requireLib',
@@ -60,17 +58,15 @@ module.exports = function (grunt) {
 
 	// modules added here will be added to rjsConfig modules below
 	var wdnBuildPlugins = [
-		//'band_imagery',
+		'band_imagery',
 		'carousel',
 		'events-band',
 		'events',
-		//'jqueryui',
-		//'mediaelement_wdn',
-		//'modal',
+		'jqueryui',
+		'mediaelement_wdn',
+		'modal',
 		'monthwidget',
 		'notice',
-		//'rss_widget',
-		//'tooltip'
 	];
 
 	// module exclusions for plugins not built into all
@@ -84,11 +80,11 @@ module.exports = function (grunt) {
 
 	/**
 	/* Array containing bundled files created by rjs in build/compressed to be
-	/* excluded from being copy/synced back to template's js/compressed folder
+	/* excluded from being copied/synced back to template's js/compressed folder
 	 */
 	var syncJsIgnore = [
 		'!build.txt',
-		//'!js-css/**',
+		'!js-css/**',
 		'!analytics.*',
 		'!debug.*',
 		'!fontfaceobserver.*',
@@ -99,15 +95,14 @@ module.exports = function (grunt) {
 		'!main-execute-mods.*',
 		'!main-wdn-plugins.*',
 		'!main.*',
-		'!modernizr*',
 		'!navigation.*',
 		'!require.*',
 		'!require-css/**',
 		'!search.*',
 		'!skipnav.*',
-		'!socialmediashare.*',
 		'!unlalert.*',
-		'!wdn*'
+		'!wdn*',
+		'!cta-nav.*'
 	];
 
 	// requirejs configuration and customization options
@@ -256,7 +251,7 @@ module.exports = function (grunt) {
   			options: {
   				processors: [
             require('postcss-normalize')({allowDuplicates: true}),
-            require('autoprefixer'),
+            require('autoprefixer')({grid: true}),
             require('postcss-object-fit-images'),
             require('cssnano')()
   				],
@@ -267,7 +262,7 @@ module.exports = function (grunt) {
   		plugins: {
   			options: {
   				processors: [
-  					require('autoprefixer'),
+  					require('autoprefixer')({grid: true}),
   					require('postcss-object-fit-images'),
   					require('cssnano')()
   				],
@@ -334,7 +329,14 @@ module.exports = function (grunt) {
 					src: ['**/*.js', '!**/*.min.js'],
 					dest: `${templateJs}/mustard`
 				}]
-			}
+			},
+			dcfVendorPlugins: {
+				files: [{
+					cwd: 'node_modules/dcf/assets/dist/js/vendor',
+					src: ['**/*', '!**/*.ts'],
+					dest: `${templateJs}/plugins`
+				}]
+			},
 		},
 
 		bump: {
@@ -553,7 +555,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('css-main', ['sassGlobber', 'sass:main', 'postcss:main']);
 	grunt.registerTask('css-plugins', ['sassGlobber', 'sass:plugins', 'postcss:plugins']);
-	grunt.registerTask('js-main', ['css-plugins', 'babel', 'copy:babelNoTranspile', 'sync:dcfCommonModules', 'sync:dcfOptionalModules', 'sync:dcfUnminifiedMustards', 'requirejs', 'sync:js', 'clean:js-build']);
+	grunt.registerTask('js-main', ['css-plugins', 'babel', 'copy:babelNoTranspile', 'sync:dcfCommonModules', 'sync:dcfOptionalModules', 'sync:dcfUnminifiedMustards', 'sync:dcfVendorPlugins', 'requirejs', 'sync:js', 'clean:js-build']);
 	grunt.registerTask('js', ['clean:js', 'css-plugins', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
 
 	// establish grunt composed tasks
