@@ -28,9 +28,9 @@
 
 
 .unl-hero-notch-stripe .dcf-breadcrumbs-wrapper::after {
-  background: linear-gradient($cream 2px, transparent 2px) 0 0 / 3px 100% no-repeat,
-              linear-gradient(to top, transparent 3px, $cream 3px) 3px 0 / 2px 100% no-repeat,
-              linear-gradient(to top, transparent 3px, $cream 3px, $cream 5px, transparent 5px) 3px 0 / 100% 100% no-repeat;
+  background: linear-gradient($cream 3px, transparent 3px) 0 0 / 2px 100% no-repeat,
+              linear-gradient(to top, transparent 2px, $cream 2px) 2px 0 / 3px 100% no-repeat,
+              linear-gradient(to top, transparent 2px, $cream 2px, $cream 5px, transparent 5px) 2px 0 / 100% 100% no-repeat;
   content: '';
   flex-grow: 1; // Grow if there aren't enough breadcrumbs to overflow
   min-width: $length-vw-2; // Force a minimum width equal to dcf-wrapper padding-right if there are enough breadcrumbs to overflow
@@ -39,7 +39,7 @@
 
 .unl-hero-notch-stripe .dcf-breadcrumbs ol {
   align-items: baseline;
-  background-image: linear-gradient($cream 2px, transparent 2px, transparent 5px, $cream 5px); // Create background including stripe
+  background-image: linear-gradient($cream 3px, transparent 3px, transparent 5px, $cream 5px); // Create background including stripe
   margin-bottom: 0;
   min-width: 0; // Let breadcrumbs shrink if needed
   @include pt-7;
