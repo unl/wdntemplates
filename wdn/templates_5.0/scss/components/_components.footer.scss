@@ -10,7 +10,7 @@
 
 
 .unl .dcf-footer-stripe::before {
-  background-image: linear-gradient(to top, fade-out($scarlet,1) 2px, $scarlet 2px, $scarlet 5px, fade-out($scarlet,1) 5px);
+  background-image: linear-gradient(to top, fade-out($scarlet,1) 3px, $scarlet 3px, $scarlet 5px, fade-out($scarlet,1) 5px);
   content: '';
   height: 5px;
   position: absolute;
