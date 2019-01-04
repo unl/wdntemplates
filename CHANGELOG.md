@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.4 (January 4, 2019)
+- Update copyright year to 2019
+- Update (Filament Group) <select> styling. Wrapper no longer neaded.
+- Remove duplicate !important in critical CSS
+- Update mobile nav toggle buttons and the way env variables are used
+- Update search button and footer styles
+
 ## 5.0.3 (December 20, 2018)
 - Improve critical CSS
 - Remove underline from links in headings
