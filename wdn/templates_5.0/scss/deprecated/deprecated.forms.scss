@@ -40,6 +40,8 @@ form input[type="password"],
 form input[type="search"],
 form input[type="text"],
 form input[type="url"],
+form input[type="number"],
+form input[type="tel"],
 form textarea {
   border: 1px solid $color-border-input;
   border-radius: 0;
