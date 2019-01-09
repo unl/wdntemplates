@@ -1227,7 +1227,7 @@ a.dcf-btn-secondary {
 //     -webkit-overflow-scrolling: touch;
 // }
 .dcf-p-0 {
-  padding: 0!important !important;
+  padding: 0!important;
 }
 // .dcf-p-1 {
 //     padding: 0.4218750003em!important !important;
@@ -1902,8 +1902,10 @@ a.unl-cream:link {
   }
   .unl .dcf-nav-toggle-group {
     display: flex;
-    padding-bottom: env(safe-area-inset-bottom);
     z-index: 100150;
+  }
+  .unl .dcf-nav-toggle-btn {
+    flex-basis: 25%;
   }
   .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu {
     display: none;
