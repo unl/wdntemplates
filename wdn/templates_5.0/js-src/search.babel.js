@@ -40,7 +40,7 @@ define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function
 				searchAction = searchOrigin + searchPath,
 				searchFrameAction = searchAction + '?embed=1',
 				allowSearchParams = ['u', 'cx'],  // QS Params allowed by UNL Search app
-				siteHomepage = location.protocol + '//' + location.host,
+				siteHomepage = location.protocol + '//' + location.host + '/',
 				closeNavEvent = new CustomEvent('closeNavigation'),
 				closeIDMOptionsEvent = new CustomEvent('closeDropDownWidget', {detail: {type: 'idm-logged-in'}}),
 				localSearch = getLocalSearch();
