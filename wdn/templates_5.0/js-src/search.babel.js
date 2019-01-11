@@ -2,6 +2,7 @@ define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function
   const disableBodyScroll = bodyScrollLock.disableBodyScroll;
   const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 	let autoSearchDebounceDelay = 1000;
+	let searchEmbedVersion = '5.0';
 
 	function getLocalSearch() {
 		let link = document.querySelector('link[rel="search"]');
@@ -38,7 +39,7 @@ define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function
 				searchPath = '/', // path to UNL Search app
 				searchOrigin = 'https://' + searchHost,
 				searchAction = searchOrigin + searchPath,
-				searchFrameAction = searchAction + '?embed=1',
+				searchFrameAction = searchAction + '?embed=' + searchEmbedVersion,
 				allowSearchParams = ['u', 'cx'],  // QS Params allowed by UNL Search app
 				siteHomepage = location.protocol + '//' + location.host + '/',
 				closeNavEvent = new CustomEvent('closeNavigation'),
@@ -147,7 +148,7 @@ define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function
 			domEmbed = document.createElement('input');
 			domEmbed.type = 'hidden';
 			domEmbed.name = 'embed';
-			domEmbed.value = '5.0'; // Specify which theme version for search
+			domEmbed.value = searchEmbedVersion; // Specify which theme version for search
 
 			// add a parameter for triggering the iframe compatible rendering
 			domSearchForm.appendChild(domEmbed);
