@@ -1,9 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.5 (January 11, 2019)
+- Update notch stripe hero styles
+- Add trailing slash when constructing siteHomepage so that local search results are hidden on www.unl.edu
+- Make sure the embedded search param is 5.0 in all places
+
 ## 5.0.4 (January 4, 2019)
 - Update copyright year to 2019
-- Update (Filament Group) <select> styling. Wrapper no longer neaded.
+- Update (Filament Group) select styling, wrapper no longer needed
 - Remove duplicate !important in critical CSS
 - Update mobile nav toggle buttons and the way env variables are used
 - Update search button and footer styles
