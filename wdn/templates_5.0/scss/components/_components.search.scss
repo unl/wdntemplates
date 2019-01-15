@@ -72,6 +72,11 @@
     background-image: linear-gradient(to left, $cream #{ms(6)}em, fade-out($cream,1) #{ms(6)}em);
   }
 
+  .unl .dcf-search-toggle:focus {
+    box-shadow: 0 1px $length-em-2 fade-out($color-button-hover,.4);
+    outline: none;
+  }
+
   .unl .dcf-search-toggle-label {
     padding: #{ms(-6)}em #{ms(8)}em #{ms(-6)}em #{ms(-2)}em;
   }
