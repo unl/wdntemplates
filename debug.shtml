@@ -58,7 +58,7 @@
     <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-2.html" -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-1.html" -->
     <!-- InstanceBeginEditable name="titlegraphic" -->
-    <a class="unl-site-title-medium" href="https://www.unl.edu/">
+    <a class="dcf-txt-h6" href="https://arts.unl.edu/music">
       Glenn Korff School of Music
     </a>
     <!-- InstanceEndEditable -->
@@ -81,15 +81,17 @@
     <div class="dcf-hero dcf-hero-default">
     <!-- InstanceEndEditable -->
       <div class="dcf-hero-group-1">
-        <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
-          <!-- InstanceBeginEditable name="breadcrumbs" -->
-          <ol>
-            <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
-            <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
-            <li><span aria-current="page">Ensembles</span></li>
-          </ol>
-          <!-- InstanceEndEditable -->
-        </nav>
+        <div class="dcf-breadcrumbs-wrapper">
+          <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
+            <ol>
+              <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
+              <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
+              <li><span aria-current="page">Ensembles</span></li>
+            </ol>
+            <!-- InstanceEndEditable -->
+          </nav>
+        </div>
         <header class="dcf-page-title" id="dcf-page-title">
           <!-- InstanceBeginEditable name="pagetitle" -->
           <h1>Page title</h1>
@@ -1210,15 +1212,13 @@
 
           <div class="dcf-form-group">
             <label class="dcf-label" for="institution">Institution</label>
-            <div class="dcf-input-select">
-              <select id="institution" name="institution">
-                <option value="unca" selected>University of Nebraska</option>
-                <option value="unl">UNL</option>
-                <option value="unk">UNK</option>
-                <option value="uno">UNO</option>
-                <option value="unmc">UNMC</option>
-              </select>
-            </div>
+            <select class="dcf-input-select" id="institution" name="institution">
+              <option value="unca" selected>University of Nebraska</option>
+              <option value="unl">UNL</option>
+              <option value="unk">UNK</option>
+              <option value="uno">UNO</option>
+              <option value="unmc">UNMC</option>
+            </select>
           </div>
 
   <!--
@@ -1426,6 +1426,8 @@
     </div>
   </main>
   <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+    <!-- InstanceBeginEditable name="optionalfooter" -->
+    <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-1.html" -->
     <!-- InstanceBeginEditable name="contactinfo" -->
     <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
