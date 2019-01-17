@@ -17,18 +17,10 @@
 }
 
 
-// !Form group and form with input group
-.unl .dcf-form-group,
-.unl .dcf-input-group-form {
-  margin-top: -#{ms(-12)}rem; // Apply negative margin-top to equalize label margin-top
-}
-
-
 // !Label
 .unl .dcf-label {
   @include font-sans;
   @include txt-sm;
-  margin-top: #{ms(-12)}rem;
 }
 
 
@@ -87,11 +79,4 @@
   color: $color-light-text;
   @include txt-xs;
   @include mt-1;
-}
-
-
-// Inputs
-.unl .dcf-label + .dcf-input-text,
-.unl .dcf-label + .dcf-input-group {
-  margin-top: #{ms(-12)}rem;
 }
