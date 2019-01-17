@@ -90,44 +90,8 @@
 }
 
 
-// Select -- based on Filament Group's select-css: https://www.filamentgroup.com/lab/select-css.html
-.unl .dcf-input-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='#424240' d='M23.9 2.3c-.1-.2-.2-.3-.4-.3H.5c-.2 0-.3.1-.4.3-.1.1-.1.3 0 .5l11.5 19c.1.1.3.2.4.2s.3-.1.4-.2l11.5-19c.1-.2.1-.4 0-.5z' /%3E%3C/svg%3E"),
-    linear-gradient(to bottom, $white 0%, $white 100%);
-  background-repeat: no-repeat, repeat;
-  background-position: right $length-em-4 top 50%, 0 0;
-  background-size: $length-em-2 $length-em-2, 100%;
-  border: 1px solid $color-border-input;
-  box-sizing: border-box;
-  display: block;
-  @include txt-base; // Font size must be 16px to prevent iOS page zoom on focus
-  @include lh-4;
-  max-width: 100%;
-  padding: $length-em-2 $length-em-7 $length-em-2 $length-em-3;
-  width: 100%;
-}
-
-
-.unl .dcf-input-select::-ms-expand {
-  display: none;
-}
-
-
-.unl .dcf-input-select:focus,
-.unl .dcf-input-select:hover {
-  box-shadow: 0 0 $length-em-3 fade-out($color-border-input-hover,.25);
-}
-
-
-.unl .dcf-input-select:focus {
-  outline: none;
-}
-
-
 // Inputs
 .unl .dcf-label + .dcf-input-text,
-.unl .dcf-label + .dcf-input-select,
 .unl .dcf-label + .dcf-input-group {
   margin-top: #{ms(-12)}rem;
 }
