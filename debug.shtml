@@ -835,7 +835,7 @@
             </div>
           </fieldset>
 
-          <fieldset class="dcf-form-group dcf-d-flex dcf-flex-col" id="position" name="position" aria-labelledby="position-level">
+          <fieldset class="dcf-form-group dcf-d-flex dcf-flex-col">
             <legend class="dcf-legend">Position</legend>
             <div class="dcf-input-radio">
               <input id="student_Position" name="position" type="radio" value="student">
