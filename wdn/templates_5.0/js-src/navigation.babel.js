@@ -14,7 +14,7 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
             // grab an element
             let mobileActions = document.querySelectorAll('.hrjs');
             let main = document.querySelector('main');
-            let footer = document.querySelector('footer');
+            let footer = document.getElementById('dcf-footer');
 
             // construct an instance of Headroom, passing the element
             for (let i=0; i<mobileActions.length; i++) {
