@@ -41,22 +41,17 @@
 
 @include mq(md, max, width) {
 
-  .unl .dcf-nav-menu.dcf-modal-open {
+  .unl .dcf-nav-menu {
     @include bg-overlay-dark;
     bottom: #{$height-mobile-toolbar};
     height: 100vh;
-    position: fixed;
-    width: 100%;
-    z-index: 998;
-  }
-
-
-  // Default to closed on mobile
-  .unl .dcf-nav-menu {
     opacity: 0;
     pointer-events: none;
+    position: fixed;
     transition: opacity 300ms ease-out, visibility 0ms 400ms;
     visibility: hidden;
+    width: 100%;
+    z-index: 998;
   }
 
 
