@@ -1,4 +1,4 @@
-define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function(WDN, dialogHelper, require, bodyScrollLock) {
+define(['wdn', 'require', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'], function(WDN, require, bodyScrollLock) {
   const disableBodyScroll = bodyScrollLock.disableBodyScroll;
   const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 	let autoSearchDebounceDelay = 1000;
@@ -28,6 +28,8 @@ define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function
 				domDialog = document.getElementById('dcf-search-results'),
 				domToggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-search'),
 				domClose = document.getElementById('dcf-close-search'),
+        main = document.querySelector('main'),
+        footer = document.getElementById('dcf-footer'),
 				domActiveToggleButton,
 				domEmbed,
 				$unlSearch,
@@ -51,18 +53,18 @@ define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function
 				return;
 			}
 
-			dialogHelper.initialize(domDialog);
-
 			var domToggleButtonOnClick = function(e) {
-				if (!domDialog.hasAttribute('open')) {
+
+          if (!domDialog.classList.contains('dcf-modal-open')) {
 
 					//Search is currently closed, so open it.
 					for (let i = 0; i < domToggleButtons.length; i++) {
-						domToggleButtons[i].setAttribute('aria-pressed', 'true');
+						domToggleButtons[i].setAttribute('aria-expanded', 'true');
 					}
-
-					domDialog.classList.remove('dcf-d-none');
-					domDialog.showModal();
+          main.setAttribute('inert', '');
+          footer.setAttribute('inert', '');
+					domDialog.classList.add('dcf-modal-open');
+          domDialog.setAttribute('aria-hidden', 'false');
 					domActiveToggleButton = this;
 
           // Prevent body scroll when search is open
@@ -183,7 +185,7 @@ define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function
 			};
 
 			let closeSearch = function(returnFocus = false) {
-				if (!domDialog.hasAttribute('open')) {
+				if (!domDialog.classList.contains('dcf-modal-open')) {
 					//Search is already closed.
 					return;
 				}
@@ -191,10 +193,12 @@ define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function
 				clearTimeout(autoSubmitTimeout);
 				domQ.value = '';
 				domSearchForm.parentElement.classList.remove('active');
-				domDialog.classList.remove('dcf-d-none');
-				domDialog.close();
+        main.removeAttribute('inert');
+        footer.removeAttribute('inert');
+				domDialog.classList.remove('dcf-modal-open');
+        domDialog.setAttribute('aria-hidden', 'true');
 				for (let i = 0; i < domToggleButtons.length; i++) {
-					domToggleButtons[i].setAttribute('aria-pressed', 'false');
+					domToggleButtons[i].setAttribute('aria-expanded', 'false');
 				}
 				domSearchForm.reset();
 
