@@ -1897,8 +1897,9 @@ a.unl-cream:link {
     display: none;
   }
   .unl .dcf-nav-menu {
-    pointer-events: none;
-    visibility: hidden;
+    display: none;
+//     pointer-events: none;
+//     visibility: hidden;
   }
   .unl .dcf-nav-toggle-group {
     display: flex;

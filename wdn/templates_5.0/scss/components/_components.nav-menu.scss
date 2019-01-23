@@ -53,16 +53,18 @@
 
   // Default to closed on mobile
   .unl .dcf-nav-menu {
-//     display: none;
+    opacity: 0;
     pointer-events: none;
+    transition: opacity 300ms ease-out, visibility 0ms 400ms;
     visibility: hidden;
   }
 
 
   // Open when parent model is open
   .unl .dcf-nav-menu.dcf-modal-open {
-//     display: block;
+    opacity: 1;
     pointer-events: auto;
+    transition: opacity 200ms ease-out;
     visibility: visible;
   }
 
