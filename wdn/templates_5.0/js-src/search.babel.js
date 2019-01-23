@@ -27,6 +27,9 @@ define(['wdn', 'require', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'],
 				domSearchResultWrapper = document.getElementById('dcf-search-results-wrapper'),
 				domDialog = document.getElementById('dcf-search-results'),
 				domToggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-search'),
+				domToggleIconOpen = document.getElementById('dcf-nav-toggle-icon-open-search'),
+				domToggleIconClose = document.getElementById('dcf-nav-toggle-icon-close-search'),
+				domToggleLabel = document.querySelector('.dcf-nav-toggle-label-search'),
 				domClose = document.getElementById('dcf-close-search'),
         main = document.querySelector('main'),
         footer = document.getElementById('dcf-footer'),
@@ -60,7 +63,11 @@ define(['wdn', 'require', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'],
 					//Search is currently closed, so open it.
 					for (let i = 0; i < domToggleButtons.length; i++) {
 						domToggleButtons[i].setAttribute('aria-expanded', 'true');
+						domToggleButtons[i].setAttribute('aria-label', 'close search');
 					}
+					domToggleIconOpen.classList.add('dcf-d-none');
+					domToggleIconClose.classList.remove('dcf-d-none');
+          domToggleLabel.textContent = 'Close';
           main.setAttribute('inert', '');
           footer.setAttribute('inert', '');
 					domDialog.classList.add('dcf-modal-open');
@@ -199,7 +206,11 @@ define(['wdn', 'require', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'],
         domDialog.setAttribute('aria-hidden', 'true');
 				for (let i = 0; i < domToggleButtons.length; i++) {
 					domToggleButtons[i].setAttribute('aria-expanded', 'false');
+						domToggleButtons[i].setAttribute('aria-label', 'open search');
 				}
+				domToggleIconOpen.classList.remove('dcf-d-none');
+				domToggleIconClose.classList.add('dcf-d-none');
+        domToggleLabel.textContent = 'Search';
 				domSearchForm.reset();
 
         // Allow body scroll when search is closed
