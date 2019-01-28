@@ -739,423 +739,6 @@
 
 
 
-      <div class="dcf-bleed">
-        <div class="dcf-wrapper">
-          <div class="dcf-grid dcf-relative dcf-col-gap-vw dcf-row-gap-8 dcf-pt-9 dcf-pb-9">
-
-            <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Upcoming Events</h2>
-            <ul class="dcf-d-grid dcf-list-bare dcf-col-gap-vw dcf-row-gap-6 dcf-mb-0 unl-events-listing">
-
-              <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
-                <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
-                  <div class="dcf-2nd dcf-pl-3 dcf-lh-3 unl-font-sans">
-                    <a class="dcf-d-block dcf-txt-lg dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/120871/" itemprop="url">
-                      <span itemprop="name">The Modern-Day Sales Manager Executive Program Certificate</span>
-                    </a>
-                    <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
-                      <a class="dcf-txt-decor-none" href="http://maps.unl.edu/NCBA" itemprop="url">
-                        <span itemprop="name">College of Business (NEW)</span>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="dcf-1st dcf-d-flex dcf-mb-4 dcf-lh-1">
-                    <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25" itemprop="startDate">
-                      <span class="dcf-pr-1 dcf-txt-xs dcf-uppercase dcf-bold unl-ls-2">Sep</span>
-                      <span class="dcf-txt-h4 dcf-bold">25</span>
-                    </time>
-                  </div>
-                </div>
-                <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1">
-                  <img
-                    class="dcf-ratio-child dcf-obj-fit-cover"
-                    sizes="(min-width: 55.927em) 10vw, 18vw"
-                    srcset="wdn/templates_5.0/images/dev/111024-autumn-018-sm-min.jpg 284w,
-                            wdn/templates_5.0/images/dev/111024-autumn-018-md-min.jpg 505w"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                    alt="Autumm leaves frame a student as he reads next to Fragment X-O in the Sheldon Memorial Sculpture gardens in between Architecture Hall and the Sheldon.">
-                </div>
-              </li>
-
-              <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
-                <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
-                  <div class="dcf-2nd dcf-pl-3 dcf-lh-3 unl-font-sans">
-                    <a class="dcf-d-block dcf-txt-lg dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/123410/" itemprop="url">
-                      <span itemprop="name">Celebration of Youth XXIV</span>
-                    </a>
-                    <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
-                      <a class="dcf-txt-decor-none" href="https://www.google.com/maps/place/Home+Economics+Bldg,+University+of+Nebraska-Lincoln,+University+of+Nebraska-Lincoln:+East+Campus,+Lincoln,+NE+68503/@40.830064,-96.669451,15z/data=!4m2!3m1!1s0x8796bea3d95db147:0xef4b4207c59d4a79?hl=en-US" itemprop="url">
-                        <span itemprop="name">Robert Hillestad Textiles Gallery</span>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="dcf-1st dcf-d-flex dcf-mb-4 dcf-lh-1">
-                    <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25" itemprop="startDate">
-                      <span class="dcf-pr-1 dcf-txt-xs dcf-uppercase dcf-bold unl-ls-2">Sep</span>
-                      <span class="dcf-txt-h4 dcf-bold">25</span>
-                    </time>
-                    <span class="dcf-d-none" aria-hidden="true">&ndash;</span>
-                    <time class="dcf-d-flex dcf-ai-center" datetime="2017-10-24" itemprop="endDate">
-                      <span class="dcf-event-endrange dcf-pr-1 dcf-txt-xs dcf-uppercase dcf-bold unl-ls-2">Oct</span>
-                      <span class="dcf-txt-h4 dcf-bold">24</span>
-                    </time>
-                  </div>
-                </div>
-                <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1">
-                  <img
-                    class="dcf-ratio-child dcf-obj-fit-cover"
-                    sizes="(min-width: 55.927em) 10vw, 18vw"
-                    srcset="wdn/templates_5.0/images/dev/150905-nu-byu-668-sm-min.jpg 284w,
-                            wdn/templates_5.0/images/dev/150905-nu-byu-668-md-min.jpg 505w"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                    alt="Fans at Memorial Stadium cheer as Nebraska takes on B Y U.">
-                </div>
-              </li>
-
-              <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
-                <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
-                  <div class="dcf-2nd dcf-pl-3 dcf-lh-3 unl-font-sans">
-                    <a class="dcf-d-block dcf-txt-lg dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/122710/" itemprop="url">
-                      <span itemprop="name">Ask Us about Canvas!</span>
-                    </a>
-                    <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
-                      <a class="dcf-txt-decor-none" href="http://maps.unl.edu/#NEU" itemprop="url">
-                        <span itemprop="name">Nebraska East Union</span>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="dcf-1st dcf-d-flex dcf-mb-4 dcf-lh-1">
-                    <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25T11:00:00-06:00" itemprop="startDate">
-                      <span class="dcf-pr-1 dcf-txt-xs dcf-uppercase dcf-bold unl-ls-2">Sep</span>
-                      <span class="dcf-txt-h4 dcf-bold">25</span>
-                      <span class="dcf-pl-4 dcf-txt-xs unl-font-sans">11:00 am</span>
-                    </time>
-                    <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25T14:00:00-06:00" itemprop="endDate">
-                      <span class="dcf-sr-only">Sep</span>
-                      <span class="dcf-sr-only">25</span>
-                      <span class="dcf-event-endrange dcf-txt-xs unl-font-sans">2:00 pm</span>
-                    </time>
-                  </div>
-                </div>
-                <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1">
-                  <img
-                    class="dcf-ratio-child dcf-obj-fit-cover"
-                    sizes="(min-width: 55.927em) 10vw, 18vw"
-                    srcset="wdn/templates_5.0/images/dev/140829-life-208-sm-min.jpg 284w,
-                            wdn/templates_5.0/images/dev/140829-life-208-md-min.jpg 505w"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                    alt="Joseph Dauer teaches Life 121 - Fundamentals of Biology 2 in Henzlik Auditorium.">
-                </div>
-              </li>
-
-              <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
-                <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
-                  <div class="dcf-2nd dcf-pl-3 dcf-lh-3 unl-font-sans">
-                    <a class="dcf-d-block dcf-txt-lg dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/123212/" itemprop="url">
-                      <span itemprop="name">FREE HIV Test Site</span>
-                    </a>
-                    <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
-                      <span itemprop="name">Selleck Hall</span>
-                    </div>
-                  </div>
-                  <div class="dcf-1st dcf-d-flex dcf-mb-4 dcf-lh-1">
-                    <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25T12:00:00-06:00" itemprop="startDate">
-                      <span class="dcf-pr-1 dcf-txt-xs dcf-uppercase dcf-bold unl-ls-2">Sep</span>
-                      <span class="dcf-txt-h4 dcf-bold">25</span>
-                      <span class="dcf-pl-4 dcf-txt-xs unl-font-sans">12:00 pm</span>
-                    </time>
-                    <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25T16:00:00-06:00" itemprop="endDate">
-                      <span class="dcf-sr-only">Sep</span>
-                      <span class="dcf-sr-only">25</span>
-                      <span class="dcf-event-endrange dcf-txt-xs unl-font-sans">4:00 pm</span>
-                    </time>
-                  </div>
-                </div>
-                <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1">
-                  <img
-                    class="dcf-ratio-child dcf-obj-fit-cover"
-                    sizes="(min-width: 55.927em) 10vw, 18vw"
-                    srcset="wdn/templates_5.0/images/dev/120424-campus-097-sm-min.jpg 284w,
-                            wdn/templates_5.0/images/dev/120424-campus-097-md-min.jpg 505w"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                    alt="Wispy clouds float above the columns on a mostly sunny day on campus.">
-                </div>
-              </li>
-
-              <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
-                <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
-                  <div class="dcf-2nd dcf-pl-3 dcf-lh-3 unl-font-sans">
-                    <a class="dcf-d-block dcf-txt-lg dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/111666/" itemprop="url">
-                      <span itemprop="name">Business &amp; Liberal Arts Career Fair</span>
-                    </a>
-                    <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
-                      <span itemprop="name">Pinnacle Bank Arena</span>
-                    </div>
-                  </div>
-                  <div class="dcf-1st dcf-d-flex dcf-mb-4 dcf-lh-1">
-                    <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25" itemprop="startDate">
-                      <span class="dcf-pr-1 dcf-txt-xs dcf-uppercase dcf-bold unl-ls-2">Sep</span>
-                      <span class="dcf-txt-h4 dcf-bold">25</span>
-                    </time>
-                    <span class="dcf-d-none" aria-hidden="true">&ndash;</span>
-                    <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-26" itemprop="endDate">
-                      <span class="dcf-sr-only">Sep</span>
-                      <span class="dcf-event-endrange dcf-txt-h4 dcf-bold">26</span>
-                    </time>
-                  </div>
-                </div>
-                <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1">
-                  <img
-                    class="dcf-ratio-child dcf-obj-fit-cover"
-                    sizes="(min-width: 55.927em) 10vw, 18vw"
-                    srcset="wdn/templates_5.0/images/dev/140510-commencement-806-sm-min.jpg 284w,
-                            wdn/templates_5.0/images/dev/140510-commencement-806-md-min.jpg 505w"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                    alt="The graduating class moves their tassels to the left at the end of undergraduate commencement.">
-                </div>
-              </li>
-
-              <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
-                <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
-                  <div class="dcf-2nd dcf-pl-3 dcf-lh-3 unl-font-sans">
-                    <a class="dcf-d-block dcf-txt-lg dcf-txt-decor-hover dcf-bold" href="//events.unl.edu/2017/09/25/123710/" itemprop="url">
-                      <span itemprop="name">#MakerMonday</span>
-                    </a>
-                    <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
-                      <span itemprop="name">Nebraska Innovation Studio</span>
-                    </div>
-                  </div>
-                  <div class="dcf-1st dcf-d-flex dcf-mb-4 dcf-lh-1">
-                    <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25T00:14:30-06:00" itemprop="startDate">
-                      <span class="dcf-pr-1 dcf-txt-xs dcf-uppercase dcf-bold unl-ls-2">Sep</span>
-                      <span class="dcf-txt-h4 dcf-bold">25</span>
-                      <span class="dcf-pl-4 dcf-txt-xs unl-font-sans">12:30 pm</span>
-                    </time>
-                    <span class="dcf-d-none" aria-hidden="true">&ndash;</span>
-                    <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25T00:16:30-06:00" itemprop="endDate">
-                      <span class="dcf-sr-only">Sep</span>
-                      <span class="dcf-sr-only">25</span>
-                      <span class="dcf-event-endrange dcf-txt-xs unl-font-sans">4:30 pm</span>
-                    </time>
-                  </div>
-                </div>
-                <div class="dcf-2nd dcf-ml-5 dcf-media-object dcf-event-img dcf-ratio dcf-ratio-1x1">
-                  <img
-                    class="dcf-ratio-child dcf-obj-fit-cover"
-                    sizes="(min-width: 55.927em) 10vw, 18vw"
-                    srcset="wdn/templates_5.0/images/dev/130619-campus-028-sm-min.jpg 284w,
-                            wdn/templates_5.0/images/dev/130619-campus-028-md-min.jpg 505w"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                    alt="A blue sky and clouds reflect off the front of the Jackie Gaughan Muluticultural Center.">
-                </div>
-              </li>
-
-            </ul>
-
-            <div class="dcf-d-flex dcf-flex-wrap dcf-ai-center dcf-jc-between dcf-events-more unl-events-more">
-              <a class="dcf-btn dcf-btn-secondary dcf-2nd" href="https://events.unl.edu/upcoming/">Find more events</a>
-              <div class="dcf-d-flex dcf-ai-center dcf-1st dcf-mr-6">
-                <div class="dcf-mr-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-font-sans"><span class="dcf-bold">Subscribe</span> to <span class="dcf-d-block">this calendar</span></div>
-                <div class="dcf-btn-group">
-                  <a class="dcf-btn dcf-btn-secondary" href="https://events.unl.edu/upcoming/?format=ics"><!-- <svg class="dcf-icon dcf-icon--inline dcf-icon--x dcf-mr-2" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M23.5 2H20V.5c0-.3-.2-.5-.5-.5h-3c-.3 0-.5.2-.5.5V2H8V.5c0-.3-.2-.5-.5-.5h-3c-.3 0-.5.2-.5.5V2H.5c-.3 0-.5.2-.5.5V7h24V2.5c0-.3-.2-.5-.5-.5zM7 4H5V1h2v3zm12 0h-2V1h2v3zM0 23.5c0 .3.2.5.5.5h23c.3 0 .5-.2.5-.5V8H0v15.5zM7 15h4v-4c0-.6.4-1 1-1s1 .4 1 1v4h4c.6 0 1 .4 1 1s-.4 1-1 1h-4v4c0 .6-.4 1-1 1s-1-.4-1-1v-4H7c-.6 0-1-.4-1-1s.4-1 1-1z"/></svg>--><abbr class="dcf-txt-sm">ICS<span class="dcf-sr-only"> format</span></abbr></a>
-                  <a class="dcf-btn dcf-btn-secondary" href="https://events.unl.edu/upcoming/?format=rss"><!-- <svg class="dcf-icon dcf-icon--inline dcf-icon--x dcf-mr-2" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path d="M20.5 0h-17C1.6 0 0 1.6 0 3.5v17C0 22.4 1.6 24 3.5 24h17c1.9 0 3.5-1.6 3.5-3.5v-17C24 1.6 22.4 0 20.5 0zM7 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6 0c0-4.4-3.6-8-8-8v-1c5 0 9 4 9 9h-1zm5 0c0-7.2-5.8-13-13-13V5c7.7 0 14 6.3 14 14h-1z"/></svg> --><abbr class="dcf-txt-sm">RSS<span class="dcf-sr-only"> format</span></abbr></a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-
-
-      <!-- Events Listing (Old) -->
-  <!--
-      <div class="dcf-events dcf-col-gap-vw dcf-row-gap-8 dcf-pt-10 dcf-pb-10">
-        <h2 class="dcf-events-heading">Upcoming Events</h2>
-        <ul class="dcf-list-bare dcf-events-listing dcf-col-gap-vw dcf-row-gap-6 dcf-mb-0">
-
-          <li class="dcf-media dcf-event dcf-pt-3 dcf-bt" itemscope itemtype="http://schema.org/Event">
-            <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
-              <div class="dcf-2nd dcf-lh-3 unl-font-sans">
-                <a class="dcf-d-block dcf-txt-decor-none" href="//events.unl.edu/2017/09/25/120871/" itemprop="url">
-                  <span class="dcf-bold" itemprop="name">The Modern-Day Sales Manager Executive Program Certificate</span>
-                </a>
-                <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
-                  <a class="dcf-txt-decor-none" href="http://maps.unl.edu/NCBA" itemprop="url">
-                    <span itemprop="name">College of Business (NEW)</span>
-                  </a>
-                </div>
-              </div>
-              <div class="dcf-1st dcf-d-flex dcf-mb-4 dcf-lh-1">
-                <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25" itemprop="startDate">
-                  <span class="dcf-pr-1 dcf-txt-xs dcf-uppercase dcf-bold unl-ls-2">Sep</span>
-                  <span class="dcf-txt-h3 dcf-bold">25</span>
-                </time>
-              </div>
-            </div>
-            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-quad">
-              <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-            </figure>
-          </li>
-
-          <li class="dcf-media dcf-event dcf-pt-3 dcf-bt" itemscope itemtype="http://schema.org/Event">
-            <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
-              <div class="dcf-2nd dcf-lh-3 unl-font-sans">
-                <a class="dcf-d-block dcf-txt-decor-none" href="//events.unl.edu/2017/09/25/123410/" itemprop="url">
-                  <span class="dcf-bold" itemprop="name">Celebration of Youth XXIV</span>
-                </a>
-                <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
-                  <a class="dcf-txt-decor-none" href="https://www.google.com/maps/place/Home+Economics+Bldg,+University+of+Nebraska-Lincoln,+University+of+Nebraska-Lincoln:+East+Campus,+Lincoln,+NE+68503/@40.830064,-96.669451,15z/data=!4m2!3m1!1s0x8796bea3d95db147:0xef4b4207c59d4a79?hl=en-US" itemprop="url">
-                    <span itemprop="name">Robert Hillestad Textiles Gallery</span>
-                  </a>
-                </div>
-              </div>
-              <div class="dcf-1st dcf-d-flex dcf-mb-4 dcf-lh-1">
-                <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25" itemprop="startDate">
-                  <span class="dcf-pr-1 dcf-txt-xs dcf-uppercase dcf-bold unl-ls-2">Sep</span>
-                  <span class="dcf-txt-h3 dcf-bold">25</span>
-                </time>
-                <span class="dcf-d-none" aria-hidden="true">&ndash;</span>
-                <time class="dcf-d-flex dcf-ai-center" datetime="2017-10-24" itemprop="endDate">
-                  <span class="dcf-event-endrange dcf-pr-1 dcf-txt-xs dcf-uppercase dcf-bold unl-ls-2">Oct</span>
-                  <span class="dcf-txt-h3 dcf-bold">24</span>
-                </time>
-              </div>
-            </div>
-            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-quad">
-              <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-            </figure>
-          </li>
-
-          <li class="dcf-media dcf-event dcf-pt-3 dcf-bt" itemscope itemtype="http://schema.org/Event">
-            <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
-              <div class="dcf-2nd dcf-lh-3 unl-font-sans">
-                <a class="dcf-d-block dcf-txt-decor-none" href="//events.unl.edu/2017/09/25/122710/" itemprop="url">
-                  <span class="dcf-bold" itemprop="name">Ask Us about Canvas!</span>
-                </a>
-                <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
-                  <a class="dcf-txt-decor-none" href="http://maps.unl.edu/#NEU" itemprop="url">
-                    <span itemprop="name">Nebraska East Union</span>
-                  </a>
-                </div>
-              </div>
-              <div class="dcf-1st dcf-d-flex dcf-mb-4 dcf-lh-1">
-                <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25T11:00:00-06:00" itemprop="startDate">
-                  <span class="dcf-pr-1 dcf-txt-xs dcf-uppercase dcf-bold unl-ls-2">Sep</span>
-                  <span class="dcf-txt-h3 dcf-bold">25</span>
-                  <span class="dcf-pl-4 dcf-txt-xs unl-font-sans">11:00 am</span>
-                </time>
-                <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25T14:00:00-06:00" itemprop="endDate">
-                  <span class="dcf-sr-only">Sep</span>
-                  <span class="dcf-sr-only">25</span>
-                  <span class="dcf-event-endrange dcf-txt-xs unl-font-sans">2:00 pm</span>
-                </time>
-              </div>
-            </div>
-            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-quad">
-              <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-            </figure>
-          </li>
-
-          <li class="dcf-media dcf-event dcf-pt-3 dcf-bt" itemscope itemtype="http://schema.org/Event">
-            <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
-              <div class="dcf-2nd dcf-lh-3 unl-font-sans">
-                <a class="dcf-d-block dcf-txt-decor-none" href="//events.unl.edu/2017/09/25/123212/" itemprop="url">
-                  <span class="dcf-bold" itemprop="name">FREE HIV Test Site</span>
-                </a>
-                <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
-                  <span itemprop="name">Selleck Hall</span>
-                </div>
-              </div>
-              <div class="dcf-1st dcf-d-flex dcf-mb-4 dcf-lh-1">
-                <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25T12:00:00-06:00" itemprop="startDate">
-                  <span class="dcf-pr-1 dcf-txt-xs dcf-uppercase dcf-bold unl-ls-2">Sep</span>
-                  <span class="dcf-txt-h3 dcf-bold">25</span>
-                  <span class="dcf-pl-4 dcf-txt-xs unl-font-sans">12:00 pm</span>
-                </time>
-                <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25T16:00:00-06:00" itemprop="endDate">
-                  <span class="dcf-sr-only">Sep</span>
-                  <span class="dcf-sr-only">25</span>
-                  <span class="dcf-event-endrange dcf-txt-xs unl-font-sans">4:00 pm</span>
-                </time>
-              </div>
-            </div>
-            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-quad">
-              <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-            </figure>
-          </li>
-
-          <li class="dcf-media dcf-event dcf-pt-3 dcf-bt" itemscope itemtype="http://schema.org/Event">
-            <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
-              <div class="dcf-2nd dcf-lh-3 unl-font-sans">
-                <a class="dcf-d-block dcf-txt-decor-none" href="//events.unl.edu/2017/09/25/111666/" itemprop="url">
-                  <span class="dcf-bold" itemprop="name">Business &amp; Liberal Arts Career Fair</span>
-                </a>
-                <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
-                  <span itemprop="name">Pinnacle Bank Arena</span>
-                </div>
-              </div>
-              <div class="dcf-1st dcf-d-flex dcf-mb-4 dcf-lh-1">
-                <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25" itemprop="startDate">
-                  <span class="dcf-pr-1 dcf-txt-xs dcf-uppercase dcf-bold unl-ls-2">Sep</span>
-                  <span class="dcf-txt-h3 dcf-bold">25</span>
-                </time>
-                <span class="dcf-d-none" aria-hidden="true">&ndash;</span>
-                <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-26" itemprop="endDate">
-                  <span class="dcf-sr-only">Sep</span>
-                  <span class="dcf-event-endrange dcf-txt-h3 dcf-bold">26</span>
-                </time>
-              </div>
-            </div>
-            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-quad">
-              <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-            </figure>
-          </li>
-
-          <li class="dcf-media dcf-event dcf-pt-3 dcf-bt" itemscope itemtype="http://schema.org/Event">
-            <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
-              <div class="dcf-2nd dcf-lh-3 unl-font-sans">
-                <a class="dcf-d-block dcf-txt-decor-none" href="//events.unl.edu/2017/09/25/123710/" itemprop="url">
-                  <span class="dcf-bold" itemprop="name">#MakerMonday</span>
-                </a>
-                <div class="dcf-pt-1 dcf-txt-xs" itemprop="location" itemscope itemtype="http://schema.org/Place">
-                  <span itemprop="name">Nebraska Innovation Studio</span>
-                </div>
-              </div>
-              <div class="dcf-1st dcf-d-flex dcf-mb-4 dcf-lh-1">
-                <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25T00:14:30-06:00" itemprop="startDate">
-                  <span class="dcf-pr-1 dcf-txt-xs dcf-uppercase dcf-bold unl-ls-2">Sep</span>
-                  <span class="dcf-txt-h3 dcf-bold">25</span>
-                  <span class="dcf-pl-4 dcf-txt-xs unl-font-sans">12:30 pm</span>
-                </time>
-                <span class="dcf-d-none" aria-hidden="true">&ndash;</span>
-                <time class="dcf-d-flex dcf-ai-center" datetime="2017-09-25T00:16:30-06:00" itemprop="endDate">
-                  <span class="dcf-sr-only">Sep</span>
-                  <span class="dcf-sr-only">25</span>
-                  <span class="dcf-event-endrange dcf-txt-xs unl-font-sans">4:30 pm</span>
-                </time>
-              </div>
-            </div>
-            <figure class="dcf-media-object dcf-event-img dcf-2nd dcf-ratio dcf-ratio-1x1 unl-frame-quad">
-              <img class="dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_5.0/images/171007-nu-wisc-0970-2.jpg" alt="placeholder image">
-            </figure>
-          </li>
-
-        </ul>
-
-        <div class="dcf-d-flex dcf-flex-wrap dcf-ai-center dcf-jc-between dcf-events-more">
-          <a class="dcf-btn dcf-btn-secondary dcf-2nd" href="https://events.unl.edu/upcoming/">Find more events</a>
-          <div class="dcf-d-flex dcf-ai-center dcf-1st dcf-mr-6">
-            <div class="dcf-mr-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-font-sans"><span class="dcf-bold">Subscribe</span> to <span class="dcf-d-block">this calendar</span></div>
-            <div class="dcf-btn-group">
-              <a class="dcf-btn dcf-btn-secondary" href="https://events.unl.edu/upcoming/?format=ics"><abbr class="dcf-txt-sm">ICS<span class="dcf-sr-only"> format</span></abbr></a>
-              <a class="dcf-btn dcf-btn-secondary" href="https://events.unl.edu/upcoming/?format=rss"><abbr class="dcf-txt-sm">RSS<span class="dcf-sr-only"> format</span></abbr></a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-  -->
 
 
       <h2 class="dcf-mt-6">Input Groups</h2>
@@ -1236,33 +819,43 @@
           </div>
   -->
 
-          <fieldset>
+          <fieldset class="dcf-form-group dcf-d-flex dcf-flex-col">
             <legend class="dcf-legend">Checkboxes</legend>
-            <div class="dcf-form-group">
-              <input class="dcf-input-control" id="checkbox1" type="checkbox" value="">
-              <label class="dcf-label" for="checkbox1">Checkbox 1</label>
+            <div class="dcf-input-checkbox">
+              <input id="elements-form-checkboxA" type="checkbox" value="0" aria-labelledby="elements-form-checkboxA-label">
+              <label for="elements-form-checkboxA" id="elements-form-checkboxA-label" class="dcf-label">Checkbox A</label>
             </div>
-            <div class="dcf-form-group">
-              <input class="dcf-input-control" id="checkbox2" type="checkbox" value="">
-              <label class="dcf-label" for="checkbox2">Checkbox 2</label>
+            <div class="dcf-input-checkbox">
+              <input id="elements-form-checkboxB" type="checkbox" value="1" aria-labelledby="elements-form-checkboxB-label" disabled="">
+              <label for="elements-form-checkboxB" id="elements-form-checkboxB-label" class="dcf-label">Checkbox B</label>
+            </div>
+            <div class="dcf-input-checkbox">
+              <input id="elements-form-checkboxC" type="checkbox" value="2" aria-labelledby="elements-form-checkboxC-label">
+              <label for="elements-form-checkboxC" id="elements-form-checkboxC-label" class="dcf-label">Checkbox C</label>
             </div>
           </fieldset>
 
-          <fieldset>
-            <legend class="dcf-legend">Radio buttons</legend>
-            <div>
-              <div class="dcf-form-group">
-                <input class="dcf-input-control" id="radio_1" name="helpful" type="radio" value="0">
-                <label class="dcf-label" for="radio_1">Radio 1</label>
-              </div>
-              <div class="dcf-form-group">
-                <input class="dcf-input-control" id="radio_2" name="helpful" type="radio" value="1">
-                <label class="dcf-label" for="radio_2">Radio 2</label>
-              </div>
-              <div class="dcf-form-group">
-                <input class="dcf-input-control" id="radio_radio" name="helpful" type="radio" value="2">
-                <label class="dcf-label" for="radio_radio">Radio Radio</label>
-              </div>
+          <fieldset class="dcf-form-group dcf-d-flex dcf-flex-col">
+            <legend class="dcf-legend">Position</legend>
+            <div class="dcf-input-radio">
+              <input id="student_Position" name="position" type="radio" value="student">
+              <label for="student_Position" class="dcf-label">Student</label>
+            </div>
+            <div class="dcf-input-radio">
+              <input id="faculty_Position" name="position" type="radio" value="faculty">
+              <label for="faculty_Position" class="dcf-label">Faculty</label>
+            </div>
+            <div class="dcf-input-radio">
+              <input id="staff_Position" name="position" type="radio" value="staff">
+              <label for="staff_Position" class="dcf-label">Staff</label>
+            </div>
+            <div class="dcf-input-radio">
+              <input id="administrator_Position" name="position" type="radio" value="administrator">
+              <label for="administrator_Position" class="dcf-label">Administrator</label>
+            </div>
+            <div class="dcf-input-radio">
+              <input id="other_Position" name="position" type="radio" value="other">
+              <label for="other_Position" class="dcf-label">Other</label>
             </div>
           </fieldset>
 

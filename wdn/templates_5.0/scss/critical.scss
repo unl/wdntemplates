@@ -1880,9 +1880,6 @@ a.unl-cream:link {
   .unl .dcf-breadcrumbs li {
     flex-shrink: 0;
   }
-  .unl .dcf-header .dcf-institution-title {
-    display: none;
-  }
   .unl .dcf-logo-lockup {
     padding-bottom: 1em;
     padding-top: 1.333333333em;
@@ -1893,13 +1890,6 @@ a.unl-cream:link {
   .unl .dcf-idm-login {
     flex-direction: column;
   }
-  .unl .dcf-idm-toggle {
-    display: none;
-  }
-  .unl .dcf-nav-menu {
-    pointer-events: none;
-    visibility: hidden;
-  }
   .unl .dcf-nav-toggle-group {
     display: flex;
     z-index: 100150;
@@ -1907,9 +1897,9 @@ a.unl-cream:link {
   .unl .dcf-nav-toggle-btn {
     flex-basis: 25%;
   }
-  .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu {
-    display: none;
-  }
+  .unl .dcf-header .dcf-institution-title,
+  .unl .dcf-idm-toggle,
+  .unl .dcf-nav-menu,
   .unl .dcf-search-toggle-wrapper {
     display: none;
   }
@@ -1950,9 +1940,6 @@ a.unl-cream:link {
   .unl .dcf-logo-lockup {
     padding-bottom: 1.1250000003em;
     padding-top: 1.333333333em;
-  }
-  .unl .dcf-idm-toggle {
-    display: flex;
   }
   .unl .dcf-idm-login {
     flex-direction: row-reverse;
@@ -1997,15 +1984,14 @@ a.unl-cream:link {
   .unl .dcf-nav-toggle-group {
     display: none;
   }
-  .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu {
-    display: flex;
-  }
   .unl .dcf-nav-toggle-btn-menu {
     z-index: 998;
   }
   .unl .dcf-search {
     max-width: 13.3182949454em;
   }
+  .unl .dcf-idm-toggle,
+  .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu,
   .unl .dcf-search-toggle-wrapper {
     display: flex;
   }
@@ -2026,4 +2012,7 @@ a.unl-cream:link {
   .unl .dcf-txt-h1 {
     font-size: 2.3703703686em!important;
   }
+}
+.unl .dcf-modal-overlay {
+  display: none;
 }

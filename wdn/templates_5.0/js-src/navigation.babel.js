@@ -14,7 +14,7 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
             // grab an element
             let mobileActions = document.querySelectorAll('.hrjs');
             let main = document.querySelector('main');
-            let footer = document.querySelector('footer');
+            let footer = document.getElementById('dcf-footer');
 
             // construct an instance of Headroom, passing the element
             for (let i=0; i<mobileActions.length; i++) {
@@ -28,6 +28,9 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
             }
 
             let toggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-menu');
+            let toggleIconOpen = document.getElementById('dcf-nav-toggle-icon-open-menu');
+            let toggleIconClose = document.getElementById('dcf-nav-toggle-icon-close-menu');
+            let toggleLabel = document.querySelector('.dcf-nav-toggle-label-menu');
             let mobileNav = document.getElementById('dcf-navigation');
             let modalParent = document.querySelector('.dcf-nav-menu.dcf-modal-parent');
             let mobileNavMenu = document.getElementById('dcf-nav-menu-child');
@@ -54,7 +57,11 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
                 modalParent.classList.add('dcf-modal-open');
                 for (var i = 0; i < toggleButtons.length; ++i) {
                     toggleButtons[i].setAttribute('aria-expanded', 'true');
+                    toggleButtons[i].setAttribute('aria-label', 'close menu');
                 }
+                toggleIconOpen.classList.add('dcf-d-none');
+                toggleIconClose.classList.remove('dcf-d-none');
+                toggleLabel.textContent = 'Close';
 
                 // Hide other mobile toggles
                 document.dispatchEvent(closeSearchEvent);
@@ -72,7 +79,11 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
                 modalParent.classList.remove('dcf-modal-open');
                 for (var i = 0; i < toggleButtons.length; ++i) {
                     toggleButtons[i].setAttribute('aria-expanded', 'false');
+                    toggleButtons[i].setAttribute('aria-label', 'open menu');
                 }
+                toggleIconOpen.classList.remove('dcf-d-none');
+                toggleIconClose.classList.add('dcf-d-none');
+                toggleLabel.textContent = 'Menu';
                 activeToggleButton.focus();
                 document.removeEventListener('keyup', onKeyUp);
 
