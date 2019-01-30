@@ -3,13 +3,6 @@
 //////////////////////////////////
 
 
-.unl .dcf-nav-menu-child a,
-.unl .dcf-nav-menu-child button {
-  padding-left: #{ms(0)}rem;
-  padding-right: #{ms(0)}rem;
-}
-
-
 .unl .dcf-nav-menu ul { // TODO: remove after updated in DCF core
   list-style: none;
   margin-bottom: 0;
@@ -22,30 +15,51 @@
 }
 
 
+.unl .dcf-nav-menu-child a,
+.unl .dcf-nav-menu-child button {
+  display: block;
+  @include lh-3;
+  padding: #{ms(0)}em #{ms(0)}rem;
+}
+
+
+// TODO: determine focus state styles
+.unl .dcf-nav-menu-child a:link,
+.unl .dcf-nav-menu-child a:visited,
+.unl .dcf-nav-menu-child a:hover,
+.unl .dcf-nav-menu-child a:active,
+.unl .dcf-nav-menu-child button {
+  @include cream;
+}
+
+
+.unl .dcf-nav-menu-child > ul > li > a,
+.unl .dcf-nav-menu-child button {
+  font-weight: 700;
+}
+
+
 @include mq(md, max, width) {
 
-  .unl .dcf-nav-menu.dcf-modal-open {
+  .unl .dcf-nav-menu {
     @include bg-overlay-dark;
     bottom: #{$height-mobile-toolbar};
     height: 100vh;
+    opacity: 0;
+    pointer-events: none;
     position: fixed;
+    transition: opacity 300ms ease-out, visibility 0ms 400ms;
+    visibility: hidden;
     width: 100%;
     z-index: 998;
   }
 
 
-  // Default to closed on mobile
-  .unl .dcf-nav-menu {
-//     display: none;
-    pointer-events: none;
-    visibility: hidden;
-  }
-
-
   // Open when parent model is open
   .unl .dcf-nav-menu.dcf-modal-open {
-//     display: block;
+    opacity: 1;
     pointer-events: auto;
+    transition: opacity 200ms ease-out;
     visibility: visible;
   }
 

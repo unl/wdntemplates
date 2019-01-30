@@ -1,7 +1,8 @@
-define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function(WDN, dialogHelper, require, bodyScrollLock) {
+define(['wdn', 'require', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'], function(WDN, require, bodyScrollLock) {
   const disableBodyScroll = bodyScrollLock.disableBodyScroll;
   const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 	let autoSearchDebounceDelay = 1000;
+	let searchEmbedVersion = '5.0';
 
 	function getLocalSearch() {
 		let link = document.querySelector('link[rel="search"]');
@@ -26,7 +27,12 @@ define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function
 				domSearchResultWrapper = document.getElementById('dcf-search-results-wrapper'),
 				domDialog = document.getElementById('dcf-search-results'),
 				domToggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-search'),
+				domToggleIconOpen = document.getElementById('dcf-nav-toggle-icon-open-search'),
+				domToggleIconClose = document.getElementById('dcf-nav-toggle-icon-close-search'),
+				domToggleLabel = document.querySelector('.dcf-nav-toggle-label-search'),
 				domClose = document.getElementById('dcf-close-search'),
+        main = document.querySelector('main'),
+        footer = document.getElementById('dcf-footer'),
 				domActiveToggleButton,
 				domEmbed,
 				$unlSearch,
@@ -38,9 +44,9 @@ define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function
 				searchPath = '/', // path to UNL Search app
 				searchOrigin = 'https://' + searchHost,
 				searchAction = searchOrigin + searchPath,
-				searchFrameAction = searchAction + '?embed=1',
+				searchFrameAction = searchAction + '?embed=' + searchEmbedVersion,
 				allowSearchParams = ['u', 'cx'],  // QS Params allowed by UNL Search app
-				siteHomepage = location.protocol + '//' + location.host,
+				siteHomepage = location.protocol + '//' + location.host + '/',
 				closeNavEvent = new CustomEvent('closeNavigation'),
 				closeIDMOptionsEvent = new CustomEvent('closeDropDownWidget', {detail: {type: 'idm-logged-in'}}),
 				localSearch = getLocalSearch();
@@ -50,18 +56,22 @@ define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function
 				return;
 			}
 
-			dialogHelper.initialize(domDialog);
-
 			var domToggleButtonOnClick = function(e) {
-				if (!domDialog.hasAttribute('open')) {
+
+          if (!domDialog.classList.contains('dcf-modal-open')) {
 
 					//Search is currently closed, so open it.
 					for (let i = 0; i < domToggleButtons.length; i++) {
-						domToggleButtons[i].setAttribute('aria-pressed', 'true');
+						domToggleButtons[i].setAttribute('aria-expanded', 'true');
+						domToggleButtons[i].setAttribute('aria-label', 'close search');
 					}
-
-					domDialog.classList.remove('dcf-d-none');
-					domDialog.showModal();
+					domToggleIconOpen.classList.add('dcf-d-none');
+					domToggleIconClose.classList.remove('dcf-d-none');
+          domToggleLabel.textContent = 'Close';
+          main.setAttribute('inert', '');
+          footer.setAttribute('inert', '');
+					domDialog.classList.add('dcf-modal-open');
+          domDialog.setAttribute('aria-hidden', 'false');
 					domActiveToggleButton = this;
 
           // Prevent body scroll when search is open
@@ -147,7 +157,7 @@ define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function
 			domEmbed = document.createElement('input');
 			domEmbed.type = 'hidden';
 			domEmbed.name = 'embed';
-			domEmbed.value = '5.0'; // Specify which theme version for search
+			domEmbed.value = searchEmbedVersion; // Specify which theme version for search
 
 			// add a parameter for triggering the iframe compatible rendering
 			domSearchForm.appendChild(domEmbed);
@@ -182,7 +192,7 @@ define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function
 			};
 
 			let closeSearch = function(returnFocus = false) {
-				if (!domDialog.hasAttribute('open')) {
+				if (!domDialog.classList.contains('dcf-modal-open')) {
 					//Search is already closed.
 					return;
 				}
@@ -190,11 +200,17 @@ define(['wdn', 'dialog-helper', 'require', 'plugins/body-scroll-lock'], function
 				clearTimeout(autoSubmitTimeout);
 				domQ.value = '';
 				domSearchForm.parentElement.classList.remove('active');
-				domDialog.classList.remove('dcf-d-none');
-				domDialog.close();
+        main.removeAttribute('inert');
+        footer.removeAttribute('inert');
+				domDialog.classList.remove('dcf-modal-open');
+        domDialog.setAttribute('aria-hidden', 'true');
 				for (let i = 0; i < domToggleButtons.length; i++) {
-					domToggleButtons[i].setAttribute('aria-pressed', 'false');
+					domToggleButtons[i].setAttribute('aria-expanded', 'false');
+						domToggleButtons[i].setAttribute('aria-label', 'open search');
 				}
+				domToggleIconOpen.classList.remove('dcf-d-none');
+				domToggleIconClose.classList.add('dcf-d-none');
+        domToggleLabel.textContent = 'Search';
 				domSearchForm.reset();
 
         // Allow body scroll when search is closed

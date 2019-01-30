@@ -17,18 +17,10 @@
 }
 
 
-// !Form group and form with input group
-.unl .dcf-form-group,
-.unl .dcf-input-group-form {
-  margin-top: -#{ms(-12)}rem; // Apply negative margin-top to equalize label margin-top
-}
-
-
 // !Label
 .unl .dcf-label {
   @include font-sans;
   @include txt-sm;
-  margin-top: #{ms(-12)}rem;
 }
 
 
@@ -43,7 +35,9 @@
 
 // !Inputs
 .unl .dcf-input-text,
-.unl .dcf-input-file {
+.unl .dcf-input-file,
+.unl .dcf-input-select {
+  color: $color-body;
   @include font-sans;
 }
 
@@ -85,141 +79,4 @@
   color: $color-light-text;
   @include txt-xs;
   @include mt-1;
-}
-
-
-// Uses Filament Group's select-css: https://github.com/filamentgroup/select-css
-
-/* Container used for styling the custom select, the buttom class below adds the
- * bg gradient, corners, etc. */
-.unl .dcf-input-select {
-  background-color: $white; // ***Custom***
-  border: 1px solid $color-border-input; // ***Custom***
-  display: table; // ***Custom***, Size width of select to contents
-  @include mt-1; // ***Custom***
-  position: relative;
-}
-
-
-/* This is the native select, we're making everything but the text invisible so
- * we can see the button styles in the wrapper */
-.unl .dcf-input-select select {
-  box-sizing: border-box;
-  color: $color-body; // ***Custom***, Match-02
-  @include font-sans; // ***Custom***
-  @include txt-base; // Font size must be 16px to prevent iOS page zoom on focus
-  margin: 0;
-  outline: none;
-  padding: $length-em-2 $length-em-4 $length-em-2 $length-em-3; // ***Custom***
-  width: 100%;
-}
-
-
-/* Custom arrow sits on top of the select - could be an image, SVG, icon font,
- * etc. or the arrow could just baked into the bg image on the select. */
-.unl .dcf-input-select::after {
-  content: ' ';
-  display: none; // Make the select behind the arrow clickable in some browsers
-  pointer-events: none; // Make the select behind the arrow clickable in some browsers
-  position: absolute;
-  right: 1em;
-  top: 50%;
-  z-index: 2;
-}
-
-
-/* Firefox <= 34 has a false positive on @supports( -moz-appearance: none )
- * @supports ( mask-type: alpha ) is Firefox 35+
- */
-@supports (-webkit-appearance: none) or (appearance: none) or ((-moz-appearance: none) and (mask-type: alpha)) {
-
-  /* Show custom arrow */
-  .unl .dcf-input-select::after {
-    display: block;
-  }
-
-  /* Remove select styling */
-  .unl .dcf-input-select select {
-    appearance: none;
-    /* inside @supports so that iOS <= 8 display the native arrow */
-    background: none; // Match-04
-    /* inside @supports so that Android <= 4.3 display the native arrow */
-    border: 1px solid transparent; // Match-05
-    @include pr-8; // ***Custom***, Match-01 (was 'padding-right: 2em;')
-  }
-
-  .unl .dcf-input-select select:focus {
-    box-shadow: 0 0 $length-em-3 fade-out($color-border-input-hover,.25); // ***Custom***, Match-03 (was 'border-color: #aaa;')
-  }
-
-}
-
-
-/* IE 10/11+ - This hides native dropdown button arrow so it will have the custom appearance. Targeting media query hack via http://browserhacks.com/#hack-28f493d247a12ab654f6c3637f6978d5 - looking for better ways to achieve this targeting */
-/* The second rule removes the odd blue bg color behind the text in the select button in IE 10/11 and sets the text color to match the focus style's - fix via http://stackoverflow.com/questions/17553300/change-ie-background-color-on-unopened-focused-select-box */
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-
-  .unl .dcf-input-select select::-ms-expand {
-    display: none;
-  }
-
-  .unl .dcf-input-select select:focus {
-    box-shadow: 0 0 $length-em-3 fade-out($color-border-input-hover,.25); // ***Custom***, Match-03 (was 'border-color: #aaa;')
-  }
-
-  .unl .dcf-input-select select:focus::-ms-value {
-    background: transparent;
-    color: $color-body; // ***Custom***, Match-02
-  }
-
-  .unl .dcf-input-select select {
-    background: none; // Match-04
-    border: 1px solid transparent; // Match-05
-    @include pr-8; // ***Custom***, Match-01 (was 'padding-right: 2em;')
-  }
-
-  .unl .dcf-input-select::after {
-    display: block;
-  }
-
-}
-
-
-@supports ( box-shadow: none ) {
-
-  .unl .dcf-input-select select:focus {
-    outline: none; // ***Custom***
-  }
-
-}
-
-
-/* Show custom arrow */
-.unl .dcf-input-select::after {
-  border-left: 4px solid transparent; // ***Custom***
-  border-right: 4px solid transparent; // ***Custom***
-  border-top: 8px solid $color-body; // ***Custom***
-  display: block;
-  height: 0;
-  margin-top: -4px; // ***Custom***
-  width: 0;
-}
-
-
-.unl .dcf-input-select option {
-  font-weight: normal; // ***Custom***, Set options to normal weight
-  padding: 0;
-}
-
-
-.unl .dcf-input-select select:hover {
-  box-shadow: 0 0 $length-em-3 fade-out($color-border-input-hover,.25); // ***Custom***, Match-03
-}
-
-
-// Inputs
-.unl .dcf-label + .dcf-input-text,
-.unl .dcf-label + .dcf-input-select,
-.unl .dcf-label + .dcf-input-group {
-  margin-top: #{ms(-12)}rem;
 }

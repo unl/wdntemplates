@@ -33,7 +33,7 @@
 
 .unl .dcf-page-title h1,
 .unl .dcf-page-title h1 + .dcf-subhead {
-  margin-bottom: 0;
+  margin-bottom: 0; // Margin-bottom creates an unwanted vertical gap that shows the hero background-color.
 }
 
 

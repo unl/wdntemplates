@@ -44,7 +44,7 @@
   <!--#include virtual="/wdn/templates_5.0/includes/global/site-affiliation-2.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-1.html" -->
   <!-- InstanceBeginEditable name="titlegraphic" -->
-  <a class="unl-site-title-medium" href="#">Title of my site</a>
+  <a class="dcf-txt-h6" href="#">Title of my site</a>
   <!-- InstanceEndEditable -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/site-title-2.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/logo-lockup-2.html" -->
