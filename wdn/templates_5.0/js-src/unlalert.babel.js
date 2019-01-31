@@ -118,14 +118,14 @@ define([
     if ($alert.hasClass('show')) {
       $alert.removeClass('show').closest('body').removeClass(idPrfx + '-shown');
       $alertIcon.attr('class','wdn-icon-attention');
-      $alertAction.removeClass('wdn-text-hidden').text('Show emergency alert');
+      $alertAction.removeClass('dcf-sr-only').text('Show emergency alert');
       for (i = 0; i < activeIds.length; i++) {
         _acknowledgeAlert(activeIds[i]);
       }
     } else {
       $alert.addClass('show').closest('body').addClass(idPrfx + '-shown');
       $alertIcon.attr('class','wdn-icon-cancel');
-      $alertAction.addClass('wdn-text-hidden').text('Hide emergency alert');
+      $alertAction.addClass('dcf-sr-only').text('Hide emergency alert');
     }
   },
 
@@ -171,7 +171,7 @@ define([
       if (!$alertWrapper.length) {
         $alertWrapper = $('<div>', {
           'id': idPrfx,
-          'class': 'dcf-bleed',
+          'class': 'dcf-bleed unl-bg-darker-gray',
           'role': 'alert'
         }).css({
           'position': 'absolute',
@@ -180,7 +180,7 @@ define([
 
         $alertContent = $('<div>', {
           'id': idPrfx + cntSuf,
-          'class': 'dcf-relative unl-cream'
+          'class': 'dcf-relative dcf-col-gap-vw dcf-row-gap-6 unl-cream'
         });
 
         $('<div>', {'class': 'dcf-wrapper'})
@@ -192,11 +192,11 @@ define([
 
       web = info[i].web || 'http://www.unl.edu/';
 
-      alertContentHTML = '<div class="unlalert-info dcf-measure"><div class="dcf-lh-3 dcf-uppercase unl-ls-1 unl-font-sans unlalert-heading">Emergency alert</div><div class="dcf-lh-1 unl-ls-1 unl-font-sans unlalert-headline">' + info[i].headline + '</div><p class="unlalert-desc dcf-mb-0">' + info[i].description + '</p>';
+      alertContentHTML = '<div class="unlalert-info"><header><h2 class="unlalert-heading dcf-subhead unl-gray">Emergency alert</h2><h3 class="unlalert-headline dcf-mt-0 dcf-txt-h2 unl-cream">' + info[i].headline + '</h3></header><p class="unlalert-desc dcf-mb-0">' + info[i].description + '</p>';
       if (info[i].instruction) {
         alertContentHTML += '<p class="unlalert-desc">' + info[i].instruction + '</p>';
       }
-      alertContentHTML += '</div><div class="unlalert-meta dcf-d-flex"><div class="unlalert-datetime"><div class="dcf-lh-3 dcf-uppercase unl-ls-1 unl-font-sans unlalert-heading">Issued</div><div>' + effectiveDate + '</div></div><div class="unlalert-link"><div class="dcf-lh-3 dcf-uppercase unl-ls-1 unl-font-sans unlalert-heading">Additional info (if available)</div><div><a href="' + web + '">' + web + '</a></div></div></div>';
+      alertContentHTML += '</div><footer class="unlalert-meta dcf-d-grid dcf-col-gap-vw dcf-row-gap-5 dcf-txt-xs unl-font-sans"><div class="unlalert-datetime"><span class="unlalert-heading dcf-subhead dcf-d-block dcf-mb-1 unl-gray">Issued </span>' + effectiveDate + '</div><div class="unlalert-link"><span class="unlalert-heading dcf-subhead dcf-d-block dcf-mb-1 unl-gray">Additional info (if&nbsp;available)<span class="dcf-sr-only">: </span></span><a href="' + web + '">' + web + '</a></div></footer>';
 
       $alertContent.append(alertContentHTML);
     }
@@ -206,15 +206,15 @@ define([
     if (!$alertToggle.length) {
       $alertToggle = $('<button>', {
         'id': idPrfx + togSuf,
+        'class': 'dcf-btn dcf-btn-tertiary dcf-txt-decor-none unl-cream'
       })
       .append($('<span>', {
         'id': idPrfx + icnSuf,
-        'class': 'wdn-icon-attention',
+        'class': 'wdn-icon-attention dcf-mr-3',
                 'aria-hidden': 'true'
             }))
       .append($('<span>', {
-        'id': idPrfx + axnSuf,
-        'class': 'dcf-lh-3 dcf-uppercase unl-ls-1 unl-font-sans'
+        'id': idPrfx + axnSuf
       }).text('Show emergency alert'))
       .click(toggleAlert)
       .appendTo($alertContent.parent());

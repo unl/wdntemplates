@@ -3,50 +3,25 @@
 
 #unlalert {
   // Avoid flash of unstyled content, JS initially positions this off screen
-  @include bg-darker;
-  @include clearfix;
-  padding: #{ms(-2)}em 0;
   position: relative !important;
   top: auto !important;
-  z-index: 2; // above the logo
 }
 
 
 #unlalert a {
-  border-bottom: 1px dotted currentcolor;
   @include cream;
 }
 
 
 #unlalert.show {
-  padding-bottom: 1.777em;
-  padding-top: 1.777em;
+  @include pb-6;
+  @include pt-6;
 }
 
 
-#unlalert .unlalert-heading {
-  font-size: .75rem;
-  margin-bottom: .317rem;
-}
-
-
-#unlalert .unlalert-headline {
-  font-size: 2.369rem;
-}
-
-
-#unlalert .unlalert-desc {
-  margin-top: #{ms(-4)}rem;
-}
-
-
-#unlalert_toggle {
-  @include bg-transparent;
-  border: 0;
-  @include cream;
-  line-height: 1.333;
-  padding: 0;
-  white-space: nowrap;
+#unlalert_toggle:focus {
+#unlalert_toggle:hover {
+  box-shadow: 0 1px 0.4218750003em rgba(254,253,250,.4);
 }
 
 
@@ -64,66 +39,47 @@
 
 
 #unlalert.show #unlalert_content {
-  display: flex;
-  flex-flow: row wrap;
+  display: block;
 }
 
 
-@include mq(sm, max, width) {
-
-  #unlalert .unlalert-meta {
-  	flex-direction: column;
-  }
-
-  #unlalert .unlalert-link {
-    margin-top: 1em;
-  }
-
-  #unlalert_content {
-  	margin-top: 1em;
-  }
-
+.unlalert-info {
+  @include mb-6;
 }
 
 
-@include mq(sm) {
-
-  #unlalert .unlalert-meta {
-    flex-direction: row;
-  }
-
-  #unlalert .unlalert-link {
-    flex: 1;
-    margin-left: 1.777rem;
-  }
-
+.unlalert-datetime {
+  @include mb-5;
 }
 
 
-@include mq(lg, max, width) {
+@supports (display: grid) {
 
-  #unlalert_content .unlalert-meta {
-    margin-top: 1em;
+  #unlalert.show #unlalert_content {
+    display: grid;
   }
 
-}
 
-
-@include mq(lg, min, width) {
-
-
-  #unlalert .unlalert-info {
-    flex: 2;
-    margin-right: 1.777rem;
+  .unlalert-info,
+  .unlalert-datetime {
+    margin-bottom: 0;
   }
 
-  #unlalert .unlalert-meta {
-    flex: 1;
-    flex-direction: column;
+
+  @include mq(sm, max, width) {
+
+    .unlalert-meta {
+      grid-template-columns: 1fr 2fr;
+    }
+
   }
 
-  #unlalert .unlalert-link {
-    margin-top: 1em;
+  @include mq(sm, min, width) {
+
+    #unlalert.show #unlalert_content {
+      grid-template-columns: 2fr 1fr;
+    }
+
   }
 
 }
