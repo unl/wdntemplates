@@ -117,7 +117,7 @@ define([
 
     if ($alert.hasClass('show')) {
       $alert.removeClass('show').closest('body').removeClass(idPrfx + '-shown');
-      $alertIcon.attr('class','wdn-icon-attention');
+      $alertIcon.attr('class','wdn-icon-attention dcf-mr-3');
       $alertAction.removeClass('dcf-sr-only').text('Show emergency alert');
       for (i = 0; i < activeIds.length; i++) {
         _acknowledgeAlert(activeIds[i]);
@@ -192,7 +192,7 @@ define([
 
       web = info[i].web || 'http://www.unl.edu/';
 
-      alertContentHTML = '<div class="unlalert-info"><header><h2 class="unlalert-heading dcf-subhead unl-gray">Emergency alert</h2><h3 class="unlalert-headline dcf-mt-0 dcf-txt-h2 unl-cream">' + info[i].headline + '</h3></header><p class="unlalert-desc dcf-mb-0">' + info[i].description + '</p>';
+      alertContentHTML = '<div class="unlalert-info"><header><h2 class="unlalert-heading dcf-subhead unl-gray">Emergency alert</h2><h3 class="unlalert-headline dcf-mt-0 unl-cream">' + info[i].headline + '</h3></header><p class="unlalert-desc">' + info[i].description + '</p>';
       if (info[i].instruction) {
         alertContentHTML += '<p class="unlalert-desc">' + info[i].instruction + '</p>';
       }

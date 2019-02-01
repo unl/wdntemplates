@@ -19,13 +19,19 @@
 }
 
 
-#unlalert_toggle:focus {
+#unlalert_toggle {
+  margin-left: -1.333333333em;
+}
+
+
+#unlalert_toggle:focus,
 #unlalert_toggle:hover {
   box-shadow: 0 1px 0.4218750003em rgba(254,253,250,.4);
 }
 
 
 #unlalert.show #unlalert_toggle {
+  margin-left: 0;
   position: absolute;
   right: 1em;
   top: .75em;
@@ -45,6 +51,11 @@
 
 .unlalert-info {
   @include mb-6;
+}
+
+
+.unlalert-desc:last-child {
+  margin-bottom: 0;
 }
 
 
@@ -78,6 +89,11 @@
 
     #unlalert.show #unlalert_content {
       grid-template-columns: 2fr 1fr;
+    }
+
+
+    .unlalert-meta {
+      grid-template-rows: auto 1fr;
     }
 
   }
