@@ -49,29 +49,18 @@ $darker-gray: darken($mix-cream-gray, 63.3%); // #434341
 $darkest-gray: darken($mix-cream-gray, 75%); // #242423
 
 
-
 // Assign colors to elements
 
-// Body background color (usually white, off-white, or very light gray)
-$color-body-bg: $cream;
+// Background colors
+$color-body-bg: $cream; // Body background color (usually white, off-white, or very light gray)
+$color-overlay-light: $cream; // Light overlay background color for modals
+$color-overlay-dark: $darkest-gray; // Dark overlay background color for modals
 
 
-// Must meet WCAG AA (minimum contrast ratio of 4.5)
-// Strive for WCAG AAA (minimum contrast ratio of 7.0) for body text
-$color-body: $darker-gray;
-
-
-// Must meet WCAG AA (minimum contrast ratio of 4.5)
-// Strive for WCAG AAA (minimum contrast ratio of 7.0) for heading text
-$color-heading: $darkest-gray;
-
-
-// Must meet WCAG AA (minimum contrast ratio of 4.5)
-$color-light-text: $dark-gray; // TODO:  merge "light" and "lightest" text
-
-
-// Must meet WCAG AA (minimum contrast ratio of 4.5)
-$color-lightest-text: $dark-gray; // TODO:  merge "light" and "lightest" text
+// Text colors
+$color-body: $darker-gray; // Strive for WCAG AAA (minimum contrast ratio of 7.0) for body text
+$color-heading: $darkest-gray; // Strive for WCAG AAA (minimum contrast ratio of 7.0) for heading text
+$color-light-text: $dark-gray; // Must meet WCAG AA (minimum contrast ratio of 4.5)
 
 
 // !Links
