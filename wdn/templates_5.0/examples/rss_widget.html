@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title>RSS Widget Example</title>
-</head>
-<body data-version="4.1">
+  </head>
+  <body data-version="4.1">
     <div id="example-code">
-        <div class="wdn-grid-set">
-            <div class="wdn-col-two-thirds">
-                <p>You can include an RSS Feed widget anywhere in the main content area of your page by including an empty div element with the id <code>wdn_rss_widget</code> and including the plugin initialization (which will include the "UNL In The News" RSS news feed):</p>
-                <p><code>WDN.initializePlugin('rss_widget');</code></p>
-                <p>To get the default stylization of the plugin, you also need to give it the style class <code>wdn-rss-widget</code>.</p>
-                <script>
-                    WDN.initializePlugin('rss_widget');
-                </script>
-                <p>Alternatively, you can load the RSS widget with your own RSS feed by providing a URL as the second parameter:</p>
-                <p><code>WDN.initializePlugin('rss_widget', 'http://newsroom.unl.edu/announce/cse?format=rss');</code></p>
-                <p>You can also customize a few things by providing a JavaScript object like this:</p>
-                <pre><code>
-                WDN.initializePlugin('rss_widget', {
-                  url:'http://newsroom.unl.edu/announce/cse?format=rss',
-                  elementId: 'wdn_rss_widget',
-                  pause: 8000,
-                  limit: 10,
-                  num_show: 3
-                });
-                </code></pre>
-                <p>Where each attribute is as follows:</p>
-                <ul>
-                    <li><code>url</code> - the URL of the RSS feed (defaults to "UNL In The News")</li>
-                    <li><code>elementId</code> - the id of the DOM element div that the widget should be loaded in (defaults to <code>wdn_rss_widget</code>)
-                    <li><code>pause</code> - the amount of time between news item cycles (in milliseconds, defaults to 5000 = 5 seconds)</li>
-                    <li><code>limit</code> - the maximum number of items to pull from the RSS feed (defaults to 10)</li>
-                    <li><code>num_show</code> - The number of items to display at one time (defaults to 3)</li>
-                </ul>
-                <p>The widget has been updated to allow multiple RSS widget feeds in the same page.  You can achieve this by providing an <i>array</i> of JavaScript configuration objects:</p>
-                <pre><code>
-                WDN.initializePlugin('rss_widget', [
-                  {
-                    url: 'http://newsroom.unl.edu/inthenews/?format=xml',
-                    elementId : 'wdn_rss_widget',
-                    pause: 5000,
-                    limit: 8,
-                    num_show: 4
-                  },
-                  {
-                    url: 'http://newsroom.unl.edu/announce/cse/?format=rss',
-                    elementId : 'wdn_rss_widget_cse',
-                    pause: 10000,
-                    limit: 10,
-                    num_show: 2
-                  }
-                ]);
-                </code></pre>
-                <p>Note that if you use multiple RSS feed widgets, you should provide distinct <code>elementId</code>s for each one.  Moreover, each div should have the style class, <code>wdn-rss-widget</code> added to it to receive the same styling.</p>
-                <p>You can stylize your rss widget(s) further by adding zenbox style classes:</p>
-                <p>
-                <code>
-                &lt;div id="wdn_rss_widget" class="wdn-rss-widget"&gt;&lt;/div&gt;
-                </code>
-                </p>
-                <p>Possible options for the subclasses: bright, cool, energetic, neutral, primary, soothing (see the zenbox documentation for the colors these themes correspond to).</p>
-            </div>
-            <div class="wdn-col-one-third">
-                <div id="wdn_rss_widget" class="wdn-rss-widget"></div>
-            </div>
+      <div class="wdn-grid-set">
+        <div class="wdn-col-two-thirds">
+          <p>You can include an RSS Feed widget anywhere in the main content area of your page by including an empty div element with the id <code>wdn_rss_widget</code> and including the plugin initialization (which will include the "UNL In The News" RSS news feed):</p>
+          <p><code>WDN.initializePlugin('rss_widget');</code></p>
+          <p>To get the default stylization of the plugin, you also need to give it the style class <code>wdn-rss-widget</code>.</p>
+          <script>
+            WDN.initializePlugin('rss_widget');
+          </script>
+          <p>Alternatively, you can load the RSS widget with your own RSS feed by providing a URL as the second parameter:</p>
+          <p><code>WDN.initializePlugin('rss_widget', 'http://newsroom.unl.edu/announce/cse?format=rss');</code></p>
+          <p>You can also customize a few things by providing a JavaScript object like this:</p>
+          <pre><code>
+          WDN.initializePlugin('rss_widget', {
+            url:'http://newsroom.unl.edu/announce/cse?format=rss',
+            elementId: 'wdn_rss_widget',
+            pause: 8000,
+            limit: 10,
+            num_show: 3
+          });
+          </code></pre>
+          <p>Where each attribute is as follows:</p>
+          <ul>
+            <li><code>url</code> - the URL of the RSS feed (defaults to "UNL In The News")</li>
+            <li><code>elementId</code> - the id of the DOM element div that the widget should be loaded in (defaults to <code>wdn_rss_widget</code>)
+            <li><code>pause</code> - the amount of time between news item cycles (in milliseconds, defaults to 5000 = 5 seconds)</li>
+            <li><code>limit</code> - the maximum number of items to pull from the RSS feed (defaults to 10)</li>
+            <li><code>num_show</code> - The number of items to display at one time (defaults to 3)</li>
+          </ul>
+          <p>The widget has been updated to allow multiple RSS widget feeds in the same page.  You can achieve this by providing an <i>array</i> of JavaScript configuration objects:</p>
+          <pre><code>
+          WDN.initializePlugin('rss_widget', [
+            {
+              url: 'http://newsroom.unl.edu/inthenews/?format=xml',
+              elementId : 'wdn_rss_widget',
+              pause: 5000,
+              limit: 8,
+              num_show: 4
+            },
+            {
+              url: 'http://newsroom.unl.edu/announce/cse/?format=rss',
+              elementId : 'wdn_rss_widget_cse',
+              pause: 10000,
+              limit: 10,
+              num_show: 2
+            }
+          ]);
+          </code></pre>
+          <p>Note that if you use multiple RSS feed widgets, you should provide distinct <code>elementId</code>s for each one.  Moreover, each div should have the style class, <code>wdn-rss-widget</code> added to it to receive the same styling.</p>
+          <p>You can stylize your rss widget(s) further by adding zenbox style classes:</p>
+          <p>
+          <code>
+          &lt;div id="wdn_rss_widget" class="wdn-rss-widget"&gt;&lt;/div&gt;
+          </code>
+          </p>
+          <p>Possible options for the subclasses: bright, cool, energetic, neutral, primary, soothing (see the zenbox documentation for the colors these themes correspond to).</p>
         </div>
+        <div class="wdn-col-one-third">
+          <div id="wdn_rss_widget" class="wdn-rss-widget"></div>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
