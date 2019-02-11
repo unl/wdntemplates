@@ -13,10 +13,6 @@
 .wdn-examples-grid { grid-template-columns: repeat(auto-fill, minmax(13.32em,1fr)); }
 .wdn-examples-grid li { min-height: 4.21em; }
 
-#examples a:first-child {
-  display: block;
-}
-
 #source {
   display: none;
 }
