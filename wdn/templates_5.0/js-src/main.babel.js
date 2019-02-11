@@ -17,7 +17,7 @@ requirejs([
 	//The following plugins initialize on their own and do not need to be passed to the callback
 	'plugins/skipto/skipTo.js'
 ], function(WDN, require) {
-    var unlchat_url = 'https://ucommchat.unl.edu/assets/js';
+    var unlchat_url = 'https://chat-test.unl.edu/assets/js';
     //#UNLCHAT_URL
     WDN.loadJQuery(function() {
         require([unlchat_url + '?for=client&version=' + WDN.getHTMLVersion()], function(){});
