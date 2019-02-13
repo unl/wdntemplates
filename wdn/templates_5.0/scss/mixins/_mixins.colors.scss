@@ -25,6 +25,10 @@
 @mixin cream-active($imp:null) { color: $cream $imp; }
 
 
+// !Gray
+@mixin gray($imp:null) { color: $gray $imp; }
+
+
 // !Light Gray
 @mixin light-gray($imp:null) { color: $light-gray $imp; }
 @mixin lighter-gray($imp:null) { color: $lighter-gray $imp; }
