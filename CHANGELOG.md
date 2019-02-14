@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.6 (February 14, 2019)
+- Update form styling
+- Add anchor style to critical CSS
+- Add id to dcf-nav-toogle-group nav tag to prevent skip-to from assigning random id to it 
+- Update UNL Alert styling
+- Restore TIPS logo to footer
+
 ## 5.0.5 (January 11, 2019)
 - Update notch stripe hero styles
 - Add trailing slash when constructing siteHomepage so that local search results are hidden on www.unl.edu
