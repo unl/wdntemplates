@@ -117,7 +117,7 @@
         <li class="dcf-mb-0"><a class="dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-h-100% dcf-btn dcf-btn-secondary" href="infographics.html">Infographics</a></li>
         <li class="dcf-mb-0"><a class="dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-h-100% dcf-btn dcf-btn-secondary" href="jqueryui.html">jQuery UI</a></li>
         <li class="dcf-mb-0"><a class="dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-h-100% dcf-btn dcf-btn-secondary" href="notice.html">Notice</a></li>
-        <li class="dcf-mb-0"><a class="dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-h-100% dcf-btn dcf-btn-secondary" href="layouts.html">Page Layouts</a></li>
+<!--         <li class="dcf-mb-0"><a class="dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-h-100% dcf-btn dcf-btn-secondary" href="layouts.html">Page Layouts</a></li> -->
         <li class="dcf-mb-0"><a class="dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-h-100% dcf-btn dcf-btn-secondary" href="pagination.html">Pagination</a></li>
         <li class="dcf-mb-0"><a class="dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-h-100% dcf-btn dcf-btn-secondary" href="promo_image.html">Promo Image <span class="dcf-d-block dcf-case-reset dcf-txt-xs dcf-regular unl-ls-0 unl-dark-gray">(Text Over Image)</span></a></li>
         <li class="dcf-mb-0"><a class="dcf-d-flex dcf-flex-col dcf-ai-center dcf-jc-center dcf-h-100% dcf-btn dcf-btn-secondary" href="quote.html">Quotes</a></li>
