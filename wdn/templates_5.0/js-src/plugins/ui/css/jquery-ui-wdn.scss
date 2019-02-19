@@ -3,6 +3,24 @@
 
 
 /* UNL WDN jQuery UI overrides */
+.ui-widget,
+.ui-widget button,
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea {
+  font-family: inherit;
+}
+
+.ui-button.ui-state-active:hover,
+.ui-button:active,
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active {
+  border: 1px solid #9e0900;
+  background-color: #d00000;
+}
+
 .ui-datepicker,
 .ui-datepicker .ui-datepicker-header .ui-state-hover,
 .ui-datepicker .ui-state-default,
