@@ -3,6 +3,14 @@
 
 
 /* UNL WDN jQuery UI overrides */
+.ui-widget,
+.ui-widget button,
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea {
+  font-family: inherit;
+}
+
 .ui-button.ui-state-active:hover,
 .ui-button:active,
 .ui-state-active,
