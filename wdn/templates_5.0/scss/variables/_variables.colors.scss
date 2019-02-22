@@ -48,6 +48,12 @@ $dark-gray: darken($mix-cream-gray, 47.5%); // #6d6d69
 $darker-gray: darken($mix-cream-gray, 63.3%); // #434341
 $darkest-gray: darken($mix-cream-gray, 75%); // #242423
 
+// !Define contextual colors
+$color-info: #10669d; // blue
+$color-success: #008325; // green
+$color-warning: #e72c0c; // orange
+$color-danger: #b60000; // red
+
 
 // Assign colors to elements
 
@@ -121,10 +127,3 @@ $color-footer-link: $cream;
 $color-footer-link-visited: $cream; // TODO: determine visited state styles
 $color-footer-link-hover: $cream; // TODO: determine hover state styles
 $color-footer-link-active: $cream; // TODO: determine active state styles
-
-
-// !Define contextual colors
-$color-info: #10669d; // blue
-$color-success: #008325; // green
-$color-warning: #e72c0c; // orange
-$color-danger: #b60000; // red
