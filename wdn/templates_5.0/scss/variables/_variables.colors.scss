@@ -124,11 +124,10 @@ $color-footer-link-active: $cream; // TODO: determine active state styles
 
 
 // !Define contextual colors
-$color-active: rgba(0,0,0,.1);
-$color-info: rgba(0,102,255,.1);
-$color-success: rgba(0,153,0,.1);
-$color-warning: rgba(255,102,0,.1);
-$color-danger: rgba(255,0,0,.1);
+$color-info: #10669d; // blue
+$color-success: #008325; // green
+$color-warning: #e72c0c; // orange
+$color-danger: #b60000; // red
 
 
 // $theme-color-key: 'base' !default;
