@@ -190,7 +190,7 @@ define([
         $alertContent = $('#' + idPrfx + cntSuf).empty();
       }
 
-      web = info[i].web || 'http://www.unl.edu/';
+      web = info[i].web || 'https://www.unl.edu/';
 
       alertContentHTML = '<div class="unlalert-info"><header><h2 class="unlalert-heading dcf-subhead unl-gray">Emergency alert</h2><h3 class="unlalert-headline dcf-mt-0 unl-cream">' + info[i].headline + '</h3></header><p class="unlalert-desc">' + info[i].description + '</p>';
       if (info[i].instruction) {

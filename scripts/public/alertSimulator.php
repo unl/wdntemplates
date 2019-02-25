@@ -8,7 +8,7 @@ $alertSpec = array(
     'msgType' => 'Alert',
     'scope' => 'Public',
     'note' => 'Current Watches, Warnings and Advisories for UNL (Simulation)',
-    'references' => 'http://www.unl.edu/'
+    'references' => 'https://www.unl.edu/'
 );
 
 $alertInfo = array(
@@ -21,7 +21,7 @@ $alertInfo = array(
     'effective' => date('Y-m-d\TH:i:sO'),
     'description' => 'THIS IS JUST A TEST - ',
     'instruction' => 'Evacuations of the Buildings are not necessary at this time',
-    'web' => 'http://www.unl.edu/',
+    'web' => 'https://www.unl.edu/',
     'parameter' => array(
         'valueName' => 'id',
         'value' => md5('2015-07-10T10:26:00-05:00')
