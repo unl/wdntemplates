@@ -3,6 +3,8 @@
 
 #unlalert {
   // Avoid flash of unstyled content, JS initially positions this off screen
+  background-color: $color-warning;
+  margin-bottom: -3px; // Position on top of 3px scarlet border at top of header
   position: relative !important;
   top: auto !important;
 }
@@ -49,13 +51,13 @@
 }
 
 
-.unlalert-info {
-  @include mb-6;
+.unlalert-heading {
+  color: fade-out($cream,.2);
 }
 
 
-.unlalert-desc:last-child {
-  margin-bottom: 0;
+.unlalert-info {
+  @include mb-6;
 }
 
 
