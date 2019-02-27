@@ -25,6 +25,7 @@
 
 // !Grit
 .unl-bg-grit { @include bg-grit(!important); }
+.webp .unl-bg-grit { @include bg-grit-webp(!important); }
 
 
 // !Diagonal Stripes: Scarlet
