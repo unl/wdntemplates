@@ -25,6 +25,7 @@ module.exports = function (grunt) {
 	var mainDir = 'wdn',                                    	// wdn
 			buildDir = 'build',                                   // build
 			templateDir = mainDir + '/templates_5.0',             // wdn/templates_5.0
+			templateImages = templateDir + '/images',             // wdn/templates_5.0/images
 			templateScss = templateDir + '/scss',                 // wdn/templates_5.0/scss
 			templateCss = templateDir + '/css',                   // wdn/templates_5.0/css
 			templateJs = templateDir + '/js',                     // wdn/templates_5.0/js
@@ -201,10 +202,70 @@ module.exports = function (grunt) {
 	// load all grunt plugins matching the ['grunt-*', '@*/grunt-*'] patterns
 	require('load-grunt-tasks')(grunt);
 	var nodeSass = require('node-sass');
+  const jpegrecompress = require('imagemin-jpeg-recompress')
+  const svgo = require('imagemin-svgo')
+  const webp = require('imagemin-webp');
+  const zopfli = require('imagemin-zopfli');
 	/**
 	 * Setting up grunt tasks
 	 */
 	grunt.initConfig({
+
+    imagemin: {
+      jpegrecompress: {
+        options: {
+          use: [jpegrecompress({
+            accurate: true
+          })]
+        },
+        files: [{
+          expand: true,
+          cwd: templateImages + '/src',
+          src: '*.jpg',
+          dest: templateImages
+        }]
+      },
+      svgo: {
+        options: {
+          use: [svgo({
+            removeViewBox: false
+          })]
+        },
+        files: [{
+          expand: true,
+          cwd: templateImages + '/src',
+          src: '*.svg',
+          dest: templateImages
+        }]
+      },
+      webp: {
+        options: {
+          use: [webp({
+            quality: 75
+          })]
+        },
+        files: [{
+          expand: true,
+          cwd: templateImages + '/src',
+          src: ['*.jpg', '*.png'],
+          dest: templateImages,
+          ext: '.webp'
+        }]
+      },
+      zopfli: {
+        options: {
+          use: [zopfli({
+            more: true
+          })]
+        },
+        files: [{
+          expand: true,
+          cwd: templateImages + '/src',
+          src: '*.png',
+          dest: templateImages
+        }]
+      }
+    },
 
 		stylelint: {
 			options: {
@@ -553,6 +614,7 @@ module.exports = function (grunt) {
   //grunt.registerTask('default', ['sassGlobber', 'clean:js', 'css-main', 'js-main', 'criticalcss'])
 
 
+	grunt.registerTask('images', ['newer:imagemin']);
 	grunt.registerTask('css-main', ['sassGlobber', 'sass:main', 'postcss:main']);
 	grunt.registerTask('css-plugins', ['sassGlobber', 'sass:plugins', 'postcss:plugins']);
 	grunt.registerTask('js-main', ['css-plugins', 'babel', 'copy:babelNoTranspile', 'sync:dcfCommonModules', 'sync:dcfOptionalModules', 'sync:dcfUnminifiedMustards', 'sync:dcfVendorPlugins', 'requirejs', 'sync:js', 'clean:js-build']);
@@ -560,7 +622,7 @@ module.exports = function (grunt) {
 
 	// establish grunt composed tasks
 	// TODO check with Ryan if sassGlobber needs to be at the start of Grunt task
-	grunt.registerTask('default', ['sassGlobber', 'clean:js', 'css-main', 'js-main']);
+	grunt.registerTask('default', ['images', 'sassGlobber', 'clean:js', 'css-main', 'js-main']);
 	// legacy targets from Makefile
 	grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
 	grunt.registerTask('all', ['default']);  /** mark for deletion */

@@ -13,8 +13,44 @@
 
 
 .unl-search-bg {
-  // TODO: create background images sized to each breakpoint for improved performance
-  background: $scarlet url("../images/dev/unl-app-search-bg-search-3xl.png") 50% 50%/cover no-repeat;
+  background-image: url('../images/unl-search-bg-640.png');
+
+  @media (min-width: 640px) { background-image: url('../images/unl-search-bg-960.png'); }
+  @media (min-width: 960px) { background-image: url('../images/unl-search-bg-1280.png'); }
+  @media (min-width: 1280px) { background-image: url('../images/unl-search-bg-1920.png'); }
+  @media (min-width: 1920px) { background-image: url('../images/unl-search-bg-2560.png'); }
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+    background-image: url('../images/unl-search-bg-1280.png');
+
+    @media (min-width: 640px) { background-image: url('../images/unl-search-bg-1920.png'); }
+    @media (min-width: 960px) { background-image: url('../images/unl-search-bg-2560.png'); }
+  }
+
+}
+
+
+.webp .unl-search-bg {
+  background-image: url('../images/unl-search-bg-640.webp');
+
+  @media (min-width: 640px) { background-image: url('../images/unl-search-bg-960.webp'); }
+  @media (min-width: 960px) { background-image: url('../images/unl-search-bg-1280.webp'); }
+  @media (min-width: 1280px) { background-image: url('../images/unl-search-bg-1920.webp'); }
+  @media (min-width: 1920px) { background-image: url('../images/unl-search-bg-2560.webp'); }
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+    background-image: url('../images/unl-search-bg-1280.webp');
+
+    @media (min-width: 640px) { background-image: url('../images/unl-search-bg-1920.webp'); }
+    @media (min-width: 960px) { background-image: url('../images/unl-search-bg-2560.webp'); }
+  }
+
 }
 
 
