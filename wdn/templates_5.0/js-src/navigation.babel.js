@@ -123,6 +123,14 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
             for (let i = 0; i < toggleButtons.length; i++) {
                 toggleButtons[i].addEventListener('click', toggleButtonOnClick);
             }
+
+            const primaryNavLi = document.querySelectorAll('.dcf-nav-menu-child>ul>li');
+            const allPrimaryNavLi = Array.from(primaryNavLi);
+            // Find any child <ul> in local navigation <li>
+            const hasChild = allPrimaryNavLi.find((el)=>el.querySelector('ul'));
+            const desktopBtn = document.getElementById('dcf-menu-toggle');
+            // Hide "desktop" menu toggle button if navigation contains no children
+            !hasChild && desktopBtn.setAttribute('hidden','');
         }
     };
 
