@@ -15,7 +15,7 @@
   //# sourceMappingURL=cssrelpreload.js.map
   function onloadCSS(n,a){function t(){!d&&a&&(d=!0,a.call(n))}var d;n.addEventListener&&n.addEventListener("load",t),n.attachEvent&&n.attachEvent("onload",t),"isApplicationInstalled"in navigator&&"onloadcssdefined"in n&&n.onloadcssdefined(t)}
   //# sourceMappingURL=onloadCSS.js.map
-  !function(){var e=function(){document.getElementById("wdn-critical-styles").remove()},n=document.getElementById("core-css");onloadCSS(n,function(){e()})}();
+  !function(){var e=function(){var e=document.getElementById("wdn-critical-styles");e.parentNode.removeChild(e)},n=document.getElementById("core-css");onloadCSS(n,function(){e()})}();
   //# sourceMappingURL=clearCriticalCSS.js.map
 </script>
 
