@@ -129,8 +129,10 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
             // Find any child <ul> in local navigation <li>
             const hasChild = allPrimaryNavLi.find((el)=>el.querySelector('ul'));
             const desktopBtn = document.getElementById('dcf-menu-toggle');
-            // Hide "desktop" menu toggle button if navigation contains no children
-            !hasChild && desktopBtn.setAttribute('hidden','');
+            // Show "desktop" menu toggle button if navigation contains children
+            hasChild && desktopBtn.removeAttribute('hidden');
+            hasChild && desktopBtn.setAttribute('aria-expanded', 'false');
+            hasChild && desktopBtn.setAttribute('aria-label', 'open menu');
         }
     };
 
