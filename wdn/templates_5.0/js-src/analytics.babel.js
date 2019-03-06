@@ -16,8 +16,8 @@ define(['wdn', 'idm', 'jquery'], function (WDN, idm, $) {
 	var bindLinks = function bindLinks() {
 		WDN.log('Begin binding links for analytics');
 		//get the links in the navigation and maincontent
-		var navLinks = $('a', '#navigation'),
-		    mainLinks = $('a', '#maincontent'),
+		var navLinks = $('a', '#dcf-navigation'),
+		    mainLinks = $('a', '#dcf-main'),
 		    evaluateLinks,
 		    filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i;
 
@@ -49,13 +49,6 @@ define(['wdn', 'idm', 'jquery'], function (WDN, idm, $) {
 		//loop through all the links and pass them to type evaluation
 		navLinks.each(evaluateLinks);
 		mainLinks.each(evaluateLinks);
-	};
-
-	var bindApps = function bindApps() {
-		var $appToggle = $('#wdn_resource_apps');
-		$appToggle.one('click', function () {
-			Plugin.callTrackEvent('WDN Apps', 'Opened', thisURL);
-		});
 	};
 
 	var bindBreadcrumbs = function() {
@@ -99,7 +92,6 @@ define(['wdn', 'idm', 'jquery'], function (WDN, idm, $) {
 				Plugin.callTrackPageview();
 
 				$(bindLinks);
-				$(bindApps);
 			};
 
 			ga('create', wdnProp, {
