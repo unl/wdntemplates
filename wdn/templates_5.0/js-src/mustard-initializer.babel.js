@@ -2,7 +2,7 @@
 (function() {
   var el = document.createElement("script");
   el.async = false;
-  el.src = "https://cdn.polyfill.io/v2/polyfill.min.js";
+  el.src = "https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CArray.prototype.map%2CArray.prototype.find%2CArray.prototype.filter%2CElement.prototype.matches";
   document.body.appendChild(el);
 })();
 
