@@ -52,7 +52,7 @@ define(['wdn', 'idm', 'jquery'], function (WDN, idm, $) {
 	};
 
 	var bindBreadcrumbs = function() {
-		$('#breadcrumbs a').one('click', function() {
+		$('#dcf-breadcrumbs a').one('click', function() {
 			Plugin.callTrackEvent('Breadcrumbs', 'Click', thisURL);
 		});
 	};
