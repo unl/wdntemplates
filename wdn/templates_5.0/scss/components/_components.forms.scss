@@ -94,13 +94,13 @@
 
 
 // !Input: Control
-.unl .dcf-input-control {
+.unl .dcf-input-control { // TODO: deprecate?
   @include mr-1;
 }
 
 
 // !Input: File
-.unl .dcf-input-file {
+.unl .dcf-input-file { // TODO: deprecate?
   @include mb-2;
   @include mt-2;
 }
