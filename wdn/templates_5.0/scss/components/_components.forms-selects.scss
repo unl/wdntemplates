@@ -15,7 +15,7 @@
   border-radius: 0;
   box-sizing: border-box;
   display: block;
-  @include txt-base; // Font size must be 16px to prevent iOS page zoom on focus
+  @include txt-base; // Font size must be ≥16px to prevent iOS page zoom on focus
   @include lh-4;
   max-width: 100%;
   padding: $length-em-2 $length-em-7 $length-em-2 $length-em-3;
