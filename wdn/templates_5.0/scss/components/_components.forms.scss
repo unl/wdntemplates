@@ -3,6 +3,18 @@
 //////////////////////////////
 
 
+// !Fieldset
+.unl .dcf-form fieldset {
+  border: 1px solid $color-border;
+  padding: $length-em-4 $length-vw-1;
+}
+
+
+.unl .dcf-form fieldset:not(:last-child) {
+  @include mb-4;
+}
+
+
 // !Legend
 .unl .dcf-legend {
   @include font-sans;
