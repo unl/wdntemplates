@@ -15,24 +15,36 @@
 }
 
 
-// !Legend
-.unl .dcf-legend {
-  @include font-sans;
-  @include mb-1;
-  @include mt-1;
-}
-
-
 // !Form Group
 .unl .dcf-form-group {
   @include mb-4;
 }
 
 
-// !Label
-.unl .dcf-label {
+// !Legend
+.unl .dcf-legend, // TODO: deprecate?
+.unl .dcf-form legend {
+  margin-left: -#{$length-em-2}; // Left align legend with form elements
+  padding-left: $length-em-2;
+  padding-right: $length-em-2;
+}
+
+
+// !Legend, Label
+.unl .dcf-label, // TODO: deprecate?
+.unl .dcf-legend, // TODO: deprecate?
+.unl .dcf-form label,
+.unl .dcf-form legend {
   @include font-sans;
   @include txt-sm;
+}
+
+
+// !Label
+.unl input[disabled] ~ label,
+.unl .dcf-form-group[disabled] label {
+  cursor: not-allowed !important;
+  opacity: .75;
 }
 
 
