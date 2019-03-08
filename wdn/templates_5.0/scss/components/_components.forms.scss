@@ -57,21 +57,13 @@
 }
 
 
-// !Inputs
-.unl .dcf-input-text,
-.unl .dcf-input-file,
-.unl .dcf-input-select {
-  color: $color-body;
-  @include font-sans;
-}
-
-
 // !Input: Text
 .unl .dcf-input-text,
 .unl .dcf-form input:not([type="submit"]),
 .unl .dcf-form textarea {
   border: 1px solid $color-border-input;
   border-radius: 0;
+  @include font-sans;
   padding: $length-em-2 $length-em-3;
 }
 
