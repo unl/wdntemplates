@@ -18,10 +18,7 @@
   border-style: solid;
   @include dark-gray;
   @include font-sans;
-  @include pb-2;
-  @include pl-3;
-  @include pr-3;
-  @include pt-2;
+  padding: $length-em-2 $length-em-3;
 }
 
 
