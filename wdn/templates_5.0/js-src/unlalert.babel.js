@@ -171,7 +171,7 @@ define([
       if (!$alertWrapper.length) {
         $alertWrapper = $('<div>', {
           'id': idPrfx,
-          'class': 'dcf-bleed unl-bg-darker-gray',
+          'class': 'dcf-bleed dcf-z-1 unl-font-sans',
           'role': 'alert'
         }).css({
           'position': 'absolute',
@@ -190,13 +190,13 @@ define([
         $alertContent = $('#' + idPrfx + cntSuf).empty();
       }
 
-      web = info[i].web || 'http://www.unl.edu/';
+      web = info[i].web || 'https://www.unl.edu/';
 
-      alertContentHTML = '<div class="unlalert-info"><header><h2 class="unlalert-heading dcf-subhead unl-gray">Emergency alert</h2><h3 class="unlalert-headline dcf-mt-0 unl-cream">' + info[i].headline + '</h3></header><p class="unlalert-desc">' + info[i].description + '</p>';
+      alertContentHTML = '<div class="unlalert-info"><header><h2 class="unlalert-heading dcf-mb-2 dcf-txt-2xs dcf-regular dcf-lh-3 dcf-uppercase unl-ls-2">Emergency alert</h2><h3 class="unlalert-headline dcf-mt-0 dcf-txt-h4 unl-cream">' + info[i].headline + '</h3></header><p class="unlalert-desc dcf-mb-0 dcf-txt-xs">' + info[i].description + '</p>';
       if (info[i].instruction) {
-        alertContentHTML += '<p class="unlalert-desc">' + info[i].instruction + '</p>';
+        alertContentHTML += '<p class="unlalert-desc dcf-mt-2 dcf-mb-0 dcf-txt-xs">' + info[i].instruction + '</p>';
       }
-      alertContentHTML += '</div><footer class="unlalert-meta dcf-d-grid dcf-col-gap-vw dcf-row-gap-5 dcf-txt-xs unl-font-sans"><div class="unlalert-datetime"><span class="unlalert-heading dcf-subhead dcf-d-block dcf-mb-1 unl-gray">Issued </span>' + effectiveDate + '</div><div class="unlalert-link"><span class="unlalert-heading dcf-subhead dcf-d-block dcf-mb-1 unl-gray">Additional info (if&nbsp;available)<span class="dcf-sr-only">: </span></span><a href="' + web + '">' + web + '</a></div></footer>';
+      alertContentHTML += '</div><footer class="unlalert-meta dcf-d-grid dcf-col-gap-vw dcf-row-gap-5 dcf-txt-2xs"><div class="unlalert-datetime"><span class="unlalert-heading dcf-d-block dcf-mb-1 dcf-lh-3 dcf-uppercase unl-ls-2">Issued </span>' + effectiveDate + '</div><div class="unlalert-link"><span class="unlalert-heading dcf-d-block dcf-mb-1 dcf-lh-3 dcf-uppercase unl-ls-2">Additional info (if&nbsp;available)<span class="dcf-sr-only">: </span></span><a href="' + web + '">' + web + '</a></div></footer>';
 
       $alertContent.append(alertContentHTML);
     }

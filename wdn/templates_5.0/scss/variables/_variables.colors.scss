@@ -44,9 +44,15 @@ $light-gray: $mix-cream-gray; // #e3e3e2
 $lighter-gray: lighten($mix-cream-gray, 3.2%); // #ebebea
 $lightest-gray: lighten($mix-cream-gray, 7.5%); // #f6f6f5;
 
-$dark-gray: darken($mix-cream-gray, 47.5%); // #6d6d69
-$darker-gray: darken($mix-cream-gray, 63.3%); // #434341
+$dark-gray: darken($mix-cream-gray, 47.5%); // #6b6b68
+$darker-gray: darken($mix-cream-gray, 63.3%); // #424240
 $darkest-gray: darken($mix-cream-gray, 75%); // #242423
+
+// !Define contextual colors
+$color-info: #10669d; // blue
+$color-success: #008325; // green
+$color-warning: #e72c0c; // orange
+$color-danger: #b60000; // red
 
 
 // Assign colors to elements
@@ -121,56 +127,3 @@ $color-footer-link: $cream;
 $color-footer-link-visited: $cream; // TODO: determine visited state styles
 $color-footer-link-hover: $cream; // TODO: determine hover state styles
 $color-footer-link-active: $cream; // TODO: determine active state styles
-
-
-// !Define contextual colors
-$color-active: rgba(0,0,0,.1);
-$color-info: rgba(0,102,255,.1);
-$color-success: rgba(0,153,0,.1);
-$color-warning: rgba(255,102,0,.1);
-$color-danger: rgba(255,0,0,.1);
-
-
-// $theme-color-key: 'base' !default;
-//
-// $theme-colors: (
-//   'primary': (
-//     'base': #d00000
-// //     'base': hsla(0,100%,41%,1.0) // #d00000
-//   ),
-//   'accent': (
-//     'base': #fefdfa
-// //     'base': hsla(45,67%,99%,1.0) // #fefdfa
-//   )
-// );
-//
-// $theme-opacity: (
-//   'light': 0.75, // opacity used with lighter colors
-//   'dark': 0.25  // opacity used with darker colors
-// );
-//
-// @function theme-color(
-//   $name: 'primary',
-//   $variant: $theme-color-key,
-//   $opacity: 1
-// ) {
-//   $color: null;
-//
-//   // Get the color spectrum
-//   $color-spectrum: map-get($theme-colors, $name);
-//
-//   // Get the color variant
-//   @if $color-spectrum {
-//     $color: map-get($color-spectrum, $variant);
-//   }
-//
-//   // Get the alpha setting
-//   $alpha: if(type-of($opacity) == 'number', $opacity, map-get($theme-opacity, $opacity));
-//
-//   // Set the alpha of the color
-//   @if $alpha {
-//     $color: rgba($color, $alpha);
-//   }
-//
-//   @return $color;
-// }

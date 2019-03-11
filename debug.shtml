@@ -744,28 +744,28 @@
       <h2 class="dcf-mt-6">Input Groups</h2>
 
       <h3 class="dcf-mt-5 dcf-regular">With Add-on Before Input</h3>
-      <form class="dcf-input-group-form" id="input-group-addon-example-1" action="?" method="get">
+      <form class="dcf-form-controls-inline" id="input-group-addon-example-1" action="?" method="get">
         <label class="dcf-label dcf-mr-4" for="input-group-example-input-1">Username</label>
         <div class="dcf-input-group">
           <span class="dcf-input-group-addon">@</span>
-          <input class="dcf-input-text" id="input-group-example-input-1" name="q" type="search" required>
+          <input id="input-group-example-input-1" name="q" type="search" required>
         </div>
       </form>
 
       <h3 class="dcf-mt-5 dcf-regular">With Add-on After Input</h3>
-      <form class="dcf-input-group-form" id="input-group-addon-example-2" action="?" method="get">
+      <form class="dcf-form-controls-inline" id="input-group-addon-example-2" action="?" method="get">
         <label class="dcf-label dcf-mr-4" for="input-group-example-input-2">Email</label>
         <div class="dcf-input-group">
-          <input class="dcf-input-text" id="input-group-example-input-2" name="q" type="search" required>
+          <input id="input-group-example-input-2" name="q" type="search" required>
           <span class="dcf-input-group-addon">@example.com</span>
         </div>
       </form>
 
       <h3 class="dcf-mt-5 dcf-regular">With Button</h3>
-      <form class="dcf-input-group-form" id="input-group-button-example-3" action="?" method="get">
+      <form class="dcf-form-controls-inline" id="input-group-button-example-3" action="?" method="get">
         <label class="dcf-label dcf-mr-4" for="input-group-example-input-3">Search Events</label>
         <div class="dcf-input-group">
-          <input class="dcf-input-text" id="input-group-example-input-3" name="q" type="search" required>
+          <input id="input-group-example-input-3" name="q" type="search" required>
           <button class="dcf-btn dcf-btn-primary" type="submit">Submit</button>
         </div>
       </form>
@@ -774,28 +774,28 @@
 
       <h2 class="dcf-mt-6">Form</h2>
 
-      <form action="?" method="post">
+      <form class="dcf-form" action="?" method="post">
         <fieldset>
-          <legend class="dcf-legend">Sample Form Content</legend>
+          <legend>Sample Form Content</legend>
 
           <div class="dcf-form-group">
-            <label class="dcf-label" for="name">Name <small class="dcf-required">Required</small></label>
-            <input class="dcf-input-text" id="name" type="text" required>
+            <label for="name">Name <small class="dcf-required">Required</small></label>
+            <input id="name" type="text" required>
           </div>
           <div class="dcf-form-group">
-            <label class="dcf-label" for="email">Email <small class="dcf-required">Required</small></label>
-            <input class="dcf-input-text" id="email" type="email" required>
+            <label for="email">Email <small class="dcf-required">Required</small></label>
+            <input id="email" type="email" required>
           </div>
 
           <div class="dcf-form-group">
-            <label class="dcf-label" for="password">Password</label>
-            <input class="dcf-input-text" id="password" type="password" aria-describedby="pwd-help">
+            <label for="password">Password</label>
+            <input id="password" type="password" aria-describedby="pwd-help">
             <p class="dcf-form-help" id="pwd-help">Make sure it’s a good one!</p>
           </div>
 
           <div class="dcf-form-group">
-            <label class="dcf-label" for="institution">Institution</label>
-            <select class="dcf-input-select" id="institution" name="institution">
+            <label for="institution">Institution</label>
+            <select id="institution" name="institution">
               <option value="unca" selected>University of Nebraska</option>
               <option value="unl">UNL</option>
               <option value="unk">UNK</option>
@@ -807,15 +807,13 @@
   <!--
           <div class="dcf-form-group">
             <label for="multiple-select">Multiple Select</label>
-            <div class="dcf-input-select">
-              <select multiple id="multiple-select" name="multiple-select">
-                <option value="1" selected>1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
+            <select multiple id="multiple-select" name="multiple-select">
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
           </div>
   -->
 
@@ -823,15 +821,15 @@
             <legend class="dcf-legend">Checkboxes</legend>
             <div class="dcf-input-checkbox">
               <input id="elements-form-checkboxA" type="checkbox" value="0" aria-labelledby="elements-form-checkboxA-label">
-              <label for="elements-form-checkboxA" id="elements-form-checkboxA-label" class="dcf-label">Checkbox A</label>
+              <label for="elements-form-checkboxA" id="elements-form-checkboxA-label">Checkbox A</label>
             </div>
             <div class="dcf-input-checkbox">
               <input id="elements-form-checkboxB" type="checkbox" value="1" aria-labelledby="elements-form-checkboxB-label" disabled="">
-              <label for="elements-form-checkboxB" id="elements-form-checkboxB-label" class="dcf-label">Checkbox B</label>
+              <label for="elements-form-checkboxB" id="elements-form-checkboxB-label">Checkbox B</label>
             </div>
             <div class="dcf-input-checkbox">
               <input id="elements-form-checkboxC" type="checkbox" value="2" aria-labelledby="elements-form-checkboxC-label">
-              <label for="elements-form-checkboxC" id="elements-form-checkboxC-label" class="dcf-label">Checkbox C</label>
+              <label for="elements-form-checkboxC" id="elements-form-checkboxC-label">Checkbox C</label>
             </div>
           </fieldset>
 
@@ -839,34 +837,34 @@
             <legend class="dcf-legend">Position</legend>
             <div class="dcf-input-radio">
               <input id="student_Position" name="position" type="radio" value="student">
-              <label for="student_Position" class="dcf-label">Student</label>
+              <label for="student_Position">Student</label>
             </div>
             <div class="dcf-input-radio">
               <input id="faculty_Position" name="position" type="radio" value="faculty">
-              <label for="faculty_Position" class="dcf-label">Faculty</label>
+              <label for="faculty_Position">Faculty</label>
             </div>
             <div class="dcf-input-radio">
               <input id="staff_Position" name="position" type="radio" value="staff">
-              <label for="staff_Position" class="dcf-label">Staff</label>
+              <label for="staff_Position">Staff</label>
             </div>
             <div class="dcf-input-radio">
               <input id="administrator_Position" name="position" type="radio" value="administrator">
-              <label for="administrator_Position" class="dcf-label">Administrator</label>
+              <label for="administrator_Position">Administrator</label>
             </div>
             <div class="dcf-input-radio">
               <input id="other_Position" name="position" type="radio" value="other">
-              <label for="other_Position" class="dcf-label">Other</label>
+              <label for="other_Position">Other</label>
             </div>
           </fieldset>
 
           <div class="dcf-form-group">
-            <label class="dcf-label" for="helpful_comments">Comments</label>
-            <textarea class="dcf-input-text" id="helpful_comments" cols="60" rows="5"></textarea>
+            <label for="helpful_comments">Comments</label>
+            <textarea id="helpful_comments" cols="60" rows="5"></textarea>
           </div>
 
           <div class="dcf-form-group">
-            <label class="dcf-label" for="time">Date/time (using Flatpickr)</label>
-            <!--<input class="dcf-input-text" id="time" type="datetime-local">-->
+            <label for="time">Date/time (using Flatpickr)</label>
+            <!--<input id="time" type="datetime-local">-->
             <input type="text"
                    data-widget="flatpickr"
                    placeholder="Select Date & Time.."
@@ -877,13 +875,13 @@
 
   <!--
           <div class="dcf-form-group">
-            <label  class="dcf-label" for="output">Example output</label>
+            <label  for="output">Example output</label>
             <output id="output" name="result">100</output>
           </div>
   -->
 
           <div class="dcf-form-group">
-            <label class="dcf-label" for="example-input-file">File input</label>
+            <label for="example-input-file">File input</label>
             <input class="dcf-input-file" id="example-input-file" type="file" aria-describedby="file-help">
             <p class="dcf-form-help" id="file-help">This is some placeholder block-level help text for the above input. It’s a bit lighter and easily wraps to a new line.</p>
           </div>
