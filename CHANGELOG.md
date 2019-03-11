@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.7 (March 11, 2019)
+- Update examples
+- New dcf-form class that can be applied to entire form
+- Alert and notice style updates
+
 ## 5.0.6 (February 14, 2019)
 - Update form styling
 - Add anchor style to critical CSS
