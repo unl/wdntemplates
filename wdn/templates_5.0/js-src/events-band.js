@@ -42,16 +42,22 @@ define([
 
             $.each(data.Events.Event || data.Events, function(index, event) {
                 var date;
+
                 if (event.DateTime.Start) {
-                    date = moment.parseZone(event.DateTime.Start);
+                    date = moment.parseZone(event.DateTime.Start).local();
                 } else {
                     //legacy
-                    date = moment.parseZone(event.DateTime.StartDate +  'T' + event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1));
+                    date = moment.parseZone(event.DateTime.StartDate +  'T' + event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1)).local();
                 }
                 var month    = date.format('MMM');
                 var day      = date.format('D');
                 var time     = date.format('h:mm');
                 var ampm     = date.format('a');
+                if (event.DateTime.AllDay) {
+                    // all day event so clear out time
+                    time = '';
+                    ampm = '';
+                }
                 var location = '';
 
                 if (event.Locations[0] && event.Locations[0].Address.BuildingName) {
