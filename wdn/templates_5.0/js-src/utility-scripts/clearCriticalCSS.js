@@ -1,11 +1,11 @@
 (function() {
-  var WDNRemoveCriticalStyles = function() {
-    var el = document.getElementById("wdn-critical-styles");
+  var removeCriticalCSS = function() {
+    var el = document.getElementById("unl-css-critical");
     el.parentNode.removeChild(el);
   };
 
-  var coreStyles = document.getElementById("core-css");
+  var coreStyles = document.getElementById("unl-css-core");
   onloadCSS(coreStyles, function() {
-    WDNRemoveCriticalStyles();
+    removeCriticalCSS();
   });
 })();
