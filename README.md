@@ -79,6 +79,7 @@ __`templates_5.0/js/`__
 __`templates_5.0/scss/*`__
 * place theme SASS partials in this folder. 
 * main SASS files include glob patterns that will pull in DCF SASS partials for compilation
+* `tmp.scss` files can be used to import styles into other projects. The most likely use case will be to use `pre.tmp.scss` to import framework variables, mixins and functions.
 
 __`scripts/`__
 * contains bash scripts for deployment and distribution
