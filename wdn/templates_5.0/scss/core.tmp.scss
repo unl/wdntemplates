@@ -42,6 +42,7 @@
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.padding";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.position";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.svg";
+@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.tables";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.typography";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.visibility";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.z-index";
@@ -94,7 +95,6 @@
 // !Objects
 @import "../../../node_modules/dcf/assets/dist/scss/objects/_objects.bleed";
 @import "../../../node_modules/dcf/assets/dist/scss/objects/_objects.grids";
-@import "../../../node_modules/dcf/assets/dist/scss/objects/_objects.lists";
 @import "../../../node_modules/dcf/assets/dist/scss/objects/_objects.media";
 @import "../../../node_modules/dcf/assets/dist/scss/objects/_objects.wrapper";
 @import "objects/_objects.grid";
@@ -113,6 +113,7 @@
 @import "../../../node_modules/dcf/assets/dist/scss/components/_components.headings";
 @import "../../../node_modules/dcf/assets/dist/scss/components/_components.icons";
 @import "../../../node_modules/dcf/assets/dist/scss/components/_components.input-groups";
+@import "../../../node_modules/dcf/assets/dist/scss/components/_components.lists";
 @import "../../../node_modules/dcf/assets/dist/scss/components/_components.marks";
 @import "../../../node_modules/dcf/assets/dist/scss/components/_components.modals";
 @import "../../../node_modules/dcf/assets/dist/scss/components/_components.nav-local";
@@ -177,6 +178,7 @@
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.padding";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.position";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.svg";
+@import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.tables";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.typography";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.visibility";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.z-index";
