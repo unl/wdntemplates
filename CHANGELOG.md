@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.8 (April 15, 2019)
+- Add .no-webp class if browser doesn’t support WebP
+- Add inline script to remove .no-js class
+- Remove vertical-align from deprecated buttons
+- Update critical/core CSS IDs for consistency
+- Add tmp.scss files to repo
+
 ## 5.0.7 (March 11, 2019)
 - Update examples
 - New dcf-form class that can be applied to entire form
