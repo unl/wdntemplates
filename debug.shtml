@@ -191,6 +191,20 @@
         <p>Quinoa twee cardigan, lo-fi biodiesel try-hard Neutra pickled church-key pug scenester. Etsy direct trade fanny pack, fashion axe chia bespoke bitters Helvetica.</p>
       </div>
 
+      <div class="dcf-pt-6 dcf-pb-6">
+        <details>
+          <summary>Nullam id dolor id nibh ultricies vehicula ut id elit.</summary>
+          Nulla vitae elit libero, a pharetra augue. Sed posuere consectetur est at lobortis. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod.
+        </details>
+        <details>
+          <summary>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</summary>
+          Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+        </details>
+        <details>
+          <summary>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</summary>
+          Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+        </details>
+      </div>
 
       <div class="dcf-pt-6 dcf-pb-6">
         <h2 class="dcf-mt-6">Buttons</h2>
