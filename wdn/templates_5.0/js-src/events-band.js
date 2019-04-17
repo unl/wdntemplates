@@ -1,7 +1,7 @@
 define([
 	'wdn',
 	'jquery',
-	'moment',
+  'plugins/moment-timezone-with-data',
 	'css!js-css/events',
 	'css!js-css/events-band'
 ], function(WDN, $, moment) {
@@ -42,17 +42,25 @@ define([
 
             $.each(data.Events.Event || data.Events, function(index, event) {
                 var date;
+                var timezone = 'America/Chicago';
+                var ampmFormat = 'a';
+                if (event.DateTime.hasOwnProperty("EventTimezone")) {
+                    var timezone = event.DateTime.EventTimezone;
+                    if (event.DateTime.EventTimezone != event.DateTime.CalendarTimezone) {
+                      ampmFormat = 'a z';
+                    }
+                }
 
                 if (event.DateTime.Start) {
-                    date = moment.parseZone(event.DateTime.Start).local();
+                    date = moment.tz(event.DateTime.Start, timezone);
                 } else {
                     //legacy
-                    date = moment.parseZone(event.DateTime.StartDate +  'T' + event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1)).local();
+                    date = moment.tz(event.DateTime.StartDate +  'T' + event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1), timezone);
                 }
                 var month    = date.format('MMM');
                 var day      = date.format('D');
                 var time     = date.format('h:mm');
-                var ampm     = date.format('a');
+                var ampm     = date.format(ampmFormat);
                 if (event.DateTime.AllDay) {
                     // all day event so clear out time
                     time = '';

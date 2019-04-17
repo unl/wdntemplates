@@ -1,7 +1,7 @@
 define([
 	'wdn',
 	'jquery',
-	'moment',
+	'plugins/moment-timezone-with-data',
 	'css!js-css/events'
 ], function(WDN, $, moment) {
 	var getLocalEventSettings = function() {
@@ -29,11 +29,19 @@ define([
 		var events_html = '';
 		$.each(data.Events.Event || data.Events, function(index, event) {
 			var startDate;
+			var timezone = 'America/Chicago';
+			var timeformat = 'h:mm a';
+			if (event.DateTime.hasOwnProperty("EventTimezone")) {
+				var timezone = event.DateTime.EventTimezone;
+				if (event.DateTime.EventTimezone != event.DateTime.CalendarTimezone) {
+					timeformat += ' z';
+				}
+			}
 			if (event.DateTime.Start) {
-				startDate = moment.parseZone(event.DateTime.Start).local();
+				startDate = moment.tz(event.DateTime.Start, timezone);
 			} else {
 				//legacy
-				startDate = moment.parseZone(event.DateTime.StartDate +  'T' + event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1)).local();
+				startDate = moment.tz(event.DateTime.StartDate +  'T' + event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1), timezone);
 			}
 			var eventURL = '';
 			if ($.isArray(event.WebPages)) {
@@ -45,7 +53,7 @@ define([
 			}
 			var month    = '<span class="dcf-d-block dcf-txt-3xs dcf-pt-2 dcf-pb-1 dcf-uppercase dcf-bold unl-ls-2 unl-font-sans unl-cream unl-bg-scarlet">' + startDate.format('MMM') + '</span>';
 			var day      = '<span class="dcf-d-block dcf-txt-h5 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray dcf-bg-white">' + startDate.format('D') + '</span>';
-			var time     = '<span class="dcf-d-block dcf-pt-2 dcf-txt-2xs dcf-uppercase dcf-bold unl-font-sans unl-scarlet">' + startDate.format('h:mm a') + '</span>';
+			var time     = '<span class="dcf-d-block dcf-pt-2 dcf-txt-2xs dcf-uppercase dcf-bold unl-font-sans unl-scarlet">' + startDate.format(timeformat) + '</span>';
       if (event.DateTime.AllDay) {
         // all day event so clear out time
         time = '';
