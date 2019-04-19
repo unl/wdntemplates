@@ -1,9 +1,9 @@
 define([
-	'wdn',
-	'jquery',
+  'wdn',
+  'jquery',
   'plugins/moment-timezone-with-data',
-	'css!js-css/events',
-	'css!js-css/events-band'
+  'css!js-css/events',
+  'css!js-css/events-band'
 ], function(WDN, $, moment) {
     var getLocalEventSettings = function() {
         var $eventLink = $('link[rel=events]'),
