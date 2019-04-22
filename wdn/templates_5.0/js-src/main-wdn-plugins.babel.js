@@ -8,7 +8,8 @@ define([
   'legacy',
   'hover_intent',
   'cta-nav',
-  'form_validation'
+  'form_validation',
+  'qa'
 ], function () {
 	for (var i = 0, pluginCount = arguments.length; i < pluginCount; i++) {
 		var pluginObj = arguments[i];
