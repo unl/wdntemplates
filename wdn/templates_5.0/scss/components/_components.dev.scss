@@ -154,15 +154,6 @@
 }
 
 
-.multiply {
-
-  @supports (mix-blend-mode: multiply) {
-    mix-blend-mode: multiply;
-  }
-
-}
-
-
 .mask {
 //   mask: url('../images/asfalt-dark.png'); // no
 //   mask: url('../images/asfalt-light.png'); // no
