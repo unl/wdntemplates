@@ -47,6 +47,7 @@
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.visibility";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.z-index";
 @import "mixins/_mixins.backgrounds";
+@import "mixins/_mixins.blend-modes";
 @import "mixins/_mixins.border-color";
 @import "mixins/_mixins.colors";
 @import "mixins/_mixins.fonts";
@@ -185,6 +186,7 @@
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.visibility";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.z-index";
 @import "utilities/_utilities.backgrounds";
+@import "utilities/_utilities.blend-modes";
 @import "utilities/_utilities.border-color";
 @import "utilities/_utilities.colors";
 @import "utilities/_utilities.fonts";
