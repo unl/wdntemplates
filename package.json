@@ -46,6 +46,7 @@
     "imagemin-svgo": "^7.0.0",
     "imagemin-webp": "^5.0.0",
     "imagemin-zopfli": "^6.0.0",
+    "lighthousebot": "git+https://github.com/GoogleChromeLabs/lighthousebot.git",
     "load-grunt-tasks": "^4.0.0",
     "modularscale-sass": "^3.0.8",
     "node-sass": "^4.10.0",
@@ -66,7 +67,8 @@
     "puppeteer": "^1.10.0"
   },
   "scripts": {
-    "test": "node tests/run-tests.js"
+    "test": "node tests/run-tests.js",
+    "lh": "lighthousebot"
   },
   "browserslist": [
     "last 1 Chrome version",
