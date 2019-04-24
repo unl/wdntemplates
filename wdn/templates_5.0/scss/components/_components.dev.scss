@@ -156,25 +156,3 @@
 //   mask: url('../images/noisy.png');
 //   mask: url('../images/old-map.png');
 }
-
-
-
-
-// .unl-heading-ornament::before,
-.unl-heading-ornament::after {
-  background-color: $color-heading;
-  content: '';
-  display: block;
-  @include w-6;
-}
-
-// .unl-heading-ornament::before {
-//   height: 2px;
-//   margin-bottom: 1rem;
-// }
-
-.unl-heading-ornament::after {
-  height: 2px;
-  margin-left: .03em;
-  margin-top: 1rem;
-}
