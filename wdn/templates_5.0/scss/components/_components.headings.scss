@@ -34,3 +34,14 @@
   @include mb-3;
   text-transform: uppercase;
 }
+
+
+.unl-heading-ornament::after {
+  background-color: currentColor;
+  content: '';
+  display: block;
+  height: 2px;
+  margin-left: .03em;
+  margin-top: 1rem;
+  @include w-6;
+}
