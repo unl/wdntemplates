@@ -3,28 +3,6 @@
 ////////////////////////////
 
 
-// core
-.unl .dcf-modal-overlay {
-  transition: none;
-  z-index: 100149;
-}
-
-.unl .dcf-modal-overlay[aria-hidden="true"] {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 300ms ease-out, visibility 0ms 400ms;
-    visibility: hidden;
-}
-
-.unl .dcf-modal-overlay[aria-hidden="false"] {
-    opacity: 1;
-    pointer-events: auto;
-    transition: opacity 200ms ease-out;
-    visibility: visible;
-}
-// core
-
-
 .unl-stripes::after {
   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
   content: '';
