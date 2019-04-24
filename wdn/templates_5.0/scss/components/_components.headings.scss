@@ -37,7 +37,7 @@
 
 
 .unl-heading-ornament::after {
-  background-color: $color-heading;
+  background-color: currentColor;
   content: '';
   display: block;
   height: 2px;
