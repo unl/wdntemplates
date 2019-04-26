@@ -289,6 +289,7 @@ module.exports = function (grunt) {
 				options: {
 					implementation: nodeSass,
 					sourceMap: true,
+					precision: 2,
 					includePaths: [
 						__dirname+'/node_modules/modularscale-sass/stylesheets'
 					]
