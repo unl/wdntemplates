@@ -127,9 +127,9 @@
         <p class="dcf-lead">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
 
-        <div class="dcf-mb-6 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
+        <div class="dcf-mb-6 dcf-ratio dcf-ratio-16x9 unl-frame-quad">
           <img
-            class="dcf-ratio-child dcf-obj-fit-cover"
+            class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100%"
             sizes="(min-width: 41.956em) 43vw, 88vw"
             srcset="wdn/templates_5.0/images/dev/150821-tunnel-325-sm-min.jpg 284w,
                     wdn/templates_5.0/images/dev/150821-tunnel-325-md-min.jpg 505w,
@@ -253,11 +253,12 @@
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Do This Thing</a>
             </div>
             <div class="dcf-as-center">
-              <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
+              <div class="dcf-ratio dcf-ratio-16x9 unl-frame-quad unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover"
-                  sizes="(min-width: 41.956em) 43vw, 88vw"
-                  srcset="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg 284w,
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  data-sizes="(min-width: 41.956em) 43vw, 88vw"
+                  data-src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg 284w"
+                  data-srcset="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg 284w,
                           wdn/templates_5.0/images/dev/150815-commencement-324-md-min.jpg 505w,
                           wdn/templates_5.0/images/dev/150815-commencement-324-lg-min.jpg 898w,
                           wdn/templates_5.0/images/dev/150815-commencement-324-xl-min.jpg 1596w"
@@ -279,8 +280,12 @@
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Kylie</a>
             </div>
             <div class="dcf-1st unl-ftd-person-tsr-img">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame-circle">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Photo of Kylie Tucker">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+                <img
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  data-src="https://via.placeholder.com/400x400"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="Placeholder for photo of Kylie Tucker">
               </div>
             </div>
           </div>
@@ -297,8 +302,12 @@
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">See How Valerie Got There</a>
             </div>
             <div class="dcf-1st unl-ftd-person-tsr-img">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame-circle">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Photo of Valerie Jones">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+                <img
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  data-src="https://via.placeholder.com/400x400"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="Placeholder for photo of Valerie Jones">
               </div>
             </div>
           </div>
@@ -315,8 +324,12 @@
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Eartha</a>
             </div>
             <div class="dcf-1st unl-ftd-person-tsr-img">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame-circle">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Photo of Eartha Jean Johnson">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+                <img
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  data-src="https://via.placeholder.com/400x400"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="Placeholder for photo of Eartha Jean Johnson">
               </div>
             </div>
           </div>
@@ -436,8 +449,12 @@
             <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Full Bio</a>
       	  </div>
           <div class="dcf-1st dcf-col-50%-start dcf-col-33%-start@sm">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame-circle">
-              <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Charles O’Connor">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+              <img
+                class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                data-src="https://via.placeholder.com/400x400"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                alt="Placeholder for photo of Charles O’Connor">
             </div>
           </div>
         </div>
@@ -462,8 +479,12 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Director of Communications and External Relations</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame-circle">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Kathe Andersen">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+                <img
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  data-src="https://via.placeholder.com/400x400"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="Placeholder for photo of Kathe Andersen">
               </div>
             </div>
           </li>
@@ -473,8 +494,12 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Information Technology Services Manager</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame-circle">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of David Bagby">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+                <img
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  data-src="https://via.placeholder.com/400x400"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="Placeholder for photo of David Bagby">
               </div>
             </div>
           </li>
@@ -484,8 +509,12 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Administrative Technician</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame-circle">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Allison Casey">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+                <img
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  data-src="https://via.placeholder.com/400x400"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="Placeholder for photo of Allison Casey">
               </div>
             </div>
           </li>
@@ -495,8 +524,12 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Assistant to the Dean</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame-circle">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Rachel Danay">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+                <img
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  data-src="https://via.placeholder.com/400x400"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="Placeholder for photo of Rachel Danay">
               </div>
             </div>
           </li>
@@ -506,8 +539,12 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Assistant Director of Advising</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame-circle">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Sara Fedderson">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+                <img
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  data-src="https://via.placeholder.com/400x400"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="Placeholder for photo of Sara Fedderson">
               </div>
             </div>
           </li>
@@ -517,8 +554,12 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Assistant Director of Recruitment</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame-circle">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Matthew Knight">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+                <img
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  data-src="https://via.placeholder.com/400x400"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="Placeholder for photo of Matthew Knight">
               </div>
             </div>
           </li>
@@ -528,8 +569,12 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Systems Coordinator</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame-circle">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Joseph Morris">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+                <img
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  data-src="https://via.placeholder.com/400x400"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="Placeholder for photo of Joseph Morris">
               </div>
             </div>
           </li>
@@ -539,8 +584,12 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Digital Arts Support Technician</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-frame-circle">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Michael Reinmiller">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+                <img
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  data-src="https://via.placeholder.com/400x400"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                  alt="Placeholder for photo of Michael Reinmiller">
               </div>
             </div>
           </li>
@@ -558,11 +607,12 @@
               <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
             </div>
             <div class="dcf-as-center">
-              <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
+              <div class="dcf-ratio dcf-ratio-16x9 unl-frame-quad unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover"
-                  sizes="(min-width: 41.956em) 43vw, 88vw"
-                  srcset="wdn/templates_5.0/images/dev/140903-life-498-sm-min.jpg 284w,
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  data-sizes="(min-width: 41.956em) 43vw, 88vw"
+                  data-src="wdn/templates_5.0/images/dev/140903-life-498-sm-min.jpg 284w"
+                  data-srcset="wdn/templates_5.0/images/dev/140903-life-498-sm-min.jpg 284w,
                           wdn/templates_5.0/images/dev/140903-life-498-md-min.jpg 505w,
                           wdn/templates_5.0/images/dev/140903-life-498-lg-min.jpg 898w,
                           wdn/templates_5.0/images/dev/140903-life-498-xl-min.jpg 1596w"
@@ -578,11 +628,12 @@
       <div class="dcf-bleed unl-bg-stripes-dark">
         <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
           <h2 class="dcf-txt-h4">Malesuada Pellentesque</h2>
-          <div class="dcf-float-left dcf-h-10 dcf-w-10 dcf-mt-1 dcf-mr-4 dcf-mb-4 dcf-ratio dcf-ratio-1x1 dcf-circle dcf-overflow-hidden unl-clip-circle">
+          <div class="dcf-float-left dcf-h-10 dcf-w-10 dcf-mt-1 dcf-mr-4 dcf-mb-4 dcf-ratio dcf-ratio-1x1 dcf-circle unl-clip-circle">
             <img
-              class="dcf-ratio-child dcf-obj-fit-cover"
-              sizes="(min-width: 41.956em) 43vw, 88vw"
-              srcset="wdn/templates_5.0/images/dev/160813-commencement-563-sm-min.jpg 284w,
+              class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+              data-sizes="(min-width: 41.956em) 43vw, 88vw"
+              data-src="wdn/templates_5.0/images/dev/160813-commencement-563-sm-min.jpg 284w"
+              data-srcset="wdn/templates_5.0/images/dev/160813-commencement-563-sm-min.jpg 284w,
                       wdn/templates_5.0/images/dev/160813-commencement-563-md-min.jpg 505w,
                       wdn/templates_5.0/images/dev/160813-commencement-563-lg-min.jpg 898w,
                       wdn/templates_5.0/images/dev/160813-commencement-563-xl-min.jpg 1596w"
