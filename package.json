@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/unl/wdntemplates#readme",
   "devDependencies": {
-    "autoprefixer": "^9.3.1",
+    "autoprefixer": "^9.5.1",
     "babel-core": "^6.26.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -40,7 +40,7 @@
     "grunt-stylelint": "^0.10.1",
     "grunt-sync": "^0.8.0",
     "grunt-then": "^1.0.0",
-    "grunt-zip": "^0.18.1",
+    "grunt-zip": "^0.18.2",
     "i": "^0.3.6",
     "imagemin-jpeg-recompress": "^6.0.0",
     "imagemin-svgo": "^7.0.0",
@@ -49,10 +49,10 @@
     "lighthousebot": "git+https://github.com/GoogleChromeLabs/lighthousebot.git",
     "load-grunt-tasks": "^4.0.0",
     "modularscale-sass": "^3.0.8",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.11.0",
     "postcss-normalize": "^7.0.1",
     "postcss-object-fit-images": "^1.1.2",
-    "stylelint": "^9.8.0",
+    "stylelint": "^9.10.1",
     "stylelint-no-unsupported-browser-features": "^3.0.2",
     "tar-fs": "^1.16.3"
   },
@@ -60,11 +60,11 @@
     "node": "node >= 0.10.0"
   },
   "dependencies": {
-    "axe-core": "^3.1.2",
+    "axe-core": "^3.2.2",
     "d": "^1.0.0",
-    "hoverintent": "^2.1.0",
+    "hoverintent": "^2.2.0",
     "http-server": "^0.11.1",
-    "puppeteer": "^1.10.0"
+    "puppeteer": "^1.14.0"
   },
   "scripts": {
     "test": "node tests/run-tests.js",
