@@ -241,8 +241,8 @@ define([
       init: function() {
         dataReceived();
 
-        // There is an alert if unlAlerts.data.alert.info exists
-        if (unlAlerts.data.alert && unlAlerts.data.alert.info) {
+        // There is an alert if NOT in an iframe and unlAlerts.data.alert.info exists
+        if (window.top === window && unlAlerts.data.alert && unlAlerts.data.alert.info) {
         WDN.log("Found an alert");
           $(function() {
             alertUser(unlAlerts.data.alert);
