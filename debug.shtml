@@ -270,7 +270,7 @@
       	</div>
       </div>
 
-      <div class="dcf-bleed dcf-bt dcf-bb" style="">
+      <div class="dcf-bleed">
         <div class="dcf-wrapper">
           <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-4 dcf-pt-9 dcf-pb-9">
             <div class="dcf-2nd unl-ftd-person-tsr-body">
@@ -280,10 +280,15 @@
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Kylie</a>
             </div>
             <div class="dcf-1st unl-ftd-person-tsr-img">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
                   class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
-                  data-src="https://via.placeholder.com/400x400"
+                  data-sizes=""
+                  data-src="https://via.placeholder.com/200x200"
+                  data-srcset="https://via.placeholder.com/200x200 200w,
+                               https://via.placeholder.com/400x400 400w,
+                               https://via.placeholder.com/600x600 600w,
+                               https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                   alt="Placeholder for photo of Kylie Tucker">
               </div>
@@ -292,7 +297,7 @@
       	</div>
       </div>
 
-      <div class="dcf-bleed dcf-bb" style="">
+      <div class="dcf-bleed">
         <div class="dcf-wrapper">
           <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-4 dcf-pt-9 dcf-pb-9">
             <div class="dcf-2nd unl-ftd-person-tsr-body">
@@ -302,10 +307,15 @@
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">See How Valerie Got There</a>
             </div>
             <div class="dcf-1st unl-ftd-person-tsr-img">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
                   class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
-                  data-src="https://via.placeholder.com/400x400"
+                  data-sizes=""
+                  data-src="https://via.placeholder.com/200x200"
+                  data-srcset="https://via.placeholder.com/200x200 200w,
+                               https://via.placeholder.com/400x400 400w,
+                               https://via.placeholder.com/600x600 600w,
+                               https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                   alt="Placeholder for photo of Valerie Jones">
               </div>
@@ -314,7 +324,7 @@
       	</div>
       </div>
 
-      <div class="dcf-bleed dcf-bb" style="">
+      <div class="dcf-bleed">
         <div class="dcf-wrapper">
           <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-4 dcf-pt-9 dcf-pb-9">
             <div class="dcf-2nd unl-ftd-person-tsr-body">
@@ -324,10 +334,15 @@
               <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Eartha</a>
             </div>
             <div class="dcf-1st unl-ftd-person-tsr-img">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
                   class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
-                  data-src="https://via.placeholder.com/400x400"
+                  data-sizes=""
+                  data-src="https://via.placeholder.com/200x200"
+                  data-srcset="https://via.placeholder.com/200x200 200w,
+                               https://via.placeholder.com/400x400 400w,
+                               https://via.placeholder.com/600x600 600w,
+                               https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                   alt="Placeholder for photo of Eartha Jean Johnson">
               </div>
@@ -439,8 +454,8 @@
 
 
       <div class="dcf-pt-9 dcf-pb-10">
-        <div class="dcf-grid dcf-col-gap-vw dcf-row-gap-6">
-          <div class="dcf-2nd dcf-col-67%-end@sm dcf-as-center">
+        <div class="dcf-grid dcf-col-gap-vw dcf-row-gap-4">
+          <div class="dcf-2nd dcf-col-100% dcf-col-67%-end@sm dcf-as-center">
             <h2 class="dcf-mb-0 dcf-txt-h4"><a class="dcf-txt-decor-hover" href="#">Charles O’Connor</a></h2>
             <div class="dcf-mt-1 dcf-mb-5 dcf-lh-3 dcf-italic unl-dark-gray">
               Dean
@@ -449,10 +464,15 @@
             <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Full Bio</a>
       	  </div>
           <div class="dcf-1st dcf-col-50%-start dcf-col-33%-start@sm">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
               <img
                 class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
-                data-src="https://via.placeholder.com/400x400"
+                data-sizes=""
+                data-src="https://via.placeholder.com/200x200"
+                data-srcset="https://via.placeholder.com/200x200 200w,
+                             https://via.placeholder.com/400x400 400w,
+                             https://via.placeholder.com/600x600 600w,
+                             https://via.placeholder.com/800x800 800w"
                 src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                 alt="Placeholder for photo of Charles O’Connor">
             </div>
@@ -479,10 +499,15 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Director of Communications and External Relations</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
                   class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
-                  data-src="https://via.placeholder.com/400x400"
+                  data-sizes=""
+                  data-src="https://via.placeholder.com/200x200"
+                  data-srcset="https://via.placeholder.com/200x200 200w,
+                               https://via.placeholder.com/400x400 400w,
+                               https://via.placeholder.com/600x600 600w,
+                               https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                   alt="Placeholder for photo of Kathe Andersen">
               </div>
@@ -494,10 +519,15 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Information Technology Services Manager</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
                   class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
-                  data-src="https://via.placeholder.com/400x400"
+                  data-sizes=""
+                  data-src="https://via.placeholder.com/200x200"
+                  data-srcset="https://via.placeholder.com/200x200 200w,
+                               https://via.placeholder.com/400x400 400w,
+                               https://via.placeholder.com/600x600 600w,
+                               https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                   alt="Placeholder for photo of David Bagby">
               </div>
@@ -509,10 +539,15 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Administrative Technician</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
                   class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
-                  data-src="https://via.placeholder.com/400x400"
+                  data-sizes=""
+                  data-src="https://via.placeholder.com/200x200"
+                  data-srcset="https://via.placeholder.com/200x200 200w,
+                               https://via.placeholder.com/400x400 400w,
+                               https://via.placeholder.com/600x600 600w,
+                               https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                   alt="Placeholder for photo of Allison Casey">
               </div>
@@ -524,10 +559,15 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Assistant to the Dean</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
                   class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
-                  data-src="https://via.placeholder.com/400x400"
+                  data-sizes=""
+                  data-src="https://via.placeholder.com/200x200"
+                  data-srcset="https://via.placeholder.com/200x200 200w,
+                               https://via.placeholder.com/400x400 400w,
+                               https://via.placeholder.com/600x600 600w,
+                               https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                   alt="Placeholder for photo of Rachel Danay">
               </div>
@@ -539,10 +579,15 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Assistant Director of Advising</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
                   class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
-                  data-src="https://via.placeholder.com/400x400"
+                  data-sizes=""
+                  data-src="https://via.placeholder.com/200x200"
+                  data-srcset="https://via.placeholder.com/200x200 200w,
+                               https://via.placeholder.com/400x400 400w,
+                               https://via.placeholder.com/600x600 600w,
+                               https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                   alt="Placeholder for photo of Sara Fedderson">
               </div>
@@ -554,10 +599,15 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Assistant Director of Recruitment</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
                   class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
-                  data-src="https://via.placeholder.com/400x400"
+                  data-sizes=""
+                  data-src="https://via.placeholder.com/200x200"
+                  data-srcset="https://via.placeholder.com/200x200 200w,
+                               https://via.placeholder.com/400x400 400w,
+                               https://via.placeholder.com/600x600 600w,
+                               https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                   alt="Placeholder for photo of Matthew Knight">
               </div>
@@ -569,10 +619,15 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Systems Coordinator</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
                   class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
-                  data-src="https://via.placeholder.com/400x400"
+                  data-sizes=""
+                  data-src="https://via.placeholder.com/200x200"
+                  data-srcset="https://via.placeholder.com/200x200 200w,
+                               https://via.placeholder.com/400x400 400w,
+                               https://via.placeholder.com/600x600 600w,
+                               https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                   alt="Placeholder for photo of Joseph Morris">
               </div>
@@ -584,10 +639,15 @@
               <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Digital Arts Support Technician</div>
             </div>
             <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle">
+              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
                   class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
-                  data-src="https://via.placeholder.com/400x400"
+                  data-sizes=""
+                  data-src="https://via.placeholder.com/200x200"
+                  data-srcset="https://via.placeholder.com/200x200 200w,
+                               https://via.placeholder.com/400x400 400w,
+                               https://via.placeholder.com/600x600 600w,
+                               https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                   alt="Placeholder for photo of Michael Reinmiller">
               </div>
@@ -611,7 +671,7 @@
                 <img
                   class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
                   data-sizes="(min-width: 41.956em) 43vw, 88vw"
-                  data-src="wdn/templates_5.0/images/dev/140903-life-498-sm-min.jpg 284w"
+                  data-src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg 284w"
                   data-srcset="wdn/templates_5.0/images/dev/140903-life-498-sm-min.jpg 284w,
                           wdn/templates_5.0/images/dev/140903-life-498-md-min.jpg 505w,
                           wdn/templates_5.0/images/dev/140903-life-498-lg-min.jpg 898w,
@@ -631,7 +691,7 @@
           <div class="dcf-float-left dcf-h-10 dcf-w-10 dcf-mt-1 dcf-mr-4 dcf-mb-4 dcf-ratio dcf-ratio-1x1 dcf-circle unl-clip-circle">
             <img
               class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
-              data-sizes="(min-width: 41.956em) 43vw, 88vw"
+              data-sizes="5.62em"
               data-src="wdn/templates_5.0/images/dev/160813-commencement-563-sm-min.jpg 284w"
               data-srcset="wdn/templates_5.0/images/dev/160813-commencement-563-sm-min.jpg 284w,
                       wdn/templates_5.0/images/dev/160813-commencement-563-md-min.jpg 505w,
