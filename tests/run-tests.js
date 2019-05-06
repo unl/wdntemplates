@@ -1,6 +1,6 @@
 /**
  * A simple test script
- * 
+ *
  * Right now it does the following:
  * 1. Starts an http server on port 8080, with the repo root as the document root
  * 2. convert the debug.shtml file into debug.compiled.html (replace apache style includes) because the http server can't do this.
@@ -35,6 +35,17 @@ httpServer.on('close', (code) => {
 	console.log(`http server exited with code ${code}`);
 });
 
+let filterWC3Errors = function(wc3_results) {
+  let results = [];
+  wc3_results.forEach(function(error) {
+    if (error.message === 'Attribute “loading” not allowed on element “img” at this point.') {
+      return; // Skip this error
+    }
+    results.push(error);
+  });
+  return results;
+}
+
 let runTests = function() {
 	//Parse the debug.shtml file and replace apache style includes
 	let contents = fs.readFileSync('debug.shtml', 'utf8');
@@ -44,7 +55,7 @@ let runTests = function() {
 	});
 
 	fs.writeFileSync('debug.compiled.html', newContents, { encoding : 'utf8'});
-	
+
 	let all_results = {
 		'axe': [],
 		'w3c': []
@@ -60,7 +71,7 @@ let runTests = function() {
 			path: __dirname + '/../node_modules/axe-core/axe.min.js'
 		});
 		let results = await page.evaluate(() => {return axe.run()});
-		
+
 		//Close open programs
 		await browser.close();
 		await httpServer.kill();
@@ -71,10 +82,10 @@ let runTests = function() {
 		let result = execSync('curl -s -H "Content-Type: text/html; charset=utf-8" ' +
 			'    --data-binary @debug.compiled.html ' +
 			'    https://validator.w3.org/nu/?out=json');
-		
+
 		result = JSON.parse(result);
-		all_results.w3c = result.messages.filter(message => message.type === 'error');
-		
+		all_results.w3c = filterWC3Errors(result.messages.filter(message => message.type === 'error'));
+
 		//Handle the results
 		if (all_results.axe.length > 0 || all_results.w3c.length > 0) {
 			console.log('found errors!');
