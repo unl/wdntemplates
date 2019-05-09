@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.9 (May 9, 2019)
+- Replace SkipTo.js plugin with traditional skip nav
+- Update DCF for lazy loading image support
+- Add timezone support to events and events-band plugins
+- Add theme styles for details & summary
+- Add theme easing and timing variables
+
 ## 5.0.8 (April 15, 2019)
 - Add .no-webp class if browser doesn’t support WebP
 - Add inline script to remove .no-js class
