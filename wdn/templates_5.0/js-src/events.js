@@ -58,7 +58,12 @@ define([
         // all day event so clear out time
         time = '';
       }
-      var title    = '<h3 class="unl-event-title dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover unl-darker-gray" href="'+ eventURL +'">' + event.EventTitle + '</a></h3>';
+      var subtitle = '';
+      if (event.EventSubtitle) {
+        subtitle = '<h4 class="dcf-subhead dcf-mt-1 dcf-txt-3xs unl-font-sans unl-dark-gray">' + event.EventSubtitle + '</h4>';
+      }
+      var title    = '<headers><h3 class="unl-event-title dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover unl-darker-gray" href="'+ eventURL +'">' + event.EventTitle + '</a></h3>' + subtitle + '</headers>';
+
       var location = '';
 
       if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {
@@ -85,7 +90,7 @@ define([
       }
 
       var date = '<div class="unl-event-datetime dcf-flex-shrink-0 dcf-w-8 dcf-mr-5 dcf-txt-center">' + month + day + time +'</div>';
-      events_html += ('<li class="unl-event-teaser dcf-mb-4">' + title + date + location  + '</li>');
+      events_html += ('<li class="unl-event-teaser dcf-mb-4">' + title  + date + location  + '</li>');
     });
     $container.append('<ul class="dcf-list-bare">' + events_html + '</ul>');
     var seeAll = '<div class="dcf-mt-4"><a class="dcf-btn dcf-btn-secondary" href="' + config.url + 'upcoming/">See all '+config.title+' events</a></div>';
