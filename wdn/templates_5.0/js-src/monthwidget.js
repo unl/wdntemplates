@@ -2,7 +2,7 @@ define([
 	'wdn',
 	'jquery',
 	'moment',
-	'plugins/hoverIntent/jquery.hoverIntent',
+	'plugins/hoverIntent/hoverintent',
 	'css!js-css/monthwidget'
 ], function(WDN, $, moment) {
 	var initd = true;
@@ -50,53 +50,54 @@ define([
 
 		$days.wrapInner('<div/>');
 
-		$days.has('a').hoverIntent({
-			over: function() {
-				var infoBox = $('.eventContainer', this);
-				if (infoBox.length) {
-					infoBox.show();
-				} else {
-					infoBox = $('<div class="eventContainer dcf-absolute dcf-z-1 dcf-pt-3 dcf-pb-3 dcf-txt-left dcf-bg-white dcf-bt-3 dcf-bt-solid unl-bt-scarlet"><div class="eventBox">Loading...</div></div>');
-					infoBox.appendTo($('div:first', this));
-					if ($(this).position().left + $(this).width() + infoBox.width() >= $($container[0].offsetParent).outerWidth()) {
-						infoBox.addClass('pos2');
-					}
-					var eventBox = $('.eventBox', this);
-					var regex = /\d{4}\/\d{1,2}\/\d{1,2}/;
-					var date = moment(regex.exec($('a', this)[0].href)[0]);
-					$.ajax({
-						url: $('a', this)[0].href + '?format=xml',
-						dataType: 'xml',
-						success: function(data) {
-							var eventTitle = $('EventTitle', data);
-							var eventWebPageTitle = $('Title', data);
-							var eventURL = [];
+    $days.each(function() {
+      var el = $(this).get(0);
+
+      hoverintent(el,
+			function() {
+        var infoBox = $('.eventContainer', this);
+        if (infoBox.length) {
+          infoBox.show();
+        } else {
+          infoBox = $('<div class="eventContainer dcf-absolute dcf-z-1 dcf-pt-3 dcf-pb-3 dcf-txt-left dcf-bg-white dcf-bt-3 dcf-bt-solid unl-bt-scarlet"><div class="eventBox">Loading...</div></div>');
+          infoBox.appendTo($('div:first', this));
+          if ($(this).position().left + $(this).width() + infoBox.width() >= $($container[0].offsetParent).outerWidth()) {
+            infoBox.addClass('pos2');
+          }
+          var eventBox = $('.eventBox', this);
+          var regex = /\d{4}\/\d{1,2}\/\d{1,2}/;
+          var date = moment(regex.exec($('a', this)[0].href)[0]);
+          $.ajax({
+            url: $('a', this)[0].href + '?format=xml',
+            dataType: 'xml',
+            success: function(data) {
+              var eventTitle = $('EventTitle', data);
+              var eventWebPageTitle = $('Title', data);
+              var eventURL = [];
               eventBox.empty();
 
-							eventWebPageTitle.each(function() {
-								var $this = $(this);
-								if ($this.text() == 'Event Instance URL') {
-									eventURL.push($this.next().text());
-								}
-							});
-							$.each(eventURL, function(i, url) {
-								eventBox.append('<a class="dcf-d-block dcf-mr-6 dcf-ml-6 dcf-pt-1 dcf-pb-1 dcf-txt-xs dcf-lh-2" href="' + url + '">' + eventTitle.eq(i).text() + '</a>');
-							});
-						},
-						error: function() {
-							eventBox.html('Error loading results.');
-						}
-					});
-				}
-				return false;
-			},
-			sensitivity: 3,
-			out: function() {
+              eventWebPageTitle.each(function() {
+                var $this = $(this);
+                if ($this.text() == 'Event Instance URL') {
+                  eventURL.push($this.next().text());
+                }
+              });
+              $.each(eventURL, function(i, url) {
+                eventBox.append('<a class="dcf-d-block dcf-mr-6 dcf-ml-6 dcf-pt-1 dcf-pb-1 dcf-txt-xs dcf-lh-2" href="' + url + '">' + eventTitle.eq(i).text() + '</a>');
+              });
+            },
+            error: function() {
+              eventBox.html('Error loading results.');
+            }
+          });
+        }
+        return false;
+			}, function() {
 				$('.eventContainer', this).hide();
 				return false;
-			},
-			timeout: 100
-		});
+			});
+
+    });
 
 		$container.show();
 	};
