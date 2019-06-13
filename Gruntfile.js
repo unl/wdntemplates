@@ -75,8 +75,7 @@ module.exports = function (grunt) {
 		'require-css/css',
 		'require-css/normalize',
 		'jquery',
-		'wdn',
-		'plugins/hoverIntent/jquery.hoverIntent'
+		'wdn'
 	];
 
 	/**
