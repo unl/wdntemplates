@@ -142,13 +142,13 @@
 }
 
 
-// !Outline Text: White
-@mixin txt-outline-white($imp:null) {
+// !Outline Text: Light
+@mixin txt-outline-light($imp:null) {
 
-  @supports (text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff) {
+  @supports (text-stroke: 1px $cream) or (-webkit-text-stroke: 1px $cream) {
     color: transparent $imp;
-    -webkit-text-stroke: #{ms(-26)}em #fff $imp;
-    text-stroke: #{ms(-26)}em #fff $imp;
+    -webkit-text-stroke: #{ms(-26)}em $cream $imp;
+    text-stroke: #{ms(-26)}em $cream $imp;
   }
 
 }
@@ -157,7 +157,7 @@
 // !Outline Text: Dark
 @mixin txt-outline-dark($imp:null) {
 
-  @supports (text-stroke: 1px #000) or (-webkit-text-stroke: 1px #000) {
+  @supports (text-stroke: 1px $color-heading) or (-webkit-text-stroke: 1px $color-heading) {
     color: transparent $imp;
     -webkit-text-stroke: #{ms(-26)}em $color-heading $imp;
     text-stroke: #{ms(-26)}em $color-heading $imp;
