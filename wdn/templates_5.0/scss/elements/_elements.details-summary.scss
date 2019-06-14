@@ -10,12 +10,18 @@
 
 
 .unl summary {
+  cursor: pointer;
   @include font-sans;
   @include txt-lg;
   letter-spacing: -.03em;
   list-style: none;
   margin-bottom: #{ms(-12)}rem;
   position: relative;
+}
+
+
+.unl summary::-webkit-details-marker {
+  display: none;
 }
 
 
