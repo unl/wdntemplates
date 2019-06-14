@@ -124,8 +124,9 @@
 
 // !Letter Spacing
 @mixin ls-0($imp:null) { letter-spacing: 0 $imp; }
-@mixin ls-1($imp:null) { letter-spacing: .01em $imp; }
-@mixin ls-2($imp:null) { letter-spacing: .1em $imp; }
+@mixin ls-1($imp:null) { letter-spacing: #{ms(-30)}em $imp; }
+@mixin ls-2($imp:null) { letter-spacing: #{ms(-20)}em $imp; }
+@mixin ls-3($imp:null) { letter-spacing: #{ms(-16)}em $imp; }
 
 
 // !Line-Height Crop
@@ -146,8 +147,8 @@
 
   @supports (text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff) {
     color: transparent $imp;
-    -webkit-text-stroke: .024em #fff $imp;
-    text-stroke: .024em #fff $imp;
+    -webkit-text-stroke: #{ms(-26)}em #fff $imp;
+    text-stroke: #{ms(-26)}em #fff $imp;
   }
 
 }
@@ -158,8 +159,8 @@
 
   @supports (text-stroke: 1px #000) or (-webkit-text-stroke: 1px #000) {
     color: transparent $imp;
-    -webkit-text-stroke: .024em $color-heading $imp;
-    text-stroke: .024em $color-heading $imp;
+    -webkit-text-stroke: #{ms(-26)}em $color-heading $imp;
+    text-stroke: #{ms(-26)}em $color-heading $imp;
   }
 
 }
