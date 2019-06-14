@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.10 (June 14, 2019)
+- Update summary cursor and arrow
+- Include subtitle in events listings
+- DCF: Add XS max-width mixin/utility, Add mixin/utility for XL max-width
+- DCF: Replace measure utility classes
+- DCF: Add responsive & scrollable tables
+- DCF: Add portrait orientation (9×16, 3×4) aspect ratios
+- DCF: Add media query for reduced motion preference
+
 ## 5.0.9 (May 9, 2019)
 - Replace SkipTo.js plugin with traditional skip nav
 - Update DCF for lazy loading image support
