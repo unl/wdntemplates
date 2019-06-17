@@ -58,7 +58,12 @@ define([
         // all day event so clear out time
         time = '';
       }
-      var title    = '<h3 class="unl-event-title dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover unl-darker-gray" href="'+ eventURL +'">' + event.EventTitle + '</a></h3>';
+      var subtitle = '';
+      if (event.EventSubtitle) {
+        subtitle = '<h4 class="dcf-subhead dcf-mt-1 dcf-txt-3xs unl-font-sans unl-dark-gray">' + event.EventSubtitle + '</h4>';
+      }
+      var title    = '<headers><h3 class="unl-event-title dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover unl-darker-gray" href="'+ eventURL +'">' + event.EventTitle + '</a></h3>' + subtitle + '</headers>';
+
       var location = '';
 
       if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {

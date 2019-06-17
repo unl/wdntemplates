@@ -29,6 +29,7 @@
 .unl-ls-0 { @include ls-0(!important); }
 .unl-ls-1 { @include ls-1(!important); }
 .unl-ls-2 { @include ls-2(!important); }
+.unl-ls-3 { @include ls-3(!important); }
 
 
 // !Line-Height Crop
@@ -36,8 +37,8 @@
 .unl-lh-crop::before { @include lh-crop(!important); }
 
 
-// !Outline Text: White
-.unl-txt-outline-white { @include txt-outline-white(!important); }
+// !Outline Text: Light
+.unl-txt-outline-light { @include txt-outline-light(!important); }
 
 
 // !Outline Text: Dark
