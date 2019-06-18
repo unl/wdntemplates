@@ -45,6 +45,7 @@
   flex-shrink: 0;
   @include h-4;
   @include ml-5;
+  transition: transform .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   @include w-4;
 }
 
