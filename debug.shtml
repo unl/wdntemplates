@@ -121,6 +121,12 @@
 
 
 
+      <script type="text/dcf">
+        WDN.setPluginParam('events', 'href', 'https://events.unl.edu/');
+        WDN.setPluginParam('events', 'title', 'UNL');
+      </script>
+      <div id="events-band"></div>
+      <script type="text/dcf">WDN.initializePlugin('events-band',{limit:6, rooms: true});</script>
 
       <div class="dcf-pb-8 dcf-measure">
   <!--     <h2>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park.</h2> -->

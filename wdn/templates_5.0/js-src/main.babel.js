@@ -20,4 +20,11 @@ requirejs([
     WDN.loadJQuery(function() {
         require([unlchat_url + '?for=client&version=' + WDN.getHTMLVersion()], function(){});
     });
+
+		var arr = document.querySelectorAll("script[type='text/dcf']");
+		for (var x = 0; x < arr.length; x++) {
+			var cln = arr[x].cloneNode(true);
+			cln.type = "text/javascript";
+			document.querySelectorAll("body")[0].appendChild(cln);
+		}
 });
