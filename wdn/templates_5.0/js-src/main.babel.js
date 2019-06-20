@@ -25,6 +25,6 @@ requirejs([
 		for (var x = 0; x < arr.length; x++) {
 			var cln = arr[x].cloneNode(true);
 			cln.type = "text/javascript";
-			document.querySelectorAll("body")[0].appendChild(cln);
+			arr[x].parentNode.insertBefore(cln, arr[x]);
 		}
 });
