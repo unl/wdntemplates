@@ -120,13 +120,27 @@
 -->
 
 
-
+      <div id="events-band"></div>
       <script type="text/dcf">
         WDN.setPluginParam('events', 'href', 'https://events.unl.edu/');
         WDN.setPluginParam('events', 'title', 'UNL');
+        WDN.initializePlugin('events-band',{limit:6, rooms: true});
       </script>
-      <div id="events-band"></div>
-      <script type="text/dcf">WDN.initializePlugin('events-band',{limit:6, rooms: true});</script>
+
+      <div id="events-band2" class="dcf-mt-6"></div>
+      <script type="text/dcf">
+      require(['jquery','events'], function($, Events){
+        $(document).ready(function(){
+          Events.initialize({
+            href: 'https://events.unl.edu/',
+            title: 'UNL',
+            container: '#events-band2',
+            limit: 6,
+            rooms: true
+          });
+        });
+      });
+    </script>
 
       <div class="dcf-pb-8 dcf-measure">
   <!--     <h2>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park.</h2> -->
