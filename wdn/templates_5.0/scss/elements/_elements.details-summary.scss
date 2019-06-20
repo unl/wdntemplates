@@ -4,19 +4,33 @@
 
 
 .unl details {
-  @include mb-3;
-  @include pl-4;
+  border-top: 1px solid $light-gray;
+  @include pb-3;
+  @include pt-3;
+}
+
+
+.unl details:last-of-type {
+  border-bottom: 1px solid $light-gray;
+}
+
+
+.unl details[open] {
+  @include pb-4;
 }
 
 
 .unl summary {
+  align-items: center;
   cursor: pointer;
+  display: flex;
+  flex-flow: row nowrap;
   @include font-sans;
-  @include txt-lg;
+  @include txt-h6;
+  justify-content: space-between;
   letter-spacing: -.03em;
+  @include lh-3;
   list-style: none;
-  margin-bottom: #{ms(-12)}rem;
-  position: relative;
 }
 
 
@@ -25,19 +39,22 @@
 }
 
 
-.unl summary::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='#{$scarlet}' d='M2.3,0.1C2.1,0.2,2,0.3,2,0.5v23c0,0.2,0.1,0.3,0.3,0.4c0.1,0.1,0.3,0.1,0.5,0l19-11.5c0.1-0.1,0.2-0.3,0.2-0.4 s-0.1-0.3-0.2-0.4L2.8,0.1C2.6,0,2.4,0,2.3,0.1z' /%3E%3C/svg%3E");
+.unl summary::after {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='#{$scarlet}' d='M23 11H13V1c0-.6-.4-1-1-1s-1 .4-1 1v10H1c-.6 0-1 .4-1 1s.4 1 1 1h10v10c0 .6.4 1 1 1s1-.4 1-1V13h10c.6 0 1-.4 1-1s-.4-1-1-1z' /%3E%3C/svg%3E") 100% no-repeat;
   content: '';
-  @include h-1;
-  left: 0;
-  position: absolute;
-  top: 50%;
-  transform: translate(-1rem,-50%);
-  @include w-1;
+  flex-shrink: 0;
+  @include h-4;
+  @include ml-5;
+  transition: transform .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  @include w-4;
 }
 
 
-.unl details[open] summary::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='#{$scarlet}' d='M23.9 2.3c-.1-.2-.2-.3-.4-.3H.5c-.2 0-.3.1-.4.3-.1.1-.1.3 0 .5l11.5 19c.1.1.3.2.4.2s.3-.1.4-.2l11.5-19c.1-.2.1-.4 0-.5z' /%3E%3C/svg%3E");
+.unl details[open] summary::after {
+  transform: rotate(45deg);
 }
 
+
+.unl summary + * {
+  @include mt-4;
+}
