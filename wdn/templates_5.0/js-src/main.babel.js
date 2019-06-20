@@ -20,4 +20,9 @@ requirejs([
     WDN.loadJQuery(function() {
         require([unlchat_url + '?for=client&version=' + WDN.getHTMLVersion()], function(){});
     });
+
+		// Process deferred inline scripts
+		if (typeof dcfLoaded !== 'undefined') {
+			window.dispatchEvent(dcfLoaded);
+		}
 });
