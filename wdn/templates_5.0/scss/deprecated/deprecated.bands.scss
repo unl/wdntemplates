@@ -27,12 +27,9 @@
   @include bg-lightest;
 }
 
-.wdn-light-triad-band {
-  @include bg-lighter;
-}
-
+.wdn-light-triad-band,
 .wdn-light-complement-band {
-  @include bg-light;
+  @include bg-lighter;
 }
 
 .wdn-inner-wrapper {
