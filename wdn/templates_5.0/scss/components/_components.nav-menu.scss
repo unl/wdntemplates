@@ -4,7 +4,8 @@
 
 
 .unl .dcf-nav-menu ul { // TODO: remove after updated in DCF core
-  list-style: none;
+  // Fix list-style: none in VoiceOver and Safari: https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+  list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
   margin-bottom: 0;
   padding-left: 0;
 }

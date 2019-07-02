@@ -305,7 +305,7 @@ a.dcf-btn-secondary {
 .unl .dcf-breadcrumbs ol {
   display: flex;
   flex-wrap: nowrap;
-  list-style: none;
+  list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
   padding-left: 5.62vw;
 }
 .unl .dcf-breadcrumbs li {
@@ -468,7 +468,7 @@ a.dcf-btn-secondary {
   display: flex;
 }
 .unl .dcf-nav-menu ul {
-  list-style: none;
+  list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
   margin-bottom: 0;
   padding-left: 0;
 }
