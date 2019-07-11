@@ -56,9 +56,16 @@ define(['wdn', 'require', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'],
 				return;
 			}
 
+      function modalTransition(event) {
+        domDialog.removeEventListener('transitionend', modalTransition);
+        if (!domDialog.classList.contains('dcf-invisible')) {
+          domDialog.classList.add('dcf-invisible');
+        }
+      }
+
 			var domToggleButtonOnClick = function(e) {
 
-          if (!domDialog.classList.contains('dcf-modal-open')) {
+          if (domDialog.classList.contains('dcf-invisible')) {
 
 					//Search is currently closed, so open it.
 					for (let i = 0; i < domToggleButtons.length; i++) {
@@ -70,7 +77,7 @@ define(['wdn', 'require', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'],
           domToggleLabel.textContent = 'Close';
           main.setAttribute('inert', '');
           footer.setAttribute('inert', '');
-					domDialog.classList.add('dcf-modal-open');
+					domDialog.classList.remove('dcf-invisible');
           domDialog.setAttribute('aria-hidden', 'false');
 					domActiveToggleButton = this;
 
@@ -192,7 +199,7 @@ define(['wdn', 'require', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'],
 			};
 
 			let closeSearch = function(returnFocus = false) {
-				if (!domDialog.classList.contains('dcf-modal-open')) {
+				if (domDialog.classList.contains('dcf-invisible')) {
 					//Search is already closed.
 					return;
 				}
@@ -202,7 +209,7 @@ define(['wdn', 'require', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'],
 				domSearchForm.parentElement.classList.remove('active');
         main.removeAttribute('inert');
         footer.removeAttribute('inert');
-				domDialog.classList.remove('dcf-modal-open');
+        domDialog.addEventListener('transitionend', modalTransition);
         domDialog.setAttribute('aria-hidden', 'true');
 				for (let i = 0; i < domToggleButtons.length; i++) {
 					domToggleButtons[i].setAttribute('aria-expanded', 'false');
