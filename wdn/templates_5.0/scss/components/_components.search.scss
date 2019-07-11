@@ -12,6 +12,22 @@
 // End temp
 
 
+// Modal is closed, hidden
+.unl-search-modal[aria-hidden="true"] {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $timing-fade-out $easing-fade-out;
+}
+
+
+// Modal is open, visible
+.unl-search-modal[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity $timing-fade-in $easing-fade-in;
+}
+
+
 .no-js .unl-search-bg,
 .no-webp .unl-search-bg {
   background-image: url('../images/unl-search-bg-640.png');
