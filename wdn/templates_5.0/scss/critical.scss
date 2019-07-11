@@ -1512,9 +1512,10 @@ a.dcf-btn-secondary {
     writing-mode: vertical-lr;
   }
 }
-// .dcf-invisible {
-//     visibility: hidden!important;
-// }
+.dcf-invisible,
+.unl-mobile-nav-closed {
+    visibility: hidden!important;
+}
 // .dcf-visible {
 //     visibility: visible!important;
 // }
@@ -2016,7 +2017,4 @@ a.unl-cream:link {
   .unl .dcf-txt-h1 {
     font-size: 2.37em!important;
   }
-}
-.unl .dcf-modal-overlay {
-  display: none;
 }
