@@ -42,6 +42,11 @@
 
 @include mq(md, max, width) {
 
+  .unl-mobile-nav-closed {
+    visibility: hidden;
+  }
+
+
   .unl .dcf-nav-menu {
     @include bg-overlay-dark;
     bottom: #{$height-mobile-toolbar};
