@@ -48,13 +48,21 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
                 }
             }
 
+            function modalTransition(event) {
+              modalParent.removeEventListener('transitionend', modalTransition);
+              if (!modalParent.classList.contains('unl-mobile-nav-closed')) {
+                modalParent.classList.add('unl-mobile-nav-closed');
+              }
+            }
+
             function openModal() {
                 if (window.matchMedia("(max-width: 56.12em)").matches) {
                   main.setAttribute('inert', '');
                   footer.setAttribute('inert', '');
                   disableBodyScroll(mobileNavMenu);
+                  modalParent.classList.remove('unl-mobile-nav-closed');
+                  modalParent.classList.add('unl-mobile-nav-open');
                 }
-                modalParent.classList.add('dcf-modal-open');
                 for (var i = 0; i < toggleButtons.length; ++i) {
                     toggleButtons[i].setAttribute('aria-expanded', 'true');
                     toggleButtons[i].setAttribute('aria-label', 'close menu');
@@ -75,8 +83,9 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
                 if (window.matchMedia("(max-width: 56.12em)").matches) {
                   main.removeAttribute('inert');
                   footer.removeAttribute('inert');
+                  modalParent.addEventListener('transitionend', modalTransition);
+                  modalParent.classList.remove('unl-mobile-nav-open');
                 }
-                modalParent.classList.remove('dcf-modal-open');
                 for (var i = 0; i < toggleButtons.length; ++i) {
                     toggleButtons[i].setAttribute('aria-expanded', 'false');
                     toggleButtons[i].setAttribute('aria-label', 'open menu');
@@ -93,14 +102,14 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
 
             // add an event listener for closeSearchEvent
             document.addEventListener('closeNavigation', function(e) {
-              if (modalParent.classList.contains('dcf-modal-open')) {
+              if (modalParent.classList.contains('unl-mobile-nav-open')) {
                 closeModal();
               }
             });
 
             // add an event listener for resize
             window.addEventListener('resize', function(e) {
-              if (window.matchMedia("(max-width: 56.12em)").matches && modalParent.classList.contains('dcf-modal-open')) {
+              if (window.matchMedia("(max-width: 56.12em)").matches && modalParent.classList.contains('unl-mobile-nav-open')) {
                 main.setAttribute('inert', '');
                 footer.setAttribute('inert', '');
                 disableBodyScroll(mobileNavMenu);
@@ -113,7 +122,7 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
 
             let toggleButtonOnClick = function() {
                 activeToggleButton = this;
-                if (modalParent.classList.contains('dcf-modal-open')) {
+                if (modalParent.classList.contains('unl-mobile-nav-open')) {
                     closeModal();
                 } else {
                     openModal();
