@@ -42,6 +42,11 @@
 
 @include mq(md, max, width) {
 
+  .unl-mobile-nav-closed {
+    visibility: hidden;
+  }
+
+
   .unl .dcf-nav-menu {
     @include bg-overlay-dark;
     bottom: #{$height-mobile-toolbar};
@@ -49,19 +54,17 @@
     opacity: 0;
     pointer-events: none;
     position: fixed;
-    transition: opacity 300ms ease-out, visibility 0ms 400ms;
-    visibility: hidden;
+    transition: opacity 300ms ease-out;
     width: 100%;
     z-index: 998;
   }
 
 
   // Open when parent model is open
-  .unl .dcf-nav-menu.dcf-modal-open {
+  .unl .dcf-nav-menu.unl-mobile-nav-open {
     opacity: 1;
     pointer-events: auto;
     transition: opacity 200ms ease-out;
-    visibility: visible;
   }
 
 
