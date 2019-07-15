@@ -3,13 +3,20 @@
 ///////////////////////////////
 
 
-// Start temp
-
-.dcf-search dialog[open] {
-  animation: none; // Undo dialog animation styles until removed from DCF core
+// Modal is closed, hidden
+.unl-search-modal[aria-hidden="true"] {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $timing-fade-out $easing-fade-out;
 }
 
-// End temp
+
+// Modal is open, visible
+.unl-search-modal[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity $timing-fade-in $easing-fade-in;
+}
 
 
 .no-js .unl-search-bg,
@@ -69,30 +76,6 @@
     display: none;
   }
 
-//   .unl .dcf-search-results-wrapper::before {
-//     content: '';
-//     height: #{ms(6)}em;
-//     left: 0;
-//     position: absolute;
-//     width: 100%;
-//     z-index: 999;
-//   }
-//
-//   .unl .dcf-search-results-wrapper::before {
-//     background-image: linear-gradient(to top, fade-out($lighter-cream, 1), $lighter-cream);
-//     top: 0;
-//   }
-//
-//   .unl .dcf-search-results {
-//     @include pb-6; // !core update
-//   }
-
-//   .unl .dcf-search-toggle-icon {
-//     @include h-5;
-//     @include mb-1;
-//     @include w-5;
-//   }
-
 }
 
 @include mq(md, min, width) {
@@ -117,9 +100,5 @@
   .unl .dcf-search-toggle-label {
     padding: #{ms(-6)}em #{ms(8)}em #{ms(-6)}em #{ms(-2)}em;
   }
-
-//   .unl .dcf-search-results {
-//     @include pb-10; // !core update
-//   }
 
 }
