@@ -1512,8 +1512,7 @@ a.dcf-btn-secondary {
     writing-mode: vertical-lr;
   }
 }
-.dcf-invisible,
-.unl-mobile-nav-closed {
+.dcf-invisible {
     visibility: hidden!important;
 }
 // .dcf-visible {
@@ -1902,9 +1901,11 @@ a.unl-cream:link {
   .unl .dcf-nav-toggle-btn {
     flex-basis: 25%;
   }
+  .unl-mobile-nav-closed {
+    visibility: hidden;
+  }
   .unl .dcf-header .dcf-institution-title,
   .unl .dcf-idm-toggle,
-  .unl .dcf-nav-menu,
   .unl .dcf-search-toggle-wrapper {
     display: none;
   }
