@@ -26,5 +26,6 @@ requirejs([
 			var cln = arr[x].cloneNode(true);
 			cln.type = "text/javascript";
 			arr[x].parentNode.insertBefore(cln, arr[x]);
+			arr[x].parentNode.removeChild(arr[x]);
 		}
 });
