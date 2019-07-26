@@ -21,8 +21,6 @@ requirejs([
         require([unlchat_url + '?for=client&version=' + WDN.getHTMLVersion()], function(){});
     });
 
-		// Process deferred inline scripts
-		if (typeof dcfLoaded !== 'undefined') {
-			window.dispatchEvent(dcfLoaded);
-		}
+    // Process deferred inline scripts
+    window.dispatchEvent(new Event('dcfLoaded'));
 });
