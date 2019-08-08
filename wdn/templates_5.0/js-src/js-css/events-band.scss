@@ -2,15 +2,55 @@
 
 
 .unl-event-teaser-list {
-  grid-column: 2/3;
-  grid-template-columns: repeat(auto-fill, minmax(#{ms(18)}em, 1fr) ) ;
+  display: flex;
+  flex-flow: row wrap;
+  @include pl-9;
+}
+
+
+@include mq(sm, min, width) {
+
+  .unl-event-teaser-list .unl-event-teaser {
+    flex-basis: 50%;
+  }
+
 }
 
 
 @include mq(lg, min, width) {
 
+  .unl-event-teaser-list .unl-event-teaser {
+    flex-basis: 33%;
+  }
+
+}
+
+
+@include mq(xl, min, width) {
+
+  .unl-event-teaser-list .unl-event-teaser {
+    flex-basis: 25%;
+  }
+
+}
+
+
+@supports (display:grid) {
+
   .unl-event-teaser-list {
-    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-column: 2/3;
+    grid-template-columns: repeat(auto-fill, minmax(#{ms(18)}em, 1fr) ) ;
+    @include pl-0;
+  }
+
+
+  @include mq(lg, min, width) {
+
+    .unl-event-teaser-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
   }
 
 }
