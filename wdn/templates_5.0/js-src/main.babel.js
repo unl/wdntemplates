@@ -22,5 +22,5 @@ requirejs([
     });
 
     // Process deferred inline scripts
-    window.dispatchEvent(new Event('dcfLoaded'));
+    window.dispatchEvent(new Event('inlineJSReady'));
 });
