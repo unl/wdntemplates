@@ -26,9 +26,9 @@ define([
         var upcoming = 'upcoming/',
             $container = $(localConfig.container).addClass('dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-8 unl-bg-lightest-gray unl-bg-grit'),
             grid = document.createElement('div');
-            grid.classList.add('unl-offset-grid', 'dcf-d-grid', 'dcf-col-gap-4');
+            grid.classList.add('unl-offset-grid', 'dcf-col-gap-4');
             eventList = document.createElement('ul');
-            eventList.classList.add('unl-event-teaser-list', 'dcf-list-bare', 'dcf-d-grid', 'dcf-col-gap-vw', 'dcf-row-gap-6', 'dcf-mb-0');
+            eventList.classList.add('unl-event-teaser-list', 'dcf-list-bare', 'dcf-col-gap-vw', 'dcf-row-gap-6', 'dcf-mb-0');
 
         if (localConfig.url.match(/upcoming\/$/)) {
             //Don't add the upcoming endpoint if it already exists.
@@ -96,9 +96,9 @@ define([
 
                 var subtitle = '';
                 if (event.EventSubtitle) {
-                    subtitle = '<h4 class="dcf-subhead dcf-mt-1 dcf-txt-3xs unl-font-sans unl-dark-gray">' + event.EventSubtitle + '</h4>';
+                    subtitle = '<p class="dcf-subhead dcf-mt-2 dcf-txt-3xs unl-font-sans unl-dark-gray">' + event.EventSubtitle + '</p>';
                 }
-                eventList.innerHTML += '<li class="unl-event-teaser dcf-d-grid dcf-col-gap-4 dcf-mb-0"><headers><h3 class="unl-event-title dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover unl-darker-gray" href="' + eventURL + '">' + event.EventTitle + '</a></h3>' + subtitle + '</headers><div class="unl-event-datetime dcf-flex-shrink-0 dcf-w-8 dcf-mr-5 dcf-txt-center">' + '<span class="unl-event-month dcf-d-block dcf-txt-3xs dcf-pt-2 dcf-pb-1 dcf-uppercase dcf-bold unl-ls-2 unl-font-sans unl-cream unl-bg-scarlet">' + month + '</span><span class="unl-event-day dcf-d-block dcf-txt-h5 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid dcf-bg-white unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray">' + day + '</span><span class="unl-event-time dcf-d-block dcf-pt-2 dcf-txt-2xs dcf-uppercase dcf-bold unl-font-sans unl-scarlet">' + time + ' ' + ampm + '</span>' + '</div><div class="unl-event-location dcf-txt-xs dcf-pt-1 unl-font-sans unl-dark-gray">' + location + '</div></li>';
+                eventList.innerHTML += '<li class="unl-event-teaser dcf-col-gap-4"><header class="unl-event-title"><h3 class="dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover unl-darker-gray" href="' + eventURL + '">' + event.EventTitle + '</a></h3>' + subtitle + '</header><div class="unl-event-datetime dcf-flex-shrink-0 dcf-w-8 dcf-mr-5 dcf-txt-center">' + '<span class="unl-event-month dcf-d-block dcf-txt-3xs dcf-pt-2 dcf-pb-1 dcf-uppercase dcf-bold unl-ls-2 unl-font-sans unl-cream unl-bg-scarlet">' + month + '</span><span class="unl-event-day dcf-d-block dcf-txt-h5 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid dcf-bg-white unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray">' + day + '</span><span class="unl-event-time dcf-d-block dcf-pt-2 dcf-txt-2xs dcf-uppercase dcf-bold unl-font-sans unl-scarlet">' + time + ' ' + ampm + '</span>' + '</div><div class="unl-event-location dcf-txt-xs dcf-pt-1 unl-font-sans unl-dark-gray">' + location + '</div></li>';
             });
             $container.append('<div class="dcf-absolute dcf-pin-top dcf-pt-9"><h2 class="dcf-m-0 dcf-txt-xs dcf-uppercase dcf-txt-vertical-lr unl-ls-2 unl-dark-gray">Upcoming Events</h2></div>');
             grid.append(eventList);

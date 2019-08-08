@@ -2,11 +2,51 @@
 
 
 .unl-event-teaser {
-  display: grid;
-  @include col-gap-4;
-  grid-template: 'd t' auto 'd l' 1fr / $length-em-8 1fr;
+  display: flex;
+  flex-direction: column;
+  @include mb-6;
 }
 
-.unl-event-title { grid-area: t; }
-.unl-event-datetime { grid-area: d; }
-.unl-event-location { grid-area: l; }
+
+.unl-event-title {
+  order: 2;
+}
+
+
+.unl-event-datetime {
+  @include mb-3;
+}
+
+
+.unl-event-location {
+  order: 3;
+}
+
+
+@supports (display:grid) {
+
+  .unl-event-teaser {
+    display: grid;
+    @include col-gap-4;
+    grid-template: 'd t' auto 'd l' 1fr / $length-em-8 1fr;
+  	@include mb-0;
+  }
+
+
+  .unl-event-title {
+    grid-area: t;
+  }
+
+
+  .unl-event-datetime {
+    grid-area: d;
+  	@include mb-0;
+  }
+
+
+  .unl-event-location {
+    grid-area: l;
+  }
+
+}
+
