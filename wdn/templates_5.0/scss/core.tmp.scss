@@ -39,6 +39,7 @@
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.margins";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.media-queries";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.object-fit";
+@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.object-position";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.order";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.overflow";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.padding";
@@ -81,7 +82,6 @@
 @import "../../../node_modules/dcf/assets/dist/scss/elements/_elements.buttons";
 @import "../../../node_modules/dcf/assets/dist/scss/elements/_elements.code";
 @import "../../../node_modules/dcf/assets/dist/scss/elements/_elements.details-summary";
-@import "../../../node_modules/dcf/assets/dist/scss/elements/_elements.dialog";
 @import "../../../node_modules/dcf/assets/dist/scss/elements/_elements.figures";
 @import "../../../node_modules/dcf/assets/dist/scss/elements/_elements.forms";
 @import "../../../node_modules/dcf/assets/dist/scss/elements/_elements.headings";
@@ -158,7 +158,6 @@
 
 
 // !JavaScript
-@import "../../../node_modules/dcf/assets/dist/scss/javascript/_javascript.dialog";
 @import "../../../node_modules/dcf/assets/dist/scss/javascript/_javascript.states";
 
 
@@ -179,6 +178,7 @@
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.height-width";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.margins";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.object-fit";
+@import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.object-position";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.order";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.overflow";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.padding";
