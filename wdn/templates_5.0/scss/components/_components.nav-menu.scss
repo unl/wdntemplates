@@ -42,7 +42,7 @@
 
 @include mq(md, max, width) {
 
-  .unl-mobile-nav-closed {
+  .unl-nav-menu-closed {
     visibility: hidden;
   }
 
@@ -61,7 +61,7 @@
 
 
   // Open when parent model is open
-  .unl .dcf-nav-menu.unl-mobile-nav-open {
+  .unl .dcf-nav-menu.unl-nav-menu-open {
     opacity: 1;
     pointer-events: auto;
     transition: opacity 200ms ease-out;
