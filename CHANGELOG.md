@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.12 (August 13, 2019)
+- Menu fix
+
 ## 5.0.11 (August 13, 2019)
 - Update details & summary styles
 - Aria label updates
