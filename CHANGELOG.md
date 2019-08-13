@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.11 (August 13, 2019)
+- Update details & summary styles
+- Aria label updates
+- Update deprecated bands background colors
+- Add search modal fade-in/out styles
+- Move inline critical CSS to file
+- Update jquery and jquery-migrate to latest
+
 ## 5.0.10 (June 14, 2019)
 - Update summary cursor and arrow
 - Include subtitle in events listings
