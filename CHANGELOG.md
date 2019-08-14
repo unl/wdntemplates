@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.13 (August 14, 2019)
+- Emergency fix to paths in wdn/templates_5.0/includes/global/head-2.html for non-local/"cloud" template users 
+
 ## 5.0.12 (August 13, 2019)
 - Menu fix
 
