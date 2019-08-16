@@ -50,28 +50,6 @@
   outline: 2px solid $scarlet;
 }
 
-.wp-calendar td .eventContainer {
-  box-shadow: 0 1px 2px rgba(0,0,0,.25), 0 1px 10px rgba(0,0,0,.1);
-  left: 50%;
-  top: calc(100% - 3px);
-  transform: translateX(calc(-#{ms(4)}em - #{ms(-6)}em));
-  width: #{ms(19)}em;
-  word-break: normal;
-}
-
-.wp-calendar td .eventContainer::before {
-  border-color: $scarlet transparent;
-  border-width: 0 $length-em-1 $length-em-1 $length-em-1;
-  border-style: solid;
-  content: '';
-  display: block;
-  height: 0;
-  left: $length-em-6;
-  position: absolute;
-  top: -2px;
-  transform: translateY(-100%);
-}
-
 .wp-calendar .monthvalue a:focus,
 .wp-calendar .monthvalue a:hover,
 .wp-calendar .yearvalue a:focus,
@@ -79,17 +57,6 @@
 .wp-calendar td .eventContainer a:focus,
 .wp-calendar td .eventContainer a:hover {
   text-decoration: underline;
-}
-
-.wp-calendar td .eventContainer.pos2 {
-  left: auto;
-  right: 50%;
-  transform: translateX(calc(#{ms(4)}em + #{ms(-6)}em));
-}
-
-.wp-calendar td .eventContainer.pos2::before {
-  left: auto;
-  right: $length-em-6;
 }
 
 .wp-calendar caption {
