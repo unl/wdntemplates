@@ -3,6 +3,10 @@
 ///////////////////////////////
 
 
+.unl-search-modal {
+  z-index: 100148; // Ensure that the z-index is below the modal and nav-toggle-group z-indices
+}
+
 // Modal is closed, hidden
 .unl-search-modal[aria-hidden="true"] {
   transition: opacity $timing-fade-out $easing-fade-out;
