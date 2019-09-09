@@ -112,12 +112,9 @@
   .unl .dcf-nav-menu {
     @include bg-scarlet;
     display: flex;
-//     flex: 1 0 auto;
     flex-wrap: nowrap;
-//     height: $height-nav-menu-md;
     padding-left: $length-vw-2;
     padding-right: $length-vw-2;
-//     position: relative;
   }
 
   .unl .dcf-nav-menu a,
