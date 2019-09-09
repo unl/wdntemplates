@@ -40,9 +40,11 @@
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.media-queries";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.object-fit";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.object-position";
+@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.opacity";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.order";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.overflow";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.padding";
+@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.pointer-events";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.position";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.svg";
 @import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.tables";
@@ -146,6 +148,7 @@
 @import "components/_components.icons";
 @import "components/_components.idm";
 @import "components/_components.input-groups";
+@import "components/_components.modals";
 @import "components/_components.nav-global";
 @import "components/_components.nav-local";
 @import "components/_components.nav-menu";
@@ -179,9 +182,11 @@
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.margins";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.object-fit";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.object-position";
+@import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.opacity";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.order";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.overflow";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.padding";
+@import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.pointer-events";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.position";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.svg";
 @import "../../../node_modules/dcf/assets/dist/scss/utilities/_utilities.tables";
