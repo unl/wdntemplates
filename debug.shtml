@@ -121,9 +121,9 @@
 
 
 
-      <div class="dcf-pb-8 dcf-measure">
+      <div class="dcf-pb-8 dcf-w-max-md">
   <!--     <h2>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park.</h2> -->
-        <p class="dcf-lead">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
+        <p class="dcf-txt-lg">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
 
         <div class="dcf-mb-6 dcf-ratio dcf-ratio-16x9 unl-frame-quad">
@@ -145,7 +145,7 @@
           <time class="" datetime="2010-08-07 11:11:03-0400" pubdate>08-07-2010</time>
           <p class="byline author vcard">By <span class="fn">Jane Doe</span></p>
         </header>
-        <p class="dcf-lead">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
+        <p class="dcf-txt-lg">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
     -->
 
@@ -254,7 +254,8 @@
             <div class="dcf-as-center">
               <div class="dcf-ratio dcf-ratio-16x9 unl-frame-quad unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes="(min-width: 41.956em) 43vw, 88vw"
                   data-src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg 284w"
                   data-srcset="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg 284w,
@@ -281,7 +282,8 @@
             <div class="dcf-1st unl-ftd-person-tsr-img">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -308,7 +310,8 @@
             <div class="dcf-1st unl-ftd-person-tsr-img">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -335,7 +338,8 @@
             <div class="dcf-1st unl-ftd-person-tsr-img">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -465,7 +469,8 @@
           <div class="dcf-1st dcf-col-50%-start dcf-col-33%-start@sm">
             <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
               <img
-                class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                loading="lazy"
+                class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                 data-sizes=""
                 data-src="https://via.placeholder.com/200x200"
                 data-srcset="https://via.placeholder.com/200x200 200w,
@@ -500,7 +505,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -520,7 +526,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -540,7 +547,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -560,7 +568,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -580,7 +589,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -600,7 +610,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -620,7 +631,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -640,7 +652,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -668,7 +681,8 @@
             <div class="dcf-as-center">
               <div class="dcf-ratio dcf-ratio-16x9 unl-frame-quad unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes="(min-width: 41.956em) 43vw, 88vw"
                   data-src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg 284w"
                   data-srcset="wdn/templates_5.0/images/dev/140903-life-498-sm-min.jpg 284w,
@@ -689,7 +703,8 @@
           <h2 class="dcf-txt-h4">Malesuada Pellentesque</h2>
           <div class="dcf-float-left dcf-h-10 dcf-w-10 dcf-mt-1 dcf-mr-4 dcf-mb-4 dcf-ratio dcf-ratio-1x1 dcf-circle unl-clip-circle">
             <img
-              class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+              loading="lazy"
+              class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
               data-sizes="5.62em"
               data-src="wdn/templates_5.0/images/dev/160813-commencement-563-sm-min.jpg 284w"
               data-srcset="wdn/templates_5.0/images/dev/160813-commencement-563-sm-min.jpg 284w,
@@ -1152,6 +1167,7 @@
   <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/js-body-local.html" -->
   <!-- InstanceBeginEditable name="jsbody" -->
+<!--
   <script>
 		require(["plugins/flatpickr/flatpickr", 'css!plugins/flatpickr/flatpickr', 'css!plugins/flatpickr/themes/airbnb'], function(flatpickr) {
 			var widget = document.querySelector('[data-widget="flatpickr"]');
@@ -1161,6 +1177,7 @@
 						});
 		})
   </script>
+-->
 <!--
   <script>
     require(['dialog'],function(dialogHelper){
