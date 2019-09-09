@@ -66,6 +66,7 @@ module.exports = function (grunt) {
 		'jqueryui',
 		'mediaelement_wdn',
 		'modal',
+		'modals',
 		'monthwidget',
 		'notice',
 	];
