@@ -40,7 +40,7 @@
 
 
   .unl .dcf-nav-menu {
-    @include bg-overlay-dark;
+    @include bg-overlay-light;
     bottom: #{$height-mobile-toolbar};
     height: 100vh;
     opacity: 0;
