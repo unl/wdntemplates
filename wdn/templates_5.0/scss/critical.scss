@@ -68,8 +68,14 @@ dialog:not([open]),
 template {
   display: none;
 }
-[hidden] {
-  display: none!important;
+*:not([role="dialog"])[hidden] {
+  display: none !important;
+}
+// Do not set dialogs to `display: none` by default
+// https://developer.paciellogroup.com/blog/2018/06/the-current-state-of-modal-dialog-accessibility/
+[role="dialog"][hidden] {
+  display: block !important;
+  visibility: hidden !important;
 }
 *,
 ::after,
@@ -231,6 +237,12 @@ a.dcf-btn-secondary {
 .dcf-header a,
 .dcf-header a:link {
   text-decoration: none;
+}
+.dcf-nav-local ul {
+  // Fix list-style: none in VoiceOver and Safari: https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+  list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
+  margin-bottom: 0;
+  padding-left: 0;
 }
 // .dcf-h1,
 // .dcf-h2,
@@ -458,19 +470,11 @@ a.dcf-btn-secondary {
 //   text-shadow: 1px 1px 1em rgba(36,36,35,.5);
 //   top: 1.78em;
 // }
-.unl .dcf-nav-local {
-  z-index: 998;
-}
 .unl .dcf-nav-local a:link {
   color: #fefdfa;
 }
 .unl .dcf-nav-local > ul {
   display: flex;
-}
-.unl .dcf-nav-menu ul {
-  list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
-  margin-bottom: 0;
-  padding-left: 0;
 }
 .unl .dcf-nav-menu li {
   margin-bottom: 0;
@@ -1896,7 +1900,7 @@ a.unl-cream:link {
   }
   .unl .dcf-nav-toggle-group {
     display: flex;
-    z-index: 100150;
+    z-index: 100148;
   }
   .unl .dcf-nav-toggle-btn {
     flex-basis: 25%;
@@ -1989,9 +1993,6 @@ a.unl-cream:link {
   }
   .unl .dcf-nav-toggle-group {
     display: none;
-  }
-  .unl .dcf-nav-toggle-btn-menu {
-    z-index: 998;
   }
   .unl .dcf-search {
     max-width: 13.32em;
