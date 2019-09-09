@@ -1,4 +1,4 @@
-define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'], function(Headroom, bodyScrollLock) {
+define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, bodyScrollLock) {
 
   const disableBodyScroll = bodyScrollLock.disableBodyScroll;
   const enableBodyScroll = bodyScrollLock.enableBodyScroll;
@@ -13,13 +13,19 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
 
       // grab an element
       let mobileActions = document.querySelectorAll('.hrjs');
+      let skipNav = document.getElementById('dcf-skip-nav');
+      let institutionTitle = document.getElementById('dcf-institution-title');
+      let idm = document.getElementById('dcf-idm');
+      let search = document.getElementById('dcf-search');
+      let logo = document.getElementById('dcf-logo-lockup');
+      let nav = document.getElementById('dcf-navigation');
       let main = document.querySelector('main');
       let footer = document.getElementById('dcf-footer');
 
       // construct an instance of Headroom, passing the element
-      for (let i=0; i<mobileActions.length; i++) {
+      for (let i = 0; i < mobileActions.length; i++) {
         let headroom = new Headroom(mobileActions[i], {
-          "tolerance" : {
+          'tolerance' : {
             up : 5,
             down : 5
           }
@@ -32,19 +38,43 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
       let toggleIconClose = document.getElementById('dcf-nav-toggle-icon-close-menu');
       let toggleLabel = document.querySelector('.dcf-nav-toggle-label-menu');
       let mobileNav = document.getElementById('dcf-navigation');
-      let modalParent = document.querySelector('.dcf-nav-menu.dcf-modal-parent');
+      let modalParent = document.querySelector('.dcf-nav-menu');
       let mobileNavMenu = document.getElementById('dcf-nav-menu-child');
-      let body = document.querySelector('body');
-      let firstLink = mobileNav.querySelector('a');
+      let tabFocusEls = mobileNavMenu.querySelectorAll('[href]');
+      let firstTabFocusEl = tabFocusEls[0];
+      let lastTabFocusEl = tabFocusEls[tabFocusEls.length - 1];
       let closeSearchEvent = new CustomEvent('closeSearch');
       let closeIDMOptionsEvent = new CustomEvent('closeDropDownWidget', {detail: {type: 'idm-logged-in'}});
 
       // We need to keep track of the toggle button that activated the menu so that we can return focus to it when the menu is closed
       let activeToggleButton = null;
 
-      function onKeyUp(e) {
+      function onKeyDown(e) {
         if (e.keyCode === 27) {
-          closeModal();
+          closeNavModal();
+        }
+
+        const keycodeTab = 9;
+
+        let isTabPressed = e.key === 'Tab' || e.keyCode === keycodeTab;
+
+        if (!isTabPressed) {
+          return;
+        }
+
+        // Trap focus inside the nav modal
+        if (e.key === 'Tab' || e.keyCode === keycodeTab) {
+          if ( e.shiftKey ) { // Tab backwards (shift + tab)
+            if (document.activeElement === firstTabFocusEl) {
+              e.preventDefault();
+              lastTabFocusEl.focus();
+            }
+          } else { // Tab forwards
+            if (document.activeElement === lastTabFocusEl) {
+              e.preventDefault();
+              firstTabFocusEl.focus();
+            }
+          }
         }
       }
 
@@ -55,10 +85,16 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
         }
       }
 
-      function openModal() {
+      function openNavModal() {
         if (window.matchMedia("(max-width: 56.12em)").matches) {
-          main.setAttribute('inert', '');
-          footer.setAttribute('inert', '');
+          skipNav.setAttribute('aria-hidden', 'true');
+          institutionTitle.setAttribute('aria-hidden', 'true');
+          idm.setAttribute('aria-hidden', 'true');
+          search.setAttribute('aria-hidden', 'true');
+          logo.setAttribute('aria-hidden', 'true');
+          nav.setAttribute('aria-hidden', 'true');
+          main.setAttribute('aria-hidden', 'true');
+          footer.setAttribute('aria-hidden', 'true');
           disableBodyScroll(mobileNavMenu);
         }
         for (var i = 0; i < toggleButtons.length; ++i) {
@@ -75,14 +111,20 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
         document.dispatchEvent(closeSearchEvent);
         document.dispatchEvent(closeIDMOptionsEvent);
 
-        firstLink.focus();
-        document.addEventListener('keyup', onKeyUp);
+        firstTabFocusEl.focus();
+        document.addEventListener('keydown', onKeyDown);
       }
 
-      function closeModal() {
+      function closeNavModal() {
         if (window.matchMedia("(max-width: 56.12em)").matches) {
-          main.removeAttribute('inert');
-          footer.removeAttribute('inert');
+          skipNav.setAttribute('aria-hidden', 'false');
+          institutionTitle.setAttribute('aria-hidden', 'false');
+          idm.setAttribute('aria-hidden', 'false');
+          search.setAttribute('aria-hidden', 'false');
+          logo.setAttribute('aria-hidden', 'false');
+          nav.setAttribute('aria-hidden', 'false');
+          main.setAttribute('aria-hidden', 'false');
+          footer.setAttribute('aria-hidden', 'false');
         }
         for (var i = 0; i < toggleButtons.length; ++i) {
           toggleButtons[i].setAttribute('aria-expanded', 'false');
@@ -94,7 +136,7 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
         toggleIconClose.classList.add('dcf-d-none');
         toggleLabel.textContent = 'Menu';
         activeToggleButton.focus();
-        document.removeEventListener('keyup', onKeyUp);
+        document.removeEventListener('keydown', onKeyDown);
 
         // Allow body scroll when navigation is closed
         enableBodyScroll(mobileNavMenu);
@@ -103,7 +145,7 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
       // add an event listener for closeSearchEvent
       document.addEventListener('closeNavigation', function(e) {
         if (modalParent.classList.contains('unl-nav-menu-open')) {
-          closeModal();
+          closeNavModal();
         }
       });
 
@@ -123,9 +165,9 @@ define(['plugins/headroom', 'plugins/body-scroll-lock', 'mustard/inert-polyfill'
       let toggleButtonOnClick = function() {
           activeToggleButton = this;
           if (modalParent.classList.contains('unl-nav-menu-open')) {
-            closeModal();
+            closeNavModal();
           } else {
-            openModal();
+            openNavModal();
           }
       };
 
