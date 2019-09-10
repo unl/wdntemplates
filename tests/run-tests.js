@@ -73,7 +73,10 @@ let runTests = function() {
       '    https://validator.w3.org/nu/?out=json');
 
     result = JSON.parse(result);
-    all_results.w3c = result.messages.filter(message => message.type === 'error');
+    w3c_errors = result.messages.filter(message => message.type === 'error');
+
+    // Remove img loading attribute errors
+    all_results.w3c = w3c_errors.filter(message => message.message !== "Attribute “loading” not allowed on element “img” at this point.");
 
     // Handle the results
     if (all_results.axe.length > 0 || all_results.w3c.length > 0) {
