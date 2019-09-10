@@ -15,6 +15,7 @@ module.exports = function (grunt) {
 		'js-css/events-band',
 		'js-css/events',
 		'js-css/formvalidator',
+		'js-css/modals',
 		'js-css/notices',
 		'js-css/monthwidget',
 		'js-css/unlalert',
