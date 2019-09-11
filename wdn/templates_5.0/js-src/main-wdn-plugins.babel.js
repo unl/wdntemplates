@@ -1,7 +1,7 @@
 "use strict";
 
 define([
-  'analytics', //this also loads the IDM plugin
+  'analytics', // This also loads the IdM plugin
   'navigation',
   'search',
   'unlalert',
@@ -12,10 +12,10 @@ define([
   'form_validation',
   'qa'
 ], function () {
-	for (var i = 0, pluginCount = arguments.length; i < pluginCount; i++) {
-		var pluginObj = arguments[i];
-		if (pluginObj && "initialize" in pluginObj) {
-			pluginObj.initialize();
-		}
-	}
+  for (var i = 0, pluginCount = arguments.length; i < pluginCount; i++) {
+    var pluginObj = arguments[i];
+    if (pluginObj && "initialize" in pluginObj) {
+      pluginObj.initialize();
+    }
+  }
 });

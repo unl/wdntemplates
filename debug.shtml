@@ -121,9 +121,9 @@
 
 
 
-      <div class="dcf-pb-8 dcf-measure">
+      <div class="dcf-pb-8 dcf-w-max-md">
   <!--     <h2>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park.</h2> -->
-        <p class="dcf-lead">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
+        <p class="dcf-txt-lg">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
 
         <div class="dcf-mb-6 dcf-ratio dcf-ratio-16x9 unl-frame-quad">
@@ -145,7 +145,7 @@
           <time class="" datetime="2010-08-07 11:11:03-0400" pubdate>08-07-2010</time>
           <p class="byline author vcard">By <span class="fn">Jane Doe</span></p>
         </header>
-        <p class="dcf-lead">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
+        <p class="dcf-txt-lg">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
     -->
 
@@ -254,7 +254,8 @@
             <div class="dcf-as-center">
               <div class="dcf-ratio dcf-ratio-16x9 unl-frame-quad unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes="(min-width: 41.956em) 43vw, 88vw"
                   data-src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg 284w"
                   data-srcset="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg 284w,
@@ -263,6 +264,9 @@
                           wdn/templates_5.0/images/dev/150815-commencement-324-xl-min.jpg 1596w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                   alt="Nilmar Robledo Caicedo from Colombia shakes hands after receiving his masters degree in agricultural economics.">
+                <noscript>
+                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Nilmar Robledo Caicedo from Colombia shakes hands after receiving his masters degree in agricultural economics.">
+                </noscript>
               </div>
             </div>
           </div>
@@ -281,7 +285,8 @@
             <div class="dcf-1st unl-ftd-person-tsr-img">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -289,7 +294,10 @@
                                https://via.placeholder.com/600x600 600w,
                                https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Kylie Tucker">
+                  alt="Placeholder for photo of Kylie Tucker.">
+                <noscript>
+                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="https://via.placeholder.com/200x200" alt="Placeholder for photo of Kylie Tucker.">
+                </noscript>
               </div>
             </div>
           </div>
@@ -308,7 +316,8 @@
             <div class="dcf-1st unl-ftd-person-tsr-img">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -316,7 +325,10 @@
                                https://via.placeholder.com/600x600 600w,
                                https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Valerie Jones">
+                  alt="Placeholder for photo of Valerie Jones.">
+                <noscript>
+                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Valerie Jones.">
+                </noscript>
               </div>
             </div>
           </div>
@@ -335,7 +347,8 @@
             <div class="dcf-1st unl-ftd-person-tsr-img">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -343,7 +356,10 @@
                                https://via.placeholder.com/600x600 600w,
                                https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Eartha Jean Johnson">
+                  alt="Placeholder for photo of Eartha Jean Johnson.">
+                <noscript>
+                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Eartha Jean Johnson.">
+                </noscript>
               </div>
             </div>
           </div>
@@ -465,7 +481,8 @@
           <div class="dcf-1st dcf-col-50%-start dcf-col-33%-start@sm">
             <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
               <img
-                class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                loading="lazy"
+                class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                 data-sizes=""
                 data-src="https://via.placeholder.com/200x200"
                 data-srcset="https://via.placeholder.com/200x200 200w,
@@ -473,7 +490,10 @@
                              https://via.placeholder.com/600x600 600w,
                              https://via.placeholder.com/800x800 800w"
                 src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                alt="Placeholder for photo of Charles O’Connor">
+                alt="Placeholder for photo of Charles O’Connor.">
+                <noscript>
+                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Charles O’Connor.">
+                </noscript>
             </div>
           </div>
         </div>
@@ -500,7 +520,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -508,7 +529,10 @@
                                https://via.placeholder.com/600x600 600w,
                                https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Kathe Andersen">
+                  alt="Placeholder for photo of Kathe Andersen.">
+                <noscript>
+                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Kathe Andersen.">
+                </noscript>
               </div>
             </div>
           </li>
@@ -520,7 +544,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -528,7 +553,10 @@
                                https://via.placeholder.com/600x600 600w,
                                https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of David Bagby">
+                  alt="Placeholder for photo of David Bagby.">
+                <noscript>
+                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of David Bagby.">
+                </noscript>
               </div>
             </div>
           </li>
@@ -540,7 +568,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -548,7 +577,10 @@
                                https://via.placeholder.com/600x600 600w,
                                https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Allison Casey">
+                  alt="Placeholder for photo of Allison Casey.">
+                <noscript>
+                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Allison Casey.">
+                </noscript>
               </div>
             </div>
           </li>
@@ -560,7 +592,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -568,7 +601,10 @@
                                https://via.placeholder.com/600x600 600w,
                                https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Rachel Danay">
+                  alt="Placeholder for photo of Rachel Danay.">
+                <noscript>
+                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Rachel Danay.">
+                </noscript>
               </div>
             </div>
           </li>
@@ -580,7 +616,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -588,7 +625,10 @@
                                https://via.placeholder.com/600x600 600w,
                                https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Sara Fedderson">
+                  alt="Placeholder for photo of Sara Fedderson.">
+                <noscript>
+                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Sara Fedderson.">
+                </noscript>
               </div>
             </div>
           </li>
@@ -600,7 +640,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -608,7 +649,10 @@
                                https://via.placeholder.com/600x600 600w,
                                https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Matthew Knight">
+                  alt="Placeholder for photo of Matthew Knight.">
+                <noscript>
+                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Matthew Knight.">
+                </noscript>
               </div>
             </div>
           </li>
@@ -620,7 +664,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -628,7 +673,10 @@
                                https://via.placeholder.com/600x600 600w,
                                https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Joseph Morris">
+                  alt="Placeholder for photo of Joseph Morris.">
+                <noscript>
+                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Joseph Morris.">
+                </noscript>
               </div>
             </div>
           </li>
@@ -640,7 +688,8 @@
             <div class="dcf-1st dcf-mb-3">
               <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes=""
                   data-src="https://via.placeholder.com/200x200"
                   data-srcset="https://via.placeholder.com/200x200 200w,
@@ -648,7 +697,10 @@
                                https://via.placeholder.com/600x600 600w,
                                https://via.placeholder.com/800x800 800w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Michael Reinmiller">
+                  alt="Placeholder for photo of Michael Reinmiller.">
+                <noscript>
+                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Michael Reinmiller.">
+                </noscript>
               </div>
             </div>
           </li>
@@ -668,7 +720,8 @@
             <div class="dcf-as-center">
               <div class="dcf-ratio dcf-ratio-16x9 unl-frame-quad unl-bg-light-gray">
                 <img
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+                  loading="lazy"
+                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
                   data-sizes="(min-width: 41.956em) 43vw, 88vw"
                   data-src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg 284w"
                   data-srcset="wdn/templates_5.0/images/dev/140903-life-498-sm-min.jpg 284w,
@@ -677,6 +730,9 @@
                           wdn/templates_5.0/images/dev/140903-life-498-xl-min.jpg 1596w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                   alt="Students in LIFE 120 L Fundamentals of Biology 1 laboratory in Brace Hall.">
+                <noscript>
+                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Students in LIFE 120 L Fundamentals of Biology 1 laboratory in Brace Hall.">
+                </noscript>
               </div>
             </div>
           </div>
@@ -689,7 +745,8 @@
           <h2 class="dcf-txt-h4">Malesuada Pellentesque</h2>
           <div class="dcf-float-left dcf-h-10 dcf-w-10 dcf-mt-1 dcf-mr-4 dcf-mb-4 dcf-ratio dcf-ratio-1x1 dcf-circle unl-clip-circle">
             <img
-              class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-img"
+              loading="lazy"
+              class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
               data-sizes="5.62em"
               data-src="wdn/templates_5.0/images/dev/160813-commencement-563-sm-min.jpg 284w"
               data-srcset="wdn/templates_5.0/images/dev/160813-commencement-563-sm-min.jpg 284w,
@@ -698,6 +755,9 @@
                       wdn/templates_5.0/images/dev/160813-commencement-563-xl-min.jpg 1596w"
               src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
               alt="Husker grad holds up her diploma in celebration during the summer all-university commencement ceremony at Pinnacle Bank Arena.">
+            <noscript>
+              <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Husker grad holds up her diploma in celebration during the summer all-university commencement ceremony at Pinnacle Bank Arena.">
+            </noscript>
           </div>
           <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
       	</div>
@@ -1152,6 +1212,7 @@
   <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
   <!--#include virtual="/wdn/templates_5.0/includes/global/js-body-local.html" -->
   <!-- InstanceBeginEditable name="jsbody" -->
+<!--
   <script>
 		require(["plugins/flatpickr/flatpickr", 'css!plugins/flatpickr/flatpickr', 'css!plugins/flatpickr/themes/airbnb'], function(flatpickr) {
 			var widget = document.querySelector('[data-widget="flatpickr"]');
@@ -1161,6 +1222,7 @@
 						});
 		})
   </script>
+-->
 <!--
   <script>
     require(['dialog'],function(dialogHelper){
