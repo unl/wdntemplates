@@ -4,7 +4,7 @@
 
 
 .unl-search-modal {
-  z-index: 998; // Ensure that the z-index is below the modal and nav-toggle-group z-indices
+  z-index: 999; // Must be below the modal z-index, but above the nav local z-index
 }
 
 // Modal is closed, hidden
