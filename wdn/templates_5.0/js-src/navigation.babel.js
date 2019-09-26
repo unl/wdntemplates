@@ -40,6 +40,10 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
       let mobileNav = document.getElementById('dcf-navigation');
       let modalParent = document.querySelector('.dcf-nav-menu');
       let mobileNavMenu = document.getElementById('dcf-nav-menu-child');
+      if (!mobileNavMenu) {
+        mobileNavMenu = document.createElement('nav');
+        mobileNavMenu.setAttribute('id', 'dcf-nav-menu-child');
+      }
       let tabFocusEls = mobileNavMenu.querySelectorAll('[href]');
       let firstTabFocusEl = tabFocusEls[0];
       let lastTabFocusEl = tabFocusEls[tabFocusEls.length - 1];

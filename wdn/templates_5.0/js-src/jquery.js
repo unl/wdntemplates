@@ -10145,7 +10145,8 @@
     return this;
   };
 
-
+  // Polyfill hack
+  jQuery.fn.load = function(callback){ jQuery(window).on("load", callback) };
 
 
 // Attach a bunch of functions for handling common AJAX events
