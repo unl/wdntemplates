@@ -3,7 +3,7 @@
 ///////////////////////////////
 
 
-table {
+table:not(.dcf-table) {
   @include bg-transparent;
   border-bottom: 1px solid $color-border;
   @include font-sans;
@@ -11,33 +11,33 @@ table {
   width: 100%;
 }
 
-thead,
-tbody {
+table:not(.dcf-table) thead,
+table:not(.dcf-table) tbody {
   @include txt-sm;
 }
 
-td,
-th {
+table:not(.dcf-table) td,
+table:not(.dcf-table) th {
   border: 1px solid $color-border;
   @include pl-4;
   @include pr-4;
 }
 
-thead th,
-thead td {
+table:not(.dcf-table) thead th,
+table:not(.dcf-table) thead td {
   @include pb-3;
   @include pt-5;
   vertical-align: bottom;
 }
 
-tbody th,
-tbody td {
+table:not(.dcf-table) tbody th,
+table:not(.dcf-table) tbody td {
   @include pb-3;
   @include pt-3;
   vertical-align: top;
 }
 
-tbody tr:nth-of-type(even) {
+table:not(.dcf-table) tbody tr:nth-of-type(even) {
   background-color: $color-table-stripe;
 }
 
