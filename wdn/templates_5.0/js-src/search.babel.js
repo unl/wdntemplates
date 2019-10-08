@@ -178,8 +178,15 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
         modal.closeModal(searchModalId);
       };
 
+      // Actions to take when search modal is opened
       let onOpenSearchModalEvent= function() {
 
+        // Hide other mobile toggles
+        document.dispatchEvent(closeNavEvent);
+        document.dispatchEvent(closeIDMOptionsEvent);
+
+        // Put focus on search text input
+        domQ.focus();
       };
 
       // Add an event listener for search modal open event
@@ -188,6 +195,7 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
         onOpenSearchModalEvent();
       });
 
+      // Actions to take when search modal is closed
       let onCloseSearchModalEvent= function() {
         clearTimeout(autoSubmitTimeout);
         domQ.value = '';
