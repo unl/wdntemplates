@@ -88,6 +88,11 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
       }
 
       function openNavModal() {
+
+        // Hide other mobile toggles
+        document.dispatchEvent(closeSearchEvent);
+        document.dispatchEvent(closeIDMOptionsEvent);
+
         if (window.matchMedia("(max-width: 56.12em)").matches) {
           skipNav.setAttribute('aria-hidden', 'true');
           institutionTitle.setAttribute('aria-hidden', 'true');
@@ -106,10 +111,6 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
         toggleIconOpen.classList.add('dcf-d-none');
         toggleIconClose.classList.remove('dcf-d-none');
         toggleLabel.textContent = 'Close';
-
-        // Hide other mobile toggles
-        document.dispatchEvent(closeSearchEvent);
-        document.dispatchEvent(closeIDMOptionsEvent);
 
         firstTabFocusEl.focus();
         document.addEventListener('keydown', onKeyDown);
