@@ -1,6 +1,4 @@
-define(['wdn', 'require', 'plugins/body-scroll-lock'], function(WDN, require, bodyScrollLock) {
-  const disableBodyScroll = bodyScrollLock.disableBodyScroll;
-  const enableBodyScroll = bodyScrollLock.enableBodyScroll;
+define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
   let autoSearchDebounceDelay = 1000;
   let searchEmbedVersion = '5.0';
 
@@ -22,6 +20,8 @@ define(['wdn', 'require', 'plugins/body-scroll-lock'], function(WDN, require, bo
       }
 
       initd = true;
+
+      const searchModalId = 'dcf-search-results';
 
       // Get Search links and buttons
       const domDesktopSearchLink = document.getElementById('dcf-search-toggle-link');
@@ -56,23 +56,9 @@ define(['wdn', 'require', 'plugins/body-scroll-lock'], function(WDN, require, bo
         }
       }
 
-      let domDialog = document.getElementById('dcf-search-results');
-      if (!domDialog) {
-        domDialog = document.createElement('div');
-        domDialog.setAttribute('id', 'dcf-search-results');
-      }
-
       let domSearchResultWrapper = document.getElementById('dcf-search-results-wrapper'),
         domQ = document.getElementById('dcf-search_query'),
         domSearchForm = document.getElementById('dcf-search-form'),
-        tabFocusEls = domDialog.querySelectorAll('button:not([hidden]):not([disabled]), ' +
-            '[href]:not([hidden]), input:not([hidden]):not([type="hidden"]):not([disabled]), ' +
-            'select:not([hidden]):not([disabled]), textarea:not([hidden]):not([disabled]), ' +
-            '[tabindex="0"]:not([hidden]):not([disabled]), summary:not([hidden]), ' +
-            '[contenteditable]:not([hidden]), audio[controls]:not([hidden]), ' +
-            'video[controls]:not([hidden])'),
-            firstTabFocusEl = tabFocusEls[0],
-            lastTabFocusEl = tabFocusEls[tabFocusEls.length - 1],
         domEmbed,
         $unlSearch,
         $progress,
@@ -93,14 +79,6 @@ define(['wdn', 'require', 'plugins/body-scroll-lock'], function(WDN, require, bo
       // Give up if the search form has been unexpectedly removed
       if (!domSearchForm) {
         return;
-      }
-
-      // Check if search modal has `hidden` attribute
-      if (domDialog.hasAttribute('hidden')) {
-        // Remove `hidden` attribute
-        domDialog.removeAttribute('hidden');
-        // Replace with these classes
-        domDialog.classList.add('dcf-opacity-0', 'dcf-pointer-events-none', 'dcf-invisible');
       }
 
       // Ensure the default action is the UNL Search app
@@ -195,12 +173,22 @@ define(['wdn', 'require', 'plugins/body-scroll-lock'], function(WDN, require, bo
         $progress.hidden = true;
       };
 
-      let closeSearch = function(returnFocus = false) {
-        if (domDialog.classList.contains('dcf-invisible')) {
-          // Search is already closed.
-          return;
-        }
+      let closeSearch = function() {
+        var modal = new Modal([]);
+        modal.closeModal(searchModalId);
+      };
 
+      let onOpenSearchModalEvent= function() {
+
+      };
+
+      // Add an event listener for search modal open event
+      const openSearchModelEvent = 'ModalOpenEvent_' . searchModalId;
+      document.addEventListener(openSearchModelEvent, function(e) {
+        onOpenSearchModalEvent();
+      });
+
+      let onCloseSearchModalEvent= function() {
         clearTimeout(autoSubmitTimeout);
         domQ.value = '';
         domSearchForm.parentElement.classList.remove('active');
@@ -213,30 +201,10 @@ define(['wdn', 'require', 'plugins/body-scroll-lock'], function(WDN, require, bo
         }
       };
 
-      // Trap focus inside the search modal
-      domDialog.addEventListener('keydown', function(e) {
-
-        const keycodeTab = 9;
-
-        let isTabPressed = e.key === 'Tab' || e.keyCode === keycodeTab;
-
-        if (!isTabPressed) {
-          return;
-        }
-
-        if (e.key === 'Tab' || e.keyCode === keycodeTab) {
-          if ( e.shiftKey ) { // Tab backwards (shift + tab)
-            if (document.activeElement === firstTabFocusEl) {
-              e.preventDefault();
-              lastTabFocusEl.focus();
-            }
-          } else { // Tab forwards
-            if (document.activeElement === lastTabFocusEl) {
-              e.preventDefault();
-              firstTabFocusEl.focus();
-            }
-          }
-        }
+      // Add an event listener for search modal close event
+      const closeSearchModalEvent = 'ModalCloseEvent_' . searchModalId;
+      document.addEventListener(closeSearchModalEvent, function(e) {
+        onCloseSearchModalEvent();
       });
 
       // Add an event listener for closeSearchEvent
