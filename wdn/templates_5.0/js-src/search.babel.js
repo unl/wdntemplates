@@ -190,7 +190,7 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
       };
 
       // Add an event listener for search modal open event
-      const openSearchModelEvent = 'ModalOpenEvent_' . searchModalId;
+      const openSearchModelEvent = 'ModalOpenEvent_' + searchModalId;
       document.addEventListener(openSearchModelEvent, function(e) {
         onOpenSearchModalEvent();
       });
@@ -210,7 +210,7 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
       };
 
       // Add an event listener for search modal close event
-      const closeSearchModalEvent = 'ModalCloseEvent_' . searchModalId;
+      const closeSearchModalEvent = 'ModalCloseEvent_' + searchModalId;
       document.addEventListener(closeSearchModalEvent, function(e) {
         onCloseSearchModalEvent();
       });
