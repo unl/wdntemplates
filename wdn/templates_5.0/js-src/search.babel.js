@@ -40,6 +40,7 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
           searchBtn.setAttribute('aria-expanded', 'false');
           searchBtn.setAttribute('aria-label', 'Open search');
           searchBtn.innerHTML = domDesktopSearchLink.innerHTML;
+          domDesktopSearchLink.innerHTML = '';
         }
       }
 
@@ -53,6 +54,7 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
           searchBtn.setAttribute('aria-expanded', 'false');
           searchBtn.setAttribute('aria-label', 'Open search');
           searchBtn.innerHTML = domMobileSearchLink.innerHTML;
+          domMobileSearchLink.innerHTML = '';
         }
       }
 
