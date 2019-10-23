@@ -103,24 +103,9 @@ define(['wdn', 'require', 'plugins/body-scroll-lock'], function(WDN, require, bo
         return;
       }
 
-      // Check if search modal has `hidden` attribute
-      if (domDialog.hasAttribute('hidden')) {
-        // Remove `hidden` attribute
-        domDialog.removeAttribute('hidden');
-        // Replace with these classes
-        domDialog.classList.add('dcf-opacity-0', 'dcf-pointer-events-none', 'dcf-invisible');
-      }
-
-      function modalTransition(event) {
-        domDialog.removeEventListener('transitionend', modalTransition);
-        if (!domDialog.classList.contains('dcf-invisible')) {
-          domDialog.classList.add('dcf-invisible');
-        }
-      }
-
       var domToggleButtonOnClick = function(e) {
 
-        if (domDialog.classList.contains('dcf-invisible')) {
+        if (!domDialog.classList.contains('dcf-modal-open')) {
 
           // Search is currently closed, so open it.
           for (let i = 0; i < domToggleButtons.length; i++) {
@@ -137,8 +122,7 @@ define(['wdn', 'require', 'plugins/body-scroll-lock'], function(WDN, require, bo
           nav.setAttribute('aria-hidden', 'true');
           main.setAttribute('aria-hidden', 'true');
           footer.setAttribute('aria-hidden', 'true');
-          domDialog.classList.remove('dcf-opacity-0', 'dcf-pointer-events-none', 'dcf-invisible');
-          domDialog.classList.add('dcf-opacity-100', 'dcf-pointer-events-auto');
+          domDialog.classList.add('dcf-modal-open');
           domDialog.setAttribute('aria-hidden', 'false');
           domActiveToggleButton = this;
 
@@ -260,7 +244,7 @@ define(['wdn', 'require', 'plugins/body-scroll-lock'], function(WDN, require, bo
       };
 
       let closeSearch = function(returnFocus = false) {
-        if (domDialog.classList.contains('dcf-invisible')) {
+        if (!domDialog.classList.contains('dcf-modal-open')) {
           // Search is already closed.
           return;
         }
@@ -275,9 +259,7 @@ define(['wdn', 'require', 'plugins/body-scroll-lock'], function(WDN, require, bo
         nav.setAttribute('aria-hidden', 'false');
         main.setAttribute('aria-hidden', 'false');
         footer.setAttribute('aria-hidden', 'false');
-        domDialog.addEventListener('transitionend', modalTransition);
-        domDialog.classList.remove('dcf-opacity-100', 'dcf-pointer-events-auto');
-        domDialog.classList.add('dcf-opacity-0', 'dcf-pointer-events-none');
+        domDialog.classList.remove('dcf-modal-open');
         domDialog.setAttribute('aria-hidden', 'true');
         for (let i = 0; i < domToggleButtons.length; i++) {
           domToggleButtons[i].setAttribute('aria-expanded', 'false');
