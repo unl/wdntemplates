@@ -3,6 +3,37 @@
 ////////////////////////////
 
 
+// Temp modal
+.dcf-modal-overlay {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: none;
+  width: 100%;
+  z-index: 100149;
+}
+
+// Modal is closed, hidden
+.dcf-modal-overlay[aria-hidden=true] {
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity $timing-fade-out $easing-fade-out, visibility 0ms .4s;
+	visibility: hidden;
+}
+
+// Modal is open, visible
+.dcf-modal-overlay[aria-hidden=false] {
+	opacity: 1;
+	pointer-events: auto;
+	transition: opacity $timing-fade-in $easing-fade-in;
+	visibility: visible;
+}
+
+
 .unl-stripes::after {
   background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px);
   content: '';
