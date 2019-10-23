@@ -82,13 +82,6 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
         }
       }
 
-      function modalTransition(event) {
-        modalParent.removeEventListener('transitionend', modalTransition);
-        if (!modalParent.classList.contains('unl-nav-menu-closed')) {
-          modalParent.classList.add('unl-nav-menu-closed');
-        }
-      }
-
       function openNavModal() {
         if (window.matchMedia("(max-width: 56.12em)").matches) {
           skipNav.setAttribute('aria-hidden', 'true');
@@ -105,8 +98,7 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
           toggleButtons[i].setAttribute('aria-expanded', 'true');
           toggleButtons[i].setAttribute('aria-label', 'close menu');
         }
-        modalParent.classList.remove('unl-nav-menu-closed');
-        modalParent.classList.add('unl-nav-menu-open');
+        modalParent.classList.add('dcf-modal-open');
         toggleIconOpen.classList.add('dcf-d-none');
         toggleIconClose.classList.remove('dcf-d-none');
         toggleLabel.textContent = 'Close';
@@ -134,8 +126,7 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
           toggleButtons[i].setAttribute('aria-expanded', 'false');
           toggleButtons[i].setAttribute('aria-label', 'open menu');
         }
-        modalParent.addEventListener('transitionend', modalTransition);
-        modalParent.classList.remove('unl-nav-menu-open');
+        modalParent.classList.remove('dcf-modal-open');
         toggleIconOpen.classList.remove('dcf-d-none');
         toggleIconClose.classList.add('dcf-d-none');
         toggleLabel.textContent = 'Menu';
@@ -148,14 +139,14 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
 
       // add an event listener for closeSearchEvent
       document.addEventListener('closeNavigation', function(e) {
-        if (modalParent.classList.contains('unl-nav-menu-open')) {
+        if (modalParent.classList.contains('dcf-modal-open')) {
           closeNavModal();
         }
       });
 
       // add an event listener for resize
       window.addEventListener('resize', function(e) {
-        if (window.matchMedia("(max-width: 56.12em)").matches && modalParent.classList.contains('unl-nav-menu-open')) {
+        if (window.matchMedia("(max-width: 56.12em)").matches && modalParent.classList.contains('dcf-modal-open')) {
           main.setAttribute('inert', '');
           footer.setAttribute('inert', '');
           disableBodyScroll(mobileNavMenu);
@@ -168,7 +159,7 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
 
       let toggleButtonOnClick = function() {
           activeToggleButton = this;
-          if (modalParent.classList.contains('unl-nav-menu-open')) {
+          if (modalParent.classList.contains('dcf-modal-open')) {
             closeNavModal();
           } else {
             openNavModal();
