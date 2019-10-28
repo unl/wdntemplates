@@ -1955,7 +1955,9 @@ a.unl-cream:link {
   .unl .dcf-nav-toggle-btn {
     flex-basis: 25%;
   }
-  .unl-nav-menu-closed {
+  .unl .dcf-nav-menu {
+    opacity: 0;
+    pointer-events: none;
     visibility: hidden;
   }
   .unl .dcf-header .dcf-institution-title,
@@ -2069,4 +2071,9 @@ a.unl-cream:link {
   .unl .dcf-txt-h1 {
     font-size: 2.37em!important;
   }
+}
+.dcf-modal-overlay[aria-hidden=true] {
+	opacity: 0;
+	pointer-events: none;
+	visibility: hidden;
 }
