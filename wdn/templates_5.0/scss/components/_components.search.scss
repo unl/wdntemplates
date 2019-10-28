@@ -2,23 +2,6 @@
 // !THEME / COMPONENTS / SEARCH
 ///////////////////////////////
 
-
-.unl-search-modal {
-  z-index: 999; // Must be below the modal z-index, but above the nav local z-index
-}
-
-// Modal is closed, hidden
-.unl-search-modal[aria-hidden="true"] {
-  transition: opacity $timing-fade-out $easing-fade-out;
-}
-
-
-// Modal is open, visible
-.unl-search-modal[aria-hidden="false"] {
-  transition: opacity $timing-fade-in $easing-fade-in;
-}
-
-
 .no-js .unl-search-bg,
 .no-webp .unl-search-bg {
   background-image: url('../images/unl-search-bg-640.png');
