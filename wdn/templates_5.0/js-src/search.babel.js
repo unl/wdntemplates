@@ -36,7 +36,6 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
         for (let i = 0; i < domDesktopSearchBtns.length; i++) {
           let searchBtn = domDesktopSearchBtns[i];
           searchBtn.removeAttribute('hidden');
-          searchBtn.setAttribute('aria-hidden', false);
           searchBtn.setAttribute('aria-expanded', 'false');
           searchBtn.setAttribute('aria-label', 'Open search');
           searchBtn.innerHTML = domDesktopSearchLink.innerHTML;
@@ -46,11 +45,9 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
 
       if (domMobileSearchLink && domMobileSearchBtns && domMobileSearchBtns.length) {
         domMobileSearchLink.setAttribute('hidden', '');
-        domMobileSearchLink.setAttribute('aria-hidden', true);
         for (let i = 0; i < domMobileSearchBtns.length; i++) {
           let searchBtn = domMobileSearchBtns[i];
           searchBtn.removeAttribute('hidden');
-          searchBtn.setAttribute('aria-hidden', false);
           searchBtn.setAttribute('aria-expanded', 'false');
           searchBtn.setAttribute('aria-label', 'Open search');
           searchBtn.innerHTML = domMobileSearchLink.innerHTML;

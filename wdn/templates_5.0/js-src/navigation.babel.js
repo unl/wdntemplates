@@ -90,7 +90,7 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
           skipNav.setAttribute('aria-hidden', 'true');
           institutionTitle.setAttribute('aria-hidden', 'true');
           logo.setAttribute('aria-hidden', 'true');
-          nav.setAttribute('aria-hidden', 'true');
+          nav.setAttribute('aria-hidden', 'false');
           main.setAttribute('aria-hidden', 'true');
           footer.setAttribute('aria-hidden', 'true');
           disableBodyScroll(mobileNavMenu);
@@ -113,7 +113,7 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
           skipNav.setAttribute('aria-hidden', 'false');
           institutionTitle.setAttribute('aria-hidden', 'false');
           logo.setAttribute('aria-hidden', 'false');
-          nav.setAttribute('aria-hidden', 'false');
+          nav.setAttribute('aria-hidden', 'true');
           main.setAttribute('aria-hidden', 'false');
           footer.setAttribute('aria-hidden', 'false');
 
