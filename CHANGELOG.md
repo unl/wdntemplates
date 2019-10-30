@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.14 (October 28, 2019)
+- Remove deprecated.css link from head include files (can now be included by a developer if they choose)
+- Temporarily remove reduced motion preference and revert to previously-used method for transitioning modal states for search and mobile navigation
+- Remove monthwidet date hover UI (JS & CSS)
+- Add ID to skip nav
+- Add legacy hero CSS
+- Do not apply deprecated styles to .dcf-table
+
 ## 5.0.13 (August 14, 2019)
 - Emergency fix to paths in wdn/templates_5.0/includes/global/head-2.html for non-local/"cloud" template users 
 
