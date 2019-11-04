@@ -22,6 +22,7 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
       initd = true;
 
       const searchModalId = 'dcf-search-results';
+      const modal = new Modal([]);
 
       // Get Search links and buttons
       const domDesktopSearchLink = document.getElementById('dcf-search-toggle-link');
@@ -30,19 +31,6 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
       const domMobileSearchBtns = document.getElementsByClassName('dcf-mobile-search-button');
 
       // Disable links and Enable buttons
-      if (domDesktopSearchLink && domDesktopSearchBtns && domDesktopSearchBtns.length) {
-        domDesktopSearchLink.setAttribute('hidden', '');
-        domDesktopSearchLink.setAttribute('aria-hidden', true);
-        for (let i = 0; i < domDesktopSearchBtns.length; i++) {
-          let searchBtn = domDesktopSearchBtns[i];
-          searchBtn.removeAttribute('hidden');
-          searchBtn.setAttribute('aria-expanded', 'false');
-          searchBtn.setAttribute('aria-label', 'Open search');
-          searchBtn.innerHTML = domDesktopSearchLink.innerHTML;
-          domDesktopSearchLink.innerHTML = '';
-        }
-      }
-
       let mobileSearchBtn = null;
       if (domMobileSearchLink && domMobileSearchBtns && domMobileSearchBtns.length) {
         domMobileSearchLink.setAttribute('hidden', '');
@@ -54,6 +42,27 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
           searchBtn.innerHTML = domMobileSearchLink.innerHTML;
           domMobileSearchLink.innerHTML = '';
           mobileSearchBtn = searchBtn;
+        }
+      }
+
+      if (domDesktopSearchLink && domDesktopSearchBtns && domDesktopSearchBtns.length) {
+        domDesktopSearchLink.setAttribute('hidden', '');
+        domDesktopSearchLink.setAttribute('aria-hidden', true);
+        for (let i = 0; i < domDesktopSearchBtns.length; i++) {
+          let searchBtn = domDesktopSearchBtns[i];
+          searchBtn.removeAttribute('hidden');
+          searchBtn.setAttribute('aria-expanded', 'false');
+          searchBtn.setAttribute('aria-label', 'Open search');
+          searchBtn.innerHTML = domDesktopSearchLink.innerHTML;
+          domDesktopSearchLink.innerHTML = '';
+
+          // Toggle mobile nav state on desktop open click
+          searchBtn.addEventListener('click', function(e) {
+            // Update search toggle nav button to search/open state when search is closed
+            if (mobileSearchBtn) {
+              modal.setNavToggleBtnState(mobileSearchBtn, 'close');
+            }
+          }, false);
         }
       }
 
@@ -175,13 +184,7 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
       };
 
       let closeSearch = function() {
-        let modal = new Modal([]);
         modal.closeModal(searchModalId);
-
-        // Update search toggle nav button to search/open state when search is closed
-        if (mobileSearchBtn) {
-          modal.setNavToggleBtnState(mobileSearchBtn, 'open');
-        }
       };
 
       // Actions to take when search modal is opened
@@ -203,6 +206,12 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
 
       // Actions to take when search modal is closed
       let onCloseSearchModalEvent= function() {
+
+        // Update search toggle nav button to search/open state when search is closed
+        if (mobileSearchBtn) {
+          modal.setNavToggleBtnState(mobileSearchBtn, 'open');
+        }
+
         clearTimeout(autoSubmitTimeout);
         domQ.value = '';
         domSearchForm.parentElement.classList.remove('active');
