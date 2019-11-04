@@ -43,6 +43,7 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
         }
       }
 
+      let mobileSearchBtn = null;
       if (domMobileSearchLink && domMobileSearchBtns && domMobileSearchBtns.length) {
         domMobileSearchLink.setAttribute('hidden', '');
         for (let i = 0; i < domMobileSearchBtns.length; i++) {
@@ -52,15 +53,13 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
           searchBtn.setAttribute('aria-label', 'Open search');
           searchBtn.innerHTML = domMobileSearchLink.innerHTML;
           domMobileSearchLink.innerHTML = '';
+          mobileSearchBtn = searchBtn;
         }
       }
 
       let domSearchResultWrapper = document.getElementById('dcf-search-results-wrapper'),
         domQ = document.getElementById('dcf-search_query'),
         domSearchForm = document.getElementById('dcf-search-form'),
-        domToggleIconOpen = document.getElementById('dcf-nav-toggle-icon-open-search'),
-        domToggleIconClose = document.getElementById('dcf-nav-toggle-icon-close-search'),
-        domToggleLabel = document.querySelector('.dcf-nav-toggle-label-search'),
         domEmbed,
         $unlSearch,
         $progress,
@@ -176,17 +175,17 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
       };
 
       let closeSearch = function() {
-        var modal = new Modal([]);
+        let modal = new Modal([]);
         modal.closeModal(searchModalId);
+
+        // Update search toggle nav button to search/open state when search is closed
+        if (mobileSearchBtn) {
+          modal.setNavToggleBtnState(mobileSearchBtn, 'open');
+        }
       };
 
       // Actions to take when search modal is opened
       let onOpenSearchModalEvent= function() {
-
-        // Update search toggle nav button to closed state when search is open
-        domToggleIconOpen.classList.add('dcf-d-none');
-        domToggleIconClose.classList.remove('dcf-d-none');
-        domToggleLabel.textContent = 'Close';
 
         // Hide other mobile toggles
         document.dispatchEvent(closeNavEvent);
@@ -204,12 +203,6 @@ define(['wdn', 'require', 'dcf-modal'], function(WDN, require, Modal) {
 
       // Actions to take when search modal is closed
       let onCloseSearchModalEvent= function() {
-
-        // Update search toggle nav button to search state when search is closed
-        domToggleIconOpen.classList.remove('dcf-d-none');
-        domToggleIconClose.classList.add('dcf-d-none');
-        domToggleLabel.textContent = 'Search';
-
         clearTimeout(autoSubmitTimeout);
         domQ.value = '';
         domSearchForm.parentElement.classList.remove('active');
