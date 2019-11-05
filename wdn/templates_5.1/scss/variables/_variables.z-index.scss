@@ -1,0 +1,8 @@
+//////////////////////////////
+// !THEME / VARIABLES / Z-INDEX
+//////////////////////////////
+
+$z-nav-toggle-group: 100000;
+$z-nav-toggle-group-after: -2;
+$z-modal-full-screen: 1000000;
+$z-modal-with-nav-toggle-group: $z-nav-toggle-group - 1000;

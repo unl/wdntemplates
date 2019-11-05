@@ -1,0 +1,73 @@
+////////////////////////////////
+// !THEME / MIXINS / BACKGROUNDS
+////////////////////////////////
+
+
+// !Scarlet
+@mixin bg-scarlet($imp:null) { background-color: $scarlet $imp; }
+
+
+// !Cream
+@mixin bg-cream($imp:null) { background-color: $cream $imp; }
+
+
+// !Light
+@mixin bg-light($imp:null) { background-color: $light-gray $imp; }
+@mixin bg-lighter($imp:null) { background-color: $lighter-gray $imp; }
+@mixin bg-lightest($imp:null) { background-color: $lightest-gray $imp; }
+
+
+// !Dark
+@mixin bg-dark($imp:null) { background-color: $dark-gray $imp; }
+@mixin bg-darker($imp:null) { background-color: $darker-gray $imp; }
+@mixin bg-darkest($imp:null) { background-color: $darkest-gray $imp; }
+
+
+// !Grit
+@mixin bg-grit($imp:null) {
+  background-image: url('../images/bg-grit.png') $imp;
+  background-position: 50% 50% $imp;
+  background-repeat: repeat $imp;
+  background-size: 80px $imp;
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  	background-image: url('../images/bg-grit_2x.png') $imp;
+  }
+
+}
+
+@mixin bg-grit-webp($imp:null) {
+  background-image: url('../images/bg-grit.webp') $imp;
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  	background-image: url('../images/bg-grit_2x.webp') $imp;
+  }
+
+}
+
+
+// !Diagonal Stripes: Scarlet
+@mixin bg-stripes-scarlet($imp:null) {
+  background-image: repeating-linear-gradient($diagonal1, $scarlet, $scarlet 2px, transparent 2px, transparent 4px);
+}
+
+
+// !Diagonal Stripes: Dark
+@mixin bg-stripes-dark($imp:null) {
+//   background-image: url('../images/diagonal-stripe-bg.svg');
+//   background-repeat: repeat;
+//   background-image: repeating-linear-gradient($diagonal1, rgba($color-body,.1), rgba($color-body,.1) 2px, transparent 2px, transparent 4px);
+  background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.9), fade-out($color-body,.9) 2px, fade-out($color-body,1) 2px, fade-out($color-body,1) 5px);
+}
+
+
+// !Diagonal Stripes: Light
+@mixin bg-stripes-light($imp:null) {
+  background-image: repeating-linear-gradient($diagonal1, fade-out($white,.95), fade-out($white,.95) 2px, fade-out($white,1) 2px, fade-out($white,1) 5px);
+}

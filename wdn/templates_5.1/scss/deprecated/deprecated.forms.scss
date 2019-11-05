@@ -1,0 +1,307 @@
+//////////////////////////////
+// !THEME / DEPRECATED / FORMS
+//////////////////////////////
+
+
+// Form
+form ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+form ul.wdn-std { // restore browser defaults, assumes LTR
+  list-style-type: disc;
+	margin: 1em 0;
+	padding-left: 40px;
+}
+
+form ul.wdn-std li { // restore browser defaults, assumes LTR
+  margin: 0;
+}
+
+// form label {
+//   @include font-sans;
+// }
+
+// // !Input: Control
+// .unl .dcf-input-control {
+//   @include mr-1;
+// }
+
+// !Input: File
+// .unl .dcf-input-file {
+//   @include mb-2;
+//   @include mt-2;
+// }
+
+form input[type="email"],
+form input[type="password"],
+form input[type="search"],
+form input[type="text"],
+form input[type="url"],
+form input[type="number"],
+form input[type="tel"],
+form textarea {
+  border: 1px solid $color-border-input;
+  border-radius: 0;
+  @include font-sans;
+  padding: $length-em-2 $length-em-3;
+  width: 100%;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 $length-em-3 fade-out($color-border-input-hover,.25);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+}
+
+
+@keyframes wdn-error {
+
+  from {
+    border: 1px solid $scarlet;
+    box-shadow: 0 0 6px fadeout($scarlet, 20%);
+  }
+
+  to {
+    border: 1px solid fadeout($scarlet, 80%);
+    box-shadow: 0 0 6px fadeout($scarlet, 90%);
+  }
+
+}
+
+form input.wdn-error,
+form textarea.wdn-error,
+form select.wdn-error {
+  animation: wdn-error 1.2s infinite alternate;
+  border: 1px solid $scarlet;
+}
+
+form span.required {
+  color: $scarlet;
+  @include txt-xs;
+  font-style: italic;
+}
+
+form span.helper {
+  color: $color-light-text;
+  @include txt-xs;
+}
+
+
+// Input Group
+.wdn-input-group {
+  display: flex;
+  width: 100%;
+}
+
+.wdn-input-group input[type='text'] {
+  flex-grow: 1;
+  margin-bottom: 0;
+  margin-top: 0;
+  width: 1%;
+}
+
+.wdn-input-group-btn {
+  align-items: center;
+  display: flex;
+  margin-bottom: 0;
+  margin-left: -1px;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+
+// Button
+main button,
+main input[type='button'],
+main input[type='submit'],
+.wdn-button,
+.wdn-input-group-btn button,
+.wdn-input-group-btn input {
+  border-width: 2px;
+  border-style: solid;
+  cursor: pointer;
+  @include font-sans;
+  @include txt-xs;
+  font-weight: bold;
+  @include ls-2;
+  padding-bottom: #{ms(-3)}em;
+  @include pl-5;
+  @include pr-5;
+  @include pt-3;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+main button:focus,
+main input[type='button']:focus,
+main input[type='submit']:focus,
+.wdn-button:focus,
+.wdn-input-group-btn button:focus,
+.wdn-input-group-btn input:focus {
+  outline: none;
+}
+
+main input[type='submit'],
+.wdn-button {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.wdn-input-group-btn button,
+.wdn-input-group-btn input {
+  align-self: stretch;
+  display: flex;
+}
+
+
+// Primary Button
+main button,
+main input[type='button'],
+main input[type='submit'],
+.wdn-button,
+.wdn-button-brand,
+.wdn-input-group-btn button,
+.wdn-input-group-btn input,
+a.wdn-button:link,
+a.wdn-button-brand:link,
+a.wdn-button:visited,
+a.wdn-button-brand:visited {
+  background-color: $color-button;
+  border-color: $color-button;
+  color: $white;
+}
+
+// button:focus,
+// input[type='button']:focus,
+// input[type='submit']:focus,
+.wdn-button:focus,
+.wdn-button-brand:focus,
+.wdn-input-group-btn button:focus,
+.wdn-input-group-btn input:focus,
+// input[type='button']:hover,
+// input[type='submit']:hover,
+.wdn-button:hover,
+.wdn-button-brand:hover,
+.wdn-input-group-btn button:hover,
+.wdn-input-group-btn input:hover {
+  box-shadow: 0 1px $length-em-2 fade-out($color-button-hover,.4);
+}
+
+// button:active,
+// input[type='button']:active,
+// input[type='submit']:active,
+.wdn-button:active,
+.wdn-button-brand:active,
+.wdn-input-group-btn button:active,
+.wdn-input-group-btn input:active,
+a.wdn-button:active,
+a.wdn-button-brand:active {
+  background-color: $color-button-active;
+  border-color: $color-button-active;
+}
+
+
+// Secondary Button
+.wdn-button-complement,
+.wdn-button-energetic,
+.wdn-button-triad,
+main button.wdn-button-complement,
+main button.wdn-button-energetic,
+main button.wdn-button-triad,
+main input[type='button'].wdn-button-complement,
+main input[type='button'].wdn-button-energetic,
+main input[type='button'].wdn-button-triad,
+main input[type='submit'].wdn-button-complement,
+main input[type='submit'].wdn-button-energetic,
+main input[type='submit'].wdn-button-triad,
+a.wdn-button-complement:link,
+a.wdn-button-energetic:link,
+a.wdn-button-triad:link,
+a.wdn-button-complement:visited,
+a.wdn-button-energetic:visited,
+a.wdn-button-triad:visited {
+  background-color: transparent;
+  border-color: currentColor;
+  color: $color-button;
+}
+
+.wdn-button-complement:focus,
+.wdn-button-energetic:focus,
+.wdn-button-triad:focus,
+.wdn-button-complement:hover,
+.wdn-button-energetic:hover,
+.wdn-button-triad:hover {
+  box-shadow: 0 1px $length-em-1 fade-out($color-button-hover,.6);
+}
+
+.wdn-button-complement:active,
+.wdn-button-energetic:active,
+.wdn-button-triad:active,
+main input[type='button'].wdn-button-complement:active,
+main input[type='button'].wdn-button-energetic:active,
+main input[type='button'].wdn-button-triad:active,
+main input[type='submit'].wdn-button-complement:active,
+main input[type='submit'].wdn-button-energetic:active,
+main input[type='submit'].wdn-button-triad:active,
+a.wdn-button-complement:active,
+a.wdn-button-energetic:active,
+a.wdn-button-triad:active {
+  background-color: transparent;
+  border-color: currentColor;
+  color: $color-button-active;
+}
+
+
+// Outline Button
+.wdn-button-outline,
+.wdn-button-outline:active,
+main input[type='button'].wdn-button-outline,
+main input[type='submit'].wdn-button-outline,
+a.wdn-button-outline:link,
+a.wdn-button-outline:visited,
+a.wdn-button-outline:active {
+  background-color: transparent;
+  border-color: currentColor;
+  color: $white;
+}
+
+.wdn-button-outline:focus,
+.wdn-button-outline:hover {
+  box-shadow: 0 1px $length-em-2 fade-out($color-border-input-hover,.2);
+}
+
+// not ideal, but override deprecated style conflicts
+.unl .dcf-btn-inverse-primary {
+  color: inherit;
+}
+
+
+// Webform opt-out
+.wdn-webform-opt-out ol,
+.wdn-webform-opt-out ul {
+  padding-left: 1em;
+}
+
+.wdn-webform-opt-out ol {
+  list-style-type: decimal;
+}
+
+.wdn-webform-opt-out ul {
+  list-style-type: disc;
+}
+
+.wdn-webform-opt-out li {
+  margin: 0;
+}
+
+.wdn-webform-opt-out li li {
+  margin: 0;
+}

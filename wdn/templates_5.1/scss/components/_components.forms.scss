@@ -1,0 +1,106 @@
+//////////////////////////////
+// !THEME / COMPONENTS / FORMS
+//////////////////////////////
+
+
+// !Fieldset
+.unl .dcf-form fieldset {
+  border: 1px solid $color-border;
+  padding: $length-em-4 $length-vw-1;
+}
+
+
+.unl .dcf-form fieldset:not(:last-child) {
+  @include mb-4;
+}
+
+
+// !Form Group
+.unl .dcf-form-group {
+  @include mb-4;
+}
+
+
+// !Legend
+.unl .dcf-legend, // TODO: deprecate?
+.unl .dcf-form legend {
+  margin-left: -#{$length-em-2}; // Left align legend with form elements
+  padding-left: $length-em-2;
+  padding-right: $length-em-2;
+}
+
+
+// !Legend, Label
+.unl .dcf-label, // TODO: deprecate?
+.unl .dcf-legend, // TODO: deprecate?
+.unl .dcf-form label,
+.unl .dcf-form legend {
+  @include font-sans;
+  @include txt-sm;
+}
+
+
+// !Label
+.unl input[disabled] ~ label,
+.unl .dcf-form-group[disabled] label {
+  cursor: not-allowed !important;
+  opacity: .75;
+}
+
+
+// !Required
+.unl .dcf-required {
+  color: $scarlet;
+  @include txt-xs;
+  font-style: italic;
+  @include pl-2;
+}
+
+
+// !Input: Text
+.unl .dcf-input-text,
+.unl .dcf-form input:not([type="submit"]),
+.unl .dcf-form textarea {
+  border: 1px solid $color-border-input;
+  border-radius: 0;
+  @include font-sans;
+  padding: $length-em-2 $length-em-3;
+}
+
+
+.unl .dcf-input-text:hover, // TODO: deprecate?
+.unl .dcf-form input:not([type="submit"]):hover,
+.unl .dcf-form textarea:hover,
+.unl .dcf-input-text:focus, // TODO: deprecate?
+.unl .dcf-form input:not([type="submit"]):focus,
+.unl .dcf-form textarea:focus {
+  box-shadow: 0 0 $length-em-3 fade-out($color-border-input-hover,.25);
+}
+
+
+.unl .dcf-input-text:focus, // TODO: deprecate?
+.unl .dcf-form input:not([type="submit"]):focus,
+.unl .dcf-form textarea:focus {
+  outline: none;
+}
+
+
+// !Input: Control
+.unl .dcf-input-control { // TODO: deprecate?
+  @include mr-1;
+}
+
+
+// !Input: File
+.unl .dcf-input-file { // TODO: deprecate?
+  @include mb-2;
+  @include mt-2;
+}
+
+
+// !Form Help
+.unl .dcf-form-help {
+  color: $color-light-text;
+  @include txt-xs;
+  @include mt-1;
+}

@@ -1,0 +1,191 @@
+///////////////////////////////////
+// !THEME / COMPONENTS / NAV: LOCAL
+///////////////////////////////////
+
+
+
+.unl .dcf-nav-local {
+  z-index: 998;
+}
+
+
+.unl .dcf-nav-local a:hover {
+  text-decoration: underline;
+}
+
+
+.unl .dcf-nav-local > ul {
+  display: flex;
+}
+
+
+.unl .dcf-nav-local > ul > li {
+  flex-basis: 50%;
+}
+
+
+.unl .dcf-nav-local ul ul {
+  margin-top: 0;
+}
+
+
+.unl .dcf-nav-local ul ul > li > a {
+  @include pb-2;
+  @include pt-2;
+}
+
+
+@include mq(md, max, width) {
+
+  .unl .dcf-nav-local a {
+    margin-left: -#{ms(0)}rem;
+  }
+
+
+  .unl .dcf-nav-local > ul {
+    flex-flow: row wrap;
+  }
+
+
+  .unl .dcf-nav-local ul ul {
+    @include txt-xs;
+  }
+
+}
+
+
+@include mq(sm, min, width) {
+
+  .unl .dcf-nav-local > ul > li {
+    flex-basis: calc(100% / 3);
+  }
+
+}
+
+
+@include mq(md, min, width) {
+
+  .unl .dcf-nav-local > ul {
+    overflow: hidden;
+    width: 100%;
+  }
+
+
+  .unl .dcf-nav-local > ul > li {
+    flex-basis: calc(100% / 6);
+  }
+
+
+  .unl .dcf-nav-toggle-btn-menu[aria-expanded="true"] ~ .dcf-nav-local > ul {
+    overflow: visible;
+  }
+
+
+  .unl .dcf-nav-local > ul > li {
+    position: relative;
+  }
+
+
+  .unl .dcf-nav-local li:not(:last-child) {
+    margin-right: 0; // TODO: remove after updated in DCF core
+  }
+
+
+  .unl .dcf-nav-local > ul > li > a {
+    border-left: 1px solid #a00000;
+    height: 100%;
+  }
+
+
+  .unl .dcf-nav-local ul ul {
+    @include txt-sm;
+    @include pb-7;
+    width: 100%;
+  }
+
+
+  // Background for open mega menu
+  .unl .dcf-nav-local ul ul::before {
+    @include bg-scarlet;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 200vw;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+
+  .unl .dcf-nav-toggle-btn-menu ~ .dcf-nav-local ul ul  {
+    pointer-events: none;
+    position: absolute;
+    top: 100%;
+    visibility: hidden;
+  }
+
+
+  .unl .dcf-nav-toggle-btn-menu[aria-expanded="true"] ~ .dcf-nav-local ul ul  {
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+
+  // navigation transition to be added later
+  .unl .dcf-nav-toggle-btn-menu ~ .dcf-nav-local ul ul:after {
+    background-image: linear-gradient(to bottom, #a00000, fade-out(#a00000,1));
+    content: '';
+    left: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transform: scaleY(0);
+    transform-origin: 0 0;
+    width: 1px;
+    transition: transform 300ms ease-out;
+  }
+
+
+  .unl .dcf-nav-toggle-btn-menu[aria-expanded="true"] ~ .dcf-nav-local ul ul:after {
+    transform: scaleY(1);
+  }
+
+}
+
+
+@supports (display: grid) {
+
+  @include mq(md, max, width) {
+
+    .unl .dcf-nav-local > ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(#{ms(15)}em, 1fr));
+    }
+
+
+    .unl .dcf-nav-local > ul {
+      grid-gap: $length-em-7 $length-vw-1;
+    }
+
+  }
+
+
+  @include mq(sm, min, width) {
+
+    .unl .dcf-nav-local > ul {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+  }
+
+
+//   @include mq(md, min, width) {
+//
+//     .unl .dcf-nav-local > ul {
+//       grid-template-columns: repeat(6, 1fr);
+//     }
+//
+//   }
+
+}

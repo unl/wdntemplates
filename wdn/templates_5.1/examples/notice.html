@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Notice Example</title>
+  </head>
+  <body data-version="5.0">
+    <div id="example-code">
+      <div class="wdn_notice">
+        <div class="close">
+          <a href="#">Close this notice</a>
+        </div>
+        <div class="message">
+          <p class="title">This is my Title!</p>
+          <p>This is my content. <a href="#">This is some link text</a>.</p>
+        </div>
+      </div>
+      <div class="wdn_notice affirm">
+        <div class="close">
+          <a href="#">Close this notice</a>
+        </div>
+        <div class="message">
+          <p class="title">Great Success!</p>
+          <p>This is my content. <a href="#">This is some link text</a></p>
+        </div>
+      </div>
+      <div class="wdn_notice negate">
+        <div class="close">
+          <a href="#">Close this notice</a>
+        </div>
+        <div class="message">
+          <p class="title">Denial Notice!</p>
+          <p>This is my content. <a href="#">This is some link text</a></p>
+        </div>
+      </div>
+      <div class="wdn_notice alert">
+        <div class="close">
+          <a href="#">Close this notice</a>
+        </div>
+        <div class="message">
+          <p class="title">Important Alert!</p>
+          <p>This is my content. <a href="#">This is some link text</a></p>
+        </div>
+      </div>
+      <div class="wdn_notice" data-overlay="header" data-duration="10">
+        <div class="close">
+          <a href="#">Close this notice</a>
+        </div>
+        <div class="message">
+          <p class="title">I'm Floating!</p>
+          <p>This notice overlays the header and will vanish on its own in 10 seconds.</p>
+        </div>
+      </div>
+      <div class="wdn_notice affirm" data-overlay="maincontent" data-duration="15">
+        <div class="close">
+          <a href="#">Close this notice</a>
+        </div>
+        <div class="message">
+          <p class="title">Success!</p>
+          <p>This notice overlays the maincontent and will vanish on its own in 15 seconds.</p>
+        </div>
+      </div>
+      <script>
+        WDN.initializePlugin('notice');
+      </script>
+    </div>
+  </body>
+</html>

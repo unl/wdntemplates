@@ -1,0 +1,129 @@
+//////////////////////////////
+// !THEME / VARIABLES / COLORS
+//////////////////////////////
+
+
+// !BRAND COLORS
+
+// Define brand colors
+$color-brand-alpha: #d00000;
+$color-brand-beta: #fefdfa;
+$color-brand-gamma: #c7c8ca;
+// $color-brand-delta: scale-color(#2da0e6, $hue: 1deg, $saturation: 10%, $lightness: -23%); // #147abf
+// The hex equivalent (#2da0e6) of the print version of the blue does not meet
+// WCAG AA color contrast compliance. It is modified for the screen.
+// TODO: finalize value (must meet WCAG AA)
+
+
+// Assign names to brand colors
+$scarlet: $color-brand-alpha;
+$cream: $color-brand-beta;
+$gray: $color-brand-gamma;
+// $blue: $color-brand-delta;
+
+
+// Brand tints and shades
+// $scarlet-tint: scale-color($scarlet, $saturation: 0%, $lightness: 0%);
+$scarlet-shade: scale-color($scarlet, $hue: 1deg, $saturation: 10%, $lightness: -24%);
+
+// $blue-tint: scale-color($blue, $saturation: 0%, $lightness: 0%);
+// $blue-shade: scale-color($blue, $saturation: -20%, $lightness: -10%);
+
+
+
+// !UI COLORS
+
+// Define user interface (neutral) colors
+$white: #fff;
+$black: #000;
+
+// Mix cream and gray brand colors for base color
+$mix-cream-gray: mix($cream, $gray); // #e3e3e2
+
+$light-gray: $mix-cream-gray; // #e3e3e2
+$lighter-gray: lighten($mix-cream-gray, 3.2%); // #ebebea
+$lightest-gray: lighten($mix-cream-gray, 7.5%); // #f6f6f5;
+
+$dark-gray: darken($mix-cream-gray, 47.5%); // #6b6b68
+$darker-gray: darken($mix-cream-gray, 63.3%); // #424240
+$darkest-gray: darken($mix-cream-gray, 75%); // #242423
+
+// !Define contextual colors
+$color-info: #10669d; // blue
+$color-success: #008325; // green
+$color-warning: #e72c0c; // orange
+$color-danger: #b60000; // red
+
+
+// Assign colors to elements
+
+// Background colors
+$color-body-bg: $cream; // Body background color (usually white, off-white, or very light gray)
+$color-overlay-light: $cream; // Light overlay background color for modals
+$color-overlay-dark: $darkest-gray; // Dark overlay background color for modals
+
+
+// Text colors
+$color-body: $darker-gray; // Strive for WCAG AAA (minimum contrast ratio of 7.0) for body text
+$color-heading: $darkest-gray; // Strive for WCAG AAA (minimum contrast ratio of 7.0) for heading text
+$color-light-text: $dark-gray; // Must meet WCAG AA (minimum contrast ratio of 4.5)
+
+
+// !Links
+$color-link: $scarlet;
+$color-link-visited: $scarlet-shade;
+$color-link-hover: $scarlet-shade;
+$color-link-active: $scarlet-shade;
+// $color-link-underline: $scarlet-shade;
+
+
+// !Inverse
+// TODO: finalize state colors
+$color-inverse: $color-body-bg;
+$color-inverse-link: $color-body-bg;
+$color-inverse-link-visited: $color-body-bg;
+$color-inverse-link-hover: $color-body-bg;
+$color-inverse-link-active: $color-body-bg;
+
+
+// !Buttons
+$color-button: $color-link;
+$color-button-visited: $color-link-visited;
+$color-button-hover: $color-link-hover;
+$color-button-active: $color-link-active;
+
+
+// !Borders
+$color-border: $light-gray;
+
+$color-border-input: $gray;
+$color-border-input-hover: $light-gray;
+
+
+// !Marks (Highlights) Background Color
+$color-mark: #ff0;
+
+
+// !Breadcrumbs
+$color-breadcrumb: $gray;
+
+
+// !Badges
+$color-badge: $dark-gray; // TODO: finalize badge background-color
+
+
+// !Captions
+$color-caption: $color-light-text;
+
+
+// !Tables
+$color-table-stripe: $lightest-gray;
+
+
+// !Footer
+$color-footer: $cream;
+$color-footer-bg: $scarlet;
+$color-footer-link: $cream;
+$color-footer-link-visited: $cream; // TODO: determine visited state styles
+$color-footer-link-hover: $cream; // TODO: determine hover state styles
+$color-footer-link-active: $cream; // TODO: determine active state styles

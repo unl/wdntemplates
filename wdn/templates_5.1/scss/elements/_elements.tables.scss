@@ -1,0 +1,14 @@
+/////////////////////////////
+// !THEME / ELEMENTS / TABLES
+/////////////////////////////
+
+
+// !Caption
+.unl caption {
+  color: $color-heading;
+  @include txt-h6;
+  font-weight: 700;
+  letter-spacing: -.03em;
+  margin-left: -.03em;
+  padding-bottom: #{ms(-4)}rem;
+}

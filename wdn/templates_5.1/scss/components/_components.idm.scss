@@ -1,0 +1,62 @@
+//////////////////////////////////////////////////
+// !THEME / COMPONENTS / IDM (IDENTITY MANAGEMENT)
+//////////////////////////////////////////////////
+
+
+.unl .dcf-idm-options {
+  width: #{ms(14)}em;
+}
+
+
+@include mq(md, max, width) {
+
+  .unl .dcf-idm-login {
+    flex-direction: column;
+  }
+
+  .unl .dcf-idm-options {
+    left: 50%;
+    top: -2px;
+    transform: translate(-50%, -100%);
+  }
+
+  .unl .dcf-idm-toggle {
+    display: none;
+  }
+
+  .unl .dcf-idm-label {
+    @include mt-1;
+  }
+
+}
+
+
+@include mq(md, min, width) {
+
+  .unl .dcf-idm-toggle {
+    display: flex;
+  }
+
+  .unl .dcf-idm-login {
+    flex-direction: row-reverse;
+  }
+
+  .unl .dcf-idm-img {
+    fill: $light-gray;
+  }
+
+  .unl .dcf-idm-label {
+    @include mr-3;
+  }
+
+  .unl .dcf-idm-options {
+    @include mt-1;
+    right: 0;
+    top: 100%;
+  }
+
+  .unl .dcf-idm-options li:last-child {
+    margin-bottom: 0;
+  }
+
+}

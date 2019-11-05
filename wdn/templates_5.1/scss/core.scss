@@ -1,0 +1,47 @@
+////////
+// !CORE
+////////
+
+
+// !Variables
+@import '../../../node_modules/dcf/assets/dist/scss/variables/**/*';
+@import 'variables/**/*';
+
+
+// !Mixins
+@import '../../../node_modules/dcf/assets/dist/scss/mixins/**/*';
+@import 'mixins/**/*';
+
+
+// !Functions
+@import '../../../node_modules/dcf/assets/dist/scss/functions/**/*';
+
+
+// !Generic
+@import-normalize;
+@import '../../../node_modules/dcf/assets/dist/scss/generic/**/*';
+@import 'generic/**/*';
+
+
+// !Elements
+@import '../../../node_modules/dcf/assets/dist/scss/elements/**/*';
+@import 'elements/**/*';
+
+
+// !Objects
+@import '../../../node_modules/dcf/assets/dist/scss/objects/**/*';
+@import 'objects/**/*';
+
+
+// !Components
+@import '../../../node_modules/dcf/assets/dist/scss/components/**/*';
+@import 'components/**/*';
+
+
+// !JavaScript
+@import '../../../node_modules/dcf/assets/dist/scss/javascript/**/*';
+
+
+// !Utilities
+@import '../../../node_modules/dcf/assets/dist/scss/utilities/**/*';
+@import 'utilities/**/*';
