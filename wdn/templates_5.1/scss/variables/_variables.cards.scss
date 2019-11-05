@@ -1,0 +1,23 @@
+////////////////////////////
+// THEME / VARIABLES / CARDS
+////////////////////////////
+
+
+@import '_variables.colors';
+@import '_variables.modular-scale';
+@import '_variables.sizing';
+
+
+// Background color
+$bg-color-card: $white;                   // Card background-color
+
+
+// Font size
+$font-size-card: #{ms(-1)}em;             // Card font-size: .84em
+
+
+// Padding
+$padding-bottom-card-block: $length-em-7; // Padding-bottom of card block: 2.37em
+$padding-left-card-block: $length-em-6;   // Padding-left of card block: 1.77em
+$padding-right-card-block: $length-em-6;  // Padding-right of card block: 1.77em
+$padding-top-card-block: $length-em-7;    // Padding-bottom of card block: 2.37em

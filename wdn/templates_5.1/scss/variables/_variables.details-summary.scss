@@ -1,0 +1,20 @@
+////////////////////////////////////////
+// THEME / VARIABLES / DETAILS & SUMMARY
+////////////////////////////////////////
+
+
+@import '_variables.modular-scale';
+@import '_variables.sizing';
+
+
+// Font size
+$font-size-summary: #{ms(1)}em;         // Summary font-size: 1.13em
+
+
+// Font weight
+$font-weight-summary-bold: true;        // Summary font-weight bold? True/false
+
+
+// Margin
+$margin-bottom-details: $length-em-3;   // Margin-bottom of details
+$margin-bottom-summary: #{ms(-12)}rem;  // Margin-bottom of details

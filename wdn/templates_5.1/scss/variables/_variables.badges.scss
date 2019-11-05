@@ -1,0 +1,34 @@
+/////////////////////////////
+// THEME / VARIABLES / BADGES
+/////////////////////////////
+
+
+@import '_variables.colors';
+@import '_variables.modular-scale';
+@import '_variables.sizing';
+
+
+// Background color
+$bg-color-badge: $gray-dark;              // Background-color of badge
+
+
+// Color
+$color-badge: $white;                     // Color of badge text
+
+
+// Font size
+$font-size-badge: #{ms(-4)}rem;           // Font-size of badge: .56rem
+
+
+// Padding
+$padding-bottom-badge: $length-em-1;      // Padding-bottom of <mark> (highlighted) text: .42em
+$padding-left-badge: $length-em-2;        // Padding-left of <mark> (highlighted) text: .56em
+$padding-right-badge: $length-em-2;       // Padding-right of <mark> (highlighted) text: .56em
+$padding-top-badge: $length-em-1;         // Padding-top of <mark> (highlighted) text: .42em
+
+$padding-left-badge-pill: $length-em-3;   // Increase horizontal padding to account for increased border-radius: .75em
+$padding-right-badge-pill: $length-em-3;  // Increase horizontal padding to account for increased border-radius: .75em
+
+
+// Vertical alignment
+$vertical-align-badge: text-top;          // Vertical alignment of badge

@@ -1,0 +1,49 @@
+/////////////////////////////
+// THEME / VARIABLES / TABLES
+/////////////////////////////
+
+
+@import '_variables.colors';
+@import '_variables.borders';
+@import '_variables.modular-scale';
+
+
+// Background color
+$bg-color-table-stripe: $gray-lightest;       // Background color of table stripes
+
+
+// Border
+$border-color-table: $border-color;           // Color of table borders
+$border-style-table: solid;                   // Style of table borders
+$border-width-table: 1px;                     // Width of table borders
+
+
+// Font size
+$font-size-thead: #{ms(-1)}em;                // .dcf-table <thead> font-size: .84em
+$font-size-tbody: #{ms(-1)}em;                // .dcf-table <tbody> font-size: .84em
+$font-size-tfoot: #{ms(-2)}em;                // .dcf-table <tfoot> font-size: .75em
+
+
+// Grid
+$grid-col-1-table-responsive: 1fr;            // First grid column in responsive table
+$grid-col-2-table-responsive: 2fr;            // Second grid column in responsive table
+$grid-col-gap-table-responsive: $length-vw-1; // Grid column-gap in responsive table
+
+
+// Padding
+$padding-bottom-caption: #{ms(-4)}rem;                                  // Padding-bottom for table captions
+
+$padding-right-table-cell: $length-em-6;                                // Padding-right for <th> and <td> cells
+
+$padding-left-table-bordered-striped-cell: $length-em-4;                // Padding-left for bordered and/or striped table cells
+$padding-right-table-bordered-striped-cell: $length-em-4;               // Padding-right for bordered and/or striped table cells
+
+$padding-bottom-thead-cell: $length-em-3;                               // Padding-bottom for <thead> cells
+$padding-bottom-tbody-cell: $length-em-3;                               // Padding-bottom for <tbody> cells
+$padding-top-tbody-tfoot-cell: $length-em-3;                            // Padding-top for <tbody> and <tfoot> cells
+
+$padding-top-table-bordered-thead-cell: $length-em-5;                   // Padding-top for bordered table <thead> cells
+
+$padding-bottom-table-scroll: $length-em-4;                             // Padding-bottom for scrollable tables (to account for scroll bar)
+
+$padding-bottom-table-responsive-tbody-tr: $padding-bottom-tbody-cell;  // Padding-bottom for responsive table <tbody> rows

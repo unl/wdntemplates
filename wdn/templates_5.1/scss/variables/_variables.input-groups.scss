@@ -1,0 +1,24 @@
+///////////////////////////////////
+// THEME / VARIABLES / INPUT GROUPS
+///////////////////////////////////
+
+
+@import '_variables.colors';
+@import '_variables.forms';
+
+
+// Background color
+$bg-color-input-group-addon: $gray-lightest;              // Input group add-on background-color
+
+
+// Border
+$border-color-input-group-addon: $border-color-input;     // Input group add-on border-color
+$border-style-input-group-addon: $border-style-input;     // Input group add-on border-style
+$border-width-input-group-addon: $border-width-input;     // Input group add-on border-width
+
+
+// Padding
+$padding-bottom-input-group-addon: $padding-bottom-input; // Input group add-on padding-bottom
+$padding-left-input-group-addon: $padding-left-input;     // Input group add-on padding-left
+$padding-right-input-group-addon: $padding-right-input;   // Input group add-on padding-right
+$padding-top-input-group-addon: $padding-top-input;       // Input group add-on padding-top
