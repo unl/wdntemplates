@@ -1,6 +1,6 @@
 <div class="dcf-search dcf-header-global-item dcf-flex-grow-1 dcf-d-flex dcf-jc-flex-end dcf-modal-parent dcf-d-none@print" id="dcf-search" role="search">
   <div class="dcf-search-toggle-wrapper dcf-ai-center dcf-w-100%">
-    <a href="https://search.unl.edu/" class="dcf-nav-toggle-btn dcf-nav-toggle-btn-search dcf-search-toggle dcf-d-flex dcf-ai-center dcf-jc-between dcf-w-100% dcf-p-0 dcf-txt-2xs dcf-bg-transparent dcf-b-1 dcf-b-solid unl-b-scarlet unl-font-sans unl-scarlet" id="dcf-search-toggle-link">
+    <a class="dcf-nav-toggle-btn dcf-nav-toggle-btn-search dcf-search-toggle dcf-d-flex dcf-ai-center dcf-jc-between dcf-w-100% dcf-p-0 dcf-txt-2xs dcf-bg-transparent dcf-b-1 dcf-b-solid unl-b-scarlet unl-font-sans unl-scarlet" id="dcf-search-toggle-link" href="https://search.unl.edu/">
       <span class="dcf-search-toggle-label dcf-flex-grow-1 dcf-txt-left">Search</span>
       <span class="dcf-d-flex dcf-ai-center dcf-jc-center dcf-w-8 dcf-pt-3 dcf-pb-3 unl-bg-scarlet unl-cream">
         <svg class="dcf-h-4 dcf-w-4 dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
@@ -8,11 +8,13 @@
         </svg>
       </span>
     </a>
+    <button class="dcf-search-toggle-button dcf-btn-toggle-modal dcf-nav-toggle-btn dcf-nav-toggle-btn-search dcf-search-toggle dcf-d-flex dcf-ai-center dcf-jc-between dcf-w-100% dcf-p-0 dcf-txt-2xs dcf-bg-transparent dcf-b-1 dcf-b-solid unl-b-scarlet unl-font-sans unl-scarlet" data-toggles-modal="dcf-search-results" type="button" hidden></button>
   </div>
-  <div class="dcf-modal-overlay dcf-mobile-toolbar-modal dcf-bg-overlay-light dcf-p-0" id="dcf-search-results" aria-labelledby="unl-search-modal-heading" aria-hidden="true" role="dialog" tabindex="-1">
-    <div class="dcf-d-flex dcf-flex-col dcf-flex-nowrap dcf-h-100% dcf-w-100%" role="document">
-      <h2 class="dcf-sr-only" id="unl-search-modal-heading">Search Form</h2>
-      <div class="dcf-bleed dcf-bg-center dcf-bg-no-repeat dcf-bg-cover unl-bg-scarlet unl-search-bg">
+  <div class="dcf-modal dcf-fixed dcf-pin-top dcf-pin-left" id="dcf-search-results" hidden>
+    <div class="dcf-modal-wrapper dcf-bg-overlay-light dcf-h-max-100vh dcf-overflow-y-auto dcf-d-flex dcf-flex-col dcf-flex-nowrap dcf-h-100% dcf-w-100%">
+      <div class="dcf-modal-header dcf-bleed dcf-bg-center dcf-bg-no-repeat dcf-bg-cover unl-bg-scarlet unl-search-bg">
+        <h2 class="dcf-sr-only">Search Form</h2>
+        <button class="dcf-btn-close-modal dcf-btn dcf-btn-inverse-tertiary dcf-absolute dcf-pin-top dcf-pin-right dcf-z-1 dcf-lh-1">Close</button>
         <form class="dcf-wrapper dcf-search-form dcf-input-group-form dcf-d-flex dcf-ai-center dcf-pt-8 dcf-pb-8" id="dcf-search-form" role="search" aria-label="Site" action="https://search.unl.edu/" method="get">
           <label class="dcf-label dcf-mr-4 dcf-inverse" for="dcf-search_query">Search</label>
           <div class="dcf-input-group">
@@ -26,11 +28,12 @@
           </div>
         </form>
       </div>
-      <div class="dcf-h-100% dcf-w-100% dcf-overflow-y-auto">
-        <div class="dcf-search-results-wrapper dcf-h-100% dcf-w-100%" id="dcf-search-results-wrapper">
-        </div><!-- end Search Results Wrapper -->
+      <div class="dcf-modal-content dcf-bleed dcf-h-100% dcf-w-100% dcf-overflow-y-auto">
+        <div class="dcf-h-100% dcf-w-100% dcf-overflow-y-auto">
+          <div class="dcf-search-results-wrapper dcf-h-100% dcf-w-100%" id="dcf-search-results-wrapper">
+          </div><!-- end Search Results Wrapper -->
+        </div>
       </div>
-      <button class="dcf-absolute dcf-pin-top dcf-pin-right dcf-mt-3 dcf-mr-3 dcf-btn dcf-btn-inverse-tertiary" id="dcf-close-search" type="button">Close</button>
     </div>
   </div>
 </div>
