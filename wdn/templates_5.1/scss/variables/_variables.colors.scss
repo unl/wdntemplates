@@ -1,9 +1,9 @@
-//////////////////////////////
-// !THEME / VARIABLES / COLORS
-//////////////////////////////
+/////////////////////////////
+// THEME / VARIABLES / COLORS
+/////////////////////////////
 
 
-// !BRAND COLORS
+// BRAND COLORS
 
 // Define brand colors
 $color-brand-alpha: #d00000;
@@ -30,8 +30,7 @@ $scarlet-shade: scale-color($scarlet, $hue: 1deg, $saturation: 10%, $lightness: 
 // $blue-shade: scale-color($blue, $saturation: -20%, $lightness: -10%);
 
 
-
-// !UI COLORS
+// UI COLORS
 
 // Define user interface (neutral) colors
 $white: #fff;
@@ -48,11 +47,27 @@ $dark-gray: darken($mix-cream-gray, 47.5%); // #6b6b68
 $darker-gray: darken($mix-cream-gray, 63.3%); // #424240
 $darkest-gray: darken($mix-cream-gray, 75%); // #242423
 
-// !Define contextual colors
+// Define contextual colors
 $color-info: #10669d; // blue
 $color-success: #008325; // green
 $color-warning: #e72c0c; // orange
 $color-danger: #b60000; // red
+
+// Miscellaneous
+$color-highlight: #ff0;
+$color-required: #d00;
+$color-kbd: #0f0;
+
+
+// SOCIAL MEDIA COLORS
+$color-facebook: #3b5998;             // Facebook
+$color-instagram: #c13584;            // Instagram
+$color-linkedin: #0077b5;             // LinkedIn
+$color-pinterest: #bd081c;            // Pinterest
+$color-snapchat: #fffc00;             // SnapChat
+$color-twitter: #1da1f2;              // Twitter
+$color-youtube: #cd201f;              // YouTube
+
 
 
 // Assign colors to elements
@@ -69,7 +84,7 @@ $color-heading: $darkest-gray; // Strive for WCAG AAA (minimum contrast ratio of
 $color-light-text: $dark-gray; // Must meet WCAG AA (minimum contrast ratio of 4.5)
 
 
-// !Links
+// Links
 $color-link: $scarlet;
 $color-link-visited: $scarlet-shade;
 $color-link-hover: $scarlet-shade;
@@ -77,7 +92,7 @@ $color-link-active: $scarlet-shade;
 // $color-link-underline: $scarlet-shade;
 
 
-// !Inverse
+// Inverse
 // TODO: finalize state colors
 $color-inverse: $color-body-bg;
 $color-inverse-link: $color-body-bg;
@@ -86,41 +101,41 @@ $color-inverse-link-hover: $color-body-bg;
 $color-inverse-link-active: $color-body-bg;
 
 
-// !Buttons
+// Buttons
 $color-button: $color-link;
 $color-button-visited: $color-link-visited;
 $color-button-hover: $color-link-hover;
 $color-button-active: $color-link-active;
 
 
-// !Borders
+// Borders
 $color-border: $light-gray;
 
 $color-border-input: $gray;
 $color-border-input-hover: $light-gray;
 
 
-// !Marks (Highlights) Background Color
+// Marks (Highlights) Background Color
 $color-mark: #ff0;
 
 
-// !Breadcrumbs
+// Breadcrumbs
 $color-breadcrumb: $gray;
 
 
-// !Badges
+// Badges
 $color-badge: $dark-gray; // TODO: finalize badge background-color
 
 
-// !Captions
+// Captions
 $color-caption: $color-light-text;
 
 
-// !Tables
+// Tables
 $color-table-stripe: $lightest-gray;
 
 
-// !Footer
+// Footer
 $color-footer: $cream;
 $color-footer-bg: $scarlet;
 $color-footer-link: $cream;
