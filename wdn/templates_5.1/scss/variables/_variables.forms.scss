@@ -46,6 +46,10 @@ $font-size-required: #{ms(-2)}em;                       // Required label font-s
 $font-style-required-italic: true;                      // Italic font-style for required label? True/false
 
 
+// Line height
+$line-height-form-help: #{ms(2)};                       // Form help line-height
+
+
 // Margin
 $margin-bottom-fieldset: $length-em-4;                  // Fieldset margin-bottom: 1em
 $margin-bottom-form-group: $length-em-4;                // Form group margin-bottom: 1em
