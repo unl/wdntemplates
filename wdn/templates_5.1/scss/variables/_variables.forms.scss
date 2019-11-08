@@ -11,15 +11,15 @@
 
 
 // Border color
-$border-color-fieldset: $gray-lighter;                  // Fieldset border-color
-$border-color-input: $gray-light;                       // Input field border-color
+$border-color-fieldset: $light-gray;                    // Fieldset border-color
+$border-color-input: $gray;                             // Input field border-color
 $border-color-input-hover: $gray;                       // Input field border-color when hovered
 $border-color-input-focus: $color-brand-alpha;          // Input field border-color when focused
 
 
 // Border radius
-$border-radius-input-roundrect: true;                   // Input field border-radius roundrect? True/false
-$border-radius-fieldset-roundrect: true;                // Fieldset border-radius roundrect? True/false
+$border-radius-input-roundrect: false;                  // Input field border-radius roundrect? True/false
+$border-radius-fieldset-roundrect: false;               // Fieldset border-radius roundrect? True/false
 
 
 // Border style

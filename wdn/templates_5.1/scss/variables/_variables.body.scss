@@ -7,10 +7,10 @@
 
 
 // Background color
-$bg-color-body: $white;         // Body background color (usually white, off-white, or very light gray)
+$bg-color-body: $cream;         // Body background color (usually white, off-white, or very light gray)
 
 
 // Color
-$color-body: $gray-darker;      // Body text color, strive for WCAG AAA (minimum contrast ratio of 7.0) for body text
-$color-light-text: $gray-dark;  // Light text color, must meet WCAG AA (minimum contrast ratio of 4.5)
+$color-body: $darker-gray;      // Body text color, strive for WCAG AAA (minimum contrast ratio of 7.0) for body text
+$color-light-text: $dark-gray;  // Light text color, must meet WCAG AA (minimum contrast ratio of 4.5)
 $color-inverse: $bg-color-body; // Inverse text color

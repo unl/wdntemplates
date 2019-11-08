@@ -20,7 +20,7 @@ $bg-color-button-inverse-tertiary: transparent;                         // Backg
 
 
 // Border radius
-$border-radius-button-roundrect: true;                                  // Button border-radius roundrect? True/false
+$border-radius-button-roundrect: false;                                 // Button border-radius roundrect? True/false
 
 
 // Border color
@@ -38,7 +38,7 @@ $border-style-button: solid;                                            // Butto
 
 
 // Border width
-$border-width-button: 1px;                                              // Button border-width
+$border-width-button: 2px;                                              // Button border-width
 
 
 // Color
@@ -52,7 +52,7 @@ $color-button-inverse-tertiary: $bg-color-body;                         // Color
 
 
 // Font size
-$font-size-button: #{ms(0)}em;                                          // Label font-size: 1em
+$font-size-button: #{ms(-2)}em;                                         // Button font-size: .75em
 
 
 // Font weight
@@ -67,4 +67,4 @@ $padding-top-button: $length-em-2;                                      // Paddi
 
 
 // Text transform
-$text-transform-button-uppercase: false;                                // Uppercase button text? True/false
+$text-transform-button-uppercase: true;                                 // Uppercase button text? True/false

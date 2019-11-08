@@ -9,7 +9,7 @@
 
 
 // Background color
-$bg-color-table-stripe: $gray-lightest;       // Background color of table stripes
+$bg-color-table-stripe: $lightest-gray;       // Background color of table stripes
 
 
 // Border
@@ -21,7 +21,7 @@ $border-width-table: 1px;                     // Width of table borders
 // Font size
 $font-size-thead: #{ms(-1)}em;                // .dcf-table <thead> font-size: .84em
 $font-size-tbody: #{ms(-1)}em;                // .dcf-table <tbody> font-size: .84em
-$font-size-tfoot: #{ms(-2)}em;                // .dcf-table <tfoot> font-size: .75em
+$font-size-tfoot: #{ms(-1)}em;                // .dcf-table <tfoot> font-size: .75em
 
 
 // Grid
