@@ -11,8 +11,7 @@
 .unl h6 {
   @include font-sans;
   font-weight: 700;
-  letter-spacing: -.03em;
-  margin-left: -.03em;
+  @include ls-h;
 }
 
 
