@@ -3,70 +3,80 @@
 /////////////////////////////
 
 
-// BRAND COLORS
+// PRIMARY BRAND
+$color-brand-alpha: #d00000;    // Scarlet
+$color-brand-beta: #fefdfa;     // Cream
 
-// Define brand colors
-$color-brand-alpha: #d00000;
-$color-brand-beta: #fefdfa;
-$color-brand-gamma: #c7c8ca;
-// $color-brand-delta: scale-color(#2da0e6, $hue: 1deg, $saturation: 10%, $lightness: -23%); // #147abf
-// The hex equivalent (#2da0e6) of the print version of the blue does not meet
-// WCAG AA color contrast compliance. It is modified for the screen.
-// TODO: finalize value (must meet WCAG AA)
-
-
-// Assign names to brand colors
 $scarlet: $color-brand-alpha;
 $cream: $color-brand-beta;
-$gray: $color-brand-gamma;
-// $blue: $color-brand-delta;
 
-
-// Brand tints and shades
-// $scarlet-tint: scale-color($scarlet, $saturation: 0%, $lightness: 0%);
 $scarlet-shade: scale-color($scarlet, $hue: 1deg, $saturation: 10%, $lightness: -24%);
-
-// $blue-tint: scale-color($blue, $saturation: 0%, $lightness: 0%);
-// $blue-shade: scale-color($blue, $saturation: -20%, $lightness: -10%);
+$scarlet-tint: #fae6e3;
 
 
-// UI COLORS
+// SECONDARY BRAND
+$color-brand-gamma: #c7c8ca;    // Gray
+$color-brand-delta: #3fa6c5;    // Accent Blue
 
-// Define user interface (neutral) colors
+$gray: $color-brand-gamma;
+$accent-blue: $color-brand-delta;
+
+
+// TERTIARY / SCREEN
+$color-brand-epsilon: #ffd74e;  // Yellow
+$color-brand-zeta: #00784e;     // Green
+$color-brand-eta: #007197;      // Blue
+$color-brand-theta: #b32d9c;    // Purple
+
+$yellow: $color-brand-epsilon;
+$green: $color-brand-zeta;
+$blue: $color-brand-eta;
+$purple: $color-brand-theta;
+
+$green-tint: #e7f1ea;
+$blue-tint: #e7f0f0;
+$purple-tint: #f7eaf1;
+
+
+// NEUTRALS
 $white: #fff;
 $black: #000;
 
 // Mix cream and gray brand colors for base color
-$mix-cream-gray: mix($cream, $gray); // #e3e3e2
+$mix-cream-gray: mix($cream, $gray);            // #e3e3e2
 
-$light-gray: $mix-cream-gray; // #e3e3e2
-$lighter-gray: lighten($mix-cream-gray, 3.2%); // #ebebea
+$light-gray: $mix-cream-gray;                   // #e3e3e2
+$lighter-gray: lighten($mix-cream-gray, 3.2%);  // #ebebea
 $lightest-gray: lighten($mix-cream-gray, 7.5%); // #f6f6f5;
 
-$dark-gray: darken($mix-cream-gray, 47.5%); // #6b6b68
-$darker-gray: darken($mix-cream-gray, 63.3%); // #424240
-$darkest-gray: darken($mix-cream-gray, 75%); // #242423
+$dark-gray: darken($mix-cream-gray, 47.5%);     // #6b6b68
+$darker-gray: darken($mix-cream-gray, 63.3%);   // #424240
+$darkest-gray: darken($mix-cream-gray, 75%);    // #242423
 
-// Define contextual colors
-$color-info: #10669d; // blue
-$color-success: #008325; // green
-$color-warning: #e72c0c; // orange
-$color-danger: #b60000; // red
 
-// Miscellaneous
+// CONTEXTUAL COLORS
+$color-info: $blue;
+$color-success: $green;
+$color-warning: $yellow;
+// $color-danger: #b60000;
+
 $color-highlight: #ff0;
-$color-required: #d00;
+$color-required: $scarlet;
 $color-kbd: #0f0;
 
 
 // SOCIAL MEDIA COLORS
-$color-facebook: #3b5998;             // Facebook
-$color-instagram: #c13584;            // Instagram
-$color-linkedin: #0077b5;             // LinkedIn
-$color-pinterest: #bd081c;            // Pinterest
-$color-snapchat: #fffc00;             // SnapChat
-$color-twitter: #1da1f2;              // Twitter
-$color-youtube: #cd201f;              // YouTube
+$color-facebook: #3b5998;   // Facebook
+$color-instagram: #c13584;  // Instagram
+$color-linkedin: #0077b5;   // LinkedIn
+$color-pinterest: #bd081c;  // Pinterest
+$color-snapchat: #fffc00;   // SnapChat
+$color-twitter: #1da1f2;    // Twitter
+$color-youtube: #cd201f;    // YouTube
+
+
+
+
 
 
 
