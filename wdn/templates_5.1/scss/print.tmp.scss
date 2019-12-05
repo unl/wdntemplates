@@ -8,12 +8,7 @@
 
 
 // !Variables
-@import "../../../node_modules/dcf/assets/dist/scss/variables/_variables.borders";
-@import "../../../node_modules/dcf/assets/dist/scss/variables/_variables.breakpoints";
-@import "../../../node_modules/dcf/assets/dist/scss/variables/_variables.colors";
-@import "../../../node_modules/dcf/assets/dist/scss/variables/_variables.sizing";
-@import "../../../node_modules/dcf/assets/dist/scss/variables/_variables.transitions";
-@import "../../../node_modules/dcf/assets/dist/scss/variables/_variables.z-index";
+
 @import "variables/_variables.abbreviations";
 @import "variables/_variables.anchors";
 @import "variables/_variables.angles";
@@ -50,35 +45,7 @@
 
 
 // !Mixins
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.aspect-ratios";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.backgrounds";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.border-color";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.border-radius";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.border-style";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.border-width";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.box-alignment";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.colors";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.css-columns";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.display";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.flexbox";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.floats";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.grid";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.height-width";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.margins";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.media-queries";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.object-fit";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.object-position";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.opacity";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.order";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.overflow";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.padding";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.pointer-events";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.position";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.svg";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.tables";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.typography";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.visibility";
-@import "../../../node_modules/dcf/assets/dist/scss/mixins/_mixins.z-index";
+
 @import "mixins/_mixins.backgrounds";
 @import "mixins/_mixins.blend-modes";
 @import "mixins/_mixins.border-color";
@@ -88,13 +55,11 @@
 
 
 // !Functions
-@import "../../../node_modules/dcf/assets/dist/scss/functions/_functions.encode-color";
-@import "../../../node_modules/dcf/assets/dist/scss/functions/_functions.media-queries";
-@import "../../../node_modules/dcf/assets/dist/scss/functions/_functions.z-index";
+
 
 
 // !Print
-@import "../../../node_modules/dcf/assets/dist/scss/print/_print.display";
+
 @import "print/_print.base";
 @import "print/_print.header";
 @import "print/_print.links";
