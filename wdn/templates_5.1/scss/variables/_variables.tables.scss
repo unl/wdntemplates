@@ -25,9 +25,14 @@ $border-width-table: 1px;                     // .dcf-table border-width
 
 
 // Font size
+$font-size-caption: #{ms(1)}em;               // .dcf-table <caption> font-size: 1.13em
 $font-size-thead: #{ms(-1)}em;                // .dcf-table <thead> font-size: .84em
 $font-size-tbody: #{ms(-1)}em;                // .dcf-table <tbody> font-size: .84em
 $font-size-tfoot: #{ms(-1)}em;                // .dcf-table <tfoot> font-size: .84em
+
+
+// Font weight
+$font-weight-caption-bold: true;              // Bold font-weight for caption? True/false
 
 
 // Grid
