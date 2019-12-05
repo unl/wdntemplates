@@ -22,7 +22,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "cssnano": "^4.1.10",
-    "dcf": "git+https://github.com/d-c-n/dcf.git",
+    "dcf": "git://github.com/d-c-n/dcf.git#2.0",
     "grunt": "^1.0.4",
     "grunt-babel": "^7.0.0",
     "grunt-bump": "^0.8.0",
@@ -56,7 +56,7 @@
     "tar-fs": "^1.16.3"
   },
   "engines": {
-    "node": "node >= 0.10.0"
+    "node": ">= 0.10.0"
   },
   "dependencies": {
     "axe-core": "^3.2.2",
@@ -78,5 +78,6 @@
     "BlackBerry >= 4.0",
     "iOS >= 10",
     "> 1% in my stats"
-  ]
+  ],
+  "_comment": "When DCF core publishes on NPM, switch dcf dependency on Git commit"
 }
