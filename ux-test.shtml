@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<!--#include virtual="/wdn/templates_5.0/includes/global/head-1.html" -->
+<!--#include virtual="/wdn/templates_5.1/includes/global/head-1.html" -->
 <title>Debugging Out | Framework Testing Page</title>
-<!--#include virtual="/wdn/templates_5.0/includes/global/head-2.html" -->
+<!--#include virtual="/wdn/templates_5.1/includes/global/head-2.html" -->
 </head>
-<body class="debug unl" data-version="5.0">
+<body class="debug unl" data-version="5.1">
 
   <header class="dcf-header" id="dcf-header" role="banner">
 
     <div class="dcf-header-global dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-ai-center dcf-jc-between dcf-relative unl-bg-scarlet">
-      <!--#include virtual="/wdn/templates_5.0/includes/global/institution.html" -->
-      <!--#include virtual="/wdn/templates_5.0/includes/global/nav-global.html" -->
-      <!--#include virtual="/wdn/templates_5.0/includes/global/idm.html" -->
-      <!--#include virtual="/wdn/templates_5.0/includes/global/search.html" -->
+      <!--#include virtual="/wdn/templates_5.1/includes/global/institution.html" -->
+      <!--#include virtual="/wdn/templates_5.1/includes/global/nav-global.html" -->
+      <!--#include virtual="/wdn/templates_5.1/includes/global/idm.html" -->
+      <!--#include virtual="/wdn/templates_5.1/includes/global/search.html" -->
     </div>
 
     <!--     <div class="dcf-wrapper dcf-logo dcf-d-flex dcf-ai-center dcf-pt-5 dcf-pb-4 dcf-lh-1 dcf-overflow-hidden"> -->
     <div class="dcf-logo-lockup dcf-wrapper dcf-d-flex dcf-ai-flex-end dcf-relative dcf-overflow-hidden">
-      <!--#include virtual="/wdn/templates_5.0/includes/global/logo.html" -->
+      <!--#include virtual="/wdn/templates_5.1/includes/global/logo.html" -->
       <div class="dcf-site-group dcf-d-flex dcf-flex-col dcf-jc-center unl-font-sans">
         <div class="dcf-site-affiliation dcf-lh-3 dcf-txt-2xs" id="dcf-site-affiliation">
           <!-- TemplateBeginEditable name="affiliation" -->
@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <!--#include virtual="/wdn/templates_5.0/includes/global/nav-toggle.html" -->
+    <!--#include virtual="/wdn/templates_5.1/includes/global/nav-toggle.html" -->
 
     <div class="dcf-nav-bar dcf-modal-parent dcf-txt-xs unl-font-sans">
 
@@ -59,7 +59,7 @@
         <div class="dcf-nav-local-wrapper dcf-w-100%">
           <nav class="dcf-nav-local dcf-w-100% dcf-lh-3" role="navigation" aria-label="local navigation">
             <!-- TemplateBeginEditable name="navlinks" -->
-            <!--#include virtual="/wdn/templates_5.0/includes/local/nav-local.html" -->
+            <!--#include virtual="/wdn/templates_5.1/includes/local/nav-local.html" -->
             <!-- TemplateEndEditable -->
           </nav>
         </div>
@@ -101,8 +101,8 @@
 
       </div>
 <!--
-      <img class="dcf-d-block dcf-absolute dcf-w-100%" style="top: 50%; transform: translateY(-50%); filter: blur(50px);" src="wdn/templates_5.0/images/170902-ne-asu-0878-lg-min.jpg" alt="#">
-      <img class="dcf-d-block dcf-absolute" style="right: 0; top: 0; height: 100%; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 42.3% 100%) !important;" src="wdn/templates_5.0/images/170902-ne-asu-0878-lg-min.jpg" alt="#">
+      <img class="dcf-d-block dcf-absolute dcf-w-100%" style="top: 50%; transform: translateY(-50%); filter: blur(50px);" src="wdn/templates_5.1/images/170902-ne-asu-0878-lg-min.jpg" alt="#">
+      <img class="dcf-d-block dcf-absolute" style="right: 0; top: 0; height: 100%; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 42.3% 100%) !important;" src="wdn/templates_5.1/images/170902-ne-asu-0878-lg-min.jpg" alt="#">
 -->
 
     </div>
@@ -172,13 +172,13 @@
   <!-- TemplateEndEditable -->
   </main>
   <footer class="dcf-footer dcf-txt-xs" id="dcf-footer" role="contentinfo">
-    <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-1.html" -->
+    <!--#include virtual="/wdn/templates_5.1/includes/global/footer-global-1.html" -->
     <!-- TemplateBeginEditable name="contactinfo" -->
-    <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
+    <!--#include virtual="/wdn/templates_5.1/includes/local/footer-local.html" -->
     <!-- TemplateEndEditable -->
-    <!--#include virtual="/wdn/templates_5.0/includes/global/footer-global-2.html" -->
+    <!--#include virtual="/wdn/templates_5.1/includes/global/footer-global-2.html" -->
   </footer>
-  <!--#include virtual="/wdn/templates_5.0/includes/global/noscript.html" -->
-  <!--#include virtual="/wdn/templates_5.0/includes/global/js-body.html" -->
+  <!--#include virtual="/wdn/templates_5.1/includes/global/noscript.html" -->
+  <!--#include virtual="/wdn/templates_5.1/includes/global/js-body.html" -->
 </body>
 <!-- InstanceEnd --></html>
