@@ -20,11 +20,11 @@
 		_docEl,
 		/**
 		 * This variable stores the path to the template files.
-		 * It can be set to /, http://www.unl.edu/, or nothing.
+		 * It can be set to /, https://www.unl.edu/, or nothing.
 		 */
 		template_path = '',
 
-		dependent_path = 'wdn/templates_5.0/',
+		dependent_path = 'wdn/templates_5.1/',
 
 		build_path = '/compressed',
 
@@ -178,7 +178,7 @@
 			var version_dep = document.getElementById("wdn_dependents").getAttribute("src");
 
 			if (/\?dep=\$DEP_VERSION\$/.test(version_dep)) {
-				version_dep = '5.0.DEV';
+				version_dep = '5.1.DEV';
 			} else {
 				var version_match = version_dep.match(/\?dep=(\d+(?:\.\d+)*)/);
 				if (version_match) {

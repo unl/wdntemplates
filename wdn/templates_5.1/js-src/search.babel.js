@@ -2,7 +2,7 @@ define(['wdn', 'require', 'plugins/body-scroll-lock'], function(WDN, require, bo
   const disableBodyScroll = bodyScrollLock.disableBodyScroll;
   const enableBodyScroll = bodyScrollLock.enableBodyScroll;
   let autoSearchDebounceDelay = 1000;
-  let searchEmbedVersion = '5.0';
+  let searchEmbedVersion = '5.1';
 
   function getLocalSearch() {
     let link = document.querySelector('link[rel="search"]');
