@@ -56,14 +56,14 @@ $font-size-button: #{ms(-2)}em;                                         // Butto
 
 
 // Font weight
-$font-weight-button-bold: false;                                        // Bold button text? True/false
+$font-weight-button-bold: true;                                         // Bold button text? True/false
 
 
 // Padding
-$padding-bottom-button: $length-em-2;                                   // Padding-bottom of button: .56em
-$padding-left-button: $length-em-4;                                     // Padding-left of button: 1em
-$padding-right-button: $length-em-4;                                    // Padding-right of button: 1em
-$padding-top-button: $length-em-2;                                      // Padding-top of button: .56em
+$padding-bottom-button: $length-em-3;                                   // Padding-bottom of button: .75em
+$padding-left-button: $length-em-5;                                     // Padding-left of button: 1.33em
+$padding-right-button: $length-em-5;                                    // Padding-right of button: 1.33em
+$padding-top-button: $length-em-3;                                      // Padding-top of button: .75em
 
 
 // Text transform
