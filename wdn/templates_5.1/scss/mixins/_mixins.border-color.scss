@@ -1,9 +1,9 @@
-/////////////////////////////////
-// !THEME / MIXINS / BORDER-COLOR
-/////////////////////////////////
+////////////////////////////////
+// THEME / MIXINS / BORDER-COLOR
+////////////////////////////////
 
 
-// !Scarlet
+// Scarlet
 @mixin b-scarlet($imp:null) { border-color: $scarlet $imp; }          // All Sides
 @mixin bt-scarlet($imp:null) { border-top-color: $scarlet $imp; }     // Top
 @mixin br-scarlet($imp:null) { border-right-color: $scarlet $imp; }   // Right
@@ -11,7 +11,7 @@
 @mixin bl-scarlet($imp:null) { border-left-color: $scarlet $imp; }    // Left
 
 
-// !Cream
+// Cream
 @mixin b-cream($imp:null) { border-color: $cream $imp; }          // All Sides
 @mixin bt-cream($imp:null) { border-top-color: $cream $imp; }     // Top
 @mixin br-cream($imp:null) { border-right-color: $cream $imp; }   // Right
@@ -19,7 +19,7 @@
 @mixin bl-cream($imp:null) { border-left-color: $cream $imp; }    // Left
 
 
-// !Gray
+// Gray
 @mixin b-gray($imp:null) { border-color: $gray $imp; }          // All Sides
 @mixin bt-gray($imp:null) { border-top-color: $gray $imp; }     // Top
 @mixin br-gray($imp:null) { border-right-color: $gray $imp; }   // Right
@@ -27,7 +27,7 @@
 @mixin bl-gray($imp:null) { border-left-color: $gray $imp; }    // Left
 
 
-// !Lightest Gray
+// Lightest Gray
 @mixin b-lightest-gray($imp:null) { border-color: $lightest-gray $imp; }          // All Sides
 @mixin bt-lightest-gray($imp:null) { border-top-color: $lightest-gray $imp; }     // Top
 @mixin br-lightest-gray($imp:null) { border-right-color: $lightest-gray $imp; }   // Right
@@ -35,7 +35,7 @@
 @mixin bl-lightest-gray($imp:null) { border-left-color: $lightest-gray $imp; }    // Left
 
 
-// !Lighter Gray
+// Lighter Gray
 @mixin b-lighter-gray($imp:null) { border-color: $lighter-gray $imp; }          // All Sides
 @mixin bt-lighter-gray($imp:null) { border-top-color: $lighter-gray $imp; }     // Top
 @mixin br-lighter-gray($imp:null) { border-right-color: $lighter-gray $imp; }   // Right
@@ -43,7 +43,7 @@
 @mixin bl-lighter-gray($imp:null) { border-left-color: $lighter-gray $imp; }    // Left
 
 
-// !Light Gray
+// Light Gray
 @mixin b-light-gray($imp:null) { border-color: $light-gray $imp; }          // All Sides
 @mixin bt-light-gray($imp:null) { border-top-color: $light-gray $imp; }     // Top
 @mixin br-light-gray($imp:null) { border-right-color: $light-gray $imp; }   // Right
@@ -51,7 +51,7 @@
 @mixin bl-light-gray($imp:null) { border-left-color: $light-gray $imp; }   // Left
 
 
-// !Dark Gray
+// Dark Gray
 @mixin b-dark-gray($imp:null) { border-color: $dark-gray $imp; }          // All Sides
 @mixin bt-dark-gray($imp:null) { border-top-color: $dark-gray $imp; }     // Top
 @mixin br-dark-gray($imp:null) { border-right-color: $dark-gray $imp; }   // Right
@@ -59,7 +59,7 @@
 @mixin bl-dark-gray($imp:null) { border-left-color: $dark-gray $imp; }    // Left
 
 
-// !Darker Gray
+// Darker Gray
 @mixin b-darker-gray($imp:null) { border-color: $darker-gray $imp; }          // All Sides
 @mixin bt-darker-gray($imp:null) { border-top-color: $darker-gray $imp; }     // Top
 @mixin br-darker-gray($imp:null) { border-right-color: $darker-gray $imp; }   // Right
@@ -67,7 +67,7 @@
 @mixin bl-darker-gray($imp:null) { border-left-color: $darker-gray $imp; }    // Left
 
 
-// !Darkest Gray
+// Darkest Gray
 @mixin b-darkest-gray($imp:null) { border-color: $darkest-gray $imp; }          // All Sides
 @mixin bt-darkest-gray($imp:null) { border-top-color: $darkest-gray $imp; }     // Top
 @mixin br-darkest-gray($imp:null) { border-right-color: $darkest-gray $imp; }   // Right

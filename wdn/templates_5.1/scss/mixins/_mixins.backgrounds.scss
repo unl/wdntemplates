@@ -1,29 +1,29 @@
-////////////////////////////////
-// !THEME / MIXINS / BACKGROUNDS
-////////////////////////////////
+///////////////////////////////
+// THEME / MIXINS / BACKGROUNDS
+///////////////////////////////
 
 
-// !Scarlet
+// Scarlet
 @mixin bg-scarlet($imp:null) { background-color: $scarlet $imp; }
 
 
-// !Cream
+// Cream
 @mixin bg-cream($imp:null) { background-color: $cream $imp; }
 
 
-// !Light
+// Light
 @mixin bg-light($imp:null) { background-color: $light-gray $imp; }
 @mixin bg-lighter($imp:null) { background-color: $lighter-gray $imp; }
 @mixin bg-lightest($imp:null) { background-color: $lightest-gray $imp; }
 
 
-// !Dark
+// Dark
 @mixin bg-dark($imp:null) { background-color: $dark-gray $imp; }
 @mixin bg-darker($imp:null) { background-color: $darker-gray $imp; }
 @mixin bg-darkest($imp:null) { background-color: $darkest-gray $imp; }
 
 
-// !Grit
+// Grit
 @mixin bg-grit($imp:null) {
   background-image: url('../images/bg-grit.png') $imp;
   background-position: 50% 50% $imp;
@@ -52,13 +52,13 @@
 }
 
 
-// !Diagonal Stripes: Scarlet
+// Diagonal Stripes: Scarlet
 @mixin bg-stripes-scarlet($imp:null) {
   background-image: repeating-linear-gradient($diagonal1, $scarlet, $scarlet 2px, transparent 2px, transparent 4px);
 }
 
 
-// !Diagonal Stripes: Dark
+// Diagonal Stripes: Dark
 @mixin bg-stripes-dark($imp:null) {
 //   background-image: url('../images/diagonal-stripe-bg.svg');
 //   background-repeat: repeat;
@@ -67,7 +67,7 @@
 }
 
 
-// !Diagonal Stripes: Light
+// Diagonal Stripes: Light
 @mixin bg-stripes-light($imp:null) {
   background-image: repeating-linear-gradient($diagonal1, fade-out($white,.95), fade-out($white,.95) 2px, fade-out($white,1) 2px, fade-out($white,1) 5px);
 }

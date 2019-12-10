@@ -1,6 +1,6 @@
-/////////////////////////
-// !THEME / PRINT / LINKS
-/////////////////////////
+////////////////////////
+// THEME / PRINT / LINKS
+////////////////////////
 
 
 .unl .dcf-main a,
@@ -9,15 +9,15 @@
 }
 
 
-/* Show the URL after each link */
+// Show the URL after each link
 .unl .dcf-main a[href]::after {
   content: " (" attr(href) ")";
   font-size: 80%;
-  word-wrap: break-word; /* break long urls that don't fit the page width */
+  word-wrap: break-word; // Break long URLs that don't fit the page width
 }
 
 
-/* External links don't get this treatment */
+// External links don't get this treatment
 .unl .dcf-main a[href^="http://"]::after,
 .unl .dcf-main a[href^="https://"]::after {
   content: " [" attr(href) "]";

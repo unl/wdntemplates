@@ -1,9 +1,9 @@
-//////////////////////////////////
-// !THEME / UTILITIES / TYPOGRAPHY
-//////////////////////////////////
+/////////////////////////////////
+// THEME / UTILITIES / TYPOGRAPHY
+/////////////////////////////////
 
 
-// !Font-Size
+// Font-Size
 .unl .dcf-txt-base { @include txt-base(!important); }
 .unl .dcf-txt-3xs { @include txt-3xs(!important); }
 .unl .dcf-txt-2xs { @include txt-2xs(!important); }
@@ -25,7 +25,7 @@
 .unl .dcf-txt-6xl { @include txt-6xl(!important); }
 
 
-// !Letter Spacing
+// Letter Spacing
 .unl-ls-0 { @include ls-0(!important); }
 .unl-ls-1 { @include ls-1(!important); }
 .unl-ls-2 { @include ls-2(!important); }
@@ -33,22 +33,22 @@
 .unl-ls-h { @include ls-h(!important); }
 
 
-// !Line-Height Crop
+// Line-Height Crop
 // Crop to vertically align headings adjacent to photos (e.g. media object layout)
 .unl-lh-crop::before { @include lh-crop(!important); }
 
 
-// !Outline Text: Light
+// Outline Text: Light
 .unl-txt-outline-light { @include txt-outline-light(!important); }
 
 
-// !Outline Text: Dark
+// Outline Text: Dark
 .unl-txt-outline-dark { @include txt-outline-dark(!important); }
 
 
-// !Text Stripes: Light
+// Text Stripes: Light
 .unl-txt-stripes-light { @include txt-stripes-light(!important); }
 
 
-// !Text Stripes: Dark
+// Text Stripes: Dark
 .unl-txt-stripes-dark { @include txt-stripes-dark(!important); }

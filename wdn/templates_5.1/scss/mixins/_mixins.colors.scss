@@ -1,9 +1,9 @@
-///////////////////////////
-// !THEME / MIXINS / COLORS
-///////////////////////////
+//////////////////////////
+// THEME / MIXINS / COLORS
+//////////////////////////
 
 
-// !Scarlet
+// Scarlet
 @mixin scarlet($imp:null) { color: $scarlet $imp; }
 
 // TODO: determine visited state styles
@@ -14,7 +14,7 @@
 @mixin scarlet-active($imp:null) { color: $scarlet $imp; }
 
 
-// !Cream
+// Cream
 @mixin cream($imp:null) { color: $cream $imp; }
 
 // TODO: determine visited state styles
@@ -25,17 +25,17 @@
 @mixin cream-active($imp:null) { color: $cream $imp; }
 
 
-// !Gray
+// Gray
 @mixin gray($imp:null) { color: $gray $imp; }
 
 
-// !Light Gray
+// Light Gray
 @mixin light-gray($imp:null) { color: $light-gray $imp; }
 @mixin lighter-gray($imp:null) { color: $lighter-gray $imp; }
 @mixin lightest-gray($imp:null) { color: $lightest-gray $imp; }
 
 
-// !Dark Gray
+// Dark Gray
 @mixin dark-gray($imp:null) { color: $dark-gray $imp; }
 @mixin darker-gray($imp:null) { color: $darker-gray $imp; }
 @mixin darkest-gray($imp:null) { color: $darkest-gray $imp; }

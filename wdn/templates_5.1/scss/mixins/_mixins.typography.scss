@@ -1,9 +1,9 @@
-///////////////////////////////
-// !THEME / MIXINS / TYPOGRAPHY
-///////////////////////////////
+//////////////////////////////
+// THEME / MIXINS / TYPOGRAPHY
+//////////////////////////////
 
 
-// !Font-Size
+// Font-Size
 @mixin txt-base($imp:null) { font-size: #{ms(0)}rem $imp; }
 @mixin txt-3xs($imp:null) { font-size: #{ms(-4)}em $imp; }
 @mixin txt-2xs($imp:null) { font-size: #{ms(-3)}em $imp; }
@@ -122,7 +122,7 @@
 }
 
 
-// !Letter Spacing
+// Letter Spacing
 @mixin ls-0($imp:null) { letter-spacing: 0 $imp; }
 @mixin ls-1($imp:null) { letter-spacing: #{ms(-30)}em $imp; }
 @mixin ls-2($imp:null) { letter-spacing: #{ms(-20)}em $imp; }
@@ -133,7 +133,7 @@
 }
 
 
-// !Line-Height Crop
+// Line-Height Crop
 // Crop headings to vertically align with the top of adjacent objects
 // (e.g. photo in a media object layout)
 @mixin lh-crop($imp:null) {
@@ -146,7 +146,7 @@
 }
 
 
-// !Outline Text: Light
+// Outline Text: Light
 @mixin txt-outline-light($imp:null) {
 
   @supports (text-stroke: 1px $cream) or (-webkit-text-stroke: 1px $cream) {
@@ -158,7 +158,7 @@
 }
 
 
-// !Outline Text: Dark
+// Outline Text: Dark
 @mixin txt-outline-dark($imp:null) {
 
   @supports (text-stroke: 1px $color-heading) or (-webkit-text-stroke: 1px $color-heading) {
@@ -170,7 +170,7 @@
 }
 
 
-// !Text Stripes: Light
+// Text Stripes: Light
 @mixin txt-stripes-light($imp:null) {
   -webkit-background-clip: text;
   background-clip: text;
@@ -179,7 +179,7 @@
 }
 
 
-// !Text Stripes: Dark
+// Text Stripes: Dark
 @mixin txt-stripes-dark($imp:null) {
   -webkit-background-clip: text;
   background-clip: text;

@@ -1,40 +1,40 @@
-///////////////////////////////////
-// !THEME / UTILITIES / BACKGROUNDS
-///////////////////////////////////
+//////////////////////////////////
+// THEME / UTILITIES / BACKGROUNDS
+//////////////////////////////////
 
 
-// !Scarlet
+// Scarlet
 .unl-bg-scarlet { @include bg-scarlet(!important); }
 
 
-// !Cream
+// Cream
 .unl-bg-cream { @include bg-cream(!important); }
 
 
-// !Light
+// Light
 .unl-bg-light-gray { @include bg-light(!important); }
 .unl-bg-lighter-gray { @include bg-lighter(!important); }
 .unl-bg-lightest-gray { @include bg-lightest(!important); }
 
 
-// !Dark
+// Dark
 .unl-bg-dark-gray { @include bg-dark(!important); }
 .unl-bg-darker-gray { @include bg-darker(!important); }
 .unl-bg-darkest-gray { @include bg-darkest(!important); }
 
 
-// !Grit
+// Grit
 .unl-bg-grit { @include bg-grit(!important); }
 .webp .unl-bg-grit { @include bg-grit-webp(!important); }
 
 
-// !Diagonal Stripes: Scarlet
+// Diagonal Stripes: Scarlet
 .unl-bg-stripes-scarlet { @include bg-stripes-scarlet(!important); }
 
 
-// !Diagonal Stripes: Dark
+// Diagonal Stripes: Dark
 .unl-bg-stripes-dark { @include bg-stripes-dark(!important); }
 
 
-// !Diagonal Stripes: Light
+// Diagonal Stripes: Light
 .unl-bg-stripes-light { @include bg-stripes-light(!important); }

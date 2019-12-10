@@ -1,9 +1,9 @@
-//////////////////////////////
-// !THEME / COMPONENTS / FORMS
-//////////////////////////////
+/////////////////////////////
+// THEME / COMPONENTS / FORMS
+/////////////////////////////
 
 
-// !Fieldset
+// Fieldset
 .unl .dcf-form fieldset {
   border: 1px solid $color-border;
   padding: $length-em-4 $length-vw-1;
@@ -15,13 +15,13 @@
 }
 
 
-// !Form Group
+// Form Group
 .unl .dcf-form-group {
   @include mb-4;
 }
 
 
-// !Legend
+// Legend
 .unl .dcf-legend, // TODO: deprecate?
 .unl .dcf-form legend {
   margin-left: -#{$length-em-2}; // Left align legend with form elements
@@ -30,7 +30,7 @@
 }
 
 
-// !Legend, Label
+// Legend, Label
 .unl .dcf-label, // TODO: deprecate?
 .unl .dcf-legend, // TODO: deprecate?
 .unl .dcf-form label,
@@ -40,7 +40,7 @@
 }
 
 
-// !Label
+// Label
 .unl input[disabled] ~ label,
 .unl .dcf-form-group[disabled] label {
   cursor: not-allowed !important;
@@ -48,7 +48,7 @@
 }
 
 
-// !Required
+// Required
 .unl .dcf-required {
   color: $scarlet;
   @include txt-xs;
@@ -57,7 +57,7 @@
 }
 
 
-// !Input: Text
+// Input: Text
 .unl .dcf-input-text,
 .unl .dcf-form input:not([type="submit"]),
 .unl .dcf-form textarea {
@@ -85,20 +85,20 @@
 }
 
 
-// !Input: Control
+// Input: Control
 .unl .dcf-input-control { // TODO: deprecate?
   @include mr-1;
 }
 
 
-// !Input: File
+// Input: File
 .unl .dcf-input-file { // TODO: deprecate?
   @include mb-2;
   @include mt-2;
 }
 
 
-// !Form Help
+// Form Help
 .unl .dcf-form-help {
   color: $color-light-text;
   @include txt-xs;
