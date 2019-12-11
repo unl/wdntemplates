@@ -5,8 +5,6 @@
 
 .unl details {
   border-top: 1px solid $light-gray;
-  @include pb-3;
-  @include pt-3;
 }
 
 
@@ -15,20 +13,8 @@
 }
 
 
-.unl details[open] {
-  @include pb-4;
-}
-
-
 .unl summary {
-  cursor: pointer;
   @include font-sans;
-  @include txt-h6;
-  letter-spacing: -.03em;
+  @include ls-h;
   @include lh-3;
-}
-
-
-.unl summary + * {
-  @include mt-4;
 }
