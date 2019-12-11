@@ -3,13 +3,6 @@
 ///////////////////////////////////////
 
 
-// Select -- based on Filament Group's select-css: https://www.filamentgroup.com/lab/select-css.html
-.unl .dcf-input-select, // TODO: deprecate?
-.unl .dcf-form select {
-  @include font-sans;
-}
-
-
 .unl .dcf-input-select:focus, // TODO: deprecate?
 .unl .dcf-form select:focus,
 .unl .dcf-input-select:hover, // TODO: deprecate?

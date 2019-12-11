@@ -11,12 +11,6 @@
 }
 
 
-// Input Group Add-on
-.unl .dcf-input-group-addon {
-  @include font-sans;
-}
-
-
 .unl .dcf-input-group-addon:not(:last-child) {
   border-width: $border-width-input-group-addon 0 $border-width-input-group-addon $border-width-input-group-addon;
 }
