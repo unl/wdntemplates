@@ -5,17 +5,6 @@
 
 // Input Group Button
 .unl .dcf-input-group .dcf-btn {
-  margin-left: -#{$border-width-input-group-addon};
   padding-bottom: 0;
   padding-top: 0;
-}
-
-
-.unl .dcf-input-group-addon:not(:last-child) {
-  border-width: $border-width-input-group-addon 0 $border-width-input-group-addon $border-width-input-group-addon;
-}
-
-
-.unl .dcf-input-group-addon:last-child {
-  border-width: $border-width-input-group-addon $border-width-input-group-addon $border-width-input-group-addon 0;
 }

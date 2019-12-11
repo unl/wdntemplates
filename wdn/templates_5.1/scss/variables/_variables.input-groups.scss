@@ -5,6 +5,7 @@
 
 @import '_variables.colors';
 @import '_variables.forms';
+@import '_variables.modular-scale';
 
 
 // Background color
@@ -25,6 +26,10 @@ $border-width-input-group-addon: $border-width-input;     // Input group add-on 
 
 // Color
 $color-input-group-addon: $dark-gray;                     // Input group add-on color
+
+
+// Font size
+$font-size-input-group-addon: #{ms(-1)};                  // Input group add-on font-size: .84em;
 
 
 // Padding
