@@ -24,6 +24,10 @@ $border-style-table: solid;                   // .dcf-table border-style
 $border-width-table: 1px;                     // .dcf-table border-width
 
 
+// Color
+$color-caption: $color-heading;               // .dcf-table <caption> color
+
+
 // Font size
 $font-size-caption: #{ms(1)}em;               // .dcf-table <caption> font-size: 1.13em
 $font-size-thead: #{ms(-1)}em;                // .dcf-table <thead> font-size: .84em
