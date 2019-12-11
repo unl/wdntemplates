@@ -5,11 +5,8 @@
 
 .unl .dcf-subhead {
   font-weight: 400;
-  font-size: #{ms(-2)}rem;
   @include ls-2;
   @include lh-3;
-  @include mb-3;
-  text-transform: uppercase;
 }
 
 
