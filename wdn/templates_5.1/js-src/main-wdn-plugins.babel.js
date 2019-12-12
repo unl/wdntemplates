@@ -7,6 +7,7 @@ define([
   'unlalert',
   'lazy-load',
   'legacy',
+  'modals',
   'hover_intent',
   'cta-nav',
   'form_validation',
