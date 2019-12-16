@@ -4,12 +4,6 @@
 .unl-event-teaser {
   display: flex;
   flex-direction: column;
-  @include mb-6;
-}
-
-
-.unl-event-title {
-  order: 2;
 }
 
 
@@ -18,8 +12,8 @@
 }
 
 
-.unl-event-location {
-  order: 3;
+.wdn-calendar .unl-event-teaser:not(:last-child) {
+  @include mb-4;
 }
 
 
@@ -29,7 +23,7 @@
     display: grid;
     @include col-gap-4;
     grid-template: 'd t' auto 'd l' 1fr / $length-em-8 1fr;
-  	@include mb-0;
+    @include mb-0;
   }
 
 
@@ -40,7 +34,7 @@
 
   .unl-event-datetime {
     grid-area: d;
-  	@include mb-0;
+    @include mb-0;
   }
 
 
@@ -49,4 +43,3 @@
   }
 
 }
-

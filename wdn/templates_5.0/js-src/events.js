@@ -40,7 +40,7 @@ define([
       if (event.DateTime.Start) {
         startDate = moment.tz(event.DateTime.Start, timezone);
       } else {
-        //legacy
+        // legacy
         startDate = moment.tz(event.DateTime.StartDate +  'T' + event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1), timezone);
       }
       var eventURL = '';
@@ -62,12 +62,12 @@ define([
       if (event.EventSubtitle) {
         subtitle = '<p class="dcf-subhead dcf-mt-2 dcf-txt-3xs unl-font-sans unl-dark-gray">' + event.EventSubtitle + '</p>';
       }
-      var title    = '<header class="unl-event-title"><h3 class="dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover unl-darker-gray" href="'+ eventURL +'">' + event.EventTitle + '</a></h3>' + subtitle + '</header>';
+      var title    = '<header class="unl-event-title dcf-2nd"><h3 class="dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover unl-darker-gray" href="'+ eventURL +'">' + event.EventTitle + '</a></h3>' + subtitle + '</header>';
 
       var location = '';
 
       if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {
-        location =  '<div class="unl-event-location dcf-txt-xs dcf-pt-1 unl-font-sans unl-dark-gray">';
+        location =  '<div class="unl-event-location dcf-3rd dcf-txt-xs dcf-pt-1 unl-font-sans unl-dark-gray">';
         if (event.Locations[0].MapLinks[0]) {
           location += '<a class="dcf-txt-decor-hover unl-dark-gray" href="'+ event.Locations[0].MapLinks[0] +'">';
         }
