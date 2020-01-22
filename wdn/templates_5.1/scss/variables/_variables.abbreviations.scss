@@ -1,0 +1,30 @@
+////////////////////////////////////
+// THEME / VARIABLES / ABBREVIATIONS
+////////////////////////////////////
+
+
+@import '_variables.modular-scale';
+
+
+// Border color
+$border-bottom-color-abbr-title: currentColor;  // Border-bottom-color of abbreviation border (underline)
+
+
+// Border style
+$border-bottom-style-abbr-title: dotted;        // Border-bottom-style of abbreviation border (underline)
+
+
+// Border width
+$border-bottom-width-abbr-title: 1px;           // Border-bottom-width of abbreviation border (underline)
+
+
+// Font size
+$font-size-abbr: #{ms(-1)}em;                   // Abbreviation font-size: .84em
+
+
+// Letter spacing
+$letter-spacing-abbr: .05em;                    // Abbreviation letter-spacing
+
+
+// Opacity
+$opacity-abbr-title: .5;                        // Opacity of abbreviation's border-bottom (underline)

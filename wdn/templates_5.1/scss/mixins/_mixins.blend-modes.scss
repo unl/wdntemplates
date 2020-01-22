@@ -1,0 +1,13 @@
+///////////////////////////////
+// THEME / MIXINS / BLEND MODES
+///////////////////////////////
+
+
+// Multiply
+@mixin multiply($imp:null) {
+
+  @supports (mix-blend-mode: multiply) {
+    mix-blend-mode: multiply $imp;
+  }
+
+}

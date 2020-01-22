@@ -1,0 +1,74 @@
+//////////////////////////////
+// THEME / VARIABLES / BUTTONS
+//////////////////////////////
+
+
+@import '_variables.anchors';
+@import '_variables.borders';
+@import '_variables.modular-scale';
+@import '_variables.sizing';
+
+
+// Background color
+$bg-color-button-primary: $color-link;                                  // Background-color for primary button
+$bg-color-button-secondary: $bg-color-body;                             // Background-color for secondary button
+$bg-color-button-tertiary: transparent;                                 // Background-color for tertiary button
+
+$bg-color-button-inverse-primary: $bg-color-body;                       // Background-color for inverse primary button
+$bg-color-button-inverse-secondary: transparent;                        // Background-color for inverse secondary button
+$bg-color-button-inverse-tertiary: transparent;                         // Background-color for inverse tertiary button
+
+
+// Border radius
+$border-radius-button-roundrect: false;                                 // Button border-radius roundrect? True/false
+
+
+// Border color
+$border-color-button-primary: $bg-color-button-primary;                 // Border-color for primary button
+$border-color-button-secondary: currentColor;                           // Border-color for secondary button
+$border-color-button-tertiary: transparent;                             // Border-color for tertiary button
+
+$border-color-button-inverse-primary: $bg-color-button-inverse-primary; // Border-color for inverse primary button
+$border-color-button-inverse-secondary: currentColor;                   // Border-color for inverse secondary button
+$border-color-button-inverse-tertiary: transparent;                     // Border-color for inverse tertiary button
+
+
+// Border style
+$border-style-button: solid;                                            // Button border-style
+
+
+// Border width
+$border-width-button: 2px;                                              // Button border-width
+
+
+// Color
+$color-button-primary: $bg-color-body;                                  // Color (text) for primary button
+$color-button-secondary: $color-link;                                   // Color (text) for secondary button
+$color-button-tertiary: $color-link;                                    // Color (text) for tertiary button
+
+$color-button-inverse-primary: inherit;                                 // Color (text) for inverse primary button
+$color-button-inverse-secondary: $bg-color-body;                        // Color (text) for inverse secondary button
+$color-button-inverse-tertiary: $bg-color-body;                         // Color (text) for inverse tertiary button
+
+
+// Font size
+$font-size-button: #{ms(-2)}em;                                         // Button font-size: .75em
+
+
+// Font weight
+$font-weight-button-bold: true;                                         // Bold button text? True/false
+
+
+// Line height
+$line-height-button: #{ms(3)};                                          // Button line-height
+
+
+// Padding
+$padding-bottom-button: $length-em-3;                                   // Padding-bottom of button: .75em
+$padding-left-button: $length-em-5;                                     // Padding-left of button: 1.33em
+$padding-right-button: $length-em-5;                                    // Padding-right of button: 1.33em
+$padding-top-button: $length-em-3;                                      // Padding-top of button: .75em
+
+
+// Text transform
+$text-transform-button-uppercase: true;                                 // Uppercase button text? True/false

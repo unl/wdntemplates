@@ -5,7 +5,6 @@ define([
   'navigation',
   'search',
   'unlalert',
-  'modals',
   'lazy-load',
   'legacy',
   'hover_intent',

@@ -1,0 +1,16 @@
+/////////////////////////////
+// THEME / VARIABLES / MODALS
+/////////////////////////////
+
+
+@import '_variables.body';
+
+
+// Background color
+$bg-color-modal-wrapper: $bg-color-body;              // Modal wrapper background-color
+$bg-color-modal-header: $bg-color-body;               // Modal header background-color
+
+
+// Height & width
+$height-max-modal-wrapper: 75vh;                      // Max-height modal wrapper
+$width-modal-wrapper: calc(100% - (2 * #{ms(12)}vw)); // Match width of .dcf-wrapper

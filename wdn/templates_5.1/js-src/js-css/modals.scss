@@ -1,0 +1,44 @@
+@import '../../scss/pre.tmp.scss';
+
+
+// !Modal
+.unl .dcf-modal[aria-hidden="true"] {
+  transition: opacity $timing-fade-out $easing-fade-out;
+}
+
+
+.unl .dcf-modal[aria-hidden="false"] {
+  transition: opacity $timing-fade-in $easing-fade-in;
+}
+
+
+// !Modal Wrapper
+.unl .dcf-modal-wrapper {
+  @include bg-cream;
+  max-height: 75vh;
+  width: calc(100% - (2 * #{ms(12)}vw)); // Match width of .dcf-wrapper
+}
+
+
+// !Modal Header
+.unl .dcf-modal-header {
+  @include bg-cream;
+}
+
+
+.unl .dcf-modal-header::after {
+  background-image: linear-gradient($cream, fade-out($cream, 1));
+  content: '';
+  @include h-4;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+
+// !Modal Content
+.unl .dcf-modal-content > *:last-child {
+  margin-bottom: 0;
+}

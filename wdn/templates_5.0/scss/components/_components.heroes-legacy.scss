@@ -4,7 +4,7 @@
 
 
 // Legacy hero
-.unl-hero-legacy .dcf-breadcrumbs-wrapper {
+.unl-hero-legacy .dcf-breadcrumbs {
   display: none;
 }
 
@@ -44,15 +44,11 @@
     height: #{ms(28)}vh;
     left: 0;
     max-height: #{ms(24)}em;
+    opacity: .5;
     overflow: hidden;
     position: absolute;
     top: 0;
     width: 100%;
-  }
-
-  .unl-hero-legacy .dcf-hero-group-2 img,
-  .unl-hero-legacy .dcf-hero-group-2 video {
-    opacity: .5;
   }
 
 }

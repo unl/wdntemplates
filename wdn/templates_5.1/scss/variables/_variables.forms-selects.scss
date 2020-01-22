@@ -1,0 +1,30 @@
+//////////////////////////////////////
+// THEME / VARIABLES / FORMS - SELECTS
+//////////////////////////////////////
+
+
+@import '_variables.body';
+@import '_variables.colors';
+@import '_variables.sizing';
+
+
+// Background color
+$bg-color-select-1: $white;           // <select> top linear-gradient background-color
+$bg-color-select-2: $lightest-gray;   // <select> bottom linear-gradient background-color
+
+
+// Background position
+$bg-position-arrow: $length-em-4;     // Position of arrow from right edge of <select>
+
+
+// Background size
+$bg-size-arrow-select: $length-em-2;  // Size of <select> arrow
+
+
+// Color
+$color-select: $color-body;           // <select> color
+$color-select-arrow: $color-body;     // <select> arrow color
+
+
+// Padding
+$padding-right-select: $length-em-7;  // <select> padding-right is larger to allow for arrow

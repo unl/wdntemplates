@@ -15,6 +15,8 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
       let mobileActions = document.querySelectorAll('.hrjs');
       let skipNav = document.getElementById('dcf-skip-nav');
       let institutionTitle = document.getElementById('dcf-institution-title');
+      let idm = document.getElementById('dcf-idm');
+      let search = document.getElementById('dcf-search');
       let logo = document.getElementById('dcf-logo-lockup');
       let nav = document.getElementById('dcf-navigation');
       let main = document.querySelector('main');
@@ -81,16 +83,13 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
       }
 
       function openNavModal() {
-
-        // Hide other mobile toggles
-        document.dispatchEvent(closeSearchEvent);
-        document.dispatchEvent(closeIDMOptionsEvent);
-
         if (window.matchMedia("(max-width: 56.12em)").matches) {
           skipNav.setAttribute('aria-hidden', 'true');
           institutionTitle.setAttribute('aria-hidden', 'true');
+          idm.setAttribute('aria-hidden', 'true');
+          search.setAttribute('aria-hidden', 'true');
           logo.setAttribute('aria-hidden', 'true');
-          nav.setAttribute('aria-hidden', 'false');
+          nav.setAttribute('aria-hidden', 'true');
           main.setAttribute('aria-hidden', 'true');
           footer.setAttribute('aria-hidden', 'true');
           disableBodyScroll(mobileNavMenu);
@@ -104,6 +103,10 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
         toggleIconClose.classList.remove('dcf-d-none');
         toggleLabel.textContent = 'Close';
 
+        // Hide other mobile toggles
+        document.dispatchEvent(closeSearchEvent);
+        document.dispatchEvent(closeIDMOptionsEvent);
+
         firstTabFocusEl.focus();
         document.addEventListener('keydown', onKeyDown);
       }
@@ -112,13 +115,12 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
         if (window.matchMedia("(max-width: 56.12em)").matches) {
           skipNav.setAttribute('aria-hidden', 'false');
           institutionTitle.setAttribute('aria-hidden', 'false');
+          idm.setAttribute('aria-hidden', 'false');
+          search.setAttribute('aria-hidden', 'false');
           logo.setAttribute('aria-hidden', 'false');
-          nav.setAttribute('aria-hidden', 'true');
+          nav.setAttribute('aria-hidden', 'false');
           main.setAttribute('aria-hidden', 'false');
           footer.setAttribute('aria-hidden', 'false');
-
-          // Allow body scroll when navigation is closed
-          enableBodyScroll(mobileNavMenu);
         }
         for (var i = 0; i < toggleButtons.length; ++i) {
           toggleButtons[i].setAttribute('aria-expanded', 'false');
@@ -130,34 +132,39 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
         toggleLabel.textContent = 'Menu';
         activeToggleButton.focus();
         document.removeEventListener('keydown', onKeyDown);
+
+        // Allow body scroll when navigation is closed
+        enableBodyScroll(mobileNavMenu);
       }
 
-      // add an event listener for close Navigation Event
+      // add an event listener for closeSearchEvent
       document.addEventListener('closeNavigation', function(e) {
-        if (isNavigationOpen() === true) {
+        if (modalParent.classList.contains('dcf-modal-open')) {
           closeNavModal();
         }
       });
 
       // add an event listener for resize
       window.addEventListener('resize', function(e) {
-        if (isNavigationOpen() === true) {
-          closeNavModal();
+        if (window.matchMedia("(max-width: 56.12em)").matches && modalParent.classList.contains('dcf-modal-open')) {
+          main.setAttribute('inert', '');
+          footer.setAttribute('inert', '');
+          disableBodyScroll(mobileNavMenu);
+        } else {
+          main.removeAttribute('inert');
+          footer.removeAttribute('inert');
+          enableBodyScroll(mobileNavMenu);
         }
       });
 
       let toggleButtonOnClick = function() {
           activeToggleButton = this;
-          if (isNavigationOpen() === true) {
+          if (modalParent.classList.contains('dcf-modal-open')) {
             closeNavModal();
           } else {
             openNavModal();
           }
       };
-
-      let isNavigationOpen = function() {
-        return modalParent.classList.contains('dcf-modal-open');
-      }
 
       for (let i = 0; i < toggleButtons.length; i++) {
         toggleButtons[i].addEventListener('click', toggleButtonOnClick);

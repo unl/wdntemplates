@@ -1,0 +1,16 @@
+//////////////////////////////////
+// THEME / VARIABLES / BACKGROUNDS
+//////////////////////////////////
+
+
+@import '_variables.colors';
+
+
+// Background color
+$bg-color-body: $cream;         // Body background-color (usually white, off-white, or very light gray)
+
+
+// Color
+$color-body: $darker-gray;      // Body text color, strive for WCAG AAA (minimum contrast ratio of 7.0) for body text
+$color-light-text: $dark-gray;  // Light text color, must meet WCAG AA (minimum contrast ratio of 4.5)
+$color-inverse: $bg-color-body; // Inverse text color

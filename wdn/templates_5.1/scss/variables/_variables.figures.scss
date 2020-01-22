@@ -1,0 +1,15 @@
+//////////////////////////////
+// THEME / VARIABLES / FIGURES
+//////////////////////////////
+
+
+@import '_variables.colors';
+@import '_variables.modular-scale';
+
+
+// Color
+$color-figcaption: $color-light-text; // Color of figcaption
+
+
+// Font size
+$font-size-figcaption: #{ms(-2)}em;   // Font-size of figcaption: .75em
