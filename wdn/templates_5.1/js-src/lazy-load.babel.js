@@ -1,4 +1,4 @@
-require (['dcf-lazyLoad'], (LazyLoad) => {
+require (['dcf-lazyLoad'], () => {
 
   const images = document.querySelectorAll('[loading=lazy], .dcf-lazy-load');
   const observerConfig = {
@@ -7,7 +7,7 @@ require (['dcf-lazyLoad'], (LazyLoad) => {
   	threshold: [0, 0.5]
   };
   const enterClassNames = ['dcf-fade-in'];
-  const unlLazyLoad = new LazyLoad(images, observerConfig, enterClassNames);
+  const unlLazyLoad = new DCFLazyLoad(images, observerConfig, enterClassNames);
   unlLazyLoad.initialize();
 
 });

@@ -341,14 +341,26 @@ module.exports = function (grunt) {
         //let rjs generate the sourcemap
         sourceMap: false
       },
-      dist: {
-        files: [{
-          'expand': true,
-          'cwd': templateJsSrc,
-          'src': ['**/*.babel.js'],
-          'dest': templateJs,
-          'ext': '.js'
-        }]
+      wdn: {
+        'expand': true,
+        'cwd': templateJsSrc,
+        'src': ['**/*.babel.js'],
+        'dest': templateJs,
+        'ext': '.js'
+      },
+      dcfUtility: {
+        'expand': true,
+        'cwd': 'node_modules/dcf/js',
+        'src': ['**/dcf-utility.js'],
+        'dest': templateJs,
+        'ext': '.js'
+      },
+      dcf: {
+        'expand': true,
+        'cwd': 'node_modules/dcf/js',
+        'src': ['**/*.js', '!**/dcf-utility.js'],
+        'dest': templateJs,
+        'ext': '.js'
       }
     },
 
@@ -371,35 +383,7 @@ module.exports = function (grunt) {
           ].concat(syncJsIgnore),
           dest: templateCompileJs
         }]
-      },
-      dcfCommonModules: {
-        files: [{
-          cwd: 'node_modules/dcf/assets/dist/js/app/postBabel/common',
-          src: ['**/*.js', '!**/*.min.js', '!**/*.babel.js'],
-          dest: templateJs
-        }]
-      },
-      dcfOptionalModules: {
-        files: [{
-          cwd: 'node_modules/dcf/assets/dist/js/app/postBabel/optional',
-          src: ['**/*.js'],
-          dest: templateJs
-        }]
-      },
-      dcfUnminifiedMustards: {
-        files: [{
-          cwd: 'node_modules/dcf/assets/dist/js/mustard',
-          src: ['**/*.js', '!**/*.min.js'],
-          dest: `${templateJs}/mustard`
-        }]
-      },
-      dcfVendorPlugins: {
-        files: [{
-          cwd: 'node_modules/dcf/assets/dist/js/vendor',
-          src: ['**/*', '!**/*.ts'],
-          dest: `${templateJs}/plugins`
-        }]
-      },
+      }
     },
 
     bump: {
@@ -619,13 +603,12 @@ module.exports = function (grunt) {
   grunt.registerTask('images', ['newer:imagemin']);
   grunt.registerTask('css-main', ['sassGlobber', 'sass:main', 'postcss:main']);
   grunt.registerTask('css-plugins', ['sassGlobber', 'sass:plugins', 'postcss:plugins']);
-  grunt.registerTask('js-main', ['css-plugins', 'babel', 'copy:babelNoTranspile', 'sync:dcfCommonModules', 'sync:dcfOptionalModules', 'sync:dcfUnminifiedMustards', 'sync:dcfVendorPlugins', 'requirejs', 'sync:js', 'clean:js-build']);
-  grunt.registerTask('js', ['clean:js', 'css-plugins', 'babel', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
+  grunt.registerTask('js-main', ['css-plugins', 'babel:dcfUtility', 'babel:dcf', 'babel:wdn', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
+  grunt.registerTask('js', ['clean:js', 'css-plugins', 'babel:wdn', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
 
   // establish grunt composed tasks
   // TODO check with Ryan if sassGlobber needs to be at the start of Grunt task
-//   grunt.registerTask('default', ['images', 'sassGlobber', 'clean:js', 'css-main', 'js-main']);
-  grunt.registerTask('default', ['images', 'sassGlobber', 'clean:js', 'css-main']);
+  grunt.registerTask('default', ['images', 'sassGlobber', 'clean:js', 'css-main', 'js-main']);
   // legacy targets from Makefile
   grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
   grunt.registerTask('all', ['default']);  /** mark for deletion */
