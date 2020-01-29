@@ -46,14 +46,6 @@
 }
 
 
-.unl .dcf-search-input,
-.unl .dcf-search-input:hover,
-.unl .dcf-search-input:focus {
-  // TODO: differentiate :focus and :hover styles
-  border: 1px solid $cream;
-}
-
-
 @include mq(md, max, width) {
 
   .unl .dcf-search-toggle-wrapper {
