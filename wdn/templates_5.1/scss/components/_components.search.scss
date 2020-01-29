@@ -3,8 +3,8 @@
 //////////////////////////////
 
 
-.no-js .unl-search-bg,
-.no-webp .unl-search-bg {
+.dcf-no-js .unl-search-bg,
+.dcf-no-webp .unl-search-bg {
   background-image: url('../images/unl-search-bg-640.png');
 
   @media (min-width: 640px) { background-image: url('../images/unl-search-bg-960.png'); }
@@ -25,7 +25,7 @@
 }
 
 
-.webp .unl-search-bg {
+.dcf-webp .unl-search-bg {
   background-image: url('../images/unl-search-bg-640.webp');
 
   @media (min-width: 640px) { background-image: url('../images/unl-search-bg-960.webp'); }
