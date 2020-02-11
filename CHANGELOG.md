@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.16 (February 11, 2020)
+- Add Third Party cookie support via samesite to WDN.setCookie()
+- Remove 150th anniversary logo and update copyright year
+- Fix events listing display issue
+
 ## 5.0.15 (December 10, 2019)
 - DCF modal update
 - Add mixin/utility to match heading letter-spacing
