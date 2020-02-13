@@ -16,7 +16,13 @@ require(['require',], () => {
     })
   }
 
-  // Require test for WebP browser support
-  require(['utility-scripts/testForWebP',], () => {});
+  require(['dcf-utility'], () => {
+
+    // Trigger dcf-webp class processing
+    DCFUtility.flagSupportsWebP();
+
+    // Trigger dcf-no-js check
+    DCFUtility.flagSupportsJavaScript();
+  });
 
 });
