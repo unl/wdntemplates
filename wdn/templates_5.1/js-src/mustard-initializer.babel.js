@@ -19,10 +19,10 @@ require(['require',], () => {
   require(['dcf-utility'], () => {
 
     // Trigger dcf-webp class processing
-    DCFUtility.flagSupportsWebp();
+    DCFUtility.flagSupportsWebP();
 
     // Trigger dcf-no-js check
-    DCFUtility.flagSupportsJavascript();
+    DCFUtility.flagSupportsJavaScript();
   });
 
 });
