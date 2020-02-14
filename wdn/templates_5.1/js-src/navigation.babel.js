@@ -46,7 +46,7 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
       let firstTabFocusEl = tabFocusEls[0];
       let lastTabFocusEl = tabFocusEls[tabFocusEls.length - 1];
       let closeSearchEvent = new CustomEvent('closeSearch');
-      let closeIDMOptionsEvent = new CustomEvent('closeDropDownWidget', {detail: {type: 'idm-logged-in'}});
+      let closeIDMOptionsEvent = new CustomEvent('closeIDMInfo');
 
       // We need to keep track of the toggle button that activated the menu so that we can return focus to it when the menu is closed
       let activeToggleButton = null;

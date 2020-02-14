@@ -103,7 +103,8 @@ module.exports = function (grunt) {
     '!skipnav.*',
     '!unlalert.*',
     '!wdn*',
-    '!cta-nav.*'
+    '!cta-nav.*',
+    '!idm-dashboard.*'
   ];
 
   // requirejs configuration and customization options
