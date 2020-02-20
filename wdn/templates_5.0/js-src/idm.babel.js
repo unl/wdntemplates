@@ -92,6 +92,28 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 			user = newUser;
 		},
 
+		getUser: function getUser() {
+			let data = {};
+			if (user) {
+				data.unlID = Plugin.getUserId();
+				data.firstName = Plugin.getFirstName();
+				data.lastName = Plugin.getLastName();
+				data.fullName = getUserField('displayName');
+				data.displayName = Plugin.getDisplayName();
+				data.emailAddress = Plugin.getEmailAddress();
+				data.postalAddress = Plugin.getPostalAddress();
+				data.phoneNumber = Plugin.getTelephoneNumber();
+				data.title = Plugin.getTitle();
+				data.orgUnitNumber = Plugin.getPrimaryHROrgUnitNumber();
+				data.orgUnitName = getUserField('unlHRPrimaryDepartment');
+				data.primaryAffiliation = Plugin.getPrimaryAffiliation();
+				data.avatar = user.imageURL;
+				data.profileUrl = Plugin.getProfileURL();
+			}
+
+			return data;
+		},
+
 		logout: function logout() {
 			WDN.setCookie(ssoCook, '0', -1);
 			user = false;
@@ -194,6 +216,15 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		 */
 		getTitle: function getTitle() {
 			return getUserField('title');
+		},
+
+		/**
+		 * Get the logged in user's primary hr org unit number
+		 *
+		 * @returns {false|string}
+		 */
+		getPrimaryHROrgUnitNumber: function getPrimaryHROrgUnitNumber() {
+			return getUserField('unlHROrgUnitNumber');
 		},
 
 		/**
@@ -307,6 +338,9 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				Plugin.setLogoutURL(localSettings.logout);
 				logoutLink.setAttribute('href', logoutURL);
 			}
+
+			// Trigger idm is ready
+			window.dispatchEvent(new Event('idmStateSet'));
 		},
 
 		renderAsLoggedOut: function renderAsLoggedOut() {
@@ -325,6 +359,9 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				loginLink.setAttribute('href', loginURL);
 				loggedInContainer.hidden = true;
 				loggedOutContainer.hidden = false;
+
+				// Trigger idm is ready
+				window.dispatchEvent(new Event('idmStateSet'));
 			}
 		},
 
