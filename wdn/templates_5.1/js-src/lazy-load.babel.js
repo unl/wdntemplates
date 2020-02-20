@@ -6,7 +6,7 @@ require (['dcf-lazyLoad'], () => {
   	rootMargin: '0px 0px 50px 0px',
   	threshold: [0, 0.5]
   };
-  const enterClassNames = ['dcf-fade-in'];
+  const enterClassNames = [];
   const unlLazyLoad = new DCFLazyLoad(images, observerConfig, enterClassNames);
   unlLazyLoad.initialize();
 
