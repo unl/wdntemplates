@@ -359,10 +359,9 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				loginLink.setAttribute('href', loginURL);
 				loggedInContainer.hidden = true;
 				loggedOutContainer.hidden = false;
-
-				// Trigger idm is ready
-				window.dispatchEvent(new Event('idmStateSet'));
 			}
+			// Trigger idm is ready
+			window.dispatchEvent(new Event('idmStateSet'));
 		},
 
 		/**
