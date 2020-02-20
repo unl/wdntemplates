@@ -119,7 +119,41 @@
       <img class="dcf-d-block dcf-absolute" style="right: 0; top: 0; height: 100%; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 42.3% 100%) !important;" src="wdn/templates_5.1/images/170902-ne-asu-0878-lg-min.jpg" alt="#">
 -->
 
+      <div class="dcf-pb-8 dcf-w-max-md">
+        <h2>User Status</h2>
+        <div id="user-display"></div>
+      </div>
+      <script>
+        window.addEventListener('idmStateSet', function(){
+          require(['idm'], function(idm) {
+            var userDisplayContainer = document.getElementById('user-display');
+            var userDisplayContent  = '';
+            if (idm.isLoggedIn()) {
+              var user = idm.getUser();
+              var userDisplayContent = `<dl>
+                <dt>UNL ID</dt><dd>${user.unlID}</dd>
+                <dt>First Name</dt><dd>${user.firstName}</dd>
+                <dt>Last Name</dt><dd>${user.lastName}</dd>
+                <dt>Full Name</dt><dd>${user.fullName}</dd>
+                <dt>Display Name</dt><dd>${user.displayName}</dd>
+                <dt>Email Address</dt><dd>${user.emailAddress}</dd>
+                <dt>Postal Address</dt><dd>${user.postalAddress}</dd>
+                <dt>Phone Number</dt><dd>${user.phoneNumber}</dd>
+                <dt>UNL Title</dt><dd>${user.title}</dd>
+                <dt>UNL Org Unit #</dt><dd>${user.orgUnitNumber}</dd>
+                <dt>UNL Org Unit Name</dt><dd>${user.orgUnitName}</dd>
+                <dt>UNL Primary Affiliation</dt><dd>${user.primaryAffiliation}</dd>
+                <dt>Avatar</dt><dd><img src="${user.avatar}" alt="UNL avatar of ${user.displayName}"></dd>
+                <dt>Profile URL</dt><dd><a href="${user.profileUrl}">View Profile</a></dd>
+                </dl>`;
 
+            } else {
+              userDisplayContent = '<p>User is not logged in.</p>';
+            }
+            userDisplayContainer.innerHTML = userDisplayContent;
+          });
+        });
+      </script>
 
       <div class="dcf-pb-8 dcf-w-max-md">
   <!--     <h2>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park.</h2> -->

@@ -5,31 +5,31 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 	"use strict";
 
 	var getLinkByRel = function getLinkByRel(name) {
-		return document.querySelector('link[rel=' + name + ']');
-	},
-	getLocalIdmSettings = function getLocalIdmSettings() {
-		var loginLink = getLinkByRel('login'),
-		    logoutLink = getLinkByRel('logout');
+			return document.querySelector('link[rel=' + name + ']');
+		},
+		getLocalIdmSettings = function getLocalIdmSettings() {
+			var loginLink = getLinkByRel('login'),
+				logoutLink = getLinkByRel('logout');
 
-		if (loginLink) {
-			WDN.setPluginParam('idm', 'login', loginLink.getAttribute('href'));
-		}
-		if (logoutLink) {
-			WDN.setPluginParam('idm', 'logout', logoutLink.getAttribute('href'));
-		}
+			if (loginLink) {
+				WDN.setPluginParam('idm', 'login', loginLink.getAttribute('href'));
+			}
+			if (logoutLink) {
+				WDN.setPluginParam('idm', 'logout', logoutLink.getAttribute('href'));
+			}
 
-		return WDN.getPluginParam('idm') || {};
-	},
+			return WDN.getPluginParam('idm') || {};
+		},
 
-	loginSrv = 'https://shib.unl.edu/',
-	ssoCook = 'unl_sso',
-	encLoc = encodeURIComponent(window.location),
-	logoutURL = loginSrv + 'idp/profile/cas/logout?url=' + encLoc,
-	loginURL = loginSrv + 'idp/profile/cas/login?service=' + encLoc,
-	serviceURL = 'https://whoami.unl.edu/?id=',
-	avatarService = 'https://directory.unl.edu/avatar/',
-	planetRed = 'https://planetred.unl.edu/pg/',
-	user = false;
+		loginSrv = 'https://shib.unl.edu/',
+		ssoCook = 'unl_sso',
+		encLoc = encodeURIComponent(window.location),
+		logoutURL = loginSrv + 'idp/profile/cas/logout?url=' + encLoc,
+		loginURL = loginSrv + 'idp/profile/cas/login?service=' + encLoc,
+		serviceURL = 'https://whoami.unl.edu/?id=',
+		avatarService = 'https://directory.unl.edu/avatar/',
+		planetRed = 'https://planetred.unl.edu/pg/',
+		user = false;
 
 	var getUserField = function getUserField(field) {
 		if (!user || !user[field]) {
@@ -42,20 +42,20 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 	var Plugin = {
 		initialize: function initialize(callback) {
 			var loginCheckFailure = function loginCheckFailure() {
-				ready(function () {
-					var localSettings = getLocalIdmSettings();
-					if (localSettings.login) {
-						Plugin.setLoginURL(localSettings.login);
+					ready(function () {
+						var localSettings = getLocalIdmSettings();
+						if (localSettings.login) {
+							Plugin.setLoginURL(localSettings.login);
+						}
+
+						Plugin.renderAsLoggedOut();
+					});
+
+					if (callback) {
+						callback();
 					}
-
-					Plugin.renderAsLoggedOut();
-				});
-
-				if (callback) {
-					callback();
-				}
-			},
-			    cookie = WDN.getCookie(ssoCook);
+				},
+				cookie = WDN.getCookie(ssoCook);
 
 			if (cookie) {
 				require([serviceURL + cookie], function () {
@@ -90,6 +90,28 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		 */
 		setUser: function setUser(newUser) {
 			user = newUser;
+		},
+
+		getUser: function getUser() {
+			let data = {};
+			if (user) {
+				data.unlID = Plugin.getUserId();
+				data.firstName = Plugin.getFirstName();
+				data.lastName = Plugin.getLastName();
+				data.fullName = getUserField('displayName');
+				data.displayName = Plugin.getDisplayName();
+				data.emailAddress = Plugin.getEmailAddress();
+				data.postalAddress = Plugin.getPostalAddress();
+				data.phoneNumber = Plugin.getTelephoneNumber();
+				data.title = Plugin.getTitle();
+				data.orgUnitNumber = Plugin.getPrimaryHROrgUnitNumber();
+				data.orgUnitName = getUserField('unlHRPrimaryDepartment');
+				data.primaryAffiliation = Plugin.getPrimaryAffiliation();
+				data.avatar = user.imageURL;
+				data.profileUrl = Plugin.getProfileURL();
+			}
+
+			return data;
 		},
 
 		logout: function logout() {
@@ -179,10 +201,10 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-   * Get the logged in user's telephone number
-   *
-   * @returns {false|string}
-   */
+		 * Get the logged in user's telephone number
+		 *
+		 * @returns {false|string}
+		 */
 		getTelephoneNumber: function getTelephoneNumber() {
 			return getUserField('telephoneNumber');
 		},
@@ -194,6 +216,15 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		 */
 		getTitle: function getTitle() {
 			return getUserField('title');
+		},
+
+		/**
+		 * Get the logged in user's primary hr org unit number
+		 *
+		 * @returns {false|string}
+		 */
+		getPrimaryHROrgUnitNumber: function getPrimaryHROrgUnitNumber() {
+			return getUserField('unlHROrgUnitNumber');
 		},
 
 		/**
@@ -307,6 +338,9 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				Plugin.setLogoutURL(localSettings.logout);
 				logoutLink.setAttribute('href', logoutURL);
 			}
+
+			// Trigger idm is ready
+			window.dispatchEvent(new Event('idmStateSet'));
 		},
 
 		renderAsLoggedOut: function renderAsLoggedOut() {
@@ -325,6 +359,9 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				loginLink.setAttribute('href', loginURL);
 				loggedInContainer.hidden = true;
 				loggedOutContainer.hidden = false;
+
+				// Trigger idm is ready
+				window.dispatchEvent(new Event('idmStateSet'));
 			}
 		},
 
