@@ -1,7 +1,9 @@
-@import '../../scss/pre.tmp.scss';
+//////////////////////////////
+// THEME / COMPONENTS / MODALS
+//////////////////////////////
 
 
-// !Modal
+// Modal
 .unl .dcf-modal[aria-hidden="true"] {
   transition: opacity $timing-fade-out $easing-fade-out;
 }
@@ -12,7 +14,7 @@
 }
 
 
-// !Modal Wrapper
+// Modal Wrapper
 .unl .dcf-modal-wrapper {
   @include bg-cream;
   max-height: 75vh;
@@ -20,7 +22,7 @@
 }
 
 
-// !Modal Header
+// Modal Header
 .unl .dcf-modal-header {
   @include bg-cream;
 }
@@ -38,7 +40,7 @@
 }
 
 
-// !Modal Content
+// Modal Content
 .unl .dcf-modal-content > *:last-child {
   margin-bottom: 0;
 }
