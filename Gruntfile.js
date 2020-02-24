@@ -16,8 +16,9 @@ module.exports = function (grunt) {
     'js-css/events',
     'js-css/formvalidator',
     'js-css/modals',
-    'js-css/notices',
     'js-css/monthwidget',
+    'js-css/notices',
+    'js-css/tabs',
     'js-css/unlalert',
     'plugins/ui/css/jquery-ui-wdn'
   ];
@@ -69,6 +70,7 @@ module.exports = function (grunt) {
     'modal',
     'monthwidget',
     'notice',
+    'tabs'
   ];
 
   // module exclusions for plugins not built into all
