@@ -6,54 +6,6 @@
 @import '../../scss/pre.tmp.scss';
 
 
-.dcf-tabs-list-item {
-  display: inline-block;
-}
-
-
-.dcf-tab {
-  // If the tab font-size is not 1em, then change the font-size
-  @if (to-number($font-size-tab) != to-number(#{ms(0)}em)) {
-    font-size: $font-size-tab;
-  }
-  // If the $font-weight-tab-bold variable = true, then change the font-weight to bold
-  @if ($font-weight-tab-bold) {
-    font-weight: bold;
-  }
-  padding: $padding-top-tab $padding-right-tab $padding-bottom-tab $padding-left-tab;
-}
-
-
-.dcf-tab[aria-selected] {
-  background-color: $bg-color-tab-selected;
-  color: $color-tab-selected;
-  text-decoration: none;
-}
-
-
-.dcf-tabs-panel {
-  background-color: $bg-color-tabs-panel;
-  // If tab panel border-width is greater than zero, then add border styles
-  @if (to-number($border-width-tabs-panel) > 0) {
-    border: $border-width-tabs-panel $border-style-tabs-panel $border-color-tabs-panel;
-  }
-  padding: $padding-top-tabs-panel $padding-right-tabs-panel $padding-bottom-tabs-panel $padding-left-tabs-panel;
-}
-
-
-@include mq(md, max, width) {
-
-  .dcf-tabs-responsive .dcf-tabs-list-item {
-    display: block;
-  }
-
-}
-
-
-
-
-
-
 .unl .dcf-tab {
   @include font-sans;
   margin-bottom: -#{$border-width-tab};
