@@ -19,7 +19,7 @@
 
 .frame figcaption,
 .wdn-frame figcaption {
-  background-color: $color-body-bg;
+  background-color: $bg-color-body;
   color: $color-light-text;
   @include font-sans;
   @include txt-xs;
