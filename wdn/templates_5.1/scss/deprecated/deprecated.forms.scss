@@ -51,7 +51,7 @@ form textarea {
 
   &:hover,
   &:focus {
-    box-shadow: 0 0 $length-em-3 fade-out($color-border-input-hover,.25);
+    box-shadow: 0 0 $length-em-3 fade-out($border-color-input-hover,.25);
   }
 
   &:focus {
@@ -275,7 +275,7 @@ a.wdn-button-outline:active {
 
 .wdn-button-outline:focus,
 .wdn-button-outline:hover {
-  box-shadow: 0 1px $length-em-2 fade-out($color-border-input-hover,.2);
+  box-shadow: 0 1px $length-em-2 fade-out($border-color-input-hover,.2);
 }
 
 // not ideal, but override deprecated style conflicts

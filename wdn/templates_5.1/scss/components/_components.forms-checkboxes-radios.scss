@@ -21,5 +21,5 @@
 .unl .dcf-input-radio input[type="radio"]:hover + label::before,
 .unl .dcf-input-checkbox input[type="checkbox"]:focus + label::before,
 .unl .dcf-input-radio input[type="radio"]:focus + label::before {
-  box-shadow: 0 0 $length-em-3 fade-out($color-border-input-hover,.25);
+  box-shadow: 0 0 $length-em-3 fade-out($border-color-input-hover,.25);
 }
