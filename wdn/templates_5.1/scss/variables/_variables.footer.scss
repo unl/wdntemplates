@@ -1,0 +1,18 @@
+/////////////////////////////
+// THEME / VARIABLES / FOOTER
+/////////////////////////////
+
+
+@import '_variables.colors';
+
+
+// Background color
+$bg-color-footer: $scarlet;         // Background-color of footer
+
+
+// Color
+$color-footer: $cream;              // Color of footer text
+$color-footer-link: $cream;         // Color of footer links
+$color-footer-link-visited: $cream; // TODO: determine visited state styles
+$color-footer-link-hover: $cream;   // TODO: determine hover state styles
+$color-footer-link-active: $cream;  // TODO: determine active state styles
