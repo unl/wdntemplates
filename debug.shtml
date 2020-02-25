@@ -120,42 +120,6 @@
 -->
 
       <div class="dcf-pb-8 dcf-w-max-md">
-        <h2>User Status</h2>
-        <div id="user-display"></div>
-      </div>
-      <script>
-        window.addEventListener('idmStateSet', function(){
-          require(['idm'], function(idm) {
-            var userDisplayContainer = document.getElementById('user-display');
-            var userDisplayContent  = '';
-            if (idm.isLoggedIn()) {
-              var user = idm.getUser();
-              var userDisplayContent = `<dl>
-                <dt>UNL ID</dt><dd>${user.unlID}</dd>
-                <dt>First Name</dt><dd>${user.firstName}</dd>
-                <dt>Last Name</dt><dd>${user.lastName}</dd>
-                <dt>Full Name</dt><dd>${user.fullName}</dd>
-                <dt>Display Name</dt><dd>${user.displayName}</dd>
-                <dt>Email Address</dt><dd>${user.emailAddress}</dd>
-                <dt>Postal Address</dt><dd>${user.postalAddress}</dd>
-                <dt>Phone Number</dt><dd>${user.phoneNumber}</dd>
-                <dt>UNL Title</dt><dd>${user.title}</dd>
-                <dt>UNL Org Unit #</dt><dd>${user.orgUnitNumber}</dd>
-                <dt>UNL Org Unit Name</dt><dd>${user.orgUnitName}</dd>
-                <dt>UNL Primary Affiliation</dt><dd>${user.primaryAffiliation}</dd>
-                <dt>Avatar</dt><dd><img src="${user.avatar}" alt="UNL avatar of ${user.displayName}"></dd>
-                <dt>Profile URL</dt><dd><a href="${user.profileUrl}">View Profile</a></dd>
-                </dl>`;
-
-            } else {
-              userDisplayContent = '<p>User is not logged in.</p>';
-            }
-            userDisplayContainer.innerHTML = userDisplayContent;
-          });
-        });
-      </script>
-
-      <div class="dcf-pb-8 dcf-w-max-md">
   <!--     <h2>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park.</h2> -->
         <p class="dcf-txt-lg">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
@@ -239,41 +203,6 @@
         </details>
       </div>
 
-      <div class="dcf-pt-6 dcf-pb-6">
-        <h2 class="dcf-mt-6">Buttons</h2>
-        <a class="dcf-btn dcf-btn-primary" href="#" role="button">Link</a>
-        <button class="dcf-btn dcf-btn-primary" type="submit">Button</button>
-        <input class="dcf-btn dcf-btn-primary" type="button" value="Input">
-        <input class="dcf-btn dcf-btn-primary" type="submit" value="Submit">
-
-        <h3 class="dcf-mt-5 dcf-regular">Button Hierarchy</h3>
-        <button class="dcf-btn dcf-btn-primary dcf-mr-4" type="button">Primary Button</button>
-        <button class="dcf-btn dcf-btn-secondary dcf-mr-4" type="button">Secondary Button</button>
-        <button class="dcf-btn dcf-btn-tertiary" type="button">Tertiary Button</button>
-      </div>
-
-
-<!-- Grunge -->
-<!--
-      <div class="dcf-bleed unl-bg-lighter-cream" style="">
-        <div class="dcf-wrapper dcf-pb-10" style="padding-top: 10em">
-          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-4">
-            <div class="dcf-relative dcf-as-center">
-              <h2 class="dcf-absolute dcf-uppercase mask multiply" style="color: #d00000; font-size: 10em; right: -2em; top: -.75em; z-index: 999; filter: blur(0.25px); transform: rotate(-.5deg);">Events</h2>
-              <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
-              <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Do This Thing</a>
-            </div>
-            <div class="dcf-as-center">
-              <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.1/images/170902-ne-asu-0878-xl-min.jpg" alt="#" style="filter: grayscale(1);">
-              </div>
-            </div>
-          </div>
-      	</div>
-      </div>
--->
-
-
       <div class="dcf-bleed">
         <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
           <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-4">
@@ -283,7 +212,7 @@
                 <h3 class="dcf-1st dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray">Mattis Bibendum</h3>
               </div>
               <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
-              <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Do This Thing</a>
+              <a class="dcf-btn dcf-btn-secondary" href="#">Do This Thing</a>
             </div>
             <div class="dcf-as-center">
               <div class="dcf-ratio dcf-ratio-16x9 unl-frame-quad unl-bg-light-gray">
@@ -307,690 +236,20 @@
       	</div>
       </div>
 
-      <div class="dcf-bleed">
-        <div class="dcf-wrapper">
-          <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-4 dcf-pt-9 dcf-pb-9">
-            <div class="dcf-2nd unl-ftd-person-tsr-body">
-              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Featured Student</h2>
-              <h3 class="unl-heading-ornament">Kylie Tucker <small class="dcf-regular unl-ls-0 unl-dark-gray">Junior</small></h3>
-              <p>A student-powered fund created to expand sustainability programming at the University of Nebraska–Lincoln has set down its first roots. Through a project led by Tucker, a junior fisheries and wildlife major, a prototype green roof has been established on a balcony area at the Rec and Wellness Center on East Campus.</p>
-              <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Kylie</a>
-            </div>
-            <div class="dcf-1st unl-ftd-person-tsr-img">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
-                <img
-                  loading="lazy"
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-                  data-sizes=""
-                  data-src="https://via.placeholder.com/200x200"
-                  data-srcset="https://via.placeholder.com/200x200 200w,
-                               https://via.placeholder.com/400x400 400w,
-                               https://via.placeholder.com/600x600 600w,
-                               https://via.placeholder.com/800x800 800w"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Kylie Tucker.">
-                <noscript>
-                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="https://via.placeholder.com/200x200" alt="Placeholder for photo of Kylie Tucker.">
-                </noscript>
-              </div>
-            </div>
-          </div>
-      	</div>
+      <div class="dcf-pt-6 dcf-pb-6">
+        <h2 class="dcf-mt-6">Buttons</h2>
+        <a class="dcf-btn dcf-btn-primary" href="#" role="button">Link</a>
+        <button class="dcf-btn dcf-btn-primary" type="submit">Button</button>
+        <input class="dcf-btn dcf-btn-primary" type="button" value="Input">
+        <input class="dcf-btn dcf-btn-primary" type="submit" value="Submit">
+
+        <h3 class="dcf-mt-5 dcf-regular">Button Hierarchy</h3>
+        <button class="dcf-btn dcf-btn-primary dcf-mr-4" type="button">Primary Button</button>
+        <button class="dcf-btn dcf-btn-secondary dcf-mr-4" type="button">Secondary Button</button>
+        <button class="dcf-btn dcf-btn-tertiary" type="button">Tertiary Button</button>
       </div>
 
-      <div class="dcf-bleed">
-        <div class="dcf-wrapper">
-          <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-4 dcf-pt-9 dcf-pb-9">
-            <div class="dcf-2nd unl-ftd-person-tsr-body">
-              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Featured Faculty</h2>
-              <h3 class="unl-heading-ornament">Valerie Jones</h3>
-              <p>Learn about digital and social media from Valerie Jones, an innovator in the advertising and public relations field.</p>
-              <a class="dcf-btn dcf-btn-secondary" href="#" role="button">See How Valerie Got There</a>
-            </div>
-            <div class="dcf-1st unl-ftd-person-tsr-img">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
-                <img
-                  loading="lazy"
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-                  data-sizes=""
-                  data-src="https://via.placeholder.com/200x200"
-                  data-srcset="https://via.placeholder.com/200x200 200w,
-                               https://via.placeholder.com/400x400 400w,
-                               https://via.placeholder.com/600x600 600w,
-                               https://via.placeholder.com/800x800 800w"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Valerie Jones.">
-                <noscript>
-                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.1/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Valerie Jones.">
-                </noscript>
-              </div>
-            </div>
-          </div>
-      	</div>
-      </div>
-
-      <div class="dcf-bleed">
-        <div class="dcf-wrapper">
-          <div class="dcf-relative dcf-grid dcf-col-gap-vw dcf-row-gap-4 dcf-pt-9 dcf-pb-9">
-            <div class="dcf-2nd unl-ftd-person-tsr-body">
-              <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Featured Alumni</h2>
-              <h3 class="unl-heading-ornament">Eartha Jean Johnson <small class="dcf-regular unl-ls-0 unl-dark-gray"><abbr>JD</abbr>, 1994</small></h3>
-              <p>Eartha Johnson applied her law degree in a creative and unconventional way by forming LegalWatch, Inc., a legal staffing and training company aimed at advising other companies and their employees about how to avoid litigation through risk mitigation, diversity, ethics and employment law training. LegalWatch’s clients include Shell, Wal-Mart, Halliburton and Exxon. Johnson began LegalWatch after a successful career practicing commercial and environmental law for Exxon and working for the United States Department of Justice. Using the knowledge and information she gained through her legal practice, Johnson created classes that focused on helping companies avoid behaviors that can often force them into unnecessary settlements or lead to costly litigation and damaging headlines.</p>
-              <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Meet Eartha</a>
-            </div>
-            <div class="dcf-1st unl-ftd-person-tsr-img">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
-                <img
-                  loading="lazy"
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-                  data-sizes=""
-                  data-src="https://via.placeholder.com/200x200"
-                  data-srcset="https://via.placeholder.com/200x200 200w,
-                               https://via.placeholder.com/400x400 400w,
-                               https://via.placeholder.com/600x600 600w,
-                               https://via.placeholder.com/800x800 800w"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Eartha Jean Johnson.">
-                <noscript>
-                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.1/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Eartha Jean Johnson.">
-                </noscript>
-              </div>
-            </div>
-          </div>
-      	</div>
-      </div>
-
-
-
-<!-- Staff Listing -->
-<!--
-      <div class="dcf-relative dcf-pt-9 dcf-pb-9 dcf-bb">
-        <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Dean’s Office Staff</h2>
-        <div class="dcf-grid dcf-col-gap-vw">
-          <ul class="dcf-list-bare dcf-relative dcf-grid-halves@md dcf-grid-thirds@xl dcf-col-gap-vw dcf-row-gap-6 unl-grid-1">
-            <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
-              <div class="dcf-2nd dcf-flex-1">
-                <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Kathe Andersen</a></h3>
-                <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Director of Communications and External Relations</div>
-              </div>
-              <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
-                <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame-circle">
-                  <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Kathe Andersen">
-                </div>
-              </div>
-            </li>
-            <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
-              <div class="dcf-2nd dcf-flex-1">
-                <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">David Bagby</a></h3>
-                <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Information Technology Services Manager</div>
-              </div>
-              <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
-                <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame-circle">
-                  <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of David Bagby">
-                </div>
-              </div>
-            </li>
-            <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
-              <div class="dcf-2nd dcf-flex-1">
-                <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Allison Casey</a></h3>
-                <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Administrative Technician</div>
-              </div>
-              <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
-                <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame-circle">
-                  <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Allison Casey">
-                </div>
-              </div>
-            </li>
-            <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
-              <div class="dcf-2nd dcf-flex-1">
-                <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Rachel Danay</a></h3>
-                <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Assistant to the Dean</div>
-              </div>
-              <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
-                <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame-circle">
-                  <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Rachel Danay">
-                </div>
-              </div>
-            </li>
-            <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
-              <div class="dcf-2nd dcf-flex-1">
-                <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Sara Fedderson</a></h3>
-                <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Assistant Director of Advising</div>
-              </div>
-              <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
-                <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame-circle">
-                  <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Sara Fedderson">
-                </div>
-              </div>
-            </li>
-            <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
-              <div class="dcf-2nd dcf-flex-1">
-                <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Matthew Knight</a></h3>
-                <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Assistant Director of Recruitment</div>
-              </div>
-              <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
-                <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame-circle">
-                  <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Matthew Knight">
-                </div>
-              </div>
-            </li>
-            <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
-              <div class="dcf-2nd dcf-flex-1">
-                <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Joseph Morris</a></h3>
-                <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Systems Coordinator</div>
-              </div>
-              <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
-                <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame-circle">
-                  <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Joseph Morris">
-                </div>
-              </div>
-            </li>
-            <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
-              <div class="dcf-2nd dcf-flex-1">
-                <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Michael Reinmiller</a></h3>
-                <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 unl-font-sans unl-dark-gray">Digital Arts Support Technician</div>
-              </div>
-              <div class="dcf-1st dcf-h-10 dcf-w-10 dcf-mr-4">
-                <div class="dcf-h-100% dcf-w-100% dcf-ratio dcf-ratio-1x1 dcf-overflow-hidden unl-frame-circle">
-                  <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="Portrait photo of Michael Reinmiller">
-                </div>
-              </div>
-            </li>
-          </ul>
-    	  </div>
-    	</div>
--->
-
-
-      <div class="dcf-pt-9 dcf-pb-10">
-        <div class="dcf-grid dcf-col-gap-vw dcf-row-gap-4">
-          <div class="dcf-2nd dcf-col-100% dcf-col-67%-end@sm dcf-as-center">
-            <h2 class="dcf-mb-0 dcf-txt-h4"><a class="dcf-txt-decor-hover" href="#">Charles O’Connor</a></h2>
-            <div class="dcf-mt-1 dcf-mb-5 dcf-lh-3 dcf-italic unl-dark-gray">
-              Dean
-            </div>
-            <p>Charles O’Connor is the Hixson-Lied Endowed Dean of the Hixson-Lied College of Fine and Performing Arts at the University of Nebraska–Lincoln. He returns to Lincoln after nine years, having started in 1993 as a faculty member in the Department of Theatre Arts, now the Johnny Carson School of Theatre and Film.</p>
-            <a class="dcf-btn dcf-btn-secondary" href="#" role="button">Full Bio</a>
-      	  </div>
-          <div class="dcf-1st dcf-col-50%-start dcf-col-33%-start@sm">
-            <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
-              <img
-                loading="lazy"
-                class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-                data-sizes=""
-                data-src="https://via.placeholder.com/200x200"
-                data-srcset="https://via.placeholder.com/200x200 200w,
-                             https://via.placeholder.com/400x400 400w,
-                             https://via.placeholder.com/600x600 600w,
-                             https://via.placeholder.com/800x800 800w"
-                src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                alt="Placeholder for photo of Charles O’Connor.">
-                <noscript>
-                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.1/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Charles O’Connor.">
-                </noscript>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="dcf-pb-8">
-        <h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-stripes unl-dark-gray">Department and School Faculty Listings</h2>
-        <ul class="dcf-list-bare">
-          <li><a href="#">School of Art, Art History & Design Faculty</a></li>
-          <li><a href="#">Glenn Korff School of Music Faculty</a></li>
-          <li><a href="#">Johnny Carson School of Theatre & Film Faculty</a></li>
-        </ul>
-      </div>
-
-<!-- Staff Listing -->
-      <div class="dcf-pb-9 dcf-bb">
-        <h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-stripes unl-dark-gray">Dean’s Office Staff</h2>
-        <ul class="dcf-list-bare dcf-grid-halves dcf-grid-thirds@sm dcf-grid-fourths@md dcf-col-gap-vw dcf-row-gap-6">
-          <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-            <div class="dcf-2nd dcf-txt-center">
-              <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Kathe Andersen</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Director of Communications and External Relations</div>
-            </div>
-            <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
-                <img
-                  loading="lazy"
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-                  data-sizes=""
-                  data-src="https://via.placeholder.com/200x200"
-                  data-srcset="https://via.placeholder.com/200x200 200w,
-                               https://via.placeholder.com/400x400 400w,
-                               https://via.placeholder.com/600x600 600w,
-                               https://via.placeholder.com/800x800 800w"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Kathe Andersen.">
-                <noscript>
-                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.1/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Kathe Andersen.">
-                </noscript>
-              </div>
-            </div>
-          </li>
-          <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-            <div class="dcf-2nd dcf-txt-center">
-              <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">David Bagby</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Information Technology Services Manager</div>
-            </div>
-            <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
-                <img
-                  loading="lazy"
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-                  data-sizes=""
-                  data-src="https://via.placeholder.com/200x200"
-                  data-srcset="https://via.placeholder.com/200x200 200w,
-                               https://via.placeholder.com/400x400 400w,
-                               https://via.placeholder.com/600x600 600w,
-                               https://via.placeholder.com/800x800 800w"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of David Bagby.">
-                <noscript>
-                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.1/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of David Bagby.">
-                </noscript>
-              </div>
-            </div>
-          </li>
-          <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-            <div class="dcf-2nd dcf-txt-center">
-              <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Allison Casey</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Administrative Technician</div>
-            </div>
-            <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
-                <img
-                  loading="lazy"
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-                  data-sizes=""
-                  data-src="https://via.placeholder.com/200x200"
-                  data-srcset="https://via.placeholder.com/200x200 200w,
-                               https://via.placeholder.com/400x400 400w,
-                               https://via.placeholder.com/600x600 600w,
-                               https://via.placeholder.com/800x800 800w"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Allison Casey.">
-                <noscript>
-                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.1/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Allison Casey.">
-                </noscript>
-              </div>
-            </div>
-          </li>
-          <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-            <div class="dcf-2nd dcf-txt-center">
-              <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Rachel Danay</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Assistant to the Dean</div>
-            </div>
-            <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
-                <img
-                  loading="lazy"
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-                  data-sizes=""
-                  data-src="https://via.placeholder.com/200x200"
-                  data-srcset="https://via.placeholder.com/200x200 200w,
-                               https://via.placeholder.com/400x400 400w,
-                               https://via.placeholder.com/600x600 600w,
-                               https://via.placeholder.com/800x800 800w"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Rachel Danay.">
-                <noscript>
-                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.1/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Rachel Danay.">
-                </noscript>
-              </div>
-            </div>
-          </li>
-          <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-            <div class="dcf-2nd dcf-txt-center">
-              <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Sara Fedderson</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Assistant Director of Advising</div>
-            </div>
-            <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
-                <img
-                  loading="lazy"
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-                  data-sizes=""
-                  data-src="https://via.placeholder.com/200x200"
-                  data-srcset="https://via.placeholder.com/200x200 200w,
-                               https://via.placeholder.com/400x400 400w,
-                               https://via.placeholder.com/600x600 600w,
-                               https://via.placeholder.com/800x800 800w"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Sara Fedderson.">
-                <noscript>
-                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.1/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Sara Fedderson.">
-                </noscript>
-              </div>
-            </div>
-          </li>
-          <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-            <div class="dcf-2nd dcf-txt-center">
-              <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Matthew Knight</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Assistant Director of Recruitment</div>
-            </div>
-            <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
-                <img
-                  loading="lazy"
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-                  data-sizes=""
-                  data-src="https://via.placeholder.com/200x200"
-                  data-srcset="https://via.placeholder.com/200x200 200w,
-                               https://via.placeholder.com/400x400 400w,
-                               https://via.placeholder.com/600x600 600w,
-                               https://via.placeholder.com/800x800 800w"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Matthew Knight.">
-                <noscript>
-                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.1/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Matthew Knight.">
-                </noscript>
-              </div>
-            </div>
-          </li>
-          <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-            <div class="dcf-2nd dcf-txt-center">
-              <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Joseph Morris</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Systems Coordinator</div>
-            </div>
-            <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
-                <img
-                  loading="lazy"
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-                  data-sizes=""
-                  data-src="https://via.placeholder.com/200x200"
-                  data-srcset="https://via.placeholder.com/200x200 200w,
-                               https://via.placeholder.com/400x400 400w,
-                               https://via.placeholder.com/600x600 600w,
-                               https://via.placeholder.com/800x800 800w"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Joseph Morris.">
-                <noscript>
-                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.1/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Joseph Morris.">
-                </noscript>
-              </div>
-            </div>
-          </li>
-          <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
-            <div class="dcf-2nd dcf-txt-center">
-              <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Michael Reinmiller</a></h3>
-              <div class="dcf-mt-1 dcf-txt-xs dcf-lh-3 dcf-italic unl-dark-gray">Digital Arts Support Technician</div>
-            </div>
-            <div class="dcf-1st dcf-mb-3">
-              <div class="dcf-ratio dcf-ratio-1x1 dcf-circle unl-frame-circle unl-bg-light-gray">
-                <img
-                  loading="lazy"
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-                  data-sizes=""
-                  data-src="https://via.placeholder.com/200x200"
-                  data-srcset="https://via.placeholder.com/200x200 200w,
-                               https://via.placeholder.com/400x400 400w,
-                               https://via.placeholder.com/600x600 600w,
-                               https://via.placeholder.com/800x800 800w"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Placeholder for photo of Michael Reinmiller.">
-                <noscript>
-                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.1/images/dev/150815-commencement-324-sm-min.jpg" alt="Placeholder for photo of Michael Reinmiller.">
-                </noscript>
-              </div>
-            </div>
-          </li>
-        </ul>
-    	</div>
-
-
-
-<!--     <div class="dcf-bleed" style="background-image: linear-gradient(to bottom, #fff, #fff 34%, #eee 34%, #eee);"> -->
-      <div class="dcf-bleed">
-        <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
-          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-4">
-            <div class="dcf-as-center">
-              <h2>Cras Vestibulum <span class="unl-txt-outline-dark">Ligula</span>&nbsp;Nullam</h2>
-              <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
-            </div>
-            <div class="dcf-as-center">
-              <div class="dcf-ratio dcf-ratio-16x9 unl-frame-quad unl-bg-light-gray">
-                <img
-                  loading="lazy"
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-                  data-sizes="(min-width: 41.956em) 43vw, 88vw"
-                  data-src="wdn/templates_5.1/images/dev/150815-commencement-324-sm-min.jpg"
-                  data-srcset="wdn/templates_5.1/images/dev/140903-life-498-sm-min.jpg 284w,
-                          wdn/templates_5.1/images/dev/140903-life-498-md-min.jpg 505w,
-                          wdn/templates_5.1/images/dev/140903-life-498-lg-min.jpg 898w,
-                          wdn/templates_5.1/images/dev/140903-life-498-xl-min.jpg 1596w"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                  alt="Students in LIFE 120 L Fundamentals of Biology 1 laboratory in Brace Hall.">
-                <noscript>
-                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.1/images/dev/150815-commencement-324-sm-min.jpg" alt="Students in LIFE 120 L Fundamentals of Biology 1 laboratory in Brace Hall.">
-                </noscript>
-              </div>
-            </div>
-          </div>
-      	</div>
-      </div>
-
-<!-- text wrap, clip circle -->
-      <div class="dcf-bleed unl-bg-stripes-dark">
-        <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
-          <h2 class="dcf-txt-h4">Malesuada Pellentesque</h2>
-          <div class="dcf-float-left dcf-h-10 dcf-w-10 dcf-mt-1 dcf-mr-4 dcf-mb-4 dcf-ratio dcf-ratio-1x1 dcf-circle unl-clip-circle">
-            <img
-              loading="lazy"
-              class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-              data-sizes="5.62em"
-              data-src="wdn/templates_5.1/images/dev/160813-commencement-563-sm-min.jpg"
-              data-srcset="wdn/templates_5.1/images/dev/160813-commencement-563-sm-min.jpg 284w,
-                      wdn/templates_5.1/images/dev/160813-commencement-563-md-min.jpg 505w,
-                      wdn/templates_5.1/images/dev/160813-commencement-563-lg-min.jpg 898w,
-                      wdn/templates_5.1/images/dev/160813-commencement-563-xl-min.jpg 1596w"
-              src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-              alt="Husker grad holds up her diploma in celebration during the summer all-university commencement ceremony at Pinnacle Bank Arena.">
-            <noscript>
-              <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_5.1/images/dev/150815-commencement-324-sm-min.jpg" alt="Husker grad holds up her diploma in celebration during the summer all-university commencement ceremony at Pinnacle Bank Arena.">
-            </noscript>
-          </div>
-          <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
-      	</div>
-      </div>
-
-<!-- large scarlet stripe -->
-<!--
-      <div class="dcf-bleed unl-bg-scarlet-stripe">
-        <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
-          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-8">
-            <div class="dcf-as-center">
-              <h2 class="dcf-txt-h4">Malesuada Pellentesque</h2>
-              <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
-            </div>
-            <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
-              <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="#">
-            </div>
-          </div>
-      	</div>
-      </div>
--->
-
-<!-- large cream stripe -->
-<!--
-      <div class="dcf-bleed unl-bg-cream-stripe">
-        <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
-          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-8">
-            <div class="dcf-as-center">
-              <h2 class="dcf-txt-h4">Malesuada Pellentesque</h2>
-              <p>Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out. Hoodie aesthetic tote bag, salvia Portland Blue Bottle craft beer fixie squid art party Intelligentsia seitan.</p>
-            </div>
-            <div class="dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
-              <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="#">
-            </div>
-          </div>
-      	</div>
-      </div>
--->
-
-
-<!--
-      <div class="dcf-bleed">
-        <div class="dcf-wrapper dcf-pt-8 dcf-pb-8">
-          <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-row-gap-8" style="background-image: linear-gradient(57.7deg, #eee 50%, #ddd 50%);">
-            <div class="dcf-pt-7 dcf-pr-9 dcf-pb-7 dcf-pl-7">
-              <h2 class="dcf-txt-h4">Malesuada Pellentesque</h2>
-              <p class="dcf-mb-0">Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out.</p>
-            </div>
-            <div class="dcf-pt-7 dcf-pr-7 dcf-pb-7 dcf-pl-9">
-              <h2 class="dcf-txt-h4">Malesuada Pellentesque</h2>
-              <p class="dcf-mb-0">Drinking vinegar PBR street art letterpress. Swag squid photo booth you probably haven’t heard of them 3 wolf moon, umami occupy YOLO asymmetrical master cleanse cray polaroid before they sold out.</p>
-            </div>
-          </div>
-      	</div>
-      </div>
--->
-
-<!--
-      <div class="dcf-bleed">
-        <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
-          <div class="dcf-grid-halves@sm dcf-d-grid-fourths@lg dcf-col-gap-vw dcf-row-gap-8">
-
-            <a class="dcf-d-flex dcf-flex-wrap" href="#">
-              <div class="dcf-2nd">
-                <h3 class="dcf-txt-h5">Nulla vitae elit libero a pharetra augue</h3>
-              </div>
-              <div class="dcf-1st dcf-w-100% dcf-mb-2 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="#">
-              </div>
-            </a>
-
-            <a class="dcf-d-flex dcf-flex-wrap" href="#">
-              <div class="dcf-2nd">
-                <h3 class="dcf-txt-h5">Cras justo odio dapibus ac facilisis in egestas eget quam</h3>
-              </div>
-              <div class="dcf-1st dcf-w-100% dcf-mb-2 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="#">
-              </div>
-            </a>
-
-            <a class="dcf-d-flex dcf-flex-wrap" href="#">
-              <div class="dcf-2nd">
-                <h3 class="dcf-txt-h5">Nullam id dolor id nibh ultricies vehicula ut id elit</h3>
-              </div>
-              <div class="dcf-1st dcf-w-100% dcf-mb-2 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="#">
-              </div>
-            </a>
-
-            <a class="dcf-d-flex dcf-flex-wrap" href="#">
-              <div class="dcf-2nd">
-                <h3 class="dcf-txt-h5">Aenean lacinia bibendum nulla sed consectetur</h3>
-              </div>
-              <div class="dcf-1st dcf-w-100% dcf-mb-2 dcf-ratio dcf-ratio-16x9 dcf-overflow-hidden unl-frame-quad">
-                <img class="dcf-ratio-child dcf-obj-fit-cover" src="https://via.placeholder.com/400x400" alt="#">
-              </div>
-            </a>
-
-          </div>
-      	</div>
-      </div>
--->
-
-
-      <div class="dcf-bleed unl-bg-light-gray">
-        <div class="dcf-wrapper dcf-pt-10 dcf-pb-10">
-          <div class="dcf-grid-halves@sm dcf-d-grid-fourths@lg dcf-col-gap-4 dcf-row-gap-4">
-            <div class="unl-bg-cream dcf-relative unl-frame-quad">
-              <div class="dcf-card-block">
-                <svg class="dcf-mb-1 dcf-h-7 dcf-w-7" role="img" aria-labelledby="title-icon-globe-2 desc-icon-globe-2" focusable="false" height="16" width="16" viewBox="0 0 24 24">
-                  <title id="title-icon-globe-2">globe icon</title>
-                  <desc id="desc-icon-globe-2">illustration of a globe</desc>
-                  <path d="M21.14 4.236c-.47 1.332-1.426 3.465-2.916 4.211a.503.503 0 0 1-.345.037c-1.057-.263-2.127.127-2.674.439.23.309.487.846.733 1.774.213.075.628-.038.837-.144a.499.499 0 0 1 .578.094c1.213 1.213-.359 2.847-1.299 3.825-.166.172-.378.392-.496.536.04.037.087.079.124.11.228.199.541.471.557.902.01.287-.12.567-.386.834a5.155 5.155 0 0 1-1.367.981C14.343 19.535 13.09 20.5 11 20.5c-.976 0-2-2.493-2-3 0-.368.16-.69.303-.974.096-.193.197-.394.197-.526-.023-.171-.43-.721-.854-1.146A.502.502 0 0 1 8.5 14.5c0-.429-.077-.72-.229-.863-.252-.237-.849-.203-1.478-.167-.259.014-.526.03-.793.03-1.582 0-2-1.635-2-2.5 0-.16.033-3.917 2.901-4.49 1.308-.262 2.19-.185 2.703.236.181.148.29.322.346.484.526.389 1.47.168 2.309-.026.277-.065.546-.127.795-.165.093-.845.096-1.663.009-2.018-.613.257-1.222.255-1.698-.009-.493-.274-.8-.795-.862-1.467C10.369 2.107 13.144.989 15.05.393A12 12 0 0 0 12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c6.616 0 12-5.383 12-12 0-2.958-1.079-5.668-2.86-7.764z"/>
-                </svg>
-                <h3 class="dcf-txt-h4 dcf-regular">Malesuada Pellentesque</h3>
-                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Etiam porta sem malesuada magna mollis euismod.</p>
-                <a class="" href="#">Call to Action</a>
-              </div>
-            </div>
-            <div class="unl-bg-cream dcf-relative unl-frame-quad">
-              <div class="dcf-card-block">
-                <svg class="dcf-mb-1 dcf-h-7 dcf-w-7" role="img" aria-labelledby="title-icon-science-atom-1 desc-icon-science-atom-1" focusable="false" height="16" width="16" viewBox="0 0 24 24">
-                  <title id="title-icon-science-atom-1">science atom icon</title>
-                  <desc id="desc-icon-science-atom-1">illustration of an atom</desc>
-                  <path d="M14.656 16.235c.073-.44.133-.892.183-1.35-.189.137-.374.274-.571.41a26.362 26.362 0 0 1-4.588 2.538c.084.334.17.662.268.968a27.042 27.042 0 0 0 4.708-2.566zM5.019 18.999c-.709 0-1.646-.133-2.081-.766-.549-.798-.193-2.243.974-3.967.556-.821 1.27-1.658 2.097-2.484.003-.48.022-.955.047-1.428-1.199 1.101-2.219 2.239-2.972 3.352-1.431 2.113-1.775 3.922-.97 5.094.539.785 1.544 1.199 2.905 1.199.63 0 1.331-.092 2.081-.26-.1-.309-.185-.637-.273-.966-.651.143-1.263.226-1.808.226zM4.481 10.493c-1.59-2.051-2.156-3.837-1.544-4.728C3.372 5.133 4.308 5 5.017 5c1.33 0 3.026.455 4.838 1.242.352-.218.705-.426 1.057-.624C8.723 4.59 6.637 4.001 5.018 4.001c-1.36 0-2.365.414-2.904 1.198-.944 1.374-.223 3.626 1.674 6.027.22-.245.453-.489.693-.733zM18.166 10.561a28.053 28.053 0 0 0-3.332-2.68c-.253-.175-.51-.333-.765-.496-.351.162-.702.317-1.057.505.42.257.839.529 1.255.816a27.038 27.038 0 0 1 3.22 2.59c.24-.247.465-.49.679-.735z"/><path d="M7.552 6.456c-.339 1.593-.533 3.402-.547 5.338l.192.182c.258.243.543.474.816.71C8.009 12.459 8 12.233 8 12c0-1.941.191-3.702.508-5.223a14.922 14.922 0 0 0-.956-.321zM5.835 13.439a28.157 28.157 0 0 0 3.332 2.681c.255.175.513.335.771.5.35-.162.698-.322 1.052-.509-.421-.258-.84-.53-1.256-.815a26.815 26.815 0 0 1-3.223-2.594c-.239.247-.461.492-.676.737zM19.518 13.506c1.592 2.051 2.158 3.837 1.546 4.727-.435.633-1.372.766-2.081.766-1.33 0-3.025-.455-4.838-1.242-.355.22-.712.419-1.068.619 2.194 1.033 4.285 1.623 5.906 1.623 1.361 0 2.366-.414 2.905-1.199.944-1.372.224-3.623-1.672-6.023-.22.242-.459.485-.698.729zM12 23c-1.375 0-2.859-2.393-3.57-6.183a29.027 29.027 0 0 1-1.155-.857C7.942 20.684 9.777 24 12 24c1.422 0 2.686-1.359 3.588-3.573a19.38 19.38 0 0 1-.955-.317C13.879 21.935 12.915 23 12 23zM14.049 5.201a27.065 27.065 0 0 0-4.701 2.563c-.056.328-.105.663-.147 1.001-.01.116-.022.231-.035.345.188-.135.374-.272.567-.405a26.379 26.379 0 0 1 4.589-2.54 15.858 15.858 0 0 0-.273-.964z"/>
-                  <circle cx="12" cy="12" r="2.5"/>
-                  <path d="M18.983 5.001c.709 0 1.646.133 2.08.765.776 1.13-.363 3.7-3.068 6.427v.021c-.001.154-.011.305-.014.457l.012.001c-.003.14-.015.274-.024.411-.006.186-.007.374-.017.557 3.506-3.225 5.192-6.611 3.936-8.439-.539-.784-1.544-1.198-2.904-1.198-.632 0-1.335.092-2.088.262.101.311.194.631.282.963.649-.144 1.26-.227 1.805-.227zM16.447 17.552c.34-1.596.534-3.408.548-5.346l-.194-.184c-.258-.242-.541-.474-.814-.708.004.227.013.454.013.686 0 1.945-.192 3.709-.51 5.231.327.122.646.226.957.321zM12 1.001c1.374 0 2.858 2.391 3.569 6.181.142.099.273.205.411.307l.011-.016c.253.183.489.375.733.563C16.057 3.315 14.221.001 12 .001c-1.424 0-2.689 1.363-3.592 3.581.315.095.633.196.957.313.754-1.828 1.719-2.894 2.635-2.894z"/>
-                </svg>
-                <h3 class="dcf-txt-h4 dcf-regular">Adipiscing Risus</h3>
-                <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis.</p>
-                <a class="" href="#">Call to Action</a>
-              </div>
-            </div>
-            <div class="unl-bg-cream dcf-relative unl-frame-quad">
-              <div class="dcf-card-block">
-                <svg class="dcf-mb-1 dcf-h-7 dcf-w-7" role="img" aria-labelledby="title-icon-badge-star desc-icon-badge-star" focusable="false" height="16" width="16" viewBox="0 0 24 24">
-                  <title id="title-icon-badge-star">badge star icon</title>
-                  <desc id="desc-icon-badge-star">illustration of a flag with a star</desc>
-                  <path d="M22 4c-.651 0-1.201.419-1.408 1h-1.936L12.284.589a.5.5 0 0 0-.568 0L5.344 5H3.408C3.201 4.419 2.651 4 2 4 1.173 4 .5 4.673.5 5.5S1.173 7 2 7c.651 0 1.201-.418 1.408-1H5v11.5a.5.5 0 0 0 .177.382l6.5 5.5a.505.505 0 0 0 .646 0l6.5-5.5A.503.503 0 0 0 19 17.5V6h1.592a1.496 1.496 0 0 0 2.908-.5c0-.827-.673-1.5-1.5-1.5zM12 1.608L16.899 5H7.101L12 1.608zm4.861 10.294l-2.531 1.866.966 2.989a.5.5 0 0 1-.769.559L12 15.485l-2.527 1.831a.5.5 0 0 1-.769-.559l.966-2.989-2.531-1.866A.5.5 0 0 1 7.436 11h3.124l.966-2.972c.135-.411.816-.411.951 0L13.44 11h3.124a.5.5 0 0 1 .297.902z"/>
-                </svg>
-                <h3 class="dcf-txt-h4 dcf-regular">Porta Condimentum</h3>
-                <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum.</p>
-                <a class="" href="#">Call to Action</a>
-              </div>
-            </div>
-            <div class="unl-bg-cream dcf-relative unl-frame-quad">
-              <div class="dcf-card-block">
-                <svg class="dcf-mb-1 dcf-h-7 dcf-w-7" role="img" aria-labelledby="title-icon-graduate desc-icon-graduate" focusable="false" height="16" width="16" viewBox="0 0 24 24">
-                  <title id="title-icon-graduate">graduate icon</title>
-                  <desc id="desc-icon-graduate">illustration of person wearing a graduation cap and gown</desc>
-                  <path d="M.419 2.994l2.081.361v3.092l-1.489 6.948A.5.5 0 0 0 1.5 14h3a.5.5 0 0 0 .489-.604L3.5 6.447V3.529c4.096.711.06.011 8.454 1.471h.093l11.5-2.003a.501.501 0 0 0 .45-.491v-.012a.5.5 0 0 0-.415-.487L12.09.009a.507.507 0 0 0-.178 0L.454 2.004a.5.5 0 0 0-.45.491v.011c.002.24.178.446.415.488z"/>
-                  <path d="M10 8.501c-.851-.009-1.5.121-1.5 1.002a.5.5 0 0 0 1 .009c.095-.012.906-.012 1 0a.5.5 0 0 0 1-.009c0-.886-.651-1.006-1.5-1.002zM14 8.501c-.851-.009-1.5.121-1.5 1.002a.5.5 0 0 0 1 .009c.095-.012.906-.012 1 0a.5.5 0 0 0 1-.009c0-.886-.651-1.006-1.5-1.002zM12 6c-.086 0-5.501-.935-5.501-.935 0 .304-.049.593.147.788C6.713 5.921 8.335 7.5 12 7.5s5.286-1.579 5.354-1.647c.194-.195.146-.484.146-.788 0 0-5.414.935-5.5.935z"/>
-                  <path d="M21.037 16.773c-6.449-1.78 1.022.279-5.405-1.492.95-.854 1.714-1.995 1.847-3.359.685-.234 1.146-.971 1.146-1.922 0-.941-.451-1.673-1.125-1.914V7.004c-.249.171-.579.37-1 .568V8.5a.5.5 0 0 0 .5.5c.495 0 .625.654.625 1s-.13 1-.625 1a.5.5 0 0 0-.5.5c0 2.6-3.158 4.5-4.5 4.5s-4.5-1.9-4.5-4.5A.5.5 0 0 0 7 11c-.495 0-.625-.654-.625-1S6.505 9 7 9a.5.5 0 0 0 .5-.5v-.928a7.145 7.145 0 0 1-1-.568v1.08c-.674.241-1.125.975-1.125 1.916 0 .951.46 1.688 1.146 1.922.133 1.363.896 2.504 1.844 3.356L2.92 16.787A4.52 4.52 0 0 0 0 21v2.5a.5.5 0 0 0 .5.5h23a.5.5 0 0 0 .5-.5V21c0-1.865-1.173-3.559-2.963-4.227zM12 20.793l-4.288-4.287c.46-.11 1.1-.241 1.863-.342.908.54 1.82.836 2.425.836.606 0 1.518-.297 2.427-.838.763.101 1.404.229 1.866.338L12 20.793z"/>
-                </svg>
-                <h3 class="dcf-txt-h4 dcf-regular">Ligula Sem</h3>
-                <p>Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-                <a class="" href="#">Call to Action</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
-
-      <h2 class="dcf-mt-6">Input Groups</h2>
-
-      <h3 class="dcf-mt-5 dcf-regular">With Add-on Before Input</h3>
-      <form class="dcf-form-controls-inline" id="input-group-addon-example-1" action="?" method="get">
-        <label class="dcf-label dcf-mr-4" for="input-group-example-input-1">Username</label>
-        <div class="dcf-input-group">
-          <span class="dcf-input-group-addon">@</span>
-          <input id="input-group-example-input-1" name="q" type="search" required>
-        </div>
-      </form>
-
-      <h3 class="dcf-mt-5 dcf-regular">With Add-on After Input</h3>
-      <form class="dcf-form-controls-inline" id="input-group-addon-example-2" action="?" method="get">
-        <label class="dcf-label dcf-mr-4" for="input-group-example-input-2">Email</label>
-        <div class="dcf-input-group">
-          <input id="input-group-example-input-2" name="q" type="search" required>
-          <span class="dcf-input-group-addon">@example.com</span>
-        </div>
-      </form>
-
-      <h3 class="dcf-mt-5 dcf-regular">With Button</h3>
-      <form class="dcf-form-controls-inline" id="input-group-button-example-3" action="?" method="get">
-        <label class="dcf-label dcf-mr-4" for="input-group-example-input-3">Search Events</label>
-        <div class="dcf-input-group">
-          <input id="input-group-example-input-3" name="q" type="search" required>
-          <button class="dcf-btn dcf-btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-
-
-
-      <h2 class="dcf-mt-6">Form</h2>
+      <h2 class="dcf-mt-6">Forms</h2>
 
       <form class="dcf-form" action="?" method="post">
         <fieldset>
@@ -1021,19 +280,6 @@
               <option value="unmc">UNMC</option>
             </select>
           </div>
-
-  <!--
-          <div class="dcf-form-group">
-            <label for="multiple-select">Multiple Select</label>
-            <select multiple id="multiple-select" name="multiple-select">
-              <option value="1" selected>1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
-  -->
 
           <fieldset class="dcf-form-group dcf-d-flex dcf-flex-col">
             <legend class="dcf-legend">Checkboxes</legend>
@@ -1080,9 +326,10 @@
             <textarea id="helpful_comments" cols="60" rows="5"></textarea>
           </div>
 
+<!--
           <div class="dcf-form-group">
-            <label for="time">Date/time (using Flatpickr)</label>
-            <!--<input id="time" type="datetime-local">-->
+            <label for="time">Date/time</label>
+            <input id="time" type="datetime-local">
             <input type="text"
                    data-widget="flatpickr"
                    placeholder="Select Date & Time.."
@@ -1090,6 +337,7 @@
                    class="dcf-w-auto"
                    readonly>
           </div>
+-->
 
   <!--
           <div class="dcf-form-group">
@@ -1108,10 +356,38 @@
         <input class="dcf-btn dcf-btn-primary" name="submit" type="submit" value="Submit">
       </form>
 
+      <h2 class="dcf-mt-6">Input Groups</h2>
+
+      <h3 class="dcf-mt-5 dcf-regular">With Add-on Before Input</h3>
+      <form class="dcf-form dcf-form-controls-inline" id="input-group-addon-example-1" action="?" method="get">
+        <label class="dcf-label dcf-mr-4" for="input-group-example-input-1">Username</label>
+        <div class="dcf-input-group">
+          <span class="dcf-input-group-addon">@</span>
+          <input id="input-group-example-input-1" name="q" type="search" required>
+        </div>
+      </form>
+
+      <h3 class="dcf-mt-5 dcf-regular">With Add-on After Input</h3>
+      <form class="dcf-form dcf-form-controls-inline" id="input-group-addon-example-2" action="?" method="get">
+        <label class="dcf-label dcf-mr-4" for="input-group-example-input-2">Email</label>
+        <div class="dcf-input-group">
+          <input id="input-group-example-input-2" name="q" type="search" required>
+          <span class="dcf-input-group-addon">@example.com</span>
+        </div>
+      </form>
+
+      <h3 class="dcf-mt-5 dcf-regular">With Button</h3>
+      <form class="dcf-form dcf-form-controls-inline" id="input-group-button-example-3" action="?" method="get">
+        <label class="dcf-label dcf-mr-4" for="input-group-example-input-3">Search Events</label>
+        <div class="dcf-input-group">
+          <input id="input-group-example-input-3" name="q" type="search" required>
+          <button class="dcf-btn dcf-btn-primary" type="submit">Submit</button>
+        </div>
+      </form>
 
       <h2 class="dcf-mt-9">Tables</h2>
 
-      <figure class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-auto">
+      <div class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-auto">
         <table class="dcf-table">
           <caption>This is the caption for a table. Utility classes are used to right-align numbers in this table.</caption>
           <thead>
@@ -1149,9 +425,9 @@
             </tr>
           </tbody>
         </table>
-      </figure>
+      </div>
 
-      <figure class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-auto">
+      <div class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-auto">
         <table class="dcf-table dcf-table-striped">
           <caption>This is the caption for a striped table.</caption>
           <thead>
@@ -1189,9 +465,9 @@
             </tr>
           </tbody>
         </table>
-      </figure>
+      </div>
 
-      <figure class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-auto">
+      <div class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-auto">
         <table class="dcf-table dcf-table-bordered">
           <caption>This is the caption for a bordered table.</caption>
           <thead>
@@ -1229,7 +505,94 @@
             </tr>
           </tbody>
         </table>
-      </figure>
+      </div>
+
+      <h2 class="dcf-mt-9">Tabs</h2>
+
+      <div class="dcf-tabs dcf-tabs-responsive dcf-mt-6 dcf-mb-9">
+        <h3>Tab Group (Unordered List, Divs)</h3>
+        <ul>
+          <li><a href="#group1-panel1">Tab 1</a></li>
+          <li><a href="#group1-panel2">Tab 2</a></li>
+          <li><a href="#group1-panel3">Tab 3</a></li>
+        </ul>
+        <div id="group1-panel1">
+          <h4>Panel 1</h4>
+          <p>Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+        <div id="group1-panel2">
+          <h4>Panel 2</h4>
+          <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.</p>
+        </div>
+        <div id="group1-panel3">
+          <h4>Panel 3</h4>
+          <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        </div>
+      </div>
+
+      <div class="dcf-tabs dcf-tabs-responsive dcf-mt-6 dcf-mb-9">
+        <h3>Tab Group (Ordered List, Sections)</h3>
+        <ol>
+          <li><a href="#group2-panel1">Tab 1</a></li>
+          <li><a href="#group2-panel2">Tab 2</a></li>
+          <li><a href="#group2-panel3">Tab 3</a></li>
+        </ol>
+        <section id="group2-panel1">
+          <h4>Panel 1</h4>
+          <p>Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </section>
+        <section id="group2-panel2">
+          <h4>Panel 2</h4>
+          <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.</p>
+        </section>
+        <section id="group2-panel3">
+          <h4>Panel 3</h4>
+          <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        </section>
+      </div>
+
+      <script>
+        window.addEventListener('inlineJSReady', function() {
+          WDN.initializePlugin('tabs');
+        }, false);
+      </script>
+
+      <div class="dcf-pb-8 dcf-w-max-md">
+        <h2>User Status</h2>
+        <div id="user-display"></div>
+      </div>
+      <script>
+        window.addEventListener('idmStateSet', function(){
+          require(['idm'], function(idm) {
+            var userDisplayContainer = document.getElementById('user-display');
+            var userDisplayContent  = '';
+            if (idm.isLoggedIn()) {
+              var user = idm.getUser();
+              var userDisplayContent = `<dl>
+                <dt>UNL ID</dt><dd>${user.unlID}</dd>
+                <dt>First Name</dt><dd>${user.firstName}</dd>
+                <dt>Last Name</dt><dd>${user.lastName}</dd>
+                <dt>Full Name</dt><dd>${user.fullName}</dd>
+                <dt>Display Name</dt><dd>${user.displayName}</dd>
+                <dt>Email Address</dt><dd>${user.emailAddress}</dd>
+                <dt>Postal Address</dt><dd>${user.postalAddress}</dd>
+                <dt>Phone Number</dt><dd>${user.phoneNumber}</dd>
+                <dt>UNL Title</dt><dd>${user.title}</dd>
+                <dt>UNL Org Unit #</dt><dd>${user.orgUnitNumber}</dd>
+                <dt>UNL Org Unit Name</dt><dd>${user.orgUnitName}</dd>
+                <dt>UNL Primary Affiliation</dt><dd>${user.primaryAffiliation}</dd>
+                <dt>Avatar</dt><dd><img src="${user.avatar}" alt="UNL avatar of ${user.displayName}"></dd>
+                <dt>Profile URL</dt><dd><a href="${user.profileUrl}">View Profile</a></dd>
+                </dl>`;
+
+            } else {
+              userDisplayContent = '<p>User is not logged in.</p>';
+            }
+            userDisplayContainer.innerHTML = userDisplayContent;
+          });
+        });
+      </script>
+
 
     <!-- InstanceEndEditable -->
     </div>
@@ -1246,26 +609,6 @@
   <!--#include virtual="/wdn/templates_5.1/includes/global/noscript.html" -->
   <!--#include virtual="/wdn/templates_5.1/includes/global/js-body-local.html" -->
   <!-- InstanceBeginEditable name="jsbody" -->
-<!--
-  <script>
-		require(["plugins/flatpickr/flatpickr", 'css!plugins/flatpickr/flatpickr', 'css!plugins/flatpickr/themes/airbnb'], function(flatpickr) {
-			var widget = document.querySelector('[data-widget="flatpickr"]');
-			flatpickr(widget, {
-							enableTime: true,
-							dateFormat: "Y-m-d h:iK",
-						});
-		})
-  </script>
--->
-<!--
-  <script>
-    require(['dialog'],function(dialogHelper){
-      var dialog = document.querySelector('#my-dialog');
-      dialogHelper.initialize(dialog);
-      dialogHelper.setupShowDialogButton(dialog, document.querySelector('#test-button'));
-    });
-  </script>
--->
   <!-- InstanceEndEditable -->
 </body>
 <!-- InstanceEnd --></html>
