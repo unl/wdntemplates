@@ -43,7 +43,7 @@ form input[type="url"],
 form input[type="number"],
 form input[type="tel"],
 form textarea {
-  border: 1px solid $color-border-input;
+  border: 1px solid $border-color-input;
   border-radius: 0;
   @include font-sans;
   padding: $length-em-2 $length-em-3;
