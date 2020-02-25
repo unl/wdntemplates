@@ -174,9 +174,9 @@ a.wdn-button:link,
 a.wdn-button-brand:link,
 a.wdn-button:visited,
 a.wdn-button-brand:visited {
-  background-color: $color-button;
-  border-color: $color-button;
-  color: $white;
+  background-color: $color-link;
+  border-color: $color-link;
+  color: $cream;
 }
 
 // button:focus,
@@ -192,7 +192,7 @@ a.wdn-button-brand:visited {
 .wdn-button-brand:hover,
 .wdn-input-group-btn button:hover,
 .wdn-input-group-btn input:hover {
-  box-shadow: 0 1px $length-em-2 fade-out($color-button-hover,.4);
+  box-shadow: 0 1px $length-em-2 fade-out($color-hover,.4);
 }
 
 // button:active,
@@ -204,8 +204,8 @@ a.wdn-button-brand:visited {
 .wdn-input-group-btn input:active,
 a.wdn-button:active,
 a.wdn-button-brand:active {
-  background-color: $color-button-active;
-  border-color: $color-button-active;
+  background-color: $color-active;
+  border-color: $color-active;
 }
 
 
@@ -230,7 +230,7 @@ a.wdn-button-energetic:visited,
 a.wdn-button-triad:visited {
   background-color: transparent;
   border-color: currentColor;
-  color: $color-button;
+  color: $color-link;
 }
 
 .wdn-button-complement:focus,
@@ -239,7 +239,7 @@ a.wdn-button-triad:visited {
 .wdn-button-complement:hover,
 .wdn-button-energetic:hover,
 .wdn-button-triad:hover {
-  box-shadow: 0 1px $length-em-1 fade-out($color-button-hover,.6);
+  box-shadow: 0 1px $length-em-1 fade-out($color-hover,.6);
 }
 
 .wdn-button-complement:active,
@@ -256,7 +256,7 @@ a.wdn-button-energetic:active,
 a.wdn-button-triad:active {
   background-color: transparent;
   border-color: currentColor;
-  color: $color-button-active;
+  color: $color-active;
 }
 
 
@@ -270,7 +270,7 @@ a.wdn-button-outline:visited,
 a.wdn-button-outline:active {
   background-color: transparent;
   border-color: currentColor;
-  color: $white;
+  color: $cream;
 }
 
 .wdn-button-outline:focus,
