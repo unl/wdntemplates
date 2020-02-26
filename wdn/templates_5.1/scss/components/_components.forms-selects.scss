@@ -7,5 +7,5 @@
 .unl .dcf-form select:focus,
 .unl .dcf-input-select:hover, // TODO: deprecate?
 .unl .dcf-form select:hover {
-  box-shadow: 0 0 $length-em-3 fade-out($color-border-input-hover,.25);
+  box-shadow: 0 0 $length-em-3 fade-out($border-color-input-hover,.25);
 }

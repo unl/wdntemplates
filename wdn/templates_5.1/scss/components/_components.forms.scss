@@ -24,7 +24,7 @@
 .unl .dcf-input-text:focus, // TODO: deprecate?
 .unl .dcf-form input:not([type="submit"]):focus,
 .unl .dcf-form textarea:focus {
-  box-shadow: 0 0 $length-em-3 fade-out($color-border-input-hover,.25);
+  box-shadow: 0 0 $length-em-3 fade-out($border-color-input-hover,.25);
 }
 
 
