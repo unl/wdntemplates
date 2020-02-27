@@ -28,6 +28,8 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		loginURL = loginSrv + 'idp/profile/cas/login?service=' + encLoc,
 		serviceURL = 'https://whoami.unl.edu/?id=',
 		avatarService = 'https://directory.unl.edu/avatar/',
+		departmentLookup = 'https://directory.unl.edu/departments/',
+		userLookup = 'https://directory.unl.edu/people/',
 		planetRed = 'https://planetred.unl.edu/pg/',
 		user = false;
 
@@ -92,9 +94,16 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 			user = newUser;
 		},
 
-		getUser: function getUser() {
+		formatUser: function formatUser(userinfo, extras) {
 			let data = {};
-			if (user) {
+
+			// save session user
+			let sessionUser = user;
+
+			// Switch user to passed user
+			Plugin.setUser(userinfo);
+
+			if (userinfo) {
 				data.unlID = Plugin.getUserId();
 				data.firstName = Plugin.getFirstName();
 				data.lastName = Plugin.getLastName();
@@ -109,9 +118,44 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				data.primaryAffiliation = Plugin.getPrimaryAffiliation();
 				data.avatar = user.imageURL;
 				data.profileUrl = Plugin.getProfileURL();
+
+				if (extras && extras.department === true) {
+					data.department = Plugin.getDepartment(data.orgUnitNumber);
+				}
 			}
 
+			// Switch user back to session user
+			Plugin.setUser(sessionUser);
+
 			return data;
+		},
+
+		getUser: function getUser(uid, extras) {
+			if (!uid) {
+				return Plugin.formatUser(user, extras);
+			}
+
+			var xhr = new XMLHttpRequest();
+			// force synchronous response
+			xhr.open('GET', userLookup + uid + '.json', false);
+			xhr.send(null);
+			if (xhr.status === 200) {
+				return  Plugin.formatUser(JSON.parse(xhr.responseText), extras);
+			}
+		},
+
+		getDepartment: function getDepartment(org_unit) {
+			if (!org_unit) {
+				return {};
+			}
+
+			var xhr = new XMLHttpRequest();
+			// force synchronous response
+			xhr.open('GET', departmentLookup + org_unit + '?format=json', false);
+			xhr.send(null);
+			if (xhr.status === 200) {
+				return JSON.parse(xhr.responseText);
+			}
 		},
 
 		logout: function logout() {

@@ -565,10 +565,21 @@
         window.addEventListener('idmStateSet', function(){
           require(['idm'], function(idm) {
             var userDisplayContainer = document.getElementById('user-display');
-            var userDisplayContent  = '';
-            if (idm.isLoggedIn()) {
-              var user = idm.getUser();
-              var userDisplayContent = `<dl>
+            var uid = ''; // = 'acoleman1';
+            var extras = {department: true};
+            var userDisplayContent  = ``;
+            var user = false;
+            if (!uid && idm.isLoggedIn()) {
+              user = idm.getUser(null, extras);
+              userDisplayContent  = `<p>User, ${user.unlID}, not found</p>.`;
+            } else if (uid) {
+              user = idm.getUser(uid, extras);
+              userDisplayContent  = `<p>User, ${uid}, not found</p>.`;
+            }
+
+            if (user && user.unlID) {
+              console.log('user', user);
+              userDisplayContent = `<dl>
                 <dt>UNL ID</dt><dd>${user.unlID}</dd>
                 <dt>First Name</dt><dd>${user.firstName}</dd>
                 <dt>Last Name</dt><dd>${user.lastName}</dd>
@@ -583,11 +594,10 @@
                 <dt>UNL Primary Affiliation</dt><dd>${user.primaryAffiliation}</dd>
                 <dt>Avatar</dt><dd><img src="${user.avatar}" alt="UNL avatar of ${user.displayName}"></dd>
                 <dt>Profile URL</dt><dd><a href="${user.profileUrl}">View Profile</a></dd>
+                <dt>Department Website</dt><dd>${user.department.website}</dd>
                 </dl>`;
-
-            } else {
-              userDisplayContent = '<p>User is not logged in.</p>';
             }
+
             userDisplayContainer.innerHTML = userDisplayContent;
           });
         });
