@@ -17,19 +17,52 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
       let institutionTitle = document.getElementById('dcf-institution-title');
       let logo = document.getElementById('dcf-logo-lockup');
       let nav = document.getElementById('dcf-navigation');
+      let desktopNav = document.getElementsByClassName('dcf-nav-menu');
       let main = document.querySelector('main');
       let footer = document.getElementById('dcf-footer');
 
       // construct an instance of Headroom, passing the element
-      for (let i = 0; i < mobileActions.length; i++) {
-        let headroom = new Headroom(mobileActions[i], {
-          'tolerance' : {
-            up : 5,
-            down : 5
-          }
-        });
-        headroom.init();
-      }
+      // for (let i = 0; i < mobileActions.length; i++) {
+      //   let headroom = new Headroom(mobileActions[i], {
+      //     'tolerance' : 5,
+      //     'classes' : {
+      //       'initial' : 'animated',
+      //       'pinned' : 'slideIn',
+      //       'unpinned' : 'slideOut'
+      //     }
+      //   });
+      //   headroom.init();
+      // }
+      // const headroomDesktop = new Headroom(desktopNav, {
+      //   'tolerance' : {
+      //     up : 5,
+      //     down : 5
+      //   },
+      //   'classes' : {
+      //     'initial' : 'animated',
+      //     'pinned' : 'slideDesktopIn',
+      //     'uninned' : 'slideDesktopOut'
+      //   }
+      // });
+
+      // headroomDesktop.init();
+      let header = document.querySelector('header');
+
+      let headroom = new Headroom(header , {
+        'tolerance' : {
+          up : 5,
+          down : 0
+        },
+        'offset' : 193,
+        'classes': {
+          'initial': 'headroom',
+          'pinned': 'slideIn',
+          'unpinned': 'slideOut'
+        }
+      });
+
+      headroom.init();
+
 
       let toggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-menu');
       let toggleIconOpen = document.getElementById('dcf-nav-toggle-icon-open-menu');

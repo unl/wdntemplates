@@ -6,7 +6,22 @@
 .unl .dcf-nav-menu li { // TODO: remove after updated in DCF core
   margin-bottom: 0;
 }
-
+.headroom {
+  .dcf-nav-menu{
+    will-change: transform;
+    transition: transform 250ms ease-out !important;
+  }
+  &.slideIn {
+    .dcf-nav-menu {
+      transform: translateY(0%);
+    }
+  }
+  &.slideOut {
+    .dcf-nav-menu {
+      transform: translateY(-100%);
+    }
+  }
+}
 
 .unl .dcf-nav-menu-child a,
 .unl .dcf-nav-menu-child button {

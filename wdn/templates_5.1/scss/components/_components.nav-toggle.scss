@@ -38,11 +38,10 @@
     display: none;
   }
 
-
-  .headroom {
-  	will-change: transform;
-  	transition: transform 250ms ease-out !important;
-  }
+  //.headroom {
+  //	will-change: transform;
+  //	transition: transform 250ms ease-out !important;
+  //}
 
 
 //   .headroom--fixed {
@@ -55,13 +54,31 @@
 //   }
 
 
-  .headroom--pinned {
-  	transform: translateY(0%);
-  }
 
+  //.headroom--pinned {
+  //	transform: translateY(0%);
+  //}
+  //
+  //
+  //.headroom--unpinned {
+  //	transform: translateY(100%);
+  //}
 
-  .headroom--unpinned {
-  	transform: translateY(100%);
+  .headroom {
+    .dcf-nav-toggle-group{
+      will-change: transform;
+      transition: transform 250ms ease-out !important;
+    }
+    &.slideIn {
+      .dcf-nav-toggle-group {
+        transform: translateY(0%)
+      }
+    }
+    &.slideOut {
+      .dcf-nav-toggle-group {
+        transform: translateY(100%);
+      }
+    }
   }
 
 }
