@@ -236,6 +236,30 @@
       	</div>
       </div>
 
+      <h2 class="dcf-mt-6">Badges</h2>
+
+      <h3 class="dcf-mt-6">Roundrect Badges</h3>
+      <div class="dcf-mt-6">
+        <h1>h1. Heading with roundrect badge <small class="dcf-badge dcf-badge-roundrect">New</small></h1>
+        <h2>h2. Heading with roundrect badge <small class="dcf-badge dcf-badge-roundrect">New</small></h2>
+        <h4>h3. Heading with roundrect badge <small class="dcf-badge dcf-badge-roundrect">New</small></h4>
+        <h4>h4. Heading with roundrect badge <small class="dcf-badge dcf-badge-roundrect">New</small></h4>
+        <h5>h5. Heading with roundrect badge <small class="dcf-badge dcf-badge-roundrect">New</small></h5>
+        <h6>h6. Heading with roundrect badge <small class="dcf-badge dcf-badge-roundrect">New</small></h6>
+        <p>Paragraph with roundrect badge <span class="dcf-badge dcf-badge-roundrect">New</span></p>
+      </div>
+
+      <h3 class="dcf-mt-6">Pill Badges</h3>
+      <div class="dcf-mt-6">
+        <h1>h1. Heading with pill badge <small class="dcf-badge dcf-badge-pill">New</small></h1>
+        <h2>h2. Heading with pill badge <small class="dcf-badge dcf-badge-pill">New</small></h2>
+        <h4>h3. Heading with pill badge <small class="dcf-badge dcf-badge-pill">New</small></h4>
+        <h4>h4. Heading with pill badge <small class="dcf-badge dcf-badge-pill">New</small></h4>
+        <h5>h5. Heading with pill badge <small class="dcf-badge dcf-badge-pill">New</small></h5>
+        <h6>h6. Heading with pill badge <small class="dcf-badge dcf-badge-pill">New</small></h6>
+        <p>Paragraph with pill badge <span class="dcf-badge dcf-badge-pill">New</span></p>
+      </div>
+
       <div class="dcf-pt-6 dcf-pb-6">
         <h2 class="dcf-mt-6">Buttons</h2>
         <a class="dcf-btn dcf-btn-primary" href="#" role="button">Link</a>
