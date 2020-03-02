@@ -6,22 +6,37 @@
 .unl .dcf-nav-menu li { // TODO: remove after updated in DCF core
   margin-bottom: 0;
 }
-.headroom {
-  .dcf-nav-menu{
-    will-change: transform;
-    transition: transform 250ms ease-out !important;
-  }
-  &.slideIn {
-    .dcf-nav-menu {
-      transform: translateY(0%);
-    }
-  }
-  &.slideOut {
-    .dcf-nav-menu {
-      transform: translateY(-100%);
-    }
-  }
-}
+// WIP FOR NAVBAR
+//.headroom {
+//  .dcf-nav-menu{
+//    will-change: transform;
+//    transition: transform 250ms ease-out !important;
+//  }
+//  &.slideIn {
+//    .dcf-nav-menu {
+//      transform: translateY(0%);
+//      position: fixed;
+//      right: 0;
+//      left: 0;
+//      top: 0;
+//    }
+//  }
+//  &.slideOut {
+//    .dcf-nav-menu {
+//      transform: translateY(-100%);
+//      position: fixed;
+//      right: 0;
+//      left: 0;
+//      top: 0;
+//
+//    }
+//  }
+//  &.top{
+//    .dcf-nav-menu{
+//      position: sticky;
+//    }
+//  }
+//}
 
 .unl .dcf-nav-menu-child a,
 .unl .dcf-nav-menu-child button {

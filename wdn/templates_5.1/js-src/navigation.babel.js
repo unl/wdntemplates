@@ -33,31 +33,17 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
       //   });
       //   headroom.init();
       // }
-      // const headroomDesktop = new Headroom(desktopNav, {
-      //   'tolerance' : {
-      //     up : 5,
-      //     down : 5
-      //   },
-      //   'classes' : {
-      //     'initial' : 'animated',
-      //     'pinned' : 'slideDesktopIn',
-      //     'uninned' : 'slideDesktopOut'
-      //   }
-      // });
 
-      // headroomDesktop.init();
       let header = document.querySelector('header');
 
       let headroom = new Headroom(header , {
-        'tolerance' : {
-          up : 5,
-          down : 0
-        },
-        'offset' : 193,
+        'tolerance' : 5,
+        'offset' : 205,
         'classes': {
           'initial': 'headroom',
           'pinned': 'slideIn',
-          'unpinned': 'slideOut'
+          'unpinned': 'slideOut',
+          'top' : 'top'
         }
       });
 
