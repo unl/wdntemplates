@@ -31,7 +31,8 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		departmentLookup = 'https://directory.unl.edu/departments/',
 		userLookup = 'https://directory.unl.edu/people/',
 		planetRed = 'https://planetred.unl.edu/pg/',
-		user = false;
+		user = false,
+		sessionUser = false;
 
 	var getUserField = function getUserField(field) {
 		if (!user || !user[field]) {
@@ -63,11 +64,11 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				require([serviceURL + cookie], function () {
 					// the whoami service injects into WDN.idm namespace
 					if (WDN.idm.user) {
-						Plugin.setUser(WDN.idm.user);
+						Plugin.setSessionUser(WDN.idm.user);
 						delete WDN.idm.user;
 					}
 
-					if (Plugin.getUserId()) {
+					if (Plugin.isLoggedIn()) {
 						if (callback) {
 							callback();
 						}
@@ -90,6 +91,16 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		 *
 		 * @param newUser object|false
 		 */
+		setSessionUser: function setSessionUser(newUser) {
+			sessionUser = newUser;
+			user = newUser;
+		},
+
+		/**
+		 * Set the current user. The object should have fields as described by CAS
+		 *
+		 * @param newUser object|false
+		 */
 		setUser: function setUser(newUser) {
 			user = newUser;
 		},
@@ -97,13 +108,10 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		formatUser: function formatUser(userinfo, extras) {
 			let data = {};
 
-			// save session user
-			let sessionUser = user;
-
-			// Switch user to passed user
+			// Set user to passed user
 			Plugin.setUser(userinfo);
 
-			if (userinfo) {
+			if (user) {
 				data.unlID = Plugin.getUserId();
 				data.firstName = Plugin.getFirstName();
 				data.lastName = Plugin.getLastName();
@@ -124,24 +132,26 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				}
 			}
 
-			// Switch user back to session user
-			Plugin.setUser(sessionUser);
+			// Unset user
+			Plugin.setUser(false);
 
 			return data;
 		},
 
-		getUser: function getUser(uid, extras) {
-			if (!uid) {
-				return Plugin.formatUser(user, extras);
-			}
+		getSessionUser: function getSessionUser(extras) {
+			return Plugin.formatUser(sessionUser, extras);
+		},
 
+		getUser: function getUser(uid, extras) {
+			var xhrUser = false;
 			var xhr = new XMLHttpRequest();
 			// force synchronous response
 			xhr.open('GET', userLookup + uid + '.json', false);
 			xhr.send(null);
 			if (xhr.status === 200) {
-				return  Plugin.formatUser(JSON.parse(xhr.responseText), extras);
+				xhrUser = JSON.parse(xhr.responseText);
 			}
+			return Plugin.formatUser(xhrUser, extras);
 		},
 
 		getDepartment: function getDepartment(org_unit) {
@@ -169,7 +179,7 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		 * @return bool
 		 */
 		isLoggedIn: function isLoggedIn() {
-			return !!Plugin.getUserId();
+			return !!sessionUser && sessionUser;
 		},
 
 		/**
@@ -388,7 +398,7 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		renderAsLoggedOut: function renderAsLoggedOut() {
-			if (Plugin.getUserId()) {
+			if (Plugin.isLoggedIn()) {
 				//if the user is already logged in, we should not reset the login
 				return;
 			}
