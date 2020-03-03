@@ -129,7 +129,7 @@
             var userDisplayContainer = document.getElementById('user-display');
             var userDisplayContent  = '';
             if (idm.isLoggedIn()) {
-              var user = idm.getUser();
+              var user = idm.getSessionUser();
               var userDisplayContent = `<dl>
                 <dt>UNL ID</dt><dd>${user.unlID}</dd>
                 <dt>First Name</dt><dd>${user.firstName}</dd>
