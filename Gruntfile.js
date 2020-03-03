@@ -4,6 +4,7 @@ module.exports = function (grunt) {
     'pre',
     'critical',
     'deprecated',
+    'legacy',
     'main',
     'print',
     //'modules/pagination',
@@ -316,7 +317,7 @@ module.exports = function (grunt) {
         options: {
           processors: [
             require('postcss-normalize')({allowDuplicates: true}),
-            require('autoprefixer')({grid: true}),
+            require('autoprefixer')(),
             require('postcss-object-fit-images'),
             require('cssnano')()
           ],
@@ -327,7 +328,7 @@ module.exports = function (grunt) {
       plugins: {
         options: {
           processors: [
-            require('autoprefixer')({grid: true}),
+            require('autoprefixer')(),
             require('postcss-object-fit-images'),
             require('cssnano')()
           ],

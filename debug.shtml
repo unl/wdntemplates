@@ -236,6 +236,18 @@
       	</div>
       </div>
 
+      <h2 class="dcf-mt-6">Badges</h2>
+
+      <h3 class="dcf-mt-6">Roundrect Badges</h3>
+      <div class="dcf-mt-6">
+        <p>Paragraph with roundrect badge <span class="dcf-badge dcf-badge-roundrect">New</span></p>
+      </div>
+
+      <h3 class="dcf-mt-6">Pill Badges</h3>
+      <div class="dcf-mt-6">
+        <p>Paragraph with pill badge <span class="dcf-badge dcf-badge-pill">New</span></p>
+      </div>
+
       <div class="dcf-pt-6 dcf-pb-6">
         <h2 class="dcf-mt-6">Buttons</h2>
         <a class="dcf-btn dcf-btn-primary" href="#" role="button">Link</a>
@@ -384,6 +396,42 @@
           <button class="dcf-btn dcf-btn-primary" type="submit">Submit</button>
         </div>
       </form>
+
+      <h2 class="dcf-mt-9">Modals</h2>
+
+      <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-1" type="button" disabled>Toggle Modal 1</button>
+      <div class="dcf-modal" id="test-modal-1" hidden>
+        <div class="dcf-modal-wrapper">
+          <div class="dcf-modal-header">
+            <h3>Example Modal 1</h3>
+            <button class="dcf-btn-close-modal">Close</button>
+          </div>
+          <div class="dcf-modal-content">
+            <p>This is my modal content. <a href="#">Fusce</a> dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper. Curabitur blandit <a href="#">tempus porttitor</a>. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-1" type="button" disabled>Toggle Modal 1</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-2" type="button" disabled>Toggle Modal 2</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-2" type="button" disabled>Toggle Modal 2</button>
+      <div class="dcf-modal" id="test-modal-2" hidden>
+        <div class="dcf-modal-wrapper">
+          <div class="dcf-modal-header">
+            <h3>Example Modal 2</h3>
+            <button class="dcf-btn-close-modal">Close</button>
+          </div>
+          <div class="dcf-modal-content">
+            <p>This is my modal content. <a href="#">Fusce</a> dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper. Curabitur blandit <a href="#">tempus porttitor</a>. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+            <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor. Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-1" type="button" disabled>Toggle Modal 1</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-2" type="button" disabled>Toggle Modal 2</button>
+          </div>
+        </div>
+      </div>
 
       <h2 class="dcf-mt-9">Tables</h2>
 
