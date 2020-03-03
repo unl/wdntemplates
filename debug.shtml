@@ -402,10 +402,10 @@
       <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-1" type="button" disabled>Toggle Modal 1</button>
       <div class="dcf-modal" id="test-modal-1" hidden>
         <div class="dcf-modal-wrapper">
-          <header class="dcf-modal-header">
+          <div class="dcf-modal-header">
             <h3>Example Modal 1</h3>
             <button class="dcf-btn-close-modal">Close</button>
-          </header>
+          </div>
           <div class="dcf-modal-content">
             <p>This is my modal content. <a href="#">Fusce</a> dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper. Curabitur blandit <a href="#">tempus porttitor</a>. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
             <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-1" type="button" disabled>Toggle Modal 1</button>
@@ -417,10 +417,10 @@
       <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-2" type="button" disabled>Toggle Modal 2</button>
       <div class="dcf-modal" id="test-modal-2" hidden>
         <div class="dcf-modal-wrapper">
-          <header class="dcf-modal-header">
+          <div class="dcf-modal-header">
             <h3>Example Modal 2</h3>
             <button class="dcf-btn-close-modal">Close</button>
-          </header>
+          </div>
           <div class="dcf-modal-content">
             <p>This is my modal content. <a href="#">Fusce</a> dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper. Curabitur blandit <a href="#">tempus porttitor</a>. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
             <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
