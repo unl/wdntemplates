@@ -12,43 +12,45 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
       }
 
       // grab an element
-      let mobileActions = document.querySelectorAll('.hrjs');
       let skipNav = document.getElementById('dcf-skip-nav');
       let institutionTitle = document.getElementById('dcf-institution-title');
       let logo = document.getElementById('dcf-logo-lockup');
       let nav = document.getElementById('dcf-navigation');
-      let desktopNav = document.getElementsByClassName('dcf-nav-menu');
       let main = document.querySelector('main');
       let footer = document.getElementById('dcf-footer');
-
-      // construct an instance of Headroom, passing the element
-      // for (let i = 0; i < mobileActions.length; i++) {
-      //   let headroom = new Headroom(mobileActions[i], {
-      //     'tolerance' : 5,
-      //     'classes' : {
-      //       'initial' : 'animated',
-      //       'pinned' : 'slideIn',
-      //       'unpinned' : 'slideOut'
-      //     }
-      //   });
-      //   headroom.init();
-      // }
-
       let header = document.querySelector('header');
+      let mobileHeader = document.getElementById('dcf-nav-toggle-group');
 
-      let headroom = new Headroom(header , {
+      let headroomDesktop = new Headroom (header, {
         'tolerance' : 5,
-        'offset' : 205,
-        'classes': {
-          'initial': 'headroom',
-          'pinned': 'slideIn',
-          'unpinned': 'slideOut',
-          'top' : 'top'
+        'offset' : 300,
+        'classes' : {
+          'initial' : 'header--fixed',
+          "pinned": "slideDown",
+          "unpinned": "slideUp",
+          "top": "top",
+          "notTop" : "not-top",
+          // 'top' : 'headroomDesktopTop'
+        }
+      });
+      let headroomMobile = new Headroom (mobileHeader , {
+        'tolerance' : 5,
+        'classes' : {
+          'initial' : 'headroomMobile',
+          'pinned' : 'headroomMobile--pinned',
+          'unpinned' : 'headroomMobile--unpinned',
         }
       });
 
-      headroom.init();
+      headroomMobile.init();
+      headroomDesktop.init();
 
+      // When the page is at the top, remove the slideDown class.
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset === 0) {
+          header.classList.remove('slideDown')
+        }
+      })
 
       let toggleButtons = document.querySelectorAll('.dcf-nav-toggle-btn-menu');
       let toggleIconOpen = document.getElementById('dcf-nav-toggle-icon-open-menu');

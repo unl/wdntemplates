@@ -34,6 +34,7 @@
 }
 
 
+
 @include mq(md, max, width) {
 
   .unl .dcf-header .dcf-institution-title {
@@ -45,6 +46,7 @@
     @include pb-4;
     @include pt-5;
   }
+
 
 }
 
@@ -71,5 +73,39 @@
     padding-bottom: #{ms(1)}em;
     @include pt-5;
   }
+
+// https://stackoverflow.com/questions/44055692/headroom-js-header-with-initial-static-state
+  .header--fixed {
+    position: static;
+    top: 0;
+    width: 100%;
+    z-index: 100000;
+    background: #fefdfa;
+  }
+  .header--fixed.top {
+    transition: none;
+    transform: translateY(0);
+  }
+  .header--fixed.not-top {
+    position: fixed;
+    transform: translateY(-100%);
+  }
+  .header--fixed.slideDown.not-top {
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(0);
+  }
+  .header--fixed.slideDown.top {
+    transition: transform 0.3s ease-in-out;
+    position: fixed;
+  }
+  .header--fixed.slideUp.not-top {
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%);
+  }
+  .header--fixed.slideUp.top {
+    transform: translateY(-100%);
+    position: absolute;
+  }
+
 
 }

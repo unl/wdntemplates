@@ -64,21 +64,31 @@
   //	transform: translateY(100%);
   //}
 
-  .headroom {
-    .dcf-nav-toggle-group{
-      will-change: transform;
-      transition: transform 250ms ease-out !important;
-    }
-    &.slideIn {
-      .dcf-nav-toggle-group {
-        transform: translateY(0%)
-      }
-    }
-    &.slideOut {
-      .dcf-nav-toggle-group {
-        transform: translateY(100%);
-      }
-    }
+  //.headroom{
+  //  .dcf-nav-toggle-group{
+  //    will-change: transform;
+  //    transition: transform 250ms ease-out !important;
+  //  }
+  //  &.slideIn {
+  //    .dcf-nav-toggle-group {
+  //      transform: translateY(0%)
+  //    }
+  //  }
+  //  &.slideOut {
+  //    .dcf-nav-toggle-group {
+  //      transform: translateY(100%);
+  //    }
+  //  }
+  //}
+  .headroomMobile {
+    will-change: transform;
+    transition: transform 250ms ease-out !important;
+  }
+  .headroomMobile--pinned {
+    transform: translateY(0);
+  }
+  .headroomMobile--unpinned {
+    transform: translateY(100%);
   }
 
 }
