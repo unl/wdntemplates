@@ -56,7 +56,6 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
       let toggleIconOpen = document.getElementById('dcf-nav-toggle-icon-open-menu');
       let toggleIconClose = document.getElementById('dcf-nav-toggle-icon-close-menu');
       let toggleLabel = document.querySelector('.dcf-nav-toggle-label-menu');
-      let mobileNav = document.getElementById('dcf-navigation');
       let modalParent = document.querySelector('.dcf-nav-menu');
       let mobileNavMenu = document.getElementById('dcf-nav-menu-child');
       if (!mobileNavMenu) {

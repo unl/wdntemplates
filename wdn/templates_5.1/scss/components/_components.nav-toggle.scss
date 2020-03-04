@@ -38,48 +38,6 @@
     display: none;
   }
 
-  //.headroom {
-  //	will-change: transform;
-  //	transition: transform 250ms ease-out !important;
-  //}
-
-
-//   .headroom--fixed {
-//   	position: -webkit-fixed;
-//   	position: fixed;
-//   	z-index: 10;
-//   	right: 0;
-//   	left: 0;
-//   	bottom: 0vh;
-//   }
-
-
-
-  //.headroom--pinned {
-  //	transform: translateY(0%);
-  //}
-  //
-  //
-  //.headroom--unpinned {
-  //	transform: translateY(100%);
-  //}
-
-  //.headroom{
-  //  .dcf-nav-toggle-group{
-  //    will-change: transform;
-  //    transition: transform 250ms ease-out !important;
-  //  }
-  //  &.slideIn {
-  //    .dcf-nav-toggle-group {
-  //      transform: translateY(0%)
-  //    }
-  //  }
-  //  &.slideOut {
-  //    .dcf-nav-toggle-group {
-  //      transform: translateY(100%);
-  //    }
-  //  }
-  //}
   .headroomMobile {
     will-change: transform;
     transition: transform 250ms ease-out !important;
