@@ -397,6 +397,8 @@
       let slideshow = slideshows[i];
       let ul = uls[i];
 
+      let slides = slideshow.querySelectorAll('.dcf-slideshow li');
+
       // Create unique ID for slideshow
       slideshow.setAttribute('id', uuid.concat('-slideshow'));
       console.log(slideshow.getAttribute('id'));
