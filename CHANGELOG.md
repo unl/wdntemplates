@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.17 (March 13, 2020)
+- New WDN Notice javascript to check for campus alert messsages from UComm and prepend a banner
+- IDM updates to access info about logged-in user
+
 ## 5.0.16 (February 11, 2020)
 - Add Third Party cookie support via samesite to WDN.setCookie()
 - Remove 150th anniversary logo and update copyright year
