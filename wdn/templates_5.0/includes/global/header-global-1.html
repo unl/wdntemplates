@@ -17,7 +17,7 @@
 			xhr.open('GET', bannerContentURL, false);
 			xhr.send(null);
 			if (xhr.status === 200) {
-				hrContent = xhr.responseText;
+				xhrContent = xhr.responseText;
 				sessionStorage.setItem(messageSessionKey, xhrContent);
 			}
 	    }
