@@ -23,10 +23,11 @@
 	    }
 
 		if (messageContent) {
+			var skipNav = document.getElementById('dcf-skip-nav');
 			var banner = document.createElement('div');
 			banner.setAttribute('role', 'navigation');
 			banner.innerHTML = messageContent;
-			document.body.prepend(banner);
+			skipNav.parentNode.insertBefore( banner, skipNav.nextSibling );
 			window.scrollTo(0, 0);
 		}
 	}
