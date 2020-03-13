@@ -1,3 +1,40 @@
+<script>
+    // WDN Notice Banner Display
+    function displayWDNNoticeBanner() {
+	    var bannerEnabled = true;
+	    if (bannerEnabled) {
+		    var xhr = new XMLHttpRequest();
+		    var messageContent = false;
+		    var messageSessionKey = 'wndNoticeMessage';
+		    var sessionContent = sessionStorage.getItem(messageSessionKey);
+
+		    // clear saved message every five minutes
+		    setInterval(function(){ sessionStorage.removeItem(messageSessionKey); }, 300000);
+
+		    if (sessionContent) {
+				messageContent = sessionContent;
+		    } else {
+				var bannerContentURL = 'https://its-unl-cms-prd-s3.s3.amazonaws.com/wdn-message.html';
+				xhr.open('GET', bannerContentURL, false);
+				xhr.send(null);
+				if (xhr.status === 200) {
+					messageContent = xhr.responseText;
+					sessionStorage.setItem(messageSessionKey, messageContent);
+				}
+		    }
+
+			if (messageContent) {
+				var skipNav = document.getElementById('dcf-skip-nav');
+				var banner = document.createElement('div');
+				banner.setAttribute('role', 'navigation');
+				banner.innerHTML = messageContent;
+				skipNav.parentNode.insertBefore( banner, skipNav.nextSibling );
+				window.scrollTo(0, 0);
+			}
+		}
+	}
+	displayWDNNoticeBanner();
+</script>
 <div class="dcf-header-global dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-ai-center dcf-jc-between dcf-relative dcf-bt-solid dcf-bt-3 unl-bt-scarlet">
   <a class="dcf-institution-title dcf-flex-shrink-0 dcf-pt-3 dcf-pb-3 dcf-txt-xs unl-ls-3" id="dcf-institution-title" href="https://www.unl.edu/">
     <span class="dcf-uppercase">University</span> <span class="dcf-italic">of</span><span class="unl-institution-title-ls"> </span><span class="dcf-uppercase">Nebraska&ndash;Lincoln</span>
