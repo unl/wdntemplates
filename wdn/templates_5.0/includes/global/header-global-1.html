@@ -3,7 +3,7 @@
     var bannerEnabled = true;
     if (bannerEnabled) {
 	    var xhr = new XMLHttpRequest();
-	    var xhrContent = false;
+	    var messageContent = false;
 	    var messageSessionKey = 'wndNoticeMessage';
 	    var sessionContent = sessionStorage.getItem(messageSessionKey);
 
@@ -11,22 +11,23 @@
 	    setInterval(function(){ sessionStorage.removeItem(messageSessionKey); }, 300000);
 
 	    if (sessionContent) {
-			xhrContent = sessionContent;
+			messageContent = sessionContent;
 	    } else {
 			var bannerContentURL = 'https://its-unl-cms-prd-s3.s3.amazonaws.com/wdn-message.html';
 			xhr.open('GET', bannerContentURL, false);
 			xhr.send(null);
 			if (xhr.status === 200) {
-				xhrContent = xhr.responseText;
-				sessionStorage.setItem(messageSessionKey, xhrContent);
+				messageContent = xhr.responseText;
+				sessionStorage.setItem(messageSessionKey, messageContent);
 			}
 	    }
 
-		if (xhrContent) {
+		if (messageContent) {
 			var banner = document.createElement('div');
 			banner.setAttribute('id', 'wdn-notice-banner');
 			banner.setAttribute('role', 'navigation');
-			banner.innerHTML = xhrContent;
+			banner.setAttribute('style', 'overflow: hidden; transition: all 2s ease-in-out;');
+			banner.innerHTML = messageContent;
 			document.body.prepend(banner);
 			window.scrollTo(0, 0);
 		}
