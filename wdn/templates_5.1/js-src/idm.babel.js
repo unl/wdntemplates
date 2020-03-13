@@ -179,7 +179,7 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		 * @return bool
 		 */
 		isLoggedIn: function isLoggedIn() {
-			return !!sessionUser && sessionUser;
+			return !!sessionUser && sessionUser && sessionUser.uid;
 		},
 
 		/**
