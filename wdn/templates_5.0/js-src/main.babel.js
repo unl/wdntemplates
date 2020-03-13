@@ -32,6 +32,7 @@ requirejs([
 			var xhrContent = xhr.responseText;
 			if (xhrContent) {
 				var banner = document.createElement('div');
+				banner.setAttribute('role', 'navigation');
 				banner.innerHTML = xhrContent;
 				document.body.prepend(banner);
 				window.scrollTo(0, 0);
