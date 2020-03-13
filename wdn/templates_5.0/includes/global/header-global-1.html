@@ -3,19 +3,32 @@
     var bannerEnabled = true;
     if (bannerEnabled) {
 	    var xhr = new XMLHttpRequest();
-	    var bannerContentURL = 'https://its-unl-cms-prd-s3.s3.amazonaws.com/wdn-message.html';
-		xhr.open('GET', bannerContentURL, false);
-		xhr.send(null);
-		if (xhr.status === 200) {
-			var xhrContent = xhr.responseText;
-			if (xhrContent) {
-				var banner = document.createElement('div');
-				banner.setAttribute('id', 'wdn-notice-banner');
-				banner.setAttribute('role', 'navigation');
-				banner.innerHTML = xhrContent;
-				document.body.prepend(banner);
-				window.scrollTo(0, 0);
+	    var xhrContent = false;
+	    var messageSessionKey = 'wndNoticeMessage';
+	    var sessionContent = sessionStorage.getItem(messageSessionKey);
+
+	    // clear saved message every five minutes
+	    setInterval(function(){ sessionStorage.removeItem(messageSessionKey); }, 300000);
+
+	    if (sessionContent) {
+			xhrContent = sessionContent;
+	    } else {
+			var bannerContentURL = 'https://its-unl-cms-prd-s3.s3.amazonaws.com/wdn-message.html';
+			xhr.open('GET', bannerContentURL, false);
+			xhr.send(null);
+			if (xhr.status === 200) {
+				hrContent = xhr.responseText;
+				sessionStorage.setItem(messageSessionKey, xhrContent);
 			}
+	    }
+
+		if (xhrContent) {
+			var banner = document.createElement('div');
+			banner.setAttribute('id', 'wdn-notice-banner');
+			banner.setAttribute('role', 'navigation');
+			banner.innerHTML = xhrContent;
+			document.body.prepend(banner);
+			window.scrollTo(0, 0);
 		}
 	}
 </script>
