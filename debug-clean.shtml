@@ -423,7 +423,7 @@
       const uuid = uuidv4();
       // Define variable for each individual slideshow and unordered list of slides
       let slideshow = slideshows[i];
-      let ul = uls[i];
+      let slidedeck = uls[i];
 
       let slides = slideshow.querySelectorAll('.dcf-slideshow li');
       let figures = slideshow.querySelectorAll('.dcf-slideshow figure');
@@ -444,7 +444,7 @@
       }
 
       // Add classes to slideshow unordered lists
-      ul.classList.add('dcf-slide-deck');
+      slidedeck.classList.add('dcf-slide-deck');
 
       // Create slideshow controls (previous/next slide buttons)
       let ctrls = document.createElement('ul');
@@ -580,12 +580,14 @@
 
       if('IntersectionObserver' in window) {
         let scrollIt = function scrollIt(slideToShow){
-          let scrollPos = Array.prototype.indexOf.call(slides, slideToShow) * (slideshow.scrollWidth / slides.length);
-          slideshow.scrollLeft = scrollPos;
+          let scrollPos = Array.prototype.indexOf.call(slides, slideToShow) * (slidedeck.scrollWidth / slides.length);
+          slidedeck.scrollLeft = scrollPos;
+          console.log(scrollPos);
         };
         let showSlide = function showSlide(dir, slides) {
           // console.log('WE ARE IN SHOW SLIDE');
           let visible = slideshow.querySelectorAll('[aria-label = "slideshow"] .visible');
+          console.log('Current Slide')
           console.log(visible);
           let i = dir === 'previous' ? 0 : 1;
 
