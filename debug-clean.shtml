@@ -122,7 +122,7 @@
       opacity: 0;
       pointer-events: none;
       /*   transition: opacity $timing-fade-out $easing-fade-out; */
-      transition: opacity 500ms ease-out;
+      transition: all 250ms ease-in;
     }
 
     .unl .dcf-slide-caption[aria-hidden="false"] {
@@ -387,9 +387,12 @@
       // Hide content
       caption.addEventListener('transitionend', captionTransition(caption), true);
       // Update ARIA attributes
+      caption.classList.add('dcf-invisible');
       button.setAttribute('aria-expanded', 'false');
       button.setAttribute('aria-label', 'Show caption');
       caption.setAttribute('aria-hidden', 'true');
+      console.log(caption.getAttribute('aria-hidden'));
+
     } else {
       // Remove class to show content
       caption.classList.remove('dcf-invisible');
@@ -397,6 +400,8 @@
       button.setAttribute('aria-expanded', 'true');
       button.setAttribute('aria-label', 'Hide caption');
       caption.setAttribute('aria-hidden', 'false');
+      console.log('fade in');
+
     }
   };
 
