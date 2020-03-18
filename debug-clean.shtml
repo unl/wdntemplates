@@ -391,7 +391,6 @@
       button.setAttribute('aria-expanded', 'false');
       button.setAttribute('aria-label', 'Show caption');
       caption.setAttribute('aria-hidden', 'true');
-      console.log(caption.getAttribute('aria-hidden'));
 
     } else {
       // Remove class to show content
@@ -400,7 +399,6 @@
       button.setAttribute('aria-expanded', 'true');
       button.setAttribute('aria-label', 'Hide caption');
       caption.setAttribute('aria-hidden', 'false');
-      console.log('fade in');
 
     }
   };
