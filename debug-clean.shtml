@@ -119,15 +119,12 @@
     */
 
     .unl .dcf-slide-caption[aria-hidden="true"] {
-      opacity: 0;
-      pointer-events: none;
       /*   transition: opacity $timing-fade-out $easing-fade-out; */
       transition: all 250ms ease-in;
+
     }
 
     .unl .dcf-slide-caption[aria-hidden="false"] {
-      opacity: 1;
-      pointer-events: auto;
       /*   transition: opacity $timing-fade-in $easing-fade-in; */
       transition: opacity 250ms ease-out;
     }
@@ -387,18 +384,22 @@
       // Hide content
       caption.addEventListener('transitionend', captionTransition(caption), true);
       // Update ARIA attributes
-      caption.classList.add('dcf-invisible');
+      // caption.classList.add('dcf-invisible');
       button.setAttribute('aria-expanded', 'false');
       button.setAttribute('aria-label', 'Show caption');
       caption.setAttribute('aria-hidden', 'true');
+      caption.classList.remove('dcf-opacity-1','dcf-pointer-events-auto');
+      caption.classList.add('dcf-opacity-0', 'dcf-pointer-events-none','dcf-invisible');
 
     } else {
       // Remove class to show content
-      caption.classList.remove('dcf-invisible');
       // Update ARIA attributes
       button.setAttribute('aria-expanded', 'true');
       button.setAttribute('aria-label', 'Hide caption');
       caption.setAttribute('aria-hidden', 'false');
+      caption.classList.remove('dcf-invisible','dcf-opacity-0','dcf-pointer-events-none');
+      caption.classList.add('dcf-opacity-1','dcf-pointer-events-auto');
+
 
     }
   };
@@ -475,14 +476,6 @@
       ctrlPrevious.setAttribute('id', 'previous');
       ctrlNext.setAttribute('id','next');
 
-      // Add event for previous and next controls
-      // ctrlPrevious.addEventListener('click', function(){
-      //   incrementSlides(-1);
-      // });
-      // ctrlNext.addEventListener('click', function(){
-      //   incrementSlides(1);
-      // });
-
       // Add relative class for absolute positioning of slideshow controls
       slideshow.classList.add('dcf-relative');
       // Append controls (previous/next slide) to slideshow
@@ -496,9 +489,6 @@
         let slide = slides[i];
         // Create unique ID for each slide
         slide.setAttribute('id', uuid.concat('-slide-' + i));
-        // console.log(slide.getAttribute('id'));
-
-        // console.log(slide.getAttribute('id'));
         // Add classes to each slide
         slide.classList.add('dcf-slide', 'dcf-relative');
         slide.querySelector('div').setAttribute('tabindex', '-1');
@@ -529,10 +519,9 @@
           // Append caption toggle button to each figure
           figure.appendChild(captionBtn);
           // Style each caption
-          caption.classList.add('dcf-slide-caption', 'dcf-figcaption', 'dcf-invisible');
+          caption.classList.add('dcf-opacity-0', 'dcf-pointer-events-none','dcf-invisible', 'dcf-slide-caption', 'dcf-figcaption');
           // Create a unique ID for each caption
           caption.setAttribute('id', uuid.concat('-caption-' + i)); // TODO: use same ID creation used for DCF modals
-          // console.log(caption.getAttribute('id'));
           // Add ARIA attributes to each caption
           caption.setAttribute('aria-labelledby', uuid.concat('-button-' + i)); // TODO: use same ID creation used for DCF modals
           caption.setAttribute('aria-hidden', 'true');
@@ -565,25 +554,17 @@
         let scrollIt = function scrollIt(slideToShow){
           let scrollPos = Array.prototype.indexOf.call(slides, slideToShow) * (slidedeck.scrollWidth / slides.length);
           slidedeck.scrollLeft = scrollPos;
-          // console.log(scrollPos);
         };
         let showSlide = function showSlide(dir, slides) {
-          // console.log('WE ARE IN SHOW SLIDE');
           let visible = slideshow.querySelectorAll('[aria-label = "slideshow"] .visible');
-          // console.log('Current Slide')
-          // console.log(visible);
           let i = dir === 'previous' ? 0 : 1;
 
           if (visible.length > 1){
             scrollIt(visible[i]);
-            // console.log(visible[i]);
           } else {
             let newSlide = i === 0 ? visible[0].previousElementSibling : visible[0].nextElementSibling;
             if (newSlide) {
-              // console.log('we are now scrolling');
               scrollIt(newSlide);
-              // console.log('Scroll to:');
-              // console.log(newSlide);
             }
           }
         };
@@ -614,11 +595,9 @@
 
         ctrlPrevious.addEventListener('click', function() {
           showSlide(ctrlPrevious.getAttribute('id'), slides);
-          // console.log(ctrlPrevious.getAttribute('id'));
         });
         ctrlNext.addEventListener('click', function (){
           showSlide(ctrlNext.getAttribute('id'), slides);
-          // console.log(ctrlNext.getAttribute('id'));
         });
       } else {
         Array.prototype.forEach.call(slides, function(e) {
