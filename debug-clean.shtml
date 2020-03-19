@@ -565,13 +565,13 @@
         let scrollIt = function scrollIt(slideToShow){
           let scrollPos = Array.prototype.indexOf.call(slides, slideToShow) * (slidedeck.scrollWidth / slides.length);
           slidedeck.scrollLeft = scrollPos;
-          console.log(scrollPos);
+          // console.log(scrollPos);
         };
         let showSlide = function showSlide(dir, slides) {
           // console.log('WE ARE IN SHOW SLIDE');
           let visible = slideshow.querySelectorAll('[aria-label = "slideshow"] .visible');
-          console.log('Current Slide')
-          console.log(visible);
+          // console.log('Current Slide')
+          // console.log(visible);
           let i = dir === 'previous' ? 0 : 1;
 
           if (visible.length > 1){
@@ -582,8 +582,8 @@
             if (newSlide) {
               // console.log('we are now scrolling');
               scrollIt(newSlide);
-              console.log('Scroll to:');
-              console.log(newSlide);
+              // console.log('Scroll to:');
+              // console.log(newSlide);
             }
           }
         };
@@ -627,7 +627,6 @@
         });
       }
     };
-
 
 
 
