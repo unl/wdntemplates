@@ -422,8 +422,13 @@
 
   // Show caption
   function showCaption (button, caption) {
+    console.log(caption);
     let close1 = document.querySelector('.unl-icon-slide-caption-close-1');
     let close2 = document.querySelector('.unl-icon-slide-caption-close-2');
+    console.log(close1);
+    console.log(close2);
+    // Only doing the transition on the first caption button. Here is the problem ^^^
+    // Maybe give the function the classes instead of calling it here?
     const keyframesClose1 = [
       {
         transform: 'rotate(45deg)',
@@ -523,6 +528,7 @@
       let slides = slideshow.querySelectorAll('.dcf-slideshow li');
       let figures = slideshow.querySelectorAll('.dcf-slideshow figure');
       let captions = slideshow.querySelectorAll('.dcf-slideshow figcaption');
+      let captionButton = slideshow.querySelectorAll('.dcf-btn-slide-caption');
 
       // Create unique ID for slideshow
       slideshow.setAttribute('id', uuid.concat('-slideshow'));
@@ -638,6 +644,7 @@
         // Add classes specific to UNL theme to each caption toggle button
         slideBtn.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'unl-cream');
       };
+
 
 
       //WIP for Content slider. https://codepen.io/heydon/pen/xPWOLp?editors=0010
