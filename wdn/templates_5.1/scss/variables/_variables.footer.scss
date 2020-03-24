@@ -7,12 +7,22 @@
 
 
 // Background color
-$bg-color-footer: $scarlet;         // Background-color of footer
+$bg-color-footer-light-mode: $scarlet;          // Background-color of footer in light mode
+$bg-color-footer-dark-mode: $scarlet;           // Background-color of footer in dark mode
 
 
 // Color
-$color-footer: $cream;              // Color of footer text
-$color-footer-link: $cream;         // Color of footer links
-$color-footer-link-visited: $cream; // TODO: determine visited state styles
-$color-footer-link-hover: $cream;   // TODO: determine hover state styles
-$color-footer-link-active: $cream;  // TODO: determine active state styles
+$color-footer-light-mode: $cream;	              // Color of footer text in light mode
+$color-footer-dark-mode: $cream;                // Color of footer text in dark mode
+
+$color-footer-link-light-mode: $cream;          // Color of footer links in light mode
+$color-footer-link-dark-mode: $cream;           // Color of footer links in dark mode
+
+$color-footer-link-visited-light-mode: $cream;  // TODO: determine visited state color in light mode
+$color-footer-link-visited-dark-mode: $cream;   // TODO: determine visited state color in dark mode
+
+$color-footer-link-hover-light-mode: $cream;    // TODO: determine hover state color in light mode
+$color-footer-link-hover-dark-mode: $cream;     // TODO: determine hover state color in dark mode
+
+$color-footer-link-active-light-mode: $cream;   // TODO: determine active state color in light mode
+$color-footer-link-active-dark-mode: $cream;	  // TODO: determine active state color in dark mode

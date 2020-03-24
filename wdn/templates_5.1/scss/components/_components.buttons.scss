@@ -17,13 +17,13 @@
 
 .unl .dcf-btn-secondary:active,
 .unl .dcf-btn-tertiary:active {
-  color: $color-active;
+  color: $color-active-light-mode;
 }
 
 
 .unl .dcf-btn-primary:focus,
 .unl .dcf-btn-primary:hover {
-  box-shadow: 0 1px $length-em-2 fade-out($color-hover,.4);
+  box-shadow: 0 1px $length-em-2 fade-out($color-hover-light-mode,.4);
 }
 
 
@@ -31,13 +31,13 @@
 .unl .dcf-btn-secondary:hover,
 .unl .dcf-btn-tertiary:focus,
 .unl .dcf-btn-tertiary:hover {
-  box-shadow: 0 1px $length-em-1 fade-out($color-hover,.6);
+  box-shadow: 0 1px $length-em-1 fade-out($color-hover-light-mode,.6);
 }
 
 
 .unl .dcf-btn-primary:active {
-  background-color: $color-active;
-  border-color: $color-active;
+  background-color: $color-active-light-mode;
+  border-color: $color-active-light-mode;
 }
 
 
@@ -52,7 +52,7 @@
 .unl .dcf-btn-inverse-secondary:hover,
 .unl .dcf-btn-inverse-tertiary:focus,
 .unl .dcf-btn-inverse-tertiary:hover {
-  box-shadow: 0 1px $length-em-2 fade-out($border-color-input-hover,.2);
+  box-shadow: 0 1px $length-em-2 fade-out($border-color-input-hover-light-mode,.2);
 }
 
 

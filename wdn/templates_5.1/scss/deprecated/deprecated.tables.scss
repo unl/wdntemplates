@@ -5,7 +5,7 @@
 
 table:not(.dcf-table) {
   @include bg-transparent;
-  border-bottom: 1px solid $border-color-table;
+  border-bottom: 1px solid $border-color-table-light-mode;
   @include font-sans;
   max-width: 100%;
   width: 100%;
@@ -18,7 +18,7 @@ table:not(.dcf-table) tbody {
 
 table:not(.dcf-table) td,
 table:not(.dcf-table) th {
-  border: 1px solid $border-color-table;
+  border: 1px solid $border-color-table-light-mode;
   @include pl-4;
   @include pr-4;
 }
@@ -38,7 +38,7 @@ table:not(.dcf-table) tbody td {
 }
 
 table:not(.dcf-table) tbody tr:nth-of-type(even) {
-  background-color: $bg-color-table-stripe;
+  background-color: $bg-color-table-stripe-light-mode;
 }
 
 .wdn_responsive_table thead th abbr {
@@ -80,7 +80,7 @@ table:not(.dcf-table) tbody tr:nth-of-type(even) {
   }
 
   .wdn_responsive_table tbody:nth-of-type(even) {
-  	background-color: $bg-color-table-stripe;
+  	background-color: $bg-color-table-stripe-light-mode;
   }
 
 }

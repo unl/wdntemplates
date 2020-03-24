@@ -4,7 +4,7 @@
 
 
 .wdn-promo-band {
-	background: $color-body;
+	background: $color-body-light-mode;
 	position: relative;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .wdn-promo-container.wdn-inverse .wdn-text-over-image {
-	color: $color-body;
+	color: $color-body-light-mode;
 	text-shadow: 0 0 10px rgba(255,255,255,.5);
 }
 
