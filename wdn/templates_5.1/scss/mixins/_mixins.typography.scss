@@ -161,10 +161,10 @@
 // Outline Text: Dark
 @mixin txt-outline-dark($imp:null) {
 
-  @supports (text-stroke: 1px $color-heading) or (-webkit-text-stroke: 1px $color-heading) {
+  @supports (text-stroke: 1px $color-heading-light-mode) or (-webkit-text-stroke: 1px $color-heading-light-mode) {
     color: transparent $imp;
-    -webkit-text-stroke: #{ms(-26)}em $color-heading $imp;
-    text-stroke: #{ms(-26)}em $color-heading $imp;
+    -webkit-text-stroke: #{ms(-26)}em $color-heading-light-mode $imp;
+    text-stroke: #{ms(-26)}em $color-heading-light-mode $imp;
   }
 
 }
@@ -183,6 +183,6 @@
 @mixin txt-stripes-dark($imp:null) {
   -webkit-background-clip: text;
   background-clip: text;
-  background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.5), fade-out($color-body,.5) 1px, transparent 1px, transparent 2px); // add mixin
+  background-image: repeating-linear-gradient($diagonal1, fade-out($color-body-light-mode,.5), fade-out($color-body-light-mode,.5) 1px, transparent 1px, transparent 2px); // add mixin
   color: transparent $imp;
 }
