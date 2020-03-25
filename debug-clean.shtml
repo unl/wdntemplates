@@ -398,8 +398,7 @@
 <!--#include virtual="/wdn/templates_5.1/includes/global/js-body.html" -->
 <!-- InstanceBeginEditable name="jsbody" -->
 <!-- put your custom javascript here -->
-<script>
-
+<script> // DCF
   // Function for creating unique identifiers
   function uuidv4() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -545,24 +544,25 @@
       let ctrlPrevious = document.createElement('li');
       let ctrlNext = document.createElement('li');
 
-      // Add classes to slideshow controls group
-      ctrls.classList.add('dcf-list-bare', 'dcf-btn-group', 'dcf-absolute', 'dcf-pin-right', 'dcf-pin-bottom', 'dcf-z-1');
+      // Add classes to slideshow controls group (THEME)
+      // ctrls.classList.add('dcf-list-bare', 'dcf-btn-group', 'dcf-absolute', 'dcf-pin-right', 'dcf-pin-bottom', 'dcf-z-1');
 
       // Add role and aria-label to controls group
       ctrls.setAttribute('role', 'group');
       ctrls.setAttribute('aria-label', 'slideshow controls');
 
-      // Add content inside individual controls
-      ctrlPrevious.innerHTML = '<button class="dcf-btn dcf-btn-primary dcf-btn-slide dcf-btn-slide-prev" type="button" aria-label="previous">' +
-              '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
-              '<path d="M21.746.064a.504.504 0 0 0-.504.008l-19 11.5a.499.499 0 0 0-.001.856l19 11.5A.501.501 0 0 0 22 23.5V.5a.5.5 0 0 0-.254-.436z"></path>' +
-              '</svg>' +
-              '</button>';
-      ctrlNext.innerHTML = '<button class="dcf-btn dcf-btn-primary dcf-btn-slide dcf-btn-slide-next" type="button" aria-label="next">' +
-              '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
-              '<path d="M21.759 11.577L2.786.077a.499.499 0 0 0-.759.428v23a.498.498 0 0 0 .5.5c.09 0 .18-.024.259-.072l18.973-11.5a.5.5 0 0 0 0-.856z"></path>' +
-              '</svg>' +
-              '</button>';
+      // Add content inside individual controls (THEME)
+      // ctrlPrevious.innerHTML = '<button class="dcf-btn dcf-btn-primary dcf-btn-slide dcf-btn-slide-prev" type="button" aria-label="previous">' +
+      //         '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
+      //         '<path d="M21.746.064a.504.504 0 0 0-.504.008l-19 11.5a.499.499 0 0 0-.001.856l19 11.5A.501.501 0 0 0 22 23.5V.5a.5.5 0 0 0-.254-.436z"></path>' +
+      //         '</svg>' +
+      //         '</button>';
+      // ctrlNext.innerHTML = '<button class="dcf-btn dcf-btn-primary dcf-btn-slide dcf-btn-slide-next" type="button" aria-label="next">' +
+      //         '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
+      //         '<path d="M21.759 11.577L2.786.077a.499.499 0 0 0-.759.428v23a.498.498 0 0 0 .5.5c.09 0 .18-.024.259-.072l18.973-11.5a.5.5 0 0 0 0-.856z"></path>' +
+      //         '</svg>' +
+      //         '</button>';
+
       ctrlPrevious.setAttribute('id', 'previous');
       ctrlNext.setAttribute('id','next');
 
@@ -734,6 +734,44 @@
   })(document, window);
 
 </script>
+
+<script> //THEME
+  (function (document, window, undefined) {
+
+    let controls = document.querySelectorAll('[aria-label = "slideshow controls"]');
+    console.log(controls);
+    for(let i = 0; i < controls.length; i++) {
+      let control = controls[i];
+      control.classList.add('dcf-list-bare', 'dcf-btn-group', 'dcf-absolute', 'dcf-pin-right', 'dcf-pin-bottom', 'dcf-z-1');
+
+      // let ctrlPrevious = control.querySelector('#previous li');
+      // let ctrlNext = control.querySelector('#next li');
+
+      // ctrlPrevious.innerHTML = '<button class="dcf-btn dcf-btn-primary dcf-btn-slide dcf-btn-slide-prev" type="button" aria-label="previous">' +
+      //         '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
+      //         '<path d="M21.746.064a.504.504 0 0 0-.504.008l-19 11.5a.499.499 0 0 0-.001.856l19 11.5A.501.501 0 0 0 22 23.5V.5a.5.5 0 0 0-.254-.436z"></path>' +
+      //         '</svg>' +
+      //         '</button>';
+      // ctrlNext.innerHTML = '<button class="dcf-btn dcf-btn-primary dcf-btn-slide dcf-btn-slide-next" type="button" aria-label="next">' +
+      //         '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
+      //         '<path d="M21.759 11.577L2.786.077a.499.499 0 0 0-.759.428v23a.498.498 0 0 0 .5.5c.09 0 .18-.024.259-.072l18.973-11.5a.5.5 0 0 0 0-.856z"></path>' +
+      //         '</svg>' +
+      //         '</button>';
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+  })(document, window);
+</script>>
 <!-- InstanceEndEditable -->
 </body>
 </html>
