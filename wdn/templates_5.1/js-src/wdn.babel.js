@@ -279,7 +279,7 @@
 			return pluginParams[ plugin ][ name ];
 		},
 
-		setCookie: function setCookie(name, value, seconds, path, domain, samesite, secure) {
+		setCookie: function (name, value, seconds, path, domain, samesite, secure) {
 			var expires = "";
 			if (seconds) {
 				var date = new Date();
