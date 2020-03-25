@@ -14,11 +14,11 @@ function wdnInclude($path)
 }
 ?>
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="dcf-no-js dcf-no-webp" lang="en">
 <head>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/head-1.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/head-1.html"); ?>
   <!--
-    Membership and regular participation in the UNL Web Developer Network is required to use the UNLedu Web Framework. Visit the WDN site at http://wdn.unl.edu/. Register for our mailing list and add your site or server to UNLwebaudit.
+    Membership and regular participation in the University of Nebraska–Lincoln (UNL) Web Developer Network (WDN) is required to use the UNLedu Web Framework. Visit the WDN site at https://wdn.unl.edu/. Register for our mailing list and add your site or server to UNL Web Audit.
     All framework code is the property of the UNL Web Developer Network. The code seen in a source code view is not, and may not be used as, a template. You may not use this code, a reverse-engineered version of this code, or its associated visual presentation in whole or in part to create a derivative work.
     This message may not be removed from any pages based on the UNLedu Web Framework.
 
@@ -27,57 +27,57 @@ function wdnInclude($path)
   <!-- TemplateBeginEditable name="doctitle" -->
   <title>Use a descriptive page title | Optional Site Title (use for context) | University of Nebraska&ndash;Lincoln</title>
   <!-- TemplateEndEditable -->
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/head-2-local.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/head-2-local.html"); ?>
   <!-- TemplateBeginEditable name="head" -->
   <!-- Place optional header elements here -->
   <!-- TemplateEndEditable -->
   <!-- TemplateParam name="class" type="text" value="debug" -->
 </head>
 <body class="@@(_document['class'])@@ affiliate" data-version="$HTML_VERSION$">
-<?php wdnInclude("/wdn/templates_5.0/includes/global/skip-nav.html"); ?>
+<?php wdnInclude("/wdn/templates_5.1/includes/global/skip-nav.html"); ?>
 <header class="dcf-header" id="dcf-header" role="banner">
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/header-global-1.html"); ?>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-global-1.html"); ?>
-        <?php wdnInclude("/wdn/templates_5.0/includes/global/visit-global-1.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/header-global-1.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/nav-global-1.html"); ?>
+        <?php wdnInclude("/wdn/templates_5.1/includes/global/visit-global-1.html"); ?>
         <!-- TemplateBeginEditable name="visitlocal" -->
-        <?php wdnInclude("/wdn/templates_5.0/includes/local/visit-local.html"); ?>
+        <?php wdnInclude("/wdn/templates_5.1/includes/local/visit-local.html"); ?>
         <!-- TemplateEndEditable -->
-        <?php wdnInclude("/wdn/templates_5.0/includes/global/visit-global-2.html"); ?>
-        <?php wdnInclude("/wdn/templates_5.0/includes/global/apply-global-1.html"); ?>
+        <?php wdnInclude("/wdn/templates_5.1/includes/global/visit-global-2.html"); ?>
+        <?php wdnInclude("/wdn/templates_5.1/includes/global/apply-global-1.html"); ?>
         <!-- TemplateBeginEditable name="applylocal" -->
-        <?php wdnInclude("/wdn/templates_5.0/includes/local/apply-local.html"); ?>
+        <?php wdnInclude("/wdn/templates_5.1/includes/local/apply-local.html"); ?>
         <!-- TemplateEndEditable -->
-        <?php wdnInclude("/wdn/templates_5.0/includes/global/apply-global-2.html"); ?>
-        <?php wdnInclude("/wdn/templates_5.0/includes/global/give-global-1.html"); ?>
+        <?php wdnInclude("/wdn/templates_5.1/includes/global/apply-global-2.html"); ?>
+        <?php wdnInclude("/wdn/templates_5.1/includes/global/give-global-1.html"); ?>
         <!-- TemplateBeginEditable name="givelocal" -->
-        <?php wdnInclude("/wdn/templates_5.0/includes/local/give-local.html"); ?>
+        <?php wdnInclude("/wdn/templates_5.1/includes/local/give-local.html"); ?>
         <!-- TemplateEndEditable -->
-        <?php wdnInclude("/wdn/templates_5.0/includes/global/give-global-2.html"); ?>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-global-2.html"); ?>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/idm.html"); ?>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/search.html"); ?>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/header-global-2.html"); ?>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/logo-lockup-1.html"); ?>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/site-affiliation-1.html"); ?>
+        <?php wdnInclude("/wdn/templates_5.1/includes/global/give-global-2.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/nav-global-2.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/idm.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/search.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/header-global-2.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/logo-lockup-1.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/site-affiliation-1.html"); ?>
   <!-- TemplateBeginEditable name="affiliation" -->
   <a href="#">My site affiliation</a>
   <!-- TemplateEndEditable -->
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/site-affiliation-2.html"); ?>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/site-title-1.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/site-affiliation-2.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/site-title-1.html"); ?>
   <!-- TemplateBeginEditable name="titlegraphic" -->
   <a class="unl-site-title-medium" href="#">Title of my site</a>
   <!-- TemplateEndEditable -->
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/site-title-2.html"); ?>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/logo-lockup-2.html"); ?>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-toggle-group.html"); ?>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-menu-1.html"); ?>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-toggle-btn.html"); ?>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-menu-child-1.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/site-title-2.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/logo-lockup-2.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/nav-toggle-group.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/nav-menu-1.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/nav-toggle-btn.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/nav-menu-child-1.html"); ?>
   <!-- TemplateBeginEditable name="navlinks" -->
-    <?php wdnInclude("/wdn/templates_5.0/includes/local/nav-local.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/local/nav-local.html"); ?>
   <!-- TemplateEndEditable -->
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-menu-child-2.html"); ?>
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/nav-menu-2.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/nav-menu-child-2.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/nav-menu-2.html"); ?>
 </header>
 
 <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
@@ -119,14 +119,14 @@ function wdnInclude($path)
 <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
   <!-- TemplateBeginEditable name="optionalfooter" -->
   <!-- TemplateEndEditable -->
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/footer-global-1.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/footer-global-1.html"); ?>
   <!-- TemplateBeginEditable name="contactinfo" -->
-    <?php wdnInclude("/wdn/templates_5.0/includes/local/footer-local.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/local/footer-local.html"); ?>
   <!-- TemplateEndEditable -->
-    <?php wdnInclude("/wdn/templates_5.0/includes/global/footer-global-2.html"); ?>
+    <?php wdnInclude("/wdn/templates_5.1/includes/global/footer-global-2.html"); ?>
 </footer>
-<?php wdnInclude("/wdn/templates_5.0/includes/global/noscript.html"); ?>
-<?php wdnInclude("/wdn/templates_5.0/includes/global/js-body-local.html"); ?>
+<?php wdnInclude("/wdn/templates_5.1/includes/global/noscript.html"); ?>
+<?php wdnInclude("/wdn/templates_5.1/includes/global/js-body-local.html"); ?>
 <!-- TemplateBeginEditable name="jsbody" -->
 <!-- put your custom javascript here -->
 <!-- TemplateEndEditable -->

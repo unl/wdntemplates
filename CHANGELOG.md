@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.1.0 (March 25, 2020)
+- 5.1 Initial Release
+
 ## 5.0.17 (March 13, 2020)
 - New WDN Notice javascript to check for campus alert messsages from UComm and prepend a banner
 - IDM updates to access info about logged-in user

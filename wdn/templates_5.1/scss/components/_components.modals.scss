@@ -1,0 +1,27 @@
+//////////////////////////////
+// THEME / COMPONENTS / MODALS
+//////////////////////////////
+
+
+// Modal
+.unl .dcf-modal[aria-hidden="true"] {
+  transition: opacity $timing-fade-out $easing-fade-out;
+}
+
+
+.unl .dcf-modal[aria-hidden="false"] {
+  transition: opacity $timing-fade-in $easing-fade-in;
+}
+
+
+// Modal Wrapper
+.unl .dcf-modal-wrapper {
+  max-height: 75vh;
+  width: calc(100% - (2 * #{ms(12)}vw)); // Match width of .dcf-wrapper
+}
+
+
+// Modal Content
+.unl .dcf-modal-content > *:last-child {
+  margin-bottom: 0;
+}
