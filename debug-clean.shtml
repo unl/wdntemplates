@@ -421,14 +421,7 @@
   }
 
   // Show caption
-  function showCaption (button, caption) {
-    console.log(caption);
-    let close1 = document.querySelector('.unl-icon-slide-caption-close-1');
-    let close2 = document.querySelector('.unl-icon-slide-caption-close-2');
-    console.log(close1);
-    console.log(close2);
-    // Only doing the transition on the first caption button. Here is the problem ^^^
-    // Maybe give the function the classes instead of calling it here?
+  function showCaption (button, caption, close1, close2) {
     const keyframesClose1 = [
       {
         transform: 'rotate(45deg)',
@@ -719,8 +712,10 @@
       // Content var
       let caption = button.previousElementSibling;
       // Show caption when button is pressed
+      let close1 = button.querySelector('.unl-icon-slide-caption-close-1');
+      let close2 = button.querySelector('.unl-icon-slide-caption-close-2');
       button.addEventListener('click', function () {
-        showCaption(this, caption);
+        showCaption(this, caption, close1, close2);
         return false;
       }, false);
 
@@ -729,7 +724,7 @@
         // Handle 'space' key
         if (event.which === 32) {
           event.preventDefault();
-          showCaption(this, caption);
+          showCaption(this, caption, close1, close2);
         }
       }, false);
     });
