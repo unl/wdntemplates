@@ -1,6 +1,22 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.1.0 (March 25, 2020)
+- 5.1 Initial Release
+
+## 5.0.17 (March 13, 2020)
+- New WDN Notice javascript to check for campus alert messsages from UComm and prepend a banner
+- IDM updates to access info about logged-in user
+
+## 5.0.16 (February 11, 2020)
+- Add Third Party cookie support via samesite to WDN.setCookie()
+- Remove 150th anniversary logo and update copyright year
+- Fix events listing display issue
+
+## 5.0.15 (December 10, 2019)
+- DCF modal update
+- Add mixin/utility to match heading letter-spacing
+
 ## 5.0.14 (October 28, 2019)
 - Remove deprecated.css link from head include files (can now be included by a developer if they choose)
 - Temporarily remove reduced motion preference and revert to previously-used method for transitioning modal states for search and mobile navigation
