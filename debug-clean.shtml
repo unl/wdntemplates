@@ -626,15 +626,15 @@
       // UNL THEME
 
       // Define variable for slide buttons
-      let slideBtns = document.querySelectorAll('.dcf-btn-slide');
-
-      // Find all slide buttons
-      for (let i = 0; i < slideBtns.length; i++) {
-        // Define variable for each slide button
-        let slideBtn = slideBtns[i];
-        // Add classes specific to UNL theme to each caption toggle button
-        slideBtn.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'unl-cream');
-      };
+      // let slideBtns = document.querySelectorAll('.dcf-btn-slide');
+      //
+      // // Find all slide buttons
+      // for (let i = 0; i < slideBtns.length; i++) {
+      //   // Define variable for each slide button
+      //   let slideBtn = slideBtns[i];
+      //   // Add classes specific to UNL theme to each caption toggle button
+      //   slideBtn.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'unl-cream');
+      // };
 
 
 
@@ -736,7 +736,7 @@
 <script> //THEME
   (function (document, window, undefined) {
 
-    const slideshows = document.querySelectorAll('.dcf-slideshow');
+    let slideshows = document.querySelectorAll('.dcf-slideshow');
     Array.prototype.forEach.call(slideshows, (slideshow, slideshowIndex) => {
 
       // Slideshow Controls
@@ -759,7 +759,7 @@
         }
       })
 
-      // Caption Button
+      // Caption Button (Error with animation)
       let figures = slideshow.querySelectorAll('.dcf-slideshow figure');
       Array.prototype.forEach.call(figures, (figure) => {
         let captionBtn = figure.querySelector('button');
@@ -775,6 +775,10 @@
       })
     })
 
+    let slideBtns = document.querySelectorAll('.dcf-btn-slide');
+    Array.prototype.forEach.call(slideBtns, (slideBtn) => {
+      slideBtn.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'unl-cream');
+    })
 
 
 
