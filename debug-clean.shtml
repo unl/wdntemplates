@@ -839,6 +839,10 @@ function showCaption (button, caption, close1, close2) {
       })
     })
 
+    let slideBtns = document.querySelectorAll('.dcf-btn-slide');
+    Array.prototype.forEach.call(slideBtns, (slideBtn) => {
+      slideBtn.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'unl-cream');
+    })
 
     let buttons = document.querySelectorAll('.dcf-btn-slide-caption');
     [].forEach.call(buttons, function(button, index) {
