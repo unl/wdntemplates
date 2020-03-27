@@ -420,77 +420,77 @@
   }
 
   // Show caption
-  function showCaption (button, caption, close1, close2) {
-    const keyframesClose1 = [
-      {
-        transform: 'rotate(45deg)',
-        transformOrigin: '50% 50%'
-      },
-      {
-        transform: 'rotate(0deg)',
-        transformOrigin: '50% 50%'
-      }
-    ];
-    const keyframesClose2 = [
-      {
-        transform: 'rotate(-45deg)',
-        transformOrigin: '50% 50%'
-      },
-      {
-        transform: 'rotate(0deg)',
-        transformOrigin: '50% 50%'
-      }
-    ];
-    const keyframesOpen1 = [
-      {
-        transform: 'rotate(0deg)',
-        transformOrigin: '50% 50%'
-      },
-      {
-        transform: 'rotate(45deg)',
-        transformOrigin: '50% 50%'
-      }
-    ];
-    const keyframesOpen2 = [
-      {
-        transform: 'rotate(0deg)',
-        transformOrigin: '50% 50%'
-      },
-      {
-        transform: 'rotate(-45deg)',
-        transformOrigin: '50% 50%'
-      }
-    ];
-    const options = {
-      duration: 250,
-      fill: 'forwards'
-    };
-
-    // Check if caption is already visible
-    if (!caption.classList.contains('dcf-invisible')) {
-      // Hide content
-      caption.addEventListener('transitionend', captionTransition(caption), true);
-      // Update ARIA attributes
-      button.setAttribute('aria-expanded', 'false');
-      button.setAttribute('aria-label', 'Show caption');
-      caption.setAttribute('aria-hidden', 'true');
-      caption.classList.remove('dcf-opacity-1','dcf-pointer-events-auto');
-      caption.classList.add('dcf-opacity-0', 'dcf-pointer-events-none','dcf-invisible');
-      close1.animate(keyframesClose1, options);
-      close2.animate(keyframesClose2, options);
-    } else {
-      // Remove class to show content
-      caption.classList.remove('dcf-invisible');
-      // Update ARIA attributes
-      button.setAttribute('aria-expanded', 'true');
-      button.setAttribute('aria-label', 'Hide caption');
-      caption.setAttribute('aria-hidden', 'false');
-      caption.classList.remove('dcf-invisible','dcf-opacity-0','dcf-pointer-events-none');
-      caption.classList.add('dcf-opacity-1','dcf-pointer-events-auto');
-      close1.animate(keyframesOpen1, options);
-      close2.animate(keyframesOpen2, options);
-    }
-  };
+  // function showCaption (button, caption, close1, close2) {
+  //   const keyframesClose1 = [
+  //     {
+  //       transform: 'rotate(45deg)',
+  //       transformOrigin: '50% 50%'
+  //     },
+  //     {
+  //       transform: 'rotate(0deg)',
+  //       transformOrigin: '50% 50%'
+  //     }
+  //   ];
+  //   const keyframesClose2 = [
+  //     {
+  //       transform: 'rotate(-45deg)',
+  //       transformOrigin: '50% 50%'
+  //     },
+  //     {
+  //       transform: 'rotate(0deg)',
+  //       transformOrigin: '50% 50%'
+  //     }
+  //   ];
+  //   const keyframesOpen1 = [
+  //     {
+  //       transform: 'rotate(0deg)',
+  //       transformOrigin: '50% 50%'
+  //     },
+  //     {
+  //       transform: 'rotate(45deg)',
+  //       transformOrigin: '50% 50%'
+  //     }
+  //   ];
+  //   const keyframesOpen2 = [
+  //     {
+  //       transform: 'rotate(0deg)',
+  //       transformOrigin: '50% 50%'
+  //     },
+  //     {
+  //       transform: 'rotate(-45deg)',
+  //       transformOrigin: '50% 50%'
+  //     }
+  //   ];
+  //   const options = {
+  //     duration: 250,
+  //     fill: 'forwards'
+  //   };
+  //
+  //   // Check if caption is already visible
+  //   if (!caption.classList.contains('dcf-invisible')) {
+  //     // Hide content
+  //     caption.addEventListener('transitionend', captionTransition(caption), true);
+  //     // Update ARIA attributes
+  //     button.setAttribute('aria-expanded', 'false');
+  //     button.setAttribute('aria-label', 'Show caption');
+  //     caption.setAttribute('aria-hidden', 'true');
+  //     caption.classList.remove('dcf-opacity-1','dcf-pointer-events-auto');
+  //     caption.classList.add('dcf-opacity-0', 'dcf-pointer-events-none','dcf-invisible');
+  //     close1.animate(keyframesClose1, options);
+  //     close2.animate(keyframesClose2, options);
+  //   } else {
+  //     // Remove class to show content
+  //     caption.classList.remove('dcf-invisible');
+  //     // Update ARIA attributes
+  //     button.setAttribute('aria-expanded', 'true');
+  //     button.setAttribute('aria-label', 'Hide caption');
+  //     caption.setAttribute('aria-hidden', 'false');
+  //     caption.classList.remove('dcf-invisible','dcf-opacity-0','dcf-pointer-events-none');
+  //     caption.classList.add('dcf-opacity-1','dcf-pointer-events-auto');
+  //     close1.animate(keyframesOpen1, options);
+  //     close2.animate(keyframesOpen2, options);
+  //   }
+  // };
 
 
   // https://codepen.io/svinkle/pen/FHGBh
@@ -705,27 +705,27 @@
 
 
     // Caption toggle buttons
-    let buttons = document.querySelectorAll('.dcf-btn-slide-caption');
-    [].forEach.call(buttons, function(button, index) {
-      // Content var
-      let caption = button.previousElementSibling;
-      // Show caption when button is pressed
-      let close1 = button.querySelector('.unl-icon-slide-caption-close-1');
-      let close2 = button.querySelector('.unl-icon-slide-caption-close-2');
-      button.addEventListener('click', function () {
-        showCaption(this, caption, close1, close2);
-        return false;
-      }, false);
-
-      // Show caption when the 'space' key is pressed
-      button.addEventListener('keydown', function (event) {
-        // Handle 'space' key
-        if (event.which === 32) {
-          event.preventDefault();
-          showCaption(this, caption, close1, close2);
-        }
-      }, false);
-    });
+    // let buttons = document.querySelectorAll('.dcf-btn-slide-caption');
+    // [].forEach.call(buttons, function(button, index) {
+    //   // Content var
+    //   let caption = button.previousElementSibling;
+    //   // Show caption when button is pressed
+    //   let close1 = button.querySelector('.unl-icon-slide-caption-close-1');
+    //   let close2 = button.querySelector('.unl-icon-slide-caption-close-2');
+    //   button.addEventListener('click', function () {
+    //     showCaption(this, caption, close1, close2);
+    //     return false;
+    //   }, false);
+    //
+    //   // Show caption when the 'space' key is pressed
+    //   button.addEventListener('keydown', function (event) {
+    //     // Handle 'space' key
+    //     if (event.which === 32) {
+    //       event.preventDefault();
+    //       showCaption(this, caption, close1, close2);
+    //     }
+    //   }, false);
+    // });
 
 
 
@@ -734,6 +734,77 @@
 </script>
 
 <script> //THEME
+function showCaption (button, caption, close1, close2) {
+  const keyframesClose1 = [
+    {
+      transform: 'rotate(45deg)',
+      transformOrigin: '50% 50%'
+    },
+    {
+      transform: 'rotate(0deg)',
+      transformOrigin: '50% 50%'
+    }
+  ];
+  const keyframesClose2 = [
+    {
+      transform: 'rotate(-45deg)',
+      transformOrigin: '50% 50%'
+    },
+    {
+      transform: 'rotate(0deg)',
+      transformOrigin: '50% 50%'
+    }
+  ];
+  const keyframesOpen1 = [
+    {
+      transform: 'rotate(0deg)',
+      transformOrigin: '50% 50%'
+    },
+    {
+      transform: 'rotate(45deg)',
+      transformOrigin: '50% 50%'
+    }
+  ];
+  const keyframesOpen2 = [
+    {
+      transform: 'rotate(0deg)',
+      transformOrigin: '50% 50%'
+    },
+    {
+      transform: 'rotate(-45deg)',
+      transformOrigin: '50% 50%'
+    }
+  ];
+  const options = {
+    duration: 250,
+    fill: 'forwards'
+  };
+
+  // Check if caption is already visible
+  if (!caption.classList.contains('dcf-invisible')) {
+    // Hide content
+    caption.addEventListener('transitionend', captionTransition(caption), true);
+    // Update ARIA attributes
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-label', 'Show caption');
+    caption.setAttribute('aria-hidden', 'true');
+    caption.classList.remove('dcf-opacity-1','dcf-pointer-events-auto');
+    caption.classList.add('dcf-opacity-0', 'dcf-pointer-events-none','dcf-invisible');
+    close1.animate(keyframesClose1, options);
+    close2.animate(keyframesClose2, options);
+  } else {
+    // Remove class to show content
+    caption.classList.remove('dcf-invisible');
+    // Update ARIA attributes
+    button.setAttribute('aria-expanded', 'true');
+    button.setAttribute('aria-label', 'Hide caption');
+    caption.setAttribute('aria-hidden', 'false');
+    caption.classList.remove('dcf-invisible','dcf-opacity-0','dcf-pointer-events-none');
+    caption.classList.add('dcf-opacity-1','dcf-pointer-events-auto');
+    close1.animate(keyframesOpen1, options);
+    close2.animate(keyframesOpen2, options);
+  }
+};
   (function (document, window, undefined) {
 
     let slideshows = document.querySelectorAll('.dcf-slideshow');
@@ -779,6 +850,28 @@
     Array.prototype.forEach.call(slideBtns, (slideBtn) => {
       slideBtn.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'unl-cream');
     })
+
+    let buttons = document.querySelectorAll('.dcf-btn-slide-caption');
+    [].forEach.call(buttons, function(button, index) {
+      // Content var
+      let caption = button.previousElementSibling;
+      // Show caption when button is pressed
+      let close1 = button.querySelector('.unl-icon-slide-caption-close-1');
+      let close2 = button.querySelector('.unl-icon-slide-caption-close-2');
+      button.addEventListener('click', function () {
+        showCaption(this, caption, close1, close2);
+        return false;
+      }, false);
+
+      // Show caption when the 'space' key is pressed
+      button.addEventListener('keydown', function (event) {
+        // Handle 'space' key
+        if (event.which === 32) {
+          event.preventDefault();
+          showCaption(this, caption, close1, close2);
+        }
+      }, false);
+    });
 
 
 
