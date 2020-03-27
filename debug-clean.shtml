@@ -93,168 +93,149 @@
     <!-- InstanceBeginEditable name="maincontentarea" -->
 
   <!-- Slideshow WIP -->
-  <style>
-
-    .dcf-slideshow ul {
-      margin-bottom: 0;
-      padding-left: 0; /* Remove broswer default padding for list */
-    }
-
-    .dcf-slideshow li {
-      margin-bottom: 0;
-    }
-
-    .dcf-slideshow ul:first-child {
-      display: flex;
-      list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
-      overflow-x: scroll;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .dcf-slideshow ul:first-child li {
-      scroll-snap-align: start;
-    }
-
-    .dcf-slideshow ul:first-child li:not(:last-child) {
-      margin-right: .75em; /* Create variable for this */
-    }
-
-
-    /* Fallback styles */
-
-    .dcf-slideshow-nojs ul:first-child li {
-      flex: 0 0 84%; /* Make sure some of the next slide appears */
-    }
-
-
-    /* Styles after JavaScript loads */
-
-    .dcf-slide {
-      flex: 0 0 100%; /* Make each slide fill the full width of the slideshow */
-    }
-
-
-    /* Theme styles */
-
-    /*
-        .unl .dcf-btn-slide-caption[aria-expanded="false"] svg {
-          transform: rotate(0);
-          transition: transform .2s cubic-bezier(.17,.89,.32,1.27);
-        }
-
-        .unl .dcf-btn-slide-caption[aria-expanded="true"] svg {
-          transform: rotate(45deg);
-          transition: transform .2s cubic-bezier(.17,.89,.32,1.27);
-        }
-    */
-
-    .unl .dcf-slide-caption[aria-hidden="true"] {
-      /*   transition: opacity $timing-fade-out $easing-fade-out; */
-      transition: all 250ms ease-in;
-
-    }
-
-    .unl .dcf-slide-caption[aria-hidden="false"] {
-      /*   transition: opacity $timing-fade-in $easing-fade-in; */
-      transition: opacity 250ms ease-out;
-    }
-
-
-    .unl .dcf-slide-deck {
-      --btn-b-width: 2px;
-      --btn-size-x: 2.75rem;
-      --btn-size-y: 2.25rem;
-      --clip: 3px;
-      /*   clip-path: polygon(100% 0px, 100% calc(100% - 2.25em - 7px), calc(100% - 5.125em - 13px) calc(100% - 2.25em - 7px), calc(100% - 5.125em - 13px) 100%, 0px 100%, 0px 0px); */
+    <style>
+      .dcf-slideshow ul {
+        margin-bottom: 0;
+        padding-left: 0; /* Remove broswer default padding for list */
+      }
+      .dcf-slideshow li {
+        margin-bottom: 0;
+      }
+      .dcf-slideshow ul:first-child {
+        display: flex;
+        list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+      .dcf-slideshow ul:first-child li {
+        scroll-snap-align: start;
+      }
+      .dcf-slideshow ul:first-child li:not(:last-child) {
+        margin-right: .75em; /* Create variable for this */
+      }
+      /* Fallback styles */
+      .dcf-slideshow ul:first-child li {
+        flex: 0 0 84%; /* Make sure some of the next slide appears */
+      }
+      /* Styles after JavaScript loads */
+      .dcf-slideshow ul:first-child li.dcf-slide {
+        flex: 0 0 100%; /* Make each slide fill the full width of the slideshow */
+      }
+      /* Theme styles */
       /*
+          .unl .dcf-btn-slide-caption[aria-expanded="false"] svg {
+            transform: rotate(0);
+            transition: transform .2s cubic-bezier(.17,.89,.32,1.27);
+          }
+          .unl .dcf-btn-slide-caption[aria-expanded="true"] svg {
+            transform: rotate(45deg);
+            transition: transform .2s cubic-bezier(.17,.89,.32,1.27);
+          }
+      */
+      .unl .dcf-slide-caption[aria-hidden="true"] {
+        opacity: 0;
+        pointer-events: none;
+        /*   transition: opacity $timing-fade-out $easing-fade-out; */
+        transition: all 250ms ease-out;
+      }
+      .unl .dcf-slide-caption[aria-hidden="false"] {
+        opacity: 1;
+        pointer-events: auto;
+        /*   transition: opacity $timing-fade-in $easing-fade-in; */
+        transition: opacity 250ms ease-out;
+      }
+      .unl .dcf-slide-deck {
+        --btn-b-width: 2px;
+        --btn-size-x: 2.75rem;
+        --btn-size-y: 2.25rem;
+        --clip: 3px;
+        /*   clip-path: polygon(100% 0px, 100% calc(100% - 2.25em - 7px), calc(100% - 5.125em - 13px) calc(100% - 2.25em - 7px), calc(100% - 5.125em - 13px) 100%, 0px 100%, 0px 0px); */
+        /*
+          clip-path: polygon(
+            100% 0px,
+            100% calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip)),
+            calc(100% - (var(--btn-size-x) * 2) - (var(--btn-b-width) * 5) - var(--clip)) calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip)),
+            calc(100% - (var(--btn-size-x) * 2) - (var(--btn-b-width) * 5) - var(--clip)) 100%,
+            -(var(--clip)) 100%,
+            0px 0px
+          );
+        */
         clip-path: polygon(
-          100% 0px,
-          100% calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip)),
-          calc(100% - (var(--btn-size-x) * 2) - (var(--btn-b-width) * 5) - var(--clip)) calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip)),
-          calc(100% - (var(--btn-size-x) * 2) - (var(--btn-b-width) * 5) - var(--clip)) 100%,
-          -(var(--clip)) 100%,
-          0px 0px
+                100% 0px,
+                100% calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip)),
+                calc(100% - (var(--btn-size-x) * 2) - (var(--btn-b-width) * 5) - var(--clip)) calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip)),
+                calc(100% - (var(--btn-size-x) * 2) - (var(--btn-b-width) * 5) - var(--clip)) 100%,
+                calc(var(--btn-size-x) + (var(--btn-b-width) * 2) + var(--clip)) 100%,
+                calc(var(--btn-size-x) + (var(--btn-b-width) * 2) + var(--clip)) calc(100% + var(--clip)),
+                -3px calc(100% + var(--clip)),
+                -3px calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip)),
+                0px calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip)),
+                0px 0px
         );
-      */
-      clip-path: polygon(
-              100% 0px,
-              100% calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip)),
-              calc(100% - (var(--btn-size-x) * 2) - (var(--btn-b-width) * 5) - var(--clip)) calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip)),
-              calc(100% - (var(--btn-size-x) * 2) - (var(--btn-b-width) * 5) - var(--clip)) 100%,
-              calc(var(--btn-size-x) + (var(--btn-b-width) * 2) + var(--clip)) 100%,
-              calc(var(--btn-size-x) + (var(--btn-b-width) * 2) + var(--clip)) calc(100% + var(--clip)),
-              -3px calc(100% + var(--clip)),
-              -3px calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip)),
-              0px calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip)),
-              0px 0px
-      );
-    }
+      }
+      .unl .dcf-slide-figure > div,
+      .unl .dcf-slide-figure figcaption {
+        /*   clip-path: polygon(100% 0px, 100% 100%, calc(2.56em + 7px) 100%, calc(2.56em + 7px) calc(100% - 2.25em - 7px), 0px calc(100% - 2.25em - 7px), 0px calc(100% - 2.25em - 4px), calc(2.56em + 4px) calc(100% - 2.25em - 4px), calc(2.56em + 4px) 100%, 0 100%, 0px 0px); */
+        /*
+                  clip-path: polygon(
+                          100% 0px,
+                          100% 100%,
+                          calc(var(--btn-size-x) + (var(--btn-b-width) * 2) + var(--clip) - 1px) 100%,
+                          calc(var(--btn-size-x) + (var(--btn-b-width) * 2) + var(--clip) - 1px) calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip) + 1px),
+                          0px calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip) + 1px), 0px calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) + 1px),
+                          calc(var(--btn-size-x) + (var(--btn-b-width) * 2) - 1px) calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) + 1px),
+                          calc(var(--btn-size-x) + (var(--btn-b-width) * 2) - 1px) 100%,
+                          0 100%,
+                          0px 0px
+                  );
+        */
+      }
+      .unl .dcf-btn-slide-caption {
+        background-color:rgba(36,36,35,.75);
+        border-color: transparent;
+        bottom: var(--clip);
+        left: var(--clip);
+        position: absolute;
+        z-index: 1;
+      }
+      .unl .dcf-slide-caption {
+        background-color: rgba(36,36,35,.75);
+        /*   clip-path: polygon(100% 0px, 100% 100%, calc(2.56rem + 7px) 100%, calc(2.56rem + 7px) calc(100% - 2.25rem - 7px), 0px calc(100% - 2.25rem - 7px), 0px 0px); */
+        /*
+              clip-path: polygon(
+                100% 0px,
+                100% 100%,
+                calc(var(--btn-size-x) + (var(--btn-b-width) * 2) + var(--clip)) 100%,
+                calc(var(--btn-size-x) + (var(--btn-b-width) * 2) + var(--clip)) calc(100% - var(--btn-size) - (var(--btn-p-y) * 2) - (var(--btn-b-width) * 2) - var(--clip)),
+                0px calc(100% - var(--btn-size) - (var(--btn-p-y) * 2) - (var(--btn-b-width) * 2) - var(--clip)),
+                0px 0px
+              );
+        */
+        clip-path: polygon(100% 0px, 100% 100%, calc((var(--clip) * 2) + (var(--btn-b-width) * 2) + var(--btn-size-x)) 100%, calc((var(--clip) * 2) + (var(--btn-b-width) * 2) + var(--btn-size-x)) calc(100% - (var(--clip) * 2) - (var(--btn-b-width) * 2) - var(--btn-size-y)), 0px calc(100% - (var(--clip) * 2) - (var(--btn-b-width) * 2) - var(--btn-size-y)), 0px 0px);
+        color: #fefdfa;
+        height: 100%;
+        left: 0;
+        padding: 1em 1.13em;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+      }
+      .dcf-btn-slide-caption[aria-expanded="false"] .unl-icon-slide-caption-open {
+        opacity: 1;
+        transition: opacity 250ms ease-out 125ms;
+      }
+      .dcf-btn-slide-caption[aria-expanded="true"] .unl-icon-slide-caption-open {
+        opacity: 0;
+        transition: opacity 250ms ease-out;
+      }
+      /* Temp until DCF is updated */
+      .dcf-btn-group li:not(:first-child) .dcf-btn-primary {
+        margin-left: 2px;
+      }
+    </style>
 
-    .unl .dcf-slide-figure > div,
-    .unl .dcf-slide-figure figcaption {
-      /*   clip-path: polygon(100% 0px, 100% 100%, calc(2.56em + 7px) 100%, calc(2.56em + 7px) calc(100% - 2.25em - 7px), 0px calc(100% - 2.25em - 7px), 0px calc(100% - 2.25em - 4px), calc(2.56em + 4px) calc(100% - 2.25em - 4px), calc(2.56em + 4px) 100%, 0 100%, 0px 0px); */
-      clip-path: polygon(
-              100% 0px,
-              100% 100%,
-              calc(var(--btn-size-x) + (var(--btn-b-width) * 2) + var(--clip) - 1px) 100%,
-              calc(var(--btn-size-x) + (var(--btn-b-width) * 2) + var(--clip) - 1px) calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip) + 1px),
-              0px calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) - var(--clip) + 1px), 0px calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) + 1px),
-              calc(var(--btn-size-x) + (var(--btn-b-width) * 2) - 1px) calc(100% - var(--btn-size-y) - (var(--btn-b-width) * 2) + 1px),
-              calc(var(--btn-size-x) + (var(--btn-b-width) * 2) - 1px) 100%,
-              0 100%,
-              0px 0px
-      );
-    }
-
-    .unl .dcf-btn-slide-caption {
-      background-color:rgba(36,36,35,.75);
-      border-color: transparent;
-      bottom: var(--clip);
-      left: var(--clip);
-      position: absolute;
-      z-index: 1;
-    }
-
-    .unl .dcf-slide-caption {
-      background-color: rgba(36,36,35,.75);
-      /*   clip-path: polygon(100% 0px, 100% 100%, calc(2.56rem + 7px) 100%, calc(2.56rem + 7px) calc(100% - 2.25rem - 7px), 0px calc(100% - 2.25rem - 7px), 0px 0px); */
-      /*
-            clip-path: polygon(
-              100% 0px,
-              100% 100%,
-              calc(var(--btn-size-x) + (var(--btn-b-width) * 2) + var(--clip)) 100%,
-              calc(var(--btn-size-x) + (var(--btn-b-width) * 2) + var(--clip)) calc(100% - var(--btn-size) - (var(--btn-p-y) * 2) - (var(--btn-b-width) * 2) - var(--clip)),
-              0px calc(100% - var(--btn-size) - (var(--btn-p-y) * 2) - (var(--btn-b-width) * 2) - var(--clip)),
-              0px 0px
-            );
-      */
-      clip-path: polygon(100% 0px, 100% 100%, calc((var(--clip) * 2) + (var(--btn-b-width) * 2) + var(--btn-size-x)) 100%, calc((var(--clip) * 2) + (var(--btn-b-width) * 2) + var(--btn-size-x)) calc(100% - (var(--clip) * 2) - (var(--btn-b-width) * 2) - var(--btn-size-y)), 0px calc(100% - (var(--clip) * 2) - (var(--btn-b-width) * 2) - var(--btn-size-y)), 0px 0px);
-      color: #fefdfa;
-      height: 100%;
-      left: 0;
-      padding: 1em 1.13em;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      z-index: 1;
-    }
-    .dcf-btn-slide-caption[aria-expanded="false"] .unl-icon-slide-caption-open {
-      opacity: 1;
-      transition: opacity 250ms ease-out 125ms;
-    }
-
-    .dcf-btn-slide-caption[aria-expanded="true"] .unl-icon-slide-caption-open {
-      opacity: 0;
-      transition: opacity 250ms ease-out;
-    }
-
-    /* Temp until DCF is updated */
-    .dcf-btn-group li:not(:first-child) .dcf-btn-primary {
-      margin-left: 2px;
-    }
-
-  </style>
 
 
     <div class="dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-9 unl-bg-lightest-gray">
@@ -526,14 +507,14 @@
       // console.log(slideshow.getAttribute('id'));
 
 
-      // Remove `-nojs` class from slideshow once JavaScript has loaded
-      if (slideshow.classList.contains('dcf-slideshow-nojs')) {
-        slideshow.classList.remove('dcf-slideshow-nojs');
-      }
-      // Add class to slideshow to indicate its JavaScript has loaded
-      if (!slideshow.classList.contains('dcf-slideshow-js')) {
-        slideshow.classList.add('dcf-slideshow-js');
-      }
+      // // Remove `-nojs` class from slideshow once JavaScript has loaded
+      // if (slideshow.classList.contains('dcf-slideshow-nojs')) {
+      //   slideshow.classList.remove('dcf-slideshow-nojs');
+      // }
+      // // Add class to slideshow to indicate its JavaScript has loaded
+      // if (!slideshow.classList.contains('dcf-slideshow-js')) {
+      //   slideshow.classList.add('dcf-slideshow-js');
+      // }
 
       // Add classes to slideshow unordered lists
       slidedeck.classList.add('dcf-slide-deck');
@@ -542,6 +523,8 @@
       let ctrls = document.createElement('ul');
       let ctrlPrevious = document.createElement('li');
       let ctrlNext = document.createElement('li');
+      let ctrlPreviousButton = document.createElement('button');
+      let ctrlNextButton = document.createElement('button');
 
       // Add classes to slideshow controls group (Keep in DCF)
       ctrls.classList.add('dcf-list-bare', 'dcf-btn-group', 'dcf-absolute', 'dcf-pin-right', 'dcf-pin-bottom', 'dcf-z-1');
@@ -562,11 +545,19 @@
       //         '</svg>' +
       //         '</button>';
 
+      ctrlPreviousButton.classList.add('dcf-btn', 'dcf-btn-primary', 'dcf-button-slide', 'dcf-btn-slide-prev');
+      ctrlPreviousButton.setAttribute('aria-label', 'previous');
+
+      ctrlNextButton.classList.add('dcf-btn', 'dcf-btn-primary', 'dcf-btn-slide', 'dcf-btn-slide-next');
+      ctrlNextButton.setAttribute('aria-label', 'next');
+
       ctrlPrevious.setAttribute('id', 'previous');
       ctrlNext.setAttribute('id','next');
       // Add relative class for absolute positioning of slideshow controls
       slideshow.classList.add('dcf-relative');
       // Append controls (previous/next slide) to slideshow
+      ctrlPrevious.appendChild(ctrlPreviousButton);
+      ctrlNext.appendChild(ctrlNextButton);
       ctrls.appendChild(ctrlPrevious);
       ctrls.appendChild(ctrlNext);
       slideshow.appendChild(ctrls);
@@ -815,18 +806,18 @@ function showCaption (button, caption, close1, close2) {
       let ctrls = ctrlGroup.querySelectorAll('li');
       Array.prototype.forEach.call(ctrls, (ctrl) => {
         if (ctrl.getAttribute('id') == 'previous') {
-          ctrl.innerHTML = '<button class="dcf-btn dcf-btn-primary dcf-btn-slide dcf-btn-slide-prev" type="button" aria-label="previous">' +
+          let ctrlButton = ctrl.querySelector('button');
+          ctrlButton.innerHTML =
                   '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
                   '<path d="M21.746.064a.504.504 0 0 0-.504.008l-19 11.5a.499.499 0 0 0-.001.856l19 11.5A.501.501 0 0 0 22 23.5V.5a.5.5 0 0 0-.254-.436z"></path>' +
-                  '</svg>' +
-                  '</button>';
+                  '</svg>';
         }
         else if (ctrl.getAttribute('id') == 'next') {
-          ctrl.innerHTML = '<button class="dcf-btn dcf-btn-primary dcf-btn-slide dcf-btn-slide-next" type="button" aria-label="next">' +
+          let ctrlButton = ctrl.querySelector('button');
+          ctrlButton.innerHTML =
                   '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
                   '<path d="M21.759 11.577L2.786.077a.499.499 0 0 0-.759.428v23a.498.498 0 0 0 .5.5c.09 0 .18-.024.259-.072l18.973-11.5a.5.5 0 0 0 0-.856z"></path>' +
-                  '</svg>' +
-                  '</button>';
+                  '</svg>';
         }
       })
 
