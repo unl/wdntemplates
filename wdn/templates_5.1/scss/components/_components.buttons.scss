@@ -41,6 +41,11 @@
 }
 
 
+.unl .dcf-btn-primary:visited {
+  color: $color-button-primary-light-mode;
+}
+
+
 .unl .dcf-btn-secondary:active {
   border-color: currentColor;
 }
