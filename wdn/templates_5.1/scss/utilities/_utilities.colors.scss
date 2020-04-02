@@ -28,16 +28,33 @@ a.unl-cream:active { @include cream-active(!important); }
 
 
 // Gray
-.unl-gray { @include gray(!important); }
-
-
-// Light Grays
-.unl-light-gray { @include light-gray(!important); }
-.unl-lighter-gray { @include lighter-gray(!important); }
 .unl-lightest-gray { @include lightest-gray(!important); }
-
-
-// Dark Grays
+.unl-lighter-gray { @include lighter-gray(!important); }
+.unl-light-gray { @include light-gray(!important); }
+.unl-gray { @include gray(!important); }
 .unl-dark-gray { @include dark-gray(!important); }
 .unl-darker-gray { @include darker-gray(!important); }
 .unl-darkest-gray { @include darkest-gray(!important); }
+
+
+// Cerulean
+.unl-cerulean { @include cerulean(!important); }
+
+
+// Green
+.unl-green { @include green(!important); }
+.unl-light-green { @include light-green(!important); }
+
+
+// Blue
+.unl-blue { @include blue(!important); }
+.unl-light-blue { @include light-blue(!important); }
+
+
+// Purple
+.unl-purple { @include purple(!important); }
+.unl-light-purple { @include light-purple(!important); }
+
+
+// Yellow
+.unl-yellow { @include yellow(!important); }
