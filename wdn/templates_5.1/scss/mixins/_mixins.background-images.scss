@@ -5,6 +5,7 @@
 
 // Grit
 @mixin bg-grit($imp:null) {
+  // Don't use background shorthand. Allow grit to be applied over any background-color.
   background-image: url('../images/bg-grit.png') $imp;
   background-position: 50% 50% $imp;
   background-repeat: repeat $imp;
@@ -15,18 +16,6 @@
   only screen and (min-resolution: 192dpi),
   only screen and (min-resolution: 2dppx) {
   	background-image: url('../images/bg-grit_2x.png') $imp;
-  }
-
-}
-
-@mixin bg-grit-webp($imp:null) {
-  background-image: url('../images/bg-grit.webp') $imp;
-
-  @media
-  only screen and (-webkit-min-device-pixel-ratio: 2),
-  only screen and (min-resolution: 192dpi),
-  only screen and (min-resolution: 2dppx) {
-  	background-image: url('../images/bg-grit_2x.webp') $imp;
   }
 
 }
