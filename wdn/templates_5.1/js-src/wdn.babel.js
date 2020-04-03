@@ -279,12 +279,12 @@
 			return pluginParams[ plugin ][ name ];
 		},
 
-		setCookie: function (name, value, seconds, path, domain) {
+		setCookie: function (name, value, seconds, path, domain, samesite, secure) {
 			var expires = "";
 			if (seconds) {
 				var date = new Date();
-				date.setTime(date.getTime()+(seconds*1000));
-				expires = ";expires="+date.toUTCString();
+				date.setTime(date.getTime() + seconds * 1000);
+				expires = ";expires=" + date.toUTCString();
 			}
 			if (!path) {
 				path = '/';
@@ -294,7 +294,18 @@
 			if (!domain) {
 				domain = '.unl.edu';
 			}
-			document.cookie = name+"="+value+expires+";path="+path+";domain="+domain;
+			if (!samesite) {
+				samesite = 'lax';
+			}
+
+			var cookieString = name + "=" + value + expires + ";path=" + path + ";domain=" + domain + ";samesite=" + samesite;
+
+			// Add secure if set or not set with samesite=none
+			if (secure || !secure && samesite.toLowerCase() === 'none') {
+				cookieString = cookieString + ';secure';
+			}
+
+			document.cookie = cookieString;
 		},
 
 		getCookie: function (name) {

@@ -1,6 +1,6 @@
 #!/bin/bash +v
 
-DEV_BRANCH=${DEV_BRANCH:=develop}
+DEV_BRANCH=${DEV_BRANCH:=5.1}
 MASTER_BRANCH=${MASTER_BRANCH:=master}
 UPSTREAM_REMOTE=${UPSTREAM_REMOTE:=upstream}
 
