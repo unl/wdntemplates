@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html class="dcf-no-js" lang="en">
+<html class="dcf-no-js dcf-no-webp" lang="en">
 <head>
   <c:import url="https://unlcms.unl.edu/wdn/templates_5.1/includes/global/head-1.html"/>
   <!--

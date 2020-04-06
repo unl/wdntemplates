@@ -5,6 +5,7 @@
 
 .unl .dcf-btn {
   @include font-sans;
+  @include txt-xs;
   @include ls-2;
 }
 
@@ -16,13 +17,13 @@
 
 .unl .dcf-btn-secondary:active,
 .unl .dcf-btn-tertiary:active {
-  color: $color-button-active;
+  color: $color-active-light-mode;
 }
 
 
 .unl .dcf-btn-primary:focus,
 .unl .dcf-btn-primary:hover {
-  box-shadow: 0 1px $length-em-2 fade-out($color-button-hover,.4);
+  box-shadow: 0 1px $length-em-2 fade-out($color-hover-light-mode,.4);
 }
 
 
@@ -30,18 +31,38 @@
 .unl .dcf-btn-secondary:hover,
 .unl .dcf-btn-tertiary:focus,
 .unl .dcf-btn-tertiary:hover {
-  box-shadow: 0 1px $length-em-1 fade-out($color-button-hover,.6);
+  box-shadow: 0 1px $length-em-1 fade-out($color-hover-light-mode,.6);
 }
 
 
 .unl .dcf-btn-primary:active {
-  background-color: $color-button-active;
-  border-color: $color-button-active;
+  background-color: $color-active-light-mode;
+  border-color: $color-active-light-mode;
+}
+
+
+.unl .dcf-btn-primary:visited {
+  color: $color-button-primary-light-mode;
 }
 
 
 .unl .dcf-btn-secondary:active {
   border-color: currentColor;
+}
+
+
+.unl .dcf-btn-inverse-primary:visited {
+  color: $color-button-inverse-primary-light-mode;
+}
+
+
+.unl .dcf-btn-inverse-secondary:visited {
+  color: $color-button-inverse-secondary-light-mode;
+}
+
+
+.unl .dcf-btn-inverse-tertiary:visited {
+  color: $color-button-inverse-tertiary-light-mode;
 }
 
 
@@ -51,7 +72,7 @@
 .unl .dcf-btn-inverse-secondary:hover,
 .unl .dcf-btn-inverse-tertiary:focus,
 .unl .dcf-btn-inverse-tertiary:hover {
-  box-shadow: 0 1px $length-em-2 fade-out($color-border-input-hover,.2);
+  box-shadow: 0 1px $length-em-2 fade-out($border-color-input-hover-light-mode,.2);
 }
 
 

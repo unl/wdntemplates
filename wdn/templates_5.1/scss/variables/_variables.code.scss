@@ -9,30 +9,33 @@
 
 
 // Background color
-$bg-color-code: fade-out($black, .95);      // <code> background-color
-$bg-color-kbd: $black;                      // <kbd> background-color: black
-$bg-color-pre: $bg-color-code;              // .dcf-pre background-color
+$bg-color-code-light-mode: fade-out($black, .95);               // <code> background-color in light mode
+$bg-color-code-dark-mode: fade-out($black, .95);                // <code> background-color in dark mode
+$bg-color-kbd: $black;                                          // <kbd> background-color: black
+$bg-color-pre-light-mode: $bg-color-code-light-mode;            // .dcf-pre background-color in light mode
+$bg-color-pre-dark-mode: $bg-color-code-light-mode;             // .dcf-pre background-color in dark mode
 
 
 // Border radius
-$border-radius-code: true;                  // Roundrect border-radius for <code>, <kbd> and <pre>? True/false
+$border-radius-code: true;                                      // Roundrect border-radius for <code>, <kbd> and <pre>? True/false
 
 
 // Color
-$color-code: lighten($color-body, 10%);     // <code> color
-$color-kbd: $color-kbd;                     // <kbd> color: green
+$color-code-light-mode: lighten($color-body-light-mode, 10%);   // <code> color
+$color-code-dark-mode: lighten($color-body-dark-mode, 10%);     // <code> color
+$color-kbd: $color-kbd;                                         // <kbd> color: green
 
 
 // Font size
-$font-size-code: #{ms(-1)}em;               // <code> font-size: .84em
-$font-size-kbd: #{ms(-1)}em;                // <kbd> font-size: .84em
+$font-size-code: #{ms(-1)}em;                                   // <code> font-size: .84em
+$font-size-kbd: #{ms(-1)}em;                                    // <kbd> font-size: .84em
 
 
 // Padding
-$padding-code: #{ms(-14)}rem #{ms(-10)}rem; // <code> padding: .13rem .24rem
-$padding-kbd: #{ms(-14)}rem #{ms(-10)}rem;  // <kbd> padding: .13rem .24rem
-$padding-pre: $length-em-4;                 // <pre> padding: 1em
+$padding-code: #{ms(-14)}rem #{ms(-10)}rem;                     // <code> padding: .13rem .24rem
+$padding-kbd: #{ms(-14)}rem #{ms(-10)}rem;                      // <kbd> padding: .13rem .24rem
+$padding-pre: $length-em-4;                                     // <pre> padding: 1em
 
 
 // Tab size
-$tab-size-pre: 2;                           // <pre> tab size
+$tab-size-pre: 2;                                               // <pre> tab size

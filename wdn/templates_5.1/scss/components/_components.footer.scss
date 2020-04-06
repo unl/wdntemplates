@@ -4,8 +4,8 @@
 
 
 .unl .dcf-footer {
-  color: $color-footer;
-  background-color: $color-footer-bg;
+  color: $color-footer-light-mode;
+  background-color: $bg-color-footer-light-mode;
 }
 
 
@@ -57,13 +57,13 @@
 .unl .dcf-footer a:link,
 .unl .dcf-footer a:visited,
 .unl .dcf-footer a:active {
-  color: $color-footer-link;
+  color: $color-footer-link-light-mode;
   text-decoration: none;
 }
 
 
 .unl .dcf-footer a:hover {
-  color: $color-footer-link;
+  color: $color-footer-link-light-mode;
   text-decoration: underline;
 }
 

@@ -63,7 +63,7 @@
 //   background-image: url('../images/diagonal-stripe-bg.svg');
 //   background-repeat: repeat;
 //   background-image: repeating-linear-gradient($diagonal1, rgba($color-body,.1), rgba($color-body,.1) 2px, transparent 2px, transparent 4px);
-  background-image: repeating-linear-gradient($diagonal1, fade-out($color-body,.9), fade-out($color-body,.9) 2px, fade-out($color-body,1) 2px, fade-out($color-body,1) 5px);
+  background-image: repeating-linear-gradient($diagonal1, fade-out($color-body-light-mode,.9), fade-out($color-body-light-mode,.9) 2px, fade-out($color-body-light-mode,1) 2px, fade-out($color-body-light-mode,1) 5px);
 }
 
 

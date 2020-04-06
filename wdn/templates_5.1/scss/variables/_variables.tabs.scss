@@ -9,44 +9,51 @@
 
 
 // Background color
-$bg-color-tab-selected: $white;           // Background-color of selected tab
-$bg-color-tabs-panel: $white;             // Background-color of tabs panel
+$bg-color-tab-selected-light-mode: $white;          // Background-color of selected tab in light mode
+$bg-color-tab-selected-dark-mode: $black;           // Background-color of selected tab in dark mode
+
+$bg-color-tabs-panel-light-mode: $white;            // Background-color of tabs panel in light mode
+$bg-color-tabs-panel-dark-mode: $black;             // Background-color of tabs panel in dark mode
 
 
 // Border color
-$border-color-tab: $light-gray;           // Border-color for tab
-$border-color-tabs-panel: $light-gray;    // Border-color for tabs panel
+$border-color-tab-light-mode: $light-gray;        	// Border-color for tab in light mode
+$border-color-tab-dark-mode: $dark-gray;            // Border-color for tab in dark mode
+
+$border-color-tabs-panel-light-mode: $light-gray;   // Border-color for tabs panel in light mode
+$border-color-tabs-panel-dark-mode: $dark-gray;     // Border-color for tabs panel in dark mode
 
 
 // Border style
-$border-style-tab: solid;                 // Border-style for tab
-$border-style-tabs-panel: solid;          // Border-style for tabs panel
+$border-style-tab: solid;                           // Border-style for tab
+$border-style-tabs-panel: solid;          	        // Border-style for tabs panel
 
 
 // Border width
-$border-width-tab: 1px;                   // Border-width for tab
-$border-width-tabs-panel: 1px;            // Border-width for tabs panel
+$border-width-tab: 1px;                             // Border-width for tab
+$border-width-tabs-panel: 1px;                      // Border-width for tabs panel
 
 
 // Color
-$color-tab-selected: $darker-gray;        // Selected tab color
+$color-tab-selected-light-mode: $darker-gray;       // Selected tab color in light mode
+$color-tab-selected-dark-mode: $lighter-gray;	      // Selected tab color in dark mode
 
 
 // Font size
-$font-size-tab: #{ms(-1)}em;              // Tab font-size: .84em
+$font-size-tab: #{ms(-1)}em;              	        // Tab font-size: .84em
 
 
 // Font weight
-$font-weight-tab-bold: true;              // Bold font-weight for tab? True/false
+$font-weight-tab-bold: true;                        // Bold font-weight for tab? True/false
 
 
 // Padding
-$padding-bottom-tab: $length-em-4;        // Padding-bottom for tabs
-$padding-left-tab: $length-em-5;          // Padding-left for tabs
-$padding-right-tab: $length-em-5;         // Padding-right for tabs
-$padding-top-tab: $length-em-4;           // Padding-top for tabs
+$padding-bottom-tab: $length-em-4;                  // Padding-bottom for tabs
+$padding-left-tab: $length-em-5;                    // Padding-left for tabs
+$padding-right-tab: $length-em-5;                   // Padding-right for tabs
+$padding-top-tab: $length-em-4;                     // Padding-top for tabs
 
-$padding-bottom-tabs-panel: $length-em-7; // Padding-bottom for tabs panel
-$padding-left-tabs-panel: $length-em-6;   // Padding-left for tabs
-$padding-right-tabs-panel: $length-em-6;  // Padding-right for tabs
-$padding-top-tabs-panel: $length-em-7;    // Padding-top for tabs
+$padding-bottom-tabs-panel: $length-em-7;           // Padding-bottom for tabs panel
+$padding-left-tabs-panel: $length-em-6;             // Padding-left for tabs
+$padding-right-tabs-panel: $length-em-6;            // Padding-right for tabs
+$padding-top-tabs-panel: $length-em-7;              // Padding-top for tabs

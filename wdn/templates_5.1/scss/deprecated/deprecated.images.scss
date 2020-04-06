@@ -5,7 +5,7 @@
 
 .frame,
 .wdn-frame {
-  border: 1px solid $color-border;
+  border: 1px solid $border-color-light-mode;
   @include mb-4;
   padding: #{ms(-10)}em;
 }
@@ -19,8 +19,8 @@
 
 .frame figcaption,
 .wdn-frame figcaption {
-  background-color: $color-body-bg;
-  color: $color-light-text;
+  background-color: $bg-color-body-light-mode;
+  color: $color-light-text-light-mode;
   @include font-sans;
   @include txt-xs;
   height: auto;

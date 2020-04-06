@@ -27,6 +27,7 @@
 @import "variables/_variables.details-summary";
 @import "variables/_variables.easing";
 @import "variables/_variables.figures";
+@import "variables/_variables.footer";
 @import "variables/_variables.forms-checkboxes-radios";
 @import "variables/_variables.forms-selects";
 @import "variables/_variables.forms";
@@ -111,9 +112,9 @@
 @import "../../../node_modules/dcf/scss/elements/_elements.figures";
 @import "../../../node_modules/dcf/scss/elements/_elements.forms";
 @import "../../../node_modules/dcf/scss/elements/_elements.headings";
+@import "../../../node_modules/dcf/scss/elements/_elements.html";
 @import "../../../node_modules/dcf/scss/elements/_elements.images";
 @import "../../../node_modules/dcf/scss/elements/_elements.lists";
-@import "../../../node_modules/dcf/scss/elements/_elements.main";
 @import "../../../node_modules/dcf/scss/elements/_elements.marks";
 @import "../../../node_modules/dcf/scss/elements/_elements.paragraphs";
 @import "../../../node_modules/dcf/scss/elements/_elements.quotes";
@@ -156,6 +157,7 @@
 @import "../../../node_modules/dcf/scss/components/_components.tables";
 @import "../../../node_modules/dcf/scss/components/_components.tabs";
 @import "components/_components.app";
+@import "components/_components.badges";
 @import "components/_components.bio";
 @import "components/_components.breadcrumbs";
 @import "components/_components.buttons";

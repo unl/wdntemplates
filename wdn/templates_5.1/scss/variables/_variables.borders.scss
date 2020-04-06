@@ -8,7 +8,8 @@
 
 
 // Border color
-$border-color: $light-gray;
+$border-color-light-mode: $light-gray;  // Border-color in light mode
+$border-color-dark-mode: $dark-gray;    // Border-color in dark mode
 
 
 // Border radius

@@ -38,7 +38,7 @@
 
 .unl .wdn-list-header {
   @include bb-1;
-  border-color: $color-border;
+  border-color: $border-color-light-mode;
   @include font-sans;
   @include txt-base;
   letter-spacing: .02em;

@@ -8,8 +8,9 @@
 
 
 // Color
-$color-figcaption: $color-light-text; // Color of figcaption
+$color-figcaption-light-mode: $color-light-text-light-mode;   // Color of figcaption in light mode
+$color-figcaption-dark-mode: $color-light-text-dark-mode;     // Color of figcaption in dark mode
 
 
 // Font size
-$font-size-figcaption: #{ms(-2)}em;   // Font-size of figcaption: .75em
+$font-size-figcaption: #{ms(-2)}em;                           // Font-size of figcaption: .75em

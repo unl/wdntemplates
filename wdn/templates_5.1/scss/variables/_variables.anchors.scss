@@ -8,12 +8,26 @@
 
 
 // Color
-$color-link: $color-brand-alpha;
-$color-visited: darken($color-link, 10%); // TODO: finalize state colors for example theme
-$color-hover: darken($color-link, 10%);   // TODO: finalize state colors for example theme
-$color-active: darken($color-link, 10%);  // TODO: finalize state colors for example theme
+$color-link-light-mode: $color-brand-alpha;                       // Link color in light mode
+$color-link-dark-mode: $color-brand-alpha;                        // Link color in dark mode
 
-$color-inverse-link: $bg-color-body;
-$color-inverse-visited: $bg-color-body;   // TODO: finalize state colors for example theme
-$color-inverse-hover: $bg-color-body;     // TODO: finalize state colors for example theme
-$color-inverse-active: $bg-color-body;    // TODO: finalize state colors for example theme
+$color-visited-light-mode: darken($color-link-light-mode, 10%);   // TODO: finalize state colors for theme
+$color-visited-dark-mode: darken($color-link-light-mode, 10%);    // TODO: finalize state colors for theme
+
+$color-hover-light-mode: darken($color-link-light-mode, 10%);     // TODO: finalize state colors for theme
+$color-hover-dark-mode: darken($color-link-light-mode, 10%);      // TODO: finalize state colors for theme
+
+$color-active-light-mode: darken($color-link-light-mode, 10%);    // TODO: finalize state colors for theme
+$color-active-dark-mode: darken($color-link-light-mode, 10%);     // TODO: finalize state colors for theme
+
+$color-inverse-link-light-mode: $bg-color-body-light-mode;
+$color-inverse-link-dark-mode: $bg-color-body-dark-mode;
+
+$color-inverse-visited-light-mode: $bg-color-body-light-mode;     // TODO: finalize state colors for theme
+$color-inverse-visited-dark-mode: $bg-color-body-dark-mode;       // TODO: finalize state colors for theme
+
+$color-inverse-hover-light-mode: $bg-color-body-light-mode;       // TODO: finalize state colors for theme
+$color-inverse-hover-dark-mode: $bg-color-body-dark-mode;         // TODO: finalize state colors for theme
+
+$color-inverse-active-light-mode: $bg-color-body-light-mode;      // TODO: finalize state colors for theme
+$color-inverse-active-dark-mode: $bg-color-body-dark-mode;        // TODO: finalize state colors for theme

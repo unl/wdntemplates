@@ -5,7 +5,7 @@
 
 .unl .dcf-header-global a:visited,
 .unl a.dcf-header-logo:visited {
-  color: $color-link; // Force visited links in the global header and logo to remain scarlet.
+  color: $color-link-light-mode; // Force visited links in the global header and logo to remain scarlet.
 }
 
 
@@ -24,13 +24,13 @@
 .unl .dcf-site-affiliation a:visited,
 .unl .dcf-site-title a,
 .unl .dcf-site-title a:visited {
-  color: $color-heading;
+  color: $color-heading-light-mode;
 }
 
 
 .unl .dcf-site-affiliation a:hover,
 .unl .dcf-site-title a:hover {
-  color: $color-link-hover;
+  color: $color-hover-light-mode;
 }
 
 
