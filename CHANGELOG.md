@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.1.1 (April 3, 2020)
+- Button fixes in visited state
+
 ## 5.1.0 (March 25, 2020)
 - 5.1 Initial Release
 
