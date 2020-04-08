@@ -400,30 +400,30 @@
     }
   }
 
-  // Show caption
-  function captionClass (button, caption) {
-    // Check if caption is already visible
-    if (!caption.classList.contains('dcf-invisible')) {
-      // Hide content
-      caption.addEventListener('transitionend', captionTransition(caption), true);
-      // Update ARIA attributes
-      button.setAttribute('aria-expanded', 'false');
-      button.setAttribute('aria-label', 'Show caption');
-      caption.setAttribute('aria-hidden', 'true');
-      caption.classList.remove('dcf-opacity-1','dcf-pointer-events-auto');
-      caption.classList.add('dcf-opacity-0', 'dcf-pointer-events-none','dcf-invisible');
-
-    } else {
-      // Remove class to show content
-      caption.classList.remove('dcf-invisible');
-      // Update ARIA attributes
-      button.setAttribute('aria-expanded', 'true');
-      button.setAttribute('aria-label', 'Hide caption');
-      caption.setAttribute('aria-hidden', 'false');
-      caption.classList.remove('dcf-invisible','dcf-opacity-0','dcf-pointer-events-none');
-      caption.classList.add('dcf-opacity-1','dcf-pointer-events-auto');
-    }
-   };
+  // Add classes to the caption & button
+  // function captionClass (button, caption) {
+  //   // Check if caption is already visible
+  //   if (!caption.classList.contains('dcf-invisible')) {
+  //     // Hide content
+  //     caption.addEventListener('transitionend', captionTransition(caption), true);
+  //     // Update ARIA attributes
+  //     button.setAttribute('aria-expanded', 'false');
+  //     button.setAttribute('aria-label', 'Show caption');
+  //     caption.setAttribute('aria-hidden', 'true');
+  //     caption.classList.remove('dcf-opacity-1','dcf-pointer-events-auto');
+  //     caption.classList.add('dcf-opacity-0', 'dcf-pointer-events-none','dcf-invisible');
+  //
+  //   } else {
+  //     // Remove class to show content
+  //     caption.classList.remove('dcf-invisible');
+  //     // Update ARIA attributes
+  //     button.setAttribute('aria-expanded', 'true');
+  //     button.setAttribute('aria-label', 'Hide caption');
+  //     caption.setAttribute('aria-hidden', 'false');
+  //     caption.classList.remove('dcf-invisible','dcf-opacity-0','dcf-pointer-events-none');
+  //     caption.classList.add('dcf-opacity-1','dcf-pointer-events-auto');
+  //   }
+  //  };
 
 
   // https://codepen.io/svinkle/pen/FHGBh
@@ -603,23 +603,23 @@
 
 
     // Caption toggle buttons
-    let buttons = document.querySelectorAll('.dcf-btn-slide-caption');
-    [].forEach.call(buttons, function(button, index) {
-      let caption = button.previousElementSibling;
-      button.addEventListener('click', function () {
-        captionClass(this, caption);
-        return false;
-      }, false);
-
-      // Show caption when the 'space' key is pressed
-      button.addEventListener('keydown', function (event) {
-        // Handle 'space' key
-        if (event.which === 32) {
-          event.preventDefault();
-          captionClass(this, caption);
-        }
-      }, false);
-    });
+    // let buttons = document.querySelectorAll('.dcf-btn-slide-caption');
+    // [].forEach.call(buttons, function(button, index) {
+    //   let caption = button.previousElementSibling;
+    //   button.addEventListener('click', function () {
+    //     captionClass(this, caption);
+    //     return false;
+    //   }, false);
+    //
+    //   // Show caption when the 'space' key is pressed
+    //   button.addEventListener('keydown', function (event) {
+    //     // Handle 'space' key
+    //     if (event.which === 32) {
+    //       event.preventDefault();
+    //       captionClass(this, caption);
+    //     }
+    //   }, false);
+    // });
 
 
 
@@ -628,7 +628,7 @@
 </script>
 
 <script> //THEME
-function showCaption (button, caption, close1, close2) {
+function showCaption (button, caption, close1, close2) { // Transition the caption
   const keyframesClose1 = [
     {
       transform: 'rotate(45deg)',
@@ -677,26 +677,24 @@ function showCaption (button, caption, close1, close2) {
   // Check if caption is already visible
   if (!caption.classList.contains('dcf-invisible')) {
     // Hide content
-    // caption.addEventListener('transitionend', captionTransition(caption), true);
+    caption.addEventListener('transitionend', captionTransition(caption), true);
     // Update ARIA attributes
-    // button.setAttribute('aria-expanded', 'false'); // DCF
-    // button.setAttribute('aria-label', 'Show caption'); // DCF
-    // caption.setAttribute('aria-hidden', 'true');//  DCF
-    // caption.classList.remove('dcf-opacity-1','dcf-pointer-events-auto'); // DCF
-    // caption.classList.add('dcf-opacity-0', 'dcf-pointer-events-none','dcf-invisible'); // DCF
-    console.log('open');
+    button.setAttribute('aria-expanded', 'false'); // DCF
+    button.setAttribute('aria-label', 'Show caption'); // DCF
+    caption.setAttribute('aria-hidden', 'true');//  DCF
+    caption.classList.remove('dcf-opacity-1','dcf-pointer-events-auto'); // DCF
+    caption.classList.add('dcf-opacity-0', 'dcf-pointer-events-none','dcf-invisible'); // DCF
     close1.animate(keyframesClose1, options);
     close2.animate(keyframesClose2, options);
   } else {
     // Remove class to show content
-    // caption.classList.remove('dcf-invisible'); // dcf
+    caption.classList.remove('dcf-invisible'); // dcf
     // Update ARIA attributes
-    // button.setAttribute('aria-expanded', 'true'); // dcf
-    // button.setAttribute('aria-label', 'Hide caption'); // dcf
-    // caption.setAttribute('aria-hidden', 'false'); // dcf
-    // caption.classList.remove('dcf-invisible','dcf-opacity-0','dcf-pointer-events-none'); //dcf
-    // caption.classList.add('dcf-opacity-1','dcf-pointer-events-auto'); // dcf
-    console.log('close');
+    button.setAttribute('aria-expanded', 'true'); // dcf
+    button.setAttribute('aria-label', 'Hide caption'); // dcf
+    caption.setAttribute('aria-hidden', 'false'); // dcf
+    caption.classList.remove('dcf-invisible','dcf-opacity-0','dcf-pointer-events-none'); //dcf
+    caption.classList.add('dcf-opacity-1','dcf-pointer-events-auto'); // dcf
     close1.animate(keyframesOpen1, options);
     close2.animate(keyframesOpen2, options);
   }
