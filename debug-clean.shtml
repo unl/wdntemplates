@@ -92,7 +92,7 @@
   <div class="dcf-main-content dcf-wrapper">
     <!-- InstanceBeginEditable name="maincontentarea" -->
 
-  <!-- Slideshow WIP -->
+    <!-- Slideshow WIP -->
     <style>
       .dcf-slideshow ul {
         margin-bottom: 0;
@@ -380,255 +380,260 @@
 <!-- InstanceBeginEditable name="jsbody" -->
 <!-- put your custom javascript here -->
 <script> // DCF
-  // Function for creating unique identifiers
-  function uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = Math.random() * 16 | 0,
-              v = c === 'x' ? r : r & 0x3 | 0x8;
-      return v.toString(16);
-    });
+
+var openCaptionEvent = new Event('openCaption');
+var closeCaptionEvent = new Event('closeCaption');
+
+// Function for creating unique identifiers
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = Math.random() * 16 | 0,
+            v = c === 'x' ? r : r & 0x3 | 0x8;
+    return v.toString(16);
+  });
+}
+
+// Caption visibility transition
+function captionTransition(event) {
+  // Remove event listener and toggle visibility after caption has closed
+  event.removeEventListener('transitionend', captionTransition, true);
+  // Check if caption is already visible
+  if (!event.classList.contains('dcf-invisible')) {
+    // Add class to hide caption
+    event.classList.add('dcf-invisible');
   }
+}
 
-  // Caption visibility transition
-  function captionTransition(event) {
-    // Remove event listener and toggle visibility after caption has closed
-    event.removeEventListener('transitionend', captionTransition, true);
-    // Check if caption is already visible
-    if (!event.classList.contains('dcf-invisible')) {
-      // Add class to hide caption
-      event.classList.add('dcf-invisible');
-    }
+// Add classes to the caption & button
+function captionClass (button, caption) {
+  // Check if caption is already visible
+  if (!caption.classList.contains('dcf-invisible')) {
+    // Hide content
+    caption.addEventListener('transitionend', captionTransition(caption), true);
+    // Update ARIA attributes
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-label', 'Show caption');
+    caption.setAttribute('aria-hidden', 'true');
+    caption.classList.remove('dcf-opacity-1','dcf-pointer-events-auto');
+    caption.classList.add('dcf-opacity-0', 'dcf-pointer-events-none','dcf-invisible');
+
+    caption.dispatchEvent(openCaptionEvent);
+
+  } else {
+    // Remove class to show content
+    caption.classList.remove('dcf-invisible');
+    // Update ARIA attributes
+    button.setAttribute('aria-expanded', 'true');
+    button.setAttribute('aria-label', 'Hide caption');
+    caption.setAttribute('aria-hidden', 'false');
+    caption.classList.remove('dcf-invisible','dcf-opacity-0','dcf-pointer-events-none');
+    caption.classList.add('dcf-opacity-1','dcf-pointer-events-auto');
+
+    caption.dispatchEvent(closeCaptionEvent);
   }
-
-  // Add classes to the caption & button
-  // function captionClass (button, caption) {
-  //   // Check if caption is already visible
-  //   if (!caption.classList.contains('dcf-invisible')) {
-  //     // Hide content
-  //     caption.addEventListener('transitionend', captionTransition(caption), true);
-  //     // Update ARIA attributes
-  //     button.setAttribute('aria-expanded', 'false');
-  //     button.setAttribute('aria-label', 'Show caption');
-  //     caption.setAttribute('aria-hidden', 'true');
-  //     caption.classList.remove('dcf-opacity-1','dcf-pointer-events-auto');
-  //     caption.classList.add('dcf-opacity-0', 'dcf-pointer-events-none','dcf-invisible');
-  //
-  //   } else {
-  //     // Remove class to show content
-  //     caption.classList.remove('dcf-invisible');
-  //     // Update ARIA attributes
-  //     button.setAttribute('aria-expanded', 'true');
-  //     button.setAttribute('aria-label', 'Hide caption');
-  //     caption.setAttribute('aria-hidden', 'false');
-  //     caption.classList.remove('dcf-invisible','dcf-opacity-0','dcf-pointer-events-none');
-  //     caption.classList.add('dcf-opacity-1','dcf-pointer-events-auto');
-  //   }
-  //  };
+};
 
 
-  // https://codepen.io/svinkle/pen/FHGBh
+// https://codepen.io/svinkle/pen/FHGBh
 
-  (function (document, window, undefined) {
-    'use strict';
+(function (document, window, undefined) {
+  'use strict';
 
-    // TODO:
-    // Add functionality for previous and next slides
-    // Allow user to swipe on touchscreens to progress slide
-    // Add option to each slideshow to let developer choose type of slide transition – move or fade
-
-
-    // Define variables for slideshow, unordered list, slides, figures and captions
-    const slideshows = document.querySelectorAll('.dcf-slideshow');
-    // All the slides
-    const uls = document.querySelectorAll('.dcf-slideshow ul');
-
-    // Slideshow
-    for (let i = 0; i < slideshows.length; i++) {
-
-      const uuid = uuidv4();
-      // Define variable for each individual slideshow and unordered list of slides
-      let slideshow = slideshows[i];
-      let slidedeck = uls[i];
-
-      let slides = slideshow.querySelectorAll('.dcf-slideshow li');
-      let figures = slideshow.querySelectorAll('.dcf-slideshow figure');
-      let captions = slideshow.querySelectorAll('.dcf-slideshow figcaption');
-
-      // Create unique ID for slideshow
-      slideshow.setAttribute('id', uuid.concat('-slideshow'));
-
-      // Add classes to slideshow unordered lists
-      slidedeck.classList.add('dcf-slide-deck');
-
-      // Create slideshow controls (previous/next slide buttons)
-      let ctrls = document.createElement('ul');
-      let ctrlPrevious = document.createElement('li');
-      let ctrlNext = document.createElement('li');
-      let ctrlPreviousButton = document.createElement('button');
-      let ctrlNextButton = document.createElement('button');
-
-      // Add classes to slideshow controls group (Keep in DCF)
-      ctrls.classList.add('dcf-list-bare', 'dcf-btn-group', 'dcf-absolute', 'dcf-pin-right', 'dcf-pin-bottom', 'dcf-z-1');
-
-      // Add role and aria-label to controls group
-      ctrls.setAttribute('role', 'group');
-      ctrls.setAttribute('aria-label', 'slideshow controls');
+  // TODO:
+  // Add functionality for previous and next slides
+  // Allow user to swipe on touchscreens to progress slide
+  // Add option to each slideshow to let developer choose type of slide transition – move or fade
 
 
-      ctrlPreviousButton.classList.add('dcf-btn', 'dcf-btn-primary', 'dcf-button-slide', 'dcf-btn-slide-prev');
-      ctrlPreviousButton.setAttribute('aria-label', 'previous');
+  // Define variables for slideshow, unordered list, slides, figures and captions
+  const slideshows = document.querySelectorAll('.dcf-slideshow');
+  // All the slides
+  const uls = document.querySelectorAll('.dcf-slideshow ul');
 
-      ctrlNextButton.classList.add('dcf-btn', 'dcf-btn-primary', 'dcf-btn-slide', 'dcf-btn-slide-next');
-      ctrlNextButton.setAttribute('aria-label', 'next');
+  // Slideshow
+  for (let i = 0; i < slideshows.length; i++) {
 
-      ctrlPrevious.setAttribute('id', 'previous');
-      ctrlNext.setAttribute('id','next');
-      // Add relative class for absolute positioning of slideshow controls
-      slideshow.classList.add('dcf-relative');
-      // Append controls (previous/next slide) to slideshow
-      ctrlPrevious.appendChild(ctrlPreviousButton);
-      ctrlNext.appendChild(ctrlNextButton);
-      ctrls.appendChild(ctrlPrevious);
-      ctrls.appendChild(ctrlNext);
-      slideshow.appendChild(ctrls);
+    const uuid = uuidv4();
+    // Define variable for each individual slideshow and unordered list of slides
+    let slideshow = slideshows[i];
+    let slidedeck = uls[i];
 
-      // Slide
-      for (let i = 0; i < slides.length; i++) {
-        // Define variable for each individual slide
-        let slide = slides[i];
-        // Create unique ID for each slide
-        slide.setAttribute('id', uuid.concat('-slide-' + i));
-        // Add classes to each slide
-        slide.classList.add('dcf-slide', 'dcf-relative');
-        slide.querySelector('div').setAttribute('tabindex', '-1');
-      };
+    let slides = slideshow.querySelectorAll('.dcf-slideshow li');
+    let figures = slideshow.querySelectorAll('.dcf-slideshow figure');
+    let captions = slideshow.querySelectorAll('.dcf-slideshow figcaption');
 
-      for (let i = 0; i < figures.length; i++) {
-        let figure = figures[i];
-        let caption = captions[i];
+    // Create unique ID for slideshow
+    slideshow.setAttribute('id', uuid.concat('-slideshow'));
 
-        if (typeof caption == 'undefined') {
-          console.log('No Caption');
-        } else if (caption.parentNode == figure){
-          // Create button to show/hide caption
-          let captionBtn = document.createElement('button');
-          //Add  classes to each caption toggle button
-          captionBtn.classList.add('dcf-btn', 'dcf-btn-slide', 'dcf-btn-slide-caption');
-          // Create a unique ID for each caption toggle button
-          captionBtn.setAttribute('id', uuid.concat('-button-' + i)); // TODO: use same ID creation used for DCF modals
-          // Add ARIA attributes to each caption toggle button
-          captionBtn.setAttribute('aria-controls', 'caption-' + i);
-          captionBtn.setAttribute('aria-label', 'Show caption');
-          captionBtn.setAttribute('aria-expanded', 'false');
-          // Add class to each figure
-          figure.classList.add('dcf-slide-figure');
-          // Append caption toggle button to each figure
-          figure.appendChild(captionBtn);
-          // Style each caption
-          // Might be something here!!!!!
-          caption.classList.add('dcf-opacity-0', 'dcf-pointer-events-none','dcf-invisible', 'dcf-slide-caption', 'dcf-figcaption');
-          // Create a unique ID for each caption
-          caption.setAttribute('id', uuid.concat('-caption-' + i)); // TODO: use same ID creation used for DCF modals
-          // Add ARIA attributes to each caption
-          caption.setAttribute('aria-labelledby', uuid.concat('-button-' + i)); // TODO: use same ID creation used for DCF modals
-          caption.setAttribute('aria-hidden', 'true');
-        }
-      }
+    // Add classes to slideshow unordered lists
+    slidedeck.classList.add('dcf-slide-deck');
+
+    // Create slideshow controls (previous/next slide buttons)
+    let ctrls = document.createElement('ul');
+    let ctrlPrevious = document.createElement('li');
+    let ctrlNext = document.createElement('li');
+    let ctrlPreviousButton = document.createElement('button');
+    let ctrlNextButton = document.createElement('button');
+
+    // Add classes to slideshow controls group (Keep in DCF)
+    ctrls.classList.add('dcf-list-bare', 'dcf-btn-group', 'dcf-absolute', 'dcf-pin-right', 'dcf-pin-bottom', 'dcf-z-1');
+
+    // Add role and aria-label to controls group
+    ctrls.setAttribute('role', 'group');
+    ctrls.setAttribute('aria-label', 'slideshow controls');
 
 
-      //WIP for Content slider. https://codepen.io/heydon/pen/xPWOLp?editors=0010
+    ctrlPreviousButton.classList.add('dcf-btn', 'dcf-btn-primary', 'dcf-button-slide', 'dcf-btn-slide-prev');
+    ctrlPreviousButton.setAttribute('aria-label', 'previous');
 
-      let observerSettings = {
-        root: slideshow,
-        rootMargin: '-10px'
-      };
+    ctrlNextButton.classList.add('dcf-btn', 'dcf-btn-primary', 'dcf-btn-slide', 'dcf-btn-slide-next');
+    ctrlNextButton.setAttribute('aria-label', 'next');
 
-      if('IntersectionObserver' in window) {
-        let scrollIt = function scrollIt(slideToShow){
-          let scrollPos = Array.prototype.indexOf.call(slides, slideToShow) * (slidedeck.scrollWidth / slides.length);
-          slidedeck.scrollLeft = scrollPos;
-        };
-        let showSlide = function showSlide(dir, slides) {
-          let visible = slideshow.querySelectorAll('[aria-label = "slideshow"] .visible');
-          let i = dir === 'previous' ? 0 : 1;
+    ctrlPrevious.setAttribute('id', 'previous');
+    ctrlNext.setAttribute('id','next');
+    // Add relative class for absolute positioning of slideshow controls
+    slideshow.classList.add('dcf-relative');
+    // Append controls (previous/next slide) to slideshow
+    ctrlPrevious.appendChild(ctrlPreviousButton);
+    ctrlNext.appendChild(ctrlNextButton);
+    ctrls.appendChild(ctrlPrevious);
+    ctrls.appendChild(ctrlNext);
+    slideshow.appendChild(ctrls);
 
-          if (visible.length > 1){
-            scrollIt(visible[i]);
-          } else {
-            let newSlide = i === 0 ? visible[0].previousElementSibling : visible[0].nextElementSibling;
-            if (newSlide) {
-              scrollIt(newSlide);
-            }
-          }
-        };
-
-        let callback = function callback(slides, observer) {
-          Array.prototype.forEach.call(slides, function (entry) {
-            // console.log(entry);
-            entry.target.classList.remove('visible');
-            var slide = entry.target.querySelector('div');
-            slide.setAttribute('tabindex', '-1');
-            if (!entry.intersectionRatio > 0) {
-              return;
-            }
-            var img = entry.target.querySelector('img');
-            if(img.dataset.src) {
-              img.setAttribute('src', img.dataset.src);
-              img.removeAttribute('data-src');
-            }
-            entry.target.classList.add('visible');
-            slide.removeAttribute('tabindex', '-1');
-          });
-        };
-
-        let observer = new IntersectionObserver(callback, observerSettings);
-        Array.prototype.forEach.call(slides, function(t) {
-          return observer.observe(t);
-        });
-
-        ctrlPrevious.addEventListener('click', function() {
-          showSlide(ctrlPrevious.getAttribute('id'), slides);
-        });
-        ctrlNext.addEventListener('click', function (){
-          showSlide(ctrlNext.getAttribute('id'), slides);
-        });
-      } else {
-        Array.prototype.forEach.call(slides, function(e) {
-          var img = e.querySelector('img');
-          img.setAttribute('src', img.getAttribute('data-src'));
-        });
-      }
+    // Slide
+    for (let i = 0; i < slides.length; i++) {
+      // Define variable for each individual slide
+      let slide = slides[i];
+      // Create unique ID for each slide
+      slide.setAttribute('id', uuid.concat('-slide-' + i));
+      // Add classes to each slide
+      slide.classList.add('dcf-slide', 'dcf-relative');
+      slide.querySelector('div').setAttribute('tabindex', '-1');
     };
 
+    for (let i = 0; i < figures.length; i++) {
+      let figure = figures[i];
+      let caption = captions[i];
+
+      if (typeof caption == 'undefined') {
+        console.log('No Caption');
+      } else if (caption.parentNode == figure){
+        // Create button to show/hide caption
+        let captionBtn = document.createElement('button');
+        //Add  classes to each caption toggle button
+        captionBtn.classList.add('dcf-btn', 'dcf-btn-slide', 'dcf-btn-slide-caption');
+        // Create a unique ID for each caption toggle button
+        captionBtn.setAttribute('id', uuid.concat('-button-' + i)); // TODO: use same ID creation used for DCF modals
+        // Add ARIA attributes to each caption toggle button
+        captionBtn.setAttribute('aria-controls', 'caption-' + i);
+        captionBtn.setAttribute('aria-label', 'Show caption');
+        captionBtn.setAttribute('aria-expanded', 'false');
+        // Add class to each figure
+        figure.classList.add('dcf-slide-figure');
+        // Append caption toggle button to each figure
+        figure.appendChild(captionBtn);
+        // Style each caption
+        // Might be something here!!!!!
+        caption.classList.add('dcf-opacity-0', 'dcf-pointer-events-none','dcf-invisible', 'dcf-slide-caption', 'dcf-figcaption');
+        // Create a unique ID for each caption
+        caption.setAttribute('id', uuid.concat('-caption-' + i)); // TODO: use same ID creation used for DCF modals
+        // Add ARIA attributes to each caption
+        caption.setAttribute('aria-labelledby', uuid.concat('-button-' + i)); // TODO: use same ID creation used for DCF modals
+        caption.setAttribute('aria-hidden', 'true');
+      }
+    }
 
 
-    // Caption toggle buttons
-    // let buttons = document.querySelectorAll('.dcf-btn-slide-caption');
-    // [].forEach.call(buttons, function(button, index) {
-    //   let caption = button.previousElementSibling;
-    //   button.addEventListener('click', function () {
-    //     captionClass(this, caption);
-    //     return false;
-    //   }, false);
-    //
-    //   // Show caption when the 'space' key is pressed
-    //   button.addEventListener('keydown', function (event) {
-    //     // Handle 'space' key
-    //     if (event.which === 32) {
-    //       event.preventDefault();
-    //       captionClass(this, caption);
-    //     }
-    //   }, false);
-    // });
+    //WIP for Content slider. https://codepen.io/heydon/pen/xPWOLp?editors=0010
 
+    let observerSettings = {
+      root: slideshow,
+      rootMargin: '-10px'
+    };
 
+    if('IntersectionObserver' in window) {
+      let scrollIt = function scrollIt(slideToShow){
+        let scrollPos = Array.prototype.indexOf.call(slides, slideToShow) * (slidedeck.scrollWidth / slides.length);
+        slidedeck.scrollLeft = scrollPos;
+      };
+      let showSlide = function showSlide(dir, slides) {
+        let visible = slideshow.querySelectorAll('[aria-label = "slideshow"] .visible');
+        let i = dir === 'previous' ? 0 : 1;
 
-  })(document, window);
+        if (visible.length > 1){
+          scrollIt(visible[i]);
+        } else {
+          let newSlide = i === 0 ? visible[0].previousElementSibling : visible[0].nextElementSibling;
+          if (newSlide) {
+            scrollIt(newSlide);
+          }
+        }
+      };
+
+      let callback = function callback(slides, observer) {
+        Array.prototype.forEach.call(slides, function (entry) {
+          // console.log(entry);
+          entry.target.classList.remove('visible');
+          var slide = entry.target.querySelector('div');
+          slide.setAttribute('tabindex', '-1');
+          if (!entry.intersectionRatio > 0) {
+            return;
+          }
+          var img = entry.target.querySelector('img');
+          if(img.dataset.src) {
+            img.setAttribute('src', img.dataset.src);
+            img.removeAttribute('data-src');
+          }
+          entry.target.classList.add('visible');
+          slide.removeAttribute('tabindex', '-1');
+        });
+      };
+
+      let observer = new IntersectionObserver(callback, observerSettings);
+      Array.prototype.forEach.call(slides, function(t) {
+        return observer.observe(t);
+      });
+
+      ctrlPrevious.addEventListener('click', function() {
+        showSlide(ctrlPrevious.getAttribute('id'), slides);
+      });
+      ctrlNext.addEventListener('click', function (){
+        showSlide(ctrlNext.getAttribute('id'), slides);
+      });
+    } else {
+      Array.prototype.forEach.call(slides, function(e) {
+        var img = e.querySelector('img');
+        img.setAttribute('src', img.getAttribute('data-src'));
+      });
+    }
+  };
+
+  // Caption toggle buttons
+  let buttons = document.querySelectorAll('.dcf-btn-slide-caption');
+  [].forEach.call(buttons, function(button, index) {
+    let caption = button.previousElementSibling;
+    button.addEventListener('click', function () {
+      captionClass(this, caption);
+      return false;
+    }, false);
+
+    // Show caption when the 'space' key is pressed
+    button.addEventListener('keydown', function (event) {
+      // Handle 'space' key
+      if (event.which === 32) {
+        event.preventDefault();
+        captionClass(this, caption);
+      }
+    }, false);
+  });
+
+})(document, window);
 
 </script>
 
 <script> //THEME
-function showCaption (button, caption, close1, close2) { // Transition the caption
+(function (document, window, undefined) {
+
   const keyframesClose1 = [
     {
       transform: 'rotate(45deg)',
@@ -674,105 +679,75 @@ function showCaption (button, caption, close1, close2) { // Transition the capti
     fill: 'forwards'
   };
 
-  // Check if caption is already visible
-  if (!caption.classList.contains('dcf-invisible')) {
-    // Hide content
-    caption.addEventListener('transitionend', captionTransition(caption), true);
-    // Update ARIA attributes
-    button.setAttribute('aria-expanded', 'false'); // DCF
-    button.setAttribute('aria-label', 'Show caption'); // DCF
-    caption.setAttribute('aria-hidden', 'true');//  DCF
-    caption.classList.remove('dcf-opacity-1','dcf-pointer-events-auto'); // DCF
-    caption.classList.add('dcf-opacity-0', 'dcf-pointer-events-none','dcf-invisible'); // DCF
-    close1.animate(keyframesClose1, options);
-    close2.animate(keyframesClose2, options);
-  } else {
-    // Remove class to show content
-    caption.classList.remove('dcf-invisible'); // dcf
-    // Update ARIA attributes
-    button.setAttribute('aria-expanded', 'true'); // dcf
-    button.setAttribute('aria-label', 'Hide caption'); // dcf
-    caption.setAttribute('aria-hidden', 'false'); // dcf
-    caption.classList.remove('dcf-invisible','dcf-opacity-0','dcf-pointer-events-none'); //dcf
-    caption.classList.add('dcf-opacity-1','dcf-pointer-events-auto'); // dcf
-    close1.animate(keyframesOpen1, options);
-    close2.animate(keyframesOpen2, options);
-  }
-};
-  (function (document, window, undefined) {
+  let slideshows = document.querySelectorAll('.dcf-slideshow');
+  Array.prototype.forEach.call(slideshows, (slideshow, slideshowIndex) => {
 
-    let slideshows = document.querySelectorAll('.dcf-slideshow');
-    Array.prototype.forEach.call(slideshows, (slideshow, slideshowIndex) => {
-
-      // Slideshow Controls
-      let ctrlGroup = slideshow.querySelector('[aria-label = "slideshow controls"]'); // DCF
-      let ctrls = ctrlGroup.querySelectorAll('li');
-      Array.prototype.forEach.call(ctrls, (ctrl) => {
-        if (ctrl.getAttribute('id') == 'previous') {
-          let ctrlButton = ctrl.querySelector('button');
-          ctrlButton.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'unl-cream');
-          ctrlButton.innerHTML =
-                  '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
-                  '<path d="M21.746.064a.504.504 0 0 0-.504.008l-19 11.5a.499.499 0 0 0-.001.856l19 11.5A.501.501 0 0 0 22 23.5V.5a.5.5 0 0 0-.254-.436z"></path>' +
-                  '</svg>';
-        }
-        else if (ctrl.getAttribute('id') == 'next') {
-          let ctrlButton = ctrl.querySelector('button');
-          ctrlButton.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'unl-cream');
-          ctrlButton.innerHTML =
-                  '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
-                  '<path d="M21.759 11.577L2.786.077a.499.499 0 0 0-.759.428v23a.498.498 0 0 0 .5.5c.09 0 .18-.024.259-.072l18.973-11.5a.5.5 0 0 0 0-.856z"></path>' +
-                  '</svg>';
-        }
-      })
-
-      // Caption Button (Error with animation)
-      let figures = slideshow.querySelectorAll('.dcf-slideshow figure');
-      Array.prototype.forEach.call(figures, (figure) => {
-        let captionBtn = figure.querySelector('button');
-        captionBtn.innerHTML = '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
-                '<path class="unl-icon-slide-caption-open" d="M1,3h19c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1C0.4,1,0,1.4,0,2C0,2.6,0.4,3,1,3z"/>' +
-                '<path class="unl-icon-slide-caption-open" d="M1,8h15c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1C0.4,6,0,6.4,0,7C0,7.6,0.4,8,1,8z"/>' +
-                '<path class="unl-icon-slide-caption-close-1" d="M1,13h22c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1C0,12.6,0.4,13,1,13z"/>' +
-                '<path class="unl-icon-slide-caption-close-2" d="M1,13h22c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1C0,12.6,0.4,13,1,13z"/>' +
-                '<path class="unl-icon-slide-caption-open" d="M1,18h18c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1C0,17.6,0.4,18,1,18z"/>' +
-                '<path class="unl-icon-slide-caption-open" d="M1,23h15c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1C0,22.6,0.4,23,1,23z"/>' +
+    // Slideshow Controls
+    let ctrlGroup = slideshow.querySelector('[aria-label = "slideshow controls"]'); // DCF
+    let ctrls = ctrlGroup.querySelectorAll('li');
+    Array.prototype.forEach.call(ctrls, (ctrl) => {
+      if (ctrl.getAttribute('id') == 'previous') {
+        let ctrlButton = ctrl.querySelector('button');
+        ctrlButton.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'unl-cream');
+        ctrlButton.innerHTML =
+                '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
+                '<path d="M21.746.064a.504.504 0 0 0-.504.008l-19 11.5a.499.499 0 0 0-.001.856l19 11.5A.501.501 0 0 0 22 23.5V.5a.5.5 0 0 0-.254-.436z"></path>' +
                 '</svg>';
-
-      })
+      }
+      else if (ctrl.getAttribute('id') == 'next') {
+        let ctrlButton = ctrl.querySelector('button');
+        ctrlButton.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'unl-cream');
+        ctrlButton.innerHTML =
+                '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
+                '<path d="M21.759 11.577L2.786.077a.499.499 0 0 0-.759.428v23a.498.498 0 0 0 .5.5c.09 0 .18-.024.259-.072l18.973-11.5a.5.5 0 0 0 0-.856z"></path>' +
+                '</svg>';
+      }
     })
 
-    let slideBtns = document.querySelectorAll('.dcf-btn-slide');
-    Array.prototype.forEach.call(slideBtns, (slideBtn) => {
-      slideBtn.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'unl-cream');
+    // Caption Button (Error with animation)
+    let figures = slideshow.querySelectorAll('.dcf-slideshow figure');
+    Array.prototype.forEach.call(figures, (figure) => {
+      let captionBtn = figure.querySelector('button');
+      captionBtn.innerHTML = '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
+              '<path class="unl-icon-slide-caption-open" d="M1,3h19c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1C0.4,1,0,1.4,0,2C0,2.6,0.4,3,1,3z"/>' +
+              '<path class="unl-icon-slide-caption-open" d="M1,8h15c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1C0.4,6,0,6.4,0,7C0,7.6,0.4,8,1,8z"/>' +
+              '<path class="unl-icon-slide-caption-close-1" d="M1,13h22c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1C0,12.6,0.4,13,1,13z"/>' +
+              '<path class="unl-icon-slide-caption-close-2" d="M1,13h22c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1C0,12.6,0.4,13,1,13z"/>' +
+              '<path class="unl-icon-slide-caption-open" d="M1,18h18c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1C0,17.6,0.4,18,1,18z"/>' +
+              '<path class="unl-icon-slide-caption-open" d="M1,23h15c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1C0,22.6,0.4,23,1,23z"/>' +
+              '</svg>';
+
     })
+  })
 
-    let buttons = document.querySelectorAll('.dcf-btn-slide-caption');
-    [].forEach.call(buttons, function(button, index) {
-      // Content var
-      let caption = button.previousElementSibling;
-      // Show caption when button is pressed
-      let close1 = button.querySelector('.unl-icon-slide-caption-close-1');
-      let close2 = button.querySelector('.unl-icon-slide-caption-close-2');
-      button.addEventListener('click', function () {
-        showCaption(this, caption, close1, close2);
-        return false;
-      }, false);
+  let slideBtns = document.querySelectorAll('.dcf-btn-slide');
+  Array.prototype.forEach.call(slideBtns, (slideBtn) => {
+    slideBtn.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'unl-cream');
+  })
 
-      // Show caption when the 'space' key is pressed
-      button.addEventListener('keydown', function (event) {
-        // Handle 'space' key
-        if (event.which === 32) {
-          event.preventDefault();
-          showCaption(this, caption, close1, close2);
-        }
-      }, false);
-    });
+  let buttons = document.querySelectorAll('.dcf-btn-slide-caption');
+  [].forEach.call(buttons, function(button, index) {
+    // Content var
+    let caption = button.previousElementSibling;
+    let close1 = button.querySelector('.unl-icon-slide-caption-close-1');
+    let close2 = button.querySelector('.unl-icon-slide-caption-close-2');
+
+    caption.addEventListener('openCaption', function(e) {
+      close1.animate(keyframesClose1, options);
+      close2.animate(keyframesClose2, options);
+    }, false);
+
+    caption.addEventListener('closeCaption', function(e) {
+      close1.animate(keyframesOpen1, options);
+      close2.animate(keyframesOpen2, options);
+    }, false);
+
+  });
 
 
 
 
-  })(document, window);
+})(document, window);
 </script>>
 <!-- InstanceEndEditable -->
 </body>
