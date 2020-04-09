@@ -405,7 +405,7 @@ function captionTransition(event) {
 }
 
 // Add classes to the caption & button
-function captionClass (button, caption) {
+function captionClasses (button, caption) {
   // Check if caption is already visible
   if (!caption.classList.contains('dcf-invisible')) {
     // Hide content
@@ -613,7 +613,7 @@ function captionClass (button, caption) {
   [].forEach.call(buttons, function(button, index) {
     let caption = button.previousElementSibling;
     button.addEventListener('click', function () {
-      captionClass(this, caption);
+      captionClasses(this, caption);
       return false;
     }, false);
 
@@ -622,7 +622,7 @@ function captionClass (button, caption) {
       // Handle 'space' key
       if (event.which === 32) {
         event.preventDefault();
-        captionClass(this, caption);
+        captionClasses(this, caption);
       }
     }, false);
   });
