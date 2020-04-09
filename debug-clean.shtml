@@ -439,11 +439,6 @@ function captionClasses (button, caption) {
 (function (document, window, undefined) {
   'use strict';
 
-  // TODO:
-  // Add functionality for previous and next slides
-  // Allow user to swipe on touchscreens to progress slide
-  // Add option to each slideshow to let developer choose type of slide transition – move or fade
-
 
   // Define variables for slideshow, unordered list, slides, figures and captions
   const slideshows = document.querySelectorAll('.dcf-slideshow');
@@ -628,7 +623,6 @@ function captionClasses (button, caption) {
   });
 
 })(document, window);
-
 </script>
 
 <script> //THEME
@@ -743,9 +737,6 @@ function captionClasses (button, caption) {
     }, false);
 
   });
-
-
-
 
 })(document, window);
 </script>>
