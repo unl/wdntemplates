@@ -22,7 +22,6 @@
 					if (xhr.status === 200) {
 						messageContent = xhr.responseText;
 						sessionStorage.setItem(messageSessionKey, messageContent);
-						console.log('messageContent', messageContent);
 						displayWDNNoticeBannerMessage(messageContent);
 					}
 				}
