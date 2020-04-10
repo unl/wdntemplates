@@ -59,7 +59,7 @@ $darkest-gray: darken($mix-cream-gray, 75%);    // #242423
 // CONTEXTUAL COLORS
 $color-info: $blue;
 $color-success: $green;
-$color-warning: $yellow;
+$color-warning: #e72c0c; // TODO: replace with $yellow when notices are redesigned
 $color-danger: #b60000; // TODO: update for notices
 
 $color-highlight: #ff0;
