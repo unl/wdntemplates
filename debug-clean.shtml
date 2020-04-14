@@ -433,6 +433,46 @@ function captionClasses (button, caption) {
   }
 };
 
+function scrollIt(slideToShow, slides, slidedeck) {
+  let scrollPos = Array.prototype.indexOf.call(slides, slideToShow) * (slidedeck.scrollWidth / slides.length);
+  slidedeck.scrollLeft = scrollPos;
+};
+function showSlide(dir, slideshow, slides, slidedeck) {
+  let visible = slideshow.querySelectorAll('[aria-label = "slideshow"] .visible');
+  let index = dir === 'previous' ? DCFUtility.magicNumbers('int0') : DCFUtility.magicNumbers('int1');
+
+  if (visible.length > DCFUtility.magicNumbers('int1')) {
+    this.scrollIt(visible[index], slides, slidedeck);
+  } else {
+    let newSlide = index === DCFUtility.magicNumbers('int0') ?
+      visible[DCFUtility.magicNumbers('int0')].previousElementSibling :
+      visible[DCFUtility.magicNumbers('int0')].nextElementSibling;
+    if (newSlide) {
+      this.scrollIt(newSlide, slides, slidedeck);
+    }
+  }
+};
+
+function callback(slides) {
+  Array.prototype.forEach.call(slides, (entry) => {
+    entry.target.classList.remove('visible');
+    let slide = entry.target.querySelector('div');
+    slide.setAttribute('tabindex', '-1');
+    if(!entry.intersectionRatio > DCFUtility.magicNumbers('int0')) {
+      return;
+    }
+    let img = entry.target.querySelector('img');
+    if(img.dataset.src) {
+      img.setAttribute('src', img.dataset.src);
+      img.removeAttribute('data-src');
+    }
+    entry.target.classList.add('visible');
+    slide.removeAttribute('tabindex', '-1');
+  });
+};
+
+
+
 
 // https://codepen.io/svinkle/pen/FHGBh
 
@@ -510,9 +550,7 @@ function captionClasses (button, caption) {
       let figure = figures[i];
       let caption = captions[i];
 
-      if (typeof caption == 'undefined') {
-        console.log('No Caption');
-      } else if (caption.parentNode == figure){
+      if (!(typeof caption == 'undefined')) {
         // Create button to show/hide caption
         let captionBtn = document.createElement('button');
         //Add  classes to each caption toggle button
@@ -520,7 +558,7 @@ function captionClasses (button, caption) {
         // Create a unique ID for each caption toggle button
         captionBtn.setAttribute('id', uuid.concat('-button-' + i)); // TODO: use same ID creation used for DCF modals
         // Add ARIA attributes to each caption toggle button
-        captionBtn.setAttribute('aria-controls', 'caption-' + i);
+        captionBtn.setAttribute('aria-controls', uuid.concat('-caption-' + i));
         captionBtn.setAttribute('aria-label', 'Show caption');
         captionBtn.setAttribute('aria-expanded', 'false');
         // Add class to each figure
@@ -547,57 +585,21 @@ function captionClasses (button, caption) {
     };
 
     if('IntersectionObserver' in window) {
-      let scrollIt = function scrollIt(slideToShow){
-        let scrollPos = Array.prototype.indexOf.call(slides, slideToShow) * (slidedeck.scrollWidth / slides.length);
-        slidedeck.scrollLeft = scrollPos;
-      };
-      let showSlide = function showSlide(dir, slides) {
-        let visible = slideshow.querySelectorAll('[aria-label = "slideshow"] .visible');
-        let i = dir === 'previous' ? 0 : 1;
-
-        if (visible.length > 1){
-          scrollIt(visible[i]);
-        } else {
-          let newSlide = i === 0 ? visible[0].previousElementSibling : visible[0].nextElementSibling;
-          if (newSlide) {
-            scrollIt(newSlide);
-          }
-        }
-      };
-
-      let callback = function callback(slides, observer) {
-        Array.prototype.forEach.call(slides, function (entry) {
-          // console.log(entry);
-          entry.target.classList.remove('visible');
-          var slide = entry.target.querySelector('div');
-          slide.setAttribute('tabindex', '-1');
-          if (!entry.intersectionRatio > 0) {
-            return;
-          }
-          var img = entry.target.querySelector('img');
-          if(img.dataset.src) {
-            img.setAttribute('src', img.dataset.src);
-            img.removeAttribute('data-src');
-          }
-          entry.target.classList.add('visible');
-          slide.removeAttribute('tabindex', '-1');
-        });
-      };
-
       let observer = new IntersectionObserver(callback, observerSettings);
-      Array.prototype.forEach.call(slides, function(t) {
-        return observer.observe(t);
+      Array.prototype.forEach.call(slides, (elem) => {
+        return observer.observe(elem);
       });
 
-      ctrlPrevious.addEventListener('click', function() {
-        showSlide(ctrlPrevious.getAttribute('id'), slides);
+      ctrlPrevious.addEventListener('click', () => {
+        showSlide(ctrlPrevious.getAttribute('id'), slideshow, slides, slidedeck);
       });
-      ctrlNext.addEventListener('click', function (){
-        showSlide(ctrlNext.getAttribute('id'), slides);
+
+      ctrlNext.addEventListener('click', () => {
+        showSlide(ctrlNext.getAttribute('id'), slideshow, slides, slidedeck);
       });
     } else {
-      Array.prototype.forEach.call(slides, function(e) {
-        var img = e.querySelector('img');
+      Array.prototype.forEach.call(slides, (slide) => {
+        let img = slide.querySelector('img');
         img.setAttribute('src', img.getAttribute('data-src'));
       });
     }
@@ -613,11 +615,18 @@ function captionClasses (button, caption) {
     }, false);
 
     // Show caption when the 'space' key is pressed
-    button.addEventListener('keydown', function (event) {
+    // button.addEventListener('keydown', function (event) {
+    //   // Handle 'space' key
+    //   if (event.which === 32) {
+    //     event.preventDefault();
+    //     captionClasses(this, caption);
+    //   }
+    // }, false);
+    button.addEventListener('keydown', (onSpace) => {
       // Handle 'space' key
-      if (event.which === 32) {
-        event.preventDefault();
-        captionClasses(this, caption);
+      if (onSpace.which === 32) {
+        onSpace.preventDefault();
+        captionClasses(onSpace.currentTarget, caption);
       }
     }, false);
   });
