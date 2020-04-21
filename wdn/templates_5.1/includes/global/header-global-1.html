@@ -34,7 +34,11 @@
 				var banner = document.createElement('div');
 				banner.setAttribute('role', 'navigation');
 				banner.innerHTML = messageContent;
-				skipNav.parentNode.insertBefore( banner, skipNav.nextSibling );
+				if (skipNav) {
+					skipNav.parentNode.insertBefore(banner, skipNav.nextSibling);
+				} else {
+					document.body.prepend(banner);
+				}
 				window.scrollTo(0, 0);
 			}
 		}
