@@ -108,17 +108,21 @@
     <div class="dcf-main-content dcf-wrapper">
     <!-- InstanceBeginEditable name="maincontentarea" -->
     <p>Auto Scroll Prototype</p>
-    <div class="dcf-grid-full dcf-grid-halves@sm dcf-col-gap-4 dcf-row-gap-4 dcf-mb-6">
+    <div class="dcf-grid-full dcf-grid-thirds@sm dcf-col-gap-4 dcf-row-gap-4 dcf-mb-6">
       <div>
         <ul class="dcf-list-bare auto-scroll" id="scroll-list-1" style="overflow-y: scroll; max-width: 400px; height: 300px;"></ul>
       </div>
       <div>
         <ul class="dcf-list-bare auto-scroll" id="scroll-list-2" style="overflow-y: scroll; max-width: 400px; height: 300px;"></ul>
       </div>
+      <div>
+        <ul class="dcf-list-bare auto-scroll" id="scroll-list-3" style="overflow-y: scroll; max-width: 400px; height: 300px;"></ul>
+      </div>
     </div>
     <script>
       var scrollList1 = document.getElementById('scroll-list-1');
       var scrollList2 = document.getElementById('scroll-list-2');
+      var scrollList3 = document.getElementById('scroll-list-3');
       var sampleImage1 = '<div class="dcf-mb-2 dcf-ratio dcf-ratio-16x9 unl-frame-quad">\
           <img\
             class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100%"\
@@ -136,6 +140,9 @@
       }
       for (var i=0; i<20; i++) {
         appendItem(scrollList2, sampleImage1);
+      }
+      for (var i=0; i<200; i++) {
+        appendItem(scrollList3, sampleImage1);
       }
 
       function appendItem(list, item) {
@@ -283,6 +290,7 @@
 
       var scroll1 = new AutoScroll('scroll-list-1', { rate: 20, at_scroll_end: 'startover', autoplay: 'true' });
       var scroll2 = new AutoScroll('scroll-list-2', { rate: 5, at_scroll_end: 'reverse', autoplay: 'false' });
+      var scroll3 = new AutoScroll('scroll-list-3', { rate: 10, at_scroll_end: 'reverse', autoplay: 'true',  with_controls: false});
     </script>
 
 
