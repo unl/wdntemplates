@@ -107,7 +107,185 @@
     </div>
     <div class="dcf-main-content dcf-wrapper">
     <!-- InstanceBeginEditable name="maincontentarea" -->
-    <p>Impress your audience with awesome content!</p>
+    <p>Auto Scroll Prototype</p>
+    <div class="dcf-grid-full dcf-grid-halves@sm dcf-col-gap-4 dcf-row-gap-4 dcf-mb-6">
+      <div>
+        <ul class="dcf-list-bare auto-scroll" id="scroll-list-1" style="overflow-y: scroll; max-width: 400px; height: 300px;"></ul>
+      </div>
+      <div>
+        <ul class="dcf-list-bare auto-scroll" id="scroll-list-2" style="overflow-y: scroll; max-width: 400px; height: 300px;"></ul>
+      </div>
+    </div>
+    <script>
+      var scrollList1 = document.getElementById('scroll-list-1');
+      var scrollList2 = document.getElementById('scroll-list-2');
+      var sampleImage1 = '<div class="dcf-mb-2 dcf-ratio dcf-ratio-16x9 unl-frame-quad">\
+          <img\
+            class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100%"\
+            sizes="(min-width: 41.956em) 43vw, 88vw"\
+            srcset="wdn/templates_5.1/images/dev/150821-tunnel-325-sm-min.jpg 284w,\
+                    wdn/templates_5.1/images/dev/150821-tunnel-325-md-min.jpg 505w,\
+                    wdn/templates_5.1/images/dev/150821-tunnel-325-lg-min.jpg 898w,\
+                    wdn/templates_5.1/images/dev/150821-tunnel-325-xl-min.jpg 1596w"\
+            src="data:image/gif;base64,R0lGODlhAQABAAAAADs="\
+            alt="New students flow onto the field of Memorial Stadium during the annual Tunnel Walk.">\
+        </div>';
+
+      for (var i=0; i<10; i++) {
+        appendItem(scrollList1, sampleImage1);
+      }
+      for (var i=0; i<20; i++) {
+        appendItem(scrollList2, sampleImage1);
+      }
+
+      function appendItem(list, item) {
+        var itemLI = document.createElement('LI');
+        var itemDIV = document.createElement('DIV');
+        itemDIV.innerHTML = item;
+        itemLI.appendChild(itemDIV);
+        list.appendChild(itemLI);
+      }
+
+      class AutoScroll {
+        constructor(elementID, params) {
+          this.element = document.getElementById(elementID);
+
+          this.reachedMaxScroll = false;
+          this.previousScrollTop = 0;
+          this.scrollInterval;
+          this.paused = true;
+
+          this.controlButton = false;
+          this.playBtnHTML = '&#9658;';
+          this.pauseBtnHTML = '&#10073;&#10073;';
+
+          // configurable attributes
+
+          this.autoplay = true;
+          if (params && 'autoplay' in params) {
+            this.autoplay = params.autoplay === 'true';
+          }
+
+          this.withControls = true;
+          if (params && 'with_controls' in params) {
+            this.withControls = params.with_controls === 'true';
+          }
+
+          this.scrollRate = 10;
+          if (params && 'rate' in params) {
+            this.scrollRate = params.rate;
+          }
+
+          this.atScrollEnd = 10;
+          if (params && 'at_scroll_end' in params) {
+            this.atScrollEnd = params.at_scroll_end;
+          }
+
+          this.element.addEventListener('mouseover', function() {
+            if (this.autoplay && !this.paused) {
+              this.pause();
+            }
+          }.bind(this), false);
+
+          this.element.addEventListener('mouseout', function() {
+            if (this.autoplay && this.paused) {
+              this.play();
+            }
+          }.bind(this), false);
+
+          if (this.autoplay) {
+            this.play();
+          }
+
+          if (this.withControls) {
+            this.addControls();
+          }
+
+        }
+
+        addControls() {
+
+          if (!this.scrollable()) {
+            return;
+          }
+
+          var controlDIV = document.createElement('DIV');
+          controlDIV.setAttribute('class', 'dcf-m-0 dcf-p-0');
+          this.controlButton = document.createElement('BUTTON');
+          this.controlButton.setAttribute('class', 'dcf-btn dcf-btn-secondary');
+          this.setControlButton();
+
+          this.controlButton.addEventListener('click', function() {
+            if (!this.paused) {
+              this.pause();
+            } else {
+              this.play();
+            }
+            this.autoplay = false;
+            this.setControlButton();
+          }.bind(this), false);
+
+          controlDIV.appendChild(this.controlButton);
+          this.element.parentNode.insertBefore(controlDIV, this.element.nextSibling);
+        }
+
+        setControlButton() {
+          this.controlButton.innerHTML = this.paused ? this.playBtnHTML : this.pauseBtnHTML;
+        }
+
+        scrollable() {
+          return this.element && (this.element.tagName == 'UL' || this.element.tagName == 'DIV');
+        }
+
+        scroll() {
+
+          if (!this.scrollable()) {
+            this.pause();
+            return;
+          }
+
+          if (!this.reachedMaxScroll) {
+            this.element.scrollTop = this.previousScrollTop;
+            this.previousScrollTop++;
+            this.reachedMaxScroll = this.element.scrollTop >= (this.element.scrollHeight - this.element.offsetHeight);
+          } else {
+
+            // Handle scroll at end
+            switch(this.atScrollEnd) {
+              case 'reverse':
+                this.reachedMaxScroll = (this.element.scrollTop == 0)?false:true;
+            
+                this.element.scrollTop = this.previousScrollTop;
+                this.previousScrollTop--;
+                break;
+
+
+              case 'startover':
+              default:
+                this.previousScrollTop = 0;
+                this.reachedMaxScroll = false;
+                this.scroll;
+            }
+          }
+        }
+
+        pause() {
+          this.paused = true;
+          clearInterval(this.scrollInterval);
+        }
+
+        play() {
+          this.paused = false;
+          this.previousScrollTop = this.element.scrollTop;
+          this.scrollInterval = setInterval(this.scroll.bind(this), this.scrollRate);
+        }
+      }
+
+      var scroll1 = new AutoScroll('scroll-list-1', { rate: 20, at_scroll_end: 'startover', autoplay: 'true' });
+      var scroll2 = new AutoScroll('scroll-list-2', { rate: 5, at_scroll_end: 'reverse', autoplay: 'false' });
+    </script>
+
+
     <!-- InstanceEndEditable -->
    </div>
   </main>
