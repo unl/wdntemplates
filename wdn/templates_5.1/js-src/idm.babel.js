@@ -42,6 +42,78 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		return user[field][0];
 	};
 
+	var getUser = function getUser(uid) {
+		return new Promise(function (resolve, reject) {
+			var xhrUser = false;
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', userLookup + uid + '.json');
+			xhr.send(null);
+			xhr.onreadystatechange = function() {
+			  if (xhr.readyState === XMLHttpRequest.DONE) {
+			    if (xhr.status === 200) {
+			        resolve(JSON.parse(xhr.responseText));
+			    }else if (xhr.status === 404) {
+			        resolve({});
+			    } else {
+			        reject(Error(xhr.status));
+			    }
+			  }
+			};
+		});
+	};
+
+	var appendUserDepartment = function appendUserDepartment(user) {
+		return new Promise(function (resolve, reject) {
+			var org_unit = user && 'unlHROrgUnitNumber' in user && user['unlHROrgUnitNumber'] && user['unlHROrgUnitNumber'].length > 0 ? user['unlHROrgUnitNumber'][0] : false;
+
+			if (org_unit) {
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', departmentLookup + org_unit + '?format=json');
+				xhr.send(null);
+
+				xhr.onreadystatechange = function() {
+				  if (xhr.readyState === XMLHttpRequest.DONE) {
+				    if (xhr.status === 200) {
+				    	user['department'] = JSON.parse(xhr.responseText);
+				        resolve(user);
+				    } else {
+				    	resolve(user);
+				    }
+				  }
+				};
+			} else {
+				resolve(user);
+			}
+		});
+	};
+
+	var getUserData = function getUserData(uid, extras, callback) {
+		return new Promise(function(resolve, reject) {
+		  var user = getUser(uid);
+		  resolve(user);
+		}).then(function(user) {
+			return new Promise(function(resolve, reject) {
+				if (extras && extras.department === true) {
+					user = appendUserDepartment(user);
+				}
+				resolve(user);
+			}).then(function(user) {
+				callback(Plugin.formatUser(user));
+			});
+		});
+	};
+
+	var getSessionUserData = function getSessionUserData(user, extras, callback) {
+		return new Promise(function(resolve, reject) {
+			if (extras && extras.department === true) {
+					user = appendUserDepartment(user);
+			}
+			resolve(user);
+		}).then(function(user) {
+			callback(Plugin.formatUser(user));
+		});
+	};
+
 	var Plugin = {
 		initialize: function initialize(callback) {
 			var loginCheckFailure = function loginCheckFailure() {
@@ -105,7 +177,7 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 			user = newUser;
 		},
 
-		formatUser: function formatUser(userinfo, extras) {
+		formatUser: function formatUser(userinfo) {
 			let data = {};
 
 			// Set user to passed user
@@ -127,8 +199,8 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				data.avatar = user.imageURL;
 				data.profileUrl = Plugin.getProfileURL();
 
-				if (extras && extras.department === true) {
-					data.department = Plugin.getDepartment(data.orgUnitNumber);
+				if ('department' in userinfo) {
+					data.department = userinfo['department'];
 				}
 			}
 
@@ -138,34 +210,16 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 			return data;
 		},
 
-		getSessionUser: function getSessionUser(extras) {
-			return Plugin.formatUser(sessionUser, extras);
+		getSessionUser: function getSessionUser() {
+			return sessionUser;
 		},
 
-		getUser: function getUser(uid, extras) {
-			var xhrUser = false;
-			var xhr = new XMLHttpRequest();
-			// force synchronous response
-			xhr.open('GET', userLookup + uid + '.json', false);
-			xhr.send(null);
-			if (xhr.status === 200) {
-				xhrUser = JSON.parse(xhr.responseText);
-			}
-			return Plugin.formatUser(xhrUser, extras);
+		getSessionUserExtras: function getSessionUserExtras(extras, callback) {
+			getSessionUserData(sessionUser, extras, callback);
 		},
 
-		getDepartment: function getDepartment(org_unit) {
-			if (!org_unit) {
-				return {};
-			}
-
-			var xhr = new XMLHttpRequest();
-			// force synchronous response
-			xhr.open('GET', departmentLookup + org_unit + '?format=json', false);
-			xhr.send(null);
-			if (xhr.status === 200) {
-				return JSON.parse(xhr.responseText);
-			}
+		getUser: function getUser(uid, extras, callback) {
+			getUserData(uid, extras, callback);
 		},
 
 		logout: function logout() {
