@@ -149,13 +149,26 @@
       </form>
     </div>
 
+    <progress class="dcf-d-none" id="loading-data"></progress>
+    <button class="slide-modal-btn dcf-btn-toggle-modal dcf-d-none" data-toggles-modal="slide-modal" type="button"></button>
     <ol class="dcf-pt-10 dcf-grid-halves@sm dcf-grid-thirds@md dcf-grid-fourths@lg dcf-grid-fifths@xl dcf-col-gap-vw dcf-row-gap-6 dcf-mb-0 dcf-list-bare" id="mo-list"></ol>
     <div class="dcf-d-none" id="no-results-message">No graduate matches found</div>
 
     <div class="dcf-mb-10"></div>
 
     <script>
+        var dataFile = 'mo-data/large-sample-data.json';
         var currentBarcode = null;
+        var progressBar = document.getElementById('loading-data');
+        var slideModalButton = document.getElementsByClassName('slide-modal-btn')[0];
+
+        function showProgressBar() {
+          progressBar.classList.remove('dcf-d-none');
+        }
+
+        function hideProgressBar() {
+          progressBar.classList.add('dcf-d-none');
+        }
 
         function ajax_get(url, callback) {
             var xmlhttp = new XMLHttpRequest();
@@ -174,7 +187,13 @@
             xmlhttp.send();
         }
 
-        ajax_get('mo-data/sample-data.json', function(data) {
+        function openSlide(slideId) {
+          currentBarcode = slideId;
+          slideModalButton.click();
+        }
+
+        showProgressBar();
+        ajax_get(dataFile, function(data) {
             var mo = new MarchingOrder(data);
             mo.init();
 
@@ -207,11 +226,21 @@
                 slideContentContainer.innerHTML = mo.createSlideModalContent(item);
               }
             }.bind(mo), false);
-        })
+
+            hideProgressBar();
+        });
 
         class MarchingOrder {
           constructor(data) {
             this.data = data;
+            // temp hack for large data test to generate unique ids for duplicate data
+            var temp = [];
+            for (var i=0; i < this.data.length; i++) {
+              temp[i] = this.data[i];
+              temp[i]['Barcode'] = i;
+            }
+            // end temp hack
+            this.data = temp;
             this.list = document.getElementById('mo-list');
             this.currentBarcode = null;
           }
@@ -222,6 +251,9 @@
               this.appendItem(item);
             }
             this.filter();
+
+            // hide progress bar
+            progressBar.classList.add('dcf-d-none');
 
             // Show slide on page load
             window.addEventListener('inlineJSReady', function () {
@@ -253,7 +285,7 @@
           createSlideModalContent(item) {
             return '<div class="dcf-grid dcf-col-gap-vw dcf-row-gap-6">\
             <div class="dcf-col-100% dcf-col-75%-start@md dcf-col-67%-start@xl">\
-              <img class="dcf-d-block dcf-b-solid dcf-b-1 unl-b-light-gray" src="' +  item.getSlide() + '" alt="Warren Buffet">\
+              <img loading="lazy" class="dcf-d-block dcf-b-solid dcf-b-1 unl-b-light-gray dcf-lazy-load" src="' +  item.getSlide() + '" alt="' +  item.getDisplayName() + '">\
             </div>\
             <div class="dcf-col-100% dcf-col-25%-end@md dcf-col-33%-end@xl">\
               ' + this.createAudio(item.getAudio()) + '\
@@ -281,18 +313,19 @@
 
           createAudio(audioSrc) {
             if (audioSrc) {
-            return '<audio controls autoplay>\
+            return '<audio controls autoplay style="width: 200px; height: 25px;">\
   <source src="' + audioSrc + '" type="audio/mpeg">\
 Your browser does not support the audio element.\
 </audio>';
             }
+            return '';
           }
 
           appendItem(item) {
             var itemLI = document.createElement('LI');
             itemLI.setAttribute('id', 'mo-list-item-' + item.getBarcode());
             itemLI.classList.add('mo-list-item', 'dcf-mb-0');
-            itemLI.innerHTML = '<button class="dcf-btn-toggle-modal dcf-p-0 dcf-b-0 dcf-bg-transparent dcf-case-reset dcf-txt-md dcf-regular dcf-txt-decor-hover unl-ls-0 unl-scarlet" data-toggles-modal="slide-modal" onclick="currentBarcode=' + item.getBarcode() + ';" type="button">\
+            itemLI.innerHTML = '<button class="dcf-p-0 dcf-b-0 dcf-bg-transparent dcf-case-reset dcf-txt-md dcf-regular dcf-txt-decor-hover unl-ls-0 unl-scarlet" onclick="openSlide(' + item.getBarcode() + ');" type="button">\
           ' + item.getDisplayName() + '\
           <img class="dcf-d-block dcf-mt-1" src="' +  item.getSlide() + '" alt="' + item.getDisplayName() + '"> \
         </button>';
@@ -356,19 +389,26 @@ Your browser does not support the audio element.\
             }
 
             getLastName() {
-                return this.item['Last Name'];
+                return this.item['First Name_1'];
             }
 
             getDisplayName() {
-              return this.item['First Name'] + ' ' + this.item['Last Name'];
+              return this.item['First Name'] + ' ' + this.item['First Name_1'];
             }
 
             getAudio() {
-                return this.audioDirectory + this.item['Audio File Name'];
+              if (this.item['Audio File Name']) {
+                return this.audioDirectory + this.item['Audio File Name'] + '?c=' + this.item['Barcode'];
+              }
+              return false;
             }
 
             getSlide() {
-                return this.slideDirectory + this.item['Photo Name'];
+              if (this.item['Photo Name'] !== undefined) {
+                return this.slideDirectory + this.item['Photo Name'] + '?c=' + this.item['Barcode'];
+              }
+              // TODO add path to default slide
+              return '';
             }
 
             getAltText() {
@@ -390,7 +430,7 @@ Your browser does not support the audio element.\
 
     </script>
 
-   <div class="dcf-modal dcf-bg-overlay-dark dcf-fixed dcf-pin-top dcf-pin-left dcf-h-100% dcf-w-100% dcf-d-flex dcf-ai-center dcf-jc-center dcf-opacity-100 dcf-pointer-events-auto" id="slide-modal" aria-labelledby="lide-modal-heading" aria-hidden="false" role="dialog" tabindex="-1">
+   <div class="dcf-modal dcf-bg-overlay-dark dcf-fixed dcf-pin-top dcf-pin-left dcf-h-100% dcf-w-100% dcf-d-flex dcf-ai-center dcf-jc-center dcf-opacity-100 dcf-pointer-events-auto dcf-invisible" id="slide-modal" aria-labelledby="lide-modal-heading" aria-hidden="false" role="dialog" tabindex="-1">
       <div class="dcf-modal-wrapper dcf-relative dcf-h-auto dcf-overflow-y-auto" role="document">
         <div class="dcf-modal-header dcf-wrapper dcf-pt-8 dcf-sticky dcf-pin-top">
           <h2 class="dcf-sr-only" id="slide-modal-heading">Not Found</h2>
