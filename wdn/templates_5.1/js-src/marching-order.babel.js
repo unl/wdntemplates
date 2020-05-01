@@ -39,8 +39,15 @@ ajax_get(dataFile, function(data) {
     mo.init();
 
     var searchTerm = document.getElementById('text-search');
+    // delay on search so not every keystroke is searched
+    var timeout = null;
     searchTerm.addEventListener('input', function() {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+      timeout = setTimeout(function() {
         mo.filter();
+      }, 200);
     });
 
     var collegeFilter = document.getElementById('filter-by-college');
