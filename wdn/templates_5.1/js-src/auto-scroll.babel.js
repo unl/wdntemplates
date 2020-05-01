@@ -1,13 +1,11 @@
 class AutoScroll {
   constructor(elementID, params) {
     this.element = document.getElementById(elementID);
-
     this.reachedMaxScroll = false;
     this.previousScrollTop = 0;
-    this.scrollInterval;
+    this.scrollInterval = null;
     this.paused = true;
     this.userPaused = false;
-
     this.controlButton = false;
     this.playBtnHTML = '&#9658;';
     this.pauseBtnHTML = '&#10073;&#10073;';
@@ -37,18 +35,6 @@ class AutoScroll {
       this.atScrollEnd = params.at_scroll_end;
     }
 
-    this.element.addEventListener('mouseover', function() {
-      if (!this.paused) {
-        this.pause();
-      }
-    }.bind(this), false);
-
-    this.element.addEventListener('mouseout', function() {
-      if (this.paused && !this.userPaused) {
-        this.play();
-      }
-    }.bind(this), false);
-
     if (this.autoplay) {
       this.play();
     }
@@ -57,21 +43,35 @@ class AutoScroll {
       this.addControls();
     }
 
+    // Listeners
+    let mouseoverPause = () => {
+      if (!this.paused) {
+        this.pause();
+      }
+    };
+    this.element.addEventListener('mouseover', mouseoverPause.bind(this), false);
+
+    let mouseooutPlay = () => {
+      if (this.paused && !this.userPaused) {
+        this.play();
+      }
+    };
+    this.element.addEventListener('mouseout', mouseooutPlay.bind(this), false);
   }
 
   addControls() {
-
     if (!this.scrollable()) {
       return;
     }
 
-    var controlDIV = document.createElement('DIV');
+    let controlDIV = document.createElement('DIV');
     controlDIV.setAttribute('class', 'dcf-m-0 dcf-p-0');
     this.controlButton = document.createElement('BUTTON');
     this.controlButton.setAttribute('class', 'dcf-btn dcf-btn-secondary');
     this.setControlButton();
 
-    this.controlButton.addEventListener('click', function() {
+    // Control Listener
+    let controlBtnClick = () => {
       if (!this.paused) {
         this.pause();
         this.userPaused = true;
@@ -81,7 +81,9 @@ class AutoScroll {
       }
       this.autoplay = false;
       this.setControlButton();
-    }.bind(this), false);
+    };
+
+    this.controlButton.addEventListener('click', controlBtnClick.bind(this), false);
 
     controlDIV.appendChild(this.controlButton);
     this.element.parentNode.insertBefore(controlDIV, this.element.nextSibling);
@@ -92,11 +94,10 @@ class AutoScroll {
   }
 
   scrollable() {
-    return this.element && (this.element.tagName == 'UL' || this.element.tagName == 'DIV');
+    return this.element && (this.element.tagName === 'OL' || this.element.tagName === 'UL' || this.element.tagName === 'DIV');
   }
 
   scroll() {
-
     if (!this.scrollable()) {
       this.pause();
       return;
@@ -105,23 +106,23 @@ class AutoScroll {
     if (!this.reachedMaxScroll) {
       this.element.scrollTop = this.previousScrollTop;
       this.previousScrollTop++;
-      this.reachedMaxScroll = this.element.scrollTop >= (this.element.scrollHeight - this.element.offsetHeight);
+      this.reachedMaxScroll = this.element.scrollTop >= this.element.scrollHeight - this.element.offsetHeight;
     } else {
-
+      const zeroInt = 0;
       // Handle scroll at end
-      switch(this.atScrollEnd) {
-        case 'reverse':
-          this.reachedMaxScroll = (this.element.scrollTop == 0)?false:true;
-      
-          this.element.scrollTop = this.previousScrollTop;
-          this.previousScrollTop--;
-          break;
+      switch (this.atScrollEnd) {
+      case 'reverse':
+        this.reachedMaxScroll = this.element.scrollTop !== zeroInt;
+        this.element.scrollTop = this.previousScrollTop;
+        this.previousScrollTop--;
+        break;
 
-        case 'startover':
-        default:
-          this.previousScrollTop = 0;
-          this.reachedMaxScroll = false;
-          this.scroll;
+      case 'startover':
+      default:
+        this.previousScrollTop = 0;
+        this.reachedMaxScroll = false;
+        this.scroll();
+        break;
       }
     }
   }
