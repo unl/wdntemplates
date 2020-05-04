@@ -198,11 +198,12 @@
         dataFile: 'mo-data/sample-data2.json',
         slidePath: 'https://events-dev.unl.edu/motest/Slides/',
         audioPath: 'https://events-dev.unl.edu/motest/Audio/',
-        forceUniqueIDs: true
+        forceUniqueIDs: true,
+        withInfiniteScroll: true,
+        infiniteScrollPageSize: 40
       }
       var marchingOrder = new MarchingOrder(params);
     </script>
-
   </main>
   <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
     <!-- InstanceBeginEditable name="optionalfooter" -->

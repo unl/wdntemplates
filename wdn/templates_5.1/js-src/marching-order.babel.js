@@ -44,15 +44,22 @@ class MarchingOrderItem {
 class MarchingOrder {
   constructor(params) {
     const int0 = 0;
+    const defaultPageSize = 40;
+
     // set via params
-    this.dataFile = params.dataFile;
-    this.slidePath = params.slidePath;
-    this.audioPath = params.audioPath;
-    this.forceUniqueIDs = params.forceUniqueIDs;
+    this.dataFile = 'dataFile' in params ? params.dataFile : '';
+    this.slidePath = 'slidePath' in params ? params.slidePath : '';
+    this.audioPath = 'audioPath' in params ? params.audioPath : '';
+    this.withInfiniteScroll = 'withInfiniteScroll' in params ? params.withInfiniteScroll : false;
+    this.infiniteScrollPageSize = 'infiniteScrollPageSize' in params ? params.infiniteScrollPageSize : defaultPageSize;
+    this.forceUniqueIDs = 'forceUniqueIDs' in params ? params.forceUniqueIDs : false;
+
     this.progressBar = document.getElementById('loading-data');
     this.slideModalButton = document.getElementsByClassName('slide-modal-btn')[int0];
     this.list = document.getElementById('mo-list');
     this.currentId = null;
+    this.infiniteScrollNextItem = 0;
+    this.filtered = [];
 
     this.setModalTrigger();
     this.setFilterControls();
@@ -66,6 +73,25 @@ class MarchingOrder {
     };
   }
 
+  updateInfiniteScroll() {
+    const int0 = 0;
+    const int1 = 1;
+    const startIndex = this.infiniteScrollNextItem;
+    const lastIndex = this.filtered.length - int1;
+    let loopIndex = int0;
+    let lastLoopIndex = this.infiniteScrollNextItem + this.infiniteScrollPageSize;
+    if (lastLoopIndex >= lastIndex) {
+      lastLoopIndex = lastIndex;
+    }
+    for (loopIndex = startIndex; loopIndex < lastLoopIndex; loopIndex++) {
+      const item = new MarchingOrderItem(this.filtered[loopIndex], this.getItemParams());
+      this.appendItem(item);
+    }
+
+    let nextIndex = lastLoopIndex + int1;
+    this.infiniteScrollNextItem = nextIndex <= lastIndex ? nextIndex : lastIndex;
+  }
+
   loadData() {
     this.showProgressBar();
 
@@ -76,11 +102,21 @@ class MarchingOrder {
         this.assignDataUniqueIDs();
       }
 
-      // Build slide list
-      this.data.forEach((dataItem) => {
-        const item = new MarchingOrderItem(dataItem, this.getItemParams());
-        this.appendItem(item);
-      });
+      if (this.withInfiniteScroll) {
+        // set up infinite scroll
+        this.list.classList.add('dcf-overflow-y-scroll', 'dcf-h-max-100vh');
+        this.list.addEventListener('scroll', () => {
+          if (this.list.scrollTop + this.list.clientHeight >= this.list.scrollHeight) {
+            this.updateInfiniteScroll();
+          }
+        });
+      } else {
+        // build list with all slide items
+        this.data.forEach((dataItem) => {
+          const item = new MarchingOrderItem(dataItem, this.getItemParams());
+          this.appendItem(item);
+        });
+      }
       this.filter();
 
       this.hideProgressBar();
@@ -143,7 +179,7 @@ class MarchingOrder {
       slideAudio.innerHTML = this.createAudio(item.getAudio());
 
       // to do - set shares
-      slideFacebookShare.setAttribute('href', item.getSlide());
+      slideFacebookShare.setAttribute('data-href', item.getSlide());
       slideTwitterShare.setAttribute('href', item.getSlide());
       slideLinkedInShare.setAttribute('href', item.getSlide());
       slideCopy.setAttribute('href', item.getSlide());
@@ -266,7 +302,7 @@ class MarchingOrder {
     let collegeFilterValue = document.getElementById('filter-by-college').value;
     let degreeFilterValue = document.getElementById('filter-by-degree').value;
 
-    let filtered = this.data.filter((item) => {
+    this.filtered = this.data.filter((item) => {
       const noMatch = -1;
       if (collegeFilterValue && collegeFilterValue !== item.collegeFilter) {
         return false;
@@ -283,7 +319,7 @@ class MarchingOrder {
     });
 
     let noResultsContainer = document.getElementById('no-results-message');
-    if (filtered.length === int0) {
+    if (this.filtered.length === int0) {
       // show no result div
       noResultsContainer.classList.remove('dcf-d-none');
     } else {
@@ -291,18 +327,26 @@ class MarchingOrder {
       noResultsContainer.classList.add('dcf-d-none');
     }
 
-    let listItems = document.getElementsByClassName('mo-list-item');
-    Array.from(listItems).forEach((listItem) => {
-      const preIdLength = 13;
-      let itemID = listItem.getAttribute('id').substring(preIdLength);
-      let itemData = this.getItemById(filtered, itemID);
-      if (itemData === undefined) {
-        // item not in filtered list and displayed, so hide
-        listItem.classList.add('dcf-d-none');
-      } else {
-        // item in filtered list and hidden, so display
-        listItem.classList.remove('dcf-d-none');
-      }
-    });
+    if (this.withInfiniteScroll) {
+      // display items via infinte scroll
+      this.list.innerHTML = '';
+      this.infiniteScrollNextItem = 0;
+      this.updateInfiniteScroll();
+    } else {
+      // show/hide filtered items
+      let listItems = document.getElementsByClassName('mo-list-item');
+      Array.from(listItems).forEach((listItem) => {
+        const preIdLength = 13;
+        let itemID = listItem.getAttribute('id').substring(preIdLength);
+        let itemData = this.getItemById(this.filtered, itemID);
+        if (itemData === undefined) {
+          // item not in filtered list and displayed, so hide
+          listItem.classList.add('dcf-d-none');
+        } else {
+          // item in filtered list and hidden, so display
+          listItem.classList.remove('dcf-d-none');
+        }
+      });
+    }
   }
 }
