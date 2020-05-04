@@ -3,6 +3,15 @@ class MarchingOrderItem {
     this.item = item;
     this.slidePath = params.slidePath;
     this.audioPath = params.audioPath;
+    this.defaultSlide = params.defaultSlide;
+  }
+
+  getFirstName() {
+    return this.item.firstName;
+  }
+
+  getLastName() {
+    return this.item.lastName;
   }
 
   getDisplayName() {
@@ -20,8 +29,7 @@ class MarchingOrderItem {
     if (this.item.slideimage !== undefined) {
       return `${this.slidePath}${this.item.slideimage}?id=${this.item.id}`;
     }
-    // add path to default slide
-    return '';
+    return this.defaultSlide;
   }
 
   getAltText() {
@@ -48,6 +56,7 @@ class MarchingOrder {
 
     // set via params
     this.dataFile = 'dataFile' in params ? params.dataFile : '';
+    this.defaultSlide = 'defaultSlide' in params ? params.defaultSlide : '';
     this.slidePath = 'slidePath' in params ? params.slidePath : '';
     this.audioPath = 'audioPath' in params ? params.audioPath : '';
     this.withInfiniteScroll = 'withInfiniteScroll' in params ? params.withInfiniteScroll : false;
@@ -69,7 +78,8 @@ class MarchingOrder {
   getItemParams() {
     return {
       slidePath: this.slidePath,
-      audioPath: this.audioPath
+      audioPath: this.audioPath,
+      defaultSlide: this.defaultSlide
     };
   }
 
@@ -152,6 +162,7 @@ class MarchingOrder {
     let slideImage = document.getElementById('slide-modal-image');
     let slideAudio = document.getElementById('slide-modal-audio');
     let slideFacebookShare = document.getElementById('slide-modal-facebook');
+    let slideFacebookShareDiv = slideFacebookShare.parentNode;
     let slideTwitterShare = document.getElementById('slide-modal-twitter');
     let slideLinkedInShare = document.getElementById('slide-modal-linkedin');
     let slideCopy = document.getElementById('slide-modal-copy-link');
@@ -166,10 +177,10 @@ class MarchingOrder {
       slideAudio.innerHTML = '';
 
       // to do - set shares
-      slideFacebookShare.setAttribute('src', '#');
+      slideFacebookShare.setAttribute('href', '#');
+      slideFacebookShareDiv.setAttribute('data-href', '#');
       slideTwitterShare.setAttribute('src', '#');
       slideLinkedInShare.setAttribute('src', '#?');
-      slideCopy.setAttribute('src', '#');
       slideDownload.setAttribute('src', '#');
     } else {
       const item = new MarchingOrderItem(itemData, this.getItemParams());
@@ -178,12 +189,29 @@ class MarchingOrder {
       slideImage.setAttribute('alt', item.getDisplayName());
       slideAudio.innerHTML = this.createAudio(item.getAudio());
 
-      // to do - set shares
-      slideFacebookShare.setAttribute('data-href', item.getSlide());
-      slideTwitterShare.setAttribute('href', item.getSlide());
-      slideLinkedInShare.setAttribute('href', item.getSlide());
-      slideCopy.setAttribute('href', item.getSlide());
+      // facebook share
+      slideFacebookShare.setAttribute('href', `https://www.facebook.com/sharer/sharer.php?u=${encodeURI(item.getSlide())}`);
+      slideFacebookShareDiv.setAttribute('data-href', `https://www.facebook.com/sharer/sharer.php?u=${encodeURI(item.getSlide())}`);
+
+      // twitter share
+      const twitterUrl = `${encodeURI(item.getSlide())}&text=${encodeURI(item.getDisplayName())}`;
+      slideTwitterShare.setAttribute('href', `https://twitter.com/intent/tweet?url=${twitterUrl}`);
+
+      // linkedin share
+      const lknUrl = `${encodeURI(item.getSlide())}&title=${encodeURI(item.getDisplayName())}&source=${encodeURI(item.getSlide())}`;
+      slideLinkedInShare.setAttribute('href',
+        `https://www.linkedin.com/shareArticle?mini=true&url=${lknUrl}`);
+
+      // copy slide url to clipboard
+      slideCopy.addEventListener('click', (event) => {
+        event.preventDefault();
+        this.copyTextToClipboard(item.getSlide());
+        return false;
+      });
+
+      // set download link
       slideDownload.setAttribute('href', item.getSlide());
+      slideDownload.setAttribute('download', `${item.getFirstName().toLowerCase()}-${item.getLastName().toLowerCase()}`);
     }
   }
 
@@ -348,5 +376,42 @@ class MarchingOrder {
         }
       });
     }
+  }
+
+  fallbackCopyTextToClipboard(text) {
+    let textArea = document.createElement('textarea');
+    textArea.value = text;
+
+    // Avoid scrolling to bottom
+    textArea.style.top = '0';
+    textArea.style.left = '0';
+    textArea.style.position = 'fixed';
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      let successful = document.execCommand('copy');
+      let msg = successful ? 'successful' : 'unsuccessful';
+      alert(`Copying to clipboard was ${msg}!`); // eslint-disable-line no-alert
+    } catch (err) {
+      alert('Oops, unable to copy'); // eslint-disable-line no-alert
+      throw err;
+    }
+
+    document.body.removeChild(textArea);
+  }
+
+  copyTextToClipboard(text) {
+    if (!navigator.clipboard) {
+      this.fallbackCopyTextToClipboard(text);
+      return;
+    }
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Copying to clipboard was successful!'); // eslint-disable-line no-alert
+    }, () => {
+      alert('Could not copy text'); // eslint-disable-line no-alert
+    });
   }
 }
