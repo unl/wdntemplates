@@ -35,9 +35,9 @@ $blue: $color-brand-eta;
 $purple: $color-brand-theta;
 $yellow: $color-brand-iota;
 
-$green-tint: #e7f1ea;
-$blue-tint: #e7f0f0;
-$purple-tint: #f7eaf1;
+$light-green: #e7f1ea;
+$light-blue: #e7f0f0;
+$light-purple: #f7eaf1;
 
 
 // NEUTRALS
@@ -59,7 +59,7 @@ $darkest-gray: darken($mix-cream-gray, 75%);    // #242423
 // CONTEXTUAL COLORS
 $color-info: $blue;
 $color-success: $green;
-$color-warning: $yellow;
+$color-warning: #e72c0c; // TODO: replace with $yellow when notices are redesigned
 $color-danger: #b60000; // TODO: update for notices
 
 $color-highlight: #ff0;
