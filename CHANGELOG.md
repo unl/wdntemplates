@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.1.2 (May 3, 2020)
+- Liberator font added
+- New secondary colors
+- IDM Javascript changes
+
 ## 5.1.1 (April 3, 2020)
 - Button fixes in visited state
 
