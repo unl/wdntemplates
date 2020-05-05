@@ -620,30 +620,38 @@
         var userLookupForm = document.getElementById('user-lookup');
         var userDisplayContainer = document.getElementById('user-display');
         var extras = {department: true};
-        var userDisplayContent  = `User not specified or logged in.`;
+        var userDisplayContent  = 'User not specified or logged in.';
         userDisplayContainer.innerHTML = userDisplayContent;
 
         function setUserDisplay(user) {
           if (user && user.unlID) {
             console.log('user', user);
-            userDisplayContent = `<dl>
-                <dt>UNL ID</dt><dd>${user.unlID}</dd>
-                <dt>First Name</dt><dd>${user.firstName}</dd>
-                <dt>Last Name</dt><dd>${user.lastName}</dd>
-                <dt>Full Name</dt><dd>${user.fullName}</dd>
-                <dt>Display Name</dt><dd>${user.displayName}</dd>
-                <dt>Email Address</dt><dd>${user.emailAddress}</dd>
-                <dt>Postal Address</dt><dd>${user.postalAddress}</dd>
-                <dt>Phone Number</dt><dd>${user.phoneNumber}</dd>
-                <dt>UNL Title</dt><dd>${user.title}</dd>
-                <dt>UNL Org Unit #</dt><dd>${user.orgUnitNumber}</dd>
-                <dt>UNL Org Unit Name</dt><dd>${user.orgUnitName}</dd>
-                <dt>UNL Primary Affiliation</dt><dd>${user.primaryAffiliation}</dd>
-                <dt>Avatar</dt><dd><img src="${user.avatar}" alt="UNL avatar of ${user.displayName}"></dd>
-                <dt>Profile URL</dt><dd><a href="${user.profileUrl}">View Profile</a></dd>
-                <dt>Department Name</dt><dd>${user.department.name}</dd>
-                <dt>Department Website</dt><dd>${user.department.website}</dd>
-                </dl>`;
+
+            if (!('department' in user) || !('name' in user.department)) {
+              user.department = {
+                name: 'Unknown',
+                website: ''
+              };
+            }
+
+            userDisplayContent = '<dl>\
+                <dt>UNL ID</dt><dd>' + user.unlID + '</dd>\
+                <dt>First Name</dt><dd>' + user.firstName + '</dd>\
+                <dt>Last Name</dt><dd>' + user.lastName + '</dd>\
+                <dt>Full Name</dt><dd>' + user.fullName + '</dd>\
+                <dt>Display Name</dt><dd>' + user.displayName + '</dd>\
+                <dt>Email Address</dt><dd>' + user.emailAddress + '</dd>\
+                <dt>Postal Address</dt><dd>' + user.postalAddress + '</dd>\
+                <dt>Phone Number</dt><dd>' + user.phoneNumber + '</dd>\
+                <dt>UNL Title</dt><dd>' + user.title + '</dd>\
+                <dt>UNL Org Unit #</dt><dd>' + user.orgUnitNumber + '</dd>\
+                <dt>UNL Org Unit Name</dt><dd>' + user.orgUnitName + '</dd>\
+                <dt>UNL Primary Affiliation</dt><dd>' + user.primaryAffiliation + '</dd>\
+                <dt>Avatar</dt><dd><img src="' + user.avatar + '" alt="UNL avatar of ' + user.displayName + '"></dd>\
+                <dt>Profile URL</dt><dd><a href="' + user.profileUrl + '">View Profile</a></dd>\
+                <dt>Department Name</dt><dd>' + user.department.name + '</dd>\
+                <dt>Department Website</dt><dd>' + user.department.website + '</dd>\
+                </dl>';
           }
           userDisplayContainer.innerHTML = userDisplayContent;
         }
@@ -651,21 +659,20 @@
         userLookupForm.addEventListener('submit', function(e) {
           e.preventDefault();
           require(['idm'], function(idm) {
-            userDisplayContent = `<p>User, ${this.uid.value}, not found.</p>`;
-            var user = idm.getUser(this.uid.value, extras);
-            setUserDisplay(user);
+            userDisplayContent = '<p>User not ' + userLookupForm.uid.value + ' found.</p>';
+            idm.getUser(userLookupForm.uid.value, extras, setUserDisplay);
           });
         });
 
         window.addEventListener('idmStateSet', function(){
           require(['idm'], function(idm) {
-            userDisplayContent  = `<p>User not logged in.</p>`;
+            userDisplayContent  = '<p>User not logged in.</p>';
             if (idm.isLoggedIn()) {
-              var user = idm.getSessionUser(extras);
-              if (user && user.unlID) {
-                userLookupForm.uid.value = user.unlID;
+              var sessionUser = idm.getSessionUser();
+              if (sessionUser && sessionUser.uid) {
+                userLookupForm.uid.value = sessionUser.uid;
               }
-              setUserDisplay(user);
+              idm.getSessionUserExtras(extras, setUserDisplay);
             }
           });
         });
