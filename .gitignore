@@ -20,5 +20,7 @@
 /wdn/templates_*/scripts/plugins/ui/css/jquery-ui-wdn.css
 /wdn/templates_*/js
 /tests/config.inc.php
+/mo-data
+/mo-test-data
 /tmp-*
 *.compiled.html

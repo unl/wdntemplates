@@ -20,14 +20,15 @@ class MarchingOrderItem {
 
   getAudio() {
     if (this.item.audioFile) {
-      return `${this.audioPath }${this.item.audioFile}?id=${this.item.id}`;
+      return `${this.audioPath }${this.item.audioFile}`;
     }
     return false;
   }
 
   getSlide() {
     if (this.item.slideimage !== undefined) {
-      return `${this.slidePath}${this.item.slideimage}?id=${this.item.id}`;
+      let image = this.item.slideimage.toUpperCase().replace('.JPG', '.jpg');
+      return `${this.slidePath}${image}`;
     }
     return this.defaultSlide;
   }
@@ -87,10 +88,10 @@ class MarchingOrder {
     const int0 = 0;
     const int1 = 1;
     const startIndex = this.infiniteScrollNextItem;
-    const lastIndex = this.filtered.length - int1;
+    const lastIndex = this.filtered.length;
     let loopIndex = int0;
     let lastLoopIndex = this.infiniteScrollNextItem + this.infiniteScrollPageSize;
-    if (lastLoopIndex >= lastIndex) {
+    if (lastLoopIndex > lastIndex) {
       lastLoopIndex = lastIndex;
     }
     for (loopIndex = startIndex; loopIndex < lastLoopIndex; loopIndex++) {

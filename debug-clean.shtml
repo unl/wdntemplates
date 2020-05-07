@@ -196,14 +196,12 @@
       </div>
     </div>
     <script src="http://wdntemplates.dxg-jsturek.unl.edu/wdn/templates_5.1/js/compressed/marching-order.js"></script>
-    <!--<script src="https://events-dev.unl.edu/motest/marching-order.js"></script>-->
     <script>
       var params = {
-        //dataFile: 'https://events-dev.unl.edu/motest/sample-data2.json',
-        dataFile: 'mo-data/sample-data2.json',
-        slidePath: 'https://events-dev.unl.edu/motest/Slides/',
-        audioPath: 'https://events-dev.unl.edu/motest/Audio/',
-        forceUniqueIDs: true,
+        dataFile: 'mo-data/mo-spring2020.json',
+        slidePath: 'http://wdntemplates.dxg-jsturek.unl.edu/mo-data/graduates/',
+        audioPath: 'mo-data/audio/',
+        forceUniqueIDs: false,
         withInfiniteScroll: true,
         infiniteScrollPageSize: 40
       }
