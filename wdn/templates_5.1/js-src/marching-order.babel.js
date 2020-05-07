@@ -26,8 +26,8 @@ class MarchingOrderItem {
   }
 
   getSlide() {
-    if (this.item.slideimage !== undefined) {
-      let image = this.item.slideimage.toUpperCase().replace('.JPG', '.jpg');
+    if (this.item.slideImage !== undefined) {
+      let image = this.item.slideImage.toUpperCase().replace('.JPG', '.jpg');
       return `${this.slidePath}${image}`;
     }
     return this.defaultSlide;
@@ -69,10 +69,10 @@ class MarchingOrder {
     this.list = document.getElementById('mo-list');
     this.currentId = null;
     this.infiniteScrollNextItem = 0;
+    this.data = [];
     this.filtered = [];
 
     this.setModalTrigger();
-    this.setFilterControls();
     this.loadData();
   }
 
@@ -128,6 +128,8 @@ class MarchingOrder {
           this.appendItem(item);
         });
       }
+
+      this.setFilterControls();
       this.filter();
 
       this.hideProgressBar();
@@ -151,11 +153,44 @@ class MarchingOrder {
       timeout = setTimeout(this.filter.bind(this), delay);
     });
 
+    // Build filter options
+    let collegeOptions = [];
+    let degreeOptions = [];
+    this.data.forEach((dataItem) => {
+      const item = new MarchingOrderItem(dataItem, this.getItemParams());
+      const college = item.getCollegeFilter();
+      const degree = item.getDegreeFilter();
+      if (!collegeOptions.includes(college)) {
+        collegeOptions.push(college);
+      }
+      if (!degreeOptions.includes(degree)) {
+        degreeOptions.push(degree);
+      }
+    });
+    collegeOptions.sort();
+    degreeOptions.sort();
+
     const collegeFilter = document.getElementById('filter-by-college');
     collegeFilter.addEventListener('change', () => this.filter());
+    this.appendDropdownOption(collegeFilter, '', 'Any College', true);
+    collegeOptions.forEach((college) =>
+      this.appendDropdownOption(collegeFilter, college, college, false));
 
     const degreeFilter = document.getElementById('filter-by-degree');
     degreeFilter.addEventListener('change', () => this.filter());
+    this.appendDropdownOption(degreeFilter, '', 'Any Degree', true);
+    degreeOptions.forEach((degree) =>
+      this.appendDropdownOption(degreeFilter, degree, degree, false));
+  }
+
+  appendDropdownOption(dropdown, value, label, selected) {
+    let option = document.createElement('OPTION');
+    option.setAttribute('value', value);
+    if (selected === true) {
+      option.setAttribute('selected', 'selected');
+    }
+    option.innerHTML = label;
+    dropdown.appendChild(option);
   }
 
   handleModalOpen() {

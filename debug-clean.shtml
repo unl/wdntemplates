@@ -113,18 +113,14 @@
         <div class="dcf-form-group">
           <label for="filter-by-college">Filter by College</label>
           <select class="" id="filter-by-college">
-            <option value="">All Colleges</option>
+            <!--<option value="">All Colleges</option>-->
             <!--
             <option value="needs-to-match-data">College of Agricultural Sciences &amp; Natural Resources</option>
             <option value="needs-to-match-data">College of Architecture</option>
-            -->
             <option value="College of Arts and Sciences">College of Arts and Sciences</option>
-            <!--
             <option value="needs-to-match-data">College of Business</option>
             <option value="needs-to-match-data">College of Education &amp; Human Sciences</option>
-            -->
             <option value="College of Engineering">College of Engineering</option>
-            <!--
             <option value="needs-to-match-data">Hixson-Lied College of Fine &amp; Performing Arts</option>
             <option value="needs-to-match-data">College of Journalism &amp; Mass Communications</option>
             <option value="needs-to-match-data">College of Law</option>
@@ -134,10 +130,12 @@
         <div class="dcf-form-group">
           <label for="filter-by-degree">Filter by Degree</label>
           <select class="" id="filter-by-degree">
+            <!--
             <option value="">All Degrees</option>
             <option value="Bachelor">Bachelor</option>
             <option value="Master">Master</option>
             <option value="Doctoral">Doctoral</option>
+          -->
           </select>
         </div>
         <div class="dcf-form-group">
@@ -198,7 +196,7 @@
     <script src="http://wdntemplates.dxg-jsturek.unl.edu/wdn/templates_5.1/js/compressed/marching-order.js"></script>
     <script>
       var params = {
-        dataFile: 'mo-data/mo-spring2020.json',
+        dataFile: 'mo-data/spring2020.json',
         slidePath: 'http://wdntemplates.dxg-jsturek.unl.edu/mo-data/graduates/',
         audioPath: 'mo-data/audio/',
         forceUniqueIDs: false,
