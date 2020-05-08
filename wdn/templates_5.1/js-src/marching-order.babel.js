@@ -148,9 +148,15 @@ class MarchingOrder {
       if (this.withInfiniteScroll) {
         // set up infinite scroll
         this.list.classList.add('dcf-overflow-y-scroll', 'dcf-h-max-100vh');
+        // delay on lookup
+        let timeout = null;
+        const delay = 1000;
         this.list.addEventListener('scroll', () => {
           if (this.list.scrollTop + this.list.clientHeight >= this.list.scrollHeight) {
-            this.updateInfiniteScroll();
+            if (timeout) {
+              clearTimeout(timeout);
+            }
+            timeout = setTimeout(this.updateInfiniteScroll.bind(this), delay);
           }
         });
       } else {
@@ -394,7 +400,7 @@ class MarchingOrder {
 
   filter() {
     const int0 = 0;
-    let searchTerm = new RegExp(document.getElementById('text-search').value, 'i');
+    let searchTerm = new RegExp(document.getElementById('text-search').value.trim().replace(/\s+/, '.*'), 'i');
     let collegeFilterValue = document.getElementById('filter-by-college').value;
     let degreeFilterValue = document.getElementById('filter-by-degree').value;
 
