@@ -61,7 +61,7 @@ class MarchingOrder {
     this.slidePath = 'slidePath' in params ? params.slidePath : '';
     this.audioPath = 'audioPath' in params ? params.audioPath : '';
     this.qaCheckData = 'qaCheckData' in params ? params.qaCheckData : false;
-    this.withInfiniteScroll = 'withInfiniteScroll' in params ? params.withInfiniteScroll : false;
+    this.withInfiniteScroll = 'withInfiniteScroll' in params ? params.withInfiniteScroll : true;
     this.infiniteScrollPageSize = 'infiniteScrollPageSize' in params ? params.infiniteScrollPageSize : defaultPageSize;
     this.forceUniqueIDs = 'forceUniqueIDs' in params ? params.forceUniqueIDs : false;
 
