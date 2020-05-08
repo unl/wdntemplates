@@ -199,6 +199,7 @@
         dataFile: 'mo-data/spring2020.json',
         slidePath: 'http://wdntemplates.dxg-jsturek.unl.edu/mo-data/graduates/',
         audioPath: 'mo-data/audio/',
+        qaCheckData: false,
         forceUniqueIDs: false,
         withInfiniteScroll: true,
         infiniteScrollPageSize: 40

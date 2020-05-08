@@ -60,6 +60,7 @@ class MarchingOrder {
     this.defaultSlide = 'defaultSlide' in params ? params.defaultSlide : '';
     this.slidePath = 'slidePath' in params ? params.slidePath : '';
     this.audioPath = 'audioPath' in params ? params.audioPath : '';
+    this.qaCheckData = 'qaCheckData' in params ? params.qaCheckData : false;
     this.withInfiniteScroll = 'withInfiniteScroll' in params ? params.withInfiniteScroll : false;
     this.infiniteScrollPageSize = 'infiniteScrollPageSize' in params ? params.infiniteScrollPageSize : defaultPageSize;
     this.forceUniqueIDs = 'forceUniqueIDs' in params ? params.forceUniqueIDs : false;
@@ -103,6 +104,33 @@ class MarchingOrder {
     this.infiniteScrollNextItem = nextIndex <= lastIndex ? nextIndex : lastIndex;
   }
 
+  checkFileExists(file, type, item) {
+    let myImage = new Image();
+    myImage.src = file;
+    const msg = `${type} 404 on ${file} for ${item.getDisplayName()} (${item.getId()})`;
+    myImage.onerror = () => console.log(msg); // eslint-disable-line no-console
+  }
+
+  qaData() {
+    this.data.forEach((dataItem) => {
+      const item = new MarchingOrderItem(dataItem, this.getItemParams());
+
+      // check for slide image
+      let slide = item.getSlide();
+      if (slide === '') {
+        console.log(`No slide for ${item.getDisplayName()} (${item.getId()})`); // eslint-disable-line no-console
+      } else {
+        this.checkFileExists(slide, 'Slide', item);
+      }
+
+      // check for audio file
+      let audio = item.getAudio();
+      if (!audio) {
+        console.log(`No audio for ${item.getDisplayName()} (${item.getId()})`); // eslint-disable-line no-console
+      }
+    });
+  }
+
   loadData() {
     this.showProgressBar();
 
@@ -111,6 +139,10 @@ class MarchingOrder {
 
       if (this.forceUniqueIDs) {
         this.assignDataUniqueIDs();
+      }
+
+      if (this.qaCheckData) {
+        this.qaData();
       }
 
       if (this.withInfiniteScroll) {
