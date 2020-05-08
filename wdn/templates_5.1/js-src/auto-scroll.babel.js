@@ -35,6 +35,18 @@ class AutoScroll {
       this.atScrollEnd = params.at_scroll_end;
     }
 
+    this.callback = '';
+    if (params && 'at_scroll_end' in params) {
+      this.callback = params.callback;
+    }
+
+    // disable in mobile
+    if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i).test(navigator.userAgent)) {
+      this.autoplay = false;
+      this.withControls = false;
+      this.userPaused = true;
+    }
+
     if (this.autoplay) {
       this.play();
     }
@@ -44,19 +56,19 @@ class AutoScroll {
     }
 
     // Listeners
-    let mouseoverPause = () => {
+    let eventPause = () => {
       if (!this.paused) {
         this.pause();
       }
     };
-    this.element.addEventListener('mouseover', mouseoverPause.bind(this), false);
+    this.element.addEventListener('mouseover', eventPause.bind(this), false);
 
-    let mouseooutPlay = () => {
+    let eventPlay = () => {
       if (this.paused && !this.userPaused) {
         this.play();
       }
     };
-    this.element.addEventListener('mouseout', mouseooutPlay.bind(this), false);
+    this.element.addEventListener('mouseout', eventPlay.bind(this), false);
   }
 
   addControls() {
@@ -115,6 +127,13 @@ class AutoScroll {
         this.reachedMaxScroll = this.element.scrollTop !== zeroInt;
         this.element.scrollTop = this.previousScrollTop;
         this.previousScrollTop--;
+        break;
+
+      case 'fire-callback':
+        this.callback(this);
+        break;
+
+      case 'stop':
         break;
 
       case 'startover':

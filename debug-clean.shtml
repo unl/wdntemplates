@@ -131,13 +131,13 @@
             alt="New students flow onto the field of Memorial Stadium during the annual Tunnel Walk.">\
         </div>';
 
-      for (var i=0; i<10; i++) {
+      for (var i=0; i<5; i++) {
         appendItem(scrollList1, sampleImage1);
       }
-      for (var i=0; i<20; i++) {
+      for (var i=0; i<5; i++) {
         appendItem(scrollList2, sampleImage1);
       }
-      for (var i=0; i<200; i++) {
+      for (var i=0; i<5; i++) {
         appendItem(scrollList3, sampleImage1);
       }
 
@@ -149,11 +149,52 @@
         list.appendChild(itemLI);
       }
 
+      var callback = function(scroll) { 
+        console.log('end of scroll');
+        scroll.previousScrollTop = 0;
+        scroll.reachedMaxScroll = false;
+        scroll.scroll();
+      }
+
       var scroll1 = new AutoScroll('scroll-list-1', { rate: 20, at_scroll_end: 'startover', autoplay: 'true' });
-      var scroll2 = new AutoScroll('scroll-list-2', { rate: 5, at_scroll_end: 'reverse', autoplay: 'false' });
-      var scroll3 = new AutoScroll('scroll-list-3', { rate: 10, at_scroll_end: 'reverse', autoplay: 'true',  with_controls: false});
+      var scroll2 = new AutoScroll('scroll-list-2', { rate: 5, at_scroll_end: 'startover', autoplay: 'false' });
+      var scroll3 = new AutoScroll('scroll-list-3', { rate: 10, at_scroll_end: 'startover', autoplay: 'true',  with_controls: false, callback: callback});
     </script>
 
+
+    <script>
+    var now = new Date(Date.now()); 
+    var eventOver = new Date("May 5 2020"); 
+    // check confetti every 3 seconds
+    var confettiCheckInterval = setInterval(confettiCheck, 3000);
+    // Drop if event over
+    if (now >= eventOver) {
+      dropConfetti();
+    } 
+
+    function confettiCheck() {
+      var xhr = new XMLHttpRequest();
+      // cache bust with current time
+      var checkUrl = 'confetti.json?cb=' + Date.now();
+      xhr.open('GET', checkUrl);
+      xhr.send();
+      xhr.onload = function(e) {
+        if (xhr.status === 200) {
+          var state = JSON.parse(xhr.responseText);
+          if (state.drop === true) {
+            dropConfetti()
+          }
+        }
+      }
+    }
+
+    function dropConfetti() {
+      console.log('drop the confetti!!');
+      clearInterval(confettiCheckInterval);
+    }
+
+    
+    </script>
 
     <!-- InstanceEndEditable -->
    </div>
