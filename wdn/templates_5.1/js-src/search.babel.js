@@ -40,7 +40,6 @@ define(['wdn', 'dcf-utility', 'dcf-modal'], function(WDN) {
           searchBtn.setAttribute('aria-expanded', 'false');
           searchBtn.setAttribute('aria-label', 'Open search');
           searchBtn.innerHTML = domMobileSearchLink.innerHTML;
-          domMobileSearchLink.innerHTML = '';
           mobileSearchBtn = searchBtn;
         }
       }
@@ -54,7 +53,6 @@ define(['wdn', 'dcf-utility', 'dcf-modal'], function(WDN) {
           searchBtn.setAttribute('aria-expanded', 'false');
           searchBtn.setAttribute('aria-label', 'Open search');
           searchBtn.innerHTML = domDesktopSearchLink.innerHTML;
-          domDesktopSearchLink.innerHTML = '';
 
           // Toggle mobile nav state on desktop open click
           searchBtn.addEventListener('click', function(e) {
