@@ -9,7 +9,18 @@ define([], function() {
       }
 
       let ctaNav = document.querySelector('.dcf-nav-global');
+      let ctaLinks = document.querySelectorAll('.dcf-nav-global-link');
       let ctaButtons = document.querySelectorAll('.dcf-nav-global-btn');
+
+      for (let i = 0; i < ctaLinks.length; i++) {
+        let ctaLink = ctaLinks[i];
+        ctaLink.setAttribute('hidden', '');
+      }
+
+      for (let i = 0; i < ctaButtons.length; i++) {
+        let ctaButton = ctaButtons[i];
+        ctaButton.removeAttribute('hidden');
+      }
 
       function onKeyUp(e) {
         if (e.keyCode === 27) {
