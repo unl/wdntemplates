@@ -24,7 +24,7 @@
   .dcf-nav-global-btn[aria-pressed="true"]::after {
     border-left: #{ms(-4)}em solid transparent;
     border-right: #{ms(-4)}em solid transparent;
-    border-bottom: #{ms(-4)}em solid rgba(0,0,0,.96);
+    border-bottom: #{ms(-4)}em solid rgba(36,36,35,.95);
     bottom: -1px;
     content: '';
     display: block;
@@ -33,12 +33,6 @@
     position: absolute;
     transform: translateX(-50%);
     @include w-2;
-
-    // If browser supports backdrop-filter, change arrow color to match options background
-    @supports (backdrop-filter: blur(6px)) {
-      border-bottom: #{ms(-4)}em solid rgba(0,0,0,.8);
-    }
-
   }
 
 
