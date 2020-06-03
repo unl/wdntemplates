@@ -19,6 +19,7 @@ module.exports = function (grunt) {
     'js-css/modals',
     'js-css/monthwidget',
     'js-css/notices',
+    'js-css/slideshows',
     'js-css/tabs',
     'js-css/unlalert',
     'plugins/ui/css/jquery-ui-wdn'
@@ -71,6 +72,7 @@ module.exports = function (grunt) {
     'modal',
     'monthwidget',
     'notice',
+    'slideshows',
     'tabs'
   ];
 
