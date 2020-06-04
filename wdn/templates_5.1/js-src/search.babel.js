@@ -233,6 +233,13 @@ define(['wdn', 'dcf-utility', 'dcf-modal'], function(WDN) {
         closeSearch();
       });
 
+      // Add an event listener for close search from search iframe
+      window.addEventListener("message", function(e) {
+        if (e.data === 'wdn.search.close') {
+          closeSearch();
+        }
+      }, false);
+
       // Add an event listener to support the iframe rendering
       domQ.addEventListener('keyup', function(e) {
         let keyCode = e.keyCode;
