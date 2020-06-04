@@ -6,6 +6,23 @@
 @import '../../scss/pre.tmp.scss';
 
 
+
+.unl .dcf-slide-deck {
+  clip-path: polygon(
+    100% 0px,
+    100% calc(100% - #{$size-btn-y} - (#{$border-width-button} * 2) - #{$size-clip-path}),
+    calc(100% - (#{$size-btn-x} * 2) - (#{$border-width-button} * 5) - #{$size-clip-path}) calc(100% - #{$size-btn-y} - (#{$border-width-button} * 2) - #{$size-clip-path}),
+    calc(100% - (#{$size-btn-x} * 2) - (#{$border-width-button} * 5) - #{$size-clip-path}) 100%,
+    calc(#{$size-btn-x} + (#{$border-width-button} * 2) + #{$size-clip-path}) 100%,
+    calc(#{$size-btn-x} + (#{$border-width-button} * 2) + #{$size-clip-path}) calc(100% + #{$size-clip-path}),
+    -3px calc(100% + #{$size-clip-path}),
+    -3px calc(100% - #{$size-btn-y} - (#{$border-width-button} * 2) - #{$size-clip-path}),
+    0px calc(100% - #{$size-btn-y} - (#{$border-width-button} * 2) - #{$size-clip-path}),
+    0px 0px
+  );
+}
+
+
 .unl .dcf-slide-caption[aria-hidden="true"] {
   opacity: 0;
   pointer-events: none;
@@ -23,9 +40,9 @@
 .unl .dcf-btn-slide-caption {
   background-color: $bg-color-btn-slide-caption-light-mode;
   border-color: $border-color-btn-slide-caption-light-mode;
-  bottom: 0;
+  bottom: #{$size-clip-path};
   color: $color-btn-slide-caption-light-mode;
-  left: 0;
+  left: #{$size-clip-path};
   position: absolute;
   z-index: 1;
 }
@@ -33,6 +50,7 @@
 
 .unl .dcf-slide-caption {
   background-color: $bg-color-slide-caption-light-mode;
+  clip-path: polygon(100% 0px, 100% 100%, calc((#{$size-clip-path} * 2) + (#{$border-width-button} * 2) + #{$size-btn-x}) 100%, calc((#{$size-clip-path} * 2) + (#{$border-width-button} * 2) + #{$size-btn-x}) calc(100% - (#{$size-clip-path} * 2) - (#{$border-width-button} * 2) - #{$size-btn-y}), 0px calc(100% - (#{$size-clip-path} * 2) - (#{$border-width-button} * 2) - #{$size-btn-y}), 0px 0px);
   color: $color-slide-caption-light-mode;
   height: 100%;
   left: 0;

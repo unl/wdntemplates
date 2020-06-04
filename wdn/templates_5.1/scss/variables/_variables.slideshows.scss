@@ -7,6 +7,7 @@
 @import '_variables.body';
 @import '_variables.borders';
 @import '_variables.colors';
+@import '_variables.modular-scale';
 @import '_variables.sizing';
 
 
@@ -33,6 +34,12 @@ $color-slide-caption-dark-mode: $color-inverse-dark-mode;           // Slide cap
 
 // Padding
 $padding-bottom-slide-caption: $length-em-4;                        // Padding-bottom of slide caption: 1em
-$padding-left-slide-caption: $length-em-4;                          // Padding-left of slide caption: 1em
-$padding-right-slide-caption: $length-em-4;                         // Padding-right of slide caption: 1em
+$padding-left-slide-caption: #{ms(1)}em;                            // Padding-left of slide caption: 1.13em
+$padding-right-slide-caption: #{ms(1)}em;                           // Padding-right of slide caption: 1.13em
 $padding-top-slide-caption: $length-em-4;                           // Padding-top of slide caption: 1em
+
+
+// Size
+$size-btn-x: 2.75rem;                                               // Size of button along x-axis
+$size-btn-y: 2.25rem;                                               // Size of button along y-axis
+$size-clip-path: 3px;                                               // Size of clip-path around buttons
