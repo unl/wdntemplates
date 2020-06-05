@@ -119,6 +119,82 @@
       <img class="dcf-d-block dcf-absolute" style="right: 0; top: 0; height: 100%; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 42.3% 100%) !important;" src="wdn/templates_5.1/images/170902-ne-asu-0878-lg-min.jpg" alt="#">
 -->
 
+    <h1>Slideshow Test</h1>
+    <div class="dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-9 unl-bg-lightest-gray">
+      <div class="dcf-grid dcf-mb-6">
+        <div class="dcf-col-100% dcf-col-33%-start@sm dcf-col-50%-start@lg">
+          <div class="dcf-slideshow" role="region" aria-label="test slideshow one" tabindex="0">
+            <ul>
+              <!-- Slide 1 -->
+              <li>
+                <figure>
+                  <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+                    <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.1/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+                  </div>
+                  <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                </figure>
+              </li>
+              <!-- Slide 2 -->
+              <li>
+                <figure>
+                  <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+                    <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.1/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+
+                  </div>
+                  <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                </figure>
+              </li>
+              <!--Slide 3 with no figcaption-->
+              <li>
+                <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+                  <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.1/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="dcf-grid">
+        <div class="dcf-col-100% dcf-col-33%-start@sm dcf-col-50%-start@lg">
+          <div class="dcf-slideshow" data-fade role="region" aria-label="test slideshow two" tabindex="0">
+            <ul>
+              <!-- Slide 1 -->
+              <li>
+                <figure>
+                  <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+                    <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.1/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+
+                  </div>
+                  <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                </figure>
+              </li>
+              <!-- Slide 2 -->
+              <li>
+                <figure>
+                  <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+                    <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.1/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+                  </div>
+                  <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                </figure>
+              </li>
+              <!--Slide 3 with no figcaption-->
+              <li>
+                <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+                  <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.1/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <script>
+        window.addEventListener('inlineJSReady', function() {
+          WDN.initializePlugin('slideshows');
+        }, false);
+      </script>
+
       <div class="dcf-pb-8 dcf-w-max-md">
   <!--     <h2>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park.</h2> -->
         <p class="dcf-txt-lg">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
