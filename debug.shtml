@@ -38,13 +38,19 @@
     <!--#include virtual="/wdn/templates_5.1/includes/global/header-global-1.html" -->
     <!--#include virtual="/wdn/templates_5.1/includes/global/nav-global-1.html" -->
     <!--#include virtual="/wdn/templates_5.1/includes/global/visit-global-1.html" -->
+    <!-- InstanceBeginEditable name="headervisit" -->
     <!--#include virtual="/wdn/templates_5.1/includes/local/visit-local.html" -->
+        <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.1/includes/global/visit-global-2.html" -->
     <!--#include virtual="/wdn/templates_5.1/includes/global/apply-global-1.html" -->
+    <!-- InstanceBeginEditable name="headerapply" -->
     <!--#include virtual="/wdn/templates_5.1/includes/local/apply-local.html" -->
+    <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.1/includes/global/apply-global-2.html" -->
     <!--#include virtual="/wdn/templates_5.1/includes/global/give-global-1.html" -->
+    <!-- InstanceBeginEditable name="headergive" -->
     <!--#include virtual="/wdn/templates_5.1/includes/local/give-local.html" -->
+    <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.1/includes/global/give-global-2.html" -->
     <!--#include virtual="/wdn/templates_5.1/includes/global/nav-global-2.html" -->
     <!--#include virtual="/wdn/templates_5.1/includes/global/idm.html" -->
@@ -71,6 +77,23 @@
     <!-- InstanceBeginEditable name="navlinks" -->
     <!--#include virtual="/wdn/templates_5.1/includes/local/nav-local.html" -->
     <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.1/includes/global/nav-global-1.html" -->
+    <!--#include virtual="/wdn/templates_5.1/includes/global/visit-global-1.html" -->
+    <!-- InstanceBeginEditable name="navvisit" -->
+    <!--#include virtual="/wdn/templates_5.1/includes/local/visit-local.html" -->
+        <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.1/includes/global/visit-global-2.html" -->
+    <!--#include virtual="/wdn/templates_5.1/includes/global/apply-global-1.html" -->
+    <!-- InstanceBeginEditable name="navapply" -->
+    <!--#include virtual="/wdn/templates_5.1/includes/local/apply-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.1/includes/global/apply-global-2.html" -->
+    <!--#include virtual="/wdn/templates_5.1/includes/global/give-global-1.html" -->
+    <!-- InstanceBeginEditable name="navgive" -->
+    <!--#include virtual="/wdn/templates_5.1/includes/local/give-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.1/includes/global/give-global-2.html" -->
+    <!--#include virtual="/wdn/templates_5.1/includes/global/nav-global-2.html" -->
     <!--#include virtual="/wdn/templates_5.1/includes/global/nav-menu-child-2.html" -->
     <!--#include virtual="/wdn/templates_5.1/includes/global/nav-menu-2.html" -->
   </header>
