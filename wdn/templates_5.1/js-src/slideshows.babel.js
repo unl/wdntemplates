@@ -55,11 +55,11 @@ require(['dcf-utility', 'dcf-slideshow', 'css!js-css/slideshows'], () => {
 
   Array.prototype.forEach.call(slideshows, (slideshow) => {
     // Slideshow Controls
-    let ctrlGroup = slideshow.querySelector('[aria-label = "slideshow controls"]'); // DCF
+    let ctrlGroup = slideshow.querySelector('.slide-show-control'); // DCF
     let ctrls = ctrlGroup.querySelectorAll('li');
 
     Array.prototype.forEach.call(ctrls, (ctrl) => {
-      if (ctrl.getAttribute('id') === 'previous') {
+      if (ctrl.classList.contains('slide-prev-btn')) {
         let ctrlButton = ctrl.querySelector('button');
         ctrlButton.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'dcf-inverse');
         ctrlButton.innerHTML =
@@ -67,7 +67,7 @@ require(['dcf-utility', 'dcf-slideshow', 'css!js-css/slideshows'], () => {
           '<path d="M21.746.064a.504.504 0 0 0-.504.008l-19 11.5a.499.499 0 0 0-.001.856l19' +
           ' 11.5A.501.501 0 0 0 22 23.5V.5a.5.5 0 0 0-.254-.436z"></path>' +
           '</svg>';
-      } else if (ctrl.getAttribute('id') === 'next') {
+      } else if (ctrl.classList.contains('slide-next-btn')) {
         let ctrlButton = ctrl.querySelector('button');
         ctrlButton.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'dcf-inverse');
         ctrlButton.innerHTML =
