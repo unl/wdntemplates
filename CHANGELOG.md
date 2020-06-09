@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.1.3 (May 7, 2020)
+- Remove scroll to top from displayWDNNoticeBannerMessage so it doesn't interfere with anchor links
+
+## 5.1.2 (May 3, 2020)
+- Liberator font added
+- New secondary colors
+- IDM Javascript changes
+
 ## 5.1.1 (April 3, 2020)
 - Button fixes in visited state
 
