@@ -14,7 +14,7 @@
 }
 
 
-.unl .dcf-nav-local > ul {
+.unl .dcf-nav-local > ul:first-child {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(#{ms(15)}em, 1fr));
 }
@@ -34,7 +34,7 @@
 @include mq(md, max, width) {
 
   .unl .dcf-nav-local > ul {
-    grid-gap: $length-em-7 $length-vw-1;
+    grid-gap: $length-em-6 $length-vw-1;
   }
 
 
@@ -52,7 +52,7 @@
 
 @include mq(sm, min, width) {
 
-  .unl .dcf-nav-local > ul {
+  .unl .dcf-nav-local > ul:first-child {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -61,7 +61,7 @@
 
 @include mq(md, min, width) {
 
-  .unl .dcf-nav-local > ul {
+  .unl .dcf-nav-local > ul:first-child {
     grid-template-columns: repeat(6, 1fr);
     overflow: hidden;
     width: 100%;
