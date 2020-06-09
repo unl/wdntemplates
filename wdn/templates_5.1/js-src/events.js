@@ -70,21 +70,23 @@ define([
         location =  '<div class="unl-event-location dcf-txt-xs dcf-pt-1 unl-font-sans unl-dark-gray">';
         if (event.Locations[0].MapLinks[0]) {
           location += '<a class="dcf-txt-decor-hover unl-dark-gray" href="'+ event.Locations[0].MapLinks[0] +'">';
+        } else if (event.Locations[0].WebPages[0].URL) {
+          location += '<a class="dcf-txt-decor-hover unl-dark-gray" href="'+ event.Locations[0].WebPages[0].URL +'">';
         }
         location += event.Locations[0].Address.BuildingName
-        if (event.Locations[0].MapLinks[0]) {
+        if (event.Locations[0].MapLinks[0] || event.Locations[0].WebPages[0].URL) {
           location += '</a>';
         }
 
         if (config.rooms) {
           if (event.Room) {
-                      var room = event.Room;
-                      if (room.match(/^room /i)) {
-                          room = room.substring(5);
-                      }
-                      location = location + '<br>Room: ' + room;
-                  }
-              }
+            var room = event.Room;
+            if (room.match(/^room /i)) {
+              room = room.substring(5);
+            }
+            location = location + '<br>Room: ' + room;
+          }
+        }
 
         location += '</span>';
       }

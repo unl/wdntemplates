@@ -55,18 +55,18 @@ require(['dcf-utility', 'dcf-slideshow', 'css!js-css/slideshows'], () => {
 
   Array.prototype.forEach.call(slideshows, (slideshow) => {
     // Slideshow Controls
-    let ctrlGroup = slideshow.querySelector('[aria-label = "slideshow controls"]'); // DCF
+    let ctrlGroup = slideshow.querySelector('.dcf-slideshow-controls'); // DCF
     let ctrls = ctrlGroup.querySelectorAll('li');
 
     Array.prototype.forEach.call(ctrls, (ctrl) => {
-      if (ctrl.getAttribute('id') === 'previous') {
+      if (ctrl.classList.contains('dcf-li-slide-prev')) {
         let ctrlButton = ctrl.querySelector('button');
         ctrlButton.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'dcf-inverse');
         ctrlButton.innerHTML =
           '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">' +
           '<path d="M23.509 9.856c-.38-.55-.928-.852-1.542-.852H9.74l4.311-4.151c.995-.994.961-2.646-.074-3.682-1.001-1-2.722-1.033-3.68-.077L.148 11.144a.5.5 0 00-.003.707l9.978 10.079a2.445 2.445 0 001.737.705c.707 0 1.407-.294 1.92-.806a2.737 2.737 0 00.807-1.923 2.431 2.431 0 00-.708-1.733l-4.156-4.16h12.276c.618 0 1.161-.302 1.53-.851.304-.451.471-1.041.471-1.658 0-.596-.179-1.196-.491-1.648z"></path>' +
           '</svg>';
-      } else if (ctrl.getAttribute('id') === 'next') {
+      } else if (ctrl.classList.contains('dcf-li-slide-next')) {
         let ctrlButton = ctrl.querySelector('button');
         ctrlButton.classList.add('dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'dcf-inverse');
         ctrlButton.innerHTML =

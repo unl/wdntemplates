@@ -123,7 +123,7 @@
     <div class="dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-9 unl-bg-lightest-gray">
       <div class="dcf-grid dcf-mb-6">
         <div class="dcf-col-100% dcf-col-33%-start@sm dcf-col-50%-start@lg">
-          <div class="dcf-slideshow" role="region" aria-label="slideshow" tabindex="0">
+          <div class="dcf-slideshow" role="region" aria-label="test slideshow one" tabindex="0">
             <ul>
               <!-- Slide 1 -->
               <li>
@@ -156,7 +156,7 @@
       </div>
       <div class="dcf-grid">
         <div class="dcf-col-100% dcf-col-33%-start@sm dcf-col-50%-start@lg">
-          <div class="dcf-slideshow" data-fade role="region" aria-label="slideshow" tabindex="0">
+          <div class="dcf-slideshow" data-fade role="region" aria-label="test slideshow two" tabindex="0">
             <ul>
               <!-- Slide 1 -->
               <li>
