@@ -8,33 +8,26 @@ define([], function() {
         return;
       }
 
-      let ctaNav = document.querySelector('.dcf-cta');
+      let ctaHeader = document.querySelector('.dcf-cta-header');
       let ctaLinks = document.querySelectorAll('.dcf-link-cta');
       let ctaButtons = document.querySelectorAll('.dcf-btn-toggle-cta');
       let ctaLists = document.querySelectorAll('.dcf-list-cta');
 
-      for (let i = 0; i < ctaLinks.length; i++) {
-        let ctaLink = ctaLinks[i];
-        ctaLink.setAttribute('hidden', '');
-      }
-
-      if (window.matchMedia('(max-width: 56.12em)').matches) {
-
-        for (let i = 0; i < ctaLists.length; i++) {
-          let ctaList = ctaLists[i];
-          ctaList.removeAttribute('aria-expanded');
-          ctaList.removeAttribute('hidden');
-        }
-
-      }
-
       if (window.matchMedia('(min-width: 56.12em)').matches) {
 
+        // Remove fallback links
+        for (let i = 0; i < ctaLinks.length; i++) {
+          let ctaLink = ctaLinks[i];
+          ctaLink.setAttribute('hidden', '');
+        }
+
+        // Show buttons (instead of fallback links) to toggle display of options popovers
         for (let i = 0; i < ctaButtons.length; i++) {
           let ctaButton = ctaButtons[i];
           ctaButton.removeAttribute('hidden');
         }
 
+        // Close all popovers when Esc key is pressed
         function onKeyUp(e) {
           if (e.keyCode === 27) {
             closeAllPopovers();
@@ -90,7 +83,7 @@ define([], function() {
         }
 
         // Close all CTA Popovers when mouseleave CTA nav or open popovers
-        ctaNav.addEventListener('mouseleave', closeAllPopovers);
+        ctaHeader.addEventListener('mouseleave', closeAllPopovers);
 
         // Set events for each button in CTA nav
         for (let i = 0; i < ctaButtons.length; i++) {
