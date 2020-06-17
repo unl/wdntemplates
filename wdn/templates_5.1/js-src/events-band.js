@@ -68,23 +68,31 @@ define([
           time = '';
           ampm = '';
         }
+
         var location = '';
 
-        if (event.Locations[0] && event.Locations[0].Address.BuildingName) {
-          location = event.Locations[0].Address.BuildingName;
-        }
-
-        if (localConfig.rooms) {
-          if (event.Room) {
-            var room = event.Room;
-            if (room.match(/^room /i)) {
-              room = room.substring(5);
-            }
-            if (location != '') {
-              location = location + '<br>';
-            }
-            location = location + 'Room: ' + room;
+        if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {
+          if (event.Locations[0].MapLinks[0]) {
+            location += '<a class="dcf-txt-decor-hover unl-dark-gray" href="'+ event.Locations[0].MapLinks[0] +'">';
+          } else if (event.Locations[0].WebPages[0].URL) {
+            location += '<a class="dcf-txt-decor-hover unl-dark-gray" href="'+ event.Locations[0].WebPages[0].URL +'">';
           }
+          location += event.Locations[0].Address.BuildingName
+          if (event.Locations[0].MapLinks[0] || event.Locations[0].WebPages[0].URL) {
+            location += '</a>';
+          }
+
+          if (localConfig.rooms) {
+            if (event.Room) {
+              var room = event.Room;
+              if (room.match(/^room /i)) {
+                room = room.substring(5);
+              }
+              location = location + '<br>Room: ' + room;
+            }
+          }
+
+          location += '</span>';
         }
 
         var eventURL = '';
