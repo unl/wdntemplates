@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.1.4 (June 16, 2020)
+- New Slideshow feature
+- Update jQuery to 3.5.1
+
 ## 5.1.3 (May 7, 2020)
 - Remove scroll to top from displayWDNNoticeBannerMessage so it doesn't interfere with anchor links
 
