@@ -98,7 +98,7 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 //   line-height: 1.15;
-  font-family: Mercury SSm A,Mercury SSm B,Georgia,serif;
+  font-family: Gotham SSm A,Gotham SSm B,Verdana,sans-serif;
   font-style: normal;
   font-weight: 400;
 }
@@ -388,7 +388,6 @@ a.dcf-btn-secondary {
 // }
 .unl .dcf-breadcrumbs {
   font-size: .63em;
-  font-family: Gotham SSm A,Gotham SSm B,Verdana,sans-serif;
 }
 .unl .dcf-breadcrumbs ol {
   display: flex;
@@ -416,7 +415,6 @@ a.dcf-btn-secondary {
   border-radius: 0;
   border-style: solid;
   border-width: 2px;
-  font-family: Gotham SSm A,Gotham SSm B,Verdana,sans-serif;
   font-size: .75em;
   font-weight: 700;
   letter-spacing: .1em;
@@ -476,7 +474,6 @@ a.dcf-btn-secondary {
 .unl h1,
 .unl h2,
 .unl h3 {
-  font-family: Gotham SSm A,Gotham SSm B,Verdana,sans-serif;
   font-weight: 700;
   letter-spacing: -.03em;
   margin-left: -.03em;
@@ -1816,12 +1813,12 @@ a.unl-cream:link {
 // .unl-darkest-gray {
 //     color: #242423!important;
 // }
-// .unl-font-serif {
-//     font-family: Mercury SSm A,Mercury SSm B,Georgia,serif!important;
-// }
-.unl-font-sans {
-  font-family: Gotham SSm A,Gotham SSm B,Verdana,sans-serif!important;
+.unl-font-serif {
+    font-family: Mercury SSm A,Mercury SSm B,Georgia,serif!important;
 }
+// .unl-font-sans {
+//   font-family: Gotham SSm A,Gotham SSm B,Verdana,sans-serif!important;
+// }
 // .unl .dcf-txt-base {
 //     font-size: 1rem!important;
 // }
