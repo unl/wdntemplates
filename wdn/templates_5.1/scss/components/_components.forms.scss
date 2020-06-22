@@ -4,20 +4,6 @@
 
 
 // Legend, Label, Inputs
-.unl .dcf-form,
-.unl .dcf-input-text,
-.unl .dcf-form input:not([type="submit"]),
-.unl .dcf-form textarea {
-  @include font-sans;
-}
-
-
-.unl .dcf-required,
-.unl .dcf-form-help {
-  @include font-serif;
-}
-
-
 .unl .dcf-input-text:hover, // TODO: deprecate?
 .unl .dcf-form input:not([type="submit"]):hover,
 .unl .dcf-form textarea:hover,
