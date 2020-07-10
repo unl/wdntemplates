@@ -3,14 +3,14 @@
 /////////////////////////////
 
 
-@import '_variables.colors';
+@import '_variables.color-palette';
 @import '_variables.borders';
 @import '_variables.modular-scale';
 
 
 // Background color
 $bg-color-table-stripe-light-mode: $lightest-gray;          // Background-color of table stripes in light mode
-$bg-color-table-stripe-dark-mode: $darker-gray;             // Background-color of table stripes in dark mode
+$bg-color-table-stripe-dark-mode: $darkest-gray;            // Background-color of table stripes in dark mode
 
 
 // Border color

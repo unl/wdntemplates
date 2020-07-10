@@ -3,22 +3,22 @@
 //////////////////////////////
 
 
-@import '_variables.colors';
+@import '_variables.color-palette';
 @import '_variables.body';
 
 
 // Color
 $color-link-light-mode: $color-brand-alpha;                       // Link color in light mode
-$color-link-dark-mode: $color-brand-alpha;                        // Link color in dark mode
+$color-link-dark-mode: $lightest-gray;                            // Link color in dark mode
 
 $color-visited-light-mode: darken($color-link-light-mode, 10%);   // TODO: finalize state colors for theme
-$color-visited-dark-mode: darken($color-link-light-mode, 10%);    // TODO: finalize state colors for theme
+$color-visited-dark-mode: $lightest-gray;                         // TODO: finalize state colors for theme
 
 $color-hover-light-mode: darken($color-link-light-mode, 10%);     // TODO: finalize state colors for theme
-$color-hover-dark-mode: darken($color-link-light-mode, 10%);      // TODO: finalize state colors for theme
+$color-hover-dark-mode: $white;                                   // TODO: finalize state colors for theme
 
 $color-active-light-mode: darken($color-link-light-mode, 10%);    // TODO: finalize state colors for theme
-$color-active-dark-mode: darken($color-link-light-mode, 10%);     // TODO: finalize state colors for theme
+$color-active-dark-mode: $white;                                  // TODO: finalize state colors for theme
 
 $color-inverse-link-light-mode: $bg-color-body-light-mode;
 $color-inverse-link-dark-mode: $bg-color-body-dark-mode;

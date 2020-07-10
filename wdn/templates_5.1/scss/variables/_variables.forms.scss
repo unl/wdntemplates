@@ -5,23 +5,28 @@
 
 @import '_variables.body';
 @import '_variables.borders';
-@import '_variables.colors';
+@import '_variables.color-palette';
 @import '_variables.modular-scale';
 @import '_variables.sizing';
 
 
+// Background color
+$bg-color-input-light-mode: $white;                             // Field background color in light mode
+$bg-color-input-dark-mode: $black;                              // Field background color in dark mode
+
+
 // Border color
 $border-color-fieldset-light-mode: $light-gray;                 // Fieldset border-color in light mode
-$border-color-fieldset-dark-mode: $light-gray;                  // Fieldset border-color in dark mode
+$border-color-fieldset-dark-mode: $darker-gray;                 // Fieldset border-color in dark mode
 
 $border-color-input-light-mode: $gray;	                        // Input field border-color in light mode
-$border-color-input-dark-mode: $gray;                           // Input field border-color in dark mode
+$border-color-input-dark-mode: $dark-gray;                      // Input field border-color in dark mode
 
 $border-color-input-hover-light-mode: $gray;                    // Input field border-color when hovered in light mode
 $border-color-input-hover-dark-mode: $gray;                     // Input field border-color when hovered in dark mode
 
 $border-color-input-focus-light-mode: $color-brand-alpha;       // Input field border-color when focused in light mode
-$border-color-input-focus-dark-mode: $color-brand-alpha;        // Input field border-color when focused in dark mode
+$border-color-input-focus-dark-mode: $cream;                    // Input field border-color when focused in dark mode
 
 
 // Border radius

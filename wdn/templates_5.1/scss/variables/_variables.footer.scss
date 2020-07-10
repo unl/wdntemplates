@@ -3,12 +3,12 @@
 /////////////////////////////
 
 
-@import '_variables.colors';
+@import '_variables.color-palette';
 
 
 // Background color
 $bg-color-footer-light-mode: $scarlet;          // Background-color of footer in light mode
-$bg-color-footer-dark-mode: $scarlet;           // Background-color of footer in dark mode
+$bg-color-footer-dark-mode: $black;             // Background-color of footer in dark mode
 
 
 // Color
