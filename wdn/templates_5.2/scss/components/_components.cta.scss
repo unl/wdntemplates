@@ -10,22 +10,15 @@
 }
 
 
-.unl .dcf-nav-menu .dcf-cta {
+.unl .dcf-cta-nav {
   display: grid;
 }
 
 
 @include mq(md, max, width) {
 
-  .unl .dcf-header-global .dcf-cta {
+  .unl .dcf-cta-header {
     display: none;
-  }
-
-
-  .unl .dcf-nav-menu .dcf-cta {
-    border-top: 1px solid $cream;
-    @include mt-6;
-    @include pt-6;
   }
 
 }
@@ -33,7 +26,7 @@
 
 @media (min-width: #{ms(24)}em) {
 
-  .unl .dcf-nav-menu .dcf-cta {
+  .unl .dcf-cta-nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -44,22 +37,14 @@
 
 @include mq(md, min, width) {
 
-  .unl .dcf-nav-menu .dcf-cta {
+  .unl .dcf-cta-nav {
     display: none;
   }
 
 
-  .unl .dcf-header-global .dcf-cta {
+  .unl .dcf-cta-header {
     display: flex;
     flex-grow: 3;
-    @include txt-2xs;
-    justify-content: flex-end;
-    margin-bottom: 0;
-  }
-
-
-  .unl .dcf-header-global .dcf-cta > li {
-    margin-bottom: 0;
   }
 
 
@@ -80,13 +65,9 @@
 
 
   .unl .dcf-list-cta {
-    @include bg-overlay-dark;
     box-shadow: 0 1px 2px rgba(0,0,0,.5), 0 1px 10px rgba(0,0,0,.25);
     left: calc(#{ms(0)}em - #{ms(4)}em);
-    margin-bottom: 0;
     min-width: #{ms(20)}em;
-    @include p-6;
-    position: absolute;
     top: 100%;
     z-index: 999; // Ensure that the popover has a higher z-index than the local navigation
   }

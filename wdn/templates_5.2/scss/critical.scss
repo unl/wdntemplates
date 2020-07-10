@@ -1915,7 +1915,7 @@ a.unl-cream:link {
     visibility: hidden;
   }
   .unl .dcf-header .dcf-institution-title,
-  .unl .dcf-header-global .dcf-cta,
+  .unl .dcf-cta-header,
   .unl .dcf-idm-toggle,
   .unl .dcf-search-toggle-wrapper {
     display: none;
@@ -1951,7 +1951,7 @@ a.unl-cream:link {
   .unl .dcf-header-global-item {
     margin-left: 3.16vw;
   }
-  .unl .dcf-header-global .dcf-cta {
+  .unl .dcf-cta-header {
     display: flex;
     flex-grow: 3;
     font-size: .63em;
@@ -2026,7 +2026,7 @@ a.unl-cream:link {
     font-size: 2.37em!important;
   }
   .unl .dcf-nav-toggle-group,
-  .unl .dcf-nav-menu .dcf-cta {
+  .unl .dcf-cta-nav {
     display: none;
   }
 }
