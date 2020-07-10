@@ -549,8 +549,8 @@ a.dcf-btn-secondary {
 .unl .dcf-nav-local a:link {
   color: #fefdfa;
 }
-.unl .dcf-nav-local > ul:first-child {
-  display: grid;
+.unl .dcf-nav-local > ul {
+  display: flex;
 }
 .unl .dcf-nav-menu li {
   margin-bottom: 0;
@@ -1074,10 +1074,6 @@ a.dcf-btn-secondary {
 // .dcf-w-max-100vw {
 //     max-width: 100vw!important;
 // }
-.dcf-list-bare {
-  list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
-  padding-left: 0;
-}
 // .dcf-m-auto {
 //     margin: auto!important !important;
 // }
@@ -1991,7 +1987,6 @@ a.unl-cream:link {
     visibility: hidden;
   }
   .unl .dcf-header .dcf-institution-title,
-  .unl .dcf-cta-header,
   .unl .dcf-idm-toggle,
   .unl .dcf-search-toggle-wrapper {
     display: none;
@@ -2024,12 +2019,11 @@ a.unl-cream:link {
     border-bottom: 1px solid #e3e3e2;
     padding-top: .18em;
   }
+  .unl .dcf-nav-global {
+    flex-grow: 3;
+  }
   .unl .dcf-header-global-item {
     margin-left: 3.16vw;
-  }
-  .unl .dcf-cta-header {
-    display: flex;
-    flex-grow: 3;
   }
   .unl .dcf-logo-lockup {
     padding-bottom: 1.13em;
@@ -2041,10 +2035,12 @@ a.unl-cream:link {
   .unl .dcf-idm-img {
     fill: #e3e3e2;
   }
-  .unl .dcf-nav-local > ul:first-child {
-    grid-template-columns: repeat(6, 1fr);
+  .unl .dcf-nav-local > ul {
     overflow: hidden;
     width: 100%;
+  }
+  .unl .dcf-nav-local > ul > li {
+    flex-basis: 16.67%;
   }
 //   .unl .dcf-nav-local > ul > li {
 //     position: relative;
@@ -2073,6 +2069,9 @@ a.unl-cream:link {
   .unl .dcf-nav-menu button {
     font-size: .75em;
   }
+  .unl .dcf-nav-toggle-group {
+    display: none;
+  }
   .unl .dcf-search {
     max-width: 13.32em;
   }
@@ -2097,10 +2096,6 @@ a.unl-cream:link {
   }
   .unl .dcf-txt-h1 {
     font-size: 2.37em!important;
-  }
-  .unl .dcf-nav-toggle-group,
-  .unl .dcf-cta-nav {
-    display: none;
   }
 }
 .dcf-modal-overlay[aria-hidden=true] {
