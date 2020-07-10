@@ -23,7 +23,8 @@
 @import "variables/_variables.buttons";
 @import "variables/_variables.cards";
 @import "variables/_variables.code";
-@import "variables/_variables.colors";
+@import "variables/_variables.color-palette";
+@import "variables/_variables.colors-text";
 @import "variables/_variables.details-summary";
 @import "variables/_variables.easing";
 @import "variables/_variables.figures";
@@ -96,7 +97,6 @@
 // Deprecated
 @import "deprecated/deprecated.bands";
 @import "deprecated/deprecated.columns";
-@import "deprecated/deprecated.figures";
 @import "deprecated/deprecated.forms";
 @import "deprecated/deprecated.grid";
 @import "deprecated/deprecated.helpers";

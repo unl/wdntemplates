@@ -83,8 +83,23 @@ template {
   box-sizing: border-box;
 }
 :root {
+  color-scheme: light dark;
   font-size: 1em;
   line-height: 1.5;
+  --bg-body: #{$bg-color-body-light-mode};
+  --b-breadcrumb-arrow: #{$breadcrumb-arrow-color-light-mode};
+  --body: #{$color-body-light-mode};
+  --heading: #{$color-heading-light-mode};
+  --link: #{$color-link-light-mode};
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-body: #{$bg-color-body-dark-mode};
+    --b-breadcrumb-arrow: #{$breadcrumb-arrow-color-dark-mode};
+    --body: #{$color-body-dark-mode};
+    --heading: #{$color-heading-dark-mode};
+    --link: #{$color-link-dark-mode};
+  }
 }
 @media screen and (min-width:31.57em) {
   :root {
@@ -102,11 +117,11 @@ template {
 // }
 a,
 a:link {
-  color: #d00000;
+  color: var(--link);
 }
 body {
-  background-color: #fefdfa;
-  color: #424240;
+  background-color: var(--bg-body);
+  color: var(--body);
   margin: 0;
   overflow-x: hidden;
 }
@@ -135,7 +150,7 @@ h3 {
 h1,
 h2,
 h3 {
-  color: #242423;
+  color: var(--heading);
   line-height: 1.13;
   margin-bottom: 1rem;
   margin-top: 0;
@@ -331,7 +346,7 @@ a.dcf-btn-secondary {
 }
 .unl .dcf-breadcrumbs li:not(:last-child)::after {
   border-bottom: .32em solid transparent;
-  border-left: .32em solid #c7c8ca;
+  border-left: .32em solid var(--b-breadcrumb-arrow);
   border-top: .32em solid transparent;
   content: "";
   margin-left: .56em;
