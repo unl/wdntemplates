@@ -1,0 +1,20 @@
+///////////////////////////////////////
+// THEME / ELEMENTS / DETAILS & SUMMARY
+///////////////////////////////////////
+
+
+.unl details {
+  border-top: 1px solid $light-gray;
+}
+
+
+.unl details:last-of-type {
+  border-bottom: 1px solid $light-gray;
+}
+
+
+.unl summary {
+  @include font-sans;
+  @include ls-h;
+  @include lh-3;
+}

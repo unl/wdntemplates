@@ -1,0 +1,104 @@
+//////////////////////////////
+// THEME / VARIABLES / BUTTONS
+//////////////////////////////
+
+
+@import '_variables.anchors';
+@import '_variables.borders';
+@import '_variables.modular-scale';
+@import '_variables.sizing';
+
+
+// Background color
+$bg-color-button-primary-light-mode: $color-link-light-mode;              // Background-color for primary button in light mode
+$bg-color-button-primary-dark-mode: $color-link-light-mode;               // Background-color for primary button in dark mode
+
+$bg-color-button-secondary-light-mode: $bg-color-body-light-mode;         // Background-color for secondary button in light mode
+$bg-color-button-secondary-dark-mode: $bg-color-body-dark-mode;           // Background-color for secondary button in dark mode
+
+$bg-color-button-tertiary-light-mode: transparent;                        // Background-color for tertiary button in light mode
+$bg-color-button-tertiary-dark-mode: transparent;                         // Background-color for tertiary button in dark mode
+
+$bg-color-button-inverse-primary-light-mode: $bg-color-body-light-mode;   // Background-color for inverse primary button in light mode
+$bg-color-button-inverse-primary-dark-mode: $bg-color-body-dark-mode;     // Background-color for inverse primary button in dark mode
+
+$bg-color-button-inverse-secondary-light-mode: transparent;               // Background-color for inverse secondary button in light mode
+$bg-color-button-inverse-secondary-dark-mode: transparent;	              // Background-color for inverse secondary button in dark mode
+
+$bg-color-button-inverse-tertiary-light-mode: transparent;                // Background-color for inverse tertiary button in light mode
+$bg-color-button-inverse-tertiary-dark-mode: transparent;                 // Background-color for inverse tertiary button in dark mode
+
+
+// Border radius
+$border-radius-button-roundrect: false;                                   // Button border-radius roundrect? True/false
+
+
+// Border color
+$border-color-button-primary-light-mode: $bg-color-button-primary-light-mode;                 // Border-color for primary button in light mode
+$border-color-button-primary-dark-mode: $bg-color-button-primary-dark-mode;                   // Border-color for primary button in dark mode
+
+$border-color-button-secondary-light-mode: currentColor;                                      // Border-color for secondary button in light mode
+$border-color-button-secondary-dark-mode: currentColor;                                       // Border-color for secondary button in dark mode
+
+$border-color-button-tertiary-light-mode: transparent;                                        // Border-color for tertiary button in light mode
+$border-color-button-tertiary-dark-mode: transparent;                                         // Border-color for tertiary button in dark mode
+
+$border-color-button-inverse-primary-light-mode: $bg-color-button-inverse-primary-light-mode; // Border-color for inverse primary button in light mode
+$border-color-button-inverse-primary-dark-mode: $bg-color-button-inverse-primary-dark-mode;   // Border-color for inverse primary button in dark mode
+
+$border-color-button-inverse-secondary-light-mode: currentColor;                              // Border-color for inverse secondary button in light mode
+$border-color-button-inverse-secondary-dark-mode: currentColor;                               // Border-color for inverse secondary button in dark mode
+
+$border-color-button-inverse-tertiary-light-mode: transparent;                                // Border-color for inverse tertiary button in light mode
+$border-color-button-inverse-tertiary-dark-mode: transparent;                                 // Border-color for inverse tertiary button in dark mode
+
+
+// Border style
+$border-style-button: solid;                                              // Button border-style
+
+
+// Border width
+$border-width-button: 2px;                                                // Button border-width
+
+
+// Color
+$color-button-primary-light-mode: $bg-color-body-light-mode;              // Color (text) for primary button in light mode
+$color-button-primary-dark-mode: $bg-color-body-light-mode;               // Color (text) for primary button in dark mode
+
+$color-button-secondary-light-mode: $color-link-light-mode;               // Color (text) for secondary button in light mode
+$color-button-secondary-dark-mode: $color-link-light-mode;                // Color (text) for secondary button in dark mode
+
+$color-button-tertiary-light-mode: $color-link-light-mode;                // Color (text) for tertiary button in light mode
+$color-button-tertiary-dark-mode: $color-link-light-mode;                 // Color (text) for tertiary button in dark mode
+
+$color-button-inverse-primary-light-mode: inherit;                        // Color (text) for inverse primary button in light mode
+$color-button-inverse-primary-dark-mode: inherit;                         // Color (text) for inverse primary button in dark mode
+
+$color-button-inverse-secondary-light-mode: $bg-color-body-light-mode;    // Color (text) for inverse secondary button in light mode
+$color-button-inverse-secondary-dark-mode: $bg-color-body-light-mode;     // Color (text) for inverse secondary button in dark mode
+
+$color-button-inverse-tertiary-light-mode: $bg-color-body-light-mode;     // Color (text) for inverse tertiary button in light mode
+$color-button-inverse-tertiary-dark-mode: $bg-color-body-light-mode;      // Color (text) for inverse tertiary button in dark mode
+
+
+// Font size
+$font-size-button: #{ms(-2)}em;                                           // Button font-size: .75em
+
+
+// Font weight
+$font-weight-button-bold: true;                                           // Bold button text? True/false
+
+
+// Line height
+$line-height-button: #{ms(3)};                                            // Button line-height
+
+
+// Padding
+$padding-bottom-button: $length-em-3;                                     // Padding-bottom of button: .75em
+$padding-left-button: $length-em-5;                                       // Padding-left of button: 1.33em
+$padding-right-button: $length-em-5;                                      // Padding-right of button: 1.33em
+$padding-top-button: $length-em-3;                                        // Padding-top of button: .75em
+
+
+// Text transform
+$text-transform-button-uppercase: true;                                   // Uppercase button text? True/false

@@ -1,0 +1,115 @@
+@import '../../scss/pre.tmp.scss';
+
+
+.wp-calendar a {
+  text-decoration: none;
+}
+
+.wp-calendar th,
+.wp-calendar td {
+  @include font-sans;
+  @include lh-1;
+  text-align: center;
+  vertical-align: middle;
+  width: calc(100% / 7);
+}
+
+.wp-calendar th {
+  @include bg-lightest;
+  @include txt-sm;
+  padding: $length-em-4 0;
+}
+
+.wp-calendar td {
+  @include bg-white;
+  padding: 0;
+}
+
+.wp-calendar td > div {
+  position: relative;
+}
+
+.wp-calendar td > div > a:focus,
+.wp-calendar td > div > a:hover {
+  box-shadow: 0 0 $length-em-3 fade-out($border-color-light-mode,.25);
+}
+
+.wp-calendar td span,
+.wp-calendar td a {
+  display: block;
+  padding: $length-em-4 0;
+}
+
+.wp-calendar td.prev a,
+.wp-calendar td.next a {
+  @include txt-xs;
+  padding: #{ms(3)}em 0;
+}
+
+.wp-calendar td.today > div > a {
+  outline: 2px solid $scarlet;
+}
+
+.wp-calendar .monthvalue a:focus,
+.wp-calendar .monthvalue a:hover,
+.wp-calendar .yearvalue a:focus,
+.wp-calendar .yearvalue a:hover,
+.wp-calendar td .eventContainer a:focus,
+.wp-calendar td .eventContainer a:hover {
+  text-decoration: underline;
+}
+
+.wp-calendar caption {
+  @include bg-darker;
+  @include font-sans;
+  @include txt-xs;
+  @include ls-2;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.wp-calendar .monthvalue,
+.wp-calendar .yearvalue {
+  display: inline-block;
+  @include pb-4;
+  @include pt-4;
+}
+
+.wp-calendar caption .prev {
+  float: left;
+}
+
+.wp-calendar caption .next {
+  float: right;
+}
+
+.wp-calendar caption a {
+  color: $cream;
+}
+
+.wp-calendar caption .prev a,
+.wp-calendar caption .next a {
+  display: inline-block;
+  padding: $length-em-4 $length-em-5;
+}
+
+.wp-calendar caption .prev a::after,
+.wp-calendar caption .next a::before {
+  display: inline-block;
+  font-family: 'wdn-icon';
+  @include txt-xs;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.wp-calendar caption .prev a::after {
+  content: '\e80a';
+}
+
+.wp-calendar caption .next a::before {
+  content: '\e808';
+}
