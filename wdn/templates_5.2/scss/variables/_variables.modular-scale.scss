@@ -1,0 +1,12 @@
+////////////////////////////////////
+// THEME / VARIABLES / MODULAR SCALE
+////////////////////////////////////
+
+
+// Modular Scale - https://github.com/modularscale/modularscale-sass
+@import 'modularscale';
+
+$modularscale: (
+  base: 1 1.5,    // Define primary and secondary strands
+  ratio: $fourth, // Define ratio
+);
