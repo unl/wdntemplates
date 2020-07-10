@@ -7,16 +7,15 @@
 
 
 .unl .dcf-tab {
-  @include font-sans;
   margin-bottom: -#{$border-width-tab};
 }
 
 
 .unl .dcf-tab[aria-selected] {
-  border-bottom-color: $bg-color-tab-selected-light-mode;
-  border-left-color: $border-color-tab-light-mode;
-  border-right-color: $border-color-tab-light-mode;
-  border-top-color: $border-color-tab-light-mode;
+  border-bottom-color: var(--bg-tab-selected);
+  border-left-color: var(--b-tab);
+  border-right-color: var(--b-tab);
+  border-top-color: var(--b-tab);
   border-style: $border-style-tab;
   border-width: $border-width-tab;
 }
@@ -32,9 +31,9 @@
 
   .unl .dcf-tabs-responsive .dcf-tab {
     border-bottom-width: 0;
-    border-left: $border-width-tab $border-style-tab $color-tab-selected-light-mode;
-    border-right: $border-width-tab $border-style-tab $border-color-tab-light-mode;
-    border-top: $border-width-tab $border-style-tab $border-color-tab-light-mode;
+    border-left: $border-width-tab $border-style-tab var(--b-tab);
+    border-right: $border-width-tab $border-style-tab var(--b-tab);
+    border-top: $border-width-tab $border-style-tab var(--b-tab);
     margin-bottom: 0;
   }
 
@@ -45,9 +44,9 @@
 
 
   .unl .dcf-tabs-responsive .dcf-tab[aria-selected]::before {
-    border-bottom: .47em solid transparent;
-    border-left: .47em solid $gray;
-    border-top: .47em solid transparent;
+    border-bottom: #{ms(-5)}em solid transparent;
+    border-left: #{ms(-5)}em solid var(--b-tab);
+    border-top: #{ms(-5)}em solid transparent;
     content: '';
     left: 0;
     position: absolute;
@@ -56,3 +55,4 @@
   }
 
 }
+
