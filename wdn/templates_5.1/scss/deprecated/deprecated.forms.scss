@@ -43,7 +43,8 @@ form input[type="url"],
 form input[type="number"],
 form input[type="tel"],
 form textarea {
-  border: 1px solid $border-color-input-light-mode;
+  background-color: var(--bg-input);
+  border: 1px solid var(--b-input);
   border-radius: 0;
   @include font-sans;
   padding: $length-em-2 $length-em-3;
@@ -174,9 +175,9 @@ a.wdn-button:link,
 a.wdn-button-brand:link,
 a.wdn-button:visited,
 a.wdn-button-brand:visited {
-  background-color: $color-link-light-mode;
-  border-color: $color-link-light-mode;
-  color: $cream;
+  background-color: var(--bg-btn-primary);
+  border-color: var(--b-btn-primary);
+  color: var(--btn-primary);
 }
 
 // button:focus,
@@ -228,9 +229,9 @@ a.wdn-button-triad:link,
 a.wdn-button-complement:visited,
 a.wdn-button-energetic:visited,
 a.wdn-button-triad:visited {
-  background-color: transparent;
-  border-color: currentColor;
-  color: $color-link-light-mode;
+  background-color: var(--bg-btn-secondary);
+  border-color: var(--b-btn-secondary);
+  color: var(--btn-secondary);
 }
 
 .wdn-button-complement:focus,
@@ -268,9 +269,9 @@ main input[type='submit'].wdn-button-outline,
 a.wdn-button-outline:link,
 a.wdn-button-outline:visited,
 a.wdn-button-outline:active {
-  background-color: transparent;
-  border-color: currentColor;
-  color: $cream;
+  background-color: var(--bg-btn-inverse-secondary);
+  border-color: var(--b-btn-inverse-secondary);
+  color: var(--btn-inverse-secondary);
 }
 
 .wdn-button-outline:focus,
