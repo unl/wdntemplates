@@ -4,12 +4,12 @@
 
 
 .unl details {
-  border-top: 1px solid $light-gray;
+  border-top: 1px solid var(--b);
 }
 
 
 .unl details:last-of-type {
-  border-bottom: 1px solid $light-gray;
+  border-bottom: 1px solid var(--b);
 }
 
 
