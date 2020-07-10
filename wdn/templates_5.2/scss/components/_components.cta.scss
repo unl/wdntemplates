@@ -1,0 +1,99 @@
+///////////////////////////
+// THEME / COMPONENTS / CTA
+///////////////////////////
+
+
+.unl .dcf-list-cta a,
+.unl .dcf-list-cta a:visited {
+  @include cream;
+  @include txt-decor-none;
+}
+
+
+.unl .dcf-nav-menu .dcf-cta {
+  display: grid;
+}
+
+
+@include mq(md, max, width) {
+
+  .unl .dcf-header-global .dcf-cta {
+    display: none;
+  }
+
+
+  .unl .dcf-nav-menu .dcf-cta {
+    border-top: 1px solid $cream;
+    @include mt-6;
+    @include pt-6;
+  }
+
+}
+
+
+@media (min-width: #{ms(24)}em) {
+
+  .unl .dcf-nav-menu .dcf-cta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+
+
+@include mq(md, min, width) {
+
+  .unl .dcf-nav-menu .dcf-cta {
+    display: none;
+  }
+
+
+  .unl .dcf-header-global .dcf-cta {
+    display: flex;
+    flex-grow: 3;
+    @include txt-2xs;
+    justify-content: flex-end;
+    margin-bottom: 0;
+  }
+
+
+  .unl .dcf-header-global .dcf-cta > li {
+    margin-bottom: 0;
+  }
+
+
+  // Add arrow above options popover and horizontally center under button text
+  .dcf-btn-toggle-cta[aria-pressed="true"]::after {
+    border-left: #{ms(-4)}em solid transparent;
+    border-right: #{ms(-4)}em solid transparent;
+    border-bottom: #{ms(-4)}em solid rgba(36,36,35,.95);
+    bottom: -1px;
+    content: '';
+    display: block;
+    @include h-2;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    @include w-2;
+  }
+
+
+  .unl .dcf-list-cta {
+    @include bg-overlay-dark;
+    box-shadow: 0 1px 2px rgba(0,0,0,.5), 0 1px 10px rgba(0,0,0,.25);
+    left: calc(#{ms(0)}em - #{ms(4)}em);
+    margin-bottom: 0;
+    min-width: #{ms(20)}em;
+    @include p-6;
+    position: absolute;
+    top: 100%;
+    z-index: 999; // Ensure that the popover has a higher z-index than the local navigation
+  }
+
+
+  .unl .dcf-list-cta a:hover {
+    @include txt-decor-hover-on;
+  }
+
+}
