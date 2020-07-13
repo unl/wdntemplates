@@ -3,14 +3,14 @@
 ///////////////////////////////////
 
 
-@import '_variables.colors';
+@import '_variables.color-palette';
 @import '_variables.forms';
 @import '_variables.modular-scale';
 
 
 // Background color
 $bg-color-input-group-addon-light-mode: $lightest-gray;                       // Input group add-on background-color in light mode
-$bg-color-input-group-addon-dark-mode: $darker-gray;                          // Input group add-on background-color in dark mode
+$bg-color-input-group-addon-dark-mode: $darkest-gray;                         // Input group add-on background-color in dark mode
 
 
 // Border color

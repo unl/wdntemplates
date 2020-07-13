@@ -3,13 +3,13 @@
 ///////////////////////////////
 
 
-@import '_variables.colors';
+@import '_variables.color-palette';
 @import '_variables.modular-scale';
 
 
 // Color -- strive for WCAG AAA (minimum contrast ratio of 7.0) for heading text
 $color-heading-light-mode: $darkest-gray;     // Heading color in light mode
-$color-heading-dark-mode: $lightest-gray;     // Heading color in dark mode
+$color-heading-dark-mode: $cream;             // Heading color in dark mode
 
 
 // Font size

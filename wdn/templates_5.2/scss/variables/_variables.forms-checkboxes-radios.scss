@@ -9,11 +9,13 @@
 
 
 // Background color
-$bg-color-checkbox-radio-light-mode: $white;                      // Background-color for checkboxes and radios in light mode
-$bg-color-checkbox-radio-dark-mode: $black;                       // Background-color for checkboxes and radios in dark mode
+$bg-color-radio-light-mode: $color-body-light-mode;               // Radio "dot" color (created using background-color) in light mode
+$bg-color-radio-dark-mode: $color-body-dark-mode;                 // Radio "dot" color (created using background-color) in dark mode
 
 
 // Border color
+$border-color-checkmark-light-mode: $color-body-light-mode;       // Checkmark color (created using borders) in light mode
+$border-color-checkmark-dark-mode: $color-body-dark-mode;         // Checkmark color (created using borders) in dark mode
 $border-color-input-checked-light-mode: $color-body-light-mode;   // Border-color of input when checked in light mode
 $border-color-input-checked-dark-mode: $color-body-dark-mode;     // Border-color of input when checked in dark mode
 
@@ -24,9 +26,9 @@ $border-width-checkmark: #{ms(-12)}em;                            // Border-widt
 
 // Color
 $color-checkmark-light-mode: $color-body-light-mode;              // Checkmark color in light mode
-$color-checkmark-dark-mode: $color-body-dark-mode;	              // Checkmark color in dark mode
+$color-checkmark-dark-mode: $color-body-dark-mode;                // Checkmark color in dark mode
 $color-radio-light-mode: $color-body-light-mode;                  // Radio color in light mode
-$color-radio-dark-mode: $color-body-dark-mode;	                  // Radio color in dark mode
+$color-radio-dark-mode: $color-body-dark-mode;                    // Radio color in dark mode
 
 
 // Height & width

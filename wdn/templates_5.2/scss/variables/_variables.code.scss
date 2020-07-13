@@ -3,15 +3,18 @@
 ///////////////////////////
 
 
-@import '_variables.colors';
+@import '_variables.color-palette';
 @import '_variables.modular-scale';
 @import '_variables.sizing';
 
 
 // Background color
 $bg-color-code-light-mode: fade-out($black, .95);               // <code> background-color in light mode
-$bg-color-code-dark-mode: fade-out($black, .95);                // <code> background-color in dark mode
-$bg-color-kbd: $black;                                          // <kbd> background-color: black
+$bg-color-code-dark-mode: fade-out($white, .9);                 // <code> background-color in dark mode
+
+$bg-color-kbd-light-mode: $black;                               // <kbd> background-color in light mode
+$bg-color-kbd-dark-mode: $black;                                // <kbd> background-color in dark mode
+
 $bg-color-pre-light-mode: $bg-color-code-light-mode;            // .dcf-pre background-color in light mode
 $bg-color-pre-dark-mode: $bg-color-code-light-mode;             // .dcf-pre background-color in dark mode
 
@@ -21,9 +24,10 @@ $border-radius-code: true;                                      // Roundrect bor
 
 
 // Color
-$color-code-light-mode: lighten($color-body-light-mode, 10%);   // <code> color
-$color-code-dark-mode: lighten($color-body-dark-mode, 10%);     // <code> color
-$color-kbd: $color-kbd;                                         // <kbd> color: green
+$color-code-light-mode: lighten($color-body-light-mode, 10%);   // <code> color in light mode
+$color-code-dark-mode: lighten($color-body-dark-mode, 10%);     // <code> color in dark mode
+$color-kbd-light-mode: $color-kbd;                              // <kbd> color in light mode
+$color-kbd-dark-mode: $color-kbd;                               // <kbd> color in dark mode
 
 
 // Font size

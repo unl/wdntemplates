@@ -3,13 +3,13 @@
 //////////////////////////////
 
 
-@import '_variables.colors';
+@import '_variables.color-palette';
 @import '_variables.sizing';
 
 
 // Border color
 $border-color-light-mode: $light-gray;  // Border-color in light mode
-$border-color-dark-mode: $dark-gray;    // Border-color in dark mode
+$border-color-dark-mode: $darker-gray;  // Border-color in dark mode
 
 
 // Border radius
