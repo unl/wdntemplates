@@ -46,7 +46,6 @@
 
 .wdn_notice .message h4,
 .wdn_notice .message .title {
-  @include font-sans;
   @include ls-1;
   @include lh-3;
   text-transform: uppercase;
