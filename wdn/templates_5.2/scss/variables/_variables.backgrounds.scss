@@ -3,9 +3,27 @@
 //////////////////////////////////
 
 
-@import '_variables.colors';
+@import '_variables.color-palette';
 
 
 // Background color
-$bg-color-overlay-dark: fade-out($darkest-gray,.05);  // Dark overlay background-color for modals
-$bg-color-overlay-light: fade-out($cream,.05);        // Light overlay background-color for modals
+$bg-color-scarlet-light-mode: $color-brand-alpha;
+$bg-color-scarlet-dark-mode: $color-brand-alpha;
+
+$bg-color-white-light-mode: $white;
+$bg-color-white-dark-mode: $black;
+
+$bg-color-gray-light-light-mode: $light-gray;
+$bg-color-gray-light-dark-mode: invert($light-gray);
+
+$bg-color-gray-lighter-light-mode: $lighter-gray;
+$bg-color-gray-lighter-dark-mode: invert($lighter-gray);
+
+$bg-color-gray-lightest-light-mode: $lightest-gray;
+$bg-color-gray-lightest-dark-mode: invert($lightest-gray);
+
+$bg-color-overlay-dark-light-mode: fade-out($darkest-gray,.06);   // Dark overlay background-color for modals in light mode
+$bg-color-overlay-dark-dark-mode: fade-out($black,.06);           // Dark overlay background-color for modals in dark mode
+
+$bg-color-overlay-light-light-mode: fade-out($cream,.06);         // Light overlay background-color for modals in light mode
+$bg-color-overlay-light-dark-mode: fade-out($black,.06);          // Light overlay background-color for modals in dark mode

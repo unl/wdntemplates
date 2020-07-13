@@ -64,10 +64,6 @@
     display: flex;
   }
 
-  .unl .dcf-search-toggle {
-    background-image: linear-gradient(to left, $cream #{ms(6)}em, fade-out($cream,1) #{ms(6)}em);
-  }
-
   .unl .dcf-search-toggle:focus {
     box-shadow: 0 1px $length-em-2 fade-out($color-hover-light-mode,.4);
     outline: none;
