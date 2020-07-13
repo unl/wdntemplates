@@ -4,17 +4,17 @@
 
 
 // Scarlet
-@mixin bg-scarlet($imp:null) { background-color: $scarlet $imp; }
+@mixin bg-scarlet($imp:null) { background-color: var(--bg-scarlet) $imp; }
 
 
 // Cream
-@mixin bg-cream($imp:null) { background-color: $cream $imp; }
+@mixin bg-cream($imp:null) { background-color: var(--bg-body) $imp; }
 
 
 // Gray
-@mixin bg-lightest($imp:null) { background-color: $lightest-gray $imp; }
-@mixin bg-lighter($imp:null) { background-color: $lighter-gray $imp; }
-@mixin bg-light($imp:null) { background-color: $light-gray $imp; }
+@mixin bg-lightest($imp:null) { background-color: var(--bg-lighest-gray) $imp; }
+@mixin bg-lighter($imp:null) { background-color: var(--bg-lighter-gray) $imp; }
+@mixin bg-light($imp:null) { background-color: var(--bg-light-gray) $imp; }
 @mixin bg-dark($imp:null) { background-color: $dark-gray $imp; }
 @mixin bg-darker($imp:null) { background-color: $darker-gray $imp; }
 @mixin bg-darkest($imp:null) { background-color: $darkest-gray $imp; }

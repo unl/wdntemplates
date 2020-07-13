@@ -4,7 +4,7 @@
 
 
 // Scarlet
-@mixin scarlet($imp:null) { color: $scarlet $imp; }
+@mixin scarlet($imp:null) { color: var(--brand-alpha) $imp; }
 // TODO: determine state styles
 @mixin scarlet-visited($imp:null) { color: $scarlet $imp; }
 @mixin scarlet-hover($imp:null) { color: $scarlet $imp; }
@@ -24,9 +24,9 @@
 @mixin lighter-gray($imp:null) { color: $lighter-gray $imp; }
 @mixin light-gray($imp:null) { color: $light-gray $imp; }
 @mixin gray($imp:null) { color: $gray $imp; }
-@mixin dark-gray($imp:null) { color: $dark-gray $imp; }
-@mixin darker-gray($imp:null) { color: $darker-gray $imp; }
-@mixin darkest-gray($imp:null) { color: $darkest-gray $imp; }
+@mixin dark-gray($imp:null) { color: var(--dark-gray) $imp; }
+@mixin darker-gray($imp:null) { color: var(--darker-gray) $imp; }
+@mixin darkest-gray($imp:null) { color: var(--darkest-gray) $imp; }
 
 
 // Cerulean
