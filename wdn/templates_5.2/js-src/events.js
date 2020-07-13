@@ -51,23 +51,23 @@ define([
       } else {
         eventURL = event.WebPages.WebPage.URL;
       }
-      var month    = '<span class="dcf-d-block dcf-txt-3xs dcf-pt-2 dcf-pb-1 dcf-uppercase dcf-bold unl-ls-2 unl-font-sans unl-cream unl-bg-scarlet">' + startDate.format('MMM') + '</span>';
+      var month    = '<span class="dcf-d-block dcf-txt-3xs dcf-pt-2 dcf-pb-1 dcf-uppercase dcf-bold unl-ls-2 unl-cream unl-bg-scarlet">' + startDate.format('MMM') + '</span>';
       var day      = '<span class="dcf-d-block dcf-txt-h5 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray dcf-bg-white">' + startDate.format('D') + '</span>';
-      var time     = '<span class="dcf-d-block dcf-pt-2 dcf-txt-2xs dcf-uppercase dcf-bold unl-font-sans unl-scarlet">' + startDate.format(timeformat) + '</span>';
+      var time     = '<span class="dcf-d-block dcf-pt-2 dcf-txt-2xs dcf-uppercase dcf-bold unl-scarlet">' + startDate.format(timeformat) + '</span>';
       if (event.DateTime.AllDay) {
         // all day event so clear out time
         time = '';
       }
       var subtitle = '';
       if (event.EventSubtitle) {
-        subtitle = '<p class="dcf-subhead dcf-mt-2 dcf-txt-3xs unl-font-sans unl-dark-gray">' + event.EventSubtitle + '</p>';
+        subtitle = '<p class="dcf-subhead dcf-mt-2 dcf-txt-3xs unl-dark-gray">' + event.EventSubtitle + '</p>';
       }
       var title    = '<header class="unl-event-title"><h3 class="dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover unl-darker-gray" href="'+ eventURL +'">' + event.EventTitle + '</a></h3>' + subtitle + '</header>';
 
       var location = '';
 
       if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {
-        location =  '<div class="unl-event-location dcf-txt-xs dcf-pt-1 unl-font-sans unl-dark-gray">';
+        location =  '<div class="unl-event-location dcf-txt-xs dcf-pt-1 unl-dark-gray">';
         if (event.Locations[0].MapLinks[0]) {
           location += '<a class="dcf-txt-decor-hover unl-dark-gray" href="'+ event.Locations[0].MapLinks[0] +'">';
         } else if (event.Locations[0].WebPages[0].URL) {
