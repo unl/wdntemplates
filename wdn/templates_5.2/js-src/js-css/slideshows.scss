@@ -1,0 +1,82 @@
+//////////////////////////////////
+// THEME / COMPONENTS / SLIDESHOWS
+//////////////////////////////////
+
+
+@import '../../scss/pre.tmp.scss';
+
+
+.unl .dcf-slide-deck {
+  clip-path: polygon(
+      100% 0,
+      100% calc(100% - #{$size-btn-y} - (#{$border-width-button} * 2) - #{$size-clip-path}),
+      calc(100% - (#{$size-btn-x} * 2) - (#{$border-width-button} * 5) - #{$size-clip-path}) calc(100% - #{$size-btn-y} - (#{$border-width-button} * 2) - #{$size-clip-path}),
+      calc(100% - (#{$size-btn-x} * 2) - (#{$border-width-button} * 5) - #{$size-clip-path}) 100%,
+      0 100%,
+      0 0
+  );
+  scrollbar-width: none;  // Hide scrollbar in Firefox
+}
+
+
+.unl .dcf-slide-deck::-webkit-scrollbar {
+  display: none;  // Hide scrollbar in Safari and Chrome
+}
+
+
+.unl .dcf-slide-caption[aria-hidden="true"] {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $timing-fade-out $easing-fade-out;
+}
+
+
+.unl .dcf-slide-caption[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity $timing-fade-in $easing-fade-in;
+}
+
+
+.unl .dcf-btn-slide-caption {
+  background-color: $bg-color-btn-slide-caption-light-mode;
+  border-color: $border-color-btn-slide-caption-light-mode;
+  bottom: #{$size-clip-path};
+  color: $color-btn-slide-caption-light-mode;
+  left: #{$size-clip-path};
+  position: absolute;
+  z-index: 1;
+}
+
+
+.unl .dcf-slide-caption {
+  background-color: $bg-color-slide-caption-light-mode;
+  clip-path: polygon(
+      100% 0,
+      100% 100%,
+      calc((#{$size-clip-path} * 2) + (#{$border-width-button} * 2) + #{$size-btn-x}) 100%,
+      calc((#{$size-clip-path} * 2) + (#{$border-width-button} * 2) + #{$size-btn-x}) calc(100% - (#{$size-clip-path} * 2) - (#{$border-width-button} * 2) - #{$size-btn-y}),
+      0 calc(100% - (#{$size-clip-path} * 2) - (#{$border-width-button} * 2) - #{$size-btn-y}),
+      0 0
+  );
+  color: $color-slide-caption-light-mode;
+  height: 100%;
+  left: 0;
+  padding: $padding-top-slide-caption $padding-right-slide-caption $padding-bottom-slide-caption $padding-left-slide-caption;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+
+.dcf-btn-slide-caption[aria-expanded="false"] .unl-icon-slide-caption-open {
+  opacity: 1;
+  transition: opacity 250ms ease-out 125ms;
+}
+
+
+.dcf-btn-slide-caption[aria-expanded="true"] .unl-icon-slide-caption-open {
+  opacity: 0;
+  transition: opacity 250ms ease-out;
+}

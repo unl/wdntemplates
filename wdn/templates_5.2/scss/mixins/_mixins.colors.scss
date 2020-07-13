@@ -1,0 +1,52 @@
+//////////////////////////
+// THEME / MIXINS / COLORS
+//////////////////////////
+
+
+// Scarlet
+@mixin scarlet($imp:null) { color: $scarlet $imp; }
+// TODO: determine state styles
+@mixin scarlet-visited($imp:null) { color: $scarlet $imp; }
+@mixin scarlet-hover($imp:null) { color: $scarlet $imp; }
+@mixin scarlet-active($imp:null) { color: $scarlet $imp; }
+
+
+// Cream
+@mixin cream($imp:null) { color: $cream $imp; }
+// TODO: determine state styles
+@mixin cream-visited($imp:null) { color: $cream $imp; }
+@mixin cream-hover($imp:null) { color: $cream $imp; }
+@mixin cream-active($imp:null) { color: $cream $imp; }
+
+
+// Gray
+@mixin lightest-gray($imp:null) { color: $lightest-gray $imp; }
+@mixin lighter-gray($imp:null) { color: $lighter-gray $imp; }
+@mixin light-gray($imp:null) { color: $light-gray $imp; }
+@mixin gray($imp:null) { color: $gray $imp; }
+@mixin dark-gray($imp:null) { color: $dark-gray $imp; }
+@mixin darker-gray($imp:null) { color: $darker-gray $imp; }
+@mixin darkest-gray($imp:null) { color: $darkest-gray $imp; }
+
+
+// Cerulean
+@mixin cerulean($imp:null) { color: $cerulean $imp; }
+
+
+// Green
+@mixin green($imp:null) { color: $green $imp; }
+@mixin light-green($imp:null) { color: $light-green $imp; }
+
+
+// Blue
+@mixin blue($imp:null) { color: $blue $imp; }
+@mixin light-blue($imp:null) { color: $light-blue $imp; }
+
+
+// Purple
+@mixin purple($imp:null) { color: $purple $imp; }
+@mixin light-purple($imp:null) { color: $light-purple $imp; }
+
+
+// Yellow
+@mixin yellow($imp:null) { color: $yellow $imp; }

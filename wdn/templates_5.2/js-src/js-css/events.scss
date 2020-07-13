@@ -1,0 +1,45 @@
+@import '../../scss/pre.tmp.scss';
+
+
+.unl-event-teaser {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.unl-event-datetime {
+  @include mb-3;
+}
+
+
+.wdn-calendar .unl-event-teaser:not(:last-child) {
+  @include mb-4;
+}
+
+
+@supports (display:grid) {
+
+  .unl-event-teaser {
+    display: grid;
+    @include col-gap-4;
+    grid-template: 'd t' auto 'd l' 1fr / $length-em-8 1fr;
+    @include mb-0;
+  }
+
+
+  .unl-event-title {
+    grid-area: t;
+  }
+
+
+  .unl-event-datetime {
+    grid-area: d;
+    @include mb-0;
+  }
+
+
+  .unl-event-location {
+    grid-area: l;
+  }
+
+}
