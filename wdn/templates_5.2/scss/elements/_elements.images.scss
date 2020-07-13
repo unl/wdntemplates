@@ -1,0 +1,16 @@
+////////////////////////////
+// THEME / ELEMENTS / IMAGES
+////////////////////////////
+
+
+@media (prefers-color-scheme: dark) {
+
+  @supports (filter: brightness(1) contrast(1)) {
+
+    img {
+      filter: brightness(#{ms(-1)}) contrast(#{ms(1)});
+    }
+
+  }
+
+}
