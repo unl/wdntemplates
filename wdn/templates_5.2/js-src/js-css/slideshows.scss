@@ -39,10 +39,10 @@
 
 
 .unl .dcf-btn-slide-caption {
-  background-color: $bg-color-btn-slide-caption-light-mode;
-  border-color: $border-color-btn-slide-caption-light-mode;
+  background-color: var(--bg-overlay-dark);
+  border-color: transparent;
   bottom: #{$size-clip-path};
-  color: $color-btn-slide-caption-light-mode;
+  color: var(--btn-inverse-tertiary);
   left: #{$size-clip-path};
   position: absolute;
   z-index: 1;
@@ -50,7 +50,7 @@
 
 
 .unl .dcf-slide-caption {
-  background-color: $bg-color-slide-caption-light-mode;
+  background-color: var(--bg-overlay-dark);
   clip-path: polygon(
       100% 0,
       100% 100%,
@@ -59,7 +59,6 @@
       0 calc(100% - (#{$size-clip-path} * 2) - (#{$border-width-button} * 2) - #{$size-btn-y}),
       0 0
   );
-  color: $color-slide-caption-light-mode;
   height: 100%;
   left: 0;
   padding: $padding-top-slide-caption $padding-right-slide-caption $padding-bottom-slide-caption $padding-left-slide-caption;

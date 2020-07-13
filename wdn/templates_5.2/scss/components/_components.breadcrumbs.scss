@@ -35,7 +35,7 @@
 .unl .dcf-breadcrumbs li:not(:last-child)::after {
   // Use borders to create arrows between breadcrumb list items
   border-bottom: #{ms(-8)}em solid transparent;
-  border-left: #{ms(-8)}em solid $gray;
+  border-left: #{ms(-8)}em solid var(--b-breadcrumb-arrow);
   border-top: #{ms(-8)}em solid transparent;
   content: '';
   @include ml-2; // Add spacing before each breadcrumb arrow
