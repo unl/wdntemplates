@@ -171,7 +171,7 @@ define([
       if (!$alertWrapper.length) {
         $alertWrapper = $('<div>', {
           'id': idPrfx,
-          'class': 'dcf-bleed dcf-z-1 unl-font-sans',
+          'class': 'dcf-bleed dcf-z-1',
           'role': 'alert'
         }).css({
           'position': 'absolute',

@@ -371,7 +371,7 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 			// TODO: resolve differences between 'mobile' and 'desktop' layouts
 			for (let i=0; i<widgetContainers.length; i++) {
 				let button = document.createElement('BUTTON');
-				button.classList.add('dcf-idm-login', 'dcf-d-flex', 'dcf-ai-center', 'dcf-jc-center', 'dcf-relative', 'dcf-h-100%', 'dcf-w-100%', 'dcf-p-0', 'dcf-b-0', 'dcf-bg-transparent', 'unl-font-sans', 'unl-scarlet');
+				button.classList.add('dcf-idm-login', 'dcf-d-flex', 'dcf-ai-center', 'dcf-jc-center', 'dcf-relative', 'dcf-h-100%', 'dcf-w-100%', 'dcf-p-0', 'dcf-b-0', 'dcf-bg-transparent', 'unl-scarlet');
 				button.setAttribute('id', 'dcf-idm-toggle');
 				button.setAttribute('aria-haspopup', 'true');
 				button.setAttribute('aria-expanded', 'false');
@@ -396,7 +396,7 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				optionsContainer.hidden = true;
 
 				let navUL = document.createElement('UL');
-				navUL.classList.add('dcf-list-bare', 'dcf-mb-0', 'dcf-txt-2xs', 'unl-font-sans');
+				navUL.classList.add('dcf-list-bare', 'dcf-mb-0', 'dcf-txt-2xs');
 
 				let profileLI = document.createElement('LI');
 				let profileLink = document.createElement('A');

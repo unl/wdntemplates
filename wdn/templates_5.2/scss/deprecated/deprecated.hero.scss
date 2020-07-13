@@ -40,7 +40,6 @@
 
 .wdn-hero-initial-line,
 .wdn-hero-impact-line {
-  @include font-sans;
   text-shadow: 1px 1px 16px fade-out(#000,.5);
 }
 

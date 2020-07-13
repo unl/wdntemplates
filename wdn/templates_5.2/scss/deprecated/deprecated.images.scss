@@ -20,9 +20,6 @@
 .frame figcaption,
 .wdn-frame figcaption {
   background-color: $bg-color-body-light-mode;
-  color: $color-light-text-light-mode;
-  @include font-sans;
-  @include txt-xs;
   height: auto;
   @include p-3;
 }

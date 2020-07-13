@@ -9,7 +9,6 @@
 .unl h4,
 .unl h5,
 .unl h6 {
-  @include font-sans;
   font-weight: 700;
   @include ls-h;
 }

@@ -7,7 +7,6 @@
 
 .wp-calendar th,
 .wp-calendar td {
-  @include font-sans;
   @include lh-1;
   text-align: center;
   vertical-align: middle;
@@ -61,7 +60,6 @@
 
 .wp-calendar caption {
   @include bg-darker;
-  @include font-sans;
   @include txt-xs;
   @include ls-2;
   margin: 0;

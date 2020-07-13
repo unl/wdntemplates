@@ -51,7 +51,6 @@ a.ui-button:active {
 }
 
 .ui-widget-header {
-  @include font-sans;
   @include txt-sm;
 	text-transform: uppercase;
 }
@@ -125,7 +124,6 @@ a.ui-button:active {
 .ui-datepicker td {
   @include bg-white;
 	border: 1px solid $light-gray;
-  @include font-sans;
 	@include txt-xs;
 }
 
@@ -157,7 +155,6 @@ a.ui-button:active {
 }
 
 .ui-button {
-  @include font-sans;
   @include txt-xs;
   @include ls-2;
   padding: $length-em-3 $length-em-5;
