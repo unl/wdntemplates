@@ -5,31 +5,21 @@
 
 // Prepend deprecated headings with '.unl ' to ensure styles override 5.1 theme heading styles.
 .unl .wdn-brand {
-  @include font-sans;
   font-weight: 400;
 }
 
 .unl .wdn-brand-caps {
-  @include font-sans;
   font-weight: 400;
   text-transform: uppercase;
 }
 
-.unl .wdn-heading,
-.unl .wdn-impact,
-.unl .wdn-sans-serif {
-  @include font-sans;
-}
-
 .unl .wdn-sans-caps {
-  @include font-sans;
   letter-spacing: .02em;
   line-height: 1.333;
   text-transform: uppercase;
 }
 
 .unl .wdn-alt-header {
-  @include font-sans;
   @include txt-base;
   letter-spacing: .02em;
   line-height: 1.333;
@@ -39,7 +29,6 @@
 .unl .wdn-list-header {
   @include bb-1;
   border-color: $border-color-light-mode;
-  @include font-sans;
   @include txt-base;
   letter-spacing: .02em;
   line-height: 1.333;
@@ -50,7 +39,6 @@
 
 .unl .wdn-subhead {
   display: block;
-  @include font-sans;
   font-size: #{ms(-2)}rem; // .75rem
   font-weight: normal;
   @include ls-2;

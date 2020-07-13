@@ -20,10 +20,6 @@ form ul.wdn-std li { // restore browser defaults, assumes LTR
   margin: 0;
 }
 
-// form label {
-//   @include font-sans;
-// }
-
 // // Input: Control
 // .unl .dcf-input-control {
 //   @include mr-1;
@@ -45,7 +41,6 @@ form input[type="tel"],
 form textarea {
   border: 1px solid $border-color-input-light-mode;
   border-radius: 0;
-  @include font-sans;
   padding: $length-em-2 $length-em-3;
   width: 100%;
 
@@ -128,7 +123,6 @@ main input[type='submit'],
   border-width: 2px;
   border-style: solid;
   cursor: pointer;
-  @include font-sans;
   @include txt-xs;
   font-weight: bold;
   @include ls-2;

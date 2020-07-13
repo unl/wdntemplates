@@ -6,7 +6,6 @@
 table:not(.dcf-table) {
   @include bg-transparent;
   border-bottom: 1px solid $border-color-table-light-mode;
-  @include font-sans;
   max-width: 100%;
   width: 100%;
 }
