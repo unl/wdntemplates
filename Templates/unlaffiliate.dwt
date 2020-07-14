@@ -128,7 +128,7 @@
     <!--#include virtual="/wdn/templates_5.2/includes/global/noscript.html" -->
     <!--#include virtual="/wdn/templates_5.2/includes/global/js-body.html" -->
     <!-- TemplateBeginEditable name="jsbody" -->
-    <!-- put your custom javascript here -->
+    <!-- Put your custom JavaScript here -->
     <!-- TemplateEndEditable -->
   </body>
 </html>
