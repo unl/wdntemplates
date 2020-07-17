@@ -16,7 +16,7 @@
 
 @include mq(md, max, width) {
 
-  .unl.app .dcf-app-controls ul {
+  .unl.app .dcf-app-controls ul:not(:last-child) {
     flex-direction: column;
   }
 
@@ -30,7 +30,7 @@
     justify-content: space-between;
   }
 
-  .unl.app .dcf-app-controls ul {
+  .unl.app .dcf-app-controls ul:not(:last-child) {
     border-left: 1px solid $scarlet-shade;
     display: flex;
   }

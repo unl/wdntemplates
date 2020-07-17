@@ -101,6 +101,17 @@
     bottom: $height-mobile-toolbar;
   }
 
+
+  .unl .dcf-nav-menu a,
+  .unl .dcf-nav-menu button {
+    margin-left: -#{ms(0)}rem;
+  }
+
+
+  .unl .dcf-nav-menu ul ul {
+    @include txt-xs;
+  }
+
 }
 
 
@@ -114,8 +125,14 @@
     padding-right: $length-vw-2;
   }
 
+
+  .unl .dcf-nav-menu ul ul {
+    @include txt-sm;
+  }
+
+
   .unl .dcf-nav-menu a,
-  .unl .dcf-nav-menu button, {
+  .unl .dcf-nav-menu button {
     @include txt-xs;
   }
 
