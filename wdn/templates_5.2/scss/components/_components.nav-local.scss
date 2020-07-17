@@ -37,16 +37,6 @@
     grid-gap: $length-em-6 $length-vw-1;
   }
 
-
-  .unl .dcf-nav-local a {
-    margin-left: -#{ms(0)}rem;
-  }
-
-
-  .unl .dcf-nav-local ul ul {
-    @include txt-xs;
-  }
-
 }
 
 
@@ -90,7 +80,6 @@
 
 
   .unl .dcf-nav-local ul ul {
-    @include txt-sm;
     @include pb-7;
     width: 100%;
   }
