@@ -169,9 +169,9 @@ define(['plugins/headroom', 'plugins/body-scroll-lock'], function(Headroom, body
       const hasChild = allPrimaryNavLi.find((el)=>el.querySelector('ul'));
       const desktopBtn = document.getElementById('dcf-menu-toggle');
       // Show "desktop" menu toggle button if navigation contains children
-      hasChild && desktopBtn.removeAttribute('hidden');
-      hasChild && desktopBtn.setAttribute('aria-expanded', 'false');
-      hasChild && desktopBtn.setAttribute('aria-label', 'open menu');
+      hasChild && desktopBtn && desktopBtn.removeAttribute('hidden');
+      hasChild && desktopBtn && desktopBtn.setAttribute('aria-expanded', 'false');
+      hasChild && desktopBtn && desktopBtn.setAttribute('aria-label', 'open menu');
     }
   };
 
