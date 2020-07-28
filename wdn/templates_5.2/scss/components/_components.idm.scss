@@ -2,11 +2,28 @@
 // THEME / COMPONENTS / IDM (IDENTITY MANAGEMENT)
 /////////////////////////////////////////////////
 
+// Modal is closed, hidden
+.unl-idm-modal[aria-hidden="true"] {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $timing-fade-out $easing-fade-out;
+}
+
+
+// Modal is open, visible
+.unl-idm-modal[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity $timing-fade-in $easing-fade-in;
+}
 
 .unl .dcf-idm-options {
   width: #{ms(14)}em;
 }
 
+.unl .dcf-idm-badge {
+  position: relative;
+}
 
 @include mq(md, max, width) {
 
@@ -28,8 +45,11 @@
     @include mt-1;
   }
 
+  .unl .dcf-idm-badge {
+    top: -46px;
+    right: -12px;
+  }
 }
-
 
 @include mq(md, min, width) {
 
@@ -47,6 +67,11 @@
 
   .unl .dcf-idm-label {
     @include mr-3;
+  }
+
+  .unl .dcf-idm-badge {
+    top: -10px;
+    right: -86px;
   }
 
   .unl .dcf-idm-options {

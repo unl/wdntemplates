@@ -1,7 +1,7 @@
 'use strict';
 
 /* globals define: false */
-define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, DropDownWidget, require) {
+define(['wdn', 'ready', 'require', 'dcf-modal', 'mustard/inert-polyfill'], function (WDN, ready, require) {
 	"use strict";
 
 	var getLinkByRel = function getLinkByRel(name) {
@@ -31,6 +31,12 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		departmentLookup = 'https://directory.unl.edu/departments/',
 		userLookup = 'https://directory.unl.edu/people/',
 		planetRed = 'https://planetred.unl.edu/pg/',
+		domToggleButtons = document.querySelectorAll('.dcf-idm'),
+		closeNavEvent = new CustomEvent('closeNavigation'),
+		idmModalID = 'idm-dashboard-modal',
+		modal = new DCFModal([]),
+		openIDMModalEvent = 'ModalOpenEvent_' + idmModalID,
+		closeIDMModalEvent = 'ModalCloseEvent_' + idmModalID,
 		user = false,
 		sessionUser = false;
 
@@ -156,6 +162,33 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 			} else {
 				loginCheckFailure();
 			}
+
+			// add an event listener to close IDM Info
+			document.addEventListener('closeIDMInfo', function(e) {
+				Plugin.closeIDMInfo();
+			});
+
+			// Close idm info on escape
+			document.addEventListener('keydown', function(e) {
+				if (e.keyCode === 27) {
+					// Close on escape
+					Plugin.closeIDMInfo();
+				}
+			});
+
+			// Add an event listener for idm modal open event
+			document.addEventListener(openIDMModalEvent, function(e) {
+				Plugin.onOpenIDMModalEvent();
+			});
+
+			// Add an event listener for idm modal close event
+			document.addEventListener(closeIDMModalEvent, function(e) {
+				Plugin.onCloseIDMModalEvent();
+			});
+		},
+
+		closeIDMInfo: function closeIDMInfo() {
+			modal.closeModal(idmModalID);
 		},
 
 		/**
@@ -367,16 +400,20 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 			let widgetContainers = document.querySelectorAll('.dcf-idm');
 			let localSettings = getLocalIdmSettings();
 
-			// Loop over each widget and create the needed elements
-			// TODO: resolve differences between 'mobile' and 'desktop' layouts
-			for (let i=0; i<widgetContainers.length; i++) {
-				let button = document.createElement('BUTTON');
+			// Loop over each domToggleButtons and update the needed elements
+			for (let i=0; i<domToggleButtons.length; i++) {
+				// Get loggedout/in containers
+				let loggedOutContainer = domToggleButtons[i].querySelector('.dcf-idm-status-logged-out');
+				let loggedInContainer = domToggleButtons[i].querySelector('.dcf-idm-status-logged-in');
+
+				let button = loggedInContainer.querySelector('.dcf-nav-toggle-btn-idm');
+				button.innerHTML = "";
 				button.classList.add('dcf-idm-login', 'dcf-d-flex', 'dcf-ai-center', 'dcf-jc-center', 'dcf-relative', 'dcf-h-100%', 'dcf-w-100%', 'dcf-p-0', 'dcf-b-0', 'dcf-bg-transparent', 'unl-scarlet');
-				button.setAttribute('id', 'dcf-idm-toggle');
 				button.setAttribute('aria-haspopup', 'true');
 				button.setAttribute('aria-expanded', 'false');
 				button.setAttribute('aria-controls', 'dcf-idm-options-'+i);
 				button.setAttribute('aria-label', 'Account actions for ' + this.getDisplayName());
+				button.removeAttribute('hidden');
 
 				let img = document.createElement('IMG');
 				img.classList.add('dcf-idm-img', 'dcf-txt-sm', 'dcf-h-6', 'dcf-w-6', 'dcf-circle', 'unl-bg-cream');
@@ -389,57 +426,17 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				displayName.innerText = this.getDisplayName();
 				button.appendChild(displayName);
 
-				//Set up the IDM options
-				let optionsContainer = document.createElement('DIV');
-				optionsContainer.classList.add('dcf-idm-options', 'dcf-absolute', 'dcf-pt-6', 'dcf-pr-5', 'dcf-pb-5', 'dcf-pl-5', 'dcf-z-1', 'dcf-bg-overlay-dark');
-				optionsContainer.setAttribute('id', 'dcf-idm-options-'+i);
-				optionsContainer.hidden = true;
-
-				let navUL = document.createElement('UL');
-				navUL.classList.add('dcf-list-bare', 'dcf-mb-0', 'dcf-txt-2xs');
-
-				let profileLI = document.createElement('LI');
-				let profileLink = document.createElement('A');
-				profileLink.classList.add('unl-cream');
-				profileLink.setAttribute('href', this.getProfileURL());
-				profileLink.innerText = 'View Profile';
-				profileLI.appendChild(profileLink);
-				navUL.appendChild(profileLI);
-
-				let logoutLI = document.createElement('LI');
-				let logoutLink = document.createElement('A');
-				logoutLink.classList.add('unl-cream');
-				logoutLink.setAttribute('href', logoutURL);
-				logoutLink.innerText = 'Logout';
-				logoutLI.appendChild(logoutLink);
-				navUL.appendChild(logoutLI);
-
-				optionsContainer.appendChild(navUL);
-
-				//clear any existing HTML
-				let loggedOutContainer = widgetContainers[i].querySelector('.dcf-idm-status-logged-out');
-				let loggedInContainer = widgetContainers[i].querySelector('.dcf-idm-status-logged-in');
-				loggedInContainer.innerHTML = '';
-
-				loggedInContainer.appendChild(button);
-				loggedInContainer.appendChild(optionsContainer);
-
-				//Initialize the dropdown nav
-				let dropdownNav = new DropDownWidget(loggedInContainer, 'idm-logged-in');
-				let closeNavEvent = new CustomEvent('closeNavigation');
-				let closeSearchEvent = new CustomEvent('closeSearch');
-				document.addEventListener('openDropDownWidget', function(e) {
-					if (e.detail.type == 'idm-logged-in') {
-						document.dispatchEvent(closeNavEvent);
-						document.dispatchEvent(closeSearchEvent);
-					}
-				});
+				let notificationBadge = document.createElement('SPAN');
+				notificationBadge.classList.add('dcf-idm-badge', 'dcf-badge', 'dcf-badge-pill', 'unl-bg-scarlet', 'dcf-txt-2xs', 'dcf-truncate', 'dcf-invisible');
+				notificationBadge.innerText = 0;
+				button.appendChild(notificationBadge);
 
 				//Show the contents
 				loggedOutContainer.hidden = true;
 				loggedInContainer.hidden = false;
 
 				// Any time logout link is clicked, unset the user data
+				let logoutLink = document.getElementById('idm-logout-link');
 				logoutLink.removeEventListener('click', Plugin.logout);
 				logoutLink.addEventListener('click', Plugin.logout);
 
@@ -451,25 +448,39 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 			window.dispatchEvent(new Event('idmStateSet'));
 		},
 
+		// Actions to take when idm modal is opened
+		onOpenIDMModalEvent: function onOpenIDMModalEvent() {
+			console.log('opened idm');
+			// Hide other mobile toggles (non modal)
+			document.dispatchEvent(closeNavEvent);
+		},
+
+		// Actions to take when idm modal is closed
+		onCloseIDMModalEvent:  function onCloseIDMModalEvent() {
+			console.log('closed idm');
+		},
+
 		renderAsLoggedOut: function renderAsLoggedOut() {
 			if (Plugin.isLoggedIn()) {
 				//if the user is already logged in, we should not reset the login
 				return;
 			}
 
-			let widgetContainers = document.querySelectorAll('.dcf-idm');
-
-			for (let i=0; i<widgetContainers.length; i++) {
-				let loggedOutContainer = widgetContainers[i].querySelector('.dcf-idm-status-logged-out');
-				let loggedInContainer = widgetContainers[i].querySelector('.dcf-idm-status-logged-in');
+			for (let i=0; i<domToggleButtons.length; i++) {
+				let loggedOutContainer = domToggleButtons[i].querySelector('.dcf-idm-status-logged-out');
+				let loggedInContainer = domToggleButtons[i].querySelector('.dcf-idm-status-logged-in');
 				let loginLink = loggedOutContainer.querySelector('a');
 
 				loginLink.setAttribute('href', loginURL);
 				loggedInContainer.hidden = true;
 				loggedOutContainer.hidden = false;
 			}
+
 			// Trigger idm is ready
 			window.dispatchEvent(new Event('idmStateSet'));
+
+			// Set href for idm view profile link
+			document.getElementById('idm-view-profile-link').setAttribute('href', this.getProfileURL());
 		},
 
 		/**

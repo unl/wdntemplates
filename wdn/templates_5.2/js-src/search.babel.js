@@ -81,7 +81,6 @@ define(['wdn', 'dcf-utility', 'dcf-modal'], function(WDN) {
         allowSearchParams = ['u', 'cx'],  // QS Params allowed by UNL Search app
         siteHomepage = location.protocol + '//' + location.host + '/',
         closeNavEvent = new CustomEvent('closeNavigation'),
-        closeIDMOptionsEvent = new CustomEvent('closeDropDownWidget', {detail: {type: 'idm-logged-in'}}),
         localSearch = getLocalSearch();
 
       // Give up if the search form has been unexpectedly removed
@@ -190,7 +189,6 @@ define(['wdn', 'dcf-utility', 'dcf-modal'], function(WDN) {
 
         // Hide other mobile toggles
         document.dispatchEvent(closeNavEvent);
-        document.dispatchEvent(closeIDMOptionsEvent);
 
         // Put focus on search text input
         domQ.focus();
