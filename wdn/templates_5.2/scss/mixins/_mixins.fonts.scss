@@ -9,6 +9,16 @@
 }
 
 
+@mixin font-serif-caps-ltd($imp:null) {
+  font-family: 'Mercury SSm Caps Ltd A', 'Mercury SSm Caps Ltd B', Georgia, serif $imp;
+}
+
+
+@mixin font-serif-italic-ltd($imp:null) {
+  font-family: 'Mercury SSm Italic Ltd A', 'Mercury SSm Italic Ltd B', Georgia, serif $imp;
+}
+
+
 // Sans Serif
 @mixin font-sans($imp:null) {
   font-family: 'Gotham SSm A', 'Gotham SSm B', Verdana, sans-serif $imp;

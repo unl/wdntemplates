@@ -9,6 +9,16 @@
 }
 
 
+.unl-font-serif-caps-ltd {
+  @include font-serif-caps-ltd(!important);
+}
+
+
+.unl-font-serif-italic-ltd {
+  @include font-serif-italic-ltd(!important);
+}
+
+
 // Sans Serif
 .unl-font-sans {
   @include font-sans(!important);
