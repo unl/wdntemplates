@@ -56,14 +56,21 @@
 .unl .dcf-footer a,
 .unl .dcf-footer a:link,
 .unl .dcf-footer a:visited,
+.unl .dcf-footer a:hover,
 .unl .dcf-footer a:active {
   color: $color-footer-link-light-mode;
+}
+
+
+.unl-footer-groups a,
+.unl-footer-groups a:link,
+.unl-footer-groups a:visited,
+.unl-footer-groups a:active {
   text-decoration: none;
 }
 
 
-.unl .dcf-footer a:hover {
-  color: $color-footer-link-light-mode;
+.unl-footer-groups a:hover {
   text-decoration: underline;
 }
 
