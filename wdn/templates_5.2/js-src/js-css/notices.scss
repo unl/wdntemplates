@@ -3,7 +3,7 @@
 
 .wdn_notice {
   background-color: $color-info;
-  background-image: url('https://unlcms.unl.edu/wdn/templates_5.1/js/js-css/img/information.svg');
+  background-image: url('https://unlcms.unl.edu/wdn/templates_5.2/js/js-css/img/information.svg');
   background-position: 1em 50%;
   background-repeat: no-repeat;
   background-size: $length-em-6;
@@ -16,17 +16,17 @@
 
 .wdn_notice.affirm {
   background-color: $color-success;
-  background-image: url('https://unlcms.unl.edu/wdn/templates_5.1/js/js-css/img/check-circle-2.svg');
+  background-image: url('https://unlcms.unl.edu/wdn/templates_5.2/js/js-css/img/check-circle-2.svg');
 }
 
 .wdn_notice.negate {
   background-color: $color-danger;
-  background-image: url('https://unlcms.unl.edu/wdn/templates_5.1/js/js-css/img/cross-bubble.svg');
+  background-image: url('https://unlcms.unl.edu/wdn/templates_5.2/js/js-css/img/cross-bubble.svg');
 }
 
 .wdn_notice.alert {
   background-color: $color-warning;
-  background-image: url('https://unlcms.unl.edu/wdn/templates_5.1/js/js-css/img/alert-2.svg');
+  background-image: url('https://unlcms.unl.edu/wdn/templates_5.2/js/js-css/img/alert-2.svg');
 }
 
 .wdn_notice a,
@@ -57,7 +57,7 @@
 
 .wdn_notice .close a,
 .wdn_notice .close a:hover {
-  background: transparent url('https://unlcms.unl.edu/wdn/templates_5.1/js/js-css/img/delete-1.svg') 50% 50% / contain no-repeat;
+  background: transparent url('https://unlcms.unl.edu/wdn/templates_5.2/js/js-css/img/delete-1.svg') 50% 50% / contain no-repeat;
   display: block;
   @include h-4;
   position: relative;
