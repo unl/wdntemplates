@@ -3,40 +3,40 @@
 //////////////////////////////
 
 
-table:not(.dcf-table) {
+table:not(.dcf-table):not(.ui-datepicker-calendar) {
   @include bg-transparent;
   border-bottom: 1px solid var(--b-table);
   max-width: 100%;
   width: 100%;
 }
 
-table:not(.dcf-table) thead,
-table:not(.dcf-table) tbody {
+table:not(.dcf-table):not(.ui-datepicker-calendar) thead,
+table:not(.dcf-table):not(.ui-datepicker-calendar) tbody {
   @include txt-sm;
 }
 
-table:not(.dcf-table) td,
-table:not(.dcf-table) th {
+table:not(.dcf-table):not(.ui-datepicker-calendar) td,
+table:not(.dcf-table):not(.ui-datepicker-calendar) th {
   border: 1px solid var(--b-table);
   @include pl-4;
   @include pr-4;
 }
 
-table:not(.dcf-table) thead th,
-table:not(.dcf-table) thead td {
+table:not(.dcf-table):not(.ui-datepicker-calendar) thead th,
+table:not(.dcf-table):not(.ui-datepicker-calendar) thead td {
   @include pb-3;
   @include pt-5;
   vertical-align: bottom;
 }
 
-table:not(.dcf-table) tbody th,
-table:not(.dcf-table) tbody td {
+table:not(.dcf-table):not(.ui-datepicker-calendar) tbody th,
+table:not(.dcf-table):not(.ui-datepicker-calendar) tbody td {
   @include pb-3;
   @include pt-3;
   vertical-align: top;
 }
 
-table:not(.dcf-table) tbody tr:nth-of-type(even) {
+table:not(.dcf-table):not(.ui-datepicker-calendar) tbody tr:nth-of-type(even) {
   background-color: var(--bg-table-stripe);
 }
 
