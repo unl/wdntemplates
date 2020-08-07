@@ -4,11 +4,6 @@
 
 
 // Serif
-@mixin font-serif($imp:null) {
-  font-family: 'Mercury SSm A', 'Mercury SSm B', Georgia, serif $imp;
-}
-
-
 @mixin font-serif-caps-ltd($imp:null) {
   font-family: 'Mercury SSm Caps Ltd A', 'Mercury SSm Caps Ltd B', Georgia, serif $imp;
 }

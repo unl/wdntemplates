@@ -4,11 +4,6 @@
 
 
 // Serif
-.unl-font-serif {
-  @include font-serif(!important);
-}
-
-
 .unl-font-serif-caps-ltd {
   @include font-serif-caps-ltd(!important);
 }
