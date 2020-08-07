@@ -16,6 +16,7 @@ module.exports = function (grunt) {
     'js-css/events-band',
     'js-css/events',
     'js-css/formvalidator',
+    'js-css/font-serif',
     'js-css/modals',
     'js-css/monthwidget',
     'js-css/notices',
@@ -26,7 +27,7 @@ module.exports = function (grunt) {
   ];
 
   // project layout variables (directories)
-  var mainDir = 'wdn',                                    	// wdn
+  var mainDir = 'wdn',                                    // wdn
     buildDir = 'build',                                   // build
     templateDir = mainDir + '/templates_5.2',             // wdn/templates_5.2
     templateImages = templateDir + '/images',             // wdn/templates_5.2/images
@@ -67,6 +68,7 @@ module.exports = function (grunt) {
     'carousel',
     'events-band',
     'events',
+    'font-serif',
     'jqueryui',
     'mediaelement_wdn',
     'modal',
