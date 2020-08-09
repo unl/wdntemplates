@@ -1,0 +1,57 @@
+////////////////////////////
+// THEME / COMPONENTS / TABS
+////////////////////////////
+
+
+@import '../../scss/pre.tmp.scss';
+
+
+.unl .dcf-tab {
+  margin-bottom: -#{$border-width-tab};
+}
+
+
+.unl .dcf-tab[aria-selected] {
+  border-bottom-color: var(--bg-tab-selected);
+  border-left-color: var(--b-tab);
+  border-right-color: var(--b-tab);
+  border-top-color: var(--b-tab);
+  border-style: $border-style-tab;
+  border-width: $border-width-tab;
+}
+
+
+.unl .dcf-tabs-panel > *:last-child {
+  margin-bottom: 0;
+}
+
+
+// Responsive tabs
+@include mq(md, max, width) {
+
+  .unl .dcf-tabs-responsive .dcf-tab {
+    border-bottom-width: 0;
+    border-left: $border-width-tab $border-style-tab var(--b-tab);
+    border-right: $border-width-tab $border-style-tab var(--b-tab);
+    border-top: $border-width-tab $border-style-tab var(--b-tab);
+    margin-bottom: 0;
+  }
+
+
+  .unl .dcf-tabs-responsive .dcf-tab[aria-selected] {
+    position: relative;
+  }
+
+
+  .unl .dcf-tabs-responsive .dcf-tab[aria-selected]::before {
+    border-bottom: #{ms(-5)}em solid transparent;
+    border-left: #{ms(-5)}em solid var(--b-tab);
+    border-top: #{ms(-5)}em solid transparent;
+    content: '';
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+}

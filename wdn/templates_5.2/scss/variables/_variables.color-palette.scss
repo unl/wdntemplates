@@ -1,0 +1,77 @@
+////////////////////////////////////
+// THEME / VARIABLES / COLOR PALETTE
+////////////////////////////////////
+
+
+// PRIMARY BRAND
+$color-brand-alpha: #d00000;    // Scarlet
+$color-brand-beta: #fefdfa;     // Cream
+$color-brand-gamma: #c7c8ca;    // Gray
+
+$scarlet: $color-brand-alpha;
+$cream: $color-brand-beta;
+$gray: $color-brand-gamma;
+
+$scarlet-shade: scale-color($scarlet, $hue: 1deg, $saturation: 10%, $lightness: -24%);
+$scarlet-tint: #f6e6e3;
+
+
+// SECONDARY BRAND
+$color-brand-delta: #001738;    // Navy
+$color-brand-epsilon: #42a7c6;  // Cerulean
+
+$navy: $color-brand-delta;
+$cerulean: $color-brand-epsilon;
+
+
+// TERTIARY / SCREEN
+$color-brand-zeta: #00784e;     // Green
+$color-brand-eta: #007197;      // Blue
+$color-brand-theta: #b32d9c;    // Purple
+$color-brand-iota: #ffd74e;     // Yellow
+
+$green: $color-brand-zeta;
+$blue: $color-brand-eta;
+$purple: $color-brand-theta;
+$yellow: $color-brand-iota;
+
+$light-green: #e7f1ea;
+$light-blue: #e7f0f0;
+$light-purple: #f7eaf1;
+
+
+// NEUTRALS
+$white: #fff;
+$black: #000;
+
+// Mix cream and gray brand colors for base color
+$mix-cream-gray: mix($cream, $gray);            // #e3e3e2
+
+$light-gray: $mix-cream-gray;                   // #e3e3e2
+$lighter-gray: lighten($mix-cream-gray, 3.2%);  // #ebebea
+$lightest-gray: lighten($mix-cream-gray, 7.5%); // #f6f6f5;
+
+$dark-gray: darken($mix-cream-gray, 47.5%);     // #6b6b68
+$darker-gray: darken($mix-cream-gray, 63.3%);   // #424240
+$darkest-gray: darken($mix-cream-gray, 75%);    // #242423
+
+
+// CONTEXTUAL COLORS
+$color-info: $blue;
+$color-success: $green;
+$color-warning: #e72c0c; // TODO: replace with $yellow when notices are redesigned
+$color-danger: #b60000; // TODO: update for notices
+
+$color-highlight: #ff0;
+$color-required: $scarlet;
+$color-kbd: #0f0;
+
+
+// SOCIAL MEDIA COLORS
+$color-facebook: #3b5998;   // Facebook
+$color-instagram: #c13584;  // Instagram
+$color-linkedin: #0077b5;   // LinkedIn
+$color-pinterest: #bd081c;  // Pinterest
+$color-snapchat: #fffc00;   // SnapChat
+$color-twitter: #1da1f2;    // Twitter
+$color-youtube: #cd201f;    // YouTube

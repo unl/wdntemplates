@@ -16,6 +16,7 @@ module.exports = function (grunt) {
     'js-css/events-band',
     'js-css/events',
     'js-css/formvalidator',
+    'js-css/font-serif',
     'js-css/modals',
     'js-css/monthwidget',
     'js-css/notices',
@@ -26,19 +27,19 @@ module.exports = function (grunt) {
   ];
 
   // project layout variables (directories)
-  var mainDir = 'wdn',                                    	// wdn
+  var mainDir = 'wdn',                                    // wdn
     buildDir = 'build',                                   // build
-    templateDir = mainDir + '/templates_5.1',             // wdn/templates_5.1
-    templateImages = templateDir + '/images',             // wdn/templates_5.1/images
-    templateScss = templateDir + '/scss',                 // wdn/templates_5.1/scss
-    templateCss = templateDir + '/css',                   // wdn/templates_5.1/css
-    templateJs = templateDir + '/js',                     // wdn/templates_5.1/js
-    templateJsSrc = templateDir + '/js-src',              // wdn/templates_5.1/js-src
-    templateJsCss = templateJs + '/js-css',               // wdn/templates_5.1/js/js-css
+    templateDir = mainDir + '/templates_5.2',             // wdn/templates_5.2
+    templateImages = templateDir + '/images',             // wdn/templates_5.2/images
+    templateScss = templateDir + '/scss',                 // wdn/templates_5.2/scss
+    templateCss = templateDir + '/css',                   // wdn/templates_5.2/css
+    templateJs = templateDir + '/js',                     // wdn/templates_5.2/js
+    templateJsSrc = templateDir + '/js-src',              // wdn/templates_5.2/js-src
+    templateJsCss = templateJs + '/js-css',               // wdn/templates_5.2/js/js-css
     builtJsDir = 'compressed',                            // compressed
     buildJsDir = buildDir + '/' + builtJsDir,             // build/compressed - folder removed at end of grunt js task
-    templateCompileJs = templateJs + '/' + builtJsDir,    // wdn/templates_5.1/js/compressed
-    templateIncludeDir = templateDir + '/includes',       // wdn/templates_5.1/includes
+    templateCompileJs = templateJs + '/' + builtJsDir,    // wdn/templates_5.2/js/compressed
+    templateIncludeDir = templateDir + '/includes',       // wdn/templates_5.2/includes
     templateHtmlDir = 'Templates',                        // Templates
     templateSharedDir = 'sharedcode',                     // sharedcode
     zipDir = 'downloads',                                 // downloads
@@ -67,6 +68,7 @@ module.exports = function (grunt) {
     'carousel',
     'events-band',
     'events',
+    'font-serif',
     'jqueryui',
     'mediaelement_wdn',
     'modal',

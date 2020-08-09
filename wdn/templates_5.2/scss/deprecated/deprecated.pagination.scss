@@ -1,0 +1,24 @@
+//////////////////////////////////
+// THEME / DEPRECATED / PAGINATION
+//////////////////////////////////
+
+
+.wdn_pagination {
+  font-weight: bold;
+  list-style: none;
+  padding-left: 0;
+}
+
+.wdn_pagination li {
+  display: inline-block;
+}
+
+.wdn_pagination li:not(:last-child) {
+  @include mr-2;
+}
+
+.wdn_pagination li.ellipsis {
+  color: var(--dark-gray);
+}
+
+// .wdn_pagination li.selected {}

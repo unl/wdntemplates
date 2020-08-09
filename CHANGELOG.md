@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.2.0 (August 9, 2020)
+- 5.2 Initial Release
+
 ## 5.1.4 (June 16, 2020)
 - New Slideshow feature
 - Update jQuery to 3.5.1
