@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.2.2 (August 11, 2020)
+- Remove wdn/templates_5.1 directory
+
+## 5.2.1 (August 9, 2020)
+- 5.2 Initial Release
+
 ## 5.1.4 (June 16, 2020)
 - New Slideshow feature
 - Update jQuery to 3.5.1
