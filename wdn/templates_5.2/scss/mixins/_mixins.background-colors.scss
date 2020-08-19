@@ -12,7 +12,7 @@
 
 
 // Gray
-@mixin bg-lightest($imp:null) { background-color: var(--bg-lighest-gray) $imp; }
+@mixin bg-lightest($imp:null) { background-color: var(--bg-lightest-gray) $imp; }
 @mixin bg-lighter($imp:null) { background-color: var(--bg-lighter-gray) $imp; }
 @mixin bg-light($imp:null) { background-color: var(--bg-light-gray) $imp; }
 @mixin bg-dark($imp:null) { background-color: $dark-gray $imp; }
