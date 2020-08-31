@@ -299,7 +299,7 @@ module.exports = function (grunt) {
           sourceMap: true,
           precision: 2,
           includePaths: [
-            __dirname+'/node_modules/modularscale-sass/stylesheets'
+            'node_modules/modularscale-sass/stylesheets'
           ]
         },
         files: scssAllFiles
@@ -310,7 +310,7 @@ module.exports = function (grunt) {
           sourceMap: true,
           precision: 2,
           includePaths: [
-            __dirname+'/node_modules/modularscale-sass/stylesheets'
+            'node_modules/modularscale-sass/stylesheets'
           ]
         },
         files: scssJsFiles
