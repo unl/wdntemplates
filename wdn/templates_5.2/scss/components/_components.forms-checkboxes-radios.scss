@@ -10,7 +10,7 @@
 // Style checkbox and radio input
 .unl .dcf-input-checkbox label::before,
 .unl .dcf-input-radio label::before {
-  transition: border-color $hover-off, box-shadow $hover-off;
+  transition: border-color $transition-duration-hover-off $transition-timing-fn-hover-off, box-shadow $transition-duration-hover-off $transition-timing-fn-hover-off;
 }
 
 

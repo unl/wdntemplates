@@ -27,14 +27,14 @@
 .unl .dcf-slide-caption[aria-hidden="true"] {
   opacity: 0;
   pointer-events: none;
-  transition: opacity $timing-fade-out $easing-fade-out;
+  transition: opacity $transition-duration-fade-out $transition-timing-fn-fade-out;
 }
 
 
 .unl .dcf-slide-caption[aria-hidden="false"] {
   opacity: 1;
   pointer-events: auto;
-  transition: opacity $timing-fade-in $easing-fade-in;
+  transition: opacity $transition-duration-fade-in $transition-timing-fn-fade-in;
 }
 
 
