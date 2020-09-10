@@ -1,4 +1,4 @@
-require (['dcf-scrollAnimation'], function() {
+require (['dcf-scrollAnimation'], () => {
   const itemList = document.querySelectorAll('.dcf-animate-on-scroll');
   const observerConfig = {
     rootMargin: '0px',
