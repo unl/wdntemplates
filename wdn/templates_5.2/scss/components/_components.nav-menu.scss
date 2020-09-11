@@ -41,7 +41,7 @@
     opacity: 0;
     pointer-events: none;
     position: fixed;
-    transition: opacity $timing-fade-out $easing-fade-out, visibility 0ms .4s;
+    transition: opacity $transition-duration-fade-in $transition-timing-fn-fade-in, visibility 0ms .4s;
     visibility: hidden;
     width: 100%;
     z-index: 998; // Ensure that the z-index is below the modal and nav-toggle-group z-indices
@@ -52,7 +52,7 @@
   .unl .dcf-nav-menu.dcf-modal-open {
   	opacity: 1;
   	pointer-events: auto;
-  	transition: opacity $timing-fade-in $easing-fade-in;
+    transition: opacity $transition-duration-fade-in $transition-timing-fn-fade-in;
   	visibility: visible;
   }
 

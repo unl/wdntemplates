@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.2.3 (August 13, 2020)
+- Remove Dark Mode support
+
 ## 5.2.2 (August 11, 2020)
 - Remove wdn/templates_5.1 directory
 

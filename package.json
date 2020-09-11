@@ -1,6 +1,6 @@
 {
   "name": "wdntemplates",
-  "version": "5.2.2",
+  "version": "5.2.3",
   "description": "Web Framework for the UNLedu website.",
   "repository": {
     "type": "git",
@@ -21,8 +21,10 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "bl": ">=2.2.1",
     "cssnano": "^4.1.10",
     "dcf": "git://github.com/digitalcampusframework/dcf.git#2.0",
+    "decompress": ">=4.2.1",
     "grunt": "^1.2.1",
     "grunt-babel": "^7.0.0",
     "grunt-bump": "^0.8.0",
