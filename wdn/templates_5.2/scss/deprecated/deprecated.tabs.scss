@@ -17,9 +17,9 @@
   border-radius: $roundrect;
   @include mr-3;
 
-  @media (prefers-color-scheme: dark) {
-    background-color: adjust-color($bg-color-body-dark-mode, $saturation: -1);
-  }
+//   @media (prefers-color-scheme: dark) {
+//     background-color: adjust-color($bg-color-body-dark-mode, $saturation: -1);
+//   }
 }
 
 .wdn_tabs > li.selected {

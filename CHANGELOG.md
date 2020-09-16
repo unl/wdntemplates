@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.2.4 (September 15, 2020)
+- Add link to accessibility statement in footer
+- Add scroll animations
+
 ## 5.2.3 (August 13, 2020)
 - Remove Dark Mode support
 
