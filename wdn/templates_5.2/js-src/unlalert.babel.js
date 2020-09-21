@@ -180,7 +180,7 @@ define([
 
         $alertContent = $('<div>', {
           'id': idPrfx + cntSuf,
-          'class': 'dcf-relative dcf-col-gap-vw dcf-row-gap-6 unl-cream'
+          'class': 'dcf-relative dcf-col-gap-vw dcf-row-gap-6'
         });
 
         $('<div>', {'class': 'dcf-wrapper'})
@@ -192,7 +192,7 @@ define([
 
       web = info[i].web || 'https://www.unl.edu/';
 
-      alertContentHTML = '<div class="unlalert-info"><header><h2 class="unlalert-heading dcf-mb-2 dcf-txt-2xs dcf-regular dcf-lh-3 dcf-uppercase unl-ls-2">Emergency alert</h2><h3 class="unlalert-headline dcf-mt-0 dcf-txt-h4 unl-cream">' + info[i].headline + '</h3></header><p class="unlalert-desc dcf-mb-0 dcf-txt-xs">' + info[i].description + '</p>';
+      alertContentHTML = '<div class="unlalert-info"><header><h2 class="unlalert-heading dcf-mb-2 dcf-txt-2xs dcf-regular dcf-lh-3 dcf-uppercase unl-ls-2">Emergency alert</h2><h3 class="unlalert-headline dcf-mt-0 dcf-txt-h4">' + info[i].headline + '</h3></header><p class="unlalert-desc dcf-mb-0 dcf-txt-xs">' + info[i].description + '</p>';
       if (info[i].instruction) {
         alertContentHTML += '<p class="unlalert-desc dcf-mt-2 dcf-mb-0 dcf-txt-xs">' + info[i].instruction + '</p>';
       }
@@ -206,7 +206,7 @@ define([
     if (!$alertToggle.length) {
       $alertToggle = $('<button>', {
         'id': idPrfx + togSuf,
-        'class': 'dcf-btn dcf-btn-tertiary dcf-txt-decor-none unl-cream'
+        'class': 'dcf-btn dcf-btn-tertiary dcf-txt-decor-none'
       })
       .append($('<span>', {
         'id': idPrfx + icnSuf,

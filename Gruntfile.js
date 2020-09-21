@@ -74,6 +74,7 @@ module.exports = function (grunt) {
     'modal',
     'monthwidget',
     'notice',
+    'scroll-animations',
     'slideshows',
     'tabs'
   ];

@@ -5,12 +5,12 @@
 
 // Modal
 .unl .dcf-modal[aria-hidden="true"] {
-  transition: opacity $timing-fade-out $easing-fade-out;
+  transition: opacity $transition-duration-fade-out $transition-timing-fn-fade-out;
 }
 
 
 .unl .dcf-modal[aria-hidden="false"] {
-  transition: opacity $timing-fade-in $easing-fade-in;
+  transition: opacity $transition-duration-fade-in $transition-timing-fn-fade-in;
 }
 
 
