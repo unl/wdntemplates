@@ -23,6 +23,7 @@
     "babel-preset-env": "^1.7.0",
     "bl": ">=2.2.1",
     "cssnano": "^4.1.10",
+    "csso": "^4.0.3",
     "dcf": "git://github.com/digitalcampusframework/dcf.git#2.0",
     "decompress": ">=4.2.1",
     "grunt": "^1.2.1",
