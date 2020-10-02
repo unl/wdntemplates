@@ -82,13 +82,9 @@ define([], function() {
           }
         }
 
-        // Close all CTA Popovers when mouseleave CTA nav or open popovers
-        ctaHeader.addEventListener('mouseleave', closeAllPopovers);
-
         // Set events for each button in CTA nav
         for (let i = 0; i < ctaButtons.length; i++) {
           ctaButtons[i].addEventListener('click', toggleButtonOnClick);
-          ctaButtons[i].addEventListener('mouseover', openButtonOnMouseover);
         }
 
       }
