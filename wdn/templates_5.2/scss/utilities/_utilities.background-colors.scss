@@ -9,12 +9,19 @@
 
 // Cream
 .unl-bg-cream { @include bg-cream(!important); }
+.unl-bg-cream\@dark { background-color: $cream !important; }  // Force cream background-color in dark mode
 
 
 // Gray
 .unl-bg-lightest-gray { @include bg-lightest(!important); }
+.unl-bg-lightest-gray\@dark { background-color: $lightest-gray !important; }  // Force lightest gray background-color in dark mode
+
 .unl-bg-lighter-gray { @include bg-lighter(!important); }
+.unl-bg-lighter-gray\@dark { background-color: $lighter-gray !important; }  // Force lighter gray background-color in dark mode
+
 .unl-bg-light-gray { @include bg-light(!important); }
+.unl-bg-light-gray\@dark { background-color: $light-gray !important; }  // Force light gray background-color in dark mode
+
 .unl-bg-dark-gray { @include bg-dark(!important); }
 .unl-bg-darker-gray { @include bg-darker(!important); }
 .unl-bg-darkest-gray { @include bg-darkest(!important); }
