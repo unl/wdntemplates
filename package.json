@@ -1,6 +1,6 @@
 {
   "name": "wdntemplates",
-  "version": "5.2.3",
+  "version": "5.2.4",
   "description": "Web Framework for the UNLedu website.",
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "babel-preset-env": "^1.7.0",
     "bl": ">=2.2.1",
     "cssnano": "^4.1.10",
+    "csso": "^4.0.3",
     "dcf": "git://github.com/digitalcampusframework/dcf.git#2.0",
     "decompress": ">=4.2.1",
     "grunt": "^1.2.1",
@@ -54,7 +55,7 @@
     "node-sass": "^4.14.1",
     "postcss-normalize": "^7.0.1",
     "postcss-object-fit-images": "^1.1.2",
-    "stylelint": "^9.10.1",
+    "stylelint": "^13.7.1",
     "stylelint-no-unsupported-browser-features": "^3.0.2",
     "tar-fs": "^1.16.3",
     "websocket-extensions": ">=0.1.4"
