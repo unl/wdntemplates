@@ -3,15 +3,25 @@
 
 #unlalert {
   // Avoid flash of unstyled content, JS initially positions this off screen
-  background-color: $color-warning;
+  background-color: $yellow;
   margin-bottom: -3px; // Position on top of 3px scarlet border at top of header
   position: relative !important;
   top: auto !important;
 }
 
 
-#unlalert a {
-  @include cream;
+#unlalert,
+#unlalert a,
+#unlalert_toggle,
+.unlalert-heading {
+  color: $darker-gray;
+}
+
+
+.unlalert-headline,
+#unlalert_toggle:focus,
+#unlalert_toggle:hover {
+  color: $darkest-gray;
 }
 
 
@@ -22,13 +32,13 @@
 
 
 #unlalert_toggle {
-  margin-left: -1.333333333em;
+  margin-left: -1.33em;
 }
 
 
 #unlalert_toggle:focus,
 #unlalert_toggle:hover {
-  box-shadow: 0 1px 0.4218750003em rgba(254,253,250,.4);
+  box-shadow: 0 1px 0.42em rgba(254,253,250,.4);
 }
 
 
@@ -48,11 +58,6 @@
 
 #unlalert.show #unlalert_content {
   display: block;
-}
-
-
-.unlalert-heading {
-  color: fade-out($cream,.2);
 }
 
 

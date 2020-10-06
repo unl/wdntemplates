@@ -391,12 +391,12 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 
 				//Set up the IDM options
 				let optionsContainer = document.createElement('DIV');
-				optionsContainer.classList.add('dcf-idm-options', 'dcf-absolute', 'dcf-pt-6', 'dcf-pr-5', 'dcf-pb-5', 'dcf-pl-5', 'dcf-z-1', 'dcf-bg-overlay-dark');
+				optionsContainer.classList.add('dcf-idm-options', 'dcf-absolute', 'dcf-p-6', 'dcf-txt-2xs', 'dcf-z-1', 'dcf-bg-overlay-dark');
 				optionsContainer.setAttribute('id', 'dcf-idm-options-'+i);
 				optionsContainer.hidden = true;
 
 				let navUL = document.createElement('UL');
-				navUL.classList.add('dcf-list-bare', 'dcf-mb-0', 'dcf-txt-2xs');
+				navUL.classList.add('dcf-list-bare', 'dcf-mb-0');
 
 				let profileLI = document.createElement('LI');
 				let profileLink = document.createElement('A');
