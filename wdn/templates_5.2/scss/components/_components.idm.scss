@@ -1,20 +1,17 @@
 /////////////////////////////////////////////////
 // THEME / COMPONENTS / IDM (IDENTITY MANAGEMENT)
 /////////////////////////////////////////////////
+@import '../../scss/pre.tmp.scss';
 
 // Modal is closed, hidden
 .unl-idm-modal[aria-hidden="true"] {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity $timing-fade-out $easing-fade-out;
+  transition: opacity $transition-duration-fade-out $transition-timing-fn-fade-out;
 }
 
 
 // Modal is open, visible
 .unl-idm-modal[aria-hidden="false"] {
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity $timing-fade-in $easing-fade-in;
+  transition: opacity $transition-duration-fade-in $transition-timing-fn-fade-in;
 }
 
 .unl .dcf-idm-options {
