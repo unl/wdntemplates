@@ -430,7 +430,6 @@ define(['wdn', 'ready', 'require', 'dcf-modal', 'mustard/inert-polyfill'], funct
 				notificationBadge.classList.add('dcf-idm-badge', 'dcf-badge', 'dcf-badge-pill', 'unl-bg-scarlet', 'dcf-txt-2xs', 'dcf-truncate', 'dcf-invisible');
 				notificationBadge.innerText = 0;
 				button.appendChild(notificationBadge);
-
 				//Show the contents
 				loggedOutContainer.hidden = true;
 				loggedInContainer.hidden = false;

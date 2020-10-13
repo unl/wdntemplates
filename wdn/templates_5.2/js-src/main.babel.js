@@ -18,7 +18,9 @@ requirejs([
     var unlchat_url = 'https://ucommchat.unl.edu/assets/js';
     //#UNLCHAT_URL
     WDN.loadJQuery(function() {
-        require([unlchat_url + '?for=client&version=' + WDN.getHTMLVersion()], function(){});
+        // load chat with cache bust once a day
+        var todayParts = new Date().toLocaleDateString().split('/');
+        require([unlchat_url + '?for=client&version=' + WDN.getHTMLVersion() + '&cb=' + todayParts[2] + todayParts[0] + todayParts[1]], function(){});
     });
 
     // Process deferred inline scripts
