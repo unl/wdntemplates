@@ -31,7 +31,7 @@
     </div>
   </div>
   <div class="dcf-wrapper dcf-pb-7">
-    <div class="unl-wdn-qa dcf-pb-4 dcf-txt-2xs unl-cream">UNL web framework and quality assurance provided by the <a href="https://wdn.unl.edu/">Web Developer Network</a> &middot; <a href="https://webaudit.unl.edu/qa-test/">QA Test</a></div>
+    <div class="unl-wdn-qa dcf-pb-4 dcf-txt-2xs unl-cream">UNL web framework and quality assurance provided by the <a href="https://wdn.unl.edu/">Web Developer Network</a> &middot; <a id="qa-test" href="https://webaudit.unl.edu/qa-test/">QA Test</a></div>
     <div class="dcf-grid-halves@sm dcf-col-gap-vw dcf-ai-baseline dcf-pt-4 dcf-bt-1 dcf-bt-solid unl-bt-cream">
       <div class="unl-footer-unl">
         <a class="dcf-institution-title dcf-d-inline-block dcf-txt-xs dcf-txt-decor-hover unl-ls-3" href="https://www.unl.edu/">
@@ -42,3 +42,15 @@
     </div>
   </div>
 </div>
+<script>
+  // Set the URL to test in webaudit
+  var qaTestLink = document.getElementById('qa-test');
+  if (qaTestLink) {
+    var pathname = document.location.pathname;
+    // webaudit expects pages to end with a slash, so add one if missing
+    if (!pathname.match(/\..*$/) && !pathname.match(/\/$/)) {
+      pathname += '/';
+    }
+    qaTestLink.search = '?url=' + encodeURI(document.location.origin + pathname);
+  }
+</script>
