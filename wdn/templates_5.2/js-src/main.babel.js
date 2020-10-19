@@ -23,6 +23,17 @@ requirejs([
         require([unlchat_url + '?for=client&version=' + WDN.getHTMLVersion() + '&cb=' + todayParts[2] + todayParts[0] + todayParts[1]], function(){});
     });
 
+    // Set the URL to test in webaudit
+    var qaTestLink = document.getElementById('qa-test');
+    if (qaTestLink) {
+      var pathname = document.location.pathname;
+      // webaudit expects pages to end with a slash, so add one if missing
+      if (!pathname.match(/\..*$/) && !pathname.match(/\/$/)) {
+        pathname += '/';
+      }
+      qaTestLink.search = '?url=' + encodeURI(document.location.origin + pathname);
+    }
+
     // Process deferred inline scripts
     window.dispatchEvent(new Event('inlineJSReady'));
 });
