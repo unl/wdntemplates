@@ -83,8 +83,19 @@ template {
   box-sizing: border-box;
 }
 :root {
+  --bg-body: #fefdfa;
+  --body: #424240;
+  --heading: #242423;
+
   font-size: 1em;
   line-height: 1.5;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-body: #171716;
+    --body: #f6f6f5;
+    --heading: #fefdfa;
+  }
 }
 @media screen and (min-width:31.57em) {
   :root {
@@ -105,8 +116,8 @@ a:link {
   color: #d00000;
 }
 body {
-  background-color: #fefdfa;
-  color: #424240;
+  background-color: var(--bg-body);
+  color: var(--body);
   margin: 0;
   overflow-x: hidden;
 }
@@ -135,7 +146,7 @@ h3 {
 h1,
 h2,
 h3 {
-  color: #242423;
+  color: var(--heading);
   line-height: 1.13;
   margin-bottom: 1rem;
   margin-top: 0;
@@ -336,14 +347,11 @@ a.dcf-btn-secondary {
   margin-left: .56em;
 }
 .unl .dcf-btn {
-  border-radius: 0;
   border-style: solid;
   border-width: 2px;
-  font-size: .75em;
+  font-size: .84em;
   font-weight: 700;
-  letter-spacing: .1em;
-  padding: .75em 1.33em;
-  text-transform: uppercase;
+  padding: .75em 1em;
 }
 .unl .dcf-btn-inverse-secondary,
 .unl .dcf-btn-inverse-tertiary,
