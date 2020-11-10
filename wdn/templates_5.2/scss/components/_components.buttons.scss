@@ -4,76 +4,117 @@
 
 
 .unl .dcf-btn {
-  @include txt-xs;
-  @include ls-2;
+  @include txt-sm;
+  text-decoration: none;
+  transition: all $transition-duration-hover-off $transition-timing-fn-hover-off;
 }
 
 
-// CSS-TRICKS HIGH CONTRAST MODE
-// .unl .dcf-btn:focus {
-//   outline: none;
-// }
-
-
-.unl .dcf-btn-secondary:active,
-.unl .dcf-btn-tertiary:active {
-  color: $color-active-light-mode;
+.unl .dcf-btn:hover {
+  transition: all $transition-duration-hover-on $transition-timing-fn-hover-on;
 }
 
 
-.unl .dcf-btn-primary:focus,
-.unl .dcf-btn-primary:hover {
-  box-shadow: 0 1px $length-em-2 fade-out($color-hover-light-mode,.4);
-}
+// Visited
 
-
-.unl .dcf-btn-secondary:focus,
-.unl .dcf-btn-secondary:hover,
-.unl .dcf-btn-tertiary:focus,
-.unl .dcf-btn-tertiary:hover {
-  box-shadow: 0 1px $length-em-1 fade-out($color-hover-light-mode,.6);
-}
-
-
-// .unl .dcf-btn-primary:active {
-//   background-color: $color-active-light-mode;
-//   border-color: $color-active-light-mode;
-// }
-
-
-.unl .dcf-btn-primary:visited {
+.unl a.dcf-btn-primary:visited {
   color: var(--btn-primary);
 }
 
 
-.unl .dcf-btn-secondary:active {
-  border-color: currentColor;
+.unl a.dcf-btn-secondary:visited {
+  color: var(--btn-secondary);
 }
 
 
-.unl .dcf-btn-inverse-primary:not(:disabled):visited {
+.unl a.dcf-btn-tertiary:visited {
+  color: var(--btn-tertiary);
+}
+
+
+.unl a.dcf-btn-inverse-primary:visited {
   color: var(--btn-inverse-primary);
 }
 
 
-.unl .dcf-btn-inverse-secondary:not(:disabled):visited {
+.unl a.dcf-btn-inverse-secondary:visited {
   color: var(--btn-inverse-secondary);
 }
 
 
-.unl .dcf-btn-inverse-tertiary:not(:disabled):visited {
+.unl a.dcf-btn-inverse-tertiary:visited {
   color: var(--btn-inverse-tertiary);
 }
 
 
-.unl .dcf-btn-inverse-primary:focus,
-.unl .dcf-btn-inverse-primary:hover,
-.unl .dcf-btn-inverse-secondary:focus,
-.unl .dcf-btn-inverse-secondary:hover,
-.unl .dcf-btn-inverse-tertiary:focus,
-.unl .dcf-btn-inverse-tertiary:hover {
-  box-shadow: 0 1px $length-em-2 fade-out($border-color-input-hover-light-mode,.2);
+// Hover (and Active)
+
+.unl .dcf-btn-primary:not(:disabled):hover,
+.unl .dcf-btn-primary:not(:disabled):active {
+  background-color: var(--bg-btn-primary-hover);
+  border-color: var(--b-btn-primary-hover);
+}
+
+.unl .dcf-btn-secondary:not(:disabled):hover,
+.unl .dcf-btn-secondary:not(:disabled):active,
+.unl .dcf-btn-tertiary:not(:disabled):hover,
+.unl .dcf-btn-tertiary:not(:disabled):active {
+  background-color: var(--bg-btn-secondary-tertiary-hover);
+  color: var(--btn-secondary-tertiary-hover);
 }
 
 
-// TODO: add :active state styles to inverse buttons
+.unl .dcf-btn-inverse-primary:not(:disabled):hover,
+.unl .dcf-btn-inverse-primary:not(:disabled):active {
+  background-color: $bg-color-button-inverse-primary-hover;
+  border-color: $border-color-button-inverse-primary-hover;
+}
+
+
+.unl .dcf-btn-inverse-secondary:not(:disabled):hover,
+.unl .dcf-btn-inverse-secondary:not(:disabled):active,
+.unl .dcf-btn-inverse-tertiary:not(:disabled):hover,
+.unl .dcf-btn-inverse-tertiary:not(:disabled):active {
+  background-color: $bg-color-button-inverse-secondary-tertiary-hover;
+  color: $color-button-inverse-secondary-tertiary-hover;
+}
+
+
+// Focus (and Active)
+
+.unl .dcf-btn-primary:focus {
+  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-btn-primary);
+}
+
+
+.unl .dcf-btn-primary:focus:hover,
+.unl .dcf-btn-primary:active {
+  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-btn-primary-hover);
+}
+
+
+.unl .dcf-btn-secondary:focus,
+.unl .dcf-btn-secondary:active,
+.unl .dcf-btn-tertiary:focus,
+.unl .dcf-btn-tertiary:active {
+  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px currentColor;
+}
+
+
+.unl .dcf-btn-inverse-primary:focus {
+  box-shadow: 0 0 0 3px $color-link-light-mode, 0 0 0 5px $bg-color-button-inverse-primary;
+}
+
+
+.unl .dcf-btn-inverse-primary:focus:hover,
+.unl .dcf-btn-inverse-primary:active {
+  box-shadow: 0 0 0 3px $color-hover-light-mode, 0 0 0 5px $bg-color-button-inverse-primary;
+}
+
+
+.unl .dcf-btn-inverse-secondary:focus,
+.unl .dcf-btn-inverse-secondary:active,
+.unl .dcf-btn-inverse-tertiary:focus,
+.unl .dcf-btn-inverse-tertiary:active {
+  box-shadow: 0 0 0 3px $color-link-light-mode, 0 0 0 5px currentColor;
+}
