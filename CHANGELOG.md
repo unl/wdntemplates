@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.2.6 (November 12, 2020)
+- Modal fix
+- Add Google Tag Manager code
+- Add dark mode toggle bookmarklet CSS
+
+## 5.2.5 (October 15, 2020)
+- Update UNL Alert styles
+- Update IdM styles to match CTA popovers
+- Add daily cache bust for client chat
+
 ## 5.2.4 (September 15, 2020)
 - Add link to accessibility statement in footer
 - Add scroll animations
