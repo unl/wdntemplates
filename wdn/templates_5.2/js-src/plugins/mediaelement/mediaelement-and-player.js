@@ -4273,7 +4273,7 @@ if (typeof jQuery != 'undefined') {
 					var seconds = media.currentTime,
 						timeSliderText = mejs.i18n.t('mejs.time-slider'),
 						time = mejs.Utility.secondsToTimeCode(seconds, player.options),
-						duration = media.duration;
+						duration = !isNaN(media.duration) ? media.duration: 0;
 
 					t.slider.attr({
 						'aria-label': timeSliderText,
