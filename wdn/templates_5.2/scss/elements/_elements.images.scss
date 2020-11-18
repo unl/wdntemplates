@@ -3,6 +3,14 @@
 ////////////////////////////
 
 
+// Remove extra vertical space below footer caused by tracking pixel
+body > img:last-child {
+  bottom: 0;
+  display: block;
+  position: absolute;
+}
+
+
 // @media (prefers-color-scheme: dark) {
 //
 //   @supports (filter: brightness(1) contrast(1)) {
