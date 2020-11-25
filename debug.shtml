@@ -443,6 +443,7 @@
             <label for="name">Name <small class="dcf-required">Required</small></label>
             <input id="name" type="text" required>
           </div>
+
           <div class="dcf-form-group">
             <label for="email">Email <small class="dcf-required">Required</small></label>
             <input id="email" type="email" required>
@@ -452,6 +453,11 @@
             <label for="password">Password</label>
             <input id="password" type="password" aria-describedby="pwd-help">
             <p class="dcf-form-help" id="pwd-help">Make sure it’s a good one!</p>
+          </div>
+
+          <div class="dcf-form-group">
+            <label for="field-disabled">Disabled Field</label>
+            <input id="field-disabled" type="text" disabled>
           </div>
 
           <div class="dcf-form-group">
@@ -496,7 +502,7 @@
               <label for="staff_Position">Staff</label>
             </div>
             <div class="dcf-input-radio">
-              <input id="administrator_Position" name="position" type="radio" value="administrator">
+              <input id="administrator_Position" name="position" type="radio" value="administrator" disabled>
               <label for="administrator_Position">Administrator</label>
             </div>
             <div class="dcf-input-radio">
