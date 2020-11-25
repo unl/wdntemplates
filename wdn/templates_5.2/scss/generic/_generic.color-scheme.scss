@@ -20,6 +20,7 @@
   --bg-card: #{$bg-color-card-light-mode};
   --bg-code: #{$bg-color-code-light-mode};
   --bg-input: #{$bg-color-input-light-mode};
+  --bg-input-disabled: #{$bg-color-input-disabled-light-mode};
   --bg-input-group-addon: #{$bg-color-input-group-addon-light-mode};
   --bg-kbd: #{$bg-color-kbd-light-mode};
   --bg-light-gray: #{$bg-color-gray-light-light-mode};
@@ -115,6 +116,7 @@
     --bg-card: #{$bg-color-card-dark-mode};
     --bg-code: #{$bg-color-code-dark-mode};
     --bg-input: #{$bg-color-input-dark-mode};
+    --bg-input-disabled: #{$bg-color-input-disabled-dark-mode};
     --bg-input-group-addon: #{$bg-color-input-group-addon-dark-mode};
     --bg-kbd: #{$bg-color-kbd-dark-mode};
     --bg-light-gray: #{$bg-color-gray-light-dark-mode};
