@@ -4,7 +4,7 @@
 
 
 // Remove extra vertical space below footer caused by tracking pixel
-body > img:last-child {
+body > img[src*="trkn.us"] {
   bottom: 0;
   display: block;
   position: absolute;
