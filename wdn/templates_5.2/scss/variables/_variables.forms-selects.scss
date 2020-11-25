@@ -10,9 +10,9 @@
 
 // Background color
 $bg-color-select-1-light-mode: $white;                    // <select> top linear-gradient background-color in light mode
-$bg-color-select-1-dark-mode: $darker-gray;               // <select> top linear-gradient background-color in dark mode
+$bg-color-select-1-dark-mode: $darkest-gray;              // <select> top linear-gradient background-color in dark mode
 $bg-color-select-2-light-mode: $lightest-gray;            // <select> bottom linear-gradient background-color in light mode
-$bg-color-select-2-dark-mode: $darkest-gray;              // <select> bottom linear-gradient background-color in dark mode
+$bg-color-select-2-dark-mode: $bg-color-body-dark-mode;   // <select> bottom linear-gradient background-color in dark mode
 
 
 // Background position
