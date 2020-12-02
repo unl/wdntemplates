@@ -459,6 +459,20 @@
         </div>
       </div>
 
+      <h3 class="dcf-mt-6">Sample Video Modal With Autoplay</h3>
+      <button class="dcf-btn-toggle-modal dcf-b-0" data-toggles-modal="video-modal-1" type="button" disabled><img src="https://mediahub.unl.edu/media/3197/image" alt="open video modal"></button>
+      <div class="dcf-modal" id="video-modal-1" data-autoplay="true" hidden>
+        <div class="dcf-modal-wrapper">
+          <div class="dcf-modal-header">
+            <h3>Video Modal 1</h3>
+            <button class="dcf-btn-close-modal">Close</button>
+          </div>
+          <div class="dcf-modal-content">
+            <video class="wdn_player dcf-w-100%" src="https://mediahub.unl.edu/uploads/ucomm/av/video/pyotm/SharonHansenPYOTM.mp4" controls="" poster="https://mediahub.unl.edu/media/3197/image" title="This is my video"></video>
+          </div>
+        </div>
+      </div>
+
       <h2 class="dcf-mt-9">Tables</h2>
 
       <div class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-auto">
@@ -720,6 +734,9 @@
   <!--#include virtual="/wdn/templates_5.2/includes/global/noscript.html" -->
   <!--#include virtual="/wdn/templates_5.2/includes/global/js-body-local.html" -->
   <!-- InstanceBeginEditable name="jsbody" -->
+  <script>
+    WDN.initializePlugin('mediaelement_wdn');
+  </script>
   <!-- InstanceEndEditable -->
 </body>
 <!-- InstanceEnd --></html>
