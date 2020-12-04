@@ -65,3 +65,7 @@ $padding-top-table-bordered-thead-cell: $length-em-5;                   // Paddi
 $padding-bottom-table-scroll: $length-em-4;                             // Padding-bottom for scrollable tables (to account for scroll bar)
 
 $padding-bottom-table-responsive-tbody-tr: $padding-bottom-tbody-cell;  // Padding-bottom for responsive table <tbody> rows
+
+
+// Width
+$width-table-responsive-data-label: 40%;                    // Width of data-label (responsive table heading)
