@@ -3,7 +3,7 @@ require (['dcf-utility', 'dcf-modal', 'plugins/body-scroll-lock'], (Utility, Mod
   const unlModal = new DCFModal(modals, bodyScrollLock);
   unlModal.initialize();
 
-  // Define custom open and close event
+  // Define custom open and close events
   modals.forEach((modal) => {
     handleModalVideos(modal);
   });
