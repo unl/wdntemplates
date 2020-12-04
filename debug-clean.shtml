@@ -205,6 +205,9 @@
   <!--#include virtual="/wdn/templates_5.2/includes/global/noscript.html" -->
   <!--#include virtual="/wdn/templates_5.2/includes/global/js-body-local.html" -->
   <!-- InstanceBeginEditable name="jsbody" -->
+  <script>
+    WDN.initializePlugin('mediaelement_wdn');
+  </script>
   <!-- InstanceEndEditable -->
 </body>
 <!-- InstanceEnd --></html>
