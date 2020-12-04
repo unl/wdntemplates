@@ -47,12 +47,12 @@ require (['dcf-utility', 'dcf-modal', 'plugins/body-scroll-lock'], (Utility, Mod
         let allowAttr = iframe.getAttribute('allow');
         if (allowAttr && allowAttr.includes('autoplay')) {
           document.addEventListener('ModalOpenEvent_' + modal.id, function (e) {
-            iframe.contentWindow.postMessage('mh-play-video', '*');
+            iframe.contentWindow.postMessage('mh-play-video', 'https://mediahub.unl.edu');
           }, false);
         }
 
         document.addEventListener('ModalCloseEvent_' + modal.id, function (e) {
-          iframe.contentWindow.postMessage('mh-stop-video', '*');
+          iframe.contentWindow.postMessage('mh-stop-video', 'https://mediahub.unl.edu');
         }, false);
       });
     }
