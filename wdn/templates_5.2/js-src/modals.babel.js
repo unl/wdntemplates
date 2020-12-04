@@ -5,40 +5,56 @@ require (['dcf-utility', 'dcf-modal', 'plugins/body-scroll-lock'], (Utility, Mod
 
   // Define custom open and close event
   modals.forEach((modal) => {
-    setVideoEventListeners(modal);
+    handleModalVideos(modal);
   });
 
-  function setVideoEventListeners(modal) {
-    // Get any videos in modal
+  function handleModalVideos(modal) {
+    // Handle any videos in modal
     const videos = modal.getElementsByTagName('video');
-
     if (videos && videos.length > 0) {
-      const playBtns = modal.getElementsByClassName('mejs-overlay-play');
-
-      const autoplay = modal.getAttribute('data-autoplay');
-      if (autoplay && autoplay === 'true') {
         document.addEventListener('ModalOpenEvent_' + modal.id, function (e) {
-          // auto play first video
-          videos[0].play();
-        }, false);
-      }
-
-      document.addEventListener('ModalCloseEvent_' + modal.id, function(e) {
-        // pause and reset all modal videos
-        Array.prototype.forEach.call(videos,(video) => {
-          video.pause();
-          video.load();
-        });
-
-        // Show any hidden overlay play buttons
-        if (playBtns && playBtns.length > 0) {
-          Array.prototype.forEach.call(playBtns, (playBtn) => {
-            if (playBtn.style.display === 'none') {
-              playBtn.style.display = 'block';
+          // autoplay any videos set to autoplay
+          Array.prototype.forEach.call(videos,(video) => {
+            if (video.hasAttribute('data-autoplay')) {
+              video.play();
             }
           });
+        }, false);
+
+        document.addEventListener('ModalCloseEvent_' + modal.id, function (e) {
+          // pause and reset all modal videos
+          Array.prototype.forEach.call(videos,(video) => {
+            video.pause();
+            video.load();
+          });
+
+          // Show any hidden overlay play buttons
+          let playBtns = modal.getElementsByClassName('mejs-overlay-play');
+          if (playBtns && playBtns.length > 0) {
+            Array.prototype.forEach.call(playBtns, (playBtn) => {
+              if (playBtn.style.display === 'none') {
+                playBtn.style.display = 'block';
+              }
+            });
+          }
+        }, false);
+    }
+
+    // Handle any mediahub iframe embed videos in modal
+    const iframes = modal.getElementsByTagName('iframe');
+    if (iframes && iframes.length > 0) {
+      Array.prototype.forEach.call(iframes,(iframe) => {
+        let allowAttr = iframe.getAttribute('allow');
+        if (allowAttr && allowAttr.includes('autoplay')) {
+          document.addEventListener('ModalOpenEvent_' + modal.id, function (e) {
+            iframe.contentWindow.postMessage('mh-play-video', '*');
+          }, false);
         }
-      }, false);
+
+        document.addEventListener('ModalCloseEvent_' + modal.id, function (e) {
+          iframe.contentWindow.postMessage('mh-stop-video', '*');
+        }, false);
+      });
     }
   }
 });

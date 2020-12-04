@@ -459,37 +459,6 @@
         </div>
       </div>
 
-      <h3 class="dcf-mt-6">Sample Video Modal With Autoplay</h3>
-      <button class="dcf-btn-toggle-modal dcf-b-0" data-toggles-modal="video-modal-1" type="button" disabled><img src="https://mediahub.unl.edu/media/12815/image" alt="open video modal"></button>
-      <div class="dcf-modal" id="video-modal-1" data-autoplay="true" hidden>
-        <div class="dcf-modal-wrapper">
-          <div class="dcf-modal-header">
-            <h3>Video Modal 1</h3>
-            <button class="dcf-btn-close-modal">Close</button>
-          </div>
-          <div class="dcf-modal-content">
-            <video class="wdn_player dcf-w-100%" src="https://mediahub.unl.edu/uploads/7266ff88-8663-11ea-864b-005056832e99/media.mp4" controls="" poster="https://mediahub.unl.edu/media/12815/image" title="This is my video"></video>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="dcf-mt-6">Sample Video Modal With Autoplay</h3>
-      <button class="dcf-btn-toggle-modal dcf-b-0" data-toggles-modal="video-modal-2" type="button" disabled><img src="https://mediahub.unl.edu/media/12815/image" alt="open video modal"></button>
-      <div class="dcf-modal" id="video-modal-2" data-autoplay="true" hidden>
-        <div class="dcf-modal-wrapper">
-          <div class="dcf-modal-header">
-            <h3>Video Modal 1</h3>
-            <button class="dcf-btn-close-modal">Close</button>
-          </div>
-          <div class="dcf-modal-content">
-            <div style="padding-top: 56.25%; overflow: hidden; position:relative; -webkit-box-flex: 1; flex-grow: 1;">
-              <iframe style="bottom: 0; left: 0; position: absolute; right: 0; top: 0; border: 0; height: 100%; width: 100%;" src="https://mediahub.unl.edu/media/12815?format=iframe&autoplay=0" title="Video Player:  Go Big Grad | Coach John Cook" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
       <h2 class="dcf-mt-9">Tables</h2>
 
       <div class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-auto">

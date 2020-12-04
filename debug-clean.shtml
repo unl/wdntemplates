@@ -131,7 +131,65 @@
     </div>
     <div class="dcf-main-content dcf-wrapper">
     <!-- InstanceBeginEditable name="maincontentarea" -->
-    <p>Impress your audience with awesome content!</p>
+      <h3 class="dcf-mt-6">Sample Video Modal With Autoplay</h3>
+      <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="video-modal-1" type="button" disabled>Play Video</button>
+      <div class="dcf-modal" id="video-modal-1" hidden>
+        <div class="dcf-modal-wrapper">
+          <div class="dcf-modal-header">
+            <h3>Sample Video Modal With Autoplay</h3>
+            <button class="dcf-btn-close-modal">Close</button>
+          </div>
+          <div class="dcf-modal-content">
+            <video class="wdn_player dcf-w-100%" src="https://mediahub.unl.edu/uploads/7266ff88-8663-11ea-864b-005056832e99/media.mp4" controls="" poster="https://mediahub.unl.edu/media/12815/image" title="This is my video" data-autoplay></video>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="dcf-mt-6">Sample Video Modal Without Autoplay</h3>
+      <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="video-modal-2" type="button" disabled>Open Video</button>
+      <div class="dcf-modal" id="video-modal-2" hidden>
+        <div class="dcf-modal-wrapper">
+          <div class="dcf-modal-header">
+            <h3>Sample Video Modal Without Autoplay</h3>
+            <button class="dcf-btn-close-modal">Close</button>
+          </div>
+          <div class="dcf-modal-content">
+            <video class="wdn_player dcf-w-100%" src="https://mediahub.unl.edu/uploads/7266ff88-8663-11ea-864b-005056832e99/media.mp4" controls="" poster="https://mediahub.unl.edu/media/12815/image" title="This is my video"></video>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="dcf-mt-6">Sample Mediahub Iframe Embed Video Modal With Autoplay</h3>
+      <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="video-modal-3" type="button" disabled>Play Video</button>
+      <div class="dcf-modal" id="video-modal-3" data-autoplay="true" hidden>
+        <div class="dcf-modal-wrapper">
+          <div class="dcf-modal-header">
+            <h3>Sample Mediahub Iframe Embed Video Modal With Autoplay</h3>
+            <button class="dcf-btn-close-modal">Close</button>
+          </div>
+          <div class="dcf-modal-content">
+            <div style="padding-top: 56.25%; overflow: hidden; position:relative; -webkit-box-flex: 1; flex-grow: 1;">
+              <iframe style="bottom: 0; left: 0; position: absolute; right: 0; top: 0; border: 0; height: 100%; width: 100%;" src="http://mediahub.dxg-jsturek.unl.edu/media/11?format=iframe&autoplay=0" title="Video Player:  Sturek Test MP4 IV" allowfullscreen allow="autoplay"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="dcf-mt-6">Sample Mediahub Iframe Embed Video Modal Without Autoplay</h3>
+      <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="video-modal-4" type="button" disabled>Open Video</button>
+      <div class="dcf-modal" id="video-modal-4" data-autoplay="true" hidden>
+        <div class="dcf-modal-wrapper">
+          <div class="dcf-modal-header">
+            <h3>Sample Mediahub Iframe Embed Video Modal Without Autoplay</h3>
+            <button class="dcf-btn-close-modal">Close</button>
+          </div>
+          <div class="dcf-modal-content">
+            <div style="padding-top: 56.25%; overflow: hidden; position:relative; -webkit-box-flex: 1; flex-grow: 1;">
+              <iframe style="bottom: 0; left: 0; position: absolute; right: 0; top: 0; border: 0; height: 100%; width: 100%;" src="http://mediahub.dxg-jsturek.unl.edu/media/11?format=iframe&autoplay=0" title="Video Player:  Sturek Test MP4 IV" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
     <!-- InstanceEndEditable -->
    </div>
   </main>
