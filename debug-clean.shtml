@@ -140,7 +140,9 @@
             <button class="dcf-btn-close-modal">Close</button>
           </div>
           <div class="dcf-modal-content">
-            <video class="wdn_player dcf-w-100%" src="https://mediahub.unl.edu/uploads/7266ff88-8663-11ea-864b-005056832e99/media.mp4" controls="" poster="https://mediahub.unl.edu/media/12815/image" title="This is my video" data-autoplay></video>
+            <video class="wdn_player dcf-w-100%" src="https://mediahub.unl.edu/uploads/7266ff88-8663-11ea-864b-005056832e99/media.mp4" controls="" poster="https://mediahub.unl.edu/media/12815/image" title="This is my video" data-autoplay>
+              <track label="English" kind="captions" srclang="en" src="https://mediahub.unl.edu/media/12815/vtt" default>
+            </video>
           </div>
         </div>
       </div>
@@ -154,7 +156,9 @@
             <button class="dcf-btn-close-modal">Close</button>
           </div>
           <div class="dcf-modal-content">
-            <video class="wdn_player dcf-w-100%" src="https://mediahub.unl.edu/uploads/7266ff88-8663-11ea-864b-005056832e99/media.mp4" controls="" poster="https://mediahub.unl.edu/media/12815/image" title="This is my video"></video>
+            <video class="wdn_player dcf-w-100%" src="https://mediahub.unl.edu/uploads/7266ff88-8663-11ea-864b-005056832e99/media.mp4" controls="" poster="https://mediahub.unl.edu/media/12815/image" title="This is my video">
+              <track label="English" kind="captions" srclang="en" src="https://mediahub.unl.edu/media/12815/vtt" default>
+            </video>
           </div>
         </div>
       </div>
