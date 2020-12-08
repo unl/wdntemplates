@@ -11,6 +11,19 @@
   font-family: inherit;
 }
 
+.ui-widget-content {
+  border: 1px solid var(--b);
+  background: var(--bg-lighter-gray);
+  color: var(--darker-gray);
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  background-color: var(--bg-body);
+  color: var(--body);
+}
+
 .ui-button.ui-state-active:hover,
 .ui-button:active,
 .ui-state-active,
@@ -27,6 +40,10 @@ a.ui-button:active {
 .ui-datepicker .ui-state-active,
 .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
 	border: 0;
+}
+
+.ui-datepicker table {
+  @include txt-sm;
 }
 
 .ui-datepicker .ui-corner-all,
@@ -55,8 +72,29 @@ a.ui-button:active {
 	text-transform: uppercase;
 }
 
+.ui-datepicker.ui-widget.ui-widget-content {
+  border: 0;
+  box-shadow: 1px 1px 1.78em 1px rgba(0,0,0,0.18), 1px 1px 3px rgba(0,0,0,0.24);
+}
+
+.ui-datepicker .ui-state-default {
+  color: var(--link);
+}
+
 .ui-datepicker .ui-datepicker-header {
-  padding: 1.069em 1em 1em;
+  align-items: center;
+  @include bg-lighter;
+  border-color: var(--b-table);
+  border-bottom-width: 0;
+  color: var(--heading);
+  display: flex;
+  justify-content: space-between;
+  padding: .75em .75em .56em;
+}
+
+.ui-datepicker-header.ui-helper-clearfix::after,
+.ui-datepicker-header.ui-helper-clearfix::before {
+  content: none;
 }
 
 .ui-datepicker .ui-datepicker-header .ui-state-hover {
@@ -65,6 +103,11 @@ a.ui-button:active {
 
 .ui-datepicker .ui-datepicker-header .ui-state-hover .ui-icon {
   background-image: url("images/ui-icons_ffffff_256x240.png");
+}
+
+.ui-datepicker .ui-state-active,
+.ui-datepicker .ui-state-highlight {
+	color: $cream;
 }
 
 .ui-datepicker .ui-state-active {
@@ -78,26 +121,16 @@ a.ui-button:active {
 
 .ui-datepicker .ui-state-highlight {
 	@include bg-scarlet;
-	color: $cream;
-}
-
-.ui-datepicker .ui-datepicker-title {
-	line-height: 1;
 }
 
 .ui-datepicker .ui-datepicker-next {
-	float: right;
-}
-
-.ui-datepicker .ui-datepicker-prev {
-	float: left;
+  order: 3;
 }
 
 .ui-datepicker .ui-datepicker-next,
 .ui-datepicker .ui-datepicker-prev {
 	cursor: pointer;
 	height: auto;
-	margin: -0.16em 0;
 	position: static;
 }
 
@@ -107,14 +140,15 @@ a.ui-button:active {
 	position: static;
 }
 
-.ui-datepicker table th {
+.ui-datepicker th {
   @include bg-lightest;
-	border: 1px solid $gray;
+  border: 1px solid var(--b-table);
+  color: var(--heading);
   @include txt-sm;
-	font-weight: 400;
-	padding: 12px 1px;
-	text-transform: uppercase;
-	width: 14%;
+  font-weight: 400;
+  padding: .75em 1px;
+  text-transform: uppercase;
+  width: 14%;
 }
 
 .ui-datepicker tbody tr {
@@ -123,7 +157,7 @@ a.ui-button:active {
 
 .ui-datepicker td {
   @include bg-white;
-	border: 1px solid $light-gray;
+  border: 1px solid var(--b-table);
 	@include txt-xs;
 }
 
