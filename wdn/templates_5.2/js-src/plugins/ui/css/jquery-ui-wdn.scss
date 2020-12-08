@@ -12,7 +12,7 @@
 }
 
 .ui-widget-content {
-  background-color: var(--bg-lighter-gray);
+  @include bg-lighter;
   border: 1px solid var(--b);
   color: var(--darker-gray);
 }
@@ -20,7 +20,7 @@
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-  background-color: var(--bg-body);
+  @include bg-cream;
   color: var(--body);
 }
 
@@ -30,7 +30,7 @@
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active,
 a.ui-button:active {
-  background-color: #d00000;
+  @include bg-scarlet;
   border: 1px solid #9e0900;
 }
 
