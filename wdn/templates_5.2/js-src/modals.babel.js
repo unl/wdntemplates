@@ -49,11 +49,15 @@ require (['dcf-utility', 'dcf-modal', 'plugins/body-scroll-lock'], (Utility, Mod
           document.addEventListener('ModalOpenEvent_' + modal.id, function (e) {
             iframe.contentWindow.postMessage('mh-play-video', 'https://mediahub.unl.edu');
           }, false);
-        }
 
-        document.addEventListener('ModalCloseEvent_' + modal.id, function (e) {
-          iframe.contentWindow.postMessage('mh-stop-video', 'https://mediahub.unl.edu');
-        }, false);
+          document.addEventListener('ModalCloseEvent_' + modal.id, function (e) {
+            iframe.contentWindow.postMessage('mh-reset-video', 'https://mediahub.unl.edu');
+          }, false);
+        } else {
+          document.addEventListener('ModalCloseEvent_' + modal.id, function (e) {
+            iframe.contentWindow.postMessage('mh-pause-video', 'https://mediahub.unl.edu');
+          }, false);
+        }
       });
     }
   }
