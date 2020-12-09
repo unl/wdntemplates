@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.2.7 (December 8, 2020)
+- New monospace font stack
+- Responsive tables fix
+
 ## 5.2.6 (November 12, 2020)
 - Modal fix
 - Add Google Tag Manager code
