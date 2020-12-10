@@ -12,7 +12,7 @@
 
 // Background color
 $bg-color-input-light-mode: $white;                             // Field background color in light mode
-$bg-color-input-dark-mode: $black;                              // Field background color in dark mode
+$bg-color-input-dark-mode: darken($darkest-gray,7%);            // Field background color in dark mode
 
 $bg-color-input-disabled-light-mode: $lighter-gray;             // Field background color in light mode
 $bg-color-input-disabled-dark-mode: $darkest-gray;              // Field background color in dark mode
