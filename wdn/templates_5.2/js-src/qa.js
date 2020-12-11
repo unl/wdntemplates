@@ -8,7 +8,7 @@ define(['jquery'], function($) {
         }
 
         var gpa = parseFloat(data.gpa);
-        var $link = $('a[href="https://webaudit.unl.edu/qa-test/"]');
+        var $link = $('#qa-test');
         if (gpa === 100) {
             $link.after('<span aria-hidden="true">&nbsp;&starf;</span><span class="dcf-sr-only">100% (gold star)</span>');
         } else if (gpa >= 90) {
