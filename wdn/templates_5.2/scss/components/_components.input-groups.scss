@@ -8,3 +8,9 @@
   padding-bottom: 0;
   padding-top: 0;
 }
+
+
+// Input Group: Focus
+.unl .dcf-input-group > *:focus {
+  z-index: 1; // Ensure any focused input group child is above any siblings (e.g. :focus box-shadow)
+}
