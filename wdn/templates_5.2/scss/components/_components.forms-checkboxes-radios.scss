@@ -32,7 +32,20 @@
 // Focus
 .unl .dcf-input-checkbox input[type="checkbox"]:focus + label::before,
 .unl .dcf-input-radio input[type="radio"]:focus + label::before {
+  border-color: var(--b-input-focus);
   box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
+}
+
+
+.unl .dcf-input-checkbox input[type="checkbox"]:focus + label::after {
+  border-left-color: var(--b-input-focus);
+  border-bottom-color: var(--b-input-focus);
+  border-right-color: var(--b-input-focus);
+}
+
+
+.unl .dcf-input-radio input[type="radio"]:focus + label::after {
+  background-color: var(--b-input-focus); // Match focused input border-color
 }
 
 
