@@ -80,6 +80,7 @@
   --darker-gray: #{$color-gray-darker-light-mode};
   --darkest-gray: #{$color-gray-darkest-light-mode};
   --figcaption: #{$color-figcaption-light-mode};
+  --focus-outline: #{$color-focus-outline-light-mode};
   --form-help: #{$color-form-help-light-mode};
   --heading: #{$color-heading-light-mode};
   --hover: #{$color-hover-light-mode};
@@ -176,6 +177,7 @@
     --darker-gray: #{$color-gray-darker-dark-mode};
     --darkest-gray: #{$color-gray-darkest-dark-mode};
     --figcaption: #{$color-figcaption-dark-mode};
+    --focus-outline: #{$color-focus-outline-dark-mode};
     --form-help: #{$color-form-help-dark-mode};
   	--heading: #{$color-heading-dark-mode};
     --hover: #{$color-hover-dark-mode};
