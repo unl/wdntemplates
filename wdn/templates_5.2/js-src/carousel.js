@@ -20,7 +20,8 @@ define([
 			$(function() {
 				var userConfig = WDN.getPluginParam('carousel', 'defaults') || {};
 				var defaultConfig = {
-                    directionNav: false
+					directionNav: false,
+					fadeFirstSlide: false
 				};
 
 				var localConfig = $.extend({}, defaultConfig, userConfig);
