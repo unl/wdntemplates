@@ -8,12 +8,12 @@
 
 .unl .dcf-slide-deck {
   clip-path: polygon(
-      100% 0,
-      100% calc(100% - #{$size-btn-y} - (#{$border-width-button} * 2) - #{$size-clip-path}),
-      calc(100% - (#{$size-btn-x} * 2) - (#{$border-width-button} * 5) - #{$size-clip-path}) calc(100% - #{$size-btn-y} - (#{$border-width-button} * 2) - #{$size-clip-path}),
-      calc(100% - (#{$size-btn-x} * 2) - (#{$border-width-button} * 5) - #{$size-clip-path}) 100%,
-      0 100%,
-      0 0
+    100% 0,
+    100% calc(100% - #{$size-btn-y} - (#{$border-width-button} * 2) - #{$size-clip-path}),
+    calc(100% - (#{$size-btn-x} * 2) - (#{$border-width-button} * 5) - #{$size-clip-path}) calc(100% - #{$size-btn-y} - (#{$border-width-button} * 2) - #{$size-clip-path}),
+    calc(100% - (#{$size-btn-x} * 2) - (#{$border-width-button} * 5) - #{$size-clip-path}) 100%,
+    0 100%,
+    0 0
   );
   scrollbar-width: none;  // Hide scrollbar in Firefox
 }

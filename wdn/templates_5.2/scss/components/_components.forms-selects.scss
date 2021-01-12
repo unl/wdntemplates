@@ -3,9 +3,19 @@
 ///////////////////////////////////////
 
 
-.unl .dcf-input-select:focus, // TODO: deprecate?
-.unl .dcf-form select:focus,
+.unl .dcf-input-select, // TODO: deprecate?
+.unl .dcf-form select {
+  transition: all $transition-duration-hover-off $transition-timing-fn-hover-off;
+}
+
+
 .unl .dcf-input-select:hover, // TODO: deprecate?
 .unl .dcf-form select:hover {
-  box-shadow: 0 0 $length-em-3 fade-out($border-color-input-hover-light-mode,.25);
+  transition: border-color $transition-duration-hover-on $transition-timing-fn-hover-on;
+}
+
+
+.unl .dcf-input-select:focus, // TODO: deprecate?
+.unl .dcf-form select:focus {
+  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
 }

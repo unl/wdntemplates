@@ -7,19 +7,50 @@
 // and radio buttons https://scottaohara.github.io/a11y_styled_form_controls/src/radio-button/
 
 
-// Style checkbox and radio input
-.unl .dcf-input-checkbox label::before,
-.unl .dcf-input-radio label::before {
-  transition: border-color $transition-duration-hover-off $transition-timing-fn-hover-off, box-shadow $transition-duration-hover-off $transition-timing-fn-hover-off;
+// Checkbox and radio label
+.unl .dcf-input-checkbox label,
+.unl .dcf-input-radio label {
+  margin-bottom: 0;
 }
 
 
-// Hover, focus states
+// Style checkbox and radio input
+.unl .dcf-input-checkbox label::before,
+.unl .dcf-input-radio label::before {
+  transition: all $transition-duration-hover-off $transition-timing-fn-hover-off;
+}
+
+
+// Hover
 .unl .dcf-input-checkbox label:hover::before,
 .unl .dcf-input-radio label:hover::before,
-.unl .dcf-input-checkbox input[type="checkbox"]:hover + label::before,
-.unl .dcf-input-radio input[type="radio"]:hover + label::before,
+.unl .dcf-input-checkbox input[type="checkbox"]:hover + label::before {
+  transition: all $transition-duration-hover-on $transition-timing-fn-hover-on;
+}
+
+
+// Focus
 .unl .dcf-input-checkbox input[type="checkbox"]:focus + label::before,
 .unl .dcf-input-radio input[type="radio"]:focus + label::before {
-  box-shadow: 0 0 $length-em-3 fade-out($border-color-input-hover-light-mode,.25);
+  border-color: var(--b-input-focus);
+  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
+}
+
+
+.unl .dcf-input-checkbox input[type="checkbox"]:focus + label::after {
+  border-left-color: var(--b-input-focus);
+  border-bottom-color: var(--b-input-focus);
+  border-right-color: var(--b-input-focus);
+}
+
+
+.unl .dcf-input-radio input[type="radio"]:focus + label::after {
+  background-color: var(--b-input-focus); // Match focused input border-color
+}
+
+
+// Disabled
+.unl .dcf-input-checkbox input[type="checkbox"]:disabled + label::before,
+.unl .dcf-input-radio input[type="radio"]:disabled + label::before {
+  background-color: var(--bg-input-disabled);
 }
