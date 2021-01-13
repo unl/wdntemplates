@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.2.8 (January 13, 2021)
+- Button style updates
+- Fix for Web Audit star in footer
+
 ## 5.2.7 (December 8, 2020)
 - New monospace font stack
 - Responsive tables fix
