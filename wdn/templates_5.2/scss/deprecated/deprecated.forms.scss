@@ -20,17 +20,6 @@ form ul.wdn-std li { // restore browser defaults, assumes LTR
   margin: 0;
 }
 
-// // Input: Control
-// .unl .dcf-input-control {
-//   @include mr-1;
-// }
-
-// Input: File
-// .unl .dcf-input-file {
-//   @include mb-2;
-//   @include mt-2;
-// }
-
 form input[type="email"],
 form input[type="password"],
 form input[type="search"],
@@ -39,18 +28,22 @@ form input[type="url"],
 form input[type="number"],
 form input[type="tel"],
 form textarea {
+  appearance: none;
   background-color: var(--bg-input);
   border: 1px solid var(--b-input);
-  border-radius: 0;
-  padding: $length-em-2 $length-em-3;
+  border-radius: $roundrect;
+  color: inherit;
+  font-family: inherit;
+  padding: $padding-top-input $padding-right-input $padding-bottom-input $padding-left-input;
   width: 100%;
 
-  &:hover,
-  &:focus {
-    box-shadow: 0 0 $length-em-3 fade-out($border-color-input-hover-light-mode,.25);
+  &:hover {
+    border-color: var(--b-input-hover);
   }
 
   &:focus {
+    border-color: var(--b-input-focus);
+    box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
     outline: none;
   }
 
