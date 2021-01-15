@@ -143,8 +143,8 @@
     <!--#include virtual="/wdn/templates_5.3/includes/local/footer-local.html" -->
     <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.3/includes/global/footer-global-2.html" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/global/noscript.html" -->
   </footer>
-  <!--#include virtual="/wdn/templates_5.3/includes/global/noscript.html" -->
   <!--#include virtual="/wdn/templates_5.3/includes/global/js-body-local.html" -->
   <!-- InstanceBeginEditable name="jsbody" -->
   <!-- InstanceEndEditable -->
