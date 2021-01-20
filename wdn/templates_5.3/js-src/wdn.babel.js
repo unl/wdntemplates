@@ -24,7 +24,7 @@
 		 */
 		template_path = '',
 
-		dependent_path = 'wdn/templates_5.2/',
+		dependent_path = 'wdn/templates_5.3/',
 
 		build_path = '/compressed',
 
@@ -178,7 +178,7 @@
 			var version_dep = document.getElementById("wdn_dependents").getAttribute("src");
 
 			if (/\?dep=\$DEP_VERSION\$/.test(version_dep)) {
-				version_dep = '5.2.DEV';
+				version_dep = '5.3.DEV';
 			} else {
 				var version_match = version_dep.match(/\?dep=(\d+(?:\.\d+)*)/);
 				if (version_match) {

@@ -17,7 +17,7 @@ function polyfillsAreLoaded() {
   }
 
   loadJs(
-    "/wdn/templates_5.2/js/compressed/all.js?dep=$DEP_VERSION$",
+    "/wdn/templates_5.3/js/compressed/all.js?dep=$DEP_VERSION$",
     true,
     "wdn_dependents"
   ).catch(function(err) {
