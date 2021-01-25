@@ -33,6 +33,7 @@
 				var skipNav = document.getElementById('dcf-skip-nav');
 				var banner = document.createElement('div');
 				banner.setAttribute('role', 'navigation');
+				banner.classList.add('dcf-d-none@print');
 				banner.innerHTML = messageContent;
 				if (skipNav) {
 					skipNav.parentNode.insertBefore(banner, skipNav.nextSibling);
