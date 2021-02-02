@@ -298,9 +298,6 @@ module.exports = function (grunt) {
           implementation: nodeSass,
           sourceMap: true,
           precision: 2,
-          includePaths: [
-            'node_modules/modularscale-sass/stylesheets'
-          ]
         },
         files: scssAllFiles
       },
@@ -309,9 +306,6 @@ module.exports = function (grunt) {
           implementation: nodeSass,
           sourceMap: true,
           precision: 2,
-          includePaths: [
-            'node_modules/modularscale-sass/stylesheets'
-          ]
         },
         files: scssJsFiles
       }
