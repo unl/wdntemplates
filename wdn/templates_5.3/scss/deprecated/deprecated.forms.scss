@@ -127,7 +127,6 @@ main input[type='submit'],
   line-height: $line-height-button;
   padding: $padding-top-button $padding-right-button $padding-bottom-button $padding-left-button;
   text-align: center;
-  transition: all $transition-duration-hover-off $transition-timing-fn-hover-off;
 }
 
 main button:focus,
@@ -167,7 +166,7 @@ a.wdn-button-brand:visited {
   background-color: var(--bg-btn-primary);
   border-color: var(--b-btn-primary);
   color: var(--btn-primary);
-  transition: all $transition-duration-hover-off $transition-timing-fn-hover-off;
+  transition: background-color $transition-duration-hover-off $transition-timing-fn-hover-off, border-color $transition-duration-hover-off $transition-timing-fn-hover-off, box-shadow $transition-duration-hover-off $transition-timing-fn-hover-off, color $transition-duration-hover-off $transition-timing-fn-hover-off;
 }
 
 main button:hover,
@@ -177,7 +176,7 @@ main input[type='submit']:hover,
 .wdn-button-brand:hover,
 .wdn-input-group-btn button:hover,
 .wdn-input-group-btn input:hover {
-  transition: all $transition-duration-hover-on $transition-timing-fn-hover-on;
+  transition: background-color $transition-duration-hover-on $transition-timing-fn-hover-on, border-color $transition-duration-hover-on $transition-timing-fn-hover-on, color $transition-duration-hover-on $transition-timing-fn-hover-on;
 }
 
 main button:not(:disabled):hover,
@@ -206,6 +205,7 @@ main input[type='submit']:focus,
 .wdn-input-group-btn button:focus,
 .wdn-input-group-btn input:focus {
   box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-btn-primary);
+  transition: box-shadow $transition-duration-hover-on $transition-timing-fn-hover-on;
 }
 
 main button:focus:hover,
