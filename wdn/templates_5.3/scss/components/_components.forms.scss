@@ -13,7 +13,7 @@
 .unl .dcf-input-text, // TODO: deprecate?
 .unl .dcf-form input:not([type="submit"]),
 .unl .dcf-form textarea {
-  transition: all $transition-duration-hover-off $transition-timing-fn-hover-off;
+  transition: border-color $transition-duration-hover-off $transition-timing-fn-hover-off, box-shadow $transition-duration-hover-off $transition-timing-fn-hover-off;
 }
 
 
@@ -35,6 +35,7 @@
 .unl .dcf-form input:not([type="submit"]):focus,
 .unl .dcf-form textarea:focus {
   box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
+  transition: box-shadow $transition-duration-hover-on $transition-timing-fn-hover-on;
 }
 
 

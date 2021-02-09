@@ -5,7 +5,7 @@
 
 .unl .dcf-input-select, // TODO: deprecate?
 .unl .dcf-form select {
-  transition: all $transition-duration-hover-off $transition-timing-fn-hover-off;
+  transition: border-color $transition-duration-hover-off $transition-timing-fn-hover-off, box-shadow $transition-duration-hover-off $transition-timing-fn-hover-off;
 }
 
 
@@ -18,6 +18,7 @@
 .unl .dcf-input-select:focus, // TODO: deprecate?
 .unl .dcf-form select:focus {
   box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
+  transition: box-shadow $transition-duration-hover-on $transition-timing-fn-hover-on;
 }
 
 

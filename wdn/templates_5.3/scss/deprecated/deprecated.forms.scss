@@ -35,16 +35,19 @@ form textarea {
   color: inherit;
   font-family: inherit;
   padding: $padding-top-input $padding-right-input $padding-bottom-input $padding-left-input;
+  transition: border-color $transition-duration-hover-off $transition-timing-fn-hover-off, box-shadow $transition-duration-hover-off $transition-timing-fn-hover-off;
   width: 100%;
 
   &:hover {
     border-color: var(--b-input-hover);
+    transition: border-color $transition-duration-hover-on $transition-timing-fn-hover-on;
   }
 
   &:focus {
     border-color: var(--b-input-focus);
     box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
     outline: none;
+    transition: box-shadow $transition-duration-hover-on $transition-timing-fn-hover-on;
   }
 
 }
