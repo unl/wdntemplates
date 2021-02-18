@@ -24,20 +24,15 @@ git pull $UPSTREAM_REMOTE $DEV_BRANCH
 
 
 if ${COMMITONLY}; then
-    grunt bump-commit --dry-run || exit $?
+    VERSION_DEP=line=$(head -n 1 VERSION_DEP)
+    git tag -a $VERSION_DEP -m "Release $VERSION_DEP"
+    git push upstream $DEV_BRANCH && git push upstream $VERSION_DEP
 else
     grunt bump --dry-run || exit $?
-fi
-
-echo "Cancel now, if this is not what you want! (5 seconds)"
-sleep 5
-
-if ${COMMITONLY}; then
-    grunt bump-commit 
-else
+    echo "Cancel now, if this is not what you want! (5 seconds)"
+    sleep 5
     grunt bump
 fi
-
 
 
 git checkout $MASTER_BRANCH
