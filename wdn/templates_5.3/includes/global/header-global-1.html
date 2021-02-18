@@ -1,0 +1,51 @@
+<script>
+    // WDN Notice Banner Display
+    function displayWDNNoticeBanner() {
+	    var bannerEnabled = true;
+	    if (bannerEnabled) {
+		    var messageContent = false;
+		    var messageSessionKey = 'wndNoticeMessage';
+		    var sessionContent = sessionStorage.getItem(messageSessionKey);
+
+		    // clear saved message every five minutes
+		    setInterval(function(){ sessionStorage.removeItem(messageSessionKey); }, 300000);
+
+		    if (sessionContent) {
+				messageContent = sessionContent;
+				displayWDNNoticeBannerMessage(messageContent);
+		    } else {
+				var xhr = new XMLHttpRequest();
+				var bannerContentURL = 'https://its-unl-cms-prd-s3.s3.amazonaws.com/wdn-message.html';
+				xhr.open('GET', bannerContentURL);
+				xhr.send(null);
+				xhr.onload = function(e) {
+					if (xhr.status === 200) {
+						messageContent = xhr.responseText;
+						sessionStorage.setItem(messageSessionKey, messageContent);
+						displayWDNNoticeBannerMessage(messageContent);
+					}
+				}
+		    }
+		}
+
+		function displayWDNNoticeBannerMessage(messageContent) {
+			if (messageContent) {
+				var skipNav = document.getElementById('dcf-skip-nav');
+				var banner = document.createElement('div');
+				banner.setAttribute('role', 'navigation');
+				banner.classList.add('dcf-d-none@print');
+				banner.innerHTML = messageContent;
+				if (skipNav) {
+					skipNav.parentNode.insertBefore(banner, skipNav.nextSibling);
+				} else {
+					document.body.prepend(banner);
+				}
+			}
+		}
+	}
+	displayWDNNoticeBanner();
+</script>
+<div class="dcf-header-global dcf-wrapper dcf-d-flex dcf-flex-row dcf-flex-nowrap dcf-ai-center dcf-jc-between dcf-relative dcf-bt-solid dcf-bt-3 unl-bt-scarlet">
+  <a class="dcf-institution-title dcf-flex-shrink-0 dcf-pt-3 dcf-pb-3 dcf-txt-xs unl-ls-3" id="dcf-institution-title" href="https://www.unl.edu/">
+    <span class="dcf-uppercase unl-font-serif-ltd-caps">University</span> <span class="dcf-italic unl-font-serif-ltd-italic">of</span><span class="unl-institution-title-ls"> </span><span class="dcf-uppercase unl-font-serif-ltd-caps">Nebraska&ndash;Lincoln</span>
+  </a>

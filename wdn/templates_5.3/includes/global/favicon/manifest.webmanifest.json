@@ -1,0 +1,14 @@
+{
+	"icons": [
+		{
+			"src": "/wdn/templates_5.3/includes/favicon/192.png?v=m223gpjb0w",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "/wdn/templates_5.3/includes/favicon/512.png?v=m223gpjb0w",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	]
+}

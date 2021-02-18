@@ -1,6 +1,6 @@
 {
   "name": "wdntemplates",
-  "version": "5.2.8",
+  "version": "5.3.0",
   "description": "Web Framework for the UNLedu website.",
   "repository": {
     "type": "git",
@@ -51,7 +51,6 @@
     "imagemin-webp": "^5.1.0",
     "imagemin-zopfli": "^6.0.0",
     "load-grunt-tasks": "^4.0.0",
-    "modularscale-sass": "^3.0.10",
     "node-sass": "^4.14.1",
     "postcss-normalize": "^7.0.1",
     "postcss-object-fit-images": "^1.1.2",
