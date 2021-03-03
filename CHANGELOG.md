@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.0 (February 17, 2021)
+- Initial release
+
 ## 5.2.8 (January 13, 2021)
 - Button style updates
 - Fix for Web Audit star in footer
