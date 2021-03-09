@@ -66,6 +66,7 @@ module.exports = function (grunt) {
   var wdnBuildPlugins = [
     'band_imagery',
     'carousel',
+    'datepickers',
     'events-band',
     'events',
     'font-serif',

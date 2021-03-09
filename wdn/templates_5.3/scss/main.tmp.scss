@@ -26,6 +26,7 @@
 @import "variables/_variables.code";
 @import "variables/_variables.color-palette";
 @import "variables/_variables.colors-text";
+@import "variables/_variables.datepickers";
 @import "variables/_variables.details-summary";
 @import "variables/_variables.figures";
 @import "variables/_variables.focus";
@@ -149,6 +150,7 @@
 @import "../../../node_modules/dcf/scss/components/_components.buttons";
 @import "../../../node_modules/dcf/scss/components/_components.cards";
 @import "../../../node_modules/dcf/scss/components/_components.code";
+@import "../../../node_modules/dcf/scss/components/_components.datepickers";
 @import "../../../node_modules/dcf/scss/components/_components.forms-checkboxes-radios";
 @import "../../../node_modules/dcf/scss/components/_components.forms-selects";
 @import "../../../node_modules/dcf/scss/components/_components.forms";
@@ -169,6 +171,7 @@
 @import "components/_components.breadcrumbs";
 @import "components/_components.buttons";
 @import "components/_components.cta";
+@import "components/_components.datepickers";
 @import "components/_components.footer";
 @import "components/_components.forms-checkboxes-radios";
 @import "components/_components.forms-selects";
