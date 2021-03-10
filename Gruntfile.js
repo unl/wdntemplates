@@ -29,17 +29,17 @@ module.exports = function (grunt) {
   // project layout variables (directories)
   var mainDir = 'wdn',                                    // wdn
     buildDir = 'build',                                   // build
-    templateDir = mainDir + '/templates_5.2',             // wdn/templates_5.2
-    templateImages = templateDir + '/images',             // wdn/templates_5.2/images
-    templateScss = templateDir + '/scss',                 // wdn/templates_5.2/scss
-    templateCss = templateDir + '/css',                   // wdn/templates_5.2/css
-    templateJs = templateDir + '/js',                     // wdn/templates_5.2/js
-    templateJsSrc = templateDir + '/js-src',              // wdn/templates_5.2/js-src
-    templateJsCss = templateJs + '/js-css',               // wdn/templates_5.2/js/js-css
+    templateDir = mainDir + '/templates_5.3',             // wdn/templates_5.3
+    templateImages = templateDir + '/images',             // wdn/templates_5.3/images
+    templateScss = templateDir + '/scss',                 // wdn/templates_5.3/scss
+    templateCss = templateDir + '/css',                   // wdn/templates_5.3/css
+    templateJs = templateDir + '/js',                     // wdn/templates_5.3/js
+    templateJsSrc = templateDir + '/js-src',              // wdn/templates_5.3/js-src
+    templateJsCss = templateJs + '/js-css',               // wdn/templates_5.3/js/js-css
     builtJsDir = 'compressed',                            // compressed
     buildJsDir = buildDir + '/' + builtJsDir,             // build/compressed - folder removed at end of grunt js task
-    templateCompileJs = templateJs + '/' + builtJsDir,    // wdn/templates_5.2/js/compressed
-    templateIncludeDir = templateDir + '/includes',       // wdn/templates_5.2/includes
+    templateCompileJs = templateJs + '/' + builtJsDir,    // wdn/templates_5.3/js/compressed
+    templateIncludeDir = templateDir + '/includes',       // wdn/templates_5.3/includes
     templateHtmlDir = 'Templates',                        // Templates
     templateSharedDir = 'sharedcode',                     // sharedcode
     zipDir = 'downloads',                                 // downloads
@@ -66,6 +66,7 @@ module.exports = function (grunt) {
   var wdnBuildPlugins = [
     'band_imagery',
     'carousel',
+    'datepickers',
     'events-band',
     'events',
     'font-serif',
@@ -299,9 +300,6 @@ module.exports = function (grunt) {
           implementation: nodeSass,
           sourceMap: true,
           precision: 2,
-          includePaths: [
-            'node_modules/modularscale-sass/stylesheets'
-          ]
         },
         files: scssAllFiles
       },
@@ -310,9 +308,6 @@ module.exports = function (grunt) {
           implementation: nodeSass,
           sourceMap: true,
           precision: 2,
-          includePaths: [
-            'node_modules/modularscale-sass/stylesheets'
-          ]
         },
         files: scssJsFiles
       }
