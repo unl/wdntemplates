@@ -53,7 +53,6 @@
     "load-grunt-tasks": "^4.0.0",
     "node-sass": "^4.14.1",
     "postcss-normalize": "^7.0.1",
-    "postcss-object-fit-images": "^1.1.2",
     "stylelint": "^13.7.1",
     "stylelint-no-unsupported-browser-features": "^3.0.2",
     "tar-fs": "^1.16.3",
