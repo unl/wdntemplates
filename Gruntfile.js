@@ -318,7 +318,6 @@ module.exports = function (grunt) {
           processors: [
             require('postcss-normalize')({allowDuplicates: true}),
             require('autoprefixer')(),
-            require('postcss-object-fit-images'),
             require('cssnano')()
           ],
           map: true
@@ -329,7 +328,6 @@ module.exports = function (grunt) {
         options: {
           processors: [
             require('autoprefixer')(),
-            require('postcss-object-fit-images'),
             require('cssnano')()
           ],
           map: true
