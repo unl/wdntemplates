@@ -62,16 +62,8 @@
 }
 
 
-.unl-footer-groups a,
-.unl-footer-groups a:link,
-.unl-footer-groups a:visited,
-.unl-footer-groups a:active {
+.unl-footer-groups li a:not(:hover) {
   text-decoration: none;
-}
-
-
-.unl-footer-groups a:hover {
-  text-decoration: underline;
 }
 
 
