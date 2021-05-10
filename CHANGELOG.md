@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.1 (April 15, 2021)
+- New datepicker
+- Remove object-fit polyfill
+
 ## 5.3.0 (February 17, 2021)
 - Initial release
 
