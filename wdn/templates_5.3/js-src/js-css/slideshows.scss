@@ -59,6 +59,7 @@
       0 calc(100% - (#{$size-clip-path} * 2) - (#{$border-width-button} * 2) - #{$size-btn-y}),
       0 0
   );
+  color: $cream;
   height: 100%;
   left: 0;
   padding: $padding-top-slide-caption $padding-right-slide-caption $padding-bottom-slide-caption $padding-left-slide-caption;
