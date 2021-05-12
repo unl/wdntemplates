@@ -783,6 +783,34 @@
         }, false);
       </script>
 
+      <div class="dcf-bleed dcf-wrapper unl-bg-lighter-gray">
+        <h2 class="dcf-mt-9">Card As Link</h2>
+        <div class="dcf-pb-10 dcf-mb-10 dcf-grid-thirds">
+          <div class="dcf-card dcf-card-as-link dcf-d-flex dcf-flex-col">
+            <div class="dcf-card-block dcf-2nd">
+              <h2><a class="dcf-card-link" href="https://www.unl.edu/">Church-key ennui gastropub</a></h2>
+              <p>Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <abbr>VHS</abbr> blog Pitchfork authentic paleo ethical messenger bag. Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh. <a href="https://www.google.com/">Here's another link</a></p>
+            </div>
+            <div class="dcf-ratio dcf-ratio-16x9 dcf-1st">
+              <img
+                      class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100%"
+                      sizes="(min-width: 41.956em) 43vw, 88vw"
+                      srcset="wdn/templates_5.3/images/dev/150821-tunnel-325-sm-min.jpg 284w,
+                  wdn/templates_5.3/images/dev/150821-tunnel-325-md-min.jpg 505w,
+                  wdn/templates_5.3/images/dev/150821-tunnel-325-lg-min.jpg 898w,
+                  wdn/templates_5.3/images/dev/150821-tunnel-325-xl-min.jpg 1596w"
+                      src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+                      alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        window.addEventListener('inlineJSReady', function() {
+          WDN.initializePlugin('card-as-link');
+        });
+      </script>
+
       <div class="dcf-pb-8 dcf-w-max-md">
         <h2>User Info</h2>
         <form class="dcf-form dcf-form-controls-inline" id="user-lookup" action="?" method="get">
