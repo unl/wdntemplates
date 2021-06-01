@@ -31,13 +31,12 @@ define([
         eventList = document.createElement('ul');
         eventList.classList.add('unl-event-teaser-list', 'dcf-list-bare', 'dcf-col-gap-vw', 'dcf-row-gap-6', 'dcf-mb-0');
 
+    // Handle direct url to upcoming or featured
     if (localConfig.url.match(/upcoming\/?$/)) {
-      //Don't add the upcoming endpoint if it already exists and set type.
       localConfig.url = localConfig.url.replace('upcoming/', '');
       typePath = '';
       type = 'upcoming';
     } else if (localConfig.url.match(/featured\/?$/)) {
-      //Don't add the featured endpoint if it already exists and set type.
       localConfig.url = localConfig.url.replace('featured/', '');
       typePath = '';
       type = 'featured';

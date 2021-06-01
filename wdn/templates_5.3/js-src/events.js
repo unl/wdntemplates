@@ -131,13 +131,12 @@ define([
       localConfig.url = localConfig.url.replace('http://', 'https://');
     }
 
+    // Handle direct url to upcoming or featured
     if (localConfig.url.match(/upcoming\/?$/)) {
-      //Don't add the upcoming endpoint if it already exists and set type.
       localConfig.url = localConfig.url.replace('upcoming/', '');
       typePath = '';
       type = 'upcoming';
     } else if (localConfig.url.match(/featured\/?$/)) {
-      //Don't add the featured endpoint if it already exists and set type.
       localConfig.url = localConfig.url.replace('featured/', '');
       typePath = '';
       type = 'featured';
