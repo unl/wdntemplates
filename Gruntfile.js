@@ -1,6 +1,6 @@
 module.exports = function (grunt) {
   // CSS files to be built (relative to less directory, no extension)
-  var cssObjs = [
+  let cssObjs = [
     'pre',
     'critical',
     'deprecated',
@@ -11,7 +11,7 @@ module.exports = function (grunt) {
     //'modules/infographics',
   ];
 
-  var jsCssObjs = [
+  let jsCssObjs = [
     'js-css/band_imagery',
     'js-css/events-band',
     'js-css/events',
@@ -27,7 +27,7 @@ module.exports = function (grunt) {
   ];
 
   // project layout variables (directories)
-  var mainDir = 'wdn',                                    // wdn
+  let mainDir = 'wdn',                                    // wdn
     buildDir = 'build',                                   // build
     templateDir = mainDir + '/templates_5.3',             // wdn/templates_5.3
     templateImages = templateDir + '/images',             // wdn/templates_5.3/images
@@ -45,17 +45,17 @@ module.exports = function (grunt) {
     zipDir = 'downloads',                                 // downloads
     allSubFilesGlob = '/**';
 
-  var hereDir = './';
+  let hereDir = './';
 
   // files for keyword replacement (e.g. DEP_VERSION)(should match .gitattributes file)
-  var filterFiles = [
+  let filterFiles = [
     templateHtmlDir + '/*.dwt*',
     templateIncludeDir + '/global/*.html',
     templateIncludeDir + '/local/*.html',
   ];
 
   // polyfill modules that need sync loading (should match scripts loaded in debug.js)
-  var polyfillMods = [
+  let polyfillMods = [
     'mustard-initializer', // make sure that polyfill.io and other mustard are loaded first before other scripts
     'ga',
     'requireLib',
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
   ];
 
   // modules added here will be added to rjsConfig modules below
-  var wdnBuildPlugins = [
+  let wdnBuildPlugins = [
     'band_imagery',
     'carousel',
     'datepickers',
@@ -81,7 +81,7 @@ module.exports = function (grunt) {
   ];
 
   // module exclusions for plugins not built into all
-  var wdnPluginExclusions = [
+  let wdnPluginExclusions = [
     'require-css/css',
     'require-css/normalize',
     'jquery',
@@ -92,7 +92,7 @@ module.exports = function (grunt) {
   /* Array containing bundled files created by rjs in build/compressed to be
   /* excluded from being copied/synced back to template's js/compressed folder
    */
-  var syncJsIgnore = [
+  let syncJsIgnore = [
     '!build.txt',
     '!js-css/**',
     '!analytics.*',
@@ -116,8 +116,8 @@ module.exports = function (grunt) {
   ];
 
   // requirejs configuration and customization options
-  var rjsCliFlags = (grunt.option('rjs-flags') || '').split(' ');
-  var rjsConfig = {
+  let rjsCliFlags = (grunt.option('rjs-flags') || '').split(' ');
+  let rjsConfig = {
     moduleConfig : {
       wdnTemplatePath: '/',
       unlChatURL: false
@@ -126,7 +126,7 @@ module.exports = function (grunt) {
     baseUrl: './',
     dir: buildJsDir, /** dir path to save build output, dir is removed at end of js task by clean:js, not using
       keepBuildDir option */
-    optimize: 'uglify2',
+    optimize: 'none',
     logLevel: 2,
     preserveLicenseComments: false,
     generateSourceMaps: true,
@@ -189,32 +189,33 @@ module.exports = function (grunt) {
   });
 
   // common variables for task configuration
-  var gitFilters = require('./.git_filters/lib/git-filters.js');
+  let gitFilters = require('./.git_filters/lib/git-filters.js');
 
   // dynamic target files built from variables above
-  var scssGlobAllTmpFiles = {}; // contains file names of temp scss files built from scss globber
+  let scssGlobAllTmpFiles = {}; // contains file names of temp scss files built from scss globber
   cssObjs.forEach(function(file) {
     scssGlobAllTmpFiles[file + '.tmp.scss'] = file + '.scss';
   });
 
-  var scssAllFiles = {}; // contains file patterns of temp scss files to compile scss from
+  let scssAllFiles = {}; // contains file patterns of temp scss files to compile scss from
   cssObjs.forEach(function(file) {
     if (file.startsWith('pre')) return; // exclude this from Sass files compiled to CSS
     scssAllFiles[templateCss + '/' + file + '.css'] = templateScss + '/' + file + '.tmp.scss';
   });
 
-  var scssJsFiles = {};
+  let scssJsFiles = {};
   jsCssObjs.forEach(function(file) {
     scssJsFiles[templateJs + '/' + file + '.css'] = templateJsSrc + '/' + file + '.scss';
   });
 
   // load all grunt plugins matching the ['grunt-*', '@*/grunt-*'] patterns
   require('load-grunt-tasks')(grunt);
-  var nodeSass = require('node-sass');
-  const jpegrecompress = require('imagemin-jpeg-recompress')
-  const svgo = require('imagemin-svgo')
-  const webp = require('imagemin-webp');
-  const zopfli = require('imagemin-zopfli');
+  let nodeSass = require('node-sass');
+  let jpegrecompress = require('imagemin-jpeg-recompress')
+  let svgo = require('imagemin-svgo')
+  let webp = require('imagemin-webp');
+  let zopfli = require('imagemin-zopfli');
+
   /**
    * Setting up grunt tasks
    */
@@ -498,8 +499,8 @@ module.exports = function (grunt) {
 
   // keyword replacement task: restore keywords
   grunt.registerTask('filter-clean', 'Clean files that are tagged for git filters', function() {
-    var opts = this.options({files:[]});
-    var files = grunt.file.expand(opts.files);
+    let opts = this.options({files:[]});
+    let files = grunt.file.expand(opts.files);
     files.forEach(function(input) {
       grunt.file.write(input, gitFilters.clean(grunt.file.read(input), true));
     });
@@ -507,8 +508,8 @@ module.exports = function (grunt) {
 
   // keyword replacement task: replace keywords
   grunt.registerTask('filter-smudge', 'Smudge files that are tagged for git filters', function() {
-    var opts = this.options({files:[]});
-    var files = grunt.file.expand(opts.files);
+    let opts = this.options({files:[]});
+    let files = grunt.file.expand(opts.files);
     files.forEach(function(input) {
       gitFilters._startSmudge(input);
       grunt.file.write(input, gitFilters.smudge(grunt.file.read(input), true));
@@ -516,27 +517,27 @@ module.exports = function (grunt) {
   });
 
   grunt.registerMultiTask('archive', 'Archive files together', function() {
-    var fs = require('fs');
-    var path = require('path');
-    var tar = require('tar-fs');
-    var zlib = require('zlib');
+    let fs = require('fs');
+    let path = require('path');
+    let tar = require('tar-fs');
+    let zlib = require('zlib');
 
     // XZ modules has some compiler problems ATM
-    // var xz = require('xz');
+    // let xz = require('xz');
 
-    var done = this.async();
+    let done = this.async();
 
     // Fallback options (e.g. base64, compression)
-    var options = this.options({
+    let options = this.options({
       compression: 'gzip'
     });
 
     this.files.forEach(function(file) {
-      var destDir = path.dirname(file.dest);
+      let destDir = path.dirname(file.dest);
       // Create the destination directory
       grunt.file.mkdir(destDir);
-      var destStream = fs.createWriteStream(file.dest);
-      var compressionStream;
+      let destStream = fs.createWriteStream(file.dest);
+      let compressionStream;
 
       // if (options.compression === 'gzip') {
       compressionStream = zlib.createGzip();
@@ -544,7 +545,7 @@ module.exports = function (grunt) {
       // 	compressionStream = new xz.Compressor();
       // }
 
-      var pack = tar.pack('./', {
+      let pack = tar.pack('./', {
         entries: file.src
       });
 
