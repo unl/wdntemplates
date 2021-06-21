@@ -126,7 +126,7 @@ module.exports = function (grunt) {
     baseUrl: './',
     dir: buildJsDir, /** dir path to save build output, dir is removed at end of js task by clean:js, not using
       keepBuildDir option */
-    optimize: 'none',
+    optimize: 'uglify2',
     logLevel: 2,
     preserveLicenseComments: false,
     generateSourceMaps: true,
@@ -341,7 +341,8 @@ module.exports = function (grunt) {
     "babel": {
       options: {
         //let rjs generate the sourcemap
-        sourceMap: false
+        sourceMap: false,
+        presets: ['@babel/preset-env']
       },
       wdn: {
         'expand': true,
