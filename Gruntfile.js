@@ -1,6 +1,6 @@
 module.exports = function (grunt) {
   // CSS files to be built (relative to less directory, no extension)
-  let cssObjs = [
+  const cssObjs = [
     'pre',
     'critical',
     'deprecated',
@@ -11,7 +11,7 @@ module.exports = function (grunt) {
     //'modules/infographics',
   ];
 
-  let jsCssObjs = [
+  const jsCssObjs = [
     'js-css/band_imagery',
     'js-css/events-band',
     'js-css/events',
@@ -27,7 +27,7 @@ module.exports = function (grunt) {
   ];
 
   // project layout variables (directories)
-  let mainDir = 'wdn',                                    // wdn
+  const mainDir = 'wdn',                                    // wdn
     buildDir = 'build',                                   // build
     templateDir = mainDir + '/templates_5.3',             // wdn/templates_5.3
     templateImages = templateDir + '/images',             // wdn/templates_5.3/images
@@ -45,17 +45,17 @@ module.exports = function (grunt) {
     zipDir = 'downloads',                                 // downloads
     allSubFilesGlob = '/**';
 
-  let hereDir = './';
+  const hereDir = './';
 
   // files for keyword replacement (e.g. DEP_VERSION)(should match .gitattributes file)
-  let filterFiles = [
+  const filterFiles = [
     templateHtmlDir + '/*.dwt*',
     templateIncludeDir + '/global/*.html',
     templateIncludeDir + '/local/*.html',
   ];
 
   // polyfill modules that need sync loading (should match scripts loaded in debug.js)
-  let polyfillMods = [
+  const polyfillMods = [
     'mustard-initializer', // make sure that polyfill.io and other mustard are loaded first before other scripts
     'ga',
     'requireLib',
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
   ];
 
   // modules added here will be added to rjsConfig modules below
-  let wdnBuildPlugins = [
+  const wdnBuildPlugins = [
     'band_imagery',
     'carousel',
     'datepickers',
@@ -81,7 +81,7 @@ module.exports = function (grunt) {
   ];
 
   // module exclusions for plugins not built into all
-  let wdnPluginExclusions = [
+  const wdnPluginExclusions = [
     'require-css/css',
     'require-css/normalize',
     'jquery',
@@ -92,7 +92,7 @@ module.exports = function (grunt) {
   /* Array containing bundled files created by rjs in build/compressed to be
   /* excluded from being copied/synced back to template's js/compressed folder
    */
-  let syncJsIgnore = [
+  const syncJsIgnore = [
     '!build.txt',
     '!js-css/**',
     '!analytics.*',
@@ -116,8 +116,8 @@ module.exports = function (grunt) {
   ];
 
   // requirejs configuration and customization options
-  let rjsCliFlags = (grunt.option('rjs-flags') || '').split(' ');
-  let rjsConfig = {
+  const rjsCliFlags = (grunt.option('rjs-flags') || '').split(' ');
+  const rjsConfig = {
     moduleConfig : {
       wdnTemplatePath: '/',
       unlChatURL: false
@@ -189,7 +189,7 @@ module.exports = function (grunt) {
   });
 
   // common variables for task configuration
-  let gitFilters = require('./.git_filters/lib/git-filters.js');
+  const gitFilters = require('./.git_filters/lib/git-filters.js');
 
   // dynamic target files built from variables above
   let scssGlobAllTmpFiles = {}; // contains file names of temp scss files built from scss globber
@@ -210,11 +210,11 @@ module.exports = function (grunt) {
 
   // load all grunt plugins matching the ['grunt-*', '@*/grunt-*'] patterns
   require('load-grunt-tasks')(grunt);
-  let nodeSass = require('node-sass');
-  let jpegrecompress = require('imagemin-jpeg-recompress')
-  let svgo = require('imagemin-svgo')
-  let webp = require('imagemin-webp');
-  let zopfli = require('imagemin-zopfli');
+  const nodeSass = require('node-sass');
+  const jpegrecompress = require('imagemin-jpeg-recompress')
+  const svgo = require('imagemin-svgo')
+  const webp = require('imagemin-webp');
+  const zopfli = require('imagemin-zopfli');
 
   /**
    * Setting up grunt tasks
@@ -518,10 +518,10 @@ module.exports = function (grunt) {
   });
 
   grunt.registerMultiTask('archive', 'Archive files together', function() {
-    let fs = require('fs');
-    let path = require('path');
-    let tar = require('tar-fs');
-    let zlib = require('zlib');
+    const fs = require('fs');
+    const path = require('path');
+    const tar = require('tar-fs');
+    const zlib = require('zlib');
 
     // XZ modules has some compiler problems ATM
     // let xz = require('xz');
