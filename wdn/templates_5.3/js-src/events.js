@@ -18,13 +18,15 @@ define([
     return eventParams || {};
   },
   container = '#wdn_calendarDisplay',
-  defaultCal = 'https://events.unl.edu/';
+  defaultCal = 'https://events.unl.edu/',
+  type = 'upcoming',
+  typePath = type + '/';
 
   var display = function(data, config) {
     var $container = $(config.container).addClass('wdn-calendar');
     $container.hide();
 
-    $container.append($('<h2/>', {'class': 'dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray unl-txt-stripes-after'}).html('Upcoming Events'));
+    $container.append($('<h2/>', {'class': 'dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray unl-txt-stripes-after'}).html(type + ' Events'));
 
     var events_html = '';
     $.each(data.Events.Event || data.Events, function(index, event) {
@@ -95,9 +97,9 @@ define([
       events_html += ('<li class="unl-event-teaser">' + title + date + location  + '</li>');
     });
     $container.append('<ul class="dcf-list-bare">' + events_html + '</ul>');
-    var seeAll = '<div class="dcf-mt-4"><a class="dcf-btn dcf-btn-secondary" href="' + config.url + 'upcoming/">See all '+config.title+' events</a></div>';
-    var ics = '<a class="dcf-btn dcf-btn-secondary" href="' + config.url + 'upcoming/?format=ics">ICS</a>';
-    var rss = '<a class="dcf-btn dcf-btn-secondary" href="' + config.url + 'upcoming/?format=rss">RSS</a>';
+    var seeAll = '<div class="dcf-mt-4"><a class="dcf-btn dcf-btn-secondary" href="' + config.url + typePath + '">More '+ config.title+' Events</a></div>';
+    var ics = '<a class="dcf-btn dcf-btn-secondary" href="' + config.url + typePath + '?format=ics">ICS</a>';
+    var rss = '<a class="dcf-btn dcf-btn-secondary" href="' + config.url + typePath + '?format=rss">RSS</a>';
     var feeds = '<div class="dcf-btn-group dcf-mt-4 dcf-mr-5">' + ics + rss + '</div>';
     var more = '<div class="dcf-d-flex dcf-flex-row dcf-flex-wrap dcf-jc-between">' + feeds + seeAll + '</div>';
     $container.append(more);
@@ -111,20 +113,44 @@ define([
       url: localSettings.href || defaultCal,
       container: container,
       limit: localSettings.limit || 10,
+      pinned_limit: localSettings.pinned_limit || 1,
+      featured: false,
       rooms: false
     },
     localConfig = $.extend({}, defaultConfig, config);
 
+    // Add trailing slash to URL if missing
+    if (localConfig.url && !localConfig.url.match(/\/$/)) {
+      localConfig.url += '/';
+    }
+
     // ensure that the URL we are about to use is forced into an https:// protocol. (add https if it starts with //)
-        if (localConfig.url && localConfig.url.match(/^\/\//)) {
-            localConfig.url = 'https:' + localConfig.url;
-        } else if (localConfig.url && localConfig.url.match(/^http:\/\//)) {
-            localConfig.url = localConfig.url.replace('http://', 'https://');
-        }
+    if (localConfig.url && localConfig.url.match(/^\/\//)) {
+      localConfig.url = 'https:' + localConfig.url;
+    } else if (localConfig.url && localConfig.url.match(/^http:\/\//)) {
+      localConfig.url = localConfig.url.replace('http://', 'https://');
+    }
+
+    // Handle direct url to upcoming or featured
+    if (localConfig.url.match(/upcoming\/?$/)) {
+      localConfig.url = localConfig.url.replace('upcoming/', '');
+      typePath = '';
+      type = 'upcoming';
+    } else if (localConfig.url.match(/featured\/?$/)) {
+      localConfig.url = localConfig.url.replace('featured/', '');
+      typePath = '';
+      type = 'featured';
+    }
+
+    if (localConfig.featured === true) {
+      type = 'featured';
+    }
+    typePath = type + '/';
 
     if (localConfig.url && $(localConfig.container).length) {
+      var url = localConfig.url + typePath + '?format=json&limit=' + localConfig.limit + '&pinned_limit=' + localConfig.pinned_limit;
       $(this.container).addClass('wdn-calendar');
-      $.getJSON(localConfig.url + 'upcoming/?format=json&limit=' + encodeURIComponent(localConfig.limit), function(data) {
+      $.getJSON(url, function(data) {
           display(data, localConfig);
         }
       );
