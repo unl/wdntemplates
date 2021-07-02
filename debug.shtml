@@ -808,7 +808,7 @@
       <script>
         window.addEventListener('inlineJSReady', function() {
           WDN.initializePlugin('card-as-link');
-        });
+        }, false);
       </script>
 
       <div class="dcf-pb-8 dcf-w-max-md">

@@ -1,8 +1,9 @@
-require(['dcf-utility', 'dcf-tabs', 'css!js-css/tabs'], (Utility, Tabs) => {
-  const tabs = document.querySelectorAll('.dcf-tabs')
-  const unlTabs = new DCFTabs(tabs);
-  unlTabs.initialize();
+require(['dcf-tabs-module', 'css!js-css/tabs'], (Tabs) => {
+	const tabs = document.querySelectorAll('.dcf-tabs');
+	const unlTabs = new Tabs(tabs);
+	unlTabs.initialize();
 });
+
 
 define(['jquery', 'wdn', 'require'], function($, WDN, require) {
 	var

@@ -1,12 +1,12 @@
-require(['dcf-utility', 'dcf-slideshow', 'css!js-css/slideshows'], () => {
+require(['dcf-slideshow-module', 'css!js-css/slideshows'], (slideShow) => {
   const openCaptionEvent = new Event('openCaption');
   const closeCaptionEvent = new Event('closeCaption');
   const slideshows = document.querySelectorAll('.dcf-slideshow');
   const uls = document.querySelectorAll('.dcf-slideshow ul');
 
-  const slideshow = new DCFSlideshow(slideshows, uls, openCaptionEvent, closeCaptionEvent);
+  const slideshowInstance = new slideShow(slideshows, uls, openCaptionEvent, closeCaptionEvent);
 
-  slideshow.initialize();
+  slideshowInstance.initialize();
 
   const keyframesClose1 = [
     {
