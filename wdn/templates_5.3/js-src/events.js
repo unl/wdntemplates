@@ -55,21 +55,22 @@ define([
       }
       var month    = '<span class="dcf-d-block dcf-txt-3xs dcf-pt-2 dcf-pb-1 dcf-uppercase dcf-bold unl-ls-2 unl-cream unl-bg-scarlet">' + startDate.format('MMM') + '</span>';
       var day      = '<span class="dcf-d-block dcf-txt-h5 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray dcf-bg-white">' + startDate.format('D') + '</span>';
-      var time     = '<span class="dcf-d-block dcf-pt-2 dcf-txt-2xs dcf-uppercase dcf-bold unl-scarlet">' + startDate.format(timeformat) + '</span>';
+      var date     = '<time class="unl-event-date dcf-flex-shrink-0 dcf-w-8 dcf-mr-4 dcf-txt-center" datetime="' + startDate.format('YYYY-MM-DD') + '">' + month + day + '</time>';
+      var time     = '<time class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase" datetime="' + startDate.format('HH:mm') + '"><svg class="dcf-mr-1 dcf-h-4 dcf-w-4 dcf-flex-shrink-0 dcf-fill-current" aria-hidden="true" focusable="false" height="24" width="24" viewBox="0 0 24 24"><path d="M12 23C5.9 23 1 18.1 1 12S5.9 1 12 1s11 4.9 11 11-4.9 11-11 11zm0-20c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9z"/><path d="M16.8 17.8c-.2 0-.5-.1-.7-.3l-5.2-4.8c-.2-.2-.3-.5-.3-.7V7.2c0-.6.4-1 1-1s1 .4 1 1v4.3l4.9 4.5c.4.4.4 1 .1 1.4-.3.3-.5.4-.8.4z"/><path fill="none" d="M0 0h24v24H0z"/></svg>' + startDate.format(timeformat) + '</time>';
       if (event.DateTime.AllDay) {
         // all day event so clear out time
         time = '';
       }
       var subtitle = '';
       if (event.EventSubtitle) {
-        subtitle = '<p class="dcf-subhead dcf-mt-2 dcf-txt-3xs unl-dark-gray">' + event.EventSubtitle + '</p>';
+        subtitle = '<p class="dcf-subhead dcf-mt-1 dcf-mb-3 dcf-txt-3xs dcf-bold unl-dark-gray">' + event.EventSubtitle + '</p>';
       }
       var title    = '<header class="unl-event-title"><h3 class="dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover unl-darker-gray" href="'+ eventURL +'">' + event.EventTitle + '</a></h3>' + subtitle + '</header>';
 
       var location = '';
 
       if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {
-        location =  '<div class="unl-event-location dcf-txt-xs dcf-pt-1 unl-dark-gray">';
+        location =  '<div class="unl-event-location dcf-d-flex dcf-ai-center dcf-lh-3"><svg class="dcf-mr-1 dcf-h-4 dcf-w-4 dcf-flex-shrink-0 dcf-fill-current" aria-hidden="true" focusable="false" height="24" width="24" viewBox="0 0 24 24"><path d="M12 23.5c-.3 0-.6-.2-.8-.4-.7-1.1-7-10.7-7-14.7C4.2 4 7.7.5 12 .5s7.8 3.5 7.8 7.8c0 4-6.3 13.6-7 14.7-.2.3-.5.5-.8.5zm0-21c-3.2 0-5.8 2.6-5.8 5.8 0 2.5 3.7 8.9 5.8 12.3 2.2-3.4 5.8-9.8 5.8-12.3 0-3.2-2.6-5.8-5.8-5.8z"/><path d="M12 12.1c-2.1 0-3.7-1.7-3.7-3.7 0-2.1 1.7-3.7 3.7-3.7 2.1 0 3.7 1.7 3.7 3.7s-1.6 3.7-3.7 3.7zm0-5.5c-1 0-1.7.8-1.7 1.7S11.1 10 12 10s1.7-.8 1.7-1.7S13 6.6 12 6.6z"/><path fill="none" d="M0 0h24v24H0z"/></svg>';
         if (event.Locations[0].MapLinks[0]) {
           location += '<a class="dcf-txt-decor-hover unl-dark-gray" href="'+ event.Locations[0].MapLinks[0] +'">';
         } else if (event.Locations[0].WebPages[0].URL) {
@@ -90,11 +91,11 @@ define([
           }
         }
 
-        location += '</span>';
+        location += '</div>';
       }
 
-      var date = '<div class="unl-event-datetime dcf-flex-shrink-0 dcf-w-8 dcf-mr-5 dcf-txt-center">' + month + day + time +'</div>';
-      events_html += ('<li><article class="unl-event-teaser">' + title + date + location  + '</article></li>');
+
+      events_html += ('<li class="unl-event-teaser-li"><article class="unl-event-teaser">' + title + date + '<div class="unl-event-details dcf-txt-xs unl-dark-gray">' + time + location + '</div></article></li>');
     });
     $container.append('<ul class="dcf-list-bare">' + events_html + '</ul>');
     var seeAll = '<div class="dcf-mt-4"><a class="dcf-btn dcf-btn-secondary" href="' + config.url + typePath + '">More '+ config.title+' Events</a></div>';
