@@ -2,6 +2,7 @@ define([
   'wdn',
   'jquery',
   'plugins/moment-timezone-with-data',
+  'card-as-link',
   'css!js-css/events'
 ], function(WDN, $, moment) {
   var getLocalEventSettings = function() {
@@ -65,7 +66,7 @@ define([
       if (event.EventSubtitle) {
         subtitle = '<p class="dcf-subhead dcf-mt-1 dcf-mb-3 dcf-txt-3xs dcf-bold unl-dark-gray">' + event.EventSubtitle + '</p>';
       }
-      var title    = '<header class="unl-event-title"><h3 class="dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover unl-darker-gray" href="'+ eventURL +'">' + event.EventTitle + '</a></h3>' + subtitle + '</header>';
+      var title    = '<header class="unl-event-title"><h3 class="dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover dcf-card-link unl-darker-gray" href="'+ eventURL +'">' + event.EventTitle + '</a></h3>' + subtitle + '</header>';
 
       var location = '';
 
@@ -95,7 +96,7 @@ define([
       }
 
 
-      events_html += ('<li class="unl-event-teaser-li"><article class="unl-event-teaser">' + title + date + '<div class="unl-event-details dcf-txt-xs unl-dark-gray">' + time + location + '</div></article></li>');
+      events_html += ('<li class="unl-event-teaser-li"><article class="unl-event-teaser dcf-card-as-link">' + title + date + '<div class="unl-event-details dcf-txt-xs unl-dark-gray">' + time + location + '</div></article></li>');
     });
     $container.append('<ul class="dcf-list-bare">' + events_html + '</ul>');
     var seeAll = '<div class="dcf-mt-4"><a class="dcf-btn dcf-btn-secondary" href="' + config.url + typePath + '">More '+ config.title+' Events</a></div>';
