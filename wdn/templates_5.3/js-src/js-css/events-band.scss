@@ -10,7 +10,7 @@
 
 @include mq(sm, min, width) {
 
-  .unl-event-teaser-list .unl-event-teaser {
+  .unl-event-teaser-list .unl-event-teaser-li {
     flex-basis: 50%;
   }
 
@@ -19,7 +19,7 @@
 
 @include mq(lg, min, width) {
 
-  .unl-event-teaser-list .unl-event-teaser {
+  .unl-event-teaser-list .unl-event-teaser-li {
     flex-basis: 33%;
   }
 
@@ -28,7 +28,7 @@
 
 @include mq(xl, min, width) {
 
-  .unl-event-teaser-list .unl-event-teaser {
+  .unl-event-teaser-list .unl-event-teaser-li {
     flex-basis: 25%;
   }
 
