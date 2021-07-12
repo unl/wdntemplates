@@ -24,8 +24,12 @@ define([
   defaultCal = 'https://events.unl.edu/';
 
   var fetchEvents = function(localConfig) {
+    var containerClasses = 'dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-8 unl-bg-lightest-gray';
+    if (localConfig.use_band_background) {
+      containerClasses = containerClasses + ' unl-bg-grit';
+    }
     var type = 'upcoming',
-        $container = $(localConfig.container).addClass('dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-8 unl-bg-lightest-gray unl-bg-grit'),
+        $container = $(localConfig.container).addClass(containerClasses),
         grid = document.createElement('div');
         grid.classList.add('unl-offset-grid', 'dcf-col-gap-4');
         eventList = document.createElement('ul');
@@ -145,7 +149,8 @@ define([
       container: container,
       limit: localSettings.limit || 10,
       pinned_limit: localSettings.pinned_limit || 1,
-      rooms: false
+      rooms: false,
+      use_band_background: true
     },
     localConfig = $.extend({}, defaultConfig, config);
 
