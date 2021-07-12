@@ -100,11 +100,9 @@ define([
               if (room.match(/^room /i)) {
                 room = room.substring(5);
               }
-              location = location + '<br>Room: ' + room;
+              location = location + ', Room: ' + room;
             }
           }
-
-          location += '</span>';
         }
 
         var eventURL = '';
