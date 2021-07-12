@@ -1,7 +1,15 @@
 {
-  "presets": ["env"],
+  "presets": [
+    ["@babel/preset-env",
+      {
+        "corejs": { "version": "3.15", "proposals": true },
+        "useBuiltIns": "entry"
+      }
+    ]
+  ],
   "plugins": [
-    "transform-class-properties",
-    "transform-object-rest-spread"
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-classes"
   ]
 }
