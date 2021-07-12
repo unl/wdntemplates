@@ -2,7 +2,6 @@ define([
   'wdn',
   'jquery',
   'plugins/moment-timezone-with-data',
-  'card-as-link',
   'css!js-css/events'
 ], function(WDN, $, moment) {
   var getLocalEventSettings = function() {
@@ -152,10 +151,21 @@ define([
     if (localConfig.url && $(localConfig.container).length) {
       var url = localConfig.url + typePath + '?format=json&limit=' + localConfig.limit + '&pinned_limit=' + localConfig.pinned_limit;
       $(this.container).addClass('wdn-calendar');
-      $.getJSON(url, function(data) {
+      var jqxhr = $.getJSON(url, function(data) {
           display(data, localConfig);
         }
       );
+
+      jqxhr.done(function() {
+        require(['dcf-utility', 'dcf-cardAsLink'], function () {
+          var $container = $(localConfig.container);
+          var cards = $container[0].querySelectorAll('.dcf-card-as-link');
+          if (cards.length > 0) {
+            var cardAsLink = new DCFCardAsLink(cards);
+            cardAsLink.initialize();
+          }
+        });
+      });
     }
   };
 

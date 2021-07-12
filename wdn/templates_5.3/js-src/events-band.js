@@ -2,7 +2,6 @@ define([
   'wdn',
   'jquery',
   'plugins/moment-timezone-with-data',
-  'card-as-link',
   'css!js-css/events',
   'css!js-css/events-band'
 ], function(WDN, $, moment) {
@@ -50,7 +49,7 @@ define([
     typePath = type + '/';
 
     var url = localConfig.url + typePath + '?format=json&limit=' + localConfig.limit + '&pinned_limit=' + localConfig.pinned_limit;
-    $.getJSON(url, function(data) {
+    var jqxhr = $.getJSON(url, function(data) {
       if (!data.Events) {
         return;
       }
@@ -127,6 +126,16 @@ define([
       grid.append(eventList);
       $container.append(grid);
       $container.append('<div class="dcf-d-flex dcf-jc-flex-end dcf-mt-6"><a class="dcf-btn dcf-btn-secondary" href="' + localConfig.url + typePath + '">More Events</a></div>');
+    });
+
+    jqxhr.done(function() {
+      require(['dcf-utility', 'dcf-cardAsLink'], function () {
+        var cards = $container[0].querySelectorAll('.dcf-card-as-link');
+        if (cards.length > 0) {
+          var cardAsLink = new DCFCardAsLink(cards);
+          cardAsLink.initialize();
+        }
+      });
     });
   };
 
