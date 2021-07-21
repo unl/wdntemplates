@@ -3,6 +3,22 @@
 /////////////////////////////////////
 
 
+// Dots
+@mixin bg-dots($imp:null) {
+  background-size: #{ms(-4)}rem; // .56rem
+}
+
+
+@mixin bg-dots-gray($imp:null) {
+  background-image: url('../images/bg-dots-gray.svg');
+}
+
+
+@mixin bg-dots-scarlet($imp:null) {
+  background-image: url('../images/bg-dots-scarlet.svg');
+}
+
+
 // Grit
 @mixin bg-grit($imp:null) {
   // Don't use background shorthand. Allow grit to be applied over any background-color.
