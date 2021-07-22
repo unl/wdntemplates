@@ -86,41 +86,48 @@
 }
 
 
-// Focus (and Active)
+// Focus
 .unl .dcf-btn:focus {
   transition: box-shadow $transition-duration-hover-on $transition-timing-fn-hover-on;
 }
 
 
-.unl .dcf-btn-primary:focus {
-  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-btn-primary);
+.unl .dcf-btn-primary:focus,
+.unl .dcf-btn-secondary:focus,
+.unl .dcf-btn-tertiary:focus {
+  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
 }
 
 
-.unl .dcf-btn-primary:focus:hover,
+.unl .dcf-btn-inverse-primary:focus {
+  box-shadow: 0 0 0 3px var(--b-input-focus), 0 0 0 5px $bg-color-button-inverse-primary;
+}
+
+
+.unl .dcf-btn-inverse-secondary:focus,
+.unl .dcf-btn-inverse-tertiary:focus {
+  box-shadow: 0 0 0 3px var(--b-input-focus), 0 0 0 5px currentColor;
+}
+
+
+// Active
 .unl .dcf-btn-primary:active {
   box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-btn-primary-hover);
 }
 
 
-.unl .dcf-btn-secondary:focus,
 .unl .dcf-btn-secondary:active,
-.unl .dcf-btn-tertiary:focus,
 .unl .dcf-btn-tertiary:active {
   box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px currentColor;
 }
 
 
-.unl .dcf-btn-inverse-primary:focus,
-.unl .dcf-btn-inverse-primary:focus:hover,
 .unl .dcf-btn-inverse-primary:active {
   box-shadow: 0 0 0 3px $color-hover-light-mode, 0 0 0 5px $bg-color-button-inverse-primary;
 }
 
 
-.unl .dcf-btn-inverse-secondary:focus,
 .unl .dcf-btn-inverse-secondary:active,
-.unl .dcf-btn-inverse-tertiary:focus,
 .unl .dcf-btn-inverse-tertiary:active {
-  box-shadow: 0 0 0 3px $color-link-light-mode, 0 0 0 5px currentColor;
+  box-shadow: 0 0 0 3px $color-hover-light-mode, 0 0 0 5px currentColor;
 }
