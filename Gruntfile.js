@@ -350,6 +350,12 @@ module.exports = function (grunt) {
         'ext': '.js'
       },
       dcfUtility: {
+        options: {
+          //let rjs generate the sourcemap
+          sourceMap: false,
+          presets: ['@babel/preset-env'],
+          plugins: ['@babel/plugin-transform-modules-amd']
+        },
         'expand': true,
         'cwd': 'node_modules/dcf/js',
         'src': ['**/dcf-utility.js'],
@@ -357,6 +363,12 @@ module.exports = function (grunt) {
         'ext': '.js'
       },
       dcf: {
+        options: {
+          //let rjs generate the sourcemap
+          sourceMap: false,
+          presets: ['@babel/preset-env'],
+          plugins: ['@babel/plugin-transform-modules-amd']
+        },
         'expand': true,
         'cwd': 'node_modules/dcf/js',
         'src': ['**/*.js', '!**/dcf-utility.js'],
