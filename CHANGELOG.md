@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.3 (July 22, 2021)
+- Events updates
+- Footer background color change
+
 ## 5.3.2 (May 14, 2021)
 - Link styling changes for accessibility
 - Added Card display with entire card linked
