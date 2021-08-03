@@ -1,5 +1,5 @@
-require (['dcf-utility', 'dcf-cardAsLink'], (Utility) => {
+require (['dcf-cardAsLink'], (cardAsLinkModule) => {
   const cards = document.querySelectorAll('.dcf-card-as-link');
-  const cardAsLink = new DCFCardAsLink(cards);
+  const cardAsLink = new cardAsLinkModule.DCFCardAsLink(cards);
   cardAsLink.initialize();
 });

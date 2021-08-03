@@ -133,10 +133,10 @@ define([
     });
 
     jqxhr.done(function() {
-      require(['dcf-utility', 'dcf-cardAsLink'], function () {
+      require(['dcf-cardAsLink'], function (cardAsLinkModule) {
         var cards = $container[0].querySelectorAll('.dcf-card-as-link');
         if (cards.length > 0) {
-          var cardAsLink = new DCFCardAsLink(cards);
+          var cardAsLink = new cardAsLinkModule.DCFCardAsLink(cards);
           cardAsLink.initialize();
         }
       });

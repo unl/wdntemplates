@@ -1,17 +1,15 @@
 module.exports = function (grunt) {
   // CSS files to be built (relative to less directory, no extension)
-  var cssObjs = [
+  const cssObjs = [
     'pre',
     'critical',
     'deprecated',
     'legacy',
     'main',
-    'print',
-    //'modules/pagination',
-    //'modules/infographics',
+    'print'
   ];
 
-  var jsCssObjs = [
+  const jsCssObjs = [
     'js-css/band_imagery',
     'js-css/events-band',
     'js-css/events',
@@ -27,7 +25,7 @@ module.exports = function (grunt) {
   ];
 
   // project layout variables (directories)
-  var mainDir = 'wdn',                                    // wdn
+  const mainDir = 'wdn',                                    // wdn
     buildDir = 'build',                                   // build
     templateDir = mainDir + '/templates_5.3',             // wdn/templates_5.3
     templateImages = templateDir + '/images',             // wdn/templates_5.3/images
@@ -45,17 +43,17 @@ module.exports = function (grunt) {
     zipDir = 'downloads',                                 // downloads
     allSubFilesGlob = '/**';
 
-  var hereDir = './';
+  const hereDir = './';
 
   // files for keyword replacement (e.g. DEP_VERSION)(should match .gitattributes file)
-  var filterFiles = [
+  const filterFiles = [
     templateHtmlDir + '/*.dwt*',
     templateIncludeDir + '/global/*.html',
     templateIncludeDir + '/local/*.html',
   ];
 
   // polyfill modules that need sync loading (should match scripts loaded in debug.js)
-  var polyfillMods = [
+  const polyfillMods = [
     'mustard-initializer', // make sure that polyfill.io and other mustard are loaded first before other scripts
     'ga',
     'requireLib',
@@ -63,7 +61,7 @@ module.exports = function (grunt) {
   ];
 
   // modules added here will be added to rjsConfig modules below
-  var wdnBuildPlugins = [
+  const wdnBuildPlugins = [
     'band_imagery',
     'carousel',
     'datepickers',
@@ -81,7 +79,7 @@ module.exports = function (grunt) {
   ];
 
   // module exclusions for plugins not built into all
-  var wdnPluginExclusions = [
+  const wdnPluginExclusions = [
     'require-css/css',
     'require-css/normalize',
     'jquery',
@@ -92,7 +90,7 @@ module.exports = function (grunt) {
   /* Array containing bundled files created by rjs in build/compressed to be
   /* excluded from being copied/synced back to template's js/compressed folder
    */
-  var syncJsIgnore = [
+  const syncJsIgnore = [
     '!build.txt',
     '!js-css/**',
     '!analytics.*',
@@ -116,8 +114,8 @@ module.exports = function (grunt) {
   ];
 
   // requirejs configuration and customization options
-  var rjsCliFlags = (grunt.option('rjs-flags') || '').split(' ');
-  var rjsConfig = {
+  const rjsCliFlags = (grunt.option('rjs-flags') || '').split(' ');
+  const rjsConfig = {
     moduleConfig : {
       wdnTemplatePath: '/',
       unlChatURL: false
@@ -189,32 +187,33 @@ module.exports = function (grunt) {
   });
 
   // common variables for task configuration
-  var gitFilters = require('./.git_filters/lib/git-filters.js');
+  const gitFilters = require('./.git_filters/lib/git-filters.js');
 
   // dynamic target files built from variables above
-  var scssGlobAllTmpFiles = {}; // contains file names of temp scss files built from scss globber
+  let scssGlobAllTmpFiles = {}; // contains file names of temp scss files built from scss globber
   cssObjs.forEach(function(file) {
     scssGlobAllTmpFiles[file + '.tmp.scss'] = file + '.scss';
   });
 
-  var scssAllFiles = {}; // contains file patterns of temp scss files to compile scss from
+  let scssAllFiles = {}; // contains file patterns of temp scss files to compile scss from
   cssObjs.forEach(function(file) {
     if (file.startsWith('pre')) return; // exclude this from Sass files compiled to CSS
     scssAllFiles[templateCss + '/' + file + '.css'] = templateScss + '/' + file + '.tmp.scss';
   });
 
-  var scssJsFiles = {};
+  let scssJsFiles = {};
   jsCssObjs.forEach(function(file) {
     scssJsFiles[templateJs + '/' + file + '.css'] = templateJsSrc + '/' + file + '.scss';
   });
 
   // load all grunt plugins matching the ['grunt-*', '@*/grunt-*'] patterns
   require('load-grunt-tasks')(grunt);
-  var nodeSass = require('node-sass');
+  const nodeSass = require('node-sass');
   const jpegrecompress = require('imagemin-jpeg-recompress')
   const svgo = require('imagemin-svgo')
   const webp = require('imagemin-webp');
   const zopfli = require('imagemin-zopfli');
+
   /**
    * Setting up grunt tasks
    */
@@ -340,7 +339,8 @@ module.exports = function (grunt) {
     "babel": {
       options: {
         //let rjs generate the sourcemap
-        sourceMap: false
+        sourceMap: false,
+        presets: ['@babel/preset-env']
       },
       wdn: {
         'expand': true,
@@ -349,17 +349,16 @@ module.exports = function (grunt) {
         'dest': templateJs,
         'ext': '.js'
       },
-      dcfUtility: {
-        'expand': true,
-        'cwd': 'node_modules/dcf/js',
-        'src': ['**/dcf-utility.js'],
-        'dest': templateJs,
-        'ext': '.js'
-      },
       dcf: {
+        options: {
+          //let rjs generate the sourcemap
+          sourceMap: false,
+          presets: ['@babel/preset-env'],
+          plugins: ['@babel/plugin-transform-modules-amd']
+        },
         'expand': true,
         'cwd': 'node_modules/dcf/js',
-        'src': ['**/*.js', '!**/dcf-utility.js'],
+        'src': ['**/*.js'],
         'dest': templateJs,
         'ext': '.js'
       }
@@ -498,8 +497,8 @@ module.exports = function (grunt) {
 
   // keyword replacement task: restore keywords
   grunt.registerTask('filter-clean', 'Clean files that are tagged for git filters', function() {
-    var opts = this.options({files:[]});
-    var files = grunt.file.expand(opts.files);
+    let opts = this.options({files:[]});
+    let files = grunt.file.expand(opts.files);
     files.forEach(function(input) {
       grunt.file.write(input, gitFilters.clean(grunt.file.read(input), true));
     });
@@ -507,8 +506,8 @@ module.exports = function (grunt) {
 
   // keyword replacement task: replace keywords
   grunt.registerTask('filter-smudge', 'Smudge files that are tagged for git filters', function() {
-    var opts = this.options({files:[]});
-    var files = grunt.file.expand(opts.files);
+    let opts = this.options({files:[]});
+    let files = grunt.file.expand(opts.files);
     files.forEach(function(input) {
       gitFilters._startSmudge(input);
       grunt.file.write(input, gitFilters.smudge(grunt.file.read(input), true));
@@ -516,27 +515,27 @@ module.exports = function (grunt) {
   });
 
   grunt.registerMultiTask('archive', 'Archive files together', function() {
-    var fs = require('fs');
-    var path = require('path');
-    var tar = require('tar-fs');
-    var zlib = require('zlib');
+    const fs = require('fs');
+    const path = require('path');
+    const tar = require('tar-fs');
+    const zlib = require('zlib');
 
     // XZ modules has some compiler problems ATM
-    // var xz = require('xz');
+    // let xz = require('xz');
 
-    var done = this.async();
+    let done = this.async();
 
     // Fallback options (e.g. base64, compression)
-    var options = this.options({
+    let options = this.options({
       compression: 'gzip'
     });
 
     this.files.forEach(function(file) {
-      var destDir = path.dirname(file.dest);
+      let destDir = path.dirname(file.dest);
       // Create the destination directory
       grunt.file.mkdir(destDir);
-      var destStream = fs.createWriteStream(file.dest);
-      var compressionStream;
+      let destStream = fs.createWriteStream(file.dest);
+      let compressionStream;
 
       // if (options.compression === 'gzip') {
       compressionStream = zlib.createGzip();
@@ -544,7 +543,7 @@ module.exports = function (grunt) {
       // 	compressionStream = new xz.Compressor();
       // }
 
-      var pack = tar.pack('./', {
+      let pack = tar.pack('./', {
         entries: file.src
       });
 
@@ -564,7 +563,7 @@ module.exports = function (grunt) {
   grunt.registerTask('images', ['newer:imagemin']);
   grunt.registerTask('css-main', ['sassGlobber', 'sass:main', 'postcss:main']);
   grunt.registerTask('css-plugins', ['sassGlobber', 'sass:plugins', 'postcss:plugins']);
-  grunt.registerTask('js-main', ['css-plugins', 'babel:dcfUtility', 'babel:dcf', 'babel:wdn', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
+  grunt.registerTask('js-main', ['css-plugins', 'babel:dcf', 'babel:wdn', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
   grunt.registerTask('js', ['clean:js', 'css-plugins', 'babel:wdn', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
 
   // establish grunt composed tasks
