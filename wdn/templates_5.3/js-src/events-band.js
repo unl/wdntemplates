@@ -6,7 +6,7 @@ define([
   return {
     initialize : function(config) {
       // force these items so behaves as legacy events-band
-      if (!config.container || config.container === '#wdn_calendarDisplay') {
+      if (!config.container) {
         config.container = '#events-band';
       }
       config.layout = 'band';
