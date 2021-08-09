@@ -133,7 +133,7 @@ define([
     let location = '';
 
     if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {
-      location =  `<div class="unl-event-location dcf-d-flex dcf-ai-center dcf-lh-3">${locationIcon}`;
+      location =  `<div class="unl-event-location dcf-d-flex dcf-ai-center dcf-lh-3">${locationIcon}<span>`;
       if (event.Locations[0].MapLinks[0]) {
         location += `<a class="dcf-txt-decor-hover unl-dark-gray" href="${event.Locations[0].MapLinks[0]}'">`;
       } else if (event.Locations[0].WebPages[0].URL) {
@@ -154,7 +154,7 @@ define([
         }
       }
 
-      location += '</div>';
+      location += '</span></div>';
     }
 
     return `<li class="unl-event-teaser-li"><article class="unl-event-teaser dcf-card-as-link">${title}${date}<div class="unl-event-details dcf-txt-xs unl-dark-gray">${time}${location}</div></article></li>`;
