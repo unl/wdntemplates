@@ -1,6 +1,6 @@
-require (['dcf-utility', 'dcf-modal', 'plugins/body-scroll-lock'], (Utility, Modal, bodyScrollLock) => {
+require (['dcf-modal', 'plugins/body-scroll-lock'], (modalModule, bodyScrollLock) => {
   const modals = document.querySelectorAll('.dcf-modal');
-  const unlModal = new DCFModal(modals, bodyScrollLock);
+  const unlModal = new modalModule.DCFModal(modals, bodyScrollLock);
   unlModal.initialize();
 
   // Define custom open and close events

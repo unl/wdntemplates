@@ -1,7 +1,7 @@
-require(['dcf-utility', 'dcf-datepicker'], () => {
+require(['dcf-datepicker'], (datePickerModule) => {
   //Date Pickers
   const datePickers = document.querySelectorAll('.dcf-datepicker');
   datePickers.forEach(function (dp) {
-    new DCFDatepicker(dp);
+    new datePickerModule.DCFDatepicker(dp);
   });
 });
