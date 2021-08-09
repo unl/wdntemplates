@@ -1,6 +1,6 @@
-require(['dcf-utility', 'dcf-tabs', 'css!js-css/tabs'], (Utility, Tabs) => {
+require(['dcf-tabs', 'css!js-css/tabs'], (tabsModule) => {
   const tabs = document.querySelectorAll('.dcf-tabs')
-  const unlTabs = new DCFTabs(tabs);
+  const unlTabs = new tabsModule.DCFTabs(tabs);
   unlTabs.initialize();
 });
 

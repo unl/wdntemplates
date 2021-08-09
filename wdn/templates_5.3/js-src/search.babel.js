@@ -1,4 +1,4 @@
-define(['wdn', 'dcf-utility', 'dcf-modal'], function(WDN) {
+define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
   let autoSearchDebounceDelay = 1000;
   let searchEmbedVersion = '5.0';
 
@@ -22,7 +22,7 @@ define(['wdn', 'dcf-utility', 'dcf-modal'], function(WDN) {
       initd = true;
 
       const searchModalId = 'dcf-search-results';
-      const modal = new DCFModal([]);
+      const modal = new modalModule.DCFModal([]);
 
       // Get Search links and buttons
       const domDesktopSearchLink = document.getElementById('dcf-search-toggle-link');
