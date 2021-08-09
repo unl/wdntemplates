@@ -42,13 +42,13 @@ define([
       displayType = 'Featured';
     }
 
-    if (config.layout.toLowerCase() === 'band' || config.layout.toLowerCase() === 'clean-band') {
+    if (config.layout.toLowerCase() === 'band' || config.layout.toLowerCase() === 'grid') {
       let grid = document.createElement('div');
       let containerClasses = 'dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-8 unl-bg-lightest-gray unl-bg-grit';
       let header = `<div class="dcf-absolute dcf-pin-top dcf-pt-9"><h2 class="dcf-m-0 dcf-txt-xs dcf-uppercase dcf-txt-vertical-lr unl-ls-2 unl-dark-gray">${displayType} Events</h2></div>`;
       let moreEvents = `<div class="dcf-d-flex dcf-jc-flex-end"><a class="dcf-btn dcf-btn-secondary" href="${config.url}${typePath}">More Events</a></div>`;
 
-      if (config.layout.toLowerCase() === 'clean-band') {
+      if (config.layout.toLowerCase() === 'grid') {
         eventList.classList.add('dcf-list-bare', 'dcf-grid-halves@sm', 'dcf-grid-fourths@lg', 'dcf-col-gap-vw', 'dcf-row-gap-6');
         containerClasses = 'dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-8';
         header = `<h2 class="dcf-sr-only">${displayType} Events</h2>`;
