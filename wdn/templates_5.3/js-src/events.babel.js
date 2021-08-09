@@ -28,7 +28,6 @@ define([
     let $container = $(config.container),
       eventList = document.createElement('ol');
     $container.hide();
-    console.log('data.Events.Event', data.Events.Event);
 
     eventList.innerHTML = '<li class="dcf-txt-lg">No events found.</li>';
     if (data.Events.length > 0) {
@@ -38,31 +37,47 @@ define([
       });
     }
 
-    if (config.layout.toLowerCase() === 'band') {
+    let displayType = 'Upcoming';
+    if (type === 'featured') {
+      displayType = 'Featured';
+    }
+
+    if (config.layout.toLowerCase() === 'band' || config.layout.toLowerCase() === 'clean-band') {
       let grid = document.createElement('div');
-      grid.classList.add('unl-offset-grid', 'dcf-col-gap-4');
-      eventList.classList.add('unl-event-teaser-list', 'dcf-list-bare', 'dcf-col-gap-vw', 'dcf-row-gap-6', 'dcf-mb-0');
-      $container.addClass('dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-8 unl-bg-lightest-gray unl-bg-grit');
-      $container.append(`<div class="dcf-absolute dcf-pin-top dcf-pt-9"><h2 class="dcf-m-0 dcf-txt-xs dcf-uppercase dcf-txt-vertical-lr unl-ls-2 unl-dark-gray">${type} Events</h2></div>`);
+      let containerClasses = 'dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-8 unl-bg-lightest-gray unl-bg-grit';
+      let header = `<div class="dcf-absolute dcf-pin-top dcf-pt-9"><h2 class="dcf-m-0 dcf-txt-xs dcf-uppercase dcf-txt-vertical-lr unl-ls-2 unl-dark-gray">${displayType} Events</h2></div>`;
+      let moreEvents = `<div class="dcf-d-flex dcf-jc-flex-end"><a class="dcf-btn dcf-btn-secondary" href="${config.url}${typePath}">More Events</a></div>`;
+
+      if (config.layout.toLowerCase() === 'clean-band') {
+        eventList.classList.add('dcf-list-bare', 'dcf-grid-halves@sm', 'dcf-grid-fourths@lg', 'dcf-col-gap-vw', 'dcf-row-gap-6');
+        containerClasses = 'dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-8';
+        header = `<h2 class="dcf-sr-only">${displayType} Events</h2>`;
+        moreEvents = `<div class="dcf-d-flex dcf-jc-center"><a class="dcf-btn dcf-btn-tertiary" href="${config.url}${typePath}">More Events</a></div>`;
+      } else {
+        eventList.classList.add('unl-event-teaser-list', 'dcf-list-bare', 'dcf-col-gap-vw', 'dcf-row-gap-6', 'dcf-mb-6');
+        grid.classList.add('unl-offset-grid', 'dcf-col-gap-4');
+      }
+
+      $container.addClass(containerClasses);
+      $container.append(header);
       grid.append(eventList);
       $container.append(grid);
-      $container.append(`<div class="dcf-d-flex dcf-jc-flex-end dcf-mt-6"><a class="dcf-btn dcf-btn-secondary" href="${config.url}${typePath}">More Events</a></div>`);
-    } else if (config.layout.toLowerCase() === 'clean-band') {
-      eventList.classList.add('dcf-list-bare', 'dcf-grid-halves@sm', 'dcf-grid-fourths@md', 'dcf-col-gap-vw', 'dcf-row-gap-6');
-      $container.addClass('dcf-bleed dcf-wrapper dcf-pb-8');
-      $container.append(eventList);
-      $container.append(`<div class="dcf-txt-center dcf-mt-7"><a class="dcf-btn dcf-btn-tertiary" href="${config.url}${typePath}">View More Events</a></div>`);
+      $container.append(moreEvents);
     } else {
       // defaults to 'default' layout
-      eventList.classList.add('dcf-list-bare');
+      eventList.classList.add('dcf-list-bare', 'dcf-mb-6');
       $container.addClass('wdn-calendar');
-      $container.append(`<h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray unl-txt-stripes-after">${type} Events</h2>`);
+      $container.append(`<h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray unl-txt-stripes-after">${displayType} Events</h2>`);
       $container.append(eventList);
-      let seeAll = `<div class="dcf-mt-4"><a class="dcf-btn dcf-btn-secondary" href="${config.url}${typePath}">More ${config.title} Events</a></div>`;
+      let moreText = 'More Events';
+      if (config.title) {
+        moreText = `More ${config.title.trim()} Events`;
+      }
+      let seeAll = `<div><a class="dcf-btn dcf-btn-secondary" href="${config.url}${typePath}">${moreText}</a></div>`;
       let ics = `<a class="dcf-btn dcf-btn-secondary" href="${config.url}${typePath}?format=ics">ICS</a>`;
       let rss = `<a class="dcf-btn dcf-btn-secondary" href="${config.url}${typePath}?format=rss">RSS</a>`;
-      let feeds = `<div class="dcf-btn-group dcf-mt-4 dcf-mr-5">${ics}${rss}</div>`;
-      let more = `<div class="dcf-d-flex dcf-flex-row dcf-flex-wrap dcf-jc-between">${feeds}${seeAll}</div>`;
+      let feeds = `<div class="dcf-btn-group" role="group">${ics}${rss}</div>`;
+      let more = `<div class="dcf-d-flex dcf-flex-row dcf-flex-wrap dcf-jc-between dcf-col-gap-5 dcf-row-gap-4">${feeds}${seeAll}</div>`;
       $container.append(more);
     }
     $container.show();
@@ -104,12 +119,6 @@ define([
     let day      = `<span class="dcf-d-block dcf-txt-h5 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray dcf-bg-white">${startDate.format('D')}</span>`;
     let date     = `<time class="unl-event-date dcf-flex-shrink-0 dcf-w-8 dcf-mr-4 dcf-txt-center" datetime="${startDate.format('YYYY-MM-DD')}">${month}${day}</time>`;
     let time     = `<time class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase" datetime="${startDate.format('HH:mm')}">${timeIcon}${startDate.format(timeformat)}</time>`;
-    if (config.layout.toLowerCase() === 'clean-band') {
-      month = `<span class="dcf-d-block dcf-txt-3xs dcf-pt-3 dcf-pb-3 dcf-uppercase dcf-bold unl-ls-3 unl-cream unl-bg-scarlet">${startDate.format('MMM')}</span>`;
-      day = `<span class="dcf-d-block dcf-pt-1 dcf-pb-1 dcf-txt-h5 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray dcf-bg-white">${startDate.format('D')}</span>`;
-      date = `<time class="dcf-1st dcf-w-8 dcf-mr-4 dcf-lh-1 dcf-txt-center" datetime="${startDate.format('YYYY-MM-DD')}">${month}${day}</time>`;
-      time = `<time class="dcf-lh-1 dcf-txt-xs" datetime="${startDate.format('HH:mm')}">${timeIcon}${startDate.format(timeformat)}</time>`;
-    }
     if (event.DateTime.AllDay) {
       // all day event so clear out time
       time = '';
@@ -120,10 +129,7 @@ define([
       subtitle = `<p class="dcf-subhead dcf-mt-1 dcf-mb-3 dcf-txt-3xs dcf-bold unl-dark-gray">${event.EventSubtitle}</p>`;
     }
 
-    let title = `<h3 class="dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover dcf-card-link unl-darker-gray" href="${eventURL}">${event.EventTitle}</a></h3>${subtitle}`;
-    if (config.layout.toLowerCase() !== 'clean-band') {
-      title = `<header class="unl-event-title">${title}</header>`;
-    }
+    let title = `<header class="unl-event-title"><h3 class="dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover dcf-card-link unl-darker-gray" href="${eventURL}">${event.EventTitle}</a></h3>${subtitle}</header>`;
     let location = '';
 
     if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {
@@ -151,11 +157,7 @@ define([
       location += '</div>';
     }
 
-    if (config.layout.toLowerCase() === 'clean-band') {
-      return `<li class="dcf-mb-0"><article class="dcf-media dcf-card-as-link unl-event-teaser"><div class="dcf-2nd dcf-media-body dcf-as-center">${title}${time}</div>${date}</article></li>`;
-    } else {
-      return `<li class="unl-event-teaser-li"><article class="unl-event-teaser dcf-card-as-link">${title}${date}<div class="unl-event-details dcf-txt-xs unl-dark-gray">${time}${location}</div></article></li>`;
-    }
+    return `<li class="unl-event-teaser-li"><article class="unl-event-teaser dcf-card-as-link">${title}${date}<div class="unl-event-details dcf-txt-xs unl-dark-gray">${time}${location}</div></article></li>`;
   }
 
   let setup = function(config) {
