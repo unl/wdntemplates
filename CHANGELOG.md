@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.3 (July 22, 2021)
+- Events updates
+- Footer background color change
+
+## 5.3.2 (May 14, 2021)
+- Link styling changes for accessibility
+- Added Card display with entire card linked
+
+## 5.3.1 (April 15, 2021)
+- New datepicker
+- Remove object-fit polyfill
+
 ## 5.3.0 (February 17, 2021)
 - Initial release
 

@@ -3,6 +3,11 @@
 ////////////////////////////////////////
 
 
+// Dots
+.unl-bg-dots-gray { @include bg-dots-gray(!important); }
+.unl-bg-dots-scarlet { @include bg-dots-scarlet(!important); }
+
+
 // Grit
 .unl-bg-grit { @include bg-grit(!important); }
 

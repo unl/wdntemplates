@@ -16,13 +16,13 @@ require(['require',], () => {
     })
   }
 
-  require(['dcf-utility'], () => {
+  require(['dcf-utility'], (utilityModule) => {
 
     // Trigger dcf-webp class processing
-    DCFUtility.flagSupportsWebP();
+    utilityModule.DCFUtility.flagSupportsWebP();
 
     // Trigger dcf-no-js check
-    DCFUtility.flagSupportsJavaScript();
+    utilityModule.DCFUtility.flagSupportsJavaScript();
   });
 
 });
