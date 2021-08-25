@@ -14,13 +14,13 @@ $bg-color-white-light-mode: $white;
 $bg-color-white-dark-mode: $black;
 
 $bg-color-gray-light-light-mode: $light-gray;
-$bg-color-gray-light-dark-mode: invert($light-gray);
+$bg-color-gray-light-dark-mode: $darker-gray-s2;
 
 $bg-color-gray-lighter-light-mode: $lighter-gray;
-$bg-color-gray-lighter-dark-mode: invert($lighter-gray);
+$bg-color-gray-lighter-dark-mode: $darker-gray-s3;
 
 $bg-color-gray-lightest-light-mode: $lightest-gray;
-$bg-color-gray-lightest-dark-mode: invert($lightest-gray);
+$bg-color-gray-lightest-dark-mode: $darker-gray-s4;
 
 $bg-color-overlay-dark-light-mode: fade-out($darkest-gray,.06);   // Dark overlay background-color for modals in light mode
 $bg-color-overlay-dark-dark-mode: fade-out($black,.06);           // Dark overlay background-color for modals in dark mode
