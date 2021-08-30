@@ -406,7 +406,7 @@
       </div>
 
       <div class="dcf-mt-6 dcf-mb-6">
-        <div class="dcf-slideshow">
+        <div class="dcf-slideshow" role="region" aria-label="WDN Sample Slideshow" data-shuffle="true">
           <ul>
             <li>
               <figure>
