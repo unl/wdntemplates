@@ -62,7 +62,7 @@
     "postcss-normalize": "^10.0.0",
     "stylelint": "^13.13.1",
     "stylelint-no-unsupported-browser-features": "^5.0.1",
-    "tar": "^6.1.6",
+    "tar": "^6.1.9",
     "tar-fs": "^2.1.1",
     "trim": "^1.0.1",
     "websocket-extensions": "^0.1.4"
