@@ -5,17 +5,17 @@
 
 // Dots
 @mixin bg-dots($imp:null) {
-  background-size: #{ms(-4)}rem; // .56rem
+  background-size: #{ms(-4)}rem $imp; // .56rem
 }
 
 
 @mixin bg-dots-gray($imp:null) {
-  background-image: url('../images/bg-dots-gray.svg');
+  background-image: url('../images/bg-dots-gray.svg') $imp;
 }
 
 
 @mixin bg-dots-scarlet($imp:null) {
-  background-image: url('../images/bg-dots-scarlet.svg');
+  background-image: url('../images/bg-dots-scarlet.svg') $imp;
 }
 
 
@@ -39,7 +39,7 @@
 
 // Diagonal Stripes: Scarlet
 @mixin bg-stripes-scarlet($imp:null) {
-  background-image: repeating-linear-gradient($diagonal1, $scarlet, $scarlet 2px, transparent 2px, transparent 4px);
+  background-image: repeating-linear-gradient($diagonal1, $scarlet, $scarlet 2px, transparent 2px, transparent 4px) $imp;
 }
 
 
@@ -48,11 +48,11 @@
 //   background-image: url('../images/diagonal-stripe-bg.svg');
 //   background-repeat: repeat;
 //   background-image: repeating-linear-gradient($diagonal1, rgba($color-body,.1), rgba($color-body,.1) 2px, transparent 2px, transparent 4px);
-  background-image: repeating-linear-gradient($diagonal1, fade-out($color-body-light-mode,.9), fade-out($color-body-light-mode,.9) 2px, fade-out($color-body-light-mode,1) 2px, fade-out($color-body-light-mode,1) 5px);
+  background-image: repeating-linear-gradient($diagonal1, fade-out($color-body-light-mode,.9), fade-out($color-body-light-mode,.9) 2px, fade-out($color-body-light-mode,1) 2px, fade-out($color-body-light-mode,1) 5px) $imp;
 }
 
 
 // Diagonal Stripes: Light
 @mixin bg-stripes-light($imp:null) {
-  background-image: repeating-linear-gradient($diagonal1, fade-out($white,.95), fade-out($white,.95) 2px, fade-out($white,1) 2px, fade-out($white,1) 5px);
+  background-image: repeating-linear-gradient($diagonal1, fade-out($white,.95), fade-out($white,.95) 2px, fade-out($white,1) 2px, fade-out($white,1) 5px) $imp;
 }
