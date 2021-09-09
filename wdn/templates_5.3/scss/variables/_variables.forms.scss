@@ -64,6 +64,10 @@ $font-size-required: #{ms(-2)}em;                               // Required labe
 $font-style-required-italic: true;                              // Italic font-style for required label? True/false
 
 
+// Font weight
+$font-weight-legend-bold: true;                                 // Bold legend? True/false
+
+
 // Line height
 $line-height-form-help: #{ms(2)};                               // Form help line-height
 
