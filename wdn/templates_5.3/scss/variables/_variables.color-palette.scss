@@ -12,7 +12,7 @@ $scarlet: $color-brand-alpha;
 $cream: $color-brand-beta;
 $gray: $color-brand-gamma;
 
-$scarlet-shade: scale-color($scarlet, $hue: 1deg, $saturation: 10%, $lightness: -24%);
+$scarlet-shade: scale-color($scarlet, $saturation: 10%, $lightness: -24%);
 $scarlet-tint: #f6e6e3;
 
 
