@@ -3,7 +3,13 @@
 //////////////////////////////////
 
 
+@import '_variables.color-palette';
 @import '_variables.sizing';
+
+
+// Background color
+$bg-color-datepicker-dialog-light-mode: $white;           // Datepicker dialog background-color in light mode
+$bg-color-datepicker-dialog-dark-mode: $white;            // Datepicker dialog background-color in dark mode
 
 
 // Border radius
