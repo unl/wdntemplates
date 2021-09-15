@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.5 (September 14, 2021)
+- Updated DCF slideshow
+- Add utility for dots background images
+- Add form required label color variables
+- Events Plugin Timezone Fix
+
 ## 5.3.4 (August 10, 2021)
 - Events updates
 - NPM version requirement increase

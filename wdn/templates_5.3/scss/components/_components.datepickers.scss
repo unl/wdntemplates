@@ -45,8 +45,6 @@
 .unl .dcf-datepicker-dialog-calendar td:not(.disabled):focus,
 .unl .dcf-datepicker-dialog-calendar td:not(.disabled):active {
   box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px currentColor;
-  position: relative; // Pair with z-index to ensure that box-shadow appears above adjacent elements
-  z-index: 2; // Pair with 'position: relative' to ensure that box-shadow appears above adjacent elements
 }
 
 
