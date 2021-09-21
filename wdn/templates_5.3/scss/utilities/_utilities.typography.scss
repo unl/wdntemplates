@@ -44,11 +44,3 @@
 
 // Outline Text: Dark
 .unl-txt-outline-dark { @include txt-outline-dark(!important); }
-
-
-// Text Stripes: Light
-.unl-txt-stripes-light { @include txt-stripes-light(!important); }
-
-
-// Text Stripes: Dark
-.unl-txt-stripes-dark { @include txt-stripes-dark(!important); }

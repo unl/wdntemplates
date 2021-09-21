@@ -168,21 +168,3 @@
   }
 
 }
-
-
-// Text Stripes: Light
-@mixin txt-stripes-light($imp:null) {
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-image: repeating-linear-gradient($diagonal1, fade-out($white,.5), fade-out($white,.5) 1px, transparent 1px, transparent 2px); // add mixin
-  color: transparent $imp;
-}
-
-
-// Text Stripes: Dark
-@mixin txt-stripes-dark($imp:null) {
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-image: repeating-linear-gradient($diagonal1, fade-out($color-body-light-mode,.5), fade-out($color-body-light-mode,.5) 1px, transparent 1px, transparent 2px); // add mixin
-  color: transparent $imp;
-}
