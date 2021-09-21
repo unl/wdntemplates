@@ -161,10 +161,10 @@
 // Outline Text: Dark
 @mixin txt-outline-dark($imp:null) {
 
-  @supports (text-stroke: 1px $color-heading-light-mode) or (-webkit-text-stroke: 1px $color-heading-light-mode) {
+  @supports (text-stroke: 1px var(--heading)) or (-webkit-text-stroke: 1px var(--heading)) {
     color: transparent $imp;
-    -webkit-text-stroke: #{ms(-26)}em $color-heading-light-mode $imp;
-    text-stroke: #{ms(-26)}em $color-heading-light-mode $imp;
+    -webkit-text-stroke: #{ms(-26)}em var(--heading) $imp;
+    text-stroke: #{ms(-26)}em var(--heading) $imp;
   }
 
 }
