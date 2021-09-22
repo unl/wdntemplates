@@ -27,3 +27,6 @@ $bg-color-overlay-dark-dark-mode: fade-out($black,.06);           // Dark overla
 
 $bg-color-overlay-light-light-mode: fade-out($cream,.06);         // Light overlay background-color for modals in light mode
 $bg-color-overlay-light-dark-mode: fade-out($black,.06);          // Light overlay background-color for modals in dark mode
+
+$bg-color-dialog-light-mode: $white;                              // Dialog background-color in light mode
+$bg-color-dialog-dark-mode: $darker-gray-s1;                      // Dialog background-color in dark mode

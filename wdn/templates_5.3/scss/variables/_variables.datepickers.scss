@@ -7,11 +7,6 @@
 @import '_variables.sizing';
 
 
-// Background color
-$bg-color-datepicker-dialog-light-mode: $white;           // Datepicker dialog background-color in light mode
-$bg-color-datepicker-dialog-dark-mode: $darker-gray-s1;   // Datepicker dialog background-color in dark mode
-
-
 // Border radius
 $border-radius-datepicker-dialog-roundrect: true;         // Datepicker dialog border-radius roundrect? True/false
 $border-radius-datepicker-date-roundrect: true;           // Datepicker date border-radius roundrect? True/false
