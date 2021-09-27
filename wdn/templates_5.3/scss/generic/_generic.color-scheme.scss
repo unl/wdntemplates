@@ -60,6 +60,9 @@
   --b-input-focus: #{$border-color-input-focus-light-mode};
   --b-input-group-addon: #{$border-color-input-group-addon-light-mode};
   --b-input-hover: #{$border-color-input-hover-light-mode};
+  --b-light-gray: #{$border-color-gray-light-light-mode};
+  --b-lighter-gray: #{$border-color-gray-lighter-light-mode};
+  --b-lightest-gray: #{$border-color-gray-lightest-light-mode};
   --b-table: #{$border-color-table-light-mode};
   --b-tab: #{$border-color-tab-light-mode};
   --b-tabs-panel: #{$border-color-tabs-panel-light-mode};
@@ -160,6 +163,9 @@
     --b-input-focus: #{$border-color-input-focus-dark-mode};
     --b-input-group-addon: #{$border-color-input-group-addon-dark-mode};
     --b-input-hover: #{$border-color-input-hover-dark-mode};
+    --b-light-gray: #{$border-color-gray-light-dark-mode};
+    --b-lighter-gray: #{$border-color-gray-lighter-dark-mode};
+    --b-lightest-gray: #{$border-color-gray-lightest-dark-mode};
     --b-table: #{$border-color-table-dark-mode};
     --b-tab: #{$border-color-tab-dark-mode};
     --b-tabs-panel: #{$border-color-tabs-panel-dark-mode};
