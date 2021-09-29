@@ -1,3 +1,8 @@
+require(['dcf-notice'], function(DCFNoticeModule) {
+	var notice = new DCFNoticeModule.DCFNotice();
+	notice.initialize();
+});
+
 define([
 	'jquery',
 	'css!js-css/notices.css'
