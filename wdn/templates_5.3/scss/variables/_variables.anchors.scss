@@ -12,13 +12,13 @@ $color-link-light-mode: $color-brand-alpha;                       // Link color 
 $color-link-dark-mode: $light-cerulean;                           // Link color in dark moden
 
 $color-visited-light-mode: darken($color-link-light-mode, 10%);   // Visited color in light mode
-$color-visited-dark-mode: $light-gray;                         // Visited color in dark mode
+$color-visited-dark-mode: $lighter-cerulean;                      // Visited color in dark mode
 
 $color-hover-light-mode: darken($color-link-light-mode, 10%);     // Hover color in light mode
-$color-hover-dark-mode: $cream;                                   // Hover color in dark mode
+$color-hover-dark-mode: $lighter-cerulean;                        // Hover color in dark mode
 
 $color-active-light-mode: darken($color-link-light-mode, 10%);    // Active color in light mode
-$color-active-dark-mode: $white;                                  // Active color in dark mode
+$color-active-dark-mode: $lighter-cerulean;                       // Active color in dark mode
 
 $color-inverse-link-light-mode: $bg-color-body-light-mode;        // Inverse link color in light mode
 $color-inverse-link-dark-mode: $bg-color-body-dark-mode;          // Inverse link color in dark mode
