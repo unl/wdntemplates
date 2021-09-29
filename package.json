@@ -50,7 +50,7 @@
     "grunt-then": "^1.0.0",
     "grunt-zip": "^0.18.2",
     "hosted-git-info": "^4.0.2",
-    "i": "^0.3.6",
+    "i": "^0.3.7",
     "imagemin-jpeg-recompress": "^7.0.0",
     "imagemin-svgo": "^9.0.0",
     "imagemin-webp": "^6.0.0",
