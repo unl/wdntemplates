@@ -11,8 +11,9 @@ body.unl\@dark {
   --bg-btn-tertiary: transparent;
   --bg-card: #393937;
   --bg-code: hsla(0,0%,100%,0.1);
+  --bg-dialog: #393937;
   --bg-input: #1f1f1e;
-  --bg-input-disabled: #242423;
+  --bg-input-disabled: #424240;
   --bg-input-group-addon: #393937;
   --bg-inverse: #c7c8ca;
   --bg-kbd: #000;
@@ -32,7 +33,7 @@ body.unl\@dark {
   --bg-table-stripe: #242423;
   --bg-tab-selected: #393937;
   --bg-tabs-panel: #393937;
-  --bg-white: #000;
+  --bg-white: #393937;
   --b: #424240;
   --b-breadcrumb-arrow: #c7c8ca;
   --b-btn-primary: #ebebea;
@@ -49,10 +50,13 @@ body.unl\@dark {
   --b-input-focus: #42a7c6;
   --b-input-group-addon: #6b6b68;
   --b-input-hover: #c7c8ca;
+  --b-light-gray: #424240;
+  --b-lighter-gray: #424240;
+  --b-lightest-gray: #424240;
   --b-table: #424240;
   --b-tab: #424240;
   --b-tabs-panel: #424240;
-  --active: #fff;
+  --active: #a0d2e0;
   --badge: #242423;
   --body: #c7c8ca;
   --brand-alpha: #f6f6f5;
@@ -73,7 +77,7 @@ body.unl\@dark {
   --form-help: #a4a4a1;
   --form-required: #d00000;
   --heading: #fefdfa;
-  --hover: #fefdfa;
+  --hover: #a0d2e0;
   --input-group-addon: #a4a4a1;
   --inverse: #242423;
   --inverse-active: #242423;
@@ -84,5 +88,5 @@ body.unl\@dark {
   --link: #71bdd3;
   --select: #c7c8ca;
   --tab-selected: #c7c8ca;
-  --visited: #e3e3e2;
+  --visited: #a0d2e0;
 }
