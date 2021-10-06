@@ -14,8 +14,11 @@
 $bg-color-input-light-mode: $white;                             // Field background color in light mode
 $bg-color-input-dark-mode: $darkest-gray-s1;                    // Field background color in dark mode
 
-$bg-color-input-disabled-light-mode: $lighter-gray;             // Field background color in light mode
-$bg-color-input-disabled-dark-mode: $darker-gray;               // Field background color in dark mode
+$bg-color-input-disabled-light-mode: $lighter-gray;             // Disabled input background color in light mode
+$bg-color-input-disabled-dark-mode: $darker-gray;               // Disabled input background color in dark mode
+
+$bg-color-required-light-mode: transparent;                     // Required background color in light mode
+$bg-color-required-dark-mode: rgba(157,0,0,.25);                // Required background color in dark mode
 
 
 // Border color
@@ -30,6 +33,9 @@ $border-color-input-hover-dark-mode: $gray;                     // Input field b
 
 $border-color-input-focus-light-mode: $blue;                    // Input field border-color when focused in light mode
 $border-color-input-focus-dark-mode: $cerulean;                 // Input field border-color when focused in dark mode
+
+$border-color-required-light-mode: transparent;                 // Required border-color in light mode
+$border-color-required-dark-mode: $scarlet-shade;               // Required border-color in dark mode
 
 
 // Border radius
@@ -49,19 +55,19 @@ $border-width-input: 1px;                                       // Input field b
 $color-form-help-light-mode: $color-light-text-light-mode;      // Form help text color in light mode
 $color-form-help-dark-mode: $color-light-text-dark-mode;        // Form help text color in dark mode
 
-$color-required-label-light-mode: $color-required;              // Required label text color in light mode
-$color-required-label-dark-mode: $color-required;               // Required label text color in dark mode
+$color-required-label-light-mode: $scarlet;                     // Required label text color in light mode
+$color-required-label-dark-mode: $cream;                        // Required label text color in dark mode
 
 
 // Font size
 $font-size-label: #{ms(-1)}em;                                  // Label font-size: .84em
 $font-size-legend: #{ms(-1)}em;                                 // Legend font-size: .84em
 $font-size-form-help: #{ms(-2)}em;                              // Form help font-size: .75em
-$font-size-required: #{ms(-2)}em;                               // Required label font-size: .75em
+$font-size-required: $font-size-badge;                          // Required label font-size: .56rem
 
 
 // Font style
-$font-style-required-italic: true;                              // Italic font-style for required label? True/false
+$font-style-required-italic: false;                             // Italic font-style for required label? True/false
 
 
 // Font weight

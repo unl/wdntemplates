@@ -35,6 +35,7 @@
   --bg-overlay-light: #{$bg-color-overlay-light-light-mode};
   --bg-pre: #{$bg-color-pre-light-mode};
   --bg-radio: #{$bg-color-radio-light-mode};
+  --bg-required: #{$bg-color-required-light-mode};
   --bg-scarlet: #{$bg-color-scarlet-light-mode};
   --bg-select-1: #{$bg-color-select-1-light-mode};
   --bg-select-2: #{$bg-color-select-2-light-mode};
@@ -63,6 +64,7 @@
   --b-light-gray: #{$border-color-gray-light-light-mode};
   --b-lighter-gray: #{$border-color-gray-lighter-light-mode};
   --b-lightest-gray: #{$border-color-gray-lightest-light-mode};
+  --b-required: #{$border-color-required-light-mode};
   --b-table: #{$border-color-table-light-mode};
   --b-tab: #{$border-color-tab-light-mode};
   --b-tabs-panel: #{$border-color-tabs-panel-light-mode};
@@ -138,6 +140,7 @@
     --bg-overlay-light: #{$bg-color-overlay-light-dark-mode};
     --bg-pre: #{$bg-color-pre-dark-mode};
     --bg-radio: #{$bg-color-radio-dark-mode};
+    --bg-required: #{$bg-color-required-dark-mode};
     --bg-scarlet: #{$bg-color-scarlet-dark-mode};
     --bg-select-1: #{$bg-color-select-1-dark-mode};
     --bg-select-2: #{$bg-color-select-2-dark-mode};
@@ -166,6 +169,7 @@
     --b-light-gray: #{$border-color-gray-light-dark-mode};
     --b-lighter-gray: #{$border-color-gray-lighter-dark-mode};
     --b-lightest-gray: #{$border-color-gray-lightest-dark-mode};
+    --b-required: #{$border-color-required-dark-mode};
     --b-table: #{$border-color-table-dark-mode};
     --b-tab: #{$border-color-tab-dark-mode};
     --b-tabs-panel: #{$border-color-tabs-panel-dark-mode};
