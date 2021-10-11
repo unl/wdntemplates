@@ -88,8 +88,8 @@
   --darkest-gray: #{$color-gray-darkest-light-mode};
   --figcaption: #{$color-figcaption-light-mode};
   --focus-outline: #{$color-focus-outline-light-mode};
-  --form-required: #{$color-required-label-light-mode};
   --form-help: #{$color-form-help-light-mode};
+  --form-required: #{$color-required-label-light-mode};
   --heading: #{$color-heading-light-mode};
   --hover: #{$color-hover-light-mode};
   --input-group-addon: #{$color-input-group-addon-light-mode};
@@ -179,13 +179,13 @@
     --badge: #{$color-badge-dark-mode};
     --body: #{$color-body-dark-mode};
     --brand-alpha: #{$color-brand-alpha-dark-mode};
-    --btn-inverse-primary: #{$color-button-inverse-primary};
-    --btn-inverse-secondary: #{$color-button-inverse-secondary};
-    --btn-inverse-tertiary: #{$color-button-inverse-tertiary};
     --btn-primary: #{$color-button-primary-dark-mode};
     --btn-secondary: #{$color-button-secondary-dark-mode};
     --btn-secondary-tertiary-hover: #{$color-button-secondary-tertiary-hover-dark-mode};
     --btn-tertiary: #{$color-button-tertiary-dark-mode};
+    --btn-inverse-primary: #{$color-button-inverse-primary};
+    --btn-inverse-secondary: #{$color-button-inverse-secondary};
+    --btn-inverse-tertiary: #{$color-button-inverse-tertiary};
     --caption: #{$color-caption-dark-mode};
     --code: #{$color-code-dark-mode};
     --dark-gray: #{$color-gray-dark-dark-mode};
