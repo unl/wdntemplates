@@ -1,5 +1,14 @@
 require(['dcf-notice'], function(DCFNoticeModule) {
-	var notice = new DCFNoticeModule.DCFNotice();
+	const noticeTheme = new DCFNoticeModule.DCFNoticeTheme();
+	noticeTheme.setThemeVariable('noticeContainerClassList', [ 'dcf-relative' ]);
+	noticeTheme.setThemeVariable('closeNoticeContainerClassList', [ 'dcf-absolute', 'dcf-pin-top', 'dcf-pin-right', 'dcf-z-1' ]);
+	noticeTheme.setThemeVariable('closeNoticeBtnClassList', [ 'dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'dcf-white' ]);
+	noticeTheme.setThemeVariable('closeNoticeBtnInnerHTML', '<span class="dcf-sr-only">Close this notice</span>' +
+		'<svg class="dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 24 24">' +
+		'<path d="M1,13h22c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1C0,12.6,0.4,13,1,13z"></path>' +
+		'<path d="M1,13h22c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1C0,12.6,0.4,13,1,13z"></path>' +
+		'</svg>');
+	var notice = new DCFNoticeModule.DCFNotice(noticeTheme);
 	notice.initialize();
 });
 
