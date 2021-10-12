@@ -16,8 +16,8 @@
   border-radius: $pill;
   display: inline-block;
   @include lh-1;
-  @include ml-1;
-  padding: $padding-top-badge $padding-right-badge $padding-bottom-badge $padding-left-badge;
+  margin-left: $margin-left-required;
+  padding: $padding-top-required $padding-right-required $padding-bottom-required $padding-left-required;
   text-align: center;
   vertical-align: top;
   white-space: nowrap;

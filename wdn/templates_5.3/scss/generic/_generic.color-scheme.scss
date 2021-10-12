@@ -89,7 +89,6 @@
   --figcaption: #{$color-figcaption-light-mode};
   --focus-outline: #{$color-focus-outline-light-mode};
   --form-help: #{$color-form-help-light-mode};
-  --form-required: #{$color-required-label-light-mode};
   --heading: #{$color-heading-light-mode};
   --hover: #{$color-hover-light-mode};
   --input-group-addon: #{$color-input-group-addon-light-mode};
@@ -100,6 +99,7 @@
   --inverse-visited: #{$color-inverse-visited-light-mode};
   --kbd: #{$color-kbd-light-mode};
   --link: #{$color-link-light-mode};
+  --required: #{$color-required-label-light-mode};
   --select: #{$color-select-light-mode};
   --tab-selected: #{$color-tab-selected-light-mode};
   --visited: #{$color-visited-light-mode};
@@ -194,7 +194,6 @@
     --figcaption: #{$color-figcaption-dark-mode};
     --focus-outline: #{$color-focus-outline-dark-mode};
     --form-help: #{$color-form-help-dark-mode};
-    --form-required: #{$color-required-label-dark-mode};
   	--heading: #{$color-heading-dark-mode};
     --hover: #{$color-hover-dark-mode};
     --input-group-addon: #{$color-input-group-addon-dark-mode};
@@ -205,6 +204,7 @@
     --inverse-visited: #{$color-inverse-visited-dark-mode};
     --kbd: #{$color-kbd-dark-mode};
     --link: #{$color-link-dark-mode};
+    --required: #{$color-required-label-dark-mode};
     --select: #{$color-select-dark-mode};
     --tab-selected: #{$color-tab-selected-dark-mode};
     --visited: #{$color-visited-dark-mode};
