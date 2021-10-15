@@ -323,12 +323,6 @@ main input[type='submit'].wdn-button-outline:not(:disabled):active {
 }
 
 
-// not ideal, but override deprecated style conflicts
-.unl .dcf-btn-inverse-primary {
-  color: inherit;
-}
-
-
 // Webform opt-out
 .wdn-webform-opt-out ol,
 .wdn-webform-opt-out ul {
