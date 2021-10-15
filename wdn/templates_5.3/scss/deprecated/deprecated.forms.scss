@@ -179,7 +179,7 @@ main input[type='submit']:hover,
   transition: background-color $transition-duration-hover-on $transition-timing-fn-hover-on, border-color $transition-duration-hover-on $transition-timing-fn-hover-on, color $transition-duration-hover-on $transition-timing-fn-hover-on;
 }
 
-main button:not(:disabled):hover,
+main button:not(.dcf-btn-secondary):not(.dcf-btn-tertiary):not(.dcf-btn-inverse-primary):not(.dcf-btn-inverse-secondary):not(.dcf-btn-inverse-tertiary):not(:disabled):hover,
 main input[type='button']:not(:disabled):hover,
 main input[type='submit']:not(:disabled):hover,
 .wdn-button:not(:disabled):hover,
