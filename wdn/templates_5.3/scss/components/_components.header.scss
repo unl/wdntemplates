@@ -3,7 +3,9 @@
 //////////////////////////////
 
 
+.unl .dcf-header-global button,
 .unl .dcf-header-global a,
+.unl .dcf-header-global a:link,
 .unl .dcf-header-global a:visited {
   color: var(--brand-alpha); // Force visited links in the global header and logo to remain scarlet (light) and cream (dark).
 }
@@ -26,6 +28,7 @@
 }
 
 
+.unl .dcf-header-global button:hover,
 .unl .dcf-header-global a:hover,
 .unl .dcf-site-group a:hover {
   color: var(--hover);
