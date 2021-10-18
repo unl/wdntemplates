@@ -272,7 +272,7 @@ a:visited.ui-button {
 button.ui-state-default:not(:disabled):hover,
 button.ui-state-default:not(:disabled):active {
   background-color: var(--bg-btn-primary-hover);
-  c-color: var(--b-btn-primary-hover);
+  border-color: var(--b-btn-primary-hover);
 }
 
 .ui-button.ui-button-icon-only:hover {
