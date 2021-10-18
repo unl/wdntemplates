@@ -9,12 +9,16 @@
 
 // Cream
 @mixin bg-cream($imp:null) { background-color: var(--bg-body) $imp; }
+@mixin bg-cream-at-dark($imp:null) { background-color: $cream $imp; }
 
 
 // Gray
 @mixin bg-lightest($imp:null) { background-color: var(--bg-lightest-gray) $imp; }
+@mixin bg-lightest-at-dark($imp:null) { background-color: $lightest-gray $imp; }
 @mixin bg-lighter($imp:null) { background-color: var(--bg-lighter-gray) $imp; }
+@mixin bg-lighter-at-dark($imp:null) { background-color: $lighter-gray $imp; }
 @mixin bg-light($imp:null) { background-color: var(--bg-light-gray) $imp; }
+@mixin bg-light-at-dark($imp:null) { background-color: $light-gray $imp; }
 @mixin bg-dark($imp:null) { background-color: $dark-gray $imp; }
 @mixin bg-darker($imp:null) { background-color: $darker-gray $imp; }
 @mixin bg-darkest($imp:null) { background-color: $darkest-gray $imp; }

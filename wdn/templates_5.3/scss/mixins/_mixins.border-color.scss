@@ -28,27 +28,27 @@
 
 
 // Lightest Gray
-@mixin b-lightest-gray($imp:null) { border-color: $lightest-gray $imp; }          // All Sides
-@mixin bt-lightest-gray($imp:null) { border-top-color: $lightest-gray $imp; }     // Top
-@mixin br-lightest-gray($imp:null) { border-right-color: $lightest-gray $imp; }   // Right
-@mixin bb-lightest-gray($imp:null) { border-bottom-color: $lightest-gray $imp; }  // Bottom
-@mixin bl-lightest-gray($imp:null) { border-left-color: $lightest-gray $imp; }    // Left
+@mixin b-lightest-gray($imp:null) { border-color: var(--b-lightest-gray) $imp; }          // All Sides
+@mixin bt-lightest-gray($imp:null) { border-top-color: var(--b-lightest-gray) $imp; }     // Top
+@mixin br-lightest-gray($imp:null) { border-right-color: var(--b-lightest-gray) $imp; }   // Right
+@mixin bb-lightest-gray($imp:null) { border-bottom-color: var(--b-lightest-gray) $imp; }  // Bottom
+@mixin bl-lightest-gray($imp:null) { border-left-color: var(--b-lightest-gray) $imp; }    // Left
 
 
 // Lighter Gray
-@mixin b-lighter-gray($imp:null) { border-color: $lighter-gray $imp; }          // All Sides
-@mixin bt-lighter-gray($imp:null) { border-top-color: $lighter-gray $imp; }     // Top
-@mixin br-lighter-gray($imp:null) { border-right-color: $lighter-gray $imp; }   // Right
-@mixin bb-lighter-gray($imp:null) { border-bottom-color: $lighter-gray $imp; }  // Bottom
-@mixin bl-lighter-gray($imp:null) { border-left-color: $lighter-gray $imp; }    // Left
+@mixin b-lighter-gray($imp:null) { border-color: var(--b-lighter-gray) $imp; }          // All Sides
+@mixin bt-lighter-gray($imp:null) { border-top-color: var(--b-lighter-gray) $imp; }     // Top
+@mixin br-lighter-gray($imp:null) { border-right-color: var(--b-lighter-gray) $imp; }   // Right
+@mixin bb-lighter-gray($imp:null) { border-bottom-color: var(--b-lighter-gray) $imp; }  // Bottom
+@mixin bl-lighter-gray($imp:null) { border-left-color: var(--b-lighter-gray) $imp; }    // Left
 
 
 // Light Gray
-@mixin b-light-gray($imp:null) { border-color: $light-gray $imp; }          // All Sides
-@mixin bt-light-gray($imp:null) { border-top-color: $light-gray $imp; }     // Top
-@mixin br-light-gray($imp:null) { border-right-color: $light-gray $imp; }   // Right
-@mixin bb-light-gray($imp:null) { border-bottom-color: $light-gray $imp; }  // Bottom
-@mixin bl-light-gray($imp:null) { border-left-color: $light-gray $imp; }   // Left
+@mixin b-light-gray($imp:null) { border-color: var(--b-light-gray) $imp; }          // All Sides
+@mixin bt-light-gray($imp:null) { border-top-color: var(--b-light-gray) $imp; }     // Top
+@mixin br-light-gray($imp:null) { border-right-color: var(--b-light-gray) $imp; }   // Right
+@mixin bb-light-gray($imp:null) { border-bottom-color: var(--b-light-gray) $imp; }  // Bottom
+@mixin bl-light-gray($imp:null) { border-left-color: var(--b-light-gray) $imp; }    // Left
 
 
 // Dark Gray

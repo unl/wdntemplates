@@ -11,16 +11,9 @@
   font-family: inherit;
 }
 
-.ui-button.ui-state-active:hover,
-.ui-button:active,
-.ui-state-active,
-.ui-widget-content .ui-state-active,
-.ui-widget-header .ui-state-active,
-a.ui-button:active {
-  border: 1px solid #9e0900;
-  background-color: #d00000;
-}
 
+
+// Existing
 .ui-datepicker,
 .ui-datepicker .ui-datepicker-header .ui-state-hover,
 .ui-datepicker .ui-state-default,
@@ -50,11 +43,93 @@ a.ui-button:active {
 	padding: 0;
 }
 
-.ui-widget-header {
-  @include txt-sm;
-	text-transform: uppercase;
+
+
+// Widgets
+.ui-widget.ui-widget-content,
+.ui-widget-content,
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  background-color: var(--bg-tabs-panel);
+  border-color: var(--b-tabs-panel);
+  color: var(--body);
 }
 
+.ui-button.ui-state-active:hover,
+.ui-button:active,
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active {
+  border: 1px solid #9e0900;
+  background-color: #d00000;
+}
+
+
+
+// Dialog
+.ui-dialog {
+  box-shadow: $box-shadow-datepicker-dialog;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+  background-color: var(--bg-tabs-panel);
+  border: 0;
+}
+
+.ui-dialog-title {
+  color: var(--heading);
+}
+
+
+
+// Links
+.ui-state-default a,
+.ui-state-default a:link {
+  color: var(--link);
+}
+
+.ui-state-default a:visited {
+  color: var(--visited);
+}
+
+
+
+// Forms, labels and inputs
+.ui-widget label {
+  @include txt-sm;
+}
+
+.ui-widget input,
+.ui-widget textarea {
+  background-color: var(--bg-input);
+  border: 1px solid var(--b-input);
+  border-radius: 3px;
+  padding: $padding-top-input $padding-right-input $padding-bottom-input $padding-left-input;
+}
+
+.ui-widget input:not([type="submit"]):disabled,
+.ui-widget textarea:disabled {
+  background-color: var(--bg-input-disabled);
+}
+
+.ui-widget input:not([type="submit"]):hover,
+.ui-widget textarea:hover {
+  transition: border-color $transition-duration-hover-on $transition-timing-fn-hover-on;
+}
+
+.ui-widget input:not([type="submit"]):focus,
+.ui-widget textarea:focus {
+  border-color: var(--b-input-focus);
+  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
+  outline: none;
+  transition: box-shadow $transition-duration-hover-on $transition-timing-fn-hover-on;
+}
+
+
+
+// Datepicker
 .ui-datepicker .ui-datepicker-header {
   padding: 1.069em 1em 1em;
 }
@@ -154,44 +229,74 @@ a.ui-button:active {
   border-radius: 0 !important;
 }
 
-.ui-button {
-  @include txt-xs;
-  @include ls-2;
-  padding: $length-em-3 $length-em-5;
-  text-transform: uppercase;
+
+
+// Buttons
+.ui-button,
+button.ui-state-default {
+  background-color: var(--bg-btn-primary);
+  @include txt-sm;
+  padding: $length-em-3 $length-em-4;
+}
+
+.ui-button,
+button.ui-button,
+input[type=button].ui-button,
+input[type=submit].ui-button {
+  @include txt-sm;
+  @include lh-4;
 }
 
 .ui-button,
 .ui-button:focus,
 .ui-button:hover,
 .ui-button:active,
+button.ui-state-default,
 a.ui-button,
 a:link.ui-button,
 a:visited.ui-button {
-  border-style: solid;
-  border-width: 2px;
-  color: $white;
-  font-weight: bold;
+  border: 2px solid var(--b-btn-primary);
+  border-radius: $roundrect;
+  color: var(--btn-primary);
+  @include bold;
 }
 
-.ui-button,
+.ui-button.ui-button-icon-only {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+// Hover & Active
+.ui-button:not(:disabled):hover,
+.ui-button:not(:disabled):active,
+button.ui-state-default:not(:disabled):hover,
+button.ui-state-default:not(:disabled):active {
+  background-color: var(--bg-btn-primary-hover);
+  border-color: var(--b-btn-primary-hover);
+}
+
+.ui-button.ui-button-icon-only:hover {
+  background-color: var(--bg-btn-secondary-tertiary-hover);
+  border-color: transparent;
+}
+
+// Focus
 .ui-button:focus,
-.ui-button:hover {
-  background-color: $color-hover-light-mode;
-  border-color: $color-hover-light-mode;
+button.ui-state-default:focus {
+  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
+  transition: box-shadow $transition-duration-hover-on $transition-timing-fn-hover-on;
 }
 
-.ui-button:focus {
-  outline: none;
+// Active
+.ui-button:active,
+button.ui-state-default:active {
+  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-btn-primary-hover);
 }
 
-.ui-button:focus,
-.ui-button:hover {
-  box-shadow: 0 1px $length-em-2 fade-out($color-hover-light-mode,.4);
-  z-index: 1;
+
+
+// Progress Bar
+.ui-progressbar .ui-progressbar-value {
+  background-color: $cerulean;
 }
 
-.ui-button:active {
-  background-color: $color-active-light-mode;
-  border-color: $color-active-light-mode;
-}

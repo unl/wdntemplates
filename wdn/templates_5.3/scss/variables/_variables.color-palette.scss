@@ -23,6 +23,9 @@ $color-brand-epsilon: #42a7c6;  // Cerulean
 $navy: $color-brand-delta;
 $cerulean: $color-brand-epsilon;
 
+$light-cerulean: mix($cream, $cerulean, 25%); // #71bdd3
+$lighter-cerulean: mix($cream, $cerulean, 50%); // #
+
 
 // TERTIARY / SCREEN
 $color-brand-zeta: #00784e;     // Green
@@ -47,13 +50,22 @@ $black: #000;
 // Mix cream and gray brand colors for base color
 $mix-cream-gray: mix($cream, $gray);            // #e3e3e2
 
-$light-gray: $mix-cream-gray;                   // #e3e3e2
-$lighter-gray: lighten($mix-cream-gray, 3.2%);  // #ebebea
 $lightest-gray: lighten($mix-cream-gray, 7.5%); // #f6f6f5;
+$lighter-gray: lighten($mix-cream-gray, 3.2%);  // #ebebea
+$light-gray: $mix-cream-gray;                   // #e3e3e2
+
+$gray-s1: darken($mix-cream-gray, 25%);         // #a4a4a1
 
 $dark-gray: darken($mix-cream-gray, 47.5%);     // #6b6b68
+
 $darker-gray: darken($mix-cream-gray, 63.3%);   // #424240
+$darker-gray-s1: darken($mix-cream-gray, 67%);  // #393937
+$darker-gray-s2: darken($mix-cream-gray, 69%);  // #333332
+$darker-gray-s3: darken($mix-cream-gray, 71%);  // #2e2e2d
+$darker-gray-s4: darken($mix-cream-gray, 73%);  // #292928
+
 $darkest-gray: darken($mix-cream-gray, 75%);    // #242423
+$darkest-gray-s1: darken($mix-cream-gray, 77%); // #1f1f1e
 
 
 // CONTEXTUAL COLORS
@@ -63,7 +75,6 @@ $color-warning: #e72c0c; // TODO: replace with $yellow when notices are redesign
 $color-danger: #b60000; // TODO: update for notices
 
 $color-highlight: #ff0;
-$color-required: $scarlet;
 $color-kbd: #0f0;
 
 

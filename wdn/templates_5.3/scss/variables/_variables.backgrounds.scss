@@ -11,19 +11,22 @@ $bg-color-scarlet-light-mode: $color-brand-alpha;
 $bg-color-scarlet-dark-mode: $color-brand-alpha;
 
 $bg-color-white-light-mode: $white;
-$bg-color-white-dark-mode: $black;
+$bg-color-white-dark-mode: $darker-gray-s1;
 
 $bg-color-gray-light-light-mode: $light-gray;
-$bg-color-gray-light-dark-mode: invert($light-gray);
+$bg-color-gray-light-dark-mode: $darker-gray-s2;
 
 $bg-color-gray-lighter-light-mode: $lighter-gray;
-$bg-color-gray-lighter-dark-mode: invert($lighter-gray);
+$bg-color-gray-lighter-dark-mode: $darker-gray-s3;
 
 $bg-color-gray-lightest-light-mode: $lightest-gray;
-$bg-color-gray-lightest-dark-mode: invert($lightest-gray);
+$bg-color-gray-lightest-dark-mode: $darker-gray-s4;
 
 $bg-color-overlay-dark-light-mode: fade-out($darkest-gray,.06);   // Dark overlay background-color for modals in light mode
 $bg-color-overlay-dark-dark-mode: fade-out($black,.06);           // Dark overlay background-color for modals in dark mode
 
 $bg-color-overlay-light-light-mode: fade-out($cream,.06);         // Light overlay background-color for modals in light mode
 $bg-color-overlay-light-dark-mode: fade-out($black,.06);          // Light overlay background-color for modals in dark mode
+
+$bg-color-dialog-light-mode: $white;                              // Dialog background-color in light mode
+$bg-color-dialog-dark-mode: $darker-gray-s1;                      // Dialog background-color in dark mode

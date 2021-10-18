@@ -3,9 +3,11 @@
 //////////////////////////////
 
 
-.unl .dcf-header-global a:visited,
-.unl a.dcf-header-logo:visited {
-  color: var(--visited); // Force visited links in the global header and logo to remain scarlet.
+.unl .dcf-header-global button,
+.unl .dcf-header-global a,
+.unl .dcf-header-global a:link,
+.unl .dcf-header-global a:visited {
+  color: var(--brand-alpha); // Force visited links in the global header and logo to remain scarlet (light) and cream (dark).
 }
 
 
@@ -20,16 +22,15 @@
 }
 
 
-.unl .dcf-site-affiliation a,
-.unl .dcf-site-affiliation a:visited,
-.unl .dcf-site-title a,
-.unl .dcf-site-title a:visited {
+.unl .dcf-site-group a,
+.unl .dcf-site-group a:visited {
   color: var(--heading);
 }
 
 
-.unl .dcf-site-affiliation a:hover,
-.unl .dcf-site-title a:hover {
+.unl .dcf-header-global button:hover,
+.unl .dcf-header-global a:hover,
+.unl .dcf-site-group a:hover {
   color: var(--hover);
 }
 

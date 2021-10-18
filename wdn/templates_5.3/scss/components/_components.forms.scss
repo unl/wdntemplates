@@ -9,6 +9,21 @@
 }
 
 
+// Required
+.unl .dcf-required {
+  background-color: var(--bg-required);
+  border: 1px solid var(--b-required);
+  border-radius: $pill;
+  display: inline-block;
+  @include lh-1;
+  margin-left: $margin-left-required;
+  padding: $padding-top-required $padding-right-required $padding-bottom-required $padding-left-required;
+  text-align: center;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+
 // Inputs
 .unl .dcf-input-text, // TODO: deprecate?
 .unl .dcf-form input:not([type="submit"]),

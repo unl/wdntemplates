@@ -45,7 +45,7 @@
 
 .unl-hero-notch-stripe .dcf-breadcrumbs ol {
   align-items: baseline;
-  background-image: linear-gradient($cream 3px, transparent 3px, transparent 5px, var(--bg-body) 5px); // Create background including stripe.
+  background-image: linear-gradient(var(--bg-body) 3px, transparent 3px, transparent 5px, var(--bg-body) 5px); // Create background including stripe.
   margin-bottom: 0;
   min-width: 0; // Let breadcrumbs shrink if needed.
   @include pt-7;
@@ -83,6 +83,14 @@
     top: 5px; // Position so overlay isn't on top of stripe or transparent space.
     width: $length-vw-2;
     z-index: 1;
+  }
+
+  @media (prefers-color-scheme: dark) {
+
+    .unl-hero-notch-stripe .dcf-breadcrumbs::after {
+      background-image: linear-gradient(to right, fade-out($darkest-gray,1), fade-out($darkest-gray,.5) 25%, $darkest-gray);
+    }
+
   }
 
 }
