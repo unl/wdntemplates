@@ -9,8 +9,8 @@
 
 
 // Background color
-$bg-color-table-stripe-light-mode: $lightest-gray;          // Background-color of table stripes in light mode
-$bg-color-table-stripe-dark-mode: $darkest-gray;            // Background-color of table stripes in dark mode
+$bg-color-table-stripe-light-mode: fade-out($darkest-gray,.97);   // Background-color of table stripes in light mode
+$bg-color-table-stripe-dark-mode: fade-out($cream,.97);           // Background-color of table stripes in dark mode
 
 
 // Border color

@@ -25,8 +25,11 @@
 @mixin light-gray($imp:null) { color: $light-gray $imp; }
 @mixin gray($imp:null) { color: $gray $imp; }
 @mixin dark-gray($imp:null) { color: var(--dark-gray) $imp; }
+@mixin dark-gray-at-dark($imp:null) { color: $dark-gray $imp; }
 @mixin darker-gray($imp:null) { color: var(--darker-gray) $imp; }
+@mixin darker-gray-at-dark($imp:null) { color: $darker-gray $imp; }
 @mixin darkest-gray($imp:null) { color: var(--darkest-gray) $imp; }
+@mixin darkest-gray-at-dark($imp:null) { color: $darkest-gray $imp; }
 
 
 // Cerulean

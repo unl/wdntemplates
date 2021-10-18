@@ -33,8 +33,11 @@ a.unl-cream:active { @include cream-active(!important); }
 .unl-light-gray { @include light-gray(!important); }
 .unl-gray { @include gray(!important); }
 .unl-dark-gray { @include dark-gray(!important); }
+.unl-dark-gray\@dark { @include dark-gray-at-dark(!important); }
 .unl-darker-gray { @include darker-gray(!important); }
+.unl-darker-gray\@dark { @include darker-gray-at-dark(!important); }
 .unl-darkest-gray { @include darkest-gray(!important); }
+.unl-darkest-gray\@dark { @include darkest-gray-at-dark(!important); }
 
 
 // Cerulean
