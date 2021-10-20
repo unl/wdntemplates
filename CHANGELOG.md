@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.6 (Octover 18, 2021)
+- Dark mode
+
 ## 5.3.5 (September 14, 2021)
 - Updated DCF slideshow
 - Add utility for dots background images
