@@ -1,0 +1,40 @@
+//////////////////////////////
+// THEME / VARIABLES / NOTICES
+//////////////////////////////
+
+
+@import '_variables.body';
+
+
+// Background color
+$bg-color-notice-info-light-mode: $color-info;        // Info notice background-color in light mode
+$bg-color-notice-info-dark-mode: $color-info;         // Info notice background-color in dark mode
+
+$bg-color-notice-success-light-mode: $color-success;  // Success notice background-color in light mode
+$bg-color-notice-success-dark-mode: $color-success;   // Success notice background-color in dark mode
+
+$bg-color-notice-warning-light-mode: $color-warning;  // Warning notice background-color in light mode
+$bg-color-notice-warning-dark-mode: $color-warning;   // Warning notice background-color in dark mode
+
+$bg-color-notice-danger-light-mode: $color-danger;    // Danger notice background-color in light mode
+$bg-color-notice-danger-dark-mode: $color-danger;     // Danger notice background-color in dark mode
+
+
+// Color
+$color-notice-info-light-mode: $light-blue;     // Info notice color in light mode
+$color-notice-info-dark-mode: $light-blue;      // Info notice color in dark mode
+
+$color-notice-success-light-mode: $light-green; // Success notice color in light mode
+$color-notice-success-dark-mode: $light-green;  // Success notice color in dark mode
+
+$color-notice-warning-light-mode: $cream;       // Warning notice color in light mode
+$color-notice-warning-dark-mode: $cream;        // Warning notice color in dark mode
+
+$color-notice-danger-light-mode: $scarlet-tint; // Danger notice color in light mode
+$color-notice-danger-dark-mode: $scarlet-tint;  // Danger notice color in dark mode
+
+
+// Position
+$left-notices-overlay: $length-vw-2;  // Left position of overlay notice
+$right-notices-overlay: $length-vw-2; // Right position of overlay notice
+$top-notices-overlay: $length-em-8;   // Top position of overlay notice
