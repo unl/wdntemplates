@@ -28,7 +28,7 @@
     "core-js": "^3.18.1",
     "cssnano": "^5.0.8",
     "csso": "^4.2.0",
-    "dcf": "git://github.com/jsturek/dcf.git#notice",
+    "dcf": "git://github.com/digitalcampusframework/dcf.git#3.0",
     "decompress": "^4.2.1",
     "fsevents": "^2.3.2",
     "grunt": "^1.4.1",
