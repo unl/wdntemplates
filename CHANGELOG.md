@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.7 (October 28, 2021)
+- New DCF notices
+
 ## 5.3.6 (Octover 18, 2021)
 - Dark mode
 
