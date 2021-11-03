@@ -1,16 +1,8 @@
 <?php
 function wdnInclude($path)
 {
-    if (function_exists('virtual')) {
-        return virtual($path);
-    }
-
-    $documentRoot = __DIR__;
-    if (!empty($_SERVER['DOCUMENT_ROOT'])) {
-        $documentRoot = $_SERVER['DOCUMENT_ROOT'];
-    }
-
-    return readfile($documentRoot . $path);
+$documentRoot = 'https://unlcms.unl.edu';
+return readfile($documentRoot . $path);
 }
 ?>
 <!DOCTYPE html>
@@ -27,37 +19,26 @@ function wdnInclude($path)
         <!-- TemplateBeginEditable name="doctitle" -->
         <title>Use a descriptive page title | Optional Site Title (use for context) | University of Nebraska&ndash;Lincoln</title>
         <!-- TemplateEndEditable -->
-        <?php wdnInclude("/wdn/templates_5.3/includes/global/head-2-local.html"); ?>
+        <?php wdnInclude("/wdn/templates_5.3/includes/global/affiliate-head-2.html"); ?>
         <!-- TemplateBeginEditable name="head" -->
         <!-- Place optional header elements here -->
         <!-- TemplateEndEditable -->
         <!-- TemplateParam name="class" type="text" value="" -->
     </head>
-    <body class="@@(_document['class'])@@ afilliate" data-version="$HTML_VERSION$">
+    <body class="@@(_document['class'])@@ affiliate" data-version="$HTML_VERSION$">
         <?php wdnInclude("/wdn/templates_5.3/includes/global/skip-nav.html"); ?>
         <header class="dcf-header" id="dcf-header" role="banner">
             <?php wdnInclude("/wdn/templates_5.3/includes/global/header-global-1.html"); ?>
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/cta-header-1.html"); ?>
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/visit-header-1.html"); ?>
-            <!-- InstanceBeginEditable name="headervisit" -->
-            <?php wdnInclude("/wdn/templates_5.3/includes/local/visit-local.html"); ?>
+            <!-- InstanceBeginEditable name="affiliateidm" -->
+            <?php wdnInclude("/wdn/templates_5.3/includes/local/affiliate-idm.html"); ?>
             <!-- InstanceEndEditable -->
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/visit-header-2.html"); ?>
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/apply-header-1.html"); ?>
-            <!-- InstanceBeginEditable name="headerapply" -->
-            <?php wdnInclude("/wdn/templates_5.3/includes/local/apply-local.html"); ?>
+            <!-- InstanceBeginEditable name="affiliatesearch" -->
+            <?php wdnInclude("/wdn/templates_5.3/includes/local/affiliate-search.html"); ?>
             <!-- InstanceEndEditable -->
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/apply-header-2.html"); ?>
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/give-header-1.html"); ?>
-            <!-- InstanceBeginEditable name="headergive" -->
-            <?php wdnInclude("/wdn/templates_5.3/includes/local/give-local.html"); ?>
-            <!-- InstanceEndEditable -->
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/give-header-2.html"); ?>
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/cta-header-2.html"); ?>
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/idm.html"); ?>
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/search.html"); ?>
             <?php wdnInclude("/wdn/templates_5.3/includes/global/header-global-2.html"); ?>
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/logo-lockup-1.html"); ?>
+            <!-- InstanceBeginEditable name="affiliatelogo" -->
+            <?php wdnInclude("/wdn/templates_5.3/includes/local/affiliate-logo-lockup-1.html"); ?>
+            <!-- InstanceEndEditable -->
             <?php wdnInclude("/wdn/templates_5.3/includes/global/site-affiliation-1.html"); ?>
             <!-- InstanceBeginEditable name="affiliation" -->
             <a href="#">My site affiliation</a>
@@ -76,23 +57,6 @@ function wdnInclude($path)
             <!-- InstanceBeginEditable name="navlinks" -->
             <?php wdnInclude("/wdn/templates_5.3/includes/local/nav-local.html"); ?>
             <!-- InstanceEndEditable -->
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/cta-nav-1.html"); ?>
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/visit-nav-1.html"); ?>
-            <!-- InstanceBeginEditable name="navvisit" -->
-            <?php wdnInclude("/wdn/templates_5.3/includes/local/visit-local.html"); ?>
-            <!-- InstanceEndEditable -->
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/visit-nav-2.html"); ?>
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/apply-nav-1.html"); ?>
-            <!-- InstanceBeginEditable name="navapply" -->
-            <?php wdnInclude("/wdn/templates_5.3/includes/local/apply-local.html"); ?>
-            <!-- InstanceEndEditable -->
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/apply-nav-2.html"); ?>
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/give-nav-1.html"); ?>
-            <!-- InstanceBeginEditable name="navgive" -->
-            <?php wdnInclude("/wdn/templates_5.3/includes/local/give-local.html"); ?>
-            <!-- InstanceEndEditable -->
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/give-nav-2.html"); ?>
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/cta-nav-2.html"); ?>
             <?php wdnInclude("/wdn/templates_5.3/includes/global/nav-menu-child-2.html"); ?>
             <?php wdnInclude("/wdn/templates_5.3/includes/global/nav-menu-2.html"); ?>
         </header>
@@ -107,9 +71,9 @@ function wdnInclude($path)
                         <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
                             <!-- TemplateBeginEditable name="breadcrumbs" -->
                             <ol>
-                                <li><a href="https://www.unl.edu/">Nebraska</a></li>
-                                <li><a href="/">Site Title</a></li>
-                                <li><span aria-current="page">Home</span></li>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Page Title</a></li>
+                                <li><span aria-current="page">Current Page</span></li>
                             </ol>
                             <!-- TemplateEndEditable -->
                         </nav>
@@ -136,14 +100,11 @@ function wdnInclude($path)
         <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
             <!-- TemplateBeginEditable name="optionalfooter" -->
             <!-- TemplateEndEditable -->
-                <?php wdnInclude("/wdn/templates_5.3/includes/global/footer-global-1.html"); ?>
             <!-- TemplateBeginEditable name="contactinfo" -->
-                <?php wdnInclude("/wdn/templates_5.3/includes/local/footer-local.html"); ?>
             <!-- TemplateEndEditable -->
-                <?php wdnInclude("/wdn/templates_5.3/includes/global/footer-global-2.html"); ?>
                 <?php wdnInclude("/wdn/templates_5.3/includes/global/noscript.html"); ?>
         </footer>
-        <?php wdnInclude("/wdn/templates_5.3/includes/global/js-body-local.html"); ?>
+        <?php wdnInclude("/wdn/templates_5.3/includes/global/js-body.html"); ?>
         <!-- TemplateBeginEditable name="jsbody" -->
         <!-- Put your custom JavaScript here -->
         <!-- TemplateEndEditable -->
