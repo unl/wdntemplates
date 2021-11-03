@@ -19,14 +19,14 @@
   <!--#include virtual="/wdn/templates_5.3/includes/global/skip-nav.html" -->
   <header class="dcf-header" id="dcf-header" role="banner">
     <!--#include virtual="/wdn/templates_5.3/includes/global/header-global-1.html" -->
-    <!-- InstanceBeginEditable name="affiliate-idm" -->
+    <!-- InstanceBeginEditable name="affiliateidm" -->
     <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-idm.html" -->
     <!-- InstanceEndEditable -->
-    <!-- InstanceBeginEditable name="affiliate-search" -->
+    <!-- InstanceBeginEditable name="affiliatesearch" -->
     <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-search.html" -->
     <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.3/includes/global/header-global-2.html" -->
-    <!-- InstanceBeginEditable name="affiliate-logo" -->
+    <!-- InstanceBeginEditable name="affiliatelogo" -->
     <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-logo-lockup-1.html" -->
     <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.3/includes/global/site-affiliation-1.html" -->
@@ -36,9 +36,7 @@
     <!--#include virtual="/wdn/templates_5.3/includes/global/site-affiliation-2.html" -->
     <!--#include virtual="/wdn/templates_5.3/includes/global/site-title-1.html" -->
     <!-- InstanceBeginEditable name="titlegraphic" -->
-    <a class="dcf-txt-h6" href="https://arts.unl.edu/music">
-      Glenn Korff School of Music
-    </a>
+    <a class="dcf-txt-h6" href="https://arts.unl.edu/music">Glenn Korff School of Music</a>
     <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.3/includes/global/site-title-2.html" -->
     <!--#include virtual="/wdn/templates_5.3/includes/global/logo-lockup-2.html" -->
