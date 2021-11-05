@@ -97,6 +97,7 @@
       <!-- InstanceBeginEditable name="optionalfooter" -->
       <!-- InstanceEndEditable -->
       <!-- InstanceBeginEditable name="contactinfo" -->
+      <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-footer.html" -->
       <!-- InstanceEndEditable -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/noscript.html" -->
     </footer>

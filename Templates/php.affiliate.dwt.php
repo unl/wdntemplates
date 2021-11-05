@@ -101,8 +101,9 @@ return readfile($documentRoot . $path);
             <!-- TemplateBeginEditable name="optionalfooter" -->
             <!-- TemplateEndEditable -->
             <!-- TemplateBeginEditable name="contactinfo" -->
+            <?php wdnInclude("/wdn/templates_5.3/includes/local/affiliate-footer.html"); ?>
             <!-- TemplateEndEditable -->
-                <?php wdnInclude("/wdn/templates_5.3/includes/global/noscript.html"); ?>
+            <?php wdnInclude("/wdn/templates_5.3/includes/global/noscript.html"); ?>
         </footer>
         <?php wdnInclude("/wdn/templates_5.3/includes/global/js-body.html"); ?>
         <!-- TemplateBeginEditable name="jsbody" -->
