@@ -25,7 +25,7 @@ return readfile($documentRoot . $path);
         <!-- TemplateEndEditable -->
         <!-- TemplateParam name="class" type="text" value="" -->
     </head>
-    <body class="@@(_document['class'])@@ affiliate" data-version="$HTML_VERSION$">
+    <body class="@@(_document['class'])@@ unl affiliate" data-version="$HTML_VERSION$">
         <?php wdnInclude("/wdn/templates_5.3/includes/global/skip-nav.html"); ?>
         <header class="dcf-header" id="dcf-header" role="banner">
             <?php wdnInclude("/wdn/templates_5.3/includes/global/header-global-1.html"); ?>
