@@ -5,20 +5,26 @@
 <!-- InstanceBeginEditable name="doctitle" -->
   <title>Please Title Your Page Here | Buros Center for Testing</title>
 <!-- InstanceEndEditable -->
-<!--#include virtual="/wdn/templates_5.3/includes/global/affiliate-head-2.html" -->
+<!--#include virtual="/wdn/templates_5.3/includes/global/affiliate-head-2-local.html" -->
 <!-- InstanceBeginEditable name="head" -->
   <!-- Place optional header elements here -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/wdn/templates_5.3/includes/affiliate-custom.css">
   <link rel="icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/favicon.ico">
   <link rel="icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/apple-touch-icon.png">
   <link rel="manifest" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/manifest.webmanifest">
-  <meta name="theme-color" content="#d00000">
+  <meta name="theme-color" content="#D90792">
 <!-- InstanceEndEditable -->
 </head>
-<body class="" data-version="5.3">
+<body class="unl affiliate" data-version="5.3">
   <!--#include virtual="/wdn/templates_5.3/includes/global/skip-nav.html" -->
   <header class="dcf-header" id="dcf-header" role="banner">
-    <!--#include virtual="/wdn/templates_5.3/includes/global/header-global-1.html" -->
+    <!-- InstanceBeginEditable name="affiliateheaderglobal" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-header-global-1.html" -->
+    <!-- InstanceEndEditable -->
     <!-- InstanceBeginEditable name="affiliateidm" -->
     <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-idm.html" -->
     <!-- InstanceEndEditable -->
@@ -83,6 +89,7 @@
     </div>
     <div class="dcf-main-content dcf-wrapper">
     <!-- InstanceBeginEditable name="maincontentarea" -->
+    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue.</p>
     <!-- InstanceEndEditable -->
     </div>
   </main>
@@ -90,6 +97,7 @@
     <!-- InstanceBeginEditable name="optionalfooter" -->
     <!-- InstanceEndEditable -->
     <!-- InstanceBeginEditable name="contactinfo" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-footer.html" -->
     <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_5.3/includes/global/noscript.html" -->
   </footer>
