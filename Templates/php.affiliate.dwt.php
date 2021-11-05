@@ -52,7 +52,14 @@ return readfile($documentRoot . $path);
             <!-- InstanceEndEditable -->
             <?php wdnInclude("/wdn/templates_5.3/includes/global/site-title-2.html"); ?>
             <?php wdnInclude("/wdn/templates_5.3/includes/global/logo-lockup-2.html"); ?>
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/nav-toggle-group.html"); ?>
+            <?php wdnInclude("/wdn/templates_5.3/includes/global/affiliate-nav-toggle-group-1.html"); ?>
+            <!-- InstanceBeginEditable name="affiliatemobilesearch" -->
+            <?php wdnInclude("/wdn/templates_5.3/includes/local/affiliate-mobile-search.html"); ?>
+            <!-- InstanceEndEditable -->
+            <!-- InstanceBeginEditable name="affiliatemobileidm" -->
+            <?php wdnInclude("/wdn/templates_5.3/includes/local/affiliate-mobile-idm.html"); ?>
+            <!-- InstanceEndEditable -->
+            <?php wdnInclude("/wdn/templates_5.3/includes/global/affiliate-nav-toggle-group-2.html"); ?>
             <?php wdnInclude("/wdn/templates_5.3/includes/global/nav-menu-1.html"); ?>
             <?php wdnInclude("/wdn/templates_5.3/includes/global/nav-toggle-btn.html"); ?>
             <?php wdnInclude("/wdn/templates_5.3/includes/global/nav-menu-child-1.html"); ?>
