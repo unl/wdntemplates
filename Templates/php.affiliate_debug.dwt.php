@@ -36,7 +36,9 @@ function wdnInclude($path)
     <body class="@@(_document['class'])@@ unl affiliate" data-version="$HTML_VERSION$">
         <?php wdnInclude("/wdn/templates_5.3/includes/global/skip-nav.html"); ?>
         <header class="dcf-header" id="dcf-header" role="banner">
-            <?php wdnInclude("/wdn/templates_5.3/includes/global/header-global-1.html"); ?>
+            <!-- InstanceBeginEditable name="affiliateheaderglobal" -->
+            <?php wdnInclude("/wdn/templates_5.3/includes/local/affiliate-header-global-1.html"); ?>
+            <!-- InstanceEndEditable -->
             <!-- InstanceBeginEditable name="affiliateidm" -->
             <?php wdnInclude("/wdn/templates_5.3/includes/local/affiliate-idm.html"); ?>
             <!-- InstanceEndEditable -->
