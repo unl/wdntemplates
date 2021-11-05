@@ -6,7 +6,8 @@ module.exports = function (grunt) {
     'deprecated',
     'legacy',
     'main',
-    'print'
+    'print',
+    'affiliate'
   ];
 
   const jsCssObjs = [
