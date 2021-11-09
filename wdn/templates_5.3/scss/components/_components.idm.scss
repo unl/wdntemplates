@@ -3,6 +3,18 @@
 /////////////////////////////////////////////////
 
 
+
+.unl a.dcf-idm-login:link,
+.unl a.dcf-idm-login:visited {
+  color: var(--brand-alpha);
+}
+
+
+.unl a.dcf-idm-login:hover {
+  color: var(--hover);
+}
+
+
 .unl .dcf-idm-options {
   width: #{ms(14)}em;
 }
