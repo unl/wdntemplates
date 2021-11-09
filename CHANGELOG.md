@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.8 (November 9, 2021)
+- Notice change from p to div
+- Dark mode fixes (CTA links, button import styles)
+
 ## 5.3.7 (October 28, 2021)
 - New DCF notices
 
