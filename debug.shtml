@@ -295,6 +295,16 @@
             <a class="dcf-btn dcf-btn-secondary dcf-mr-4" href="#">Secondary Link</a>
             <a class="dcf-btn dcf-btn-tertiary dcf-mr-4" href="#">Tertiary Link</a>
           </div>
+          <div class="dcf-mb-3">
+            <input type="button" class="dcf-btn dcf-btn-primary dcf-mr-4" value="Primary Input Button">
+            <input type="button" class="dcf-btn dcf-btn-secondary dcf-mr-4" value="Secondary Input Button">
+            <input type="button" class="dcf-btn dcf-btn-tertiary dcf-mr-4" value="Tertiary Input Button">
+          </div>
+          <div class="dcf-mb-3">
+            <input type="submit" class="dcf-btn dcf-btn-primary dcf-mr-4" value="Primary Input Submit">
+            <input type="submit" class="dcf-btn dcf-btn-secondary dcf-mr-4" value="Secondary Input Submit">
+            <input type="submit" class="dcf-btn dcf-btn-tertiary dcf-mr-4" value="Tertiary Input Submit">
+          </div>
           <button class="dcf-btn dcf-btn-primary dcf-mr-4" type="button">Primary Button</button>
           <button class="dcf-btn dcf-btn-secondary dcf-mr-4" type="button">Secondary Button</button>
           <button class="dcf-btn dcf-btn-tertiary" type="button">Tertiary Button</button>
@@ -351,6 +361,16 @@
               <a class="dcf-btn dcf-btn-inverse-primary dcf-mr-4" href="#">Inverse Primary Link</a>
               <a class="dcf-btn dcf-btn-inverse-secondary dcf-mr-4" href="#">Inverse Secondary Link</a>
               <a class="dcf-btn dcf-btn-inverse-tertiary dcf-mr-4" href="#">Inverse Tertiary Link</a>
+            </div>
+            <div class="dcf-mb-3">
+              <input type="button" class="dcf-btn dcf-btn-inverse-primary dcf-mr-4" value="Primary Inverse Input Button">
+              <input type="button" class="dcf-btn dcf-btn-inverse-secondary dcf-mr-4" value="Secondary Inverse Input Button">
+              <input type="button" class="dcf-btn dcf-btn-inverse-tertiary dcf-mr-4" value="Tertiary Inverse Input Button">
+            </div>
+            <div class="dcf-mb-3">
+              <input type="submit" class="dcf-btn dcf-btn-inverse-primary dcf-mr-4" value="Primary Inverse Input Submit">
+              <input type="submit" class="dcf-btn dcf-btn-inverse-secondary dcf-mr-4" value="Secondary Inverse Input Submit">
+              <input type="submit" class="dcf-btn dcf-btn-inverse-tertiary dcf-mr-4" value="Tertiary Inverse Input Submit">
             </div>
             <button class="dcf-btn dcf-btn-inverse-primary dcf-mr-4" type="button">Inverse Primary Button</button>
             <button class="dcf-btn dcf-btn-inverse-secondary dcf-mr-4" type="button">Inverse Secondary Button</button>
