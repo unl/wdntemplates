@@ -10,7 +10,12 @@
 
 
 // Ensure heading and close link (all states) display as cream
-.unl .dcf-notice-heading,
+// .unl .dcf-notice h1, // An <h1> shouldn't be used at this level.
+.unl .dcf-notice h2,
+.unl .dcf-notice h3,
+.unl .dcf-notice h4,
+.unl .dcf-notice h5,
+.unl .dcf-notice h6,
 .unl .dcf-notice-message a:link,
 .unl .dcf-notice-message a:visited,
 .unl .dcf-notice-message a:hover,
