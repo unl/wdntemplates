@@ -3,10 +3,10 @@
 //////////////////////////////
 
 
-.unl a.dcf-institution-title:link,
-.unl a.dcf-institution-title:visited,
+.unl .dcf-header a.dcf-institution-title:link,
+.unl .dcf-header a.dcf-institution-title:visited,
 .unl .dcf-header-global button {
-  color: var(--brand-alpha); // Force visited links in the global header and logo to remain scarlet (light) and cream (dark).
+  color: var(--brand-alpha); // Force visited links in the global header and logo to remain scarlet (light mode) and cream (dark mode).
 }
 
 
