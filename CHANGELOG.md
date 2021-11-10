@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.9 (November 10, 2021)
+- Fix institution title color in footer
+
 ## 5.3.8 (November 9, 2021)
 - Notice change from p to div
 - Dark mode fixes (CTA links, button import styles)
