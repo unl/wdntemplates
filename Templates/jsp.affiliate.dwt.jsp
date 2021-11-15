@@ -13,37 +13,33 @@
     <!-- TemplateBeginEditable name="doctitle" -->
     <title>Use a descriptive page title | Optional Site Title (use for context) | University of Nebraska&ndash;Lincoln</title>
     <!-- TemplateEndEditable -->
-    <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/head-2.html"/>
+    <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/affiliate-head-2.html"/>
     <!-- TemplateBeginEditable name="head" -->
     <!-- Place optional header elements here -->
+    <link rel="icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/favicon.ico">
+    <link rel="icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/manifest.webmanifest">
+    <meta name="theme-color" content="#d00000">
     <!-- TemplateEndEditable -->
     <!-- TemplateParam name="class" type="text" value="" -->
   </head>
   <body class="@@(_document['class'])@@ affiliate" data-version="$HTML_VERSION$">
     <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/skip-nav.html"/>
     <header class="dcf-header" id="dcf-header" role="banner">
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/header-global-1.html"/>
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/cta-header-1.html"/>
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/visit-header-1.html"/>
-      <!-- InstanceBeginEditable name="headervisit" -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/visit-local.html"/>
+      <!-- InstanceBeginEditable name="affiliateheaderglobal" -->
+      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/affiliate-header-global-1.html"/>
       <!-- InstanceEndEditable -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/visit-header-2.html"/>
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/apply-header-1.html"/>
-      <!-- InstanceBeginEditable name="headerapply" -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/apply-local.html"/>
+      <!-- InstanceBeginEditable name="affiliateidm" -->
+      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/affiliate-idm.html"/>
       <!-- InstanceEndEditable -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/apply-header-2.html"/>
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/give-header-1.html"/>
-      <!-- InstanceBeginEditable name="headergive" -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/give-local.html"/>
+      <!-- InstanceBeginEditable name="affiliatesearch" -->
+      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/affiliate-search.html"/>
       <!-- InstanceEndEditable -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/give-header-2.html"/>
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/cta-header-2.html"/>
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/idm.html"/>
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/search.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/header-global-2.html"/>
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/logo-lockup-1.html"/>
+      <!-- InstanceBeginEditable name="affiliatelogo" -->
+      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/affiliate-logo-lockup-1.html"/>
+      <!-- InstanceEndEditable -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/site-affiliation-1.html"/>
       <!-- InstanceBeginEditable name="affiliation" -->
       <a href="#">My site affiliation</a>
@@ -55,30 +51,20 @@
       <!-- InstanceEndEditable -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/site-title-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/logo-lockup-2.html"/>
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/nav-toggle-group.html"/>
+      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/affiliate-nav-toggle-group-1.html"/>
+      <!-- InstanceBeginEditable name="affiliatemobilesearch" -->
+      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/affiliate-mobile-search.html"/>
+      <!-- InstanceEndEditable -->
+      <!-- InstanceBeginEditable name="affiliatemobileidm" -->
+      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/affiliate-mobile-idm.html"/>
+      <!-- InstanceEndEditable -->
+      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/affiliate-nav-toggle-group-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/nav-menu-1.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/nav-toggle-btn.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/nav-menu-child-1.html"/>
       <!-- InstanceBeginEditable name="navlinks" -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/nav-local.html"/>
       <!-- InstanceEndEditable -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/cta-nav-1.html"/>
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/visit-nav-1.html"/>
-      <!-- InstanceBeginEditable name="navvisit" -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/visit-local.html"/>
-      <!-- InstanceEndEditable -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/visit-nav-2.html"/>
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/apply-nav-1.html"/>
-      <!-- InstanceBeginEditable name="navapply" -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/apply-local.html"/>
-      <!-- InstanceEndEditable -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/apply-nav-2.html"/>
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/give-nav-1.html"/>
-      <!-- InstanceBeginEditable name="navgive" -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/give-local.html"/>
-      <!-- InstanceEndEditable -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/give-nav-2.html"/>
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/cta-nav-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/nav-menu-child-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/nav-menu-2.html"/>
     </header>
@@ -122,11 +108,9 @@
     <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
       <!-- TemplateBeginEditable name="optionalfooter" -->
       <!-- TemplateEndEditable -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/footer-global-1.html"/>
       <!-- TemplateBeginEditable name="contactinfo" -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/footer-local.html"/>
+      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/affiliate-footer.html"/>
       <!-- TemplateEndEditable -->
-      <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/footer-global-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/noscript.html"/>
     </footer>
     <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/js-body.html"/>
