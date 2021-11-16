@@ -27,8 +27,9 @@
 }
 
 // Make login button same color as other links on mobile
+.unl.affiliate a.dcf-nav-toggle-btn-search:visited,
 .unl.affiliate .dcf-nav-toggle-btn-idm a {
-  color: var(--brand-alpha);
+  color: var(--brand-alpha) !important;
 }
 
 // Make background of inverse primary buttons fade on hover
