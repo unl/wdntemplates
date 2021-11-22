@@ -30,6 +30,12 @@ function wdnInclude($path)
         <?php wdnInclude("/wdn/templates_5.3/includes/global/affiliate-head-2-local.html"); ?>
         <!-- TemplateBeginEditable name="head" -->
         <!-- Place optional header elements here -->
+        <link rel="stylesheet" href="/wdn/templates_5.3/includes/local/affiliate-custom.css">
+        <link rel="icon" href="/wdn/templates_5.3/includes/global/favicon/favicon.ico">
+        <link rel="icon" href="/wdn/templates_5.3/includes/global/favicon/icon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/wdn/templates_5.3/includes/global/favicon/apple-touch-icon.png">
+        <link rel="manifest" href="/wdn/templates_5.3/includes/global/favicon/manifest.webmanifest">
+        <meta name="theme-color" content="#d00000">
         <!-- TemplateEndEditable -->
         <!-- TemplateParam name="class" type="text" value="" -->
     </head>
