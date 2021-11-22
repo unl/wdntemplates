@@ -15,11 +15,11 @@
 // Make border at top of site on desktop and at top of nav bar on mobile the primary brand color
 .unl.affiliate .dcf-header-global,
 .unl.affiliate #dcf-nav-toggle-group {
-	border-top-color: var(--bg-scarlet);
+	border-top-color: var(--bg-brand-alpha);
 }
 
 .unl.affiliate .dcf-search-toggle {
-	border-color: var(--bg-scarlet);
+	border-color: var(--bg-brand-alpha);
 }
 
 // Make mobile nav toggle button links same color as other links on mobile
@@ -39,15 +39,15 @@
 @media only screen and (max-width: 56.12em) {
 
 	.unl.affiliate .dcf-nav-menu-child::before {
-		background-image: -webkit-gradient(linear, left top, left bottom, from(var(--bg-scarlet)), to(rgba(51,51,51,0)));
-		background-image: -webkit-linear-gradient(var(--bg-scarlet), rgba(51,51,51,0));
-		background-image: linear-gradient(var(--bg-scarlet), rgba(51,51,51,0));
+		background-image: -webkit-gradient(linear, left top, left bottom, from(var(--bg-brand-alpha)), to(rgba(51,51,51,0)));
+		background-image: -webkit-linear-gradient(var(--bg-brand-alpha), rgba(51,51,51,0));
+		background-image: linear-gradient(var(--bg-brand-alpha), rgba(51,51,51,0));
 	}
 
 	.unl.affiliate .dcf-nav-menu-child::after {
-		background-image: -webkit-gradient(linear, left top, left bottom, from(51,51,51,0), to(var(--bg-scarlet)));
-		background-image: -webkit-linear-gradient(rgba(51,51,51,0), var(--bg-scarlet));
-		background-image: linear-gradient(rgba(51,51,51,0), var(--bg-scarlet));
+		background-image: -webkit-gradient(linear, left top, left bottom, from(51,51,51,0), to(var(--bg-brand-alpha)));
+		background-image: -webkit-linear-gradient(rgba(51,51,51,0), var(--bg-brand-alpha));
+		background-image: linear-gradient(rgba(51,51,51,0), var(--bg-brand-alpha));
 	}
 
 }

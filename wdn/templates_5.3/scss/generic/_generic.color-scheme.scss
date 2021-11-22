@@ -9,6 +9,7 @@
   // Background Colors
   --bg-badge: #{$bg-color-badge-light-mode};
   --bg-body: #{$bg-color-body-light-mode};
+  --bg-brand-alpha: #{$bg-color-scarlet-light-mode};
   --bg-btn-inverse-primary: #{$bg-color-button-inverse-primary};
   --bg-btn-inverse-secondary: #{$bg-color-button-inverse-secondary};
   --bg-btn-inverse-tertiary: #{$bg-color-button-inverse-tertiary};
@@ -36,7 +37,6 @@
   --bg-pre: #{$bg-color-pre-light-mode};
   --bg-radio: #{$bg-color-radio-light-mode};
   --bg-required: #{$bg-color-required-light-mode};
-  --bg-scarlet: #{$bg-color-scarlet-light-mode};
   --bg-select-1: #{$bg-color-select-1-light-mode};
   --bg-select-2: #{$bg-color-select-2-light-mode};
   --bg-table-stripe: #{$bg-color-table-stripe-light-mode};
@@ -114,6 +114,7 @@
     // Background Colors
     --bg-badge: #{$bg-color-badge-dark-mode};
     --bg-body: #{$bg-color-body-dark-mode};
+    --bg-brand-alpha: #{$bg-color-scarlet-dark-mode};
     --bg-btn-inverse-primary: #{$bg-color-button-inverse-primary};
     --bg-btn-inverse-secondary: #{$bg-color-button-inverse-secondary};
     --bg-btn-inverse-tertiary: #{$bg-color-button-inverse-tertiary};
@@ -141,7 +142,6 @@
     --bg-pre: #{$bg-color-pre-dark-mode};
     --bg-radio: #{$bg-color-radio-dark-mode};
     --bg-required: #{$bg-color-required-dark-mode};
-    --bg-scarlet: #{$bg-color-scarlet-dark-mode};
     --bg-select-1: #{$bg-color-select-1-dark-mode};
     --bg-select-2: #{$bg-color-select-2-dark-mode};
   	--bg-table-stripe: #{$bg-color-table-stripe-dark-mode};

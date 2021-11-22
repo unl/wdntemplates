@@ -1,6 +1,7 @@
 body.unl\@light {
   --bg-badge: #6b6b68;
   --bg-body: #fefdfa;
+  --bg-brand-alpha: #d00000;
   --bg-btn-inverse-primary: #ebebea;
   --bg-btn-inverse-secondary: transparent;
   --bg-btn-inverse-tertiary: transparent;
@@ -28,7 +29,6 @@ body.unl\@light {
   --bg-pre: rgba(0,0,0,0.05);
   --bg-radio: #424240;
   --bg-required: transparent;
-  --bg-scarlet: #d00000;
   --bg-select-1: #fff;
   --bg-select-2: #fff;
   --bg-table-stripe: rgba(36,36,35,0.03);
@@ -96,6 +96,7 @@ body.unl\@light {
 body.unl\@dark {
   --bg-badge: #e3e3e2;
   --bg-body: #242423;
+  --bg-brand-alpha: #d00000;
   --bg-btn-inverse-primary: #ebebea;
   --bg-btn-inverse-secondary: transparent;
   --bg-btn-inverse-tertiary: transparent;
@@ -122,7 +123,6 @@ body.unl\@dark {
   --bg-overlay-light: rgba(0,0,0,0.94);
   --bg-pre: rgba(0,0,0,0.05);
   --bg-radio: #c7c8ca;
-  --bg-scarlet: #d00000;
   --bg-select-1: #1f1f1e;
   --bg-select-2: #1f1f1e;
   --bg-table-stripe: #242423;
