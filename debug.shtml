@@ -776,7 +776,7 @@
         </div>
       </div>
 
-      <div class="dcf-tabs dcf-tabs-responsive dcf-mt-6 dcf-mb-9">
+      <div class="dcf-tabs dcf-tabs-responsive dcf-mt-6">
         <h3>Tab Group (Ordered List, Sections)</h3>
         <ol>
           <li><a href="#group2-panel1">Tab 1</a></li>
@@ -796,10 +796,28 @@
           <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
         </section>
       </div>
+      <script>
+      window.addEventListener('inlineJSReady', function() {
+          WDN.initializePlugin('tabs');
+        }, false);
+      </script>
 
+      <h2 class="dcf-mt-9">Pagination</h2>
+      <nav class="dcf-pagination">
+        <ol class="dcf-list-bare dcf-list-inline">
+          <li><a class="dcf-pagination-first" href="#">First</a></li>
+          <li><a class="dcf-pagination-prev" href="#">Prev</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><span class="dcf-pagination-selected">3</span></li>
+          <li><span class="dcf-pagination-ellipsis">…</span></li>
+          <li><a class="dcf-pagination-next" href="#">Next</a></li>
+          <li><a class="dcf-pagination-last" href="#">Last</a></li>
+        </ol>
+      </nav>
       <script>
         window.addEventListener('inlineJSReady', function() {
-          WDN.initializePlugin('tabs');
+          WDN.initializePlugin('pagination');
         }, false);
       </script>
 
