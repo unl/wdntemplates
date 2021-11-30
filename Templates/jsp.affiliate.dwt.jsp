@@ -17,7 +17,7 @@
     <!-- TemplateBeginEditable name="head" -->
     <!-- Place optional header elements here -->
     <link rel="stylesheet" href="/wdn/templates_5.3/includes/local/affiliate-custom.css">
-    <link rel="icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/favicon.ico">
+    <link rel="icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/favicon.ico" sizes="any">
     <link rel="icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/apple-touch-icon.png">
     <link rel="manifest" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/manifest.webmanifest">
