@@ -125,7 +125,7 @@
     </div>
     <!-- InstanceBeginEditable name="maincontentarea" -->
     <span style="display:none" id="show-all">
-      <button class="dcf-btn dcf-btn-primary">Show All</button>
+      <button class="dcf-mb-6 dcf-btn dcf-btn-primary">Show All</button>
     </span>
     <div class="dcf-mb-8" id="examples_band">
       <ul class="dcf-list-bare dcf-d-grid wdn-examples-grid dcf-col-gap-vw dcf-row-gap-4 dcf-mb-0" id="examples">
