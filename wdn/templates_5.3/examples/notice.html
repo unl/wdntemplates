@@ -6,58 +6,35 @@
   </head>
   <body data-version="5.3">
     <div id="example-code">
-      <div class="wdn_notice">
-        <div class="close">
-          <a href="#">Close this notice</a>
-        </div>
-        <div class="message">
-          <p class="title">This is my Title!</p>
-          <p>This is my content. <a href="#">This is some link text</a>.</p>
-        </div>
+      <div class="dcf-notice" hidden>
+        <h2>This is my Title!</h2>
+        <div>This is my content. <a href="#">This is some link text</a>.</div>
       </div>
-      <div class="wdn_notice affirm">
-        <div class="close">
-          <a href="#">Close this notice</a>
-        </div>
-        <div class="message">
-          <p class="title">Great Success!</p>
-          <p>This is my content. <a href="#">This is some link text</a></p>
-        </div>
+      <div class="dcf-notice dcf-notice-success" hidden id="custom-notice-id">
+        <h2>Great Success!</h2>
+        <div>This is my content. <a href="#">This is some link text</a></div>
       </div>
-      <div class="wdn_notice negate">
-        <div class="close">
-          <a href="#">Close this notice</a>
-        </div>
-        <div class="message">
-          <p class="title">Denial Notice!</p>
-          <p>This is my content. <a href="#">This is some link text</a></p>
-        </div>
+      <div class="dcf-notice dcf-notice-warning" hidden data-no-close-button>
+        <h2>Denial Notice!</h2>
+        <div>This is my content. <a href="#">This is some link text</a></div>
       </div>
-      <div class="wdn_notice alert">
-        <div class="close">
-          <a href="#">Close this notice</a>
-        </div>
-        <div class="message">
-          <p class="title">Important Alert!</p>
-          <p>This is my content. <a href="#">This is some link text</a></p>
-        </div>
+      <div class="dcf-notice dcf-notice-danger" hidden>
+        <h2>Important Alert!!</h2>
+        <div>This is my content. <a href="#">This is some link text</a></div>
       </div>
-      <div class="wdn_notice" data-overlay="header" data-duration="10">
-        <div class="close">
-          <a href="#">Close this notice</a>
-        </div>
-        <div class="message">
-          <p class="title">I'm Floating!</p>
-          <p>This notice overlays the header and will vanish on its own in 10 seconds.</p>
-        </div>
+      <div class="dcf-notice" hidden data-overlay="dcf-header">
+        <h2>I'm Floating!</h2>
+        <div>This notice overlays the header.</div>
       </div>
-      <div class="wdn_notice affirm" data-overlay="maincontent" data-duration="15">
-        <div class="close">
-          <a href="#">Close this notice</a>
-        </div>
-        <div class="message">
-          <p class="title">Success!</p>
-          <p>This notice overlays the maincontent and will vanish on its own in 15 seconds.</p>
+      <div class="dcf-notice dcf-notice-success" hidden data-overlay="dcf-main">
+        <h2>Success!</h2>
+        <div>This notice overlays the maincontent.</div>
+      </div>
+      <div class="dcf-notice dcf-notice-info">
+        <h2>Info</h2>
+        <div>
+          This is additional information for this notice.
+          <h2>Another heading</h2>
         </div>
       </div>
       <script>
