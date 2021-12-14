@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.10 (December 14, 2021)
+- Fix institution title hover color in footer
+- Fix heading color in notices
+- Add sizes="any" to favicon.ico
+
 ## 5.3.9 (November 10, 2021)
 - Fix institution title color in footer
 
