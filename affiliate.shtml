@@ -1,267 +1,117 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en"><!-- InstanceBegin template="/Templates/unlaffiliate.dwt" codeOutsideHTMLIsLocked="false" -->
+<html class="dcf-no-js dcf-no-webp" lang="en"><!-- InstanceBegin template="/Templates/affiliate.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<!--#include virtual="/wdn/templates_4.1/includes/metanfavico.html" -->
-<!--
-    Membership and regular participation in the UNL Web Developer Network is required to use the UNLedu Web Framework. Visit the WDN site at http://wdn.unl.edu/. Register for our mailing list and add your site or server to UNLwebaudit.
-    All framework code is the property of the UNL Web Developer Network. The code seen in a source code view is not, and may not be used as, a template. You may not use this code, a reverse-engineered version of this code, or its associated visual presentation in whole or in part to create a derivative work.
-    This message may not be removed from any pages based on the UNLedu Web Framework.
-
-    $Id: unlaffiliate.dwt | 6edb0e1ee94038935f3821c6ce15dfd5c217b2e2 | Tue Dec 1 17:08:56 2015 -0600 | Kevin Abel  $
--->
-<!--#include virtual="/wdn/templates_4.1/includes/scriptsandstyles_local.html" -->
+<!--#include virtual="/wdn/templates_5.3/includes/global/head-1.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Please Title Your Page Here | Buros Center for Testing</title>
+  <title>Please Title Your Page Here | Buros Center for Testing</title>
 <!-- InstanceEndEditable -->
+<!--#include virtual="/wdn/templates_5.3/includes/global/affiliate-head-2-local.html" -->
 <!-- InstanceBeginEditable name="head" -->
-<!-- Place optional header elements here -->
-<link rel="stylesheet" media="screen" href="sharedcode/affiliate/css/affiliate.css" />
-<link href="sharedcode/affiliate/images/favicon.ico" rel="shortcut icon" />
-<link rel="home" href="http://buros.org/" />
-<style>
-.buros-slider figure {
-    position: relative;
-}
-.buros-slider figure figcaption {
-    background-color: #333;
-    color: #fff;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 45%;
-    padding: 0.8em;
-    overflow: auto;
-}
-.buros-slider figure figcaption h3 {
-    font-size: 1.2em;
-    color: #fff;
-    text-align: center;
-}
-#maincontent .buros-slider figure figcaption a {
-    color: #fff;
-}
-.buros-slider .slides figure div.placeholder {
-    width: 56%;
-    padding-bottom: 26%;
-    background-color: #fff;
-}
-
-#maincontent {
-    font-family: Arial, sans-serif;
-    line-height: 1.4;
-}
-
-#maincontent h1,
-#maincontent h2,
-#maincontent h3,
-#maincontent h4,
-#maincontent h5,
-#maincontent h6 {
-    font-family: Futura, Arial, sans-serif;
-    font-weight: normal;
-}
-#burosBanner {
-    color: #fff;
-    background: #333;
-    position: relative;
-    padding: 1em;
-    margin-top: 2.4em;
-    margin-bottom: 2.4em;
-}
-#burosBanner blockquote {
-    width: 75%;
-}
-#burosBanner > div {
-    position: absolute;
-    bottom: -1.9em;
-    right: 1em;
-}
-#burosBanner .wdn-frame {
-    background-color: #fff;
-    width: 105px;
-    height: 142px;
-}
-</style>
+  <!-- Place optional header elements here -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/wdn/templates_5.3/includes/local/affiliate-custom.css">
+  <link rel="icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/favicon.ico" sizes="any">
+  <link rel="icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/manifest.webmanifest">
+  <meta name="theme-color" content="#D90792">
 <!-- InstanceEndEditable -->
-<!-- InstanceParam name="class" type="text" value="" -->
 </head>
-<body class="" data-version="4.1">
-    <!--#include virtual="/wdn/templates_4.1/includes/skipnav.html" -->
-    <div id="wdn_wrapper">
-        <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" />
-        <!--#include virtual="/wdn/templates_4.1/includes/noscript-padding.html" -->
-        <header id="header" role="banner" class="wdn-content-slide wdn-band">
-            <div id="wdn_header_top">
-                <span id="wdn_institution_title"><!-- InstanceBeginEditable name="sitebranding_affiliate" --><a href="http://www.unl.edu" title="University of Nebraska&ndash;Lincoln">An affiliate of the University of Nebraska&ndash;Lincoln</a><!-- InstanceEndEditable --></span>
-                <div id="wdn_resources">
-                    <!--#include virtual="/wdn/templates_4.1/includes/wdnResources.html" -->
-                    <!--#include virtual="/wdn/templates_4.1/includes/idm.html" -->
-                    <!--#include virtual="/wdn/templates_4.1/includes/search.html" -->
-                </div>
-            </div>
-            <div id="wdn_logo_lockup">
-                <div class="wdn-inner-wrapper">
-                    <!-- InstanceBeginEditable name="sitebranding_logo" -->
-                    <a id="logo" href="http://buros.org/"><span>Buros Center for Testing</span></a>
-                    <!-- InstanceEndEditable -->
-                    <span id="wdn_site_affiliation"><!-- InstanceBeginEditable name="affiliation" --><!-- InstanceEndEditable --></span>
-                    <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" --><span class="wdn-text-hidden">Buros Center for Testing</span><!-- InstanceEndEditable --></span>
-                </div>
-            </div>
+<body class="unl affiliate" data-version="5.3">
+  <!--#include virtual="/wdn/templates_5.3/includes/global/skip-nav.html" -->
+  <header class="dcf-header" id="dcf-header" role="banner">
+    <!-- InstanceBeginEditable name="affiliateheaderglobal" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-header-global-1.html" -->
+    <!-- InstanceEndEditable -->
+    <!-- InstanceBeginEditable name="affiliateidm" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-idm.html" -->
+    <!-- InstanceEndEditable -->
+    <!-- InstanceBeginEditable name="affiliatesearch" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-search.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.3/includes/global/header-global-2.html" -->
+    <!-- InstanceBeginEditable name="affiliatelogo" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-logo-lockup-1.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.3/includes/global/site-affiliation-1.html" -->
+    <!-- InstanceBeginEditable name="affiliation" -->
+    <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.3/includes/global/site-affiliation-2.html" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/global/site-title-1.html" -->
+    <!-- InstanceBeginEditable name="titlegraphic" -->
+    <a class="dcf-txt-h6" href="https://arts.unl.edu/music">Glenn Korff School of Music</a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.3/includes/global/site-title-2.html" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/global/logo-lockup-2.html" -->
+
+    <!--#include virtual="/wdn/templates_5.3/includes/global/affiliate-nav-toggle-group-1.html" -->
+    <!-- InstanceBeginEditable name="affiliatemobilesearch" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-mobile-search.html" -->
+    <!-- InstanceEndEditable -->
+    <!-- InstanceBeginEditable name="affiliatemobileidm" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-mobile-idm.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.3/includes/global/affiliate-nav-toggle-group-2.html" -->
+
+    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-1.html" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-toggle-btn.html" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-child-1.html" -->
+    <!-- InstanceBeginEditable name="navlinks" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/local/nav-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-child-2.html" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-2.html" -->
+  </header>
+  <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
+    <!-- InstanceBeginEditable name="highlighted" -->
+    <!-- InstanceEndEditable -->
+    <!-- InstanceBeginEditable name="hero" -->
+    <div class="dcf-hero dcf-hero-default">
+    <!-- InstanceEndEditable -->
+      <div class="dcf-hero-group-1">
+        <div class="dcf-breadcrumbs-wrapper">
+          <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
+            <ol>
+              <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
+              <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
+              <li><span aria-current="page">Ensembles</span></li>
+            </ol>
+            <!-- InstanceEndEditable -->
+          </nav>
+        </div>
+        <header class="dcf-page-title" id="dcf-page-title">
+          <!-- InstanceBeginEditable name="pagetitle" -->
+          <h1>Page title</h1>
+          <!-- InstanceEndEditable -->
         </header>
-        <div id="wdn_navigation_bar" class="wdn-band">
-            <nav id="breadcrumbs" class="wdn-inner-wrapper" role="navigation" aria-label="breadcrumbs">
-                <!-- InstanceBeginEditable name="breadcrumbs" -->
-                <ul>
-                    <li><a href="http://buros.org/" title="Buros Center for Testing">Buros</a></li>
-                </ul>
-                <!-- InstanceEndEditable -->
-            </nav>
-            <div id="wdn_navigation_wrapper">
-                <nav id="navigation" role="navigation" aria-label="main navigation">
-                    <!-- InstanceBeginEditable name="navlinks" -->
-                    <!--#include virtual="sharedcode/affiliate/navigation.html" -->
-                    <!-- InstanceEndEditable -->
-                    <!--#include virtual="/wdn/templates_4.1/includes/navigation-addons.html" -->
-                </nav>
-            </div>
-        </div>
-        <div class="wdn-menu-trigger wdn-content-slide">
-            <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
-            <!--#include virtual="/wdn/templates_4.1/includes/share.html" -->
-        </div>
-        <main id="wdn_content_wrapper" role="main" class="wdn-content-slide" tabindex="-1">
-            <div id="maincontent" class="wdn-main">
-                <div id="pagetitle">
-                    <!-- InstanceBeginEditable name="pagetitle" -->
-                    <h1>Buros Center for Testing</h1>
-                    <!-- InstanceEndEditable -->
-                </div>
-                <!-- InstanceBeginEditable name="maincontentarea" -->
-<div id="wdn_Carousel" class="buros-slider">
-<ul class="slides">
-
-<li>
-<figure><div class="placeholder"></div><figcaption>
-<h3>Pruebas Publicadas en Español</h3>
-<p>This comprehensive resource helps both Spanish and English speakers access essential information about tests published in the Spanish language.</p>
-<p><a href="pruebas-publicadas-en-espanol#esp"><i>Click here for details</i></a></p>
-</figcaption></figure>
-</li>
-
-<li>
-<figure><a href="http://ulearn.unl.edu/buros" title="Go to the Buros Video Library!" target="_blank"><div class="placeholder"></div></a><figcaption>
-<h3>Clinical Assessment Webinar Series</h3>
-<p>The Clinical Assessment webinar series focused on ways in which clinical assessment contributes to evidence-based mental health interventions.</p>
-<p><a href="http://buros.org/clinical-assessment-webinar-series"><i>Click here for more</i></a></p>
-</figcaption></figure>
-</li>
-
-<li>
-<figure><a href="http://ulearn.unl.edu/buros" title="Go to the Buros Video Library!" target="_blank"><div class="placeholder"></div></a><figcaption>
-<h3>Decoding the <i>Standards</i> Webinar Series</h3>
-<p>The Decoding the <i>Standards for Educational and Psychological Testing</i> webinar series illustrated how the <i>Standards</i> can be applied in specific areas of testing practice through the use of examples to amplify the intent of the <i>Standards</i>, to promote sound testing practices, and to provide a basis for evaluating the quality of those practices.</p>
-<p><a href="http://buros.org/decoding-standards-webinar-series"><i>Click here for more</i></a></p>
-</figcaption></figure>
-</li>
-
-<li>
-<figure><div class="placeholder"></div><figcaption>
-<h3>Buros Product News</h3>
-<p>Buros announces a new electronic database product that integrates reviews and test information from its three reference volumes – <i>Mental Measurements Yearbook, Tests in Print, and Pruebas Publicadas en Español.</i></p>
-<p><a href="https://www.ebscohost.com/academic/mental-measurements-yearbook-with-tests-in-print-internacional"><i>Click here to read more</i></a></p>
-</figcaption></figure>
-</li>
-
-<li>
-<figure><div class="placeholder"></div><figcaption>
-<h3>Available Now:</h3>
-<p>The Nineteenth Mental Measurements Yearbook</p>
-<p><a href="http://www.nebraskapress.unl.edu/product/Nineteenth-Mental-Measurements-Yearbook,675884.aspx"><i>Click here to order</i></a></p>
-</figcaption></figure>
-</li>
-
-<li>
-<figure><div class="placeholder"></div><figcaption>
-<h3>Sign Up For The Quarterly Buros E-Newsletter To Receive News On...</h3>
-<p>* New publication and volume releases</br>
-* Assessment literacy resources and events</br>
-* Psychometric consulting services</br>
-* Conferences where you can meet Buros staff...and more</p>
-<p><a href="http://visitor.r20.constantcontact.com/manage/optin/ea?v=001a93jXVOCx_KpR-Th0GlcsA%3D%3D"><i>Click here to sign up</i></a></p>
-</figcaption></figure>
-</li>
-
-</ul>
-</div>
-<script>
-WDN.initializePlugin('carousel');
-</script>
-<div class="bp2-wdn-grid-set-thirds">
-<div class="wdn-col">
-<h2>Test Reviews &amp; Information</h2>
-<p>Buros publishes authoritative reference materials that contain descriptions and candidly critical evaluations of commercially available tests, essential to professionals involved in the evaluation, selection, and use of tests. Recognized for their quality worldwide, our publications comprise expert and independent sources of information about tests.</p>
-<ul>
-<li><a href="https://marketplace.unl.edu/buros/" title="Test Reviews Online">Test Reviews Online</a></li>
-<li><a href="tests-print" title="Tests In Print">Tests In Print</a></li>
-<li><a href="mental-measurements-yearbook" title="Mental Measurements Yearbook">Mental Measurements Yearbook</a></li>
-<li><a href="pruebas-publicadas-en-espanol#esp" title="Pruebas Publicadas en Español">Pruebas Publicadas en Español</a></li>
-</ul>
-</div>
-<div class="wdn-col">
-<h2>Psychometric Consulting</h2>
-<p>Buros offers expert psychometric services to assist proprietary testing programs and improve the quality of their programs and validity of results. Our independent verification adds credibility and defensibility to testing organizations and their assessments.</p>
-<ul>
-<li><a href="psychometric-research" title="Psychometric Research">Psychometric Research</a></li>
-<li><a href="consultation-and-training" title="Consultation and Training">Consultation and Training</a></li>
-<li><a href="evaluation-and-oversight" title="Evaluation and Oversight">Evaluation and Oversight</a></li>
-<li><a href="audits-and-accreditation" title="Audits and Accreditation">Audits and Accreditation</a></li>
-</ul>
-</div>
-<div class="wdn-col">
-<h2>Assessment Literacy</h2>
-<p>Buros provides instructional and educational resources that improve the ability of individuals to select, develop, and use tests and assessments in accordance with relevant standards as well as accepted guidelines for responsible test use.</p>
-<ul>
-<li><a href="educational-resources" title="Educational Resources">Educational Resources</a></li>
-<li><a href="clearinghouse" title="Clearinghouse">Clearinghouse</a></li>
-<li><a href="conferences-webinars" title="Conferences and Webinars">Conferences and Webinars</a></li>
-<li><a href="standards-codes-guidelines" title="Standards, Codes, and Guidelines">Standards, Codes, and Guidelines</a></li>
-<li><a href="glossary" title="Glossaries">Glossaries</a></li>
-<li><a href="http://ulearn.unl.edu/buros" title="Video Library">Video Library</a></li>
-</ul>
-</div>
-</div>
-<div id="burosBanner">
-<blockquote><q>Test users have every right to demand that test authors and publishers present full particulars concerning the methods used in constructing and validating the tests which they place on the market.</q> (Oscar Buros, 1938).</blockquote>
-<div><div class="wdn-frame"></div></div>
-</div>
-                <!-- InstanceEndEditable -->
-            </div>
-        </main>
-        <footer id="footer" role="contentinfo" class="wdn-content-slide">
-            <div id="wdn_optional_footer" class="wdn-band wdn-footer-optional">
-                <div class="wdn-inner-wrapper">
-                    <!-- InstanceBeginEditable name="optionalfooter" --> <!-- InstanceEndEditable -->
-                </div>
-            </div>
-            <div id="wdn_local_footer" class="wdn-band wdn-footer-local">
-                <div class="wdn-inner-wrapper">
-                    <!-- InstanceBeginEditable name="contactinfo" -->
-                    <!--#include virtual="sharedcode/affiliate/localFooter.html" -->
-                    <!-- InstanceEndEditable -->
-                    <!-- InstanceBeginEditable name="leftcollinks" -->
-                    <!-- InstanceEndEditable -->
-                </div>
-            </div>
-            <div id="wdn_global_footer" class="wdn-band wdn-footer-global">
-                <div class="wdn-inner-wrapper">
-                   <!--#include virtual="/wdn/templates_4.1/includes/globalfooter.html" -->
-                </div>
-            </div>
-        </footer>
-        <!--#include virtual="/wdn/templates_4.1/includes/noscript.html" -->
+        <!-- InstanceBeginEditable name="herogroup1" -->
+        <!-- InstanceEndEditable -->
+      </div>
+      <!-- InstanceBeginEditable name="herogroup2" -->
+      <div class="dcf-hero-group-2">
+      </div>
+      <!-- InstanceEndEditable -->
     </div>
-    <!--#include virtual="/wdn/templates_4.1/includes/body_scripts.html" -->
+    <div class="dcf-main-content dcf-wrapper">
+    <!-- InstanceBeginEditable name="maincontentarea" -->
+    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue.</p>
+    <!-- InstanceEndEditable -->
+    </div>
+  </main>
+  <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+    <!-- InstanceBeginEditable name="optionalfooter" -->
+    <!-- InstanceEndEditable -->
+    <!-- InstanceBeginEditable name="contactinfo" -->
+    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-footer.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_5.3/includes/global/noscript.html" -->
+  </footer>
+  <!--#include virtual="/wdn/templates_5.3/includes/global/js-body-local.html" -->
+  <!-- InstanceBeginEditable name="jsbody" -->
+  <!-- InstanceEndEditable -->
 </body>
 <!-- InstanceEnd --></html>
