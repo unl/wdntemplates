@@ -7,8 +7,17 @@
 
 
 // Colors
-$color-brand-alpha-light-mode: $color-brand-alpha;      // Alpha brand color in light mode
-$color-brand-alpha-dark-mode: $lightest-gray;           // Alpha brand color in dark mode
+$color-brand-alpha-light-mode: $color-brand-alpha;      // Alpha brand color (scarlet) in light mode
+$color-brand-alpha-dark-mode: $lightest-gray;           // Alpha brand color (scarlet) in dark mode
+
+$color-brand-zeta-light-mode: $green;                   // Zeta brand color (green) in light mode
+$color-brand-zeta-dark-mode: $light-green;              // Zeta brand color (green) in dark mode
+
+$color-brand-eta-light-mode: $blue;                     // Eta brand color (blue) in light mode
+$color-brand-eta-dark-mode: $light-blue;                // Eta brand color (blue) in dark mode
+
+$color-brand-theta-light-mode: $purple;                 // Theta brand color (purple) in light mode
+$color-brand-theta-dark-mode: $light-purple;            // Theta brand color (purple) in dark mode
 
 $color-gray-dark-light-mode: $dark-gray;                // Dark text color in light mode -- must meet WCAG AA (minimum contrast ratio of 4.5)
 $color-gray-dark-dark-mode: $light-gray;                // Dark text color in dark mode -- must meet WCAG AA (minimum contrast ratio of 4.5)

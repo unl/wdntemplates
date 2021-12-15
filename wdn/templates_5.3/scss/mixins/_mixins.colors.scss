@@ -37,17 +37,17 @@
 
 
 // Green
-@mixin green($imp:null) { color: $green $imp; }
+@mixin green($imp:null) { color: var(--brand-zeta) $imp; }
 @mixin light-green($imp:null) { color: $light-green $imp; }
 
 
 // Blue
-@mixin blue($imp:null) { color: $blue $imp; }
+@mixin blue($imp:null) { color: var(--brand-eta) $imp; }
 @mixin light-blue($imp:null) { color: $light-blue $imp; }
 
 
 // Purple
-@mixin purple($imp:null) { color: $purple $imp; }
+@mixin purple($imp:null) { color: var(--brand-theta) $imp; }
 @mixin light-purple($imp:null) { color: $light-purple $imp; }
 
 
