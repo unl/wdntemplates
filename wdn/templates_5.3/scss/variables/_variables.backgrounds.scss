@@ -7,8 +7,17 @@
 
 
 // Background color
-$bg-color-scarlet-light-mode: $color-brand-alpha;
-$bg-color-scarlet-dark-mode: $color-brand-alpha;
+$bg-color-brand-alpha-light-mode: $color-brand-alpha;             // Alpha brand color (scarlet) in light mode
+$bg-color-brand-alpha-dark-mode: $color-brand-alpha;              // Alpha brand color (scarlet) in dark mode
+
+$bg-color-brand-zeta-light-mode: $green;                          // Zeta brand color (green) in light mode
+$bg-color-brand-zeta-dark-mode: $light-green;                     // Zeta brand color (green) in dark mode
+
+$bg-color-brand-eta-light-mode: $blue;                            // Eta brand color (blue) in light mode
+$bg-color-brand-eta-dark-mode: $light-blue;                       // Eta brand color (blue) in dark mode
+
+$bg-color-brand-theta-light-mode: $purple;                        // Theta brand color (purple) in light mode
+$bg-color-brand-theta-dark-mode: $light-purple;                   // Theta brand color (purple) in dark mode
 
 $bg-color-white-light-mode: $white;
 $bg-color-white-dark-mode: $darker-gray-s1;

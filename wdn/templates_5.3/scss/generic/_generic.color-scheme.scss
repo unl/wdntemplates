@@ -9,7 +9,10 @@
   // Background Colors
   --bg-badge: #{$bg-color-badge-light-mode};
   --bg-body: #{$bg-color-body-light-mode};
-  --bg-brand-alpha: #{$bg-color-scarlet-light-mode};
+  --bg-brand-alpha: #{$bg-color-brand-alpha-light-mode};
+  --bg-brand-zeta: #{$bg-color-brand-zeta-light-mode};
+  --bg-brand-eta: #{$bg-color-brand-eta-light-mode};
+  --bg-brand-theta: #{$bg-color-brand-theta-light-mode};
   --bg-btn-inverse-primary: #{$bg-color-button-inverse-primary};
   --bg-btn-inverse-secondary: #{$bg-color-button-inverse-secondary};
   --bg-btn-inverse-tertiary: #{$bg-color-button-inverse-tertiary};
@@ -117,7 +120,10 @@
     // Background Colors
     --bg-badge: #{$bg-color-badge-dark-mode};
     --bg-body: #{$bg-color-body-dark-mode};
-    --bg-brand-alpha: #{$bg-color-scarlet-dark-mode};
+    --bg-brand-alpha: #{$bg-color-brand-alpha-dark-mode};
+    --bg-brand-zeta: #{$bg-color-brand-zeta-dark-mode};
+    --bg-brand-eta: #{$bg-color-brand-eta-dark-mode};
+    --bg-brand-theta: #{$bg-color-brand-theta-dark-mode};
     --bg-btn-inverse-primary: #{$bg-color-button-inverse-primary};
     --bg-btn-inverse-secondary: #{$bg-color-button-inverse-secondary};
     --bg-btn-inverse-tertiary: #{$bg-color-button-inverse-tertiary};
