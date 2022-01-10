@@ -11,17 +11,16 @@
 // Background color
 $bg-color-tab-selected-light-mode: $white;          // Background-color of selected tab in light mode
 $bg-color-tab-selected-dark-mode: $darker-gray-s1;  // Background-color of selected tab in dark mode
+$bg-color-tab-selected: var(--bg-tab-selected);
 
 $bg-color-tabs-panel-light-mode: $white;            // Background-color of tabs panel in light mode
 $bg-color-tabs-panel-dark-mode: $darker-gray-s1;    // Background-color of tabs panel in dark mode
+$bg-color-tabs-panel: var(--bg-tabs-panel);
 
 
 // Border color
-$border-color-tab-light-mode: $light-gray;          // Border-color for tab in light mode
-$border-color-tab-dark-mode: $darker-gray;          // Border-color for tab in dark mode
-
-$border-color-tabs-panel-light-mode: $light-gray;   // Border-color for tabs panel in light mode
-$border-color-tabs-panel-dark-mode: $darker-gray;   // Border-color for tabs panel in dark mode
+$border-color-tab: var(--b);                        // Border-color for tab
+$border-color-tabs-panel: var(--b);                 // Border-color for tabs panel
 
 
 // Border style
@@ -35,8 +34,7 @@ $border-width-tabs-panel: 1px;                      // Border-width for tabs pan
 
 
 // Color
-$color-tab-selected-light-mode: $darker-gray;       // Selected tab color in light mode
-$color-tab-selected-dark-mode: $gray;               // Selected tab color in dark mode
+$color-tab-selected: var(--body);                   // Selected tab color
 
 
 // Font size
