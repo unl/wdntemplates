@@ -4,17 +4,17 @@
 
 
 .unl details {
-  border-top: 1px solid var(--b);
+  border-top: 1px solid $border-color-details;
 }
 
 
 .unl details:last-of-type {
-  border-bottom: 1px solid var(--b);
+  border-bottom: 1px solid $border-color-details;
 }
 
 
 .unl summary {
-  color: var(--heading);
+  color: $color-summary;
   @include ls-h;
   @include lh-3;
 }
