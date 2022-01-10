@@ -11,8 +11,8 @@
 
 // Required
 .unl .dcf-required {
-  background-color: var(--bg-required);
-  border: 1px solid var(--b-required);
+  background-color: $bg-color-required;
+  border: 1px solid $border-color-required;
   border-radius: $pill;
   display: inline-block;
   @include lh-1;

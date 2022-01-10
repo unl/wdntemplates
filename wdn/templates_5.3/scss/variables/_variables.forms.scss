@@ -21,6 +21,7 @@ $bg-color-input-disabled-dark-mode: $darker-gray;               // Disabled inpu
 
 $bg-color-required-light-mode: transparent;                     // Required background color in light mode
 $bg-color-required-dark-mode: rgba(157,0,0,.25);                // Required background color in dark mode
+$bg-color-required: var(--bg-required);
 
 
 // Border color
@@ -42,6 +43,7 @@ $border-color-input-focus: var(--b-input-focus);
 
 $border-color-required-light-mode: transparent;                 // Required border-color in light mode
 $border-color-required-dark-mode: $scarlet-shade;               // Required border-color in dark mode
+$border-color-required: var(--b-required);
 
 
 // Border radius
