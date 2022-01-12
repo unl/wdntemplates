@@ -26,6 +26,7 @@ $bg-color-button-primary: var(--bg-btn-primary);
 
 $bg-color-button-primary-hover-light-mode: $color-hover-light-mode;                 // Background-color for primary button on hover in light mode
 $bg-color-button-primary-hover-dark-mode: $bg-color-button-inverse-primary-hover;   // Background-color for primary button on hover in dark mode
+$bg-color-button-primary-hover: var(--bg-btn-primary-hover);
 
 $bg-color-button-secondary-light-mode: $white;                                      // Background-color for secondary button in light mode
 $bg-color-button-secondary-dark-mode: $bg-color-button-inverse-secondary;           // Background-color for secondary button in dark mode
@@ -35,6 +36,7 @@ $bg-color-button-tertiary: transparent;                                         
 
 $bg-color-button-secondary-tertiary-hover-light-mode: fade-out($color-hover-light-mode, .93);             // Background-color for secondary and tertiary buttons on hover in light mode
 $bg-color-button-secondary-tertiary-hover-dark-mode: $bg-color-button-inverse-secondary-tertiary-hover;   // Background-color for secondary and tertiary buttons on hover in dark mode
+$bg-color-button-secondary-tertiary-hover: var(--bg-btn-secondary-tertiary-hover);
 
 
 // Border radius
@@ -56,6 +58,7 @@ $border-color-button-primary: var(--b-btn-primary);
 
 $border-color-button-primary-hover-light-mode: $bg-color-button-primary-hover-light-mode; // Border-color for primary button in light mode
 $border-color-button-primary-hover-dark-mode: $bg-color-button-inverse-primary-hover;     // Border-color for primary button in dark mode
+$border-color-button-primary-hover: var(--b-btn-primary-hover);
 
 $border-color-button-secondary: currentColor;                                             // Border-color for secondary button in light mode
 
@@ -93,6 +96,7 @@ $color-button-tertiary: var(--btn-tertiary);
 
 $color-button-secondary-tertiary-hover-light-mode: $color-hover-light-mode;                         // Color (text) for secondary and tertiary buttons on hover
 $color-button-secondary-tertiary-hover-dark-mode: $color-button-inverse-secondary-tertiary-hover;   // Color (text) for secondary and tertiary buttons on hover
+$color-button-secondary-tertiary-hover: var(--btn-secondary-tertiary-hover);
 
 
 // Font size
