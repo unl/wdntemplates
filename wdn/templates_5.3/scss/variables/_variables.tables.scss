@@ -5,6 +5,7 @@
 
 @import '_variables.color-palette';
 @import '_variables.borders';
+@import '_variables.headings';
 @import '_variables.modular-scale';
 
 
@@ -15,7 +16,7 @@ $bg-color-table-stripe: var(--bg-table-stripe);
 
 
 // Border color
-$border-color-table: var(--b);                              // .dcf-table border-color
+$border-color-table: $border-color-gray-light;              // .dcf-table border-color
 
 
 // Border style
@@ -27,7 +28,7 @@ $border-width-table: 1px;                                   // .dcf-table border
 
 
 // Color
-$color-caption: var(--heading);                             // .dcf-table <caption> color
+$color-caption: $color-heading;                             // .dcf-table <caption> color
 
 
 // Font size
