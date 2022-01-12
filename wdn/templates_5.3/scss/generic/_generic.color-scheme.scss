@@ -27,7 +27,7 @@
   --bg-input: #{$bg-color-input-light-mode};
   --bg-input-disabled: #{$bg-color-input-disabled-light-mode};
   --bg-input-group-addon: #{$bg-color-input-group-addon-light-mode};
-  --bg-inverse: #{$color-body-light-mode};
+  --bg-inverse: #{$bg-color-inverse-light-mode};
   --bg-kbd: #{$bg-color-kbd-light-mode};
   --bg-light-gray: #{$bg-color-gray-light-light-mode};
   --bg-lighter-gray: #{$bg-color-gray-lighter-light-mode};
@@ -138,7 +138,7 @@
     --bg-input: #{$bg-color-input-dark-mode};
     --bg-input-disabled: #{$bg-color-input-disabled-dark-mode};
     --bg-input-group-addon: #{$bg-color-input-group-addon-dark-mode};
-    --bg-inverse: #{$color-body-dark-mode};
+    --bg-inverse: #{$bg-color-inverse-dark-mode};
     --bg-kbd: #{$bg-color-kbd-dark-mode};
     --bg-light-gray: #{$bg-color-gray-light-dark-mode};
     --bg-lighter-gray: #{$bg-color-gray-lighter-dark-mode};
