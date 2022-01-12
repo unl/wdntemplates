@@ -8,9 +8,11 @@
   display: none;
 }
 
+
 .unl-hero-legacy .dcf-hero-group-1 {
   padding: $length-em-6 $length-vw-2;
 }
+
 
 .unl-hero-legacy .dcf-page-title {
   @include mb-3;
@@ -25,6 +27,7 @@
 
 }
 
+
 @include mq(sm, min, width) {
 
   .unl-hero-legacy {
@@ -34,10 +37,12 @@
     position: relative;
   }
 
+
   .unl-hero-legacy .dcf-hero-group-1 {
     position: relative;
     z-index: 1;
   }
+
 
   .unl-hero-legacy .dcf-hero-group-2 {
     display: flex;
@@ -50,12 +55,14 @@
     width: 100%;
   }
 
+
   .unl-hero-legacy .dcf-hero-group-2 img,
   .unl-hero-legacy .dcf-hero-group-2 video {
     opacity: .5;
   }
 
 }
+
 
 @include mq(md, min, width) {
 

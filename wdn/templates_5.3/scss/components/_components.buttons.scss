@@ -24,32 +24,32 @@
 // Visited
 
 .unl a.dcf-btn-primary:visited {
-  color: var(--btn-primary);
+  color: $color-button-primary;
 }
 
 
 .unl a.dcf-btn-secondary:visited {
-  color: var(--btn-secondary);
+  color: $color-button-secondary;
 }
 
 
 .unl a.dcf-btn-tertiary:visited {
-  color: var(--btn-tertiary);
+  color: $color-button-tertiary;
 }
 
 
 .unl a.dcf-btn-inverse-primary:visited {
-  color: var(--btn-inverse-primary);
+  color: $color-button-inverse-primary;
 }
 
 
 .unl a.dcf-btn-inverse-secondary:visited {
-  color: var(--btn-inverse-secondary);
+  color: $color-button-inverse-secondary;
 }
 
 
 .unl a.dcf-btn-inverse-tertiary:visited {
-  color: var(--btn-inverse-tertiary);
+  color: $color-button-inverse-tertiary;
 }
 
 
@@ -57,16 +57,16 @@
 
 .unl .dcf-btn-primary:not(:disabled):hover,
 .unl .dcf-btn-primary:not(:disabled):active {
-  background-color: var(--bg-btn-primary-hover);
-  border-color: var(--b-btn-primary-hover);
+  background-color: $bg-color-button-primary-hover;
+  border-color: $border-color-button-primary-hover;
 }
 
 .unl .dcf-btn-secondary:not(:disabled):hover,
 .unl .dcf-btn-secondary:not(:disabled):active,
 .unl .dcf-btn-tertiary:not(:disabled):hover,
 .unl .dcf-btn-tertiary:not(:disabled):active {
-  background-color: var(--bg-btn-secondary-tertiary-hover);
-  color: var(--btn-secondary-tertiary-hover);
+  background-color: $bg-color-button-secondary-tertiary-hover;
+  color: $color-button-secondary-tertiary-hover;
 }
 
 
@@ -95,30 +95,30 @@
 .unl .dcf-btn-primary:focus,
 .unl .dcf-btn-secondary:focus,
 .unl .dcf-btn-tertiary:focus {
-  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
+  box-shadow: 0 0 0 3px $bg-color-body, 0 0 0 5px $border-color-input-focus;
 }
 
 
 .unl .dcf-btn-inverse-primary:focus {
-  box-shadow: 0 0 0 3px var(--b-input-focus), 0 0 0 5px $bg-color-button-inverse-primary;
+  box-shadow: 0 0 0 3px $border-color-input-focus, 0 0 0 5px $bg-color-button-inverse-primary;
 }
 
 
 .unl .dcf-btn-inverse-secondary:focus,
 .unl .dcf-btn-inverse-tertiary:focus {
-  box-shadow: 0 0 0 3px var(--b-input-focus), 0 0 0 5px currentColor;
+  box-shadow: 0 0 0 3px $border-color-input-focus, 0 0 0 5px currentColor;
 }
 
 
 // Active
 .unl .dcf-btn-primary:active {
-  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-btn-primary-hover);
+  box-shadow: 0 0 0 3px $bg-color-body, 0 0 0 5px $border-color-button-primary-hover;
 }
 
 
 .unl .dcf-btn-secondary:active,
 .unl .dcf-btn-tertiary:active {
-  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px currentColor;
+  box-shadow: 0 0 0 3px $bg-color-body, 0 0 0 5px currentColor;
 }
 
 

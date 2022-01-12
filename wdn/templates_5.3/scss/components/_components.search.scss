@@ -5,7 +5,7 @@
 
 
 .unl .dcf-search-input:focus {
-  box-shadow: 0 0 0 3px $scarlet, 0 0 0 5px var(--b-input-focus) !important;
+  box-shadow: 0 0 0 3px $scarlet, 0 0 0 5px $border-color-input-focus !important;
 }
 
 

@@ -39,10 +39,10 @@
 
 
 .unl .dcf-btn-slide-caption {
-  background-color: var(--bg-overlay-dark);
+  background-color: $bg-color-overlay-dark;
   border-color: transparent;
   bottom: #{$size-clip-path};
-  color: var(--btn-inverse-tertiary);
+  color: $color-button-inverse-tertiary;
   left: #{$size-clip-path};
   position: absolute;
   z-index: 1;
@@ -50,7 +50,7 @@
 
 
 .unl .dcf-slide-caption {
-  background-color: var(--bg-overlay-dark);
+  background-color: $bg-color-overlay-dark;
   clip-path: polygon(
       100% 0,
       100% 100%,
