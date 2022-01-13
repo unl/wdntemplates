@@ -48,10 +48,6 @@ $border-color-button-inverse-primary: $bg-color-button-inverse-primary;         
 
 $border-color-button-inverse-primary-hover: $bg-color-button-inverse-primary-hover;       // Border-color for inverse primary button on hover
 
-$border-color-button-inverse-secondary: $border-color-button-secondary;                   // Border-color for inverse secondary button
-
-$border-color-button-inverse-tertiary: $border-color-button-tertiary;                     // Border-color for inverse tertiary button
-
 $border-color-button-primary-light-mode: $bg-color-button-primary-light-mode;             // Border-color for primary button in light mode
 $border-color-button-primary-dark-mode: $border-color-button-inverse-primary;             // Border-color for primary button in dark mode
 $border-color-button-primary: var(--b-btn-primary);
@@ -63,6 +59,10 @@ $border-color-button-primary-hover: var(--b-btn-primary-hover);
 $border-color-button-secondary: currentColor;                                             // Border-color for secondary button in light mode
 
 $border-color-button-tertiary: transparent;                                               // Border-color for tertiary button in light mode
+
+$border-color-button-inverse-secondary: $border-color-button-secondary;                   // Border-color for inverse secondary button
+
+$border-color-button-inverse-tertiary: $border-color-button-tertiary;                     // Border-color for inverse tertiary button
 
 
 // Border style
