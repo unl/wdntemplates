@@ -7,26 +7,56 @@
 
 
 // Background color
-$bg-color-scarlet-light-mode: $color-brand-alpha;
-$bg-color-scarlet-dark-mode: $color-brand-alpha;
+$bg-color-brand-alpha-light-mode: $scarlet;                       // Alpha brand background-color (scarlet) in light mode
+$bg-color-brand-alpha-dark-mode: $scarlet;                        // Alpha brand background-color (scarlet) in dark mode
+$bg-color-brand-alpha: var(--bg-brand-alpha);
 
-$bg-color-white-light-mode: $white;
-$bg-color-white-dark-mode: $darker-gray-s1;
+$bg-color-brand-zeta: $green;                                     // Zeta brand background-color (green)
 
-$bg-color-gray-light-light-mode: $light-gray;
-$bg-color-gray-light-dark-mode: $darker-gray-s2;
+$bg-color-brand-eta: $blue;                                       // Eta brand background-color (blue)
 
-$bg-color-gray-lighter-light-mode: $lighter-gray;
-$bg-color-gray-lighter-dark-mode: $darker-gray-s3;
+$bg-color-brand-theta: $purple;                                   // Theta brand background-color (purple)
 
-$bg-color-gray-lightest-light-mode: $lightest-gray;
-$bg-color-gray-lightest-dark-mode: $darker-gray-s4;
+$bg-color-brand-light-zeta-light-mode: $light-green;              // Light zeta brand background-color (light green) in light mode
+$bg-color-brand-light-zeta-dark-mode: $green;                     // Light zeta brand background-color (light green) in dark mode
+$bg-color-brand-light-zeta: var(--bg-brand-light-zeta);
+
+$bg-color-brand-light-eta-light-mode: $light-blue;                // Light eta brand background-color (light blue) in light mode
+$bg-color-brand-light-eta-dark-mode: $blue;                       // Light eta brand background-color (light blue) in dark mode
+$bg-color-brand-light-eta: var(--bg-brand-light-eta);
+
+$bg-color-brand-light-theta-light-mode: $light-purple;            // Light theta brand background-color (light purple) in light mode
+$bg-color-brand-light-theta-dark-mode: $purple;                   // Light theta brand background-color (light purple) in dark mode
+$bg-color-brand-light-theta: var(--bg-brand-light-theta);
+
+$bg-color-white-light-mode: $white;                               // White background-color in light mode
+$bg-color-white-dark-mode: $darker-gray-s1;                       // White background-color in dark mode
+$bg-color-white: var(--bg-white);
+
+$bg-color-gray-light-light-mode: $light-gray;                     // Light gray background-color in light mode
+$bg-color-gray-light-dark-mode: $darker-gray-s2;                  // Light gray background-color in dark mode
+$bg-color-gray-light: var(--bg-light-gray);
+
+$bg-color-gray-lighter-light-mode: $lighter-gray;                 // Lighter gray background-color in light mode
+$bg-color-gray-lighter-dark-mode: $darker-gray-s3;                // Lighter gray background-color in dark mode
+$bg-color-gray-lighter: var(--bg-lighter-gray);
+
+$bg-color-gray-lightest-light-mode: $lightest-gray;               // Lightest gray background-color in light mode
+$bg-color-gray-lightest-dark-mode: $darker-gray-s4;               // Lightest gray background-color in dark mode
+$bg-color-gray-lightest: var(--bg-lightest-gray);
+
+$bg-color-inverse-light-mode: $color-body-light-mode;             // Inverse background-color in light mode
+$bg-color-inverse-dark-mode: $color-body-dark-mode;               // Inverse background-color in dark mode
+$bg-color-inverse: var(--bg-inverse);
 
 $bg-color-overlay-dark-light-mode: fade-out($darkest-gray,.06);   // Dark overlay background-color for modals in light mode
 $bg-color-overlay-dark-dark-mode: fade-out($black,.06);           // Dark overlay background-color for modals in dark mode
+$bg-color-overlay-dark: var(--bg-overlay-dark);
 
 $bg-color-overlay-light-light-mode: fade-out($cream,.06);         // Light overlay background-color for modals in light mode
 $bg-color-overlay-light-dark-mode: fade-out($black,.06);          // Light overlay background-color for modals in dark mode
+$bg-color-overlay-light: var(--bg-overlay-light);
 
 $bg-color-dialog-light-mode: $white;                              // Dialog background-color in light mode
 $bg-color-dialog-dark-mode: $darker-gray-s1;                      // Dialog background-color in dark mode
+$bg-color-dialog: var(--bg-dialog);

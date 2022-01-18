@@ -6,12 +6,12 @@
 
 .unl a.dcf-idm-login:link,
 .unl a.dcf-idm-login:visited {
-  color: var(--brand-alpha);
+  color: $color-brand-alpha;
 }
 
 
 .unl a.dcf-idm-login:hover {
-  color: var(--hover);
+  color: $color-hover;
 }
 
 

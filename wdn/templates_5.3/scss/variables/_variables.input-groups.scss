@@ -11,11 +11,11 @@
 // Background color
 $bg-color-input-group-addon-light-mode: $lightest-gray;                       // Input group add-on background-color in light mode
 $bg-color-input-group-addon-dark-mode: $darker-gray-s1;                       // Input group add-on background-color in dark mode
+$bg-color-input-group-addon: var(--bg-input-group-addon);
 
 
 // Border color
-$border-color-input-group-addon-light-mode: $border-color-input-light-mode;   // Input group add-on border-color in light mode
-$border-color-input-group-addon-dark-mode: $border-color-input-dark-mode;     // Input group add-on border-color in dark mode
+$border-color-input-group-addon: var(--b-input);                              // Input group add-on border-color
 
 
 // Border style
@@ -29,6 +29,7 @@ $border-width-input-group-addon: $border-width-input;                         //
 // Color
 $color-input-group-addon-light-mode: $dark-gray;                              // Input group add-on color in light mode
 $color-input-group-addon-dark-mode: $gray-s1;                                 // Input group add-on color in dark mode
+$color-input-group-addon: var(--input-group-addon);
 
 
 // Font size

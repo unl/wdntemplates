@@ -5,17 +5,18 @@
 
 @import '_variables.color-palette';
 @import '_variables.borders';
+@import '_variables.headings';
 @import '_variables.modular-scale';
 
 
 // Background color
 $bg-color-table-stripe-light-mode: fade-out($darkest-gray,.97);   // Background-color of table stripes in light mode
 $bg-color-table-stripe-dark-mode: fade-out($cream,.97);           // Background-color of table stripes in dark mode
+$bg-color-table-stripe: var(--bg-table-stripe);
 
 
 // Border color
-$border-color-table-light-mode: $border-color-light-mode;   // .dcf-table border-color in light mode
-$border-color-table-dark-mode: $border-color-dark-mode;     // .dcf-table border-color in dark mode
+$border-color-table: $border-color-gray-light;              // .dcf-table border-color
 
 
 // Border style
@@ -27,8 +28,7 @@ $border-width-table: 1px;                                   // .dcf-table border
 
 
 // Color
-$color-caption-light-mode: $color-heading-light-mode;       // .dcf-table <caption> color in light mode
-$color-caption-dark-mode: $color-heading-dark-mode;         // .dcf-table <caption> color in dark mode
+$color-caption: $color-heading;                             // .dcf-table <caption> color
 
 
 // Font size

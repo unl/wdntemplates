@@ -31,12 +31,12 @@
   }
 
   .unl.app .dcf-app-controls ul:not(:last-child) {
-    border-left: 1px solid $scarlet-shade;
+    border-left: 1px solid $border-color-app-control;
     display: flex;
   }
 
   .unl.app .dcf-app-controls li {
-    border-right: 1px solid $scarlet-shade;
+    border-right: 1px solid $border-color-app-control;
   }
 
 }

@@ -6,7 +6,7 @@
 .unl .dcf-header a.dcf-institution-title:link,
 .unl .dcf-header a.dcf-institution-title:visited,
 .unl .dcf-header-global button {
-  color: var(--brand-alpha); // Force visited links in the global header and logo to remain scarlet (light mode) and cream (dark mode).
+  color: $color-brand-alpha; // Force visited links in the global header and logo to remain scarlet (light mode) and lightest gray (dark mode).
 }
 
 
@@ -23,14 +23,14 @@
 
 .unl .dcf-site-group a,
 .unl .dcf-site-group a:visited {
-  color: var(--heading);
+  color: $color-heading;
 }
 
 
 .unl .dcf-header a.dcf-institution-title:hover,
 .unl .dcf-header-global button:hover,
 .unl .dcf-site-group a:hover {
-  color: var(--hover);
+  color: $color-hover;
 }
 
 
@@ -52,7 +52,7 @@
 @include mq(md, min, width) {
 
   .unl .dcf-header-global {
-    border-bottom: 1px solid var(--b);
+    border-bottom: 1px solid $border-color-gray-light;
     padding-top: #{ms(-12)}em;
   }
 

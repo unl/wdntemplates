@@ -10,6 +10,7 @@
 // Color -- strive for WCAG AAA (minimum contrast ratio of 7.0) for heading text
 $color-heading-light-mode: $darkest-gray;     // Heading color in light mode
 $color-heading-dark-mode: $cream;             // Heading color in dark mode
+$color-heading: var(--heading);
 
 
 // Font size

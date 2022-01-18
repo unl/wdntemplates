@@ -11,8 +11,8 @@
 
 // Required
 .unl .dcf-required {
-  background-color: var(--bg-required);
-  border: 1px solid var(--b-required);
+  background-color: $bg-color-required;
+  border: 1px solid $border-color-required;
   border-radius: $pill;
   display: inline-block;
   @include lh-1;
@@ -35,7 +35,7 @@
 .unl .dcf-input-text:disabled, // TODO: deprecate?
 .unl .dcf-form input:not([type="submit"]):disabled,
 .unl .dcf-form textarea:disabled {
-  background-color: var(--bg-input-disabled);
+  background-color: $bg-color-input-disabled;
 }
 
 
@@ -49,7 +49,7 @@
 .unl .dcf-input-text:focus, // TODO: deprecate?
 .unl .dcf-form input:not([type="submit"]):focus,
 .unl .dcf-form textarea:focus {
-  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
+  box-shadow: 0 0 0 3px $bg-color-body, 0 0 0 5px $border-color-input-focus;
   transition: box-shadow $transition-duration-hover-on $transition-timing-fn-hover-on;
 }
 

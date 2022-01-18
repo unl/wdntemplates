@@ -7,6 +7,11 @@
 @import '_variables.sizing';
 
 
+// Background color
+$bg-color-datepicker-dialog: var(--bg-dialog);                                          // Background color datepicker dialog
+$bg-color-datepicker-dialog-calendar-td-hover: var(--bg-btn-secondary-tertiary-hover);  // Background color datepicker dialog calendar date on hover
+
+
 // Border radius
 $border-radius-datepicker-dialog-roundrect: true;         // Datepicker dialog border-radius roundrect? True/false
 $border-radius-datepicker-date-roundrect: true;           // Datepicker date border-radius roundrect? True/false
@@ -14,6 +19,11 @@ $border-radius-datepicker-date-roundrect: true;           // Datepicker date bor
 
 // Box shadow
 $box-shadow-datepicker-dialog: 1px 1px 5px rgba(0,0,0,.1), 1px 1px 30px rgba(0,0,0,.1); // Datepicker dialog box-shadow
+
+
+// Color
+$color-datepicker-dialog-calendar-td: var(--btn-tertiary);                        // Color datepicker dialog calendar date
+$color-datepicker-dialog-calendar-td-hover: var(--btn-secondary-tertiary-hover);  // Color datepicker dialog calendar date on hover
 
 
 // Font size

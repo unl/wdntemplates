@@ -4,39 +4,39 @@
 
 
 // PRIMARY BRAND
-$color-brand-alpha: #d00000;    // Scarlet
-$color-brand-beta: #fefdfa;     // Cream
-$color-brand-gamma: #c7c8ca;    // Gray
+$brand-alpha: #d00000;    // Scarlet
+$brand-beta: #fefdfa;     // Cream
+$brand-gamma: #c7c8ca;    // Gray
 
-$scarlet: $color-brand-alpha;
-$cream: $color-brand-beta;
-$gray: $color-brand-gamma;
+$scarlet: $brand-alpha;
+$cream: $brand-beta;
+$gray: $brand-gamma;
 
 $scarlet-shade: scale-color($scarlet, $saturation: 10%, $lightness: -24%);
 $scarlet-tint: #f6e6e3;
 
 
 // SECONDARY BRAND
-$color-brand-delta: #001738;    // Navy
-$color-brand-epsilon: #42a7c6;  // Cerulean
+$brand-delta: #001738;    // Navy
+$brand-epsilon: #42a7c6;  // Cerulean
 
-$navy: $color-brand-delta;
-$cerulean: $color-brand-epsilon;
+$navy: $brand-delta;
+$cerulean: $brand-epsilon;
 
-$light-cerulean: mix($cream, $cerulean, 25%); // #71bdd3
-$lighter-cerulean: mix($cream, $cerulean, 50%); // #
+$light-cerulean: mix($cream, $cerulean, 25%);     // #71bdd3
+$lighter-cerulean: mix($cream, $cerulean, 50%);   // #
 
 
 // TERTIARY / SCREEN
-$color-brand-zeta: #00784e;     // Green
-$color-brand-eta: #007197;      // Blue
-$color-brand-theta: #b32d9c;    // Purple
-$color-brand-iota: #ffd74e;     // Yellow
+$brand-zeta: #00784e;     // Green
+$brand-eta: #007197;      // Blue
+$brand-theta: #b32d9c;    // Purple
+$brand-iota: #ffd74e;     // Yellow
 
-$green: $color-brand-zeta;
-$blue: $color-brand-eta;
-$purple: $color-brand-theta;
-$yellow: $color-brand-iota;
+$green: $brand-zeta;
+$blue: $brand-eta;
+$purple: $brand-theta;
+$yellow: $brand-iota;
 
 $light-green: #e7f1ea;
 $light-blue: #e7f0f0;
@@ -69,20 +69,20 @@ $darkest-gray-s1: darken($mix-cream-gray, 77%); // #1f1f1e
 
 
 // CONTEXTUAL COLORS
-$color-info: $blue;
-$color-success: $green;
-$color-warning: #d53f25;
-$color-danger: $scarlet-shade;
+$info: $blue;
+$success: $green;
+$warning: #d53f25;
+$danger: $scarlet-shade;
 
-$color-highlight: #ff0;
-$color-kbd: #0f0;
+$highlight: #ff0;
+$kbd: #0f0;
 
 
 // SOCIAL MEDIA COLORS
-$color-facebook: #3b5998;   // Facebook
-$color-instagram: #c13584;  // Instagram
-$color-linkedin: #0077b5;   // LinkedIn
-$color-pinterest: #bd081c;  // Pinterest
-$color-snapchat: #fffc00;   // SnapChat
-$color-twitter: #1da1f2;    // Twitter
-$color-youtube: #cd201f;    // YouTube
+$facebook: #3b5998;   // Facebook
+$instagram: #c13584;  // Instagram
+$linkedin: #0077b5;   // LinkedIn
+$pinterest: #bd081c;  // Pinterest
+$snapchat: #fffc00;   // SnapChat
+$twitter: #1da1f2;    // Twitter
+$youtube: #cd201f;    // YouTube

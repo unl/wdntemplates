@@ -33,7 +33,7 @@
 }
 
 .unl-frame-circle::after {
-  border: 3px solid var(--bg-body); // Match body background-color
+  border: 3px solid $bg-color-body; // Match body background-color
   border-radius: $circle;
   content: '';
   height: calc(100% - 4px);

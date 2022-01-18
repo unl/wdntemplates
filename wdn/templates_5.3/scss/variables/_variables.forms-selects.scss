@@ -12,8 +12,11 @@
 // Background color
 $bg-color-select-1-light-mode: $bg-color-input-light-mode;  // <select> top linear-gradient background-color in light mode
 $bg-color-select-1-dark-mode: $bg-color-input-dark-mode;    // <select> top linear-gradient background-color in dark mode
+$bg-color-select-1: var(--bg-select-1);
+
 $bg-color-select-2-light-mode: $bg-color-input-light-mode;  // <select> bottom linear-gradient background-color in light mode
 $bg-color-select-2-dark-mode: $bg-color-input-dark-mode;    // <select> bottom linear-gradient background-color in dark mode
+$bg-color-select-2: var(--bg-select-2);
 
 
 // Background position
@@ -25,8 +28,8 @@ $bg-size-arrow-select: $length-em-2;                        // Size of <select> 
 
 
 // Color
-$color-select-light-mode: $color-body-light-mode;           // <select> color in light mode
-$color-select-dark-mode: $color-body-dark-mode;             // <select> color in dark mode
+$color-select: var(--body);
+
 $color-select-arrow-light-mode: $color-body-light-mode;     // <select> arrow color in light mode
 $color-select-arrow-dark-mode: $color-body-dark-mode;       // <select> arrow color in dark mode
 

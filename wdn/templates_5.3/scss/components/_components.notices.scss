@@ -27,8 +27,6 @@
 
 // Info
 .unl .dcf-notice-info {
-  --bg-notice-info: #{$bg-color-notice-info-light-mode};
-  --notice-info: #{$color-notice-info-light-mode};
   // https://meyerweb.com/eric/tools/color-blend/#007197:242423:1:hex
   filter:
           drop-shadow(1px 2px 2px rgba(18,75,93,.25))
@@ -36,15 +34,9 @@
           drop-shadow(3px 6px 6px rgba(18,75,93,.25));
 }
 
-.unl .dcf-notice-info .dcf-notice-message {
-  color: $light-blue;
-}
-
 
 // Success
 .unl .dcf-notice-success {
-  --bg-notice-success: #{$bg-color-notice-success-light-mode};
-  --notice-success: #{$color-notice-success-light-mode};
   // https://meyerweb.com/eric/tools/color-blend/#00784E:242423:1:hex
   filter:
           drop-shadow(1px 2px 2px rgba(18,78,57,.25))
@@ -52,15 +44,9 @@
           drop-shadow(3px 6px 6px rgba(18,78,57,.25));
 }
 
-.unl .dcf-notice-success .dcf-notice-message {
-  color: $light-green;
-}
-
 
 // Warning
 .unl .dcf-notice-warning {
-  --bg-notice-warning: #{$bg-color-notice-warning-light-mode};
-  --notice-warning: #{$color-notice-warning-light-mode};
   // https://meyerweb.com/eric/tools/color-blend/#E72C0C:242423:1:hex
   filter:
           drop-shadow(1px 2px 2px rgba(125,50,36,.25))
@@ -68,24 +54,14 @@
           drop-shadow(3px 6px 6px rgba(125,50,36,.25));
 }
 
-.unl .dcf-notice-warning .dcf-notice-message {
-  color: $cream;
-}
-
 
 // Danger
 .unl .dcf-notice-danger {
-  --bg-notice-danger: #{$bg-color-notice-danger-light-mode};
-  --notice-danger: #{$color-notice-danger-light-mode};
   // https://meyerweb.com/eric/tools/color-blend/#9D0000:242423:1:hex
   filter:
           drop-shadow(1px 2px 2px rgba(97,18,18,.25))
           drop-shadow(2px 4px 4px rgba(97,18,18,.25))
           drop-shadow(3px 6px 6px rgba(97,18,18,.25));
-}
-
-.unl .dcf-notice-danger .dcf-notice-message {
-  color: $scarlet-tint;
 }
 
 

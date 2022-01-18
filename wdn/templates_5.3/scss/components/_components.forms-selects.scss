@@ -17,6 +17,6 @@
 
 .unl .dcf-input-select:focus, // TODO: deprecate?
 .unl .dcf-form select:focus {
-  box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
+  box-shadow: 0 0 0 3px $bg-color-body, 0 0 0 5px $border-color-input-focus;
   transition: box-shadow $transition-duration-hover-on $transition-timing-fn-hover-on;
 }

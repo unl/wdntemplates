@@ -14,29 +14,37 @@
 // Background color
 $bg-color-input-light-mode: $white;                             // Field background color in light mode
 $bg-color-input-dark-mode: $darkest-gray-s1;                    // Field background color in dark mode
+$bg-color-input: var(--bg-input, $default-bg-input);
 
 $bg-color-input-disabled-light-mode: $lighter-gray;             // Disabled input background color in light mode
 $bg-color-input-disabled-dark-mode: $darker-gray;               // Disabled input background color in dark mode
+$bg-color-input-disabled: var(--bg-input-disabled);
 
 $bg-color-required-light-mode: transparent;                     // Required background color in light mode
 $bg-color-required-dark-mode: rgba(157,0,0,.25);                // Required background color in dark mode
+$bg-color-required: var(--bg-required);
 
 
 // Border color
 $border-color-fieldset-light-mode: $light-gray;                 // Fieldset border-color in light mode
 $border-color-fieldset-dark-mode: $darker-gray;                 // Fieldset border-color in dark mode
+$border-color-fieldset: var(--b-fieldset);
 
 $border-color-input-light-mode: $gray;                          // Input field border-color in light mode
 $border-color-input-dark-mode: $dark-gray;                      // Input field border-color in dark mode
+$border-color-input: var(--b-input, $default-b-input);
 
 $border-color-input-hover-light-mode: $dark-gray;               // Input field border-color when hovered in light mode
 $border-color-input-hover-dark-mode: $gray;                     // Input field border-color when hovered in dark mode
+$border-color-input-hover: var(--b-input-hover);
 
 $border-color-input-focus-light-mode: $blue;                    // Input field border-color when focused in light mode
 $border-color-input-focus-dark-mode: $cerulean;                 // Input field border-color when focused in dark mode
+$border-color-input-focus: var(--b-input-focus);
 
 $border-color-required-light-mode: transparent;                 // Required border-color in light mode
 $border-color-required-dark-mode: $scarlet-shade;               // Required border-color in dark mode
+$border-color-required: var(--b-required);
 
 
 // Border radius
@@ -55,9 +63,11 @@ $border-width-input: 1px;                                       // Input field b
 // Color
 $color-form-help-light-mode: $color-light-text-light-mode;      // Form help text color in light mode
 $color-form-help-dark-mode: $color-light-text-dark-mode;        // Form help text color in dark mode
+$color-form-help: var(--form-help);
 
 $color-required-label-light-mode: $scarlet;                     // Required label text color in light mode
 $color-required-label-dark-mode: $cream;                        // Required label text color in dark mode
+$color-required-label: var(--required);
 
 
 // Font size
