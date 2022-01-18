@@ -11,17 +11,23 @@ $bg-color-brand-alpha-light-mode: $scarlet;                       // Alpha brand
 $bg-color-brand-alpha-dark-mode: $scarlet;                        // Alpha brand background-color (scarlet) in dark mode
 $bg-color-brand-alpha: var(--bg-brand-alpha);
 
-$bg-color-brand-zeta-light-mode: $green;                          // Zeta brand background-color (green) in light mode
-$bg-color-brand-zeta-dark-mode: $green;                           // Zeta brand background-color (green) in dark mode
-$bg-color-brand-zeta: var(--bg-brand-zeta);
+$bg-color-brand-zeta: $green;                                     // Zeta brand background-color (green)
 
-$bg-color-brand-eta-light-mode: $blue;                            // Eta brand background-color (blue) in light mode
-$bg-color-brand-eta-dark-mode: $blue;                             // Eta brand background-color (blue) in dark mode
-$bg-color-brand-eta: var(--bg-brand-eta);
+$bg-color-brand-eta: $blue;                                       // Eta brand background-color (blue)
 
-$bg-color-brand-theta-light-mode: $purple;                        // Theta brand background-color (purple) in light mode
-$bg-color-brand-theta-dark-mode: $purple;                         // Theta brand background-color (purple) in dark mode
-$bg-color-brand-theta: var(--bg-brand-theta);
+$bg-color-brand-theta: $purple;                                   // Theta brand background-color (purple)
+
+$bg-color-brand-light-zeta-light-mode: $light-green;              // Light zeta brand background-color (light green) in light mode
+$bg-color-brand-light-zeta-dark-mode: $green;                     // Light zeta brand background-color (light green) in dark mode
+$bg-color-brand-light-zeta: var(--bg-brand-light-zeta);
+
+$bg-color-brand-light-eta-light-mode: $light-blue;                // Light eta brand background-color (light blue) in light mode
+$bg-color-brand-light-eta-dark-mode: $blue;                       // Light eta brand background-color (light blue) in dark mode
+$bg-color-brand-light-eta: var(--bg-brand-light-eta);
+
+$bg-color-brand-light-theta-light-mode: $light-purple;            // Light theta brand background-color (light purple) in light mode
+$bg-color-brand-light-theta-dark-mode: $purple;                   // Light theta brand background-color (light purple) in dark mode
+$bg-color-brand-light-theta: var(--bg-brand-light-theta);
 
 $bg-color-white-light-mode: $white;                               // White background-color in light mode
 $bg-color-white-dark-mode: $darker-gray-s1;                       // White background-color in dark mode

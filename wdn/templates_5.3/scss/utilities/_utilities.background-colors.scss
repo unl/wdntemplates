@@ -31,16 +31,19 @@
 // Green
 .unl-bg-green { @include bg-green(!important); }
 .unl-bg-light-green { @include bg-light-green(!important); }
+.unl-bg-light-green\@dark { @include bg-light-green-at-dark(!important); }
 
 
 // Blue
 .unl-bg-blue { @include bg-blue(!important); }
 .unl-bg-light-blue { @include bg-light-blue(!important); }
+.unl-bg-light-blue\@dark { @include bg-light-blue-at-dark(!important); }
 
 
 // Purple
 .unl-bg-purple { @include bg-purple(!important); }
 .unl-bg-light-purple { @include bg-light-purple(!important); }
+.unl-bg-light-purple\@dark { @include bg-light-purple-at-dark(!important); }
 
 
 // Yellow
