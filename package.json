@@ -30,6 +30,7 @@
     "csso": "^4.2.0",
     "dcf": "git://github.com/digitalcampusframework/dcf.git#3.0",
     "decompress": "^4.2.1",
+    "follow-redirects": "^1.14.7",
     "fsevents": "^2.3.2",
     "grunt": "^1.4.1",
     "grunt-babel": "^8.0.0",
@@ -82,11 +83,11 @@
     "y18n": "^5.0.8"
   },
   "resolutions": {
-    "css-what": "^5.0.1",
-    "glob-parent": "^5.1.2",
-    "normalize-url": "^6.0.1",
-    "set-value": "^4.0.1",
-    "trim-newlines": "^4.0.1"
+    "css-what": "^6.0.1",
+    "glob-parent": "^6.0.2",
+    "normalize-url": "^6.1.0",
+    "set-value": "^4.1.0",
+    "trim-newlines": "^4.0.2"
   },
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
