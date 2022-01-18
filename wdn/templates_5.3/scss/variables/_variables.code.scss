@@ -27,7 +27,7 @@ $color-code-light-mode: lighten($color-body-light-mode, 10%);   // <code> color 
 $color-code-dark-mode: lighten($color-body-dark-mode, 10%);     // <code> color in dark mode
 $color-code: var(--code);
 
-$color-kbd: $color-kbd;                                         // <kbd> color
+$color-kbd: $kbd;                                               // <kbd> color
 
 
 // Font size
