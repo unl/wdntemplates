@@ -2,7 +2,7 @@
 
 
 .wdn_notice {
-  background-color: $color-info;
+  background-color: $info;
   background-image: url('https://unlcms.unl.edu/wdn/templates_5.3/js/js-css/img/information.svg');
   background-position: 1em 50%;
   background-repeat: no-repeat;
@@ -15,17 +15,17 @@
 }
 
 .wdn_notice.affirm {
-  background-color: $color-success;
+  background-color: $success;
   background-image: url('https://unlcms.unl.edu/wdn/templates_5.3/js/js-css/img/check-circle-2.svg');
 }
 
 .wdn_notice.negate {
-  background-color: $color-danger;
+  background-color: $danger;
   background-image: url('https://unlcms.unl.edu/wdn/templates_5.3/js/js-css/img/cross-bubble.svg');
 }
 
 .wdn_notice.alert {
-  background-color: $color-warning;
+  background-color: $warning;
   background-image: url('https://unlcms.unl.edu/wdn/templates_5.3/js/js-css/img/alert-2.svg');
 }
 
