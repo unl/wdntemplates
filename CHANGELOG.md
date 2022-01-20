@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.11 (January 20, 2022)
+- Update NU System logo in footer
+- Cleanup and reorganize CSS variables
+- Update secondary background-color CSS variables
+
 ## 5.3.10 (December 14, 2021)
 - Fix institution title hover color in footer
 - Fix heading color in notices
