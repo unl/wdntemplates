@@ -48,7 +48,7 @@
   --bg-white: #{$bg-color-white-light-mode};
 
   // Border Colors
-  --b: #{$border-color-light-mode};
+  --b: #{$border-color};
   --b-breadcrumb-arrow: #{$border-color-breadcrumb-arrow};
   --b-btn-primary: #{$border-color-button-primary-light-mode};
   --b-btn-primary-hover: #{$border-color-button-primary-hover-light-mode};
@@ -159,7 +159,7 @@
     --bg-white: #{$bg-color-white-dark-mode};
 
   	// Border Colors
-    --b: #{$border-color-dark-mode};
+    --b: #{$border-color};
     --b-breadcrumb-arrow: #{$border-color-breadcrumb-arrow};
     --b-btn-primary: #{$border-color-button-primary-dark-mode};
     --b-btn-primary-hover: #{$border-color-button-primary-hover-dark-mode};
