@@ -8,10 +8,6 @@
 
 
 // Border color
-$border-color-light-mode: $light-gray;  // Border-color in light mode
-$border-color-dark-mode: $darker-gray;  // Border-color in dark mode
-$border-color: var(--b);
-
 $border-color-gray-light-light-mode: $light-gray;       // Light gray border-color in light mode
 $border-color-gray-light-dark-mode: $darker-gray;       // Light gray border-color in dark mode
 $border-color-gray-light: var(--b-light-gray);
@@ -23,6 +19,8 @@ $border-color-gray-lighter: var(--b-lighter-gray);
 $border-color-gray-lightest-light-mode: $lightest-gray; // Lightest gray border-color in light mode
 $border-color-gray-lightest-dark-mode: $darker-gray;    // Lightest gray border-color in dark mode
 $border-color-gray-lightest: var(--b-lightest-gray);
+
+$border-color: var(--b-light-gray);                     // Legacy variable
 
 
 // Border radius
