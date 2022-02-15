@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.12 (February 15, 2022)
+- Update Modal video events to handle YouTube embeds
+- Update border variables
+- Update variables in dark mode bookmarklet
+
 ## 5.3.11 (January 20, 2022)
 - Update NU System logo in footer
 - Cleanup and reorganize CSS variables
