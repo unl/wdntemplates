@@ -1,0 +1,37 @@
+//////////////////////////////
+// THEME / ELEMENTS / PROGRESS
+//////////////////////////////
+
+
+// Styles for a determinate progress bar (one with a known value)
+.unl progress[value] {
+  appearance: none; // Reset default appearance.
+  border: none; // Get rid of default border in Firefox.
+  max-width: 100%;
+  width: 100%;
+}
+
+
+// Progress bar (background/container) and value -- WebKit only
+.unl progress[value]::-webkit-progress-bar,
+.unl progress[value]::-webkit-progress-value {
+  border-radius: $pill;
+}
+
+
+// Progress bar (background/container) -- WebKit only
+.unl progress[value]::-webkit-progress-bar {
+  background-color: var(--bg-light-gray);
+}
+
+
+// Progress value -- WebKit
+.unl progress[value]::-webkit-progress-value {
+  background-color: $blue;
+}
+
+
+// Progress value -- Firefox
+.unl progress[value]::-moz-progress-bar {
+  background-color: $blue;
+}
