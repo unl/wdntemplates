@@ -566,6 +566,11 @@
         <input class="dcf-btn dcf-btn-primary" name="submit" type="submit" value="Submit">
       </form>
 
+      <div class="dcf-d-flex dcf-ai-center dcf-mt-6">
+        <label class="dcf-label dcf-mr-3" for="progress-bar-2">Progress</label>
+        <progress class="dcf-w-12" id="progress-bar-2" value="70" max="100">70 %</progress>
+      </div>
+
       <h2 class="dcf-mt-6">Input Groups</h2>
 
       <h3 class="dcf-mt-5 dcf-regular">With Add-on Before Input</h3>
