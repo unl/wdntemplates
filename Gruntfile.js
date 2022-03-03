@@ -362,6 +362,18 @@ module.exports = function (grunt) {
         'src': ['**/*.js'],
         'dest': templateJs,
         'ext': '.js'
+      },
+      gsap: {
+        options: {
+          //let rjs generate the sourcemap
+          sourceMap: false,
+          presets: ['@babel/preset-env'],
+        },
+        'expand': true,
+        'cwd': 'node_modules/gsap/dist',
+        'src': ['**/*.js'],
+        'dest': templateJs + '/plugins/gsap',
+        'ext': '.js'
       }
     },
 
@@ -564,7 +576,7 @@ module.exports = function (grunt) {
   grunt.registerTask('images', ['newer:imagemin']);
   grunt.registerTask('css-main', ['sassGlobber', 'sass:main', 'postcss:main']);
   grunt.registerTask('css-plugins', ['sassGlobber', 'sass:plugins', 'postcss:plugins']);
-  grunt.registerTask('js-main', ['css-plugins', 'babel:dcf', 'babel:wdn', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
+  grunt.registerTask('js-main', ['css-plugins', 'babel:dcf', 'babel:gsap', 'babel:wdn', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
   grunt.registerTask('js', ['clean:js', 'css-plugins', 'babel:wdn', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
 
   // establish grunt composed tasks
