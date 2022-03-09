@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.13 (March 9, 2022)
+- Add new PHP TWIG template file
+- Progress element styles
+- Implement DCF background video toggle
+- DCF update: Add gap mixins and utilites
+
 ## 5.3.12 (February 15, 2022)
 - Update Modal video events to handle YouTube embeds
 - Update border variables
