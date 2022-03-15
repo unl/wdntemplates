@@ -12,7 +12,7 @@ define([
   'cta-nav',
   'form_validation',
   'qa',
-  'bg-videos'
+  'autoplay-videos'
 ], function () {
   for (var i = 0, pluginCount = arguments.length; i < pluginCount; i++) {
     var pluginObj = arguments[i];
