@@ -63,6 +63,7 @@ module.exports = function (grunt) {
 
   // modules added here will be added to rjsConfig modules below
   const wdnBuildPlugins = [
+    'autoplay-videos',
     'band_imagery',
     'carousel',
     'datepickers',
