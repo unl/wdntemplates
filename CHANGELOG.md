@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.14 (April 12, 2022)
+- Implement GSAP as npm module
+- Remove Google Tag Manager from "local" template
+- Update Sass temp files (grid renamed gap)
+- Rename BG Video Toggle to Autoplay Video Toggle
+- Remove progress width and max-width
+- Update slideshow styles for alternate display
+
 ## 5.3.13 (March 9, 2022)
 - Add new PHP TWIG template file
 - Progress element styles
