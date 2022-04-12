@@ -28,7 +28,7 @@
     "core-js": "^3.20.3",
     "cssnano": "^5.0.15",
     "csso": "^4.2.0",
-    "dcf": "git://github.com/digitalcampusframework/dcf.git#3.0",
+    "dcf": "git+ssh://git@github.com/digitalcampusframework/dcf.git#3.0",
     "decompress": "^4.2.1",
     "follow-redirects": "^1.14.8",
     "fsevents": "^2.3.2",
