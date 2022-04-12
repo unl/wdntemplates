@@ -7,6 +7,16 @@
 
 
 .unl .dcf-slide-deck {
+  scrollbar-width: none;  // Hide scrollbar in Firefox
+}
+
+
+.unl .dcf-slide-deck::-webkit-scrollbar {
+  display: none;  // Hide scrollbar in Safari and Chrome
+}
+
+
+.unl .dcf-slideshow:not([data-toggle-caption="false"]) .dcf-slide-deck {
   clip-path: polygon(
     100% 0,
     100% calc(100% - #{$size-btn-y} - (#{$border-width-button} * 2) - #{$size-clip-path}),
@@ -15,12 +25,18 @@
     0 100%,
     0 0
   );
-  scrollbar-width: none;  // Hide scrollbar in Firefox
 }
 
 
-.unl .dcf-slide-deck::-webkit-scrollbar {
-  display: none;  // Hide scrollbar in Safari and Chrome
+.unl .dcf-slideshow[data-toggle-caption="false"] .dcf-slide-deck {
+  clip-path: polygon(
+    0 0,
+    calc(100% - (#{$size-btn-x} * 2) - (#{$border-width-button} * 5) - #{$size-clip-path}) 0,
+    calc(100% - (#{$size-btn-x} * 2) - (#{$border-width-button} * 5) - #{$size-clip-path}) calc(#{$size-btn-y} + (#{$border-width-button} * 2) + #{$size-clip-path}),
+    100% calc(#{$size-btn-y} + (#{$border-width-button} * 2) + #{$size-clip-path}),
+    100% 100%,
+    0 100%
+  );
 }
 
 
@@ -49,7 +65,7 @@
 }
 
 
-.unl .dcf-slide-caption {
+.unl .dcf-slideshow:not([data-toggle-caption="false"]) .dcf-slide-caption {
   background-color: $bg-color-overlay-dark;
   clip-path: polygon(
       100% 0,
