@@ -6,13 +6,11 @@
 // Styles for a determinate progress bar (one with a known value)
 .unl progress[value] {
   appearance: none; // Reset default appearance.
-  border: none; // Get rid of default border in Firefox.
-  max-width: 100%;
-  width: 100%;
+  border: none; // Remove default border in Firefox.
 }
 
 
-// Progress bar (background/container) and value -- WebKit only
+// Progress bar (background/container) -- WebKit only -- and value
 .unl progress[value]::-webkit-progress-bar,
 .unl progress[value]::-webkit-progress-value {
   border-radius: $pill;
