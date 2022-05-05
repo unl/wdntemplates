@@ -3,6 +3,8 @@ require(['plugins/gsap/gsap', 'plugins/gsap/ScrollTrigger'], (gsapModule, Scroll
   const gsap = gsapModule.gsap;
   gsap.registerPlugin(ScrollTriggerModule.ScrollTrigger);
 
+  gsap.set('.unl-fade-in', {autoAlpha: 0});
+
   ScrollTriggerModule.ScrollTrigger.config( { limitCallbacks: true } );
 
   ScrollTriggerModule.ScrollTrigger.batch('.unl-fade-in', {
