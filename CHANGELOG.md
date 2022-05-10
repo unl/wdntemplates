@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.15 (May 10, 2022)
+- Convert prev/next buttons from list to <div> group
+- Fix modal scrolling issue on iOS
+- Add playsinline attribute for autoplay videos
+
 ## 5.3.14 (April 12, 2022)
 - Implement GSAP as npm module
 - Remove Google Tag Manager from "local" template
