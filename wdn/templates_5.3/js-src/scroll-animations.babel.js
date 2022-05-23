@@ -22,7 +22,7 @@ require(['plugins/gsap/gsap', 'plugins/gsap/ScrollTrigger'], (gsapModule, Scroll
     config.scrollTrigger = {
       trigger: target,
       scrub: true,
-      end: "top center",
+      end: 'top center',
     };
     return config
   };
