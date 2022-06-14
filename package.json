@@ -32,7 +32,7 @@
     "decompress": "^4.2.1",
     "follow-redirects": "^1.14.8",
     "fsevents": "^2.3.2",
-    "grunt": "^1.5.2",
+    "grunt": "^1.5.3",
     "grunt-babel": "^8.0.0",
     "grunt-bump": "^0.8.0",
     "grunt-cli": "^1.4.3",
