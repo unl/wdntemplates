@@ -29,19 +29,19 @@
 
 
 // Green
-@mixin bg-green($imp:null) { background-color: $green $imp; }
+@mixin bg-green($imp:null) { background-color: $bg-color-brand-zeta $imp; }
 @mixin bg-light-green($imp:null) { background-color: $bg-color-brand-light-zeta $imp; }
 @mixin bg-light-green-at-dark($imp:null) { background-color: $light-green $imp; }
 
 
 // Blue
-@mixin bg-blue($imp:null) { background-color: $blue $imp; }
+@mixin bg-blue($imp:null) { background-color: $bg-color-brand-eta $imp; }
 @mixin bg-light-blue($imp:null) { background-color: $bg-color-brand-light-eta $imp; }
 @mixin bg-light-blue-at-dark($imp:null) { background-color: $light-blue $imp; }
 
 
 // Purple
-@mixin bg-purple($imp:null) { background-color: $purple $imp; }
+@mixin bg-purple($imp:null) { background-color: $bg-color-brand-theta $imp; }
 @mixin bg-light-purple($imp:null) { background-color: $bg-color-brand-light-theta $imp; }
 @mixin bg-light-purple-at-dark($imp:null) { background-color: $light-purple $imp; }
 
