@@ -73,3 +73,28 @@
   }
 
 }
+
+
+
+.dcf-header .unl-link-cta-covid {
+  color: $blue;
+}
+
+.dcf-header .unl-link-cta-covid:hover {
+  color: #0d556d; // $dark-blue
+}
+
+
+
+
+@media (prefers-color-scheme: dark) {
+
+  .dcf-header .unl-link-cta-covid {
+    color: $cerulean;
+  }
+
+  .dcf-header .unl-link-cta-covid:hover {
+    color: #aadeee; // $lighter-blue
+  }
+
+}
