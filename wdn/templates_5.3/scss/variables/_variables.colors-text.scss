@@ -23,6 +23,18 @@ $color-brand-theta-light-mode: $purple;                 // Theta brand text colo
 $color-brand-theta-dark-mode: $light-purple;            // Theta brand text color (purple) in dark mode
 $color-brand-theta: var(--brand-theta);
 
+$color-brand-light-zeta-light-mode: $lighter-green;     // Light zeta brand text color (green) in light mode
+$color-brand-light-zeta-dark-mode: $light-green;        // Light zeta brand text color (green) in dark mode
+$color-brand-light-zeta: var(--brand-light-zeta);
+
+$color-brand-light-eta-light-mode: $lighter-blue;       // Light eta brand text color (blue) in light mode
+$color-brand-light-eta-dark-mode: $light-blue;          // Light eta brand text color (blue) in dark mode
+$color-brand-light-eta: var(--brand-light-eta);
+
+$color-brand-light-theta-light-mode: $lighter-purple;   // Light theta brand text color (purple) in light mode
+$color-brand-light-theta-dark-mode: $light-purple;      // Light theta brand text color (purple) in dark mode
+$color-brand-light-theta: var(--brand-light-theta);
+
 $color-gray-dark-light-mode: $dark-gray;                // Dark text color in light mode -- must meet WCAG AA (minimum contrast ratio of 4.5)
 $color-gray-dark-dark-mode: $light-gray;                // Dark text color in dark mode -- must meet WCAG AA (minimum contrast ratio of 4.5)
 $color-gray-dark: var(--dark-gray);
