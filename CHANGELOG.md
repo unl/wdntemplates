@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.17 (July 12, 2022)
+- Remove deprecated ".wdn-*" button styles
+- Update tertiary colors
+- Add radio switch styles
+- Add hr element style
+
 ## 5.3.16 (June 14, 2022)
 - Use GSAP/ScrollTrigger for scroll animations
 
