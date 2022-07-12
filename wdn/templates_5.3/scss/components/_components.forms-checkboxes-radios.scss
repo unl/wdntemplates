@@ -9,7 +9,8 @@
 
 // Checkbox and radio label
 .unl .dcf-input-checkbox label,
-.unl .dcf-input-radio label {
+.unl .dcf-input-radio label,
+.unl .dcf-input-switch label {
   margin-bottom: 0;
 }
 
@@ -21,11 +22,33 @@
 }
 
 
+.unl .dcf-input-switch label {
+  transition: background-color $transition-duration-hover-off $transition-timing-fn-hover-off, border-color $transition-duration-hover-off $transition-timing-fn-hover-off, color $transition-duration-hover-off $transition-timing-fn-hover-off;
+}
+
+
 // Hover
 .unl .dcf-input-checkbox label:hover::before,
 .unl .dcf-input-radio label:hover::before,
 .unl .dcf-input-checkbox input[type="checkbox"]:hover + label::before {
   transition: border-color $transition-duration-hover-on $transition-timing-fn-hover-on;
+}
+
+
+.unl .dcf-input-switch label {
+  transition: background-color $transition-duration-hover-on $transition-timing-fn-hover-on, border-color $transition-duration-hover-on $transition-timing-fn-hover-on, color $transition-duration-hover-on $transition-timing-fn-hover-on;
+}
+
+
+.dcf-input-switch input[type="radio"]:checked + label:hover {
+  background-color: $bg-color-button-primary-hover;
+  border-color: $border-color-button-primary-hover;
+}
+
+
+.dcf-input-switch input[type="radio"]:not(:checked):not(:disabled) + label:hover {
+  background-color: $bg-color-button-inverse-secondary-tertiary-hover;
+  color: $color-button-inverse-secondary-tertiary-hover;
 }
 
 
