@@ -7,14 +7,6 @@
 // and radio buttons https://scottaohara.github.io/a11y_styled_form_controls/src/radio-button/
 
 
-// Checkbox and radio label
-.unl .dcf-input-checkbox label,
-.unl .dcf-input-radio label,
-.unl .dcf-input-switch label {
-  margin-bottom: 0;
-}
-
-
 // Style checkbox and radio input
 .unl .dcf-input-checkbox label::before,
 .unl .dcf-input-radio label::before {
@@ -47,8 +39,8 @@
 
 
 .dcf-input-switch input[type="radio"]:not(:checked):not(:disabled) + label:hover {
-  background-color: $bg-color-button-inverse-secondary-tertiary-hover;
-  color: $color-button-inverse-secondary-tertiary-hover;
+  background-color: $bg-color-button-secondary-tertiary-hover;
+  color: $color-button-secondary-tertiary-hover;
 }
 
 
