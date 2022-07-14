@@ -84,7 +84,7 @@ button {
 }
 :root {
   --bg-body: #fefdfa;
-  --bg-btn-inverse-primary: #e3e3e2;
+  --bg-btn-inverse-primary: #ebebea;
   --bg-btn-inverse-secondary: transparent;
   --bg-btn-inverse-tertiary: transparent;
   --bg-btn-primary: #d00000;
@@ -94,7 +94,7 @@ button {
   --b-btn-primary: #d00000;
   --b-btn-secondary: currentColor;
   --b-btn-tertiary: transparent;
-  --b-btn-inverse-primary: #e3e3e2;
+  --b-btn-inverse-primary: #ebebea;
   --b-btn-inverse-secondary: currentColor;
   --b-btn-inverse-tertiary: transparent;
   --body: #424240;
@@ -102,8 +102,8 @@ button {
   --btn-secondary: #d00000;
   --btn-tertiary: #d00000;
   --btn-inverse-primary: #d00000;
-  --btn-inverse-secondary: #e3e3e2;
-  --btn-inverse-tertiary: #e3e3e2;
+  --btn-inverse-secondary: #ebebea;
+  --btn-inverse-tertiary: #ebebea;
   --heading: #242423;
   --inverse: #fefdfa;
   --link: #d00000;
@@ -112,29 +112,29 @@ button {
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-body: #171716;
-    --bg-btn-inverse-primary: #e3e3e2;
+    --bg-body: #242423;
+    --bg-btn-inverse-primary: #ebebea;
     --bg-btn-inverse-secondary: transparent;
     --bg-btn-inverse-tertiary: transparent;
-    --bg-btn-primary: #e3e3e2;
+    --bg-btn-primary: #ebebea;
     --bg-btn-secondary: transparent;
     --bg-btn-tertiary: transparent;
     --b: #424240;
-    --b-btn-primary: #e3e3e2;
+    --b-btn-primary: #ebebea;
     --b-btn-secondary: currentColor;
     --b-btn-tertiary: transparent;
-    --b-btn-inverse-primary: #e3e3e2;
+    --b-btn-inverse-primary: #ebebea;
     --b-btn-inverse-secondary: currentColor;
     --b-btn-inverse-tertiary: transparent;
-    --body: #f6f6f5;
+    --body: #c7c8ca;
     --btn-inverse-primary: #d00000;
-    --btn-inverse-secondary: #e3e3e2;
-    --btn-inverse-tertiary: #e3e3e2;
+    --btn-inverse-secondary: #ebebea;
+    --btn-inverse-tertiary: #ebebea;
     --btn-primary: #d00000;
-    --btn-secondary: #e3e3e2;
-    --btn-tertiary: #e3e3e2;
+    --btn-secondary: #ebebea;
+    --btn-tertiary: #ebebea;
     --heading: #fefdfa;
-    --link: #f6f6f5;
+    --link: #71bdd3;
   }
 }
 @media screen and (min-width:31.57em) {

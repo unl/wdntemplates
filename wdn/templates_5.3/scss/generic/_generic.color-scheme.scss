@@ -10,6 +10,9 @@
   --bg-badge: #{$bg-color-badge-light-mode};
   --bg-body: #{$bg-color-body-light-mode};
   --bg-brand-alpha: #{$bg-color-brand-alpha-light-mode};
+  --bg-brand-zeta: #{$bg-color-brand-zeta-light-mode};
+  --bg-brand-eta: #{$bg-color-brand-eta-light-mode};
+  --bg-brand-theta: #{$bg-color-brand-theta-light-mode};
   --bg-brand-light-zeta: #{$bg-color-brand-light-zeta-light-mode};
   --bg-brand-light-eta: #{$bg-color-brand-light-eta-light-mode};
   --bg-brand-light-theta: #{$bg-color-brand-light-theta-light-mode};
@@ -80,6 +83,9 @@
   --brand-zeta: #{$color-brand-zeta-light-mode};
   --brand-eta: #{$color-brand-eta-light-mode};
   --brand-theta: #{$color-brand-theta-light-mode};
+  --brand-light-zeta: #{$color-brand-light-zeta-light-mode};
+  --brand-light-eta: #{$color-brand-light-eta-light-mode};
+  --brand-light-theta: #{$color-brand-light-theta-light-mode};
   --btn-inverse-primary: #{$color-button-inverse-primary};
   --btn-inverse-secondary: #{$color-button-inverse-secondary};
   --btn-inverse-tertiary: #{$color-button-inverse-tertiary};
@@ -121,6 +127,9 @@
     --bg-badge: #{$bg-color-badge-dark-mode};
     --bg-body: #{$bg-color-body-dark-mode};
     --bg-brand-alpha: #{$bg-color-brand-alpha-dark-mode};
+    --bg-brand-zeta: #{$bg-color-brand-zeta-dark-mode};
+    --bg-brand-eta: #{$bg-color-brand-eta-dark-mode};
+    --bg-brand-theta: #{$bg-color-brand-theta-dark-mode};
     --bg-brand-light-zeta: #{$bg-color-brand-light-zeta-dark-mode};
     --bg-brand-light-eta: #{$bg-color-brand-light-eta-dark-mode};
     --bg-brand-light-theta: #{$bg-color-brand-light-theta-dark-mode};
@@ -191,6 +200,9 @@
     --brand-zeta: #{$color-brand-zeta-dark-mode};
     --brand-eta: #{$color-brand-eta-dark-mode};
     --brand-theta: #{$color-brand-theta-dark-mode};
+    --brand-light-zeta: #{$color-brand-light-zeta-dark-mode};
+    --brand-light-eta: #{$color-brand-light-eta-dark-mode};
+    --brand-light-theta: #{$color-brand-light-theta-dark-mode};
     --btn-inverse-primary: #{$color-button-inverse-primary};
     --btn-inverse-secondary: #{$color-button-inverse-secondary};
     --btn-inverse-tertiary: #{$color-button-inverse-tertiary};
