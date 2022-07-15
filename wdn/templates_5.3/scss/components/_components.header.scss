@@ -43,7 +43,7 @@
 
   .unl .dcf-logo-lockup {
     @include pb-4;
-    @include pt-5;
+    @include pt-3;
   }
 
 }
@@ -66,14 +66,16 @@
     margin-left: $length-vw-1;
   }
 
-
   .unl .dcf-logo-lockup {
     padding-bottom: #{ms(1)}em;
     @include pt-5;
   }
 
-}
+  .unl-div-cta-covid {
+    display: none;
+  }
 
+}
 
 
 .dcf-header .unl-link-cta-covid {
@@ -83,7 +85,6 @@
 .dcf-header .unl-link-cta-covid:hover {
   color: $dark-blue;
 }
-
 
 
 
