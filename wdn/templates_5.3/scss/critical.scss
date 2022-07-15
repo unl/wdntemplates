@@ -1286,9 +1286,9 @@ a.dcf-btn-secondary {
 // .dcf-p-3 {
 //     padding: .75em!important !important;
 // }
-// .dcf-p-4 {
-//     padding: 1em!important !important;
-// }
+.dcf-p-4 {
+  padding: 1em!important !important;
+}
 // .dcf-p-5 {
 //     padding: 1.33em!important !important;
 // }
@@ -1547,18 +1547,18 @@ a.dcf-btn-secondary {
 // .dcf-measure {
 //     max-width: 31.5692916987rem!important;
 // }
-.dcf-txt-vertical-lr {
-  transform: translateY(-100%) rotate(90deg);
-  transform-origin: 0 100%;
-}
-@supports ((-webkit-writing-mode:vertical-lr) or (writing-mode:vertical-lr)) {
-  .dcf-txt-vertical-lr {
-    transform: none;
-    -webkit-writing-mode: vertical-lr;
-    -ms-writing-mode: tb-lr;
-    writing-mode: vertical-lr;
-  }
-}
+// .dcf-txt-vertical-lr {
+//   transform: translateY(-100%) rotate(90deg);
+//   transform-origin: 0 100%;
+// }
+// @supports ((-webkit-writing-mode:vertical-lr) or (writing-mode:vertical-lr)) {
+//   .dcf-txt-vertical-lr {
+//     transform: none;
+//     -webkit-writing-mode: vertical-lr;
+//     -ms-writing-mode: tb-lr;
+//     writing-mode: vertical-lr;
+//   }
+// }
 .dcf-invisible {
     visibility: hidden!important;
 }
