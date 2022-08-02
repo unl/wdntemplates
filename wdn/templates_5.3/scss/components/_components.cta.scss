@@ -48,8 +48,8 @@
   }
 
 
-  // Add arrow above options popover and horizontally center under button text
-  .dcf-btn-toggle-cta[aria-pressed="true"]::after {
+  // Add arrow above options popup and horizontally center under button text
+  .dcf-btn-cta[aria-pressed="true"]::after {
     border-left: #{ms(-4)}em solid transparent;
     border-right: #{ms(-4)}em solid transparent;
     border-bottom: #{ms(-4)}em solid rgba(36,36,35,.95);

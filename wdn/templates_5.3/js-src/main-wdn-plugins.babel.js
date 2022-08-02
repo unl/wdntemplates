@@ -9,6 +9,7 @@ define([
   'legacy',
   'modals',
   'hover_intent',
+  'popups',
   'cta-nav',
   'form_validation',
   'qa'

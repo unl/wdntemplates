@@ -112,6 +112,7 @@ module.exports = function (grunt) {
     '!skipnav.*',
     '!unlalert.*',
     '!wdn*',
+    '!popups.*',
     '!cta-nav.*'
   ];
 
