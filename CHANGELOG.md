@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.18 (August 2, 2022)
+- Add link to covid19.unl.edu in the CTA area
+
 ## 5.3.17 (July 12, 2022)
 - Remove deprecated ".wdn-*" button styles
 - Update tertiary colors
