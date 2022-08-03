@@ -85,7 +85,8 @@ module.exports = function (grunt) {
     'require-css/css',
     'require-css/normalize',
     'jquery',
-    'wdn'
+    'wdn',
+    'banner'
   ];
 
   /**
@@ -112,7 +113,7 @@ module.exports = function (grunt) {
     '!skipnav.*',
     '!unlalert.*',
     '!wdn*',
-    '!cta-nav.*'
+    '!cta-nav.*',
   ];
 
   // requirejs configuration and customization options
