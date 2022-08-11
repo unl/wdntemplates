@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.19 (August 11, 2022)
+- Move In Our Grit Our Glory logo in footer
+- Fix <select> corners in input groups
+- Minimize message banner javascript
+
 ## 5.3.18 (August 2, 2022)
 - Add link to covid19.unl.edu in the CTA area
 
