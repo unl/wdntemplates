@@ -3,8 +3,18 @@
 /////////////////////////
 
 
-.unl .dcf-header-global {
+.unl .dcf-header-global,
+.unl .dcf-logo-lockup {
   border-bottom: 1px solid #ccc !important;
+}
+
+
+.unl .dcf-header-global {
   border-top: none !important;
-  margin-bottom: 1em;
+}
+
+
+.unl .dcf-logo-lockup {
+  padding-bottom: 1.13em !important;
+  padding-top: 1.33em !important;
 }
