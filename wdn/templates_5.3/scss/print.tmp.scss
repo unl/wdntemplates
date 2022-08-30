@@ -101,6 +101,7 @@
 
 
 // Print
+@import "../../../node_modules/dcf/scss/print/_print.base";
 @import "../../../node_modules/dcf/scss/print/_print.display";
 @import "print/_print.base";
 @import "print/_print.breadcrumbs";
