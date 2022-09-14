@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.21 (September 14, 2022)
+- Update GSAP to 3.11.1
+
 ## 5.3.20 (September 13, 2022)
 - Improved print syles
 - Add screen media query for colors in critical CSS
