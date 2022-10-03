@@ -35,11 +35,8 @@
   .unl-light-gray { @include light-gray(!important); }
   .unl-gray { @include gray(!important); }
   .unl-dark-gray { @include dark-gray(!important); }
-  .unl-dark-gray\@dark { @include dark-gray-at-dark(!important); }
   .unl-darker-gray { @include darker-gray(!important); }
-  .unl-darker-gray\@dark { @include darker-gray-at-dark(!important); }
   .unl-darkest-gray { @include darkest-gray(!important); }
-  .unl-darkest-gray\@dark { @include darkest-gray-at-dark(!important); }
 
 
   // Cerulean
@@ -48,23 +45,43 @@
 
   // Green
   .unl-green { @include green(!important); }
-  .unl-green\@dark { @include green-at-dark(!important); }
   .unl-light-green { @include light-green(!important); }
 
 
   // Blue
   .unl-blue { @include blue(!important); }
-  .unl-blue\@dark { @include blue-at-dark(!important); }
   .unl-light-blue { @include light-blue(!important); }
 
 
   // Purple
   .unl-purple { @include purple(!important); }
-  .unl-purple\@dark { @include purple-at-dark(!important); }
   .unl-light-purple { @include light-purple(!important); }
 
 
   // Yellow
   .unl-yellow { @include yellow(!important); }
+
+}
+
+
+
+@media screen and (prefers-color-scheme: dark) {
+
+  // Gray
+  .unl-dark-gray\@dark { @include dark-gray-at-dark(!important); }
+  .unl-darker-gray\@dark { @include darker-gray-at-dark(!important); }
+  .unl-darkest-gray\@dark { @include darkest-gray-at-dark(!important); }
+
+
+  // Green
+  .unl-green\@dark { @include green-at-dark(!important); }
+
+
+  // Blue
+  .unl-blue\@dark { @include blue-at-dark(!important); }
+
+
+  // Purple
+  .unl-purple\@dark { @include purple-at-dark(!important); }
 
 }
