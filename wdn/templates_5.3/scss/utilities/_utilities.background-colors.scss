@@ -11,16 +11,12 @@
 
   // Cream
   .unl-bg-cream { @include bg-cream(!important); }
-  .unl-bg-cream\@dark { @include bg-cream-at-dark(!important); }
 
 
   // Gray
   .unl-bg-lightest-gray { @include bg-lightest(!important); }
-  .unl-bg-lightest-gray\@dark { @include bg-lightest-at-dark(!important); }
   .unl-bg-lighter-gray { @include bg-lighter(!important); }
-  .unl-bg-lighter-gray\@dark { @include bg-lighter-at-dark(!important); }
   .unl-bg-light-gray { @include bg-light(!important); }
-  .unl-bg-light-gray\@dark { @include bg-light-at-dark(!important); }
   .unl-bg-dark-gray { @include bg-dark(!important); }
   .unl-bg-darker-gray { @include bg-darker(!important); }
   .unl-bg-darkest-gray { @include bg-darkest(!important); }
@@ -33,22 +29,45 @@
   // Green
   .unl-bg-green { @include bg-green(!important); }
   .unl-bg-light-green { @include bg-light-green(!important); }
-  .unl-bg-light-green\@dark { @include bg-light-green-at-dark(!important); }
 
 
   // Blue
   .unl-bg-blue { @include bg-blue(!important); }
   .unl-bg-light-blue { @include bg-light-blue(!important); }
-  .unl-bg-light-blue\@dark { @include bg-light-blue-at-dark(!important); }
 
 
   // Purple
   .unl-bg-purple { @include bg-purple(!important); }
   .unl-bg-light-purple { @include bg-light-purple(!important); }
-  .unl-bg-light-purple\@dark { @include bg-light-purple-at-dark(!important); }
 
 
   // Yellow
   .unl-bg-yellow { @include bg-yellow(!important); }
+
+}
+
+
+@media screen and (prefers-color-scheme: dark) {
+
+  // Cream
+  .unl-bg-cream\@dark { @include bg-cream-at-dark(!important); }
+
+
+  // Gray
+  .unl-bg-lightest-gray\@dark { @include bg-lightest-at-dark(!important); }
+  .unl-bg-lighter-gray\@dark { @include bg-lighter-at-dark(!important); }
+  .unl-bg-light-gray\@dark { @include bg-light-at-dark(!important); }
+
+
+  // Green
+  .unl-bg-light-green\@dark { @include bg-light-green-at-dark(!important); }
+
+
+  // Blue
+  .unl-bg-light-blue\@dark { @include bg-light-blue-at-dark(!important); }
+
+
+  // Purple
+  .unl-bg-light-purple\@dark { @include bg-light-purple-at-dark(!important); }
 
 }
