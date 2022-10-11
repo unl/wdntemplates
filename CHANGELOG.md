@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.22 (October 11, 2022)
+- Update N logo SVG class names
+- Fix color contrast on notices
+- Make @dark css rules apply only to dark mode
+- Add .unl-box-shadow class
+- Update moment.js
+
 ## 5.3.21 (September 14, 2022)
 - Update GSAP to 3.11.1
 
