@@ -27,50 +27,50 @@
   <body class="@@(_document['class'])@@ unl affiliate" data-version="$HTML_VERSION$">
     <!--#include virtual="/wdn/templates_5.3/includes/global/skip-nav.html" -->
     <header class="dcf-header" id="dcf-header" role="banner">
-      <!-- InstanceBeginEditable name="affiliateheaderglobal" -->
+      <!-- TemplateBeginEditable name="affiliateheaderglobal" -->
       <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-header-global-1.html" -->
-      <!-- InstanceEndEditable -->
-      <!-- InstanceBeginEditable name="affiliateidm" -->
+      <!-- TemplateEndEditable -->
+      <!-- TemplateBeginEditable name="affiliateidm" -->
       <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-idm.html" -->
-      <!-- InstanceEndEditable -->
-      <!-- InstanceBeginEditable name="affiliatesearch" -->
+      <!-- TemplateEndEditable -->
+      <!-- TemplateBeginEditable name="affiliatesearch" -->
       <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-search.html" -->
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/header-global-2.html" -->
-      <!-- InstanceBeginEditable name="affiliatelogo" -->
+      <!-- TemplateBeginEditable name="affiliatelogo" -->
       <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-logo-lockup-1.html" -->
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/site-affiliation-1.html" -->
-      <!-- InstanceBeginEditable name="affiliation" -->
+      <!-- TemplateBeginEditable name="affiliation" -->
       <a href="#">My site affiliation</a>
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/site-affiliation-2.html" -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/site-title-1.html" -->
-      <!-- InstanceBeginEditable name="titlegraphic" -->
+      <!-- TemplateBeginEditable name="titlegraphic" -->
       <a class="dcf-txt-h6" href="#">Title of my site</a>
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/site-title-2.html" -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/logo-lockup-2.html" -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/affiliate-nav-toggle-group-1.html" -->
-      <!-- InstanceBeginEditable name="affiliatemobilesearch" -->
+      <!-- TemplateBeginEditable name="affiliatemobilesearch" -->
       <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-mobile-search.html" -->
-      <!-- InstanceEndEditable -->
-      <!-- InstanceBeginEditable name="affiliatemobileidm" -->
+      <!-- TemplateEndEditable -->
+      <!-- TemplateBeginEditable name="affiliatemobileidm" -->
       <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-mobile-idm.html" -->
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/affiliate-nav-toggle-group-2.html" -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-1.html" -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/nav-toggle-btn.html" -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-child-1.html" -->
-      <!-- InstanceBeginEditable name="navlinks" -->
+      <!-- TemplateBeginEditable name="navlinks" -->
       <!--#include virtual="/wdn/templates_5.3/includes/local/nav-local.html" -->
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-child-2.html" -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-2.html" -->
     </header>
     <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
-      <!-- InstanceBeginEditable name="highlighted" -->
-      <!-- InstanceEndEditable -->
+      <!-- TemplateBeginEditable name="highlighted" -->
+      <!-- TemplateEndEditable -->
       <!-- TemplateBeginEditable name="hero" -->
       <div class="dcf-hero dcf-hero-default">
         <!-- TemplateEndEditable -->
@@ -104,11 +104,11 @@
       </div>
     </main>
     <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
-      <!-- InstanceBeginEditable name="optionalfooter" -->
-      <!-- InstanceEndEditable -->
-      <!-- InstanceBeginEditable name="contactinfo" -->
+      <!-- TemplateBeginEditable name="optionalfooter" -->
+      <!-- TemplateEndEditable -->
+      <!-- TemplateBeginEditable name="contactinfo" -->
       <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-footer.html" -->
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <!--#include virtual="/wdn/templates_5.3/includes/global/noscript.html" -->
     </footer>
     <!--#include virtual="/wdn/templates_5.3/includes/global/js-body-local.html" -->

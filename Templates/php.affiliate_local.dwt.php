@@ -42,50 +42,50 @@ function wdnInclude($path)
     <body class="@@(_document['class'])@@ unl afilliate" data-version="$HTML_VERSION$">
         <?php wdnInclude("/wdn/templates_5.3/includes/global/skip-nav.html"); ?>
         <header class="dcf-header" id="dcf-header" role="banner">
-            <!-- InstanceBeginEditable name="affiliateheaderglobal" -->
+            <!-- TemplateBeginEditable name="affiliateheaderglobal" -->
             <?php wdnInclude("/wdn/templates_5.3/includes/local/affiliate-header-global-1.html"); ?>
-            <!-- InstanceEndEditable -->
-            <!-- InstanceBeginEditable name="affiliateidm" -->
+            <!-- TemplateEndEditable -->
+            <!-- TemplateBeginEditable name="affiliateidm" -->
             <?php wdnInclude("/wdn/templates_5.3/includes/local/affiliate-idm.html"); ?>
-            <!-- InstanceEndEditable -->
-            <!-- InstanceBeginEditable name="affiliatesearch" -->
+            <!-- TemplateEndEditable -->
+            <!-- TemplateBeginEditable name="affiliatesearch" -->
             <?php wdnInclude("/wdn/templates_5.3/includes/local/affiliate-search.html"); ?>
-            <!-- InstanceEndEditable -->
+            <!-- TemplateEndEditable -->
             <?php wdnInclude("/wdn/templates_5.3/includes/global/header-global-2.html"); ?>
-            <!-- InstanceBeginEditable name="affiliatelogo" -->
+            <!-- TemplateBeginEditable name="affiliatelogo" -->
             <?php wdnInclude("/wdn/templates_5.3/includes/local/affiliate-logo-lockup-1.html"); ?>
-            <!-- InstanceEndEditable -->
+            <!-- TemplateEndEditable -->
             <?php wdnInclude("/wdn/templates_5.3/includes/global/site-affiliation-1.html"); ?>
-            <!-- InstanceBeginEditable name="affiliation" -->
+            <!-- TemplateBeginEditable name="affiliation" -->
             <a href="#">My site affiliation</a>
-            <!-- InstanceEndEditable -->
+            <!-- TemplateEndEditable -->
             <?php wdnInclude("/wdn/templates_5.3/includes/global/site-affiliation-2.html"); ?>
             <?php wdnInclude("/wdn/templates_5.3/includes/global/site-title-1.html"); ?>
-            <!-- InstanceBeginEditable name="titlegraphic" -->
+            <!-- TemplateBeginEditable name="titlegraphic" -->
             <a class="dcf-txt-h6" href="#">Title of my site</a>
-            <!-- InstanceEndEditable -->
+            <!-- TemplateEndEditable -->
             <?php wdnInclude("/wdn/templates_5.3/includes/global/site-title-2.html"); ?>
             <?php wdnInclude("/wdn/templates_5.3/includes/global/logo-lockup-2.html"); ?>
             <?php wdnInclude("/wdn/templates_5.3/includes/global/affiliate-nav-toggle-group-1.html"); ?>
-            <!-- InstanceBeginEditable name="affiliatemobilesearch" -->
+            <!-- TemplateBeginEditable name="affiliatemobilesearch" -->
             <?php wdnInclude("/wdn/templates_5.3/includes/local/affiliate-mobile-search.html"); ?>
-            <!-- InstanceEndEditable -->
-            <!-- InstanceBeginEditable name="affiliatemobileidm" -->
+            <!-- TemplateEndEditable -->
+            <!-- TemplateBeginEditable name="affiliatemobileidm" -->
             <?php wdnInclude("/wdn/templates_5.3/includes/local/affiliate-mobile-idm.html"); ?>
-            <!-- InstanceEndEditable -->
+            <!-- TemplateEndEditable -->
             <?php wdnInclude("/wdn/templates_5.3/includes/global/affiliate-nav-toggle-group-2.html"); ?>
             <?php wdnInclude("/wdn/templates_5.3/includes/global/nav-menu-1.html"); ?>
             <?php wdnInclude("/wdn/templates_5.3/includes/global/nav-toggle-btn.html"); ?>
             <?php wdnInclude("/wdn/templates_5.3/includes/global/nav-menu-child-1.html"); ?>
-            <!-- InstanceBeginEditable name="navlinks" -->
+            <!-- TemplateBeginEditable name="navlinks" -->
             <?php wdnInclude("/wdn/templates_5.3/includes/local/nav-local.html"); ?>
-            <!-- InstanceEndEditable -->
+            <!-- TemplateEndEditable -->
             <?php wdnInclude("/wdn/templates_5.3/includes/global/nav-menu-child-2.html"); ?>
             <?php wdnInclude("/wdn/templates_5.3/includes/global/nav-menu-2.html"); ?>
         </header>
         <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
-            <!-- InstanceBeginEditable name="highlighted" -->
-            <!-- InstanceEndEditable -->
+            <!-- TemplateBeginEditable name="highlighted" -->
+            <!-- TemplateEndEditable -->
             <!-- TemplateBeginEditable name="hero" -->
             <div class="dcf-hero dcf-hero-default">
                 <!-- TemplateEndEditable -->

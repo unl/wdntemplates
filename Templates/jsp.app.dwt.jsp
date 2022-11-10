@@ -25,19 +25,19 @@
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/header-global-1.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/cta-header-1.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/visit-header-1.html"/>
-      <!-- InstanceBeginEditable name="headervisit" -->
+      <!-- TemplateBeginEditable name="headervisit" -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/visit-local.html"/>
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/visit-header-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/apply-header-1.html"/>
-      <!-- InstanceBeginEditable name="headerapply" -->
+      <!-- TemplateBeginEditable name="headerapply" -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/apply-local.html"/>
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/apply-header-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/give-header-1.html"/>
-      <!-- InstanceBeginEditable name="headergive" -->
+      <!-- TemplateBeginEditable name="headergive" -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/give-local.html"/>
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/give-header-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/cta-header-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/idm.html"/>
@@ -45,51 +45,51 @@
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/header-global-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/logo-lockup-1.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/site-affiliation-1.html"/>
-      <!-- InstanceBeginEditable name="affiliation" -->
-      <!-- InstanceEndEditable -->
+      <!-- TemplateBeginEditable name="affiliation" -->
+      <!-- TemplateEndEditable -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/site-affiliation-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/site-title-1.html"/>
-      <!-- InstanceBeginEditable name="titlegraphic" -->
+      <!-- TemplateBeginEditable name="titlegraphic" -->
       <a class="dcf-txt-h5" href="#">
         Web Application
       </a>
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/site-title-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/logo-lockup-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/nav-toggle-group.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/nav-menu-1.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/nav-menu-child-app-1.html"/>
-      <!-- InstanceBeginEditable name="appcontrols" -->
+      <!-- TemplateBeginEditable name="appcontrols" -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/app-controls.html"/>
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/cta-nav-1.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/visit-nav-1.html"/>
-      <!-- InstanceBeginEditable name="navvisit" -->
+      <!-- TemplateBeginEditable name="navvisit" -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/visit-local.html"/>
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/visit-nav-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/apply-nav-1.html"/>
-      <!-- InstanceBeginEditable name="navapply" -->
+      <!-- TemplateBeginEditable name="navapply" -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/apply-local.html"/>
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/apply-nav-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/give-nav-1.html"/>
-      <!-- InstanceBeginEditable name="navgive" -->
+      <!-- TemplateBeginEditable name="navgive" -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/give-local.html"/>
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/give-nav-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/cta-nav-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/nav-menu-child-app-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/nav-menu-2.html"/>
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/app-search-1.html"/>
-      <!-- InstanceBeginEditable name="appsearch" -->
+      <!-- TemplateBeginEditable name="appsearch" -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/local/app-search.html"/>
-      <!-- InstanceEndEditable -->
+      <!-- TemplateEndEditable -->
       <c:import url="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/app-search-2.html"/>
     </header>
     <main class="dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
-      <!-- InstanceBeginEditable name="highlighted" -->
-      <!-- InstanceEndEditable -->
+      <!-- TemplateBeginEditable name="highlighted" -->
+      <!-- TemplateEndEditable -->
       <!-- TemplateBeginEditable name="maincontentarea" -->
       <p>Impress your audience with awesome content!</p>
       <!-- TemplateEndEditable -->
