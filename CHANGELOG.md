@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.23 (November 10, 2022)
+- Replace .dwt "InstanceBeginEditable" statements with "TemplateBeginEditable" (this had been previoulsy done but was erroneously reverted)
+- Add box-shadow Sass file imports
+
 ## 5.3.22 (October 11, 2022)
 - Update N logo SVG class names
 - Fix color contrast on notices
