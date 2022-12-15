@@ -12,7 +12,7 @@ require(['dcf-slideshow', 'css!js-css/slideshows'], (DCFSlideshowModule) => {
     '<path d="M23.852 11.144L13.703 1.096c-.96-.96-2.678-.924-3.68.075-1.036 1.035-1.07 2.687-.069 3.69l4.321 4.143H2.03c-1.27 0-2.03 1.272-2.03 2.5 0 .617.168 1.207.472 1.659.369.549.913.851 1.53.851h12.276l-4.156 4.16a2.425 2.425 0 00-.708 1.734c0 .708.293 1.409.807 1.922a2.738 2.738 0 001.919.806c.664 0 1.28-.251 1.739-.708l9.977-10.076a.502.502 0 00-.004-.708z"></path>' +
     '</svg>');
 
-  slideshowTheme.setThemeVariable('slidePlayToggletBtnClassList', [ 'dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'dcf-inverse' ]);
+  slideshowTheme.setThemeVariable('slidePlayToggleBtnClassList', [ 'dcf-d-flex', 'dcf-ai-center', 'dcf-pt-4', 'dcf-pb-4', 'dcf-inverse' ]);
   slideshowTheme.setThemeVariable('slidePlayBtnInnerHTML', '<svg class="dcf-h-4 dcf-w-4 dcf-fill-current" width="24" height="24" viewBox="0 0 24 24" focusable="false" aria-hidden="true">' +
     '<path d="M21.759 11.577L2.786.077a.499.499 0 0 0-.759.428v23a.498.498 0 0 0 .5.5c.09 0 .18-.024.259-.072l18.973-11.5a.5.5 0 0 0 0-.856z"></path>' +
     '</svg>');
@@ -29,7 +29,7 @@ require(['dcf-slideshow', 'css!js-css/slideshows'], (DCFSlideshowModule) => {
     <path class="unl-icon-slide-caption-open" d="M1,23h15c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1C0,22.6,0.4,23,1,23z"/>
 </svg>`);
 
-  const figureCaptionToggleTransition = (button) => {
+  const figureCaptionToggleTransition = (toggleButton) => {
     const keyframesClose1 = [
       {
         transform: 'rotate(45deg)',
@@ -79,16 +79,15 @@ require(['dcf-slideshow', 'css!js-css/slideshows'], (DCFSlideshowModule) => {
       fill: 'forwards'
     };
 
-    let caption = button.previousElementSibling;
-    let close1 = button.querySelector('.unl-icon-slide-caption-close-1');
-    let close2 = button.querySelector('.unl-icon-slide-caption-close-2');
+    let close1 = toggleButton.querySelector('.unl-icon-slide-caption-close-1');
+    let close2 = toggleButton.querySelector('.unl-icon-slide-caption-close-2');
 
-    caption.addEventListener(DCFSlideshowModule.DCFSlideshow.events('openCaption'), () => {
+    toggleButton.addEventListener(DCFSlideshowModule.DCFSlideshow.events('toggleButtonOff'), () => {
       close1.animate(keyframesClose1, options);
       close2.animate(keyframesClose2, options);
     }, false);
 
-    caption.addEventListener(DCFSlideshowModule.DCFSlideshow.events('closeCaption'), () => {
+    toggleButton.addEventListener(DCFSlideshowModule.DCFSlideshow.events('toggleButtonOn'), () => {
       close1.animate(keyframesOpen1, options);
       close2.animate(keyframesOpen2, options);
     }, false);
@@ -122,11 +121,11 @@ require(['dcf-slideshow', 'css!js-css/slideshows'], (DCFSlideshowModule) => {
       fill: 'forwards'
     };
 
-    slide.addEventListener('showSlide', () => {
+    slide.addEventListener(DCFSlideshowModule.DCFSlideshow.events('toggleElementOn'), () => {
       slide.animate(keyframesShowSlide, options);
     }, false);
 
-    slide.addEventListener('hideSlide', () => {
+    slide.addEventListener(DCFSlideshowModule.DCFSlideshow.events('toggleElementOff'), () => {
       slide.animate(keyframesHideSlide, options);
     }, false);
   };
