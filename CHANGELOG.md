@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.24 (December 20, 2022)
+- Remove COVID-19 site link from header
+
 ## 5.3.23 (November 10, 2022)
 - Replace .dwt "InstanceBeginEditable" statements with "TemplateBeginEditable" (this had been previoulsy done but was erroneously reverted)
 - Add box-shadow Sass file imports
@@ -22,7 +25,7 @@ All notable changes to this project will be documented in this file.
 
 ## 5.3.19 (August 11, 2022)
 - Move In Our Grit Our Glory logo in footer
-- Fix <select> corners in input groups
+- Fix select element corners in input groups
 - Minimize message banner javascript
 
 ## 5.3.18 (August 2, 2022)
@@ -38,7 +41,7 @@ All notable changes to this project will be documented in this file.
 - Use GSAP/ScrollTrigger for scroll animations
 
 ## 5.3.15 (May 10, 2022)
-- Convert prev/next buttons from list to <div> group
+- Convert prev/next buttons from list to div group
 - Fix modal scrolling issue on iOS
 - Add playsinline attribute for autoplay videos
 
