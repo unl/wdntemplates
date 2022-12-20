@@ -67,34 +67,6 @@
 
   .unl .dcf-logo-lockup {
     padding-bottom: #{ms(1)}em;
-    @include pt-5;
-  }
-
-  .unl-div-cta-covid {
-    display: none;
-  }
-
-}
-
-
-.dcf-header .unl-link-cta-covid {
-  color: $blue;
-}
-
-.dcf-header .unl-link-cta-covid:hover {
-  color: $dark-blue;
-}
-
-
-
-@media (prefers-color-scheme: dark) {
-
-  .dcf-header .unl-link-cta-covid {
-    color: $light-cerulean;
-  }
-
-  .dcf-header .unl-link-cta-covid:hover {
-    color: $cerulean;
   }
 
 }
