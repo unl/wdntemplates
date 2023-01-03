@@ -78,30 +78,6 @@
   }
 
 
-  .unl .dcf-nav-menu-child::before,
-  .unl .dcf-nav-menu-child::after {
-    content: '';
-    height: #{ms(6)}em;
-    left: 0;
-    position: fixed;
-    width: 100%;
-    z-index: 999;
-  }
-
-
-  .unl .dcf-nav-menu-child::before {
-    background-image: linear-gradient($scarlet, fade-out($scarlet, 1));
-    bottom: calc(#{$height-mobile-toolbar} + 43vh);
-    transform: translateY(99%);
-  }
-
-
-  .unl .dcf-nav-menu-child::after {
-    background-image: linear-gradient(fade-out($scarlet, 1), $scarlet);
-    bottom: $height-mobile-toolbar;
-  }
-
-
   .unl .dcf-nav-menu a,
   .unl .dcf-nav-menu button {
     margin-left: -#{ms(0)}rem;
