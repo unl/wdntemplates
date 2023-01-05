@@ -453,6 +453,39 @@
         </script>
       </div>
 
+      <div class="dcf-mt-6 dcf-mb-6">
+        <div id="my-div">
+          My First Div
+        </div>
+        <button
+          class="dcf-toggleButton"
+          data-controls="my-div"
+          data-label-on="Open My First Div"
+          data-label-off="Close My First Div"
+          data-start-expanded="true"
+        >
+          Toggle My First Div (Starts On)
+        </button>
+        <div id="my-div-with-id">
+          My Second Div
+        </div>
+        <button
+          id="my-div-with-id-toggle-button"
+          class="dcf-toggleButton"
+          data-controls="my-div-with-id"
+          data-label-on="Open My Second Div"
+          data-label-off="Close My Second Div"
+          data-start-expanded="false"
+        >
+          Toggle My Second Div (Starts Off)
+        </button>
+        <script>
+          window.addEventListener('inlineJSReady', function() {
+            WDN.initializePlugin('toggleButton');
+          }, false);
+        </script>
+      </div>
+
       <h2 class="dcf-mt-6">Forms</h2>
 
       <form class="dcf-form" action="?" method="post">
