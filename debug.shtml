@@ -458,7 +458,7 @@
           My First Div
         </div>
         <button
-          class="dcf-toggleButton"
+          class="dcf-btn-toggle dcf-btn dcf-btn-primary"
           data-controls="my-div"
           data-label-on="Open My First Div"
           data-label-off="Close My First Div"
@@ -471,7 +471,7 @@
         </div>
         <button
           id="my-div-with-id-toggle-button"
-          class="dcf-toggleButton"
+          class="dcf-btn-toggle dcf-btn dcf-btn-primary"
           data-controls="my-div-with-id"
           data-label-on="Open My Second Div"
           data-label-off="Close My Second Div"

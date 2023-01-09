@@ -126,6 +126,9 @@ require(['dcf-slideshow', 'css!js-css/slideshows'], (DCFSlideshowModule) => {
     }, false);
 
     slide.addEventListener(DCFSlideshowModule.DCFSlideshow.events('toggleElementOff'), () => {
+      // These are added from the toggle button
+      // but will not allow us to use our animation so we will remove them before
+      slide.classList.remove('dcf-opacity-0', 'dcf-invisible');
       slide.animate(keyframesHideSlide, options);
     }, false);
   };
