@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.25 (January 10, 2023)
+- Update year in footer
+- Toggle button (part I)
+- Remove mobile menu gradient overlays
+
 ## 5.3.24 (December 20, 2022)
 - Remove COVID-19 site link from header
 
