@@ -1,5 +1,5 @@
 require(['dcf-figcaption-toggle', 'css!js-css/figcaption-toggle'], (DCFFigcaptionToggleModule) => {
-  // get all the buttons and create the theme
+  // Get all the buttons and create the theme
   const figcaptions = document.querySelectorAll('.dcf-figcaption-toggle');
   const figcaptionToggleTheme = new DCFFigcaptionToggleModule.DCFFigcaptionToggleTheme();
 
@@ -32,7 +32,7 @@ require(['dcf-figcaption-toggle', 'css!js-css/figcaption-toggle'], (DCFFigcaptio
     }, false);
   })
   
-  // initialize the buttons with the theme
+  // Initialize the buttons with the theme
   const figcaptionToggleObj = new DCFFigcaptionToggleModule.DCFFigcaptionToggle(figcaptions, figcaptionToggleTheme);
   figcaptionToggleObj.initialize();
 });
