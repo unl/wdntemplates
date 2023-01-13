@@ -1,4 +1,4 @@
-require(['dcf-toggleButton'], (DCFToggleButtonModule) => {
+require(['dcf-toggle-button'], (DCFToggleButtonModule) => {
     // get all the buttons and create the theme
     const toggleButtons = document.querySelectorAll('.dcf-btn-toggle');
 
