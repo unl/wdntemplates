@@ -65,7 +65,7 @@
 }
 
 
-.unl .dcf-slideshow:not([data-toggle-caption="false"]) .dcf-slide-caption {
+.unl .dcf-slideshow:not([data-toggle-caption="false"]) .dcf-figcaption-toggle-slideshow {
   background-color: $bg-color-overlay-dark;
   clip-path: polygon(
       100% 0,
@@ -81,18 +81,37 @@
   padding: $padding-top-slide-caption $padding-right-slide-caption $padding-bottom-slide-caption $padding-left-slide-caption;
   position: absolute;
   top: 0;
+  transition: opacity $caption-toggle-animation-duration ease-in-out;
   width: 100%;
   z-index: 1;
 }
+//TODO Remove utility classes
 
-
-.dcf-btn-slide-caption[aria-expanded="false"] .unl-icon-slide-caption-open {
+// Toggle Button Icon Open
+.unl .dcf-btn-slide-caption .unl-icon-slide-caption-open{
+  transition: opacity $caption-toggle-icon-animation-duration ease-in-out;
+}
+.unl .dcf-btn-slide-caption[aria-expanded="false"] .unl-icon-slide-caption-open {
   opacity: 1;
-  transition: opacity 250ms ease-out 125ms;
+}
+.unl .dcf-btn-slide-caption[aria-expanded="true"] .unl-icon-slide-caption-open {
+  opacity: 0;
 }
 
 
-.dcf-btn-slide-caption[aria-expanded="true"] .unl-icon-slide-caption-open {
-  opacity: 0;
-  transition: opacity 250ms ease-out;
+// Toggle Button Icon Close
+.unl .dcf-btn-slide-caption .unl-icon-slide-caption-close-1,
+.unl .dcf-btn-slide-caption .unl-icon-slide-caption-close-2 {
+  transform-origin: 50% 50%;
+  transition: transform $caption-toggle-icon-animation-duration ease-in-out;
+}
+.unl .dcf-btn-slide-caption[aria-expanded="false"] .unl-icon-slide-caption-close-1,
+.unl .dcf-btn-slide-caption[aria-expanded="false"] .unl-icon-slide-caption-close-2 {
+  transform: rotate(0deg);
+}
+.unl .dcf-btn-slide-caption[aria-expanded="true"] .unl-icon-slide-caption-close-1 {
+  transform: rotate(45deg);
+}
+.unl .dcf-btn-slide-caption[aria-expanded="true"] .unl-icon-slide-caption-close-2 {
+  transform: rotate(-45deg);
 }

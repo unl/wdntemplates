@@ -426,7 +426,7 @@
       </div>
 
       <div class="dcf-mt-6 dcf-mb-6">
-        <div class="dcf-slideshow dcf-mb-5" role="region" aria-label="WDN Sample Slideshow" data-shuffle="true">
+        <div class="dcf-slideshow dcf-mb-5" role="region" aria-label="WDN Sample Slideshow" data-shuffle="false">
           <ul>
             <li>
               <figure>
@@ -443,6 +443,11 @@
                 </div>
                 <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
               </figure>
+            </li>
+            <li>
+              <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+                <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/111024-autumn-018-xl-min.jpg" alt="">
+              </div>
             </li>
           </ul>
         </div>
@@ -464,6 +469,11 @@
                 </div>
                 <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
               </figure>
+            </li>
+            <li>
+              <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+                <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/111024-autumn-018-xl-min.jpg" alt="">
+              </div>
             </li>
           </ul>
         </div>
