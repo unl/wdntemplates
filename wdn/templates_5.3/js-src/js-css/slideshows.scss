@@ -40,32 +40,8 @@
 }
 
 
-.unl .dcf-slide-caption[aria-hidden="true"] {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity $transition-duration-fade-out $transition-timing-fn-fade-out;
-}
 
-
-.unl .dcf-slide-caption[aria-hidden="false"] {
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity $transition-duration-fade-in $transition-timing-fn-fade-in;
-}
-
-
-.unl .dcf-btn-slide-caption {
-  background-color: $bg-color-overlay-dark;
-  border-color: transparent;
-  bottom: #{$size-clip-path};
-  color: $color-button-inverse-tertiary;
-  left: #{$size-clip-path};
-  position: absolute;
-  z-index: 1;
-}
-
-
-.unl .dcf-slideshow:not([data-toggle-caption="false"]) .dcf-figcaption-toggle-slideshow {
+.unl .dcf-slideshow:not([data-toggle-caption="false"]) .dcf-slide-caption {
   background-color: $bg-color-overlay-dark;
   clip-path: polygon(
       100% 0,
@@ -76,16 +52,17 @@
       0 0
   );
   color: $cream;
-  height: 100%;
-  left: 0;
   padding: $padding-top-slide-caption $padding-right-slide-caption $padding-bottom-slide-caption $padding-left-slide-caption;
-  position: absolute;
-  top: 0;
   transition: opacity $caption-toggle-animation-duration ease-in-out;
-  width: 100%;
-  z-index: 1;
 }
-//TODO Remove utility classes
+
+.unl .dcf-btn-slide-caption {
+  background-color: $bg-color-overlay-dark;
+  border-color: transparent;
+  bottom: #{$size-clip-path};
+  color: $color-button-inverse-tertiary;
+  left: #{$size-clip-path};
+}
 
 // Toggle Button Icon Open
 .unl .dcf-btn-slide-caption .unl-icon-slide-caption-open{

@@ -21,16 +21,6 @@ require(['dcf-figcaption-toggle', 'css!js-css/figcaption-toggle'], (DCFFigcaptio
         d="M1,23h15c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1C0,22.6,0.4,23,1,23z"/>
     </svg>`
   );
-
-  // Remove class dcf-invisible when figcaption is toggled off
-  const toggleElementOffEvent = DCFFigcaptionToggleModule.DCFFigcaptionToggle.events('toggleElementOff');
-  figcaptions.forEach((figcaption) => {
-    figcaption.addEventListener(toggleElementOffEvent, () => {
-      // These are added from the toggle button
-      // but will not allow us to use our animation so we will remove them before the animations start
-      figcaption.classList.remove('dcf-invisible');
-    }, false);
-  })
   
   // Initialize the buttons with the theme
   const figcaptionToggleObj = new DCFFigcaptionToggleModule.DCFFigcaptionToggle(figcaptions, figcaptionToggleTheme);

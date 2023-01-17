@@ -16,14 +16,8 @@
       0 0
   );
   color: $cream;
-  height: 100%;
-  left: 0;
   padding: $padding-top-caption $padding-right-caption $padding-bottom-caption $padding-left-caption;
-  position: absolute;
-  top: 0;
   transition: opacity $figcaption-toggle-animation-duration ease-in-out;
-  width: 100%;
-  z-index: 1;
 }
 
 // Toggle Button
@@ -33,8 +27,6 @@
   bottom: #{$size-clip-path};
   color: $color-button-inverse-tertiary;
   left: #{$size-clip-path};
-  position: absolute;
-  z-index: 1;
 }
 
 // Toggle Button Icon Open
