@@ -12,6 +12,6 @@ require(['dcf-toggle-button', 'css!js-css/toggle-button'], (DCFToggleButtonModul
     const toggleElementId = toggleButton.dataset.controls;
     const toggleElement = document.getElementById(toggleElementId);
 
-    toggleElement.classList.add('dcf-btn-toggle-element');
+    toggleElement.classList.add('unl-btn-toggle-element');
   })
 });
