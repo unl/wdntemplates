@@ -22,6 +22,7 @@ module.exports = function (grunt) {
     'js-css/notices',
     'js-css/slideshows',
     'js-css/tabs',
+    'js-css/toggle-button',
     'js-css/unlalert',
     'plugins/ui/css/jquery-ui-wdn'
   ];
