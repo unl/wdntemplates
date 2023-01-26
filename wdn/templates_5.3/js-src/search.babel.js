@@ -1,5 +1,5 @@
 define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
-  let autoSearchDebounceDelay = 1000;
+  let autoSearchDebounceDelay = 2500;
   let searchEmbedVersion = '5.0';
 
   function getLocalSearch() {
