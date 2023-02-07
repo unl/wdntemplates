@@ -240,34 +240,34 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
         }
       }, false);
 
-      // Add an event listener to support the iframe rendering
-      domQ.addEventListener('keyup', function(e) {
-        let keyCode = e.keyCode;
+      // // Add an event listener to support the iframe rendering
+      // domQ.addEventListener('keyup', function(e) {
+      //   let keyCode = e.keyCode;
 
-        // Ignore non-printable keys (blacklist)
-        if ((keyCode !== 32 && keyCode < 48) ||
-          (keyCode > 90 && keyCode < 96) ||
-          (keyCode > 111 && keyCode < 186 && keyCode !== 173) ||
-          (keyCode > 192 && keyCode < 219) ||
-          (keyCode > 222)
-          ) {
-          return;
-        }
+      //   // Ignore non-printable keys (blacklist)
+      //   if ((keyCode !== 32 && keyCode < 48) ||
+      //     (keyCode > 90 && keyCode < 96) ||
+      //     (keyCode > 111 && keyCode < 186 && keyCode !== 173) ||
+      //     (keyCode > 192 && keyCode < 219) ||
+      //     (keyCode > 222)
+      //     ) {
+      //     return;
+      //   }
 
-        clearTimeout(autoSubmitTimeout);
+      //   clearTimeout(autoSubmitTimeout);
 
-        if (this.value) {
-          // Activate search UI
-          createSearchFrame();
-          activateSearch();
+      //   if (this.value) {
+      //     // Activate search UI
+      //     createSearchFrame();
+      //     activateSearch();
 
-          // Debounce auto-submit
-          autoSubmitTimeout = setTimeout(function() {
-            let event = new CustomEvent('submit', {'detail': 'auto'});
-            domSearchForm.dispatchEvent(event);
-          }, autoSearchDebounceDelay);
-        }
-      });
+      //     // Debounce auto-submit
+      //     autoSubmitTimeout = setTimeout(function() {
+      //       let event = new CustomEvent('submit', {'detail': 'auto'});
+      //       domSearchForm.dispatchEvent(event);
+      //     }, autoSearchDebounceDelay);
+      //   }
+      // });
 
       domSearchForm.addEventListener('submit', function(e, source) {
         // Enable the iframe search params
