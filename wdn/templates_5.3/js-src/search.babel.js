@@ -1,5 +1,4 @@
 define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
-  let autoSearchDebounceDelay = 1000;
   let searchEmbedVersion = '5.0';
 
   function getLocalSearch() {
@@ -72,7 +71,6 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
         $progress,
         submitted = false,
         postReady = false,
-        autoSubmitTimeout,
         searchHost = 'search.unl.edu', // domain of UNL Search app
         searchPath = '/', // path to UNL Search app
         searchOrigin = 'https://' + searchHost,
@@ -210,7 +208,6 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
           modal.setNavToggleBtnState(mobileSearchBtn, 'open');
         }
 
-        clearTimeout(autoSubmitTimeout);
         domQ.value = '';
         domSearchForm.parentElement.classList.remove('active');
         domSearchForm.reset();
@@ -239,35 +236,6 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
           closeSearch();
         }
       }, false);
-
-      // // Add an event listener to support the iframe rendering
-      // domQ.addEventListener('keyup', function(e) {
-      //   let keyCode = e.keyCode;
-
-      //   // Ignore non-printable keys (blacklist)
-      //   if ((keyCode !== 32 && keyCode < 48) ||
-      //     (keyCode > 90 && keyCode < 96) ||
-      //     (keyCode > 111 && keyCode < 186 && keyCode !== 173) ||
-      //     (keyCode > 192 && keyCode < 219) ||
-      //     (keyCode > 222)
-      //     ) {
-      //     return;
-      //   }
-
-      //   clearTimeout(autoSubmitTimeout);
-
-      //   if (this.value) {
-      //     // Activate search UI
-      //     createSearchFrame();
-      //     activateSearch();
-
-      //     // Debounce auto-submit
-      //     autoSubmitTimeout = setTimeout(function() {
-      //       let event = new CustomEvent('submit', {'detail': 'auto'});
-      //       domSearchForm.dispatchEvent(event);
-      //     }, autoSearchDebounceDelay);
-      //   }
-      // });
 
       domSearchForm.addEventListener('submit', function(e, source) {
         // Enable the iframe search params
