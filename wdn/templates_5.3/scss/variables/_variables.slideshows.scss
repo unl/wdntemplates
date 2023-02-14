@@ -18,3 +18,7 @@ $padding-top-slide-caption: $length-em-4;       // Padding-top of slide caption:
 $size-btn-x: 2.5rem;                            // Size of button along x-axis
 $size-btn-y: 2.5rem;                            // Size of button along y-axis
 $size-clip-path: 3px;                           // Size of clip-path around buttons
+
+// Duration
+$caption-toggle-animation-duration: 500ms;
+$caption-toggle-icon-animation-duration: 250ms;

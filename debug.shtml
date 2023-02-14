@@ -426,7 +426,7 @@
       </div>
 
       <div class="dcf-mt-6 dcf-mb-6">
-        <div class="dcf-slideshow" role="region" aria-label="WDN Sample Slideshow" data-shuffle="true">
+        <div class="dcf-slideshow dcf-mb-5" role="region" aria-label="WDN Sample Slideshow" data-shuffle="false">
           <ul>
             <li>
               <figure>
@@ -444,8 +444,40 @@
                 <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
               </figure>
             </li>
+            <li>
+              <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+                <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/111024-autumn-018-xl-min.jpg" alt="">
+              </div>
+            </li>
           </ul>
         </div>
+
+        <div class="dcf-slideshow dcf-mb-5" role="region" aria-label="WDN Sample Slideshow" data-toggle-caption="false" data-shuffle="true">
+          <ul>
+            <li>
+              <figure>
+                <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+                  <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+                </div>
+                <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+                  <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+                </div>
+                <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+              </figure>
+            </li>
+            <li>
+              <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+                <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/111024-autumn-018-xl-min.jpg" alt="">
+              </div>
+            </li>
+          </ul>
+        </div>
+
         <script>
           window.addEventListener('inlineJSReady', function() {
             WDN.initializePlugin('slideshows');
@@ -454,9 +486,12 @@
       </div>
 
       <div class="dcf-mt-6 dcf-mb-6">
+        <h2 class="dcf-mt-6">Toggle Buttons</h2>
+
         <div id="my-div">
           My First Div
         </div>
+
         <button
           class="dcf-btn-toggle dcf-btn dcf-btn-primary"
           data-controls="my-div"
@@ -466,9 +501,11 @@
         >
           Toggle My First Div (Starts On)
         </button>
+
         <div id="my-div-with-id">
           My Second Div
         </div>
+
         <button
           id="my-div-with-id-toggle-button"
           class="dcf-btn-toggle dcf-btn dcf-btn-primary"
@@ -479,9 +516,30 @@
         >
           Toggle My Second Div (Starts Off)
         </button>
+
         <script>
           window.addEventListener('inlineJSReady', function() {
-            WDN.initializePlugin('toggleButton');
+            WDN.initializePlugin('toggle-button');
+          }, false);
+        </script>
+      </div>
+
+      <div class="dcf-mt-6 dcf-mb-6">
+        <h2 class="dcf-mt-6">Figcaption Toggle</h2>
+
+        <figure>
+          <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+            <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+          </div>
+          <figcaption class="dcf-figcaption dcf-figcaption-toggle">
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. 
+            <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small>
+          </figcaption>
+        </figure>
+
+        <script>
+          window.addEventListener('inlineJSReady', function() {
+            WDN.initializePlugin('figcaption-toggle');
           }, false);
         </script>
       </div>

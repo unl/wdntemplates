@@ -14,6 +14,7 @@ module.exports = function (grunt) {
     'js-css/band_imagery',
     'js-css/events-band',
     'js-css/events',
+    'js-css/figcaption-toggle',
     'js-css/formvalidator',
     'js-css/font-serif',
     'js-css/modals',
@@ -21,6 +22,7 @@ module.exports = function (grunt) {
     'js-css/notices',
     'js-css/slideshows',
     'js-css/tabs',
+    'js-css/toggle-button',
     'js-css/unlalert',
     'plugins/ui/css/jquery-ui-wdn'
   ];
@@ -69,6 +71,7 @@ module.exports = function (grunt) {
     'datepickers',
     'events-band',
     'events',
+    'figcaption-toggle',
     'font-serif',
     'jqueryui',
     'mediaelement_wdn',
@@ -77,7 +80,8 @@ module.exports = function (grunt) {
     'notice',
     'scroll-animations',
     'slideshows',
-    'tabs'
+    'tabs',
+    'toggle-button',
   ];
 
   // module exclusions for plugins not built into all
