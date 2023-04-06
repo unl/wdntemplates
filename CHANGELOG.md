@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.26 (February 14, 2023)
+- Toggle button (part II)
+- Remove the "search as you type" feature from the search box
+- Blockquote style update
+
 ## 5.3.25 (January 10, 2023)
 - Update year in footer
 - Toggle button (part I)
