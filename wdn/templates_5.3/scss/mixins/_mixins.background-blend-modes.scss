@@ -1,0 +1,13 @@
+//////////////////////////////////////////
+// THEME / MIXINS / BACKGROUND BLEND MODES
+//////////////////////////////////////////
+
+
+// Multiply
+@mixin bg-soft-light($imp:null) {
+
+  @supports (background-blend-mode: soft-light) {
+    background-blend-mode: soft-light $imp;
+  }
+
+}
