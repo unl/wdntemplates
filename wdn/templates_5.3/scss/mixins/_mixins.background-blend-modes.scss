@@ -3,7 +3,7 @@
 //////////////////////////////////////////
 
 
-// Multiply
+// Soft Light
 @mixin bg-soft-light($imp:null) {
 
   @supports (background-blend-mode: soft-light) {
