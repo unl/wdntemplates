@@ -23,3 +23,15 @@
 
 // Diagonal Stripes: Light
 .unl-bg-stripes-light { @include bg-stripes-light(!important); }
+
+
+// SVG Background Pattern: Campus
+.unl-bg-campus { @include bg-campus(!important); }
+
+
+// SVG Background Pattern: Landmarks
+.unl-bg-landmarks { @include bg-landmarks(!important); }
+
+
+// SVG Background Pattern: Majors
+.unl-bg-majors { @include bg-majors(!important); }
