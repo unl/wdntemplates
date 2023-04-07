@@ -18,3 +18,9 @@
 .unl-font-sans {
   @include font-sans(!important);
 }
+
+
+// Monospace
+.unl-font-mono {
+  @include font-mono(!important);
+}
