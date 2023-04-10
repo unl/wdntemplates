@@ -56,3 +56,24 @@
 @mixin bg-stripes-light($imp:null) {
   background-image: repeating-linear-gradient($diagonal1, fade-out($white,.95), fade-out($white,.95) 2px, fade-out($white,1) 2px, fade-out($white,1) 5px) $imp;
 }
+
+
+// SVG Background Pattern: Campus
+@mixin bg-campus($imp:null) {
+  background-image: url('images/bg-campus.svg') $imp;
+  background-size: 20em $imp;
+}
+
+
+// SVG Background Pattern: Landmarks
+@mixin bg-landmarks($imp:null) {
+  background-image: url('images/bg-landmarks.svg') $imp;
+  background-size: 40em $imp; // Yes, this should be a different size than the others.
+}
+
+
+// SVG Background Pattern: Majors
+@mixin bg-majors($imp:null) {
+  background-image: url('images/bg-majors.svg') $imp;
+  background-size: 20em $imp;
+}
