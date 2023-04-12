@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.27 (April 12, 2023)
+- New monospace font utility class
+- New hand-drawn backgrounds
+
 ## 5.3.26 (February 14, 2023)
 - Toggle button (part II)
 - Remove the "search as you type" feature from the search box
