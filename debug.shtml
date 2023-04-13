@@ -695,7 +695,7 @@
         <div class="dcf-grid dcf-grid-thirds dcf-col-gap-10 dcf-row-gap-10" style="width: fit-content;">
 
           <!-- Bottom -->
-          <div class="dcf-popup" data-position="bottom" data-alignment="start" data-hover="true" data-point="true">
+          <div class="dcf-popup" data-position="bottom" data-alignment="start">
             <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Bottom And Start</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
