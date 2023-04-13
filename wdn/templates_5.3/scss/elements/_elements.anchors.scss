@@ -10,7 +10,7 @@
   display: inline-block;
   @include h-3;
   margin-left: #{ms(-8)}em;
-  margin-right: #{ms(-14)}em;
+  margin-right: #{ms(-16)}em;
   mask-image: url('../images/external-link.svg'); // Use SVG as a mask to show the background-color
   mask-position: 50% 50%;
   mask-repeat: no-repeat;
