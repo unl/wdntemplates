@@ -1,4 +1,4 @@
-require(['dcf-figcaption-toggle', 'css!js-css/figcaption-toggle'], (DCFFigcaptionToggleModule) => {
+require(['dcf-figcaption-toggle', 'css!js-css/figcaption-toggles'], (DCFFigcaptionToggleModule) => {
   // Get all the buttons and create the theme
   const figcaptions = document.querySelectorAll('.dcf-figcaption-toggle');
   const figcaptionToggleTheme = new DCFFigcaptionToggleModule.DCFFigcaptionToggleTheme();
