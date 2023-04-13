@@ -12,6 +12,7 @@ module.exports = function (grunt) {
 
   const jsCssObjs = [
     'js-css/band_imagery',
+    'js-css/button-toggles',
     'js-css/events-band',
     'js-css/events',
     'js-css/figcaption-toggles',
@@ -20,9 +21,9 @@ module.exports = function (grunt) {
     'js-css/modals',
     'js-css/monthwidget',
     'js-css/notices',
+    'js-css/popups',
     'js-css/slideshows',
     'js-css/tabs',
-    'js-css/button-toggles',
     'js-css/unlalert',
     'plugins/ui/css/jquery-ui-wdn'
   ];

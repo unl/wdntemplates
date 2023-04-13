@@ -1,4 +1,4 @@
-require(['dcf-popup'], (DCFPopup) => {
+require(['dcf-popup', 'css!js-css/popups'], (DCFPopup) => {
   // Get all the popups on the dom
   const popups = document.querySelectorAll('.dcf-popup');
 
