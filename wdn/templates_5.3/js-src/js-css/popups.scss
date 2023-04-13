@@ -6,5 +6,5 @@
 
 // We set up the transition after since we do not want to fade out during load up
 .dcf-popup-content {
-    transition: opacity $popup-toggle-animation-duration $animation-timing-fn-fade-in;
+    transition: opacity $animation-duration-popup $animation-timing-fn-fade-in;
 }
