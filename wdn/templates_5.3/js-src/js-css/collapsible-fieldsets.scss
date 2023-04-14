@@ -1,0 +1,24 @@
+//////////////////////////////////
+// THEME / COMPONENTS / COLLAPSIBLE-FIELDSETS
+//////////////////////////////////
+
+@import '../../scss/pre.tmp.scss';
+
+$fieldset-animation: 100ms;
+$fieldset-contents-animation: 250ms;
+
+.unl .unl-collapsible-fieldset-contents-open {
+    transition: opacity $fieldset-contents-animation ease-in-out $fieldset-animation, max-height $fieldset-contents-animation ease-in-out $fieldset-animation;
+}
+
+.unl .unl-collapsible-fieldset-contents-close {
+    transition: opacity $fieldset-contents-animation ease-in-out, max-height $fieldset-contents-animation ease-in-out;
+}
+
+.unl .unl-collapsible-fieldset-open {
+    transition: border-color $fieldset-animation ease-in-out, padding $fieldset-animation ease-in-out;
+}
+
+.unl .unl-collapsible-fieldset-close {
+    transition: border-color $fieldset-animation ease-in-out $fieldset-contents-animation, padding $fieldset-animation ease-in-out $fieldset-contents-animation;
+}
