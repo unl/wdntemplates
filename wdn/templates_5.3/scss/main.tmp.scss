@@ -87,6 +87,7 @@
 @import "../../../node_modules/dcf/scss/mixins/_mixins.typography";
 @import "../../../node_modules/dcf/scss/mixins/_mixins.visibility";
 @import "../../../node_modules/dcf/scss/mixins/_mixins.z-index";
+@import "mixins/_mixins.backdrop-filters";
 @import "mixins/_mixins.background-blend-modes";
 @import "mixins/_mixins.background-colors";
 @import "mixins/_mixins.background-images";
@@ -248,6 +249,7 @@
 @import "../../../node_modules/dcf/scss/utilities/_utilities.typography";
 @import "../../../node_modules/dcf/scss/utilities/_utilities.visibility";
 @import "../../../node_modules/dcf/scss/utilities/_utilities.z-index";
+@import "utilities/_utilities.backdrop-filters";
 @import "utilities/_utilities.background-blend-modes";
 @import "utilities/_utilities.background-colors";
 @import "utilities/_utilities.background-images";
