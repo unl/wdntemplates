@@ -1,0 +1,10 @@
+///////////////////////////////////////
+// THEME / UTILITIES / BACKDROP FILTERS
+///////////////////////////////////////
+
+
+// Blur
+.unl [class^='dcf-bg-overlay-'],
+.unl [class*=' dcf-bg-overlay-'] {
+  @include backdrop-blur(!important);
+}
