@@ -3,6 +3,27 @@ require(['dcf-collapsible-fieldset', 'css!js-css/collapsible-fieldsets'], (DCFFi
     const fieldsets = document.querySelectorAll('.dcf-collapsible-fieldset');
     const fieldsetsTheme = new DCFFieldsetCollapsibleModule.DCFFieldsetCollapsibleTheme();
 
+    // Set up the theme to match WDN styles and add classes for animations
+    fieldsetsTheme.setThemeVariable('legendButtonInnerHTMLOn',
+    `<svg xmlns="http://www.w3.org/2000/svg" class="dcf-h-4 dcf-w-4 dcf-d-block dcf-fill-current" viewBox="0 0 24 24">
+        <path d="M21.3,9.4l-18.7,0C1.2,9.4,0,10.6,0,12c0,0.7,0.3,1.4,0.8,1.9c0.5,0.5,1.2,0.8,1.9,0.8h18.7
+            c1.4,0,2.6-1.2,2.6-2.6C24,10.6,22.8,9.4,21.3,9.4z"/>
+        <g>
+            <path fill="none" d="M0,0h24v24H0V0z"/>
+        </g>
+    </svg>`);
+
+    fieldsetsTheme.setThemeVariable('legendButtonInnerHTMLOff', 
+    `<svg xmlns="http://www.w3.org/2000/svg" class="dcf-h-4 dcf-w-4 dcf-d-block dcf-fill-current" viewBox="0 0 24 24">
+        <path d="M21.4,9.4h-6.7V2.6C14.6,1.2,13.5,0,12,0c-1.4,0-2.6,1.2-2.6,2.6l0,6.7H2.6C1.2,9.4,0,10.6,0,12
+            c0,1.4,1.2,2.6,2.6,2.6h6.8l0,6.7c0,0.7,0.3,1.4,0.8,1.9c0.5,0.5,1.2,0.8,1.9,0.8
+            c1.4,0,2.6-1.2,2.6-2.6v-6.7h6.7c1.4,0,2.6-1.2,2.6-2.6C24,10.6,22.8,9.4,21.4,9.4z"/>
+        <g>
+            <path fill="none" d="M0,0h24v24H0V0z"/>
+        </g>
+    </svg>`);
+
+    // This lets us have the close state be a line instead of a box
     fieldsetsTheme.setThemeVariable('fieldsetClassListOff', [
         'dcf-bl-transparent',
         'dcf-bb-transparent',
@@ -26,24 +47,6 @@ require(['dcf-collapsible-fieldset', 'css!js-css/collapsible-fieldsets'], (DCFFi
         'dcf-h-max-0',
         'unl-collapsible-fieldset-contents-close'
     ]);
-    
-    fieldsetsTheme.setThemeVariable('legendButtonInnerHTMLOn', `
-        <svg xmlns="http://www.w3.org/2000/svg" class="dcf-h-4 dcf-w-4 dcf-d-block dcf-fill-current" viewBox="0 0 24 24">
-            <path d="M23.002,11.021L1,11l0,0c-0.553,0-1,0.447-1,0.999c-0.001,0.552,0.446,1,0.998,1.001H23c0.553,0,1-0.426,1-0.977 C24.001,11.471,23.554,11.023,23.002,11.021z"></path>
-            <g>
-                <path fill="none" d="M0 0H24V24H0z"></path>
-            </g>
-        </svg>
-    `);
-
-    fieldsetsTheme.setThemeVariable('legendButtonInnerHTMLOff', `
-        <svg xmlns="http://www.w3.org/2000/svg" class="dcf-h-4 dcf-w-4 dcf-d-block dcf-fill-current" viewBox="0 0 24 24">
-            <path d="M23,11H13V1.001C13,0.448,12.574,0,12.021,0l0,0c-0.553,0-1,0.447-1,0.999L11.012,11H1c-0.553,0-1,0.447-1,1 c0,0.552,0.447,1,1,1h10.01L11,22.999c-0.001,0.552,0.446,1,0.998,1.001h0.001c0.552,0,1-0.447,1.001-0.999V13h10 c0.552,0,1-0.448,1-1C24,11.447,23.552,11,23,11z"></path>
-            <g>
-                <path fill="none" d="M0 0H24V24H0z"></path>
-            </g>
-        </svg>
-    `);
     
     // Initialize the buttons with the theme
     const fieldsetObj = new DCFFieldsetCollapsibleModule.DCFFieldsetCollapsible(fieldsets, fieldsetsTheme);
