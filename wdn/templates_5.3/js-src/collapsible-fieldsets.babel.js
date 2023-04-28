@@ -45,6 +45,7 @@ require(['dcf-collapsible-fieldset', 'css!js-css/collapsible-fieldsets'], (DCFFi
     ]);
     fieldsetsTheme.setThemeVariable('fieldsetContentsClassListOff', [
         'dcf-h-max-0',
+        'dcf-overflow-y-hidden',
         'unl-collapsible-fieldset-contents-close'
     ]);
     
