@@ -7,28 +7,28 @@
 // When the fieldset is opened we want the outer fieldset to go first
 .unl .unl-collapsible-fieldset-open {
     transition:
-        border-color $fieldset-animation-duration ease-in-out,
-        padding $fieldset-animation-duration ease-in-out;
+        border-color $animation-duration-fieldset ease-in-out,
+        padding $animation-duration-fieldset ease-in-out;
 }
 
 // When the fieldset is closed we want to wait for the contents to finish
 .unl .unl-collapsible-fieldset-close {
     transition:
-        border-color $fieldset-animation-duration ease-in-out $fieldset-contents-animation-duration,
-        border-radius 0s ease-in-out $fieldset-contents-animation-duration,
-        padding $fieldset-animation-duration ease-in-out $fieldset-contents-animation-duration;
+        border-color $animation-duration-fieldset ease-in-out $animation-duration-fieldset-contents,
+        border-radius 0s ease-in-out $animation-duration-fieldset-contents,
+        padding $animation-duration-fieldset ease-in-out $animation-duration-fieldset-contents;
 }
 
 // When the fieldset is opened we want to wait for the outer fieldset to finish
 .unl .unl-collapsible-fieldset-contents-open {
     transition:
-        opacity $fieldset-contents-animation-duration ease-in-out $fieldset-animation-duration,
-        max-height $fieldset-contents-animation-duration ease-in-out $fieldset-animation-duration;
+        opacity $animation-duration-fieldset-contents ease-in-out $animation-duration-fieldset,
+        max-height $animation-duration-fieldset-contents ease-in-out $animation-duration-fieldset;
 }
 
 // When the fieldset is closed we want the contents to go first
 .unl .unl-collapsible-fieldset-contents-close {
     transition:
-        opacity $fieldset-contents-animation-duration ease-in-out,
-        max-height $fieldset-contents-animation-duration ease-in-out;
+        opacity $animation-duration-fieldset-contents ease-in-out,
+        max-height $animation-duration-fieldset-contents ease-in-out;
 }
