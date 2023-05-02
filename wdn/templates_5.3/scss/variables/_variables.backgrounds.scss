@@ -6,6 +6,10 @@
 @import '_variables.color-palette';
 
 
+// Backdrop filter
+$backdrop-filter-blur: 3px;                                       // Backdrop-filter blur amount (in pixels)
+
+
 // Background color
 $bg-color-brand-alpha-light-mode: $scarlet;                       // Alpha brand background-color (scarlet) in light mode
 $bg-color-brand-alpha-dark-mode: $scarlet;                        // Alpha brand background-color (scarlet) in dark mode
@@ -55,12 +59,12 @@ $bg-color-inverse-light-mode: $color-body-light-mode;             // Inverse bac
 $bg-color-inverse-dark-mode: $color-body-dark-mode;               // Inverse background-color in dark mode
 $bg-color-inverse: var(--bg-inverse);
 
-$bg-color-overlay-dark-light-mode: fade-out($darkest-gray,.06);   // Dark overlay background-color for modals in light mode
-$bg-color-overlay-dark-dark-mode: fade-out($black,.06);           // Dark overlay background-color for modals in dark mode
+$bg-color-overlay-dark-light-mode: fade-out($darkest-gray,.16);   // Dark overlay background-color for modals in light mode
+$bg-color-overlay-dark-dark-mode: fade-out($black,.25);           // Dark overlay background-color for modals in dark mode
 $bg-color-overlay-dark: var(--bg-overlay-dark);
 
-$bg-color-overlay-light-light-mode: fade-out($cream,.06);         // Light overlay background-color for modals in light mode
-$bg-color-overlay-light-dark-mode: fade-out($black,.06);          // Light overlay background-color for modals in dark mode
+$bg-color-overlay-light-light-mode: fade-out($cream,.1);          // Light overlay background-color for modals in light mode
+$bg-color-overlay-light-dark-mode: fade-out($black,.25);          // Light overlay background-color for modals in dark mode
 $bg-color-overlay-light: var(--bg-overlay-light);
 
 $bg-color-dialog-light-mode: $white;                              // Dialog background-color in light mode
