@@ -4,7 +4,9 @@
 
 
 // Blur
-.unl [class^='dcf-bg-overlay-'],
-.unl [class*=' dcf-bg-overlay-'] {
-  @include backdrop-blur(!important);
+@if (to-number($backdrop-filter-blur) != to-number(0)) {
+  .unl [class^='dcf-bg-overlay-'],
+  .unl [class*=' dcf-bg-overlay-'] {
+    @include backdrop-blur(!important);
+  }
 }
