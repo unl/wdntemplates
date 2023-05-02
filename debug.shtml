@@ -525,6 +525,40 @@
       </div>
 
       <div class="dcf-mt-6 dcf-mb-6">
+        <h2 class="dcf-mt-6">Collapsible Fieldsets</h2>
+        <form class="dcf-form">
+          <fieldset class="dcf-collapsible-fieldset">
+            <legend>Checkboxes</legend>
+            <div class="dcf-input-checkbox">
+              <input id="dcf-components-form-checkbox1A" type="checkbox" value="0">
+              <label for="dcf-components-form-checkbox1A">Checkbox 1</label>
+            </div>
+            <div class="dcf-input-checkbox">
+              <input id="dcf-components-form-checkbox2A" type="checkbox" value="1">
+              <label for="dcf-components-form-checkbox2A">Checkbox 2</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="dcf-collapsible-fieldset" data-start-expanded="false">
+            <legend>Checkboxes (Starts collapsed)</legend>
+            <div class="dcf-input-checkbox">
+              <input id="dcf-components-form-checkbox1B" type="checkbox" value="0">
+              <label for="dcf-components-form-checkbox1B">Checkbox 1</label>
+            </div>
+            <div class="dcf-input-checkbox">
+              <input id="dcf-components-form-checkbox2B" type="checkbox" value="1">
+              <label for="dcf-components-form-checkbox2B">Checkbox 2</label>
+            </div>
+          </fieldset>
+        </form>
+        <script>
+          window.addEventListener('inlineJSReady', function() {
+            WDN.initializePlugin('collapsible-fieldsets');
+          }, false);
+        </script>
+      </div>
+
+      <div class="dcf-mt-6 dcf-mb-6">
         <h2 class="dcf-mt-6">Popups</h2>
 
 

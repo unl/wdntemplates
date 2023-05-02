@@ -13,6 +13,7 @@ module.exports = function (grunt) {
   const jsCssObjs = [
     'js-css/band_imagery',
     'js-css/button-toggles',
+    'js-css/collapsible-fieldsets',
     'js-css/events-band',
     'js-css/events',
     'js-css/figcaption-toggles',
@@ -69,6 +70,7 @@ module.exports = function (grunt) {
     'autoplay-videos',
     'band_imagery',
     'carousel',
+    'collapsible-fieldsets',
     'datepickers',
     'events-band',
     'events',
