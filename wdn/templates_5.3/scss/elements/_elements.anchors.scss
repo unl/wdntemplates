@@ -3,8 +3,8 @@
 /////////////////////////////
 
 
-// Finds anchor tags with hrefs not containing unl.edu, and not starting with # or / 
-.unl a:not([href*='unl.edu']):not([href^='#']):not([href^='/'])::after {
+// Finds anchor tags with hrefs not containing unl.edu, and not starting with # or /
+.unl a:not([href*='unl.edu']):not([href^='#']):not([href^='/']):not(:has(img)):not(:has(svg))::after {
   background-color: currentColor;
   content: '';
   display: inline-block;
