@@ -8,6 +8,7 @@ define([
   'lazy-load',
   'legacy',
   'modals',
+  'popups',
   'hover_intent',
   'cta-nav',
   'form_validation',
