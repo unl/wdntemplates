@@ -5,10 +5,9 @@
 
 // Scarlet
 @mixin scarlet($imp:null) { color: $color-brand-alpha $imp; }
-// TODO: determine state styles
-@mixin scarlet-visited($imp:null) { color: $scarlet $imp; }
-@mixin scarlet-hover($imp:null) { color: $scarlet $imp; }
-@mixin scarlet-active($imp:null) { color: $scarlet $imp; }
+@mixin scarlet-visited($imp:null) { color: $color-brand-alpha $imp; }
+@mixin scarlet-hover($imp:null) { color: $color-brand-alpha $imp; }
+@mixin scarlet-active($imp:null) { color: $color-brand-alpha $imp; }
 
 
 // Cream
