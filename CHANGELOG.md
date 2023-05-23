@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.30 (May 23, 2023)
+- Add popups to plugins that load with every request
+
 ## 5.3.29 (May 23, 2023)
 - Improve external link CSS selector
 
