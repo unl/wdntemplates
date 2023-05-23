@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.28 (May 23, 2023)
+- New popup component 
+- New external link SVG icon
+- Add backdrop-filter var and adjust overlay colors
+
 ## 5.3.27 (April 12, 2023)
 - New monospace font utility class
 - New hand-drawn backgrounds
