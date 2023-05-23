@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.29 (May 23, 2023)
+- Improve external link CSS selector
+
 ## 5.3.28 (May 23, 2023)
 - New popup component 
 - New external link SVG icon
