@@ -860,15 +860,6 @@
           </div>
 
         </div>
-        
-
-        
-
-        <script>
-          window.addEventListener('inlineJSReady', function() {
-            WDN.initializePlugin('popups');
-          }, false);
-        </script>
       </div>
 
       <div class="dcf-mt-6 dcf-mb-6">
