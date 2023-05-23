@@ -8,14 +8,12 @@
   // Scarlet
   .unl-scarlet,
   a.unl-scarlet,
-  a.unl-scarlet:link {
+  a.unl-scarlet:link,
+  a.unl-scarlet:visited,
+  a.unl-scarlet:hover,
+  a.unl-scarlet:active {
     @include scarlet(!important);
   }
-
-  a.unl-scarlet:visited { @include scarlet-visited(!important); }
-  a.unl-scarlet:hover { @include scarlet-hover(!important); }
-  a.unl-scarlet:active { @include scarlet-active(!important); }
-
 
   // Cream
   .unl-cream,
