@@ -170,7 +170,7 @@ module.exports = function (grunt) {
         if (this.moduleConfig.debug_mode) {
           contents = contents.replace(/\/\/#DEBUG_MODE/, 'debug_mode="' + this.moduleConfig.debug_mode + '";');
         }
-        if (this.moduleConfig.debug_mode) {
+        if (this.moduleConfig.wdnProp) {
           contents = contents.replace(/\/\/#wdnProp/, 'wdnProp="' + this.moduleConfig.wdnProp + '";');
         }
       }
