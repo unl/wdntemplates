@@ -74,7 +74,7 @@ define(['wdn', 'idm'], function (WDN, idm) {
             window.addEventListener('idmStateSet', () => {
                 let affiliation = idm.getPrimaryAffiliation();
                 gtag('set', 'user_properties', {
-                    WDN_Affiliation: affiliation,
+                    UNL_Affiliation: affiliation,
                 });
             });
         });
