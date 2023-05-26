@@ -126,19 +126,18 @@ define(['wdn', 'idm'], function (WDN, idm) {
         },
         recordMediaHubEvents: function() {
             window.addEventListener('message', function (e) {
-				let originalEvent = e.originalEvent;
 
-				if (mediaHubOrigin != originalEvent.origin) {
+				if (mediaHubOrigin != e.origin) {
 					//Verify the origin
 					return;
 				}
 
-				if ('ga_event' != originalEvent.data.message_type) {
+				if ('ga_event' != e.data.message_type) {
 					//not a ga event (maybe different event types in future?)
 					return;
 				}
 
-				Plugin.callTrackEvent('media', originalEvent.data.event, originalEvent.data.media_title);
+				Plugin.callTrackEvent('media', e.data.event, e.data.media_title);
 			});
         }
     };
