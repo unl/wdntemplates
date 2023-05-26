@@ -127,7 +127,9 @@ module.exports = function (grunt) {
   const rjsConfig = {
     moduleConfig : {
       wdnTemplatePath: '/',
-      unlChatURL: false
+      unlChatURL: false,
+      debug_mode: false,
+      wdnProp: "",
     },
     appDir: templateJs + '/',
     baseUrl: './',
@@ -163,6 +165,13 @@ module.exports = function (grunt) {
       } else if (moduleName === 'main') {
         if (this.moduleConfig.unlChatURL) {
           contents = contents.replace(/\/\/#UNLCHAT_URL/, 'unlchat_url="' + this.moduleConfig.unlChatURL + '";');
+        }
+      } else if (moduleName === 'analytics') {
+        if (this.moduleConfig.debug_mode) {
+          contents = contents.replace(/\/\/#DEBUG_MODE/, 'debug_mode="' + this.moduleConfig.debug_mode + '";');
+        }
+        if (this.moduleConfig.debug_mode) {
+          contents = contents.replace(/\/\/#wdnProp/, 'wdnProp="' + this.moduleConfig.wdnProp + '";');
         }
       }
 

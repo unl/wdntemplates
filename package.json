@@ -94,7 +94,8 @@
   },
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
-    "test": "node tests/run-tests.js"
+    "test": "node tests/run-tests.js",
+    "dev": "grunt --rjs-flags=\"debug_mode=true wdnProp=G-9DM5F2WV3Y\""
   },
   "browserslist": [
     "last 1 Chrome version",
