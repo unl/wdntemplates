@@ -7,46 +7,76 @@
 }
 
 
-.wdn-calendar .unl-event-teaser-li:not(:last-child) {
-  @include mb-4;
+.wdn-calendar .unl-event-teaser-ol {
+  --item-size: 13.32em;
+  grid-template-columns: repeat(auto-fit, minmax(var(--item-size), 1fr));
 }
-
 
 
 .unl-event-teaser {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template: 'a b' auto 'a c' 1fr / $length-em-8 1fr;
 }
 
 
-.unl-event-date {
-  @include mb-3;
+.unl-event-title { grid-area: b; }
+.unl-event-date { grid-area: a; }
+.unl-event-details { grid-area: c; }
+
+
+ @media screen and (min-width: 50em) and (max-width: 74em) {
+
+  .wdn-calendar .unl-event-teaser-ol:has(> :last-child:nth-child(4)) {
+    --item-size: 20em;
+  }
+
 }
 
+ @media screen and (min-width: 50em) and (max-width: 101.375em) {
 
-@supports (display:grid) {
-
-  .unl-event-teaser {
-    display: grid;
-    @include col-gap-4;
-    grid-template: 'a b' auto 'a c' 1fr / $length-em-8 1fr;
-    @include mb-0;
+  .wdn-calendar .unl-event-teaser-ol:has(> :last-child:nth-child(5)) {
+    --item-size: 20em;
   }
 
+}
 
-  .unl-event-title {
-    grid-area: b;
+@media screen and (min-width: 73.625em) and (max-width: 104.375em) {
+
+  .wdn-calendar .unl-event-teaser-ol:has(> :last-child:nth-child(6)) {
+    --item-size: 17.76em;
   }
 
+}
 
-  .unl-event-date {
-    grid-area: a;
-    @include mb-0;
+@media screen and (min-width: 104.375em) and (max-width: 135.25em) {
+
+  .wdn-calendar .unl-event-teaser-ol:has(> :last-child:nth-child(6)) {
+    --item-size: 23.68em;
   }
 
+}
 
-  .unl-event-details {
-    grid-area: c;
+@media screen and (min-width: 101.25em) {
+
+  .wdn-calendar .unl-event-teaser-ol:has(> :last-child:nth-child(7)),
+  .wdn-calendar .unl-event-teaser-ol:has(> :last-child:nth-child(8)) {
+    --item-size: 20em;
+  }
+
+}
+
+@media screen and (min-width: 73.625em) and (max-width: 104.25em){
+
+  .wdn-calendar .unl-event-teaser-ol:has(:nth-child(n+9)) {
+    --item-size: 17.76em;
+  }
+
+}
+
+@media screen and (min-width: 104.25em) {
+
+  .wdn-calendar .unl-event-teaser-ol:has(:nth-child(n+9)) {
+    --item-size: 23.68em;
   }
 
 }
