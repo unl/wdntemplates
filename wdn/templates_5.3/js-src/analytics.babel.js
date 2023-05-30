@@ -66,6 +66,10 @@ define(['wdn', 'idm'], function (WDN, idm) {
             gtag("config", "${wdnProp}", {
                 ${debug_mode ? "debug_mode: true," : ""}
             });
+            gtag('set', 'user_properties', {
+                UNL_Affiliation: "None",
+                login_status: "Not Logged In",
+            });
         `;
         head_tag.append(new_gtag_setup);
 
@@ -73,8 +77,16 @@ define(['wdn', 'idm'], function (WDN, idm) {
             bindLinks();
             window.addEventListener('idmStateSet', () => {
                 let affiliation = idm.getPrimaryAffiliation();
+                if (affiliation === "false") {
+                    affiliation = "None";
+                } else {
+                    affiliation = affiliation.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+                        return letter.toUpperCase();
+                    });
+                }
                 gtag('set', 'user_properties', {
                     UNL_Affiliation: affiliation,
+                    login_status: "Logged In",
                 });
             });
         });
