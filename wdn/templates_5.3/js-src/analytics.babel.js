@@ -85,66 +85,68 @@ define(['wdn', 'idm'], function (WDN, idm) {
             // Checks if we have a script for the gtag on the page already
             // If not we will create the script and set up initial items
             const gtag_script_check = document.querySelector(`script[src*=googletagmanager][src*=${wdnProp}]`);
-            if (gtag_script_check === null) {
-                // Gets the head to append scripts to
-                let head_tag = document.querySelector('head');
+            if (gtag_script_check !== null) {
+                return;
+            }
 
-                // Creates new gtag script and set up values to match GA4 specifications
-                // Append it to the head element
-                let new_gtag_script = document.createElement('script');
-                new_gtag_script.setAttribute('async', '');
-                new_gtag_script.setAttribute('src', `https://www.googletagmanager.com/gtag/js?id=${wdnProp}`);
-                head_tag.append(new_gtag_script);
+            // Gets the head to append scripts to
+            let head_tag = document.querySelector('head');
 
-                // Set up initial state of the gtag
-                // Append it to the head element
-                let new_gtag_setup = document.createElement('script');
-                new_gtag_setup.innerHTML = `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag() {
-                        dataLayer.push(arguments);
-                    }
-                    gtag("js", new Date());
-                    gtag("config", "${wdnProp}", {
-                        ${debug_mode ? "debug_mode: true," : ""}
-                    });
-                    // These will be updated once idm initializes
-                    gtag('set', 'user_properties', {
-                        UNL_Affiliation: "None",
-                        login_status: "Not Logged In",
-                    });
-                `;
-                head_tag.append(new_gtag_setup);
+            // Creates new gtag script and set up values to match GA4 specifications
+            // Append it to the head element
+            let new_gtag_script = document.createElement('script');
+            new_gtag_script.setAttribute('async', '');
+            new_gtag_script.setAttribute('src', `https://www.googletagmanager.com/gtag/js?id=${wdnProp}`);
+            head_tag.append(new_gtag_script);
 
-                // Run bind links to set up those event listeners
-                // We only want this to run once
-                bindLinks();
+            // Set up initial state of the gtag
+            // Append it to the head element
+            let new_gtag_setup = document.createElement('script');
+            new_gtag_setup.innerHTML = `
+                window.dataLayer = window.dataLayer || [];
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+                gtag("js", new Date());
+                gtag("config", "${wdnProp}", {
+                    ${debug_mode ? "debug_mode: true," : ""}
+                });
+                // These will be updated once idm initializes
+                gtag('set', 'user_properties', {
+                    UNL_Affiliation: "None",
+                    login_status: "Not Logged In",
+                });
+            `;
+            head_tag.append(new_gtag_setup);
 
-                // Set up idm to track user affiliation and login status
-                idm.initialize(() => {
-                    // Once idm is ready we will update the user property
-                    // This will not run if the user is not logged in
-                    window.addEventListener('idmStateSet', () => {
-                        // Get user affiliation
-                        let affiliation = idm.getPrimaryAffiliation();
+            // Run bind links to set up those event listeners
+            // We only want this to run once
+            bindLinks();
 
-                        // Clean up data
-                        if (affiliation === "false") {
-                            affiliation = "None";
-                        } else {
-                            affiliation = affiliation.toLowerCase().replace(/\b[a-z]/g, function(letter) {
-                                return letter.toUpperCase();
-                            });
-                        }
+            // Set up idm to track user affiliation and login status
+            idm.initialize(() => {
+                // Once idm is ready we will update the user property
+                // This will not run if the user is not logged in
+                window.addEventListener('idmStateSet', () => {
+                    // Get user affiliation
+                    let affiliation = idm.getPrimaryAffiliation();
 
-                        // set the user's new properties
-                        gtag('set', 'user_properties', {
-                            UNL_Affiliation: affiliation,
-                            login_status: "Logged In",
+                    // Clean up data
+                    if (affiliation === "false") {
+                        affiliation = "None";
+                    } else {
+                        affiliation = affiliation.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+                            return letter.toUpperCase();
                         });
+                    }
+
+                    // set the user's new properties
+                    gtag('set', 'user_properties', {
+                        UNL_Affiliation: affiliation,
+                        login_status: "Logged In",
                     });
                 });
-            }
+            });
         },
 
         /**
