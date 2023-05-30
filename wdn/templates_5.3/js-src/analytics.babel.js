@@ -36,7 +36,7 @@ define(['wdn', 'idm'], function (WDN, idm) {
             }
 
             // Outgoing link
-            if (gahref.match(/^https?\:/i) && !gahref.includes(location.hostname)) {
+            if (gahref.match(/^https?:/i) && !gahref.includes(location.hostname)) {
                 // Set up when clicked it will send a custom "Outgoing Link" event
                 link.addEventListener('click', () => {
                     Plugin.sendEvent('Outgoing Link', {
