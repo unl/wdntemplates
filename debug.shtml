@@ -1233,7 +1233,7 @@
         </section>
       </div>
 
-      <div class="dcf-tabs dcf-mt-6" data-url-tracking="true">
+      <div class="dcf-tabs dcf-mt-6" id="tabGroup3">
         <h3>Tab Group No UL</h3>
         <section id="group3-panel1">
           <h4 class="dcf-tabs-panel-title">Panel 1</h4>
@@ -1256,6 +1256,12 @@
       <script>
       window.addEventListener('inlineJSReady', function() {
           WDN.initializePlugin('tabs');
+          let tabGroup3 = document.getElementById('tabGroup3')
+          tabGroup3.addEventListener('ready', () => {
+            document.querySelector(`.dcf-tab[href="#group3-panel2"]`).dispatchEvent((new Event('commandSwitch')));
+            document.querySelector(`.dcf-tab[href="#group3-panel1"]`).hidden = true;
+            document.querySelector(`.dcf-tab[href="#group3-panel3"]`).hidden = true;
+          });
         }, false);
       </script>
 
