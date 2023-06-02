@@ -1189,6 +1189,8 @@
 
       <h2 class="dcf-mt-9">Tabs</h2>
 
+      <a href="#group3-panel2">Go To Tabs Panel #group3-panel2</a>
+
       <div class="dcf-tabs dcf-tabs-responsive dcf-mt-6 dcf-mb-9">
         <h3>Tab Group (Unordered List, Divs)</h3>
         <ul>
