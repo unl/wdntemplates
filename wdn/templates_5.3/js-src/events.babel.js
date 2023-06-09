@@ -65,17 +65,17 @@ define([
       $container.append(moreEvents);
     } else {
       // defaults to 'default' layout
-      eventList.classList.add('dcf-list-bare', 'dcf-mb-6');
+      eventList.classList.add('dcf-list-bare', 'dcf-d-grid', 'dcf-col-gap-vw', 'dcf-row-gap-5', 'dcf-mb-6', 'unl-event-teaser-ol');
       $container.addClass('wdn-calendar');
-      $container.append(`<h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray unl-txt-stripes-after">${displayType} Events</h2>`);
+      $container.append(`<h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray">${displayType} Events</h2>`);
       $container.append(eventList);
       let moreText = 'More Events';
       if (config.title) {
         moreText = `More ${config.title.trim()} Events`;
       }
       let seeAll = `<div><a class="dcf-btn dcf-btn-secondary" href="${config.url}${typePath}">${moreText}</a></div>`;
-      let ics = `<a class="dcf-btn dcf-btn-secondary" href="${config.url}${typePath}?format=ics">ICS</a>`;
-      let rss = `<a class="dcf-btn dcf-btn-secondary" href="${config.url}${typePath}?format=rss">RSS</a>`;
+      let ics = `<a class="dcf-btn dcf-btn-secondary dcf-btn-icon dcf-ai-baseline" href="${config.url}${typePath}?format=ics"><abbr class="dcf-txt-md" title="i Calendar format">ICS</abbr> <svg class="dcf-h-3 dcf-w-3 dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 24 24"><path d="M23.5 2H20V.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V2H8V.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V2H.5a.5.5 0 0 0-.5.5V7h24V2.5a.5.5 0 0 0-.5-.5zM7 4H5V1h2v3zm12 0h-2V1h2v3zM0 23.5a.5.5 0 0 0 .5.5h23a.5.5 0 0 0 .5-.5V8H0v15.5zM7 15h4v-4a1 1 0 0 1 2 0v4h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2z"/><path fill="none" d="M0 0h24v24H0z"/></svg></a>`;
+      let rss = `<a class="dcf-btn dcf-btn-secondary dcf-btn-icon dcf-ai-baseline" href="${config.url}${typePath}?format=rss"><abbr class="dcf-txt-md" title="Really Simple Syndication">RSS</abbr> <svg class="dcf-h-3 dcf-w-3 dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 24 24"><path d="M.012 8.5v2c7.289 0 13 5.931 13 13.5h2c0-8.691-6.59-15.5-15-15.5z"/><path d="M.012 0v2c12.336 0 22 9.664 22 22h2c0-13.458-10.543-24-24-24z"/><circle cx="3.012" cy="21" r="3"/><path fill="none" d="M0 0h24v24H0z"/></svg></a>`;
       let feeds = `<div class="dcf-btn-group" role="group">${ics}${rss}</div>`;
       let more = `<div class="dcf-d-flex dcf-flex-row dcf-flex-wrap dcf-jc-between dcf-col-gap-5 dcf-row-gap-4">${feeds}${seeAll}</div>`;
       $container.append(more);
@@ -118,7 +118,7 @@ define([
 
     let month    = `<span class="dcf-d-block dcf-txt-3xs dcf-pt-2 dcf-pb-1 dcf-uppercase dcf-bold unl-ls-2 unl-cream unl-bg-scarlet">${startDate.format('MMM')}</span>`;
     let day      = `<span class="dcf-d-block dcf-txt-h5 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray dcf-bg-white">${startDate.format('D')}</span>`;
-    let date     = `<time class="unl-event-date dcf-flex-shrink-0 dcf-w-8 dcf-mr-4 dcf-txt-center" datetime="${startDate.format('YYYY-MM-DD')}">${month}${day}</time>`;
+    let date     = `<time class="unl-event-date dcf-flex-shrink-0 dcf-w-8 dcf-txt-center" datetime="${startDate.format('YYYY-MM-DD')}">${month}${day}</time>`;
     let time     = `<time class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase" datetime="${startDate.format('HH:mm')}">${timeIcon}${startDate.format(timeformat)}</time>`;
     if (event.DateTime.AllDay) {
       // all day event so clear out time
@@ -158,7 +158,7 @@ define([
       location += '</span></div>';
     }
 
-    return `<li class="unl-event-teaser-li"><article class="unl-event-teaser dcf-card-as-link">${title}${date}<div class="unl-event-details dcf-txt-xs unl-dark-gray">${time}${location}</div></article></li>`;
+    return `<li class="unl-event-teaser-li dcf-mb-0"><article class="unl-event-teaser dcf-col-gap-4 dcf-card-as-link">${title}${date}<div class="unl-event-details dcf-txt-xs unl-dark-gray">${time}${location}</div></article></li>`;
   }
 
   let setup = function(config) {
