@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.31 (June 14, 2023)
+- Update events component layout
+- Add --brand-iota color CSS variable 
+- Remove nav-menu-child pseudo content
+- Remove duplicate nav menu styles from app.scss 
+- Tabs updates
+
 ## 5.3.30 (May 23, 2023)
 - Add popups to plugins that load with every request
 
