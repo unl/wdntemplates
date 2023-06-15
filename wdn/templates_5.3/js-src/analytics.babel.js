@@ -132,7 +132,7 @@ define(['wdn', 'idm'], function (WDN, idm) {
                     let affiliation = idm.getPrimaryAffiliation();
 
                     // Clean up data
-                    if (affiliation === "false") {
+                    if (affiliation === "false" || !affiliation) {
                         affiliation = "None";
                     } else {
                         affiliation = affiliation.toLowerCase().replace(/\b[a-z]/g, function(letter) {
@@ -143,7 +143,7 @@ define(['wdn', 'idm'], function (WDN, idm) {
                     // set the user's new properties
                     gtag('set', 'user_properties', {
                         UNL_Affiliation: affiliation,
-                        login_status: "Logged In",
+                        login_status: affiliation === "None" ? "Not Logged In" : "Logged In",
                     });
                 });
             });
