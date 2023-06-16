@@ -15,64 +15,6 @@ define(['wdn', 'idm'], function (WDN, idm) {
     const thisURL = String(window.location);
     const mediaHubOrigin = 'https://mediahub.unl.edu';
 
-    /**
-     * Set up function for adding custom events to link clicks
-     * @return { void }
-     */
-    const bindLinks = () => {
-        // Gets all the links in the nav and main sections
-        const navLinks = document.querySelectorAll('#dcf-navigation a');
-        const mainLinks = document.querySelectorAll('#dcf-main a');
-
-        // Set up REGEX for file extensions
-        const filetypes = /\.(zip|exe|pdf|doc*|xls*|ppt*|mp3|m4v|mov|mp4)$/i;
-
-        // Set up function to add event listener to link
-        const evaluateLinks = (link) => {
-            // Get the link and if its missing then exit the function
-            const gahref = link.getAttribute("href");
-            if (!gahref) {
-                return;
-            }
-
-            // Outgoing link
-            if (gahref.match(/^https?:/i) && !gahref.includes(location.hostname)) {
-                // Set up when clicked it will send a custom "Outgoing Link" event
-                link.addEventListener('click', () => {
-                    Plugin.sendEvent('Outgoing Link', {
-                        outgoing_link: gahref,
-                    });
-                    // Not sure if we need this but it will track a page view on that link href
-                    Plugin.callTrackPageview(gahref, false);
-                });
-            // Email link
-            } else if (gahref.match(/^mailto\:/i)) {
-                // Parse out the email
-                var mailLink = gahref.replace(/^mailto\:/i, '');
-                // Set up when clicked it will send a custom "Email" event
-                link.addEventListener('click', () => {
-                    Plugin.sendEvent('Email', {
-                        email: mailLink,
-                    });
-                });
-            // File Download link
-            } else if (gahref.match(filetypes)) {
-                // Set up when clicked it will send a custom "File Download" event
-                link.addEventListener('click', () => {
-                    Plugin.sendEvent('File Download', {
-                        file: gahref,
-                    });
-                    // Not sure if we need this but it will track a page view on that link href
-                    Plugin.callTrackPageview(gahref);
-                });
-            }
-        };
-
-        // Run that function on each link in both the nav and main sections
-        navLinks.forEach(evaluateLinks);
-        mainLinks.forEach(evaluateLinks);
-    }
-
     // This is the object that will be returned
     Plugin = {
         /**
@@ -118,10 +60,6 @@ define(['wdn', 'idm'], function (WDN, idm) {
                 });
             `;
             head_tag.append(new_gtag_setup);
-
-            // Run bind links to set up those event listeners
-            // We only want this to run once
-            bindLinks();
 
             // Set up idm to track user affiliation and login status
             idm.initialize(() => {
