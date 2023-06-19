@@ -1,0 +1,73 @@
+name: Bump DCF Version
+
+on:
+  schedule:
+    - cron: "0 */1 * * *"
+
+  workflow_dispatch:
+
+jobs:
+  check-commit:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get latest commit timestamp
+        id: get-commit
+        run: |
+          # Fetch the latest commit timestamp from the other repository
+          LATEST_TIMESTAMP=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/3.0 | jq -r '.commit.committer.date')
+          echo "::set-output name=timestamp::$LATEST_TIMESTAMP"
+      
+      - name: Compare commit timestamps
+        id: compare-commits
+        run: |
+          # Get the current timestamp
+          CURRENT_TIMESTAMP=$(date +%s)
+          echo "Current timestamp: $CURRENT_TIMESTAMP"
+          
+          # Get the timestamp of the latest commit
+          LATEST_TIMESTAMP=$(date -d "${{ steps.get-commit.outputs.timestamp }}" +%s)
+          echo "Latest commit timestamp: $LATEST_TIMESTAMP"
+          
+          # Calculate the time difference in seconds
+          TIME_DIFF=$((CURRENT_TIMESTAMP - LATEST_TIMESTAMP))
+          echo "Time difference: $TIME_DIFF seconds"
+          
+          # Check if there was a commit within the last 1 hours (3600 seconds)
+          if [ $TIME_DIFF -lt 3600 ]; then
+            echo "Recent commit found!"
+          else
+            echo "No recent commit"
+            exit 0
+          fi
+
+      - name: Modify package-lock.json
+        id: modify-file
+        run: |
+          # Read the package-lock.json file
+          FILE_PATH="package-lock.json"
+          FILE_CONTENT=$(cat $FILE_PATH)
+          
+          # Find and replace the commit hash
+          NEW_COMMIT_HASH=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/3.0 | jq -r '.sha')
+          UPDATED_CONTENT=$(echo "$FILE_CONTENT" | jq --arg new_version "git+ssh://git@github.com/digitalcampusframework/dcf.git#${NEW_COMMIT_HASH}" '.dependencies.dcf.version = $new_version')
+          
+          # Overwrite the modified content to the file
+          echo "$UPDATED_CONTENT" > $FILE_PATH
+
+      - name: Create pull request
+        uses: gr2m/create-or-update-pull-request-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          title: "Bump DCF"
+          body: "Updated DCF commit hash"
+          branch: "dcf-dump-branch"
+          commit-message: "Bumped DCF"
+          labels: dependency
+          reviewers: tommyneu
+          auto-merge: squash
+          update-pull-request-title-and-body: false
