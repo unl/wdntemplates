@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.32 (June 20, 2023)
+- GA4 analytics update
+- Restore wdn_tabs alongside the new dcf-tabs
+
 ## 5.3.31 (June 14, 2023)
 - Update events component layout
 - Add --brand-iota color CSS variable 
