@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-commit:
+  check-DCF-version:
     runs-on: ubuntu-latest
     
     steps:
@@ -19,7 +19,7 @@ jobs:
         run: |
           # Fetch the latest commit timestamp from the other repository
           LATEST_TIMESTAMP=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/3.0 | jq -r '.commit.committer.date')
-          echo "::set-output name=timestamp::$LATEST_TIMESTAMP"
+          echo "timestamp=$LATEST_TIMESTAMP" >> $GITHUB_OUTPUT
       
       - name: Compare commit timestamps
         id: compare-commits
@@ -53,7 +53,7 @@ jobs:
           
           # Find and replace the commit hash
           NEW_COMMIT_HASH=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/3.0 | jq -r '.sha')
-          UPDATED_CONTENT=$(echo "$FILE_CONTENT" | jq --arg new_version "git+ssh://git@github.com/digitalcampusframework/dcf.git#${NEW_COMMIT_HASH}" '.dependencies.dcf.version = $new_version')
+          UPDATED_CONTENT=$(echo "$FILE_CONTENT" | jq --arg new_version "git+ssh://git@github.com/digitalcampusframework/dcf.git#$NEW_COMMIT_HASH" '.dependencies.dcf.version = $new_version')
           
           # Overwrite the modified content to the file
           echo "$UPDATED_CONTENT" > $FILE_PATH
@@ -65,9 +65,9 @@ jobs:
         with:
           title: "Bump DCF"
           body: "Updated DCF commit hash"
-          branch: "dcf-dump-branch"
+          branch: "gw-dcf-bump-branch"
           commit-message: "Bumped DCF"
           labels: dependency
-          reviewers: tommyneu
+          reviewers: tommyneu, skoolbus39
           auto-merge: squash
           update-pull-request-title-and-body: false
