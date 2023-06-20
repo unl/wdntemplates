@@ -60,7 +60,6 @@ module.exports = function (grunt) {
   // polyfill modules that need sync loading (should match scripts loaded in debug.js)
   const polyfillMods = [
     'mustard-initializer', // make sure that polyfill.io and other mustard are loaded first before other scripts
-    'ga',
     'requireLib',
     'wdn'
   ];
@@ -108,7 +107,6 @@ module.exports = function (grunt) {
     '!debug.*',
     '!fontfaceobserver.*',
     '!fontsloaded.*',
-    '!ga.*',
     '!jquery.*',
     '!legacy.*',
     '!main-execute-mods.*',
@@ -129,7 +127,9 @@ module.exports = function (grunt) {
   const rjsConfig = {
     moduleConfig : {
       wdnTemplatePath: '/',
-      unlChatURL: false
+      unlChatURL: false,
+      debug_mode: false,
+      wdnProp: "",
     },
     appDir: templateJs + '/',
     baseUrl: './',
@@ -165,6 +165,13 @@ module.exports = function (grunt) {
       } else if (moduleName === 'main') {
         if (this.moduleConfig.unlChatURL) {
           contents = contents.replace(/\/\/#UNLCHAT_URL/, 'unlchat_url="' + this.moduleConfig.unlChatURL + '";');
+        }
+      } else if (moduleName === 'analytics') {
+        if (this.moduleConfig.debug_mode) {
+          contents = contents.replace(/\/\/#DEBUG_MODE/, 'debug_mode="' + this.moduleConfig.debug_mode + '";');
+        }
+        if (this.moduleConfig.wdnProp) {
+          contents = contents.replace(/\/\/#wdnProp/, 'wdnProp="' + this.moduleConfig.wdnProp + '";');
         }
       }
 

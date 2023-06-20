@@ -42,6 +42,12 @@ __EXAMPLE:__ Build for use in a special CDN or server location
 __EXAMPLE:__ Customize the UNLchat url.  Could be useful for integrating a custom instance of UNLchat or for development
 `grunt --rjs-flags="unlChatURl=//ucommchat-test.unl.edu/assests/js"`
 
+__EXAMPLE:__ Build for use in debug mode for analytics
+`grunt --rjs-flags="debug_mode=true"`
+
+__EXAMPLE:__  Customize the Analytics Measurement ID
+`grunt --rjs-flags="wdnProp=G-9DM5F2WV3Y"`
+
 __EXAMPLE:__ Two or more parameters are separated with a space
 `grunt --rjs-flags="wdnTemplatePath=//www.unl.edu/ unlChatURl=//ucommchat-test.unl.edu/assests/js"`
 
