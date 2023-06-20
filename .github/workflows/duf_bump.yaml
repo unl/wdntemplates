@@ -39,13 +39,15 @@ jobs:
           # Check if there was a commit within the last 1 hours (3600 seconds)
           if [ $TIME_DIFF -lt 3600 ]; then
             echo "Recent commit found!"
+            echo "recent_commit=true" >> $GITHUB_OUTPUT
           else
             echo "No recent commit"
-            exit 0
+            echo "recent_commit=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Modify package-lock.json
         id: modify-file
+        if: ${{ steps.compare-commits.outputs.recent_commit == 'true' }}
         run: |
           # Read the package-lock.json file
           FILE_PATH="package-lock.json"
@@ -60,6 +62,7 @@ jobs:
 
       - name: Create pull request
         uses: gr2m/create-or-update-pull-request-action@v1
+        if: ${{ steps.compare-commits.outputs.recent_commit == 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
