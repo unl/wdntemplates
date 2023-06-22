@@ -25,6 +25,10 @@
 .unl-bg-stripes-light { @include bg-stripes-light(!important); }
 
 
+// Diagonal Gradients
+.unl-bg-diagonal-gradients { @include bg-diagonal-gradients(!important); }
+
+
 // SVG Background Pattern: Campus
 .unl-bg-campus { @include bg-campus(!important); }
 
