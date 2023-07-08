@@ -58,7 +58,7 @@
     "imagemin-zopfli": "^7.0.0",
     "load-grunt-tasks": "^5.1.0",
     "lodash": "^4.17.21",
-    "node-sass": "^7.0.3",
+    "node-sass": "^9.0.0",
     "nth-check": "^2.0.1",
     "postcss": "^8.4.5",
     "postcss-normalize": "^10.0.1",
@@ -80,7 +80,7 @@
     "gsap": "^3.11.1",
     "hoverintent": "^2.2.1",
     "http-server": "^13.1.0",
-    "npm": "^6.14.15",
+    "npm": "^9.8.0",
     "puppeteer": "^17.1.0",
     "y18n": "^5.0.8"
   },
