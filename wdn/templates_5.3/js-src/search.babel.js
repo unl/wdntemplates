@@ -72,7 +72,7 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
         submitted = false,
         postReady = false,
         searchHost = 'search.unl.edu', // domain of UNL Search app
-        searchPath = '/', // path to UNL Search app
+        searchPath = '/embed/', // path to UNL Search app
         searchOrigin = 'https://' + searchHost,
         searchAction = searchOrigin + searchPath,
         searchFrameAction = searchAction + '?embed=' + searchEmbedVersion,
@@ -160,23 +160,25 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
           $unlSearch.className = 'dcf-b-0 dcf-w-100% dcf-h-100%';
           $unlSearch.src = searchFrameAction;
 
-          domSearchResultWrapper.appendChild($progress);
-          domSearchResultWrapper.appendChild($unlSearch);
-
           $unlSearch.addEventListener('load', function() {
             postReady = true; // iframe should be ready to post messages to
+            $progress.remove();
+            console.log('loaded');
           });
+
+          domSearchResultWrapper.appendChild($progress);
+          domSearchResultWrapper.appendChild($unlSearch);
         }
       };
 
       let activateSearch = function() {
         domSearchForm.parentElement.classList.add('active');
-        $progress.hidden = false;
+        $progress.remove();
       };
 
       let postSearchMessage = function(query) {
-        $unlSearch.contentWindow.postMessage(query, searchOrigin);
-        $progress.hidden = true;
+        $unlSearch.contentWindow.postMessage({type: "search", query: query}, searchOrigin);
+        $progress.remove();
       };
 
       let closeSearch = function() {
