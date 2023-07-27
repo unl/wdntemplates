@@ -48,3 +48,6 @@
 
 // Yellow
 @mixin bg-yellow($imp:null) { background-color: $yellow $imp; }
+
+// Orange
+@mixin bg-orange($imp:null) { background-color: $orange $imp; }
