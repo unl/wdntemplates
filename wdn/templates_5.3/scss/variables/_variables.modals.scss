@@ -4,6 +4,7 @@
 
 
 @import '_variables.body';
+@import '_variables.sizing';
 
 
 // Background color
@@ -17,5 +18,5 @@ $bg-color-modal-header: var(--bg-body);
 
 
 // Height & width
-$height-max-modal-wrapper: 75vh;                                // Max-height modal wrapper
+$height-max-modal-wrapper: calc(100% - (2 * #{$length-em-4}));  // Max-height modal wrapper
 $width-modal-wrapper: calc(100% - (2 * #{ms(12)}vw));           // Match width of .dcf-wrapper
