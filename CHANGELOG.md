@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.33 (July 17, 2023)
+- Add bg diagonal gradients mixin/utility
+- Fix for idm.initialize in analytics.js not running sometimes
+
 ## 5.3.32 (June 20, 2023)
 - GA4 analytics update
 - Restore wdn_tabs alongside the new dcf-tabs
