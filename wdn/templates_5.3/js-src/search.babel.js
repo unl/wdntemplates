@@ -160,23 +160,24 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
           $unlSearch.className = 'dcf-b-0 dcf-w-100% dcf-h-100%';
           $unlSearch.src = searchFrameAction;
 
-          domSearchResultWrapper.appendChild($progress);
-          domSearchResultWrapper.appendChild($unlSearch);
-
           $unlSearch.addEventListener('load', function() {
             postReady = true; // iframe should be ready to post messages to
+            $progress.remove();
           });
+
+          domSearchResultWrapper.appendChild($progress);
+          domSearchResultWrapper.appendChild($unlSearch);
         }
       };
 
       let activateSearch = function() {
         domSearchForm.parentElement.classList.add('active');
-        $progress.hidden = false;
+        $progress.remove();
       };
 
       let postSearchMessage = function(query) {
-        $unlSearch.contentWindow.postMessage(query, searchOrigin);
-        $progress.hidden = true;
+        $unlSearch.contentWindow.postMessage({type: "search", query: query}, searchOrigin);
+        $progress.remove();
       };
 
       let closeSearch = function() {
@@ -216,6 +217,7 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
         if ($unlSearch) {
           $unlSearch = null;
           domSearchResultWrapper.innerHTML = '';
+          postReady = false;
         }
       };
 
@@ -243,6 +245,10 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
         activateSearch();
         domEmbed.disabled = false;
         this.target = 'unlsearch';
+
+        // This is band-aid to fix the issue with the double scroll bar
+        domSearchResultWrapper.parentElement.classList.add('dcf-overflow-y-hidden');
+        domSearchResultWrapper.parentElement.classList.remove('dcf-overflow-y-auto');
 
         if (!e.detail || e.detail !== 'auto') {
           // a11y: send focus to the results if manually submitted
