@@ -72,7 +72,7 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
         submitted = false,
         postReady = false,
         searchHost = 'search.unl.edu', // domain of UNL Search app
-        searchPath = '/embed/', // path to UNL Search app
+        searchPath = '/', // path to UNL Search app
         searchOrigin = 'https://' + searchHost,
         searchAction = searchOrigin + searchPath,
         searchFrameAction = searchAction + '?embed=' + searchEmbedVersion,
@@ -163,7 +163,6 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
           $unlSearch.addEventListener('load', function() {
             postReady = true; // iframe should be ready to post messages to
             $progress.remove();
-            console.log('loaded');
           });
 
           domSearchResultWrapper.appendChild($progress);
@@ -218,6 +217,7 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
         if ($unlSearch) {
           $unlSearch = null;
           domSearchResultWrapper.innerHTML = '';
+          postReady = false;
         }
       };
 
