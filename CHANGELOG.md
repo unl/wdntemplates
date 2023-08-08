@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.34 (August 8, 2023)
+- Adjust modal wrapper max-height 
+- Add --brand-kappa (orange)
+- Update for new version of search
+- Add 25% / 50% / 75% height/width mixins/utilities
+- Ignore empty divs within the tabs component
+- Hide tabs list item if child tab is hidden
+
 ## 5.3.33 (July 17, 2023)
 - Add bg diagonal gradients mixin/utility
 - Fix for idm.initialize in analytics.js not running sometimes
