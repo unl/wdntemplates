@@ -246,6 +246,10 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
         domEmbed.disabled = false;
         this.target = 'unlsearch';
 
+        // This is band-aid to fix the issue with the double scroll bar
+        domSearchResultWrapper.parentElement.classList.add('dcf-overflow-y-hidden');
+        domSearchResultWrapper.parentElement.classList.remove('dcf-overflow-y-auto');
+
         if (!e.detail || e.detail !== 'auto') {
           // a11y: send focus to the results if manually submitted
           $unlSearch.focus();
