@@ -84,16 +84,7 @@
     "puppeteer": "^19.4.0",
     "y18n": "^5.0.8"
   },
-  "resolutions": {
-    "css-what": "6.0.1",
-    "glob-parent": "6.0.2",
-    "node-fetch": "2.6.7",
-    "normalize-url": "6.1.0",
-    "set-value": "4.1.0",
-    "trim-newlines": "4.0.2"
-  },
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
     "test": "node tests/run-tests.js",
     "dev": "grunt --rjs-flags=\"debug_mode=true wdnProp=G-9DM5F2WV3Y\""
   },
