@@ -57,32 +57,32 @@ __PLEASE NOTE:__ The build process has been optimized for a Linux or OS X enviro
 
 Support of the UNL Templates is coordinated and communicated through the [WDN](http://wdn.unl.edu/).
 
-# 5.0 Development Documentation  for Developers
+# 5.3 Development Documentation  for Developers
 
 ## Folder Structure
 ### Directories
-__`templates_5.0/js-src/`__
+__`templates_5.3/js-src/`__
 * contains JavaScript source files.
 * All files in this folder will be first copied to the
-`templates_5.0/js` folder (through the Grunt sync:js task) before require.js works on them
+`templates_5.3/js` folder (through the Grunt sync:js task) before require.js works on them
 * `*.babel.js` files will be transpiled and outputted to `/js/*.js`
 
-`templates_5.0/js-src/plugins/`
+`templates_5.3/js-src/plugins/`
 * Place vendor libraries here
 
-`templates_5.0/js-src/mustard/`
+`templates_5.3/js-src/mustard/`
 * Place polyfill files here that are not supported in both polyfill.io and DCF
 
-`templates_5.0/js-src/utility-scripts/`
+`templates_5.3/js-src/utility-scripts/`
 * Place script files here that are not require.js modules or widgets but are standalone files for transpile and minification purposes
 
-__`templates_5.0/js/`__
+__`templates_5.3/js/`__
 * Contain files and folders to be worked and bundled by require.js. Files from DCF are also pulled into this folder when the Grunt task `js-main` is ran
 
-`templates_5.0/js/compressed/`
+`templates_5.3/js/compressed/`
 * Production-ready JS files, containing the require.js entry file _all.js_
 
-__`templates_5.0/scss/*`__
+__`templates_5.3/scss/*`__
 * place theme SASS partials in this folder.
 * main SASS files include glob patterns that will pull in DCF SASS partials for compilation
 * `tmp.scss` files can be used to import styles into other projects. The most likely use case will be to use `pre.tmp.scss` to import framework variables, mixins and functions.
@@ -106,7 +106,7 @@ The script to remove inline critical styles once the core stylesheets have been 
 transpiled version from `js/compressed/utility-scripts` and replace the one inside  of `head-2.html` include file.
 
 ## Polyfilling Browser Features
-Polyfilling in 5.0 is done, for the most part, through [polyfill.io](http://polyfill.io). The script that
+Polyfilling in 5.3 is done, for the most part, through [polyfill.io](http://polyfill.io). The script that
 dynamically load
 polyfill.io synchronously is contained within `js-src/mustard-initializer.babel.js`. The mustard-initalizer.js file is
 loaded after all.js entry file has been loaded and before any of the other require modules. This sequence of loading
@@ -115,7 +115,7 @@ is defined within the Gruntfile.js under the `polyfillMods` array.
 Steps to polyfill features
 lacking in browsers are as follow:
 1. Determine if feature is supported by polyfill.io's [feature list](https://polyfill.io/v2/docs/features/)
-2. If it isn't, determine if polyfill benefits all users of _DCF_. If it does, then polyfill should be included in DCF and brought in through the DCF package. If the polyfill use case is very niche to what we do in WDN 5.0 then place it in the `js-src/mustard` folder. Use _unminified_ files only.
+2. If it isn't, determine if polyfill benefits all users of _DCF_. If it does, then polyfill should be included in DCF and brought in through the DCF package. If the polyfill use case is very niche to what we do in WDN 5.3 then place it in the `js-src/mustard` folder. Use _unminified_ files only.
 3. Once the polyfill file has been included in one of the above locations, implementing the polyfill can be done in two ways:
     1. Determine if the polyfill can be included only in the modules that make use of it and then
     conditionally require the polyfill through feature testing (e.g.cutting-the-mustard).
