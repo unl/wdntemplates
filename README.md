@@ -1,10 +1,10 @@
 # UNL WDN Templates
 
-The template files are developed and maintained by the [Web Developer Network](http://wdn.unl.edu/) (WDN) at the [University of Nebraska-Lincoln](http://www.unl.edu/). These templates are made up of HTML, CSS and JS to power the underlying web presence.
+The template files are developed and maintained by the [Web Developer Network](https://wdn.unl.edu/) (WDN) at the [University of Nebraska-Lincoln](https://www.unl.edu/). These templates are made up of HTML, CSS and JS to power the underlying web presence.
 
 ## Template Usage
 
-Template usage is subject to the [WDN Terms of Use](http://wdn.unl.edu/unledu-web-framework-terms-use).
+Template usage is subject to the [WDN Terms of Use](https://wdn.unl.edu/unledu-web-framework-terms-use).
 
 ### Templates Available
 
@@ -20,9 +20,9 @@ Much of the template CSS and JavaScript is built using aggregators, preprocessor
 
 The resources are built using a Gruntfile. The following tools are required to be installed.
 
-* [Git](http://git-scm.com/) -- version control system
-* [NodeJS](http://www.nodejs.org/) -- used to run the libraries that process and minimize LESS and JS files
-* [Grunt](http://gruntjs.com) -- The Grunt CLI must be installed ( `npm install -g grunt-cli` ) in order to build.
+* [Git](https://git-scm.com/) -- version control system
+* [NodeJS](https://nodejs.org/) -- used to run the libraries that process and minimize LESS and JS files
+* [Grunt](https://gruntjs.com) -- The Grunt CLI must be installed ( `npm install -g grunt-cli` ) in order to build.
 
 Installing the additional resources necessary to build the system can be downloaded by running `npm install` from the project root.
 
@@ -55,7 +55,7 @@ __PLEASE NOTE:__ The build process has been optimized for a Linux or OS X enviro
 
 ## Further support
 
-Support of the UNL Templates is coordinated and communicated through the [WDN](http://wdn.unl.edu/).
+Support of the UNL Templates is coordinated and communicated through the [WDN](https://wdn.unl.edu/).
 
 # 5.3 Development Documentation  for Developers
 
@@ -106,7 +106,7 @@ The script to remove inline critical styles once the core stylesheets have been 
 transpiled version from `js/compressed/utility-scripts` and replace the one inside  of `head-2.html` include file.
 
 ## Polyfilling Browser Features
-Polyfilling in 5.3 is done, for the most part, through [polyfill.io](http://polyfill.io). The script that
+Polyfilling in 5.3 is done, for the most part, through [polyfill.io](https://polyfill.io). The script that
 dynamically load
 polyfill.io synchronously is contained within `js-src/mustard-initializer.babel.js`. The mustard-initalizer.js file is
 loaded after all.js entry file has been loaded and before any of the other require modules. This sequence of loading
