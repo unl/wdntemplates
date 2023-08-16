@@ -1,6 +1,6 @@
 # UNL WDN Templates
 
-The template files are developed and maintained by the [Web Developer Network](https://wdn.unl.edu/) (WDN) at the [University of Nebraska-Lincoln](https://www.unl.edu/). These templates are made up of HTML, CSS and JS to power the underlying web presence.
+The template files are developed and maintained by the [Web Developer Network](https://wdn.unl.edu/) (WDN) at the [University of Nebraska-Lincoln](https://www.unl.edu/). These templates are made up of HTML, CSS and JavaScript to power the underlying web presence.
 
 ## Template Usage
 
@@ -21,7 +21,7 @@ Much of the template CSS and JavaScript is built using aggregators, preprocessor
 The resources are built using a Gruntfile. The following tools are required to be installed.
 
 * [Git](https://git-scm.com/) -- version control system
-* [NodeJS](https://nodejs.org/) -- used to run the libraries that process and minimize LESS and JS files
+* [NodeJS](https://nodejs.org/) -- used to run the libraries that process and minimize LESS and JavaScript files
 * [Grunt](https://gruntjs.com) -- The Grunt CLI must be installed ( `npm install -g grunt-cli` ) in order to build.
 
 Installing the additional resources necessary to build the system can be downloaded by running `npm install` from the project root.
@@ -30,7 +30,7 @@ Once all of the above dependencies are met, simply running Grunt `grunt` at the 
 
 * `default` or `all` - builds all needed CSS and JavaScript
 * `clean` - removes all built files
-* `js-main` - builds and minifies combined JS
+* `js-main` - builds and minifies combined JavaScript
 * `css-main` - builds all CSS files from their SCSS partials and passed through postcss
 * `dist` - builds the ZIP's used for template distribution. Also does smudging of keywords such as $DEP_VERSION$ in dwt and include files
 
