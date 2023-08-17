@@ -107,21 +107,22 @@ transpiled version from `js/compressed/utility-scripts` and replace the one insi
 
 ## Polyfilling Browser Features
 Polyfilling in 5.3 is done, for the most part, through [polyfill.io](https://polyfill.io). The script that
-dynamically load
-polyfill.io synchronously is contained within `js-src/mustard-initializer.babel.js`. The mustard-initalizer.js file is
-loaded after all.js entry file has been loaded and before any of the other require modules. This sequence of loading
-is defined within the Gruntfile.js under the `polyfillMods` array.
+dynamically loads polyfill.io synchronously is contained within `js-src/mustard-initializer.babel.js`.
+The mustard-initalizer.js file is loaded after all.js entry file has been loaded and before any of the
+other require modules. This sequence of loading is defined within the Gruntfile.js under the `polyfillMods` array.
 
 Steps to polyfill features
 lacking in browsers are as follow:
 1. Determine if feature is supported by polyfill.io's [feature list](https://polyfill.io/v2/docs/features/)
-2. If it isn't, determine if polyfill benefits all users of _DCF_. If it does, then polyfill should be included in DCF and brought in through the DCF package. If the polyfill use case is very niche to what we do in WDN 5.3 then place it in the `js-src/mustard` folder. Use _unminified_ files only.
+2. If it isn't, determine if polyfill benefits all users of _DCF_. If it does, then polyfill should be included in DCF and brought in through the DCF package.
+If the polyfill use case is very niche to what we do in WDN 5.3 then place it in the `js-src/mustard` folder. Use _unminified_ files only.
 3. Once the polyfill file has been included in one of the above locations, implementing the polyfill can be done in two ways:
     1. Determine if the polyfill can be included only in the modules that make use of it and then
     conditionally require the polyfill through feature testing (e.g.cutting-the-mustard).
-        * For example the dialog-polyfill.js is only used inside of the `js-src/dialog-helper.babel.js` instead of being brought in on every single page. Inside the same file, further feature testing is done to
+        * For example the dialog-polyfill.js is only used inside of the `js-src/dialog-helper.babel.js` instead of being
+        brought in on every single page. Inside the same file, further feature testing is done to
         conditionally require the polyfill for browsers that don't currently support the dialog element (e.g. Firefox)
     2. If the polyfill's use case is broad (e.g. object-fit polyfill) or the above step is not possible, then you can
-     add the polyfill to `js-src/mustard-initializer.babel.js` by feature-testing and conditionally requiring the polyfill. This works best when your polyfill automatically polyfills the window global scope.
-
+     add the polyfill to `js-src/mustard-initializer.babel.js` by feature-testing and conditionally requiring the polyfill.
+     This works best when your polyfill automatically polyfills the window global scope.
 
