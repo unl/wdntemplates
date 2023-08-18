@@ -54,12 +54,12 @@
 
 
 // Hover (and Active)
-
 .unl .dcf-btn-primary:not(:disabled):hover,
 .unl .dcf-btn-primary:not(:disabled):active {
   background-color: $bg-color-button-primary-hover;
   border-color: $border-color-button-primary-hover;
 }
+
 
 .unl .dcf-btn-secondary:not(:disabled):hover,
 .unl .dcf-btn-secondary:not(:disabled):active,
@@ -130,4 +130,61 @@
 .unl .dcf-btn-inverse-secondary:active,
 .unl .dcf-btn-inverse-tertiary:active {
   box-shadow: 0 0 0 3px $color-hover-light-mode, 0 0 0 5px currentColor;
+}
+
+
+@media screen and (prefers-color-scheme: dark) {
+
+  // Visited
+  .unl a.dcf-btn-primary\@dark:visited {
+    color: $color-button-primary-light-mode;
+  }
+
+
+  .unl a.dcf-btn-secondary\@dark:visited {
+    color: $color-button-secondary-light-mode;
+  }
+
+
+  .unl a.dcf-btn-tertiary\@dark:visited {
+    color: $color-button-tertiary-light-mode;
+  }
+
+
+  // Hover (and Active)
+  .unl .dcf-btn-primary\@dark:not(:disabled):hover,
+  .unl .dcf-btn-primary\@dark:not(:disabled):active {
+    background-color: $bg-color-button-primary-hover-light-mode;
+    border-color: $border-color-button-primary-hover-light-mode;
+  }
+
+
+  .unl .dcf-btn-secondary\@dark:not(:disabled):hover,
+  .unl .dcf-btn-secondary\@dark:not(:disabled):active,
+  .unl .dcf-btn-tertiary\@dark:not(:disabled):hover,
+  .unl .dcf-btn-tertiary\@dark:not(:disabled):active {
+    background-color: $bg-color-button-secondary-tertiary-hover-light-mode;
+    color: $color-button-secondary-tertiary-hover-light-mode;
+  }
+
+
+  // Focus
+  .unl .dcf-btn-primary\@dark:focus,
+  .unl .dcf-btn-secondary\@dark:focus,
+  .unl .dcf-btn-tertiary\@dark:focus {
+    box-shadow: 0 0 0 3px $bg-color-body-light-mode, 0 0 0 5px $color-focus-outline-light-mode;
+  }
+
+
+  // Active
+  .unl .dcf-btn-primary\@dark:active {
+    box-shadow: 0 0 0 3px $bg-color-body-light-mode, 0 0 0 5px $border-color-button-primary-hover-light-mode;
+  }
+
+
+  .unl .dcf-btn-secondary\@dark:active,
+  .unl .dcf-btn-tertiary\@dark:active {
+    box-shadow: 0 0 0 3px $bg-color-body-light-mode, 0 0 0 5px currentColor;
+  }
+
 }
