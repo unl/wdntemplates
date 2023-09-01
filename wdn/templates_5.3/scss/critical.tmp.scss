@@ -113,7 +113,7 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 //   line-height: 1.15;
-  font-family: Gotham SSm A,Gotham SSm B,Verdana,sans-serif;
+  font-family: 'Work Sans',Verdana,sans-serif;
   font-style: normal;
   font-weight: 400;
 }
@@ -1877,13 +1877,14 @@ a.unl-cream:link {
 // }
 }
 .unl-font-serif-ltd-caps {
-  font-family: Mercury SSm Ltd Caps A,Mercury SSm Ltd Caps B,Georgia,serif!important;
+  font-family: 'Source Serif 4',Georgia,serif!important;
 }
 .unl-font-serif-ltd-italic {
-  font-family: Mercury SSm Ltd Italic A,Mercury SSm Ltd Italic B,Georgia,serif!important;
+  font-family: 'Source Serif 4',Georgia,serif!important;
+  font-style: italic;
 }
 // .unl-font-sans {
-//   font-family: Gotham SSm A,Gotham SSm B,Verdana,sans-serif!important;
+//   font-family: 'Work Sans',Verdana,sans-serif!important;
 // }
 // .unl .dcf-txt-base {
 //     font-size: 1rem!important;
