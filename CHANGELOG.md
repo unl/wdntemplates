@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.35 (September 1, 2023)
+- New fonts
+
 ## 5.3.34 (August 8, 2023)
 - Adjust modal wrapper max-height 
 - Add --brand-kappa (orange)
