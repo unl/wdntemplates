@@ -128,8 +128,8 @@
 @mixin ls-2($imp:null) { letter-spacing: #{ms(-20)}em $imp; }
 @mixin ls-3($imp:null) { letter-spacing: #{ms(-14)}em $imp; }
 @mixin ls-h($imp:null) {
-  letter-spacing: -#{ms(-26)}em $imp;
-  margin-left: -#{ms(-26)}em $imp;
+  letter-spacing: -#{ms(-30)}em $imp;
+  margin-left: -#{ms(-30)}em $imp;
 }
 
 
