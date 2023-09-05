@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.36 (September 5, 2023)
+- HTML validation fix on @charset declaration
+
 ## 5.3.35 (September 1, 2023)
 - New fonts
 
