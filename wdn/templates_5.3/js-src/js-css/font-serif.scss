@@ -1,3 +1,34 @@
+//////////////////////////////////
+// THEME / UTILITIES / FONT: SERIF
+//////////////////////////////////
+
+
+@font-face {
+  font-family: 'SourceSerif4';
+  font-weight: 400;
+  src: url('/wdn/templates_5.3/fonts/source-serif-4/SourceSerif4-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SourceSerif4';
+  font-style: italic;
+  src: url('/wdn/templates_5.3/fonts/source-serif-4/SourceSerif4-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SourceSerif4';
+  font-weight: 700;
+  src: url('/wdn/templates_5.3/fonts/source-serif-4/SourceSerif4-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SourceSerif4';
+  font-style: italic;
+  font-weight: 700;
+  src: url('/wdn/templates_5.3/fonts/source-serif-4/SourceSerif4-BoldItalic.woff2') format('woff2');
+}
+
+
 .unl-font-serif {
-  font-family: 'Source Serif 4', Georgia, serif !important;
+  font-family: 'SourceSerif4', 'SerifFallback', serif !important;
 }
