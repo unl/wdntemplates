@@ -3,17 +3,6 @@
 ////////////////////////////
 
 
-// Serif
-.unl-font-serif-ltd-caps {
-  @include font-serif-ltd-caps(!important);
-}
-
-
-.unl-font-serif-ltd-italic {
-  @include font-serif-ltd-italic(!important);
-}
-
-
 // Sans Serif
 .unl-font-sans {
   @include font-sans(!important);

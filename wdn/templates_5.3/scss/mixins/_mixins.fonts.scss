@@ -3,19 +3,6 @@
 /////////////////////////
 
 
-// Serif
-@mixin font-serif-ltd-caps($imp:null) {
-  font-family: 'Source Serif 4', Georgia, serif $imp;
-  font-weight: 500 $imp;
-}
-
-
-@mixin font-serif-ltd-italic($imp:null) {
-  font-family: 'Source Serif 4', Georgia, serif $imp;
-  font-weight: 500 $imp;
-}
-
-
 // Sans Serif
 @mixin font-sans($imp:null) {
   font-family: 'WorkSans', 'SansSerifFallback', sans-serif $imp;
