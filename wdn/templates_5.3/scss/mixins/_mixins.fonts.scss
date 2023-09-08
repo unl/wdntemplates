@@ -9,6 +9,12 @@
 }
 
 
+// Display
+@mixin font-display($imp:null) {
+  font-family: 'LiberatorHeavyItalic', 'Arial Narrow', sans-serif $imp;
+}
+
+
 // Monospace
 @mixin font-mono($imp:null) {
   font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace $imp;
