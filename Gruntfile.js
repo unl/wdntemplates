@@ -9,10 +9,8 @@ module.exports = function (grunt) {
 
 	var jsCssObjs = [
 		'js-css/band_imagery',
-		'js-css/display-font',
 		'js-css/events',
 		'js-css/events-band',
-		'js-css/extlatin',
 		'js-css/formvalidator',
 		'js-css/monthwidget',
 		'js-css/notices',
@@ -60,10 +58,8 @@ module.exports = function (grunt) {
 	var wdnBuildPlugins = [
 		'band_imagery',
 		'carousel',
-		'display-font',
 		'events-band',
 		'events',
-		'extlatin',
 		'jqueryui',
 		'mediaelement_wdn',
 		'modal',
