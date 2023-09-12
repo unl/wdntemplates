@@ -384,7 +384,7 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				button.appendChild(img);
 
 				let displayName = document.createElement('SPAN');
-				displayName.classList.add('dcf-idm-label', 'dcf-txt-2xs', 'dcf-truncate');
+				displayName.classList.add('dcf-idm-label', 'dcf-txt-xs', 'dcf-truncate');
 				displayName.innerText = this.getDisplayName();
 				button.appendChild(displayName);
 
