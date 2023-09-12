@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.1.37 (September 12, 2023)
+- Font change
+
 ## 4.1.36 (September 16, 2018)
 - Change default CAS URL from login.unl.edu to shib.unl.edu
 
