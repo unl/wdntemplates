@@ -390,7 +390,7 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 
 				//Set up the IDM options
 				let optionsContainer = document.createElement('DIV');
-				optionsContainer.classList.add('dcf-idm-options', 'dcf-absolute', 'dcf-p-6', 'dcf-txt-2xs', 'dcf-z-1', 'dcf-bg-overlay-dark');
+				optionsContainer.classList.add('dcf-idm-options', 'dcf-absolute', 'dcf-p-6', 'dcf-txt-xs', 'dcf-z-1', 'dcf-bg-overlay-dark');
 				optionsContainer.setAttribute('id', 'dcf-idm-options-'+i);
 				optionsContainer.hidden = true;
 
