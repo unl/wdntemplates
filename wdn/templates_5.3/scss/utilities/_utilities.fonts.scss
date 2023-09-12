@@ -3,20 +3,21 @@
 ////////////////////////////
 
 
-// Serif
-.unl-font-serif-ltd-caps {
-  @include font-serif-ltd-caps(!important);
-}
-
-
-.unl-font-serif-ltd-italic {
-  @include font-serif-ltd-italic(!important);
-}
-
-
 // Sans Serif
 .unl-font-sans {
   @include font-sans(!important);
+}
+
+
+// Display
+.unl h1.unl-font-display,
+.unl h2.unl-font-display,
+.unl h3.unl-font-display,
+.unl h4.unl-font-display,
+.unl h5.unl-font-display,
+.unl h6.unl-font-display,
+.unl-font-display {
+  @include font-display(!important);
 }
 
 

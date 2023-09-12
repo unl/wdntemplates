@@ -4,7 +4,6 @@
 
 
 .unl .dcf-btn {
-  @include txt-sm;
   text-decoration: none;
   transition: background-color $transition-duration-hover-off $transition-timing-fn-hover-off, border-color $transition-duration-hover-off $transition-timing-fn-hover-off, box-shadow $transition-duration-hover-off $transition-timing-fn-hover-off, color $transition-duration-hover-off $transition-timing-fn-hover-off;
 }

@@ -11,11 +11,6 @@ define([
         }
         initd = true;
 
-        // Load Mercury ScreenSmart fonts from Cloud.typography
-        const fontSerif = document.createElement('link');
-        fontSerif.rel = 'stylesheet';
-        fontSerif.href = 'https://cloud.typography.com/7717652/7706412/css/fonts.css';
-        document.head.appendChild(fontSerif);
       }
     };
 });
