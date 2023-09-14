@@ -5,13 +5,13 @@
 
 // Sans Serif
 @mixin font-sans($imp:null) {
-  font-family: 'WorkSans', 'SansSerifFallback', sans-serif $imp;
+  font-family: 'Work Sans', 'Sans Serif Fallback', sans-serif $imp;
 }
 
 
 // Display
 @mixin font-display($imp:null) {
-  font-family: 'LiberatorHeavyItalic', 'Arial Narrow', sans-serif $imp;
+  font-family: 'Liberator Heavy Italic', 'Arial Narrow', sans-serif $imp;
 }
 
 
