@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.38 (September 14, 2023)
+- Font optimizations
+
 ## 5.3.37 (September 12, 2023)
 - Optimize web fonts and critical CSS
 - Add 2 new color variables
