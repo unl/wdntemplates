@@ -130,7 +130,7 @@ define([
       subtitle = `<p class="dcf-subhead dcf-mt-1 dcf-mb-3 dcf-txt-3xs dcf-bold unl-dark-gray">${event.EventSubtitle}</p>`;
     }
 
-    let title = `<header class="unl-event-title"><h3 class="dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover dcf-card-link unl-darker-gray" href="${eventURL}">${event.EventTitle}</a></h3>${subtitle}</header>`;
+    let title = `<header class="unl-event-title"><h3 class="dcf-mb-0 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover dcf-card-link unl-darker-gray" href="${eventURL}">${event.EventTitle}</a></h3>${subtitle}</header>`;
     let location = '';
 
     if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {
