@@ -12,7 +12,7 @@
 }
 
 .wp-calendar td > div > a:hover {
-  box-shadow: 0 0 $length-em-3 fade-out($border-color-gray-light-light-mode,.25);
+  box-shadow: 0 0 $length-em-3 $border-color-gray-light;
 }
 
 .wp-calendar td span,
