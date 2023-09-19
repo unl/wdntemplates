@@ -58,16 +58,16 @@
 }
 @font-face {
   font-family: 'Work Sans';
-  font-weight: 700;
+  font-weight: 600;
   font-display: swap;
-  src: url('/wdn/templates_5.3/fonts/work-sans/WorkSans-Bold.woff2') format('woff2');
+  src: url('/wdn/templates_5.3/fonts/work-sans/WorkSans-Semibold.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Work Sans';
   font-style: italic;
-  font-weight: 700;
+  font-weight: 600;
   font-display: swap;
-  src: url('/wdn/templates_5.3/fonts/work-sans/WorkSans-BoldItalic.woff2') format('woff2');
+  src: url('/wdn/templates_5.3/fonts/work-sans/WorkSans-SemiboldItalic.woff2') format('woff2');
 }
 html {
   // -ms-text-size-adjust: 100%;
@@ -441,7 +441,7 @@ a.dcf-btn-secondary,
   border-style: solid;
   border-width: 2px;
   font-size: .84em;
-  font-weight: 700;
+  font-weight: 600;
   padding: .75em 1em;
 }
 .unl .dcf-btn-inverse-primary {
@@ -493,7 +493,7 @@ a.dcf-btn-secondary,
 }
 .unl h1,
 .unl h2 {
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -.01em;
   margin-left: -.01em;
 }
@@ -575,7 +575,7 @@ a.dcf-btn-secondary,
 }
 .unl .dcf-nav-menu-child > ul > li > a,
 .unl .dcf-nav-menu-child button {
-  font-weight: 700;
+  font-weight: 600;
 }
 .unl .dcf-nav-toggle-btn {
   // -webkit-appearance: none;
@@ -1567,7 +1567,7 @@ a.dcf-btn-secondary,
 //     font-weight: 400!important;
 // }
 .dcf-bold {
-  font-weight: 700!important;
+  font-weight: 600!important;
 }
 .dcf-lh-1 {
   line-height: 1!important;
