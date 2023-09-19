@@ -11,18 +11,11 @@ ul.validation-advice {
 
 
 ul.validation-advice li::before {
-  content: '\e80f';
+  content: '\2191';
   display: inline-block;
-  font-family: 'wdn-icon';
-  font-style: normal;
-  font-weight: normal;
   margin-right: .2em;
   text-align: center;
-  text-decoration: inherit;
   width: 1em;
-  // For safety - reset parent styles, that can break glyph codes
-  font-variant: normal;
-  text-transform: none;
 }
 
 
