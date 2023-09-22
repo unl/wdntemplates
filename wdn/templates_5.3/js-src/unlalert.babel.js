@@ -206,7 +206,7 @@ define([
     if (!$alertToggle.length) {
       $alertToggle = $('<button>', {
         'id': idPrfx + togSuf,
-        'class': 'dcf-btn dcf-btn-tertiary dcf-txt-decor-none dcf-d-flex dcf-ai-center dcf-jc-center'
+        'class': 'dcf-btn dcf-btn-tertiary dcf-txt-decor-none dcf-d-flex dcf-ai-center dcf-jc-center dcf-txt-base'
       })
       .append($('<span>', {
         'id': idPrfx + icnSuf,
@@ -214,7 +214,8 @@ define([
                 'aria-hidden': 'true'
             }))
       .append($('<span>', {
-        'id': idPrfx + axnSuf
+        'id': idPrfx + axnSuf,
+        'class': 'dcf-txt-sm'
       }).text('Show emergency alert'))
       .click(toggleAlert)
       .appendTo($alertContent.parent());
