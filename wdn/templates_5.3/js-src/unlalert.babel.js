@@ -206,7 +206,7 @@ define([
     if (!$alertToggle.length) {
       $alertToggle = $('<button>', {
         'id': idPrfx + togSuf,
-        'class': 'dcf-btn dcf-btn-tertiary dcf-txt-decor-none'
+        'class': 'dcf-btn dcf-btn-tertiary dcf-txt-decor-none dcf-d-flex dcf-ai-center dcf-jc-center'
       })
       .append($('<span>', {
         'id': idPrfx + icnSuf,
