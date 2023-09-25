@@ -4,6 +4,7 @@ define([
   'css!js-css/unlalert'
 ], function(WDN, $) {
   var dataUrl = 'https://alert.unl.edu/json/unlcap.js';
+  //var dataUrl = 'https://local-wdn.unl.edu/scripts/public/alertSimulator.php';
   var activeIds = [], calltimeout,
 
   ckPrfx = 'unlAlerts',
@@ -111,26 +112,28 @@ define([
     var $alert = $('#' + idPrfx),
       $alertToggle = $('#' + idPrfx + togSuf),
       $alertContent = $('#' + idPrfx + cntSuf),
-      $alertIcon = $('#' + idPrfx + icnSuf),
-      $alertAction = $('#' + idPrfx + axnSuf),
-      i;
+      $alertIconClose = $('#' + idPrfx + icnSuf + '_close'),
+      $alertIconWarning = $('#' + idPrfx + icnSuf + '_warning'),
+      $alertAction = $('#' + idPrfx + axnSuf);
 
     if ($alert.hasClass('show')) {
       $alert.removeClass('show').closest('body').removeClass(idPrfx + '-shown');
-      $alertIcon.attr('class','wdn-icon-attention dcf-mr-3');
-      $alertAction.removeClass('dcf-sr-only').text('Show emergency alert');
-      for (i = 0; i < activeIds.length; i++) {
+      $alertIconClose.attr('hidden', 'true');
+      $alertIconWarning.removeAttr('hidden');
+      $alertAction.removeClass('dcf-sr-only').addClass('dcf-ml-2 dcf-txt-sm').text('Show emergency alert');
+      for (var i = 0; i < activeIds.length; i++) {
         _acknowledgeAlert(activeIds[i]);
       }
     } else {
       $alert.addClass('show').closest('body').addClass(idPrfx + '-shown');
-      $alertIcon.attr('class','wdn-icon-cancel');
-      $alertAction.addClass('dcf-sr-only').text('Hide emergency alert');
+      $alertIconWarning.attr('hidden', 'true');
+      $alertIconClose.removeAttr('hidden');
+      $alertAction.removeClass('dcf-ml-2 dcf-txt-sm').addClass('dcf-sr-only').text('Hide emergency alert');
     }
   },
 
   alertUser = function(root) {
-	WDN.log('Alerting the user');
+    WDN.log('Alerting the user');
 
     _flagPreviousAlert();
     activeIds = [];
@@ -138,7 +141,6 @@ define([
       $alertContent,
       containsExtreme = false,
       allAck = true,
-      i,
       info = root.info,
       effectiveDate = '',
       uniqueID,
@@ -149,7 +151,7 @@ define([
       info = [info];
     }
 
-    for (i = 0; i < info.length; i++) {
+    for (var i = 0; i < info.length; i++) {
       if (info[i].severity !== 'Extreme') {
         continue;
       }
@@ -166,7 +168,7 @@ define([
 
     effectiveDate = new Date(root.sent).toLocaleString();
 
-    for (i = 0; i < info.length; i++) {
+    for (var i = 0; i < info.length; i++) {
       // Add a div to store the html content
       if (!$alertWrapper.length) {
         $alertWrapper = $('<div>', {
@@ -201,6 +203,8 @@ define([
       $alertContent.append(alertContentHTML);
     }
 
+    alertIconSvg = '<svg id="' + idPrfx + icnSuf + '" class="dcf-h-4 dcf-w-4 dcf-fill-current" viewBox="0 0 24 24" height="16" width="16" focusable="false" aria-hidden="true"><g id="' + idPrfx + icnSuf + '_close"><path d="M13.4 12 23.7 1.7c.4-.4.4-1 0-1.4s-1-.4-1.4 0L12 10.6 1.7.3C1.3-.1.7-.1.3.3s-.4 1 0 1.4L10.6 12 .3 22.3c-.4.4-.4 1 0 1.4.2.2.4.3.7.3s.5-.1.7-.3L12 13.4l10.3 10.3c.2.2.5.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4L13.4 12z"></path></g><g id="' + idPrfx + icnSuf + '_warning" hidden><path d="M12 17.3c-.6 0-1-.4-1-1V8.7c0-.6.4-1 1-1s1 .4 1 1v7.7c0 .5-.4.9-1 .9z"></path><path d="M23 24H1c-.3 0-.7-.2-.9-.5s-.2-.7 0-1l11-22c.3-.7 1.5-.7 1.8 0l11 22c.2.3.1.7 0 1s-.6.5-.9.5zM2.6 22h18.8L12 3.2 2.6 22z"></path><path d="M12 21c-.8 0-1.5-.7-1.5-1.5S11.2 18 12 18s1.5.7 1.5 1.5S12.8 21 12 21z"></path></g><path fill="none" d="M0 0h24v24H0z"></path></svg>'
+
     // Add a visibility toggle tab
     var $alertToggle = $('#' + idPrfx + togSuf);
     if (!$alertToggle.length) {
@@ -208,14 +212,10 @@ define([
         'id': idPrfx + togSuf,
         'class': 'dcf-btn dcf-btn-tertiary dcf-txt-decor-none dcf-d-flex dcf-ai-center dcf-jc-center dcf-txt-base'
       })
-      .append($('<span>', {
-        'id': idPrfx + icnSuf,
-        'class': 'wdn-icon-attention dcf-mr-3',
-                'aria-hidden': 'true'
-            }))
+      .append(alertIconSvg)
       .append($('<span>', {
         'id': idPrfx + axnSuf,
-        'class': 'dcf-txt-sm'
+        'class': 'dcf-ml-2 dcf-txt-sm'
       }).text('Show emergency alert'))
       .click(toggleAlert)
       .appendTo($alertContent.parent());
