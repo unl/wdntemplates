@@ -187,7 +187,7 @@ define([
         $('<div>', {'class': 'dcf-wrapper'})
           .append($alertContent)
           .appendTo($alertWrapper);
-        } else if (i === 0) {
+      } else if (i === 0) {
         $alertContent = $('#' + idPrfx + cntSuf).empty();
       }
 
