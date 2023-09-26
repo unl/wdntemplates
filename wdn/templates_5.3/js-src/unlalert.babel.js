@@ -4,7 +4,6 @@ define([
   'css!js-css/unlalert'
 ], function(WDN, $) {
   var dataUrl = 'https://alert.unl.edu/json/unlcap.js';
-  //var dataUrl = 'https://local-wdn.unl.edu/scripts/public/alertSimulator.php';
   var activeIds = [], calltimeout,
 
   ckPrfx = 'unlAlerts',
