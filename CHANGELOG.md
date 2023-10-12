@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.39 (October 12, 2023)
+- Add Matomo analytics
+- Font adjustments
+
 ## 5.3.38 (September 14, 2023)
 - Font optimizations
 
