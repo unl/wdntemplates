@@ -588,7 +588,7 @@
           </div>
         </div>
 
-        <div class="dcf-popup dcf-mt-6">
+        <div class="dcf-popup dcf-mt-6" id="popup-layer-1">
           <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Nested Popups Layer 1</button>
           <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
             <p>Test Text</p>
@@ -600,9 +600,11 @@
                   <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Nested Popups Layer 3</button>
                   <div class="dcf-popup-content unl-bg-green dcf-rounded dcf-p-3">
                     <p>Test Text</p>
+                    <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup" data-for="popup-layer-1">Close Popup Layer 1</button>
                     <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup Layer 3</button>
                   </div>
                 </div>
+                <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup" data-for="popup-layer-1">Close Popup Layer 1</button>
                 <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup Layer 2 First</button>
               </div>
             </div>
@@ -615,6 +617,7 @@
               </div>
             </div>
             <p>Test Text</p>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup Layer 1</button>
             <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup Layer 1</button>
           </div>
         </div>
