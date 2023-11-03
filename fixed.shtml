@@ -25,7 +25,7 @@
         <!--#include virtual="/wdn/templates_4.1/includes/noscript-padding.html" -->
         <header id="header" role="banner" class="wdn-content-slide wdn-band">
             <div id="wdn_header_top">
-                <span id="wdn_institution_title"><a href="http://www.unl.edu/">University of Nebraska&ndash;Lincoln</a></span>
+                <span id="wdn_institution_title"><a href="https://www.unl.edu/">University of Nebraska&ndash;Lincoln</a></span>
                 <div id="wdn_resources">
                     <!--#include virtual="/wdn/templates_4.1/includes/wdnResources.html" -->
                     <!--#include virtual="/wdn/templates_4.1/includes/idm.html" -->
@@ -47,7 +47,7 @@
             <nav id="breadcrumbs" class="wdn-inner-wrapper" role="navigation" aria-label="breadcrumbs">
                 <!-- InstanceBeginEditable name="breadcrumbs" -->
                 <ul>
-                    <li><a href="http://www.unl.edu/" class="wdn-icon-home">Nebraska</a></li>
+                    <li><a href="https://www.unl.edu/" class="wdn-icon-home">Nebraska</a></li>
                     <li class="selected"><a href="http://architecture.unl.edu/">College of Architecture</a></li>
                     <li>Home</li>
                 </ul>
