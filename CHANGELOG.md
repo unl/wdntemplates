@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.40 (November 14, 2023)
+- Change Matomo file name
+- Toggle fixes
+- Modal fixes
+
 ## 5.3.39 (October 12, 2023)
 - Add Matomo analytics
 - Font adjustments
