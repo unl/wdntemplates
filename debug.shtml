@@ -817,7 +817,7 @@
             <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
           </div>
           <figcaption class="dcf-figcaption dcf-figcaption-toggle">
-            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. 
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
             <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small>
           </figcaption>
         </figure>
@@ -1214,7 +1214,7 @@
 
       <h2 class="dcf-mt-9">Pagination</h2>
       <nav class="dcf-pagination">
-        <ol class="dcf-list-bare dcf-list-inline">
+        <ol class="dcf-list-inline" role="list">
           <li><a class="dcf-pagination-first" href="#">First</a></li>
           <li><a class="dcf-pagination-prev" href="#">Prev</a></li>
           <li><a href="#">1</a></li>
