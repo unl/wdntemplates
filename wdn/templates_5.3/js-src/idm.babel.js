@@ -30,7 +30,6 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		avatarService = 'https://directory.unl.edu/avatar/',
 		departmentLookup = 'https://directory.unl.edu/departments/',
 		userLookup = 'https://directory.unl.edu/people/',
-		planetRed = 'https://planetred.unl.edu/pg/',
 		user = false,
 		sessionUser = false;
 
@@ -336,7 +335,7 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 		},
 
 		/**
-		 * Get the profile (planet red) URL
+		 * Get the profile (directory) URL
 		 *
 		 * @returns {string}
 		 */
@@ -346,17 +345,7 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 			}
 
 			var uid = this.getUserId();
-
-			// in planet red's use of CAS, staff usernames are converted like jdoe2 -> unl_jdoe2
-			//  and student usernames are converted like s-jdoe3 -> unl_s_jdoe3
-			var planetred_uid = 'unl_';
-			if (uid.substring(2, 0) === 's-') {
-				planetred_uid += uid.replace('-', '_');
-			} else {
-				planetred_uid += uid;
-			}
-
-			return planetRed + 'profile/' + planetred_uid;
+			return userLookup + uid;
 		},
 
 		/**
