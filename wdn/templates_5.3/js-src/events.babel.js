@@ -49,12 +49,14 @@ define([
       let moreEvents = `<div class="dcf-d-flex dcf-jc-flex-end"><a class="dcf-btn dcf-btn-secondary" href="${config.url}${typePath}">More Events</a></div>`;
 
       if (config.layout.toLowerCase() === 'grid') {
-        eventList.classList.add('dcf-list-bare', 'dcf-grid-halves@sm', 'dcf-grid-fourths@lg', 'dcf-col-gap-vw', 'dcf-row-gap-6');
+        eventList.classList.add('dcf-grid-halves@sm', 'dcf-grid-fourths@lg', 'dcf-col-gap-vw', 'dcf-row-gap-6');
+        eventList.setAttribute.add('role', 'list');
         containerClasses = 'dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-8';
         header = `<h2 class="dcf-sr-only">${displayType} Events</h2>`;
         moreEvents = `<div class="dcf-d-flex dcf-jc-center"><a class="dcf-btn dcf-btn-tertiary" href="${config.url}${typePath}">More Events</a></div>`;
       } else {
-        eventList.classList.add('unl-event-teaser-list', 'dcf-list-bare', 'dcf-col-gap-vw', 'dcf-row-gap-6', 'dcf-mb-6');
+        eventList.classList.add('unl-event-teaser-list', 'dcf-col-gap-vw', 'dcf-row-gap-6', 'dcf-mb-6');
+        eventList.setAttribute.add('role', 'list');
         grid.classList.add('unl-offset-grid', 'dcf-col-gap-4');
       }
 
@@ -65,7 +67,8 @@ define([
       $container.append(moreEvents);
     } else {
       // defaults to 'default' layout
-      eventList.classList.add('dcf-list-bare', 'dcf-d-grid', 'dcf-col-gap-vw', 'dcf-row-gap-5', 'dcf-mb-6', 'unl-event-teaser-ol');
+      eventList.classList.add('dcf-d-grid', 'dcf-col-gap-vw', 'dcf-row-gap-5', 'dcf-mb-6', 'unl-event-teaser-ol');
+      eventList.setAttribute.add('role', 'list');
       $container.addClass('wdn-calendar');
       $container.append(`<h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray">${displayType} Events</h2>`);
       $container.append(eventList);

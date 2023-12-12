@@ -338,7 +338,7 @@
               <div class="dcf-relative dcf-pt-9 dcf-pb-9 dcf-bb">
                 <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Dean’s Office Staff</h2>
                 <div class="dcf-grid dcf-col-gap-vw">
-                  <ul class="dcf-list-bare dcf-relative dcf-grid-halves@md dcf-grid-thirds@xl dcf-col-gap-vw dcf-row-gap-6 unl-grid-1">
+                  <ul class="dcf-relative dcf-grid-halves@md dcf-grid-thirds@xl dcf-col-gap-vw dcf-row-gap-6 unl-grid-1" role="list">
                     <li class="dcf-d-flex dcf-ai-center dcf-pb-0">
                       <div class="dcf-2nd dcf-flex-1">
                         <h3 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover" href="#">Kathe Andersen</a></h3>
@@ -453,7 +453,7 @@
 
         <div class="dcf-pb-8">
             <h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-stripes unl-dark-gray">Department and School Faculty Listings</h2>
-            <ul class="dcf-list-bare">
+            <ul role="list">
                 <li><a href="#">School of Art, Art History & Design Faculty</a></li>
                 <li><a href="#">Glenn Korff School of Music Faculty</a></li>
                 <li><a href="#">Johnny Carson School of Theatre & Film Faculty</a></li>
@@ -463,7 +463,7 @@
         <!-- Staff Listing -->
         <div class="dcf-pb-9 dcf-bb">
             <h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-stripes unl-dark-gray">Dean’s Office Staff</h2>
-            <ul class="dcf-list-bare dcf-grid-halves dcf-grid-thirds@sm dcf-grid-fourths@md dcf-col-gap-vw dcf-row-gap-6">
+            <ul class="dcf-grid-halves dcf-grid-thirds@sm dcf-grid-fourths@md dcf-col-gap-vw dcf-row-gap-6" role="list">
                 <li class="dcf-d-flex dcf-flex-col dcf-pb-0">
                     <div class="dcf-2nd dcf-txt-center">
                         <h3 class="dcf-mb-0 dcf-txt-h6"><a class="dcf-txt-decor-hover" href="#">Kathe Andersen</a></h3>
@@ -766,7 +766,7 @@
                 <div class="dcf-grid dcf-relative dcf-col-gap-vw dcf-row-gap-8 dcf-pt-9 dcf-pb-9">
 
                     <h2 class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mb-0 dcf-txt-xs dcf-uppercase unl-ls-2 dcf-txt-vertical-lr unl-dark-gray">Upcoming Events</h2>
-                    <ul class="dcf-d-grid dcf-list-bare dcf-col-gap-vw dcf-row-gap-6 dcf-mb-0 unl-events-listing">
+                    <ul class="dcf-d-grid dcf-col-gap-vw dcf-row-gap-6 dcf-mb-0 unl-events-listing" role="list">
 
                         <li class="dcf-media dcf-event" itemscope itemtype="http://schema.org/Event">
                             <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">
@@ -994,7 +994,7 @@
         <!--
             <div class="dcf-events dcf-col-gap-vw dcf-row-gap-8 dcf-pt-10 dcf-pb-10">
               <h2 class="dcf-events-heading">Upcoming Events</h2>
-              <ul class="dcf-list-bare dcf-events-listing dcf-col-gap-vw dcf-row-gap-6 dcf-mb-0">
+              <ul class="dcf-events-listing dcf-col-gap-vw dcf-row-gap-6 dcf-mb-0" role="list">
 
                 <li class="dcf-media dcf-event dcf-pt-3 dcf-bt" itemscope itemtype="http://schema.org/Event">
                   <div class="dcf-media-body dcf-1st dcf-d-flex dcf-flex-col">

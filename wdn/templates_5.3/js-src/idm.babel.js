@@ -395,7 +395,8 @@ define(['wdn', 'ready', 'dropdown-widget', 'require'], function (WDN, ready, Dro
 				optionsContainer.hidden = true;
 
 				let navUL = document.createElement('UL');
-				navUL.classList.add('dcf-list-bare', 'dcf-mb-0');
+				navUL.classList.add('dcf-mb-0');
+				navUL.setAttribute('role', 'list');
 
 				let profileLI = document.createElement('LI');
 				let profileLink = document.createElement('A');
