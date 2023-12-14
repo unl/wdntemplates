@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.42 (December 14, 2023)
+- Fix typo in font URLs
+
 ## 5.3.41 (December 14, 2023)
 - Add role="list" to framework unstyled lists
 - Replaced references for Planet Red with Directory
