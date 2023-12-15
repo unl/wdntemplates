@@ -50,13 +50,13 @@ define([
 
       if (config.layout.toLowerCase() === 'grid') {
         eventList.classList.add('dcf-grid-halves@sm', 'dcf-grid-fourths@lg', 'dcf-col-gap-vw', 'dcf-row-gap-6');
-        eventList.setAttribute.add('role', 'list');
+        eventList.setAttribute('role', 'list');
         containerClasses = 'dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-8';
         header = `<h2 class="dcf-sr-only">${displayType} Events</h2>`;
         moreEvents = `<div class="dcf-d-flex dcf-jc-center"><a class="dcf-btn dcf-btn-tertiary" href="${config.url}${typePath}">More Events</a></div>`;
       } else {
         eventList.classList.add('unl-event-teaser-list', 'dcf-col-gap-vw', 'dcf-row-gap-6', 'dcf-mb-6');
-        eventList.setAttribute.add('role', 'list');
+        eventList.setAttribute('role', 'list');
         grid.classList.add('unl-offset-grid', 'dcf-col-gap-4');
       }
 
