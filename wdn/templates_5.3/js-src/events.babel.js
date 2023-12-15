@@ -68,7 +68,7 @@ define([
     } else {
       // defaults to 'default' layout
       eventList.classList.add('dcf-d-grid', 'dcf-col-gap-vw', 'dcf-row-gap-5', 'dcf-mb-6', 'unl-event-teaser-ol');
-      eventList.setAttribute.add('role', 'list');
+      eventList.setAttribute('role', 'list');
       $container.addClass('wdn-calendar');
       $container.append(`<h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray">${displayType} Events</h2>`);
       $container.append(eventList);
