@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.43 (December 18, 2023)
+- Events widget fix
+
 ## 5.3.42 (December 14, 2023)
 - Fix typo in font URLs
 
