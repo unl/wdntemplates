@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.44 (January 2, 2024)
+- Update copyright year to 2024 in footer
+
 ## 5.3.43 (December 18, 2023)
 - Events widget fix
 
