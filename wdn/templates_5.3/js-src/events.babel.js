@@ -135,7 +135,6 @@ define([
       time = `<time class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase" datetime="${startDate.format('HH:mm')}">${timeIcon} All Day</time>`;
     } else {
       time = `<div class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase">${timeIcon}<time datetime="${startDate.format('HH:mm')}">${startDate.format(timeformat)}</time>`;
-      console.log(endDate.unix(), startDate.unix());
       if (endDate !== undefined && endDate.unix() > startDate.unix()) {
         time += `&nbsp;&ndash;&nbsp;<time datetime="${endDate.format('HH:mm')}">${endDate.format(timeformat)}</time>`;
       }
