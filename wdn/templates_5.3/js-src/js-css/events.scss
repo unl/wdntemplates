@@ -1,12 +1,6 @@
 @import '../../scss/pre.tmp.scss';
 
 
-.unl-event-time,
-.unl-event-location {
-  margin-top: #{ms(-12)}em;
-}
-
-
 .wdn-calendar .unl-event-teaser-ol {
   --item-size: 13.32em;
   grid-template-columns: repeat(auto-fit, minmax(var(--item-size), 1fr));

@@ -1012,6 +1012,14 @@
         </div>
       </div>
 
+      <h2 class="dcf-mt-9">Events Band</h2>
+      <div id="events"></div>
+      <script>
+        window.addEventListener('inlineJSReady', function() {
+          WDN.initializePlugin('events', {container: '#events', layout: 'grid', limit: 4, rooms: false, featured: true, pinned_limit: 1});
+        });
+      </script>
+
       <h2 class="dcf-mt-9">Tables</h2>
 
       <div class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-auto">
