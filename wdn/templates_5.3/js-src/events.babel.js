@@ -88,6 +88,7 @@ define([
 
   let renderEvent = function (event, config) {
     let startDate;
+    let endDate;
     let timezone = 'America/Chicago';
     let timeformat = 'h:mm a';
 
@@ -110,6 +111,13 @@ define([
       startDate = moment.tz(`${event.DateTime.StartDate}T${event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1)}`, timezone);
     }
 
+    if (event.DateTime.End) {
+      endDate = moment.tz(event.DateTime.End, timezone);
+    } else {
+      //legacy
+      endDate = moment.tz(`${event.DateTime.EndDate}T${event.DateTime.EndTime.substring(0, event.DateTime.EndTime.length - 1)}`, timezone);
+    }
+
     let eventURL = '';
     if ($.isArray(event.WebPages)) {
       eventURL = event.WebPages[0].URL
@@ -122,15 +130,20 @@ define([
     let month    = `<span class="dcf-d-block dcf-txt-3xs dcf-pt-2 dcf-pb-1 dcf-uppercase dcf-bold unl-ls-3 unl-cream unl-bg-scarlet">${startDate.format('MMM')}</span>`;
     let day      = `<span class="dcf-d-block dcf-txt-h5 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray dcf-bg-white">${startDate.format('D')}</span>`;
     let date     = `<time class="unl-event-date dcf-flex-shrink-0 dcf-w-8 dcf-txt-center" datetime="${startDate.format('YYYY-MM-DD')}">${month}${day}</time>`;
-    let time     = `<time class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase" datetime="${startDate.format('HH:mm')}">${timeIcon}${startDate.format(timeformat)}</time>`;
+    let time     = '';
     if (event.DateTime.AllDay) {
-      // all day event so clear out time
-      time = '';
+      time = `<time class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase" datetime="${startDate.format('HH:mm')}">${timeIcon} All Day</time>`;
+    } else {
+      time = `<div class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase">${timeIcon}<time datetime="${startDate.format('HH:mm')}">${startDate.format(timeformat)}</time>`;
+      if (endDate !== undefined && endDate.unix() > startDate.unix()) {
+        time += `&nbsp;&ndash;&nbsp;<time datetime="${endDate.format('HH:mm')}">${endDate.format(timeformat)}</time>`;
+      }
+      time += '</div>';
     }
 
     let subtitle = '';
     if (event.EventSubtitle) {
-      subtitle = `<p class="dcf-subhead dcf-mt-1 dcf-mb-3 dcf-txt-3xs dcf-bold unl-dark-gray">${event.EventSubtitle}</p>`;
+      subtitle = `<p class="dcf-subhead dcf-mt-1 dcf-mb-0 dcf-txt-3xs dcf-bold unl-dark-gray">${event.EventSubtitle}</p>`;
     }
 
     let title = `<header class="unl-event-title"><h3 class="dcf-mb-0 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover dcf-card-link unl-darker-gray" href="${eventURL}">${event.EventTitle}</a></h3>${subtitle}</header>`;
@@ -161,7 +174,7 @@ define([
       location += '</span></div>';
     }
 
-    return `<li class="unl-event-teaser-li dcf-mb-0"><article class="unl-event-teaser dcf-col-gap-4 dcf-card-as-link">${title}${date}<div class="unl-event-details dcf-txt-xs unl-dark-gray">${time}${location}</div></article></li>`;
+    return `<li class="unl-event-teaser-li dcf-mb-0"><article class="unl-event-teaser dcf-col-gap-4 dcf-card-as-link">${title}${date}<div class="unl-event-details dcf-mt-1 dcf-txt-xs unl-dark-gray">${time}${location}</div></article></li>`;
   }
 
   let setup = function(config) {
