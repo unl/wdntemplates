@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.45 (January 12, 2024)
+- Added end time/all day to events widget and updated styles
+
 ## 5.3.44 (January 2, 2024)
 - Update copyright year to 2024 in footer
 
