@@ -55,7 +55,7 @@ jobs:
           
           # Find and replace the commit hash
           NEW_COMMIT_HASH=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/3.0 | jq -r '.sha')
-          UPDATED_CONTENT=$(echo "$FILE_CONTENT" | jq --arg new_version "git+ssh://git@github.com/digitalcampusframework/dcf.git#$NEW_COMMIT_HASH" '.dependencies.dcf.version = $new_version')
+          UPDATED_CONTENT=$(echo "$FILE_CONTENT" | jq --arg new_version "git+ssh://git@github.com/digitalcampusframework/dcf.git#$NEW_COMMIT_HASH" '.packages.node_modules/dcf.resolved = $new_version')
           
           # Overwrite the modified content to the file
           echo "$UPDATED_CONTENT" > $FILE_PATH
