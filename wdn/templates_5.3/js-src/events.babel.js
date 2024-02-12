@@ -133,15 +133,15 @@ define([
     let time     = '';
 
     if (event.DateTime.AllDay) {
-      time = `<time class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase" datetime="${startDate.format('HH:mm')}">${timeIcon} All Day</time>`;
+      time = `<time class="unl-event-time dcf-d-flex dcf-ai-center" datetime="${startDate.format('HH:mm')}">${timeIcon} All Day</time>`;
     } else if (event.DateTime.TimeMode === 'TBD') {
-      time = `<time class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase" datetime="${startDate.format('HH:mm')}">${timeIcon} <abbr title="To Be Determined">TBD</abbr></time>`;
+      time = `<time class="unl-event-time dcf-d-flex dcf-ai-center" datetime="${startDate.format('HH:mm')}">${timeIcon} <abbr title="To Be Determined">TBD</abbr></time>`;
     } else if (event.DateTime.TimeMode === 'STARTTIMEONLY') {
-      time = `<time class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase" datetime="${startDate.format('HH:mm')}">${timeIcon} Starts at ${startDate.format(timeformat)}</time>`;
+      time = `<time class="unl-event-time dcf-d-flex dcf-ai-center" datetime="${startDate.format('HH:mm')}">${timeIcon} Starts at ${startDate.format(timeformat)}</time>`;
     } else if (event.DateTime.TimeMode === 'ENDTIMEONLY') {
-      time = `<time class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase" datetime="${endDate.format('HH:mm')}">${timeIcon} Ends at ${endDate.format(timeformat)}</time>`;
+      time = `<time class="unl-event-time dcf-d-flex dcf-ai-center" datetime="${endDate.format('HH:mm')}">${timeIcon} Ends at ${endDate.format(timeformat)}</time>`;
     } else {
-      time = `<div class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase">${timeIcon}<time datetime="${startDate.format('HH:mm')}">${startDate.format(timeformat)}</time>`;
+      time = `<div class="unl-event-time dcf-d-flex dcf-ai-center">${timeIcon}<time datetime="${startDate.format('HH:mm')}">${startDate.format(timeformat)}</time>`;
       if (endDate !== undefined && endDate.unix() > startDate.unix()) {
         time += `&nbsp;&ndash;&nbsp;<time datetime="${endDate.format('HH:mm')}">${endDate.format(timeformat)}</time>`;
       }
