@@ -132,8 +132,6 @@ define([
     let date     = `<time class="unl-event-date dcf-flex-shrink-0 dcf-w-8 dcf-txt-center" datetime="${startDate.format('YYYY-MM-DD')}">${month}${day}</time>`;
     let time     = '';
 
-    console.log(event.DateTime.TimeMode);
-
     if (event.DateTime.AllDay) {
       time = `<time class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase" datetime="${startDate.format('HH:mm')}">${timeIcon} All Day</time>`;
     } else if (event.DateTime.TimeMode === 'TBD') {
