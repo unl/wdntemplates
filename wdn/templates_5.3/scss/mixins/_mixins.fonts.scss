@@ -3,20 +3,15 @@
 /////////////////////////
 
 
-// Serif
-@mixin font-serif-ltd-caps($imp:null) {
-  font-family: 'Mercury SSm Ltd Caps A', 'Mercury SSm Ltd Caps B', Georgia, serif $imp;
-}
-
-
-@mixin font-serif-ltd-italic($imp:null) {
-  font-family: 'Mercury SSm Ltd Italic A', 'Mercury SSm Ltd Italic B', Georgia, serif $imp;
-}
-
-
 // Sans Serif
 @mixin font-sans($imp:null) {
-  font-family: 'Gotham SSm A', 'Gotham SSm B', Verdana, sans-serif $imp;
+  font-family: 'Work Sans', 'Sans Serif Fallback', sans-serif $imp;
+}
+
+
+// Display
+@mixin font-display($imp:null) {
+  font-family: 'Liberator Heavy Italic', 'Arial Narrow', sans-serif $imp;
 }
 
 

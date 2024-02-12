@@ -1,6 +1,57 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.45 (January 12, 2024)
+- Added end time/all day to events widget and updated styles
+
+## 5.3.44 (January 2, 2024)
+- Update copyright year to 2024 in footer
+
+## 5.3.43 (December 18, 2023)
+- Events widget fix
+
+## 5.3.42 (December 14, 2023)
+- Fix typo in font URLs
+
+## 5.3.41 (December 14, 2023)
+- Add role="list" to framework unstyled lists
+- Replaced references for Planet Red with Directory
+- Fix URL path to favicon in manifest.webmanifest
+
+## 5.3.40 (November 14, 2023)
+- Change Matomo file name
+- Toggle fixes
+- Modal fixes
+
+## 5.3.39 (October 12, 2023)
+- Add Matomo analytics
+- Font adjustments
+
+## 5.3.38 (September 14, 2023)
+- Font optimizations
+
+## 5.3.37 (September 12, 2023)
+- Optimize web fonts and critical CSS
+- Add 2 new color variables
+
+## 5.3.36 (September 5, 2023)
+- HTML validation fix on @charset declaration
+
+## 5.3.35 (September 1, 2023)
+- New fonts
+
+## 5.3.34 (August 8, 2023)
+- Adjust modal wrapper max-height 
+- Add --brand-kappa (orange)
+- Update for new version of search
+- Add 25% / 50% / 75% height/width mixins/utilities
+- Ignore empty divs within the tabs component
+- Hide tabs list item if child tab is hidden
+
+## 5.3.33 (July 17, 2023)
+- Add bg diagonal gradients mixin/utility
+- Fix for idm.initialize in analytics.js not running sometimes
+
 ## 5.3.32 (June 20, 2023)
 - GA4 analytics update
 - Restore wdn_tabs alongside the new dcf-tabs

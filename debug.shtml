@@ -502,7 +502,7 @@
           Toggle My First Div (Starts On)
         </button>
 
-        <div id="my-div-with-id">
+        <div id="my-div-with-id" hidden>
           My Second Div
         </div>
 
@@ -539,7 +539,7 @@
             </div>
           </fieldset>
 
-          <fieldset class="dcf-collapsible-fieldset" data-start-expanded="false">
+          <fieldset class="dcf-collapsible-fieldset" data-start-expanded="false" hidden>
             <legend>Checkboxes (Starts collapsed)</legend>
             <div class="dcf-input-checkbox">
               <input id="dcf-components-form-checkbox1B" type="checkbox" value="0">
@@ -565,26 +565,60 @@
         <h3 class="dcf-mt-6">Popups Special</h3>
 
         <div class="dcf-popup">
-          <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup With Close Button</button>
+          <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup With Close Button</button>
           <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup-close">Close Popup</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup</button>
           </div>
         </div>
 
         <div class="dcf-popup dcf-mt-6" data-hover="true">
-          <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Hover</button>
+          <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Hover</button>
           <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup-close">Close Popup</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup</button>
           </div>
         </div>
 
         <div class="dcf-popup dcf-mt-6" data-hover="true" data-point="true">
-          <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Hover with point</button>
+          <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Hover with point</button>
           <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup-close">Close Popup</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup</button>
+          </div>
+        </div>
+
+        <div class="dcf-popup dcf-mt-6" id="popup-layer-1">
+          <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Nested Popups Layer 1</button>
+          <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
+            <p>Test Text</p>
+            <div class="dcf-popup" data-position="right">
+              <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Nested Popups Layer 2 First</button>
+              <div class="dcf-popup-content unl-bg-scarlet dcf-rounded dcf-p-3">
+                <p>Test Text</p>
+                <div class="dcf-popup" data-position="bottom" data-alignment="center">
+                  <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Nested Popups Layer 3</button>
+                  <div class="dcf-popup-content unl-bg-green dcf-rounded dcf-p-3">
+                    <p>Test Text</p>
+                    <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup" data-for="popup-layer-1">Close Popup Layer 1</button>
+                    <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup Layer 3</button>
+                  </div>
+                </div>
+                <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup" data-for="popup-layer-1">Close Popup Layer 1</button>
+                <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup Layer 2 First</button>
+              </div>
+            </div>
+            <p>Test Text</p>
+            <div class="dcf-popup" data-position="right">
+              <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Nested Popups Layer 2 Second</button>
+              <div class="dcf-popup-content unl-bg-scarlet dcf-rounded dcf-p-3">
+                <p>Test Text</p>
+                <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup Layer 2 Second</button>
+              </div>
+            </div>
+            <p>Test Text</p>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup Layer 1</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup Layer 1</button>
           </div>
         </div>
 
@@ -594,21 +628,21 @@
 
           <!-- Bottom -->
           <div class="dcf-popup" data-position="bottom" data-alignment="start" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Bottom And Start</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Bottom And Start</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="bottom" data-alignment="end" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Bottom and End</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Bottom and End</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="bottom" data-alignment="center" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Bottom and Center</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Bottom and Center</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
@@ -616,21 +650,21 @@
 
           <!-- Top -->
           <div class="dcf-popup" data-position="top" data-alignment="start" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Top And Start</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Top And Start</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="top" data-alignment="end" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Top and End</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Top and End</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="top" data-alignment="center" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Top and Center</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Top and Center</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
@@ -638,21 +672,21 @@
 
           <!-- Right -->
           <div class="dcf-popup" data-position="right" data-alignment="start" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Right And Start</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Right And Start</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="right" data-alignment="end" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Right and End</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Right and End</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="right" data-alignment="center" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Right and Center</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Right and Center</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
@@ -660,69 +694,25 @@
 
           <!-- Left -->
           <div class="dcf-popup" data-position="left" data-alignment="start" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Left And Start</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Left And Start</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="left" data-alignment="end" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Left and End</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Left and End</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="left" data-alignment="center" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Left and Center</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Left and Center</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
-
-          <div class="dcf-popup" data-position="bottom" data-alignment="start" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">B&S P</button>
-            <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
-              Lorem ipsum dolor sit amet
-            </div>
-          </div>
-
-          <div class="dcf-popup" data-position="bottom" data-alignment="center" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">B&C P</button>
-            <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
-              Lorem ipsum dolor sit amet
-            </div>
-          </div>
-
-          <div class="dcf-popup" data-position="bottom" data-alignment="end" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">B&E P</button>
-            <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
-              Lorem ipsum dolor sit amet
-            </div>
-          </div>
-
-          <div class="dcf-popup" data-position="right" data-alignment="start" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">R&S P</button>
-            <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
-              Lorem ipsum dolor sit amet
-            </div>
-          </div>
-
-          <div class="dcf-popup" data-position="right" data-alignment="center" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">R&C P</button>
-            <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
-              Lorem ipsum dolor sit amet
-            </div>
-          </div>
-
-          <div class="dcf-popup" data-position="right" data-alignment="end" data-point="true">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">R&E P</button>
-            <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
-              Lorem ipsum dolor sit amet
-            </div>
-          </div>
-
-
         </div>
 
         <h3 class="dcf-mt-6">Popups No Points</h3>
@@ -730,22 +720,22 @@
 
           <!-- Bottom -->
           <div class="dcf-popup" data-position="bottom" data-alignment="start">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Bottom And Start</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Bottom And Start</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
-              <button class="dcf-btn dcf-btn-primary dcf-btn-popup-close">Close Popup</button>
+              <button class="dcf-btn dcf-btn-primary dcf-btn-close-popup">Close Popup</button>
             </div>
           </div>
 
           <div class="dcf-popup" data-position="bottom" data-alignment="end">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Bottom and End</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Bottom and End</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="bottom" data-alignment="center">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Bottom and Center</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Bottom and Center</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
@@ -753,21 +743,21 @@
 
           <!-- Top -->
           <div class="dcf-popup" data-position="top" data-alignment="start">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Top And Start</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Top And Start</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="top" data-alignment="end">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Top and End</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Top and End</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="top" data-alignment="center">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Top and Center</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Top and Center</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
@@ -775,21 +765,21 @@
 
           <!-- Right -->
           <div class="dcf-popup" data-position="right" data-alignment="start">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Right And Start</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Right And Start</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="right" data-alignment="end">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Right and End</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Right and End</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="right" data-alignment="center">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Right and Center</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Right and Center</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
@@ -797,68 +787,25 @@
 
           <!-- Left -->
           <div class="dcf-popup" data-position="left" data-alignment="start">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Left And Start</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Left And Start</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="left" data-alignment="end">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Left and End</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Left and End</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
 
           <div class="dcf-popup" data-position="left" data-alignment="center">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">Open Popup Left and Center</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup Left and Center</button>
             <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
             </div>
           </div>
-
-          <div class="dcf-popup" data-position="bottom" data-alignment="start">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">B&S</button>
-            <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
-              Lorem ipsum dolor sit amet
-            </div>
-          </div>
-
-          <div class="dcf-popup" data-position="bottom" data-alignment="center">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">B&C</button>
-            <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
-              Lorem ipsum dolor sit amet
-            </div>
-          </div>
-
-          <div class="dcf-popup" data-position="bottom" data-alignment="end">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">C&E</button>
-            <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
-              Lorem ipsum dolor sit amet
-            </div>
-          </div>
-
-          <div class="dcf-popup" data-position="right" data-alignment="start">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">R&S</button>
-            <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
-              Lorem ipsum dolor sit amet
-            </div>
-          </div>
-
-          <div class="dcf-popup" data-position="right" data-alignment="center">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">R&C</button>
-            <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
-              Lorem ipsum dolor sit amet
-            </div>
-          </div>
-
-          <div class="dcf-popup" data-position="right" data-alignment="end">
-            <button class="dcf-btn dcf-btn-primary dcf-btn-popup">R&E</button>
-            <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3">
-              Lorem ipsum dolor sit amet
-            </div>
-          </div>
-
         </div>
       </div>
 
@@ -870,7 +817,7 @@
             <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
           </div>
           <figcaption class="dcf-figcaption dcf-figcaption-toggle">
-            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. 
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
             <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small>
           </figcaption>
         </figure>
@@ -1064,6 +1011,14 @@
           </div>
         </div>
       </div>
+
+      <h2 class="dcf-mt-9">Events Band</h2>
+      <div id="events"></div>
+      <script>
+        window.addEventListener('inlineJSReady', function() {
+          WDN.initializePlugin('events', {container: '#events', layout: 'grid', limit: 4, rooms: false, featured: true, pinned_limit: 1});
+        });
+      </script>
 
       <h2 class="dcf-mt-9">Tables</h2>
 
@@ -1267,7 +1222,7 @@
 
       <h2 class="dcf-mt-9">Pagination</h2>
       <nav class="dcf-pagination">
-        <ol class="dcf-list-bare dcf-list-inline">
+        <ol class="dcf-list-inline" role="list">
           <li><a class="dcf-pagination-first" href="#">First</a></li>
           <li><a class="dcf-pagination-prev" href="#">Prev</a></li>
           <li><a href="#">1</a></li>

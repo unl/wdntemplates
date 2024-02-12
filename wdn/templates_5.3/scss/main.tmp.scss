@@ -56,6 +56,7 @@
 @import "variables/_variables.tables";
 @import "variables/_variables.tabs";
 @import "variables/_variables.transitions";
+@import "variables/_variables.typography";
 @import "variables/_variables.z-index";
 
 
@@ -117,6 +118,7 @@
 @import "../../../node_modules/dcf/scss/generic/_generic.reduced-motion";
 @import "generic/_generic.color-scheme";
 @import "generic/_generic.focus";
+@import "generic/_generic.font-face";
 
 
 // Elements
@@ -141,6 +143,7 @@
 @import "../../../node_modules/dcf/scss/elements/_elements.sub-sup";
 @import "../../../node_modules/dcf/scss/elements/_elements.tables";
 @import "elements/_elements.anchors";
+@import "elements/_elements.browser-defaults";
 @import "elements/_elements.code";
 @import "elements/_elements.details-summary";
 @import "elements/_elements.headings";

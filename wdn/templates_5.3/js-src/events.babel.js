@@ -49,12 +49,14 @@ define([
       let moreEvents = `<div class="dcf-d-flex dcf-jc-flex-end"><a class="dcf-btn dcf-btn-secondary" href="${config.url}${typePath}">More Events</a></div>`;
 
       if (config.layout.toLowerCase() === 'grid') {
-        eventList.classList.add('dcf-list-bare', 'dcf-grid-halves@sm', 'dcf-grid-fourths@lg', 'dcf-col-gap-vw', 'dcf-row-gap-6');
+        eventList.classList.add('dcf-grid-halves@sm', 'dcf-grid-fourths@lg', 'dcf-col-gap-vw', 'dcf-row-gap-6');
+        eventList.setAttribute('role', 'list');
         containerClasses = 'dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-8';
         header = `<h2 class="dcf-sr-only">${displayType} Events</h2>`;
         moreEvents = `<div class="dcf-d-flex dcf-jc-center"><a class="dcf-btn dcf-btn-tertiary" href="${config.url}${typePath}">More Events</a></div>`;
       } else {
-        eventList.classList.add('unl-event-teaser-list', 'dcf-list-bare', 'dcf-col-gap-vw', 'dcf-row-gap-6', 'dcf-mb-6');
+        eventList.classList.add('unl-event-teaser-list', 'dcf-col-gap-vw', 'dcf-row-gap-6', 'dcf-mb-6');
+        eventList.setAttribute('role', 'list');
         grid.classList.add('unl-offset-grid', 'dcf-col-gap-4');
       }
 
@@ -65,7 +67,8 @@ define([
       $container.append(moreEvents);
     } else {
       // defaults to 'default' layout
-      eventList.classList.add('dcf-list-bare', 'dcf-d-grid', 'dcf-col-gap-vw', 'dcf-row-gap-5', 'dcf-mb-6', 'unl-event-teaser-ol');
+      eventList.classList.add('dcf-d-grid', 'dcf-col-gap-vw', 'dcf-row-gap-5', 'dcf-mb-6', 'unl-event-teaser-ol');
+      eventList.setAttribute('role', 'list');
       $container.addClass('wdn-calendar');
       $container.append(`<h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray">${displayType} Events</h2>`);
       $container.append(eventList);
@@ -85,6 +88,7 @@ define([
 
   let renderEvent = function (event, config) {
     let startDate;
+    let endDate;
     let timezone = 'America/Chicago';
     let timeformat = 'h:mm a';
 
@@ -107,6 +111,13 @@ define([
       startDate = moment.tz(`${event.DateTime.StartDate}T${event.DateTime.StartTime.substring(0, event.DateTime.StartTime.length - 1)}`, timezone);
     }
 
+    if (event.DateTime.End) {
+      endDate = moment.tz(event.DateTime.End, timezone);
+    } else {
+      //legacy
+      endDate = moment.tz(`${event.DateTime.EndDate}T${event.DateTime.EndTime.substring(0, event.DateTime.EndTime.length - 1)}`, timezone);
+    }
+
     let eventURL = '';
     if ($.isArray(event.WebPages)) {
       eventURL = event.WebPages[0].URL
@@ -116,21 +127,26 @@ define([
       eventURL = event.WebPages.WebPage.URL;
     }
 
-    let month    = `<span class="dcf-d-block dcf-txt-3xs dcf-pt-2 dcf-pb-1 dcf-uppercase dcf-bold unl-ls-2 unl-cream unl-bg-scarlet">${startDate.format('MMM')}</span>`;
+    let month    = `<span class="dcf-d-block dcf-txt-3xs dcf-pt-2 dcf-pb-1 dcf-uppercase dcf-bold unl-ls-3 unl-cream unl-bg-scarlet">${startDate.format('MMM')}</span>`;
     let day      = `<span class="dcf-d-block dcf-txt-h5 dcf-bold dcf-br-1 dcf-bb-1 dcf-bl-1 dcf-br-solid dcf-bb-solid dcf-bl-solid unl-br-light-gray unl-bb-light-gray unl-bl-light-gray unl-darker-gray dcf-bg-white">${startDate.format('D')}</span>`;
     let date     = `<time class="unl-event-date dcf-flex-shrink-0 dcf-w-8 dcf-txt-center" datetime="${startDate.format('YYYY-MM-DD')}">${month}${day}</time>`;
-    let time     = `<time class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase" datetime="${startDate.format('HH:mm')}">${timeIcon}${startDate.format(timeformat)}</time>`;
+    let time     = '';
     if (event.DateTime.AllDay) {
-      // all day event so clear out time
-      time = '';
+      time = `<time class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase" datetime="${startDate.format('HH:mm')}">${timeIcon} All Day</time>`;
+    } else {
+      time = `<div class="unl-event-time dcf-d-flex dcf-ai-center dcf-uppercase">${timeIcon}<time datetime="${startDate.format('HH:mm')}">${startDate.format(timeformat)}</time>`;
+      if (endDate !== undefined && endDate.unix() > startDate.unix()) {
+        time += `&nbsp;&ndash;&nbsp;<time datetime="${endDate.format('HH:mm')}">${endDate.format(timeformat)}</time>`;
+      }
+      time += '</div>';
     }
 
     let subtitle = '';
     if (event.EventSubtitle) {
-      subtitle = `<p class="dcf-subhead dcf-mt-1 dcf-mb-3 dcf-txt-3xs dcf-bold unl-dark-gray">${event.EventSubtitle}</p>`;
+      subtitle = `<p class="dcf-subhead dcf-mt-1 dcf-mb-0 dcf-txt-3xs dcf-bold unl-dark-gray">${event.EventSubtitle}</p>`;
     }
 
-    let title = `<header class="unl-event-title"><h3 class="dcf-mb-0 dcf-lh-3 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover dcf-card-link unl-darker-gray" href="${eventURL}">${event.EventTitle}</a></h3>${subtitle}</header>`;
+    let title = `<header class="unl-event-title"><h3 class="dcf-mb-0 dcf-bold dcf-txt-h6 unl-lh-crop"><a class="dcf-txt-decor-hover dcf-card-link unl-darker-gray" href="${eventURL}">${event.EventTitle}</a></h3>${subtitle}</header>`;
     let location = '';
 
     if (event.Locations[0] !== undefined && event.Locations[0].Address.BuildingName) {
@@ -158,7 +174,7 @@ define([
       location += '</span></div>';
     }
 
-    return `<li class="unl-event-teaser-li dcf-mb-0"><article class="unl-event-teaser dcf-col-gap-4 dcf-card-as-link">${title}${date}<div class="unl-event-details dcf-txt-xs unl-dark-gray">${time}${location}</div></article></li>`;
+    return `<li class="unl-event-teaser-li dcf-mb-0"><article class="unl-event-teaser dcf-col-gap-4 dcf-card-as-link">${title}${date}<div class="unl-event-details dcf-mt-1 dcf-txt-xs unl-dark-gray">${time}${location}</div></article></li>`;
   }
 
   let setup = function(config) {

@@ -24,26 +24,31 @@ define(['wdn', 'idm'], function (WDN, idm) {
         initialize: function() {
             WDN.log("WDN site analytics loaded for " + thisURL);
 
-            // Checks if we have a script for the gtag on the page already
-            // If not we will create the script and set up initial items
-            const gtag_script_check = document.querySelector(`script[src*=googletagmanager][src*=${wdnProp}]`);
-            if (gtag_script_check !== null) {
+            // Checks to see if we have initialized things already
+            const initialize_check = document.querySelector(`script[data-wdn-initialized="true"]`);
+            if (initialize_check !== null) {
                 return;
             }
 
             // Gets the head to append scripts to
             let head_tag = document.querySelector('head');
 
-            // Creates new gtag script and set up values to match GA4 specifications
-            // Append it to the head element
-            let new_gtag_script = document.createElement('script');
-            new_gtag_script.setAttribute('async', '');
-            new_gtag_script.setAttribute('src', `https://www.googletagmanager.com/gtag/js?id=${wdnProp}`);
-            head_tag.append(new_gtag_script);
+            // Checks if we have a script for the gtag on the page already
+            // If not we will create the script
+            const gtag_script_check = document.querySelector(`script[src*=googletagmanager][src*=${wdnProp}]`);
+            if (gtag_script_check === null) {
+                // Creates new gtag script and set up values to match GA4 specifications
+                // Append it to the head element
+                let new_gtag_script = document.createElement('script');
+                new_gtag_script.setAttribute('async', '');
+                new_gtag_script.setAttribute('src', `https://www.googletagmanager.com/gtag/js?id=${wdnProp}`);
+                head_tag.append(new_gtag_script);
+            }
 
             // Set up initial state of the gtag
             // Append it to the head element
             let new_gtag_setup = document.createElement('script');
+            new_gtag_setup.dataset.wdnInitialized = 'true'; // This will let us know if we have initialize already
             new_gtag_setup.innerHTML = `
                 window.dataLayer = window.dataLayer || [];
                 function gtag() {
