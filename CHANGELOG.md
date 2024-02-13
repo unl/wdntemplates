@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.46 (February 13, 2024)
+- .unl-scarlet@dark added
+- Events widget time mode additions
+
 ## 5.3.45 (January 12, 2024)
 - Added end time/all day to events widget and updated styles
 
