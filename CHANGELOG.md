@@ -1,6 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<<<<<<< Updated upstream
 ## 5.3.46 (February 13, 2024)
 - .unl-scarlet@dark added
 - Events widget time mode additions
@@ -16,6 +17,10 @@ All notable changes to this project will be documented in this file.
 
 ## 5.3.42 (December 14, 2023)
 - Fix typo in font URLs
+=======
+## 5.3.42 (December 14, 2023)
+- Fix typo in font URLs in wdn/templates_5.3/includes/global/head-2.html
+>>>>>>> Stashed changes
 
 ## 5.3.41 (December 14, 2023)
 - Add role="list" to framework unstyled lists
