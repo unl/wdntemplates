@@ -3,5 +3,9 @@
 /////////////////////////////////////////////
 
 
+// Multiply
+.unl-bg-multiply { @include bg-multiply(!important); }
+
+
 // Soft Light
 .unl-bg-soft-light { @include bg-soft-light(!important); }
