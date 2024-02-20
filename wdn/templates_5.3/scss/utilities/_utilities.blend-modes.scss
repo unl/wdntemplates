@@ -5,3 +5,7 @@
 
 // Multiply
 .unl-multiply { @include multiply(!important); }
+
+
+// Soft Light
+.unl-soft-light { @include soft-light(!important); }
