@@ -58,9 +58,15 @@
 }
 
 
-// Diagonal Gradients
+// Diagonal Gradient (single)
+@mixin bg-diagonal-gradient($imp:null) {
+  background-image: linear-gradient($diagonal2, fade-out($black,.44) 25%, fade-out($black,.82) 75%) $imp;
+}
+
+
+// Diagonal Gradients (multiple)
 @mixin bg-diagonal-gradients($imp:null) {
-  background-image: linear-gradient($diagonal1, $black, fade-out($black,.75) 24%, fade-out($black,.25) 24%, transparent 32%, fade-out($black,.5) 32%, fade-out($black,.75) 75%, fade-out($black,.25) 75%, fade-out($black,.75) 84%, fade-out($black,.25) 84%, transparent);
+  background-image: linear-gradient($diagonal1, $black, fade-out($black,.75) 24%, fade-out($black,.25) 24%, transparent 32%, fade-out($black,.5) 32%, fade-out($black,.75) 75%, fade-out($black,.25) 75%, fade-out($black,.75) 84%, fade-out($black,.25) 84%, transparent) $imp;
 }
 
 
