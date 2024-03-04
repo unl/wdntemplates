@@ -11,6 +11,9 @@
 .unl h6 {
   font-weight: 600;
   @include ls-h;
+  @if ($text-wrap-balance == true) {
+    text-wrap: balance;
+  }
 }
 
 
