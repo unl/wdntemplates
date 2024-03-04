@@ -325,6 +325,15 @@ p {
 // }
 
 
+// !Elements
+.unl dl,
+.unl ol,
+.unl p,
+.unl ul {
+  text-wrap: pretty;
+}
+
+
 // !Objects
 .dcf-bleed {
   left: 50%;
