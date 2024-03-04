@@ -15,3 +15,7 @@ $color-figcaption: var(--figcaption);
 
 // Font size
 $font-size-figcaption: #{ms(-2)}em;                           // Font-size of figcaption: .75em
+
+
+// Text wrap
+$text-wrap-pretty-figcaption: true;                           // Prevent orphans in figcaptions? True/false

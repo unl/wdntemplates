@@ -1,0 +1,12 @@
+///////////////////////////
+// THEME / ELEMENTS / LISTS
+///////////////////////////
+
+
+.unl dl,
+.unl ol,
+.unl ul {
+  @if ($text-wrap-pretty-dl-ol-ul == true) {
+    text-wrap: pretty;
+  }
+}

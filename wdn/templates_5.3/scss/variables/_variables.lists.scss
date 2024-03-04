@@ -24,3 +24,8 @@ $margin-right-li-inline: $length-em-2;      // Margin-right for inline list item
 
 // Padding
 $padding-left-ol-ul: $length-em-6;          // Padding-left for ordered and unordered lists: 1.78em
+
+
+// Text wrap
+$text-wrap-pretty-dl-ol-ul: true;           // Prevent orphans in lists? True/false
+

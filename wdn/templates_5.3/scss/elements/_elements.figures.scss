@@ -1,0 +1,11 @@
+/////////////////////////////
+// THEME / ELEMENTS / FIGURES
+/////////////////////////////
+
+
+// Figcaption
+.unl figcaption {
+  @if ($text-wrap-pretty-figcaption == true) {
+    text-wrap: pretty;
+  }
+}

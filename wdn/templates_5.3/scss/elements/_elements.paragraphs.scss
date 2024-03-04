@@ -1,0 +1,10 @@
+////////////////////////////////
+// THEME / ELEMENTS / PARAGRAPHS
+////////////////////////////////
+
+
+.unl p {
+  @if ($text-wrap-pretty-paragraph == true) {
+    text-wrap: pretty;
+  }
+}
