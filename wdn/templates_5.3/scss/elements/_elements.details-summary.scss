@@ -5,9 +5,6 @@
 
 .unl details {
   border-top: 1px solid $border-color-details;
-  @if ($text-wrap-pretty-details == true) {
-    text-wrap: pretty;
-  }
 }
 
 
