@@ -67,5 +67,9 @@ $padding-bottom-table-scroll: $length-em-4;                             // Paddi
 $padding-bottom-table-responsive-tbody-tr: $padding-bottom-tbody-cell;  // Padding-bottom for responsive table <tbody> rows
 
 
+// Text wrap
+$text-wrap-balance-caption: true;                           // Balance line lengths across broken caption? True/false
+
+
 // Width
 $width-table-responsive-data-label: 40%;                    // Width of data-label (responsive table heading)
