@@ -25,3 +25,7 @@ $margin-top-drop-cap: #{ms(-1)}rem;     // Drop cap margin-top: .84rem
 // Padding
 $padding-left-drop-cap: #{ms(-20)}rem;  // Padding-left for drop cap: .06rem
 $padding-right-drop-cap: #{ms(-4)}rem;  // Padding-right for drop cap: .56rem
+
+
+// Text wrap
+$text-wrap-pretty-paragraph: true;      // Prevent orphans in paragraphs? True/false

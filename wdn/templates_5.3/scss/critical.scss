@@ -261,6 +261,7 @@ h2 {
   line-height: 1.13;
   margin-bottom: 1rem;
   margin-top: 0;
+  text-wrap: balance;
 }
 // h1+h2,
 // h2+h2,
@@ -324,18 +325,25 @@ p {
 // }
 
 
+// !Elements
+.unl dl,
+.unl ol,
+.unl p,
+.unl ul {
+  text-wrap: pretty;
+}
+
+
 // !Objects
 .dcf-bleed {
   left: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  margin-inline: -50vw;
   position: relative;
   right: 50%;
   width: 100vw;
 }
 .dcf-wrapper {
-  padding-left: 5.62vw;
-  padding-right: 5.62vw;
+  padding-inline: 5.62vw;
 }
 
 
@@ -2179,8 +2187,7 @@ a.unl-cream {
     background-color: #d00000;
     display: flex;
     flex-wrap: nowrap;
-    padding-left: 5.62vw;
-    padding-right: 5.62vw;
+    padding-inline: 5.62vw;
   }
   .unl .dcf-nav-menu ul:first-child > li > a,
   .unl .dcf-nav-menu ul:first-child > li > button {

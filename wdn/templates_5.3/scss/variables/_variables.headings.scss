@@ -31,3 +31,7 @@ $margin-bottom-subhead: $length-em-4;         // Subhead margin-bottom: 1em
 
 // Text transform
 $text-transform-subhead: true;                // Uppercase subhead? True/false
+
+
+// Text wrap
+$text-wrap-balance-heading: true;             // Balance line lengths across broken headings? True/false
