@@ -30,7 +30,7 @@
     "csso": "^4.2.0",
     "dcf": "git+ssh://git@github.com/digitalcampusframework/dcf.git#3.0",
     "decompress": "^4.2.1",
-    "follow-redirects": "^1.15.4",
+    "follow-redirects": "^1.15.6",
     "fsevents": "^2.3.2",
     "grunt": "^1.5.3",
     "grunt-babel": "^8.0.0",
