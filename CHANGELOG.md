@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.47 (March 20, 2024)
+- New background multiply blend mode
+- New soft light blend mode
+- Add text-wrap: balance to headings and text-wrap: pretty
+
 ## 5.3.46 (February 13, 2024)
 - .unl-scarlet@dark added
 - Events widget time mode additions
