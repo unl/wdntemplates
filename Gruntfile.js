@@ -85,6 +85,7 @@ module.exports = function (grunt) {
     'slideshows',
     'tabs',
     'button-toggles',
+    'gallery-images'
   ];
 
   // module exclusions for plugins not built into all
