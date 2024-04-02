@@ -16,6 +16,7 @@
 @import "variables/_variables.app";
 @import "variables/_variables.backgrounds";
 @import "variables/_variables.badges";
+@import "variables/_variables.bento";
 @import "variables/_variables.blockquotes";
 @import "variables/_variables.body";
 @import "variables/_variables.borders";
@@ -154,6 +155,7 @@
 
 
 // Objects
+@import "../../../node_modules/dcf/scss/objects/_objects.bento";
 @import "../../../node_modules/dcf/scss/objects/_objects.bleed";
 @import "../../../node_modules/dcf/scss/objects/_objects.grids";
 @import "../../../node_modules/dcf/scss/objects/_objects.main";
