@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.48 (April 10, 2024)
+- Add $bg-color-foreground variable
+
 ## 5.3.47 (March 20, 2024)
 - New background multiply blend mode
 - New soft light blend mode
