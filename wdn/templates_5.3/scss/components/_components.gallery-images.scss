@@ -1,0 +1,29 @@
+//////////////////////////////////////
+// THEME / COMPONENTS / GALLERY IMAGES
+//////////////////////////////////////
+
+
+// Remove :focus styles for custom replacement (below) to account for left and right <li> margins
+.unl .dcf-gallery-img-modal-content li:focus {
+  outline: 0;
+}
+
+
+// Custom replacement for :focus styles
+.unl .dcf-gallery-img-modal-content li:focus-within div {
+  box-shadow: 0 0 0 3px $bg-color-body, 0 0 0 5px $border-color-input-focus;
+}
+
+
+.unl .dcf-gallery-img-figcaption {
+  border-bottom: 1px solid $border-color;
+  @include lh-3;
+  @include pb-4;
+  @include pt-5;
+  width: 100%;
+}
+
+
+.unl .dcf-gallery-img-credit {
+  @include txt-xs;
+}
