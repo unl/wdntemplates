@@ -1,25 +1,23 @@
-//////////////////////////////////////
-// THEME / COMPONENTS / GALLERY IMAGES
-//////////////////////////////////////
+///////////////////////////////
+// THEME / COMPONENTS / GALLERY
+///////////////////////////////
 
 
 // Remove :focus styles for custom replacement (below) to account for left and right <li> margins
-.unl .dcf-gallery-img-modal-content li:focus {
+.unl .dcf-gallery-thumbnails-list li:focus {
   outline: 0;
 }
 
 
 // Custom replacement for :focus styles
-.unl .dcf-gallery-img-modal-content li:focus-within div {
+.unl .dcf-gallery-thumbnails-list li:focus-within div {
   box-shadow: 0 0 0 3px $bg-color-body, 0 0 0 5px $border-color-input-focus;
 }
 
 
-.unl .dcf-gallery-img-figcaption {
+.unl .dcf-gallery-figcaption {
   border-bottom: 1px solid $border-color;
   @include lh-3;
-  @include pb-4;
-  @include pt-5;
   width: 100%;
 }
 
