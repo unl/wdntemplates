@@ -11,18 +11,25 @@
 
 // Border color
 $border-color-gallery-selected-image: var(--bg-brand-alpha);
+$border-color-figure: var(--b);
 
 
 // Border style
 $border-style-gallery-selected-image: solid;
+$border-style-figure: solid;
 
 
 // Border width
 $border-width-gallery-selected-image: 2px;
+$border-width-figure: 1px;
 
 
 // Column gap
 $column-gap-gallery-thumbnails-list: $length-em-3;
+
+
+// Height and width
+$width-gallery-figcaption: 100%;
 
 
 // Margin
@@ -40,5 +47,6 @@ $padding-left-gallery-next: $length-em-4;
 $padding-right-gallery-next: $length-em-4;
 $padding-top-gallery-thumbnails: $length-em-5;
 $padding-bottom-gallery-thumbnails: $length-em-4;
+$padding-bottom-gallery-figure: $length-em-4;
 $padding-top-gallery-figcaption: $length-em-5;
-$padding-bottom-gallery-figcaption: $length-em-4;
+

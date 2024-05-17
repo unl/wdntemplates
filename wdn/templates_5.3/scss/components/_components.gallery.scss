@@ -10,15 +10,13 @@
 
 
 // Custom replacement for :focus styles
-.unl .dcf-gallery-thumbnails-list li:focus-within div {
+.unl .dcf-gallery-thumbnails-list li:focus-visible div {
   box-shadow: 0 0 0 3px $bg-color-body, 0 0 0 5px $border-color-input-focus;
 }
 
 
 .unl .dcf-gallery-figcaption {
-  border-bottom: 1px solid $border-color;
   @include lh-3;
-  width: 100%;
 }
 
 
