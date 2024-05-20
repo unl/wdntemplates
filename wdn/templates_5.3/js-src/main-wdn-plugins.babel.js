@@ -12,7 +12,8 @@ define([
   'hover_intent',
   'cta-nav',
   'form_validation',
-  'qa'
+  'qa',
+  'flags'
 ], function () {
   for (var i = 0, pluginCount = arguments.length; i < pluginCount; i++) {
     var pluginObj = arguments[i];

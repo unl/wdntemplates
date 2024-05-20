@@ -59,7 +59,6 @@ module.exports = function (grunt) {
 
   // polyfill modules that need sync loading (should match scripts loaded in debug.js)
   const polyfillMods = [
-    'mustard-initializer', // make sure that polyfill.io and other mustard are loaded first before other scripts
     'requireLib',
     'wdn'
   ];
