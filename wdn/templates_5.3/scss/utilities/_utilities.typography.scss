@@ -23,6 +23,7 @@
 .unl .dcf-txt-4xl { @include txt-4xl(!important); }
 .unl .dcf-txt-5xl { @include txt-5xl(!important); }
 .unl .dcf-txt-6xl { @include txt-6xl(!important); }
+.unl-txt-xl { @include unl-txt-xl(!important); }
 
 
 // Letter Spacing
