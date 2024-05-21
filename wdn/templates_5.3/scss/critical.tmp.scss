@@ -51,6 +51,7 @@
 @import "variables/_variables.popups";
 @import "variables/_variables.print";
 @import "variables/_variables.progress";
+@import "variables/_variables.search-and-selects";
 @import "variables/_variables.sizing";
 @import "variables/_variables.slideshows";
 @import "variables/_variables.sup-sub";
@@ -308,6 +309,9 @@ figure {
     font-size: 1.33em;
   }
 }
+
+
+// !Elements
 // a {
 //   -webkit-text-decoration-skip: ink;
 //   text-decoration-skip: ink;
@@ -392,6 +396,12 @@ p {
   margin-bottom: 1rem;
   margin-top: 0;
 }
+p,
+dl,
+ol,
+ul {
+  text-wrap: pretty;
+}
 // body:lang(en) {
 //   quotes: "“" "”" "‘" "’" "“" "”" "‘" "’";
 // }
@@ -416,15 +426,6 @@ p {
 // sub {
 //   top: .24em;
 // }
-
-
-// !Elements
-.unl dl,
-.unl ol,
-.unl p,
-.unl ul {
-  text-wrap: pretty;
-}
 
 
 // !Objects

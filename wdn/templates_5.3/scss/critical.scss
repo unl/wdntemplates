@@ -215,6 +215,9 @@ figure {
     font-size: 1.33em;
   }
 }
+
+
+// !Elements
 // a {
 //   -webkit-text-decoration-skip: ink;
 //   text-decoration-skip: ink;
@@ -299,6 +302,12 @@ p {
   margin-bottom: 1rem;
   margin-top: 0;
 }
+p,
+dl,
+ol,
+ul {
+  text-wrap: pretty;
+}
 // body:lang(en) {
 //   quotes: "“" "”" "‘" "’" "“" "”" "‘" "’";
 // }
@@ -323,15 +332,6 @@ p {
 // sub {
 //   top: .24em;
 // }
-
-
-// !Elements
-.unl dl,
-.unl ol,
-.unl p,
-.unl ul {
-  text-wrap: pretty;
-}
 
 
 // !Objects

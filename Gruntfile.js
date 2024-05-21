@@ -82,6 +82,7 @@ module.exports = function (grunt) {
     'notice',
     'popups',
     'scroll-animations',
+    'search-selects',
     'slideshows',
     'tabs',
     'button-toggles',

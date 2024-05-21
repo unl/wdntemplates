@@ -1,6 +1,6 @@
 {
   "name": "wdntemplates",
-  "version": "5.3.48",
+  "version": "5.3.49",
   "description": "Web Framework for the UNLedu website.",
   "repository": {
     "type": "git",
@@ -65,7 +65,7 @@
     "semver-regex": "^3.1.4",
     "stylelint": "^15.10.1",
     "stylelint-no-unsupported-browser-features": "^5.0.2",
-    "tar": "^6.1.9",
+    "tar": "^6.2.1",
     "tar-fs": "^2.1.1",
     "trim": "^1.0.1",
     "websocket-extensions": "^0.1.4"
