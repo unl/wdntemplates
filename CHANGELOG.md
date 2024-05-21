@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.50 (May 21, 2024)
+- New Gallery component
+- Remove pollyfill.io dependency
+- Add modular scale as CSS custom properties (vars)
+
 ## 5.3.49 (April 24, 2024)
 - Revert copyright change in footer
 
