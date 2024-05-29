@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.50 (May 21, 2024)
+- New Gallery component
+- Remove pollyfill.io dependency
+- Add modular scale as CSS custom properties (vars)
+
+## 5.3.49 (April 24, 2024)
+- Revert copyright change in footer
+
+## 5.3.48 (April 10, 2024)
+- Add $bg-color-foreground variable
+
 ## 5.3.47 (March 20, 2024)
 - New background multiply blend mode
 - New soft light blend mode
