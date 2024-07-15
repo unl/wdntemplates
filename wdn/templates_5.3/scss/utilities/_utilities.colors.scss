@@ -69,6 +69,10 @@
 
 @media screen and (prefers-color-scheme: dark) {
 
+  // Scarlet
+  .unl-scarlet\@dark { @include scarlet-at-dark(!important); }
+
+
   // Gray
   .unl-dark-gray\@dark { @include dark-gray-at-dark(!important); }
   .unl-darker-gray\@dark { @include darker-gray-at-dark(!important); }

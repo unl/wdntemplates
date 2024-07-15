@@ -59,7 +59,6 @@ module.exports = function (grunt) {
 
   // polyfill modules that need sync loading (should match scripts loaded in debug.js)
   const polyfillMods = [
-    'mustard-initializer', // make sure that polyfill.io and other mustard are loaded first before other scripts
     'requireLib',
     'wdn'
   ];
@@ -82,9 +81,11 @@ module.exports = function (grunt) {
     'notice',
     'popups',
     'scroll-animations',
+    'search-selects',
     'slideshows',
     'tabs',
     'button-toggles',
+    'gallery'
   ];
 
   // module exclusions for plugins not built into all

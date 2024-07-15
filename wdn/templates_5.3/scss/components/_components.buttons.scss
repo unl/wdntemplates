@@ -52,6 +52,11 @@
 }
 
 
+.unl .dcf-btn-as-link:visited {
+  color: $color-visited;
+}
+
+
 // Hover (and Active)
 .unl .dcf-btn-primary:not(:disabled):hover,
 .unl .dcf-btn-primary:not(:disabled):active {
@@ -82,6 +87,12 @@
 .unl .dcf-btn-inverse-tertiary:not(:disabled):active {
   background-color: $bg-color-button-inverse-secondary-tertiary-hover;
   color: $color-button-inverse-secondary-tertiary-hover;
+}
+
+
+.unl .dcf-btn-as-link:not(:disabled):hover,
+.unl .dcf-btn-as-link:not(:disabled):active {
+  color: $color-hover;
 }
 
 

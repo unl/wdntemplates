@@ -3,6 +3,16 @@
 //////////////////////////////////////////
 
 
+// Multiply
+@mixin bg-multiply($imp:null) {
+
+  @supports (background-blend-mode: multiply) {
+    background-blend-mode: multiply $imp;
+  }
+
+}
+
+
 // Soft Light
 @mixin bg-soft-light($imp:null) {
 

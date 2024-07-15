@@ -25,7 +25,11 @@
 .unl-bg-stripes-light { @include bg-stripes-light(!important); }
 
 
-// Diagonal Gradients
+// Diagonal Gradient (single)
+.unl-bg-diagonal-gradient { @include bg-diagonal-gradient(!important); }
+
+
+// Diagonal Gradients (multiple)
 .unl-bg-diagonal-gradients { @include bg-diagonal-gradients(!important); }
 
 

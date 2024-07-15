@@ -30,3 +30,8 @@ $margin-bottom-details-open-summary: #{ms(-4)}rem;  // Margin-bottom of details
 // Padding
 $padding-bottom-details: $length-em-3;              // Padding-bottom of details
 $padding-top-details: $length-em-3;                 // Padding-top of details
+
+
+// Text wrap
+$text-wrap-pretty-details: true;                    // Prevent orphans in details? True/false
+

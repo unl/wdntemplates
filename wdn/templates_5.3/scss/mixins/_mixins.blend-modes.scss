@@ -11,3 +11,13 @@
   }
 
 }
+
+
+// Soft Light
+@mixin soft-light($imp:null) {
+
+  @supports (mix-blend-mode: soft-light) {
+    mix-blend-mode: soft-light $imp;
+  }
+
+}

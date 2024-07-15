@@ -37,6 +37,7 @@
 @import "variables/_variables.forms-checkboxes-radios";
 @import "variables/_variables.forms-selects";
 @import "variables/_variables.forms";
+@import "variables/_variables.gallery";
 @import "variables/_variables.headings";
 @import "variables/_variables.hr";
 @import "variables/_variables.input-groups";
@@ -50,6 +51,7 @@
 @import "variables/_variables.popups";
 @import "variables/_variables.print";
 @import "variables/_variables.progress";
+@import "variables/_variables.search-and-selects";
 @import "variables/_variables.sizing";
 @import "variables/_variables.slideshows";
 @import "variables/_variables.sup-sub";
@@ -116,9 +118,9 @@
 @import "../../../node_modules/dcf/scss/generic/_generic.font-size";
 @import "../../../node_modules/dcf/scss/generic/_generic.keyframes";
 @import "../../../node_modules/dcf/scss/generic/_generic.reduced-motion";
-@import "generic/_generic.color-scheme";
 @import "generic/_generic.focus";
 @import "generic/_generic.font-face";
+@import "generic/_generic.root";
 
 
 // Elements
@@ -175,6 +177,7 @@
 @import "../../../node_modules/dcf/scss/components/_components.forms-checkboxes-radios";
 @import "../../../node_modules/dcf/scss/components/_components.forms-selects";
 @import "../../../node_modules/dcf/scss/components/_components.forms";
+@import "../../../node_modules/dcf/scss/components/_components.gallery";
 @import "../../../node_modules/dcf/scss/components/_components.header";
 @import "../../../node_modules/dcf/scss/components/_components.headings";
 @import "../../../node_modules/dcf/scss/components/_components.icons";
@@ -188,6 +191,7 @@
 @import "../../../node_modules/dcf/scss/components/_components.paragraphs";
 @import "../../../node_modules/dcf/scss/components/_components.popups";
 @import "../../../node_modules/dcf/scss/components/_components.progress";
+@import "../../../node_modules/dcf/scss/components/_components.search-selects";
 @import "../../../node_modules/dcf/scss/components/_components.slideshows";
 @import "../../../node_modules/dcf/scss/components/_components.tables";
 @import "../../../node_modules/dcf/scss/components/_components.tabs";
@@ -202,6 +206,7 @@
 @import "components/_components.forms-checkboxes-radios";
 @import "components/_components.forms-selects";
 @import "components/_components.forms";
+@import "components/_components.gallery";
 @import "components/_components.global";
 @import "components/_components.header";
 @import "components/_components.headings";
@@ -218,6 +223,7 @@
 @import "components/_components.nav-toggle";
 @import "components/_components.notices";
 @import "components/_components.regions";
+@import "components/_components.search-selects";
 @import "components/_components.search";
 
 

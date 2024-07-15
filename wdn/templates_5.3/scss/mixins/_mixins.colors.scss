@@ -5,6 +5,7 @@
 
 // Scarlet
 @mixin scarlet($imp:null) { color: $color-brand-alpha $imp; }
+@mixin scarlet-at-dark($imp:null) { color: $scarlet $imp; }
 
 
 // Cream
