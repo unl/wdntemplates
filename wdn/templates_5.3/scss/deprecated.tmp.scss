@@ -109,6 +109,17 @@
 @import "../../../node_modules/dcf/scss/functions/_functions.encode-color";
 @import "../../../node_modules/dcf/scss/functions/_functions.media-queries";
 @import "../../../node_modules/dcf/scss/functions/_functions.to-number";
+@import "../../../node_modules/dcf/scss/functions/modularscale/_modularscale";
+@import "../../../node_modules/dcf/scss/functions/modularscale/modularscale/_function";
+@import "../../../node_modules/dcf/scss/functions/modularscale/modularscale/_pow";
+@import "../../../node_modules/dcf/scss/functions/modularscale/modularscale/_respond";
+@import "../../../node_modules/dcf/scss/functions/modularscale/modularscale/_round-px";
+@import "../../../node_modules/dcf/scss/functions/modularscale/modularscale/_settings";
+@import "../../../node_modules/dcf/scss/functions/modularscale/modularscale/_sort";
+@import "../../../node_modules/dcf/scss/functions/modularscale/modularscale/_strip-units";
+@import "../../../node_modules/dcf/scss/functions/modularscale/modularscale/_sugar";
+@import "../../../node_modules/dcf/scss/functions/modularscale/modularscale/_target";
+@import "../../../node_modules/dcf/scss/functions/modularscale/modularscale/_vars";
 
 
 // Deprecated
