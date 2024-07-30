@@ -12,14 +12,7 @@
 }
 
 .wdn_tabs > li {
-//   background-color: mix($cream, $gray, 98%);
-  background-color: adjust-color($cream, $saturation: -1);
-  border-radius: $roundrect;
   @include mr-3;
-
-//   @media (prefers-color-scheme: dark) {
-//     background-color: adjust-color($bg-color-body-dark-mode, $saturation: -1);
-//   }
 }
 
 .wdn_tabs > li.selected {
