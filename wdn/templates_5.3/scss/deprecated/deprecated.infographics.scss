@@ -11,11 +11,11 @@
 }
 
 .wdn-infographic .stat {
-  @include txt-h3;
   font-weight: 700;
   letter-spacing: -.03em;
   margin-bottom: #{ms(-12)}em;
   margin-left: -.03em;
+  @include txt-h3;
 }
 
 .wdn-infographic .stat-helper {
@@ -26,9 +26,9 @@
 .wdn-infographic .wdn-info-icon {
   background-position: center bottom;
   background-repeat: no-repeat;
-  @include mb-1;
   min-height: 142px;
   min-width: 180px;
+  @include mb-1;
 }
 
 

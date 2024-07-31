@@ -37,11 +37,11 @@
 
 .wdn-promo-text {
   display: block;
-  @include txt-h2;
   font-weight: bold;
   line-height: 1;
   padding-left: 5.6%;
   padding-right: 5.6%;
+  @include txt-h2;
 }
 
 .wdn-promo-text + a {

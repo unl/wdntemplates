@@ -227,7 +227,7 @@ module.exports = function (grunt) {
 
   // load all grunt plugins matching the ['grunt-*', '@*/grunt-*'] patterns
   require('load-grunt-tasks')(grunt);
-  const nodeSass = require('node-sass');
+  const sass = require('sass');
   const jpegrecompress = require('imagemin-jpeg-recompress')
   const svgo = require('imagemin-svgo')
   const webp = require('imagemin-webp');
@@ -314,7 +314,7 @@ module.exports = function (grunt) {
     sass: {
       main: {
         options: {
-          implementation: nodeSass,
+          implementation: sass,
           sourceMap: true,
           precision: 2,
         },
@@ -322,7 +322,7 @@ module.exports = function (grunt) {
       },
       plugins: {
         options: {
-          implementation: nodeSass,
+          implementation: sass,
           sourceMap: true,
           precision: 2,
         },

@@ -33,9 +33,9 @@
 
 .wdn-hero-heading {
   color: $cream;
-  @include txt-h2;
   margin: 0;
   text-transform: uppercase;
+  @include txt-h2;
 }
 
 .wdn-hero-initial-line,
@@ -45,10 +45,10 @@
 
 .wdn-hero-initial-line {
   display: block;
-  @include pb-2;
   font-size: #{ms(-8)}em;
   letter-spacing: .1em;
   @include lh-2;
+  @include pb-2;
   @include regular;
 }
 
