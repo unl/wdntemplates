@@ -6,11 +6,11 @@ define([
   var alertDataUrl = 'https://alert.unl.edu/json/unlcap.js';
   var alertDataActiveIDs = [],
   serverCallTimeoutID,
-  
+
   closedAlertCookieName = 'unlAlertsC',
   alertDataReceivedCookieName = 'unlAlertsData',
   activeAlertCookieName = 'unlAlertsA',
-  
+
   serverCallExecutionDelay = 30000, // Delay (in milliseconds) before executing the checkIfServerCallIsNeeded function
   serverCallExecutionDelayTwo = 31000, // Secondary delay (in milliseconds) before executing the checkIfServerCallIsNeeded function
 
@@ -21,7 +21,7 @@ define([
   _setAlertDataReceivedCookie = function() {
     WDN.log('UNL Alert data received');
     clearTimeout(serverCallTimeoutID);
-  
+
     WDN.setCookie(alertDataReceivedCookieName, 1, alertDataReceivedCookieMaxAge);
     serverCallTimeoutID = setTimeout(_checkIfServerCallNeeded, serverCallExecutionDelayTwo );//1000 instead of 20
   },
@@ -42,7 +42,7 @@ define([
   _getActiveAlertCookie = function() {
     return _checkCookie(activeAlertCookieName);
   },
- 
+
   // Sets a cookie to indicate that there is an acknowledged alert
   _setClosedAlertCookie = function(alertDataActiveID) {
     var closedAlertCookieValue = _getClosedAlertCookie();
@@ -116,7 +116,7 @@ define([
     }
 
     clearTimeout(serverCallTimeoutID);
-    serverCallTimeoutID = setTimeout(_checkIfServerCallNeeded, serverCallExecutionDelay); 
+    serverCallTimeoutID = setTimeout(_checkIfServerCallNeeded, serverCallExecutionDelay);
   },
 
   toggleAlert = function() {
