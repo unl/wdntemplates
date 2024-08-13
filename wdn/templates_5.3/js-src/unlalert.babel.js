@@ -4,7 +4,7 @@ define([
   'css!js-css/unlalert'
 ], function(WDN, $) {
   var alertDataUrl = 'https://alert.unl.edu/json/unlcap.js';
-  var alertDataActiveIDs = [], 
+  var alertDataActiveIDs = [],
   serverCallTimeoutID,
   
   closedAlertCookieName = 'unlAlertsC',
@@ -18,7 +18,7 @@ define([
   closedAlertCookieMaxAge = 3600, // Maximum age (in seconds) for the alertDataReceived cookie
 
   // Sets a cookie to indicate unlAlerts.data has been received
-  _setAlertDataReceivedCookie = function() { 
+  _setAlertDataReceivedCookie = function() {
     WDN.log('UNL Alert data received');
     clearTimeout(serverCallTimeoutID);
   
@@ -150,7 +150,7 @@ define([
     WDN.log('Alerting the user');
 
     _setActiveAlertCookie(true);
-    alertDataActiveIDs = [];  
+    alertDataActiveIDs = [];
 
     var $alertWrapper = $('#unlalert'),
       $alertContent,
@@ -249,7 +249,7 @@ define([
 
     // Remove alert div if no alert data exists
     if ($('#unlalert').length) {
-      $('#unlalert').remove(); 
+      $('#unlalert').remove();
     }
   };
 
