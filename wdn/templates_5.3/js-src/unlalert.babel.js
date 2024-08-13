@@ -7,27 +7,27 @@ define([
   var alertDataActiveIDs = [], 
   serverCallTimeoutID,
   
-  closedAlertCookieName = 'unl_alerts_closed_alerts',
-  alertDataRecievedCookieName = 'unl_alerts_data_recieved',
-  activeAlertCookieName = 'unl_alerts_active_alert',
+  closedAlertCookieName = 'unlAlertsC',
+  alertDataReceivedCookieName = 'unlAlertsData',
+  activeAlertCookieName = 'unlAlertsA',
   
   serverCallExecutionDelay = 30000, // Delay (in milliseconds) before executing the checkIfServerCallIsNeeded function
   serverCallExecutionDelayTwo = 31000, // Secondary delay (in milliseconds) before executing the checkIfServerCallIsNeeded function
 
-  alertDataRecievedCookieMaxAge = 30, // Maximum age (in seconds) for the alertDataReceived cookie
+  alertDataReceivedCookieMaxAge = 30, // Maximum age (in seconds) for the alertDataReceived cookie
   closedAlertCookieMaxAge = 3600, // Maximum age (in seconds) for the alertDataReceived cookie
 
-  // Sets a cookie to indicate unlAlerts.data has been recieved
-  _setAlertDataReceivedCoookie = function() { 
+  // Sets a cookie to indicate unlAlerts.data has been received
+  _setAlertDataReceivedCookie = function() { 
     WDN.log('UNL Alert data received');
     clearTimeout(serverCallTimeoutID);
   
-    WDN.setCookie(alertDataRecievedCookieName, 1, alertDataRecievedCookieMaxAge);
+    WDN.setCookie(alertDataReceivedCookieName, 1, alertDataReceivedCookieMaxAge);
     serverCallTimeoutID = setTimeout(_checkIfServerCallNeeded, serverCallExecutionDelayTwo );//1000 instead of 20
   },
 
-  _getAlertDataRecievedCookie = function() {
-    return _checkCookie(alertDataRecievedCookieName);
+  _getAlertDataReceivedCookie = function() {
+    return _checkCookie(alertDataReceivedCookieName);
   },
   // Sets a cookie to indicate that there is an active alert
   _setActiveAlertCookie = function(flag) {
@@ -111,7 +111,7 @@ define([
   _checkIfServerCallNeeded = function() {
     // Call the server if the data has expired (alertDataReceived cookie doesn't exist) or if there is a current alert
     // This should reduce the number of times we call the server
-    if ( !_getAlertDataRecievedCookie() || _getActiveAlertCookie()) {
+    if ( !_getAlertDataReceivedCookie() || _getActiveAlertCookie()) {
       _callServer();
     }
 
@@ -258,7 +258,7 @@ define([
     data: {},
     server: {
       init: function() {
-        _setAlertDataReceivedCoookie();
+        _setAlertDataReceivedCookie();
 
         // Alert the user if the page is not in an iframe and alert data exists
         if (window.top === window && unlAlerts.data.alert && unlAlerts.data.alert.info) {
