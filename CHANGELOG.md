@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.51 (August 13, 2024)
+- Remove lingering polyfill.io references
+- Remove the alert banner when an alert grows stale
+- Replace node-sass with sass
+
 ## 5.3.50 (May 21, 2024)
 - New Gallery component
 - Remove pollyfill.io dependency
