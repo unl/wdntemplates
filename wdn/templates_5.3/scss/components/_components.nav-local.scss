@@ -52,7 +52,7 @@
 @include mq(md, min, width) {
 
   .unl .dcf-nav-local > ul:first-child {
-    grid-template-columns: repeat(6, auto);
+    grid-template-columns: repeat(6, 1fr);
     overflow: hidden;
     width: 100%;
   }
