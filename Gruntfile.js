@@ -46,6 +46,11 @@ module.exports = function (grunt) {
     templateHtmlDir = 'Templates',                        // Templates
     templateSharedDir = 'sharedcode',                     // sharedcode
     zipDir = 'downloads',                                 // downloads
+    dcfDir = templateDir + '/dcf',                        // wdn/templates_5.3/dcf
+    dcfJS = dcfDir + '/js',                               // wdn/templates_5.3/dcf/js
+    dcfSCSS = dcfDir + '/scss',                           // wdn/templates_5.3/dcf/scss
+    dcfSrcJS = 'node_modules/dcf/js',                     // node_modules/dcf/js
+    dcfSrcSCSS = 'node_modules/dcf/scss',                 // node_modules/dcf/scss
     allSubFilesGlob = '/**';
 
   const hereDir = './';
@@ -327,6 +332,19 @@ module.exports = function (grunt) {
           precision: 2,
         },
         files: scssJsFiles
+      },
+    },
+
+    replaceMapAbsolutePaths: {
+      main: {
+        options: {
+          files: templateCss + '/*.css.map',
+        }
+      }, 
+      plugins: {
+        options: {
+          files: templateJsCss + '/*.css.map',
+        }
       }
     },
 
@@ -445,6 +463,17 @@ module.exports = function (grunt) {
           dest: templateJs,
           filter: 'isFile'
         }]
+      },
+    },
+
+    copyDir: {
+      'dcf-js': {
+        src: dcfSrcJS,
+        dest: dcfJS,
+      },
+      'dcf-scss': {
+        src: dcfSrcSCSS,
+        dest: dcfSCSS,
       }
     },
 
@@ -545,6 +574,39 @@ module.exports = function (grunt) {
     });
   });
 
+  // Dart Sass uses absolute paths and this is a work around to get them to not do that
+  grunt.registerMultiTask('replaceMapAbsolutePaths', 'Replace absolute file paths in css maps', function() {
+    let opts = this.options({files:[]});
+    let files = grunt.file.expand(opts.files);
+
+    files.forEach(function(file) {
+      let content = grunt.file.read(file);
+      let newContent = content.replace(/(file:\/\/\/[a-zA-Z0-9_\-\/\.]+\/wdn)+/g, '/wdn'); // Replace globally
+      let newNewContent = newContent.replace(/(file:\/\/\/[a-zA-Z0-9_\-\/\.]+\/dcf)+/g, '/wdn/templates_5.3/dcf'); // Replace globally
+      
+      // Write the updated content back to the file
+      grunt.file.write(file, newNewContent);
+      grunt.log.writeln('Replaced text in ' + file);
+    });
+  });
+
+  // Quick and dirty copy all files in directory
+  // I couldn't get the normal copy working
+  grunt.registerMultiTask('copyDir', 'Copy directories from src to dest', function() {
+    const src = this.data.src;
+    const dest = this.data.dest;
+
+    let filesCount = 0;
+
+    grunt.file.recurse(src, function(abspath, rootdir, subdir, filename) {
+      const destPath = dest + (subdir ? '/' + subdir : '') + '/' + filename;
+      grunt.file.copy(abspath, destPath);
+      filesCount++;
+    });
+    grunt.log.writeln('Copied ' + filesCount + ' files to ' + dest);
+  });
+
+
   grunt.registerMultiTask('archive', 'Archive files together', function() {
     const fs = require('fs');
     const path = require('path');
@@ -592,14 +654,15 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('images', ['newer:imagemin']);
-  grunt.registerTask('css-main', ['sassGlobber', 'sass:main', 'postcss:main']);
-  grunt.registerTask('css-plugins', ['sassGlobber', 'sass:plugins', 'postcss:plugins']);
+  grunt.registerTask('css-main', ['sassGlobber', 'sass:main', 'replaceMapAbsolutePaths:main', 'postcss:main']);
+  grunt.registerTask('css-plugins', ['sassGlobber', 'sass:plugins', 'replaceMapAbsolutePaths:plugins', 'postcss:plugins']);
   grunt.registerTask('js-main', ['css-plugins', 'babel:dcf', 'babel:gsap', 'babel:wdn', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
   grunt.registerTask('js', ['clean:js', 'css-plugins', 'babel:wdn', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
+  grunt.registerTask('dcf-copy', ['copyDir:dcf-scss', 'copyDir:dcf-js']);
 
   // establish grunt composed tasks
   // TODO check with Ryan if sassGlobber needs to be at the start of Grunt task
-  grunt.registerTask('default', ['images', 'sassGlobber', 'clean:js', 'css-main', 'js-main']);
+  grunt.registerTask('default', ['images', 'sassGlobber', 'clean:js', 'css-main', 'js-main', 'dcf-copy']);
   // legacy targets from Makefile
   grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
   grunt.registerTask('all', ['default']);  /** mark for deletion */
