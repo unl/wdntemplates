@@ -581,8 +581,8 @@ module.exports = function (grunt) {
 
     files.forEach(function(file) {
       let content = grunt.file.read(file);
-      let newContent = content.replace(/(file:\/\/\/[a-zA-Z0-9_\-\/\.]+\/wdn)+/g, '/wdn'); // Replace globally
-      let newNewContent = newContent.replace(/(file:\/\/\/[a-zA-Z0-9_\-\/\.]+\/dcf)+/g, '/wdn/templates_5.3/dcf'); // Replace globally
+      let newContent = content.replace(/(file:\/\/\/[^'",]+\/wdn)+/g, '/wdn'); // Replace globally
+      let newNewContent = newContent.replace(/(file:\/\/\/[^'",]+\/dcf)+/g, '/wdn/templates_5.3/dcf'); // Replace globally
       
       // Write the updated content back to the file
       grunt.file.write(file, newNewContent);
