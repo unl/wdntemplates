@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.52 (September 11, 2024)
+- Revert local nav column widths to 1fr
+- Fix absolute path issue in Grunt
+
 ## 5.3.51 (August 13, 2024)
 - Remove lingering polyfill.io references
 - Remove the alert banner when an alert grows stale
