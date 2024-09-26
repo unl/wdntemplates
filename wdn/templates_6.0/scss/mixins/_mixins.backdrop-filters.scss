@@ -1,0 +1,13 @@
+////////////////////////////////////
+// THEME / MIXINS / BACKDROP FILTERS
+////////////////////////////////////
+
+
+// Blur
+@mixin backdrop-blur($imp:null) {
+
+  @if (to-number($backdrop-filter-blur) != to-number(0)) {
+    backdrop-filter: blur($backdrop-filter-blur) $imp;
+  }
+
+}
