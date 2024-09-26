@@ -8,14 +8,6 @@
 }
 
 
-.unl .dcf-main-content > :last-child:not(.dcf-bleed) {
-  // Provide adequate default vertical spacing between main content and footer.
-  // Use the .dcf-mb-0 utility class as needed to remove this margin and place
-  // content adjacent to the footer.
-  @include mb-8;
-}
-
-
 .unl-frame-quad {
   clip-path: polygon(0 0,0 100%,2px 100%,2px 2px,calc(100% - 2px) 2px,calc(100% - 2px) calc(100% - 2px),2px calc(100% - 2px),2px calc(100% - 5px),calc(100% - 5px) calc(100% - 5px),calc(100% - 5px) 5px,5px 5px,5px calc(100% - 5px),2px calc(100% - 5px),2px 100%,100% 100%,100% 0);
 }
