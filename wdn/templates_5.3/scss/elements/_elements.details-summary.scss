@@ -15,6 +15,7 @@
 
 .unl summary {
   color: $color-summary;
+  font-weight: 600;
   @include ls-h;
   @include lh-3;
 }
