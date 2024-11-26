@@ -65,6 +65,14 @@ define([
       grid.append(eventList);
       $container.append(grid);
       $container.append(moreEvents);
+    } else if (config.layout.toLowerCase() === 'cms') {
+      eventList.classList.add('dcf-d-grid', 'dcf-col-gap-vw', 'dcf-row-gap-6', 'unl-events-abbr-teasers-ol');
+      eventList.setAttribute('role', 'list');
+      containerClasses = 'unl-events-abbr-teasers-container';
+      moreEvents = `<div class="dcf-d-flex dcf-jc-center"><a class="dcf-btn dcf-btn-tertiary" href="${config.url}${typePath}">More Events</a></div>`;
+      $container.addClass(containerClasses);
+      $container.append(eventList);
+      $container.append(moreEvents);
     } else {
       // defaults to 'default' layout
       eventList.classList.add('dcf-d-grid', 'dcf-col-gap-vw', 'dcf-row-gap-5', 'dcf-mb-6', 'unl-event-teaser-ol');

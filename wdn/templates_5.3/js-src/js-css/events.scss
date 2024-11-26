@@ -74,3 +74,99 @@
   }
 
 }
+
+
+
+// Container query based layout
+.unl-events-abbr-teasers-container {
+  container-type: inline-size;
+}
+
+
+.unl-events-abbr-teasers-ol {
+  grid-template-columns: repeat(auto-fit, minmax(var(--item-size), 1fr));
+  --item-size: 13.32em;
+}
+
+
+// Three events
+@container (max-width: 56.12em) {
+
+  .unl-events-abbr-teasers-ol:has(> :last-child:nth-child(3)) {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@container (min-width: 56.12em) {
+
+  .unl-events-abbr-teasers-ol:has(> :last-child:nth-child(3)) {
+    grid-template-columns: repeat(3, minmax(1px, 1fr));
+  }
+
+}
+
+
+// Four, seven and eight events
+@container (min-width: 42.09em) and (max-width: 63.14em) {
+
+  .unl-events-abbr-teasers-ol:has(> :last-child:nth-child(4)),
+  .unl-events-abbr-teasers-ol:has(> :last-child:nth-child(7)),
+  .unl-events-abbr-teasers-ol:has(> :last-child:nth-child(8)) {
+    --item-size: 20em;
+  }
+
+}
+
+
+// Five and ten events
+@container (min-width: 47.35em) and (max-width: 84.18em) {
+
+  .unl-events-abbr-teasers-ol:has(> :last-child:nth-child(5)),
+  .unl-events-abbr-teasers-ol:has(> :last-child:nth-child(10)) {
+    --item-size: 20em;
+  }
+
+}
+
+
+// Six events
+@container (min-width: 56.12em) and (max-width: 112.25em) {
+
+  .unl-events-abbr-teasers-ol:has(> :last-child:nth-child(6)) {
+    grid-template-columns: repeat(3, minmax(1px, 1fr));
+  }
+
+}
+
+
+
+// Seven events
+@container (min-width: 74.83em) and (max-width: 120em) {
+
+  .unl-events-abbr-teasers-ol:has(> :last-child:nth-child(7)) {
+    grid-template-columns: repeat(4, minmax(1px, 1fr));
+  }
+
+}
+
+
+// Eight events
+@container (min-width: 74.83em) and (max-width: 142em) {
+
+  .unl-events-abbr-teasers-ol:has(> :last-child:nth-child(8)) {
+    grid-template-columns: repeat(4, minmax(1px, 1fr));
+  }
+
+}
+
+
+// TODO: Improve widescreen layout of lists of nine or more events
+// Nine or more events
+@container (min-width: 58em) {
+
+  .unl-events-abbr-teasers-ol:has(:nth-child(n+9)) {
+    --item-size: 17.76em;
+  }
+
+}
