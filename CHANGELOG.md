@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.53 (November 26, 2024)
+- Add container query based events layout
+- Remove In Our Grit... logo from footer
+- Add local version of modular scale function
+
 ## 5.3.52 (September 11, 2024)
 - Revert local nav column widths to 1fr
 - Fix absolute path issue in Grunt
