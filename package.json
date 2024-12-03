@@ -77,7 +77,7 @@
     "axe-core": "^4.3.5",
     "coffeescript": "^2.6.1",
     "d": "^1.0.1",
-    "gsap": "^3.11.1",
+    "gsap": "^3.12.5",
     "hoverintent": "^2.2.1",
     "http-server": "^13.1.0",
     "npm": "^9.8.0",
