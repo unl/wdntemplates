@@ -33,7 +33,6 @@ module.exports = function (grunt) {
   const mainDir = 'wdn',                                    // wdn
     buildDir = 'build',                                   // build
     templateDir = mainDir + '/templates_5.3',             // wdn/templates_5.3
-    templateImages = templateDir + '/images',             // wdn/templates_5.3/images
     templateScss = templateDir + '/scss',                 // wdn/templates_5.3/scss
     templateCss = templateDir + '/css',                   // wdn/templates_5.3/css
     templateJs = templateDir + '/js',                     // wdn/templates_5.3/js
@@ -233,71 +232,11 @@ module.exports = function (grunt) {
   // load all grunt plugins matching the ['grunt-*', '@*/grunt-*'] patterns
   require('load-grunt-tasks')(grunt);
   const sass = require('sass');
-  const jpegrecompress = require('imagemin-jpeg-recompress')
-  const svgo = require('imagemin-svgo')
-  const webp = require('imagemin-webp');
-  const zopfli = require('imagemin-zopfli');
 
   /**
    * Setting up grunt tasks
    */
   grunt.initConfig({
-
-    imagemin: {
-      jpegrecompress: {
-        options: {
-          use: [jpegrecompress({
-            accurate: true
-          })]
-        },
-        files: [{
-          expand: true,
-          cwd: templateImages + '/src',
-          src: '*.jpg',
-          dest: templateImages
-        }]
-      },
-      svgo: {
-        options: {
-          use: [svgo({
-            removeViewBox: false
-          })]
-        },
-        files: [{
-          expand: true,
-          cwd: templateImages + '/src',
-          src: '*.svg',
-          dest: templateImages
-        }]
-      },
-      webp: {
-        options: {
-          use: [webp({
-            quality: 75
-          })]
-        },
-        files: [{
-          expand: true,
-          cwd: templateImages + '/src',
-          src: ['*.jpg', '*.png'],
-          dest: templateImages,
-          ext: '.webp'
-        }]
-      },
-      zopfli: {
-        options: {
-          use: [zopfli({
-            more: true
-          })]
-        },
-        files: [{
-          expand: true,
-          cwd: templateImages + '/src',
-          src: '*.png',
-          dest: templateImages
-        }]
-      }
-    },
 
     stylelint: {
       options: {
@@ -340,7 +279,7 @@ module.exports = function (grunt) {
         options: {
           files: templateCss + '/*.css.map',
         }
-      }, 
+      },
       plugins: {
         options: {
           files: templateJsCss + '/*.css.map',
@@ -583,7 +522,7 @@ module.exports = function (grunt) {
       let content = grunt.file.read(file);
       let newContent = content.replace(/(file:\/\/\/[^'",]+\/wdn)+/g, '/wdn'); // Replace globally
       let newNewContent = newContent.replace(/(file:\/\/\/[^'",]+\/dcf)+/g, '/wdn/templates_5.3/dcf'); // Replace globally
-      
+
       // Write the updated content back to the file
       grunt.file.write(file, newNewContent);
       grunt.log.writeln('Replaced text in ' + file);
@@ -653,7 +592,6 @@ module.exports = function (grunt) {
     });
   });
 
-  grunt.registerTask('images', ['newer:imagemin']);
   grunt.registerTask('css-main', ['sassGlobber', 'sass:main', 'replaceMapAbsolutePaths:main', 'postcss:main']);
   grunt.registerTask('css-plugins', ['sassGlobber', 'sass:plugins', 'replaceMapAbsolutePaths:plugins', 'postcss:plugins']);
   grunt.registerTask('js-main', ['css-plugins', 'babel:dcf', 'babel:gsap', 'babel:wdn', 'copy:babelNoTranspile', 'requirejs', 'sync:js', 'clean:js-build']);
@@ -662,7 +600,7 @@ module.exports = function (grunt) {
 
   // establish grunt composed tasks
   // TODO check with Ryan if sassGlobber needs to be at the start of Grunt task
-  grunt.registerTask('default', ['images', 'sassGlobber', 'clean:js', 'css-main', 'js-main', 'dcf-copy']);
+  grunt.registerTask('default', ['sassGlobber', 'clean:js', 'css-main', 'js-main', 'dcf-copy']);
   // legacy targets from Makefile
   grunt.registerTask('dist', ['default', 'filter-smudge', 'concurrent:dist']);
   grunt.registerTask('all', ['default']);  /** mark for deletion */
