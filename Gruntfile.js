@@ -11,7 +11,6 @@ module.exports = function (grunt) {
   ];
 
   const jsCssObjs = [
-    'js-css/band_imagery',
     'js-css/button-toggles',
     'js-css/collapsible-fieldsets',
     'js-css/events',
@@ -69,7 +68,6 @@ module.exports = function (grunt) {
   // modules added here will be added to rjsConfig modules below
   const wdnBuildPlugins = [
     'autoplay-videos',
-    'band_imagery',
     'carousel',
     'collapsible-fieldsets',
     'datepickers',
