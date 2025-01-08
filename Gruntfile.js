@@ -31,22 +31,22 @@ module.exports = function (grunt) {
   // project layout variables (directories)
   const mainDir = 'wdn',                                    // wdn
     buildDir = 'build',                                   // build
-    templateDir = mainDir + '/templates_5.3',             // wdn/templates_5.3
-    templateScss = templateDir + '/scss',                 // wdn/templates_5.3/scss
-    templateCss = templateDir + '/css',                   // wdn/templates_5.3/css
-    templateJs = templateDir + '/js',                     // wdn/templates_5.3/js
-    templateJsSrc = templateDir + '/js-src',              // wdn/templates_5.3/js-src
-    templateJsCss = templateJs + '/js-css',               // wdn/templates_5.3/js/js-css
+    templateDir = mainDir + '/templates_6.0',             // wdn/templates_6.0
+    templateScss = templateDir + '/scss',                 // wdn/templates_6.0/scss
+    templateCss = templateDir + '/css',                   // wdn/templates_6.0/css
+    templateJs = templateDir + '/js',                     // wdn/templates_6.0/js
+    templateJsSrc = templateDir + '/js-src',              // wdn/templates_6.0/js-src
+    templateJsCss = templateJs + '/js-css',               // wdn/templates_6.0/js/js-css
     builtJsDir = 'compressed',                            // compressed
     buildJsDir = buildDir + '/' + builtJsDir,             // build/compressed - folder removed at end of grunt js task
-    templateCompileJs = templateJs + '/' + builtJsDir,    // wdn/templates_5.3/js/compressed
-    templateIncludeDir = templateDir + '/includes',       // wdn/templates_5.3/includes
+    templateCompileJs = templateJs + '/' + builtJsDir,    // wdn/templates_6.0/js/compressed
+    templateIncludeDir = templateDir + '/includes',       // wdn/templates_6.0/includes
     templateHtmlDir = 'Templates',                        // Templates
     templateSharedDir = 'sharedcode',                     // sharedcode
     zipDir = 'downloads',                                 // downloads
-    dcfDir = templateDir + '/dcf',                        // wdn/templates_5.3/dcf
-    dcfJS = dcfDir + '/js',                               // wdn/templates_5.3/dcf/js
-    dcfSCSS = dcfDir + '/scss',                           // wdn/templates_5.3/dcf/scss
+    dcfDir = templateDir + '/dcf',                        // wdn/templates_6.0/dcf
+    dcfJS = dcfDir + '/js',                               // wdn/templates_6.0/dcf/js
+    dcfSCSS = dcfDir + '/scss',                           // wdn/templates_6.0/dcf/scss
     dcfSrcJS = 'node_modules/dcf/js',                     // node_modules/dcf/js
     dcfSrcSCSS = 'node_modules/dcf/scss',                 // node_modules/dcf/scss
     allSubFilesGlob = '/**';
@@ -519,7 +519,7 @@ module.exports = function (grunt) {
     files.forEach(function(file) {
       let content = grunt.file.read(file);
       let newContent = content.replace(/(file:\/\/\/[^'",]+\/wdn)+/g, '/wdn'); // Replace globally
-      let newNewContent = newContent.replace(/(file:\/\/\/[^'",]+\/dcf)+/g, '/wdn/templates_5.3/dcf'); // Replace globally
+      let newNewContent = newContent.replace(/(file:\/\/\/[^'",]+\/dcf)+/g, '/wdn/templates_6.0/dcf'); // Replace globally
 
       // Write the updated content back to the file
       grunt.file.write(file, newNewContent);
