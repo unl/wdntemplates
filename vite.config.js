@@ -1,13 +1,20 @@
 import { defineConfig } from 'vite';
+import sassGlobImports from 'vite-plugin-sass-glob-import';
 
 export default defineConfig({
     build: {
-        outDir: 'wdn/templates_6.0',
+        outDir: 'wdn/templates_6.0/js',
         rollupOptions: {
-            // rest of build configuration
             input: {
-                'js-src/main': 'wdn/templates_6.0/js-src/main.js',
-                'js-src/components/wdn-button-toggle.js': 'wdn/templates_6.0/js-src/components/wdn-button-toggle.js',
+                'js/main': 'wdn/templates_6.0/js-src/main.js',
+                'js/components/wdn-button-toggle': 'wdn/templates_6.0/js-src/components/wdn-button-toggle.js',
+                // 'css/affiliate': 'wdn/templates_6.0/scss/affiliate.scss',
+                // 'css/critical': 'wdn/templates_6.0/scss/critical.scss',
+                // 'css/deprecated': 'wdn/templates_6.0/scss/deprecated.scss',
+                // 'css/legacy': 'wdn/templates_6.0/scss/legacy.scss',
+                // 'css/main': 'wdn/templates_6.0/scss/main.scss',
+                // 'css/pre': 'wdn/templates_6.0/scss/pre.scss',
+                // 'css/print': 'wdn/templates_6.0/scss/print.scss',
             },
             output: {
                 assetFileNames: (assetInfo) => {
@@ -28,7 +35,12 @@ export default defineConfig({
                 },
                 chunkFileNames: '[name].js',
                 entryFileNames: '[name].js',
-            }
+            },
         },
-    }
+        emptyOutDir: true,
+        sourcemap: true,
+    },
+    plugins: [
+        sassGlobImports()
+    ]
 });

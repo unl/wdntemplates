@@ -19,7 +19,12 @@
     "node": ">= 22.13.0"
   },
   "dependencies": {
-    "vite": "^6.0.7"
+    "@vitejs/plugin-legacy": "^6.0.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "sass": "^1.83.1",
+    "vite": "^6.0.7",
+    "vite-plugin-sass-glob-import": "^5.0.0"
   },
   "scripts": {
     "dev": "vite",
