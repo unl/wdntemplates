@@ -1,9 +1,11 @@
+import { resolve } from 'path'
+import { rm } from 'node:fs/promises'
 import { defineConfig } from 'vite';
 import sassGlobImports from 'vite-plugin-sass-glob-import';
 
 export default defineConfig({
     build: {
-        outDir: 'wdn/templates_6.0/js',
+        outDir: 'wdn/templates_6.0',
         rollupOptions: {
             input: {
                 'js/main': 'wdn/templates_6.0/js-src/main.js',
@@ -37,10 +39,17 @@ export default defineConfig({
                 entryFileNames: '[name].js',
             },
         },
-        emptyOutDir: true,
+        emptyOutDir: false,
         sourcemap: true,
     },
     plugins: [
+        {
+            name: "Cleaning js and css folder",
+            async buildStart() {
+                await rm(resolve(__dirname, './wdn/templates_6.0/js'), { recursive: true, force: true });
+                await rm(resolve(__dirname, './wdn/templates_6.0/css'), { recursive: true, force: true });
+            }
+        },
         sassGlobImports()
     ]
 });
