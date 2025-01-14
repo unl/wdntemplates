@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.54 (January 14, 2025)
+- Update GSAP to fix scroll-to-top bug
+- Update copyright date in footer
+- Hide (most) footer content on printed pages
+- Add mixins/utilities "text-wrap balance" and "pretty"
+- Set width of body tag to 100vw
+
 ## 5.3.53 (November 26, 2024)
 - Add container query based events layout
 - Remove In Our Grit... logo from footer
