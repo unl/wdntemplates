@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html class="dcf-no-js dcf-no-webp" lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<!--#include virtual="/wdn/templates_5.3/includes/global/head-1.html" -->
+<!--#include virtual="/wdn/templates_6.0/includes/global/head-1.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
   <title>Debugging Out | Framework Testing Page</title>
 <!-- InstanceEndEditable -->
-<!--#include virtual="/wdn/templates_5.3/includes/global/head-2-local.html" -->
+<!--#include virtual="/wdn/templates_6.0/includes/global/head-2-local.html" -->
 <!-- InstanceBeginEditable name="head" -->
   <!-- Place optional header elements here -->
 <!-- InstanceEndEditable -->
 </head>
-<body class="debug unl" data-version="5.3">
-  <!--#include virtual="/wdn/templates_5.3/includes/global/skip-nav.html" -->
+<body class="debug unl" data-version="6.0">
+  <!--#include virtual="/wdn/templates_6.0/includes/global/skip-nav.html" -->
 
 <!--
   <div class="dcf-alert dcf-wrapper dcf-pt-4 dcf-pb-4 dcf-txt-xs">
@@ -35,67 +35,67 @@
 -->
 
   <header class="dcf-header" id="dcf-header" role="banner">
-    <!--#include virtual="/wdn/templates_5.3/includes/global/header-global-1.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/cta-header-1.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/visit-header-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-header-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-header-1.html" -->
     <!-- InstanceBeginEditable name="headervisit" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/visit-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/visit-header-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/apply-header-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-header-1.html" -->
     <!-- InstanceBeginEditable name="headerapply" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/apply-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/apply-header-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/give-header-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-header-1.html" -->
     <!-- InstanceBeginEditable name="headergive" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/give-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/give-header-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/cta-header-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/idm.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/search.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/header-global-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/logo-lockup-1.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/site-affiliation-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/idm.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/search.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-1.html" -->
     <!-- InstanceBeginEditable name="affiliation" -->
     <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/site-affiliation-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/site-title-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-1.html" -->
     <!-- InstanceBeginEditable name="titlegraphic" -->
     <a class="dcf-txt-h6" href="https://arts.unl.edu/music">
       Glenn Korff School of Music
     </a>
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/site-title-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/logo-lockup-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-toggle-group.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-1.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-toggle-btn.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-child-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-group.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-btn.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-child-1.html" -->
     <!-- InstanceBeginEditable name="navlinks" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/nav-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/cta-nav-1.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/visit-nav-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-nav-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-nav-1.html" -->
     <!-- InstanceBeginEditable name="navvisit" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/visit-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/visit-nav-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/apply-nav-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-nav-1.html" -->
     <!-- InstanceBeginEditable name="navapply" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/apply-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/apply-nav-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/give-nav-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-nav-1.html" -->
     <!-- InstanceBeginEditable name="navgive" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/give-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/give-nav-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/cta-nav-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-child-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-child-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-2.html" -->
   </header>
 
   <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
@@ -132,20 +132,97 @@
     <div class="dcf-main-content dcf-wrapper">
     <!-- InstanceBeginEditable name="maincontentarea" -->
     <p>Impress your audience with awesome content!</p>
+
+    <h2 class="dcf-mt-9">Tabs</h2>
+
+      <a href="#group3-panel2">Go To Tabs Panel #group3-panel2</a>
+
+      <div class="dcf-tabs dcf-tabs-responsive dcf-mt-6 dcf-mb-9">
+        <h3>Tab Group (Unordered List, Divs)</h3>
+        <ul>
+          <li><a href="#group1-panel1">Tab 1</a></li>
+          <li><a href="#group1-panel2">Tab 2</a></li>
+          <li><a href="#group1-panel3">Tab 3</a></li>
+        </ul>
+        <div id="group1-panel1">
+          <h4>Panel 1</h4>
+          <p>Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+        <div id="group1-panel2">
+          <h4>Panel 2</h4>
+          <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.</p>
+        </div>
+        <div id="group1-panel3">
+          <h4>Panel 3</h4>
+          <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        </div>
+      </div>
+
+      <div class="dcf-tabs dcf-tabs-responsive dcf-mt-6" data-url-tracking="true">
+        <h3>Tab Group (Ordered List, Sections)</h3>
+        <ol>
+          <li><a href="#group2-panel1" hidden>Tab 1</a></li>
+          <li><a href="#group2-panel2">Tab 2</a></li>
+          <li><a href="#group2-panel3">Tab 3</a></li>
+        </ol>
+        <section id="group2-panel1">
+          <h4>Panel 1</h4>
+          <p>Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </section>
+        <section id="group2-panel2">
+          <h4>Panel 2</h4>
+          <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.</p>
+        </section>
+        <section id="group2-panel3" data-default="true">
+          <h4>Panel 3</h4>
+          <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        </section>
+      </div>
+
+      <div class="dcf-tabs dcf-mt-6" id="tabGroup3">
+        <h3>Tab Group No UL</h3>
+        <section id="group3-panel1">
+          <h4 class="dcf-tabs-panel-title">Panel 1</h4>
+          <p>Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </section>
+        <section id="group3-panel2">
+          <h4 class="dcf-tabs-panel-title">Panel 2</h4>
+          <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.</p>
+        </section>
+        <section id="group3-panel3" data-tab-hidden="true">
+          <h4 class="dcf-tabs-panel-title">Panel 3</h4>
+          <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        </section>
+        <section id="group3-panel4">
+          <h4>Panel 4</h4>
+          <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        </section>
+      </div>
+
+
+      <wdn-toggle-button controls="my-p-tag">
+        <button>My Button</button>
+      </wdn-toggle-button>
+  
+      <p id="my-p-tag">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, facilis fuga dolor rerum labore consequatur laudantium, facere provident, ducimus omnis ratione accusantium deleniti. Nam excepturi ipsa unde aspernatur harum tenetur.
+      </p>
+
+
     <!-- InstanceEndEditable -->
    </div>
   </main>
   <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
     <!-- InstanceBeginEditable name="optionalfooter" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/footer-global-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-1.html" -->
     <!-- InstanceBeginEditable name="contactinfo" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/footer-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/footer-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/footer-global-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/noscript.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/noscript.html" -->
   </footer>
-  <!--#include virtual="/wdn/templates_5.3/includes/global/js-body-local.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/js-body-local.html" -->
   <!-- InstanceBeginEditable name="jsbody" -->
   <!-- InstanceEndEditable -->
 </body>
