@@ -4,44 +4,44 @@
 
 
 // Variables
-@import '../../../node_modules/dcf/scss/variables/**/*';
+@import '../../../dcf/scss/variables/**/*';
 @import 'variables/**/*';
 
 
 // Mixins
-@import '../../../node_modules/dcf/scss/mixins/**/*';
+@import '../../../dcf/scss/mixins/**/*';
 @import 'mixins/**/*';
 
 
 // Functions
-@import '../../../node_modules/dcf/scss/functions/**/*';
+@import '../../../dcf/scss/functions/**/*';
 
 
 // Generic
 @import-normalize;
-@import '../../../node_modules/dcf/scss/generic/**/*';
+@import '../../../dcf/scss/generic/**/*';
 @import 'generic/**/*';
 
 
 // Elements
-@import '../../../node_modules/dcf/scss/elements/**/*';
+@import '../../../dcf/scss/elements/**/*';
 @import 'elements/**/*';
 
 
 // Objects
-@import '../../../node_modules/dcf/scss/objects/**/*';
+@import '../../../dcf/scss/objects/**/*';
 @import 'objects/**/*';
 
 
 // Components
-@import '../../../node_modules/dcf/scss/components/**/*';
+@import '../../../dcf/scss/components/**/*';
 @import 'components/**/*';
 
 
 // JavaScript
-@import '../../../node_modules/dcf/scss/javascript/**/*';
+@import '../../../dcf/scss/javascript/**/*';
 
 
 // Utilities
-@import '../../../node_modules/dcf/scss/utilities/**/*';
+@import '../../../dcf/scss/utilities/**/*';
 @import 'utilities/**/*';
