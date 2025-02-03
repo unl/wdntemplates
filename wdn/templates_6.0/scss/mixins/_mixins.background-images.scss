@@ -5,7 +5,7 @@
 
 // Dots
 @mixin bg-dots($imp:null) {
-  background-size: #{ms(-4)}rem $imp; // .56rem
+  background-size: #{$ms-4}rem $imp; // .56rem
 }
 
 
