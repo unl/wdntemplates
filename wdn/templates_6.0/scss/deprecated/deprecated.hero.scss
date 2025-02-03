@@ -45,7 +45,7 @@
 
 .wdn-hero-initial-line {
   display: block;
-  font-size: #{ms(-8)}em;
+  font-size: #{$ms-8}em;
   letter-spacing: .1em;
   @include lh-2;
   @include pb-2;
@@ -85,15 +85,15 @@
 @media only screen and (min-width:48em) {
 
   .wdn-hero {
-    height: #{ms(22)}em;
+    height: #{$ms22}em;
     justify-content: center;
     overflow: hidden;
     position: relative;
 
     @supports (object-fit: cover) {
       height: 56vh;
-      max-height: #{ms(24)}em;
-      min-height: #{ms(22)}em;
+      max-height: #{$ms24}em;
+      min-height: #{$ms22}em;
     }
 
   }
@@ -120,7 +120,7 @@
   }
 
   .wdn-hero-initial-line {
-    font-size: #{ms(-10)}em;
+    font-size: #{$ms-10}em;
   }
 
   .wdn-hero-video,
@@ -130,7 +130,7 @@
 
     @supports (object-fit: cover) {
       height: inherit;
-      min-height: #{ms(22)}em;
+      min-height: #{$ms22}em;
     }
 
   }
@@ -149,11 +149,11 @@
 @media only screen and (min-width:80em) and (min-height: #{ms(26)}em) {
 
   .wdn-hero {
-    height: #{ms(24)}em;
+    height: #{$ms24}em;
 
     @supports (object-fit: cover) {
       height: 60vh;
-      max-height: #{ms(26)}em;
+      max-height: #{$ms26}em;
     }
 
   }

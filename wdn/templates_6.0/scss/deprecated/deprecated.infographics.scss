@@ -13,7 +13,7 @@
 .wdn-infographic .stat {
   font-weight: 700;
   letter-spacing: -.03em;
-  margin-bottom: #{ms(-12)}em;
+  margin-bottom: #{$ms-12}em;
   margin-left: -.03em;
   @include txt-h3;
 }

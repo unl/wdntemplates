@@ -7,7 +7,7 @@
 .wdn-frame {
   border: 1px solid var(--b);
   @include mb-4;
-  padding: #{ms(-10)}em;
+  padding: #{$ms-10}em;
 }
 
 .frame img,

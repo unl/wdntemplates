@@ -4,17 +4,17 @@
 
 
 .wdn-quote {
-  font-size: #{ms(2)}em; // 1.33em
+  font-size: #{$ms02}em; // 1.33em
   @include mb-7;
   margin-left: 0;
   margin-right: 0;
-  padding-top: #{ms(10)}em; // 4.21em
+  padding-top: #{$ms10}em; // 4.21em
   position: relative;
 }
 
 .wdn-quote::before {
   content: open-quote;
-  font-size: #{ms(14)}em; // 7.49em
+  font-size: #{$ms14}em; // 7.49em
   @include lh-1;
   position: absolute;
   top: 0;
@@ -27,7 +27,7 @@
 
 .wdn-quoter {
   display: block;
-  font-size: #{ms(-2)}em; // .75em
+  font-size: #{$ms-2}em; // .75em
   font-style: normal;
   @include mt-4;
 }
