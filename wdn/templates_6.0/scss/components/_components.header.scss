@@ -17,7 +17,7 @@
 
 .unl .dcf-site-affiliation a {
   display: inline-block;
-  padding-bottom: #{ms(-10)}em;
+  padding-bottom: #{$ms-10}em;
 }
 
 
@@ -52,7 +52,7 @@
 
   .unl .dcf-header-global {
     border-bottom: 1px solid $border-color-gray-light;
-    padding-top: #{ms(-12)}em;
+    padding-top: #{$ms-12}em;
   }
 
 
@@ -66,7 +66,7 @@
   }
 
   .unl .dcf-logo-lockup {
-    padding-bottom: #{ms(1)}em;
+    padding-bottom: #{$ms01}em;
   }
 
 }

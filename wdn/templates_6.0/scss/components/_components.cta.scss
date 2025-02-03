@@ -50,9 +50,9 @@
 
   // Add arrow above options popover and horizontally center under button text
   .dcf-btn-toggle-cta[aria-pressed="true"]::after {
-    border-left: #{ms(-4)}em solid transparent;
-    border-right: #{ms(-4)}em solid transparent;
-    border-bottom: #{ms(-4)}em solid rgba(36,36,35,.95);
+    border-left: #{$ms-4}em solid transparent;
+    border-right: #{$ms-4}em solid transparent;
+    border-bottom: #{$ms-4}em solid rgba(36,36,35,.95);
     bottom: -1px;
     content: '';
     display: block;
@@ -66,8 +66,8 @@
 
   .unl .dcf-list-cta {
     box-shadow: 0 1px 2px rgba(0,0,0,.5), 0 1px 10px rgba(0,0,0,.25);
-    left: calc(#{ms(0)}em - #{ms(4)}em);
-    min-width: #{ms(20)}em;
+    left: calc(#{$ms00}em - #{$ms04}em);
+    min-width: #{$ms20}em;
     top: 100%;
     z-index: 999; // Ensure that the popover has a higher z-index than the local navigation
   }

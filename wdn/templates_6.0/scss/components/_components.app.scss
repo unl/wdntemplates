@@ -4,7 +4,7 @@
 
 
 .unl .dcf-app-form {
-  max-width: #{ms(26)}em; // Restrict width of search form in wide viewports
+  max-width: #{$ms26}em; // Restrict width of search form in wide viewports
 }
 
 

@@ -44,9 +44,9 @@
 
 
   .unl .dcf-tabs-responsive .dcf-tab[aria-selected]::before {
-    border-bottom: #{ms(-5)}em solid transparent;
-    border-left: #{ms(-5)}em solid $border-color-tab;
-    border-top: #{ms(-5)}em solid transparent;
+    border-bottom: #{$ms-5}em solid transparent;
+    border-left: #{$ms-5}em solid $border-color-tab;
+    border-top: #{$ms-5}em solid transparent;
     content: '';
     left: 0;
     position: absolute;

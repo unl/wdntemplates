@@ -75,7 +75,7 @@
 @include mq(sm, max, width) {
 
   .unl-footer-unl {
-    margin-bottom: #{ms(-8)}em;
+    margin-bottom: #{$ms-8}em;
   }
 
 }

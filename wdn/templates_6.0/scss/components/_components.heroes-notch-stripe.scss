@@ -12,7 +12,7 @@
 
 .unl-hero-notch-stripe .dcf-hero-group-1 {
   min-width: 0;
-  margin-top: -#{ms(7)}em; // This should equal the height of the breadcrumbs wrapper.
+  margin-top: -#{$ms07}em; // This should equal the height of the breadcrumbs wrapper.
   order: 2;
   width: 100%;
   z-index: 1; // Make hero-group-1 appear in front of hero-group-2.
@@ -20,7 +20,7 @@
 
 
 .unl-hero-notch-stripe .dcf-breadcrumbs-wrapper {
-  height: #{ms(7)}em; // This should equal the negative margin-top of hero-group-1.
+  height: #{$ms07}em; // This should equal the negative margin-top of hero-group-1.
 }
 
 
@@ -65,7 +65,7 @@
   background-image: linear-gradient(fade-out($darkest-gray,1), fade-out($darkest-gray,.93) 70%, fade-out($darkest-gray,.85));
   bottom: 0;
   content: '';
-  height: #{ms(16)}em; // Scrim should be no taller than the minimum height of the 'sm' hero to avoid overlapping the navigation.
+  height: #{$ms16}em; // Scrim should be no taller than the minimum height of the 'sm' hero to avoid overlapping the navigation.
   position: absolute;
   width: 100%;
 }

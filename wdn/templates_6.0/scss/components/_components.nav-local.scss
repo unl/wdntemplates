@@ -16,7 +16,7 @@
 
 .unl .dcf-nav-local > ul:first-child {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(#{ms(15)}em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(#{$ms15}em, 1fr));
 }
 
 

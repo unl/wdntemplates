@@ -62,7 +62,7 @@
 @include mq(md, min, width) {
 
   .unl .dcf-search {
-    max-width: #{ms(18)}em; // TODO: remove when global nav is added back to header
+    max-width: #{$ms18}em; // TODO: remove when global nav is added back to header
   }
 
   .unl .dcf-search-toggle-wrapper {
@@ -70,7 +70,7 @@
   }
 
   .unl .dcf-search-toggle-label {
-    padding: #{ms(-10)}em #{ms(8)}em #{ms(-10)}em #{ms(-2)}em;
+    padding: #{$ms-10}em #{$ms08}em #{$ms-10}em #{$ms-2}em;
   }
 
 }

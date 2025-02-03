@@ -12,7 +12,7 @@
 .unl .dcf-nav-menu-child button {
   display: block;
   @include lh-3;
-  padding: #{ms(-2)}rem #{ms(0)}rem;
+  padding: #{$ms-2}rem #{$ms00}rem;
 }
 
 
@@ -80,13 +80,13 @@
 
   .unl .dcf-nav-menu a,
   .unl .dcf-nav-menu button {
-    margin-left: -#{ms(0)}rem;
+    margin-left: -#{$ms00}rem;
   }
 
 
   .unl .dcf-nav-menu ul > li > ul > li > a,
   .unl .dcf-nav-menu ul > li > ul > li > button {
-    font-size: #{ms(-1)}rem !important;
+    font-size: #{$ms-1}rem !important;
   }
 
 }
@@ -105,13 +105,13 @@
 
   .unl .dcf-nav-menu ul:first-child > li > a,
   .unl .dcf-nav-menu ul:first-child > li > button {
-    font-size: #{ms(-1)}rem !important;
+    font-size: #{$ms-1}rem !important;
   }
 
 
   .unl .dcf-nav-menu ul > li > ul > li > a,
   .unl .dcf-nav-menu ul > li > ul > li > button {
-    font-size: #{ms(-2)}rem !important;
+    font-size: #{$ms-2}rem !important;
   }
 
 }
