@@ -7,7 +7,7 @@
 
 
   .unl-grid-cols {
-    grid-template-columns: #{ms(12)}vw #{ms(8)}rem 1rem 1fr 1fr #{ms(12)}vw;
+    grid-template-columns: #{$ms12}vw #{$ms08}rem 1rem 1fr 1fr #{$ms12}vw;
     // 5.62vw 3.16rem 1rem 1fr 1fr 5.62vw
   }
 
@@ -15,7 +15,7 @@
   @include mq(sm) {
 
     .unl-grid-cols {
-      grid-template-columns: #{ms(12)}vw #{ms(8)}rem 1rem 1fr 1fr #{ms(8)}vw #{ms(8)}rem 1rem 1fr 1fr #{ms(12)}vw;
+      grid-template-columns: #{$ms12}vw #{$ms08}rem 1rem 1fr 1fr #{$ms08}vw #{$ms08}rem 1rem 1fr 1fr #{$ms12}vw;
       // 5.62vw 3.16rem 1rem 1fr 1fr 3.16vw 3.16rem 1rem 1fr 1fr 5.62vw
     }
 
@@ -24,7 +24,7 @@
   @include mq(lg) {
 
     .unl-grid-cols {
-      grid-template-columns: #{ms(12)}vw #{ms(8)}rem 1rem 2fr 1fr #{ms(8)}rem 1rem #{ms(8)}vw #{ms(8)}rem 1rem 1fr 2fr #{ms(8)}rem 1rem #{ms(12)}vw;
+      grid-template-columns: #{$ms12}vw #{$ms08}rem 1rem 2fr 1fr #{$ms08}rem 1rem #{$ms08}vw #{$ms08}rem 1rem 1fr 2fr #{$ms08}rem 1rem #{$ms12}vw;
       // 5.62vw 3.16rem 1rem 2fr 1fr 3.16rem 1rem 3.16vw 3.16rem 1rem 1fr 2fr 3.16rem 1rem 5.62vw
     }
 
