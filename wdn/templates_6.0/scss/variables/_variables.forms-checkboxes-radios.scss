@@ -19,7 +19,7 @@ $border-color-input-checked: var(--body);                         // Border-colo
 
 
 // Border width
-$border-width-checkmark: #{ms(-12)}em;                            // Border-width of border used to create checkmark
+$border-width-checkmark: #{$ms-12}em;                             // Border-width of border used to create checkmark
 
 
 // Height & width
@@ -35,8 +35,8 @@ $padding-left-checkbox-radio: $length-em-7;                       // Padding-lef
 
 
 // Transform
-$scale-radio-start: #{ms(-8)};                                    // Checked radio scale value start: .32em
-$scale-radio-end: #{ms(-4)};                                      // Checked radio scale value end: .56em
+$scale-radio-start: #{$ms-8};                                     // Checked radio scale value start: .32em
+$scale-radio-end: #{$ms-4};                                       // Checked radio scale value end: .56em
 
 
 // Transition

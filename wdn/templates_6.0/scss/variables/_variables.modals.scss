@@ -19,4 +19,4 @@ $bg-color-modal-header: var(--bg-body);
 
 // Height & width
 $height-max-modal-wrapper: calc(100vh - (2 * #{$length-em-4})); // Max-height modal wrapper
-$width-modal-wrapper: calc(100% - (2 * #{ms(12)}vw));           // Match width of .dcf-wrapper
+$width-modal-wrapper: calc(100% - (2 * #{$ms12}vw));            // Match width of .dcf-wrapper

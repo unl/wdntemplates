@@ -14,7 +14,7 @@ $color-figcaption: var(--figcaption);
 
 
 // Font size
-$font-size-figcaption: #{ms(-2)}em;                           // Font-size of figcaption: .75em
+$font-size-figcaption: #{$ms-2}em;                            // Font-size of figcaption: .75em
 
 
 // Text wrap

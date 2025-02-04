@@ -32,10 +32,10 @@ $color-caption: $color-heading;                             // .dcf-table <capti
 
 
 // Font size
-$font-size-caption: #{ms(1)}em;                             // .dcf-table <caption> font-size: 1.13em
-$font-size-thead: #{ms(-1)}em;                              // .dcf-table <thead> font-size: .84em
-$font-size-tbody: #{ms(-1)}em;                              // .dcf-table <tbody> font-size: .84em
-$font-size-tfoot: #{ms(-1)}em;                              // .dcf-table <tfoot> font-size: .84em
+$font-size-caption: #{$ms1}em;                              // .dcf-table <caption> font-size: 1.13em
+$font-size-thead: #{$ms-1}em;                               // .dcf-table <thead> font-size: .84em
+$font-size-tbody: #{$ms-1}em;                               // .dcf-table <tbody> font-size: .84em
+$font-size-tfoot: #{$ms-1}em;                               // .dcf-table <tfoot> font-size: .84em
 
 
 // Font weight
@@ -49,7 +49,7 @@ $grid-col-gap-table-responsive: $length-vw-1;               // Grid column-gap i
 
 
 // Padding
-$padding-bottom-caption: #{ms(-4)}rem;                                  // Padding-bottom for table captions
+$padding-bottom-caption: #{$ms-4}rem;                                   // Padding-bottom for table captions
 
 $padding-right-table-cell: $length-em-6;                                // Padding-right for <th> and <td> cells
 

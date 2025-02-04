@@ -52,7 +52,7 @@ $flex-basis-search-and-select-search-area-multiple-input: 25%;                  
 
 
 // Font size
-$font-size-search-and-select-selected-item-label: #{ms(-1)}em;                            // Selected item label font-size: .84em
+$font-size-search-and-select-selected-item-label: #{$ms-1}em;                             // Selected item label font-size: .84em
 
 
 // Font weight
@@ -65,7 +65,7 @@ $row-gap-search-and-select-selected-items: $length-em-3;                        
 
 
 // Height & width
-$height-search-and-select-available-items: clamp(#{ms(14)}em, 32vh, #{ms(19)}em);         // Height search-and-select available items: min - 7.49em, ideal - 32vh, max - 19.98em
+$height-search-and-select-available-items: clamp(#{$ms14}em, 32vh, #{$ms19}em);           // Height search-and-select available items: min - 7.49em, ideal - 32vh, max - 19.98em
 $max-height-search-and-select-search-area: $length-em-12;                                 // Max-height search-and-select search area: 9.99em
 $min-width-search-and-select-input: 12ch;                                                 // Min-width search-and-select input
 
@@ -87,7 +87,7 @@ $padding-top-search-and-select-available-items-li: $length-em-2;                
 
 $padding-left-search-and-select-available-items-li-presentation-sibling: $length-em-6;    // Padding-left of available items list item (sibling of presentation item): 1.78em
 
-$padding-bottom-search-and-select-selected-item-label: #{ms(-6)}rem;                      // Padding-bottom of selected item label: .32rem
-$padding-left-search-and-select-selected-item-label: #{ms(-2)}rem;                        // Padding-left of selected item label: .75rem
-$padding-right-search-and-select-selected-item-label: #{ms(-2)}rem;                       // Padding-right of selected item label: .75rem
-$padding-top-search-and-select-selected-item-label: #{ms(-6)}rem;                         // Padding-top of selected item label: .32rem
+$padding-bottom-search-and-select-selected-item-label: #{$ms-6}rem;                       // Padding-bottom of selected item label: .32rem
+$padding-left-search-and-select-selected-item-label: #{$ms-2}rem;                         // Padding-left of selected item label: .75rem
+$padding-right-search-and-select-selected-item-label: #{$ms-2}rem;                        // Padding-right of selected item label: .75rem
+$padding-top-search-and-select-selected-item-label: #{$ms-6}rem;                          // Padding-top of selected item label: .32rem

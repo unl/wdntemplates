@@ -15,7 +15,7 @@ $bg-color-mark: var(--bg-mark);
 
 
 // Padding
-$padding-bottom-mark: #{ms(-12)}em;       // Padding-bottom of <mark> (highlighted) text: .18em
+$padding-bottom-mark: #{$ms-12}em;        // Padding-bottom of <mark> (highlighted) text: .18em
 $padding-left-mark: $length-em-1;         // Padding-left of <mark> (highlighted) text: .42em
 $padding-right-mark: $length-em-1;        // Padding-right of <mark> (highlighted) text: .42em
-$padding-top-mark: #{ms(-12)}em;          // Padding-top of <mark> (highlighted) text: .18em
+$padding-top-mark: #{$ms-12}em;           // Padding-top of <mark> (highlighted) text: .18em

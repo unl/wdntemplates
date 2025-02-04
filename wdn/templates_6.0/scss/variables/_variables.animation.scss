@@ -25,6 +25,6 @@ $animation-timing-fn-move-up: cubic-bezier(.25, .46, .45, .94);
 
 
 // Transforms
-$animation-transform-move-left: #{ms(8)}em;
-$animation-transform-move-right: -#{ms(8)}em;
-$animation-transform-move-up: #{ms(8)}em;
+$animation-transform-move-left: #{$ms8}em;
+$animation-transform-move-right: -#{$ms8}em;
+$animation-transform-move-up: #{$ms8}em;

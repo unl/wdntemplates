@@ -100,7 +100,7 @@ $color-button-secondary-tertiary-hover: var(--btn-secondary-tertiary-hover);
 
 
 // Font size
-$font-size-button: #{ms(-1)}em;           // Button font-size: .84em
+$font-size-button: #{$ms-1}em;           // Button font-size: .84em
 
 
 // Font weight
@@ -108,7 +108,7 @@ $font-weight-button-bold: true;           // Bold button text? True/false
 
 
 // Line height
-$line-height-button: #{ms(3)};            // Button line-height
+$line-height-button: #{$ms03};            // Button line-height
 
 
 // Padding

@@ -27,19 +27,19 @@ $color-datepicker-dialog-calendar-td-hover: var(--btn-secondary-tertiary-hover);
 
 
 // Font size
-$font-size-datepicker-dialog-month-year: #{ms(-1)}em;     // Datepicker dialog month/year font-size: .84em
-$font-size-datepicker-dialog-calendar: #{ms(-2)}em;       // Datepicker dialog calendar font-size: .75em
-$font-size-datepicker-dialog-btn-footer: #{ms(-2)}rem;    // Datepicker dialog footer button font-size: .75rem
-$font-size-datepicker-dialog-message: #{ms(-3)}em;        // Datepicker dialog message font-size: .63em
+$font-size-datepicker-dialog-month-year: #{$ms-1}em;      // Datepicker dialog month/year font-size: .84em
+$font-size-datepicker-dialog-calendar: #{$ms-2}em;        // Datepicker dialog calendar font-size: .75em
+$font-size-datepicker-dialog-btn-footer: #{$ms-2}rem;     // Datepicker dialog footer button font-size: .75rem
+$font-size-datepicker-dialog-message: #{$ms-3}em;         // Datepicker dialog message font-size: .63em
 
 
 // Height
-$height-datepicker-dialog-calendar-th-td: #{ms(6)}rem;    // Datepicker dialog calendar cell (th/td) height: 2.37rem
+$height-datepicker-dialog-calendar-th-td: #{$ms06}rem;    // Datepicker dialog calendar cell (th/td) height: 2.37rem
 
 
 // Margin
-$margin-top-datepicker-dialog: #{ms(-12)}em;              // Margin-top datepicker dialog: .18em
-$margin-top-datepicker-dialog-footer: #{ms(-10)}em;       // Margin-top datepicker dialog footer: .24em
+$margin-top-datepicker-dialog: #{$ms-12}em;               // Margin-top datepicker dialog: .18em
+$margin-top-datepicker-dialog-footer: #{$ms-10}em;        // Margin-top datepicker dialog footer: .24em
 
 
 // Padding
@@ -48,10 +48,10 @@ $padding-left-datepicker-dialog: $length-em-4;            // Padding-left datepi
 $padding-right-datepicker-dialog: $length-em-4;           // Padding-right datepicker dialog header: 1em
 $padding-top-datepicker-dialog: $length-em-2;             // Padding-top datepicker dialog header: .56em
 
-$padding-bottom-datepicker-dialog-header: #{ms(-10)}em;   // Padding-bottom datepicker dialog header: .24em
+$padding-bottom-datepicker-dialog-header: #{$ms-10}em;    // Padding-bottom datepicker dialog header: .24em
 
 $padding-top-datepicker-dialog-footer: $length-em-2;      // Padding-top datepicker dialog footer: .56em
 
 
 // Width
-$width-datepicker-dialog: #{ms(21)}rem;                   // Datepicker dialog width: 19.98rem (~320px)
+$width-datepicker-dialog: #{$ms21}rem;                   // Datepicker dialog width: 19.98rem (~320px)

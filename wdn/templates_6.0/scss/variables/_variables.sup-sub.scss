@@ -7,12 +7,12 @@
 
 
 // Bottom
-$bottom-sub: -#{ms(-4)}ex;          // Subscript bottom position based on x-height: -.56ex
-$bottom-sup: #{ms(2)}ex;            // Superscript bottom position based on x-height: 1.33ex
+$bottom-sub: -#{$ms-4}ex;           // Subscript bottom position based on x-height: -.56ex
+$bottom-sup: #{$ms02}ex;            // Superscript bottom position based on x-height: 1.33ex
 
 
 // Font size
-$font-size-sub-sup: #{ms(-3)}em;    // Subscript & superscript font-size: .63em;
+$font-size-sub-sup: #{$ms-3}em;     // Subscript & superscript font-size: .63em;
 
 
 // Vertical alignment

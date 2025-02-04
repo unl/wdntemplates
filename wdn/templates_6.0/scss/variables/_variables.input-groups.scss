@@ -33,7 +33,7 @@ $color-input-group-addon: var(--input-group-addon);
 
 
 // Font size
-$font-size-input-group-addon: #{ms(-1)}em;                                    // Input group add-on font-size: .84em;
+$font-size-input-group-addon: #{$ms-1}em;                                     // Input group add-on font-size: .84em;
 
 
 // Padding

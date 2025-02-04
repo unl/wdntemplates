@@ -71,9 +71,9 @@ $color-required-label: var(--required);
 
 
 // Font size
-$font-size-label: #{ms(-1)}em;                                  // Label font-size: .84em
-$font-size-legend: #{ms(-1)}em;                                 // Legend font-size: .84em
-$font-size-form-help: #{ms(-2)}em;                              // Form help font-size: .75em
+$font-size-label: #{$ms-1}em;                                   // Label font-size: .84em
+$font-size-legend: #{$ms-1}em;                                  // Legend font-size: .84em
+$font-size-form-help: #{$ms-2}em;                               // Form help font-size: .75em
 $font-size-required: $font-size-badge;                          // Required label font-size: .56rem
 
 
@@ -86,7 +86,7 @@ $font-weight-legend-bold: true;                                 // Bold legend? 
 
 
 // Line height
-$line-height-form-help: #{ms(2)};                               // Form help line-height
+$line-height-form-help: #{$ms02};                               // Form help line-height
 
 
 // Margin

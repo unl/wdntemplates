@@ -9,8 +9,8 @@
 
 // Padding
 $padding-bottom-slide-caption: $length-em-4;    // Padding-bottom of slide caption: 1em
-$padding-left-slide-caption: #{ms(1)}em;        // Padding-left of slide caption: 1.13em
-$padding-right-slide-caption: #{ms(1)}em;       // Padding-right of slide caption: 1.13em
+$padding-left-slide-caption: #{$ms01}em;        // Padding-left of slide caption: 1.13em
+$padding-right-slide-caption: #{$ms01}em;       // Padding-right of slide caption: 1.13em
 $padding-top-slide-caption: $length-em-4;       // Padding-top of slide caption: 1em
 
 
