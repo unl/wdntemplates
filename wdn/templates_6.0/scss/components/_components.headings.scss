@@ -15,7 +15,7 @@
   content: '';
   display: block;
   height: 2px;
-  margin-left: .03em;
-  margin-top: 1rem;
+  margin-left: #{$ms-24}em;
+  margin-top: #{$ms00}rem;
   @include w-6;
 }
