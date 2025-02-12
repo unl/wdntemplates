@@ -193,6 +193,14 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
 
         // Put focus on search text input
         domQ.focus();
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('event', 'UNL_search_opened', {
+            'app_name': 'UNL_search',
+        });
       };
 
       // Add an event listener for search modal open event
@@ -212,6 +220,14 @@ define(['wdn', 'dcf-modal'], function(WDN, modalModule) {
         domQ.value = '';
         domSearchForm.parentElement.classList.remove('active');
         domSearchForm.reset();
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('event', 'UNL_search_closed', {
+          'app_name': 'UNL_search',
+        });
 
         // Clear results
         if ($unlSearch) {
