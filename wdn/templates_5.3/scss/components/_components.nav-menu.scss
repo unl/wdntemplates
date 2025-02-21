@@ -98,6 +98,7 @@
     @include bg-scarlet;
     display: flex;
     flex-wrap: nowrap;
+    overflow-x: clip;
     padding-left: $length-vw-2;
     padding-right: $length-vw-2;
   }
