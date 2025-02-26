@@ -16,7 +16,7 @@ export default defineConfig({
                 'js/components/wdn-button-toggle': 'wdn/templates_6.0/js-src/components/wdn-button-toggle.js',
 
                 'js/components/wdn-tab': 'wdn/templates_6.0/js-src/components/wdn-tab.js',
-                'css/components/tabs': 'wdn/templates_6.0/scss/components/_components.tabs.scss',
+                // 'css/components/tabs': 'wdn/templates_6.0/scss/components/_components.tabs.scss',
 
                 // 'css/affiliate': 'wdn/templates_6.0/scss/affiliate.scss',
                 // 'css/critical': 'wdn/templates_6.0/scss/critical.scss',
@@ -75,7 +75,7 @@ export default defineConfig({
         alias: {
             "@js-src": "/wdn/templates_6.0/js-src",
             "@scss": "/wdn/templates_6.0/scss",
-            "@dcf": "/dcf",
+            "@dcf": "/node_modules/dcf",
         },
     },
 });
