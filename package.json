@@ -21,6 +21,7 @@
   "dependencies": {
     "@vitejs/plugin-legacy": "^6.0.0",
     "autoprefixer": "^10.4.20",
+    "dcf": "github:digitalcampusframework/dcf#4.0-WIP",
     "postcss": "^8.4.49",
     "sass": "^1.83.1",
     "vite": "^6.0.7",
