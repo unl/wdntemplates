@@ -1,5 +1,5 @@
-// import tabs_css_url from '@scss/components/_components.tabs.scss?url';
-import { DCFUtility } from '@dcf/js/dcf-utility.js';
+import tabs_css_url from '@scss/components/_components.tabs-tmp.scss?url';
+import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
 
 // This is where the imported class will go
 let wdn_tabs = null;
@@ -12,26 +12,53 @@ export let is_initialized = false;
 
 /**
  * Initializes plugin
- * @returns { void }
+ * @returns { Promise<void> }
  */
 export async function initialize() {
     if (is_initialized) { return; }
     is_initialized = true;
 
-    wdn_tabs = await import('@js-src/components/wdn_tab.js');
-    await DCFUtility.loadStyleSheet(tabs_css_url);
+    const tabs_component = await import('@js-src/components/wdn_tab.js');
+    wdn_tabs = tabs_component.default;
+    await loadStyleSheet(tabs_css_url);
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { WDN_Tabs }
+ * @returns { Promise<WDN_Tabs> }
  */
-export function load_element(element, options) {
+export async function load_element(element, options) {
     if (!is_initialized) {
-        initialize();
+        await initialize();
     }
 
     return new wdn_tabs(element, options);
+}
+
+/**
+ * Loads components from all elements passed in
+ * @async
+ * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
+ * @param { Object } options optional parameters to pass in when loading the element
+ * @returns { Promise<WDN_Tabs[]> }
+ */
+export async function load_elements(elements, options) {
+    let output_elements = []
+    for (const single_element of elements) {
+        output_elements.push(await load_element(single_element, options));
+    }
+    return output_elements;
+}
+
+/**
+ * Using the `query_selector` we will load all elements on the page
+ * @async
+ * @param { Object } options optional parameters to pass in when loading the element
+ * @returns { Promise<WDN_Tabs[]> }
+ */
+export async function load_elements_on_page(options) {
+    let all_tabs = document.querySelectorAll(query_selector);
+    return await load_elements(all_tabs, options);
 }

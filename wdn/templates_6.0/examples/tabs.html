@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tabs Example</title>
     </head>
-    <body>
+    <body class="unl">
         <h2 class="dcf-mt-9">Tabs</h2>
 
         <a href="#group3-panel2">Go To Tabs Panel #group3-panel2</a>
@@ -74,12 +74,7 @@
 
         <script type="module">
             import * as tabs_plugin from "/wdn/templates_6.0/js/plugins/tabs.js";
-            tabs_plugin.initialize();
-
-            let all_tabs = document.querySelectorAll('.dcf-tabs');
-            all_tabs.forEach((single_tab) => {
-            tabs_plugin.load_element(single_tab);
-            });
+            tabs_plugin.load_elements_on_page();
         </script>
     </body>
 </html>

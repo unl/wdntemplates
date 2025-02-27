@@ -5,29 +5,17 @@ import sassGlobImports from 'vite-plugin-sass-glob-import';
 
 export default defineConfig({
     build: {
-        // outDir needs to be `.` or else built url paths will be missing wdn/templates_6.0
         outDir: '.',
-        rollupOptions: {
-            // input contains all the input files
-            // This would include main.js, component js and css, and general css files
-            input: {
-                'js/main': 'wdn/templates_6.0/js-src/main.js',
-
-                'js/components/wdn-button-toggle': 'wdn/templates_6.0/js-src/components/wdn-button-toggle.js',
-
-                'js/components/wdn-tab': 'wdn/templates_6.0/js-src/components/wdn-tab.js',
-                // 'css/components/tabs': 'wdn/templates_6.0/scss/components/_components.tabs.scss',
-
-                // 'css/affiliate': 'wdn/templates_6.0/scss/affiliate.scss',
-                // 'css/critical': 'wdn/templates_6.0/scss/critical.scss',
-                // 'css/deprecated': 'wdn/templates_6.0/scss/deprecated.scss',
-                // 'css/legacy': 'wdn/templates_6.0/scss/legacy.scss',
-                // 'css/main': 'wdn/templates_6.0/scss/main.scss',
-                // 'css/pre': 'wdn/templates_6.0/scss/pre.scss',
-                // 'css/print': 'wdn/templates_6.0/scss/print.scss',
+        lib: {
+            entry: {
+                'auto_loader' : 'wdn/templates_6.0/js-src/plugin_auto_loader.js',
+                'plugins/tabs' : 'wdn/templates_6.0/js-src/plugins/tabs.js',
             },
+            formats: ['es'],
+        },
+        rollupOptions: {
             output: {
-                //TODO: Make this better and not do duplicate `/css/css` stuff
+                // Do not include leading slash
                 assetFileNames: (assetInfo) => {
                     let extType = assetInfo.names[0] ?? 'undefined';
                     if (/png|jpe?g|svg|gif|tiff|bmp|ico|avif|webp/i.test(extType)) {
@@ -47,10 +35,9 @@ export default defineConfig({
                     }
                     return `wdn/templates_6.0/assets/${extType}/[name][extname]`;
                 },
-                // chunkFileNames is for the shared files it finds
                 chunkFileNames: 'wdn/templates_6.0/js/[name].js',
-                entryFileNames: 'wdn/templates_6.0/[name].js',
-            },
+                entryFileNames: 'wdn/templates_6.0/js/[name].js',
+            }
         },
         // If emptyOutDir is set to true it deletes everything
         emptyOutDir: false,
