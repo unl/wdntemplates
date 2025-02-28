@@ -15,7 +15,12 @@ export default defineConfig({
             // Key is built file path, Value is path to file
             entry: {
                 'auto_loader' : 'wdn/templates_6.0/js-src/plugin_auto_loader.js',
+
                 'plugins/tabs' : 'wdn/templates_6.0/js-src/plugins/tabs.js',
+                'plugins/toggle_buttons' : 'wdn/templates_6.0/js-src/plugins/toggle_buttons.js',
+
+                'components/tabs' : 'wdn/templates_6.0/js-src/components/wdn_tab.js',
+                'components/toggle_buttons' : 'wdn/templates_6.0/js-src/components/wdn_toggle_button.js',
             },
 
             // We are building for ES modules
