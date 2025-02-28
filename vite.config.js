@@ -12,6 +12,7 @@ export default defineConfig({
         lib: {
             // entry contains all the input files
             // This would include plugin auto loader, plugins, components, and SCSS files
+            // Key is built file path, Value is path to file
             entry: {
                 'auto_loader' : 'wdn/templates_6.0/js-src/plugin_auto_loader.js',
                 'plugins/tabs' : 'wdn/templates_6.0/js-src/plugins/tabs.js',
