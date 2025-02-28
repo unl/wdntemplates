@@ -1,4 +1,4 @@
-import tabs_css_url from '@scss/components/_components.tabs-tmp.scss?url';
+import tabs_css_url from '@scss/components/_components.tabs.scss?url';
 import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
 
 // This is where the imported class will go

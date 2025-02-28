@@ -3,21 +3,24 @@
 ////////////////////////////
 
 
-@import '../../scss/pre.tmp.scss';
+@use "@dcf/scss/variables" as var;
+@use "@dcf/scss/mixins" as mixins;
+
+@use "@dcf/scss/components/tabs" as *;
 
 
 .unl .dcf-tab {
-  margin-bottom: -#{$border-width-tab};
+  margin-bottom: -#{var.$border-width-tab};
 }
 
 
 .unl .dcf-tab[aria-selected] {
-  border-bottom-color: $bg-color-tab-selected; // Match border-bottom-color to background-color of selected tab and tab panel
-  border-left-color: $border-color-tab;
-  border-right-color: $border-color-tab;
-  border-top-color: $border-color-tab;
-  border-style: $border-style-tab;
-  border-width: $border-width-tab;
+  border-bottom-color: var.$bg-color-tab-selected; // Match border-bottom-color to background-color of selected tab and tab panel
+  border-left-color: var.$border-color-tab;
+  border-right-color: var.$border-color-tab;
+  border-top-color: var.$border-color-tab;
+  border-style: var.$border-style-tab;
+  border-width: var.$border-width-tab;
 }
 
 
@@ -27,13 +30,13 @@
 
 
 // Responsive tabs
-@include mq(md, max, width) {
+@include mixins.mq(md, max, width) {
 
   .unl .dcf-tabs-responsive .dcf-tab {
     border-bottom-width: 0;
-    border-left: $border-width-tab $border-style-tab $border-color-tab;
-    border-right: $border-width-tab $border-style-tab $border-color-tab;
-    border-top: $border-width-tab $border-style-tab $border-color-tab;
+    border-left: var.$border-width-tab var.$border-style-tab var.$border-color-tab;
+    border-right: var.$border-width-tab var.$border-style-tab var.$border-color-tab;
+    border-top: var.$border-width-tab var.$border-style-tab var.$border-color-tab;
     margin-bottom: 0;
   }
 
@@ -44,9 +47,9 @@
 
 
   .unl .dcf-tabs-responsive .dcf-tab[aria-selected]::before {
-    border-bottom: #{$ms-5}em solid transparent;
-    border-left: #{$ms-5}em solid $border-color-tab;
-    border-top: #{$ms-5}em solid transparent;
+    border-bottom: #{var.$ms-5}em solid transparent;
+    border-left: #{var.$ms-5}em solid var.$border-color-tab;
+    border-top: #{var.$ms-5}em solid transparent;
     content: '';
     left: 0;
     position: absolute;
