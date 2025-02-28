@@ -1,55 +1,49 @@
-// import * as wdn_tabs from "@js-src/plugins/tabs.js";
+import * as wdn_tabs from "@js-src/plugins/tabs.js";
 
-// if (typeof window.unl_wdn === 'undefined' || typeof window.unl_wdn.plugin_map !== 'object') {
-//     window.unl_wdn = {};
-// }
+// Main WDN plugins
+const plugin_map = {
+    "wdn_tabs": wdn_tabs,
+};
 
-// if (typeof window.unl_wdn.plugin_map === 'undefined' || typeof window.unl_wdn.plugin_map !== 'object') {
-//     window.unl_wdn.plugin_map = {};
-// }
+// Loads all elements that are already on the page
+for (const single_plugin_name in plugin_map) {
+    if (!plugin_map.hasOwnProperty(single_plugin_name)) { continue; }
+    const plugin = plugin_map[single_plugin_name];
+    if (typeof plugin.query_selector !== 'string') {
+        throw new Error(`Invalid query_selector value in plugin: ${single_plugin_name}`);
+    }
+    if (typeof plugin.load_elements_on_page !== 'function') {
+        throw new Error(`Invalid load_elements_on_page function in plugin: ${single_plugin_name}`);
+    }
+    plugin.load_elements_on_page();
+}
 
-// //TODO: This is a window variable so external plugins can be loaded in
-// window.unl_wdn.plugin_map.wdn_toggle_buttons = wdn_toggle_buttons;
-// window.unl_wdn.plugin_map.wdn_tabs = wdn_tabs;
+// Loads all elements that are added to the page
+const mutationCallback = function(mutationList){
+    mutationList.forEach((mutationRecord) => {
+        mutationRecord.addedNodes.forEach((nodeAdded) => {
+            if (nodeAdded instanceof Element) {
+                for (const single_plugin_name in plugin_map) {
+                    if (!plugin_map.hasOwnProperty(single_plugin_name)) { continue; }
+                    const plugin = plugin_map[single_plugin_name];
+                    if (typeof plugin.query_selector !== 'string') {
+                        throw new Error(`Invalid query_selector value in plugin: ${single_plugin_name}`);
+                    }
+                    if (typeof plugin.load_element !== 'function') {
+                        throw new Error(`Invalid load_element function in plugin: ${single_plugin_name}`);
+                    }
+                    if (nodeAdded.matches(plugin.query_selector)) {
+                        plugin.load_element(nodeAdded);
+                    }
+                }
+            }
+        })
+    });
+}
 
-
-// test_plugin_map();
-
-
-// async function test_plugin_map() {
-//     console.log("Testing all plugins");
-//     for (const [plugin_name, plugin] of Object.entries(window.unl_wdn.plugin_map)) {
-//         console.log("Testing ", plugin_name);
-//         await test_and_initialize_plugin(plugin);
-//     }
-// }
-
-// async function test_and_initialize_plugin(plugin) {
-//     console.log("Testing for", plugin.query_selector);
-//     if (!plugin.is_initialize && document.querySelector(plugin.query_selector) !== null) {
-//         console.log("Found query selector and initializing");
-//         await plugin.initialize();
-//     } else {
-//         console.log("None Found for", plugin.query_selector);
-//     }
-// }
-
-
-// const mutationCallback = function(mutationList){
-//     mutationList.forEach((mutationRecord) => {
-//         mutationRecord.addedNodes.forEach((nodeAdded) => {
-//             if (nodeAdded instanceof Element) {
-//                 test_plugin_map();
-//             }
-//         })
-//     });
-// }
-
-// const observer = new MutationObserver(mutationCallback)
-// const observerConfig = {
-//     subtree: true,
-//     childList: true,
-// }
-// observer.observe(document.body, observerConfig);
-
-// // TODO: if the dom is changed and I find the selector in the new stuff then check if plugin is initialized and if not initialize it
+const observer = new MutationObserver(mutationCallback)
+const observerConfig = {
+    subtree: true,
+    childList: true,
+}
+observer.observe(document.body, observerConfig);
