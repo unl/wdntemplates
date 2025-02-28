@@ -5,17 +5,27 @@ import sassGlobImports from 'vite-plugin-sass-glob-import';
 
 export default defineConfig({
     build: {
+        // outDir needs to be `.` or else built url paths will be missing wdn/templates_6.0
         outDir: '.',
+
+        // We are using library mode to keep the ES module exports in the final built code
         lib: {
+            // entry contains all the input files
+            // This would include plugin auto loader, plugins, components, and SCSS files
             entry: {
                 'auto_loader' : 'wdn/templates_6.0/js-src/plugin_auto_loader.js',
                 'plugins/tabs' : 'wdn/templates_6.0/js-src/plugins/tabs.js',
             },
+
+            // We are building for ES modules
             formats: ['es'],
         },
+
+        // These are additional options defined to adjust the final built code
+        // Do not include leading slash on file paths
         rollupOptions: {
             output: {
-                // Do not include leading slash
+                // These are definitions for folder/file paths for all the other files found during build
                 assetFileNames: (assetInfo) => {
                     let extType = assetInfo.names[0] ?? 'undefined';
                     if (/png|jpe?g|svg|gif|tiff|bmp|ico|avif|webp/i.test(extType)) {
@@ -35,7 +45,11 @@ export default defineConfig({
                     }
                     return `wdn/templates_6.0/assets/${extType}/[name][extname]`;
                 },
-                chunkFileNames: 'wdn/templates_6.0/js/[name].js',
+
+                // chunkFileNames is for the shared files it finds which are not defined in the entry point
+                chunkFileNames: 'wdn/templates_6.0/js/chunk/[name].js',
+
+                // entryFileNames are the files defined in the lib.entry above
                 entryFileNames: 'wdn/templates_6.0/js/[name].js',
             }
         },
