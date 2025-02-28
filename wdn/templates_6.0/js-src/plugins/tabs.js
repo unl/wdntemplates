@@ -27,7 +27,7 @@ export async function initialize() {
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDN_Tabs> }
+ * @returns { Promise<WDNTabs> }
  */
 export async function load_element(element, options) {
     if (!is_initialized) {
@@ -42,7 +42,7 @@ export async function load_element(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDN_Tabs[]> }
+ * @returns { Promise<WDNTabs[]> }
  */
 export async function load_elements(elements, options) {
     let output_elements = []
@@ -56,7 +56,7 @@ export async function load_elements(elements, options) {
  * Using the `query_selector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDN_Tabs[]> }
+ * @returns { Promise<WDNTabs[]> }
  */
 export async function load_elements_on_page(options) {
     let all_tabs = document.querySelectorAll(query_selector);
