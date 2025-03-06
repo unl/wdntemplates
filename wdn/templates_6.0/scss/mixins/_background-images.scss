@@ -2,7 +2,7 @@
 // THEME / MIXINS / BACKGROUND IMAGES
 /////////////////////////////////////
 
-
+@use "sass:color";
 @use "../variables" as var;
 
 
@@ -51,25 +51,53 @@
 //   background-image: url('@images/diagonal-stripe-bg.svg');
 //   background-repeat: repeat;
 //   background-image: repeating-linear-gradient($diagonal1, rgba($color-body,.1), rgba($color-body,.1) 2px, transparent 2px, transparent 4px);
-  background-image: repeating-linear-gradient(var.$diagonal1, fade-out(var.$color-body-light-mode,.9), fade-out(var.$color-body-light-mode,.9) 2px, fade-out(var.$color-body-light-mode,1) 2px, fade-out(var.$color-body-light-mode,1) 5px) $imp;
+  background-image: repeating-linear-gradient(
+    var.$diagonal1,
+    color.adjust(var.$color-body-light-mode, $alpha: -0.9),
+    color.adjust(var.$color-body-light-mode, $alpha: -0.9) 2px,
+    color.adjust(var.$color-body-light-mode, $alpha: -1) 2px,
+    color.adjust(var.$color-body-light-mode, $alpha: -1) 5px
+  ) $imp;
 }
 
 
 // Diagonal Stripes: Light
 @mixin bg-stripes-light($imp:null) {
-  background-image: repeating-linear-gradient(var.$diagonal1, fade-out(var.$white,.95), fade-out(var.$white,.95) 2px, fade-out(var.$white,1) 2px, fade-out(var.$white,1) 5px) $imp;
+  background-image: repeating-linear-gradient(
+    var.$diagonal1,
+    color.adjust(var.$white, $alpha: -0.95),
+    color.adjust(var.$white, $alpha: -0.95) 2px,
+    color.adjust(var.$white, $alpha: -1) 2px,
+    color.adjust(var.$white, $alpha: -1) 5px
+  ) $imp;
 }
 
 
 // Diagonal Gradient (single)
 @mixin bg-diagonal-gradient($imp:null) {
-  background-image: linear-gradient(var.$diagonal2, fade-out(var.$black,.44) 25%, fade-out(var.$black,.82) 75%) $imp;
+  background-image: linear-gradient(
+    var.$diagonal2,
+    color.adjust(var.$black, $alpha: -0.44) 25%,
+    color.adjust(var.$black, $alpha: -0.82) 75%
+  ) $imp;
 }
 
 
 // Diagonal Gradients (multiple)
 @mixin bg-diagonal-gradients($imp:null) {
-  background-image: linear-gradient(var.$diagonal1, var.$black, fade-out(var.$black,.75) 24%, fade-out(var.$black,.25) 24%, transparent 32%, fade-out(var.$black,.5) 32%, fade-out(var.$black,.75) 75%, fade-out(var.$black,.25) 75%, fade-out(var.$black,.75) 84%, fade-out(var.$black,.25) 84%, transparent) $imp;
+  background-image: linear-gradient(
+    var.$diagonal1,
+    var.$black,
+    color.adjust(var.$black, $alpha: -0.75) 24%,
+    color.adjust(var.$black, $alpha: -0.25) 24%,
+    transparent 32%,
+    color.adjust(var.$black, $alpha: -0.5) 32%,
+    color.adjust(var.$black, $alpha: -0.75) 75%,
+    color.adjust(var.$black, $alpha: -0.25) 75%,
+    color.adjust(var.$black, $alpha: -0.75) 84%,
+    color.adjust(var.$black, $alpha: -0.25) 84%,
+    transparent
+  ) $imp;
 }
 
 
