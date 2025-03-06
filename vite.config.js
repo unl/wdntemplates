@@ -23,6 +23,7 @@ export default defineConfig({
                 'components/toggle_buttons' : 'wdn/templates_6.0/js-src/components/wdn_toggle_button.js',
 
                 // We don't need css/main since the assetFileNames will add the css directory
+                'affiliate' : 'wdn/templates_6.0/scss/affiliate.scss',
                 'critical' : 'wdn/templates_6.0/scss/critical.scss',
                 'main' : 'wdn/templates_6.0/scss/main.scss',
                 'print' : 'wdn/templates_6.0/scss/print.scss',

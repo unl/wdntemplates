@@ -1,0 +1,57 @@
+////////////
+// AFFILIATE
+////////////
+
+// Hide UNL elements
+#wdnnotice-covid-19-message {
+	display: none !important;
+}
+
+// Make border between links on main nav a neutral color
+.unl.affiliate .dcf-nav-local > ul > li > a {
+	border-color: rgba(0,0,0,.1);
+}
+
+.unl.affiliate .dcf-nav-toggle-btn-menu ~ .dcf-nav-local ul ul::after {
+	background-image: linear-gradient(180deg, rgba(0,0,0,.1), rgba(160,0,0,0));
+}
+
+// Make border at top of site on desktop and at top of nav bar on mobile the primary brand color
+.unl.affiliate .dcf-header-global,
+.unl.affiliate #dcf-nav-toggle-group {
+	border-top-color: var(--bg-brand-alpha);
+}
+
+.unl.affiliate .dcf-search-toggle {
+	border-color: var(--bg-brand-alpha);
+}
+
+// Make mobile nav toggle button links same color as other links on mobile
+.unl.affiliate a.dcf-nav-toggle-btn-search:visited,
+.unl.affiliate .dcf-nav-toggle-btn-idm a {
+  color: var(--brand-alpha) !important;
+}
+
+// Make background of inverse primary buttons fade on hover
+.unl.affiliate .dcf-btn-inverse-primary:not(:disabled):active,
+.unl.affiliate .dcf-btn-inverse-primary:not(:disabled):hover {
+  background-color: var(--bg-btn-inverse-primary-hover);
+  border-color: var(--b-btn-inverse-primary-hover);
+}
+
+// Make gradient on mobile nav match main brand color
+@media only screen and (max-width: 56.12em) {
+
+	.unl.affiliate .dcf-nav-menu-child::before {
+		background-image: -webkit-gradient(linear, left top, left bottom, from(var(--bg-brand-alpha)), to(rgba(51,51,51,0)));
+		background-image: -webkit-linear-gradient(var(--bg-brand-alpha), rgba(51,51,51,0));
+		background-image: linear-gradient(var(--bg-brand-alpha), rgba(51,51,51,0));
+	}
+
+	.unl.affiliate .dcf-nav-menu-child::after {
+		background-image: -webkit-gradient(linear, left top, left bottom, from(51,51,51,0), to(var(--bg-brand-alpha)));
+		background-image: -webkit-linear-gradient(rgba(51,51,51,0), var(--bg-brand-alpha));
+		background-image: linear-gradient(rgba(51,51,51,0), var(--bg-brand-alpha));
+	}
+
+}
