@@ -39,13 +39,13 @@ export default defineConfig({
                 assetFileNames: (assetInfo) => {
                     let extType = assetInfo.names[0] ?? 'undefined';
                     if (/png|jpe?g|svg|gif|tiff|bmp|ico|avif|webp/i.test(extType)) {
-                        extType = 'img';
+                        return 'wdn/templates_6.0/assets/images/[name][extname]';
                     }
                     if (/mp4|mov/i.test(extType)) {
-                        extType = 'video';
+                        return 'wdn/templates_6.0/assets/videos/[name][extname]';
                     }
                     if (/mp3/i.test(extType)) {
-                        extType = 'audio';
+                        return 'wdn/templates_6.0/assets/audio/[name][extname]';
                     }
                     if (/woff/i.test(extType) || /woff2/i.test(extType)) {
                         return 'wdn/templates_6.0/assets/fonts/[name][extname]';
@@ -95,6 +95,7 @@ export default defineConfig({
             "@js-src": "/wdn/templates_6.0/js-src",
             "@scss": "/wdn/templates_6.0/scss",
             "@fonts": "/wdn/templates_6.0/fonts",
+            "@images": "/wdn/templates_6.0/fonts",
             "@dcf": "/node_modules/dcf",
         },
     },
