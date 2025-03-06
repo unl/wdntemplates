@@ -57,7 +57,7 @@
 
 // Diagonal Stripes: Light
 @mixin bg-stripes-light($imp:null) {
-  background-image: repeating-linear-gradient(var.$diagonal1, fade-out(var.$white,.95), fade-out(var.$white,.95) 2px, fade-out($white,1) 2px, fade-out(var.$white,1) 5px) $imp;
+  background-image: repeating-linear-gradient(var.$diagonal1, fade-out(var.$white,.95), fade-out(var.$white,.95) 2px, fade-out(var.$white,1) 2px, fade-out(var.$white,1) 5px) $imp;
 }
 
 
