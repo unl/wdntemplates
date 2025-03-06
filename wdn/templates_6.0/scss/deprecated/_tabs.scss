@@ -1,0 +1,59 @@
+////////////////////////////
+// THEME / DEPRECATED / TABS
+////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.wdn_tabs {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.wdn_tabs > li {
+  @include mixins.mr-3;
+}
+
+.wdn_tabs > li.selected {
+  background-color: var(--bg-tab-selected);
+  border-radius: var.$roundrect var.$roundrect 0 0;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0;
+  position: relative;
+}
+
+.wdn_tabs > li.selected::after {
+  background-color: var(--bg-tab-selected);
+  bottom: -3px;
+  content: '';
+  height: 3px;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.wdn_tabs > li a {
+  border: 0;
+  display: block;
+  padding: #{var.$ms-2}em #{var.$ms00}em;
+}
+
+.wdn_tabs > li.selected a {
+  @include mixins.pb-2;
+}
+
+// old sub-tabs may still exist in markup
+.wdn_tabs > li ul {
+  padding: 0 0 0 .4rem;
+}
+
+.wdn_tabs_content {
+  background-color: var(--bg-tabs-panel);
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+  padding: #{var.$ms06}em #{var.$ms04}em;
+}

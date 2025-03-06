@@ -25,6 +25,7 @@ export default defineConfig({
                 // We don't need css/main since the assetFileNames will add the css directory
                 'affiliate' : 'wdn/templates_6.0/scss/affiliate.scss',
                 'critical' : 'wdn/templates_6.0/scss/critical.scss',
+                'deprecated' : 'wdn/templates_6.0/scss/deprecated.scss',
                 'main' : 'wdn/templates_6.0/scss/main.scss',
                 'print' : 'wdn/templates_6.0/scss/print.scss',
             },
@@ -40,7 +41,16 @@ export default defineConfig({
                 // These are definitions for folder/file paths for all the other files found during build
                 assetFileNames: (assetInfo) => {
                     let extType = assetInfo.names[0] ?? 'undefined';
-                    if (/png|jpe?g|svg|gif|tiff|bmp|ico|avif|webp/i.test(extType)) {
+                    if (/png|jpe?g|svg|gif|avif|webp/i.test(extType)) {
+                        if (assetInfo.originalFileNames.length > 0) {
+                            // This will extract the directory the file is in
+                            // If it finds a file it will include it in the returned built file path
+                            const folder_regex = /wdn\/templates_6\.0\/images\/([^\/]+)\/[^\/]+/i;
+                            const path = folder_regex.exec(assetInfo.originalFileNames[0]);
+                            if (path !== null && path.length == 2) {
+                                return `wdn/templates_6.0/assets/images/${path[1]}/[name][extname]`;
+                            }
+                        }
                         return 'wdn/templates_6.0/assets/images/[name][extname]';
                     }
                     if (/mp4|mov/i.test(extType)) {
