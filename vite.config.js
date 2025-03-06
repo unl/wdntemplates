@@ -25,6 +25,7 @@ export default defineConfig({
                 // We don't need css/main since the assetFileNames will add the css directory
                 'critical' : 'wdn/templates_6.0/scss/critical.scss',
                 'main' : 'wdn/templates_6.0/scss/main.scss',
+                'print' : 'wdn/templates_6.0/scss/print.scss',
             },
 
             // We are building for ES modules
