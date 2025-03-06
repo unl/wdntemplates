@@ -103,7 +103,7 @@ export default defineConfig({
             "@js-src": "/wdn/templates_6.0/js-src",
             "@scss": "/wdn/templates_6.0/scss",
             "@fonts": "/wdn/templates_6.0/fonts",
-            "@images": "/wdn/templates_6.0/fonts",
+            "@images": "/wdn/templates_6.0/images",
             "@dcf": "/node_modules/dcf",
         },
     },
