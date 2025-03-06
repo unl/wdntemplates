@@ -21,6 +21,10 @@ export default defineConfig({
 
                 'components/tabs' : 'wdn/templates_6.0/js-src/components/wdn_tab.js',
                 'components/toggle_buttons' : 'wdn/templates_6.0/js-src/components/wdn_toggle_button.js',
+
+                // We don't need css/main since the assetFileNames will add the css directory
+                'critical' : 'wdn/templates_6.0/scss/critical.scss',
+                'main' : 'wdn/templates_6.0/scss/main.scss',
             },
 
             // We are building for ES modules
@@ -43,7 +47,11 @@ export default defineConfig({
                     if (/mp3/i.test(extType)) {
                         extType = 'audio';
                     }
+                    if (/woff/i.test(extType) || /woff2/i.test(extType)) {
+                        return 'wdn/templates_6.0/assets/fonts/[name][extname]';
+                    }
                     if (/css/i.test(extType) || /scss/i.test(extType)) {
+                        //TODO: might be able to look at originalFileNames to determine folder structure
                         return 'wdn/templates_6.0/css/[name].css';
                     }
                     if (/js/i.test(extType)) {
@@ -63,6 +71,8 @@ export default defineConfig({
         emptyOutDir: false,
         // We want js source maps but inline ones are slow for production
         sourcemap: true,
+        // This will preserve css file names and build them as individual files
+        cssCodeSplit: true,
     },
     plugins: [
         {
@@ -72,6 +82,8 @@ export default defineConfig({
                 await rm(resolve(__dirname, './wdn/templates_6.0/js'), { recursive: true, force: true });
                 // Delete css folder to remove old built files
                 await rm(resolve(__dirname, './wdn/templates_6.0/css'), { recursive: true, force: true });
+                // Delete asset folder to remove old built files
+                await rm(resolve(__dirname, './wdn/templates_6.0/assets'), { recursive: true, force: true });
             }
         },
         // SCSS glob imports like `**/*` in scss files
@@ -82,6 +94,7 @@ export default defineConfig({
         alias: {
             "@js-src": "/wdn/templates_6.0/js-src",
             "@scss": "/wdn/templates_6.0/scss",
+            "@fonts": "/wdn/templates_6.0/fonts",
             "@dcf": "/node_modules/dcf",
         },
     },
