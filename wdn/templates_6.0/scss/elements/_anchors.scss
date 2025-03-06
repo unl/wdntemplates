@@ -3,8 +3,8 @@
 /////////////////////////////
 
 
-@use "../variables" as var;
-@use "../mixins" as mixins;
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
 
 
 // Finds anchor tags with hrefs that begin with `//`, `http://` or `https://`, do not contain `unl.edu`, and do not contain images or SVGs

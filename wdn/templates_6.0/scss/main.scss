@@ -3,13 +3,13 @@
 ///////
 
 // Generic
-@use "./generic" as *;
+@use "./generic/" as *;
 
 // Elements
-@use "./elements" as *;
+@use "./elements/" as *;
 
 // Objects
-@use "./objects" as *;
+@use "./objects/" as *;
 
 // Utilities
-@use "./utilities" as *;
+@use "./utilities/" as *;

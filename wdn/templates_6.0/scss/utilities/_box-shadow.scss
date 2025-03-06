@@ -3,7 +3,7 @@
 /////////////////////////////////
 
 
-@use "../mixins" as mixins;
+@use "../mixins/" as mixins;
 
 
 .unl-box-shadow { @include mixins.box-shadow(!important); }
