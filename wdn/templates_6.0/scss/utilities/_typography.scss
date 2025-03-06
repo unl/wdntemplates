@@ -1,0 +1,50 @@
+/////////////////////////////////
+// THEME / UTILITIES / TYPOGRAPHY
+/////////////////////////////////
+
+
+@use "../mixins" as mixins;
+
+
+// Font-Size
+.unl .dcf-txt-base { @include mixins.txt-base(!important); }
+.unl .dcf-txt-3xs { @include mixins.txt-3xs(!important); }
+.unl .dcf-txt-2xs { @include mixins.txt-2xs(!important); }
+.unl .dcf-txt-xs { @include mixins.txt-xs(!important); }
+.unl .dcf-txt-sm { @include mixins.txt-sm(!important); }
+.unl .dcf-txt-md { @include mixins.txt-md(!important); }
+.unl .dcf-txt-lg { @include mixins.txt-lg(!important); }
+.unl .dcf-txt-h6 { @include mixins.txt-h6(!important); }
+.unl .dcf-txt-h5 { @include mixins.txt-h5(!important); }
+.unl .dcf-txt-h4 { @include mixins.txt-h4(!important); }
+.unl .dcf-txt-h3 { @include mixins.txt-h3(!important); }
+.unl .dcf-txt-h2 { @include mixins.txt-h2(!important); }
+.unl .dcf-txt-h1 { @include mixins.txt-h1(!important); }
+.unl .dcf-txt-xl { @include mixins.txt-xl(!important); }
+.unl .dcf-txt-2xl { @include mixins.txt-2xl(!important); }
+.unl .dcf-txt-3xl { @include mixins.txt-3xl(!important); }
+.unl .dcf-txt-4xl { @include mixins.txt-4xl(!important); }
+.unl .dcf-txt-5xl { @include mixins.txt-5xl(!important); }
+.unl .dcf-txt-6xl { @include mixins.txt-6xl(!important); }
+.unl-txt-xl { @include mixins.unl-txt-xl(!important); }
+
+
+// Letter Spacing
+.unl-ls-0 { @include mixins.ls-0(!important); }
+.unl-ls-1 { @include mixins.ls-1(!important); }
+.unl-ls-2 { @include mixins.ls-2(!important); }
+.unl-ls-3 { @include mixins.ls-3(!important); }
+.unl-ls-h { @include mixins.ls-h(!important); }
+
+
+// Line-Height Crop
+// Crop to vertically align headings adjacent to photos (e.g. media object layout)
+.unl-lh-crop::before { @include mixins.lh-crop(!important); }
+
+
+// Outline Text: Light
+.unl-txt-outline-light { @include mixins.txt-outline-light(!important); }
+
+
+// Outline Text: Dark
+.unl-txt-outline-dark { @include mixins.txt-outline-dark(!important); }

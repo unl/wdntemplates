@@ -1,0 +1,80 @@
+////////////////////////////////////////
+// THEME / UTILITIES / BACKGROUND COLORS
+////////////////////////////////////////
+
+
+@use "../mixins" as mixins;
+
+
+@media screen {
+
+  // Scarlet
+  .unl-bg-scarlet { @include mixins.bg-scarlet(!important); }
+
+
+  // Cream
+  .unl-bg-cream { @include mixins.bg-cream(!important); }
+
+
+  // Gray
+  .unl-bg-lightest-gray { @include mixins.bg-lightest(!important); }
+  .unl-bg-lighter-gray { @include mixins.bg-lighter(!important); }
+  .unl-bg-light-gray { @include mixins.bg-light(!important); }
+  .unl-bg-dark-gray { @include mixins.bg-dark(!important); }
+  .unl-bg-darker-gray { @include mixins.bg-darker(!important); }
+  .unl-bg-darkest-gray { @include mixins.bg-darkest(!important); }
+
+
+  // Cerulean
+  .unl-bg-cerulean { @include mixins.bg-cerulean(!important); }
+
+
+  // Green
+  .unl-bg-green { @include mixins.bg-green(!important); }
+  .unl-bg-light-green { @include mixins.bg-light-green(!important); }
+
+
+  // Blue
+  .unl-bg-blue { @include mixins.bg-blue(!important); }
+  .unl-bg-light-blue { @include mixins.bg-light-blue(!important); }
+
+
+  // Purple
+  .unl-bg-purple { @include mixins.bg-purple(!important); }
+  .unl-bg-light-purple { @include mixins.bg-light-purple(!important); }
+
+
+  // Yellow
+  .unl-bg-yellow { @include mixins.bg-yellow(!important); }
+
+
+  // Orange
+  .unl-bg-orange { @include mixins.bg-orange(!important); }
+
+}
+
+
+@media screen and (prefers-color-scheme: dark) {
+
+  // Cream
+  .unl-bg-cream\@dark { @include mixins.bg-cream-at-dark(!important); }
+
+
+  // Gray
+  .unl-bg-lightest-gray\@dark { @include mixins.bg-lightest-at-dark(!important); }
+  .unl-bg-lighter-gray\@dark { @include mixins.bg-lighter-at-dark(!important); }
+  .unl-bg-light-gray\@dark { @include mixins.bg-light-at-dark(!important); }
+
+
+  // Green
+  .unl-bg-light-green\@dark { @include mixins.bg-light-green-at-dark(!important); }
+
+
+  // Blue
+  .unl-bg-light-blue\@dark { @include mixins.bg-light-blue-at-dark(!important); }
+
+
+  // Purple
+  .unl-bg-light-purple\@dark { @include mixins.bg-light-purple-at-dark(!important); }
+
+}
