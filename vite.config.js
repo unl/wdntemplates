@@ -51,7 +51,15 @@ export default defineConfig({
                         return 'wdn/templates_6.0/assets/fonts/[name][extname]';
                     }
                     if (/css/i.test(extType) || /scss/i.test(extType)) {
-                        //TODO: might be able to look at originalFileNames to determine folder structure
+                        if (assetInfo.originalFileNames.length > 0) {
+                            // This will extract the directory the file is in
+                            // If it finds a file it will include it in the returned built file path
+                            const folder_regex = /wdn\/templates_6\.0\/scss\/([^\/]+)\/[^\/]+\.scss/i;
+                            const path = folder_regex.exec(assetInfo.originalFileNames[0]);
+                            if (path !== null && path.length == 2) {
+                                return `wdn/templates_6.0/css/${path[1]}/[name].css`;
+                            }
+                        }
                         return 'wdn/templates_6.0/css/[name].css';
                     }
                     if (/js/i.test(extType)) {
