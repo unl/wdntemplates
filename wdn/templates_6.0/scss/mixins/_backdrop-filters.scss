@@ -1,0 +1,14 @@
+////////////////////////////////////
+// THEME / MIXINS / BACKDROP FILTERS
+////////////////////////////////////
+
+@use "../functions/" as func;
+
+// Blur
+@mixin backdrop-blur($imp:null) {
+
+  @if (func.to-number($backdrop-filter-blur) != func.to-number(0)) {
+    backdrop-filter: blur($backdrop-filter-blur) $imp;
+  }
+
+}
