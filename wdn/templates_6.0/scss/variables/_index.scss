@@ -1,3 +1,14 @@
+/////////////////////
+// THEME / VARIABLES
+////////////////////
+
+// These files should not output CSS themselves
+/*
+    We do not forward @dcf/scss/variables since
+    in the these files we will include and overwrite
+    the values
+*/
+
 @forward "./abbreviations";
 @forward "./addresses";
 @forward "./anchors";

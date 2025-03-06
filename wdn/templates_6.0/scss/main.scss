@@ -2,18 +2,14 @@
 // MAIN
 ///////
 
-@use "./variables" as *;
-
-@use "./mixins" as *;
-
-@use "./functions" as *;
-
+// Generic
 @use "./generic" as *;
 
+// Elements
 @use "./elements" as *;
 
+// Objects
 @use "./objects" as *;
 
+// Utilities
 @use "./utilities" as *;
-
-
