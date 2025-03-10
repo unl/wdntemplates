@@ -3,6 +3,7 @@
 //////////////////////////////
 
 
+@use "sass:color";
 @use "../variables/" as var;
 
 
@@ -49,6 +50,6 @@
 .unl .dcf-hero-photo-credit {
   margin: 0;
   right: var.$length-em-1;
-  text-shadow: 1px 1px var.$length-em-4 fade-out(var.$darkest-gray, .5);
+  text-shadow: 1px 1px var.$length-em-4 color.adjust(var.$darkest-gray, $alpha: -0.5);
   top: var.$length-em-6;
 }

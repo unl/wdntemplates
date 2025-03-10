@@ -3,6 +3,7 @@
 //////////////////////////////////
 
 
+@use "sass:color";
 @use "../variables/" as var;
 @use "../mixins/" as mixins;
 
@@ -114,7 +115,7 @@
 
   // navigation transition to be added later
   .unl .dcf-nav-toggle-btn-menu ~ .dcf-nav-local ul ul:after {
-    background-image: linear-gradient(to bottom, #a00000, fade-out(#a00000,1));
+    background-image: linear-gradient(to bottom, #a00000, color.adjust(#a00000, $alpha: -1));
     content: '';
     left: 0;
     height: 100%;

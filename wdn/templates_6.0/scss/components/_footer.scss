@@ -3,6 +3,7 @@
 //////////////////////////////
 
 
+@use "sass:color";
 @use "../variables/" as var;
 @use "../mixins/" as mixins;
 
@@ -14,7 +15,13 @@
 
 
 .unl-footer-stripe::before {
-  background-image: linear-gradient(to top, fade-out(var.$darker-gray,1) 3px, var.$darker-gray 3px, var.$darker-gray 5px, fade-out(var.$darker-gray,1) 5px);
+  background-image: linear-gradient(
+    to top,
+    color.adjust(var.$darker-gray, $alpha: -1) 3px,
+    var.$darker-gray 3px,
+    var.$darker-gray 5px,
+    color.adjust(var.$darker-gray, $alpha: -1) 5px
+  );
   content: '';
   height: 5px;
   position: absolute;

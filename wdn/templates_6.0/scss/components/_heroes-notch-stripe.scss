@@ -3,6 +3,7 @@
 ////////////////////////////////////////////
 
 
+@use "sass:color";
 @use "../variables/" as var;
 @use "../mixins/" as mixins;
 
@@ -66,7 +67,11 @@
 
 .unl-hero-notch-stripe .dcf-hero-group-2::after {
   // Create gradient scrim
-  background-image: linear-gradient(fade-out(var.$darkest-gray,1), fade-out(var.$darkest-gray,.93) 70%, fade-out(var.$darkest-gray,.85));
+  background-image: linear-gradient(
+    color.adjust(var.$darkest-gray, $alpha: -1), 
+    color.adjust(var.$darkest-gray, $alpha: -0.93) 70%, 
+    color.adjust(var.$darkest-gray, $alpha: -0.85)
+  );
   bottom: 0;
   content: '';
   height: #{var.$ms16}em; // Scrim should be no taller than the minimum height of the 'sm' hero to avoid overlapping the navigation.
@@ -79,7 +84,7 @@
 
   .unl-hero-notch-stripe .dcf-breadcrumbs::after {
     // Create gradient to overlay breadcrumbs that overflow to the right
-    background-image: linear-gradient(to right, fade-out(var.$cream,1), fade-out(var.$cream,.5) 25%, var.$cream);
+    background-image: linear-gradient(to right, color.adjust(var.$cream, $alpha: -1), color.adjust(var.$cream, $alpha: -0.5) 25%, var.$cream);
     content: '';
     height: calc(100% - 5px); // Subtract the combined height of the stripe and transparent space.
     position: absolute;
@@ -92,7 +97,7 @@
   @media (prefers-color-scheme: dark) {
 
     .unl-hero-notch-stripe .dcf-breadcrumbs::after {
-      background-image: linear-gradient(to right, fade-out(var.$darkest-gray,1), fade-out(var.$darkest-gray,.5) 25%, var.$darkest-gray);
+      background-image: linear-gradient(to right, color.adjust(var.$darkest-gray, $alpha: -1), color.adjust(var.$darkest-gray, $alpha: -0.5) 25%, var.$darkest-gray);
     }
 
   }
