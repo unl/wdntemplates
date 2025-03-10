@@ -1,0 +1,77 @@
+//////////////////////////////////////
+// THEME / COMPONENTS / HEROES: LEGACY
+//////////////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+// Legacy hero
+.unl-hero-legacy .dcf-breadcrumbs-wrapper {
+  display: none;
+}
+
+
+.unl-hero-legacy .dcf-hero-group-1 {
+  padding: var.$length-em-6 var.$length-vw-2;
+}
+
+
+.unl-hero-legacy .dcf-page-title {
+  @include mixins.mb-3;
+}
+
+
+@include mixins.mq(sm, max, width) {
+
+  .unl-hero-legacy {
+    flex-direction: column-reverse;
+  }
+
+}
+
+
+@include mixins.mq(sm, min, width) {
+
+  .unl-hero-legacy {
+    align-items: center;
+    height: #{var.$ms28}vh;
+    max-height: #{var.$ms24}em;
+    position: relative;
+  }
+
+
+  .unl-hero-legacy .dcf-hero-group-1 {
+    position: relative;
+    z-index: 1;
+  }
+
+
+  .unl-hero-legacy .dcf-hero-group-2 {
+    display: flex;
+    height: #{var.$ms28}vh;
+    left: 0;
+    max-height: #{var.$ms24}em;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+
+  .unl-hero-legacy .dcf-hero-group-2 img,
+  .unl-hero-legacy .dcf-hero-group-2 video {
+    opacity: .5;
+  }
+
+}
+
+
+@include mixins.mq(md, min, width) {
+
+  .unl .unl-hero-legacy .dcf-page-title h1 {
+    font-size: #{var.$ms07}em;
+  }
+
+}

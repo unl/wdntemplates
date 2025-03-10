@@ -1,0 +1,12 @@
+//////////////////////////////
+// THEME / COMPONENTS / BADGES
+//////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+.unl .dcf-badge {
+  @include mixins.ls-0;
+  @include mixins.regular;
+}

@@ -1,0 +1,92 @@
+/////////////////////////////////////////////////
+// THEME / COMPONENTS / IDM (IDENTITY MANAGEMENT)
+/////////////////////////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.unl a.dcf-idm-login:link,
+.unl a.dcf-idm-login:visited {
+  color: var.$color-brand-alpha;
+}
+
+
+.unl a.dcf-idm-login:hover {
+  color: var.$color-hover;
+}
+
+
+.unl .dcf-idm-options {
+  width: #{var.$ms14}em;
+}
+
+
+@include mixins.mq(md, max, width) {
+
+  .unl .dcf-idm-login {
+    flex-direction: column;
+  }
+
+  .unl .dcf-idm-options {
+    left: 50%;
+    top: -2px;
+    transform: translate(-50%, -100%);
+  }
+
+  .unl .dcf-idm-toggle {
+    display: none;
+  }
+
+  .unl .dcf-idm-label {
+    @include mixins.mt-1;
+  }
+
+}
+
+
+@include mixins.mq(md, min, width) {
+
+  .unl .dcf-idm-toggle {
+    display: flex;
+  }
+
+  .unl .dcf-idm-login {
+    flex-direction: row-reverse;
+  }
+
+  .unl .dcf-idm-img {
+    fill: var.$light-gray;
+  }
+
+  .unl .dcf-idm-label {
+    @include mixins.mr-3;
+  }
+
+  .unl .dcf-idm-options {
+    @include mixins.mt-2;
+    right: 0;
+    top: 100%;
+  }
+
+  // Add arrow above options popover and horizontally center under button text
+  .unl .dcf-idm-login[aria-expanded="true"] ~ .dcf-idm-options::before {
+    border-left: #{var.$ms-4}em solid transparent;
+    border-right: #{var.$ms-4}em solid transparent;
+    border-bottom: #{var.$ms-4}em solid rgba(36,36,35,.95);
+    top: -#{var.$ms-4}em;
+    content: '';
+    display: block;
+    @include mixins.h-2;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    @include mixins.w-2;
+  }
+
+  .unl .dcf-idm-options li:last-child {
+    margin-bottom: 0;
+  }
+
+}
