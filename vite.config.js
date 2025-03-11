@@ -1,7 +1,6 @@
 import { resolve } from 'path'
 import { rm } from 'node:fs/promises'
 import { defineConfig } from 'vite';
-import sassGlobImports from 'vite-plugin-sass-glob-import';
 
 export default defineConfig({
     build: {
@@ -106,8 +105,6 @@ export default defineConfig({
                 await rm(resolve(__dirname, './wdn/templates_6.0/assets'), { recursive: true, force: true });
             }
         },
-        // SCSS glob imports like `**/*` in scss files
-        sassGlobImports()
     ],
     // resolve.alias will replace the `@js-src` with the path before building
     resolve: {
