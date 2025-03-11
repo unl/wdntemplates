@@ -1,0 +1,46 @@
+/////////////////////////////
+// THEME / DEPRECATED / QUOTE
+/////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.wdn-quote {
+  font-size: #{var.$ms02}em; // 1.33em
+  @include mixins.mb-7;
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: #{var.$ms10}em; // 4.21em
+  position: relative;
+}
+
+.wdn-quote::before {
+  content: open-quote;
+  font-size: #{var.$ms14}em; // 7.49em
+  @include mixins.lh-1;
+  position: absolute;
+  top: 0;
+}
+
+.wdn-quote::after {
+  content: close-quote;
+  @include mixins.sr-only;
+}
+
+.wdn-quoter {
+  display: block;
+  font-size: #{var.$ms-2}em; // .75em
+  font-style: normal;
+  @include mixins.mt-4;
+}
+
+.wdn-quoter::before {
+  content: '— '; // em dash (&mdash;) followed by a thin space (&thinsp;)
+}
+
+.quoter-context {
+  display: block;
+  font-style: italic;
+}

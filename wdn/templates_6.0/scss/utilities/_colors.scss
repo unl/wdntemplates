@@ -1,0 +1,96 @@
+/////////////////////////////
+// THEME / UTILITIES / COLORS
+/////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+@media screen {
+
+  // Scarlet
+  .unl-scarlet,
+  a.unl-scarlet,
+  a.unl-scarlet:link,
+  a.unl-scarlet:visited,
+  a.unl-scarlet:hover,
+  a.unl-scarlet:active {
+    @include mixins.scarlet(!important);
+  }
+
+  // Cream
+  .unl-cream,
+  a.unl-cream,
+  a.unl-cream:link {
+    @include mixins.cream(!important);
+  }
+
+  a.unl-cream:visited { @include mixins.cream-visited(!important); }
+  a.unl-cream:hover { @include mixins.cream-hover(!important); }
+  a.unl-cream:active { @include mixins.cream-active(!important); }
+
+
+  // Gray
+  .unl-lightest-gray { @include mixins.lightest-gray(!important); }
+  .unl-lighter-gray { @include mixins.lighter-gray(!important); }
+  .unl-light-gray { @include mixins.light-gray(!important); }
+  .unl-gray { @include mixins.gray(!important); }
+  .unl-dark-gray { @include mixins.dark-gray(!important); }
+  .unl-darker-gray { @include mixins.darker-gray(!important); }
+  .unl-darkest-gray { @include mixins.darkest-gray(!important); }
+
+
+  // Cerulean
+  .unl-cerulean { @include mixins.cerulean(!important); }
+
+
+  // Green
+  .unl-green { @include mixins.green(!important); }
+  .unl-light-green { @include mixins.light-green(!important); }
+
+
+  // Blue
+  .unl-blue { @include mixins.blue(!important); }
+  .unl-light-blue { @include mixins.light-blue(!important); }
+
+
+  // Purple
+  .unl-purple { @include mixins.purple(!important); }
+  .unl-light-purple { @include mixins.light-purple(!important); }
+
+
+  // Yellow
+  .unl-yellow { @include mixins.yellow(!important); }
+
+
+  // Orange
+  .unl-orange { @include mixins.orange(!important); }
+
+}
+
+
+
+@media screen and (prefers-color-scheme: dark) {
+
+  // Scarlet
+  .unl-scarlet\@dark { @include mixins.scarlet-at-dark(!important); }
+
+
+  // Gray
+  .unl-dark-gray\@dark { @include mixins.dark-gray-at-dark(!important); }
+  .unl-darker-gray\@dark { @include mixins.darker-gray-at-dark(!important); }
+  .unl-darkest-gray\@dark { @include mixins.darkest-gray-at-dark(!important); }
+
+
+  // Green
+  .unl-green\@dark { @include mixins.green-at-dark(!important); }
+
+
+  // Blue
+  .unl-blue\@dark { @include mixins.blue-at-dark(!important); }
+
+
+  // Purple
+  .unl-purple\@dark { @include mixins.purple-at-dark(!important); }
+
+}

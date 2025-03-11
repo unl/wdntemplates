@@ -1,0 +1,122 @@
+/////////////////////////////////////
+// THEME / MIXINS / BACKGROUND IMAGES
+/////////////////////////////////////
+
+@use "sass:color";
+@use "../variables/" as var;
+
+
+// Dots
+@mixin bg-dots($imp:null) {
+  background-size: #{var.$ms-4}rem $imp; // .56rem
+}
+
+
+@mixin bg-dots-gray($imp:null) {
+  background-image: url('@images/bg-dots-gray.svg?no-inline') $imp;
+}
+
+
+@mixin bg-dots-scarlet($imp:null) {
+  background-image: url('@images/bg-dots-scarlet.svg?no-inline') $imp;
+}
+
+
+// Grit
+@mixin bg-grit($imp:null) {
+  // Don't use background shorthand. Allow grit to be applied over any background-color.
+  background-image: url('@images/bg-grit.png?no-inline') $imp;
+  background-position: 50% 50% $imp;
+  background-repeat: repeat $imp;
+  background-size: 80px $imp;
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  	background-image: url('@images/bg-grit_2x.png?no-inline') $imp;
+  }
+
+}
+
+
+// Diagonal Stripes: Scarlet
+@mixin bg-stripes-scarlet($imp:null) {
+  background-image: repeating-linear-gradient(var.$diagonal1, var.$scarlet, var.$scarlet 2px, transparent 2px, transparent 4px) $imp;
+}
+
+
+// Diagonal Stripes: Dark
+@mixin bg-stripes-dark($imp:null) {
+//   background-image: url('@images/diagonal-stripe-bg.svg');
+//   background-repeat: repeat;
+//   background-image: repeating-linear-gradient($diagonal1, rgba($color-body,.1), rgba($color-body,.1) 2px, transparent 2px, transparent 4px);
+  background-image: repeating-linear-gradient(
+    var.$diagonal1,
+    color.adjust(var.$color-body-light-mode, $alpha: -0.9),
+    color.adjust(var.$color-body-light-mode, $alpha: -0.9) 2px,
+    color.adjust(var.$color-body-light-mode, $alpha: -1) 2px,
+    color.adjust(var.$color-body-light-mode, $alpha: -1) 5px
+  ) $imp;
+}
+
+
+// Diagonal Stripes: Light
+@mixin bg-stripes-light($imp:null) {
+  background-image: repeating-linear-gradient(
+    var.$diagonal1,
+    color.adjust(var.$white, $alpha: -0.95),
+    color.adjust(var.$white, $alpha: -0.95) 2px,
+    color.adjust(var.$white, $alpha: -1) 2px,
+    color.adjust(var.$white, $alpha: -1) 5px
+  ) $imp;
+}
+
+
+// Diagonal Gradient (single)
+@mixin bg-diagonal-gradient($imp:null) {
+  background-image: linear-gradient(
+    var.$diagonal2,
+    color.adjust(var.$black, $alpha: -0.44) 25%,
+    color.adjust(var.$black, $alpha: -0.82) 75%
+  ) $imp;
+}
+
+
+// Diagonal Gradients (multiple)
+@mixin bg-diagonal-gradients($imp:null) {
+  background-image: linear-gradient(
+    var.$diagonal1,
+    var.$black,
+    color.adjust(var.$black, $alpha: -0.75) 24%,
+    color.adjust(var.$black, $alpha: -0.25) 24%,
+    transparent 32%,
+    color.adjust(var.$black, $alpha: -0.5) 32%,
+    color.adjust(var.$black, $alpha: -0.75) 75%,
+    color.adjust(var.$black, $alpha: -0.25) 75%,
+    color.adjust(var.$black, $alpha: -0.75) 84%,
+    color.adjust(var.$black, $alpha: -0.25) 84%,
+    transparent
+  ) $imp;
+}
+
+
+// SVG Background Pattern: Campus
+@mixin bg-campus($imp:null) {
+  background-image: url('@images/bg-campus.svg?no-inline') $imp;
+  background-size: 20em $imp;
+}
+
+
+// SVG Background Pattern: Landmarks
+@mixin bg-landmarks($imp:null) {
+  background-image: url('@images/bg-landmarks.svg?no-inline') $imp;
+  background-size: 40em $imp; // Yes, this should be a different size than the others.
+}
+
+
+// SVG Background Pattern: Majors
+@mixin bg-majors($imp:null) {
+  background-image: url('@images/bg-majors.svg?no-inline') $imp;
+  background-size: 20em $imp;
+}

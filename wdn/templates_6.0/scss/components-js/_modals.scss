@@ -1,0 +1,18 @@
+//////////////////////////////
+// THEME / COMPONENTS / MODALS
+//////////////////////////////
+
+
+@use "../variables/" as var;
+@use "@dcf/scss/components-js/modals" as *;
+
+
+// Modal
+.unl .dcf-modal[aria-hidden="true"] {
+  transition: opacity var.$transition-duration-fade-out var.$transition-timing-fn-fade-out;
+}
+
+
+.unl .dcf-modal[aria-hidden="false"] {
+  transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
+}

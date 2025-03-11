@@ -11,6 +11,7 @@
 /build/vendor
 /node_modules
 /vagrant/dev/.vagrant
+/wdn/templates_*/assets
 /wdn/templates_*/css
 /wdn/templates_*/dcf
 /wdn/templates_*/scss/components/_components.dev.scss

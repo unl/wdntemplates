@@ -2,45 +2,17 @@
 // MAIN
 ///////
 
-
-// Variables
-@import '../../../dcf/scss/variables/**/*';
-@import 'variables/**/*';
-
-
-// Mixins
-@import '../../../dcf/scss/mixins/**/*';
-@import 'mixins/**/*';
-
-
-// Functions
-@import '../../../dcf/scss/functions/**/*';
-
-
 // Generic
-@import '../../../dcf/scss/generic/**/*';
-@import 'generic/**/*';
-
+@use "./generic/" as *;
 
 // Elements
-@import '../../../dcf/scss/elements/**/*';
-@import 'elements/**/*';
-
+@use "./elements/" as *;
 
 // Objects
-@import '../../../dcf/scss/objects/**/*';
-@import 'objects/**/*';
-
+@use "./objects/" as *;
 
 // Components
-@import '../../../dcf/scss/components/**/*';
-@import 'components/**/*';
-
-
-// JavaScript
-@import '../../../dcf/scss/javascript/**/*';
-
+@use "./components/" as *;
 
 // Utilities
-@import '../../../dcf/scss/utilities/**/*';
-@import 'utilities/**/*';
+@use "./utilities/" as *;

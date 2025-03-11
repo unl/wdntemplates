@@ -1,0 +1,13 @@
+//////////////////////////////////////
+// THEME / ELEMENTS / BROWSER DEFAULTS
+//////////////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+// Bold, strong
+.unl b,
+.unl strong {
+  @include mixins.bold;
+}

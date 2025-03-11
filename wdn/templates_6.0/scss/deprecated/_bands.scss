@@ -1,0 +1,85 @@
+/////////////////////////////
+// THEME / DEPRECATED / BANDS
+/////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.wdn-band {
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+  right: 50%;
+  width: 100vw;
+}
+
+// Fix for nested bands
+.wdn-band .wdn-band,
+.wdn-band .dcf-bleed,
+.dcf-bleed .wdn-band {
+  left: 0;
+  margin-left: 0;
+  margin-right: 0;
+  right: 0;
+  width: auto;
+}
+
+.wdn-light-neutral-band {
+  @include mixins.bg-lightest;
+}
+
+.wdn-light-triad-band,
+.wdn-light-complement-band {
+  @include mixins.bg-lighter;
+}
+
+.wdn-inner-wrapper {
+  padding: var.$length-em-9 var.$length-vw-2;
+}
+
+.wdn-inner-padding-sm {
+  @include mixins.pb-8;
+  @include mixins.pt-8;
+}
+
+.wdn-inner-padding-lg {
+  @include mixins.pb-10;
+  @include mixins.pt-10;
+}
+
+.wdn-inner-padding-no-top {
+  padding-top: 0;
+}
+
+.wdn-inner-padding-no-bottom {
+  padding-bottom: 0;
+}
+
+.wdn-inner-padding-none {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.wdn-stretch {
+  max-width: 100%;
+  width: 100%;
+}
+
+.wdn-center {
+  text-align: center;
+}
+
+
+@media only screen and (min-width:60em) {
+
+  .wdn-text-band .wdn-inner-wrapper {
+    margin: 0 auto;
+    max-width: 37.5rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+}

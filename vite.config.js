@@ -1,45 +1,76 @@
 import { resolve } from 'path'
 import { rm } from 'node:fs/promises'
 import { defineConfig } from 'vite';
-import sassGlobImports from 'vite-plugin-sass-glob-import';
 
 export default defineConfig({
     build: {
         // outDir needs to be `.` or else built url paths will be missing wdn/templates_6.0
         outDir: '.',
-        rollupOptions: {
-            // input contains all the input files
-            // This would include main.js, component js and css, and general css files
-            input: {
-                'js/main': 'wdn/templates_6.0/js-src/main.js',
 
-                'js/components/wdn-button-toggle': 'wdn/templates_6.0/js-src/components/wdn-button-toggle.js',
+        // We are using library mode to keep the ES module exports in the final built code
+        lib: {
+            // entry contains all the input files
+            // This would include plugin auto loader, plugins, components, and SCSS files
+            // Key is built file path, Value is path to file
+            entry: {
+                'auto_loader' : 'wdn/templates_6.0/js-src/plugin_auto_loader.js',
 
-                'js/components/wdn-tab': 'wdn/templates_6.0/js-src/components/wdn-tab.js',
-                'css/components/tabs': 'wdn/templates_6.0/scss/components/_components.tabs.scss',
+                'plugins/tabs' : 'wdn/templates_6.0/js-src/plugins/tabs.js',
+                'plugins/toggle_buttons' : 'wdn/templates_6.0/js-src/plugins/toggle_buttons.js',
 
-                // 'css/affiliate': 'wdn/templates_6.0/scss/affiliate.scss',
-                // 'css/critical': 'wdn/templates_6.0/scss/critical.scss',
-                // 'css/deprecated': 'wdn/templates_6.0/scss/deprecated.scss',
-                // 'css/legacy': 'wdn/templates_6.0/scss/legacy.scss',
-                // 'css/main': 'wdn/templates_6.0/scss/main.scss',
-                // 'css/pre': 'wdn/templates_6.0/scss/pre.scss',
-                // 'css/print': 'wdn/templates_6.0/scss/print.scss',
+                'components/tabs' : 'wdn/templates_6.0/js-src/components/wdn_tab.js',
+                'components/toggle_buttons' : 'wdn/templates_6.0/js-src/components/wdn_toggle_button.js',
+
+                // We don't need css/main since the assetFileNames will add the css directory
+                'affiliate' : 'wdn/templates_6.0/scss/affiliate.scss',
+                'critical' : 'wdn/templates_6.0/scss/critical.scss',
+                'deprecated' : 'wdn/templates_6.0/scss/deprecated.scss',
+                'main' : 'wdn/templates_6.0/scss/main.scss',
+                'print' : 'wdn/templates_6.0/scss/print.scss',
             },
+
+            // We are building for ES modules
+            formats: ['es'],
+        },
+
+        // These are additional options defined to adjust the final built code
+        // Do not include leading slash on file paths
+        rollupOptions: {
             output: {
-                //TODO: Make this better and not do duplicate `/css/css` stuff
+                // These are definitions for folder/file paths for all the other files found during build
                 assetFileNames: (assetInfo) => {
                     let extType = assetInfo.names[0] ?? 'undefined';
-                    if (/png|jpe?g|svg|gif|tiff|bmp|ico|avif|webp/i.test(extType)) {
-                        extType = 'img';
+                    if (/png|jpe?g|svg|gif|avif|webp/i.test(extType)) {
+                        if (assetInfo.originalFileNames.length > 0) {
+                            // This will extract the directory the file is in
+                            // If it finds a file it will include it in the returned built file path
+                            const folder_regex = /wdn\/templates_6\.0\/images\/([^\/]+)\/[^\/]+/i;
+                            const path = folder_regex.exec(assetInfo.originalFileNames[0]);
+                            if (path !== null && path.length == 2) {
+                                return `wdn/templates_6.0/assets/images/${path[1]}/[name][extname]`;
+                            }
+                        }
+                        return 'wdn/templates_6.0/assets/images/[name][extname]';
                     }
                     if (/mp4|mov/i.test(extType)) {
-                        extType = 'video';
+                        return 'wdn/templates_6.0/assets/videos/[name][extname]';
                     }
                     if (/mp3/i.test(extType)) {
-                        extType = 'audio';
+                        return 'wdn/templates_6.0/assets/audio/[name][extname]';
+                    }
+                    if (/woff/i.test(extType) || /woff2/i.test(extType)) {
+                        return 'wdn/templates_6.0/assets/fonts/[name][extname]';
                     }
                     if (/css/i.test(extType) || /scss/i.test(extType)) {
+                        if (assetInfo.originalFileNames.length > 0) {
+                            // This will extract the directory the file is in
+                            // If it finds a file it will include it in the returned built file path
+                            const folder_regex = /wdn\/templates_6\.0\/scss\/([^\/]+)\/[^\/]+\.scss/i;
+                            const path = folder_regex.exec(assetInfo.originalFileNames[0]);
+                            if (path !== null && path.length == 2) {
+                                return `wdn/templates_6.0/css/${path[1]}/[name].css`;
+                            }
+                        }
                         return 'wdn/templates_6.0/css/[name].css';
                     }
                     if (/js/i.test(extType)) {
@@ -47,15 +78,20 @@ export default defineConfig({
                     }
                     return `wdn/templates_6.0/assets/${extType}/[name][extname]`;
                 },
-                // chunkFileNames is for the shared files it finds
-                chunkFileNames: 'wdn/templates_6.0/js/[name].js',
-                entryFileNames: 'wdn/templates_6.0/[name].js',
-            },
+
+                // chunkFileNames is for the shared files it finds which are not defined in the entry point
+                chunkFileNames: 'wdn/templates_6.0/js/chunk/[name].js',
+
+                // entryFileNames are the files defined in the lib.entry above
+                entryFileNames: 'wdn/templates_6.0/js/[name].js',
+            }
         },
         // If emptyOutDir is set to true it deletes everything
         emptyOutDir: false,
         // We want js source maps but inline ones are slow for production
         sourcemap: true,
+        // This will preserve css file names and build them as individual files
+        cssCodeSplit: true,
     },
     plugins: [
         {
@@ -65,17 +101,19 @@ export default defineConfig({
                 await rm(resolve(__dirname, './wdn/templates_6.0/js'), { recursive: true, force: true });
                 // Delete css folder to remove old built files
                 await rm(resolve(__dirname, './wdn/templates_6.0/css'), { recursive: true, force: true });
+                // Delete asset folder to remove old built files
+                await rm(resolve(__dirname, './wdn/templates_6.0/assets'), { recursive: true, force: true });
             }
         },
-        // SCSS glob imports like `**/*` in scss files
-        sassGlobImports()
     ],
     // resolve.alias will replace the `@js-src` with the path before building
     resolve: {
         alias: {
             "@js-src": "/wdn/templates_6.0/js-src",
             "@scss": "/wdn/templates_6.0/scss",
-            "@dcf": "/dcf",
+            "@fonts": "/wdn/templates_6.0/fonts",
+            "@images": "/wdn/templates_6.0/images",
+            "@dcf": "/node_modules/dcf",
         },
     },
 });

@@ -1,0 +1,15 @@
+/////////////////////////
+// THEME / MIXINS / FONTS
+/////////////////////////
+
+
+// Sans Serif
+@mixin font-sans($imp:null) {
+  font-family: 'Work Sans', 'Sans Serif Fallback', sans-serif $imp;
+}
+
+
+// Display
+@mixin font-display($imp:null) {
+  font-family: 'Liberator Heavy Italic', 'Arial Narrow', sans-serif $imp;
+}

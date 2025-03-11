@@ -1,0 +1,101 @@
+//////////////////////////////
+// THEME / COMPONENTS / FOOTER
+//////////////////////////////
+
+
+@use "sass:color";
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.unl .dcf-footer {
+  color: var.$light-gray;
+  background-color: var.$darker-gray;
+}
+
+
+.unl-footer-stripe::before {
+  background-image: linear-gradient(
+    to top,
+    color.adjust(var.$darker-gray, $alpha: -1) 3px,
+    var.$darker-gray 3px,
+    var.$darker-gray 5px,
+    color.adjust(var.$darker-gray, $alpha: -1) 5px
+  );
+  content: '';
+  height: 5px;
+  position: absolute;
+  top: -5px;
+  width: 100%;
+}
+
+
+.unl .dcf-footer h2 {
+  @include mixins.cream;
+  @include mixins.txt-md;
+  @include mixins.ls-2;
+  @include mixins.lh-3;
+  text-transform: uppercase;
+}
+
+
+// Footer lists
+.unl .dcf-footer dl,
+.unl .dcf-footer ol,
+.unl .dcf-footer ul {
+  // Fix list-style: none in VoiceOver and Safari: https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+  list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+
+.unl .dcf-footer li {
+  @include mixins.mb-0;
+}
+
+
+.unl .dcf-footer li a {
+  display: inline-block;
+  @include mixins.pb-1;
+  @include mixins.pt-1;
+}
+
+
+// Footer links
+// TODO: determine focus state styles
+.unl .dcf-footer a,
+.unl .dcf-footer a:link {
+  color: var.$lighter-gray;
+}
+
+
+.unl .dcf-footer a:visited,
+.unl .dcf-footer a:hover,
+.unl .dcf-footer a:active {
+  color: var.$cream;
+}
+
+
+.unl-footer-groups dd a:not(:hover),
+.unl-footer-groups li a:not(:hover) {
+  text-decoration: none;
+}
+
+
+@include mixins.mq(sm, max, width) {
+
+  .unl-footer-unl {
+    margin-bottom: #{var.$ms-8}em;
+  }
+
+}
+
+
+@include mixins.mq(sm, min, width) {
+
+  .unl-footer-logos {
+    justify-content: flex-end;
+  }
+
+}

@@ -1,0 +1,17 @@
+////////////////////////////////////
+// THEME / MIXINS / BACKDROP FILTERS
+////////////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../functions/" as func;
+
+
+// Blur
+@mixin backdrop-blur($imp:null) {
+
+  @if (func.to-number(var.$backdrop-filter-blur) != func.to-number(0)) {
+    backdrop-filter: blur(var.$backdrop-filter-blur) $imp;
+  }
+
+}
