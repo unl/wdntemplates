@@ -28,7 +28,7 @@
 }
 
 
-@media (min-width: #{ms(24)}em) {
+@media (min-width: #{var.$ms24}em) {
 
   .unl .dcf-cta-nav {
     display: grid;
