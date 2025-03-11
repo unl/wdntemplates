@@ -11,9 +11,6 @@ const plugin_map = {
 for (const single_plugin_name in plugin_map) {
     if (!plugin_map.hasOwnProperty(single_plugin_name)) { continue; }
     const plugin = plugin_map[single_plugin_name];
-    if (typeof plugin.query_selector !== 'string') {
-        throw new Error(`Invalid query_selector value in plugin: ${single_plugin_name}`);
-    }
     if (typeof plugin.load_elements_on_page !== 'function') {
         throw new Error(`Invalid load_elements_on_page function in plugin: ${single_plugin_name}`);
     }
@@ -28,13 +25,13 @@ const mutationCallback = function(mutationList){
                 for (const single_plugin_name in plugin_map) {
                     if (!plugin_map.hasOwnProperty(single_plugin_name)) { continue; }
                     const plugin = plugin_map[single_plugin_name];
-                    if (typeof plugin.query_selector !== 'string') {
-                        throw new Error(`Invalid query_selector value in plugin: ${single_plugin_name}`);
+                    if (typeof plugin.get_query_selector !== 'function') {
+                        throw new Error(`Invalid get_query_selector function in plugin: ${single_plugin_name}`);
                     }
                     if (typeof plugin.load_element !== 'function') {
                         throw new Error(`Invalid load_element function in plugin: ${single_plugin_name}`);
                     }
-                    if (nodeAdded.matches(plugin.query_selector)) {
+                    if (nodeAdded.matches(plugin.get_query_selector())) {
                         plugin.load_element(nodeAdded);
                     }
                 }
