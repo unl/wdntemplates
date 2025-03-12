@@ -4,6 +4,7 @@
 .DS_Store
 .externalToolBuilders
 .settings
+.env.local
 .project
 .buildpath
 /sandbox

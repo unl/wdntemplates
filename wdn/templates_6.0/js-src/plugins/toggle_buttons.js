@@ -2,10 +2,26 @@
 let wdn_toggle_button = null;
 
 // Query Selector for the tabs component
-export const query_selector = ".dcf-btn-toggle";
+const query_selector = ".dcf-btn-toggle";
 
 // Storing the state whether the plugin is initialized or not
-export let is_initialized = false;
+let is_initialized = false;
+
+/**
+ * Gets the query selector which is used for this plugin's component
+ * @returns { String }
+ */
+export function get_query_selector() {
+    return query_selector;
+}
+
+/**
+ * Returns if the plugin has been initialized yet
+ * @returns { Boolean }
+ */
+export function get_is_initialized() {
+    return is_initialized;
+}
 
 /**
  * Initializes plugin
