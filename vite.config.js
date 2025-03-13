@@ -18,10 +18,12 @@ export default defineConfig({
                 'plugins/tabs' : 'wdn/templates_6.0/js-src/plugins/tabs.js',
                 'plugins/toggle_buttons' : 'wdn/templates_6.0/js-src/plugins/toggle_buttons.js',
                 'plugins/collapsible_fieldsets' : 'wdn/templates_6.0/js-src/plugins/collapsible_fieldsets.js',
+                'plugins/figcaption_toggles' : 'wdn/templates_6.0/js-src/plugins/figcaption_toggles.js',
 
                 'components/tabs' : 'wdn/templates_6.0/js-src/components/wdn_tab.js',
                 'components/toggle_buttons' : 'wdn/templates_6.0/js-src/components/wdn_toggle_button.js',
                 'components/collapsible_fieldsets' : 'wdn/templates_6.0/js-src/components/wdn_collapsible_fieldset.js',
+                'components/figcaption_toggles' : 'wdn/templates_6.0/js-src/components/wdn_figcaption_toggle.js',
 
                 // We don't need 'css/main' as key since the assetFileNames will add the css directory
                 'affiliate' : 'wdn/templates_6.0/scss/affiliate.scss',
