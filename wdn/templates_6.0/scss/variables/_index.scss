@@ -9,44 +9,60 @@
     the values
 */
 
+// Order matters
+// If a DCF file uses these before we forward them
+//   we will not be able to override the values
+
+// Importance Level 1
+// These are used in almost every variable file
+// These should have no use statements
+@forward "./color-palette";
+@forward "./modular-scale";
+@forward "./sizing";
+@forward "./breakpoints";
+
+// Importance Level 2
+// These use level 1 variables
+// These are used by level 3 variables
+@forward "./body";
+@forward "./anchors";
+@forward "./colors-text";
+@forward "./tmp-defaults";
+@forward "./badges";
+@forward "./forms";
+@forward "./buttons";
+@forward "./headings";
+
+// Importance Level 3
+// These are not used in any other variable file
 @forward "./abbreviations";
 @forward "./addresses";
-@forward "./anchors";
 @forward "./angles";
 @forward "./animation";
 @forward "./app";
 @forward "./attributes";
 @forward "./backgrounds";
-@forward "./badges";
 @forward "./blockquotes";
-@forward "./body";
 @forward "./borders";
 @forward "./breadcrumbs";
-@forward "./breakpoints";
 @forward "./button-groups";
 @forward "./button-toggles";
-@forward "./buttons";
 @forward "./cards";
 @forward "./code";
 @forward "./collapsible-fieldsets";
-@forward "./color-palette";
-@forward "./colors-text";
 @forward "./datepickers";
 @forward "./details-summary";
 @forward "./figcaption-toggles";
 @forward "./figures";
 @forward "./focus";
 @forward "./font-size";
-@forward "./forms";
 @forward "./gallery";
-@forward "./headings";
 @forward "./hr";
 @forward "./html";
 @forward "./input-groups";
 @forward "./lists";
 @forward "./marks";
 @forward "./modals";
-@forward "./modular-scale";
 @forward "./navigation";
 @forward "./notices";
 @forward "./pagination";
@@ -55,12 +71,10 @@
 @forward "./print";
 @forward "./progress";
 @forward "./search-and-selects";
-@forward "./sizing";
 @forward "./slideshows";
 @forward "./sup-sub";
 @forward "./tables";
 @forward "./tabs";
-@forward "./tmp-defaults";
 @forward "./transitions";
 @forward "./wrapper";
 @forward "./z-index";
