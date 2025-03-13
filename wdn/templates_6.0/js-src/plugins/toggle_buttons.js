@@ -1,3 +1,6 @@
+import button_toggle_css_url from '@scss/components-js/_button-toggles.scss?url';
+import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
+
 // This is where the imported class will go
 let wdn_toggle_button = null;
 
@@ -33,6 +36,7 @@ export async function initialize() {
 
     const toggle_button_component = await import('@js-src/components/wdn_toggle_button.js');
     wdn_toggle_button = toggle_button_component.default;
+    await loadStyleSheet(button_toggle_css_url);
 }
 
 /**

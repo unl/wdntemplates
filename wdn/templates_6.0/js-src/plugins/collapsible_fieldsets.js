@@ -1,4 +1,5 @@
 import collapsible_fieldsets_css_url from '@scss/components-js/_collapsible-fieldsets.scss?url';
+import button_toggle_css_url from '@scss/components-js/_button-toggles.scss?url';
 import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
 
 // This is where the imported class will go
@@ -36,6 +37,7 @@ export async function initialize() {
 
     const collapsible_fieldsets_component = await import('@js-src/components/wdn_collapsible_fieldset.js');
     wdn_collapsible_fieldsets = collapsible_fieldsets_component.default;
+    await loadStyleSheet(button_toggle_css_url);
     await loadStyleSheet(collapsible_fieldsets_css_url);
 }
 
