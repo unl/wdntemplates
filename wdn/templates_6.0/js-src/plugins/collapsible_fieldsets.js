@@ -1,8 +1,11 @@
-// This is where the imported class will go
-let wdn_toggle_button = null;
+import collapsible_fieldsets_css_url from '@scss/components-js/_collapsible-fieldsets.scss?url';
+import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
 
-// Query Selector for the tabs component
-const query_selector = ".dcf-btn-toggle";
+// This is where the imported class will go
+let wdn_collapsible_fieldsets = null;
+
+// Query Selector for the collapsible fieldset component
+const query_selector = ".dcf-collapsible-fieldset";
 
 // Storing the state whether the plugin is initialized or not
 let is_initialized = false;
@@ -31,22 +34,23 @@ export async function initialize() {
     if (is_initialized) { return; }
     is_initialized = true;
 
-    const toggle_button_component = await import('@js-src/components/wdn_toggle_button.js');
-    wdn_toggle_button = toggle_button_component.default;
+    const collapsible_fieldsets_component = await import('@js-src/components/wdn_collapsible_fieldset.js');
+    wdn_collapsible_fieldsets = collapsible_fieldsets_component.default;
+    await loadStyleSheet(collapsible_fieldsets_css_url);
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNButtonToggles> }
+ * @returns { Promise<WDNCollapsibleFieldsets> }
  */
 export async function load_element(element, options) {
     if (!is_initialized) {
         await initialize();
     }
 
-    return new wdn_toggle_button(element, options);
+    return new wdn_collapsible_fieldsets(element, options);
 }
 
 /**
@@ -54,7 +58,7 @@ export async function load_element(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNButtonToggles[]> }
+ * @returns { Promise<WDNCollapsibleFieldsets[]> }
  */
 export async function load_elements(elements, options) {
     let output_elements = []
@@ -68,9 +72,9 @@ export async function load_elements(elements, options) {
  * Using the `query_selector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNButtonToggles[]> }
+ * @returns { Promise<WDNCollapsibleFieldsets[]> }
  */
 export async function load_elements_on_page(options) {
-    let all_tabs = document.querySelectorAll(query_selector);
-    return await load_elements(all_tabs, options);
+    let all_fieldsets = document.querySelectorAll(query_selector);
+    return await load_elements(all_fieldsets, options);
 }
