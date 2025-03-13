@@ -2,6 +2,7 @@ import * as wdn_tabs from "@js-src/plugins/tabs.js";
 import * as wdn_toggle_button from "@js-src/plugins/toggle_buttons.js";
 import * as wdn_collapsible_fieldset from "@js-src/plugins/collapsible_fieldsets.js";
 import * as wdn_figcaption_toggle from "@js-src/plugins/figcaption_toggles.js";
+import * as wdn_notice from "@js-src/plugins/notice.js";
 
 // Main WDN plugins
 const plugin_map = {
@@ -9,6 +10,7 @@ const plugin_map = {
     "wdn_toggle_button": wdn_toggle_button,
     "wdn_collapsible_fieldset": wdn_collapsible_fieldset,
     "wdn_figcaption_toggle": wdn_figcaption_toggle,
+    "wdn_notice": wdn_notice,
 };
 
 // Loads all elements that are already on the page
