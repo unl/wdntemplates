@@ -3,6 +3,7 @@ import * as wdn_toggle_button from "@js-src/plugins/toggle_buttons.js";
 import * as wdn_collapsible_fieldset from "@js-src/plugins/collapsible_fieldsets.js";
 import * as wdn_figcaption_toggle from "@js-src/plugins/figcaption_toggles.js";
 import * as wdn_notice from "@js-src/plugins/notice.js";
+import * as wdn_datepicker from "@js-src/plugins/datepicker";
 
 // Main WDN plugins
 const plugin_map = {
@@ -11,6 +12,7 @@ const plugin_map = {
     "wdn_collapsible_fieldset": wdn_collapsible_fieldset,
     "wdn_figcaption_toggle": wdn_figcaption_toggle,
     "wdn_notice": wdn_notice,
+    "wdn_datepicker": wdn_datepicker,
 };
 
 // Loads all elements that are already on the page
