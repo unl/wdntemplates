@@ -1,6 +1,5 @@
 import datepicker_css_url from '@scss/components-js/_datepickers.scss?url';
 import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
-import WDNDatepicker from '@js-src/components/wdn_datepicker.js';
 
 // This is where the imported class will go
 let wdn_datepicker = null;
