@@ -22,6 +22,7 @@ export default defineConfig({
                 'plugins/notices' : 'wdn/templates_6.0/js-src/plugins/notice.js',
                 'plugins/datepickers' : 'wdn/templates_6.0/js-src/plugins/datepicker.js',
                 'plugins/autoplay_videos' : 'wdn/templates_6.0/js-src/plugins/autoplay_video.js',
+                'plugins/pagination' : 'wdn/templates_6.0/js-src/plugins/pagination.js',
 
                 'components/tabs' : 'wdn/templates_6.0/js-src/components/wdn_tab.js',
                 'components/toggle_buttons' : 'wdn/templates_6.0/js-src/components/wdn_toggle_button.js',
@@ -30,6 +31,7 @@ export default defineConfig({
                 'components/notices' : 'wdn/templates_6.0/js-src/components/wdn_notice.js',
                 'components/datepickers' : 'wdn/templates_6.0/js-src/components/wdn_datepicker.js',
                 'components/autoplay_videos' : 'wdn/templates_6.0/js-src/components/wdn_autoplay_video.js',
+                'components/pagination' : 'wdn/templates_6.0/js-src/components/wdn_pagination.js',
 
                 // We don't need 'css/main' as key since the assetFileNames will add the css directory
                 'affiliate' : 'wdn/templates_6.0/scss/affiliate.scss',
