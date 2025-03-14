@@ -4,6 +4,7 @@ import * as wdn_collapsible_fieldset from "@js-src/plugins/collapsible_fieldsets
 import * as wdn_figcaption_toggle from "@js-src/plugins/figcaption_toggles.js";
 import * as wdn_notice from "@js-src/plugins/notice.js";
 import * as wdn_datepicker from "@js-src/plugins/datepicker";
+import * as wdn_autoplay_video from "@js-src/plugins/autoplay_video";
 
 // Main WDN plugins
 const plugin_map = {
@@ -13,6 +14,7 @@ const plugin_map = {
     "wdn_figcaption_toggle": wdn_figcaption_toggle,
     "wdn_notice": wdn_notice,
     "wdn_datepicker": wdn_datepicker,
+    "wdn_autoplay_video": wdn_autoplay_video,
 };
 
 // Loads all elements that are already on the page
