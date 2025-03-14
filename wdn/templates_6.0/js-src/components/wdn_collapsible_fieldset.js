@@ -1,6 +1,6 @@
-import DCFCollapsibleFieldsets from "@dcf/js/components/dcf-collapsible-fieldsets.js";
+import DCFCollapsibleFieldset from "@dcf/js/components/dcf-collapsible-fieldset.js";
 
-export default class WDNCollapsibleFieldsets extends DCFCollapsibleFieldsets {
+export default class WDNCollapsibleFieldset extends DCFCollapsibleFieldset {
     constructor(fieldset, options = {})
     {
         if (!('legendButtonInnerHTMLOn' in options)) {

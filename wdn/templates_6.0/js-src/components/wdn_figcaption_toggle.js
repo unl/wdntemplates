@@ -1,6 +1,6 @@
-import DCFFigcaptionToggles from "@dcf/js/components/dcf-figcaption-toggles.js";
+import DCFFigcaptionToggle from "@dcf/js/components/dcf-figcaption-toggle.js";
 
-export default class WDNFigcaptionToggles extends DCFFigcaptionToggles {
+export default class WDNFigcaptionToggle extends DCFFigcaptionToggle {
     constructor(figcaption, options = {})
     {
         if (!('toggleButtonInnerHTML' in options)) {

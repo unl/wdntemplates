@@ -1,7 +1,7 @@
-import * as wdn_tabs from "@js-src/plugins/tabs.js";
-import * as wdn_toggle_button from "@js-src/plugins/toggle_buttons.js";
-import * as wdn_collapsible_fieldset from "@js-src/plugins/collapsible_fieldsets.js";
-import * as wdn_figcaption_toggle from "@js-src/plugins/figcaption_toggles.js";
+import * as wdn_tab from "@js-src/plugins/tab.js";
+import * as wdn_toggle_button from "@js-src/plugins/toggle_button.js";
+import * as wdn_collapsible_fieldset from "@js-src/plugins/collapsible_fieldset.js";
+import * as wdn_figcaption_toggle from "@js-src/plugins/figcaption_toggle.js";
 import * as wdn_notice from "@js-src/plugins/notice.js";
 import * as wdn_datepicker from "@js-src/plugins/datepicker";
 import * as wdn_autoplay_video from "@js-src/plugins/autoplay_video";
@@ -9,7 +9,7 @@ import * as wdn_pagination from "@js-src/plugins/pagination";
 
 // Main WDN plugins
 const plugin_map = {
-    "wdn_tabs": wdn_tabs,
+    "wdn_tab": wdn_tab,
     "wdn_toggle_button": wdn_toggle_button,
     "wdn_collapsible_fieldset": wdn_collapsible_fieldset,
     "wdn_figcaption_toggle": wdn_figcaption_toggle,
