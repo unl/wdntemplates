@@ -1,3 +1,6 @@
+import notices_css_url from '@scss/components-js/_notices.scss?url';
+import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
+
 // This is where the imported class will go
 let wdn_notice = null;
 
@@ -33,6 +36,7 @@ export async function initialize() {
 
     const notice_component = await import('@js-src/components/wdn_notice.js');
     wdn_notice = notice_component.default;
+    await loadStyleSheet(notices_css_url);
 }
 
 /**

@@ -5,6 +5,8 @@
 
 @use "../variables/" as var;
 
+@use "@dcf/scss/components-js/notices" as *;
+
 
 // Add a little vertical space between notice heading and message
 .unl .dcf-notice-message {
