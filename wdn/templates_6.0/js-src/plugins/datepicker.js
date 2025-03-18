@@ -1,8 +1,11 @@
-// This is where the imported class will go
-let wdn_toggle_button = null;
+import datepicker_css_url from '@scss/components-js/_datepickers.scss?url';
+import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
 
-// Query Selector for the tabs component
-const query_selector = ".dcf-btn-toggle";
+// This is where the imported class will go
+let wdn_datepicker = null;
+
+// Query Selector for the datepicker toggle component
+const query_selector = ".dcf-datepicker";
 
 // Storing the state whether the plugin is initialized or not
 let is_initialized = false;
@@ -31,22 +34,23 @@ export async function initialize() {
     if (is_initialized) { return; }
     is_initialized = true;
 
-    const toggle_button_component = await import('@js-src/components/wdn_toggle_button.js');
-    wdn_toggle_button = toggle_button_component.default;
+    const datepicker_component = await import('@js-src/components/wdn_datepicker.js');
+    wdn_datepicker = datepicker_component.default;
+    await loadStyleSheet(datepicker_css_url);
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNToggleButton> }
+ * @returns { Promise<WDNDatepicker> }
  */
 export async function load_element(element, options) {
     if (!is_initialized) {
         await initialize();
     }
 
-    return new wdn_toggle_button(element, options);
+    return new wdn_datepicker(element, options);
 }
 
 /**
@@ -54,7 +58,7 @@ export async function load_element(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNToggleButton[]> }
+ * @returns { Promise<WDNDatepicker[]> }
  */
 export async function load_elements(elements, options) {
     let output_elements = []
@@ -68,9 +72,9 @@ export async function load_elements(elements, options) {
  * Using the `query_selector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNToggleButton[]> }
+ * @returns { Promise<WDNDatepicker[]> }
  */
 export async function load_elements_on_page(options) {
-    let all_tabs = document.querySelectorAll(query_selector);
-    return await load_elements(all_tabs, options);
+    let all_datepickers = document.querySelectorAll(query_selector);
+    return await load_elements(all_datepickers, options);
 }

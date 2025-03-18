@@ -1,0 +1,11 @@
+//////////////////////////////////
+// THEME / COMPONENTS / TOGGLE-BUTTON
+//////////////////////////////////
+
+
+@use "../variables/" as var;
+
+
+.unl .unl-btn-toggle-element {
+    transition: opacity var.$toggle-button-element-animation-duration ease-in-out;
+}

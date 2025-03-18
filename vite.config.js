@@ -15,13 +15,25 @@ export default defineConfig({
             entry: {
                 'auto_loader' : 'wdn/templates_6.0/js-src/plugin_auto_loader.js',
 
-                'plugins/tabs' : 'wdn/templates_6.0/js-src/plugins/tabs.js',
-                'plugins/toggle_buttons' : 'wdn/templates_6.0/js-src/plugins/toggle_buttons.js',
+                'plugins/tab' : 'wdn/templates_6.0/js-src/plugins/tab.js',
+                'plugins/toggle_button' : 'wdn/templates_6.0/js-src/plugins/toggle_button.js',
+                'plugins/collapsible_fieldset' : 'wdn/templates_6.0/js-src/plugins/collapsible_fieldset.js',
+                'plugins/figcaption_toggle' : 'wdn/templates_6.0/js-src/plugins/figcaption_toggle.js',
+                'plugins/notice' : 'wdn/templates_6.0/js-src/plugins/notice.js',
+                'plugins/datepicker' : 'wdn/templates_6.0/js-src/plugins/datepicker.js',
+                'plugins/autoplay_video' : 'wdn/templates_6.0/js-src/plugins/autoplay_video.js',
+                'plugins/pagination' : 'wdn/templates_6.0/js-src/plugins/pagination.js',
 
-                'components/tabs' : 'wdn/templates_6.0/js-src/components/wdn_tab.js',
-                'components/toggle_buttons' : 'wdn/templates_6.0/js-src/components/wdn_toggle_button.js',
+                'components/tab' : 'wdn/templates_6.0/js-src/components/wdn_tab.js',
+                'components/toggle_button' : 'wdn/templates_6.0/js-src/components/wdn_toggle_button.js',
+                'components/collapsible_fieldset' : 'wdn/templates_6.0/js-src/components/wdn_collapsible_fieldset.js',
+                'components/figcaption_toggle' : 'wdn/templates_6.0/js-src/components/wdn_figcaption_toggle.js',
+                'components/notice' : 'wdn/templates_6.0/js-src/components/wdn_notice.js',
+                'components/datepicker' : 'wdn/templates_6.0/js-src/components/wdn_datepicker.js',
+                'components/autoplay_video' : 'wdn/templates_6.0/js-src/components/wdn_autoplay_video.js',
+                'components/pagination' : 'wdn/templates_6.0/js-src/components/wdn_pagination.js',
 
-                // We don't need css/main since the assetFileNames will add the css directory
+                // We don't need 'css/main' as key since the assetFileNames will add the css directory
                 'affiliate' : 'wdn/templates_6.0/scss/affiliate.scss',
                 'critical' : 'wdn/templates_6.0/scss/critical.scss',
                 'deprecated-4x' : 'wdn/templates_6.0/scss/deprecated-4x.scss',
