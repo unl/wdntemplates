@@ -24,11 +24,11 @@
 @mixin lighter-gray($imp:null) { color: var.$lighter-gray $imp; }
 @mixin light-gray($imp:null) { color: var.$light-gray $imp; }
 @mixin gray($imp:null) { color: var.$gray $imp; }
-@mixin dark-gray($imp:null) { color: var.$color-gray-dark $imp; }
+@mixin dark-gray($imp:null) { color: var.$color-dark-gray $imp; }
 @mixin dark-gray-at-dark($imp:null) { color: var.$dark-gray $imp; }
-@mixin darker-gray($imp:null) { color: var.$color-gray-darker $imp; }
+@mixin darker-gray($imp:null) { color: var.$color-darker-gray $imp; }
 @mixin darker-gray-at-dark($imp:null) { color: var.$darker-gray $imp; }
-@mixin darkest-gray($imp:null) { color: var.$color-gray-darkest $imp; }
+@mixin darkest-gray($imp:null) { color: var.$color-darkest-gray $imp; }
 @mixin darkest-gray-at-dark($imp:null) { color: var.$darkest-gray $imp; }
 
 
