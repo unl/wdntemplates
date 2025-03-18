@@ -55,7 +55,7 @@
 @include mixins.mq(md, min, width) {
 
   .unl .dcf-header-global {
-    border-bottom: 1px solid var.$border-color-gray-light;
+    border-bottom: 1px solid var.$border-color-light-gray;
     padding-top: #{var.$ms-12}em;
   }
 
