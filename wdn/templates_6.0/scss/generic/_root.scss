@@ -2,7 +2,9 @@
 // THEME / GENERIC / ROOT
 /////////////////////////
 
+
 @use "../variables/" as var;
+
 
 :root {
 //   color-scheme: light dark;
@@ -35,9 +37,9 @@
   --bg-input-group-addon: #{var.$bg-color-input-group-addon-light-mode};
   --bg-inverse: #{var.$bg-color-inverse-light-mode};
   --bg-kbd: #{var.$bg-color-kbd};
-  --bg-light-gray: #{var.$bg-color-gray-light-light-mode};
-  --bg-lighter-gray: #{var.$bg-color-gray-lighter-light-mode};
-  --bg-lightest-gray: #{var.$bg-color-gray-lightest-light-mode};
+  --bg-light-gray: #{var.$bg-color-light-gray-light-mode};
+  --bg-lighter-gray: #{var.$bg-color-lighter-gray-light-mode};
+  --bg-lightest-gray: #{var.$bg-color-lightest-gray-light-mode};
   --bg-mark: #{var.$bg-color-mark-light-mode};
   --bg-modal-header: #{var.$bg-color-modal-header-light-mode};
   --bg-modal-wrapper: #{var.$bg-color-modal-wrapper-light-mode};
@@ -70,9 +72,9 @@
   --b-input-focus: #{var.$border-color-input-focus-light-mode};
   --b-input-group-addon: #{var.$border-color-input-group-addon};
   --b-input-hover: #{var.$border-color-input-hover-light-mode};
-  --b-light-gray: #{var.$border-color-gray-light-light-mode};
-  --b-lighter-gray: #{var.$border-color-gray-lighter-light-mode};
-  --b-lightest-gray: #{var.$border-color-gray-lightest-light-mode};
+  --b-light-gray: #{var.$border-color-light-gray-light-mode};
+  --b-lighter-gray: #{var.$border-color-lighter-gray-light-mode};
+  --b-lightest-gray: #{var.$border-color-lightest-gray-light-mode};
   --b-required: #{var.$border-color-required-light-mode};
   --b-table: #{var.$border-color-table};
   --b-tab: #{var.$border-color-tab};
@@ -100,9 +102,9 @@
   --btn-tertiary: #{var.$color-button-tertiary-light-mode};
   --caption: #{var.$color-caption};
   --code: #{var.$color-code-light-mode};
-  --dark-gray: #{var.$color-gray-dark-light-mode};
-  --darker-gray: #{var.$color-gray-darker-light-mode};
-  --darkest-gray: #{var.$color-gray-darkest-light-mode};
+  --dark-gray: #{var.$color-dark-gray-light-mode};
+  --darker-gray: #{var.$color-darker-gray-light-mode};
+  --darkest-gray: #{var.$color-darkest-gray-light-mode};
   --figcaption: #{var.$color-figcaption-light-mode};
   --focus-outline: #{var.$color-focus-outline-light-mode};
   --form-help: #{var.$color-form-help-light-mode};
@@ -198,9 +200,9 @@
     --bg-input-group-addon: #{var.$bg-color-input-group-addon-dark-mode};
     --bg-inverse: #{var.$bg-color-inverse-dark-mode};
     --bg-kbd: #{var.$bg-color-kbd};
-    --bg-light-gray: #{var.$bg-color-gray-light-dark-mode};
-    --bg-lighter-gray: #{var.$bg-color-gray-lighter-dark-mode};
-    --bg-lightest-gray: #{var.$bg-color-gray-lightest-dark-mode};
+    --bg-light-gray: #{var.$bg-color-light-gray-dark-mode};
+    --bg-lighter-gray: #{var.$bg-color-lighter-gray-dark-mode};
+    --bg-lightest-gray: #{var.$bg-color-lightest-gray-dark-mode};
     --bg-mark: #{var.$bg-color-mark-dark-mode};
     --bg-modal-header: #{var.$bg-color-modal-header-dark-mode};
     --bg-modal-wrapper: #{var.$bg-color-modal-wrapper-dark-mode};
@@ -233,9 +235,9 @@
     --b-input-focus: #{var.$border-color-input-focus-dark-mode};
     --b-input-group-addon: #{var.$border-color-input-group-addon};
     --b-input-hover: #{var.$border-color-input-hover-dark-mode};
-    --b-light-gray: #{var.$border-color-gray-light-dark-mode};
-    --b-lighter-gray: #{var.$border-color-gray-lighter-dark-mode};
-    --b-lightest-gray: #{var.$border-color-gray-lightest-dark-mode};
+    --b-light-gray: #{var.$border-color-light-gray-dark-mode};
+    --b-lighter-gray: #{var.$border-color-lighter-gray-dark-mode};
+    --b-lightest-gray: #{var.$border-color-lightest-gray-dark-mode};
     --b-required: #{var.$border-color-required-dark-mode};
     --b-table: #{var.$border-color-table};
     --b-tab: #{var.$border-color-tab};
@@ -261,9 +263,9 @@
     --btn-tertiary: #{var.$color-button-tertiary-dark-mode};
     --caption: #{var.$color-caption};
     --code: #{var.$color-code-dark-mode};
-    --dark-gray: #{var.$color-gray-dark-dark-mode};
-    --darker-gray: #{var.$color-gray-darker-dark-mode};
-    --darkest-gray: #{var.$color-gray-darkest-dark-mode};
+    --dark-gray: #{var.$color-dark-gray-dark-mode};
+    --darker-gray: #{var.$color-darker-gray-dark-mode};
+    --darkest-gray: #{var.$color-darkest-gray-dark-mode};
     --figcaption: #{var.$color-figcaption-dark-mode};
     --focus-outline: #{var.$color-focus-outline-dark-mode};
     --form-help: #{var.$color-form-help-dark-mode};
