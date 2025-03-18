@@ -24,7 +24,8 @@ export default defineConfig({
                 // We don't need css/main since the assetFileNames will add the css directory
                 'affiliate' : 'wdn/templates_6.0/scss/affiliate.scss',
                 'critical' : 'wdn/templates_6.0/scss/critical.scss',
-                'deprecated' : 'wdn/templates_6.0/scss/deprecated.scss',
+                'deprecated-4x' : 'wdn/templates_6.0/scss/deprecated-4x.scss',
+                'deprecated-5x' : 'wdn/templates_6.0/scss/deprecated-5x.scss',
                 'main' : 'wdn/templates_6.0/scss/main.scss',
                 'print' : 'wdn/templates_6.0/scss/print.scss',
             },

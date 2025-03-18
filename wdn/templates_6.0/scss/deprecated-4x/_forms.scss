@@ -85,7 +85,7 @@ form span.required {
 }
 
 form span.helper {
-  color: var.$color-light-text-light-mode;
+  color: var.$color-dark-gray-light-mode;
   @include mixins.txt-xs;
 }
 
