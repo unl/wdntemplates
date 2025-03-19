@@ -3,6 +3,13 @@
 ///////////////////////////
 
 
-@forward "@dcf/scss/variables/tabs";
+@use "./color-palette" as color_palette;
 
-// Use `@forward .. with ..` to override variables
+@forward "@dcf/scss/variables/tabs" with (
+
+  $bg-color-tab-selected-light-mode: color_palette.$white,
+  $bg-color-tab-selected-dark-mode: color_palette.$darker-gray-s1,
+  $bg-color-tabs-panel-light-mode: color_palette.$white,
+  $bg-color-tabs-panel-dark-mode: color_palette.$darker-gray-s1
+
+);

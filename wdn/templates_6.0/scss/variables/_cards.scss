@@ -3,7 +3,11 @@
 ////////////////////////////
 
 
-@forward "@dcf/scss/variables/cards";
+@use './color-palette' as color_palette;
 
+@forward "@dcf/scss/variables/cards" with (
 
-// Use `@forward .. with ..` to override variables
+  $bg-color-card-light-mode: color_palette.$cream,
+  $bg-color-card-dark-mode: color_palette.$darker-gray
+
+);

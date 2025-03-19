@@ -3,7 +3,11 @@
 ////////////////////////////
 
 
-@forward "@dcf/scss/variables/focus";
+@use './color-palette' as color_palette;
 
+@forward "@dcf/scss/variables/focus" with (
 
-// Use `@forward .. with ..` to override variables
+  $color-focus-outline-light-mode: color_palette.$blue,
+  $color-focus-outline-dark-mode: color_palette.$cerulean
+
+);
