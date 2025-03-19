@@ -3,7 +3,10 @@
 //////////////////////////
 
 
-@forward "@dcf/scss/variables/app";
+@use './color-palette' as color_palette;
 
+@forward '@dcf/scss/variables/app' with (
 
-// Use `@forward .. with ..` to override variables
+  $border-color-app-control: color_palette.$scarlet-shade
+
+);

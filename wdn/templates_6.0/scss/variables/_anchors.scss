@@ -3,7 +3,18 @@
 //////////////////////////////
 
 
-@forward "@dcf/scss/variables/anchors";
+@use "sass:color";
+@use "./color-palette" as color_palette;
 
+@forward '@dcf/scss/variables/anchors' with (
 
-// Use `@forward .. with ..` to override variables
+  $color-link-light-mode: color_palette.$scarlet,
+  $color-link-dark-mode: color_palette.$light-cerulean,
+  $color-visited-light-mode: color.adjust(color_palette.$scarlet, $lightness: -10%),
+  $color-visited-dark-mode: color_palette.$lighter-cerulean,
+  $color-hover-light-mode: color.adjust(color_palette.$scarlet, $lightness: -10%),
+  $color-hover-dark-mode: color_palette.$lighter-cerulean,
+  $color-active-light-mode: color.adjust(color_palette.$scarlet, $lightness: -10%),
+  $color-active-dark-mode: color_palette.$lighter-cerulean
+
+);
