@@ -16,11 +16,11 @@
 
 
 // Gray
-@mixin bg-lightest($imp:null) { background-color: var.$bg-color-gray-lightest $imp; }
+@mixin bg-lightest($imp:null) { background-color: var.$bg-color-lightest-gray $imp; }
 @mixin bg-lightest-at-dark($imp:null) { background-color: var.$lightest-gray $imp; }
-@mixin bg-lighter($imp:null) { background-color: var.$bg-color-gray-lighter $imp; }
+@mixin bg-lighter($imp:null) { background-color: var.$bg-color-lighter-gray $imp; }
 @mixin bg-lighter-at-dark($imp:null) { background-color: var.$lighter-gray $imp; }
-@mixin bg-light($imp:null) { background-color: var.$bg-color-gray-light $imp; }
+@mixin bg-light($imp:null) { background-color: var.$bg-color-light-gray $imp; }
 @mixin bg-light-at-dark($imp:null) { background-color: var.$light-gray $imp; }
 @mixin bg-dark($imp:null) { background-color: var.$dark-gray $imp; }
 @mixin bg-darker($imp:null) { background-color: var.$darker-gray $imp; }
