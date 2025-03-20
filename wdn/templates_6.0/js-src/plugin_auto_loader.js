@@ -7,6 +7,7 @@ import * as wdn_datepicker from "@js-src/plugins/datepicker.js";
 import * as wdn_autoplay_video from "@js-src/plugins/autoplay_video.js";
 import * as wdn_pagination from "@js-src/plugins/pagination.js";
 import * as wdn_slideshow from "@js-src/plugins/slideshow.js";
+import * as wdn_search_select from "@js-src/plugins/search_select.js";
 
 // Main WDN plugins
 const plugin_map = {
@@ -19,6 +20,7 @@ const plugin_map = {
     "wdn_autoplay_video": wdn_autoplay_video,
     "wdn_pagination": wdn_pagination,
     "wdn_slideshow": wdn_slideshow,
+    "wdn_search_select": wdn_search_select,
 };
 
 // Loads all elements that are already on the page
