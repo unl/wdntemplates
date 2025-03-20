@@ -24,6 +24,8 @@ export default defineConfig({
                 'plugins/autoplay_video' : 'wdn/templates_6.0/js-src/plugins/autoplay_video.js',
                 'plugins/pagination' : 'wdn/templates_6.0/js-src/plugins/pagination.js',
                 'plugins/slideshow' : 'wdn/templates_6.0/js-src/plugins/slideshow.js',
+                'plugins/search_select' : 'wdn/templates_6.0/js-src/plugins/search_select.js',
+                'plugins/popup' : 'wdn/templates_6.0/js-src/plugins/popup.js',
 
                 'components/tab' : 'wdn/templates_6.0/js-src/components/wdn_tab.js',
                 'components/toggle_button' : 'wdn/templates_6.0/js-src/components/wdn_toggle_button.js',
@@ -34,6 +36,8 @@ export default defineConfig({
                 'components/autoplay_video' : 'wdn/templates_6.0/js-src/components/wdn_autoplay_video.js',
                 'components/pagination' : 'wdn/templates_6.0/js-src/components/wdn_pagination.js',
                 'components/slideshow' : 'wdn/templates_6.0/js-src/components/wdn_slideshow.js',
+                'components/search_select' : 'wdn/templates_6.0/js-src/components/wdn_search_select.js',
+                'components/popup' : 'wdn/templates_6.0/js-src/components/wdn_popup.js',
 
                 // We don't need 'css/main' as key since the assetFileNames will add the css directory
                 'affiliate' : 'wdn/templates_6.0/scss/affiliate.scss',
