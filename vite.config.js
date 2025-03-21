@@ -26,6 +26,7 @@ export default defineConfig({
                 'plugins/slideshow' : 'wdn/templates_6.0/js-src/plugins/slideshow.js',
                 'plugins/search_select' : 'wdn/templates_6.0/js-src/plugins/search_select.js',
                 'plugins/popup' : 'wdn/templates_6.0/js-src/plugins/popup.js',
+                'plugins/dialog' : 'wdn/templates_6.0/js-src/plugins/dialog.js',
 
                 'components/tab' : 'wdn/templates_6.0/js-src/components/wdn_tab.js',
                 'components/toggle_button' : 'wdn/templates_6.0/js-src/components/wdn_toggle_button.js',
@@ -38,6 +39,7 @@ export default defineConfig({
                 'components/slideshow' : 'wdn/templates_6.0/js-src/components/wdn_slideshow.js',
                 'components/search_select' : 'wdn/templates_6.0/js-src/components/wdn_search_select.js',
                 'components/popup' : 'wdn/templates_6.0/js-src/components/wdn_popup.js',
+                'components/dialog' : 'wdn/templates_6.0/js-src/components/wdn_dialog.js',
 
                 // We don't need 'css/main' as key since the assetFileNames will add the css directory
                 'affiliate' : 'wdn/templates_6.0/scss/affiliate.scss',
