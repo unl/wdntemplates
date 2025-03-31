@@ -1,0 +1,31 @@
+/////////////////////////////////
+// THEME / UTILITIES / ANIMATIONS
+/////////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+// Scroll-based animations
+// https://www.bram.us/2024/09/24/feature-detecting-scroll-driven-animations-you-want-to-check-for-animation-range-too/
+@supports ((animation-timeline: view()) and (animation-range: 0% 100%)) {
+
+  // Scroll trigger container
+  .unl-scroll-trigger-container { @include mixins.scroll-trigger(!important); }
+
+
+  // Scroll FX
+  .unl-scroll-fx { @include mixins.scroll-fx(!important); }
+
+
+  // Stagger scroll FX
+  .unl-scroll-trigger-stagger .unl-scroll-fx { @include mixins.scroll-trigger-stagger(!important); }
+
+
+  // Animation options
+  .unl-fade-in-on-scroll { @include mixins.fade-in-on-scroll(!important); }
+  .unl-move-left-on-scroll { @include mixins.move-left-on-scroll(!important); }
+  .unl-move-right-on-scroll { @include mixins.move-right-on-scroll(!important); }
+  .unl-move-up-on-scroll { @include mixins.move-up-on-scroll(!important); }
+
+}

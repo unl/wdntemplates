@@ -44,3 +44,8 @@
   animation-range: var.$animation-range-start-scroll-trigger var.$animation-range-end-scroll-trigger $imp;
   animation-timeline: view() $imp;
 }
+
+// Stagger scroll trigger
+@mixin scroll-trigger-stagger($imp:null) {
+  transition-delay: calc(var(--scroll-fx-count) * 100ms) $imp;
+}
