@@ -2,7 +2,9 @@
 // THEME / UTILITIES
 ////////////////////
 
+
 @forward "@dcf/scss/utilities/";
+@forward "./animations";
 @forward "./backdrop-filters";
 @forward "./background-blend-modes";
 @forward "./background-colors";
