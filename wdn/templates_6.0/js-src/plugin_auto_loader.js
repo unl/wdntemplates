@@ -8,6 +8,8 @@ import * as wdn_autoplay_video from "@js-src/plugins/autoplay_video.js";
 import * as wdn_pagination from "@js-src/plugins/pagination.js";
 import * as wdn_slideshow from "@js-src/plugins/slideshow.js";
 import * as wdn_search_select from "@js-src/plugins/search_select.js";
+import * as wdn_popup from "@js-src/plugins/popup.js";
+import * as wdn_dialog from "@js-src/plugins/dialog.js";
 
 // Main WDN plugins
 const plugin_map = {
@@ -21,6 +23,9 @@ const plugin_map = {
     "wdn_pagination": wdn_pagination,
     "wdn_slideshow": wdn_slideshow,
     "wdn_search_select": wdn_search_select,
+    "wdn_popup": wdn_popup,
+    "wdn_popup": wdn_popup,
+    "wdn_dialog": wdn_dialog,
 };
 
 // Loads all elements that are already on the page
