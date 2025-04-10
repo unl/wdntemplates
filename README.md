@@ -27,12 +27,33 @@ many useful features like preprocessing, minifier, js maps, tree shaking, etc.
 4. Install Node dependencies: `npm ci`
 5. Run Vite build command: `npm run build`
 
-### Variables
+### Installing Dev Environment (Working on DCF and WDN Templates)
+
+1. Install using the normal installation above
+2. Install DCF as another project on your machine (preferably not in the WDN templates project directory)
+    1. Clone DCF: `git clone https://github.com/digitalcampusframework/dcf.git`
+    2. Install DCF's Node dependencies: `npm ci`
+3. Remove DCF from `node_modules` folder: `rm node_modules/dcf`
+4. Create a symlink to replace DCF in `node_modules` with your cloned project: `ln -s /path/to/wdn/node_modules/dcf /path/to/your/dcf`
+5. Create `.env.local` in the project root
+    1. Add `DCF_DIR` to the the file and set it equal to the path to your DCF project: `DCF_DIR=/path/to/your/dcf`
+        - This is to help eslint be able to find the files we reference. Not sure why it doesn't work with symlinks
+    2. Add `DEVELOPMENT` to the file and et it equal to true.
+        - This will make eslint run on every vite build
+6. Now you should be able to work on DCF and the WDN templates side by side and have vite build use your in development DCF code
+    - Reminder: Remember to set the correct branches for both projects to avoid errors
+    - Tip: VSCode lets you open both projects in the same window using Workspaces
+
+### Environment Variables
 
 We are using Vite's environment variables to enable us to insert variables into the code.
 
 The default values for these variables are in the `.env` file. For local
 development you can create a `.env.local` which will override the default values.
+
+| Name | Description |
+| DEVELOPMENT | If set to true will load ESLint plugin in vite to prevent building unless lint passes without errors |
+| DCF_DIR | Sometimes in development using a symlink to a develop DCF is helpful but that causes ESLint errors. This will let you define the path for the DCF directory if symlinks are present |
 
 ## Further support
 

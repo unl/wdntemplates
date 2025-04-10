@@ -1,31 +1,34 @@
-import slideshow_css_url from '@scss/components-js/_slideshows.scss?url';
-import figcaption_toggle_css_url from '@scss/components-js/_figcaption-toggles.scss?url';
-import button_toggle_css_url from '@scss/components-js/_button-toggles.scss?url';
+import slideshowCssUrl from '@scss/components-js/_slideshows.scss?url';
+import figcaptionToggleCssUrl from '@scss/components-js/_figcaption-toggles.scss?url';
+import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
 import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
 
-// This is where the imported class will go
-let wdn_slideshow = null;
+/**
+ * This is where the imported class will be stored
+ * @type {?WDNSlideshow} WDNSlideshow
+ */
+let WDNSlideshow = null;
 
 // Query Selector for the tabs component
-const query_selector = ".dcf-slideshow";
+const querySelector = '.dcf-slideshow';
 
 // Storing the state whether the plugin is initialized or not
-let is_initialized = false;
+let isInitialized = false;
 
 /**
  * Gets the query selector which is used for this plugin's component
  * @returns { String }
  */
-export function get_query_selector() {
-    return query_selector;
+export function getQuerySelector() {
+    return querySelector;
 }
 
 /**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
-export function get_is_initialized() {
-    return is_initialized;
+export function getIsInitialized() {
+    return isInitialized;
 }
 
 /**
@@ -33,14 +36,14 @@ export function get_is_initialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (is_initialized) { return; }
-    is_initialized = true;
+    if (isInitialized) { return; }
+    isInitialized = true;
 
-    const slideshow_component = await import('@js-src/components/wdn_slideshow.js');
-    wdn_slideshow = slideshow_component.default;
-    await loadStyleSheet(slideshow_css_url);
-    await loadStyleSheet(figcaption_toggle_css_url);
-    await loadStyleSheet(button_toggle_css_url);
+    const slideshowComponent = await import('@js-src/components/wdn_slideshow.js');
+    WDNSlideshow = slideshowComponent.default;
+    await loadStyleSheet(slideshowCssUrl);
+    await loadStyleSheet(figcaptionToggleCssUrl);
+    await loadStyleSheet(buttonToggleCssUrl);
 }
 
 /**
@@ -49,12 +52,12 @@ export async function initialize() {
  * @param { Object } options optional parameters to pass in when loading the element
  * @returns { Promise<WDNSlideshow> }
  */
-export async function load_element(element, options) {
-    if (!is_initialized) {
+export async function loadElement(element, options) {
+    if (!isInitialized) {
         await initialize();
     }
 
-    return new wdn_slideshow(element, options);
+    return new WDNSlideshow(element, options);
 }
 
 /**
@@ -64,21 +67,21 @@ export async function load_element(element, options) {
  * @param { Object } options optional parameters to pass in when loading the element
  * @returns { Promise<WDNSlideshow[]> }
  */
-export async function load_elements(elements, options) {
-    let output_elements = []
-    for (const single_element of elements) {
-        output_elements.push(await load_element(single_element, options));
+export async function loadElements(elements, options) {
+    const outputElements = [];
+    for (const singleElement of elements) {
+        outputElements.push(await loadElement(singleElement, options));
     }
-    return output_elements;
+    return outputElements;
 }
 
 /**
- * Using the `query_selector` we will load all elements on the page
+ * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
  * @returns { Promise<WDNSlideshow[]> }
  */
-export async function load_elements_on_page(options) {
-    let all_slideshows = document.querySelectorAll(query_selector);
-    return await load_elements(all_slideshows, options);
+export async function loadElementsOnPage(options) {
+    const allSlideshows = document.querySelectorAll(querySelector);
+    return await loadElements(allSlideshows, options);
 }

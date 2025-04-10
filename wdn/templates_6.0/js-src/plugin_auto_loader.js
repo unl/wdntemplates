@@ -1,69 +1,68 @@
-import * as wdn_tab from "@js-src/plugins/tab.js";
-import * as wdn_toggle_button from "@js-src/plugins/toggle_button.js";
-import * as wdn_collapsible_fieldset from "@js-src/plugins/collapsible_fieldset.js";
-import * as wdn_figcaption_toggle from "@js-src/plugins/figcaption_toggle.js";
-import * as wdn_notice from "@js-src/plugins/notice.js";
-import * as wdn_datepicker from "@js-src/plugins/datepicker.js";
-import * as wdn_autoplay_video from "@js-src/plugins/autoplay_video.js";
-import * as wdn_pagination from "@js-src/plugins/pagination.js";
-import * as wdn_slideshow from "@js-src/plugins/slideshow.js";
-import * as wdn_search_select from "@js-src/plugins/search_select.js";
-import * as wdn_popup from "@js-src/plugins/popup.js";
-import * as wdn_dialog from "@js-src/plugins/dialog.js";
+import * as WDNTab from '@js-src/plugins/tab.js';
+import * as WDNToggleButton from '@js-src/plugins/toggle_button.js';
+import * as WDNCollapsibleFieldset from '@js-src/plugins/collapsible_fieldset.js';
+import * as WDNFigcaptionToggle from '@js-src/plugins/figcaption_toggle.js';
+import * as WDNNotice from '@js-src/plugins/notice.js';
+import * as WDNDatepicker from '@js-src/plugins/datepicker.js';
+import * as WDNAutoplayVideo from '@js-src/plugins/autoplay_video.js';
+import * as WDNPagination from '@js-src/plugins/pagination.js';
+import * as WDNSlideshow from '@js-src/plugins/slideshow.js';
+import * as WDNSearchSelect from '@js-src/plugins/search_select.js';
+import * as WDNPopup from '@js-src/plugins/popup.js';
+import * as WDNDialog from '@js-src/plugins/dialog.js';
 
 // Main WDN plugins
-const plugin_map = {
-    "wdn_tab": wdn_tab,
-    "wdn_toggle_button": wdn_toggle_button,
-    "wdn_collapsible_fieldset": wdn_collapsible_fieldset,
-    "wdn_figcaption_toggle": wdn_figcaption_toggle,
-    "wdn_notice": wdn_notice,
-    "wdn_datepicker": wdn_datepicker,
-    "wdn_autoplay_video": wdn_autoplay_video,
-    "wdn_pagination": wdn_pagination,
-    "wdn_slideshow": wdn_slideshow,
-    "wdn_search_select": wdn_search_select,
-    "wdn_popup": wdn_popup,
-    "wdn_popup": wdn_popup,
-    "wdn_dialog": wdn_dialog,
+const pluginMap = {
+    'wdn_tab': WDNTab,
+    'wdn_toggle_button': WDNToggleButton,
+    'wdn_collapsible_fieldset': WDNCollapsibleFieldset,
+    'wdn_figcaption_toggle': WDNFigcaptionToggle,
+    'wdn_notice': WDNNotice,
+    'wdn_datepicker': WDNDatepicker,
+    'wdn_autoplay_video': WDNAutoplayVideo,
+    'wdn_pagination': WDNPagination,
+    'wdn_slideshow': WDNSlideshow,
+    'wdn_search_select': WDNSearchSelect,
+    'wdn_popup': WDNPopup,
+    'wdn_dialog': WDNDialog,
 };
 
 // Loads all elements that are already on the page
-for (const single_plugin_name in plugin_map) {
-    if (!plugin_map.hasOwnProperty(single_plugin_name)) { continue; }
-    const plugin = plugin_map[single_plugin_name];
-    if (typeof plugin.load_elements_on_page !== 'function') {
-        throw new Error(`Invalid load_elements_on_page function in plugin: ${single_plugin_name}`);
+for (const singlePluginName in pluginMap) {
+    if (!Object.hasOwn(pluginMap, singlePluginName)) { continue; }
+    const plugin = pluginMap[singlePluginName];
+    if (typeof plugin.loadElementsOnPage !== 'function') {
+        throw new Error(`Invalid loadElementsOnPage function in plugin: ${singlePluginName}`);
     }
-    plugin.load_elements_on_page();
+    plugin.loadElementsOnPage();
 }
 
 // Loads all elements that are added to the page
-const mutationCallback = function(mutationList){
+const mutationCallback = function(mutationList) {
     mutationList.forEach((mutationRecord) => {
         mutationRecord.addedNodes.forEach((nodeAdded) => {
             if (nodeAdded instanceof Element) {
-                for (const single_plugin_name in plugin_map) {
-                    if (!plugin_map.hasOwnProperty(single_plugin_name)) { continue; }
-                    const plugin = plugin_map[single_plugin_name];
-                    if (typeof plugin.get_query_selector !== 'function') {
-                        throw new Error(`Invalid get_query_selector function in plugin: ${single_plugin_name}`);
+                for (const singlePluginName in pluginMap) {
+                    if (!Object.hasOwn(pluginMap, singlePluginName)) { continue; }
+                    const plugin = pluginMap[singlePluginName];
+                    if (typeof plugin.getQuerySelector !== 'function') {
+                        throw new Error(`Invalid getQuerySelector function in plugin: ${singlePluginName}`);
                     }
-                    if (typeof plugin.load_element !== 'function') {
-                        throw new Error(`Invalid load_element function in plugin: ${single_plugin_name}`);
+                    if (typeof plugin.loadElement !== 'function') {
+                        throw new Error(`Invalid loadElement function in plugin: ${singlePluginName}`);
                     }
-                    if (nodeAdded.matches(plugin.get_query_selector())) {
-                        plugin.load_element(nodeAdded);
+                    if (nodeAdded.matches(plugin.getQuerySelector())) {
+                        plugin.loadElement(nodeAdded);
                     }
                 }
             }
-        })
+        });
     });
-}
+};
 
-const observer = new MutationObserver(mutationCallback)
+const observer = new MutationObserver(mutationCallback);
 const observerConfig = {
     subtree: true,
     childList: true,
-}
+};
 observer.observe(document.body, observerConfig);

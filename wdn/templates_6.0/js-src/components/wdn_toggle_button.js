@@ -1,8 +1,7 @@
-import DCFButtonToggle from "@dcf/js/components/dcf-button-toggle.js";
+import DCFButtonToggle from '@dcf/js/components/dcf-button-toggle.js';
 
 export default class WDNButtonToggle extends DCFButtonToggle {
-    constructor(toggleButtonElement, options={})
-    {
+    constructor(toggleButtonElement, options={}) {
         super(toggleButtonElement, options);
     }
 }

@@ -20,16 +20,25 @@
   },
   "dependencies": {
     "@vitejs/plugin-legacy": "^6.0.0",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.4.21",
     "dcf": "github:digitalcampusframework/dcf#4.0-WIP",
-    "postcss": "^8.4.49",
+    "postcss-nested": "^7.0.2",
     "sass": "^1.83.1",
-    "vite": "^6.0.7"
+    "vite": "^6.0.7",
+    "vite-plugin-eslint": "^1.8.1"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build-watch": "vite build --watch",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint-js": "eslint wdn/templates_6.0/js-src/**/*.js",
+    "lint-scss": "stylelint wdn/templates_6.0/scss/**/*.scss"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "@stylistic/eslint-plugin-js": "^4.2.0",
+    "eslint": "^9.24.0",
+    "globals": "^16.0.0"
   }
 }

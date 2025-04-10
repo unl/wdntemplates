@@ -1,8 +1,7 @@
-import DCFSearchSelect from "@dcf/js/components/dcf-search-select.js";
+import DCFSearchSelect from '@dcf/js/components/dcf-search-select.js';
 
 export default class WDNSearchSelect extends DCFSearchSelect {
-    constructor(selectElement, options = {})
-    {
+    constructor(selectElement, options = {}) {
         if (!('availableItemsListClassList' in options)) {
             options.availableItemsListClassList = [
                 'dcf-absolute',
@@ -11,7 +10,7 @@ export default class WDNSearchSelect extends DCFSearchSelect {
                 'dcf-pl-0',
                 'dcf-w-100%',
                 'dcf-z-2',
-                'unl-box-shadow'
+                'unl-box-shadow',
             ];
         }
 
@@ -21,7 +20,7 @@ export default class WDNSearchSelect extends DCFSearchSelect {
                 'dcf-btn-secondary',
                 'dcf-h-100%',
                 'dcf-p-3',
-                'dcf-z-1'
+                'dcf-z-1',
             ];
         }
 

@@ -1,30 +1,33 @@
-import figcaption_toggle_css_url from '@scss/components-js/_figcaption-toggles.scss?url';
-import button_toggle_css_url from '@scss/components-js/_button-toggles.scss?url';
+import figcaptionToggleCssUrl from '@scss/components-js/_figcaption-toggles.scss?url';
+import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
 import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
 
-// This is where the imported class will go
-let wdn_figcaption_toggle = null;
+/**
+ * This is where the imported class will be stored
+ * @type {?WDNFigcaptionToggle} WDNFigcaptionToggle
+ */
+let WDNFigcaptionToggle = null;
 
 // Query Selector for the figcaption toggle component
-const query_selector = ".dcf-figcaption-toggle";
+const querySelector = '.dcf-figcaption-toggle';
 
 // Storing the state whether the plugin is initialized or not
-let is_initialized = false;
+let isInitialized = false;
 
 /**
  * Gets the query selector which is used for this plugin's component
  * @returns { String }
  */
-export function get_query_selector() {
-    return query_selector;
+export function getQuerySelector() {
+    return querySelector;
 }
 
 /**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
-export function get_is_initialized() {
-    return is_initialized;
+export function getIsInitialized() {
+    return isInitialized;
 }
 
 /**
@@ -32,27 +35,27 @@ export function get_is_initialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (is_initialized) { return; }
-    is_initialized = true;
+    if (isInitialized) { return; }
+    isInitialized = true;
 
-    const figcaption_toggle_component = await import('@js-src/components/wdn_figcaption_toggle.js');
-    wdn_figcaption_toggle = figcaption_toggle_component.default;
-    await loadStyleSheet(button_toggle_css_url);
-    await loadStyleSheet(figcaption_toggle_css_url);
+    const figcaptionToggleComponent = await import('@js-src/components/wdn_figcaption_toggle.js');
+    WDNFigcaptionToggle = figcaptionToggleComponent.default;
+    await loadStyleSheet(buttonToggleCssUrl);
+    await loadStyleSheet(figcaptionToggleCssUrl);
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNFigcaptionToggles> }
+ * @returns { Promise<WDNFigcaptionToggle> }
  */
-export async function load_element(element, options) {
-    if (!is_initialized) {
+export async function loadElement(element, options) {
+    if (!isInitialized) {
         await initialize();
     }
 
-    return new wdn_figcaption_toggle(element, options);
+    return new WDNFigcaptionToggle(element, options);
 }
 
 /**
@@ -60,23 +63,23 @@ export async function load_element(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNFigcaptionToggles[]> }
+ * @returns { Promise<WDNFigcaptionToggle[]> }
  */
-export async function load_elements(elements, options) {
-    let output_elements = []
-    for (const single_element of elements) {
-        output_elements.push(await load_element(single_element, options));
+export async function loadElements(elements, options) {
+    const outputElements = [];
+    for (const singleElement of elements) {
+        outputElements.push(await loadElement(singleElement, options));
     }
-    return output_elements;
+    return outputElements;
 }
 
 /**
- * Using the `query_selector` we will load all elements on the page
+ * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNFigcaptionToggles[]> }
+ * @returns { Promise<WDNFigcaptionToggle[]> }
  */
-export async function load_elements_on_page(options) {
-    let all_figcaption_toggles = document.querySelectorAll(query_selector);
-    return await load_elements(all_figcaption_toggles, options);
+export async function loadElementsOnPage(options) {
+    const allFigcaptionToggles = document.querySelectorAll(querySelector);
+    return await loadElements(allFigcaptionToggles, options);
 }

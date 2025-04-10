@@ -1,30 +1,33 @@
-import collapsible_fieldsets_css_url from '@scss/components-js/_collapsible-fieldsets.scss?url';
-import button_toggle_css_url from '@scss/components-js/_button-toggles.scss?url';
+import collapsibleFieldsetsCssUrl from '@scss/components-js/_collapsible-fieldsets.scss?url';
+import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
 import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
 
-// This is where the imported class will go
-let wdn_collapsible_fieldsets = null;
+/**
+ * This is where the imported class will be stored
+ * @type {?WDNCollapsibleFieldset} WDNCollapsibleFieldset
+ */
+let WDNCollapsibleFieldset = null;
 
 // Query Selector for the collapsible fieldset component
-const query_selector = ".dcf-collapsible-fieldset";
+const querySelector = '.dcf-collapsible-fieldset';
 
 // Storing the state whether the plugin is initialized or not
-let is_initialized = false;
+let isInitialized = false;
 
 /**
  * Gets the query selector which is used for this plugin's component
  * @returns { String }
  */
-export function get_query_selector() {
-    return query_selector;
+export function getQuerySelector() {
+    return querySelector;
 }
 
 /**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
-export function get_is_initialized() {
-    return is_initialized;
+export function getIsInitialized() {
+    return isInitialized;
 }
 
 /**
@@ -32,27 +35,27 @@ export function get_is_initialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (is_initialized) { return; }
-    is_initialized = true;
+    if (isInitialized) { return; }
+    isInitialized = true;
 
-    const collapsible_fieldsets_component = await import('@js-src/components/wdn_collapsible_fieldset.js');
-    wdn_collapsible_fieldsets = collapsible_fieldsets_component.default;
-    await loadStyleSheet(button_toggle_css_url);
-    await loadStyleSheet(collapsible_fieldsets_css_url);
+    const collapsibleFieldsetsComponent = await import('@js-src/components/wdn_collapsible_fieldset.js');
+    WDNCollapsibleFieldset = collapsibleFieldsetsComponent.default;
+    await loadStyleSheet(buttonToggleCssUrl);
+    await loadStyleSheet(collapsibleFieldsetsCssUrl);
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNCollapsibleFieldsets> }
+ * @returns { Promise<WDNCollapsibleFieldset> }
  */
-export async function load_element(element, options) {
-    if (!is_initialized) {
+export async function loadElement(element, options) {
+    if (!isInitialized) {
         await initialize();
     }
 
-    return new wdn_collapsible_fieldsets(element, options);
+    return new WDNCollapsibleFieldset(element, options);
 }
 
 /**
@@ -60,23 +63,23 @@ export async function load_element(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNCollapsibleFieldsets[]> }
+ * @returns { Promise<WDNCollapsibleFieldset[]> }
  */
-export async function load_elements(elements, options) {
-    let output_elements = []
-    for (const single_element of elements) {
-        output_elements.push(await load_element(single_element, options));
+export async function loadElements(elements, options) {
+    const outputElements = [];
+    for (const singleElement of elements) {
+        outputElements.push(await loadElement(singleElement, options));
     }
-    return output_elements;
+    return outputElements;
 }
 
 /**
- * Using the `query_selector` we will load all elements on the page
+ * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNCollapsibleFieldsets[]> }
+ * @returns { Promise<WDNCollapsibleFieldset[]> }
  */
-export async function load_elements_on_page(options) {
-    let all_fieldsets = document.querySelectorAll(query_selector);
-    return await load_elements(all_fieldsets, options);
+export async function loadElementsOnPage(options) {
+    const allFieldsets = document.querySelectorAll(querySelector);
+    return await loadElements(allFieldsets, options);
 }

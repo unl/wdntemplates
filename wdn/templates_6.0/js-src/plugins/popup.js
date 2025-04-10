@@ -1,29 +1,32 @@
-import popups_css_url from '@scss/components-js/_popups.scss?url';
+import popupsCssUrl from '@scss/components-js/_popups.scss?url';
 import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
 
-// This is where the imported class will go
-let wdn_popups = null;
+/**
+ * This is where the imported class will be stored
+ * @type {?WDNPopup} WDNPopup
+ */
+let WDNPopup = null;
 
 // Query Selector for the tabs component
-const query_selector = ".dcf-popup";
+const querySelector = '.dcf-popup';
 
 // Storing the state whether the plugin is initialized or not
-let is_initialized = false;
+let isInitialized = false;
 
 /**
  * Gets the query selector which is used for this plugin's component
  * @returns { String }
  */
-export function get_query_selector() {
-    return query_selector;
+export function getQuerySelector() {
+    return querySelector;
 }
 
 /**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
-export function get_is_initialized() {
-    return is_initialized;
+export function getIsInitialized() {
+    return isInitialized;
 }
 
 /**
@@ -31,12 +34,12 @@ export function get_is_initialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (is_initialized) { return; }
-    is_initialized = true;
+    if (isInitialized) { return; }
+    isInitialized = true;
 
-    const popup_component = await import('@js-src/components/wdn_popup.js');
-    wdn_popups = popup_component.default;
-    await loadStyleSheet(popups_css_url);
+    const popupComponent = await import('@js-src/components/wdn_popup.js');
+    WDNPopup = popupComponent.default;
+    await loadStyleSheet(popupsCssUrl);
 }
 
 /**
@@ -45,12 +48,12 @@ export async function initialize() {
  * @param { Object } options optional parameters to pass in when loading the element
  * @returns { Promise<WDNPopup> }
  */
-export async function load_element(element, options) {
-    if (!is_initialized) {
+export async function loadElement(element, options) {
+    if (!isInitialized) {
         await initialize();
     }
 
-    return new wdn_popups(element, options);
+    return new WDNPopup(element, options);
 }
 
 /**
@@ -60,21 +63,21 @@ export async function load_element(element, options) {
  * @param { Object } options optional parameters to pass in when loading the element
  * @returns { Promise<WDNPopup[]> }
  */
-export async function load_elements(elements, options) {
-    let output_elements = []
-    for (const single_element of elements) {
-        output_elements.push(await load_element(single_element, options));
+export async function loadElements(elements, options) {
+    const outputElements = [];
+    for (const singleElement of elements) {
+        outputElements.push(await loadElement(singleElement, options));
     }
-    return output_elements;
+    return outputElements;
 }
 
 /**
- * Using the `query_selector` we will load all elements on the page
+ * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
  * @returns { Promise<WDNPopup[]> }
  */
-export async function load_elements_on_page(options) {
-    let all_popups = document.querySelectorAll(query_selector);
-    return await load_elements(all_popups, options);
+export async function loadElementsOnPage(options) {
+    const allPopups = document.querySelectorAll(querySelector);
+    return await loadElements(allPopups, options);
 }
