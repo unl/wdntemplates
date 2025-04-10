@@ -132,12 +132,38 @@
     <div class="dcf-main-content dcf-wrapper">
     <!-- InstanceBeginEditable name="maincontentarea" -->
 
-<!-- <svg viewBox="0 0 174 152" height="142" width="142"><style>.st0{fill:#d00000}</style><path style="stroke: blue; stroke-width: 4px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47zM26 112H16h10zM114 87L62 5l52 82zM70 112H60h10zM158 112h-10 10z"/><path style="stroke: yellow; stroke-width: 2px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47z"/></svg> -->
+<!-- <svg viewBox="0 0 174 152" height="142" width="142">
+  <style>.st0{fill:#d00000}</style>
+  <path style="stroke: blue; stroke-width: 4px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47zM26 112H16h10zM114 87L62 5l52 82zM70 112H60h10zM158 112h-10 10z"></path>
+  <path style="stroke: yellow; stroke-width: 2px;" class="st0" d="M114 87L62 5H16v35h10v72H16v35h54v-35H60V65l52 82h46v-35h-10V40h10V5h-54v35h10v47z"></path>
+</svg> -->
 <!--
-<svg height="142" width="142" style="width: 4em;"  viewBox="0 0 142 142"><style>.st0{fill:#d00000}</style><path style="stroke: #d00000; stroke-width: 6px;" class="st0" d="M98 82L46 0H0v35h10v72H0v35h54v-35H44V60l52 82h46v-35h-10V35h10V0H88v35h10v47zM10 107H0h10zM98 82L46 0l52 82zM54 107H44h10zM142 107h-10 10z"/><path style="stroke: #fff; stroke-width: 3px;" class="st0" d="M98 82L46 0H0v35h10v72H0v35h54v-35H44V60l52 82h46v-35h-10V35h10V0H88v35h10v47z"/></svg>
+<svg height="142" width="142" style="width: 4em;"  viewBox="0 0 142 142">
+  <style>.st0{fill:#d00000}</style>
+  <path style="stroke: #d00000; stroke-width: 6px;" class="st0" d="M98 82L46 0H0v35h10v72H0v35h54v-35H44V60l52 82h46v-35h-10V35h10V0H88v35h10v47zM10 107H0h10zM98 82L46 0l52 82zM54 107H44h10zM142 107h-10 10z"></path>
+  <path style="stroke: #fff; stroke-width: 3px;" class="st0" d="M98 82L46 0H0v35h10v72H0v35h54v-35H44V60l52 82h46v-35h-10V35h10V0H88v35h10v47z"></path>
+</svg>
 <br>
-<svg style="width: 4em;" id="Nebraska_N" data-name="Nebraska N" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 152" height="142" width="142"><defs><style>.cls-1{fill:#d00000;}.cls-2{fill:#231f20;}.cls-3{fill:#fff;}</style></defs><title>Nebraska_N_Stroke3x2</title><polygon class="cls-1" points="100.45 148 50 68.448 50 111.002 60 111.002 60 148 4 148 4 111.002 14 111.002 14 41 4 41 4 4 51.548 4 102 83.562 102 41 92 41 92 4 148 4 148 41 138 41 138 111.002 148 111.002 148 148 100.45 148"/><path class="cls-2" d="M158.011,5V40h-10v72h10v35h-46l-52-82v47h10v35h-54V112h10V40h-10V5h46l52,82.006h0V40h-10V5h54m2-2h-58V42h10V80.117L63.7,3.929,63.11,3h-49.1V42h10v68h-10v39h58V110h-10V71.892l48.311,76.179.589.929h49.1V110h-10V42h10V3Z" transform="translate(-11.011)"/><rect class="cls-1" x="5" y="111.002" width="10" height="2"/><path class="cls-2" d="M26.011,112h0m0-2h-12v2c0,.334.113,2,2.339,2h9.661v-4Z" transform="translate(-11.011)"/><rect class="cls-1" x="87.011" y="-2.549" width="2" height="97.104" transform="translate(-21.963 54.283) rotate(-32.379)"/><path class="cls-2" d="M62.01,5l52,82.005h0L62.01,5M63.7,3.929,60.321,6.071l52,82.006,3.378-2.142L63.7,3.929Z" transform="translate(-11.011)"/><rect class="cls-1" x="49" y="111.002" width="10" height="2"/><path class="cls-2" d="M70.011,112h0m0-2h-10v4h10v-4Z" transform="translate(-11.011)"/><rect class="cls-1" x="137" y="111.002" width="10" height="2"/><path class="cls-2" d="M158.011,112h0m0-2h-10v4h10v-4Z" transform="translate(-11.011)"/><polygon class="cls-1" points="99.626 149.5 51.5 73.613 51.5 109.502 61.5 109.502 61.5 149.5 2.5 149.5 2.5 109.502 12.5 109.502 12.5 42.5 2.5 42.5 2.5 2.5 52.374 2.5 100.5 78.396 100.5 42.5 90.5 42.5 90.5 2.5 149.5 2.5 149.5 42.5 139.5 42.5 139.5 109.502 149.5 109.502 149.5 149.5 99.626 149.5"/><path class="cls-1" d="M158.011,5V40h-10v72h10v35h-46l-52-82v47h10v35h-54V112h10V40h-10V5h46l52,82.006V40h-10V5h54m5-5h-64V45h10V69.784L66.232,2.322,64.76,0H11.011V45h10v62h-10v45h64V107h-10V82.224l42.778,67.454L109.262,152h53.749V107h-10V45h10V0Z" transform="translate(-11.011)"/><path class="cls-3" d="M158.011,5V40h-10v72h10v35h-46l-52-82v47h10v35h-54V112h10V40h-10V5h46l52,82.006V40h-10V5h54m3-3h-60V43h10V76.673L64.6.0,3.393,63.66,2H13.011V43h10v66h-10v41h60V109h-10V76.036l46.467,73.271.884,1.393h50.649V109h-10V43h10V2Z" transform="translate(-11.011)"/></svg>
--->
+<svg style="width: 4em;" id="Nebraska_N" data-name="Nebraska N" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 152" height="142" width="142">
+  <defs>
+    <style>.cls-1{fill:#d00000;}.cls-2{fill:#231f20;}.cls-3{fill:#fff;}</style>
+  </defs>
+  <title>Nebraska_N_Stroke3x2</title>
+  <polygon class="cls-1" points="100.45 148 50 68.448 50 111.002 60 111.002 60 148 4 148 4 111.002 14 111.002 14 41 4 41 4 4 51.548 4 102 83.562 102 41 92 41 92 4 148 4 148 41 138 41 138 111.002 148 111.002 148 148 100.45 148"></polygon>
+  <path class="cls-2" d="M158.011,5V40h-10v72h10v35h-46l-52-82v47h10v35h-54V112h10V40h-10V5h46l52,82.006h0V40h-10V5h54m2-2h-58V42h10V80.117L63.7,3.929,63.11,3h-49.1V42h10v68h-10v39h58V110h-10V71.892l48.311,76.179.589.929h49.1V110h-10V42h10V3Z" transform="translate(-11.011)"></path>
+  <rect class="cls-1" x="5" y="111.002" width="10" height="2"></rect>
+  <path class="cls-2" d="M26.011,112h0m0-2h-12v2c0,.334.113,2,2.339,2h9.661v-4Z" transform="translate(-11.011)"></path>
+  <rect class="cls-1" x="87.011" y="-2.549" width="2" height="97.104" transform="translate(-21.963 54.283) rotate(-32.379)"></rect>
+  <path class="cls-2" d="M62.01,5l52,82.005h0L62.01,5M63.7,3.929,60.321,6.071l52,82.006,3.378-2.142L63.7,3.929Z" transform="translate(-11.011)"></path>
+  <rect class="cls-1" x="49" y="111.002" width="10" height="2"></rect>
+  <path class="cls-2" d="M70.011,112h0m0-2h-10v4h10v-4Z" transform="translate(-11.011)"></path>
+  <rect class="cls-1" x="137" y="111.002" width="10" height="2"></rect>
+  <path class="cls-2" d="M158.011,112h0m0-2h-10v4h10v-4Z" transform="translate(-11.011)"></path>
+  <polygon class="cls-1" points="99.626 149.5 51.5 73.613 51.5 109.502 61.5 109.502 61.5 149.5 2.5 149.5 2.5 109.502 12.5 109.502 12.5 42.5 2.5 42.5 2.5 2.5 52.374 2.5 100.5 78.396 100.5 42.5 90.5 42.5 90.5 2.5 149.5 2.5 149.5 42.5 139.5 42.5 139.5 109.502 149.5 109.502 149.5 149.5 99.626 149.5"></polygon>
+  <path class="cls-1" d="M158.011,5V40h-10v72h10v35h-46l-52-82v47h10v35h-54V112h10V40h-10V5h46l52,82.006V40h-10V5h54m5-5h-64V45h10V69.784L66.232,2.322,64.76,0H11.011V45h10v62h-10v45h64V107h-10V82.224l42.778,67.454L109.262,152h53.749V107h-10V45h10V0Z" transform="translate(-11.011)"></path>
+  <path class="cls-3" d="M158.011,5V40h-10v72h10v35h-46l-52-82v47h10v35h-54V112h10V40h-10V5h46l52,82.006V40h-10V5h54m3-3h-60V43h10V76.673L64.6.0,3.393,63.66,2H13.011V43h10v66h-10v41h60V109h-10V76.036l46.467,73.271.884,1.393h50.649V109h-10V43h10V2Z" transform="translate(-11.011)"></path>
+</svg> -->
+
 <!--
       <img class="dcf-d-block dcf-absolute dcf-w-100%" style="top: 50%; transform: translateY(-50%); filter: blur(50px);" src="wdn/templates_6.0/images/170902-ne-asu-0878-lg-min.jpg" alt="#">
       <img class="dcf-d-block dcf-absolute" style="right: 0; top: 0; height: 100%; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 42.3% 100%) !important;" src="wdn/templates_6.0/images/170902-ne-asu-0878-lg-min.jpg" alt="#">
@@ -173,10 +199,34 @@
         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
     -->
 
-        <h2><!--<svg focusable="false" width="24" height="24" viewBox="0 0 24 24" style="width: 1em; height: 1em; margin-right: .382em;"><g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><circle cx="9.5" cy="9.5" r="9"/><path d="M15.863 15.864L23.5 23.5M8 10.552v1.77L4 14M11 10.552v1.77L15 14"/><ellipse cx="9.5" cy="7.163" rx="3.197" ry="3.837"/><path d="M12.666 6.665c-.104.012-.246.006-.351.026-1.041.2-1.709-.177-2.283-1.181-.344.66-1.419 1.181-2.303 1.181-.436 0-.973-.109-1.348-.305"/></g><g><path fill="none" d="M0 0h24v24H0z"/></g></svg>--><!-- <small>Roof party freegan lomo</small>  -->Vinyl bitters banjo, meggings forage Terry Richardson kogi pug beard aesthetic kitsch whatever selvage.</h2>
+        <h2>
+          <!-- <svg focusable="false" width="24" height="24" viewBox="0 0 24 24" style="width: 1em; height: 1em; margin-right: .382em;">
+            <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+              <circle cx="9.5" cy="9.5" r="9"></circle>
+              <path d="M15.863 15.864L23.5 23.5M8 10.552v1.77L4 14M11 10.552v1.77L15 14"></path>
+              <ellipse cx="9.5" cy="7.163" rx="3.197" ry="3.837"></ellipse>
+              <path d="M12.666 6.665c-.104.012-.246.006-.351.026-1.041.2-1.709-.177-2.283-1.181-.344.66-1.419 1.181-2.303 1.181-.436 0-.973-.109-1.348-.305"></path>
+            </g>
+            <g>
+              <path fill="none" d="M0 0h24v24H0z"></path>
+            </g>
+          </svg> -->
+        <!-- <small>Roof party freegan lomo</small>  -->Vinyl bitters banjo, meggings forage Terry Richardson kogi pug beard aesthetic kitsch whatever selvage.</h2>
         <p>Distillery XOXO Pinterest before they sold out single-origin coffee ugh, ethical small batch organic gentrify <abbr>VHS</abbr>. Kale chips <a href="#">mixtape master</a> cleanse jean shorts Echo Park. Meggings Banksy umami, +1 you probably haven’t heard of them cliche gastropub keytar Neutra.</p>
         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
-        <h3><!-- <svg focusable="false" width="24" height="24" viewBox="0 0 24 24" style="width: 1em; height: 1em; margin-right: .382em;"><g fill="none" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10"><circle cx="11.5" cy="12.491" r="7.5"/><path stroke-linecap="round" d="M18.759 13.702c-1.271 1.6.0-4.044 2.596-7.259 2.596-3.21 0-5.979-1.061-7.253-2.59M4.171 11.341C5.408 9.762 8.224 8.657 11.5 8.657c3.209 0 5.978 1.061 7.252 2.59"/><path stroke-linecap="round" d="M10.298 19.704c-1.6.0-1.271-2.597-4.043-2.597-7.258 0-3.211 1.061-5.979 2.59-7.254M12.769 5.248c1.495 1.297 2.525 4.032 2.525 7.198 0 3.209-1.06 5.977-2.588 7.252"/><path d="M11.5 5V0"/><path stroke-linecap="round" d="M17.705 2.958l-1.137 1.646M22.363 10.94l-1.991.194M18.61 21.272l-1.311-1.509M4.235 21.239l1.31-1.511M.527 10.888l1.992.191M5.528 2.737l1.083 1.682"/><path d="M11.5 20V5M4 12.5h15"/></g><path fill="none" d="M0 0h24v24H0z"/></svg> --><!-- <small>Roof party freegan lomo</small>  -->Letterpress photo booth direct trade meggings</h3>
+        <h3>
+          <!-- <svg focusable="false" width="24" height="24" viewBox="0 0 24 24" style="width: 1em; height: 1em; margin-right: .382em;">
+            <g fill="none" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10">
+              <circle cx="11.5" cy="12.491" r="7.5"></circle>
+              <path stroke-linecap="round" d="M18.759 13.702c-1.271 1.6.0-4.044 2.596-7.259 2.596-3.21 0-5.979-1.061-7.253-2.59M4.171 11.341C5.408 9.762 8.224 8.657 11.5 8.657c3.209 0 5.978 1.061 7.252 2.59"></path>
+              <path stroke-linecap="round" d="M10.298 19.704c-1.6.0-1.271-2.597-4.043-2.597-7.258 0-3.211 1.061-5.979 2.59-7.254M12.769 5.248c1.495 1.297 2.525 4.032 2.525 7.198 0 3.209-1.06 5.977-2.588 7.252"></path>
+              <path d="M11.5 5V0"></path>
+              <path stroke-linecap="round" d="M17.705 2.958l-1.137 1.646M22.363 10.94l-1.991.194M18.61 21.272l-1.311-1.509M4.235 21.239l1.31-1.511M.527 10.888l1.992.191M5.528 2.737l1.083 1.682"></path>
+              <path d="M11.5 20V5M4 12.5h15"></path>
+            </g>
+            <path fill="none" d="M0 0h24v24H0z"></path>
+          </svg> -->
+          <!-- <small>Roof party freegan lomo</small>  -->Letterpress photo booth direct trade meggings</h3>
         <p>Church-key ennui gastropub. Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <abbr>VHS</abbr> blog Pitchfork authentic paleo ethical messenger bag. Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh.</p>
         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
         <h4><!-- <small>Roof party freegan lomo</small>  -->Post-ironic Shoreditch slow-carb</h4>
