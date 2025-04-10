@@ -4,7 +4,7 @@ import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNGallery} WDNFigcaptionToggle
+ * @type {?WDNGallery} WDNGallery
  */
 let WDNGallery = null;
 
