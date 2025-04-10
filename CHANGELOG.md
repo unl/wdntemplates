@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.55 (April 10, 2025)
+- Add overflow-x: clip to nav menu
+- Update footer links
+- Added analytics events for search modal open and close
+
 ## 5.3.54 (January 14, 2025)
 - Update GSAP to fix scroll-to-top bug
 - Update copyright date in footer
