@@ -10,6 +10,7 @@ import * as WDNSlideshow from '@js-src/plugins/slideshow.js';
 import * as WDNSearchSelect from '@js-src/plugins/search_select.js';
 import * as WDNPopup from '@js-src/plugins/popup.js';
 import * as WDNDialog from '@js-src/plugins/dialog.js';
+import * as WDNGallery from '@js-src/plugins/gallery.js';
 
 // Main WDN plugins
 const pluginMap = {
@@ -25,6 +26,7 @@ const pluginMap = {
     'wdn_search_select': WDNSearchSelect,
     'wdn_popup': WDNPopup,
     'wdn_dialog': WDNDialog,
+    'wdn_gallery': WDNGallery,
 };
 
 // Loads all elements that are already on the page
