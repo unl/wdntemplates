@@ -2,7 +2,10 @@ import galleryCssUrl from '@scss/components-js/_gallery.scss?url';
 import dialogCssUrl from '@scss/components-js/_dialogs.scss?url';
 import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
 
-// This is where the imported class will go
+/**
+ * This is where the imported class will be stored
+ * @type {?WDNGallery} WDNFigcaptionToggle
+ */
 let WDNGallery = null;
 
 // Query Selector for the gallery component
