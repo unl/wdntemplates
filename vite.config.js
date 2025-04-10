@@ -27,6 +27,8 @@ export default ({ mode }) => {
 
     // If we are in a development environment
     if (process.env.DEVELOPMENT === 'true') {
+        // We don't want this to run by default
+        //   since if we have a linting error it won't build
         plugins.push(
             eslintPlugin(),
         );
