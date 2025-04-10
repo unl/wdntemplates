@@ -76,12 +76,12 @@ Exported functions in each plugin:
 
 | Function Name           | Async | Return Type              | Description |
 | ----------------------- | ----- | ------------------------ | ----------- |
-| `get_query_selector`    | No    | String                   | Gets the query selector which is used for this plugin's component |
-| `get_is_initialized`    | No    | Boolean                  | Returns if the plugin has been initialized yet |
+| `getQuerySelector`    | No    | String                   | Gets the query selector which is used for this plugin's component |
+| `getIsInitialized`    | No    | Boolean                  | Returns if the plugin has been initialized yet |
 | `initialize`            | Yes   | Void                     | Initializes plugin |
-| `load_element`          | Yes   | Class Instance           | Loads the element using the component class and returns the class instance |
-| `load_elements`         | Yes   | Array of Class Instances | Loads the array elements using the component class and returns the array of class instances |
-| `load_elements_on_page` | Yes   | Array of Class Instance  | Loads the all matching elements on the page using the component class and returns the array of class instance |
+| `loadElement`          | Yes   | Class Instance           | Loads the element using the component class and returns the class instance |
+| `loadElements`         | Yes   | Array of Class Instances | Loads the array elements using the component class and returns the array of class instances |
+| `loadElementsOnPage` | Yes   | Array of Class Instance  | Loads the all matching elements on the page using the component class and returns the array of class instance |
 
 __`templates_6.0/js-src/components/`__
 
