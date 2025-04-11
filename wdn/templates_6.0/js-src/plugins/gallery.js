@@ -1,14 +1,15 @@
-import dialogsCssUrl from '@scss/components-js/_dialogs.scss?url';
+import galleryCssUrl from '@scss/components-js/_gallery.scss?url';
+import dialogCssUrl from '@scss/components-js/_dialogs.scss?url';
 import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNDialog} WDNDialog
+ * @type {?WDNGallery} WDNGallery
  */
-let WDNDialog = null;
+let WDNGallery = null;
 
-// Query Selector for the tabs component
-const querySelector = '.dcf-dialog:not(.dcf-dialog-initialized)';
+// Query Selector for the gallery component
+const querySelector = '.dcf-gallery-img';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -37,23 +38,24 @@ export async function initialize() {
     if (isInitialized) { return; }
     isInitialized = true;
 
-    const dialogComponent = await import('@js-src/components/wdn_dialog.js');
-    WDNDialog = dialogComponent.default;
-    await loadStyleSheet(dialogsCssUrl);
+    const galleryComponent = await import('@js-src/components/wdn_gallery.js');
+    WDNGallery = galleryComponent.default;
+    await loadStyleSheet(dialogCssUrl);
+    await loadStyleSheet(galleryCssUrl);
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNDialog> }
+ * @returns { Promise<WDNGallery> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNDialog(element, options);
+    return new WDNGallery(element, options);
 }
 
 /**
@@ -61,7 +63,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNDialog[]> }
+ * @returns { Promise<WDNGallery[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -72,12 +74,12 @@ export async function loadElements(elements, options) {
 }
 
 /**
- * Using the `querySelector` we will load all elements on the page
+ * Using the `query_selector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNDialog[]> }
+ * @returns { Promise<WDNGallery[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allDialogs = document.querySelectorAll(querySelector);
-    return await loadElements(allDialogs, options);
+    const allGalleryImages = document.querySelectorAll(querySelector);
+    return await loadElements(allGalleryImages, options);
 }
