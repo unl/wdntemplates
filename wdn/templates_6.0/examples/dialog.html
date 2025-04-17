@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
     </head>
     <body class="unl">
-        <button id="my-modal-1-open" class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-1" disabled>Modal Show 1</button>
+        <button id="my-modal-1-open" class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-1" disabled>Dialog Show 1</button>
         <dialog id="my-modal-1" class="dcf-dialog">
           <div class="dcf-dialog-header">
             <h2>Dialog Heading 1</h2>
@@ -16,12 +16,12 @@
           </div>
           <div class="dcf-dialog-content">
             <p>Dialog 1 Contents</p>
-            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-1" disabled>Modal Show 1</button>
-            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-2" disabled>Modal Show 2</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-1" disabled>Dialog Show 1</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-2" disabled>Dialog Show 2</button>
           </div>
         </dialog>
 
-        <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-2" disabled>Modal Show 2</button>
+        <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-2" disabled>Dialog Show 2</button>
         <dialog id="my-modal-2" class="dcf-dialog">
           <div class="dcf-dialog-header">
             <h2>Dialog Heading 2</h2>
@@ -29,8 +29,8 @@
           </div>
           <div class="dcf-dialog-content">
             <p>Dialog 2 Contents</p>
-            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-1" disabled>Modal Show 1</button>
-            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-2" disabled>Modal Show 2</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-1" disabled>Dialog Show 1</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-2" disabled>Dialog Show 2</button>
           </div>
         </dialog>
 
@@ -53,6 +53,33 @@
           </div>
           <div class="dcf-dialog-content">
             <p>Dialog 4 Contents</p>
+          </div>
+        </dialog>
+
+
+        <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-5" disabled>Mediahub Embed</button>
+        <dialog id="my-modal-5" class="dcf-dialog">
+          <div class="dcf-dialog-header">
+            <h2>Mediahub iframe embed Heading 5</h2>
+            <button class="dcf-btn-close-dialog" autofocus>Close</button>
+          </div>
+          <div class="dcf-dialog-content">
+            <div style="padding-top: 56.25%; overflow: hidden; position:relative; -webkit-box-flex: 1; flex-grow: 1;">
+              <!-- <iframe
+                style="bottom: 0; left: 0; position: absolute; right: 0; top: 0; border: 0; height: 100%; width: 100%;"
+                src="https://mediahub.unl.edu/media/24339?format=iframe&autoplay=0"
+                title="Video Player:  UNL CMS Training March 18"
+                allow="autoplay"
+                allowfullscreen
+              ></iframe> -->
+              <iframe
+                style="bottom: 0; left: 0; position: absolute; right: 0; top: 0; border: 0; height: 100%; width: 100%;"
+                src="https://local-media.unl.edu/media/56?format=iframe&autoplay=0"
+                title="Video Player:  Mux Test"
+                allow="autoplay"
+                allowfullscreen
+              ></iframe>
+            </div>
           </div>
         </dialog>
 
