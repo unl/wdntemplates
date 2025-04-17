@@ -12,6 +12,6 @@
 @if (func.to-number(var.$backdrop-filter-blur) != func.to-number(0)) {
   .unl [class^='dcf-bg-overlay-'],
   .unl [class*=' dcf-bg-overlay-'] {
-    @include mixins.backdrop-blur(!important);
+    @include mixins.backdrop-blur;
   }
 }

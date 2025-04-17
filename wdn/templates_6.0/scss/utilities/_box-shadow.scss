@@ -6,4 +6,4 @@
 @use "../mixins/" as mixins;
 
 
-.unl-box-shadow { @include mixins.box-shadow(!important); }
+.unl-box-shadow { @include mixins.box-shadow; }

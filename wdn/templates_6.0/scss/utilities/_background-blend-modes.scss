@@ -7,8 +7,8 @@
 
 
 // Multiply
-.unl-bg-multiply { @include mixins.bg-multiply(!important); }
+.unl-bg-multiply { @include mixins.bg-multiply; }
 
 
 // Soft Light
-.unl-bg-soft-light { @include mixins.bg-soft-light(!important); }
+.unl-bg-soft-light { @include mixins.bg-soft-light; }

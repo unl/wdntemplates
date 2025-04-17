@@ -7,8 +7,8 @@
 
 
 // Multiply
-.unl-multiply { @include mixins.multiply(!important); }
+.unl-multiply { @include mixins.multiply; }
 
 
 // Soft Light
-.unl-soft-light { @include mixins.soft-light(!important); }
+.unl-soft-light { @include mixins.soft-light; }

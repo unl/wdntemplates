@@ -8,7 +8,7 @@
 
 // Sans Serif
 .unl-font-sans {
-  @include mixins.font-sans(!important);
+  @include mixins.font-sans;
 }
 
 
@@ -20,11 +20,11 @@
 .unl h5.unl-font-display,
 .unl h6.unl-font-display,
 .unl-font-display {
-  @include mixins.font-display(!important);
+  @include mixins.font-display;
 }
 
 
 // Monospace
 .unl-font-mono {
-  @include mixins.font-mono(!important);
+  @include mixins.font-mono;
 }
