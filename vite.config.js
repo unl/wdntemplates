@@ -77,6 +77,8 @@ export default ({ mode }) => {
                     'components/dialog' : 'wdn/templates_6.0/js-src/components/wdn_dialog.js',
                     'components/gallery' : 'wdn/templates_6.0/js-src/components/wdn_gallery.js',
 
+                    'deprecated/plugins/modals' : 'wdn/templates_6.0/js-src/deprecated/plugins/modal.js',
+
                     // We don't need 'css/main' as key since the assetFileNames will add the css directory
                     'affiliate' : 'wdn/templates_6.0/scss/affiliate.scss',
                     'critical' : 'wdn/templates_6.0/scss/critical.scss',
