@@ -36,7 +36,6 @@ export default defineConfig([
             '@stylistic/js/eol-last': ['error', 'always'],
             '@stylistic/js/function-call-spacing': ['error', 'never'],
             '@stylistic/js/indent': ['error', 4],
-            '@stylistic/js/linebreak-style': ['error', 'unix'],
             '@stylistic/js/lines-around-comment': ['error', {
                 'beforeBlockComment': true,
                 'beforeLineComment': true,
