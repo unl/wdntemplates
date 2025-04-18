@@ -1,9 +1,12 @@
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import stylisticJs from '@stylistic/eslint-plugin-js';
 import globals from 'globals';
 import javascript from '@eslint/js';
 
 export default defineConfig([
+    globalIgnores([
+        './wdn/templates_6.0/js-src/plugins/jquery.js',
+    ]),
     {
         files: ['**/*.{js,mjs,cjs}'],
         languageOptions: {
@@ -36,7 +39,6 @@ export default defineConfig([
             '@stylistic/js/eol-last': ['error', 'always'],
             '@stylistic/js/function-call-spacing': ['error', 'never'],
             '@stylistic/js/indent': ['error', 4],
-            '@stylistic/js/linebreak-style': ['error', 'unix'],
             '@stylistic/js/lines-around-comment': ['error', {
                 'beforeBlockComment': true,
                 'beforeLineComment': true,

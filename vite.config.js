@@ -62,6 +62,7 @@ export default ({ mode }) => {
                     'plugins/popup' : 'wdn/templates_6.0/js-src/plugins/popup.js',
                     'plugins/dialog' : 'wdn/templates_6.0/js-src/plugins/dialog.js',
                     'plugins/gallery' : 'wdn/templates_6.0/js-src/plugins/gallery.js',
+                    'plugins/jquery' : 'wdn/templates_6.0/js-src/plugins/jquery.js',
 
                     'components/tab' : 'wdn/templates_6.0/js-src/components/wdn_tab.js',
                     'components/toggle_button' : 'wdn/templates_6.0/js-src/components/wdn_toggle_button.js',
@@ -76,6 +77,8 @@ export default ({ mode }) => {
                     'components/popup' : 'wdn/templates_6.0/js-src/components/wdn_popup.js',
                     'components/dialog' : 'wdn/templates_6.0/js-src/components/wdn_dialog.js',
                     'components/gallery' : 'wdn/templates_6.0/js-src/components/wdn_gallery.js',
+
+                    'deprecated/plugins/modals' : 'wdn/templates_6.0/js-src/deprecated/plugins/modal.js',
 
                     // We don't need 'css/main' as key since the assetFileNames will add the css directory
                     'affiliate' : 'wdn/templates_6.0/scss/affiliate.scss',
