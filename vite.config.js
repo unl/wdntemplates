@@ -48,6 +48,7 @@ export default ({ mode }) => {
                 // Key is built file path, Value is path to file
                 entry: {
                     'auto_loader' : 'wdn/templates_6.0/js-src/plugin_auto_loader.js',
+                    'header-global-1' : 'wdn/templates_6.0/js-src/header-global-1.js',
 
                     'plugins/tab' : 'wdn/templates_6.0/js-src/plugins/tab.js',
                     'plugins/toggle_button' : 'wdn/templates_6.0/js-src/plugins/toggle_button.js',
@@ -77,6 +78,7 @@ export default ({ mode }) => {
                     'components/popup' : 'wdn/templates_6.0/js-src/components/wdn_popup.js',
                     'components/dialog' : 'wdn/templates_6.0/js-src/components/wdn_dialog.js',
                     'components/gallery' : 'wdn/templates_6.0/js-src/components/wdn_gallery.js',
+                    'components/banner' : 'wdn/templates_6.0/js-src/components/wdn_banner.js',
 
                     'deprecated/plugins/modals' : 'wdn/templates_6.0/js-src/deprecated/plugins/modal.js',
 
