@@ -41,7 +41,7 @@ export default defineConfig([
             '@stylistic/js/indent': ['error', 4],
             '@stylistic/js/lines-around-comment': ['error', {
                 'beforeBlockComment': true,
-                'beforeLineComment': true,
+                'beforeLineComment': false,
                 'allowBlockStart': true,
             }],
             '@stylistic/js/lines-between-class-members': ['error', 'always'],
