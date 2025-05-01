@@ -64,6 +64,7 @@ export default ({ mode }) => {
                     'plugins/dialog' : 'wdn/templates_6.0/js-src/plugins/dialog.js',
                     'plugins/gallery' : 'wdn/templates_6.0/js-src/plugins/gallery.js',
                     'plugins/jquery' : 'wdn/templates_6.0/js-src/plugins/jquery.js',
+                    'plugins/idm' : 'wdn/templates_6.0/js-src/plugins/idm.js',
 
                     'components/tab' : 'wdn/templates_6.0/js-src/components/wdn_tab.js',
                     'components/toggle_button' : 'wdn/templates_6.0/js-src/components/wdn_toggle_button.js',
@@ -79,6 +80,7 @@ export default ({ mode }) => {
                     'components/dialog' : 'wdn/templates_6.0/js-src/components/wdn_dialog.js',
                     'components/gallery' : 'wdn/templates_6.0/js-src/components/wdn_gallery.js',
                     'components/banner' : 'wdn/templates_6.0/js-src/components/wdn_banner.js',
+                    'components/idm' : 'wdn/templates_6.0/js-src/components/wdn_idm.js',
 
                     'deprecated/plugins/modals' : 'wdn/templates_6.0/js-src/deprecated/plugins/modal.js',
 

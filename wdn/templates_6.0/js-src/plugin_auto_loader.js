@@ -11,6 +11,7 @@ import * as WDNSearchSelect from '@js-src/plugins/search_select.js';
 import * as WDNPopup from '@js-src/plugins/popup.js';
 import * as WDNDialog from '@js-src/plugins/dialog.js';
 import * as WDNGallery from '@js-src/plugins/gallery.js';
+import * as WDNIDM from '@js-src/plugins/idm.js';
 
 // Main WDN plugins
 const pluginMap = {
@@ -27,6 +28,7 @@ const pluginMap = {
     'wdn_popup': WDNPopup,
     'wdn_dialog': WDNDialog,
     'wdn_gallery': WDNGallery,
+    'wdn_idm': WDNIDM,
 };
 
 // Loads all elements that are already on the page
