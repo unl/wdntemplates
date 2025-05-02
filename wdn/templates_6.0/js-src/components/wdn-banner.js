@@ -1,4 +1,4 @@
-import { isValidHttpUrl, getSessionStorage, setSessionStorage, removeSessionStorage } from '../wdn-utility.js';
+import { isValidHttpUrl, getSessionStorage, setSessionStorage, removeSessionStorage } from '../lib/wdn-utility.js';
 
 export default class WDNNoticeBanner {
 

@@ -1,4 +1,4 @@
-import { getCookie, loadJS, subscribeToWindowParams, isValidateEmail } from '@js-src/wdn-utility.js';
+import { getCookie, loadJS, subscribeToWindowParams, isValidateEmail } from '@js-src/lib/wdn-utility.js';
 
 export default class WDNIDM {
 

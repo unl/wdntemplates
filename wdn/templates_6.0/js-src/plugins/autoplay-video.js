@@ -1,14 +1,11 @@
-import searchSelectCssUrl from '@scss/components-js/_search-selects.scss?url';
-import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
-
 /**
  * This is where the imported class will be stored
- * @type {?WDNSearchSelect} WDNSearchSelect
+ * @type {?WDNAutoplayVideoToggle} WDNAutoplayVideoToggle
  */
-let WDNSearchSelect = null;
+let WDNAutoplayVideoToggle = null;
 
-// Query Selector for the tabs component
-const querySelector = '.dcf-search-select';
+// Query Selector for the datepicker toggle component
+const querySelector = '.dcf-autoplay-video';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -37,23 +34,22 @@ export async function initialize() {
     if (isInitialized) { return; }
     isInitialized = true;
 
-    const searchSelectComponent = await import('@js-src/components/wdn_search_select.js');
-    WDNSearchSelect = searchSelectComponent.default;
-    await loadStyleSheet(searchSelectCssUrl);
+    const autoplayVideoContainer = await import('@js-src/components/wdn-autoplay-video.js');
+    WDNAutoplayVideoToggle = autoplayVideoContainer.default;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNSearchSelect> }
+ * @returns { Promise<WDNAutoplayVideoToggle> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNSearchSelect(element, options);
+    return new WDNAutoplayVideoToggle(element, options);
 }
 
 /**
@@ -61,7 +57,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNSearchSelect[]> }
+ * @returns { Promise<WDNAutoplayVideoToggle[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -75,9 +71,9 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNSearchSelect[]> }
+ * @returns { Promise<WDNAutoplayVideoToggle[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allSearchSelects = document.querySelectorAll(querySelector);
-    return await loadElements(allSearchSelects, options);
+    const allAutoplayVideoContainers = document.querySelectorAll(querySelector);
+    return await loadElements(allAutoplayVideoContainers, options);
 }

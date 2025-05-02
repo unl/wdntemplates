@@ -1,15 +1,14 @@
-import figcaptionToggleCssUrl from '@scss/components-js/_figcaption-toggles.scss?url';
 import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
 import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNFigcaptionToggle} WDNFigcaptionToggle
+ * @type {?WDNButtonToggle} WDNButtonToggle
  */
-let WDNFigcaptionToggle = null;
+let WDNButtonToggle = null;
 
-// Query Selector for the figcaption toggle component
-const querySelector = '.dcf-figcaption-toggle';
+// Query Selector for the tabs component
+const querySelector = '.dcf-btn-toggle';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -38,24 +37,23 @@ export async function initialize() {
     if (isInitialized) { return; }
     isInitialized = true;
 
-    const figcaptionToggleComponent = await import('@js-src/components/wdn_figcaption_toggle.js');
-    WDNFigcaptionToggle = figcaptionToggleComponent.default;
+    const toggleButtonComponent = await import('@js-src/components/wdn-toggle-button.js');
+    WDNButtonToggle = toggleButtonComponent.default;
     await loadStyleSheet(buttonToggleCssUrl);
-    await loadStyleSheet(figcaptionToggleCssUrl);
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNFigcaptionToggle> }
+ * @returns { Promise<WDNButtonToggle> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNFigcaptionToggle(element, options);
+    return new WDNButtonToggle(element, options);
 }
 
 /**
@@ -63,7 +61,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNFigcaptionToggle[]> }
+ * @returns { Promise<WDNButtonToggle[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -77,9 +75,9 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNFigcaptionToggle[]> }
+ * @returns { Promise<WDNButtonToggle[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allFigcaptionToggles = document.querySelectorAll(querySelector);
-    return await loadElements(allFigcaptionToggles, options);
+    const allToggleButtons = document.querySelectorAll(querySelector);
+    return await loadElements(allToggleButtons, options);
 }

@@ -5,7 +5,8 @@ import javascript from '@eslint/js';
 
 export default defineConfig([
     globalIgnores([
-        './wdn/templates_6.0/js-src/plugins/jquery.js',
+        './wdn/templates_6.0/js-src/lib/jquery.js',
+        './wdn/templates_6.0/js-src/lib/jquery-ui.js',
     ]),
     {
         files: ['**/*.{js,mjs,cjs}'],

@@ -37,7 +37,7 @@ export async function initialize() {
     if (isInitialized) { return; }
     isInitialized = true;
 
-    const datepickerComponent = await import('@js-src/components/wdn_datepicker.js');
+    const datepickerComponent = await import('@js-src/components/wdn-datepicker.js');
     WDNDatepicker = datepickerComponent.default;
     await loadStyleSheet(datepickerCssUrl);
 }

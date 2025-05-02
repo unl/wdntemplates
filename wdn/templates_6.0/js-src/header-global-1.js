@@ -1,3 +1,3 @@
-import WDNBanner from './components/wdn_banner.js';
+import WDNBanner from './components/wdn-banner.js';
 
 new WDNBanner();

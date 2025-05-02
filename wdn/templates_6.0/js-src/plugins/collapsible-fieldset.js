@@ -1,11 +1,15 @@
+import collapsibleFieldsetsCssUrl from '@scss/components-js/_collapsible-fieldsets.scss?url';
+import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
+import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
+
 /**
  * This is where the imported class will be stored
- * @type {?WDNAutoplayVideoToggle} WDNAutoplayVideoToggle
+ * @type {?WDNCollapsibleFieldset} WDNCollapsibleFieldset
  */
-let WDNAutoplayVideoToggle = null;
+let WDNCollapsibleFieldset = null;
 
-// Query Selector for the datepicker toggle component
-const querySelector = '.dcf-autoplay-video';
+// Query Selector for the collapsible fieldset component
+const querySelector = '.dcf-collapsible-fieldset';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -34,22 +38,24 @@ export async function initialize() {
     if (isInitialized) { return; }
     isInitialized = true;
 
-    const autoplayVideoContainer = await import('@js-src/components/wdn_autoplay_video.js');
-    WDNAutoplayVideoToggle = autoplayVideoContainer.default;
+    const collapsibleFieldsetsComponent = await import('@js-src/components/wdn-collapsible-fieldset.js');
+    WDNCollapsibleFieldset = collapsibleFieldsetsComponent.default;
+    await loadStyleSheet(buttonToggleCssUrl);
+    await loadStyleSheet(collapsibleFieldsetsCssUrl);
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNAutoplayVideoToggle> }
+ * @returns { Promise<WDNCollapsibleFieldset> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNAutoplayVideoToggle(element, options);
+    return new WDNCollapsibleFieldset(element, options);
 }
 
 /**
@@ -57,7 +63,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNAutoplayVideoToggle[]> }
+ * @returns { Promise<WDNCollapsibleFieldset[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -71,9 +77,9 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNAutoplayVideoToggle[]> }
+ * @returns { Promise<WDNCollapsibleFieldset[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allAutoplayVideoContainers = document.querySelectorAll(querySelector);
-    return await loadElements(allAutoplayVideoContainers, options);
+    const allFieldsets = document.querySelectorAll(querySelector);
+    return await loadElements(allFieldsets, options);
 }

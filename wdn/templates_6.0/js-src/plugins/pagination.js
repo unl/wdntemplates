@@ -37,7 +37,7 @@ export async function initialize() {
     if (isInitialized) { return; }
     isInitialized = true;
 
-    const paginationComponent = await import('@js-src/components/wdn_pagination.js');
+    const paginationComponent = await import('@js-src/components/wdn-pagination.js');
     WDNPagination = paginationComponent.default;
     await loadStyleSheet(paginationCssUrl);
 }

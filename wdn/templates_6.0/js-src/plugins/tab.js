@@ -37,7 +37,7 @@ export async function initialize() {
     if (isInitialized) { return; }
     isInitialized = true;
 
-    const tabsComponent = await import('@js-src/components/wdn_tab.js');
+    const tabsComponent = await import('@js-src/components/wdn-tab.js');
     WDNTab = tabsComponent.default;
     await loadStyleSheet(tabsCssUrl);
 }

@@ -38,7 +38,7 @@ export async function initialize() {
     if (isInitialized) { return; }
     isInitialized = true;
 
-    const galleryComponent = await import('@js-src/components/wdn_gallery.js');
+    const galleryComponent = await import('@js-src/components/wdn-gallery.js');
     WDNGallery = galleryComponent.default;
     await loadStyleSheet(dialogCssUrl);
     await loadStyleSheet(galleryCssUrl);

@@ -37,7 +37,7 @@ export async function initialize() {
     if (isInitialized) { return; }
     isInitialized = true;
 
-    const popupComponent = await import('@js-src/components/wdn_popup.js');
+    const popupComponent = await import('@js-src/components/wdn-popup.js');
     WDNPopup = popupComponent.default;
     await loadStyleSheet(popupsCssUrl);
 }

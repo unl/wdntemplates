@@ -37,7 +37,7 @@ export async function initialize() {
     if (isInitialized) { return; }
     isInitialized = true;
 
-    const dialogComponent = await import('@js-src/components/wdn_dialog.js');
+    const dialogComponent = await import('@js-src/components/wdn-dialog.js');
     WDNDialog = dialogComponent.default;
     await loadStyleSheet(dialogsCssUrl);
 }

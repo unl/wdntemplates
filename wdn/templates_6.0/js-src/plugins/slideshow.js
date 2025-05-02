@@ -39,7 +39,7 @@ export async function initialize() {
     if (isInitialized) { return; }
     isInitialized = true;
 
-    const slideshowComponent = await import('@js-src/components/wdn_slideshow.js');
+    const slideshowComponent = await import('@js-src/components/wdn-slideshow.js');
     WDNSlideshow = slideshowComponent.default;
     await loadStyleSheet(slideshowCssUrl);
     await loadStyleSheet(figcaptionToggleCssUrl);

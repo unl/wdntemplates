@@ -37,7 +37,7 @@ export async function initialize() {
     if (isInitialized) { return; }
     isInitialized = true;
 
-    const idmComponent = await import('@js-src/components/wdn_idm.js');
+    const idmComponent = await import('@js-src/components/wdn-idm.js');
     WDNIdm = idmComponent.default;
     await loadStyleSheet(idmCssUrl);
 }

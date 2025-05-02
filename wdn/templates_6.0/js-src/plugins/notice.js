@@ -37,7 +37,7 @@ export async function initialize() {
     if (isInitialized) { return; }
     isInitialized = true;
 
-    const noticeComponent = await import('@js-src/components/wdn_notice.js');
+    const noticeComponent = await import('@js-src/components/wdn-notice.js');
     WDNNotice = noticeComponent.default;
     await loadStyleSheet(noticesCssUrl);
 }
