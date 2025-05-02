@@ -3,7 +3,7 @@
  * Please use dialog instead
  */
 
-import DCFModal from '@dcf/js/deprecated/dcf-modal.js';
+import DCFModal from '@dcf/js/components/dcf-modal.js';
 import { enableBodyScroll, disableBodyScroll} from '@js-src/lib/body-scroll-lock.js';
 import modalCssUrl from '@scss/components-js/_modals.scss?url';
 import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
