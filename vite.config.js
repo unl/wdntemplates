@@ -67,6 +67,7 @@ export default ({ mode }) => {
                     'plugins/modal' : 'wdn/templates_6.0/js-src/plugins/modal.js', // Deprecated
                     'plugins/jquery-ui' : 'wdn/templates_6.0/js-src/plugins/jquery-ui.js',
                     'plugins/search' : 'wdn/templates_6.0/js-src/plugins/search.js',
+                    'plugins/form-validator' : 'wdn/templates_6.0/js-src/plugins/form-validator.js',
 
                     'components/tab' : 'wdn/templates_6.0/js-src/components/wdn-tab.js',
                     'components/toggle-button' : 'wdn/templates_6.0/js-src/components/wdn-toggle-button.js',
@@ -88,6 +89,7 @@ export default ({ mode }) => {
                     'lib/wdn-utility' : 'wdn/templates_6.0/js-src/lib/wdn-utility.js',
                     'lib/jquery' : 'wdn/templates_6.0/js-src/lib/jquery.js',
                     'lib/jquery-ui' : 'wdn/templates_6.0/js-src/lib/jquery-ui.js',
+                    'lib/jquery-validator' : 'wdn/templates_6.0/js-src/lib/jquery-validator.js',
 
                     // We don't need 'css/main' as key since the assetFileNames will add the css directory
                     'affiliate' : 'wdn/templates_6.0/scss/affiliate.scss',

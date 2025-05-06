@@ -9,6 +9,7 @@ export default defineConfig([
         './wdn/templates_6.0/js-src.old', // Temporary while development
         './wdn/templates_6.0/js-src/lib/jquery.js',
         './wdn/templates_6.0/js-src/lib/jquery-ui.js',
+        './wdn/templates_6.0/js-src/lib/jquery-validator.js',
     ]),
     {
         files: ['**/*.{js,mjs,cjs}'],
