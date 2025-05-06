@@ -66,6 +66,7 @@ export default ({ mode }) => {
                     'plugins/idm' : 'wdn/templates_6.0/js-src/plugins/idm.js',
                     'plugins/modal' : 'wdn/templates_6.0/js-src/plugins/modal.js', // Deprecated
                     'plugins/jquery-ui' : 'wdn/templates_6.0/js-src/plugins/jquery-ui.js',
+                    'plugins/search' : 'wdn/templates_6.0/js-src/plugins/search.js',
 
                     'components/tab' : 'wdn/templates_6.0/js-src/components/wdn-tab.js',
                     'components/toggle-button' : 'wdn/templates_6.0/js-src/components/wdn-toggle-button.js',
@@ -82,6 +83,7 @@ export default ({ mode }) => {
                     'components/gallery' : 'wdn/templates_6.0/js-src/components/wdn-gallery.js',
                     'components/banner' : 'wdn/templates_6.0/js-src/components/wdn-banner.js',
                     'components/idm' : 'wdn/templates_6.0/js-src/components/wdn-idm.js',
+                    'components/search' : 'wdn/templates_6.0/js-src/components/wdn-search.js',
 
                     'lib/wdn-utility' : 'wdn/templates_6.0/js-src/lib/wdn-utility.js',
                     'lib/jquery' : 'wdn/templates_6.0/js-src/lib/jquery.js',

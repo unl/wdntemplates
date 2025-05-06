@@ -6,6 +6,23 @@
 @use "../variables/" as var;
 @use "../mixins/" as mixins;
 
+.unl dialog#dcf-search-results{
+  width: 100%;
+  max-width: 100%;
+  height: fit-content;
+  max-height: 100%;
+}
+
+.unl dialog#dcf-search-results:open{
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+// This is only here because safari does not support `:open`
+.unl dialog#dcf-search-results.dcf-dialog-is-open{
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
 
 .unl .dcf-search-input:focus {
   box-shadow: 0 0 0 3px var.$scarlet, 0 0 0 5px var.$border-color-input-focus !important;
