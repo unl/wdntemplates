@@ -1,7 +1,7 @@
 import slideshowCssUrl from '@scss/components-js/_slideshows.scss?url';
 import figcaptionToggleCssUrl from '@scss/components-js/_figcaption-toggles.scss?url';
 import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
-import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
+import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
 /**
  * This is where the imported class will be stored

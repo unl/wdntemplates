@@ -1,6 +1,6 @@
 import searchCssUrl from '@scss/components-js/_search.scss?url';
 import dialogCssUrl from '@scss/components-js/_dialogs.scss?url';
-import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
+import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
 /**
  * This is where the imported class will be stored

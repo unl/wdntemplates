@@ -1,3 +1,6 @@
+// Forward these from dcf utility
+export { uuidv4, loadStyleSheet } from '@dcf/js/dcf-utility.js';
+
 /**
  * Converts a relative link to an absolute link
  * 

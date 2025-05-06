@@ -1,5 +1,5 @@
 import paginationCssUrl from '@scss/components-js/_pagination.scss?url';
-import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
+import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
 /**
  * This is where the imported class will be stored

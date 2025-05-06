@@ -1,5 +1,5 @@
 import jqueryUiCssUrl from '@scss/components-js/_jquery-ui-wdn.scss?url';
-import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
+import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
