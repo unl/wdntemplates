@@ -69,6 +69,7 @@ export default ({ mode }) => {
                     'plugins/search' : 'wdn/templates_6.0/js-src/plugins/search.js',
                     'plugins/form-validator' : 'wdn/templates_6.0/js-src/plugins/form-validator.js',
                     'plugins/font-serif' : 'wdn/templates_6.0/js-src/plugins/font-serif.js',
+                    'plugins/qa' : 'wdn/templates_6.0/js-src/plugins/qa.js',
 
                     'components/tab' : 'wdn/templates_6.0/js-src/components/wdn-tab.js',
                     'components/toggle-button' : 'wdn/templates_6.0/js-src/components/wdn-toggle-button.js',
@@ -86,6 +87,7 @@ export default ({ mode }) => {
                     'components/banner' : 'wdn/templates_6.0/js-src/components/wdn-banner.js',
                     'components/idm' : 'wdn/templates_6.0/js-src/components/wdn-idm.js',
                     'components/search' : 'wdn/templates_6.0/js-src/components/wdn-search.js',
+                    'components/qa' : 'wdn/templates_6.0/js-src/components/wdn-qa.js',
 
                     'lib/wdn-utility' : 'wdn/templates_6.0/js-src/lib/wdn-utility.js',
                     'lib/jquery' : 'wdn/templates_6.0/js-src/lib/jquery.js',
