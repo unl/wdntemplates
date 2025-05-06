@@ -13,6 +13,7 @@ import * as WDNDialog from '@js-src/plugins/dialog.js';
 import * as WDNGallery from '@js-src/plugins/gallery.js';
 import * as WDNIDM from '@js-src/plugins/idm.js';
 import * as WDNSearch from '@js-src/plugins/search.js';
+import * as WDNFontSerif from '@js-src/plugins/font-serif.js';
 
 // Main WDN plugins
 const pluginMap = {
@@ -31,6 +32,7 @@ const pluginMap = {
     'wdn_gallery': WDNGallery,
     'wdn_idm': WDNIDM,
     'wdn_search': WDNSearch,
+    'wdn_font_serif': WDNFontSerif,
 };
 
 // Loads all elements that are already on the page

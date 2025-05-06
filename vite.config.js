@@ -68,6 +68,7 @@ export default ({ mode }) => {
                     'plugins/jquery-ui' : 'wdn/templates_6.0/js-src/plugins/jquery-ui.js',
                     'plugins/search' : 'wdn/templates_6.0/js-src/plugins/search.js',
                     'plugins/form-validator' : 'wdn/templates_6.0/js-src/plugins/form-validator.js',
+                    'plugins/font-serif' : 'wdn/templates_6.0/js-src/plugins/font-serif.js',
 
                     'components/tab' : 'wdn/templates_6.0/js-src/components/wdn-tab.js',
                     'components/toggle-button' : 'wdn/templates_6.0/js-src/components/wdn-toggle-button.js',
