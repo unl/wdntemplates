@@ -7,6 +7,7 @@ export default defineConfig([
     globalIgnores([
         './wdn/templates_5.3', // Temporary while development
         './wdn/templates_6.0/js-src.old', // Temporary while development
+        './wdn/templates_6.0/js',
         './wdn/templates_6.0/js-src/lib/jquery.js',
         './wdn/templates_6.0/js-src/lib/jquery-ui.js',
         './wdn/templates_6.0/js-src/lib/jquery-validator.js',
@@ -66,7 +67,7 @@ export default defineConfig([
             'curly': 'error',
             'eqeqeq': ['error', 'always'],
             'id-length': ['error', {
-                'min': 3,
+                'min': 2,
             }],
             'no-lonely-if': 'error',
             'no-underscore-dangle': 'error',
