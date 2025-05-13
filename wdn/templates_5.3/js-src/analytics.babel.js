@@ -33,6 +33,28 @@ define(['wdn', 'idm'], function (WDN, idm) {
             // Gets the head to append scripts to
             let head_tag = document.querySelector('head');
 
+            let matomo_script = document.getElementById('unl_matomo_script');
+            if (matomo_script === null) {
+                let new_matomo_tag = document.createElement('script');
+                new_matomo_tag.innerHTML = `
+                    var _paq = window._paq = window._paq || [];
+                    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+                    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+                    _paq.push(["setCookieDomain", "*.unl.edu"]);
+                    _paq.push(["setDomains", ["*.unl.edu"]]);
+                    _paq.push(['trackPageView']);
+                    _paq.push(['enableLinkTracking']);
+                    (function() {
+                        var u="https://larue.unl.edu/";
+                        _paq.push(['setTrackerUrl', u+'main.php']);
+                        _paq.push(['setSiteId', '1']);
+                        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                        g.async=true; g.src=u+'main.js'; s.parentNode.insertBefore(g,s);
+                    })();
+                `;
+                head_tag.append(new_matomo_tag);
+            }
+
             // Checks if we have a script for the gtag on the page already
             // If not we will create the script
             const gtag_script_check = document.querySelector(`script[src*=googletagmanager][src*=${wdnProp}]`);
