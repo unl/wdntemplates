@@ -1,14 +1,17 @@
-import noticesCssUrl from '@scss/components-js/_notices.scss?url';
+import tabsCssUrl from '@scss/components-js/_tabs.scss?url';
 import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNNotice} WDNNotice
+ * @type {?WDNTab} WDNTab
  */
-let WDNNotice = null;
+let WDNTab = null;
 
 // Query Selector for the tabs component
-const querySelector = '.dcf-notice:not(.dcf-notice-initialized)';
+const querySelector = '.dcf-tabs';
+
+// Type of plugin
+const pluginType = 'multi';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -19,6 +22,14 @@ let isInitialized = false;
  */
 export function getQuerySelector() {
     return querySelector;
+}
+
+/**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
 }
 
 /**
@@ -34,26 +45,28 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return; }
+    if (isInitialized) { return WDNTab; }
     isInitialized = true;
 
-    const noticeComponent = await import('@js-src/components/wdn-notice.js');
-    WDNNotice = noticeComponent.default;
-    await loadStyleSheet(noticesCssUrl);
+    const tabsComponent = await import('@js-src/components/wdn-tab.js');
+    WDNTab = tabsComponent.default;
+    await loadStyleSheet(tabsCssUrl);
+
+    return WDNTab;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNNotice> }
+ * @returns { Promise<WDNTab> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNNotice(element, options);
+    return new WDNTab(element, options);
 }
 
 /**
@@ -61,7 +74,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNNotice[]> }
+ * @returns { Promise<WDNTab[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -75,9 +88,9 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNNotice[]> }
+ * @returns { Promise<WDNTab[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allNotices = document.querySelectorAll(querySelector);
-    return await loadElements(allNotices, options);
+    const allTabs = document.querySelectorAll(querySelector);
+    return await loadElements(allTabs, options);
 }

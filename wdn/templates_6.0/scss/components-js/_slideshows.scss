@@ -6,3 +6,8 @@
 @use "../variables/" as var;
 
 @use "@dcf/scss/components-js/slideshows" as *;
+
+.unl .dcf-slideshow-controls button {
+  padding: 1em;
+  color: var(--inverse);
+}

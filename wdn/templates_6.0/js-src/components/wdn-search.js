@@ -174,10 +174,6 @@ export default class WDNSearch {
         this.searchDialogElement.addEventListener(WDNDialog.events('dialogPreOpen'), this.#dialogOpened.bind(this));
         this.searchDialogElement.addEventListener(WDNDialog.events('dialogPostClose'), this.#dialogClosed.bind(this));
 
-        document.addEventListener('test', (event) => {
-            console.log(event);
-        });
-
         // Set up form submit listeners
         this.domSearchForm.addEventListener('submit', this.#handleFormSubmit.bind(this));
     }
@@ -201,6 +197,8 @@ export default class WDNSearch {
      * @returns { Void }
      */
     #handleFormSubmit(event) {
+        event.preventDefault();
+
         // Enable the iframe search params
         this.#createSearchFrame();
         this.#activateSearch();
@@ -217,7 +215,6 @@ export default class WDNSearch {
 
         // Support sending messages to iframe without reload
         if (this.postReady) {
-            event.preventDefault();
             this.#postSearchMessage(this.domQ.value);
         }
     }

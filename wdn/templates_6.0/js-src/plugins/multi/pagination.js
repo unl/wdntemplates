@@ -1,14 +1,17 @@
-import popupsCssUrl from '@scss/components-js/_popups.scss?url';
+import paginationCssUrl from '@scss/components-js/_pagination.scss?url';
 import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNPopup} WDNPopup
+ * @type {?WDNPagination} WDNPagination
  */
-let WDNPopup = null;
+let WDNPagination = null;
 
 // Query Selector for the tabs component
-const querySelector = '.dcf-popup';
+const querySelector = '.dcf-pagination';
+
+// Type of plugin
+const pluginType = 'multi';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -19,6 +22,14 @@ let isInitialized = false;
  */
 export function getQuerySelector() {
     return querySelector;
+}
+
+/**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
 }
 
 /**
@@ -34,26 +45,28 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return; }
+    if (isInitialized) { return WDNPagination; }
     isInitialized = true;
 
-    const popupComponent = await import('@js-src/components/wdn-popup.js');
-    WDNPopup = popupComponent.default;
-    await loadStyleSheet(popupsCssUrl);
+    const paginationComponent = await import('@js-src/components/wdn-pagination.js');
+    WDNPagination = paginationComponent.default;
+    await loadStyleSheet(paginationCssUrl);
+
+    return WDNPagination;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNPopup> }
+ * @returns { Promise<WDNPagination> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNPopup(element, options);
+    return new WDNPagination(element, options);
 }
 
 /**
@@ -61,7 +74,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNPopup[]> }
+ * @returns { Promise<WDNPagination[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -75,9 +88,9 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNPopup[]> }
+ * @returns { Promise<WDNPagination[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allPopups = document.querySelectorAll(querySelector);
-    return await loadElements(allPopups, options);
+    const allPagination = document.querySelectorAll(querySelector);
+    return await loadElements(allPagination, options);
 }

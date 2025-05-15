@@ -1,11 +1,17 @@
+import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
+import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+
 /**
  * This is where the imported class will be stored
- * @type {?WDNQa} WDNQa
+ * @type {?WDNButtonToggle} WDNButtonToggle
  */
-let WDNQa = null;
+let WDNButtonToggle = null;
 
-// Query Selector for the qa component
-const querySelector = '#qa-test';
+// Query Selector for the tabs component
+const querySelector = '.dcf-btn-toggle';
+
+// Type of plugin
+const pluginType = 'multi';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -16,6 +22,14 @@ let isInitialized = false;
  */
 export function getQuerySelector() {
     return querySelector;
+}
+
+/**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
 }
 
 /**
@@ -31,25 +45,28 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return; }
+    if (isInitialized) { return WDNButtonToggle; }
     isInitialized = true;
 
-    const qaComponent = await import('@js-src/components/wdn-qa.js');
-    WDNQa = qaComponent.default;
+    const toggleButtonComponent = await import('@js-src/components/wdn-toggle-button.js');
+    WDNButtonToggle = toggleButtonComponent.default;
+    await loadStyleSheet(buttonToggleCssUrl);
+
+    return WDNButtonToggle;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNQa> }
+ * @returns { Promise<WDNButtonToggle> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNQa(element, options);
+    return new WDNButtonToggle(element, options);
 }
 
 /**
@@ -57,7 +74,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNQa[]> }
+ * @returns { Promise<WDNButtonToggle[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -68,12 +85,12 @@ export async function loadElements(elements, options) {
 }
 
 /**
- * Using the `query_selector` we will load all elements on the page
+ * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNQa[]> }
+ * @returns { Promise<WDNButtonToggle[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allQa = document.querySelectorAll(querySelector);
-    return await loadElements(allQa, options);
+    const allToggleButtons = document.querySelectorAll(querySelector);
+    return await loadElements(allToggleButtons, options);
 }

@@ -1,11 +1,18 @@
+import figcaptionToggleCssUrl from '@scss/components-js/_figcaption-toggles.scss?url';
+import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
+import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+
 /**
  * This is where the imported class will be stored
- * @type {?WDNAutoplayVideoToggle} WDNAutoplayVideoToggle
+ * @type {?WDNFigcaptionToggle} WDNFigcaptionToggle
  */
-let WDNAutoplayVideoToggle = null;
+let WDNFigcaptionToggle = null;
 
-// Query Selector for the datepicker toggle component
-const querySelector = '.dcf-autoplay-video';
+// Query Selector for the figcaption toggle component
+const querySelector = '.dcf-figcaption-toggle';
+
+// Type of plugin
+const pluginType = 'multi';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -19,6 +26,14 @@ export function getQuerySelector() {
 }
 
 /**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
+}
+
+/**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
@@ -28,28 +43,32 @@ export function getIsInitialized() {
 
 /**
  * Initializes plugin
- * @returns { Promise<void> }
+ * @returns { Promise<WDNFigcaptionToggle> }
  */
 export async function initialize() {
-    if (isInitialized) { return; }
+    if (isInitialized) { return WDNFigcaptionToggle; }
     isInitialized = true;
 
-    const autoplayVideoContainer = await import('@js-src/components/wdn-autoplay-video.js');
-    WDNAutoplayVideoToggle = autoplayVideoContainer.default;
+    const figcaptionToggleComponent = await import('@js-src/components/wdn-figcaption-toggle.js');
+    WDNFigcaptionToggle = figcaptionToggleComponent.default;
+    await loadStyleSheet(buttonToggleCssUrl);
+    await loadStyleSheet(figcaptionToggleCssUrl);
+
+    return WDNFigcaptionToggle;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNAutoplayVideoToggle> }
+ * @returns { Promise<WDNFigcaptionToggle> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNAutoplayVideoToggle(element, options);
+    return new WDNFigcaptionToggle(element, options);
 }
 
 /**
@@ -57,7 +76,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNAutoplayVideoToggle[]> }
+ * @returns { Promise<WDNFigcaptionToggle[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -71,9 +90,9 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNAutoplayVideoToggle[]> }
+ * @returns { Promise<WDNFigcaptionToggle[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allAutoplayVideoContainers = document.querySelectorAll(querySelector);
-    return await loadElements(allAutoplayVideoContainers, options);
+    const allFigcaptionToggles = document.querySelectorAll(querySelector);
+    return await loadElements(allFigcaptionToggles, options);
 }

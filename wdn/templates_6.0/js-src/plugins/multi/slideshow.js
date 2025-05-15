@@ -1,14 +1,19 @@
+import slideshowCssUrl from '@scss/components-js/_slideshows.scss?url';
+import figcaptionToggleCssUrl from '@scss/components-js/_figcaption-toggles.scss?url';
 import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
 import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNButtonToggle} WDNButtonToggle
+ * @type {?WDNSlideshow} WDNSlideshow
  */
-let WDNButtonToggle = null;
+let WDNSlideshow = null;
 
 // Query Selector for the tabs component
-const querySelector = '.dcf-btn-toggle';
+const querySelector = '.dcf-slideshow';
+
+// Type of plugin
+const pluginType = 'multi';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -19,6 +24,14 @@ let isInitialized = false;
  */
 export function getQuerySelector() {
     return querySelector;
+}
+
+/**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
 }
 
 /**
@@ -34,26 +47,30 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return; }
+    if (isInitialized) { return WDNSlideshow; }
     isInitialized = true;
 
-    const toggleButtonComponent = await import('@js-src/components/wdn-toggle-button.js');
-    WDNButtonToggle = toggleButtonComponent.default;
+    const slideshowComponent = await import('@js-src/components/wdn-slideshow.js');
+    WDNSlideshow = slideshowComponent.default;
+    await loadStyleSheet(slideshowCssUrl);
+    await loadStyleSheet(figcaptionToggleCssUrl);
     await loadStyleSheet(buttonToggleCssUrl);
+
+    return WDNSlideshow;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNButtonToggle> }
+ * @returns { Promise<WDNSlideshow> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNButtonToggle(element, options);
+    return new WDNSlideshow(element, options);
 }
 
 /**
@@ -61,7 +78,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNButtonToggle[]> }
+ * @returns { Promise<WDNSlideshow[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -75,9 +92,9 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNButtonToggle[]> }
+ * @returns { Promise<WDNSlideshow[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allToggleButtons = document.querySelectorAll(querySelector);
-    return await loadElements(allToggleButtons, options);
+    const allSlideshows = document.querySelectorAll(querySelector);
+    return await loadElements(allSlideshows, options);
 }

@@ -7,8 +7,8 @@ export default class WDNQa {
 
     webauditQueryUrl = 'https://webaudit.unl.edu/registry/closest/?format=json&query=';
 
-    constructor(qaLink) {
-        this.qaLink = qaLink;
+    constructor() {
+        this.qaLink = document.getElementById('qa-test');
 
         if (this.qaLink !== null) {
             this.#appendLinkWithLocation();

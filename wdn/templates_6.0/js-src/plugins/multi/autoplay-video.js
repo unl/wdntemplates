@@ -1,15 +1,17 @@
-import collapsibleFieldsetsCssUrl from '@scss/components-js/_collapsible-fieldsets.scss?url';
-import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
+import autoplayVideosCssUrl from '@scss/components-js/_autoplay-videos.scss?url';
 import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNCollapsibleFieldset} WDNCollapsibleFieldset
+ * @type {?WDNAutoplayVideoToggle} WDNAutoplayVideoToggle
  */
-let WDNCollapsibleFieldset = null;
+let WDNAutoplayVideoToggle = null;
 
-// Query Selector for the collapsible fieldset component
-const querySelector = '.dcf-collapsible-fieldset';
+// Query Selector for the datepicker toggle component
+const querySelector = '.dcf-autoplay-video';
+
+// Type of plugin
+const pluginType = 'multi';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -23,6 +25,14 @@ export function getQuerySelector() {
 }
 
 /**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
+}
+
+/**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
@@ -32,30 +42,31 @@ export function getIsInitialized() {
 
 /**
  * Initializes plugin
- * @returns { Promise<void> }
+ * @returns { Promise<WDNAutoplayVideoToggle> }
  */
 export async function initialize() {
-    if (isInitialized) { return; }
+    if (isInitialized) { return WDNAutoplayVideoToggle; }
     isInitialized = true;
 
-    const collapsibleFieldsetsComponent = await import('@js-src/components/wdn-collapsible-fieldset.js');
-    WDNCollapsibleFieldset = collapsibleFieldsetsComponent.default;
-    await loadStyleSheet(buttonToggleCssUrl);
-    await loadStyleSheet(collapsibleFieldsetsCssUrl);
+    const autoplayVideoContainer = await import('@js-src/components/wdn-autoplay-video.js');
+    WDNAutoplayVideoToggle = autoplayVideoContainer.default;
+    await loadStyleSheet(autoplayVideosCssUrl);
+
+    return WDNAutoplayVideoToggle;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNCollapsibleFieldset> }
+ * @returns { Promise<WDNAutoplayVideoToggle> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNCollapsibleFieldset(element, options);
+    return new WDNAutoplayVideoToggle(element, options);
 }
 
 /**
@@ -63,7 +74,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNCollapsibleFieldset[]> }
+ * @returns { Promise<WDNAutoplayVideoToggle[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -77,9 +88,9 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNCollapsibleFieldset[]> }
+ * @returns { Promise<WDNAutoplayVideoToggle[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allFieldsets = document.querySelectorAll(querySelector);
-    return await loadElements(allFieldsets, options);
+    const allAutoplayVideoContainers = document.querySelectorAll(querySelector);
+    return await loadElements(allAutoplayVideoContainers, options);
 }

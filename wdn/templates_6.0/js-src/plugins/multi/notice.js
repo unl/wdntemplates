@@ -1,15 +1,17 @@
-import searchCssUrl from '@scss/components-js/_search.scss?url';
-import dialogCssUrl from '@scss/components-js/_dialogs.scss?url';
+import noticesCssUrl from '@scss/components-js/_notices.scss?url';
 import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNSearch} WDNSearch
+ * @type {?WDNNotice} WDNNotice
  */
-let WDNSearch = null;
+let WDNNotice = null;
 
-// Query Selector for the search component
-const querySelector = '.dcf-search';
+// Query Selector for the tabs component
+const querySelector = '.dcf-notice:not(.dcf-notice-initialized)';
+
+// Type of plugin
+const pluginType = 'multi';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -20,6 +22,14 @@ let isInitialized = false;
  */
 export function getQuerySelector() {
     return querySelector;
+}
+
+/**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
 }
 
 /**
@@ -35,27 +45,28 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return; }
+    if (isInitialized) { return WDNNotice; }
     isInitialized = true;
 
-    const searchComponent = await import('@js-src/components/wdn-search.js');
-    WDNSearch = searchComponent.default;
-    await loadStyleSheet(dialogCssUrl);
-    await loadStyleSheet(searchCssUrl);
+    const noticeComponent = await import('@js-src/components/wdn-notice.js');
+    WDNNotice = noticeComponent.default;
+    await loadStyleSheet(noticesCssUrl);
+
+    return WDNNotice;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNSearch> }
+ * @returns { Promise<WDNNotice> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNSearch(element, options);
+    return new WDNNotice(element, options);
 }
 
 /**
@@ -63,7 +74,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNSearch[]> }
+ * @returns { Promise<WDNNotice[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -74,12 +85,12 @@ export async function loadElements(elements, options) {
 }
 
 /**
- * Using the `query_selector` we will load all elements on the page
+ * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNSearch[]> }
+ * @returns { Promise<WDNNotice[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allSearch = document.querySelectorAll(querySelector);
-    return await loadElements(allSearch, options);
+    const allNotices = document.querySelectorAll(querySelector);
+    return await loadElements(allNotices, options);
 }

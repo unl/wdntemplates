@@ -1,28 +1,19 @@
 import { resolve } from 'path';
-import { rm } from 'node:fs/promises';
 import { defineConfig, loadEnv } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
 import autoprefixer from 'autoprefixer';
 import postcssNested from 'postcss-nested';
+
+import wdnCleanupPlugin from './vite.wdnCleanupPlugin.js';
+import wdnFinalJsUrlPlugin from './vite.wdnFinalJsUrlPlugin.js';
 
 export default ({ mode }) => {
     process.env = {...process.env, ...loadEnv(mode, process.cwd(), '')};
 
     // Default plugins which are loaded every time
     const plugins = [
-        {
-            name: 'Cleaning js and css folder',
-            async buildStart() {
-                // Delete js folder to remove old built files
-                await rm(resolve(__dirname, './wdn/templates_6.0/js'), { recursive: true, force: true });
-
-                // Delete css folder to remove old built files
-                await rm(resolve(__dirname, './wdn/templates_6.0/css'), { recursive: true, force: true });
-
-                // Delete asset folder to remove old built files
-                await rm(resolve(__dirname, './wdn/templates_6.0/assets'), { recursive: true, force: true });
-            },
-        },
+        wdnCleanupPlugin,
+        wdnFinalJsUrlPlugin,
     ];
 
     // If we are in a development environment
@@ -35,7 +26,16 @@ export default ({ mode }) => {
     }
 
     return defineConfig({
+        esbuild: {
+            // These options will allow us to keep the class names and other variables in the code
+            //   This is super helpful for debugging and console logging
+            minifyIdentifiers: false,
+            keepNames: true,
+        },
         build: {
+            // Tells the bundler to target modern browsers
+            //   Specifically allows us to do top level await
+            target: 'esnext',
 
             // outDir needs to be `.` or else built url paths will be missing wdn/templates_6.0
             outDir: '.',
@@ -47,60 +47,63 @@ export default ({ mode }) => {
                 // This would include plugin auto loader, plugins, components, and SCSS files
                 // Key is built file path, Value is path to file
                 entry: {
-                    'auto-loader' : 'wdn/templates_6.0/js-src/plugin-auto-loader.js',
+                    'auto-loader'     : 'wdn/templates_6.0/js-src/plugin-auto-loader.js',
                     'header-global-1' : 'wdn/templates_6.0/js-src/header-global-1.js',
+                    'head-2'          : 'wdn/templates_6.0/js-src/head-2.js',
 
-                    'plugins/tab' : 'wdn/templates_6.0/js-src/plugins/tab.js',
-                    'plugins/toggle-button' : 'wdn/templates_6.0/js-src/plugins/toggle-button.js',
-                    'plugins/collapsible-fieldset' : 'wdn/templates_6.0/js-src/plugins/collapsible-fieldset.js',
-                    'plugins/figcaption-toggle' : 'wdn/templates_6.0/js-src/plugins/figcaption-toggle.js',
-                    'plugins/notice' : 'wdn/templates_6.0/js-src/plugins/notice.js',
-                    'plugins/datepicker' : 'wdn/templates_6.0/js-src/plugins/datepicker.js',
-                    'plugins/autoplay-video' : 'wdn/templates_6.0/js-src/plugins/autoplay-video.js',
-                    'plugins/pagination' : 'wdn/templates_6.0/js-src/plugins/pagination.js',
-                    'plugins/slideshow' : 'wdn/templates_6.0/js-src/plugins/slideshow.js',
-                    'plugins/search-select' : 'wdn/templates_6.0/js-src/plugins/search-select.js',
-                    'plugins/popup' : 'wdn/templates_6.0/js-src/plugins/popup.js',
-                    'plugins/dialog' : 'wdn/templates_6.0/js-src/plugins/dialog.js',
-                    'plugins/gallery' : 'wdn/templates_6.0/js-src/plugins/gallery.js',
-                    'plugins/idm' : 'wdn/templates_6.0/js-src/plugins/idm.js',
-                    'plugins/modal' : 'wdn/templates_6.0/js-src/plugins/modal.js', // Deprecated
-                    'plugins/jquery-ui' : 'wdn/templates_6.0/js-src/plugins/jquery-ui.js',
-                    'plugins/search' : 'wdn/templates_6.0/js-src/plugins/search.js',
-                    'plugins/form-validator' : 'wdn/templates_6.0/js-src/plugins/form-validator.js',
-                    'plugins/font-serif' : 'wdn/templates_6.0/js-src/plugins/font-serif.js',
-                    'plugins/qa' : 'wdn/templates_6.0/js-src/plugins/qa.js',
+                    'plugins/plugin.tab'                  : 'wdn/templates_6.0/js-src/plugins/multi/tab.js',
+                    'plugins/plugin.toggle-button'        : 'wdn/templates_6.0/js-src/plugins/multi/toggle-button.js',
+                    'plugins/plugin.collapsible-fieldset' : 'wdn/templates_6.0/js-src/plugins/multi/collapsible-fieldset.js',
+                    'plugins/plugin.figcaption-toggle'    : 'wdn/templates_6.0/js-src/plugins/multi/figcaption-toggle.js',
+                    'plugins/plugin.notice'               : 'wdn/templates_6.0/js-src/plugins/multi/notice.js',
+                    'plugins/plugin.datepicker'           : 'wdn/templates_6.0/js-src/plugins/multi/datepicker.js',
+                    'plugins/plugin.autoplay-video'       : 'wdn/templates_6.0/js-src/plugins/multi/autoplay-video.js',
+                    'plugins/plugin.pagination'           : 'wdn/templates_6.0/js-src/plugins/multi/pagination.js',
+                    'plugins/plugin.slideshow'            : 'wdn/templates_6.0/js-src/plugins/multi/slideshow.js',
+                    'plugins/plugin.search-select'        : 'wdn/templates_6.0/js-src/plugins/multi/search-select.js',
+                    'plugins/plugin.popup'                : 'wdn/templates_6.0/js-src/plugins/multi/popup.js',
+                    'plugins/plugin.dialog'               : 'wdn/templates_6.0/js-src/plugins/multi/dialog.js',
+                    'plugins/plugin.gallery'              : 'wdn/templates_6.0/js-src/plugins/multi/gallery.js',
 
-                    'components/tab' : 'wdn/templates_6.0/js-src/components/wdn-tab.js',
-                    'components/toggle-button' : 'wdn/templates_6.0/js-src/components/wdn-toggle-button.js',
-                    'components/collapsible-fieldset' : 'wdn/templates_6.0/js-src/components/wdn-collapsible-fieldset.js',
-                    'components/figcaption-toggle' : 'wdn/templates_6.0/js-src/components/wdn-figcaption-toggle.js',
-                    'components/notice' : 'wdn/templates_6.0/js-src/components/wdn-notice.js',
-                    'components/datepicker' : 'wdn/templates_6.0/js-src/components/wdn-datepicker.js',
-                    'components/autoplay-video' : 'wdn/templates_6.0/js-src/components/wdn-autoplay-video.js',
-                    'components/pagination' : 'wdn/templates_6.0/js-src/components/wdn-pagination.js',
-                    'components/slideshow' : 'wdn/templates_6.0/js-src/components/wdn-slideshow.js',
-                    'components/search-select' : 'wdn/templates_6.0/js-src/components/wdn-search-select.js',
-                    'components/popup' : 'wdn/templates_6.0/js-src/components/wdn-popup.js',
-                    'components/dialog' : 'wdn/templates_6.0/js-src/components/wdn-dialog.js',
-                    'components/gallery' : 'wdn/templates_6.0/js-src/components/wdn-gallery.js',
-                    'components/banner' : 'wdn/templates_6.0/js-src/components/wdn-banner.js',
-                    'components/idm' : 'wdn/templates_6.0/js-src/components/wdn-idm.js',
-                    'components/search' : 'wdn/templates_6.0/js-src/components/wdn-search.js',
-                    'components/qa' : 'wdn/templates_6.0/js-src/components/wdn-qa.js',
+                    'plugins/plugin.idm'                  : 'wdn/templates_6.0/js-src/plugins/single/idm.js',
+                    'plugins/plugin.search'               : 'wdn/templates_6.0/js-src/plugins/single/search.js',
+                    'plugins/plugin.qa'                   : 'wdn/templates_6.0/js-src/plugins/single/qa.js',
+                    'plugins/plugin.font-serif'           : 'wdn/templates_6.0/js-src/plugins/single/font-serif.js',
 
-                    'lib/wdn-utility' : 'wdn/templates_6.0/js-src/lib/wdn-utility.js',
-                    'lib/jquery' : 'wdn/templates_6.0/js-src/lib/jquery.js',
-                    'lib/jquery-ui' : 'wdn/templates_6.0/js-src/lib/jquery-ui.js',
+                    'plugins/plugin.jquery-ui'            : 'wdn/templates_6.0/js-src/plugins/other/jquery-ui.js',
+                    'plugins/plugin.form-validator'       : 'wdn/templates_6.0/js-src/plugins/other/form-validator.js',
+                    'plugins/plugin.modal'                : 'wdn/templates_6.0/js-src/plugins/other/modal.js', // Deprecated
+
+                    'components/component.tab'                  : 'wdn/templates_6.0/js-src/components/wdn-tab.js',
+                    'components/component.toggle-button'        : 'wdn/templates_6.0/js-src/components/wdn-toggle-button.js',
+                    'components/component.collapsible-fieldset' : 'wdn/templates_6.0/js-src/components/wdn-collapsible-fieldset.js',
+                    'components/component.figcaption-toggle'    : 'wdn/templates_6.0/js-src/components/wdn-figcaption-toggle.js',
+                    'components/component.notice'               : 'wdn/templates_6.0/js-src/components/wdn-notice.js',
+                    'components/component.datepicker'           : 'wdn/templates_6.0/js-src/components/wdn-datepicker.js',
+                    'components/component.autoplay-video'       : 'wdn/templates_6.0/js-src/components/wdn-autoplay-video.js',
+                    'components/component.pagination'           : 'wdn/templates_6.0/js-src/components/wdn-pagination.js',
+                    'components/component.slideshow'            : 'wdn/templates_6.0/js-src/components/wdn-slideshow.js',
+                    'components/component.search-select'        : 'wdn/templates_6.0/js-src/components/wdn-search-select.js',
+                    'components/component.popup'                : 'wdn/templates_6.0/js-src/components/wdn-popup.js',
+                    'components/component.dialog'               : 'wdn/templates_6.0/js-src/components/wdn-dialog.js',
+                    'components/component.gallery'              : 'wdn/templates_6.0/js-src/components/wdn-gallery.js',
+                    'components/component.banner'               : 'wdn/templates_6.0/js-src/components/wdn-banner.js',
+                    'components/component.idm'                  : 'wdn/templates_6.0/js-src/components/wdn-idm.js',
+                    'components/component.search'               : 'wdn/templates_6.0/js-src/components/wdn-search.js',
+                    'components/component.qa'                   : 'wdn/templates_6.0/js-src/components/wdn-qa.js',
+
+                    'lib/wdn-utility'      : 'wdn/templates_6.0/js-src/lib/wdn-utility.js',
+                    'lib/jquery'           : 'wdn/templates_6.0/js-src/lib/jquery.js',
+                    'lib/jquery-ui'        : 'wdn/templates_6.0/js-src/lib/jquery-ui.js',
                     'lib/jquery-validator' : 'wdn/templates_6.0/js-src/lib/jquery-validator.js',
 
-                    // We don't need 'css/main' as key since the assetFileNames will add the css directory
-                    'affiliate' : 'wdn/templates_6.0/scss/affiliate.scss',
-                    'critical' : 'wdn/templates_6.0/scss/critical.scss',
+                    // We don't need 'css/' to prefix the keys since the assetFileNames will add the css directory for us
+                    'affiliate'     : 'wdn/templates_6.0/scss/affiliate.scss',
+                    'critical'      : 'wdn/templates_6.0/scss/critical.scss',
                     'deprecated-4x' : 'wdn/templates_6.0/scss/deprecated-4x.scss',
                     'deprecated-5x' : 'wdn/templates_6.0/scss/deprecated-5x.scss',
-                    'main' : 'wdn/templates_6.0/scss/main.scss',
-                    'print' : 'wdn/templates_6.0/scss/print.scss',
+                    'main'          : 'wdn/templates_6.0/scss/main.scss',
+                    'print'         : 'wdn/templates_6.0/scss/print.scss',
                 },
 
                 // We are building for ES modules
@@ -155,7 +158,7 @@ export default ({ mode }) => {
                     },
 
                     // chunkFileNames is for the shared files it finds which are not defined in the entry point
-                    chunkFileNames: 'wdn/templates_6.0/js/chunk/[name].js',
+                    chunkFileNames: 'wdn/templates_6.0/js/chunks/chunk.[name].js',
 
                     // entryFileNames are the files defined in the lib.entry above
                     entryFileNames: 'wdn/templates_6.0/js/[name].js',

@@ -1,14 +1,17 @@
-import idmCssUrl from '@scss/components-js/_idm.scss?url';
+import popupsCssUrl from '@scss/components-js/_popups.scss?url';
 import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNIdm} WDNIdm
+ * @type {?WDNPopup} WDNPopup
  */
-let WDNIdm = null;
+let WDNPopup = null;
 
 // Query Selector for the tabs component
-const querySelector = '.dcf-idm';
+const querySelector = '.dcf-popup';
+
+// Type of plugin
+const pluginType = 'multi';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -19,6 +22,14 @@ let isInitialized = false;
  */
 export function getQuerySelector() {
     return querySelector;
+}
+
+/**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
 }
 
 /**
@@ -34,26 +45,28 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return; }
+    if (isInitialized) { return WDNPopup; }
     isInitialized = true;
 
-    const idmComponent = await import('@js-src/components/wdn-idm.js');
-    WDNIdm = idmComponent.default;
-    await loadStyleSheet(idmCssUrl);
+    const popupComponent = await import('@js-src/components/wdn-popup.js');
+    WDNPopup = popupComponent.default;
+    await loadStyleSheet(popupsCssUrl);
+
+    return WDNPopup;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNIDM> }
+ * @returns { Promise<WDNPopup> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNIdm(element, options);
+    return new WDNPopup(element, options);
 }
 
 /**
@@ -61,7 +74,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNIDM[]> }
+ * @returns { Promise<WDNPopup[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -72,12 +85,12 @@ export async function loadElements(elements, options) {
 }
 
 /**
- * Using the `query_selector` we will load all elements on the page
+ * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNIDM[]> }
+ * @returns { Promise<WDNPopup[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allIdm = document.querySelectorAll(querySelector);
-    return await loadElements(allIdm, options);
+    const allPopups = document.querySelectorAll(querySelector);
+    return await loadElements(allPopups, options);
 }

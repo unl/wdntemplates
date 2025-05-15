@@ -1,6 +1,12 @@
 import formValidatorCssUrl from '@scss/components-js/_form-validator.scss?url';
 import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
+/**
+ * This is where the imported jquery will go
+ * @type {?jQuery} jQuery
+ */
+let jQuery = null;
+
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
 
@@ -12,13 +18,30 @@ export function getIsInitialized() {
     return isInitialized;
 }
 
-export async function initialize() {
-    if (isInitialized) { return window.jQuery; }
+/**
+ * 
+ * @returns { Promise<jQuery> }
+ */
+export async function initialize(options = {}) {
+    if ('jQuery' in options) {
+        await loadStyleSheet(formValidatorCssUrl);
+        await fakeDefine(options.jQuery);
+        return options.jQuery;
+    }
+
+    if (isInitialized) { return jQuery; }
     isInitialized = true;
 
     await loadStyleSheet(formValidatorCssUrl);
-    const { default: jQuery } = await import('@js-src/lib/jquery.js');
+    const jQueryModule = await import('@js-src/lib/jquery.js');
+    jQuery = jQueryModule.default;
 
+    await fakeDefine(jQuery);
+
+    return jQuery;
+}
+
+async function fakeDefine(jQuery) {
     // Save old define
     const oldDefine = window.define;
     window.define = (deps, factory) => {
@@ -31,6 +54,4 @@ export async function initialize() {
 
     // Restore old define
     window.define = oldDefine;
-
-    return jQuery;
 }

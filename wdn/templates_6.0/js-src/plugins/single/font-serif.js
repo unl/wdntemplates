@@ -4,6 +4,9 @@ import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 // Query Selector for the gallery component
 const querySelector = '.unl-font-serif';
 
+// Type of plugin
+const pluginType = 'single';
+
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
 
@@ -16,6 +19,14 @@ export function getQuerySelector() {
 }
 
 /**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
+}
+
+/**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
@@ -23,45 +34,19 @@ export function getIsInitialized() {
     return isInitialized;
 }
 
+export function isOnPage() {
+    return document.querySelector(querySelector) !== null;
+}
+
 /**
  * Initializes plugin
- * @returns { Promise<void> }
+ * @returns { Promise<Null> }
  */
 export async function initialize() {
-    if (isInitialized) { return; }
+    if (isInitialized) { return null; }
     isInitialized = true;
 
     await loadStyleSheet(fontSerifCssUrl);
-}
 
-/**
- * Loads a single instance of the component
- * @returns { Promise<Void> }
- */
-export async function loadElement() {
-    if (!isInitialized) {
-        await initialize();
-    }
-}
-
-/**
- * Loads components from all elements passed in
- * @async
- * @returns { Promise<Void> }
- */
-export async function loadElements() {
-    if (!isInitialized) {
-        await initialize();
-    }
-}
-
-/**
- * Using the `query_selector` we will load all elements on the page
- * @async
- * @returns { Promise<Void> }
- */
-export async function loadElementsOnPage() {
-    if (!isInitialized) {
-        await initialize();
-    }
+    return null;
 }

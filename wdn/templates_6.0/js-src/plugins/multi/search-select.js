@@ -10,6 +10,9 @@ let WDNSearchSelect = null;
 // Query Selector for the tabs component
 const querySelector = '.dcf-search-select';
 
+// Type of plugin
+const pluginType = 'multi';
+
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
 
@@ -19,6 +22,14 @@ let isInitialized = false;
  */
 export function getQuerySelector() {
     return querySelector;
+}
+
+/**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
 }
 
 /**
@@ -34,12 +45,14 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return; }
+    if (isInitialized) { return WDNSearchSelect; }
     isInitialized = true;
 
     const searchSelectComponent = await import('@js-src/components/wdn-search-select.js');
     WDNSearchSelect = searchSelectComponent.default;
     await loadStyleSheet(searchSelectCssUrl);
+
+    return WDNSearchSelect;
 }
 
 /**

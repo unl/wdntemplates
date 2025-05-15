@@ -4,6 +4,10 @@
 
 @use "../variables/" as var;
 
+.unl .dcf-btn-toggle-figcaption {
+  padding: 1em;
+}
+
 // Figcaption
 .unl .dcf-figcaption-toggle {
   background-color: var.$bg-color-overlay-dark;

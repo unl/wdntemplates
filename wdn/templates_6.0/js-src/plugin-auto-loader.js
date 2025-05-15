@@ -1,78 +1,129 @@
-import * as WDNTab from '@js-src/plugins/tab.js';
-import * as WDNToggleButton from '@js-src/plugins/toggle-button.js';
-import * as WDNCollapsibleFieldset from '@js-src/plugins/collapsible-fieldset.js';
-import * as WDNFigcaptionToggle from '@js-src/plugins/figcaption-toggle.js';
-import * as WDNNotice from '@js-src/plugins/notice.js';
-import * as WDNDatepicker from '@js-src/plugins/datepicker.js';
-import * as WDNAutoplayVideo from '@js-src/plugins/autoplay-video.js';
-import * as WDNPagination from '@js-src/plugins/pagination.js';
-import * as WDNSlideshow from '@js-src/plugins/slideshow.js';
-import * as WDNSearchSelect from '@js-src/plugins/search-select.js';
-import * as WDNPopup from '@js-src/plugins/popup.js';
-import * as WDNDialog from '@js-src/plugins/dialog.js';
-import * as WDNGallery from '@js-src/plugins/gallery.js';
-import * as WDNIDM from '@js-src/plugins/idm.js';
-import * as WDNSearch from '@js-src/plugins/search.js';
-import * as WDNFontSerif from '@js-src/plugins/font-serif.js';
-import * as WDNQa from '@js-src/plugins/qa.js';
-
-// Main WDN plugins
-const pluginMap = {
-    'wdn_tab': WDNTab,
-    'wdn_toggle_button': WDNToggleButton,
-    'wdn_collapsible_fieldset': WDNCollapsibleFieldset,
-    'wdn_figcaption_toggle': WDNFigcaptionToggle,
-    'wdn_notice': WDNNotice,
-    'wdn_datepicker': WDNDatepicker,
-    'wdn_autoplay_video': WDNAutoplayVideo,
-    'wdn_pagination': WDNPagination,
-    'wdn_slideshow': WDNSlideshow,
-    'wdn_search_select': WDNSearchSelect,
-    'wdn_popup': WDNPopup,
-    'wdn_dialog': WDNDialog,
-    'wdn_gallery': WDNGallery,
-    'wdn_idm': WDNIDM,
-    'wdn_search': WDNSearch,
-    'wdn_font_serif': WDNFontSerif,
-    'wdn_qa': WDNQa,
-};
-
-// Loads all elements that are already on the page
-for (const singlePluginName in pluginMap) {
-    if (!Object.hasOwn(pluginMap, singlePluginName)) { continue; }
-    const plugin = pluginMap[singlePluginName];
-    if (typeof plugin.loadElementsOnPage !== 'function') {
-        throw new Error(`Invalid loadElementsOnPage function in plugin: ${singlePluginName}`);
-    }
-    plugin.loadElementsOnPage();
+if (
+    !('UNL' in window) ||
+    typeof window.UNL !== 'object' ||
+    !('autoLoader' in window.UNL) ||
+    typeof window.UNL.autoLoader !== 'object' ||
+    !('config' in window.UNL.autoLoader) ||
+    typeof window.UNL.autoLoader.config !== 'object'
+) {
+    // Load the head-2.js script if it wasn't loaded already
+    await import('@js-src/head-2.js');
 }
 
-// Loads all elements that are added to the page
-const mutationCallback = function(mutationList) {
-    mutationList.forEach((mutationRecord) => {
-        mutationRecord.addedNodes.forEach((nodeAdded) => {
-            if (nodeAdded instanceof Element) {
-                for (const singlePluginName in pluginMap) {
-                    if (!Object.hasOwn(pluginMap, singlePluginName)) { continue; }
-                    const plugin = pluginMap[singlePluginName];
-                    if (typeof plugin.getQuerySelector !== 'function') {
-                        throw new Error(`Invalid getQuerySelector function in plugin: ${singlePluginName}`);
-                    }
-                    if (typeof plugin.loadElement !== 'function') {
-                        throw new Error(`Invalid loadElement function in plugin: ${singlePluginName}`);
-                    }
-                    if (nodeAdded.matches(plugin.getQuerySelector())) {
-                        plugin.loadElement(nodeAdded);
+document.dispatchEvent(new Event('autoLoaderPreLoad'));
+
+const configPluginList = window.UNL.autoLoader.config.plugins || {};
+const enabled = window.UNL.autoLoader.config.enabled || true;
+const watch = window.UNL.autoLoader.config.watch || true;
+
+const watchList = [];
+
+if (enabled) {
+    window.UNL.autoLoader.plugins = {};
+    for (const [pluginName, pluginPath] of Object.entries(configPluginList)) {
+        window.UNL.autoLoader.plugins[pluginName] = {
+            module: await import(pluginPath),
+            elements: [],
+        };
+    }
+
+    // Loads all elements that are already on the page
+    for (const singlePluginName in window.UNL.autoLoader.plugins) {
+        const pluginData = window.UNL.autoLoader.plugins[singlePluginName];
+        const pluginModule = pluginData.module;
+
+        if (typeof pluginModule.getPluginType !== 'function') {
+            continue;
+        }
+
+        if (pluginModule.getPluginType() === 'single') {
+            if (typeof pluginModule.isOnPage !== 'function') {
+                throw new Error(`Invalid isOnPage function in plugin: ${singlePluginName}`);
+            }
+            if (typeof pluginModule.initialize !== 'function') {
+                throw new Error(`Invalid initialize function in plugin: ${singlePluginName}`);
+            }
+            if (pluginModule.isOnPage()) {
+                const element = await pluginModule.initialize();
+                if (element !== null) {
+                    pluginData.elements.push(element);
+                }
+            } else {
+                watchList.push(singlePluginName);
+            }
+
+        } else if (pluginModule.getPluginType() === 'multi') {
+            if (typeof pluginModule.loadElementsOnPage !== 'function') {
+                throw new Error(`Invalid loadElementsOnPage function in plugin: ${singlePluginName}`);
+            }
+            const elements = await pluginModule.loadElementsOnPage();
+            pluginData.elements = pluginData.elements.concat(elements);
+
+            watchList.push(singlePluginName);
+        }
+    }
+}
+
+if (watch) {
+    // Loads all elements that are added to the page
+    const mutationCallback = function(mutationList) {
+        mutationList.forEach((mutationRecord) => {
+            // Loop through each node added and make sure it is an element
+            mutationRecord.addedNodes.forEach(async(nodeAdded) => {
+                if (nodeAdded instanceof Element) {
+                    // Loop through each plugin and check to see if this new element matches it
+                    for (const singlePluginName of watchList) {
+                        const pluginData = window.UNL.autoLoader.plugins[singlePluginName];
+                        const pluginModule = pluginData.module;
+
+                        if (pluginModule.getPluginType() === 'single') {
+                            if (typeof pluginModule.getQuerySelector !== 'function') {
+                                throw new Error(`Invalid getQuerySelector function in plugin: ${singlePluginName}`);
+                            }
+                            if (nodeAdded.matches(pluginModule.getQuerySelector())) {
+                                const element = await pluginModule.initialize();
+                                if (element !== null) {
+                                    pluginData.elements.push(element);
+                                }
+                                watchList.splice(watchList.indexOf(singlePluginName), 1);
+                            }
+
+                        } else if (pluginModule.getPluginType() === 'multi') {
+                            if (typeof pluginModule.getQuerySelector !== 'function') {
+                                throw new Error(`Invalid getQuerySelector function in plugin: ${singlePluginName}`);
+                            }
+                            if (typeof pluginModule.loadElement !== 'function') {
+                                throw new Error(`Invalid loadElement function in plugin: ${singlePluginName}`);
+                            }
+                            if (nodeAdded.matches(pluginModule.getQuerySelector())) {
+                                const element = await pluginModule.loadElement(nodeAdded);
+                                pluginData.elements = pluginData.elements.concat(element);
+                            }
+                        }
                     }
                 }
-            }
+            });
         });
+    };
+
+    const observer = new MutationObserver(mutationCallback);
+    const observerConfig = {
+        subtree: true,
+        childList: true,
+    };
+    observer.observe(document.body, observerConfig);
+}
+
+window.UNL.autoLoader.loaded = true;
+
+if ('loadCallbackQueue' in window.UNL.autoLoader && Array.isArray(window.UNL.autoLoader.loadCallbackQueue)) {
+    window.UNL.autoLoader.loadCallbackQueue.forEach((singleCallback) => {
+        singleCallback();
     });
+    delete window.UNL.autoLoader.loadCallbackQueue;
+}
+window.UNL.autoLoader.onLoad = (callbackFunc) => {
+    callbackFunc();
 };
 
-const observer = new MutationObserver(mutationCallback);
-const observerConfig = {
-    subtree: true,
-    childList: true,
-};
-observer.observe(document.body, observerConfig);
+document.dispatchEvent(new Event('autoLoaderPostLoad'));
