@@ -3,19 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tabs (autoloader add)</title>
+        <title>Tabs (autoloader w/ opt out)</title>
         <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
         <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+        <script src="/wdn/templates_6.0/js/head-2.js"></script>
+        <script>
+            window.UNL.autoLoader.config.optOutSelector = '.unl-test-out';
+        </script>
     </head>
     <body class="unl">
         <main>
-            <h1 >Tabs (autoloader add)</h1>
+            <h1 >Tabs (autoloader w/ opt out)</h1>
 
             <button id="add_new_tabs" class="dcf-sticky dcf-top-0 dcf-btn">Add new tabs</button>
 
             <a href="#group3-panel2">Go To Tabs Panel #group3-panel2</a>
 
-            <div class="dcf-tabs dcf-tabs-responsive dcf-mt-6 dcf-mb-9">
+            <div class="dcf-tabs dcf-tabs-responsive dcf-mt-6 dcf-mb-9 unl-test-out">
                 <h3>Tab Group (Unordered List, Divs)</h3>
                 <ul>
                     <li><a href="#group1-panel1">Tab 1</a></li>
@@ -105,6 +109,10 @@
 
                 new_tab.setAttribute('id', `tabGroup${tabs_count}`);
                 new_tab.classList.add('dcf-tabs', 'dcf-mt-6');
+
+                if (tabs_count % 2 === 0) {
+                    new_tab.classList.add('unl-test-out');
+                }
 
                 document.querySelector('main').append(new_tab);
 

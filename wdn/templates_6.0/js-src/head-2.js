@@ -22,8 +22,8 @@ window.UNL.autoLoader = {
     config: {
         enabled: true,
         watch: true,
-        optInClass: null, // If the element doesn't have this class ignore it
-        optOutClass: null, // If the element has this class ignore it
+        optInSelector: null, // If the element doesn't have this class ignore it
+        optOutSelector: null, // If the element has this class ignore it
         plugins: {
             wdnTab: wdnTabUrl,
             wdnToggleButton: wdnToggleButtonUrl,

@@ -12,6 +12,8 @@ if (
 
 document.dispatchEvent(new Event('autoLoaderPreLoad'));
 
+const optInSelector = window.UNL.autoLoader.config.optInSelector || null;
+const optOutSelector = window.UNL.autoLoader.config.optOutSelector || null;
 const configPluginList = window.UNL.autoLoader.config.plugins || {};
 const enabled = window.UNL.autoLoader.config.enabled || true;
 const watch = window.UNL.autoLoader.config.watch || true;
@@ -53,10 +55,24 @@ if (enabled) {
             }
 
         } else if (pluginModule.getPluginType() === 'multi') {
-            if (typeof pluginModule.loadElementsOnPage !== 'function') {
-                throw new Error(`Invalid loadElementsOnPage function in plugin: ${singlePluginName}`);
+            if (typeof pluginModule.getQuerySelector !== 'function') {
+                throw new Error(`Invalid getQuerySelector function in plugin: ${singlePluginName}`);
             }
-            const elements = await pluginModule.loadElementsOnPage();
+            if (typeof pluginModule.loadElement !== 'function') {
+                throw new Error(`Invalid loadElement function in plugin: ${singlePluginName}`);
+            }
+            let matchingElements = Array.from(document.querySelectorAll(pluginModule.getQuerySelector()));
+            if (optOutSelector !== null) {
+                matchingElements = matchingElements.filter((matchingElement) => {
+                    return !(matchingElement.matches(optOutSelector));
+                });
+            }
+            if (optInSelector !== null) {
+                matchingElements = matchingElements.filter((matchingElement) => {
+                    return matchingElement.matches(optInSelector);
+                });
+            }
+            const elements = await pluginModule.loadElements(matchingElements);
             pluginData.elements = pluginData.elements.concat(elements);
 
             watchList.push(singlePluginName);
@@ -71,6 +87,15 @@ if (watch) {
             // Loop through each node added and make sure it is an element
             mutationRecord.addedNodes.forEach(async(nodeAdded) => {
                 if (nodeAdded instanceof Element) {
+
+                    if (optOutSelector !== null && nodeAdded.matches(optOutSelector)) {
+                        return;
+                    }
+
+                    if (optInSelector !== null && !nodeAdded.matches(optInSelector)) {
+                        return;
+                    }
+
                     // Loop through each plugin and check to see if this new element matches it
                     for (const singlePluginName of watchList) {
                         const pluginData = window.UNL.autoLoader.plugins[singlePluginName];

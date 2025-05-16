@@ -3,13 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tabs (autoloader add)</title>
+        <title>Tabs (autoloader w/ opt in)</title>
         <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
         <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+        <script src="/wdn/templates_6.0/js/head-2.js"></script>
+        <script>
+            window.UNL.autoLoader.config.optInSelector = '.unl-test-in';
+        </script>
     </head>
     <body class="unl">
         <main>
-            <h1 >Tabs (autoloader add)</h1>
+            <h1 >Tabs (autoloader w/ opt in)</h1>
 
             <button id="add_new_tabs" class="dcf-sticky dcf-top-0 dcf-btn">Add new tabs</button>
 
@@ -36,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="dcf-tabs dcf-tabs-responsive dcf-mt-6" data-url-tracking="true">
+            <div class="dcf-tabs dcf-tabs-responsive dcf-mt-6 unl-test-in" data-url-tracking="true">
                 <h3>Tab Group (Ordered List, Sections)</h3>
                 <ol>
                     <li><a href="#group2-panel1" hidden>Tab 1</a></li>
@@ -57,7 +61,7 @@
                 </section>
             </div>
 
-            <div class="dcf-tabs dcf-mt-6" id="tabGroup3">
+            <div class="dcf-tabs dcf-mt-6 unl-test-in" id="tabGroup3">
                 <h3>Tab Group No UL</h3>
                 <section id="group3-panel1">
                     <h4 class="dcf-tabs-panel-title">Panel 1</h4>
@@ -105,6 +109,10 @@
 
                 new_tab.setAttribute('id', `tabGroup${tabs_count}`);
                 new_tab.classList.add('dcf-tabs', 'dcf-mt-6');
+
+                if (tabs_count % 2 === 0) {
+                    new_tab.classList.add('unl-test-in');
+                }
 
                 document.querySelector('main').append(new_tab);
 
