@@ -90,3 +90,34 @@
   }
 
 }
+
+
+@container only screen and (min-width: #{var.$ms-22}em) {
+
+  .unl-idm-card-list {
+    columns: 2;
+  }
+
+}
+
+@media only screen and (min-width: #{var.$ms-31}em) {
+
+  .unl-idm-grid-apps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .unl-idm-ms365 {
+    grid-column: 1 / span 1;
+  }
+
+  .unl-idm-canvas {
+    grid-column: 2 / span 1;
+    grid-row: 1 / 2;
+  }
+
+  .unl-idm-other-services {
+    grid-column: 3 / span 2;
+    grid-row-end: 2;
+  }
+
+}
