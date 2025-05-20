@@ -3,25 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>jQuery UI</title>
+        <title>QA</title>
         <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
         <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
     </head>
     <body class="unl">
         <main>
-            <h1>jQuery UI</h1>
+            <h1 >QA</h1>
 
-            <p>Date: <input type="text" id="datepicker"></p>
+            <a id="qa-test" href="https://webaudit.unl.edu/qa-test/">QA Test</a>
         </main>
 
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
-
-        <script type="module">
-            import * as jqueryModule from "/wdn/templates_6.0/js/plugins/plugin.jquery-ui.js";
-            const $ = await jqueryModule.initialize();
-            $( function() {
-                $( "#datepicker" ).datepicker();
-            } );
-        </script>
     </body>
 </html>

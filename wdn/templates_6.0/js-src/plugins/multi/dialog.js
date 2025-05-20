@@ -1,11 +1,17 @@
+import dialogsCssUrl from '@scss/components-js/_dialogs.scss?url';
+import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+
 /**
  * This is where the imported class will be stored
- * @type {?WDNAutoplayVideoToggle} WDNAutoplayVideoToggle
+ * @type {?WDNDialog} WDNDialog
  */
-let WDNAutoplayVideoToggle = null;
+let WDNDialog = null;
 
-// Query Selector for the datepicker toggle component
-const querySelector = '.dcf-autoplay-video';
+// Query Selector for the tabs component
+const querySelector = '.dcf-dialog:not(.dcf-dialog-initialized)';
+
+// Type of plugin
+const pluginType = 'multi';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -19,6 +25,14 @@ export function getQuerySelector() {
 }
 
 /**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
+}
+
+/**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
@@ -28,28 +42,31 @@ export function getIsInitialized() {
 
 /**
  * Initializes plugin
- * @returns { Promise<void> }
+ * @returns { Promise<WDNDialog> }
  */
 export async function initialize() {
-    if (isInitialized) { return; }
+    if (isInitialized) { return WDNDialog; }
     isInitialized = true;
 
-    const autoplayVideoContainer = await import('@js-src/components/wdn-autoplay-video.js');
-    WDNAutoplayVideoToggle = autoplayVideoContainer.default;
+    const dialogComponent = await import('@js-src/components/wdn-dialog.js');
+    WDNDialog = dialogComponent.default;
+    await loadStyleSheet(dialogsCssUrl);
+
+    return WDNDialog;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNAutoplayVideoToggle> }
+ * @returns { Promise<WDNDialog> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNAutoplayVideoToggle(element, options);
+    return new WDNDialog(element, options);
 }
 
 /**
@@ -57,7 +74,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNAutoplayVideoToggle[]> }
+ * @returns { Promise<WDNDialog[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -71,9 +88,9 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNAutoplayVideoToggle[]> }
+ * @returns { Promise<WDNDialog[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allAutoplayVideoContainers = document.querySelectorAll(querySelector);
-    return await loadElements(allAutoplayVideoContainers, options);
+    const allDialogs = document.querySelectorAll(querySelector);
+    return await loadElements(allDialogs, options);
 }

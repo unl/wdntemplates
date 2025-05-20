@@ -1,6 +1,7 @@
 *.espressostorage
 *.sublime*
 .idea
+.vscode
 .DS_Store
 .externalToolBuilders
 .settings

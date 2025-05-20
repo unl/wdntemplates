@@ -62,27 +62,49 @@ Support of the UNL Templates is coordinated and communicated through the [WDN](h
 
 ### Directories
 
-__`templates_6.0/js-src/`__
+#### `templates_6.0/js-src/`
 
 Contains all the javascript for the project
 
-__`templates_6.0/js-src/plugins/`__
+##### `templates_6.0/js-src/plugins/`
 
 Contains the plugins which contain the code required to load specific components
 and features. Ideally this would contain the minimal amount of code.
 
-Exported functions in each plugin:
+###### `templates_6.0/js-src/plugins/multi`
+
+Multi plugins are plugins which can be used to initialize multiple elements/component instances.
+
+Exported functions in each multi type plugin:
 
 | Function Name           | Async | Return Type              | Description |
 | ----------------------- | ----- | ------------------------ | ----------- |
 | `getQuerySelector`      | No    | String                   | Gets the query selector which is used for this plugin's component |
 | `getIsInitialized`      | No    | Boolean                  | Returns if the plugin has been initialized yet |
-| `initialize`            | Yes   | Void                     | Initializes plugin |
+| `initialize`            | Yes   | Class Definition         | Initializes plugin and returns the loaded class definition of the component |
 | `loadElement`           | Yes   | Class Instance           | Loads the element using the component class and returns the class instance |
 | `loadElements`          | Yes   | Array of Class Instances | Loads the array elements using the component class and returns the array of class instances |
 | `loadElementsOnPage`    | Yes   | Array of Class Instance  | Loads the all matching elements on the page using the component class and returns the array of class instance |
 
-__`templates_6.0/js-src/components/`__
+###### `templates_6.0/js-src/plugins/single`
+
+Single plugins are plugins only need to be loaded once since there is only one instance of that component, or
+there are no components and it only loads a style sheet.
+
+Exported functions in each single type plugin:
+
+| Function Name           | Async | Return Type            | Description |
+| ----------------------- | ----- | ---------------------- | ----------- |
+| `getQuerySelector`      | No    | String                 | Gets the query selector which is used for this plugin's component |
+| `getIsInitialized`      | No    | Boolean                | Returns if the plugin has been initialized yet |
+| `initialize`            | Yes   | Class Instance or Null | Initializes plugin and returns the class instance of that component |
+
+###### `templates_6.0/js-src/plugins/other`
+
+Other type plugins do not follow the same format as other plugins. These plugins will not need to be loaded by the auto loader
+since they typically relate to specialty code.
+
+##### `templates_6.0/js-src/components/`
 
 Contains the components that are using on the page. The code consists of the
 building, managing, and interacting with the component. These are typically
@@ -90,20 +112,20 @@ built atop the DCF JS components.
 
 This should only export a class reference.
 
-__`templates_6.0/js/`__
+#### `templates_6.0/js/`
 
 Contains the built, bundled, and minified JS files as well as their JS maps.
 
-__`templates_6.0/scss/`__
+#### `templates_6.0/scss/`
 
 Contains the SCSS for the templates which is built off the DCF SCSS. Variables
 are set up to allow the WDN Templates to override the DCF defaults.
 
-__`templates_6.0/css/`__
+#### `templates_6.0/css/`
 
 Contains the built, bundled, and minified CSS files.
 
-__`scripts/`__
+#### `scripts/`
 
 Contains bash scripts for deployment and distribution
 

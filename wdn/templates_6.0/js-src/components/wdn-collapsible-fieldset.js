@@ -25,13 +25,6 @@ export default class WDNCollapsibleFieldset extends DCFCollapsibleFieldset {
 
         if (!('fieldsetClassListOff' in options)) {
             options.fieldsetClassListOff = [
-                'dcf-bl-transparent',
-                'dcf-bb-transparent',
-                'dcf-br-transparent',
-                'dcf-br-transparent',
-                'dcf-pt-0',
-                'dcf-pb-0',
-                'dcf-sharp',
                 'unl-collapsible-fieldset-close',
             ];
         }

@@ -1,15 +1,17 @@
-import galleryCssUrl from '@scss/components-js/_gallery.scss?url';
-import dialogCssUrl from '@scss/components-js/_dialogs.scss?url';
-import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
+import paginationCssUrl from '@scss/components-js/_pagination.scss?url';
+import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNGallery} WDNGallery
+ * @type {?WDNPagination} WDNPagination
  */
-let WDNGallery = null;
+let WDNPagination = null;
 
-// Query Selector for the gallery component
-const querySelector = '.dcf-gallery-img';
+// Query Selector for the tabs component
+const querySelector = '.dcf-pagination';
+
+// Type of plugin
+const pluginType = 'multi';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -20,6 +22,14 @@ let isInitialized = false;
  */
 export function getQuerySelector() {
     return querySelector;
+}
+
+/**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
 }
 
 /**
@@ -35,27 +45,28 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return; }
+    if (isInitialized) { return WDNPagination; }
     isInitialized = true;
 
-    const galleryComponent = await import('@js-src/components/wdn-gallery.js');
-    WDNGallery = galleryComponent.default;
-    await loadStyleSheet(dialogCssUrl);
-    await loadStyleSheet(galleryCssUrl);
+    const paginationComponent = await import('@js-src/components/wdn-pagination.js');
+    WDNPagination = paginationComponent.default;
+    await loadStyleSheet(paginationCssUrl);
+
+    return WDNPagination;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNGallery> }
+ * @returns { Promise<WDNPagination> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNGallery(element, options);
+    return new WDNPagination(element, options);
 }
 
 /**
@@ -63,7 +74,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNGallery[]> }
+ * @returns { Promise<WDNPagination[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -74,12 +85,12 @@ export async function loadElements(elements, options) {
 }
 
 /**
- * Using the `query_selector` we will load all elements on the page
+ * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNGallery[]> }
+ * @returns { Promise<WDNPagination[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allGalleryImages = document.querySelectorAll(querySelector);
-    return await loadElements(allGalleryImages, options);
+    const allPagination = document.querySelectorAll(querySelector);
+    return await loadElements(allPagination, options);
 }

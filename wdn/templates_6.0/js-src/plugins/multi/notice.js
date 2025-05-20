@@ -1,15 +1,17 @@
-import collapsibleFieldsetsCssUrl from '@scss/components-js/_collapsible-fieldsets.scss?url';
-import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
-import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
+import noticesCssUrl from '@scss/components-js/_notices.scss?url';
+import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNCollapsibleFieldset} WDNCollapsibleFieldset
+ * @type {?WDNNotice} WDNNotice
  */
-let WDNCollapsibleFieldset = null;
+let WDNNotice = null;
 
-// Query Selector for the collapsible fieldset component
-const querySelector = '.dcf-collapsible-fieldset';
+// Query Selector for the tabs component
+const querySelector = '.dcf-notice:not(.dcf-notice-initialized)';
+
+// Type of plugin
+const pluginType = 'multi';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -20,6 +22,14 @@ let isInitialized = false;
  */
 export function getQuerySelector() {
     return querySelector;
+}
+
+/**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
 }
 
 /**
@@ -35,27 +45,28 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return; }
+    if (isInitialized) { return WDNNotice; }
     isInitialized = true;
 
-    const collapsibleFieldsetsComponent = await import('@js-src/components/wdn-collapsible-fieldset.js');
-    WDNCollapsibleFieldset = collapsibleFieldsetsComponent.default;
-    await loadStyleSheet(buttonToggleCssUrl);
-    await loadStyleSheet(collapsibleFieldsetsCssUrl);
+    const noticeComponent = await import('@js-src/components/wdn-notice.js');
+    WDNNotice = noticeComponent.default;
+    await loadStyleSheet(noticesCssUrl);
+
+    return WDNNotice;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNCollapsibleFieldset> }
+ * @returns { Promise<WDNNotice> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNCollapsibleFieldset(element, options);
+    return new WDNNotice(element, options);
 }
 
 /**
@@ -63,7 +74,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNCollapsibleFieldset[]> }
+ * @returns { Promise<WDNNotice[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -77,9 +88,9 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNCollapsibleFieldset[]> }
+ * @returns { Promise<WDNNotice[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allFieldsets = document.querySelectorAll(querySelector);
-    return await loadElements(allFieldsets, options);
+    const allNotices = document.querySelectorAll(querySelector);
+    return await loadElements(allNotices, options);
 }

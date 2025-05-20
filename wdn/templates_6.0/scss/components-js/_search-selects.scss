@@ -6,6 +6,9 @@
 @use "../variables/" as var;
 @use "@dcf/scss/components-js/search-selects" as *;
 
+.unl .dcf-search-and-select input {
+  border-width: 0px !important;
+}
 
 .unl .dcf-search-and-select-search-area-multiple,
 .unl .dcf-search-and-select-search-area-single,

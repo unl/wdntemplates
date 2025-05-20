@@ -1,14 +1,17 @@
-import noticesCssUrl from '@scss/components-js/_notices.scss?url';
-import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
+import datepickerCssUrl from '@scss/components-js/_datepickers.scss?url';
+import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNNotice} WDNNotice
+ * @type {?WDNDatepicker} WDNDatepicker
  */
-let WDNNotice = null;
+let WDNDatepicker = null;
 
-// Query Selector for the tabs component
-const querySelector = '.dcf-notice:not(.dcf-notice-initialized)';
+// Query Selector for the datepicker toggle component
+const querySelector = '.dcf-datepicker';
+
+// Type of plugin
+const pluginType = 'multi';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -22,6 +25,14 @@ export function getQuerySelector() {
 }
 
 /**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
+}
+
+/**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
@@ -31,29 +42,31 @@ export function getIsInitialized() {
 
 /**
  * Initializes plugin
- * @returns { Promise<void> }
+ * @returns { Promise<WDNDatepicker> }
  */
 export async function initialize() {
-    if (isInitialized) { return; }
+    if (isInitialized) { return WDNDatepicker; }
     isInitialized = true;
 
-    const noticeComponent = await import('@js-src/components/wdn-notice.js');
-    WDNNotice = noticeComponent.default;
-    await loadStyleSheet(noticesCssUrl);
+    const datepickerComponent = await import('@js-src/components/wdn-datepicker.js');
+    WDNDatepicker = datepickerComponent.default;
+    await loadStyleSheet(datepickerCssUrl);
+
+    return WDNDatepicker;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNNotice> }
+ * @returns { Promise<WDNDatepicker> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNNotice(element, options);
+    return new WDNDatepicker(element, options);
 }
 
 /**
@@ -61,7 +74,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNNotice[]> }
+ * @returns { Promise<WDNDatepicker[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -75,9 +88,9 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNNotice[]> }
+ * @returns { Promise<WDNDatepicker[]> }
  */
 export async function loadElementsOnPage(options) {
-    const allNotices = document.querySelectorAll(querySelector);
-    return await loadElements(allNotices, options);
+    const allDatepickers = document.querySelectorAll(querySelector);
+    return await loadElements(allDatepickers, options);
 }

@@ -1,5 +1,5 @@
 import jqueryUiCssUrl from '@scss/components-js/_jquery-ui-wdn.scss?url';
-import { loadStyleSheet } from '@dcf/js/dcf-utility.js';
+import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
 
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
@@ -12,13 +12,25 @@ export function getIsInitialized() {
     return isInitialized;
 }
 
-export async function initialize() {
+export async function initialize(options = {}) {
+    if ('jQuery' in options) {
+        await loadStyleSheet(jqueryUiCssUrl);
+        await fakeDefine(options.jQuery);
+        return options.jQuery;
+    }
+
     if (isInitialized) { return window.jQuery; }
     isInitialized = true;
 
     await loadStyleSheet(jqueryUiCssUrl);
     const { default: jQuery } = await import('@js-src/lib/jquery.js');
 
+    await fakeDefine(jQuery);
+
+    return jQuery;
+}
+
+async function fakeDefine(jQuery) {
     // Save old define
     const oldDefine = window.define;
     window.define = (deps, factory) => {
@@ -31,6 +43,4 @@ export async function initialize() {
 
     // Restore old define
     window.define = oldDefine;
-
-    return jQuery;
 }
