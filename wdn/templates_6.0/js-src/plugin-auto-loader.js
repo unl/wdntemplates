@@ -26,7 +26,8 @@ if (enabled) {
     window.UNL.autoLoader.plugins = {};
     for (const [pluginName, pluginConfig] of Object.entries(configPluginList)) {
         if (!('url' in pluginConfig)) {
-            throw new Error(`Missing URL in autoloader plugin config: ${pluginName}`);
+            console.error(`Missing URL in autoloader plugin config: ${pluginName}`);
+            continue;
         }
         let pluginModule = null;
         try {
@@ -37,24 +38,30 @@ if (enabled) {
             continue;
         }
         if (typeof pluginModule.getPluginType !== 'function') {
-            throw new Error(`Plugin missing export: getPluginType (function): ${pluginName}`);
+            console.error(`Plugin missing export: getPluginType (function): ${pluginName}`);
+            continue;
         }
         if (typeof pluginModule.initialize !== 'function') {
-            throw new Error(`Plugin missing export: initialize (function): ${pluginName}`);
+            console.error(`Plugin missing export: initialize (function): ${pluginName}`);
+            continue;
         }
         if (typeof pluginModule.getQuerySelector !== 'function') {
-            throw new Error(`Plugin missing export: getQuerySelector (function): ${pluginName}`);
+            console.error(`Plugin missing export: getQuerySelector (function): ${pluginName}`);
+            continue;
         }
         if (pluginModule.getPluginType() === 'single') {
             if (typeof pluginModule.isOnPage !== 'function') {
-                throw new Error(`Plugin missing export: isOnPage (function): ${pluginName}`);
+                console.error(`Plugin missing export: isOnPage (function): ${pluginName}`);
+                continue;
             }
         } else if (pluginModule.getPluginType() === 'multi') {
             if (typeof pluginModule.loadElement !== 'function') {
-                throw new Error(`Plugin missing export: loadElement (function): ${pluginName}`);
+                console.error(`Plugin missing export: loadElement (function): ${pluginName}`);
+                continue;
             }
             if (typeof pluginModule.loadElements !== 'function') {
-                throw new Error(`Plugin missing export: loadElements (function): ${pluginName}`);
+                console.error(`Plugin missing export: loadElements (function): ${pluginName}`);
+                continue;
             }
         }
 
