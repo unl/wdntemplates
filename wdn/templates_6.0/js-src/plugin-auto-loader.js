@@ -32,7 +32,8 @@ if (enabled) {
         try {
             pluginModule = await import(pluginConfig.url);
         } catch(err) {
-            console.log(err);
+            console.error(`Error loading plugin: ${pluginName}`);
+            console.error(err);
             continue;
         }
         if (typeof pluginModule.getPluginType !== 'function') {

@@ -71,7 +71,7 @@ function handleModalVideos(modal) {
                         }
                     } catch (error) {
                         // do nothing
-                        console.log(error);
+                        console.error(error);
                     }
                 }
 
@@ -88,7 +88,7 @@ function handleModalVideos(modal) {
                                 iframe.src = newSource;
                             }
                         } catch (error) {
-                            console.log(error);
+                            console.error(error);
                             iframe.src = source;
                         }
                     }
@@ -107,7 +107,7 @@ function handleModalVideos(modal) {
                             }
                             iframe.src = currentSource;
                         } catch (error) {
-                            console.log(error);
+                            console.error(error);
                             iframe.src = source;
                         }
                     }

@@ -137,7 +137,7 @@ export default class WDNSearch {
                     }
                 }
             } catch (err) {
-                console.log(err);
+                console.error(err);
             }
         } else if (this.siteHomepage && !(/^https?:\/\/www\.unl\.edu\/$/.test(this.siteHomepage))) {
             // Otherwise default to adding a local param for this site's homepage (but not UNL top)
