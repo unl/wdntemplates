@@ -10,6 +10,10 @@
   }
 
   .unl-icon-card-body {
+    --icon-size: 1em;
+    --padding: 1em;
+    --clip-area: calc(calc(var(--icon-size) / 2) + var(--padding));
+    /* clip-path: polygon(calc(50% - var(--clip-area)) 0, calc(50% - var(--clip-area)) 1px, calc(50% + var(--clip-area)) 1px, calc(50% + var(--clip-area)) 0); */
     grid-area: 2 / 1 / -1 / -1;
   }
 
@@ -116,11 +120,11 @@
   <!-- <li><a class="dcf-txt-decor-hover" href="https://portal.office.com/">Personal Cloud Storage - MS365 OneDrive</a></li> -->
 
 
-  <div class="dcf-fixed dcf-top-0 dcf-left-0 dcf-h-100vh dcf-w-100vw dcf-bg-overlay-light" style="z-index:9999;">
+  <div class="dcf-fixed dcf-top-0 dcf-left-0 dcf-h-100vh dcf-w-100vw dcf-bg-overlay-light" style="z-index:9999;" hidden>
     <!-- <div class="dcf-h-100% dcf-relative dcf-overflow-y-auto unl-bg-scarlet" style="max-height: 84vh;/*box-shadow:0 0 8px #9d0000;*/">
       <div class="dcf-h-100% dcf-wrapper dcf-pt-7 dcf-pb-8 dcf-overflow-y-auto" style="mask-image:linear-gradient(to bottom, rgba(0, 0, 0, 1) calc(100% - 3.16rem), rgba(0, 0, 0, 0));"> -->
 
-    <div class="dcf-wrapper dcf-pt-8 dcf-pb-8 dcf-overflow-y-auto dcf-bt-3 dcf-bt-solid unl-bt-scarlet unl-bg-cream unl-box-shadow" style="max-height: 84vh;/*box-shadow:0 0 8px #9d0000;*/">
+    <div class="dcf-wrapper dcf-pt-8 dcf-pb-8 dcf-overflow-y-auto dcf-bt-3 dcf-bt-solid unl-bt-scarlet unl-bg-cream" style="max-height: 84vh;">
         <!-- <div class="dcf-pt-8 dcf-mb-8 dcf-bb-1 dcf-bb-solid" style="border-bottom-color:rgba(254,253,250,.43);"> -->
 
         <!-- <div class="dcf-d-flex dcf-flex-nowrap dcf-col-gap-4 dcf-mb-6 dcf-mb-6 dcf-pb-4 dcf-bb-solid dcf-bb-1 unl-bb-light-gray">
@@ -141,7 +145,7 @@
         <div class="dcf-d-grid dcf-grid-cols-2@sm dcf-col-gap-vw dcf-row-gap-6 unl-idm-grid-apps">
           <div class="dcf-col-start-1@sm dcf-col-end-2@sm dcf-d-grid dcf-ji-center dcf-h-100% unl-icon-card unl-idm-ms365">
             <!-- <div class="dcf-absolute dcf-top-0 dcf-left-50% dcf-pr-4 dcf-pl-4 unl-bg-scarlet" style="transform:translateX(-50%) translateY(-50%);"> -->
-            <div class="dcf-pr-4 dcf-pl-4 dcf-z-1 unl-gray unl-bg-cream unl-icon-card-icon">
+            <div class="dcf-z-1 unl-gray unl-bg-cream unl-icon-card-icon">
               <svg class="dcf-flex-shrink-0 dcf-h-6 dcf-w-6 dcf-fill-current" aria-hidden="true" focusable="false" height="28" width="28" viewBox="0 0 214 214" >
                 <path d="M.26.243h101.459v101.458H.26z"></path>
                 <path d="M112.282.241h101.457v101.457H112.282z"></path>
@@ -201,7 +205,7 @@
             </div>
           </div>
           <div class="dcf-col-start-2@sm dcf-col-end-3@sm dcf-col-start-1@md dcf-col-end-2@md dcf-row-start-2@md dcf-row-end-3@md dcf-d-grid dcf-ji-center dcf-h-100% unl-icon-card unl-idm-canvas">
-            <div class="dcf-pr-4 dcf-pl-4 dcf-z-1 unl-gray unl-bg-cream unl-icon-card-icon">
+            <div class="dcf-z-1 unl-gray unl-bg-cream unl-icon-card-icon">
               <!-- <div class="dcf-d-flex dcf-h-100%" style="padding-top:calc(1.78em / 2);"> -->
               <!-- <div class="dcf-relative dcf-w-100% dcf-pt-6 dcf-pr-6 dcf-pb-6 dcf-pl-6 dcf-rounded dcf-b-1 dcf-b-solid" style="border-color:rgba(254,253,250,.43);"> -->
               <!-- <div class="dcf-absolute dcf-top-0 dcf-left-50% dcf-pr-4 dcf-pl-4 unl-bg-scarlet" style="transform:translateX(-50%) translateY(-50%);"> -->
@@ -234,18 +238,25 @@
                 <ul class="dcf-d-flex dcf-flex-nowrap dcf-ai-center dcf-jc-center dcf-col-gap-6" role="list" style="margin-bottom:0">
                   <li class="dcf-mb-0">
                     <a href="https://canvas.unl.edu/" aria-label="Log in to Canvas at the University of Nebraska–Lincoln">
-                      <svg class="dcf-h-8 dcf-w-8 dcf-fill-current" height="90" width="90" viewBox="0 0 300 300">
-                        <path class="unl-1" d="M287.357,2.97H173.215V90.027h19.346v47.948L109.8,7.462,106.952,2.97H2.97V90.027H22.316V209.976H2.97V297.03H126.784V209.976H107.438V162.04l82.759,130.5,2.848,4.493H297.03V209.976H277.684V90.027H297.03V2.97Zm5.8,9.673V86.157H273.815V213.845h19.346v79.316H195.174l-1.71-2.7L103.57,148.715v65.13h19.346v79.316H6.839V213.845H26.185V86.157H6.839V6.839h97.984l1.71,2.7L196.43,151.3V86.157H177.084V6.839H293.161Z"></path>
-                        <path class="unl-1" d="M202.235,171.291h0L101.632,12.642H12.642V80.354H31.989V219.648H12.642v67.708H117.112V219.648H97.766V128.726l100.6,158.63h88.991V219.648H268.011V80.354h19.346V12.642H182.888V80.354h19.346Z"></path>
+                      <svg class="dcf-h-8 dcf-w-8" height="50" width="50" viewBox="0 0 300 300">
+                        <defs>
+                          <style>.logo-unl-1{fill:#d00000;}.logo-unl-2{fill:#fff;}</style>
+                        </defs>
+                        <path class="logo-unl-1" d="M287.357,2.97H173.215V90.027h19.346v47.948L109.8,7.462,106.952,2.97H2.97V90.027H22.316V209.976H2.97V297.03H126.784V209.976H107.438V162.04l82.759,130.5,2.848,4.493H297.03V209.976H277.684V90.027H297.03V2.97Zm5.8,9.673V86.157H273.815V213.845h19.346v79.316H195.174l-1.71-2.7L103.57,148.715v65.13h19.346v79.316H6.839V213.845H26.185V86.157H6.839V6.839h97.984l1.71,2.7L196.43,151.3V86.157H177.084V6.839H293.161Z"></path>
+                        <path class="logo-unl-2" d="M287.357,6.839H177.084V86.157H196.43V151.3L106.533,9.535l-1.71-2.7H6.839V86.157H26.185V213.845H6.839v79.316H122.916V213.845H103.57v-65.13l89.895,141.75,1.71,2.7h97.987V213.845H273.815V86.157h19.346V6.839ZM117.112,219.648h0v67.708H12.642V219.648H31.989V80.354H12.642V12.642h88.989l100.6,158.648V80.354H182.888V12.642H287.357V80.354H268.011V219.648h19.346v67.708H198.366l-100.6-158.63v90.922Z"></path>
+                        <path class="logo-unl-1" d="M202.235,171.291h0L101.632,12.642H12.642V80.354H31.989V219.648H12.642v67.708H117.112V219.648H97.766V128.726l100.6,158.63h88.991V219.648H268.011V80.354h19.346V12.642H182.888V80.354h19.346Z"></path>
                       </svg>
                     </a>
                   </li>
                   <li class="dcf-mb-0">
                     <a href="https://canvas.unl.edu/login/saml/7/" aria-label="Log in to Canvas with your University of Nebraska Omaha credentials">
-                      <svg class="dcf-h-8 dcf-w-8 dcf-fill-current" height="50" width="50" viewBox="0 0 300 300">
-                        <defs><style>.uno-1{fill:#fff;}.uno-2{fill:#231f20;}.uno-3{fill:#db1e25;}</style></defs><path class="uno-1" d="M296.7,93.037,271.587,202.108c-13.141,55.142-93.356,94.32-169.073,94.32-72.183,0-110.488-40.879-99.721-87.025L28,100.341C41.158,45.18,121.286,6.012,197,6.012,269.2,6.012,307.495,46.9,296.7,93.037Zm-98.261,6.017c4.905-22.677-15.8-25.662-35.3-25.109-26.031.755-35.019,12.654-37.6,22.117L101.062,203.384c-4.9,22.693,15.8,25.707,35.3,25.12,26-.757,34.993-12.654,37.567-22.137Z"></path>
-                        <path class="uno-2" d="M214.034,222.388c-9.879,49.463-63.079,59.248-102.223,60.983C44.612,286.376,5.7,252.753,15.4,211.235L40.569,102.177C44.334,85.9,57.306,67.289,76.534,55.885c.472-.267,1.777-.459,1.373.87l-36.4,157.69c-6.42,27.7,21.985,47.813,76.058,44.351,50.179-3.239,65.925-19.606,69.544-35.989L216.33,94.7c6.307-28.589-27.378-36.039-62.27-33.628-1.5.123-1.968-1.208-.254-1.719,25.447-7.484,99.325-8.661,90.929,28.518Z"></path>
-                        <path class="uno-3" d="M54.8,214.6c-8.425,37.158,65.461,35.981,90.911,28.487,1.714-.5,1.268-1.779-.283-1.719-34.873,2.434-68.524-5.023-62.241-33.631l29.2-128.084c3.632-16.37,19.365-32.758,69.581-35.989,54.067-3.443,82.473,16.692,76.048,44.338L221.762,245.73c-.435,1.357.928,1.182,1.371.9,19.229-11.446,32.195-30.062,35.952-46.319L284.139,91.229c9.683-41.492-29.207-75.146-96.4-72.13-39.218,1.735-92.391,11.522-102.26,60.962Z"></path>
+                      <svg class="dcf-h-8 dcf-w-8" height="50" width="50" viewBox="0 0 300 300">
+                        <defs>
+                          <style>.logo-uno-1{fill:#fff;}.logo-uno-2{fill:#231f20;}.logo-uno-3{fill:#db1e25;}</style>
+                        </defs>
+                        <path class="logo-uno-1" d="M296.7,93.037,271.587,202.108c-13.141,55.142-93.356,94.32-169.073,94.32-72.183,0-110.488-40.879-99.721-87.025L28,100.341C41.158,45.18,121.286,6.012,197,6.012,269.2,6.012,307.495,46.9,296.7,93.037Zm-98.261,6.017c4.905-22.677-15.8-25.662-35.3-25.109-26.031.755-35.019,12.654-37.6,22.117L101.062,203.384c-4.9,22.693,15.8,25.707,35.3,25.12,26-.757,34.993-12.654,37.567-22.137Z"></path>
+                        <path class="logo-uno-2" d="M214.034,222.388c-9.879,49.463-63.079,59.248-102.223,60.983C44.612,286.376,5.7,252.753,15.4,211.235L40.569,102.177C44.334,85.9,57.306,67.289,76.534,55.885c.472-.267,1.777-.459,1.373.87l-36.4,157.69c-6.42,27.7,21.985,47.813,76.058,44.351,50.179-3.239,65.925-19.606,69.544-35.989L216.33,94.7c6.307-28.589-27.378-36.039-62.27-33.628-1.5.123-1.968-1.208-.254-1.719,25.447-7.484,99.325-8.661,90.929,28.518Z"></path>
+                        <path class="logo-uno-3" d="M54.8,214.6c-8.425,37.158,65.461,35.981,90.911,28.487,1.714-.5,1.268-1.779-.283-1.719-34.873,2.434-68.524-5.023-62.241-33.631l29.2-128.084c3.632-16.37,19.365-32.758,69.581-35.989,54.067-3.443,82.473,16.692,76.048,44.338L221.762,245.73c-.435,1.357.928,1.182,1.371.9,19.229-11.446,32.195-30.062,35.952-46.319L284.139,91.229c9.683-41.492-29.207-75.146-96.4-72.13-39.218,1.735-92.391,11.522-102.26,60.962Z"></path>
                       </svg>
                     </a>
                   </li>
@@ -260,7 +271,7 @@
                 <div class="dcf-txt-xs">Other <span class="dcf-sr-only">-</span></div>
                 <b>Services</b>
               </div> -->
-              <div class="dcf-pr-4 dcf-pl-4 dcf-z-1 unl-gray unl-bg-cream unl-icon-card-icon">
+              <div class="dcf-z-1 unl-gray unl-bg-cream unl-icon-card-icon">
                 <svg class="dcf-flex-shrink-0 dcf-h-6 dcf-w-6 dcf-fill-current" aria-hidden="true" focusable="false" height="28" width="28" viewBox="0 0 16 16" >
                   <path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8ZM3 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm5 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm5 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Z"></path>
                 </svg>
