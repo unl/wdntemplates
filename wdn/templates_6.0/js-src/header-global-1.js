@@ -16,12 +16,20 @@ const alertEnabled = window.UNL.alert.config?.enabled || true;
 
 // Load the banner and/or alert if they are enabled
 if (bannerEnabled !== false) {
+    loadBanner();
+}
+if (alertEnabled !== false) {
+    loadAlert();
+}
+
+// These functions need to be async to allow us to use await
+async function loadBanner() {
     const WDNBanner = await import(wdnBannerUrl);
     new WDNBanner.default();
 
     window.UNL.banner.loaded = true;
 }
-if (alertEnabled !== false) {
+async function loadAlert() {
     console.log('alert load placeholder');
 
     window.UNL.alert.loaded = true;

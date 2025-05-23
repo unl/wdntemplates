@@ -32,7 +32,7 @@ export default class WDNIDM {
 
     #isReadyToRender = false;
 
-    constructor() {
+    constructor(options={}) {
         this.logInUrl = `${this.ssoUrl}idp/profile/cas/login?service=${this.locationEncoded}`;
         this.logOutUrl = `${this.ssoUrl}idp/profile/cas/logout?service=${this.locationEncoded}`;
         this.#checkForAuthLinks();
@@ -48,12 +48,18 @@ export default class WDNIDM {
 
         if ('loginRoute' in window.UNL.idm.config && typeof window.UNL.idm.config.loginRoute === 'string') {
             this.setLoginRoute(window.UNL.idm.config.loginRoute);
+        } else if ('loginRoute' in options && typeof options.loginRoute === 'string') {
+            this.setLoginRoute(options.loginRoute);
         }
         if ('logoutRoute' in window.UNL.idm.config && typeof window.UNL.idm.config.logoutRoute === 'string') {
             this.setLogoutRoute(window.UNL.idm.config.logoutRoute);
+        } else if ('logoutRoute' in options && typeof options.logoutRoute === 'string') {
+            this.setLogoutRoute(options.logoutRoute);
         }
         if ('serverUser' in window.UNL.idm.config && typeof window.UNL.idm.config.serverUser === 'string') {
             this.setServerUser(window.UNL.idm.config.serverUser);
+        } else if ('serverUser' in options && typeof options.serverUser === 'string') {
+            this.setServerUser(options.serverUser);
         }
 
         window.UNL.idm.pushConfig = (configProp, configValue) => {

@@ -14,7 +14,7 @@ export default class WDNNoticeBanner {
 
     clearMessageIntervalSecs = 15 * 60 * 1000;
 
-    constructor() {
+    constructor(options={}) {
         this.messageSource = 'https://its-unl-cms-prd-s3.s3.amazonaws.com/wdn-message.html';
         this.messageKey = 'wdnNoticeMessage';
 
@@ -22,6 +22,10 @@ export default class WDNNoticeBanner {
         this.#getMessage().then((messageToDisplay) => {
             this.#buildBanner(messageToDisplay);
         });
+
+        if ('clearMessageIntervalSecs' in options && typeof options.clearMessageIntervalSecs === 'number') {
+            this.clearMessageIntervalSecs = options.clearMessageIntervalSecs;
+        }
 
         // Remove session storage for that banner ever now and then
         setInterval(() => {
