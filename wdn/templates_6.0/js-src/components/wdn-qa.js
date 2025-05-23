@@ -35,8 +35,6 @@ export default class WDNQa {
             return;
         }
 
-        console.log(gpa);
-
         if (gpa === 100) {
             const starIcon = document.createElement('span');
             starIcon.setAttribute('aria-hidden', 'true');
@@ -97,7 +95,7 @@ export default class WDNQa {
 
             return parseFloat(jsonData.gpa);
         } catch (err) {
-            console.log(err);
+            console.error(err);
             return null;
         }
     }

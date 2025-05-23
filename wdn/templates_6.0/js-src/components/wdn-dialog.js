@@ -27,7 +27,7 @@ export default class WDNDialog extends DCFDialog {
                         }
                     } catch (error) {
                         // do nothing
-                        console.log(error);
+                        console.error(error);
                     }
                 }
             }
@@ -67,7 +67,7 @@ export default class WDNDialog extends DCFDialog {
                                 iframeObj.iframeElement.src = newSource;
                             }
                         } catch (error) {
-                            console.log(error);
+                            console.error(error);
                             iframeObj.iframeElement.src = iframeObj.source;
                         }
                     }
@@ -112,7 +112,7 @@ export default class WDNDialog extends DCFDialog {
                             }
                             iframeObj.iframeElement.src = currentSource;
                         } catch (error) {
-                            console.log(error);
+                            console.error(error);
                             iframeObj.iframeElement.src = iframeObj.source;
                         }
                     }

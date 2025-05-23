@@ -13,8 +13,8 @@ if (
 document.dispatchEvent(new Event('autoLoaderPreLoad'));
 
 // Setting default values for the autoloader config
-const optInSelector = window.UNL.autoLoader.config.optInSelector || null;
-const optOutSelector = window.UNL.autoLoader.config.optOutSelector || null;
+const globalOptInSelector = window.UNL.autoLoader.config.globalOptInSelector || null;
+const globalOptOutSelector = window.UNL.autoLoader.config.globalOptOutSelector || null;
 const configPluginList = window.UNL.autoLoader.config.plugins || {};
 const enabled = window.UNL.autoLoader.config.enabled || true;
 const watch = window.UNL.autoLoader.config.watch || true;
@@ -24,9 +24,52 @@ const watchList = [];
 
 if (enabled) {
     window.UNL.autoLoader.plugins = {};
-    for (const [pluginName, pluginPath] of Object.entries(configPluginList)) {
+    for (const [pluginName, pluginConfig] of Object.entries(configPluginList)) {
+        if (!('url' in pluginConfig)) {
+            console.error(`Missing URL in autoloader plugin config: ${pluginName}`);
+            continue;
+        }
+        let pluginModule = null;
+        try {
+            pluginModule = await import(pluginConfig.url);
+        } catch(err) {
+            console.error(`Error loading plugin: ${pluginName}`);
+            console.error(err);
+            continue;
+        }
+        if (typeof pluginModule.getPluginType !== 'function') {
+            console.error(`Plugin missing export: getPluginType (function): ${pluginName}`);
+            continue;
+        }
+        if (typeof pluginModule.initialize !== 'function') {
+            console.error(`Plugin missing export: initialize (function): ${pluginName}`);
+            continue;
+        }
+        if (typeof pluginModule.getQuerySelector !== 'function') {
+            console.error(`Plugin missing export: getQuerySelector (function): ${pluginName}`);
+            continue;
+        }
+        if (pluginModule.getPluginType() === 'single') {
+            if (typeof pluginModule.isOnPage !== 'function') {
+                console.error(`Plugin missing export: isOnPage (function): ${pluginName}`);
+                continue;
+            }
+        } else if (pluginModule.getPluginType() === 'multi') {
+            if (typeof pluginModule.loadElement !== 'function') {
+                console.error(`Plugin missing export: loadElement (function): ${pluginName}`);
+                continue;
+            }
+            if (typeof pluginModule.loadElements !== 'function') {
+                console.error(`Plugin missing export: loadElements (function): ${pluginName}`);
+                continue;
+            }
+        }
+
         window.UNL.autoLoader.plugins[pluginName] = {
-            module: await import(pluginPath),
+            optInSelector: pluginConfig?.optInSelector || null,
+            optOutSelector: pluginConfig?.optOutSelector || null,
+            pluginCustomConfig: pluginConfig?.customConfig || null,
+            module: pluginModule,
             elements: [],
         };
     }
@@ -43,12 +86,6 @@ if (enabled) {
         // If the single plugins target is not on the page then we will add it to the watch list
         //   if it is on the page when we will initialize the plugin
         if (pluginModule.getPluginType() === 'single') {
-            if (typeof pluginModule.isOnPage !== 'function') {
-                throw new Error(`Invalid isOnPage function in plugin: ${singlePluginName}`);
-            }
-            if (typeof pluginModule.initialize !== 'function') {
-                throw new Error(`Invalid initialize function in plugin: ${singlePluginName}`);
-            }
             if (pluginModule.isOnPage()) {
                 const element = await pluginModule.initialize();
                 if (element !== null) {
@@ -59,23 +96,28 @@ if (enabled) {
             }
 
         } else if (pluginModule.getPluginType() === 'multi') {
-            if (typeof pluginModule.getQuerySelector !== 'function') {
-                throw new Error(`Invalid getQuerySelector function in plugin: ${singlePluginName}`);
-            }
-            if (typeof pluginModule.loadElement !== 'function') {
-                throw new Error(`Invalid loadElement function in plugin: ${singlePluginName}`);
-            }
             let matchingElements = Array.from(document.querySelectorAll(pluginModule.getQuerySelector()));
             // Filter out opt out
-            if (optOutSelector !== null) {
+            if (globalOptOutSelector !== null) {
                 matchingElements = matchingElements.filter((matchingElement) => {
-                    return !(matchingElement.matches(optOutSelector));
+                    return !(matchingElement.matches(globalOptOutSelector));
                 });
             }
-            // Filter out non-opt in
-            if (optInSelector !== null) {
+            if (pluginData.optOutSelector !== null) {
                 matchingElements = matchingElements.filter((matchingElement) => {
-                    return matchingElement.matches(optInSelector);
+                    return !(matchingElement.matches(pluginData.optOutSelector));
+                });
+            }
+
+            // Filter out non-opt in
+            if (globalOptInSelector !== null) {
+                matchingElements = matchingElements.filter((matchingElement) => {
+                    return matchingElement.matches(globalOptInSelector);
+                });
+            }
+            if (pluginData.optInSelector !== null) {
+                matchingElements = matchingElements.filter((matchingElement) => {
+                    return matchingElement.matches(pluginData.optInSelector);
                 });
             }
 
@@ -97,10 +139,10 @@ if (watch) {
                 if (nodeAdded instanceof Element) {
 
                     // Double check the added element is not opt out and is opt in
-                    if (optOutSelector !== null && nodeAdded.matches(optOutSelector)) {
+                    if (globalOptOutSelector !== null && nodeAdded.matches(globalOptOutSelector)) {
                         return;
                     }
-                    if (optInSelector !== null && !nodeAdded.matches(optInSelector)) {
+                    if (globalOptInSelector !== null && !nodeAdded.matches(globalOptInSelector)) {
                         return;
                     }
 
@@ -109,23 +151,26 @@ if (watch) {
                         const pluginData = window.UNL.autoLoader.plugins[singlePluginName];
                         const pluginModule = pluginData.module;
 
+                        if (!nodeAdded.matches(pluginModule.getQuerySelector())) {
+                            return;
+                        }
+                        if (pluginData.optInSelector !== null && !(nodeAdded.matches(pluginData.optInSelector))) {
+                            return;
+                        }
+                        if (pluginData.optOutSelector !== null && nodeAdded.matches(pluginData.optOutSelector)) {
+                            return;
+                        }
+
                         if (pluginModule.getPluginType() === 'single') {
-                            if (typeof pluginModule.getQuerySelector !== 'function') {
-                                throw new Error(`Invalid getQuerySelector function in plugin: ${singlePluginName}`);
+                            const element = await pluginModule.initialize();
+                            if (element !== null) {
+                                pluginData.elements.push(element);
                             }
-                            if (nodeAdded.matches(pluginModule.getQuerySelector())) {
-                                const element = await pluginModule.initialize();
-                                if (element !== null) {
-                                    pluginData.elements.push(element);
-                                }
-                                watchList.splice(watchList.indexOf(singlePluginName), 1);
-                            }
+                            watchList.splice(watchList.indexOf(singlePluginName), 1);
 
                         } else if (pluginModule.getPluginType() === 'multi') {
-                            if (nodeAdded.matches(pluginModule.getQuerySelector())) {
-                                const element = await pluginModule.loadElement(nodeAdded);
-                                pluginData.elements = pluginData.elements.concat(element);
-                            }
+                            const element = await pluginModule.loadElement(nodeAdded);
+                            pluginData.elements = pluginData.elements.concat(element);
                         }
                     }
                 }
