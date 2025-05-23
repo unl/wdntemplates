@@ -1,4 +1,4 @@
-import { getCookie, loadJS, subscribeToWindowParams, isValidateEmail } from '@js-src/lib/wdn-utility.js';
+import { getCookie, loadJS, isValidateEmail } from '@js-src/lib/wdn-utility.js';
 
 export default class WDNIDM {
 
@@ -30,44 +30,54 @@ export default class WDNIDM {
 
     logOutUrl = null;
 
+    #isReadyToRender = false;
+
     constructor() {
         this.logInUrl = `${this.ssoUrl}idp/profile/cas/login?service=${this.locationEncoded}`;
         this.logOutUrl = `${this.ssoUrl}idp/profile/cas/logout?service=${this.locationEncoded}`;
         this.#checkForAuthLinks();
 
         // Sets up window.WDN.idm for whoami
-        if (window.WDN === undefined) {
-            window.WDN = {};
+        window.WDN = window.WDN || {};
+        window.WDN.idm = window.WDN.idm || {};
+
+        // Set up window.UNL.idm.config if not defined yet
+        window.UNL = window.UNL || {};
+        window.UNL.idm = window.UNL.idm || {};
+        window.UNL.idm.config = window.UNL.idm.config || {};
+
+        if ('loginRoute' in window.UNL.idm.config && typeof window.UNL.idm.config.loginRoute === 'string') {
+            this.setLoginRoute(window.UNL.idm.config.loginRoute);
         }
-        if (window.WDN.idm === undefined) {
-            window.WDN.idm = {};
+        if ('logoutRoute' in window.UNL.idm.config && typeof window.UNL.idm.config.logoutRoute === 'string') {
+            this.setLogoutRoute(window.UNL.idm.config.logoutRoute);
+        }
+        if ('serverUser' in window.UNL.idm.config && typeof window.UNL.idm.config.serverUser === 'string') {
+            this.setServerUser(window.UNL.idm.config.serverUser);
         }
 
+        window.UNL.idm.pushConfig = (configProp, configValue) => {
+            switch (configProp) {
+            case 'loginRoute':
+                this.setLoginRoute(configValue);
+                break;
+            case 'logoutRoute':
+                this.setLogoutRoute(configValue);
+                break;
+            case 'serverUser':
+                this.setServerUser(configValue);
+                break;
+            }
+        };
+
         this.ssoCookieData = getCookie(this.ssoCookie);
+        this.#isReadyToRender = true;
         if (this.ssoCookieData !== null) {
             this.#loadClientUser();
         } else {
             this.failedToLoadClientSideUser = true;
             this.#loadServerUser();
         }
-
-        subscribeToWindowParams('IDM', (data) => {
-            if (data.length < 2) { return; }
-            switch (data[0]) {
-            case 'LoginRoute':
-            case 'loginRoute':
-                this.setLoginRoute(data[1]);
-                break;
-            case 'LogoutRoute':
-            case 'logoutRoute':
-                this.setLogoutRoute(data[1]);
-                break;
-            case 'ServerUser':
-            case 'serverUser':
-                this.setServerUser(data[1]);
-                break;
-            }
-        });
     }
 
     /**
@@ -118,7 +128,9 @@ export default class WDNIDM {
         if (user !== null) {
             this.clientSideUser = user;
             this.#syncLocalStorage();
-            this.#render();
+            if (this.#isReadyToRender === true) {
+                this.#render();
+            }
         } else {
             // If we did not load the user correctly
             // then we will check if we can load the server user
@@ -217,7 +229,9 @@ export default class WDNIDM {
      */
     setLoginRoute(loginRouteIn) {
         this.logInUrl = loginRouteIn;
-        this.#render();
+        if (this.#isReadyToRender === true) {
+            this.#render();
+        }
     }
 
     /**
@@ -228,7 +242,9 @@ export default class WDNIDM {
      */
     setLogoutRoute(logoutRouteIn) {
         this.logOutUrl = logoutRouteIn;
-        this.#render();
+        if (this.#isReadyToRender === true) {
+            this.#render();
+        }
     }
 
     /**
@@ -278,7 +294,9 @@ export default class WDNIDM {
             const userData = await this.#fetchServerUserDataFromDirectory();
             this.serverSideUser.data = userData;
         }
-        this.#render();
+        if (this.#isReadyToRender === true) {
+            this.#render();
+        }
     }
 
     /**

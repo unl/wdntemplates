@@ -6,6 +6,7 @@
         <title>IDM</title>
         <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
         <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+        <script src="/wdn/templates_6.0/js/head-2.js"></script>
     </head>
     <body class="unl">
         <main>
@@ -22,13 +23,13 @@
             </div>
         </main>
 
-        <script>
-            window.UNLDataLayer = window.UNLDataLayer || [];
-            function UNLParams() { window.UNLDataLayer.push(arguments); }
-            UNLParams('IDM', 'LoginRoute', 'https://local.unl.edu/login');
-            UNLParams('IDM', 'LogoutRoute', 'https://local.unl.edu/logout');
-            UNLParams('IDM', 'ServerUser', 'eric@unl.edu');
-        </script>
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            setTimeout(() => {
+                window.UNL.idm.pushConfig('loginRoute', 'https://local.unl.edu/login');
+                window.UNL.idm.pushConfig('logoutRoute', 'https://local.unl.edu/logout');
+                window.UNL.idm.pushConfig('serverUser', 'hhusker1');
+            }, 1000);
+        </script>
     </body>
 </html>

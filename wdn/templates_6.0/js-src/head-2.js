@@ -144,6 +144,21 @@ window.UNL.autoLoader = {
     },
 };
 
+window.UNL.banner = {
+    config: {
+        enabled: true,
+    },
+    loaded: false,
+};
+
+window.UNL.alert = {
+    config: {
+        enabled: true,
+    },
+    loaded: false,
+};
+
+
 window.UNL.idm = {
     config: {
         loginRoute: null,
