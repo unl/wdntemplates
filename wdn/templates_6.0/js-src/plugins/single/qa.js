@@ -50,7 +50,7 @@ export function isOnPage() {
  * Initializes plugin
  * @returns { Promise<WDNQa|null> }
  */
-export async function initialize() {
+export async function initialize(options={}) {
     if (isInitialized) { return qaInstance; }
     isInitialized = true;
 
@@ -60,7 +60,7 @@ export async function initialize() {
     const qaComponent = await import('@js-src/components/wdn-qa.js');
     WDNQa = qaComponent.default;
 
-    qaInstance = new WDNQa();
+    qaInstance = new WDNQa(options);
 
     return qaInstance;
 }

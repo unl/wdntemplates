@@ -54,7 +54,7 @@ export function isOnPage() {
  * Initializes plugin
  * @returns { Promise<WDNSearch|Null> }
  */
-export async function initialize() {
+export async function initialize(options={}) {
     if (isInitialized) { return searchInstance; }
     isInitialized = true;
 
@@ -66,7 +66,7 @@ export async function initialize() {
     await loadStyleSheet(dialogCssUrl);
     await loadStyleSheet(searchCssUrl);
 
-    searchInstance = new WDNSearch();
+    searchInstance = new WDNSearch(options);
 
     return searchInstance;
 }
