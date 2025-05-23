@@ -11,6 +11,7 @@ import wdnSearchSelectUrl from '@js-src/plugins/multi/search-select.js?finalUrl'
 import wdnPopupUrl from '@js-src/plugins/multi/popup.js?finalUrl';
 import wdnDialogUrl from '@js-src/plugins/multi/dialog.js?finalUrl';
 import wdnGalleryUrl from '@js-src/plugins/multi/gallery.js?finalUrl';
+import wdnEventListUrl from '@js-src/plugins/multi/event-list.js?finalUrl';
 
 import wdnIdmUrl from '@js-src/plugins/single/idm.js?finalUrl';
 import wdnSearchUrl from '@js-src/plugins/single/search.js?finalUrl';
@@ -103,6 +104,12 @@ window.UNL.autoLoader = {
                 customConfig: null,
                 url: wdnGalleryUrl,
             },
+            wdnEventList: {
+                optOutSelector: null,
+                optInSelector: null,
+                customConfig: null,
+                url: wdnEventListUrl,
+            },
             wdnIdm: {
                 optOutSelector: null,
                 optInSelector: null,
@@ -134,5 +141,17 @@ window.UNL.autoLoader = {
     onLoad: (callbackFunc) => {
         window.UNL.autoLoader.loadCallbackQueue = window.UNL.autoLoader.loadCallbackQueue || [];
         window.UNL.autoLoader.loadCallbackQueue.push(callbackFunc);
+    },
+};
+
+window.UNL.idm = {
+    config: {
+        loginRoute: null,
+        logoutRoute: null,
+        serverUser: null,
+    },
+    // pushConfig is redefined by the IDM component once loaded
+    pushConfig: (configProp, configValue) => {
+        window.UNL.idm.config[configProp] = configValue;
     },
 };
