@@ -93,6 +93,7 @@ export default ({ mode }) => {
                     'components/component.search'               : 'wdn/templates_6.0/js-src/components/wdn-search.js',
                     'components/component.qa'                   : 'wdn/templates_6.0/js-src/components/wdn-qa.js',
                     'components/component.event-list'           : 'wdn/templates_6.0/js-src/components/wdn-event-list.js',
+                    'components/component.analytics'            : 'wdn/templates_6.0/js-src/components/wdn-analytics.js',
 
                     'lib/wdn-utility'      : 'wdn/templates_6.0/js-src/lib/wdn-utility.js',
                     'lib/moment'           : 'wdn/templates_6.0/js-src/lib/moment.js',

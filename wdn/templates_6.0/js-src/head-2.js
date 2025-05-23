@@ -144,29 +144,47 @@ window.UNL.autoLoader = {
     },
 };
 
-window.UNL.banner = {
-    config: {
-        enabled: true,
-    },
-    loaded: false,
-};
+// Components loaded in via header-global-1.js
+if (typeof window.UNL.banner === 'undefined') {
+    window.UNL.banner = {
+        config: {
+            enabled: true,
+        },
+        loaded: false,
+    };
+}
+if (typeof window.UNL.alert === 'undefined') {
+    window.UNL.alert = {
+        config: {
+            enabled: true,
+        },
+        loaded: false,
+    };
+}
+if (typeof window.UNL.analytics === 'undefined') {
+    window.UNL.analytics = {
+        config: {
+            enabled: true,
+        },
+        loaded: false,
+    };
+}
 
-window.UNL.alert = {
-    config: {
-        enabled: true,
-    },
-    loaded: false,
-};
-
-
-window.UNL.idm = {
-    config: {
-        loginRoute: null,
-        logoutRoute: null,
-        serverUser: null,
-    },
-    // pushConfig is redefined by the IDM component once loaded
-    pushConfig: (configProp, configValue) => {
-        window.UNL.idm.config[configProp] = configValue;
-    },
-};
+if (typeof window.UNL.idm === 'undefined') {
+    window.UNL.idm = {
+        config: {
+            loginRoute: null,
+            logoutRoute: null,
+            serverUser: null,
+        },
+        loaded: false,
+        // pushConfig is redefined by the IDM component once loaded
+        pushConfig: (configProp, configValue) => {
+            window.UNL.idm.config[configProp] = configValue;
+        },
+        onLoad: (callbackFunc) => {
+            window.UNL.idm.loadCallbackQueue = window.UNL.idm.loadCallbackQueue || [];
+            window.UNL.idm.loadCallbackQueue.push(callbackFunc);
+        },
+    };
+}

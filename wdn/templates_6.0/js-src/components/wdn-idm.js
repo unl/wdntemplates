@@ -84,6 +84,24 @@ export default class WDNIDM {
             this.failedToLoadClientSideUser = true;
             this.#loadServerUser();
         }
+
+        window.UNL.idm.getPrimaryAffiliation = () => {
+            return this.getPrimaryAffiliation();
+        };
+
+        // Clear out the queue and delete it's key-value pair since it is no longer needed
+        if ('loadCallbackQueue' in window.UNL.idm && Array.isArray(window.UNL.idm.loadCallbackQueue)) {
+            window.UNL.idm.loadCallbackQueue.forEach((singleCallback) => {
+                singleCallback();
+            });
+            delete window.UNL.idm.loadCallbackQueue;
+        }
+        // Redefine onload to just call the callback since we have loaded
+        window.UNL.idm.onLoad = (callbackFunc) => {
+            callbackFunc();
+        };
+
+        window.UNL.idm.loaded = true;
     }
 
     /**
@@ -427,6 +445,16 @@ export default class WDNIDM {
         return null;
     }
 
+    getPrimaryAffiliation() {
+        if (this.clientSideUser !== null) {
+            return this.clientSideUser?.eduPersonPrimaryAffiliation?.[0] || 'None';
+        } else if (this.serverSideUser !== null) {
+            return this.serverSideUser?.data?.eduPersonPrimaryAffiliation?.[0] || 'None';
+        }
+
+        return 'None';
+    }
+
     /**
      * Renders the component based on if we have clientSideUser data and
      * if we have serverSideUser data
@@ -462,6 +490,7 @@ export default class WDNIDM {
      */
     renderLoggedOutState() {
         console.log('logged Out', this.logInUrl);
+        window.dispatchEvent(new Event('idmStateSet'));
     }
 
     /**
@@ -473,6 +502,7 @@ export default class WDNIDM {
      */
     renderQuasiLoggedInState(userAvatarUrl) {
         console.log('quasi', userAvatarUrl, this.logInUrl);
+        window.dispatchEvent(new Event('idmStateSet'));
     }
 
     /**
@@ -484,5 +514,6 @@ export default class WDNIDM {
      */
     renderLoggedInState(userDisplayName, userAvatarUrl) {
         console.log('logged in', userDisplayName, userAvatarUrl, this.logOutUrl);
+        window.dispatchEvent(new Event('idmStateSet'));
     }
 }
