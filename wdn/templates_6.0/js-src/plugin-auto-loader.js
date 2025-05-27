@@ -69,6 +69,8 @@ if (enabled) {
             optInSelector: pluginConfig?.optInSelector || null,
             optOutSelector: pluginConfig?.optOutSelector || null,
             customConfig: pluginConfig?.customConfig || {},
+            onPluginInitialized: pluginConfig?.onPluginInitialized || null,
+            onPluginLoadedElement: pluginConfig?.onPluginLoadedElement || null,
             module: pluginModule,
             elements: [],
         };
@@ -90,6 +92,11 @@ if (enabled) {
                 const element = await pluginModule.initialize(pluginData.customConfig);
                 if (element !== null) {
                     pluginData.elements.push(element);
+                    if (typeof pluginData.onPluginLoadedElement === 'function') {
+                        pluginData.onPluginLoadedElement({
+                            loadedElement: element,
+                        });
+                    }
                 }
             } else {
                 watchList.push(singlePluginName);
@@ -124,6 +131,13 @@ if (enabled) {
             // load the rest of the elements and add the plugin to the watch list
             const elements = await pluginModule.loadElements(matchingElements, pluginData.customConfig);
             pluginData.elements = pluginData.elements.concat(elements);
+            if (typeof pluginData.onPluginLoadedElement === 'function') {
+                elements.forEach((singleElement) => {
+                    pluginData.onPluginLoadedElement({
+                        loadedElement: singleElement,
+                    });
+                });
+            }
 
             watchList.push(singlePluginName);
         }
@@ -165,12 +179,22 @@ if (watch) {
                             const element = await pluginModule.initialize(pluginData.customConfig);
                             if (element !== null) {
                                 pluginData.elements.push(element);
+                                if (typeof pluginData.onPluginLoadedElement === 'function') {
+                                    pluginData.onPluginLoadedElement({
+                                        loadedElement: element,
+                                    });
+                                }
                             }
                             watchList.splice(watchList.indexOf(singlePluginName), 1);
 
                         } else if (pluginModule.getPluginType() === 'multi') {
                             const element = await pluginModule.loadElement(nodeAdded, pluginData.customConfig);
                             pluginData.elements = pluginData.elements.concat(element);
+                            if (typeof pluginData.onPluginLoadedElement === 'function') {
+                                pluginData.onPluginLoadedElement({
+                                    loadedElement: element,
+                                });
+                            }
                         }
                     }
                 }
