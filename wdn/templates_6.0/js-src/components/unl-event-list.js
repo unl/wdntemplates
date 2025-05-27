@@ -1,7 +1,7 @@
 import moment from '@js-src/lib/moment-timezone.js';
-import { stringToDom } from '@js-src/lib/wdn-utility.js';
+import { stringToDom } from '@js-src/lib/unl-utility.js';
 
-export default class WDNEventList {
+export default class UNLEventList {
     containerElement = null;
 
     eventListElement = null;
@@ -53,7 +53,7 @@ export default class WDNEventList {
 
         this.#render();
 
-        this.containerElement.dispatchEvent(new CustomEvent(WDNEventList.events('eventListReady'), {
+        this.containerElement.dispatchEvent(new CustomEvent(UNLEventList.events('eventListReady'), {
             detail: {
                 classInstance: this,
             },

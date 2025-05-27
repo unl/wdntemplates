@@ -1,11 +1,11 @@
 import searchSelectCssUrl from '@scss/components-js/_search-selects.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNSearchSelect} WDNSearchSelect
+ * @type {?UNLSearchSelect} UNLSearchSelect
  */
-let WDNSearchSelect = null;
+let UNLSearchSelect = null;
 
 // Query Selector for the tabs component
 const querySelector = '.dcf-search-select';
@@ -45,38 +45,38 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return WDNSearchSelect; }
+    if (isInitialized) { return UNLSearchSelect; }
     isInitialized = true;
 
-    const searchSelectComponent = await import('@js-src/components/wdn-search-select.js');
-    WDNSearchSelect = searchSelectComponent.default;
+    const searchSelectComponent = await import('@js-src/components/unl-search-select.js');
+    UNLSearchSelect = searchSelectComponent.default;
     await loadStyleSheet(searchSelectCssUrl);
 
     document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
         detail: {
             pluginType: pluginType,
-            pluginComponent: WDNSearchSelect,
+            pluginComponent: UNLSearchSelect,
             styleSheetsLoaded: [
                 searchSelectCssUrl,
             ],
         },
     }));
 
-    return WDNSearchSelect;
+    return UNLSearchSelect;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNSearchSelect> }
+ * @returns { Promise<UNLSearchSelect> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    const loadedElement = new WDNSearchSelect(element, options);
+    const loadedElement = new UNLSearchSelect(element, options);
     document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
         detail: {
             loadedElement: loadedElement,
@@ -91,7 +91,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNSearchSelect[]> }
+ * @returns { Promise<UNLSearchSelect[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -105,7 +105,7 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNSearchSelect[]> }
+ * @returns { Promise<UNLSearchSelect[]> }
  */
 export async function loadElementsOnPage(options) {
     const allSearchSelects = document.querySelectorAll(querySelector);

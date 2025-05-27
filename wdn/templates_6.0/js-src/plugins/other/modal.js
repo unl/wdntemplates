@@ -8,7 +8,7 @@
 import DCFModal from '@dcf/js/components/dcf-modal.js';
 import { enableBodyScroll, disableBodyScroll} from '@js-src/lib/body-scroll-lock.js';
 import modalCssUrl from '@scss/components-js/_modals.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 loadStyleSheet(modalCssUrl).then(() => {
     const modals = document.querySelectorAll('.dcf-modal');

@@ -1,4 +1,4 @@
-export default class WDNQa {
+export default class UNLQa {
 
     /**
      * @type { HTMLElement|null }
@@ -15,7 +15,7 @@ export default class WDNQa {
             this.#appendLinkWithStar();
         }
 
-        this.qaLink.dispatchEvent(new CustomEvent(WDNQa.events('qaReady'), {
+        this.qaLink.dispatchEvent(new CustomEvent(UNLQa.events('qaReady'), {
             detail: {
                 classInstance: this,
             },

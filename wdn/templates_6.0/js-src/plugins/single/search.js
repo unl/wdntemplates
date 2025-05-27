@@ -1,15 +1,15 @@
 import searchCssUrl from '@scss/components-js/_search.scss?url';
 import dialogCssUrl from '@scss/components-js/_dialogs.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNSearch} WDNSearch
+ * @type {?UNLSearch} UNLSearch
  */
-let WDNSearch = null;
+let UNLSearch = null;
 
 /**
- * @type {?WDNSearch} searchInstance
+ * @type {?UNLSearch} searchInstance
  */
 let searchInstance = null;
 
@@ -52,7 +52,7 @@ export function isOnPage() {
 
 /**
  * Initializes plugin
- * @returns { Promise<WDNSearch|Null> }
+ * @returns { Promise<UNLSearch|Null> }
  */
 export async function initialize(options={}) {
     if (isInitialized) { return searchInstance; }
@@ -61,17 +61,17 @@ export async function initialize(options={}) {
     const searchElement = document.querySelector(querySelector);
     if (searchElement === null) { return null; }
 
-    const searchComponent = await import('@js-src/components/wdn-search.js');
-    WDNSearch = searchComponent.default;
+    const searchComponent = await import('@js-src/components/unl-search.js');
+    UNLSearch = searchComponent.default;
     await loadStyleSheet(dialogCssUrl);
     await loadStyleSheet(searchCssUrl);
 
-    searchInstance = new WDNSearch(options);
+    searchInstance = new UNLSearch(options);
 
     document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
         detail: {
             pluginType: pluginType,
-            pluginComponent: WDNSearch,
+            pluginComponent: UNLSearch,
             classInstance: searchInstance,
             styleSheetsLoaded: [
                 dialogCssUrl,

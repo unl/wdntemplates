@@ -1,7 +1,7 @@
-export default class WDNAnalytics {
+export default class UNLAnalytics {
     debugMode = false;
 
-    wdnProp = 'G-XYGRJGQFZK';
+    unlProp = 'G-XYGRJGQFZK';
 
     thisURL = String(window.location);
 
@@ -19,14 +19,14 @@ export default class WDNAnalytics {
         } else if ('debugMode' in options && typeof options.debugMode === 'boolean') {
             this.debugMode = options.debugMode;
         }
-        if ('wdnProp' in window.UNL.analytics.config && typeof window.UNL.analytics.config.wdnProp === 'string') {
-            this.wdnProp = window.UNL.analytics.config.wdnProp;
-        } else if ('wdnProp' in options && typeof options.wdnProp === 'string') {
-            this.wdnProp = options.wdnProp;
+        if ('unlProp' in window.UNL.analytics.config && typeof window.UNL.analytics.config.unlProp === 'string') {
+            this.unlProp = window.UNL.analytics.config.unlProp;
+        } else if ('unlProp' in options && typeof options.unlProp === 'string') {
+            this.unlProp = options.unlProp;
         }
 
         // Checks to see if we have initialized things already
-        const initializeCheck = document.querySelector('script[data-wdn-initialized="true"]');
+        const initializeCheck = document.querySelector('script[data-unl-initialized="true"]');
         if (initializeCheck !== null) {
             return;
         }
@@ -36,27 +36,27 @@ export default class WDNAnalytics {
 
         // Checks if we have a script for the gtag on the page already
         // If not we will create the script
-        const gtagScriptCheck = document.querySelector(`script[src*=googletagmanager][src*=${this.wdnProp}]`);
+        const gtagScriptCheck = document.querySelector(`script[src*=googletagmanager][src*=${this.unlProp}]`);
         if (gtagScriptCheck === null) {
             // Creates new gtag script and set up values to match GA4 specifications
             // Append it to the head element
             const newGtagScript = document.createElement('script');
             newGtagScript.setAttribute('async', '');
-            newGtagScript.setAttribute('src', `https://www.googletagmanager.com/gtag/js?id=${this.wdnProp}`);
+            newGtagScript.setAttribute('src', `https://www.googletagmanager.com/gtag/js?id=${this.unlProp}`);
             headTag.append(newGtagScript);
         }
 
         // Set up initial state of the gtag
         // Append it to the head element
         const newGtagSetup = document.createElement('script');
-        newGtagSetup.dataset.wdnInitialized = 'true'; // This will let us know if we have initialize already
+        newGtagSetup.dataset.unlInitialized = 'true'; // This will let us know if we have initialize already
         newGtagSetup.innerHTML = `
             window.dataLayer = window.dataLayer || [];
             function gtag() {
                 dataLayer.push(arguments);
             }
             gtag("js", new Date());
-            gtag("config", "${this.wdnProp}", {
+            gtag("config", "${this.unlProp}", {
                 ${this.debugMode ? 'debug_mode: true,' : ''}
             });
             // These will be updated once idm initializes
@@ -82,7 +82,7 @@ export default class WDNAnalytics {
         });
 
         window.UNL.analytics.loaded = true;
-        document.dispatchEvent(new CustomEvent(WDNAnalytics.events('UNLAnalyticsReady'), {
+        document.dispatchEvent(new CustomEvent(UNLAnalytics.events('UNLAnalyticsReady'), {
             detail: {
                 classInstance: this,
             },
@@ -108,7 +108,7 @@ export default class WDNAnalytics {
     callTrackPageview(thePage) {
         const eventData = {
             'page_location': thePage,
-            'send_to': this.wdnProp,
+            'send_to': this.unlProp,
         };
         if (this.debugMode) {
             eventData['debug_mode'] = true;
@@ -125,7 +125,7 @@ export default class WDNAnalytics {
      */
     sendEvent(eventName, eventData) {
         // Send it to only our Measurement ID
-        eventData['send_to'] = this.wdnProp;
+        eventData['send_to'] = this.unlProp;
 
         // If debug mode is set we will add that
         if (this.debugMode) {
@@ -151,7 +151,7 @@ export default class WDNAnalytics {
         const eventData = {
             'event_category': category,
             'event_label': label,
-            'send_to': this.wdnProp,
+            'send_to': this.unlProp,
         };
 
         // If debug mode is set we will add that

@@ -1,22 +1,22 @@
-import wdnTabUrl from '@js-src/plugins/multi/tab.js?finalUrl';
-import wdnToggleButtonUrl from '@js-src/plugins/multi/toggle-button.js?finalUrl';
-import wdnCollapsibleFieldsetUrl from '@js-src/plugins/multi/collapsible-fieldset.js?finalUrl';
-import wdnFigcaptionToggleUrl from '@js-src/plugins/multi/figcaption-toggle.js?finalUrl';
-import wdnNoticeUrl from '@js-src/plugins/multi/notice.js?finalUrl';
-import wdnDatepickerUrl from '@js-src/plugins/multi/datepicker.js?finalUrl';
-import wdnAutoplayVideoUrl from '@js-src/plugins/multi/autoplay-video.js?finalUrl';
-import wdnPaginationUrl from '@js-src/plugins/multi/pagination.js?finalUrl';
-import wdnSlideshowUrl from '@js-src/plugins/multi/slideshow.js?finalUrl';
-import wdnSearchSelectUrl from '@js-src/plugins/multi/search-select.js?finalUrl';
-import wdnPopupUrl from '@js-src/plugins/multi/popup.js?finalUrl';
-import wdnDialogUrl from '@js-src/plugins/multi/dialog.js?finalUrl';
-import wdnGalleryUrl from '@js-src/plugins/multi/gallery.js?finalUrl';
-import wdnEventListUrl from '@js-src/plugins/multi/event-list.js?finalUrl';
+import UNLTabUrl from '@js-src/plugins/multi/tab.js?finalUrl';
+import UNLToggleButtonUrl from '@js-src/plugins/multi/toggle-button.js?finalUrl';
+import UNLCollapsibleFieldsetUrl from '@js-src/plugins/multi/collapsible-fieldset.js?finalUrl';
+import UNLFigcaptionToggleUrl from '@js-src/plugins/multi/figcaption-toggle.js?finalUrl';
+import UNLNoticeUrl from '@js-src/plugins/multi/notice.js?finalUrl';
+import UNLDatepickerUrl from '@js-src/plugins/multi/datepicker.js?finalUrl';
+import UNLAutoplayVideoUrl from '@js-src/plugins/multi/autoplay-video.js?finalUrl';
+import UNLPaginationUrl from '@js-src/plugins/multi/pagination.js?finalUrl';
+import UNLSlideshowUrl from '@js-src/plugins/multi/slideshow.js?finalUrl';
+import UNLSearchSelectUrl from '@js-src/plugins/multi/search-select.js?finalUrl';
+import UNLPopupUrl from '@js-src/plugins/multi/popup.js?finalUrl';
+import UNLDialogUrl from '@js-src/plugins/multi/dialog.js?finalUrl';
+import UNLGalleryUrl from '@js-src/plugins/multi/gallery.js?finalUrl';
+import UNLEventListUrl from '@js-src/plugins/multi/event-list.js?finalUrl';
 
-import wdnIdmUrl from '@js-src/plugins/single/idm.js?finalUrl';
-import wdnSearchUrl from '@js-src/plugins/single/search.js?finalUrl';
-import wdnQaUrl from '@js-src/plugins/single/qa.js?finalUrl';
-import wdnFontSerifUrl from '@js-src/plugins/single/font-serif.js?finalUrl';
+import UNLIdmUrl from '@js-src/plugins/single/idm.js?finalUrl';
+import UNLSearchUrl from '@js-src/plugins/single/search.js?finalUrl';
+import UNLQaUrl from '@js-src/plugins/single/qa.js?finalUrl';
+import UNLFontSerifUrl from '@js-src/plugins/single/font-serif.js?finalUrl';
 
 window.UNL = window.UNL || {};
 window.UNL.autoLoader = {
@@ -26,131 +26,131 @@ window.UNL.autoLoader = {
         globalOptInSelector: null, // If the element doesn't have this class ignore it
         globalOptOutSelector: null, // If the element has this class ignore it
         plugins: {
-            wdnTab: {
+            UNLTab: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnTabUrl,
+                url: UNLTabUrl,
             },
-            wdnToggleButton: {
+            UNLToggleButton: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnToggleButtonUrl,
+                url: UNLToggleButtonUrl,
             },
-            wdnCollapsibleFieldset: {
+            UNLCollapsibleFieldset: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnCollapsibleFieldsetUrl,
+                url: UNLCollapsibleFieldsetUrl,
             },
-            wdnFigcaptionToggle: {
+            UNLFigcaptionToggle: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnFigcaptionToggleUrl,
+                url: UNLFigcaptionToggleUrl,
             },
-            wdnNotice: {
+            UNLNotice: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnNoticeUrl,
+                url: UNLNoticeUrl,
             },
-            wdnDatepicker: {
+            UNLDatepicker: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnDatepickerUrl,
+                url: UNLDatepickerUrl,
             },
-            wdnAutoplayVideo: {
+            UNLAutoplayVideo: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnAutoplayVideoUrl,
+                url: UNLAutoplayVideoUrl,
             },
-            wdnPagination: {
+            UNLPagination: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnPaginationUrl,
+                url: UNLPaginationUrl,
             },
-            wdnSlideshow: {
+            UNLSlideshow: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnSlideshowUrl,
+                url: UNLSlideshowUrl,
             },
-            wdnSearchSelect: {
+            UNLSearchSelect: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnSearchSelectUrl,
+                url: UNLSearchSelectUrl,
             },
-            wdnPopup: {
+            UNLPopup: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnPopupUrl,
+                url: UNLPopupUrl,
             },
-            wdnDialog: {
+            UNLDialog: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnDialogUrl,
+                url: UNLDialogUrl,
             },
-            wdnGallery: {
+            UNLGallery: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnGalleryUrl,
+                url: UNLGalleryUrl,
             },
-            wdnEventList: {
+            UNLEventList: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnEventListUrl,
+                url: UNLEventListUrl,
             },
-            wdnIdm: {
+            UNLIdm: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnIdmUrl,
+                url: UNLIdmUrl,
             },
-            wdnSearch: {
+            UNLSearch: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnSearchUrl,
+                url: UNLSearchUrl,
             },
-            wdnFontSerif: {
+            UNLFontSerif: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnFontSerifUrl,
+                url: UNLFontSerifUrl,
             },
-            wdnQa: {
+            UNLQa: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: wdnQaUrl,
+                url: UNLQaUrl,
             },
         },
     },

@@ -1,6 +1,6 @@
 import DCFAutoplayVideoToggle from '@dcf/js/components/dcf-autoplay-video-toggle.js';
 
-export default class WDNAutoplayVideoToggle extends DCFAutoplayVideoToggle {
+export default class UNLAutoplayVideoToggle extends DCFAutoplayVideoToggle {
     constructor(autoplayVideoContainer, options = {}) {
         if (!('toggleBtnClassList' in options)) {
             options.toggleBtnClassList = [
