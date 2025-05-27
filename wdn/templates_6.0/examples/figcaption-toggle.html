@@ -15,7 +15,7 @@
                 <div class="dcf-ratio dcf-ratio-16x9">
                     <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="/wdn/templates_6.0/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
                 </div>
-                <figcaption class="dcf-figcaption dcf-figcaption-toggle">
+                <figcaption id="test" class="dcf-figcaption dcf-figcaption-toggle">
                     Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
                     <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small>
                 </figcaption>
@@ -23,5 +23,11 @@
         </main>
 
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            document.getElementById('test').addEventListener('figcaptionToggleReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

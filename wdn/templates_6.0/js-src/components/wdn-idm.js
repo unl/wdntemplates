@@ -1,4 +1,4 @@
-import { getCookie, loadJS, subscribeToWindowParams, isValidateEmail } from '@js-src/lib/wdn-utility.js';
+import { getCookie, loadJS, isValidateEmail } from '@js-src/lib/wdn-utility.js';
 
 export default class WDNIDM {
 
@@ -30,20 +30,54 @@ export default class WDNIDM {
 
     logOutUrl = null;
 
-    constructor() {
+    #isReadyToRender = false;
+
+    constructor(options={}) {
         this.logInUrl = `${this.ssoUrl}idp/profile/cas/login?service=${this.locationEncoded}`;
         this.logOutUrl = `${this.ssoUrl}idp/profile/cas/logout?service=${this.locationEncoded}`;
         this.#checkForAuthLinks();
 
         // Sets up window.WDN.idm for whoami
-        if (window.WDN === undefined) {
-            window.WDN = {};
+        window.WDN = window.WDN || {};
+        window.WDN.idm = window.WDN.idm || {};
+
+        // Set up window.UNL.idm.config if not defined yet
+        window.UNL = window.UNL || {};
+        window.UNL.idm = window.UNL.idm || {};
+        window.UNL.idm.config = window.UNL.idm.config || {};
+
+        if ('loginRoute' in window.UNL.idm.config && typeof window.UNL.idm.config.loginRoute === 'string') {
+            this.setLoginRoute(window.UNL.idm.config.loginRoute);
+        } else if ('loginRoute' in options && typeof options.loginRoute === 'string') {
+            this.setLoginRoute(options.loginRoute);
         }
-        if (window.WDN.idm === undefined) {
-            window.WDN.idm = {};
+        if ('logoutRoute' in window.UNL.idm.config && typeof window.UNL.idm.config.logoutRoute === 'string') {
+            this.setLogoutRoute(window.UNL.idm.config.logoutRoute);
+        } else if ('logoutRoute' in options && typeof options.logoutRoute === 'string') {
+            this.setLogoutRoute(options.logoutRoute);
+        }
+        if ('serverUser' in window.UNL.idm.config && typeof window.UNL.idm.config.serverUser === 'string') {
+            this.setServerUser(window.UNL.idm.config.serverUser);
+        } else if ('serverUser' in options && typeof options.serverUser === 'string') {
+            this.setServerUser(options.serverUser);
         }
 
+        window.UNL.idm.pushConfig = (configProp, configValue) => {
+            switch (configProp) {
+            case 'loginRoute':
+                this.setLoginRoute(configValue);
+                break;
+            case 'logoutRoute':
+                this.setLogoutRoute(configValue);
+                break;
+            case 'serverUser':
+                this.setServerUser(configValue);
+                break;
+            }
+        };
+
         this.ssoCookieData = getCookie(this.ssoCookie);
+        this.#isReadyToRender = true;
         if (this.ssoCookieData !== null) {
             this.#loadClientUser();
         } else {
@@ -51,23 +85,39 @@ export default class WDNIDM {
             this.#loadServerUser();
         }
 
-        subscribeToWindowParams('IDM', (data) => {
-            if (data.length < 2) { return; }
-            switch (data[0]) {
-            case 'LoginRoute':
-            case 'loginRoute':
-                this.setLoginRoute(data[1]);
-                break;
-            case 'LogoutRoute':
-            case 'logoutRoute':
-                this.setLogoutRoute(data[1]);
-                break;
-            case 'ServerUser':
-            case 'serverUser':
-                this.setServerUser(data[1]);
-                break;
-            }
-        });
+        window.UNL.idm.getPrimaryAffiliation = () => {
+            return this.getPrimaryAffiliation();
+        };
+
+        // Clear out the queue and delete it's key-value pair since it is no longer needed
+        if ('loadCallbackQueue' in window.UNL.idm && Array.isArray(window.UNL.idm.loadCallbackQueue)) {
+            window.UNL.idm.loadCallbackQueue.forEach((singleCallback) => {
+                singleCallback();
+            });
+            delete window.UNL.idm.loadCallbackQueue;
+        }
+        // Redefine onload to just call the callback since we have loaded
+        window.UNL.idm.onLoad = (callbackFunc) => {
+            callbackFunc();
+        };
+
+        window.UNL.idm.loaded = true;
+
+        document.dispatchEvent(new CustomEvent(WDNIDM.events('UNLIdmReady'), {
+            detail: {
+                classInstance: this,
+            },
+        }));
+    }
+
+    // The names of the events to be used easily
+    static events(name) {
+        const events = {
+            UNLIdmReady: 'UNLIdmReady',
+        };
+        Object.freeze(events);
+
+        return name in events ? events[name] : undefined;
     }
 
     /**
@@ -118,7 +168,9 @@ export default class WDNIDM {
         if (user !== null) {
             this.clientSideUser = user;
             this.#syncLocalStorage();
-            this.#render();
+            if (this.#isReadyToRender === true) {
+                this.#render();
+            }
         } else {
             // If we did not load the user correctly
             // then we will check if we can load the server user
@@ -217,7 +269,9 @@ export default class WDNIDM {
      */
     setLoginRoute(loginRouteIn) {
         this.logInUrl = loginRouteIn;
-        this.#render();
+        if (this.#isReadyToRender === true) {
+            this.#render();
+        }
     }
 
     /**
@@ -228,7 +282,9 @@ export default class WDNIDM {
      */
     setLogoutRoute(logoutRouteIn) {
         this.logOutUrl = logoutRouteIn;
-        this.#render();
+        if (this.#isReadyToRender === true) {
+            this.#render();
+        }
     }
 
     /**
@@ -278,7 +334,9 @@ export default class WDNIDM {
             const userData = await this.#fetchServerUserDataFromDirectory();
             this.serverSideUser.data = userData;
         }
-        this.#render();
+        if (this.#isReadyToRender === true) {
+            this.#render();
+        }
     }
 
     /**
@@ -403,6 +461,16 @@ export default class WDNIDM {
         return null;
     }
 
+    getPrimaryAffiliation() {
+        if (this.clientSideUser !== null) {
+            return this.clientSideUser?.eduPersonPrimaryAffiliation?.[0] || 'None';
+        } else if (this.serverSideUser !== null) {
+            return this.serverSideUser?.data?.eduPersonPrimaryAffiliation?.[0] || 'None';
+        }
+
+        return 'None';
+    }
+
     /**
      * Renders the component based on if we have clientSideUser data and
      * if we have serverSideUser data
@@ -438,6 +506,7 @@ export default class WDNIDM {
      */
     renderLoggedOutState() {
         console.log('logged Out', this.logInUrl);
+        window.dispatchEvent(new Event('idmStateSet'));
     }
 
     /**
@@ -449,6 +518,7 @@ export default class WDNIDM {
      */
     renderQuasiLoggedInState(userAvatarUrl) {
         console.log('quasi', userAvatarUrl, this.logInUrl);
+        window.dispatchEvent(new Event('idmStateSet'));
     }
 
     /**
@@ -460,5 +530,6 @@ export default class WDNIDM {
      */
     renderLoggedInState(userDisplayName, userAvatarUrl) {
         console.log('logged in', userDisplayName, userAvatarUrl, this.logOutUrl);
+        window.dispatchEvent(new Event('idmStateSet'));
     }
 }

@@ -12,7 +12,7 @@
             <h1>Slideshow</h1>
 
             <h2>Normal</h2>
-            <div class="dcf-slideshow dcf-mb-5 dcf-w-max-xl" aria-label="WDN Sample Slideshow">
+            <div id="test" class="dcf-slideshow dcf-mb-5 dcf-w-max-xl" aria-label="WDN Sample Slideshow">
                 <ul>
                     <li>
                         <figure>
@@ -142,5 +142,11 @@
         </main>
 
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            document.getElementById('test').addEventListener('slideshowReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

@@ -9,11 +9,11 @@
     </head>
     <body class="unl">
         <main>
-            <h1 >Tabs (autoloader)</h1>
+            <h1>Tabs (autoloader)</h1>
 
             <a href="#group3-panel2">Go To Tabs Panel #group3-panel2</a>
 
-            <div class="dcf-tabs dcf-tabs-responsive dcf-mt-6 dcf-mb-9">
+            <div id="test" class="dcf-tabs dcf-tabs-responsive dcf-mt-6 dcf-mb-9">
                 <h3>Tab Group (Unordered List, Divs)</h3>
                 <ul>
                     <li><a href="#group1-panel1">Tab 1</a></li>
@@ -77,5 +77,11 @@
         </main>
 
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            document.getElementById('test').addEventListener('tabsReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

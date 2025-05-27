@@ -64,6 +64,7 @@ export default ({ mode }) => {
                     'plugins/plugin.popup'                : 'wdn/templates_6.0/js-src/plugins/multi/popup.js',
                     'plugins/plugin.dialog'               : 'wdn/templates_6.0/js-src/plugins/multi/dialog.js',
                     'plugins/plugin.gallery'              : 'wdn/templates_6.0/js-src/plugins/multi/gallery.js',
+                    'plugins/plugin.event-list'           : 'wdn/templates_6.0/js-src/plugins/multi/event-list.js',
 
                     'plugins/plugin.idm'                  : 'wdn/templates_6.0/js-src/plugins/single/idm.js',
                     'plugins/plugin.search'               : 'wdn/templates_6.0/js-src/plugins/single/search.js',
@@ -91,8 +92,12 @@ export default ({ mode }) => {
                     'components/component.idm'                  : 'wdn/templates_6.0/js-src/components/wdn-idm.js',
                     'components/component.search'               : 'wdn/templates_6.0/js-src/components/wdn-search.js',
                     'components/component.qa'                   : 'wdn/templates_6.0/js-src/components/wdn-qa.js',
+                    'components/component.event-list'           : 'wdn/templates_6.0/js-src/components/wdn-event-list.js',
+                    'components/component.analytics'            : 'wdn/templates_6.0/js-src/components/wdn-analytics.js',
 
                     'lib/wdn-utility'      : 'wdn/templates_6.0/js-src/lib/wdn-utility.js',
+                    'lib/moment'           : 'wdn/templates_6.0/js-src/lib/moment.js',
+                    'lib/moment-timezone'  : 'wdn/templates_6.0/js-src/lib/moment-timezone.js',
                     'lib/jquery'           : 'wdn/templates_6.0/js-src/lib/jquery.js',
                     'lib/jquery-ui'        : 'wdn/templates_6.0/js-src/lib/jquery-ui.js',
                     'lib/jquery-validator' : 'wdn/templates_6.0/js-src/lib/jquery-validator.js',

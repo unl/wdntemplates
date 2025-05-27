@@ -68,7 +68,7 @@ if (enabled) {
         window.UNL.autoLoader.plugins[pluginName] = {
             optInSelector: pluginConfig?.optInSelector || null,
             optOutSelector: pluginConfig?.optOutSelector || null,
-            pluginCustomConfig: pluginConfig?.customConfig || null,
+            customConfig: pluginConfig?.customConfig || {},
             module: pluginModule,
             elements: [],
         };
@@ -87,7 +87,7 @@ if (enabled) {
         //   if it is on the page when we will initialize the plugin
         if (pluginModule.getPluginType() === 'single') {
             if (pluginModule.isOnPage()) {
-                const element = await pluginModule.initialize();
+                const element = await pluginModule.initialize(pluginData.customConfig);
                 if (element !== null) {
                     pluginData.elements.push(element);
                 }
@@ -122,7 +122,7 @@ if (enabled) {
             }
 
             // load the rest of the elements and add the plugin to the watch list
-            const elements = await pluginModule.loadElements(matchingElements);
+            const elements = await pluginModule.loadElements(matchingElements, pluginData.customConfig);
             pluginData.elements = pluginData.elements.concat(elements);
 
             watchList.push(singlePluginName);
@@ -162,14 +162,14 @@ if (watch) {
                         }
 
                         if (pluginModule.getPluginType() === 'single') {
-                            const element = await pluginModule.initialize();
+                            const element = await pluginModule.initialize(pluginData.customConfig);
                             if (element !== null) {
                                 pluginData.elements.push(element);
                             }
                             watchList.splice(watchList.indexOf(singlePluginName), 1);
 
                         } else if (pluginModule.getPluginType() === 'multi') {
-                            const element = await pluginModule.loadElement(nodeAdded);
+                            const element = await pluginModule.loadElement(nodeAdded, pluginData.customConfig);
                             pluginData.elements = pluginData.elements.concat(element);
                         }
                     }

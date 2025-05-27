@@ -1,6 +1,8 @@
 import WDNDialog from './wdn-dialog';
 
 export default class WDNSearch {
+    searchContainer = null;
+
     searchDialogElement = null;
 
     domDesktopSearchLink = null;
@@ -52,6 +54,8 @@ export default class WDNSearch {
     searchClosedEvent = new Event(WDNSearch.events('searchClosed'));
 
     constructor() {
+        this.searchContainer = document.getElementById('dcf-search');
+
         this.searchDialogElement = document.querySelector('dialog#dcf-search-results');
         if (this.searchDialogElement === null) {
             throw new Error('Missing Search Dialog Element');
@@ -176,11 +180,24 @@ export default class WDNSearch {
 
         // Set up form submit listeners
         this.domSearchForm.addEventListener('submit', this.#handleFormSubmit.bind(this));
+
+        this.searchContainer.dispatchEvent(new CustomEvent(WDNSearch.events('searchReady'), {
+            detail: {
+                classInstance: this,
+            },
+        }));
+
+        this.searchDialogElement.dispatchEvent(new CustomEvent(WDNSearch.events('searchReady'), {
+            detail: {
+                classInstance: this,
+            },
+        }));
     }
 
     // The names of the events to be used easily
     static events(name) {
         const events = {
+            searchReady: 'searchReady',
             iframeMessage: 'wdn.search.close',
             searchClosed: 'searchClosed',
             searchOpened: 'searchOpened',

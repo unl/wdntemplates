@@ -9,7 +9,7 @@
     </head>
     <body class="unl">
       <main>
-        <h1 >Search</h1>
+        <h1>Search</h1>
 
         <div class="dcf-search dcf-header-global-item dcf-flex-grow-1 dcf-d-flex dcf-jc-flex-end dcf-modal-parent dcf-d-none@print" id="dcf-search" role="search">
           <div class="dcf-search-toggle-wrapper dcf-ai-center dcf-w-100%">
@@ -90,5 +90,11 @@
       </main>
 
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            document.getElementById('dcf-search').addEventListener('searchReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

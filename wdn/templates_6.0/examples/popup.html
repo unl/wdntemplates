@@ -13,7 +13,7 @@
 
             <h2 class="dcf-mt-6">Popups Special</h3>
 
-            <div class="dcf-popup">
+            <div id="test" class="dcf-popup">
                 <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Open Popup With Close Button</button>
                 <div class="dcf-popup-content unl-bg-cerulean dcf-rounded dcf-p-3" hidden>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus hendrerit urna quis pellentesque. Aenean tempor est commodo nisi gravida interdum.
@@ -258,5 +258,11 @@
         </main>
 
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            document.getElementById('test').addEventListener('popupReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

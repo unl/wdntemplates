@@ -6,10 +6,11 @@
         <title>IDM</title>
         <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
         <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+        <script src="/wdn/templates_6.0/js/head-2.js"></script>
     </head>
     <body class="unl">
         <main>
-            <h1 >IDM</h1>
+            <h1>IDM</h1>
 
             <div class="dcf-idm dcf-flex-grow-1 dcf-d-flex dcf-jc-flex-end dcf-h-100% dcf-w-min-0 dcf-d-none@print" id="dcf-idm">
                 <div class="dcf-idm-status-logged-out dcf-idm-toggle dcf-ai-center dcf-relative dcf-header-global-item dcf-w-min-0">
@@ -22,13 +23,19 @@
             </div>
         </main>
 
-        <script>
-            window.UNLDataLayer = window.UNLDataLayer || [];
-            function UNLParams() { window.UNLDataLayer.push(arguments); }
-            UNLParams('IDM', 'LoginRoute', 'https://local.unl.edu/login');
-            UNLParams('IDM', 'LogoutRoute', 'https://local.unl.edu/logout');
-            UNLParams('IDM', 'ServerUser', 'eric@unl.edu');
-        </script>
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            setTimeout(() => {
+                window.UNL.idm.pushConfig('loginRoute', 'https://local.unl.edu/login');
+                window.UNL.idm.pushConfig('logoutRoute', 'https://local.unl.edu/logout');
+                window.UNL.idm.pushConfig('serverUser', 'hhusker1');
+            }, 1000);
+        </script>
+        <script>
+            document.addEventListener('UNLIdmReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

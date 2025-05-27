@@ -13,7 +13,7 @@
                 <h1>Notices</h1>
             </div>
             <div id="dcf-main">
-                <div class="dcf-notice dcf-notice-info" hidden>
+                <div id="test" class="dcf-notice dcf-notice-info" hidden>
                     <h2>Info</h2>
                     <div>This is additional information for this notice.</div>
                 </div>
@@ -40,5 +40,11 @@
             </div>
         </main>
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            document.getElementById('test').addEventListener('noticeReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

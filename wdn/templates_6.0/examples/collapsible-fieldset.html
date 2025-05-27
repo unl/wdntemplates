@@ -9,9 +9,9 @@
     </head>
     <body class="unl">
         <main>
-            <h1 >Collapsible Fieldsets</h1>
+            <h1>Collapsible Fieldsets</h1>
             <form class="dcf-form">
-                <fieldset class="dcf-collapsible-fieldset">
+                <fieldset id="test" class="dcf-collapsible-fieldset">
                     <legend>Checkboxes</legend>
                     <div class="dcf-input-checkbox">
                     <input id="dcf-components-form-checkbox1A" type="checkbox" value="0">
@@ -38,5 +38,11 @@
         </main>
 
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            document.getElementById('test').addEventListener('collapsibleFieldsetReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

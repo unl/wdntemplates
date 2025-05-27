@@ -9,7 +9,7 @@
     </head>
     <body class="unl">
       <main>
-        <h1 >Dialog</h1>
+        <h1>Dialog</h1>
 
         <button id="my-modal-1-open" class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-1" disabled>Dialog Show 1</button>
         <dialog id="my-modal-1" class="dcf-dialog">
@@ -81,5 +81,11 @@
       </main>
 
       <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+      <script>
+            document.getElementById('my-modal-1').addEventListener('dialogReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

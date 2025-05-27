@@ -54,7 +54,7 @@ export function isOnPage() {
  * Initializes plugin
  * @returns { Promise<WDNIdm|Null> }
  */
-export async function initialize() {
+export async function initialize(options={}) {
     if (isInitialized) { return idmInstance; }
     isInitialized = true;
 
@@ -65,7 +65,7 @@ export async function initialize() {
     WDNIdm = idmComponent.default;
     await loadStyleSheet(idmCssUrl);
 
-    idmInstance = new WDNIdm();
+    idmInstance = new WDNIdm(options);
 
     return idmInstance;
 }
