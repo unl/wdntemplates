@@ -60,23 +60,23 @@
     <!-- InstanceBeginEditable name="navlinks" -->
     <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-nav-1.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-nav-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-1.html" -->
     <!-- InstanceBeginEditable name="navvisit" -->
     <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-nav-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-nav-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-1.html" -->
     <!-- InstanceBeginEditable name="navapply" -->
     <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-nav-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/give-nav-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-1.html" -->
     <!-- InstanceBeginEditable name="navgive" -->
     <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/give-nav-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-2.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-child-2.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-2.html" -->
   </header>
