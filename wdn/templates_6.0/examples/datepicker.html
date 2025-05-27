@@ -11,7 +11,7 @@
         <main>
             <h1 class="dcf-mt-6">Date Picker</h1>
             <form class="dcf-form" action="#" method="get">
-                <div class="dcf-datepicker">
+                <div id="test" class="dcf-datepicker">
                     <label for="sample-date">Date 1</label>
                     <input id="sample-date" type="text" name="sample-date">
                 </div>
@@ -24,5 +24,11 @@
             </form>
         </main>
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            document.getElementById('test').addEventListener('datepickerReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

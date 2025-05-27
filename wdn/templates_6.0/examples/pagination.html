@@ -11,7 +11,7 @@
         <main>
             <h1>Pagination</h1>
 
-            <nav class="dcf-pagination">
+            <nav id="test" class="dcf-pagination">
                 <ol class="dcf-list-bare dcf-list-inline">
                     <li><a class="dcf-pagination-first" href="#">First</a></li>
                     <li><a class="dcf-pagination-prev" href="#">Prev</a></li>
@@ -26,5 +26,11 @@
         </main>
 
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            document.getElementById('test').addEventListener('paginationReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

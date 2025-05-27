@@ -20,5 +20,11 @@
         </main>
         <script src="/wdn/templates_6.0/js/header-global-1.js"></script>
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            document.addEventListener('UNLBannerReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

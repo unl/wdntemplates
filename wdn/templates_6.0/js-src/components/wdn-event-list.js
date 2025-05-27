@@ -1,4 +1,5 @@
 import moment from '@js-src/lib/moment-timezone.js';
+import { stringToDom } from '@js-src/lib/wdn-utility.js';
 
 export default class WDNEventList {
     containerElement = null;
@@ -51,6 +52,22 @@ export default class WDNEventList {
         this.eventListElement = document.createElement('ol');
 
         this.#render();
+
+        this.containerElement.dispatchEvent(new CustomEvent(WDNEventList.events('eventListReady'), {
+            detail: {
+                classInstance: this,
+            },
+        }));
+    }
+
+    // The names of the events to be used easily
+    static events(name) {
+        const events = {
+            eventListReady: 'eventListReady',
+        };
+        Object.freeze(events);
+
+        return name in events ? events[name] : undefined;
     }
 
     async #render() {
@@ -96,16 +113,16 @@ export default class WDNEventList {
             }
 
             this.containerElement.classList.add(...containerClasses);
-            this.containerElement.innerHTML += header;
+            this.containerElement.append(stringToDom(header));
             this.containerElement.append(this.eventListElement);
             this.containerElement.append(grid);
-            this.containerElement.innerHTML += moreEvents;
+            this.containerElement.append(stringToDom(moreEvents));
         } else {
             // defaults to 'default' layout
             this.eventListElement.classList.add('dcf-d-grid', 'dcf-col-gap-vw', 'dcf-row-gap-5', 'dcf-mb-6', 'unl-event-teaser-ol');
             this.eventListElement.setAttribute('role', 'list');
             this.containerElement.classList.add('wdn-calendar');
-            this.containerElement.innerHTML += `<h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray">${displayType} Events</h2>`;
+            this.containerElement.append(stringToDom(`<h2 class="dcf-d-flex dcf-ai-center dcf-mb-6 dcf-txt-xs dcf-uppercase unl-ls-2 unl-dark-gray">${displayType} Events</h2>`));
             this.containerElement.append(this.eventListElement);
             let moreText = 'More Events';
             if (this.title) {
@@ -116,7 +133,7 @@ export default class WDNEventList {
             const rss = `<a class="dcf-btn dcf-btn-secondary dcf-btn-icon dcf-ai-baseline" href="${this.calendarUrl}?format=rss"><abbr class="dcf-txt-md" title="Really Simple Syndication">RSS</abbr> <svg class="dcf-h-3 dcf-w-3 dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 24 24"><path d="M.012 8.5v2c7.289 0 13 5.931 13 13.5h2c0-8.691-6.59-15.5-15-15.5z"/><path d="M.012 0v2c12.336 0 22 9.664 22 22h2c0-13.458-10.543-24-24-24z"/><circle cx="3.012" cy="21" r="3"/><path fill="none" d="M0 0h24v24H0z"/></svg></a>`;
             const feeds = `<div class="dcf-btn-group" role="group">${ics}${rss}</div>`;
             const more = `<div class="dcf-d-flex dcf-flex-row dcf-flex-wrap dcf-jc-between dcf-col-gap-5 dcf-row-gap-4">${feeds}${seeAll}</div>`;
-            this.containerElement.innerHTML += more;
+            this.containerElement.append(stringToDom(more));
         }
 
         this.containerElement.classList.remove('dcf-d-none');

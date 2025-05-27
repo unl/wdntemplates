@@ -31,5 +31,11 @@
                 window.UNL.idm.pushConfig('serverUser', 'hhusker1');
             }, 1000);
         </script>
+        <script>
+            document.addEventListener('UNLIdmReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

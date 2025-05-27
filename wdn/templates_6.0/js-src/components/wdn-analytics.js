@@ -82,6 +82,21 @@ export default class WDNAnalytics {
         });
 
         window.UNL.analytics.loaded = true;
+        document.dispatchEvent(new CustomEvent(WDNAnalytics.events('UNLAnalyticsReady'), {
+            detail: {
+                classInstance: this,
+            },
+        }));
+    }
+
+    // The names of the events to be used easily
+    static events(name) {
+        const events = {
+            UNLAnalyticsReady: 'UNLAnalyticsReady',
+        };
+        Object.freeze(events);
+
+        return name in events ? events[name] : undefined;
     }
 
     /**

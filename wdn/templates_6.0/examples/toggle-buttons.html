@@ -37,10 +37,16 @@
                 data-label-off="Close My Second Div"
                 data-start-expanded="false"
             >
-            Toggle My Second Div (Starts Off)
-        </button>
-    </main>
+                Toggle My Second Div (Starts Off)
+            </button>
+        </main>
 
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            document.getElementById('my-div').addEventListener('toggleButtonReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

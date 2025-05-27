@@ -12,7 +12,7 @@
             <h1>Autoplay video</h1>
         </main>
 
-        <div class="dcf-autoplay-video dcf-w-max-xl">
+        <div id="test" class="dcf-autoplay-video dcf-w-max-xl">
             <video style="height: 900; width: 160;" poster="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-wooooo.jpg" autoplay loop muted playsinline>
                 <source src="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-fingers-crossed.mp4" type="video/mp4">
             </video>
@@ -28,5 +28,11 @@
             </video>
         </div>
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            document.getElementById('test').addEventListener('autoplayVideoReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

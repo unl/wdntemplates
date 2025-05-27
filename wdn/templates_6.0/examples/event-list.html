@@ -12,7 +12,7 @@
         <h1>Event List</h1>
 
         <h2 class="dcf-mt-3">Default limit 6</h2>
-        <div class="unl-event-list" data-url="http://events.unl.edu/" data-limit="6"></div>
+        <div id="test" class="unl-event-list" data-url="http://events.unl.edu/" data-limit="6"></div>
 
         <h2 class="dcf-mt-3">Grid limit 6</h2>
         <div class="unl-event-list" data-url="http://events.unl.edu/" data-layout="grid" data-limit="6"></div>
@@ -37,5 +37,11 @@
       </main>
 
       <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+      <script>
+            document.getElementById('test').addEventListener('eventListReady', (e) => {
+                console.log(e);
+                console.log(e.detail.classInstance);
+            });
+        </script>
     </body>
 </html>

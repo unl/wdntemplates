@@ -14,6 +14,22 @@ export default class WDNQa {
             this.#appendLinkWithLocation();
             this.#appendLinkWithStar();
         }
+
+        this.qaLink.dispatchEvent(new CustomEvent(WDNQa.events('qaReady'), {
+            detail: {
+                classInstance: this,
+            },
+        }));
+    }
+
+    // The names of the events to be used easily
+    static events(name) {
+        const events = {
+            qaReady: 'qaReady',
+        };
+        Object.freeze(events);
+
+        return name in events ? events[name] : undefined;
     }
 
     #appendLinkWithLocation() {

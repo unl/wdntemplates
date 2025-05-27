@@ -102,6 +102,22 @@ export default class WDNIDM {
         };
 
         window.UNL.idm.loaded = true;
+
+        document.dispatchEvent(new CustomEvent(WDNIDM.events('UNLIdmReady'), {
+            detail: {
+                classInstance: this,
+            },
+        }));
+    }
+
+    // The names of the events to be used easily
+    static events(name) {
+        const events = {
+            UNLIdmReady: 'UNLIdmReady',
+        };
+        Object.freeze(events);
+
+        return name in events ? events[name] : undefined;
     }
 
     /**

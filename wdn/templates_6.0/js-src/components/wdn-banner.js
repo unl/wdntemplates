@@ -31,6 +31,22 @@ export default class WDNNoticeBanner {
         setInterval(() => {
             removeSessionStorage(this.messageKey);
         }, this.clearMessageIntervalSecs );
+
+        document.dispatchEvent(new CustomEvent(WDNNoticeBanner.events('UNLBannerReady'), {
+            detail: {
+                classInstance: this,
+            },
+        }));
+    }
+
+    // The names of the events to be used easily
+    static events(name) {
+        const events = {
+            UNLBannerReady: 'UNLBannerReady',
+        };
+        Object.freeze(events);
+
+        return name in events ? events[name] : undefined;
     }
 
     /**
