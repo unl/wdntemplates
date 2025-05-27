@@ -68,5 +68,17 @@ export async function initialize(options={}) {
 
     searchInstance = new WDNSearch(options);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNSearch,
+            classInstance: searchInstance,
+            styleSheetsLoaded: [
+                dialogCssUrl,
+                searchCssUrl,
+            ],
+        },
+    }));
+
     return searchInstance;
 }

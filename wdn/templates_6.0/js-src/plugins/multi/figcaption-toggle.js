@@ -54,6 +54,17 @@ export async function initialize() {
     await loadStyleSheet(buttonToggleCssUrl);
     await loadStyleSheet(figcaptionToggleCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNFigcaptionToggle,
+            styleSheetsLoaded: [
+                buttonToggleCssUrl,
+                figcaptionToggleCssUrl,
+            ],
+        },
+    }));
+
     return WDNFigcaptionToggle;
 }
 
@@ -68,7 +79,14 @@ export async function loadElement(element, options) {
         await initialize();
     }
 
-    return new WDNFigcaptionToggle(element, options);
+    const loadedElement = new WDNFigcaptionToggle(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**

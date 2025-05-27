@@ -28,8 +28,13 @@
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
         <script>
             document.getElementById('test').addEventListener('paginationReady', (e) => {
-                console.log(e);
-                console.log(e.detail.classInstance);
+                console.log('Event Name: paginationReady', e);
+            });
+            document.addEventListener('UNLPluginInitialized', (e) => {
+                console.log('Event Name: UNLPluginInitialized', e);
+            });
+            document.addEventListener('UNLPluginLoadedElement', (e) => {
+                console.log('Event Name: UNLPluginLoadedElement', e);
             });
         </script>
     </body>

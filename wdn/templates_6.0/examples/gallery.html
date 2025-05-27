@@ -30,8 +30,13 @@
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
         <script>
             document.getElementById('test').addEventListener('galleryReady', (e) => {
-                console.log(e);
-                console.log(e.detail.classInstance);
+                console.log('Event Name: galleryReady', e);
+            });
+            document.addEventListener('UNLPluginInitialized', (e) => {
+                console.log('Event Name: UNLPluginInitialized', e);
+            });
+            document.addEventListener('UNLPluginLoadedElement', (e) => {
+                console.log('Event Name: UNLPluginLoadedElement', e);
             });
         </script>
     </body>

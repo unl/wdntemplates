@@ -9,9 +9,14 @@
     </head>
     <body class="unl">
         <main>
-            <h1 class="dcf-mt-6 unl-font-serif">Serif Font</h1>
+            <h1 class="unl-font-serif">Serif Font</h1>
         </main>
 
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            document.addEventListener('UNLPluginInitialized', (e) => {
+                console.log('Event Name: UNLPluginInitialized', e);
+            });
+        </script>
     </body>
 </html>

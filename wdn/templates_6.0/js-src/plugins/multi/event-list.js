@@ -52,6 +52,16 @@ export async function initialize() {
     WDNEventList = eventBandComponent.default;
     await loadStyleSheet(eventsCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNEventList,
+            styleSheetsLoaded: [
+                eventsCssUrl,
+            ],
+        },
+    }));
+
     return WDNEventList;
 }
 
@@ -66,7 +76,14 @@ export async function loadElement(element, options) {
         await initialize();
     }
 
-    return new WDNEventList(element, options);
+    const loadedElement = new WDNEventList(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**

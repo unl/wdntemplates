@@ -52,6 +52,16 @@ export async function initialize() {
     WDNTab = tabsComponent.default;
     await loadStyleSheet(tabsCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNTab,
+            styleSheetsLoaded: [
+                tabsCssUrl,
+            ],
+        },
+    }));
+
     return WDNTab;
 }
 
@@ -66,7 +76,14 @@ export async function loadElement(element, options) {
         await initialize();
     }
 
-    return new WDNTab(element, options);
+    const loadedElement = new WDNTab(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**

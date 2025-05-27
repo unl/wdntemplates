@@ -54,6 +54,17 @@ export async function initialize() {
     await loadStyleSheet(dialogCssUrl);
     await loadStyleSheet(galleryCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNGallery,
+            styleSheetsLoaded: [
+                dialogCssUrl,
+                galleryCssUrl,
+            ],
+        },
+    }));
+
     return WDNGallery;
 }
 
@@ -68,7 +79,14 @@ export async function loadElement(element, options) {
         await initialize();
     }
 
-    return new WDNGallery(element, options);
+    const loadedElement = new WDNGallery(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**

@@ -52,6 +52,16 @@ export async function initialize() {
     WDNDatepicker = datepickerComponent.default;
     await loadStyleSheet(datepickerCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNDatepicker,
+            styleSheetsLoaded: [
+                datepickerCssUrl,
+            ],
+        },
+    }));
+
     return WDNDatepicker;
 }
 
@@ -66,7 +76,14 @@ export async function loadElement(element, options) {
         await initialize();
     }
 
-    return new WDNDatepicker(element, options);
+    const loadedElement = new WDNDatepicker(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**

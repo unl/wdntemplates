@@ -52,6 +52,16 @@ export async function initialize() {
     WDNPagination = paginationComponent.default;
     await loadStyleSheet(paginationCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNPagination,
+            styleSheetsLoaded: [
+                paginationCssUrl,
+            ],
+        },
+    }));
+
     return WDNPagination;
 }
 
@@ -66,7 +76,14 @@ export async function loadElement(element, options) {
         await initialize();
     }
 
-    return new WDNPagination(element, options);
+    const loadedElement = new WDNPagination(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**

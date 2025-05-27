@@ -33,8 +33,10 @@
         </script>
         <script>
             document.addEventListener('UNLIdmReady', (e) => {
-                console.log(e);
-                console.log(e.detail.classInstance);
+                console.log('Event Name: UNLIdmReady', e);
+            });
+            document.addEventListener('UNLPluginInitialized', (e) => {
+                console.log('Event Name: UNLPluginInitialized', e);
             });
         </script>
     </body>

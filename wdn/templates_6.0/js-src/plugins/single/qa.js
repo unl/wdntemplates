@@ -62,5 +62,14 @@ export async function initialize(options={}) {
 
     qaInstance = new WDNQa(options);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNQa,
+            classInstance: qaInstance,
+            styleSheetsLoaded: [],
+        },
+    }));
+
     return qaInstance;
 }

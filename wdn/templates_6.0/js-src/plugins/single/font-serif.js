@@ -48,5 +48,15 @@ export async function initialize() {
 
     await loadStyleSheet(fontSerifCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: null,
+            styleSheetsLoaded: [
+                fontSerifCssUrl,
+            ],
+        },
+    }));
+
     return null;
 }

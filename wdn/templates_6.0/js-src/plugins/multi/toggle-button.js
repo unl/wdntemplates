@@ -52,6 +52,16 @@ export async function initialize() {
     WDNButtonToggle = toggleButtonComponent.default;
     await loadStyleSheet(buttonToggleCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNButtonToggle,
+            styleSheetsLoaded: [
+                buttonToggleCssUrl,
+            ],
+        },
+    }));
+
     return WDNButtonToggle;
 }
 
@@ -66,7 +76,14 @@ export async function loadElement(element, options) {
         await initialize();
     }
 
-    return new WDNButtonToggle(element, options);
+    const loadedElement = new WDNButtonToggle(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**

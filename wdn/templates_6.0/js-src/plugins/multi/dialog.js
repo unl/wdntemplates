@@ -52,6 +52,16 @@ export async function initialize() {
     WDNDialog = dialogComponent.default;
     await loadStyleSheet(dialogsCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNDialog,
+            styleSheetsLoaded: [
+                dialogsCssUrl,
+            ],
+        },
+    }));
+
     return WDNDialog;
 }
 
@@ -66,7 +76,14 @@ export async function loadElement(element, options) {
         await initialize();
     }
 
-    return new WDNDialog(element, options);
+    const loadedElement = new WDNDialog(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**

@@ -54,6 +54,17 @@ export async function initialize() {
     await loadStyleSheet(buttonToggleCssUrl);
     await loadStyleSheet(collapsibleFieldsetsCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNCollapsibleFieldset,
+            styleSheetsLoaded: [
+                buttonToggleCssUrl,
+                collapsibleFieldsetsCssUrl,
+            ],
+        },
+    }));
+
     return WDNCollapsibleFieldset;
 }
 
@@ -68,7 +79,14 @@ export async function loadElement(element, options) {
         await initialize();
     }
 
-    return new WDNCollapsibleFieldset(element, options);
+    const loadedElement = new WDNCollapsibleFieldset(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**

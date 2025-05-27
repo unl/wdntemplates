@@ -92,8 +92,10 @@
         <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
         <script>
             document.getElementById('dcf-search').addEventListener('searchReady', (e) => {
-                console.log(e);
-                console.log(e.detail.classInstance);
+                console.log('Event Name: searchReady', e);
+            });
+            document.addEventListener('UNLPluginInitialized', (e) => {
+                console.log('Event Name: UNLPluginInitialized', e);
             });
         </script>
     </body>

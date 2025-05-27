@@ -52,6 +52,16 @@ export async function initialize() {
     WDNPopup = popupComponent.default;
     await loadStyleSheet(popupsCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNPopup,
+            styleSheetsLoaded: [
+                popupsCssUrl,
+            ],
+        },
+    }));
+
     return WDNPopup;
 }
 
@@ -66,7 +76,14 @@ export async function loadElement(element, options) {
         await initialize();
     }
 
-    return new WDNPopup(element, options);
+    const loadedElement = new WDNPopup(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**

@@ -52,6 +52,16 @@ export async function initialize() {
     WDNNotice = noticeComponent.default;
     await loadStyleSheet(noticesCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNNotice,
+            styleSheetsLoaded: [
+                noticesCssUrl,
+            ],
+        },
+    }));
+
     return WDNNotice;
 }
 
@@ -66,7 +76,14 @@ export async function loadElement(element, options) {
         await initialize();
     }
 
-    return new WDNNotice(element, options);
+    const loadedElement = new WDNNotice(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**

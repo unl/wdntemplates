@@ -52,6 +52,16 @@ export async function initialize() {
     WDNAutoplayVideoToggle = autoplayVideoContainer.default;
     await loadStyleSheet(autoplayVideosCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNAutoplayVideoToggle,
+            styleSheetsLoaded: [
+                autoplayVideosCssUrl,
+            ],
+        },
+    }));
+
     return WDNAutoplayVideoToggle;
 }
 
@@ -66,7 +76,14 @@ export async function loadElement(element, options) {
         await initialize();
     }
 
-    return new WDNAutoplayVideoToggle(element, options);
+    const loadedElement = new WDNAutoplayVideoToggle(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**

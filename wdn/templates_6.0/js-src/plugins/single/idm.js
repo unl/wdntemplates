@@ -67,5 +67,16 @@ export async function initialize(options={}) {
 
     idmInstance = new WDNIdm(options);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNIdm,
+            classInstance: idmInstance,
+            styleSheetsLoaded: [
+                idmCssUrl,
+            ],
+        },
+    }));
+
     return idmInstance;
 }

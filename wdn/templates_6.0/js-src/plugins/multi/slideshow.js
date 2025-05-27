@@ -56,6 +56,18 @@ export async function initialize() {
     await loadStyleSheet(figcaptionToggleCssUrl);
     await loadStyleSheet(buttonToggleCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNSlideshow,
+            styleSheetsLoaded: [
+                slideshowCssUrl,
+                figcaptionToggleCssUrl,
+                buttonToggleCssUrl,
+            ],
+        },
+    }));
+
     return WDNSlideshow;
 }
 
@@ -70,7 +82,14 @@ export async function loadElement(element, options) {
         await initialize();
     }
 
-    return new WDNSlideshow(element, options);
+    const loadedElement = new WDNSlideshow(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**

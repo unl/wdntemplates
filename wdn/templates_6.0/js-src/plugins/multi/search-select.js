@@ -52,6 +52,16 @@ export async function initialize() {
     WDNSearchSelect = searchSelectComponent.default;
     await loadStyleSheet(searchSelectCssUrl);
 
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: WDNSearchSelect,
+            styleSheetsLoaded: [
+                searchSelectCssUrl,
+            ],
+        },
+    }));
+
     return WDNSearchSelect;
 }
 
@@ -66,7 +76,14 @@ export async function loadElement(element, options) {
         await initialize();
     }
 
-    return new WDNSearchSelect(element, options);
+    const loadedElement = new WDNSearchSelect(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**
