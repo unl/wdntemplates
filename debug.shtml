@@ -36,23 +36,6 @@
 
   <header class="dcf-header" id="dcf-header" role="banner">
     <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-header-1.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-header-1.html" -->
-    <!-- InstanceBeginEditable name="headervisit" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-header-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-header-1.html" -->
-    <!-- InstanceBeginEditable name="headerapply" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-header-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/give-header-1.html" -->
-    <!-- InstanceBeginEditable name="headergive" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/give-header-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-header-2.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/idm.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/search.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-2.html" -->
