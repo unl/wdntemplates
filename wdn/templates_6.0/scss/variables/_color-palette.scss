@@ -5,9 +5,6 @@
 
 @use "sass:color";
 
-@forward "@dcf/scss/variables/color-palette";
-
-@use '@dcf/scss/variables/color-palette' as *;
 
 // PRIMARY BRAND
 $brand-alpha: #d00000;
@@ -81,8 +78,15 @@ $darkest-gray: color.adjust($mix-cream-gray, $lightness: -75%);    // #242423
 $darkest-gray-s1: color.adjust($mix-cream-gray, $lightness: -77%); // #1f1f1e
 
 
-// CONTEXTUAL COLORS
-$info: $blue !default;
-$success: $green !default;
-$warning: #d53f25 !default;
-$danger: $scarlet-shade !default;
+@forward "@dcf/scss/variables/color-palette" with (
+
+	// CONTEXTUAL COLORS
+	$info: $blue,
+	$success: $green,
+	$warning: #d53f25,
+	$danger: $scarlet-shade
+
+);
+
+
+@use '@dcf/scss/variables/color-palette' as *;
