@@ -1,8 +1,8 @@
 /**
  * This is where the imported class will be stored
- * @type {?WDNQa} WDNQa
+ * @type {?UNLQa} UNLQa
  */
-let WDNQa = null;
+let UNLQa = null;
 
 /**
  * @type {?HTMLElement} qaInstance
@@ -48,7 +48,7 @@ export function isOnPage() {
 
 /**
  * Initializes plugin
- * @returns { Promise<WDNQa|null> }
+ * @returns { Promise<UNLQa|null> }
  */
 export async function initialize(options={}) {
     if (isInitialized) { return qaInstance; }
@@ -57,10 +57,19 @@ export async function initialize(options={}) {
     const qaElement = document.querySelector(querySelector);
     if (qaElement === null) { return null; }
 
-    const qaComponent = await import('@js-src/components/wdn-qa.js');
-    WDNQa = qaComponent.default;
+    const qaComponent = await import('@js-src/components/unl-qa.js');
+    UNLQa = qaComponent.default;
 
-    qaInstance = new WDNQa(options);
+    qaInstance = new UNLQa(options);
+
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: UNLQa,
+            classInstance: qaInstance,
+            styleSheetsLoaded: [],
+        },
+    }));
 
     return qaInstance;
 }

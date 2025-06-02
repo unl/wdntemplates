@@ -1,6 +1,6 @@
-import WDNDialog from './wdn-dialog';
+import UNLDialog from '@js-src/components/unl-dialog.js';
 
-export default class WDNSearch {
+export default class UNLSearch {
     searchContainer = null;
 
     searchDialogElement = null;
@@ -49,9 +49,9 @@ export default class WDNSearch {
 
     unlSearch = null;
 
-    searchOpenedEvent = new Event(WDNSearch.events('searchOpened'));
+    searchOpenedEvent = new Event(UNLSearch.events('searchOpened'));
 
-    searchClosedEvent = new Event(WDNSearch.events('searchClosed'));
+    searchClosedEvent = new Event(UNLSearch.events('searchClosed'));
 
     constructor() {
         this.searchContainer = document.getElementById('dcf-search');
@@ -169,25 +169,25 @@ export default class WDNSearch {
 
         // Add an event listener for close search from search iframe
         window.addEventListener('message', function(event) {
-            if (event.data === WDNSearch.events('iframeMessage')) {
+            if (event.data === UNLSearch.events('iframeMessage')) {
                 this.closeSearch();
             }
         }, false);
 
         // Set up dialog open and close listeners
-        this.searchDialogElement.addEventListener(WDNDialog.events('dialogPreOpen'), this.#dialogOpened.bind(this));
-        this.searchDialogElement.addEventListener(WDNDialog.events('dialogPostClose'), this.#dialogClosed.bind(this));
+        this.searchDialogElement.addEventListener(UNLDialog.events('dialogPreOpen'), this.#dialogOpened.bind(this));
+        this.searchDialogElement.addEventListener(UNLDialog.events('dialogPostClose'), this.#dialogClosed.bind(this));
 
         // Set up form submit listeners
         this.domSearchForm.addEventListener('submit', this.#handleFormSubmit.bind(this));
 
-        this.searchContainer.dispatchEvent(new CustomEvent(WDNSearch.events('searchReady'), {
+        this.searchContainer.dispatchEvent(new CustomEvent(UNLSearch.events('searchReady'), {
             detail: {
                 classInstance: this,
             },
         }));
 
-        this.searchDialogElement.dispatchEvent(new CustomEvent(WDNSearch.events('searchReady'), {
+        this.searchDialogElement.dispatchEvent(new CustomEvent(UNLSearch.events('searchReady'), {
             detail: {
                 classInstance: this,
             },

@@ -1,6 +1,6 @@
 import DCFCollapsibleFieldset from '@dcf/js/components/dcf-collapsible-fieldset.js';
 
-export default class WDNCollapsibleFieldset extends DCFCollapsibleFieldset {
+export default class UNLCollapsibleFieldset extends DCFCollapsibleFieldset {
     constructor(fieldset, options = {}) {
         if (!('legendButtonInnerHTMLOn' in options)) {
             options.legendButtonInnerHTMLOn = `<svg xmlns='http://www.w3.org/2000/svg' class='dcf-h-4 dcf-w-4 dcf-d-block dcf-fill-current' viewBox='0 0 24 24'>

@@ -1,6 +1,6 @@
-import { isValidHttpUrl, getSessionStorage, setSessionStorage, removeSessionStorage } from '../lib/wdn-utility.js';
+import { isValidHttpUrl, getSessionStorage, setSessionStorage, removeSessionStorage } from '../lib/unl-utility.js';
 
-export default class WDNNoticeBanner {
+export default class UNLNoticeBanner {
 
     bannerContainer = null;
 
@@ -16,7 +16,7 @@ export default class WDNNoticeBanner {
 
     constructor(options={}) {
         this.messageSource = 'https://its-unl-cms-prd-s3.s3.amazonaws.com/wdn-message.html';
-        this.messageKey = 'wdnNoticeMessage';
+        this.messageKey = 'UNLNoticeMessage';
 
         // Get the message and build the banner
         this.#getMessage().then((messageToDisplay) => {
@@ -32,7 +32,7 @@ export default class WDNNoticeBanner {
             removeSessionStorage(this.messageKey);
         }, this.clearMessageIntervalSecs );
 
-        document.dispatchEvent(new CustomEvent(WDNNoticeBanner.events('UNLBannerReady'), {
+        document.dispatchEvent(new CustomEvent(UNLNoticeBanner.events('UNLBannerReady'), {
             detail: {
                 classInstance: this,
             },

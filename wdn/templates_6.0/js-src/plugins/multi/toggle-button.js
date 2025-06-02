@@ -1,11 +1,11 @@
 import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNButtonToggle} WDNButtonToggle
+ * @type {?UNLButtonToggle} UNLButtonToggle
  */
-let WDNButtonToggle = null;
+let UNLButtonToggle = null;
 
 // Query Selector for the tabs component
 const querySelector = '.dcf-btn-toggle';
@@ -45,28 +45,45 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return WDNButtonToggle; }
+    if (isInitialized) { return UNLButtonToggle; }
     isInitialized = true;
 
-    const toggleButtonComponent = await import('@js-src/components/wdn-toggle-button.js');
-    WDNButtonToggle = toggleButtonComponent.default;
+    const toggleButtonComponent = await import('@js-src/components/unl-toggle-button.js');
+    UNLButtonToggle = toggleButtonComponent.default;
     await loadStyleSheet(buttonToggleCssUrl);
 
-    return WDNButtonToggle;
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: UNLButtonToggle,
+            styleSheetsLoaded: [
+                buttonToggleCssUrl,
+            ],
+        },
+    }));
+
+    return UNLButtonToggle;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNButtonToggle> }
+ * @returns { Promise<UNLButtonToggle> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNButtonToggle(element, options);
+    const loadedElement = new UNLButtonToggle(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**
@@ -74,7 +91,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNButtonToggle[]> }
+ * @returns { Promise<UNLButtonToggle[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -88,7 +105,7 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNButtonToggle[]> }
+ * @returns { Promise<UNLButtonToggle[]> }
  */
 export async function loadElementsOnPage(options) {
     const allToggleButtons = document.querySelectorAll(querySelector);

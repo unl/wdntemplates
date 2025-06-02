@@ -1,5 +1,5 @@
-import wdnBannerUrl from '@js-src/components/wdn-banner.js?finalUrl';
-import wdnAnalyticsUrl from '@js-src/components/wdn-analytics.js?finalUrl';
+import UNLBannerUrl from '@js-src/components/UNL-banner.js?finalUrl';
+import UNLAnalyticsUrl from '@js-src/components/UNL-analytics.js?finalUrl';
 
 // Set up these values if they are not defined already
 window.UNL = window.UNL || {};
@@ -32,8 +32,8 @@ if (analyticsEnabled !== false) {
 
 // These functions need to be async to allow us to use await
 async function loadBanner() {
-    const WDNBanner = await import(wdnBannerUrl);
-    new WDNBanner.default();
+    const UNLBanner = await import(UNLBannerUrl);
+    new UNLBanner.default();
 
     window.UNL.banner.loaded = true;
 }
@@ -43,8 +43,8 @@ async function loadAlert() {
     window.UNL.alert.loaded = true;
 }
 async function loadAnalytics() {
-    const WDNAnalytics = await import(wdnAnalyticsUrl);
-    new WDNAnalytics.default();
+    const UNLAnalytics = await import(UNLAnalyticsUrl);
+    new UNLAnalytics.default();
 
     window.UNL.analytics.loaded = true;
 }

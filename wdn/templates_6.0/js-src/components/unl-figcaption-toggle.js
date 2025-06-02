@@ -1,6 +1,6 @@
 import DCFFigcaptionToggle from '@dcf/js/components/dcf-figcaption-toggle.js';
 
-export default class WDNFigcaptionToggle extends DCFFigcaptionToggle {
+export default class UNLFigcaptionToggle extends DCFFigcaptionToggle {
     constructor(figcaption, options = {}) {
         if (!('toggleButtonInnerHTML' in options)) {
             options.toggleButtonInnerHTML = `<svg class='dcf-h-4 dcf-w-4 dcf-fill-current'

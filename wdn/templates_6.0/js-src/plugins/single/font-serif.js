@@ -1,5 +1,5 @@
 import fontSerifCssUrl from '@scss/components-js/_font-serif.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 // Query Selector for the gallery component
 const querySelector = '.unl-font-serif';
@@ -47,6 +47,16 @@ export async function initialize() {
     isInitialized = true;
 
     await loadStyleSheet(fontSerifCssUrl);
+
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: null,
+            styleSheetsLoaded: [
+                fontSerifCssUrl,
+            ],
+        },
+    }));
 
     return null;
 }

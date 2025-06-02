@@ -1,12 +1,12 @@
 import galleryCssUrl from '@scss/components-js/_gallery.scss?url';
 import dialogCssUrl from '@scss/components-js/_dialogs.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNGallery} WDNGallery
+ * @type {?UNLGallery} UNLGallery
  */
-let WDNGallery = null;
+let UNLGallery = null;
 
 // Query Selector for the gallery component
 const querySelector = '.dcf-gallery-img';
@@ -46,29 +46,47 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return WDNGallery; }
+    if (isInitialized) { return UNLGallery; }
     isInitialized = true;
 
-    const galleryComponent = await import('@js-src/components/wdn-gallery.js');
-    WDNGallery = galleryComponent.default;
+    const galleryComponent = await import('@js-src/components/unl-gallery.js');
+    UNLGallery = galleryComponent.default;
     await loadStyleSheet(dialogCssUrl);
     await loadStyleSheet(galleryCssUrl);
 
-    return WDNGallery;
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: UNLGallery,
+            styleSheetsLoaded: [
+                dialogCssUrl,
+                galleryCssUrl,
+            ],
+        },
+    }));
+
+    return UNLGallery;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNGallery> }
+ * @returns { Promise<UNLGallery> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNGallery(element, options);
+    const loadedElement = new UNLGallery(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**
@@ -76,7 +94,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNGallery[]> }
+ * @returns { Promise<UNLGallery[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -90,7 +108,7 @@ export async function loadElements(elements, options) {
  * Using the `query_selector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNGallery[]> }
+ * @returns { Promise<UNLGallery[]> }
  */
 export async function loadElementsOnPage(options) {
     const allGalleryImages = document.querySelectorAll(querySelector);

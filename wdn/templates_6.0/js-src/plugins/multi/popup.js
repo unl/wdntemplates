@@ -1,11 +1,11 @@
 import popupsCssUrl from '@scss/components-js/_popups.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNPopup} WDNPopup
+ * @type {?UNLPopup} UNLPopup
  */
-let WDNPopup = null;
+let UNLPopup = null;
 
 // Query Selector for the tabs component
 const querySelector = '.dcf-popup';
@@ -45,28 +45,45 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return WDNPopup; }
+    if (isInitialized) { return UNLPopup; }
     isInitialized = true;
 
-    const popupComponent = await import('@js-src/components/wdn-popup.js');
-    WDNPopup = popupComponent.default;
+    const popupComponent = await import('@js-src/components/unl-popup.js');
+    UNLPopup = popupComponent.default;
     await loadStyleSheet(popupsCssUrl);
 
-    return WDNPopup;
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: UNLPopup,
+            styleSheetsLoaded: [
+                popupsCssUrl,
+            ],
+        },
+    }));
+
+    return UNLPopup;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNPopup> }
+ * @returns { Promise<UNLPopup> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNPopup(element, options);
+    const loadedElement = new UNLPopup(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**
@@ -74,7 +91,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNPopup[]> }
+ * @returns { Promise<UNLPopup[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -88,7 +105,7 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNPopup[]> }
+ * @returns { Promise<UNLPopup[]> }
  */
 export async function loadElementsOnPage(options) {
     const allPopups = document.querySelectorAll(querySelector);

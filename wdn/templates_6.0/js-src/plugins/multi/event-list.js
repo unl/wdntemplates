@@ -1,11 +1,11 @@
 import eventsCssUrl from '@scss/components-js/_events.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNEventList} WDNEventList
+ * @type {?UNLEventList} UNLEventList
  */
-let WDNEventList = null;
+let UNLEventList = null;
 
 // Query Selector for the tabs component
 const querySelector = '.unl-event-list';
@@ -42,31 +42,48 @@ export function getIsInitialized() {
 
 /**
  * Initializes plugin
- * @returns { Promise<WDNEventList> }
+ * @returns { Promise<UNLEventList> }
  */
 export async function initialize() {
-    if (isInitialized) { return WDNEventList; }
+    if (isInitialized) { return UNLEventList; }
     isInitialized = true;
 
-    const eventBandComponent = await import('@js-src/components/wdn-event-list.js');
-    WDNEventList = eventBandComponent.default;
+    const eventBandComponent = await import('@js-src/components/unl-event-list.js');
+    UNLEventList = eventBandComponent.default;
     await loadStyleSheet(eventsCssUrl);
 
-    return WDNEventList;
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: UNLEventList,
+            styleSheetsLoaded: [
+                eventsCssUrl,
+            ],
+        },
+    }));
+
+    return UNLEventList;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNEventList> }
+ * @returns { Promise<UNLEventList> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNEventList(element, options);
+    const loadedElement = new UNLEventList(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**
@@ -74,7 +91,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNEventList[]> }
+ * @returns { Promise<UNLEventList[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -88,7 +105,7 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNEventList[]> }
+ * @returns { Promise<UNLEventList[]> }
  */
 export async function loadElementsOnPage(options) {
     const allEventBands = document.querySelectorAll(querySelector);

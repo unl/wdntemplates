@@ -23,7 +23,6 @@
             </div>
         </main>
 
-        <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
         <script>
             setTimeout(() => {
                 window.UNL.idm.pushConfig('loginRoute', 'https://local.unl.edu/login');
@@ -33,9 +32,15 @@
         </script>
         <script>
             document.addEventListener('UNLIdmReady', (e) => {
-                console.log(e);
-                console.log(e.detail.classInstance);
+                console.log('Event Name: UNLIdmReady', e);
             });
+            document.addEventListener('UNLPluginInitialized', (e) => {
+                console.log('Event Name: UNLPluginInitialized', e);
+            });
+            window.UNL.autoLoader.config.plugins.UNLIdm.onPluginLoadedElement = (loaded_element) => {
+                console.log('Auto Loader onPluginLoadedElement:', loaded_element);
+            }
         </script>
+        <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
     </body>
 </html>

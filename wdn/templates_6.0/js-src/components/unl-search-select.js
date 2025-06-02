@@ -1,6 +1,6 @@
 import DCFSearchSelect from '@dcf/js/components/dcf-search-select.js';
 
-export default class WDNSearchSelect extends DCFSearchSelect {
+export default class UNLSearchSelect extends DCFSearchSelect {
     constructor(selectElement, options = {}) {
         if (!('availableItemsListClassList' in options)) {
             options.availableItemsListClassList = [

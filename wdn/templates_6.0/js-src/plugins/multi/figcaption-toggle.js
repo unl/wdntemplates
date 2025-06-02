@@ -1,12 +1,12 @@
 import figcaptionToggleCssUrl from '@scss/components-js/_figcaption-toggles.scss?url';
 import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNFigcaptionToggle} WDNFigcaptionToggle
+ * @type {?UNLFigcaptionToggle} UNLFigcaptionToggle
  */
-let WDNFigcaptionToggle = null;
+let UNLFigcaptionToggle = null;
 
 // Query Selector for the figcaption toggle component
 const querySelector = '.dcf-figcaption-toggle';
@@ -43,32 +43,50 @@ export function getIsInitialized() {
 
 /**
  * Initializes plugin
- * @returns { Promise<WDNFigcaptionToggle> }
+ * @returns { Promise<UNLFigcaptionToggle> }
  */
 export async function initialize() {
-    if (isInitialized) { return WDNFigcaptionToggle; }
+    if (isInitialized) { return UNLFigcaptionToggle; }
     isInitialized = true;
 
-    const figcaptionToggleComponent = await import('@js-src/components/wdn-figcaption-toggle.js');
-    WDNFigcaptionToggle = figcaptionToggleComponent.default;
+    const figcaptionToggleComponent = await import('@js-src/components/unl-figcaption-toggle.js');
+    UNLFigcaptionToggle = figcaptionToggleComponent.default;
     await loadStyleSheet(buttonToggleCssUrl);
     await loadStyleSheet(figcaptionToggleCssUrl);
 
-    return WDNFigcaptionToggle;
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: UNLFigcaptionToggle,
+            styleSheetsLoaded: [
+                buttonToggleCssUrl,
+                figcaptionToggleCssUrl,
+            ],
+        },
+    }));
+
+    return UNLFigcaptionToggle;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNFigcaptionToggle> }
+ * @returns { Promise<UNLFigcaptionToggle> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNFigcaptionToggle(element, options);
+    const loadedElement = new UNLFigcaptionToggle(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**
@@ -76,7 +94,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNFigcaptionToggle[]> }
+ * @returns { Promise<UNLFigcaptionToggle[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -90,7 +108,7 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNFigcaptionToggle[]> }
+ * @returns { Promise<UNLFigcaptionToggle[]> }
  */
 export async function loadElementsOnPage(options) {
     const allFigcaptionToggles = document.querySelectorAll(querySelector);

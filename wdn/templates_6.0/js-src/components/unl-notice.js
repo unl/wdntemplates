@@ -1,6 +1,6 @@
 import DCFNotice from '@dcf/js/components/dcf-notice.js';
 
-export default class WDNNotice extends DCFNotice {
+export default class UNLNotice extends DCFNotice {
     constructor(notice, options = {}) {
         if (!('noticeContainerClassList' in options)) {
             options.noticeContainerClassList = [

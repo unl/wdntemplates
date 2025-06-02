@@ -16,7 +16,7 @@
         <script defer>
             window.UNL.autoLoader.onLoad(async() => {
                 console.log('test defined before');
-                const tabsClass = await window.UNL.autoLoader.plugins['wdnTab'].module.initialize();
+                const tabsClass = await window.UNL.autoLoader.plugins.UNLTab.module.initialize();
                 console.log(tabsClass);
             });
             document.addEventListener('autoLoaderPreLoad', () => {
@@ -24,7 +24,7 @@
             });
             document.addEventListener('autoLoaderPostLoad', async () => {
                 console.log('post load event');
-                const dialogClass = await window.UNL.autoLoader.plugins['wdnDialog'].module.initialize();
+                const dialogClass = await window.UNL.autoLoader.plugins.UNLDialog.module.initialize();
                 console.log(dialogClass);
             });
         </script>

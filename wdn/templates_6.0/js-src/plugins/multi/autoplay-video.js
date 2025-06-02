@@ -1,11 +1,11 @@
 import autoplayVideosCssUrl from '@scss/components-js/_autoplay-videos.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNAutoplayVideoToggle} WDNAutoplayVideoToggle
+ * @type {?UNLAutoplayVideoToggle} UNLAutoplayVideoToggle
  */
-let WDNAutoplayVideoToggle = null;
+let UNLAutoplayVideoToggle = null;
 
 // Query Selector for the datepicker toggle component
 const querySelector = '.dcf-autoplay-video';
@@ -42,31 +42,48 @@ export function getIsInitialized() {
 
 /**
  * Initializes plugin
- * @returns { Promise<WDNAutoplayVideoToggle> }
+ * @returns { Promise<UNLAutoplayVideoToggle> }
  */
 export async function initialize() {
-    if (isInitialized) { return WDNAutoplayVideoToggle; }
+    if (isInitialized) { return UNLAutoplayVideoToggle; }
     isInitialized = true;
 
-    const autoplayVideoContainer = await import('@js-src/components/wdn-autoplay-video.js');
-    WDNAutoplayVideoToggle = autoplayVideoContainer.default;
+    const autoplayVideoContainer = await import('@js-src/components/unl-autoplay-video.js');
+    UNLAutoplayVideoToggle = autoplayVideoContainer.default;
     await loadStyleSheet(autoplayVideosCssUrl);
 
-    return WDNAutoplayVideoToggle;
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: UNLAutoplayVideoToggle,
+            styleSheetsLoaded: [
+                autoplayVideosCssUrl,
+            ],
+        },
+    }));
+
+    return UNLAutoplayVideoToggle;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNAutoplayVideoToggle> }
+ * @returns { Promise<UNLAutoplayVideoToggle> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNAutoplayVideoToggle(element, options);
+    const loadedElement = new UNLAutoplayVideoToggle(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**
@@ -74,7 +91,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNAutoplayVideoToggle[]> }
+ * @returns { Promise<UNLAutoplayVideoToggle[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -88,7 +105,7 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNAutoplayVideoToggle[]> }
+ * @returns { Promise<UNLAutoplayVideoToggle[]> }
  */
 export async function loadElementsOnPage(options) {
     const allAutoplayVideoContainers = document.querySelectorAll(querySelector);

@@ -1,15 +1,15 @@
 import idmCssUrl from '@scss/components-js/_idm.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNIdm} WDNIdm
+ * @type {?UNLIdm} UNLIdm
  */
-let WDNIdm = null;
+let UNLIdm = null;
 
 /**
  * The single instance of this element
- * @type {?WDNIdm} idmInstance
+ * @type {?UNLIdm} idmInstance
  */
 let idmInstance = null;
 
@@ -52,7 +52,7 @@ export function isOnPage() {
 
 /**
  * Initializes plugin
- * @returns { Promise<WDNIdm|Null> }
+ * @returns { Promise<UNLIdm|Null> }
  */
 export async function initialize(options={}) {
     if (isInitialized) { return idmInstance; }
@@ -61,11 +61,22 @@ export async function initialize(options={}) {
     const idmElement = document.querySelector(querySelector);
     if (idmElement === null) { return null; }
 
-    const idmComponent = await import('@js-src/components/wdn-idm.js');
-    WDNIdm = idmComponent.default;
+    const idmComponent = await import('@js-src/components/unl-idm.js');
+    UNLIdm = idmComponent.default;
     await loadStyleSheet(idmCssUrl);
 
-    idmInstance = new WDNIdm(options);
+    idmInstance = new UNLIdm(options);
+
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: UNLIdm,
+            classInstance: idmInstance,
+            styleSheetsLoaded: [
+                idmCssUrl,
+            ],
+        },
+    }));
 
     return idmInstance;
 }

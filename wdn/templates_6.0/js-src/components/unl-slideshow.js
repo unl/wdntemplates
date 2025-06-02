@@ -1,6 +1,6 @@
 import DCFSlideshow from '@dcf/js/components/dcf-slideshow.js';
 
-export default class WDNSlideshow extends DCFSlideshow {
+export default class UNLSlideshow extends DCFSlideshow {
     constructor(slideshowContainer, options = {}) {
 
         if (!('toggleButtonInnerHTML' in options)) {

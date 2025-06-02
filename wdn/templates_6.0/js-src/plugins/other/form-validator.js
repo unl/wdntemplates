@@ -1,5 +1,5 @@
 import formValidatorCssUrl from '@scss/components-js/_form-validator.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported jquery will go
@@ -10,12 +10,23 @@ let jQuery = null;
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
 
+// Type of plugin
+const pluginType = 'other';
+
 /**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
 export function getIsInitialized() {
     return isInitialized;
+}
+
+/**
+ * Gets the plugin type
+ * @returns { String }
+ */
+export function getPluginType() {
+    return pluginType;
 }
 
 /**

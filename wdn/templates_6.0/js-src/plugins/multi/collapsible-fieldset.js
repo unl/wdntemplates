@@ -1,12 +1,12 @@
 import collapsibleFieldsetsCssUrl from '@scss/components-js/_collapsible-fieldsets.scss?url';
 import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNCollapsibleFieldset} WDNCollapsibleFieldset
+ * @type {?UNLCollapsibleFieldset} UNLCollapsibleFieldset
  */
-let WDNCollapsibleFieldset = null;
+let UNLCollapsibleFieldset = null;
 
 // Query Selector for the collapsible fieldset component
 const querySelector = '.dcf-collapsible-fieldset';
@@ -43,32 +43,50 @@ export function getIsInitialized() {
 
 /**
  * Initializes plugin
- * @returns { Promise<WDNCollapsibleFieldset> }
+ * @returns { Promise<UNLCollapsibleFieldset> }
  */
 export async function initialize() {
-    if (isInitialized) { return WDNCollapsibleFieldset; }
+    if (isInitialized) { return UNLCollapsibleFieldset; }
     isInitialized = true;
 
-    const collapsibleFieldsetsComponent = await import('@js-src/components/wdn-collapsible-fieldset.js');
-    WDNCollapsibleFieldset = collapsibleFieldsetsComponent.default;
+    const collapsibleFieldsetsComponent = await import('@js-src/components/unl-collapsible-fieldset.js');
+    UNLCollapsibleFieldset = collapsibleFieldsetsComponent.default;
     await loadStyleSheet(buttonToggleCssUrl);
     await loadStyleSheet(collapsibleFieldsetsCssUrl);
 
-    return WDNCollapsibleFieldset;
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: UNLCollapsibleFieldset,
+            styleSheetsLoaded: [
+                buttonToggleCssUrl,
+                collapsibleFieldsetsCssUrl,
+            ],
+        },
+    }));
+
+    return UNLCollapsibleFieldset;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNCollapsibleFieldset> }
+ * @returns { Promise<UNLCollapsibleFieldset> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNCollapsibleFieldset(element, options);
+    const loadedElement = new UNLCollapsibleFieldset(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**
@@ -76,7 +94,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNCollapsibleFieldset[]> }
+ * @returns { Promise<UNLCollapsibleFieldset[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -90,7 +108,7 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNCollapsibleFieldset[]> }
+ * @returns { Promise<UNLCollapsibleFieldset[]> }
  */
 export async function loadElementsOnPage(options) {
     const allFieldsets = document.querySelectorAll(querySelector);

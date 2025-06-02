@@ -1,6 +1,6 @@
-import { getCookie, loadJS, isValidateEmail } from '@js-src/lib/wdn-utility.js';
+import { getCookie, loadJS, isValidateEmail } from '@js-src/lib/unl-utility.js';
 
-export default class WDNIDM {
+export default class UNLIdm {
 
     ssoUrl = 'https://shib.unl.edu/';
 
@@ -103,7 +103,7 @@ export default class WDNIDM {
 
         window.UNL.idm.loaded = true;
 
-        document.dispatchEvent(new CustomEvent(WDNIDM.events('UNLIdmReady'), {
+        document.dispatchEvent(new CustomEvent(UNLIdm.events('UNLIdmReady'), {
             detail: {
                 classInstance: this,
             },

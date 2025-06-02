@@ -1,11 +1,11 @@
 import datepickerCssUrl from '@scss/components-js/_datepickers.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNDatepicker} WDNDatepicker
+ * @type {?UNLDatepicker} UNLDatepicker
  */
-let WDNDatepicker = null;
+let UNLDatepicker = null;
 
 // Query Selector for the datepicker toggle component
 const querySelector = '.dcf-datepicker';
@@ -42,31 +42,48 @@ export function getIsInitialized() {
 
 /**
  * Initializes plugin
- * @returns { Promise<WDNDatepicker> }
+ * @returns { Promise<UNLDatepicker> }
  */
 export async function initialize() {
-    if (isInitialized) { return WDNDatepicker; }
+    if (isInitialized) { return UNLDatepicker; }
     isInitialized = true;
 
-    const datepickerComponent = await import('@js-src/components/wdn-datepicker.js');
-    WDNDatepicker = datepickerComponent.default;
+    const datepickerComponent = await import('@js-src/components/unl-datepicker.js');
+    UNLDatepicker = datepickerComponent.default;
     await loadStyleSheet(datepickerCssUrl);
 
-    return WDNDatepicker;
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: UNLDatepicker,
+            styleSheetsLoaded: [
+                datepickerCssUrl,
+            ],
+        },
+    }));
+
+    return UNLDatepicker;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNDatepicker> }
+ * @returns { Promise<UNLDatepicker> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNDatepicker(element, options);
+    const loadedElement = new UNLDatepicker(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**
@@ -74,7 +91,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNDatepicker[]> }
+ * @returns { Promise<UNLDatepicker[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -88,7 +105,7 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNDatepicker[]> }
+ * @returns { Promise<UNLDatepicker[]> }
  */
 export async function loadElementsOnPage(options) {
     const allDatepickers = document.querySelectorAll(querySelector);

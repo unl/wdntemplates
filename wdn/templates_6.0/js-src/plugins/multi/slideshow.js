@@ -1,13 +1,13 @@
 import slideshowCssUrl from '@scss/components-js/_slideshows.scss?url';
 import figcaptionToggleCssUrl from '@scss/components-js/_figcaption-toggles.scss?url';
 import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNSlideshow} WDNSlideshow
+ * @type {?UNLSlideshow} UNLSlideshow
  */
-let WDNSlideshow = null;
+let UNLSlideshow = null;
 
 // Query Selector for the tabs component
 const querySelector = '.dcf-slideshow';
@@ -47,30 +47,49 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return WDNSlideshow; }
+    if (isInitialized) { return UNLSlideshow; }
     isInitialized = true;
 
-    const slideshowComponent = await import('@js-src/components/wdn-slideshow.js');
-    WDNSlideshow = slideshowComponent.default;
+    const slideshowComponent = await import('@js-src/components/unl-slideshow.js');
+    UNLSlideshow = slideshowComponent.default;
     await loadStyleSheet(slideshowCssUrl);
     await loadStyleSheet(figcaptionToggleCssUrl);
     await loadStyleSheet(buttonToggleCssUrl);
 
-    return WDNSlideshow;
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: UNLSlideshow,
+            styleSheetsLoaded: [
+                slideshowCssUrl,
+                figcaptionToggleCssUrl,
+                buttonToggleCssUrl,
+            ],
+        },
+    }));
+
+    return UNLSlideshow;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNSlideshow> }
+ * @returns { Promise<UNLSlideshow> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNSlideshow(element, options);
+    const loadedElement = new UNLSlideshow(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**
@@ -78,7 +97,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNSlideshow[]> }
+ * @returns { Promise<UNLSlideshow[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -92,7 +111,7 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNSlideshow[]> }
+ * @returns { Promise<UNLSlideshow[]> }
  */
 export async function loadElementsOnPage(options) {
     const allSlideshows = document.querySelectorAll(querySelector);

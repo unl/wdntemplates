@@ -1,6 +1,6 @@
 import DCFDialog from '@dcf/js/components/dcf-dialog.js';
 
-export default class WDNDialog extends DCFDialog {
+export default class UNLDialog extends DCFDialog {
 
     videos = [];
 

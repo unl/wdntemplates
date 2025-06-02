@@ -1,11 +1,11 @@
 import tabsCssUrl from '@scss/components-js/_tabs.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNTab} WDNTab
+ * @type {?UNLTab} UNLTab
  */
-let WDNTab = null;
+let UNLTab = null;
 
 // Query Selector for the tabs component
 const querySelector = '.dcf-tabs';
@@ -45,28 +45,45 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return WDNTab; }
+    if (isInitialized) { return UNLTab; }
     isInitialized = true;
 
-    const tabsComponent = await import('@js-src/components/wdn-tab.js');
-    WDNTab = tabsComponent.default;
+    const tabsComponent = await import('@js-src/components/unl-tab.js');
+    UNLTab = tabsComponent.default;
     await loadStyleSheet(tabsCssUrl);
 
-    return WDNTab;
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: UNLTab,
+            styleSheetsLoaded: [
+                tabsCssUrl,
+            ],
+        },
+    }));
+
+    return UNLTab;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNTab> }
+ * @returns { Promise<UNLTab> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNTab(element, options);
+    const loadedElement = new UNLTab(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**
@@ -74,7 +91,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNTab[]> }
+ * @returns { Promise<UNLTab[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -88,7 +105,7 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNTab[]> }
+ * @returns { Promise<UNLTab[]> }
  */
 export async function loadElementsOnPage(options) {
     const allTabs = document.querySelectorAll(querySelector);

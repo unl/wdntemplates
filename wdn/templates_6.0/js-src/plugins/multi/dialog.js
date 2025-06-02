@@ -1,11 +1,11 @@
 import dialogsCssUrl from '@scss/components-js/_dialogs.scss?url';
-import { loadStyleSheet } from '@js-src/lib/wdn-utility.js';
+import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?WDNDialog} WDNDialog
+ * @type {?UNLDialog} UNLDialog
  */
-let WDNDialog = null;
+let UNLDialog = null;
 
 // Query Selector for the tabs component
 const querySelector = '.dcf-dialog:not(.dcf-dialog-initialized)';
@@ -42,31 +42,48 @@ export function getIsInitialized() {
 
 /**
  * Initializes plugin
- * @returns { Promise<WDNDialog> }
+ * @returns { Promise<UNLDialog> }
  */
 export async function initialize() {
-    if (isInitialized) { return WDNDialog; }
+    if (isInitialized) { return UNLDialog; }
     isInitialized = true;
 
-    const dialogComponent = await import('@js-src/components/wdn-dialog.js');
-    WDNDialog = dialogComponent.default;
+    const dialogComponent = await import('@js-src/components/unl-dialog.js');
+    UNLDialog = dialogComponent.default;
     await loadStyleSheet(dialogsCssUrl);
 
-    return WDNDialog;
+    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+        detail: {
+            pluginType: pluginType,
+            pluginComponent: UNLDialog,
+            styleSheetsLoaded: [
+                dialogsCssUrl,
+            ],
+        },
+    }));
+
+    return UNLDialog;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNDialog> }
+ * @returns { Promise<UNLDialog> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    return new WDNDialog(element, options);
+    const loadedElement = new UNLDialog(element, options);
+    document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
+        detail: {
+            loadedElement: loadedElement,
+        },
+    }));
+
+    return loadedElement;
 }
 
 /**
@@ -74,7 +91,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNDialog[]> }
+ * @returns { Promise<UNLDialog[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -88,7 +105,7 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<WDNDialog[]> }
+ * @returns { Promise<UNLDialog[]> }
  */
 export async function loadElementsOnPage(options) {
     const allDialogs = document.querySelectorAll(querySelector);
