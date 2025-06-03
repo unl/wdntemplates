@@ -671,15 +671,15 @@ a.dcf-btn-secondary,
     border-left: 1px solid #a00000;
     height: 100%;
   }
-  .unl .dcf-nav-toggle-btn-menu~.dcf-nav-local ul ul {
-    position: absolute;
-    visibility: hidden;
-  }
+  // .unl .dcf-nav-toggle-btn-menu~.dcf-nav-local ul ul {
+  //   position: absolute;
+  //   visibility: hidden;
+  // }
   .unl .dcf-nav-menu {
     background-color: #d00000;
     display: flex;
     flex-wrap: nowrap;
-    padding-inline: 5.62vw;
+    // padding-inline: 5.62vw;
   }
   .unl .dcf-nav-menu ul:first-child > li > a,
   .unl .dcf-nav-menu ul:first-child > li > button {
@@ -689,7 +689,7 @@ a.dcf-btn-secondary,
     max-width: 13.32em;
   }
   .unl .dcf-idm-toggle,
-  .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu,
+  // .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu,
   .unl .dcf-search-toggle-wrapper {
     display: flex;
   }
