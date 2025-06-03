@@ -48,22 +48,22 @@
 
 
 // Focus
-.unl .dcf-input-checkbox input[type="checkbox"]:focus + label::before,
-.unl .dcf-input-radio input[type="radio"]:focus + label::before {
+.unl .dcf-input-checkbox input[type="checkbox"]:focus-visible + label::before,
+.unl .dcf-input-radio input[type="radio"]:focus-visible + label::before {
   border-color: var.$border-color-input-focus;
   box-shadow: 0 0 0 3px var.$bg-color-body, 0 0 0 5px var.$border-color-input-focus;
   transition: box-shadow var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
 }
 
 
-.unl .dcf-input-checkbox input[type="checkbox"]:focus + label::after {
+.unl .dcf-input-checkbox input[type="checkbox"]:focus-visible + label::after {
   border-left-color: var.$border-color-input-focus;
   border-bottom-color: var.$border-color-input-focus;
   border-right-color: var.$border-color-input-focus;
 }
 
 
-.unl .dcf-input-radio input[type="radio"]:focus + label::after {
+.unl .dcf-input-radio input[type="radio"]:focus-visible + label::after {
   background-color: var.$border-color-input-focus; // Match focused input border-color
 }
 

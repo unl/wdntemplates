@@ -17,7 +17,7 @@
 }
 
 
-.unl .dcf-btn:focus {
+.unl .dcf-btn:focus-visible {
   outline: 3px solid transparent; // https://sarahmhigley.com/writing/whcm-quick-tips/
   transition: box-shadow var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
 }
@@ -100,25 +100,25 @@
 
 
 // Focus
-.unl .dcf-btn:focus {
+.unl .dcf-btn:focus-visible {
   transition: box-shadow var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
 }
 
 
-.unl .dcf-btn-primary:focus,
-.unl .dcf-btn-secondary:focus,
-.unl .dcf-btn-tertiary:focus {
+.unl .dcf-btn-primary:focus-visible,
+.unl .dcf-btn-secondary:focus-visible,
+.unl .dcf-btn-tertiary:focus-visible {
   box-shadow: 0 0 0 3px var.$bg-color-body, 0 0 0 5px var.$border-color-input-focus;
 }
 
 
-.unl .dcf-btn-inverse-primary:focus {
+.unl .dcf-btn-inverse-primary:focus-visible {
   box-shadow: 0 0 0 3px var.$border-color-input-focus, 0 0 0 5px var.$bg-color-button-inverse-primary;
 }
 
 
-.unl .dcf-btn-inverse-secondary:focus,
-.unl .dcf-btn-inverse-tertiary:focus {
+.unl .dcf-btn-inverse-secondary:focus-visible,
+.unl .dcf-btn-inverse-tertiary:focus-visible {
   box-shadow: 0 0 0 3px var.$border-color-input-focus, 0 0 0 5px currentColor;
 }
 
@@ -182,9 +182,9 @@
 
 
   // Focus
-  .unl .dcf-btn-primary\@dark:focus,
-  .unl .dcf-btn-secondary\@dark:focus,
-  .unl .dcf-btn-tertiary\@dark:focus {
+  .unl .dcf-btn-primary\@dark:focus-visible,
+  .unl .dcf-btn-secondary\@dark:focus-visible,
+  .unl .dcf-btn-tertiary\@dark:focus-visible {
     box-shadow: 0 0 0 3px var.$bg-color-body-light-mode, 0 0 0 5px var.$color-focus-outline-light-mode;
   }
 
