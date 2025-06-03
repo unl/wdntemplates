@@ -12,8 +12,14 @@
 }
 
 
-.unl .dcf-nav-menu-child a,
-.unl .dcf-nav-menu-child button {
+.unl .dcf-nav-menu-content {
+  transform: translateZ(0);
+  z-index: 998;
+}
+
+
+.unl .dcf-nav-menu-content a,
+.unl .dcf-nav-menu-content button {
   display: block;
   @include mixins.lh-3;
   padding: #{var.$ms-2}rem #{var.$ms00}rem;
@@ -21,26 +27,27 @@
 
 
 // TODO: determine focus state styles
-.unl .dcf-nav-menu-child a:link,
-.unl .dcf-nav-menu-child a:visited,
-.unl .dcf-nav-menu-child a:hover,
-.unl .dcf-nav-menu-child a:active,
-.unl .dcf-nav-menu-child button {
+.unl .dcf-nav-menu-content a:link,
+.unl .dcf-nav-menu-content a:visited,
+.unl .dcf-nav-menu-content a:hover,
+.unl .dcf-nav-menu-content a:active,
+.unl .dcf-nav-menu-content button {
   @include mixins.cream;
 }
 
 
-.unl .dcf-nav-menu-child > ul > li > a,
-.unl .dcf-nav-menu-child button {
-  font-weight: 600;
-}
+// .unl .dcf-nav-menu-content > ul > li > a,
+// .unl .dcf-nav-menu-content button {
+//   font-weight: 600;
+// }
 
 
 @include mixins.mq(md, max, width) {
 
   .unl .dcf-nav-menu {
-    @include mixins.bg-overlay-light;
-    bottom: #{var.$height-mobile-toolbar};
+    // @include mixins.bg-overlay-light;
+    // bottom: #{var.$height-mobile-toolbar};
+    bottom: 0;
     height: 100vh;
     opacity: 0;
     pointer-events: none;
@@ -61,25 +68,39 @@
   }
 
 
-  .unl .dcf-nav-menu-child {
+  .unl .dcf-nav-menu-content {
     @include mixins.bg-scarlet;
     bottom: var.$height-mobile-toolbar;
-    height: 43vh;
-    @include mixins.overflow-y-auto;
-    padding-left: var.$length-vw-2;
-    padding-right: var.$length-vw-2;
+    height: 56vh;
+    // @include mixins.overflow-y-auto;
+    overflow-y: auto;
+    // padding-left: var.$length-vw-2;
+    // padding-right: var.$length-vw-2;
     position: fixed;
   }
 
 
-  .unl .dcf-nav-menu-child > *:first-child {
-    @include mixins.mt-6;
+  .unl .dcf-nav-menu-content-child {
+    --mask-height: 1.78em;
+    height: 56vh;
+    mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) var(--mask-height),
+      rgba(0, 0, 0, 1) calc(100% - var(--mask-height)),
+      rgba(0, 0, 0, 0));
+    overflow-y: auto;
+    padding-block: var(--mask-height);
+    padding-inline: var.$length-vw-2;
   }
 
-
-  .unl .dcf-nav-menu-child > *:last-child {
-    @include mixins.mb-7;
-  }
+//   .unl .dcf-nav-menu-child > *:first-child {
+//     @include mixins.mt-6;
+//   }
+//
+//
+//   .unl .dcf-nav-menu-child > *:last-child {
+//     @include mixins.mb-7;
+//   }
 
 
   .unl .dcf-nav-menu a,
@@ -102,8 +123,8 @@
     @include mixins.bg-scarlet;
     display: flex;
     flex-wrap: nowrap;
-    padding-left: var.$length-vw-2;
-    padding-right: var.$length-vw-2;
+    // padding-left: var.$length-vw-2;
+    // padding-right: var.$length-vw-2;
   }
 
 
