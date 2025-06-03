@@ -65,6 +65,7 @@ export default ({ mode }) => {
                     'plugins/plugin.dialog'               : 'wdn/templates_6.0/js-src/plugins/multi/dialog.js',
                     'plugins/plugin.gallery'              : 'wdn/templates_6.0/js-src/plugins/multi/gallery.js',
                     'plugins/plugin.event-list'           : 'wdn/templates_6.0/js-src/plugins/multi/event-list.js',
+                    'plugins/plugin.card-as-link'         : 'wdn/templates_6.0/js-src/plugins/multi/card-as-link.js',
 
                     'plugins/plugin.idm'                  : 'wdn/templates_6.0/js-src/plugins/single/idm.js',
                     'plugins/plugin.search'               : 'wdn/templates_6.0/js-src/plugins/single/search.js',
