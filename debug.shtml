@@ -56,10 +56,12 @@
     <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-group.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-1.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-btn.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-child-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-content-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-1.html" -->
     <!-- InstanceBeginEditable name="navlinks" -->
     <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
     <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-2.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/cta-1.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/visit-1.html" -->
     <!-- InstanceBeginEditable name="navvisit" -->
@@ -77,7 +79,7 @@
     <!-- InstanceEndEditable -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/give-2.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/cta-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-child-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-content-2.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-2.html" -->
   </header>
 
@@ -154,7 +156,7 @@
 
 
 
-      <div class="dcf-pb-8 dcf-w-max-md">
+      <div class="dcf-pb-8 dcf-max-w-md">
   <!--     <h2>Dreamcatcher mumblecore sartorial bitters. Artisan bitters photo booth, American Apparel Bushwick PBR&amp;B salvia Echo Park.</h2> -->
         <p class="dcf-txt-lg">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
