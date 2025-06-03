@@ -23,28 +23,28 @@
 
 
 // Inputs
-.unl .dcf-input-text, // TODO: deprecate?
+.unl .dcf-input-text,
 .unl .dcf-form input:not([type="submit"]),
 .unl .dcf-form textarea {
   transition: border-color var.$transition-duration-hover-off var.$transition-timing-fn-hover-off, box-shadow var.$transition-duration-hover-off var.$transition-timing-fn-hover-off;
 }
 
 
-.unl .dcf-input-text:disabled, // TODO: deprecate?
+.unl .dcf-input-text:disabled,
 .unl .dcf-form input:not([type="submit"]):disabled,
 .unl .dcf-form textarea:disabled {
   background-color: var.$bg-color-input-disabled;
 }
 
 
-.unl .dcf-input-text:hover, // TODO: deprecate?
+.unl .dcf-input-text:hover,
 .unl .dcf-form input:not([type="submit"]):hover,
 .unl .dcf-form textarea:hover {
   transition: border-color var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
 }
 
 
-.unl .dcf-input-text:focus-visible, // TODO: deprecate?
+.unl .dcf-input-text:focus-visible,
 .unl .dcf-form input:not([type="submit"]):focus-visible,
 .unl .dcf-form textarea:focus-visible {
   box-shadow: 0 0 0 3px var.$bg-color-body, 0 0 0 5px var.$border-color-input-focus;
@@ -53,7 +53,7 @@
 
 
 // Input: Control
-.unl .dcf-input-control { // TODO: deprecate?
+.unl .dcf-input-control {
   @include mixins.mr-1;
 }
 
