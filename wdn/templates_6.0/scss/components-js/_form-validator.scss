@@ -4,7 +4,7 @@
 
 
 ul.validation-advice {
-  color: var.$scarlet;
+  color: var(--brand);
   @include mixins.txt-sm;
   font-weight: bold;
   list-style: none;
