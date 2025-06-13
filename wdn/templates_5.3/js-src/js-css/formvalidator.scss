@@ -2,7 +2,7 @@
 
 
 ul.validation-advice {
-  color: $scarlet;
+  color: var(--brand);
   @include txt-sm;
   font-weight: bold;
   list-style: none;
