@@ -94,6 +94,7 @@ export default ({ mode }) => {
                     'components/component.search'               : 'wdn/templates_6.0/js-src/components/unl-search.js',
                     'components/component.qa'                   : 'wdn/templates_6.0/js-src/components/unl-qa.js',
                     'components/component.event-list'           : 'wdn/templates_6.0/js-src/components/unl-event-list.js',
+                    'components/component.card-as-link'         : 'wdn/templates_6.0/js-src/components/unl-card-as-link.js',
                     'components/component.analytics'            : 'wdn/templates_6.0/js-src/components/unl-analytics.js',
 
                     'lib/unl-utility'      : 'wdn/templates_6.0/js-src/lib/unl-utility.js',

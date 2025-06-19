@@ -3,12 +3,12 @@ import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
- * @type {?UNLDCFCardAsLink}
+ * @type {?UNLCardAsLink}
  */
-let UNLDCFCardAsLink = null;
+let UNLCardAsLink = null;
 
 // Query Selector for the card as link component  class
-const querySelector = '.dcf-card';
+const querySelector = '.dcf-card-as-link';
 
 // Type of plugin
 const pluginType = 'multi';
@@ -45,38 +45,38 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return UNLDCFCardAsLink; }
+    if (isInitialized) { return UNLCardAsLink; }
     isInitialized = true;
 
     const cardAsLinkComponent = await import('@js-src/components/unl-card-as-link.js');
-    UNLDCFCardAsLink = cardAsLinkComponent.default;
+    UNLCardAsLink = cardAsLinkComponent.default;
     await loadStyleSheet(CardAsLinkCssUrl);
 
     document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
         detail: {
             pluginType: pluginType,
-            pluginComponent: UNLDCFCardAsLink,
+            pluginComponent: UNLCardAsLink,
             styleSheetsLoaded: [
                 CardAsLinkCssUrl,
             ],
         },
     }));
 
-    return UNLDCFCardAsLink;
+    return UNLCardAsLink;
 }
 
 /**
  * Loads a single instance of the component
  * @param { HTMLElement } element The element to initialize
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<UNLDCFCardAsLink> }
+ * @returns { Promise<UNLCardAsLink> }
  */
 export async function loadElement(element, options) {
     if (!isInitialized) {
         await initialize();
     }
 
-    const loadedElement = new UNLDCFCardAsLink(element, options);
+    const loadedElement = new UNLCardAsLink(element, options);
     document.dispatchEvent(new CustomEvent('UNLPluginLoadedElement', {
         detail: {
             loadedElement: loadedElement,
@@ -91,7 +91,7 @@ export async function loadElement(element, options) {
  * @async
  * @param { HTMLCollectionOf<HTMLElement> | HTMLElement[] } elements 
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<UNLDCFCardAsLink[]> }
+ * @returns { Promise<UNLCardAsLink[]> }
  */
 export async function loadElements(elements, options) {
     const outputElements = [];
@@ -105,7 +105,7 @@ export async function loadElements(elements, options) {
  * Using the `querySelector` we will load all elements on the page
  * @async
  * @param { Object } options optional parameters to pass in when loading the element
- * @returns { Promise<UNLDCFCardAsLink[]> }
+ * @returns { Promise<UNLCardAsLink[]> }
  */
 export async function loadElementsOnPage(options) {
     const allCards = document.querySelectorAll(querySelector);

@@ -12,7 +12,7 @@ import UNLPopupUrl from '@js-src/plugins/multi/popup.js?finalUrl';
 import UNLDialogUrl from '@js-src/plugins/multi/dialog.js?finalUrl';
 import UNLGalleryUrl from '@js-src/plugins/multi/gallery.js?finalUrl';
 import UNLEventListUrl from '@js-src/plugins/multi/event-list.js?finalUrl';
-import UNLDCFCardAsLinkUrl from '@js-src/plugins/multi/card-as-link.js?finalUrl';
+import UNLCardAsLink from '@js-src/plugins/multi/card-as-link.js?finalUrl';
 import UNLIdmUrl from '@js-src/plugins/single/idm.js?finalUrl';
 import UNLSearchUrl from '@js-src/plugins/single/search.js?finalUrl';
 import UNLQaUrl from '@js-src/plugins/single/qa.js?finalUrl';
@@ -82,12 +82,12 @@ window.UNL.autoLoader = {
                 onPluginLoadedElement: null,
                 url: UNLPaginationUrl,
             },
-            UNLDCFCardAsLink: {
+            UNLCardAsLink: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: UNLDCFCardAsLinkUrl,
+                url: UNLCardAsLink,
             },
             UNLSlideshow: {
                 optOutSelector: null,
