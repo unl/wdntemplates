@@ -139,7 +139,7 @@ export function isValidateEmail(email) {
  * @param {string} jsSrc
  * @returns {Promise<void>}
  */
-export function loadJS(jsSrc) {
+export function loadJS(jsSrc, module=false) {
     return new Promise((resolve, reject) => {
         const scriptAlreadyThere = document.querySelector(`script[src="${jsSrc}"]`);
         if (scriptAlreadyThere !== null) {
@@ -150,6 +150,9 @@ export function loadJS(jsSrc) {
         // If the stylesheet is not already there then load it
         const newScript = document.createElement('script');
         newScript.src = jsSrc;
+        if (module) {
+            newScript.setAttribute('type', 'module');
+        }
 
         // Handle load and error events
         newScript.addEventListener('load', () => {
