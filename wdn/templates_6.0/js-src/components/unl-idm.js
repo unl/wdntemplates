@@ -88,6 +88,12 @@ export default class UNLIdm {
         window.UNL.idm.getPrimaryAffiliation = () => {
             return this.getPrimaryAffiliation();
         };
+        window.UNL.idm.getDisplayName = () => {
+            return this.getDisplayName();
+        };
+        window.UNL.idm.getEmailAddress = () => {
+            return this.getEmailAddress();
+        };
 
         // Clear out the queue and delete it's key-value pair since it is no longer needed
         if ('loadCallbackQueue' in window.UNL.idm && Array.isArray(window.UNL.idm.loadCallbackQueue)) {
@@ -469,6 +475,24 @@ export default class UNLIdm {
         }
 
         return 'None';
+    }
+
+    getDisplayName() {
+        if (this.clientSideUser !== null) {
+            return this.#getClientUserDisplayName();
+        } else if (this.serverSideUser !== null) {
+            return this.#getServerUserDisplayName();
+        }
+        return '';
+    }
+
+    getEmailAddress() {
+        if (this.clientSideUser !== null) {
+            return this.clientSideUser?.mail?.[0] || 'None';
+        } else if (this.serverSideUser !== null) {
+            return this.serverSideUser?.data?.mail?.[0] || 'None';
+        }
+        return '';
     }
 
     /**
