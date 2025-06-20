@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.56 (June 20, 2025)
+- Update domain for on-prem analytics
+- Fix for form validator message color contrast
+
 ## 5.3.55 (April 10, 2025)
 - Add overflow-x: clip to nav menu
 - Update footer links
