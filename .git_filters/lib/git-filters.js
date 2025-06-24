@@ -1,4 +1,4 @@
-/* jshint undef: true, unused: true, node: true */
+/* eslint-disable */
 "use strict";
 
 var childProcess = require('child_process');
@@ -71,6 +71,7 @@ module.exports = {
 		for (var i = rcsKeywords.length; i >= 0; i--) {
 			currentKeyword = rcsKeywords[i];
 			replacement = '$$$1: ';
+			console.log(smudgeValues);
 			switch (currentKeyword) {
 				case 'Id':
 					replacement += [smudgeValues.filename, smudgeValues.commit, smudgeValues.date, smudgeValues.name].join(' | ');
