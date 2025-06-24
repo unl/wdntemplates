@@ -21,9 +21,9 @@ function getAllFiles(dirPath) {
     return files;
 }
 
-export default function wdnSmudge({ dirs = [] } = {}) {
+export default function wdnSmudgePlugin({ dirs = [] } = {}) {
     return {
-        name: 'vite-plugin-filter-smudge',
+        name: 'WDN: Smudge',
         apply: 'build',
         buildStart() {
             const root = process.cwd();

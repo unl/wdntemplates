@@ -7,6 +7,7 @@ import postcssNested from 'postcss-nested';
 import wdnCleanupPlugin from './vite.wdnCleanupPlugin.js';
 import wdnFinalJsUrlPlugin from './vite.wdnFinalJsUrlPlugin.js';
 import wdnSmudge from './vite.wdnSmudgePlugin.js';
+import wdnZipPlugin from './vite.wdnZipPlugin.js';
 
 export default ({ mode }) => {
     process.env = {...process.env, ...loadEnv(mode, process.cwd(), '')};
@@ -37,6 +38,20 @@ export default ({ mode }) => {
                     'Templates',
                 ],
             }),
+            wdnZipPlugin([
+                {
+                    name: 'wdn',
+                    dir: './wdn',
+                },
+                {
+                    name: 'wdn_includes',
+                    dir: './wdn/templates_6.0/includes',
+                },
+                {
+                    name: 'UNLTemplates',
+                    dir: './Templates',
+                },
+            ]),
         );
     }
 
