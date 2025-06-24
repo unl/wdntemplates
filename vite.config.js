@@ -6,6 +6,7 @@ import postcssNested from 'postcss-nested';
 
 import wdnCleanupPlugin from './vite.wdnCleanupPlugin.js';
 import wdnFinalJsUrlPlugin from './vite.wdnFinalJsUrlPlugin.js';
+import wdnSmudge from './vite.wdnSmudgePlugin.js';
 
 export default ({ mode }) => {
     process.env = {...process.env, ...loadEnv(mode, process.cwd(), '')};
@@ -22,6 +23,20 @@ export default ({ mode }) => {
         //   since if we have a linting error it won't build
         plugins.push(
             eslintPlugin(),
+        );
+    }
+
+    // If we are building for the production environment
+    if (process.argv.includes('--smudge')) {
+        // We need to smudge the files in specific directories
+        //  this will replace specific values (i.e. $DEP_VERSION$, $Id$) in the markup with actual values
+        plugins.push(
+            wdnSmudge({
+                dirs: [
+                    'wdn/templates_6.0/includes',
+                    'Templates',
+                ],
+            }),
         );
     }
 

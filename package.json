@@ -31,9 +31,9 @@
     "dev": "vite",
     "build": "vite build",
     "build-watch": "vite build --watch",
+    "build-smudge": "vite build -- --smudge",
     "preview": "vite preview",
-    "lint-js": "eslint wdn/templates_6.0/js-src/**/*.js",
-    "lint-scss": "stylelint wdn/templates_6.0/scss/**/*.scss"
+    "lint-js": "eslint wdn/templates_6.0/js-src/**/*.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.24.0",
