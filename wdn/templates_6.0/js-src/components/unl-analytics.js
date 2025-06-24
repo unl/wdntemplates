@@ -1,7 +1,7 @@
 export default class UNLAnalytics {
-    debugMode = false;
+    debugMode = import.meta.env.VITE_UNL_GA4_DEBUG_MODE || false;
 
-    unlProp = 'G-XYGRJGQFZK';
+    unlProp = import.meta.env.VITE_UNL_GA4_PROP || 'G-XYGRJGQFZK';
 
     thisURL = String(window.location);
 
@@ -58,7 +58,7 @@ export default class UNLAnalytics {
 
         // Checks if we have a script for the gtag on the page already
         // If not we will create the script
-        const gtagScriptCheck = document.querySelector(`script[src*=googletagmanager][src*=${this.unlProp}]`);
+        const gtagScriptCheck = document.querySelector(`script[src*=googletagmanager][src*='${this.unlProp}']`);
         if (gtagScriptCheck === null) {
             // Creates new gtag script and set up values to match GA4 specifications
             // Append it to the head element
