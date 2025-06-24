@@ -32,25 +32,19 @@ define(['wdn', 'idm'], function (WDN, idm) {
 
             let larue_script = document.getElementById('unl_larue_script');
             if (larue_script === null) {
-                var _paq = window._paq = window._paq || [];
-                var u="https://larue.unl.edu/";
+                const _paq = window._paq = window._paq || [];
+                const u="https://larue.unl.edu/";
                 _paq.push(['setTrackerUrl', u+'main.php']);
                 _paq.push(['setSiteId', '1']);
                 require(['https://larue.unl.edu/main.js'], function() {
-                    let head_tag = document.querySelector('head');
-                    let new_larue_tag = document.createElement('script');
-                    new_larue_tag.setAttribute('id', 'unl_larue_script');
-                    new_larue_tag.innerHTML = `
-                        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-                        _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-                        _paq.push(["setCookieDomain", "*.unl.edu"]);
-                        _paq.push(["setDomains", ["*.unl.edu"]]);
-                        _paq.push(['trackPageView']);
-                        _paq.push(['enableLinkTracking']);
-                    `;
-                    head_tag.append(new_larue_tag);
-                })
-                
+                    const _paq = window._paq = window._paq || [];
+                    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+                    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+                    _paq.push(["setCookieDomain", "*.unl.edu"]);
+                    _paq.push(["setDomains", ["*.unl.edu"]]);
+                    _paq.push(['trackPageView']);
+                    _paq.push(['enableLinkTracking']);
+                });
             }
 
             // Gets the head to append scripts to
