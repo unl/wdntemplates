@@ -31,7 +31,7 @@
     "dev": "vite",
     "build": "vite build",
     "build-watch": "vite build --watch",
-    "build-prod": "vite build -- --production",
+    "build-smudge": "vite build -- --smudge",
     "preview": "vite preview",
     "lint-js": "eslint wdn/templates_6.0/js-src/**/*.js"
   },

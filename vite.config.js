@@ -27,7 +27,7 @@ export default ({ mode }) => {
     }
 
     // If we are building for the production environment
-    if (process.argv.includes('--production')) {
+    if (process.argv.includes('--smudge')) {
         // We need to smudge the files in specific directories
         //  this will replace specific values (i.e. $DEP_VERSION$, $Id$) in the markup with actual values
         plugins.push(
