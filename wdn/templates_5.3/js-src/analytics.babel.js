@@ -30,7 +30,7 @@ define(['wdn', 'idm'], function (WDN, idm) {
                 return;
             }
 
-            let larue_script = document.getElementById('unl_larue_script');
+            let larue_script = document.querySelector('script[src*="larue.unl.edu"]');
             if (larue_script === null) {
                 const _paq = window._paq = window._paq || [];
                 const u="https://larue.unl.edu/";
