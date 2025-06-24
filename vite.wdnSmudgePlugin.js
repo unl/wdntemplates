@@ -9,7 +9,6 @@ function getAllFiles(dirPath) {
     let files = [];
     for (const entry of fs.readdirSync(dirPath, { withFileTypes: true })) {
         const fullPath = path.join(dirPath, entry.name);
-        console.log(fullPath);
         if (entry.isDirectory()) {
             files = files.concat(getAllFiles(fullPath));
         } else if (
