@@ -39,6 +39,7 @@ define(['wdn', 'idm'], function (WDN, idm) {
                 require(['https://larue.unl.edu/main.js'], function() {
                     let head_tag = document.querySelector('head');
                     let new_larue_tag = document.createElement('script');
+                    new_larue_tag.setAttribute('id', 'unl_larue_script');
                     new_larue_tag.innerHTML = `
                         /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
                         _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
