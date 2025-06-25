@@ -275,7 +275,7 @@ To include jQuery into your project you just need to import the jQuery library. 
 </script>
 ```
 
-#### QueryUI
+#### jQueryUI
 
 To load jQuery UI and its styles you will need to import the jQuery UI plugin and initialize it.
 
