@@ -40,15 +40,15 @@ export default ({ mode }) => {
             }),
             wdnZipPlugin([
                 {
-                    name: 'wdn',
+                    name: 'wdn_6.0',
                     dir: './wdn',
                 },
                 {
-                    name: 'wdn_includes',
+                    name: 'wdn_includes_6.0',
                     dir: './wdn/templates_6.0/includes',
                 },
                 {
-                    name: 'UNLTemplates',
+                    name: 'UNLTemplates_6.0',
                     dir: './Templates',
                 },
             ]),
