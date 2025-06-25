@@ -2,7 +2,7 @@
 
 ## ZIP Download
 
-For version 5.3 of the templates the download link ([https://wdn.unl.edu/downloads/wdn.zip](https://wdn.unl.edu/downloads/wdn.zip)) will stay the same. For 6.0 we will start appending the version number onto the zip file name ([https://wdn.unl.edu/downloads/wdn_6.0.zip](https://wdn.unl.edu/downloads/wdn_6.0.zip)). Similar things will happen to the other zip files wdn_includes, and UNLTemplates.
+For version 5.3 of the templates the download link ([https://wdn.unl.edu/downloads/wdn.zip](https://wdn.unl.edu/downloads/wdn.zip)) will stay the same. For 6.0 we will start appending the version number onto the zip file name ([https://wdn.unl.edu/downloads/wdn_6.0.zip](https://wdn.unl.edu/downloads/wdn_6.0.zip)). Similar things will happen to the other zip files `wdn_includes`, and `UNLTemplates`.
 
 ## CSS Changes
 
@@ -122,6 +122,12 @@ Not everything is loaded through the auto loader. There are certain components w
 ```
 
 There are also things which are not tied to actual components which are not in the auto loader. Things such as jQuery, which is discussed later in this document.
+
+#### Plugin vs Component
+
+We have migrated all the code to be in plugins and components. But what are plugins and components? Components are relatively simple, it is the code that runs a specific component on the page. It manages the state of that component as well as any additional mark up it may need to build the component. Plugins are a big trickier, they are the code that lets the auto loader know what to load and how to load the component when it finds it on the page. The plugin will contain the query selector which the auto loader can use to locate any instances of the component, as well as the CSS and JS it needs to load for the component to load.
+
+The idea behind plugins and components is we want the most minimal amount of code running on page during it's life time. If the page doesn't have a tabs component on the page then we should not be loading the styles and scripts that make the tabs component run. But we do need a little bit of code to know what to load and when to load it.
 
 ### Modals/Dialogs
 
