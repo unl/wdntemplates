@@ -144,7 +144,7 @@ if (enabled) {
     }
 }
 
-if (watch) {
+if (enabled && watch) {
     // Loads all elements that are added to the page
     const mutationCallback = function(mutationList) {
         mutationList.forEach((mutationRecord) => {
