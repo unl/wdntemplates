@@ -2,5 +2,11 @@
 // THEME / OBJECTS
 //////////////////
 
-@forward "@dcf/scss/objects/";
-@forward "./grid";
+
+@use "sass:meta";
+
+
+@layer objects {
+  @include meta.load-css("@dcf/scss/objects/");
+  @include meta.load-css("./grid");
+};

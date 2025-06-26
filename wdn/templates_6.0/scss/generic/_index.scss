@@ -2,7 +2,13 @@
 // THEME / GENERIC
 //////////////////
 
-@forward "@dcf/scss/generic/";
-@forward "./focus";
-@forward "./font-face";
-@forward "./root";
+
+@use "sass:meta";
+
+
+@layer generic {
+  @include meta.load-css("@dcf/scss/generic/");
+  @include meta.load-css("./focus");
+  @include meta.load-css("./font-face");
+  @include meta.load-css("./root");
+};
