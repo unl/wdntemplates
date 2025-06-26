@@ -3,8 +3,6 @@
  * Please use dialog instead
  */
 
-//TODO: convert this to a normal single plugin
-
 import DCFModal from '@dcf/js/components/dcf-modal.js';
 import { enableBodyScroll, disableBodyScroll} from '@js-src/lib/body-scroll-lock.js';
 import modalCssUrl from '@scss/components-js/_modals.scss?url';
