@@ -8,13 +8,6 @@
 @use "../mixins/" as mixins;
 
 
-// FIX WITH OTHER LISTS
-.unl-footer-groups dl:last-child,
-.unl-footer-groups dd:last-child {
-  margin-bottom: 0;
-}
-
-
 .unl .dcf-footer {
   color: var.$light-gray;
   background-color: var.$darker-gray;
@@ -30,9 +23,7 @@
   content: '';
   filter: blur(2px);
   height: auto;
-  right: 0;
   position: absolute;
-  top: 0;
 }
 
 
@@ -50,11 +41,12 @@
 
 
 .unl-footer-groups ul {
-  margin-bottom: 0;
-  margin-top: calc(var(--block-padding) * -1);
+  margin-block: calc(var(--block-padding) * -1);
 }
 
 
+.unl-footer-groups dl:last-child,
+.unl-footer-groups dd:last-child,
 .unl-footer-groups li {
   margin-bottom: 0;
 }
@@ -86,35 +78,9 @@
 }
 
 
-// .dcf-footer-group {
-//   container-type: inline-size;
-// }
-//
-//
-// @container (min-width: 23.68em) {
-//
-//   .unl-footer-groups ul {
-//     columns: 2;
-//   }
-//
-// }
-
-
 .unl-footer-title-est-copyright {
   row-gap: .32em;
 }
-
-
-// Footer lists
-/* .unl .dcf-footer dl,
-.unl .dcf-footer ol,
-.unl .dcf-footer ul {
-  // Fix list-style: none in VoiceOver and Safari: https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
-  list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
-  margin-bottom: 0;
-  padding-left: 0;
-} */
-
 
 
 @include mixins.mq(sm, max, width) {
@@ -133,17 +99,10 @@
 
 @include mixins.mq(md, max, width) {
 
-  // TEMP
-  .temp-chat-button {
-    display: none;
-  }
-
-
-
   // NU Seal
   .unl .dcf-footer::before {
-    right: -1.78em;
-    top: -1em;
+    bottom: -#{var.$ms00}em;
+    right: -#{var.$ms04}em;
     width: 110vw;
   }
 
@@ -175,24 +134,11 @@
 
 @include mixins.mq(md, min, width) {
 
-  .temp-chat-button {
-    display: block;
-    position: fixed;
-    bottom: 1em;
-    right: 1em;
-    z-index: 999999;
-  }
-
-  .temp-chat-button a {
-    color: var(--link) !important;
-  }
-
-
   // NU Seal
   .unl .dcf-footer::before {
-    right: -1.78em;
-    top: -1em;
-    width: 43vw;
+    right: -#{var.$ms04}em;
+    top: -#{var.$ms00}em;
+    width: clamp(#{var.$ms26}rem, calc(#{var.$ms16}rem + 25vw + 25vh), #{var.$ms28}rem);
   }
 
 
@@ -281,6 +227,7 @@
     #unl-footer-herbie {
       /* --back-in easing: https://codepen.io/smashingmag/pen/zYywLXB */
       animation: move-herbie-down 300ms linear(0, -0.0029 4.31%, -0.0119 9.02%, -0.0838 31.27%, -0.0956 36.64%, -0.1 41.45%, -0.0953 47.03%, -0.0792 52.25%, -0.0512 57.19%, -0.0111 61.92%, 0.0512 67.19%, 0.131 72.27%, 0.2284 77.18%, 0.3443 81.96%, 0.479 86.62%, 0.6329 91.17%, 0.8065 95.63%, 1) forwards;
+      filter: drop-shadow(-#{var.$ms-8}em var.$length-em-4 var.$length-em-3 rgba(0,0,0,.2)) drop-shadow(#{var.$ms-12}em var.$length-em-4 var.$length-em-4 rgba(0,0,0,.1));
       transform: translateY(100%) scale(75%);
       transform-origin: bottom center;
       will-change: transform;
@@ -299,7 +246,7 @@
       animation: flipthebit both;
       animation-range: entry 99%;
       animation-timeline: view();
-      left: calc(5.62vw + 42.09rem + 1vw);
+      left: calc(var.$length-vw-2 + #{var.$ms26}rem + 1vw);
       overflow-y: clip;
     }
 
