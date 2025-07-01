@@ -71,6 +71,8 @@ export default ({ mode }) => {
             keepNames: true,
         },
         build: {
+            minify: 'esbuild',
+
             // Tells the bundler to target modern browsers
             //   Specifically allows us to do top level await
             target: 'esnext',
