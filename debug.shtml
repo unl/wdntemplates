@@ -955,7 +955,7 @@
 
           <div class="dcf-form-group">
             <label for="password">Password</label>
-            <input id="password" type="password" aria-describedby="pwd-help">
+            <input id="password" type="password" autocomplete="none" aria-describedby="pwd-help">
             <p class="dcf-form-help" id="pwd-help">Make sure it’s a good one!</p>
           </div>
 
@@ -1456,8 +1456,8 @@
       <form class="dcf-form" action="?" method="get">
           <fieldset>
               <legend>Disabled</legend>
-              <label for="my-search-select">Favorite food/drink</label>
-              <select id="my-search-select" class="dcf-search-select" disabled hidden>
+              <label for="my-search-select-3">Favorite food/drink</label>
+              <select id="my-search-select-3" class="dcf-search-select" disabled hidden>
                   <optgroup label="Hot Foods">
                       <option value="pizza">Pizza</option>
                       <option value="burger">Burger</option>
@@ -1470,8 +1470,8 @@
                   <option value="coke">Coke</option>
               </select>
 
-              <label for="my-search-select-2">Preferred ice cream flavors</label>
-              <select id="my-search-select-2" class="dcf-search-select" disabled multiple hidden>
+              <label for="my-search-select-4">Preferred ice cream flavors</label>
+              <select id="my-search-select-4" class="dcf-search-select" disabled multiple hidden>
                   <option value="vanilla">Vanilla</option>
                   <option value="chocolate">Chocolate</option>
                   <option value="strawberry">Strawberry</option>
@@ -1487,8 +1487,8 @@
       <form class="dcf-form" action="?" method="get">
           <fieldset>
               <legend>Selected</legend>
-              <label for="my-search-select">Favorite food/drink</label>
-              <select id="my-search-select" class="dcf-search-select" hidden>
+              <label for="my-search-select-5">Favorite food/drink</label>
+              <select id="my-search-select-5" class="dcf-search-select" hidden>
                   <optgroup label="Hot Foods">
                       <option value="pizza" selected="selected">Pizza</option>
                       <option value="burger">Burger</option>
@@ -1501,8 +1501,8 @@
                   <option value="coke">Coke</option>
               </select>
 
-              <label for="my-search-select-2">Preferred ice cream flavors</label>
-              <select id="my-search-select-2" class="dcf-search-select" multiple hidden>
+              <label for="my-search-select-6">Preferred ice cream flavors</label>
+              <select id="my-search-select-6" class="dcf-search-select" multiple hidden>
                   <option value="vanilla">Vanilla</option>
                   <option value="chocolate" selected="selected">Chocolate</option>
                   <option value="strawberry">Strawberry</option>
