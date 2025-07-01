@@ -36,4 +36,12 @@
   })();
 </script>
 <!-- End Matomo Code -->
-<script async src="/wdn/templates_6.0/js/head-2.js?dep=$DEP_VERSION$"></script>
+<script async src="https://unlcms.unl.edu/wdn/templates_6.0/js/head-2.js?dep=$DEP_VERSION$"></script>
+<script>
+  if (typeof CSSLayerBlockRule !== 'function') {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://unlcms.unl.edu/wdn/templates_6.0/css/main.layerPolyfill.css?dep=$DEP_VERSION$';
+    document.head.appendChild(link);
+  }
+</script>

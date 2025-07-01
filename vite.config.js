@@ -9,6 +9,7 @@ import wdnFinalJsUrlPlugin from './vite.wdnFinalJsUrlPlugin.js';
 import wdnSmudge from './vite.wdnSmudgePlugin.js';
 import wdnZipPlugin from './vite.wdnZipPlugin.js';
 import wdnCriticalCSSInjector from './vite.wdnCriticalCSSInjector.js';
+import wdnLayerPolyfill from './vite.wdnLayerPolyfill.js';
 
 export default ({ mode }) => {
     process.env = {...process.env, ...loadEnv(mode, process.cwd(), '')};
@@ -17,6 +18,7 @@ export default ({ mode }) => {
     const plugins = [
         wdnCleanupPlugin,
         wdnFinalJsUrlPlugin,
+        wdnLayerPolyfill(),
         wdnCriticalCSSInjector({
             cssFile: './wdn/templates_6.0/css/critical.css',
             targets: [
