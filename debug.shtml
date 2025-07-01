@@ -1535,17 +1535,14 @@
     </div>
   </main>
   <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
-    <!-- InstanceBeginEditable name="optionalfooter" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-1.html" -->
-    <!-- InstanceBeginEditable name="contactinfo" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/local/footer-local.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/noscript.html" -->
-  </footer>
-  <!--#include virtual="/wdn/templates_6.0/includes/global/js-body-local.html" -->
-  <!-- InstanceBeginEditable name="jsbody" -->
+  <!-- InstanceBeginEditable name="optionalfooter" -->
   <!-- InstanceEndEditable -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-1.html" -->
+  <!-- InstanceBeginEditable name="contactinfo" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/local/footer-local.html" -->
+  <!-- InstanceEndEditable -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-2.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-3-std.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/noscript.html" -->
 </body>
 <!-- InstanceEnd --></html>
