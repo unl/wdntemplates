@@ -12,3 +12,11 @@
 <link rel="manifest" href="/wdn/templates_6.0/includes/global/favicon/manifest.webmanifest">
 <meta name="theme-color" content="#d00000">
 <script async src="/wdn/templates_6.0/js/head-2.js?dep=$DEP_VERSION$"></script>
+<script>
+  if (typeof CSSLayerBlockRule !== 'function') {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '/wdn/templates_6.0/css/main.layerPolyfill.css?dep=$DEP_VERSION$';
+    document.head.appendChild(link);
+  }
+</script>
