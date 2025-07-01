@@ -26,7 +26,7 @@ export default class UNLAlert {
     constructor() {
         loadStyleSheet(unlalertCssUrl);
 
-        this.alertDataUrl = 'https://alert.unl.edu/json/unlcap.js';
+        this.alertDataUrl = 'https://unl-alert-local-test.unl.edu/json/unlcap.js';
 
         window.unlAlerts = window.unlAlerts || {};
         window.unlAlerts.data = window.unlAlerts.data || {};
@@ -52,25 +52,6 @@ export default class UNLAlert {
         return name in events ? events[name] : undefined;
     }
 
-    // Sets a cookie to confirm that the 'unlalerts' JSc was successfully loaded or received. 
-    // A separate check later determines whether the script loaded contains any data.
-    #setAlertDataReceivedCookie = () => {
-        clearTimeout(this.serverCallTimeoutID);
-
-        setCookie(
-            this.alertDataReceivedCookieName,
-            1,
-            this.alertDataReceivedCookieMaxAge,
-        );
-        this.serverCallTimeoutID = setTimeout(
-            () => this.#checkIfFetchCallNeeded(),
-            this.serverCallExecutionDelayTwo,
-        );
-    };
-
-    #getAlertDataReceivedCookie = function() {
-        return this.#checkCookie(this.alertDataReceivedCookieName);
-    };
 
     // Sets a cookie to indicate that there is an active alert
     #setActiveAlertCookie = (flag) => {
@@ -83,9 +64,6 @@ export default class UNLAlert {
         setCookie(this.activeAlertCookieName, value, time);
     };
 
-    #getActiveAlertCookie = function() {
-        return this.#checkCookie(this.activeAlertCookieName);
-    };
 
     // Sets a cookie to indicate that there is an acknowledged alert
     #setClosedAlertCookie = function(alertDataActiveID) {
@@ -122,34 +100,10 @@ export default class UNLAlert {
         return closedAlertCookieValue.indexOf(alertDataID) !== -1 ? true : false;
     }
 
-    #checkCookie = function(name) {
-        try {
-            const cookie = getCookie(name);
-            if (cookie) {
-                return true;
-            }
-            return false;
-        } catch {
-            console.error('Error checking cookie:');
-            return false; // Default to false if error occurs
-        }
-    };
 
     #checkIfFetchCallNeeded = () => {
-        // Call the server if the data has expired (alertDataReceived cookie doesn't exist) or if there is an active alert
-        // This should reduce the number of times we call the server
-        if (
-            !this.#getAlertDataReceivedCookie() ||
-            this.#getActiveAlertCookie()
-        ) {
-            this.#fetchAlertData();
-        }
+        this.#fetchAlertData();
 
-        clearTimeout(this.serverCallTimeoutID);
-        this.serverCallTimeoutID = setTimeout(
-            () => this.#checkIfFetchCallNeeded(),
-            this.serverCallExecutionDelayTwo,
-        );
     };
 
     #toggleAlert() {
@@ -354,7 +308,6 @@ export default class UNLAlert {
 
     async #fetchAlertData() {
         try {
-            this.#setAlertDataReceivedCookie();
 
             const cacheBuster = `cb=${Date.now()}`;
             const urlWithCacheBuster = `${this.alertDataUrl}?${cacheBuster}`;
@@ -368,6 +321,11 @@ export default class UNLAlert {
             } else {
                 this.#noAlert();
             }
+            clearTimeout(this.serverCallTimeoutID);
+
+            this.serverCallTimeoutID = setTimeout(() => this.#checkIfFetchCallNeeded(),
+                this.serverCallExecutionDelayTwo,
+            );
         } catch {
             console.error('An unexpected error occurred while fetching the alert data.');
         }
