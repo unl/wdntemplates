@@ -191,6 +191,18 @@ if (typeof window.UNL.analytics === 'undefined') {
         config: {
             enabled: true,
         },
+        callTrackEvent: () => {
+            //TODO: This needs to be nicer
+            return '';
+        },
+        loaded: false,
+    };
+}
+if (typeof window.UNL.chat === 'undefined') {
+    window.UNL.chat = {
+        config: {
+            enabled: true,
+        },
         loaded: false,
     };
 }
@@ -201,6 +213,15 @@ if (typeof window.UNL.idm === 'undefined') {
             loginRoute: null,
             logoutRoute: null,
             serverUser: null,
+        },
+        getPrimaryAffiliation: () => {
+            return 'None';
+        },
+        getDisplayName: () => {
+            return '';
+        },
+        getEmailAddress: () => {
+            return '';
         },
         loaded: false,
         // pushConfig is redefined by the IDM component once loaded
