@@ -161,9 +161,9 @@
         <p class="dcf-txt-lg">Before they sold out Truffaut whatever scenester cred forage Odd Future Schlitz tote bag. <a href="#">Cosby sweater</a> selvage whatever, Carles tofu meh vegan pickled Marfa. Thundercats kitsch post-ironic XOXO, +1 wolf kale chips Odd Future try-hard banjo selvage forage flexitarian ethnic.</p>
         <p>Authentic hoodie fap literally umami, Marfa Intelligentsia tousled sartorial keytar. Cliche dreamcatcher four loko bicycle rights, direct trade bespoke Neutra aesthetic quinoa fanny pack.</p>
 
-        <div class="dcf-mb-6 dcf-ratio dcf-ratio-16x9 unl-frame-quad">
+        <div class="dcf-mb-6 unl-frame-quad">
           <img
-            class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100%"
+            class="dcf-16x9 dcf-obj-fit-cover dcf-h-100% dcf-w-100%"
             sizes="(min-width: 41.956em) 43vw, 88vw"
             srcset="wdn/templates_6.0/images/dev/150821-tunnel-325-sm-min.jpg 284w,
                     wdn/templates_6.0/images/dev/150821-tunnel-325-md-min.jpg 505w,
@@ -249,6 +249,9 @@
         <p>Quinoa twee cardigan, lo-fi biodiesel try-hard Neutra pickled church-key pug scenester. Etsy direct trade fanny pack, fashion axe chia bespoke bitters Helvetica.</p>
       </div>
 
+      <h2 class="unl-font-serif">Serif Font</h2>
+
+      <h2 class="dcf-mt-6">Accordion</h2>
       <div class="dcf-pt-6 dcf-pb-6">
         <details>
           <summary>Nullam id dolor id nibh ultricies vehicula ut id elit.</summary>
@@ -276,21 +279,18 @@
               <a class="dcf-btn dcf-btn-secondary" href="#">Do This Thing</a>
             </div>
             <div class="dcf-as-center">
-              <div class="dcf-ratio dcf-ratio-16x9 unl-frame-quad unl-bg-light-gray">
+              <div class="unl-frame-quad unl-bg-light-gray">
                 <img
                   loading="lazy"
-                  class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-lazy-load"
-                  data-sizes="(min-width: 41.956em) 43vw, 88vw"
-                  data-src="wdn/templates_6.0/images/dev/150815-commencement-324-sm-min.jpg"
-                  data-srcset="wdn/templates_6.0/images/dev/150815-commencement-324-sm-min.jpg 284w,
+                  class="dcf-16x9 dcf-obj-fit-cover dcf-h-100% dcf-w-100%"
+                  sizes="(min-width: 41.956em) 43vw, 88vw"
+                  src="wdn/templates_6.0/images/dev/150815-commencement-324-sm-min.jpg"
+                  srcset="wdn/templates_6.0/images/dev/150815-commencement-324-sm-min.jpg 284w,
                           wdn/templates_6.0/images/dev/150815-commencement-324-md-min.jpg 505w,
                           wdn/templates_6.0/images/dev/150815-commencement-324-lg-min.jpg 898w,
                           wdn/templates_6.0/images/dev/150815-commencement-324-xl-min.jpg 1596w"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
                   alt="Nilmar Robledo Caicedo from Colombia shakes hands after receiving his masters degree in agricultural economics.">
-                <noscript>
-                  <img class="dcf-ratio-child dcf-obj-fit-contain" src="wdn/templates_6.0/images/dev/150815-commencement-324-sm-min.jpg" alt="Nilmar Robledo Caicedo from Colombia shakes hands after receiving his masters degree in agricultural economics.">
-                </noscript>
               </div>
             </div>
           </div>
@@ -460,69 +460,165 @@
 
       </div>
 
-      <div class="dcf-mt-6 dcf-mb-6">
-        <div class="dcf-slideshow dcf-mb-5" role="region" aria-label="WDN Sample Slideshow" data-shuffle="false">
-          <ul>
-            <li>
-              <figure>
-                <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
-                  <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_6.0/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
-                </div>
-                <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
-              </figure>
-            </li>
-            <li>
-              <figure>
-                <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
-                  <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_6.0/images/dev/150815-commencement-324-xl-min.jpg" alt="">
-                </div>
-                <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
-              </figure>
-            </li>
-            <li>
-              <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
-                <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_6.0/images/dev/111024-autumn-018-xl-min.jpg" alt="">
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="dcf-slideshow dcf-mb-5" role="region" aria-label="WDN Sample Slideshow" data-toggle-caption="false" data-shuffle="true">
-          <ul>
-            <li>
-              <figure>
-                <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
-                  <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_6.0/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
-                </div>
-                <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
-              </figure>
-            </li>
-            <li>
-              <figure>
-                <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
-                  <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_6.0/images/dev/150815-commencement-324-xl-min.jpg" alt="">
-                </div>
-                <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
-              </figure>
-            </li>
-            <li>
-              <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
-                <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_6.0/images/dev/111024-autumn-018-xl-min.jpg" alt="">
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <script>
-          window.addEventListener('inlineJSReady', function() {
-            WDN.initializePlugin('slideshows');
-          }, false);
-        </script>
+      <h2>Notices</h2>
+      <div class="dcf-notice dcf-notice-info" hidden>
+        <h2>Info</h2>
+        <div>This is additional information for this notice.</div>
+      </div>
+      <div class="dcf-notice dcf-notice-success" hidden>
+        <h2>Success!</h2>
+        <div>You've successfully completed an action.</div>
+      </div>
+      <div class="dcf-notice dcf-notice-warning" hidden>
+        <h2>Warning!</h2>
+        <div>Proceed with caution.</div>
+      </div>
+      <div class="dcf-notice dcf-notice-danger" data-no-close-button="true" hidden>
+        <h2>Danger!</h2>
+        <div>Uh-oh. Something wrong happened.</div>
       </div>
 
-      <div class="dcf-mt-6 dcf-mb-6">
-        <h2 class="dcf-mt-6">Toggle Buttons</h2>
+      <h2>Autoplay video</h2>
+      <div class="dcf-autoplay-video dcf-max-w-xl">
+          <video style="height: 900; width: 160;" poster="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-wooooo.jpg" autoplay loop muted playsinline>
+              <source src="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-fingers-crossed.mp4" type="video/mp4">
+          </video>
+      </div>
 
+      <h2 class="dcf-mt-6">Slideshows</h2>
+      <div class="dcf-mt-6 dcf-mb-6">
+        <h3>Normal</h3>
+        <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow">
+            <ul>
+                <li>
+                    <figure>
+                        <img class="dcf-d-block dcf-16x9" src="/wdn/templates_6.0/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+                        <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img class="dcf-d-block dcf-16x9" src="/wdn/templates_6.0/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+                        <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <img class="dcf-d-block dcf-16x9" src="/wdn/templates_6.0/images/dev/111024-autumn-018-xl-min.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+
+        <h3>Auto Play</h3>
+        <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow" data-play="true">
+            <ul>
+                <li>
+                    <figure>
+                        <div class="">
+                            <img class="dcf-16x9" src="/wdn/templates_6.0/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+                        </div>
+                        <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <div class="">
+                            <img class="dcf-16x9" src="/wdn/templates_6.0/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+                        </div>
+                        <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <div class="">
+                        <img class="dcf-16x9" src="/wdn/templates_6.0/images/dev/111024-autumn-018-xl-min.jpg" alt="">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <h3>Fade</h3>
+        <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow" data-transition="fade">
+            <ul>
+                <li>
+                    <figure>
+                        <div class="">
+                            <img class="dcf-16x9" src="/wdn/templates_6.0/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+                        </div>
+                        <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <div class="">
+                            <img class="dcf-16x9" src="/wdn/templates_6.0/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+                        </div>
+                        <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <div class="">
+                        <img class="dcf-16x9" src="/wdn/templates_6.0/images/dev/111024-autumn-018-xl-min.jpg" alt="">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <h3>No toggle caption</h3>
+        <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow" data-toggle-caption="false">
+            <ul>
+                <li>
+                    <figure>
+                        <div class="">
+                            <img class="dcf-16x9" src="/wdn/templates_6.0/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+                        </div>
+                        <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <div class="">
+                            <img class="dcf-16x9" src="/wdn/templates_6.0/images/dev/150815-commencement-324-xl-min.jpg" alt="">
+                        </div>
+                        <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <div class="">
+                        <img class="dcf-16x9" src="/wdn/templates_6.0/images/dev/111024-autumn-018-xl-min.jpg" alt="">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <h3>No images</h3>
+        <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow" data-toggle-caption="false" data-shuffle="true">
+            <ul>
+                <li>
+                    <div class="dcf-16x9 dcf-d-flex dcf-jc-center dcf-ai-center">
+                        <p class="dcf-m-0 dcf-p-0">
+                            this is some text 1
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="dcf-16x9 dcf-d-flex dcf-jc-center dcf-ai-center">
+                        <p class="dcf-m-0 dcf-p-0">
+                            this is some text 2
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="dcf-16x9 dcf-d-flex dcf-jc-center dcf-ai-center">
+                        <p class="dcf-m-0 dcf-p-0">
+                            this is some text 3
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+      </div>
+
+      <h2 class="dcf-mt-6">Toggle Buttons</h2>
+      <div class="dcf-mt-6 dcf-mb-6">
         <div id="my-div">
           My First Div
         </div>
@@ -551,16 +647,10 @@
         >
           Toggle My Second Div (Starts Off)
         </button>
-
-        <script>
-          window.addEventListener('inlineJSReady', function() {
-            WDN.initializePlugin('button-toggles');
-          }, false);
-        </script>
       </div>
 
+      <h2 class="dcf-mt-6">Collapsible Fieldsets</h2>
       <div class="dcf-mt-6 dcf-mb-6">
-        <h2 class="dcf-mt-6">Collapsible Fieldsets</h2>
         <form class="dcf-form">
           <fieldset class="dcf-collapsible-fieldset">
             <legend>Checkboxes</legend>
@@ -586,17 +676,10 @@
             </div>
           </fieldset>
         </form>
-        <script>
-          window.addEventListener('inlineJSReady', function() {
-            WDN.initializePlugin('collapsible-fieldsets');
-          }, false);
-        </script>
       </div>
 
+      <h2 class="dcf-mt-6">Popups</h2>
       <div class="dcf-mt-6 dcf-mb-6">
-        <h2 class="dcf-mt-6">Popups</h2>
-
-
         <h3 class="dcf-mt-6">Popups Special</h3>
 
         <div class="dcf-popup">
@@ -659,7 +742,7 @@
 
         <h3 class="dcf-mt-6">Popups Points</h3>
 
-        <div class="dcf-grid dcf-grid-thirds dcf-col-gap-10 dcf-row-gap-10" style="width: fit-content;">
+        <div class="dcf-d-grid dcf-grid-cols-3 dcf-col-gap-10 dcf-row-gap-10" style="width: fit-content;">
 
           <!-- Bottom -->
           <div class="dcf-popup" data-position="bottom" data-alignment="start" data-point="true">
@@ -751,7 +834,7 @@
         </div>
 
         <h3 class="dcf-mt-6">Popups No Points</h3>
-        <div class="dcf-grid dcf-grid-thirds dcf-col-gap-10 dcf-row-gap-10" style="width: fit-content;">
+        <div class="dcf-d-grid dcf-grid-cols-3 dcf-col-gap-10 dcf-row-gap-10" style="width: fit-content;">
 
           <!-- Bottom -->
           <div class="dcf-popup" data-position="bottom" data-alignment="start">
@@ -844,28 +927,18 @@
         </div>
       </div>
 
+      <h2 class="dcf-mt-6">Figcaption Toggle</h2>
       <div class="dcf-mt-6 dcf-mb-6">
-        <h2 class="dcf-mt-6">Figcaption Toggle</h2>
-
         <figure>
-          <div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
-            <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_6.0/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
-          </div>
+          <img class="dcf-16x9 dcf-1x1@sm dcf-d-block dcf-obj-fit-cover" src="wdn/templates_6.0/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
           <figcaption class="dcf-figcaption dcf-figcaption-toggle">
             Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
             <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small>
           </figcaption>
         </figure>
-
-        <script>
-          window.addEventListener('inlineJSReady', function() {
-            WDN.initializePlugin('figcaption-toggles');
-          }, false);
-        </script>
       </div>
 
       <h2 class="dcf-mt-6">Forms</h2>
-
       <form class="dcf-form" action="?" method="post">
         <fieldset>
           <legend>Sample Form Content</legend>
@@ -889,6 +962,11 @@
           <div class="dcf-form-group">
             <label for="field-disabled">Disabled Field</label>
             <input id="field-disabled" type="text" disabled>
+          </div>
+
+          <div class="dcf-form-group dcf-datepicker">
+            <label for="sample-date-2">Datepicker</label>
+            <input id="sample-date-2" type="text" name="sample-date-2">
           </div>
 
           <div class="dcf-form-group">
@@ -977,13 +1055,16 @@
         <input class="dcf-btn dcf-btn-primary" name="submit" type="submit" value="Submit">
       </form>
 
+      <h2 class="dcf-mt-6">Progress</h2>
       <div class="dcf-d-flex dcf-ai-center dcf-mt-6">
         <label class="dcf-label dcf-mr-3" for="progress-bar-2">Progress</label>
         <progress class="dcf-w-12" id="progress-bar-2" value="70" max="100">70 %</progress>
       </div>
 
-      <h2 class="dcf-mt-6">Input Groups</h2>
+      <h2 class="dcf-mt-6">Spinner</h2>
+      <div class="dcf-progress-spinner"></div>
 
+      <h2 class="dcf-mt-6">Input Groups</h2>
       <h3 class="dcf-mt-5 dcf-regular">With Add-on Before Input</h3>
       <form class="dcf-form dcf-form-controls-inline" id="input-group-addon-example-1" action="?" method="get">
         <label class="dcf-label dcf-mr-4" for="input-group-example-input-1">Username</label>
@@ -1011,52 +1092,113 @@
         </div>
       </form>
 
-      <h2 class="dcf-mt-9">Modals</h2>
+      <h2 class="dcf-mt-9">Dialogs</h2>
+      <button id="my-modal-1-open" class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-1" disabled>Dialog Show 1</button>
+      <dialog id="my-modal-1" class="dcf-dialog">
+        <div class="dcf-dialog-header">
+          <h2>Dialog Heading 1</h2>
+          <button class="dcf-btn-close-dialog" autofocus>Close</button>
+        </div>
+        <div class="dcf-dialog-content">
+          <p>Dialog 1 Contents</p>
+          <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-1" disabled>Dialog Show 1</button>
+          <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-2" disabled>Dialog Show 2</button>
+        </div>
+      </dialog>
 
-      <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-1" type="button" disabled>Toggle Modal 1</button>
-      <div class="dcf-modal" id="test-modal-1" hidden>
-        <div class="dcf-modal-wrapper">
-          <div class="dcf-modal-header">
-            <h3>Example Modal 1</h3>
-            <button class="dcf-btn-close-modal">Close</button>
-          </div>
-          <div class="dcf-modal-content">
-            <p>This is my modal content. <a href="#">Fusce</a> dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper. Curabitur blandit <a href="#">tempus porttitor</a>. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-1" type="button" disabled>Toggle Modal 1</button>
-            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-2" type="button" disabled>Toggle Modal 2</button>
+      <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-2" disabled>Dialog Show 2</button>
+      <dialog id="my-modal-2" class="dcf-dialog">
+        <div class="dcf-dialog-header">
+          <h2>Dialog Heading 2</h2>
+          <button class="dcf-btn-close-dialog" autofocus>Close</button>
+        </div>
+        <div class="dcf-dialog-content">
+          <p>Dialog 2 Contents</p>
+          <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-1" disabled>Dialog Show 1</button>
+          <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-2" disabled>Dialog Show 2</button>
+        </div>
+      </dialog>
+
+      <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-3" disabled>Confirm Close</button>
+      <dialog id="my-modal-3" class="dcf-dialog" data-confirmClose="Are you sure bud?" >
+        <div class="dcf-dialog-header">
+          <h2>Dialog Heading 3</h2>
+          <button class="dcf-btn-close-dialog" autofocus>Close</button>
+        </div>
+        <div class="dcf-dialog-content">
+          <p>Dialog 3 Contents</p>
+        </div>
+      </dialog>
+
+      <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-4" disabled>Deliberate close only</button>
+      <dialog id="my-modal-4" class="dcf-dialog" data-deliberateCloseOnly="true">
+        <div class="dcf-dialog-header">
+          <h2>Dialog Heading 4</h2>
+          <button class="dcf-btn-close-dialog" autofocus>Close</button>
+        </div>
+        <div class="dcf-dialog-content">
+          <p>Dialog 4 Contents</p>
+        </div>
+      </dialog>
+
+
+      <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-5" disabled>Mediahub Embed</button>
+      <dialog id="my-modal-5" class="dcf-dialog">
+        <div class="dcf-dialog-header">
+          <h2>Mediahub iframe embed Heading 5</h2>
+          <button class="dcf-btn-close-dialog" autofocus>Close</button>
+        </div>
+        <div class="dcf-dialog-content">
+          <div style="padding-top: 56.25%; overflow: hidden; position:relative; -webkit-box-flex: 1; flex-grow: 1;">
+            <iframe
+            style="bottom: 0; left: 0; position: absolute; right: 0; top: 0; border: 0; height: 100%; width: 100%;"
+            src="https://mediahub.unl.edu/media/24339?format=iframe&autoplay=0"
+            title="Video Player:  UNL CMS Training March 18"
+            allow="autoplay"
+            allowfullscreen
+            ></iframe>
           </div>
         </div>
-      </div>
+      </dialog>
 
-      <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-2" type="button" disabled>Toggle Modal 2</button>
-      <div class="dcf-modal" id="test-modal-2" hidden>
-        <div class="dcf-modal-wrapper">
-          <div class="dcf-modal-header">
-            <h3>Example Modal 2</h3>
-            <button class="dcf-btn-close-modal">Close</button>
-          </div>
-          <div class="dcf-modal-content">
-            <p>This is my modal content. <a href="#">Fusce</a> dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper. Curabitur blandit <a href="#">tempus porttitor</a>. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-            <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor. Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-1" type="button" disabled>Toggle Modal 1</button>
-            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-modal" data-toggles-modal="test-modal-2" type="button" disabled>Toggle Modal 2</button>
-          </div>
+      <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-6" disabled>non-modal</button>
+      <dialog id="my-modal-6" class="dcf-dialog dcf-dialog-non-modal">
+        <div class="dcf-dialog-header">
+          <h2>Non modal 6</h2>
+          <button class="dcf-btn-close-dialog" autofocus>Close</button>
         </div>
-      </div>
+        <div class="dcf-dialog-content">
+          <p>Dialog 6 Contents</p>
+        </div>
+      </dialog>
 
-      <h2 class="dcf-mt-9">Events Band</h2>
-      <div id="events"></div>
-      <script>
-        window.addEventListener('inlineJSReady', function() {
-          WDN.initializePlugin('events', {container: '#events', layout: 'grid', limit: 4, rooms: false, featured: true, pinned_limit: 1});
-        });
-      </script>
+      <h2 class="dcf-mt-9">Events List</h2>
+      <h3 class="dcf-mt-3">Default, limit 6</h3>
+      <div class="unl-event-list" data-url="http://events.unl.edu/" data-limit="6"></div>
+
+      <h3 class="dcf-mt-3">Grid, limit 6</h3>
+      <div class="unl-event-list" data-url="http://events.unl.edu/" data-layout="grid" data-limit="6"></div>
+
+      <h3 class="dcf-mt-3">Band, limit 6</h3>
+      <div class="unl-event-list" data-url="http://events.unl.edu/" data-layout="band" data-limit="6"></div>
+
+      <h3 class="dcf-mt-3">Default, limit 3</h3>
+      <div class="unl-event-list" data-url="https://events.unl.edu/search/?q=union" data-limit="3"></div>
+
+      <h3 class="dcf-mt-3">Default, limit 6, Pinned limit 3</h3>
+      <div class="unl-event-list" data-url="https://events.unl.edu/nic/audience/?audience=Public" data-limit="6" data-pinned_limit="3"></div>
+
+      <h3 class="dcf-mt-3">Grid, limit 6, Pinned limit 3</h3>
+      <div class="unl-event-list" data-url="https://events.unl.edu/nic/audience/?audience=Public" data-layout="grid" data-limit="6" data-pinned_limit="3"></div>
+
+      <h3 class="dcf-mt-3">Band, limit 6, Pinned limit 3</h3>
+      <div class="unl-event-list" data-url="https://events.unl.edu/nic/audience/?audience=Public" data-layout="band" data-limit="6" data-pinned_limit="3"></div>
+
+      <h3 class="dcf-mt-3">Featured, limit 6, w/ rooms</h3>
+      <div class="unl-event-list" data-url="https://events.unl.edu/featured" data-rooms="true" data-limit="6"></div>
+
 
       <h2 class="dcf-mt-9">Tables</h2>
-
       <div class="dcf-mt-6 dcf-mb-9 dcf-overflow-x-auto">
         <table class="dcf-table">
           <caption>This is the caption for a table. Utility classes are used to right-align numbers in this table.</caption>
@@ -1178,7 +1320,6 @@
       </div>
 
       <h2 class="dcf-mt-9">Tabs</h2>
-
       <a href="#group3-panel2">Go To Tabs Panel #group3-panel2</a>
 
       <div class="dcf-tabs dcf-tabs-responsive dcf-mt-6 dcf-mb-9">
@@ -1243,18 +1384,6 @@
         </section>
       </div>
 
-      <script>
-      window.addEventListener('inlineJSReady', function() {
-          WDN.initializePlugin('tabs');
-          // let tabGroup3 = document.getElementById('tabGroup3')
-          // tabGroup3.addEventListener('ready', () => {
-          //   document.querySelector(`.dcf-tab[href="#group3-panel2"]`).dispatchEvent((new Event('commandSwitch')));
-          //   document.querySelector(`.dcf-tab[href="#group3-panel1"]`).hidden = true;
-          //   document.querySelector(`.dcf-tab[href="#group3-panel3"]`).hidden = true;
-          // });
-        }, false);
-      </script>
-
       <h2 class="dcf-mt-9">Pagination</h2>
       <nav class="dcf-pagination">
         <ol class="dcf-list-inline" role="list">
@@ -1268,11 +1397,6 @@
           <li><a class="dcf-pagination-last" href="#">Last</a></li>
         </ol>
       </nav>
-      <script>
-        window.addEventListener('inlineJSReady', function() {
-          WDN.initializePlugin('pagination');
-        }, false);
-      </script>
 
       <div class="dcf-bleed dcf-wrapper unl-bg-lighter-gray">
         <h2 class="dcf-mt-9">Card As Link</h2>
@@ -1282,9 +1406,9 @@
               <h2><a class="dcf-card-link" href="https://www.unl.edu/">Church-key ennui gastropub</a></h2>
               <p>Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <abbr>VHS</abbr> blog Pitchfork authentic paleo ethical messenger bag. Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh. <a href="https://www.google.com/">Here's another link</a></p>
             </div>
-            <div class="dcf-ratio dcf-ratio-16x9 dcf-1st">
+            <div class="dcf-1st">
               <img
-                      class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100%"
+                      class="dcf-16x9 dcf-obj-fit-cover dcf-h-100% dcf-w-100%"
                       sizes="(min-width: 41.956em) 43vw, 88vw"
                       srcset="wdn/templates_6.0/images/dev/150821-tunnel-325-sm-min.jpg 284w,
                   wdn/templates_6.0/images/dev/150821-tunnel-325-md-min.jpg 505w,
@@ -1296,83 +1420,116 @@
           </div>
         </div>
       </div>
-      <script>
-        window.addEventListener('inlineJSReady', function() {
-          WDN.initializePlugin('card-as-link');
-        });
-      </script>
 
-      <div class="dcf-pb-8 dcf-w-max-md">
-        <h2>User Info</h2>
-        <form class="dcf-form dcf-form-controls-inline" id="user-lookup" action="?" method="get">
-          <label class="dcf-label dcf-mr-4" for="uid">User Lookup</label>
-          <div class="dcf-input-group">
-            <input id="uid" name="uid" type="text" required="">
-            <button class="dcf-btn dcf-btn-primary" type="submit">Show User</button>
-          </div>
-        </form>
-        <div class="dcf-mt-6" id="user-display"></div>
+      <h2>Search Selects</h2>
+      <form class="dcf-form" action="?" method="get">
+          <fieldset>
+              <legend>Normal</legend>
+              <label for="my-search-select">Favorite food/drink</label>
+              <select id="my-search-select" class="dcf-search-select" hidden>
+                  <optgroup label="Hot Foods">
+                      <option value="pizza">Pizza</option>
+                      <option value="burger">Burger</option>
+                      <option value="cookie">Cookie</option>
+                  </optgroup>
+                  <optgroup label="Cold Foods">
+                      <option value="icee">ICEE</option>
+                      <option value="ice cream">Ice cream</option>
+                  </optgroup>
+                  <option value="coke">Coke</option>
+              </select>
+
+              <label for="my-search-select-2">Preferred ice cream flavors</label>
+              <select id="my-search-select-2" class="dcf-search-select" multiple hidden>
+                  <option value="vanilla">Vanilla</option>
+                  <option value="chocolate">Chocolate</option>
+                  <option value="strawberry">Strawberry</option>
+                  <option value="coffee">Coffee</option>
+                  <option value="rocky road">Rocky Road</option>
+                  <option value="superman">Superman</option>
+                  <option value="butter pecan">Butter Pecan</option>
+                  <option value="cookie dough">Cookie Dough</option>
+              </select>
+          </fieldset>
+      </form>
+
+      <form class="dcf-form" action="?" method="get">
+          <fieldset>
+              <legend>Disabled</legend>
+              <label for="my-search-select">Favorite food/drink</label>
+              <select id="my-search-select" class="dcf-search-select" disabled hidden>
+                  <optgroup label="Hot Foods">
+                      <option value="pizza">Pizza</option>
+                      <option value="burger">Burger</option>
+                      <option value="cookie">Cookie</option>
+                  </optgroup>
+                  <optgroup label="Cold Foods">
+                      <option value="icee">ICEE</option>
+                      <option value="ice cream">Ice cream</option>
+                  </optgroup>
+                  <option value="coke">Coke</option>
+              </select>
+
+              <label for="my-search-select-2">Preferred ice cream flavors</label>
+              <select id="my-search-select-2" class="dcf-search-select" disabled multiple hidden>
+                  <option value="vanilla">Vanilla</option>
+                  <option value="chocolate">Chocolate</option>
+                  <option value="strawberry">Strawberry</option>
+                  <option value="coffee">Coffee</option>
+                  <option value="rocky road">Rocky Road</option>
+                  <option value="superman">Superman</option>
+                  <option value="butter pecan">Butter Pecan</option>
+                  <option value="cookie dough">Cookie Dough</option>
+              </select>
+          </fieldset>
+      </form>
+
+      <form class="dcf-form" action="?" method="get">
+          <fieldset>
+              <legend>Selected</legend>
+              <label for="my-search-select">Favorite food/drink</label>
+              <select id="my-search-select" class="dcf-search-select" hidden>
+                  <optgroup label="Hot Foods">
+                      <option value="pizza" selected="selected">Pizza</option>
+                      <option value="burger">Burger</option>
+                      <option value="cookie">Cookie</option>
+                  </optgroup>
+                  <optgroup label="Cold Foods">
+                      <option value="icee">ICEE</option>
+                      <option value="ice cream">Ice cream</option>
+                  </optgroup>
+                  <option value="coke">Coke</option>
+              </select>
+
+              <label for="my-search-select-2">Preferred ice cream flavors</label>
+              <select id="my-search-select-2" class="dcf-search-select" multiple hidden>
+                  <option value="vanilla">Vanilla</option>
+                  <option value="chocolate" selected="selected">Chocolate</option>
+                  <option value="strawberry">Strawberry</option>
+                  <option value="coffee" selected="selected">Coffee</option>
+                  <option value="rocky road">Rocky Road</option>
+                  <option value="superman" selected="selected">Superman</option>
+                  <option value="butter pecan">Butter Pecan</option>
+                  <option value="cookie dough">Cookie Dough</option>
+              </select>
+          </fieldset>
+      </form>
+
+      <h2>Gallery</h2>
+      <div class="dcf-mb-12">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_320.jpg" alt="Placeholder image." data-cutline="Cras justo odio, dapibus ac facilisis in, egestas eget quam." data-credit="Photo by Jane Doe">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_480.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_600.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_768.jpg" alt="Placeholder image." data-cutline="asdasdada" data-credit="asdasdad">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_1040.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_320.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_480.jpg" alt="Placeholder image." data-cutline="asdasdada" data-credit="asdasdad">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_600.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_768.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_1040.jpg" alt="Placeholder image." data-cutline="asdasdada" data-credit="asdasdad">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_320.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_480.jpg" alt="Placeholder image.">
       </div>
-      <script>
-        var userLookupForm = document.getElementById('user-lookup');
-        var userDisplayContainer = document.getElementById('user-display');
-        var extras = {department: true};
-        var userDisplayContent  = 'User not specified or logged in.';
-        userDisplayContainer.innerHTML = userDisplayContent;
-
-        function setUserDisplay(user) {
-          if (user && user.unlID) {
-
-            if (!('department' in user) || !('name' in user.department)) {
-              user.department = {
-                name: 'Unknown',
-                website: ''
-              };
-            }
-
-            userDisplayContent = '<dl>\
-                <dt>UNL ID</dt><dd>' + user.unlID + '</dd>\
-                <dt>First Name</dt><dd>' + user.firstName + '</dd>\
-                <dt>Last Name</dt><dd>' + user.lastName + '</dd>\
-                <dt>Full Name</dt><dd>' + user.fullName + '</dd>\
-                <dt>Display Name</dt><dd>' + user.displayName + '</dd>\
-                <dt>Email Address</dt><dd>' + user.emailAddress + '</dd>\
-                <dt>Postal Address</dt><dd>' + user.postalAddress + '</dd>\
-                <dt>Phone Number</dt><dd>' + user.phoneNumber + '</dd>\
-                <dt>UNL Title</dt><dd>' + user.title + '</dd>\
-                <dt>UNL Org Unit #</dt><dd>' + user.orgUnitNumber + '</dd>\
-                <dt>UNL Org Unit Name</dt><dd>' + user.orgUnitName + '</dd>\
-                <dt>UNL Primary Affiliation</dt><dd>' + user.primaryAffiliation + '</dd>\
-                <dt>Avatar</dt><dd><img src="' + user.avatar + '" alt="UNL avatar of ' + user.displayName + '"></dd>\
-                <dt>Profile URL</dt><dd><a href="' + user.profileUrl + '">View Profile</a></dd>\
-                <dt>Department Name</dt><dd>' + user.department.name + '</dd>\
-                <dt>Department Website</dt><dd>' + user.department.website + '</dd>\
-                </dl>';
-          }
-          userDisplayContainer.innerHTML = userDisplayContent;
-        }
-
-        userLookupForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          require(['idm'], function(idm) {
-            userDisplayContent = '<p>User not ' + userLookupForm.uid.value + ' found.</p>';
-            idm.getUser(userLookupForm.uid.value, extras, setUserDisplay);
-          });
-        });
-
-        window.addEventListener('idmStateSet', function(){
-          require(['idm'], function(idm) {
-            userDisplayContent  = '<p>User not logged in.</p>';
-            if (idm.isLoggedIn()) {
-              var sessionUser = idm.getSessionUser();
-              if (sessionUser && sessionUser.uid) {
-                userLookupForm.uid.value = sessionUser.uid;
-              }
-              idm.getSessionUserExtras(extras, setUserDisplay);
-            }
-          });
-        });
-      </script>
 
     <!-- InstanceEndEditable -->
     </div>
