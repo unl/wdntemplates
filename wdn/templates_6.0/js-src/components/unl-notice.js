@@ -5,7 +5,7 @@ export default class UNLNotice extends DCFNotice {
         if (!('noticeContainerClassList' in options)) {
             options.noticeContainerClassList = [
                 'dcf-d-grid',
-                'dcf-w-max-xl',
+                'dcf-max-w-xl',
                 'dcf-ml-auto',
                 'dcf-mr-auto',
                 'dcf-mb-6',
