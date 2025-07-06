@@ -31,7 +31,6 @@
   --bg-btn-tertiary: #{var.$bg-color-button-tertiary};
   --bg-card: #{var.$bg-color-card-light-mode};
   --bg-code: #{var.$bg-color-code-light-mode};
-  --bg-dialog: #{var.$bg-color-dialog-light-mode};
   --bg-input: #{var.$bg-color-input-light-mode};
   --bg-input-disabled: #{var.$bg-color-input-disabled-light-mode};
   --bg-input-group-addon: #{var.$bg-color-input-group-addon-light-mode};
@@ -41,8 +40,6 @@
   --bg-lighter-gray: #{var.$bg-color-lighter-gray-light-mode};
   --bg-lightest-gray: #{var.$bg-color-lightest-gray-light-mode};
   --bg-mark: #{var.$bg-color-mark-light-mode};
-  --bg-modal-header: #{var.$bg-color-modal-header-light-mode};
-  --bg-modal-wrapper: #{var.$bg-color-modal-wrapper-light-mode};
   --bg-overlay-dark: #{var.$bg-color-overlay-dark-light-mode};
   --bg-overlay-light: #{var.$bg-color-overlay-light-light-mode};
   --bg-pre: #{var.$bg-color-pre};
@@ -194,7 +191,6 @@
     --bg-btn-tertiary: #{var.$bg-color-button-tertiary};
     --bg-card: #{var.$bg-color-card-dark-mode};
     --bg-code: #{var.$bg-color-code-dark-mode};
-    --bg-dialog: #{var.$bg-color-dialog-dark-mode};
     --bg-input: #{var.$bg-color-input-dark-mode};
     --bg-input-disabled: #{var.$bg-color-input-disabled-dark-mode};
     --bg-input-group-addon: #{var.$bg-color-input-group-addon-dark-mode};
@@ -204,8 +200,6 @@
     --bg-lighter-gray: #{var.$bg-color-lighter-gray-dark-mode};
     --bg-lightest-gray: #{var.$bg-color-lightest-gray-dark-mode};
     --bg-mark: #{var.$bg-color-mark-dark-mode};
-    --bg-modal-header: #{var.$bg-color-modal-header-dark-mode};
-    --bg-modal-wrapper: #{var.$bg-color-modal-wrapper-dark-mode};
     --bg-overlay-dark: #{var.$bg-color-overlay-dark-dark-mode};
     --bg-overlay-light: #{var.$bg-color-overlay-light-dark-mode};
     --bg-pre: #{var.$bg-color-pre};

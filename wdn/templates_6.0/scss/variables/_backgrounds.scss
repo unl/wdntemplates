@@ -24,8 +24,6 @@
   $bg-color-overlay-dark-dark-mode: color.adjust(color_palette.$black, $alpha: -0.25) !default,
   $bg-color-overlay-light-light-mode: color.adjust(color_palette.$lighter-gray, $alpha: -0.1) !default,
   $bg-color-overlay-light-dark-mode: color.adjust(color_palette.$black, $alpha: -0.25) !default,
-  $bg-color-dialog-light-mode: color_palette.$white !default,
-  $bg-color-dialog-dark-mode: color_palette.$darker-gray-s1 !default
 
 );
 
