@@ -31,6 +31,7 @@
   --bg-btn-tertiary: #{var.$bg-color-button-tertiary};
   --bg-card: #{var.$bg-color-card-light-mode};
   --bg-code: #{var.$bg-color-code-light-mode};
+  --bg-dialog: #{var.$bg-color-body-light-mode};
   --bg-input: #{var.$bg-color-input-light-mode};
   --bg-input-disabled: #{var.$bg-color-input-disabled-light-mode};
   --bg-input-group-addon: #{var.$bg-color-input-group-addon-light-mode};
@@ -191,6 +192,7 @@
     --bg-btn-tertiary: #{var.$bg-color-button-tertiary};
     --bg-card: #{var.$bg-color-card-dark-mode};
     --bg-code: #{var.$bg-color-code-dark-mode};
+    --bg-dialog: #{var.$bg-color-body-dark-mode};
     --bg-input: #{var.$bg-color-input-dark-mode};
     --bg-input-disabled: #{var.$bg-color-input-disabled-dark-mode};
     --bg-input-group-addon: #{var.$bg-color-input-group-addon-dark-mode};
