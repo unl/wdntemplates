@@ -2,7 +2,7 @@ let base = '';
 const placeholders = new Map();
 
 const wdnFinalJsUrlPlugin = {
-    name: 'vite:final-url',
+    name: 'WDN: Final Url',
     enforce: 'pre',
 
     configResolved(config) {

@@ -43,6 +43,11 @@
     @include mixins.mt-1;
   }
 
+
+  .unl-idm-services {
+    max-height: 56vh;
+  }
+
 }
 
 
@@ -89,6 +94,10 @@
     margin-bottom: 0;
   }
 
+  .unl-idm-services {
+    max-height: 84vh;
+  }
+
 }
 
 
@@ -102,7 +111,7 @@
 
 @media only screen and (min-width: #{var.$ms-31}em) {
 
-  .unl-idm-grid-apps {
+  .unl-idm-grid-services {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 

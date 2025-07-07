@@ -2,6 +2,7 @@
 // THEME / VARIABLES
 ////////////////////
 
+
 // These files should not output CSS themselves
 /*
     We do not forward @dcf/scss/variables since
@@ -52,6 +53,7 @@
 @forward "./collapsible-fieldsets";
 @forward "./datepickers";
 @forward "./details-summary";
+@forward "./dialogs";
 @forward "./figcaption-toggles";
 @forward "./figures";
 @forward "./font-size";
@@ -61,7 +63,6 @@
 @forward "./input-groups";
 @forward "./lists";
 @forward "./marks";
-@forward "./modals";
 @forward "./navigation";
 @forward "./notices";
 @forward "./pagination";

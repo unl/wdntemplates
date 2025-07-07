@@ -1,7 +1,7 @@
 export default class UNLAnalytics {
-    debugMode = false;
+    debugMode = import.meta.env.VITE_UNL_GA4_DEBUG_MODE || false;
 
-    unlProp = 'G-XYGRJGQFZK';
+    unlProp = import.meta.env.VITE_UNL_GA4_PROP || 'G-XYGRJGQFZK';
 
     thisURL = String(window.location);
 
@@ -25,6 +25,10 @@ export default class UNLAnalytics {
             this.unlProp = options.unlProp;
         }
 
+        window.UNL.analytics.callTrackEvent = (category, eventAction, label, value, noninteractive=false) => {
+            this.callTrackEvent(category, eventAction, label, value, noninteractive);
+        };
+
         // Checks to see if we have initialized things already
         const initializeCheck = document.querySelector('script[data-unl-initialized="true"]');
         if (initializeCheck !== null) {
@@ -34,9 +38,31 @@ export default class UNLAnalytics {
         // Gets the head to append scripts to
         const headTag = document.querySelector('head');
 
+        const larueScript = document.querySelector('script[src*="larue.unl.edu"],script[src*="webanalytics.unl.edu"]');
+        if (larueScript === null) {
+            const newLarueScriptTag = document.createElement('script');
+            newLarueScriptTag.innerHTML = `
+                var _paq = window._paq = window._paq || [];
+                /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+                _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+                _paq.push(["setCookieDomain", "*.unl.edu"]);
+                _paq.push(["setDomains", ["*.unl.edu"]]);
+                _paq.push(['trackPageView']);
+                _paq.push(['enableLinkTracking']);
+                (function() {
+                    var u="https://larue.unl.edu/";
+                    _paq.push(['setTrackerUrl', u+'main.php']);
+                    _paq.push(['setSiteId', '1']);
+                    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                    g.async=true; g.src=u+'main.js'; s.parentNode.insertBefore(g,s);
+                })();
+            `;
+            headTag.append(newLarueScriptTag);
+        }
+
         // Checks if we have a script for the gtag on the page already
         // If not we will create the script
-        const gtagScriptCheck = document.querySelector(`script[src*=googletagmanager][src*=${this.unlProp}]`);
+        const gtagScriptCheck = document.querySelector(`script[src*=googletagmanager][src*='${this.unlProp}']`);
         if (gtagScriptCheck === null) {
             // Creates new gtag script and set up values to match GA4 specifications
             // Append it to the head element
