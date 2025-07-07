@@ -6,49 +6,74 @@
 @use "../variables/" as var;
 @use "../mixins/" as mixins;
 
-.unl dialog#dcf-search-results{
-  width: 100%;
-  max-width: 100%;
-  height: fit-content;
-  max-height: 100%;
-}
 
-.unl dialog#dcf-search-results:open{
-  display: grid;
-  grid-template-rows: auto 1fr;
-}
+@layer components {
 
-// This is only here because safari does not support `:open`
-.unl dialog#dcf-search-results.dcf-dialog-is-open{
-  display: grid;
-  grid-template-rows: auto 1fr;
-}
-
-.unl .dcf-search-input:focus {
-  box-shadow: 0 0 0 3px var.$scarlet, 0 0 0 5px var.$border-color-input-focus !important;
-}
-
-
-@include mixins.mq(md, max, width) {
-
-  .unl .dcf-search-toggle-wrapper {
-    display: none;
+  .unl dialog#dcf-search-dialog {
+    width: 100%;
+    max-width: 100%;
+    height: fit-content;
+    max-height: 100%;
   }
 
-}
 
-@include mixins.mq(md, min, width) {
-
-  .unl .dcf-search {
-    max-width: #{var.$ms18}em; // TODO: remove when global nav is added back to header
+  .unl dialog#dcf-search-dialog::backdrop {
+    backdrop-filter: blur(3px);
+    background-color: var(--bg-overlay-light);
   }
 
-  .unl .dcf-search-toggle-wrapper {
-    display: flex;
+
+  // Safari does not support `:open`, `.dcf-dialog-is-open` is our fallback
+  .unl dialog#dcf-search-dialog:open,
+  .unl dialog#dcf-search-dialog.dcf-dialog-is-open {
+    display: grid;
+    grid-template-rows: auto 1fr;
   }
 
-  .unl .dcf-search-toggle-label {
-    padding: #{var.$ms-10}em #{var.$ms08}em #{var.$ms-10}em #{var.$ms-2}em;
+
+  .unl .dcf-search-input:focus-visible {
+    box-shadow: 0 0 0 3px var.$scarlet, 0 0 0 5px var.$border-color-input-focus !important;
+  }
+
+
+  @include mixins.mq(md, max, width) {
+
+    .unl dialog#dcf-search-dialog {
+      height: calc(100vh - var.$length-em-9);
+    }
+
+
+    .unl .dcf-dialog-header-header {
+      border-bottom-color: tr;
+    }
+
+
+    .unl .dcf-search-toggle-wrapper,
+    .unl dialog#dcf-search-dialog .dcf-btn-close-dialog {
+      display: none;
+    }
+
+  }
+
+
+  @include mixins.mq(md, min, width) {
+
+    .unl dialog#dcf-search-dialog {
+      height: fit-content;
+    }
+
+
+    .unl .dcf-dialog-header-header {
+      border-bottom-color: var.$scarlet-shade;
+      height: #{var.$ms07}em;
+      padding-top: #{var.$ms-12}em;
+    }
+
+
+    .unl .dcf-search-toggle-wrapper {
+      display: flex;
+    }
+
   }
 
 }

@@ -7,117 +7,275 @@
 @use "../mixins/" as mixins;
 
 
-.unl a.dcf-idm-login:link,
-.unl a.dcf-idm-login:visited {
-  color: var.$color-brand-alpha;
-}
+@layer components {
 
-
-.unl a.dcf-idm-login:hover {
-  color: var.$color-hover;
-}
-
-
-.unl .dcf-idm-options {
-  width: #{var.$ms14}em;
-}
-
-
-@include mixins.mq(md, max, width) {
-
-  .unl .dcf-idm-login {
-    flex-direction: column;
+  .unl a.dcf-idm-login:link,
+  .unl a.dcf-idm-login:visited {
+    color: var.$color-brand-alpha;
   }
+
+
+  .unl a.dcf-idm-login:hover {
+    color: var.$color-hover;
+  }
+
 
   .unl .dcf-idm-options {
-    left: 50%;
-    top: -2px;
-    transform: translate(-50%, -100%);
+    width: #{var.$ms14}em;
   }
 
-  .unl .dcf-idm-toggle {
-    display: none;
+
+  @include mixins.mq(md, max, width) {
+
+    .unl .dcf-idm-login {
+      flex-direction: column;
+    }
+
+    .unl .dcf-idm-options {
+      left: 50%;
+      top: -2px;
+      transform: translate(-50%, -100%);
+    }
+
+    .unl .dcf-idm-toggle {
+      display: none;
+    }
+
+    .unl .dcf-idm-label {
+      @include mixins.mt-1;
+    }
+
+
+    .unl-idm-services {
+      max-height: 56vh;
+    }
+
   }
 
-  .unl .dcf-idm-label {
-    @include mixins.mt-1;
+
+  @include mixins.mq(md, min, width) {
+
+    .unl .dcf-idm-toggle {
+      display: flex;
+    }
+
+    .unl .dcf-idm-img {
+      fill: var.$light-gray;
+    }
+
+
+    .unl .dcf-idm-options {
+      @include mixins.mt-2;
+      right: 0;
+      top: 100%;
+    }
+
+    // Add arrow above options popover and horizontally center under button text
+    .unl .dcf-idm-login[aria-expanded="true"] ~ .dcf-idm-options::before {
+      border-left: #{var.$ms-4}em solid transparent;
+      border-right: #{var.$ms-4}em solid transparent;
+      border-bottom: #{var.$ms-4}em solid rgba(36,36,35,.95);
+      top: -#{var.$ms-4}em;
+      content: '';
+      display: block;
+      @include mixins.h-2;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+      @include mixins.w-2;
+    }
+
+    .unl .dcf-idm-options li:last-child {
+      margin-bottom: 0;
+    }
+
+    .unl-idm-services {
+      max-height: 84vh;
+    }
+
   }
 
-}
 
+  @container only screen and (min-width: #{var.$ms-22}em) {
 
-@include mixins.mq(md, min, width) {
+    .unl-idm-card-list {
+      columns: 2;
+    }
 
-  .unl .dcf-idm-toggle {
-    display: flex;
   }
 
-  .unl .dcf-idm-login {
-    flex-direction: row-reverse;
+  @media only screen and (min-width: #{var.$ms-31}em) {
+
+    .unl-idm-grid-services {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .unl-idm-ms365 {
+      grid-column: 1 / span 1;
+    }
+
+    .unl-idm-canvas {
+      grid-column: 2 / span 1;
+      grid-row: 1 / 2;
+    }
+
+    .unl-idm-other-services {
+      grid-column: 3 / span 2;
+      grid-row-end: 2;
+    }
+
   }
 
-  .unl .dcf-idm-img {
-    fill: var.$light-gray;
+
+
+
+
+
+
+
+  .unl dialog#dcf-idm-dialog {
+    width: 100%;
+    max-width: 100%;
+    // height: fit-content;
+    max-height: 100%;
   }
 
-  .unl .dcf-idm-label {
-    @include mixins.mr-3;
+
+  .unl dialog#dcf-idm-dialog::backdrop {
+    backdrop-filter: blur(3px);
+    background-color: var(--bg-overlay-light);
   }
 
-  .unl .dcf-idm-options {
-    @include mixins.mt-2;
-    right: 0;
-    top: 100%;
+
+  .unl-idm-status-quasi .unl-idm-avatar img {
+    /* filter: blur(2px) grayscale(.5); */
+    filter: blur(3px);
   }
 
-  // Add arrow above options popover and horizontally center under button text
-  .unl .dcf-idm-login[aria-expanded="true"] ~ .dcf-idm-options::before {
-    border-left: #{var.$ms-4}em solid transparent;
-    border-right: #{var.$ms-4}em solid transparent;
-    border-bottom: #{var.$ms-4}em solid rgba(36,36,35,.95);
-    top: -#{var.$ms-4}em;
-    content: '';
-    display: block;
-    @include mixins.h-2;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-    @include mixins.w-2;
+  .unl-idm-services {
+    mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) var(--mask-height),
+      rgba(0, 0, 0, 1) calc(100% - var(--mask-height)),
+      rgba(0, 0, 0, 0));
+    padding-block: var(--mask-height);
   }
 
-  .unl .dcf-idm-options li:last-child {
+  .unl-icon-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: calc(1.78em / 2) calc(1.78em / 2) 1fr;
+  }
+
+  .unl-icon-card-icon {
+    grid-area: 1 / 1 / 3 / -1;
+  }
+
+  .unl-icon-card-body {
+    --icon-size: 1.78em;
+    --padding: 1em;
+    --clip-block: calc(var(--icon-size) / 2);
+    --clip-inline: calc(calc(var(--icon-size) / 2) + var(--padding));
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, calc(50% + var(--clip-inline)) 0, calc(50% + var(--clip-inline)) var(--clip-block), calc(50% - var(--clip-inline)) var(--clip-block), calc(50% - var(--clip-inline)) 0, 0 0);
+    grid-area: 2 / 1 / -1 / -1;
+  }
+
+  .unl-idm-card-body {
+    container-type: inline-size;
+  }
+
+  .unl-idm-card-list li {
+    break-inside: avoid-column;
     margin-bottom: 0;
   }
 
-}
+  /* .unl-idm-card-list li + li {
+    margin-top: 1rem;
+  } */
 
 
-@container only screen and (min-width: #{var.$ms-22}em) {
 
-  .unl-idm-card-list {
-    columns: 2;
+
+  @container (min-width: 23.68em) {
+
+    /* .unl-idm-card-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    } */
+
+    .unl-idm-card-list {
+      grid-auto-flow: column;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .unl-idm-ms365-list {
+      grid-template-rows: auto auto;
+    }
+
+    .unl-idm-other-services-list {
+      grid-template-rows: auto auto auto auto auto;
+    }
+
   }
 
-}
+  @media only screen and (max-width: 56.12em) {
 
-@media only screen and (min-width: #{var.$ms-31}em) {
+    .unl-idm-content {
+      bottom: 4.21em;
+      grid-template-rows: 1fr auto;
+      height: 56vh;
+    }
 
-  .unl-idm-grid-apps {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    .unl-idm-personal {
+      border-bottom: 1px solid rgba(0,0,0,.25); // Remove when IDM JS is working
+      bottom: 4.21em;
+      grid-row: 2 / 3;
+      z-index: 9999;
+    }
+
+    .unl-idm-services {
+      --mask-height: 1.78em;
+      grid-row: 1 / 2;
+    }
+
   }
 
-  .unl-idm-ms365 {
-    grid-column: 1 / span 1;
+  @media only screen and (min-width: 56.12em) {
+
+    .unl-idm-content {
+      grid-template-rows: auto 1fr;
+      max-height: 84vh;
+    }
+
+    .unl-idm-services {
+      --mask-height: 3.16em;
+      border-top: 3px solid #d00000;
+    }
+
   }
 
-  .unl-idm-canvas {
-    grid-column: 2 / span 1;
-    grid-row: 1 / 2;
-  }
+  @media only screen and (min-width: 84.18em) {
 
-  .unl-idm-other-services {
-    grid-column: 3 / span 2;
-    grid-row-end: 2;
+    .unl-idm-services {
+      --mask-height: 3.16em;
+    }
+
+    .unl-idm-grid-services {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .unl-idm-ms365 {
+      grid-column: 1 / span 1;
+    }
+
+    .unl-idm-canvas {
+      grid-column: 2 / span 1;
+      grid-row: 1 / 2;
+    }
+
+    .unl-idm-other-services {
+      grid-column: 3 / span 2;
+      grid-row-end: 2;
+    }
+
   }
 
 }

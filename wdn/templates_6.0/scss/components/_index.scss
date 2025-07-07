@@ -1,23 +1,32 @@
-@forward "@dcf/scss/components/";
-@forward "./app";
-@forward "./badges";
-@forward "./breadcrumbs";
-@forward "./buttons";
-@forward "./cards";
-@forward "./cta";
-@forward "./footer";
-@forward "./forms-checkboxes-radios";
-@forward "./forms-selects";
-@forward "./forms";
-@forward "./global";
-@forward "./header";
-@forward "./headings";
-@forward "./heroes-default";
-@forward "./heroes-legacy";
-@forward "./heroes-notch-stripe";
-@forward "./heroes";
-@forward "./input-groups";
-@forward "./nav-local";
-@forward "./nav-menu";
-@forward "./nav-toggle";
-@forward "./regions";
+/////////////////////
+// THEME / COMPONENTS
+/////////////////////
+
+
+@use "sass:meta";
+
+
+@layer components {
+  @include meta.load-css("@dcf/scss/components/");
+  @include meta.load-css("./app");
+  @include meta.load-css("./badges");
+  @include meta.load-css("./breadcrumbs");
+  @include meta.load-css("./buttons");
+  @include meta.load-css("./cta");
+  @include meta.load-css("./footer");
+  @include meta.load-css("./forms-checkboxes-radios");
+  @include meta.load-css("./forms-selects");
+  @include meta.load-css("./forms");
+  @include meta.load-css("./global");
+  @include meta.load-css("./header");
+  @include meta.load-css("./headings");
+  @include meta.load-css("./heroes-default");
+  @include meta.load-css("./heroes-legacy");
+  @include meta.load-css("./heroes-notch-stripe");
+  @include meta.load-css("./heroes");
+  @include meta.load-css("./input-groups");
+  @include meta.load-css("./nav-local");
+  @include meta.load-css("./nav-menu");
+  @include meta.load-css("./nav-toggle");
+  @include meta.load-css("./regions");
+};

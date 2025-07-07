@@ -7,36 +7,58 @@
 @use "../mixins/" as mixins;
 
 
-.unl .dcf-header-global .dcf-list-cta a,
-.unl .dcf-header-global .dcf-list-cta a:visited {
-  @include mixins.cream;
-  @include mixins.txt-decor-none;
+.unl .dcf-nav-toggle-btn-menu ~ .dcf-nav-menu-content .dcf-cta  {
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  visibility: hidden;
 }
 
 
-.unl .dcf-cta {
-  display: grid;
+.unl .dcf-nav-toggle-btn-menu[aria-expanded="true"] ~ .dcf-nav-menu-content .dcf-cta  {
+  pointer-events: auto;
+  visibility: visible;
 }
 
 
-// @include mixins.mq(md, max, width) {
-//
-//   .unl .dcf-cta-header {
-//     display: none;
-//   }
-//
+// .unl .dcf-header-global .dcf-list-cta a,
+// .unl .dcf-header-global .dcf-list-cta a:visited {
+//   @include mixins.cream;
+//   @include mixins.txt-decor-none;
 // }
+
+
+// .unl .dcf-cta {
+//   display: grid;
+// }
+
+
+.unl .dcf-cta a {
+  padding-block: var.$length-em-1 !important;
+}
+
+
+@include mixins.mq(md, max, width) {
+
+  // .unl .dcf-cta-header {
+  //   display: none;
+  // }
+
+
+  .unl .dcf-cta {
+    grid-gap: var.$length-em-6 var.$length-vw-1;
+  }
+
+}
 
 
 @media (min-width: #{var.$ms24}em) {
 
   .unl .dcf-cta {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
 
 }
-
 
 
 @include mixins.mq(md, min, width) {
@@ -46,10 +68,10 @@
   // }
 
 
-  .unl .dcf-cta {
-    display: flex;
-    flex-grow: 3;
-  }
+  // .unl .dcf-cta {
+  //   display: flex;
+  //   flex-grow: 3;
+  // }
 
 
   // Add arrow above options popover and horizontally center under button text

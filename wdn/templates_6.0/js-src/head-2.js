@@ -12,7 +12,7 @@ import UNLPopupUrl from '@js-src/plugins/multi/popup.js?finalUrl';
 import UNLDialogUrl from '@js-src/plugins/multi/dialog.js?finalUrl';
 import UNLGalleryUrl from '@js-src/plugins/multi/gallery.js?finalUrl';
 import UNLEventListUrl from '@js-src/plugins/multi/event-list.js?finalUrl';
-
+import UNLCardAsLink from '@js-src/plugins/multi/card-as-link.js?finalUrl';
 import UNLIdmUrl from '@js-src/plugins/single/idm.js?finalUrl';
 import UNLSearchUrl from '@js-src/plugins/single/search.js?finalUrl';
 import UNLQaUrl from '@js-src/plugins/single/qa.js?finalUrl';
@@ -81,6 +81,13 @@ window.UNL.autoLoader = {
                 customConfig: {},
                 onPluginLoadedElement: null,
                 url: UNLPaginationUrl,
+            },
+            UNLCardAsLink: {
+                optOutSelector: null,
+                optInSelector: null,
+                customConfig: {},
+                onPluginLoadedElement: null,
+                url: UNLCardAsLink,
             },
             UNLSlideshow: {
                 optOutSelector: null,
@@ -184,6 +191,18 @@ if (typeof window.UNL.analytics === 'undefined') {
         config: {
             enabled: true,
         },
+        callTrackEvent: () => {
+            //TODO: This needs to be nicer
+            return '';
+        },
+        loaded: false,
+    };
+}
+if (typeof window.UNL.chat === 'undefined') {
+    window.UNL.chat = {
+        config: {
+            enabled: true,
+        },
         loaded: false,
     };
 }
@@ -194,6 +213,15 @@ if (typeof window.UNL.idm === 'undefined') {
             loginRoute: null,
             logoutRoute: null,
             serverUser: null,
+        },
+        getPrimaryAffiliation: () => {
+            return 'None';
+        },
+        getDisplayName: () => {
+            return '';
+        },
+        getEmailAddress: () => {
+            return '';
         },
         loaded: false,
         // pushConfig is redefined by the IDM component once loaded

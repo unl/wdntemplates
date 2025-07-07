@@ -1,4 +1,4 @@
-/* jshint undef: true, unused: true, node: true */
+/* eslint-disable */
 "use strict";
 
 var childProcess = require('child_process');

@@ -8,10 +8,10 @@
 @use "../mixins/" as mixins;
 
 
-.unl .dcf-nav-local {
-  transform: translateZ(0);
-  z-index: 998;
-}
+// .unl .dcf-nav-local {
+//   transform: translateZ(0);
+//   z-index: 998;
+// }
 
 
 .unl .dcf-nav-local a:hover {
@@ -27,6 +27,11 @@
 
 .unl .dcf-nav-local ul ul {
   margin-top: 0;
+}
+
+
+.unl .dcf-nav-local > ul > li > a {
+  font-weight: 600;
 }
 
 
@@ -55,6 +60,11 @@
 
 
 @include mixins.mq(md, min, width) {
+
+  // .unl .dcf-nav-local {
+  //   padding-inline: var.$length-vw-2;
+  // }
+
 
   .unl .dcf-nav-local > ul:first-child {
     grid-template-columns: repeat(6, 1fr);
@@ -99,7 +109,7 @@
   }
 
 
-  .unl .dcf-nav-toggle-btn-menu ~ .dcf-nav-local ul ul  {
+  .unl .dcf-nav-toggle-btn-menu ~ .dcf-nav-menu-content .dcf-nav-local ul ul  {
     pointer-events: none;
     position: absolute;
     top: 100%;
@@ -107,14 +117,14 @@
   }
 
 
-  .unl .dcf-nav-toggle-btn-menu[aria-expanded="true"] ~ .dcf-nav-local ul ul  {
+  .unl .dcf-nav-toggle-btn-menu[aria-expanded="true"] ~ .dcf-nav-menu-content .dcf-nav-local ul ul  {
     pointer-events: auto;
     visibility: visible;
   }
 
 
   // navigation transition to be added later
-  .unl .dcf-nav-toggle-btn-menu ~ .dcf-nav-local ul ul:after {
+  .unl .dcf-nav-toggle-btn-menu ~ .dcf-nav-menu-content .dcf-nav-local ul ul:after {
     background-image: linear-gradient(to bottom, #a00000, color.adjust(#a00000, $alpha: -1));
     content: '';
     left: 0;
@@ -128,7 +138,7 @@
   }
 
 
-  .unl .dcf-nav-toggle-btn-menu[aria-expanded="true"] ~ .dcf-nav-local ul ul:after {
+  .unl .dcf-nav-toggle-btn-menu[aria-expanded="true"] ~ .dcf-nav-menu-content .dcf-nav-local ul ul:after {
     transform: scaleY(1);
   }
 
