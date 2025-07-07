@@ -54,7 +54,7 @@
   }
 
 
-  .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu {
+  .unl .dcf-nav .dcf-nav-toggle-btn-menu {
     display: none;
   }
 
@@ -94,8 +94,20 @@
   }
 
 
-  .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu {
-    display: flex;
+  .unl .dcf-nav .dcf-nav-toggle-btn-menu {
+    padding: .67rem 0;
   }
+
+
+//   .unl .dcf-nav-dialog .dcf-nav .dcf-nav-toggle-btn-menu {
+//     transform: scaleY(2);
+//     transition: transform 2s ease-in-out;
+//   }
+//
+//
+//   .unl .dcf-nav-dialog.dcf-modal-open .dcf-nav .dcf-nav-toggle-btn-menu {
+//     transform: scaleY(1);
+//     transition: transform .05s ease-in-out;
+//   }
 
 }
