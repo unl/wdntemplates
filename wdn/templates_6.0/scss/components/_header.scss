@@ -9,13 +9,13 @@
 
 .unl .dcf-header-global a:link,
 .unl .dcf-header-global a:visited,
-.unl .dcf-header-global button {
+.unl .dcf-btn-header-global {
   color: var.$color-brand-alpha; // Force visited links in the global header and logo to remain scarlet (light mode) and lightest gray (dark mode).
 }
 
 
 .unl .dcf-header-global a:hover,
-.unl .dcf-header-global button:hover,
+.unl .dcf-btn-header-global:hover,
 .unl .dcf-site-group a:hover {
   color: var.$color-hover;
 }
