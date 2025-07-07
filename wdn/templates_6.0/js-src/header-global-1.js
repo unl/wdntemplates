@@ -1,5 +1,6 @@
 import UNLBannerUrl from '@js-src/components/UNL-banner.js?finalUrl';
 import UNLAnalyticsUrl from '@js-src/components/UNL-analytics.js?finalUrl';
+import UNLAlertUrl from '@js-src/components/unl-alert.js?finalUrl';
 import { loadJS } from './lib/unl-utility?inline';
 
 // Set up these values if they are not defined already
@@ -47,7 +48,8 @@ async function loadBanner() {
     window.UNL.banner.loaded = true;
 }
 async function loadAlert() {
-    console.log('alert load placeholder');
+    const UNLAlert = await import(UNLAlertUrl);
+    new UNLAlert.default();
 
     window.UNL.alert.loaded = true;
 }

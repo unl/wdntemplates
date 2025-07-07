@@ -132,6 +132,8 @@ export default ({ mode }) => {
                     'components/component.dialog'               : 'wdn/templates_6.0/js-src/components/unl-dialog.js',
                     'components/component.gallery'              : 'wdn/templates_6.0/js-src/components/unl-gallery.js',
                     'components/component.banner'               : 'wdn/templates_6.0/js-src/components/unl-banner.js',
+                    'components/component.alert'                : 'wdn/templates_6.0/js-src/components/unl-alert.js',
+
                     'components/component.idm'                  : 'wdn/templates_6.0/js-src/components/unl-idm.js',
                     'components/component.search'               : 'wdn/templates_6.0/js-src/components/unl-search.js',
                     'components/component.qa'                   : 'wdn/templates_6.0/js-src/components/unl-qa.js',
