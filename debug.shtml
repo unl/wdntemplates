@@ -35,53 +35,53 @@
 -->
 
   <header class="dcf-header" id="dcf-header" role="banner">
-    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/idm.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/search.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-1.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-1.html" -->
-    <!-- InstanceBeginEditable name="affiliation" -->
-    <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-1.html" -->
-    <!-- InstanceBeginEditable name="titlegraphic" -->
-    <a class="dcf-txt-h6" href="https://arts.unl.edu/music">
-      Glenn Korff School of Music
-    </a>
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-group.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-1.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-btn.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-content-1.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-1.html" -->
-    <!-- InstanceBeginEditable name="navlinks" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-1.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-1.html" -->
-    <!-- InstanceBeginEditable name="navvisit" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-1.html" -->
-    <!-- InstanceBeginEditable name="navapply" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/give-1.html" -->
-    <!-- InstanceBeginEditable name="navgive" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/give-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-content-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-2.html" -->
-  </header>
+  <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/idm.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/search.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-2.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-1.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-1.html" -->
+  <!-- InstanceBeginEditable name="affiliation" -->
+  <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
+  <!-- InstanceEndEditable -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-2.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-1.html" -->
+  <!-- InstanceBeginEditable name="titlegraphic" -->
+  <a class="dcf-txt-h6" href="https://arts.unl.edu/music">
+    Glenn Korff School of Music
+  </a>
+  <!-- InstanceEndEditable -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-2.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-2.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-group.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-1.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-btn.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-content-1.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-1.html" -->
+  <!-- InstanceBeginEditable name="navlinks" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
+  <!-- InstanceEndEditable -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-2.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/cta-1.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/visit-1.html" -->
+  <!-- InstanceBeginEditable name="navvisit" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
+  <!-- InstanceEndEditable -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/visit-2.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/apply-1.html" -->
+  <!-- InstanceBeginEditable name="navapply" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
+  <!-- InstanceEndEditable -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/apply-2.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/give-1.html" -->
+  <!-- InstanceBeginEditable name="navgive" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
+  <!-- InstanceEndEditable -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/give-2.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/cta-2.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-content-2.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-2.html" -->
+</header>
 
   <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
     <!-- InstanceBeginEditable name="highlighted" -->
@@ -955,7 +955,7 @@
 
           <div class="dcf-form-group">
             <label for="password">Password</label>
-            <input id="password" type="password" aria-describedby="pwd-help">
+            <input id="password" type="password" autocomplete="none" aria-describedby="pwd-help">
             <p class="dcf-form-help" id="pwd-help">Make sure it’s a good one!</p>
           </div>
 
@@ -1456,8 +1456,8 @@
       <form class="dcf-form" action="?" method="get">
           <fieldset>
               <legend>Disabled</legend>
-              <label for="my-search-select">Favorite food/drink</label>
-              <select id="my-search-select" class="dcf-search-select" disabled hidden>
+              <label for="my-search-select-3">Favorite food/drink</label>
+              <select id="my-search-select-3" class="dcf-search-select" disabled hidden>
                   <optgroup label="Hot Foods">
                       <option value="pizza">Pizza</option>
                       <option value="burger">Burger</option>
@@ -1470,8 +1470,8 @@
                   <option value="coke">Coke</option>
               </select>
 
-              <label for="my-search-select-2">Preferred ice cream flavors</label>
-              <select id="my-search-select-2" class="dcf-search-select" disabled multiple hidden>
+              <label for="my-search-select-4">Preferred ice cream flavors</label>
+              <select id="my-search-select-4" class="dcf-search-select" disabled multiple hidden>
                   <option value="vanilla">Vanilla</option>
                   <option value="chocolate">Chocolate</option>
                   <option value="strawberry">Strawberry</option>
@@ -1487,8 +1487,8 @@
       <form class="dcf-form" action="?" method="get">
           <fieldset>
               <legend>Selected</legend>
-              <label for="my-search-select">Favorite food/drink</label>
-              <select id="my-search-select" class="dcf-search-select" hidden>
+              <label for="my-search-select-5">Favorite food/drink</label>
+              <select id="my-search-select-5" class="dcf-search-select" hidden>
                   <optgroup label="Hot Foods">
                       <option value="pizza" selected="selected">Pizza</option>
                       <option value="burger">Burger</option>
@@ -1501,8 +1501,8 @@
                   <option value="coke">Coke</option>
               </select>
 
-              <label for="my-search-select-2">Preferred ice cream flavors</label>
-              <select id="my-search-select-2" class="dcf-search-select" multiple hidden>
+              <label for="my-search-select-6">Preferred ice cream flavors</label>
+              <select id="my-search-select-6" class="dcf-search-select" multiple hidden>
                   <option value="vanilla">Vanilla</option>
                   <option value="chocolate" selected="selected">Chocolate</option>
                   <option value="strawberry">Strawberry</option>
@@ -1535,17 +1535,14 @@
     </div>
   </main>
   <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
-    <!-- InstanceBeginEditable name="optionalfooter" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-1.html" -->
-    <!-- InstanceBeginEditable name="contactinfo" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/local/footer-local.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/noscript.html" -->
-  </footer>
-  <!--#include virtual="/wdn/templates_6.0/includes/global/js-body-local.html" -->
-  <!-- InstanceBeginEditable name="jsbody" -->
+  <!-- InstanceBeginEditable name="optionalfooter" -->
   <!-- InstanceEndEditable -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-1.html" -->
+  <!-- InstanceBeginEditable name="contactinfo" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/local/footer-local.html" -->
+  <!-- InstanceEndEditable -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-2.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-3-std.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/noscript.html" -->
 </body>
 <!-- InstanceEnd --></html>

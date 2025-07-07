@@ -79,8 +79,9 @@ export default ({ mode }) => {
             //   Specifically allows us to do top level await
             target: 'esnext',
 
-            // outDir needs to be `.` or else built url paths will be missing wdn/templates_6.0
-            outDir: '.',
+            // outDir is where the files will be built to
+            // wdnCleanupPlugin will copy them to the correct locations after the fact
+            outDir: './dist',
 
             // We are using library mode to keep the ES module exports in the final built code
             lib: {

@@ -56,7 +56,7 @@ export default class UNLSearch {
     constructor() {
         this.searchContainer = document.getElementById('dcf-search');
 
-        this.searchDialogElement = document.querySelector('dialog#dcf-search-results');
+        this.searchDialogElement = document.querySelector('dialog#dcf-search-dialog');
         if (this.searchDialogElement === null) {
             throw new Error('Missing Search Dialog Element');
         }
@@ -238,7 +238,7 @@ export default class UNLSearch {
 
     /**
      * Creates the search iframe element
-     * 
+     *
      * @returns { Void }
      */
     #createSearchFrame() {
@@ -265,7 +265,7 @@ export default class UNLSearch {
 
     /**
      * Activates search input
-     * 
+     *
      * @returns { Void }
      */
     #activateSearch() {
@@ -275,8 +275,8 @@ export default class UNLSearch {
 
     /**
      * Posts new queries into the iframe instead of having to reload it every time
-     * 
-     * @param { String } query 
+     *
+     * @param { String } query
      * @returns { Void }
      */
     #postSearchMessage(query) {
@@ -286,7 +286,7 @@ export default class UNLSearch {
 
     /**
      * Function to be called when the dialog closes
-     * 
+     *
      * @returns { Void }
      */
     #dialogClosed() {
@@ -305,7 +305,7 @@ export default class UNLSearch {
 
     /**
      * Function to be called when the dialog Opens
-     * 
+     *
      * @returns { Void }
      */
     #dialogOpened() {
