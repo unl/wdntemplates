@@ -1,176 +1,72 @@
-<style>
-
-  .unl-idm-status-quasi .unl-idm-avatar {
-    /* filter: blur(2px) grayscale(.5); */
-    filter: blur(3px);
-  }
-
-  .unl-idm-services {
-    mask-image: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 1) var(--mask-height),
-      rgba(0, 0, 0, 1) calc(100% - var(--mask-height)),
-      rgba(0, 0, 0, 0));
-    padding-block: var(--mask-height);
-  }
-
-  .unl-icon-card {
-    grid-template-columns: 1fr;
-    grid-template-rows: calc(1.78em / 2) calc(1.78em / 2) 1fr;
-  }
-
-  .unl-icon-card-icon {
-    grid-area: 1 / 1 / 3 / -1;
-  }
-
-  .unl-icon-card-body {
-    --icon-size: 1.78em;
-    --padding: 1em;
-    --clip-block: calc(var(--icon-size) / 2);
-    --clip-inline: calc(calc(var(--icon-size) / 2) + var(--padding));
-    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, calc(50% + var(--clip-inline)) 0, calc(50% + var(--clip-inline)) var(--clip-block), calc(50% - var(--clip-inline)) var(--clip-block), calc(50% - var(--clip-inline)) 0, 0 0);
-    grid-area: 2 / 1 / -1 / -1;
-  }
-
-  .unl-idm-card-body {
-    container-type: inline-size;
-  }
-
-  .unl-idm-card-list li {
-    break-inside: avoid-column;
-    margin-bottom: 0;
-  }
-
-  /* .unl-idm-card-list li + li {
-    margin-top: 1rem;
-  } */
-
-
-
-
-  @container (min-width: 23.68em) {
-
-    /* .unl-idm-card-list {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    } */
-
-    .unl-idm-card-list {
-      grid-auto-flow: column;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .unl-idm-ms365-list {
-      grid-template-rows: auto auto;
-    }
-
-    .unl-idm-other-services-list {
-      grid-template-rows: auto auto auto auto auto;
-    }
-
-  }
-
-  @media only screen and (max-width: 56.12em) {
-
-    .unl-idm-content {
-      bottom: 4.21em;
-      grid-template-rows: 1fr auto;
-      height: 56vh;
-    }
-
-    .unl-idm-personal {
-      border-bottom: 1px solid rgba(0,0,0,.25); // Remove when IDM JS is working
-      bottom: 4.21em;
-      grid-row: 2 / 3;
-      z-index: 9999;
-    }
-
-    .unl-idm-services {
-      --mask-height: 1.78em;
-      grid-row: 1 / 2;
-    }
-
-  }
-
-  @media only screen and (min-width: 56.12em) {
-
-    .unl-idm-content {
-      grid-template-rows: auto 1fr;
-      max-height: 84vh;
-    }
-
-    .unl-idm-services {
-      --mask-height: 3.16em;
-      border-top: 3px solid #d00000;
-    }
-
-  }
-
-  @media only screen and (min-width: 84.18em) {
-
-    .unl-idm-services {
-      --mask-height: 3.16em;
-    }
-
-    .unl-idm-grid-services {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .unl-idm-ms365 {
-      grid-column: 1 / span 1;
-    }
-
-    .unl-idm-canvas {
-      grid-column: 2 / span 1;
-      grid-row: 1 / 2;
-    }
-
-    .unl-idm-other-services {
-      grid-column: 3 / span 2;
-      grid-row-end: 2;
-    }
-
-  }
-
-</style>
-
 <div class="dcf-idm dcf-flex-grow-1 dcf-d-flex dcf-jc-flex-end dcf-relative dcf-h-100% dcf-w-min-0 dcf-d-none@print" id="dcf-idm">
-  <div class="dcf-idm-status-logged-out dcf-idm-toggle dcf-ai-center dcf-relative dcf-header-global-item dcf-w-min-0" style="z-index: 999999;">
-    <a class="dcf-idm-login dcf-d-flex dcf-ai-center dcf-jc-center dcf-h-100% dcf-w-100%" href="https://shib.unl.edu/idp/profile/cas/login?service=https%3A%2F%2Fwww.unl.edu%2F">
-      <svg class="dcf-idm-img dcf-txt-sm dcf-h-6 dcf-w-6 dcf-circle unl-bg-cream" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
+  <div class="dcf-idm-status-logged-out dcf-idm-toggle dcf-ai-center dcf-relative dcf-w-min-0" style="z-index: 999999;">
+    <!-- <a class="dcf-idm-login dcf-d-flex dcf-ai-center dcf-jc-center dcf-col-gap-3 dcf-h-100% dcf-w-100%" href="https://shib.unl.edu/idp/profile/cas/login?service=https%3A%2F%2Fwww.unl.edu%2F">
+      <span class="dcf-idm-label dcf-txt-xs">Log In</span>
+      <svg class="dcf-idm-img dcf-h-6 dcf-w-6 dcf-circle unl-bg-cream" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
         <path d="M47.9 24C47.9 10.8 37.2.1 24 .1S.1 10.8.1 24c0 6.3 2.5 12.3 6.9 16.8 4.5 4.6 10.6 7.1 17 7.1s12.5-2.5 17-7.1c4.5-4.5 6.9-10.5 6.9-16.8zm-45 0C2.9 12.4 12.4 2.9 24 2.9c11.6 0 21.1 9.5 21.1 21.1 0 5.2-1.9 10.1-5.3 14-2.1-1.2-5-2.2-8.2-3.4-.7-.3-1.5-.5-2.2-.8v-3.1c1.1-.7 2.6-2.4 2.9-5.7.8-.6 1.2-1.6 1.2-2.9 0-1.1-.4-2.1-1-2.7.5-1.6 1.3-4.2.7-6.5-.7-3-4.6-4-7.7-4-2.7 0-5.9.8-7.2 2.8-1.2 0-2 .5-2.4 1-1.6 1.7-.8 4.8-.3 6.6-.6.6-1 1.6-1 2.7 0 1.3.5 2.3 1.2 2.9.3 3.4 1.8 5 2.9 5.7v3.1c-.7.2-1.4.5-2 .7-3.1 1.1-6.2 2.2-8.4 3.5-3.5-3.7-5.4-8.7-5.4-13.9zm7.5 16.1c2-1 4.6-2 7.2-2.9 1-.4 2-.7 3-1.1.5-.2.9-.7.9-1.3v-4.9c0-.6-.4-1.1-.9-1.3-.1 0-2-.8-2-4.5 0-.7-.5-1.2-1.1-1.4-.1-.3-.1-.9 0-1.2.6-.1 1.1-.7 1.1-1.4 0-.3-.1-.6-.2-1.2-.9-3.2-.7-4-.4-4.3.1-.1.4-.1 1 0 .7.1 1.5-.3 1.6-1 .3-1 2.5-1.9 5-1.9s4.7.8 5 1.9c.4 1.7-.4 4.1-.7 5.2-.2.6-.3.9-.3 1.3 0 .7.5 1.2 1.1 1.4.1.3.1.9 0 1.2-.6.1-1.1.7-1.1 1.4 0 3.7-1.9 4.5-2 4.5-.6.2-1 .7-1 1.3v4.9c0 .6.4 1.1.9 1.3 1.1.4 2.1.8 3.2 1.2 2.7 1 5.2 1.9 7.1 2.8-3.8 3.3-8.6 5-13.7 5-5.2 0-9.9-1.8-13.7-5z"></path>
       </svg>
-      <span class="dcf-idm-label dcf-mr-3 dcf-txt-xs">Log In</span>
-    </a>
+    </a> -->
+    <button class="dcf-btn-header-global dcf-idm-toggle-button dcf-btn-toggle-dialog dcf-d-flex dcf-ai-center dcf-col-gap-3 dcf-w-100% dcf-p-0 dcf-b-0 dcf-bg-transparent" data-controls="dcf-idm-dialog" type="button" disabled>
+      <span class="dcf-idm-label dcf-txt-xs">Log In</span>
+      <svg class="dcf-idm-img dcf-h-6 dcf-w-6 dcf-circle unl-bg-cream" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
+        <path d="M47.9 24C47.9 10.8 37.2.1 24 .1S.1 10.8.1 24c0 6.3 2.5 12.3 6.9 16.8 4.5 4.6 10.6 7.1 17 7.1s12.5-2.5 17-7.1c4.5-4.5 6.9-10.5 6.9-16.8zm-45 0C2.9 12.4 12.4 2.9 24 2.9c11.6 0 21.1 9.5 21.1 21.1 0 5.2-1.9 10.1-5.3 14-2.1-1.2-5-2.2-8.2-3.4-.7-.3-1.5-.5-2.2-.8v-3.1c1.1-.7 2.6-2.4 2.9-5.7.8-.6 1.2-1.6 1.2-2.9 0-1.1-.4-2.1-1-2.7.5-1.6 1.3-4.2.7-6.5-.7-3-4.6-4-7.7-4-2.7 0-5.9.8-7.2 2.8-1.2 0-2 .5-2.4 1-1.6 1.7-.8 4.8-.3 6.6-.6.6-1 1.6-1 2.7 0 1.3.5 2.3 1.2 2.9.3 3.4 1.8 5 2.9 5.7v3.1c-.7.2-1.4.5-2 .7-3.1 1.1-6.2 2.2-8.4 3.5-3.5-3.7-5.4-8.7-5.4-13.9zm7.5 16.1c2-1 4.6-2 7.2-2.9 1-.4 2-.7 3-1.1.5-.2.9-.7.9-1.3v-4.9c0-.6-.4-1.1-.9-1.3-.1 0-2-.8-2-4.5 0-.7-.5-1.2-1.1-1.4-.1-.3-.1-.9 0-1.2.6-.1 1.1-.7 1.1-1.4 0-.3-.1-.6-.2-1.2-.9-3.2-.7-4-.4-4.3.1-.1.4-.1 1 0 .7.1 1.5-.3 1.6-1 .3-1 2.5-1.9 5-1.9s4.7.8 5 1.9c.4 1.7-.4 4.1-.7 5.2-.2.6-.3.9-.3 1.3 0 .7.5 1.2 1.1 1.4.1.3.1.9 0 1.2-.6.1-1.1.7-1.1 1.4 0 3.7-1.9 4.5-2 4.5-.6.2-1 .7-1 1.3v4.9c0 .6.4 1.1.9 1.3 1.1.4 2.1.8 3.2 1.2 2.7 1 5.2 1.9 7.1 2.8-3.8 3.3-8.6 5-13.7 5-5.2 0-9.9-1.8-13.7-5z"></path>
+      </svg>
+    </button>
   </div>
   <div class="dcf-idm-status-logged-in dcf-idm-toggle dcf-ai-center dcf-relative dcf-header-global-item dcf-w-min-0">
   </div>
 
-  <div class="dcf-fixed dcf-top-0 dcf-left-0 dcf-h-100vh dcf-w-100vw dcf-bg-overlay-light" style="z-index:9999;">
-    <div class="unl-idm-content dcf-fixed dcf-d-grid dcf-w-100% dcf-overflow-y-auto unl-bg-cream">
+  <dialog class="dcf-dialog dcf-header-global-dialog dcf-idm-dialog dcf-m-0 dcf-b-0" id="dcf-idm-dialog" data-default-classes="false">
+    <div class="dcf-dialog-header unl-bg-scarlet">
+      <h2 class="dcf-sr-only">Log In</h2>
+      <div class="dcf-dialog-header-header dcf-d-flex dcf-ai-center dcf-jc-flex-end dcf-col-gap-7 dcf-wrapper dcf-bb-1 dcf-bb-solid dcf-bt-3 dcf-bt-solid unl-bt-scarlet">
+        <button class="dcf-btn-header-global dcf-btn-close-dialog dcf-lh-1 dcf-d-flex dcf-ai-center dcf-col-gap-3 dcf-p-0 dcf-b-0 dcf-bg-transparent">
+          <span class="dcf-idm-toggle-label dcf-txt-xs unl-cream">Close</span>
+          <span class="dcf-d-flex dcf-ai-center dcf-jc-center dcf-h-6 dcf-w-6 dcf-circle unl-scarlet unl-bg-cream">
+            <svg class="dcf-h-4 dcf-w-4 dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 24 24">
+              <path d="M13.4 12 23.7 1.7c.4-.4.4-1 0-1.4s-1-.4-1.4 0L12 10.6 1.7.3C1.3-.1.7-.1.3.3s-.4 1 0 1.4L10.6 12 .3 22.3c-.4.4-.4 1 0 1.4.2.2.4.3.7.3s.5-.1.7-.3L12 13.4l10.3 10.3c.2.2.5.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4L13.4 12z"></path>
+            </svg>
+          </span>
+        </button>
+        <button class="dcf-btn-header-global dcf-search-toggle-button dcf-btn-toggle-dialog dcf-nav-toggle-btn dcf-nav-toggle-btn-search dcf-search-toggle dcf-d-flex dcf-ai-center dcf-col-gap-3 dcf-p-0 dcf-b-0 dcf-bg-transparent" data-controls="dcf-search-results" type="button" hidden>
+          <span class="dcf-search-toggle-label dcf-txt-xs unl-cream">Search</span>
+          <span class="dcf-d-flex dcf-ai-center dcf-jc-center dcf-h-6 dcf-w-6 dcf-circle unl-scarlet unl-bg-cream">
+            <svg class="dcf-h-4 dcf-w-4 dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
+              <path d="M18 36a17.9 17.9 0 0 0 11.27-4l15.31 15.41a2 2 0 0 0 2.84-2.82L32.08 29.18A18 18 0 1 0 18 36zm0-32A14 14 0 1 1 4 18 14 14 0 0 1 18 4z"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="unl-idm-content dcf-dialog-content dcf-fixed dcf-d-grid dcf-w-100% dcf-overflow-y-auto unl-bg-cream">
 
       <!-- <div class="dcf-h-100% dcf-relative dcf-overflow-y-auto unl-bg-scarlet" style="max-height: 84vh;/*box-shadow:0 0 8px #9d0000;*/">
         <div class="dcf-h-100% dcf-wrapper dcf-pt-7 dcf-pb-8 dcf-overflow-y-auto" style="mask-image:linear-gradient(to bottom, rgba(0, 0, 0, 1) calc(100% - 3.16rem), rgba(0, 0, 0, 0));"> -->
 
 
-      <div class="unl-idm-personal unl-idm-status-quasi unl-cream unl-bg-scarlet dcf-w-100% dcf-d-flex dcf-ai-center dcf-col-gap-4 dcf-wrapper dcf-pt-3 dcf-pb-3 dcf-overflow-x-hidden">
+      <div class="unl-idm-personal unl-idm-status-quasi unl-cream unl-bg-scarlet dcf-w-100% dcf-d-flex dcf-ai-center dcf-col-gap-4 dcf-wrapper dcf-pt-5 dcf-logo-lockup dcf-overflow-x-hidden">
         <div class="dcf-min-w-0 dcf-flex-shrink-0 dcf-h-8 dcf-w-8 dcf-circle dcf-overflow-clip unl-bg-cream unl-scarlet" style="padding: 2px">
-          <div class="unl-idm-avatar">
+          <div class="unl-idm-avatar dcf-circle dcf-overflow-clip">
             <!-- <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 24 24">
               <path d="M12 0C5.383 0 0 5.383 0 12c0 3.18 1.232 6.177 3.469 8.438l.001.001A11.92 11.92 0 0 0 12 24c3.234 0 6.268-1.27 8.542-3.573A11.93 11.93 0 0 0 24 12c0-6.617-5.383-12-12-12zm8.095 19.428c-1.055-.626-5.165-2.116-5.595-2.275v-1.848c.502-.309 1.384-1.107 1.49-2.935.386-.226.63-.727.63-1.37 0-.578-.197-1.043-.52-1.294.242-.757.681-2.145.385-3.327C16.138 4.992 14.256 4.5 12.75 4.5c-1.342 0-2.982.391-3.569 1.456-.704-.034-1.096.273-1.29.531-.635.838-.216 2.368.02 3.21-.329.249-.531.718-.531 1.303 0 .643.244 1.144.63 1.37.106 1.828.989 2.626 1.49 2.935v1.848c-.385.144-4.464 1.625-5.583 2.288A10.92 10.92 0 0 1 1 12C1 5.935 5.935 1 12 1s11 4.935 11 11a10.92 10.92 0 0 1-2.905 7.428z"></path>
               <path fill="none" d="M0 0h24v24H0z"></path>
             </svg> -->
-            <img class="dcf-h-100% dcf-w-100% dcf-circle" src="images/ryandee.jpg" alt=""></img>
+            <img class="dcf-h-100% dcf-w-100%" src="images/ryandee.jpg" alt=""></img>
           </div>
         </div>
         <div class="dcf-flex-grow-1 dcf-min-w-0">
-          <div class="unl-idm-firstname-lastname dcf-bold dcf-truncate">Ryan Dee</div>
+          <div class="unl-idm-firstname-lastname dcf-bold dcf-truncate">
+            <a class="unl-cream" href="#">Log in to this site as Ryan Dee</a>
+          </div>
           <ul class="dcf-min-w-0 dcf-d-flex dcf-flex-wrap dcf-col-gap-4" role="list" style="margin-bottom: 0">
-            <li class="dcf-txt-xs" style="margin-bottom: 0"><a class="unl-cream" href="#">View Profile</a></li>
-            <li class="dcf-txt-xs" style="margin-bottom: 0"><a class="unl-cream" href="#">Log In To This Site</a></li>
-            <li class="dcf-txt-xs" style="margin-bottom: 0"><a class="unl-cream" href="#">Log Out</a></li>
+            <!-- <li class="dcf-txt-xs" style="margin-bottom: 0"><a class="unl-cream" href="#">View Profile</a></li> -->
+            <!-- <li class="dcf-txt-xs" style="margin-bottom: 0"><a class="unl-cream" href="#">Log In To This Site</a></li> -->
+            <li class="dcf-txt-xs" style="margin-bottom: 0"><a class="unl-cream" href="#">Log out</a></li>
           </ul>
         </div>
       </div>
+
+
       <div class="unl-idm-services dcf-wrapper dcf-overflow-y-auto unl-bg-cream">
           <!-- <div class="dcf-pt-8 dcf-mb-8 dcf-bb-1 dcf-bb-solid" style="border-bottom-color:rgba(254,253,250,.43);"> -->
 
@@ -281,29 +177,27 @@
                   <div class="dcf-txt-xs unl-dark-gray">Learning Management System (<abbr>LMS</abbr>)</div>
                 </div>
                 <div class="dcf-d-flex dcf-flex-col dcf-ai-center dcf-w-100%">
-                  <p class="dcf-txt-center dcf-txt-sm" style="max-width:23.68rem;">Select your home campus icon to log in to Canvas at the University of Nebraska&ndash;Lincoln.</p>
+                  <p class="dcf-txt-center dcf-txt-sm" style="max-width:23.68rem;">Log into Canvas with your University of <span class="dcf-txt-nowrap">Nebraska&ndash;Lincoln</span> or TrueYou credentials.</p>
+                  <!-- <ul class="dcf-d-flex dcf-flex-nowrap dcf-ai-center dcf-jc-center dcf-col-gap-6" role="list" style="margin-bottom:0"> -->
                   <ul class="dcf-d-flex dcf-flex-nowrap dcf-ai-center dcf-jc-center dcf-col-gap-6" role="list" style="margin-bottom:0">
-                    <li class="dcf-mb-0">
-                      <a href="https://canvas.unl.edu/" aria-label="Log in to Canvas at the University of Nebraska–Lincoln">
-                        <svg class="dcf-h-8 dcf-w-8" height="50" width="50" viewBox="0 0 300 300">
-                          <defs>
-                            <style>.logo-unl-1{fill:#d00000;}.logo-unl-2{fill:#fff;}</style>
-                          </defs>
-                          <path class="logo-unl-1" d="M287.357,2.97H173.215V90.027h19.346v47.948L109.8,7.462,106.952,2.97H2.97V90.027H22.316V209.976H2.97V297.03H126.784V209.976H107.438V162.04l82.759,130.5,2.848,4.493H297.03V209.976H277.684V90.027H297.03V2.97Zm5.8,9.673V86.157H273.815V213.845h19.346v79.316H195.174l-1.71-2.7L103.57,148.715v65.13h19.346v79.316H6.839V213.845H26.185V86.157H6.839V6.839h97.984l1.71,2.7L196.43,151.3V86.157H177.084V6.839H293.161Z"></path>
-                          <path class="logo-unl-2" d="M287.357,6.839H177.084V86.157H196.43V151.3L106.533,9.535l-1.71-2.7H6.839V86.157H26.185V213.845H6.839v79.316H122.916V213.845H103.57v-65.13l89.895,141.75,1.71,2.7h97.987V213.845H273.815V86.157h19.346V6.839ZM117.112,219.648h0v67.708H12.642V219.648H31.989V80.354H12.642V12.642h88.989l100.6,158.648V80.354H182.888V12.642H287.357V80.354H268.011V219.648h19.346v67.708H198.366l-100.6-158.63v90.922Z"></path>
-                          <path class="logo-unl-1" d="M202.235,171.291h0L101.632,12.642H12.642V80.354H31.989V219.648H12.642v67.708H117.112V219.648H97.766V128.726l100.6,158.63h88.991V219.648H268.011V80.354h19.346V12.642H182.888V80.354h19.346Z"></path>
+                    <li style="margin-bottom:0">
+                      <a href="https://canvas.unl.edu/" aria-label="Log in to Canvas with your University of Nebraska Lincoln credentials">
+                        <svg class="dcf-flex-shrink-0 dcf-h-8 dcf-w-8" height="50" width="50" viewBox="0 0 300 300">
+                          <path style="fill:#d00000" d="M287.357,2.97H173.215V90.027h19.346v47.948L109.8,7.462,106.952,2.97H2.97V90.027H22.316V209.976H2.97V297.03H126.784V209.976H107.438V162.04l82.759,130.5,2.848,4.493H297.03V209.976H277.684V90.027H297.03V2.97Zm5.8,9.673V86.157H273.815V213.845h19.346v79.316H195.174l-1.71-2.7L103.57,148.715v65.13h19.346v79.316H6.839V213.845H26.185V86.157H6.839V6.839h97.984l1.71,2.7L196.43,151.3V86.157H177.084V6.839H293.161Z"></path>
+                          <path style="fill:#fff" d="M287.357,6.839H177.084V86.157H196.43V151.3L106.533,9.535l-1.71-2.7H6.839V86.157H26.185V213.845H6.839v79.316H122.916V213.845H103.57v-65.13l89.895,141.75,1.71,2.7h97.987V213.845H273.815V86.157h19.346V6.839ZM117.112,219.648h0v67.708H12.642V219.648H31.989V80.354H12.642V12.642h88.989l100.6,158.648V80.354H182.888V12.642H287.357V80.354H268.011V219.648h19.346v67.708H198.366l-100.6-158.63v90.922Z"></path>
+                          <path style="fill:#d00000" d="M202.235,171.291h0L101.632,12.642H12.642V80.354H31.989V219.648H12.642v67.708H117.112V219.648H97.766V128.726l100.6,158.63h88.991V219.648H268.011V80.354h19.346V12.642H182.888V80.354h19.346Z"></path>
                         </svg>
                       </a>
                     </li>
-                    <li class="dcf-mb-0">
-                      <a href="https://canvas.unl.edu/login/saml/7/" aria-label="Log in to Canvas with your University of Nebraska Omaha credentials">
-                        <svg class="dcf-h-8 dcf-w-8" height="50" width="50" viewBox="0 0 300 300">
+                    <li style="margin-bottom:0">
+                      <a href="https://canvas.unl.edu/login/saml/47" aria-label="Log in to Canvas with your TrueYou credentials">
+                        <svg class="dcf-flex-shrink-0 dcf-w-9 dcf-h-auto" height="81" width="147" aria-hidden="true" viewBox="0 0 146.7 80.6">
                           <defs>
-                            <style>.logo-uno-1{fill:#fff;}.logo-uno-2{fill:#231f20;}.logo-uno-3{fill:#db1e25;}</style>
+                            <style>.trueyou-logo-color-1{fill:#231f20;}.trueyou-logo-color-2{fill:#464646;}@media (prefers-color-scheme: dark){.trueyou-logo-color-1{fill:#dce0df;}.trueyou-logo-color-2{fill:#b9b9b9;}}</style>
                           </defs>
-                          <path class="logo-uno-1" d="M296.7,93.037,271.587,202.108c-13.141,55.142-93.356,94.32-169.073,94.32-72.183,0-110.488-40.879-99.721-87.025L28,100.341C41.158,45.18,121.286,6.012,197,6.012,269.2,6.012,307.495,46.9,296.7,93.037Zm-98.261,6.017c4.905-22.677-15.8-25.662-35.3-25.109-26.031.755-35.019,12.654-37.6,22.117L101.062,203.384c-4.9,22.693,15.8,25.707,35.3,25.12,26-.757,34.993-12.654,37.567-22.137Z"></path>
-                          <path class="logo-uno-2" d="M214.034,222.388c-9.879,49.463-63.079,59.248-102.223,60.983C44.612,286.376,5.7,252.753,15.4,211.235L40.569,102.177C44.334,85.9,57.306,67.289,76.534,55.885c.472-.267,1.777-.459,1.373.87l-36.4,157.69c-6.42,27.7,21.985,47.813,76.058,44.351,50.179-3.239,65.925-19.606,69.544-35.989L216.33,94.7c6.307-28.589-27.378-36.039-62.27-33.628-1.5.123-1.968-1.208-.254-1.719,25.447-7.484,99.325-8.661,90.929,28.518Z"></path>
-                          <path class="logo-uno-3" d="M54.8,214.6c-8.425,37.158,65.461,35.981,90.911,28.487,1.714-.5,1.268-1.779-.283-1.719-34.873,2.434-68.524-5.023-62.241-33.631l29.2-128.084c3.632-16.37,19.365-32.758,69.581-35.989,54.067-3.443,82.473,16.692,76.048,44.338L221.762,245.73c-.435,1.357.928,1.182,1.371.9,19.229-11.446,32.195-30.062,35.952-46.319L284.139,91.229c9.683-41.492-29.207-75.146-96.4-72.13-39.218,1.735-92.391,11.522-102.26,60.962Z"></path>
+                          <path class="trueyou-logo-color-1" d="M19.7 80.4h-2.1V66.8h2.1v13.6Zm2-13.6h3.1c2 0 3 1 3 3v7.7c0 2-1 3-3 3h-3.1V66.8Zm2.1 11.8h.8c.8 0 1.2-.4 1.2-1.2v-7.6c0-.8-.4-1.2-1.2-1.2h-.8v10Zm10.7-11.8v1.9h-2.6v3.9h2.5v1.9h-2.5v4.1h2.6v1.9h-4.7V66.8h4.7Zm5.9 13.6-2.1-9.2v9.2h-1.9V66.8h2.4l2 8.4v-8.4h1.9v13.7h-2.3v-.1Zm5.7 0V68.7h-1.9v-1.9H50v1.9h-1.9v11.8h-2v-.1Zm7.7 0h-2.1V66.8h2.1v13.6Zm3.5 0V68.7h-1.9v-1.9h5.8v1.9h-1.9v11.8h-2v-.1Zm9.2-4.8v4.9h-2.1v-4.6l-2.2-9h2.1l1.2 5.8 1.2-5.8h2l-2.2 8.7Zm15.9-8.8v13.7h-2V70.1l-1.5 10.4h-2L75.4 70v10.5h-1.8V66.8h3.1l1.3 9.9 1.3-9.9h3.1Zm8.3 13.6h-2.1l-.3-2.1h-2.2l-.3 2.1H84l1.9-13.7h2.8l2 13.7Zm-4.3-4h1.7l-.9-6.9-.8 6.9Zm9.9 4-2.1-9.2v9.2h-1.9V66.8h2.4l2 8.4v-8.4h1.9v13.7h-2.3v-.1Zm10.6 0h-2.1l-.3-2.1h-2.2l-.3 2.1h-1.9l2-13.7h2.8l2 13.7Zm-4.3-4h1.7l-.9-6.9-.8 6.9Zm8.9-1.6V73h3.1v5c0 1.7-.8 2.5-2.5 2.5H111c-1.7 0-2.5-.8-2.5-2.5v-8.8c0-1.7.8-2.5 2.5-2.5h1.1c1.7 0 2.5.8 2.5 2.5v2.2h-2v-2.1c0-.5-.3-.8-.8-.8h-.4c-.5 0-.8.3-.8.8v8.6c0 .5.3.8.8.8h.5c.5 0 .8-.3.8-.8v-3.1h-1.2Zm9.7-8v1.9h-2.6v3.9h2.5v1.9h-2.5v4.1h2.6v1.9h-4.7V66.8h4.7Zm7.9 9v4.6H127v-4.6c0-.6-.3-.9-.9-.9h-.9v5.5h-2.1V66.8h3.4c1.7 0 2.5.8 2.5 2.5v2.6c0 1.2-.4 1.8-1.2 2.1.9.2 1.3.8 1.3 1.8Zm-2.9-7.2h-1v4.5h.9c.6 0 .9-.3.9-.8v-2.9c0-.5-.3-.8-.8-.8ZM14.9 7.8v34.7H6.6V7.8H0V0h21.5v7.8h-6.6Zm22.7 12.9c-.2 0-1-.1-1.1-.1-1.2 0-2.2.2-2.9.5-.8.3-1.2.8-1.6 1.3-.4.6-.7 1.3-.8 2.2-.1.9-.2 1.8-.2 2.8v15.1h-8V14h8v3.5c.9-1.3 1.8-2.4 2.8-3 1-.8 2.2-1.2 3.8-1.4v7.6Zm23.1 12.6c0 1-.1 2-.2 2.9s-.5 1.7-1.1 2.6c-1 1.4-2.2 2.6-3.8 3.3-1.6.8-3.2 1.1-4.9 1.1s-3.3-.4-4.9-1.1c-1.6-.8-2.9-1.9-3.8-3.3-.5-.8-.8-1.6-1-2.4-.2-.8-.2-1.6-.2-2.6V14h8v18.7c0 .5.1 1 .2 1.3s.4.8.6 1c.3.3.7.5 1.1.5.6 0 1-.2 1.3-.6s.5-.9.6-1.4.1-1 .1-1.8V13.9h8.1l-.1 19.4Zm24.2-.6c0 1.5-.4 2.9-.9 4.5-.6 1.5-1.2 2.8-2.2 3.7s-2 1.6-3 1.8c-1 .3-2.1.4-3.1.4-1.2 0-2.4-.2-3.5-.5s-2.3-1-3.3-2.1c-1.1-1.1-2-2.6-2.8-4.5S65 31.8 65 29c0-2.5.3-4.9 1-7.1.7-2.3 1.7-4.2 3.1-5.7 1-1 2-1.6 3-2s2.2-.6 3.4-.6c1.4 0 2.7.2 3.6.7 1 .5 1.8 1 2.5 1.6.7.7 1.2 1.4 1.7 2.3s.9 1.8 1.1 2.8c.3 1 .5 2 .7 3 .1 1 .2 2.1.2 3 0 1-.1 1.9-.2 2.8H72.4c0 .2-.1.5-.1.8v.9c0 1 .1 1.9.2 2.9.2 1 .5 1.7 1 2.2.4.5 1 .8 1.6.8s1.1-.2 1.6-.5c.2-.2.4-.5.6-.8.2-.4.3-.8.4-1.1.1-.4.2-.8.2-1.1s.1-.7.1-.9l6.9-.3Zm-6.5-7.9c0-.9-.1-1.7-.3-2.7-.2-1-.5-1.6-1-2s-1-.6-1.4-.6c-.7 0-1.2.3-1.8.8-.4.5-.8 1.1-1 2s-.3 1.7-.3 2.4l5.8.1Z"></path>
+                          <path class="trueyou-logo-color-2" d="M99.6 24.3v18.3h-5.7V24.3L85.1 0h6l3.5 11.4c.5 1.3.8 2.7 1.1 3.9.3 1.2.7 2.7 1 4.4.1-.5.2-1 .3-1.8.1-.8.3-1.5.5-2.3s.3-1.5.5-2.3.3-1.4.4-2L101.1 0h6l-7.5 24.3Zm25.2 4.1c0 1.5-.1 3.1-.3 4.9-.2 1.7-.6 3.3-1.1 4.8-.6 1.4-1.5 2.7-2.7 3.6-1.2 1-2.8 1.4-4.9 1.4s-3.6-.5-4.8-1.4c-1.2-1-2.1-2.2-2.7-3.6-.6-1.4-1-3-1.1-4.8-.2-1.7-.3-3.3-.3-4.9s.1-3.1.3-4.9c.2-1.7.6-3.3 1.1-4.8.6-1.4 1.5-2.7 2.7-3.6 1.1-1 2.8-1.4 4.9-1.4s3.6.5 4.9 1.4c1.1 1 2.1 2.2 2.7 3.6s1 3 1.1 4.8c.1 1.7.2 3.3.2 4.9Zm-5.3-1.9c0-.6 0-1.3-.1-2.3 0-1-.2-1.8-.4-2.8-.2-.9-.6-1.6-1-2.3-.5-.7-1.1-1-1.9-1-.9 0-1.5.3-2 1s-.8 1.4-1 2.3-.4 1.7-.4 2.7-.1 1.7-.1 2.3v3.4c0 .6 0 1.3.1 2.3 0 1 .2 1.8.4 2.7.2.9.6 1.6 1 2.3.5.7 1.1 1 2 1s1.4-.3 1.9-1 .9-1.4 1-2.3.4-1.7.4-2.7.1-1.7.1-2.3v-3.3Zm27.2 6.8c0 1.6-.1 2.9-.4 4.2-.3 1.2-.8 2.2-1.4 3s-1.5 1.4-2.7 1.9c-1.1.4-2.6.7-4.3.7-1.3 0-2.6-.2-3.7-.6-1.1-.4-2.1-1.1-2.9-2.3-.8-1-1.1-2.1-1.3-3.3s-.3-2.4-.3-3.6V14.1h5.3v19c0 .6 0 1.1.1 1.7.1.6.2 1.1.4 1.5.2.5.5.9.9 1.1s1 .5 1.7.5c1 0 1.6-.2 2.1-.7s.7-1 .9-1.7.2-1.4.2-2.2V14h5.5l-.1 19.3Z"></path>
+                          <path d="M0 0h146.7v80.6H0z" style="fill:none"></path>
                         </svg>
                       </a>
                     </li>
@@ -513,5 +407,5 @@
           </div>
       </div>
     </div>
-  </div>
+  </dialog>
 </div>
