@@ -9,7 +9,7 @@
 @layer components {
 
   .wdn-calendar .unl-event-teaser-ol {
-    --item-size: 13.32em;
+    --item-size: #{var.$ms18}em;
     grid-template-columns: repeat(auto-fit, minmax(var(--item-size), 1fr));
   }
 
@@ -28,7 +28,7 @@
   @media screen and (min-width: 50em) and (max-width: 74em) {
 
     .wdn-calendar .unl-event-teaser-ol:has(> :last-child:nth-child(4)) {
-      --item-size: 20em;
+      --item-size: #{var.$ms21}em;
     }
 
   }
@@ -37,7 +37,7 @@
   @media screen and (min-width: 50em) and (max-width: 101.375em) {
 
     .wdn-calendar .unl-event-teaser-ol:has(> :last-child:nth-child(5)) {
-      --item-size: 20em;
+      --item-size: #{var.$ms21}em;
     }
 
   }
@@ -46,7 +46,7 @@
   @media screen and (min-width: 73.625em) and (max-width: 104.375em) {
 
     .wdn-calendar .unl-event-teaser-ol:has(> :last-child:nth-child(6)) {
-      --item-size: 17.76em;
+      --item-size: #{var.$ms20}em;
     }
 
   }
@@ -55,7 +55,7 @@
   @media screen and (min-width: 104.375em) and (max-width: 135.25em) {
 
     .wdn-calendar .unl-event-teaser-ol:has(> :last-child:nth-child(6)) {
-      --item-size: 23.68em;
+      --item-size: #{var.$ms22}em;
     }
 
   }
@@ -65,7 +65,7 @@
 
     .wdn-calendar .unl-event-teaser-ol:has(> :last-child:nth-child(7)),
     .wdn-calendar .unl-event-teaser-ol:has(> :last-child:nth-child(8)) {
-      --item-size: 20em;
+      --item-size: #{var.$ms21}em;
     }
 
   }
@@ -74,7 +74,7 @@
   @media screen and (min-width: 73.625em) and (max-width: 104.25em){
 
       .wdn-calendar .unl-event-teaser-ol:has(:nth-child(n+9)) {
-          --item-size: 17.76em;
+          --item-size: #{var.$ms20}em;
       }
 
   }
@@ -83,7 +83,7 @@
   @media screen and (min-width: 104.25em) {
 
     .wdn-calendar .unl-event-teaser-ol:has(:nth-child(n+9)) {
-      --item-size: 23.68em;
+      --item-size: #{var.$ms22}em;
     }
 
   }
