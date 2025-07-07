@@ -7,11 +7,6 @@
 @use "../mixins/" as mixins;
 
 
-.unl-cta-heading {
-  letter-spacing: .056em !important;
-}
-
-
 @include mixins.mq(md, max, width) {
 
   .unl .dcf-cta ul {
