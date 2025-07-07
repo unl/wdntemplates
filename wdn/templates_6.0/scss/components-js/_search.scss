@@ -47,12 +47,6 @@
       border-bottom-color: transparent;
     }
 
-
-    .unl .dcf-search-toggle-wrapper,
-    .unl .dcf-search-dialog .dcf-btn-close-dialog {
-      display: none;
-    }
-
   }
 
 
@@ -67,11 +61,6 @@
       border-bottom-color: var.$scarlet-shade;
       height: #{var.$ms07}em;
       padding-top: #{var.$ms-12}em;
-    }
-
-
-    .unl .dcf-search-toggle-wrapper {
-      display: flex;
     }
 
   }
