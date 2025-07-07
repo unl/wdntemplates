@@ -25,6 +25,10 @@ export default class UNLAnalytics {
             this.unlProp = options.unlProp;
         }
 
+        window.UNL.analytics.callTrackEvent = (category, eventAction, label, value, noninteractive=false) => {
+            this.callTrackEvent(category, eventAction, label, value, noninteractive);
+        };
+
         // Checks to see if we have initialized things already
         const initializeCheck = document.querySelector('script[data-unl-initialized="true"]');
         if (initializeCheck !== null) {
