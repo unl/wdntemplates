@@ -44,12 +44,12 @@
 
 
     .unl .dcf-dialog-header-header {
-      border-bottom-color: tr;
+      border-bottom-color: transparent;
     }
 
 
     .unl .dcf-search-toggle-wrapper,
-    .unl dialog#dcf-search-dialog .dcf-btn-close-dialog {
+    .unl .dcf-search-dialog .dcf-btn-close-dialog {
       display: none;
     }
 
