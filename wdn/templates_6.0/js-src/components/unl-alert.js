@@ -9,7 +9,7 @@ export default class UNLAlert {
 
     serverCallTimeoutID;
 
-    closedAlertCookieName = 'unl-alert-data-closed';
+    closedAlertCookieName = 'unl-alert-closed';
 
     alertDataReceivedCookieName = 'unl-alert-data-received';
 
