@@ -26,7 +26,7 @@ export default class UNLAlert {
     constructor() {
         loadStyleSheet(unlalertCssUrl);
 
-        this.alertDataUrl = 'https://alert.unl.edu/json/unlcap.js';
+        this.alertDataUrl = import.meta.env.VITE_UNL_ALERT_URL || 'https://alert.unl.edu/json/unlcap.js';
 
         window.unlAlerts = window.unlAlerts || {};
         window.unlAlerts.data = window.unlAlerts.data || {};
