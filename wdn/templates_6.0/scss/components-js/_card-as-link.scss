@@ -1,23 +1,27 @@
-/////////////////////////////
-// THEME / COMPONENTS / CARDS
-/////////////////////////////
+////////////////////////////////////
+// THEME / COMPONENTS / CARD AS LINK
+////////////////////////////////////
 
 
-// Card-as-link
-.unl .dcf-card-as-link a:focus {
-  text-decoration: underline;
-}
+@layer components {
+
+  // Card-as-link
+  .unl .dcf-card-as-link a:focus {
+    text-decoration: underline;
+  }
 
 
-.unl .dcf-card-as-link:focus-within {
-  // Add browser's native focus styles when card is focused
-  outline: 5px auto Highlight;
-  outline: 5px auto -webkit-focus-ring-color;
-}
+  .unl .dcf-card-as-link:focus-within {
+    // Add browser's native focus styles when card is focused
+    outline: 5px auto Highlight;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
 
 
-.unl .dcf-card-as-link:focus-within a.dcf-card-link:focus {
-  // Remove focus ring from primary link when card is focused
-  outline: 3px solid transparent;
-  text-decoration: none;
+  .unl .dcf-card-as-link:focus-within a.dcf-card-link:focus {
+    // Remove focus ring from primary link when card is focused
+    outline: 3px solid transparent;
+    text-decoration: none;
+  }
+
 }

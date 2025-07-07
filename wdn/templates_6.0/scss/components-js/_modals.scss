@@ -3,16 +3,24 @@
 //////////////////////////////
 
 
+@use "sass:meta";
+
 @use "../variables/" as var;
-@use "@dcf/scss/components-js/modals" as *;
 
 
-// Modal
-.unl .dcf-modal[aria-hidden="true"] {
-  transition: opacity var.$transition-duration-fade-out var.$transition-timing-fn-fade-out;
-}
+@layer components {
+
+  @include meta.load-css("@dcf/scss/components-js/modals");
 
 
-.unl .dcf-modal[aria-hidden="false"] {
-  transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
+  // Modal
+  .unl .dcf-modal[aria-hidden="true"] {
+    transition: opacity var.$transition-duration-fade-out var.$transition-timing-fn-fade-out;
+  }
+
+
+  .unl .dcf-modal[aria-hidden="false"] {
+    transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
+  }
+
 }
