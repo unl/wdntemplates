@@ -34,72 +34,60 @@
   </div>
 -->
 
-<header class="dcf-header" id="dcf-header" role="banner">
-  <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/idm.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/search.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-2.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-1.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-1.html" -->
-  <!-- InstanceBeginEditable name="affiliation" -->
-  <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
-  <!-- InstanceEndEditable -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-2.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-1.html" -->
-  <!-- InstanceBeginEditable name="titlegraphic" -->
-  <a class="dcf-txt-h6" href="https://arts.unl.edu/music">
-    Glenn Korff School of Music
-  </a>
-  <!-- InstanceEndEditable -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-2.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-2.html" -->
-
-
-  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-container-1.html" -->
-
-  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-group.html" -->
-
-
-
-  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-1.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-1.html" -->
-  <!-- InstanceBeginEditable name="navlinks" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
-  <!-- InstanceEndEditable -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-2.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-2.html" -->
-
-
-
-  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-dialog-1.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-1.html" -->
-  <!-- InstanceBeginEditable name="navlinks" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
-  <!-- InstanceEndEditable -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-2.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/cta-1.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/visit-1.html" -->
-  <!-- InstanceBeginEditable name="navvisit" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
-  <!-- InstanceEndEditable -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/visit-2.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/apply-1.html" -->
-  <!-- InstanceBeginEditable name="navapply" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
-  <!-- InstanceEndEditable -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/apply-2.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/give-1.html" -->
-  <!-- InstanceBeginEditable name="navgive" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
-  <!-- InstanceEndEditable -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/give-2.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/cta-2.html" -->
-  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-dialog-2.html" -->
-
-  <!--#include virtual="/wdn/templates_6.0/includes/global/nav-container-2.html" -->
-
-</header>
-
+  <header class="dcf-header" id="dcf-header" role="banner">
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/idm.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/search.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-1.html" -->
+    <!-- InstanceBeginEditable name="affiliation" -->
+    <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-1.html" -->
+    <!-- InstanceBeginEditable name="titlegraphic" -->
+    <a class="dcf-txt-h6" href="https://arts.unl.edu/music">
+      Glenn Korff School of Music
+    </a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-container-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-group.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-1.html" -->
+    <!-- InstanceBeginEditable name="navlinks" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-dialog-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-1.html" -->
+    <!-- InstanceBeginEditable name="navlinks" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-1.html" -->
+    <!-- InstanceBeginEditable name="navvisit" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-1.html" -->
+    <!-- InstanceBeginEditable name="navapply" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-1.html" -->
+    <!-- InstanceBeginEditable name="navgive" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-dialog-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-container-2.html" -->
+  </header>
   <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
     <!-- InstanceBeginEditable name="highlighted" -->
     <!-- InstanceEndEditable -->
