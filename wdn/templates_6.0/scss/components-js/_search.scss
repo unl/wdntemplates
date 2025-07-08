@@ -57,6 +57,21 @@
     }
 
 
+    .unl .dcf-search-toggle-label {
+      min-width: 6ch; // Maintain same width whether label contains "Search" or "Close"
+    }
+
+
+    .unl .dcf-search-toggle-wrapper .dcf-btn-header-global-toggle-icon {
+      color: var(--inverse);
+    }
+
+
+    .unl .dcf-search-dialog .dcf-idm-toggle-button {
+      color: var.$cream;
+    }
+
+
     .unl .dcf-dialog-header-header {
       border-bottom-color: var.$scarlet-shade;
       height: #{var.$ms07}em;
