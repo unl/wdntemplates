@@ -8,6 +8,11 @@
 <!--#include virtual="/wdn/templates_6.0/includes/global/head-2-local.html" -->
 <!-- InstanceBeginEditable name="head" -->
   <!-- Place optional header elements here -->
+  <script>
+    // window.UNL.idm.pushConfig('loginRoute', 'https://local-wdn-v6.unl.edu/login');
+    // window.UNL.idm.pushConfig('logoutRoute', 'https://local-wdn-v6.unl.edu/logout');
+    window.UNL.idm.pushConfig('serverUser', 'hhusker1');
+  </script>
 <!-- InstanceEndEditable -->
 </head>
 <body class="debug unl" data-version="6.0">
