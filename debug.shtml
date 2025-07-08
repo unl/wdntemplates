@@ -87,7 +87,7 @@
     <!--#include virtual="/wdn/templates_6.0/includes/global/give-2.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/cta-2.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/nav-dialog-2.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-container-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-container-2-local.html" -->
   </header>
   <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
     <!-- InstanceBeginEditable name="highlighted" -->

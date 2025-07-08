@@ -87,6 +87,15 @@ export default class UNLIdm {
             this.#loadServerUser();
         }
 
+        const unInitContainers = Array.from(document.querySelectorAll('.dcf-idm-uninitialized'));
+        unInitContainers.forEach((singleContainer) => {
+            singleContainer.setAttribute('hidden', 'hidden');
+        });
+        const initContainers = Array.from(document.querySelectorAll('.dcf-idm-initialized'));
+        initContainers.forEach((singleContainer) => {
+            singleContainer.removeAttribute('hidden');
+        });
+
         window.UNL.idm.getPrimaryAffiliation = () => {
             return this.getPrimaryAffiliation();
         };
@@ -452,7 +461,7 @@ export default class UNLIdm {
                 return this.serverSideUser.data.eduPersonNickname[0];
             } else if ('givenName' in this.serverSideUser.data && this.serverSideUser.data.givenName !== null) {
                 return this.serverSideUser.data.givenName[0];
-            } else if ('displayName' in this.clientSideUser && this.serverSideUser.data.displayName !== null) {
+            } else if ('displayName' in this.serverSideUser && this.serverSideUser.data.displayName !== null) {
                 return this.serverSideUser.data.displayName[0];
             }
         } else if ('uid' in this.serverSideUser && this.serverSideUser.uid !== null) {
@@ -475,7 +484,7 @@ export default class UNLIdm {
         }
 
         if ('data' in this.serverSideUser && this.serverSideUser.data !== null) {
-            if ('displayName' in this.clientSideUser && this.serverSideUser.data.displayName !== null) {
+            if ('displayName' in this.serverSideUser && this.serverSideUser.data.displayName !== null) {
                 return this.serverSideUser.data.displayName[0];
             }
         } else if ('uid' in this.serverSideUser && this.serverSideUser.uid !== null) {

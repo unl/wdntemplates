@@ -93,6 +93,7 @@ export default ({ mode }) => {
                     'auto-loader'     : 'wdn/templates_6.0/js-src/plugin-auto-loader.js',
                     'header-global-1' : 'wdn/templates_6.0/js-src/header-global-1.js',
                     'head-2'          : 'wdn/templates_6.0/js-src/head-2.js',
+                    'nav-container-2' : 'wdn/templates_6.0/js-src/nav-container-2.js',
 
                     'plugins/plugin.tab'                  : 'wdn/templates_6.0/js-src/plugins/multi/tab.js',
                     'plugins/plugin.toggle-button'        : 'wdn/templates_6.0/js-src/plugins/multi/toggle-button.js',
