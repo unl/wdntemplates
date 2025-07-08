@@ -63,11 +63,7 @@
     <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-2.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-2.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/nav-dialog-1.html" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-1.html" -->
-    <!-- InstanceBeginEditable name="navlinks" -->
-    <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-copy-dialog.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/cta-1.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/visit-1.html" -->
     <!-- InstanceBeginEditable name="navvisit" -->
