@@ -248,6 +248,22 @@ Events bands have been updated to match other components.
 ></div>
 ```
 
+### IDM / Login
+
+We have implemented a new IDM widget that corrects a number of issues that we have noticed with the old version. The main difference to the widget (besides the new design) is that we have a client side user and a server side user. The client side user will still be set by whoami.unl.edu. To set the server side user your app will need to supply the widget with who is logged in.
+
+This is beneficial in multiple ways. The server side user will be the backup if whoami throws an error. We can also also provide a login link even if whoami says that you are logged in; so if the server has you logged out (no auto login set up on the web app), but you do have the UNL SSO cookie and whoami logs you in, then you will still have the login link to be able to sign in to that site.
+
+Setting server side user and login/logout urls (this would go in the end of the `head` tag):
+
+```HTML
+<script>
+  window.UNL.idm.pushConfig('loginRoute', 'https://local-wdn-v6.unl.edu/login');
+  window.UNL.idm.pushConfig('logoutRoute', 'https://local-wdn-v6.unl.edu/logout');
+  window.UNL.idm.pushConfig('serverUser', 'hhusker1');
+</script>
+```
+
 ### Lazy Loading
 
 Browsers now support lazy loading of images and videos. Therefore, this JavaScript is no longer needed. For images this can be achieved by using the loading attribute set to lazy. For videos this can be achieved by using the preload attribute set to none.
