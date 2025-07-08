@@ -118,6 +118,26 @@
 
   @include mixins.mq(md, min, width) {
 
+    .unl .dcf-idm-img {
+      color: var.$light-gray;
+    }
+
+
+    .unl .dcf-header-global-dialog .dcf-idm-img {
+      color: var.$cream;
+    }
+
+
+    .unl .dcf-idm-dialog .dcf-btn-search-desktop {
+      color: var.$cream;
+    }
+
+
+    .unl .dcf-idm-dialog .dcf-btn-search-desktop .dcf-btn-header-global-toggle-icon {
+      color: var.$scarlet;
+    }
+
+
     .unl-idm-content {
       grid-template-rows: auto 1fr;
       max-height: 84vh;
