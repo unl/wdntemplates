@@ -1,8 +1,46 @@
+// Copy Nav to dialog
 const dcfNavLocal = document.querySelector('nav.dcf-nav-local');
 const dcfNavLocalCopy = document.querySelector('nav.dcf-local-copy-dialog');
 dcfNavLocalCopy.innerHTML = dcfNavLocal.innerHTML;
-console.log(dcfNavLocalCopy);
 
+
+// Hover intent for desktop nav
+const dcfNav = document.querySelector('div.dcf-nav');
+const dcfNavDialog = document.querySelector('dialog.dcf-nav-dialog');
+let dcfNavDialogClassInstance = null;
+const navDialogContent = document.querySelector('dialog.dcf-nav-dialog .dcf-dialog-content');
+let navOpenTimeout = null;
+let navCloseTimeout = null;
+const navHoverOpenTimeoutDurationMs = 100;
+const navHoverCloseTimeoutDurationMs = 100;
+
+// Get the class instance once it is ready
+dcfNavDialog.addEventListener('dialogReady', (event) => {
+    dcfNavDialogClassInstance = event.detail.classInstance;
+});
+
+// Hover over nav for at least ${navHoverOpenTimeoutDurationMs} will open dialog
+dcfNav.addEventListener('mouseenter', () => {
+    navOpenTimeout = setTimeout(() => {
+        dcfNavDialogClassInstance.open();
+    }, navHoverOpenTimeoutDurationMs);
+});
+dcfNav.addEventListener('mouseleave', () => {
+    clearTimeout(navOpenTimeout);
+});
+
+// Hover off dialog content for at least ${navHoverCloseTimeoutDurationMs} will close dialog
+navDialogContent.addEventListener('mouseleave', () => {
+    navCloseTimeout = setTimeout(() => {
+        dcfNavDialogClassInstance.close();
+    }, navHoverCloseTimeoutDurationMs);
+});
+navDialogContent.addEventListener('mouseenter', () => {
+    clearTimeout(navCloseTimeout);
+});
+
+
+// Update IDM and Search Dialog Styles for mobile
 let idmDialog = document.querySelector('dialog.dcf-idm-dialog');
 let searchDialog = document.querySelector('dialog.dcf-search-dialog');
 window.addEventListener('resize', () => {
