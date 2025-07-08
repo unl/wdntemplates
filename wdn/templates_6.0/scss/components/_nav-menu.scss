@@ -146,7 +146,7 @@
   }
 
 
-  .unl .dcf-modal-open .dcf-nav-menu-content {
+  .unl .dcf-dialog-is-open .dcf-nav-menu-content {
     opacity: 1;
     transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
   }
