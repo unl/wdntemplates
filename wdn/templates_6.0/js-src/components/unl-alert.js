@@ -1,5 +1,5 @@
 import { loadJS, setCookie, getCookie } from '../lib/unl-utility.js';
-import unlalertCssUrl from '@scss/components-js/_unlalert.scss?url';
+import unlAlertCssUrl from '@scss/components-js/_unl-alert.scss?url';
 import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 export default class UNLAlert {
@@ -24,7 +24,7 @@ export default class UNLAlert {
     closedAlertCookieMaxAge = 3600; // Maximum age (in seconds) for the alertDataReceived cookie
 
     constructor() {
-        loadStyleSheet(unlalertCssUrl);
+        loadStyleSheet(unlAlertCssUrl);
 
         this.alertDataUrl = import.meta.env.VITE_UNL_ALERT_URL || 'https://alert.unl.edu/json/unlcap.js';
 
@@ -66,7 +66,7 @@ export default class UNLAlert {
 
 
     // Sets a cookie to indicate that there is an acknowledged alert
-    #setClosedAlertCookie = function(alertDataActiveID) {
+    #setClosedAlertCookie(alertDataActiveID) {
         const closedAlertCookieValue = this.#getClosedAlertCookie();
 
         // Exit the function without setting a cookie if closedAlertCookie already exists for the alert
@@ -80,20 +80,20 @@ export default class UNLAlert {
             closedAlertCookieValue.join(','),
             this.closedAlertCookieMaxAge,
         );
-    };
+    }
 
-    #getClosedAlertCookie = function() {
+    #getClosedAlertCookie() {
         const cookie = getCookie(this.closedAlertCookieName);
         if (cookie) {
             // Split cookie for index value comparison
             return cookie.split(',');
         }
         return [];
-    };
+    }
 
-    #acknowledgeAlert = function(alertDataActiveID) {
+    #acknowledgeAlert(alertDataActiveID) {
         this.#setClosedAlertCookie(alertDataActiveID);
-    };
+    }
 
     #isAlertAcknowledged(alertDataID) {
         const closedAlertCookieValue = this.#getClosedAlertCookie();
@@ -149,13 +149,13 @@ export default class UNLAlert {
         }
     }
 
-    #alertUser = function(alertData) {
+    #alertUser(alertData) {
         this.#setActiveAlertCookie(true);
 
         this.alertDataActiveIDs = [];
-        let unlalertDivWrapper = document.getElementById('unlalert');
+        let unlAlertDivWrapper = document.getElementById('unlalert');
         let alertToggle = document.getElementById('unlalert_toggle');
-        let unlalertContent,
+        let unlAlertContent,
             containsExtreme = false,
             info = alertData.info,
             effectiveDate = '',
@@ -205,32 +205,32 @@ export default class UNLAlert {
         effectiveDate = new Date(alertData.sent).toLocaleString();
 
         for (let counter = 0; counter < info.length; counter++) {
-            // Check if unlalertDivWrapper doesn't exist
-            if (!unlalertDivWrapper) {
-                unlalertDivWrapper = document.createElement('div');
-                unlalertDivWrapper.id = 'unlalert';
-                unlalertDivWrapper.className = 'dcf-bleed dcf-z-1';
-                unlalertDivWrapper.setAttribute('role', 'alert');
-                unlalertDivWrapper.style.position = 'absolute';
-                unlalertDivWrapper.style.top = '-1000px';
+            // Check if unlAlertDivWrapper doesn't exist
+            if (!unlAlertDivWrapper) {
+                unlAlertDivWrapper = document.createElement('div');
+                unlAlertDivWrapper.id = 'unlalert';
+                unlAlertDivWrapper.className = 'dcf-bleed dcf-z-1';
+                unlAlertDivWrapper.setAttribute('role', 'alert');
+                unlAlertDivWrapper.style.position = 'absolute';
+                unlAlertDivWrapper.style.top = '-1000px';
 
-                dcfHeaderDiv.parentNode.insertBefore(unlalertDivWrapper, dcfHeaderDiv);
+                dcfHeaderDiv.parentNode.insertBefore(unlAlertDivWrapper, dcfHeaderDiv);
 
                 // Create the alert content div
-                unlalertContent = document.createElement('div');
-                unlalertContent.className = 'dcf-relative dcf-col-gap-vw dcf-row-gap-6';
-                unlalertContent.id = 'unlalert_content';
+                unlAlertContent = document.createElement('div');
+                unlAlertContent.className = 'dcf-relative dcf-col-gap-vw dcf-row-gap-6';
+                unlAlertContent.id = 'unlalert_content';
 
-                //Create a div to append the alert content and unlalertDivWrapper
-                const unlalertInnerDivWrapper = document.createElement('div');
-                unlalertInnerDivWrapper.className = 'dcf-wrapper';
-                unlalertInnerDivWrapper.appendChild(unlalertContent);
-                unlalertDivWrapper.appendChild(unlalertInnerDivWrapper);
+                //Create a div to append the alert content and unlAlertDivWrapper
+                const unlAlertInnerDivWrapper = document.createElement('div');
+                unlAlertInnerDivWrapper.className = 'dcf-wrapper';
+                unlAlertInnerDivWrapper.appendChild(unlAlertContent);
+                unlAlertDivWrapper.appendChild(unlAlertInnerDivWrapper);
 
             } else if (counter === 0) {
-                unlalertContent = document.getElementById('unlalert_content');
-                if(unlalertContent) {
-                    unlalertContent.innerHTML = '';
+                unlAlertContent = document.getElementById('unlalert_content');
+                if(unlAlertContent) {
+                    unlAlertContent.innerHTML = '';
                 }
             }
 
@@ -253,7 +253,7 @@ export default class UNLAlert {
                 </div><div class="unlalert-link"><span class="unlalert-heading dcf-d-block dcf-mb-1 dcf-lh-3 dcf-uppercase unl-ls-2">Additional info (if&nbsp;available)<span class="dcf-sr-only">: </span></span>
                 <a href="${web}">${web}</a>
                 </div></footer>`;
-            unlalertContent.insertAdjacentHTML('beforeend', alertContentHTML);
+            unlAlertContent.insertAdjacentHTML('beforeend', alertContentHTML);
         }
 
         // Add a visibility toggle tab
@@ -270,7 +270,7 @@ export default class UNLAlert {
             alertToggle.insertAdjacentHTML('beforeend', alertIconSvg);
             alertToggle.appendChild(alertToggleSpan);
 
-            const alertContentParent = unlalertContent.parentElement;
+            const alertContentParent = unlAlertContent.parentElement;
             if (alertContentParent) {
                 alertContentParent.appendChild(alertToggle);
             }
@@ -279,7 +279,7 @@ export default class UNLAlert {
 
         if (!alertAcknowledgmentStatus) {
             // Only trigger when alertContent is hidden, otherwise an active, unacknowledged alert will be hidden.
-            if (!unlalertDivWrapper.classList.contains('show')) {
+            if (!unlAlertDivWrapper.classList.contains('show')) {
                 alertToggle.click();
             }
         } else {
@@ -294,16 +294,16 @@ export default class UNLAlert {
                 alertIconWarning.removeAttribute('hidden');
             }
         }
-    };
+    }
 
-    #noAlert = function() {
+    #noAlert() {
         this.#setActiveAlertCookie(false);
         // Remove alert div if no alert data exists
-        const unlalertDivWrapper = document.getElementById('unlalert');
-        if (unlalertDivWrapper) {
-            unlalertDivWrapper.remove();
+        const unlAlertDivWrapper = document.getElementById('unlalert');
+        if (unlAlertDivWrapper) {
+            unlAlertDivWrapper.remove();
         }
-    };
+    }
 
 
     async #fetchAlertData() {
