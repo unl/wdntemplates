@@ -616,10 +616,10 @@
     .unl .dcf-nav-toggle-btn {
       flex-basis: 25%;
     }
-    .unl .dcf-nav-menu {
-      pointer-events: none;
-      visibility: hidden;
-    }
+    // .unl .dcf-nav-menu {
+    //   pointer-events: none;
+    //   visibility: hidden;
+    // }
     .unl .dcf-header .dcf-institution-title,
     .unl .dcf-cta-header,
     .unl .dcf-idm-toggle,
@@ -667,9 +667,9 @@
     // .unl .dcf-idm-login {
     //   flex-direction: row-reverse;
     // }
-    .unl .dcf-idm-img {
-      fill: #e3e3e2;
-    }
+    // .unl .dcf-idm-img {
+    //   fill: #e3e3e2;
+    // }
     .unl .dcf-nav-local > ul:first-child {
       grid-template-columns: repeat(6, 1fr);
       overflow: hidden;
