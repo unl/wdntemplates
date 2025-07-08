@@ -63,9 +63,9 @@ export default class UNLSearch {
 
         // Get Search links and buttons
         this.domDesktopSearchLink = document.getElementById('dcf-search-toggle-link');
-        this.domDesktopSearchBtns = Array.from(document.getElementsByClassName('dcf-search-toggle-button'));
+        this.domDesktopSearchBtns = Array.from(document.getElementsByClassName('dcf-btn-search-desktop'));
         this.domMobileSearchLink = document.getElementById('dcf-mobile-search-link');
-        this.domMobileSearchBtns = Array.from(document.getElementsByClassName('dcf-mobile-search-button'));
+        this.domMobileSearchBtns = Array.from(document.getElementsByClassName('dcf-btn-search-mobile'));
 
         // Disable links and Enable buttons
         this.mobileSearchBtn = null;
