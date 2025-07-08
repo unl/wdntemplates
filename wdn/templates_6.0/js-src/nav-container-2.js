@@ -22,7 +22,9 @@ dcfNavDialog.addEventListener('dialogReady', (event) => {
 // Hover over nav for at least ${navHoverOpenTimeoutDurationMs} will open dialog
 dcfNav.addEventListener('mouseenter', () => {
     navOpenTimeout = setTimeout(() => {
-        dcfNavDialogClassInstance.open();
+        if (dcfNavDialogClassInstance !== null) {
+            dcfNavDialogClassInstance.open();
+        }
     }, navHoverOpenTimeoutDurationMs);
 });
 dcfNav.addEventListener('mouseleave', () => {
@@ -32,7 +34,9 @@ dcfNav.addEventListener('mouseleave', () => {
 // Hover off dialog content for at least ${navHoverCloseTimeoutDurationMs} will close dialog
 navDialogContent.addEventListener('mouseleave', () => {
     navCloseTimeout = setTimeout(() => {
-        dcfNavDialogClassInstance.close();
+        if (dcfNavDialogClassInstance !== null) {
+            dcfNavDialogClassInstance.close();
+        }
     }, navHoverCloseTimeoutDurationMs);
 });
 navDialogContent.addEventListener('mouseenter', () => {
