@@ -22,15 +22,6 @@
 }
 
 
-// .unl .dcf-nav-menu ul {
-//   // Fix list-style: none in VoiceOver and Safari: https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
-//   list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
-//   margin-bottom: 0;
-//   padding-left: 0;
-// }
-
-
-
 .unl .dcf-nav a,
 .unl .dcf-nav button {
   display: block;
@@ -75,40 +66,9 @@
 }
 
 
-
-
-
-// .unl .dcf-nav-menu-content {
-//   transform: translateZ(0);
-//   z-index: 998;
-// }
-
-
-
-
-// .unl .dcf-nav-dialog .dcf-nav-menu-content {
-//   transform: scaleY(0);
-//   transition: transform 2s ease-in-out;
-// }
-//
-//
-// .unl .dcf-nav-dialog.dcf-modal-open .dcf-nav-menu-content {
-//   transform: scaleY(1);
-//   transition: transform .05s ease-in-out;
-// }
-
-
-
-
-// .unl .dcf-nav-menu-content > ul > li > a,
-// .unl .dcf-nav-menu-content button {
-//   font-weight: 600;
-// }
-
-
 @include mixins.mq(md, max, width) {
 
-  .unl .dcf-nav-xxx {
+  .unl .dcf-nav-primary {
     display: none;
   }
 
@@ -116,7 +76,6 @@
   .unl .dcf-nav-menu {
     backdrop-filter: blur(3px);
     @include mixins.bg-overlay-light;
-    // bottom: #{var.$height-mobile-toolbar};
     bottom: 0;
     height: 100vh;
     // opacity: 0;
@@ -166,15 +125,6 @@
     padding-inline: var.$length-vw-2;
   }
 
-//   .unl .dcf-nav-menu-child > *:first-child {
-//     @include mixins.mt-6;
-//   }
-//
-//
-//   .unl .dcf-nav-menu-child > *:last-child {
-//     @include mixins.mb-7;
-//   }
-
 
   .unl .dcf-nav a,
   .unl .dcf-nav button {
@@ -186,12 +136,6 @@
   .unl .dcf-nav ul:first-child > li > button {
     font-size: #{var.$ms01}rem !important;
   }
-
-
-  // .unl .dcf-nav-menu ul > li > ul > li > a,
-  // .unl .dcf-nav-menu ul > li > ul > li > button {
-  //   font-size: #{var.$ms-1}rem !important;
-  // }
 
 }
 
@@ -222,14 +166,6 @@
   }
 
 
-  // .unl .dcf-nav-menu {
-  //   @include mixins.bg-scarlet;
-  //   display: flex;
-  //   flex-wrap: nowrap;
-  //   // padding-left: var.$length-vw-2;
-  //   // padding-right: var.$length-vw-2;
-  // }
-
   .unl .dcf-nav-menu {
     backdrop-filter: blur(3px);
     @include mixins.bg-overlay-light;
@@ -245,12 +181,6 @@
     // visibility: hidden;
     width: 100%;
     z-index: 998; // Ensure that the z-index is below the modal and nav-toggle-group z-indices
-  }
-
-
-  .unl .dcf-modal-open .dcf-nav-menu {
-    // opacity: 1;
-    // transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
   }
 
 
