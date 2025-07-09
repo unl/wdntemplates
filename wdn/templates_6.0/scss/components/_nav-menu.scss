@@ -154,14 +154,14 @@
   }
 
 
-  .unl .dcf-nav-xxx {
+  .unl .dcf-nav-primary {
     display: grid;
     grid-template-columns: #{var.$ms10}rem 1fr;
     color: #fefdfa;
   }
 
 
-  .unl .dcf-nav-xxx ul ul {
+  .unl .dcf-nav-primary ul ul {
     display: none;
   }
 
