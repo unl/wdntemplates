@@ -77,8 +77,9 @@
     margin: 0;
     padding: 0
   }
-  *:not([role=dialog])[hidden] {
-    display: none
+  *:not([role=dialog])[hidden],
+  #unl-footer-herbie {
+    display: none;
   }
   [role=dialog][hidden] {
     display: block;
@@ -142,7 +143,7 @@
     text-wrap: balance;
   }
   html {
-    font: normal 1em/1.5 500 'Work Sans', 'Sans Serif Fallback', sans-serif;
+    font: normal 500 1em/1.5 'Work Sans', 'Sans Serif Fallback', sans-serif;
     font-synthesis: none;
   }
   ol,
@@ -314,22 +315,26 @@
   .unl .dcf-nav-menu li {
     margin-bottom: 0;
   }
-  .unl .dcf-nav-menu-child a,
-  .unl .dcf-nav-menu-child button {
+  .unl .dcf-nav a,
+  .unl .dcf-nav button {
     color: #fefdfa;
     display: block;
     line-height: 1.33;
-    padding: .75rem 1rem;
+    padding-inline: 1rem;
   }
-  .unl .dcf-nav-menu-child > ul > li > a,
-  .unl .dcf-nav-menu-child button {
+  .unl .dcf-nav-local > ul > li > a,
+  .unl .dcf-nav-local > ul > li > button {
     font-weight: 600;
+    padding-block: .75rem;
   }
   .unl .dcf-nav-toggle-btn {
     appearance: none;
   }
   .dcf-bg-transparent {
     background-color: transparent;
+  }
+  .dcf-bg-current-color {
+    background-color: currentcolor;
   }
   .dcf-circle {
     border-radius: 50%;
@@ -391,14 +396,23 @@
   .dcf-col-gap-7 {
     column-gap: 2.37em;
   }
+  .dcf-gap-1 {
+    gap: .42em;
+  }
   .dcf-h-4 {
     height: 1em;
   }
   .dcf-h-5 {
     height: 1.33em;
   }
+  .dcf-h-6 {
+    height: 1.78em;
+  }
   .dcf-h-8 {
     height: 3.16em;
+  }
+  .dcf-h-9 {
+    height: 4.21em;
   }
   .dcf-h-100\% {
     height: 100%;
@@ -408,6 +422,9 @@
   }
   .dcf-w-5 {
     width: 1.33em;
+  }
+  .dcf-w-6 {
+    width: 1.78em;
   }
   .dcf-w-7 {
     width: 2.37em;
@@ -616,14 +633,11 @@
     .unl .dcf-nav-toggle-btn {
       flex-basis: 25%;
     }
-    // .unl .dcf-nav-menu {
-    //   pointer-events: none;
-    //   visibility: hidden;
-    // }
     .unl .dcf-header .dcf-institution-title,
     .unl .dcf-cta-header,
     .unl .dcf-idm-toggle,
-    .unl .dcf-search-toggle-wrapper {
+    .unl .dcf-search-toggle-wrapper,
+    .unl .dcf-nav-primary {
       display: none;
     }
   }
@@ -652,24 +666,23 @@
       height: 2.67em;
       padding-top: .18em;
     }
-    // .unl .dcf-header-global-item {
-    //   margin-left: 3.16vw;
-    // }
-    .unl .dcf-cta-header {
-      display: flex;
-      flex-grow: 3;
-      justify-content: flex-end;
-      margin-bottom: 0;
+    .dcf-btn-header-global {
+      color: var(--link);
     }
     .unl .dcf-logo-lockup {
       padding-bottom: 1.13em;
     }
-    // .unl .dcf-idm-login {
-    //   flex-direction: row-reverse;
-    // }
-    // .unl .dcf-idm-img {
-    //   fill: #e3e3e2;
-    // }
+    .unl .dcf-idm-img {
+      color: #e3e3e2;
+    }
+    .unl .dcf-nav .dcf-nav-toggle-btn-menu {
+      align-self: start;
+      padding: .67rem 0;
+    }
+    .unl .dcf-nav-primary {
+      display: grid;
+      grid-template-columns: 4.21rem 1fr;
+    }
     .unl .dcf-nav-local > ul:first-child {
       grid-template-columns: repeat(6, 1fr);
       overflow: hidden;
@@ -678,30 +691,26 @@
       border-left: 1px solid #a00000;
       height: 100%;
     }
-    // .unl .dcf-nav-toggle-btn-menu~.dcf-nav-local ul ul {
-    //   position: absolute;
-    //   visibility: hidden;
-    // }
     .unl .dcf-nav-menu {
       background-color: #d00000;
       display: flex;
       flex-wrap: nowrap;
-      // padding-inline: 5.62vw;
     }
-    .unl .dcf-nav-menu ul:first-child > li > a,
-    .unl .dcf-nav-menu ul:first-child > li > button {
+    .unl .dcf-nav-local > ul > li > a,
+    .unl .dcf-nav-local > ul > li > button {
       font-size: .84rem;
+      padding: .75rem 1rem;
+    }
+    .unl .dcf-nav a,
+    .unl .dcf-nav button {
+      display: block;
+      line-height: 1.33;
     }
     .unl .dcf-search {
       max-width: 13.32em;
     }
-    .unl .dcf-idm-toggle,
-    // .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu,
-    .unl .dcf-search-toggle-wrapper {
-      display: flex;
-    }
-    .unl .dcf-search-toggle-label {
-      padding: .24em 3.16em .24em .75em;
+    .unl .dcf-search-toggle-wrapper .dcf-btn-header-global-toggle-icon {
+      color: var(--inverse);
     }
     .unl .dcf-txt-h5 {
       font-size: 1.33em;
@@ -712,9 +721,13 @@
     .unl .dcf-txt-h3 {
       font-size: 1.78em;
     }
+    .dcf-d-none\@md,
     .unl .dcf-nav-toggle-group,
-    .unl .dcf-cta-nav {
+    .unl .dcf-nav-local ul ul {
       display: none;
+    }
+    .dcf-d-flex\@md {
+      display: flex;
     }
   }
   @media only screen and (min-width: 177.38em) {
