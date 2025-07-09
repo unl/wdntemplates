@@ -73,14 +73,13 @@
     }
 
 
-    // Safari does not support `:open`…
     .unl dialog#dcf-search-dialog:open .dcf-search-dialog-backdrop {
       display: grid;
       grid-template-rows: auto 1fr;
     }
 
 
-    // …`.dcf-dialog-is-open` is our fallback
+    // Safari does not support `:open` – `.dcf-dialog-is-open` is our fallback
     .unl dialog#dcf-search-dialog.dcf-dialog-is-open .dcf-search-dialog-backdrop {
       display: grid;
       grid-template-rows: auto 1fr;
