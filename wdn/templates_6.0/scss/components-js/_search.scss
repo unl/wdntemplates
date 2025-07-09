@@ -23,14 +23,6 @@
   }
 
 
-  // Safari does not support `:open`, `.dcf-dialog-is-open` is our fallback
-  .unl dialog#dcf-search-dialog:open,
-  .unl dialog#dcf-search-dialog.dcf-dialog-is-open {
-    display: grid;
-    grid-template-rows: auto 1fr;
-  }
-
-
   .unl .dcf-search-input:focus-visible {
     box-shadow: 0 0 0 3px var.$scarlet, 0 0 0 5px var.$border-color-input-focus !important;
   }
@@ -40,6 +32,30 @@
 
     .unl dialog#dcf-search-dialog {
       height: calc(100vh - var.$length-em-9);
+    }
+
+
+    // Safari does not support `:open`…
+    .unl dialog#dcf-search-dialog:open .dcf-search-dialog-backdrop {
+      display: grid;
+      grid-template-rows: auto 1fr var.$length-em-9;
+    }
+
+
+    // …`.dcf-dialog-is-open` is our fallback
+    .unl dialog#dcf-search-dialog.dcf-dialog-is-open .dcf-search-dialog-backdrop {
+      display: grid;
+      grid-template-rows: auto 1fr var.$length-em-9;
+    }
+
+
+    .unl .dcf-search-dialog-backdrop {
+      backdrop-filter: blur(3px);
+      background-color: var(--bg-overlay-light);
+      bottom: 0;
+      height: 100vh;
+      position: fixed;
+      z-index: 998;
     }
 
 
@@ -54,6 +70,25 @@
 
     .unl dialog#dcf-search-dialog {
       height: fit-content;
+    }
+
+
+    // Safari does not support `:open`…
+    .unl dialog#dcf-search-dialog:open .dcf-search-dialog-backdrop {
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+
+    // …`.dcf-dialog-is-open` is our fallback
+    .unl dialog#dcf-search-dialog.dcf-dialog-is-open .dcf-search-dialog-backdrop {
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+
+    .unl .dcf-search-dialog-backdrop:has(.dcf-search-results-wrapper:not(:empty)) {
+      height: 100vh;
     }
 
 
