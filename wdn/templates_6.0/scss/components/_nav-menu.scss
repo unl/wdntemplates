@@ -114,7 +114,8 @@
 
 
   .unl .dcf-nav-menu {
-    // @include mixins.bg-overlay-light;
+    backdrop-filter: blur(3px);
+    @include mixins.bg-overlay-light;
     // bottom: #{var.$height-mobile-toolbar};
     bottom: 0;
     height: 100vh;
@@ -129,7 +130,7 @@
 
 
   // Open when parent model is open
-  .unl .dcf-nav-menu.dcf-modal-open {
+  .unl .dcf-nav-menu.dcf-modal-is-open {
   	opacity: 1;
   	pointer-events: auto;
     transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
