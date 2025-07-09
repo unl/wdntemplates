@@ -20,63 +20,44 @@
     </button>
   </div>
 </div>
-
 <dialog class="dcf-dialog dcf-header-global-dialog dcf-idm-dialog dcf-m-0 dcf-b-0" id="dcf-idm-dialog" data-default-classes="false">
-  <div class="dcf-dialog-header unl-bg-scarlet">
-    <h2 class="dcf-sr-only">Log In</h2>
-    <div class="dcf-dialog-header-header dcf-d-none dcf-d-flex@md dcf-ai-center dcf-jc-flex-end dcf-col-gap-7 dcf-wrapper dcf-bb-1 dcf-bb-solid dcf-bt-3 dcf-bt-solid unl-bt-scarlet">
-      <button class="dcf-btn-header-global dcf-btn-close-dialog dcf-lh-1 dcf-d-flex dcf-ai-center dcf-col-gap-3 dcf-p-0 dcf-b-0 dcf-bg-transparent">
-        <span class="dcf-idm-toggle-label dcf-txt-xs unl-cream">Close</span>
-        <span class="dcf-d-flex dcf-ai-center dcf-jc-center dcf-h-6 dcf-w-6 dcf-circle unl-scarlet unl-bg-cream">
-          <svg class="dcf-h-4 dcf-w-4 dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 24 24">
-            <path d="M13.4 12 23.7 1.7c.4-.4.4-1 0-1.4s-1-.4-1.4 0L12 10.6 1.7.3C1.3-.1.7-.1.3.3s-.4 1 0 1.4L10.6 12 .3 22.3c-.4.4-.4 1 0 1.4.2.2.4.3.7.3s.5-.1.7-.3L12 13.4l10.3 10.3c.2.2.5.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4L13.4 12z"></path>
-          </svg>
-        </span>
-      </button>
-      <!-- <button class="dcf-search-toggle-button dcf-btn-toggle-dialog dcf-nav-toggle-btn dcf-nav-toggle-btn-search dcf-search-toggle dcf-d-flex dcf-ai-center dcf-col-gap-3 dcf-p-0 dcf-b-0 dcf-bg-transparent unl-cream" data-controls="dcf-search-dialog" type="button" hidden>
-      </button> -->
-      <button class="dcf-btn-search-desktop dcf-btn-toggle-dialog dcf-btn-header-global dcf-search-toggle-button  dcf-nav-toggle-btn dcf-nav-toggle-btn-search dcf-search-toggle dcf-d-flex dcf-ai-center dcf-col-gap-3 dcf-p-0 dcf-b-0 dcf-bg-transparent" data-controls="dcf-search-dialog" type="button" hidden></button>
-    </div>
-  </div>
-  <div class="unl-idm-content dcf-dialog-content dcf-fixed dcf-d-grid dcf-w-100% dcf-overflow-y-auto unl-bg-cream">
-    <div class="unl-idm-personal unl-cream unl-bg-scarlet dcf-w-100% dcf-d-flex dcf-ai-center dcf-col-gap-4 dcf-wrapper dcf-pt-5 dcf-logo-lockup dcf-overflow-x-hidden">
-      <div class="dcf-min-w-0 dcf-flex-shrink-0 dcf-h-8 dcf-w-8 dcf-circle dcf-overflow-clip unl-bg-cream unl-scarlet" style="padding: 2px">
-        <div class="unl-idm-avatar dcf-circle dcf-overflow-clip">
-          <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 24 24">
-            <path d="M12 0C5.383 0 0 5.383 0 12c0 3.18 1.232 6.177 3.469 8.438l.001.001A11.92 11.92 0 0 0 12 24c3.234 0 6.268-1.27 8.542-3.573A11.93 11.93 0 0 0 24 12c0-6.617-5.383-12-12-12zm8.095 19.428c-1.055-.626-5.165-2.116-5.595-2.275v-1.848c.502-.309 1.384-1.107 1.49-2.935.386-.226.63-.727.63-1.37 0-.578-.197-1.043-.52-1.294.242-.757.681-2.145.385-3.327C16.138 4.992 14.256 4.5 12.75 4.5c-1.342 0-2.982.391-3.569 1.456-.704-.034-1.096.273-1.29.531-.635.838-.216 2.368.02 3.21-.329.249-.531.718-.531 1.303 0 .643.244 1.144.63 1.37.106 1.828.989 2.626 1.49 2.935v1.848c-.385.144-4.464 1.625-5.583 2.288A10.92 10.92 0 0 1 1 12C1 5.935 5.935 1 12 1s11 4.935 11 11a10.92 10.92 0 0 1-2.905 7.428z"></path>
-            <path fill="none" d="M0 0h24v24H0z"></path>
-          </svg>
-        </div>
-      </div>
-      <div class="dcf-flex-grow-1 dcf-min-w-0">
-        <div class="unl-idm-firstname-lastname dcf-bold dcf-truncate">
-          <a class="unl-cream" href="#">Log in to this site as Ryan Dee</a>
-        </div>
-        <ul class="dcf-min-w-0 dcf-d-flex dcf-flex-wrap dcf-col-gap-4 dcf-mb-0" role="list">
-          <li class="unl-idm-view-profile dcf-mb-0 dcf-txt-xs" style="margin-bottom: 0"><a class="unl-cream" href="#">View Profile</a></li>
-          <li class="unl-idm-logout dcf-mb-0 dcf-txt-xs"><a class="unl-cream" href="#">Log out</a></li>
-        </ul>
+  <div class="dcf-idm-dialog-backdrop">
+    <div class="dcf-dialog-header unl-bg-scarlet">
+      <h2 class="dcf-sr-only">Log In</h2>
+      <div class="dcf-dialog-header-header dcf-d-none dcf-d-flex@md dcf-ai-center dcf-jc-flex-end dcf-col-gap-7 dcf-wrapper dcf-bb-1 dcf-bb-solid dcf-bt-3 dcf-bt-solid unl-bt-scarlet">
+        <button class="dcf-btn-header-global dcf-btn-close-dialog dcf-lh-1 dcf-d-flex dcf-ai-center dcf-col-gap-3 dcf-p-0 dcf-b-0 dcf-bg-transparent">
+          <span class="dcf-idm-toggle-label dcf-txt-xs unl-cream">Close</span>
+          <span class="dcf-d-flex dcf-ai-center dcf-jc-center dcf-h-6 dcf-w-6 dcf-circle unl-scarlet unl-bg-cream">
+            <svg class="dcf-h-4 dcf-w-4 dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 24 24">
+              <path d="M13.4 12 23.7 1.7c.4-.4.4-1 0-1.4s-1-.4-1.4 0L12 10.6 1.7.3C1.3-.1.7-.1.3.3s-.4 1 0 1.4L10.6 12 .3 22.3c-.4.4-.4 1 0 1.4.2.2.4.3.7.3s.5-.1.7-.3L12 13.4l10.3 10.3c.2.2.5.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4L13.4 12z"></path>
+            </svg>
+          </span>
+        </button>
+        <button class="dcf-btn-search-desktop dcf-btn-toggle-dialog dcf-btn-header-global dcf-search-toggle-button  dcf-nav-toggle-btn dcf-nav-toggle-btn-search dcf-search-toggle dcf-d-flex dcf-ai-center dcf-col-gap-3 dcf-p-0 dcf-b-0 dcf-bg-transparent" data-controls="dcf-search-dialog" type="button" hidden></button>
       </div>
     </div>
-
-    <div class="unl-idm-services dcf-wrapper dcf-overflow-y-auto unl-bg-cream">
-        <!-- <div class="dcf-pt-8 dcf-mb-8 dcf-bb-1 dcf-bb-solid" style="border-bottom-color:rgba(254,253,250,.43);"> -->
-
-        <!-- <div class="dcf-d-flex dcf-flex-nowrap dcf-col-gap-4 dcf-mb-6 dcf-mb-6 dcf-pb-4 dcf-bb-solid dcf-bb-1 unl-bb-light-gray">
-          <svg class="dcf-flex-shrink-0 dcf-h-8 dcf-w-8 dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 24 24">
-            <path d="M12 0C5.4 0 0 5.4 0 12c0 6.2 5 12 12 12 3.2 0 6.3-1.3 8.5-3.6S24 15.1 24 12c0-6.6-5.4-12-12-12zM4.7 20.2c1-.6 2.5-1.1 4-1.6l1.5-.6c.2-.1.3-.3.3-.5V15c0-.2-.1-.4-.3-.5 0 0-1.2-.5-1.2-2.5 0-.3-.2-.5-.5-.5 0 0-.1-.2-.1-.5s.1-.5.1-.5c.3 0 .5-.2.5-.5 0-.1 0-.3-.1-.5-.2-.5-.6-2-.2-2.4.1-.2.5-.2.7-.1.3 0 .5-.1.6-.4.2-.6 1.3-1.1 2.8-1.1s2.6.5 2.8 1.1c.2.9-.2 2.2-.4 2.8-.2.3-.2.5-.2.6 0 .3.2.5.5.5 0 0 .1.2.1.5s-.1.5-.1.5c-.3 0-.5.2-.5.5 0 2.1-1.1 2.5-1.2 2.5-.2.1-.3.3-.3.5v2.5c0 .2.1.4.3.5.5.2 1.1.4 1.6.6 1.5.5 2.9 1.1 3.9 1.6-2 1.8-4.5 2.8-7.3 2.8-2.7 0-5.3-1-7.3-2.8zm15.4-.8c-1-.6-2.6-1.2-4.3-1.8-.4-.2-.8-.3-1.3-.5v-1.8c.5-.3 1.4-1.1 1.5-2.9.4-.2.6-.7.6-1.4 0-.6-.2-1-.5-1.3.2-.8.7-2.1.4-3.3-.3-1.4-2.2-1.9-3.7-1.9-1.3 0-3 .4-3.6 1.5-.5-.1-.9.1-1.2.4-.8.8-.3 2.4-.1 3.3-.3.2-.5.7-.5 1.3 0 .6.2 1.1.6 1.4.1 1.8 1 2.6 1.5 2.9v1.8c-.4.1-.8.3-1.2.4-1.6.6-3.3 1.2-4.4 1.9C2 17.4 1 14.8 1 12 1 5.9 5.9 1 12 1s11 4.9 11 11c0 2.8-1 5.4-2.9 7.4z"></path>
-          </svg>
-          <div class="dcf-as-center">
-            <h2 class="dcf-txt-h3 dcf-mb-0 unl-cream">Herbie Husker</h2>
-            <div class="dcf-mt-1">
-              <ul class="dcf-d-flex dcf-gap-5 dcf-txt-sm" role="list" style="margin-bottom:0;">
-                <li class="dcf-mb-0"><a class="" href="">View Profile</a></li>
-                <li class="dcf-mb-0"><a class="" href="">Logout</a></li>
-              </ul>
-            </div>
+    <div class="unl-idm-content dcf-dialog-content dcf-fixed dcf-d-grid dcf-w-100% dcf-overflow-y-auto unl-bg-cream">
+      <div class="unl-idm-personal unl-cream unl-bg-scarlet dcf-w-100% dcf-d-flex dcf-ai-center dcf-col-gap-4 dcf-wrapper dcf-pt-5 dcf-logo-lockup dcf-overflow-x-hidden">
+        <div class="dcf-min-w-0 dcf-flex-shrink-0 dcf-h-8 dcf-w-8 dcf-circle dcf-overflow-clip unl-bg-cream unl-scarlet" style="padding: 2px">
+          <div class="unl-idm-avatar dcf-circle dcf-overflow-clip">
+            <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 24 24">
+              <path d="M12 0C5.383 0 0 5.383 0 12c0 3.18 1.232 6.177 3.469 8.438l.001.001A11.92 11.92 0 0 0 12 24c3.234 0 6.268-1.27 8.542-3.573A11.93 11.93 0 0 0 24 12c0-6.617-5.383-12-12-12zm8.095 19.428c-1.055-.626-5.165-2.116-5.595-2.275v-1.848c.502-.309 1.384-1.107 1.49-2.935.386-.226.63-.727.63-1.37 0-.578-.197-1.043-.52-1.294.242-.757.681-2.145.385-3.327C16.138 4.992 14.256 4.5 12.75 4.5c-1.342 0-2.982.391-3.569 1.456-.704-.034-1.096.273-1.29.531-.635.838-.216 2.368.02 3.21-.329.249-.531.718-.531 1.303 0 .643.244 1.144.63 1.37.106 1.828.989 2.626 1.49 2.935v1.848c-.385.144-4.464 1.625-5.583 2.288A10.92 10.92 0 0 1 1 12C1 5.935 5.935 1 12 1s11 4.935 11 11a10.92 10.92 0 0 1-2.905 7.428z"></path>
+              <path fill="none" d="M0 0h24v24H0z"></path>
+            </svg>
           </div>
-        </div> -->
+        </div>
+        <div class="dcf-flex-grow-1 dcf-min-w-0">
+          <div class="unl-idm-firstname-lastname dcf-bold dcf-truncate">
+            <a class="unl-cream" href="#">Log in to this site as Ryan Dee</a>
+          </div>
+          <ul class="dcf-min-w-0 dcf-d-flex dcf-flex-wrap dcf-col-gap-4 dcf-mb-0" role="list">
+            <li class="unl-idm-view-profile dcf-mb-0 dcf-txt-xs" style="margin-bottom: 0"><a class="unl-cream" href="#">View Profile</a></li>
+            <li class="unl-idm-logout dcf-mb-0 dcf-txt-xs"><a class="unl-cream" href="#">Log out</a></li>
+          </ul>
+        </div>
+      </div>
 
+      <div class="unl-idm-services dcf-wrapper dcf-overflow-y-auto unl-bg-cream">
         <div class="dcf-d-grid dcf-grid-cols-2@sm dcf-col-gap-vw dcf-row-gap-6 unl-idm-grid-services">
           <div class="dcf-col-start-1@sm dcf-col-end-2@sm dcf-d-grid dcf-ji-center dcf-h-100% unl-icon-card unl-idm-ms365">
             <div class="dcf-z-1 unl-gray unl-bg-cream unl-icon-card-icon">
@@ -339,6 +320,7 @@
             </div>
           </div>
         </div>
+      </div>
     </div>
   </div>
 </dialog>

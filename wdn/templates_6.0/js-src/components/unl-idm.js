@@ -140,7 +140,7 @@ export default class UNLIdm {
     /**
      * Checks the page for links with the `rel` attribute set
      * to login or logout
-     * 
+     *
      * If it finds any it will set the logInUrl or logOutUrl
      * @return { Void }
      */
@@ -157,7 +157,7 @@ export default class UNLIdm {
 
     /**
      * Gets the links on the page with a specific `rel` attribute value
-     * 
+     *
      * @param { String } name
      * @returns { HTMLElement|null }
      */
@@ -168,7 +168,7 @@ export default class UNLIdm {
 
     /**
      * Loads the client user based on the ssoCookieData
-     * 
+     *
      * @async
      * @return { Promise<Void> }
      */
@@ -198,7 +198,7 @@ export default class UNLIdm {
 
     /**
      * Loads the user data from local storage as long as the ssoCookieData matches
-     * 
+     *
      * @returns { Object|null}
      */
     #fetchClientUserDataFromLocalStorage() {
@@ -230,7 +230,7 @@ export default class UNLIdm {
 
     /**
      * Fetches user data from whoami using the ssoCookieData
-     * 
+     *
      * @async
      * @returns { Promise<Object|null> }
      */
@@ -255,7 +255,7 @@ export default class UNLIdm {
     /**
      * Saves the current clientSideUser to local storage so we don't need
      * to fetch from whoami again
-     * 
+     *
      * @returns { Void }
      */
     #syncLocalStorage() {
@@ -271,7 +271,7 @@ export default class UNLIdm {
 
     /**
      * Erases the local storage data incase things got out of sync or old
-     * 
+     *
      * @returns { Void }
      */
     #eraseLocalStorage() {
@@ -280,7 +280,7 @@ export default class UNLIdm {
 
     /**
      * Sets the logInUrl and re-renders the component
-     * 
+     *
      * @param { String } loginRouteIn
      * @returns { Void }
      */
@@ -293,7 +293,7 @@ export default class UNLIdm {
 
     /**
      * Sets the logOutUrl and re-renders the component
-     * 
+     *
      * @param { String } logoutRouteIn
      * @returns { Void }
      */
@@ -306,8 +306,8 @@ export default class UNLIdm {
 
     /**
      * Sets up initial serverSideUser data
-     * 
-     * @param { String } serverUserInput 
+     *
+     * @param { String } serverUserInput
      * @returns { Void }
      */
     async setServerUser(serverUserInput) {
@@ -332,7 +332,7 @@ export default class UNLIdm {
 
     /**
      * If we failed to load the clientSideUser then we will fetch the serverSideUser data
-     * 
+     *
      * @async
      * @returns { Promise<Void> }
      */
@@ -359,7 +359,7 @@ export default class UNLIdm {
 
     /**
      * Using directory we will convert the serverSideUser's email to their UID
-     * 
+     *
      * @async
      * @returns { Promise<String|null> } User's uid or null if failed
      */
@@ -388,7 +388,7 @@ export default class UNLIdm {
 
     /**
      * Using directory we will get the serverSideUser's data from their UID
-     * 
+     *
      * @async
      * @returns { Promise<Object|null> } user's data or null if failed
      */
@@ -410,7 +410,7 @@ export default class UNLIdm {
 
     /**
      * Gets the best display name for the clientSideUser based on available data
-     * 
+     *
      * @returns { String|null } ClientSideUser's display name or null if failed
      */
     #getClientUserDisplayName() {
@@ -431,7 +431,7 @@ export default class UNLIdm {
 
     /**
      * Gets the best full name for the clientSideUser based on available data
-     * 
+     *
      * @returns { String|null } ClientSideUser's full name or null if failed
      */
     #getClientUserFullName() {
@@ -448,7 +448,7 @@ export default class UNLIdm {
 
     /**
      * Gets the best display name for the serverSideUser based on available data
-     * 
+     *
      * @returns { String|null } ServerSideUser's display name or null if failed
      */
     #getServerUserDisplayName() {
@@ -475,7 +475,7 @@ export default class UNLIdm {
 
     /**
      * Gets the serverSideUser's full name based on available data
-     * 
+     *
      * @returns { String|null } User's full name or null if failed
      */
     #getServerUserFullName() {
@@ -496,7 +496,7 @@ export default class UNLIdm {
 
     /**
      * Gets the serverSideUser's avatar Url based on available data
-     * 
+     *
      * @returns { String|null } Avatar URL or null if failed
      */
     #getServerUserAvatarUrl() {
@@ -586,7 +586,7 @@ export default class UNLIdm {
     /**
      * Renders the component based on if we have clientSideUser data and
      * if we have serverSideUser data
-     * 
+     *
      * @returns { Void }
      */
     #render() {
@@ -614,7 +614,7 @@ export default class UNLIdm {
 
     /**
      * Renders the component in it's logged out state
-     * 
+     *
      * @return { Void }
      */
     renderLoggedOutState() {
@@ -661,7 +661,7 @@ export default class UNLIdm {
     /**
      * Renders the component in it's quasi logged in state
      * This is when the server says the user is not logged in but the client says they are
-     * 
+     *
      * @param { String } userAvatarUrl
      * @return { Void }
      */
@@ -705,9 +705,9 @@ export default class UNLIdm {
 
     /**
      * Renders the component in it's logged in out state
-     * 
+     *
      * @param { String } userAvatarUrl
-     * @param { String } userDisplayName 
+     * @param { String } userDisplayName
      * @return { Void }
      */
     renderLoggedInState(userDisplayName, userAvatarUrl) {

@@ -24,7 +24,6 @@
 
 
   .unl-idm-status-quasi img{
-    /* filter: blur(2px) grayscale(.5); */
     filter: blur(3px);
   }
 
@@ -92,6 +91,26 @@
 
 
   @include mixins.mq(md, max, width) {
+
+    .unl .dcf-idm-dialog-backdrop {
+      backdrop-filter: blur(3px);
+      background-color: var(--bg-overlay-light);
+      bottom: 0;
+      height: 100vh;
+      position: fixed;
+      width: 100%;
+      z-index: 998;
+    }
+
+    .dcf-nav-toggle-btn-chat {
+      color: var.$cream !important;
+      row-gap: .42em !important;
+    }
+
+    .dcf-nav-toggle-label-chat {
+      font-weight: 600 !important;
+      margin-top: 0 !important;
+    }
 
     .unl-idm-content {
       bottom: 4.21em;
