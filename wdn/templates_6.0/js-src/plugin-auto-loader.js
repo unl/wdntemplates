@@ -13,11 +13,11 @@ if (
 document.dispatchEvent(new Event('autoLoaderPreLoad'));
 
 // Setting default values for the autoloader config
-const globalOptInSelector = window.UNL.autoLoader.config.globalOptInSelector || null;
-const globalOptOutSelector = window.UNL.autoLoader.config.globalOptOutSelector || null;
-const configPluginList = window.UNL.autoLoader.config.plugins || {};
-const enabled = window.UNL.autoLoader.config.enabled || true;
-const watch = window.UNL.autoLoader.config.watch || true;
+const globalOptInSelector = window.UNL.autoLoader.config.globalOptInSelector ?? null;
+const globalOptOutSelector = window.UNL.autoLoader.config.globalOptOutSelector ?? null;
+const configPluginList = window.UNL.autoLoader.config.plugins ?? {};
+const enabled = window.UNL.autoLoader.config.enabled ?? true;
+const watch = window.UNL.autoLoader.config.watch ?? true;
 
 // This is the list of plugins we will check with when elements are added to the page
 const watchList = [];
@@ -66,11 +66,11 @@ if (enabled) {
         }
 
         window.UNL.autoLoader.plugins[pluginName] = {
-            optInSelector: pluginConfig?.optInSelector || null,
-            optOutSelector: pluginConfig?.optOutSelector || null,
-            customConfig: pluginConfig?.customConfig || {},
-            onPluginInitialized: pluginConfig?.onPluginInitialized || null,
-            onPluginLoadedElement: pluginConfig?.onPluginLoadedElement || null,
+            optInSelector: pluginConfig?.optInSelector ?? null,
+            optOutSelector: pluginConfig?.optOutSelector ?? null,
+            customConfig: pluginConfig?.customConfig ?? {},
+            onPluginInitialized: pluginConfig?.onPluginInitialized ?? null,
+            onPluginLoadedElement: pluginConfig?.onPluginLoadedElement ?? null,
             module: pluginModule,
             elements: [],
         };
