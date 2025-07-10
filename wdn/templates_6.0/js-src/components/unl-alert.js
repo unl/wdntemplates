@@ -208,7 +208,7 @@ export default class UNLAlert {
             // Check if unlAlertDivWrapper doesn't exist
             if (!unlAlertDivWrapper) {
                 unlAlertDivWrapper = document.createElement('div');
-                unlAlertDivWrapper.id = 'unlalert';
+                unlAlertDivWrapper.setAttribute('id', 'unlalert');
                 unlAlertDivWrapper.className = 'dcf-bleed dcf-z-1';
                 unlAlertDivWrapper.setAttribute('role', 'alert');
                 unlAlertDivWrapper.style.position = 'absolute';
@@ -219,7 +219,7 @@ export default class UNLAlert {
                 // Create the alert content div
                 unlAlertContent = document.createElement('div');
                 unlAlertContent.className = 'dcf-relative dcf-col-gap-vw dcf-row-gap-6';
-                unlAlertContent.id = 'unlalert_content';
+                unlAlertContent.setAttribute('id', 'unlalert_content');
 
                 //Create a div to append the alert content and unlAlertDivWrapper
                 const unlAlertInnerDivWrapper = document.createElement('div');
@@ -260,13 +260,13 @@ export default class UNLAlert {
         if (!alertToggle) {
             // Create the toggle button and its content
             const alertToggleSpan = document.createElement('span');
-            alertToggleSpan.id = 'unlalert_action';
+            alertToggleSpan.setAttribute('id', 'unlalert_action');
             alertToggleSpan.className = 'dcf-ml-2 dcf-txt-sm';
             alertToggleSpan.textContent = 'Show emergency alert';
 
             alertToggle = document.createElement('button');
             alertToggle.className = 'dcf-btn dcf-btn-tertiary dcf-txt-decor-none dcf-d-flex dcf-ai-center dcf-jc-center dcf-txt-base';
-            alertToggle.id = 'unlalert_toggle';
+            alertToggle.setAttribute('id', 'unlalert_toggle');
             alertToggle.insertAdjacentHTML('beforeend', alertIconSvg);
             alertToggle.appendChild(alertToggleSpan);
 
