@@ -10,7 +10,7 @@ return readfile($documentRoot . $path);
     <head>
         <?php wdnInclude("https://unlcms.unl.edu/wdn/templates_6.0/includes/global/head-1.html"); ?>
         <!--
-          Membership and regular participation in the University of Nebraska–Lincoln (UNL) Web Developer Network (WDN) is required to use the UNLedu Web Framework. Visit the WDN site at https://wdn.unl.edu/. Register for our mailing list and add your site or server to UNL Web Audit.
+          Membership and regular participation in the University of Nebraska-Lincoln (UNL) Web Developer Network (WDN) is required to use the UNLedu Web Framework. Visit the WDN site at https://wdn.unl.edu/. Register for our mailing list and add your site or server to UNL Web Audit.
           All framework code is the property of the UNL Web Developer Network. The code seen in a source code view is not, and may not be used as, a template. You may not use this code, a reverse-engineered version of this code, or its associated visual presentation in whole or in part to create a derivative work.
           This message may not be removed from any pages based on the UNLedu Web Framework.
 
