@@ -31,7 +31,7 @@ return readfile($documentRoot . $path);
         <!-- TemplateEndEditable -->
         <!-- TemplateParam name="class" type="text" value="" -->
     </head>
-    <body class="@@(_document['class'])@@ unl affiliate" data-version="$HTML_VERSION$">
+    <body class="@@(_document['class'])@@ unl affiliate" data-version="$HTML_VERSION$" data-template="affiliate-cloud">
         <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.0/includes/global/skip-nav.html"); ?>
         <header class="dcf-header" id="dcf-header" role="banner">
             <!-- TemplateBeginEditable name="affiliateheaderglobal" -->

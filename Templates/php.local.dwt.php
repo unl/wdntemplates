@@ -33,7 +33,7 @@ function wdnInclude($path)
         <!-- TemplateEndEditable -->
         <!-- TemplateParam name="class" type="text" value="" -->
     </head>
-    <body class="@@(_document['class'])@@ unl" data-version="$HTML_VERSION$">
+    <body class="@@(_document['class'])@@ unl" data-version="$HTML_VERSION$" data-template="local">
         <?php wdnInclude("/wdn/templates_6.0/includes/global/skip-nav.html"); ?>
         <header class="dcf-header" id="dcf-header" role="banner">
             <?php wdnInclude("/wdn/templates_6.0/includes/global/header-global-1.html"); ?>
