@@ -294,6 +294,14 @@ export default class UNLSearch {
         this.domSearchForm.parentElement.classList.remove('active');
         this.domSearchForm.reset();
 
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            window.dataLayer.push(arguments);
+        }
+        gtag('event', 'UNL_search_closed', {
+            'app_name': 'UNL_search',
+        });
+
         if (this.unlSearch) {
             this.unlSearch = null;
             this.domSearchResultWrapper.innerHTML = '';
@@ -310,6 +318,14 @@ export default class UNLSearch {
      */
     #dialogOpened() {
         document.dispatchEvent(this.searchOpenedEvent);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            window.dataLayer.push(arguments);
+        }
+        gtag('event', 'UNL_search_opened', {
+            'app_name': 'UNL_search',
+        });
     }
 
     /**
