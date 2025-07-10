@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.0.0 (July 10, 2025)
+- Initial release of 6.0
+
 ## 5.3.57 (June 24, 2025)
 - Load web analytics in a require.js compliant way
 
