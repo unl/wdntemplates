@@ -12,10 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/wdn/templates_5.3/includes/local/affiliate-custom.css">
-  <link rel="icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/favicon.ico" sizes="any">
-  <link rel="icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/apple-touch-icon.png">
-  <link rel="manifest" href="https://unlcms.unl.edu/wdn/templates_5.3/includes/global/favicon/manifest.webmanifest">
+  <link rel="icon" href="https://wdn-cdn.unl.edu/wdn/templates_5.3/includes/global/favicon/favicon.ico" sizes="any">
+  <link rel="icon" href="https://wdn-cdn.unl.edu/wdn/templates_5.3/includes/global/favicon/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="https://wdn-cdn.unl.edu/wdn/templates_5.3/includes/global/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="https://wdn-cdn.unl.edu/wdn/templates_5.3/includes/global/favicon/manifest.webmanifest">
   <meta name="theme-color" content="#D90792">
 <!-- InstanceEndEditable -->
 </head>
