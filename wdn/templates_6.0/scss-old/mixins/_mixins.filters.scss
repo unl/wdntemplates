@@ -1,8 +1,0 @@
-///////////////////////////
-// THEME / MIXINS / FILTERS
-///////////////////////////
-
-
-@mixin drop-shadow($imp:null) {
-  filter: drop-shadow(0 0 5px rgba(66, 66, 64, .25)) drop-shadow(0 0 1px rgba(66, 66, 64, .6)) $imp;
-}
