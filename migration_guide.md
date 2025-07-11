@@ -2,7 +2,13 @@
 
 ## ZIP Download
 
-For version 5.3 of the templates the download link ([https://wdn.unl.edu/downloads/wdn.zip](https://wdn.unl.edu/downloads/wdn.zip)) will stay the same. For 6.0 we will start appending the version number onto the zip file name ([https://wdn.unl.edu/downloads/wdn_6.0.zip](https://wdn.unl.edu/downloads/wdn_6.0.zip)). Similar things will happen to the other zip files `wdn_includes`, and `UNLTemplates`.
+For version 5.3 of the templates the download link ([https://wdn.unl.edu/downloads/wdn.zip](https://wdn.unl.edu/downloads/wdn.zip)) will stay the same. For 6.0 we will start appending the version number onto the zip file name ([https://wdn.unl.edu/sites/unl.edu.university-communication.web-developer-network/files/downloads/wdn_6.0.zip](https://wdn.unl.edu/sites/unl.edu.university-communication.web-developer-network/files/downloads/wdn_6.0.zip)). Similar things will happen to the other zip files `wdn_includes`, and `UNLTemplates`.
+
+## Updating Your Template Files
+
+The template files were changed so reference [https://wdn.unl.edu/sites/unl.edu.university-communication.web-developer-network/files/downloads/UNLTemplates_6.0.zip](https://wdn.unl.edu/sites/unl.edu.university-communication.web-developer-network/files/downloads/UNLTemplates_6.0.zip) to get the current version of your template. This includes new include files and new data attributes on the body tag.
+
+You will also need to update the footer HTML to match what is in `wdn/templates_6.0/includes/local/footer-local.html`. This includes new SVGs and new formatting.
 
 ## CSS Changes
 
@@ -49,6 +55,17 @@ For version 5.3 of the templates the download link ([https://wdn.unl.edu/downloa
 ### Plugin Auto Loader
 
 The biggest change to the templates v6 is the removal of requireJS. This library is outdated and should be replaced by modern JavaScript features like ES Modules. To go along with the removal of requireJS we implemented a new plugin auto loader which will scan the page and based on the elements on the page it will load the corresponding plugin.
+
+With these changes you will no longer need scripts for loading plugins manually. You can remove scripts like these:
+
+```HTML
+<script>
+  // This type of script is no longer needed in your project thanks to the auto loader
+  window.addEventListener('inlineJSReady', function() {
+    WDN.initializePlugin('collapsible-fieldsets');
+  }, false);
+</script>
+```
 
 The plugin auto loader is configured by default to be enabled on page load and will watch all document mutations. This allows you to add any DCF/UNL component to the page and have the auto loader load the JS code and CSS styles automatically; this even works when you append the component to the page after the initial page load.
 
