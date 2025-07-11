@@ -32,7 +32,7 @@ function wdnInclude($path)
         <!-- Place optional header elements here -->
         <!-- TemplateEndEditable -->
     </head>
-    <body class="unl app" data-version="$HTML_VERSION$">
+    <body class="unl app" data-version="$HTML_VERSION$" data-template="app-debug">
         <?php wdnInclude("/wdn/templates_6.0/includes/global/skip-nav.html"); ?>
         <header class="dcf-header" id="dcf-header" role="banner">
             <?php wdnInclude("/wdn/templates_6.0/includes/global/header-global-1.html"); ?>

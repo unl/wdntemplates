@@ -18,7 +18,7 @@
       <!-- Place optional header elements here -->
     <!-- TemplateEndEditable -->
   </head>
-  <body class="unl app" data-version="$HTML_VERSION$">
+  <body class="unl app" data-version="$HTML_VERSION$" data-template="app-local">
     <c:import url="/wdn/templates_6.0/includes/global/skip-nav.html"/>
     <header class="dcf-header" id="dcf-header" role="banner">
       <c:import url="/wdn/templates_6.0/includes/global/header-global-1.html"/>

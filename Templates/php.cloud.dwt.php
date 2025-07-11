@@ -24,7 +24,7 @@ return readfile($documentRoot . $path);
         <!-- Place optional header elements here -->
         <!-- TemplateEndEditable -->
     </head>
-    <body class="unl" data-version="$HTML_VERSION$">
+    <body class="unl" data-version="$HTML_VERSION$" data-template="cloud">
         <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.0/includes/global/skip-nav.html"); ?>
         <header class="dcf-header" id="dcf-header" role="banner">
             <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.0/includes/global/header-global-1.html"); ?>

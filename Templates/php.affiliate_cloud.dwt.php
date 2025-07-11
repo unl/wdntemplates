@@ -30,7 +30,7 @@ return readfile($documentRoot . $path);
         <meta name="theme-color" content="#d00000">
         <!-- TemplateEndEditable -->
     </head>
-    <body class="unl affiliate" data-version="$HTML_VERSION$">
+    <body class="unl affiliate" data-version="$HTML_VERSION$" data-template="affiliate-cloud">
         <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.0/includes/global/skip-nav.html"); ?>
         <header class="dcf-header" id="dcf-header" role="banner">
             <!-- TemplateBeginEditable name="affiliateheaderglobal" -->
