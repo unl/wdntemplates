@@ -37,9 +37,8 @@ function wdnInclude($path)
         <link rel="manifest" href="/wdn/templates_6.0/includes/global/favicon/manifest.webmanifest">
         <meta name="theme-color" content="#d00000">
         <!-- TemplateEndEditable -->
-        <!-- TemplateParam name="class" type="text" value="debug" -->
     </head>
-    <body class="@@(_document['class'])@@ unl affiliate" data-version="$HTML_VERSION$">
+    <body class="unl affiliate" data-version="$HTML_VERSION$">
         <?php wdnInclude("/wdn/templates_6.0/includes/global/skip-nav.html"); ?>
         <header class="dcf-header" id="dcf-header" role="banner">
             <!-- TemplateBeginEditable name="affiliateheaderglobal" -->
