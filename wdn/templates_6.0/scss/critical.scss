@@ -151,7 +151,9 @@
     padding-left: 1.78em
   }
   ol[role=list],
-  ul[role=list] {
+  ul[role=list],
+  ol[role=tablist],
+  ul[role=tablist] {
     list-style: none;
     padding: 0
   }
