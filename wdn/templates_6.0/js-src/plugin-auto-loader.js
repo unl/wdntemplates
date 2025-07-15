@@ -103,6 +103,8 @@ if (enabled) {
             }
 
         } else if (pluginModule.getPluginType() === 'multi') {
+            watchList.push(singlePluginName);
+
             let matchingElements = Array.from(document.querySelectorAll(pluginModule.getQuerySelector()));
             // Filter out opt out
             if (globalOptOutSelector !== null) {
@@ -138,8 +140,6 @@ if (enabled) {
                     });
                 });
             }
-
-            watchList.push(singlePluginName);
         }
     }
 }
@@ -152,50 +152,53 @@ if (enabled && watch) {
             mutationRecord.addedNodes.forEach(async(nodeAdded) => {
                 if (nodeAdded instanceof Element) {
 
-                    // Double check the added element is not opt out and is opt in
-                    if (globalOptOutSelector !== null && nodeAdded.matches(globalOptOutSelector)) {
-                        return;
-                    }
-                    if (globalOptInSelector !== null && !nodeAdded.matches(globalOptInSelector)) {
-                        return;
-                    }
-
                     // Loop through each plugin and check to see if this new element matches it
                     for (const singlePluginName of watchList) {
                         const pluginData = window.UNL.autoLoader.plugins[singlePluginName];
                         const pluginModule = pluginData.module;
 
-                        if (!nodeAdded.matches(pluginModule.getQuerySelector())) {
-                            return;
+                        let foundElements = [];
+                        if (nodeAdded.matches(pluginModule.getQuerySelector())) {
+                            foundElements.push(nodeAdded);
                         }
-                        if (pluginData.optInSelector !== null && !(nodeAdded.matches(pluginData.optInSelector))) {
-                            return;
-                        }
-                        if (pluginData.optOutSelector !== null && nodeAdded.matches(pluginData.optOutSelector)) {
-                            return;
-                        }
+                        foundElements = foundElements.concat(Array.from(nodeAdded.querySelectorAll(pluginModule.getQuerySelector())));
 
-                        if (pluginModule.getPluginType() === 'single') {
-                            const element = await pluginModule.initialize(pluginData.customConfig);
-                            if (element !== null) {
-                                pluginData.elements.push(element);
+                        foundElements.forEach(async(singleFoundElement) => {
+                            if (globalOptOutSelector !== null && singleFoundElement.matches(globalOptOutSelector)) {
+                                return;
+                            }
+                            if (globalOptInSelector !== null && !singleFoundElement.matches(globalOptInSelector)) {
+                                return;
+                            }
+                            if (pluginData.optInSelector !== null && !(singleFoundElement.matches(pluginData.optInSelector))) {
+                                return;
+                            }
+                            if (pluginData.optOutSelector !== null && singleFoundElement.matches(pluginData.optOutSelector)) {
+                                return;
+                            }
+
+                            if (pluginModule.getPluginType() === 'single') {
+                                const element = await pluginModule.initialize(pluginData.customConfig);
+                                if (element !== null) {
+                                    pluginData.elements.push(element);
+                                    if (typeof pluginData.onPluginLoadedElement === 'function') {
+                                        pluginData.onPluginLoadedElement({
+                                            loadedElement: element,
+                                        });
+                                    }
+                                }
+                                watchList.splice(watchList.indexOf(singlePluginName), 1);
+
+                            } else if (pluginModule.getPluginType() === 'multi') {
+                                const element = await pluginModule.loadElement(singleFoundElement, pluginData.customConfig);
+                                pluginData.elements = pluginData.elements.concat(element);
                                 if (typeof pluginData.onPluginLoadedElement === 'function') {
                                     pluginData.onPluginLoadedElement({
                                         loadedElement: element,
                                     });
                                 }
                             }
-                            watchList.splice(watchList.indexOf(singlePluginName), 1);
-
-                        } else if (pluginModule.getPluginType() === 'multi') {
-                            const element = await pluginModule.loadElement(nodeAdded, pluginData.customConfig);
-                            pluginData.elements = pluginData.elements.concat(element);
-                            if (typeof pluginData.onPluginLoadedElement === 'function') {
-                                pluginData.onPluginLoadedElement({
-                                    loadedElement: element,
-                                });
-                            }
-                        }
+                        });
                     }
                 }
             });
