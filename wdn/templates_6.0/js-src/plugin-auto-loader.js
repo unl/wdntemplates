@@ -146,12 +146,11 @@ if (enabled) {
 
 if (enabled && watch) {
     // Loads all elements that are added to the page
-    const mutationCallback = function(mutationList) {
-        mutationList.forEach((mutationRecord) => {
+    const mutationCallback = async(mutationList) => {
+        for (const mutationRecord of mutationList) {
             // Loop through each node added and make sure it is an element
-            mutationRecord.addedNodes.forEach(async(nodeAdded) => {
+            for (const nodeAdded of mutationRecord.addedNodes) {
                 if (nodeAdded instanceof Element) {
-
                     // Loop through each plugin and check to see if this new element matches it
                     for (const singlePluginName of watchList) {
                         const pluginData = window.UNL.autoLoader.plugins[singlePluginName];
@@ -163,7 +162,7 @@ if (enabled && watch) {
                         }
                         foundElements = foundElements.concat(Array.from(nodeAdded.querySelectorAll(pluginModule.getQuerySelector())));
 
-                        foundElements.forEach(async(singleFoundElement) => {
+                        for (const singleFoundElement of foundElements) {
                             if (globalOptOutSelector !== null && singleFoundElement.matches(globalOptOutSelector)) {
                                 return;
                             }
@@ -198,11 +197,11 @@ if (enabled && watch) {
                                     });
                                 }
                             }
-                        });
+                        }
                     }
                 }
-            });
-        });
+            }
+        }
     };
 
     const observer = new MutationObserver(mutationCallback);
