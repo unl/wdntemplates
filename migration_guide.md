@@ -51,18 +51,32 @@ New Ratio Example:
 Old Grid Example:
 
 ```HTML
+<!-- Col Span Example Old -->
 <div class="dcf-grid dcf-col-gap-vw dcf-row-gap-6">
   <div class="dcf-col-100% dcf-col-33%-start@md"></div>
   <div class="dcf-col-100% dcf-col-67%-end@md"></div>
+</div>
+
+<!-- Grid Full/Halves Example Old -->
+<div class="dcf-grid-full dcf-grid-halves@md">
+  <div></div>
+  <div></div>
 </div>
 ```
 
 New Grid Example:
 
 ```HTML
+<!-- Col Span Example New -->
 <div class="dcf-d-grid dcf-grid-cols-12 dcf-col-gap-vw dcf-row-gap-6">
   <div class="dcf-col-span-12 dcf-col-span-4@md"></div>
   <div class="dcf-col-span-12 dcf-col-span-8@md"></div>
+</div>
+
+<!-- Grid Full/Halves Example New -->
+<div class="dcf-d-grid dcf-grid-cols-1 dcf-grid-cols-2@md">
+  <div></div>
+  <div></div>
 </div>
 ```
 
