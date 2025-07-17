@@ -479,7 +479,6 @@ export default class UNLIdm {
      * @returns { String|null } User's full name or null if failed
      */
     #getServerUserFullName() {
-        console.log('here', this.serverSideUser);
         if (this.serverSideUser === null) {
             return null;
         }
