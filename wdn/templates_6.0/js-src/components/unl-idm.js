@@ -484,7 +484,7 @@ export default class UNLIdm {
         }
 
         if ('data' in this.serverSideUser && this.serverSideUser.data !== null) {
-            if ('displayName' in this.serverSideUser && this.serverSideUser.data.displayName !== null) {
+            if ('displayName' in this.serverSideUser.data && this.serverSideUser.data.displayName !== null) {
                 return this.serverSideUser.data.displayName[0];
             }
         } else if ('uid' in this.serverSideUser && this.serverSideUser.uid !== null) {

@@ -46,7 +46,18 @@ navDialogContent.addEventListener('mouseenter', () => {
 
 // Update IDM and Search Dialog Styles for mobile
 let idmDialog = document.querySelector('dialog.dcf-idm-dialog');
+let idmDialogClassInstance = null;
 let searchDialog = document.querySelector('dialog.dcf-search-dialog');
+let searchDialogClassInstance = null;
+let currentScreenSize = null;
+
+idmDialog.addEventListener('dialogReady', (event) => {
+    idmDialogClassInstance = event.detail.classInstance;
+});
+searchDialog.addEventListener('dialogReady', (event) => {
+    searchDialogClassInstance = event.detail.classInstance;
+});
+
 window.addEventListener('resize', () => {
     updateStyles();
 });
@@ -60,9 +71,30 @@ function updateStyles() {
     idmDialog = document.querySelector('dialog.dcf-idm-dialog');
     searchDialog = document.querySelector('dialog.dcf-search-dialog');
 
+    // If we switch screen size from mobile to desktop then
+    //    then the dialog will go from modal to non-modal and look broken
+    //    so we will need to close the dialogs when we switch over
     if (isScreenUnderMediumSize()) {
+        if (currentScreenSize !== 'mobile') {
+            currentScreenSize = 'mobile';
+            if (idmDialogClassInstance !== null) {
+                idmDialogClassInstance.close();
+            }
+            if (searchDialogClassInstance !== null) {
+                searchDialogClassInstance.close();
+            }
+        }
         setMobileStyles();
     } else {
+        if (currentScreenSize !== 'desktop') {
+            currentScreenSize = 'desktop';
+            if (idmDialogClassInstance !== null) {
+                idmDialogClassInstance.close();
+            }
+            if (searchDialogClassInstance !== null) {
+                searchDialogClassInstance.close();
+            }
+        }
         setDesktopStyles();
     }
 }
