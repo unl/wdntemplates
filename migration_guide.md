@@ -32,6 +32,24 @@ You will also need to update the footer HTML to match what is in `wdn/templates_
 
 `.dcf-col-100%`, `.dcf-col-50%`, etc. (use combination of `.dcf-col-span-#`, `.dcf-col-start-#`, and `.dcf-col-end-#` instead)
 
+Old Grid Example:
+
+```HTML
+<div class="dcf-grid dcf-col-gap-vw dcf-row-gap-6">
+  <div class="dcf-col-100% dcf-col-33%-start@md"></div>
+  <div class="dcf-col-100% dcf-col-67%-end@md"></div>
+</div>
+```
+
+New Grid Example:
+
+```HTML
+<div class="dcf-d-grid dcf-grid-cols-12 dcf-col-gap-vw dcf-row-gap-6">
+  <div class="dcf-col-span-12 dcf-col-span-4@md"></div>
+  <div class="dcf-col-span-12 dcf-col-span-8@md"></div>
+</div>
+```
+
 ### Height and Width
 
 `.dcf-h-max-`, `.dcf-h-min-`, `.dcf-w-max-`, `.dcf-w-min-` classes (renamed `.dcf-max-h-`, `.dcf-min-h-`, `.dcf-max-w-`, `.dcf-min-w-` to better reflect the property names and to avoid confusion with use of values like min-content and max-content)
