@@ -22,6 +22,22 @@ You will also need to update the footer HTML to match what is in `wdn/templates_
 
 `.dcf-ratio`, `.dcf-ratio-#x#` and `.dcf-ratio-child` (use `.dcf-#x#` directly on aspect ratio elements)
 
+Old Ratio Example:
+
+```HTML
+<div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+  <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+</div>
+```
+
+New Ratio Example:
+
+```HTML
+<div class="dcf-1x1 dcf-16x9@md">
+  <img class="dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+</div>
+```
+
 ### Buttons
 
 `.dcf-btn-icon` (code will automatically style SVGs and images contained inside buttons, no dedicated class needed)
