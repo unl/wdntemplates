@@ -2,7 +2,13 @@
 
 ## ZIP Download
 
-For version 5.3 of the templates the download link ([https://wdn.unl.edu/downloads/wdn.zip](https://wdn.unl.edu/downloads/wdn.zip)) will stay the same. For 6.0 we will start appending the version number onto the zip file name ([https://wdn.unl.edu/downloads/wdn_6.0.zip](https://wdn.unl.edu/downloads/wdn_6.0.zip)). Similar things will happen to the other zip files `wdn_includes`, and `UNLTemplates`.
+For version 5.3 of the templates the download link ([https://wdn.unl.edu/downloads/wdn.zip](https://wdn.unl.edu/downloads/wdn.zip)) will stay the same. For 6.0 we will start appending the version number onto the zip file name ([https://wdn.unl.edu/sites/unl.edu.university-communication.web-developer-network/files/downloads/wdn_6.0.zip](https://wdn.unl.edu/sites/unl.edu.university-communication.web-developer-network/files/downloads/wdn_6.0.zip)). Similar things will happen to the other zip files `wdn_includes`, and `UNLTemplates`.
+
+## Updating Your Template Files
+
+The template files were changed so reference [https://wdn.unl.edu/sites/unl.edu.university-communication.web-developer-network/files/downloads/UNLTemplates_6.0.zip](https://wdn.unl.edu/sites/unl.edu.university-communication.web-developer-network/files/downloads/UNLTemplates_6.0.zip) to get the current version of your template. This includes new include files and new data attributes on the body tag.
+
+You will also need to update the footer HTML to match what is in `wdn/templates_6.0/includes/local/footer-local.html`. This includes new SVGs and new formatting.
 
 ## CSS Changes
 
@@ -16,6 +22,22 @@ For version 5.3 of the templates the download link ([https://wdn.unl.edu/downloa
 
 `.dcf-ratio`, `.dcf-ratio-#x#` and `.dcf-ratio-child` (use `.dcf-#x#` directly on aspect ratio elements)
 
+Old Ratio Example:
+
+```HTML
+<div class="dcf-ratio dcf-ratio-16x9 dcf-ratio-1x1@sm dcf-ratio-16x9@lg">
+  <img class="dcf-d-block dcf-ratio-child dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+</div>
+```
+
+New Ratio Example:
+
+```HTML
+<div class="dcf-1x1 dcf-16x9@md">
+  <img class="dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+</div>
+```
+
 ### Buttons
 
 `.dcf-btn-icon` (code will automatically style SVGs and images contained inside buttons, no dedicated class needed)
@@ -25,6 +47,38 @@ For version 5.3 of the templates the download link ([https://wdn.unl.edu/downloa
 `.dcf-grid-halves`, `.dcf-grid-thirds`, etc. (use `.dcf-d-grid` and `.dcf-grid-cols-#` instead)
 
 `.dcf-col-100%`, `.dcf-col-50%`, etc. (use combination of `.dcf-col-span-#`, `.dcf-col-start-#`, and `.dcf-col-end-#` instead)
+
+Old Grid Example:
+
+```HTML
+<!-- Col Span Example Old -->
+<div class="dcf-grid dcf-col-gap-vw dcf-row-gap-6">
+  <div class="dcf-col-100% dcf-col-33%-start@md"></div>
+  <div class="dcf-col-100% dcf-col-67%-end@md"></div>
+</div>
+
+<!-- Grid Full/Halves Example Old -->
+<div class="dcf-grid-full dcf-grid-halves@md">
+  <div></div>
+  <div></div>
+</div>
+```
+
+New Grid Example:
+
+```HTML
+<!-- Col Span Example New -->
+<div class="dcf-d-grid dcf-grid-cols-12 dcf-col-gap-vw dcf-row-gap-6">
+  <div class="dcf-col-span-12 dcf-col-span-4@md"></div>
+  <div class="dcf-col-span-12 dcf-col-span-8@md"></div>
+</div>
+
+<!-- Grid Full/Halves Example New -->
+<div class="dcf-d-grid dcf-grid-cols-1 dcf-grid-cols-2@md">
+  <div></div>
+  <div></div>
+</div>
+```
 
 ### Height and Width
 
@@ -49,6 +103,17 @@ For version 5.3 of the templates the download link ([https://wdn.unl.edu/downloa
 ### Plugin Auto Loader
 
 The biggest change to the templates v6 is the removal of requireJS. This library is outdated and should be replaced by modern JavaScript features like ES Modules. To go along with the removal of requireJS we implemented a new plugin auto loader which will scan the page and based on the elements on the page it will load the corresponding plugin.
+
+With these changes you will no longer need scripts for loading plugins manually. You can remove scripts like these:
+
+```HTML
+<script>
+  // This type of script is no longer needed in your project thanks to the auto loader
+  window.addEventListener('inlineJSReady', function() {
+    WDN.initializePlugin('collapsible-fieldsets');
+  }, false);
+</script>
+```
 
 The plugin auto loader is configured by default to be enabled on page load and will watch all document mutations. This allows you to add any DCF/UNL component to the page and have the auto loader load the JS code and CSS styles automatically; this even works when you append the component to the page after the initial page load.
 
