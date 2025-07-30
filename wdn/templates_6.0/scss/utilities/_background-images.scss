@@ -6,6 +6,67 @@
 @use "../mixins/" as mixins;
 
 
+// Shifts
+[class^="unl-bg-shift-top-"],
+[class*="unl-bg-shift-top-"] {
+  @include mixins.bg-shift-top;
+}
+
+
+[class^="unl-bg-shift-bottom-"],
+[class*="unl-bg-shift-bottom-"] {
+  @include mixins.bg-shift-bottom;
+}
+
+
+.unl-bg-shift-top-cream,
+.unl-bg-shift-bottom-cream {
+  @include mixins.bg-shift-cream;
+}
+
+
+.unl-bg-shift-top-lightest-gray,
+.unl-bg-shift-bottom-lightest-gray {
+  @include mixins.bg-shift-lightest-gray;
+}
+
+
+.unl-bg-shift-top-lighter-gray,
+.unl-bg-shift-bottom-lighter-gray {
+  @include mixins.bg-shift-lighter-gray;
+}
+
+
+.unl-bg-shift-top-light-gray,
+.unl-bg-shift-bottom-light-gray {
+  @include mixins.bg-shift-light-gray;
+}
+
+
+.unl-bg-shift-top-dark-gray,
+.unl-bg-shift-bottom-dark-gray {
+  @include mixins.bg-shift-dark-gray;
+}
+
+
+.unl-bg-shift-top-darker-gray,
+.unl-bg-shift-bottom-darker-gray {
+  @include mixins.bg-shift-darker-gray;
+}
+
+
+.unl-bg-shift-top-darkest-gray,
+.unl-bg-shift-bottom-darkest-gray {
+  @include mixins.bg-shift-darkest-gray;
+}
+
+
+.unl-bg-shift-top-scarlet,
+.unl-bg-shift-bottom-scarlet {
+  @include mixins.bg-shift-scarlet;
+}
+
+
 // Dots
 [class*='unl-bg-dots-'] { @include mixins.bg-dots; }
 .unl-bg-dots-gray { @include mixins.bg-dots-gray; }

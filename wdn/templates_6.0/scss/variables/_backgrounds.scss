@@ -6,6 +6,7 @@
 @use "sass:color";
 @use './body' as body;
 @use './color-palette' as color_palette;
+@use './sizing' as s;
 
 
 @forward "@dcf/scss/variables/backgrounds" with (
@@ -58,3 +59,7 @@ $bg-color-brand-light-eta: var(--bg-brand-light-eta) !default;
 $bg-color-brand-light-theta-light-mode: color_palette.$lighter-purple !default;   // Light theta brand background-color (light purple) in light mode
 $bg-color-brand-light-theta-dark-mode: color_palette.$dark-purple !default;       // Light theta brand background-color (light purple) in dark mode
 $bg-color-brand-light-theta: var(--bg-brand-light-theta) !default;
+
+
+// Shift size:
+$bg-shift-size: s.$length-em-9;   // Size of transparent region to let existing section background-color show through
