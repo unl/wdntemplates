@@ -83,7 +83,7 @@
 }
 
 
-#unl-footer-herbie {
+#unl-footer-herbie-container {
   display: none;
 }
 
@@ -224,7 +224,6 @@
     #unl-footer-herbie {
       /* --back-in easing: https://codepen.io/smashingmag/pen/zYywLXB */
       animation: move-herbie-down 300ms linear(0, -0.0029 4.31%, -0.0119 9.02%, -0.0838 31.27%, -0.0956 36.64%, -0.1 41.45%, -0.0953 47.03%, -0.0792 52.25%, -0.0512 57.19%, -0.0111 61.92%, 0.0512 67.19%, 0.131 72.27%, 0.2284 77.18%, 0.3443 81.96%, 0.479 86.62%, 0.6329 91.17%, 0.8065 95.63%, 1) forwards;
-      display: block;
       filter: drop-shadow(-#{var.$ms-8}em var.$length-em-4 var.$length-em-3 rgba(0,0,0,.2)) drop-shadow(#{var.$ms-12}em var.$length-em-4 var.$length-em-4 rgba(0,0,0,.1));
       transform: translateY(100%) scale(75%);
       transform-origin: bottom center;
@@ -244,6 +243,7 @@
       animation: flipthebit both;
       animation-range: entry 99%;
       animation-timeline: view();
+      display: block;
       left: calc(var.$length-vw-2 + #{var.$ms26}rem + 1vw);
       overflow-y: clip;
     }
