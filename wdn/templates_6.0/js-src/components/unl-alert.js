@@ -9,11 +9,9 @@ export default class UNLAlert {
 
     serverCallTimeoutID;
 
-    closedAlertCookieName = 'unlAlertsC';
+    closedAlertCookieName = 'unl-alert-closed';
 
-    alertDataReceivedCookieName = 'unlAlertsData';
-
-    activeAlertCookieName = 'unlAlertsA';
+    alertDataReceivedCookieName = 'unl-alert-data-received';
 
     serverCallExecutionDelay = 30000; // Delay (in milliseconds) before executing the checkIfServerCallIsNeeded function
 
@@ -31,8 +29,7 @@ export default class UNLAlert {
         window.unlAlerts = window.unlAlerts || {};
         window.unlAlerts.data = window.unlAlerts.data || {};
 
-        this.#fetchAlertData();
-
+        this.#checkIfFetchCallNeeded();
         document.dispatchEvent(
             new CustomEvent(UNLAlert.events('UNLAlertReady'), {
                 detail: {
@@ -40,6 +37,61 @@ export default class UNLAlert {
                 },
             }),
         );
+    }
+
+    // Retrieves the value of a specified cookie by its name and JSON parses it.
+    #getCookieValue(name) {
+        const cookies = document.cookie.split('; ');
+        for (const cookie of cookies) {
+            const [key, value] = cookie.split('=');
+            if (key === name) {
+                return JSON.parse(decodeURIComponent(value));
+            }
+        }
+        return null;
+    }
+
+    // Sets a cookie to confirm that the 'unlalerts' JS was successfully loaded and data is received. 
+    #setAlertDataReceivedCookie(unlAlertsDataAlert) {
+        setCookie(
+            this.alertDataReceivedCookieName,
+            encodeURIComponent(JSON.stringify(unlAlertsDataAlert)),
+            this.alertDataReceivedCookieMaxAge,
+        );
+    }
+
+    async #checkIfFetchCallNeeded() {
+        const alertData = this.#getAlertDataReceivedCookie();
+
+        // Check if alertData exists and has info property from the cookie before alerting the user
+        if (alertData) {
+            if (alertData.info) {
+                this.#alertUser(alertData);
+            }
+        } else if(alertData === null) {
+            // If the alertDataReceived cookie doesn't exist, we need to fetch the data.
+            await this.#fetchAlertData();
+            const alertData = this.#getAlertDataReceivedCookie();
+
+            // If alertData is still null after the fetch, call #noAlert; otherwise, display the newly fetched alert.
+            if (alertData === null ) {
+                this.#noAlert();
+            } else if (alertData && alertData.info) {
+                if (alertData.info) {
+                    this.#alertUser(alertData);
+                }
+            }
+        }
+
+        clearTimeout(this.serverCallTimeoutID);
+        this.serverCallTimeoutID = setTimeout(
+            () => this.#checkIfFetchCallNeeded(),
+            this.serverCallExecutionDelayTwo,
+        );
+    }
+
+    #getAlertDataReceivedCookie() {
+        return this.#getCookieValue(this.alertDataReceivedCookieName);
     }
 
     // The names of the events to be used easily
@@ -51,19 +103,6 @@ export default class UNLAlert {
 
         return name in events ? events[name] : undefined;
     }
-
-
-    // Sets a cookie to indicate that there is an active alert
-    #setActiveAlertCookie = (flag) => {
-        let value = 1,
-            time = 60; // Seconds
-        if (flag === false) {
-            value = '';
-            time = -1;
-        }
-        setCookie(this.activeAlertCookieName, value, time);
-    };
-
 
     // Sets a cookie to indicate that there is an acknowledged alert
     #setClosedAlertCookie(alertDataActiveID) {
@@ -99,12 +138,6 @@ export default class UNLAlert {
         const closedAlertCookieValue = this.#getClosedAlertCookie();
         return closedAlertCookieValue.indexOf(alertDataID) !== -1 ? true : false;
     }
-
-
-    #checkIfFetchCallNeeded = () => {
-        this.#fetchAlertData();
-
-    };
 
     #toggleAlert() {
         const alert = document.getElementById('unlalert');
@@ -150,8 +183,6 @@ export default class UNLAlert {
     }
 
     #alertUser(alertData) {
-        this.#setActiveAlertCookie(true);
-
         this.alertDataActiveIDs = [];
         let unlAlertDivWrapper = document.getElementById('unlalert');
         let alertToggle = document.getElementById('unlalert_toggle');
@@ -297,7 +328,6 @@ export default class UNLAlert {
     }
 
     #noAlert() {
-        this.#setActiveAlertCookie(false);
         // Remove alert div if no alert data exists
         const unlAlertDivWrapper = document.getElementById('unlalert');
         if (unlAlertDivWrapper) {
@@ -308,24 +338,15 @@ export default class UNLAlert {
 
     async #fetchAlertData() {
         try {
-
+            // Append a cache buster to the URL to prevent browser caching issues
             const cacheBuster = `cb=${Date.now()}`;
             const urlWithCacheBuster = `${this.alertDataUrl}?${cacheBuster}`;
             await loadJS(urlWithCacheBuster);
             const unlAlertsData = window.unlAlerts.data;
 
-            // Check if alert data exists and the page is not in an iframe, then alert the user.
-            if (unlAlertsData && unlAlertsData.alert &&  window.top === window && unlAlertsData.alert && unlAlertsData.alert.info) {
-                // 
-                this.#alertUser(unlAlertsData.alert);
-            } else {
-                this.#noAlert();
+            if (unlAlertsData && unlAlertsData.alert && unlAlertsData.alert.info && window.top === window) {
+                this.#setAlertDataReceivedCookie(unlAlertsData.alert);
             }
-            clearTimeout(this.serverCallTimeoutID);
-
-            this.serverCallTimeoutID = setTimeout(() => this.#checkIfFetchCallNeeded(),
-                this.serverCallExecutionDelayTwo,
-            );
         } catch {
             console.error('An unexpected error occurred while fetching the alert data.');
         }
