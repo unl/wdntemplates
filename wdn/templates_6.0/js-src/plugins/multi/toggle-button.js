@@ -8,7 +8,7 @@ import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 let UNLButtonToggle = null;
 
 // Query Selector for the tabs component
-const querySelector = '.dcf-btn-toggle';
+const querySelector = '.dcf-btn-toggle:not(.dcf-btn-toggle-initialized)';
 
 // Type of plugin
 const pluginType = 'multi';

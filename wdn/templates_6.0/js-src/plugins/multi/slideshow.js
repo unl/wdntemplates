@@ -10,7 +10,7 @@ import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 let UNLSlideshow = null;
 
 // Query Selector for the tabs component
-const querySelector = '.dcf-slideshow';
+const querySelector = '.dcf-slideshow:not(.dcf-slideshow-initialized)';
 
 // Type of plugin
 const pluginType = 'multi';

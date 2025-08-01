@@ -8,7 +8,7 @@ import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 let UNLEventList = null;
 
 // Query Selector for the tabs component
-const querySelector = '.unl-event-list';
+const querySelector = '.unl-event-list:not(.unl-event-list-initialized)';
 
 // Type of plugin
 const pluginType = 'multi';
