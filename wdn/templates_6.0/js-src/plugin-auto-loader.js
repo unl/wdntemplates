@@ -89,14 +89,18 @@ if (enabled) {
         //   if it is on the page when we will initialize the plugin
         if (pluginModule.getPluginType() === 'single') {
             if (pluginModule.isOnPage()) {
-                const element = await pluginModule.initialize(pluginData.customConfig);
-                if (element !== null) {
-                    pluginData.elements.push(element);
-                    if (typeof pluginData.onPluginLoadedElement === 'function') {
-                        pluginData.onPluginLoadedElement({
-                            loadedElement: element,
-                        });
+                try {
+                    const element = await pluginModule.initialize(pluginData.customConfig);
+                    if (element !== null) {
+                        pluginData.elements.push(element);
+                        if (typeof pluginData.onPluginLoadedElement === 'function') {
+                            pluginData.onPluginLoadedElement({
+                                loadedElement: element,
+                            });
+                        }
                     }
+                } catch (err) {
+                    console.error(`Error initializing plugin ${singlePluginName}:`, err);
                 }
             } else {
                 watchList.push(singlePluginName);
@@ -130,15 +134,19 @@ if (enabled) {
                 });
             }
 
-            // load the rest of the elements and add the plugin to the watch list
-            const elements = await pluginModule.loadElements(matchingElements, pluginData.customConfig);
-            pluginData.elements = pluginData.elements.concat(elements);
-            if (typeof pluginData.onPluginLoadedElement === 'function') {
-                elements.forEach((singleElement) => {
-                    pluginData.onPluginLoadedElement({
-                        loadedElement: singleElement,
+            try {
+                // load the rest of the elements and add the plugin to the watch list
+                const elements = await pluginModule.loadElements(matchingElements, pluginData.customConfig);
+                pluginData.elements = pluginData.elements.concat(elements);
+                if (typeof pluginData.onPluginLoadedElement === 'function') {
+                    elements.forEach((singleElement) => {
+                        pluginData.onPluginLoadedElement({
+                            loadedElement: singleElement,
+                        });
                     });
-                });
+                }
+            } catch (err) {
+                console.error(`Error loading plugin element for ${singlePluginName}:`, err);
             }
         }
     }
@@ -177,24 +185,32 @@ if (enabled && watch) {
                             }
 
                             if (pluginModule.getPluginType() === 'single') {
-                                const element = await pluginModule.initialize(pluginData.customConfig);
-                                if (element !== null) {
-                                    pluginData.elements.push(element);
+                                try {
+                                    const element = await pluginModule.initialize(pluginData.customConfig);
+                                    if (element !== null) {
+                                        pluginData.elements.push(element);
+                                        if (typeof pluginData.onPluginLoadedElement === 'function') {
+                                            pluginData.onPluginLoadedElement({
+                                                loadedElement: element,
+                                            });
+                                        }
+                                    }
+                                    watchList.splice(watchList.indexOf(singlePluginName), 1);
+                                } catch (err) {
+                                    console.error(`Error initializing plugin ${singlePluginName}:`, err);
+                                }
+
+                            } else if (pluginModule.getPluginType() === 'multi') {
+                                try {
+                                    const element = await pluginModule.loadElement(singleFoundElement, pluginData.customConfig);
+                                    pluginData.elements = pluginData.elements.concat(element);
                                     if (typeof pluginData.onPluginLoadedElement === 'function') {
                                         pluginData.onPluginLoadedElement({
                                             loadedElement: element,
                                         });
                                     }
-                                }
-                                watchList.splice(watchList.indexOf(singlePluginName), 1);
-
-                            } else if (pluginModule.getPluginType() === 'multi') {
-                                const element = await pluginModule.loadElement(singleFoundElement, pluginData.customConfig);
-                                pluginData.elements = pluginData.elements.concat(element);
-                                if (typeof pluginData.onPluginLoadedElement === 'function') {
-                                    pluginData.onPluginLoadedElement({
-                                        loadedElement: element,
-                                    });
+                                } catch (err) {
+                                    console.error(`Error loading plugin element for ${singlePluginName}:`, err);
                                 }
                             }
                         }
