@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Collapsible fieldset</title>
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+        <script src="/wdn/templates_6.0/js/head-2.js"></script>
+    </head>
+    <body class="unl">
+        <main>
+            <h1>Collapsible Fieldsets</h1>
+            <form class="dcf-form">
+                <fieldset id="test" class="dcf-collapsible-fieldset">
+                    <legend>Checkboxes</legend>
+                    <div class="dcf-input-checkbox">
+                    <input id="dcf-components-form-checkbox1A" type="checkbox" value="0">
+                    <label for="dcf-components-form-checkbox1A">Checkbox 1</label>
+                    </div>
+                    <div class="dcf-input-checkbox">
+                    <input id="dcf-components-form-checkbox2A" type="checkbox" value="1">
+                    <label for="dcf-components-form-checkbox2A">Checkbox 2</label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="dcf-collapsible-fieldset" data-start-expanded="false" hidden>
+                    <legend>Checkboxes (Starts collapsed)</legend>
+                    <div class="dcf-input-checkbox">
+                    <input id="dcf-components-form-checkbox1B" type="checkbox" value="0">
+                    <label for="dcf-components-form-checkbox1B">Checkbox 1</label>
+                    </div>
+                    <div class="dcf-input-checkbox">
+                    <input id="dcf-components-form-checkbox2B" type="checkbox" value="1">
+                    <label for="dcf-components-form-checkbox2B">Checkbox 2</label>
+                    </div>
+                </fieldset>
+            </form>
+        </main>
+
+        <script>
+            document.getElementById('test').addEventListener('collapsibleFieldsetReady', (e) => {
+                console.log('Event Name: collapsibleFieldsetReady', e);
+            });
+            document.addEventListener('UNLPluginInitialized', (e) => {
+                console.log('Event Name: UNLPluginInitialized', e);
+            });
+            document.addEventListener('UNLPluginLoadedElement', (e) => {
+                console.log('Event Name: UNLPluginLoadedElement', e);
+            });
+            window.UNL.autoLoader.config.plugins.UNLCollapsibleFieldset.onPluginLoadedElement = (loaded_element) => {
+                console.log('Auto Loader onPluginLoadedElement:', loaded_element);
+            }
+        </script>
+        <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+    </body>
+</html>

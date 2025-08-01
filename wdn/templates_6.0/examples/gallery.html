@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gallery</title>
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+        <script src="/wdn/templates_6.0/js/head-2.js"></script>
+    </head>
+    <body class="unl">
+        <main>
+            <h1>Gallery</h1>
+
+            <div class="dcf-mb-12">
+                <img id="test" class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_320.jpg" alt="Placeholder image." data-cutline="Cras justo odio, dapibus ac facilisis in, egestas eget quam." data-credit="Photo by Jane Doe">
+                <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_480.jpg" alt="Placeholder image.">
+                <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_600.jpg" alt="Placeholder image.">
+                <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_768.jpg" alt="Placeholder image." data-cutline="asdasdada" data-credit="asdasdad">
+                <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_1040.jpg" alt="Placeholder image.">
+                <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_320.jpg" alt="Placeholder image.">
+                <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_480.jpg" alt="Placeholder image." data-cutline="asdasdada" data-credit="asdasdad">
+                <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_600.jpg" alt="Placeholder image.">
+                <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_768.jpg" alt="Placeholder image.">
+                <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_1040.jpg" alt="Placeholder image." data-cutline="asdasdada" data-credit="asdasdad">
+                <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_320.jpg" alt="Placeholder image.">
+                <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_480.jpg" alt="Placeholder image.">
+            </div>
+        </main>
+
+        <script>
+            document.getElementById('test').addEventListener('galleryReady', (e) => {
+                console.log('Event Name: galleryReady', e);
+            });
+            document.addEventListener('UNLPluginInitialized', (e) => {
+                console.log('Event Name: UNLPluginInitialized', e);
+            });
+            document.addEventListener('UNLPluginLoadedElement', (e) => {
+                console.log('Event Name: UNLPluginLoadedElement', e);
+            });
+            window.UNL.autoLoader.config.plugins.UNLGallery.onPluginLoadedElement = (loaded_element) => {
+                console.log('Auto Loader onPluginLoadedElement:', loaded_element);
+            }
+        </script>
+        <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+    </body>
+</html>

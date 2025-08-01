@@ -1,0 +1,22 @@
+///////////////////////////////////////
+// THEME / COMPONENTS / HEROES: DEFAULT
+///////////////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.unl .dcf-hero-default {
+  @include mixins.bg-lighter;
+  @include mixins.mb-8;
+  @include mixins.pt-5;
+  @include mixins.pb-4;
+}
+
+
+.unl .dcf-hero-default .dcf-page-title {
+  padding-left: var.$length-vw-2; // Add padding to equal the wrapper object's left padding
+  padding-right: var.$length-vw-2; // Add padding to equal the wrapper object's right padding
+  @include mixins.pt-6;
+}

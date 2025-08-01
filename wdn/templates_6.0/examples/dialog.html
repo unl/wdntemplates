@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dialog</title>
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+        <script src="/wdn/templates_6.0/js/head-2.js"></script>
+    </head>
+    <body class="unl">
+      <main>
+        <h1>Dialog</h1>
+
+        <button id="my-modal-1-open" class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-1" disabled>Dialog Show 1</button>
+        <dialog id="my-modal-1" class="dcf-dialog">
+          <div class="dcf-dialog-header">
+            <h2>Dialog Heading 1</h2>
+            <button class="dcf-btn-close-dialog" autofocus>Close</button>
+          </div>
+          <div class="dcf-dialog-content">
+            <p>Dialog 1 Contents</p>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-1" disabled>Dialog Show 1</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-2" disabled>Dialog Show 2</button>
+          </div>
+        </dialog>
+
+        <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-2" disabled>Dialog Show 2</button>
+        <dialog id="my-modal-2" class="dcf-dialog">
+          <div class="dcf-dialog-header">
+            <h2>Dialog Heading 2</h2>
+            <button class="dcf-btn-close-dialog" autofocus>Close</button>
+          </div>
+          <div class="dcf-dialog-content">
+            <p>Dialog 2 Contents</p>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-1" disabled>Dialog Show 1</button>
+            <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-2" disabled>Dialog Show 2</button>
+          </div>
+        </dialog>
+
+        <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-3" disabled>Confirm Close</button>
+        <dialog id="my-modal-3" class="dcf-dialog" data-confirmClose="Are you sure bud?" >
+          <div class="dcf-dialog-header">
+            <h2>Dialog Heading 3</h2>
+            <button class="dcf-btn-close-dialog" autofocus>Close</button>
+          </div>
+          <div class="dcf-dialog-content">
+            <p>Dialog 3 Contents</p>
+          </div>
+        </dialog>
+
+        <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-4" disabled>Deliberate close only</button>
+        <dialog id="my-modal-4" class="dcf-dialog" data-deliberateCloseOnly="true">
+          <div class="dcf-dialog-header">
+            <h2>Dialog Heading 4</h2>
+            <button class="dcf-btn-close-dialog" autofocus>Close</button>
+          </div>
+          <div class="dcf-dialog-content">
+            <p>Dialog 4 Contents</p>
+          </div>
+        </dialog>
+
+
+        <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-5" disabled>Mediahub Embed</button>
+        <dialog id="my-modal-5" class="dcf-dialog">
+          <div class="dcf-dialog-header">
+            <h2>Mediahub iframe embed Heading 5</h2>
+            <button class="dcf-btn-close-dialog" autofocus>Close</button>
+          </div>
+          <div class="dcf-dialog-content">
+            <div style="padding-top: 56.25%; overflow: hidden; position:relative; -webkit-box-flex: 1; flex-grow: 1;">
+              <iframe
+              style="bottom: 0; left: 0; position: absolute; right: 0; top: 0; border: 0; height: 100%; width: 100%;"
+              src="https://mediahub.unl.edu/media/24339?format=iframe&autoplay=0"
+              title="Video Player:  UNL CMS Training March 18"
+              allow="autoplay"
+              allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </dialog>
+
+        <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-modal-6" disabled>non-modal</button>
+        <dialog id="my-modal-6" class="dcf-dialog dcf-dialog-non-modal">
+          <div class="dcf-dialog-header">
+            <h2>Non modal 6</h2>
+            <button class="dcf-btn-close-dialog" autofocus>Close</button>
+          </div>
+          <div class="dcf-dialog-content">
+            <p>Dialog 6 Contents</p>
+          </div>
+        </dialog>
+      </main>
+
+      <script>
+        document.getElementById('my-modal-1').addEventListener('dialogReady', (e) => {
+          console.log('Event Name: dialogReady', e);
+        });
+        document.addEventListener('UNLPluginInitialized', (e) => {
+          console.log('Event Name: UNLPluginInitialized', e);
+        });
+        document.addEventListener('UNLPluginLoadedElement', (e) => {
+          console.log('Event Name: UNLPluginLoadedElement', e);
+        });
+        window.UNL.autoLoader.config.plugins.UNLDialog.onPluginLoadedElement = (loaded_element) => {
+          console.log('Auto Loader onPluginLoadedElement:', loaded_element);
+        }
+      </script>
+      <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+    </body>
+</html>

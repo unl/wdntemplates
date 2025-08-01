@@ -1,0 +1,63 @@
+//////////////////////////////
+// THEME / MIXINS / TYPOGRAPHY
+//////////////////////////////
+
+
+@use "../variables/" as var;
+
+
+// Font-Size
+@mixin txt-3xs($imp:null) { font-size: #{var.$ms-4}em $imp; }
+@mixin txt-2xs($imp:null) { font-size: #{var.$ms-3}em $imp; }
+@mixin txt-xs($imp:null) { font-size: #{var.$ms-2}em $imp; }
+@mixin txt-sm($imp:null) { font-size: #{var.$ms-1}em $imp; }
+@mixin txt-md($imp:null) { font-size: #{var.$ms00}em $imp; }
+@mixin txt-lg($imp:null) { font-size: #{var.$ms01}em $imp; }
+
+
+// Letter Spacing
+@mixin ls-0($imp:null) { letter-spacing: 0 $imp; }
+@mixin ls-1($imp:null) { letter-spacing: #{var.$ms-30}em $imp; }
+@mixin ls-2($imp:null) { letter-spacing: #{var.$ms-20}em $imp; }
+@mixin ls-3($imp:null) { letter-spacing: #{var.$ms-14}em $imp; }
+@mixin ls-h($imp:null) {
+  letter-spacing: -#{var.$ms-30}em $imp;
+  margin-left: -#{var.$ms-30}em $imp;
+}
+
+
+// Line-Height Crop
+// Crop headings to vertically align with the top of adjacent objects
+// (e.g. photo in a media object layout)
+@mixin lh-crop($imp:null) {
+  content: '';
+  display: block;
+  height: 0;
+  margin-top: -#{var.$ms-12}em; // TODO: use calc() and line-height to calculate value
+  // https://medium.com/codyhouse/line-height-crop-a-simple-css-formula-to-remove-top-space-from-your-text-9c3de06d7c6f
+  width: 0;
+}
+
+
+// Outline Text: Light
+@mixin txt-outline-light($imp:null) {
+
+  @supports (text-stroke: 1px var.$cream) or (-webkit-text-stroke: 1px var.$cream) {
+    color: transparent $imp;
+    -webkit-text-stroke: #{var.$ms-26}em var.$cream $imp;
+    text-stroke: #{var.$ms-26}em var.$cream $imp;
+  }
+
+}
+
+
+// Outline Text: Dark
+@mixin txt-outline-dark($imp:null) {
+
+  @supports (text-stroke: 1px var(--heading)) or (-webkit-text-stroke: 1px var(--heading)) {
+    color: transparent $imp;
+    -webkit-text-stroke: #{var.$ms-26}em var(--heading) $imp;
+    text-stroke: #{var.$ms-26}em var(--heading) $imp;
+  }
+
+}

@@ -1,0 +1,13 @@
+///////////////////////////////
+// THEME / VARIABLES / HEADINGS
+///////////////////////////////
+
+
+@use './color-palette' as color_palette;
+
+@forward '@dcf/scss/variables/headings' with (
+
+  $color-heading-light-mode: color_palette.$darkest-gray,
+  $color-heading-dark-mode: color_palette.$cream
+
+);

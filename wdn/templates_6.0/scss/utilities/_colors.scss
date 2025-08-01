@@ -1,0 +1,96 @@
+/////////////////////////////
+// THEME / UTILITIES / COLORS
+/////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+@media screen {
+
+  // Scarlet
+  .unl-scarlet,
+  a.unl-scarlet,
+  a.unl-scarlet:link,
+  a.unl-scarlet:visited,
+  a.unl-scarlet:hover,
+  a.unl-scarlet:active {
+    @include mixins.scarlet;
+  }
+
+  // Cream
+  .unl-cream,
+  a.unl-cream,
+  a.unl-cream:link {
+    @include mixins.cream;
+  }
+
+  a.unl-cream:visited { @include mixins.cream-visited; }
+  a.unl-cream:hover { @include mixins.cream-hover; }
+  a.unl-cream:active { @include mixins.cream-active; }
+
+
+  // Gray
+  .unl-lightest-gray { @include mixins.lightest-gray; }
+  .unl-lighter-gray { @include mixins.lighter-gray; }
+  .unl-light-gray { @include mixins.light-gray; }
+  .unl-gray { @include mixins.gray; }
+  .unl-dark-gray { @include mixins.dark-gray; }
+  .unl-darker-gray { @include mixins.darker-gray; }
+  .unl-darkest-gray { @include mixins.darkest-gray; }
+
+
+  // Cerulean
+  .unl-cerulean { @include mixins.cerulean; }
+
+
+  // Green
+  .unl-green { @include mixins.green; }
+  .unl-light-green { @include mixins.light-green; }
+
+
+  // Blue
+  .unl-blue { @include mixins.blue; }
+  .unl-light-blue { @include mixins.light-blue; }
+
+
+  // Purple
+  .unl-purple { @include mixins.purple; }
+  .unl-light-purple { @include mixins.light-purple; }
+
+
+  // Yellow
+  .unl-yellow { @include mixins.yellow; }
+
+
+  // Orange
+  .unl-orange { @include mixins.orange; }
+
+}
+
+
+
+@media screen and (prefers-color-scheme: dark) {
+
+  // Scarlet
+  .unl-scarlet\@dark { @include mixins.scarlet-at-dark; }
+
+
+  // Gray
+  .unl-dark-gray\@dark { @include mixins.dark-gray-at-dark; }
+  .unl-darker-gray\@dark { @include mixins.darker-gray-at-dark; }
+  .unl-darkest-gray\@dark { @include mixins.darkest-gray-at-dark; }
+
+
+  // Green
+  .unl-green\@dark { @include mixins.green-at-dark; }
+
+
+  // Blue
+  .unl-blue\@dark { @include mixins.blue-at-dark; }
+
+
+  // Purple
+  .unl-purple\@dark { @include mixins.purple-at-dark; }
+
+}

@@ -1,0 +1,24 @@
+///////////////////////////////////////
+// THEME / ELEMENTS / DETAILS & SUMMARY
+///////////////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.unl details {
+  border-top: 1px solid var.$border-color-details;
+}
+
+
+.unl details:last-of-type {
+  border-bottom: 1px solid var.$border-color-details;
+}
+
+
+.unl summary {
+  color: var.$color-summary;
+  @include mixins.ls-h;
+  @include mixins.lh-3;
+}

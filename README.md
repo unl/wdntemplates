@@ -4,7 +4,7 @@ The template files are developed and maintained by the [Web Developer Network](h
 
 ## Template Usage
 
-Template usage is subject to the [WDN Terms of Use](https://wdn.unl.edu/unledu-web-framework-terms-use).
+Template usage is subject to the [WDN Terms of Use](https://wdn.unl.edu/about-framework/terms-use/).
 
 ### Templates Available
 
@@ -16,89 +16,134 @@ All members of the WDN are invited to contribute to this project. Please make a 
 
 ## Building Template Resources
 
-Much of the template CSS and JavaScript is built using aggregators, preprocessors, and/or "minifiers". You can build a local copy of these resources with the following instructions as your guide.
+The WDN Templates uses Vite to build and process the code. Vite allows us to use
+many useful features like preprocessing, minifier, js maps, tree shaking, etc.
 
-The resources are built using a Gruntfile. The following tools are required to be installed.
+### Installation
 
-* [Git](https://git-scm.com/) -- version control system
-* [NodeJS](https://nodejs.org/) -- used to run the libraries that process and minimize LESS and JavaScript files
-* [Grunt](https://gruntjs.com) -- The Grunt CLI must be installed ( `npm install -g grunt-cli` ) in order to build.
+1. Install Git [Git installation guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+2. Clone the WDN Templates: `git clone https://github.com/unl/wdntemplates.git`
+3. Install Node version 22.13.0 [Node installation guide](https://nodejs.org/en/download)
+4. Install Node dependencies: `npm ci`
+5. Run Vite build command: `npm run build`
 
-Installing the additional resources necessary to build the system can be downloaded by running `npm install` from the project root.
+### Installing Dev Environment (Working on DCF and WDN Templates)
 
-Once all of the above dependencies are met, simply running Grunt `grunt` at the project root will build all resources. The following are all of the supported targets.
+1. Install using the normal installation above
+2. Install DCF as another project on your machine (preferably not in the WDN templates project directory)
+    1. Clone DCF: `git clone https://github.com/digitalcampusframework/dcf.git`
+    2. Install DCF's Node dependencies: `npm ci`
+3. Create `.env.local` in the project root
+    1. Add `DCF_DIR` to the the file and set it equal to the path to your DCF project: `DCF_DIR=/path/to/your/dcf`
+        - This is to help eslint be able to find the files we reference
+    2. Add `DEVELOPMENT` to the file and et it equal to true.
+        - This will make eslint run on every vite build
+4. Now you should be able to work on DCF and the WDN templates side by side and have vite build use your in development DCF code
+    - Reminder: Remember to set the correct branches for both projects to avoid errors
+    - Tip: VSCode lets you open both projects in the same window using Workspaces
 
-* `default` or `all` - builds all needed CSS and JavaScript
-* `clean` - removes all built files
-* `js-main` - builds and minifies combined JavaScript
-* `css-main` - builds all CSS files from their SCSS partials and passed through postcss
-* `dist` - builds the ZIP's used for template distribution. Also does smudging of keywords such as $DEP_VERSION$ in dwt and include files
+### Environment Variables
 
-The JavaScript build process can be further customized by passing parameters. The following are the flags that are supported.
+We are using Vite's environment variables to enable us to insert variables into the code.
 
-__EXAMPLE:__ Build for use in a special CDN or server location
-`grunt --rjs-flags="wdnTemplatePath=//www.unl.edu/"`
+The default values for these variables are in the `.env` file. For local
+development you can create a `.env.local` which will override the default values.
 
-__EXAMPLE:__ Customize the UNLchat url.  Could be useful for integrating a custom instance of UNLchat or for development
-`grunt --rjs-flags="unlChatURl=//ucommchat-test.unl.edu/assests/js"`
-
-__EXAMPLE:__ Build for use in debug mode for analytics
-`grunt --rjs-flags="debug_mode=true"`
-
-__EXAMPLE:__  Customize the Analytics Measurement ID
-`grunt --rjs-flags="wdnProp=G-9DM5F2WV3Y"`
-
-__EXAMPLE:__ Two or more parameters are separated with a space
-`grunt --rjs-flags="wdnTemplatePath=//www.unl.edu/ unlChatURl=//ucommchat-test.unl.edu/assests/js"`
-
-__PLEASE NOTE:__ The build process has been optimized for a Linux or OS X environment. While it is technically possible to build on Windows, the specifics of setting up your environment correctly are beyond the scope of this project.
+| Name        | Description |
+| ----------- | ----------- |
+| DEVELOPMENT | If set to true will load ESLint plugin in vite to prevent building unless lint passes without errors |
+| DCF_DIR     |    Sometimes in development using a symlink to a develop DCF is helpful but that causes ESLint errors. This will let you define the path for the DCF directory if symlinks are present |
 
 ## Further support
 
 Support of the UNL Templates is coordinated and communicated through the [WDN](https://wdn.unl.edu/).
 
-# 5.3 Development Documentation  for Developers
+## 5.3 Development Documentation for Developers
 
-## Folder Structure
 ### Directories
-__`templates_5.3/js-src/`__
-* contains JavaScript source files.
-* All files in this folder will be first copied to the
-`templates_5.3/js` folder (through the Grunt sync:js task) before require.js works on them
-* `*.babel.js` files will be transpiled and outputted to `/js/*.js`
 
-`templates_5.3/js-src/plugins/`
-* Place vendor libraries here
+#### `templates_6.0/js-src/`
 
-`templates_5.3/js-src/utility-scripts/`
-* Place script files here that are not require.js modules or widgets but are standalone files for transpile and minification purposes
+Contains all the javascript for the project
 
-__`templates_5.3/js/`__
-* Contain files and folders to be worked and bundled by require.js. Files from DCF are also pulled into this folder when the Grunt task `js-main` is ran
+##### `templates_6.0/js-src/plugins/`
 
-`templates_5.3/js/compressed/`
-* Production-ready JS files, containing the require.js entry file _all.js_
+Contains the plugins which contain the code required to load specific components
+and features. Ideally this would contain the minimal amount of code.
 
-__`templates_5.3/scss/*`__
-* place theme SASS partials in this folder.
-* main SASS files include glob patterns that will pull in DCF SASS partials for compilation
-* `tmp.scss` files can be used to import styles into other projects. The most likely use case will be to use `pre.tmp.scss` to import framework variables, mixins and functions.
+###### `templates_6.0/js-src/plugins/multi`
 
-__`scripts/`__
-* contains bash scripts for deployment and distribution
+Multi plugins are plugins which can be used to initialize multiple elements/component instances.
+
+Exported functions in each multi type plugin:
+
+| Function Name           | Async | Return Type              | Description |
+| ----------------------- | ----- | ------------------------ | ----------- |
+| `getQuerySelector`      | No    | String                   | Gets the query selector which is used for this plugin's component |
+| `getIsInitialized`      | No    | Boolean                  | Returns if the plugin has been initialized yet |
+| `initialize`            | Yes   | Class Definition         | Initializes plugin and returns the loaded class definition of the component |
+| `loadElement`           | Yes   | Class Instance           | Loads the element using the component class and returns the class instance |
+| `loadElements`          | Yes   | Array of Class Instances | Loads the array elements using the component class and returns the array of class instances |
+| `loadElementsOnPage`    | Yes   | Array of Class Instance  | Loads the all matching elements on the page using the component class and returns the array of class instance |
+
+###### `templates_6.0/js-src/plugins/single`
+
+Single plugins are plugins only need to be loaded once since there is only one instance of that component, or
+there are no components and it only loads a style sheet.
+
+Exported functions in each single type plugin:
+
+| Function Name           | Async | Return Type            | Description |
+| ----------------------- | ----- | ---------------------- | ----------- |
+| `getQuerySelector`      | No    | String                 | Gets the query selector which is used for this plugin's component |
+| `getIsInitialized`      | No    | Boolean                | Returns if the plugin has been initialized yet |
+| `initialize`            | Yes   | Class Instance or Null | Initializes plugin and returns the class instance of that component |
+
+###### `templates_6.0/js-src/plugins/other`
+
+Other type plugins do not follow the same format as other plugins. These plugins will not need to be loaded by the auto loader
+since they typically relate to specialty code.
+
+##### `templates_6.0/js-src/components/`
+
+Contains the components that are using on the page. The code consists of the
+building, managing, and interacting with the component. These are typically
+built atop the DCF JS components.
+
+This should only export a class reference.
+
+#### `templates_6.0/js/`
+
+Contains the built, bundled, and minified JS files as well as their JS maps.
+
+#### `templates_6.0/scss/`
+
+Contains the SCSS for the templates which is built off the DCF SCSS. Variables
+are set up to allow the WDN Templates to override the DCF defaults.
+
+#### `templates_6.0/css/`
+
+Contains the built, bundled, and minified CSS files.
+
+#### `scripts/`
+
+Contains bash scripts for deployment and distribution
 
 ### Files
+
 `.gitattributes`
+
 * path to files that contain keywords such as $id$ and $DEP_VERSION$ that needs to be replaced with git commit
 information by the `filter-clean` and `filter-smudge` Grunt tasks.
 * Paths in this file must match the `filterFiles` variable inside of Gruntfile.js
 
 `.git_filters/lib/git-filters.js`
+
 * contain git filter clean and smudging methods that is imported into Gruntfile.js as gitFilters variable. Methods
 are used in the `filter-clean` and `filter-smudge` Grunt tasks.
 
 ## Critical CSS
+
 The script to remove inline critical styles once the core stylesheets have been loaded can be found in
 `js-src/utility-scripts/clearCriticalCSS.js`. If changes needs to be made to the script, grab the minified and
 transpiled version from `js/compressed/utility-scripts` and replace the one inside  of `head-2.html` include file.
-

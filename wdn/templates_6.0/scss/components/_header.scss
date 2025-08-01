@@ -1,0 +1,68 @@
+//////////////////////////////
+// THEME / COMPONENTS / HEADER
+//////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.unl .dcf-header-global a:link,
+.unl .dcf-header-global a:visited,
+.unl .dcf-btn-header-global {
+  color: var.$color-brand-alpha; // Force visited links in the global header and logo to remain scarlet (light mode) and lightest gray (dark mode).
+}
+
+
+.unl .dcf-header-global a:hover,
+.unl .dcf-btn-header-global:hover,
+.unl .dcf-site-group a:hover {
+  color: var.$color-hover;
+}
+
+
+.unl .dcf-site-group {
+  min-height: #{var.$ms08}em; // Vertically center site group (affiliation and title) by providing a minimum height equal to the adjacent Nebraska N logo.
+}
+
+
+.unl .dcf-site-group a,
+.unl .dcf-site-group a:visited {
+  color: var.$color-heading;
+}
+
+
+.unl .dcf-site-affiliation a {
+  display: inline-block;
+  padding-bottom: #{var.$ms-10}em;
+}
+
+
+@include mixins.mq(md, max, width) {
+
+  .unl .dcf-header .dcf-institution-title {
+    display: none;
+  }
+
+
+  .unl .dcf-logo-lockup {
+    @include mixins.pb-4;
+  }
+
+}
+
+
+@include mixins.mq(md, min, width) {
+
+  .unl .dcf-header-global {
+    border-bottom: 1px solid var.$border-color-light-gray;
+    height: #{var.$ms07}em;
+    padding-top: #{var.$ms-12}em;
+  }
+
+
+  .unl .dcf-logo-lockup {
+    padding-bottom: #{var.$ms01}em;
+  }
+
+}

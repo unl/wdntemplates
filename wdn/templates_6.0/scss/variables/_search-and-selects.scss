@@ -1,0 +1,12 @@
+/////////////////////////////////////////
+// THEME / VARIABLES / SEARCH-AND-SELECTS
+/////////////////////////////////////////
+
+
+@use './color-palette' as color_palette;
+
+@forward "@dcf/scss/variables/search-and-selects" with (
+
+  $color-search-and-select-visual-hover: color_palette.$cream
+
+);

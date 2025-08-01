@@ -24,35 +24,41 @@ set -e
 # Try to find node, but don't break if not found
 NODE=$(which node || true)
 
-if [[ -n "${NODE}" ]]  && ! grep "find-node-or-install" "${NODE}" >/dev/null; then
-  # Good. We found it.
-  echo $(dirname ${NODE})
-else
-  # Did not find node. Better install it.
-  # Do it in a temp dir, which stays the same every time this script executes
-  setTEMP_DIR
-  cd ${TEMP_DIR}
+if [[ -n "${NODE}" ]] && ! grep "find-node-or-install" "${NODE}" >/dev/null; then
+  VERSION=$(${NODE} --version | sed 's/^v//')
+  REQUIRED="22.13.0"
 
-  # Do we have nvm here?
-  if [[ ! -d "nvm" ]]; then
-    git clone git://github.com/creationix/nvm.git >/dev/null
+  # Compare versions (check if $VERSION >= $REQUIRED)
+  if [ "$(printf '%s\n' "$REQUIRED" "$VERSION" | sort -V | head -n1)" = "$REQUIRED" ]; then
+    echo $(dirname ${NODE})
+    exit 0
   fi
-
-  # Clear and set NVM_* env variables to our installation
-  mkdir -p .nvm
-  export NVM_DIR=$( (cd .nvm && pwd) )
-  unset NVM_PATH
-  unset NVM_BIN
-
-  # Load nvm into current shell
-  . nvm/nvm.sh >/dev/null
-
-  # Install and use latest stable node
-  nvm install stable >/dev/null
-  nvm alias default stable >/dev/null
-  nvm use default >/dev/null
-
-  # Find and output node's bin directory
-  NODE=$(which node)
-  echo $(dirname ${NODE})
 fi
+
+# Did not find suitable node. Better install it.
+# Do it in a temp dir, which stays the same every time this script executes
+setTEMP_DIR
+cd ${TEMP_DIR}
+
+# Do we have nvm here?
+if [[ ! -d "nvm" ]]; then
+  git clone git://github.com/creationix/nvm.git >/dev/null
+fi
+
+# Clear and set NVM_* env variables to our installation
+mkdir -p .nvm
+export NVM_DIR=$( (cd .nvm && pwd) )
+unset NVM_PATH
+unset NVM_BIN
+
+# Load nvm into current shell
+. nvm/nvm.sh >/dev/null
+
+# Install and use specific Node.js version
+nvm install 22.13.0 >/dev/null
+nvm alias default 22.13.0 >/dev/null
+nvm use default >/dev/null
+
+# Find and output node's bin directory
+NODE=$(which node)
+echo $(dirname ${NODE})

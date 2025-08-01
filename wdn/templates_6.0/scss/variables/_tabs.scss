@@ -1,0 +1,15 @@
+///////////////////////////
+// THEME / VARIABLES / TABS
+///////////////////////////
+
+
+@use "./color-palette" as color_palette;
+
+@forward "@dcf/scss/variables/tabs" with (
+
+  $bg-color-tab-selected-light-mode: color_palette.$white,
+  $bg-color-tab-selected-dark-mode: color_palette.$darker-gray-s1,
+  $bg-color-tabs-panel-light-mode: color_palette.$white,
+  $bg-color-tabs-panel-dark-mode: color_palette.$darker-gray-s1
+
+);

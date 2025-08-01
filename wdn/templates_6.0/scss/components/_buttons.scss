@@ -1,0 +1,203 @@
+///////////////////////////////
+// THEME / COMPONENTS / BUTTONS
+///////////////////////////////
+
+
+@use "../variables/" as var;
+
+
+.unl .dcf-btn {
+  text-decoration: none;
+  transition: background-color var.$transition-duration-hover-off var.$transition-timing-fn-hover-off, border-color var.$transition-duration-hover-off var.$transition-timing-fn-hover-off, box-shadow var.$transition-duration-hover-off var.$transition-timing-fn-hover-off, color var.$transition-duration-hover-off var.$transition-timing-fn-hover-off;
+}
+
+
+.unl .dcf-btn:hover {
+  transition: background-color var.$transition-duration-hover-on var.$transition-timing-fn-hover-on, border-color var.$transition-duration-hover-on var.$transition-timing-fn-hover-on, color var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
+}
+
+
+.unl .dcf-btn:focus-visible {
+  outline: 3px solid transparent; // https://sarahmhigley.com/writing/whcm-quick-tips/
+  transition: box-shadow var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
+}
+
+
+// Visited
+
+.unl a.dcf-btn-primary:visited {
+  color: var.$color-button-primary;
+}
+
+
+.unl a.dcf-btn-secondary:visited {
+  color: var.$color-button-secondary;
+}
+
+
+.unl a.dcf-btn-tertiary:visited {
+  color: var.$color-button-tertiary;
+}
+
+
+.unl a.dcf-btn-inverse-primary:visited {
+  color: var.$color-button-inverse-primary;
+}
+
+
+.unl a.dcf-btn-inverse-secondary:visited {
+  color: var.$color-button-inverse-secondary;
+}
+
+
+.unl a.dcf-btn-inverse-tertiary:visited {
+  color: var.$color-button-inverse-tertiary;
+}
+
+
+.unl .dcf-btn-as-link:visited {
+  color: var.$color-visited;
+}
+
+
+// Hover (and Active)
+.unl .dcf-btn-primary:not(:disabled):hover,
+.unl .dcf-btn-primary:not(:disabled):active {
+  background-color: var.$bg-color-button-primary-hover;
+  border-color: var.$border-color-button-primary-hover;
+}
+
+
+.unl .dcf-btn-secondary:not(:disabled):hover,
+.unl .dcf-btn-secondary:not(:disabled):active,
+.unl .dcf-btn-tertiary:not(:disabled):hover,
+.unl .dcf-btn-tertiary:not(:disabled):active {
+  background-color: var.$bg-color-button-secondary-tertiary-hover;
+  color: var.$color-button-secondary-tertiary-hover;
+}
+
+
+.unl .dcf-btn-inverse-primary:not(:disabled):hover,
+.unl .dcf-btn-inverse-primary:not(:disabled):active {
+  background-color: var.$bg-color-button-inverse-primary-hover;
+  border-color: var.$border-color-button-inverse-primary-hover;
+}
+
+
+.unl .dcf-btn-inverse-secondary:not(:disabled):hover,
+.unl .dcf-btn-inverse-secondary:not(:disabled):active,
+.unl .dcf-btn-inverse-tertiary:not(:disabled):hover,
+.unl .dcf-btn-inverse-tertiary:not(:disabled):active {
+  background-color: var.$bg-color-button-inverse-secondary-tertiary-hover;
+  color: var.$color-button-inverse-secondary-tertiary-hover;
+}
+
+
+.unl .dcf-btn-as-link:not(:disabled):hover,
+.unl .dcf-btn-as-link:not(:disabled):active {
+  color: var.$color-hover;
+}
+
+
+// Focus
+.unl .dcf-btn:focus-visible {
+  transition: box-shadow var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
+}
+
+
+.unl .dcf-btn-primary:focus-visible,
+.unl .dcf-btn-secondary:focus-visible,
+.unl .dcf-btn-tertiary:focus-visible {
+  box-shadow: 0 0 0 3px var.$bg-color-body, 0 0 0 5px var.$border-color-input-focus;
+}
+
+
+.unl .dcf-btn-inverse-primary:focus-visible {
+  box-shadow: 0 0 0 3px var.$border-color-input-focus, 0 0 0 5px var.$bg-color-button-inverse-primary;
+}
+
+
+.unl .dcf-btn-inverse-secondary:focus-visible,
+.unl .dcf-btn-inverse-tertiary:focus-visible {
+  box-shadow: 0 0 0 3px var.$border-color-input-focus, 0 0 0 5px currentColor;
+}
+
+
+// Active
+.unl .dcf-btn-primary:active {
+  box-shadow: 0 0 0 3px var.$bg-color-body, 0 0 0 5px var.$border-color-button-primary-hover;
+}
+
+
+.unl .dcf-btn-secondary:active,
+.unl .dcf-btn-tertiary:active {
+  box-shadow: 0 0 0 3px var.$bg-color-body, 0 0 0 5px currentColor;
+}
+
+
+.unl .dcf-btn-inverse-primary:active {
+  box-shadow: 0 0 0 3px var.$color-hover-light-mode, 0 0 0 5px var.$bg-color-button-inverse-primary;
+}
+
+
+.unl .dcf-btn-inverse-secondary:active,
+.unl .dcf-btn-inverse-tertiary:active {
+  box-shadow: 0 0 0 3px var.$color-hover-light-mode, 0 0 0 5px currentColor;
+}
+
+
+@media screen and (prefers-color-scheme: dark) {
+
+  // Visited
+  .unl a.dcf-btn-primary\@dark:visited {
+    color: var.$color-button-primary-light-mode;
+  }
+
+
+  .unl a.dcf-btn-secondary\@dark:visited {
+    color: var.$color-button-secondary-light-mode;
+  }
+
+
+  .unl a.dcf-btn-tertiary\@dark:visited {
+    color: var.$color-button-tertiary-light-mode;
+  }
+
+
+  // Hover (and Active)
+  .unl .dcf-btn-primary\@dark:not(:disabled):hover,
+  .unl .dcf-btn-primary\@dark:not(:disabled):active {
+    background-color: var.$bg-color-button-primary-hover-light-mode;
+    border-color: var.$border-color-button-primary-hover-light-mode;
+  }
+
+
+  .unl .dcf-btn-secondary\@dark:not(:disabled):hover,
+  .unl .dcf-btn-secondary\@dark:not(:disabled):active,
+  .unl .dcf-btn-tertiary\@dark:not(:disabled):hover,
+  .unl .dcf-btn-tertiary\@dark:not(:disabled):active {
+    background-color: var.$bg-color-button-secondary-tertiary-hover-light-mode;
+    color: var.$color-button-secondary-tertiary-hover-light-mode;
+  }
+
+
+  // Focus
+  .unl .dcf-btn-primary\@dark:focus-visible,
+  .unl .dcf-btn-secondary\@dark:focus-visible,
+  .unl .dcf-btn-tertiary\@dark:focus-visible {
+    box-shadow: 0 0 0 3px var.$bg-color-body-light-mode, 0 0 0 5px var.$color-focus-outline-light-mode;
+  }
+
+
+  // Active
+  .unl .dcf-btn-primary\@dark:active {
+    box-shadow: 0 0 0 3px var.$bg-color-body-light-mode, 0 0 0 5px var.$border-color-button-primary-hover-light-mode;
+  }
+
+
+  .unl .dcf-btn-secondary\@dark:active,
+  .unl .dcf-btn-tertiary\@dark:active {
+    box-shadow: 0 0 0 3px var.$bg-color-body-light-mode, 0 0 0 5px currentColor;
+  }
+
+}

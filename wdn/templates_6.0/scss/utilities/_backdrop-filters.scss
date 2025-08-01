@@ -1,0 +1,17 @@
+///////////////////////////////////////
+// THEME / UTILITIES / BACKDROP FILTERS
+///////////////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+@use "../functions/" as func;
+
+
+// Blur
+@if (func.to-number(var.$backdrop-filter-blur) != func.to-number(0)) {
+  .unl [class^='dcf-bg-overlay-'],
+  .unl [class*=' dcf-bg-overlay-'] {
+    @include mixins.backdrop-blur;
+  }
+}

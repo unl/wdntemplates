@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>QA</title>
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+        <script src="/wdn/templates_6.0/js/head-2.js"></script>
+    </head>
+    <body class="unl">
+        <main>
+            <h1>QA</h1>
+
+            <a id="qa-test" href="https://webaudit.unl.edu/qa-test/">QA Test</a>
+        </main>
+
+        <script>
+            document.getElementById('qa-test').addEventListener('qaReady', (e) => {
+                console.log('Event Name: qaReady', e);
+            });
+            document.addEventListener('UNLPluginInitialized', (e) => {
+                console.log('Event Name: UNLPluginInitialized', e);
+            });
+            window.UNL.autoLoader.config.plugins.UNLQa.onPluginLoadedElement = (loaded_element) => {
+                console.log('Auto Loader onPluginLoadedElement:', loaded_element);
+            }
+        </script>
+        <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Notice</title>
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+        <script src="/wdn/templates_6.0/js/head-2.js"></script>
+    </head>
+    <body class="unl">
+        <main>
+            <div id="dcf-header">
+                <h1>Notices</h1>
+            </div>
+            <div id="dcf-main">
+                <div id="test" class="dcf-notice dcf-notice-info" hidden>
+                    <h2>Info</h2>
+                    <div>This is additional information for this notice.</div>
+                </div>
+                <div class="dcf-notice dcf-notice-success" hidden>
+                    <h2>Success!</h2>
+                    <div>You've successfully completed an action.</div>
+                </div>
+                <div class="dcf-notice dcf-notice-warning" hidden>
+                    <h2>Warning!</h2>
+                    <div>Proceed with caution.</div>
+                </div>
+                <div class="dcf-notice dcf-notice-danger" data-no-close-button="true" hidden>
+                    <h2>Danger!</h2>
+                    <div>Uh-oh. Something wrong happened.</div>
+                </div>
+                <div class="dcf-notice dcf-notice-info" hidden data-overlay="dcf-header">
+                    <h2>I'm Floating!</h2>
+                    <div>This notice overlays the header.</div>
+                </div>
+                <div class="dcf-notice dcf-notice-success" hidden data-overlay="dcf-main">
+                    <h2>Success!</h2>
+                    <div>This notice overlays the maincontent.</div>
+                </div>
+            </div>
+        </main>
+        <script>
+            document.getElementById('test').addEventListener('noticeReady', (e) => {
+                console.log('Event Name: noticeReady', e);
+            });
+            document.addEventListener('UNLPluginInitialized', (e) => {
+                console.log('Event Name: UNLPluginInitialized', e);
+            });
+            document.addEventListener('UNLPluginLoadedElement', (e) => {
+                console.log('Event Name: UNLPluginLoadedElement', e);
+            });
+            window.UNL.autoLoader.config.plugins.UNLNotice.onPluginLoadedElement = (loaded_element) => {
+                console.log('Auto Loader onPluginLoadedElement:', loaded_element);
+            }
+        </script>
+        <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+    </body>
+</html>

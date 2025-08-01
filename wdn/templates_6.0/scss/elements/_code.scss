@@ -1,0 +1,11 @@
+//////////////////////////
+// THEME / ELEMENTS / CODE
+//////////////////////////
+
+@use "../mixins/" as mixins;
+
+.unl code,
+.unl kbd,
+.unl samp {
+  @include mixins.font-mono;
+}

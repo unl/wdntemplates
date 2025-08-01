@@ -1,0 +1,127 @@
+//////////////////////////////////
+// THEME / COMPONENTS / NAV: LOCAL
+//////////////////////////////////
+
+
+@use "sass:color";
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.unl .dcf-nav-local > ul:first-child {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(#{var.$ms15}em, 1fr));
+}
+
+
+.unl .dcf-nav-local ul ul {
+  margin-top: 0;
+}
+
+
+.unl .dcf-nav-local > ul > li > a,
+.unl .dcf-nav-local > ul > li > button {
+  font-weight: 600;
+  padding-block: #{var.$ms-2}rem;
+}
+
+
+@include mixins.mq(md, max, width) {
+
+  .unl .dcf-nav-local > ul {
+    grid-gap: var.$length-em-6 var.$length-vw-1;
+  }
+
+
+  .unl .dcf-nav-dialog .dcf-nav-local ul > li {
+    opacity: 0;
+    transform: translateY(-#{var.$ms-4}rem);
+    transition: all .2s ease-in-out 0s;
+  }
+
+
+  .unl .dcf-nav-dialog.dcf-dialog-is-open .dcf-nav-local ul > li {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all .05s ease-in-out;
+  }
+
+
+  @for $i from 0 through 6 {
+    .unl .dcf-nav-dialog.dcf-dialog-is-open .dcf-nav-local ul > li:nth-of-type(#{$i}) {
+      transition-delay: calc(.2s + ($i * .05s));
+    }
+  }
+
+}
+
+
+@include mixins.mq(sm, min, width) {
+
+  .unl .dcf-nav-local > ul:first-child {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+
+@include mixins.mq(md, min, width) {
+
+  .unl .dcf-nav-local > ul:first-child {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto 1fr;
+  }
+
+
+  .unl .dcf-nav-local ul ul {
+    position: relative;
+  }
+
+
+  .unl .dcf-nav-dialog  .dcf-nav-local ul ul {
+    opacity: 0;
+    transform: translateY(-#{var.$ms-4}rem);
+    transition: all .2s ease-in-out 0s;
+  }
+
+
+  .unl .dcf-nav-dialog.dcf-dialog-is-open .dcf-nav-local ul ul {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all .05s ease-in-out;
+  }
+
+
+  @for $i from 0 through 6 {
+    .unl .dcf-nav-dialog.dcf-dialog-is-open .dcf-nav-local ul > li:nth-of-type(#{$i}) ul {
+      transition-delay: calc(.2s + ($i * .05s));
+    }
+  }
+
+
+
+  .unl .dcf-nav-local > ul > li > a {
+    border-left: 1px solid #a00000;
+    // height: 100%;
+  }
+
+
+  .unl .dcf-nav-local ul ul:after {
+    background-image: linear-gradient(to bottom, #a00000, color.adjust(#a00000, $alpha: -1));
+    content: '';
+    left: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    // transform: scaleY(0);
+    // transform-origin: 0 0;
+    width: 1px;
+    // transition: transform 300ms ease-out;
+  }
+
+
+  // .unl .dcf-nav-toggle-btn-menu[aria-expanded="true"] ~ .dcf-nav-menu-content .dcf-nav-local ul ul:after {
+  //   transform: scaleY(1);
+  // }
+
+}

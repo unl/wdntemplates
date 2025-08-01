@@ -1,0 +1,28 @@
+////////////////////////////
+// THEME / VARIABLES / FORMS
+////////////////////////////
+
+@use './color-palette' as color_palette;
+
+@forward "@dcf/scss/variables/forms" with (
+
+  $bg-color-input-light-mode: color_palette.$white,
+  $bg-color-input-dark-mode: color_palette.$darkest-gray-s1,
+  $bg-color-input-disabled-light-mode: color_palette.$lighter-gray,
+  $bg-color-input-disabled-dark-mode: color_palette.$darker-gray,
+  $bg-color-required-light-mode: transparent,
+  $bg-color-required-dark-mode: rgba(157,0,0,.25),
+  $border-color-fieldset-light-mode: color_palette.$light-gray,
+  $border-color-fieldset-dark-mode: color_palette.$darker-gray,
+  $border-color-input-light-mode: color_palette.$gray,
+  $border-color-input-dark-mode: color_palette.$dark-gray,
+  $border-color-input-hover-light-mode: color_palette.$dark-gray,
+  $border-color-input-hover-dark-mode: color_palette.$gray,
+  $border-color-input-focus-light-mode: color_palette.$blue,
+  $border-color-input-focus-dark-mode: color_palette.$cerulean,
+  $border-color-required-light-mode: transparent,
+  $border-color-required-dark-mode: color_palette.$scarlet-shade,
+  $color-required-label-light-mode: color_palette.$scarlet,
+  $color-required-label-dark-mode: color_palette.$cream
+
+);

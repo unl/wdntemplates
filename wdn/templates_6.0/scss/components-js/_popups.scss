@@ -1,0 +1,15 @@
+//////////////////////////////
+// THEME / COMPONENTS / POPUPS
+//////////////////////////////
+
+
+@use "sass:meta";
+
+@use "../variables/" as var;
+
+
+@layer components {
+
+  @include meta.load-css("@dcf/scss/components-js/popups");
+
+}

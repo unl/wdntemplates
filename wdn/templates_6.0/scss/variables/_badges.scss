@@ -1,0 +1,15 @@
+/////////////////////////////
+// THEME / VARIABLES / BADGES
+/////////////////////////////
+
+
+@use './color-palette' as color_palette;
+
+@forward '@dcf/scss/variables/badges' with (
+
+  $bg-color-badge-light-mode: color_palette.$dark-gray,
+  $bg-color-badge-dark-mode: color_palette.$light-gray,
+  $color-badge-light-mode: color_palette.$cream,
+  $color-badge-dark-mode: color_palette.$darkest-gray
+
+);

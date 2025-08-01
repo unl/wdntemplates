@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html class="dcf-no-js dcf-no-webp" lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
+<html lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<!--#include virtual="/wdn/templates_5.3/includes/global/head-1.html" -->
+<!--#include virtual="/wdn/templates_6.0/includes/global/head-1.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
   <title>Debugging Out | Framework Testing Page</title>
 <!-- InstanceEndEditable -->
-<!--#include virtual="/wdn/templates_5.3/includes/global/head-2-local.html" -->
+<!--#include virtual="/wdn/templates_6.0/includes/global/head-2-local.html" -->
 <!-- InstanceBeginEditable name="head" -->
   <!-- Place optional header elements here -->
 <!-- InstanceEndEditable -->
 </head>
-<body class="debug unl" data-version="5.3">
-  <!--#include virtual="/wdn/templates_5.3/includes/global/skip-nav.html" -->
+<body class="debug unl" data-version="6.0">
+  <!--#include virtual="/wdn/templates_6.0/includes/global/skip-nav.html" -->
 
 <!--
   <div class="dcf-alert dcf-wrapper dcf-pt-4 dcf-pb-4 dcf-txt-xs">
@@ -35,67 +35,67 @@
 -->
 
   <header class="dcf-header" id="dcf-header" role="banner">
-    <!--#include virtual="/wdn/templates_5.3/includes/global/header-global-1.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/cta-header-1.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/visit-header-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-header-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-header-1.html" -->
     <!-- InstanceBeginEditable name="headervisit" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/visit-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/visit-header-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/apply-header-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-header-1.html" -->
     <!-- InstanceBeginEditable name="headerapply" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/apply-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/apply-header-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/give-header-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-header-1.html" -->
     <!-- InstanceBeginEditable name="headergive" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/give-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/give-header-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/cta-header-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/idm.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/search.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/header-global-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/logo-lockup-1.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/site-affiliation-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/idm.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/search.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-1.html" -->
     <!-- InstanceBeginEditable name="affiliation" -->
     <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/site-affiliation-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/site-title-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-1.html" -->
     <!-- InstanceBeginEditable name="titlegraphic" -->
     <a class="dcf-txt-h6" href="https://arts.unl.edu/music">
       Glenn Korff School of Music
     </a>
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/site-title-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/logo-lockup-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-toggle-group.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-1.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-toggle-btn.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-child-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-group.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-btn.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-child-1.html" -->
     <!-- InstanceBeginEditable name="navlinks" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/nav-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/cta-nav-1.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/visit-nav-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-nav-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-nav-1.html" -->
     <!-- InstanceBeginEditable name="navvisit" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/visit-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/visit-nav-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/apply-nav-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-nav-1.html" -->
     <!-- InstanceBeginEditable name="navapply" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/apply-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/apply-nav-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/give-nav-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-nav-1.html" -->
     <!-- InstanceBeginEditable name="navgive" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/give-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/give-nav-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/cta-nav-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-child-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-child-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-2.html" -->
   </header>
 
   <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
@@ -138,14 +138,14 @@
   <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
     <!-- InstanceBeginEditable name="optionalfooter" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/footer-global-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-1.html" -->
     <!-- InstanceBeginEditable name="contactinfo" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/footer-local.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/footer-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/footer-global-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/noscript.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/noscript.html" -->
   </footer>
-  <!--#include virtual="/wdn/templates_5.3/includes/global/js-body-local.html" -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/js-body-local.html" -->
   <!-- InstanceBeginEditable name="jsbody" -->
   <!-- InstanceEndEditable -->
 </body>

@@ -1,0 +1,34 @@
+//////////////////////////////
+// THEME / DEPRECATED / IMAGES
+//////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.frame,
+.wdn-frame {
+  border: 1px solid var(--b);
+  @include mixins.mb-4;
+  padding: #{var.$ms-10}em;
+}
+
+.frame img,
+.wdn-frame img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+}
+
+.frame figcaption,
+.wdn-frame figcaption {
+  background-color: var(--bg-body);
+  height: auto;
+  @include mixins.p-3;
+}
+
+.frame figcaption *,
+.wdn-frame figcaption * {
+  margin: auto;
+}

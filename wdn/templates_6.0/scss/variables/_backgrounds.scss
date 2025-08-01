@@ -1,0 +1,60 @@
+//////////////////////////////////
+// THEME / VARIABLES / BACKGROUNDS
+//////////////////////////////////
+
+
+@use "sass:color";
+@use './body' as body;
+@use './color-palette' as color_palette;
+
+
+@forward "@dcf/scss/variables/backgrounds" with (
+
+  $bg-color-white-light-mode: color_palette.$white !default,
+  $bg-color-white-dark-mode: color_palette.$darker-gray-s1 !default,
+  $bg-color-light-gray-light-mode: color_palette.$light-gray !default,
+  $bg-color-light-gray-dark-mode: color_palette.$darker-gray-s4 !default,
+  $bg-color-lighter-gray-light-mode: color_palette.$lighter-gray !default,
+  $bg-color-lighter-gray-dark-mode: color_palette.$darker-gray-s3 !default,
+  $bg-color-lightest-gray-light-mode: color_palette.$lightest-gray !default,
+  $bg-color-lightest-gray-dark-mode: color_palette.$darker-gray-s2 !default,
+  $bg-color-inverse-light-mode: body.$color-body-light-mode !default,
+  $bg-color-inverse-dark-mode: body.$color-body-dark-mode !default,
+  $bg-color-overlay-dark-light-mode: color.adjust(color_palette.$darkest-gray, $alpha: -0.16) !default,
+  $bg-color-overlay-dark-dark-mode: color.adjust(color_palette.$black, $alpha: -0.25) !default,
+  $bg-color-overlay-light-light-mode: color.adjust(color_palette.$lighter-gray, $alpha: -0.1) !default,
+  $bg-color-overlay-light-dark-mode: color.adjust(color_palette.$black, $alpha: -0.25) !default,
+
+);
+
+@use '@dcf/scss/variables/backgrounds' as *;
+
+
+// Background color
+$bg-color-brand-alpha-light-mode: color_palette.$scarlet !default;                // Alpha brand background-color (scarlet) in light mode
+$bg-color-brand-alpha-dark-mode: color_palette.$scarlet !default;                 // Alpha brand background-color (scarlet) in dark mode
+$bg-color-brand-alpha: var(--bg-brand-alpha) !default;
+
+$bg-color-brand-zeta-light-mode: color_palette.$green !default;                   // Zeta brand background-color (green) in light mode
+$bg-color-brand-zeta-dark-mode: color_palette.$dark-green !default;               // Zeta brand background-color (green) in dark mode
+$bg-color-brand-zeta: var(--bg-brand-zeta) !default;
+
+$bg-color-brand-eta-light-mode: color_palette.$blue !default;                     // Eta brand background-color (blue) in light mode
+$bg-color-brand-eta-dark-mode: color_palette.$dark-blue !default;                 // Eta brand background-color (blue) in dark mode
+$bg-color-brand-eta: var(--bg-brand-eta) !default;
+
+$bg-color-brand-theta-light-mode: color_palette.$purple !default;                 // Theta brand background-color (purple) in light mode
+$bg-color-brand-theta-dark-mode: color_palette.$dark-purple !default;             // Theta brand background-color (purple) in dark mode
+$bg-color-brand-theta: var(--bg-brand-theta) !default;
+
+$bg-color-brand-light-zeta-light-mode: color_palette.$lighter-green !default;     // Light zeta brand background-color (light green) in light mode
+$bg-color-brand-light-zeta-dark-mode: color_palette.$dark-green !default;         // Light zeta brand background-color (light green) in dark mode
+$bg-color-brand-light-zeta: var(--bg-brand-light-zeta) !default;
+
+$bg-color-brand-light-eta-light-mode: color_palette.$lighter-blue !default;       // Light eta brand background-color (light blue) in light mode
+$bg-color-brand-light-eta-dark-mode: color_palette.$dark-blue !default;           // Light eta brand background-color (light blue) in dark mode
+$bg-color-brand-light-eta: var(--bg-brand-light-eta) !default;
+
+$bg-color-brand-light-theta-light-mode: color_palette.$lighter-purple !default;   // Light theta brand background-color (light purple) in light mode
+$bg-color-brand-light-theta-dark-mode: color_palette.$dark-purple !default;       // Light theta brand background-color (light purple) in dark mode
+$bg-color-brand-light-theta: var(--bg-brand-light-theta) !default;

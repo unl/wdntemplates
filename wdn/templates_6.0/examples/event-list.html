@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Event List</title>
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+        <script src="/wdn/templates_6.0/js/head-2.js"></script>
+    </head>
+    <body class="unl">
+        <main>
+            <h1>Event List</h1>
+
+            <h2 class="dcf-mt-3">Default limit 6</h2>
+            <div id="test" class="unl-event-list" data-url="http://events.unl.edu/" data-limit="6"></div>
+
+            <h2 class="dcf-mt-3">Grid limit 6</h2>
+            <div class="unl-event-list" data-url="http://events.unl.edu/" data-layout="grid" data-limit="6"></div>
+
+            <h2 class="dcf-mt-3">Band limit 6</h2>
+            <div class="unl-event-list" data-url="http://events.unl.edu/" data-layout="band" data-limit="6"></div>
+
+            <h2 class="dcf-mt-3">Default limit 3</h2>
+            <div class="unl-event-list" data-url="https://events.unl.edu/search/?q=union" data-limit="3"></div>
+
+            <h2 class="dcf-mt-3">Default limit 6 Pinned limit 3</h2>
+            <div class="unl-event-list" data-url="https://events.unl.edu/nic/audience/?audience=Public" data-limit="6" data-pinned_limit="3"></div>
+
+            <h2 class="dcf-mt-3">Grid limit 6 Pinned limit 3</h2>
+            <div class="unl-event-list" data-url="https://events.unl.edu/nic/audience/?audience=Public" data-layout="grid" data-limit="6" data-pinned_limit="3"></div>
+
+            <h2 class="dcf-mt-3">Band limit 6 Pinned limit 3</h2>
+            <div class="unl-event-list" data-url="https://events.unl.edu/nic/audience/?audience=Public" data-layout="band" data-limit="6" data-pinned_limit="3"></div>
+
+            <h2 class="dcf-mt-3">Featured limit 6 w/ rooms</h2>
+            <div class="unl-event-list" data-url="https://events.unl.edu/featured" data-rooms="true" data-limit="6"></div>
+        </main>
+
+        <script>
+            document.getElementById('test').addEventListener('eventListReady', (e) => {
+                console.log('Event Name: eventListReady', e);
+            });
+            document.addEventListener('UNLPluginInitialized', (e) => {
+                console.log('Event Name: UNLPluginInitialized', e);
+            });
+            document.addEventListener('UNLPluginLoadedElement', (e) => {
+                console.log('Event Name: UNLPluginLoadedElement', e);
+            });
+            window.UNL.autoLoader.config.plugins.UNLEventList.onPluginLoadedElement = (loaded_element) => {
+                console.log('Auto Loader onPluginLoadedElement:', loaded_element);
+            }
+        </script>
+        <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+    </body>
+</html>

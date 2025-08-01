@@ -1,0 +1,82 @@
+////////////////////////////////////
+// THEME / DEPRECATED / INFOGRAPHICS
+////////////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.wdn-infographic {
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+}
+
+.wdn-infographic .stat,
+.wdn-infographic .stat-helper {
+  display: block;
+  line-height: 1;
+}
+
+.wdn-infographic .stat {
+  font-weight: 700;
+  letter-spacing: -.03em;
+  margin-bottom: #{var.$ms-12}em;
+  margin-left: -.03em;
+  @include mixins.txt-h3;
+}
+
+.wdn-infographic .stat-helper {
+  @include mixins.txt-xs;
+  @include mixins.lh-3;
+}
+
+.wdn-infographic .wdn-info-icon {
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  min-height: 142px;
+  min-width: 180px;
+  @include mixins.mb-1;
+}
+
+
+[class*="wdn-infographic-rate"] .wdn-info-icon {
+  background-image: url('@images/deprecated-4x/rate.svg?no-inline');
+}
+
+[class*="wdn-infographic-globe"] .wdn-info-icon {
+  background-image: url('@images/deprecated-4x/globe.svg?no-inline');
+}
+
+[class*="wdn-infographic-world"] .wdn-info-icon {
+  background-image: url('@images/deprecated-4x/world.svg?no-inline');
+}
+
+[class*="wdn-infographic-people"] .wdn-info-icon {
+  background-image: url('@images/deprecated-4x/people.svg?no-inline');
+}
+
+[class*="wdn-infographic-star"] .wdn-info-icon {
+  background-image: url('@images/deprecated-4x/star.svg?no-inline');
+}
+
+[class*="wdn-infographic-internships"] .wdn-info-icon {
+  background-image: url('@images/deprecated-4x/internships.svg?no-inline');
+}
+
+[class*="wdn-infographic-ratio"] .wdn-info-icon {
+  background-image: url('@images/deprecated-4x/ratio.svg?no-inline');
+}
+
+[class*="wdn-infographic-countries"] .wdn-info-icon {
+  background-image: url('@images/deprecated-4x/countries.svg?no-inline');
+}
+
+[class*="wdn-infographic-international"] .wdn-info-icon {
+  background-image: url('@images/deprecated-4x/international.svg?no-inline');
+}
+
+[class*="wdn-infographic-dollar"] .wdn-info-icon {
+  background-image: url('@images/deprecated-4x/dollar.svg?no-inline');
+}

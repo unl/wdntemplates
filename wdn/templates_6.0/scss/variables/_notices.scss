@@ -1,0 +1,15 @@
+//////////////////////////////
+// THEME / VARIABLES / NOTICES
+//////////////////////////////
+
+
+@use './color-palette' as color_palette;
+
+@forward '@dcf/scss/variables/notices' with (
+
+  $color-notice-info: color_palette.$lighter-blue,
+  $color-notice-success: color_palette.$lighter-green,
+  $color-notice-warning: color_palette.$cream,
+  $color-notice-danger: color_palette.$scarlet-tint
+
+);

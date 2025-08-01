@@ -1,0 +1,13 @@
+////////////////////////////
+// THEME / VARIABLES / FOCUS
+////////////////////////////
+
+
+@use './color-palette' as color_palette;
+
+@forward "@dcf/scss/variables/focus" with (
+
+  $color-focus-outline-light-mode: color_palette.$blue,
+  $color-focus-outline-dark-mode: color_palette.$cerulean
+
+);

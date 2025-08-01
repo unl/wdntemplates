@@ -1,0 +1,21 @@
+//////////////////////////////////
+// THEME / COMPONENTS / SLIDESHOWS
+//////////////////////////////////
+
+
+@use "sass:meta";
+
+@use "../variables/" as var;
+
+
+@layer components {
+
+  @include meta.load-css("@dcf/scss/components-js/slideshows");
+
+
+  .unl .dcf-slideshow-controls button {
+    padding: 1em;
+    color: var(--inverse);
+  }
+
+}

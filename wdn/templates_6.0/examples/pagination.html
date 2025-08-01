@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pagination</title>
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+        <script src="/wdn/templates_6.0/js/head-2.js"></script>
+    </head>
+    <body class="unl">
+        <main>
+            <h1>Pagination</h1>
+
+            <nav id="test" class="dcf-pagination">
+                <ol class="dcf-list-bare dcf-list-inline">
+                    <li><a class="dcf-pagination-first" href="#">First</a></li>
+                    <li><a class="dcf-pagination-prev" href="#">Prev</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><span class="dcf-pagination-selected">3</span></li>
+                    <li><span class="dcf-pagination-ellipsis">…</span></li>
+                    <li><a class="dcf-pagination-next" href="#">Next</a></li>
+                    <li><a class="dcf-pagination-last" href="#">Last</a></li>
+                </ol>
+            </nav>
+        </main>
+
+        <script>
+            document.getElementById('test').addEventListener('paginationReady', (e) => {
+                console.log('Event Name: paginationReady', e);
+            });
+            document.addEventListener('UNLPluginInitialized', (e) => {
+                console.log('Event Name: UNLPluginInitialized', e);
+            });
+            document.addEventListener('UNLPluginLoadedElement', (e) => {
+                console.log('Event Name: UNLPluginLoadedElement', e);
+            });
+            window.UNL.autoLoader.config.plugins.UNLPagination.onPluginLoadedElement = (loaded_element) => {
+                console.log('Auto Loader onPluginLoadedElement:', loaded_element);
+            }
+        </script>
+        <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+    </body>
+</html>

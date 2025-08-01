@@ -1,0 +1,39 @@
+//////////////////////////////////////////
+// THEME / COMPONENTS / SEARCH-AND-SELECTS
+//////////////////////////////////////////
+
+
+@use "sass:meta";
+
+@use "../variables/" as var;
+
+
+@layer components {
+
+  @include meta.load-css("@dcf/scss/components-js/search-selects");
+
+
+  .unl .dcf-search-and-select input {
+    border-width: 0px !important;
+  }
+
+  .unl .dcf-search-and-select-search-area-multiple,
+  .unl .dcf-search-and-select-search-area-single,
+  .unl .dcf-search-and-select-selected-item .dcf-search-and-select-selected-item-label {
+    transition: border-color var.$transition-duration-hover-off var.$transition-timing-fn-hover-off, box-shadow var.$transition-duration-hover-off var.$transition-timing-fn-hover-off;
+  }
+
+
+  .unl .dcf-search-and-select-search-area-multiple:hover,
+  .unl .dcf-search-and-select-search-area-single:hover,
+  .unl .dcf-search-and-select-selected-item:hover .dcf-search-and-select-selected-item-label {
+    transition: border-color var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
+  }
+
+
+  .unl .dcf-search-and-select-visual-focus,
+  .unl .dcf-search-and-select-search-area-multiple:has(.dcf-search-and-select-visual-focus) {
+    box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
+  }
+
+}

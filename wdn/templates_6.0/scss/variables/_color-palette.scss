@@ -1,0 +1,92 @@
+////////////////////////////////////
+// THEME / VARIABLES / COLOR PALETTE
+////////////////////////////////////
+
+
+@use "sass:color";
+
+
+// PRIMARY BRAND
+$brand-alpha: #d00000;
+$brand-beta: #fefdfa;
+$brand-gamma: #c7c8ca;
+
+$scarlet: $brand-alpha;
+$cream: $brand-beta;
+$gray: $brand-gamma;
+
+$scarlet-shade: color.scale($scarlet, $saturation: 10%, $lightness: -24%);
+$scarlet-tint: #f6e6e3;
+
+
+// SECONDARY BRAND
+$brand-delta: #001738;    // Navy
+$brand-epsilon: #42a7c6;  // Cerulean
+
+$navy: $brand-delta;
+$cerulean: $brand-epsilon;
+
+$light-cerulean: color.mix($cream, $cerulean, 25%);     // #71bdd3
+$lighter-cerulean: color.mix($cream, $cerulean, 50%);   // #a0d2e0
+
+
+// TERTIARY / SCREEN
+$brand-zeta: #00784e;     // Green
+$brand-eta: #007197;      // Blue
+$brand-theta: #b32d9c;    // Purple
+$brand-iota: #ffd74e;     // Yellow
+$brand-kappa: #f58a1f;     // Orange
+
+$green: $brand-zeta;
+$blue: $brand-eta;
+$purple: $brand-theta;
+$yellow: $brand-iota;
+$orange: $brand-kappa;
+
+$lighter-green: #e7f1ea;
+$lighter-blue: #e7f0f0;
+$lighter-purple: #f7eaf1;
+
+$light-green: #9fdfc5;
+$light-blue: #aadeee;
+$light-purple: #fad1f1;
+
+$dark-green: #0d593e;
+$dark-blue: #0d556d;
+$dark-purple: #7f2a70;
+
+
+// NEUTRALS
+// Mix cream and gray brand colors for base color
+$mix-cream-gray: color.mix($cream, $gray);            // #e3e3e2
+
+$lightest-gray: color.adjust($mix-cream-gray, $lightness: 7.5%); // #f6f6f5;
+$lighter-gray: color.adjust($mix-cream-gray, $lightness: 3.2%);  // #ebebea
+$light-gray: $mix-cream-gray;                   // #e3e3e2
+
+$gray-s1: color.adjust($mix-cream-gray, $lightness: -25%);         // #a4a4a1
+
+$dark-gray: color.adjust($mix-cream-gray, $lightness: -47.5%);     // #6b6b68
+
+$darker-gray: color.adjust($mix-cream-gray, $lightness: -63.3%);   // #424240
+$darker-gray-s1: color.adjust($mix-cream-gray, $lightness: -67%);  // #393937
+$darker-gray-s2: color.adjust($mix-cream-gray, $lightness: -69%);  // #333332
+$darker-gray-s3: color.adjust($mix-cream-gray, $lightness: -71%);  // #2e2e2d
+$darker-gray-s4: color.adjust($mix-cream-gray, $lightness: -73%);  // #292928
+
+$darkest-gray: color.adjust($mix-cream-gray, $lightness: -75%);    // #242423
+$darkest-gray-s1: color.adjust($mix-cream-gray, $lightness: -77%); // #1f1f1e
+
+
+@forward "@dcf/scss/variables/color-palette" with (
+
+	// CONTEXTUAL COLORS
+	$info: $blue,
+	$success: $green,
+	$warning: #d53f25,
+	$danger: $scarlet-shade
+
+);
+
+
+@use '@dcf/scss/variables/color-palette' as *;

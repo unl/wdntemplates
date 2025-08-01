@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form Validator and jQuery UI</title>
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+    </head>
+    <body class="unl">
+        <main>
+            <h1>Form Validator and jQuery UI</h1>
+
+            <form id="test" class="dcf-form">
+                <div class="dcf-form-group">
+                    <label for="inputTest">Test Input (Will always fail)</label>
+                    <input id="inputTest" name="inputTest" class="validate-alphanum" type="text" maxlength="50">
+                </div>
+                <p>Date: <input type="text" id="datepicker"></p>
+                <input class="dcf-btn dcf-btn-primary" type="submit" value="Submit">
+            </form>
+        </main>
+
+        <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+
+        <script type="module">
+            import * as validatorModule from "/wdn/templates_6.0/js/plugins/plugin.form-validator.js";
+            import * as jqueryModule from "/wdn/templates_6.0/js/plugins/plugin.jquery-ui.js";
+
+            let $ = await validatorModule.initialize();
+            await jqueryModule.initialize({jQuery: $});
+
+            $( "#datepicker" ).datepicker();
+
+            $('#test').submit((e) => {
+                $('#inputTest').addClass('validation-failed');
+                return false;
+            });
+        </script>
+    </body>
+</html>

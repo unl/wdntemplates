@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search Select</title>
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+        <script src="/wdn/templates_6.0/js/head-2.js"></script>
+    </head>
+    <body class="unl">
+        <main>
+            <h1>Search Selects</h1>
+
+            <form class="dcf-form" action="?" method="get">
+                <fieldset>
+                    <legend>Normal</legend>
+                    <label for="my-search-select">Favorite food/drink</label>
+                    <select id="my-search-select" class="dcf-search-select" hidden>
+                        <optgroup label="Hot Foods">
+                            <option value="pizza">Pizza</option>
+                            <option value="burger">Burger</option>
+                            <option value="cookie">Cookie</option>
+                        </optgroup>
+                        <optgroup label="Cold Foods">
+                            <option value="icee">ICEE</option>
+                            <option value="ice cream">Ice cream</option>
+                        </optgroup>
+                        <option value="coke">Coke</option>
+                    </select>
+
+                    <label for="my-search-select-2">Preferred ice cream flavors</label>
+                    <select id="my-search-select-2" class="dcf-search-select" multiple hidden>
+                        <option value="vanilla">Vanilla</option>
+                        <option value="chocolate">Chocolate</option>
+                        <option value="strawberry">Strawberry</option>
+                        <option value="coffee">Coffee</option>
+                        <option value="rocky road">Rocky Road</option>
+                        <option value="superman">Superman</option>
+                        <option value="butter pecan">Butter Pecan</option>
+                        <option value="cookie dough">Cookie Dough</option>
+                    </select>
+                </fieldset>
+            </form>
+
+            <form class="dcf-form" action="?" method="get">
+                <fieldset>
+                    <legend>Disabled</legend>
+                    <label for="my-search-select">Favorite food/drink</label>
+                    <select id="my-search-select" class="dcf-search-select" disabled hidden>
+                        <optgroup label="Hot Foods">
+                            <option value="pizza">Pizza</option>
+                            <option value="burger">Burger</option>
+                            <option value="cookie">Cookie</option>
+                        </optgroup>
+                        <optgroup label="Cold Foods">
+                            <option value="icee">ICEE</option>
+                            <option value="ice cream">Ice cream</option>
+                        </optgroup>
+                        <option value="coke">Coke</option>
+                    </select>
+
+                    <label for="my-search-select-2">Preferred ice cream flavors</label>
+                    <select id="my-search-select-2" class="dcf-search-select" disabled multiple hidden>
+                        <option value="vanilla">Vanilla</option>
+                        <option value="chocolate">Chocolate</option>
+                        <option value="strawberry">Strawberry</option>
+                        <option value="coffee">Coffee</option>
+                        <option value="rocky road">Rocky Road</option>
+                        <option value="superman">Superman</option>
+                        <option value="butter pecan">Butter Pecan</option>
+                        <option value="cookie dough">Cookie Dough</option>
+                    </select>
+                </fieldset>
+            </form>
+
+            <form class="dcf-form" action="?" method="get">
+                <fieldset>
+                    <legend>Selected</legend>
+                    <label for="my-search-select">Favorite food/drink</label>
+                    <select id="my-search-select" class="dcf-search-select" hidden>
+                        <optgroup label="Hot Foods">
+                            <option value="pizza" selected="selected">Pizza</option>
+                            <option value="burger">Burger</option>
+                            <option value="cookie">Cookie</option>
+                        </optgroup>
+                        <optgroup label="Cold Foods">
+                            <option value="icee">ICEE</option>
+                            <option value="ice cream">Ice cream</option>
+                        </optgroup>
+                        <option value="coke">Coke</option>
+                    </select>
+
+                    <label for="my-search-select-2">Preferred ice cream flavors</label>
+                    <select id="my-search-select-2" class="dcf-search-select" multiple hidden>
+                        <option value="vanilla">Vanilla</option>
+                        <option value="chocolate" selected="selected">Chocolate</option>
+                        <option value="strawberry">Strawberry</option>
+                        <option value="coffee" selected="selected">Coffee</option>
+                        <option value="rocky road">Rocky Road</option>
+                        <option value="superman" selected="selected">Superman</option>
+                        <option value="butter pecan">Butter Pecan</option>
+                        <option value="cookie dough">Cookie Dough</option>
+                    </select>
+                </fieldset>
+            </form>
+        </main>
+
+        <script>
+            document.getElementById('my-search-select').addEventListener('searchSelectReady', (e) => {
+                console.log('Event Name: searchSelectReady', e);
+            });
+            document.addEventListener('UNLPluginInitialized', (e) => {
+                console.log('Event Name: UNLPluginInitialized', e);
+            });
+            document.addEventListener('UNLPluginLoadedElement', (e) => {
+                console.log('Event Name: UNLPluginLoadedElement', e);
+            });
+            window.UNL.autoLoader.config.plugins.UNLSearchSelect.onPluginLoadedElement = (loaded_element) => {
+                console.log('Auto Loader onPluginLoadedElement:', loaded_element);
+            }
+        </script>
+        <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+    </body>
+</html>

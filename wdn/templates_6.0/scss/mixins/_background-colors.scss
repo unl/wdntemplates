@@ -1,0 +1,56 @@
+/////////////////////////////////////
+// THEME / MIXINS / BACKGROUND COLORS
+/////////////////////////////////////
+
+
+@use "../variables/" as var;
+
+
+// Scarlet
+@mixin bg-scarlet($imp:null) { background-color: var.$bg-color-brand-alpha $imp; }
+
+
+// Cream
+@mixin bg-cream($imp:null) { background-color: var.$bg-color-body $imp; }
+@mixin bg-cream-at-dark($imp:null) { background-color: var.$cream $imp; }
+
+
+// Gray
+@mixin bg-lightest($imp:null) { background-color: var.$bg-color-lightest-gray $imp; }
+@mixin bg-lightest-at-dark($imp:null) { background-color: var.$lightest-gray $imp; }
+@mixin bg-lighter($imp:null) { background-color: var.$bg-color-lighter-gray $imp; }
+@mixin bg-lighter-at-dark($imp:null) { background-color: var.$lighter-gray $imp; }
+@mixin bg-light($imp:null) { background-color: var.$bg-color-light-gray $imp; }
+@mixin bg-light-at-dark($imp:null) { background-color: var.$light-gray $imp; }
+@mixin bg-dark($imp:null) { background-color: var.$dark-gray $imp; }
+@mixin bg-darker($imp:null) { background-color: var.$darker-gray $imp; }
+@mixin bg-darkest($imp:null) { background-color: var.$darkest-gray $imp; }
+
+
+// Cerulean
+@mixin bg-cerulean($imp:null) { background-color: var.$cerulean $imp; }
+
+
+// Green
+@mixin bg-green($imp:null) { background-color: var.$bg-color-brand-zeta $imp; }
+@mixin bg-light-green($imp:null) { background-color: var.$bg-color-brand-light-zeta $imp; }
+@mixin bg-light-green-at-dark($imp:null) { background-color: var.$lighter-green $imp; }
+
+
+// Blue
+@mixin bg-blue($imp:null) { background-color: var.$bg-color-brand-eta $imp; }
+@mixin bg-light-blue($imp:null) { background-color: var.$bg-color-brand-light-eta $imp; }
+@mixin bg-light-blue-at-dark($imp:null) { background-color: var.$lighter-blue $imp; }
+
+
+// Purple
+@mixin bg-purple($imp:null) { background-color: var.$bg-color-brand-theta $imp; }
+@mixin bg-light-purple($imp:null) { background-color: var.$bg-color-brand-light-theta $imp; }
+@mixin bg-light-purple-at-dark($imp:null) { background-color: var.$lighter-purple $imp; }
+
+
+// Yellow
+@mixin bg-yellow($imp:null) { background-color: var.$yellow $imp; }
+
+// Orange
+@mixin bg-orange($imp:null) { background-color: var.$orange $imp; }

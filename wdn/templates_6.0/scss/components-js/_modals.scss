@@ -1,0 +1,26 @@
+//////////////////////////////
+// THEME / COMPONENTS / MODALS
+//////////////////////////////
+
+
+@use "sass:meta";
+
+@use "../variables/" as var;
+
+
+@layer components {
+
+  @include meta.load-css("@dcf/scss/components-js/modals");
+
+
+  // Modal
+  .unl .dcf-modal[aria-hidden="true"] {
+    transition: opacity var.$transition-duration-fade-out var.$transition-timing-fn-fade-out;
+  }
+
+
+  .unl .dcf-modal[aria-hidden="false"] {
+    transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
+  }
+
+}

@@ -1,6 +1,45 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.0.1 (July 11, 2025)
+- Add data-template attribute to Templates files
+
+## 6.0.0 (July 10, 2025)
+- Initial release of 6.0
+
+## 5.3.57 (June 24, 2025)
+- Load web analytics in a require.js compliant way
+
+## 5.3.56 (June 20, 2025)
+- Update domain for on-prem analytics
+- Fix for form validator message color contrast
+
+## 5.3.55 (April 10, 2025)
+- Add overflow-x: clip to nav menu
+- Update footer links
+- Added analytics events for search modal open and close
+
+## 5.3.54 (January 14, 2025)
+- Update GSAP to fix scroll-to-top bug
+- Update copyright date in footer
+- Hide (most) footer content on printed pages
+- Add mixins/utilities "text-wrap balance" and "pretty"
+- Set width of body tag to 100vw
+
+## 5.3.53 (November 26, 2024)
+- Add container query based events layout
+- Remove In Our Grit... logo from footer
+- Add local version of modular scale function
+
+## 5.3.52 (September 11, 2024)
+- Revert local nav column widths to 1fr
+- Fix absolute path issue in Grunt
+
+## 5.3.51 (August 13, 2024)
+- Remove lingering polyfill.io references
+- Remove the alert banner when an alert grows stale
+- Replace node-sass with sass
+
 ## 5.3.50 (May 21, 2024)
 - New Gallery component
 - Remove pollyfill.io dependency

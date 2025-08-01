@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Banner</title>
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+        <script src="/wdn/templates_6.0/js/head-2.js"></script>
+        <script>
+            window.UNL.analytics.config.enabled = false;
+            window.UNL.alert.config.enabled = false;
+            window.UNL.chat.config.enabled = false;
+            window.UNL.banner.config.enabled = true;
+        </script>
+    </head>
+    <body class="unl">
+        <div class="dcf-absolute dcf-pin-top dcf-pin-left dcf-mt-1 dcf-ml-1 dcf-z-1" id="dcf-skip-nav">
+            <a class="dcf-show-on-focus dcf-btn dcf-btn-primary" href="#dcf-main">Skip to main content</a>
+        </div>
+        <main>
+            <h1>Banner</h1>
+        </main>
+        <script src="/wdn/templates_6.0/js/header-global-1.js"></script>
+        <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+        <script>
+            document.addEventListener('UNLBannerReady', (e) => {
+                console.log('Event Name: UNLBannerReady', e);
+            });
+        </script>
+    </body>
+</html>

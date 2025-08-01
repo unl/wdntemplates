@@ -1,0 +1,69 @@
+///////////////////////////////////
+// THEME / COMPONENTS / DATEPICKERS
+///////////////////////////////////
+
+
+@use "sass:meta";
+
+@use "../variables/" as var;
+
+
+@layer components {
+
+  @include meta.load-css("@dcf/scss/components-js/datepickers");
+
+  .unl .dcf-datepicker-dialog[aria-hidden="true"] {
+    transition: opacity var.$transition-duration-fade-out var.$transition-timing-fn-fade-out;
+  }
+
+
+  .unl .dcf-datepicker-dialog[aria-hidden="false"] {
+    transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
+  }
+
+
+  .unl .dcf-datepicker-dialog-header {
+    border-bottom: 1px solid var.$border-color-light-gray;
+  }
+
+
+  .unl .dcf-datepicker-dialog-calendar td[aria-selected] {
+    background-color: var.$bg-color-inverse;
+    color: var.$color-inverse;
+  }
+
+
+  .unl .dcf-datepicker-dialog-calendar td:not(.disabled):not([tabindex="0"]):not([aria-selected]) {
+    transition: background-color var.$transition-duration-hover-off var.$transition-timing-fn-hover-off, border-color var.$transition-duration-hover-off var.$transition-timing-fn-hover-off, color var.$transition-duration-hover-off var.$transition-timing-fn-hover-off;
+  }
+
+
+  .unl .dcf-datepicker-dialog-calendar td:not(.disabled):not([tabindex="0"]):not([aria-selected]):hover {
+    transition: background-color var.$transition-duration-hover-on var.$transition-timing-fn-hover-on, border-color var.$transition-duration-hover-on var.$transition-timing-fn-hover-on, color var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
+  }
+
+
+  .unl .dcf-datepicker-dialog-calendar td[tabindex="0"]:not(.disabled),
+  .unl .dcf-datepicker-dialog-calendar td:not(.disabled):focus {
+    outline: 3px solid transparent; // https://sarahmhigley.com/writing/whcm-quick-tips/
+    transition: box-shadow var.$transition-duration-hover-on var.$transition-timing-fn-hover-on;
+  }
+
+
+  .unl .dcf-datepicker-dialog-calendar td[tabindex="0"]:not(.disabled),
+  .unl .dcf-datepicker-dialog-calendar td:not(.disabled):focus,
+  .unl .dcf-datepicker-dialog-calendar td:not(.disabled):active {
+    box-shadow: 0 0 0 3px var.$bg-color-dialog, 0 0 0 5px currentColor;
+  }
+
+
+  .unl .dcf-datepicker-dialog-calendar td[aria-selected][tabindex="0"] {
+    box-shadow: 0 0 0 3px var.$bg-color-dialog, 0 0 0 5px var.$bg-color-inverse; // Match aria-selected selected background-color
+  }
+
+
+  .unl .dcf-datepicker-dialog-footer {
+    border-top: 1px solid var.$border-color-light-gray;
+  }
+
+}

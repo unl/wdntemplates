@@ -1,0 +1,33 @@
+//////////////////////////////
+// THEME / COMPONENTS / GLOBAL
+//////////////////////////////
+
+
+@use "../variables/" as var;
+
+
+.unl-institution-title-ls {
+  letter-spacing: #{var.$ms-12}em; // custom letter-spacing for space after italicized 'of' in institution title
+}
+
+
+.unl-frame-quad {
+  clip-path: polygon(0 0,0 100%,2px 100%,2px 2px,calc(100% - 2px) 2px,calc(100% - 2px) calc(100% - 2px),2px calc(100% - 2px),2px calc(100% - 5px),calc(100% - 5px) calc(100% - 5px),calc(100% - 5px) 5px,5px 5px,5px calc(100% - 5px),2px calc(100% - 5px),2px 100%,100% 100%,100% 0);
+}
+
+
+// TODO: replace with clip-path method?
+.unl-frame-circle {
+  position: relative;
+}
+
+.unl-frame-circle::after {
+  border: 3px solid var.$bg-color-body; // Match body background-color
+  border-radius: var.$circle;
+  content: '';
+  height: calc(100% - 4px);
+  left: 2px;
+  position: absolute;
+  top: 2px;
+  width: calc(100% - 4px);
+}

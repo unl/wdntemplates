@@ -1,0 +1,12 @@
+//////////////////////////
+// THEME / VARIABLES / APP
+//////////////////////////
+
+
+@use './color-palette' as color_palette;
+
+@forward '@dcf/scss/variables/app' with (
+
+  $border-color-app-control: color_palette.$scarlet-shade
+
+);

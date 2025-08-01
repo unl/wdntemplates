@@ -1,9 +1,11 @@
 *.espressostorage
 *.sublime*
 .idea
+.vscode
 .DS_Store
 .externalToolBuilders
 .settings
+.env.local
 .project
 .buildpath
 /sandbox
@@ -11,7 +13,10 @@
 /build/vendor
 /node_modules
 /vagrant/dev/.vagrant
+/dist
+/wdn/templates_*/assets
 /wdn/templates_*/css
+/wdn/templates_*/dcf
 /wdn/templates_*/scss/components/_components.dev.scss
 /wdn/templates_*/js/compressed
 /wdn/templates_*/scripts/compressed

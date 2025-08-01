@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>jQuery</title>
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css">
+    </head>
+    <body class="unl">
+        <main>
+            <h1>jQuery</h1>
+        </main>
+
+        <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+
+        <script type="module">
+            import $ from "/wdn/templates_6.0/js/lib/jquery.js";
+            $('main').append('<p>Test</p>');
+        </script>
+
+        <script type="module">
+            import jQuery from "/wdn/templates_6.0/js/lib/jquery.js";
+            jQuery('main').append('<p>Test 2</p>');
+        </script>
+
+        <script type="module">
+            import test from "/wdn/templates_6.0/js/lib/jquery.js";
+            test('main').append('<p>Test 3</p>');
+        </script>
+    </body>
+</html>

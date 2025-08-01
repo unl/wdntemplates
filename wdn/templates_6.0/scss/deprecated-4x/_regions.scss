@@ -1,0 +1,31 @@
+///////////////////////////////
+// THEME / DEPRECATED / REGIONS
+///////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+.hide-wdn_institution_title #dcf-institution-title,
+.hide-wdn_identity_management #dcf-idm,
+.hide-wdn_search #dcf-search,
+.hide-wdn_navigation_wrapper #dcf-mobile-toggle-menu,
+.hide-wdn_navigation_wrapper #dcf-navigation,
+.hide-breadcrumbs #dcf-breadcrumbs,
+.hide-wdn_footer_contact #dcf-footer-group-1,
+.hide-wdn_footer_related #dcf-footer-group-2,
+.hide-wdn_logos .unl-footer-logo,
+.hide-wdn_attribution .unl-wdn-qa,
+.hide-wdn_copyright .unl-footer-unl,
+.terminal #dcf-mobile-toggle-menu,
+.terminal #dcf-navigation,
+.terminal #dcf-breadcrumbs,
+.terminal #dcf-footer-group-1,
+.terminal #dcf-footer-group-2 {
+  display: none;
+}
+
+
+.hide-pagetitle #dcf-page-title {
+  @include mixins.sr-only; // Keep the text readable by screen readers and search engines since it contains the h1
+}

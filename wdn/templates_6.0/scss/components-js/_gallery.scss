@@ -1,0 +1,37 @@
+///////////////////////////////
+// THEME / COMPONENTS / GALLERY
+///////////////////////////////
+
+
+@use "sass:meta";
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+@layer components {
+
+  @include meta.load-css("@dcf/scss/components-js/gallery");
+
+  // Remove :focus styles for custom replacement (below) to account for left and right <li> margins
+  .unl .dcf-gallery-thumbnails-list li:focus {
+    outline: 0;
+  }
+
+
+  // Custom replacement for :focus styles
+  .unl .dcf-gallery-thumbnails-list li:focus-visible div {
+    box-shadow: 0 0 0 3px var.$bg-color-body, 0 0 0 5px var.$border-color-input-focus;
+  }
+
+
+  .unl .dcf-gallery-figcaption {
+    @include mixins.lh-3;
+  }
+
+
+  .unl .dcf-gallery-img-credit {
+    @include mixins.txt-xs;
+  }
+
+}

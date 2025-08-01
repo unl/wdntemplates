@@ -1,0 +1,12 @@
+////////////////////////////
+// THEME / ELEMENTS / TABLES
+////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+// Caption
+.unl caption {
+  @include mixins.ls-h;
+}

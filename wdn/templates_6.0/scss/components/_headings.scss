@@ -1,0 +1,25 @@
+////////////////////////////////
+// THEME / COMPONENTS / HEADINGS
+////////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.unl .dcf-subhead {
+  font-weight: 400;
+  @include mixins.ls-2;
+  @include mixins.lh-3;
+}
+
+
+.unl-heading-ornament::after {
+  background-color: currentColor;
+  content: '';
+  display: block;
+  height: 2px;
+  margin-left: #{var.$ms-24}em;
+  margin-top: #{var.$ms00}rem;
+  @include mixins.w-6;
+}

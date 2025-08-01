@@ -1,0 +1,95 @@
+///////////////////////////////
+// THEME / DEPRECATED / HELPERS
+///////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+// Maintain aspect ratio
+@mixin ratio($imp:null) {
+  overflow: hidden $imp;
+  position: relative $imp;
+
+  &::before {
+    content: '' $imp;
+    display: block $imp;
+    width: 100% $imp;
+  }
+
+}
+
+
+// Child
+@mixin ratio-child($imp:null) {
+  bottom: 0 $imp;
+  left: 0 $imp;
+  position: absolute $imp;
+  right: 0 $imp;
+  top: 0 $imp;
+}
+
+
+// Aspect ratios
+@mixin ratio-16x9($imp:null) { padding-top: 56.25% $imp; }  // 16×9  Landscape
+@mixin ratio-9x16($imp:null) { padding-top: 177.77% $imp; } // 9×16  Portrait
+@mixin ratio-4x3($imp:null) { padding-top: 75% $imp; }      // 4×3   Landscape
+@mixin ratio-3x4($imp:null) { padding-top: 133.33% $imp; }  // 3×4   Portrait
+@mixin ratio-1x1($imp:null) { padding-top: 100% $imp; }     // 1×1   Square
+
+
+.centered {
+	float: none !important;
+	margin: 0 auto !important;
+}
+
+.clear {
+	clear: both;
+}
+
+.clear-top {
+  margin-top: 0 !important;
+}
+
+.hidden {
+  display: none;
+}
+
+.wdn-fouc-fix {
+	visibility: hidden;
+}
+
+.wdn-pull-left {
+  float: left;
+}
+
+.wdn-pull-right {
+  float: right;
+}
+
+.wdn-text-hidden {
+  @include mixins.sr-only;
+}
+
+.wdn-responsive-embed {
+  @include ratio;
+}
+
+.wdn-aspect16x9 {
+  @include ratio-16x9;
+}
+
+.wdn-aspect3x4 {
+  @include ratio-4x3;
+}
+
+.wdn-responsive-embed embed,
+.wdn-responsive-embed iframe,
+.wdn-responsive-embed object,
+.wdn-responsive-embed video,
+.wdn-responsive-embed .wdn-responsive-item {
+  @include ratio-child;
+  border: 0;
+  height: 100%;
+  width: 100%;
+}

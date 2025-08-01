@@ -1,0 +1,51 @@
+//////////////////////////////
+// THEME / MIXINS / ANIMATIONS
+//////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../functions/" as func;
+
+
+// Scroll FX
+@mixin scroll-fx($imp:null) {
+  --not: calc(1 - var(--bit));
+  transition: all 0.5s var.$transition-timing-fn-scroll-fx-stagger;
+}
+
+
+// Fade in on scroll
+@mixin fade-in-on-scroll($imp:null) {
+  opacity: var(--bit);
+}
+
+
+// Move left on scroll
+@mixin move-left-on-scroll($imp:null) {
+  transform: translateX(calc(var(--not) * var.$animation-transform-move-left));
+}
+
+
+// Move right on scroll
+@mixin move-right-on-scroll($imp:null) {
+  transform: translateX(calc(var(--not) * var.$animation-transform-move-right));
+}
+
+
+// Move up on scroll
+@mixin move-up-on-scroll($imp:null) {
+  transform: translateY(calc(var(--not) * var.$animation-transform-move-up));
+}
+
+
+// Trigger scroll-based animation
+@mixin scroll-trigger($imp:null) {
+  animation: flipthebit linear both $imp;
+  animation-range: var.$animation-range-start-scroll-trigger var.$animation-range-end-scroll-trigger $imp;
+  animation-timeline: view() $imp;
+}
+
+// Stagger scroll trigger
+@mixin scroll-trigger-stagger($imp:null) {
+  transition-delay: calc(var(--scroll-fx-count) * 100ms) $imp;
+}

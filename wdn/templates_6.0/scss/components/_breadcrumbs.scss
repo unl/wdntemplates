@@ -1,0 +1,94 @@
+///////////////////////////////////
+// THEME / COMPONENTS / BREADCRUMBS
+///////////////////////////////////
+
+
+@use "../variables/" as var;
+@use "../mixins/" as mixins;
+
+
+.unl .dcf-breadcrumbs {
+  @include mixins.txt-2xs;
+}
+
+
+.unl .dcf-breadcrumbs ol {
+  display: flex;
+  flex-wrap: nowrap; // Keep breadcrumbs on one line
+  // Fix list-style: none in VoiceOver and Safari: https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+  list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
+  padding-left: var.$length-vw-2; // Add padding to equal the wrapper object's left padding
+}
+
+
+.unl .dcf-breadcrumbs li {
+  margin-bottom: 0;
+}
+
+
+.unl .dcf-breadcrumbs li:last-child {
+  padding-right: var.$length-vw-2; // Add padding to equal the wrapper object's right padding
+}
+
+
+.unl .dcf-breadcrumbs li:not(:last-child) {
+  @include mixins.mr-2; // Add spacing after each breadcrumb list item — except the last
+}
+
+
+.unl .dcf-breadcrumbs li:not(:last-child)::after {
+  // Use borders to create arrows between breadcrumb list items
+  border-bottom: #{var.$ms-8}em solid transparent;
+  border-left: #{var.$ms-8}em solid var.$border-color-breadcrumb-arrow;
+  border-top: #{var.$ms-8}em solid transparent;
+  content: '';
+  @include mixins.ml-2; // Add spacing before each breadcrumb arrow
+}
+
+
+@include mixins.mq(md, max, width) {
+
+  .unl .dcf-breadcrumbs {
+    @include mixins.h-9; // Set height of breadcrumbs in order to hide horizontal scroll bar
+    overflow: hidden; // Hide scroll bars
+  }
+
+
+  .unl .dcf-breadcrumbs ol {
+    @include mixins.pb-9; // Set padding-bottom to push the horizontal scroll bar out of the breadcrumbs' height
+    @include mixins.overflow-x-auto; // Let breadcrumbs scroll horizontally if wider than the viewport
+    @include mixins.overflow-y-hidden; // Hide vertical scroll bar in breadcrumbs region
+  }
+
+
+  .unl .dcf-breadcrumbs li {
+    flex-shrink: 0; // Prevent breadcrumbs from wrapping to multiple lines
+  }
+
+}
+
+
+@include mixins.mq(md, min, width) {
+
+  .unl .dcf-breadcrumbs li:first-child,
+  .unl .dcf-breadcrumbs li:last-child {
+    flex-shrink: 0; // Prevent first breadcrumb ('Nebraska') and last breadcrumb (current page) from being truncated
+  }
+
+
+  .unl .dcf-breadcrumbs li:not(:first-child),
+  .unl .dcf-breadcrumbs li:not(:last-child) {
+    min-width: 0; // Let any breadcrumbs that aren't first or last shrink as needed
+  }
+
+
+  .unl .dcf-breadcrumbs li:hover {
+    min-width: auto; // Show the full name of a truncated breadcrumb on hover
+  }
+
+
+  .unl .dcf-breadcrumbs li a {
+    @include mixins.truncate; // Truncate links if there isn't enough horizontal space to accomodate all breadcrumbs
+  }
+
+}

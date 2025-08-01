@@ -1,0 +1,14 @@
+//////////////////
+// THEME / GENERIC
+//////////////////
+
+
+@use "sass:meta";
+
+
+@layer generic {
+  @include meta.load-css("@dcf/scss/generic/");
+  @include meta.load-css("./focus");
+  @include meta.load-css("./font-face");
+  @include meta.load-css("./root");
+};

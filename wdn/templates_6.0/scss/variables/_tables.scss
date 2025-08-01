@@ -1,0 +1,14 @@
+/////////////////////////////
+// THEME / VARIABLES / TABLES
+/////////////////////////////
+
+
+@use "sass:color";
+@use "./color-palette" as color_palette;
+
+@forward "@dcf/scss/variables/tables" with (
+
+  $bg-color-table-stripe-light-mode: color.adjust(color_palette.$darkest-gray, $alpha: -0.97) !default,
+  $bg-color-table-stripe-dark-mode: color.adjust(color_palette.$cream, $alpha: -0.97) !default
+
+);

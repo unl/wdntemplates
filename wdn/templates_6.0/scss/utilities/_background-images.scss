@@ -1,0 +1,48 @@
+////////////////////////////////////////
+// THEME / UTILITIES / BACKGROUND IMAGES
+////////////////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+// Dots
+[class*='unl-bg-dots-'] { @include mixins.bg-dots; }
+.unl-bg-dots-gray { @include mixins.bg-dots-gray; }
+.unl-bg-dots-scarlet { @include mixins.bg-dots-scarlet; }
+
+
+// Grit
+.unl-bg-grit { @include mixins.bg-grit; }
+
+
+// Diagonal Stripes: Scarlet
+.unl-bg-stripes-scarlet { @include mixins.bg-stripes-scarlet; }
+
+
+// Diagonal Stripes: Dark
+.unl-bg-stripes-dark { @include mixins.bg-stripes-dark; }
+
+
+// Diagonal Stripes: Light
+.unl-bg-stripes-light { @include mixins.bg-stripes-light; }
+
+
+// Diagonal Gradient (single)
+.unl-bg-diagonal-gradient { @include mixins.bg-diagonal-gradient; }
+
+
+// Diagonal Gradients (multiple)
+.unl-bg-diagonal-gradients { @include mixins.bg-diagonal-gradients; }
+
+
+// SVG Background Pattern: Campus
+.unl-bg-campus { @include mixins.bg-campus; }
+
+
+// SVG Background Pattern: Landmarks
+.unl-bg-landmarks { @include mixins.bg-landmarks; }
+
+
+// SVG Background Pattern: Majors
+.unl-bg-majors { @include mixins.bg-majors; }
