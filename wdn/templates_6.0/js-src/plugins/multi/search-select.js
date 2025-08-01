@@ -8,7 +8,7 @@ import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 let UNLSearchSelect = null;
 
 // Query Selector for the tabs component
-const querySelector = '.dcf-search-select';
+const querySelector = '.dcf-search-select:not(.dcf-search-select-initialized)';
 
 // Type of plugin
 const pluginType = 'multi';

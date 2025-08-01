@@ -9,7 +9,7 @@ import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 let UNLFigcaptionToggle = null;
 
 // Query Selector for the figcaption toggle component
-const querySelector = '.dcf-figcaption-toggle';
+const querySelector = '.dcf-figcaption-toggle:not(.dcf-figcaption-toggle-initialized)';
 
 // Type of plugin
 const pluginType = 'multi';

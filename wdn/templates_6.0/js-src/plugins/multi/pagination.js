@@ -8,7 +8,7 @@ import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 let UNLPagination = null;
 
 // Query Selector for the tabs component
-const querySelector = '.dcf-pagination';
+const querySelector = '.dcf-pagination:not(.dcf-pagination-initialized)';
 
 // Type of plugin
 const pluginType = 'multi';

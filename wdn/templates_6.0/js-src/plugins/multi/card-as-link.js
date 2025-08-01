@@ -8,7 +8,7 @@ import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 let UNLCardAsLink = null;
 
 // Query Selector for the card as link component  class
-const querySelector = '.dcf-card-as-link';
+const querySelector = '.dcf-card-as-link:not(.dcf-card-as-link-initialized)';
 
 // Type of plugin
 const pluginType = 'multi';

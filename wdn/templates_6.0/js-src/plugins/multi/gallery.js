@@ -9,7 +9,7 @@ import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 let UNLGallery = null;
 
 // Query Selector for the gallery component
-const querySelector = '.dcf-gallery-img';
+const querySelector = '.dcf-gallery-img:not(.dcf-gallery-img-initialized)';
 
 // Type of plugin
 const pluginType = 'multi';
