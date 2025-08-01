@@ -9,7 +9,7 @@ import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 let UNLCollapsibleFieldset = null;
 
 // Query Selector for the collapsible fieldset component
-const querySelector = '.dcf-collapsible-fieldset';
+const querySelector = '.dcf-collapsible-fieldset:not(.dcf-collapsible-fieldset-initialized)';
 
 // Type of plugin
 const pluginType = 'multi';
