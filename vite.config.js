@@ -6,6 +6,10 @@ import postcssNested from 'postcss-nested';
 
 import wdnCleanupPlugin from './vite.wdnCleanupPlugin.js';
 import wdnFinalJsUrlPlugin from './vite.wdnFinalJsUrlPlugin.js';
+import wdnSmudge from './vite.wdnSmudgePlugin.js';
+import wdnZipPlugin from './vite.wdnZipPlugin.js';
+import wdnCriticalCSSInjector from './vite.wdnCriticalCSSInjector.js';
+import wdnLayerPolyfill from './vite.wdnLayerPolyfill.js';
 
 export default ({ mode }) => {
     process.env = {...process.env, ...loadEnv(mode, process.cwd(), '')};
@@ -14,6 +18,14 @@ export default ({ mode }) => {
     const plugins = [
         wdnCleanupPlugin,
         wdnFinalJsUrlPlugin,
+        wdnLayerPolyfill(),
+        wdnCriticalCSSInjector({
+            cssFile: './wdn/templates_6.0/css/critical.css',
+            targets: [
+                './wdn/templates_6.0/includes/global/head-2-local.html',
+                './wdn/templates_6.0/includes/global/head-2.html',
+            ],
+        }),
     ];
 
     // If we are in a development environment
@@ -25,6 +37,34 @@ export default ({ mode }) => {
         );
     }
 
+    // If we are building for the production environment
+    if (process.argv.includes('--smudge')) {
+        // We need to smudge the files in specific directories
+        //  this will replace specific values (i.e. $DEP_VERSION$, $Id$) in the markup with actual values
+        plugins.push(
+            wdnSmudge({
+                dirs: [
+                    'wdn/templates_6.0/includes',
+                    'Templates',
+                ],
+            }),
+            wdnZipPlugin([
+                {
+                    name: 'wdn_6.0',
+                    dir: './wdn',
+                },
+                {
+                    name: 'wdn_includes_6.0',
+                    dir: './wdn/templates_6.0/includes',
+                },
+                {
+                    name: 'UNLTemplates_6.0',
+                    dir: './Templates',
+                },
+            ]),
+        );
+    }
+
     return defineConfig({
         esbuild: {
             // These options will allow us to keep the class names and other variables in the code
@@ -33,12 +73,15 @@ export default ({ mode }) => {
             keepNames: true,
         },
         build: {
+            minify: 'esbuild',
+
             // Tells the bundler to target modern browsers
             //   Specifically allows us to do top level await
             target: 'esnext',
 
-            // outDir needs to be `.` or else built url paths will be missing wdn/templates_6.0
-            outDir: '.',
+            // outDir is where the files will be built to
+            // wdnCleanupPlugin will copy them to the correct locations after the fact
+            outDir: './dist',
 
             // We are using library mode to keep the ES module exports in the final built code
             lib: {
@@ -50,6 +93,7 @@ export default ({ mode }) => {
                     'auto-loader'     : 'wdn/templates_6.0/js-src/plugin-auto-loader.js',
                     'header-global-1' : 'wdn/templates_6.0/js-src/header-global-1.js',
                     'head-2'          : 'wdn/templates_6.0/js-src/head-2.js',
+                    'nav-container-2' : 'wdn/templates_6.0/js-src/nav-container-2.js',
 
                     'plugins/plugin.tab'                  : 'wdn/templates_6.0/js-src/plugins/multi/tab.js',
                     'plugins/plugin.toggle-button'        : 'wdn/templates_6.0/js-src/plugins/multi/toggle-button.js',
@@ -65,6 +109,7 @@ export default ({ mode }) => {
                     'plugins/plugin.dialog'               : 'wdn/templates_6.0/js-src/plugins/multi/dialog.js',
                     'plugins/plugin.gallery'              : 'wdn/templates_6.0/js-src/plugins/multi/gallery.js',
                     'plugins/plugin.event-list'           : 'wdn/templates_6.0/js-src/plugins/multi/event-list.js',
+                    'plugins/plugin.card-as-link'         : 'wdn/templates_6.0/js-src/plugins/multi/card-as-link.js',
 
                     'plugins/plugin.idm'                  : 'wdn/templates_6.0/js-src/plugins/single/idm.js',
                     'plugins/plugin.search'               : 'wdn/templates_6.0/js-src/plugins/single/search.js',
@@ -73,7 +118,6 @@ export default ({ mode }) => {
 
                     'plugins/plugin.jquery-ui'            : 'wdn/templates_6.0/js-src/plugins/other/jquery-ui.js',
                     'plugins/plugin.form-validator'       : 'wdn/templates_6.0/js-src/plugins/other/form-validator.js',
-                    'plugins/plugin.modal'                : 'wdn/templates_6.0/js-src/plugins/other/modal.js', // Deprecated
 
                     'components/component.tab'                  : 'wdn/templates_6.0/js-src/components/unl-tab.js',
                     'components/component.toggle-button'        : 'wdn/templates_6.0/js-src/components/unl-toggle-button.js',
@@ -95,6 +139,7 @@ export default ({ mode }) => {
                     'components/component.search'               : 'wdn/templates_6.0/js-src/components/unl-search.js',
                     'components/component.qa'                   : 'wdn/templates_6.0/js-src/components/unl-qa.js',
                     'components/component.event-list'           : 'wdn/templates_6.0/js-src/components/unl-event-list.js',
+                    'components/component.card-as-link'         : 'wdn/templates_6.0/js-src/components/unl-card-as-link.js',
                     'components/component.analytics'            : 'wdn/templates_6.0/js-src/components/unl-analytics.js',
 
                     'lib/unl-utility'      : 'wdn/templates_6.0/js-src/lib/unl-utility.js',
@@ -103,6 +148,7 @@ export default ({ mode }) => {
                     'lib/jquery'           : 'wdn/templates_6.0/js-src/lib/jquery.js',
                     'lib/jquery-ui'        : 'wdn/templates_6.0/js-src/lib/jquery-ui.js',
                     'lib/jquery-validator' : 'wdn/templates_6.0/js-src/lib/jquery-validator.js',
+                    'lib/modal'            : 'wdn/templates_6.0/js-src/lib/modal.js', // Deprecated
 
                     // We don't need 'css/' to prefix the keys since the assetFileNames will add the css directory for us
                     'affiliate'     : 'wdn/templates_6.0/scss/affiliate.scss',

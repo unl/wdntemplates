@@ -25,8 +25,10 @@
 @include mixins.mq(md, max, width) {
 
   .unl .dcf-nav-toggle-group {
-    display: flex;
-    z-index: var.$z-nav-toggle-group;
+    // box-shadow: 0 1px 3px rgba(157, 0, 0, .5), 0 1px 12px rgba(157, 0, 0, .25);
+    // display: flex;
+    // z-index: var.$z-nav-toggle-group;
+
 
     // Browsers which partially support CSS Environment variables (iOS 11.0-11.2)
     @supports (padding-bottom: constant(safe-area-inset-bottom)) {
@@ -42,13 +44,17 @@
 
   }
 
+  .unl .dcf-nav-toggle-group:has(.dcf-nav-toggle-btn[aria-expanded="true"]) {
+    border-top: 1px solid rgba(0,0,0,.25);
+  }
+
 
   .unl .dcf-nav-toggle-btn {
     flex-basis: 25%;
   }
 
 
-  .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu {
+  .unl .dcf-nav .dcf-nav-toggle-btn-menu {
     display: none;
   }
 
@@ -88,8 +94,20 @@
   }
 
 
-  .unl .dcf-nav-menu .dcf-nav-toggle-btn-menu {
-    display: flex;
+  .unl .dcf-nav .dcf-nav-toggle-btn-menu {
+    padding: .67rem 0;
   }
+
+
+//   .unl .dcf-nav-dialog .dcf-nav .dcf-nav-toggle-btn-menu {
+//     transform: scaleY(2);
+//     transition: transform 2s ease-in-out;
+//   }
+//
+//
+//   .unl .dcf-nav-dialog.dcf-modal-open .dcf-nav .dcf-nav-toggle-btn-menu {
+//     transform: scaleY(1);
+//     transition: transform .05s ease-in-out;
+//   }
 
 }

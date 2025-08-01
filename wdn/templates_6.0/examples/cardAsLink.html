@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card as link</title>
+    <link rel="stylesheet" href="/wdn/templates_6.0/css/critical.css" />
+    <link rel="stylesheet" href="/wdn/templates_6.0/css/main.css" />
+    <script src="/wdn/templates_6.0/js/head-2.js"></script>
+  </head>
+  <body class="unl">
+    <main>
+      <h1>Card</h1>
+      <div id="test-dcf-card" class="dcf-card dcf-card-as-link dcf-d-flex dcf-flex-col">
+        <div class="dcf-card-block dcf-2nd">
+          <h2><a class="dcf-card-link" href="https://www.unl.edu/">Church-key ennui gastropub</a></h2>
+          <p>Sriracha Etsy XOXO street art, chillwave 8-bit hoodie <abbr>VHS</abbr> blog Pitchfork authentic paleo ethical messenger bag. Raw denim Blue Bottle flannel Carles Williamsburg narwhal, cray drinking vinegar messenger bag gluten-free twee ugh. <a href="https://www.google.com/">Here's another link</a></p>
+        </div>
+        <div class="dcf-ratio dcf-ratio-16x9 dcf-1st">
+          <img
+            class="dcf-ratio-child dcf-obj-fit-cover dcf-h-100% dcf-w-100%"
+            sizes="(min-width: 41.956em) 43vw, 88vw"
+            srcset="../images/dev/150821-tunnel-325-sm-min.jpg 284w,
+            ../images/dev/150821-tunnel-325-md-min.jpg 505w,
+            ../images/dev/150821-tunnel-325-lg-min.jpg 898w,
+            ../images/dev/150821-tunnel-325-xl-min.jpg 1596w"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
+            alt="">
+          </div>
+        </div>
+    </main>
+
+    <script>
+      document
+        .getElementById("test-dcf-card")
+        .addEventListener("cardAsLinkReady", (e) => {
+          console.log("Event Name: cardAsLinkReady", e);
+        });
+      document.addEventListener("UNLPluginInitialized", (e) => {
+        console.log("Event Name: UNLPluginInitialized", e);
+      });
+      document.addEventListener("UNLPluginLoadedElement", (e) => {
+        console.log("Event Name: UNLPluginLoadedElement", e);
+      });
+      window.UNL.autoLoader.config.plugins.UNLCardAsLink.onPluginLoadedElement = (
+        loaded_element
+      ) => {
+        console.log("Auto Loader onPluginLoadedElement:", loaded_element);
+      };
+    </script>
+    <script src="/wdn/templates_6.0/js/auto-loader.js" type="module"></script>
+  </body>
+</html>

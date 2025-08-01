@@ -1,49 +1,58 @@
+//////////////////////////////////////
+// THEME / COMPONENTS / FORM VALIDATOR
+//////////////////////////////////////
+
+
 @use "sass:color";
 @use "../variables/" as var;
 @use "../mixins/" as mixins;
 
 
-ul.validation-advice {
-  color: var.$scarlet;
-  @include mixins.txt-sm;
-  font-weight: bold;
-  list-style: none;
-  margin: 0 0 1em;
-}
+@layer components {
+
+  ul.validation-advice {
+    color: var(--brand);
+    @include mixins.txt-sm;
+    font-weight: bold;
+    list-style: none;
+    margin: 0 0 1em;
+  }
 
 
-ul.validation-advice li::before {
-  content: '\2191';
-  display: inline-block;
-  margin-right: .2em;
-  text-align: center;
-  width: 1em;
-}
+  ul.validation-advice li::before {
+    content: '\2191';
+    display: inline-block;
+    margin-right: .2em;
+    text-align: center;
+    width: 1em;
+  }
 
 
-@keyframes wdn-error {
+  @keyframes wdn-error {
 
-  from {
+    from {
+      border: 1px solid var.$scarlet;
+      box-shadow: 0 0 6px color.adjust(var.$scarlet, $alpha: -0.2);
+    }
+
+    to {
+      border: 1px solid color.adjust(var.$scarlet, $alpha: -0.8);
+      box-shadow: 0 0 6px color.adjust(var.$scarlet, $alpha: -0.9);
+    }
+
+  }
+
+
+  form input[type=text].validation-failed,
+  form input[type=file].validation-failed,
+  form input[type=password].validation-failed,
+  form input[type=email].validation-failed,
+  form input[type=url].validation-failed,
+  form input[type=number].validation-failed,
+  form textarea.validation-failed,
+  form select.validation-failed {
+    animation: wdn-error 1.2s infinite alternate;
     border: 1px solid var.$scarlet;
-    box-shadow: 0 0 6px color.adjust(var.$scarlet, $alpha: -0.2);
   }
 
-  to {
-    border: 1px solid color.adjust(var.$scarlet, $alpha: -0.8);
-    box-shadow: 0 0 6px color.adjust(var.$scarlet, $alpha: -0.9);
-  }
-
-}
-
-
-form input[type=text].validation-failed,
-form input[type=file].validation-failed,
-form input[type=password].validation-failed,
-form input[type=email].validation-failed,
-form input[type=url].validation-failed,
-form input[type=number].validation-failed,
-form textarea.validation-failed,
-form select.validation-failed {
-  animation: wdn-error 1.2s infinite alternate;
-  border: 1px solid var.$scarlet;
 }

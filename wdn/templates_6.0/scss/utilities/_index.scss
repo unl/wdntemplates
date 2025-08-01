@@ -3,16 +3,21 @@
 ////////////////////
 
 
-@forward "@dcf/scss/utilities/";
-@forward "./animations";
-@forward "./backdrop-filters";
-@forward "./background-blend-modes";
-@forward "./background-colors";
-@forward "./background-images";
-@forward "./blend-modes";
-@forward "./border-color";
-@forward "./box-shadow";
-@forward "./colors";
-@forward "./filters";
-@forward "./fonts";
-@forward "./typography";
+@use "sass:meta";
+
+
+@layer utilities {
+  @include meta.load-css("@dcf/scss/utilities/");
+  @include meta.load-css("./animations");
+  @include meta.load-css("./backdrop-filters");
+  @include meta.load-css("./background-blend-modes");
+  @include meta.load-css("./background-colors");
+  @include meta.load-css("./background-images");
+  @include meta.load-css("./blend-modes");
+  @include meta.load-css("./border-color");
+  @include meta.load-css("./box-shadow");
+  @include meta.load-css("./colors");
+  @include meta.load-css("./filters");
+  @include meta.load-css("./fonts");
+  @include meta.load-css("./typography");
+};

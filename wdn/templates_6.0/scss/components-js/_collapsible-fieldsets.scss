@@ -1,41 +1,51 @@
-//////////////////////////////////
-// THEME / COMPONENTS / COLLAPSIBLE-FIELDSETS
-//////////////////////////////////
+/////////////////////////////////////////////
+// THEME / COMPONENTS / COLLAPSIBLE FIELDSETS
+/////////////////////////////////////////////
+
 
 @use "../variables/" as var;
 
-.unl .dcf-collapsible-fieldset.unl-collapsible-fieldset-close {
+
+@layer components {
+
+  .unl .dcf-collapsible-fieldset.unl-collapsible-fieldset-close {
     border-bottom-color: transparent;
     border-left-color: transparent;
     border-right-color: transparent;
-    border-radius: 0px;
-}
+    border-radius: 0;
+  }
 
-// When the fieldset is opened we want the outer fieldset to go first
-.unl .dcf-collapsible-fieldset:not(.dcf-motion-none).unl-collapsible-fieldset-open {
-    transition:
-        border-color var.$animation-duration-fieldset var.$animation-timing-fieldset,
-        padding var.$animation-duration-fieldset var.$animation-timing-fieldset;
-}
 
-// When the fieldset is closed we want to wait for the contents to finish
-.unl .dcf-collapsible-fieldset:not(.dcf-motion-none).unl-collapsible-fieldset-close {
+  // When the fieldset is opened we want the outer fieldset to go first
+  .unl .dcf-collapsible-fieldset:not(.dcf-motion-none).unl-collapsible-fieldset-open {
     transition:
-        border-color var.$animation-duration-fieldset var.$animation-timing-fieldset var.$animation-duration-fieldset-contents,
-        border-radius 0s var.$animation-timing-fieldset var.$animation-duration-fieldset-contents,
-        padding var.$animation-duration-fieldset var.$animation-timing-fieldset var.$animation-duration-fieldset-contents;
-}
+      border-color var.$animation-duration-fieldset var.$animation-timing-fieldset,
+      padding var.$animation-duration-fieldset var.$animation-timing-fieldset;
+  }
 
-// When the fieldset is opened we want to wait for the outer fieldset to finish
-.unl .dcf-collapsible-fieldset:not(.dcf-motion-none) .unl-collapsible-fieldset-contents-open {
-    transition:
-        opacity var.$animation-duration-fieldset-contents var.$animation-timing-fieldset var.$animation-duration-fieldset,
-        max-height var.$animation-duration-fieldset-contents var.$animation-timing-fieldset var.$animation-duration-fieldset;
-}
 
-// When the fieldset is closed we want the contents to go first
-.unl .dcf-collapsible-fieldset:not(.dcf-motion-none) .unl-collapsible-fieldset-contents-close {
+  // When the fieldset is closed we want to wait for the contents to finish
+  .unl .dcf-collapsible-fieldset:not(.dcf-motion-none).unl-collapsible-fieldset-close {
     transition:
-        opacity var.$animation-duration-fieldset-contents var.$animation-timing-fieldset,
-        max-height var.$animation-duration-fieldset-contents var.$animation-timing-fieldset;
+      border-color var.$animation-duration-fieldset var.$animation-timing-fieldset var.$animation-duration-fieldset-contents,
+      border-radius 0s var.$animation-timing-fieldset var.$animation-duration-fieldset-contents,
+      padding var.$animation-duration-fieldset var.$animation-timing-fieldset var.$animation-duration-fieldset-contents;
+  }
+
+
+  // When the fieldset is opened we want to wait for the outer fieldset to finish
+  .unl .dcf-collapsible-fieldset:not(.dcf-motion-none) .unl-collapsible-fieldset-contents-open {
+    transition:
+      opacity var.$animation-duration-fieldset-contents var.$animation-timing-fieldset var.$animation-duration-fieldset,
+      max-height var.$animation-duration-fieldset-contents var.$animation-timing-fieldset var.$animation-duration-fieldset;
+  }
+
+
+  // When the fieldset is closed we want the contents to go first
+  .unl .dcf-collapsible-fieldset:not(.dcf-motion-none) .unl-collapsible-fieldset-contents-close {
+    transition:
+      opacity var.$animation-duration-fieldset-contents var.$animation-timing-fieldset,
+      max-height var.$animation-duration-fieldset-contents var.$animation-timing-fieldset;
+  }
+
 }

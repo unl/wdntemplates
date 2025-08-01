@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html class="dcf-no-js dcf-no-webp" lang="en">
+<html lang="en">
 <head>
-    {% include 'wdn/templates_5.3/includes/global/head-1.html' %}
+    {% include 'wdn/templates_6.0/includes/global/head-1.html' %}
     <!--
-      Membership and regular participation in the University of Nebraska–Lincoln (UNL) Web Developer Network (WDN) is required to use the UNLedu Web Framework. Visit the WDN site at https://wdn.unl.edu/. Register for our mailing list and add your site or server to UNL Web Audit.
+      Membership and regular participation in the University of Nebraska-Lincoln (UNL) Web Developer Network (WDN) is required to use the UNLedu Web Framework. Visit the WDN site at https://wdn.unl.edu/. Register for our mailing list and add your site or server to UNL Web Audit.
       All framework code is the property of the UNL Web Developer Network. The code seen in a source code view is not, and may not be used as, a template. You may not use this code, a reverse-engineered version of this code, or its associated visual presentation in whole or in part to create a derivative work.
       This message may not be removed from any pages based on the UNLedu Web Framework.
 
@@ -12,74 +12,61 @@
     <!-- TemplateBeginEditable name="doctitle" -->
     {% block doctitle %}{% endblock %}
     <!-- TemplateEndEditable -->
-    {% include 'wdn/templates_5.3/includes/global/head-2-local.html' %}
+    {% include 'wdn/templates_6.0/includes/global/head-2-local.html' %}
     <!-- TemplateBeginEditable name="head" -->
     {% block head %}{% endblock %}
     <!-- TemplateEndEditable -->
     <!-- TemplateParam name="class" type="text" value="" -->
 </head>
-<body class="unl" data-version="5.3">
-{% include 'wdn/templates_5.3/includes/global/skip-nav.html' %}
+<body class="unl" data-version="6.0" data-template="local">
+{% include 'wdn/templates_6.0/includes/global/skip-nav.html' %}
 <header class="dcf-header" id="dcf-header" role="banner">
-    {% include 'wdn/templates_5.3/includes/global/header-global-1.html' %}
-    {% include 'wdn/templates_5.3/includes/global/cta-header-1.html' %}
-    {% include 'wdn/templates_5.3/includes/global/visit-header-1.html' %}
-    <!-- TemplateBeginEditable name="headervisit" -->
-    {% block headervisit %}{% endblock %}
-    <!-- TemplateEndEditable -->
-    {% include 'wdn/templates_5.3/includes/global/visit-header-2.html' %}
-    {% include 'wdn/templates_5.3/includes/global/apply-header-1.html' %}
-    <!-- TemplateBeginEditable name="headerapply" -->
-    {% block headerapply %}{% endblock %}
-    <!-- TemplateEndEditable -->
-    {% include 'wdn/templates_5.3/includes/global/apply-header-2.html' %}
-    {% include 'wdn/templates_5.3/includes/global/give-header-1.html' %}
-    <!-- TemplateBeginEditable name="headergive" -->
-    {% block headergive %}{% endblock %}
-    <!-- TemplateEndEditable -->
-    {% include 'wdn/templates_5.3/includes/global/give-header-2.html' %}
-    {% include 'wdn/templates_5.3/includes/global/cta-header-2.html' %}
-    {% include 'wdn/templates_5.3/includes/global/idm.html' %}
-    {% include 'wdn/templates_5.3/includes/global/search.html' %}
-    {% include 'wdn/templates_5.3/includes/global/header-global-2.html' %}
-    {% include 'wdn/templates_5.3/includes/global/logo-lockup-1.html' %}
-    {% include 'wdn/templates_5.3/includes/global/site-affiliation-1.html' %}
+    {% include 'wdn/templates_6.0/includes/global/header-global-1.html' %}
+    {% include 'wdn/templates_6.0/includes/global/idm.html' %}
+    {% include 'wdn/templates_6.0/includes/global/search.html' %}
+    {% include 'wdn/templates_6.0/includes/global/header-global-2.html' %}
+    {% include 'wdn/templates_6.0/includes/global/logo-lockup-1.html' %}
+    {% include 'wdn/templates_6.0/includes/global/site-affiliation-1.html' %}
     <!-- TemplateBeginEditable name="affiliation" -->
     {% block affiliation %}{% endblock %}
     <!-- TemplateEndEditable -->
-    {% include 'wdn/templates_5.3/includes/global/site-affiliation-2.html' %}
-    {% include 'wdn/templates_5.3/includes/global/site-title-1.html' %}
+    {% include 'wdn/templates_6.0/includes/global/site-affiliation-2.html' %}
+    {% include 'wdn/templates_6.0/includes/global/site-title-1.html' %}
     <!-- TemplateBeginEditable name="titlegraphic" -->
     {% block titlegraphic %}{% endblock %}
     <!-- TemplateEndEditable -->
-    {% include 'wdn/templates_5.3/includes/global/site-title-2.html' %}
-    {% include 'wdn/templates_5.3/includes/global/logo-lockup-2.html' %}
-    {% include 'wdn/templates_5.3/includes/global/nav-toggle-group.html' %}
-    {% include 'wdn/templates_5.3/includes/global/nav-menu-1.html' %}
-    {% include 'wdn/templates_5.3/includes/global/nav-toggle-btn.html' %}
-    {% include 'wdn/templates_5.3/includes/global/nav-menu-child-1.html' %}
+    {% include 'wdn/templates_6.0/includes/global/site-title-2.html' %}
+    {% include 'wdn/templates_6.0/includes/global/logo-lockup-2.html' %}
+    {% include 'wdn/templates_6.0/includes/global/nav-container-1.html' %}
+    {% include 'wdn/templates_6.0/includes/global/nav-toggle-group.html' %}
+    {% include 'wdn/templates_6.0/includes/global/nav-menu-1.html' %}
+    {% include 'wdn/templates_6.0/includes/global/nav-local-1.html' %}
     <!-- TemplateBeginEditable name="navlinks" -->
     {% block navlinks %}{% endblock %}
     <!-- TemplateEndEditable -->
-    {% include 'wdn/templates_5.3/includes/global/cta-nav-1.html' %}
-    {% include 'wdn/templates_5.3/includes/global/visit-nav-1.html' %}
+    {% include 'wdn/templates_6.0/includes/global/nav-local-2.html' %}
+    {% include 'wdn/templates_6.0/includes/global/nav-menu-2.html' %}
+    {% include 'wdn/templates_6.0/includes/global/nav-dialog-1.html' %}
+    {% include 'wdn/templates_6.0/includes/global/nav-local-copy-dialog.html' %}
+    {% include 'wdn/templates_6.0/includes/global/cta-1.html' %}
+    {% include 'wdn/templates_6.0/includes/global/visit-1.html' %}
     <!-- TemplateBeginEditable name="navvisit" -->
     {% block navvisit %}{% endblock %}
     <!-- TemplateEndEditable -->
-    {% include 'wdn/templates_5.3/includes/global/visit-nav-2.html' %}
-    {% include 'wdn/templates_5.3/includes/global/apply-nav-1.html' %}
+    {% include 'wdn/templates_6.0/includes/global/visit-2.html' %}
+    {% include 'wdn/templates_6.0/includes/global/apply-1.html' %}
     <!-- TemplateBeginEditable name="navapply" -->
     {% block navapply %}{% endblock %}
     <!-- TemplateEndEditable -->
-    {% include 'wdn/templates_5.3/includes/global/apply-nav-2.html' %}
-    {% include 'wdn/templates_5.3/includes/global/give-nav-1.html' %}
+    {% include 'wdn/templates_6.0/includes/global/apply-2.html' %}
+    {% include 'wdn/templates_6.0/includes/global/give-1.html' %}
     <!-- TemplateBeginEditable name="navgive" -->
     {% block navgive %}{% endblock %}
     <!-- TemplateEndEditable -->
-    {% include 'wdn/templates_5.3/includes/global/give-nav-2.html' %}
-    {% include 'wdn/templates_5.3/includes/global/cta-nav-2.html' %}
-    {% include 'wdn/templates_5.3/includes/global/nav-menu-child-2.html' %}
-    {% include 'wdn/templates_5.3/includes/global/nav-menu-2.html' %}
+    {% include 'wdn/templates_6.0/includes/global/give-2.html' %}
+    {% include 'wdn/templates_6.0/includes/global/cta-2.html' %}
+    {% include 'wdn/templates_6.0/includes/global/nav-dialog-2.html' %}
+    {% include 'wdn/templates_6.0/includes/global/nav-container-2-local.html' %}
 </header>
 <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
     <!-- TemplateBeginEditable name="highlighted" -->
@@ -119,14 +106,15 @@
     <!-- TemplateBeginEditable name="optionalfooter" -->
     {% block optionalfooter %}{% endblock %}
     <!-- TemplateEndEditable -->
-    {% include 'wdn/templates_5.3/includes/global/footer-global-1.html' %}
+    {% include 'wdn/templates_6.0/includes/global/footer-global-1.html' %}
     <!-- TemplateBeginEditable name="contactinfo" -->
     {% block contactinfo %}{% endblock %}
     <!-- TemplateEndEditable -->
-    {% include 'wdn/templates_5.3/includes/global/footer-global-2.html' %}
-    {% include 'wdn/templates_5.3/includes/global/noscript.html' %}
+    {% include 'wdn/templates_6.0/includes/global/footer-global-2.html' %}
+    {% include 'wdn/templates_6.0/includes/global/footer-global-3-std.html' %}
+    {% include 'wdn/templates_6.0/includes/global/noscript.html' %}
 </footer>
-{% include 'wdn/templates_5.3/includes/global/js-body-local.html' %}
+{% include 'wdn/templates_6.0/includes/global/js-body-local.html' %}
 <!-- TemplateBeginEditable name="jsbody" -->
 {% block jsbody %}{% endblock %}
 <!-- TemplateEndEditable -->

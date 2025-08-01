@@ -1,47 +1,61 @@
-//////////////////////////////
+///////////////////////////////
 // THEME / COMPONENTS / DIALOGS
-//////////////////////////////
+///////////////////////////////
 
+
+@use "sass:meta";
 
 @use "../variables/" as var;
 
-@use "@dcf/scss/components-js/dialogs" as *;
 
-// Open state of dialog
-.unl .dcf-dialog:open,
-.unl .dcf-dialog:open::backdrop{
+@layer components {
+
+  @include meta.load-css("@dcf/scss/components-js/dialogs");
+
+
+  // Open state of dialog
+  .unl .dcf-dialog:open,
+  .unl .dcf-dialog:open::backdrop{
     opacity: 1;
-}
+  }
 
-// This is only here because safari does not support `:open`
-.unl .dcf-dialog.dcf-dialog-is-open,
-.unl .dcf-dialog.dcf-dialog-is-open::backdrop {
+
+  // Safari does not support `:open`, `.dcf-dialog-is-open` is our fallback
+  .unl .dcf-dialog.dcf-dialog-is-open,
+  .unl .dcf-dialog.dcf-dialog-is-open::backdrop {
     opacity: 1;
-}
+  }
 
-// Closed state of dialog
-.unl .dcf-dialog,
-.unl .dcf-dialog::backdrop {
+
+  // Closed state of dialog
+  .unl .dcf-dialog,
+  .unl .dcf-dialog::backdrop {
     opacity: 0;
     transition:
         opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in,
         overlay var.$transition-duration-fade-in var.$transition-timing-fn-fade-in allow-discrete,
         display var.$transition-duration-fade-in var.$transition-timing-fn-fade-in allow-discrete;
-    //Equivalent to
+    // Equivalent to
     // transition: all 0.7s allow-discrete;
-}
+  }
 
-// Before open state
-// This is needed to have open state start at opacity 0
-@starting-style {
+
+  // Before open state
+  // This is needed to have open state start at opacity 0
+  @starting-style {
+
     .unl .dcf-dialog:open,
     .unl .dcf-dialog:open::backdrop{
-        opacity: 0;
+      opacity: 0;
     }
 
-    // This is only here because safari does not support `:open`
+
+    // Safari does not support `:open`, `.dcf-dialog-is-open` is our fallback
     .unl .dcf-dialog.dcf-dialog-is-open,
     .unl .dcf-dialog.dcf-dialog-is-open::backdrop {
-        opacity: 0;
+      opacity: 0;
     }
+
+  }
+
 }

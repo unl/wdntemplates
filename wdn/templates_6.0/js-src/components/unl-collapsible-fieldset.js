@@ -37,14 +37,14 @@ export default class UNLCollapsibleFieldset extends DCFCollapsibleFieldset {
 
         if (!('fieldsetContentsClassListOn' in options)) {
             options.fieldsetContentsClassListOn = [
-                'dcf-h-max-inf',
+                'dcf-max-h-inf',
                 'unl-collapsible-fieldset-contents-open',
             ];
         }
 
         if (!('fieldsetContentsClassListOff' in options)) {
             options.fieldsetContentsClassListOff = [
-                'dcf-h-max-0',
+                'dcf-max-h-0',
                 'dcf-overflow-y-hidden',
                 'dcf-overflow-x-hidden',
                 'unl-collapsible-fieldset-contents-close',

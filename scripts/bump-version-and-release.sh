@@ -1,6 +1,6 @@
 #!/bin/bash +v
 
-DEV_BRANCH=${DEV_BRANCH:=5.3}
+DEV_BRANCH=${DEV_BRANCH:=6.0}
 MASTER_BRANCH=${MASTER_BRANCH:=master}
 UPSTREAM_REMOTE=${UPSTREAM_REMOTE:=upstream}
 COMMITONLY='false'
@@ -28,10 +28,28 @@ if ${COMMITONLY}; then
     git tag -a $VERSION_DEP -m "Release $VERSION_DEP"
     git push upstream $DEV_BRANCH && git push upstream $VERSION_DEP
 else
-    grunt bump --dry-run || exit $?
+    VERSION_FILE="VERSION_DEP"
+    VERSION_LINE=$(head -n 1 $VERSION_FILE)
+    IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION_LINE"
+
+    PATCH=$((PATCH + 1))
+    NEW_VERSION="$MAJOR.$MINOR.$PATCH"
+
+    echo "Current version: $VERSION_LINE"
+    echo "New version: $NEW_VERSION"
     echo "Cancel now, if this is not what you want! (5 seconds)"
     sleep 5
-    grunt bump
+
+    # Update VERSION_DEP
+    echo "$NEW_VERSION" > $VERSION_FILE
+
+    # Update package.json version
+    if [ -f package.json ]; then
+        sed -i '' -E "s/\"version\": *\"[0-9]+\.[0-9]+\.[0-9]+\"/\"version\": \"$NEW_VERSION\"/" package.json
+    fi
+
+    git add $VERSION_FILE package.json
+    git commit -m "Bump version to $NEW_VERSION"
 fi
 
 

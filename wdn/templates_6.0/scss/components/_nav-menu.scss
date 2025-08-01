@@ -7,53 +7,89 @@
 @use "../mixins/" as mixins;
 
 
-.unl .dcf-nav-menu li { // TODO: remove after updated in DCF core
-  margin-bottom: 0;
+
+.unl dialog#dcf-nav-dialog {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: fit-content !important;
+  max-height: 100% !important;
 }
 
 
-.unl .dcf-nav-menu-child a,
-.unl .dcf-nav-menu-child button {
+.unl dialog#dcf-nav-dialog::backdrop {
+  backdrop-filter: blur(3px) !important;
+  background-color: var(--bg-overlay-light) !important;
+}
+
+
+.unl .dcf-nav a,
+.unl .dcf-nav button {
   display: block;
   @include mixins.lh-3;
-  padding: #{var.$ms-2}rem #{var.$ms00}rem;
 }
 
 
-// TODO: determine focus state styles
-.unl .dcf-nav-menu-child a:link,
-.unl .dcf-nav-menu-child a:visited,
-.unl .dcf-nav-menu-child a:hover,
-.unl .dcf-nav-menu-child a:active,
-.unl .dcf-nav-menu-child button {
+.unl .dcf-nav a:link,
+.unl .dcf-nav a:visited,
+.unl .dcf-nav a:hover,
+.unl .dcf-nav a:active,
+.unl .dcf-nav button {
   @include mixins.cream;
 }
 
 
-.unl .dcf-nav-menu-child > ul > li > a,
-.unl .dcf-nav-menu-child button {
-  font-weight: 600;
+.unl .dcf-nav a:hover {
+  text-decoration: underline;
+}
+
+
+.unl .dcf-nav ul,
+.unl .dcf-nav li {
+  margin-bottom: 0;
+}
+
+
+.unl .dcf-nav ul a,
+.unl .dcf-nav ul button {
+  padding-inline: #{var.$ms00}rem;
+}
+
+
+.unl .dcf-nav ul ul a,
+.unl .dcf-nav ul ul button {
+  padding-block: #{var.$ms-8}rem;
+}
+
+
+.unl .dcf-nav-menu-content {
+  @include mixins.bg-scarlet;
 }
 
 
 @include mixins.mq(md, max, width) {
 
+  .unl .dcf-nav-primary {
+    display: none;
+  }
+
+
   .unl .dcf-nav-menu {
+    backdrop-filter: blur(3px);
     @include mixins.bg-overlay-light;
-    bottom: #{var.$height-mobile-toolbar};
+    bottom: 0;
     height: 100vh;
-    opacity: 0;
-    pointer-events: none;
+    // opacity: 0;
+    // pointer-events: none;
     position: fixed;
     transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in, visibility 0ms .4s;
-    visibility: hidden;
+    // visibility: hidden;
     width: 100%;
     z-index: 998; // Ensure that the z-index is below the modal and nav-toggle-group z-indices
   }
 
 
   // Open when parent model is open
-  .unl .dcf-nav-menu.dcf-modal-open {
+  .unl .dcf-nav-menu.dcf-modal-is-open {
   	opacity: 1;
   	pointer-events: auto;
     transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
@@ -61,36 +97,44 @@
   }
 
 
-  .unl .dcf-nav-menu-child {
-    @include mixins.bg-scarlet;
-    bottom: var.$height-mobile-toolbar;
-    height: 43vh;
-    @include mixins.overflow-y-auto;
-    padding-left: var.$length-vw-2;
-    padding-right: var.$length-vw-2;
+  .unl .dcf-nav-menu-content {
+    bottom: calc(#{var.$height-mobile-toolbar} - 1px);
+    opacity: 0;
     position: fixed;
+    // transform-origin: bottom;
+    transition: opacity var.$transition-duration-fade-out var.$transition-timing-fn-fade-out;
   }
 
 
-  .unl .dcf-nav-menu-child > *:first-child {
-    @include mixins.mt-6;
+  .unl .dcf-dialog-is-open .dcf-nav-menu-content {
+    opacity: 1;
+    transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
   }
 
 
-  .unl .dcf-nav-menu-child > *:last-child {
-    @include mixins.mb-7;
+  .unl .dcf-nav-menu-content-child {
+    --mask-height: 1.78em;
+    height: 56vh;
+    mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) var(--mask-height),
+      rgba(0, 0, 0, 1) calc(100% - var(--mask-height)),
+      rgba(0, 0, 0, 0));
+    overflow-y: auto;
+    padding-block: var(--mask-height);
+    padding-inline: var.$length-vw-2;
   }
 
 
-  .unl .dcf-nav-menu a,
-  .unl .dcf-nav-menu button {
+  .unl .dcf-nav a,
+  .unl .dcf-nav button {
     margin-left: -#{var.$ms00}rem;
   }
 
 
-  .unl .dcf-nav-menu ul > li > ul > li > a,
-  .unl .dcf-nav-menu ul > li > ul > li > button {
-    font-size: #{var.$ms-1}rem !important;
+  .unl .dcf-nav ul:first-child > li > a,
+  .unl .dcf-nav ul:first-child > li > button {
+    font-size: #{var.$ms01}rem !important;
   }
 
 }
@@ -98,24 +142,122 @@
 
 @include mixins.mq(md, min, width) {
 
+  .unl .dcf-nav-container {
+    position: relative;
+  }
+
+
+  .unl .dcf-nav-dialog {
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+
+
+  .unl .dcf-nav-primary {
+    display: grid;
+    grid-template-columns: #{var.$ms10}rem 1fr;
+    color: #fefdfa;
+  }
+
+
+  .unl .dcf-nav-primary ul ul {
+    display: none;
+  }
+
+
   .unl .dcf-nav-menu {
-    @include mixins.bg-scarlet;
-    display: flex;
-    flex-wrap: nowrap;
-    padding-left: var.$length-vw-2;
-    padding-right: var.$length-vw-2;
+    backdrop-filter: blur(3px);
+    @include mixins.bg-overlay-light;
+    // bottom: #{var.$height-mobile-toolbar};
+    height: 100vh;
+    // opacity: 0;
+    // pointer-events: none;
+    // position: fixed;
+    position: relative;
+    top: 0;
+    transition: opacity var.$transition-duration-fade-out var.$transition-timing-fn-fade-out;
+    // transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in, visibility 0ms .4s;
+    // visibility: hidden;
+    width: 100%;
+    z-index: 998; // Ensure that the z-index is below the modal and nav-toggle-group z-indices
+  }
+
+
+  .unl .dcf-nav-menu-content {
+    // @include mixins.bg-scarlet;
+    // max-height: 56vh;
+    // @include mixins.overflow-y-auto;
+    overflow-y: auto;
+    // padding-left: var.$length-vw-2;
+    // padding-right: var.$length-vw-2;
+    position: fixed;
+    // transform-origin: top;
+  }
+
+
+  .unl .dcf-nav-menu-content-child {
+    // --mask-height: 1.78em;
+    // max-height: 56vh;
+    // mask-image: linear-gradient(to bottom,
+    //   rgba(0, 0, 0, 0),
+    //   rgba(0, 0, 0, 1) var(--mask-height),
+    //   rgba(0, 0, 0, 1) calc(100% - var(--mask-height)),
+    //   rgba(0, 0, 0, 0));
+    overflow-y: auto;
+    // padding-block: var(--mask-height);
+    padding: 0 var.$length-vw-2 var.$length-em-6;
+  }
+
+
+  // .unl .dcf-nav-menu-content-child:has(.dcf-nav-toggle-btn-menu:not[hidden]) {
+  .unl .dcf-nav-menu-content-child {
+    display: grid;
+    grid-template-columns: var.$length-em-9 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .unl .dcf-nav-toggle-btn-menu {
+    align-self: start;
+    grid-area: 1 / 1 / 3 / 2;
+  }
+
+  .unl .dcf-nav-local {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+
+  .unl .dcf-nav-local ul ul {
+    grid-row: 2 / 3;
+    // @include mixins.pb-7;
+    width: 100%;
+  }
+
+  .unl .dcf-cta {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+
+  .unl .dcf-nav li {
+    display: grid;
+    grid-row: 1 / 3;
+    grid-template-rows: subgrid;
   }
 
 
   .unl .dcf-nav-menu ul:first-child > li > a,
   .unl .dcf-nav-menu ul:first-child > li > button {
-    font-size: #{var.$ms-1}rem !important;
+    grid-row: 1 / 2;
   }
 
 
   .unl .dcf-nav-menu ul > li > ul > li > a,
   .unl .dcf-nav-menu ul > li > ul > li > button {
     font-size: #{var.$ms-2}rem !important;
+  }
+
+
+  .unl .dcf-nav ul:first-child > li > a,
+  .unl .dcf-nav ul:first-child > li > button {
+    font-size: #{var.$ms-1}rem !important;
   }
 
 }

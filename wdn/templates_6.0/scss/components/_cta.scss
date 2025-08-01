@@ -7,78 +7,57 @@
 @use "../mixins/" as mixins;
 
 
-.unl .dcf-header-global .dcf-list-cta a,
-.unl .dcf-header-global .dcf-list-cta a:visited {
-  @include mixins.cream;
-  @include mixins.txt-decor-none;
+@include mixins.mq(md, max, width) {
+
+  .unl .dcf-cta ul {
+    grid-gap: var.$length-em-6 var.$length-vw-1;
+  }
+
+
+  .unl-cta-heading {
+    font-size: var.$length-em-4;
+    margin-left: 0 !important;
+  }
+
 }
-
-
-.unl .dcf-cta {
-  display: grid;
-}
-
-
-// @include mixins.mq(md, max, width) {
-//
-//   .unl .dcf-cta-header {
-//     display: none;
-//   }
-//
-// }
 
 
 @media (min-width: #{var.$ms24}em) {
 
-  .unl .dcf-cta {
-    display: grid;
+  .unl .dcf-cta ul {
     grid-template-columns: repeat(3, 1fr);
   }
 
 }
 
 
-
 @include mixins.mq(md, min, width) {
 
-  // .unl .dcf-cta-nav {
-  //   display: none;
-  // }
-
-
-  .unl .dcf-cta {
-    display: flex;
-    flex-grow: 3;
+  .unl-cta-heading {
+    font-size: var.$length-em-3;
+    margin-bottom: var.$length-em-3;
+    margin-left: #{var.$ms00}rem !important;
   }
 
 
-  // Add arrow above options popover and horizontally center under button text
-  // .dcf-btn-toggle-cta[aria-pressed="true"]::after {
-  //   border-left: #{var.$ms-4}em solid transparent;
-  //   border-right: #{var.$ms-4}em solid transparent;
-  //   border-bottom: #{var.$ms-4}em solid rgba(36,36,35,.95);
-  //   bottom: -1px;
-  //   content: '';
-  //   display: block;
-  //   @include mixins.h-2;
-  //   left: 50%;
-  //   position: absolute;
-  //   transform: translateX(-50%);
-  //   @include mixins.w-2;
-  // }
+  .unl .dcf-nav-dialog .dcf-cta > ul > li {
+    opacity: 0;
+    transform: translateY(-#{var.$ms-4}rem);
+    transition: all .2s ease-in-out 0s;
+  }
 
 
-  // .unl .dcf-list-cta {
-  //   box-shadow: 0 1px 2px rgba(0,0,0,.5), 0 1px 10px rgba(0,0,0,.25);
-  //   left: calc(#{var.$ms00}em - #{var.$ms04}em);
-  //   min-width: #{var.$ms20}em;
-  //   top: 100%;
-  //   z-index: 999; // Ensure that the popover has a higher z-index than the local navigation
-  // }
+  .unl .dcf-nav-dialog.dcf-dialog-is-open .dcf-cta > ul > li {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all .05s ease-in-out;
+  }
 
 
-  // .unl .dcf-list-cta a:hover {
-  //   @include mixins.txt-decor-hover-on;
-  // }
+  @for $i from 0 through 6 {
+    .unl .dcf-nav-dialog.dcf-dialog-is-open .dcf-cta > ul > li:nth-of-type(#{$i}) {
+      transition-delay: calc(.2s + ($i * .05s));
+    }
+  }
 
 }

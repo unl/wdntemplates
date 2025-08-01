@@ -18,7 +18,7 @@ jobs:
         id: get-commit
         run: |
           # Fetch the latest commit timestamp from the other repository
-          LATEST_TIMESTAMP=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/3.0 | jq -r '.commit.committer.date')
+          LATEST_TIMESTAMP=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/4.0 | jq -r '.commit.committer.date')
           echo "timestamp=$LATEST_TIMESTAMP" >> $GITHUB_OUTPUT
       
       - name: Compare commit timestamps
@@ -54,7 +54,7 @@ jobs:
           FILE_CONTENT=$(cat $FILE_PATH)
           
           # Find and replace the commit hash
-          NEW_COMMIT_HASH=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/3.0 | jq -r '.sha')
+          NEW_COMMIT_HASH=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/4.0 | jq -r '.sha')
           UPDATED_CONTENT=$(echo "$FILE_CONTENT" | jq --arg new_version "git+ssh://git@github.com/digitalcampusframework/dcf.git#$NEW_COMMIT_HASH" '.packages."node_modules/dcf".resolved = $new_version')
           
           # Overwrite the modified content to the file

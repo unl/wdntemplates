@@ -1,6 +1,6 @@
 {
   "name": "wdntemplates",
-  "version": "6.0.0-alpha",
+  "version": "6.0.1",
   "description": "Web Framework for the UNLedu website.",
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   "dependencies": {
     "@vitejs/plugin-legacy": "^6.0.0",
     "autoprefixer": "^10.4.21",
-    "dcf": "github:digitalcampusframework/dcf#4.0-WIP",
+    "dcf": "github:digitalcampusframework/dcf#4.0",
     "postcss-nested": "^7.0.2",
     "sass": "^1.83.1",
     "vite": "^6.0.7",
@@ -31,14 +31,16 @@
     "dev": "vite",
     "build": "vite build",
     "build-watch": "vite build --watch",
+    "build-smudge": "vite build -- --smudge",
     "preview": "vite preview",
-    "lint-js": "eslint wdn/templates_6.0/js-src/**/*.js",
-    "lint-scss": "stylelint wdn/templates_6.0/scss/**/*.scss"
+    "lint-js": "eslint wdn/templates_6.0/js-src/**/*.js"
   },
   "devDependencies": {
+    "@csstools/postcss-cascade-layers": "^5.0.2",
     "@eslint/js": "^9.24.0",
     "@stylistic/eslint-plugin-js": "^4.2.0",
-    "eslint": "^9.24.0",
-    "globals": "^16.0.0"
+    "eslint": "^9.32.0",
+    "globals": "^16.0.0",
+    "postcss": "^8.5.6"
   }
 }

@@ -56,16 +56,16 @@ export default class UNLSearch {
     constructor() {
         this.searchContainer = document.getElementById('dcf-search');
 
-        this.searchDialogElement = document.querySelector('dialog#dcf-search-results');
+        this.searchDialogElement = document.querySelector('dialog#dcf-search-dialog');
         if (this.searchDialogElement === null) {
             throw new Error('Missing Search Dialog Element');
         }
 
         // Get Search links and buttons
         this.domDesktopSearchLink = document.getElementById('dcf-search-toggle-link');
-        this.domDesktopSearchBtns = Array.from(document.getElementsByClassName('dcf-search-toggle-button'));
+        this.domDesktopSearchBtns = Array.from(document.getElementsByClassName('dcf-btn-search-desktop'));
         this.domMobileSearchLink = document.getElementById('dcf-mobile-search-link');
-        this.domMobileSearchBtns = Array.from(document.getElementsByClassName('dcf-mobile-search-button'));
+        this.domMobileSearchBtns = Array.from(document.getElementsByClassName('dcf-btn-search-mobile'));
 
         // Disable links and Enable buttons
         this.mobileSearchBtn = null;
@@ -238,7 +238,7 @@ export default class UNLSearch {
 
     /**
      * Creates the search iframe element
-     * 
+     *
      * @returns { Void }
      */
     #createSearchFrame() {
@@ -265,7 +265,7 @@ export default class UNLSearch {
 
     /**
      * Activates search input
-     * 
+     *
      * @returns { Void }
      */
     #activateSearch() {
@@ -275,8 +275,8 @@ export default class UNLSearch {
 
     /**
      * Posts new queries into the iframe instead of having to reload it every time
-     * 
-     * @param { String } query 
+     *
+     * @param { String } query
      * @returns { Void }
      */
     #postSearchMessage(query) {
@@ -286,13 +286,21 @@ export default class UNLSearch {
 
     /**
      * Function to be called when the dialog closes
-     * 
+     *
      * @returns { Void }
      */
     #dialogClosed() {
         this.domQ.value = '';
         this.domSearchForm.parentElement.classList.remove('active');
         this.domSearchForm.reset();
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            window.dataLayer.push(arguments);
+        }
+        gtag('event', 'UNL_search_closed', {
+            'app_name': 'UNL_search',
+        });
 
         if (this.unlSearch) {
             this.unlSearch = null;
@@ -305,11 +313,19 @@ export default class UNLSearch {
 
     /**
      * Function to be called when the dialog Opens
-     * 
+     *
      * @returns { Void }
      */
     #dialogOpened() {
         document.dispatchEvent(this.searchOpenedEvent);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            window.dataLayer.push(arguments);
+        }
+        gtag('event', 'UNL_search_opened', {
+            'app_name': 'UNL_search',
+        });
     }
 
     /**
