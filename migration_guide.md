@@ -98,6 +98,11 @@ New Grid Example:
 
 `.dcf-dropcap` (renamed `.dcf-drop-cap` for consistent separation of words with dashes)
 
+### Removed dcf-media
+
+`.dcf-media` was removed (replace with `.dcf-d-flex` and `.dcf-ai-start`)
+`.dcf-media-body` was removed (replace with `.dcf-flex-1`)
+
 ## JS Changes
 
 ### Plugin Auto Loader
