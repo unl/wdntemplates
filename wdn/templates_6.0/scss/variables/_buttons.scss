@@ -3,5 +3,9 @@
 //////////////////////////////
 
 
-@forward "@dcf/scss/variables/buttons";
-// Use `@forward .. with ..` to override variables
+@forward "@dcf/scss/variables/buttons" with (
+
+  // Font weight
+  $font-weight-button: 600 !default
+
+);
