@@ -1,0 +1,26 @@
+////////////////////////////////
+// CORE / UTILITIES / CLIP PATHS
+////////////////////////////////
+
+
+@use "../mixins/" as mixins;
+
+
+.unl-clip-stripe-top {
+  @include mixins.clip-stripe-top;
+}
+
+
+.unl-clip-stripe-bottom {
+  @include mixins.clip-stripe-bottom;
+}
+
+
+.unl-clip-stripe-block {
+  @include mixins.clip-stripe-block;
+}
+
+
+.unl-frame-quad {
+  @include mixins.clip-frame-quad;
+}

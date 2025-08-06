@@ -11,11 +11,6 @@
 }
 
 
-.unl-frame-quad {
-  clip-path: polygon(0 0,0 100%,2px 100%,2px 2px,calc(100% - 2px) 2px,calc(100% - 2px) calc(100% - 2px),2px calc(100% - 2px),2px calc(100% - 5px),calc(100% - 5px) calc(100% - 5px),calc(100% - 5px) 5px,5px 5px,5px calc(100% - 5px),2px calc(100% - 5px),2px 100%,100% 100%,100% 0);
-}
-
-
 // TODO: replace with clip-path method?
 .unl-frame-circle {
   position: relative;
