@@ -83,6 +83,11 @@
 }
 
 
+#unl-footer-herbie-container {
+  display: none;
+}
+
+
 @include mixins.mq(sm, max, width) {
 
   .unl-footer-social {
@@ -192,15 +197,6 @@
 }
 
 
-@include mixins.mq(lg, max, width) {
-
-  #unl-footer-herbie {
-    display: none;
-  }
-
-}
-
-
 @include mixins.mq(lg, min, width) {
 
   @supports (animation-timeline: view()) {
@@ -243,10 +239,11 @@
     }
 
 
-    :has(> #unl-footer-herbie) {
+    #unl-footer-herbie-container {
       animation: flipthebit both;
       animation-range: entry 99%;
       animation-timeline: view();
+      display: block;
       left: calc(var.$length-vw-2 + #{var.$ms26}rem + 1vw);
       overflow-y: clip;
     }

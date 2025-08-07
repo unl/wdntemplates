@@ -6,6 +6,55 @@
 @use "../variables/" as var;
 
 
+// Shifts
+@mixin bg-shift-top($imp:null) {
+  background-image: linear-gradient(180deg,
+    transparent var.$bg-shift-size,
+    var(--bg-shift-color) var.$bg-shift-size) $imp;
+}
+
+
+@mixin bg-shift-bottom($imp:null) {
+  background-image: linear-gradient(180deg,
+    var(--bg-shift-color) calc(100% - var.$bg-shift-size),
+    transparent calc(100% - var.$bg-shift-size)) $imp;
+}
+
+
+// Shifts with stripes
+@mixin bg-shift-stripe-top($imp:null) {
+  background-image: linear-gradient(180deg,
+    transparent var.$bg-shift-size,
+    var(--bg-shift-color) var.$bg-shift-size,
+    var(--bg-shift-color) calc(var.$bg-shift-size + 2px),
+    transparent calc(var.$bg-shift-size + 2px),
+    transparent calc(var.$bg-shift-size + 5px),
+    var(--bg-shift-color) calc(var.$bg-shift-size + 5px)) $imp;
+}
+
+
+@mixin bg-shift-stripe-bottom($imp:null) {
+  background-image: linear-gradient(180deg,
+    var(--bg-shift-color) calc(100% - var.$bg-shift-size - 5px),
+    transparent calc(100% - var.$bg-shift-size - 5px),
+    transparent calc(100% - var.$bg-shift-size - 2px),
+    var(--bg-shift-color) calc(100% - var.$bg-shift-size - 2px),
+    var(--bg-shift-color) calc(100% - var.$bg-shift-size),
+    transparent calc(100% - var.$bg-shift-size)) $imp;
+}
+
+
+// Shift colors
+@mixin bg-shift-cream         { --bg-shift-color: var(--bg-body); }
+@mixin bg-shift-lightest-gray { --bg-shift-color: var(--bg-lightest-gray); }
+@mixin bg-shift-lighter-gray  { --bg-shift-color: var(--bg-lighter-gray); }
+@mixin bg-shift-light-gray    { --bg-shift-color: var(--bg-light-gray); }
+@mixin bg-shift-dark-gray     { --bg-shift-color: #{var.$dark-gray}; }
+@mixin bg-shift-darker-gray   { --bg-shift-color: #{var.$darker-gray}; }
+@mixin bg-shift-darkest-gray  { --bg-shift-color: #{var.$darkest-gray}; }
+@mixin bg-shift-scarlet       { --bg-shift-color: #{var.$bg-color-brand-alpha}; }
+
+
 // Dots
 @mixin bg-dots($imp:null) {
   background-size: #{var.$ms-4}rem $imp; // .56rem
