@@ -20,3 +20,13 @@
     document.head.appendChild(link);
   }
 </script>
+<script type="speculationrules">
+  {"prerender": [{
+    "where": {"selector_matches": "a.unl-prerender"},
+    "eagerness": "moderate"
+  }],
+  "prefetch": [{
+    "where": {"selector_matches": "a.unl-prefetch"},
+    "eagerness": "moderate"
+  }]}
+</script>
