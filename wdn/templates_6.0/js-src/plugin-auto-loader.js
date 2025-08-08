@@ -89,20 +89,26 @@ if (enabled) {
         //   if it is on the page when we will initialize the plugin
         if (pluginModule.getPluginType() === 'single') {
             if (pluginModule.isOnPage()) {
-                const element = await pluginModule.initialize(pluginData.customConfig);
-                if (element !== null) {
-                    pluginData.elements.push(element);
-                    if (typeof pluginData.onPluginLoadedElement === 'function') {
-                        pluginData.onPluginLoadedElement({
-                            loadedElement: element,
-                        });
+                try {
+                    const element = await pluginModule.initialize(pluginData.customConfig);
+                    if (element !== null) {
+                        pluginData.elements.push(element);
+                        if (typeof pluginData.onPluginLoadedElement === 'function') {
+                            pluginData.onPluginLoadedElement({
+                                loadedElement: element,
+                            });
+                        }
                     }
+                } catch (err) {
+                    console.error(`Error initializing plugin ${singlePluginName}:`, err);
                 }
             } else {
                 watchList.push(singlePluginName);
             }
 
         } else if (pluginModule.getPluginType() === 'multi') {
+            watchList.push(singlePluginName);
+
             let matchingElements = Array.from(document.querySelectorAll(pluginModule.getQuerySelector()));
             // Filter out opt out
             if (globalOptOutSelector !== null) {
@@ -128,78 +134,90 @@ if (enabled) {
                 });
             }
 
-            // load the rest of the elements and add the plugin to the watch list
-            const elements = await pluginModule.loadElements(matchingElements, pluginData.customConfig);
-            pluginData.elements = pluginData.elements.concat(elements);
-            if (typeof pluginData.onPluginLoadedElement === 'function') {
-                elements.forEach((singleElement) => {
-                    pluginData.onPluginLoadedElement({
-                        loadedElement: singleElement,
+            try {
+                // load the rest of the elements and add the plugin to the watch list
+                const elements = await pluginModule.loadElements(matchingElements, pluginData.customConfig);
+                pluginData.elements = pluginData.elements.concat(elements);
+                if (typeof pluginData.onPluginLoadedElement === 'function') {
+                    elements.forEach((singleElement) => {
+                        pluginData.onPluginLoadedElement({
+                            loadedElement: singleElement,
+                        });
                     });
-                });
+                }
+            } catch (err) {
+                console.error(`Error loading plugin element for ${singlePluginName}:`, err);
             }
-
-            watchList.push(singlePluginName);
         }
     }
 }
 
 if (enabled && watch) {
     // Loads all elements that are added to the page
-    const mutationCallback = function(mutationList) {
-        mutationList.forEach((mutationRecord) => {
+    const mutationCallback = async(mutationList) => {
+        for (const mutationRecord of mutationList) {
             // Loop through each node added and make sure it is an element
-            mutationRecord.addedNodes.forEach(async(nodeAdded) => {
+            for (const nodeAdded of mutationRecord.addedNodes) {
                 if (nodeAdded instanceof Element) {
-
-                    // Double check the added element is not opt out and is opt in
-                    if (globalOptOutSelector !== null && nodeAdded.matches(globalOptOutSelector)) {
-                        return;
-                    }
-                    if (globalOptInSelector !== null && !nodeAdded.matches(globalOptInSelector)) {
-                        return;
-                    }
-
                     // Loop through each plugin and check to see if this new element matches it
                     for (const singlePluginName of watchList) {
                         const pluginData = window.UNL.autoLoader.plugins[singlePluginName];
                         const pluginModule = pluginData.module;
 
-                        if (!nodeAdded.matches(pluginModule.getQuerySelector())) {
-                            return;
+                        let foundElements = [];
+                        if (nodeAdded.matches(pluginModule.getQuerySelector())) {
+                            foundElements.push(nodeAdded);
                         }
-                        if (pluginData.optInSelector !== null && !(nodeAdded.matches(pluginData.optInSelector))) {
-                            return;
-                        }
-                        if (pluginData.optOutSelector !== null && nodeAdded.matches(pluginData.optOutSelector)) {
-                            return;
-                        }
+                        foundElements = foundElements.concat(Array.from(nodeAdded.querySelectorAll(pluginModule.getQuerySelector())));
 
-                        if (pluginModule.getPluginType() === 'single') {
-                            const element = await pluginModule.initialize(pluginData.customConfig);
-                            if (element !== null) {
-                                pluginData.elements.push(element);
-                                if (typeof pluginData.onPluginLoadedElement === 'function') {
-                                    pluginData.onPluginLoadedElement({
-                                        loadedElement: element,
-                                    });
-                                }
+                        for (const singleFoundElement of foundElements) {
+                            if (globalOptOutSelector !== null && singleFoundElement.matches(globalOptOutSelector)) {
+                                return;
                             }
-                            watchList.splice(watchList.indexOf(singlePluginName), 1);
+                            if (globalOptInSelector !== null && !singleFoundElement.matches(globalOptInSelector)) {
+                                return;
+                            }
+                            if (pluginData.optInSelector !== null && !(singleFoundElement.matches(pluginData.optInSelector))) {
+                                return;
+                            }
+                            if (pluginData.optOutSelector !== null && singleFoundElement.matches(pluginData.optOutSelector)) {
+                                return;
+                            }
 
-                        } else if (pluginModule.getPluginType() === 'multi') {
-                            const element = await pluginModule.loadElement(nodeAdded, pluginData.customConfig);
-                            pluginData.elements = pluginData.elements.concat(element);
-                            if (typeof pluginData.onPluginLoadedElement === 'function') {
-                                pluginData.onPluginLoadedElement({
-                                    loadedElement: element,
-                                });
+                            if (pluginModule.getPluginType() === 'single') {
+                                try {
+                                    const element = await pluginModule.initialize(pluginData.customConfig);
+                                    if (element !== null) {
+                                        pluginData.elements.push(element);
+                                        if (typeof pluginData.onPluginLoadedElement === 'function') {
+                                            pluginData.onPluginLoadedElement({
+                                                loadedElement: element,
+                                            });
+                                        }
+                                    }
+                                    watchList.splice(watchList.indexOf(singlePluginName), 1);
+                                } catch (err) {
+                                    console.error(`Error initializing plugin ${singlePluginName}:`, err);
+                                }
+
+                            } else if (pluginModule.getPluginType() === 'multi') {
+                                try {
+                                    const element = await pluginModule.loadElement(singleFoundElement, pluginData.customConfig);
+                                    pluginData.elements = pluginData.elements.concat(element);
+                                    if (typeof pluginData.onPluginLoadedElement === 'function') {
+                                        pluginData.onPluginLoadedElement({
+                                            loadedElement: element,
+                                        });
+                                    }
+                                } catch (err) {
+                                    console.error(`Error loading plugin element for ${singlePluginName}:`, err);
+                                }
                             }
                         }
                     }
                 }
-            });
-        });
+            }
+        }
     };
 
     const observer = new MutationObserver(mutationCallback);

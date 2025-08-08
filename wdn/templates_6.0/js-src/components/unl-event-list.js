@@ -53,6 +53,9 @@ export default class UNLEventList {
 
         this.#render();
 
+        this.containerElement.classList.add('unl-event-list-initialized');
+        this.containerElement.removeAttribute('hidden');
+
         this.containerElement.dispatchEvent(new CustomEvent(UNLEventList.events('eventListReady'), {
             detail: {
                 classInstance: this,
