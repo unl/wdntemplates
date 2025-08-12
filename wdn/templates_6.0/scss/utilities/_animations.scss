@@ -33,4 +33,18 @@
   .unl-scroll-fx-move-right { @include mixins.move-right-on-scroll; }
   .unl-scroll-fx-move-up { @include mixins.move-up-on-scroll; }
 
+
+  // Parallax
+  @include mixins.mq(md, min, width) {
+
+    [class*="unl-parallax-"] { @include mixins.parallax; }
+
+    .unl-parallax-1 { @include mixins.parallax-1; }
+    .unl-parallax-2 { @include mixins.parallax-2; }
+    .unl-parallax-3 { @include mixins.parallax-3; }
+
+  }
+
+  .unl-bg-parallax { @include mixins.bg-parallax; }
+
 }

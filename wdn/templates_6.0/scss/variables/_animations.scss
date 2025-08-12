@@ -7,7 +7,17 @@
 // Use `@forward .. with ..` to override variables
 
 
+// Background position
+$background-position-parallax-bg: 10vh;
+
+
 // Range
 $animation-range-start-scroll-trigger: entry 0%;
 $animation-range-end-scroll-trigger: entry 1%;
+
+
+// Transform
+$transform-translate-y-parallax-1: 10vh;
+$transform-translate-y-parallax-2: 20vh;
+$transform-translate-y-parallax-3: 30vh;
 
