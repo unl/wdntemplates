@@ -309,9 +309,9 @@ export default class UNLAlert {
     async #fetchAlertData() {
         try {
 
-            const cacheBuster = `cb=${Date.now()}`;
-            const urlWithCacheBuster = `${this.alertDataUrl}?${cacheBuster}`;
-            await loadJS(urlWithCacheBuster);
+            const dataURL = new URL(this.alertDataUrl);
+            dataURL.searchParams.set('cb', Date.now());
+            await loadJS(dataURL.toString());
             const unlAlertsData = window.unlAlerts.data;
 
             // Check if alert data exists and the page is not in an iframe, then alert the user.
