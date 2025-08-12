@@ -4,6 +4,90 @@
 
 
 @font-face {
+  font-family: 'Serif Fallback';
+  ascent-override: 85%;
+  size-adjust: 110.85000000000004%;
+  src: local('Times New Roman');
+}
+
+
+@font-face {
+  font-family: 'Sans Serif Fallback';
+  ascent-override: 80%;
+  size-adjust: 111.77999999999994%;
+  src: local('Arial');
+}
+
+
+@font-face {
+  font-family: 'Source Serif 4 UNL Wordmark';
+  font-weight: 500;
+  font-display: swap;
+  src: url('@fonts/source-serif-4/SourceSerif4-Medium-UNLwordmark.woff2?no-inline') format('woff2');
+  unicode-range: U+41-43, U+45, U+49, U+4B, U+4C, U+4E, U+4F, U+52-56, U+59 ;
+}
+
+
+@font-face {
+  font-family: 'Source Serif 4 UNL Wordmark';
+  font-style: italic;
+  font-display: swap;
+  src: url('@fonts/source-serif-4/SourceSerif4-MediumItalic-UNLwordmark.woff2?no-inline') format('woff2');
+  unicode-range: U+66, U+6F;
+}
+
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 400;
+  font-display: swap;
+  src: url('@fonts/work-sans/WorkSans-Regular.woff2?no-inline') format('woff2');
+}
+
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-display: swap;
+  src: url('@fonts/work-sans/WorkSans-Italic.woff2?no-inline') format('woff2');
+}
+
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 600;
+  font-display: swap;
+  src: url('@fonts/work-sans/WorkSans-Semibold.woff2?no-inline') format('woff2');
+}
+
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('@fonts/work-sans/WorkSans-SemiboldItalic.woff2?no-inline') format('woff2');
+}
+
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 700;
+  font-display: swap;
+  src: url('@fonts/work-sans/WorkSans-Bold.woff2?no-inline') format('woff2');
+}
+
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('@fonts/work-sans/WorkSans-BoldItalic.woff2?no-inline') format('woff2');
+}
+
+
+@font-face {
   font-family: 'Liberator Heavy Italic';
   font-weight: 600;
   font-display: swap;
