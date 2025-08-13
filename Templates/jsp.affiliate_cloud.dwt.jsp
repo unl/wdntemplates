@@ -23,9 +23,8 @@
     <link rel="manifest" href="https://wdn-cdn.unl.edu/wdn/templates_6.0/includes/global/favicon/manifest.webmanifest">
     <meta name="theme-color" content="#d00000">
     <!-- TemplateEndEditable -->
-    <!-- TemplateParam name="class" type="text" value="" -->
   </head>
-  <body class="@@(_document['class'])@@ affiliate" data-version="$HTML_VERSION$" data-template="affiliate-cloud">
+  <body class="affiliate" data-version="$HTML_VERSION$" data-template="affiliate-cloud">
     <c:import url="https://wdn-cdn.unl.edu/wdn/templates_6.0/includes/global/skip-nav.html"/>
     <header class="dcf-header" id="dcf-header" role="banner">
       <!-- TemplateBeginEditable name="affiliateheaderglobal" -->
