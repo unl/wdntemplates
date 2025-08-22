@@ -45,6 +45,9 @@ async function fakeDefine(jQuery) {
     // Save old define
     const oldDefine = window.define;
     window.define = (deps, factory) => {
+        if (typeof factory !== 'function') {
+            return;
+        }
         factory(jQuery);
     };
     window.define.amd = true;

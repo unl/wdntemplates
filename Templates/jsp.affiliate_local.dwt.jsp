@@ -23,9 +23,8 @@
         <link rel="manifest" href="/wdn/templates_6.0/includes/global/favicon/manifest.webmanifest">
         <meta name="theme-color" content="#d00000">
     <!-- TemplateEndEditable -->
-    <!-- TemplateParam name="class" type="text" value="" -->
   </head>
-  <body class="@@(_document['class'])@@ affiliate" data-version="$HTML_VERSION$" data-template="affiliate-local">
+  <body class="affiliate" data-version="$HTML_VERSION$" data-template="affiliate-local">
     <c:import url="/wdn/templates_6.0/includes/global/skip-nav.html"/>
     <header class="dcf-header" id="dcf-header" role="banner">
       <!-- TemplateBeginEditable name="affiliateheaderglobal" -->

@@ -45,7 +45,26 @@
   animation-timeline: view() $imp;
 }
 
+
 // Stagger scroll trigger
 @mixin scroll-trigger-stagger($imp:null) {
   transition-delay: calc(var(--scroll-fx-count) * 100ms) $imp;
+}
+
+
+// Parallax
+@mixin parallax($imp:null) {
+  animation: parallax linear;
+  animation-timeline: view();
+}
+
+
+@mixin parallax-1($imp:null) { --parallax-offset: #{var.$transform-translate-y-parallax-1}; }
+@mixin parallax-2($imp:null) { --parallax-offset: #{var.$transform-translate-y-parallax-2}; }
+@mixin parallax-3($imp:null) { --parallax-offset: #{var.$transform-translate-y-parallax-3}; }
+
+
+@mixin bg-parallax($imp:null) {
+  animation: bg-parallax linear;
+  animation-timeline: view();
 }

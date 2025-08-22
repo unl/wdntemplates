@@ -3,6 +3,7 @@
 ////////////////////////////
 
 @use './color-palette' as color_palette;
+@use './colors-text' as colors_text;
 
 @forward "@dcf/scss/variables/forms" with (
 
@@ -23,6 +24,7 @@
   $border-color-required-light-mode: transparent,
   $border-color-required-dark-mode: color_palette.$scarlet-shade,
   $color-required-label-light-mode: color_palette.$scarlet,
-  $color-required-label-dark-mode: color_palette.$cream
+  $color-required-label-dark-mode: color_palette.$cream,
+  $color-form-help-dark-mode: colors_text.$color-light-text-dark-mode
 
 );
