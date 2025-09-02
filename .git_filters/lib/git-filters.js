@@ -19,7 +19,7 @@ var rcsKeywords = [
 // map of keywords to RegExp is group 1 as the prefix and group 2 as the suffix
 var staticTokens = {
 	"HTML_VERSION" : /(data-version=")[^"]*(")/g,
-	"DEP_VERSION" : /(\?dep=)[^"]*(")/g
+	"DEP_VERSION": /(\?dep=)[^"' \n>]*/g
 };
 
 var smudgeValues = {};
@@ -116,7 +116,7 @@ module.exports = {
 			}
 
 			content = content.replace(new RegExp('\\$' + currentKeyword + '\\$', 'g'), replacement);
-			replacement = '$1' + replacement + '$2';
+			replacement = '$1' + replacement;
 			content = content.replace(staticTokens[i], replacement);
 		}
 
