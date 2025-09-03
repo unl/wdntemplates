@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.0.3 (Sept 3, 2025)
+- Fix smudging bug with bad quote
+
 ## 6.0.2 (Aug 22, 2025)
 - Adding cache busting for imports
 - Fix bugs related to autoloader
