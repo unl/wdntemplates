@@ -20,7 +20,7 @@
   <body class="unl" data-version="$HTML_VERSION$" data-template="local">
     <!--#include virtual="/wdn/templates_6.0/includes/global/skip-nav.html" -->
     <header class="dcf-header" id="dcf-header" role="banner">
-      <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
+      <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1-local.html" -->
       <!--#include virtual="/wdn/templates_6.0/includes/global/idm.html" -->
       <!--#include virtual="/wdn/templates_6.0/includes/global/search.html" -->
       <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-2.html" -->

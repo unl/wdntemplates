@@ -35,7 +35,7 @@ function wdnInclude($path)
     <body class="unl app" data-version="$HTML_VERSION$" data-template="app-debug">
         <?php wdnInclude("/wdn/templates_6.0/includes/global/skip-nav.html"); ?>
         <header class="dcf-header" id="dcf-header" role="banner">
-            <?php wdnInclude("/wdn/templates_6.0/includes/global/header-global-1.html"); ?>
+            <?php wdnInclude("/wdn/templates_6.0/includes/global/header-global-1-local.html"); ?>
             <?php wdnInclude("/wdn/templates_6.0/includes/global/idm.html"); ?>
             <?php wdnInclude("/wdn/templates_6.0/includes/global/search.html"); ?>
             <?php wdnInclude("/wdn/templates_6.0/includes/global/header-global-2.html"); ?>
