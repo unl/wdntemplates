@@ -102,7 +102,6 @@ if (watchEnabled) {
             // Loop through each node added and make sure it is an element
             for (const nodeAdded of mutationRecord.addedNodes) {
                 if (nodeAdded instanceof Element) {
-                    console.log(nodeAdded);
                     initIfWeCan();
                 }
             }
