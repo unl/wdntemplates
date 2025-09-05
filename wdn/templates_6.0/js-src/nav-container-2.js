@@ -7,6 +7,8 @@ const watchEnabled = window.UNL.nav.config?.watch ?? false;
 let searchDialogClassInstance = null;
 let idmDialogClassInstance = null;
 let currentScreenSize = null;
+let idmDialog = null;
+let searchDialog = null;
 
 if (watchEnabled) {
     // These are the elements that are required for the set up functions
@@ -32,23 +34,10 @@ if (watchEnabled) {
      * @returns { Void }
      */
     const updateChecklist = () => {
-        if (document.querySelector('nav.dcf-nav-local') !== null) {
-            checkList['nav.dcf-nav-local'] = true;
-        }
-        if (document.querySelector('nav.dcf-local-copy-dialog') !== null) {
-            checkList['nav.dcf-local-copy-dialog'] = true;
-        }
-        if (document.querySelector('div.dcf-nav') !== null) {
-            checkList['div.dcf-nav'] = true;
-        }
-        if (document.querySelector('dialog.dcf-nav-dialog') !== null) {
-            checkList['dialog.dcf-nav-dialog'] = true;
-        }
-        if (document.querySelector('dialog.dcf-idm-dialog') !== null) {
-            checkList['dialog.dcf-idm-dialog'] = true;
-        }
-        if (document.querySelector('dialog.dcf-search-dialog') !== null) {
-            checkList['dialog.dcf-search-dialog'] = true;
+        for (const selector in checkList) {
+            if (document.querySelector(selector) !== null) {
+                checkList[selector] = true;
+            }
         }
     };
 
@@ -204,8 +193,8 @@ function setUpHoverIntent() {
  */
 function setUpUpdateStyles() {
     // Update IDM and Search Dialog Styles for mobile
-    const idmDialog = document.querySelector('dialog.dcf-idm-dialog');
-    const searchDialog = document.querySelector('dialog.dcf-search-dialog');
+    idmDialog = document.querySelector('dialog.dcf-idm-dialog');
+    searchDialog = document.querySelector('dialog.dcf-search-dialog');
 
     idmDialog.addEventListener('dialogReady', (event) => {
         idmDialogClassInstance = event.detail.classInstance;
@@ -266,9 +255,6 @@ function isScreenUnderMediumSize() {
  * @returns { Void }
  */
 function setMobileStyles() {
-    const idmDialog = document.querySelector('dialog.dcf-idm-dialog');
-    const searchDialog = document.querySelector('dialog.dcf-search-dialog');
-
     searchDialog.classList.add('dcf-dialog-non-modal');
     idmDialog.classList.add('dcf-dialog-non-modal');
 }
@@ -278,9 +264,6 @@ function setMobileStyles() {
  * @returns { Void }
  */
 function setDesktopStyles() {
-    const idmDialog = document.querySelector('dialog.dcf-idm-dialog');
-    const searchDialog = document.querySelector('dialog.dcf-search-dialog');
-
     searchDialog.classList.remove('dcf-dialog-non-modal');
     idmDialog.classList.remove('dcf-dialog-non-modal');
 }
