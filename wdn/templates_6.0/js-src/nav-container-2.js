@@ -103,6 +103,15 @@ if (watchEnabled) {
             for (const nodeAdded of mutationRecord.addedNodes) {
                 if (nodeAdded instanceof Element) {
                     initIfWeCan();
+
+                    if (
+                        initializedParts['copyNav'] &&
+                        initializedParts['setUpHoverIntent'] &&
+                        initializedParts['setUpUpdateStyles']
+                    ) {
+                        headerObserver.disconnect();
+                        return;
+                    }
                 }
             }
         }
