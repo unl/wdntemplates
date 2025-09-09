@@ -8,7 +8,7 @@ import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 let UNLAutoplayVideoToggle = null;
 
 // Query Selector for the datepicker toggle component
-const querySelector = '.dcf-autoplay-video';
+const querySelector = '.dcf-autoplay-video:not(.dcf-autoplay-video-initialized)';
 
 // Type of plugin
 const pluginType = 'multi';

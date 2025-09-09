@@ -29,13 +29,11 @@ export default class UNLSearch {
 
     postReady = false;
 
-    searchHost = 'search.unl.edu'; // domain of UNL Search app
+    searchHost = import.meta.env.VITE_UNL_SEARCH_URL || 'https://search.unl.edu'; // domain of UNL Search app
 
     searchPath = '/'; // path to UNL Search app
 
     allowSearchParams = ['u', 'cx'];  // QS Params allowed by UNL Search app
-
-    searchOrigin = '';
 
     searchAction = '';
 
@@ -94,8 +92,7 @@ export default class UNLSearch {
         this.domSearchResultWrapper = document.getElementById('dcf-search-results-wrapper');
         this.domQ = document.getElementById('dcf-search_query');
         this.domSearchForm = document.getElementById('dcf-search-form');
-        this.searchOrigin = `https://${this.searchHost}`;
-        this.searchAction = `${this.searchOrigin}${this.searchPath}`;
+        this.searchAction = `${this.searchHost}${this.searchPath}`;
         this.searchFrameAction = `${this.searchAction}?embed=${this.searchEmbedVersion}`;
         this.siteHomepage = `${location.protocol}//${location.host}/`;
         this.localSearch = this.#getLocalSearch();
@@ -280,7 +277,7 @@ export default class UNLSearch {
      * @returns { Void }
      */
     #postSearchMessage(query) {
-        this.unlSearch.contentWindow.postMessage({type: 'search', query: query}, this.searchOrigin);
+        this.unlSearch.contentWindow.postMessage({type: 'search', query: query}, this.searchHost);
         this.progress.remove();
     }
 

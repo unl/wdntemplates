@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.0.3 (Sept 3, 2025)
+- Fix smudging bug with bad quote
+
+## 6.0.2 (Aug 22, 2025)
+- Adding cache busting for imports
+- Fix bugs related to autoloader
+- Added speculation rules
+- Fix misc. styling for components
+- Cleaned up template files
+- Added parallax styles
+- Added clip path styles
+- Fix footer styles and markup
+- Update icons
+
 ## 6.0.1 (July 11, 2025)
 - Add data-template attribute to Templates files
 

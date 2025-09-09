@@ -17,26 +17,37 @@ jobs:
       - name: Get latest commit timestamp
         id: get-commit
         run: |
-          # Fetch the latest commit timestamp from the other repository
-          LATEST_TIMESTAMP=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/4.0 | jq -r '.commit.committer.date')
+          # Try up to 3 times to get a valid commit timestamp
+          for i in {1..3}; do
+            LATEST_TIMESTAMP=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/4.0 | jq -r '.commit.committer.date')
+            if [ "$LATEST_TIMESTAMP" != "null" ] && [ -n "$LATEST_TIMESTAMP" ]; then
+              break
+            fi
+            sleep 2
+          done
+
+          # Handle null or missing timestamp
+          if [ "$LATEST_TIMESTAMP" = "null" ] || [ -z "$LATEST_TIMESTAMP" ]; then
+            echo "No valid timestamp retrieved. Skipping commit check."
+            echo "recent_commit=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
           echo "timestamp=$LATEST_TIMESTAMP" >> $GITHUB_OUTPUT
-      
+
       - name: Compare commit timestamps
         id: compare-commits
+        if: ${{ steps.get-commit.outputs.timestamp != '' && steps.get-commit.outputs.timestamp != 'null' }}
         run: |
-          # Get the current timestamp
           CURRENT_TIMESTAMP=$(date +%s)
           echo "Current timestamp: $CURRENT_TIMESTAMP"
-          
-          # Get the timestamp of the latest commit
+
           LATEST_TIMESTAMP=$(date -d "${{ steps.get-commit.outputs.timestamp }}" +%s)
           echo "Latest commit timestamp: $LATEST_TIMESTAMP"
-          
-          # Calculate the time difference in seconds
+
           TIME_DIFF=$((CURRENT_TIMESTAMP - LATEST_TIMESTAMP))
           echo "Time difference: $TIME_DIFF seconds"
-          
-          # Check if there was a commit within the last 1 hours (3600 seconds)
+
           if [ $TIME_DIFF -lt 3600 ]; then
             echo "Recent commit found!"
             echo "recent_commit=true" >> $GITHUB_OUTPUT
@@ -49,15 +60,12 @@ jobs:
         id: modify-file
         if: ${{ steps.compare-commits.outputs.recent_commit == 'true' }}
         run: |
-          # Read the package-lock.json file
           FILE_PATH="package-lock.json"
           FILE_CONTENT=$(cat $FILE_PATH)
-          
-          # Find and replace the commit hash
+
           NEW_COMMIT_HASH=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/4.0 | jq -r '.sha')
           UPDATED_CONTENT=$(echo "$FILE_CONTENT" | jq --arg new_version "git+ssh://git@github.com/digitalcampusframework/dcf.git#$NEW_COMMIT_HASH" '.packages."node_modules/dcf".resolved = $new_version')
-          
-          # Overwrite the modified content to the file
+
           echo "$UPDATED_CONTENT" > $FILE_PATH
 
       - name: Create pull request

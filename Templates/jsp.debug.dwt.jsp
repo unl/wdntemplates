@@ -21,7 +21,7 @@
   <body class="unl" data-version="$HTML_VERSION$" data-template="debug">
     <c:import url="/wdn/templates_6.0/includes/global/skip-nav.html"/>
     <header class="dcf-header" id="dcf-header" role="banner">
-      <c:import url="/wdn/templates_6.0/includes/global/header-global-1.html"/>
+      <c:import url="/wdn/templates_6.0/includes/global/header-global-1-local.html"/>
       <c:import url="/wdn/templates_6.0/includes/global/idm.html"/>
       <c:import url="/wdn/templates_6.0/includes/global/search.html"/>
       <c:import url="/wdn/templates_6.0/includes/global/header-global-2.html"/>

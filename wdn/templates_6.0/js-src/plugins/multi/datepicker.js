@@ -8,7 +8,7 @@ import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 let UNLDatepicker = null;
 
 // Query Selector for the datepicker toggle component
-const querySelector = '.dcf-datepicker';
+const querySelector = '.dcf-datepicker:not(.dcf-datepicker-initialized)';
 
 // Type of plugin
 const pluginType = 'multi';

@@ -1,3 +1,4 @@
+import { existsSync, readFileSync } from 'fs';
 import { resolve } from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
@@ -10,15 +11,28 @@ import wdnSmudge from './vite.wdnSmudgePlugin.js';
 import wdnZipPlugin from './vite.wdnZipPlugin.js';
 import wdnCriticalCSSInjector from './vite.wdnCriticalCSSInjector.js';
 import wdnLayerPolyfill from './vite.wdnLayerPolyfill.js';
+import wdnImportVersion from './vite.wdnImportVersion.js';
 
 export default ({ mode }) => {
     process.env = {...process.env, ...loadEnv(mode, process.cwd(), '')};
 
+    const versionPath = resolve('./VERSION_DEP');
+    if (!existsSync(versionPath)) {
+        this.error(`Version file not found: ${versionPath}`);
+    }
+    const version = readFileSync(versionPath, 'utf8').trim();
+
     // Default plugins which are loaded every time
     const plugins = [
         wdnCleanupPlugin,
-        wdnFinalJsUrlPlugin,
+        wdnCleanupPlugin,
+        wdnFinalJsUrlPlugin({
+            version: version,
+        }),
         wdnLayerPolyfill(),
+        wdnImportVersion({
+            version: version,
+        }),
         wdnCriticalCSSInjector({
             cssFile: './wdn/templates_6.0/css/critical.css',
             targets: [
