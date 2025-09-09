@@ -3,7 +3,7 @@ import DCFCollapsibleFieldset from '@dcf/js/components/dcf-collapsible-fieldset.
 export default class UNLCollapsibleFieldset extends DCFCollapsibleFieldset {
     constructor(fieldset, options = {}) {
         if (!('legendButtonInnerHTMLOn' in options)) {
-            options.legendButtonInnerHTMLOn = `<svg xmlns='http://www.w3.org/2000/svg' class='dcf-h-4 dcf-w-4 dcf-d-block dcf-fill-current' viewBox='0 0 24 24'>
+            options.legendButtonInnerHTMLOn = `<svg xmlns='http://www.w3.org/2000/svg' class='dcf-h-4 dcf-w-4 dcf-fill-current' viewBox='0 0 24 24'>
     <path d='M21.3,9.4l-18.7,0C1.2,9.4,0,10.6,0,12c0,0.7,0.3,1.4,0.8,1.9c0.5,0.5,1.2,0.8,1.9,0.8h18.7
         c1.4,0,2.6-1.2,2.6-2.6C24,10.6,22.8,9.4,21.3,9.4z'/>
     <g>
@@ -13,7 +13,7 @@ export default class UNLCollapsibleFieldset extends DCFCollapsibleFieldset {
         }
 
         if (!('legendButtonInnerHTMLOff' in options)) {
-            options.legendButtonInnerHTMLOff = `<svg xmlns='http://www.w3.org/2000/svg' class='dcf-h-4 dcf-w-4 dcf-d-block dcf-fill-current' viewBox='0 0 24 24'>
+            options.legendButtonInnerHTMLOff = `<svg xmlns='http://www.w3.org/2000/svg' class='dcf-h-4 dcf-w-4 dcf-fill-current' viewBox='0 0 24 24'>
     <path d='M21.4,9.4h-6.7V2.6C14.6,1.2,13.5,0,12,0c-1.4,0-2.6,1.2-2.6,2.6l0,6.7H2.6C1.2,9.4,0,10.6,0,12
         c0,1.4,1.2,2.6,2.6,2.6h6.8l0,6.7c0,0.7,0.3,1.4,0.8,1.9c0.5,0.5,1.2,0.8,1.9,0.8
         c1.4,0,2.6-1.2,2.6-2.6v-6.7h6.7c1.4,0,2.6-1.2,2.6-2.6C24,10.6,22.8,9.4,21.4,9.4z'/>
