@@ -132,6 +132,7 @@ export default ({ mode }) => {
 
                     'plugins/plugin.jquery-ui'            : 'wdn/templates_6.0/js-src/plugins/other/jquery-ui.js',
                     'plugins/plugin.form-validator'       : 'wdn/templates_6.0/js-src/plugins/other/form-validator.js',
+                    'plugins/plugin.datatables'           : 'wdn/templates_6.0/js-src/plugins/other/datatables.js',
 
                     'components/component.tab'                  : 'wdn/templates_6.0/js-src/components/unl-tab.js',
                     'components/component.toggle-button'        : 'wdn/templates_6.0/js-src/components/unl-toggle-button.js',
@@ -163,6 +164,7 @@ export default ({ mode }) => {
                     'lib/jquery-ui'        : 'wdn/templates_6.0/js-src/lib/jquery-ui.js',
                     'lib/jquery-validator' : 'wdn/templates_6.0/js-src/lib/jquery-validator.js',
                     'lib/modal'            : 'wdn/templates_6.0/js-src/lib/modal.js', // Deprecated
+                    'lib/datatables'       : 'wdn/templates_6.0/js-src/lib/datatables.js',
 
                     // We don't need 'css/' to prefix the keys since the assetFileNames will add the css directory for us
                     'affiliate'     : 'wdn/templates_6.0/scss/affiliate.scss',
