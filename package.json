@@ -24,7 +24,7 @@
     "dcf": "github:digitalcampusframework/dcf#4.0",
     "postcss-nested": "^7.0.2",
     "sass": "^1.83.1",
-    "vite": "^6.0.7",
+    "vite": "^6.3.6",
     "vite-plugin-eslint": "^1.8.1"
   },
   "scripts": {
