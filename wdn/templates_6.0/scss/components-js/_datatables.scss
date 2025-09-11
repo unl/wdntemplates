@@ -2,20 +2,20 @@
 // THEME / COMPONENTS / DATATABLES WDN
 /////////////////////////////////////
 
+@use "sass:meta";
 @use "../vendor/datatables";
 @use "../variables/" as var;
 @use "../mixins/" as mixins;
-@use "../functions/" as func;
-
-// For .dcf-form-help, .dcf-label, .dcf-input-text, and .dcf-input-select
-@use "@dcf/scss/components/forms" as dcf_forms;
-@use "../components/forms" as unl_forms;
-
-// For .dcf-btn and .dcf-btn-secondary
-@use "@dcf/scss/components/buttons" as dcf_buttons;
-@use "../components/buttons" as unl_buttons;
 
 @layer components {
+    // For .dcf-form-help, .dcf-label, .dcf-input-text, and .dcf-input-select
+    @include meta.load-css("@dcf/scss/components/forms");
+    @include meta.load-css("../components/forms");
+
+    // For .dcf-btn and .dcf-btn-secondary
+    @include meta.load-css("@dcf/scss/components/buttons");
+    @include meta.load-css("../components/buttons");
+
     :root {
         --dt-row-selected: 208, 0, 0 !important;
     }
@@ -53,6 +53,48 @@
     .unl div.dt-container .dt-paging button.dt-paging-button {
         @extend .dcf-btn;
         @extend .dcf-btn-secondary;
+
+        background: transparent !important;
+        background-color: var.$bg-color-button-secondary !important;
+        color: var.$color-button-secondary !important;
+        padding: 0.5em 1em !important;
+    }
+
+    .unl div.dt-container .dt-paging button.dt-paging-button:not(.current) {
+        border-color: var.$border-color-button-secondary !important;
+        border-width: 2px !important;
+        border-style: solid !important;
+    }
+
+    .unl div.dt-container .dt-paging button.dt-paging-button:not(:last-child){
+        margin-right: .56em;
+    }
+
+    .unl div.dt-container .dt-paging button.dt-paging-button:not(.current):not(:disabled):hover,
+    .unl div.dt-container .dt-paging button.dt-paging-button:not(.current):not(:disabled):active {
+        background-color: var.$bg-color-button-secondary-tertiary-hover !important;
+        color: var.$color-button-secondary-tertiary-hover !important;
+    }
+
+    .unl div.dt-container .dt-paging button.dt-paging-button:focus-visible {
+        box-shadow: 0 0 0 3px var.$bg-color-body, 0 0 0 5px var.$border-color-input-focus !important;
+    }
+
+    .unl div.dt-container .dt-paging button.dt-paging-button:active{
+        box-shadow: 0 0 0 3px var.$bg-color-body, 0 0 0 5px currentColor !important;
+    }
+
+    .unl div.dt-container .disabled {
+        cursor: not-allowed !important;
+        opacity: .75 !important;
+    }
+
+    .unl div.dt-container .current {
+        border-color: transparent !important;
+        border-style: none !important;
+        border-width: 0px !important;
+        opacity: .75 !important;
+        pointer-events: none;
     }
 
     .unl div.dt-container .dt-paging .ellipsis {
