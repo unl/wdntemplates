@@ -51,13 +51,13 @@
     }
 
     .unl div.dt-container .dt-paging button.dt-paging-button {
+        @include mixins.txt-xs;
         @extend .dcf-btn;
         @extend .dcf-btn-secondary;
 
         background: transparent !important;
         background-color: var.$bg-color-button-secondary !important;
         color: var.$color-button-secondary !important;
-        padding: 0.5em 1em !important;
     }
 
     .unl div.dt-container .dt-paging button.dt-paging-button:not(.current) {
