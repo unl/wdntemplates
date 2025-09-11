@@ -26,19 +26,24 @@
         align-items: center;
     }
 
-    .unl table.dataTable th.dt-type-numeric,
-    .unl table.dataTable td.dt-type-numeric {
+    .unl table.dataTable.unl-dt-cells-align-start td.dt-type-numeric,
+    .unl table.dataTable.unl-dt-cells-align-start td.dt-type-date {
         text-align: start !important;
     }
 
-    .unl table.dataTable thead > tr > th div.dt-column-header,
-    .unl table.dataTable thead > tr > th div.dt-column-footer,
-    .unl table.dataTable thead > tr > td div.dt-column-header,
-    .unl table.dataTable thead > tr > td div.dt-column-footer,
-    .unl table.dataTable tfoot > tr > th div.dt-column-header,
-    .unl table.dataTable tfoot > tr > th div.dt-column-footer,
-    .unl table.dataTable tfoot > tr > td div.dt-column-header,
-    .unl table.dataTable tfoot > tr > td div.dt-column-footer {
+    .unl table.dataTable.unl-dt-headers-align-start th.dt-type-numeric,
+    .unl table.dataTable.unl-dt-headers-align-start th.dt-type-date {
+        text-align: start !important;
+    }
+
+    .unl table.dataTable.unl-dt-arrows-align-end thead > tr > th div.dt-column-header,
+    .unl table.dataTable.unl-dt-arrows-align-end thead > tr > th div.dt-column-footer,
+    .unl table.dataTable.unl-dt-arrows-align-end thead > tr > td div.dt-column-header,
+    .unl table.dataTable.unl-dt-arrows-align-end thead > tr > td div.dt-column-footer,
+    .unl table.dataTable.unl-dt-arrows-align-end tfoot > tr > th div.dt-column-header,
+    .unl table.dataTable.unl-dt-arrows-align-end tfoot > tr > th div.dt-column-footer,
+    .unl table.dataTable.unl-dt-arrows-align-end tfoot > tr > td div.dt-column-header,
+    .unl table.dataTable.unl-dt-arrows-align-end tfoot > tr > td div.dt-column-footer {
         display: flex;
         justify-content: space-between;
         align-items: end !important;
