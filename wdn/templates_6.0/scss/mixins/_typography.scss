@@ -17,7 +17,7 @@
 
   @include mixin.mq(md, min, width) {
     font-size: #{var.$ms08}em $imp;
-    letter-spacing: #{var.$ms-26}em $imp;
+    letter-spacing: -#{var.$ms-26}em $imp;
   }
 
 }
