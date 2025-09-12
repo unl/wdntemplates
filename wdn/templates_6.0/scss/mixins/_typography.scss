@@ -4,6 +4,7 @@
 
 
 @use "../variables/" as var;
+@use "@dcf/scss/mixins/" as mixin;
 
 
 // Font-Size
@@ -13,6 +14,19 @@
 @mixin txt-sm($imp:null) { font-size: #{var.$ms-1}em $imp; }
 @mixin txt-md($imp:null) { font-size: #{var.$ms00}em $imp; }
 @mixin txt-lg($imp:null) { font-size: #{var.$ms01}em $imp; }
+@mixin unl-txt-xl($imp:null) {
+  font-size: #{var.$ms04}em $imp;
+
+  @include mixin.mq(sm, min, width) {
+    font-size: #{var.$ms06}em $imp;
+  }
+
+  @include mixin.mq(md, min, width) {
+    font-size: #{var.$ms08}em $imp;
+    letter-spacing: #{var.$ms-26}em $imp;
+  }
+
+}
 
 
 // Letter Spacing
