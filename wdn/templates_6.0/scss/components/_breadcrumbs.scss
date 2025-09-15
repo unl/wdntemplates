@@ -49,7 +49,9 @@
 @include mixins.mq(md, max, width) {
 
   .unl .dcf-breadcrumbs {
-    @include mixins.h-9; // Set height of breadcrumbs in order to hide horizontal scroll bar
+    height: calc(var.$length-em-9 + 1px);
+    // Set height of breadcrumbs in order to hide horizontal scroll bar
+    // + 1px fixes display inconsistencies at different viewport widths
     overflow: hidden; // Hide scroll bars
   }
 
