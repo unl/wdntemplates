@@ -48,9 +48,13 @@
 }
 
 
+.unl-hero-notch-stripe .dcf-breadcrumbs {
+  background-image: linear-gradient(var.$bg-color-body 3px, transparent 3px, transparent 5px, var.$bg-color-body 5px); // Create background including stripe.
+}
+
+
 .unl-hero-notch-stripe .dcf-breadcrumbs ol {
   align-items: baseline;
-  background-image: linear-gradient(var.$bg-color-body 3px, transparent 3px, transparent 5px, var.$bg-color-body 5px); // Create background including stripe.
   margin-bottom: 0;
   min-width: 0; // Let breadcrumbs shrink if needed.
   @include mixins.pt-7;
@@ -68,8 +72,8 @@
 .unl-hero-notch-stripe .dcf-hero-group-2::after {
   // Create gradient scrim
   background-image: linear-gradient(
-    color.adjust(var.$darkest-gray, $alpha: -1), 
-    color.adjust(var.$darkest-gray, $alpha: -0.93) 70%, 
+    color.adjust(var.$darkest-gray, $alpha: -1),
+    color.adjust(var.$darkest-gray, $alpha: -0.93) 70%,
     color.adjust(var.$darkest-gray, $alpha: -0.85)
   );
   bottom: 0;
@@ -77,29 +81,4 @@
   height: #{var.$ms16}em; // Scrim should be no taller than the minimum height of the 'sm' hero to avoid overlapping the navigation.
   position: absolute;
   width: 100%;
-}
-
-
-@include mixins.mq(md, max, width) {
-
-  .unl-hero-notch-stripe .dcf-breadcrumbs::after {
-    // Create gradient to overlay breadcrumbs that overflow to the right
-    background-image: linear-gradient(to right, color.adjust(var.$cream, $alpha: -1), color.adjust(var.$cream, $alpha: -0.5) 25%, var.$cream);
-    content: '';
-    height: calc(100% - 5px); // Subtract the combined height of the stripe and transparent space.
-    position: absolute;
-    right: 0;
-    top: 5px; // Position so overlay isn't on top of stripe or transparent space.
-    width: var.$length-vw-2;
-    z-index: 1;
-  }
-
-  @media (prefers-color-scheme: dark) {
-
-    .unl-hero-notch-stripe .dcf-breadcrumbs::after {
-      background-image: linear-gradient(to right, color.adjust(var.$darkest-gray, $alpha: -1), color.adjust(var.$darkest-gray, $alpha: -0.5) 25%, var.$darkest-gray);
-    }
-
-  }
-
 }
