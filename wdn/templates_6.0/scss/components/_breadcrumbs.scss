@@ -57,6 +57,8 @@
 
 
   .unl .dcf-breadcrumbs ol {
+    --mask-width: #{var.$length-vw-2};
+    mask-image: linear-gradient(90deg,rgba(0,0,0,0),rgb(0,0,0) var(--mask-width),rgb(0,0,0) calc(100% - var(--mask-width)),rgba(0,0,0,0));
     @include mixins.pb-9; // Set padding-bottom to push the horizontal scroll bar out of the breadcrumbs' height
     @include mixins.overflow-x-auto; // Let breadcrumbs scroll horizontally if wider than the viewport
     @include mixins.overflow-y-hidden; // Hide vertical scroll bar in breadcrumbs region
