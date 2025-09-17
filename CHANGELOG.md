@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.0.4 (Sept 17, 2025)
+- Use mask-image for mobile breadcrumbs mask
+- Bump vite from 6.3.5 to 6.3.6
+- Adjust breadcrumbs mobile height
+- Update font sized
+- Remove `dcf-d-block` class from framework images
+- Add support for AJAX nav loading
+- Fix debug-clean page
+- Added header-global-1-local to templates
+
 ## 6.0.3 (Sept 3, 2025)
 - Fix smudging bug with bad quote
 
