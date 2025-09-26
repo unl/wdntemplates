@@ -3,13 +3,23 @@
 /////////////////////////////
 
 
-@mixin clip-stripe-top($imp:null) {
-  clip-path: polygon(0 0,100% 0,100% 2px,0 2px,0 5px,100% 5px,100% 100%,0 100%) $imp;
+@mixin clip-stripe-bottom($imp:null) {
+  clip-path: polygon(0 0,100% 0,100% calc(100% - 5px),0 calc(100% - 5px),0 calc(100% - 2px),100% calc(100% - 2px),100% 100%,0 100%) $imp;
 }
 
 
-@mixin clip-stripe-bottom($imp:null) {
-  clip-path: polygon(0 0,100% 0,100% calc(100% - 5px),0 calc(100% - 5px),0 calc(100% - 2px),100% calc(100% - 2px),100% 100%,0 100%) $imp;
+@mixin clip-stripe-left($imp:null) {
+  clip-path: polygon(0 0,0 100%,2px 100%,2px 0,5px 0,5px 100%,100% 100%,100% 0) $imp;
+}
+
+
+@mixin clip-stripe-right($imp:null) {
+  clip-path: polygon(0 0,0 100%,100% 100%,100% 0,calc(100% - 2px) 0,calc(100% - 2px) 100%,calc(100% - 5px) 100%,calc(100% - 5px) 0) $imp;
+}
+
+
+@mixin clip-stripe-top($imp:null) {
+  clip-path: polygon(0 0,100% 0,100% 2px,0 2px,0 5px,100% 5px,100% 100%,0 100%) $imp;
 }
 
 
