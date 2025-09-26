@@ -1,4 +1,4 @@
-import jqueryUiCssUrl from '@scss/components-js/_jquery-ui.scss?url';
+import datatablesCssUrl from '@scss/components-js/_datatables.scss?url';
 import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
 
 // Storing the state whether the plugin is initialized or not
@@ -25,7 +25,7 @@ export function getPluginType() {
 
 export async function initialize(options = {}) {
     if ('jQuery' in options) {
-        await loadStyleSheet(jqueryUiCssUrl);
+        await loadStyleSheet(datatablesCssUrl);
         await fakeDefine(options.jQuery);
         return options.jQuery;
     }
@@ -33,7 +33,7 @@ export async function initialize(options = {}) {
     if (isInitialized) { return window.jQuery; }
     isInitialized = true;
 
-    await loadStyleSheet(jqueryUiCssUrl);
+    await loadStyleSheet(datatablesCssUrl);
     const { default: jQuery } = await import('@js-src/lib/jquery.js');
 
     await fakeDefine(jQuery);
@@ -53,7 +53,7 @@ async function fakeDefine(jQuery) {
     window.define.amd = true;
 
     // Import which should use the fake define we set up
-    await import('@js-src/lib/jquery-ui.js');
+    await import('@js-src/lib/datatables.js');
 
     // Restore old define
     window.define = oldDefine;
