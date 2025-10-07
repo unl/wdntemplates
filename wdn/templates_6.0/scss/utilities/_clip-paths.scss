@@ -6,21 +6,11 @@
 @use "../mixins/" as mixins;
 
 
-.unl-clip-stripe-top {
-  @include mixins.clip-stripe-top;
-}
+.unl-clip-stripe-bottom { @include mixins.clip-stripe-bottom; }
+.unl-clip-stripe-left { @include mixins.clip-stripe-left; }
+.unl-clip-stripe-right { @include mixins.clip-stripe-right; }
+.unl-clip-stripe-top { @include mixins.clip-stripe-top; }
 
+.unl-clip-stripe-block { @include mixins.clip-stripe-block; }
 
-.unl-clip-stripe-bottom {
-  @include mixins.clip-stripe-bottom;
-}
-
-
-.unl-clip-stripe-block {
-  @include mixins.clip-stripe-block;
-}
-
-
-.unl-frame-quad {
-  @include mixins.clip-frame-quad;
-}
+.unl-frame-quad { @include mixins.clip-frame-quad; }
