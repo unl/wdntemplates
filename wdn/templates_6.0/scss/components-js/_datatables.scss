@@ -153,14 +153,12 @@
 
   // Using sass to add the dcf-input-text class to the search input
   .unl .dt-search .dt-input {
-    @include mixins.txt-sm;
     @include mixins.d-inline;
     @extend .dcf-input-text;
   }
 
   // Using sass to add the dcf-input-select class to the select
   .unl .dt-length select.dt-input {
-    @include mixins.txt-sm;
     @include mixins.w-10;
     @include mixins.d-inline-block;
     @extend .dcf-input-select;
@@ -171,6 +169,7 @@
     @extend .dcf-btn-primary;
     background-image: none !important;
     background-color: var.$bg-color-button-primary !important;
+    margin: 0px !important;
   }
 
   .unl .dt-buttons button.dt-button:hover {
