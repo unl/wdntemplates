@@ -3,11 +3,12 @@
 /////////////////////////////////////
 
 @use "sass:meta";
-@use "../vendor/datatables";
 @use "../variables/" as var;
 @use "../mixins/" as mixins;
 
 @layer components {
+  @include meta.load-css("../vendor/datatables");
+
   // For .dcf-form-help, .dcf-label, .dcf-input-text, and .dcf-input-select
   @include meta.load-css("@dcf/scss/components/forms");
   @include meta.load-css("../components/forms");
@@ -152,16 +153,64 @@
 
   // Using sass to add the dcf-input-text class to the search input
   .unl .dt-search .dt-input {
-    @include mixins.txt-sm;
+    
     @include mixins.d-inline;
     @extend .dcf-input-text;
   }
 
+  .unl .dt-container:has(table.unl-dt-inputs-sm) .dt-search .dt-input {
+    @include mixins.txt-sm;
+  }
+
   // Using sass to add the dcf-input-select class to the select
   .unl .dt-length select.dt-input {
-    @include mixins.txt-sm;
     @include mixins.w-10;
     @include mixins.d-inline-block;
     @extend .dcf-input-select;
+  }
+
+  .unl .dt-container:has(table.unl-dt-inputs-sm) .dt-length select.dt-input {
+    @include mixins.txt-sm;
+  }
+
+  .unl .dt-buttons button.dt-button {
+    @extend .dcf-btn;
+    @extend .dcf-btn-primary;
+    background-image: none !important;
+    background-color: var.$bg-color-button-primary !important;
+    margin: 0px !important;
+  }
+
+  .unl .dt-container:has(table.unl-dt-inputs-sm) .dt-buttons button.dt-button  {
+    @include mixins.txt-xs;
+  }
+
+  .unl .dt-buttons button.dt-button:hover {
+    border-width: 2px !important;
+    border-style: solid !important;
+    background-color: var.$bg-color-button-primary-hover !important;
+    border-color: var.$border-color-button-primary-hover !important;
+  }
+
+  .unl tr .dtr-control {
+    position: relative;
+  }
+
+  .unl tr .dtr-control::before {
+    position: absolute;
+    margin-left: 1rem;
+    left: 0px;
+    top: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 0px;
+  }
+
+  .unl tr:not(.dtr-expanded) .dtr-control::before {
+    border-left-color: var.$bg-color-button-primary !important;
+  }
+
+  .unl tr.dtr-expanded .dtr-control::before {
+    border-top-color: var.$bg-color-button-primary !important;
   }
 }
