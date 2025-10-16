@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.0.5 (Oct 16, 2025)
+- Updated order of operations in plugin auto loader
+- Adjusted icon card styles
+- Added datatable library and UNL styles overrides
+- Updated clip-stripe-* classes
+
 ## 6.0.4 (Sept 17, 2025)
 - Use mask-image for mobile breadcrumbs mask
 - Bump vite from 6.3.5 to 6.3.6
