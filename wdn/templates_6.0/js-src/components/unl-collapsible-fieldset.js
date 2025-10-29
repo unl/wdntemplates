@@ -25,6 +25,8 @@ export default class UNLCollapsibleFieldset extends DCFCollapsibleFieldset {
 
         if (!('fieldsetClassListOff' in options)) {
             options.fieldsetClassListOff = [
+                'dcf-pt-0',
+                'dcf-pb-0',
                 'unl-collapsible-fieldset-close',
             ];
         }
