@@ -149,12 +149,14 @@ function copyNav() {
 function setUpHoverIntent() {
     const dcfNav = document.querySelector('div.dcf-nav');
     const dcfNavDialog = document.querySelector('dialog.dcf-nav-dialog');
+    const dcfDialogToggleBtn = document.getElementById('dcf-btn-close-desktop-menu');
     let dcfNavDialogClassInstance = null;
     const navDialogContent = document.querySelector('dialog.dcf-nav-dialog .dcf-dialog-content');
     let navOpenTimeout = null;
     let navCloseTimeout = null;
     const navHoverOpenTimeoutDurationMs = 100;
     const navHoverCloseTimeoutDurationMs = 100;
+    let navJustClosed = false;
 
     // Get the class instance once it is ready
     dcfNavDialog.addEventListener('dialogReady', (event) => {
@@ -163,6 +165,10 @@ function setUpHoverIntent() {
 
     // Hover over nav for at least ${navHoverOpenTimeoutDurationMs} will open dialog
     dcfNav.addEventListener('mouseenter', () => {
+        // If we just clicked the close button then ignore this
+        if (navJustClosed === true) {
+            return;
+        }
         navOpenTimeout = setTimeout(() => {
             if (dcfNavDialogClassInstance !== null) {
                 dcfNavDialogClassInstance.open();
@@ -171,6 +177,8 @@ function setUpHoverIntent() {
     });
     dcfNav.addEventListener('mouseleave', () => {
         clearTimeout(navOpenTimeout);
+        // Reset the flag
+        navJustClosed = false;
     });
 
     // Hover off dialog content for at least ${navHoverCloseTimeoutDurationMs} will close dialog
@@ -183,6 +191,14 @@ function setUpHoverIntent() {
     });
     navDialogContent.addEventListener('mouseenter', () => {
         clearTimeout(navCloseTimeout);
+    });
+
+    // If we click the close button we want to ignore any mouse enter events
+    // until we trigger a mouse leave event
+    dcfDialogToggleBtn.addEventListener('click', () => {
+        if (dcfNavDialog.open === true) {
+            navJustClosed = true;
+        }
     });
 }
 
