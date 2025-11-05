@@ -193,6 +193,26 @@ function setUpHoverIntent() {
         clearTimeout(navCloseTimeout);
     });
 
+    // Detect when focus leaves the nav dialog
+    dcfNavDialog.addEventListener('focusout', () => {
+        // Delay check slightly so the browser updates document.activeElement
+        setTimeout(() => {
+            const activeEl = document.activeElement;
+            // If active element is not inside dialog and dialog is open, close it
+            if (
+                dcfNavDialog.open &&
+                activeEl &&
+                !dcfNavDialog.contains(activeEl)
+            ) {
+                if (dcfNavDialogClassInstance !== null) {
+                    dcfNavDialogClassInstance.close();
+                } else {
+                    dcfNavDialog.close();
+                }
+            }
+        }, 0);
+    });
+
     // If we click the close button we want to ignore any mouse enter events
     // until we trigger a mouse leave event
     dcfDialogToggleBtn.addEventListener('click', () => {
