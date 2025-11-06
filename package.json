@@ -1,6 +1,6 @@
 {
   "name": "wdntemplates",
-  "version": "6.0.4",
+  "version": "6.0.5",
   "description": "Web Framework for the UNLedu website.",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
     "dcf": "github:digitalcampusframework/dcf#4.0",
     "postcss-nested": "^7.0.2",
     "sass": "^1.83.1",
-    "vite": "^6.3.6",
+    "vite": "^6.4.1",
     "vite-plugin-eslint": "^1.8.1"
   },
   "scripts": {

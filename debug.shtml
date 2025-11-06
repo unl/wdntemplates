@@ -495,7 +495,7 @@
       <div class="dcf-mt-6 dcf-mb-6">
         <h3>Normal</h3>
         <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow Normal">
-            <ul>
+            <ul tabindex="0">
                 <li>
                     <figure>
                         <img class="dcf-d-block dcf-16x9" src="/wdn/templates_6.0/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
@@ -516,7 +516,7 @@
 
         <h3>Auto Play</h3>
         <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow Auto Play" data-play="true">
-            <ul>
+            <ul tabindex="0">
                 <li>
                     <figure>
                         <div class="">
@@ -543,7 +543,7 @@
 
         <h3>Fade</h3>
         <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow Fade" data-transition="fade">
-            <ul>
+            <ul tabindex="0">
                 <li>
                     <figure>
                         <div class="">
@@ -570,7 +570,7 @@
 
         <h3>No toggle caption</h3>
         <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow No Toggle Caption" data-toggle-caption="false">
-            <ul>
+            <ul tabindex="0">
                 <li>
                     <figure>
                         <div class="">
@@ -597,7 +597,7 @@
 
         <h3>No images</h3>
         <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow No Images" data-toggle-caption="false" data-shuffle="true">
-            <ul>
+            <ul tabindex="0">
                 <li>
                     <div class="dcf-16x9 dcf-d-flex dcf-jc-center dcf-ai-center">
                         <p class="dcf-m-0 dcf-p-0">

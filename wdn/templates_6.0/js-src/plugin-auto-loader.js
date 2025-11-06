@@ -22,6 +22,7 @@ const watch = window.UNL.autoLoader.config.watch ?? true;
 // This is the list of plugins we will check with when elements are added to the page
 const watchList = [];
 
+// Validate and add all components to watch list
 if (enabled) {
     window.UNL.autoLoader.plugins = {};
     for (const [pluginName, pluginConfig] of Object.entries(configPluginList)) {
@@ -79,6 +80,7 @@ if (enabled) {
     }
 }
 
+// Start watching the page for new changes
 if (enabled && watch) {
     // Loads all elements that are added to the page
     const mutationCallback = async(mutationList) => {
@@ -155,8 +157,8 @@ if (enabled && watch) {
     observer.observe(document.body, observerConfig);
 }
 
+// Loads all elements that are already on the page
 if (enabled) {
-    // Loads all elements that are already on the page
     for (const singlePluginName in window.UNL.autoLoader.plugins) {
         const pluginData = window.UNL.autoLoader.plugins[singlePluginName];
         const pluginModule = pluginData.module;
@@ -182,6 +184,8 @@ if (enabled) {
                 } catch (err) {
                     console.error(`Error initializing plugin ${singlePluginName}:`, err);
                 }
+
+                // Since there would be only one we no longer need to watch this component
                 watchList.splice(watchList.indexOf(singlePluginName), 1);
             }
 

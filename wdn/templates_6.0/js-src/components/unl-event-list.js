@@ -104,7 +104,7 @@ export default class UNLEventList {
             let moreEvents = `<div class="dcf-d-flex dcf-jc-flex-end"><a class="dcf-btn dcf-btn-secondary" href="${this.calendarUrl}">More Events</a></div>`;
 
             if (this.layout.toLowerCase() === 'grid') {
-                this.eventListElement.classList.add('dcf-grid-halves@sm', 'dcf-grid-fourths@lg', 'dcf-col-gap-vw', 'dcf-row-gap-6');
+                this.eventListElement.classList.add('dcf-d-grid', 'dcf-grid-cols-2@sm', 'dcf-grid-cols-4@lg', 'dcf-col-gap-vw', 'dcf-row-gap-6');
                 this.eventListElement.setAttribute('role', 'list');
                 containerClasses = ['dcf-bleed', 'dcf-wrapper', 'dcf-pt-9', 'dcf-pb-8'];
                 header = `<h2 class="dcf-sr-only">${displayType} Events</h2>`;
