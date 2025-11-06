@@ -18,9 +18,20 @@
             <legend>Image Form</legend>
             <div class="dcf-form-group">
               <label for="image-input">Image Input</label>
-              <input type="file" name="image-input" id="image-input">
+              <input
+                type="file"
+                name="image-input"
+                id="image-input"
+                accept="image/jpeg, image/png, image/avif"
+                aria-describedby="image-input-help">
+              <p class="dcf-form-help" id="image-input-help">Accepts .jpg, .png, .avif</p>
             </div>
-            <div class="dcf-image-cropper" id="my-image-cropper" data-image-cropper-input="image-input" hidden></div>
+            <div
+              id="my-image-cropper"
+              class="dcf-image-cropper"
+              data-image-cropper-input="image-input"
+              data-ratio="9x16"
+              hidden></div>
           </fieldset>
         </form>
       </main>
