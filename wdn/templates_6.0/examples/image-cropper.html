@@ -27,10 +27,17 @@
               <p class="dcf-form-help" id="image-input-help">Accepts .jpg, .png, .avif</p>
             </div>
             <div
+              class="dcf-image-cropper-preview"
+              data-image-cropper-input="image-input"
+              data-max-canvas-width="150"
+              hidden
+            ></div>
+            <div
               id="my-image-cropper"
               class="dcf-image-cropper"
               data-image-cropper-input="image-input"
-              data-ratio="9x16"
+              data-max-canvas-width="300"
+              data-ratio="1x1"
               hidden></div>
           </fieldset>
         </form>
