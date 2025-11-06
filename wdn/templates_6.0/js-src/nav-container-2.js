@@ -232,12 +232,16 @@ function setUpUpdateStyles() {
     idmDialog = document.querySelector('dialog.dcf-idm-dialog');
     searchDialog = document.querySelector('dialog.dcf-search-dialog');
 
-    idmDialog.addEventListener('dialogReady', (event) => {
-        idmDialogClassInstance = event.detail.classInstance;
-    });
-    searchDialog.addEventListener('dialogReady', (event) => {
-        searchDialogClassInstance = event.detail.classInstance;
-    });
+    if (idmDialog !== null) {
+        idmDialog.addEventListener('dialogReady', (event) => {
+            idmDialogClassInstance = event.detail.classInstance;
+        });
+    }
+    if (searchDialog !== null) {
+        searchDialog.addEventListener('dialogReady', (event) => {
+            searchDialogClassInstance = event.detail.classInstance;
+        });
+    }
 
     window.addEventListener('resize', () => {
         updateStyles();
@@ -291,8 +295,12 @@ function isScreenUnderMediumSize() {
  * @returns { Void }
  */
 function setMobileStyles() {
-    searchDialog.classList.add('dcf-dialog-non-modal');
-    idmDialog.classList.add('dcf-dialog-non-modal');
+    if (searchDialog !== null) {
+        searchDialog.classList.add('dcf-dialog-non-modal');
+    }
+    if (idmDialog !== null) {
+        idmDialog.classList.add('dcf-dialog-non-modal');
+    }
 }
 
 /**
@@ -300,6 +308,10 @@ function setMobileStyles() {
  * @returns { Void }
  */
 function setDesktopStyles() {
-    searchDialog.classList.remove('dcf-dialog-non-modal');
-    idmDialog.classList.remove('dcf-dialog-non-modal');
+    if (searchDialog !== null) {
+        searchDialog.classList.remove('dcf-dialog-non-modal');
+    }
+    if (idmDialog !== null) {
+        idmDialog.classList.remove('dcf-dialog-non-modal');
+    }
 }
