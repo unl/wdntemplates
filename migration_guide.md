@@ -34,7 +34,7 @@ New Ratio Example:
 
 ```HTML
 <div>
-  <img class="dcf-1x1 dcf-16x9@md dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+  <img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
 </div>
 ```
 
