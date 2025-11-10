@@ -33,8 +33,8 @@ Old Ratio Example:
 New Ratio Example:
 
 ```HTML
-<div class="dcf-1x1 dcf-16x9@md">
-  <img class="dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+<div>
+  <img class="dcf-1x1 dcf-16x9@md dcf-obj-fit-cover" src="wdn/templates_5.3/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
 </div>
 ```
 
