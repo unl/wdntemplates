@@ -13,7 +13,7 @@
       <main>
         <h1>Image Cropper</h1>
 
-        <form class="dcf-form">
+        <form class="dcf-form" method="POST" enctype="multipart/form-data">
           <fieldset>
             <legend>Image Form</legend>
             <div class="dcf-form-group">
@@ -22,9 +22,9 @@
                 type="file"
                 name="image-input"
                 id="image-input"
-                accept="image/jpeg, image/png, image/avif"
+                accept="image/jpeg, image/png, image/avif, image/gif, image/webp, image/bmp, image/x-bmp, image/x-icon"
                 aria-describedby="image-input-help">
-              <p class="dcf-form-help" id="image-input-help">Accepts .jpg, .png, .avif</p>
+              <p class="dcf-form-help" id="image-input-help">Accepts .jpg, .png, .avif, .webp, .gif, .bmp, .ico</p>
             </div>
             <div
               class="dcf-image-cropper-preview"
@@ -39,6 +39,28 @@
               data-max-canvas-width="300"
               data-ratio="1x1"
               hidden></div>
+            <fieldset>
+              <legend>Auto Populated Fields</legend>
+              <p>Ideally these would all be hidden or readonly</p>
+              <label for="image-cropper-x">x</label>
+              <input type="number" id="image-cropper-x" class="dcf-image-cropper-x" readonly data-image-cropper-input="image-input">
+              <label for="image-cropper-x2">x2</label>
+              <input type="number" id="image-cropper-x2" class="dcf-image-cropper-x2" readonly data-image-cropper-input="image-input">
+              <label for="image-cropper-y">y</label>
+              <input type="number" id="image-cropper-y" class="dcf-image-cropper-y" readonly data-image-cropper-input="image-input">
+              <label for="image-cropper-y2">y2</label>
+              <input type="number" id="image-cropper-y2" class="dcf-image-cropper-y2" readonly data-image-cropper-input="image-input">
+              <label for="image-cropper-width">Width</label>
+              <input type="number" id="image-cropper-width" class="dcf-image-cropper-width" readonly data-image-cropper-input="image-input">
+              <label for="image-cropper-height">Height</label>
+              <input type="number" id="image-cropper-height" class="dcf-image-cropper-height" readonly data-image-cropper-input="image-input">
+              <label for="image-cropper-ratio">Ratio</label>
+              <input type="number" id="image-cropper-ratio" class="dcf-image-cropper-ratio" readonly data-image-cropper-input="image-input">
+              <label for="image-cropper-ratio-text">Ratio Text</label>
+              <input type="text" id="image-cropper-ratio-text" class="dcf-image-cropper-ratio-text" readonly data-image-cropper-input="image-input">
+              <label for="image-cropper-cropped-image">cropped image</label>
+              <input type="file" id="image-cropper-cropped-image" class="dcf-image-cropper-cropped-image" readonly data-image-cropper-input="image-input">
+            </fieldset>
           </fieldset>
         </form>
       </main>
