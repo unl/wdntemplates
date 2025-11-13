@@ -26,19 +26,25 @@
                 aria-describedby="image-input-help">
               <p class="dcf-form-help" id="image-input-help">Accepts .jpg, .png, .avif, .webp, .gif, .bmp, .ico</p>
             </div>
-            <div
-              class="dcf-image-cropper-preview"
-              data-image-cropper-input="image-input"
-              data-max-canvas-width="150"
-              hidden
-            ></div>
-            <div
-              id="my-image-cropper"
-              class="dcf-image-cropper"
-              data-image-cropper-input="image-input"
-              data-max-canvas-width="300"
-              data-ratio="1x1"
-              hidden></div>
+            <fieldset>
+              <legend>Preview Image Outside Component</legend>
+              <div
+                class="dcf-image-cropper-preview"
+                data-image-cropper-input="image-input"
+                data-max-canvas-width="150"
+                hidden
+              ></div>
+            </fieldset>
+            <fieldset>
+              <legend>Cropper Component</legend>
+              <div
+                id="my-image-cropper"
+                class="dcf-image-cropper"
+                data-image-cropper-input="image-input"
+                data-max-canvas-width="300"
+                data-ratio="1x1"
+                hidden></div>
+            </fieldset>
             <fieldset>
               <legend>Auto Populated Fields</legend>
               <p>Ideally these would all be hidden or readonly</p>
