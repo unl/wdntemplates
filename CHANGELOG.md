@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.58 (November 17, 2025)
+- Fix search select ally
+
 ## 5.3.57 (June 24, 2025)
 - Load web analytics in a require.js compliant way
 
