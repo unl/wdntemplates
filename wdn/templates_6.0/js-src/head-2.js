@@ -17,6 +17,8 @@ import UNLIdmUrl from '@js-src/plugins/single/idm.js?finalUrl';
 import UNLSearchUrl from '@js-src/plugins/single/search.js?finalUrl';
 import UNLQaUrl from '@js-src/plugins/single/qa.js?finalUrl';
 import UNLFontSerifUrl from '@js-src/plugins/single/font-serif.js?finalUrl';
+import UNLFileSizeValidatorUrl from '@js-src/plugins/multi/file-size-validator.js?finalUrl';
+
 
 window.UNL = window.UNL || {};
 window.UNL.autoLoader = {
@@ -158,6 +160,13 @@ window.UNL.autoLoader = {
                 customConfig: {},
                 onPluginLoadedElement: null,
                 url: UNLQaUrl,
+            },
+            UNLFileSizeValidator: {
+                optOutSelector: null,
+                optInSelector: null,
+                customConfig: {},
+                onPluginLoadedElement: null,
+                url: UNLFileSizeValidatorUrl,
             },
         },
     },

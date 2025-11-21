@@ -124,6 +124,7 @@ export default ({ mode }) => {
                     'plugins/plugin.gallery'              : 'wdn/templates_6.0/js-src/plugins/multi/gallery.js',
                     'plugins/plugin.event-list'           : 'wdn/templates_6.0/js-src/plugins/multi/event-list.js',
                     'plugins/plugin.card-as-link'         : 'wdn/templates_6.0/js-src/plugins/multi/card-as-link.js',
+                    'plugins/plugin.file-size-validator'  : 'wdn/templates_6.0/js-src/plugins/multi/file-size-validator.js',
 
                     'plugins/plugin.idm'                  : 'wdn/templates_6.0/js-src/plugins/single/idm.js',
                     'plugins/plugin.search'               : 'wdn/templates_6.0/js-src/plugins/single/search.js',
@@ -149,12 +150,12 @@ export default ({ mode }) => {
                     'components/component.gallery'              : 'wdn/templates_6.0/js-src/components/unl-gallery.js',
                     'components/component.banner'               : 'wdn/templates_6.0/js-src/components/unl-banner.js',
                     'components/component.alert'                : 'wdn/templates_6.0/js-src/components/unl-alert.js',
-
                     'components/component.idm'                  : 'wdn/templates_6.0/js-src/components/unl-idm.js',
                     'components/component.search'               : 'wdn/templates_6.0/js-src/components/unl-search.js',
                     'components/component.qa'                   : 'wdn/templates_6.0/js-src/components/unl-qa.js',
                     'components/component.event-list'           : 'wdn/templates_6.0/js-src/components/unl-event-list.js',
                     'components/component.card-as-link'         : 'wdn/templates_6.0/js-src/components/unl-card-as-link.js',
+                    'components/component.file-size-validator'  : 'wdn/templates_6.0/js-src/components/unl-file-size-validator.js',
                     'components/component.analytics'            : 'wdn/templates_6.0/js-src/components/unl-analytics.js',
 
                     'lib/unl-utility'      : 'wdn/templates_6.0/js-src/lib/unl-utility.js',
