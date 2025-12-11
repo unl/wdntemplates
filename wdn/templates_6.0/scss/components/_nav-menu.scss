@@ -13,6 +13,7 @@
   max-width: 100% !important;
   height: fit-content !important;
   max-height: 100% !important;
+  z-index: 999;
 }
 
 
@@ -81,7 +82,7 @@
     // opacity: 0;
     // pointer-events: none;
     position: fixed;
-    // transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in, visibility 0ms .4s;
+    transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in, visibility 0ms .4s;
     // visibility: hidden;
     width: 100%;
     z-index: 998; // Ensure that the z-index is below the modal and nav-toggle-group z-indices
@@ -92,7 +93,7 @@
   .unl .dcf-nav-menu.dcf-modal-is-open {
   	opacity: 1;
   	pointer-events: auto;
-    // transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
+    transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
   	visibility: visible;
   }
 
@@ -102,13 +103,13 @@
     opacity: 0;
     position: fixed;
     // transform-origin: bottom;
-    // transition: opacity var.$transition-duration-fade-out var.$transition-timing-fn-fade-out;
+    transition: opacity var.$transition-duration-fade-out var.$transition-timing-fn-fade-out;
   }
 
 
   .unl .dcf-dialog-is-open .dcf-nav-menu-content {
     opacity: 1;
-    // transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
+    transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
   }
 
 
