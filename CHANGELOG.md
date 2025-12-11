@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.0.7 (Dec 11, 2025)
+- Fix nav menu styles
+- Fix mobile nav menu icon
+- Added file size validator component
+- Added image cropper component
+
 ## 6.0.6 (Nov 11, 2025)
 - Fix nav menu bugs
 - Update collapsible fieldset padding
