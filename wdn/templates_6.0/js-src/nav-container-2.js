@@ -118,6 +118,13 @@ if (watchEnabled) {
     setUpUpdateStyles();
 }
 
+// updateStyles will set currentScreenSize which is used for both the search/idm dialogs closing logic
+//  and also the nav menu dialog closing logic
+window.addEventListener('resize', () => {
+    updateStyles();
+});
+updateStyles();
+
 
 /**
  * Copies nav links from local to dialog
@@ -149,12 +156,30 @@ function copyNav() {
 function setUpHoverIntent() {
     const dcfNav = document.querySelector('div.dcf-nav');
     const dcfNavDialog = document.querySelector('dialog.dcf-nav-dialog');
+    const dcfDialogToggleBtn = document.getElementById('dcf-btn-close-desktop-menu');
     let dcfNavDialogClassInstance = null;
     const navDialogContent = document.querySelector('dialog.dcf-nav-dialog .dcf-dialog-content');
     let navOpenTimeout = null;
     let navCloseTimeout = null;
     const navHoverOpenTimeoutDurationMs = 100;
     const navHoverCloseTimeoutDurationMs = 100;
+    let navJustClosed = false;
+
+    // Focus us on the first link when the dialog opens in mobile
+    dcfNavDialog.addEventListener('dialogPostOpen', () => {
+        if (currentScreenSize === 'mobile') {
+            dcfNavDialog.querySelector('.dcf-local-copy-dialog a')?.focus();
+        }
+    });
+
+    // When we close focus us back on the toggle dialog button
+    dcfNavDialog.addEventListener('dialogPostClose', () => {
+        if (currentScreenSize === 'mobile') {
+            document.querySelector('button.dcf-btn-nav-mobile').focus();
+        } else {
+            document.querySelector('button.dcf-btn-nav-desktop').focus();
+        }
+    });
 
     // Get the class instance once it is ready
     dcfNavDialog.addEventListener('dialogReady', (event) => {
@@ -163,6 +188,10 @@ function setUpHoverIntent() {
 
     // Hover over nav for at least ${navHoverOpenTimeoutDurationMs} will open dialog
     dcfNav.addEventListener('mouseenter', () => {
+        // If we just clicked the close button then ignore this
+        if (navJustClosed === true) {
+            return;
+        }
         navOpenTimeout = setTimeout(() => {
             if (dcfNavDialogClassInstance !== null) {
                 dcfNavDialogClassInstance.open();
@@ -171,6 +200,8 @@ function setUpHoverIntent() {
     });
     dcfNav.addEventListener('mouseleave', () => {
         clearTimeout(navOpenTimeout);
+        // Reset the flag
+        navJustClosed = false;
     });
 
     // Hover off dialog content for at least ${navHoverCloseTimeoutDurationMs} will close dialog
@@ -184,6 +215,14 @@ function setUpHoverIntent() {
     navDialogContent.addEventListener('mouseenter', () => {
         clearTimeout(navCloseTimeout);
     });
+
+    // If we click the close button we want to ignore any mouse enter events
+    // until we trigger a mouse leave event
+    dcfDialogToggleBtn.addEventListener('click', () => {
+        if (dcfNavDialog.open === true) {
+            navJustClosed = true;
+        }
+    });
 }
 
 /**
@@ -196,17 +235,40 @@ function setUpUpdateStyles() {
     idmDialog = document.querySelector('dialog.dcf-idm-dialog');
     searchDialog = document.querySelector('dialog.dcf-search-dialog');
 
-    idmDialog.addEventListener('dialogReady', (event) => {
-        idmDialogClassInstance = event.detail.classInstance;
-    });
-    searchDialog.addEventListener('dialogReady', (event) => {
-        searchDialogClassInstance = event.detail.classInstance;
-    });
-
-    window.addEventListener('resize', () => {
-        updateStyles();
-    });
-    updateStyles();
+    if (idmDialog !== null) {
+        idmDialog.addEventListener('dialogReady', (event) => {
+            idmDialogClassInstance = event.detail.classInstance;
+        });
+        // When we open make sure we are focused the first link
+        idmDialog.addEventListener('dialogPostOpen', () => {
+            idmDialog.querySelector('.unl-idm-personal a')?.focus();
+        });
+        // When we close focus us back on the toggle dialog button
+        idmDialog.addEventListener('dialogPostClose', () => {
+            if (currentScreenSize === 'mobile') {
+                document.querySelector('button.dcf-btn-idm-mobile').focus();
+            } else {
+                document.querySelector('button.dcf-btn-idm-desktop').focus();
+            }
+        });
+    }
+    if (searchDialog !== null) {
+        searchDialog.addEventListener('dialogReady', (event) => {
+            searchDialogClassInstance = event.detail.classInstance;
+        });
+        // When we open make sure we are focused on the search input
+        searchDialog.addEventListener('dialogPostOpen', () => {
+            searchDialog.querySelector('#dcf-search_query')?.focus();
+        });
+        // When we close focus us back on the toggle dialog button
+        searchDialog.addEventListener('dialogPostClose', () => {
+            if (currentScreenSize === 'mobile') {
+                document.querySelector('button.dcf-btn-search-mobile').focus();
+            } else {
+                document.querySelector('button.dcf-btn-search-desktop').focus();
+            }
+        });
+    }
 }
 
 /**
@@ -255,8 +317,12 @@ function isScreenUnderMediumSize() {
  * @returns { Void }
  */
 function setMobileStyles() {
-    searchDialog.classList.add('dcf-dialog-non-modal');
-    idmDialog.classList.add('dcf-dialog-non-modal');
+    if (searchDialog !== null) {
+        searchDialog.classList.add('dcf-dialog-non-modal');
+    }
+    if (idmDialog !== null) {
+        idmDialog.classList.add('dcf-dialog-non-modal');
+    }
 }
 
 /**
@@ -264,6 +330,10 @@ function setMobileStyles() {
  * @returns { Void }
  */
 function setDesktopStyles() {
-    searchDialog.classList.remove('dcf-dialog-non-modal');
-    idmDialog.classList.remove('dcf-dialog-non-modal');
+    if (searchDialog !== null) {
+        searchDialog.classList.remove('dcf-dialog-non-modal');
+    }
+    if (idmDialog !== null) {
+        idmDialog.classList.remove('dcf-dialog-non-modal');
+    }
 }

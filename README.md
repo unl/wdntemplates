@@ -58,7 +58,7 @@ development you can create a `.env.local` which will override the default values
 
 Support of the UNL Templates is coordinated and communicated through the [WDN](https://wdn.unl.edu/).
 
-## 5.3 Development Documentation for Developers
+## 6.0 Development Documentation for Developers
 
 ### Directories
 

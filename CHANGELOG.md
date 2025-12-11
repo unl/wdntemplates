@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.0.6 (Nov 11, 2025)
+- Fix nav menu bugs
+- Update collapsible fieldset padding
+- Update event grid
+- Updated footer employment url
+
 ## 6.0.5 (Oct 16, 2025)
 - Updated order of operations in plugin auto loader
 - Adjusted icon card styles
