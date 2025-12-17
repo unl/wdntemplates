@@ -515,7 +515,7 @@
         </div>
 
         <h3>Auto Play</h3>
-        <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow Auto Play" data-play="true" data-rate="1000">
+        <div class="dcf-slideshow dcf-mb-5 dcf-max-w-xl" aria-label="WDN Sample Slideshow Auto Play" data-play="true">
             <ul tabindex="0">
                 <li>
                     <figure>
