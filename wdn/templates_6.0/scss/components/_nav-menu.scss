@@ -79,11 +79,8 @@
     @include mixins.bg-overlay-light;
     bottom: 0;
     height: 100vh;
-    // opacity: 0;
-    // pointer-events: none;
     position: fixed;
     transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in, visibility 0ms .4s;
-    // visibility: hidden;
     width: 100%;
     z-index: 998; // Ensure that the z-index is below the modal and nav-toggle-group z-indices
   }
@@ -102,7 +99,6 @@
     bottom: calc(#{var.$height-mobile-toolbar} - 1px);
     opacity: 0;
     position: fixed;
-    // transform-origin: bottom;
     transition: opacity var.$transition-duration-fade-out var.$transition-timing-fn-fade-out;
   }
 
@@ -170,43 +166,22 @@
   .unl .dcf-nav-menu {
     backdrop-filter: blur(3px);
     @include mixins.bg-overlay-light;
-    // bottom: #{var.$height-mobile-toolbar};
     height: 100vh;
-    // opacity: 0;
-    // pointer-events: none;
-    // position: fixed;
     position: relative;
     top: 0;
-    // transition: opacity var.$transition-duration-fade-out var.$transition-timing-fn-fade-out;
-    // transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in, visibility 0ms .4s;
-    // visibility: hidden;
     width: 100%;
     z-index: 998; // Ensure that the z-index is below the modal and nav-toggle-group z-indices
   }
 
 
   .unl .dcf-nav-menu-content {
-    // @include mixins.bg-scarlet;
-    // max-height: 56vh;
-    // @include mixins.overflow-y-auto;
     overflow-y: auto;
-    // padding-left: var.$length-vw-2;
-    // padding-right: var.$length-vw-2;
     position: fixed;
-    // transform-origin: top;
   }
 
 
   .unl .dcf-nav-menu-content-child {
-    // --mask-height: 1.78em;
-    // max-height: 56vh;
-    // mask-image: linear-gradient(to bottom,
-    //   rgba(0, 0, 0, 0),
-    //   rgba(0, 0, 0, 1) var(--mask-height),
-    //   rgba(0, 0, 0, 1) calc(100% - var(--mask-height)),
-    //   rgba(0, 0, 0, 0));
     overflow-y: auto;
-    // padding-block: var(--mask-height);
     padding: 0 var.$length-vw-2 var.$length-em-6;
   }
 
@@ -229,7 +204,6 @@
 
   .unl .dcf-nav-local ul ul {
     grid-row: 2 / 3;
-    // @include mixins.pb-7;
     width: 100%;
   }
 
