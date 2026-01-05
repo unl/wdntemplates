@@ -65,7 +65,7 @@
 .unl .dcf-nav-menu {
   backdrop-filter: blur(3px);
   @include mixins.bg-overlay-light;
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
 }
 
