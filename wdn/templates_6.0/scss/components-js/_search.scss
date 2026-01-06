@@ -31,7 +31,7 @@
   @include mixins.mq(md, max, width) {
 
     .unl dialog#dcf-search-dialog {
-      height: calc(100vh - var.$length-em-9);
+      height: calc(100dvh - var.$length-em-9);
     }
 
 
@@ -53,7 +53,7 @@
       backdrop-filter: blur(3px);
       background-color: var(--bg-overlay-light);
       bottom: 0;
-      height: 100vh;
+      height: 100dvh;
       position: fixed;
       z-index: 998;
       width: 100%;
@@ -88,7 +88,7 @@
 
 
     .unl .dcf-search-dialog-backdrop:has(.dcf-search-results-wrapper:not(:empty)) {
-      height: 100vh;
+      height: 100dvh;
     }
 
 
