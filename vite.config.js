@@ -126,6 +126,7 @@ export default ({ mode }) => {
                     'plugins/plugin.card-as-link'         : 'wdn/templates_6.0/js-src/plugins/multi/card-as-link.js',
                     'plugins/plugin.file-size-validator'  : 'wdn/templates_6.0/js-src/plugins/multi/file-size-validator.js',
                     'plugins/plugin.image-cropper'        : 'wdn/templates_6.0/js-src/plugins/multi/image-cropper.js',
+                    'plugins/plugin.randomizer'           : 'wdn/templates_6.0/js-src/plugins/multi/randomizer.js',
 
                     'plugins/plugin.idm'                  : 'wdn/templates_6.0/js-src/plugins/single/idm.js',
                     'plugins/plugin.search'               : 'wdn/templates_6.0/js-src/plugins/single/search.js',
@@ -159,6 +160,7 @@ export default ({ mode }) => {
                     'components/component.file-size-validator'  : 'wdn/templates_6.0/js-src/components/unl-file-size-validator.js',
                     'components/component.analytics'            : 'wdn/templates_6.0/js-src/components/unl-analytics.js',
                     'components/component.image-cropper'        : 'wdn/templates_6.0/js-src/components/unl-image-cropper.js',
+                    'components/component.randomizer'           : 'wdn/templates_6.0/js-src/components/unl-randomizer.js',
 
                     'lib/unl-utility'      : 'wdn/templates_6.0/js-src/lib/unl-utility.js',
                     'lib/moment'           : 'wdn/templates_6.0/js-src/lib/moment.js',
