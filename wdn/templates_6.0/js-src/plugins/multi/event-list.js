@@ -13,8 +13,17 @@ const querySelector = '.unl-event-list:not(.unl-event-list-initialized)';
 // Type of plugin
 const pluginType = 'multi';
 
+// Whether we need the use the mutation observer to initialize nested components
+const pluginLoadAfterWatch = false;
+
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
+
+/**
+ * Stores the initialization promise to prevent duplicate initialization
+ * @type {?Promise<UNLDialog>}
+ */
+let initializationPromise = null;
 
 /**
  * Gets the query selector which is used for this plugin's component
@@ -33,6 +42,15 @@ export function getPluginType() {
 }
 
 /**
+ * Gets the pluginLoadAfterWatch value
+ * @returns { Boolean }
+ */
+export function getPluginLoadAfterWatch() {
+    return pluginLoadAfterWatch;
+}
+
+
+/**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
@@ -45,24 +63,38 @@ export function getIsInitialized() {
  * @returns { Promise<UNLEventList> }
  */
 export async function initialize() {
-    if (isInitialized) { return UNLEventList; }
-    isInitialized = true;
+    // If already initialized, return the class directly (synchronous)
+    if (isInitialized) {
+        return UNLEventList;
+    }
 
-    const eventBandComponent = await import('@js-src/components/unl-event-list.js');
-    UNLEventList = eventBandComponent.default;
-    await loadStyleSheet(eventsCssUrl);
+    // If initialization is in progress, return the existing promise
+    if (initializationPromise !== null) {
+        return initializationPromise;
+    }
 
-    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
-        detail: {
-            pluginType: pluginType,
-            pluginComponent: UNLEventList,
-            styleSheetsLoaded: [
-                eventsCssUrl,
-            ],
-        },
-    }));
+    // Start new initialization
+    initializationPromise = (async() => {
+        const eventBandComponent = await import('@js-src/components/unl-event-list.js');
+        UNLEventList = eventBandComponent.default;
+        await loadStyleSheet(eventsCssUrl);
 
-    return UNLEventList;
+        isInitialized = true;
+
+        document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+            detail: {
+                pluginType: pluginType,
+                pluginComponent: UNLEventList,
+                styleSheetsLoaded: [
+                    eventsCssUrl,
+                ],
+            },
+        }));
+
+        return UNLEventList;
+    })();
+
+    return initializationPromise;
 }
 
 /**
@@ -94,11 +126,10 @@ export async function loadElement(element, options) {
  * @returns { Promise<UNLEventList[]> }
  */
 export async function loadElements(elements, options) {
-    const outputElements = [];
-    for (const singleElement of elements) {
-        outputElements.push(await loadElement(singleElement, options));
-    }
-    return outputElements;
+    const loadedElements = await Promise.all(
+        Array.from(elements).map(element => loadElement(element, options)),
+    );
+    return loadedElements;
 }
 
 /**

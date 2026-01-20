@@ -1,7 +1,7 @@
 import slideshowCssUrl from '@scss/components-js/_slideshows.scss?url';
 import figcaptionToggleCssUrl from '@scss/components-js/_figcaption-toggles.scss?url';
 import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
-import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
+import { loadStyleSheets } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
@@ -15,8 +15,17 @@ const querySelector = '.dcf-slideshow:not(.dcf-slideshow-initialized)';
 // Type of plugin
 const pluginType = 'multi';
 
+// Whether we need the use the mutation observer to initialize nested components
+const pluginLoadAfterWatch = false;
+
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
+
+/**
+ * Stores the initialization promise to prevent duplicate initialization
+ * @type {?Promise<UNLDialog>}
+ */
+let initializationPromise = null;
 
 /**
  * Gets the query selector which is used for this plugin's component
@@ -35,6 +44,15 @@ export function getPluginType() {
 }
 
 /**
+ * Gets the pluginLoadAfterWatch value
+ * @returns { Boolean }
+ */
+export function getPluginLoadAfterWatch() {
+    return pluginLoadAfterWatch;
+}
+
+
+/**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
@@ -47,28 +65,40 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return UNLSlideshow; }
-    isInitialized = true;
+    // If already initialized, return the class directly (synchronous)
+    if (isInitialized) {
+        return UNLSlideshow;
+    }
 
-    const slideshowComponent = await import('@js-src/components/unl-slideshow.js');
-    UNLSlideshow = slideshowComponent.default;
-    await loadStyleSheet(slideshowCssUrl);
-    await loadStyleSheet(figcaptionToggleCssUrl);
-    await loadStyleSheet(buttonToggleCssUrl);
+    // If initialization is in progress, return the existing promise
+    if (initializationPromise !== null) {
+        return initializationPromise;
+    }
 
-    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
-        detail: {
-            pluginType: pluginType,
-            pluginComponent: UNLSlideshow,
-            styleSheetsLoaded: [
-                slideshowCssUrl,
-                figcaptionToggleCssUrl,
-                buttonToggleCssUrl,
-            ],
-        },
-    }));
+    // Start new initialization
+    initializationPromise = (async() => {
+        const slideshowComponent = await import('@js-src/components/unl-slideshow.js');
+        UNLSlideshow = slideshowComponent.default;
+        await loadStyleSheets([slideshowCssUrl, figcaptionToggleCssUrl, buttonToggleCssUrl]);
 
-    return UNLSlideshow;
+        isInitialized = true;
+
+        document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+            detail: {
+                pluginType: pluginType,
+                pluginComponent: UNLSlideshow,
+                styleSheetsLoaded: [
+                    slideshowCssUrl,
+                    figcaptionToggleCssUrl,
+                    buttonToggleCssUrl,
+                ],
+            },
+        }));
+
+        return UNLSlideshow;
+    })();
+
+    return initializationPromise;
 }
 
 /**
@@ -100,11 +130,10 @@ export async function loadElement(element, options) {
  * @returns { Promise<UNLSlideshow[]> }
  */
 export async function loadElements(elements, options) {
-    const outputElements = [];
-    for (const singleElement of elements) {
-        outputElements.push(await loadElement(singleElement, options));
-    }
-    return outputElements;
+    const loadedElements = await Promise.all(
+        Array.from(elements).map(element => loadElement(element, options)),
+    );
+    return loadedElements;
 }
 
 /**

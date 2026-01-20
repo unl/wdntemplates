@@ -13,8 +13,17 @@ const querySelector = '.dcf-popup:not(.dcf-popup-initialized)';
 // Type of plugin
 const pluginType = 'multi';
 
+// Whether we need the use the mutation observer to initialize nested components
+const pluginLoadAfterWatch = false;
+
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
+
+/**
+ * Stores the initialization promise to prevent duplicate initialization
+ * @type {?Promise<UNLDialog>}
+ */
+let initializationPromise = null;
 
 /**
  * Gets the query selector which is used for this plugin's component
@@ -33,6 +42,15 @@ export function getPluginType() {
 }
 
 /**
+ * Gets the pluginLoadAfterWatch value
+ * @returns { Boolean }
+ */
+export function getPluginLoadAfterWatch() {
+    return pluginLoadAfterWatch;
+}
+
+
+/**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
@@ -45,24 +63,38 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return UNLPopup; }
-    isInitialized = true;
+    // If already initialized, return the class directly (synchronous)
+    if (isInitialized) {
+        return UNLPopup;
+    }
 
-    const popupComponent = await import('@js-src/components/unl-popup.js');
-    UNLPopup = popupComponent.default;
-    await loadStyleSheet(popupsCssUrl);
+    // If initialization is in progress, return the existing promise
+    if (initializationPromise !== null) {
+        return initializationPromise;
+    }
 
-    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
-        detail: {
-            pluginType: pluginType,
-            pluginComponent: UNLPopup,
-            styleSheetsLoaded: [
-                popupsCssUrl,
-            ],
-        },
-    }));
+    // Start new initialization
+    initializationPromise = (async() => {
+        const popupComponent = await import('@js-src/components/unl-popup.js');
+        UNLPopup = popupComponent.default;
+        await loadStyleSheet(popupsCssUrl);
 
-    return UNLPopup;
+        isInitialized = true;
+
+        document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+            detail: {
+                pluginType: pluginType,
+                pluginComponent: UNLPopup,
+                styleSheetsLoaded: [
+                    popupsCssUrl,
+                ],
+            },
+        }));
+
+        return UNLPopup;
+    })();
+
+    return initializationPromise;
 }
 
 /**
@@ -94,11 +126,10 @@ export async function loadElement(element, options) {
  * @returns { Promise<UNLPopup[]> }
  */
 export async function loadElements(elements, options) {
-    const outputElements = [];
-    for (const singleElement of elements) {
-        outputElements.push(await loadElement(singleElement, options));
-    }
-    return outputElements;
+    const loadedElements = await Promise.all(
+        Array.from(elements).map(element => loadElement(element, options)),
+    );
+    return loadedElements;
 }
 
 /**
