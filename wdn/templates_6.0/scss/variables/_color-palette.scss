@@ -6,76 +6,83 @@
 @use "sass:color";
 
 
-// PRIMARY BRAND
-$brand-alpha: #d00000;
-$brand-beta: #fefdfa;
-$brand-gamma: #c7c8ca;
+// SCARLET
+$scarlet: #d00000;                // oklch(0.5385 0.220991 29.2339)
+$brand-alpha: $scarlet;
 
-$scarlet: $brand-alpha;
-$cream: $brand-beta;
-$gray: $brand-gamma;
+$scarlet-tint: #ed9999;           // oklch(0.7673 0.1013 19.66)
 
-$scarlet-shade: color.scale($scarlet, $saturation: 10%, $lightness: -24%);
-$scarlet-tint: #f6e6e3;
+$scarlet-shade-1: #9d0000;        // oklch(0.4371 0.1793 29.2339)
+$scarlet-shade: $scarlet-shade-1;   // Re-map scarlet-shade to scarlet-shade-1
+
+$scarlet-shade-2: #690000;        // oklch(0.327 0.1342 29.2339)
 
 
-// SECONDARY BRAND
-$brand-delta: #001738;    // Navy
-$brand-epsilon: #42a7c6;  // Cerulean
+// CREAM
+$cream: #fefdfa;                  // oklch(0.994 0.0041 91.45)
+$brand-beta: $cream;
 
-$navy: $brand-delta;
+$cream-shade-1: #f5f1e7;          // oklch(0.9585 0.0139 88.68)
+$cream-shade-2: #eee7d6;          // oklch(0.9289 0.0238 88.24)
+$cream-shade-3: #e1d5b7;          // oklch(0.8749 0.0421 88.8)
+
+
+// SECONDARY
+$dark-blue: #174a59;              // oklch(0.3825 0.0586 221.09)
+$brand-delta: $dark-blue;
+
+$light-blue: #7bb7c1;             // oklch(0.742 0.0634 209)
+$brand-epsilon: $light-blue;
 $cerulean: $brand-epsilon;
 
-$light-cerulean: color.mix($cream, $cerulean, 25%);     // #71bdd3
-$lighter-cerulean: color.mix($cream, $cerulean, 50%);   // #a0d2e0
+$golden-yellow: #f7d16b;          // oklch(0.8732 0.1281 89.16)
+$brand-iota: $golden-yellow;
 
 
-// TERTIARY / SCREEN
-$brand-zeta: #00784e;     // Green
-$brand-eta: #007197;      // Blue
-$brand-theta: #b32d9c;    // Purple
-$brand-iota: #ffd74e;     // Yellow
-$brand-kappa: #f58a1f;     // Orange
+// SCREEN ONLY
+$dark-green: #324b2c;             // oklch(0.3825 0.0586 140)
+$dark-purple: #453d5f;            // oklch(0.3825 0.0586 295)
 
-$green: $brand-zeta;
-$blue: $brand-eta;
-$purple: $brand-theta;
+$orange: #d53f25;                 // oklch(0.5848 0.191 32.28)
+$brand-kappa: $orange;
 $yellow: $brand-iota;
-$orange: $brand-kappa;
+$green: #3e7432;                  // oklch(0.5053 0.1135 140)
+$brand-zeta: $green;
+$blue: #007197;                   // oklch(0.5141 0.103055 230.5149)
+$brand-eta: $blue;
+$purple: #7d4bd8;                 // oklch(0.5459 0.2048 295)
+$brand-theta: $purple;
 
-$lighter-green: #e7f1ea;
-$lighter-blue: #e7f0f0;
-$lighter-purple: #f7eaf1;
+$light-green: #8fb986;            // oklch(0.742 0.0634 140)
+$light-purple: #afa1dc;           // oklch(0.742 0.0634 295)
 
-$light-green: #9fdfc5;
-$light-blue: #aadeee;
-$light-purple: #fad1f1;
+$lighter-green: #c1dfba;          // oklch(0.872 0.06 140)
+$lighter-blue: #a9dff0;           // oklch(0.872 0.06 209)
+$light-cerulean: $lighter-blue;
+$lighter-purple: #d7cef9;         // oklch(0.872 0.06 295)
 
-$dark-green: #0d593e;
-$dark-blue: #0d556d;
-$dark-purple: #7f2a70;
+$lightest-blue: #cdf8ff;          // oklch(0.95 0.045 209)
+$lighter-cerulean: $lightest-blue;
 
 
 // NEUTRALS
-// Mix cream and gray brand colors for base color
-$mix-cream-gray: color.mix($cream, $gray);            // #e3e3e2
+$lightest-gray: #f2f1ee;          // oklch(0.959 0.0041 91.45)
+$lighter-gray: #e7e6e3;           // oklch(0.924 0.0041 91.45)
+$light-gray: #dbdad7;             // oklch(0.889 0.0041 91.45)
 
-$lightest-gray: color.adjust($mix-cream-gray, $lightness: 7.5%); // #f6f6f5;
-$lighter-gray: color.adjust($mix-cream-gray, $lightness: 3.2%);  // #ebebea
-$light-gray: $mix-cream-gray;                   // #e3e3e2
+$gray: #d0cfcc;                   // oklch(0.854 0.0041 91.45)
+$brand-gamma: $gray;                // Brand gray has been removed, map to closest alternative in ramp
 
-$gray-s1: color.adjust($mix-cream-gray, $lightness: -25%);         // #a4a4a1
+$gray-s1: #999895;                // oklch(0.679 0.0041 91.45)
 
-$dark-gray: color.adjust($mix-cream-gray, $lightness: -47.5%);     // #6b6b68
-
-$darker-gray: color.adjust($mix-cream-gray, $lightness: -63.3%);   // #424240
-$darker-gray-s1: color.adjust($mix-cream-gray, $lightness: -67%);  // #393937
-$darker-gray-s2: color.adjust($mix-cream-gray, $lightness: -69%);  // #333332
-$darker-gray-s3: color.adjust($mix-cream-gray, $lightness: -71%);  // #2e2e2d
-$darker-gray-s4: color.adjust($mix-cream-gray, $lightness: -73%);  // #292928
-
-$darkest-gray: color.adjust($mix-cream-gray, $lightness: -75%);    // #242423
-$darkest-gray-s1: color.adjust($mix-cream-gray, $lightness: -77%); // #1f1f1e
+$dark-gray: #656462;              // oklch(0.504 0.0041 91.45)
+$darker-gray: #484745;            // oklch(0.399 0.0041 91.45)
+$darker-gray-s1: #3f3e3c;         // oklch(0.364 0.0041 91.45)
+$darker-gray-s2: #363533;         // oklch(0.329 0.0041 91.45)
+$darker-gray-s3: #2d2c2a;         // oklch(0.294 0.0041 91.45)
+$darker-gray-s4: #242422;         // oklch(0.259 0.0041 91.45)
+$darkest-gray: #1c1b19;           // oklch(0.224 0.0041 91.45)
+$darkest-gray-s1: #141412;        // oklch(0.189 0.0041 91.45)
 
 
 @forward "@dcf/scss/variables/color-palette" with (
@@ -83,7 +90,7 @@ $darkest-gray-s1: color.adjust($mix-cream-gray, $lightness: -77%); // #1f1f1e
 	// CONTEXTUAL COLORS
 	$info: $blue,
 	$success: $green,
-	$warning: #d53f25,
+	$warning: $orange,
 	$danger: $scarlet-shade
 
 );
