@@ -9,6 +9,16 @@
 
 @include mixins.mq(md, max, width) {
 
+  .unl .dcf-cta-nav {
+    display: block;
+  }
+
+
+  .unl .dcf-cta-header {
+    display: none;
+  }
+
+
   .unl .dcf-cta ul {
     grid-gap: var.$length-em-6 var.$length-vw-1;
   }
@@ -32,6 +42,31 @@
 
 
 @include mixins.mq(md, min, width) {
+
+  .unl .dcf-cta-nav {
+    display: none;
+  }
+
+
+  .unl .dcf-cta-header {
+    display: flex;
+  }
+
+
+  // .unl .dcf-cta-header .dcf-list-cta {
+  //   width: #{var.$ms20}rem;
+  // }
+
+
+  .unl .dcf-header-global .dcf-cta-header .dcf-list-cta a {
+    color: #fefdfa;
+  }
+
+
+  .unl .dcf-list-cta a:hover {
+    @include mixins.txt-decor-hover-on;
+  }
+
 
   .unl-cta-heading {
     font-size: var.$length-em-3;
