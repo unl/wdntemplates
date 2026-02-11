@@ -207,6 +207,9 @@ function setUpHoverIntent() {
     // Hover off dialog content for at least ${navHoverCloseTimeoutDurationMs} will close dialog
     navDialogContent.addEventListener('mouseleave', () => {
         navCloseTimeout = setTimeout(() => {
+            if (isScreenUnderMediumSize()) {
+                return;
+            }
             if (dcfNavDialogClassInstance !== null) {
                 dcfNavDialogClassInstance.close();
             }

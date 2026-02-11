@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.0.8 (Jan 14, 2026)
+- Added randomizer component
+- Updated copyright
+- Updated nav and dialog styles
+
 ## 6.0.7 (Dec 11, 2025)
 - Fix nav menu styles
 - Fix mobile nav menu icon

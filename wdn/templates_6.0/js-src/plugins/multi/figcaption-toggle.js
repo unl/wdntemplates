@@ -1,6 +1,6 @@
 import figcaptionToggleCssUrl from '@scss/components-js/_figcaption-toggles.scss?url';
 import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
-import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
+import { loadStyleSheets } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
@@ -14,8 +14,17 @@ const querySelector = '.dcf-figcaption-toggle:not(.dcf-figcaption-toggle-initial
 // Type of plugin
 const pluginType = 'multi';
 
+// Whether we need the use the mutation observer to initialize nested components
+const pluginLoadAfterWatch = false;
+
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
+
+/**
+ * Stores the initialization promise to prevent duplicate initialization
+ * @type {?Promise<UNLDialog>}
+ */
+let initializationPromise = null;
 
 /**
  * Gets the query selector which is used for this plugin's component
@@ -34,6 +43,15 @@ export function getPluginType() {
 }
 
 /**
+ * Gets the pluginLoadAfterWatch value
+ * @returns { Boolean }
+ */
+export function getPluginLoadAfterWatch() {
+    return pluginLoadAfterWatch;
+}
+
+
+/**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
@@ -46,26 +64,39 @@ export function getIsInitialized() {
  * @returns { Promise<UNLFigcaptionToggle> }
  */
 export async function initialize() {
-    if (isInitialized) { return UNLFigcaptionToggle; }
-    isInitialized = true;
+    // If already initialized, return the class directly (synchronous)
+    if (isInitialized) {
+        return UNLFigcaptionToggle;
+    }
 
-    const figcaptionToggleComponent = await import('@js-src/components/unl-figcaption-toggle.js');
-    UNLFigcaptionToggle = figcaptionToggleComponent.default;
-    await loadStyleSheet(buttonToggleCssUrl);
-    await loadStyleSheet(figcaptionToggleCssUrl);
+    // If initialization is in progress, return the existing promise
+    if (initializationPromise !== null) {
+        return initializationPromise;
+    }
 
-    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
-        detail: {
-            pluginType: pluginType,
-            pluginComponent: UNLFigcaptionToggle,
-            styleSheetsLoaded: [
-                buttonToggleCssUrl,
-                figcaptionToggleCssUrl,
-            ],
-        },
-    }));
+    // Start new initialization
+    initializationPromise = (async() => {
+        const figcaptionToggleComponent = await import('@js-src/components/unl-figcaption-toggle.js');
+        UNLFigcaptionToggle = figcaptionToggleComponent.default;
+        await loadStyleSheets([buttonToggleCssUrl, figcaptionToggleCssUrl]);
 
-    return UNLFigcaptionToggle;
+        isInitialized = true;
+
+        document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+            detail: {
+                pluginType: pluginType,
+                pluginComponent: UNLFigcaptionToggle,
+                styleSheetsLoaded: [
+                    buttonToggleCssUrl,
+                    figcaptionToggleCssUrl,
+                ],
+            },
+        }));
+
+        return UNLFigcaptionToggle;
+    })();
+
+    return initializationPromise;
 }
 
 /**
@@ -97,11 +128,10 @@ export async function loadElement(element, options) {
  * @returns { Promise<UNLFigcaptionToggle[]> }
  */
 export async function loadElements(elements, options) {
-    const outputElements = [];
-    for (const singleElement of elements) {
-        outputElements.push(await loadElement(singleElement, options));
-    }
-    return outputElements;
+    const loadedElements = await Promise.all(
+        Array.from(elements).map(element => loadElement(element, options)),
+    );
+    return loadedElements;
 }
 
 /**

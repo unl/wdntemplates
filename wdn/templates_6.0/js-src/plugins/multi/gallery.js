@@ -1,6 +1,6 @@
 import galleryCssUrl from '@scss/components-js/_gallery.scss?url';
 import dialogCssUrl from '@scss/components-js/_dialogs.scss?url';
-import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
+import { loadStyleSheets } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
@@ -14,8 +14,17 @@ const querySelector = '.dcf-gallery-img:not(.dcf-gallery-img-initialized)';
 // Type of plugin
 const pluginType = 'multi';
 
+// Whether we need the use the mutation observer to initialize nested components
+const pluginLoadAfterWatch = false;
+
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
+
+/**
+ * Stores the initialization promise to prevent duplicate initialization
+ * @type {?Promise<UNLDialog>}
+ */
+let initializationPromise = null;
 
 /**
  * Gets the query selector which is used for this plugin's component
@@ -34,6 +43,15 @@ export function getPluginType() {
 }
 
 /**
+ * Gets the pluginLoadAfterWatch value
+ * @returns { Boolean }
+ */
+export function getPluginLoadAfterWatch() {
+    return pluginLoadAfterWatch;
+}
+
+
+/**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
@@ -46,26 +64,40 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return UNLGallery; }
-    isInitialized = true;
+    // If already initialized, return the class directly (synchronous)
+    if (isInitialized) {
+        return UNLGallery;
+    }
 
-    const galleryComponent = await import('@js-src/components/unl-gallery.js');
-    UNLGallery = galleryComponent.default;
-    await loadStyleSheet(dialogCssUrl);
-    await loadStyleSheet(galleryCssUrl);
+    // If initialization is in progress, return the existing promise
+    if (initializationPromise !== null) {
+        return initializationPromise;
+    }
 
-    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
-        detail: {
-            pluginType: pluginType,
-            pluginComponent: UNLGallery,
-            styleSheetsLoaded: [
-                dialogCssUrl,
-                galleryCssUrl,
-            ],
-        },
-    }));
+    // Start new initialization
+    initializationPromise = (async() => {
+        const galleryComponent = await import('@js-src/components/unl-gallery.js');
+        UNLGallery = galleryComponent.default;
+        await loadStyleSheets([dialogCssUrl, galleryCssUrl]);
 
-    return UNLGallery;
+        isInitialized = true;
+
+        document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+            detail: {
+                pluginType: pluginType,
+                pluginComponent: UNLGallery,
+                styleSheetsLoaded: [
+                    dialogCssUrl,
+                    galleryCssUrl,
+                ],
+            },
+        }));
+
+
+        return UNLGallery;
+    })();
+
+    return initializationPromise;
 }
 
 /**
@@ -97,11 +129,10 @@ export async function loadElement(element, options) {
  * @returns { Promise<UNLGallery[]> }
  */
 export async function loadElements(elements, options) {
-    const outputElements = [];
-    for (const singleElement of elements) {
-        outputElements.push(await loadElement(singleElement, options));
-    }
-    return outputElements;
+    const loadedElements = await Promise.all(
+        Array.from(elements).map(element => loadElement(element, options)),
+    );
+    return loadedElements;
 }
 
 /**

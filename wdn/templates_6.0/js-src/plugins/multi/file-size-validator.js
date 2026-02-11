@@ -10,8 +10,17 @@ const querySelector = '.dcf-file-size-validator:not(.dcf-file-size-validator-ini
 // Type of plugin
 const pluginType = 'multi';
 
+// Whether we need the use the mutation observer to initialize nested components
+const pluginLoadAfterWatch = false;
+
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
+
+/**
+ * Stores the initialization promise to prevent duplicate initialization
+ * @type {?Promise<UNLDialog>}
+ */
+let initializationPromise = null;
 
 /**
  * Gets the query selector which is used for this plugin's component
@@ -30,6 +39,15 @@ export function getPluginType() {
 }
 
 /**
+ * Gets the pluginLoadAfterWatch value
+ * @returns { Boolean }
+ */
+export function getPluginLoadAfterWatch() {
+    return pluginLoadAfterWatch;
+}
+
+
+/**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
@@ -42,21 +60,35 @@ export function getIsInitialized() {
  * @returns { Promise<void> }
  */
 export async function initialize() {
-    if (isInitialized) { return UNLFileSizeValidator; }
-    isInitialized = true;
+    // If already initialized, return the class directly (synchronous)
+    if (isInitialized) {
+        return UNLFileSizeValidator;
+    }
 
-    const fileSizeValidatorComponent = await import('@js-src/components/unl-file-size-validator.js');
-    UNLFileSizeValidator = fileSizeValidatorComponent.default;
+    // If initialization is in progress, return the existing promise
+    if (initializationPromise !== null) {
+        return initializationPromise;
+    }
 
-    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
-        detail: {
-            pluginType: pluginType,
-            pluginComponent: UNLFileSizeValidator,
-            styleSheetsLoaded: [],
-        },
-    }));
+    // Start new initialization
+    initializationPromise = (async() => {
+        const fileSizeValidatorComponent = await import('@js-src/components/unl-file-size-validator.js');
+        UNLFileSizeValidator = fileSizeValidatorComponent.default;
 
-    return UNLFileSizeValidator;
+        isInitialized = true;
+
+        document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+            detail: {
+                pluginType: pluginType,
+                pluginComponent: UNLFileSizeValidator,
+                styleSheetsLoaded: [],
+            },
+        }));
+
+        return UNLFileSizeValidator;
+    })();
+
+    return initializationPromise;
 }
 
 /**
@@ -88,11 +120,10 @@ export async function loadElement(element, options) {
  * @returns { Promise<UNLFileSizeValidator[]> }
  */
 export async function loadElements(elements, options) {
-    const outputElements = [];
-    for (const singleElement of elements) {
-        outputElements.push(await loadElement(singleElement, options));
-    }
-    return outputElements;
+    const loadedElements = await Promise.all(
+        Array.from(elements).map(element => loadElement(element, options)),
+    );
+    return loadedElements;
 }
 
 /**

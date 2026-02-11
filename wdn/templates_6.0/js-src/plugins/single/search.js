@@ -19,6 +19,9 @@ const querySelector = '.dcf-search';
 // Type of plugin
 const pluginType = 'single';
 
+// Whether we need the use the mutation observer to initialize nested components
+const pluginLoadAfterWatch = false;
+
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
 
@@ -37,6 +40,15 @@ export function getQuerySelector() {
 export function getPluginType() {
     return pluginType;
 }
+
+/**
+ * Gets the pluginLoadAfterWatch value
+ * @returns { Boolean }
+ */
+export function getPluginLoadAfterWatch() {
+    return pluginLoadAfterWatch;
+}
+
 
 /**
  * Returns if the plugin has been initialized yet
