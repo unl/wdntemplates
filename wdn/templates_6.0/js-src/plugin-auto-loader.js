@@ -25,10 +25,12 @@ const watchList = [];
 // Validate and add all components to watch list
 if (enabled) {
     window.UNL.autoLoader.plugins = {};
-    for (const [pluginName, pluginConfig] of Object.entries(configPluginList)) {
+
+    // Load all plugin modules in parallel
+    const pluginLoadPromises = Object.entries(configPluginList).map(async([pluginName, pluginConfig]) => {
         if (!('url' in pluginConfig)) {
             console.error(`Missing URL in autoloader plugin config: ${pluginName}`);
-            continue;
+            return;
         }
         let pluginModule = null;
         try {
@@ -36,37 +38,38 @@ if (enabled) {
         } catch(err) {
             console.error(`Error loading plugin: ${pluginName}`);
             console.error(err);
-            continue;
+            return;
         }
         if (typeof pluginModule.getPluginType !== 'function') {
             console.error(`Plugin missing export: getPluginType (function): ${pluginName}`);
-            continue;
+            return;
         }
         if (typeof pluginModule.initialize !== 'function') {
             console.error(`Plugin missing export: initialize (function): ${pluginName}`);
-            continue;
+            return;
         }
         if (typeof pluginModule.getQuerySelector !== 'function') {
             console.error(`Plugin missing export: getQuerySelector (function): ${pluginName}`);
-            continue;
+            return;
         }
         if (pluginModule.getPluginType() === 'single') {
             if (typeof pluginModule.isOnPage !== 'function') {
                 console.error(`Plugin missing export: isOnPage (function): ${pluginName}`);
-                continue;
+                return;
             }
         } else if (pluginModule.getPluginType() === 'multi') {
             if (typeof pluginModule.loadElement !== 'function') {
                 console.error(`Plugin missing export: loadElement (function): ${pluginName}`);
-                continue;
+                return;
             }
             if (typeof pluginModule.loadElements !== 'function') {
                 console.error(`Plugin missing export: loadElements (function): ${pluginName}`);
-                continue;
+                return;
             }
         }
 
         window.UNL.autoLoader.plugins[pluginName] = {
+            loaded: false,
             optInSelector: pluginConfig?.optInSelector ?? null,
             optOutSelector: pluginConfig?.optOutSelector ?? null,
             customConfig: pluginConfig?.customConfig ?? {},
@@ -76,8 +79,16 @@ if (enabled) {
             elements: [],
         };
 
+        if (typeof pluginModule.getPluginLoadAfterWatch === 'function' && pluginModule.getPluginLoadAfterWatch() === false) {
+            await loadPlugin(pluginModule, window.UNL.autoLoader.plugins[pluginName], pluginName);
+            window.UNL.autoLoader.plugins[pluginName].loaded = true;
+        }
+
         watchList.push(pluginName);
-    }
+    });
+
+    // Wait for all initializations to complete
+    await Promise.all(pluginLoadPromises);
 }
 
 // Start watching the page for new changes
@@ -93,56 +104,8 @@ if (enabled && watch) {
                         const pluginData = window.UNL.autoLoader.plugins[singlePluginName];
                         const pluginModule = pluginData.module;
 
-                        let foundElements = [];
-                        if (nodeAdded.matches(pluginModule.getQuerySelector())) {
-                            foundElements.push(nodeAdded);
-                        }
-                        foundElements = foundElements.concat(Array.from(nodeAdded.querySelectorAll(pluginModule.getQuerySelector())));
-
-                        for (const singleFoundElement of foundElements) {
-                            if (globalOptOutSelector !== null && singleFoundElement.matches(globalOptOutSelector)) {
-                                return;
-                            }
-                            if (globalOptInSelector !== null && !singleFoundElement.matches(globalOptInSelector)) {
-                                return;
-                            }
-                            if (pluginData.optInSelector !== null && !(singleFoundElement.matches(pluginData.optInSelector))) {
-                                return;
-                            }
-                            if (pluginData.optOutSelector !== null && singleFoundElement.matches(pluginData.optOutSelector)) {
-                                return;
-                            }
-
-                            if (pluginModule.getPluginType() === 'single') {
-                                try {
-                                    const element = await pluginModule.initialize(pluginData.customConfig);
-                                    if (element !== null) {
-                                        pluginData.elements.push(element);
-                                        if (typeof pluginData.onPluginLoadedElement === 'function') {
-                                            pluginData.onPluginLoadedElement({
-                                                loadedElement: element,
-                                            });
-                                        }
-                                    }
-                                    watchList.splice(watchList.indexOf(singlePluginName), 1);
-                                } catch (err) {
-                                    console.error(`Error initializing plugin ${singlePluginName}:`, err);
-                                }
-
-                            } else if (pluginModule.getPluginType() === 'multi') {
-                                try {
-                                    const element = await pluginModule.loadElement(singleFoundElement, pluginData.customConfig);
-                                    pluginData.elements = pluginData.elements.concat(element);
-                                    if (typeof pluginData.onPluginLoadedElement === 'function') {
-                                        pluginData.onPluginLoadedElement({
-                                            loadedElement: element,
-                                        });
-                                    }
-                                } catch (err) {
-                                    console.error(`Error loading plugin element for ${singlePluginName}:`, err);
-                                }
-                            }
-                        }
+                        await checkPluginMutation(nodeAdded, pluginModule, pluginData, singlePluginName);
+                        pluginData.loaded = true;
                     }
                 }
             }
@@ -159,84 +122,16 @@ if (enabled && watch) {
 
 // Loads all elements that are already on the page
 if (enabled) {
-    for (const singlePluginName in window.UNL.autoLoader.plugins) {
-        const pluginData = window.UNL.autoLoader.plugins[singlePluginName];
+    const initPromises = Object.entries(window.UNL.autoLoader.plugins).map(async([singlePluginName, pluginData]) => {
         const pluginModule = pluginData.module;
 
-        if (typeof pluginModule.getPluginType !== 'function') {
-            continue;
+        if (pluginData.loaded === false) {
+            await loadPlugin(pluginModule, pluginData, singlePluginName);
         }
+    });
 
-        // If the single plugins target is not on the page then we will add it to the watch list
-        //   if it is on the page when we will initialize the plugin
-        if (pluginModule.getPluginType() === 'single') {
-            if (pluginModule.isOnPage()) {
-                try {
-                    const element = await pluginModule.initialize(pluginData.customConfig);
-                    if (element !== null) {
-                        pluginData.elements.push(element);
-                        if (typeof pluginData.onPluginLoadedElement === 'function') {
-                            pluginData.onPluginLoadedElement({
-                                loadedElement: element,
-                            });
-                        }
-                    }
-                } catch (err) {
-                    console.error(`Error initializing plugin ${singlePluginName}:`, err);
-                }
-
-                // Since there would be only one we no longer need to watch this component
-                watchList.splice(watchList.indexOf(singlePluginName), 1);
-            }
-
-        } else if (pluginModule.getPluginType() === 'multi') {
-            let matchingElements = Array.from(document.querySelectorAll(pluginModule.getQuerySelector()));
-
-            // Exit early if it does not find anything
-            if (matchingElements.length === 0) {
-                continue;
-            }
-
-            // Filter out opt out
-            if (globalOptOutSelector !== null) {
-                matchingElements = matchingElements.filter((matchingElement) => {
-                    return !(matchingElement.matches(globalOptOutSelector));
-                });
-            }
-            if (pluginData.optOutSelector !== null) {
-                matchingElements = matchingElements.filter((matchingElement) => {
-                    return !(matchingElement.matches(pluginData.optOutSelector));
-                });
-            }
-
-            // Filter out non-opt in
-            if (globalOptInSelector !== null) {
-                matchingElements = matchingElements.filter((matchingElement) => {
-                    return matchingElement.matches(globalOptInSelector);
-                });
-            }
-            if (pluginData.optInSelector !== null) {
-                matchingElements = matchingElements.filter((matchingElement) => {
-                    return matchingElement.matches(pluginData.optInSelector);
-                });
-            }
-
-            try {
-                // load the rest of the elements and add the plugin to the watch list
-                const elements = await pluginModule.loadElements(matchingElements, pluginData.customConfig);
-                pluginData.elements = pluginData.elements.concat(elements);
-                if (typeof pluginData.onPluginLoadedElement === 'function') {
-                    elements.forEach((singleElement) => {
-                        pluginData.onPluginLoadedElement({
-                            loadedElement: singleElement,
-                        });
-                    });
-                }
-            } catch (err) {
-                console.error(`Error loading plugin element for ${singlePluginName}:`, err);
-            }
-        }
-    }
+    // Wait for all initializations to complete
+    await Promise.all(initPromises);
 }
 
 window.UNL.autoLoader.loaded = true;
@@ -254,3 +149,128 @@ window.UNL.autoLoader.onLoad = (callbackFunc) => {
 };
 
 document.dispatchEvent(new Event('autoLoaderPostLoad'));
+
+async function loadPlugin(pluginModule, pluginData, singlePluginName) {
+    // If the single plugins target is not on the page then we will add it to the watch list
+    //   if it is on the page when we will initialize the plugin
+    if (pluginModule.getPluginType() === 'single') {
+        if (pluginModule.isOnPage()) {
+            try {
+                const element = await pluginModule.initialize(pluginData.customConfig);
+                if (element !== null) {
+                    pluginData.elements.push(element);
+                    if (typeof pluginData.onPluginLoadedElement === 'function') {
+                        pluginData.onPluginLoadedElement({
+                            loadedElement: element,
+                        });
+                    }
+                }
+            } catch (err) {
+                console.error(`Error initializing plugin ${singlePluginName}:`, err);
+            }
+
+            // Since there would be only one we no longer need to watch this component
+            watchList.splice(watchList.indexOf(singlePluginName), 1);
+        }
+
+    } else if (pluginModule.getPluginType() === 'multi') {
+        let matchingElements = Array.from(document.querySelectorAll(pluginModule.getQuerySelector()));
+
+        // Exit early if it does not find anything
+        if (matchingElements.length === 0) {
+            return;
+        }
+
+        // Filter out opt out
+        if (globalOptOutSelector !== null) {
+            matchingElements = matchingElements.filter((matchingElement) => {
+                return !(matchingElement.matches(globalOptOutSelector));
+            });
+        }
+        if (pluginData.optOutSelector !== null) {
+            matchingElements = matchingElements.filter((matchingElement) => {
+                return !(matchingElement.matches(pluginData.optOutSelector));
+            });
+        }
+
+        // Filter out non-opt in
+        if (globalOptInSelector !== null) {
+            matchingElements = matchingElements.filter((matchingElement) => {
+                return matchingElement.matches(globalOptInSelector);
+            });
+        }
+        if (pluginData.optInSelector !== null) {
+            matchingElements = matchingElements.filter((matchingElement) => {
+                return matchingElement.matches(pluginData.optInSelector);
+            });
+        }
+
+        try {
+            // load the rest of the elements and add the plugin to the watch list
+            const elements = await pluginModule.loadElements(matchingElements, pluginData.customConfig);
+            pluginData.elements = pluginData.elements.concat(elements);
+            if (typeof pluginData.onPluginLoadedElement === 'function') {
+                elements.forEach((singleElement) => {
+                    pluginData.onPluginLoadedElement({
+                        loadedElement: singleElement,
+                    });
+                });
+            }
+        } catch (err) {
+            console.error(`Error loading plugin element for ${singlePluginName}:`, err);
+        }
+    }
+}
+
+async function checkPluginMutation(nodeAdded, pluginModule, pluginData, singlePluginName) {
+    let foundElements = [];
+    if (nodeAdded.matches(pluginModule.getQuerySelector())) {
+        foundElements.push(nodeAdded);
+    }
+    foundElements = foundElements.concat(Array.from(nodeAdded.querySelectorAll(pluginModule.getQuerySelector())));
+
+    for (const singleFoundElement of foundElements) {
+        if (globalOptOutSelector !== null && singleFoundElement.matches(globalOptOutSelector)) {
+            return;
+        }
+        if (globalOptInSelector !== null && !singleFoundElement.matches(globalOptInSelector)) {
+            return;
+        }
+        if (pluginData.optInSelector !== null && !(singleFoundElement.matches(pluginData.optInSelector))) {
+            return;
+        }
+        if (pluginData.optOutSelector !== null && singleFoundElement.matches(pluginData.optOutSelector)) {
+            return;
+        }
+
+        if (pluginModule.getPluginType() === 'single') {
+            try {
+                const element = await pluginModule.initialize(pluginData.customConfig);
+                if (element !== null) {
+                    pluginData.elements.push(element);
+                    if (typeof pluginData.onPluginLoadedElement === 'function') {
+                        pluginData.onPluginLoadedElement({
+                            loadedElement: element,
+                        });
+                    }
+                }
+                watchList.splice(watchList.indexOf(singlePluginName), 1);
+            } catch (err) {
+                console.error(`Error initializing plugin ${singlePluginName}:`, err);
+            }
+
+        } else if (pluginModule.getPluginType() === 'multi') {
+            try {
+                const element = await pluginModule.loadElement(singleFoundElement, pluginData.customConfig);
+                pluginData.elements = pluginData.elements.concat(element);
+                if (typeof pluginData.onPluginLoadedElement === 'function') {
+                    pluginData.onPluginLoadedElement({
+                        loadedElement: element,
+                    });
+                }
+            } catch (err) {
+                console.error(`Error loading plugin element for ${singlePluginName}:`, err);
+            }
+        }
+    }
+}

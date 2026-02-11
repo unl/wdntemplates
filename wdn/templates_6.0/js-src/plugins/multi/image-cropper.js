@@ -1,6 +1,6 @@
 import collapsibleFieldsetsCssUrl from '@scss/components-js/_collapsible-fieldsets.scss?url';
 import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
-import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
+import { loadStyleSheets } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
@@ -14,8 +14,17 @@ const querySelector = '.dcf-image-cropper:not(.dcf-image-cropper-initialized)';
 // Type of plugin
 const pluginType = 'multi';
 
+// Whether we need the use the mutation observer to initialize nested components
+const pluginLoadAfterWatch = false;
+
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
+
+/**
+ * Stores the initialization promise to prevent duplicate initialization
+ * @type {?Promise<UNLDialog>}
+ */
+let initializationPromise = null;
 
 /**
  * Gets the query selector which is used for this plugin's component
@@ -34,6 +43,15 @@ export function getPluginType() {
 }
 
 /**
+ * Gets the pluginLoadAfterWatch value
+ * @returns { Boolean }
+ */
+export function getPluginLoadAfterWatch() {
+    return pluginLoadAfterWatch;
+}
+
+
+/**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
@@ -46,25 +64,37 @@ export function getIsInitialized() {
  * @returns { Promise<UNLImageCropper> }
  */
 export async function initialize() {
-    if (isInitialized) { return UNLImageCropper; }
-    isInitialized = true;
+    // If already initialized, return the class directly (synchronous)
+    if (isInitialized) {
+        return UNLImageCropper;
+    }
 
-    const imageCropperComponent = await import('@js-src/components/unl-image-cropper.js');
-    UNLImageCropper = imageCropperComponent.default;
+    // If initialization is in progress, return the existing promise
+    if (initializationPromise !== null) {
+        return initializationPromise;
+    }
 
-    await loadStyleSheet(buttonToggleCssUrl);
-    await loadStyleSheet(collapsibleFieldsetsCssUrl);
+    // Start new initialization
+    initializationPromise = (async() => {
+        const imageCropperComponent = await import('@js-src/components/unl-image-cropper.js');
+        UNLImageCropper = imageCropperComponent.default;
+        await loadStyleSheets([buttonToggleCssUrl, collapsibleFieldsetsCssUrl]);
 
-    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
-        detail: {
-            pluginType: pluginType,
-            pluginComponent: UNLImageCropper,
-            styleSheetsLoaded: [
-            ],
-        },
-    }));
+        isInitialized = true;
 
-    return UNLImageCropper;
+        document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+            detail: {
+                pluginType: pluginType,
+                pluginComponent: UNLImageCropper,
+                styleSheetsLoaded: [
+                ],
+            },
+        }));
+
+        return UNLImageCropper;
+    })();
+
+    return initializationPromise;
 }
 
 /**
@@ -96,11 +126,10 @@ export async function loadElement(element, options) {
  * @returns { Promise<UNLImageCropper[]> }
  */
 export async function loadElements(elements, options) {
-    const outputElements = [];
-    for (const singleElement of elements) {
-        outputElements.push(await loadElement(singleElement, options));
-    }
-    return outputElements;
+    const loadedElements = await Promise.all(
+        Array.from(elements).map(element => loadElement(element, options)),
+    );
+    return loadedElements;
 }
 
 /**
