@@ -7,16 +7,6 @@
 @use "../mixins/" as mixins;
 
 
-
-.unl dialog#dcf-nav-dialog {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: fit-content !important;
-  max-height: 100% !important;
-  z-index: 999;
-}
-
-
 .unl dialog#dcf-nav-dialog::backdrop {
   backdrop-filter: blur(3px) !important;
   background-color: var(--bg-overlay-light) !important;
