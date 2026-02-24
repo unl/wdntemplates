@@ -54,6 +54,21 @@
   }
 
 
+  // TODO: Remove after UNL Chat is updated
+  .unl .dcf-nav-toggle-btn-chat {
+    color: var.$cream !important;
+    flex-basis: 25%;
+    row-gap: .42em !important;
+  }
+
+
+  // TODO: Remove after UNL Chat is updated
+  .unl .dcf-nav-toggle-label-chat {
+    font-weight: 600 !important;
+    margin-top: 0 !important;
+  }
+
+
   .unl .dcf-nav .dcf-nav-toggle-btn-menu {
     display: none;
   }
