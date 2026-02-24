@@ -92,7 +92,7 @@
     }
 
     .unl-idm-content {
-      bottom: 4.21em;
+      bottom: var.$length-em-9; // 4.21em
       grid-template-rows: 1fr auto;
       height: 56vh;
     }
@@ -100,14 +100,14 @@
 
     .unl-idm-personal {
       border-bottom: 1px solid rgba(0,0,0,.25); // Remove when IDM JS is working
-      bottom: 4.21em;
+      bottom: var.$length-em-9; // 4.21em
       grid-row: 2 / 3;
       z-index: 9999;
     }
 
 
     .unl-idm-services {
-      --mask-height: 1.78em;
+      --mask-height: #{var.$length-em-6}; // 1.78em;
       grid-row: 1 / 2;
     }
 
@@ -143,7 +143,7 @@
 
 
     .unl-idm-services {
-      --mask-height: 3.16em;
+      --mask-height: #{var.$length-em-8}; // 3.16em;
       border-top: 3px solid #d00000;
     }
 
