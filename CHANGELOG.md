@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.0.9 (Feb 11, 2026)
+- Added link tracking for web analytics
+- Fix mobile nav interactions
+- Parallelized autoloader
+- Updated skip nav z index
+- Updated employment footer link
+
 ## 6.0.8 (Jan 14, 2026)
 - Added randomizer component
 - Updated copyright
