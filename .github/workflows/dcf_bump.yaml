@@ -68,15 +68,18 @@ jobs:
 
           echo "$UPDATED_CONTENT" > $FILE_PATH
 
+          # Store short hash for use in branch name
+          echo "short_hash=${NEW_COMMIT_HASH:0:7}" >> $GITHUB_OUTPUT
+
       - name: Create pull request
         uses: gr2m/create-or-update-pull-request-action@v1
         if: ${{ steps.compare-commits.outputs.recent_commit == 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          title: "Bump DCF"
+          title: "Bump DCF (${{ steps.modify-file.outputs.short_hash }})"
           body: "Updated DCF commit hash"
-          branch: "gw-dcf-bump-branch"
+          branch: "gw-dcf-bump-branch-${{ steps.modify-file.outputs.short_hash }}"
           commit-message: "Bumped DCF"
           labels: dependency
           reviewers: tommyneu, skoolbus39
