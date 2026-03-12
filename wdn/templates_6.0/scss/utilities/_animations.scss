@@ -20,10 +20,26 @@
 
 
   // Stagger scroll FX
-  @for $i from 0 through 48 {
-    .unl-scroll-trigger-stagger .unl-scroll-trigger-container:nth-of-type(#{$i}) [class*="unl-scroll-fx-"] {
-      transition-delay: ($i * var.$transition-delay-scroll-fx-stagger);
+  // @supports checks whether the browser understands a specific declaration.
+  // sibling-index() returns a number.
+  // z-index accepts a number value, so it’s a safe property to test with.
+  // If the browser doesn't recognize sibling-index(), the whole declaration becomes invalid and the @supports block will fail.
+  @supports (z-index: sibling-index()) {
+
+    @property --stagger-index {
+      syntax: "<integer>";
+      inherits: true;
+      initial-value: 0;
     }
+
+    .unl-scroll-trigger-stagger .unl-scroll-trigger-container {
+      --stagger-index: sibling-index();
+    }
+
+    .unl-scroll-trigger-stagger .unl-scroll-trigger-container [class*="unl-scroll-fx-"] {
+      transition-delay: calc(var(--stagger-index) * #{var.$transition-delay-scroll-fx-stagger});
+    }
+
   }
 
 
