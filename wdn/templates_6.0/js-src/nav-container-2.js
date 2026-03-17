@@ -164,20 +164,79 @@ function setUpHoverIntent() {
     const navHoverOpenTimeoutDurationMs = 100;
     const navHoverCloseTimeoutDurationMs = 100;
     let navJustClosed = false;
+    let mouseHoverLeaveFlag = false;
+    let mouseHoverEnterFlag = false;
 
-    // Focus us on the first link when the dialog opens in mobile
-    dcfNavDialog.addEventListener('dialogPostOpen', () => {
-        if (currentScreenSize === 'mobile') {
-            dcfNavDialog.querySelector('.dcf-local-copy-dialog a')?.focus();
+    // Before we open the dialog we need to check if we are focused on the toggle button
+    dcfNavDialog.addEventListener('dialogPreOpen', () => {
+        const desktopToggleButton = dcfNav.querySelector('#dcf-menu-toggle');
+        if (desktopToggleButton !== null && document.activeElement.isSameNode(desktopToggleButton)) {
+            mouseHoverEnterFlag = false;
         }
     });
 
-    // When we close focus us back on the toggle dialog button
+    // Handles the logic of when the dialog opens
+    dcfNavDialog.addEventListener('dialogPostOpen', () => {
+
+        // We will disable the dialog toggle button that is behind the dialog
+        dcfNav.querySelector('#dcf-menu-toggle')?.setAttribute('tabindex', '-1');
+        dcfNav.querySelector('#dcf-menu-toggle')?.setAttribute('aria-hidden', 'true');
+
+        // We will disable the nav links that are behind the dialog
+        dcfNav.querySelectorAll('#dcf-navigation a').forEach((singleNavLink) => {
+            singleNavLink.setAttribute('tabindex', '-1');
+            singleNavLink.setAttribute('aria-hidden', 'true');
+        });
+
+        // If we hovered over the nav to open the dialog then we do not want to focus on anything
+        if (mouseHoverEnterFlag === false) {
+            dcfNavDialog.querySelector('.dcf-local-copy-dialog a')?.focus();
+        }
+        mouseHoverEnterFlag = false;
+    });
+
+    // Before the dialog closes we need to check to see we just closed due to focusout
+    // and we need to check if any elements inside the dialog was focused on via the keyboard
+    dcfNavDialog.addEventListener('dialogPreClose', (event) => {
+        if ('detail' in event && 'type' in event.detail && event.detail.type === 'focusout') {
+            navJustClosed = true;
+        }
+        if (dcfNavDialog.contains(document.activeElement)) {
+            mouseHoverLeaveFlag = false;
+        }
+    });
+
+    // Handles the logic of when the dialog closes
     dcfNavDialog.addEventListener('dialogPostClose', () => {
-        if (currentScreenSize === 'mobile') {
-            document.querySelector('button.dcf-btn-nav-mobile').focus();
-        } else {
-            document.querySelector('button.dcf-btn-nav-desktop').focus();
+
+        // We will re-enable the dialog toggle button
+        dcfNav.querySelector('#dcf-menu-toggle')?.removeAttribute('tabindex');
+        dcfNav.querySelector('#dcf-menu-toggle')?.removeAttribute('aria-hidden');
+
+        // We will re-enable the non-dialog nav links
+        dcfNav.querySelectorAll('#dcf-navigation a').forEach((singleNavLink) => {
+            singleNavLink.removeAttribute('tabindex', '-1');
+            singleNavLink.removeAttribute('aria-hidden', 'true');
+        });
+
+        // If we used mouse hover to leave the dialog we do not want to focus
+        if (mouseHoverLeaveFlag === false) {
+            // If we are using the keyboard we will need to move the focus back to the toggle button
+            if (currentScreenSize === 'mobile') {
+                document.querySelector('button.dcf-btn-nav-mobile').focus();
+            } else {
+                document.querySelector('button.dcf-btn-nav-desktop').focus();
+            }
+        }
+        mouseHoverLeaveFlag = false;
+    });
+
+    // This handles the logic of closing the dialog when you tap above the dialog in mobile
+    dcfNavDialog.addEventListener('click', (event) => {
+        if (dcfNavDialogClassInstance !== null) {
+            if (isScreenUnderMediumSize() && !navDialogContent.contains(event.target)) {
+                dcfNavDialogClassInstance.close();
+            }
         }
     });
 
@@ -190,10 +249,12 @@ function setUpHoverIntent() {
     dcfNav.addEventListener('mouseenter', () => {
         // If we just clicked the close button then ignore this
         if (navJustClosed === true) {
+            navJustClosed = false;
             return;
         }
         navOpenTimeout = setTimeout(() => {
             if (dcfNavDialogClassInstance !== null) {
+                mouseHoverEnterFlag = true;
                 dcfNavDialogClassInstance.open();
             }
         }, navHoverOpenTimeoutDurationMs);
@@ -206,11 +267,15 @@ function setUpHoverIntent() {
 
     // Hover off dialog content for at least ${navHoverCloseTimeoutDurationMs} will close dialog
     navDialogContent.addEventListener('mouseleave', () => {
+
+        // If we are now hovering over the mobile nav then do not close the dialog
+        const mobileNav = document.getElementById('dcf-nav-toggle-group');
+        if (isScreenUnderMediumSize() && mobileNav.matches(':hover')) {
+            return;
+        }
         navCloseTimeout = setTimeout(() => {
-            if (isScreenUnderMediumSize()) {
-                return;
-            }
             if (dcfNavDialogClassInstance !== null) {
+                mouseHoverLeaveFlag = true;
                 dcfNavDialogClassInstance.close();
             }
         }, navHoverCloseTimeoutDurationMs);
