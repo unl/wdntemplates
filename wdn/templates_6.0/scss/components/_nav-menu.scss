@@ -198,3 +198,26 @@
   }
 
 }
+
+
+
+
+// NEW
+
+@include mixins.mq(md, max, width) {
+
+  .unl .dcf-nav-menu {
+    bottom: 0;
+    position: fixed;
+  }
+
+
+  .unl .dcf-nav-menu-content {
+    background-image: linear-gradient(180deg,#d00000 calc(100% - #{var.$height-mobile-toolbar} - var(--mobile-inset-bottom)),#9d0000 calc(100% - var(--mobile-inset-bottom)));
+    bottom: 0;
+    padding-bottom: calc(#{var.$height-mobile-toolbar} + calc(var(--mobile-inset-bottom) * 2));
+    position: fixed;
+  }
+
+}
+

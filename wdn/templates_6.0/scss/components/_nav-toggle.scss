@@ -24,7 +24,8 @@
 
 @include mixins.mq(md, max, width) {
 
-  .unl .dcf-nav-toggle-group {
+  .unl .dcf-nav-toggle-region {
+  // .unl .dcf-nav-toggle-group {
     // box-shadow: 0 1px 3px rgba(157, 0, 0, .5), 0 1px 12px rgba(157, 0, 0, .25);
     // display: flex;
     // z-index: var.$z-nav-toggle-group;
@@ -44,8 +45,13 @@
 
   }
 
-  .unl .dcf-nav-toggle-group:has(.dcf-nav-toggle-btn[aria-expanded="true"]) {
+  .unl .dcf-nav-toggle-region:has(.dcf-nav-toggle-btn[aria-expanded="true"]) {
     border-top: 1px solid rgba(0,0,0,.25);
+  }
+
+
+  .unl .dcf-nav-toggle-group:has(.dcf-nav-toggle-btn[aria-expanded="true"]) {
+    background-image: none;
   }
 
 
@@ -124,5 +130,57 @@
 //     transform: scaleY(1);
 //     transition: transform .05s ease-in-out;
 //   }
+
+}
+
+
+
+
+
+
+
+
+
+
+// NEW
+
+@include mixins.mq(md, max, width) {
+
+  // TEMP START
+  .unl .dcf-nav-toggle-btn-chat {
+    height: unset !important;
+  }
+
+  .unl .dcf-nav-toggle-label-chat {
+    font-size: .56em !important;
+    font-weight: normal !important;
+  }
+
+  // .dcf-nav-toggle-btn-chat svg {
+  //   height: 1.78em !important;
+  //   width: 1.78em !important;
+  // }
+  // TEMP END
+
+
+  .unl .dcf-nav-container {
+    --mobile-inset-inline: #{var.$length-vw-2};
+    --mobile-inset-bottom: #{var.$ms-4}rem;
+  }
+
+  .unl .dcf-nav-toggle-region {
+    // padding-bottom: var(--mobile-inset-bottom);
+    padding-inline: var(--mobile-inset-inline);
+    z-index: 99999;
+  }
+
+  .unl .dcf-nav-toggle-group {
+    // box-shadow: 0 1px 3px rgba(157, 0, 0, .5), 0 1px 12px 1px rgba(157, 0, 0, .1);
+    margin-bottom: var(--mobile-inset-bottom);
+  }
+
+  .unl .dcf-nav-toggle-group {
+    background-image: linear-gradient(180deg, #d00000, #9d0000)
+  }
 
 }
