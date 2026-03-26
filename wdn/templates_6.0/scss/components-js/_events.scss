@@ -16,7 +16,7 @@
 
   .unl-event-teaser {
     display: grid;
-    grid-template: 'a b' auto 'a c' 1fr / var.$length-em-8 1fr;
+    grid-template: 'a b' auto 'a c' 1fr / #{var.$length-em-8} 1fr;
   }
 
 
