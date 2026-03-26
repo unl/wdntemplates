@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.3.59 (March 26, 2026)
+- Update requirejs to 2.3.7
+
 ## 5.3.58 (November 17, 2025)
 - Fix search select ally
 
