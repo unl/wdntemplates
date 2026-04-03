@@ -3,5 +3,19 @@
 /////////////////////////////////
 
 
+@use './borders' as b;
+// @use "./navigation" as nav;
+@use './sizing' as s;
+
+@use "@dcf/scss/variables/navigation" as nav;
 @forward "@dcf/scss/variables/navigation";
 // Use `@forward .. with ..` to override variables
+
+// Define before height, used in height calculations
+// Inset (mobile toolbar toggles for navigation, search, login and chat)
+$inset-bottom-mobile-toolbar: s.$length-em-2 !default;
+$inset-inline-mobile-toolbar: s.$length-vw-2 !default;
+
+// Height (mobile toolbar toggles for navigation, search, login and chat)
+$height-mobile-toolbar-closed: nav.$height-mobile-toolbar !default;
+$height-mobile-toolbar-open: calc(#{nav.$height-mobile-toolbar} + #{$inset-bottom-mobile-toolbar} + #{b.$roundrect})
