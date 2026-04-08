@@ -40,7 +40,7 @@
 -->
 
   <header class="dcf-header" id="dcf-header" role="banner">
-    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1-local.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/cta-header-1.html" -->
     <!--#include virtual="/wdn/templates_6.0/includes/global/visit-header-1.html" -->
     <!-- InstanceBeginEditable name="headervisit" -->
