@@ -1,6 +1,6 @@
 import collapsibleFieldsetsCssUrl from '@scss/components-js/_collapsible-fieldsets.scss?url';
 import buttonToggleCssUrl from '@scss/components-js/_button-toggles.scss?url';
-import { loadStyleSheet } from '@js-src/lib/unl-utility.js';
+import { loadStyleSheets } from '@js-src/lib/unl-utility.js';
 
 /**
  * This is where the imported class will be stored
@@ -14,8 +14,17 @@ const querySelector = '.dcf-collapsible-fieldset:not(.dcf-collapsible-fieldset-i
 // Type of plugin
 const pluginType = 'multi';
 
+// Whether we need the use the mutation observer to initialize nested components
+const pluginLoadAfterWatch = false;
+
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
+
+/**
+ * Stores the initialization promise to prevent duplicate initialization
+ * @type {?Promise<UNLDialog>}
+ */
+let initializationPromise = null;
 
 /**
  * Gets the query selector which is used for this plugin's component
@@ -34,6 +43,15 @@ export function getPluginType() {
 }
 
 /**
+ * Gets the pluginLoadAfterWatch value
+ * @returns { Boolean }
+ */
+export function getPluginLoadAfterWatch() {
+    return pluginLoadAfterWatch;
+}
+
+
+/**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
@@ -46,26 +64,39 @@ export function getIsInitialized() {
  * @returns { Promise<UNLCollapsibleFieldset> }
  */
 export async function initialize() {
-    if (isInitialized) { return UNLCollapsibleFieldset; }
-    isInitialized = true;
+    // If already initialized, return the class directly (synchronous)
+    if (isInitialized) {
+        return UNLCollapsibleFieldset;
+    }
 
-    const collapsibleFieldsetsComponent = await import('@js-src/components/unl-collapsible-fieldset.js');
-    UNLCollapsibleFieldset = collapsibleFieldsetsComponent.default;
-    await loadStyleSheet(buttonToggleCssUrl);
-    await loadStyleSheet(collapsibleFieldsetsCssUrl);
+    // If initialization is in progress, return the existing promise
+    if (initializationPromise !== null) {
+        return initializationPromise;
+    }
 
-    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
-        detail: {
-            pluginType: pluginType,
-            pluginComponent: UNLCollapsibleFieldset,
-            styleSheetsLoaded: [
-                buttonToggleCssUrl,
-                collapsibleFieldsetsCssUrl,
-            ],
-        },
-    }));
+    // Start new initialization
+    initializationPromise = (async() => {
+        const collapsibleFieldsetsComponent = await import('@js-src/components/unl-collapsible-fieldset.js');
+        UNLCollapsibleFieldset = collapsibleFieldsetsComponent.default;
+        await loadStyleSheets([buttonToggleCssUrl, collapsibleFieldsetsCssUrl]);
 
-    return UNLCollapsibleFieldset;
+        isInitialized = true;
+
+        document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+            detail: {
+                pluginType: pluginType,
+                pluginComponent: UNLCollapsibleFieldset,
+                styleSheetsLoaded: [
+                    buttonToggleCssUrl,
+                    collapsibleFieldsetsCssUrl,
+                ],
+            },
+        }));
+
+        return UNLCollapsibleFieldset;
+    })();
+
+    return initializationPromise;
 }
 
 /**
@@ -97,11 +128,10 @@ export async function loadElement(element, options) {
  * @returns { Promise<UNLCollapsibleFieldset[]> }
  */
 export async function loadElements(elements, options) {
-    const outputElements = [];
-    for (const singleElement of elements) {
-        outputElements.push(await loadElement(singleElement, options));
-    }
-    return outputElements;
+    const loadedElements = await Promise.all(
+        Array.from(elements).map(element => loadElement(element, options)),
+    );
+    return loadedElements;
 }
 
 /**

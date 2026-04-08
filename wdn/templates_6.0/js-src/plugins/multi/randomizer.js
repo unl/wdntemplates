@@ -10,8 +10,17 @@ const querySelector = '.unl-randomizer:not(.unl-randomizer-initialized)';
 // Type of plugin
 const pluginType = 'multi';
 
+// Whether we need the use the mutation observer to initialize nested components
+const pluginLoadAfterWatch = false;
+
 // Storing the state whether the plugin is initialized or not
 let isInitialized = false;
+
+/**
+ * Stores the initialization promise to prevent duplicate initialization
+ * @type {?Promise<UNLDialog>}
+ */
+let initializationPromise = null;
 
 /**
  * Gets the query selector which is used for this plugin's component
@@ -30,6 +39,15 @@ export function getPluginType() {
 }
 
 /**
+ * Gets the pluginLoadAfterWatch value
+ * @returns { Boolean }
+ */
+export function getPluginLoadAfterWatch() {
+    return pluginLoadAfterWatch;
+}
+
+
+/**
  * Returns if the plugin has been initialized yet
  * @returns { Boolean }
  */
@@ -42,21 +60,35 @@ export function getIsInitialized() {
  * @returns { Promise<UNLRandomizer> }
  */
 export async function initialize() {
-    if (isInitialized) { return UNLRandomizer; }
-    isInitialized = true;
+    // If already initialized, return the class directly (synchronous)
+    if (isInitialized) {
+        return UNLRandomizer;
+    }
 
-    const randomizerComponent = await import('@js-src/components/unl-randomizer.js');
-    UNLRandomizer = randomizerComponent.default;
+    // If initialization is in progress, return the existing promise
+    if (initializationPromise !== null) {
+        return initializationPromise;
+    }
 
-    document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
-        detail: {
-            pluginType: pluginType,
-            pluginComponent: UNLRandomizer,
-            styleSheetsLoaded: [],
-        },
-    }));
+    // Start new initialization
+    initializationPromise = (async() => {
+        const randomizerComponent = await import('@js-src/components/unl-randomizer.js');
+        UNLRandomizer = randomizerComponent.default;
 
-    return UNLRandomizer;
+        isInitialized = true;
+
+        document.dispatchEvent(new CustomEvent('UNLPluginInitialized', {
+            detail: {
+                pluginType: pluginType,
+                pluginComponent: UNLRandomizer,
+                styleSheetsLoaded: [],
+            },
+        }));
+
+        return UNLRandomizer;
+    })();
+
+    return initializationPromise;
 }
 
 /**
@@ -88,11 +120,10 @@ export async function loadElement(element, options) {
  * @returns { Promise<UNLRandomizer[]> }
  */
 export async function loadElements(elements, options) {
-    const outputElements = [];
-    for (const singleElement of elements) {
-        outputElements.push(await loadElement(singleElement, options));
-    }
-    return outputElements;
+    const loadedElements = await Promise.all(
+        Array.from(elements).map(element => loadElement(element, options)),
+    );
+    return loadedElements;
 }
 
 /**

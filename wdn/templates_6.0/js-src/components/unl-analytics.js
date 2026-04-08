@@ -56,6 +56,43 @@ export default class UNLAnalytics {
                     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
                     g.async=true; g.src=u+'main.js'; s.parentNode.insertBefore(g,s);
                 })();
+                const listenToAllLinks = () => {
+                    document.body.addEventListener('click', (e) => {
+                        // Double check we clicked a link
+                        const link = e.target.closest('a[href]');
+                        if (!link) {
+                            return;
+                        }
+
+                        // Get the base url of the site/links
+                        const baseTag = document.querySelector('base');
+                        let baseUrl = window.location.href;
+                        if (baseTag !== null) {
+                            const baseTagHref = baseTag.getAttribute('href');
+                            if (baseTagHref !== null && baseTagHref.length > 1) {
+                                baseUrl = baseTagHref;
+                            }
+                        }
+
+                        const linkUrlHref = link.getAttribute('href');
+                        if (linkUrlHref === null || linkUrlHref.length <= 1) {
+                            // If we are here then there is no link to track
+                            return;
+                        }
+
+                        const linkUrl = new URL(linkUrlHref, baseUrl);
+                        _paq.push([
+                            'trackEvent',
+                            'Link Clicked',
+                            linkUrl.toString()
+                        ]);
+                    });
+                };
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', listenToAllLinks);
+                } else {
+                    listenToAllLinks();
+                }
             `;
             headTag.append(newLarueScriptTag);
         }
