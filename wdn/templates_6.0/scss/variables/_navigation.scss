@@ -17,5 +17,9 @@ $inset-bottom-mobile-toolbar: s.$length-em-2 !default;
 $inset-inline-mobile-toolbar: s.$length-vw-2 !default;
 
 // Height (mobile toolbar toggles for navigation, search, login and chat)
-$height-mobile-toolbar-closed: nav.$height-mobile-toolbar !default;
-$height-mobile-toolbar-open: calc(#{nav.$height-mobile-toolbar} + #{$inset-bottom-mobile-toolbar} + #{b.$roundrect})
+// $height-mobile-toolbar-closed: nav.$height-mobile-toolbar !default;
+// $height-mobile-toolbar-open: calc(#{nav.$height-mobile-toolbar} + #{$inset-bottom-mobile-toolbar} + #{b.$roundrect})
+
+
+$height-mobile-toolbar-closed: s.$length-em-9 !default;
+$height-mobile-toolbar-open: calc(#{s.$length-em-9} + #{$inset-bottom-mobile-toolbar} + #{b.$roundrect})

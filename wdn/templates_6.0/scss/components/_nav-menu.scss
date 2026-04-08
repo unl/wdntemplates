@@ -225,27 +225,32 @@
 //       #d00000 calc(100% - #{var.$inset-bottom-mobile-toolbar} - #{var.$height-mobile-toolbar}),
 //       #9d0000 calc(100% - #{var.$inset-bottom-mobile-toolbar})
 //     );
-    bottom: 0;
-    padding-bottom: calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar});
+    // bottom: calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar} + #{var.$roundrect});
+    bottom: calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar});
+    // padding-bottom: calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar});
     position: fixed;
   }
 
   .unl .dcf-nav-menu-content::after {
-    background-image: linear-gradient(180deg,
-      #d00000 calc(100% - #{var.$inset-bottom-mobile-toolbar} - #{var.$height-mobile-toolbar}),
-      #9d0000 calc(100% - #{var.$inset-bottom-mobile-toolbar})
-    );
-    border-radius: var.$roundrect;
+    background-color: #d00000;
+    // background-image: linear-gradient(180deg,
+    //   #d00000 calc(100% - #{var.$inset-bottom-mobile-toolbar} - #{var.$height-mobile-toolbar}),
+    //   #9d0000 calc(100% - #{var.$inset-bottom-mobile-toolbar})
+    // );
+    @include mixins.rounded-top;
+    // border-radius: var.$roundrect;
     bottom: -#{var.$roundrect};
+    // bottom: 0;
     content: '';
     display: block;
-    height: calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar} + #{var.$roundrect});
+    height: calc(100% + #{var.$roundrect});
     left: 0;
     position: absolute;
     // transform: scaleX(calc(1 - calc(var(--mobile-inset-inline) * 2)));
     // transform: scale(#{$pseudo-scale-x-start}, .84);
-    transform: scale(.8876, .84);
-    transform-origin: 50% 0;
+    transform: scale(.8876, 0);
+    // transform-origin: 50% 100%;
+    transform-origin: bottom center;
     transition: transform 200ms cubic-bezier(.25, .46, .45, .94);
     width: 100%;
   }
@@ -255,7 +260,7 @@
     transform: scale(1.03, 1);
 
     @starting-style {
-      transform: scale(.8876, .84);
+      transform: scale(.8876, 0);
     }
 
   }
@@ -265,7 +270,7 @@
     transform: scale(1.03, 1);
 
     @starting-style {
-      transform: scale(.8876, .84);
+      transform: scale(.8876, 0);
     }
 
   }
