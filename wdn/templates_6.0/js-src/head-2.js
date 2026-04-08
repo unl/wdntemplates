@@ -260,10 +260,12 @@ if (typeof window.UNL.idm === 'undefined') {
     };
 }
 
-// This config is if we load the navigation AJAX
+// disableDesktopNav is for when we do not want the dialog nav in desktop
+// nav watch is if we load the navigation AJAX
 if (typeof window.UNL.nav === 'undefined') {
     window.UNL.nav = {
         config: {
+            disableDesktopNav: false,
             watch: false,
         },
     };
