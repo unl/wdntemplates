@@ -1,6 +1,7 @@
 window.UNL = window.UNL || {};
 window.UNL.nav = window.UNL.nav || {};
 window.UNL.nav.config = window.UNL.nav.config || {};
+const disableDesktopNav = window.UNL.nav.config?.disableDesktopNav ?? true;
 const watchEnabled = window.UNL.nav.config?.watch ?? false;
 
 // These variables are used in the `updateStyles` section
@@ -11,6 +12,28 @@ let idmDialog = null;
 let searchDialog = null;
 
 if (watchEnabled) {
+
+    // Set up watching for nav changes and loading parts as they are available
+    setUpNavWatch();
+} else {
+
+    // If we are not looking then we will just try running the setup functions
+    copyNav();
+    setUpHoverIntent();
+    setUpUpdateStyles();
+}
+
+// updateStyles will set currentScreenSize which is used for both the search/idm dialogs closing logic
+//  and also the nav menu dialog closing logic
+window.addEventListener('resize', () => {
+    updateStyles();
+});
+updateStyles();
+
+/**
+ * Watch for ajax nav loading and initialize nav parts as they appear
+ */
+function setUpNavWatch() {
     // These are the elements that are required for the set up functions
     const checkList = {
         'nav.dcf-nav-local': false,
@@ -110,21 +133,7 @@ if (watchEnabled) {
         childList: true,
     };
     headerObserver.observe(dcfHeader, observerConfig);
-} else {
-
-    // If we are not looking then we will just try running the setup functions
-    copyNav();
-    setUpHoverIntent();
-    setUpUpdateStyles();
 }
-
-// updateStyles will set currentScreenSize which is used for both the search/idm dialogs closing logic
-//  and also the nav menu dialog closing logic
-window.addEventListener('resize', () => {
-    updateStyles();
-});
-updateStyles();
-
 
 /**
  * Copies nav links from local to dialog
@@ -166,6 +175,10 @@ function setUpHoverIntent() {
     let navJustClosed = false;
     let mouseHoverLeaveFlag = false;
     let mouseHoverEnterFlag = false;
+
+    if (disableDesktopNav) {
+        dcfNav.querySelector('#dcf-menu-toggle')?.classList.add('dcf-d-none!');
+    }
 
     // Before we open the dialog we need to check if we are focused on the toggle button
     dcfNavDialog.addEventListener('dialogPreOpen', () => {
@@ -250,6 +263,9 @@ function setUpHoverIntent() {
         // If we just clicked the close button then ignore this
         if (navJustClosed === true) {
             navJustClosed = false;
+            return;
+        }
+        if (disableDesktopNav && !isScreenUnderMediumSize()) {
             return;
         }
         navOpenTimeout = setTimeout(() => {
