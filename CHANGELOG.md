@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.0.11 (Apr 14, 2026)
+- Added config to disable nav on desktop
+- Fix print styles
+- Remove bluesky and snapchat links
+
 ## 6.0.10 (Mar 17, 2026)
 - Updated nav accessibility
 - Updated stagger FX styles
