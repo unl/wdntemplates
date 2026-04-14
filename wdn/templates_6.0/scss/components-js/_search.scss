@@ -172,7 +172,51 @@ $pseudo-scale-x-start: 100 - (2 * 5.62);
   }
 
 
+//   .unl dialog#dcf-search-dialog .dcf-search-dialog-backdrop::after {
+//     background-image: linear-gradient(180deg,
+//       #d00000 calc(100% - #{var.$inset-bottom-mobile-toolbar} - #{var.$height-mobile-toolbar}),
+//       #9d0000 calc(100% - #{var.$inset-bottom-mobile-toolbar})
+//     );
+//     border-radius: var.$roundrect;
+//     bottom: -#{var.$roundrect};
+//     content: '';
+//     display: block;
+//     height: calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar} + #{var.$roundrect});
+//     left: 0;
+//     position: absolute;
+//     // transform: scaleX(calc(1 - calc(var(--mobile-inset-inline) * 2)));
+//     // transform: scale(#{$pseudo-scale-x-start}, .84);
+//     transform: scale(.8876, .84);
+//     transform-origin: 50% 0;
+//     transition: transform 200ms cubic-bezier(.25, .46, .45, .94);
+//     width: 100%;
+//   }
+//
+//
+//   .unl dialog#dcf-search-dialog:open .dcf-search-dialog-backdrop::after {
+//     transform: scale(1.03, 1);
+//
+//     @starting-style {
+//       transform: scale(.8876, .84);
+//     }
+//
+//   }
+//
+//
+//   .unl dialog#dcf-search-dialog.dcf-dialog-is-open .dcf-search-dialog-backdrop::after {
+//     transform: scale(1.03, 1);
+//
+//     @starting-style {
+//       transform: scale(.8876, .84);
+//     }
+//
+//   }
+
+
   .unl dialog#dcf-search-dialog .dcf-search-dialog-backdrop::after {
+  //     $scale-toolbar-x: ;
+  //     $scale-toolbar-y: ;
+
     background-image: linear-gradient(180deg,
       #d00000 calc(100% - #{var.$inset-bottom-mobile-toolbar} - #{var.$height-mobile-toolbar}),
       #9d0000 calc(100% - #{var.$inset-bottom-mobile-toolbar})
@@ -181,20 +225,22 @@ $pseudo-scale-x-start: 100 - (2 * 5.62);
     bottom: -#{var.$roundrect};
     content: '';
     display: block;
-    height: calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar} + #{var.$roundrect});
-    left: 0;
+    // height: calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar} + #{var.$roundrect});
+    height: #{var.$height-mobile-toolbar-open};
+    left: -#{var.$roundrect};
     position: absolute;
     // transform: scaleX(calc(1 - calc(var(--mobile-inset-inline) * 2)));
     // transform: scale(#{$pseudo-scale-x-start}, .84);
     transform: scale(.8876, .84);
     transform-origin: 50% 0;
     transition: transform 200ms cubic-bezier(.25, .46, .45, .94);
-    width: 100%;
+    width: calc(100% + var.$roundrect * 2);
+    z-index: -1;
   }
 
 
   .unl dialog#dcf-search-dialog:open .dcf-search-dialog-backdrop::after {
-    transform: scale(1.03, 1);
+    transform: scale(1, 1);
 
     @starting-style {
       transform: scale(.8876, .84);
@@ -204,34 +250,12 @@ $pseudo-scale-x-start: 100 - (2 * 5.62);
 
 
   .unl dialog#dcf-search-dialog.dcf-dialog-is-open .dcf-search-dialog-backdrop::after {
-    transform: scale(1.03, 1);
+    transform: scale(1, 1);
 
     @starting-style {
       transform: scale(.8876, .84);
     }
 
   }
-
-
-//   .unl dialog#dcf-search-dialog:open .dcf-dialog-header {
-//     transform: translateY(-100%);
-//     transform-origin: 50% 0;
-//     transition-property: transform;
-//     transition-duration: 100ms;
-//     transition-timing-function: cubic-bezier(.25, .46, .45, .94);
-//   }
-//
-//
-//   .unl dialog#dcf-search-dialog:open .dcf-dialog-header {
-//     transform: translateY(0);
-//   }
-//
-//
-//   .unl dialog#dcf-search-dialog.dcf-dialog-is-open .dcf-dialog-header {
-//     transform: translateY(0);
-//   }
-
-
-
 
 }

@@ -22,4 +22,4 @@ $inset-inline-mobile-toolbar: s.$length-vw-2 !default;
 
 
 $height-mobile-toolbar-closed: s.$length-em-9 !default;
-$height-mobile-toolbar-open: calc(#{s.$length-em-9} + #{$inset-bottom-mobile-toolbar} + #{b.$roundrect})
+$height-mobile-toolbar-open: calc(#{s.$length-em-9} + #{$inset-bottom-mobile-toolbar} + #{b.$roundrect}) !default;

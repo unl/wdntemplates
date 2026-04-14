@@ -206,10 +206,12 @@
 
 @include mixins.mq(md, max, width) {
 
-  .unl .dcf-nav-menu {
+  .unl .dcf-nav-menu,
+  .unl .dcf-nav-menu-content {
     bottom: 0;
     position: fixed;
   }
+
 
 
   .unl .dcf-nav-menu-content {
@@ -226,9 +228,9 @@
 //       #9d0000 calc(100% - #{var.$inset-bottom-mobile-toolbar})
 //     );
     // bottom: calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar} + #{var.$roundrect});
-    bottom: calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar});
+    padding-bottom: calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar});
     // padding-bottom: calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar});
-    position: fixed;
+    // position: fixed;
   }
 
   .unl .dcf-nav-menu-content::after {
@@ -252,12 +254,12 @@
     // transform-origin: 50% 100%;
     transform-origin: bottom center;
     transition: transform 200ms cubic-bezier(.25, .46, .45, .94);
-    width: 100%;
+    width: calc(100% + var.$roundrect * 2);
   }
 
 
   .unl dialog#dcf-nav-dialog:open .dcf-nav-menu-content::after {
-    transform: scale(1.03, 1);
+    transform: scale(1, 1);
 
     @starting-style {
       transform: scale(.8876, 0);
@@ -267,7 +269,7 @@
 
 
   .unl dialog#dcf-nav-dialog.dcf-dialog-is-open .dcf-nav-menu-content::after {
-    transform: scale(1.03, 1);
+    transform: scale(1, 1);
 
     @starting-style {
       transform: scale(.8876, 0);
