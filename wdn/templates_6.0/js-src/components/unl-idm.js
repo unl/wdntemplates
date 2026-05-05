@@ -613,19 +613,19 @@ export default class UNLIdm {
     }
 
     /**
-     * Renders the component in it's logged out state
+     * Renders the component in its logged out state
      *
      * @return { Void }
      */
     renderLoggedOutState() {
         const labels = Array.from(document.querySelectorAll('.dcf-idm-label'));
         labels.forEach((singleLabel) => {
-            singleLabel.innerHTML = 'Log In';
+            singleLabel.innerHTML = 'My UNL';
         });
 
         const bigLabels = Array.from(document.querySelectorAll('.unl-idm-firstname-lastname'));
         bigLabels.forEach((singleLabel) => {
-            singleLabel.innerHTML = `<a class="unl-cream" href="${this.logInUrl}">Log in</a>`;
+            singleLabel.innerHTML = `<a class="unl-cream" href="${this.logInUrl}">My UNL</a>`;
         });
 
         const imgs = Array.from(document.querySelectorAll('.dcf-idm-img'));
@@ -659,7 +659,7 @@ export default class UNLIdm {
     }
 
     /**
-     * Renders the component in it's quasi logged in state
+     * Renders the component in its quasi logged in state
      * This is when the server says the user is not logged in but the client says they are
      *
      * @param { String } userAvatarUrl
@@ -704,7 +704,7 @@ export default class UNLIdm {
     }
 
     /**
-     * Renders the component in it's logged in out state
+     * Renders the component in its logged in out state
      *
      * @param { String } userAvatarUrl
      * @param { String } userDisplayName
