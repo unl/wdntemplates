@@ -1,0 +1,28 @@
+////////////////////////////////////////////////
+// THEME / VARIABLES / IDM (IDENTITY MANAGEMENT)
+////////////////////////////////////////////////
+
+
+@use './dialogs' as d;
+@use "./navigation" as nav;
+
+
+// Transition duration
+$transition-duration-opacity-idm-personal: 150ms;
+$transition-duration-transform-idm-personal: 150ms;
+$transition-duration-opacity-idm-services: 150ms;
+$transition-duration-transform-idm-services: 250ms;
+
+
+// Transition easing
+$transition-easing-opacity-idm-personal: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$transition-easing-transform-idm-personal: cubic-bezier(0.22, 1, 0.36, 1);
+$transition-easing-opacity-idm-services: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$transition-easing-transform-idm-services: cubic-bezier(0.22, 1, 0.36, 1);
+
+
+// Transition delay
+$transition-delay-opacity-idm-personal: calc(d.$transition-duration-opacity-dialog + nav.$transition-duration-transform-nav-toggle-region);
+$transition-delay-transform-idm-personal: calc(d.$transition-duration-opacity-dialog + nav.$transition-duration-transform-nav-toggle-region);
+$transition-delay-opacity-idm-services: calc(d.$transition-duration-opacity-dialog + nav.$transition-duration-transform-nav-toggle-region + $transition-duration-opacity-idm-personal);
+$transition-delay-transform-idm-services: calc(d.$transition-duration-opacity-dialog + nav.$transition-duration-transform-nav-toggle-region + $transition-duration-transform-idm-personal);
