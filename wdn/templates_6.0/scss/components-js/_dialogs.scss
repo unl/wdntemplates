@@ -32,11 +32,9 @@
   .unl .dcf-dialog::backdrop {
     opacity: 0;
     transition:
-        opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in,
-        overlay var.$transition-duration-fade-in var.$transition-timing-fn-fade-in allow-discrete,
-        display var.$transition-duration-fade-in var.$transition-timing-fn-fade-in allow-discrete;
-    // Equivalent to
-    // transition: all 0.7s allow-discrete;
+        opacity var.$transition-duration-opacity-dialog var.$transition-timing-fn-opacity-dialog,
+        overlay allow-discrete,
+        display allow-discrete;
   }
 
 
