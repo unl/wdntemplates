@@ -1,5 +1,5 @@
 import moment from '@js-src/lib/moment-timezone.js';
-import { stringToDom } from '@js-src/lib/unl-utility.js';
+import { stringToDom, wrapInner } from '@js-src/lib/unl-utility.js';
 
 export default class UNLEventList {
     containerElement = null;
@@ -75,6 +75,43 @@ export default class UNLEventList {
 
     async #render() {
         this.containerElement.classList.add('dcf-d-none');
+        if (this.layout === 'month-widget') {
+            const eventData = await this.#fetchMonthWidget();
+            this.containerElement.innerHTML = eventData;
+
+            const monthWidgetWrapper = this.containerElement.querySelector('#month-widget');
+            monthWidgetWrapper.removeAttribute('id');
+
+            const monthWidget = this.containerElement.querySelector('table');
+            const widgetDate = new Date(monthWidget.dataset.datetime);
+
+            const now = new Date();
+            const month = widgetDate.getMonth();
+            const year = widgetDate.getFullYear();
+            const dates = monthWidget.querySelectorAll('td');
+
+            dates.forEach((dateElement) => {
+                dateElement.classList.remove('today', 'active');
+            });
+            if (year === now.getFullYear() && month === now.getMonth()) {
+                dates.forEach((dateElement) => {
+                    if (dateElement.classList.contains('prev') || dateElement.classList.contains('next')) { return; }
+                    const dateText = parseInt(dateElement.innerText.trim(), 10);
+                    if (!isNaN(dateText) && dateText === now.getDate()) {
+                        dateElement.classList.add('today');
+                    }
+                });
+            }
+
+            dates.forEach((dateElement) => {
+                if (dateElement.classList.contains('prev') || dateElement.classList.contains('next')) { return; }
+                wrapInner(dateElement, '<div></div>');
+            });
+
+            this.containerElement.classList.remove('dcf-d-none');
+            return;
+        }
+
         const eventData = await this.#fetchEventData();
 
         this.eventListElement.innerHTML = '<li class="dcf-txt-lg">No events found.</li>';
@@ -278,6 +315,34 @@ export default class UNLEventList {
 
             return null;
         } catch(err) {
+            console.error(err);
+            return null;
+        }
+    }
+
+    async #fetchMonthWidget() {
+        try {
+            const parsedUrl = new URL(this.calendarUrl);
+            parsedUrl.searchParams.set('monthwidget', 'monthwidget');
+            parsedUrl.searchParams.set('format', 'hcalendar');
+
+            // Remove trailing slash for now (we will add it back later)
+            if (!parsedUrl.pathname.endsWith('/')) {
+                parsedUrl.pathname += '/';
+            }
+
+            // Force https
+            parsedUrl.protocol = 'https:';
+
+            const response = await fetch(parsedUrl.toString());
+            if (!response.ok) {
+                return null;
+            }
+
+            const data = await response.text();
+            return data;
+
+        } catch (err) {
             console.error(err);
             return null;
         }
