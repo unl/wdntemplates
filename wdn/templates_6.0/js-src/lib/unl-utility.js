@@ -165,3 +165,26 @@ export function loadJS(jsSrc, module=false) {
         document.head.appendChild(newScript);
     });
 }
+
+/**
+ * Wraps parent elements content in wrapper element
+ * @param { HTMLElement } parent 
+ * @param { String|HTMLElement } wrapper 
+ */
+export function wrapInner(parent, wrapper) {
+    // wrapper can be an HTML string or an element
+    if (typeof wrapper === 'string') {
+        const temp = document.createElement('div');
+        temp.innerHTML = wrapper;
+        wrapper = temp.firstElementChild;
+    }
+
+    // Move all children of parent into the wrapper
+    while (parent.firstChild) {
+        wrapper.appendChild(parent.firstChild);
+    }
+
+    // Append the wrapper (now containing all children) back into parent
+    parent.appendChild(wrapper);
+}
+

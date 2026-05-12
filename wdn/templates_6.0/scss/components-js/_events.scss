@@ -8,12 +8,50 @@
 
 @layer components {
 
-  .wdn-calendar .unl-event-teaser-ol {
-    --item-size: #{var.$ms18}em;
-    grid-template-columns: repeat(auto-fit, minmax(var(--item-size), 1fr));
+  /* Month Widget Styles */
+  .wp-calendar th {
+    width: 14%;
+  }
+
+  .monthwidget td span,
+  .monthwidget td a {
+    display: block;
+    padding: 8px 1px;
+  }
+
+  // day selection classes
+  .monthwidget td.active {
+    background-color: var(--bg-white, #fff);
+    color: var(--body);
   }
 
 
+  .monthwidget td.active a {
+    color: inherit;
+  }
+
+  .monthwidget td.today {
+    background-color: #d00000;
+    color: #fefdfa;
+  }
+
+
+  .monthwidget td.today a {
+    color: inherit;
+  }
+
+
+  .monthwidget td a:hover {
+    outline: 2px solid var(--link);
+  }
+
+
+  .monthwidget td.prev a,
+  .monthwidget td.next a {
+    padding: 11px 1px;
+  }
+
+  /* Event List Styles */
   .unl-event-teaser {
     display: grid;
     grid-template: 'a b' auto 'a c' 1fr #{'/'} var.$length-em-8 1fr;
