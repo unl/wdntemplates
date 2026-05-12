@@ -34,8 +34,8 @@ export default class UNLEventList {
         this.rooms = options?.rooms || this.containerElement.dataset?.rooms || this.rooms;
         this.layout = options?.layout || this.containerElement.dataset?.layout || this.layout;
 
-        this.limit = parseInt(this.limit, 10);
-        this.pinnedLimit = parseInt(this.pinnedLimit, 10);
+        this.limit = Number.parseInt(this.limit, 10);
+        this.pinnedLimit = Number.parseInt(this.pinnedLimit, 10);
 
         if (this.calendarUrl.match(/upcoming\/?$/)) {
             this.type = 'upcoming';
@@ -96,8 +96,8 @@ export default class UNLEventList {
             if (year === now.getFullYear() && month === now.getMonth()) {
                 dates.forEach((dateElement) => {
                     if (dateElement.classList.contains('prev') || dateElement.classList.contains('next')) { return; }
-                    const dateText = parseInt(dateElement.innerText.trim(), 10);
-                    if (!isNaN(dateText) && dateText === now.getDate()) {
+                    const dateText = Number.parseInt(dateElement.innerText.trim(), 10);
+                    if (!Number.isNaN(dateText) && dateText === now.getDate()) {
                         dateElement.classList.add('today');
                     }
                 });
