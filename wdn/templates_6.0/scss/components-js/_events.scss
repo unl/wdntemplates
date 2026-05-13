@@ -52,6 +52,11 @@
   }
 
   /* Event List Styles */
+  .wdn-calendar .unl-event-teaser-ol {
+    --item-size: #{var.$ms18}em;
+    grid-template-columns: repeat(auto-fit, minmax(var(--item-size), 1fr));
+  }
+
   .unl-event-teaser {
     display: grid;
     grid-template: 'a b' auto 'a c' 1fr #{'/'} var.$length-em-8 1fr;
