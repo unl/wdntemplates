@@ -14,17 +14,17 @@ const wdnCleanupPlugin = {
 
         // Delete js folder to remove old built files
         if (await exists(jsDir)) {
-            await rm(jsDir, { recursive: true });
+            await rm(jsDir, { recursive: true, force: true });
         }
 
         // Delete css folder to remove old built files
         if (await exists(cssDir)) {
-            await rm(cssDir, { recursive: true });
+            await rm(cssDir, { recursive: true, force: true });
         }
 
         // Delete asset folder to remove old built files
         if (await exists(assetsDir)) {
-            await rm(assetsDir, { recursive: true });
+            await rm(assetsDir, { recursive: true, force: true });
         }
 
         // Delete zipped files if they are there
