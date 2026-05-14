@@ -1,5 +1,8 @@
 import { isValidHttpUrl, getSessionStorage, setSessionStorage, removeSessionStorage } from '../lib/unl-utility.js';
 
+// This is a virtual module defined in the `vite.wdnMockBannerInjector.js` file
+import mockBannerHtml from 'virtual:mock-banner-html';
+
 export default class UNLNoticeBanner {
 
     bannerContainer = null;
@@ -73,6 +76,13 @@ export default class UNLNoticeBanner {
      * @returns { Promise<String> } Message string
      */
     async #getMessage() {
+
+        // Check if the environment variable has a string value
+        if (typeof import.meta.env.VITE_MOCK_BANNER_FILE === 'string') {
+            // If it does then use the string in the virtual module
+            return mockBannerHtml;
+        }
+
         const sessionData = getSessionStorage(this.messageKey);
         if (sessionData !== null) {
             return sessionData;
