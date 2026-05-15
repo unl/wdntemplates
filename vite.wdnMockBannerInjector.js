@@ -28,8 +28,8 @@ export default function wdnMockBannerInjector(mockBannerFile) {
 
             // If there is no mock banner file give generic error
             // Virtual module is loaded every time in the file so we need to return something
-            // Banner component conditionally shows this string based on if there is any data in the `VITE_MOCK_BANNER_FILE`
-            if (!process.env.VITE_MOCK_BANNER_FILE || !existsSync(process.env.VITE_MOCK_BANNER_FILE)) {
+            // Banner component conditionally shows this string based on if there is any data in the `mockBannerFile`
+            if (!mockBannerFile || !existsSync(mockBannerFile)) {
                 return 'export default "No Banner File Found";';
             }
 
