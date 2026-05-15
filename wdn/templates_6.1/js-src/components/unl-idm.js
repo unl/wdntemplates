@@ -2,6 +2,8 @@ import { getCookie, loadJS, isValidateEmail } from '@js-src/lib/unl-utility.js';
 
 export default class UNLIdm {
 
+    idmContainer = null;
+
     ssoUrl = 'https://shib.unl.edu/';
 
     ssoCookie = 'unl_sso';
@@ -47,6 +49,12 @@ export default class UNLIdm {
         window.UNL = window.UNL || {};
         window.UNL.idm = window.UNL.idm || {};
         window.UNL.idm.config = window.UNL.idm.config || {};
+
+        window.UNL = window.UNL || {};
+        window.UNL.classes = window.UNL.classes || {};
+        window.UNL.classes['dcf-idm'] = this;
+        this.idmContainer = document.getElementById('dcf-idm');
+        this.idmContainer.dispatchEvent(new Event('UNLClassReady'));
 
         if ('loginRoute' in window.UNL.idm.config && typeof window.UNL.idm.config.loginRoute === 'string' && window.UNL.idm.config.loginRoute !== '') {
             this.setLoginRoute(window.UNL.idm.config.loginRoute);
@@ -273,7 +281,7 @@ export default class UNLIdm {
     }
 
     /**
-     * Erases the local storage data incase things got out of sync or old
+     * Erases the local storage data in case things got out of sync or old
      *
      * @returns { Void }
      */

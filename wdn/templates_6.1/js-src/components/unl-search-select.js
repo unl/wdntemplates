@@ -25,5 +25,10 @@ export default class UNLSearchSelect extends DCFSearchSelect {
         }
 
         super(selectElement, options);
+
+        window.UNL = window.UNL || {};
+        window.UNL.classes = window.UNL.classes || {};
+        window.UNL.classes[this.selectElement.getAttribute('id')] = this;
+        this.selectElement.dispatchEvent(new Event('UNLClassReady'));
     }
 }

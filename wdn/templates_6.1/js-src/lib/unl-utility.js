@@ -188,3 +188,17 @@ export function wrapInner(parent, wrapper) {
     parent.appendChild(wrapper);
 }
 
+export function getClassInstance(elementID) {
+    return new Promise((resolve) => {
+        if (elementID in window.UNL.classes) {
+            resolve(window.UNL.classes[elementID]);
+            return;
+        }
+
+        const element = document.getElementById(elementID);
+        element.addEventListener('UNLClassReady', () => {
+            resolve(window.UNL.classes[elementID]);
+        });
+    });
+}
+window.getClassInstance = getClassInstance;

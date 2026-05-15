@@ -22,5 +22,10 @@ export default class UNLSlideshow extends DCFSlideshow {
         }
 
         super(slideshowContainer, options);
+
+        window.UNL = window.UNL || {};
+        window.UNL.classes = window.UNL.classes || {};
+        window.UNL.classes[this.slideshowContainer.getAttribute('id')] = this;
+        this.slideshowContainer.dispatchEvent(new Event('UNLClassReady'));
     }
 }

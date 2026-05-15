@@ -21,5 +21,10 @@ export default class UNLFigcaptionToggle extends DCFFigcaptionToggle {
         }
 
         super(figcaption, options);
+
+        window.UNL = window.UNL || {};
+        window.UNL.classes = window.UNL.classes || {};
+        window.UNL.classes[this.figcaption.getAttribute('id')] = this;
+        this.figcaption.dispatchEvent(new Event('UNLClassReady'));
     }
 }

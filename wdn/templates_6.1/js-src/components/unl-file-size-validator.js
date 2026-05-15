@@ -18,5 +18,9 @@ export default class UNLFileSizeValidator extends DCFFileSizeValidator {
         }
 
         super(fileInput, options);
+        window.UNL = window.UNL || {};
+        window.UNL.classes = window.UNL.classes || {};
+        window.UNL.classes[this.fileInputElement.getAttribute('id')] = this;
+        this.fileInputElement.dispatchEvent(new Event('UNLClassReady'));
     }
 }

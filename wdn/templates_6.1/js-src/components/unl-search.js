@@ -189,6 +189,11 @@ export default class UNLSearch {
                 classInstance: this,
             },
         }));
+
+        window.UNL = window.UNL || {};
+        window.UNL.classes = window.UNL.classes || {};
+        window.UNL.classes['dcf-search'] = this;
+        this.searchContainer.dispatchEvent(new Event('UNLClassReady'));
     }
 
     // The names of the events to be used easily

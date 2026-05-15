@@ -36,5 +36,10 @@ export default class UNLAutoplayVideoToggle extends DCFAutoplayVideoToggle {
         }
 
         super(autoplayVideoContainer, options);
+
+        window.UNL = window.UNL || {};
+        window.UNL.classes = window.UNL.classes || {};
+        window.UNL.classes[this.autoplayVideoContainer.getAttribute('id')] = this;
+        this.autoplayVideoContainer.dispatchEvent(new Event('UNLClassReady'));
     }
 }

@@ -54,5 +54,10 @@ export default class UNLNotice extends DCFNotice {
         }
 
         super(notice, options);
+
+        window.UNL = window.UNL || {};
+        window.UNL.classes = window.UNL.classes || {};
+        window.UNL.classes[this.notice.getAttribute('id')] = this;
+        this.notice.dispatchEvent(new Event('UNLClassReady'));
     }
 }

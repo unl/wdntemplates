@@ -1,7 +1,10 @@
 import moment from '@js-src/lib/moment-timezone.js';
-import { stringToDom, wrapInner } from '@js-src/lib/unl-utility.js';
+import { stringToDom, wrapInner, uuidv4 } from '@js-src/lib/unl-utility.js';
 
 export default class UNLEventList {
+
+    uuid = uuidv4();
+
     containerElement = null;
 
     eventListElement = null;
@@ -24,6 +27,9 @@ export default class UNLEventList {
 
     constructor(eventContainer, options = {}) {
         this.containerElement = eventContainer;
+        if (this.containerElement.getAttribute('id') === '' || this.containerElement.getAttribute('id') === null) {
+            this.containerElement.setAttribute('id', this.uuid.concat('-event-list'));
+        }
 
         this.calendarUrl = options?.url || this.containerElement.dataset?.url || this.calendarUrl;
         this.type = options?.type || this.containerElement.dataset?.type || this.type;
@@ -61,6 +67,11 @@ export default class UNLEventList {
                 classInstance: this,
             },
         }));
+
+        window.UNL = window.UNL || {};
+        window.UNL.classes = window.UNL.classes || {};
+        window.UNL.classes[this.containerElement.getAttribute('id')] = this;
+        this.containerElement.dispatchEvent(new Event('UNLClassReady'));
     }
 
     // The names of the events to be used easily

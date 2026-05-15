@@ -23,13 +23,74 @@ import UNLRandomizerUrl from '@js-src/plugins/multi/randomizer?finalUrl';
 
 
 window.UNL = window.UNL || {};
+window.UNL.classes = window.UNL.classes || {};
+
 window.UNL.autoLoader = {
     config: {
         enabled: true,
         watch: true,
         globalOptInSelector: null, // If the element doesn't have this class ignore it
         globalOptOutSelector: null, // If the element has this class ignore it
+
+        // These should be ordered in a way to load plugins typically above the fold first
+        // Or plugins that will change page styles more
         plugins: {
+            UNLIdm: {
+                optOutSelector: null,
+                optInSelector: null,
+                customConfig: {},
+                onPluginLoadedElement: null,
+                url: UNLIdmUrl,
+            },
+            UNLSearch: {
+                optOutSelector: null,
+                optInSelector: null,
+                customConfig: {},
+                onPluginLoadedElement: null,
+                url: UNLSearchUrl,
+            },
+            UNLFontSerif: {
+                optOutSelector: null,
+                optInSelector: null,
+                customConfig: {},
+                onPluginLoadedElement: null,
+                url: UNLFontSerifUrl,
+            },
+            UNLNotice: {
+                optOutSelector: null,
+                optInSelector: null,
+                customConfig: {},
+                onPluginLoadedElement: null,
+                url: UNLNoticeUrl,
+            },
+            UNLPopup: {
+                optOutSelector: null,
+                optInSelector: null,
+                customConfig: {},
+                onPluginLoadedElement: null,
+                url: UNLPopupUrl,
+            },
+            UNLCollapsibleFieldset: {
+                optOutSelector: null,
+                optInSelector: null,
+                customConfig: {},
+                onPluginLoadedElement: null,
+                url: UNLCollapsibleFieldsetUrl,
+            },
+            UNLAutoplayVideo: {
+                optOutSelector: null,
+                optInSelector: null,
+                customConfig: {},
+                onPluginLoadedElement: null,
+                url: UNLAutoplayVideoUrl,
+            },
+            UNLSlideshow: {
+                optOutSelector: null,
+                optInSelector: null,
+                customConfig: {},
+                onPluginLoadedElement: null,
+                url: UNLSlideshowUrl,
+            },
             UNLTab: {
                 optOutSelector: null,
                 optInSelector: null,
@@ -44,13 +105,6 @@ window.UNL.autoLoader = {
                 onPluginLoadedElement: null,
                 url: UNLToggleButtonUrl,
             },
-            UNLCollapsibleFieldset: {
-                optOutSelector: null,
-                optInSelector: null,
-                customConfig: {},
-                onPluginLoadedElement: null,
-                url: UNLCollapsibleFieldsetUrl,
-            },
             UNLFigcaptionToggle: {
                 optOutSelector: null,
                 optInSelector: null,
@@ -58,12 +112,12 @@ window.UNL.autoLoader = {
                 onPluginLoadedElement: null,
                 url: UNLFigcaptionToggleUrl,
             },
-            UNLNotice: {
+            UNLRandomizer: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
-                url: UNLNoticeUrl,
+                url: UNLRandomizerUrl,
             },
             UNLDatepicker: {
                 optOutSelector: null,
@@ -71,13 +125,6 @@ window.UNL.autoLoader = {
                 customConfig: {},
                 onPluginLoadedElement: null,
                 url: UNLDatepickerUrl,
-            },
-            UNLAutoplayVideo: {
-                optOutSelector: null,
-                optInSelector: null,
-                customConfig: {},
-                onPluginLoadedElement: null,
-                url: UNLAutoplayVideoUrl,
             },
             UNLPagination: {
                 optOutSelector: null,
@@ -93,26 +140,12 @@ window.UNL.autoLoader = {
                 onPluginLoadedElement: null,
                 url: UNLCardAsLink,
             },
-            UNLSlideshow: {
-                optOutSelector: null,
-                optInSelector: null,
-                customConfig: {},
-                onPluginLoadedElement: null,
-                url: UNLSlideshowUrl,
-            },
             UNLSearchSelect: {
                 optOutSelector: null,
                 optInSelector: null,
                 customConfig: {},
                 onPluginLoadedElement: null,
                 url: UNLSearchSelectUrl,
-            },
-            UNLPopup: {
-                optOutSelector: null,
-                optInSelector: null,
-                customConfig: {},
-                onPluginLoadedElement: null,
-                url: UNLPopupUrl,
             },
             UNLDialog: {
                 optOutSelector: null,
@@ -142,27 +175,6 @@ window.UNL.autoLoader = {
                 onPluginLoadedElement: null,
                 url: UNLImageCropperUrl,
             },
-            UNLIdm: {
-                optOutSelector: null,
-                optInSelector: null,
-                customConfig: {},
-                onPluginLoadedElement: null,
-                url: UNLIdmUrl,
-            },
-            UNLSearch: {
-                optOutSelector: null,
-                optInSelector: null,
-                customConfig: {},
-                onPluginLoadedElement: null,
-                url: UNLSearchUrl,
-            },
-            UNLFontSerif: {
-                optOutSelector: null,
-                optInSelector: null,
-                customConfig: {},
-                onPluginLoadedElement: null,
-                url: UNLFontSerifUrl,
-            },
             UNLQa: {
                 optOutSelector: null,
                 optInSelector: null,
@@ -176,13 +188,6 @@ window.UNL.autoLoader = {
                 customConfig: {},
                 onPluginLoadedElement: null,
                 url: UNLFileSizeValidatorUrl,
-            },
-            UNLRandomizer: {
-                optOutSelector: null,
-                optInSelector: null,
-                customConfig: {},
-                onPluginLoadedElement: null,
-                url: UNLRandomizerUrl,
             },
         },
     },
