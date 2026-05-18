@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!--#include virtual="/wdn/templates_6.0/includes/global/head-1.html" -->
+<!-- InstanceBeginEditable name="doctitle" -->
+  <title>Tandems (Modern) | Framework Testing Page</title>
+<!-- InstanceEndEditable -->
+<!--#include virtual="/wdn/templates_6.0/includes/global/head-2-local.html" -->
+<!-- InstanceBeginEditable name="head" -->
+  <!-- Place optional header elements here -->
+<!-- InstanceEndEditable -->
+</head>
+<body class="debug unl" data-version="6.0">
+  <!--#include virtual="/wdn/templates_6.0/includes/global/skip-nav.html" -->
+
+<!--
+  <div class="dcf-alert dcf-wrapper dcf-pt-4 dcf-pb-4 dcf-txt-xs">
+    <header class="dcf-alert-header">
+      <div role="heading">
+        Emergency Alert
+      </div>
+    </header>
+    <p class="dcf-alert-msg">This alert is a test of the alert system. If this was an actual alert there would also be an actual emergency.</p>
+    <footer class="dcf-alert-footer">
+      <div role="heading">
+        Issued
+      </div>
+      <time class="dcf-pubdate" datetime="2018-12-02 11:11:03-0400">December 2, 2018</time>
+      <div role="heading">
+        Additional Info <small class="dcf-txt-xs">if available</small>
+      </div>
+      <a href="https://www.unl.edu/">https://www.unl.edu/</a>
+    </footer>
+  </div>
+-->
+
+  <header class="dcf-header" id="dcf-header" role="banner">
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/idm.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/search.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-1.html" -->
+    <!-- InstanceBeginEditable name="affiliation" -->
+    <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-1.html" -->
+    <!-- InstanceBeginEditable name="titlegraphic" -->
+    <a class="dcf-txt-h6" href="https://arts.unl.edu/music">
+      Glenn Korff School of Music
+    </a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-container-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-group.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-1.html" -->
+    <!-- InstanceBeginEditable name="navlinks" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-dialog-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-copy-dialog.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-1.html" -->
+    <!-- InstanceBeginEditable name="navvisit" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-1.html" -->
+    <!-- InstanceBeginEditable name="navapply" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-1.html" -->
+    <!-- InstanceBeginEditable name="navgive" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-dialog-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-container-2-local.html" -->
+  </header>
+  <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
+    <!-- InstanceBeginEditable name="highlighted" -->
+    <!-- InstanceEndEditable -->
+    <!-- InstanceBeginEditable name="hero" -->
+    <div class="dcf-hero dcf-hero-default">
+    <!-- InstanceEndEditable -->
+      <div class="dcf-hero-group-1">
+        <div class="dcf-breadcrumbs-wrapper">
+          <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
+            <ol>
+              <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
+              <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
+              <li><span aria-current="page">Ensembles</span></li>
+            </ol>
+            <!-- InstanceEndEditable -->
+          </nav>
+        </div>
+        <header class="dcf-page-title" id="dcf-page-title">
+          <!-- InstanceBeginEditable name="pagetitle" -->
+          <h1>Tandems (Modern)</h1>
+          <!-- InstanceEndEditable -->
+        </header>
+        <!-- InstanceBeginEditable name="herogroup1" -->
+        <!-- InstanceEndEditable -->
+      </div>
+      <!-- InstanceBeginEditable name="herogroup2" -->
+      <div class="dcf-hero-group-2">
+      </div>
+      <!-- InstanceEndEditable -->
+    </div>
+    <div class="dcf-main-content dcf-wrapper">
+      <!-- InstanceBeginEditable name="maincontentarea" -->
+
+      <style>
+
+        /* UPDATED UNL CMS GRID FOR GLOBAL */
+
+        @media only screen and (max-width: 42.09em) {
+
+          .unlcms-grid-cols {
+            grid-template-columns: 5.62vw 3.16rem 1rem 1fr 1fr 1.58vw 1.58vw 1fr 1fr 1rem 3.16rem 5.62vw;
+          }
+
+        }
+
+        @media only screen and (min-width: 42.09em) and (max-width: 56.12em) {
+
+          .unlcms-grid-cols {
+            grid-template-columns: 5.62vw 3.16rem 1rem 1fr 1fr 1fr 1.58vw 1.58vw 1fr 1fr 1fr 1rem 3.16rem 5.62vw;
+          }
+
+        }
+
+        @media only screen and (min-width: 56.12em) {
+
+          .unlcms-grid-cols {
+            grid-template-columns: 5.62vw 3.16rem 1rem 1fr 1fr 1fr 1fr 1rem 3.16rem 1.58vw 1.58vw 3.16rem 1rem 1fr 1fr 1fr 1fr 1rem 3.16rem 5.62vw;
+          }
+
+        }
+
+      </style>
+
+      <style>
+
+        /* TANDEM */
+        .unlcms-tandem-text p:last-child,
+        .unlcms-tandem-text ol:last-child,
+        .unlcms-tandem-text ul:last-child {
+          margin-bottom: 0;
+        }
+
+      </style>
+
+      <style>
+
+        /* TANDEM - BASIC */
+        .unlcms-tandem-basic-img-grid {
+          grid-template-columns: 1em auto 1em;
+          grid-template-rows: 1em auto 1em;
+        }
+
+        .unlcms-tandem-basic-img-translate-xy-tr { grid-area: 1 / 2 / 3 / 4; }
+        .unlcms-tandem-basic-img-translate-xy-tl { grid-area: 1 / 1 / 3 / 3; }
+        .unlcms-tandem-basic-img-translate-xy-br { grid-area: 2 / 2 / 4 / 4; }
+        .unlcms-tandem-basic-img-translate-xy-bl { grid-area: 2 / 1 / 4 / 3; }
+
+      </style>
+
+      <div class="dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-9 dcf-d-grid dcf-grid-cols-2@md dcf-col-gap-vw dcf-row-gap-7 unlcms-tandem unlcms-tandem-basic">
+        <!-- Locate text on start (default) or end of grid at `md` breakpoint -->
+        <div class="dcf-as-center unlcms-tandem-text unlcms-tandem-basic-text dcf-2nd dcf-1st@md">
+          <!-- If subhead is present, wrap in header -->
+          <header class="dcf-mb-4">
+            <p class="dcf-mb-3 dcf-txt-xs dcf-lh-3 dcf-uppercase dcf-bold unl-ls-2 unl-dark-gray">Cras mattis consectetur purus sit amet fermentum</p>
+            <h2 class="dcf-mt-0 dcf-mb-0">Dalton Broadcasts Love for Music at KRNU</h2>
+            <!-- <p class="dcf-mb-5 dcf-txt-xs dcf-lh-3 dcf-uppercase dcf-bold unl-ls-2 unl-dark-gray">Cras mattis consectetur purus sit amet fermentum</p> -->
+          </header>
+          <p>Max 480 characters. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+          <!-- If more than one button -->
+          <div class="dcf-d-flex dcf-flex-wrap dcf-gap-3 dcf-mt-5" role="group">
+            <a class="dcf-btn dcf-btn-primary" href="https://admissions.unl.edu/why-nebraska/majors/">Find Your Major</a>
+            <a class="dcf-btn dcf-btn-secondary" href="https://graduate.unl.edu/academics/programs">Find Your Graduate Program</a>
+            <a class="dcf-btn dcf-btn-secondary" href="https://law.unl.edu/degree-programs/">Find Your Law Degree Program</a>
+          </div>
+          <!-- Else only one button (to test: comment out button group above, uncomment line below) -->
+          <!-- <a class="dcf-btn dcf-btn-primary dcf-mt-5" href="https://admissions.unl.edu/why-nebraska/majors/">Find Your Major</a> -->
+        </div>
+        <!-- Locate image on end (default) or start of grid at `md` breakpoint. Also, if no "shadow" selected -->
+        <!-- <div class="dcf-as-center unlcms-tandem-img unlcms-tandem-basic-img dcf-1st dcf-2nd@md"> -->
+        <!-- If "shadow" is selected -->
+        <div class="dcf-as-center unlcms-tandem-img unlcms-tandem-basic-img dcf-1st dcf-2nd@md dcf-d-grid unlcms-tandem-basic-img-grid">
+          <!-- If no "shadow" selected -->
+          <!-- <div class="dcf-16x9 dcf-1x1@md dcf-4x3@lg dcf-16x9@xl"> -->
+          <!-- If "shadow" is selected, use one of the following options: -->
+          <!-- <div class="dcf-16x9 dcf-1x1@md dcf-4x3@lg dcf-16x9@xl dcf-z-1 unlcms-tandem-basic-img-translate-xy-tl"> -->
+          <!-- <div class="dcf-16x9 dcf-1x1@md dcf-4x3@lg dcf-16x9@xl dcf-z-1 unlcms-tandem-basic-img-translate-xy-tr"> -->
+          <!-- <div class="dcf-16x9 dcf-1x1@md dcf-4x3@lg dcf-16x9@xl dcf-z-1 unlcms-tandem-basic-img-translate-xy-br"> -->
+          <div class="dcf-16x9 dcf-1x1@md dcf-4x3@lg dcf-16x9@xl dcf-z-1 unlcms-tandem-basic-img-translate-xy-bl">
+            <picture>
+              <!-- <source srcset="https://www.unl.edu/styles/16x9_3200x1800/public/images/hero/troy-hero%281%29.jpg?itok=RXYUWolL&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_1920x1080/public/images/hero/troy-hero%281%29.jpg?itok=LYtekXDq&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_3200x1800/public/images/hero/troy-hero%281%29.jpg?itok=RXYUWolL&amp;timestamp=1673973237 2x" media="(min-width: 1600px)">
+              <source srcset="https://www.unl.edu/styles/16x9_2400x1350/public/images/hero/troy-hero%281%29.jpg?itok=X-YcEfBM&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_1600x900/public/images/hero/troy-hero%281%29.jpg?itok=MNkLh4lu&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_3200x1800/public/images/hero/troy-hero%281%29.jpg?itok=RXYUWolL&amp;timestamp=1673973237 2x" media="(min-width: 1044px)">
+              <source srcset="https://www.unl.edu/styles/16x9_1920x1080/public/images/hero/troy-hero%281%29.jpg?itok=LYtekXDq&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_1280x720/public/images/hero/troy-hero%281%29.jpg?itok=ST8459GL&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_2560x1440/public/images/hero/troy-hero%281%29.jpg?itok=LC0tOyMJ&amp;timestamp=1673973237 2x" media="(min-width: 980px)">
+              <source srcset="https://www.unl.edu/styles/16x9_1440x810/public/images/hero/troy-hero%281%29.jpg?itok=mjUV88IF&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_960x540/public/images/hero/troy-hero%281%29.jpg?itok=Kf0oyF1R&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_1920x1080/public/images/hero/troy-hero%281%29.jpg?itok=LYtekXDq&amp;timestamp=1673973237 2x" media="(min-width: 768px)">
+              <source srcset="https://www.unl.edu/styles/16x9_960x540/public/images/hero/troy-hero%281%29.jpg?itok=Kf0oyF1R&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_640x360/public/images/hero/troy-hero%281%29.jpg?itok=BEWTDPIz&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_1280x720/public/images/hero/troy-hero%281%29.jpg?itok=ST8459GL&amp;timestamp=1673973237 2x" media="(min-width: 480px)">
+              <source srcset="https://www.unl.edu/styles/16x9_720x405/public/images/hero/troy-hero%281%29.jpg?itok=P-iUIfst&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_480x270/public/images/hero/troy-hero%281%29.jpg?itok=qKo_hzRB&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_960x540/public/images/hero/troy-hero%281%29.jpg?itok=Kf0oyF1R&amp;timestamp=1673973237 2x" media="(min-width: 0px)"> -->
+              <img class="dcf-obj-fit-cover" fetchpriority="low" src="https://www.unl.edu/sites/unl.edu.university-communication.top-level/files/styles/16_9_2880x1620/public/media/image/dalton-krnu-hero-2.jpg?itok=fTrpbvYG" alt="">
+            </picture>
+          </div>
+          <!-- if no "shadow" selected, do not include the following <div> -->
+          <!-- if "shadow" is selected, use one of the following options: -->
+          <!-- <div class="dcf-16x9 dcf-1x1@md dcf-4x3@lg dcf-16x9@xl dcf-z-0 unl-bg-scarlet unlcms-tandem-basic-img-translate-xy-br"> -->
+          <!-- <div class="dcf-16x9 dcf-1x1@md dcf-4x3@lg dcf-16x9@xl dcf-z-0 unl-bg-scarlet unlcms-tandem-basic-img-translate-xy-bl"> -->
+          <!-- <div class="dcf-16x9 dcf-1x1@md dcf-4x3@lg dcf-16x9@xl dcf-z-0 unl-bg-scarlet unlcms-tandem-basic-img-translate-xy-tl"> -->
+          <div class="dcf-16x9 dcf-1x1@md dcf-4x3@lg dcf-16x9@xl dcf-z-0 unl-bg-scarlet unlcms-tandem-basic-img-translate-xy-tr">
+          </div>
+        </div>
+      </div>
+
+      <div class="dcf-h-12"></div>
+
+      <style>
+
+        /* TANDEM - STACK */
+
+        /* max sm 673 */
+        @media only screen and (max-width: 42.09em) {
+
+          .unlcms-tandem-stack-text {
+            grid-area: 3 / 2 / 4 / -2;
+          }
+
+          .unlcms-tandem-stack-img {
+            grid-area: 1 / 1 / 2 / -1;
+          }
+
+        }
+
+        /* sm 673 */
+        @media only screen and (min-width: 42.09em) and (max-width: 56.12em) {
+
+          .unlcms-tandem-stack-text {
+            grid-area: 3 / 4 / 4 / -4;
+          }
+
+          .unlcms-tandem-stack-img {
+            grid-area: 1 / 4 / 2 / -4;
+          }
+
+        }
+
+        /* max md 898 */
+        @media only screen and (max-width: 56.12em) {
+
+          .unlcms-tandem-stack {
+            grid-template-rows: auto 1.33em auto 3.16em;
+          }
+
+        }
+
+        /* sm 673 */
+        @media only screen and (min-width: 56.12em) {
+
+          .unlcms-tandem-stack {
+            grid-template-rows: minmax(4.21em, 1fr) auto minmax(4.21em, 1fr);
+          }
+
+          .unlcms-tandem-stack-text-c {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            grid-area: 2 / 2 / 3 / -2;
+            text-align: center;
+          }
+
+          .unlcms-tandem-stack-text-c .unlcms-tandem-stack-text-card {
+            max-width: 42.09em;
+          }
+
+          .unlcms-tandem-stack-text-card {
+            background-color: var(--bg-card);
+            padding: 3.16em 2.37em;
+          }
+
+          .unlcms-tandem-stack-img {
+            grid-area: 1 / 1 / -1 / -1;
+          }
+
+        }
+
+        @media only screen and (min-width: 56.12em) {
+
+          .unlcms-tandem-stack-text-l {
+            grid-area: 2 / 2 / -2 / 10;
+          }
+
+          .unlcms-tandem-stack-text-r {
+            grid-area: 2 / 6 / 3 / -2;
+          }
+
+          .unlcms-tandem-stack-img picture {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+
+        }
+
+        /* md 898 */
+        @media only screen and (min-width: 56.12em) and (max-width: 74.83em) {
+
+          .unlcms-tandem-stack-text-l {
+            grid-column-end: 13;
+          }
+
+          .unlcms-tandem-stack-text-r {
+            grid-column-start: 9;
+          }
+
+        }
+
+        /* lg 1197 */
+        @media only screen and (min-width: 74.83em) {
+
+          .unlcms-tandem-stack-text-l {
+            grid-column-end: 10;
+          }
+
+          .unlcms-tandem-stack-text-r {
+            grid-column-start: 12;
+          }
+
+        }
+
+        /* xl 1596 */
+        @media only screen and (min-width: 99.78em) {
+
+          .unlcms-tandem-stack {
+            overflow-y: hidden;
+          }
+        }
+
+      </style>
+
+      <div class="dcf-bleed dcf-d-grid unlcms-grid-cols unlcms-tandem unlcms-tandem-stack">
+        <div class="dcf-z-1 unlcms-tandem-text unlcms-tandem-stack-text unlcms-tandem-stack-text-l">
+          <div class="unlcms-tandem-stack-text-card">
+            <!-- If subhead is present, wrap in header -->
+            <header class="dcf-mb-4">
+              <p class="dcf-mb-3 dcf-txt-xs dcf-lh-3 dcf-uppercase dcf-bold unl-ls-2 unl-dark-gray">Cras mattis consectetur purus sit amet fermentum</p>
+              <h2 class="dcf-mt-0 dcf-mb-0">Dalton Broadcasts Love for Music at KRNU</h2>
+              <!-- <p class="dcf-txt-xs dcf-lh-3 dcf-uppercase dcf-bold unl-ls-2 unl-dark-gray">Cras mattis consectetur purus sit amet fermentum</p> -->
+            </header>
+            <p>Max 480 characters. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+            <!-- if more than one button -->
+            <div class="dcf-d-flex dcf-flex-wrap dcf-gap-3 dcf-mt-5" role="group">
+              <a class="dcf-btn dcf-btn-primary" href="https://admissions.unl.edu/why-nebraska/majors/">Find Your Major</a>
+              <a class="dcf-btn dcf-btn-secondary" href="https://graduate.unl.edu/academics/programs">Find Your Graduate Program</a>
+              <a class="dcf-btn dcf-btn-tertiary" href="https://law.unl.edu/degree-programs/">Find Your Law Degree Program</a>
+            </div>
+            <!-- else only one button (to test: comment out button group above, uncomment line below) -->
+            <!-- <a class="dcf-btn dcf-btn-primary dcf-mt-5" href="https://admissions.unl.edu/why-nebraska/majors/">Find Your Major</a> -->
+          </div>
+        </div>
+        <div class="dcf-relative unlcms-tandem-stack-img">
+          <picture class="dcf-w-100% dcf-h-100% dcf-16x9">
+            <!-- <source srcset="https://www.unl.edu/styles/16x9_3200x1800/public/images/hero/troy-hero%281%29.jpg?itok=RXYUWolL&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_1920x1080/public/images/hero/troy-hero%281%29.jpg?itok=LYtekXDq&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_3200x1800/public/images/hero/troy-hero%281%29.jpg?itok=RXYUWolL&amp;timestamp=1673973237 2x" media="(min-width: 1600px)">
+            <source srcset="https://www.unl.edu/styles/16x9_2400x1350/public/images/hero/troy-hero%281%29.jpg?itok=X-YcEfBM&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_1600x900/public/images/hero/troy-hero%281%29.jpg?itok=MNkLh4lu&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_3200x1800/public/images/hero/troy-hero%281%29.jpg?itok=RXYUWolL&amp;timestamp=1673973237 2x" media="(min-width: 1044px)">
+            <source srcset="https://www.unl.edu/styles/16x9_1920x1080/public/images/hero/troy-hero%281%29.jpg?itok=LYtekXDq&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_1280x720/public/images/hero/troy-hero%281%29.jpg?itok=ST8459GL&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_2560x1440/public/images/hero/troy-hero%281%29.jpg?itok=LC0tOyMJ&amp;timestamp=1673973237 2x" media="(min-width: 980px)">
+            <source srcset="https://www.unl.edu/styles/16x9_1440x810/public/images/hero/troy-hero%281%29.jpg?itok=mjUV88IF&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_960x540/public/images/hero/troy-hero%281%29.jpg?itok=Kf0oyF1R&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_1920x1080/public/images/hero/troy-hero%281%29.jpg?itok=LYtekXDq&amp;timestamp=1673973237 2x" media="(min-width: 768px)">
+            <source srcset="https://www.unl.edu/styles/16x9_960x540/public/images/hero/troy-hero%281%29.jpg?itok=Kf0oyF1R&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_640x360/public/images/hero/troy-hero%281%29.jpg?itok=BEWTDPIz&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_1280x720/public/images/hero/troy-hero%281%29.jpg?itok=ST8459GL&amp;timestamp=1673973237 2x" media="(min-width: 480px)">
+            <source srcset="https://www.unl.edu/styles/16x9_720x405/public/images/hero/troy-hero%281%29.jpg?itok=P-iUIfst&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_480x270/public/images/hero/troy-hero%281%29.jpg?itok=qKo_hzRB&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_960x540/public/images/hero/troy-hero%281%29.jpg?itok=Kf0oyF1R&amp;timestamp=1673973237 2x" media="(min-width: 0px)"> -->
+            <img class="dcf-obj-fit-cover" fetchpriority="low" src="https://www.unl.edu/sites/unl.edu.university-communication.top-level/files/styles/16_9_2880x1620/public/media/image/dalton-krnu-hero-2.jpg?itok=fTrpbvYG" alt="">
+          </picture>
+        </div>
+      </div>
+
+      <div class="dcf-h-12"></div>
+
+      <style>
+
+        /* TANDEM - FADE */
+
+        .unlcms-tandem-fade {
+          background-color: var(--bg-color);
+        }
+
+
+        /* max sm 673 */
+        @media only screen and (max-width: 42.09em) {
+
+          .unlcms-tandem-fade-text {
+            grid-area: 3 / 2 / 4 / -2;
+          }
+
+          .unlcms-tandem-fade-img {
+            grid-area: 1 / 1 / 2 / -1;
+          }
+
+        }
+
+        /* sm 673 */
+        @media only screen and (min-width: 42.09em) and (max-width: 56.12em) {
+
+          .unlcms-tandem-fade-text {
+            grid-area: 3 / 4 / 4 / -4;
+          }
+
+          .unlcms-tandem-fade-img {
+            grid-area: 1 / 4 / 2 / -4;
+          }
+
+        }
+
+        /* max md 898 */
+        @media only screen and (max-width: 56.12em) {
+
+          .unlcms-tandem-fade {
+            grid-template-rows: auto 1.33em auto  3.16em;
+          }
+
+        }
+
+        /* md 898 */
+        @media only screen and (min-width: 56.12em) {
+
+          .unlcms-tandem-fade {
+            grid-template-rows: minmax(4.21em, 1fr) auto minmax(4.21em, 1fr);
+          }
+
+          .unlcms-tandem-fade-text-l {
+            grid-area: 2 / 2 / 3 / 8;
+          }
+
+          .unlcms-tandem-fade-text-r {
+            grid-area: 2 / 14 / 3 / -2;
+          }
+
+          .unlcms-tandem-fade-text-l ~ .unlcms-tandem-fade-img {
+            grid-area: 1 / 10 / -1 / -1;
+            mask-image: linear-gradient(90deg,rgba(0,0,0,0),rgb(0,0,0) 33%);
+          }
+
+          .unlcms-tandem-fade-text-r ~ .unlcms-tandem-fade-img {
+            grid-area: 1 / 1 / -1 / 12;
+            mask-image: linear-gradient(90deg,rgb(0,0,0) calc(100% - 33%),rgba(0,0,0,0));
+          }
+
+        }
+
+      </style>
+
+      <div class="dcf-bleed dcf-d-grid unlcms-grid-cols unlcms-tandem unlcms-tandem-fade" style="--bg-color: var(--bg-lighter-gray);">
+        <div class="unlcms-tandem-text unlcms-tandem-fade-text unlcms-tandem-fade-text-r">
+          <!-- If subhead is present, wrap in header -->
+          <header class="dcf-mb-4">
+            <p class="dcf-mb-3 dcf-txt-xs dcf-lh-3 dcf-uppercase dcf-bold unl-ls-2 unl-dark-gray">Cras mattis consectetur purus sit amet fermentum</p>
+            <h2 class="dcf-mt-0 dcf-mb-0">Dalton Broadcasts Love for Music at KRNU</h2>
+            <!-- <p class="dcf-mb-5 dcf-txt-xs dcf-lh-3 dcf-uppercase dcf-bold unl-ls-2 unl-dark-gray">Cras mattis consectetur purus sit amet fermentum</p> -->
+          </header>
+          <p>Max 480 characters. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+          <ul class="dcf-mb-0 dcf-columns-2 dcf-columns-1@sm dcf-columns-2@lg">
+            <li><a href="https://admissions.unl.edu/why-nebraska/majors/">Find Your Major</a></li>
+            <li><a href="https://graduate.unl.edu/academics/programs">Find Your Graduate Program</a></li>
+            <li><a href="https://law.unl.edu/degree-programs/">Find Your Law Degree Program</a></li>
+            <li><a href="https://admissions.unl.edu/why-nebraska/majors/">Undergraduate</a></li>
+            <li><a href="https://graduate.unl.edu/academics/programs">Entrepreneurship</a></li>
+            <li><a href="https://law.unl.edu/degree-programs/">Find Your Law Degree Program</a></li>
+          </ul>
+        </div>
+        <div class="unlcms-tandem-fade-img dcf-relative">
+          <picture class="dcf-w-100% dcf-h-100% dcf-16x9">
+            <!-- <source srcset="https://www.unl.edu/styles/16x9_3200x1800/public/images/hero/troy-hero%281%29.jpg?itok=RXYUWolL&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_1920x1080/public/images/hero/troy-hero%281%29.jpg?itok=LYtekXDq&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_3200x1800/public/images/hero/troy-hero%281%29.jpg?itok=RXYUWolL&amp;timestamp=1673973237 2x" media="(min-width: 1600px)">
+            <source srcset="https://www.unl.edu/styles/16x9_2400x1350/public/images/hero/troy-hero%281%29.jpg?itok=X-YcEfBM&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_1600x900/public/images/hero/troy-hero%281%29.jpg?itok=MNkLh4lu&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_3200x1800/public/images/hero/troy-hero%281%29.jpg?itok=RXYUWolL&amp;timestamp=1673973237 2x" media="(min-width: 1044px)">
+            <source srcset="https://www.unl.edu/styles/16x9_1920x1080/public/images/hero/troy-hero%281%29.jpg?itok=LYtekXDq&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_1280x720/public/images/hero/troy-hero%281%29.jpg?itok=ST8459GL&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_2560x1440/public/images/hero/troy-hero%281%29.jpg?itok=LC0tOyMJ&amp;timestamp=1673973237 2x" media="(min-width: 980px)">
+            <source srcset="https://www.unl.edu/styles/16x9_1440x810/public/images/hero/troy-hero%281%29.jpg?itok=mjUV88IF&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_960x540/public/images/hero/troy-hero%281%29.jpg?itok=Kf0oyF1R&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_1920x1080/public/images/hero/troy-hero%281%29.jpg?itok=LYtekXDq&amp;timestamp=1673973237 2x" media="(min-width: 768px)">
+            <source srcset="https://www.unl.edu/styles/16x9_960x540/public/images/hero/troy-hero%281%29.jpg?itok=Kf0oyF1R&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_640x360/public/images/hero/troy-hero%281%29.jpg?itok=BEWTDPIz&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_1280x720/public/images/hero/troy-hero%281%29.jpg?itok=ST8459GL&amp;timestamp=1673973237 2x" media="(min-width: 480px)">
+            <source srcset="https://www.unl.edu/styles/16x9_720x405/public/images/hero/troy-hero%281%29.jpg?itok=P-iUIfst&amp;timestamp=1673973237 1.5x, https://www.unl.edu/styles/16x9_480x270/public/images/hero/troy-hero%281%29.jpg?itok=qKo_hzRB&amp;timestamp=1673973237 1x, https://www.unl.edu/styles/16x9_960x540/public/images/hero/troy-hero%281%29.jpg?itok=Kf0oyF1R&amp;timestamp=1673973237 2x" media="(min-width: 0px)"> -->
+            <img class="dcf-obj-fit-cover" fetchpriority="low" src="https://www.unl.edu/sites/unl.edu.university-communication.top-level/files/styles/16_9_2880x1620/public/media/image/dalton-krnu-hero-2.jpg?itok=fTrpbvYG" alt="">
+          </picture>
+        </div>
+      </div>
+
+      <!-- InstanceEndEditable -->
+    </div>
+  </main>
+  <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+    <!-- InstanceBeginEditable name="optionalfooter" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-1.html" -->
+    <!-- InstanceBeginEditable name="contactinfo" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/footer-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-3-std.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/noscript.html" -->
+  </footer>
+  <!--#include virtual="/wdn/templates_6.0/includes/global/js-body-local.html" -->
+  <!-- InstanceBeginEditable name="jsbody" -->
+  <!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

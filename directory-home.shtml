@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!--#include virtual="/wdn/templates_6.0/includes/global/head-1.html" -->
+<!-- InstanceBeginEditable name="doctitle" -->
+  <title>Directory | Framework Testing Page</title>
+<!-- InstanceEndEditable -->
+<!--#include virtual="/wdn/templates_6.0/includes/global/head-2-local.html" -->
+<!-- InstanceBeginEditable name="head" -->
+  <!-- Place optional header elements here -->
+<!-- InstanceEndEditable -->
+</head>
+<body class="debug unl" data-version="6.0">
+  <!--#include virtual="/wdn/templates_6.0/includes/global/skip-nav.html" -->
+
+<!--
+  <div class="dcf-alert dcf-wrapper dcf-pt-4 dcf-pb-4 dcf-txt-xs">
+    <header class="dcf-alert-header">
+      <div role="heading">
+        Emergency Alert
+      </div>
+    </header>
+    <p class="dcf-alert-msg">This alert is a test of the alert system. If this was an actual alert there would also be an actual emergency.</p>
+    <footer class="dcf-alert-footer">
+      <div role="heading">
+        Issued
+      </div>
+      <time class="dcf-pubdate" datetime="2018-12-02 11:11:03-0400">December 2, 2018</time>
+      <div role="heading">
+        Additional Info <small class="dcf-txt-xs">if available</small>
+      </div>
+      <a href="https://www.unl.edu/">https://www.unl.edu/</a>
+    </footer>
+  </div>
+-->
+
+  <header class="dcf-header" id="dcf-header" role="banner">
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/idm.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/search.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-1.html" -->
+    <!-- InstanceBeginEditable name="affiliation" -->
+    <!-- <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a> -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-1.html" -->
+    <!-- InstanceBeginEditable name="titlegraphic" -->
+    <a class="dcf-txt-h4" href="">
+      Directory
+    </a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-container-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-group.html" -->
+  </header>
+
+  <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
+    <!-- InstanceBeginEditable name="highlighted" -->
+    <!-- InstanceEndEditable -->
+    <!-- InstanceBeginEditable name="hero" -->
+    <div class="dcf-hero dcf-hero-default dcf-d-none">
+    <!-- InstanceEndEditable -->
+      <div class="dcf-hero-group-1">
+        <div class="dcf-breadcrumbs-wrapper">
+          <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
+            <ol>
+              <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
+              <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
+              <li><span aria-current="page">Ensembles</span></li>
+            </ol>
+            <!-- InstanceEndEditable -->
+          </nav>
+        </div>
+        <header class="dcf-page-title" id="dcf-page-title">
+          <!-- InstanceBeginEditable name="pagetitle" -->
+          <h1>Page title</h1>
+          <!-- InstanceEndEditable -->
+        </header>
+        <!-- InstanceBeginEditable name="herogroup1" -->
+        <!-- InstanceEndEditable -->
+      </div>
+      <!-- InstanceBeginEditable name="herogroup2" -->
+      <div class="dcf-hero-group-2">
+      </div>
+      <!-- InstanceEndEditable -->
+    </div>
+    <div class="dcf-main-content dcf-wrapper">
+    <!-- InstanceBeginEditable name="maincontentarea" -->
+
+    <style>
+
+      .unl .directory-search {
+        background-color: var(--bg-lightest-gray);
+        border-block: 1px solid var(--b);
+        padding-block: 1.78em;
+      }
+
+      .unl .directory-search-form-group {
+        margin-bottom: 0;
+      }
+
+      .unl .directory-home-intro {
+        background-image: linear-gradient(180deg, var(--bg-lightest-gray), var(--bg-lighter-gray));
+        padding-block: 3.16em;
+      }
+
+      .unl .directory-home-intro ul,
+      .unl .directory-home-intro li:last-child {
+        margin-bottom: 0;
+      }
+
+      .unl .directory-home-search-info-icon-heading-pair {
+        align-items: center;
+        column-gap: 1em;
+        display: flex;
+        flex-wrap: nowrap;
+        margin-bottom: 1.33em;
+      }
+
+      .unl .directory-home-search-info-icon {
+        color: var(--dark-gray);
+        flex-shrink: 0;
+        height: 3.16em;
+        width: 3.16em;
+      }
+
+      .unl .directory-home-search-info-heading {
+        font-size: 1.5em;
+        margin-bottom: 0;
+      }
+
+      .unl .directory-home-search-info-overline {
+        display: block;
+        color: var(--dark-gray);
+        font-size: .75rem;
+        letter-spacing: .056em;
+        text-transform: uppercase;
+      }
+
+      .unl .directory-home-tool-card {
+        border-radius: 4px;
+        box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 0 4px rgba(0,0,0,.05);
+      }
+
+      .unl .directory-home-tool-icon-heading-pair {
+        align-items: center;
+        column-gap: 1.33em;
+        display: flex;
+        flex-wrap: nowrap;
+      }
+
+      .unl .directory-home-tool-icon {
+        color: var(--dark-gray);
+        flex-shrink: 0;
+        height: 3.16em;
+        width: 3.16em;
+      }
+
+      .unl .directory-home-tool-heading {
+        font-size: 1.33em;
+        margin-bottom: 0;
+      }
+
+      .unl .directory-home-tool-heading a {
+        text-decoration: none;
+      }
+
+      .unl .directory-home-tool-heading a:hover {
+        text-decoration: underline;
+      }
+
+      .unl .directory-home-tool-description {
+        line-height: 1.33;
+        margin-top: .42em;
+      }
+
+      @media only screen and (min-width: 56.12em) {
+
+        .unl .directory-home-search-info-heading {
+          font-size: 1.78em;
+        }
+
+        .unl .directory-home-tools-heading {
+          font-size: 1.5em;
+        }
+
+      }
+
+    </style>
+
+    <div class="directory-search dcf-bleed dcf-wrapper dcf-d-flex dcf-flex-nowrap dcf-jc-center">
+      <form class="directory-search-form dcf-form dcf-max-w-md dcf-w-100%">
+        <div class="directory-search-form-group dcf-form-group dcf-form-controls-inline">
+          <label class="directory-search-label" for="directory-search-input">Search Directory</label>
+          <div class="dcf-input-group">
+            <input id="directory-search-input">
+            <button class="directory-search-btn dcf-btn dcf-btn-primary" type="submit">
+              <svg class="dcf-h-4 dcf-w-4 dcf-fill-current" aria-hidden="true" height="16" width="16" viewBox="0 0 48 48">
+                <path d="M18 36a17.9 17.9 0 0 0 11.27-4l15.31 15.41a2 2 0 0 0 2.84-2.82L32.08 29.18A18 18 0 1 0 18 36zm0-32A14 14 0 1 1 4 18 14 14 0 0 1 18 4z"></path>
+              </svg>
+              <span class="dcf-sr-only">Submit</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="directory-home-intro dcf-bleed dcf-wrapper">
+      <div class="dcf-d-grid dcf-grid-cols-2@sm dcf-grid-cols-3@lg dcf-col-gap-vw dcf-row-gap-7">
+        <div class="directory-home-search-info-card dcf-card dcf-bg-transparent dcf-col-start-1 dcf-col-end-2">
+          <div class="directory-home-search-info-icon-heading-pair">
+            <div class="directory-home-search-info-icon">
+              <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" viewBox="0 0 24 24" height="16" width="16" focusable="false" aria-hidden="true">
+                <path d="M10.5 13.663V12.28c.371-.286.917-.953.991-2.43.417-.277.655-.895.655-1.498 0-.334-.076-.631-.22-.859a1.04 1.04 0 0 0-.246-.276c.22-.513.541-1.394.305-2.338C11.638 3.492 9.891 3 8.5 3c-1.239 0-2.761.39-3.323 1.456-.464-.027-.795.108-1.02.383-.511.625-.102 1.653.199 2.366a1.077 1.077 0 0 0-.268.289c-.15.234-.229.536-.229.875 0 .596.236 1.207.65 1.481.075 1.477.62 2.144.991 2.43v1.382C3.624 14.427 0 16.03 0 17v4.5a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5V17c0-.97-3.624-2.573-5.5-3.337zM15 21H1v-3.896c.387-.428 2.605-1.608 5.186-2.64A.5.5 0 0 0 6.5 14v-2a.535.535 0 0 0-.315-.464c-.007-.004-.685-.332-.685-2.036 0-.276-.165-.485-.44-.485-.115-.079-.271-.562-.168-.894C4.929 8 4.96 8 5 8a.498.498 0 0 0 .5-.5c0-.159-.064-.311-.191-.611-.42-.991-.437-1.319-.383-1.411 0-.002.103-.064.474.012.26.052.52-.109.585-.369C6.147 4.472 7.205 4 8.5 4s2.353.472 2.515 1.121c.181.725-.135 1.435-.323 1.86-.1.224-.16.36-.16.519 0 .276.253.503.53.503.021.015.082.12.084.336.004.345-.134.626-.146.661a.5.5 0 0 0-.5.5c0 1.693-.669 2.028-.665 2.028A.5.5 0 0 0 9.5 12v2c0 .205.125.388.314.465 2.58 1.031 4.799 2.212 5.186 2.64V21z"></path>
+                <path d="M20.935 15.188a67.713 67.713 0 0 1-1.435-.528v-.858c.373-.248.907-.804.989-1.984.338-.285.513-.864.513-1.438 0-.225-.029-.552-.17-.834a1.113 1.113 0 0 0-.165-.246c.245-.445.568-1.175.307-1.958-.361-1.083-1.828-1.467-2.974-1.467-1.001 0-2.247.293-2.787 1.088-.369-.009-.677.105-.88.344-.444.525-.166 1.369.049 1.935-.086.08-.161.179-.22.294-.145.281-.175.607-.175.833 0 .58.178 1.166.523 1.451.083 1.178.617 1.733.989 1.981v.699a.5.5 0 0 0 1 0v-1a.521.521 0 0 0-.351-.477c-.025-.009-.648-.243-.648-1.523a.497.497 0 0 0-.377-.484c-.145-.222-.194-.892-.123-1.016a.5.5 0 0 0 .5-.5c0-.137-.048-.263-.137-.492-.225-.584-.312-.944-.291-1.034 0-.001.08-.034.328.016a.498.498 0 0 0 .574-.332c.149-.446 1.02-.783 2.026-.783s1.877.337 2.025.783c.161.482-.148 1.015-.333 1.333-.115.2-.192.332-.192.509 0 .276.147.468.423.468.13.151.091.825-.049 1.048a.501.501 0 0 0-.374.484c0 1.28-.623 1.514-.635 1.519a.499.499 0 0 0-.365.481V15c0 .205.125.388.314.465.576.23 1.193.452 1.782.664.89.32 2.089.752 2.404.997V21h-5a.5.5 0 0 0 0 1h5.5a.5.5 0 0 0 .5-.5V17c0-.682-.885-1.027-3.065-1.812z"></path>
+                <path fill="none" d="M0 0h24v24H0z"></path>
+              </svg>
+            </div>
+            <h2 class="directory-home-search-info-heading"><span class="directory-home-search-info-overline">Search for </span>People</h2>
+          </div>
+          <p>Find contact information for faculty, staff, students, affiliates, volunteers and emeriti &ndash; including roles, QR codes and vCards. Search by:</p>
+          <ul>
+            <li>First name, last name or both</li>
+            <li>Last 3 or more digits of telephone</li>
+          </ul>
+        </div>
+        <div class="directory-home-search-info-card dcf-card dcf-bg-transparent dcf-col-start-1 dcf-col-end-2 dcf-col-start-2@sm dcf-col-end-3@sm">
+          <div class="directory-home-search-info-icon-heading-pair">
+            <div class="directory-home-search-info-icon">
+              <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" viewBox="0 0 24 24" height="16" width="16" focusable="false" aria-hidden="true">
+                <path d="M23.5 24H.5a.5.5 0 0 1 0-1h23a.5.5 0 0 1 0 1z"></path>
+                <path d="M19.5 24h-15a.5.5 0 0 1-.5-.5v-19a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 .5.5v19a.5.5 0 0 1-.5.5zM5 23h14V5H5v18z"></path>
+                <path d="M20.5 5h-17a.5.5 0 0 1-.5-.5v-1c0-.212.134-.401.333-.472l8.5-3a.5.5 0 0 1 .333 0l8.5 3c.2.071.334.26.334.472v1a.5.5 0 0 1-.5.5zM4 4h16v-.146L12 1.03 4 3.854V4zM13.5 24h-3a.5.5 0 0 1-.5-.5v-5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5zM11 23h2v-4h-2v4zM8.5 9h-2a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5zM7 8h1V7H7v1zM13.5 9h-3a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5zM11 8h2V7h-2v1zM17.5 9h-2a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5zM16 8h1V7h-1v1zM8.5 13h-2a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5zM7 12h1v-1H7v1zM13.5 13h-3a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5zM11 12h2v-1h-2v1zM17.5 13h-2a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5zM16 12h1v-1h-1v1zM8.5 17h-2a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5zM7 16h1v-1H7v1zM13.5 17h-3a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5zM11 16h2v-1h-2v1zM17.5 17h-2a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5zM16 16h1v-1h-1v1zM8.5 21h-2a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5zM7 20h1v-1H7v1zM17.5 21h-2a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5zM16 20h1v-1h-1v1z"></path>
+                <path fill="none" d="M0 0h24v24H0z"></path>
+              </svg>
+            </div>
+            <h2 class="directory-home-search-info-heading"><span class="directory-home-search-info-overline">Search for </span>Departments &amp; Units</h2>
+          </div>
+          <p>Find contact information for departments and units &ndash; including location on campus, complete list of employees and organizational hierarchy. Search by:</p>
+          <ul>
+            <li>Full or partial name</li>
+            <li>Alias</li>
+            <li>Abbreviation</li>
+          </ul>
+        </div>
+        <div class="dcf-col-span-2@sm dcf-col-span-1@lg dcf-d-grid dcf-col-gap-vw dcf-row-gap-6">
+          <div class="directory-home-tool-card dcf-card dcf-card-as-link">
+            <div class="directory-home-tool-icon-heading-pair dcf-card-block">
+              <div class="directory-home-tool-icon">
+                <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" viewBox="0 0 24 24" height="16" width="16" focusable="false" aria-hidden="true">
+                  <path d="M23.379 20.253a.501.501 0 0 0-.233-.304l-.691-.398a3.524 3.524 0 0 0 0-1.104l.69-.398a.501.501 0 0 0 .183-.684l-1-1.732a.493.493 0 0 0-.304-.232.497.497 0 0 0-.379.049l-.693.4a3.929 3.929 0 0 0-.953-.543v-.808a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 0-.5.5v.808c-.346.139-.665.32-.953.543l-.693-.4a.503.503 0 0 0-.683.183l-1 1.732a.502.502 0 0 0 .183.684l.69.398a3.524 3.524 0 0 0 0 1.104l-.691.398a.497.497 0 0 0-.183.683l1 1.732c.138.237.444.32.683.184l.695-.401c.287.222.608.404.952.543v.809a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-.809a4.01 4.01 0 0 0 .952-.543l.695.401c.24.137.544.054.683-.184l1-1.732a.492.492 0 0 0 .05-.379zm-1.666 1.179-.567-.327a.498.498 0 0 0-.593.07 2.965 2.965 0 0 1-1.197.682.5.5 0 0 0-.356.479v.663h-1v-.663a.5.5 0 0 0-.356-.479 2.965 2.965 0 0 1-1.197-.682.5.5 0 0 0-.593-.07l-.567.327-.5-.866.567-.327a.5.5 0 0 0 .237-.548c-.12-.505-.12-.88 0-1.384a.499.499 0 0 0-.237-.548l-.566-.327.5-.866.566.327a.5.5 0 0 0 .593-.07 2.966 2.966 0 0 1 1.198-.684.5.5 0 0 0 .356-.479v-.662h1v.662a.5.5 0 0 0 .356.479c.462.139.865.369 1.198.684a.5.5 0 0 0 .593.07l.566-.327.5.866-.566.327a.5.5 0 0 0-.237.548c.12.504.12.879 0 1.384a.5.5 0 0 0 .237.548l.567.327-.502.866z"></path>
+                  <path d="M18.499 16.999c-1.103 0-2 .896-2 2 0 1.103.897 2 2 2s2-.897 2-2-.897-2-2-2zm0 3a1.001 1.001 0 0 1 0-2 1.001 1.001 0 0 1 0 2zM13.5 6.429a.5.5 0 0 0-.5.5c0 1.986-1.148 2.519-1.191 2.538a.499.499 0 0 0-.309.462v2.5a.5.5 0 0 0 .348.476c.682.219.97.32 2.549.852a.5.5 0 1 0 .313-.949c-.625-.211-1.71-.579-2.21-.743v-1.847c.483-.323 1.37-1.148 1.487-2.896.196-.093.365-.244.496-.446.172-.268.267-.617.267-.982 0-.591-.231-1.074-.598-1.332.273-.624.689-1.674.42-2.753C14.241.474 12.342 0 10.816 0h-.001C9.464 0 7.819.372 7.23 1.384c-.518-.029-.919.11-1.205.416-.692.745-.303 2.146-.093 2.898l.004.017a1.19 1.19 0 0 0-.191.368 2.77 2.77 0 0 0-.12.846c0 .608.137 1.058.382 1.299.092 1.812 1.001 2.661 1.493 2.99v1.875c-.665.266-1.395.512-2.103.751-2.103.71-3.918 1.324-4.285 2.427C.623 16.75.505 19.368.5 19.479A.502.502 0 0 0 1 20h10.5a.5.5 0 0 0 0-1H1.531c.059-.825.208-2.438.531-3.414.209-.629 2.12-1.276 3.656-1.794.836-.282 1.7-.575 2.477-.903a.499.499 0 0 0 .305-.46v-2.5a.509.509 0 0 0-.303-.459C8.148 9.447 7 8.915 7 6.929a.498.498 0 0 0-.307-.461c-.091-.239-.091-.839 0-1.077A.502.502 0 0 0 7 4.929c0-.121-.035-.248-.105-.499-.111-.399-.449-1.614-.137-1.949.136-.147.489-.102.687-.062a.499.499 0 0 0 .584-.37C8.177 1.451 9.375 1 10.815 1h.001c1.439 0 2.637.451 2.785 1.049.206.822-.201 1.739-.419 2.231-.117.266-.182.413-.182.577a.5.5 0 0 0 .5.5c.17 0 .25.32.25.536 0 .216-.08.536-.25.536z"></path>
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h2 class="directory-home-tool-heading"><a class="dcf-card-link" href="#">Manage Profile</a></h2>
+                <p class="directory-home-tool-description">Upload an image for your avatar, and manage some contact information.</p>
+              </div>
+            </div>
+          </div>
+          <div class="directory-home-tool-card dcf-card dcf-card-as-link">
+            <div class="directory-home-tool-icon-heading-pair dcf-card-block">
+              <div class="directory-home-tool-icon">
+                <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" viewBox="0 0 24 24" height="16" width="16" focusable="false" aria-hidden="true">
+                  <path d="M23.775 11.082 20 8.487V.5a.5.5 0 0 0-.5-.5h-15a.5.5 0 0 0-.5.5v7.987L.226 11.082A.54.54 0 0 0 0 11.5V22c0 1.103.897 2 2 2h20c1.103 0 2-.897 2-2V11.5c0-.2-.099-.292-.225-.418zm-1.167.412L20 13.232V9.701l2.608 1.793zM4 13.232l-2.608-1.739L4 9.701v3.531zM22 23H2c-.551 0-1-.449-1-1v-9.565l5.223 3.481a.5.5 0 1 0 .554-.832L5 13.899V1h14v12.899l-1.777 1.185a.5.5 0 1 0 .554.832L23 12.435V22c0 .551-.449 1-1 1z"></path>
+                  <path d="M15.812 16.109A.502.502 0 0 0 15.5 16h-7a.502.502 0 0 0-.312.109l-5 4a.501.501 0 0 0 .625.781L8.675 17h6.649l4.863 3.891a.5.5 0 0 0 .704-.079.501.501 0 0 0-.078-.703l-5.001-4zM12 13a4.97 4.97 0 0 0 2.826-.87.5.5 0 1 0-.566-.824A3.975 3.975 0 0 1 12 12c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4v.392a.87.87 0 0 1-1.739 0V8c0-1.246-1.014-2.261-2.261-2.261S9.739 6.754 9.739 8A2.263 2.263 0 0 0 12 10.261c.656 0 1.243-.285 1.656-.733a1.86 1.86 0 0 0 1.475.733A1.87 1.87 0 0 0 17 8.392V8c0-2.757-2.243-5-5-5S7 5.243 7 8s2.243 5 5 5zm0-3.739a1.262 1.262 0 0 1 0-2.522c.695 0 1.261.566 1.261 1.261S12.695 9.261 12 9.261z"></path>
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h2 class="directory-home-tool-heading"><a class="dcf-card-link" href="#">Email Signature Generator</a></h2>
+                <p class="directory-home-tool-description">Create a personalized email signature to paste into your email client.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- InstanceEndEditable -->
+   </div>
+  </main>
+  <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+    <!-- InstanceBeginEditable name="optionalfooter" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-1.html" -->
+    <!-- InstanceBeginEditable name="contactinfo" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/footer-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-3-std.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/noscript.html" -->
+  </footer>
+  <!--#include virtual="/wdn/templates_6.0/includes/global/js-body-local.html" -->
+  <!-- InstanceBeginEditable name="jsbody" -->
+  <!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

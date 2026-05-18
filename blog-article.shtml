@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!--#include virtual="/wdn/templates_6.0/includes/global/head-1.html" -->
+<!-- InstanceBeginEditable name="doctitle" -->
+  <title>Blog Article | Framework Testing Page</title>
+<!-- InstanceEndEditable -->
+<!--#include virtual="/wdn/templates_6.0/includes/global/head-2-local.html" -->
+<!-- InstanceBeginEditable name="head" -->
+  <!-- Place optional header elements here -->
+<!-- InstanceEndEditable -->
+</head>
+<body class="debug unl" data-version="6.0" data-template="debug">
+  <!--#include virtual="/wdn/templates_6.0/includes/global/skip-nav.html" -->
+
+<!--
+  <div class="dcf-alert dcf-wrapper dcf-pt-4 dcf-pb-4 dcf-txt-xs">
+    <header class="dcf-alert-header">
+      <div role="heading">
+        Emergency Alert
+      </div>
+    </header>
+    <p class="dcf-alert-msg">This alert is a test of the alert system. If this was an actual alert there would also be an actual emergency.</p>
+    <footer class="dcf-alert-footer">
+      <div role="heading">
+        Issued
+      </div>
+      <time class="dcf-pubdate" datetime="2018-12-02 11:11:03-0400">December 2, 2018</time>
+      <div role="heading">
+        Additional Info <small class="dcf-txt-xs">if available</small>
+      </div>
+      <a href="https://www.unl.edu/">https://www.unl.edu/</a>
+    </footer>
+  </div>
+-->
+
+  <header class="dcf-header" id="dcf-header" role="banner">
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/idm.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/search.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-1.html" -->
+    <!-- InstanceBeginEditable name="affiliation" -->
+    <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-1.html" -->
+    <!-- InstanceBeginEditable name="titlegraphic" -->
+    <a class="dcf-txt-h6" href="https://arts.unl.edu/music">
+      Glenn Korff School of Music
+    </a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-container-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-group.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-1.html" -->
+    <!-- InstanceBeginEditable name="navlinks" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-dialog-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-copy-dialog.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-1.html" -->
+    <!-- InstanceBeginEditable name="navvisit" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-1.html" -->
+    <!-- InstanceBeginEditable name="navapply" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-1.html" -->
+    <!-- InstanceBeginEditable name="navgive" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-dialog-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-container-2-local.html" -->
+  </header>
+
+  <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
+    <!-- InstanceBeginEditable name="highlighted" -->
+    <!-- InstanceEndEditable -->
+    <!-- InstanceBeginEditable name="hero" -->
+    <div class="dcf-hero dcf-hero-default dcf-mb-0">
+    <!-- InstanceEndEditable -->
+      <div class="dcf-hero-group-1">
+        <div class="dcf-breadcrumbs-wrapper">
+          <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
+            <ol>
+              <li><a href="https://www.unl.edu/">Nebraska</a></li>
+              <li><a href="#">No Place Like Nebraska</a></li>
+              <li><span aria-current="page">Ask an Alum: Carter Knopik</span></li>
+            </ol>
+            <!-- InstanceEndEditable -->
+          </nav>
+        </div>
+        <header class="dcf-page-title" id="dcf-page-title">
+          <!-- InstanceBeginEditable name="pagetitle" -->
+          <h1>Ask an Alum: Carter Knopik</h1>
+          <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">October 15, 2024</p>
+          <!-- InstanceEndEditable -->
+        </header>
+        <!-- InstanceBeginEditable name="herogroup1" -->
+        <!-- InstanceEndEditable -->
+      </div>
+      <!-- InstanceBeginEditable name="herogroup2" -->
+      <div class="dcf-hero-group-2">
+      </div>
+      <!-- InstanceEndEditable -->
+    </div>
+    <div class="dcf-main-content dcf-wrapper">
+    <!-- InstanceBeginEditable name="maincontentarea" -->
+
+      <style>
+
+
+
+
+
+
+        /* DROP CAP */
+
+        /* .unl-drop-cap::first-letter {
+          float: left;
+          font-size: 4.74em;
+          line-height: .63;
+          margin-top: .84rem;
+          padding-left: .056rem;
+          padding-right: .56rem;
+        } */
+
+        /* .unl-drop-cap::first-letter {
+          float: left;
+          font-size: 4.74em;
+          line-height: 1;
+          margin-right: .75rem;
+          margin-top: 0;
+          padding-left: .75rem;
+          padding-right: .75rem;
+          background-color: #d00000;
+          color: #fefdfa;
+        } */
+
+        .unl-drop-cap {
+          margin-right: .75rem;
+          margin-top: .32rem;
+          padding: .43rem 1rem;
+        }
+
+
+        /* BLOCKQUOTE */
+
+        .unl-blockquote-new {
+          margin-block: 2.37rem 4.21rem;
+          /* padding-right: 5.62vw; */
+          /* padding-inline: 5.62vw; */
+        }
+
+        .unl-blockquote-new::before {
+          content: open-quote;
+          font-size: 17.76rem;
+          font-weight: 700;
+          /* grid-column-start: 2; */
+          grid-row-start: 1;
+          height: 7.49rem;
+          line-height: .75;
+        }
+
+        /* .unl-blockquote-new::after {
+          background: url('wdn/templates_6.0/images/bg-dots-scarlet.svg') 0 0 / .75rem repeat;
+          content: '';
+          grid-column-start: 1;
+          grid-row: 1 / 3;
+          width: 5.62vw;
+        } */
+
+        @supports (-webkit-text-stroke: 1px black) {
+
+          .unl-blockquote-new::before {
+            color: #d00000;
+            /* -webkit-text-stroke: 2px var(--bg-body); */
+            /* -webkit-text-stroke: 2px #fefdfa; */
+            -webkit-text-stroke: 3px currentcolor;
+            -webkit-text-fill-color: transparent;
+            /* -webkit-text-fill-color: transparent; */
+            /* background-clip: text; */
+            /* background-image: repeating-linear-gradient(57.7deg, #d00000, #d00000 2px, transparent 2px, transparent 4px); */
+            paint-order: stroke fill;
+
+            /* text-shadow:
+              -3px -3px 0 currentcolor,
+               0   -3px 0 currentcolor,
+               3px -3px 0 currentcolor,
+               3px  0   0 currentcolor,
+               3px  3px 0 currentcolor,
+               0    3px 0 currentcolor,
+              -3px  3px 0 currentcolor,
+              -3px  0   0 currentcolor; */
+            /* text-shadow: 2px 0 #d00000, -2px 0 #d00000, 0 2px #d00000, 0 -2px #d00000,
+             1px 1px #d00000, -1px -1px #d00000, 1px -1px #d00000, -1px 1px #d00000; */
+            /* text-shadow: 10px 10px 0px #07bccc,
+            15px 15px 0px #e601c0,
+            20px 20px 0px #e9019a,
+            25px 25px 0px #f40468,
+            45px 45px 10px var(--bg-light-gray); */
+          }
+
+        }
+
+        .unl-blockquote-new > p {
+          font-size: clamp(1.33em, 3.16vw, 2.37em);
+          font-weight: 600;
+        }
+
+        .unl-blockquote-new > p:last-of-type::after {
+          content: close-quote;
+        }
+
+        @media (max-width: 56.12em) {
+
+          .unl-blockquote-new > p {
+            line-height: 1.33;
+          }
+
+        }
+
+        @media (min-width: 56.12em) {
+
+          .unl-blockquote-new > p {
+            line-height: 1.13;
+          }
+
+        }
+
+      </style>
+
+      <div class="dcf-bleed dcf-wrapper unl-bg-shift-stripe-bottom-lighter-gray">
+        <div class="dcf-16x9">
+          <img class="dcf-obj-fit-cover" height="1600" width="900" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*5qMGV2nt_ZZcDyTk1Hj-sQ.jpeg" alt="">
+        </div>
+      </div>
+
+      <div class="dcf-d-flex dcf-flex-col dcf-ai-center dcf-pt-9 dcf-pb-9">
+        <div class="" style="max-width: 75ch;">
+
+          <p class="dcf-txt-lg dcf-drop-cap">After graduating with a film and new media degree in 2019, Carter Knopik moved to Los Angeles to work as a cinematographer. Recently, he had the unique opportunity to come back to his alma mater and work as the cinematographer for the national TV spot, “Home Again.” In collaboration with university staff, faculty, students and graduates, Carter brought the vision to life while giving back to the university.</p>
+
+          <!-- <p class="dcf-txt-lg"><span aria-hidden="true"><span class="dcf-float-left dcf-lh-1 dcf-txt-2xl dcf-bold unl-drop-cap unl-cream unl-bg-scarlet unl-frame-quad">A</span>fter</span><span class="dcf-sr-only">After</span> graduating with a film and new media degree in 2019, Carter Knopik moved to Los Angeles to work as a cinematographer. Recently, he had the unique opportunity to come back to his alma mater and work as the cinematographer for the national TV spot, “Home Again.” In collaboration with university staff, faculty, students and graduates, Carter brought the vision to life while giving back to the university.</p> -->
+
+          <!-- <p class="dcf-txt-lg"><span aria-hidden="true"><span class="dcf-float-left dcf-lh-1 dcf-txt-2xl dcf-bold dcf-circle unl-drop-cap unl-cream unl-bg-scarlet" style="box-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, .25);filter: blur(.25px);transform:rotate(-10deg);">A</span>fter</span><span class="dcf-sr-only">After</span> graduating with a film and new media degree in 2019, Carter Knopik moved to Los Angeles to work as a cinematographer. Recently, he had the unique opportunity to come back to his alma mater and work as the cinematographer for the national TV spot, “Home Again.” In collaboration with university staff, faculty, students and graduates, Carter brought the vision to life while giving back to the university.</p> -->
+
+          <p><b>You are a Los Angeles-based cinematographer. Can you speak to what this job entails, and some projects you have worked on?</b></p>
+          <p>As a cinematographer, my job is to translate a director’s vision into an actionable plan for the camera and lighting teams. This involves a lot of preparation and planning ahead on a project to source the proper crew and equipment, scout locations and work out technical plans around camera and lighting. On set, I collaborate with all departments to create shots, sequences and scenes that fit within the project’s visual style, while staying on schedule and looking out for the safety and well-being of the camera and lighting crews. It’s a multi-faceted job that entails a lot more than just operating a camera (although I often do that too).</p>
+
+          <p><b>What led you to pursue cinematography? Explain how you discovered this passion and turned it into a career.</b></p>
+          <p>My passion for creating images began when I started taking photos in high school. That interest in photography quickly grew into a love of filmmaking and I ended up attending UNL to study filmmaking. I specifically found my way into cinematography because it combines artistic creativity with a high level of technical knowledge. It’s a career that requires constant evolution and learning, which is what keeps me engaged and excited.</p>
+
+          <p><b>How did your involvements and studies here at Nebraska prepare you for a career in cinematography?</b></p>
+          <p>I studied in the Film and New Media (FNM) program at UNL, which has now evolved into the Emerging Media Arts program. I met a ton of great collaborators while at UNL, many of whom I still work with today. Through working on student films and receiving mentorship from students in classes above mine, I gained a significant amount of hands-on experience. We had relatively small class sizes compared to other film schools around the nation, and in many ways that served us well — we knew everyone in the program, could work on almost every project and had a lot of opportunities to experiment and try new things. The faculty and staff were supportive of letting students explore what interested them most, and there was a variety of classes available to help us explore those subjects while also getting a well-rounded education throughout the rest of our university coursework.</p>
+
+          <p><b>You were recently given the opportunity to come back to your alma mater and lead videography for the University of Nebraska-Lincoln’s national TV spot. What does this role mean to you? Any favorite parts of the experience?</b></p>
+          <p>When Aaron Nix and Matthew Strasburger (co-directors for the spot and staff with University Communication & Marketing) asked me to come back to Nebraska to shoot the newest national TV spot, it was an easy “yes.” Not only was it a great opportunity to work with collaborators who I developed relationships with during my time in Nebraska, but it was also a chance to promote the institution that I grew up around my whole life and that gave me a great college experience. I really enjoyed working with the directors on this project, both of whom I’ve worked with in the past — they brought an amazing vision for the project and were extremely trusting in the crew they brought on to help execute it. It was also fun getting to spend a couple of days back on campus at UNL and seeing what has stayed the same and what is new. The whole experience brought back many memories from my time at UNL.</p>
+
+          <div class="dcf-bleed dcf-wrapper dcf-mt-8 dcf-mb-8 dcf-d-grid dcf-grid-cols-2@md dcf-col-gap-4 dcf-row-gap-6 unl-scroll-trigger-stagger">
+
+            <div class="dcf-4x3 unl-scroll-trigger-container">
+              <div class="dcf-4x3 unl-scroll-fx-fade-in">
+                <img class="dcf-obj-fit-cover" height="800" width="600" src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*8UFbp_LTxhKRRUAirp5nCQ.jpeg" alt="">
+              </div>
+            </div>
+
+            <div class="dcf-4x3 unl-scroll-trigger-container">
+              <div class="dcf-4x3 unl-scroll-fx-fade-in">
+                <img class="dcf-obj-fit-cover" height="800" width="600" src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*Ra6dJwXW-5udRFyKuNZfAg.jpeg" alt="">
+              </div>
+            </div>
+
+          </div>
+
+          <p><b>Talk about the process of bringing “Home Again” to life. What was the creative process like as well as filming?</b></p>
+          <p>The “Home Again” shoot went quite smoothly. We had an excellent team of UNL staff, current and former UNL students and local film professionals. People don’t always realize that Nebraska has a film industry of its own, with local crew members that rival any of the larger markets. So, for me, it was great to come home to Nebraska and get to work with those folks again. I had some “soft prep” time while still in LA working on other projects, where I had several meetings with this production team to ensure we had everything we needed to make the shoot happen. Once I arrived in Lincoln, it was full steam ahead on production, and all of that planning resulted in a successful commercial shoot.</p>
+
+          <p><b>Is there anything people would find interesting about the week-long process of filming “Home Again?” If so, please share!</b></p>
+          <p>We do our best to make everything look natural in the final spot, but a lot is going on just outside of the frame. Carts of equipment, extensive lighting setups and a crowd of crew members. We’ll sometimes spend hours setting up one shot that may only be in the final commercial for a second or less. It all works like a big dance, with each person on set doing their specific job in service of the larger production. When you have an experienced crew, proper planning and solid communication, everything tends to go well.</p>
+
+          <p><b>What was your favorite memory during your time at Nebraska?</b></p>
+          <p>One of my favorite memories from my time at Nebraska was working on my capstone film during my final year of undergraduate. Our team worked on the film for almost an entire year, and it was at that point when I felt like the skills I had been learning and refining were starting to pay off. It helped prepare me for what I’d experience going forward in the industry and reinforced my passion for filmmaking as an art form.</p>
+
+          <div class="dcf-bleed dcf-wrapper unl-scroll-trigger-container">
+          <!-- <div class="dcf-bleed unl-scroll-trigger-container"> -->
+            <blockquote class="dcf-d-grid dcf-col-gap-6 unl-blockquote-new unl-scarlet unl-scroll-fx-fade-in">
+              <p class="dcf-row-start-2 dcf-mb-0">We had relatively small class sizes compared to other film schools around the nation, and in many ways that served us well — we knew everyone in the program, could work on almost every project and had a lot of opportunities to experiment and try new things.</p>
+              <!-- <p class="dcf-col-start-2 dcf-row-start-2 dcf-mb-0">We had relatively small class sizes compared to other film schools around the nation, and in many ways that served us well — we knew everyone in the program, could work on almost every project and had a lot of opportunities to experiment and try new things.</p> -->
+            </blockquote>
+          </div>
+
+          <p><b>Was there someone at Nebraska that had a significant impact on you?</b></p>
+          <p>I had several great professors at UNL, both within my program and in my additional coursework. Beyond the core technical classes in the FNM program, I also took several Film Theory courses within the English department. Professor Gwendolyn Foster had a significant impact on me starting in my freshman year. In Foster’s classes, I learned how to watch and analyze films with a critical eye — a skill that has been extremely valuable in my career. Her courses also introduced me to many new-to-me subsets of cinema such as “LGBTQ+ Film and Queer Theory” and “Japanese and Asian Cinema.” These courses not only started me on a path of discovery within cinema that led me to enjoy a wider range of films, but also helped to expand my worldview and sense of self.</p>
+
+          <p><b>If you were to give advice to current students about pursuing their passion, what would it be?</b></p>
+          <p>The film industry can be very tricky and demanding — it requires dedication and resilience. My biggest piece of advice for current students would be to start creating opportunities for yourself today. Mark Duplass has a great quote in his 2015 SXSW keynote, “The cavalry isn’t coming.” In an industry full of talented people, no one is out looking for you, so make sure to make yourself visible. Begin building a portfolio by creating your own projects, make connections with people in the industry who are coming up alongside you and start finding your unique voice as an artist and storyteller. It all takes time, so start now. That’s what will lead to success down the road.</p>
+          <p class="dcf-mb-0">Be as proactive as possible, and if you stick with it long enough, you’ll find your path. It may look different from what you planned, so be open to change and ready to adapt. I don’t believe that you have to be in a big city to be a successful creative — there are so many opportunities to forge your own path wherever you are. That being said, if you do plan to move out of state, it’s really helpful to know someone in the place you’re headed to. When I moved from Nebraska to Los Angeles, I already had an existing network of UNL alums in that city — people who cared and wanted to see me succeed. That continues to be a huge help.</p>
+
+
+          <div class="dcf-bleed dcf-wrapper dcf-d-flex dcf-jc-center dcf-mt-8 dcf-mb-8">
+            <div class="dcf-max-w-xl dcf-4x3 unl-scroll-trigger-container">
+              <div class="dcf-4x3 unl-scroll-fx-fade-in">
+                <img class="dcf-obj-fit-cover" height="800" width="600" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*x59eaavt7AOseKz9_8y8qg.jpeg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <h2 class="dcf-txt-xs dcf-lh-2 dcf-uppercase dcf-bold unl-ls-2 unl-dark-gray">Tags</h2>
+          <ul class="dcf-d-flex dcf-flex-wrap dcf-col-gap-5 dcf-row-gap-2 dcf-mb-0" role="list">
+            <li class="dcf-mb-0"><a class="dcf-txt-xs dcf-txt-decor-hover" href="#">Ask an Alum</a></li>
+            <li class="dcf-mb-0"><a class="dcf-txt-xs dcf-txt-decor-hover" href="#">Alumni</a></li>
+            <li class="dcf-mb-0"><a class="dcf-txt-xs dcf-txt-decor-hover" href="#">Hixson-Lied College of Fine and Performing Arts</a></li>
+            <li class="dcf-mb-0"><a class="dcf-txt-xs dcf-txt-decor-hover" href="#">Johnny Carson Center for Emerging Media Arts</a></li>
+            <li class="dcf-mb-0"><a class="dcf-txt-xs dcf-txt-decor-hover" href="#">Film and New Media</a></li>
+            <li class="dcf-mb-0"><a class="dcf-txt-xs dcf-txt-decor-hover" href="#">University Communication &amp; Marketing</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dcf-bt-1 dcf-bt-solid unl-bt-light-gray dcf-pt-4 dcf-pb-9">
+
+        <h2 class="dcf-txt-xs dcf-lh-2 dcf-uppercase dcf-bold unl-ls-2 unl-dark-gray">More Stories</h2>
+        <ul class="dcf-d-grid dcf-grid-cols-2@sm dcf-grid-cols-4@lg dcf-col-gap-vw dcf-row-gap-6 dcf-mt-6 dcf-mb-0 unl-scroll-trigger-stagger" role="list">
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*_kOEafSoy82gd-WWEQZJMg.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">On Campus: UCARE</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">June 11, 2025</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">Laila knew she wanted to make an impact on the well-being of others. Through undergraduate research with UCARE, she’s doing just that.</p>
+            </div>
+          </li>
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fit:2000/1*m9xyqjIDGYll6F6huD-Adw.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">Ask an Alum: Alex Gordon Stotz</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">June 10, 2025</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">Alex Gordon Stotz is using his teachings from the College of Architecture to bring scenes to life on the small and big screen.</p>
+            </div>
+          </li>
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fit:1400/1*RU26x0mbW4uUC9ca64xqFQ.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">How New Student Enrollment set me up for success — and can for you, too</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">June 5, 2025</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">NSE orientation leader Ava Glover shares how to make the most of orientation and find success as you enter college.</p>
+            </div>
+          </li>
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ONXYV6i8QsPyeiT8c-8QAg.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">Explore LNK: Summer Activities</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">June 4, 2025</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">Plan your summer day in LNK, whether you want to explore nature, get out of the heat or treat yourself to something sweet.</p>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="dcf-bleed dcf-wrapper dcf-pt-8 dcf-pb-8 unl-bg-scarlet">
+
+        <h2 class="dcf-txt-center unl-cream">We’re here to help you shape the future.</h2>
+        <p class="dcf-txt-center dcf-mb-0"><a class="dcf-btn-inverse-primary dcf-btn" href="https://admissions.unl.edu/visit/">Visit Nebraska</a> <a class="dcf-btn-inverse-primary dcf-btn" href="https://www.unl.edu/apply/">Become a Husker</a></p>
+
+      </div>
+
+    <!-- InstanceEndEditable -->
+   </div>
+  </main>
+  <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+    <!-- InstanceBeginEditable name="optionalfooter" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-1.html" -->
+    <!-- InstanceBeginEditable name="contactinfo" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/footer-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-3-big.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/noscript.html" -->
+  </footer>
+  <!--#include virtual="/wdn/templates_6.0/includes/global/js-body-local.html" -->
+  <!-- InstanceBeginEditable name="jsbody" -->
+  <!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!--#include virtual="/wdn/templates_6.0/includes/global/head-1.html" -->
+<!-- InstanceBeginEditable name="doctitle" -->
+  <title>Debugging Out | Framework Testing Page</title>
+<!-- InstanceEndEditable -->
+<!--#include virtual="/wdn/templates_6.0/includes/global/head-2-local.html" -->
+<!-- InstanceBeginEditable name="head" -->
+  <!-- Place optional header elements here -->
+<!-- InstanceEndEditable -->
+</head>
+<body class="debug unl" data-version="6.0">
+  <!--#include virtual="/wdn/templates_6.0/includes/global/skip-nav.html" -->
+
+<!--
+  <div class="dcf-alert dcf-wrapper dcf-pt-4 dcf-pb-4 dcf-txt-xs">
+    <header class="dcf-alert-header">
+      <div role="heading">
+        Emergency Alert
+      </div>
+    </header>
+    <p class="dcf-alert-msg">This alert is a test of the alert system. If this was an actual alert there would also be an actual emergency.</p>
+    <footer class="dcf-alert-footer">
+      <div role="heading">
+        Issued
+      </div>
+      <time class="dcf-pubdate" datetime="2018-12-02 11:11:03-0400">December 2, 2018</time>
+      <div role="heading">
+        Additional Info <small class="dcf-txt-xs">if available</small>
+      </div>
+      <a href="https://www.unl.edu/">https://www.unl.edu/</a>
+    </footer>
+  </div>
+-->
+
+  <header class="dcf-header" id="dcf-header" role="banner">
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-header-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-header-1.html" -->
+    <!-- InstanceBeginEditable name="headervisit" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-header-1.html" -->
+    <!-- InstanceBeginEditable name="headerapply" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-header-1.html" -->
+    <!-- InstanceBeginEditable name="headergive" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/idm.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/search.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-1.html" -->
+    <!-- InstanceBeginEditable name="affiliation" -->
+    <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-1.html" -->
+    <!-- InstanceBeginEditable name="titlegraphic" -->
+    <a class="dcf-txt-h6" href="https://arts.unl.edu/music">
+      Glenn Korff School of Music
+    </a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-group.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-btn.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-child-1.html" -->
+    <!-- InstanceBeginEditable name="navlinks" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-nav-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-nav-1.html" -->
+    <!-- InstanceBeginEditable name="navvisit" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-nav-1.html" -->
+    <!-- InstanceBeginEditable name="navapply" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-nav-1.html" -->
+    <!-- InstanceBeginEditable name="navgive" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-child-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-2.html" -->
+  </header>
+
+  <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
+    <!-- InstanceBeginEditable name="highlighted" -->
+    <!-- InstanceEndEditable -->
+    <!-- InstanceBeginEditable name="hero" -->
+    <div class="dcf-hero dcf-hero-default">
+    <!-- InstanceEndEditable -->
+      <div class="dcf-hero-group-1">
+        <div class="dcf-breadcrumbs-wrapper">
+          <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
+            <ol>
+              <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
+              <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
+              <li><span aria-current="page">Ensembles</span></li>
+            </ol>
+            <!-- InstanceEndEditable -->
+          </nav>
+        </div>
+        <header class="dcf-page-title" id="dcf-page-title">
+          <!-- InstanceBeginEditable name="pagetitle" -->
+          <h1>Page title</h1>
+          <!-- InstanceEndEditable -->
+        </header>
+        <!-- InstanceBeginEditable name="herogroup1" -->
+        <!-- InstanceEndEditable -->
+      </div>
+      <!-- InstanceBeginEditable name="herogroup2" -->
+      <div class="dcf-hero-group-2">
+      </div>
+      <!-- InstanceEndEditable -->
+    </div>
+    <div class="dcf-main-content dcf-wrapper">
+    <!-- InstanceBeginEditable name="maincontentarea" -->
+    <p>Impress your audience with awesome content!</p>
+
+    <style>
+
+      .unl .dcf-btn-unstyled {
+        background: transparent;
+        border-style: none;
+        border-width: 0;
+        color: var(--btn-tertiary);
+        padding: 0;
+      }
+
+      .unl .dcf-btn-unstyled:hover {
+        color: var(--hover);
+      }
+
+      .unl .directory-search-bg {
+        background-color: var(--bg-lightest-gray);
+        padding-block: 1.78em;
+      }
+
+      .unl .directory-search-results-bg {
+        background-color: var(--bg-lightest-gray);
+        padding-bottom: 4.21em;
+      }
+
+      .unl .directory-search-results-tab-heading {
+        font-size: 1.78em;
+        letter-spacing: -.02em;
+      }
+
+      .unl .directory-search-results-tab-count {
+        font-size: .84em;
+      }
+
+      .unl .directory-search-results-count {
+        color: var(--dark-gray);
+        margin-top: .43em;
+      }
+
+      .unl .directory-results-filter-results {
+        border-top: 1px solid var(--b);
+        padding-bottom: 1.33em;
+        padding-top: .75em;
+      }
+
+      .unl .directory-results-filter-results-header {
+        padding-bottom: 1.78em;
+      }
+
+      .unl .directory-results-filter-results-heading {
+        font-size: .84em;
+        font-weight: 600;
+      }
+
+      .unl .directory-search-results-controls {
+        border-top: 1px solid var(--b);
+        padding-block: .75em;
+      }
+
+      .unl .directory-search-results-section {
+        border-top: 1px solid var(--b);
+        padding-top: 2.37em;
+      }
+
+      .directory-search-results-section + .directory-search-results-section {
+        margin-top: 2.37em;
+      }
+
+      .unl .directory-search-results-section-header {
+        top: 1em;
+      }
+
+      .unl .directory-search-results-section-count {
+        font-size: .84em;
+      }
+
+      .directory-search-results-grid li,
+      .directory-search-results-list li {
+        margin-bottom: 0;
+      }
+
+      .directory-search-results-list > li + li {
+        margin-top: 1.33em;
+      }
+
+      .unl .directory-search-result-details-list {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .unl .directory-search-result-details-list-item {
+        line-height: 1.33;
+      }
+
+      .unl .directory-search-result-details-list-item:not(:first-child) {
+        margin-top: .43rem;
+      }
+
+      .unl .directory-search-results-grid .directory-search-result {
+        width: 100%;
+      }
+
+      .unl .directory-search-results-list .directory-search-result {
+        column-gap: 1em;
+        display: flex;
+        flex: nowrap;
+      }
+
+      .unl .directory-search-results-grid .directory-search-result-img {
+        margin-bottom: .75em;
+      }
+
+      .unl .directory-search-results-list .directory-search-result-img {
+        align-self: start;
+        flex-shrink: 0;
+        height: 5.62em;
+        width: 5.62em;
+      }
+
+      .unl .directory-search-result-img {
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .unl .directory-search-result-img::before {
+        content: '';
+        display: block;
+        padding-top: 100%;
+        width: 100%;
+      }
+
+      .unl .directory-search-results-list .directory-search-result-text {
+        align-self: center;
+      }
+
+      .unl .directory-search-result-name {
+        font-size: 1.13em;
+        font-weight: 600;
+        line-height: 1.33;
+        margin-bottom: .18rem;
+      }
+
+      .unl .directory-search-result-name::before {
+        content: '';
+        display: block;
+        height: 0;
+        margin-top: -.18em;
+        width: 0;
+      }
+
+      .unl .directory-search-result-job-title {
+        font-size: .84em;
+        font-style: italic;
+      }
+
+      .unl .directory-search-result-works-for {
+        font-size: .84em;
+      }
+
+      @media only screen and (min-width: 42.09em) {
+
+        .unl .directory-search-results-tab-heading {
+          font-size: 2.37em;
+        }
+
+      }
+
+      @media only screen and (min-width: 56.12em) {
+
+        .dcf-tabs-panel {
+          padding-block: 3.16em !important;
+          padding-inline: 2.37em !important;
+        }
+
+        .unl .directory-search-results-tab-heading {
+          font-size: 3.16em;
+        }
+
+        .unl .directory-search-result-name {
+          font-size: 1.33em;
+        }
+
+      }
+
+    </style>
+
+    <div class="directory-search-bg dcf-bleed dcf-wrapper dcf-d-flex dcf-flex-nowrap dcf-jc-center">
+      <form class="dcf-form dcf-w-max-md dcf-w-100%">
+        <div class="dcf-form-group dcf-form-controls-inline dcf-mb-0">
+          <label for="directory-form-search">Search Directory</label>
+          <div class="dcf-input-group">
+            <input id="directory-form-search">
+            <button class="dcf-btn dcf-btn-primary" type="submit">
+              <svg class="dcf-h-4 dcf-w-4 dcf-fill-current" aria-hidden="true" height="16" width="16" viewBox="0 0 48 48">
+                <path d="M18 36a17.9 17.9 0 0 0 11.27-4l15.31 15.41a2 2 0 0 0 2.84-2.82L32.08 29.18A18 18 0 1 0 18 36zm0-32A14 14 0 1 1 4 18 14 14 0 0 1 18 4z"></path>
+              </svg>
+              <span class="dcf-sr-only">Submit</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="directory-search-results-bg dcf-bleed dcf-wrapper">
+      <div class="dcf-tabs">
+        <ol class="dcf-tabs-list" role="tablist">
+          <li><a href="#directory-tabs-panel-people">People</a></li>
+          <li><a href="#directory-tabs-panel-departments-units">Departments &amp; Units</a></li>
+        </ol>
+        <section id="directory-tabs-panel-people">
+          <div class="dcf-grid dcf-col-gap-vw">
+            <header class="dcf-mb-5 dcf-col-100% dcf-col-67%-end@md dcf-col-75%-end@lg">
+              <h2 class="directory-search-results-tab-heading dcf-mb-0">People</h2>
+              <p class="directory-search-results-tab-count directory-search-results-count dcf-mb-0">60 results found for “Smith”</p>
+            </header>
+          </div>
+          <div class="dcf-grid dcf-col-gap-vw">
+            <div class="directory-results-filter-results dcf-col-100% dcf-col-33%-start@md dcf-col-25%-start@lg">
+              <form class="dcf-form" id="filter_form">
+                <div class="directory-results-filter-results-header dcf-d-flex dcf-flex-nowrap dcf-flex-row dcf-jc-between dcf-ai-center">
+                  <p class="directory-results-filter-results-heading dcf-mb-0">Filter Results</p>
+                  <button id="filter_reset" class="dcf-btn dcf-btn-tertiary" type="button">
+                    Clear
+                  </button>
+                </div>
+                <!-- <hr class="dcf-mt-3 dcf-mb-5"> -->
+                <fieldset id="affiliation_filter" class="dcf-collapsible-fieldset dcf-motion-none dcf-bl-transparent dcf-bb-transparent dcf-br-transparent dcf-pt-0 dcf-pb-0 dcf-sharp unl-collapsible-fieldset-close" data-start-expanded="false">
+                  <legend>Affiliation</legend>
+                  <div id="f5324f8d-90a5-4b6e-a2ba-6df6b5654c07-collapsible-fieldset-contents-0" class="dcf-h-max-0 dcf-overflow-y-hidden dcf-overflow-x-hidden unl-collapsible-fieldset-contents-close dcf-pointer-events-none dcf-opacity-0 dcf-d-none" aria-labelledby="443d92b6-7ce9-46c3-b564-2ea94fea9336-button-0" aria-hidden="true">
+                    <div class="directory-h-max-filter directory-filter-fieldset-contents dcf-overflow-y-auto">
+                      <div class="dcf-progress-spinner"></div>
+                      <ol class="dcf-mb-0" role="list">
+                        <li class="dcf-input-checkbox">
+                          <input id="affiliation_filter_0_affiliate" value="affiliate" type="checkbox" data-value="Affiliate">
+                          <label class="dcf-label" for="affiliation_filter_0_affiliate">Affiliate</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="affiliation_filter_1_emeriti" value="emeriti" type="checkbox" data-value="Emeriti">
+                          <label class="dcf-label" for="affiliation_filter_1_emeriti">Emeriti</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="affiliation_filter_2_faculty" value="faculty" type="checkbox" data-value="Faculty">
+                          <label class="dcf-label" for="affiliation_filter_2_faculty">Faculty</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="affiliation_filter_3_staff" value="staff" type="checkbox" data-value="Staff">
+                          <label class="dcf-label" for="affiliation_filter_3_staff">Staff</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="affiliation_filter_4_student" value="student" type="checkbox" data-value="Student">
+                          <label class="dcf-label" for="affiliation_filter_4_student">Student</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="affiliation_filter_5_volunteer" value="volunteer" type="checkbox" data-value="Volunteer">
+                          <label class="dcf-label" for="affiliation_filter_5_volunteer">Volunteer</label>
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                </fieldset>
+                <fieldset id="department_filter" class="dcf-collapsible-fieldset dcf-motion-none dcf-bl-transparent dcf-bb-transparent dcf-br-transparent dcf-pt-0 dcf-pb-0 dcf-sharp unl-collapsible-fieldset-close" data-start-expanded="false">
+                  <legend>Department</legend>
+                  <div id="f5324f8d-90a5-4b6e-a2ba-6df6b5654c07-collapsible-fieldset-contents-1" class="dcf-h-max-0 dcf-overflow-y-hidden dcf-overflow-x-hidden unl-collapsible-fieldset-contents-close dcf-pointer-events-none dcf-opacity-0 dcf-d-none" aria-labelledby="ba922aad-7e3c-4cb0-b499-d38e692d4ad2-button-1" aria-hidden="true">
+                    <div class="directory-h-max-filter directory-filter-fieldset-contents dcf-overflow-y-auto">
+                      <div class="dcf-progress-spinner"></div>
+                      <ol class="dcf-mb-0" role="list">
+                        <li class="dcf-input-checkbox">
+                          <input id="department_filter_0_agronomyhorticulture" value="agronomyhorticulture" type="checkbox" data-value="Agronomy &amp; Horticulture">
+                          <label class="dcf-label" for="department_filter_0_agronomyhorticulture">Agronomy &amp; Horticulture</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="department_filter_1_animalscience" value="animalscience" type="checkbox" data-value="Animal Science">
+                          <label class="dcf-label" for="department_filter_1_animalscience">Animal Science</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="department_filter_2_buildingsystemsmaintenance" value="buildingsystemsmaintenance" type="checkbox" data-value="Building Systems Maintenance">
+                          <label class="dcf-label" for="department_filter_2_buildingsystemsmaintenance">Building Systems Maintenance</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="department_filter_3_centerforbrainbiologybehavior" value="centerforbrainbiologybehavior" type="checkbox" data-value="Center for Brain, Biology &amp; Behavior">
+                          <label class="dcf-label" for="department_filter_3_centerforbrainbiologybehavior">Center for Brain, Biology &amp; Behavior</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="department_filter_4_fmpfacilitiesplanconstruction" value="fmpfacilitiesplanconstruction" type="checkbox" data-value="FM&amp;P Facilities Plan &amp; Construction">
+                          <label class="dcf-label" for="department_filter_4_fmpfacilitiesplanconstruction">FM&amp;P Facilities Plan &amp; Construction</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="department_filter_5_housingresidencelife" value="housingresidencelife" type="checkbox" data-value="Housing Residence Life">
+                          <label class="dcf-label" for="department_filter_5_housingresidencelife">Housing Residence Life</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="department_filter_6_huskerenergypower" value="huskerenergypower" type="checkbox" data-value="Husker Energy &amp; Power">
+                          <label class="dcf-label" for="department_filter_6_huskerenergypower">Husker Energy &amp; Power</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="department_filter_7_landscapeservices" value="landscapeservices" type="checkbox" data-value="Landscape Services">
+                          <label class="dcf-label" for="department_filter_7_landscapeservices">Landscape Services</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="department_filter_8_officeofuniversitycommunicationmarketing" value="officeofuniversitycommunicationmarketing" type="checkbox" data-value="Office of University Communication &amp; Marketing">
+                          <label class="dcf-label" for="department_filter_8_officeofuniversitycommunicationmarketing">Office of University Communication &amp; Marketing</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="department_filter_9_schoolofbiologicalsciences" value="schoolofbiologicalsciences" type="checkbox" data-value="School of Biological Sciences">
+                          <label class="dcf-label" for="department_filter_9_schoolofbiologicalsciences">School of Biological Sciences</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="department_filter_10_schoolofveterinarymedicinebiomedicalsciences" value="schoolofveterinarymedicinebiomedicalsciences" type="checkbox" data-value="School of Veterinary Medicine &amp; Biomedical Sciences">
+                          <label class="dcf-label" for="department_filter_10_schoolofveterinarymedicinebiomedicalsciences">School of Veterinary Medicine &amp; Biomedical Sciences</label>
+                        </li>
+                        <li class="dcf-input-checkbox">
+                          <input id="department_filter_11_specialeducationcommunicationdisorders" value="specialeducationcommunicationdisorders" type="checkbox" data-value="Special Education &amp; Communication Disorders">
+                          <label class="dcf-label" for="department_filter_11_specialeducationcommunicationdisorders">Special Education &amp; Communication Disorders</label>
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+            <div class="dcf-col-100% dcf-col-67%-end@md dcf-col-75%-end@lg">
+              <div class="directory-search-results-controls">
+                <form class="dcf-form dcf-d-flex dcf-flex-wrap dcf-jc-between dcf-col-gap-vw dcf-row-gap-4">
+                  <!-- <div class="dcf-d-flex dcf-flex-wrap dcf-ai-center dcf-jc-between dcf-col-gap-4 dcf-row-gap-3">
+                    <span class="dcf-txt-sm">Filter</span>
+                    <button class="dcf-btn dcf-btn-secondary">Affiliation</button>
+                    <button class="dcf-btn dcf-btn-secondary">Department</button>
+                  </div> -->
+                  <div class="dcf-d-inline-flex dcf-flex-grow-1 dcf-flex-wrap dcf-col-gap-6 dcf-row-gap-3">
+                    <div class="dcf-flex-shrink-0 dcf-form-group dcf-form-controls-inline dcf-mb-0">
+                      <label for="directory-form-sort-people">Sort</label>
+                      <select id="directory-form-sort-people" name="sort people results">
+                        <option value="last first" selected="">Last Name, First Name</option>
+                        <option value="first last">First Name, Last Name</option>
+                      </select>
+                    </div>
+                    <div class="dcf-flex-shrink-0 dcf-form-group dcf-form-controls-inline dcf-mb-0">
+                      <label for="directory-form-order-people">Order</label>
+                      <select id="directory-form-order-people" name="order people results">
+                        <option value="ascending" selected="">A–Z</option>
+                        <option value="descending">Z–A</option>
+                      </select>
+                    </div>
+                    <div class="dcf-flex-shrink-0 dcf-form-group dcf-form-controls-inline dcf-mb-0">
+                      <label for="directory-form-view-people">View as</label>
+                      <select id="directory-form-view-people" name="view people results">
+                        <option value="grid" selected="">Grid</option>
+                        <option value="list">List</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!--<div class="dcf-d-flex dcf-flex-nowrap dcf-ai-center dcf-js-flex-end">
+                     <fieldset class="dcf-m-0 dcf-p-0 dcf-b-0">
+                      <legend class="dcf-sr-only">View as</legend>
+                      <div class="dcf-form-group dcf-d-inline-flex dcf-flex-nowrap dcf-p-1 dcf-rounded dcf-b-1 dcf-b-solid unl-b-light-gray">
+                        <div class="dcf-input-switch">
+                          <input id="view-list" name="view as list" type="radio" value="list" checked>
+                          <label for="view-list">List</label>
+                        </div>
+                        <div class="dcf-input-switch">
+                          <input id="view-grid" name="view as grid" type="radio" value="grid">
+                          <label for="view-grid">Grid</label>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <button class="dcf-btn dcf-txt-base dcf-d-flex dcf-flex-nowrap dcf-ai-center dcf-jc-center dcf-col-gap-4 dcf-btn-unstyled">
+                      <span class="dcf-txt-sm">View as Grid</span>
+                      <svg class="dcf-h-6 dcf-w-6 dcf-fill-current" viewBox="0 0 24 24" height="16" width="16" focusable="false" aria-hidden="true">
+                        <path class="dcf-d-none" d="M23.5 1H.5a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h23a.5.5 0 0 0 .5-.5v-5a.5.5 0 0 0-.5-.5zM23 6H1V2h22v4zM23.5 9H.5a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h23a.5.5 0 0 0 .5-.5v-5a.5.5 0 0 0-.5-.5zm-.5 5H1v-4h22v4zM23.5 17H.5a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h23a.5.5 0 0 0 .5-.5v-5a.5.5 0 0 0-.5-.5zm-.5 5H1v-4h22v4z"/>
+                        <path d="M10.5 0H.5a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5zM10 10H1V1h9v9zM23.5 0h-10a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5zM23 10h-9V1h9v9zM10.5 13H.5a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5v-10a.5.5 0 0 0-.5-.5zM10 23H1v-9h9v9zM23.5 13h-10a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5v-10a.5.5 0 0 0-.5-.5zM23 23h-9v-9h9v9z"/>
+                        <path fill="none" d="M0 0h24v24H0z"/></svg>
+                    </button>
+                  </div>-->
+                </form>
+              </div>
+
+              <section class="directory-search-results-section dcf-grid dcf-col-gap-vw dcf-row-gap-4">
+                <div class="dcf-col-100% dcf-col-33%@sm dcf-col-100%@md dcf-col-25%@lg">
+                  <header class="directory-search-results-section-header dcf-sticky">
+                    <h3 class="directory-search-results-section-heading dcf-mb-0">Affiliate</h3>
+                    <p class="directory-search-results-section-count directory-search-results-count dcf-mb-0">4 results</p>
+                  </header>
+                </div>
+                <ol class="dcf-col-100% dcf-col-67%@sm dcf-col-100%@md dcf-col-75%@lg dcf-mb-0 dcf-grid-halves dcf-grid-thirds@lg dcf-col-gap-vw dcf-row-gap-6 directory-search-results-grid" role="list">
+                  <li class="directory-search-result dcf-card-as-link">
+                    <div class="directory-search-result-img">
+                      <picture>
+                        <source type="image/avif" media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/asmith80?s=48&amp;dpi=144&amp;format=avif 48w,
+                                    https://directory.unl.edu/avatar/asmith80?s=72&amp;dpi=144&amp;format=avif 72w,
+                                    https://directory.unl.edu/avatar/asmith80?s=100&amp;dpi=144&amp;format=avif 100w,
+                                    https://directory.unl.edu/avatar/asmith80?s=120&amp;dpi=144&amp;format=avif 120w,
+                                    https://directory.unl.edu/avatar/asmith80?s=200&amp;dpi=144&amp;format=avif 200w,
+                                    https://directory.unl.edu/avatar/asmith80?s=240&amp;dpi=144&amp;format=avif 240w,
+                                    https://directory.unl.edu/avatar/asmith80?s=400&amp;dpi=144&amp;format=avif 400w,
+                                    https://directory.unl.edu/avatar/asmith80?s=800&amp;dpi=144&amp;format=avif 800w
+                                ">
+                        <source type="image/avif" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/asmith80?s=48&amp;dpi=72&amp;format=avif 48w,
+                                    https://directory.unl.edu/avatar/asmith80?s=72&amp;dpi=72&amp;format=avif 72w,
+                                    https://directory.unl.edu/avatar/asmith80?s=100&amp;dpi=72&amp;format=avif 100w,
+                                    https://directory.unl.edu/avatar/asmith80?s=120&amp;dpi=72&amp;format=avif 120w,
+                                    https://directory.unl.edu/avatar/asmith80?s=200&amp;dpi=72&amp;format=avif 200w,
+                                    https://directory.unl.edu/avatar/asmith80?s=240&amp;dpi=72&amp;format=avif 240w,
+                                    https://directory.unl.edu/avatar/asmith80?s=400&amp;dpi=72&amp;format=avif 400w,
+                                    https://directory.unl.edu/avatar/asmith80?s=800&amp;dpi=72&amp;format=avif 800w
+                                ">
+                        <source media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/asmith80?s=48&amp;dpi=144&amp;format=jpeg 48w,
+                                    https://directory.unl.edu/avatar/asmith80?s=72&amp;dpi=144&amp;format=jpeg 72w,
+                                    https://directory.unl.edu/avatar/asmith80?s=100&amp;dpi=144&amp;format=jpeg 100w,
+                                    https://directory.unl.edu/avatar/asmith80?s=120&amp;dpi=144&amp;format=jpeg 120w,
+                                    https://directory.unl.edu/avatar/asmith80?s=200&amp;dpi=144&amp;format=jpeg 200w,
+                                    https://directory.unl.edu/avatar/asmith80?s=240&amp;dpi=144&amp;format=jpeg 240w,
+                                    https://directory.unl.edu/avatar/asmith80?s=400&amp;dpi=144&amp;format=jpeg 400w,
+                                    https://directory.unl.edu/avatar/asmith80?s=800&amp;dpi=144&amp;format=jpeg 800w
+                                ">
+                        <img class="dcf-ratio-child dcf-d-block dcf-obj-fit-cover" itemprop="image" src="https://directory.unl.edu/avatar/asmith80?s=medium&amp;dpi=72&amp;format=jpeg" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/asmith80?s=48&amp;dpi=72&amp;format=jpeg 48w,
+                                    https://directory.unl.edu/avatar/asmith80?s=72&amp;dpi=72&amp;format=jpeg 72w,
+                                    https://directory.unl.edu/avatar/asmith80?s=100&amp;dpi=72&amp;format=jpeg 100w,
+                                    https://directory.unl.edu/avatar/asmith80?s=120&amp;dpi=72&amp;format=jpeg 120w,
+                                    https://directory.unl.edu/avatar/asmith80?s=200&amp;dpi=72&amp;format=jpeg 200w,
+                                    https://directory.unl.edu/avatar/asmith80?s=240&amp;dpi=72&amp;format=jpeg 240w,
+                                    https://directory.unl.edu/avatar/asmith80?s=400&amp;dpi=72&amp;format=jpeg 400w,
+                                    https://directory.unl.edu/avatar/asmith80?s=800&amp;dpi=72&amp;format=jpeg 800w
+                                " alt="">
+                      </picture>
+                    </div>
+                    <div>
+                      <div class="directory-search-result-name" itemprop="name">
+                        <a class="dcf-txt-decor-hover dcf-card-link" itemprop="url" href="https://directory.unl.edu/people/asmith80" aria-label="Show more information about Abigail Smith">Abigail Smith</a>
+                      </div>
+                      <div class="directory-search-result-job-title" itemprop="jobTitle">Affiliate</div>
+                    </div>
+                  </li>
+                  <li class="directory-search-result dcf-card-as-link">
+                    <div class="directory-search-result-img">
+                      <picture>
+                        <source type="image/avif" media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/asmith4?s=48&amp;dpi=144&amp;format=avif 48w,
+                                    https://directory.unl.edu/avatar/asmith4?s=72&amp;dpi=144&amp;format=avif 72w,
+                                    https://directory.unl.edu/avatar/asmith4?s=100&amp;dpi=144&amp;format=avif 100w,
+                                    https://directory.unl.edu/avatar/asmith4?s=120&amp;dpi=144&amp;format=avif 120w,
+                                    https://directory.unl.edu/avatar/asmith4?s=200&amp;dpi=144&amp;format=avif 200w,
+                                    https://directory.unl.edu/avatar/asmith4?s=240&amp;dpi=144&amp;format=avif 240w,
+                                    https://directory.unl.edu/avatar/asmith4?s=400&amp;dpi=144&amp;format=avif 400w,
+                                    https://directory.unl.edu/avatar/asmith4?s=800&amp;dpi=144&amp;format=avif 800w
+                                ">
+                        <source type="image/avif" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/asmith4?s=48&amp;dpi=72&amp;format=avif 48w,
+                                    https://directory.unl.edu/avatar/asmith4?s=72&amp;dpi=72&amp;format=avif 72w,
+                                    https://directory.unl.edu/avatar/asmith4?s=100&amp;dpi=72&amp;format=avif 100w,
+                                    https://directory.unl.edu/avatar/asmith4?s=120&amp;dpi=72&amp;format=avif 120w,
+                                    https://directory.unl.edu/avatar/asmith4?s=200&amp;dpi=72&amp;format=avif 200w,
+                                    https://directory.unl.edu/avatar/asmith4?s=240&amp;dpi=72&amp;format=avif 240w,
+                                    https://directory.unl.edu/avatar/asmith4?s=400&amp;dpi=72&amp;format=avif 400w,
+                                    https://directory.unl.edu/avatar/asmith4?s=800&amp;dpi=72&amp;format=avif 800w
+                                ">
+                        <source media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/asmith4?s=48&amp;dpi=144&amp;format=jpeg 48w,
+                                    https://directory.unl.edu/avatar/asmith4?s=72&amp;dpi=144&amp;format=jpeg 72w,
+                                    https://directory.unl.edu/avatar/asmith4?s=100&amp;dpi=144&amp;format=jpeg 100w,
+                                    https://directory.unl.edu/avatar/asmith4?s=120&amp;dpi=144&amp;format=jpeg 120w,
+                                    https://directory.unl.edu/avatar/asmith4?s=200&amp;dpi=144&amp;format=jpeg 200w,
+                                    https://directory.unl.edu/avatar/asmith4?s=240&amp;dpi=144&amp;format=jpeg 240w,
+                                    https://directory.unl.edu/avatar/asmith4?s=400&amp;dpi=144&amp;format=jpeg 400w,
+                                    https://directory.unl.edu/avatar/asmith4?s=800&amp;dpi=144&amp;format=jpeg 800w
+                                ">
+                        <img class="dcf-ratio-child dcf-d-block dcf-obj-fit-cover" itemprop="image" src="https://directory.unl.edu/avatar/asmith4?s=medium&amp;dpi=72&amp;format=jpeg" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/asmith4?s=48&amp;dpi=72&amp;format=jpeg 48w,
+                                    https://directory.unl.edu/avatar/asmith4?s=72&amp;dpi=72&amp;format=jpeg 72w,
+                                    https://directory.unl.edu/avatar/asmith4?s=100&amp;dpi=72&amp;format=jpeg 100w,
+                                    https://directory.unl.edu/avatar/asmith4?s=120&amp;dpi=72&amp;format=jpeg 120w,
+                                    https://directory.unl.edu/avatar/asmith4?s=200&amp;dpi=72&amp;format=jpeg 200w,
+                                    https://directory.unl.edu/avatar/asmith4?s=240&amp;dpi=72&amp;format=jpeg 240w,
+                                    https://directory.unl.edu/avatar/asmith4?s=400&amp;dpi=72&amp;format=jpeg 400w,
+                                    https://directory.unl.edu/avatar/asmith4?s=800&amp;dpi=72&amp;format=jpeg 800w
+                                " alt="">
+                      </picture>
+                    </div>
+                    <div>
+                      <div class="directory-search-result-name" itemprop="name">
+                        <a class="dcf-txt-decor-hover dcf-card-link" itemprop="url" href="https://directory.unl.edu/people/asmith4" aria-label="Show more information about Andrew Smith">Andrew Smith</a>
+                      </div>
+                      <div class="directory-search-result-job-title" itemprop="jobTitle">Affiliate</div>
+                    </div>
+                  </li>
+                  <li class="directory-search-result dcf-card-as-link">
+                    <div class="directory-search-result-img">
+                      <picture>
+                      <source type="image/avif" media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                  https://directory.unl.edu/avatar/jsmith107?s=48&amp;dpi=144&amp;format=avif 48w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=72&amp;dpi=144&amp;format=avif 72w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=100&amp;dpi=144&amp;format=avif 100w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=120&amp;dpi=144&amp;format=avif 120w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=200&amp;dpi=144&amp;format=avif 200w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=240&amp;dpi=144&amp;format=avif 240w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=400&amp;dpi=144&amp;format=avif 400w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=800&amp;dpi=144&amp;format=avif 800w
+                              ">
+                      <source type="image/avif" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                  https://directory.unl.edu/avatar/jsmith107?s=48&amp;dpi=72&amp;format=avif 48w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=72&amp;dpi=72&amp;format=avif 72w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=100&amp;dpi=72&amp;format=avif 100w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=120&amp;dpi=72&amp;format=avif 120w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=200&amp;dpi=72&amp;format=avif 200w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=240&amp;dpi=72&amp;format=avif 240w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=400&amp;dpi=72&amp;format=avif 400w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=800&amp;dpi=72&amp;format=avif 800w
+                              ">
+                      <source media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                  https://directory.unl.edu/avatar/jsmith107?s=48&amp;dpi=144&amp;format=jpeg 48w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=72&amp;dpi=144&amp;format=jpeg 72w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=100&amp;dpi=144&amp;format=jpeg 100w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=120&amp;dpi=144&amp;format=jpeg 120w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=200&amp;dpi=144&amp;format=jpeg 200w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=240&amp;dpi=144&amp;format=jpeg 240w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=400&amp;dpi=144&amp;format=jpeg 400w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=800&amp;dpi=144&amp;format=jpeg 800w
+                              ">
+                      <img class="dcf-ratio-child dcf-d-block dcf-obj-fit-cover" itemprop="image" src="https://directory.unl.edu/avatar/jsmith107?s=medium&amp;dpi=72&amp;format=jpeg" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                  https://directory.unl.edu/avatar/jsmith107?s=48&amp;dpi=72&amp;format=jpeg 48w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=72&amp;dpi=72&amp;format=jpeg 72w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=100&amp;dpi=72&amp;format=jpeg 100w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=120&amp;dpi=72&amp;format=jpeg 120w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=200&amp;dpi=72&amp;format=jpeg 200w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=240&amp;dpi=72&amp;format=jpeg 240w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=400&amp;dpi=72&amp;format=jpeg 400w,
+                                  https://directory.unl.edu/avatar/jsmith107?s=800&amp;dpi=72&amp;format=jpeg 800w
+                              " alt="">
+                      </picture>
+                    </div>
+                    <div>
+                      <div class="directory-search-result-name" itemprop="name">
+                        <a class="dcf-txt-decor-hover dcf-card-link" itemprop="url" href="https://directory.unl.edu/people/jsmith107" aria-label="Show more information about Jason Smith">Jason Smith</a>
+                      </div>
+                      <div class="directory-search-result-job-title" itemprop="jobTitle">Affiliate</div>
+                    </div>
+                  </li>
+                  <li class="directory-search-result dcf-card-as-link">
+                    <div class="directory-search-result-img">
+                      <picture>
+                      <source type="image/avif" media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                  https://directory.unl.edu/avatar/jsmith14?s=48&amp;dpi=144&amp;format=avif 48w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=72&amp;dpi=144&amp;format=avif 72w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=100&amp;dpi=144&amp;format=avif 100w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=120&amp;dpi=144&amp;format=avif 120w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=200&amp;dpi=144&amp;format=avif 200w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=240&amp;dpi=144&amp;format=avif 240w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=400&amp;dpi=144&amp;format=avif 400w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=800&amp;dpi=144&amp;format=avif 800w
+                              ">
+                      <source type="image/avif" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                  https://directory.unl.edu/avatar/jsmith14?s=48&amp;dpi=72&amp;format=avif 48w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=72&amp;dpi=72&amp;format=avif 72w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=100&amp;dpi=72&amp;format=avif 100w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=120&amp;dpi=72&amp;format=avif 120w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=200&amp;dpi=72&amp;format=avif 200w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=240&amp;dpi=72&amp;format=avif 240w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=400&amp;dpi=72&amp;format=avif 400w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=800&amp;dpi=72&amp;format=avif 800w
+                              ">
+                      <source media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                  https://directory.unl.edu/avatar/jsmith14?s=48&amp;dpi=144&amp;format=jpeg 48w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=72&amp;dpi=144&amp;format=jpeg 72w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=100&amp;dpi=144&amp;format=jpeg 100w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=120&amp;dpi=144&amp;format=jpeg 120w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=200&amp;dpi=144&amp;format=jpeg 200w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=240&amp;dpi=144&amp;format=jpeg 240w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=400&amp;dpi=144&amp;format=jpeg 400w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=800&amp;dpi=144&amp;format=jpeg 800w
+                              ">
+                      <img class="dcf-ratio-child dcf-d-block dcf-obj-fit-cover" itemprop="image" src="https://directory.unl.edu/avatar/jsmith14?s=medium&amp;dpi=72&amp;format=jpeg" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                  https://directory.unl.edu/avatar/jsmith14?s=48&amp;dpi=72&amp;format=jpeg 48w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=72&amp;dpi=72&amp;format=jpeg 72w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=100&amp;dpi=72&amp;format=jpeg 100w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=120&amp;dpi=72&amp;format=jpeg 120w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=200&amp;dpi=72&amp;format=jpeg 200w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=240&amp;dpi=72&amp;format=jpeg 240w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=400&amp;dpi=72&amp;format=jpeg 400w,
+                                  https://directory.unl.edu/avatar/jsmith14?s=800&amp;dpi=72&amp;format=jpeg 800w
+                              " alt="">
+                      </picture>
+                    </div>
+                    <div>
+                      <div class="directory-search-result-name" itemprop="name">
+                        <a class="dcf-txt-decor-hover dcf-card-link" itemprop="url" href="https://directory.unl.edu/people/asmith80" aria-label="Show more information about Jeff Smith">Jeff Smith</a>
+                      </div>
+                      <ul class="directory-search-result-details-list" role="list">
+                        <li class="directory-search-result-details-list-item">
+                          <div class="directory-search-result-job-title" itemprop="jobTitle">Radio Traffic/Continuity</div>
+                          <div class="directory-search-result-works-for" itemprop="worksFor" itemscope="" itemtype="https://schema.org/Organization">
+                            <span class="directory-search-result-org-unit">
+                              <span itemprop="name">University Television</span>
+                            </span>
+                            <span class="directory-search-result-org-name dcf-sr-only" itemprop="parentOrganization" itemscope="" itemtype="https://schema.org/Organization"><span itemprop="name">University of Nebraska–Lincoln</span></span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ol>
+              </section>
+
+              <section class="directory-search-results-section dcf-grid dcf-col-gap-vw dcf-row-gap-4">
+                <div class="dcf-col-100% dcf-col-33%@sm dcf-col-100%@md dcf-col-25%@lg">
+                  <header class="directory-search-results-section-header dcf-sticky">
+                    <h3 class="directory-search-results-section-heading dcf-mb-0">Faculty</h3>
+                    <p class="directory-search-results-section-count directory-search-results-count dcf-mb-0">4 results</p>
+                  </header>
+                </div>
+                <ol class="dcf-col-100% dcf-col-67%@sm dcf-col-100%@md dcf-col-75%@lg dcf-mb-0 dcf-grid-halves dcf-grid-thirds@lg dcf-col-gap-vw dcf-row-gap-6 directory-search-results-grid" role="list">
+                  <li class="directory-search-result dcf-card-as-link">
+                    <div class="directory-search-result-img">
+                      <picture>
+                        <source type="image/avif" media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/jsmith77?s=48&amp;dpi=144&amp;format=avif 48w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=72&amp;dpi=144&amp;format=avif 72w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=100&amp;dpi=144&amp;format=avif 100w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=120&amp;dpi=144&amp;format=avif 120w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=200&amp;dpi=144&amp;format=avif 200w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=240&amp;dpi=144&amp;format=avif 240w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=400&amp;dpi=144&amp;format=avif 400w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=800&amp;dpi=144&amp;format=avif 800w
+                                ">
+                        <source type="image/avif" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/jsmith77?s=48&amp;dpi=72&amp;format=avif 48w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=72&amp;dpi=72&amp;format=avif 72w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=100&amp;dpi=72&amp;format=avif 100w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=120&amp;dpi=72&amp;format=avif 120w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=200&amp;dpi=72&amp;format=avif 200w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=240&amp;dpi=72&amp;format=avif 240w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=400&amp;dpi=72&amp;format=avif 400w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=800&amp;dpi=72&amp;format=avif 800w
+                                ">
+                        <source media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/jsmith77?s=48&amp;dpi=144&amp;format=jpeg 48w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=72&amp;dpi=144&amp;format=jpeg 72w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=100&amp;dpi=144&amp;format=jpeg 100w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=120&amp;dpi=144&amp;format=jpeg 120w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=200&amp;dpi=144&amp;format=jpeg 200w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=240&amp;dpi=144&amp;format=jpeg 240w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=400&amp;dpi=144&amp;format=jpeg 400w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=800&amp;dpi=144&amp;format=jpeg 800w
+                                ">
+                        <img class="dcf-ratio-child dcf-d-block dcf-obj-fit-cover" itemprop="image" src="https://directory.unl.edu/avatar/jsmith77?s=medium&amp;dpi=72&amp;format=jpeg" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/jsmith77?s=48&amp;dpi=72&amp;format=jpeg 48w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=72&amp;dpi=72&amp;format=jpeg 72w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=100&amp;dpi=72&amp;format=jpeg 100w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=120&amp;dpi=72&amp;format=jpeg 120w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=200&amp;dpi=72&amp;format=jpeg 200w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=240&amp;dpi=72&amp;format=jpeg 240w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=400&amp;dpi=72&amp;format=jpeg 400w,
+                                    https://directory.unl.edu/avatar/jsmith77?s=800&amp;dpi=72&amp;format=jpeg 800w
+                                " alt="">
+                      </picture>
+                    </div>
+                    <div>
+                      <div class="directory-search-result-name" itemprop="name">
+                        <a class="dcf-txt-decor-hover dcf-card-link" itemprop="url" href="https://directory.unl.edu/people/jsmith77" aria-label="Show more information about Jeffrey Smith">Jeffrey Smith</a>
+                      </div>
+                      <ul class="directory-search-result-details-list" role="list">
+                        <li class="directory-search-result-details-list-item">
+                          <div class="directory-search-result-job-title" itemprop="jobTitle">Adjunct Faculty</div>
+                          <div class="directory-search-result-works-for" itemprop="worksFor" itemscope="" itemtype="https://schema.org/Organization">
+                            <span class="directory-search-result-org-unit">
+                              <span itemprop="name">Sociology</span>
+                            </span>
+                            <span class="directory-search-result-org-name dcf-sr-only" itemprop="parentOrganization" itemscope="" itemtype="https://schema.org/Organization"><span itemprop="name">University of Nebraska–Lincoln</span></span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="directory-search-result dcf-card-as-link">
+                    <div class="directory-search-result-img">
+                      <picture>
+                        <source type="image/avif" media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/ksmith2?s=48&amp;dpi=144&amp;format=avif 48w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=72&amp;dpi=144&amp;format=avif 72w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=100&amp;dpi=144&amp;format=avif 100w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=120&amp;dpi=144&amp;format=avif 120w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=200&amp;dpi=144&amp;format=avif 200w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=240&amp;dpi=144&amp;format=avif 240w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=400&amp;dpi=144&amp;format=avif 400w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=800&amp;dpi=144&amp;format=avif 800w
+                                ">
+                        <source type="image/avif" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/ksmith2?s=48&amp;dpi=72&amp;format=avif 48w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=72&amp;dpi=72&amp;format=avif 72w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=100&amp;dpi=72&amp;format=avif 100w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=120&amp;dpi=72&amp;format=avif 120w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=200&amp;dpi=72&amp;format=avif 200w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=240&amp;dpi=72&amp;format=avif 240w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=400&amp;dpi=72&amp;format=avif 400w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=800&amp;dpi=72&amp;format=avif 800w
+                                ">
+                        <source media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/ksmith2?s=48&amp;dpi=144&amp;format=jpeg 48w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=72&amp;dpi=144&amp;format=jpeg 72w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=100&amp;dpi=144&amp;format=jpeg 100w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=120&amp;dpi=144&amp;format=jpeg 120w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=200&amp;dpi=144&amp;format=jpeg 200w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=240&amp;dpi=144&amp;format=jpeg 240w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=400&amp;dpi=144&amp;format=jpeg 400w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=800&amp;dpi=144&amp;format=jpeg 800w
+                                ">
+                        <img class="dcf-ratio-child dcf-d-block dcf-obj-fit-cover" itemprop="image" src="https://directory.unl.edu/avatar/ksmith2?s=medium&amp;dpi=72&amp;format=jpeg" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/ksmith2?s=48&amp;dpi=72&amp;format=jpeg 48w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=72&amp;dpi=72&amp;format=jpeg 72w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=100&amp;dpi=72&amp;format=jpeg 100w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=120&amp;dpi=72&amp;format=jpeg 120w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=200&amp;dpi=72&amp;format=jpeg 200w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=240&amp;dpi=72&amp;format=jpeg 240w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=400&amp;dpi=72&amp;format=jpeg 400w,
+                                    https://directory.unl.edu/avatar/ksmith2?s=800&amp;dpi=72&amp;format=jpeg 800w
+                                " alt="">
+                      </picture>
+                    </div>
+                    <div>
+                      <div class="directory-search-result-name" itemprop="name">
+                        <a class="dcf-txt-decor-hover dcf-card-link" itemprop="url" href="https://directory.unl.edu/people/ksmith2" aria-label="Show more information about Kelly Smith">Kelly Smith</a>
+                      </div>
+                      <ul class="directory-search-result-details-list" role="list">
+                        <li class="directory-search-result-details-list-item">
+                          <div class="directory-search-result-job-title" itemprop="jobTitle">Rsrch Asst Professor</div>
+                          <div class="directory-search-result-works-for" itemprop="worksFor" itemscope="" itemtype="https://schema.org/Organization">
+                            <span class="directory-search-result-org-unit">
+                              <span itemprop="name">School of Natural Resources</span>
+                            </span>
+                            <span class="directory-search-result-org-name dcf-sr-only" itemprop="parentOrganization" itemscope="" itemtype="https://schema.org/Organization"><span itemprop="name">University of Nebraska–Lincoln</span></span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="directory-search-result dcf-card-as-link">
+                    <div class="directory-search-result-img">
+                      <picture>
+                        <source type="image/avif" media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/ksmith1?s=48&amp;dpi=144&amp;format=avif 48w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=72&amp;dpi=144&amp;format=avif 72w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=100&amp;dpi=144&amp;format=avif 100w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=120&amp;dpi=144&amp;format=avif 120w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=200&amp;dpi=144&amp;format=avif 200w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=240&amp;dpi=144&amp;format=avif 240w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=400&amp;dpi=144&amp;format=avif 400w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=800&amp;dpi=144&amp;format=avif 800w
+                                ">
+                        <source type="image/avif" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/ksmith1?s=48&amp;dpi=72&amp;format=avif 48w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=72&amp;dpi=72&amp;format=avif 72w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=100&amp;dpi=72&amp;format=avif 100w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=120&amp;dpi=72&amp;format=avif 120w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=200&amp;dpi=72&amp;format=avif 200w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=240&amp;dpi=72&amp;format=avif 240w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=400&amp;dpi=72&amp;format=avif 400w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=800&amp;dpi=72&amp;format=avif 800w
+                                ">
+                        <source media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/ksmith1?s=48&amp;dpi=144&amp;format=jpeg 48w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=72&amp;dpi=144&amp;format=jpeg 72w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=100&amp;dpi=144&amp;format=jpeg 100w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=120&amp;dpi=144&amp;format=jpeg 120w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=200&amp;dpi=144&amp;format=jpeg 200w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=240&amp;dpi=144&amp;format=jpeg 240w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=400&amp;dpi=144&amp;format=jpeg 400w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=800&amp;dpi=144&amp;format=jpeg 800w
+                                ">
+                        <img class="dcf-ratio-child dcf-d-block dcf-obj-fit-cover" itemprop="image" src="https://directory.unl.edu/avatar/ksmith1?s=medium&amp;dpi=72&amp;format=jpeg" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/ksmith1?s=48&amp;dpi=72&amp;format=jpeg 48w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=72&amp;dpi=72&amp;format=jpeg 72w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=100&amp;dpi=72&amp;format=jpeg 100w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=120&amp;dpi=72&amp;format=jpeg 120w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=200&amp;dpi=72&amp;format=jpeg 200w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=240&amp;dpi=72&amp;format=jpeg 240w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=400&amp;dpi=72&amp;format=jpeg 400w,
+                                    https://directory.unl.edu/avatar/ksmith1?s=800&amp;dpi=72&amp;format=jpeg 800w
+                                " alt="">
+                      </picture>
+                    </div>
+                    <div>
+                      <div class="directory-search-result-name" itemprop="name">
+                        <a class="dcf-txt-decor-hover dcf-card-link" itemprop="url" href="https://directory.unl.edu/people/ksmith1" aria-label="Show more information about Kevin Smith">Kevin Smith</a>
+                      </div>
+                      <ul class="directory-search-result-details-list" role="list">
+                        <li class="directory-search-result-details-list-item">
+                          <div class="directory-search-result-job-title" itemprop="jobTitle">Professor</div>
+                          <div class="directory-search-result-works-for" itemprop="worksFor" itemscope="" itemtype="https://schema.org/Organization">
+                            <span class="directory-search-result-org-unit">
+                              <span itemprop="name">Political Science</span>
+                            </span>
+                            <span class="directory-search-result-org-name dcf-sr-only" itemprop="parentOrganization" itemscope="" itemtype="https://schema.org/Organization"><span itemprop="name">University of Nebraska–Lincoln</span></span>
+                          </div>
+                        </li>
+                        <li class="directory-search-result-details-list-item">
+                          <div class="directory-search-result-job-title" itemprop="jobTitle">Professor</div>
+                          <div class="directory-search-result-works-for" itemprop="worksFor" itemscope="" itemtype="https://schema.org/Organization">
+                            <span class="organization-unit">
+                              <span itemprop="name">Leland J &amp; Dorothy H Olson Profssrship</span>
+                            </span>
+                            <span class="directory-search-result-org-name dcf-sr-only" itemprop="parentOrganization" itemscope="" itemtype="https://schema.org/Organization"><span itemprop="name">University of Nebraska–Lincoln</span></span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="directory-search-result dcf-card-as-link">
+                    <div class="directory-search-result-img">
+                      <picture>
+                        <source type="image/avif" media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/wsmith5?s=48&amp;dpi=144&amp;format=avif 48w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=72&amp;dpi=144&amp;format=avif 72w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=100&amp;dpi=144&amp;format=avif 100w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=120&amp;dpi=144&amp;format=avif 120w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=200&amp;dpi=144&amp;format=avif 200w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=240&amp;dpi=144&amp;format=avif 240w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=400&amp;dpi=144&amp;format=avif 400w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=800&amp;dpi=144&amp;format=avif 800w
+                                ">
+                        <source type="image/avif" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/wsmith5?s=48&amp;dpi=72&amp;format=avif 48w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=72&amp;dpi=72&amp;format=avif 72w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=100&amp;dpi=72&amp;format=avif 100w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=120&amp;dpi=72&amp;format=avif 120w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=200&amp;dpi=72&amp;format=avif 200w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=240&amp;dpi=72&amp;format=avif 240w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=400&amp;dpi=72&amp;format=avif 400w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=800&amp;dpi=72&amp;format=avif 800w
+                                ">
+                        <source media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/wsmith5?s=48&amp;dpi=144&amp;format=jpeg 48w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=72&amp;dpi=144&amp;format=jpeg 72w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=100&amp;dpi=144&amp;format=jpeg 100w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=120&amp;dpi=144&amp;format=jpeg 120w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=200&amp;dpi=144&amp;format=jpeg 200w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=240&amp;dpi=144&amp;format=jpeg 240w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=400&amp;dpi=144&amp;format=jpeg 400w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=800&amp;dpi=144&amp;format=jpeg 800w
+                                ">
+                        <img class="dcf-ratio-child dcf-d-block dcf-obj-fit-cover" itemprop="image" src="https://directory.unl.edu/avatar/wsmith5?s=medium&amp;dpi=72&amp;format=jpeg" sizes="(max-width: 5.62em) 5.62em" srcset="
+                                    https://directory.unl.edu/avatar/wsmith5?s=48&amp;dpi=72&amp;format=jpeg 48w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=72&amp;dpi=72&amp;format=jpeg 72w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=100&amp;dpi=72&amp;format=jpeg 100w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=120&amp;dpi=72&amp;format=jpeg 120w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=200&amp;dpi=72&amp;format=jpeg 200w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=240&amp;dpi=72&amp;format=jpeg 240w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=400&amp;dpi=72&amp;format=jpeg 400w,
+                                    https://directory.unl.edu/avatar/wsmith5?s=800&amp;dpi=72&amp;format=jpeg 800w
+                                " alt="">
+                      </picture>
+                    </div>
+                    <div>
+                      <div class="directory-search-result-name" itemprop="name">
+                        <a class="dcf-txt-decor-hover dcf-card-link" itemprop="url" href="https://directory.unl.edu/people/wsmith5" aria-label="Show more information about Wendy Smith">Wendy Smith</a>
+                      </div>
+                      <ul class="directory-search-result-details-list" role="list">
+                        <li class="directory-search-result-details-list-item">
+                          <div class="directory-search-result-job-title" itemprop="jobTitle">Director</div>
+                          <div class="directory-search-result-works-for" itemprop="worksFor" itemscope="" itemtype="https://schema.org/Organization">
+                            <span class="directory-search-result-org-unit">
+                              <span itemprop="name">Center for Science, Mathematics &amp; Computer Education</span>
+                            </span>
+                            <span class="directory-search-result-org-name dcf-sr-only" itemprop="parentOrganization" itemscope="" itemtype="https://schema.org/Organization"><span itemprop="name">University of Nebraska–Lincoln</span></span>
+                          </div>
+                        </li>
+                        <li class="directory-search-result-details-list-item">
+                          <div class="directory-search-result-job-title" itemprop="jobTitle">Research Professor</div>
+                          <div class="directory-search-result-works-for" itemprop="worksFor" itemscope="" itemtype="https://schema.org/Organization">
+                            <span class="directory-search-result-org-unit">
+                              <span itemprop="name">Center for Science, Mathematics &amp; Computer Education</span>
+                            </span>
+                            <span class="directory-search-result-org-name dcf-sr-only" itemprop="parentOrganization" itemscope="" itemtype="https://schema.org/Organization"><span itemprop="name">University of Nebraska–Lincoln</span></span>
+                          </div>
+                        </li>
+                        <li class="directory-search-result-details-list-item">
+                          <div class="directory-search-result-job-title" itemprop="jobTitle">Research Professor</div>
+                          <div class="directory-search-result-works-for" itemprop="worksFor" itemscope="" itemtype="https://schema.org/Organization">
+                            <span class="directory-search-result-org-unit">
+                              <span itemprop="name">Mathematics</span>
+                            </span>
+                            <span class="directory-search-result-org-name dcf-sr-only" itemprop="parentOrganization" itemscope="" itemtype="https://schema.org/Organization"><span itemprop="name">University of Nebraska–Lincoln</span></span>
+                          </div>
+                        </li>
+                        <li class="directory-search-result-details-list-item">
+                          <div class="directory-search-result-job-title" itemprop="jobTitle">Courtesy Research Asst Profess</div>
+                          <div class="directory-search-result-works-for" itemprop="worksFor" itemscope="" itemtype="https://schema.org/Organization">
+                            <span class="directory-search-result-org-unit">
+                              <span itemprop="name">Teaching, Learning &amp; Teacher Education</span>
+                            </span>
+                            <span class="directory-search-result-org-name dcf-sr-only" itemprop="parentOrganization" itemscope="" itemtype="https://schema.org/Organization"><span itemprop="name">University of Nebraska–Lincoln</span></span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ol>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <section id="directory-tabs-panel-departments-units">
+          <div class="dcf-grid dcf-col-gap-vw">
+            <header class="dcf-mb-5 dcf-col-100% dcf-col-67%-end@md dcf-col-75%-end@lg">
+              <h2 class="directory-search-results-tab-heading dcf-mb-0">Departments &amp; Units</h2>
+              <p class="directory-search-results-tab-count directory-search-results-count dcf-mb-0">3 results found for “Smith”</p>
+            </header>
+          </div>
+          <div class="dcf-grid dcf-col-gap-vw">
+            <!-- <div class="dcf-col-100% dcf-col-33%-start@md dcf-col-25%-start@lg dcf-pt-3 dcf-pb-5 dcf-bt-1 dcf-bt-solid unl-bt-light-gray">
+            </div> -->
+            <div class="dcf-col-100% dcf-col-67%-end@md dcf-col-75%-end@lg">
+              <div class="directory-search-results-controls">
+                <form class="dcf-form dcf-d-flex dcf-flex-wrap dcf-jc-between dcf-col-gap-vw dcf-row-gap-4">
+                  <div class="dcf-d-inline-flex dcf-flex-grow-1 dcf-flex-wrap dcf-col-gap-6 dcf-row-gap-3">
+                    <div class="dcf-flex-shrink-0 dcf-form-group dcf-form-controls-inline dcf-mb-0">
+                      <label for="directory-form-order-people">Order</label>
+                      <select id="directory-form-order-people" name="order people results">
+                        <option value="ascending" selected="">A–Z</option>
+                        <option value="descending">Z–A</option>
+                      </select>
+                    </div>
+                    <div class="dcf-flex-shrink-0 dcf-form-group dcf-form-controls-inline dcf-mb-0">
+                      <label for="directory-form-view-people">View as</label>
+                      <select id="directory-form-view-people" name="view people results">
+                        <option value="grid" selected="">Grid</option>
+                        <option value="list">List</option>
+                      </select>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <div class="directory-search-results-section">
+                <ol class="dcf-grid-halves dcf-grid-thirds@sm dcf-grid-fourths@lg dcf-col-gap-vw dcf-row-gap-6 directory-search-results-grid" role="list">
+                  <li class="directory-search-result dcf-card-as-link">
+                    <div class="directory-search-result-img">
+                      <img class="dcf-ratio-child dcf-d-block dcf-obj-fit-cover" src="https://directory.unl.edu/images/default-building.jpg" alt="Building Image">
+                    </div>
+                    <div>
+                      <div class="directory-search-result-name" itemprop="name">
+                        <a class="dcf-txt-decor-hover dcf-card-link" itemprop="url" href="https://directory.unl.edu/departments/264" aria-label="Show more information about Harper Schramm Smith Complex">Harper Schramm Smith Complex</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="directory-search-result dcf-card-as-link">
+                    <div class="directory-search-result-img">
+                      <img class="dcf-ratio-child dcf-d-block dcf-obj-fit-cover" src="https://directory.unl.edu/images/default-building.jpg" alt="Building Image">
+                    </div>
+                    <div>
+                      <div class="directory-search-result-name" itemprop="name">
+                        <a class="dcf-txt-decor-hover dcf-card-link" itemprop="url" href="https://directory.unl.edu/departments/5697" aria-label="Show more information about Smith Hall">Smith Hall</a>
+                      </div>
+                      <div class="directory-search-result-job-title">Residence Halls (For Administrative Offices, See University Housing)</div>
+                    </div>
+                  </li>
+                  <li class="directory-search-result dcf-card-as-link">
+                    <div class="directory-search-result-img">
+                      <img class="dcf-ratio-child dcf-d-block dcf-obj-fit-cover" src="https://directory.unl.edu/images/default-building.jpg" alt="Building Image">
+                    </div>
+                    <div>
+                      <div class="directory-search-result-name" itemprop="name">
+                        <a class="dcf-txt-decor-hover dcf-card-link" itemprop="url" href="https://directory.unl.edu/departments/250" aria-label="Show more information about University Housing">University Housing</a>
+                      </div>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener('inlineJSReady', function() {
+        WDN.initializePlugin('tabs');
+        WDN.initializePlugin('card-as-link');
+        WDN.initializePlugin('collapsible-fieldsets');
+      }, false);
+    </script>
+
+    <!-- InstanceEndEditable -->
+   </div>
+  </main>
+  <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+    <!-- InstanceBeginEditable name="optionalfooter" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-1.html" -->
+    <!-- InstanceBeginEditable name="contactinfo" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/footer-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/noscript.html" -->
+  </footer>
+  <!--#include virtual="/wdn/templates_6.0/includes/global/js-body-local.html" -->
+  <!-- InstanceBeginEditable name="jsbody" -->
+  <!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

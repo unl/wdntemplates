@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!--#include virtual="/wdn/templates_6.0/includes/global/head-1.html" -->
+<!-- InstanceBeginEditable name="doctitle" -->
+  <title>Directory | Framework Testing Page</title>
+<!-- InstanceEndEditable -->
+<!--#include virtual="/wdn/templates_6.0/includes/global/head-2-local.html" -->
+<!-- InstanceBeginEditable name="head" -->
+  <!-- Place optional header elements here -->
+<!-- InstanceEndEditable -->
+</head>
+<body class="debug unl" data-version="6.0">
+  <!--#include virtual="/wdn/templates_6.0/includes/global/skip-nav.html" -->
+
+<!--
+  <div class="dcf-alert dcf-wrapper dcf-pt-4 dcf-pb-4 dcf-txt-xs">
+    <header class="dcf-alert-header">
+      <div role="heading">
+        Emergency Alert
+      </div>
+    </header>
+    <p class="dcf-alert-msg">This alert is a test of the alert system. If this was an actual alert there would also be an actual emergency.</p>
+    <footer class="dcf-alert-footer">
+      <div role="heading">
+        Issued
+      </div>
+      <time class="dcf-pubdate" datetime="2018-12-02 11:11:03-0400">December 2, 2018</time>
+      <div role="heading">
+        Additional Info <small class="dcf-txt-xs">if available</small>
+      </div>
+      <a href="https://www.unl.edu/">https://www.unl.edu/</a>
+    </footer>
+  </div>
+-->
+
+  <header class="dcf-header" id="dcf-header" role="banner">
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/idm.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/search.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-1.html" -->
+    <!-- InstanceBeginEditable name="affiliation" -->
+    <!-- <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a> -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-1.html" -->
+    <!-- InstanceBeginEditable name="titlegraphic" -->
+    <a class="dcf-txt-h4" href="">
+      Directory
+    </a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-container-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-group.html" -->
+  </header>
+
+  <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
+    <!-- InstanceBeginEditable name="highlighted" -->
+    <!-- InstanceEndEditable -->
+    <!-- InstanceBeginEditable name="hero" -->
+    <div class="dcf-hero dcf-hero-default dcf-d-none">
+    <!-- InstanceEndEditable -->
+      <div class="dcf-hero-group-1">
+        <div class="dcf-breadcrumbs-wrapper">
+          <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
+            <ol>
+              <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
+              <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
+              <li><span aria-current="page">Ensembles</span></li>
+            </ol>
+            <!-- InstanceEndEditable -->
+          </nav>
+        </div>
+        <header class="dcf-page-title" id="dcf-page-title">
+          <!-- InstanceBeginEditable name="pagetitle" -->
+          <h1>Page title</h1>
+          <!-- InstanceEndEditable -->
+        </header>
+        <!-- InstanceBeginEditable name="herogroup1" -->
+        <!-- InstanceEndEditable -->
+      </div>
+      <!-- InstanceBeginEditable name="herogroup2" -->
+      <div class="dcf-hero-group-2">
+      </div>
+      <!-- InstanceEndEditable -->
+    </div>
+    <div class="dcf-main-content dcf-wrapper">
+    <!-- InstanceBeginEditable name="maincontentarea" -->
+
+      <style>
+
+        .unl .directory-detail {
+          --icon-size: 1rem;
+          background-color: var(--bg-lightest-gray);
+          border-top: 1px solid var(--b);
+          padding-bottom: 3.16em;
+        }
+
+        .unl .directory-detail-img-sticky,
+        .unl .directory-detail-img-placeholder {
+          aspect-ratio: 1 / 1;
+        }
+
+        .unl .directory-detail-img-sticky {
+          background-color: var(--bg-light-gray);
+          clip-path: polygon(0 0,0 100%,2px 100%,2px 2px,calc(100% - 2px) 2px,calc(100% - 2px) calc(100% - 2px),2px calc(100% - 2px),2px calc(100% - 5px),calc(100% - 5px) calc(100% - 5px),calc(100% - 5px) 5px,5px 5px,5px calc(100% - 5px),2px calc(100% - 5px),2px 100%,100% 100%,100% 0);
+        }
+
+        .unl .directory-detail-img-placeholder {
+          align-items: center;
+          display: flex;
+          justify-content: center;
+        }
+
+        .unl .directory-detail-img-placeholder-icon {
+          color: rgba(0,0,0,.18);
+          height: 32%;
+          width: 32%;
+        }
+
+        .unl .directory-detail-main-info dd:last-child {
+          margin-bottom: 0;
+        }
+
+        .unl .directory-detail-grid,
+        .unl .directory-detail-main-info,
+        .unl .directory-detail-address {
+          container-type: inline-size;
+        }
+
+        .unl .directory-detail-affiliation {
+          color: var(--dark-gray);
+          font-size: .75rem;
+          font-weight: bold;
+          letter-spacing: .1em;
+          margin-bottom: 0;
+          margin-top: 1rem;
+          text-transform: uppercase;
+        }
+
+        .unl .directory-detail-name {
+          margin-block: 0;
+        }
+
+        .unl .directory-detail-job-title-list,
+        .unl .directory-detail-major-list {
+          list-style-type: "";
+          margin-top: .75em;
+          padding-left: 0;
+        }
+
+        .unl .directory-detail-job-title-list-item,
+        .unl .directory-detail-major-list-item {
+          margin-bottom: 0;
+        }
+
+        .unl .directory-detail-info-dt {
+          clip: rect(0 0 0 0);
+          clip-path: inset(50%);
+          height: 1px;
+          overflow: hidden;
+          position: absolute;
+          width: 1px;
+          white-space: nowrap;
+        }
+
+        .unl .directory-detail-info-dd {
+          column-gap: .42rem;
+        }
+
+        .unl .directory-detail-info-dd:not(:last-child),
+        .unl .directory-detail-info-section-extra .directory-detail-info-icon-text-pair:not(:last-child) {
+          margin-bottom: .56rem;
+        }
+
+        .unl .directory-detail-info-icon-text-pair {
+          align-items: center;
+          column-gap: .42rem;
+          display: flex;
+        }
+
+        .unl .directory-detail-info-icon-text-pair-multi-line {
+          align-items: start;
+        }
+
+        .unl .directory-detail-info-icon-text-pair-multi-line .directory-detail-info-icon {
+          margin-top: .32em;
+        }
+
+        .unl .directory-detail-info-icon {
+          color: var(--dark-gray);
+          flex-shrink: 0;
+          height: var(--icon-size);
+          width: var(--icon-size);
+        }
+
+        .unl .directory-detail-info-section {
+          border-top: 1px solid var(--b);
+          flex-grow: 1;
+          padding-top: 1em;
+        }
+
+        .unl .directory-detail-info-section dl,
+        .unl .directory-detail-info-section dt {
+          margin-bottom: 0;
+        }
+
+        .unl .directory-detail-info-section-social {
+          flex-shrink: 0;
+          margin-bottom: 0;
+        }
+
+        .unl .directory-detail-info-text {
+          font-size: .84em;
+        }
+
+        .unl a.directory-detail-job-org-unit,
+        .unl a.directory-detail-major-unit,
+        .unl a.directory-detail-info-text,
+        .unl .directory-detail-info-text a {
+          text-decoration: none;
+        }
+
+        .unl a.directory-detail-job-org-unit:hover,
+        .unl a.directory-detail-major-unit:hover,
+        .unl a.directory-detail-info-text:hover,
+        .unl .directory-detail-info-text a:hover {
+          text-decoration: underline;
+        }
+
+        .unl .directory-detail-main-info {
+          margin-top: 1.78em;
+        }
+
+        .unl .directory-detail-phone-on-campus {
+          font-size: .75em;
+        }
+
+        .unl .directory-detail-info-section-tools {
+          display: flex;
+          align-items: center;
+          column-gap: 1.78em;
+          flex-wrap: wrap;
+          margin-top: 1.78em;
+          row-gap: 1em;
+        }
+
+        .unl .directory-detail-tools-btn {
+          background-color: transparent;
+          border: 0;
+          color: var(--btn-tertiary);
+          padding: 0;
+        }
+
+        .unl .directory-detail-tools-btn:hover {
+          color: var(--btn-secondary-tertiary-hover);
+        }
+
+        .unl .directory-detail-tools-btn:focus-visible {
+          box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--b-input-focus);
+        }
+
+        .unl .directory-detail-tools-btn-icon {
+          flex-shrink: 0;
+          height: var(--icon-size);
+          width: var(--icon-size);
+        }
+
+        .unl .directory-detail-qr-code {
+          max-height: 10rem;
+        }
+
+        .unl .directory-detail-address { flex: 1 0 auto; }
+        .unl .directory-detail-extra { flex: 1 1 auto; }
+
+        .unl .directory-detail-img,
+        .unl .directory-detail-info,
+        .unl .directory-detail-about {
+          grid-column: 1 / -1;
+        }
+
+        @container (min-width: 42.09em) {
+
+          .unl .directory-detail-extra { flex: 1 0 33%; }
+
+        }
+
+        @container (min-width: 63.14em) {
+
+          .unl .directory-detail-about { grid-column: 2 / -1; }
+
+        }
+
+        @media only screen and (max-width: 56.12em) {
+
+          .unl .directory-detail {
+            padding-top: 1.78em;
+          }
+
+          .unl .directory-detail-img-sticky {
+            margin-bottom: 1.33em;
+            max-width: 14.98em;
+          }
+
+          .unl .directory-detail-name {
+            font-size: 2.67em;
+          }
+
+        }
+
+        @media only screen and (min-width: 56.12em) {
+
+          .unl .directory-detail {
+            padding-top: 3.16em;
+          }
+
+          .unl .directory-detail-img-sticky {
+            top: 1.78em;
+          }
+
+          .unl .directory-detail-grid {
+            grid-template-rows: auto auto;
+          }
+
+          .unl .directory-detail-img { grid-column: 1 / span 1; }
+          .unl .directory-detail-info { grid-column: 2 / span 1; }
+
+          .unl .directory-detail-name {
+            font-size: 3.16em;
+          }
+
+        }
+
+        @media only screen and (min-width: 56.12em) and (max-width: 74.83em) {
+
+          .unl .directory-detail-grid { grid-template-columns: minmax(auto, 14.98em) minmax(31.57em, 1fr); }
+
+        }
+
+        @media only screen and (min-width: 74.83em) and (max-width: 99.78em) {
+
+          .unl .directory-detail-grid { grid-template-columns: minmax(14.98em, 1fr) minmax(auto, 47.35em); }
+
+        }
+
+        @media only screen and (min-width: 99.78em) {
+
+          .unl .directory-detail-grid { grid-template-columns: minmax(14.98em, 31.57em) minmax(47.35em, 1fr); }
+
+        }
+
+      </style>
+
+      <div class="dcf-bleed dcf-wrapper directory-detail directory-detail-person">
+        <div class="dcf-d-grid directory-detail-grid dcf-col-gap-vw" itemscope itemtype="https://schema.org/Person">
+          <div class="directory-detail-img">
+            <div class="directory-detail-img-sticky dcf-sticky">
+              <!-- Avatar -->
+              <!-- <picture>
+                <source type="image/avif" media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                            https://directory.unl.edu/avatar/wsmith5?s=48&amp;dpi=144&amp;format=avif 48w,
+                            https://directory.unl.edu/avatar/wsmith5?s=72&amp;dpi=144&amp;format=avif 72w,
+                            https://directory.unl.edu/avatar/wsmith5?s=100&amp;dpi=144&amp;format=avif 100w,
+                            https://directory.unl.edu/avatar/wsmith5?s=120&amp;dpi=144&amp;format=avif 120w,
+                            https://directory.unl.edu/avatar/wsmith5?s=200&amp;dpi=144&amp;format=avif 200w,
+                            https://directory.unl.edu/avatar/wsmith5?s=240&amp;dpi=144&amp;format=avif 240w,
+                            https://directory.unl.edu/avatar/wsmith5?s=400&amp;dpi=144&amp;format=avif 400w,
+                            https://directory.unl.edu/avatar/wsmith5?s=800&amp;dpi=144&amp;format=avif 800w
+                        ">
+                <source type="image/avif" sizes="(max-width: 5.62em) 5.62em" srcset="
+                            https://directory.unl.edu/avatar/wsmith5?s=48&amp;dpi=72&amp;format=avif 48w,
+                            https://directory.unl.edu/avatar/wsmith5?s=72&amp;dpi=72&amp;format=avif 72w,
+                            https://directory.unl.edu/avatar/wsmith5?s=100&amp;dpi=72&amp;format=avif 100w,
+                            https://directory.unl.edu/avatar/wsmith5?s=120&amp;dpi=72&amp;format=avif 120w,
+                            https://directory.unl.edu/avatar/wsmith5?s=200&amp;dpi=72&amp;format=avif 200w,
+                            https://directory.unl.edu/avatar/wsmith5?s=240&amp;dpi=72&amp;format=avif 240w,
+                            https://directory.unl.edu/avatar/wsmith5?s=400&amp;dpi=72&amp;format=avif 400w,
+                            https://directory.unl.edu/avatar/wsmith5?s=800&amp;dpi=72&amp;format=avif 800w
+                        ">
+                <source media="(min-resolution: 144dpi)" sizes="(max-width: 5.62em) 5.62em" srcset="
+                            https://directory.unl.edu/avatar/wsmith5?s=48&amp;dpi=144&amp;format=jpeg 48w,
+                            https://directory.unl.edu/avatar/wsmith5?s=72&amp;dpi=144&amp;format=jpeg 72w,
+                            https://directory.unl.edu/avatar/wsmith5?s=100&amp;dpi=144&amp;format=jpeg 100w,
+                            https://directory.unl.edu/avatar/wsmith5?s=120&amp;dpi=144&amp;format=jpeg 120w,
+                            https://directory.unl.edu/avatar/wsmith5?s=200&amp;dpi=144&amp;format=jpeg 200w,
+                            https://directory.unl.edu/avatar/wsmith5?s=240&amp;dpi=144&amp;format=jpeg 240w,
+                            https://directory.unl.edu/avatar/wsmith5?s=400&amp;dpi=144&amp;format=jpeg 400w,
+                            https://directory.unl.edu/avatar/wsmith5?s=800&amp;dpi=144&amp;format=jpeg 800w
+                        ">
+                <img class="dcf-obj-fit-cover" itemprop="image" src="https://directory.unl.edu/avatar/wsmith5?s=medium&amp;dpi=72&amp;format=jpeg" sizes="(max-width: 5.62em) 5.62em" srcset="
+                            https://directory.unl.edu/avatar/wsmith5?s=48&amp;dpi=72&amp;format=jpeg 48w,
+                            https://directory.unl.edu/avatar/wsmith5?s=72&amp;dpi=72&amp;format=jpeg 72w,
+                            https://directory.unl.edu/avatar/wsmith5?s=100&amp;dpi=72&amp;format=jpeg 100w,
+                            https://directory.unl.edu/avatar/wsmith5?s=120&amp;dpi=72&amp;format=jpeg 120w,
+                            https://directory.unl.edu/avatar/wsmith5?s=200&amp;dpi=72&amp;format=jpeg 200w,
+                            https://directory.unl.edu/avatar/wsmith5?s=240&amp;dpi=72&amp;format=jpeg 240w,
+                            https://directory.unl.edu/avatar/wsmith5?s=400&amp;dpi=72&amp;format=jpeg 400w,
+                            https://directory.unl.edu/avatar/wsmith5?s=800&amp;dpi=72&amp;format=jpeg 800w
+                        " alt="">
+              </picture> -->
+              <!-- Placeholder with icon -->
+              <div class="directory-detail-img-placeholder">
+                <div class="directory-detail-img-placeholder-icon">
+                  <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewbox="0 0 48 48">
+                    <path d="M47.9 24C47.9 10.8 37.2.1 24 .1S.1 10.8.1 24c0 6.3 2.5 12.3 6.9 16.8 4.5 4.6 10.6 7.1 17 7.1s12.5-2.5 17-7.1c4.5-4.5 6.9-10.5 6.9-16.8zm-45 0C2.9 12.4 12.4 2.9 24 2.9c11.6 0 21.1 9.5 21.1 21.1 0 5.2-1.9 10.1-5.3 14-2.1-1.2-5-2.2-8.2-3.4-.7-.3-1.5-.5-2.2-.8v-3.1c1.1-.7 2.6-2.4 2.9-5.7.8-.6 1.2-1.6 1.2-2.9 0-1.1-.4-2.1-1-2.7.5-1.6 1.3-4.2.7-6.5-.7-3-4.6-4-7.7-4-2.7 0-5.9.8-7.2 2.8-1.2 0-2 .5-2.4 1-1.6 1.7-.8 4.8-.3 6.6-.6.6-1 1.6-1 2.7 0 1.3.5 2.3 1.2 2.9.3 3.4 1.8 5 2.9 5.7v3.1c-.7.2-1.4.5-2 .7-3.1 1.1-6.2 2.2-8.4 3.5-3.5-3.7-5.4-8.7-5.4-13.9zm7.5 16.1c2-1 4.6-2 7.2-2.9 1-.4 2-.7 3-1.1.5-.2.9-.7.9-1.3v-4.9c0-.6-.4-1.1-.9-1.3-.1 0-2-.8-2-4.5 0-.7-.5-1.2-1.1-1.4-.1-.3-.1-.9 0-1.2.6-.1 1.1-.7 1.1-1.4 0-.3-.1-.6-.2-1.2-.9-3.2-.7-4-.4-4.3.1-.1.4-.1 1 0 .7.1 1.5-.3 1.6-1 .3-1 2.5-1.9 5-1.9s4.7.8 5 1.9c.4 1.7-.4 4.1-.7 5.2-.2.6-.3.9-.3 1.3 0 .7.5 1.2 1.1 1.4.1.3.1.9 0 1.2-.6.1-1.1.7-1.1 1.4 0 3.7-1.9 4.5-2 4.5-.6.2-1 .7-1 1.3v4.9c0 .6.4 1.1.9 1.3 1.1.4 2.1.8 3.2 1.2 2.7 1 5.2 1.9 7.1 2.8-3.8 3.3-8.6 5-13.7 5-5.2 0-9.9-1.8-13.7-5z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dcf-as-center directory-detail-info">
+
+            <h1 class="directory-detail-name" itemprop="name">Jane Doe</h1>
+            <!-- Affiliation -->
+            <!-- <p class="directory-detail-affiliation"><span>Staff</span></p> -->
+            <!-- <p class="directory-detail-affiliation"><span>Faculty</span> &middot; <span>Staff</span></p> -->
+            <!-- <p class="directory-detail-affiliation"><span>Student (Junior)</span></p> -->
+            <p class="directory-detail-affiliation"><span>Graduate Student</span></p>
+            <!-- Appointment -->
+            <!-- <ul class="directory-detail-job-title-list">
+              <li class="directory-detail-job-title-list-item">
+                <span class="directory-detail-job-title" itemprop="jobTitle">Director</span> —
+                <span class="directory-detail-job-works-for" itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+                  <a class="directory-detail-job-org-unit" href="#" itemprop="name">Center for Science, Mathematics & Computer Education</a>
+                  <span class="directory-detail-job-parent-org dcf-d-none" itemprop="parentOrganization" itemscope itemtype="http://schema.org/Organization">
+                    <span itemprop="name">University of Nebraska-Lincoln</span>
+                  </span>
+                </span>
+              </li>
+              <li class="directory-detail-job-title-list-item">
+                <span class="directory-detail-job-title" itemprop="jobTitle">Cather Professor</span> —
+                <span class="directory-detail-job-works-for" itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+                  <a class="directory-detail-job-org-unit" href="#" itemprop="name">Department of Cornhusking</a>
+                  <span class="directory-detail-job-parent-org dcf-d-none" itemprop="parentOrganization" itemscope itemtype="http://schema.org/Organization">
+                    <span itemprop="name">University of Nebraska-Lincoln</span>
+                  </span>
+                </span>
+              </li>
+            </ul> -->
+            <ul class="directory-detail-job-title-list">
+              <li class="directory-detail-job-title-list-item">
+                <span class="directory-detail-job-title" itemprop="jobTitle">Student Worker</span> —
+                <span class="directory-detail-job-works-for" itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+                  <a class="directory-detail-job-org-unit" href="#" itemprop="name">Center for Science, Mathematics & Computer Education</a>
+                  <span class="directory-detail-job-parent-org dcf-d-none" itemprop="parentOrganization" itemscope itemtype="http://schema.org/Organization">
+                    <span itemprop="name">University of Nebraska-Lincoln</span>
+                  </span>
+                </span>
+              </li>
+              <li class="directory-detail-job-title-list-item">
+                <span class="directory-detail-job-title" itemprop="jobTitle">Student Worker</span> —
+                <span class="directory-detail-job-works-for" itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+                  <a class="directory-detail-job-org-unit" href="#" itemprop="name">Department of Cornhusking</a>
+                  <span class="directory-detail-job-parent-org dcf-d-none" itemprop="parentOrganization" itemscope itemtype="http://schema.org/Organization">
+                    <span itemprop="name">University of Nebraska-Lincoln</span>
+                  </span>
+                </span>
+              </li>
+            </ul>
+            <ul class="directory-detail-major-list">
+              <li class="directory-detail-major-list-item">
+                <span class="directory-detail-major">Computer Science</span> — <a class="directory-detail-major-unit" href="https://directory.unl.edu/departments/121">College of Engineering</a>
+              </li>
+            </ul>
+
+            <h2 class="dcf-sr-only">Contact</h2>
+            <div class="directory-detail-main-info dcf-d-flex dcf-flex-row dcf-flex-wrap dcf-col-gap-vw dcf-row-gap-5">
+              <div class="directory-detail-info-section-contact directory-detail-info-section">
+                <!-- Address -->
+                <address>
+                  <dl>
+                    <dt class="directory-detail-info-dt">Address</dt>
+                    <dd class="directory-detail-info-dd directory-detail-info-icon-text-pair directory-detail-info-icon-text-pair-multi-line">
+                      <div class="directory-detail-info-icon">
+                        <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M12 0C7.589 0 4 3.589 4 8c0 4.245 7.273 15.307 7.583 15.775a.497.497 0 0 0 .834 0C12.727 23.307 20 12.245 20 8c0-4.411-3.589-8-8-8zm0 22.58C10.434 20.132 5 11.396 5 8c0-3.86 3.14-7 7-7s7 3.14 7 7c0 3.395-5.434 12.132-7 14.58z"/><path d="M12 4.5c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5 3.5-1.57 3.5-3.5-1.57-3.5-3.5-3.5zm0 6c-1.378 0-2.5-1.122-2.5-2.5s1.122-2.5 2.5-2.5 2.5 1.122 2.5 2.5-1.122 2.5-2.5 2.5z"/><path fill="none" d="M0 0h24v24H0z"/>
+                        </svg>
+                      </div>
+                      <div class="directory-detail-info-text" itemprop="workLocation" itemscope="" itemtype="https://schema.org/Place">
+                        <!-- Address with link to Maps -->
+                        <a class="" href="https://maps.unl.edu/PLSH" itemprop="hasMap">Plant Sciences Hall</a> (PLSH) 448
+                        <div class="" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress" translate="no">
+                          <span itemprop="addressLocality">Lincoln</span>,
+                          <abbr title="Nebraska" itemprop="addressRegion">NE</abbr>
+                          <span itemprop="postalCode">68588</span>
+                          <abbr class="dcf-d-none" title="United States" itemprop="addressCountry">US</abbr>
+                        </div>
+                        <!-- Address only -->
+                        <!-- <div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress" translate="no">
+                          <span itemprop="streetAddress">1400 R St</span><br>
+                          <span itemprop="addressLocality">Lincoln</span>,
+                          <abbr title="Nebraska" itemprop="addressRegion">NE</abbr>
+                          <span itemprop="postalCode">68588</span>
+                          <abbr class="dcf-d-none" title="United States" itemprop="addressCountry">US</abbr>
+                        </div> -->
+                      </div>
+                    </dd>
+                    <!-- Phone -->
+                    <dt class="directory-detail-info-dt">Phone</dt>
+                    <dd class="directory-detail-info-dd directory-detail-info-icon-text-pair">
+                      <div class="directory-detail-info-icon">
+                        <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M17.5 0h-11A2.503 2.503 0 0 0 4 2.5v19C4 22.879 5.122 24 6.5 24h11c1.378 0 2.5-1.121 2.5-2.5v-19C20 1.121 18.878 0 17.5 0zM5 5h14v14H5V5zm1.5-4h11c.827 0 1.5.673 1.5 1.5V4H5V2.5C5 1.673 5.673 1 6.5 1zm11 22h-11c-.827 0-1.5-.673-1.5-1.5V20h14v1.5c0 .827-.673 1.5-1.5 1.5z"/><path d="M9.5 3h5a.5.5 0 0 0 0-1h-5a.5.5 0 0 0 0 1zM12 20.5a1.001 1.001 0 0 0 0 2 1.001 1.001 0 0 0 0-2zm0 1h.5-.5z"/><path fill="none" d="M0 0h24v24H0z"/>
+                        </svg>
+                      </div>
+                      <div class="directory-detail-info-text">
+                        <a class="dcf-txt-decor-hover dcf-txt-nowrap" href="tel:+14024727211" itemprop="telephone">402-472-7211</a>
+                        <small class="directory-detail-phone-on-campus dcf-txt-nowrap">On-campus, dial 2-7211</small>
+                      </div>
+                    </dd>
+                    <!-- Email -->
+                    <dt class="directory-detail-info-dt">Email</dt>
+                    <dd class="directory-detail-info-dd directory-detail-info-icon-text-pair">
+                      <div class="directory-detail-info-icon">
+                        <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c2.448 0 4.793-.723 6.783-2.088a.499.499 0 1 0-.566-.824A10.93 10.93 0 0 1 12 23C5.935 23 1 18.065 1 12S5.935 1 12 1s11 4.935 11 11v1c0 1.654-1.346 3-3 3s-3-1.346-3-3v-1c0-2.757-2.243-5-5-5s-5 2.243-5 5 2.243 5 5 5c1.839 0 3.432-1.009 4.3-2.492A4.003 4.003 0 0 0 20 17c2.206 0 4-1.794 4-4v-1c0-6.617-5.383-12-12-12zm0 16c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4z"></path><path fill="none" d="M0 0h24v24H0z"></path>
+                        </svg>
+                      </div>
+                      <a class="directory-detail-info-text" href="mailto:hhusker2@unl.edu" itemprop="email">
+                        <span class="dcf-url-wrap">hhusker2@unl.edu</span>
+                      </a>
+                    </dd>
+                    <!-- Website -->
+                    <dt class="directory-detail-info-dt">Website</dt>
+                    <dd class="directory-detail-info-dd directory-detail-info-icon-text-pair">
+                      <div class="directory-detail-info-icon">
+                        <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="m12.001 16.243-3.183 3.182c-.944.944-2.592.944-3.536 0l-.707-.706a2.484 2.484 0 0 1-.732-1.768c0-.668.26-1.295.732-1.767l4.597-4.597a2.503 2.503 0 0 1 3.536 0l.707.708a.5.5 0 0 0 .707-.707l-.707-.708a3.504 3.504 0 0 0-4.95 0l-4.597 4.597a3.473 3.473 0 0 0-1.025 2.474c0 .935.364 1.814 1.025 2.475l.707.706a3.478 3.478 0 0 0 2.476 1.025c.935 0 1.814-.364 2.475-1.025l3.183-3.182a.5.5 0 0 0-.708-.707z"/><path d="m20.132 4.575-.707-.707a3.504 3.504 0 0 0-4.949 0l-3.182 3.181a.5.5 0 0 0 .707.707l3.182-3.181a2.503 2.503 0 0 1 3.535 0l.707.707c.472.472.732 1.1.732 1.768 0 .668-.26 1.296-.732 1.768l-4.596 4.596c-.473.473-1.1.733-1.768.733-.667 0-1.294-.26-1.766-.732a.5.5 0 0 0-.708.706 3.472 3.472 0 0 0 2.474 1.026c.935 0 1.814-.364 2.475-1.026l4.596-4.596a3.477 3.477 0 0 0 1.025-2.475c0-.935-.364-1.814-1.025-2.475z"/><path fill="none" d="M0 0h24v24H0z"/>
+                        </svg>
+                      </div>
+                      <a class="directory-detail-info-text dcf-url-wrap" href="#" itemprop="url">Personal Website</a>
+                    </dd>
+                  </dl>
+                </address>
+              </div>
+
+              <div class="directory-detail-info-section-social directory-detail-info-section">
+                <!-- Social Media -->
+                <address>
+                  <dl>
+                    <dt class="directory-detail-info-dt">Social Media</dt>
+                    <dd class="directory-detail-info-dd directory-detail-info-icon-text-pair">
+                      <div class="directory-detail-info-icon">
+                        <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 600 530" aria-hidden="true">
+                          <path d="M135.72 44.03C202.216 93.951 273.74 195.17 300 249.49c26.262-54.316 97.782-155.54 164.28-205.46C512.26 8.009 590-19.862 590 68.825c0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.38-3.69-10.832-3.708-7.896-.017-2.936-1.193.516-3.707 7.896-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.45-163.25-81.433C20.15 217.613 9.997 86.535 9.997 68.825c0-88.687 77.742-60.816 125.72-24.795z"></path>
+                        </svg>
+                      </div>
+                      <a class="directory-detail-info-text" href="#">Bluesky</a>
+                    </dd>
+                    <dd class="directory-detail-info-dd directory-detail-info-icon-text-pair">
+                      <div class="directory-detail-info-icon">
+                        <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 48 48" aria-hidden="true">
+                          <path d="M48 24.1c0-13.3-10.7-24-24-24S0 10.9 0 24.1c0 12 8.8 21.9 20.2 23.7V31.1h-6.1v-6.9h6.1v-5.3c0-6 3.6-9.3 9.1-9.3 2.6 0 5.4.5 5.4.5V16h-3c-3 0-3.9 1.9-3.9 3.7v4.5h6.7l-1.1 6.9h-5.6v16.8C39.2 46.1 48 36.1 48 24.1z"></path>
+                        </svg>
+                      </div>
+                      <a class="directory-detail-info-text" href="#">Facebook</a>
+                    </dd>
+                    <dd class="directory-detail-info-dd directory-detail-info-icon-text-pair">
+                      <div class="directory-detail-info-icon">
+                        <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 48 48" aria-hidden="true">
+                          <path d="M24 4.33c6.41 0 7.17 0 9.7.14a13.28 13.28 0 0 1 4.46.83 7.44 7.44 0 0 1 2.76 1.79 7.44 7.44 0 0 1 1.79 2.76 13.28 13.28 0 0 1 .83 4.46c.12 2.53.14 3.29.14 9.7s0 7.17-.14 9.7a13.28 13.28 0 0 1-.83 4.46 8 8 0 0 1-4.55 4.55 13.28 13.28 0 0 1-4.46.83c-2.53.12-3.29.14-9.7.14s-7.17 0-9.7-.14a13.28 13.28 0 0 1-4.46-.83 7.44 7.44 0 0 1-2.76-1.79 7.44 7.44 0 0 1-1.79-2.76 13.28 13.28 0 0 1-.83-4.46c-.12-2.53-.14-3.29-.14-9.7s0-7.17.14-9.7a13.28 13.28 0 0 1 .83-4.46 7.44 7.44 0 0 1 1.8-2.77 7.44 7.44 0 0 1 2.76-1.79 13.28 13.28 0 0 1 4.46-.83c2.53-.12 3.29-.14 9.7-.14M24 0c-6.52 0-7.34 0-9.9.14a17.61 17.61 0 0 0-5.82 1.12A11.76 11.76 0 0 0 4 4a11.76 11.76 0 0 0-2.74 4.28 17.6 17.6 0 0 0-1.12 5.83C0 16.66 0 17.48 0 24s0 7.34.14 9.9a17.6 17.6 0 0 0 1.11 5.82A11.76 11.76 0 0 0 4 44a11.76 11.76 0 0 0 4.25 2.77 17.59 17.59 0 0 0 5.83 1.12c2.55.12 3.38.14 9.9.14s7.34 0 9.9-.14a17.56 17.56 0 0 0 5.82-1.12 12.27 12.27 0 0 0 7-7 17.59 17.59 0 0 0 1.12-5.83c.18-2.6.18-3.42.18-9.94s0-7.34-.14-9.9a17.56 17.56 0 0 0-1.12-5.82A11.76 11.76 0 0 0 44 4a11.76 11.76 0 0 0-4.25-2.77A17.6 17.6 0 0 0 33.9.15C31.34 0 30.52 0 24 0zm0 11.68A12.32 12.32 0 1 0 36.32 24 12.32 12.32 0 0 0 24 11.67zM24 32a8 8 0 1 1 8-8 8 8 0 0 1-8 8zM36.81 8.31a2.88 2.88 0 1 0 2.88 2.88 2.88 2.88 0 0 0-2.88-2.88z"></path>
+                        </svg>
+                    </div>
+                      <a class="directory-detail-info-text" href="#">Instagram</a>
+                    </dd>
+                    <dd class="directory-detail-info-dd directory-detail-info-icon-text-pair">
+                      <div class="directory-detail-info-icon">
+                        <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 48 48" aria-hidden="true">
+                          <path d="M44.45 0H3.54A3.5 3.5 0 0 0 0 3.46v41.08A3.5 3.5 0 0 0 3.54 48h40.91A3.51 3.51 0 0 0 48 44.54V3.46A3.51 3.51 0 0 0 44.45 0zM14.24 40.9H7.11V18h7.13zm-3.56-26a4.13 4.13 0 1 1 4.13-4.13 4.13 4.13 0 0 1-4.13 4.1zm30.23 26h-7.12V29.76c0-2.66 0-6.07-3.7-6.07s-4.27 2.9-4.27 5.88V40.9h-7.11V18h6.82v3.13h.1a7.48 7.48 0 0 1 6.74-3.7c7.21 0 8.54 4.74 8.54 10.91z"></path>
+                        </svg>
+                      </div>
+                      <a class="directory-detail-info-text" href="#">LinkedIn</a>
+                    </dd>
+                    <dd class="directory-detail-info-dd directory-detail-info-icon-text-pair">
+                      <div class="directory-detail-info-icon">
+                        <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 48 48" aria-hidden="true">
+                          <path d="M28.5 20.3 46 0h-4.1L26.6 17.6 14.5 0H.5l18.3 26.7L.5 48h4.1l16-18.6L33.5 48h14l-19-27.7zm-5.7 6.6-1.9-2.7L6.2 3.1h6.4l11.9 17.1 1.9 2.7L41.8 45h-6.4L22.8 26.9z"></path>
+                        </svg>
+                      </div>
+                      <a class="directory-detail-info-text" href="#">X (Twitter)</a>
+                    </dd>
+                    <dd class="directory-detail-info-dd directory-detail-info-icon-text-pair">
+                      <div class="directory-detail-info-icon">
+                        <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 48 48" aria-hidden="true">
+                          <path d="M47 12.37a6 6 0 0 0-4.25-4.27C39 7.09 24 7.09 24 7.09s-15 0-18.75 1A6 6 0 0 0 1 12.37C0 16.14 0 24 0 24s0 7.86 1 11.63a6 6 0 0 0 4.25 4.27c3.74 1 18.75 1 18.75 1s15 0 18.75-1A6 6 0 0 0 47 35.63C48 31.86 48 24 48 24s0-7.86-1-11.63zM19.09 31.14V16.86L31.64 24z"></path>
+                        </svg>
+                      </div>
+                      <a class="directory-detail-info-text" href="#">YouTube</a>
+                    </dd>
+                  </dl>
+                </address>
+              </div>
+
+              <div class="directory-detail-info-section-extra directory-detail-info-section">
+                <div class="directory-detail-info-icon-text-pair">
+                  <div class="directory-detail-info-icon">
+                    <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M20.961 6.308a.495.495 0 0 0-.108-.162L14.854.147a.492.492 0 0 0-.162-.107A.482.482 0 0 0 14.5 0h-11a.5.5 0 0 0-.5.5v23a.5.5 0 0 0 .5.5h17a.5.5 0 0 0 .5-.5v-17a.499.499 0 0 0-.039-.192zM15 1.707 19.293 6H15V1.707zM4 23V1h10v5.5a.5.5 0 0 0 .5.5H20v16H4z"/><path d="M7.5 8H12a.5.5 0 0 0 0-1H7.5a.5.5 0 0 0 0 1zM16.5 10h-9a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zM16.5 13h-9a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zM16.5 16h-9a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zM16.5 19h-9a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z"/><path fill="none" d="M0 0h24v24H0z"/>
+                    </svg>
+                  </div>
+                  <a class="directory-detail-info-text" href="#" itemprop="url">Curriculum Vitae</a>
+                </div>
+
+                <div class="directory-detail-info-icon-text-pair">
+                  <div class="directory-detail-info-icon">
+                    <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M20.961 6.308a.495.495 0 0 0-.108-.162L14.854.147a.492.492 0 0 0-.162-.107A.482.482 0 0 0 14.5 0h-11a.5.5 0 0 0-.5.5v23a.5.5 0 0 0 .5.5h17a.5.5 0 0 0 .5-.5v-17a.499.499 0 0 0-.039-.192zM15 1.707 19.293 6H15V1.707zM4 23V1h10v5.5a.5.5 0 0 0 .5.5H20v16H4z"/><path d="M7.5 8H12a.5.5 0 0 0 0-1H7.5a.5.5 0 0 0 0 1zM16.5 10h-9a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zM16.5 13h-9a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zM16.5 16h-9a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zM16.5 19h-9a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z"/><path fill="none" d="M0 0h24v24H0z"/>
+                    </svg>
+                  </div>
+                  <a class="directory-detail-info-text" href="#" itemprop="url">Résumé</a>
+                </div>
+
+                <div class="directory-detail-info-icon-text-pair">
+                  <div class="directory-detail-info-icon">
+                    <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" focusable="false" height="16" width="16" viewbox="0 0 24 24" aria-hidden="true">
+                    <path d="M11.5,0C6.084,0,2,4.299,2,10c0,7.173,8.832,13.634,9.207,13.905C11.294,23.969,11.397,24,11.5,24 s0.206-0.031,0.293-0.095C12.168,23.634,21,17.173,21,10C21,4.299,16.916,0,11.5,0z M11.5,22.873C9.972,21.69,3,15.961,3,10 c0-5.131,3.654-9,8.5-9S20,4.869,20,10C20,15.961,13.028,21.69,11.5,22.873z"/>
+                    <path d="M13.3,9.399c0.724-0.548,1.2-1.409,1.2-2.385c0-1.654-1.346-3-3-3s-3,1.346-3,3c0,0.975,0.475,1.834,1.197,2.383 C8.112,10.095,7,11.675,7,13.515c0,0.276,0.224,0.5,0.5,0.5h8c0.007,0,0.013,0,0.02,0c0.276,0,0.5-0.224,0.5-0.5 c0-0.052-0.008-0.102-0.022-0.148C15.939,11.59,14.843,10.077,13.3,9.399z M9.5,7.015c0-1.103,0.897-2,2-2s2,0.897,2,2 s-0.897,2-2,2S9.5,8.118,9.5,7.015z M8.036,13.015c0.243-1.694,1.704-3,3.464-3s3.221,1.306,3.464,3H8.036z"/>
+                    <path fill="none" d="M0 0H24V24H0z"/>
+                    </svg>
+                  </div>
+                  <a class="directory-detail-info-text" href="https://epd.unl.edu/profile/#" itemprop="url">Expertise and Personnel Directory</a>
+                </div>
+
+                <div class="directory-detail-info-icon-text-pair directory-detail-info-icon-text-pair-multi-line">
+                  <div class="directory-detail-info-icon">
+                    <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" focusable="false" height="16" width="16" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 24C5.383 24 0 18.617 0 12S5.383 0 12 0s12 5.383 12 12-5.383 12-12 12zm0-23C5.935 1 1 5.935 1 12c0 6.066 4.935 11 11 11s11-4.934 11-11c0-6.065-4.935-11-11-11z"/><path d="m17.162 17.869-6-5.5A.503.503 0 0 1 11 12V6.5a.5.5 0 0 1 1 0v5.28l5.838 5.351a.5.5 0 0 1-.676.738z"/><path fill="none" d="M0 0h24v24H0z"/>
+                    </svg>
+                  </div>
+                  <dl class="directory-detail-info-text">
+                    <dt>Office Hours</dt>
+                    <dd><time datetime="14:00">2 PM</time> to <time datetime="17:30">5:30 PM</time></dd>
+                  </dl>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="directory-detail-info-section-tools directory-detail-info-section">
+
+              <a class="directory-detail-tools-btn dcf-btn" href="https://directory-dev.unl.edu/myinfo">
+                <span class="directory-detail-tools-btn-icon">
+                  <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="24" width="24" viewBox="0 0 24 24">
+                    <path d="M22.94 2.732l-1.672-1.671a2.502 2.502 0 00-3.535 0L2.647 16.146a.595.595 0 00-.125.207l-2 6.5a.5.5 0 00.625.625c.193-.059 6.326-1.944 6.516-2.01a.493.493 0 00.19-.115L22.94 6.268c.471-.471.73-1.098.73-1.768a2.49 2.49 0 00-.73-1.768zM19.5 8.293L15.707 4.5l.793-.793L20.293 7.5l-.793.793zM4.2 21.492l-1.692-1.691.726-2.36.413.413A.5.5 0 004 18h2v2a.5.5 0 00.147.354l.413.413-2.36.725zM6.293 17H4.207l-.5-.5L15 5.207l1.543 1.543L6.293 17zm-4.118 3.882l.943.943-1.362.419.419-1.362zm5.325-.589l-.5-.5v-2.086l10.25-10.25L18.793 9 7.5 20.293zM22.232 5.561L21 6.793 17.207 3l1.232-1.232a1.503 1.503 0 012.121 0l1.672 1.671c.282.282.438.659.438 1.061 0 .403-.155.779-.438 1.061z"></path>
+                  </svg>
+                </span>
+                Edit My Info
+              </a>
+
+              <button class="directory-detail-tools-btn dcf-btn dir-btn-suggest-correction dcf-btn-toggle-dialog" data-controls="clewis25-correction-dialog" type="button" disabled>
+                <span class="directory-detail-tools-btn-icon">
+                  <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="24" width="24" viewBox="0 0 24 24">
+                    <path d="m23.855 14.645-2.5-2.5a.5.5 0 0 0-.707 0l-7.502 7.502a.493.493 0 0 0-.116.196c-.002.007-.009.012-.012.02l-1 3.5a.5.5 0 0 0 .619.617l3.5-1c.007-.002.011-.009.018-.011a.482.482 0 0 0 .198-.116l7.502-7.502a.497.497 0 0 0 0-.706zM16 21.793 14.207 20l4.795-4.795 1.793 1.793L16 21.793zm-2.252-.839 1.298 1.299-1.818.52.52-1.819zm7.754-4.663-1.793-1.793 1.293-1.293 1.793 1.793-1.293 1.293zM10.918 1C16.477 1 21 4.589 21 9c0 .477-.053.954-.159 1.419a.5.5 0 1 0 .975.221A7.416 7.416 0 0 0 22 9c0-4.963-4.971-9-11.082-9C4.898 0 0 4.037 0 9c0 2.392.998 4.508 2.89 6.143l-1.847 4.154a.5.5 0 0 0 .664.658l5.331-2.423c.795.221 1.827.375 2.934.438a.5.5 0 1 0 .056-.998c-1.116-.064-2.14-.224-2.882-.451a.506.506 0 0 0-.353.023L2.492 18.5l1.465-3.297a.5.5 0 0 0-.145-.594C1.973 13.14 1 11.199 1 9c0-4.411 4.449-8 9.918-8z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                  </svg>
+                </span>
+                Suggest a Correction<span class="dcf-sr-only"> for Jane Doe</span>
+              </button>
+
+              <dialog class="dcf-dialog" id="clewis25-correction-dialog">
+                <div class="dcf-dialog-header">
+                  <div class="dcf-d-flex dcf-jc-center">
+                    <div class="dcf-w-100% dcf-max-w-md">
+                      <h2>Have a correction?</h2>
+                    </div>
+                  </div>
+                  <button class="dcf-btn-close-dialog">Close</button>
+                </div>
+                <div class="dcf-dialog-content">
+                  <div class="dcf-d-flex dcf-jc-center">
+                    <div class="dcf-w-100% dcf-max-w-md">
+                      <p class="dcf-txt-sm">If you’d like to correct your own entry, contact your departmental <abbr title="Human Resources">HR</abbr> liaison. For corrections to another person’s contact or department/unit information, use the form below.</p>
+                      <form class="dcf-form" method="post" action="https://directory.unl.edu/departments/">
+                        <div class="dcf-form-group">
+                          <label class="dcf-label" for="your-name">Your Name: <small class="dcf-required">Required</small></label>
+                          <input class="dcf-input-text" id="your-name" type="text" name="name" value="" required="">
+                        </div>
+                        <div class="dcf-form-group">
+                          <label class="dcf-label" for="your-email">Your Email: <small class="dcf-required">Required</small></label>
+                          <input class="dcf-input-text" id="your-email" type="text" name="email" value="" required="">
+                        </div>
+                        <div class="dcf-form-group">
+                          <label class="dcf-label" for="your-correction">What is your correction? <small class="dcf-required">Required</small></label>
+                          <textarea class="dcf-input-text" id="your-correction" name="message" required=""></textarea>
+                        </div>
+                        <input class="dcf-btn dcf-btn-primary" type="submit" value="Submit">
+                        <input type="hidden" name="_type" value="correction">
+                        <input type="hidden" name="source" value="https://directory.unl.edu/people/clewis25">
+                        <input type="hidden" name="kind" value="person">
+                        <input type="hidden" name="id" value="clewis25">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </dialog>
+
+              <button class="directory-detail-tools-btn dcf-btn dir-btn-print-vcard">
+                <span class="directory-detail-tools-btn-icon">
+                  <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="24" width="24" viewBox="0 0 24 24">
+                    <path d="M21.5 7h-19A2.503 2.503 0 000 9.5v6C0 16.878 1.122 18 2.5 18H5v4.5a.5.5 0 00.5.5h13a.5.5 0 00.5-.5V18h2.5c1.378 0 2.5-1.122 2.5-2.5v-6C24 8.122 22.878 7 21.5 7zM18 22H6v-7h12v7zm5-6.5c0 .827-.673 1.5-1.5 1.5H19v-2.5a.5.5 0 00-.5-.5h-13a.5.5 0 00-.5.5V17H2.5c-.827 0-1.5-.673-1.5-1.5v-6C1 8.673 1.673 8 2.5 8h19c.827 0 1.5.673 1.5 1.5v6zM5.5 6a.5.5 0 00.5-.5V2h9v2.5a.5.5 0 00.5.5H18v.5a.5.5 0 001 0v-1a.499.499 0 00-.147-.354l-2.999-2.999A.51.51 0 0015.5 1h-10a.5.5 0 00-.5.5v4a.5.5 0 00.5.5zM16 2.707L17.293 4H16V2.707z"></path>
+                    <path d="M3.5 9C2.673 9 2 9.673 2 10.5S2.673 12 3.5 12 5 11.327 5 10.5 4.327 9 3.5 9zm0 2a.5.5 0 110-1 .5.5 0 010 1zm13 5h-9a.5.5 0 000 1h9a.5.5 0 000-1zm0 2h-9a.5.5 0 000 1h9a.5.5 0 000-1zm0 2h-9a.5.5 0 000 1h9a.5.5 0 000-1z"></path>
+                  </svg>
+                </span>
+                Print<span class="dcf-sr-only"> listing for Jane Doe</span>
+              </button>
+
+              <a class="directory-detail-tools-btn dcf-btn" href="https://directory.unl.edu/vcards/clewis25">
+                <span class="directory-detail-tools-btn-icon">
+                  <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="24" width="24" viewBox="0 0 24 24">
+                    <path d="M23.5 3H.5a.5.5 0 00-.5.5v17a.5.5 0 00.5.5h4a.5.5 0 00.5-.5V19c0-.689.561-1.25 1.25-1.25S7.5 18.311 7.5 19v1.5a.5.5 0 00.5.5h8a.5.5 0 00.5-.5V19c0-.689.561-1.25 1.25-1.25S19 18.311 19 19v1.5a.5.5 0 00.5.5h4a.5.5 0 00.5-.5v-17a.5.5 0 00-.5-.5zM23 20h-3v-1c0-1.241-1.009-2.25-2.25-2.25S15.5 17.759 15.5 19v1h-7v-1c0-1.241-1.009-2.25-2.25-2.25S4 17.759 4 19v1H1V4h22v16z"></path>
+                    <path d="M13 13h8v1h-8zm0-2h8v1h-8zm0-2h8v1h-8zm0-2h4v1h-4zM2.5 15h9a.5.5 0 00.5-.5v-2a.504.504 0 00-.146-.354c-.062-.062-1.43-1.409-3.354-1.619v-.264c.376-.298 1-.986 1-2.263 0-.996 0-2.5-2.5-2.5S4.5 7.004 4.5 8c0 1.277.624 1.965 1 2.263v.264c-1.923.21-3.292 1.557-3.354 1.619A.504.504 0 002 12.5v2a.5.5 0 00.5.5zm.5-2.279c.397-.341 1.563-1.221 3-1.221a.5.5 0 00.5-.5v-1a.51.51 0 00-.27-.443C6.2 9.54 5.5 9.149 5.5 8c0-.998 0-1.5 1.5-1.5s1.5.502 1.5 1.5c0 1.149-.7 1.54-.724 1.553A.5.5 0 007.5 10v1a.5.5 0 00.5.5c1.427 0 2.6.881 3 1.222V14H3v-1.279z"></path>
+                  </svg>
+                </span>
+                Download vCard<span class="dcf-sr-only"> for Jane Doe</span>
+              </a>
+
+              <button class="directory-detail-tools-btn dcf-btn dcf-btn-toggle-dialog" data-controls="clewis25-qr-code-dialog" type="button" disabled>
+                <span class="directory-detail-tools-btn-icon">
+                  <svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="24" width="24" viewBox="0 0 24 24">
+                    <path d="M7.505 0h-7a.5.5 0 00-.5.5v7a.5.5 0 00.5.5h7a.5.5 0 00.5-.5v-7a.5.5 0 00-.5-.5zm-.5 7h-6V1h6v6z"></path>
+                    <path d="M2.505 6h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5h-3a.5.5 0 00-.5.5v3a.5.5 0 00.5.5zm.5-3h2v2h-2V3zm4.5 13h-7a.5.5 0 00-.5.5v7a.5.5 0 00.5.5h7a.5.5 0 00.5-.5v-7a.5.5 0 00-.5-.5zm-.5 7h-6v-6h6v6z"></path>
+                    <path d="M2.505 22h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5h-3a.5.5 0 00-.5.5v3a.5.5 0 00.5.5zm.5-3h2v2h-2v-2zm17-2.5a.5.5 0 00-.5-.5h-3a.5.5 0 00-.5.5v3a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-3zm-1 2.5h-2v-2h2v2zm4.5-19h-7a.5.5 0 00-.5.5v7a.5.5 0 00.5.5h7a.5.5 0 00.5-.5v-7a.5.5 0 00-.5-.5zm-.5 7h-6V1h6v6z"></path>
+                    <path d="M18.505 6h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5h-3a.5.5 0 00-.5.5v3a.5.5 0 00.5.5zm.5-3h2v2h-2V3zm-9.5 7h3.5a.5.5 0 000-1h-3.5a.5.5 0 000 1zm0 5h3.5a.5.5 0 000-1h-3v-2.5a.5.5 0 00-1 0v3a.5.5 0 00.5.5zm-2-6h-7a.5.5 0 000 1h6.5v1.5a.5.5 0 001 0v-2a.5.5 0 00-.5-.5zm16 0H22.5a.5.5 0 00-.5.5v5a.5.5 0 001 0V10h.505a.5.5 0 000-1zM20.5 15a.5.5 0 00.5-.5v-3a.5.5 0 00-1 0v3a.5.5 0 00.5.5zM15 11.5a.5.5 0 001 0V10h4.005a.5.5 0 000-1H15.5a.5.5 0 00-.5.5v2zM12.505 4a.5.5 0 00-.5.5v2a.5.5 0 00.5.5h2a.5.5 0 00.5-.5v-4a.5.5 0 00-1 0V6h-1V4.5a.5.5 0 00-.5-.5zm-3 4a.5.5 0 00.5-.5v-3a.5.5 0 00-1 0v3a.5.5 0 00.5.5zm2-7h3a.5.5 0 000-1h-3a.5.5 0 000 1zm-2 2h2a.5.5 0 000-1h-1.5V.5a.5.5 0 00-1 0v2a.5.5 0 00.5.5zm-4 10a.5.5 0 000-1h-3a.5.5 0 000 1h3zm-5 2h2a.5.5 0 000-1h-1.5v-2.5a.5.5 0 00-1 0v3a.5.5 0 00.5.5zm23 1h-2a.5.5 0 00-.5.5V23h-8.5a.5.5 0 000 1h9a.5.5 0 00.5-.5V17h1v2.5a.5.5 0 001 0v-3a.5.5 0 00-.5-.5zm-10.5 5.5a.5.5 0 00-.5-.5h-2.5v-3.5a.5.5 0 00-1 0v4a.5.5 0 00.5.5h3a.5.5 0 00.5-.5z"></path>
+                    <path d="M14.505 22h5a.5.5 0 000-1h-4.5v-2a.5.5 0 00-1 0v2.5a.5.5 0 00.5.5zM11 16.5v3a.5.5 0 001 0V17h2.505a.5.5 0 000-1H11.5a.5.5 0 00-.5.5zM7.505 14h-2a.5.5 0 000 1h2a.5.5 0 000-1zm5.5-3h-2a.5.5 0 000 1h2a.5.5 0 000-1zm4.495 1a.5.5 0 00-.5.5V14h-1.5a.5.5 0 000 1h3a.5.5 0 000-1H18v-1.5a.5.5 0 00-.5-.5z"></path>
+                  </svg>
+                </span>
+                QR Code<span class="dcf-sr-only"> vCard for Jane Doe</span>
+              </button>
+
+              <dialog class="dcf-dialog" id="clewis25-qr-code-dialog">
+                <div class="dcf-dialog-header">
+                  <div class="dcf-d-flex dcf-jc-center">
+                    <h2>QR Code for Jane Doe</h2>
+                  </div>
+                  <button class="dcf-btn-close-dialog">Close</button>
+                </div>
+                <div class="dcf-dialog-content">
+                  <div class="dcf-d-flex dcf-flex-wrap dcf-ai-center dcf-jc-center dcf-col-gap-vw dcf-row-gap-6">
+                    <figure>
+                      <img class="directory-detail-qr-code" src="https://directory.unl.edu/qrcode/clewis25.png" alt="">
+                      <figcaption class="dcf-figcaption dcf-txt-center">
+                        <a download="qr-clewis25.png" href="https://directory.unl.edu/qrcode/clewis25.png" title="Download PNG Version">PNG Version</a>
+                      </figcaption>
+                    </figure>
+                    <figure>
+                      <img class="directory-detail-qr-code" src="https://directory.unl.edu/qrcode/clewis25.svg" alt="">
+                      <figcaption class="dcf-figcaption dcf-txt-center">
+                        <a download="qr-clewis25.svg" href="https://directory.unl.edu/qrcode/clewis25.svg" title="Download SVG Version">SVG Version</a>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </dialog>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- InstanceEndEditable -->
+   </div>
+  </main>
+  <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+    <!-- InstanceBeginEditable name="optionalfooter" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-1.html" -->
+    <!-- InstanceBeginEditable name="contactinfo" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/footer-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-3-std.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/noscript.html" -->
+  </footer>
+  <!--#include virtual="/wdn/templates_6.0/includes/global/js-body-local.html" -->
+  <!-- InstanceBeginEditable name="jsbody" -->
+  <!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

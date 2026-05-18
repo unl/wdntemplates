@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/debug.dwt" codeOutsideHTMLIsLocked="false" -->
+
+<head>
+  <!--#include virtual="/wdn/templates_6.0/includes/global/head-1.html" -->
+  <!-- InstanceBeginEditable name="doctitle" -->
+  <title>No Place Like It Index | Framework Testing Page</title>
+  <!-- InstanceEndEditable -->
+  <!--#include virtual="/wdn/templates_6.0/includes/global/head-2-local.html" -->
+  <!-- InstanceBeginEditable name="head" -->
+  <!-- Place optional header elements here -->
+  <!-- InstanceEndEditable -->
+</head>
+
+<body class="debug unl" data-version="6.0" data-template="debug">
+  <!--#include virtual="/wdn/templates_6.0/includes/global/skip-nav.html" -->
+
+  <!--
+  <div class="dcf-alert dcf-wrapper dcf-pt-4 dcf-pb-4 dcf-txt-xs">
+    <header class="dcf-alert-header">
+      <div role="heading">
+        Emergency Alert
+      </div>
+    </header>
+    <p class="dcf-alert-msg">This alert is a test of the alert system. If this was an actual alert there would also be an actual emergency.</p>
+    <footer class="dcf-alert-footer">
+      <div role="heading">
+        Issued
+      </div>
+      <time class="dcf-pubdate" datetime="2018-12-02 11:11:03-0400">December 2, 2018</time>
+      <div role="heading">
+        Additional Info <small class="dcf-txt-xs">if available</small>
+      </div>
+      <a href="https://www.unl.edu/">https://www.unl.edu/</a>
+    </footer>
+  </div>
+-->
+
+  <header class="dcf-header" id="dcf-header" role="banner">
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/idm.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/search.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/header-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-1.html" -->
+    <!-- InstanceBeginEditable name="affiliation" -->
+    <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-affiliation-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-1.html" -->
+    <!-- InstanceBeginEditable name="titlegraphic" -->
+    <a class="dcf-txt-h6" href="https://arts.unl.edu/music">
+      Glenn Korff School of Music
+    </a>
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/site-title-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/logo-lockup-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-container-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-toggle-group.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-1.html" -->
+    <!-- InstanceBeginEditable name="navlinks" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/nav-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-menu-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-dialog-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-local-copy-dialog.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-1.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-1.html" -->
+    <!-- InstanceBeginEditable name="navvisit" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/visit-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/visit-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-1.html" -->
+    <!-- InstanceBeginEditable name="navapply" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/apply-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/apply-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-1.html" -->
+    <!-- InstanceBeginEditable name="navgive" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/give-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/give-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/cta-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-dialog-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/nav-container-2-local.html" -->
+  </header>
+
+  <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
+    <!-- InstanceBeginEditable name="highlighted" -->
+    <!-- InstanceEndEditable -->
+    <!-- InstanceBeginEditable name="hero" -->
+    <div class="dcf-hero dcf-d-grid all-heroes new-hero-2">
+      <!-- InstanceEndEditable -->
+      <div class="dcf-hero-group-1">
+        <div class="dcf-breadcrumbs-wrapper">
+          <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
+            <!-- <ol>
+              <li><a href="https://www.unl.edu/">Nebraska</a></li>
+              <li><a href="#">No Place Like Nebraska</a></li>
+              <li><span aria-current="page">Ask an Alum: Carter Knopik</span></li>
+            </ol> -->
+            <!-- InstanceEndEditable -->
+          </nav>
+        </div>
+        <header class="dcf-page-title" id="dcf-page-title">
+          <!-- InstanceBeginEditable name="pagetitle" -->
+          <p class="new-hero-subhead">Maecenas sed diam eget risus varius blandit</p>
+          <h1 class="new-hero-page-title">There is No Place Like Nebraska</h1>
+          <!-- InstanceEndEditable -->
+        </header>
+        <!-- InstanceBeginEditable name="herogroup1" -->
+        <p class="new-hero-body">Vestibulum id ligula porta felis euismod semper. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum.</p>
+        <div class="dcf-d-flex dcf-flex-wrap dcf-col-gap-3 dcf-row-gap-3 dcf-mt-5" role="group">
+          <a class="dcf-btn dcf-btn-inverse-primary" href="https://go.unl.edu/puvm">Learn More</a>
+          <a class="dcf-btn dcf-btn-inverse-primary" href="https://mediahub.unl.edu/media/25169">Watch Video</a>
+          <a class="dcf-btn dcf-btn-inverse-primary" href="https://go.unl.edu/v6zf">Explore Admission</a>
+        </div>
+        <!-- InstanceEndEditable -->
+      </div>
+      <!-- InstanceBeginEditable name="herogroup2" -->
+      <div class="dcf-hero-group-2">
+        <img class="dcf-obj-fit-cover" fetchpriority="low" src="https://www.unl.edu/sites/unl.edu.university-communication.top-level/files/media/image/250822-Tunnel-Run-4148-1280.jpg" alt="">
+      </div>
+      <!-- InstanceEndEditable -->
+    </div>
+    <div class="dcf-main-content dcf-wrapper">
+      <!-- InstanceBeginEditable name="maincontentarea" -->
+
+      <style>
+
+        .all-heroes {
+
+        }
+
+        .unl .new-hero-1 .dcf-breadcrumbs,
+        .unl .new-hero-2 .dcf-breadcrumbs {
+          display: none;
+        }
+
+        .new-hero-page-title,
+        .new-hero-subhead,
+        .new-hero-body {
+          color: #fefdfa;
+        }
+
+        .new-hero-subhead {
+          font-size: .75em;
+          font-weight: 600;
+          letter-spacing: .08em;
+          line-height: 1.33;
+          margin-bottom: .75em;
+          text-transform: uppercase;
+        }
+
+        .new-hero-body {
+          margin-bottom: 0;
+          margin-top: 1em;
+        }
+
+        .new-hero-1 .dcf-hero-group-1,
+        .new-hero-2 .dcf-hero-group-1 {
+          padding-block: 2.37em;
+        }
+
+        .new-hero-1 .dcf-hero-group-2 {
+          grid-area: 1 / 1 / 2 / -1;
+        }
+
+        @media (max-width: 56.12em) {
+
+          .new-hero-1 .dcf-hero-group-1,
+          .new-hero-2 .dcf-hero-group-1 {
+            /* background-color: #d00000; */
+            background-image: linear-gradient(57.7deg, rgb(208,0,0), rgb(157,0,0));
+            grid-area: 2 / 1 / 3 / -1;
+            padding-inline: 5.62vw;
+          }
+
+        }
+
+        @media (min-width: 56.12em) {
+
+          .all-heroes {
+            /* height: 63vh;
+            max-height: 31.57em; */
+            height: clamp(17.76em, 63vh, 42.09em);
+            overflow-y: clip;
+          }
+
+          .new-hero-1 {
+            grid-template-columns: 5.62vw 1fr 5.62vw;
+            grid-template-rows: 1fr 1.78em;
+          }
+
+          .new-hero-2 {
+            grid-template-columns: clamp(23.68em, 50%, 42.09em) 1fr;
+          }
+
+          .new-hero-1 .dcf-hero-group-1 {
+            align-self: end;
+            backdrop-filter: blur(3px);
+            /* background-image: linear-gradient(57.7deg, rgba(251,0,10,.9), rgba(208,0,0,.9), rgba(157,0,0,.9)); */
+            background-image: linear-gradient(57.7deg, rgba(208,0,0,.9), rgba(157,0,0,.9));
+            grid-area: 1 / 2 / 3 / -2;
+            /* max-width: 56.12em; */
+            padding-inline: 3.16em;
+            width: max-content;
+            z-index: 2;
+          }
+
+          .new-hero-2 .dcf-hero-group-1 {
+            align-self: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            background-image: linear-gradient(57.7deg, rgb(208,0,0), rgb(157,0,0));
+            /* grid-area: 1 / 1 / -1 / 3; */
+            height: 100%;
+            padding-left: 5.62vw;
+            padding-right: 3.16em;
+            /* width: max-content; */
+          }
+
+          .new-hero-1 .dcf-hero-group-2 {
+            grid-area: 1 / 1 / 2 / -1;
+            position: relative;
+          }
+
+          .new-hero-2 .dcf-hero-group-2 {
+            /* clip-path: polygon(0 0,0 100%,2px 100%,2px 0,5px 0,5px 100%,100% 100%,100% 0);
+            grid-area: 1 / 2 / -1 / -1; */
+            position: relative;
+          }
+
+          .new-hero-1 .dcf-hero-group-2::after {
+            background-image: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.5));
+            bottom: 0;
+            content: '';
+            height: 10em;
+            left: 0;
+            mix-blend-mode: soft-light;
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+          }
+
+          .new-hero-1 .dcf-hero-group-2 img,
+          .new-hero-2 .dcf-hero-group-2 img {
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+          }
+
+        }
+
+
+        /* RECREATE EXISTING CMS-SPECIFIC STYLES */
+        .unlcms-tandem-fade-img .media-entity-bundle--image,
+        .unlcms-tandem-basic-img .media-entity-bundle--image,
+        .unlcms-tandem-stack-img .media-entity-bundle--image {
+          margin-bottom: 0;
+          bottom: 0 !important;
+          left: 0 !important;
+          position: absolute !important;
+          right: 0 !important;
+          top: 0 !important;
+        }
+
+        p:last-child {
+          margin-bottom: 0;
+        }
+
+        /* DROP CAP */
+
+        /* .unl-drop-cap::first-letter {
+          float: left;
+          font-size: 4.74em;
+          line-height: .63;
+          margin-top: .84rem;
+          padding-left: .056rem;
+          padding-right: .56rem;
+        } */
+
+        /* .unl-drop-cap::first-letter {
+          float: left;
+          font-size: 4.74em;
+          line-height: 1;
+          margin-right: .75rem;
+          margin-top: 0;
+          padding-left: .75rem;
+          padding-right: .75rem;
+          background-color: #d00000;
+          color: #fefdfa;
+        } */
+
+        .unl-drop-cap {
+          margin-right: .75rem;
+          margin-top: .32rem;
+          padding: .43rem 1rem;
+        }
+
+
+        /* BLOCKQUOTE */
+
+        blockquote :last-child {
+          margin-bottom: 0;
+        }
+
+        blockquote + figcaption::before {
+          content: '\2014\2009'; // Em dash + narrow space
+        }
+
+        .unl-blockquote-figure {
+          /* grid-template-columns: 1fr 4.21rem; */
+          grid-template-rows: 7.49em auto auto;
+        }
+
+        .unl-blockquote-new::before {
+          content: open-quote;
+          font-size: 17.76rem;
+          font-weight: 700;
+          grid-row-start: 1;
+          height: 7.49rem;
+          line-height: .75;
+        }
+
+        /* .unl-blockquote-new::after {
+          content: "";
+          float: left;
+          width: 250px;
+          height: 250px;
+          shape-outside: circle(50% at top right);
+        } */
+
+        /* .unl-blockquote-new::after {
+          background: url('wdn/templates_6.0/images/bg-dots-scarlet.svg') 0 0 / .75rem repeat;
+          content: '';
+          grid-column-start: 1;
+          grid-row: 1 / 3;
+          width: 5.62vw;
+        } */
+
+        @supports (-webkit-text-stroke: 1px black) {
+
+          .unl-blockquote-new::before {
+            color: #d00000;
+            /* -webkit-text-stroke: 2px var(--bg-body); */
+            /* -webkit-text-stroke: 2px #fefdfa; */
+            -webkit-text-stroke: 3px currentcolor;
+            -webkit-text-fill-color: transparent;
+            /* -webkit-text-fill-color: transparent; */
+            /* background-clip: text; */
+            /* background-image: repeating-linear-gradient(57.7deg, #d00000, #d00000 2px, transparent 2px, transparent 4px); */
+            paint-order: stroke fill;
+
+            /* text-shadow:
+              -3px -3px 0 currentcolor,
+               0   -3px 0 currentcolor,
+               3px -3px 0 currentcolor,
+               3px  0   0 currentcolor,
+               3px  3px 0 currentcolor,
+               0    3px 0 currentcolor,
+              -3px  3px 0 currentcolor,
+              -3px  0   0 currentcolor; */
+            /* text-shadow: 2px 0 #d00000, -2px 0 #d00000, 0 2px #d00000, 0 -2px #d00000,
+             1px 1px #d00000, -1px -1px #d00000, 1px -1px #d00000, -1px 1px #d00000; */
+            /* text-shadow: 10px 10px 0px #07bccc,
+            15px 15px 0px #e601c0,
+            20px 20px 0px #e9019a,
+            25px 25px 0px #f40468,
+            45px 45px 10px var(--bg-light-gray); */
+          }
+
+        }
+
+        .unl-blockquote-new > p {
+          font-size: clamp(1.33em, 3.16vw, 2.37em);
+          font-weight: 600;
+        }
+
+        .unl-blockquote-new > p:last-of-type::after {
+          content: close-quote;
+        }
+
+        @media (max-width: 56.12em) {
+
+          .unl-blockquote-new>p {
+            line-height: 1.33;
+          }
+
+        }
+
+        @media (min-width: 56.12em) {
+
+          .unl-blockquote-new>p {
+            line-height: 1.13;
+          }
+
+        }
+      </style>
+
+
+      <style>
+        /* UPDATED UNL CMS GRID FOR GLOBAL */
+
+        @media only screen and (max-width: 42.09em) {
+
+          .unlcms-grid-cols {
+            grid-template-columns: 5.62vw 3.16rem 1rem 1fr 1fr 1.58vw 1.58vw 1fr 1fr 1rem 3.16rem 5.62vw;
+          }
+
+        }
+
+        @media only screen and (min-width: 42.09em) and (max-width: 56.12em) {
+
+          .unlcms-grid-cols {
+            grid-template-columns: 5.62vw 3.16rem 1rem 1fr 1fr 1fr 1.58vw 1.58vw 1fr 1fr 1fr 1rem 3.16rem 5.62vw;
+          }
+
+        }
+
+        @media only screen and (min-width: 56.12em) {
+
+          .unlcms-grid-cols {
+            grid-template-columns: 5.62vw 3.16rem 1rem 1fr 1fr 1fr 1fr 1rem 3.16rem 1.58vw 1.58vw 3.16rem 1rem 1fr 1fr 1fr 1fr 1rem 3.16rem 5.62vw;
+          }
+
+        }
+      </style>
+
+      <style>
+        /* TANDEM */
+        .unlcms-tandem-text p:last-child,
+        .unlcms-tandem-text ol:last-child,
+        .unlcms-tandem-text ul:last-child {
+          margin-bottom: 0;
+        }
+      </style>
+
+      <style>
+        /* TANDEM - BASIC */
+        .unlcms-tandem-basic-img-grid {
+          grid-template-columns: 1em auto 1em;
+          grid-template-rows: 1em auto 1em;
+        }
+
+        .unlcms-tandem-basic-img-translate-xy-tr {
+          grid-area: 1 / 2 / 3 / 4;
+        }
+
+        .unlcms-tandem-basic-img-translate-xy-tl {
+          grid-area: 1 / 1 / 3 / 3;
+        }
+
+        .unlcms-tandem-basic-img-translate-xy-br {
+          grid-area: 2 / 2 / 4 / 4;
+        }
+
+        .unlcms-tandem-basic-img-translate-xy-bl {
+          grid-area: 2 / 1 / 4 / 3;
+        }
+      </style>
+
+      <!-- <div class="dcf-w-12">
+        <svg viewBox="0 0 216 216" height="16" width="16" aria-hidden="true" class="dcf-h-100% dcf-w-100%" style="transform: rotate(-10deg);">
+          <circle cx="108" cy="108.05" r="107.95" style="fill:#d00000"></circle>
+          <path d="M63.1 103.53c-.03-1.55-.04-3.45-.04-4.83v-4.05c0-3.5-2.06-5.36-4.85-5.36-1.82 0-3.16.52-4.88 2.55l-.16-2.2-.58-.35-7.1 2.22v1.32l1.74.29c.06 1.29.1 1.83.1 3.6v1.99c0 1.32-.01 3.21-.04 4.76l-1.47.34v1.64h8.86v-1.64l-1.21-.26c-.03-1.57-.04-3.5-.04-4.84v-5.12c.76-.54 1.54-.86 2.09-.86 1.03 0 1.44.64 1.44 2.34v3.63c0 1.36-.01 3.24-.04 4.78l-1.37.33v1.64h8.9v-1.64l-1.34-.28ZM65.7 97.51c0-4.79 3.53-8.22 8.48-8.22s8.48 3.34 8.48 8.22-2.99 8.45-8.48 8.45-8.48-3.66-8.48-8.45Zm10.54.1c0-4.66-.64-6.55-2.06-6.55s-2.06 1.89-2.06 6.55.64 6.58 2.06 6.58 2.06-1.89 2.06-6.58ZM102.94 89.29c-1.85 0-3.37.68-4.68 2.01l-.14-1.72-.55-.29-7.03 2.22v1.32l1.73.29c.06 1.29.1 1.83.1 3.6v8.48c0 1.51-.02 3.26-.06 5.39l-1.45.33v1.67h9.28v-1.67l-1.71-.47c-.04-2.07-.05-3.77-.05-5.25v-.78c.99 1 2.23 1.55 3.95 1.55 3.56 0 6.97-3.15 6.97-8.41s-2.83-8.25-6.36-8.25Zm-2.96 13.59c-.61 0-1.09-.16-1.51-.45v-9.47c.46-.29.96-.49 1.51-.49 1.7 0 2.83 1.41 2.83 5.07s-1.12 5.33-2.83 5.33ZM118.56 103.51c-.03-1.6-.07-3.21-.07-4.81V87.11l.13-4.46-.55-.35-7.42 1.45v1.44l1.74.32v13.2c0 1.59-.04 3.19-.07 4.78l-1.44.32v1.64H120v-1.64l-1.44-.29ZM137.09 102.72c-.39.58-.61.71-.87.71-.35 0-.55-.22-.55-.55v-7.35c0-4.4-1.64-6.23-6.07-6.23-5.17 0-7.84 1.93-7.84 4.69.32 1.16 1.19 1.74 2.44 1.74 1.38 0 2.63-1 2.63-3.6v-1.08c.16 0 .32-.01.48-.01 2.02 0 2.44.87 2.44 3.6v1.15c-.74.19-1.43.37-1.96.52-5.2 1.38-6.58 3.05-6.58 5.52 0 2.63 1.64 4.14 4.17 4.14 2.31 0 3.31-.9 4.58-2.28.53 1.46 1.72 2.28 3.74 2.28 2.28 0 3.53-.77 4.3-2.73l-.93-.51Zm-8.67.45c-.93 0-1.67-.77-1.67-2.34 0-1.73 1.19-2.76 2.09-3.18.26-.12.58-.25.93-.37v5.33c-.55.39-.97.56-1.35.56ZM149.11 102.49c-2.57 0-4.21-1.96-4.21-5.52 0-4.43 2.02-5.94 3.5-5.94h.13l.06 1.34c.13 2.83 1.41 3.66 2.76 3.66s2.02-.58 2.44-1.86c-.16-2.63-2.54-4.88-6.13-4.88-5.17 0-9.19 3.05-9.19 8.38s3.95 8.29 8.32 8.29c3.05 0 5.46-1.16 6.84-3.76l-1.25-1.22c-.9.87-1.86 1.51-3.28 1.51ZM170.51 96.32c0-3.89-2.31-7.03-6.9-7.03-4.21 0-8.64 2.76-8.64 8.29s3.53 8.38 8.35 8.38c3.18 0 5.59-1.16 6.97-3.76l-1.25-1.22c-.9.87-2.06 1.51-3.66 1.51-1.89 0-3.61-1.34-3.92-4.46h8.9c.13-.58.16-1.03.16-1.7Zm-7.61-.12h-1.5c.09-3.99.83-5.17 1.82-5.17.84 0 1.64.8 1.64 3.02 0 1.64-.42 2.15-1.96 2.15ZM53.62 131.36c-.03-1.6-.07-3.21-.07-4.81v-11.59l.13-4.46-.55-.35-7.42 1.45v1.44l1.74.32v13.2c0 1.59-.04 3.19-.07 4.78l-1.44.32v1.64h9.12v-1.64l-1.44-.29ZM61.17 115.25c1.64 0 2.95-1.16 2.95-2.76s-1.32-2.76-2.95-2.76-2.96 1.16-2.96 2.76 1.32 2.76 2.96 2.76ZM64.33 131.38c-.03-1.56-.04-3.49-.04-4.83v-4.27l.1-4.79-.58-.35-7.45 2.22v1.32l1.73.29c.06 1.28.1 2.28.1 4.05v1.54c0 1.32-.01 3.22-.04 4.77l-1.43.33v1.64h8.96v-1.64l-1.34-.28ZM84.02 131.13l-4.24-9.25 2.56-2.33 2.82-.38v-1.51h-7.52v1.51l2.11.31-5.07 4.84v-9.36l.13-4.46-.55-.35-7.42 1.45v1.44l1.74.32v13.2c0 1.14-.01 3.18-.04 4.76l-1.47.34v1.64h9.02v-1.64l-1.37-.28c-.03-1.52-.04-3.52-.04-4.89l.82-.75 3.06 7.55h7.45v-1.64l-2.01-.53ZM101.71 124.17c0-3.89-2.31-7.03-6.91-7.03-4.21 0-8.64 2.76-8.64 8.29s3.53 8.38 8.35 8.38c3.18 0 5.59-1.16 6.97-3.76l-1.25-1.22c-.9.87-2.06 1.51-3.66 1.51-1.89 0-3.61-1.34-3.92-4.46h8.9c.13-.58.16-1.03.16-1.7Zm-7.61-.12h-1.5c.09-3.99.83-5.17 1.82-5.17.84 0 1.64.8 1.64 3.02 0 1.64-.42 2.15-1.96 2.15ZM114.35 115.25c1.64 0 2.96-1.16 2.96-2.76s-1.32-2.76-2.96-2.76-2.95 1.16-2.95 2.76 1.32 2.76 2.95 2.76ZM117.51 131.38c-.03-1.56-.04-3.49-.04-4.83v-4.27l.1-4.79-.58-.35-7.45 2.22v1.32l1.73.29c.06 1.28.1 2.28.1 4.05v1.54c0 1.32-.01 3.22-.04 4.77l-1.43.33v1.64h8.96v-1.64l-1.34-.28ZM130.86 130.15c-.55.42-1.03.64-1.57.64-.9 0-1.57-.67-1.57-2.12v-8.61h2.95v-2.41h-2.95v-4.56h-3.82l-1.94 4.57-2.17.28v2.12h1.83v5.52c0 1.25-.03 2.18-.03 3.44 0 3.44 1.83 4.79 5.01 4.79 2.63 0 4.21-1.06 5.07-2.92l-.8-.74ZM133.02 130.73c0-1.73 1.38-3.18 3.15-3.18s3.15 1.45 3.15 3.18-1.38 3.08-3.15 3.08-3.15-1.38-3.15-3.08Z" style="fill:#fefdfa"></path>
+        </svg>
+      </div> -->
+
+
+
+
+      <!-- <div class="dcf-pt-9 dcf-pb-9">
+        <ul class="dcf-d-grid dcf-grid-cols-2@sm dcf-grid-cols-4@lg dcf-col-gap-vw dcf-row-gap-6 dcf-mb-0 unl-scroll-trigger-stagger" role="list">
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fit:1320/format:webp/1*HcCS2kij34qbpmUfcTJchQ.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">How taking risks changed my life for the better</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">February 12, 2025</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">Emerging Media Arts major Abi Trembly shares how stepping out of her comfortable routine paid off big time.</p>
+            </div>
+          </li>
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fit:1320/format:webp/1*Y6KEinVZwLbPDNV_DQGzUg.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">100 Things to do Before you Graduate</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">August 1, 2024</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">Hoping to make the most of your years on campus? Build a bucket list based on recommendations from fellow Huskers.</p>
+            </div>
+          </li>
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fit:1320/format:webp/1*JslBX8uKLBhcZ5LyGHXzeQ.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">No Place Like It</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">June 1, 2023</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">We talked to students about why Nebraska U stands apart, from the Husker community to the academic opportunities.</p>
+            </div>
+          </li>
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ONXYV6i8QsPyeiT8c-8QAg.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">Explore LNK: Summer Activities</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">June 4, 2025</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">Plan your summer day in LNK, whether you want to explore nature, get out of the heat or treat yourself to something sweet.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="dcf-bleed dcf-wrapper">
+        <div class="dcf-pt-6 dcf-pb-6 dcf-bt-1 dcf-bb-1 dcf-bt-solid dcf-bb-solid unl-bt-light-gray unl-bb-light-gray">
+          <div class="dcf-d-grid dcf-grid-cols-2@md dcf-col-gap-vw dcf-row-gap-7 dcf-card-as-link">
+            <div class="dcf-as-center unlcms-tandem-text dcf-2nd">
+              <header>
+                <h2 class="dcf-mt-0"><a class="dcf-txt-decor-hover dcf-card-link" href="">Things I wish I knew as a first-year student</a></h2>
+                <p class="dcf-mb-5 dcf-txt-xs dcf-lh-3 unl-dark-gray ">August 6, 2025</p>
+              </header>
+              <p>Your first year on campus is full of change. We gathered tips and words of encouragement from returning Huskers to set you up for success.</p>
+            </div>
+            <div class="dcf-as-center dcf-1st">
+              <div class="dcf-relative dcf-4x3 dcf-16x9@sm dcf-1x1@md dcf-4x3@lg dcf-16x9@xl dcf-z-1 unl-frame-quad" style="position:relative;">
+                <div class="contextual-region media-entity view-mode--default media-entity-bundle--image">
+                  <img class="dcf-obj-fit-cover dcf-h-100% dcf-w-100% dcf-absolute dcf-top-0 dcf-right-0 dcf-bottom-0 dcf-left-0" src="https://miro.medium.com/v2/resize:fit:1320/format:webp/1*M7zM6wgUo5H7-mjOQMuPOQ.jpeg" width="1600" height="900" alt="" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dcf-pt-9 dcf-pb-9">
+        <ul class="dcf-d-grid dcf-grid-cols-2@sm dcf-grid-cols-4@lg dcf-col-gap-vw dcf-row-gap-6 dcf-mb-0 unl-scroll-trigger-stagger" role="list">
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*_kOEafSoy82gd-WWEQZJMg.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">On Campus: UCARE</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">June 11, 2025</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">Laila knew she wanted to make an impact on the well-being of others. Through undergraduate research with UCARE, she’s doing just that.</p>
+            </div>
+          </li>
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fit:2000/1*m9xyqjIDGYll6F6huD-Adw.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">Ask an Alum: Alex Gordon Stotz</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">June 10, 2025</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">Alex Gordon Stotz is using his teachings from the College of Architecture to bring scenes to life on the small and big screen.</p>
+            </div>
+          </li>
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fit:1400/1*RU26x0mbW4uUC9ca64xqFQ.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">How New Student Enrollment set me up for success — and can for you, too</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">June 5, 2025</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">NSE orientation leader Ava Glover shares how to make the most of orientation and find success as you enter college.</p>
+            </div>
+          </li>
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ONXYV6i8QsPyeiT8c-8QAg.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">Explore LNK: Summer Activities</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">June 4, 2025</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">Plan your summer day in LNK, whether you want to explore nature, get out of the heat or treat yourself to something sweet.</p>
+            </div>
+          </li>
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fill:320:214/1*0arvxZ5-pzMZHtjhPMU2sQ.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">Three Degrees, One Bond: The Ferguson Triplets’ Shared Husker Journey</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">May 13, 2025</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">Josh, Paige and Drew talk about their time at Nebraska.</p>
+            </div>
+          </li>
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fill:320:214/1*BO2hD8LlWuIRHeH4HzFN6A.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">Husker How To: Stay Connected with Others During Summer Break</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">May 8, 2025</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">Check out a few fun ways to stay in touch with your Husker friends while on summer break.</p>
+            </div>
+          </li>
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/resize:fill:320:214/1*4I1JvZOe41g5x_AC88ebZw.jpeg" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">Behind the Scenes: Global Experiences with Ashley Wallace</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">April 28, 2025</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">Ashley found a passion for travel as an undergrad. Now he works to provide students with once-in-a-lifetime experiences abroad.</p>
+            </div>
+          </li>
+          <li class="dcf-mb-0 unl-scroll-trigger-container">
+            <div class="dcf-card-as-link">
+              <div class="dcf-mb-3 dcf-16x9 unl-bg-light-gray unl-frame-quad">
+                <div class="dcf-16x9 unl-scroll-fx-fade-in">
+                  <img class="dcf-obj-fit-cover" height="400" width="225" src="https://miro.medium.com/v2/da:true/resize:fill:320:214/0*oL7gdSq2sCAR3J4x" alt="">
+                </div>
+              </div>
+              <h2 class="dcf-mb-0 dcf-txt-h5"><a class="dcf-txt-decor-hover dcf-card-link" href="#">On Campus: Center for Sales Excellence</a></h2>
+              <p class="dcf-mt-2 dcf-mb-0 dcf-txt-xs dcf-lh-3 unl-dark-gray">April 18, 2025</p>
+              <p class="dcf-mt-4 dcf-txt-sm dcf-mb-0">Marcus Anderson is fine-tuning his interpersonal skills and preparing for a future career through educational opportunities.</p>
+            </div>
+          </li>
+        </ul>
+      </div> -->
+
+      <div class="dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-9">
+        <div class="dcf-d-grid dcf-grid-cols-2@md dcf-grid-cols-3@xl dcf-col-gap-vw dcf-row-gap-6">
+          <div>
+            <figure class="unl-scroll-trigger-container">
+              <blockquote class="dcf-d-grid">
+                <p class="dcf-row-start-2">If you take advantage of everything the University has to offer, all of those fears of who are you going to be on campus completely wash away because you just feel like you belong here.</p>
+              </blockquote>
+              <figcaption class="dcf-txt-md">Hannah-Kate Kinney (student)</figcaption>
+            </figure>
+          </div>
+          <div>
+            <figure class="unl-scroll-trigger-container">
+              <blockquote class="dcf-d-grid">
+                <p class="dcf-row-start-2">I feel that it always comes back to people and building community and togetherness.</p>
+              </blockquote>
+              <figcaption class="dcf-txt-md">Andrea Alvarado Troncoso (student)</figcaption>
+            </figure>
+          </div>
+          <div>
+            <figure class="unl-scroll-trigger-container">
+              <!-- <div class="dcf-circle dcf-1x1 dcf-w-10 dcf-h-10 dcf-float-left"></div> -->
+              <blockquote class="dcf-d-grid">
+                <p class="dcf-row-start-2">My favorite thing about the University of Nebraska–Lincoln is its perfect size. It’s big enough to offer endless opportunities, resources, and experiences but still small enough that you can walk across campus and see familiar faces. It strikes the right balance between feeling like a major university and a tight-knit community, which makes it easy to get involved and feel at home.</p>
+              </blockquote>
+              <figcaption class="dcf-txt-md">Seth Wert (student)</figcaption>
+
+            </figure>
+          </div>
+          <div>
+            <figure class="unl-scroll-trigger-container">
+              <blockquote class="dcf-d-grid">
+                <p class="dcf-row-start-2">My favorite thing about UNL is our sense of camaraderie. To me, it's unlike any school; we're built on long-lasting traditions, teamwork, and always bettering ourselves. You see it every day in athletic events, RSO's, fine arts, and more. It's things like this that make me proud to be a Husker!</p>
+              </blockquote>
+              <figcaption class="dcf-txt-md">Tony Garrett (student)</figcaption>
+            </figure>
+          </div>
+          <div>
+            <figure class="unl-scroll-trigger-container">
+              <blockquote class="dcf-d-grid">
+                <p class="dcf-row-start-2">We have the best kids in the world. They are so kind. They are so nice. And I just really want a place where everybody feels welcomed and loved, regardless of who they are.</p>
+              </blockquote>
+              <figcaption class="dcf-txt-md">Gretchen Hamilton (staff)</figcaption>
+            </figure>
+          </div>
+          <div>
+            <figure class="unl-scroll-trigger-container">
+              <blockquote class="dcf-d-grid">
+                <p class="dcf-row-start-2">There’s a really defined loyalty and preservation of tradition. I mean, that community element is everything.</p>
+              </blockquote>
+              <figcaption class="dcf-txt-md">Jason Manzitto (alum)</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="dcf-bleed dcf-wrapper dcf-mt-9 dcf-mb-9">
+        <figure class="unl-blockquote-figure">
+          <blockquote class="dcf-d-grid dcf-col-gap-6 unl-blockquote-new unl-scarlet">
+        <!-- <figure class="unl-blockquote-figure unl-scroll-trigger-container">
+          <blockquote class="dcf-d-grid dcf-col-gap-6 unl-blockquote-new unl-scarlet unl-scroll-fx-fade-in unl-scroll-fx-move-left"> -->
+            <p class="dcf-row-start-2">We had relatively small class sizes compared to other film schools around the nation, and in many ways that served us well — we knew everyone in the program, could work on almost every project and had a lot of opportunities to experiment and try new things.</p>
+          </blockquote>
+          <figcaption class="unl-blockquote-figcaption dcf-pt-4 dcf-txt-md dcf-bold unl-scarlet">John Doe, from <cite>War and Peace</cite></figcaption>
+          <!-- <img class="dcf-mt-4 unl-blockquote-img dcf-1x1 dcf-circle dcf-w-12" src="https://www.unl.edu/sites/unl.edu.university-communication.top-level/files/media/image/abi-trembly-480.jpg" alt=""> -->
+        </figure>
+      </div>
+
+      <div class="dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-9">
+        <div style="padding-top: 56.25%; overflow: hidden; position:relative; -webkit-box-flex: 1; flex-grow: 1;">
+          <iframe
+            style="bottom: 0; left: 0; position: absolute; right: 0; top: 0; border: 0; height: 100%; width: 100%;"
+            src="https://mediahub.unl.edu/media/25169?format=iframe&autoplay=0"
+            title="Video Player:  No Place Like It"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="dcf-pt-8 dcf-pb-8 unl-cream unlcms-section-standard-wrapper dcf-bleed dcf-wrapper unl-bg-scarlet unl-bg-repeat unl-bg-campus unl-bg-soft-light unl-bg-parallax">
+        <div class="dcf-d-flex dcf-flex-wrap dcf-jc-center dcf-gap-4">
+          <a class="dcf-btn dcf-btn-inverse-primary" href="https://go.unl.edu/v6zf">Ready to come home?</a>
+          <a class="dcf-btn dcf-btn-inverse-primary" href="https://www.unl.edu/visit/">Visit Nebraska</a>
+          <a class="dcf-btn dcf-btn-inverse-primary" href="https://aboutlincoln.unl.edu/">Learn More About Lincoln</a>
+        </div>
+      </div>
+
+      <div class="dcf-bleed dcf-wrapper dcf-pt-9 dcf-pb-9">
+        <div class="dcf-d-flex dcf-flex-col dcf-ai-center">
+
+          <div class="dcf-pb-8">
+            <h2 class="dcf-txt-center">Now it’s your turn.</h2>
+            <p class="dcf-txt-center">Tell us what makes Nebraska unlike any other—why there’s truly no place like it.</p>
+          </div>
+
+          <div class="dcf-d-flex dcf-jc-center">
+            <form class="dcf-form dcf-max-w-75ch" action="?" method="post">
+
+              <div class="dcf-form-group">
+                <label for="name">Name <small class="dcf-required">Required</small></label>
+                <input id="name" type="text" required>
+              </div>
+
+              <div class="dcf-form-group">
+                <label for="email">Email <small class="dcf-required">Required</small></label>
+                <input id="email" type="email" required>
+              </div>
+
+              <fieldset class="dcf-form-group dcf-d-flex dcf-flex-col">
+                <legend class="dcf-legend">Affiliation</legend>
+                <div class="dcf-input-checkbox">
+                  <input id="npli-role-student" type="checkbox" value="Student" aria-labelledby="npli-role-student-label">
+                  <label for="npli-role-student" id="npli-role-student-label">Student</label>
+                </div>
+                <div class="dcf-input-checkbox">
+                  <input id="npli-role-alum" type="checkbox" value="Alum" aria-labelledby="npli-role-alum-label">
+                  <label for="npli-role-alum" id="npli-role-alum-label">Alum</label>
+                </div>
+                <div class="dcf-input-checkbox">
+                  <input id="npli-role-faculty" type="checkbox" value="Faculty" aria-labelledby="npli-role-faculty-label">
+                  <label for="npli-role-faculty" id="npli-role-faculty-label">Faculty</label>
+                </div>
+                <div class="dcf-input-checkbox">
+                  <input id="npli-role-staff" type="checkbox" value="Staff" aria-labelledby="npli-role-staff-label">
+                  <label for="npli-role-staff" id="npli-role-staff-label">Staff</label>
+                </div>
+              </fieldset>
+
+              <div class="dcf-form-group">
+                <label for="npli-comments" id="npli-comments-label">Comments</label>
+                <textarea id="npli-comments" aria-labelledby="npli-comments-label" cols="60" rows="5"></textarea>
+              </div>
+
+              <input class="dcf-btn dcf-btn-primary" name="submit" type="submit" value="Submit">
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- InstanceEndEditable -->
+    </div>
+  </main>
+  <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+    <!-- InstanceBeginEditable name="optionalfooter" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-1.html" -->
+    <!-- InstanceBeginEditable name="contactinfo" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/local/footer-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-2.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/footer-global-3-big.html" -->
+    <!--#include virtual="/wdn/templates_6.0/includes/global/noscript.html" -->
+  </footer>
+  <!--#include virtual="/wdn/templates_6.0/includes/global/js-body-local.html" -->
+  <!-- InstanceBeginEditable name="jsbody" -->
+  <!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd -->
+
+</html>
