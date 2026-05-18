@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.0.13 (May 13, 2026)
+- Fix missing CSS for event lists
+
+## 6.0.12 (May 13, 2026)
+- Re-added month widget
+- Fixes for gallery component
+- Move backdrop filters to dcf
+
 ## 6.0.11 (Apr 14, 2026)
 - Added config to disable nav on desktop
 - Fix print styles

@@ -318,6 +318,24 @@ Events bands have been updated to match other components.
 ></div>
 ```
 
+### Month Widget
+
+The month widget has been combined into the events list component as a new layout.
+This layout does not support `data-limit`, `data-pinned_limit`, or `data-rooms` just due to how it is loading the calendar display.
+
+### Old Month Widget
+
+```HTML
+<div id="monthwidget"></div>
+<script>WDN.initializePlugin('monthwidget' , {url: 'https://events.unl.edu/'});</script>
+```
+
+#### New Month Widget
+
+```HTML
+<div class="unl-event-list" data-url="https://events.unl.edu/" data-layout="month-widget"></div>
+```
+
 ### IDM / Login
 
 We have implemented a new IDM widget that corrects a number of issues that we have noticed with the old version. The main difference to the widget (besides the new design) is that we have a client side user and a server side user. The client side user will still be set by whoami.unl.edu. To set the server side user your app will need to supply the widget with who is logged in.

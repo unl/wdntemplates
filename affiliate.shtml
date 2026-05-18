@@ -1,117 +1,139 @@
 <!DOCTYPE html>
-<html lang="en"><!-- InstanceBegin template="/Templates/affiliate.dwt" codeOutsideHTMLIsLocked="false" -->
-<head>
-<!--#include virtual="/wdn/templates_5.3/includes/global/head-1.html" -->
-<!-- InstanceBeginEditable name="doctitle" -->
+<html lang="en">
+    <head>
+        <!--#include virtual="/wdn/templates_6.1/includes/global/head-1.html" -->
+        <!--
+            Membership and regular participation in the University of Nebraska-Lincoln (UNL) Web Developer Network (WDN) is required to use the UNLedu Web Framework. Visit the WDN site at https://wdn.unl.edu/. Register for our mailing list and add your site or server to UNL Web Audit.
+            All framework code is the property of the UNL Web Developer Network. The code seen in a source code view is not, and may not be used as, a template. You may not use this code, a reverse-engineered version of this code, or its associated visual presentation in whole or in part to create a derivative work.
+            This message may not be removed from any pages based on the UNLedu Web Framework.
+
+            $Id$
+        -->
+        <!-- TemplateBeginEditable name="doctitle" -->
   <title>Please Title Your Page Here | Buros Center for Testing</title>
-<!-- InstanceEndEditable -->
-<!--#include virtual="/wdn/templates_5.3/includes/global/affiliate-head-2-local.html" -->
-<!-- InstanceBeginEditable name="head" -->
-  <!-- Place optional header elements here -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/wdn/templates_5.3/includes/local/affiliate-custom.css">
-  <link rel="icon" href="https://wdn-cdn.unl.edu/wdn/templates_5.3/includes/global/favicon/favicon.ico" sizes="any">
-  <link rel="icon" href="https://wdn-cdn.unl.edu/wdn/templates_5.3/includes/global/favicon/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="https://wdn-cdn.unl.edu/wdn/templates_5.3/includes/global/favicon/apple-touch-icon.png">
-  <link rel="manifest" href="https://wdn-cdn.unl.edu/wdn/templates_5.3/includes/global/favicon/manifest.webmanifest">
-  <meta name="theme-color" content="#D90792">
-<!-- InstanceEndEditable -->
-</head>
-<body class="unl affiliate" data-version="5.3">
-  <!--#include virtual="/wdn/templates_5.3/includes/global/skip-nav.html" -->
-  <header class="dcf-header" id="dcf-header" role="banner">
-    <!-- InstanceBeginEditable name="affiliateheaderglobal" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-header-global-1.html" -->
-    <!-- InstanceEndEditable -->
-    <!-- InstanceBeginEditable name="affiliateidm" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-idm.html" -->
-    <!-- InstanceEndEditable -->
-    <!-- InstanceBeginEditable name="affiliatesearch" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-search.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/header-global-2.html" -->
-    <!-- InstanceBeginEditable name="affiliatelogo" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-logo-lockup-1.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/site-affiliation-1.html" -->
-    <!-- InstanceBeginEditable name="affiliation" -->
+        <!-- TemplateEndEditable -->
+        <!--#include virtual="/wdn/templates_6.1/includes/global/affiliate-head-2-local.html" -->
+        <!-- TemplateBeginEditable name="head" -->
+        <!-- Place optional header elements here -->
+        <link rel="stylesheet" href="/wdn/templates_6.1/includes/local/affiliate-custom.css">
+        <link rel="icon" href="/wdn/templates_6.1/includes/global/favicon/favicon.ico" sizes="any">
+        <link rel="icon" href="/wdn/templates_6.1/includes/global/favicon/icon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/wdn/templates_6.1/includes/global/favicon/apple-touch-icon.png">
+        <link rel="manifest" href="/wdn/templates_6.1/includes/global/favicon/manifest.webmanifest">
+        <meta name="theme-color" content="#d00000">
+        <!-- TemplateEndEditable -->
+    </head>
+    <body class="unl affiliate" data-version="6.1" data-template="affiliate-local">
+        <!--#include virtual="/wdn/templates_6.1/includes/global/skip-nav.html" -->
+        <header class="dcf-header" id="dcf-header" role="banner">
+            <!-- TemplateBeginEditable name="affiliateheaderglobal" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/local/affiliate-header-global-1.html" -->
+            <!-- TemplateEndEditable -->
+            <!-- TemplateBeginEditable name="affiliateidm" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/local/affiliate-idm.html" -->
+            <!-- TemplateEndEditable -->
+            <!-- TemplateBeginEditable name="affiliatesearch" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/local/affiliate-search.html" -->
+            <!-- TemplateEndEditable -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/header-global-2.html" -->
+            <!-- TemplateBeginEditable name="affiliatelogo" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/local/affiliate-logo-lockup-1.html" -->
+            <!-- TemplateEndEditable -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/site-affiliation-1.html" -->
+            <!-- TemplateBeginEditable name="affiliation" -->
     <a href="http://arts.unl.edu/">Hixson-Lied College of Fine &amp; Performing Arts</a>
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/site-affiliation-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/site-title-1.html" -->
-    <!-- InstanceBeginEditable name="titlegraphic" -->
+            <!-- TemplateEndEditable -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/site-affiliation-2.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/site-title-1.html" -->
+            <!-- TemplateBeginEditable name="titlegraphic" -->
     <a class="dcf-txt-h6" href="https://arts.unl.edu/music">Glenn Korff School of Music</a>
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/site-title-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/logo-lockup-2.html" -->
-
-    <!--#include virtual="/wdn/templates_5.3/includes/global/affiliate-nav-toggle-group-1.html" -->
-    <!-- InstanceBeginEditable name="affiliatemobilesearch" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-mobile-search.html" -->
-    <!-- InstanceEndEditable -->
-    <!-- InstanceBeginEditable name="affiliatemobileidm" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-mobile-idm.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/affiliate-nav-toggle-group-2.html" -->
-
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-1.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-toggle-btn.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-child-1.html" -->
-    <!-- InstanceBeginEditable name="navlinks" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/nav-local.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-child-2.html" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/nav-menu-2.html" -->
-  </header>
-  <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
-    <!-- InstanceBeginEditable name="highlighted" -->
-    <!-- InstanceEndEditable -->
-    <!-- InstanceBeginEditable name="hero" -->
-    <div class="dcf-hero dcf-hero-default">
-    <!-- InstanceEndEditable -->
-      <div class="dcf-hero-group-1">
-        <div class="dcf-breadcrumbs-wrapper">
-          <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
-            <!-- InstanceBeginEditable name="breadcrumbs" -->
-            <ol>
-              <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
+            <!-- TemplateEndEditable -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/site-title-2.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/logo-lockup-2.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/nav-container-1.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/affiliate-nav-toggle-group-1.html" -->
+            <!-- TemplateBeginEditable name="affiliatemobilesearch" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/local/affiliate-mobile-search.html" -->
+            <!-- TemplateEndEditable -->
+            <!-- TemplateBeginEditable name="affiliatemobileidm" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/local/affiliate-mobile-idm.html" -->
+            <!-- TemplateEndEditable -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/affiliate-nav-toggle-group-2.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/nav-menu-1.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/nav-local-1.html" -->
+            <!-- TemplateBeginEditable name="navlinks" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/local/nav-local.html" -->
+            <!-- TemplateEndEditable -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/nav-local-2.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/nav-menu-2.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/nav-dialog-1.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/nav-local-copy-dialog.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/cta-1.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/visit-1.html" -->
+            <!-- TemplateBeginEditable name="navvisit" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/local/visit-local.html" -->
+            <!-- TemplateEndEditable -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/visit-2.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/apply-1.html" -->
+            <!-- TemplateBeginEditable name="navapply" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/local/apply-local.html" -->
+            <!-- TemplateEndEditable -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/apply-2.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/give-1.html" -->
+            <!-- TemplateBeginEditable name="navgive" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/local/give-local.html" -->
+            <!-- TemplateEndEditable -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/give-2.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/cta-2.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/nav-dialog-2.html" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/nav-container-2-local.html" -->
+        </header>
+        <main class="dcf-main" id="dcf-main" role="main" tabindex="-1">
+            <!-- TemplateBeginEditable name="highlighted" -->
+            <!-- TemplateEndEditable -->
+            <!-- TemplateBeginEditable name="hero" -->
+            <div class="dcf-hero dcf-hero-default">
+                <!-- TemplateEndEditable -->
+                <div class="dcf-hero-group-1">
+                    <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+                        <!-- TemplateBeginEditable name="breadcrumbs" -->
+                        <ol>
+                            <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
               <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
               <li><span aria-current="page">Ensembles</span></li>
-            </ol>
-            <!-- InstanceEndEditable -->
-          </nav>
-        </div>
-        <header class="dcf-page-title" id="dcf-page-title">
-          <!-- InstanceBeginEditable name="pagetitle" -->
-          <h1>Page title</h1>
-          <!-- InstanceEndEditable -->
-        </header>
-        <!-- InstanceBeginEditable name="herogroup1" -->
-        <!-- InstanceEndEditable -->
-      </div>
-      <!-- InstanceBeginEditable name="herogroup2" -->
-      <div class="dcf-hero-group-2">
-      </div>
-      <!-- InstanceEndEditable -->
-    </div>
-    <div class="dcf-main-content dcf-wrapper">
-    <!-- InstanceBeginEditable name="maincontentarea" -->
-    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue.</p>
-    <!-- InstanceEndEditable -->
-    </div>
-  </main>
-  <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
-    <!-- InstanceBeginEditable name="optionalfooter" -->
-    <!-- InstanceEndEditable -->
-    <!-- InstanceBeginEditable name="contactinfo" -->
-    <!--#include virtual="/wdn/templates_5.3/includes/local/affiliate-footer.html" -->
-    <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_5.3/includes/global/noscript.html" -->
-  </footer>
-  <!--#include virtual="/wdn/templates_5.3/includes/global/js-body-local.html" -->
-  <!-- InstanceBeginEditable name="jsbody" -->
-  <!-- InstanceEndEditable -->
-</body>
-<!-- InstanceEnd --></html>
+                        </ol>
+                        <!-- TemplateEndEditable -->
+                    </nav>
+                    <header class="dcf-page-title" id="dcf-page-title">
+                        <!-- TemplateBeginEditable name="pagetitle" -->
+                        <h1>Please Title Your Page Here</h1>
+                        <!-- TemplateEndEditable -->
+                    </header>
+                    <!-- TemplateBeginEditable name="herogroup1" -->
+                    <!-- TemplateEndEditable -->
+                </div>
+                <!-- TemplateBeginEditable name="herogroup2" -->
+                <div class="dcf-hero-group-2">
+                </div>
+                <!-- TemplateEndEditable -->
+            </div>
+            <div class="dcf-main-content dcf-wrapper">
+                <!-- TemplateBeginEditable name="maincontentarea" -->
+                <p>Impress your audience with awesome content!</p>
+                <!-- TemplateEndEditable -->
+            </div>
+        </main>
+        <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
+            <!-- TemplateBeginEditable name="optionalfooter" -->
+            <!-- TemplateEndEditable -->
+            <!-- TemplateBeginEditable name="contactinfo" -->
+            <!--#include virtual="/wdn/templates_6.1/includes/local/affiliate-footer.html" -->
+            <!-- TemplateEndEditable -->
+            <!--#include virtual="/wdn/templates_6.1/includes/global/noscript.html" -->
+        </footer>
+        <!--#include virtual="/wdn/templates_6.1/includes/global/js-body-local.html" -->
+        <!-- TemplateBeginEditable name="jsbody" -->
+        <!-- Put your custom JavaScript here -->
+        <!-- TemplateEndEditable -->
+    </body>
+</html>
