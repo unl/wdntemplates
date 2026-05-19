@@ -83,15 +83,9 @@
   }
 
 
-  .unl .dcf-nav-toggle-item {
-    flex-basis: 25%;
-  }
-
-
   // TODO: Remove after UNL Chat is updated
   .unl .dcf-nav-toggle-btn-chat {
     color: var.$cream !important;
-    flex-basis: 25%;
     height: unset !important;
     row-gap: .42em !important;
   }
