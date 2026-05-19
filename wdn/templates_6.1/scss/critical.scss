@@ -117,8 +117,7 @@
   body {
     background-color: var(--bg-body);
     color: var(--body);
-    overflow-x: hidden;
-    width: 100vw
+    container-type: inline-size
   }
   button,
   input[type=button],
@@ -187,11 +186,9 @@
     text-decoration: none;
   }
   .dcf-bleed {
-    left: 50%;
-    margin-inline: -50vw;
-    position: relative;
-    right: 50%;
-    width: 100vw;
+    width: 100cqw;
+    margin-inline-start: calc(50% - 50cqw);
+    margin-inline-end: calc(50% - 50cqw);
   }
   .dcf-wrapper {
     padding-inline: 5.62vw;
