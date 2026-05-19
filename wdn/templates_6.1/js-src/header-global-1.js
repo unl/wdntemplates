@@ -62,7 +62,7 @@ async function loadAnalytics() {
 async function loadChat() {
     const unlChatUrl = import.meta.env.VITE_UNL_CHAT_URL || 'https://ucommchat.unl.edu/assets/js';
     const todayParts = new Date().toLocaleDateString().split('/');
-    loadJS(`${unlChatUrl}?for=client&version=6.0&cb=${todayParts[2]}${todayParts[0]}${todayParts[1]}`, true);
+    loadJS(`${unlChatUrl}?for=client&version=6.1&cb=${todayParts[2]}${todayParts[0]}${todayParts[1]}`, true);
 
     window.UNL.chat.loaded = true;
 }
