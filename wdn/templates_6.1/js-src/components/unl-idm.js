@@ -48,23 +48,26 @@ export default class UNLIdm {
         window.UNL.idm = window.UNL.idm || {};
         window.UNL.idm.config = window.UNL.idm.config || {};
 
-        if ('loginRoute' in window.UNL.idm.config && typeof window.UNL.idm.config.loginRoute === 'string') {
+        if ('loginRoute' in window.UNL.idm.config && typeof window.UNL.idm.config.loginRoute === 'string' && window.UNL.idm.config.loginRoute !== '') {
             this.setLoginRoute(window.UNL.idm.config.loginRoute);
-        } else if ('loginRoute' in options && typeof options.loginRoute === 'string') {
+        } else if ('loginRoute' in options && typeof options.loginRoute === 'string' && options.loginRoute !== '') {
             this.setLoginRoute(options.loginRoute);
         }
-        if ('logoutRoute' in window.UNL.idm.config && typeof window.UNL.idm.config.logoutRoute === 'string') {
+        if ('logoutRoute' in window.UNL.idm.config && typeof window.UNL.idm.config.logoutRoute === 'string' && window.UNL.idm.config.logoutRoute !== '') {
             this.setLogoutRoute(window.UNL.idm.config.logoutRoute);
-        } else if ('logoutRoute' in options && typeof options.logoutRoute === 'string') {
+        } else if ('logoutRoute' in options && typeof options.logoutRoute === 'string' && options.logoutRoute !== '') {
             this.setLogoutRoute(options.logoutRoute);
         }
-        if ('serverUser' in window.UNL.idm.config && typeof window.UNL.idm.config.serverUser === 'string') {
+        if ('serverUser' in window.UNL.idm.config && typeof window.UNL.idm.config.serverUser === 'string' && window.UNL.idm.config.serverUser !== '') {
             this.setServerUser(window.UNL.idm.config.serverUser);
-        } else if ('serverUser' in options && typeof options.serverUser === 'string') {
+        } else if ('serverUser' in options && typeof options.serverUser === 'string' && options.serverUser !== '') {
             this.setServerUser(options.serverUser);
         }
 
         window.UNL.idm.pushConfig = (configProp, configValue) => {
+            if (configValue !== '') {
+                return;
+            }
             switch (configProp) {
             case 'loginRoute':
                 this.setLoginRoute(configValue);
