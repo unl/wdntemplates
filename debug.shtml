@@ -41,6 +41,23 @@
 
   <header class="dcf-header" id="dcf-header" role="banner">
     <!--#include virtual="/wdn/templates_6.1/includes/global/header-global-1-local.html" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/cta-header-1.html" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/visit-header-1.html" -->
+    <!-- InstanceBeginEditable name="headervisit" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/local/visit-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/visit-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/apply-header-1.html" -->
+    <!-- InstanceBeginEditable name="headerapply" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/local/apply-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/apply-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/give-header-1.html" -->
+    <!-- InstanceBeginEditable name="headergive" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/local/give-local.html" -->
+    <!-- InstanceEndEditable -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/give-header-2.html" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/cta-header-2.html" -->
     <!--#include virtual="/wdn/templates_6.1/includes/global/idm.html" -->
     <!--#include virtual="/wdn/templates_6.1/includes/global/search.html" -->
     <!--#include virtual="/wdn/templates_6.1/includes/global/header-global-2.html" -->
@@ -69,23 +86,23 @@
     <!--#include virtual="/wdn/templates_6.1/includes/global/nav-menu-2.html" -->
     <!--#include virtual="/wdn/templates_6.1/includes/global/nav-dialog-1.html" -->
     <!--#include virtual="/wdn/templates_6.1/includes/global/nav-local-copy-dialog.html" -->
-    <!--#include virtual="/wdn/templates_6.1/includes/global/cta-1.html" -->
-    <!--#include virtual="/wdn/templates_6.1/includes/global/visit-1.html" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/cta-nav-1.html" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/visit-nav-1.html" -->
     <!-- InstanceBeginEditable name="navvisit" -->
     <!--#include virtual="/wdn/templates_6.1/includes/local/visit-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.1/includes/global/visit-2.html" -->
-    <!--#include virtual="/wdn/templates_6.1/includes/global/apply-1.html" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/visit-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/apply-nav-1.html" -->
     <!-- InstanceBeginEditable name="navapply" -->
     <!--#include virtual="/wdn/templates_6.1/includes/local/apply-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.1/includes/global/apply-2.html" -->
-    <!--#include virtual="/wdn/templates_6.1/includes/global/give-1.html" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/apply-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/give-nav-1.html" -->
     <!-- InstanceBeginEditable name="navgive" -->
     <!--#include virtual="/wdn/templates_6.1/includes/local/give-local.html" -->
     <!-- InstanceEndEditable -->
-    <!--#include virtual="/wdn/templates_6.1/includes/global/give-2.html" -->
-    <!--#include virtual="/wdn/templates_6.1/includes/global/cta-2.html" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/give-nav-2.html" -->
+    <!--#include virtual="/wdn/templates_6.1/includes/global/cta-nav-2.html" -->
     <!--#include virtual="/wdn/templates_6.1/includes/global/nav-dialog-2.html" -->
     <!--#include virtual="/wdn/templates_6.1/includes/global/nav-container-2-local.html" -->
   </header>
@@ -1532,18 +1549,18 @@
 
       <h2>Gallery</h2>
       <div class="dcf-mb-12">
-        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/wdn/templates_6.1/images/test/test_320.jpg" alt="Placeholder image." data-cutline="Cras justo odio, dapibus ac facilisis in, egestas eget quam." data-credit="Photo by Jane Doe">
-        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/wdn/templates_6.1/images/test/test_480.jpg" alt="Placeholder image.">
-        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/wdn/templates_6.1/images/test/test_600.jpg" alt="Placeholder image.">
-        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/wdn/templates_6.1/images/test/test_768.jpg" alt="Placeholder image." data-cutline="asdasdada" data-credit="asdasdad">
-        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/wdn/templates_6.1/images/test/test_1040.jpg" alt="Placeholder image.">
-        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/wdn/templates_6.1/images/test/test_320.jpg" alt="Placeholder image.">
-        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/wdn/templates_6.1/images/test/test_480.jpg" alt="Placeholder image." data-cutline="asdasdada" data-credit="asdasdad">
-        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/wdn/templates_6.1/images/test/test_600.jpg" alt="Placeholder image.">
-        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/wdn/templates_6.1/images/test/test_768.jpg" alt="Placeholder image.">
-        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/wdn/templates_6.1/images/test/test_1040.jpg" alt="Placeholder image." data-cutline="asdasdada" data-credit="asdasdad">
-        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/wdn/templates_6.1/images/test/test_320.jpg" alt="Placeholder image.">
-        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/wdn/templates_6.1/images/test/test_480.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_320.jpg" alt="Placeholder image." data-cutline="Cras justo odio, dapibus ac facilisis in, egestas eget quam." data-credit="Photo by Jane Doe">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_480.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_600.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_768.jpg" alt="Placeholder image." data-cutline="asdasdada" data-credit="asdasdad">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_1040.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_320.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_480.jpg" alt="Placeholder image." data-cutline="asdasdada" data-credit="asdasdad">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_600.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_768.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_1040.jpg" alt="Placeholder image." data-cutline="asdasdada" data-credit="asdasdad">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_320.jpg" alt="Placeholder image.">
+        <img class="dcf-gallery-img dcf-d-block dcf-b-1 dcf-b-solid unl-b-light-gray" src="/images/test_480.jpg" alt="Placeholder image.">
       </div>
 
     <!-- InstanceEndEditable -->

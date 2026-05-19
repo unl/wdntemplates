@@ -11,6 +11,7 @@
 
 @forward "@dcf/scss/variables/backgrounds" with (
 
+  $backdrop-filter-blur: 4px !default,
   $bg-color-white-light-mode: color_palette.$white !default,
   $bg-color-white-dark-mode: color_palette.$darker-gray-s1 !default,
   $bg-color-light-gray-light-mode: color_palette.$light-gray !default,
@@ -21,9 +22,9 @@
   $bg-color-lightest-gray-dark-mode: color_palette.$darker-gray-s2 !default,
   $bg-color-inverse-light-mode: body.$color-body-light-mode !default,
   $bg-color-inverse-dark-mode: body.$color-body-dark-mode !default,
-  $bg-color-overlay-dark-light-mode: color.adjust(color_palette.$darkest-gray, $alpha: -0.16) !default,
+  $bg-color-overlay-dark-light-mode: color.adjust(color_palette.$darkest-gray, $alpha: -0.25) !default,
   $bg-color-overlay-dark-dark-mode: color.adjust(color_palette.$black, $alpha: -0.25) !default,
-  $bg-color-overlay-light-light-mode: color.adjust(color_palette.$lighter-gray, $alpha: -0.1) !default,
+  $bg-color-overlay-light-light-mode: color.adjust(color_palette.$lighter-gray, $alpha: -0.25) !default,
   $bg-color-overlay-light-dark-mode: color.adjust(color_palette.$black, $alpha: -0.25) !default,
 
 );

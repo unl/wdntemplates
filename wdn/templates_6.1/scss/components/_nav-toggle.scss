@@ -24,10 +24,9 @@
 
 @include mixins.mq(md, max, width) {
 
-  .unl .dcf-nav-toggle-group {
-    // box-shadow: 0 1px 3px rgba(157, 0, 0, .5), 0 1px 12px rgba(157, 0, 0, .25);
-    // display: flex;
-    // z-index: var.$z-nav-toggle-group;
+  .unl .dcf-nav-toggle-region {
+    padding-inline: #{var.$inset-inline-mobile-toolbar};
+    z-index: 99999;
 
 
     // Browsers which partially support CSS Environment variables (iOS 11.0-11.2)
@@ -35,6 +34,7 @@
       --safe-area-inset-bottom: constant(safe-area-inset-bottom);
       padding-bottom: var(--safe-area-inset-bottom);
     }
+
 
     // Browsers which fully support CSS Environment variables (iOS 11.2+)
     @supports (padding-bottom: env(safe-area-inset-bottom)) {
@@ -44,44 +44,81 @@
 
   }
 
-  .unl .dcf-nav-toggle-group:has(.dcf-nav-toggle-btn[aria-expanded="true"]) {
-    border-top: 1px solid rgba(0,0,0,.25);
+
+  .unl .dcf-nav-toggle-region::after {
+    background-image: linear-gradient(180deg,
+      var.$scarlet calc(100% - #{var.$inset-bottom-mobile-toolbar} - #{var.$height-mobile-toolbar}),
+      var.$scarlet-shade calc(100% - #{var.$inset-bottom-mobile-toolbar})
+    );
+    border-radius: var.$roundrect;
+    bottom: -#{var.$roundrect};
+    content: '';
+    display: block;
+    height: #{var.$height-mobile-toolbar-open};
+    left: -#{var.$roundrect};
+    position: absolute;
+    transform: scale(.84, .84);
+    transform-origin: 50% var.$roundrect;
+    transition: transform var.$transition-duration-transform-nav-toggle-region var.$transition-timing-fn-transform-nav-toggle-region var.$transition-delay-transform-nav-toggle-region;
+    width: calc(100% + var.$roundrect * 2);
+    z-index: -1;
   }
 
 
-  .unl .dcf-nav-toggle-btn {
+  .unl .dcf-nav-toggle-region:has([aria-expanded="true"])::after {
+    transform: scale(1, 1);
+
+    @starting-style {
+      transform: scale(.84, .84);
+    }
+
+  }
+
+
+  .unl .dcf-nav-toggle-group {
+    background-image: linear-gradient(180deg, var.$scarlet, var.$scarlet-shade);
+    // box-shadow: 0 1px 3px rgba(57, 0, 0, .5), 0 1px 12px 1px rgba(57, 0, 0, .1);
+    height: #{var.$height-mobile-toolbar};
+    margin-bottom: #{var.$inset-bottom-mobile-toolbar};
+  }
+
+
+  .unl .dcf-nav-toggle-item {
     flex-basis: 25%;
+  }
+
+
+  // TODO: Remove after UNL Chat is updated
+  .unl .dcf-nav-toggle-btn-chat {
+    color: var.$cream !important;
+    flex-basis: 25%;
+    height: unset !important;
+    row-gap: .42em !important;
+  }
+
+
+  // TODO: Remove after UNL Chat is updated
+  .unl .dcf-nav-toggle-label-chat {
+    font-size: .56em !important;
+    font-weight: normal !important;
+    margin-top: 0 !important;
+  }
+
+
+  // TODO: Remove after UNL Chat is updated
+  #visitorChat {
+    bottom: calc(var.$inset-bottom-mobile-toolbar + var.$height-mobile-toolbar + var.$length-em-3) !important;
+  }
+
+
+  // TODO: Remove after UNL Chat is updated
+  #visitorChat::after {
+    right: var.$length-em-7 !important;
   }
 
 
   .unl .dcf-nav .dcf-nav-toggle-btn-menu {
     display: none;
-  }
-
-
-  .headroom {
-  	will-change: transform;
-  	transition: transform 250ms ease-out !important;
-  }
-
-
-//   .headroom--fixed {
-//   	position: -webkit-fixed;
-//   	position: fixed;
-//   	z-index: 10;
-//   	right: 0;
-//   	left: 0;
-//   	bottom: 0vh;
-//   }
-
-
-  .headroom--pinned {
-  	transform: translateY(0%);
-  }
-
-
-  .headroom--unpinned {
-  	transform: translateY(100%);
   }
 
 }
@@ -97,17 +134,5 @@
   .unl .dcf-nav .dcf-nav-toggle-btn-menu {
     padding: .67rem 0;
   }
-
-
-//   .unl .dcf-nav-dialog .dcf-nav .dcf-nav-toggle-btn-menu {
-//     transform: scaleY(2);
-//     transition: transform 2s ease-in-out;
-//   }
-//
-//
-//   .unl .dcf-nav-dialog.dcf-modal-open .dcf-nav .dcf-nav-toggle-btn-menu {
-//     transform: scaleY(1);
-//     transition: transform .05s ease-in-out;
-//   }
 
 }

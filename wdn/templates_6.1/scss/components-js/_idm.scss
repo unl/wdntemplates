@@ -9,16 +9,22 @@
 
 @layer components {
 
+  .unl-idm-personal .dcf-card-as-link:focus:not(:focus-visible),
+  .unl-idm-personal .dcf-card-as-link:focus-within:not(:focus-visible) {
+    outline: none;
+  }
+
+
   .unl dialog#dcf-idm-dialog {
     width: 100%;
     max-width: 100%;
     height: fit-content;
-    max-height: 100%;
+    max-height: 100dvh;
   }
 
 
   .unl dialog#dcf-idm-dialog::backdrop {
-    backdrop-filter: blur(3px);
+    @include mixins.backdrop-blur;
     background-color: var(--bg-overlay-light);
   }
 
@@ -28,7 +34,7 @@
   }
 
 
-  .unl-idm-services {
+  .unl-idm-services-child {
     mask-image: linear-gradient(to bottom,
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 1) var(--mask-height),
@@ -63,7 +69,7 @@
 
 
     .unl-idm-other-services-list {
-      grid-template-rows: auto auto auto auto auto;
+      grid-template-rows: auto auto auto auto auto auto;
     }
 
   }
@@ -72,7 +78,7 @@
   @include mixins.mq(md, max, width) {
 
     .unl .dcf-idm-dialog-backdrop {
-      backdrop-filter: blur(3px);
+      @include mixins.backdrop-blur;
       background-color: var(--bg-overlay-light);
       bottom: 0;
       height: 100dvh;
@@ -81,34 +87,89 @@
       z-index: 998;
     }
 
-    .dcf-nav-toggle-btn-chat {
-      color: var.$cream !important;
-      row-gap: .42em !important;
-    }
-
-    .dcf-nav-toggle-label-chat {
-      font-weight: 600 !important;
-      margin-top: 0 !important;
-    }
 
     .unl-idm-content {
-      bottom: 4.21em;
+      bottom: calc(#{var.$inset-bottom-mobile-toolbar} + #{var.$height-mobile-toolbar});
       grid-template-rows: 1fr auto;
       height: 56vh;
     }
 
 
     .unl-idm-personal {
-      border-bottom: 1px solid rgba(0,0,0,.25); // Remove when IDM JS is working
-      bottom: 4.21em;
+      border-bottom-color: rgba(0,0,0,0.1);
+      bottom: 0;
       grid-row: 2 / 3;
+      transform-origin: 50% 100%;
+      transition:
+        opacity var.$transition-duration-opacity-idm-personal var.$transition-easing-opacity-idm-personal var.$transition-delay-opacity-idm-personal,
+        transform var.$transition-duration-transform-idm-personal var.$transition-easing-transform-idm-personal var.$transition-delay-transform-idm-personal;
+      width: 100%;
       z-index: 9999;
     }
 
 
+    .unl dialog#dcf-idm-dialog:open .unl-idm-personal {
+      opacity: 1;
+      transform: translateY(0);
+
+      @starting-style {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+
+    }
+
+
+    .unl dialog#dcf-idm-dialog.dcf-dialog-is-open .unl-idm-personal {
+      opacity: 1;
+      transform: translateY(0);
+
+      @starting-style {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+
+    }
+
+
     .unl-idm-services {
-      --mask-height: 1.78em;
       grid-row: 1 / 2;
+    }
+
+
+    .unl dialog#dcf-idm-dialog .unl-idm-services {
+      transition:
+        opacity var.$transition-duration-opacity-idm-services var.$transition-easing-opacity-idm-services var.$transition-delay-opacity-idm-services,
+        transform var.$transition-duration-transform-idm-services var.$transition-easing-transform-idm-services var.$transition-delay-transform-idm-services;
+    }
+
+
+    .unl dialog#dcf-idm-dialog:open .unl-idm-services {
+      opacity: 1;
+      transform: translateY(0%);
+
+      @starting-style {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+
+    }
+
+
+    .unl dialog#dcf-idm-dialog.dcf-dialog-is-open .unl-idm-services {
+      opacity: 1;
+      transform: translateY(0%);
+
+      @starting-style {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+
+    }
+
+
+    .unl-idm-services-child {
+      --mask-height: #{var.$length-em-6}; // 1.78em;
     }
 
   }
@@ -138,13 +199,12 @@
 
     .unl-idm-content {
       grid-template-rows: auto 1fr;
-      max-height: 84vh;
+      max-height: calc(100vh - #{var.$ms07}em - var.$length-em-8);
     }
 
 
     .unl-idm-services {
-      --mask-height: 3.16em;
-      border-top: 3px solid #d00000;
+      --mask-height: #{var.$length-em-8}; // 3.16em;
     }
 
   }

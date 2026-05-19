@@ -5,6 +5,7 @@
 
 @use "../variables/" as var;
 @use "../mixins/" as mixins;
+@use "../functions/" as fn;
 
 
 @layer components {
@@ -12,13 +13,12 @@
   .unl dialog#dcf-search-dialog {
     width: 100%;
     max-width: 100%;
-    height: fit-content;
     max-height: 100%;
   }
 
 
   .unl dialog#dcf-search-dialog::backdrop {
-    backdrop-filter: blur(3px);
+    @include mixins.backdrop-blur;
     background-color: var(--bg-overlay-light);
   }
 
@@ -31,37 +31,32 @@
   @include mixins.mq(md, max, width) {
 
     .unl dialog#dcf-search-dialog {
-      height: calc(100dvh - var.$length-em-9);
+      height: 100dvh;
     }
 
 
     // Safari does not support `:open`…
     .unl dialog#dcf-search-dialog:open .dcf-search-dialog-backdrop {
       display: grid;
-      grid-template-rows: auto 1fr var.$length-em-9;
+      grid-template-rows: auto 1fr calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar});
     }
 
 
     // …`.dcf-dialog-is-open` is our fallback
     .unl dialog#dcf-search-dialog.dcf-dialog-is-open .dcf-search-dialog-backdrop {
       display: grid;
-      grid-template-rows: auto 1fr var.$length-em-9;
+      grid-template-rows: auto 1fr calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar});
     }
 
 
     .unl .dcf-search-dialog-backdrop {
-      backdrop-filter: blur(3px);
+      @include mixins.backdrop-blur;
       background-color: var(--bg-overlay-light);
       bottom: 0;
       height: 100dvh;
       position: fixed;
       z-index: 998;
       width: 100%;
-    }
-
-
-    .unl .dcf-dialog-header-header {
-      border-bottom-color: transparent;
     }
 
   }
@@ -74,13 +69,14 @@
     }
 
 
+    // Safari does not support `:open`…
     .unl dialog#dcf-search-dialog:open .dcf-search-dialog-backdrop {
       display: grid;
       grid-template-rows: auto 1fr;
     }
 
 
-    // Safari does not support `:open` – `.dcf-dialog-is-open` is our fallback
+    // …`.dcf-dialog-is-open` is our fallback
     .unl dialog#dcf-search-dialog.dcf-dialog-is-open .dcf-search-dialog-backdrop {
       display: grid;
       grid-template-rows: auto 1fr;

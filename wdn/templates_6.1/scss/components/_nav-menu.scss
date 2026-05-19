@@ -7,18 +7,8 @@
 @use "../mixins/" as mixins;
 
 
-
-.unl dialog#dcf-nav-dialog {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: fit-content !important;
-  max-height: 100% !important;
-  z-index: 999;
-}
-
-
 .unl dialog#dcf-nav-dialog::backdrop {
-  backdrop-filter: blur(3px) !important;
+  @include mixins.backdrop-blur;
   background-color: var(--bg-overlay-light) !important;
 }
 
@@ -63,15 +53,7 @@
 
 
 .unl .dcf-nav-menu {
-  backdrop-filter: blur(3px);
-  @include mixins.bg-overlay-light;
   height: 100dvh;
-  width: 100%;
-}
-
-
-.unl .dcf-nav-menu-content {
-  @include mixins.bg-scarlet;
 }
 
 
@@ -82,15 +64,27 @@
   }
 
 
-  .unl .dcf-nav-menu {
+  .dcf-nav-menu {
+    border-top: 3px solid var.$scarlet;
+  }
+
+
+  .unl .dcf-nav-menu,
+  .unl .dcf-nav-menu-content {
     bottom: 0;
     position: fixed;
   }
 
 
   .unl .dcf-nav-menu-content {
-    bottom: calc(#{var.$height-mobile-toolbar} - 1px);
-    position: fixed;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    overflow-y: clip;
+    bottom: calc(#{var.$height-mobile-toolbar} + #{var.$inset-bottom-mobile-toolbar});
+    transform-origin: 50% 100%;
+    transition:
+      opacity var.$transition-duration-opacity-nav-menu-content cubic-bezier(.25, .46, .45, .94) var.$transition-delay-opacity-nav-menu-content,
+      transform var.$transition-duration-transform-nav-menu-content cubic-bezier(.25, .46, .45, .94) var.$transition-delay-transform-nav-menu-content;
+    width: 100%;
   }
 
 
@@ -105,6 +99,8 @@
     overflow-y: auto;
     padding-block: var(--mask-height);
     padding-inline: var.$length-vw-2;
+    position: relative;
+    z-index: 1;
   }
 
 
@@ -117,6 +113,93 @@
   .unl .dcf-nav ul:first-child > li > a,
   .unl .dcf-nav ul:first-child > li > button {
     font-size: #{var.$ms01}rem !important;
+  }
+
+
+  .unl dialog#dcf-nav-dialog:open .dcf-nav-menu-content {
+    opacity: 1;
+    transform: translateY(0);
+
+    @starting-style {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+
+  }
+
+
+  .unl dialog#dcf-nav-dialog.dcf-dialog-is-open .dcf-nav-menu-content {
+    opacity: 1;
+    transform: translateY(0);
+
+    @starting-style {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+
+  }
+
+
+  .unl dialog#dcf-nav-dialog nav ul li {
+    opacity: 1;
+    transition: opacity 200ms cubic-bezier(.25, .46, .45, .94);
+  }
+
+
+  .unl dialog#dcf-nav-dialog:open nav ul li,
+  .unl dialog#dcf-nav-dialog.dcf-dialog-is-open nav ul li {
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+
+  }
+
+
+  @supports (z-index: sibling-index()) {
+
+    @property --parent-stagger-index {
+      syntax: "<integer>";
+      inherits: true;
+      initial-value: 0;
+    }
+
+
+    @property --stagger-index {
+      syntax: "<integer>";
+      inherits: true;
+      initial-value: 0;
+    }
+
+
+    .unl dialog#dcf-nav-dialog nav ul li {
+      --stagger-index: sibling-index();
+    }
+
+
+    .unl dialog#dcf-nav-dialog nav > ul > li {
+      --parent-stagger-index: sibling-index();
+    }
+
+
+    // Primary link stagger
+    .unl dialog#dcf-nav-dialog:open nav > ul > li,
+    .unl dialog#dcf-nav-dialog.dcf-dialog-is-open nav > ul > li {
+      transition-delay: calc(400ms + var(--stagger-index) * 100ms);
+    }
+
+
+    // Secondary link stagger — offset by parent's delay first
+    .unl dialog#dcf-nav-dialog:open nav ul li ul li,
+    .unl dialog#dcf-nav-dialog.dcf-dialog-is-open nav ul li ul li {
+      transition-delay: calc(
+        400ms
+        + var(--parent-stagger-index) * 100ms
+        + var(--stagger-index) * 50ms
+      );
+    }
+
   }
 
 }
@@ -155,6 +238,7 @@
 
 
   .unl .dcf-nav-menu-content {
+    background-color: var.$scarlet;
     overflow-y: auto;
     position: fixed;
   }
@@ -166,30 +250,28 @@
   }
 
 
-  // .unl .dcf-nav-menu-content-child:has(.dcf-nav-toggle-btn-menu:not[hidden]) {
   .unl .dcf-nav-menu-content-child {
     display: grid;
     grid-template-columns: var.$length-em-9 1fr;
-    grid-template-rows: auto 1fr;
   }
+
 
   .unl .dcf-nav-toggle-btn-menu {
     align-self: start;
-    grid-area: 1 / 1 / 3 / 2;
+    grid-column: 1 / 2;
   }
 
+
   .unl .dcf-nav-local {
-    grid-area: 1 / 2 / 2 / 3;
+    grid-column: 2 / 3;
   }
+
 
   .unl .dcf-nav-local ul ul {
     grid-row: 2 / 3;
     width: 100%;
   }
 
-  .unl .dcf-cta {
-    grid-area: 2 / 2 / 3 / 3;
-  }
 
   .unl .dcf-nav li {
     display: grid;
