@@ -4,6 +4,7 @@
 .vscode
 .DS_Store
 .externalToolBuilders
+.nova
 .settings
 .env.local
 .project
