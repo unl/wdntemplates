@@ -12,6 +12,7 @@ import wdnZipPlugin from './vite.wdnZipPlugin.js';
 import wdnCriticalCSSInjector from './vite.wdnCriticalCSSInjector.js';
 import wdnLayerPolyfill from './vite.wdnLayerPolyfill.js';
 import wdnImportVersion from './vite.wdnImportVersion.js';
+import wdnMockBannerInjector from './vite.wdnMockBannerInjector.js';
 
 export default ({ mode }) => {
     process.env = {...process.env, ...loadEnv(mode, process.cwd(), '')};
@@ -40,6 +41,7 @@ export default ({ mode }) => {
                 './wdn/templates_6.1/includes/global/head-2.html',
             ],
         }),
+        wdnMockBannerInjector(process.env.VITE_MOCK_BANNER_FILE),
     ];
 
     // If we are in a development environment
