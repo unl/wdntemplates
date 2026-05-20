@@ -83,6 +83,23 @@
   }
 
 
+  // Hide "close" icon and label by default, hide "open" icon and label when respective dialog is open
+  .unl .dcf-nav-toggle-btn .dcf-nav-toggle-icon-close,
+  .unl .dcf-nav-toggle-btn .dcf-nav-toggle-label-close,
+  .unl .dcf-nav-toggle-btn.dcf-dialog-is-open .dcf-nav-toggle-icon-open,
+  .unl .dcf-nav-toggle-btn.dcf-dialog-is-open .dcf-nav-toggle-label-open {
+    display: none;
+  }
+
+
+  // Show "close" icon and label when respective dialog is open
+  .unl .dcf-nav-toggle-btn.dcf-dialog-is-open .dcf-nav-toggle-icon-close,
+  .unl .dcf-nav-toggle-btn.dcf-dialog-is-open .dcf-nav-toggle-label-close {
+    display: block;
+  }
+
+
+  // Hide desktop menu button
   .unl .dcf-nav .dcf-nav-toggle-btn-menu {
     display: none;
   }
@@ -92,6 +109,7 @@
 
 @include mixins.mq(md, min, width) {
 
+  // Hide mobile toolbar
   .unl .dcf-nav-toggle-group {
     display: none;
   }
