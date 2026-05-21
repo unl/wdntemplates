@@ -72,8 +72,6 @@ export default class UNLSearch {
             this.domMobileSearchBtns.forEach((singleMobileButton) => {
                 singleMobileButton.removeAttribute('hidden');
                 singleMobileButton.setAttribute('aria-expanded', 'false');
-                singleMobileButton.setAttribute('aria-label', 'Open search');
-                singleMobileButton.innerHTML = this.domMobileSearchLink.innerHTML;
                 this.mobileSearchBtn = singleMobileButton;
             });
         }
@@ -84,7 +82,6 @@ export default class UNLSearch {
             this.domDesktopSearchBtns.forEach((singleDesktopButton) => {
                 singleDesktopButton.removeAttribute('hidden');
                 singleDesktopButton.setAttribute('aria-expanded', 'false');
-                singleDesktopButton.setAttribute('aria-label', 'Open search');
                 singleDesktopButton.innerHTML = this.domDesktopSearchLink.innerHTML;
             });
         }
