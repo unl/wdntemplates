@@ -201,4 +201,12 @@ export function getClassInstance(elementID) {
         });
     });
 }
-window.getClassInstance = getClassInstance;
+
+export function trackablePromise(promise) {
+    const state = { pending: true, value: null };
+    promise.then(value => {
+        state.pending = false;
+        state.value = value;
+    });
+    return state;
+}
