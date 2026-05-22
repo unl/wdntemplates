@@ -7,6 +7,8 @@ export default class UNLButtonToggle extends DCFButtonToggle {
         window.UNL = window.UNL || {};
         window.UNL.classes = window.UNL.classes || {};
         window.UNL.classes[this.toggleButtonElement.getAttribute('id')] = this;
+        window.UNL.classes[this.toggleTargetElement.getAttribute('id')] = this;
         this.toggleButtonElement.dispatchEvent(new Event('UNLClassReady'));
+        this.toggleTargetElement.dispatchEvent(new Event('UNLClassReady'));
     }
 }

@@ -42,6 +42,10 @@ export default class UNLDialog extends DCFDialog {
         window.UNL = window.UNL || {};
         window.UNL.classes = window.UNL.classes || {};
         window.UNL.classes[this.dialogElement.getAttribute('id')] = this;
+        this.toggleButtons.forEach((singleButton) => {
+            window.UNL.classes[singleButton.getAttribute('id')] = this;
+            singleButton.dispatchEvent(new Event('UNLClassReady'));
+        });
         this.dialogElement.dispatchEvent(new Event('UNLClassReady'));
     }
 
