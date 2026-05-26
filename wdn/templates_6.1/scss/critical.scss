@@ -395,7 +395,7 @@
   .dcf-col-gap-7 {
     column-gap: 2.37em;
   }
-  .dcf-gap-1 {
+  .dcf-row-gap-1 {
     gap: .42em;
   }
   .dcf-h-4 {
@@ -527,6 +527,9 @@
     width: 1px;
     white-space: nowrap;
   }
+  .unl .dcf-txt-3xs {
+    font-size: .56em;
+  }
   .unl .dcf-breadcrumbs,
   .unl .dcf-txt-xs {
     font-size: .75em;
@@ -625,11 +628,19 @@
     .unl .dcf-idm-login {
       flex-direction: column;
     }
+    .unl .dcf-nav-toggle-region {
+      padding-inline: .75em;
+    }
     .unl .dcf-nav-toggle-group {
+      background-image: linear-gradient(180deg,#d00000,#9e0000);
       display: flex;
+      height: 4.21em;
+      margin-bottom: .56em;
       z-index: 999;
     }
     .unl .dcf-header .dcf-institution-title,
+    .unl .dcf-nav-toggle-icon-close,
+    .unl .dcf-nav-toggle-label-close,
     .unl .dcf-cta-header,
     .unl .dcf-idm-toggle,
     .unl .dcf-search-toggle-wrapper,
