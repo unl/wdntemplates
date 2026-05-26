@@ -75,23 +75,23 @@ return readfile($documentRoot . $path);
             <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/nav-menu-2.html"); ?>
             <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/nav-dialog-1.html"); ?>
             <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/nav-local-copy-dialog.html"); ?>
-            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/cta-1.html"); ?>
-            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/visit-1.html"); ?>
+            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/cta-nav-1.html"); ?>
+            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/visit-nav-1.html"); ?>
             <!-- TemplateBeginEditable name="navvisit" -->
             <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/local/visit-local.html"); ?>
             <!-- TemplateEndEditable -->
-            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/visit-2.html"); ?>
-            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/apply-1.html"); ?>
+            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/visit-nav-2.html"); ?>
+            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/apply-nav-1.html"); ?>
             <!-- TemplateBeginEditable name="navapply" -->
             <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/local/apply-local.html"); ?>
             <!-- TemplateEndEditable -->
-            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/apply-2.html"); ?>
-            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/give-1.html"); ?>
+            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/apply-nav-2.html"); ?>
+            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/give-nav-1.html"); ?>
             <!-- TemplateBeginEditable name="navgive" -->
             <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/local/give-local.html"); ?>
             <!-- TemplateEndEditable -->
-            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/give-2.html"); ?>
-            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/cta-2.html"); ?>
+            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/give-nav-2.html"); ?>
+            <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/cta-nav-2.html"); ?>
             <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/nav-dialog-2.html"); ?>
             <?php wdnInclude("https://wdn-cdn.unl.edu/wdn/templates_6.1/includes/global/nav-container-2.html"); ?>
         </header>

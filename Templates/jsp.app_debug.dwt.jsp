@@ -22,6 +22,23 @@
     <c:import url="/wdn/templates_6.1/includes/global/skip-nav.html"/>
     <header class="dcf-header" id="dcf-header" role="banner">
       <c:import url="/wdn/templates_6.1/includes/global/header-global-1-local.html"/>
+      <c:import url="/wdn/templates_6.1/includes/global/cta-header-1.html"/>
+      <c:import url="/wdn/templates_6.1/includes/global/visit-header-1.html"/>
+      <!-- InstanceBeginEditable name="headervisit" -->
+      <c:import url="/wdn/templates_6.1/includes/local/visit-local.html"/>
+      <!-- InstanceEndEditable -->
+      <c:import url="/wdn/templates_6.1/includes/global/visit-header-2.html"/>
+      <c:import url="/wdn/templates_6.1/includes/global/apply-header-1.html"/>
+      <!-- InstanceBeginEditable name="headerapply" -->
+      <c:import url="/wdn/templates_6.1/includes/local/apply-local.html"/>
+      <!-- InstanceEndEditable -->
+      <c:import url="/wdn/templates_6.1/includes/global/apply-header-2.html"/>
+      <c:import url="/wdn/templates_6.1/includes/global/give-header-1.html"/>
+      <!-- InstanceBeginEditable name="headergive" -->
+      <c:import url="/wdn/templates_6.1/includes/local/give-local.html"/>
+      <!-- InstanceEndEditable -->
+      <c:import url="/wdn/templates_6.1/includes/global/give-header-2.html"/>
+      <c:import url="/wdn/templates_6.1/includes/global/cta-header-2.html"/>
       <c:import url="/wdn/templates_6.1/includes/global/idm.html"/>
       <c:import url="/wdn/templates_6.1/includes/global/search.html"/>
       <c:import url="/wdn/templates_6.1/includes/global/header-global-2.html"/>
@@ -47,23 +64,23 @@
       <c:import url="/wdn/templates_6.1/includes/global/nav-menu-2.html"/>
       <c:import url="/wdn/templates_6.1/includes/global/nav-dialog-1.html"/>
       <c:import url="/wdn/templates_6.1/includes/global/nav-local-copy-dialog.html"/>
-      <c:import url="/wdn/templates_6.1/includes/global/cta-1.html"/>
-      <c:import url="/wdn/templates_6.1/includes/global/visit-1.html"/>
+      <c:import url="/wdn/templates_6.1/includes/global/cta-nav-1.html"/>
+      <c:import url="/wdn/templates_6.1/includes/global/visit-nav-1.html"/>
       <!-- TemplateBeginEditable name="navvisit" -->
       <c:import url="/wdn/templates_6.1/includes/local/visit-local.html"/>
       <!-- TemplateEndEditable -->
-      <c:import url="/wdn/templates_6.1/includes/global/visit-2.html"/>
-      <c:import url="/wdn/templates_6.1/includes/global/apply-1.html"/>
+      <c:import url="/wdn/templates_6.1/includes/global/visit-nav-2.html"/>
+      <c:import url="/wdn/templates_6.1/includes/global/apply-nav-1.html"/>
       <!-- TemplateBeginEditable name="navapply" -->
       <c:import url="/wdn/templates_6.1/includes/local/apply-local.html"/>
       <!-- TemplateEndEditable -->
-      <c:import url="/wdn/templates_6.1/includes/global/apply-2.html"/>
-      <c:import url="/wdn/templates_6.1/includes/global/give-1.html"/>
+      <c:import url="/wdn/templates_6.1/includes/global/apply-nav-2.html"/>
+      <c:import url="/wdn/templates_6.1/includes/global/give-nav-1.html"/>
       <!-- TemplateBeginEditable name="navgive" -->
       <c:import url="/wdn/templates_6.1/includes/local/give-local.html"/>
       <!-- TemplateEndEditable -->
-      <c:import url="/wdn/templates_6.1/includes/global/give-2.html"/>
-      <c:import url="/wdn/templates_6.1/includes/global/cta-2.html"/>
+      <c:import url="/wdn/templates_6.1/includes/global/give-nav-2.html"/>
+      <c:import url="/wdn/templates_6.1/includes/global/cta-nav-2.html"/>
       <c:import url="/wdn/templates_6.1/includes/global/nav-dialog-2.html"/>
       <c:import url="/wdn/templates_6.1/includes/global/nav-container-2-local.html"/>
       <c:import url="/wdn/templates_6.1/includes/global/app-search-1.html"/>
