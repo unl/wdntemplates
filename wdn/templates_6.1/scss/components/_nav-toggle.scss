@@ -83,40 +83,23 @@
   }
 
 
-  .unl .dcf-nav-toggle-item {
-    flex-basis: 25%;
+  // Hide "close" icon and label by default, hide "open" icon and label when respective dialog is open
+  .unl .dcf-nav-toggle-btn .dcf-nav-toggle-icon-close,
+  .unl .dcf-nav-toggle-btn .dcf-nav-toggle-label-close,
+  .unl .dcf-nav-toggle-btn.dcf-dialog-is-open .dcf-nav-toggle-icon-open,
+  .unl .dcf-nav-toggle-btn.dcf-dialog-is-open .dcf-nav-toggle-label-open {
+    display: none;
   }
 
 
-  // TODO: Remove after UNL Chat is updated
-  .unl .dcf-nav-toggle-btn-chat {
-    color: var.$cream !important;
-    flex-basis: 25%;
-    height: unset !important;
-    row-gap: .42em !important;
+  // Show "close" icon and label when respective dialog is open
+  .unl .dcf-nav-toggle-btn.dcf-dialog-is-open .dcf-nav-toggle-icon-close,
+  .unl .dcf-nav-toggle-btn.dcf-dialog-is-open .dcf-nav-toggle-label-close {
+    display: block;
   }
 
 
-  // TODO: Remove after UNL Chat is updated
-  .unl .dcf-nav-toggle-label-chat {
-    font-size: .56em !important;
-    font-weight: normal !important;
-    margin-top: 0 !important;
-  }
-
-
-  // TODO: Remove after UNL Chat is updated
-  #visitorChat {
-    bottom: calc(var.$inset-bottom-mobile-toolbar + var.$height-mobile-toolbar + var.$length-em-3) !important;
-  }
-
-
-  // TODO: Remove after UNL Chat is updated
-  #visitorChat::after {
-    right: var.$length-em-7 !important;
-  }
-
-
+  // Hide desktop menu button
   .unl .dcf-nav .dcf-nav-toggle-btn-menu {
     display: none;
   }
@@ -126,6 +109,7 @@
 
 @include mixins.mq(md, min, width) {
 
+  // Hide mobile toolbar
   .unl .dcf-nav-toggle-group {
     display: none;
   }
