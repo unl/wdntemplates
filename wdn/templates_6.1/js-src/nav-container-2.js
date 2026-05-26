@@ -43,7 +43,7 @@ function setUpNavWatch() {
         'nav.dcf-local-copy-dialog': false,
         'div.dcf-nav': false,
         'dialog.dcf-nav-dialog': false,
-        'dialog.dcf-idm-dialog': false,
+        'dialog.unl-idm-dialog': false,
         'dialog.dcf-search-dialog': false,
     };
 
@@ -103,7 +103,7 @@ function setUpNavWatch() {
         }
         if (
             !initializedParts['setUpUpdateStyles'] &&
-            checkList['dialog.dcf-idm-dialog'] &&
+            checkList['dialog.unl-idm-dialog'] &&
             checkList['dialog.dcf-search-dialog']
         ) {
             setUpUpdateStyles();
@@ -363,7 +363,7 @@ function setUpHoverIntent() {
  */
 function setUpUpdateStyles() {
     // Update IDM and Search Dialog Styles for mobile
-    idmDialog = document.querySelector('dialog.dcf-idm-dialog');
+    idmDialog = document.querySelector('dialog.unl-idm-dialog');
     searchDialog = document.querySelector('dialog.dcf-search-dialog');
 
     if (idmDialog !== null) {
@@ -377,9 +377,9 @@ function setUpUpdateStyles() {
         // When we close focus us back on the toggle dialog button
         idmDialog.addEventListener('dialogPostClose', () => {
             if (currentScreenSize === 'mobile') {
-                document.querySelector('button.dcf-btn-idm-mobile').focus();
+                document.querySelector('button.unl-btn-idm-mobile').focus();
             } else {
-                document.querySelector('button.dcf-btn-idm-desktop').focus();
+                document.querySelector('button.unl-btn-idm-desktop').focus();
             }
         });
     }

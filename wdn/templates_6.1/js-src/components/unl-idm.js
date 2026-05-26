@@ -52,8 +52,8 @@ export default class UNLIdm {
 
         window.UNL = window.UNL || {};
         window.UNL.classes = window.UNL.classes || {};
-        window.UNL.classes['dcf-idm'] = this;
-        this.idmContainer = document.getElementById('dcf-idm');
+        window.UNL.classes['unl-idm'] = this;
+        this.idmContainer = document.getElementById('unl-idm');
         this.idmContainer.dispatchEvent(new Event('UNLClassReady'));
 
         if ('loginRoute' in window.UNL.idm.config && typeof window.UNL.idm.config.loginRoute === 'string' && window.UNL.idm.config.loginRoute !== '') {
@@ -73,7 +73,7 @@ export default class UNLIdm {
         }
 
         window.UNL.idm.pushConfig = (configProp, configValue) => {
-            if (configValue !== '') {
+            if (configValue === '') {
                 return;
             }
             switch (configProp) {
@@ -609,16 +609,12 @@ export default class UNLIdm {
             const userDisplayName = this.getDisplayName();
             const userAvatarUrl = `${this.avatarUrl}${this.clientSideUser.uid}`;
             this.renderQuasiLoggedInState(userDisplayName, userAvatarUrl);
-        } else if (this.clientSideUser === null && this.serverSideUser !== null) {
+        } else if (this.serverSideUser !== null) {
             // Display Logged In State
             // Using server side user data
+            // We always use the server side user's data since there could be a masquerade type auth set up
             const userDisplayName = this.#getServerUserDisplayName();
             const userAvatarUrl = this.#getServerUserAvatarUrl();
-            this.renderLoggedInState(userDisplayName, userAvatarUrl);
-        } else {
-            // Display Logged In State
-            const userDisplayName = this.#getClientUserDisplayName();
-            const userAvatarUrl = `${this.avatarUrl}${this.clientSideUser.uid}`;
             this.renderLoggedInState(userDisplayName, userAvatarUrl);
         }
     }
@@ -686,6 +682,7 @@ export default class UNLIdm {
         loginLinks.forEach((singleLink) => {
             singleLink.classList.remove('dcf-d-none');
             singleLink.innerHTML = `Log in to this site as ${this.getFullName()}`;
+            singleLink.setAttribute('href', this.logInUrl);
         });
 
         const avatarContainer = Array.from(document.querySelectorAll('.unl-idm-avatar-container'));
