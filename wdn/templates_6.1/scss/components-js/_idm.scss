@@ -29,6 +29,11 @@
   }
 
 
+  .unl-idm-avatar-container {
+    padding: 2px;
+  }
+
+
   .unl-idm-status-quasi img{
     filter: blur(3px);
   }
@@ -177,17 +182,17 @@
 
   @include mixins.mq(md, min, width) {
 
-    .unl .dcf-idm-img {
+    .unl .unl-idm-img {
       color: var.$light-gray;
     }
 
 
-    .unl .dcf-header-global-dialog .dcf-idm-img {
+    .unl .dcf-header-global-dialog .unl-idm-img {
       color: var.$cream;
     }
 
 
-    .unl .dcf-idm-dialog .dcf-btn-search-desktop {
+    .unl .unl-idm-dialog .dcf-btn-search-desktop {
       color: var.$cream;
     }
 
