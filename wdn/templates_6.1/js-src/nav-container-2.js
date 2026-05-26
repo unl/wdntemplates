@@ -1,3 +1,5 @@
+import { getClassInstance } from '@js-src/lib/unl-utility.js';
+
 window.UNL = window.UNL || {};
 window.UNL.nav = window.UNL.nav || {};
 window.UNL.nav.config = window.UNL.nav.config || {};
@@ -21,6 +23,7 @@ if (watchEnabled) {
     copyNav();
     setUpHoverIntent();
     setUpUpdateStyles();
+    initCtaPopups();
 }
 
 // updateStyles will set currentScreenSize which is used for both the search/idm dialogs closing logic
@@ -40,7 +43,7 @@ function setUpNavWatch() {
         'nav.dcf-local-copy-dialog': false,
         'div.dcf-nav': false,
         'dialog.dcf-nav-dialog': false,
-        'dialog.dcf-idm-dialog': false,
+        'dialog.unl-idm-dialog': false,
         'dialog.dcf-search-dialog': false,
     };
 
@@ -49,6 +52,7 @@ function setUpNavWatch() {
         'copyNav': false,
         'setUpHoverIntent': false,
         'setUpUpdateStyles': false,
+        'initCtaPopups': false,
     };
 
     /**
@@ -75,7 +79,8 @@ function setUpNavWatch() {
         if (
             !initializedParts['copyNav'] ||
             !initializedParts['setUpHoverIntent'] ||
-            !initializedParts['setUpUpdateStyles']
+            !initializedParts['setUpUpdateStyles'] ||
+            !initializedParts['initCtaPopups']
         ) {
             updateChecklist();
         }
@@ -98,11 +103,17 @@ function setUpNavWatch() {
         }
         if (
             !initializedParts['setUpUpdateStyles'] &&
-            checkList['dialog.dcf-idm-dialog'] &&
+            checkList['dialog.unl-idm-dialog'] &&
             checkList['dialog.dcf-search-dialog']
         ) {
             setUpUpdateStyles();
             initializedParts['setUpUpdateStyles'] = true;
+        }
+        if (
+            !initializedParts['initCtaPopups']
+        ) {
+            initCtaPopups();
+            initializedParts['initCtaPopups'] = true;
         }
     };
     initIfWeCan();
@@ -154,6 +165,42 @@ function copyNav() {
             childList: true,
         };
         navLinksObserver.observe(dcfNavLocal, observerConfig);
+    }
+}
+
+function initCtaPopups() {
+    const visitLinks = document.querySelectorAll('#dcf-visit-options li');
+    const applyLinks = document.querySelectorAll('#dcf-apply-options li');
+    const giveLinks = document.querySelectorAll('#dcf-give-options li');
+
+    if (visitLinks.length > 1) {
+        getClassInstance('unl-visit-popup').then(() => {
+            const visitStaticLink = document.getElementById('unl-visit-link');
+            const visitPopup = document.getElementById('unl-visit-popup');
+
+            visitStaticLink.classList.add('dcf-d-none!');
+            visitPopup.classList.remove('dcf-d-none!');
+        });
+    }
+
+    if (applyLinks.length > 1) {
+        getClassInstance('unl-apply-popup').then(() => {
+            const applyStaticLink = document.getElementById('unl-apply-link');
+            const applyPopup = document.getElementById('unl-apply-popup');
+
+            applyStaticLink.classList.add('dcf-d-none!');
+            applyPopup.classList.remove('dcf-d-none!');
+        });
+    }
+
+    if (giveLinks.length > 1) {
+        getClassInstance('unl-give-popup').then(() => {
+            const giveStaticLink = document.getElementById('unl-give-link');
+            const givePopup = document.getElementById('unl-give-popup');
+
+            giveStaticLink.classList.add('dcf-d-none!');
+            givePopup.classList.remove('dcf-d-none!');
+        });
     }
 }
 
@@ -316,7 +363,7 @@ function setUpHoverIntent() {
  */
 function setUpUpdateStyles() {
     // Update IDM and Search Dialog Styles for mobile
-    idmDialog = document.querySelector('dialog.dcf-idm-dialog');
+    idmDialog = document.querySelector('dialog.unl-idm-dialog');
     searchDialog = document.querySelector('dialog.dcf-search-dialog');
 
     if (idmDialog !== null) {
@@ -330,9 +377,9 @@ function setUpUpdateStyles() {
         // When we close focus us back on the toggle dialog button
         idmDialog.addEventListener('dialogPostClose', () => {
             if (currentScreenSize === 'mobile') {
-                document.querySelector('button.dcf-btn-idm-mobile').focus();
+                document.querySelector('button.unl-btn-idm-mobile').focus();
             } else {
-                document.querySelector('button.dcf-btn-idm-desktop').focus();
+                document.querySelector('button.unl-btn-idm-desktop').focus();
             }
         });
     }
