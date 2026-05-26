@@ -90,11 +90,11 @@ export default class UNLIdm {
             this.#loadServerUser();
         }
 
-        const unInitContainers = Array.from(document.querySelectorAll('.dcf-idm-uninitialized'));
+        const unInitContainers = Array.from(document.querySelectorAll('.unl-idm-uninitialized'));
         unInitContainers.forEach((singleContainer) => {
             singleContainer.setAttribute('hidden', 'hidden');
         });
-        const initContainers = Array.from(document.querySelectorAll('.dcf-idm-initialized'));
+        const initContainers = Array.from(document.querySelectorAll('.unl-idm-initialized'));
         initContainers.forEach((singleContainer) => {
             singleContainer.removeAttribute('hidden');
         });
@@ -621,31 +621,31 @@ export default class UNLIdm {
      * @return { Void }
      */
     renderLoggedOutState() {
-        const labels = Array.from(document.querySelectorAll('.dcf-idm-label'));
+        const labels = Array.from(document.querySelectorAll('.unl-idm-label'));
         labels.forEach((singleLabel) => {
             singleLabel.innerHTML = 'My UNL';
         });
 
-        const bigLabels = Array.from(document.querySelectorAll('.unl-idm-firstname-lastname'));
+        const bigLabels = Array.from(document.querySelectorAll('.unl-idm-btn-log-in'));
         bigLabels.forEach((singleLabel) => {
-            singleLabel.innerHTML = `<a class="unl-cream" href="${this.logInUrl}">My UNL</a>`;
+            singleLabel.classList.add('dcf-m-auto');
         });
 
-        const imgs = Array.from(document.querySelectorAll('.dcf-idm-img'));
+        const imgs = Array.from(document.querySelectorAll('.unl-idm-img'));
         imgs.forEach((singleImg) => {
             singleImg.classList.remove('unl-idm-status-quasi');
-            singleImg.innerHTML = `<svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 48 48">
-    <path d="M47.9 24C47.9 10.8 37.2.1 24 .1S.1 10.8.1 24c0 6.3 2.5 12.3 6.9 16.8 4.5 4.6 10.6 7.1 17 7.1s12.5-2.5 17-7.1c4.5-4.5 6.9-10.5 6.9-16.8zm-45 0C2.9 12.4 12.4 2.9 24 2.9c11.6 0 21.1 9.5 21.1 21.1 0 5.2-1.9 10.1-5.3 14-2.1-1.2-5-2.2-8.2-3.4-.7-.3-1.5-.5-2.2-.8v-3.1c1.1-.7 2.6-2.4 2.9-5.7.8-.6 1.2-1.6 1.2-2.9 0-1.1-.4-2.1-1-2.7.5-1.6 1.3-4.2.7-6.5-.7-3-4.6-4-7.7-4-2.7 0-5.9.8-7.2 2.8-1.2 0-2 .5-2.4 1-1.6 1.7-.8 4.8-.3 6.6-.6.6-1 1.6-1 2.7 0 1.3.5 2.3 1.2 2.9.3 3.4 1.8 5 2.9 5.7v3.1c-.7.2-1.4.5-2 .7-3.1 1.1-6.2 2.2-8.4 3.5-3.5-3.7-5.4-8.7-5.4-13.9zm7.5 16.1c2-1 4.6-2 7.2-2.9 1-.4 2-.7 3-1.1.5-.2.9-.7.9-1.3v-4.9c0-.6-.4-1.1-.9-1.3-.1 0-2-.8-2-4.5 0-.7-.5-1.2-1.1-1.4-.1-.3-.1-.9 0-1.2.6-.1 1.1-.7 1.1-1.4 0-.3-.1-.6-.2-1.2-.9-3.2-.7-4-.4-4.3.1-.1.4-.1 1 0 .7.1 1.5-.3 1.6-1 .3-1 2.5-1.9 5-1.9s4.7.8 5 1.9c.4 1.7-.4 4.1-.7 5.2-.2.6-.3.9-.3 1.3 0 .7.5 1.2 1.1 1.4.1.3.1.9 0 1.2-.6.1-1.1.7-1.1 1.4 0 3.7-1.9 4.5-2 4.5-.6.2-1 .7-1 1.3v4.9c0 .6.4 1.1.9 1.3 1.1.4 2.1.8 3.2 1.2 2.7 1 5.2 1.9 7.1 2.8-3.8 3.3-8.6 5-13.7 5-5.2 0-9.9-1.8-13.7-5z"></path>
-</svg>`;
+            singleImg.innerHTML = `<svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 24 24">
+    <path d="M12 0C5.383 0 0 5.383 0 12c0 3.18 1.232 6.177 3.469 8.438l.001.001A11.92 11.92 0 0 0 12 24c3.234 0 6.268-1.27 8.542-3.573A11.93 11.93 0 0 0 24 12c0-6.617-5.383-12-12-12zm8.095 19.428c-1.055-.626-5.165-2.116-5.595-2.275v-1.848c.502-.309 1.384-1.107 1.49-2.935.386-.226.63-.727.63-1.37 0-.578-.197-1.043-.52-1.294.242-.757.681-2.145.385-3.327C16.138 4.992 14.256 4.5 12.75 4.5c-1.342 0-2.982.391-3.569 1.456-.704-.034-1.096.273-1.29.531-.635.838-.216 2.368.02 3.21-.329.249-.531.718-.531 1.303 0 .643.244 1.144.63 1.37.106 1.828.989 2.626 1.49 2.935v1.848c-.385.144-4.464 1.625-5.583 2.288A10.92 10.92 0 0 1 1 12C1 5.935 5.935 1 12 1s11 4.935 11 11a10.92 10.92 0 0 1-2.905 7.428z"></path></svg>`;
         });
 
-        const bigImgs = Array.from(document.querySelectorAll('.unl-idm-avatar'));
-        bigImgs.forEach((singleImg) => {
-            singleImg.classList.remove('unl-idm-status-quasi');
-            singleImg.innerHTML = `<svg class="dcf-h-100% dcf-w-100% dcf-fill-current" aria-hidden="true" focusable="false" height="16" width="16" viewBox="0 0 24 24">
-    <path d="M12 0C5.383 0 0 5.383 0 12c0 3.18 1.232 6.177 3.469 8.438l.001.001A11.92 11.92 0 0 0 12 24c3.234 0 6.268-1.27 8.542-3.573A11.93 11.93 0 0 0 24 12c0-6.617-5.383-12-12-12zm8.095 19.428c-1.055-.626-5.165-2.116-5.595-2.275v-1.848c.502-.309 1.384-1.107 1.49-2.935.386-.226.63-.727.63-1.37 0-.578-.197-1.043-.52-1.294.242-.757.681-2.145.385-3.327C16.138 4.992 14.256 4.5 12.75 4.5c-1.342 0-2.982.391-3.569 1.456-.704-.034-1.096.273-1.29.531-.635.838-.216 2.368.02 3.21-.329.249-.531.718-.531 1.303 0 .643.244 1.144.63 1.37.106 1.828.989 2.626 1.49 2.935v1.848c-.385.144-4.464 1.625-5.583 2.288A10.92 10.92 0 0 1 1 12C1 5.935 5.935 1 12 1s11 4.935 11 11a10.92 10.92 0 0 1-2.905 7.428z"></path>
-    <path fill="none" d="M0 0h24v24H0z"></path>
-</svg>`;
+        const avatarContainer = Array.from(document.querySelectorAll('.unl-idm-avatar-container'));
+        avatarContainer.forEach((singleLink) => {
+            singleLink.classList.add('dcf-d-none');
+        });
+
+        const firstnameLastname = Array.from(document.querySelectorAll('.unl-idm-firstname-lastname'));
+        firstnameLastname.forEach((singleLabel) => {
+            singleLabel.classList.add('dcf-d-none');
         });
 
         const viewProfileLinks = Array.from(document.querySelectorAll('.unl-idm-view-profile'));
@@ -653,7 +653,7 @@ export default class UNLIdm {
             singleLink.classList.add('dcf-d-none');
         });
 
-        const logOutLinks = Array.from(document.querySelectorAll('.unl-idm-logout'));
+        const logOutLinks = Array.from(document.querySelectorAll('.unl-idm-btn-log-out'));
         logOutLinks.forEach((singleLink) => {
             singleLink.classList.add('dcf-d-none');
         });
@@ -669,35 +669,45 @@ export default class UNLIdm {
      * @return { Void }
      */
     renderQuasiLoggedInState(userDisplayName, userAvatarUrl) {
-        const labels = Array.from(document.querySelectorAll('.dcf-idm-label'));
+        const labels = Array.from(document.querySelectorAll('.unl-idm-label'));
         labels.forEach((singleLabel) => {
             singleLabel.innerHTML = 'Log in to this site';
         });
 
-        const bigLabels = Array.from(document.querySelectorAll('.unl-idm-firstname-lastname'));
-        bigLabels.forEach((singleLabel) => {
-            singleLabel.innerHTML = `<a class="unl-cream" href="${this.logInUrl}">Log in to this site as ${this.getFullName()}</a>`;
+        const loginLinks = Array.from(document.querySelectorAll('.unl-idm-btn-log-in'));
+        loginLinks.forEach((singleLink) => {
+            singleLink.classList.remove('dcf-d-none');
+            singleLink.innerHTML = `Log in to this site as ${this.getFullName()}`;
         });
 
-        const imgs = Array.from(document.querySelectorAll('.dcf-idm-img'));
+        const avatarContainer = Array.from(document.querySelectorAll('.unl-idm-avatar-container'));
+        avatarContainer.forEach((singleLink) => {
+            singleLink.classList.remove('dcf-d-none');
+        });
+
+        const firstnameLastname = Array.from(document.querySelectorAll('.unl-idm-firstname-lastname'));
+        firstnameLastname.forEach((singleLabel) => {
+            singleLabel.classList.add('dcf-d-none');
+        });
+
+        const imgs = Array.from(document.querySelectorAll('.unl-idm-img'));
         imgs.forEach((singleImg) => {
             singleImg.classList.add('unl-idm-status-quasi');
-            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100%" src="${userAvatarUrl}" alt>`;
+            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100%" src="${userAvatarUrl}" alt="Avatar for ${this.getFullName()}">`;
         });
 
         const bigImgs = Array.from(document.querySelectorAll('.unl-idm-avatar'));
         bigImgs.forEach((singleImg) => {
             singleImg.classList.add('unl-idm-status-quasi');
-            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100%" src="${userAvatarUrl}" alt="">`;
+            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100%" src="${userAvatarUrl}" alt="Avatar for ${this.getFullName()}">`;
         });
 
-        const viewProfileLinks = Array.from(document.querySelectorAll('.unl-idm-view-profile a'));
+        const viewProfileLinks = Array.from(document.querySelectorAll('.unl-idm-view-profile'));
         viewProfileLinks.forEach((singleLink) => {
-            singleLink.classList.remove('dcf-d-none');
-            singleLink.setAttribute('href', this.getProfileUrl());
+            singleLink.classList.add('dcf-d-none');
         });
 
-        const logOutLinks = Array.from(document.querySelectorAll('.unl-idm-logout a'));
+        const logOutLinks = Array.from(document.querySelectorAll('.unl-idm-btn-log-out'));
         logOutLinks.forEach((singleLink) => {
             singleLink.classList.remove('dcf-d-none');
             singleLink.setAttribute('href', this.logOutUrl);
@@ -707,14 +717,14 @@ export default class UNLIdm {
     }
 
     /**
-     * Renders the component in its logged in out state
+     * Renders the component in its logged in state
      *
      * @param { String } userAvatarUrl
      * @param { String } userDisplayName
      * @return { Void }
      */
     renderLoggedInState(userDisplayName, userAvatarUrl) {
-        const labels = Array.from(document.querySelectorAll('.dcf-idm-label'));
+        const labels = Array.from(document.querySelectorAll('.unl-idm-label'));
         labels.forEach((singleLabel) => {
             singleLabel.innerHTML = userDisplayName;
         });
@@ -724,25 +734,36 @@ export default class UNLIdm {
             singleLabel.innerHTML = this.getFullName();
         });
 
-        const imgs = Array.from(document.querySelectorAll('.dcf-idm-img'));
+        const imgs = Array.from(document.querySelectorAll('.unl-idm-img'));
         imgs.forEach((singleImg) => {
             singleImg.classList.remove('unl-idm-status-quasi');
-            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100%" src="${userAvatarUrl}" alt>`;
+            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100%" src="${userAvatarUrl}" alt="Avatar for ${this.getFullName()}">`;
+        });
+
+        const avatarContainer = Array.from(document.querySelectorAll('.unl-idm-avatar-container'));
+        avatarContainer.forEach((singleLink) => {
+            singleLink.classList.remove('dcf-d-none');
         });
 
         const bigImgs = Array.from(document.querySelectorAll('.unl-idm-avatar'));
         bigImgs.forEach((singleImg) => {
             singleImg.classList.remove('unl-idm-status-quasi');
-            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100%" src="${userAvatarUrl}" alt="">`;
+            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100%" src="${userAvatarUrl}" alt="Avatar for ${this.getFullName()}">`;
         });
 
-        const viewProfileLinks = Array.from(document.querySelectorAll('.unl-idm-view-profile a'));
+        const viewProfileLinks = Array.from(document.querySelectorAll('.unl-idm-view-profile'));
         viewProfileLinks.forEach((singleLink) => {
             singleLink.classList.remove('dcf-d-none');
+            singleLink.classList.add('dcf-d-block');
             singleLink.setAttribute('href', this.getProfileUrl());
         });
 
-        const logOutLinks = Array.from(document.querySelectorAll('.unl-idm-logout a'));
+        const loginLinks = Array.from(document.querySelectorAll('.unl-idm-btn-log-in'));
+        loginLinks.forEach((singleLink) => {
+            singleLink.classList.add('dcf-d-none');
+        });
+
+        const logOutLinks = Array.from(document.querySelectorAll('.unl-idm-btn-log-out'));
         logOutLinks.forEach((singleLink) => {
             singleLink.classList.remove('dcf-d-none');
             singleLink.setAttribute('href', this.logOutUrl);
