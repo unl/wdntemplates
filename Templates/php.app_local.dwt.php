@@ -36,6 +36,23 @@ function wdnInclude($path)
         <?php wdnInclude("/wdn/templates_6.1/includes/global/skip-nav.html"); ?>
         <header class="dcf-header" id="dcf-header" role="banner">
             <?php wdnInclude("/wdn/templates_6.1/includes/global/header-global-1-local.html"); ?>
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/cta-header-1.html"); ?>
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/visit-header-1.html"); ?>
+            <!-- InstanceBeginEditable name="headervisit" -->
+            <?php wdnInclude("/wdn/templates_6.1/includes/local/visit-local.html"); ?>
+            <!-- InstanceEndEditable -->
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/visit-header-2.html"); ?>
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/apply-header-1.html"); ?>
+            <!-- InstanceBeginEditable name="headerapply" -->
+            <?php wdnInclude("/wdn/templates_6.1/includes/local/apply-local.html"); ?>
+            <!-- InstanceEndEditable -->
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/apply-header-2.html"); ?>
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/give-header-1.html"); ?>
+            <!-- InstanceBeginEditable name="headergive" -->
+            <?php wdnInclude("/wdn/templates_6.1/includes/local/give-local.html"); ?>
+            <!-- InstanceEndEditable -->
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/give-header-2.html"); ?>
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/cta-header-2.html"); ?>
             <?php wdnInclude("/wdn/templates_6.1/includes/global/idm.html"); ?>
             <?php wdnInclude("/wdn/templates_6.1/includes/global/search.html"); ?>
             <?php wdnInclude("/wdn/templates_6.1/includes/global/header-global-2.html"); ?>
@@ -61,23 +78,23 @@ function wdnInclude($path)
             <?php wdnInclude("/wdn/templates_6.1/includes/global/nav-menu-2.html"); ?>
             <?php wdnInclude("/wdn/templates_6.1/includes/global/nav-dialog-1.html"); ?>
             <?php wdnInclude("/wdn/templates_6.1/includes/global/nav-local-copy-dialog.html"); ?>
-            <?php wdnInclude("/wdn/templates_6.1/includes/global/cta-1.html"); ?>
-            <?php wdnInclude("/wdn/templates_6.1/includes/global/visit-1.html"); ?>
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/cta-nav-1.html"); ?>
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/visit-nav-1.html"); ?>
             <!-- TemplateBeginEditable name="navvisit" -->
             <?php wdnInclude("/wdn/templates_6.1/includes/local/visit-local.html"); ?>
             <!-- TemplateEndEditable -->
-            <?php wdnInclude("/wdn/templates_6.1/includes/global/visit-2.html"); ?>
-            <?php wdnInclude("/wdn/templates_6.1/includes/global/apply-1.html"); ?>
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/visit-nav-2.html"); ?>
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/apply-nav-1.html"); ?>
             <!-- TemplateBeginEditable name="navapply" -->
             <?php wdnInclude("/wdn/templates_6.1/includes/local/apply-local.html"); ?>
             <!-- TemplateEndEditable -->
-            <?php wdnInclude("/wdn/templates_6.1/includes/global/apply-2.html"); ?>
-            <?php wdnInclude("/wdn/templates_6.1/includes/global/give-1.html"); ?>
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/apply-nav-2.html"); ?>
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/give-nav-1.html"); ?>
             <!-- TemplateBeginEditable name="navgive" -->
             <?php wdnInclude("/wdn/templates_6.1/includes/local/give-local.html"); ?>
             <!-- TemplateEndEditable -->
-            <?php wdnInclude("/wdn/templates_6.1/includes/global/give-2.html"); ?>
-            <?php wdnInclude("/wdn/templates_6.1/includes/global/cta-2.html"); ?>
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/give-nav-2.html"); ?>
+            <?php wdnInclude("/wdn/templates_6.1/includes/global/cta-nav-2.html"); ?>
             <?php wdnInclude("/wdn/templates_6.1/includes/global/nav-dialog-2.html"); ?>
             <?php wdnInclude("/wdn/templates_6.1/includes/global/nav-container-2-local.html"); ?>
             <?php wdnInclude("/wdn/templates_6.1/includes/global/app-search-1.html"); ?>
