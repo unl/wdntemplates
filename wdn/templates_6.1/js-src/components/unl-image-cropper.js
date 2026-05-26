@@ -7,5 +7,10 @@ export default class UNLImageCropper extends DCFImageCropper {
             options.collapsibleFieldset = UNLCollapsibleFieldset;
         }
         super(imageCropper, options);
+
+        window.UNL = window.UNL || {};
+        window.UNL.classes = window.UNL.classes || {};
+        window.UNL.classes[this.cropperElement.getAttribute('id')] = this;
+        this.cropperElement.dispatchEvent(new Event('UNLClassReady'));
     }
 }

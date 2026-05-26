@@ -188,3 +188,25 @@ export function wrapInner(parent, wrapper) {
     parent.appendChild(wrapper);
 }
 
+export function getClassInstance(elementID) {
+    return new Promise((resolve) => {
+        if (elementID in window.UNL.classes) {
+            resolve(window.UNL.classes[elementID]);
+            return;
+        }
+
+        const element = document.getElementById(elementID);
+        element.addEventListener('UNLClassReady', () => {
+            resolve(window.UNL.classes[elementID]);
+        });
+    });
+}
+
+export function trackablePromise(promise) {
+    const state = { pending: true, value: null };
+    promise.then(value => {
+        state.pending = false;
+        state.value = value;
+    });
+    return state;
+}

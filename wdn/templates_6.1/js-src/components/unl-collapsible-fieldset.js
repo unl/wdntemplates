@@ -54,5 +54,10 @@ export default class UNLCollapsibleFieldset extends DCFCollapsibleFieldset {
         }
 
         super(fieldset, options);
+
+        window.UNL = window.UNL || {};
+        window.UNL.classes = window.UNL.classes || {};
+        window.UNL.classes[this.fieldsetElement.getAttribute('id')] = this;
+        this.fieldsetElement.dispatchEvent(new Event('UNLClassReady'));
     }
 }

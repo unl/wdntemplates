@@ -1,10 +1,17 @@
+import { uuidv4 } from '@js-src/lib/unl-utility.js';
+
 export default class UNLRandomizer {
+
+    uuid = uuidv4();
 
     randomizerContainer = null;
 
     constructor(randomizerContainer) {
 
         this.randomizerContainer = randomizerContainer;
+        if (this.randomizerContainer.getAttribute('id') === '' || this.randomizerContainer.getAttribute('id') === null) {
+            this.randomizerContainer.setAttribute('id', this.uuid.concat('-randomizer'));
+        }
 
         const randomChild = Math.floor(Math.random() * this.randomizerContainer.children.length);
 
@@ -23,6 +30,11 @@ export default class UNLRandomizer {
                 classInstance: this,
             },
         }));
+
+        window.UNL = window.UNL || {};
+        window.UNL.classes = window.UNL.classes || {};
+        window.UNL.classes[this.randomizerContainer.getAttribute('id')] = this;
+        this.randomizerContainer.dispatchEvent(new Event('UNLClassReady'));
     }
 
     // The names of the events to be used easily

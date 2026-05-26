@@ -20,6 +20,11 @@ export default class UNLQa {
                 classInstance: this,
             },
         }));
+
+        window.UNL = window.UNL || {};
+        window.UNL.classes = window.UNL.classes || {};
+        window.UNL.classes['qa-test'] = this;
+        this.qaLink.dispatchEvent(new Event('UNLClassReady'));
     }
 
     // The names of the events to be used easily
