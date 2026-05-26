@@ -698,13 +698,13 @@ export default class UNLIdm {
         const imgs = Array.from(document.querySelectorAll('.unl-idm-img'));
         imgs.forEach((singleImg) => {
             singleImg.classList.add('unl-idm-status-quasi');
-            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100%" src="${userAvatarUrl}" alt="Avatar for ${this.getFullName()}">`;
+            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100% dcf-circle" src="${userAvatarUrl}" alt="Avatar for ${this.getFullName()}">`;
         });
 
         const bigImgs = Array.from(document.querySelectorAll('.unl-idm-avatar'));
         bigImgs.forEach((singleImg) => {
             singleImg.classList.add('unl-idm-status-quasi');
-            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100%" src="${userAvatarUrl}" alt="Avatar for ${this.getFullName()}">`;
+            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100% dcf-circle" src="${userAvatarUrl}" alt="Avatar for ${this.getFullName()}">`;
         });
 
         const viewProfileLinks = Array.from(document.querySelectorAll('.unl-idm-view-profile'));
@@ -742,7 +742,7 @@ export default class UNLIdm {
         const imgs = Array.from(document.querySelectorAll('.unl-idm-img'));
         imgs.forEach((singleImg) => {
             singleImg.classList.remove('unl-idm-status-quasi');
-            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100%" src="${userAvatarUrl}" alt="Avatar for ${this.getFullName()}">`;
+            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100% dcf-circle" src="${userAvatarUrl}" alt="Avatar for ${this.getFullName()}">`;
         });
 
         const avatarContainer = Array.from(document.querySelectorAll('.unl-idm-avatar-container'));
@@ -753,7 +753,7 @@ export default class UNLIdm {
         const bigImgs = Array.from(document.querySelectorAll('.unl-idm-avatar'));
         bigImgs.forEach((singleImg) => {
             singleImg.classList.remove('unl-idm-status-quasi');
-            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100%" src="${userAvatarUrl}" alt="Avatar for ${this.getFullName()}">`;
+            singleImg.innerHTML = `<img class="dcf-h-100% dcf-w-100% dcf-circle" src="${userAvatarUrl}" alt="Avatar for ${this.getFullName()}">`;
         });
 
         const viewProfileLinks = Array.from(document.querySelectorAll('.unl-idm-view-profile'));
