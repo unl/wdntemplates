@@ -61,6 +61,7 @@ export default class UNLNoticeBanner {
             return;
         }
         this.bannerElement = document.createElement('div');
+        this.bannerElement.setAttribute('id', 'unl-notice-banner');
         this.bannerElement.classList.add('dcf-d-none@print');
         this.bannerElement.innerHTML = messageToDisplay;
         if (this.skipNav !== null) {
