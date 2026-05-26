@@ -52,8 +52,8 @@ export default class UNLIdm {
 
         window.UNL = window.UNL || {};
         window.UNL.classes = window.UNL.classes || {};
-        window.UNL.classes['dcf-idm'] = this;
-        this.idmContainer = document.getElementById('dcf-idm');
+        window.UNL.classes['unl-idm'] = this;
+        this.idmContainer = document.getElementById('unl-idm');
         this.idmContainer.dispatchEvent(new Event('UNLClassReady'));
 
         if ('loginRoute' in window.UNL.idm.config && typeof window.UNL.idm.config.loginRoute === 'string' && window.UNL.idm.config.loginRoute !== '') {
@@ -686,6 +686,7 @@ export default class UNLIdm {
         loginLinks.forEach((singleLink) => {
             singleLink.classList.remove('dcf-d-none');
             singleLink.innerHTML = `Log in to this site as ${this.getFullName()}`;
+            singleLink.setAttribute('href', this.logInUrl);
         });
 
         const avatarContainer = Array.from(document.querySelectorAll('.unl-idm-avatar-container'));

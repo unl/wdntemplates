@@ -14,7 +14,7 @@ let UNLIdm = null;
 let idmInstance = null;
 
 // Query Selector for the tabs component
-const querySelector = '.dcf-idm';
+const querySelector = '.unl-idm';
 
 // Type of plugin
 const pluginType = 'single';
