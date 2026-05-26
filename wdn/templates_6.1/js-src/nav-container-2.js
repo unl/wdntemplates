@@ -1,3 +1,5 @@
+import { getClassInstance } from '@js-src/lib/unl-utility.js';
+
 window.UNL = window.UNL || {};
 window.UNL.nav = window.UNL.nav || {};
 window.UNL.nav.config = window.UNL.nav.config || {};
@@ -21,6 +23,7 @@ if (watchEnabled) {
     copyNav();
     setUpHoverIntent();
     setUpUpdateStyles();
+    initCtaPopups();
 }
 
 // updateStyles will set currentScreenSize which is used for both the search/idm dialogs closing logic
@@ -49,6 +52,7 @@ function setUpNavWatch() {
         'copyNav': false,
         'setUpHoverIntent': false,
         'setUpUpdateStyles': false,
+        'initCtaPopups': false,
     };
 
     /**
@@ -75,7 +79,8 @@ function setUpNavWatch() {
         if (
             !initializedParts['copyNav'] ||
             !initializedParts['setUpHoverIntent'] ||
-            !initializedParts['setUpUpdateStyles']
+            !initializedParts['setUpUpdateStyles'] ||
+            !initializedParts['initCtaPopups']
         ) {
             updateChecklist();
         }
@@ -103,6 +108,12 @@ function setUpNavWatch() {
         ) {
             setUpUpdateStyles();
             initializedParts['setUpUpdateStyles'] = true;
+        }
+        if (
+            !initializedParts['initCtaPopups']
+        ) {
+            initCtaPopups();
+            initializedParts['initCtaPopups'] = true;
         }
     };
     initIfWeCan();
@@ -154,6 +165,42 @@ function copyNav() {
             childList: true,
         };
         navLinksObserver.observe(dcfNavLocal, observerConfig);
+    }
+}
+
+function initCtaPopups() {
+    const visitLinks = document.querySelectorAll('#dcf-visit-options li');
+    const applyLinks = document.querySelectorAll('#dcf-apply-options li');
+    const giveLinks = document.querySelectorAll('#dcf-give-options li');
+
+    if (visitLinks.length > 1) {
+        getClassInstance('unl-visit-popup').then(() => {
+            const visitStaticLink = document.getElementById('unl-visit-link');
+            const visitPopup = document.getElementById('unl-visit-popup');
+
+            visitStaticLink.classList.add('dcf-d-none!');
+            visitPopup.classList.remove('dcf-d-none!');
+        });
+    }
+
+    if (applyLinks.length > 1) {
+        getClassInstance('unl-apply-popup').then(() => {
+            const applyStaticLink = document.getElementById('unl-apply-link');
+            const applyPopup = document.getElementById('unl-apply-popup');
+
+            applyStaticLink.classList.add('dcf-d-none!');
+            applyPopup.classList.remove('dcf-d-none!');
+        });
+    }
+
+    if (giveLinks.length > 1) {
+        getClassInstance('unl-give-popup').then(() => {
+            const giveStaticLink = document.getElementById('unl-give-link');
+            const givePopup = document.getElementById('unl-give-popup');
+
+            giveStaticLink.classList.add('dcf-d-none!');
+            givePopup.classList.remove('dcf-d-none!');
+        });
     }
 }
 
