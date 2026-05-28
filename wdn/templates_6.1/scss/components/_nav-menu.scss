@@ -51,6 +51,11 @@
   padding-block: #{var.$ms-8}rem;
 }
 
+/* This is to fix notices that overlay header when nav menu is open */
+.unl .dcf-header {
+  position: relative;
+}
+
 .dcf-nav-dialog-backdrop {
   display: none;
   opacity: 0;
