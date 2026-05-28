@@ -166,6 +166,20 @@ function copyNav() {
         };
         navLinksObserver.observe(dcfNavLocal, observerConfig);
     }
+
+    const navDialogBackdrop = document.createElement('div');
+    navDialogBackdrop.classList.add(
+        'dcf-nav-dialog-backdrop',
+        'dcf-bg-overlay-light',
+        'dcf-d-none@print',
+        'dcf-fixed',
+        'dcf-top-0',
+        'dcf-left-0',
+        'dcf-right-0',
+        'dcf-bottom-0',
+    );
+
+    document.body.prepend(navDialogBackdrop);
 }
 
 function initCtaPopups() {

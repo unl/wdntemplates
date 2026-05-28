@@ -51,11 +51,40 @@
   padding-block: #{var.$ms-8}rem;
 }
 
-
-.unl .dcf-nav-menu {
-  height: 100dvh;
+.dcf-nav-dialog-backdrop {
+  display: none;
+  opacity: 0;
+  transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
 }
 
+.unl:has(#dcf-nav-dialog.dcf-dialog-is-open) .dcf-nav-dialog-backdrop {
+  display: block;
+  z-index: 97000;
+  opacity: 1;
+}
+
+@starting-style {
+  .unl:has(#dcf-nav-dialog.dcf-dialog-is-open) .dcf-nav-dialog-backdrop {
+    display: block;
+    z-index: 97000;
+    opacity: 0;
+  }
+}
+
+.unl:has(#dcf-nav-dialog.dcf-dialog-is-open) #unl-notice-banner {
+  z-index: 98002 !important;
+  position: relative;
+}
+
+.unl:has(#dcf-nav-dialog.dcf-dialog-is-open) #unlalert {
+  z-index: 98001 !important;
+}
+
+.unl:has(#dcf-nav-dialog.dcf-dialog-is-open) .dcf-header {
+  z-index: 98000 !important;
+  position: relative;
+  background-color: var(--bg-body);
+}
 
 @include mixins.mq(md, max, width) {
 
@@ -240,7 +269,7 @@
   .unl .dcf-nav-menu-content {
     background-color: var.$scarlet;
     overflow-y: auto;
-    position: fixed;
+    // position: fixed;
   }
 
 
