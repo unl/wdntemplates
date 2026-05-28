@@ -3,7 +3,7 @@ import { getClassInstance } from '@js-src/lib/unl-utility.js';
 window.UNL = window.UNL || {};
 window.UNL.nav = window.UNL.nav || {};
 window.UNL.nav.config = window.UNL.nav.config || {};
-const disableDesktopNav = window.UNL.nav.config?.disableDesktopNav ?? true;
+let disableDesktopNav = window.UNL.nav.config?.disableDesktopNav ?? true;
 const watchEnabled = window.UNL.nav.config?.watch ?? false;
 
 // These variables are used in the `updateStyles` section
@@ -166,6 +166,20 @@ function copyNav() {
         };
         navLinksObserver.observe(dcfNavLocal, observerConfig);
     }
+
+    const navDialogBackdrop = document.createElement('div');
+    navDialogBackdrop.classList.add(
+        'dcf-nav-dialog-backdrop',
+        'dcf-bg-overlay-light',
+        'dcf-d-none@print',
+        'dcf-fixed',
+        'dcf-top-0',
+        'dcf-left-0',
+        'dcf-right-0',
+        'dcf-bottom-0',
+    );
+
+    document.body.prepend(navDialogBackdrop);
 }
 
 function initCtaPopups() {
@@ -210,6 +224,10 @@ function initCtaPopups() {
  * @returns { Void }
  */
 function setUpHoverIntent() {
+    if (checkForSecondaryNav() === false) {
+        disableDesktopNav = true;
+    }
+
     const dcfNav = document.querySelector('div.dcf-nav');
     const dcfNavDialog = document.querySelector('dialog.dcf-nav-dialog');
     const dcfDialogToggleBtn = document.getElementById('dcf-btn-close-desktop-menu');
@@ -217,6 +235,9 @@ function setUpHoverIntent() {
     const navDialogContent = document.querySelector('dialog.dcf-nav-dialog .dcf-dialog-content');
     let navOpenTimeout = null;
     let navCloseTimeout = null;
+    let isMouseHovering = false;
+    let mouseX = 0;
+    let mouseY = 0;
     const navHoverOpenTimeoutDurationMs = 100;
     const navHoverCloseTimeoutDurationMs = 100;
     let navJustClosed = false;
@@ -330,6 +351,8 @@ function setUpHoverIntent() {
 
     // Hover off dialog content for at least ${navHoverCloseTimeoutDurationMs} will close dialog
     navDialogContent.addEventListener('mouseleave', () => {
+        // Track if we are hovering on the dialog for the scroll logic
+        isMouseHovering = false;
 
         // If we are now hovering over the mobile nav then do not close the dialog
         const mobileNav = document.getElementById('dcf-nav-toggle-group');
@@ -345,6 +368,45 @@ function setUpHoverIntent() {
     });
     navDialogContent.addEventListener('mouseenter', () => {
         clearTimeout(navCloseTimeout);
+
+        // Track if we are hovering on the dialog for the scroll logic
+        isMouseHovering = true;
+    });
+
+    // Track where the mouse is on the dialog
+    navDialogContent.addEventListener('mousemove', (event) => {
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+    });
+
+    // If the user scrolls off the dialog then we need to close it
+    window.addEventListener('scroll', () => {
+        if (isMouseHovering === false || isScreenUnderMediumSize()) {
+            return;
+        }
+
+        // Get location of the dialog content
+        const rect = navDialogContent.getBoundingClientRect();
+
+        // Check if the last known mouse coordinates are OUTSIDE those bounds
+        const isOutside =
+            mouseX < rect.left ||
+            mouseX > rect.right ||
+            mouseY < rect.top ||
+            mouseY > rect.bottom;
+
+        // If it is outside then we will close the dialog
+        if (isOutside) {
+            navCloseTimeout = setTimeout(() => {
+                if (dcfNavDialogClassInstance !== null) {
+                    mouseHoverLeaveFlag = true;
+                    dcfNavDialogClassInstance.close();
+                }
+            }, navHoverCloseTimeoutDurationMs);
+        // If not then we will clear the timeout and prevent the dialog from closing
+        } else {
+            clearTimeout(navCloseTimeout);
+        }
     });
 
     // If we click the close button we want to ignore any mouse enter events
@@ -467,4 +529,15 @@ function setDesktopStyles() {
     if (idmDialog !== null) {
         idmDialog.classList.remove('dcf-dialog-non-modal');
     }
+}
+
+/**
+ * Checks to see if there is any secondary nav links
+ * @returns { Boolean } True if there is a secondary nav
+ */
+function checkForSecondaryNav() {
+    const navLocal = document.getElementById('dcf-navigation');
+    const navLocalList = navLocal.querySelector('ul');
+
+    return navLocalList.querySelector('ul') !== null;
 }
