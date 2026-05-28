@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.1.0 (May 28, 2026)
+- Update desktop and mobile nav
+- Move Visit/Apply/Give links back to top of header
+- Created class registry
+- Updated IDM widget
+- Updated template/include files
+- Update dcf-bleed to not use body width: 100vw;
+- Added ID to notice banner
+
 ## 6.0.13 (May 13, 2026)
 - Fix missing CSS for event lists
 
