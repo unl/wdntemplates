@@ -56,41 +56,6 @@
   position: relative;
 }
 
-.dcf-nav-dialog-backdrop {
-  display: none;
-  opacity: 0;
-  transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
-}
-
-.unl:has(#dcf-nav-dialog.dcf-dialog-is-open) .dcf-nav-dialog-backdrop {
-  display: block;
-  z-index: 97000;
-  opacity: 1;
-}
-
-@starting-style {
-  .unl:has(#dcf-nav-dialog.dcf-dialog-is-open) .dcf-nav-dialog-backdrop {
-    display: block;
-    z-index: 97000;
-    opacity: 0;
-  }
-}
-
-.unl:has(#dcf-nav-dialog.dcf-dialog-is-open) #unl-notice-banner {
-  z-index: 98002 !important;
-  position: relative;
-}
-
-.unl:has(#dcf-nav-dialog.dcf-dialog-is-open) #unlalert {
-  z-index: 98001 !important;
-}
-
-.unl:has(#dcf-nav-dialog.dcf-dialog-is-open) .dcf-header {
-  z-index: 98000 !important;
-  position: relative;
-  background-color: var(--bg-body);
-}
-
 @include mixins.mq(md, max, width) {
 
   .unl .dcf-nav-primary {
@@ -236,6 +201,18 @@
 
   }
 
+  html:has(.dcf-header .dcf-dialog-is-open),
+  body:has(.dcf-header .dcf-dialog-is-open) {
+    overflow-y: hidden;
+  }
+
+  .dcf-nav-dialog-backdrop {
+    display: none;
+  }
+
+  .unl .dcf-nav-menu {
+    height: 100dvh;
+  }
 }
 
 
@@ -329,6 +306,39 @@
   .unl .dcf-nav ul:first-child > li > a,
   .unl .dcf-nav ul:first-child > li > button {
     font-size: #{var.$ms-1}rem !important;
+  }
+
+  .dcf-nav-dialog-backdrop {
+    display: none;
+    opacity: 0;
+    transition: opacity var.$transition-duration-fade-in var.$transition-timing-fn-fade-in;
+  }
+
+  .unl:has(#dcf-nav-dialog.dcf-dialog-is-open) .dcf-nav-dialog-backdrop {
+    display: block;
+    z-index: calc(var.$z-modal-behind-nav-toggle-group - 1000);
+    opacity: 1;
+  }
+
+  @starting-style {
+    .unl:has(#dcf-nav-dialog.dcf-dialog-is-open) .dcf-nav-dialog-backdrop {
+      opacity: 0;
+    }
+  }
+
+  .unl:has(#dcf-nav-dialog.dcf-dialog-is-open) #unl-notice-banner {
+    z-index: calc(var.$z-modal-behind-nav-toggle-group + 2) !important;
+    position: relative;
+  }
+
+  .unl:has(#dcf-nav-dialog.dcf-dialog-is-open) #unlalert {
+    z-index: calc(var.$z-modal-behind-nav-toggle-group + 1) !important;
+  }
+
+  .unl:has(#dcf-nav-dialog.dcf-dialog-is-open) .dcf-header {
+    z-index: var.$z-modal-behind-nav-toggle-group !important;
+    position: relative;
+    background-color: var(--bg-body);
   }
 
 }

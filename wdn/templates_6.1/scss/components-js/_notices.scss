@@ -14,6 +14,10 @@
   @include meta.load-css("@dcf/scss/components-js/notices");
 
 
+  .dcf-notice-overlay {
+    z-index: calc(var.$z-modal-behind-nav-toggle-group - 1);
+  }
+
   // Add a little vertical space between notice heading and message
   .unl .dcf-notice-message {
     margin-top: #{var.$ms-12}em;
