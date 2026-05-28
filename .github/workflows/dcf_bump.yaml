@@ -19,7 +19,7 @@ jobs:
         run: |
           # Try up to 3 times to get a valid commit timestamp
           for i in {1..3}; do
-            LATEST_TIMESTAMP=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/4.1-WIP | jq -r '.commit.committer.date')
+            LATEST_TIMESTAMP=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/4.1 | jq -r '.commit.committer.date')
             if [ "$LATEST_TIMESTAMP" != "null" ] && [ -n "$LATEST_TIMESTAMP" ]; then
               break
             fi
@@ -63,7 +63,7 @@ jobs:
           FILE_PATH="package-lock.json"
           FILE_CONTENT=$(cat $FILE_PATH)
 
-          NEW_COMMIT_HASH=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/4.1-WIP | jq -r '.sha')
+          NEW_COMMIT_HASH=$(curl -s https://api.github.com/repos/digitalcampusframework/dcf/commits/4.1 | jq -r '.sha')
           UPDATED_CONTENT=$(echo "$FILE_CONTENT" | jq --arg new_version "git+ssh://git@github.com/digitalcampusframework/dcf.git#$NEW_COMMIT_HASH" '.packages."node_modules/dcf".resolved = $new_version')
 
           echo "$UPDATED_CONTENT" > $FILE_PATH
