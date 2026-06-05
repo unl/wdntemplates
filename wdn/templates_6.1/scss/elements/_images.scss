@@ -12,16 +12,3 @@ body > img[src*="trkn.us"] {
   display: block;
   position: absolute;
 }
-
-
-@media (prefers-color-scheme: dark) {
-
-  @supports (filter: brightness(1) contrast(1)) {
-
-    img {
-      filter: brightness(#{var.$ms-1}) contrast(#{var.$ms-1});
-    }
-
-  }
-
-}
