@@ -305,6 +305,9 @@
   .unl .dcf-page-title h1+.dcf-subhead {
     margin-top: 1rem;
   }
+  .unl .dcf-hero-default .dcf-page-title {
+    padding-left: 5.62vw;
+  }
   .unl .dcf-nav-local a:link {
     color: #fefdfa;
   }
@@ -370,6 +373,9 @@
   }
   .dcf-d-none {
     display: none;
+  }
+  .dcf-d-none\! {
+    display: none !important;
   }
   .dcf-d-block {
     display: block;
@@ -484,14 +490,18 @@
   .dcf-fixed {
     position: fixed;
   }
+  .dcf-top-0,
+  .dcf-pin-top {
+    top: 0;
+  }
   .dcf-bottom-0 {
     bottom: 0;
   }
   .dcf-fill-current {
     fill: currentColor;
   }
-  .dcf-txt-left {
-    text-align: left;
+  .dcf-txt-center {
+    text-align: center;
   }
   .dcf-italic {
     font-style: italic;
