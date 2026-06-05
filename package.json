@@ -32,6 +32,7 @@
     "build": "vite build",
     "build-watch": "vite build --watch",
     "build-smudge": "vite build -- --smudge",
+    "build-criticalCSSTest": "vite build -- --criticalCSSTest",
     "preview": "vite preview",
     "lint-js": "eslint wdn/templates_6.1/js-src/**/*.js"
   },

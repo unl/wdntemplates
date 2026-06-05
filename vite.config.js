@@ -13,6 +13,7 @@ import wdnCriticalCSSInjector from './vite.wdnCriticalCSSInjector.js';
 import wdnLayerPolyfill from './vite.wdnLayerPolyfill.js';
 import wdnImportVersion from './vite.wdnImportVersion.js';
 import wdnMockBannerInjector from './vite.wdnMockBannerInjector.js';
+import wdnCriticalCSSTest from './vite.wdnCriticalCSSTest.js';
 
 export default ({ mode }) => {
     process.env = {...process.env, ...loadEnv(mode, process.cwd(), '')};
@@ -50,6 +51,17 @@ export default ({ mode }) => {
         //   since if we have a linting error it won't build
         plugins.push(
             eslintPlugin(),
+        );
+    }
+
+    if (process.argv.includes('--criticalCSSTest')) {
+        plugins.push(
+            wdnCriticalCSSTest({
+                targets: [
+                    './wdn/templates_6.1/css/main.css',
+                    './wdn/templates_6.1/js/auto-loader.js',
+                ],
+            }),
         );
     }
 
