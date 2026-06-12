@@ -20,7 +20,7 @@ const enabled = window.UNL.autoLoader.config.enabled ?? true;
 const watch = window.UNL.autoLoader.config.watch ?? true;
 
 // This is the list of plugins we will check with when elements are added to the page
-const watchList = [];
+let watchList = [];
 
 // Validate and add all components to watch list
 if (enabled) {
@@ -169,8 +169,10 @@ async function loadPlugin(pluginModule, pluginData, singlePluginName) {
                 console.error(`Error initializing plugin ${singlePluginName}:`, err);
             }
 
-            // Since there would be only one we no longer need to watch this component
-            watchList.splice(watchList.indexOf(singlePluginName), 1);
+            // Filter out the plugins we no longer need
+            watchList = watchList.filter((singlePluginToFilter) => {
+                return singlePluginToFilter !== singlePluginName;
+            });
         }
 
     } else if (pluginModule.getPluginType() === 'multi') {
@@ -254,7 +256,10 @@ async function checkPluginMutation(nodeAdded, pluginModule, pluginData, singlePl
                         });
                     }
                 }
-                watchList.splice(watchList.indexOf(singlePluginName), 1);
+                // Filter out the plugins we no longer need
+                watchList = watchList.filter((singlePluginToFilter) => {
+                    return singlePluginToFilter !== singlePluginName;
+                });
             } catch (err) {
                 console.error(`Error initializing plugin ${singlePluginName}:`, err);
             }
