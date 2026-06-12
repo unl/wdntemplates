@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.0.14 (June 12, 2026)
+- Fix bug with auto loader
+- Remove name from default idm widget
+
 ## 6.0.13 (May 13, 2026)
 - Fix missing CSS for event lists
 
