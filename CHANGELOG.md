@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.1.1 (June 12, 2026)
+- Fix bug with autoloader
+- Update critical css
+- Update idm/search spacing
+- fix dark mode images
+
 ## 6.1.0 (May 28, 2026)
 - Update desktop and mobile nav
 - Move Visit/Apply/Give links back to top of header
