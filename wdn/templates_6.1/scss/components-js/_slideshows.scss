@@ -19,8 +19,8 @@
   }
 
   .unl .dcf-slideshow.unl-slideshow-crop {
-    --clip-path-inline: 2cqw;
-    --clip-path-block: 2cqw;
+    --clip-path-inline: 1cqw;
+    --clip-path-block: 1cqw;
     --gap: 0px;
   }
 
@@ -31,7 +31,7 @@
       margin-inline var(--transition-time) var(--transition-easing);
   }
 
-  .unl .dcf-slideshow.unl-slideshow-crop li.dcf-slideshow-active {
+  .unl .dcf-slideshow.unl-slideshow-crop li.dcf-slide-active {
     clip-path: inset(0% 0% 0% 0% round var.$roundrect);
     margin-inline: var(--clip-path-inline);
   }
