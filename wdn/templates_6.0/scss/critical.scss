@@ -87,27 +87,27 @@
   }
   :root {
     --bg-body: #fefdfa;
-    --bg-btn-inverse-primary: #ebebea;
+    --bg-btn-inverse-primary: #e7e6e3;
     --bg-btn-inverse-secondary: transparent;
     --bg-btn-inverse-tertiary: transparent;
     --bg-btn-primary: #d00000;
     --bg-btn-secondary: #fefdfa;
     --bg-btn-tertiary: transparent;
-    --b: #e3e3e2;
+    --b: #dbdad7;
     --b-btn-primary: #d00000;
     --b-btn-secondary: currentColor;
     --b-btn-tertiary: transparent;
-    --b-btn-inverse-primary: #ebebea;
+    --b-btn-inverse-primary: #e7e6e3;
     --b-btn-inverse-secondary: currentColor;
     --b-btn-inverse-tertiary: transparent;
-    --body: #424240;
+    --body: #484745;
     --btn-primary: #fefdfa;
     --btn-secondary: #d00000;
     --btn-tertiary: #d00000;
     --btn-inverse-primary: #d00000;
-    --btn-inverse-secondary: #ebebea;
-    --btn-inverse-tertiary: #ebebea;
-    --heading: #242423;
+    --btn-inverse-secondary: #e7e6e3;
+    --btn-inverse-tertiary: #e7e6e3;
+    --heading: #1c1b19;
     --inverse: #fefdfa;
     --link: #d00000;
   }
@@ -578,15 +578,15 @@
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg-body: #242423;
-      --bg-btn-inverse-primary: #ebebea;
+      --bg-body: #1c1b19;
+      --bg-btn-inverse-primary: #e7e6e3;
       --bg-btn-inverse-secondary: transparent;
       --bg-btn-inverse-tertiary: transparent;
-      --bg-btn-primary: #ebebea;
+      --bg-btn-primary: #e7e6e3;
       --bg-btn-secondary: transparent;
       --bg-btn-tertiary: transparent;
-      --b: #424240;
-      --b-btn-primary: #ebebea;
+      --b: #484745;
+      --b-btn-primary: #e7e6e3;
       --b-btn-secondary: currentColor;
       --b-btn-tertiary: transparent;
       --b-btn-inverse-primary: #ebebea;
@@ -594,13 +594,13 @@
       --b-btn-inverse-tertiary: transparent;
       --body: #c7c8ca;
       --btn-inverse-primary: #d00000;
-      --btn-inverse-secondary: #ebebea;
-      --btn-inverse-tertiary: #ebebea;
+      --btn-inverse-secondary: #e7e6e3;
+      --btn-inverse-tertiary: #e7e6e3;
       --btn-primary: #d00000;
-      --btn-secondary: #ebebea;
-      --btn-tertiary: #ebebea;
+      --btn-secondary: #e7e6e3;
+      --btn-tertiary: #e7e6e3;
       --heading: #fefdfa;
-      --link: #71bdd3;
+      --link: #7bb7c1;
     }
   }
   @media only screen and (min-width: 31.57em) {
@@ -675,7 +675,7 @@
       padding-bottom: 1.13em;
     }
     .unl .dcf-idm-img {
-      color: #e3e3e2;
+      color: #dbdad7;
     }
     .unl .dcf-nav .dcf-nav-toggle-btn-menu {
       align-self: start;
@@ -690,7 +690,7 @@
       overflow: hidden;
     }
     .unl .dcf-nav-local > ul > li > a {
-      border-left: 1px solid #a00000;
+      border-left: 1px solid #9d0000;
       height: 100%;
     }
     .unl .dcf-nav-menu {
