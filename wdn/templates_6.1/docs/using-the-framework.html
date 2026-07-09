@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark light">
+        <title>Using The Framework</title>
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/main.css">
+    </head>
+    <body class="unl unl-bt-scarlet dcf-bt-3 dcf-bt-solid">
+        <main class="dcf-m-auto dcf-pt-4" style="width: min(100%, 80ch);">
+            <h1>Using The Framework</h1>
+            <p>
+                The UNL WDN framework is a collection of HTML page templates, HTML includes which are used in the
+                page templates, CSS class based styles, and prebuilt JS components.
+            </p>
+
+            <h2>Architecture & Core Concepts</h2>
+
+            <h3>Digital Campus Framework (DCF)</h3>
+            <p>
+                The UNL WDN framework extends the functionality of the <a href="https://github.com/digitalcampusframework/dcf">digital campus framework</a> and adds all the UNL specific styles to it.
+            </p>
+            <p>
+                Digital campus framework is like the skeleton of the framework and we are adding our UNL brand identity to it. Digital campus framework
+                includes things like basic CSS and JS. This modular approach works well when we need to switch a site's theme between
+                different campuses such as UNL to UNMC. Keeping the structure of the site the same but swapping out themes makes this process a lot easier.
+            </p>
+
+            <h3>Versioning & Release Cycle</h3>
+            <p>
+                The framework follows standard <strong>Semantic Versioning (MAJOR.MINOR.PATCH)</strong> conventions:
+            </p>
+            <ul>
+                <li><strong>Major versions:</strong> Reserved for fundamental, breaking changes and are rare.</li>
+                <li><strong>Minor versions:</strong> Introduced when structural modifications are made to the base page templates.</li>
+                <li><strong>Patch versions:</strong> Released monthly following the WDN meeting. These contain iterative updates to HTML includes, CSS, or JavaScript.</li>
+            </ul>
+            <p>
+                Although patch version are typically scheduled to be released once a month you should aim to update your
+                framework version <strong>daily</strong> to always catch any emergency patches that may be deployed to fix
+                major bugs. With each patch version the prebuilt framework files will include the new patch version
+                in any CSS and JS file paths to bust the cache.
+            </p>
+
+            <h2> Templates & File Structure</h2>
+            <p>
+                HTML page templates come in a variety of formats to fit most people's needs. Including PHP, Twig, JSP, and Dreamweaver templates.
+                We also support a few other libraries for integrating these page templates into your apps
+                (<a href="https://github.com/unl/phpunltemplates">phpunltemplates</a>, <a href="https://github.com/unl/wdn-symfony-framework">wdn-symfony-framework</a>, etc).
+            </p>
+
+            <h3>Includes & Editable Regions</h3>
+            <p>
+                The core philosophy is that your web application is built around the page template, which then references
+                various global include files. These includes construct major layout pieces like the primary navigation and footer. 
+            </p>
+            <p>
+                Your unique application content sits nestled between these fragments, wrapped inside
+                <code>TemplateBeginEditable</code> and <code>InstanceEndEditable</code> blocks. These editable markers
+                allow legacy environments like Dreamweaver to safely know where user content belongs.
+            </p>
+            <p>
+                Some include files are designed to be placeholders and live under <code>/wdn/templates_6.1/includes/local</code>.
+                These are included as starter examples for local sections and can be safely swapped out with your own custom HTML content.
+            </p>
+
+            <h2>Hosting & Asset Delivery</h2>
+            <p>
+                By default, the framework expects CSS and JS assets to be locally accessible via a <code>/wdn</code>
+                route on your web server (e.g., <code>/wdn/templates_6.1/</code>). If you run multiple framework
+                versions simultaneously, they can live side-by-side in this directory. A live example of this
+                file structure can be found at <a href="https://wdn.unl.edu/wdn/">wdn.unl.edu/wdn</a>.
+            </p>
+            <p>
+                Alternatively, you can also use <a href="https://wdn-cdn.unl.edu/">wdn-cdn.unl.edu</a> instead of
+                locally hosting the framework files in case that works better for your use case. Just make sure to use
+                a cloud template for your site instead of a local version.
+            </p>
+
+            <h2>CSS</h2>
+            <p>
+                The styling architecture is strictly class-based, behaving similarly to frameworks like Tailwind. Atomic
+                CSS classes are applied directly to elements to build UI layouts. 
+            </p>
+            <p>
+                Because we extend the Digital Campus Framework, you will notice two distinct prefixes:
+            </p>
+            <ul>
+                <li><code>dcf-</code> denotes core utility and layout classes coming from the baseline framework.</li>
+                <li><code>unl-</code> denotes design tokens and overrides specific to the UNL brand identity.</li>
+            </ul>
+
+            <h2>JS</h2>
+            <p>
+                Dynamic features (like slideshows or modal dialogs) rely on custom JavaScript components managed by a
+                <strong>plugin auto-loader</strong>. 
+            </p>
+            <p>
+                Instead of bundling all scripts into a massive payload, the auto-loader scans the DOM on page load and
+                downloads a component's JS and CSS files <em>only</em> if its respective HTML markup is present on the page. 
+            </p>
+            <p>
+                Each component is architected around a JavaScript class exposing programmatic hooks (such as open/close
+                triggers for dialogs), combined with a plugin file that maps out dependencies and auto-load triggers.
+            </p>
+
+            <h2>Installation / Updating</h2>
+            <p>
+                Framework files can be consumed prebuilt from the WDN site, or compiled directly from source.
+                Step-by-step instructions for building local environments are available in the
+                <a href="https://github.com/unl/wdntemplates#installation">GitHub repository README</a>.
+            </p>
+            <p>
+                Updating a prebuilt installation is as simple as downloading the latest release package and
+                overwriting your server's old directory. We strongly recommend setting up an automated cron job
+                or deployment script to handle this step nightly. If you build from source, pull the latest changes
+                from upstream and re-build.
+            </p>
+            <ul>
+                <li><a href="https://wdn.unl.edu/sites/unl.edu.university-communication.web-developer-network/files/downloads/wdn_6.1.zip">6.1 ZIP Download</a></li>
+                <li><a href="https://wdn.unl.edu/sites/unl.edu.university-communication.web-developer-network/files/downloads/wdn_6.0.zip">6.0 ZIP Download</a></li>
+                <li><a href="https://wdn.unl.edu/sites/unl.edu.university-communication.web-developer-network/files/downloads/wdn_5.3.zip">5.3 ZIP Download</a></li>
+            </ul>
+        </main>
+    </body>
+</html>
