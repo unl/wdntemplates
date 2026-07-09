@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark light">
+        <title>Plugin Auto-Loader</title>
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/main.css">
+    </head>
+    <body class="unl unl-bt-scarlet dcf-bt-3 dcf-bt-solid">
+        <main class="dcf-m-auto dcf-pt-4" style="width: min(100%, 80ch);">
+            <h1>Plugin Auto-Loader</h1>
+            <p>
+                The plugin auto-loader serves as the modern replacement for RequireJS, which was previously utilized in
+                version 5.3 of the framework.
+            </p>
+            <p>
+                Instead of forcing a heavy, bundled asset payload on every visitor, the auto-loader dynamically scans
+                the DOM on page load and fetches the JavaScript and CSS dependencies required <em>only</em> for the
+                components present on the page. To maximize efficiency and optimize load times, the auto-loader pulls
+                these plugins and components in parallel.
+            </p>
+            <p>
+                <strong>Note:</strong> Using the auto-loader is completely optional. It can be disabled or entirely
+                removed from your application environment; however, doing so means you must manually import the
+                JavaScript modules and link the corresponding CSS stylesheets for any interactive component you
+                place on your pages.
+            </p>
+
+            <h2>How It Works</h2>
+            <p>
+                To keep assets modular, every framework component has its core logic and styling isolated into
+                standalone files. Manually tracking and declaring these imports for every unique page layout would be
+                incredibly tedious. The framework abstracts this through a two-layer architecture:
+            </p>
+
+            <h3>The Plugin Layer</h3>
+            <p>
+                Each component is paired with a specific plugin wrapper. When triggered, the plugin executes an
+                <code>initialize</code> function, returning a Promise that resolves once all underlying script and
+                style dependencies are safely loaded into the browser environment.
+            </p>
+            <p>
+                Once ready, a target element's DOM reference can be passed directly to the plugin's
+                <code>loadElement</code> method. This instantiates the core component class, hooks it to that
+                element, and returns the running class instance.
+            </p>
+
+            <h3>The Auto-Loader Layer</h3>
+            <p>
+                The auto-loader coordinates all available plugins. It reads their defined criteria (such as a specific
+                CSS selector), queries the DOM for matches, and automates the element selection and initialization
+                steps entirely behind the scenes.
+            </p>
+            <p>
+                Furthermore, the auto-loader implements a <code>MutationObserver</code>. This actively watches the
+                DOM tree for any elements injected dynamically after initial page render (e.g., content loaded via
+                AJAX), ensuring newly added components are hydrated automatically.
+            </p>
+            <p>
+                Not all the JS components in the framework are loaded via the auto-loader. Some like analytics or the
+                primary navigation need to load their functionality prior to the auto-loader loading. These components
+                can be found in <code>header-global-1.js</code> and <code>nav-container-2.js</code>.
+            </p>
+
+            <h2>Configuration</h2>
+            <p>
+                There is a lot of ways to configure the auto-loader prior to it running on the page. The auto-loader
+                script can be found defined in js-body global include. This is at the very bottom of the page after the
+                footer. The default configurations are done in the <code>head-2.js</code> script which is found the head-2
+                global include. So as long as you adjust the configurations between the default being set and the auto-loader
+                script starting you should be good.
+            </p>
+
+            <h3>Global Settings</h3>
+            <p>
+                The auto-loader config lives in <code>window.UNL.autoLoader.config</code>. This includes config for how
+                the auto-loader runs as well as the plugins it uses to listen for and load components. Here are some of
+                configuration settings for the auto-loader:
+            </p>
+            <ul>
+                <li><code>enabled</code> (Boolean): Determines whether the auto-loader should parse and execute.</li>
+                <li><code>watch</code> (Boolean): Dictates whether the <code>MutationObserver</code> should watch for dynamically injected elements.</li>
+                <li><code>globalOptInSelector</code> (String): A global CSS selector that an element <em>must</em> feature before the auto-loader is allowed to process it.</li>
+                <li><code>globalOptOutSelector</code> (String): A global CSS selector that acts as an exclusion ruleset; matching elements will be skipped entirely.</li>
+            </ul>
+
+            <h3>Lifecycle Events & Callbacks</h3>
+            <p>
+                The auto-loader dispatches standard DOM events, specifically <code>autoLoaderPreLoad</code> and
+                <code>autoLoaderPostLoad</code>, to mark its initialization timeline. You can wire native listeners
+                directly to the document:
+            </p>
+            <pre class="unl-code-snippet" data-type="Javascript">
+document.addEventListener('autoLoaderPostLoad', () => {
+    console.log('Framework auto-loader is fully ready.');
+});
+            </pre>
+            <p>
+                Alternatively, you can register callbacks using the utility method:
+                <code>window.UNL.autoLoader.onLoad(callbackFunction)</code>. If registered before the system completes
+                loading, the callback function is securely queued and executed the instant initialization finishes. If
+                registered <em>after</em> the framework is already live, the callback fires immediately.
+            </p>
+
+            <h3>Plugins</h3>
+            <p>
+                Each plugin is defined in the auto-loader configuration and includes where the plugin code lives an any
+                other custom configurations that plugin needs. The plugins config lives in <code>window.UNL.autoLoader.config.plugins</code>
+                Here are some of configuration settings for the plugins:
+            </p>
+            <ul>
+                <li><code>url</code> (String): The path/url pointing to where the plugin code file lives.</li>
+                <li><code>onPluginLoadedElement</code> (Function): A callback triggered every time the auto-loader successfully hydrates a matching element for this specific plugin.</li>
+                <li><code>customConfig</code> (Object): An arbitrary configuration payload passed downstream into the plugin during initialization.</li>
+                <li><code>optInSelector</code> / <code>optOutSelector</code> (String): Plugin-specific selector rules that restrict or grant execution permissions independently of global settings.</li>
+            </ul>
+            <p>
+                If you wanted to remove any of the plugins from the default autoloader configuration you can simply
+                delete the plugin's configuration from the auto-loader config prior to the auto-loader running. For example
+                here is the code to remove the UNLDialog plugin: <code>delete window.UNL.autoLoader.config.plugins.UNLDialog</code>.
+            </p>
+
+            <h2>Auto-Loader, Plugin & Component Data</h2>
+            <p>
+                Once initialization wraps up, you can inspect active plugins and their associated states via
+                <code>window.UNL.autoLoader.plugins</code>. This namespace contains state logs tracking whether the
+                plugin script successfully completed its fetch, references to the imported module definitions, and an
+                array mapping active class instances back to their respective DOM nodes.
+            </p>
+            <p>
+                Because filtering through raw plugin state arrays to locate a single element's instance can be
+                tricky, a cleaner utility method is provided in <code>/wdn/templates_6.1/js/lib/unl-utility.js</code>
+                called <code>getClassInstance</code>.
+            </p>
+            <p>
+                This function relies on the fact that all UNL components register their running instances to a global
+                dictionary registry at <code>window.UNL.classes</code>, and returns a clean promise that resolves the
+                moment the instance is safe to interact with:
+            </p>
+            <pre class="unl-code-snippet" data-type="Javascript">
+import { getClassInstance } from '/wdn/templates_6.1/lib/unl-utility';
+
+// Resolves once the specific element is fully hydrated and ready for programmatic control
+const dialogClass = await getClassInstance('my-dialog');
+dialogClass.open();
+            </pre>
+        </main>
+        <script src="/wdn/templates_6.1/js/auto-loader.js" type="module"></script>
+    </body>
+</html>
