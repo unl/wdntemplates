@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark light">
+        <title>Autoplay Video - Class</title>
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/main.css">
+        <script src="/wdn/templates_6.1/js/head-2.js"></script>
+    </head>
+    <body class="unl unl-bt-scarlet dcf-bt-3 dcf-bt-solid">
+        <main class="dcf-m-auto dcf-pt-4 dcf-pb-4" style="width: min(100%, 80ch);">
+            <h1>Autoplay Video - Class</h1>
+            <p>
+                The autoplay video component automatically plays back a video and integrates a play/pause button
+                to toggle the state of the video. It will also respect the uses setting for reduce motion/animations.
+                This component is ideal for background videos for headings. When paused or played, the action syncs
+                across all autoplay video instances. The current status of the video playback is also saved into
+                local storage to persist after the page reloads.
+            </p>
+
+            <div id="test" class="dcf-autoplay-video dcf-w-100% dcf-mb-4">
+                <video class="dxf-16x9" poster="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-wooooo.jpg" autoplay loop muted playsinline>
+                    <source src="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-fingers-crossed.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <p>
+                To create the component you can wrap your video inside a div with the <code>dcf-autoplay-video</code>
+                class added to it. Your video element should have <code>loop</code>, <code>muted</code>,
+                <code>playsinline</code>, and <code>autoplay</code> attributes
+                on it to have the video playing by default in case the Javascript does not load.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="HTML - Component Example">
+                &lt;div id="test" class="dcf-autoplay-video dcf-w-100%">
+                    &lt;video class="dxf-16x9" poster="/poster.jpg" autoplay loop muted playsinline>
+                        &lt;source src="/video.mp4" type="video/mp4">
+                    &lt;/video>
+                &lt;/div>
+
+                &lt;!-- You only need this script once per page --&gt;
+                &lt;script type="module">
+                    import UNLAutoplayVideoToggle from '/wdn/templates_6.1/js/components/component.autoplay-video.js';
+
+                    document.querySelectorAll('.dcf-autoplay-video:not(.dcf-autoplay-video-initialized)').forEach((single_video_instance) => {
+                        new UNLAutoplayVideoToggle(single_video_instance);
+                    });
+                &lt;/script>
+            </pre>
+
+            <p>
+                If the component does not have an ID a randomly generated one will be assigned to it. Once initialized
+                the class <code>dcf-autoplay-video-initialized</code> is added to the component and
+                it will remove the <code>hidden</code> attribute from itself. The class will also add itself to the
+                <code>window.UNL.classes</code> object so you can use <code>getClassInstance</code> to get a reference
+                of the class instance.
+            </p>
+
+            <h2>Exposed Methods</h2>
+            <p>
+                The class instance of the component exposes a few methods for playing and pausing all the instances of
+                the component using <code>pauseAll</code> and <code>playAll</code>. You can also see if the videos are
+                currently playing or not using <code>isPlaying</code>.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="Javascript - Methods">
+                import UNLAutoplayVideoToggle from '/wdn/templates_6.1/js/components/component.autoplay-video.js';
+
+                const testElement = document.getElementById('test');
+                const autoplayVideoClass = new UNLAutoplayVideoToggle(testElement);
+
+                // You could also use window.UNL.classes['test'] once the class is initialized
+
+                autoplayVideoClass.pauseAll();
+                autoplayVideoClass.playAll();
+                console.log(autoplayVideoClass.isPlaying());
+            </pre>
+
+            <h2>Events</h2>
+            <p>
+                The autoplay video component listens and dispatches a few events. When the class is finished initializing
+                it will dispatch <code>autoplayVideoReady</code> and <code>UNLClassReady</code> both from the video container.
+                The class also dispatches the event <code>dcfAutoplayVideoToggle</code> in the window when the video playback
+                is toggled.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="Javascript - Events">
+                // Listening for class to be ready
+                document.getElementById('test').addEventListener('autoplayVideoReady', (e) => {
+                    console.log('Event Name: autoplayVideoReady', e);
+                });
+                document.getElementById('test').addEventListener('UNLClassReady', (e) => {
+                    console.log('Event Name: UNLClassReady', e);
+                });
+
+                // Toggling video playback
+                window.addEventListener('dcfAutoplayVideoToggle', (e) => {
+                    console.log('Event Name: dcfAutoplayVideoToggle', e);
+                });
+            </pre>
+        </main>
+        <script type="module">
+            import UNLAutoplayVideoToggle from '/wdn/templates_6.1/js/components/component.autoplay-video.js';
+            import UNLCodeSnippet from '/wdn/templates_6.1/js/components/component.code-snippet.js';
+
+            document.querySelectorAll('.dcf-autoplay-video:not(.dcf-autoplay-video-initialized)').forEach((single_video_instance) => {
+                new UNLAutoplayVideoToggle(single_video_instance);
+            });
+
+            document.querySelectorAll('.unl-code-snippet:not(.unl-code-snippet-initialized)').forEach((single_snippet) => {
+                new UNLCodeSnippet(single_snippet);
+            });
+        </script>
+    </body>
+</html>
