@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark light">
+        <title>Datepicker - Class</title>
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/main.css">
+    </head>
+    <body class="unl unl-bt-scarlet dcf-bt-3 dcf-bt-solid">
+        <main class="dcf-m-auto dcf-pt-4 dcf-pb-4" style="width: min(100%, 80ch);">
+            <h1>Datepicker - Class</h1>
+            <p>
+                The datepicker component provides users with an intuitive,
+                interactive calendar interface to select individual date
+                without needing to type them manually. Designed to prevent
+                formatting errors and streamline input
+            </p>
+
+            <form class="dcf-form dcf-mb-4" action="#" method="get">
+                <div id="test" class="dcf-datepicker">
+                    <label for="sample-date">Date 1</label>
+                    <input id="sample-date" type="text" name="sample-date">
+                </div>
+            </form>
+
+            <p>
+                To create the component you can add the class <code>dcf-datepicker</code> to a div wrapping your input.
+                Your datepicker will need to be in a <code>dcf-form</code> for them to get the correct input
+                styles applied to them. You will need the input to be of type <code>text</code>.
+            </p>
+
+            <p>
+                The plugin will be looking for <code>.dcf-datepicker:not(.dcf-datepicker-initialized)</code>
+                when you run <code>loadElementsOnPage</code>, or you can pass in individual elements that you know are
+                valid datepicker components using <code>loadElement</code> or <code>loadElements</code>.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="HTML - Component Example">
+                &lt;form class="dcf-form" action="#" method="get">
+                    &lt;div id="test" class="dcf-datepicker">
+                        &lt;label for="sample-date">Date 1</label>
+                        &lt;input id="sample-date" type="text" name="sample-date">
+                    &lt;/div>
+                &lt;/form>
+
+                &lt;!-- You only need this script once per page --&gt;
+                &lt;script type="module">
+                    import * as datePickerPlugin from '/wdn/templates_6.1/js/plugins/plugin.datepicker.js';
+
+                    datePickerPlugin.loadElementsOnPage();
+                &lt;/script>
+            </pre>
+
+            <p>
+                If the datepicker or the text input do not have IDs then a randomly generated one will be assigned to them.
+                Once initialized the class <code>dcf-datepicker-initialized</code> will be added to the datepicker wrapper and
+                it will remove the <code>hidden</code> attribute from the element. The class will also add itself to the
+                <code>window.UNL.classes</code> object so you can use <code>getClassInstance</code> to get a reference
+                of the class instance.
+            </p>
+
+            <h2>Keyboard interactions</h2>
+            <p>
+                When opened the date picker has standard keyboard interactions where the arrow keys can be used to navigate
+                the calendar grid, and tab can be used to navigate the dialog. <kbd>space</kbd> can be used to select a date
+                and <kbd>esc</kbd> can be used to close the dialog.
+            </p>
+
+            <h2>Events</h2>
+            <p>
+                The datepicker component dispatches a few events. When the class is finished initializing
+                it will dispatch <code>datepickerReady</code> and <code>UNLClassReady</code> both from the wrapper element.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="Javascript - Events">
+                // Listening for class to be ready
+                document.getElementById('test').addEventListener('datepickerReady', (e) => {
+                    console.log('Event Name: datepickerReady', e);
+                });
+                document.getElementById('test').addEventListener('UNLClassReady', (e) => {
+                    console.log('Event Name: UNLClassReady', e);
+                });
+            </pre>
+
+            <p>
+                You can also use the plugin events to catch when the plugin/element is loaded.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="Javascript - More Events">
+                document.addEventListener('UNLPluginInitialized', (e) => {
+                    console.log('Event Name: UNLPluginInitialized', e);
+                });
+                document.addEventListener('UNLPluginLoadedElement', (e) => {
+                    console.log('Event Name: UNLPluginLoadedElement', e);
+                });
+            </pre>
+        </main>
+        <script type="module">
+            import * as datePickerPlugin from '/wdn/templates_6.1/js/plugins/plugin.datepicker.js';
+            import * as codeSnippetPlugin from '/wdn/templates_6.1/js/plugins/plugin.code-snippet.js';
+
+            datePickerPlugin.loadElementsOnPage();
+            codeSnippetPlugin.loadElementsOnPage();
+        </script>
+    </body>
+</html>
