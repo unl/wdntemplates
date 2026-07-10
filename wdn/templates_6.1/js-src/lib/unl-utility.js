@@ -188,6 +188,11 @@ export function wrapInner(parent, wrapper) {
     parent.appendChild(wrapper);
 }
 
+/**
+ * Gets the initialized JS component class instance based on the element's id
+ * @param { String } elementID 
+ * @returns { Promise<Object> }
+ */
 export function getClassInstance(elementID) {
     return new Promise((resolve) => {
         if (elementID in window.UNL.classes) {
@@ -202,6 +207,11 @@ export function getClassInstance(elementID) {
     });
 }
 
+/**
+ * Allows the user to track the state of a promise in synchronous code
+ * @param { Promise } promise 
+ * @returns { Object }
+ */
 export function trackablePromise(promise) {
     const state = { pending: true, value: null };
     promise.then(value => {
@@ -209,4 +219,43 @@ export function trackablePromise(promise) {
         state.value = value;
     });
     return state;
+}
+
+/**
+ * Escapes HTML special characters in a string so it can be safely
+ * inserted as text content inside HTML markup.
+ *
+ * @param { string } str
+ * @returns { string }
+ */
+export function escapeHTML(str) {
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+/**
+ * Removes the common leading whitespace from every line of a string,
+ * while preserving the relative indentation between lines.
+ *
+ * @param { string } str
+ * @returns { string }
+ */
+export function dedent(str) {
+    const lines = str.replace(/\r\n/g, '\n').split('\n');
+
+    // Ignore blank/whitespace-only lines when calculating the minimum indent
+    const indents = lines
+        .filter((line) => line.trim().length > 0)
+        .map((line) => line.match(/^[ \t]*/)[0].length);
+
+    const minIndent = indents.length ? Math.min(...indents) : 0;
+
+    return lines
+        .map((line) => line.slice(minIndent))
+        .join('\n')
+        .trim();
 }

@@ -1,4 +1,4 @@
-import { uuidv4 } from '../lib/unl-utility.js';
+import { uuidv4, escapeHTML, dedent } from '../lib/unl-utility.js';
 
 export default class UNLCodeSnippet {
     uuid = uuidv4();
@@ -48,7 +48,7 @@ export default class UNLCodeSnippet {
                     </svg>
                 </button>
             </div>
-            <pre class="dcf-m-0 dcf-sharp dcf-p-3 dcf-overflow-x-auto" style="background-color: var(--bg-code);">${codeBlock.innerText.trim()}</pre>
+            <pre class="dcf-m-0 dcf-sharp dcf-p-3 dcf-overflow-x-auto dcf-txt-sm" style="white-space: pre;background-color: var(--bg-code);">${dedent(escapeHTML(codeBlock.innerText))}</pre>
         `;
 
         this.codeBlock.after(this.codeSnippetElement);
@@ -56,7 +56,7 @@ export default class UNLCodeSnippet {
         this.codeBlock.classList.add('dcf-d-none!', 'unl-code-snippet-initialized');
 
         document.getElementById(this.uuid.concat('-code-snippet-copy')).addEventListener('click', async() => {
-            await navigator.clipboard.writeText(codeBlock.innerText.trim());
+            await navigator.clipboard.writeText(dedent(codeBlock.innerText));
         });
 
         window.UNL = window.UNL || {};
