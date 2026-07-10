@@ -16,10 +16,10 @@
                 version 5.3 of the framework.
             </p>
             <p>
-                Instead of forcing a heavy, bundled asset payload on every visitor, the auto-loader dynamically scans
-                the DOM on page load and fetches the JavaScript and CSS dependencies required <em>only</em> for the
-                components present on the page. To maximize efficiency and optimize load times, the auto-loader pulls
-                these plugins and components in parallel.
+                Instead of forcing a heavy, bundled asset payload on every visitor when the page may not have all the JS components,
+                the auto-loader dynamically scans the DOM on page load and fetches the JavaScript and CSS dependencies
+                required <em>only</em> for the components present on the page. To maximize efficiency and optimize load
+                times, the auto-loader pulls these plugins and components in parallel.
             </p>
             <p>
                 <strong>Note:</strong> Using the auto-loader is completely optional. It can be disabled or entirely
@@ -37,9 +37,9 @@
 
             <h3>The Plugin Layer</h3>
             <p>
-                Each component is paired with a specific plugin wrapper. When triggered, the plugin executes an
-                <code>initialize</code> function, returning a Promise that resolves once all underlying script and
-                style dependencies are safely loaded into the browser environment.
+                Each component is paired with a specific plugin wrapper. When triggered, the auto-loader executes an
+                <code>initialize</code> function exported by the plugin, returning a Promise that resolves once all
+                underlying script and style dependencies are safely loaded into the browser environment.
             </p>
             <p>
                 Once ready, a target element's DOM reference can be passed directly to the plugin's
@@ -49,7 +49,7 @@
 
             <h3>The Auto-Loader Layer</h3>
             <p>
-                The auto-loader coordinates all available plugins. It reads their defined criteria (such as a specific
+                The auto-loader coordinates all available plugins. It reads their defined criteria (aka a specific
                 CSS selector), queries the DOM for matches, and automates the element selection and initialization
                 steps entirely behind the scenes.
             </p>
@@ -67,7 +67,7 @@
             <h2>Configuration</h2>
             <p>
                 There is a lot of ways to configure the auto-loader prior to it running on the page. The auto-loader
-                script can be found defined in js-body global include. This is at the very bottom of the page after the
+                script can be found defined in <code>js-body.js</code> global include. This is at the very bottom of the page after the
                 footer. The default configurations are done in the <code>head-2.js</code> script which is found the head-2
                 global include. So as long as you adjust the configurations between the default being set and the auto-loader
                 script starting you should be good.
@@ -117,7 +117,7 @@ document.addEventListener('autoLoaderPostLoad', () => {
                 <li><code>optInSelector</code> / <code>optOutSelector</code> (String): Plugin-specific selector rules that restrict or grant execution permissions independently of global settings.</li>
             </ul>
             <p>
-                If you wanted to remove any of the plugins from the default autoloader configuration you can simply
+                If you wanted to remove any of the plugins from the default auto-loader configuration you can simply
                 delete the plugin's configuration from the auto-loader config prior to the auto-loader running. For example
                 here is the code to remove the UNLDialog plugin: <code>delete window.UNL.autoLoader.config.plugins.UNLDialog</code>.
             </p>
@@ -136,7 +136,8 @@ document.addEventListener('autoLoaderPostLoad', () => {
             </p>
             <p>
                 This function relies on the fact that all UNL components register their running instances to a global
-                dictionary registry at <code>window.UNL.classes</code>, and returns a clean promise that resolves the
+                dictionary registry at <code>window.UNL.classes</code> (key value pair with the key being the ID of the
+                element and the value being the class instance), and returns a clean promise that resolves the
                 moment the instance is safe to interact with:
             </p>
             <pre class="unl-code-snippet" data-type="Javascript">
