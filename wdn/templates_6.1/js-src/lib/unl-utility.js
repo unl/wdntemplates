@@ -238,6 +238,21 @@ export function escapeHTML(str) {
 }
 
 /**
+ * Unescapes HTML entities back into their literal characters.
+ *
+ * @param { string } str
+ * @returns { string }
+ */
+export function unescapeHTML(str) {
+    return str
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, '\'')
+        .replace(/&amp;/g, '&');
+}
+
+/**
  * Removes the common leading whitespace from every line of a string,
  * while preserving the relative indentation between lines.
  *
