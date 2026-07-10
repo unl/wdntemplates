@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark light">
+        <title>Collapsible Fieldset - Class</title>
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/main.css">
+    </head>
+    <body class="unl unl-bt-scarlet dcf-bt-3 dcf-bt-solid">
+        <main class="dcf-m-auto dcf-pt-4 dcf-pb-4" style="width: min(100%, 80ch);">
+            <h1>Collapsible Fieldset - Class</h1>
+            <p>
+                The Collapsible Fieldset component helps manage complex form
+                layouts by allowing users to toggle specific content sections,
+                effectively reducing visual clutter on the page. By providing a
+                clean interface to expand or hide secondary information on
+                demand, it ensures that users only focus on the fields relevant
+                to their current task.
+            </p>
+
+            <p>
+                This component inherits a lot of it's functionality, keyboard interactions, and events from the
+                toggle button component.
+            </p>
+
+            <form class="dcf-form dcf-mb-4">
+                <fieldset id="test" class="dcf-collapsible-fieldset">
+                    <legend>Checkboxes</legend>
+                    <div class="dcf-input-checkbox">
+                        <input id="dcf-components-form-checkbox1A" type="checkbox" value="0">
+                        <label for="dcf-components-form-checkbox1A">Checkbox 1</label>
+                    </div>
+                    <div class="dcf-input-checkbox">
+                        <input id="dcf-components-form-checkbox2A" type="checkbox" value="1">
+                        <label for="dcf-components-form-checkbox2A">Checkbox 2</label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="dcf-collapsible-fieldset" data-start-expanded="false" hidden>
+                    <legend>Checkboxes (Starts collapsed)</legend>
+                    <div class="dcf-input-checkbox">
+                        <input id="dcf-components-form-checkbox1B" type="checkbox" value="0">
+                        <label for="dcf-components-form-checkbox1B">Checkbox 1</label>
+                    </div>
+                    <div class="dcf-input-checkbox">
+                        <input id="dcf-components-form-checkbox2B" type="checkbox" value="1">
+                        <label for="dcf-components-form-checkbox2B">Checkbox 2</label>
+                    </div>
+                </fieldset>
+            </form>
+
+            <p>
+                To create the component you can add the class <code>dcf-collapsible-fieldset</code> to your fieldset
+                element. Your fieldsets will need to be in a <code>dcf-form</code> for them to get the correct fieldset
+                styles applied to them.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="HTML - Component Example">
+                &lt;form class="dcf-form dcf-mb-4">
+                    &lt;fieldset id="test" class="dcf-collapsible-fieldset">
+                        &lt;legend>Checkboxes&lt;/legend>
+                        &lt;-- form inputs and labels --&gt;
+                    &lt;/fieldset>
+
+                    &lt;fieldset class="dcf-collapsible-fieldset" data-start-expanded="false" hidden>
+                        &lt;legend>Checkboxes (Starts collapsed)&lt;/legend>
+                        &lt;-- form inputs and labels --&gt;
+                    &lt;/fieldset>
+                &lt;/form>
+
+                &lt;!-- You only need this script once per page --&gt;
+                &lt;script type="module">
+                    import UNLCollapsibleFieldset from '/wdn/templates_6.1/js/components/component.collapsible-fieldset.js';
+
+                    document.querySelectorAll('.dcf-collapsible-fieldset:not(.dcf-collapsible-fieldset-initialized)').forEach((single_fieldset) => {
+                        new UNLCollapsibleFieldset(single_fieldset);
+                    });
+                &lt;/script>
+            </pre>
+
+            <p>
+                If the fieldset does not have ID then a randomly generated one will be assigned to it.
+                Once initialized the class <code>dcf-collapsible-fieldset-initialized</code> will be added to the fieldset and
+                it will remove the <code>hidden</code> attribute from the element. The class will also add itself to the
+                <code>window.UNL.classes</code> object so you can use <code>getClassInstance</code> to get a reference
+                of the class instance.
+            </p>
+
+            <h2>Options</h2>
+            <p>
+                You can add <code>data-start-expanded="false"</code> to the fieldset element to initialize the fieldset
+                as closed when the page loads. Due to the fact that the Javascript takes a second to load before the
+                class is initialized we recommend adding the <code>hidden</code> attribute as well to only display
+                the collapsed fieldset once it is ready.
+            </p>
+
+            <h2>Keyboard interactions</h2>
+            <p>
+                The toggle button, when the user focuses on it, has the default toggle button keyboard interactions.
+                Where <kbd>enter</kbd>, <kbd>space</kbd> will toggle the fieldset; and <kbd>esc</kbd> will collapse it.
+            </p>
+
+            <h2>Methods</h2>
+            <p>
+                While the collapsible fieldset class does not expose any methods the toggle button class does expose one method
+                for toggling, opening, and closing the fieldset. The <code>toggleSwitched</code> method handles all three actions
+                which seemed like a good idea at the time but feels like a bad decision now. By passing no value the toggle button
+                will toggle, or by passing in the string <code>'open'</code> or <code>'close'</code> it will do the respective action.
+                That toggle button class instance is accessible through the property <code>toggleButtonInstance</code>.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="Javascript - Method">
+                import UNLCollapsibleFieldset from '/wdn/templates_6.1/js/components/component.collapsible-fieldset.js';
+
+                const testElement = document.getElementById('test');
+                const fieldsetClass = new UNLCollapsibleFieldset(testElement);
+                // You could also use window.UNL.classes['test'] once the class is initialized
+
+                // Open and close the fieldset
+                fieldsetClass.toggleButtonInstance.toggleSwitched('open');
+                fieldsetClass.toggleButtonInstance.toggleSwitched('close');
+
+                // Toggle fieldset
+                fieldsetClass.toggleButtonInstance.toggleSwitched();
+            </pre>
+
+            <h2>Events</h2>
+            <p>
+                The collapsible fieldset component dispatches a few events. When the class is finished initializing
+                it will dispatch <code>collapsibleFieldsetReady</code> and <code>UNLClassReady</code> both from the card element.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="Javascript - Events">
+                // Listening for class to be ready
+                document.getElementById('test').addEventListener('collapsibleFieldsetReady', (e) => {
+                    console.log('Event Name: collapsibleFieldsetReady', e);
+                });
+                document.getElementById('test').addEventListener('UNLClassReady', (e) => {
+                    console.log('Event Name: UNLClassReady', e);
+                });
+            </pre>
+
+            <p>
+                Since this component uses the toggle buttons under the hood we also get access to all the toggle button
+                events. The button in the legend is the toggle button and the toggle element is the div that wraps
+                the content inside the fieldset. So there are 4 events for toggling the fieldset open and closes
+                those 4 events dispatched from the button and the element: <code>toggleButtonOn</code>, <code>toggleButtonOff</code>,
+                <code>toggleElementOn</code>, <code>toggleElementOff</code>. The toggle button and toggle element also
+                listen for 3 command events to trigger specific actions in the component: <code>commandOpen</code>,
+                <code>commandClose</code>, and <code>commandToggle</code>.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="Javascript - Toggle Button Events">
+                // Listening for button to be toggled to open
+                document.querySelector('#test legend button').addEventListener('toggleButtonOn', (e) => {
+                    console.log('Event Name: toggleButtonOn', e);
+                })
+
+                // Toggle the fieldset open or closed
+                document.querySelector('#test > div').dispatchEvent(new CustomEvent('commandToggle'));
+            </pre>
+        </main>
+        <script type="module">
+            import UNLCollapsibleFieldset from '/wdn/templates_6.1/js/components/component.collapsible-fieldset.js';
+            import UNLCodeSnippet from '/wdn/templates_6.1/js/components/component.code-snippet.js';
+
+            document.querySelectorAll('.dcf-collapsible-fieldset:not(.dcf-collapsible-fieldset-initialized)').forEach((single_fieldset) => {
+                new UNLCollapsibleFieldset(single_fieldset);
+            });
+
+            document.querySelectorAll('.unl-code-snippet:not(.unl-code-snippet-initialized)').forEach((single_snippet) => {
+                new UNLCodeSnippet(single_snippet);
+            });
+        </script>
+    </body>
+</html>
