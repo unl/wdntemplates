@@ -20,6 +20,12 @@
                 local storage to persist after the page reloads.
             </p>
 
+            <p>
+                The plugin will be looking for <code>.dcf-autoplay-video:not(.dcf-autoplay-video-initialized)</code>
+                when you run <code>loadElementsOnPage</code>, or you can pass in individual elements that you know are
+                valid autoplay video components using <code>loadElement</code> or <code>loadElements</code>.
+            </p>
+
             <div id="test" class="dcf-autoplay-video dcf-w-100% dcf-mb-4">
                 <video class="dxf-16x9" poster="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-wooooo.jpg" autoplay loop muted playsinline>
                     <source src="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-fingers-crossed.mp4" type="video/mp4">
