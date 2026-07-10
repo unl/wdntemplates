@@ -32,6 +32,12 @@
                 on it to have the video playing by default in case the Javascript does not load.
             </p>
 
+            <p>
+                This component does have a CSS file dependency. So that file will either need to be linked in the head
+                or it can be loaded via JS. The example below is the file being loaded using the <code>loadStyleSheet</code>
+                function in the <code>unl-utility.js</code> file.
+            </p>
+
             <pre class="unl-code-snippet" data-type="HTML - Component Example">
                 &lt;div id="test" class="dcf-autoplay-video dcf-w-100%">
                     &lt;video class="dxf-16x9" poster="/poster.jpg" autoplay loop muted playsinline>
@@ -41,8 +47,10 @@
 
                 &lt;!-- You only need this script once per page --&gt;
                 &lt;script type="module">
+                    import { loadStyleSheet } from "/wdn/templates_6.1/js/lib/unl-utility.js";
                     import UNLAutoplayVideoToggle from '/wdn/templates_6.1/js/components/component.autoplay-video.js';
 
+                    await loadStyleSheet('/wdn/templates_6.1/css/components-js/_autoplay-videos.css');
                     document.querySelectorAll('.dcf-autoplay-video:not(.dcf-autoplay-video-initialized)').forEach((single_video_instance) => {
                         new UNLAutoplayVideoToggle(single_video_instance);
                     });
@@ -100,9 +108,11 @@
             </pre>
         </main>
         <script type="module">
+            import { loadStyleSheet } from "/wdn/templates_6.1/js/lib/unl-utility.js";
             import UNLAutoplayVideoToggle from '/wdn/templates_6.1/js/components/component.autoplay-video.js';
             import UNLCodeSnippet from '/wdn/templates_6.1/js/components/component.code-snippet.js';
 
+            await loadStyleSheet('/wdn/templates_6.1/css/components-js/_autoplay-videos.css');
             document.querySelectorAll('.dcf-autoplay-video:not(.dcf-autoplay-video-initialized)').forEach((single_video_instance) => {
                 new UNLAutoplayVideoToggle(single_video_instance);
             });

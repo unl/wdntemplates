@@ -43,6 +43,12 @@
                 That link will need the <code>dcf-card-link</code> class added to it.
             </p>
 
+            <p>
+                This component does have a CSS file dependency. So that file will either need to be linked in the head
+                or it can be loaded via JS. The example below is the file being loaded using the <code>loadStyleSheet</code>
+                function in the <code>unl-utility.js</code> file.
+            </p>
+
             <pre class="unl-code-snippet" data-type="HTML - Component Example">
                 &lt;div id="test" class="dcf-card dcf-card-as-link dcf-mb-4 dcf-d-flex dcf-flex-col">
                     &lt;div class="dcf-card-block dcf-2nd">
@@ -65,8 +71,10 @@
 
                 &lt;!-- You only need this script once per page --&gt;
                 &lt;script type="module">
+                    import { loadStyleSheet } from "/wdn/templates_6.1/js/lib/unl-utility.js";
                     import UNLCardAsLink from '/wdn/templates_6.1/js/components/component.card-as-link.js';
 
+                    await loadStyleSheet('/wdn/templates_6.1/css/components-js/_card-as-link.css');
                     document.querySelectorAll('.dcf-card-as-link:not(.dcf-card-as-link-initialized)').forEach((single_card) => {
                         new UNLCardAsLink(single_card);
                     });
@@ -98,9 +106,11 @@
             </pre>
         </main>
         <script type="module">
+            import { loadStyleSheet } from "/wdn/templates_6.1/js/lib/unl-utility.js";
             import UNLCardAsLink from '/wdn/templates_6.1/js/components/component.card-as-link.js';
             import UNLCodeSnippet from '/wdn/templates_6.1/js/components/component.code-snippet.js';
 
+            await loadStyleSheet('/wdn/templates_6.1/css/components-js/_card-as-link.css');
             document.querySelectorAll('.dcf-card-as-link:not(.dcf-card-as-link-initialized)').forEach((single_card) => {
                 new UNLCardAsLink(single_card);
             });

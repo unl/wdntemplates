@@ -57,6 +57,12 @@
                 styles applied to them.
             </p>
 
+            <p>
+                This component does have two CSS file dependencies. So those file will either need to be linked in the head
+                or they can be loaded via JS. The example below is the files being loaded using the <code>loadStyleSheet</code>
+                function in the <code>unl-utility.js</code> file.
+            </p>
+
             <pre class="unl-code-snippet" data-type="HTML - Component Example">
                 &lt;form class="dcf-form dcf-mb-4">
                     &lt;fieldset id="test" class="dcf-collapsible-fieldset">
@@ -72,8 +78,11 @@
 
                 &lt;!-- You only need this script once per page --&gt;
                 &lt;script type="module">
+                    import { loadStyleSheet } from "/wdn/templates_6.1/js/lib/unl-utility.js";
                     import UNLCollapsibleFieldset from '/wdn/templates_6.1/js/components/component.collapsible-fieldset.js';
 
+                    await loadStyleSheet('/wdn/templates_6.1/css/components-js/_collapsible-fieldsets.css');
+                    await loadStyleSheet('/wdn/templates_6.1/css/components-js/_button-toggles.css');
                     document.querySelectorAll('.dcf-collapsible-fieldset:not(.dcf-collapsible-fieldset-initialized)').forEach((single_fieldset) => {
                         new UNLCollapsibleFieldset(single_fieldset);
                     });
@@ -163,9 +172,12 @@
             </pre>
         </main>
         <script type="module">
+            import { loadStyleSheet } from "/wdn/templates_6.1/js/lib/unl-utility.js";
             import UNLCollapsibleFieldset from '/wdn/templates_6.1/js/components/component.collapsible-fieldset.js';
             import UNLCodeSnippet from '/wdn/templates_6.1/js/components/component.code-snippet.js';
 
+            await loadStyleSheet('/wdn/templates_6.1/css/components-js/_collapsible-fieldsets.css');
+            await loadStyleSheet('/wdn/templates_6.1/css/components-js/_button-toggles.css');
             document.querySelectorAll('.dcf-collapsible-fieldset:not(.dcf-collapsible-fieldset-initialized)').forEach((single_fieldset) => {
                 new UNLCollapsibleFieldset(single_fieldset);
             });
