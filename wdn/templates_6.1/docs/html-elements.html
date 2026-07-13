@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
+    <title>HTML Elements</title>
+    <link rel="stylesheet" href="/wdn/templates_6.1/css/critical.css">
+    <link rel="stylesheet" href="/wdn/templates_6.1/css/main.css">
+  </head>
+  <body class="unl unl-bt-scarlet dcf-bt-3 dcf-bt-solid">
+    <main class="dcf-m-auto dcf-pt-4" style="width: min(100%, 80ch);">
+      <h1><abbr title="Hypertext Markup Language">HTML</abbr> Elements</h1>
+      <p>Web browsers provide default styles for <abbr title="Hypertext Markup Language">HTML</abbr> elements. Some elements in the framework retain those <a href="#browser-defaults">browser defaults</a>, but most have a minimal amount of opinionated styling applied to them.</p>
+      <ul class="dcf-mt-6 dcf-columns-auto">
+        <li><a href="#browser-defaults">Browser Defaults</a></li>
+        <li><a href="#abbreviations">Abbreviations</a></li>
+        <li><a href="#addresses">Addresses</a></li>
+        <li><a href="#anchors">Anchors</a></li>
+        <li><a href="#blockquotes">Blockquotes</a></li>
+        <li><a href="#buttons">Buttons</a></li>
+        <li><a href="#code">Code</a></li>
+        <li><a href="#details-summary">Details &amp; Summary</a></li>
+        <li><a href="#figures">Figures</a></li>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="#headings">Headings</a></li>
+        <li><a href="#horizontal-rules">Horizontal Rules</a></li>
+        <li><a href="#images">Images</a></li>
+        <li><a href="#lists">Lists</a>
+          <ul>
+            <li><a href="#description-lists">Description Lists</a></li>
+            <li><a href="#ordered-lists">Ordered Lists</a></li>
+            <li><a href="#unordered-lists">Unordered Lists</a></li>
+          </ul>
+        </li>
+        <li><a href="#marks">Marks</a></li>
+        <li><a href="#paragraphs">Paragraphs</a></li>
+        <li><a href="#progress">Progress</a></li>
+        <li><a href="#quotes">Quotes</a></li>
+        <li><a href="#small">Small</a></li>
+        <li><a href="#sub-sup">Subscripts &amp; Superscripts</a></li>
+        <li><a href="#tables">Tables</a></li>
+      </ul>
+
+      <h2 class="dcf-mt-8" id="browser-defaults">Browser Defaults</h2>
+      <p>Use the <code>&lt;del&gt;</code> tag for <del>text that is meant to be treated as deleted text.</del></p>
+      <p>Use the <code>&lt;s&gt;</code> tag for <s>text that is meant to be treated as no longer accurate or no longer relevant.</s></p>
+      <p>Use the <code>&lt;ins&gt;</code> tag for <ins>text that is meant to be treated as an addition to the document.</ins></p>
+      <p>Use the <code>&lt;u&gt;</code> tag for <u>underlined text.</u></p>
+      <p>Use the <code>&lt;strong&gt;</code> tag for <strong>text with strong importance.</strong></p>
+      <p>Use the <code>&lt;b&gt;</code> tag or the <code>.dcf-bold</code> class for <strong>bold text without conveying any extra importance.</strong></p>
+      <p>Use the <code>&lt;em&gt;</code> tag to <em>stress text of linguistic import</em>, the way you would emphasize pronunciation if the same text was spoken.</p>
+      <p>Use the <code>&lt;i&gt;</code> tag or the <code>.dcf-italic</code> class to <i>italicize text without conveying any extra importance.</i></p>
+      <p>Use the <code>&lt;time&gt;</code> tag along with the <code>datetime</code> content attribute to display dates and time:</p>
+      <pre class="unl-code-snippet" data-type="HTML">&lt;time datetime="2018-07-01"&gt;July 1&lt;/time&gt; – &lt;time datetime="2018-07-02"&gt;2&lt;/time&gt;</pre>
+
+      <h2 class="dcf-mt-8" id="abbreviations">Abbreviations</h2>
+      <dl>
+        <dt><code>&lt;abbr&gt;</code></dt>
+        <dd>Abbreviations should be spelled out on first occurrence, then abbreviated using the <code>&lt;abbr&gt;</code> element on subsequent occurrences.</dd>
+      </dl>
+      <figure class="dcf-mt-6">
+        <p><abbr title="Video Home System">VHS</abbr> is an abbreviation for Video Home System.</p>
+      </figure>
+
+      <h2 class="dcf-mt-8" id="addresses">Addresses</h2>
+      <dl>
+        <dt><code>&lt;address&gt;</code></dt>
+        <dd>The address element should be used for physical or digital contact information for a person, people or an organization.</dd>
+      </dl>
+      <address class="dcf-mt-6">
+        <b>University of Nebraska–Lincoln</b><br>
+        1400 R St<br>
+        Lincoln, NE 68588
+      </address>
+
+      <h2 class="dcf-mt-8" id="anchors">Anchors</h2>
+      <dl>
+        <dt><code>&lt;a&gt;</code></dt>
+        <dd>Use to link to other content.</dd>
+      </dl>
+      <p class="dcf-mt-6">This is an <a href="#">anchor link</a>. If the link goes to an external site and does not contain an image or <abbr title="scalable vector graphic">SVG</abbr> as a child, <a href="icons.html#external-link-indicator-icon">an icon will be appended to the link</a> to indicate external content to users.</p>
+
+      <h2 class="dcf-mt-8" id="blockquotes">Blockquotes</h2>
+      <dl>
+        <dt><code>&lt;blockquote&gt;</code></dt>
+        <dd>The blockquote element mostly retains browser default styling, but its measure is restricted to prevent unnecessarily long lines, aiding readability.</dd>
+      </dl>
+      <blockquote class="dcf-mt-6">Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla vitae elit libero, a pharetra augue.</blockquote>
+      <p class="dcf-mt-6 dcf-pl-4 dcf-txt-sm dcf-bl-solid dcf-bl-3 unl-bl-scarlet"><b>Related:</b> <a href="#quotes">Quotes</a> (Elements), <a href="css.html#blockquotes">Blockquotes</a> (Components)</p>
+
+      <h2 class="dcf-mt-8" id="buttons">Buttons</h2>
+      <dl>
+        <dt class="dcf-d-inline-block"><code>&lt;button&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;input type="button"&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;input type="submit"&gt;</code></dt>
+        <dd>Baseline button styles to reset display, padding, font-size, line-height, and text alignment.</dd>
+      </dl>
+      <div class="dcf-mt-6">
+        <button type="submit">Button</button>
+        <input type="button" value="Input">
+        <input type="submit" value="Submit">
+      </div>
+      <p class="dcf-mt-6 dcf-pl-4 dcf-txt-sm dcf-bl-solid dcf-bl-3 unl-bl-scarlet"><b>Related:</b> <a href="css.html#button-groups">Button Groups</a> (Components), <a href="css.html#buttons">Buttons</a> (Components), <a href="css.html#forms">Forms</a> (Components), <a href="css.html#input-groups-with-buttons">Input Groups With Buttons</a> (Components)</p>
+
+      <h2 class="dcf-mt-8" id="code">Code</h2>
+      <dl>
+        <dt><code>&lt;code&gt;</code></dt>
+        <dd>Wrap inline snippets of code with <code>&lt;code&gt;</code>. Be sure to escape <abbr title="Hypertext Markup Language">HTML</abbr> angle brackets.</dd>
+      </dl>
+      <dl>
+        <dt><code>&lt;pre&gt;</code></dt>
+        <dd>Wrap multiple lines of code with <code>&lt;pre&gt;</code>. Use the <code class="dcf-txt-nowrap">.dcf-pre</code> <a href="css.html#code">component class</a> to retain code styling.</dd>
+      </dl>
+      <div>
+        <pre class="unl-code-snippet" data-type="HTML">&lt;pre class="dcf-pre"&gt;&lt;code&gt;&lt;p&gt;Morbi leo risus, porta ac consectetur ac, vestibulum at eros.&lt;/p&gt;
+&lt;p&gt;Nulla vitae elit libero, a pharetra augue.&lt;/p&gt;&lt;/code&gt;&lt;/pre&gt;</pre>
+      </div>
+      <dl class="dcf-mb-0">
+        <dt><code>&lt;var&gt;</code></dt>
+        <dd>These are variables:</dd>
+      </dl>
+      <div class="dcf-mb-4"><var>y</var> = <var>m</var><var>x</var> + <var>b</var></div>
+      <dl class="dcf-mb-0">
+        <dt><code>&lt;kbd&gt;</code></dt>
+        <dd>This is user input:</dd>
+      </dl>
+      <div class="dcf-mb-4">To switch directories, type <kbd>cd</kbd> followed by the name of the directory. To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd></div>
+      <dl class="dcf-mb-0">
+        <dt><code>&lt;samp&gt;</code></dt>
+        <dd>This is sample output:</dd>
+      </dl>
+      <div><samp>This text is meant to be treated as sample output from a computer program.</samp></div>
+      <p class="dcf-mt-6 dcf-pl-4 dcf-txt-sm dcf-bl-solid dcf-bl-3 unl-bl-scarlet"><b>Related:</b> <a href="css.html#code">Code</a> (Components)</p>
+
+      <h2 class="dcf-mt-8" id="details-summary">Details &amp; Summary</h2>
+      <dl>
+        <dt class="dcf-d-inline-block"><code>&lt;details&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;summary&gt;</code></dt>
+        <dd>Combine these elements to build a <a href="https://css-tricks.com/quick-reminder-that-details-summary-is-the-easiest-way-ever-to-make-an-accordion/">native accordion</a> (i.e., content that can be expanded and contracted).</dd>
+      </dl>
+      <div class="dcf-mt-6">
+        <details>
+          <summary>Nullam id dolor id nibh ultricies vehicula ut id elit.</summary>
+          Nulla vitae elit libero, a pharetra augue. Sed posuere consectetur est at lobortis. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod.
+        </details>
+        <details>
+          <summary>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</summary>
+          Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+        </details>
+        <details>
+          <summary>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</summary>
+          Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+        </details>
+      </div>
+
+      <h2 class="dcf-mt-8" id="figures">Figures</h2>
+      <dl>
+        <dt><code>&lt;figure&gt;</code></dt>
+        <dd>The browser default margins have been removed from the figures.</dd>
+      </dl>
+      <figure class="dcf-mt-6">
+        <img src="https://placehold.co/400x225" alt="Placeholder image.">
+        <figcaption>A <code>&lt;figure&gt;</code> with one image and a <code>&lt;figcaption&gt;</code>.</figcaption>
+      </figure>
+      <figure class="dcf-mt-6">
+        <img src="https://placehold.co/200x150" alt="Placeholder image.">
+        <img src="https://placehold.co/200x150" alt="Placeholder image.">
+        <img src="https://placehold.co/200x150" alt="Placeholder image.">
+        <figcaption>A <code>&lt;figure&gt;</code> with multiple images and a <code>&lt;figcaption&gt;</code>.</figcaption>
+      </figure>
+      <p class="dcf-mt-6 dcf-pl-4 dcf-txt-sm dcf-bl-solid dcf-bl-3 unl-bl-scarlet"><b>Related:</b> <a href="css.html#figures">Figures</a> (Components)</p>
+
+      <h2 class="dcf-mt-8" id="forms">Forms</h2>
+      <dl>
+        <dt class="dcf-d-inline-block"><code>&lt;form&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;fieldset&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;legend&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;label&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;input&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;select&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;option&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;textarea&gt;</code></dt>
+        <dd>Styles applied directly to form elements are intentionally kept to a minimum.</dd>
+      </dl>
+      <figure class="dcf-mt-6">
+        <form action="?" method="post">
+          <fieldset>
+            <legend>Sample Form Content</legend>
+            <div>
+              <label for="form-name">Name</label>
+              <input id="form-name" type="text" required="">
+            </div>
+            <div>
+              <label for="form-email">Email</label>
+              <input id="form-email" type="email" required="">
+            </div>
+            <div>
+              <label for="form-institution">Institution</label>
+              <select id="form-institution" name="institution">
+                <option value="unca" selected="">University of Nebraska</option>
+                <option value="unl">UNL</option>
+                <option value="unk">UNK</option>
+                <option value="uno">UNO</option>
+                <option value="unmc">UNMC</option>
+              </select>
+            </div>
+            <fieldset>
+              <legend>Checkboxes</legend>
+              <div>
+                <input id="form-checkbox1" type="checkbox" value="0">
+                <label for="form-checkbox1">Checkbox 1</label>
+              </div>
+              <div>
+                <input id="form-checkbox2" type="checkbox" value="1">
+                <label for="form-checkbox2">Checkbox 2</label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Radio buttons</legend>
+              <div>
+                <input id="form-radio-1" name="helpful" type="radio" value="0">
+                <label for="form-radio-1">Radio 1</label>
+              </div>
+              <div>
+                <input id="form-radio-2" name="helpful" type="radio" value="1">
+                <label for="form-radio-2">Radio 2</label>
+              </div>
+            </fieldset>
+            <div>
+              <label for="form-comments">Comments</label>
+              <textarea id="form-comments" cols="60" rows="5"></textarea>
+            </div>
+            <div>
+              <label for="form-datetime">Date/time</label>
+              <input id="form-datetime" type="datetime-local">
+            </div>
+            <div>
+              <label for="form-input-file">File input</label>
+              <input id="form-input-file" type="file">
+            </div>
+          </fieldset>
+          <input name="submit" type="submit" value="Submit">
+        </form>
+      </figure>
+      <p class="dcf-mt-6 dcf-pl-4 dcf-txt-sm dcf-bl-solid dcf-bl-3 unl-bl-scarlet"><b>Related:</b> <a href="#buttons">Buttons</a> (Elements), <a href="css.html#buttons">Buttons</a> (Components), <a href="css.html#forms">Forms</a> (Components), <a href="css.html#input-groups">Input Groups</a> (Components)</p>
+
+      <h2 class="dcf-mt-8" id="headings">Headings</h2>
+      <dl>
+        <dt class="dcf-d-inline-block"><code>&lt;h1&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;h2&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;h3&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;h4&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;h5&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;h6&gt;</code></dt>
+        <dd>Headings should be selected to accurately convey content hierarchy, not to resize text for the aesthetic needs of the page layout. Instead, use <a href="css.html#typography">utility classes</a> to increase or decrease a heading's font-size.</dd>
+      </dl>
+      <div class="dcf-mt-6">
+        <h1>h1. Heading <small class="dcf-regular dcf-txt-xs dcf-pl-1">2.37em</small></h1>
+        <h2>h2. Heading <small class="dcf-regular dcf-txt-xs dcf-pl-1">2em</small></h2>
+        <h3>h3. Heading <small class="dcf-regular dcf-txt-xs dcf-pl-1">1.77em</small></h3>
+        <h4>h4. Heading <small class="dcf-regular dcf-txt-xs dcf-pl-1">1.5em</small></h4>
+        <h5>h5. Heading <small class="dcf-regular dcf-txt-xs dcf-pl-1">1.33em</small></h5>
+        <h6>h6. Heading <small class="dcf-regular dcf-txt-xs dcf-pl-1">1.13em</small></h6>
+      </div>
+      <p class="dcf-mt-6 dcf-pl-4 dcf-txt-sm dcf-bl-solid dcf-bl-3 unl-bl-scarlet"><b>Related:</b> <a href="css.html#headings">Headings</a> (Components), <a href="css.html#font-size">Font Size</a> (Utilities)</p>
+
+      <h2 class="dcf-mt-8" id="horizontal-rules">Horiztonal Rules</h2>
+      <dl>
+        <dt><code>&lt;hr&gt;</code></dt>
+        <dd>The horizontal rule marks a thematic division of content on the page.</dd>
+      </dl>
+      <figure class="dcf-mt-6">
+        <hr>
+        <figcaption class="dcf-figcaption">The horizontal rule visually matches the framework border styles for consistency.</figcaption>
+      </figure>
+      <p class="dcf-mt-6 dcf-pl-4 dcf-txt-sm dcf-bl-solid dcf-bl-3 unl-bl-scarlet"><b>Related:</b> <a href="/css.html#border-color">Border Color</a> (Utilities), <a href="/css.html#border-style">Border Style</a> (Utilities), <a href="/css.html#border-width">Border Width</a> (Utilities)</p>
+
+      <h2 class="dcf-mt-8" id="images">Images</h2>
+      <dl>
+        <dt><code>&lt;img&gt;</code></dt>
+        <dd>Ensure that accurate descriptions of the image content are included in the <code>alt</code> attribute of each image for accessibility.</dd>
+      </dl>
+      <figure class="dcf-mt-6">
+        <img src="https://placehold.co/400x225" alt="Placeholder image.">
+        <figcaption class="dcf-figcaption">A placeholder image with a 16:9 aspect ratio.</figcaption>
+      </figure>
+      <figure class="dcf-mt-6">
+        <img src="https://placehold.co/300x225" alt="Placeholder image.">
+        <figcaption class="dcf-figcaption">A placeholder image with a 4:3 aspect ratio</figcaption>
+      </figure>
+      <figure class="dcf-mt-6">
+        <img src="https://placehold.co/225x225" alt="Placeholder image.">
+        <figcaption class="dcf-figcaption">A placeholder image with a 1:1 aspect ratio</figcaption>
+      </figure>
+      <p class="dcf-mt-6 dcf-pl-4 dcf-txt-sm dcf-bl-solid dcf-bl-3 unl-bl-scarlet"><b>Related:</b> <a href="css.html#aspect-ratios">Aspect Ratios</a> (Utilities), <a href="css.html#object-fit">Object-Fit</a> (Utilities)</p>
+
+      <h2 class="dcf-mt-8" id="lists">Lists</h2>
+
+      <h3 class="dcf-mt-6" id="description-lists">Description Lists</h3>
+      <dl>
+        <dt class="dcf-d-inline-block"><code>&lt;dl&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;dt&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;dd&gt;</code></dt>
+        <dd>The description list (once known as the <em>definition</em> list) is used to mark up groups of terms and descriptions.</dd>
+      </dl>
+      <dl class="dcf-mt-6">
+        <dt>Term 1</dt>
+        <dd>Description 1</dd>
+        <dt>Term 2</dt>
+        <dd>Description 1 for Term 2</dd>
+        <dd>Description 2 for Term 2</dd>
+        <dt>Term 3</dt>
+        <dt>Term 4</dt>
+        <dt>Term 5</dt>
+        <dd>Description for Terms 3, 4 and 5</dd>
+      </dl>
+
+      <h3 class="dcf-mt-6" id="ordered-lists">Ordered Lists</h3>
+      <dl>
+        <dt class="dcf-d-inline-block"><code>&lt;ol&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;li&gt;</code></dt>
+        <dd>The ordered list prepends each list item with a sequential number.</dd>
+      </dl>
+      <ol class="dcf-mt-6">
+        <li>This is the most important thing.</li>
+        <li>This is the second most important thing.</li>
+        <li>This is the third most important thing.</li>
+        <li>This is the fourth most important thing.</li>
+        <li>This is the least important thing.</li>
+      </ol>
+
+      <h3 class="dcf-mt-6" id="unordered-lists">Unordered Lists</h3>
+      <dl>
+        <dt class="dcf-d-inline-block"><code>&lt;ul&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;li&gt;</code></dt>
+        <dd>The unordered list prepends each list item with a bullet.</dd>
+      </dl>
+      <ul class="dcf-mt-6">
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</li>
+        <li>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod.</li>
+        <li>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</li>
+        <li>Maecenas faucibus mollis interdum.</li>
+        <li>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</li>
+      </ul>
+      <p class="dcf-mt-6 dcf-pl-4 dcf-txt-sm dcf-bl-solid dcf-bl-3 unl-bl-scarlet"><b>Related:</b> <a href="css.html#lists">Lists</a> (Components), <a href="css.html#pagination">Pagination</a> (Components)</p>
+
+      <h2 class="dcf-mt-8" id="marks">Marks</h2>
+      <dl>
+        <dt><code>&lt;mark&gt;</code></dt>
+        <dd>Use the mark element to <mark>highlight</mark> text.</dd>
+      </dl>
+
+      <h2 class="dcf-mt-8" id="paragraphs">Paragraphs</h2>
+      <dl>
+        <dt><code>&lt;p&gt;</code></dt>
+        <dd>Use the paragraph element to mark up—you guessed it—paragraphs:</dd>
+      </dl>
+      <div class="dcf-mt-6">
+        <p>Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum id ligula porta felis euismod semper.</p>
+        <p>Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Curabitur blandit tempus porttitor.</p>
+      </div>
+
+      <h2 class="dcf-mt-8" id="progress">Progress</h2>
+      <dl>
+        <dt><code>&lt;progress&gt;</code></dt>
+        <dd>Display the completion progress of a task. Remember to use a <code>&lt;label&gt;</code> that includes a <code>for</code> attribute that matches the unique <code>id</code> attribute in the <code>&lt;progress&gt;</code>.</dd>
+      </dl>
+      <figure class="dcf-mt-6">
+        <div class="dcf-d-flex dcf-ai-center dcf-gap-3">
+          <label class="dcf-label" for="indeterminate-progress-bar">Indeterminate Progress</label>
+          <progress class="dcf-w-12" id="indeterminate-progress-bar"></progress>
+        </div>
+        <figcaption class="dcf-mt-3">Due to browser inconsistencies regarding custom styles, indeterminate progress is displayed using browser defaults.</figcaption>
+      </figure>
+      <figure class="dcf-mt-6">
+        <div class="dcf-d-flex dcf-ai-center dcf-gap-3">
+          <label class="dcf-label" for="determinate-progress-bar">Determinate Progress</label>
+          <progress class="dcf-w-12" id="determinate-progress-bar" value="70" max="100">70 %</progress>
+        </div>
+        <figcaption class="dcf-mt-3">Determinate progress, on the other hand, is styled to match the framework theme.</figcaption>
+      </figure>
+      <div>
+        <pre class="unl-code-snippet" data-type="HTML">&lt;div class="dcf-d-flex dcf-ai-center dcf-gap-3"&gt;
+  &lt;label class="dcf-label" for="unique-progress-bar-id"&gt;Progress&lt;/label&gt;
+  &lt;progress class="dcf-w-12" id="unique-progress-bar-id" value="70" max="100"&gt;70 %&lt;/progress&gt;
+&lt;/div&gt;</pre>
+      </div>
+      <p class="dcf-mt-6 dcf-pl-4 dcf-txt-sm dcf-bl-solid dcf-bl-3 unl-bl-scarlet"><b>Related:</b> <a href="#forms">Forms</a> (Elements), <a href="css.html#forms">Forms</a> (Components), <a href="css.html#flexbox">Flexbox</a> (Utilities), <a href="css.html#gap">Gap</a> (Utilities)</p>
+
+      <h2 class="dcf-mt-8" id="quotes">Quotes</h2>
+      <dl>
+        <dt><code>&lt;q&gt;</code></dt>
+        <dd><q>Smart</q> or <q>curly</q> quotes are applied to inline quotes—no need to add your own.</dd>
+      </dl>
+      <p class="dcf-mt-6 dcf-pl-4 dcf-txt-sm dcf-bl-solid dcf-bl-3 unl-bl-scarlet"><b>Related:</b> <a href="#blockquotes">Blockquotes</a> (Elements), <a href="css.html#blockquotes">Blockquotes</a> (Components)</p>
+
+      <h2 class="dcf-mt-8" id="small">Small</h2>
+      <dl>
+        <dt><code>&lt;small&gt;</code></dt>
+        <dd>The small element is <a href="https://www.w3.org/wiki/HTML/Elements/small">intended for <em>inline</em> text</a> meant to be treated as <small>fine print</small>. It does not change the font-size. Add a <a href="#dcf-utilities-font-size">font-size utility class</a> (like <code>.dcf-txt-xs</code>) to the small element to <span class="dcf-txt-xs">reduce its font-size</span>.</dd>
+      </dl>
+      <p class="dcf-mt-6 dcf-pl-4 dcf-txt-sm dcf-bl-solid dcf-bl-3 unl-bl-scarlet"><b>Related:</b> <a href="css.html#font-size">Font Size</a> (Utilities)</p>
+
+      <h2 class="dcf-mt-8" id="sub-sup">Subscripts &amp; Superscripts</h2>
+      <dl>
+        <dt><code>&lt;sub&gt;</code></dt>
+        <dd>Subscripts reduce the font-size and place copy slightly below the baseline, like H<sub>2</sub>O.</dd>
+        <dt><code>&lt;sup&gt;</code></dt>
+        <dd>Superscripts reduce the font-size and elevate the copy slightly above the cap line, like 2<sup>2</sup> = 4.</dd>
+      </dl>
+
+      <h2 class="dcf-mt-8" id="tables">Tables</h2>
+      <dl>
+        <dt class="dcf-d-inline-block"><code>&lt;table&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;caption&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;thead&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;tbody&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;tfoot&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;tr&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;th&gt;</code></dt>
+        <dt class="dcf-d-inline-block"><code>&lt;td&gt;</code></dt>
+        <dd>Table borders are collapsed and the background is made transparent.</dd>
+      </dl>
+      <table class="dcf-mt-6">
+        <caption>This is a table caption.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Table heading</th>
+            <th class="dcf-txt-right" scope="col">Table heading</th>
+            <th scope="col">Table heading</th>
+            <th scope="col">Table heading</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Table cell</td>
+            <td class="dcf-txt-right">16</td>
+            <td>Nullam quis risus eget urna mollis ornare vel eu leo</td>
+            <td>Ornare Porta Vulputate</td>
+          </tr>
+          <tr>
+            <td>Table cell</td>
+            <td class="dcf-txt-right">387</td>
+            <td>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</td>
+            <td>Inceptos Ullamcorper Etiam</td>
+          </tr>
+          <tr>
+            <td>Table cell</td>
+            <td class="dcf-txt-right">9</td>
+            <td>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit</td>
+            <td>Bibendum Sit Lorem</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">Additional information about this table's contents can be placed in the table foot element.</td>
+          </tr>
+        </tfoot>
+      </table>
+      <p class="dcf-mt-6 dcf-pl-4 dcf-txt-sm dcf-bl-solid dcf-bl-3 unl-bl-scarlet"><b>Related:</b> <a href="css.html#tables">Tables</a> (Components)</p>
+    </main>
+    <script src="/wdn/templates_6.1/js/auto-loader.js" type="module"></script>
+  </body>
+</html>
