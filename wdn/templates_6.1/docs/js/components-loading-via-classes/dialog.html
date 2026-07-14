@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark light">
+        <title>Dialog - Classes</title>
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/main.css">
+    </head>
+    <body class="unl unl-bt-scarlet dcf-bt-3 dcf-bt-solid">
+        <main class="dcf-m-auto dcf-pt-4 dcf-pb-4" style="width: min(100%, 80ch);">
+            <h1>Dialog - Class</h1>
+            <p>
+                The dialog is an essential part of the framework. The dialog
+                component (often referred to as a modal) is an interactive
+                overlay window that layers over the main page content to
+                capture a user's immediate attention. It temporarily halts
+                interaction with the rest of the application, requiring users
+                to either complete a specific task—such as confirming a
+                critical action, filling out a brief form, or acknowledging
+                important alerts—or explicitly dismiss the overlay.
+            </p>
+
+            <p>
+                <strong>Warning!</strong> This component is needed for the base page templates so if the primary navigation,
+                search widget, or login widget's are not working correctly you may need to include the script in the example
+                below on your page.
+            </p>
+
+            <p>
+                This component inherits a lot of it's functionality and keyboard interactions from the browser's
+                implementation of the dialog element.
+            </p>
+
+            <button id="test-button" class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog dcf-mb-4" data-controls="test" disabled>Dialog Toggle</button>
+            <dialog id="test" class="dcf-dialog">
+                <div class="dcf-dialog-header">
+                    <h2>Dialog Heading</h2>
+                    <button class="dcf-btn-close-dialog" autofocus>Close</button>
+                </div>
+                <div class="dcf-dialog-content">
+                    <p>Dialog Contents</p>
+                </div>
+            </dialog>
+
+            <p>
+                To create the component you can add the class <code>dcf-dialog</code> onto a dialog element.
+                This will make a the dialog itself but you will need a button to open that dialog. For that
+                you will need a button element with the <code>dcf-btn-toggle-dialog</code> class on it. You can
+                have multiple dialogs on a page so you need to tell the button which dialog it toggles and for
+                that you need to add the attribute <code>data-controls</code> to the button whose value is the ID
+                of the dialog you want to toggle.
+            </p>
+
+            <p>
+                You will also want to disable the button since it will not work before the Javascript has been
+                ran. Once the dialog component has been initialized it will remove the <code>disabled</code>
+                attribute from the button.
+            </p>
+
+            <p>
+                This component does have a CSS file dependency. So that file will either need to be linked in the head
+                or they can be loaded via JS. The example below is the files being loaded using the <code>loadStyleSheet</code>
+                function in the <code>unl-utility.js</code> file.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="HTML - Component Example">
+                &lt;button id="test-button" class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="test" disabled>Dialog Toggle&lt;/button>
+                &lt;dialog id="test" class="dcf-dialog">
+                    &lt;div class="dcf-dialog-header">
+                        &lt;h2>Dialog Heading</h2>
+                        &lt;button class="dcf-btn-close-dialog" autofocus>Close&lt;/button>
+                    &lt;/div>
+                    &lt;div class="dcf-dialog-content">
+                        &lt;p>Dialog Contents&lt;/p>
+                    &lt;/div>
+                &lt;/dialog>
+
+                &lt;!-- You only need this script once per page --&gt;
+                &lt;script type="module">
+                    import { loadStyleSheet } from "/wdn/templates_6.1/js/lib/unl-utility.js";
+                    import UNLDialog from '/wdn/templates_6.1/js/components/component.dialog.js';
+
+                    await loadStyleSheet('/wdn/templates_6.1/css/components-js/_dialogs.css');
+                    document.querySelectorAll('.dcf-dialog:not(.dcf-dialog-initialized)').forEach((single_dialog) => {
+                        new UNLDialog(single_dialog);
+                    });
+                &lt;/script>
+            </pre>
+
+            <p>
+                The dialog element will need an ID so that the toggle buttons have something to reference. The component
+                will throw an error if the ID is missing. If the dialog toggle buttons the fieldset do not have ID then
+                a randomly generated one will be assigned to them.
+                Once initialized the class <code>dcf-dialog-initialized</code> will be added to the dialog element and
+                it will remove the <code>hidden</code> attribute from the it. The class will also add itself to the
+                <code>window.UNL.classes</code> object so you can use <code>getClassInstance</code> to get a reference
+                of the class instance.
+            </p>
+
+            <p>
+                When the dialog is open there will be the class <code>dcf-dialog-is-open</code> add to the dialog element
+                as well as the toggle buttons. When the dialog is closed that class will be removed.
+            </p>
+
+            <h2>Options</h2>
+            <p>
+                The dialog component has a couple options associated with it's functionality.
+            </p>
+
+            <h3>Confirm Close</h3>
+            <p>
+                The first options is confirm close. This will show an alert which needs to be confirmed before the dialog
+                is closed. To add this option to your dialog you can add the <code>data-confirmClose</code> attribute to
+                the dialog and it's value is the text inside the alert.
+            </p>
+            <button id="confirm-close-button" class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog dcf-mb-4" data-controls="confirm-close" disabled>Confirm Close Example</button>
+            <dialog id="confirm-close" class="dcf-dialog" data-confirmClose="Are you sure you want to close the dialog?">
+                <div class="dcf-dialog-header">
+                    <h2>Dialog Confirm Close</h2>
+                    <button class="dcf-btn-close-dialog" autofocus>Close</button>
+                </div>
+                <div class="dcf-dialog-content">
+                    <p>Dialog Contents</p>
+                </div>
+            </dialog>
+            <pre class="unl-code-snippet" data-type="HTML - Confirm Close">
+                &lt;dialog id="confirm-close" class="dcf-dialog" data-confirmClose="Are you sure you want to close the dialog?">
+                    &lt;div class="dcf-dialog-header">
+                        &lt;h2>Dialog Confirm Close</h2>
+                        &lt;button class="dcf-btn-close-dialog" autofocus>Close&lt;/button>
+                    &lt;/div>
+                    &lt;div class="dcf-dialog-content">
+                        &lt;p>Dialog Contents&lt;/p>
+                    &lt;/div>
+                &lt;/dialog>
+            </pre>
+
+            <h3>Deliberate Close</h3>
+            <p>
+                The deliberate close option changes the dialog functionality of how it closes. By default the dialog can
+                be closed by either clicking the close button or clicking the darkened overlay behind the dialog. This
+                option will disable the ability to click the overlay to close the dialog and force the person to click
+                the close button. To add this option to your dialog you can add <code>data-deliberateCloseOnly</code>
+                as an attribute to the dialog element.
+            </p>
+            <button id="deliberate-close-button" class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog dcf-mb-4" data-controls="deliberate-close" disabled>Deliberate Close Example</button>
+            <dialog id="deliberate-close" class="dcf-dialog" data-deliberateCloseOnly="true">
+                <div class="dcf-dialog-header">
+                    <h2>Dialog Deliberate Close</h2>
+                    <button class="dcf-btn-close-dialog" autofocus>Close</button>
+                </div>
+                <div class="dcf-dialog-content">
+                    <p>Dialog Contents</p>
+                </div>
+            </dialog>
+            <pre class="unl-code-snippet" data-type="HTML - Deliberate Close">
+                &lt;dialog id="deliberate-close" class="dcf-dialog" data-deliberateCloseOnly="true">
+                    &lt;div class="dcf-dialog-header">
+                        &lt;h2>Dialog Deliberate Close</h2>
+                        &lt;button class="dcf-btn-close-dialog" autofocus>Close&lt;/button>
+                    &lt;/div>
+                    &lt;div class="dcf-dialog-content">
+                        &lt;p>Dialog Contents&lt;/p>
+                    &lt;/div>
+                &lt;/dialog>
+            </pre>
+
+            <h3>Non-Modal</h3>
+            <p>
+                By default the dialog will open to take over the whole page. This option does the opposite and opens the
+                dialog in the non-modal state. It will not take over the page and over cover a portion of the page content.
+                An example of this functionality is with the primary navigation on any pages using the version 6.0 and 6.1
+                of the framework. To add this option to your dialog you can add the class <code>dcf-dialog-non-modal</code>
+                to the dialog element.
+            </p>
+            <button id="non-modal-button" class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog dcf-mb-4" data-controls="non-modal" disabled>Non-Modal Example</button>
+            <dialog id="non-modal" class="dcf-dialog dcf-dialog-non-modal dcf-w-100% unl-bg-scarlet unl-cream">
+                <div class="dcf-dialog-header">
+                    <h2>Dialog Non-Modal</h2>
+                    <button class="dcf-btn-close-dialog" autofocus>Close</button>
+                </div>
+                <div class="dcf-dialog-content">
+                    <p>Dialog Contents</p>
+                </div>
+            </dialog>
+            <pre class="unl-code-snippet" data-type="HTML - Non-Modal">
+                &lt;--
+                    I added the classes `dcf-w-100%`, `unl-bg-scarlet` and `unl-cream` to make
+                    the dialog a little better looking for this example
+                --&gt;
+                &lt;dialog id="non-modal" class="dcf-dialog dcf-dialog-non-modal dcf-w-100% unl-bg-scarlet unl-cream">
+                    &lt;div class="dcf-dialog-header">
+                        &lt;h2>Dialog Non-Modal</h2>
+                        &lt;button class="dcf-btn-close-dialog" autofocus>Close&lt;/button>
+                    &lt;/div>
+                    &lt;div class="dcf-dialog-content">
+                        &lt;p>Dialog Contents&lt;/p>
+                    &lt;/div>
+                &lt;/dialog>
+            </pre>
+
+            <h3>Disable Default Classes</h3>
+            <p>
+                This option was created to go along with the non-modal dialogs in the primary navigation. This option
+                will cause the dialog to not get it's default classes when it builds the dialog component. This is helpful
+                when needing to design a unique dialog which can not use any of the default classes to create it's design.
+                To add this option to your dialog you can add <code>data-default-classes</code> as an attribute to the
+                dialog element with the value <code>false</code>.
+            </p>
+            <button id="default-classes-button" class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog dcf-mb-4" data-controls="default-classes" disabled>Disable Default Classes Example</button>
+            <dialog id="default-classes" class="dcf-dialog" data-default-classes="false">
+                <div class="dcf-dialog-header">
+                    <h2>Dialog Disable Default Classes</h2>
+                    <button class="dcf-btn-close-dialog" autofocus>Close</button>
+                </div>
+                <div class="dcf-dialog-content">
+                    <p>Dialog Contents</p>
+                </div>
+            </dialog>
+            <pre class="unl-code-snippet" data-type="HTML - Disable Default Classes">
+                &lt;dialog id="default-classes" class="dcf-dialog" data-default-classes="false">
+                    &lt;div class="dcf-dialog-header">
+                        &lt;h2>Dialog Disable Default Classes</h2>
+                        &lt;button class="dcf-btn-close-dialog" autofocus>Close&lt;/button>
+                    &lt;/div>
+                    &lt;div class="dcf-dialog-content">
+                        &lt;p>Dialog Contents&lt;/p>
+                    &lt;/div>
+                &lt;/dialog>
+            </pre>
+
+            <h2>Keyboard interactions</h2>
+            <p>
+                When opened a dialog is open has standard keyboard interactions are defined by browser standards since
+                this component is build around the default dialog element. The main keyboard interaction is that 
+                <kbd>Esc</kbd> will close the dialog.
+            </p>
+
+            <h2>Methods</h2>
+            <p>
+                There are a couple methods that are exposed on the dialog class. <code>close</code>, <code>open</code>,
+                and <code>toggle</code>. These methods do what you expect.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="Javascript - Methods">
+                import { getClassInstance } from '/wdn/templates_6.1/lib/unl-utility';
+
+                const dialogClass = await getClassInstance('test');
+                // You could also use window.UNL.classes['test'] once the class is initialized
+
+                // Opening, Closing, and Toggling the dialog component
+                dialogClass.open();
+                dialogClass.close();
+                dialogClass.toggle();
+            </pre>
+
+            <h2>Events</h2>
+            <p>
+                The dialog component dispatches a few events. When the class is finished initializing
+                it will dispatch <code>dialogReady</code> (from the dialog element) and <code>UNLClassReady</code> (from
+                the dialog element and the toggle buttons).
+            </p>
+
+            <pre class="unl-code-snippet" data-type="Javascript - Events">
+                // Listening for class to be ready
+                document.getElementById('test').addEventListener('dialogReady', (e) => {
+                    console.log('Event Name: dialogReady', e);
+                });
+                document.getElementById('test').addEventListener('UNLClassReady', (e) => {
+                    console.log('Event Name: UNLClassReady', e);
+                });
+            </pre>
+
+            <p>
+                There are events that are fired before and after the dialog element has opened and closed.
+                These events are <code>dialogPreOpen</code>, <code>dialogPostOpen</code>, <code>dialogPreClose</code>,
+                and <code>dialogPostClose</code>. This are dispatched from the dialog element.
+            </p>
+
+            <p>
+                These events also have a <code>detail</code> property in the event object which includes information about
+                what type of input triggered the dialog to open/close and if it was a button which button caused
+                the dialog to open/close.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="Javascript - Dialog Open/Close">
+                // Listening for dialog to open and close
+                document.getElementById('test').addEventListener('dialogPreOpen', (e) => {
+                    console.log('Event Name: dialogPreOpen', e);
+                    console.log('Event Details:', e.detail);
+                });
+                document.getElementById('test').addEventListener('dialogPreClose', (e) => {
+                    console.log('Event Name: dialogPreClose', e);
+                    console.log('Event Details:', e.detail);
+                });
+            </pre>
+
+            <p>
+                There are also events that the dialog listens for which can be used to perform actions on the dialog similar
+                to calling the exposed methods. These events would be dispatched onto the dialog element and are
+                <code>commandClose</code>, <code>commandOpen</code>, and <code>commandToggle</code>.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="Javascript - Command Events">
+                // Opening and closing dialog via event dispatch
+                document.getElementById('test').dispatchEvent(new CustomEvent('commandOpen'));
+                document.getElementById('test').dispatchEvent(new CustomEvent('commandClose'));
+            </pre>
+
+            <h2>MediaHub and Video Interaction</h2>
+            <p>
+                MediaHub videos as well as normal video elements can be set up to automatically play when the dialog
+                is opened. For MediaHub video embeds you can add <code>allow="autoplay"</code> as an attribute of the
+                iframe element. For normal video elements you can add <code>data-autoplay="true"</code> as an attribute
+                to the video element. <strong>Note:</strong> if you open the dialog before the video/MediaHub embed has
+                finished loading then the video may not play when the dialog is opened.
+            </p>
+
+            <button id="mediahub-button" class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog dcf-mb-4" data-controls="mediahub" disabled>MediaHub Embed Example</button>
+            <dialog id="mediahub" class="dcf-dialog">
+                <div class="dcf-dialog-header">
+                    <h2>Dialog MediaHub Embed</h2>
+                    <button class="dcf-btn-close-dialog" autofocus>Close</button>
+                </div>
+                <div class="dcf-dialog-content">
+                    <div style="padding-top: 56.25%; overflow: hidden; position:relative; -webkit-box-flex: 1; flex-grow: 1;">
+                        <iframe
+                        style="bottom: 0; left: 0; position: absolute; right: 0; top: 0; border: 0; height: 100%; width: 100%;"
+                        src="https://mediahub.unl.edu/media/24339?format=iframe&autoplay=0"
+                        title="Video Player: UNL CMS Training March 18"
+                        allow="autoplay"
+                        allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+            </dialog>
+
+            <button id="video-button" class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog dcf-mb-4" data-controls="video" disabled>Video Example</button>
+            <dialog id="video" class="dcf-dialog">
+                <div class="dcf-dialog-header">
+                    <h2>Dialog Video</h2>
+                    <button class="dcf-btn-close-dialog" autofocus>Close</button>
+                </div>
+                <div class="dcf-dialog-content">
+                    <video class="dxf-16x9" poster="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-wooooo.jpg" controls muted data-autoplay="true">
+                        <source src="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-fingers-crossed.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </dialog>
+
+            <pre class="unl-code-snippet" data-type="Javascript - MediaHub Example">
+                &lt;dialog id="mediahub" class="dcf-dialog">
+                    &lt;div class="dcf-dialog-header">
+                        &lt;h2>Dialog MediaHub Embed&lt;/h2>
+                        &lt;button class="dcf-btn-close-dialog" autofocus>Close&lt;/button>
+                    &lt;/div>
+                    &lt;div class="dcf-dialog-content">
+                        &lt;div style="padding-top: 56.25%; overflow: hidden; position:relative; -webkit-box-flex: 1; flex-grow: 1;">
+                            &lt;iframe
+                                style="bottom: 0; left: 0; position: absolute; right: 0; top: 0; border: 0; height: 100%; width: 100%;"
+                                src="https://mediahub.unl.edu/media/24339?format=iframe&autoplay=0"
+                                title="Video Player: UNL CMS Training March 18"
+                                allow="autoplay"
+                                allowfullscreen
+                            >&lt;/iframe>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/dialog>
+            </pre>
+
+            <pre class="unl-code-snippet" data-type="Javascript - Video Example">
+                &lt;dialog id="video" class="dcf-dialog">
+                    &lt;div class="dcf-dialog-header">
+                        &lt;h2>Dialog Video&lt;/h2>
+                        &lt;button class="dcf-btn-close-dialog" autofocus>Close&lt;/button>
+                    &lt;/div>
+                    &lt;div class="dcf-dialog-content">
+                        &lt;video class="dxf-16x9" poster="/poster.jpg" controls muted data-autoplay="true">
+                            &lt;source src="/video.mp4" type="video/mp4">
+                        &lt;/video>
+                    &lt;/div>
+                &lt;/dialog>
+            </pre>
+        </main>
+        <script type="module">
+            import { loadStyleSheet } from "/wdn/templates_6.1/js/lib/unl-utility.js";
+            import UNLDialog from '/wdn/templates_6.1/js/components/component.dialog.js';
+            import UNLCodeSnippet from '/wdn/templates_6.1/js/components/component.code-snippet.js';
+
+            await loadStyleSheet('/wdn/templates_6.1/css/components-js/_dialogs.css');
+            document.querySelectorAll('.dcf-dialog:not(.dcf-dialog-initialized)').forEach((single_dialog) => {
+                new UNLDialog(single_dialog);
+            });
+
+            document.querySelectorAll('.unl-code-snippet:not(.unl-code-snippet-initialized)').forEach((single_snippet) => {
+                new UNLCodeSnippet(single_snippet);
+            });
+        </script>
+    </body>
+</html>
