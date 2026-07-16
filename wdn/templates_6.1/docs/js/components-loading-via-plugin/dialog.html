@@ -227,6 +227,29 @@
                 &lt;/dialog>
             </pre>
 
+<<<<<<< HEAD
+=======
+            <h3>Dynamic Toggle Buttons</h3>
+            <p>
+                There are some cases where you would want to have toggle buttons work even after the dialog has
+                been initialized. You can use the dynamic toggle buttons option to listen for click events all throughout
+                the page and if the event target is a toggle button which controls the dialog it will register the toggle
+                event. To add this to your dialog you can add <code>data-dynamicToggleBtns="true"</code> as an attribute
+                to your dialog element.
+            </p>
+            <pre class="unl-code-snippet" data-type="HTML - Disable Default Classes">
+                &lt;dialog id="dynamic-toggles" class="dcf-dialog" data-dynamicToggleBtns="true">
+                    &lt;div class="dcf-dialog-header">
+                        &lt;h2>Dialog Dynamic Toggle Buttons</h2>
+                        &lt;button class="dcf-btn-close-dialog" autofocus>Close&lt;/button>
+                    &lt;/div>
+                    &lt;div class="dcf-dialog-content">
+                        &lt;p>Dialog Contents&lt;/p>
+                    &lt;/div>
+                &lt;/dialog>
+            </pre>
+
+>>>>>>> 349bc15d7178ef69101ad1a65e349ee958833e4c
             <h2>Keyboard interactions</h2>
             <p>
                 When opened a dialog is open has standard keyboard interactions are defined by browser standards since
