@@ -23,10 +23,14 @@
             </p>
             <p>
                 <strong>Note:</strong> Using the auto-loader is completely optional. It can be disabled or entirely
-                removed from your application environment; however, doing so means you must manually import the
-                JavaScript modules and link the corresponding CSS stylesheets for any interactive component you
-                place on your pages.
+                removed from your application's environment; however, doing so means some of the base page template functionality
+                will be lost. To fix these you can use <code>wdn/templates_6.1/js/auto-loader-opt-out.js</code> instead.
+                This will only load the few components in the header and footer leaving the main content area open for
+                you to develop as you wish.
             </p>
+            <pre class="unl-code-snippet" data-type="HTML - Auto-Loader Opt-Out Script">
+                &lt;script src="/wdn/templates_6.1/js/auto-loader-opt-out.js" type="module">&lt;/script>
+            </pre>
 
             <h2>How It Works</h2>
             <p>
