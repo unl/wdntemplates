@@ -40,6 +40,13 @@
 }
 
 
+.unl .dcf-footer dl,
+.unl .dcf-footer ul {
+  list-style-type: "";
+  padding-left: 0;
+}
+
+
 .unl-footer-groups ul {
   margin-block: calc(var(--block-padding) * -1);
 }

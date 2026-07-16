@@ -209,19 +209,17 @@
   .unl h2 a {
     text-decoration: none;
   }
+  .unl .dcf-header ul {
+    list-style-type: "";
+    padding-left: 0;
+  }
   .dcf-nav-local ul {
     margin-bottom: 0;
-    padding-left: 0;
   }
   .unl .dcf-breadcrumbs ol {
     display: flex;
     flex-wrap: nowrap;
     padding-left: 5.62vw;
-  }
-  .dcf-nav-local ul,
-  .unl .dcf-breadcrumbs ol {
-    // Fix list-style: none in VoiceOver and Safari: https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
-    list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
   }
   .unl .dcf-breadcrumbs li {
     margin-bottom: 0;
