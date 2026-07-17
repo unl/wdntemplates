@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.1.2 (July 17, 2026)
+- Added cover flow layout for slideshow component
+- Added dynamic toggle buttons option for dialogs
+- Added auto-loader opt-out script
+- Update zip plugin to delete .DS_Store files
+- Update bare list styles
+
 ## 6.1.1 (June 12, 2026)
 - Fix bug with autoloader
 - Update critical css
