@@ -80,23 +80,25 @@
         </li>
         <li><a href="#unl-specific-classes">UNL-Specific Classes</a>
           <ul>
+            <li><a href="#animations">Animations</a></li>
             <li><a href="#background-blend-modes">Background Blend Modes</a></li>
             <li><a href="#background-colors">Background Colors</a></li>
             <li><a href="#background-images">Background Images</a></li>
+            <li><a href="#blend-modes">Blend Modes</a></li>
             <li><a href="#border-colors">Border Colors</a></li>
-            <li><a href="#box-shadow">Box Shadow</a></li>
+            <li><a href="#box-shadows">Box Shadows</a></li>
+            <li><a href="#clip-paths">Clip Paths</a></li>
             <li><a href="#colors">Colors</a></li>
+            <li><a href="#filters">Filters</a></li>
             <li><a href="#fonts">Fonts</a></li>
-            <li><a href="#frames">Frames</a></li>
             <li><a href="#heroes">Heroes</a></li>
             <li><a href="#letter-spacing">Letter Spacing</a></li>
-            <li><a href="#scroll-animations">Scroll Animations</a></li>
           </ul>
         </li>
         <li><a href="#print">Print</a></li>
       </ul>
-      <h2 id="objects">Objects</h2>
-      <h3 id="wrapper">Wrapper</h3>
+      <h2 class="dcf-mt-7" id="objects">Objects</h2>
+      <h3 class="dcf-mt-6" id="wrapper">Wrapper</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -114,7 +116,7 @@
         </table>
       </div>
       <p>The wrapper object applies left and right padding to the page to provide adequate whitespace.</p>
-      <h3 id="bleed">Bleed</h3>
+      <h3 class="dcf-mt-6" id="bleed">Bleed</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -137,7 +139,7 @@
         </table>
       </div>
       <p>The bleed object forces content to extend beyond the confines of the <a href="#wrapper">wrapper object</a>, filling the browser viewport.</p>
-      <h3 id="grids">Grids</h3>
+      <h3 class="dcf-mt-6" id="grids">Grids</h3>
       <p>Use the <code>dcf-d-grid</code> utility class to display an element as a grid. Then use the following classes to configure the grid's flow, columns and rows as desired. Each of these classes can optionally be appended with the framework's responsive suffixes (<code>@sm</code>, <code>@md</code>, <code>@lg</code> and <code>@xl</code>) to apply styles at the respective breakpoints.</p>
       <h4 class="dcf-mt-5" id="flow">Flow</h4>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
@@ -602,10 +604,10 @@
           </tbody>
         </table>
       </div>
-      <h2 id="components">Components</h2>
-      <h3 id="accordions-collapsible-content">Accordions (Collapsible Content)</h3>
+      <h2 class="dcf-mt-7" id="components">Components</h2>
+      <h3 class="dcf-mt-6" id="accordions-collapsible-content">Accordions (Collapsible Content)</h3>
       <p>See <a href="https://github.com/unl/wdntemplates/wiki/HTML-Elements#details--summary">Details &amp; Summary</a></p>
-      <h3 id="badges">Badges</h3>
+      <h3 class="dcf-mt-6" id="badges">Badges</h3>
       <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -632,7 +634,7 @@
           </tbody>
         </table>
       </div>
-      <p>This includes styles common to all badges and requires the addition of one of the following modifier classes to fully style a badge.</p>
+      <p>This class includes styles common to all badges and requires the addition of one of the following modifier classes to fully style a badge.</p>
       <h4 class="dcf-mt-5" id="roundrect-badges">Roundrect Badges</h4>
       <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
@@ -653,6 +655,9 @@
         </table>
       </div>
       <p>Use this modifier for a badge with roundrect shape.</p>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray dcf-mb-4">
+        <p class="dcf-mb-0">Paragraph with roundrect badge <span class="dcf-badge dcf-badge-roundrect">New</span></p>
+      </figure>
       <h4 class="dcf-mt-5" id="pill-badges">Pill Badges</h4>
       <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
@@ -675,40 +680,83 @@
         </table>
       </div>
       <p>Use this modifier for a badge with pill shape.</p>
-
-      <h3 id="blockquotes">Blockquotes</h3>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <p class="dcf-mb-0">Paragraph with pill badge <span class="dcf-badge dcf-badge-pill">New</span></p>
+      </figure>
+      <h3 class="dcf-mt-6" id="blockquotes">Blockquotes</h3>
       <p><code>.dcf-blockquote</code></p>
       <p>Like <a href="https://github.com/unl/wdntemplates/wiki/HTML-Elements#quotes">inline quotes</a> (<code>&lt;q&gt;</code>), the blockquote component automatically adds quotation marks—no need to add your own.</p>
       <p><code>.dcf-attribution</code></p>
       <p>To attribute the source of a quote, put the attribution in a <code>&lt;footer&gt;</code> element with the <code>dcf-attribution</code> class. It will automatically prepend an em dash (<code>&amp;mdash;</code>) followed by a thin space (<code>&amp;thinsp;</code>). If the attribution source comes from a creative work, it should be cited using the <code>&lt;cite&gt;</code> element and italicized with the <code>&lt;i&gt;</code> element to visually offset the title of the work from the rest of the attribution.</p>
-      <h3 id="buttons">Buttons</h3>
+      <h3 class="dcf-mt-6" id="buttons">Buttons</h3>
       <p>Buttons include the <code>&lt;button&gt;</code> element, as well as form inputs (<code>type="button"</code> and <code>type="submit"</code>) and links styled to appear as buttons.</p>
       <p><code>.dcf-btn</code></p>
       <p>This includes styles common to all buttons and requires the addition of one of the following modifier classes to fully style a button.</p>
       <h4 class="dcf-mt-5" id="primary-buttons">Primary Buttons</h4>
       <p><code>.dcf-btn-primary</code></p>
       <p>Use the primary modifier to give standard emphasis to a button.</p>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <button class="dcf-btn dcf-btn-primary">Primary Button</button>
+        <a class="dcf-btn dcf-btn-primary" href="#">Link as Primary Button</a>
+      </figure>
       <h4 class="dcf-mt-5" id="secondary-buttons">Secondary Buttons</h4>
       <p><code>.dcf-btn-secondary</code></p>
       <p>Visually de-emphasize buttons by using the secondary modifier.</p>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <button class="dcf-btn dcf-btn-secondary">Secondary Button</button>
+        <a class="dcf-btn dcf-btn-secondary" href="#">Link as Secondary Button</a>
+      </figure>
       <h4 class="dcf-mt-5" id="tertiary-buttons">Tertiary Buttons</h4>
       <p><code>.dcf-btn-tertiary</code></p>
       <p>Visually de-emphasize buttons by using the tertiary modifier.</p>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <button class="dcf-btn dcf-btn-tertiary">Tertiary Button</button>
+        <a class="dcf-btn dcf-btn-tertiary" href="#">Link as Tertiary Button</a>
+      </figure>
       <h4 class="dcf-mt-5" id="inverse-primary-buttons">Inverse Primary Buttons</h4>
       <p><code>.dcf-btn-inverse-primary</code></p>
       <p>Use the inverse primary modifier to give standard emphasis to a button on a dark background.</p>
+      <figure class="dcf-w-fit-content dcf-p-4 unl-bg-darker-gray dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <button class="dcf-btn dcf-btn-inverse-primary">Inverse Primary Button</button>
+        <a class="dcf-btn dcf-btn-inverse-primary" href="#">Link as Inverse Primary Button</a>
+      </figure>
       <h4 class="dcf-mt-5" id="inverse-secondary-buttons">Inverse Secondary Buttons</h4>
       <p><code>.dcf-btn-inverse-secondary</code></p>
       <p>Visually de-emphasize buttons on a dark background by using the inverse secondary modifier.</p>
+      <figure class="dcf-w-fit-content dcf-p-4 unl-bg-darker-gray dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <button class="dcf-btn dcf-btn-inverse-secondary">Inverse Secondary Button</button>
+        <a class="dcf-btn dcf-btn-inverse-secondary" href="#">Link as Inverse Secondary Button</a>
+      </figure>
       <h4 class="dcf-mt-5" id="inverse-tertiary-buttons">Inverse Tertiary Buttons</h4>
       <p><code>.dcf-btn-inverse-tertiary</code></p>
       <p>Visually de-emphasize buttons on a dark background by using the inverse tertiary modifier.</p>
+      <figure class="dcf-w-fit-content dcf-p-4 unl-bg-darker-gray dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <button class="dcf-btn dcf-btn-inverse-tertiary">Inverse Tertiary Button</button>
+        <a class="dcf-btn dcf-btn-inverse-tertiary" href="#">Link as Inverse Tertiary Button</a>
+      </figure>
       <h4 class="dcf-mt-5" id="button-as-link">Button as Link</h4>
       <p><code>.dcf-btn-as-link</code></p>
       <p>Styles a <code>&lt;button&gt;</code> or link to look like a plain inline text link.</p>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <button class="dcf-btn-as-link">Button as Link</button>
+      </figure>
       <h4 class="dcf-mt-5" id="button-groups">Button Groups</h4>
       <p><code>.dcf-btn-group</code></p>
       <p>Group two or more buttons together.</p>
+      <pre class="unl-code-snippet" data-type="HTML">
+        &lt;div class="dcf-btn-group"&gt;
+          &lt;button class="dcf-btn dcf-btn-primary"&gt;Button 1&lt;/button&gt;
+          &lt;button class="dcf-btn dcf-btn-primary"&gt;Button 2&lt;/button&gt;
+          &lt;button class="dcf-btn dcf-btn-primary"&gt;Button 3&lt;/button&gt;
+        &lt;/div&gt;
+      </pre>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <div class="dcf-btn-group">
+          <button class="dcf-btn dcf-btn-primary">Button 1</button>
+          <button class="dcf-btn dcf-btn-primary">Button 2</button>
+          <button class="dcf-btn dcf-btn-primary">Button 3</button>
+        </div>
+      </figure>
       <h4 class="dcf-mt-5" id="switch-buttons">Switch Buttons</h4>
       <p><code>.dcf-input-switch</code></p>
       <p>Style a radio input like a button inside a button group.</p>
@@ -733,7 +781,28 @@
           &lt;/fieldset&gt;
         &lt;/form&gt;
       </pre>
-      <h3 id="cards">Cards</h3>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <form class="dcf-form" action="?" method="post">
+          <fieldset class="dcf-m-0 dcf-p-0 dcf-b-0">
+            <legend class="dcf-legend">Campus</legend>
+            <div class="dcf-form-group dcf-d-inline-flex dcf-flex-nowrap dcf-mb-0 dcf-p-1 dcf-rounded dcf-b-1 dcf-b-solid unl-b-light-gray">
+              <div class="dcf-input-switch">
+                <input id="campus-city" name="campus" type="radio" value="city" checked>
+                <label for="campus-city">City</label>
+              </div>
+              <div class="dcf-input-switch">
+                <input id="campus-east" name="campus" type="radio" value="east">
+                <label for="campus-east">East</label>
+              </div>
+              <div class="dcf-input-switch">
+                <input id="campus-innovation" name="campus" type="radio" value="innovation">
+                <label for="campus-innovation">Innovation</label>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </figure>
+      <h3 class="dcf-mt-6" id="cards">Cards</h3>
       <p><code>.dcf-card</code></p>
       <p>A card is a commonly-used design pattern that groups related content in a container that resembles a physical playing card.</p>
       <p><code>.dcf-card-block</code></p>
@@ -753,21 +822,39 @@
           &lt;img class="dcf-1st" src="https://placehold.co/800x600" alt="Placeholder image."&gt;
         &lt;/div&gt;
       </pre>
-      <h3 id="code">Code</h3>
+      <figure class="dcf-max-w-sm dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray unl-bg-lighter-gray">
+        <div class="dcf-card dcf-card-as-link dcf-d-flex dcf-flex-col dcf-bg-white">
+          <div class="dcf-card-block dcf-2nd">
+            <h3 class="dcf-txt-h4">Example Card</h3>
+            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <a class="dcf-card-link dcf-btn dcf-btn-primary" href="https://www.unl.edu">Go to Home Page</a>
+          </div>
+          <img class="dcf-1st" src="https://placehold.co/400x300" alt="Placeholder image.">
+        </div>
+      </figure>
+      <h3 class="dcf-mt-6" id="code">Code</h3>
       <p><code>.dcf-pre</code></p>
       <p>Retain code styling for multiple lines of code wrapped with <code>&lt;pre&gt;</code> <a href="https://github.com/unl/wdntemplates/wiki/HTML-Elements#code">element</a>.</p>
-      <h3 id="datepickers">Datepickers</h3>
+      <h3 class="dcf-mt-6" id="datepickers">Datepickers</h3>
       <p><code>.dcf-datepicker</code></p>
       <p>This class is applied to the wrapper <code>&lt;div&gt;</code> and is what the JavaScript targets to add functionality.</p>
       <pre class="unl-code-snippet" data-type="HTML">
         &lt;form class="dcf-form" action="#" method="get"&gt;
           &lt;div class="dcf-datepicker"&gt;
-            &lt;label for="sample-date"&gt;Date 2&lt;/label&gt;
+            &lt;label for="sample-date"&gt;Date&lt;/label&gt;
             &lt;input id="sample-date" type="text" name="sample-date"&gt;
           &lt;/div&gt;
         &lt;/form&gt;
       </pre>
-      <h3 id="dialogs">Dialogs</h3>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <form class="dcf-form" action="#" method="get">
+          <div class="dcf-datepicker">
+            <label for="sample-date">Date</label>
+            <input id="sample-date" type="text" name="sample-date">
+          </div>
+        </form>
+      </figure>
+      <h3 class="dcf-mt-6" id="dialogs">Dialogs</h3>
       <p><code>.dcf-dialog</code></p>
       <p>Each dialog requires a unique <code>id</code> which must also match the value of the <code>data-controls</code> attribute of any button(s) that will open the dialog.</p>
       <p><code>.dcf-dialog-header</code></p>
@@ -781,21 +868,33 @@
       <p>While developers can – and should – add classes to style dialogs as needed, at a minimum, a dialog requires the following markup for functionality:</p>
       <pre class="unl-code-snippet" data-type="HTML">
         &lt;button class="dcf-btn-toggle-dialog" data-controls="my-unique-dialog-id" type="button" disabled&gt;Toggle Dialog&lt;/button&gt;
-        &lt;div class="dcf-dialog" id="my-unique-dialog-id" hidden&gt;
+        &lt;dialog class="dcf-dialog" id="my-unique-dialog-id" hidden&gt;
           &lt;div class="dcf-dialog-header"&gt;
             &lt;h2&gt;Your dialog heading&lt;/h2&gt;
             &lt;button class="dcf-btn-close-dialog"&gt;Close&lt;/button&gt;
           &lt;/div&gt;
           &lt;div class="dcf-dialog-content"&gt;
-            &lt;!-- Dialog content goes here --&gt;
+            &lt;p&gt;Your dialog content goes here&lt;/p&gt;
           &lt;/div&gt;
-        &lt;/div&gt;
+        &lt;/dialog&gt;
       </pre>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray dcf-mb-4">
+        <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-dialog" data-controls="my-unique-dialog-id" type="button" disabled>Toggle Dialog</button>
+        <dialog class="dcf-dialog" id="my-unique-dialog-id" hidden>
+          <div class="dcf-dialog-header">
+            <h2>Your dialog heading</h2>
+            <button class="dcf-btn-close-dialog">Close</button>
+          </div>
+          <div class="dcf-dialog-content">
+            <p>Your dialog content goes here</p>
+          </div>
+        </dialog>
+      </figure>
       <p>If a dialog contains a video, the video will automatically pause playback when the dialog is closed.</p>
-      <h3 id="figures">Figures</h3>
+      <h3 class="dcf-mt-6" id="figures">Figures</h3>
       <p><code>.dcf-figcaption</code></p>
       <p>Figures do not require any additional classes, but <code>.dcf-figcaption</code> provides consistent styles for the <code>&lt;figcaption&gt;</code>. It reduces the <code>font-size</code> and lightens the text to help distinguish it from body copy. Use utility classes to add <a href="#margin">margins</a> or <a href="#padding">padding</a> as needed by the content in your <code>&lt;figure&gt;</code>.</p>
-      <h3 id="forms">Forms</h3>
+      <h3 class="dcf-mt-6" id="forms">Forms</h3>
       <p><code>.dcf-form</code></p>
       <p>Style a form and its children.</p>
       <p><code>.dcf-form-group</code></p>
@@ -808,52 +907,98 @@
       <p>Indicate that an adjacent form input is required to submit the form.</p>
       <p><code>.dcf-input-checkbox</code></p>
       <pre class="unl-code-snippet" data-type="HTML">
-        &lt;fieldset class="dcf-form-group dcf-d-flex dcf-flex-col"&gt;
-          &lt;legend class="dcf-legend"&gt;Checkboxes&lt;/legend&gt;
-          &lt;div class="dcf-input-checkbox"&gt;
-            &lt;input id="checkbox1" type="checkbox" value="1" aria-labelledby="checkbox1-label"&gt;
-            &lt;label for="checkbox1" id="checkbox1-label"&gt;Checkbox 1&lt;/label&gt;
-          &lt;/div&gt;
-          &lt;div class="dcf-input-checkbox"&gt;
-            &lt;input id="checkbox2" type="checkbox" value="2" aria-labelledby="checkbox2-label"&gt;
-            &lt;label for="checkbox2" id="checkbox2-label"&gt;Checkbox 2&lt;/label&gt;
-          &lt;/div&gt;
-          &lt;div class="dcf-input-checkbox"&gt;
-            &lt;input id="checkbox3" type="checkbox" value="3" aria-labelledby="checkbox3-label"&gt;
-            &lt;label for="checkbox3" id="checkbox3-label"&gt;Checkbox 3&lt;/label&gt;
-          &lt;/div&gt;
-        &lt;/fieldset&gt;
+        &lt;form class="dcf-form"&gt;
+          &lt;fieldset class="dcf-form-group dcf-d-flex dcf-flex-col"&gt;
+            &lt;legend class="dcf-legend"&gt;Checkboxes&lt;/legend&gt;
+            &lt;div class="dcf-input-checkbox"&gt;
+              &lt;input id="checkbox1" type="checkbox" value="1" aria-labelledby="checkbox1-label"&gt;
+              &lt;label for="checkbox1" id="checkbox1-label"&gt;Checkbox 1&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div class="dcf-input-checkbox"&gt;
+              &lt;input id="checkbox2" type="checkbox" value="2" aria-labelledby="checkbox2-label"&gt;
+              &lt;label for="checkbox2" id="checkbox2-label"&gt;Checkbox 2&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div class="dcf-input-checkbox"&gt;
+              &lt;input id="checkbox3" type="checkbox" value="3" aria-labelledby="checkbox3-label"&gt;
+              &lt;label for="checkbox3" id="checkbox3-label"&gt;Checkbox 3&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/fieldset&gt;
+        &lt;/form&gt;
       </pre>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray dcf-mb-4">
+        <form class="dcf-form">
+          <fieldset class="dcf-form-group dcf-d-flex dcf-flex-col dcf-mb-0">
+            <legend class="dcf-legend">Checkboxes</legend>
+            <div class="dcf-input-checkbox">
+              <input id="checkbox1" type="checkbox" value="1" aria-labelledby="checkbox1-label">
+              <label for="checkbox1" id="checkbox1-label">Checkbox 1</label>
+            </div>
+            <div class="dcf-input-checkbox">
+              <input id="checkbox2" type="checkbox" value="2" aria-labelledby="checkbox2-label">
+              <label for="checkbox2" id="checkbox2-label">Checkbox 2</label>
+            </div>
+            <div class="dcf-input-checkbox">
+              <input id="checkbox3" type="checkbox" value="3" aria-labelledby="checkbox3-label">
+              <label for="checkbox3" id="checkbox3-label">Checkbox 3</label>
+            </div>
+          </fieldset>
+        </form>
+      </figure>
       <p><code>.dcf-input-radio</code></p>
       <pre class="unl-code-snippet" data-type="HTML">
-        &lt;fieldset class="dcf-form-group dcf-d-flex dcf-flex-col"&gt;
-          &lt;legend class="dcf-legend"&gt;Position&lt;/legend&gt;
-          &lt;div class="dcf-input-radio"&gt;
-            &lt;input id="position-student" name="position" type="radio" value="student"&gt;
-            &lt;label for="position-student"&gt;Student&lt;/label&gt;
-          &lt;/div&gt;
-          &lt;div class="dcf-input-radio"&gt;
-            &lt;input id="position-faculty" name="position" type="radio" value="faculty"&gt;
-            &lt;label for="position-faculty"&gt;Faculty&lt;/label&gt;
-          &lt;/div&gt;
-          &lt;div class="dcf-input-radio"&gt;
-            &lt;input id="position-staff" name="position" type="radio" value="staff"&gt;
-            &lt;label for="position-staff"&gt;Staff&lt;/label&gt;
-          &lt;/div&gt;
-          &lt;div class="dcf-input-radio"&gt;
-            &lt;input id="position-other" name="position" type="radio" value="other"&gt;
-            &lt;label for="position-other"&gt;Other&lt;/label&gt;
-          &lt;/div&gt;
-        &lt;/fieldset&gt;
+        &lt;form class="dcf-form"&gt;
+          &lt;fieldset class="dcf-form-group dcf-d-flex dcf-flex-col"&gt;
+            &lt;legend class="dcf-legend"&gt;Position&lt;/legend&gt;
+            &lt;div class="dcf-input-radio"&gt;
+              &lt;input id="position-student" name="position" type="radio" value="student"&gt;
+              &lt;label for="position-student"&gt;Student&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div class="dcf-input-radio"&gt;
+              &lt;input id="position-faculty" name="position" type="radio" value="faculty"&gt;
+              &lt;label for="position-faculty"&gt;Faculty&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div class="dcf-input-radio"&gt;
+              &lt;input id="position-staff" name="position" type="radio" value="staff"&gt;
+              &lt;label for="position-staff"&gt;Staff&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div class="dcf-input-radio"&gt;
+              &lt;input id="position-other" name="position" type="radio" value="other"&gt;
+              &lt;label for="position-other"&gt;Other&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/fieldset&gt;
+        &lt;/form&gt;
       </pre>
+      <figure class="dcf-w-fit-content dcf-mb-4 dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <form class="dcf-form">
+          <fieldset class="dcf-form-group dcf-d-flex dcf-flex-col dcf-mb-0">
+            <legend class="dcf-legend">Position</legend>
+            <div class="dcf-input-radio">
+              <input id="position-student" name="position" type="radio" value="student">
+              <label for="position-student">Student</label>
+            </div>
+            <div class="dcf-input-radio">
+              <input id="position-faculty" name="position" type="radio" value="faculty">
+              <label for="position-faculty">Faculty</label>
+            </div>
+            <div class="dcf-input-radio">
+              <input id="position-staff" name="position" type="radio" value="staff">
+              <label for="position-staff">Staff</label>
+            </div>
+            <div class="dcf-input-radio">
+              <input id="position-other" name="position" type="radio" value="other">
+              <label for="position-other">Other</label>
+            </div>
+          </fieldset>
+        </form>
+      </figure>
       <p>Wrap a checkbox or radio input and label pair for consistent cross-browser styling.</p>
       <p>Unless you are using an <a href="#input-groups-with-buttons">input group with a button</a>, labels should be placed <a href="https://www.nngroup.com/articles/form-design-white-space/">above the corresponding text fields</a>. Form fields and buttons should be presented in a <a href="https://www.nngroup.com/articles/web-form-design/">left-aligned, single column layout</a> so users aren't required to visually reorient themselves when scanning the form.</p>
       <p>Use of <a href="https://www.nngroup.com/articles/reset-and-cancel-buttons/">Reset and Cancel buttons</a> is discouraged.</p>
-      <h3 id="headings">Headings</h3>
+      <h3 class="dcf-mt-6" id="headings">Headings</h3>
       <h4 class="dcf-mt-5" id="subheads">Subheads</h4>
       <p><code>.dcf-subhead</code></p>
       <p>A subhead is smaller and slightly lighter in appearance than a heading.</p>
-      <h3 id="input-groups">Input Groups</h3>
+      <h3 class="dcf-mt-6" id="input-groups">Input Groups</h3>
       <p><code>.dcf-input-group</code></p>
       <p>An input group prepends or appends text or a button to a text input. The form label must be placed outside of the input group. It can be vertically aligned with the input group by adding <code>.dcf-flex</code> and <code>.dcf-ai-center</code> to the input group's parent element.</p>
       <h4 class="dcf-mt-5" id="input-groups-with-add-ons">Input Groups With Add-ons</h4>
@@ -862,20 +1007,31 @@
       <h4 class="dcf-mt-5" id="input-groups-with-buttons">Input Groups With Buttons</h4>
       <p>If a form consists of a single field and button, consider using an input group for a more compact layout.</p>
       <pre class="unl-code-snippet" data-type="HTML">
-        &lt;label for="dcf-input-group-button-input"&gt;Label&lt;/label&gt;
-        &lt;div class="dcf-input-group"&gt;
-          &lt;input id="dcf-input-group-button-input"&gt;
-          &lt;button class="dcf-btn dcf-btn-primary" type="submit"&gt;Submit&lt;/button&gt;
-        &lt;/div&gt;
+        &lt;form class="dcf-form"&gt;
+          &lt;label for="dcf-input-group-button-input"&gt;Label&lt;/label&gt;
+          &lt;div class="dcf-input-group"&gt;
+            &lt;input id="dcf-input-group-button-input"&gt;
+            &lt;button class="dcf-btn dcf-btn-primary" type="submit"&gt;Submit&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
       </pre>
-      <h3 id="lists">Lists</h3>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <form class="dcf-form">
+          <label for="dcf-input-group-button-input">Label</label>
+          <div class="dcf-input-group">
+            <input id="dcf-input-group-button-input">
+            <button class="dcf-btn dcf-btn-primary" type="submit">Submit</button>
+          </div>
+        </form>
+      </figure>
+      <h3 class="dcf-mt-6" id="lists">Lists</h3>
       <h4 class="dcf-mt-5" id="bare-lists">Bare Lists</h4>
       <p><code>.dcf-list-bare</code></p>
       <p>This removes the left padding from a list and removes numbers from ordered lists or bullets from unordered lists.</p>
       <h4 class="dcf-mt-5" id="inline-lists">Inline Lists</h4>
       <p><code>.dcf-list-inline</code></p>
       <p>Change the display of list items to <code>inline-block</code> and add right margin to all but the last list item.</p>
-      <h3 id="notices">Notices</h3>
+      <h3 class="dcf-mt-6" id="notices">Notices</h3>
       <p><code>.dcf-notice</code></p>
       <p>This includes styles common to all notices and requires one of the following modifier classes to fully style a notice.</p>
       <p><code>.dcf-notice-info</code></p>
@@ -917,7 +1073,33 @@
           &lt;div&gt;This notice overlays the maincontent.&lt;/div&gt;
         &lt;/div&gt;
       </pre>
-      <h3 id="pagination">Pagination</h3>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <div class="dcf-notice dcf-notice-info" hidden>
+          <h2>Info</h2>
+          <div>This is additional information for this notice.</div>
+        </div>
+        <div class="dcf-notice dcf-notice-success" hidden>
+          <h2>Success!</h2>
+          <div>You've successfully completed an action.</div>
+        </div>
+        <div class="dcf-notice dcf-notice-warning" hidden>
+          <h2>Warning!</h2>
+          <div>Proceed with caution.</div>
+        </div>
+        <div class="dcf-notice dcf-notice-danger" hidden>
+          <h2>Danger!</h2>
+          <div>Uh-oh. Something wrong happened.</div>
+        </div>
+        <div class="dcf-notice dcf-notice-info" hidden data-overlay="dcf-header">
+          <h2>I'm Floating!</h2>
+          <div>This notice overlays the header.</div>
+        </div>
+        <div class="dcf-notice dcf-notice-success" hidden data-overlay="dcf-main">
+          <h2>Success!</h2>
+          <div>This notice overlays the maincontent.</div>
+        </div>
+      </figure>
+      <h3 class="dcf-mt-6" id="pagination">Pagination</h3>
       <p>Pagination requires a minimal amount of code from the developer. JavaScript handles the output of all the necessary attributes for state management and accessibility. Because pagination is, by its nature, an ordered collection of links, be sure to use an ordered list instead of an unordered list.</p>
       <p><code>.dcf-pagination</code></p>
       <p>This class is applied to the <code>&lt;nav&gt;</code> element and is what the JavaScript targets to add functionality.</p>
@@ -946,10 +1128,24 @@
           &lt;/ol&gt;
         &lt;/nav&gt;
       </pre>
-      <h3 id="paragraphs">Paragraphs</h3>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <nav class="dcf-pagination">
+          <ol class="dcf-list-bare dcf-list-inline dcf-mb-0">
+            <li><a class="dcf-pagination-first" href="#">First</a></li>
+            <li><a class="dcf-pagination-prev" href="#">Prev</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><span class="dcf-pagination-selected">3</span></li>
+            <li><span class="dcf-pagination-ellipsis">…</span></li>
+            <li><a class="dcf-pagination-next" href="#">Next</a></li>
+            <li><a class="dcf-pagination-last" href="#">Last</a></li>
+          </ol>
+        </nav>
+      </figure>
+      <h3 class="dcf-mt-6" id="paragraphs">Paragraphs</h3>
       <p><code>.dcf-drop-cap</code></p>
       <p>Convert the first letter in a paragraph to a drop cap.</p>
-      <h3 id="popups">Popups</h3>
+      <h3 class="dcf-mt-6" id="popups">Popups</h3>
       <p>Popups can be configured to open content when the user clicks on – or, optionally, hovers over – a button. Popup content is displayed below the toggle button by default, but can be positioned on any side of the toggle button. Triangle-shaped points can optionally be added to popup content, and those points can be aligned to the start, center or end of the popup.</p>
       <p><code>.dcf-popup</code></p>
       <p>This class is applied to the wrapper <code>&lt;div&gt;</code> and is what the JavaScript targets to add functionality.</p>
@@ -976,7 +1172,16 @@
           &lt;/div&gt;
         &lt;/div&gt;
       </pre>
-      <h3 id="slideshows">Slideshows</h3>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <div class="dcf-popup" data-point="true">
+          <button class="dcf-btn dcf-btn-primary dcf-btn-toggle-popup">Toggle Popup</button>
+          <div class="dcf-popup-content dcf-w-12 dcf-pt-4 dcf-pr-5 dcf-pb-4 dcf-pl-5 dcf-rounded dcf-bg-overlay-dark unl-cream">
+            <p class="dcf-txt-xs">Maecenas sed diam eget risus varius blandit sit amet non magna. Nulla vitae elit libero, a pharetra augue.</p>
+            <button class="dcf-btn dcf-btn-secondary dcf-btn-close-popup">Close Popup</button>
+          </div>
+        </div>
+      </figure>
+      <h3 class="dcf-mt-6" id="slideshows">Slideshows</h3>
       <p>Slideshows require a minimal amount of code from the developer. JavaScript handles the output of all the necessary attributes for state management and accessibility. Each slideshow requires a list of slides to be placed inside a wrapper <code>&lt;div&gt;</code>. The list of slides may be either an ordered or unordered list, depending on your content. If your image requires a caption, use a <code>&lt;figcaption&gt;</code> inside of a <code>&lt;figure&gt;</code> (as shown in the sample code below). If your image doesn't require a caption, do not use a <code>&lt;figure&gt;</code>.</p>
       <p><code>.dcf-slideshow</code></p>
       <p>This class is applied to the wrapper <code>&lt;div&gt;</code> and is what the JavaScript targets to add functionality.</p>
@@ -1001,7 +1206,28 @@
           &lt;/ul&gt;
         &lt;/div&gt;
       </pre>
-      <h3 id="tables">Tables</h3>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <div class="dcf-slideshow">
+          <ul>
+            <li>
+              <figure>
+                <img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/640x360" alt="Placeholder image.">
+                <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/640x360" alt="Placeholder image.">
+                <figcaption>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small></figcaption>
+              </figure>
+            </li>
+            <li>
+              <img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/640x360" alt="Placeholder image.">
+            </li>
+          </ul>
+        </div>
+      </figure>
+      <h3 class="dcf-mt-6" id="tables">Tables</h3>
       <p>Tables in the framework are optimized for readability by reducing unnecessary ornamentation and placing an emphasis on the content itself. Richard Rutter's article <a href="https://alistapart.com/article/web-typography-tables">"Web Typography: Designing Tables to be Read, Not Looked At"</a> (excerpted from his book, <a href="https://book.webtypography.net/">Web Typography</a>) is an excellent resource on the subject.</p>
       <p><code>.dcf-table</code></p>
       <p>The table <code>font-size</code> is slightly smaller than the body copy. Padding and borders are also added.</p>
@@ -1017,7 +1243,7 @@
       <p>Responsive table contents display "stacked" at narrow screen widths.</p>
       <h4 class="dcf-mt-5" id="scrollable-tables">Scrollable Tables</h4>
       <p>Wrap your table in a <code>&lt;div class="dcf-overflow-x-auto" tabindex="0"&gt;</code>.</p>
-      <h3 id="tabs">Tabs</h3>
+      <h3 class="dcf-mt-6" id="tabs">Tabs</h3>
       <p>Tabs require a minimal amount of code from the developer. <a href="https://github.com/unl/wdntemplates/wiki/JavaScript#tabs">JavaScript</a> handles the output of all the necessary attributes for state management and accessibility. Each tab group requires a wrapper <code>&lt;div&gt;</code> and a heading, which may be <a href="#visibility">visually hidden</a> if necessary. The list of tabs may be either an ordered or unordered list, depending on your content. The tab panels may be either <code>&lt;div&gt;</code>s or <code>&lt;sections&gt;</code>s, however <code>&lt;div&gt;</code>s will suffice most of the time.</p>
       <p><code>.dcf-tabs</code></p>
       <p>This class is applied to the wrapper <code>&lt;div&gt;</code> and is what the JavaScript targets to add functionality.</p>
@@ -1046,7 +1272,29 @@
           &lt;/div&gt;
         &lt;/div&gt;
       </pre>
-      <h3 id="videos">Videos</h3>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <div class="dcf-tabs dcf-tabs-responsive">
+          <h3>Tab Group Example Using Unordered List and Divs</h3>
+          <ul>
+            <li><a href="#example-panel-1">Tab 1</a></li>
+            <li><a href="#example-panel-2">Tab 2</a></li>
+            <li><a href="#example-panel-3">Tab 3</a></li>
+          </ul>
+          <div id="example-panel-1">
+            <h4>Panel 1</h4>
+            <p>Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          </div>
+          <div id="example-panel-2">
+            <h4>Panel 2</h4>
+            <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.</p>
+          </div>
+          <div id="example-panel-3">
+            <h4>Panel 3</h4>
+            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+          </div>
+        </div>
+      </figure>
+      <h3 class="dcf-mt-6" id="videos">Videos</h3>
       <p><code>.dcf-autoplay-video</code></p>
       <p>This class must be applied to the parent element of all autoplay videos to add a toggle button to play/pause videos. When a user pauses an autoplay video, all autoplay videos on UNL sites will pause. Likewise, if a paused autoplay video is played, all autoplay videos will resume playing.</p>
       <p>The <code>autoplay</code>, <code>muted</code> and <code>playsinline</code> attributes are required on all autoplay <code>&lt;video&gt;</code> elements. The <code>loop</code> attribute is optional.</p>
@@ -1057,45 +1305,61 @@
           &lt;/video&gt;
         &lt;/div&gt;
       </pre>
-      <h2 id="utilities">Utilities</h2>
-      <h3 id="aspect-ratio">Aspect Ratio</h3>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <div class="dcf-autoplay-video">
+          <video class="dcf-16x9 dcf-obj-fit-cover" poster="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-wooooo.jpg" autoplay loop muted playsinline>
+            <source src="https://wdn.unl.edu/wdn/templates_4.1/examples/samplecontent/2015-first-fb-game-fingers-crossed.mp4" type="video/mp4">
+          </video>
+        </div>
+      </figure>
+      <h2 class="dcf-mt-7" id="utilities">Utilities</h2>
+      <h3 class="dcf-mt-6" id="aspect-ratio">Aspect Ratio</h3>
       <p>Responsive suffixes (<code>@sm</code>, <code>@md</code>, <code>@lg</code> and <code>@xl</code>) may be added to the aspect ratio utilities to change the ratio of an item at various breakpoints. For example, <code>dcf-16x9 dcf-4x3@md</code> will change the item's 16×9 aspect ratio to 4×3 at the medium breakpoint.</p>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
             <tr>
               <th>Class</th>
+              <th>Declaration</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><code>.dcf-16x9</code></td>
+              <td><code>aspect-ratio: 16 / 9;</code></td>
               <td>apply a 16×9 (landscape) aspect ratio to an element</td>
             </tr>
             <tr>
               <td><code>.dcf-9x16</code></td>
+              <td><code>aspect-ratio: 9 / 16;</code></td>
               <td>apply a 9×16 (portrait) aspect ratio to an element</td>
             </tr>
             <tr>
               <td><code>.dcf-4x3</code></td>
+              <td><code>aspect-ratio: 4 / 3;</code></td>
               <td>apply a 4×3 (landscape) aspect ratio to an element</td>
             </tr>
             <tr>
               <td><code>.dcf-3x4</code></td>
+              <td><code>aspect-ratio: 3 / 4;</code></td>
               <td>apply a 3×4 (portrait) aspect ratio to an element</td>
             </tr>
             <tr>
               <td><code>.dcf-1x1</code></td>
+              <td><code>aspect-ratio: 1 / 1;</code></td>
               <td>apply a 1×1 aspect ratio to an element</td>
             </tr>
           </tbody>
         </table>
       </div>
       <pre class="unl-code-snippet" data-type="HTML">
-        &lt;img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/100" alt="Placeholder image."&gt;
+        &lt;img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/400" alt="Placeholder image."&gt;
       </pre>
-      <h3 id="background">Background</h3>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <img class="dcf-16x9 dcf-1x1@sm dcf-16x9@lg dcf-obj-fit-cover" src="https://placehold.co/400" alt="Placeholder image.">
+      </figure>
+      <h3 class="dcf-mt-6" id="background">Background</h3>
       <p>Utility classes for background use the <code>bg</code> notation.</p>
       <h4 class="dcf-mt-5" id="background-color">Background Color</h4>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
@@ -1250,7 +1514,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="border-color">Border Color</h3>
+      <h3 class="dcf-mt-6" id="border-color">Border Color</h3>
       <p><a href="#border-style">Border style</a> and <a href="#border-width">border width</a> classes <em>must</em> be used with border color to work.</p>
       <h4 class="dcf-mt-5" id="border-color-all-sides">Border Color (All Sides)</h4>
       <p>Utility classes for border colors (all sides) use the <code>b</code> notation.</p>
@@ -1362,7 +1626,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="border-radius">Border Radius</h3>
+      <h3 class="dcf-mt-6" id="border-radius">Border Radius</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -1415,7 +1679,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="border-style">Border Style</h3>
+      <h3 class="dcf-mt-6" id="border-style">Border Style</h3>
       <p>Border color (<a href="#border-color">1</a>, <a href="#border-colors">2</a>) and <a href="#border-width">border width</a> classes <em>must</em> be used with border color to work.</p>
       <h4 class="dcf-mt-5" id="border-style-all-sides">Border Style (All Sides)</h4>
       <p>Utility classes for border style (all sides) use the <code>b</code> notation.</p>
@@ -1527,7 +1791,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="border-width">Border Width</h3>
+      <h3 class="dcf-mt-6" id="border-width">Border Width</h3>
       <p>Border color (<a href="#border-color">1</a>, <a href="#border-colors">2</a>) and <a href="#border-style">border style</a> classes <em>must</em> be used with border color to work.</p>
       <h4 class="dcf-mt-5" id="border-width-all-sides">Border Width (All Sides)</h4>
       <p>Utility classes for border width (all sides) use the <code>b</code> notation.</p>
@@ -1679,7 +1943,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="box-alignment">Box Alignment</h3>
+      <h3 class="dcf-mt-6" id="box-alignment">Box Alignment</h3>
       <h4 class="dcf-mt-5" id="align-content">Align Content</h4>
       <p>Utility classes for <code>align-content</code> use the <code>ac</code> notation.</p>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
@@ -2038,7 +2302,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="color">Color</h3>
+      <h3 class="dcf-mt-6" id="color">Color</h3>
       <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -2061,7 +2325,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="container-queries">Container Queries</h3>
+      <h3 class="dcf-mt-6" id="container-queries">Container Queries</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -2094,7 +2358,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="css-columns">CSS Columns</h3>
+      <h3 class="dcf-mt-6" id="css-columns">CSS Columns</h3>
       <p>All CSS column utilities have a <code>column-gap</code> of <code>3.16vw</code> (viewport width). Responsive suffixes (<code>@sm</code>, <code>@md</code>, <code>@lg</code>, <code>@xl</code>) can be added to target desired breakpoints.</p>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
@@ -2124,7 +2388,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="display">Display</h3>
+      <h3 class="dcf-mt-6" id="display">Display</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -2185,7 +2449,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="flexbox">Flexbox</h3>
+      <h3 class="dcf-mt-6" id="flexbox">Flexbox</h3>
       <h4 class="dcf-mt-5" id="flex-direction">Direction</h4>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
@@ -2294,7 +2558,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="float">Float</h3>
+      <h3 class="dcf-mt-6" id="float">Float</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -2331,7 +2595,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="gap">Gap</h3>
+      <h3 class="dcf-mt-6" id="gap">Gap</h3>
       <h4 class="dcf-mt-5" id="gap-for-flexbox-and-grid">Gap (for Flexbox and Grid)</h4>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
@@ -2497,7 +2761,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="height-width">Height &amp; Width</h3>
+      <h3 class="dcf-mt-6" id="height-width">Height &amp; Width</h3>
       <h4 class="dcf-mt-5" id="height">Height</h4>
       <p>Utility classes for height use the <code>h</code> notation.</p>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
@@ -2850,7 +3114,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="margin">Margin</h3>
+      <h3 class="dcf-mt-6" id="margin">Margin</h3>
       <h4 class="dcf-mt-5" id="margin-all-sides">Margin (All Sides)</h4>
       <p>Utility classes for margin (all sides) use the <code>m</code> notation.</p>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
@@ -3201,7 +3465,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="object-fit">Object-Fit</h3>
+      <h3 class="dcf-mt-6" id="object-fit">Object-Fit</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -3226,7 +3490,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="object-position">Object-Position</h3>
+      <h3 class="dcf-mt-6" id="object-position">Object-Position</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -3271,7 +3535,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="opacity">Opacity</h3>
+      <h3 class="dcf-mt-6" id="opacity">Opacity</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -3292,7 +3556,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="order">Order (for Flexbox and Grid)</h3>
+      <h3 class="dcf-mt-6" id="order">Order (for Flexbox and Grid)</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -3318,7 +3582,7 @@
         </table>
       </div>
       <p>Responsive suffixes (<code>@sm</code>, <code>@md</code>, <code>@lg</code>, <code>@xl</code>) can be used with the order utilities to adjust order at the desired breakpoints.</p>
-      <h3 id="overflow">Overflow</h3>
+      <h3 class="dcf-mt-6" id="overflow">Overflow</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -3391,7 +3655,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="padding">Padding</h3>
+      <h3 class="dcf-mt-6" id="padding">Padding</h3>
       <h4 class="dcf-mt-5" id="padding-all-sides">Padding (All Sides)</h4>
       <p>Utility classes for padding (all sides) use the <code>p</code> notation.</p>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
@@ -3722,7 +3986,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="pointer-events">Pointer Events</h3>
+      <h3 class="dcf-mt-6" id="pointer-events">Pointer Events</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -3743,7 +4007,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="position">Position</h3>
+      <h3 class="dcf-mt-6" id="position">Position</h3>
       <h4 class="dcf-mt-5" id="flow">Flow</h4>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
@@ -3838,7 +4102,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="svg">SVG</h3>
+      <h3 class="dcf-mt-6" id="svg">SVG</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -3859,7 +4123,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="table-layout">Table Layout</h3>
+      <h3 class="dcf-mt-6" id="table-layout">Table Layout</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -3877,7 +4141,7 @@
         </table>
       </div>
       <p>A table must have a defined width for <code>table-layout: fixed;</code> to work. Use a width utility class (e.g., <code>.dcf-w-100%</code>) with <code>.dcf-table-fixed</code> on your desired <code>&lt;table&gt;</code>.</p>
-      <h3 id="typography">Typography</h3>
+      <h3 class="dcf-mt-6" id="typography">Typography</h3>
       <h4 class="dcf-mt-5" id="font-size">Font Size</h4>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
@@ -4213,7 +4477,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="visibility">Visibility</h3>
+      <h3 class="dcf-mt-6" id="visibility">Visibility</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -4238,7 +4502,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="z-index">Z-index</h3>
+      <h3 class="dcf-mt-6" id="z-index">Z-index</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -4263,8 +4527,61 @@
           </tbody>
         </table>
       </div>
-      <h2 id="unl-specific-classes">UNL-Specific Classes</h2>
-      <h3 id="background-blend-modes">Background Blend Modes</h3>
+      <h2 class="dcf-mt-7" id="unl-specific-classes">UNL-Specific Classes</h2>
+      <h3 class="dcf-mt-6" id="animations">Animations</h3>
+       <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
+        <table class="dcf-table dcf-table-bordered dcf-table-striped">
+          <thead>
+            <tr>
+              <th>Class</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.unl-scroll-trigger-container</code></td>
+              <td>wrapper class required on parent element to make <code>.unl-scroll-fx-*</code> work</td>
+            </tr>
+            <tr>
+              <td><code>.unl-scroll-fx-fade-in</code></td>
+              <td>fade from <code>0</code> to <code>1</code> <code>opacity</code> when scrolled into viewport</td>
+            </tr>
+            <tr>
+              <td><code>.unl-scroll-fx-move-left</code></td>
+              <td>move from right to left when scrolled into viewport</td>
+            </tr>
+            <tr>
+              <td><code>.unl-scroll-fx-move-right</code></td>
+              <td>move from left to right when scrolled into viewport</td>
+            </tr>
+            <tr>
+              <td><code>.unl-scroll-fx-move-up</code></td>
+              <td>move up when scrolled into viewport</td>
+            </tr>
+            <tr>
+              <td><code>.unl-scroll-fx-children-fade-in</code></td>
+              <td>fade from <code>0</code> to <code>1</code> <code>opacity</code> all direct children when scrolled into viewport</td>
+            </tr>
+            <tr>
+              <td><code>.unl-parallax-1</code></td>
+              <td>apply parallax effect (<code>10vh</code> offset) to an element</td>
+            </tr>
+            <tr>
+              <td><code>.unl-parallax-2</code></td>
+              <td>apply parallax effect (<code>20vh</code> offset) to an element</td>
+            </tr>
+            <tr>
+              <td><code>.unl-parallax-3</code></td>
+              <td>apply parallax effect (<code>30vh</code> offset) to an element</td>
+            </tr>
+            <tr>
+              <td><code>.unl-bg-parallax</code></td>
+              <td>apply parallax effect to a background image</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="dcf-mt-6" id="background-blend-modes">Background Blend Modes</h3>
       <p>Utility classes to apply <code>background-blend-mode</code> to elements.</p>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
@@ -4286,7 +4603,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="background-colors">Background Colors</h3>
+      <h3 class="dcf-mt-6" id="background-colors">Background Colors</h3>
       <p>Utility classes for background colors use the <code>bg</code> notation.</p>
       <h4 class="dcf-mt-5" id="primary-brand-background-colors">Primary Brand Background Colors</h4>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
@@ -4451,7 +4768,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="background-images">Background Images</h3>
+      <h3 class="dcf-mt-6" id="background-images">Background Images</h3>
       <p>Utility classes for background images use the <code>bg</code> notation. Illustrated patterns can be combined with the <code>.unl-bg-soft-light</code> class which applies a soft light background blend mode to the image and allows for the pattern to be placed over any background color.</p>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
@@ -4485,7 +4802,28 @@
           </tbody>
         </table>
       </div>
-      <h3 id="border-colors">Border Colors</h3>
+      <h3 class="dcf-mt-6" id="blend-modes">Blend Modes</h3>
+       <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
+        <table class="dcf-table dcf-table-bordered dcf-table-striped">
+          <thead>
+            <tr>
+              <th>Class</th>
+              <th>Declaration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.unl-multiply</code></td>
+              <td><code>mix-blend-mode: multiply; </code></td>
+            </tr>
+            <tr>
+              <td><code>.unl-soft-light</code></td>
+              <td><code>mix-blend-mode: soft-light; </code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="dcf-mt-6" id="border-colors">Border Colors</h3>
       <h4 class="dcf-mt-5" id="border-colors-all-sides">Border Colors (All Sides)</h4>
       <p>Utility classes for border colors (all sides) use the <code>b</code> notation.</p>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
@@ -4786,9 +5124,45 @@
           </tbody>
         </table>
       </div>
-      <h3 id="box-shadow">Box Shadow</h3>
-      <p>Add a <code>box-shadow</code> to an element with <code>.unl-box-shadow</code></p>
-      <h3 id="colors">Colors</h3>
+      <h3 class="dcf-mt-6" id="box-shadows">Box Shadows</h3>
+      <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
+        <table class="dcf-table dcf-table-bordered dcf-table-striped">
+          <thead>
+            <tr>
+              <th>Class</th>
+              <th>Declaration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.unl-box-shadow</code></td>
+              <td><code>box-shadow: 0 0 6px #0003;</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="dcf-mt-6" id="frames">Clip Paths</h3>
+      <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
+        <table class="dcf-table dcf-table-bordered dcf-table-striped">
+          <thead>
+            <tr>
+              <th>Class</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.unl-frame-circle</code></td>
+              <td>Add a circular frame to an element</td>
+            </tr>
+            <tr>
+              <td><code>.unl-frame-quad</code></td>
+              <td>Add a quadrilateral (rectangular) frame to an element</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="dcf-mt-6" id="colors">Colors</h3>
       <h4 class="dcf-mt-5" id="primary-brand-colors">Primary Brand Colors</h4>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
@@ -5470,7 +5844,24 @@
           </tbody>
         </table>
       </div>
-      <h3 id="fonts">Fonts</h3>
+      <h3 class="dcf-mt-6" id="filters">Filters</h3>
+       <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
+        <table class="dcf-table dcf-table-bordered dcf-table-striped">
+          <thead>
+            <tr>
+              <th>Class</th>
+              <th>Declaration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.unl-drop-shadow</code></td>
+              <td><code>filter: drop-shadow(0 0 5px rgba(66,66,64,.25)) drop-shadow(0 0 1px rgba(66,66,64,.6));</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="dcf-mt-6" id="fonts">Fonts</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -5499,29 +5890,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="frames">Frames</h3>
-      <p>Add frames to an element.</p>
-       <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
-        <table class="dcf-table dcf-table-bordered dcf-table-striped">
-          <thead>
-            <tr>
-              <th>Class</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>.unl-frame-circle</code></td>
-              <td>Add a circular frame to an element</td>
-            </tr>
-            <tr>
-              <td><code>.unl-frame-quad</code></td>
-              <td>Add a quadrilateral (rectangular) frame to an element</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <h3 id="heroes">Heroes</h3>
+      <h3 class="dcf-mt-6" id="heroes">Heroes</h3>
       <h4 class="dcf-mt-5" id="legacy-hero">Legacy Hero</h4>
       <p>Code for legacy hero:</p>
       <pre class="unl-code-snippet" data-type="HTML">
@@ -5554,23 +5923,47 @@
           &lt;/div&gt;
           &lt;!-- InstanceBeginEditable name="herogroup2" --&gt;
           &lt;div class="dcf-hero-group-2 dcf-w-100% dcf-overflow-hidden"&gt;
-            &lt;div class="dcf-h-100% dcf-w-100% dcf-relative"&gt;
-              &lt;img
-                class="dcf-obj-fit-cover dcf-h-100% dcf-w-100% unl-legacy-hero-bg"
-                sizes="100vw"
-                srcset="https://placehold.co/640x360 640w,
-                        https://placehold.co/1280x720 1280w,
-                        https://placehold.co/1920x1080 1920w,
-                        https://placehold.co/2560x1440 2560w"
-                src="data:image/gif;base64,R0lGODlhAQABAAAAADs="
-                alt="New students flow onto the field of Memorial Stadium during the annual Tunnel Walk."&gt;
-              &lt;small class="dcf-absolute dcf-pin-bottom dcf-pin-right dcf-pt-2 dcf-pr-4 dcf-pb-2 dcf-pl-4 dcf-txt-3xs unl-font-sans unl-cream unl-legacy-hero-caption"&gt;Photo by Craig Chandler&lt;/small&gt;
-            &lt;/div&gt;
+            &lt;!-- InstanceEndEditable --&gt;
           &lt;/div&gt;
-          &lt;!-- InstanceEndEditable --&gt;
+          &lt;!-- Image goes here --&gt;
         &lt;/div&gt;
       </pre>
-      <h3 id="letter-spacing">Letter Spacing</h3>
+      <figure class="dcf-w-fit-content dcf-p-4 dcf-b-1 dcf-b-solid unl-b-light-gray">
+        <!-- InstanceBeginEditable name="hero" -->
+        <div class="dcf-hero dcf-d-flex dcf-relative unl-hero-legacy unl-bg-darkest-gray">
+        <!-- InstanceEndEditable -->
+          <div class="dcf-hero-group-1">
+            <div class="dcf-breadcrumbs-wrapper">
+              <nav class="dcf-breadcrumbs" id="dcf-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+                <!-- InstanceBeginEditable name="breadcrumbs" -->
+                <ol>
+                  <li><a href="https://arts.unl.edu/music">Glenn Korff School of Music</a></li>
+                  <li><a href="https://arts.unl.edu/music/beyond-classroom">Beyond the Classroom</a></li>
+                  <li><span aria-current="page">Ensembles</span></li>
+                </ol>
+                <!-- InstanceEndEditable -->
+              </nav>
+            </div>
+            <header class="dcf-page-title" id="dcf-page-title">
+              <!-- InstanceBeginEditable name="pagetitle" -->
+              <p class="dcf-subhead unl-font-sans unl-cream">Overline lorem ipsum</p>
+              <h1 class="dcf-uppercase unl-cream">Undergraduate Page title</h1>
+              <p class="dcf-subhead dcf-mt-4 unl-font-sans unl-cream">Subhead lorem ipsum</p>
+              <!-- InstanceEndEditable -->
+            </header>
+            <!-- InstanceBeginEditable name="herogroup1" -->
+            <a class="dcf-mt-5 dcf-btn dcf-btn-inverse-primary" href="#">Button 1</a>
+            <a class="dcf-mt-5 dcf-btn dcf-btn-inverse-secondary" href="#">Button 2</a>
+            <!-- InstanceEndEditable -->
+          </div>
+          <!-- InstanceBeginEditable name="herogroup2" -->
+          <div class="dcf-hero-group-2 dcf-w-100% dcf-overflow-hidden">
+            <!-- Image goes here -->
+          </div>
+          <!-- InstanceEndEditable -->
+        </div>
+      </figure>
+      <h3 class="dcf-mt-6" id="letter-spacing">Letter Spacing</h3>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
@@ -5603,40 +5996,7 @@
           </tbody>
         </table>
       </div>
-      <h3 id="scroll-animations">Scroll Animations</h3>
-       <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
-        <table class="dcf-table dcf-table-bordered dcf-table-striped">
-          <thead>
-            <tr>
-              <th>Class</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>.unl-scroll-fx-fade-in</code></td>
-              <td>fade from <code>0</code> to <code>1</code> <code>opacity</code> when scrolled into viewport</td>
-            </tr>
-            <tr>
-              <td><code>.unl-scroll-fx-move-left</code></td>
-              <td>move from right to left when scrolled into viewport</td>
-            </tr>
-            <tr>
-              <td><code>.unl-scroll-fx-move-right</code></td>
-              <td>move from left to right when scrolled into viewport</td>
-            </tr>
-            <tr>
-              <td><code>.unl-scroll-fx-move-up</code></td>
-              <td>move up when scrolled into viewport</td>
-            </tr>
-            <tr>
-              <td><code>.unl-scroll-fx-children-fade-in</code></td>
-              <td>fade from <code>0</code> to <code>1</code> <code>opacity</code> all direct children when scrolled into viewport</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <h2 id="print">Print</h2>
+      <h2 class="dcf-mt-7" id="print">Print</h2>
        <div class="dcf-overflow-x-auto dcf-mb-4" tabindex="0">
         <table class="dcf-table dcf-table-bordered dcf-table-striped">
           <thead>
