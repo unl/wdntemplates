@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark light">
+        <title>Figcaption Toggle - Class</title>
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/critical.css">
+        <link rel="stylesheet" href="/wdn/templates_6.1/css/main.css">
+    </head>
+    <body class="unl unl-bt-scarlet dcf-bt-3 dcf-bt-solid">
+        <main class="dcf-m-auto dcf-pt-4 dcf-pb-4" style="width: min(100%, 80ch);">
+            <h1>Figcaption Toggle - Class</h1>
+            <p>
+                The Figcaption Toggle component gives users control over their
+                reading experience by allowing them to easily show or hide
+                captions on <figure> elements with a single click. Designed to
+                keep layouts clean and focused, it minimizes visual clutter for
+                image-heavy pages while keeping valuable descriptive details
+                accessible on demand.
+            </p>
+
+            <p>
+                This component inherits a lot of it's functionality, keyboard interactions, and events from the
+                toggle button component.
+            </p>
+
+            <p>
+                This component does have some CSS file dependencies. So those files will either need to be linked in the head
+                or they can be loaded via JS. The example below is the file being loaded using the <code>loadStyleSheet</code>
+                function in the <code>unl-utility.js</code> file.
+            </p>
+
+            <figure class="dcf-mb-4">
+                <img class="dcf-16x9 dcf-obj-fit-cover" src="/wdn/templates_6.1/images/dev/150821-tunnel-325-xl-min.jpg" alt="">
+                <figcaption id="test" class="dcf-figcaption dcf-figcaption-toggle">
+                    Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+                    <small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe</small>
+                </figcaption>
+            </figure>
+
+            <p>
+                To create the component you will need your image and caption inside a figure element. You can then add
+                the class <code>dcf-figcaption-toggle</code> to the figure.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="HTML - Component Example">
+                &lt;figure class="dcf-mb-4">
+                    &lt;img class="dcf-16x9 dcf-obj-fit-cover" src="/image.jpg" alt="">
+                    &lt;figcaption id="test" class="dcf-figcaption dcf-figcaption-toggle">
+                        Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+                        &lt;small class="dcf-txt-xs dcf-txt-nowrap">Illustration by Jane Doe&lt;/small>
+                    &lt;/figcaption>
+                &lt;/figure>
+
+                &lt;!-- You only need this script once per page --&gt;
+                &lt;script type="module">
+                    import { loadStyleSheet } from "/wdn/templates_6.1/js/lib/unl-utility.js";
+                    import UNLFigcaptionToggle from '/wdn/templates_6.1/js/components/component.figcaption-toggle.js';
+
+                    await loadStyleSheet('/wdn/templates_6.1/css/components-js/_button-toggles.css');
+                    await loadStyleSheet('/wdn/templates_6.1/css/components-js/_figcaption-toggles.css');
+                    document.querySelectorAll('.dcf-figcaption-toggle:not(.dcf-figcaption-toggle-initialized)').forEach((single_figcaption) => {
+                        new UNLFigcaptionToggle(single_figcaption);
+                    });
+                &lt;/script>
+            </pre>
+
+            <p>
+                If the figcaption element does not have ID then a randomly generated one will be assigned to it.
+                Once initialized the class <code>dcf-figcaption-toggle-initialized</code> will be added to the figcaption element and
+                it will remove the <code>hidden</code> attribute from the it. The class will also add itself to the
+                <code>window.UNL.classes</code> object so you can use <code>getClassInstance</code> to get a reference
+                of the class instance.
+            </p>
+
+            <h2>Keyboard interactions</h2>
+            <p>
+                The toggle button, when the user focuses on it, has the default toggle button keyboard interactions.
+                Where <kbd>enter</kbd>, <kbd>space</kbd> will toggle the caption; and <kbd>esc</kbd> will close it.
+            </p>
+
+            <h2>Methods</h2>
+            <p>
+                While the figcaption toggle class does not expose any methods the toggle button class does expose one method
+                for toggling, opening, and closing the fieldset. The <code>toggleSwitched</code> method handles all three actions
+                which seemed like a good idea at the time but feels like a bad decision now. By passing no value the toggle button
+                will toggle, or by passing in the string <code>'open'</code> or <code>'close'</code> it will do the respective action.
+                That toggle button class instance is accessible through the property <code>toggleButtonInstance</code>.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="Javascript - Method">
+                import { getClassInstance } from '/wdn/templates_6.1/lib/unl-utility';
+
+                const figcaptionClass = await getClassInstance('test');
+                // You could also use window.UNL.classes['test'] once the class is initialized
+
+                // Open and close the fieldset
+                figcaptionClass.toggleButtonInstance.toggleSwitched('open');
+                figcaptionClass.toggleButtonInstance.toggleSwitched('close');
+
+                // Toggle fieldset
+                figcaptionClass.toggleButtonInstance.toggleSwitched();
+            </pre>
+
+            <h2>Events</h2>
+            <p>
+                The figcaption toggle component dispatches a few events. When the class is finished initializing
+                it will dispatch <code>figcaptionToggleReady</code> and <code>UNLClassReady</code> both from the fieldset element.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="Javascript - Events">
+                // Listening for class to be ready
+                document.getElementById('test').addEventListener('figcaptionToggleReady', (e) => {
+                    console.log('Event Name: figcaptionToggleReady', e);
+                });
+                document.getElementById('test').addEventListener('UNLClassReady', (e) => {
+                    console.log('Event Name: UNLClassReady', e);
+                });
+            </pre>
+
+            <p>
+                Since this component uses the toggle buttons under the hood we also get access to all the toggle button
+                events. The button in the figure is the toggle button and the toggle element is the figcaption element.
+                So there are 4 events for toggling the fieldset open and closes
+                those 4 events dispatched from the button and the figcaption: <code>toggleButtonOn</code>, <code>toggleButtonOff</code>,
+                <code>toggleElementOn</code>, <code>toggleElementOff</code>. The toggle button and toggle element also
+                listen for 3 command events to trigger specific actions in the component: <code>commandOpen</code>,
+                <code>commandClose</code>, and <code>commandToggle</code>.
+            </p>
+
+            <pre class="unl-code-snippet" data-type="Javascript - Toggle Button Events">
+                // Listening for button to be toggled to open
+                document.querySelector('#test button.dcf-btn-toggle-figcaption').addEventListener('toggleButtonOn', (e) => {
+                    console.log('Event Name: toggleButtonOn', e);
+                })
+
+                // Toggle the figcaption open or closed
+                document.querySelector('#test figcaption').dispatchEvent(new CustomEvent('commandToggle'));
+            </pre>
+        </main>
+        <script type="module">
+            import { loadStyleSheet } from "/wdn/templates_6.1/js/lib/unl-utility.js";
+            import UNLFigcaptionToggle from '/wdn/templates_6.1/js/components/component.figcaption-toggle.js';
+            import UNLCodeSnippet from '/wdn/templates_6.1/js/components/component.code-snippet.js';
+
+            await loadStyleSheet('/wdn/templates_6.1/css/components-js/_button-toggles.css');
+            await loadStyleSheet('/wdn/templates_6.1/css/components-js/_figcaption-toggles.css');
+            document.querySelectorAll('.dcf-figcaption-toggle:not(.dcf-figcaption-toggle-initialized)').forEach((single_figcaption) => {
+                new UNLFigcaptionToggle(single_figcaption);
+            });
+
+            document.querySelectorAll('.unl-code-snippet:not(.unl-code-snippet-initialized)').forEach((single_snippet) => {
+                new UNLCodeSnippet(single_snippet);
+            });
+        </script>
+    </body>
+</html>
