@@ -631,8 +631,9 @@ export default class UNLIdm {
         });
 
         const bigLabels = Array.from(document.querySelectorAll('.unl-idm-btn-log-in'));
-        bigLabels.forEach((singleLabel) => {
-            singleLabel.classList.add('dcf-m-auto');
+        bigLabels.forEach((singleLink) => {
+            singleLink.classList.add('dcf-m-auto');
+            singleLink.setAttribute('href', this.logInUrl);
         });
 
         const imgs = Array.from(document.querySelectorAll('.unl-idm-img'));
