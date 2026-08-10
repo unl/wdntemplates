@@ -60,24 +60,24 @@ $dark-purple: #7f2a70;
 
 // NEUTRALS
 // Mix cream and gray brand colors for base color
-$mix-cream-gray: color.mix($cream, $gray);            // #e3e3e2
+$mix-cream-gray: color.mix($cream, $gray);													// #e3e3e2
 
-$lightest-gray: color.adjust($mix-cream-gray, $lightness: 7.5%); // #f6f6f5;
-$lighter-gray: color.adjust($mix-cream-gray, $lightness: 3.2%);  // #ebebea
-$light-gray: $mix-cream-gray;                   // #e3e3e2
+$lightest-gray: color.adjust($mix-cream-gray, $lightness: 7.5%);		// #f6f6f5;
+$lighter-gray: color.adjust($mix-cream-gray, $lightness: 3.2%);			// #ebebea
+$light-gray: $mix-cream-gray;                   										// #e3e3e2
 
-$gray-s1: color.adjust($mix-cream-gray, $lightness: -25%);         // #a4a4a1
+$gray-s1: color.adjust($mix-cream-gray, $lightness: -25%);					// #a4a4a1
 
-$dark-gray: color.adjust($mix-cream-gray, $lightness: -47.5%);     // #6b6b68
+$dark-gray: color.adjust($mix-cream-gray, $lightness: -47.5%);			// #6b6b68
 
-$darker-gray: color.adjust($mix-cream-gray, $lightness: -63.3%);   // #424240
-$darker-gray-s1: color.adjust($mix-cream-gray, $lightness: -67%);  // #393937
-$darker-gray-s2: color.adjust($mix-cream-gray, $lightness: -69%);  // #333332
-$darker-gray-s3: color.adjust($mix-cream-gray, $lightness: -71%);  // #2e2e2d
-$darker-gray-s4: color.adjust($mix-cream-gray, $lightness: -73%);  // #292928
+$darker-gray: color.adjust($mix-cream-gray, $lightness: -63.3%);		// #424240
+$darker-gray-s1: color.adjust($mix-cream-gray, $lightness: -67%);		// #393937
+$darker-gray-s2: color.adjust($mix-cream-gray, $lightness: -69%);		// #333332
+$darker-gray-s3: color.adjust($mix-cream-gray, $lightness: -71%);		// #2e2e2d
+$darker-gray-s4: color.adjust($mix-cream-gray, $lightness: -73%);		// #292928
 
-$darkest-gray: color.adjust($mix-cream-gray, $lightness: -75%);    // #242423
-$darkest-gray-s1: color.adjust($mix-cream-gray, $lightness: -77%); // #1f1f1e
+$darkest-gray: color.adjust($mix-cream-gray, $lightness: -75%);			// #242423
+$darkest-gray-s1: color.adjust($mix-cream-gray, $lightness: -77%);	// #1f1f1e
 
 
 @forward "@dcf/scss/variables/color-palette" with (
