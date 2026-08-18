@@ -19,12 +19,12 @@
     "node": ">= 22.13.0"
   },
   "dependencies": {
-    "@vitejs/plugin-legacy": "^6.0.0",
+    "@vitejs/plugin-legacy": "^8.2.3",
     "autoprefixer": "^10.4.21",
     "dcf": "github:digitalcampusframework/dcf#4.1",
     "postcss-nested": "^7.0.2",
     "sass": "^1.83.1",
-    "vite": "^6.4.2",
+    "vite": "^8.2.1",
     "vite-plugin-eslint": "^1.8.1"
   },
   "scripts": {
