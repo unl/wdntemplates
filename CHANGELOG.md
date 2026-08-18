@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.1.5 (August 18, 2026)
+- Link updates in header and footer
+
 ## 6.1.4 (August 12, 2026)
 - Added dark cream to colors
 - Update regions classes to only include unl- classes in theme for better terminal page support
