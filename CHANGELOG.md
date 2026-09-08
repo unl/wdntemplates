@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.1.6 (September 8, 2026)
+- Fix in plugin autoloader opt-out
+
 ## 6.1.5 (August 18, 2026)
 - Link updates in header and footer
 
