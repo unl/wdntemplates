@@ -15,7 +15,7 @@ const headerSection = document.getElementById('dcf-header');
 
 // Load dialog components in header
 const dialogs = headerSection.querySelectorAll('.dcf-dialog:not(.dcf-dialog-initialized)');
-if (dialogs.length > 1) {
+if (dialogs.length > 0) {
     await loadStyleSheet(dialogsCssUrl);
     dialogs.forEach((singleDialog) => {
         new UNLDialog(singleDialog);
@@ -24,7 +24,7 @@ if (dialogs.length > 1) {
 
 // Load popup components in header
 const popups = headerSection.querySelectorAll('.dcf-popup:not(.dcf-popup-initialized)');
-if (popups.length > 1) {
+if (popups.length > 0) {
     await loadStyleSheet(popupsCssUrl);
     popups.forEach((singlePopup) => {
         new UNLPopup(singlePopup);
@@ -33,7 +33,7 @@ if (popups.length > 1) {
 
 // Load idm widgets in header
 const idmWidgets = headerSection.querySelectorAll('.unl-idm');
-if (idmWidgets.length > 1) {
+if (idmWidgets.length > 0) {
     await loadStyleSheet(idmCssUrl);
     idmWidgets.forEach((singleIdmWidget) => {
         new UNLIdm(singleIdmWidget);
@@ -42,7 +42,7 @@ if (idmWidgets.length > 1) {
 
 // Load search widgets in header
 const searchWidgets = headerSection.querySelectorAll('.dcf-search');
-if (searchWidgets.length > 1) {
+if (searchWidgets.length > 0) {
     await loadStyleSheet(searchCssUrl);
     searchWidgets.forEach((singleSearchWidget) => {
         new UNLSearch(singleSearchWidget);
