@@ -37,6 +37,10 @@ $bg-color-brand-alpha-light-mode: color_palette.$scarlet !default;              
 $bg-color-brand-alpha-dark-mode: color_palette.$scarlet !default;                 // Alpha brand background-color (scarlet) in dark mode
 $bg-color-brand-alpha: var(--bg-brand-alpha) !default;
 
+$bg-color-brand-beta-shade-light-mode: color_palette.$cream-shade !default;       // Beta shade brand background-color (scarlet) in light mode
+$bg-color-brand-beta-shade-dark-mode: color_palette.$darker-gray !default;        // Beta shade brand background-color (scarlet) in dark mode
+$bg-color-brand-beta-shade: var(--bg-brand-beta-shade) !default;
+
 $bg-color-brand-zeta-light-mode: color_palette.$green !default;                   // Zeta brand background-color (green) in light mode
 $bg-color-brand-zeta-dark-mode: color_palette.$dark-green !default;               // Zeta brand background-color (green) in dark mode
 $bg-color-brand-zeta: var(--bg-brand-zeta) !default;

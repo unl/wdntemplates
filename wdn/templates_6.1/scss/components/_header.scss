@@ -7,6 +7,12 @@
 @use "../mixins/" as mixins;
 
 
+.unl .dcf-header ul {
+  list-style-type: "";
+  padding-left: 0;
+}
+
+
 .unl .dcf-site-group {
   min-height: #{var.$ms08}em; // Vertically center site group (affiliation and title) by providing a minimum height equal to the adjacent Nebraska N logo.
 }

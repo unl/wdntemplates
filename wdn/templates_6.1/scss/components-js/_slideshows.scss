@@ -18,4 +18,22 @@
     color: var(--inverse);
   }
 
+  .unl .dcf-slideshow.unl-slideshow-crop {
+    --clip-path-inline: 1cqw;
+    --clip-path-block: 1cqw;
+    --gap: 0px;
+  }
+
+  .unl .dcf-slideshow.unl-slideshow-crop li {
+    clip-path: inset(var(--clip-path-block) var(--clip-path-inline) var(--clip-path-block) var(--clip-path-inline) round var.$roundrect);
+    transition:
+      clip-path var(--transition-time) var(--transition-easing),
+      margin-inline var(--transition-time) var(--transition-easing);
+  }
+
+  .unl .dcf-slideshow.unl-slideshow-crop li.dcf-slide-active {
+    clip-path: inset(0% 0% 0% 0% round var.$roundrect);
+    margin-inline: var(--clip-path-inline);
+  }
+
 }
