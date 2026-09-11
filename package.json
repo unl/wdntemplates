@@ -1,6 +1,6 @@
 {
   "name": "wdntemplates",
-  "version": "6.1.5",
+  "version": "6.1.6",
   "description": "Web Framework for the UNLedu website.",
   "repository": {
     "type": "git",
@@ -42,6 +42,6 @@
     "@stylistic/eslint-plugin-js": "^4.2.0",
     "eslint": "^10.0.0",
     "globals": "^16.0.0",
-    "postcss": "^8.5.13"
+    "postcss": "^8.5.26"
   }
 }
